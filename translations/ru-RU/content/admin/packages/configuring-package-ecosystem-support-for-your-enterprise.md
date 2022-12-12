@@ -1,6 +1,6 @@
 ---
-title: Configuring package ecosystem support for your enterprise
-intro: 'You can configure {% data variables.product.prodname_registry %} for your enterprise by globally enabling or disabling individual package ecosystems on your enterprise, including {% ifversion ghes > 3.4 %}{% data variables.product.prodname_container_registry %}, {% endif %}Docker, and npm. Learn about other configuration requirements to support specific package ecosystems.'
+title: Настройка поддержки экосистемы пакетов для предприятия
+intro: 'Вы можете настроить {% data variables.product.prodname_registry %} для своего предприятия, полностью включив или отключив экосистемы отдельных пакетов на предприятии, в том числе {% ifversion ghes > 3.4 %}{% data variables.product.prodname_container_registry %}, {% endif %}Docker и npm. Узнайте о других требованиях к конфигурации для поддержки экосистем отдельных пакетов.'
 redirect_from:
   - /enterprise/admin/packages/configuring-packages-support-for-your-enterprise
   - /admin/packages/configuring-packages-support-for-your-enterprise
@@ -11,44 +11,43 @@ topics:
   - Enterprise
   - Packages
 shortTitle: Configure package ecosystems
+ms.openlocfilehash: 83de80e4233f671a7a923394d2fd3f6e554bba10
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147062549'
 ---
-
 {% data reusables.package_registry.packages-ghes-release-stage %}
 
-## Enabling or disabling individual package ecosystems
+## Включение или отключение отдельных экосистем пакетов
 
-To prevent new packages from being uploaded, you can set an ecosystem you previously enabled to **Read-Only**, while still allowing existing packages to be downloaded.
+Чтобы предотвратить передачу новых пакетов, можно настроить экосистему, которая ранее была включена, на режим **Только для чтения**, позволяя скачивание существующих пакетов.
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.management-console %}
-{% data reusables.enterprise_site_admin_settings.packages-tab %}
-1. Under "Ecosystem Toggles", for each package type, select **Enabled**, **Read-Only**, or **Disabled**.
-   {%- ifversion ghes > 3.4 %}{% note -%}
-   **Note**: Subdomain isolation must be enabled to toggle the {% data variables.product.prodname_container_registry %} options.
-   {%- endnote %}{%- endif %}{%- ifversion ghes %}
-  ![Ecosystem toggles](/assets/images/enterprise/site-admin-settings/ecosystem-toggles.png){% else %}
-  ![Ecosystem toggles](/assets/images/enterprise/3.1/site-admin-settings/ecosystem-toggles.png){% endif %}
-{% data reusables.enterprise_management_console.save-settings %}
+{% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.enterprise_site_admin_settings.management-console %} {% data reusables.enterprise_site_admin_settings.packages-tab %}
+1. В разделе "Переключения экосистемы" для каждого типа пакета выберите **Включено**, **Только для чтения** или **Отключено**.
+   {%- ifversion ghes > 3.4 %}{% note -%} **Примечание.** Для переключения параметров {% data variables.product.prodname_container_registry %} необходимо включить изоляцию поддомена.
+   {%- endnote %}{%- endif %}{%- ifversion ghes %} ![Переключения экосистемы](/assets/images/enterprise/site-admin-settings/ecosystem-toggles.png){% else %} ![Переключения экосистемы](/assets/images/enterprise/3.1/site-admin-settings/ecosystem-toggles.png){% endif %} {% data reusables.enterprise_management_console.save-settings %}
 
 {% ifversion ghes %}
-## Connecting to the official npm registry
+## Подключение к официальному реестру npm
 
-If you've enabled npm packages on your enterprise and want to allow access to the official npm registry as well as the {% data variables.product.prodname_registry %} npm registry, then you must perform some additional configuration.
+Если вы включили пакеты npm на предприятии и хотите разрешить доступ к официальному реестру npm, а также к реестру npm {% data variables.product.prodname_registry %}, необходимо выполнить дополнительную настройку.
 
-{% data variables.product.prodname_registry %} uses a transparent proxy for network traffic that connects to the official npm registry at `registry.npmjs.com`. The proxy is enabled by default and cannot be disabled.
+{% data variables.product.prodname_registry %} использует прозрачный прокси-сервер для сетевого трафика, который подключается к официальному реестру npm по через `registry.npmjs.com`. Прокси-сервер включен по умолчанию, и его нельзя отключить.
 
-To allow network connections to the npm registry, you will need to configure network ACLs that allow {% data variables.product.prodname_ghe_server %} to send HTTPS traffic to `registry.npmjs.com`  over port 443:
+Чтобы разрешить сетевые подключения к реестру npm, необходимо настроить списки ACL сети, позволяющие {% data variables.product.prodname_ghe_server %} отправлять трафик HTTPS в `registry.npmjs.com` через порт 443:
 
-| Source | Destination | Port | Type |
+| Источник | Назначение | Порт | Тип |
 |---|---|---|---|
 | {% data variables.product.prodname_ghe_server %} | `registry.npmjs.com` | TCP/443 | HTTPS |
 
-Note that connections to `registry.npmjs.com` traverse through the Cloudflare network, and subsequently do not connect to a single static IP address; instead, a connection is made to an IP address within the CIDR ranges listed here: https://www.cloudflare.com/ips/.
+Обратите внимание, что подключения к `registry.npmjs.com` проходят через сеть Cloudflare и впоследствии не подключаются к одному статическому IP-адресу; вместо этого устанавливается соединение с IP-адресом в пределах диапазонов CIDR, перечисленных здесь: https://www.cloudflare.com/ips/.
 
-If you wish to enable npm upstream sources, select `Enabled` for `npm upstreaming`.
+Если вы хотите включить вышестоящие источники npm, выберите `Enabled` для `npm upstreaming`.
 
 {% endif %}
 
-## Next steps
+## Дальнейшие действия
 
-As a next step, we recommend you check if you need to update or upload a TLS certificate for your packages host URL. For more information, see "[Getting started with GitHub Packages for your enterprise](/admin/packages/getting-started-with-github-packages-for-your-enterprise)."
+В качестве следующего шага рекомендуется проверить, нужно ли обновить или передать TLS-сертификат для URL-адреса узла пакетов. Дополнительные сведения см. в разделе [Начало работы с GitHub Packages для предприятия](/admin/packages/getting-started-with-github-packages-for-your-enterprise).

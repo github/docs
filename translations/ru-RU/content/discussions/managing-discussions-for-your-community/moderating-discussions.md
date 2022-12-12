@@ -1,47 +1,48 @@
 ---
-title: Moderating discussions
-intro: 'You can promote healthy collaboration by marking comments as answers, locking or unlocking discussions, converting issues to discussions, and editing or deleting comments, discussions, and categories that don''t align with your{% ifversion fpt or ghec %} community''s code of conduct{% elsif ghes > 3.5 %} organization''s contribution guidelines{% endif %}.'
+title: Модерация обсуждений
+intro: 'Вы можете повысить эффективность совместной работы, помечая комментарии как ответы, блокируя и разблокируя обсуждения, преобразуя проблемы в обсуждения, редактируя и удаляя комментарии, обсуждения и категории, которые не соответствуют кодексу поведения вашего{% ifversion fpt or ghec %} сообщества{% elsif ghes > 3.5 %}правилам участия в работе организации{% endif %}.'
 permissions: People with triage access to a repository can moderate discussions in the repository. People with triage access to the source repository for organization discussions can moderate discussions in the organization.
 versions:
   feature: discussions
+ms.openlocfilehash: 4d09537a3c38d2eb9ac2650c48f2c44c1b0cbd95
+ms.sourcegitcommit: 34d500fe45b362043b4b4685d6705a7bfb484d11
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 11/15/2022
+ms.locfileid: '148164476'
 ---
+## Сведения о модерации обсуждений
 
+{% data reusables.discussions.about-discussions %} Если у вас есть разрешения на рассмотрение репозитория, вы можете помочь модерировать обсуждения по репозиторию, помечая комментарии как ответы, блокируя обсуждения, которые уже не являются полезными или наносят ущерб сообществу, и преобразовывая вопросы в обсуждения, если идея все еще находится на ранних этапах разработки. Если у вас есть разрешение на рассмотрение исходного репозитория для обсуждений организации, можно аналогичным образом модерировать обсуждения для этой организации.
 
-## About moderating discussions
-
-{% data reusables.discussions.about-discussions %} If you have triage permissions for a repository, you can help moderate that repository's discussions by marking comments as answers, locking discussions that are no longer useful or are damaging to the community, and converting issues to discussions when an idea is still in the early stages of development. Similarly, if you have triage permission for the source repository for organization discussions, you can moderate discussions for that organization.
-
-## Marking a comment as an answer
+## Помечание комментария как ответа
 
 {% data reusables.discussions.marking-a-comment-as-an-answer %}
 
-## Locking discussions
+## Блокировка обсуждений
 
-It's appropriate to lock a conversation when the entire conversation is not constructive or violates your community's code of conduct or {% data variables.product.prodname_dotcom %}'s [Community Guidelines](/free-pro-team@latest/github/site-policy/github-community-guidelines). You can also lock a conversation to prevent comments on a discussion you want to use as an announcement to the community. When you lock a conversation, people with write access to the repository, or source repository for organization discussions, will still be able to comment on the discussion.
+Рекомендуется заблокировать беседу, если вся беседа не является конструктивной или нарушает кодекс поведения вашего сообщества или [правила сообщества](/free-pro-team@latest/github/site-policy/github-community-guidelines) {% data variables.product.prodname_dotcom %}. Вы также можете заблокировать беседу, чтобы запретить комментарии к обсуждению, которое вы хотите опубликовать как объявление для сообщества. При блокировке беседы пользователи с доступом для записи в репозиторий или исходный репозиторий для обсуждений организации по-прежнему смогут комментировать обсуждение.
 
-{% data reusables.discussions.navigate-to-repo-or-org %}
-{% data reusables.discussions.discussions-tab %}
-1. In the list of discussions, click the discussion you want to lock.
-  ![Lock discussion](/assets/images/help/discussions/unanswered-discussion.png)
-1. In the right margin of a discussion, click **Lock conversation**.
-1. Read the information about locking conversations and click **Lock conversation on this discussion**.
-1. When you're ready to unlock the conversation, click **Unlock conversation**, then click **Unlock conversation on this discussion**.
+{% data reusables.discussions.navigate-to-repo-or-org %} {% data reusables.discussions.discussions-tab %}
+1. В списке обсуждений щелкните обсуждение, которое нужно заблокировать.
+  ![Обсуждение блокировки](/assets/images/help/discussions/unanswered-discussion.png)
+1. В поле обсуждения справа нажмите кнопку **Заблокировать беседу**.
+1. Ознакомьтесь со сведениями о блокировке бесед и нажмите кнопку **Заблокировать беседу в этом обсуждении**.
+1. Когда вы будете готовы разблокировать беседу, щелкните **Разблокировать беседу**, а затем щелкните **Разблокировать беседу для этого обсуждения**.
 
-## Converting an issue to a discussion
+## Преобразование проблемы в обсуждение
 
-When you convert an issue to a discussion, the discussion is automatically created using the content from the issue. People with write access to a repository, or source repository for organization discussions, can bulk convert issues based on labels. For more information, see "[Managing discussions](/discussions/managing-discussions-for-your-community/managing-discussions)."
+Когда выполняется преобразование проблемы в обсуждение, обсуждение автоматически создается с использованием содержимого из проблемы. Пользователи с доступом для записи в репозиторий или исходный репозиторий для обсуждений организации могут массово преобразовывать проблемы на основе меток. Дополнительные сведения см. в разделе [Управление обсуждениями](/discussions/managing-discussions-for-your-community/managing-discussions).
 
-{% data reusables.discussions.navigate-to-repo-or-org %}
-{% data reusables.repositories.sidebar-issues %}
-1. In the list of issues, click the issue you'd like to convert.
-1. In the right margin of an issue, click **Convert to discussion**.
-1. Select the **Choose a category** drop-down menu, and click a category for your discussion.
-1. Click **I understand, convert this issue to a discussion**.
+{% data reusables.discussions.navigate-to-repo-or-org %} {% data reusables.repositories.sidebar-issues %}
+1. В списке проблем щелкните проблему, которую хотите преобразовать.
+1. В поле проблемы справа нажмите кнопку **Преобразовать в обсуждение**.
+1. Выберите раскрывающееся меню **Выбор категории** и выберите категорию для обсуждения.
+1. Щелкните **Я понимаю, преобразуйте эту проблему в обсуждение**.
 
 {% ifversion discussions-hide-comments-on-block %}
-## Blocking a user from your organization
+## Блокировка пользователя из вашей организации
 
-Organization owners and moderators can block a user from the organization if their comments don't align with the community's code of conduct. When you block a user, they will no longer be able to comment on discussions. You can also hide all of the comments a user has made in the organization. For more information, see "[Blocking a user from your organization](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-organization)."
+Владельцы и модераторы организации могут заблокировать доступ пользователя к организации, если их комментарии не соответствуют правилам поведения сообщества. При блокировке пользователя он больше не сможет комментировать обсуждения. Вы также можете скрыть все комментарии, сделанные пользователем в организации. Дополнительные сведения см. в статье [Блокировка пользователя из организации](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-organization).
 
-{% data reusables.organizations.blocking-a-user %} 
-{% endif %}
+{% data reusables.organizations.blocking-a-user %} {% endif %}

@@ -1,7 +1,7 @@
 ---
-title: Defining custom patterns for secret scanning
+title: 为机密扫描定义自定义模式
 shortTitle: Define custom patterns
-intro: 'You can extend {% data variables.product.prodname_secret_scanning_GHAS %} to detect secrets beyond the default patterns.'
+intro: '您可以扩展 {% data variables.product.prodname_secret_scanning_GHAS %} 以检测默认模式之外的机密。'
 product: '{% data reusables.gated-features.secret-scanning %}'
 redirect_from:
   - /code-security/secret-security/defining-custom-patterns-for-secret-scanning
@@ -13,59 +13,55 @@ type: how_to
 topics:
   - Advanced Security
   - Secret scanning
+ms.openlocfilehash: 1c7594329dfdc2843e38c1c2eb7b70e32b89f11b
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148106515'
 ---
+## 关于 {% data variables.product.prodname_secret_scanning %} 的自定义模式
 
+您可以定义自定义模式来标识 {% data variables.product.prodname_secret_scanning %} 支持的默认模式未检测到的机密。 例如，您可能有一个属于您组织内部的密钥模式。 有关支持的机密和服务提供商的详细信息，请参阅 “[{% data variables.product.prodname_secret_scanning_caps %} 模式](/code-security/secret-scanning/secret-scanning-patterns)”。
 
-## About custom patterns for {% data variables.product.prodname_secret_scanning %}
+您可以为企业、组织或存储库定义自定义模式。 {% data variables.product.prodname_secret_scanning_caps %}支持每个组织或企业帐户最多 500 个自定义模式，每个存储库最多 100 个自定义模式。
 
-You can define custom patterns to identify secrets that are not detected by the default patterns supported by {% data variables.product.prodname_secret_scanning %}. For example, you might have a secret pattern that is internal to your organization. For details of the supported secrets and service providers, see "[{% data variables.product.prodname_secret_scanning_caps %} patterns](/code-security/secret-scanning/secret-scanning-patterns)."
+## 自定义模式的正则表达式语法
 
-You can define custom patterns for your enterprise, organization, or repository. {% data variables.product.prodname_secret_scanning_caps %} supports up to 500 custom patterns for each organization or enterprise account, and up to 100 custom patterns per repository.
+您可以将 {% data variables.product.prodname_secret_scanning_GHAS %} 的自定义模式指定为一个或多个正则表达式。
 
-## Regular expression syntax for custom patterns
+- **机密格式：** 描述机密本身格式的表达式。
+- **机密之前：** 描述机密之前的字符的表达式。 默认情况下，此值设置为 `\A|[^0-9A-Za-z]`，这意味着机密必须位于行首或前面有非字母数字字符。
+- **机密之后：** 描述机密后面的字符的表达式。 默认情况下，此值设置为 `\z|[^0-9A-Za-z]`，这意味着机密后面必须跟有新行或非字母数字字符。
+- **其他匹配要求：** 机密本身必须或不得匹配的一个或多个可选表达式。
 
-You can specify custom patterns for {% data variables.product.prodname_secret_scanning_GHAS %} as one or more regular expressions.
+对于简单令牌，通常只需指定机密格式。 其他字段提供了灵活性，以便您可以指定更复杂的机密，而无需创建复杂的正则表达式。  有关自定义模式的示例，请参阅下面的“[使用附加要求指定的自定义模式示例](#example-of-a-custom-pattern-specified-using-additional-requirements)”。
 
-- **Secret format:** an expression that describes the format of the secret itself.
-- **Before secret:** an expression that describes the characters that come before the secret. By default, this is set to `\A|[^0-9A-Za-z]` which means that the secret must be at the start of a line or be preceded by a non-alphanumeric character.
-- **After secret:** an expression that describes the characters that come after the secret. By default, this is set to `\z|[^0-9A-Za-z]` which means that the secret must be followed by a new line or a non-alphanumeric character.
-- **Additional match requirements:** one or more optional expressions that the secret itself must or must not match.
+{% data variables.product.prodname_secret_scanning_caps %} 使用 [Hyperscan 库](https://github.com/intel/hyperscan)，只支持 Hyperscan 正则表达式构造（PCRE 语法的子集）。 不支持 Hyperscan 选项修饰符。  有关 Hyperscan 模式构造的详细信息，请参阅 Hyperscan 文档中的“[模式支持](http://intel.github.io/hyperscan/dev-reference/compilation.html#pattern-support)”。
 
-For simple tokens you will usually only need to specify a secret format. The other fields provide flexibility so that you can specify more complex secrets without creating complex regular expressions.  For an example of a custom pattern, see "[Example of a custom pattern specified using additional requirements](#example-of-a-custom-pattern-specified-using-additional-requirements)" below.
+## 定义仓库的自定义模式
 
-{% data variables.product.prodname_secret_scanning_caps %} uses the [Hyperscan library](https://github.com/intel/hyperscan) and only supports Hyperscan regex constructs, which are a subset of PCRE syntax. Hyperscan option modifiers are not supported.  For more information on Hyperscan pattern constructs, see "[Pattern support](http://intel.github.io/hyperscan/dev-reference/compilation.html#pattern-support)" in the Hyperscan documentation.
+在定义自定义模式之前，您必须确保仓库上启用了 {% data variables.product.prodname_secret_scanning %}。 有关详细信息，请参阅“[为存储库配置 {% data variables.product.prodname_secret_scanning %}](/code-security/secret-security/configuring-secret-scanning-for-your-repositories)”。
 
-## Defining a custom pattern for a repository
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %} {% data reusables.repositories.navigate-to-code-security-and-analysis %} {% data reusables.repositories.navigate-to-ghas-settings %} {% data reusables.advanced-security.secret-scanning-new-custom-pattern %} {% data reusables.advanced-security.secret-scanning-add-custom-pattern-details %}{% ifversion secret-scanning-custom-enterprise-35 or custom-pattern-dry-run-ga %}
+1. 准备好测试新的自定义模式时，若要识别存储库中的匹配项而不创建警报，请单击“保存并试运行”。
+{% data reusables.advanced-security.secret-scanning-dry-run-results %} {%- ifversion secret-scanning-custom-enterprise-35 %}{% indented_data_reference reusables.secret-scanning.beta-dry-runs spaces=3 %}{% endif %} {% endif %} {% data reusables.advanced-security.secret-scanning-create-custom-pattern %}
 
-Before defining a custom pattern, you must ensure that {% data variables.product.prodname_secret_scanning %} is enabled on your repository. For more information, see "[Configuring {% data variables.product.prodname_secret_scanning %} for your repositories](/code-security/secret-security/configuring-secret-scanning-for-your-repositories)."
+模式创建后，{% data reusables.secret-scanning.secret-scanning-process %} 有关查看 {% data variables.product.prodname_secret_scanning %} 警报的详细信息，请参阅“[管理来自 {% data variables.product.prodname_secret_scanning %} 的警报](/code-security/secret-security/managing-alerts-from-secret-scanning)”。
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-{% data reusables.repositories.navigate-to-code-security-and-analysis %}
-{% data reusables.repositories.navigate-to-ghas-settings %}
-{% data reusables.advanced-security.secret-scanning-new-custom-pattern %}
-{% data reusables.advanced-security.secret-scanning-add-custom-pattern-details %}{% ifversion secret-scanning-custom-enterprise-35 or custom-pattern-dry-run-ga %}
-1. When you're ready to test your new custom pattern, to identify matches in the repository without creating alerts, click **Save and dry run**.
-{% data reusables.advanced-security.secret-scanning-dry-run-results %}
-{%- ifversion secret-scanning-custom-enterprise-35 %}{% indented_data_reference reusables.secret-scanning.beta-dry-runs spaces=3 %}{% endif %}
-{% endif %}
-{% data reusables.advanced-security.secret-scanning-create-custom-pattern %}
+### 使用其他要求指定的自定义模式示例
 
-After your pattern is created, {% data reusables.secret-scanning.secret-scanning-process %} For more information on viewing {% data variables.product.prodname_secret_scanning %} alerts, see "[Managing alerts from {% data variables.product.prodname_secret_scanning %}](/code-security/secret-security/managing-alerts-from-secret-scanning)."
+公司具有具有五个特征的内部令牌。 它们使用不同的字段来指定如何标识令牌，如下所示：
 
-### Example of a custom pattern specified using additional requirements
-
-A company has an internal token with five characteristics. They use the different fields to specify how to identify tokens as follows:
-
-| **Characteristic** | **Field and regular expression** |
+| **特征** | **字段和正则表达式** |
 |----------------|------------------------------|
-| Length between 5 and 10 characters | Secret format: `[$#%@AA-Za-z0-9]{5,10}` |
-| Does not end in a `.` | After secret: `[^\.]` |
-| Contains numbers and uppercase letters | Additional requirements: secret must match `[A-Z]` and `[0-9]` |
-| Does not include more than one lowercase letter in a row | Additional requirements: secret must not match `[a-z]{2,}` |
-| Contains one of `$%@!` | Additional requirements: secret must match `[$%@!]` |
+| 长度介于 5 到 10 个字符之间 | 机密格式：`[$#%@AA-Za-z0-9]{5,10}` |
+| 不以 `.` 结尾 | 机密之后：`[^\.]` |
+| 包含数字和大写字母 | 其他要求：机密必须匹配 `[A-Z]` 和 `[0-9]` |
+| 一行中不包含多个小写字母 | 其他要求：机密不得匹配 `[a-z]{2,}` |
+| 包含 `$%@!` 之一 | 其他要求：机密必须匹配 `[$%@!]` |
 
-These tokens would match the custom pattern described above:
+这些令牌将与上述自定义模式匹配：
 
 ```
 a9@AAfT!         # Secret string match: a9@AAfT
@@ -73,7 +69,7 @@ ee95GG@ZA942@aa  # Secret string match: @ZA942@a
 a9@AA!ee9        # Secret string match: a9@AA
 ```
 
-These strings would not match the custom pattern described above:
+这些字符串与上述自定义模式不匹配：
 
 ```
 a9@AA.!
@@ -82,93 +78,70 @@ aa9@AA!ee9
 aAAAe9
 ```
 
-## Defining a custom pattern for an organization
+## 定义组织的自定义模式
 
-Before defining a custom pattern, you must ensure that you enable {% data variables.product.prodname_secret_scanning %} for the repositories that you want to scan in your organization. To enable {% data variables.product.prodname_secret_scanning %} on all repositories in your organization, see "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)."
+在定义自定义模式之前，您必须确保在组织中为要扫描的仓库启用 {% data variables.product.prodname_secret_scanning %}。 若要在组织中的所有存储库上启用 {% data variables.product.prodname_secret_scanning %}，请参阅“[管理组织的安全和分析设置](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)”。
 
-{% ifversion ghes < 3.5 or ghae %}
-{% note %}
+{% ifversion ghes < 3.5 or ghae %} {% note %}
 
-**Note:** As there is no dry-run functionality, we recommend that you test your custom patterns in a repository before defining them for your entire organization. That way, you can avoid creating excess false-positive {% data variables.product.prodname_secret_scanning %} alerts.
+**注意：** 由于没有试运行功能，我们建议你先在存储库中测试自定义模式，然后再为整个组织定义它们。 这样，可以避免创建过多的误报 {% data variables.product.prodname_secret_scanning %} 警报。
 
-{% endnote %}
-{% endif %}
+{% endnote %} {% endif %}
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.security-and-analysis %}
-{% data reusables.repositories.navigate-to-ghas-settings %}
-{% data reusables.advanced-security.secret-scanning-new-custom-pattern %}
-{% data reusables.advanced-security.secret-scanning-add-custom-pattern-details %}
-{%- ifversion secret-scanning-custom-enterprise-35 or custom-pattern-dry-run-ga %}
-1. When you're ready to test your new custom pattern, to identify matches in select repositories without creating alerts, click **Save and dry run**.
-{% data reusables.advanced-security.secret-scanning-dry-run-select-repos %}
-{% data reusables.advanced-security.secret-scanning-dry-run-results %}
-{%- ifversion secret-scanning-custom-enterprise-35 %}{% indented_data_reference reusables.secret-scanning.beta-dry-runs spaces=3 %}{% endif %}
-{%- endif %}
-{% data reusables.advanced-security.secret-scanning-create-custom-pattern %}
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.organizations.security-and-analysis %} {% data reusables.repositories.navigate-to-ghas-settings %} {% data reusables.advanced-security.secret-scanning-new-custom-pattern %} {% data reusables.advanced-security.secret-scanning-add-custom-pattern-details %} {%- ifversion secret-scanning-custom-enterprise-35 or custom-pattern-dry-run-ga %}
+1. 准备好测试新的自定义模式时，若要在不创建警报的情况下识别所选存储库中的匹配项，请单击“保存并试运行”。
+{% data reusables.advanced-security.secret-scanning-dry-run-select-repos %} {% data reusables.advanced-security.secret-scanning-dry-run-results %} {%- ifversion secret-scanning-custom-enterprise-35 %}{% indented_data_reference reusables.secret-scanning.beta-dry-runs spaces=3 %}{% endif %} {%- endif %} {% data reusables.advanced-security.secret-scanning-create-custom-pattern %}
 
-After your pattern is created, {% data variables.product.prodname_secret_scanning %} scans for any secrets in repositories in your organization, including their entire Git history on all branches. Organization owners and repository administrators will be alerted to any secrets found and can review the alert in the repository where the secret is found. For more information on viewing {% data variables.product.prodname_secret_scanning %} alerts, see "[Managing alerts from {% data variables.product.prodname_secret_scanning %}](/code-security/secret-security/managing-alerts-from-secret-scanning)."
+创建模式后，{% data variables.product.prodname_secret_scanning %} 扫描组织的仓库中的任何密钥，包括其所有分支的整个 Git 历史记录。 组织所有者和仓库管理员将会收到发现的任何密钥警报通知，并且可以审查发现密钥的仓库中的警报。 有关查看 {% data variables.product.prodname_secret_scanning %} 警报的详细信息，请参阅“[管理来自 {% data variables.product.prodname_secret_scanning %} 的警报](/code-security/secret-security/managing-alerts-from-secret-scanning)”。
 
-## Defining a custom pattern for an enterprise account
+## 为企业帐户定义自定义模式
 
 {% ifversion fpt or ghec or ghes %}
 
-Before defining a custom pattern, you must ensure that you enable secret scanning for your enterprise account. For more information, see "[Enabling {% data variables.product.prodname_GH_advanced_security %} for your enterprise]({% ifversion fpt or ghec %}/enterprise-server@latest/{% endif %}/admin/advanced-security/enabling-github-advanced-security-for-your-enterprise)."
+在定义自定义模式之前，必须确保为企业帐户启用机密扫描。 有关详细信息，请参阅“[为企业启用 {% data variables.product.prodname_GH_advanced_security %}]({% ifversion fpt or ghec %}/enterprise-server@latest/{% endif %}/admin/advanced-security/enabling-github-advanced-security-for-your-enterprise)”。
 
 {% endif %}
 
 {% note %}
 
-{% ifversion secret-scanning-custom-enterprise-36 or custom-pattern-dry-run-ga %}
-**Notes:**
-- At the enterprise level, only the creator of a custom pattern can edit the pattern, and use it in a dry run. 
-- Enterprise owners can only make use of dry runs on repositories that they have access to, and enterprise owners do not necessarily have access to all the organizations or repositories within the enterprise.
-{% else %}
-**Note:** As there is no dry-run functionality, we recommend that you test your custom patterns in a repository before defining them for your entire enterprise. That way, you can avoid creating excess false-positive {% data variables.product.prodname_secret_scanning %} alerts.
+{% ifversion secret-scanning-custom-enterprise-36 or custom-pattern-dry-run-ga %} **注意：**
+- 在企业级别，只有自定义模式的创建者才能编辑模式，并在试运行中使用它。 
+- 企业所有者只能对有权访问的存储库使用试运行，并且企业所有者不一定有权访问企业中的所有组织或存储库。
+{% else %} 注意：由于没有试运行功能，我们建议你先在存储库中测试自定义模式，然后再为整个企业定义它们。 这样，可以避免创建过多的误报 {% data variables.product.prodname_secret_scanning %} 警报。
 
 {% endif %}
 
 {% endnote %}
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.policies-tab %}{% ifversion security-feature-enablement-policies %}
-{% data reusables.enterprise-accounts.code-security-and-analysis-policies %}
-1. Under "Code security and analysis", click **Security features**.{% else %}
-{% data reusables.enterprise-accounts.advanced-security-policies %}
-{% data reusables.enterprise-accounts.advanced-security-security-features %}{% endif %}
-1. Under "Secret scanning custom patterns", click **New pattern**.
-{% data reusables.advanced-security.secret-scanning-add-custom-pattern-details %}
-{%- ifversion secret-scanning-custom-enterprise-36 or custom-pattern-dry-run-ga %}
-1. When you're ready to test your new custom pattern, to identify matches in the enterprise without creating alerts, click **Save and dry run**.
-{% data reusables.advanced-security.secret-scanning-dry-run-select-enterprise-repos %}
-{% data reusables.advanced-security.secret-scanning-dry-run-results %}
-{%- ifversion secret-scanning-custom-enterprise-36 %}{% indented_data_reference reusables.secret-scanning.beta-dry-runs spaces=3 %}{% endif %}
-{%- endif %}
-{% data reusables.advanced-security.secret-scanning-create-custom-pattern %}
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.policies-tab %}{% ifversion security-feature-enablement-policies %} {% data reusables.enterprise-accounts.code-security-and-analysis-policies %}
+1. 在“代码安全和分析”下，单击“安全功能”。{% else %} {% data reusables.enterprise-accounts.advanced-security-policies %} {% data reusables.enterprise-accounts.advanced-security-security-features %}{% endif %}
+1. 在“机密扫描自定义模式”下，单击“新建模式”。
+{% data reusables.advanced-security.secret-scanning-add-custom-pattern-details %} {%- ifversion secret-scanning-custom-enterprise-36 or custom-pattern-dry-run-ga %}
+1. 准备好测试新的自定义模式时，若要识别企业中的匹配项而不创建警报，请单击“保存并试运行”。
+{% data reusables.advanced-security.secret-scanning-dry-run-select-enterprise-repos %} {% data reusables.advanced-security.secret-scanning-dry-run-results %} {%- ifversion secret-scanning-custom-enterprise-36 %}{% indented_data_reference reusables.secret-scanning.beta-dry-runs spaces=3 %}{% endif %} {%- endif %} {% data reusables.advanced-security.secret-scanning-create-custom-pattern %}
 
-After your pattern is created, {% data variables.product.prodname_secret_scanning %} scans for any secrets in repositories within your enterprise's organizations with {% data variables.product.prodname_GH_advanced_security %} enabled, including their entire Git history on all branches. Organization owners and repository administrators will be alerted to any secrets found, and can review the alert in the repository where the secret is found. For more information on viewing {% data variables.product.prodname_secret_scanning %} alerts, see "[Managing alerts from {% data variables.product.prodname_secret_scanning %}](/code-security/secret-security/managing-alerts-from-secret-scanning)."
+创建模式后，{% data variables.product.prodname_secret_scanning %} 扫描企业组织内存储库中的任何机密，并启用 {% data variables.product.prodname_GH_advanced_security %}，包括其所有分支上的整个 Git 历史记录。 组织所有者和仓库管理员将会收到发现的任何密钥警报通知，并且可以审查发现密钥的仓库中的警报。 有关查看 {% data variables.product.prodname_secret_scanning %} 警报的详细信息，请参阅“[管理来自 {% data variables.product.prodname_secret_scanning %} 的警报](/code-security/secret-security/managing-alerts-from-secret-scanning)”。
 
-## Editing a custom pattern
+## 编辑自定义模式
 
-When you save a change to a custom pattern, this closes all the {% data variables.product.prodname_secret_scanning %} alerts that were created using the previous version of the pattern.
-1. Navigate to where the custom pattern was created. A custom pattern can be created in a repository, organization, or enterprise account.
-   * For a repository or organization, display the "Security & analysis" settings for the repository or organization where the custom pattern was created. For more information, see "[Defining a custom pattern for a repository](#defining-a-custom-pattern-for-a-repository)" or "[Defining a custom pattern for an organization](#defining-a-custom-pattern-for-an-organization)" above.
-   * For an enterprise, under "Policies" display the "Advanced Security" area, and then click **Security features**. For more information, see "[Defining a custom pattern for an enterprise account](#defining-a-custom-pattern-for-an-enterprise-account)" above.
-2. Under "{% data variables.product.prodname_secret_scanning_caps %}", to the right of the custom pattern you want to edit, click {% octicon "pencil" aria-label="The edit icon" %}.
+将更改保存到自定义模式时，这将关闭使用该模式的先前版本创建的所有 {% data variables.product.prodname_secret_scanning %} 警报。
+1. 导航到创建自定义模式的位置。 可以在存储库、组织或企业帐户中创建自定义模式。
+   * 对于存储库或组织，显示创建自定义模式的存储库或组织的“安全和分析”设置。 有关详细信息，请参阅上面的“[为存储库定义自定义模式](#defining-a-custom-pattern-for-a-repository)”或“[为组织定义自定义模式](#defining-a-custom-pattern-for-an-organization)”。
+   * 对于企业，在“策略”下显示“高级安全”区域，然后单击“安全功能”。 有关详细信息，请参阅上面的“[为企业帐户定义自定义模式](#defining-a-custom-pattern-for-an-enterprise-account)”。
+2. 在“{% data variables.product.prodname_secret_scanning_caps %}”下要编辑的自定义模式的右侧，单击 {% octicon "pencil" aria-label="The edit icon" %}。
 {%- ifversion secret-scanning-custom-enterprise-36 or custom-pattern-dry-run-ga  %}
-3. When you're ready to test your edited custom pattern, to identify matches without creating alerts, click **Save and dry run**.
+3. 准备好测试编辑后的自定义模式时，若要识别匹配项而不创建警报，请单击“保存并试运行”。
 {%- endif %}
-4. When you have reviewed and tested your changes, click **Save changes**.
+4. 查看并测试更改后，单击“保存更改”。
 
-## Removing a custom pattern
+## 删除自定义模式
 
-1. Navigate to where the custom pattern was created. A custom pattern can be created in a repository, organization, or enterprise account.
+1. 导航到创建自定义模式的位置。 可以在存储库、组织或企业帐户中创建自定义模式。
 
-   * For a repository or organization, display the "Security & analysis" settings for the repository or organization where the custom pattern was created. For more information, see "[Defining a custom pattern for a repository](#defining-a-custom-pattern-for-a-repository)" or "[Defining a custom pattern for an organization](#defining-a-custom-pattern-for-an-organization)" above.
-   * For an enterprise, under "Policies" display the "Advanced Security" area, and then click **Security features**.  For more information, see "[Defining a custom pattern for an enterprise account](#defining-a-custom-pattern-for-an-enterprise-account)" above.
-1. To the right of the custom pattern you want to remove, click {% octicon "trash" aria-label="The trash icon" %}.
-1. Review the confirmation, and select a method for dealing with any open alerts relating to the custom pattern.
-1. Click **Yes, delete this pattern**.
+   * 对于存储库或组织，显示创建自定义模式的存储库或组织的“安全和分析”设置。 有关详细信息，请参阅上面的“[为存储库定义自定义模式](#defining-a-custom-pattern-for-a-repository)”或“[为组织定义自定义模式](#defining-a-custom-pattern-for-an-organization)”。
+   * 对于企业，在“策略”下显示“高级安全”区域，然后单击“安全功能”。  有关详细信息，请参阅上面的“[为企业帐户定义自定义模式](#defining-a-custom-pattern-for-an-enterprise-account)”。
+1. 在要删除的自定义模式的右侧，单击 {% octicon "trash" aria-label="The trash icon" %}。
+1. 查看确认，并选择一种方法来处理与自定义模式相关的任何打开的警报。
+1. 单击“是，删除此模式”。
 
-   ![Confirming deletion of a custom {% data variables.product.prodname_secret_scanning %} pattern ](/assets/images/help/repository/secret-scanning-confirm-deletion-custom-pattern.png)
+   ![确认删除自定义{% data variables.product.prodname_secret_scanning %}模式 ](/assets/images/help/repository/secret-scanning-confirm-deletion-custom-pattern.png)

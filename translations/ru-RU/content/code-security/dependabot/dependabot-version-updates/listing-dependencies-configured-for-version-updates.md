@@ -1,6 +1,6 @@
 ---
-title: Listing dependencies configured for version updates
-intro: 'You can view the dependencies that {% data variables.product.prodname_dependabot %} monitors for updates.'
+title: 'Перечисление зависимостей, настроенных для обновлений версий'
+intro: 'Вы можете просмотреть зависимости, которые {% data variables.product.prodname_dependabot %} отслеживает на предмет наличия обновлений.'
 redirect_from:
   - /github/administering-a-repository/listing-dependencies-configured-for-version-updates
   - /code-security/supply-chain-security/listing-dependencies-configured-for-version-updates
@@ -16,27 +16,28 @@ topics:
   - Version updates
   - Dependencies
 shortTitle: List configured dependencies
+ms.openlocfilehash: 6da514616c7091fb3ac4f874f68b5951ca23412b
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148110150'
 ---
+{% data reusables.dependabot.beta-security-and-version-updates %} {% data reusables.dependabot.enterprise-enable-dependabot %}
 
-{% data reusables.dependabot.beta-security-and-version-updates %}
-{% data reusables.dependabot.enterprise-enable-dependabot %}
+## Просмотр зависимостей, отслеживаемых {% data variables.product.prodname_dependabot %}
 
-## Viewing dependencies monitored by {% data variables.product.prodname_dependabot %}
+После включения обновлений версий можно убедиться, что конфигурация правильна, с помощью вкладки **{% data variables.product.prodname_dependabot %}** в графе зависимостей для репозитория. Дополнительные сведения см. в разделе [Настройка обновлений версий {% data variables.product.prodname_dependabot %}](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/enabling-and-disabling-dependabot-version-updates).
 
-After you've enabled version updates, you can confirm that your configuration is correct using the **{% data variables.product.prodname_dependabot %}** tab in the dependency graph for the repository. For more information, see "[Configuring {% data variables.product.prodname_dependabot %} version updates](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/enabling-and-disabling-dependabot-version-updates)."
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.accessing-repository-graphs %} {% data reusables.repositories.click-dependency-graph %} {% data reusables.dependabot.click-dependabot-tab %}
+1. При необходимости, чтобы просмотреть файлы, отслеживаемые для диспетчера пакетов, щелкните связанный {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}.
+  ![Отслеживаемые файлы зависимостей](/assets/images/help/dependabot/monitored-dependency-files.png)
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.accessing-repository-graphs %}
-{% data reusables.repositories.click-dependency-graph %}
-{% data reusables.dependabot.click-dependabot-tab %}
-1. Optionally, to view the files monitored for a package manager, click the associated {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}.
-  ![Monitored dependency files](/assets/images/help/dependabot/monitored-dependency-files.png)
+Если отсутствуют какие-либо зависимости, проверьте файлы журнала на наличие ошибок. Если отсутствуют какие-либо диспетчеры пакетов, проверьте файл конфигурации.
 
-If any dependencies are missing, check the log files for errors. If any package managers are missing, review the configuration file.
+## Просмотр файлов журнала {% data variables.product.prodname_dependabot %}
 
-## Viewing {% data variables.product.prodname_dependabot %} log files
-
-1. On the **{% data variables.product.prodname_dependabot %}** tab, click **Last checked *TIME* ago** to see the log file that {% data variables.product.prodname_dependabot %} generated during the last check for version updates.
-  ![View log file](/assets/images/help/dependabot/last-checked-link.png)
-2. Optionally, to rerun the version check, click **Check for updates**.
-  ![Check for updates](/assets/images/help/dependabot/check-for-updates.png)
+1. На вкладке **{% data variables.product.prodname_dependabot %}** щелкните **Последнее обновление: *TIME* назад**, чтобы просмотреть файл журнала, созданный {% data variables.product.prodname_dependabot %} при последней проверке обновлений версий.
+  ![Просмотр файла журнала](/assets/images/help/dependabot/last-checked-link.png)
+2. При необходимости, чтобы повторно выполнить проверку версии, щелкните **Проверить наличие обновлений**.
+  ![Проверка обновлений](/assets/images/help/dependabot/check-for-updates.png)

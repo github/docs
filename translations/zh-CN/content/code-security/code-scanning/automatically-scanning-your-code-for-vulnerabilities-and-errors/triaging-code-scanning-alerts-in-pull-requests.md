@@ -1,7 +1,7 @@
 ---
-title: Triaging code scanning alerts in pull requests
+title: 鉴定拉取请求中的代码扫描警报
 shortTitle: Triage alerts in pull requests
-intro: 'When {% data variables.product.prodname_code_scanning %} identifies a problem in a pull request, you can review the highlighted code and resolve the alert.'
+intro: '当 {% data variables.product.prodname_code_scanning %} 在拉取请求中发现问题时，您可以审查高亮的代码并解决警报。'
 product: '{% data reusables.gated-features.code-scanning %}'
 permissions: 'If you have read permission for a repository, you can see annotations on pull requests. With write permission, you can see detailed information and resolve {% data variables.product.prodname_code_scanning %} alerts for that repository.'
 redirect_from:
@@ -20,105 +20,95 @@ topics:
   - Pull requests
   - Alerts
   - Repositories
+ms.openlocfilehash: f73b0ef30b4512bc951fdbae4ae2f3c300e4c534
+ms.sourcegitcommit: b617c4a7a1e4bf2de3987a86e0eb217d7031490f
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/11/2022
+ms.locfileid: '148162740'
 ---
-
-
 {% data reusables.code-scanning.beta %}
 
-## About {% data variables.product.prodname_code_scanning %} results on pull requests
+## 关于拉取请求上的 {% data variables.product.prodname_code_scanning %} 结果
 
-In repositories where {% data variables.product.prodname_code_scanning %} is configured as a pull request check, {% data variables.product.prodname_code_scanning %} checks the code in the pull request. By default, this is limited to pull requests that target the default branch, but you can change this configuration within {% data variables.product.prodname_actions %} or in a third-party CI/CD system. If merging the changes would introduce new {% data variables.product.prodname_code_scanning %} alerts to the target branch, the alerts are reported in multiple places.
+在仓库中，如果 {% data variables.product.prodname_code_scanning %} 被配置为拉取请求检查，则 {% data variables.product.prodname_code_scanning %} 将检查拉取请求中的代码。 默认情况下，这仅限于针对默认分支的拉取请求，但是您可以在 {% data variables.product.prodname_actions %} 或第三方 CI/CD 系统中更改此配置。 如果合并更改会向目标分支引入新的 {% data variables.product.prodname_code_scanning %} 警报，这些警报将在多个位置报告。
 
-- Check results in the pull request {% ifversion code-scanning-pr-conversations-tab %}
-- The **Conversation** tab of the pull request, as part of a pull request review {% endif %} 
-- The **Files changed** tab of the pull request
+- 检查拉取请求 {% ifversion code-scanning-pr-conversations-tab %} 中的结果
+- 拉取请求的“对话”选项卡是拉取请求审查的一部分 {% endif %} 
+- 拉取请求的“已更改的文件”选项卡
 
-If you have write permission for the repository, you can see any existing {% data variables.product.prodname_code_scanning %} alerts on the **Security** tab. For information about repository alerts, see "[Managing {% data variables.product.prodname_code_scanning %} alerts for your repository](/code-security/secure-coding/managing-code-scanning-alerts-for-your-repository)."
+如果你拥有存储库的写入权限，可以在“安全性”选项卡上看到任何现有的 {% data variables.product.prodname_code_scanning %} 警报。有关存储库警报的信息，请参阅“[管理存储库的 {% data variables.product.prodname_code_scanning %} 警报](/code-security/secure-coding/managing-code-scanning-alerts-for-your-repository)”。
 
-In repositories where {% data variables.product.prodname_code_scanning %} is configured to scan each time code is pushed, {% data variables.product.prodname_code_scanning %} will also map the results to any open pull requests and add the alerts as annotations in the same places as other pull request checks. For more information, see "[Scanning on push](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning#scanning-on-push)."
+在 {% data variables.product.prodname_code_scanning %} 配置为在每次推送代码时扫描的存储库中，{% data variables.product.prodname_code_scanning %} 还会将结果映射到任何打开的拉取请求，并将警报作为注释添加到与其他拉取请求检查相同的位置。 有关详细信息，请参阅“[推送时扫描](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning#scanning-on-push)”。
 
-If your pull request targets a protected branch that uses {% data variables.product.prodname_code_scanning %}, and the repository owner has configured required status checks, then the "{% data variables.product.prodname_code_scanning_capc %} results" check must pass before you can merge the pull request. For more information, see "[About protected branches](/github/administering-a-repository/about-protected-branches#require-status-checks-before-merging)."
+如果拉取请求针对使用 {% data variables.product.prodname_code_scanning %} 的受保护分支，并且存储库所有者已配置所需的状态检查，则“{% data variables.product.prodname_code_scanning_capc %} 结果”检查必须先通过，然后才能合并拉取请求。 有关详细信息，请参阅“[关于受保护的分支](/github/administering-a-repository/about-protected-branches#require-status-checks-before-merging)”。
 
-## About {% data variables.product.prodname_code_scanning %} as a pull request check
+## 关于 {% data variables.product.prodname_code_scanning %} 作为拉取请求检查
 
-There are many options for configuring {% data variables.product.prodname_code_scanning %} as a pull request check, so the exact setup of each repository will vary and some will have more than one check. 
+有许多选项可将 {% data variables.product.prodname_code_scanning %} 配置为拉取请求检查，因此每个仓库的确切设置会有所不同，有些仓库还会有多个检查。 
 
-### {% data variables.product.prodname_code_scanning_capc %} results check
+### {% data variables.product.prodname_code_scanning_capc %} 结果检查
 
-For all configurations of {% data variables.product.prodname_code_scanning %}, the check that contains the results of {% data variables.product.prodname_code_scanning %} is: **{% data variables.product.prodname_code_scanning_capc %} results**. The results for each analysis tool used are shown separately. Any new alerts caused by changes in the pull request are shown as annotations. 
+对于 {% data variables.product.prodname_code_scanning %} 的所有配置，包含 {% data variables.product.prodname_code_scanning %} 结果的检查为：{% data variables.product.prodname_code_scanning_capc %} 结果。 所使用的每个分析工具的结果将单独显示。 由拉取请求中的更改引起的任何新警报都显示为注释。 
 
-To see the full set of alerts for the analyzed branch, click **View all branch alerts**. This opens the full alert view where you can filter all the alerts on the branch by type, severity, tag, etc. For more information, see "[Managing code scanning alerts for your repository](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository#filtering-and-searching-for-code-scanning-alerts)."
+要查看所分析分支的完整警报集，请单击“查看所有分支警报”。 这将打开完整的警报视图，你可以在其中按类型、严重性、标记等筛选分支上的所有警报。有关详细信息，请参阅“[管理存储库的代码扫描警报](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository#filtering-and-searching-for-code-scanning-alerts)”。
 
-![{% data variables.product.prodname_code_scanning_capc %} results check on a pull request](/assets/images/help/repository/code-scanning-results-check.png)
+![拉取请求的 {% data variables.product.prodname_code_scanning_capc %} 结果检查](/assets/images/help/repository/code-scanning-results-check.png)
 
-### {% data variables.product.prodname_code_scanning_capc %} results check failures
+### {% data variables.product.prodname_code_scanning_capc %} 结果检查失败
 
-If the {% data variables.product.prodname_code_scanning %} results check finds any problems with a severity of `error`, `critical`, or `high`, the check fails and the error is reported in the check results. If all the results found by {% data variables.product.prodname_code_scanning %} have lower severities, the alerts are treated as warnings or notes and the check succeeds.
+如果 {% data variables.product.prodname_code_scanning %} 结果检查发现严重性为 `error``critical` 或 `high` 的问题，检查将失败并在检查结果中报告错误。 如果 {% data variables.product.prodname_code_scanning %} 发现的所有结果的严重性都较低，则警报将被视为警告或通知，检查成功。
 
-![Failed {% data variables.product.prodname_code_scanning %} check on a pull request](/assets/images/help/repository/code-scanning-check-failure.png)
+![拉取请求上失败的 {% data variables.product.prodname_code_scanning %} 检查](/assets/images/help/repository/code-scanning-check-failure.png)
 
-You can override the default behavior in your repository settings, by specifying the level of severities and security severities that will cause a pull request check failure. For more information, see "[Defining the severities causing pull request check failure](/code-security/secure-coding/configuring-code-scanning#defining-the-severities-causing-pull-request-check-failure)".
+你可以通过指定会导致拉取请求检查失败的严重级别和安全严重性来覆盖仓库设置中的默认行为。 有关详细信息，请参阅“[定义导致拉取请求检查失败的严重性](/code-security/secure-coding/configuring-code-scanning#defining-the-severities-causing-pull-request-check-failure)”。
 
-### Other {% data variables.product.prodname_code_scanning %} checks
+### 其他 {% data variables.product.prodname_code_scanning %} 检查
 
-Depending on your configuration, you may see additional checks running on pull requests with {% data variables.product.prodname_code_scanning %} configured. These are usually workflows that analyze the code or that upload {% data variables.product.prodname_code_scanning %} results. These checks are useful for troubleshooting when there are problems with the analysis. 
+根据您的配置，您可能会看到在配置了 {% data variables.product.prodname_code_scanning %} 的拉取请求上运行其他检查。 这些通常是分析代码或上传 {% data variables.product.prodname_code_scanning %} 结果的工作流程。 当分析出现问题时，这些检查对于故障排除非常有用。 
 
-For example, if the repository uses the {% data variables.code-scanning.codeql_workflow %} a **{% data variables.product.prodname_codeql %} / Analyze (LANGUAGE)** check is run for each language before the results check runs. The analysis check may fail if there are configuration problems, or if the pull request breaks the build for a language that the analysis needs to compile (for example, C/C++, C#, or Java). 
+例如，如果存储库使用 {% data variables.code-scanning.codeql_workflow %}，则在结果检查运行之前，将针对每种语言运行 {% data variables.product.prodname_codeql %} / Analyze (LANGUAGE) 检查。 如果存在配置问题，或者拉取请求中断了分析需要编译的语言（例如 C/C ++、C# 或 Java）的构建，则分析检查可能会失败。 
 
-As with other pull request checks, you can see full details of the check failure on the **Checks** tab. For more information about configuring and troubleshooting, see "[Configuring {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/configuring-code-scanning)" or "[Troubleshooting the {% data variables.product.prodname_codeql %} workflow](/code-security/secure-coding/troubleshooting-the-codeql-workflow)."
+与其他拉取请求检查一样，可以在“检查”选项卡上看到检查失败的完整详细信息。有关配置和故障排除的详细信息，请参阅“[配置 {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/configuring-code-scanning)”或“[对 {% data variables.product.prodname_codeql %} 工作流进行故障排除](/code-security/secure-coding/troubleshooting-the-codeql-workflow)”。
 
-## Viewing an alert on your pull request
+## 查看拉取请求上的警报
 
-{% ifversion code-scanning-pr-conversations-tab %}
-You can see any {% data variables.product.prodname_code_scanning %} alerts introduced in a pull request by viewing the **Conversation** tab. {% data variables.product.prodname_code_scanning_capc %} posts a pull request review that shows each alert as an annotation on the lines of code that triggered the alert. You can comment on the alerts, dismiss the alerts, and view paths for the alerts, directly from the annotations. You can view the full details of an alert by clicking the "Show more details" link, which will take you to the alert details page.
+{% ifversion code-scanning-pr-conversations-tab %} 通过查看“对话”选项卡，可以看到拉取请求中引入的任何 {% data variables.product.prodname_code_scanning %} 警报。{% data variables.product.prodname_code_scanning_capc %} 会发布拉取请求审查，该审查将每个警报作为触发警报的代码行上的注释显示。 可以对警报进行注释、关闭警报并直接从注释中查看警报的路径。 可以通过单击“显示更多详细信息”链接来查看警报的完整详细信息，该链接将带你进入警报详细信息页面。
 
-![Alert annotation within a pull request Conversations tab](/assets/images/help/repository/code-scanning-pr-conversation-tab.png)
+![拉取请求“对话”选项卡中的警报注释](/assets/images/help/repository/code-scanning-pr-conversation-tab.png)
 
-You can also view all {% data variables.product.prodname_code_scanning %} alerts in the **Files changed** tab of the pull request. Existing {% data variables.product.prodname_code_scanning %} alerts on a file that are outside the diff of the changes introduced in the pull request will only appear in the **Files changed** tab.
+还可以在拉取请求的“已更改的文件”选项卡中查看所有 {% data variables.product.prodname_code_scanning %} 警报。 拉取请求中引入的更改差异之外的文件上的现有 {% data variables.product.prodname_code_scanning %} 警报将只显示在“已更改的文件”选项卡中。
 
-{% else %} 
-You can see any {% data variables.product.prodname_code_scanning %} alerts introduced in a pull request by displaying the **Files changed** tab. Each alert is shown as an annotation on the lines of code that triggered the alert. The severity of the alert is displayed in the annotation. 
+{% else %} 通过显示“已更改的文件”选项卡，可以看到拉取请求中引入的任何 {% data variables.product.prodname_code_scanning %} 警报。每个警报都在触发警报的代码行上显示为一条注释。 警报的严重性显示在注释中。 
 
-![Alert annotation within a pull request diff](/assets/images/help/repository/code-scanning-pr-annotation.png)
-{% endif %}
+![拉取请求差异中的警报注释](/assets/images/help/repository/code-scanning-pr-annotation.png) {% endif %}
 
-If you have write permission for the repository, some annotations contain links with extra context for the alert. In the example above, from {% data variables.product.prodname_codeql %} analysis, you can click **user-provided value** to see where the untrusted data enters the data flow (this is referred to as the source). In this case you can also view the full path from the source to the code that uses the data (the sink) by clicking **Show paths**. This makes it easy to check whether the data is untrusted or if the analysis failed to recognize a data sanitization step between the source and the sink. For information about analyzing data flow using {% data variables.product.prodname_codeql %}, see "[About data flow analysis](https://codeql.github.com/docs/writing-codeql-queries/about-data-flow-analysis/)."
+如果您拥有仓库的写入权限，则某些注释将包含警报额外上下文的链接。 在上例中，可以在 {% data variables.product.prodname_codeql %} 分析中单击“用户提供的值”，以查看不受信任的数据进入数据流的位置（这称为源）。 在此例中，还可以通过单击“显示路径”来查看从源到使用数据的代码（池）的完整路径。 这样就很容易检查数据是否不受信任，或者分析是否无法识别源与池之间的数据净化步骤。 有关使用 {% data variables.product.prodname_codeql %} 分析数据流的信息，请参阅“[关于数据流分析](https://codeql.github.com/docs/writing-codeql-queries/about-data-flow-analysis/)”。
 
-To see more information about an alert, users with write permission can click the **Show more details** link shown in the annotation. This allows you to see all of the context and metadata provided by the tool in an alert view. In the example below, you can see tags showing the severity, type, and relevant common weakness enumerations (CWEs) for the problem. The view also shows which commit introduced the problem.
+要查看有关警报的更多信息，拥有写入权限的用户可单击注释中所示的“显示更多详情”链接。 这允许您在警报视图中查看工具提供的所有上下文和元数据。 在下例中，您可以查看显示问题的严重性、类型和相关通用缺陷枚举 (CWE) 的标记。 该视图还显示哪个提交引入了问题。
 
-{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
-{% data reusables.code-scanning.alert-default-branch %}
-{% endif %}
+{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %} {% data reusables.code-scanning.alert-default-branch %} {% endif %}
 
-In the detailed view for an alert, some {% data variables.product.prodname_code_scanning %} tools, like {% data variables.product.prodname_codeql %} analysis, also include a description of the problem and a **Show more** link for guidance on how to fix your code.
+在警报的详细视图中，有些 {% data variables.product.prodname_code_scanning %} 工具（例如 {% data variables.product.prodname_codeql %} 分析）还包括问题描述和“显示更多”链接以指导你如何修复代码。
 
-{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
-![Alert description and link to show more information](/assets/images/help/repository/code-scanning-pr-alert.png)
-{% else %}
-![Alert description and link to show more information](/assets/images/enterprise/3.4/repository/code-scanning-pr-alert.png)
-{% endif %}
+{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %} ![显示更多信息的警报说明和链接](/assets/images/help/repository/code-scanning-pr-alert.png) {% else %} ![显示更多信息的警报说明和链接](/assets/images/enterprise/3.4/repository/code-scanning-pr-alert.png) {% endif %}
 
 {% ifversion code-scanning-pr-conversations-tab %}
-## Commenting on an alert in a pull request
+## 对拉取请求中的警报进行注释
 
-You can comment on any {% data variables.product.prodname_code_scanning %} alert introduced by the changes in a pull request. Alerts appear as annotations in the **Conversation** tab of a pull request, as part of a  pull request review, and also are shown in the **Files changed** tab. You can only comment on alerts introduced by the changes in a pull request. Existing {% data variables.product.prodname_code_scanning %} alerts, on files that are outside the changes introduced in the pull request, will appear in the **Files changed** tab but cannot be commented on.
+可以对由拉取请求中更改引入的任何 {% data variables.product.prodname_code_scanning %} 警报进行注释。 警报在拉取请求的“对话”选项卡中显示为注释，作为拉取请求审查的一部分，也显示在“已更改的文件”选项卡中。只能对拉取请求中的更改引入的警报进行注释 。 拉取请求中引入的更改之外的文件上的现有 {% data variables.product.prodname_code_scanning %} 警报将显示在“文件已更改”选项卡中，但不能注释。
 
-You can choose to require all conversations in a pull request, including those on {% data variables.product.prodname_code_scanning %} alerts, to be resolved before a pull request can be merged. For more information, see "[About protected branches](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#require-conversation-resolution-before-merging)."
+可以选择要求拉取请求中的所有对话（包括 {% data variables.product.prodname_code_scanning %} 警报上的对话），以在合并拉取请求之前被解析。 有关详细信息，请参阅“[关于受保护的分支](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#require-conversation-resolution-before-merging)”。
 {% endif %}
-## Fixing an alert on your pull request
+## 修复拉取请求上的警报
 
-Anyone with push access to a pull request can fix a {% data variables.product.prodname_code_scanning %} alert that's identified on that pull request. If you commit changes to the pull request this triggers a new run of the pull request checks. If your changes fix the problem, the alert is closed and the annotation removed.
+任何对拉取请求具有推送权限的人都可以修复在该拉取请求上已识别的 {% data variables.product.prodname_code_scanning %} 警报。 如果将更改提交到拉取请求，这将触发拉取请求检查的新运行。 如果您的更改修复了问题，则警报将被关闭，注释将被删除。
 
-## Dismissing an alert on your pull request
+## 忽略拉取请求上的警报
 
-An alternative way of closing an alert is to dismiss it. You can dismiss an alert if you don't think it needs to be fixed. {% data reusables.code-scanning.close-alert-examples %} If you have write permission for the repository, the **Dismiss** button is available in code annotations and in the alerts summary. When you click **Dismiss** you will be prompted to choose a reason for closing the alert.
-{% ifversion comment-dismissed-code-scanning-alert %}
-![Screenshot of code scanning alert with dropdown to choose dismissal reason emphasized](/assets/images/help/repository/code-scanning-alert-dropdown-reason.png)
-{% else %}
-![Choosing a reason for dismissing an alert](/assets/images/help/repository/code-scanning-alert-close-drop-down.png)
-{% endif %}
-{% data reusables.code-scanning.choose-alert-dismissal-reason %}
+关闭警报的另一种办法是忽略它。 您可以忽略您认为不需要修复的警报。 {% data reusables.code-scanning.close-alert-examples %} 如果你拥有存储库的写入权限，则“忽略”按钮在代码注释和警报摘要中可用。 单击“忽略”时，系统会提示你选择关闭警报的原因。
+{% ifversion comment-dismissed-code-scanning-alert %} ![代码扫描警报的屏幕截图，其中选择关闭原因的下拉列表突出显示](/assets/images/help/repository/code-scanning-alert-dropdown-reason.png) {% else %} ![选择关闭警报的原因](/assets/images/help/repository/code-scanning-alert-close-drop-down.png) {% endif %} {% data reusables.code-scanning.choose-alert-dismissal-reason %}
 
 {% data reusables.code-scanning.false-positive-fix-codeql %}
 
-For more information about dismissing alerts, see {% ifversion delete-code-scanning-alerts %}"[Managing {% data variables.product.prodname_code_scanning %} alerts for your repository](/code-security/secure-coding/managing-code-scanning-alerts-for-your-repository#dismissing-or-deleting-alerts)."{% else %} "[Managing {% data variables.product.prodname_code_scanning %} alerts for your repository](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository#dismissing--alerts)."{% endif %}
+有关消除警报的详细信息，请参阅 {% ifversion delete-code-scanning-alerts %}“[管理存储库的 {% data variables.product.prodname_code_scanning %} 警报](/code-security/secure-coding/managing-code-scanning-alerts-for-your-repository#dismissing-or-deleting-alerts)”。{% else %}“[管理存储库的 {% data variables.product.prodname_code_scanning %} 警报](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository#dismissing--alerts)”。{% endif %}
