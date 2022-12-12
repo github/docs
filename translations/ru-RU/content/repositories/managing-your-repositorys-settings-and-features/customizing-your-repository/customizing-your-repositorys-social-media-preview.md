@@ -1,6 +1,6 @@
 ---
-title: Customizing your repository's social media preview
-intro: You can customize the image displayed on social media platforms when someone links to your repository.
+title: Настройка предварительной версии социальных сетей репозитория
+intro: 'Вы можете настроить изображение, отображаемое на платформах социальных сетей, когда кто-то ссылается на репозиторий.'
 redirect_from:
   - /articles/customizing-your-repositorys-social-media-preview
   - /github/administering-a-repository/customizing-your-repositorys-social-media-preview
@@ -13,36 +13,41 @@ versions:
 topics:
   - Repositories
 shortTitle: Social media preview
+ms.openlocfilehash: a778b0fd95533a15806cc0034769fbf0feb3b217
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145136811'
 ---
-Until you add an image, repository links expand to show basic information about the repository and the owner's avatar. Adding an image to your repository can help identify your project across various social platforms.
+Пока вы не добавите изображение, ссылки репозитория разворачиваются, чтобы отобразить основные сведения о репозитории и аватаре владельца. Добавление изображения в репозиторий позволяет идентифицировать проект в различных соцсетях.
 
-## Adding an image to customize the social media preview of your repository
+## Добавление изображения для настройки предварительной версии социальных сетей репозитория
 
-{% ifversion not ghae %}You can upload an image to a private repository, but your image can only be shared from a public repository.{% endif %}
-
-{% tip %}
-
-**Tip:** Your image should be a PNG, JPG, or GIF file under 1 MB in size. For the best quality rendering, we recommend keeping the image at 640 by 320 pixels.
-
-{% endtip %}
-
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-3. Under "Social preview," click **Edit**
-    - To add a new image, click **Upload an image...**.
-    - To remove an image, click **Remove image**
-
-    ![Social preview dropdown](/assets/images/help/repository/social-preview.png)
-
-## About transparency
-
-We support PNG images with transparency. Many communication platforms support a dark mode, so using a transparent social preview may be beneficial. The transparent image below is acceptable on a dark background; however, this may not always be the case. 
-
-When using an image with transparency, keep in mind how it may look on different color backgrounds or platforms that don't support transparency.
+{% ifversion not ghae %} Вы можете отправить изображение в частный репозиторий, но общий доступ к нему можно предоставить только из общедоступного репозитория.{% endif %}
 
 {% tip %}
 
-**Tip:** If you aren't sure, we recommend using an image with a solid background.
+**Совет.** Ваше изображение должен быть в формате PNG, JPG или GIF-файл размером менее 1 МБ. Для оптимальной отрисовки рекомендуется сохранить изображение с разрешением 640 на 320 пикселей.
+
 {% endtip %}
 
-![Social preview transparency](/assets/images/help/repository/social-preview-transparency.png)
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %}
+3. В разделе "Предварительная версия социальной сети" нажмите кнопку **Изменить**
+    - Чтобы добавить новое изображение, щелкните **Отправить изображение...** .
+    - Чтобы удалить изображение, нажмите кнопку **Удалить изображение**
+
+    ![Раскрывающийся список предварительной версии социальных сетей](/assets/images/help/repository/social-preview.png)
+
+## Сведения о прозрачности
+
+Мы поддерживаем изображения в формате PNG с прозрачностью. Многие коммуникационные платформы поддерживают темный режим, поэтому использование прозрачной предварительной версии социальной сети может оказаться весьма полезным. Прозрачное изображение ниже допускается поместить на темный фон; однако это не всегда верно. 
+
+При использовании изображения с прозрачностью имейте в виду его возможный вид на разных цветовых фонах или платформах, которые не поддерживают прозрачность.
+
+{% tip %}
+
+**Совет.** Если вы не уверены, рекомендуется использовать изображение со сплошной заливкой по фону.
+{% endtip %}
+
+![Прозрачность предварительной версии социальной сети](/assets/images/help/repository/social-preview-transparency.png)

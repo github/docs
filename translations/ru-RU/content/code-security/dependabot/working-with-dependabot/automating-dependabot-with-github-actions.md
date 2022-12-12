@@ -1,6 +1,6 @@
 ---
-title: Automating Dependabot with GitHub Actions
-intro: 'Examples of how you can use {% data variables.product.prodname_actions %} to automate common {% data variables.product.prodname_dependabot %} related tasks.'
+title: Автоматизация Dependabot с помощью GitHub Actions
+intro: 'Примеры использования {% data variables.product.prodname_actions %} для автоматизации распространенных задач, связанных с {% data variables.product.prodname_dependabot %}.'
 permissions: 'People with write permissions to a repository can configure {% data variables.product.prodname_actions %} to respond to {% data variables.product.prodname_dependabot %}-created pull requests.'
 miniTocMaxHeadingLevel: 3
 versions:
@@ -20,39 +20,40 @@ topics:
 shortTitle: Use Dependabot with Actions
 redirect_from:
   - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/automating-dependabot-with-github-actions
+ms.openlocfilehash: 3280b42309b388c5faf2071d6e3a39d9a0e58474
+ms.sourcegitcommit: 67aba5f277f3a8ef2ab1ccb14465ae486eabaa2b
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 11/15/2022
+ms.locfileid: '148165084'
 ---
+{% data reusables.dependabot.beta-security-and-version-updates %} {% data reusables.dependabot.enterprise-enable-dependabot %}
 
-{% data reusables.dependabot.beta-security-and-version-updates %}
-{% data reusables.dependabot.enterprise-enable-dependabot %}
+## Сведения о {% data variables.product.prodname_dependabot %} и {% data variables.product.prodname_actions %}
 
-## About {% data variables.product.prodname_dependabot %} and {% data variables.product.prodname_actions %}
+{% data variables.product.prodname_dependabot %} создает запросы на вытягивание для поддержания актуальности зависимостей, и вы можете использовать {% data variables.product.prodname_actions %} для выполнения автоматических задач при создании этих запросов на вытягивание. Например, получение дополнительных артефактов, добавление меток, выполнение тестов или изменение запроса на вытягивание.
 
-{% data variables.product.prodname_dependabot %} creates pull requests to keep your dependencies up to date, and you can use {% data variables.product.prodname_actions %} to perform automated tasks when these pull requests are created. For example, fetch additional artifacts, add labels, run tests, or otherwise modifying the pull request.
+## Реагирование на события
 
-## Responding to events
+{% data variables.product.prodname_dependabot %} может активировать рабочие процессы {% data variables.product.prodname_actions %} в запросах на вытягивание и комментариях; однако некоторые события обрабатываются иначе.
 
-{% data variables.product.prodname_dependabot %} is able to trigger {% data variables.product.prodname_actions %} workflows on its pull requests and comments; however, certain events are treated differently.
+{% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %} Для рабочих процессов, инициированных {% data variables.product.prodname_dependabot %} (`github.actor == 'dependabot[bot]'`) с помощью `pull_request`событий , `pull_request_review`, `pull_request_review_comment`, `push``create`, , `deployment`и`deployment_status`, применяются следующие ограничения: {% endif %}
 
-{% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
-For workflows initiated by {% data variables.product.prodname_dependabot %} (`github.actor == 'dependabot[bot]'`) using the `pull_request`, `pull_request_review`, `pull_request_review_comment`, `push`, `create`, `deployment`, and `deployment_status` events, the following restrictions apply:
+- {% ifversion ghes = 3.3 %}`GITHUB_TOKEN` имеет разрешения только на чтение, если только администратор не удалил ограничения. {% else %}`GITHUB_TOKEN` по умолчанию имеет разрешения только на чтение. {% endif %}
+- {% ifversion ghes = 3.3 %} Секреты недоступны, если администратор не удалил ограничения.{% else %} Секреты заполняются из секретов {% data variables.product.prodname_dependabot %}. Секреты {% data variables.product.prodname_actions %} недоступны.{% endif %}
+
+{% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %} Для рабочих процессов, инициированных {% data variables.product.prodname_dependabot %} (`github.actor == 'dependabot[bot]'`) с помощью `pull_request_target` события, если базовая ссылка запроса на вытягивание была создана {% data variables.product.prodname_dependabot %} (`github.actor == 'dependabot[bot]'`), `GITHUB_TOKEN` объект будет доступен только для чтения, а секреты недоступны.
 {% endif %}
 
-- {% ifversion ghes = 3.3 %}`GITHUB_TOKEN` has read-only permissions, unless your administrator has removed restrictions.{% else %}`GITHUB_TOKEN` has read-only permissions by default.{% endif %}
-- {% ifversion ghes = 3.3 %}Secrets are inaccessible, unless your administrator has removed restrictions.{% else %}Secrets are populated from {% data variables.product.prodname_dependabot %} secrets. {% data variables.product.prodname_actions %} secrets are not available.{% endif %}
+{% ifversion actions-stable-actor-ids %}Эти ограничения применяются, даже если рабочий процесс повторно запускается другим субъектом.{% endif %}
 
-{% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
-For workflows initiated by {% data variables.product.prodname_dependabot %} (`github.actor == 'dependabot[bot]'`) using the `pull_request_target` event, if the base ref of the pull request was created by {% data variables.product.prodname_dependabot %} (`github.actor == 'dependabot[bot]'`), the `GITHUB_TOKEN` will be read-only and secrets are not available.
-{% endif %}
-
-{% ifversion actions-stable-actor-ids %}These restrictions apply even if the workflow is re-run by a different actor.{% endif %}
-
-For more information, see ["Keeping your GitHub Actions and workflows secure: Preventing pwn requests"](https://securitylab.github.com/research/github-actions-preventing-pwn-requests/).
+Дополнительные сведения см. в статье [Обеспечение безопасности GitHub Actions и рабочих процессов: предотвращение запросов pwn](https://securitylab.github.com/research/github-actions-preventing-pwn-requests/).
 
 {% ifversion fpt or ghec or ghes > 3.3 %}
 
-### Changing `GITHUB_TOKEN` permissions
+### Изменение разрешений `GITHUB_TOKEN`
 
-By default, {% data variables.product.prodname_actions %} workflows triggered by {% data variables.product.prodname_dependabot %} get a `GITHUB_TOKEN` with read-only permissions. You can use the `permissions` key in your workflow to increase the access for the token:
+По умолчанию рабочие процессы {% data variables.product.prodname_actions %}, активированные{% data variables.product.prodname_dependabot %}, получают `GITHUB_TOKEN` с разрешениями только на чтение. В рабочем процессе можно использовать ключ `permissions` для увеличения доступа к маркеру:
 
 {% raw %}
 
@@ -73,17 +74,17 @@ jobs:
 
 {% endraw %}
 
-For more information, see "[Modifying the permissions for the GITHUB_TOKEN](/actions/security-guides/automatic-token-authentication#modifying-the-permissions-for-the-github_token)."
+Дополнительные сведения см. в статье [Изменение разрешений для GITHUB_TOKEN](/actions/security-guides/automatic-token-authentication#modifying-the-permissions-for-the-github_token).
 
-### Accessing secrets
+### Доступ к секретам
 
-When a {% data variables.product.prodname_dependabot %} event triggers a workflow, the only secrets available to the workflow are {% data variables.product.prodname_dependabot %} secrets. {% data variables.product.prodname_actions %} secrets are not available. Consequently, you must store any secrets that are used by a workflow triggered by {% data variables.product.prodname_dependabot %} events as {% data variables.product.prodname_dependabot %} secrets. For more information, see "[Managing encrypted secrets for Dependabot](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-encrypted-secrets-for-dependabot)".
+Когда событие {% data variables.product.prodname_dependabot %} активирует рабочий процесс, единственными секретами, доступными для рабочего процесса, являются секреты {% data variables.product.prodname_dependabot %}. Секреты {% data variables.product.prodname_actions %} недоступны. Следовательно, необходимо хранить все секреты, используемые рабочим процессом, инициированным событиями {% data variables.product.prodname_dependabot %}, в виде секретов {% data variables.product.prodname_dependabot %}. Дополнительные сведения см. в разделе [Управление зашифрованными секретами для Dependabot](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-encrypted-secrets-for-dependabot).
 
-{% data variables.product.prodname_dependabot %} secrets are added to the `secrets` context and referenced using exactly the same syntax as secrets for {% data variables.product.prodname_actions %}. For more information, see "[Encrypted secrets](/actions/security-guides/encrypted-secrets#using-encrypted-secrets-in-a-workflow)."
+Секреты {% data variables.product.prodname_dependabot %} добавляются в контекст `secrets`, и ссылки на них имеют точно такой же синтаксис, что и секреты для {% data variables.product.prodname_actions %}. Дополнительные сведения см. в статье [Зашифрованные секреты](/actions/security-guides/encrypted-secrets#using-encrypted-secrets-in-a-workflow).
 
-If you have a workflow that will be triggered by {% data variables.product.prodname_dependabot %} and also by other actors, the simplest solution is to store the token with the permissions required in an action and in a {% data variables.product.prodname_dependabot %} secret with identical names. Then the workflow can include a single call to these secrets. If the secret for {% data variables.product.prodname_dependabot %} has a different name, use conditions to specify the correct secrets for different actors to use. For examples that use conditions, see "[Common automations](#common-dependabot-automations)" below.
+Если у вас есть рабочий процесс, который будет активироваться {% data variables.product.prodname_dependabot %}, а также другими субъектами, проще всего сохранить маркер с необходимыми разрешениями в действии и в секрете {% data variables.product.prodname_dependabot %} с идентичными именами. Затем рабочий процесс может включать один вызов этих секретов. Если у секрета для {% data variables.product.prodname_dependabot %} другое имя, используйте условия, чтобы указать правильные секреты для различных субъектов. Примеры использования условий см. в разделе [Распространенные автоматизации](#common-dependabot-automations) ниже.
 
-To access a private container registry on AWS with a user name and password, a workflow must include a secret for `username` and `password`. In the example below, when {% data variables.product.prodname_dependabot %} triggers the workflow, the {% data variables.product.prodname_dependabot %} secrets with the names `READONLY_AWS_ACCESS_KEY_ID` and `READONLY_AWS_ACCESS_KEY` are used. If another actor triggers the workflow, the actions secrets with those names are used.
+Чтобы получить доступ к частному реестру контейнеров в AWS с именем пользователя и паролем, рабочий процесс должен содержать секрет для `username` и `password`. В приведенном ниже примере, когда {% data variables.product.prodname_dependabot %} активирует рабочий процесс, используются секреты {% data variables.product.prodname_dependabot %} с именами `READONLY_AWS_ACCESS_KEY_ID` и `READONLY_AWS_ACCESS_KEY`. Если другой субъект активирует рабочий процесс, используются секреты действий с этими именами.
 
 ```yaml
 name: CI
@@ -115,17 +116,17 @@ jobs:
 
 {% note %}
 
-**Note:** Your site administrator can override these restrictions for {% data variables.location.product_location %}. For more information, see "[Troubleshooting {% data variables.product.prodname_actions %} for your enterprise](/admin/github-actions/advanced-configuration-and-troubleshooting/troubleshooting-github-actions-for-your-enterprise#troubleshooting-failures-when-dependabot-triggers-existing-workflows)."
+**Примечание:** Администратор сайта может переопределить эти ограничения для {% data variables.location.product_location %}. Дополнительные сведения см. в разделе [Устранение неполадок {% data variables.product.prodname_actions %} для вашего предприятия](/admin/github-actions/advanced-configuration-and-troubleshooting/troubleshooting-github-actions-for-your-enterprise#troubleshooting-failures-when-dependabot-triggers-existing-workflows).
 
-If the restrictions are removed, when a workflow is triggered by {% data variables.product.prodname_dependabot %} it will have access to {% data variables.product.prodname_actions %} secrets and can use the `permissions` term to increase the default scope of the `GITHUB_TOKEN` from read-only access. You can ignore the specific steps in the "Handling `pull_request` events" and "Handling `push` events" sections, as it no longer applies.
+Если ограничения удалены, когда {% data variables.product.prodname_dependabot %} запускает рабочий процесс, у него будет доступ к секретам {% data variables.product.prodname_actions %}, и он может использовать термин `permissions` для увеличения области для `GITHUB_TOKEN` с доступа только на чтение. Вы можете игнорировать конкретные шаги в разделах "Обработка событий `pull_request`" и "Обработка событий `push`", так как они больше не применяются.
 
 {% endnote %}
 
-### Handling `pull_request` events
+### Обработка событий `pull_request`
 
-If your workflow needs access to secrets or a `GITHUB_TOKEN` with write permissions, you have two options: using `pull_request_target`, or using two separate workflows. We will detail using `pull_request_target` in this section, and using two workflows below in "[Handling `push` events](#handling-push-events)."
+Если вашему рабочему процессу требуется доступ к секретам или `GITHUB_TOKEN` с разрешениями на запись, у вас есть два варианта: использовать `pull_request_target` или два отдельных рабочих процессов. В этом разделе мы подробно рассмотрим использование `pull_request_target`, а использование двух рабочих процессов мы рассмотрим ниже в разделе [Обработка событий `push`](#handling-push-events).
 
-Below is a simple example of a `pull_request` workflow that might now be failing:
+Ниже приведен простой пример рабочего процесса `pull_request`, который теперь может завершаться сбоем:
 
 ```yaml
 ### This workflow now has no secrets and a read-only token
@@ -142,11 +143,11 @@ jobs:
       - uses: {% data reusables.actions.action-checkout %}
 ```
 
-You can replace `pull_request` with `pull_request_target`, which is used for pull requests from forks, and explicitly check out the pull request `HEAD`.
+Вы можете заменить `pull_request` на `pull_request_target`, который используется для запросов на вытягивание из вилок, и явным образом извлечь запрос на вытягивание `HEAD`.
 
 {% warning %}
 
-**Warning:** Using `pull_request_target` as a substitute for `pull_request` exposes you to insecure behavior. We recommend you use the two workflow method, as described below in "[Handling `push` events](#handling-push-events)."
+**Предупреждение.** Использование `pull_request_target` в качестве замены `pull_request` приводит к рискам небезопасного поведения. Рекомендуется использовать метод с двумя рабочими процессами, как описано ниже в разделе [Обработка событий `push`](#handling-push-events).
 
 {% endwarning %}
 
@@ -171,13 +172,13 @@ jobs:
           github-token: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
 ```
 
-It is also strongly recommended that you downscope the permissions granted to the `GITHUB_TOKEN` in order to avoid leaking a token with more privilege than necessary. For more information, see "[Permissions for the `GITHUB_TOKEN`](/actions/reference/authentication-in-a-workflow#permissions-for-the-github_token)."
+Настоятельно рекомендуется также уменьшить область разрешений, предоставленных для `GITHUB_TOKEN`, чтобы избежать утечки маркера с более высоким уровнем привилегией, чем необходимо. Дополнительные сведения см. в разделе «[Разрешения для`GITHUB_TOKEN`](/actions/reference/authentication-in-a-workflow#permissions-for-the-github_token)».
 
-### Handling `push` events
+### Обработка событий `push`
 
-As there is no `pull_request_target` equivalent for `push` events, you will have to use two workflows: one untrusted workflow that ends by uploading artifacts, which triggers a second trusted workflow that downloads artifacts and continues processing.
+Так как для событий `push` нет эквивалента `pull_request_target`, необходимо использовать два рабочих процесса: один недоверенный рабочий процесс, заканчивающийся отправкой артефактов, который активирует второй, доверенный рабочий процесс, скачивающий артефакты и продолжающий обработку.
 
-The first workflow performs any untrusted work:
+Первый рабочий процесс выполняет любые недоверенные действия:
 
 {% raw %}
 
@@ -197,7 +198,7 @@ jobs:
 
 {% endraw %}
 
-The second workflow performs trusted work after the first workflow completes successfully:
+Второй рабочий процесс выполняет доверенные действия после успешного завершения первого рабочего процесса:
 
 {% raw %}
 
@@ -225,37 +226,37 @@ jobs:
 
 {% endif %}
 
-### Manually re-running a workflow
+### Повторный запуск рабочего процесса вручную
 
 {% ifversion actions-stable-actor-ids %}
 
-When you manually re-run a Dependabot workflow, it will run with the same privileges as before even if the user who initiated the rerun has different privileges. For more information, see "[Re-running workflows and jobs](/actions/managing-workflow-runs/re-running-workflows-and-jobs)."
+При повторном запуске рабочего процесса Dependabot вручную он будет выполняться с теми же привилегиями, что и раньше, даже если пользователь, инициировавший повторный запуск, обладает другими привилегиями. Дополнительные сведения см. в статье [Повторный запуск рабочих процессов и заданий](/actions/managing-workflow-runs/re-running-workflows-and-jobs).
 
 {% else %}
 
-You can also manually re-run a failed Dependabot workflow, and it will run with a read-write token and access to secrets. Before manually re-running a failed workflow, you should always check the dependency being updated to ensure that the change doesn't introduce any malicious or unintended behavior.
+Вы также можете вручную повторно запустить рабочий процесс Dependabot, который завершился сбоем, и он будет выполняться с маркером чтения и записи и доступом к секретам. Перед повторным запуском рабочего процесса, завершившегося сбоем, всегда следует проверять обновляемую зависимость, чтобы убедиться, что изменение не приводит к вредоносному или непредвиденному поведению.
 
 {% endif %}
 
-## Common Dependabot automations
+## Распространенные автоматизации Dependabot
 
-Here are several common scenarios that can be automated using {% data variables.product.prodname_actions %}.
+Ниже приведены несколько распространенных сценариев, которые можно автоматизировать с помощью {% data variables.product.prodname_actions %}.
 
 {% ifversion ghes = 3.3 %}
 
 {% note %}
 
-**Note:** If your site administrator has overridden restrictions for {% data variables.product.prodname_dependabot %} on {% data variables.location.product_location %}, you can use `pull_request` instead of `pull_request_target` in the following workflows.
+**Примечание:** Если администратор сайта переопределил ограничения для {% data variables.product.prodname_dependabot %} в {% data variables.location.product_location %}, вы можете использовать `pull_request` вместо `pull_request_target` в следующих рабочих процессах.
 
 {% endnote %}
 
 {% endif %}
 
-### Fetch metadata about a pull request
+### Получение метаданных о запросе на вытягивание
 
-A large amount of automation requires knowing information about the contents of the pull request: what the dependency name was, if it's a production dependency, and if it's a major, minor, or patch update.
+Для большого объема автоматизации требуется знать о содержимом запроса на вытягивание: имя зависимости, если это зависимость в производственной среде, и является ли это обновлением основной или дополнительной версии или исправлением.
 
-The `dependabot/fetch-metadata` action provides all that information for you:
+Действие `dependabot/fetch-metadata` предоставляет все эти сведения:
 
 {% ifversion ghes = 3.3 %}
 
@@ -321,13 +322,13 @@ jobs:
 
 {% endif %}
 
-For more information, see the [`dependabot/fetch-metadata`](https://github.com/dependabot/fetch-metadata) repository.
+Дополнительные сведения см. в репозитории [`dependabot/fetch-metadata`](https://github.com/dependabot/fetch-metadata).
 
-### Label a pull request
+### Пометка запроса на вытягивание
 
-If you have other automation or triage workflows based on {% data variables.product.prodname_dotcom %} labels, you can configure an action to assign labels based on the metadata provided.
+Если у вас есть другие рабочие процессы автоматизации или рассмотрения на основе меток {% data variables.product.prodname_dotcom %}, можно настроить действие для назначения меток на основе предоставленных метаданных.
 
-For example, if you want to flag all production dependency updates with a label:
+Например, если вы хотите пометить все обновления зависимости в рабочей среде:
 
 {% ifversion ghes = 3.3 %}
 
@@ -395,9 +396,9 @@ jobs:
 
 {% endif %}
 
-### Approve a pull request
+### Одобрение запроса на вытягивание
 
-If you want to automatically approve Dependabot pull requests, you can use the {% data variables.product.prodname_cli %} in a workflow:
+Если вы хотите автоматически утверждать запросы на вытягивание Dependabot, можно использовать {% data variables.product.prodname_cli %} в рабочем процессе:
 
 {% ifversion ghes = 3.3 %}
 
@@ -461,17 +462,17 @@ jobs:
 
 {% endif %}
 
-### Enable auto-merge on a pull request
+### Включение автоматического слияния для запроса на вытягивание
 
-If you want to allow maintainers to mark certain pull requests for auto-merge, you can use {% data variables.product.prodname_dotcom %}'s auto-merge functionality. This enables the pull request to be merged when any tests and approvals required by the branch protection rules are successfully met. For more information, see "[Automatically merging a pull request](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/automatically-merging-a-pull-request)" and "[Managing a branch protection rule](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/managing-a-branch-protection-rule)."
+Если вы хотите разрешить специалистам по поддержке помечать определенные запросы на вытягивание для автоматического слияния, можно использовать функцию автоматического слияния {% data variables.product.prodname_dotcom %}. Это позволяет объединять запрос на вытягивание при успешном выполнении всех тестов и утверждений, требуемых правилами защиты ветвей. Дополнительные сведения см. в [разделах Автоматическое слияние запроса на вытягивание](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/automatically-merging-a-pull-request) и [Управление правилом защиты ветви](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/managing-a-branch-protection-rule).
 
 {% note %}
 
-**Note:** If you use status checks to test pull requests, you should enable **Require status checks to pass before merging** for the target branch for {% data variables.product.prodname_dependabot %} pull requests. This branch protection rule ensures that pull requests are not merged unless all the required status checks pass. For more information, see "[Managing a branch protection rule](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/managing-a-branch-protection-rule)."
+**Примечание:** Если для тестирования запросов на вытягивание используются проверки состояния, необходимо включить **параметр Требовать прохождение проверок состояния перед слиянием** целевой ветви для запросов на вытягивание {% data variables.product.prodname_dependabot %}. Это правило защиты ветви гарантирует, что запросы на вытягивание не будут объединены, если не будут пройдены все необходимые проверки состояния. Дополнительные сведения см. в разделе [Управление правилом защиты ветви](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/managing-a-branch-protection-rule).
 
 {% endnote %}
 
-You can instead use {% data variables.product.prodname_actions %} and the {% data variables.product.prodname_cli %}. Here is an example that auto merges all patch updates to `my-dependency`:
+Вместо этого можно использовать {% data variables.product.prodname_actions %} и {% data variables.product.prodname_cli %}. Ниже приведен пример автоматического слияния всех исправлений с `my-dependency`:
 
 {% ifversion ghes = 3.3 %}
 
@@ -539,24 +540,24 @@ jobs:
 
 {% endif %}
 
-## Troubleshooting failed workflow runs
+## Устранение неполадок неудачных запусков рабочих процессов
 
-If your workflow run fails, check the following:
+Если выполнение рабочего процесса завершается сбоем, проверьте следующее:
 
 {% ifversion ghes = 3.3 %}
 
-- You are running the workflow only when the correct actor triggers it.
-- You are checking out the correct `ref` for your `pull_request`.
-- You aren't trying to access secrets from within a Dependabot-triggered `pull_request`, `pull_request_review`, `pull_request_review_comment`, or `push` event.
-- You aren't trying to perform any `write` actions from within a Dependabot-triggered `pull_request`, `pull_request_review`, `pull_request_review_comment`, or `push` event.
+- Вы выполняете рабочий процесс только в том случае, если он активируется правильным субъектом.
+- Вы извлекаете корректную `ref` для `pull_request`.
+- Вы не пытаетесь получить доступ к секретам из события `pull_request`, `pull_request_review`, `pull_request_review_comment` или `push`, активированного Dependabot.
+- Вы не пытаетесь выполнить действия `write` из события `pull_request`, `pull_request_review`, `pull_request_review_comment` или `push`, активированного Dependabot.
 
 {% else %}
 
-- You are running the workflow only when the correct actor triggers it.
-- You are checking out the correct `ref` for your `pull_request`.
-- Your secrets are available in {% data variables.product.prodname_dependabot %} secrets rather than as {% data variables.product.prodname_actions %} secrets.
-- You have a `GITHUB_TOKEN` with the correct permissions.
+- Вы выполняете рабочий процесс только в том случае, если он активируется правильным субъектом.
+- Вы извлекаете корректную `ref` для `pull_request`.
+- Секреты доступны в секретах {% data variables.product.prodname_dependabot %}, а не {% data variables.product.prodname_actions %}.
+- У вас есть `GITHUB_TOKEN` с надлежащими разрешениями.
 
 {% endif %}
 
-For information on writing and debugging {% data variables.product.prodname_actions %}, see "[Learning GitHub Actions](/actions/learn-github-actions)."
+Сведения о записи и отладке {% data variables.product.prodname_actions %} см. в разделе [Изучение GitHub Actions](/actions/learn-github-actions).

@@ -1,6 +1,6 @@
 ---
-title: Contributing to projects
-intro: Learn how to contribute to a project through forking.
+title: Участие в проектах
+intro: 'Узнайте, как внести свой вклад в проект с помощью создания вилок.'
 permissions: '{% data reusables.enterprise-accounts.emu-permission-fork %}'
 versions:
   fpt: '*'
@@ -12,59 +12,61 @@ topics:
   - Forks
   - GitHub
   - Open Source
+ms.openlocfilehash: da38c6f5b3ea953fc58bf79080b9fa4eb5a2712d
+ms.sourcegitcommit: 468a0323fa636517985a3e08e2772dbb0545cab8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 12/03/2022
+ms.locfileid: '148191349'
 ---
+## Сведения о вилках
 
-## About forking
-
-If you want to contribute to someone else's project but don't have write access to the repository, you can use a "fork and pull request" workflow. 
+Если вы хотите внести свой вклад в чужой проект, но у вас нет доступа на запись в репозиторий, можно использовать рабочий процесс "вилка и запрос на вытягивание". 
 
 {% data reusables.repositories.fork-definition-long %}
 
-You can contribute by submitting pull requests from your fork to the upstream repository. For more information, see "[Fork a repo](/get-started/quickstart/fork-a-repo)."
+Вы можете внести свой вклад, отправив запросы на вытягивание из вилки в вышестоящий репозиторий. Дополнительные сведения см. в разделе [Создание вилки репозитория](/get-started/quickstart/fork-a-repo).
 
-## Forking a repository
+## Создание вилки репозитория
 
-This tutorial uses [the Spoon-Knife project](https://github.com/octocat/Spoon-Knife), a test repository that's hosted on {% data variables.product.prodname_dotcom_the_website %} that lets you test the fork and pull request workflow.
+В этом руководстве используется [проект Spoon-Knife](https://github.com/octocat/Spoon-Knife), тестовый репозиторий, размещенный на {% data variables.product.prodname_dotcom_the_website %} и позволяющий опробовать рабочий процесс создания вилок и запросов на вытягивание.
 
-1. Navigate to the `Spoon-Knife` project at https://github.com/octocat/Spoon-Knife.
-2. Click **Fork**.
-   ![Fork button](/assets/images/help/repository/fork_button.png){% ifversion fpt or ghec or ghes > 3.5 or ghae > 3.5 %}
-3. Select an owner for the forked repository.
-   ![Create a new fork page with owner dropdown emphasized](/assets/images/help/repository/fork-choose-owner.png)
-4. By default, forks are named the same as their upstream repositories. You can change the name of the fork to distinguish it further. 
-   ![Create a new fork page with repository name field emphasized](/assets/images/help/repository/fork-choose-repo-name.png)
-5. Optionally, add a description of your fork.
-   ![Create a new fork page with description field emphasized](/assets/images/help/repository/fork-description.png)
-6. Choose whether to copy only the default branch or all branches to the new fork. For many forking scenarios, such as contributing to open-source projects, you only need to copy the default branch. By default, only the default branch is copied.
-   ![Option to copy only the default branch](/assets/images/help/repository/copy-default-branch-only.png)
-7. Click **Create fork**.
-   ![Emphasized create fork button](/assets/images/help/repository/fork-create-button.png)
+1. Перейдите к проекту `Spoon-Knife` по адресу https://github.com/octocat/Spoon-Knife.
+2. Нажмите кнопку **Вилка**.
+   ![Кнопка](/assets/images/help/repository/fork_button.png) fork{% ifversion fpt or ghec or ghes > 3.5 or ghae > 3.5 %}
+3. Выберите владельца для ответвленного репозитория.
+   ![Страница создания вилки с выделенным раскрывающимся списком владельца](/assets/images/help/repository/fork-choose-owner.png)
+4. По умолчанию вилки называются так же, как и их вышестоящие репозитории. Вы можете изменить имя вилки, чтобы избежать путаницы. 
+   ![Страница создания вилки с выделенным полем имени репозитория](/assets/images/help/repository/fork-choose-repo-name.png)
+5. При необходимости добавьте описание вилки.
+   ![Страница создания вилки с выделенным полем описания](/assets/images/help/repository/fork-description.png)
+6. Выберите, следует ли копировать в новую вилку только ветвь по умолчанию или все ветви. Для многих сценариев разветвления, таких как участие в проектах с открытым кодом, необходимо скопировать только ветвь по умолчанию. По умолчанию копируется только ветвь по умолчанию.
+   ![Вариант копирования только ветви по умолчанию](/assets/images/help/repository/copy-default-branch-only.png)
+7. Нажмите **Создать вилку**.
+   ![Выделенная кнопка создания вилки](/assets/images/help/repository/fork-create-button.png)
 
 {% note %}
 
-**Note:** If you want to copy additional branches from the upstream repository, you can do so from the **Branches** page. For more information, see "[Creating and deleting branches within your repository](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository)."
+**Примечание:** Если вы хотите скопировать дополнительные ветви из вышестоящего репозитория, это можно сделать на странице **Ветви** . Дополнительные сведения см. в разделе [Создание и удаление ветвей репозитория](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository).
 
-{% endnote %}
-{% endif %}
+{% endnote %} {% endif %}
 
-## Cloning a fork
+## Клонирование вилки
 
-You've successfully forked the Spoon-Knife repository, but so far, it only exists on {% data variables.product.product_name %}. To be able to work on the project, you will need to clone it to your computer.
+Вы успешно создали вилку репозитория Spoon-Knife, но пока она существует только на {% data variables.product.product_name %}. Для работы над проектом необходимо клонировать ее на свой компьютер.
 
-You can clone your fork with the command line, {% data variables.product.prodname_cli %}, or {% data variables.product.prodname_desktop %}.
+Клонировать вилку можно с помощью командной строки, {% data variables.product.prodname_cli %} или {% data variables.product.prodname_desktop %}.
 
 {% webui %}
 
-1. On {% data variables.product.product_name %}, navigate to **your fork** of the Spoon-Knife repository.
-{% data reusables.repositories.copy-clone-url %}
-{% data reusables.command_line.open_the_multi_os_terminal %}
-{% data reusables.command_line.change-current-directory-clone %}
-4. Type `git clone`, and then paste the URL you copied earlier. It will look like this, with your {% data variables.product.product_name %} username instead of `YOUR-USERNAME`:
+1. На {% data variables.product.product_name %} перейдите к **своей вилке** репозитория Spoon-Knife.
+{% data reusables.repositories.copy-clone-url %} {% data reusables.command_line.open_the_multi_os_terminal %} {% data reusables.command_line.change-current-directory-clone %}
+4. Введите `git clone` и вставьте URL-адрес, скопированный ранее. Он будет выглядеть следующим образом с вашим именем пользователя {% data variables.product.product_name %} вместо `YOUR-USERNAME`:
   ```shell
   $ git clone https://{% data variables.command_line.codeblock %}/YOUR-USERNAME/Spoon-Knife
   ```
 
-5. Press **Enter**. Your local clone will be created.
+5. Нажмите клавишу **ВВОД**. Будет создан локальный клон.
   ```shell
   $ git clone https://{% data variables.command_line.codeblock %}/YOUR-USERNAME/Spoon-Knife
   > Cloning into `Spoon-Knife`...
@@ -80,7 +82,7 @@ You can clone your fork with the command line, {% data variables.product.prodnam
 
 {% data reusables.cli.cli-learn-more %}
 
-To create a clone of your fork, use the `--clone` flag.
+Чтобы создать клон вилки, используйте флаг `--clone`.
 
 ```shell
 gh repo fork REPOSITORY --clone=true
@@ -90,17 +92,13 @@ gh repo fork REPOSITORY --clone=true
 
 {% desktop %}
 
-{% data reusables.desktop.choose-clone-repository %}
-{% data reusables.desktop.cloning-location-tab %}
-{% data reusables.desktop.cloning-repository-list %}
-{% data reusables.desktop.choose-local-path %}
-{% data reusables.desktop.click-clone %}
+{% data reusables.desktop.choose-clone-repository %} {% data reusables.desktop.cloning-location-tab %} {% data reusables.desktop.cloning-repository-list %} {% data reusables.desktop.choose-local-path %} {% data reusables.desktop.click-clone %}
 
 {% enddesktop %}
 
-## Creating a branch to work on
+## Создание ветви для работы
 
-Before making changes to the project, you should create a new branch and check it out. By keeping changes in their own branch, you follow GitHub Flow and ensure that it will be easier to contribute to the same project again in the future. For more information, see "[GitHub Flow](/get-started/quickstart/github-flow#following-github-flow)."
+Перед внесением изменений в проект необходимо создать новую ветвь и извлечь ее. Сохраняя изменения в собственной ветви, вы следите за потоком GitHub и гарантируете, что в будущем будет проще вносить свой вклад в тот же проект. Дополнительные сведения см. в разделе [GitHub Flow](/get-started/quickstart/github-flow#following-github-flow).
 
 {% webui %}
 
@@ -122,15 +120,15 @@ git checkout BRANCH-NAME
 
 {% desktop %}
 
-For more information about how to create and manage branches in {% data variables.product.prodname_desktop %}, see "[Managing branches](/desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/managing-branches)."
+Дополнительные сведения о создании ветвей и управлении ими в {% data variables.product.prodname_desktop %} см. в разделе [Управление ветвями](/desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/managing-branches).
 
 {% enddesktop %}
 
-## Making and pushing changes
+## Внесение и отправка изменений
 
-Go ahead and make a few changes to the project using your favorite text editor, like [Visual Studio Code](https://code.visualstudio.com). You could, for example, change the text in `index.html` to add your GitHub username.
+Внесите несколько изменений в проект в любимом текстовом редакторе, например [Visual Studio Code](https://code.visualstudio.com). Например, можно изменить текст в файле `index.html`, добавив свое имя пользователя GitHub.
 
-When you're ready to submit your changes, stage and commit your changes. `git add .` tells Git that you want to include all of your changes in the next commit. `git commit` takes a snapshot of those changes.
+Когда вы будете готовы отправить изменения, подготовьте и зафиксируйте их. `git add .` сообщает GIT, что вы хотите включить все изменения в следующую фиксацию. `git commit` создает моментальный снимок этих изменений.
 
 {% webui %}
 
@@ -152,13 +150,13 @@ git commit -m "a short description of the change"
 
 {% desktop %}
 
-For more information about how to stage and commit changes in {% data variables.product.prodname_desktop %}, see "[Committing and reviewing changes to your project](/desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/committing-and-reviewing-changes-to-your-project#selecting-changes-to-include-in-a-commit)."
+Дополнительные сведения о подготовке и фиксации изменений в {% data variables.product.prodname_desktop %} см. в разделе [Фиксация и проверка изменений в проекте](/desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/committing-and-reviewing-changes-to-your-project#selecting-changes-to-include-in-a-commit).
 
 {% enddesktop %}
 
-When you stage and commit files, you essentially tell Git, "Okay, take a snapshot of my changes!" You can continue to make more changes, and take more commit snapshots.
+Когда вы создаете и фиксируете файлы, вы по сути сообщаете GIT, что нужно сделать моментальный снимок изменений. После этого вы можете продолжить вносить изменения и создавать дополнительные моментальные снимки в виде фиксаций.
 
-Right now, your changes only exist locally. When you're ready to push your changes up to {% data variables.product.product_name %}, push your changes to the remote.
+На данный момент изменения существуют только локально. Когда вы будете готовы передать изменения на {% data variables.product.product_name %}, отправьте их в удаленный репозиторий.
 
 {% webui %}
 
@@ -178,25 +176,24 @@ git push
 
 {% desktop %}
 
-For more information about how to push changes in {% data variables.product.prodname_desktop %}, see "[Pushing changes to GitHub](/desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/pushing-changes-to-github)."
+Дополнительные сведения об отправке изменений на {% data variables.product.prodname_desktop %} см. в разделе [Отправка изменений на GitHub](/desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/pushing-changes-to-github).
 
 {% enddesktop %}
 
-## Making a pull request
+## Выполнение запроса на вытягивание
 
-At last, you're ready to propose changes into the main project! This is the final step in producing a fork of someone else's project, and arguably the most important. If you've made a change that you feel would benefit the community as a whole, you should definitely consider contributing back.
+Наконец, вы готовы предложить изменения для основного проекта. Это последний этап работы с вилкой чужого проекта, и, пожалуй, самый важный. Если вы внесли изменение, которое, как вам кажется, принесет пользу всему сообществу, определенно стоит подумать о том, чтобы поделиться им.
 
-To do so, head on over to the repository on {% data variables.product.product_name %} where your project lives. For this example, it would be at `https://github.com/<your_username>/Spoon-Knife`. You'll see a banner indicating that your branch is one commit ahead of `octocat:main`. Click **Contribute** and then **Open a pull request**.
+Для этого перейдите к репозиторию на {% data variables.product.product_name %}, где находится проект. В данном примере это будет `https://github.com/<your_username>/Spoon-Knife`. Вы увидите баннер с сообщением о том, что до слияния вашей ветви с `octocat:main` осталась одна фиксация. Щелкните **Принять участие**, а затем — **Открыть запрос на вытягивание**.
 
-{% data variables.product.product_name %} will bring you to a page that shows the differences between your fork and the `octocat/Spoon-Knife` repository. Click **Create pull request**.
+На {% data variables.product.product_name %} откроется страница с различиями между вашей вилкой и репозиторием `octocat/Spoon-Knife`. Щелкните **Создать запрос на вытягивание**.
 
-{% data variables.product.product_name %} will bring you to a page where you can enter a title and a description of your changes. It's important to provide as much useful information and a rationale for why you're making this pull request in the first place. The project owner needs to be able to determine whether your change is as useful to everyone as you think it is. Finally, click **Create pull request**.
+{% data variables.product.product_name %} перенаправит вас на страницу, где можно ввести заголовок и описание изменений. Очень важно предоставить как можно более подробную информацию и обоснование для запроса на вытягивание. Исходя из этого владелец проекта сможет решить, является ли ваше изменение таким полезным для всех, каким вы его считаете. Наконец, щелкните **Создать запрос на вытягивание**.
 
-## Managing feedback
+## Управление отзывами
 
-Pull Requests are an area for discussion. In this case, the Octocat is very busy, and probably won't merge your changes. For other projects, don't be offended if the project owner rejects your pull request, or asks for more information on why it's been made. It may even be that the project owner chooses not to merge your pull request, and that's totally okay. Your changes exist in your fork. And who knows--maybe someone you've never met will find your changes much more valuable than the original project.
+Запросы на вытягивание открыты для обсуждения. Над проектом Octocat ведется очень активная работа, поэтому, вероятно, ваши изменения не будут добавлены. В случае с другими проектами не обижайтесь, если владелец проекта отклонит ваш запрос на вытягивание или запросит дополнительные сведения о его причинах. Возможно даже, что владелец проекта решит не выполнять слияние вашего запроса на вытягивание, и это вполне нормально. Изменения существуют в вилке. Но кто знает, может быть, кому-нибудь когда-нибудь ваши изменения покажутся гораздо более ценными, чем исходный проект.
 
-## Finding projects
+## Поиск проектов
 
-You've successfully forked and contributed back to a repository. Go forth, and
-contribute some more!{% ifversion fpt %} For more information, see "[Finding ways to contribute to open source on GitHub](/get-started/exploring-projects-on-github/finding-ways-to-contribute-to-open-source-on-github)."{% endif %}
+Вы успешно создали вилку и внесли свой вклад в репозиторий. Продолжайте участвовать в работе сообщества!{% ifversion fpt %} Дополнительные сведения см. в разделе [Способы участия в создании открытого кода на GitHub](/get-started/exploring-projects-on-github/finding-ways-to-contribute-to-open-source-on-github).{% endif %}

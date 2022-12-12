@@ -1,6 +1,6 @@
 ---
-title: Managing security and analysis settings for your repository
-intro: 'You can control features that secure and analyze the code in your project on {% data variables.product.prodname_dotcom %}.'
+title: Управление параметрами безопасности и анализа для репозитория
+intro: 'Вы можете управлять возможностями, которые защищают и анализируют код в проекте в {% data variables.product.prodname_dotcom %}.'
 permissions: People with admin permissions to a repository can manage security and analysis settings for the repository.
 redirect_from:
   - /articles/managing-alerts-for-vulnerable-dependencies-in-your-organization-s-repositories
@@ -23,96 +23,76 @@ topics:
   - Secret scanning
   - Repositories
 shortTitle: Security & analysis
+ms.openlocfilehash: 4373c92b6b4e12f56bb26869090955824662b841
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148109656'
 ---
 {% ifversion fpt or ghec %}
-## Enabling or disabling security and analysis features for public repositories
+## Включение и отключение функций безопасности и анализа для общедоступных репозиториев
 
-You can manage a subset of security and analysis features for public repositories. Other features are permanently enabled, including dependency graph and secret scanning.
+Вы можете управлять частью функций безопасности и анализа для общедоступных репозиториев. Остальные функции включены постоянно, включая граф зависимостей и сканирование секретов.
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-{% data reusables.repositories.navigate-to-code-security-and-analysis %}
-4. Under "Code security and analysis", to the right of the feature, click **Disable** or **Enable**.
-  !["Enable" or "Disable" button for "Configure security and analysis" features in a public repository](/assets/images/help/repository/security-and-analysis-disable-or-enable-public.png)
-{% endif %}
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %} {% data reusables.repositories.navigate-to-code-security-and-analysis %}
+4. В разделе "Безопасность и анализ кода" справа от функции нажмите кнопку **Отключить** или **Включить**.
+  ![Кнопка "Включить" или "Отключить" для возможностей настройки безопасности и анализа в общедоступном репозитории](/assets/images/help/repository/security-and-analysis-disable-or-enable-public.png) {% endif %}
 
-## Enabling or disabling security and analysis features{% ifversion fpt or ghec %} for private repositories{% endif %}
+## Включение и отключение функций безопасности и анализа{% ifversion fpt or ghec %} для частных репозиториев{% endif %}
 
-You can manage the security and analysis features for your {% ifversion fpt or ghec %}private or internal {% endif %}repository.{% ifversion ghes or ghec %} If your organization belongs to an enterprise with a license for {% data variables.product.prodname_GH_advanced_security %} then extra options are available. {% data reusables.advanced-security.more-info-ghas %}
-{% elsif fpt %} Organizations that use {% data variables.product.prodname_ghe_cloud %} with {% data variables.product.prodname_advanced_security %} have extra options available. For more information, see the [{% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest//repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository#enabling-or-disabling-security-and-analysis-features-for-private-repositories).
+Вы можете управлять функциями безопасности и анализа для {% ifversion fpt or ghec %}частного или внутреннего {% endif %}репозитория.{% ifversion ghes or ghec %} Если ваш отдел входит в организацию с лицензией на {% data variables.product.prodname_GH_advanced_security %}, доступны дополнительные параметры. {% data reusables.advanced-security.more-info-ghas %} {% elsif fpt %} Организации, использующие {% data variables.product.prodname_ghe_cloud %} с {% data variables.product.prodname_advanced_security %}, имеют дополнительные параметры. Дополнительные сведения см. в [документации по {% data variables.product.prodname_ghe_cloud %}](/enterprise-cloud@latest//repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository#enabling-or-disabling-security-and-analysis-features-for-private-repositories).
 {% endif %}
 
 {% data reusables.security.security-and-analysis-features-enable-read-only %}
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-{% data reusables.repositories.navigate-to-code-security-and-analysis %}
-{% ifversion fpt or ghes or ghec %}
-4. Under "Code security and analysis", to the right of the feature, click **Disable** or **Enable**. {% ifversion not fpt %}The control for "{% data variables.product.prodname_GH_advanced_security %}" is disabled if your enterprise has no available licenses for {% data variables.product.prodname_advanced_security %}.{% endif %}{% ifversion fpt %}
-  ![Screenshot of "Enable" or "Disable" button for "Configure security and analysis" features](/assets/images/help/repository/security-and-analysis-disable-or-enable-fpt-private.png){% elsif ghec %}
-  ![Screenshot of "Enable" or "Disable" button for "Configure security and analysis" features](/assets/images/help/repository/security-and-analysis-disable-or-enable-ghec-private.png){% elsif ghes > 3.6 or ghae > 3.6 %}<!--Insert screenshot for GHES 3.7 when available-->
-  ![Screenshot of "Enable" or "Disable" button for "Configure security and analysis" features](/assets/images/enterprise/3.3/repository/security-and-analysis-disable-or-enable-ghes.png){% endif %}
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %} {% data reusables.repositories.navigate-to-code-security-and-analysis %} {% ifversion fpt or ghes or ghec %}
+4. В разделе "Безопасность и анализ кода" справа от функции нажмите кнопку **Отключить** или **Включить**. {% ifversion not fpt %} Элемент управления "{% data variables.product.prodname_GH_advanced_security %}" отключен, если у вашего предприятия нет доступных лицензий для {% data variables.product.prodname_advanced_security %}. {% endif %} {% ifversion fpt %} ![ Снимок экрана: кнопка "Включить" или "Отключить" для функций](/assets/images/help/repository/security-and-analysis-disable-or-enable-fpt-private.png) "Настройка безопасности и анализа"{% elsif ghec %} ![Снимок экрана: кнопка "Включить" или "Отключить" для функций](/assets/images/help/repository/security-and-analysis-disable-or-enable-ghec-private.png) "Настройка безопасности и анализа"{% elsif ghes > 3.6 or ghae > 3.6 %}<!--Insert screenshot for GHES 3.7 when available-->
+  ![Снимок экрана: кнопка "Включить" или "Отключить" для функций](/assets/images/enterprise/3.3/repository/security-and-analysis-disable-or-enable-ghes.png) "Настройка безопасности и анализа"{% endif %}
   
-  {% ifversion not fpt %}
-  {% note %}
+  {% ifversion not fpt %} {% note %}
 
-  **Note:** If you disable {% data variables.product.prodname_GH_advanced_security %}, {% ifversion ghec %}dependency review, {% endif %}{% data variables.product.prodname_secret_scanning %} and {% data variables.product.prodname_code_scanning %} are disabled. Any workflows, SARIF uploads, or API calls for {% data variables.product.prodname_code_scanning %} will fail.
+  **Примечание**. При отключении {% data variables.product.prodname_GH_advanced_security %} также отключаются {% ifversion ghec %}проверка зависимостей, {% endif %}{% data variables.product.prodname_secret_scanning %} и {% data variables.product.prodname_code_scanning %}. Все рабочие процессы, операции отправки SARIF и вызовы API для {% data variables.product.prodname_code_scanning %} будут завершаться сбоем.
   {% endnote %}{% endif %}
 
   {% endif %}
 
   {% ifversion ghae %}
-4. Under "Code security and analysis", to the right of the feature, click **Disable** or **Enable**. Before you can enable "{% data variables.product.prodname_secret_scanning %}" for your repository, you may need to enable {% data variables.product.prodname_GH_advanced_security %}.
-   ![Enable or disable {% data variables.product.prodname_GH_advanced_security %} or {% data variables.product.prodname_secret_scanning %} for your repository](/assets/images/enterprise/github-ae/repository/enable-ghas-secret-scanning-ghae.png)
-  {% endif %}
+4. В разделе "Безопасность и анализ кода" справа от функции нажмите кнопку **Отключить** или **Включить**. Прежде чем включать {% data variables.product.prodname_secret_scanning %} для репозитория, может потребоваться включить {% data variables.product.prodname_GH_advanced_security %}.
+   ![Включение или отключение {% data variables.product.prodname_GH_advanced_security %} или {% data variables.product.prodname_secret_scanning %} для репозитория](/assets/images/enterprise/github-ae/repository/enable-ghas-secret-scanning-ghae.png) {% endif %}
 
-## Granting access to security alerts
+## Предоставление доступа к оповещениям системы безопасности
 
-Security alerts for a repository are visible to people with admin access to the repository and, when the repository is owned by an organization, organization owners. You can give additional teams and people access to the alerts.
+Оповещения системы безопасности для репозитория видны пользователям с доступом к нему с правами администратора, а также, если репозиторий принадлежит организации, владельцам организации. Вы можете предоставить доступ к оповещениям дополнительным командам и пользователям.
 
 {% note %}
 
-Organization owners and repository administrators can only grant access to view security alerts, such as {% data variables.product.prodname_secret_scanning %} alerts, to people or teams who have write access to the repo.
+Владельцы организации и администраторы репозитория могут предоставлять доступ для просмотра оповещений системы безопасности, таких как оповещения {% data variables.product.prodname_secret_scanning %}, только пользователям и командам с правами на запись в репозиторий.
 
 {% endnote %}
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-{% data reusables.repositories.navigate-to-code-security-and-analysis %}
-4. Under "Access to alerts", in the search field, start typing the name of the person or team you'd like to find, then click a name in the list of matches.
-   {% ifversion fpt or ghec or ghes %}
-   ![Search field for granting people or teams access to security alerts](/assets/images/help/repository/security-and-analysis-security-alerts-person-or-team-search.png)
-   {% endif %}
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %} {% data reusables.repositories.navigate-to-code-security-and-analysis %}
+4. В разделе "Доступ к оповещениям" в поле поиска начните вводить имя пользователя или команды, которых нужно найти, а затем щелкните имя в списке совпадений.
+   {% ifversion fpt or ghec or ghes %} ![ Поле поиска для предоставления пользователям или командам доступа к оповещениям](/assets/images/help/repository/security-and-analysis-security-alerts-person-or-team-search.png) системы безопасности {% endif %}
    
-   {% ifversion ghae %}
-   ![Search field for granting people or teams access to security alerts](/assets/images/enterprise/github-ae/repository/security-and-analysis-security-alerts-person-or-team-search-ghae.png)
-   {% endif %}
+   {% ifversion ghae %} ![ Поле поиска для предоставления пользователям или командам доступа к оповещениям](/assets/images/enterprise/github-ae/repository/security-and-analysis-security-alerts-person-or-team-search-ghae.png) системы безопасности {% endif %}
    
-5. Click **Save changes**.
-   {% ifversion fpt or ghes or ghec %}
-   !["Save changes" button for changes to security alert settings](/assets/images/help/repository/security-and-analysis-security-alerts-save-changes.png)
-   {% endif %}
+5. Нажмите кнопку **Сохранить изменения**.
+   {% ifversion fpt or ghes or ghec %} ![" Кнопка "Сохранить изменения" для изменения параметров оповещений](/assets/images/help/repository/security-and-analysis-security-alerts-save-changes.png) системы безопасности {% endif %}
    
-   {% ifversion ghae %}
-   !["Save changes" button for changes to security alert settings](/assets/images/enterprise/github-ae/repository/security-and-analysis-security-alerts-save-changes-ghae.png)
-   {% endif %}
+   {% ifversion ghae %} ![" Кнопка "Сохранить изменения" для изменения параметров оповещений](/assets/images/enterprise/github-ae/repository/security-and-analysis-security-alerts-save-changes-ghae.png) системы безопасности {% endif %}
 
-## Removing access to security alerts
+## Отмена доступа к оповещениям системы безопасности
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-{% data reusables.repositories.navigate-to-code-security-and-analysis %}
-4. Under "Access to alerts", to the right of the person or team whose access you'd like to remove, click {% octicon "x" aria-label="X symbol" %}.
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %} {% data reusables.repositories.navigate-to-code-security-and-analysis %}
+4. В разделе "Доступ к оповещениям" справа от пользователя или команды, доступ которым необходимо запретить, щелкните {% octicon "x" aria-label="X symbol" %}.
    {% ifversion fpt or ghec or ghes %}  
-   !["x" button to remove someone's access to security alerts for your repository](/assets/images/help/repository/security-and-analysis-security-alerts-username-x.png)
-   {% endif %}
+   ![Кнопка "x", чтобы удалить доступ пользователя к оповещениям системы безопасности для репозитория](/assets/images/help/repository/security-and-analysis-security-alerts-username-x.png) {% endif %}
    
-   {% ifversion ghae %}
-   !["x" button to remove someone's access to security alerts for your repository](/assets/images/enterprise/github-ae/repository/security-and-analysis-security-alerts-username-x-ghae.png)
-   {% endif %}
-  5. Click **Save changes**.
+   {% ifversion ghae %} ![" Кнопка x", чтобы удалить доступ пользователя к оповещениям системы безопасности для репозитория](/assets/images/enterprise/github-ae/repository/security-and-analysis-security-alerts-username-x-ghae.png) {% endif %}
+  5. Нажмите кнопку **Сохранить изменения**.
 
-## Further reading
+## Дополнительные материалы
 
-- "[Securing your repository](/code-security/getting-started/securing-your-repository)"
-- "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)"
+- [Защита репозитория](/code-security/getting-started/securing-your-repository)
+- [Управление параметрами безопасности и анализа для организации](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)
