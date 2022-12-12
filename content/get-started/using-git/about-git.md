@@ -124,7 +124,7 @@ git commit -m "add README to initial commit"
 git remote add origin https://github.com/YOUR-USERNAME/YOUR-REPOSITORY-NAME.git
 
 # push changes to github
-git push --set-upstream origin main
+git push --set-upstream-to main
 ```
 
 ### Example: contribute to an existing branch on {% data variables.product.product_name %}
