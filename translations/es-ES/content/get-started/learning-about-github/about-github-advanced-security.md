@@ -1,6 +1,6 @@
 ---
-title: About GitHub Advanced Security
-intro: '{% data variables.product.prodname_dotcom %} makes extra security features available to customers under an {% data variables.product.prodname_advanced_security %} license.{% ifversion fpt or ghec %} These features are also enabled for public repositories on {% data variables.product.prodname_dotcom_the_website %}.{% endif %}'
+title: Acerca de GitHub Advanced Security
+intro: '{% data variables.product.prodname_dotcom %} pone a disposición de los clientes medidas adicionales de seguridad mediante una licencia de {% data variables.product.prodname_advanced_security %}.{% ifversion fpt or ghec %} Estas características también se habilitan para los repositorios públicos en {% data variables.product.prodname_dotcom_the_website %}.{% endif %}'
 product: '{% data reusables.gated-features.ghas %}'
 versions:
   fpt: '*'
@@ -13,89 +13,86 @@ redirect_from:
   - /github/getting-started-with-github/about-github-advanced-security
   - /github/getting-started-with-github/learning-about-github/about-github-advanced-security
 shortTitle: GitHub Advanced Security
+ms.openlocfilehash: 49a58dd78c906982c8c8b9702d55cd11662cb12e
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148159185'
 ---
-## About {% data variables.product.prodname_GH_advanced_security %}
+## Acerca de {% data variables.product.prodname_GH_advanced_security %}
 
-{% data variables.product.prodname_dotcom %} has many features that help you improve and maintain the quality of your code. Some of these are included in all plans{% ifversion not ghae %}, such as dependency graph and {% data variables.product.prodname_dependabot_alerts %}{% endif %}. Other security features require a {% data variables.product.prodname_GH_advanced_security %}{% ifversion fpt or ghec %} license to run on repositories apart from public repositories on {% data variables.product.prodname_dotcom_the_website %}{% endif %}.
+{% data variables.product.prodname_dotcom %} tiene muchas características que te ayudan a mejorar y mantener la calidad de tu código. Algunas de ellas se incluyen en todos los planes{% ifversion not ghae %}, como el gráfico de dependencias y las {% data variables.product.prodname_dependabot_alerts %}{% endif %}. Otras características de seguridad requieren una licencia de {% data variables.product.prodname_GH_advanced_security %}{% ifversion fpt or ghec %} para ejecutarse en otros repositorios aparte de los públicos de {% data variables.product.prodname_dotcom_the_website %}{% endif %}.
 
-{% ifversion ghes or ghec %}For information about buying a license for {% data variables.product.prodname_GH_advanced_security %}, see "[About billing for {% data variables.product.prodname_GH_advanced_security %}](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)."{% elsif ghae %}There is no charge for {% data variables.product.prodname_GH_advanced_security %} on {% data variables.product.prodname_ghe_managed %} during the beta release.{% elsif fpt %}To purchase a {% data variables.product.prodname_GH_advanced_security %} license, you must be using {% data variables.product.prodname_enterprise %}. For information about upgrading to {% data variables.product.prodname_enterprise %} with {% data variables.product.prodname_GH_advanced_security %}, see "[GitHub's products](/get-started/learning-about-github/githubs-products)" and "[About billing for {% data variables.product.prodname_GH_advanced_security %}](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)."{% endif %}
+{% ifversion ghes or ghec %}Para obtener información sobre la compra de una licencia de {% data variables.product.prodname_GH_advanced_security %}, consulte "[Acerca de la facturación de {% data variables.product.prodname_GH_advanced_security %}](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)."{% elsif ghae %}{% data variables.product.prodname_GH_advanced_security %} es gratuito {% data variables.product.prodname_ghe_managed %} durante la versión beta.{% elsif fpt %}Para comprar una licencia de {% data variables.product.prodname_GH_advanced_security %}, debe usar {% data variables.product.prodname_enterprise %}. Para obtener información sobre cómo actualizar a {% data variables.product.prodname_enterprise %} con {% data variables.product.prodname_GH_advanced_security %}, consulte "[Productos de GitHub](/get-started/learning-about-github/githubs-products)" y "[Acerca de la facturación de {% data variables.product.prodname_GH_advanced_security %}](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)".{% endif %}
 
-## About {% data variables.product.prodname_advanced_security %} features
+## Acerca de las características de {% data variables.product.prodname_advanced_security %}
 
-A {% data variables.product.prodname_GH_advanced_security %} license provides the following additional features:
+Una licencia de {% data variables.product.prodname_GH_advanced_security %} proporciona las siguientes características adicionales:
 
-- **{% data variables.product.prodname_code_scanning_capc %}** - Search for potential security vulnerabilities and coding errors in your code. For more information, see "[About {% data variables.product.prodname_code_scanning %}](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning)."
+- **{% data variables.product.prodname_code_scanning_capc %}** : busque posibles vulnerabilidades de seguridad y errores de codificación en su código. Para obtener más información, consulte "[Acerca de {% data variables.product.prodname_code_scanning %}](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning)".
 
-- **{% data variables.product.prodname_secret_scanning_caps %}** - Detect secrets, for example keys and tokens, that have been checked into the repository.{% ifversion secret-scanning-push-protection %} If push protection is enabled, also detects secrets when they are pushed to your repository. For more information, see "[About {% data variables.product.prodname_secret_scanning %}](/code-security/secret-scanning/about-secret-scanning)" and "[Protecting pushes with {% data variables.product.prodname_secret_scanning %}](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)."{% else %} For more information, see "[About {% data variables.product.prodname_secret_scanning %}](/code-security/secret-scanning/about-secret-scanning)."{% endif %}
+- **{% data variables.product.prodname_secret_scanning_caps %}** : detecta secretos, como claves y tokens, que se hayan registrado en el repositorio.{% ifversion secret-scanning-push-protection %} Si la protección contra inserciones está habilitada, también se detectarán secretos al insertarlos en el repositorio. Para obtener más información, consulte "[Acerca de {% data variables.product.prodname_secret_scanning %}](/code-security/secret-scanning/about-secret-scanning)" y "[Protección de inserciones con{% data variables.product.prodname_secret_scanning %}](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)".{% else %} Para obtener más información, consulte "[Acerca de los datos {% data variables.product.prodname_secret_scanning %}](/code-security/secret-scanning/about-secret-scanning)."{% endif %}
 
-- **Dependency review** - Show the full impact of changes to dependencies and see details of any vulnerable versions before you merge a pull request. For more information, see "[About dependency review](/code-security/supply-chain-security/about-dependency-review)."
+- **Revisión de dependencias:** muestre el impacto total de los cambios en las dependencias y consulte los detalles de las versiones vulnerables antes de combinar una solicitud de incorporación de cambios. Para obtener más información, consulte "[Acerca de la revisión de dependencias](/code-security/supply-chain-security/about-dependency-review)".
 
 {% ifversion ghes < 3.7 or ghae %}
 <!-- Ref: ghae > 3.6 remove GHAE versioning from this section when the `security-overview-displayed-alerts` flag is toggled for GHAE -->
-- **Security overview** - Review the security configuration and alerts for an organization and identify the repositories at greatest risk. For more information, see "[About the security overview](/code-security/security-overview/about-the-security-overview)."
+- **Información general sobre seguridad:** revise la configuración de seguridad y las alertas de una organización e identifique los repositorios con mayor riesgo. Para obtener más información, consulta "[Acerca de la introducción de seguridad](/code-security/security-overview/about-the-security-overview)".
 {% endif %}
 
-{% ifversion fpt or ghec %}
-The table below summarizes the availability of {% data variables.product.prodname_GH_advanced_security %} features for public and private repositories.
+{% ifversion fpt or ghec %} En la siguiente tabla se resume la disponibilidad de las características de {% data variables.product.prodname_GH_advanced_security %} para los repositorios públicos y privados.
 
-|                   | Public repository           | Private repository without {% data variables.product.prodname_advanced_security %} | Private repository with {% data variables.product.prodname_advanced_security %} |
+|                   | Repositorio público           | Repositorio privado sin {% data variables.product.prodname_advanced_security %} | Repositorio privado con {% data variables.product.prodname_advanced_security %} |
 | :-----------------: | :---------------------------: | :--------------------------------------------: | :-----------------------------------------: |
-| Code scanning     | Yes                         | No                                           | Yes                                        |
-| Secret scanning   | Yes **(limited functionality only)** | No                                           | Yes                                       |
-| Dependency review | Yes                         | No                                           | Yes                                       |
+| Análisis de código     | Sí                         | No                                           | Sí                                        |
+| Análisis de secretos   | Sí **(solo funcionalidad limitada)** | No                                           | Sí                                       |
+| Revisión de dependencias | Sí                         | No                                           | Sí                                       |
 {% endif %}
 
-For information about {% data variables.product.prodname_advanced_security %} features that are in development, see "[{% data variables.product.prodname_dotcom %} public roadmap](https://github.com/github/roadmap)." For an overview of all security features, see "[{% data variables.product.prodname_dotcom %} security features](/code-security/getting-started/github-security-features)."
+Para obtener información sobre las características de {% data variables.product.prodname_advanced_security %} que se encuentran en desarrollo, consulte "[Plan de desarrollo público de {% data variables.product.prodname_dotcom %}](https://github.com/github/roadmap)". Para obtener información general sobre todas las características de seguridad, consulte "[ Características de seguridad de {% data variables.product.prodname_dotcom %}](/code-security/getting-started/github-security-features)".
 
-{% ifversion fpt or ghec %}
-{% data variables.product.prodname_GH_advanced_security %} features are enabled for all public repositories on {% data variables.product.prodname_dotcom_the_website %}. Organizations that use {% data variables.product.prodname_ghe_cloud %} with {% data variables.product.prodname_advanced_security %} can additionally enable these features for private and internal repositories. {% ifversion fpt %}For more information, see the [{% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/get-started/learning-about-github/about-github-advanced-security#enabling-advanced-security-features).
+{% ifversion fpt or ghec %} Las características de la {% data variables.product.prodname_GH_advanced_security %} se encuentran habilitadas para todos los repositorios públicos de {% data variables.product.prodname_dotcom_the_website %}. Las organizaciones que utilizan {% data variables.product.prodname_ghe_cloud %} con la {% data variables.product.prodname_advanced_security %} pueden habilitar estas características adicionalmente para repositorios privados e internos. {% ifversion fpt %}Para obtener más información, consulta la [documentación de {% data variables.product.prodname_ghe_cloud %}](/enterprise-cloud@latest/get-started/learning-about-github/about-github-advanced-security#enabling-advanced-security-features).
 {% endif %}
 
 {% ifversion ghes or ghec or ghae %}
-## Deploying GitHub Advanced Security in your enterprise
+## Desplegar GitHub Advanced Security en tu empresa
 
-To learn about what you need to know to plan your {% data variables.product.prodname_GH_advanced_security %} deployment at a high level and to review the rollout phases we recommended, see "[Adopting {% data variables.product.prodname_GH_advanced_security %} at scale](/code-security/adopting-github-advanced-security-at-scale)."
+Para obtener información sobre lo que necesita saber para planificar la implementación de {% data variables.product.prodname_GH_advanced_security %} a alto nivel y para revisar las fases de lanzamiento que recomendamos, consulta "[Adopción de {% data variables.product.prodname_GH_advanced_security %} a gran escala](/code-security/adopting-github-advanced-security-at-scale)".
 
 {% endif %}
 
 {% ifversion not fpt %}
-## Enabling {% data variables.product.prodname_advanced_security %} features
+## Habilitar las características de la {% data variables.product.prodname_advanced_security %}
 
-{%- ifversion ghes %}
-The site administrator must enable {% data variables.product.prodname_advanced_security %} for {% data variables.location.product_location %} before you can use these features. For more information, see "[Configuring Advanced Security features](/admin/configuration/configuring-advanced-security-features).
+{%- ifversion ghes %} El administrador del sitio debe habilitar {% data variables.product.prodname_advanced_security %} para {% data variables.location.product_location %} con el fin de poder usar estas características. Para obtener más información, consulte [Configuración de características de seguridad avanzada](/admin/configuration/configuring-advanced-security-features).
 
-Once your system is set up, you can enable and disable these features at the organization or repository level.
+Una vez que tu sistema se haya configurado, puedes habilitar e inhabilitar estas características a nivel de organización o de repositorio.
 
-{%- elsif ghec %}
-For public repositories these features are permanently on and can only be disabled if you change the visibility of the project so that the code is no longer public.
+{%- elsif ghec %} En los repositorios públicos, estas características se encuentran activas de manera permanente y solo se pueden deshabilitar si cambia la visibilidad del proyecto para que el código deje de ser público.
 
-For other repositories, once you have a license for your enterprise account, you can enable and disable these features at the organization or repository level.
+En el caso de otros repositorios, una vez que tengas una licencia para tu cuenta empresarial, puedes habilitar e inhabilitar estas características a nivel de repositorio u organización.
 
-{%- elsif ghae %}
-You can enable and disable these features at the organization or repository level.
-{%- endif %}
-For more information, see "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)" and "[Managing security and analysis settings for your repository](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)."
+{%- elsif ghae %} Puede habilitar y deshabilitar estas características a nivel de repositorio u organización.
+{%- endif %} Para obtener más información, consulte"[Administración de la configuración de seguridad y análisis de la organización](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)" o "[Administración de la configuración de seguridad y análisis del repositorio](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)".
 
-{% ifversion ghec or ghes %}
-If you have an enterprise account, license use for the entire enterprise is shown on your enterprise license page. For more information, see "[Viewing your {% data variables.product.prodname_GH_advanced_security %} usage](/billing/managing-licensing-for-github-advanced-security/viewing-your-github-advanced-security-usage)."
+{% ifversion ghec or ghes %} Si tiene una cuenta empresarial, el uso de la licencia para toda la empresa se muestra en la página de licencia Enterprise. Para obtener más información, consulte "[Visualización del uso de {% data variables.product.prodname_GH_advanced_security %}](/billing/managing-licensing-for-github-advanced-security/viewing-your-github-advanced-security-usage)".
 {% endif %}
 
 {% endif %}
 
 {% ifversion fpt or ghec %}
-## About starter workflows for {% data variables.product.prodname_advanced_security %}
+## Acerca de los flujos de trabajo iniciales para {% data variables.product.prodname_advanced_security %}
 
-{% data reusables.advanced-security.starter-workflows-beta %}
-{% data reusables.advanced-security.starter-workflow-overview %}
+{% data reusables.advanced-security.starter-workflows-beta %} {% data reusables.advanced-security.starter-workflow-overview %}
 
-For more information on starter workflows, see "[Setting up {% data variables.product.prodname_code_scanning %} using starter workflows](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/setting-up-code-scanning-for-a-repository#setting-up-code-scanning-using-starter-workflows)" and "[Using starter workflows](/actions/using-workflows/using-starter-workflows)."
+Para obtener más información sobre los flujos de trabajo de inicio, consulte "[Configuración de {% data variables.product.prodname_code_scanning %} mediante flujos de trabajo de inicio](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/setting-up-code-scanning-for-a-repository#setting-up-code-scanning-using-starter-workflows)" y "[Uso de flujos de trabajo de inicio](/actions/using-workflows/using-starter-workflows)".
 
 {% endif %}
 
 {% ifversion ghec or ghes or ghae %}
-## Further reading
+## Información adicional
 
-- "[Enforcing policies for {% data variables.product.prodname_advanced_security %} in your enterprise account](/admin/policies/enforcing-policies-for-advanced-security-in-your-enterprise)"
+- "[Aplicación de directivas para {% data variables.product.prodname_advanced_security %} en su cuenta de Enterprise](/admin/policies/enforcing-policies-for-advanced-security-in-your-enterprise)".
 
-{% endif %}
-{% endif %}
+{% endif %} {% endif %}
