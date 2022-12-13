@@ -1,6 +1,6 @@
 ---
-title: Managing team access to an organization repository
-intro: 'You can give a team access to a repository, remove a team''s access to a repository, or change a team''s permission level for a repository.'
+title: 조직 리포지토리에 대한 팀 액세스 관리
+intro: '리포지토리에 대한 팀 액세스 권한을 부여하거나, 리포지토리에 대한 팀의 액세스를 제거하거나, 리포지토리에 대한 팀의 권한 수준을 변경할 수 있습니다.'
 redirect_from:
   - /articles/managing-team-access-to-an-organization-repository-early-access-program
   - /articles/managing-team-access-to-an-organization-repository
@@ -15,60 +15,53 @@ topics:
   - Organizations
   - Teams
 shortTitle: Manage team access
+ms.openlocfilehash: 116f1b927d7956b927f206670f426ccbab3fe427
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148099062'
 ---
-
-People with admin access to a repository can manage team access to the repository. Team maintainers can remove a team's access to a repository if the team has direct access to it. If the team's access to the repository is inherited from a parent team, maintainers can choose to reset the current permission to match the parent team's permission.
+리포지토리에 대한 관리자 액세스 권한이 있는 사용자는 리포지토리에 대한 팀 액세스 권한을 관리할 수 있습니다. 팀이 리포지토리에 직접 액세스할 수 있는 경우 팀 유지관리자는 리포지토리에 대한 팀의 액세스 권한을 제거할 수 있습니다. 팀의 리포지토리에 대한 액세스가 부모 팀에서 상속되는 경우 유지 관리자는 현재 권한을 부모 팀의 권한과 일치하게 다시 설정하도록 선택할 수 있습니다.
 
 {% warning %}
 
-**Warnings:**
-- You can change a team's permission level if the team has direct access to a repository. If the team's access to the repository is inherited from a parent team, you must change the parent team's access to the repository.
-- If you add or remove repository access for a parent team, each of that parent's child teams will also receive or lose access to the repository. For more information, see "[About teams](/articles/about-teams)."
+**경고:**
+- 팀이 리포지토리에 직접 액세스할 수 있는 경우 팀의 권한 수준을 변경할 수 있습니다. 리포지토리에 대한 팀의 액세스 권한이 부모 팀에서 상속되는 경우 리포지토리에 대한 부모 팀의 액세스 권한을 변경해야 합니다.
+- 부모 팀에 대한 리포지토리 액세스 권한을 추가하거나 제거하면 해당 부모의 각 자식 팀도 리포지토리에 대한 액세스 권한을 받거나 잃게 됩니다. 자세한 내용은 “[팀 정보](/articles/about-teams)”를 참조하세요.
 
 {% endwarning %}
 
-## Giving a team access to a repository
+## 팀에 리포지토리에 대한 액세스 권한 부여
 
-{% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
-You can give a team access to a repository or change a team's level of access to a repository in your repository settings. For more information, see "[Managing teams and people with access to your repository](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository#inviting-a-team-or-person)." 
-{% else %}
-{% data reusables.profile.access_org %}
-{% data reusables.user-settings.access_org %}
-{% data reusables.organizations.specific_team %}
-{% data reusables.organizations.team-repositories-tab %}
-5. Above the list of repositories, click **Add repository**.
-  ![The Add repository button](/assets/images/help/organizations/add-repositories-button.png)
-6. Type the name of a repository, then click **Add repository to team**.
-  ![Repository search field](/assets/images/help/organizations/team-repositories-add.png)
-7. Optionally, to the right of the repository name, use the drop-down menu and choose a different permission level for the team.
-  ![Repository access level dropdown](/assets/images/help/organizations/team-repositories-change-permission-level.png)
-{% endif %}
-## Removing a team's access to a repository
+{% ifversion fpt 또는 ghec 또는 ghes > 3.3 또는 ghae > 3.3 %} 리포지토리에 대한 액세스 권한을 팀에 부여하거나 리포지토리 설정에서 리포지토리에 대한 팀의 액세스 수준을 변경할 수 있습니다. 자세한 내용은 “[리포지토리에 액세스할 수 있는 팀 및 사용자 관리](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository#inviting-a-team-or-person)”를 참조하세요. {% else %} {% data reusables.profile.access_org %} {% data reusables.user-settings.access_org %} {% data reusables.organizations.specific_team %} {% data reusables.organizations.team-repositories-tab %}
+5. 리포지토리 목록 위에서 **리포지토리 추가** 를 클릭합니다.
+  ![리포지토리 추가 버튼](/assets/images/help/organizations/add-repositories-button.png)
+6. 리포지토리의 이름을 입력한 다음, **팀에 리포지토리 추가** 를 클릭합니다.
+  ![리포지토리 검색 필드](/assets/images/help/organizations/team-repositories-add.png)
+7. 필요에 따라 리포지토리 이름 오른쪽에 있는 드롭다운 메뉴를 사용하고 팀에 대해 다른 권한 수준을 선택합니다.
+  ![리포지토리 액세스 수준 드롭다운](/assets/images/help/organizations/team-repositories-change-permission-level.png) {% endif %}
+## 리포지토리에 대한 팀의 액세스 권한 제거
 
-{% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
-You can remove a team's access to an organization repository in your repository settings. For more information, see "[Managing teams and people with access to your repository](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository#removing-access-for-a-team-or-person)."
+{% ifversion fpt 또는 ghec 또는 ghes > 3.3 또는 ghae > 3.3 %} 리포지토리 설정에서 조직의 리포지토리에 대한 팀의 액세스를 제거할 수 있습니다. 자세한 내용은 “[리포지토리에 액세스할 수 있는 팀 및 사용자 관리](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository#removing-access-for-a-team-or-person)”를 참조하세요.
 
-If a team has direct access to a repository, you can remove that team's access to the repository. If a team's access to the repository is inherited from a parent team, you must remove the repository from the parent team in order to remove the repository from child teams.
+팀이 리포지토리에 직접 액세스할 수 있는 경우 리포지토리에 대한 해당 팀의 액세스 권한을 제거할 수 있습니다. 리포지토리에 대한 팀의 액세스 권한이 부모 팀에서 상속되는 경우 자식 팀에서 리포지토리를 제거하려면 부모 팀에서 리포지토리를 제거해야 합니다.
 
 {% data reusables.repositories.deleted_forks_from_private_repositories_warning %}
 
 {% else %}
 
-You can remove a team's access to a repository if the team has direct access to a repository. If a team's access to the repository is inherited from a parent team, you must remove the repository from the parent team in order to remove the repository from child teams.
+팀이 리포지토리에 직접 액세스할 수 있는 경우 리포지토리에 대한 팀의 액세스 권한을 제거할 수 있습니다. 리포지토리에 대한 팀의 액세스 권한이 부모 팀에서 상속되는 경우 자식 팀에서 리포지토리를 제거하려면 부모 팀에서 리포지토리를 제거해야 합니다.
 
 {% data reusables.repositories.deleted_forks_from_private_repositories_warning %}
 
-{% data reusables.profile.access_org %}
-{% data reusables.user-settings.access_org %}
-{% data reusables.organizations.specific_team %}
-{% data reusables.organizations.team-repositories-tab %}
-5. Select the repository or repositories you'd like to remove from the team.
-  ![List of team repositories with the checkboxes for some repositories selected](/assets/images/help/teams/select-team-repositories-bulk.png)
-6. Above the list of repositories, use the drop-down menu, and click **Remove from team**.
-  ![Drop-down menu with the option to remove a repository from a team](/assets/images/help/teams/remove-team-repo-dropdown.png)
-7. Review the repository or repositories that will be removed from the team, then click **Remove repositories**.
-  ![Modal box with a list of repositories that the team will no longer have access to](/assets/images/help/teams/confirm-remove-team-repos.png)
-{% endif %}
-## Further reading
+{% data reusables.profile.access_org %} {% data reusables.user-settings.access_org %} {% data reusables.organizations.specific_team %} {% data reusables.organizations.team-repositories-tab %}
+5. 팀에서 제거하려는 리포지토리를 선택합니다.
+  ![일부 리포지토리에 대한 확인란이 선택된 팀 리포지토리 목록](/assets/images/help/teams/select-team-repositories-bulk.png)
+6. 리포지토리 목록 위에서 드롭다운 메뉴를 사용하여 **팀에서 제거** 를 클릭합니다.
+  ![팀에서 리포지토리를 제거하는 옵션이 있는 드롭다운 메뉴](/assets/images/help/teams/remove-team-repo-dropdown.png)
+7. 팀에서 제거될 리포지토리를 검토한 다음, **리포지토리 제거** 를 클릭합니다.
+  ![팀이 더 이상 액세스할 수 없는 리포지토리 목록이 있는 모달 상자](/assets/images/help/teams/confirm-remove-team-repos.png) {% endif %}
+## 추가 참고 자료
 
-- "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)"
+- “[조직의 리포지토리 역할](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)”

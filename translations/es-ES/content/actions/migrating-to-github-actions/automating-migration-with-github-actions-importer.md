@@ -1,6 +1,6 @@
 ---
-title: Automating migration with GitHub Actions Importer
-intro: 'Use {% data variables.product.prodname_actions_importer %} to plan and automate your migration to {% data variables.product.prodname_actions %}.'
+title: Automatización de la migración con el Importador de Acciones de GitHub
+intro: 'Usa el {% data variables.product.prodname_actions_importer %} para planificar y automatizar la migración a {% data variables.product.prodname_actions %}.'
 versions:
   fpt: '*'
   ghec: '*'
@@ -12,31 +12,35 @@ topics:
   - Migration
   - CI
   - CD
-shortTitle: Automate migration with {% data variables.product.prodname_actions_importer %}
+shortTitle: 'Automate migration with {% data variables.product.prodname_actions_importer %}'
+ms.openlocfilehash: 391455eb90a3a71ab0e0cb5a1573a0ee48527d8e
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148160083'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
-
-[Legal notice](#legal-notice)
+[Aviso legal](#legal-notice)
 
 {% note %}
 
-**Note**: {% data variables.product.prodname_actions_importer %} is currently available as a public preview. Visit the [sign up page](https://github.com/features/actions-importer/signup) to request access to the preview. Once you are granted access you'll be able to use the `gh-actions-importer` CLI extension
+**Nota**: El {% data variables.product.prodname_actions_importer %} está disponible actualmente como versión preliminar pública. Visita la [página de registro](https://github.com/features/actions-importer/signup) para solicitar acceso a la versión preliminar. Una vez que se te conceda acceso, podrás usar la extensión de la CLI`gh-actions-importer`.
 
 {% endnote %}
 
-## About {% data variables.product.prodname_actions_importer %}
+## Acerca del {% data variables.product.prodname_actions_importer %}
 
-You can use {% data variables.product.prodname_actions_importer %} to plan and automatically migrate your CI/CD pipelines to {% data variables.product.prodname_actions %} from Azure DevOps, CircleCI, GitLab, Jenkins, and Travis CI.
+Puedes usar el {% data variables.product.prodname_actions_importer %} para planificar las canalizaciones de CI/CD y migrarlas automáticamente a {% data variables.product.prodname_actions %} desde Azure DevOps, CircleCI, GitLab, Jenkins y Travis CI.
 
-{% data variables.product.prodname_actions_importer %} is distributed as a Docker container, and uses a [{% data variables.product.prodname_dotcom %} CLI](https://cli.github.com) extension to interact with the container.
+El {% data variables.product.prodname_actions_importer %} se distribuye como contenedor Docker y usa una extensión de la [CLI de {% data variables.product.prodname_dotcom %}](https://cli.github.com) para interactuar con el contenedor.
 
-Any workflow that is converted by the {% data variables.product.prodname_actions_importer %} should be inspected for correctness before using it as a production workload. The goal is to achieve an 80% conversion rate for every workflow, however, the actual conversion rate will depend on the makeup of each individual pipeline that is converted.
+Cualquier flujo de trabajo que el {% data variables.product.prodname_actions_importer %} haya convertido debe inspeccionarse para comprobar si es correcto antes de usarlo como una carga de trabajo de producción. El objetivo es lograr una tasa de conversión del 80 % para cada flujo de trabajo. Sin embargo, la tasa de conversión real dependerá de la composición de cada canalización individual que se convierta.
 
-## Supported CI platforms
+## Plataformas de CI compatibles
 
-You can use {% data variables.product.prodname_actions_importer %} to migrate from the following platforms:
+Puedes usar el {% data variables.product.prodname_actions_importer %} para migrar desde las plataformas siguientes:
 
 - Azure DevOps
 - CircleCI
@@ -44,36 +48,36 @@ You can use {% data variables.product.prodname_actions_importer %} to migrate fr
 - Jenkins
 - Travis CI
 
-Once you are granted access to the preview, you will be able to access further reference documentation for each of the supported platforms.
+Una vez que se te conceda acceso a la versión preliminar, podrás acceder a la documentación de referencia adicional para cada una de las plataformas compatibles.
 
-## Prerequisites
+## Requisitos previos
 
-{% data variables.product.prodname_actions_importer %} has the following requirements:
+El {% data variables.product.prodname_actions_importer %} tiene los requisitos siguientes:
 
-- You must have been granted access to the public preview for the {% data variables.product.prodname_actions_importer %}.
+- Se te debe haber concedido acceso a la versión preliminar pública del {% data variables.product.prodname_actions_importer %}.
 {%- ifversion ghes < 3.5 or ghae %}
-- Use a {% data variables.product.pat_generic %} with the `read:packages` scope enabled.
+- Usa un {% data variables.product.pat_generic %} con el ámbito `read:packages` habilitado.
 {%- else %}
-- You must have credentials to authenticate to the {% data variables.product.prodname_registry %} {% data variables.product.prodname_container_registry %}. For more information, see "[Working with the Container registry](/packages/working-with-a-github-packages-registry/working-with-the-container-registry#authenticating-to-the-container-registry)."
+- Debes tener credenciales para autenticarte en el {% data variables.product.prodname_container_registry %} de {% data variables.product.prodname_registry %}. Para obtener más información, consulta "[Trabajo con el registro de contenedor](/packages/working-with-a-github-packages-registry/working-with-the-container-registry#authenticating-to-the-container-registry)".
 {% endif %}
-- An environment where you can run Linux-based containers, and can install the necessary tools.
-  - Docker is [installed](https://docs.docker.com/get-docker/) and running.
-  - [{% data variables.product.prodname_dotcom %} CLI](https://cli.github.com) is installed.
+- Un entorno en el que puedas ejecutar contenedores basados en Linux e instalar las herramientas necesarias.
+  - Docker está [instalado](https://docs.docker.com/get-docker/) y funcionando.
+  - [La CLI de {% data variables.product.prodname_dotcom %}](https://cli.github.com) está instalada.
 
   {% note %}
 
-  **Note**: The {% data variables.product.prodname_actions_importer %} container and CLI do not need to be installed on the same server as your CI platform.
+  **Nota**: El contenedor y la CLI del {% data variables.product.prodname_actions_importer %} no deben estar instalados en el mismo servidor que tu plataforma de CI.
 
   {% endnote %}
 
-### Installing the {% data variables.product.prodname_actions_importer %} CLI extension
+### Instalación de la extensión de la CLI del {% data variables.product.prodname_actions_importer %}
 
-1. Install the {% data variables.product.prodname_actions_importer %} CLI extension:
+1. Instala la extensión de la CLI del {% data variables.product.prodname_actions_importer %}:
 
    ```bash
    $ gh extension install github/gh-actions-importer
    ```
-1. Verify that the extension is installed:
+1. Comprueba que la extensión está instalada:
 
    ```bash
    $ gh actions-importer -h
@@ -90,39 +94,39 @@ Once you are granted access to the preview, you will be able to access further r
      migrate    Convert a pipeline to a GitHub Actions workflow and open a pull request with the changes.
    ```
 
-### Updating the {% data variables.product.prodname_actions_importer %} CLI
+### Actualización de la CLI del {% data variables.product.prodname_actions_importer %}
 
-To ensure you're running the latest version of {% data variables.product.prodname_actions_importer %}, you should regularly run the `update` command:
+Para asegurarte de que ejecutas la versión más reciente del {% data variables.product.prodname_actions_importer %}, debes ejecutar periódicamente el comando `update`:
 
 ```bash
 $ gh actions-importer update
 ```
 
-You must be authenticated with the {% data variables.product.prodname_container_registry %} for this command to be successful. Alternatively, you can provide credentials using the `--username` and `--password-stdin` parameters:
+Debes autenticarte con el {% data variables.product.prodname_container_registry %} para que este comando funcione correctamente. Como alternativa, puedes utilizar los parámetros `--username` y `--password-stdin` para proporcionar credenciales:
 
 ```bash
 $ echo $GITHUB_TOKEN | gh actions-importer update --username $GITHUB_HANDLE --password-stdin
 ```
 
-### Authenticating at the command line
+### Autenticación en la línea de comandos
 
-You must configure credentials that allow {% data variables.product.prodname_actions_importer %} to communicate with {% data variables.product.prodname_dotcom %} and your current CI server. You can configure these credentials using environment variables or a `.env.local` file. The environment variables can be configured in an interactive prompt, by running the following command:
+Debes configurar credenciales que permitan que el {% data variables.product.prodname_actions_importer %} se comunique con {% data variables.product.prodname_dotcom %} y el servidor de CI actual. Puedes usar variables de entorno o un archivo `.env.local` para configurar estas credenciales. Las variables de entorno se pueden configurar en un símbolo del sistema interactivo mediante la ejecución del comando siguiente:
 
 ```bash
 $ gh actions-importer configure
 ```
 
-Once you are granted access to the preview, you will be able to access further reference documentation about using environment variables.
+Una vez que se te conceda acceso a la versión preliminar, podrás acceder a la documentación de referencia adicional sobre el uso de las variables de entorno.
 
-## Using the {% data variables.product.prodname_actions_importer %} CLI
+## Uso de la CLI del {% data variables.product.prodname_actions_importer %}
 
-Use the subcommands of `gh actions-importer` to begin your migration to {% data variables.product.prodname_actions %}, including `audit`, `forecast`, `dry-run`, and `migrate`.
+Usa los subcomandos de `gh actions-importer` para iniciar la migración a {% data variables.product.prodname_actions %}, incluidos `audit`, `forecast`, `dry-run` y `migrate`.
 
-### Auditing your existing CI pipelines
+### Auditoría de las canalizaciones de CI existentes
 
-The `audit` subcommand can be used to plan your CI/CD migration by analyzing your current CI/CD footprint. This analysis can be used to plan a timeline for migrating to {% data variables.product.prodname_actions %}.
+El subcomando `audit` se puede usar para planificar la migración de CI/CD mediante el análisis de la superficie actual de CI/CD. Este análisis se puede usar para planificar una escala de tiempo para migrar a {% data variables.product.prodname_actions %}.
 
-To run an audit, use the following command to determine your available options:
+Para ejecutar una auditoría, usa el siguiente comando para determinar las opciones disponibles:
 
 ```bash
 $ gh actions-importer audit -h
@@ -139,13 +143,13 @@ Commands:
   travis-ci     An audit will output a list of data used in a Travis CI instance.
 ```
 
-Once you are granted access to the preview, you will be able to access further reference documentation about running an audit.
+Una vez que se te conceda acceso a la versión preliminar, podrás acceder a la documentación de referencia adicional sobre la ejecución de una auditoría.
 
-### Forecasting usage
+### Previsión de la utilización
 
-The `forecast` subcommand reviews historical pipeline usage to create a forecast of {% data variables.product.prodname_actions %} usage.
+El subcomando `forecast` revisa la utilización histórica de la canalización para crear una previsión de la utilización de {% data variables.product.prodname_actions %}.
 
-To run a forecast, use the following command to determine your available options:
+Para ejecutar una previsión, usa el siguiente comando para determinar las opciones disponibles:
 
 ```bash
 $ gh actions-importer forecast -h
@@ -163,13 +167,13 @@ Commands:
   github        Forecasts GitHub Actions usage from historical GitHub pipeline utilization.
 ```
 
-Once you are granted access to the preview, you will be able to access further reference documentation about running a forecast.
+Una vez que se te conceda acceso a la versión preliminar, podrás acceder a la documentación de referencia adicional sobre la ejecución de una previsión.
 
-### Testing the migration process
+### Prueba del proceso de migración
 
-The `dry-run` subcommand can be used to convert a pipeline to its {% data variables.product.prodname_actions %} equivalent, and then write the workflow to your local filesystem.
+El subcomando `dry-run` se puede usar para convertir una canalización en su equivalente de {% data variables.product.prodname_actions %} y, a continuación, escribir el flujo de trabajo en el sistema de archivos local.
 
-To perform a dry run, use the following command to determine your available options:
+Para realizar un simulacro, usa el siguiente comando para determinar las opciones disponibles:
 
 ```bash
 $ gh actions-importer dry-run -h
@@ -186,13 +190,13 @@ Commands:
   travis-ci     Convert a Travis CI pipeline to a GitHub Actions workflow and output its yaml file.
 ```
 
-Once you are granted access to the preview, you will be able to access further reference documentation about performing a dry run.
+Una vez que se te conceda acceso a la versión preliminar, podrás acceder a la documentación de referencia adicional sobre la realización de un simulacro.
 
-### Migrating a pipeline to {% data variables.product.prodname_actions %}
+### Migración de una canalización a {% data variables.product.prodname_actions %}
 
-The `migrate` subcommand can be used to convert a pipeline to its GitHub Actions equivalent and then create a pull request with the contents.
+El subcomando `migrate` se puede usar para convertir una canalización en su equivalente de Acciones de GitHub y, a continuación, crear una solicitud de incorporación de cambios con el contenido.
 
-To run a migration, use the following command to determine your available options:
+Para ejecutar una migración, usa el siguiente comando para determinar las opciones disponibles:
 
 ```bash
 $ gh actions-importer migrate -h
@@ -209,11 +213,11 @@ Commands:
   travis-ci     Convert a Travis CI pipeline to a GitHub Actions workflow and and open a pull request with the changes.
 ```
 
-Once you are granted access to the preview, you will be able to access further reference documentation about running a migration.
+Una vez que se te conceda acceso a la versión preliminar, podrás acceder a la documentación de referencia adicional sobre la ejecución de una migración.
 
-## Legal notice
+## Aviso legal
 
-Portions have been adapted from https://github.com/github/gh-actions-importer/ under the MIT license:
+Algunas partes se han adaptado a partir de https://github.com/github/gh-actions-importer/ con licencia MIT:
 
 ```
 MIT License

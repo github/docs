@@ -1,6 +1,6 @@
 ---
-title: Using self-hosted runners in a workflow
-intro: 'To use self-hosted runners in a workflow, you can use labels to specify the runner type for a job.'
+title: Utilisation d’exécuteurs auto-hébergés dans un workflow
+intro: 'Pour utiliser des exécuteurs auto-hébergés dans un workflow, vous pouvez utiliser des étiquettes pour spécifier le type d’exécuteur pour un travail.'
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/using-self-hosted-runners-in-a-workflow
   - /actions/automating-your-workflow-with-github-actions/using-self-hosted-runners-in-a-workflow
@@ -11,80 +11,84 @@ versions:
   ghec: '*'
 type: tutorial
 shortTitle: Use runners in a workflow
+ms.openlocfilehash: 5c0ff57f5b3eda79e3fcf8b09706ed19f981b8ae
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147573416'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+Pour obtenir des informations sur la création d’étiquettes personnalisées et par défaut, consultez « [Utilisation d’étiquettes avec des exécuteurs auto-hébergés](/actions/hosting-your-own-runners/using-labels-with-self-hosted-runners) ».
 
-For information on creating custom and default labels, see "[Using labels with self-hosted runners](/actions/hosting-your-own-runners/using-labels-with-self-hosted-runners)."
+## Utilisation d’exécuteurs auto-hébergés dans un workflow
 
-## Using self-hosted runners in a workflow
-
-Labels allow you to send workflow jobs to specific types of self-hosted runners, based on their shared characteristics. For example, if your job requires a particular hardware component or software package, you can assign a custom label to a runner and then configure your job to only execute on runners with that label.
+Les étiquettes vous permettent d’envoyer des travaux de workflow à des types spécifiques d’exécuteurs auto-hébergés, en fonction de leurs caractéristiques partagées. Par exemple, si votre travail nécessite un composant matériel ou un package logiciel particulier, vous pouvez affecter une étiquette personnalisée à un exécuteur, puis configurer votre travail pour qu’il s’exécute uniquement sur les exécuteurs dotés de cette étiquette.
 
 {% data reusables.actions.self-hosted-runner-labels-runs-on %}
 
-For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idruns-on)."
+Pour plus d’informations, consultez « [Syntaxe de workflow pour {% data variables.product.prodname_actions %}](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idruns-on) ».
 
-## Using default labels to route jobs
+## Utilisation d’étiquettes par défaut pour router les travaux
 
-A self-hosted runner automatically receives certain labels when it is added to {% data variables.product.prodname_actions %}. These are used to indicate its operating system and hardware platform:
+Un exécuteur auto-hébergé reçoit automatiquement certaines étiquettes lorsqu’il est ajouté à {% data variables.product.prodname_actions %}. Elles indiquent son système d’exploitation et sa plateforme matérielle :
 
-* `self-hosted`: Default label applied to all self-hosted runners.
-* `linux`, `windows`, or `macOS`: Applied depending on operating system.
-* `x64`, `ARM`, or `ARM64`: Applied depending on hardware architecture.
+* `self-hosted` : étiquette par défaut appliquée à tous les exécuteurs auto-hébergés.
+* `linux`, `windows` ou `macOS` : selon le système d’exploitation.
+* `x64`, `ARM` ou `ARM64` : selon l’architecture matérielle.
 
-You can use your workflow's YAML to send jobs to a combination of these labels. In this example, a self-hosted runner that matches all three labels will be eligible to run the job:
+Vous pouvez utiliser le code YAML de votre workflow pour envoyer des travaux à une combinaison de ces étiquettes. Dans cet exemple, un exécuteur auto-hébergé qui correspond aux trois étiquettes est autorisé à exécuter le travail :
 
 ```yaml
 runs-on: [self-hosted, linux, ARM64]
 ```
 
-- `self-hosted` - Run this job on a self-hosted runner.
-- `linux` - Only use a Linux-based runner.
-- `ARM64` - Only use a runner based on ARM64 hardware.
+- `self-hosted` – Exécuter ce travail sur un exécuteur auto-hébergé.
+- `linux` – Utiliser uniquement un exécuteur Linux.
+- `ARM64` – Utiliser uniquement un exécuteur basé sur du matériel ARM64.
 
-The default labels are fixed and cannot be changed or removed. Consider using custom labels if you need more control over job routing.
+Les étiquettes par défaut sont fixes et ne peuvent pas être modifiées ni supprimées. Envisagez d’utiliser des étiquettes personnalisées si vous avez besoin de plus de contrôle sur le routage des travaux.
 
-## Using custom labels to route jobs
+## Utilisation d’étiquettes personnalisées pour router les travaux
 
-You can create custom labels and assign them to your self-hosted runners at any time. Custom labels let you send jobs to particular types of self-hosted runners, based on how they're labeled. 
+Vous pouvez créer des étiquettes personnalisées et les affecter à vos exécuteurs auto-hébergés à tout moment. Les étiquettes personnalisées vous permettent d’envoyer des travaux à des types particuliers d’exécuteurs auto-hébergés, selon la manière dont ils sont étiquetés. 
 
-For example, if you have a job that requires a specific type of graphics hardware, you can create a custom label called `gpu` and assign it to the runners that have the hardware installed. A self-hosted runner that matches all the assigned labels will then be eligible to run the job. 
+Par exemple, si vous avez un travail qui requiert un type spécifique de matériel graphique, vous pouvez créer une étiquette personnalisée appelée `gpu` et l’affecter aux exécuteurs sur lesquels le matériel est installé. Un exécuteur auto-hébergé qui correspond à toutes les étiquettes attribuées sera alors autorisé à exécuter le travail. 
 
-This example shows a job that combines default and custom labels:
+Cet exemple montre un travail qui combine des étiquettes par défaut et personnalisées :
 
 ```yaml
 runs-on: [self-hosted, linux, x64, gpu]
 ```
 
-- `self-hosted` - Run this job on a self-hosted runner.
-- `linux` - Only use a Linux-based runner.
-- `x64` - Only use a runner based on x64 hardware.
-- `gpu` - This custom label has been manually assigned to self-hosted runners with the GPU hardware installed. 
+- `self-hosted` – Exécuter ce travail sur un exécuteur auto-hébergé.
+- `linux` – Utiliser uniquement un exécuteur Linux.
+- `x64` – Utiliser uniquement un exécuteur basé sur du matériel x64.
+- `gpu` – Cette étiquette personnalisée a été affectée manuellement aux exécuteurs auto-hébergés sur lesquels le matériel GPU est installé. 
 
-These labels operate cumulatively, so a self-hosted runner must have all four labels to be eligible to process the job.
+Ces étiquettes fonctionnent par accumulation, si bien qu’un exécuteur auto-hébergé doit avoir les quatre étiquettes pour pouvoir traiter le travail.
 
-## Routing precedence for self-hosted runners
+## Priorité de routage pour les exécuteurs auto-hébergés
 
-When routing a job to a self-hosted runner, {% data variables.product.prodname_dotcom %} looks for a runner that matches the job's `runs-on` labels:
+Lors du routage d’un travail vers un exécuteur auto-hébergé, {% data variables.product.prodname_dotcom %} recherche un exécuteur correspondant aux étiquettes `runs-on` du travail :
 
 {% ifversion fpt or ghes > 3.3 or ghae or ghec %}
-- If {% data variables.product.prodname_dotcom %} finds an online and idle runner that matches the job's `runs-on` labels, the job is then assigned and sent to the runner.
-  - If the runner doesn't pick up the assigned job within 60 seconds, the job is re-queued so that a new runner can accept it.
-- If {% data variables.product.prodname_dotcom %} doesn't find an online and idle runner that matches the job's `runs-on` labels, then the job will remain queued until a runner comes online.
-- If the job remains queued for more than 24 hours, the job will fail.
+- Si {% data variables.product.prodname_dotcom %} trouve un exécuteur en ligne et inactif qui correspond aux étiquettes `runs-on` du travail, le travail est ensuite affecté et envoyé à l’exécuteur.
+  - Si l’exécuteur ne récupère pas le travail affecté dans un délai de 60 secondes, le travail est remis en file d’attente afin qu’un nouvel exécuteur puisse l’accepter.
+- Si {% data variables.product.prodname_dotcom %} ne trouve pas d’exécuteur en ligne et inactif correspondant aux étiquettes `runs-on` du travail, le travail reste en file d’attente jusqu’à ce qu’un exécuteur soit en ligne.
+- Si le travail reste en file d’attente plus de 24 heures, il échoue.
 {% elsif ghes = 3.3 %}
-- {% data variables.product.prodname_dotcom %} first searches for a runner at the repository level, then at the organization level, then at the enterprise level.
-- If {% data variables.product.prodname_dotcom %} finds an online and idle runner at a certain level that matches the job's `runs-on` labels, the job is then assigned and sent to the runner.
-  - If the runner doesn't pick up the assigned job within 60 seconds, the job is queued at all levels and waits for a matching runner from any level to come online and pick up the job.
-- If {% data variables.product.prodname_dotcom %} doesn't find an online and idle runner at any level, the job is queued to all levels and waits for a matching runner from any level to come online and pick up the job.
-- If the job remains queued for more than 24 hours, the job will fail.
+- {% data variables.product.prodname_dotcom %} recherche d’abord un exécuteur au niveau du dépôt, puis au niveau de l’organisation, puis au niveau de l’entreprise.
+- Si {% data variables.product.prodname_dotcom %} trouve un exécuteur en ligne et inactif à un certain niveau qui correspond aux étiquettes `runs-on` du travail, le travail est affecté et envoyé à cet exécuteur.
+  - Si l’exécuteur ne récupère pas le travail affecté dans un délai de 60 secondes, le travail est mis en file d’attente à tous les niveaux, dans l’attente de la mise en ligne d’un exécuteur correspondant, d’un niveau quelconque, qui récupère le travail.
+- Si {% data variables.product.prodname_dotcom %} ne trouve pas d’exécuteur en ligne et inactif à un niveau quelconque, le travail est mis en file d’attente à tous les niveaux, dans l’attente de la mise en ligne d’un exécuteur correspondant, d’un niveau quelconque, qui récupère le travail.
+- Si le travail reste en file d’attente plus de 24 heures, il échoue.
 {% else %}
-1. {% data variables.product.prodname_dotcom %} first searches for a runner at the repository level, then at the organization level, then at the enterprise level.
-2. The job is then sent to the first matching runner that is online and idle.
-   - If all matching online runners are busy, the job will queue at the level with the highest number of matching online runners.
-   - If all matching runners are offline, the job will queue at the level with the highest number of matching offline runners.
-   - If there are no matching runners at any level, the job will fail.
-   - If the job remains queued for more than 24 hours, the job will fail.
+1. {% data variables.product.prodname_dotcom %} recherche d’abord un exécuteur au niveau du dépôt, puis au niveau de l’organisation, puis au niveau de l’entreprise.
+2. Le travail est ensuite envoyé au premier exécuteur correspondant en ligne et inactif.
+   - Si tous les exécuteurs en ligne correspondants sont occupés, le travail est mis en file d’attente au niveau comptant le plus grand nombre d’exécuteurs en ligne correspondants.
+   - Si tous les exécuteurs correspondants sont hors connexion, le travail est mis en file d’attente au niveau comptant le plus grand nombre d’exécuteurs hors connexion correspondants.
+   - S’il n’existe aucun exécuteur correspondant à aucun niveau, le travail échoue.
+   - Si le travail reste en file d’attente plus de 24 heures, il échoue.
 {% endif %}

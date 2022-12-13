@@ -1,6 +1,6 @@
 ---
-title: Licensing a repository
-intro: 'Public repositories on GitHub are often used to share open source software. For your repository to truly be open source, you''ll need to license it so that others are free to use, change, and distribute the software.'
+title: 리포지토리 라이선싱
+intro: 'GitHub의 퍼블릭 리포지토리는 오픈 소스 소프트웨어를 공유하는 데 자주 사용됩니다. 리포지토리가 진정으로 오픈 소스가 되려면 다른 사용자가 소프트웨어를 자유롭게 사용, 변경 및 배포할 수 있도록 라이선스를 부여해야 합니다.'
 redirect_from:
   - /articles/open-source-licensing
   - /articles/licensing-a-repository
@@ -12,41 +12,47 @@ versions:
   ghec: '*'
 topics:
   - Repositories
+ms.openlocfilehash: 98ccb37379d8d639e02e98afab5bd170cca581c7
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148098015'
 ---
-## Choosing the right license
+## 올바른 라이선스 선택
 
-We created [choosealicense.com](https://choosealicense.com), to help you understand how to license your code. A software license tells others what they can and can't do with your source code, so it's important to make an informed decision.
+코드를 라이선싱하는 방법을 이해하는 데 도움이 되는 [choosealicense.com](https://choosealicense.com)을 만들었습니다. 소프트웨어 라이선스는 소스 코드로 수행할 수 있는 작업과 수행할 수 없는 작업을 다른 사용자에게 알려주므로 정보에 입각한 결정을 내리는 것이 중요합니다.
 
-You're under no obligation to choose a license. However, without a license, the default copyright laws apply, meaning that you retain all rights to your source code and no one may reproduce, distribute, or create derivative works from your work. If you're creating an open source project, we strongly encourage you to include an open source license. The [Open Source Guide](https://opensource.guide/legal/#which-open-source-license-is-appropriate-for-my-project) provides additional guidance on choosing the correct license for your project.
+라이선스를 선택할 의무는 없습니다. 그러나 라이선스가 없으면 기본 저작권법이 적용됩니다. 즉, 소스 코드에 대한 모든 권한을 보유하게 되며 아무도 결과물을 재현하거나, 배포하거나, 파생 결과물을 만들 수 없습니다. 오픈 소스 프로젝트를 만드는 경우 오픈 소스 라이선스를 포함하는 것이 좋습니다. [오픈 소스 가이드](https://opensource.guide/legal/#which-open-source-license-is-appropriate-for-my-project)는 프로젝트에 적절한 라이선스를 선택하는 방법에 대한 추가 지침을 제공합니다.
 
 {% note %}
 
-**Note:** If you publish your source code in a public repository on {% data variables.product.product_name %}, {% ifversion fpt or ghec %}according to the [Terms of Service](/free-pro-team@latest/github/site-policy/github-terms-of-service), {% endif %}other users of {% data variables.location.product_location %} have the right to view and fork your repository. If you have already created a repository and no longer want users to have access to the repository, you can make the repository private. When you change the visibility of a repository to private, existing forks or local copies created by other users will still exist. For more information, see "[Setting repository visibility](/github/administering-a-repository/setting-repository-visibility)."
+**참고:** {% 데이터 variables.product.product_name %}, 서비스 약관에 따라 {% ifversion fpt 또는 ghec %} [의](/free-pro-team@latest/github/site-policy/github-terms-of-service) 공용 리포지토리에 소스 코드를 게시하는 경우 {% endif %}의 다른 {% 데이터 variables.location.product_location %} 사용자는 리포지토리를 보고 포크할 권리가 있습니다. 리포지토리를 이미 만들었으며 더 이상 사용자가 리포지토리에 액세스할 수 없도록 하려면 리포지토리를 프라이빗으로 만들 수 있습니다. 리포지토리의 표시 유형을 프라이빗으로 변경하면 다른 사용자가 만든 기존 포크 또는 로컬 복사본이 계속 존재합니다. 자세한 내용은 “[리포지토리 표시 여부 설정](/github/administering-a-repository/setting-repository-visibility)”을 참조하세요.
 
 {% endnote %}
 
-## Determining the location of your license
+## 라이선스 위치 결정
 
-Most people place their license text in a file named `LICENSE.txt` (or `LICENSE.md` or `LICENSE.rst`) in the root of the repository; [here's an example from Hubot](https://github.com/github/hubot/blob/master/LICENSE.md).
+대부분의 사람들은 리포지토리의 루트에 `LICENSE.txt`(또는 `LICENSE.md`나 `LICENSE.rst`) 라이선스 텍스트를 배치합니다. [다음은 Hubot의 예제입니다](https://github.com/github/hubot/blob/master/LICENSE.md).
 
-Some projects include information about their license in their README. For example, a project's README may include a note saying "This project is licensed under the terms of the MIT license."
+일부 프로젝트에는 추가 정보에 라이선스에 대한 정보가 포함됩니다. 예를 들어 프로젝트의 추가 정보에는 "이 프로젝트는 MIT 라이선스 조건에 따라 라이선스가 부여됩니다."라는 설명이 포함될 수 있습니다.
 
-As a best practice, we encourage you to include the license file with your project.
+모범 사례로 프로젝트에 라이선스 파일을 포함하는 것이 좋습니다.
 
-## Searching GitHub by license type
+## 라이선스 유형별 GitHub 검색
 
-You can filter repositories based on their license or license family using the `license` qualifier and the exact license keyword:
+`license` 한정자와 정확한 라이선스 키워드를 사용하여 라이선스 또는 라이선스 패밀리에 따라 리포지토리를 필터링할 수 있습니다.
 
-License | License keyword
+라이선스 | 라이선스 키워드
 ---  | ---
 | Academic Free License v3.0 | `afl-3.0` |
 | Apache license 2.0 | `apache-2.0` |
 | Artistic license 2.0 | `artistic-2.0` |
 | Boost Software License 1.0 | `bsl-1.0` |
-| BSD 2-clause "Simplified" license | `bsd-2-clause` |
-| BSD 3-clause "New" or "Revised" license | `bsd-3-clause` |
-| BSD 3-clause Clear license | `bsd-3-clause-clear` |
-| Creative Commons license family | `cc` |
+| BSD 2-clause "Simplified" 라이선스 | `bsd-2-clause` |
+| BSD 3-clause "New" 또는 "Revised" 라이선스 | `bsd-3-clause` |
+| BSD 3-clause Clear 라이선스 | `bsd-3-clause-clear` |
+| Creative Commons 라이선스 제품군 | `cc` |
 | Creative Commons Zero v1.0 Universal | `cc0-1.0` |
 | Creative Commons Attribution 4.0 | `cc-by-4.0` |
 | Creative Commons Attribution Share Alike 4.0 | `cc-by-sa-4.0` |
@@ -56,43 +62,43 @@ License | License keyword
 | Eclipse Public License 2.0 | `epl-2.0` |
 | European Union Public License 1.1 | `eupl-1.1` |
 | GNU Affero General Public License v3.0 | `agpl-3.0` |
-| GNU General Public License family | `gpl` |
+| GNU General Public License 제품군 | `gpl` |
 | GNU General Public License v2.0 | `gpl-2.0` |
 | GNU General Public License v3.0 | `gpl-3.0` |
-| GNU Lesser General Public License family | `lgpl` |
+| GNU Lesser General Public License 제품군 | `lgpl` |
 | GNU Lesser General Public License v2.1 | `lgpl-2.1` |
 | GNU Lesser General Public License v3.0 | `lgpl-3.0` |
 | ISC | `isc` |
 | LaTeX Project Public License v1.3c | `lppl-1.3c` |
-| Microsoft Public License | `ms-pl` |
+| Microsoft 퍼블릭 라이선스 | `ms-pl` |
 | MIT | `mit` |
 | Mozilla Public License 2.0 | `mpl-2.0` |
 | Open Software License 3.0 | `osl-3.0` |
-| PostgreSQL License | `postgresql` |
+| PostgreSQL 라이선스 | `postgresql` |
 | SIL Open Font License 1.1 | `ofl-1.1` |
-| University of Illinois/NCSA Open Source License | `ncsa` |
-| The Unlicense | `unlicense` |
+| 일리노이 대학교/NCSA 오픈 소스 라이선스 | `ncsa` |
+| Unlicense | `unlicense` |
 | zLib License | `zlib` |
 
-When you search by a family license, your results will include all licenses in that family. For example, when you use the query `license:gpl`, your results will include repositories licensed under GNU General Public License v2.0 and GNU General Public License v3.0. For more information, see "[Searching for repositories](/search-github/searching-on-github/searching-for-repositories/#search-by-license)."
+패밀리 라이선스로 검색하는 경우 결과에는 해당 패밀리의 모든 라이선스가 포함됩니다. 예를 들어 쿼리 `license:gpl`을 사용하는 경우 결과에는 GNU General Public License v2.0 및 GNU General Public License v3.0에서 라이선스가 부여된 리포지토리가 포함됩니다. 자세한 내용은 “[리포지토리 검색](/search-github/searching-on-github/searching-for-repositories/#search-by-license)”을 참조하세요.
 
-## Detecting a license
+## 라이선스 검색
 
-[The open source Ruby gem Licensee](https://github.com/licensee/licensee) compares the repository's *LICENSE* file to a short list of known licenses. Licensee also provides the [Licenses API](/rest/reference/licenses) and [gives us insight into how repositories on {% data variables.product.product_name %} are licensed](https://github.com/blog/1964-open-source-license-usage-on-github-com). If your repository is using a license that isn't listed on the [Choose a License website](https://choosealicense.com/appendix/), you can [request including the license](https://github.com/github/choosealicense.com/blob/gh-pages/CONTRIBUTING.md#adding-a-license).
+[오픈 소스 Ruby gem 라이선스 실시권자](https://github.com/licensee/licensee)는 리포지토리의 ‘라이선스’ 파일을 알려진 라이선스의 짧은 목록과 비교합니다. 또한 라이선스 실시권자는 [라이선스 API](/rest/reference/licenses)를 제공하며 [{% data variables.product.product_name %}의 리포지토리에 라이선스가 부여되는 방법에 대한 인사이트를 제공합니다](https://github.com/blog/1964-open-source-license-usage-on-github-com). 리포지토리에서 [라이선스 선택 웹 사이트](https://choosealicense.com/appendix/)에 나열되지 않은 라이선스를 사용하는 경우 [라이선스를 포함하도록 요청](https://github.com/github/choosealicense.com/blob/gh-pages/CONTRIBUTING.md#adding-a-license)할 수 있습니다.
 
-If your repository is using a license that is listed on the Choose a License website and it's not displaying clearly at the top of the repository page, it may contain multiple licenses or other complexity. To have your license detected, simplify your *LICENSE* file and note the complexity somewhere else, such as your repository's *README* file.
+리포지토리에서 라이선스 선택 웹 사이트에 나열된 라이선스를 사용하고 있고 리포지토리 페이지의 맨 위에 명확하게 표시되지 않는 경우 여러 라이선스 또는 기타 복잡성이 있는 것일 수 있습니다. 라이선스를 검색하려면 ‘라이선스’ 파일을 단순화하고 리포지토리의 ‘추가 정보’ 파일과 같은 다른 곳에서 복잡성을 기록해 둡니다.
 
-## Applying a license to a repository with an existing license
+## 기존 라이선스를 사용하여 리포지토리에 라이선스 적용
 
-The license picker is only available when you create a new project on GitHub. You can manually add a license using the browser. For more information on adding a license to a repository, see "[Adding a license to a repository](/articles/adding-a-license-to-a-repository)."
+라이선스 선택기는 GitHub에서 새 프로젝트를 만들 때만 사용할 수 있습니다. 브라우저를 사용하여 라이선스를 수동으로 추가할 수 있습니다. 리포지토리에 라이선스를 추가하는 방법에 대한 자세한 내용은 "[리포지토리에 라이선스 추가](/articles/adding-a-license-to-a-repository)"를 참조하세요.
 
-![Screenshot of license picker on GitHub.com](/assets/images/help/repository/repository-license-picker.png)
+![GitHub.com의 라이선스 선택기 스크린샷](/assets/images/help/repository/repository-license-picker.png)
 
-## Disclaimer
+## 고지 사항
 
-The goal of GitHub's open source licensing efforts is to provide a starting point to help you make an informed choice. GitHub displays license information to help users get information about open source licenses and the projects that use them. We hope it helps, but please keep in mind that we’re not lawyers and that we make mistakes like everyone else. For that reason, GitHub provides the information on an "as-is" basis and makes no warranties regarding any information or licenses provided on or through it, and disclaims liability for damages resulting from using the license information. If you have any questions regarding the right license for your code or any other legal issues relating to it, it’s always best to consult with a professional.
+GitHub 오픈 소스 라이선싱 작업의 목표는 정보에 입각해서 선택을 할 수 있는 시작점을 제공하는 것입니다. GitHub에서는 사용자가 오픈 소스 라이선스 및 라이선스를 사용하는 프로젝트에 대한 정보를 얻을 수 있도록 라이선스 정보를 표시합니다. 그것이 도움이 되기를 바라지만 당사는 변호사가 아니며 모든 사람들과 같이 실수할 수 있다는 것을 명심하시기 바랍니다. 해당 이유로 GitHub는 “있는 그대로” 정보를 제공하고 이를 통하거나 이에 제공된 정보 또는 라이선스에 대한 보증을 하지 않으며 라이선스 정보 사용으로 인한 손해에 대한 책임을 부인합니다. 코드에 적합한 라이선스 또는 코드와 관련된 기타 법적 문제에 대해 질문이 있는 경우 항상 전문가와 상의하는 것이 가장 좋습니다.
 
-## Further reading
+## 추가 참고 자료
 
-- The Open Source Guides' section "[The Legal Side of Open Source](https://opensource.guide/legal/)"{% ifversion fpt or ghec %}
+- 오픈 소스 가이드 섹션 "[오픈 소스의 법적 측면](https://opensource.guide/legal/)"{% ifversion fpt or ghec %}
 - [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %}){% endif %}

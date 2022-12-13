@@ -1,7 +1,6 @@
 ---
-title: Viewing deployment history
-shortTitle: View deployment history
-intro: View current and previous deployments for your repository.
+title: Anzeigen des Bereitstellungsverlaufs
+intro: Zeige aktuelle und frühere Bereitstellungen für dein Repository an.
 versions:
   fpt: '*'
   ghes: '*'
@@ -9,21 +8,24 @@ versions:
   ghec: '*'
 topics:
   - API
+shortTitle: View deployment history
 redirect_from:
   - /developers/overview/viewing-deployment-history
   - /actions/deployment/viewing-deployment-history
+ms.openlocfilehash: 2941d8de6af3b7505a3c05a6b15436d32becea9b
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145091387'
 ---
+Du kannst Bereitstellungen über {% data variables.product.prodname_actions %} und Umgebungen oder mit der REST-API und Drittanbieter-Apps bereitstellen. {% ifversion fpt or ghae ghes > 3.0 or ghec %} Weitere Informationen zur Verwendung von Umgebungen zum Bereitstellen mit {% data variables.product.prodname_actions %} findest du unter [Verwenden von Umgebungen für die Bereitstellung](/actions/deployment/using-environments-for-deployment). {% endif %}Weitere Informationen zu Bereitstellungen mit der REST-API findest du unter [Repositorys](/rest/reference/repos#deployments).
 
+Klicke auf der Homepage deines Repositorys auf **Umgebungen**, um aktuelle und frühere Bereitstellungen anzuzeigen.
+{% ifversion ghae %} ![Umgebungen](/assets/images/enterprise/2.22/environments-sidebar.png){% else %} ![Umgebungen](/assets/images/environments-sidebar.png){% endif %}
 
-You can deliver deployments through {% data variables.product.prodname_actions %} and environments or with the REST API and third party apps. {% ifversion fpt or ghae ghes > 3.0 or ghec %}For more information about using environments to deploy with {% data variables.product.prodname_actions %}, see "[Using environments for deployment](/actions/deployment/using-environments-for-deployment)." {% endif %}For more information about deployments with the REST API, see "[Repositories](/rest/reference/repos#deployments)."
+Auf der Seite „Bereitstellungen“ wird die letzte aktive Bereitstellung jeder Umgebung für dein Repository angezeigt. Wenn die Bereitstellung eine Umgebungs-URL enthält, wird neben der Bereitstellung eine Schaltfläche **Bereitstellung anzeigen** angezeigt, die auf die URL verweist.
 
-To view current and past deployments, click **Environments** on the home page of your repository.
-{% ifversion ghae %}
-![Environments](/assets/images/enterprise/2.22/environments-sidebar.png){% else %}
-![Environments](/assets/images/environments-sidebar.png){% endif %}
+Das Aktivitätsprotokoll zeigt den Bereitstellungsverlauf für deine Umgebungen. Standardmäßig weist nur die neueste Bereitstellung für eine Umgebung den Status `Active` auf, alle zuvor aktiven Bereitstellungen haben den Status `Inactive`. Weitere Informationen zur automatischen Inaktivierung von Bereitstellungen findest du unter [Inaktive Bereitstellungen](/rest/reference/deployments#inactive-deployments).
 
-The deployments page displays the last active deployment of each environment for your repository. If the deployment includes an environment URL, a **View deployment** button that links to the URL is shown next to the deployment.
-
-The activity log shows the deployment history for your environments. By default, only the most recent deployment for an environment has an `Active` status; all previously active deployments have an `Inactive` status. For more information on automatic inactivation of deployments, see "[Inactive deployments](/rest/reference/deployments#inactive-deployments)."
-
-You can also use the REST API to get information about deployments. For more information, see "[Repositories](/rest/reference/repos#deployments)."
+Du kannst auch die REST-API verwenden, um Informationen zu Bereitstellungen abzurufen. Weitere Informationen findest du unter [Repositorys](/rest/reference/repos#deployments).

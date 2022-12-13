@@ -1,65 +1,70 @@
 ---
-title: Quickstart for writing on GitHub
-intro: 'Learn advanced formatting features by creating a {% ifversion ghae %}gist to describe yourself{% else %}README for your {% data variables.product.prodname_dotcom %} profile{% endif %}.'
+title: 有关在 GitHub 上编写的快速入门
+intro: '通过创建 {% ifversion ghae %}gist 描述你自己的 {% data variables.product.prodname_dotcom %} 个人资料{% endif %} 的 {% else %}自述文件，了解高级格式设置功能。'
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
   ghec: '*'
 shortTitle: Quickstart
+ms.openlocfilehash: a023d55dd4d7bd41af329a4eaac1e2408af96294
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148107171'
 ---
+## 简介
 
-## Introduction
+Markdown 是一种易于读取和编写的语言，用于设置纯文本格式。 可以使用 Markdown 语法以及一些其他 HTML 标记来格式化位于存储库自述文件以及有关拉取请求和问题的注释等位置的 {% data variables.product.prodname_dotcom %} 上的写入内容。 在本指南中，你将通过创建 {% ifversion ghae %}gist{% else %} 或编辑 {% data variables.product.prodname_dotcom %} 个人资料{% endif %} 的自述文件来了解一些高级格式设置功能。
 
-Markdown is an easy-to-read, easy-to-write language for formatting plain text. You can use Markdown syntax, along with some additional HTML tags, to format your writing on {% data variables.product.prodname_dotcom %}, in places like repository READMEs and comments on pull requests and issues. In this guide, you'll learn some advanced formatting features by creating {% ifversion ghae %}a gist{% else %}or editing a README for your {% data variables.product.prodname_dotcom %} profile{% endif %}.
-
-If you're new to Markdown, you might want to start with "[Basic writing and formatting syntax](/articles/basic-writing-and-formatting-syntax)" or the [Communicate using Markdown](https://github.com/skills/communicate-using-markdown) {% data variables.product.prodname_learning %} course.
+如果不熟悉 Markdown，则可能需要通过“[基本撰写和格式语法](/articles/basic-writing-and-formatting-syntax)”或[使用 Markdown 进行通信](https://github.com/skills/communicate-using-markdown) {% data variables.product.prodname_learning %} 课程入门。
 
 {% ifversion not ghae %}
 
-If you already have a profile README, you can follow this guide by adding some features to your existing README, or by creating a gist with a Markdown file called something like `about-me.md`. For more information, see "[Creating gists](/get-started/writing-on-github/editing-and-sharing-content-with-gists/creating-gists)."
+如果已有个人资料自述文件，则可以按照本指南向现有自述文件添加一些功能，或者使用名为 `about-me.md` 之类的 Markdown 文件创建一个 gist。 有关详细信息，请参阅“[创建 gist](/get-started/writing-on-github/editing-and-sharing-content-with-gists/creating-gists)”。
 
 {% endif %}
 
 {% ifversion ghae %}
 
-## Creating a gist
+## 创建 Gist
 
-Gists let you store or share code snippets and other pieces of information with others on {% data variables.location.product_location %}. To use formatting features in gists, add a gist file with a `.md` extension.
+Gists 允许在 {% data variables.location.product_location %} 上存储或与他人共享代码段和其他信息片段。 若要在 gist 中使用格式设置功能，请添加扩展名为 `.md` 的 gist 文件。
 
-1. Navigate to your {% data variables.gists.gist_homepage %}.
-1. Optionally, type a description for the gist, such as "About me."
-1. In the **Filename including extension...** field, type `about-me.md`.
+1. 导航到 {% data variables.gists.gist_homepage %}。
+1. （可选）键入 gist 的说明，例如“关于我”。
+1. 在“文件名包括扩展名...”字段中，键入 `about-me.md`。
 
-For more information, see "[Creating gists](/get-started/writing-on-github/editing-and-sharing-content-with-gists/creating-gists)."
+有关详细信息，请参阅“[创建 gist](/get-started/writing-on-github/editing-and-sharing-content-with-gists/creating-gists)”。
 
 {% else %}
 
-## Creating or editing your profile README
+## 创建或编辑个人资料自述文件
 
-Your profile README lets you share information about yourself with the community on {% data variables.location.product_location %}. The README is displayed at the top of your profile page.
+个人资料自述文件让你能在 {% data variables.location.product_location %} 上与社区分享有关你自己的信息。 自述文件显示在个人资料页面的顶部。
 
-If you don't already have a profile README, you can add one.
+如果还没有个人资料自述文件，可以添加一个。
 
-1. Create a repository with the same name as your {% data variables.product.prodname_dotcom %} username, initializing the repository with a `README.md` file. For more information, see "[Managing your profile README](/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/managing-your-profile-readme#adding-a-profile-readme)."
-1. Edit the `README.md` file and delete the template text (beginning `### Hi there`) that is automatically added when you create the file.
+1. 创建一个与 {% data variables.product.prodname_dotcom %} 用户名同名的存储库，并使用 `README.md` 文件初始化存储库。 有关详细信息，请参阅“[管理个人资料 README](/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/managing-your-profile-readme#adding-a-profile-readme)”。
+1. 编辑 `README.md` 文件并删除创建文件时自动添加的模板文本（开头 `### Hi there`）。
 
-If you already have a profile README, you can edit it from your profile page.
+如果已有个人资料自述文件，则可以从个人资料页面对其进行编辑。
 
 {% data reusables.profile.navigating-to-profile %}
-1. Click the {% octicon "pencil" aria-label="The Pencil icon" %} next to your profile README.
+1. 单击个人资料自述文件旁边的 {% octicon "pencil" aria-label="The Pencil icon" %}。
 
-   ![Screenshot of a profile page, with the pencil icon highlighted next to the profile README](/assets/images/help/profile/edit-profile-readme.png)
+   ![个人资料页面的屏幕截图，其中突出显示了个人资料自述文件旁边的铅笔图标](/assets/images/help/profile/edit-profile-readme.png)
 
 {% endif %}
 
-## Adding an image to suit your visitors
+## 添加适合访问者的图像
 
-You can include images in your communication on {% data variables.product.prodname_dotcom %}. Here, you'll add a responsive image, such as a banner, to the top of your {% ifversion ghae %}gist{% else %}profile README{% endif %}. 
+可以在 {% data variables.product.prodname_dotcom %} 上的通信中包含图像。 在这里，将响应式图像（如横幅）添加到{% ifversion ghae %}gist{% else %}个人资料自述文件{% endif %}的顶部。 
 
-By using the HTML `<picture>` element with the `prefers-color-scheme` media feature, you can add an image that changes depending on whether a visitor is using light or dark mode. For more information, see "[Managing your theme settings](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/managing-your-theme-settings)."
+通过将 HTML `<picture>` 元素与 `prefers-color-scheme` 媒体功能结合使用，可以添加一个图像，该图像根据访问者使用的是浅色还是深色模式而变化。 有关详细信息，请参阅“[管理主题设置](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/managing-your-theme-settings)”。
 
-1. Copy and paste the following markup into your {% ifversion ghae %}`about-me.md`{% else %}`README.md`{% endif %} file.
+1. 将以下标记复制并粘贴到 {% ifversion ghae %}`about-me.md`{% else %}`README.md`{% endif %} 文件中。
    
    ```HTML{:copy}
    <picture>
@@ -68,37 +73,37 @@ By using the HTML `<picture>` element with the `prefers-color-scheme` media feat
     <img alt="YOUR-ALT-TEXT" src="YOUR-DEFAULT-IMAGE">
    </picture>
    ```
-1. Replace the placeholders in the markup with the URLs of your chosen images. Alternatively, to try the feature first, you can copy the URLs from our example below.
+1. 将标记中的占位符替换为所选图像的 URL。 或者，若要首先尝试该功能，可以从以下示例复制 URL。
 
-   - Replace `YOUR-DARKMODE-IMAGE` with the URL of an image to display for visitors using dark mode.
-   - Replace `YOUR-LIGHTMODE-IMAGE` with the URL of an image to display for visitors using light mode.
-   - Replace `YOUR-DEFAULT-IMAGE` with the URL of an image to display in case neither of the other images can be matched, for example if the visitor is using a browser that does not support the `prefers-color-scheme` feature.
-1. To make the image accessible for visitors who are using a screen reader, replace `YOUR-ALT-TEXT` with a description of the image.
-1. To check the image has rendered correctly, click the **Preview** tab.
+   - 将 `YOUR-DARKMODE-IMAGE` 替换为图像的 URL，以便向使用深色模式的访问者显示。
+   - 将 `YOUR-LIGHTMODE-IMAGE` 替换为图像的 URL，以便向使用浅色模式的访问者显示。
+   - 将 `YOUR-DEFAULT-IMAGE` 替换为要显示的图像的 URL，以防其他图像都不匹配，例如，如果访问者使用的浏览器不支持 `prefers-color-scheme` 功能。
+1. 若要让使用屏幕阅读器的访问者可以访问图像，请将 `YOUR-ALT-TEXT` 替换为图像的说明。
+1. 若要检查图像是否已正确呈现，请单击“预览”选项卡。
 
-For more information on using images in Markdown, see "[Basic writing and formatting syntax](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#images)."
+有关在 Markdown 中使用图像的详细信息，请参阅“[基本编写和格式设置语法](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#images)”。
 
-### Example
+### 示例
 
 {% data reusables.getting-started.picture-element-example %}
 
-### How it looks
+### 外观
 
-![Screenshot of the Preview tab in light mode, with an image of a smiling sun displayed](/assets/images/help/profile/lightmode-image-example.png)
+![浅色模式下的“预览”选项卡的屏幕截图，其中显示了微笑的太阳的图像](/assets/images/help/profile/lightmode-image-example.png)
 
-## Adding a table
+## 添加表
 
-You can use Markdown tables to organize information. Here, you'll use a table to introduce yourself by ranking something, such as your most-used programming languages or frameworks, the things you're spending your time learning, or your favorite hobbies. When a table column contains numbers, it's useful to right-align the column by using the syntax `--:` below the header row.
+可以使用 Markdown 表来组织信息。 在这里，你将使用一张表格通过对某些东西进行排名来介绍自己，例如最常用的编程语言或框架，花时间学习的东西或最喜欢的爱好。 当表列包含数字时，使用标题行下方的 `--:` 语法使列右对齐非常有用。
 
-1. Return to the **Edit {% ifversion ghae %}new {% endif %}file** tab. 
-1. To introduce yourself, two lines below the `</picture>` tag, add an `## About me` header and a short paragraph about yourself, like the following.
+1. 返回到“编辑 {% ifversion ghae %}新 {% endif %}文件”选项卡。 
+1. 若要介绍自己，请在 `</picture>` 标记下方的两行处添加 `## About me` 标题和一小段关于你自己的内容，如下所示。
    
    ```Markdown
    ## About me
 
    Hi, I'm Mona. You might recognize me as {% data variables.product.prodname_dotcom %}'s mascot.
    ```
-1. Two lines below this paragraph, insert a table by copying and pasting the following markup.
+1. 在此段落下方的两行处，通过复制并粘贴以下标记来插入表。
    
    ```Markdown{:copy}
    | Rank | THING-TO-RANK |
@@ -107,12 +112,12 @@ You can use Markdown tables to organize information. Here, you'll use a table to
    |     2|               |
    |     3|               |
    ```
-1. In the column on the right, replace `THING-TO-RANK` with "Languages," "Hobbies," or anything else, and fill in the column with your list of things.
-1. To check the table has rendered correctly, click the **Preview** tab.
+1. 在右侧的列中，将 `THING-TO-RANK` 替换为“语言”、“爱好”或其他任何内容，然后在列中填写内容清单。
+1. 若要检查表格是否已正确呈现，请单击“预览”选项卡。
 
-For more information, see "[Organizing information with tables](/get-started/writing-on-github/working-with-advanced-formatting/organizing-information-with-tables)."
+有关详细信息，请参阅“[使用表格组织信息](/get-started/writing-on-github/working-with-advanced-formatting/organizing-information-with-tables)”。
 
-### Example
+### 示例
 
 ```Markdown
 ## About me
@@ -126,15 +131,15 @@ Hi, I'm Mona. You might recognize me as {% data variables.product.prodname_dotco
 |     3| SQL       |
 ```
 
-### How it looks
+### 外观
 
-![Screenshot of the Preview tab, showing an "About me" heading and a rendered table with a list of languages](/assets/images/help/profile/markdown-table-example.png)
+![“预览”选项卡的屏幕截图，显示“关于我”标题和包含语言列表的呈现表](/assets/images/help/profile/markdown-table-example.png)
 
-## Adding a collapsed section
+## 创建折叠部分
 
-To keep your content tidy, you can use the `<details>` tag to create an expandible collapsed section. 
+若要使内容保持整洁，可以使用 `<details>` 标记创建可展开的折叠部分。 
 
-1. To create a collapsed section for the table you created, wrap your table in `<details>` tags like in the following example.
+1. 若要为创建的表创建折叠部分，请将表包装在 `<details>` 标记中，如以下示例所示。
    
    ```HTML{:copy}
    <details>
@@ -144,15 +149,15 @@ To keep your content tidy, you can use the `<details>` tag to create an expandib
 
    </details>
    ```
-1. Between the `<summary>` tags, replace `THINGS-TO-RANK` with whatever you ranked in your table.
-1. Optionally, to make the section display as open by default, add the `open` attribute to the `<details>` tag.
+1. 在 `<summary>` 标记之间，将 `THINGS-TO-RANK` 替换为在表格中排名的任何内容。
+1. （可选）若要使该部分在默认情况下显示为打开状态，请将 `open` 属性添加到 `<details>` 标记。
 
    ```HTML
    <details open>
    ```
-1. To check the collapsed section has rendered correctly, click the **Preview** tab.
+1. 若要检查折叠的部分是否已正确呈现，请单击“预览”选项卡。
 
-### Example
+### 示例
 
 ```HTML
 <details>
@@ -167,29 +172,29 @@ To keep your content tidy, you can use the `<details>` tag to create an expandib
 </details>
 ```
 
-### How it looks
+### 外观
 
-![Screenshot of the Preview tab, with a collapsed section called "My top languages" marked by a dropdown arrow](/assets/images/help/profile/collapsed-section-example.png)
+![“预览”选项卡的屏幕截图，其中名为“我的常用语言”的折叠部分由下拉箭头标记](/assets/images/help/profile/collapsed-section-example.png)
 
-## Adding a quote
+## 添加引文
 
-Markdown has many other options for formatting your content. Here, you'll add a horizontal rule to divide your page and a blockquote to format your favorite quote.
+Markdown 具有许多其他用于设置内容格式的选项。 在这里，你将添加一条水平线来分割页面，并添加一个块引用块来格式化你喜欢的引文。
 
-1. At the bottom of your file, two lines below the `</details>` tag, add a horizontal rule by typing three or more dashes.
+1. 在文件底部，在 `</details>` 标记下方两行处，通过键入三条或更多短划线来添加水平线。
 
    ```Markdown
    ---
    ```
-1. Below the `---` line, add a quote by typing markup like the following.
+1. 在 `---` 行下方，通过键入如下所示的标记来添加引文。
    
    ```Markdown
    > QUOTE
    ```
 
-   Replace `QUOTE` with a quote of your choice. Alternatively, copy the quote from our example below.
-1. To check everything has rendered correctly, click the **Preview** tab.
+   将 `QUOTE` 替换为所选引文。 或者，请从以下示例中复制引文。
+1. 若要检查所有内容是否已正确呈现，请单击“预览”选项卡。
 
-### Example
+### 示例
 
 ```Markdown
 ---
@@ -198,24 +203,24 @@ Markdown has many other options for formatting your content. Here, you'll add a 
 — Mona the Octocat
 ```
 
-### How it looks
+### 外观
 
-![Screenshot of the Preview tab, with an indented quote below a thick horizontal line](/assets/images/help/profile/markdown-quote-example.png)
+![“预览”选项卡的屏幕截图，在水平粗线下方有一个缩进引文](/assets/images/help/profile/markdown-quote-example.png)
 
-## Adding a comment
+## 添加注释
 
-You can use HTML comment syntax to add a comment that will be hidden in the output. Here, you'll add a comment to remind yourself to update your {% ifversion ghae %}gist{% else %}README{% endif %} later.
+可以使用 HTML 注释语法添加将在输出中隐藏的注释。 在这里，你将添加注释，以提醒自己稍后更新{% ifversion ghae %}gist{% else %}自述文件{% endif %}。
 
-1. Two lines below the `## About me` header, insert a comment by using the following markup.
+1. 在 `## About me` 标题下方的两行中，使用以下标记插入注释。
 
    <pre>
    &lt;!-- COMMENT --&gt;
    </pre>
    
-   Replace `COMMENT` with a "to-do" item you remind yourself to do something later (for example, to add more items to the table).
-1. To check your comment is hidden in the output, click the **Preview** tab.
+   将 `COMMENT` 替换为“待办事项”项目，提醒自己稍后执行某些操作（例如，向表中添加更多项）。
+1. 若要检查注释是否在输出中隐藏，请单击“预览”选项卡。
 
-### Example
+### 示例
 
 <pre>
 ## About me
@@ -223,22 +228,22 @@ You can use HTML comment syntax to add a comment that will be hidden in the outp
 &lt;!-- TO DO: add more details about me later --&gt;
 </pre>
 
-## Saving your work
+## 保存工作
 
-When you're happy with your changes, save your {% ifversion ghae %}gist. 
+当你对更改感到满意时，请保存 {% ifversion ghae %}gist。 
 
-- To keep your gist hidden from search engines but visible to anyone you share the URL with, click **Create secret gist** 
-- If you're happy for your gist to be visible to anyone on {% data variables.location.product_location %}, click **Create internal gist**
+- 若要对搜索引擎隐藏 gist，但对共享 URL 的任何人可见，请单击“创建机密 gist” 
+- 如果希望 gist 对 {% data variables.location.product_location %} 上的任何人都可见，请单击“创建内部 gist”
 
-{% else %}profile README by clicking **Commit changes**. 
+{% else %}个人资料自述文件，方法是单击“提交更改”。 
 
-Committing directly to the `main` branch will make your changes visible to any visitor on your profile. If you want to save your work but aren't ready to make it visible on your profile, you can select **Create a new branch for this commit and start a pull request**.
+直接提交到 `main` 分支将使你的更改对个人资料上的任何访问者可见。 如果要保存工作，但尚未准备好使其在个人资料中可见，可以选择“为此提交创建新分支并启动拉取请求”。
 
-![Screenshot of the "Commit changes" section](/assets/images/help/profile/readme-commit-changes.png)
+![“提交更改”部分的屏幕截图](/assets/images/help/profile/readme-commit-changes.png)
 
 {% endif %}
 
-## Next steps
+## 后续步骤
 
-- Continue to learn about advanced formatting features. For example, see {% ifversion fpt or ghec %}"[Creating diagrams](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams)" and {% endif %}"[Creating and highlighting codeblocks](/get-started/writing-on-github/working-with-advanced-formatting/creating-and-highlighting-code-blocks)."
-- Use your new skills as you communicate across GitHub, in issues, pull requests, and discussions. For more information, see "[Communicating on {% data variables.product.prodname_dotcom %}](/get-started/quickstart/communicating-on-github)."
+- 继续了解高级格式设置功能。 例如，请参阅 {% ifversion fpt or ghec %}“[创建关系图](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams)”和{% endif %}“[创建和突出显示代码块](/get-started/writing-on-github/working-with-advanced-formatting/creating-and-highlighting-code-blocks)”。
+- 在问题、拉取请求和讨论中跨 GitHub 进行沟通时，请使用新技能。 有关详细信息，请参阅“[在 {% data variables.product.prodname_dotcom %} 上通信](/get-started/quickstart/communicating-on-github)”。

@@ -1,6 +1,6 @@
 ---
-title: Connecting with third-party applications
-intro: 'You can connect your {% data variables.product.product_name %} identity to third-party applications using OAuth. When authorizing one of these applications, you should ensure you trust the application, review who it''s developed by, and review the kinds of information the application wants to access.'
+title: Подключение к сторонним приложениям
+intro: 'Вы можете подключить удостоверение {% data variables.product.product_name %} к сторонним приложениям с помощью OAuth. При авторизации одного из этих приложений следует убедиться в том, что вы доверяете приложению, проверить, кем оно разработано, и просмотреть типы сведений, к которым приложению требуется доступ.'
 redirect_from:
   - /articles/connecting-with-third-party-applications
   - /github/authenticating-to-github/connecting-with-third-party-applications
@@ -14,64 +14,70 @@ topics:
   - Identity
   - Access management
 shortTitle: Third-party applications
+ms.openlocfilehash: b8cd20d36926c373116061e211be62701b1bd2f6
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145115051'
 ---
-When a third-party application wants to identify you by your {% data variables.product.product_name %} login, you'll see a page with the developer contact information and a list of the specific data that's being requested.
+Когда стороннее приложение пытается идентифицировать вас по имени входа {% data variables.product.product_name %}, откроется страница с контактными данными разработчика и списком запрашиваемых данных.
 
-## Contacting the application developer
+## Связь с разработчиком приложения
 
-Because an application is developed by a third-party who isn't {% data variables.product.product_name %}, we don't know exactly how an application uses the data it's requesting access to. You can use the developer information at the top of the page to contact the application admin if you have questions or concerns about their application.
+Так как приложение разрабатывается сторонним разработчиком, который не является {% data variables.product.product_name %}, мы не знаем точно, как приложение использует данные, к которым оно запрашивает доступ. Если у вас возникли вопросы или проблемы с приложением, сведения разработчика можно найти в верхней части страницы, чтобы связаться с администратором приложения.
 
-![{% data variables.product.prodname_oauth_app %} owner information](/assets/images/help/platform/oauth_owner_bar.png)
+![Сведения о владельце {% data variables.product.prodname_oauth_app %}](/assets/images/help/platform/oauth_owner_bar.png)
 
-If the developer has chosen to supply it, the right-hand side of the page provides a detailed description of the application, as well as its associated website.
+Если разработчик решил предоставить эти сведения, в правой части страницы будет представлено подробное описание приложения, а также связанный с ним веб-сайт.
 
-![OAuth application information and website](/assets/images/help/platform/oauth_app_info.png)
+![Сведения о приложении OAuth и веб-сайт](/assets/images/help/platform/oauth_app_info.png)
 
-## Types of application access and data
+## Типы доступа к приложению и данные
 
-Applications can have *read* or *write* access to your {% data variables.product.product_name %} data.
+Приложения могут иметь доступ на *чтение* или на *запись* к вашим данным {% data variables.product.product_name %}.
 
-- **Read access** only allows an application to *look at* your data.
-- **Write access** allows an application to *change* your data.
+- **Доступ на чтение** позволяет приложению только *просматривать* ваши данные.
+- **Доступ на запись** позволяет приложению *изменять* ваши данные.
 
-### About OAuth scopes
+### Сведения об областях OAuth
 
-*Scopes* are named groups of permissions that an application can request to access both public and non-public data.
+*Области* — именованные группы разрешений, которые приложение может запрашивать для доступа как к открытым, так и к закрытым данным.
 
-When you want to use a third-party application that integrates with {% data variables.product.product_name %}, that application lets you know what type of access to your data will be required. If you grant access to the application, then the application will be able to perform actions on your behalf, such as reading or modifying data. For example, if you want to use an app that requests `user:email` scope, the app will have read-only access to your private email addresses. For more information, see "[About scopes for {% data variables.product.prodname_oauth_apps %}](/apps/building-integrations/setting-up-and-registering-oauth-apps/about-scopes-for-oauth-apps)."
-
-{% tip %}
-
-**Note:** Currently, you can't scope source code access to read-only.
-
-{% endtip %}
-
-### Types of requested data
-
-There are several types of data that applications can request.
-
-![OAuth access details](/assets/images/help/platform/oauth_access_types.png)
+Если необходимо использовать стороннее приложение, объединенное с {% data variables.product.product_name %}, приложение сообщит о требуемом типе доступа к данным. Если вы предоставляете доступ к приложению, приложение сможет выполнять действия от вашего имени, например чтение или изменение данных. Например, если вы хотите использовать приложение, которое запрашивает область действия `user:email`, приложение будет иметь доступ к частным адресам электронной почты только для чтения. Дополнительные сведения см. в разделе [Сведения об областях для {% data variables.product.prodname_oauth_apps %}](/apps/building-integrations/setting-up-and-registering-oauth-apps/about-scopes-for-oauth-apps).
 
 {% tip %}
 
-**Tip:** {% data reusables.user-settings.review_oauth_tokens_tip %}
+**Примечание**. В настоящее время невозможно предоставить доступ к исходному коду только для чтения.
 
 {% endtip %}
 
-| Type of data | Description |
+### Типы запрашиваемых данных
+
+Существует несколько типов данных, которые могут запрашивать приложения.
+
+![Сведения о доступе к OAuth](/assets/images/help/platform/oauth_access_types.png)
+
+{% tip %}
+
+**Совет**. {% data reusables.user-settings.review_oauth_tokens_tip %}
+
+{% endtip %}
+
+| Тип данных | Описание |
 | --- | --- |
-| Commit status | You can grant access for a third-party application to report your commit status. Commit status access allows applications to determine if a build is a successful against a specific commit. Applications won't have access to your code, but they <em>can</em> read and write status information against a specific commit. |
-| Deployments | Deployment status access allows applications to determine if a deployment is successful against a specific commit for a repository. Applications won't have access to your code. |
-| Gists | [Gist](https://gist.github.com) access allows applications to read or write to {% ifversion not ghae %}both your public and{% else %}both your internal and{% endif %} secret Gists. |
-| Hooks | [Webhooks](/webhooks) access allows applications to read or write hook configurations on repositories you manage. |
-| Notifications | Notification access allows applications to read your {% data variables.product.product_name %} notifications, such as comments on issues and pull requests. However, applications remain unable to access anything in your repositories. |
-| Organizations and teams | Organization and teams access allows apps to access and manage organization and team membership. |
-| Personal user data | User data includes information found in your user profile, like your name, e-mail address, and location. |
-| Repositories | Repository information includes the names of contributors, the branches you've created, and the actual files within your repository. An application can request access to all of your repositories of any visibility level. For more information, see "[About repositories](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)." |
-| Repository delete | Applications can request to delete repositories that you administer, but they won't have access to your code. |
+| Состояние фиксации | Вы можете предоставить доступ для стороннего приложения, чтобы сообщить о состоянии фиксации. Доступ к состоянию фиксации позволяет приложениям определять, была ли сборка для определенной фиксации выполнена успешно. У приложений не будет доступа к коду, но они <em>смогут</em> считывать данные о состоянии определенной фиксации и записывать их. |
+| Развернутые приложения | Доступ к состоянию развертывания позволяет приложениям определять, было ли развертывание для определенной фиксации в репозитории выполнено успешно. У приложений не будет доступа к коду. |
+| Gist | Доступ к [Gist](https://gist.github.com) позволяет приложениям считывать или записывать данные как в {% ifversion not ghae %}общедоступные, так и во{% else %}внутренние, и {% endif %} секрет Gist. |
+| Обработчики | Доступ к [веб-перехватчикам](/webhooks) позволяет приложениям считывать и записывать конфигурации перехватчиков в управляемых вами репозиториях. |
+| Уведомления | Доступ к уведомлениям позволяет приложениям считывать ваши уведомления {% data variables.product.product_name %}, например комментарии к проблемам и запросам на вытягивание. Однако приложения по-прежнему не имеют доступа к содержимому ваших репозиториев. |
+| Организации и группы | Доступ к организации и командам позволяет приложениям получать доступ к организации и командам и управлять членством в них. |
+| Персональные данные пользователя | Данные пользователя включают в себя сведения в профиле пользователя, такие как имя, адрес электронной почты и местонахождение. |
+| Репозитории | Сведения о репозитории включают в себя имена участников, созданные ветви и существующие файлы в репозитории. Приложение может запросить доступ ко всем репозиториям любого уровня видимости. Дополнительные сведения см. в разделе [Сведения о репозиториях](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility). |
+| Удаление репозитория | Приложения могут запрашивать удаление управляемых вами репозиториев, но у них нет доступа к коду. |
 
-## Requesting updated permissions
+## Запрос обновленных разрешений
 
-Applications can request new access privileges. When asking for updated permissions, the application will notify you of the differences.
+Приложения могут запрашивать новые привилегии доступа. При запросе обновленных разрешений приложение уведомит вас о различиях.
 
-![Changing third-party application access](/assets/images/help/platform/oauth_existing_access_pane.png)
+![Изменение доступа к сторонним приложениям](/assets/images/help/platform/oauth_existing_access_pane.png)

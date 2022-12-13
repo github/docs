@@ -10,12 +10,12 @@ versions:
   ghec: '*'
 topics:
   - API
-ms.openlocfilehash: ecfa3a360ef9b042d96a1f80a2f0cde49390727f
-ms.sourcegitcommit: d2f0b59ed096b9e68ef8f6fa019cd925165762ec
+ms.openlocfilehash: c696f18d89ffe7d9c9c7c13eda933285502132ae
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2022
-ms.locfileid: '148184236'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148192835'
 ---
 API에서 몇 가지 이상한 점이 발생하는 경우 발생할 수 있는 몇 가지 문제에 대한 해결 목록은 다음과 같습니다.
 
@@ -46,7 +46,7 @@ $ curl {% data reusables.rest-api.version-header %} https://api.github.com/zen
 
 대부분의 API 호출은 리소스 목록(예: 사용자, 문제 등)에 액세스하여 페이지 매김을 지원합니다.  요청을 수행하고 불완전한 결과 집합을 수신하는 경우 첫 번째 페이지만 표시할 수 있습니다. 더 많은 결과를 얻으려면 나머지 페이지를 요청해야 합니다.
 
-페이지 매김 URL의 형식을 시도하고 추측하지 않는 것이 중요합니다. 모든 API 호출이 동일한 구조를 사용하는 것은 아닙니다. 대신 모든 요청과 함께 전송되는 [링크 헤더](/rest#pagination)에서 페이지 매김 정보를 추출합니다.
+페이지 매김 URL의 형식을 시도하고 추측하지 않는 것이 중요합니다. 모든 API 호출이 동일한 구조를 사용하는 것은 아닙니다. 대신 모든 요청과 함께 반환되는 링크 헤더에서 페이지 매김 정보를 추출합니다. 페이지 매김에 대한 자세한 내용은 "[REST API에서 페이지 매김 사용"을](/rest/guides/using-pagination-in-the-rest-api) 참조하세요.
 
 [oap-guide]: https://developer.github.com/changes/2015-01-19-an-integrators-guide-to-organization-application-policies/
 

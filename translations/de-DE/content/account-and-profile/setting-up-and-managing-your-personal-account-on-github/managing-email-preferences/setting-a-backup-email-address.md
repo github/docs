@@ -1,6 +1,6 @@
 ---
-title: Setting a backup email address
-intro: 'Use a backup email address as an additional destination for security-relevant account notifications{% ifversion not ghae %} and to securely reset your password if you can no longer access your primary email address{% endif %}.'
+title: Backup-E-Mail-Adresse festlegen
+intro: 'Verwende eine Backup-E-Mail-Adresse als zusätzliches Ziel für sicherheitsrelevante Kontobenachrichtigungen{% ifversion not ghae %} und zum sicheren Zurücksetzen deines Kennworts, wenn du nicht mehr auf deine primäre E-Mail-Adresse zugreifen kannst{% endif %}.'
 redirect_from:
   - /articles/setting-a-backup-email-address
   - /github/setting-up-and-managing-your-github-user-account/setting-a-backup-email-address
@@ -15,14 +15,19 @@ topics:
   - Accounts
   - Notifications
 shortTitle: Set backup email address
+ms.openlocfilehash: d977425fd672164400355cc7d9209d5a79e7cd34
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145164969'
 ---
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.emails %}
-3. Under "Backup email address," select the address you want to set as your backup email address using the drop-down menu.
-![Backup email address](/assets/images/help/settings/backup-email-address.png)
-4. Click **Save**.
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.emails %}
+3. Wähle im Dropdownmenü unter „Backup email address“ (Backup-E-Mail-Adresse) die E-Mail-Adresse aus, die du als Backup-E-Mail-Adresse festlegen möchtest.
+![Backup-E-Mail-Adresse](/assets/images/help/settings/backup-email-address.png)
+4. Klicken Sie auf **Speichern**.
 
-## Further reading
+## Weiterführende Themen
 
-- "[Managing email preferences](/articles/managing-email-preferences/)"
-- "[Updating your GitHub access credentials](/articles/updating-your-github-access-credentials/)"
+- [Verwalten von E-Mail-Einstellungen](/articles/managing-email-preferences/)
+- [Aktualisieren der Anmeldeinformationen für den Zugriff auf GitHub](/articles/updating-your-github-access-credentials/)

@@ -1,6 +1,6 @@
 ---
-title: Installing GitHub Enterprise Server on Azure
-intro: 'To install {% data variables.product.prodname_ghe_server %} on Azure, you must deploy onto a memory-optimized instance that supports premium storage.'
+title: GitHub Enterprise Server auf Azure installieren
+intro: 'Um {% data variables.product.prodname_ghe_server %} in Azure zu installieren, musst du eine speicheroptimierte Instanz bereitstellen, die Storage Premium unterstützt.'
 redirect_from:
   - /enterprise/admin/guides/installation/installing-github-enterprise-on-azure
   - /enterprise/admin/installation/installing-github-enterprise-server-on-azure
@@ -14,58 +14,64 @@ topics:
   - Infrastructure
   - Set up
 shortTitle: Install on Azure
+ms.openlocfilehash: 7d5d1024083e448785ca1429ffd71e343e7cd507
+ms.sourcegitcommit: 152a2399e22f476eba91a74d1980b96f468f4d2c
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 11/10/2022
+ms.locfileid: '148160865'
 ---
-You can deploy {% data variables.product.prodname_ghe_server %} on global Azure or Azure Government.
+Du kannst {% data variables.product.prodname_ghe_server %} auf Global Azure oder Azure Government bereitstellen.
 
-## Prerequisites
+## Voraussetzungen
 
 - {% data reusables.enterprise_installation.software-license %}
-- You must have an Azure account capable of provisioning new machines. For more information, see the [Microsoft Azure website](https://azure.microsoft.com).
-- Most actions needed to launch your virtual machine (VM) may also be performed using the Azure Portal. However, we recommend installing the Azure command line interface (CLI) for initial setup. Examples using the Azure CLI 2.0 are included below. For more information, see Azure's guide "[Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)."
+- Du musst über ein Azure-Konto verfügen, das neue Computer bereitstellen kann. Weitere Informationen findest du auf der [Microsoft Azure-Website](https://azure.microsoft.com).
+- Die meisten Aktionen, die zum Starten deines virtuellen Computers (VM) erforderlich sind, können auch mithilfe des Azure-Portals ausgeführt werden. Zur Ersteinrichtung solltest du jedoch die Azure-Befehlszeilenschnittstelle (CLI) installieren. Im Folgenden findest du Beispiele zur Verwendung der Azure CLI 2.0. Weitere Informationen findest du im Azure-Leitfaden zum [Installieren von Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-## Hardware considerations
+## Hardwareaspekte
 
 {% data reusables.enterprise_installation.hardware-considerations-all-platforms %}
 
-## Determining the virtual machine type
+## Typ der virtuellen Maschine ermitteln
 
-Before launching {% data variables.location.product_location %} on Azure, you'll need to determine the machine type that best fits the needs of your organization. For more information about memory optimized machines, see "[Memory optimized virtual machine sizes](https://docs.microsoft.com/en-gb/azure/virtual-machines/sizes-memory)" in the Microsoft Azure documentation. To review the minimum resource requirements for {% data variables.product.product_name %}, see "[Minimum requirements](#minimum-requirements)."
+Bevor du {% data variables.location.product_location %} auf Azure startest, musst du den Computertyp ermitteln, der den Anforderungen deiner Organisation am besten entspricht. Weitere Informationen zu arbeitsspeicheroptimierten Computern findest du in der Microsoft Azure-Dokumentation unter [Arbeitsspeicheroptimierte VM-Größen](https://docs.microsoft.com/en-gb/azure/virtual-machines/sizes-memory). Informationen zum Überprüfen der Mindestanforderungen an Ressourcen für {% data variables.product.product_name %} findest du unter [Mindestanforderungen](#minimum-requirements).
 
 
 {% data reusables.enterprise_installation.warning-on-scaling %}
 
 {% data reusables.enterprise_installation.azure-instance-recommendation %}
 
-## Creating the {% data variables.product.prodname_ghe_server %} virtual machine
+## {% data variables.product.prodname_ghe_server %}-VM erstellen
 
 {% data reusables.enterprise_installation.create-ghe-instance %}
 
-1. Find the most recent {% data variables.product.prodname_ghe_server %} appliance image. For more information about the `vm image list` command, see "[`az vm image list`](https://docs.microsoft.com/cli/azure/vm/image?view=azure-cli-latest#az_vm_image_list)" in the Microsoft documentation.
+1. Suche nach dem neuesten {% data variables.product.prodname_ghe_server %}-Appliance-Image. Weitere Informationen zum Befehl `vm image list` findest du in der Microsoft-Dokumentation unter [`az vm image list`](https://docs.microsoft.com/cli/azure/vm/image?view=azure-cli-latest#az_vm_image_list).
   ```shell
   $ az vm image list --all -f GitHub-Enterprise | grep '"urn":' | sort -V
   ```
 
-2. Create a new VM using the appliance image you found. For more information, see "[`az vm create`](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az_vm_create)" in the Microsoft documentation.
+2. Erstelle mithilfe des von dir ermittelten Appliance-Images eine neue VM. Weitere Informationen findest du in der Microsoft-Dokumentation unter [`az vm create`](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az_vm_create).
 
-  Pass in options for the name of your VM, the resource group, the size of your VM, the name of your preferred Azure region, the name of the appliance image VM you listed in the previous step, and the storage SKU for premium storage. For more information about resource groups, see "[Resource groups](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups)" in the Microsoft documentation.
+  Übergib Optionen für den Namen deiner VM, den Ressourcentyp, die Größe deiner VM, den Namen deiner bevorzugten Azure-Region, den Namen der von dir im vorherigen Schritt aufgelisteten Appliance-Image-VM und die Storage-SKU für den Premium-Storage. Weitere Informationen zu Ressourcengruppen findest du in der Microsoft-Dokumentation unter [Ressourcengruppen](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups).
 
   ```shell
   $ az vm create -n VM_NAME -g RESOURCE_GROUP --size VM_SIZE -l REGION --image APPLIANCE_IMAGE_NAME --storage-sku Premium_LRS
   ```
 
-3. Configure the security settings on your VM to open up required ports. For more information, see "[`az vm open-port`](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az_vm_open_port)" in the Microsoft documentation. See the table below for a description of each port to determine what ports you need to open.
+3. Konfiguriere die Sicherheitseinstellungen auf deiner VM, um die erforderlichen Ports zu öffnen. Weitere Informationen findest du in der Microsoft-Dokumentation unter [`az vm open-port`](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az_vm_open_port). In der folgenden Tabelle findest du eine Beschreibung der einzelnen Ports, um festzustellen, welche Ports du öffnen musst.
 
   ```shell
   $ az vm open-port -n VM_NAME -g RESOURCE_GROUP --port PORT_NUMBER
   ```
 
-  This table identifies what each port is used for.
+  Diese Tabelle zeigt, wofür jeder Port verwendet wird.
 
   {% data reusables.enterprise_installation.necessary_ports %}
 
-4. Create and attach a new unencrypted data disk to the VM, and configure the size based on your user license count. For more information, see "[`az vm disk attach`](https://docs.microsoft.com/cli/azure/vm/disk?view=azure-cli-latest#az_vm_disk_attach)" in the Microsoft documentation.
+4. Erstelle eine neue unverschlüsselte Daten-Festplatte, hänge sie an die VM und konfiguriere die Größe entsprechend deiner Anzahl von Benutzerlizenzen. Weitere Informationen findest du in der Microsoft-Dokumentation unter [`az vm disk attach`](https://docs.microsoft.com/cli/azure/vm/disk?view=azure-cli-latest#az_vm_disk_attach).
 
-  Pass in options for the name of your VM (for example, `ghe-acme-corp`), the resource group, the premium storage SKU, the size of the disk (for example, `200`), and a name for the resulting VHD.
+  Übergib Optionen für den Namen deiner VM (z. B. `ghe-acme-corp`), die Ressourcengruppe, die SKU „Storage Premium“, die Größe des Datenträgers (z. B. `200`) und einen Namen für die resultierende VHD.
 
   ```shell
   $ az vm disk attach --vm-name VM_NAME -g RESOURCE_GROUP --sku Premium_LRS --new -z SIZE_IN_GB --name ghe-data.vhd --caching ReadWrite
@@ -73,13 +79,13 @@ Before launching {% data variables.location.product_location %} on Azure, you'll
 
   {% note %}
 
-   **Note:** For non-production instances to have sufficient I/O throughput, the recommended minimum disk size is 150 GiB with read/write cache enabled (`--caching ReadWrite`).
+   **Hinweis:** Damit Nicht-Produktionsinstanzen einen ausreichenden E/A-Durchsatz aufweisen, wird eine minimale Datenträgergröße von 150 GiB mit aktiviertem Lese-/Schreib-Cache (`--caching ReadWrite`) empfohlen.
 
    {% endnote %}
 
-## Configuring the {% data variables.product.prodname_ghe_server %} virtual machine
+## {% data variables.product.prodname_ghe_server %}-VM konfigurieren
 
-1. Before configuring the VM, you must wait for it to enter ReadyRole status. Check the status of the VM with the `vm list` command. For more information, see "[`az vm list`](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az_vm_list)" in the Microsoft documentation.
+1. Vor der VM-Konfiguration musst du darauf warten, dass sie den Status „ReadyRole“ aufweist. Führe den Befehl `vm list` aus, um den Status der VM zu überprüfen. Weitere Informationen findest du in der Microsoft-Dokumentation unter [`az vm list`](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az_vm_list).
   ```shell
   $ az vm list -d -g RESOURCE_GROUP -o table
   > Name    ResourceGroup    PowerState    PublicIps     Fqdns    Location    Zones
@@ -89,25 +95,22 @@ Before launching {% data variables.location.product_location %} on Azure, you'll
   ```
   {% note %}
   
-  **Note:** Azure does not automatically create a FQDNS entry for the VM. For more information, see Azure's guide on how to "[Create a fully qualified domain name in the Azure portal for a Linux VM](https://docs.microsoft.com/azure/virtual-machines/linux/portal-create-fqdn)."
+  **Hinweis:** Azure erstellt nicht automatisch einen FQDN-Eintrag für die VM. Weitere Informationen findest du im Azure-Leitfaden zum [Erstellen eines vollqualifizierten Domänennamens im Azure-Portal für eine Linux-VM](https://docs.microsoft.com/azure/virtual-machines/linux/portal-create-fqdn).
   
   {% endnote %}
   
-  {% data reusables.enterprise_installation.copy-the-vm-public-dns-name %}
-  {% data reusables.enterprise_installation.upload-a-license-file %}
-  {% data reusables.enterprise_installation.save-settings-in-web-based-mgmt-console %} For more information, see "[Configuring the {% data variables.product.prodname_ghe_server %} appliance](/enterprise/admin/guides/installation/configuring-the-github-enterprise-server-appliance)."
-  {% data reusables.enterprise_installation.instance-will-restart-automatically %}
-  {% data reusables.enterprise_installation.visit-your-instance %}
+  {% data reusables.enterprise_installation.copy-the-vm-public-dns-name %} {% data reusables.enterprise_installation.upload-a-license-file %} {% data reusables.enterprise_installation.save-settings-in-web-based-mgmt-console %} Weitere Informationen findest du unter [Konfigurieren der {% data variables.product.prodname_ghe_server %}-Appliance](/enterprise/admin/guides/installation/configuring-the-github-enterprise-server-appliance).
+  {% data reusables.enterprise_installation.instance-will-restart-automatically %} {% data reusables.enterprise_installation.visit-your-instance %}
   
-## Azure extension features
+## Die Merkmale der Azure-Erweiterung
 
-{% data variables.product.product_name %} does not support the installation of Azure extension features. The {% data variables.product.prodname_ghe_server %} image is shipped with a customized `waagent` package which only supports basic VM management functions and blocks advanced VM management functions. 
+{% data variables.product.product_name %} unterstützt die Installation von Azure-Erweiterungsfeatures nicht. Das Image {% data variables.product.prodname_ghe_server %} wird mit einem angepassten `waagent`-Paket ausgeliefert, das nur grundlegende VM-Verwaltungsfunktionen unterstützt und erweiterte VM-Verwaltungsfunktionen blockiert. 
 
-To avoid system instability of your {% data variables.product.prodname_ghe_server %} instance, the `walinuxagent` service is intentionally run in {% data variables.product.prodname_ghe_server %} in a restricted mode, explicitly disallowing the agent from being able to install other agents. VM management features that rely on additional agents and extensions beyond that which ships with {% data variables.product.prodname_ghe_server %} image, such as the Monitoring Agent extension for Azure Insights or Azure Backups, are unsupported.
+Um Systeminstabilität deiner {% data variables.product.prodname_ghe_server %}-Instanz zu vermeiden, wird der `walinuxagent`-Dienst absichtlich in {% data variables.product.prodname_ghe_server %} in einem eingeschränkten Modus ausgeführt, wodurch der Agent explizit nicht in der Lage ist, andere Agents zu installieren. VM-Verwaltungsfeatures, die auf im {% data variables.product.prodname_ghe_server %}-Image enthaltene zusätzliche Agents und Erweiterungen beruhen, z. B. die Überwachungs-Agent-Erweiterung für Azure Insights oder Azure-Sicherungen, werden nicht unterstützt.
 
-Because {% data variables.product.product_name %} runs a customized Linux operating system with only the necessary applications and services, installing or updating operating system packages manually will overwrite these customizations and can cause unexpected behavior. For more information, see "[System overview](/admin/overview/system-overview)."
+Da {% data variables.product.product_name %} ein angepasstes Linux-Betriebssystem nur mit den erforderlichen Anwendungen und Diensten ausführt, überschreibt das manuelle Installieren oder Aktualisieren von Betriebssystempaketen diese Anpassungen und kann zu unerwartetem Verhalten führen. Weitere Informationen findest du unter [Systemübersicht](/admin/overview/system-overview).
 
-## Further reading
+## Weiterführende Themen
 
-- "[System overview](/enterprise/admin/guides/installation/system-overview)"{% ifversion ghes %}
-- "[About upgrades to new releases](/admin/overview/about-upgrades-to-new-releases)"{% endif %}
+- [Systemübersicht](/enterprise/admin/guides/installation/system-overview){% ifversion ghes %}
+- [Informationen zu Upgrades auf neue Releases](/admin/overview/about-upgrades-to-new-releases){% endif %}

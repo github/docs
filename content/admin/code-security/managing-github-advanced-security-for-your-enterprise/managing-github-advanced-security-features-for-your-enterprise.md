@@ -35,7 +35,7 @@ When you enable one or more security and analysis features for existing reposito
 1. In the left sidebar, click **Code security & analysis**. 
 1. Optionally, enable or disable a feature for all existing repositories.
 
-   - To the right of the feature, click **Disable all** or **Enable all**. {% ifversion ghes or ghec %}If the control for "{% data variables.product.prodname_GH_advanced_security %}" is disabled, you have no available seats in your {% data variables.product.prodname_GH_advanced_security %} license.{% endif %}
+   - To the right of the feature, click **Disable all** or **Enable all**. {% ifversion ghes or ghec %}If the control for "{% data variables.product.prodname_GH_advanced_security %}" is disabled, you have no available {% ifversion ghas-billing-UI-update %}licenses{% else %}seats{% endif %} for {% data variables.product.prodname_GH_advanced_security %}.{% endif %}
    
    ![Screenshot of "Enable all" or "Disable all" buttons for "Configure security and analysis" features](/assets/images/enterprise/security/enterprise-security-and-analysis-disable-or-enable-all.png)
 

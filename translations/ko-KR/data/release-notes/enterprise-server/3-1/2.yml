@@ -1,0 +1,30 @@
+date: '2021-06-24'
+sections:
+  security_fixes:
+    - 패키지가 최신 보안 버전으로 업데이트되었습니다.
+  bugs:
+    - 대량의 `gauge-dependency-graph-api-dispatch_dispatch` 메트릭이 관리 콘솔에 누적될 수 있습니다.
+    - sshd 서비스에서 Google Cloud Platform에서 실행되는 인스턴스를 시작하지 못할 수 있습니다.
+    - 이전 업그레이드 파일이 사용자 디스크에 유지되어 공간이 부족해질 수 있습니다.
+    - '`gh-migrator`가 로그 출력의 잘못된 경로를 표시했습니다.'
+    - 보관에 표시되지 않는 팀의 검토 요청이 내보내기 보관에 포함된 경우 내보내기 보관이 끌어오기 요청을 자동으로 가져오지 못합니다.
+  changes:
+    - "GHES 3.1에서 {% data variables.product.prodname_actions %} 실행기 버전을 [v2.278.0](https://github.com/actions/runner/releases/tag/v2.278.0)으로 업데이트합니다."
+  known_issues:
+    - "{% data variables.product.prodname_registry %} npm 레지스트리는 더 이상 메타데이터 응답으로 시간 값을 반환하지 않습니다. 이 작업은 대대적인 성능 개선을 위해 수행되었습니다. 메타데이터 응답의 일부로 시간 값을 반환하는 데 필요한 모든 데이터를 계속 제공하며 기존 성능 이슈를 해결한 후 향후에 이 값을 계속 반환할 예정입니다."
+    - "사용자 없이 새로 설정된 {% data variables.product.prodname_ghe_server %}에서 공격자는 첫 번째 관리 사용자를 생성할 수 있습니다."
+    - 업그레이드 프로세스 중에 사용자 지정 방화벽 규칙이 제거됩니다.
+    - "Git LFS 추적 파일[웹 인터페이스를 통해 업로드됨](https://github.com/blog/2105-upload-files-to-your-repositories)이 리포지토리에 직접 잘못 추가되었습니다."
+    - Blob의 파일 경로가 255자보다 긴 동일한 리포지토리의 Blob에 대한 고정 링크가 포함된 경우 이슈를 닫을 수 없습니다.
+    - GitHub Connect에서 “사용자가 GitHub.com을 검색할 수 있음”이 사용 설정되면 비공개 및 내부 리포지토리의 이슈가 GitHub.com 검색 결과에 포함되지 않습니다.
+    - |3.0.x에서 3.1.x로 업그레이드하면 GitHub Actions에서 `이 워크플로 실행 시 예기치 않은 오류가 발생했습니다.`라는 오류와 함께 실패할 수 있습니다. 이 문제를 해결하려면 관리 셸(ssh)에 연결하고 다음을 실행합니다.
+
+```
+
+ghe-actions-console -s actions -c "Queue-ServiceJob -JobId 4DB1F4CF-19FD-40E0-A253-91288813DE8B"
+
+```
+
+|
+    - "{% data variables.product.prodname_ghe_server %}에 대해 {% data variables.product.prodname_actions %}가 사용하도록 설정되면 `ghe-repl-teardown` 복제본 노드 해제에 성공하지만 `ERROR:Running migrations`가 반환될 수 있습니다."
+    - 사전 수신 후크 처리와 관련된 리소스 제한으로 인해 일부 사전 수신 후크가 실패할 수 있습니다.

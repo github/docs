@@ -12,7 +12,9 @@ topics:
 
 ## About invoices for your enterprise
 
-{% data reusables.billing.about-invoices-for-enterprises %} For more information, see "[About billing for your enterprise](/billing/managing-billing-for-your-github-account/about-billing-for-your-enterprise)."
+For invoiced {% data variables.product.prodname_enterprise %} customers, {% data variables.product.company_short %} bills through an enterprise account on {% data variables.product.prodname_dotcom_the_website %}. Each invoice includes a single bill charge for all of your paid {% data variables.product.prodname_dotcom_the_website %} services and any {% data variables.product.prodname_ghe_server %} instances. For more information, see "[About billing for your enterprise](/billing/managing-billing-for-your-github-account/about-billing-for-your-enterprise)."
+
+Only invoiced customers can view invoices on {% data variables.product.prodname_dotcom %}. If you pay automatically via credit card or PayPal, you can view receipts and payment history instead. For more information, see "[Viewing your payment history and receipts](/billing/managing-your-github-billing-settings/viewing-your-payment-history-and-receipts)."
 
 For more information about viewing the subscription and usage for your enterprise account, see "[Viewing the subscription and usage for your enterprise account](/billing/managing-billing-for-your-github-account/viewing-the-subscription-and-usage-for-your-enterprise-account)."
 

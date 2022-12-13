@@ -1,6 +1,6 @@
 ---
-title: About protected branches
-intro: 'You can protect important branches by setting branch protection rules, which define whether collaborators can delete or force push to the branch and set requirements for any pushes to the branch, such as passing status checks or a linear commit history.'
+title: 保護されたブランチについて
+intro: 重要なブランチを保護するには、ブランチ保護ルールを設定します。このルールは、コラボレータがブランチへのプッシュを削除または強制できるかどうかを定義し、ステータスチェックのパスや直線状のコミット履歴など、ブランチへのプッシュの要件を設定します。
 product: '{% data reusables.gated-features.protected-branches %}'
 redirect_from:
   - /articles/about-protected-branches
@@ -24,191 +24,176 @@ versions:
   ghec: '*'
 topics:
   - Repositories
+ms.openlocfilehash: 8ec8ac1b43eacc64f44cf785f66a370466bbae8b
+ms.sourcegitcommit: bf11c3e08cbb5eab6320e0de35b32ade6d863c03
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 10/27/2022
+ms.locfileid: '148111570'
 ---
-## About branch protection rules
+## ブランチ保護ルールについて
 
-You can enforce certain workflows or requirements before a collaborator can push changes to a branch in your repository, including merging a pull request into the branch, by creating a branch protection rule.
+ブランチ保護ルールを作成することにより、コラボレータがリポジトリ内のブランチに変更をプッシュする前に、特定のワークフローまたは要件を適用できます。これには、プルリクエストのブランチへのマージが含まれます。
 
-By default, each branch protection rule disables force pushes to the matching branches and prevents the matching branches from being deleted. You can optionally disable these restrictions and enable additional branch protection settings.
+デフォルト設定では、各ブランチ保護ルールは、一致するブランチへのフォースプッシュを無効にし、一致するブランチが削除されないようにします。 必要に応じて、これらの制限を無効にし、追加のブランチ保護設定を有効にすることができます。
 
-{% ifversion bypass-branch-protections %}
-By default, the restrictions of a branch protection rule don't apply to people with admin permissions to the repository or custom roles with the "bypass branch protections" permission. You can optionally apply the restrictions to administrators and roles with the "bypass branch protections" permission, too. For more information, see "[Managing custom repository roles for an organization](/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)".
-{% else %} 
-By default, the restrictions of a branch protection rule don't apply to people with admin permissions to the repository. You can optionally choose to include administrators, too.{% endif %}
+{% ifversion bypass-branch-protections %}既定では、ブランチ保護ルールの制限は、リポジトリの管理者アクセス許可持つユーザーまたは "ブランチ保護をバイパスする" アクセス許可を持つカスタム ロールには適用されません。 必要に応じて、管理者および "ブランチ保護をバイパスする" アクセス許可を持つロールにも、制限を適用できます。 詳しくは、「[Organization のカスタム リポジトリ ロールの管理](/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)」をご覧ください。
+{% else %}既定では、ブランチ保護ルールの制限は、リポジトリの管理者アクセス許可を持つユーザーには適用されません。 必要に応じて、管理者を含めることもできます。{% endif %}
 
-{% data reusables.repositories.branch-rules-example %} For more information about branch name patterns, see "[Managing a branch protection rule](/github/administering-a-repository/managing-a-branch-protection-rule)."
+{% data reusables.repositories.branch-rules-example %} ブランチ名のパターンの詳細については、「[ブランチ保護規則を管理する](/github/administering-a-repository/managing-a-branch-protection-rule)」を参照してください。
 
 {% data reusables.pull_requests.you-can-auto-merge %}
 
-## About branch protection settings
+## ブランチ保護設定について
 
-For each branch protection rule, you can choose to enable or disable the following settings.
-- [Require pull request reviews before merging](#require-pull-request-reviews-before-merging)
-- [Require status checks before merging](#require-status-checks-before-merging)
-- [Require conversation resolution before merging](#require-conversation-resolution-before-merging)
-- [Require signed commits](#require-signed-commits)
-- [Require linear history](#require-linear-history)
-{% ifversion fpt or ghec %}
-- [Require merge queue](#require-merge-queue)
-{% endif %}
-{%- ifversion required-deployments %}
-- [Require deployments to succeed before merging](#require-deployments-to-succeed-before-merging)
-{%- endif %}
-{%- ifversion lock-branch %}
-- [Lock branch](#lock-branch)
-{%- endif %}
-{% ifversion bypass-branch-protections %}- [Do not allow bypassing the above settings](#do-not-allow-bypassing-the-above-settings){% else %}- [Include administrators](#include-administrators){% endif %}
-- [Restrict who can push to matching branches](#restrict-who-can-push-to-matching-branches)
-- [Allow force pushes](#allow-force-pushes)
-- [Allow deletions](#allow-deletions)
+ブランチ保護ルールごとに、次の設定を有効にするか無効にするかを選択できます。
+- [[Require pull request reviews before merging]\(マージ前に pull request レビュー必須\)](#require-pull-request-reviews-before-merging)
+- [マージ前にステータスチェック必須](#require-status-checks-before-merging)
+- [[Require conversation resolution before merging]\(マージ前に会話の解決必須\)](#require-conversation-resolution-before-merging)
+- [[Require signed commits]\(署名済みコミット必須\)](#require-signed-commits)
+- [[Require linear history]\(直線状の履歴必須\)](#require-linear-history) {% ifversion fpt or ghec %}
+- [マージ キュー必須](#require-merge-queue) {% endif %} {%- ifversion required-deployments %}
+- [マージの前にデプロイが成功する必要がある](#require-deployments-to-succeed-before-merging) {%- endif %} {%- ifversion lock-branch %}
+- [ブランチをロックする](#lock-branch) {%- endif %} {% ifversion bypass-branch-protections %}- [上の設定のバイパスを許可しない](#do-not-allow-bypassing-the-above-settings){% else %}- [管理者を含める](#include-administrators){% endif %}
+- [[Restrict who can push to matching branches]\(一致するブランチにプッシュできるユーザーを制限\)](#restrict-who-can-push-to-matching-branches)
+- [[Allow force pushes]\(フォース プッシュを許可\)](#allow-force-pushes)
+- [[Allow deletions]\(削除を許可\)](#allow-deletions)
 
-For more information on how to set up branch protection, see "[Managing a branch protection rule](/github/administering-a-repository/managing-a-branch-protection-rule)."
+ブランチ保護を設定する方法の詳細については、「[ブランチ保護規則を管理する](/github/administering-a-repository/managing-a-branch-protection-rule)」を参照してください。
 
-### Require pull request reviews before merging
+### マージ前に Pull Request レビュー必須
 
 {% data reusables.pull_requests.required-reviews-for-prs-summary %}
 
-If you enable required reviews, collaborators can only push changes to a protected branch via a pull request that is approved by the required number of reviewers with write permissions.
+必須レビューを有効にした場合、コラボレータは、書き込み権限を持つ必要な人数のレビュー担当者により承認されたプルリクエストからしか、保護されたブランチに変更をプッシュできなくなります。
 
-If a person with admin permissions chooses the **Request changes** option in a review, then that person must approve the pull request before the pull request can be merged. If a reviewer who requests changes on a pull request isn't available, anyone with write permissions for the repository can dismiss the blocking review.
+管理者権限を持つユーザーがレビューで **[Request changes]\(変更の要求\)** オプションを選択した場合、pull request をマージするためには、そのユーザーがその pull request を承認する必要があります。 プルリクエストへの変更をリクエストしたレビュー担当者の手が空いていない場合、そのリポジトリに書き込み権限を持つ人が、ブロックしているレビューを却下できます。
 
 {% data reusables.repositories.review-policy-overlapping-commits %}
 
-If a collaborator attempts to merge a pull request with pending or rejected reviews into the protected branch, the collaborator will receive an error message.
+コラボレータが保留中または拒否されたレビューのプルリクエストを保護されたブランチにマージしようとすると、コラボレータにエラーメッセージが届きます。
 
 ```shell
 remote: error: GH006: Protected branch update failed for refs/heads/main.
 remote: error: Changes have been requested.
 ```
 
-Optionally, you can choose to dismiss stale pull request approvals when commits are pushed. If anyone pushes a commit that modifies code to an approved pull request, the approval will be dismissed, and the pull request cannot be merged. This doesn't apply if the collaborator pushes commits that don't modify code, like merging the base branch into the pull request's branch. For information about the base branch, see "[About pull requests](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)."
+必要に応じて、コミットがプッシュされた際に古いプルリクエストを却下できます。 コードを承認されたプルリクエストに変更するコミットがプッシュされた場合、その承認は却下され、プルリクエストはマージできません。 これは、ベースブランチをプルリクエストのブランチにマージするなど、コードを変更しないコミットをコラボレータがプッシュする場合には適用されません。 ベース ブランチの詳細については、「[pull request について](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)」を参照してください。
 
-Optionally, you can restrict the ability to dismiss pull request reviews to specific people or teams. For more information, see "[Dismissing a pull request review](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/dismissing-a-pull-request-review)."
+必要に応じて、プルリクエストレビューを却下する権限を、特定の人物またはチームに限定できます。 詳細については、「[プル リクエスト レビューの却下](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/dismissing-a-pull-request-review)」を参照してください。
 
-Optionally, you can choose to require reviews from code owners. If you do, any pull request that affects code with a code owner must be approved by that code owner before the pull request can be merged into the protected branch.
+必要に応じて、コードオーナー'からのレビューを必須にすることもできます。 この場合、コードオーナーのコードに影響するプルリクエストは、保護されたブランチにプルリクエストをマージする前に、そのコードオーナーから承認される必要があります。
 
-{% ifversion last-pusher-require-approval %}
-Optionally, you can require approvals from someone other than the last person to push to a branch before a pull request can be merged. This ensures more than one person sees pull requests in their final state before they are merged into a protected branch. If you enable this feature, the most recent user to push their changes will need an approval regardless of the required approvals branch protection. Users who have already reviewed a pull request can reapprove after the most recent push to meet this requirement.
+{% ifversion last-pusher-require-approval %}必要に応じて、pull request をマージする前に、最後のユーザー以外のユーザーがブランチへのプッシュを承認することを要求できます。 これにより、保護されたブランチにマージされる前に、pull request の最終的な状態を複数のユーザーが確認できます。 この機能を有効にした場合、必要な承認ブランチ保護に関係なく、変更をプッシュする最後のユーザーが承認を必要とします。 pull request を既にレビューしているユーザーは、最後のプッシュの後でもう一度承認して、この要件を満たすことができます。
 {% endif %}
 
-### Require status checks before merging
+### マージ前にステータスチェック必須
 
-Required status checks ensure that all required CI tests are passing before collaborators can make changes to a protected branch. Required status checks can be checks or statuses. For more information, see "[About status checks](/github/collaborating-with-issues-and-pull-requests/about-status-checks)."
+必須ステータスチェックにより、コラボレータが保護されたブランチに変更を加える前に、すべての必須 CI テストにパスしていることが保証されます。 詳細は「<a href="/articles/configuring-protected-branches/">保護されたブランチを設定する</a>」および「<a href="/articles/enabling-required-status-checks">必須ステータスチェックを有効にする</a>」を参照してください。 詳細については、「[ステータスチェックについて](/github/collaborating-with-issues-and-pull-requests/about-status-checks)」を参照してください。
 
-Before you can enable required status checks, you must configure the repository to use the commit status API. For more information, see "[Commit statuses](/rest/commits/statuses)" in the REST API documentation.
+ステータス チェック必須を有効にする前に、コミット ステータス API を使うようにリポジトリを構成する必要があります。 詳しくは、REST API のドキュメントの「[コミットのステータス](/rest/commits/statuses)」をご覧ください。
 
-After enabling required status checks, all required status checks must pass before collaborators can merge changes into the protected branch. After all required status checks pass, any commits must either be pushed to another branch and then merged or pushed directly to the protected branch.
+ステータスチェック必須を有効にすると、すべてのステータスチェック必須がパスしないと、コラボレータは保護されたブランチにマージできません。 必須ステータスチェックをパスしたら、コミットを別のブランチにプッシュしてから、マージするか、保護されたブランチに直接プッシュする必要があります。
 
-Any person or integration with write permissions to a repository can set the state of any status check in the repository{% ifversion fpt or ghes > 3.3 or ghae > 3.3 or ghec %}, but in some cases you may only want to accept a status check from a specific {% data variables.product.prodname_github_app %}. When you add a required status check, you can select an app that has recently set this check as the expected source of status updates.{% endif %} If the status is set by any other person or integration, merging won't be allowed. If you select "any source", you can still manually verify the author of each status, listed in the merge box.
+リポジトリへの書き込み権限があるユーザーまたは統合は、リポジトリのステータス チェックを任意の状態に設定できます{% ifversion fpt or ghes > 3.3 or ghae > 3.3 or ghec %}が、場合によっては特定の {% data variables.product.prodname_github_app %} のステータス チェックのみを受け入れる必要があります。 必須状態チェックを追加するとき、このチェックを最近設定したアプリを、状態更新が想定されるソースとして選択できます{% endif %}。状態が他のユーザーまたは統合によって設定されている場合、マージは許可されません。 [any source]\(任意のソース\) を選択した場合は、マージ ボックスに一覧表示されている各状態の作成者を引き続き手動で確認することができます。
 
-You can set up required status checks to either be "loose" or "strict." The type of required status check you choose determines whether your branch is required to be up to date with the base branch before merging.
+必須ステータスチェックのタイプは、[loose] (寛容)、[strict] (厳格) のいずれかに設定できます。 選択した必須ステータスチェックのタイプにより、マージする前にブランチをベースブランチとともに最新にする必要があるかどうかが決まります。
 
-| Type of required status check | Setting | Merge requirements | Considerations |
+| 必須ステータスチェックのタイプ | 設定 | マージの要件 | 考慮事項 |
 | --- | --- | --- | --- |
-| **Strict** | The **Require branches to be up to date before merging** checkbox is checked. | The branch **must** be up to date with the base branch before merging. | This is the default behavior for required status checks. More builds may be required, as you'll need to bring the head branch up to date after other collaborators merge pull requests to the protected base branch.|
-| **Loose** | The **Require branches to be up to date before merging** checkbox is **not** checked. | The branch **does not** have to be up to date with the base branch before merging. | You'll have fewer required builds, as you won't need to bring the head branch up to date after other collaborators merge pull requests. Status checks may fail after you merge your branch if there are incompatible changes with the base branch. |
-| **Disabled** | The **Require status checks to pass before merging** checkbox is **not** checked. | The branch has no merge restrictions. | If required status checks aren't enabled, collaborators can merge the branch at any time, regardless of whether it is up to date with the base branch. This increases the possibility of incompatible changes.
+| **Strict** | **[Require branches to be up to date before merging]\(マージ前にブランチの最新状態必須\)** チェックボックスをオンにします。 | ブランチは、マージ前にベース ブランチと同じ最新状態である **必要があります**。 | これは、必須ステータスチェックのデフォルト動作です。 他のコラボレーターが、保護された base ブランチにプルリクエストをマージした後に、あなたは head ブランチをアップデートする必要が出てくる可能性があるため、追加のビルドが必要になるかもしれません。|
+| **[Loose]\(寛容\)** | **[Require branches to be up to date before merging]\(マージ前にブランチの最新状態必須\)** チェックボックスをオンに **しません**。 | ブランチは、マージ前にベース ブランチと同じ最新状態である必要は **ありません**。 | 他のコラボレーターがプルリクエストをマージした後に head ブランチをアップデートする必要はないことから、必要となるビルドは少なくなります。 base ブランチと競合する変更がある場合、ブランチをマージした後のステータスチェックは失敗する可能性があります。 |
+| **Disabled** | **[Require status checks to pass before merging]\(マージ前に状態チェック合格必須\)** チェックボックスをオンに **しません**。 | ブランチのマージについての制限はない | 必須ステータスチェックが有効化されていない場合、base ブランチにあわせてアップデートされているかどうかに関わらず、コラボレーターはいつでもブランチをマージできます。 このことで、変更の競合が発生する可能性が高まります。
 
-For troubleshooting information, see "[Troubleshooting required status checks](/github/administering-a-repository/troubleshooting-required-status-checks)."
+トラブルシューティングの情報については、「[必須状態チェックのトラブルシューティング](/github/administering-a-repository/troubleshooting-required-status-checks)」を参照してください。
 
-### Require conversation resolution before merging
+### [Require conversation resolution before merging]\(マージ前に会話の解決必須\)
 
-Requires all comments on the pull request to be resolved before it can be merged to a protected branch. This ensures that all comments are addressed or acknowledged before merge.
+pull request を保護されたブランチにマージする前に、関連するすべてのコメントを解決する必要があります。 これにより、マージ前にすべてのコメントが対処または確認されます。
 
-### Require signed commits
+### 署名済みコミットの必須化
 
-When you enable required commit signing on a branch, contributors {% ifversion fpt or ghec %}and bots{% endif %} can only push commits that have been signed and verified to the branch. For more information, see "[About commit signature verification](/articles/about-commit-signature-verification)."
+コミット署名の必須化をブランチで有効にすると、共同作成者{% ifversion fpt or ghec %}とボット{% endif %}は、署名されて検証されたコミットのみをブランチにプッシュできます。 詳細については、「[コミット署名の検証について](/articles/about-commit-signature-verification)」を参照してください。
 
 {% note %}
 
-{% ifversion fpt or ghec %}
-**Notes:** 
+{% ifversion fpt or ghec %} **注:** 
 
-* If you have enabled vigilant mode, which indicates that your commits will always be signed, any commits that {% data variables.product.prodname_dotcom %} identifies as "Partially verified" are permitted on branches that require signed commits. For more information about vigilant mode, see "[Displaying verification statuses for all of your commits](/github/authenticating-to-github/displaying-verification-statuses-for-all-of-your-commits)."
-* If a collaborator pushes an unsigned commit to a branch that requires commit signatures, the collaborator will need to rebase the commit to include a verified signature, then force push the rewritten commit to the branch.
+* 警戒モード (コミットが常に署名される) を有効にした場合、{% data variables.product.prodname_dotcom %} によって [Partially verified]\(部分的に検証済み\) と識別されたすべてのコミットは、署名済みコミットが必須であるブランチで許可されます。 警戒モードの詳細については、「[すべてのコミットの検証状態を表示する](/github/authenticating-to-github/displaying-verification-statuses-for-all-of-your-commits)」を参照してください。
+* コラボレーターが未署名のコミットを、コミット署名必須のブランチにプッシュする場合、コラボレーターは検証済み署名を含めるためにコミットをリベースしてから、書き直したコミットをブランチにフォース プッシュする必要があります。
 
-{% else %}
-**Note:** If a collaborator pushes an unsigned commit to a branch that requires commit signatures, the collaborator will need to rebase the commit to include a verified signature, then force push the rewritten commit to the branch.
+{% else %} **注:** コラボレーターが未署名のコミットを、コミット署名必須のブランチにプッシュする場合、コラボレーターは検証済み署名を含めるためにコミットをリベースしてから、書き直したコミットをブランチにフォース プッシュする必要があります。
 {% endif %}
 
 {% endnote %}
 
-You can always push local commits to the branch if the commits are signed and verified. {% ifversion fpt or ghec %}You can also merge signed and verified commits into the branch using a pull request on {% data variables.product.product_name %}. However, you cannot squash and merge a pull request into the branch on {% data variables.product.product_name %} unless you are the author of the pull request.{% else %} However, you cannot merge pull requests into the branch on {% data variables.product.product_name %}.{% endif %} You can {% ifversion fpt or ghec %}squash and {% endif %}merge pull requests locally. For more information, see "[Checking out pull requests locally](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/checking-out-pull-requests-locally)."
+コミットが署名および検証されている場合は、いつでもローカルコミットをブランチにプッシュできます。 {% ifversion fpt or ghec %}{% data variables.product.product_name %} の pull request を使用して、署名および検証されているコミットをブランチにマージすることもできます。 ただし、pull request の作者でない限り、pull request をスカッシュして {% data variables.product.product_name %} のブランチにマージすることはできません。{% else %}ただし、pull request を {% data variables.product.product_name %} のブランチにマージすることはできません。{% endif %}pull request をローカルで{% ifversion fpt or ghec %}スカッシュおよび{% endif %}マージできます。 詳しくは、「[pull request をローカルでチェックアウトする](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/checking-out-pull-requests-locally)」を参照してください。
 
-{% ifversion fpt or ghec %} For more information about merge methods, see "[About merge methods on {% data variables.product.prodname_dotcom %}](/github/administering-a-repository/about-merge-methods-on-github)."{% endif %}
+{% ifversion fpt or ghec %} マージ方法の詳細については、「[{% data variables.product.prodname_dotcom %} 上のマージ方法について](/github/administering-a-repository/about-merge-methods-on-github)」を参照してください。{% endif %}
 
-### Require linear history
+### 直線状の履歴必須
 
-Enforcing a linear commit history prevents collaborators from pushing merge commits to the branch. This means that any pull requests merged into the protected branch must use a squash merge or a rebase merge. A strictly linear commit history can help teams reverse changes more easily. For more information about merge methods, see "[About pull request merges](/github/collaborating-with-issues-and-pull-requests/about-pull-request-merges)."
+直線状のコミット履歴を強制すると、コラボレータがブランチにマージコミットをプッシュすることを防げます。 つまり、保護されたブランチにマージされたプルリクエストは、squash マージまたはリベースマージを使用する必要があります。 厳格な直線状のコミット履歴は、Teamが変更をより簡単にたどるために役立ちます。 マージ方法の詳細については、「[pull request のマージについて](/github/collaborating-with-issues-and-pull-requests/about-pull-request-merges)」を参照してください。
 
-Before you can require a linear commit history, your repository must allow squash merging or rebase merging. For more information, see "[Configuring pull request merges](/github/administering-a-repository/configuring-pull-request-merges)."
+直線状のコミット履歴をリクエストする前に、リポジトリで squash マージまたはリベースマージを許可する必要があります。 詳細については、「[pull request マージの構成](/github/administering-a-repository/configuring-pull-request-merges)」を参照してください。
 
 {% ifversion fpt or ghec %}
-### Require merge queue
+### [Require merge queue]\(マージ キュー必須\)
 
-{% data reusables.pull_requests.merge-queue-beta %}
-{% data reusables.pull_requests.merge-queue-overview %}
+{% data reusables.pull_requests.merge-queue-beta %} {% data reusables.pull_requests.merge-queue-overview %}
  
-{% data reusables.pull_requests.merge-queue-merging-method %}
-{% data reusables.pull_requests.merge-queue-references %}
+{% data reusables.pull_requests.merge-queue-merging-method %} {% data reusables.pull_requests.merge-queue-references %}
 
 {% endif %}
 
-### Require deployments to succeed before merging
+### [Require deployments to succeed before merging]\(マージ前にデプロイ成功必須\)
 
-You can require that changes are successfully deployed to specific environments before a branch can be merged. For example, you can use this rule to ensure that changes are successfully deployed to a staging environment before the changes merge to your default branch.
+ブランチをマージする前に、変更が特定の環境に正常にデプロイされる必要があるように設定できます。 たとえば、この規則を使用し、変更がステージング環境に正常にデプロイされた後で、変更を既定のブランチにマージされるようにすることができます。
 
 {% ifversion lock-branch %}
-### Lock branch
+### ブランチをロックする
 
-Locking a branch ensures that no commits can be made to the branch. 
-By default, a forked repository does not support syncing from its upstream repository. You can enable **Allow fork syncing** to pull changes from the upstream repository while preventing other contributions to the fork's branch.
+ブランチをロックすると、ブランチに対してコミットを行えなくなります。 既定では、フォークされたリポジトリでは、アップストリーム リポジトリからの同期はサポートされていません。 **[フォークの同期を許可する]** を有効にして、フォークのブランチへの他のコントリビューションを防ぎながら、アップストリーム リポジトリから変更をプルできます。
 {%  endif %}
 
-{% ifversion bypass-branch-protections %}### Do not allow bypassing the above settings{% else %}
-### Include administrators{% endif %}
+{% ifversion bypass-branch-protections %}### 上の設定のバイパスを許可しない{% else %}
+### 管理者を含める{% endif %}
 
-{% ifversion bypass-branch-protections %}
-By default, the restrictions of a branch protection rule do not apply to people with admin permissions to the repository or custom roles with the "bypass branch protections" permission in a repository. 
+{% ifversion bypass-branch-protections %}既定では、ブランチ保護ルールの制限は、リポジトリの管理者アクセス許可持つユーザーまたはリポジトリでの "ブランチ保護をバイパスする" アクセス許可を持つカスタム ロールには適用されません。 
 
-You can enable this setting to apply the restrictions to admins and roles with the "bypass branch protections" permission, too.  For more information, see "[Managing custom repository roles for an organization](/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)".
-{% else %}
-By default, protected branch rules do not apply to people with admin permissions to a repository. You can enable this setting to include administrators in your protected branch rules.{% endif %}
+この設定を有効にして、管理者および "ブランチ保護をバイパスする" アクセス許可を持つロールにも、制限を適用できます。  詳しくは、「[Organization のカスタム リポジトリ ロールの管理](/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)」をご覧ください。
+{% else %}既定では、保護されたブランチのルールは、リポジトリの管理者アクセス許可を持つユーザーには適用されません。 この設定を有効化すると、保護されたブランチのルールに管理者を含めることができます。{% endif %}
 
-### Restrict who can push to matching branches
+### 一致するブランチにプッシュできるユーザを制限
 
-{% ifversion fpt or ghec %}
-You can enable branch restrictions if your repository is owned by an organization using {% data variables.product.prodname_team %} or {% data variables.product.prodname_ghe_cloud %}.
+{% ifversion fpt or ghec %} リポジトリが組織によって所有される場合は、{% data variables.product.prodname_team %} または {% data variables.product.prodname_ghe_cloud %} を使用してブランチの制限を有効にできます。
 {% endif %}
 
-When you enable branch restrictions, only users, teams, or apps that have been given permission can push to the protected branch. You can view and edit the users, teams, or apps with push access to a protected branch in the protected branch's settings. When status checks are required, the people, teams, and apps that have permission to push to a protected branch will still be prevented from merging into the branch when the required checks fail. People, teams, and apps that have permission to push to a protected branch will still need to create a pull request when pull requests are required.
+ブランチ制限を有効にすると、権限を与えられたユーザ、チーム、またはアプリのみが保護されたブランチにプッシュできます。 保護されたブランチの設定で、保護されたブランチへのプッシュアクセスを使用して、ユーザ、チーム、またはアプリを表示および編集できます。 状態チェックが必須である場合は、必須チェックに失敗すると、保護されたブランチにプッシュするアクセス許可を持つユーザー、チーム、アプリでも、ブランチにマージすることはできません。 pull request が必須な場合は、保護されたブランチにプッシュするアクセス許可を持つユーザー、チーム、アプリでも pull request を作成する必要があります。
 
-{% ifversion restrict-pushes-create-branch %}
-Optionally, you can apply the same restrictions to the creation of branches that match the rule. For example, if you create a rule that only allows a certain team to push to any branches that contain the word `release`, only members of that team would be able to create a new branch that contains the word `release`.
+{% ifversion restrict-pushes-create-branch %} 必要に応じて、規則と一致するブランチの作成に同じ制限を適用できます。 たとえば、`release` という語を含むブランチに特定のチームのみがプッシュすることを許可する規則を作成した場合は、そのチームのメンバーしか `release` という語を含む新しいブランチを作成できません。
 {% endif %}
 
-You can only give push access to a protected branch, or give permission to create a matching branch, to users, teams, or installed {% data variables.product.prodname_github_apps %} with write access to a repository. People and apps with admin permissions to a repository are always able to push to a protected branch{% ifversion restrict-pushes-create-branch %} or create a matching branch{% endif %}.
+保護されたブランチに対するプッシュ アクセスを付与したり、一致するブランチを作成するアクセス許可を付与したりできるのは、リポジトリへの書き込みアクセスを持つ、ユーザー、チーム、またはインストール済みの {% data variables.product.prodname_github_apps %} のみです。 リポジトリへの管理者権限を持つユーザーとアプリは、保護されたブランチへのプッシュ{% ifversion restrict-pushes-create-branch %}や一致するブランチの作成{% endif %}をいつでも行うことができます。
 
-### Allow force pushes
+### フォースプッシュを許可
 
-{% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
-By default, {% data variables.product.product_name %} blocks force pushes on all protected branches. When you enable force pushes to a protected branch, you can choose one of two groups who can force push:
+{% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}既定では、{% data variables.product.product_name %} は、すべての保護されたブランチでのフォース プッシュをブロックします。 保護されたブランチへのフォース プッシュを有効にするとき、フォース プッシュを行うことができる 2 つのグループのいずれかを選択できます。
 
-1. Allow everyone with at least write permissions to the repository to force push to the branch, including those with admin permissions.
-1. Allow only specific people or teams to force push to the branch.
+1. リポジトリに対して少なくとも書き込みアクセス許可を持つすべてのユーザー (管理者権限を持つユーザーを含む) が、ブランチにフォース プッシュできるようにします。
+1. 特定のユーザーまたはチームのみがブランチにフォース プッシュできるようにします。
 
-If someone force pushes to a branch, the force push may overwrite commits that other collaborators based their work on. People may have merge conflicts or corrupted pull requests.
+誰かがブランチにフォース プッシュした場合、フォース プッシュによって、他のコラボレーターがそれに基づいて作業しているコミットを上書きする可能性があります。 ユーザーが競合をマージしたり pull request を破損させたりした可能性があります。
 
-{% else %}
-By default, {% data variables.product.product_name %} blocks force pushes on all protected branches. When you enable force pushes to a protected branch, anyone with at least write permissions to the repository can force push to the branch, including those with admin permissions. If someone force pushes to a branch, the force push may overwrite commits that other collaborators based their work on. People may have merge conflicts or corrupted pull requests.
+{% else %} 既定では、{% data variables.product.product_name %} はすべての保護されたブランチでフォース プッシュをブロックします。 保護されたブランチのフォースプッシュを有効にすると、少なくともリポジトリへの書き込み権限を持つユーザは、管理者権限を持つブランチを含め、ブランチをフォースプッシュできます。 誰かがブランチにフォース プッシュした場合、フォース プッシュによって、他のコラボレーターがそれに基づいて作業しているコミットを上書きする可能性があります。 ユーザーが競合をマージしたり pull request を破損させたりした可能性があります。
 {% endif %}
 
-Enabling force pushes will not override any other branch protection rules. For example, if a branch requires a linear commit history, you cannot force push merge commits to that branch.
+フォースプッシュを有効化しても、他のブランチ保護ルールは上書きされません。 たとえば、ブランチに直線状のコミット履歴が必要な場合、そのブランチにマージコミットをフォースプッシュすることはできません。
 
-{% ifversion ghes or ghae %}You cannot enable force pushes for a protected branch if a site administrator has blocked force pushes to all branches in your repository. For more information, see "[Blocking force pushes to repositories owned by a personal account or organization](/enterprise/admin/developer-workflow/blocking-force-pushes-to-repositories-owned-by-a-user-account-or-organization)."
+{% ifversion ghes or ghae %}サイト管理者がリポジトリ内のすべてのブランチへのフォース プッシュをブロックしている場合、保護されたブランチのフォース プッシュを有効にすることはできません。 詳細については、「[個人アカウントまたは組織が所有するリポジトリへのフォース プッシュをブロックする](/enterprise/admin/developer-workflow/blocking-force-pushes-to-repositories-owned-by-a-user-account-or-organization)」を参照してください。
 
-If a site administrator has blocked force pushes to the default branch only, you can still enable force pushes for any other protected branch.{% endif %}
+サイト管理者がデフォルトブランチへのフォースプッシュのみをブロックしている場合、他の保護されたブランチに対してフォースプッシュを有効にできます。{% endif %}
 
-### Allow deletions
+### 削除を許可
 
-By default, you cannot delete a protected branch. When you enable deletion of a protected branch, anyone with at least write permissions to the repository can delete the branch.
+デフォルトでは、保護されたブランチは削除できません。 保護されたブランチの削除を有効にすると、少なくともリポジトリへの書き込み権限を持つユーザは、ブランチを削除できます。

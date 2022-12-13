@@ -1,7 +1,7 @@
 ---
-title: Configuring SCIM provisioning for Enterprise Managed Users
+title: 为 Enterprise Managed User 配置 SCIM 预配
 shortTitle: Provisioning managed users
-intro: You can configure your identity provider to provision new users and manage their membership in your enterprise and teams.
+intro: 你可以配置标识提供者以预配新用户并管理其在企业和团队中的成员身份。
 product: '{% data reusables.gated-features.emus %}'
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/configuring-scim-provisioning-for-enterprise-managed-users
@@ -13,68 +13,66 @@ versions:
 topics:
   - Accounts
   - Enterprise
+ms.openlocfilehash: 3cf1f917f0bfd0e02a1b712958f8d72a041b7281
+ms.sourcegitcommit: d82f268a6f0236d1f4d2bf3d049974ada0170402
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/10/2022
+ms.locfileid: '148160694'
 ---
+## 关于 {% data variables.product.prodname_emus %} 的预配
 
-## About provisioning for {% data variables.product.prodname_emus %}
+必须为 {% data variables.product.prodname_emus %} 配置预配才能为企业成员创建、管理和停用用户帐户。 
 
-You must configure provisioning for {% data variables.product.prodname_emus %} to create, manage, and deactivate user accounts for your enterprise members. 
+为 {% data variables.product.prodname_emus %} 配置预配时，在标识提供者中分配给 {% data variables.product.prodname_emu_idp_application %} 应用程序的用户将通过 SCIM 预配为 {% data variables.product.prodname_dotcom %} 上的新 {% data variables.enterprise.prodname_managed_users %}，并且 {% data variables.enterprise.prodname_managed_users %} 将添加到你的企业中。 如果将某个组分配给应用程序，则该组中的所有用户都将被预配为新的 {% data variables.enterprise.prodname_managed_users %}。
 
-After you configure provisioning for {% data variables.product.prodname_emus %}, users assigned to the {% data variables.product.prodname_emu_idp_application %} application in your identity provider are provisioned as new {% data variables.enterprise.prodname_managed_users %} on {% data variables.product.prodname_dotcom %} via SCIM, and the {% data variables.enterprise.prodname_managed_users %} are added to your enterprise. If you assign a group to the application, all users within the group will be provisioned as new {% data variables.enterprise.prodname_managed_users %}.
+在 IdP 上更新与用户标识关联的信息时，IdP 将在 {% data variables.product.prodname_dotcom_the_website %} 上更新用户的帐户。 从 {% data variables.product.prodname_emu_idp_application %} 应用程序取消分配用户或停用 IdP 上的用户帐户时，IdP 将与 {% data variables.product.prodname_dotcom %} 进行通信，以使任何会话失效并禁用该成员的帐户。 已禁用帐户的信息会保留，其用户名将更改为原始用户名的哈希，并追加短代码。 如果将用户重新分配到 {% data variables.product.prodname_emu_idp_application %} 应用程序或在 IdP 上重新激活其帐户，则会重新激活 {% data variables.product.prodname_dotcom %} 上的 {% data variables.enterprise.prodname_managed_user %} 帐户，并还原用户名。
 
-When you update information associated with a user's identity on your IdP, your IdP will update the user's account on {% data variables.product.prodname_dotcom_the_website %}. When you unassign the user from the {% data variables.product.prodname_emu_idp_application %} application or deactivate a user's account on your IdP, your IdP will communicate with {% data variables.product.prodname_dotcom %} to invalidate any sessions and disable the member's account. The disabled account's information is maintained and their username is changed to a hash of their original username with the short code appended. If you reassign a user to the {% data variables.product.prodname_emu_idp_application %} application or reactivate their account on your IdP, the {% data variables.enterprise.prodname_managed_user %} on {% data variables.product.prodname_dotcom %} will be reactivated and username restored.
+IdP 中的组可用于管理企业组织中的团队成员身份，使你可通过 IdP 配置存储库访问权限和权限。 有关详细信息，请参阅“[使用标识提供者组管理团队成员身份](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/managing-team-memberships-with-identity-provider-groups)”。
 
-Groups in your IdP can be used to manage team membership within your enterprise's organizations, allowing you to configure repository access and permissions through your IdP. For more information, see "[Managing team memberships with identity provider groups](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/managing-team-memberships-with-identity-provider-groups)."
+## 先决条件
 
-## Prerequisites
+在为 {% data variables.product.prodname_emus %} 配置预配之前，必须配置 SAML{% ifversion oidc-for-emu %} 或 OIDC{% endif %} 单一登录。 {% ifversion oidc-for-emu %}
 
-Before you can configure provisioning for {% data variables.product.prodname_emus %}, you must configure SAML{% ifversion oidc-for-emu %} or OIDC{% endif %} single-sign on. {% ifversion oidc-for-emu %}
+- 有关配置 OIDC 的详细信息，请参阅“[为企业托管用户配置 OIDC](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-oidc-for-enterprise-managed-users)”
+- {% endif %}有关配置 SAML 的详细信息，请参阅“[为企业托管用户配置 SAML 单一登录](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/configuring-saml-single-sign-on-for-enterprise-managed-users)”。
 
-- For more information on configuring OIDC, see "[Configuring OIDC for Enterprise Managed Users](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-oidc-for-enterprise-managed-users)"
-- {% endif %}For information on configuring SAML, see "[Configuring SAML single sign-on for Enterprise Managed Users](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/configuring-saml-single-sign-on-for-enterprise-managed-users)."
+## 创建 {% data variables.product.pat_generic %}
 
-## Creating a {% data variables.product.pat_generic %}
-
-To configure provisioning for your {% data variables.enterprise.prodname_emu_enterprise %}, you need a {% data variables.product.pat_v1 %} with the **admin:enterprise** scope that belongs to the setup user.
+若要为 {% data variables.enterprise.prodname_emu_enterprise %} 配置预配，需要使用属于安装用户的作用域为 admin:enterprise 的 {% data variables.product.pat_v1 %}。
 
 {% warning %}
 
-**Warning:** If the token expires or a provisioned user creates the token, SCIM provisioning may unexpectedly stop working. Make sure that you create the token while signed in as the setup user and that the token expiration is set to "No expiration".
+**警告：** 如果令牌过期或预配的用户创建了令牌，SCIM 预配可能会意外停止工作。 请确保在以安装用户身份登录时创建令牌，并将令牌过期设置为“不过期”。
 
 {% endwarning %}
 
-1. Sign into {% data variables.product.prodname_dotcom_the_website %} as the setup user for your new enterprise with the username **@<em>SHORT-CODE</em>_admin**.
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.developer_settings %}
-{% data reusables.user-settings.personal_access_tokens %}
-{% data reusables.user-settings.generate_new_token %}
-1. Under **Note**, give your token a descriptive name.
-   ![Screenshot showing the token's name](/assets/images/help/enterprises/emu-pat-name.png)
-1. Select the **Expiration** drop-down menu, then click **No expiration**.
-   ![Screenshot showing token expiration set to no expiration](/assets/images/help/enterprises/emu-pat-no-expiration.png)
-1. Select the **admin:enterprise** scope.
-   ![Screenshot showing the admin:enterprise scope](/assets/images/help/enterprises/enterprise-pat-scope.png)
-1. Click **Generate token**.
-   ![Generate token button](/assets/images/help/settings/generate_token.png)
-1. To copy the token to your clipboard, click the {% octicon "paste" aria-label="The copy icon" %}.
-   ![Newly created token](/assets/images/help/settings/personal_access_tokens.png)
-2. To save the token for use later, store the new token securely in a password manager.
+1. 使用用户名“@<em>SHORT-CODE</em>_admin”以新企业的安装用户身份登录到 {% data variables.product.prodname_dotcom_the_website %}。
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.developer_settings %} {% data reusables.user-settings.personal_access_tokens %} {% data reusables.user-settings.generate_new_token %}
+1. 在“备注”下，为令牌提供描述性名称。
+   ![显示令牌名称的屏幕截图](/assets/images/help/enterprises/emu-pat-name.png)
+1. 选择“过期”下拉菜单，然后单击“不过期” 。
+   ![显示将令牌过期设置为“不过期”的屏幕截图](/assets/images/help/enterprises/emu-pat-no-expiration.png)
+1. 选择 admin:enterprise 作用域。
+   ![显示 admin:enterprise 作用域的屏幕截图](/assets/images/help/enterprises/enterprise-pat-scope.png)
+1. 单击“生成令牌”。
+   ![生成令牌按钮](/assets/images/help/settings/generate_token.png)
+1. 若要将令牌复制到剪贴板，请单击 {% octicon "paste" aria-label="The copy icon" %}。
+   ![新建的令牌](/assets/images/help/settings/personal_access_tokens.png)
+2. 若要保存令牌以供以后使用，请将新令牌安全地存储在密码管理器中。
 
-## Configuring provisioning for {% data variables.product.prodname_emus %}
+## 为 {% data variables.product.prodname_emus %} 配置预配
 
-After creating your {% data variables.product.pat_generic %} and storing it securely, you can configure provisioning on your identity provider. 
+创建 {% data variables.product.pat_generic %} 并安全地存储它后，可以在标识提供者上配置预配。 
 
 {% data reusables.scim.emu-scim-rate-limit %}
 
-To configure provisioning, follow the appropriate link from the table below.
+若要配置预配，请遵循下表中的相应链接。
 
-| Identity provider | SSO method | More information |
-|---|---|---|{% ifversion oidc-for-emu %}
-| Azure AD | OIDC | [Tutorial: Configure GitHub Enterprise Managed User (OIDC) for automatic user provisioning](https://docs.microsoft.com/azure/active-directory/saas-apps/github-enterprise-managed-user-oidc-provisioning-tutorial) in the Azure AD documentation |{% endif %}
-| Azure AD | SAML | [Tutorial: Configure GitHub Enterprise Managed User for automatic user provisioning](https://docs.microsoft.com/en-us/azure/active-directory/saas-apps/github-enterprise-managed-user-provisioning-tutorial) in the Azure AD documentation |
-| Okta | SAML | [Configuring SCIM provisioning for Enterprise Managed Users with Okta](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/configuring-scim-provisioning-for-enterprise-managed-users-with-okta) |
+| 标识提供者 | SSO 方法 | 详细信息 | |---|---|---|{% ifversion oidc-for-emu %} | Azure AD | OIDC | Azure AD 文档中的[教程：为 GitHub Enterprise Managed User (OIDC) 配置自动用户预配](https://docs.microsoft.com/azure/active-directory/saas-apps/github-enterprise-managed-user-oidc-provisioning-tutorial) |{% endif %} | Azure AD | SAML | Azure AD 文档中的[教程：为 GitHub Enterprise Managed User (OIDC) 配置自动用户预配](https://docs.microsoft.com/en-us/azure/active-directory/saas-apps/github-enterprise-managed-user-provisioning-tutorial) | |Okta |SAML | [使用 Okta 为企业托管用户配置 SCIM 预配](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/configuring-scim-provisioning-for-enterprise-managed-users-with-okta) |
 
 {% note %}
 
-**Note:** Azure AD does not support provisioning nested groups. For more information, see [How Application Provisioning works in Azure Active Directory](https://learn.microsoft.com/en-us/azure/active-directory/app-provisioning/how-provisioning-works#assignment-based-scoping).
+注意：Azure AD 不支持预配嵌套组。 有关详细信息，请参阅[应用程序预配在 Azure Active Directory 中的工作方式](https://learn.microsoft.com/en-us/azure/active-directory/app-provisioning/how-provisioning-works#assignment-based-scoping)。
 
 {% endnote %}
