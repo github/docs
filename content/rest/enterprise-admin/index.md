@@ -20,6 +20,7 @@ children:
   - /announcement
   - /audit-log
   - /billing
+  - /code-security-and-analysis
   - /global-webhooks
   - /ldap
   - /license
