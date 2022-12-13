@@ -1,7 +1,7 @@
 ---
-title: Enabling unified contributions for your enterprise
+title: Habilitando contribuições unificadas para a sua empresa
 shortTitle: Unified contributions
-intro: 'You can allow users to include anonymized contribution counts for their work on {% data variables.location.product_location %} in their contribution graphs on {% data variables.product.prodname_dotcom_the_website %}.'
+intro: 'Você pode permitir que os usuários incluam o número de contribuições anonimizadas pelo trabalho deles em {% data variables.product.product_location %} nos seus gráficos de contribuição em {% data variables.product.prodname_dotcom_the_website %}.'
 redirect_from:
   - /enterprise/admin/guides/developer-workflow/enabling-unified-contributions-between-github-enterprise-and-github-com
   - /enterprise/admin/guides/developer-workflow/enabling-unified-contributions-between-github-enterprise-server-and-github-com
@@ -11,7 +11,7 @@ redirect_from:
   - /admin/configuration/enabling-unified-contributions-between-github-enterprise-server-and-githubcom
   - /admin/configuration/managing-connections-between-github-enterprise-server-and-github-enterprise-cloud/enabling-unified-contributions-between-github-enterprise-server-and-githubcom
   - /admin/configuration/managing-connections-between-your-enterprise-accounts/enabling-unified-contributions-between-your-enterprise-account-and-githubcom
-permissions: 'Enterprise owners can enable unified contributions between {% data variables.location.product_location %} and {% data variables.product.prodname_dotcom_the_website %}.'
+permissions: 'Enterprise owners can enable unified contributions between {% data variables.product.product_location %} and {% data variables.product.prodname_dotcom_the_website %}.'
 versions:
   ghes: '*'
   ghae: '*'
@@ -19,36 +19,37 @@ type: how_to
 topics:
   - Enterprise
   - GitHub Connect
+ms.openlocfilehash: af07f30a8f164f6bec3d3c0f44c77181f1e8db7b
+ms.sourcegitcommit: 9a7b3a9ccb983af5df2cd94da7fecf7a8237529b
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147875468'
 ---
-
 {% data reusables.github-connect.beta %}
 
-## About unified contributions
+## Sobre contribuições unificadas
 
-As an enterprise owner, you can allow end users to send anonymized contribution counts for their work from {% data variables.location.product_location %} to their {% data variables.product.prodname_dotcom_the_website %} contribution graph.
+Como proprietário de uma empresa, você pode permitir que os usuários finais enviem contagens de contribuições anônimas pelo trabalho deles de {% data variables.product.product_location %} para seu gráfico de contribuição de {% data variables.product.prodname_dotcom_the_website %}.
 
-After you enable {% data variables.enterprise.prodname_unified_contributions %}, before individual users can send contribution counts from {% data variables.location.product_location %} to {% data variables.product.prodname_dotcom_the_website %}, each user must also connect their user account on {% data variables.product.product_name %} with a personal account on {% data variables.product.prodname_dotcom_the_website %}. For more information, see "[Sending enterprise contributions to your {% data variables.product.prodname_dotcom_the_website %} profile](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-graphs-on-your-profile/sending-enterprise-contributions-to-your-githubcom-profile)."
+Após habilitar {% data variables.product.prodname_unified_contributions %}, antes que os usuários individuais possam enviar contagens de contribuição de {% data variables.product.product_location %} para {% data variables.product.prodname_dotcom_the_website %}, cada usuário também deverá conectar sua conta de usuário em {% data variables.product.product_name %} com uma conta pessoal em {% data variables.product.prodname_dotcom_the_website %}. Para obter mais informações, confira "[Como enviar contribuições corporativas para o seu perfil do {% data variables.product.prodname_dotcom_the_website %}](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-graphs-on-your-profile/sending-enterprise-contributions-to-your-githubcom-profile)".
 
 {% data reusables.github-connect.sync-frequency %}
 
-If the enterprise owner disables the functionality or individual users opt out of the connection, the contribution counts from {% data variables.product.product_name %} will be deleted on {% data variables.product.prodname_dotcom_the_website %}. If the user reconnects their profiles after disabling them, the contribution counts for the past 90 days are restored.
+Se o proprietário da empresa desabilitar a funcionalidade ou usuários individuais optarem por não conectar a contagem de contribuição de {% data variables.product.product_name %} será excluída em {% data variables.product.prodname_dotcom_the_website %}. Se o usuário reconectar os perfis após desabilitá-los, as contagens de contribuição dos últimos 90 dias serão restauradas.
 
-{% data variables.product.product_name %} **only** sends the contribution count and source ({% data variables.product.product_name %}) for connected users. It does not send any information about the contribution or how it was made.
+O {% data variables.product.product_name %} **só** envia a contagem e a origem da contribuição ({% data variables.product.product_name %}) para os usuários conectados. Nenhuma informação sobre a contribuição ou sobre como ela foi feita é enviada.
 
-## Enabling unified contributions
+## Habilitando contribuições unificadas
 
-Before enabling {% data variables.enterprise.prodname_unified_contributions %} on {% data variables.location.product_location %}, you must enable {% data variables.product.prodname_github_connect %}. For more information, see "[Managing {% data variables.product.prodname_github_connect %}](/admin/configuration/configuring-github-connect/managing-github-connect)."
+Antes de habilitar {% data variables.product.prodname_unified_contributions %} em {% data variables.product.product_location %}, você deverá habilitar {% data variables.product.prodname_github_connect %}. Para obter mais informações, confira "[Como gerenciar o {% data variables.product.prodname_github_connect %}](/admin/configuration/configuring-github-connect/managing-github-connect)".
 
-{% ifversion ghes %}
-{% data reusables.github-connect.access-dotcom-and-enterprise %}
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
-{% data reusables.enterprise-accounts.github-connect-tab %}{% else %}
-1. Sign in to {% data variables.location.product_location %} and {% data variables.product.prodname_dotcom_the_website %}.
+{% ifversion ghes %} {% data reusables.github-connect.access-dotcom-and-enterprise %} {% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.enterprise_site_admin_settings.business %} {% data reusables.enterprise-accounts.github-connect-tab %}{% else %}
+1. Entre no {% data variables.product.product_location %} e no {% data variables.product.prodname_dotcom_the_website %}.
 {% data reusables.enterprise-accounts.access-enterprise %}{% data reusables.enterprise-accounts.github-connect-tab %}{% endif %}
-1. Under "Users can share contribution counts to {% data variables.product.prodname_dotcom_the_website %}", click **Request access**.
-  ![Request access to unified contributions option](/assets/images/enterprise/site-admin-settings/dotcom-ghe-connection-request-access.png){% ifversion ghes %}
-2. [Sign in](https://enterprise.github.com/login) to the {% data variables.product.prodname_ghe_server %} site to receive further instructions.
+1. Em "Os usuários podem compartilhar contagens de contribuições para o {% data variables.product.prodname_dotcom_the_website %}", clique em **Solicitar acesso**.
+  ![Opção Solicitar acesso às contribuições unificadas](/assets/images/enterprise/site-admin-settings/dotcom-ghe-connection-request-access.png){% ifversion ghes %}
+2. [Entre](https://enterprise.github.com/login) no site do {% data variables.product.prodname_ghe_server %} para receber instruções adicionais.
 
-When you request access, we may redirect you to the {% data variables.product.prodname_ghe_server %} site to check your current terms of service.
+Ao solicitar acesso, podemos redirecioná-lo para o site {% data variables.product.prodname_ghe_server %} para verificar os termos de serviço atuais.
 {% endif %}

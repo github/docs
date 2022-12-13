@@ -1,0 +1,34 @@
+date: '2021-06-10'
+sections:
+  security_fixes:
+    - パッケージは最新のセキュリティ バージョンに更新されました。
+  bugs:
+    - "SVN 1.7 以前のクライアントで、\"svn co\" と \"svn export\" コマンドを使うとエラーが表示されました。"
+    - "管理シェルで \"ghe-repo <owner>/<reponame>\" を使ってリポジトリにアクセスすると、ハングしました。"
+    - アップグレード後、サービスの再起動が多すぎたため、高負荷の際にユーザーの可用性が低下しました。これは、nomad の構成と内部サービスの構成の間でタイムアウトが一致しないために発生しました。
+    - "場合によっては、GitHub Actions をセットアップした後で \"ghe-repl-status\" を実行するとエラーが発生し、\"ghe-actions-teardown\" が失敗しました。"
+    - '状況によっては、"ghe-dbconsole" がエラーを返しました。'
+    - "GitHub 以外のソースからの Organization またはリポジトリのインポートの失敗により、\"nil:NilClass に対して未定義のメソッド '[]'\" エラーが発生することがありました。"
+    - "GitHub のプロフィール名が管理コンソールの [フル ネーム] フィールドにマップされる属性の値と一致しない場合、SAML 認証を使うと、GitHub のプロフィール名が意図せず変更されることがありました。"
+    - "以前に 2.13 リリースを実行していて、2.14 リリースを実行していなかったインスタンスをアップグレードすると、\"AddRepositoryIdToCheckRuns\" データ移行に関係するデータベース移行エラーが発生しました。"
+  changes:
+    - "GraphQL API のユーザーは、\"PullRequest\" オブジェクトのパブリック フィールド \"closingIssuesReferences\" のクエリを実行できます。このフィールドは、関連する pull request がマージされると自動的にクローズされる issue を取得します。このアプローチにより、このデータも、将来、忠実度がさらに高い移行プロセスの一部として移行できます。"
+  known_issues:
+    - "{% data variables.product.prodname_registry %} npm レジストリで、メタデータ応答で時刻値が返されなくなりました。これは、パフォーマンスの大幅な向上を可能にするために行われました。メタデータ応答の一部として時刻値を返すために必要なすべてのデータを保持し続け、既存のパフォーマンスの問題を解決したら、将来的にこの値を返すことを再開します。"
+    - "新しくセットアップされたユーザーのいない {% data variables.product.prodname_ghe_server %} で、攻撃者が最初の管理者ユーザーを作成できました。"
+    - カスタムのファイアウォール規則は、アップグレード プロセス中に削除されます。
+    - "[Web インターフェイスからアップロードされた](https://github.com/blog/2105-upload-files-to-your-repositories) Git LFS 追跡ファイルが誤ってリポジトリに直接追加されます。"
+    - 同じリポジトリ内の BLOB への固定リンクが含まれ、その BLOB のファイル パスが 255 文字を超える場合、issue をクローズできません。
+    - "GitHub Connect で [ユーザーが GitHub.com を検索できる] が有効になっている場合、プライベートと内部リポジトリの issue は GitHub.com の検索結果に含まれません。"
+    - |3.0.x から 3.1.x にアップグレードすると、GitHub Actions が "このワークフローの実行時に、予期しないエラーが発生しました" というエラーで失敗する場合があります。この問題を回避するには、管理シェル (ssh) に接続して以下を実行してください。
+
+```
+
+ghe-actions-console -s actions -c "Queue-ServiceJob -JobId 4DB1F4CF-19FD-40E0-A253-91288813DE8B"
+
+```
+
+|
+    - "高可用性構成でレプリカ ノードがオフラインの場合、{% data variables.product.product_name %} によって、{% data variables.product.prodname_pages %} 要求が引き続きオフライン ノードにルーティングされる可能性があり、ユーザーに対して {% data variables.product.prodname_pages %} の可用性が下がります。"
+    - "{% data variables.product.prodname_ghe_server %} で {% data variables.product.prodname_actions %} が有効にされていると、\"ghe-repl-teardown\" でのレプリカ ノードの破棄は成功しますが、\"エラー: 移行の実行\" が返されることがあります。"
+    - pre-receive フックの処理に固有のリソース制限により、一部の pre-receive フックが失敗する場合があります。

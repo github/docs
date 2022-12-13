@@ -1,6 +1,6 @@
 ---
-title: About continuous deployment
-intro: 'You can create custom continuous deployment (CD) workflows directly in your {% data variables.product.prodname_dotcom %} repository with {% data variables.product.prodname_actions %}.'
+title: Sobre a implantação contínua
+intro: 'Você pode criar fluxos de trabalho personalizados de implantação contínua (CD) diretamente no repositório de {% data variables.product.prodname_dotcom %} com {% data variables.product.prodname_actions %}.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -12,40 +12,44 @@ redirect_from:
 topics:
   - CD
 shortTitle: About continuous deployment
+ms.openlocfilehash: 379afa0088f7f10302f5bf8202f5259ac4777bec
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147060135'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+## Sobre a implantação contínua
 
-## About continuous deployment
+A CD (_implantação contínua_) é a prática de usar a automação para publicar e implantar atualizações de software. Como parte do processo típico do CD, o código é automaticamente criado e testado antes da implantação.
 
-_Continuous deployment_ (CD) is the practice of using automation to publish and deploy software updates. As part of the typical CD process, the code is automatically built and tested before deployment.
+A implentação contínua é frequentemente acompanhada da integração contínua. Para obter mais informações sobre a integração contínua, confira "[Sobre a integração contínua](/actions/guides/about-continuous-integration)".
 
-Continuous deployment is often coupled with continuous integration. For more information about continuous integration, see "[About continuous integration](/actions/guides/about-continuous-integration)".
+## Sobre a implantação contínua que usa {% data variables.product.prodname_actions %}
 
-## About continuous deployment using {% data variables.product.prodname_actions %}
+É possível configurar um fluxo de trabalho de {% data variables.product.prodname_actions %} para implantar o produto do seu software. Para verificar se o produto funciona como esperado, seu fluxo de trabalho pode criar o código no repositório e executar seus testes antes da implantação.
 
-You can set up a {% data variables.product.prodname_actions %} workflow to deploy your software product. To verify that your product works as expected, your workflow can build the code in your repository and run your tests before deploying.
+Você pode configurar seu fluxo de trabalho do CD para ser executado quando ocorrer um evento de {% data variables.product.product_name %} (por exemplo, quando o novo código é enviado para o branch padrão do seu repositório), em um cronograma definido, manualmente ou quando ocorre um evento externo usando o webhook de envio do repositório. Para obter mais informações sobre quando o fluxo de trabalho pode ser executado, confira "[Eventos que disparam fluxos de trabalho](/actions/reference/events-that-trigger-workflows)".
 
-You can configure your CD workflow to run when a {% data variables.product.product_name %} event occurs (for example, when new code is pushed to the default branch of your repository), on a set schedule, manually, or when an external event occurs using the repository dispatch webhook. For more information about when your workflow can run, see "[Events that trigger workflows](/actions/reference/events-that-trigger-workflows)."
+{% data variables.product.prodname_actions %} fornece funcionalidades que dão mais controle sobre implantações. Por exemplo, você pode usar ambientes para exigir aprovação para um trabalho prosseguir, restringir quais branches podem acionar um fluxo de trabalho, ou limitar o acesso a segredos. Você pode usar concorrência para limitar o pipeline do CD até uma implantação em andamento e uma implantação pendente. Para obter mais informações sobre esses recursos, confira "[Implantação com o GitHub Actions](/actions/deployment/deploying-with-github-actions)" e "[Como usar ambientes para implantação](/actions/deployment/using-environments-for-deployment)".
 
-{% data variables.product.prodname_actions %} provides features that give you more control over deployments. For example, you can use environments to require approval for a job to proceed, restrict which branches can trigger a workflow, or limit access to secrets. You can use concurrency to limit your CD pipeline to a maximum of one in-progress deployment and one pending deployment. For more information about these features, see "[Deploying with GitHub Actions](/actions/deployment/deploying-with-github-actions)" and "[Using environments for deployment](/actions/deployment/using-environments-for-deployment)."
+{% ifversion fpt or ghec or ghae-issue-4856 or ghes > 3.4 %}
 
-{% ifversion fpt or ghec or ghes > 3.4 %}
-
-## Using OpenID Connect to access cloud resources
+## Usando o OpenID Connect para acessar os recursos da nuvem
 
 {% data reusables.actions.about-oidc-short-overview %}
 
 {% endif %}
 
-## Starter workflows and third party actions
+## Fluxos de trabalho iniciais e ações de terceiros
 
 {% data reusables.actions.cd-templates-actions %}
 
-## Further reading
+## Leitura adicional
 
-- [Deploying with GitHub Actions](/actions/deployment/deploying-with-github-actions)
-- [Using environments for deployment](/actions/deployment/using-environments-for-deployment){% ifversion fpt or ghec %}
-- "[Managing billing for {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions)"{% endif %}
+- [Implantação com o GitHub Actions](/actions/deployment/deploying-with-github-actions)
+- [Como usar ambientes para implantação](/actions/deployment/using-environments-for-deployment){% ifversion fpt or ghec %}
+- "[Como gerenciar a cobrança do {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions)"{% endif %}
 

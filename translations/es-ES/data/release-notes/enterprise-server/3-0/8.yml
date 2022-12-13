@@ -1,0 +1,27 @@
+date: '25 de mayo de 2021'
+sections:
+  security_fixes:
+    - '**RIESGO MEDIO:** bajo ciertas circunstancias, los usuarios que se eliminaban de un equipo u organización podían retener el acceso de escritura a las ramas en las cuales tenían solicitudes de incorporación de cambios existentes abiertas.'
+    - Los paquetes se han actualizado a las últimas versiones de seguridad.
+  bugs:
+    - "En la página \"Configurar acciones y paquetes\" del proceso de instalación inicial, cuando un administrador hacía clic en el botón \"Probar configuración de dominio\", la prueba no se completaba."
+    - "La ejecución de \"ghe-btop\" producía un error \"cannot find a 'babeld' container\"."
+    - Los usuarios experimentaban una falta de disponibilidad del servicio después de actualizar debido a un desajuste de valores de tiempo de espera internos y externos.
+    - Los retrasos en la replicación normal en MSSQL generaban advertencias.
+    - El enlace para la Guía de agrupación en clústeres de GitHub Enterprise sobre la consola de administración era incorrecto.
+    - "Una dirección IP agregada por un administrador mediante el botón \"Crear entrada de lista de admisión\" seguía pudiendo bloquearse."
+    - "Se mostraban referencias a las características \"Gráfica de dependencias\" y \"Alertas del dependabot\" en los repositorios en donde no se habían habilitado."
+    - "Las solicitudes de tipo HTTP POST al punto de conexión \"/hooks\" podían fallar con una respuesta 401 si la \"hookID\" se había configurado incorrectamente."
+    - "El proceso \"build-server\" producía un error a la hora de limpiar los procesos, dejándolos en estado \"defunct\"."
+    - '"spokesd" creaba entradas de registro excesivas, incluyendo la frase "fixing placement skipped".'
+  changes:
+    - Se archivarán las anotaciones de verificación más viejas de 4 meses.
+  known_issues:
+    - "El acceso a un repositorio mediante el shell administrativo utilizando \"ghe-repo <owner>/<reponame>\" se colgaba. Como solución, utiliza \"`ghe-repo <owner>/<reponame> -c \"bash -i\"`\" hasta que haya disponible una solución en la siguiente versión."
+    - "En un servidor de GitHub Enterprise recién configurado sin usuarios, un atacante podría crear el primer usuario administrador."
+    - Las reglas de firewall personalizadas no se mantienen durante una actualización.
+    - "Los archivos supervisados de Git LFS [cargados desde la interface web](https://github.com/blog/2105-upload-files-to-your-repositories) se han agregado de manera incorrecta y directa al repositorio."
+    - Las incidencias no se pueden cerrar si contienen un vínculo permanente a un blob en el mismo repositorio en el que la ruta de acceso de archivo del blob tiene más de 255 caracteres.
+    - "Cuando se habilita \"Los usuarios pueden buscar en GitHub.com\" con GitHub Connect, las incidencias en los repositorios privados e internos no se incluyen en los resultados de la búsqueda de GitHub.com."
+    - "Cuando un nodo de réplica está sin conexión en una configuración de disponibilidad alta, es posible que {% data variables.product.product_name %} todavía enrute las solicitudes a {% data variables.product.prodname_pages %} al nodo sin conexión, lo que reduce la disponibilidad de {% data variables.product.prodname_pages %} para los usuarios."
+    - Los límites de recursos que son específicos para procesar enlaces previos a la recepción podrían ocasionar errores en algunos de ellos.

@@ -1,0 +1,28 @@
+date: '12-10-2021'
+sections:
+  security_fixes:
+    - 'Los paquetes se han actualizado a sus últimas versiones de seguridad. {% comment %} https://github.com/github/enterprise2/pull/27035, https://github.com/github/enterprise2/pull/27010 {% endcomment %}'
+  bugs:
+    - 'Los enlaces previos a la recepción personalizados fallaban debido a los límites demasiado restrictivos en la memoria virtual o CPU.{% comment %} https://github.com/github/enterprise2/pull/26972, https://github.com/github/enterprise2/pull/26955 {% endcomment %}'
+    - 'Al intentar borrar todos los ajustes de configuración existentes con "ghe-cleanup-settings", se producía un error al reiniciar el servicio de la Consola de Administración. {% comment %} https://github.com/github/enterprise2/pull/26987, https://github.com/github/enterprise2/pull/26901 {% endcomment %}'
+    - 'Durante el desmonte de replicación mediante "ghe-repl-teardown", Memcached fallaba al reiniciarse. {% comment %} https://github.com/github/enterprise2/pull/26993, https://github.com/github/enterprise2/pull/26983 {% endcomment %}'
+    - 'Durante los periodos de carga alta, los usuarios recibían códigos de estado HTTP 503 cuando los servicios ascendentes fallaban sus revisiones de salud interna. {% comment %} https://github.com/github/enterprise2/pull/27082, https://github.com/github/enterprise2/pull/26999 {% endcomment %}'
+    - 'Con Acciones configuradas, la replicación de MSSQL fallaba después de restablecer desde una captura de pantalla de las Utilidades de Respaldo de GitHub Enterprise. {% comment %} https://github.com/github/enterprise2/pull/27097, https://github.com/github/enterprise2/pull/26254 {% endcomment %}'
+    - 'Pudo haberse mostrado un mensaje de error de "jq" erróneo al ejecutar "ghe-config-apply". {% comment %} https://github.com/github/enterprise2/pull/27194, https://github.com/github/enterprise2/pull/26784 {% endcomment %}'
+    - 'Se prohibía que los entornos de los enlaces previos a la recepción llamaran el comando cat mediante BusyBox en Alpine.{% comment %} https://github.com/github/enterprise2/pull/27115, https://github.com/github/enterprise2/pull/27094 {% endcomment %}'
+    - 'La contraseña de la base de datos externa se registraba en texto simple. {% comment %} https://github.com/github/enterprise2/pull/27173, https://github.com/github/enterprise2/pull/26413 {% endcomment %}'
+    - 'La recuperación de fallos desde un centro de datos de un clúster primario hacia uno de un clúster secundario era exitosa, pero tras la conmutación por error de vuelta al centro de datos del clúster primario original, se producía un error al promover los índices de Elasticsearch. {% comment %} https://github.com/github/github/pull/193181, https://github.com/github/github/pull/192447 {% endcomment %}'
+    - 'El botón "Importar equipos" en la página de equipos de las organizaciones devolvía un error HTTP 404. {% comment %} https://github.com/github/github/pull/193302 {% endcomment %}'
+    - 'En algunos casos, los administradores de GitHub Enterprise que intentaban ver la página "Usuarios inactivos" recibían una respuesta de tipo "502 Bad Gateway" o "504 Gateway Timeout". {% comment %} https://github.com/github/github/pull/194260, https://github.com/github/github/pull/193609 {% endcomment %}'
+    - 'Se impactó el rendimiento de forma negativa en algunas situaciones de carga alta como resultado del aumento en la cantidad de trabajos de "SynchronizePullRequestJob". {% comment %} https://github.com/github/github/pull/195253, https://github.com/github/github/pull/194591 {% endcomment %}'
+  changes:
+    - 'Se borran registros de webhook de forma más efectiva que salen de la ventana de retención de registros de webhook. {% comment %} https://github.com/github/enterprise2/pull/27158 {% endcomment %}'
+  known_issues:
+    - "El registro npm de {% data variables.product.prodname_registry %} ya no devuelve un valor de hora en las respuestas de metadatos. Esto se hacía para permitir mejoras de rendimiento importantes. Seguimos teniendo todos los datos necesarios para devolver un valor de tiempo como parte de la respuesta de metadatos y reanudaremos la devolución de este valor en el futuro una vez que hayamos resuelto las incidencias de rendimiento existentes."
+    - "En una instalación nueva de {% data variables.product.prodname_ghe_server %} que no tenga ningún usuario, cualquier atacante podría crear el primer usuario administrativo."
+    - Las reglas de cortafuegos personalizadas se eliminan durante el proceso de actualización.
+    - "Los archivos supervisados de Git LFS [cargados desde la interface web](https://github.com/blog/2105-upload-files-to-your-repositories) se han agregado de manera incorrecta y directa al repositorio."
+    - Las incidencias no se pueden cerrar si contienen un enlace permanente a un blob del mismo repositorio en el que la ruta es mayor de 255 caracteres.
+    - "Cuando se habilita \"Los usuarios pueden buscar en GitHub.com\" con GitHub Connect, las incidencias en los repositorios privados e internos no se incluyen en los resultados de la búsqueda de GitHub.com."
+    - "Si se habilitan las {% data variables.product.prodname_actions %} para {% data variables.product.prodname_ghe_server %}, desmontar un nodo de réplica con \"ghe-repl-teardown\" tendrá éxito, pero podría devolver un \"ERROR:Running migrations\"."
+    - Los límites de recursos que son específicos para procesar enlaces previos a la recepción podrían ocasionar errores en algunos de ellos.

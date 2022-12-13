@@ -1,0 +1,78 @@
+date: '02-03-2021'
+sections:
+  security_fixes:
+    - '**ALTA:** se identificó una vulnerabilidad de control de acceso inadecuado en GitHub Enterprise Server que permitía a los usuarios autenticados de la instancia obtener acceso de escritura a repositorios no autorizados a través de solicitud de incorporación de cambios y solicitudes de API REST diseñadas específicamente. Un atacante necesitaba poder bifurcar el repositorio de destino, una configuración que está deshabilitada de forma predeterminada para los repositorios privados propiedad de la organización. Las protecciones de ramas, como las revisiones de solicitud de incorporación de cambios requeridas o las comprobaciones de estado, evitaban la fusión de confirmaciones no autorizadas sin una revisión o validación adicional. A esta vulnerabilidad se le ha asignado el código CVE-2021-22861. Este problema se informó mediante el programa [GitHub Bug Bounty Program] (https://bounty.github.com).'
+    - '**ALTA:** se identificó una vulnerabilidad de control de acceso inadecuado en la API de GraphQL de GitHub Enterprise Server que permitía a los usuarios autenticados de la instancia modificar el permiso de colaboración del responsable de mantenimiento de una solicitud de incorporación de cambios sin la debida autorización. Al aprovecharse de esta vulnerabilidad, un atacante podía obtener acceso a las ramas principales de las solicitudes de incorporación de cambios abiertas en los repositorios de los que son responsables del mantenimiento. La bifurcación está deshabilitada de forma predeterminada para los repositorios privados propiedad de la organización, lo que evita esta vulnerabilidad. Además, las protecciones de las ramas, como las revisiones de solicitud de incorporación de cambios requeridas o las comprobaciones de estado, evitan la fusión de confirmaciones no autorizadas sin una revisión o validación adicional. A esta vulnerabilidad se le ha asignado el código CVE-2021-22863. Este problema se informó mediante el programa [GitHub Bug Bounty Program] (https://bounty.github.com).'
+    - '**ALTA:** se identificó una vulnerabilidad de ejecución de código remoto en GitHub Enterprise Server que podría aprovecharse al crear un sitio de GitHub Pages. La configuración controlada por el usuario de los analizadores subyacentes utilizados por GitHub Pages no estaba lo suficientemente restringida y permitía ejecutar comandos en la instancia de GitHub Enterprise Server. Para aprovechar esta vulnerabilidad de seguridad, un atacante necesitaría permiso para crear un sitio de GitHub Pages en la instancia de GitHub Enterprise Server. Esta vulnerabilidad se ha asignado al código CVE-2020-10519 y se ha notificado mediante [GitHub Bug Bounty Program](https://bounty.github.com/).'
+    - '**MEDIA:** los tokens de GitHub de las compilaciones de GitHub Pages podían terminar en las bitácoras.'
+    - '**BAJA:** una solicitud que se elaboraba especialmente para el puente SVN podía desencadenar una larga espera antes de que se produjera un error, lo cual provocaba un una Negación del Servicio (DoS).'
+    - 'Los paquetes se han actualizado a las últimas versiones de seguridad.'
+  bugs:
+    - 'Las verificaciones de salud del equilibrador de carga podían provocar en algunos casos que las bitácoras de babeld se llenaran con errores sobre el protocolo PROXY.'
+    - 'Se registró sin querer un mensaje informativo como un error durante las capturas de pantalla de GitHub Enterprise Backup Utilities, lo cual dio como resultado que se enviaran correos electrónicos innecesarios cuando los jobs de cron programaban respaldos que escuchaban la salida a stderr.'
+    - 'Al restablecer un respaldo grande, el registro de excepciones relacionado con el agotamiento de la memoria de Redis podía causar que la restauración fallara debido a un disco lleno.'
+    - 'Cuando configurabas una instancia nueva por primera vez, si seleccionaste "Configurar como réplica", no se podía iniciar la replicación.'
+    - 'Cuando se habilitaban Acciones de GitHub, al inhabilitar el modo de mantenimiento en la Consola de administración, se producía un error.'
+    - 'Al editar una página de wiki, un usuario podía experimentar un error 500 al hacer clic en el botón Guardar.'
+    - 'Una confirmación firmada por S/MIME con un certificado con varios nombres en el nombre alternativo del sujeto se mostraba incorrectamente como "No verificada" en la notificación de confirmación.'
+    - 'Se enviaban correos electrónicos a un usuario suspendido cuando se le agregaba a un equipo.'
+    - 'Un usuario vio un error 500 al ejecutar operaciones de git en una instancia configurada con autenticación LDAP.'
+    - 'El job en segundo plano `remove_org_member_package_access` podía visualizarse en la Consola de administración e incrementaba continuamente.'
+    - 'Cuando un repositorio tenía un gran número de manifiestos, se mostraba el error `You have reached the maximum number of allowed manifest files (20) for this repository.` en la pestaña Información > Gráfico de dependencias. Para obtener más información, consulta [Límites de visualización](https://docs.github.com/en/github/managing-security-vulnerabilities/troubleshooting-the-detection-of-vulnerable-dependencies#are-there-limits-which-affect-the-dependency-graph-data).'
+    - 'Al cargar un archivo de licencia nuevo con una cantidad de plazas diferente del archivo de licencia anterior, la diferencia de plazas no se representaba correctamente en la página Configuración -> Licencia de la cuenta empresarial.'
+    - 'La casilla de verificación para impedir que los administradores del repositorio cambiaran el acceso de lectura anónimo de Git disponible en la configuración de cuenta empresarial no se podía habilitar o inhabilitar correctamente.'
+    - 'Cuando una compilación de GitHub Pages fallaba, la notificación de correo electrónico contenía un enlace incorrecto a la ubicación de soporte.'
+    - 'Durante un año bisiesto, el usuario obtenía una respuesta 404 cuando intentaba ver la actividad de contribución de un lunes.'
+  changes:
+    - 'Se agregó compatibilidad con [tipos de instancias r5b de AWS EC2](https://aws.amazon.com/about-aws/whats-new/2020/12/introducing-new-amazon-ec2-r5b-instances-featuring-60-gbps -de-ancho-de-banda-ebs-y-260K-iops/).'
+    - 'Se ajustó la priorización de la cola en segundo plano para distribuir los jobs de manera más uniforme.'
+  known_issues:
+    - 'En un servidor de GitHub Enterprise recién configurado sin usuarios, un atacante podría crear el primer usuario administrador.'
+    - 'Las reglas de firewall personalizadas no se mantienen durante una actualización.'
+    - 'Los archivos supervisados de Git LFS [cargados desde la interfaz web](https://github.com/blog/2105-upload-files-to-your-repositories) se agregan de manera incorrecta y directa al repositorio.'
+    - 'Las incidencias no se pueden cerrar si contienen un vínculo permanente a un blob en el mismo repositorio en el que la ruta de acceso de archivo del blob tiene más de 255 caracteres.'
+    - 'Cuando se habilita "Los usuarios pueden buscar en GitHub.com" con GitHub Connect, las incidencias en los repositorios privados e internos no se incluyen en los resultados de la búsqueda de GitHub.com.'
+    - |Los usuarios podían experimentar que activos como los avatares no cargaran, o que se produjera un error al insertar o extraer código. Esto puede deberse a un error de coincidencia en el servicio `haproxy-cluster-proxy`. Para determinar si una instancia está afectada:
+
+
+
+**Instancia única**
+
+
+
+1. Ejecuta lo siguiente en [administrative shell](https://docs.github.com/en/enterprise-server/admin/configuration/accessing-the-administrative-shell-ssh) (SSH):
+
+
+
+  ```
+
+  if [ $(cat /var/run/haproxy-cluster-proxy.pid) -ne $(systemctl show --property MainPID --value haproxy-cluster-proxy) ]; then echo ''Main PID of haproxy-cluster-proxy does not match /var/run/haproxy-cluster-proxy.pid''; fi
+
+  ```
+
+
+
+2. Si se muestra que hay un error de coincidencia, reinicia la instancia.
+
+
+
+**Configuración de clúster o alta disponibilidad**
+
+
+
+1. Ejecuta lo siguiente en [administrative shell](https://docs.github.com/en/enterprise-server/admin/configuration/accessing-the-administrative-shell-ssh) (SSH):
+
+
+
+  ```
+
+  ghe-cluster-each -- ''if [ $(cat /var/run/haproxy-cluster-proxy.pid) -ne $(systemctl show --property MainPID --value haproxy-cluster-proxy) ]; then echo ''Main PID of haproxy-cluster-proxy does not match /var/run/haproxy-cluster-proxy.pid''; fi''
+
+  ```
+
+
+
+2. Si muestra que hay uno o más nodos afectados, reinicie los nodos afectados.
+
+|
+    - "Cuando un nodo de réplica está sin conexión en una configuración de disponibilidad alta, es posible que {% data variables.product.product_name %} enrute las solicitudes a {% data variables.product.prodname_pages %} al nodo sin conexión, lo que reduce la disponibilidad de {% data variables.product.prodname_pages %} para los usuarios."

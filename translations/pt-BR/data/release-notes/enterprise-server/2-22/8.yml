@@ -1,0 +1,58 @@
+date: '2021-03-16'
+sections:
+  security_fixes:
+    - Os pacotes foram atualizados para as últimas versões de segurança.
+  bugs:
+    - Registros de jornais do Systemd foram duplicados em vários lugares.
+    - "Um administrador do site poderia obter uma página de com a mensagem \"500 error\" ao tentar visualizar problemas referenciados em repositórios privados."
+    - Importar arquivos do repositório do GitHub Enterprise Server sem arquivos do repositório falhará com um erro.
+  known_issues:
+    - "Em uma nova configuração do GitHub Enterprise Server sem nenhum usuário, um invasor pode criar o primeiro usuário administrador."
+    - As regras personalizadas de firewall não são mantidas durante uma atualização.
+    - "Arquivos LFS do Git [enviados através da interface Web](https://github.com/blog/2105-upload-files-to-your-repositories) são adicionados diretamente ao repositório e de maneira incorreta."
+    - Os problemas não podem ser fechados se contiverem um permalink para um blob no mesmo repositório em que o caminho do arquivo tem mais de 255 caracteres.
+    - "Quando \"Usuários podem pesquisar pelo GitHub.com\" está habilitado com o GitHub Connect, os problemas em repositórios privados e internos não estão incluídos nos resultados de pesquisa do GitHub.com."
+    - |Os usuários podem experimentar ativos como avatares que não carregam ou uma falha no código push/pull. Isso pode ser causado por uma falha de incompatibilidade PID no serviço `haproxy-cluster-proxy`. Para determinar se você tem uma instância afetada:
+
+
+
+**Instância única**
+
+
+
+1. Execute isso no [shell administrativo](https://docs.github.com/en/enterprise-server/admin/configuration/accessing-the-administrative-shell-ssh) (SSH):
+
+
+
+  ```
+
+  se [ $(cat /var/run/haproxy-cluster-proxy.pid) -ne $(systemctl show --property MainPID --value haproxy-cluster-proxy) ]; então ecoe ''Main PID of haproxy-cluster-proxy does not match /var/run/haproxy-cluster-proxy.pid''; fi
+
+  ```
+
+
+
+2. Se isso mostrar que há uma incompatibilidade, reinicie a instância.
+
+
+
+**Cluster ou configuração de alta disponibilidade**
+
+
+
+1. Execute isso no [shell administrativo](https://docs.github.com/en/enterprise-server/admin/configuration/accessing-the-administrative-shell-ssh) (SSH):
+
+
+
+  ```
+
+  ghe-cluster-each -- ''if [ $(cat /var/run/haproxy-cluster-proxy.pid) -ne $(systemctl show --property MainPID --value haproxy-cluster-proxy) ]; then echo ''Main PID of haproxy-cluster-proxy does not match /var/run/haproxy-cluster-proxy.pid''; fi''
+
+  ```
+
+
+
+2. Se mostrar que um ou mais nós forem afetados, reinicie os nós afetados.
+
+|
+    - "Quando um nó de réplica está offline em uma configuração de alta disponibilidade, {% data variables.product.product_name %} ainda pode encaminhar solicitações de {% data variables.product.prodname_pages %} para o nó offline, reduzindo a disponibilidade de {% data variables.product.prodname_pages %} para os usuários."

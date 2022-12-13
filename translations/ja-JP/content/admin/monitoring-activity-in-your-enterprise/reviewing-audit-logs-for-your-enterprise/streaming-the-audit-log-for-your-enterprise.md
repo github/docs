@@ -1,6 +1,6 @@
 ---
-title: Streaming the audit log for your enterprise
-intro: 'You can stream audit and Git events data from {% data variables.product.prodname_dotcom %} to an external data management system.'
+title: Enterprise の監査ログのストリーミング
+intro: '監査イベントと Git イベントのデータを {% data variables.product.prodname_dotcom %} から外部のデータ管理システムにストリーミングできます。'
 miniTocMaxHeadingLevel: 3
 versions:
   feature: audit-log-streaming
@@ -15,32 +15,34 @@ redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-organizations-in-your-enterprise-account/streaming-the-audit-logs-for-organizations-in-your-enterprise-account
   - /admin/user-management/managing-organizations-in-your-enterprise/streaming-the-audit-logs-for-organizations-in-your-enterprise-account
 permissions: Enterprise owners can configure audit log streaming.
+ms.openlocfilehash: 81eb88f760016390a321798589e7994542c9f312
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147710340'
 ---
+{% ifversion ghes %} {% note %}
 
-{% ifversion ghes %}
-{% note %}
+**注:** {% data variables.product.product_name %} の監査ログ ストリーミングは現在、ベータ版であり、変更される可能性があります。
 
-**Note:** Audit log streaming is currently in beta for {% data variables.product.product_name %} and is subject to change.
+{% endnote %} {% endif %}
 
-{% endnote %}
-{% endif %}
+## 監査ログのストリーミングについて
 
-## About audit log streaming
+知的財産を保護し、組織のコンプライアンスを維持するために、ストリーミングを使用して監査ログ データのコピーを保持し、監視できます。{% data reusables.audit_log.audited-data-list %}
 
-To help protect your intellectual property and maintain compliance for your organization, you can use streaming to keep copies of your audit log data and monitor:
-{% data reusables.audit_log.audited-data-list %}
+監査ログのストリーミングには、次の利点があります。
 
-The benefits of streaming audit data include:
+* **データの探索**。 大量のデータに対してクエリを実行するために、推奨されるツールを使用して、ストリーミングされたイベントを調べることができます。 ストリーミングには、Enterprise アカウント全体の監査イベントと Git イベントの両方が含まれます。{% ifversion pause-audit-log-stream %}
+* **データの継続性**。 ストリーミングは、最長 7 日間、監査データを失うことなく一時停止できます。{% endif %}
+* **データ保有**。 エクスポートされた監査ログと Git イベント データを必要な期間だけ保持できます。
 
-* **Data exploration**. You can examine streamed events using your preferred tool for querying large quantities of data. The stream contains both audit events and Git events across the entire enterprise account.{% ifversion pause-audit-log-stream %}
-* **Data continuity**. You can pause the stream for up to seven days without losing any audit data.{% endif %}
-* **Data retention**. You can keep your exported audit logs and Git events data as long as you need to.
+Enterprise 所有者は、ストリームをいつでも設定{% ifversion pause-audit-log-stream %}、一時停止、{% endif %}または削除することができます。 ストリーミングによって、Enterprise 内のすべての Organization に関する監査と Git イベント データがエクスポートされます。
 
-Enterprise owners can set up{% ifversion pause-audit-log-stream %}, pause,{% endif %} or delete a stream at any time. The stream exports the audit and Git events data for all of the organizations in your enterprise.
+## 監査ログのストリーミングの設定
 
-## Setting up audit log streaming
-
-You set up the audit log stream on {% data variables.product.product_name %} by following the instructions for your provider.
+プロバイダーの指示に従って、{% data variables.product.product_name %} での監査ログのストリーミングを設定します。
 
 - [Amazon S3](#setting-up-streaming-to-amazon-s3)
 - [Azure Blob Storage](#setting-up-streaming-to-azure-blob-storage)
@@ -49,49 +51,52 @@ You set up the audit log stream on {% data variables.product.product_name %} by 
 - [Google Cloud Storage](#setting-up-streaming-to-google-cloud-storage)
 - [Splunk](#setting-up-streaming-to-splunk)
 
-### Setting up streaming to Amazon S3
+### Amazon S3 へのストリーミングの設定
 
-{% ifversion streaming-oidc-s3 %}
-You can set up streaming to S3 with access keys or, to avoid storing long-lived secrets in {% data variables.product.product_name %}, with OpenID Connect (OIDC).
+{% ifversion streaming-oidc-s3 %}アクセス キーを使用して S3 へのストリーミングを設定したり、OpenID Connect (OIDC) を使用して {% data variables.product.product_name %} に有効期間の長いシークレットを格納するのを回避したりできます。
 
-- [Setting up streaming to S3 with access keys](#setting-up-streaming-to-s3-with-access-keys)
-- [Setting up streaming to S3 with OpenID Connect](#setting-up-streaming-to-s3-with-openid-connect)
-- [Disabling streaming to S3 with OpenID Connect](#disabling-streaming-to-s3-with-openid-connect)
+- [アクセス キーを使用して S3 へのストリーミングを設定する](#setting-up-streaming-to-s3-with-access-keys)
+- [OpenID Connect を使用して S3 へのストリーミングを設定する](#setting-up-streaming-to-s3-with-openid-connect)
+- [OpenID Connect を使用して S3 へのストリーミングを無効にする](#disabling-streaming-to-s3-with-openid-connect)
 
-#### Setting up streaming to S3 with access keys
+#### アクセス キーを使用して S3 へのストリーミングを設定する
 {% endif %}
 
-To stream audit logs to Amazon's S3 endpoint, you must have a bucket and access keys. For more information, see [Creating, configuring, and working with Amazon S3 buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-buckets-s3.html) in the AWS documentation. Make sure to block public access to the bucket to protect your audit log information. 
+監査ログを Amazon の S3 エンドポイントにストリーミングするには、バケットとアクセス キーが必要です。 詳しくは、AWS のドキュメント「[Amazon S3 バケットの作成、設定、操作](https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-buckets-s3.html)」をご覧ください。 必ず、バケットへのパブリック アクセスをブロックして監査ログ情報を保護してください。 
 
-To set up audit log streaming from {% data variables.product.prodname_dotcom %} you will need:
-* The name of your Amazon S3 bucket
-* Your AWS access key ID
-* Your AWS secret key
+{% data variables.product.prodname_dotcom %} から監査ログのストリーミングを設定するには、次のものが必要です。
+* Amazon S3 バケットの名前
+* AWS アクセス キー ID
+* AWS 秘密鍵
 
-For information on creating or accessing your access key ID and secret key, see [Understanding and getting your AWS credentials](https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html) in the AWS documentation.
+アクセス キー ID と秘密鍵の作成またはアクセスについては、AWS ドキュメントの「[Understanding and getting your AWS credentials](https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html)」 (AWS 資格情報の理解と取得) を参照してください。
 
-{% data reusables.enterprise.navigate-to-log-streaming-tab %}
-{% data reusables.audit_log.streaming-choose-s3 %}{% ifversion streaming-oidc-s3 %}
-1. Under "Authentication", click **Access keys**.
+{% data reusables.enterprise.navigate-to-log-streaming-tab %} {% data reusables.audit_log.streaming-choose-s3 %}{% ifversion streaming-oidc-s3 %}
+1. [認証] で **[アクセス キー]** をクリックします。
 
-   ![Screenshot of the authentication options for streaming to Amazon S3](/assets/images/help/enterprises/audit-log-streaming-s3-access-keys.png){% endif %}
-1. Configure the stream settings.
+   ![Amazon S3 へのストリーミングに関する認証オプションのスクリーンショット](/assets/images/help/enterprises/audit-log-streaming-s3-access-keys.png){% endif %}
+1. ストリームの設定を構成します。
 
-   - Under "Bucket", type the name of the bucket you want to stream to. For example, `auditlog-streaming-test`.
-   - Under "Access Key ID", type your access key ID. For example, `ABCAIOSFODNN7EXAMPLE1`.
-   - Under "Secret Key", type your secret key. For example, `aBcJalrXUtnWXYZ/A1MDENG/zPxRfiCYEXAMPLEKEY`.
-{% data reusables.audit_log.streaming-check-s3-endpoint %}
-{% data reusables.enterprise.verify-audit-log-streaming-endpoint %}
+   - [バケット] に、ストリーミング先のバケットの名前を入力します。 たとえば、`auditlog-streaming-test` のようにします。
+   - [アクセス キー ID] に、アクセス キーの ID を入力します。 たとえば、`ABCAIOSFODNN7EXAMPLE1` のようにします。
+   - [シークレット キー] に、シークレット キーを入力します。 たとえば、`aBcJalrXUtnWXYZ/A1MDENG/zPxRfiCYEXAMPLEKEY` のようにします。
+{% data reusables.audit_log.streaming-check-s3-endpoint %} {% data reusables.enterprise.verify-audit-log-streaming-endpoint %}
 
 {% ifversion streaming-oidc-s3 %}
-#### Setting up streaming to S3 with OpenID Connect
+#### OpenID Connect を使用して S3 へのストリーミングを設定する
 
-1. In AWS, add the {% data variables.product.prodname_dotcom %} OIDC provider to IAM. For more information, see [Creating OpenID Connect (OIDC) identity providers](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_oidc.html) in the AWS documentation.
+{% note %}
 
-   - For the provider URL, use `https://oidc-configuration.audit-log.githubusercontent.com`.
-   - For "Audience", use `sts.amazonaws.com`.
-1. Create a bucket, and block public access to the bucket. For more information, see [Creating, configuring, and working with Amazon S3 buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-buckets-s3.html) in the AWS documentation.
-1. Create a policy that allows {% data variables.product.company_short %} to write to the bucket by copying the following JSON and replacing `EXAMPLE-BUCKET` with the name of your bucket. {% data variables.product.prodname_dotcom %} requires only the permissions in this JSON.
+**注:** OpenID Connect を使った Amazon S3 へのストリーミングは、現在ベータ版であり、変更される可能性があります。
+
+{% endnote %}
+
+1. AWS では、{% data variables.product.prodname_dotcom %} の OIDC プロバイダーを IAM に追加します。 詳しくは、AWS のドキュメント「[OpenID Connect (OIDC) ID プロバイダーの作成](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_oidc.html)」をご覧ください。
+
+   - プロバイダーの URL には、`https://oidc-configuration.audit-log.githubusercontent.com` を使います。
+   - [対象者] には、`sts.amazonaws.com` を使います。
+1. バケットを作成し、バケットへのパブリック アクセスをブロックします。 詳しくは、AWS のドキュメント「[Amazon S3 バケットの作成、設定、操作](https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-buckets-s3.html)」をご覧ください。
+1. {% data variables.product.company_short %} によるバケットへの書き込みを許可するポリシーを作成します。 {% data variables.product.prodname_dotcom %} には、次のアクセス許可のみが必要です。
 
    ```
    {
@@ -103,16 +108,16 @@ For information on creating or accessing your access key ID and secret key, see 
             "Action": [
                "s3:PutObject"
             ],
-            "Resource": "arn:aws:s3:::EXAMPLE-BUCKET/*"
+            "Resource": "arn:aws:s3:::example-bucket/*"
         }
       ]
    }
    ```
-   For more information, see [Creating IAM policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html) in the AWS documentation.
-1. Configure the role and trust policy for the {% data variables.product.prodname_dotcom %} IdP. For more information, see [Creating a role for web identity or OpenID Connect Federation (console)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-idp_oidc.html) in the AWS documentation.
+   詳しくは、AWS のドキュメント「[IAM ポリシーの作成](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html)」をご覧ください。
+1. {% data variables.product.prodname_dotcom %} IdP のロールと信頼ポリシーを構成します。 詳しくは、AWS のドキュメント「[ウェブ ID または OpenID Connect フェデレーション用のロールを作成する (コンソール)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-idp_oidc.html)」をご覧ください。
   
-   - Add the permissions policy you created above to allow writes to the bucket.
-   - Edit the trust relationship to add the `sub` field to the validation conditions, replacing `ENTERPRISE` with the name of your enterprise.
+   - 上で作成したアクセス許可ポリシーを追加して、バケットへの書き込みを許可します。
+   - 信頼関係を編集して、`sub` フィールドを検証条件に追加し、`ENTERPRISE` を自分の Enterprise の名前に置き換えます。
      ```
      "Condition": {
         "StringEquals": {
@@ -121,217 +126,209 @@ For information on creating or accessing your access key ID and secret key, see 
          }
       }
       ```
-   - Make note of the Amazon Resource Name (ARN) of the created role.
-{% data reusables.enterprise.navigate-to-log-streaming-tab %}
-{% data reusables.audit_log.streaming-choose-s3 %}
-1. Under "Authentication", click **OpenID Connect**.
+   - 作成されたロールの Amazon Resource Name (ARN) を記録しておきます。
+{% data reusables.enterprise.navigate-to-log-streaming-tab %} {% data reusables.audit_log.streaming-choose-s3 %}
+1. [認証] の **[OpenID Connect]** をクリックします。
 
-   ![Screenshot of the authentication options for streaming to Amazon S3](/assets/images/help/enterprises/audit-log-streaming-s3-oidc.png)
-1. Configure the stream settings.
+   ![Amazon S3 へのストリーミングに関する認証オプションのスクリーンショット](/assets/images/help/enterprises/audit-log-streaming-s3-oidc.png)
+1. ストリームの設定を構成します。
 
-   - Under "Bucket", type the name of the bucket you want to stream to. For example, `auditlog-streaming-test`.
-   - Under "ARN Role" type the ARN role you noted earlier. For example, `arn:aws::iam::1234567890:role/github-audit-log-streaming-role`.
-{% data reusables.audit_log.streaming-check-s3-endpoint %}
-{% data reusables.enterprise.verify-audit-log-streaming-endpoint %}
+   - [バケット] に、ストリーミング先のバケットの名前を入力します。 たとえば、`auditlog-streaming-test` のようにします。
+   - [ARN ロール] に、前に記録した ARN ロールを入力します。 たとえば、`arn:aws::iam::1234567890:role/github-audit-log-streaming-role` のようにします。
+{% data reusables.audit_log.streaming-check-s3-endpoint %} {% data reusables.enterprise.verify-audit-log-streaming-endpoint %}
 
-#### Disabling streaming to S3 with OpenID Connect
+#### OpenID Connect を使用して S3 へのストリーミングを無効にする
 
-If you want to disable streaming to S3 with OIDC for any reason, such as the discovery of a security vulnerability in OIDC, delete the {% data variables.product.prodname_dotcom %} OIDC provider you created in AWS when you set up streaming. For more information, see [Creating OpenID Connect (OIDC) identity providers](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_oidc.html) in the AWS documentation.
+OIDC のセキュリティ脆弱性を検出したなど、何らかの理由で OIDC を使用した S3 へのストリーミングを無効にする場合は、ストリーミングの設定時に AWS で作成した {% data variables.product.prodname_dotcom %} OIDC プロバイダーを削除します。 詳しくは、AWS のドキュメント「[OpenID Connect (OIDC) ID プロバイダーの作成](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_oidc.html)」をご覧ください。
 
-Then, set up streaming with access keys until the vulnerability is resolved. For more information, see "[Setting up streaming to S3 with access keys](#setting-up-streaming-to-s3-with-access-keys)."
+その後は、脆弱性が解決されるまで、アクセス キーを使用してストリーミングを設定します。 詳しい情報については、「[アクセス キーを使用して S3 へのストリーミングを設定する](#setting-up-streaming-to-s3-with-access-keys)」を参照してください。
 
 {% endif %}
 
-### Setting up streaming to Azure Blob Storage
+### Azure Blob Storage へのストリーミングの設定
 
-Before setting up a stream in {% data variables.product.prodname_dotcom %}, you must first have created a storage account and a container in Microsoft Azure. For details, see the Microsoft documentation, "[Introduction to Azure Blob Storage](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blobs-introduction)." 
+{% data variables.product.prodname_dotcom %} でのストリーミングを設定する前に、まず、Microsoft Azure でストレージ アカウントとコンテナーを作成しておく必要があります。 詳細については、Microsoft のドキュメント「[Azure Blob Storage の概要](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blobs-introduction)」を参照してください。 
 
-To configure the stream in {% data variables.product.prodname_dotcom %} you need the URL of a SAS token.
+{% data variables.product.prodname_dotcom %} でストリーミングを構成するには、SAS トークンの URL が必要です。
 
-**On Microsoft Azure portal**:
-1. On the Home page, click **Storage Accounts**.
-2. Click the name of the storage account you want to use, then click **Containers**.
+**Microsoft Azure portal** で次の操作を行います。
+1. [ホーム] ページで、 **[ストレージ アカウント]** をクリックします。
+2. 使用するストレージ アカウントの名前をクリックし、 **[コンテナー]** をクリックします。
    
-   ![The Containers link in Azure](/assets/images/azure/azure-storage-containers.png)
+   ![Azure の [コンテナー] リンク](/assets/images/azure/azure-storage-containers.png)
 
-1. Click the name of the container you want to use.
-1. Click **Shared access tokens**. 
+1. 使用するコンテナーの名前をクリックします。
+1. **[共有アクセス トークン]** をクリックします。 
    
-   ![The shared access token link in Azure](/assets/images/azure/azure-storage-shared-access-tokens.png)
+   ![Azure の [共有アクセス トークン] リンク](/assets/images/azure/azure-storage-shared-access-tokens.png)
 
-1. In the **Permissions** drop-down menu, change the permissions to only allow `Create` and `Write`.
+1. **[アクセス許可]** ドロップダウン メニューで、`Create` と `Write` のみを許可するようにアクセス許可を変更します。
    
-   ![The permissions drop-down menu](/assets/images/azure/azure-storage-permissions.png)
+   ![[アクセス許可] ドロップダウン メニュー](/assets/images/azure/azure-storage-permissions.png)
 
-1. Set an expiry date that complies with your secret rotation policy.
-1. Click **Generate SAS token and URL**.
-1. Copy the value of the **Blob SAS URL** field that's displayed. You will use this URL in {% data variables.product.prodname_dotcom %}.
+1. シークレット ローテーション ポリシーに準拠する有効期限を設定します。
+1. **[SAS トークンおよび URL を生成]** をクリックします。
+1. 表示される **BLOB SAS URL** フィールドの値をコピーします。 この URL を {% data variables.product.prodname_dotcom %} で使用します。
 
-**On {% data variables.product.prodname_dotcom %}**:
-{% data reusables.enterprise.navigate-to-log-streaming-tab %}
-1. Click **Configure stream** and select **Azure Blob Storage**.
+**{% data variables.product.prodname_dotcom %}** で次の操作を行います。{% data reusables.enterprise.navigate-to-log-streaming-tab %}
+1. **[Configure stream]** をクリックし、 **[Azure Blob Storage]** を選択します。
    
-   ![Choose Azure Blob Storage from the drop-down menu](/assets/images/help/enterprises/audit-stream-choice-azureblob.png)
+   ![ドロップダウン メニューから [Azure Blob Storage] を選択する](/assets/images/help/enterprises/audit-stream-choice-azureblob.png)
 
-1. On the configuration page, enter the blob SAS URL that you copied in Azure. The **Container** field is auto-filled based on the URL.
+1. 構成ページで、Azure でコピーした BLOB SAS URL を入力します。 **[Container]** フィールドは、その URL に基づいて自動入力されます。
 
-   ![Enter the stream settings](/assets/images/help/enterprises/audit-stream-add-azureblob.png)
+   ![ストリーミングの設定を入力する](/assets/images/help/enterprises/audit-stream-add-azureblob.png)
   
-1. Click **Check endpoint** to verify that {% data variables.product.prodname_dotcom %} can connect and write to the Azure Blob Storage endpoint.
+1. **[Check endpoint]** をクリックして、{% data variables.product.prodname_dotcom %} で Azure Blob Storage エンドポイントに接続して書き込むことができることを確認します。
    
-   ![Check the endpoint](/assets/images/help/enterprises/audit-stream-check.png)
+   ![エンドポイントをチェックする](/assets/images/help/enterprises/audit-stream-check.png)
 
 {% data reusables.enterprise.verify-audit-log-streaming-endpoint %}
 
-### Setting up streaming to Azure Event Hubs
+### Azure Event Hubs へのストリーミングの設定
 
-Before setting up a stream in {% data variables.product.prodname_dotcom %}, you must first have an event hub namespace in Microsoft Azure. Next, you must create an event hub instance within the namespace. You'll need the details of this event hub instance when you set up the stream. For details, see the Microsoft documentation, "[Quickstart: Create an event hub using Azure portal](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-create)." 
+{% data variables.product.prodname_dotcom %} でのストリーミングを設定する前に、まず、Microsoft Azure でイベント ハブ名前空間が必要です。 次に、その名前空間内にイベント ハブ インスタンスを作成する必要があります。 ストリーミングを設定するときに、このイベント ハブ インスタンスの詳細が必要になります。 詳細については、Microsoft のドキュメント「[クイック スタート:Azure portal を使用したイベント ハブの作成](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-create)」を参照してください。 
 
-You need two pieces of information about your event hub: its instance name and the connection string. 
+イベント ハブに関する 2 つの情報 (インスタント名と接続文字列) が必要です。 
 
-**On Microsoft Azure portal**:
-1. Search for "Event Hubs".
+**Microsoft Azure portal** で次の操作を行います。
+1. 「Event Hubs」を検索します。
 
-   ![The Azure portal search box](/assets/images/azure/azure-resources-search.png )
+   ![Azure portal の検索ボックス](/assets/images/azure/azure-resources-search.png )
 
-1. Select **Event Hubs**. The names of your event hubs are listed. 
+1. **[Event Hubs]** を選択します。 イベント ハブの名前が一覧表示されます。 
    
-   ![A list of event hubs](/assets/images/help/enterprises/azure-event-hubs-list.png)
+   ![イベント ハブの一覧](/assets/images/help/enterprises/azure-event-hubs-list.png)
 
-1. Make a note of the name of the event hub you want to stream to.
-1. Click the required event hub. Then, in the left menu, select **Shared Access Policies**.
-1. Select a shared access policy in the list of policies, or create a new policy.
+1. ストリーミング先のイベント ハブの名前をメモします。
+1. 必要なイベント ハブをクリックします。 次に、左側のメニューで、 **[共有アクセスポリシー]** を選択します。
+1. ポリシーの一覧で共有アクセス ポリシーを選択するか、新しいポリシーを作成します。
    
-   ![A list of shared access policies](/assets/images/help/enterprises/azure-shared-access-policies.png)
+   ![共有アクセス ポリシーの一覧](/assets/images/help/enterprises/azure-shared-access-policies.png)
 
-1. Click the button to the right of the **Connection string-primary key** field to copy the connection string.
+1. **[接続文字列 – 主キー]** フィールドの右側にあるボタンをクリックして、接続文字列をコピーします。
    
-   ![The event hub connection string](/assets/images/help/enterprises/azure-connection-string.png)
+   ![イベント ハブの接続文字列](/assets/images/help/enterprises/azure-connection-string.png)
 
-**On {% data variables.product.prodname_dotcom %}**:
-{% data reusables.enterprise.navigate-to-log-streaming-tab %}
-1. Click **Configure stream** and select **Azure Event Hubs**.
+**{% data variables.product.prodname_dotcom %}** で次の操作を行います。{% data reusables.enterprise.navigate-to-log-streaming-tab %}
+1. **[Configure stream]** をクリックし、 **[Azure Event Hubs]** を選択します。
    
-   ![Choose Azure Events Hub from the drop-down menu](/assets/images/help/enterprises/audit-stream-choice-azure.png)
+   ![ドロップダウン メニューから [Azure Events Hubs] を選択する](/assets/images/help/enterprises/audit-stream-choice-azure.png)
 
-1. On the configuration page, enter:
-   * The name of the Azure Event Hubs instance.
-   * The connection string.
+1. 構成ページで、次の項目を入力します。
+   * Azure Event Hubs インスタンスの名前。
+   * 接続文字列。
   
-   ![Enter the stream settings](/assets/images/help/enterprises/audit-stream-add-azure.png)
+   ![ストリーミングの設定を入力する](/assets/images/help/enterprises/audit-stream-add-azure.png)
    
-1. Click **Check endpoint** to verify that {% data variables.product.prodname_dotcom %} can connect and write to the Azure Events Hub endpoint.
+1. **[Check endpoint]** をクリックして、{% data variables.product.prodname_dotcom %} で Azure Events Hubs エンドポイントに接続して書き込むことができることを確認します。
    
-   ![Check the endpoint](/assets/images/help/enterprises/audit-stream-check.png)
+   ![エンドポイントをチェックする](/assets/images/help/enterprises/audit-stream-check.png)
 
 {% data reusables.enterprise.verify-audit-log-streaming-endpoint %}
 
 {% ifversion streaming-datadog %}
-### Setting up streaming to Datadog
+### Datadog へのストリーミングの設定
 
-To set up streaming to Datadog, you must create a client token or an  API key in Datadog, then configure audit log streaming in {% data variables.product.product_name %} using the token for authentication. You do not need to create a bucket or other storage container in Datadog.
+Datadog へのストリーミングを設定するには、Datadog でクライアント トークンまたは API キーを作成し、次に認証用のトークンを使用して {% data variables.product.product_name %} で監査ログ ストリーミングを構成する必要があります。 Datadog でバケットやその他のストレージ コンテナーを作成する必要はありません。
 
-After you set up streaming to Datadog, you can see your audit log data by filtering by "github.audit.streaming." For more information, see [Log Management](https://docs.datadoghq.com/logs/).
+Datadog へのストリーミングを設定した後は、"github.audit.streaming" でフィルター処理することで自分の監査ログ データを確認できます。 詳しくは、「[ログ管理](https://docs.datadoghq.com/logs/)」を参照してください。
 
-1. If you don't already have a Datadog account, create one.
-1. In Datadog, generate a client token or an API key, then click **Copy key**. For more information, see [API and Application Keys](https://docs.datadoghq.com/account_management/api-app-keys/) in Datadog Docs.
-{% data reusables.enterprise.navigate-to-log-streaming-tab %}
-1. Select the **Configure stream** dropdown menu and click **Datadog**.
+1. まだ Datadog アカウントがない場合は、それを作成します。
+1. Datadog で、クライアント トークンまたは API キーを生成して、 **[キーのコピー]** をクリックします。 詳しくは、Datadog Docs の「[API キーとアプリケーション キー](https://docs.datadoghq.com/account_management/api-app-keys/)」を参照してください。 {% data reusables.enterprise.navigate-to-log-streaming-tab %}
+1. **[ストリームの構成]** ドロップダウンを選び、 **[Datadog]** をクリックします。
    
-   ![Screenshot of the "Configure stream" dropdown menu with "Datadog" highlighted](/assets/images/help/enterprises/audit-stream-choice-datadog.png)
-1. Under "Token", paste the token  you copied earlier.
+   ![[Datadog] が強調表示された [ストリームの構成] ドロップダウン メニューのスクリーンショット](/assets/images/help/enterprises/audit-stream-choice-datadog.png)
+1. [トークン] の下に、先ほどコピーしたトークンを貼り付けます。
 
-   ![Screenshot of the "Token" field](/assets/images/help/enterprises/audit-stream-datadog-token.png)
-1. Select the "Site" dropdown menu and click your Datadog site. To determine your Datadog site, compare your Datadog URL to the table in [Datadog sites](https://docs.datadoghq.com/getting_started/site/) in Datadog Docs.
+   ![[トークン] フィールドのスクリーンショット](/assets/images/help/enterprises/audit-stream-datadog-token.png)
+1. [サイト] ドロップダウン メニューを選び、Datadog サイトをクリックします。 ご利用の Datadog サイトを特定するには、その Datadog の URL を Datadog Docs にある [Datadog サイト](https://docs.datadoghq.com/getting_started/site/) 内のテーブルと比較します。
 
-   ![Screenshot of the "Site" dropdown menu](/assets/images/help/enterprises/audit-stream-datadog-site.png)
-1. To verify that {% data variables.product.prodname_dotcom %} can connect and write to the Datadog endpoint, click **Check endpoint**.
+   ![[サイト] ドロップダウン メニューのスクリーンショット](/assets/images/help/enterprises/audit-stream-datadog-site.png)
+1. {% data variables.product.prodname_dotcom %} で Datadog エンドポイントに接続して書き込みができることを確認するには、 **[エンドポイントのチェック]** をクリックします。
    
-   ![Check the endpoint](/assets/images/help/enterprises/audit-stream-check.png)
-{% data reusables.enterprise.verify-audit-log-streaming-endpoint %}
-1. After a few minutes, confirm that audit log data is appearing on the **Logs** tab in Datadog. If audit log data is not appearing, confirm that your token and site are correct in {% data variables.product.prodname_dotcom %}.
+   ![エンドポイントをチェックする](/assets/images/help/enterprises/audit-stream-check.png) {% data reusables.enterprise.verify-audit-log-streaming-endpoint %}
+1. 数分後、Datadog の **[ログ]** タブに監査ログ データが表示されていることを確認します。 監査ログ データが表示されない場合は、トークンとサイトが正しいことを {% data variables.product.prodname_dotcom %} で確認します。
 {% endif %}
 
-### Setting up streaming to Google Cloud Storage
+### Google Cloud Storage へのストリーミングの設定
 
-To set up streaming to Google Cloud Storage, you must create a service account in Google Cloud with the appropriate credentials and permissions, then configure audit log streaming in {% data variables.product.product_name %} using the service account's credentials for authentication.
+Google Cloud Storage へのストリーミングを設定するには、適切な資格情報とアクセス許可を使用して、Google Cloud にサービス アカウントを作成し、そのサービス アカウントの資格情報を認証に使用して {% data variables.product.product_name %} での監査ログのストリーミングを構成します。
 
-1. Create a service account for Google Cloud. You do not need to set access controls or IAM roles for the service account. For more information, see [Creating and managing service accounts](https://cloud.google.com/iam/docs/creating-managing-service-accounts#creating) in the Google Cloud documentation.
-1. Create a JSON key for the service account, and store the key securely. For more information, see [Creating and managing service account keys](https://cloud.google.com/iam/docs/creating-managing-service-account-keys#creating) in the Google Cloud documentation.
-1. If you haven't created a bucket yet, create the bucket. For more information, see [Creating storage buckets](https://cloud.google.com/storage/docs/creating-buckets) in the Google Cloud documentation.
-1. Give the service account the Storage Object Creator role for the bucket. For more information, see [Using Cloud IAM permissions](https://cloud.google.com/storage/docs/access-control/using-iam-permissions#bucket-add) in the Google Cloud documentation.
+1. Google Cloud のサービス アカウントを作成します。 サービス アカウントのアクセス制御または IAM ロールを設定する必要はありません。 詳細については、Google Cloud のドキュメント「[サービス アカウントの作成と管理](https://cloud.google.com/iam/docs/creating-managing-service-accounts#creating)」を参照してください。
+1. サービス アカウントの JSON キーを作成し、キーを安全に格納します。 詳細については、Google Cloud のドキュメント「[サービス アカウント キーの作成と管理](https://cloud.google.com/iam/docs/creating-managing-service-account-keys#creating)」を参照してください。
+1. バケットをまだ作成していない場合は、作成します。 詳細については、Google Cloud のドキュメント「[ストレージ バケットの作成](https://cloud.google.com/storage/docs/creating-buckets)」を参照してください。
+1. バケットのストレージ オブジェクト作成者のロールをサービス アカウントに付与します。 詳細については、Google Cloud のドキュメント「[クラウド IAM 権限を使用する](https://cloud.google.com/storage/docs/access-control/using-iam-permissions#bucket-add)」を参照してください。
 {% data reusables.enterprise.navigate-to-log-streaming-tab %}
-1. Select the Configure stream drop-down menu and click **Google Cloud Storage**.
+1. [Configure stream] ドロップダウン メニューを選択し、 **[Google Cloud Storage]** をクリックします。
 
-   ![Screenshot of the "Configure stream" drop-down menu](/assets/images/help/enterprises/audit-stream-choice-google-cloud-storage.png)
+   ![[Configure stream] ドロップダウン メニューのスクリーンショット](/assets/images/help/enterprises/audit-stream-choice-google-cloud-storage.png)
 
-1. Under "Bucket", type the name of your Google Cloud Storage bucket.
+1. [Bucket] で、Google Cloud Storage バケットの名前を入力します。
 
-   ![Screenshot of the "Bucket" text field](/assets/images/help/enterprises/audit-stream-bucket-google-cloud-storage.png)
+   ![[Bucket] テキスト フィールドのスクリーンショット](/assets/images/help/enterprises/audit-stream-bucket-google-cloud-storage.png)
 
-1. Under "JSON Credentials", paste the entire contents of the file for your service account's JSON key.
+1. [JSON Credentials] で、サービス アカウントの JSON キーのファイルの内容全体を貼り付けます。
 
-   ![Screenshot of the "JSON Credentials" text field](/assets/images/help/enterprises/audit-stream-json-credentials-google-cloud-storage.png)
+   ![[JSON Credentials] テキスト フィールドのスクリーンショット](/assets/images/help/enterprises/audit-stream-json-credentials-google-cloud-storage.png)
 
-1. To verify that {% data variables.product.prodname_dotcom %} can connect and write to the Google Cloud Storage bucket, click **Check endpoint**. 
+1. {% data variables.product.prodname_dotcom %} で Google Cloud Storage バケットに接続して書き込めることを確認するには、 **[Check endpoint]** をクリックします。 
 
-   ![Screenshot of the "Check endpoint" button](/assets/images/help/enterprises/audit-stream-check-endpoint-google-cloud-storage.png)
+   ![[Check endpoint] ボタンのスクリーンショット](/assets/images/help/enterprises/audit-stream-check-endpoint-google-cloud-storage.png)
 
 {% data reusables.enterprise.verify-audit-log-streaming-endpoint %}
 
-### Setting up streaming to Splunk
+### Splunk へのストリーミングの設定
 
-To stream audit logs to Splunk's HTTP Event Collector (HEC) endpoint you must make sure that the endpoint is configured to accept HTTPS connections. For more information, see [Set up and use HTTP Event Collector in Splunk Web](https://docs.splunk.com/Documentation/Splunk/latest/Data/UsetheHTTPEventCollector) in the Splunk documentation.
+監査ログを Splunk の HTTP Event Collector (HEC) エンドポイントにストリーミングするには、エンドポイントが HTTPS 接続を受け入れるように構成されていることを確認する必要があります。 詳細については、Splunk のドキュメント「[Set up and use HTTP Event Collector in Splunk Web](https://docs.splunk.com/Documentation/Splunk/latest/Data/UsetheHTTPEventCollector)」 (Splunk Web で HTTP Event Collector を設定および作成する) を参照してください。
 
 {% data reusables.enterprise.navigate-to-log-streaming-tab %}
-1. Click **Configure stream** and select **Splunk**.
+1. **[Configure stream]** をクリックし、 **[Splunk]** を選択します。
    
-   ![Choose Splunk from the drop-down menu](/assets/images/help/enterprises/audit-stream-choice-splunk.png)
+   ![ドロップダウン メニューから [Splunk] を選択する](/assets/images/help/enterprises/audit-stream-choice-splunk.png)
 
-1. On the configuration page, enter:
-   * The domain on which the application you want to stream to is hosted.
+1. 構成ページで、次の項目を入力します。
+   * ストリーミング先のアプリケーションがホストされているドメイン。
   
-     If you are using Splunk Cloud, `Domain` should be `http-inputs-<host>`, where `host` is the domain you use in Splunk Cloud. For example: `http-inputs-mycompany.splunkcloud.com`. 
+     Splunk Cloud を使用している場合、`Domain` は `http-inputs-<host>` である必要があります。ここで、`host` は、Splunk Cloud で使用するドメインです。 (例: `http-inputs-mycompany.splunkcloud.com`)。 
 
-   * The port on which the application accepts data.<br>
+   * アプリケーションでデータを受け入れるポート。<br>
 
-     If you are using Splunk Cloud, `Port` should be `443` if you haven't changed the port configuration. If you are using the free trial version of Splunk Cloud, `Port` should be `8088`.
+     Splunk Cloud を使用していて、ポート構成を変更していない場合、`Port` は `443` である必要があります。 Splunk Cloud の無料試用版を使用している場合、`Port` は `8088` である必要があります。
 
-   * A token that {% data variables.product.prodname_dotcom %} can use to authenticate to the third-party application.
+   * {% data variables.product.prodname_dotcom %} でサードパーティ アプリケーションに対する認証に使用できるトークン。
   
-   ![Enter the stream settings](/assets/images/help/enterprises/audit-stream-add-splunk.png)
+   ![ストリーミングの設定を入力する](/assets/images/help/enterprises/audit-stream-add-splunk.png)
 
-1. Leave the **Enable SSL verification** check box selected.
+1. **[Enable SSL verification]** チェック ボックスはオンのままにします。
 
-    Audit logs are always streamed as encrypted data, however, with this option selected, {% data variables.product.prodname_dotcom %} verifies the SSL certificate of your Splunk instance when delivering events. SSL verification helps ensure that events are delivered to your URL endpoint securely. You can clear the selection of this option, but we recommend you leave SSL verification enabled.
-1. Click **Check endpoint** to verify that {% data variables.product.prodname_dotcom %} can connect and write to the Splunk endpoint.
-   ![Check the endpoint](/assets/images/help/enterprises/audit-stream-check-splunk.png)
-{% data reusables.enterprise.verify-audit-log-streaming-endpoint %}
+    監査ログは常に、暗号化されたデータとしてストリーミングされます。ただし、このオプションを選択すると、{% data variables.product.prodname_dotcom %} によって、イベントの配信前に Splunk インスタンスの SSL 証明書が検証されます。 SSL 検証は、イベントが URL エンドポイントに安全に配信されることを保証するために役立ちます。 このオプションの選択をオフにすることはできますが、SSL 検証を有効のままにすることをお勧めします。
+1. **[Check endpoint]** をクリックして、{% data variables.product.prodname_dotcom %} で Splunk エンドポイントに接続して書き込むことができることを確認します。
+   ![エンドポイントをチェックする](/assets/images/help/enterprises/audit-stream-check-splunk.png) {% data reusables.enterprise.verify-audit-log-streaming-endpoint %}
 
 {% ifversion pause-audit-log-stream %}
-## Pausing audit log streaming
+## 監査ログのストリーミングの一時停止
 
-Pausing the stream allows you to perform maintenance on the receiving application without losing audit data. Audit logs are stored for up to seven days on {% data variables.location.product_location %} and are then exported when you unpause the stream.
+ストリーミングを一時停止すると、監査ログ データを失うことなく、受信側のアプリケーションでメンテナンスを実行できます。 監査ログは、最長 7 日間 {% data variables.product.product_location %} に格納され、ストリーミングの一時停止を解除するとエクスポートされます。
 
-{% ifversion streaming-datadog %}
-Datadog only accepts logs from up to 18 hours in the past. If you pause a stream to a Datadog endpoint for more than 18 hours, you risk losing logs that Datadog won't accept after you resume streaming.
+{% ifversion streaming-datadog %} Datadog で受け入れるログは過去 18 時間以降のものに限られます。 Datadog エンドポイントへのストリームを 18 時間以上一時停止した場合、ストリーミングを再開した後に Datadog で受け入れられないログが失われるリスクがあります。
 {% endif %}
 
 {% data reusables.enterprise.navigate-to-log-streaming-tab %}
-1. Click **Pause stream**.
+1. **[Pause stream]** をクリックします。
    
-   ![Pause the stream](/assets/images/help/enterprises/audit-stream-pause.png)
+   ![ストリーミングを一時停止する](/assets/images/help/enterprises/audit-stream-pause.png)
 
-1. A confirmation message is displayed. Click **Pause stream** to confirm.
+1. 確認メッセージが表示されます。 **[Pause stream]** をクリックして確定します。
 
-When the application is ready to receive audit logs again, click **Resume stream** to restart streaming audit logs.
+アプリケーションが、監査ログを再び受信できるようになったら、 **[Resume stream]** をクリックして監査ログのストリーミングを再開します。
 {% endif %}
 
-## Deleting the audit log stream
+## 監査ログのストリーミングの削除
 
 {% data reusables.enterprise.navigate-to-log-streaming-tab %}
-1. Click **Delete stream**.
+1. **[Delete stream]** をクリックします。
    
-   ![Delete the stream](/assets/images/help/enterprises/audit-stream-delete.png)
+   ![ストリーミングを削除する](/assets/images/help/enterprises/audit-stream-delete.png)
 
-1. A confirmation message is displayed. Click **Delete stream** to confirm.
+1. 確認メッセージが表示されます。 **[Delete stream]** をクリックして確定します。

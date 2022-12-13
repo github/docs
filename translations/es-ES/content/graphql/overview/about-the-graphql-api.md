@@ -1,6 +1,6 @@
 ---
-title: About the GraphQL API
-intro: 'The {% data variables.product.prodname_dotcom %} GraphQL API offers flexibility and the ability to define precisely the data you want to fetch.'
+title: Acerca de la API de GraphQL
+intro: 'La API de GraphQL de {% data variables.product.prodname_dotcom %} ofrece flexibilidad y la capacidad de definir precisamente los datos que quieres recuperar.'
 versions:
   fpt: '*'
   ghec: '*'
@@ -8,52 +8,55 @@ versions:
   ghae: '*'
 topics:
   - API
+ms.openlocfilehash: 9b447925609425157d5d965370c09fdd12d30b56
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145069710'
 ---
+## Información general
 
-## Overview
+Aquí tienes algunos enlaces rápidos para ayudarte a iniciar con la API de GraphQL:
 
-Here are some quick links to get you up and running with the GraphQL API:
+* [Autenticación](/graphql/guides/forming-calls-with-graphql#authenticating-with-graphql)
+* [Punto de conexión raíz](/graphql/guides/forming-calls-with-graphql#the-graphql-endpoint)
+* [Introspección del esquema](/graphql/guides/introduction-to-graphql#discovering-the-graphql-api)
+* [Límites de frecuencia](/graphql/overview/resource-limitations)
+* [Migrar desde REST](/graphql/guides/migrating-from-rest-to-graphql)
 
-* [Authentication](/graphql/guides/forming-calls-with-graphql#authenticating-with-graphql)
-* [Root endpoint](/graphql/guides/forming-calls-with-graphql#the-graphql-endpoint)
-* [Schema introspection](/graphql/guides/introduction-to-graphql#discovering-the-graphql-api)
-* [Rate limits](/graphql/overview/resource-limitations)
-* [Migrating from REST](/graphql/guides/migrating-from-rest-to-graphql)
+## Acerca de GraphQL
 
-For more information about {% data variables.product.company_short %}'s APIs, see "[About {% data variables.product.company_short %}'s APIs](/developers/overview/about-githubs-apis)."
+El lenguaje de consulta de datos [GraphQL](https://graphql.github.io/) es:
 
-## About GraphQL
+* **una [especificación](https://graphql.github.io/graphql-spec/June2018/).** La especificación determina la validez del [esquema](/graphql/guides/introduction-to-graphql#schema) en el servidor de API. El modelo determina la validez de las llamadas al cliente.
 
-The [GraphQL](https://graphql.github.io/) data query language is:
+* **[Establecimiento inflexible de tipos](#about-the-graphql-schema-reference).** El esquema define el sistema de tipos de una API y todas las relaciones de objetos.
 
-* **A [specification](https://graphql.github.io/graphql-spec/June2018/).** The spec determines the validity of the [schema](/graphql/guides/introduction-to-graphql#schema) on the API server. The schema determines the validity of client calls.
+* **[Introspectivo](/graphql/guides/introduction-to-graphql#discovering-the-graphql-api).** Un cliente puede consultar el esquema para obtener más información sobre él.
 
-* **[Strongly typed](#about-the-graphql-schema-reference).** The schema defines an API's type system and all object relationships.
+* **[Jerárquico](/graphql/guides/forming-calls-with-graphql).** La forma de una llamada de GraphQL refleja la forma de los datos JSON que se devuelven. Los [campos anidados](/graphql/guides/migrating-from-rest-to-graphql#example-nesting) permiten consultar y recibir solo los datos que especifique en un solo recorrido de ida y vuelta.
 
-* **[Introspective](/graphql/guides/introduction-to-graphql#discovering-the-graphql-api).** A client can query the schema for details about the schema.
+* **Nivel de aplicación.** GraphQL no es un modelo de almacenamiento ni un lenguaje de consulta de base de datos. El _gráfico_ hace referencia a las estructuras de gráficos definidas en el esquema, donde los [nodos](/graphql/guides/introduction-to-graphql#node) definen objetos y los [bordes](/graphql/guides/introduction-to-graphql#edge) definen relaciones entre objetos. La API recorre y recupera datos de la aplicación basándose en las definiciones del modelo, independientemente de cómo se almacenan los datos.
 
-* **[Hierarchical](/graphql/guides/forming-calls-with-graphql).** The shape of a GraphQL call mirrors the shape of the JSON data it returns. [Nested fields](/graphql/guides/migrating-from-rest-to-graphql#example-nesting) let you query for and receive only the data you specify in a single round trip.
+## Por qué GitHub utiliza GraphQL
 
-* **An application layer.** GraphQL is not a storage model or a database query language. The _graph_ refers to graph structures defined in the schema, where [nodes](/graphql/guides/introduction-to-graphql#node) define objects and [edges](/graphql/guides/introduction-to-graphql#edge) define relationships between objects. The API traverses and returns application data based on the schema definitions, independent of how the data is stored.
+GitHub eligió a GraphQL porque ofrece significativamente más flexibilidad para nuestros integradores. La capacidad de definir exactamente los datos que desea&mdash; y _solo_ los datos que desea&mdash; es una potente ventaja en comparación con los puntos de conexión de API de REST tradicionales. GraphQL le permite reemplazar varias solicitudes de REST con _una sola llamada_ para obtener los datos que especifique.
 
-## Why GitHub is using GraphQL
+Para obtener más información sobre por qué GitHub ha invertido en GraphQL, consulte la [entrada de blog del anuncio](https://github.blog/2016-09-14-the-github-graphql-api/) original.
 
-GitHub chose GraphQL because it offers significantly more flexibility for our integrators. The ability to define precisely the data you want&mdash;and _only_ the data you want&mdash;is a powerful advantage over traditional REST API endpoints. GraphQL lets you replace multiple REST requests with _a single call_ to fetch the data you specify.
+## Acerca de la referencia del modelo de GraphQL
 
-For more details about why GitHub invested in GraphQL, see the original [announcement blog post](https://github.blog/2016-09-14-the-github-graphql-api/).
+Los documentos de la barra lateral se generan a partir del [esquema](/graphql/guides/introduction-to-graphql#discovering-the-graphql-api) GraphQL de {% data variables.product.prodname_dotcom %}. Todas las llamadas se validan y ejecutan contra el modelo. Utiliza estos documentos para encontrar los datos a los que puedes llamar:
 
-## About the GraphQL schema reference
+* Operaciones permitidas: [consultas](/graphql/reference/queries) y [mutaciones](/graphql/reference/mutations).
 
-The docs in the sidebar are generated from the {% data variables.product.prodname_dotcom %} GraphQL [schema](/graphql/guides/introduction-to-graphql#discovering-the-graphql-api). All calls are validated and executed against the schema. Use these docs to find out what data you can call:
+* Tipos definidos por el esquema: [escalares](/graphql/reference/scalars), [objetos](/graphql/reference/objects), [enumeraciones](/graphql/reference/enums), [interfaces](/graphql/reference/interfaces), [uniones](/graphql/reference/unions) y [objetos de entrada](/graphql/reference/input-objects).
 
-* Allowed operations: [queries](/graphql/reference/queries) and [mutations](/graphql/reference/mutations).
+Puede acceder a este mismo contenido desde la [barra lateral de Explorer Docs](/graphql/guides/using-the-explorer#accessing-the-sidebar-docs). Nota que podrías necesitar depender de ambos, los documentos y la validación del modelo, para hacer una llamada a la API de GraphQL.
 
-* Schema-defined types: [scalars](/graphql/reference/scalars), [objects](/graphql/reference/objects), [enums](/graphql/reference/enums), [interfaces](/graphql/reference/interfaces), [unions](/graphql/reference/unions), and [input objects](/graphql/reference/input-objects).
+Para obtener otro tipo de información, como los detalles de autenticación y límite de frecuencia, consulte las [guías](/graphql/guides).
 
-You can access this same content via the [Explorer Docs sidebar](/graphql/guides/using-the-explorer#accessing-the-sidebar-docs). Note that you may need to rely on both the docs and the schema validation to successfully call the GraphQL API.
-
-For other information, such as authentication and rate limit details, check out the [guides](/graphql/guides).
-
-## Requesting support
+## Solicitar soporte
 
 {% data reusables.support.help_resources %}

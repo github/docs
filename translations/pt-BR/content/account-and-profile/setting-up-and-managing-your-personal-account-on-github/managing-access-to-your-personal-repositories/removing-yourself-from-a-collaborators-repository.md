@@ -1,6 +1,6 @@
 ---
-title: Removing yourself from a collaborator's repository
-intro: 'If you no longer want to be a collaborator on someone else''s repository, you can remove yourself.'
+title: Remover a si mesmo de um repositório de colaborador
+intro: 'Se não desejar mais ser um colaborador no repositório de outro usuário, você poderá remover a si mesmo.'
 redirect_from:
   - /leave-a-collaborative-repo
   - /leave-a-repo
@@ -19,15 +19,19 @@ topics:
   - Accounts
   - Repositories
 shortTitle: Remove yourself
+ms.openlocfilehash: 3b760d7947d734d8fa6e1e366795ce698f9c0b7f
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145164583'
 ---
-{% data reusables.user-settings.access_settings %}
-{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
-2. In the "Code, planning, and automation" section of the sidebar, click **{% octicon "repo" aria-label="The repo icon" %} Repositories**.
+{% data reusables.user-settings.access_settings %} {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5658 %}
+2. Na seção "Código, planejamento e automação" da barra lateral, clique em **{% octicon "repo" aria-label="The repo icon" %} Repositórios**.
 {% else %}
-2. In the left sidebar, click **Repositories**.
-  ![Repositories tab](/assets/images/help/settings/settings-sidebar-repositories.png)
-{% endif %}
-3. Next to the repository you want to leave, click **Leave**.
-  ![Leave button](/assets/images/help/repository/repo-leave.png)
-4. Read the warning carefully, then click "I understand, leave this repository."
-  ![Dialog box warning you to leave](/assets/images/help/repository/repo-leave-confirmation.png)
+2. Na barra lateral esquerda, clique em **Repositórios**.
+  ![Guia Repositórios](/assets/images/help/settings/settings-sidebar-repositories.png) {% endif %}
+3. Ao lado do repositório do qual deseja sair, clique em **Sair**.
+  ![Botão Sair](/assets/images/help/repository/repo-leave.png)
+4. Leia o aviso com atenção, depois clique em "I understand, leave this repository" (Eu compreendo, sair deste repositório).
+  ![Caixa de diálogo com aviso de saída](/assets/images/help/repository/repo-leave-confirmation.png)

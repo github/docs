@@ -1,0 +1,92 @@
+date: '02-03-2021'
+intro: "Los requisitos mínimos de infraestructura han aumentado para {% data variables.product.prodname_ghe_server %} 3.0+. Para obtener más información, consulta \"[Acerca de los requisitos mínimos para GitHub Enterprise Server 3.0 y versiones posteriores](/admin/enterprise-management/upgrading-github-enterprise-server#about-minimum-requirements-for-github-enterprise-server-30-and-later)\""
+sections:
+  security_fixes:
+    - '**RIESGO ALTO:** se identificó una vulnerabilidad de control de acceso inadecuado en el servidor de GitHub Enterprise que permitía a los usuarios autenticados de la instancia obtener acceso de escritura a repositorios no autorizados mediante solicitudes de incorporación de cambios y solicitudes de la API de REST diseñadas específicamente. Un atacante necesitaría poder bifurcar el repositorio de destino, una configuración que está deshabilitada de forma predeterminada para los repositorios privados propiedad de la organización. Las protecciones de ramas, como las revisiones de solicitud de incorporación de cambios requeridas o las comprobaciones de estado, evitarían la combinación de confirmaciones no autorizadas sin una revisión o validación adicional. A esta vulnerabilidad se la ha asignado CVE-2021-22861. Este problema se informó mediante el programa [GitHub Bug Bounty Program] (https://bounty.github.com).'
+    - '**RIESGO ALTO:** se identificó una vulnerabilidad de control de acceso inadecuado en la API de GraphQL del servidor de GitHub Enterprise que permitía a los usuarios autenticados de la instancia modificar el permiso de colaboración del mantenedor de una solicitud de incorporación de cambios sin la debida autorización. Al aprovecharse de esta vulnerabilidad, un atacante podría obtener acceso a las ramas principales de las solicitudes de incorporación de cambios abiertas en los repositorios de los que son responsables del mantenimiento. La bifurcación está deshabilitada de forma predeterminada para los repositorios privados propiedad de la organización y evitaría esta vulnerabilidad. Además, las protecciones de las ramas, como las revisiones de solicitud de incorporación de cambios requeridas o las comprobaciones de estado, evitarían la combinación de confirmaciones no autorizadas sin una revisión o validación adicional. A esta vulnerabilidad se la ha asignado CVE-2021-22863. Este problema se informó mediante el programa [GitHub Bug Bounty Program] (https://bounty.github.com).'
+    - '**RIESGO ALTO:** se identificó una vulnerabilidad de control de acceso inadecuado en el servidor de GitHub Enterprise que permitía a un usuario autenticado con la capacidad de bifurcar un repositorio revelar secretos de Acciones al repositorio principal de la bifurcación. Esta vulnerabilidad existía a causa de un fallo que permitía que la referencia base de una solicitud de incorporación de cambios se actualizara para que apuntara a un SHA arbitrario u otra solicitud de incorporación de cambios fuera del repositorio de bifurcación. Al establecer esta referencia incorrecta en una solicitud de incorporación de cambios, las restricciones que limitan los secretos de Acciones enviados a un flujo de trabajo desde bifurcaciones podían saltarse. Esta vulnerabilidad afectaba a las versiones del servidor de GitHub Enterprise 3.0.0, 3.0.0.rc2 y 3.0.0.rc1 y se le asignó el código CVE-2021-22862. Se informó de esta vulnerabilidad mediante el programa de GitHub Bug Bounty.'
+    - '**RIESGO MEDIO:** los tokens de GitHub de las compilaciones de GitHub Pages podían aparecer en los registros.'
+    - 'Los paquetes se han actualizado a las últimas versiones de seguridad.'
+  bugs:
+    - 'Las verificaciones de estado del balanceador de carga pudieron haber causado en algunos casos que los registros de babeld se llenaran de errores sobre el protocolo del PROXY.'
+    - 'Los encabezados HTTP no cumplían con los estándares de HTTP RFC en respuestas específicas como el estado 304 para los archivos.'
+    - 'En las instancias que hospedan repositorios de Python y que cuentan con la Gráfica de dependencias habilitada, la instancia podía quedarse sin respuesta debido a que el disco raíz se llenaba de registros de error.'
+    - 'Un mensaje informativo se registraba involuntariamente como un error durante las capturas de pantalla de las Utilidades de copia de seguridad de GitHub Enterprise, lo que daba como resultado que se enviaran correos electrónicos innecesarios cuando los trabajos de cron programaban las copias de seguridad que escuchaban la salida a stderr.'
+    - 'En VMWare ESX 6.7, la configuración inicial podía colgarse mientras se creaban las claves del host, dejando a la instancia inaccesible mediante SSH.'
+    - 'Cuando se habilitaba Acciones de GitHub, se producía un error al deshabilitar el modo de mantenimiento en la consola de administración.'
+    - 'El ajuste de creación de paquetes se mostraba en la página de ajustes del miembro de la organización, aunque esta característica aún no está disponible.'
+    - 'Al habilitar el análisis de secretos en la página Seguridad y análisis, el diálogo mencionaba los repositorios privados incorrectamente.'
+    - 'Al editar una página de wiki, los usuarios podían experimentar un error 500 al hacer clic en el botón Guardar.'
+    - 'Una confirmación firmada con S/MIME utilizando un certificado con nombres múltiples en el nombre alternativo de asunto se mostraba incorrectamente como "No verificado" en la insignia de confirmación.'
+    - 'Los usuarios podían experimentar un error 500 al ejecutar operaciones de git en una instancia configurada con autenticación LDAP.'
+    - 'Se enviaban correos electrónicos a usuarios suspendidos cuando se les agregaba a un equipo.'
+    - 'Cuando un repositorio tenía un gran número de manifiestos, se mostraba el error "You have reached the maximum number of allowed manifest files (20) for this repository" en la pestaña Información > Gráfico de dependencias. Para obtener más información, consulta [Límites de visualización](https://docs.github.com/en/github/managing-security-vulnerabilities/troubleshooting-the-detection-of-vulnerable-dependencies#are-there-limits-which-affect-the-dependency-graph-data).'
+    - 'Se ha corregido que se muestren los usuarios en la opción para configurar la acción de CodeQL del análisis de código, incluso si no se habilitaron las acciones para el repositorio.'
+    - 'La casilla de verificación "Impedir que los administradores del repositorio cambien el acceso de lectura anónimo de Git" disponible en la configuración de cuenta empresarial no se podía habilitar o estaba desactivada.'
+    - 'El modal que se utiliza para mostrar un mensaje obligatorio no contenía una barra de desplazamiento vertical, de modo que los mensajes más largos no se podían ver por completo.'
+    - 'Redis a veces fallaba al iniciarse después de un reinicio físico o fallo de aplicación.'
+    - 'La gráfica de dependencias producía un error al analizar los archivos del manifiesto de Python "setup.py", lo que daba como resultado errores de tipo HTTP 500 en los registros. Esto, combinado con el problema de registro duplicado, causaba un uso aumentado del volumen de raíz.'
+  changes:
+    - 'Se satisfacen solicitudes de forma concurrente cuando múltiples usuarios descargan el mismo archivo, lo que da como resultado un rendimiento mejorado.'
+  known_issues:
+    - 'En un servidor de GitHub Enterprise recién configurado sin usuarios, un atacante podría crear el primer usuario administrador.'
+    - 'Las reglas de firewall personalizadas no se mantienen durante una actualización.'
+    - 'Los archivos supervisados de Git LFS [cargados desde la interface web](https://github.com/blog/2105-upload-files-to-your-repositories) se agregan de manera incorrecta y directa al repositorio.'
+    - 'Las incidencias no se pueden cerrar si contienen un vínculo permanente a un blob en el mismo repositorio en el que la ruta de acceso de archivo del blob tiene más de 255 caracteres.'
+    - 'Cuando se habilita "Los usuarios pueden buscar en GitHub.com" con GitHub Connect, las incidencias en los repositorios privados e internos no se incluyen en los resultados de la búsqueda de GitHub.com.'
+    - 'Cuando el modo de mantenimiento está habilitado, algunos servicios siguen incluyéndose en la lista como "procesos activos". Se espera que los servicios identificados se ejecuten durante el modo de mantenimiento. Si experimentas esta incidencia y no estás seguro, ponte en contacto con [GitHub Enterprise Support](https://support.github.com/contact).'
+    - 'El registro duplicado hacia "/var/log/messages", "/var/log/syslog", y "/var/log/user.log" da como resultado un uso aumentado del volumen raíz.'
+    - 'Los usuarios pueden descartar un mensaje obligatorio sin verificar todas las casillas.'
+    - '[Los scripts de enlaces previos a la recepción](/admin/policies/enforcing-policy-with-pre-receive-hooks) no pueden escribir archivos temporales, lo que podría causar un error en la ejecución del script. Los usuarios que utilizan enlaces previos a la recepción deben probarse en el entorno de ensayo para ver si los scripts requieren acceso de escritura.'
+    - 'Las [llaves de despliegue] de repositorio(/developers/overview/managing-deploy-keys) no pueden utilizarse con repositorios que contengan objetos LFS.'
+    - La interpretación de Jupyter Notebook en la IU web podría fallar si el bloc de notas incluye caracteres diferentes a los de ASCII UTF-8.
+    - 'El reStructuredText (RST) que se representa en la IU web podría fallar y mostrar un texto de marcado RST sin procesar.'
+    - 'La gráfica de dependencias produce un error al analizar los archivos del manifiesto de Javascript "yarn.lock", lo cual genera errores de tipo HTTP 500 en los registros.'
+    - 'Las instancias con la zona horaria personalizada que se mejoraron desde un lanzamiento anterior de GitHub Enterprise Server podrían tener marcas de tiempo incorrectas en la IU web.'
+    - 'Las compilaciones antiguas de las páginas no se limpiaron, lo cual pudo haber llenado el disco del usuario (`/data/user/`).'
+    - 'Cuando borras una rama después de fusionar una solicitud de cambios, se mostrará un mensaje de error aunque el borrado de la rama sea exitoso.'
+    - |Los usuarios podían experimentar que activos como los avatares no cargaran, o que se produjera un error al insertar o extraer código. Esto puede estar causado por un error de coincidencia en el servicio "haproxy-cluster-proxy". Para determinar si una instancia está afectada:
+
+
+
+**Instancia única**
+
+
+
+1. Ejecuta lo siguiente en [administrative shell](https://docs.github.com/en/enterprise-server/admin/configuration/accessing-the-administrative-shell-ssh) (SSH):
+
+
+
+  ```
+
+  if [ $(cat /var/run/haproxy-cluster-proxy.pid) -ne $(systemctl show --property MainPID --value haproxy-cluster-proxy) ]; then echo ''Main PID of haproxy-cluster-proxy does not match /var/run/haproxy-cluster-proxy.pid''; fi
+
+  ```
+
+
+
+2. Si se muestra que hay un error de coincidencia, reinicia la instancia.
+
+
+
+**Configuración de clúster o alta disponibilidad**
+
+
+
+1. Ejecuta lo siguiente en [administrative shell](https://docs.github.com/en/enterprise-server/admin/configuration/accessing-the-administrative-shell-ssh) (SSH):
+
+
+
+  ```
+
+  ghe-cluster-each -- ''if [ $(cat /var/run/haproxy-cluster-proxy.pid) -ne $(systemctl show --property MainPID --value haproxy-cluster-proxy) ]; then echo ''Main PID of haproxy-cluster-proxy does not match /var/run/haproxy-cluster-proxy.pid''; fi''
+
+  ```
+
+
+
+2. Si muestra que hay uno o más nodos afectados, reinicie los nodos afectados.
+
+|
+    - 'Cuando un nodo de réplica está sin conexión en una configuración de disponibilidad alta, es posible que {% data variables.product.product_name %} todavía enrute las solicitudes a {% data variables.product.prodname_pages %} al nodo sin conexión, lo que reduce la disponibilidad de {% data variables.product.prodname_pages %} para los usuarios.'
+    - Los límites de recursos que son específicos para procesar enlaces previos a la recepción podrían ocasionar errores en algunos de ellos.

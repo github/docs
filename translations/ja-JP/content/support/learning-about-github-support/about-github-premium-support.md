@@ -1,6 +1,6 @@
 ---
-title: About GitHub Premium Support
-intro: '{% data variables.contact.premium_support %} is a paid, supplemental support offering for {% data variables.product.prodname_enterprise %} customers.'
+title: GitHub プレミアム サポートについて
+intro: '{% data variables.contact.premium_support %} は、{% data variables.product.prodname_enterprise %} のお客様のための有料の補足的なサポートです。'
 shortTitle: GitHub Premium Support
 versions:
   ghec: '*'
@@ -20,125 +20,130 @@ redirect_from:
   - /support/about-github-support/about-github-premium-support
 topics:
   - Support
+ms.openlocfilehash: 23504e6554b6dc1dbe0f239d2b73006e588711f9
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147052305'
 ---
-
 {% note %}
 
-**Notes:**
+**注:**
 
-- The terms of {% data variables.contact.premium_support %} are subject to change without notice and are effective as of November 2021. 
+- {% data variables.contact.premium_support %} の規約は 2021 年 11 月に発効しています。この規約は、予告なく変更されることがあります。 
 
 - {% data reusables.support.data-protection-and-privacy %}
 
 {% endnote %}
 
-## About {% data variables.contact.premium_support %}
+## {% data variables.contact.premium_support %}について
 
 {% data reusables.support.premium-support-features %}
 
-## {% data variables.contact.premium_support %} plans
+## {% data variables.contact.premium_support %} プラン
 
-There are two {% data variables.contact.premium_support %} plans: Premium and Premium Plus / {% data variables.product.microsoft_premium_plus_support_plan %}.
+{% data variables.contact.premium_support %}プランには、PremiumとPremium Plus / {% data variables.product.microsoft_premium_plus_support_plan %}の2つがあります 。
 
 | | {% data variables.product.premium_support_plan %} | {% data variables.product.premium_plus_support_plan %} |
 |---|---|------|
-| Hours of operation | 24 x 7 | 24 x 7 |
-| Initial response time | <ul><li>30 minutes for {% data variables.product.support_ticket_priority_urgent %}</li><li>4 hours for {% data variables.product.support_ticket_priority_high %}</li></ul> | <ul><li>30 minutes for {% data variables.product.support_ticket_priority_urgent %}</li><li>4 hours for {% data variables.product.support_ticket_priority_high %}</li></ul> |
-| Support channels | <ul><li>Online ticket submission</li><li>Phone support in English via callback request</li><li>Screen share request for critical issues</li></ul> | <ul><li>Online ticket submission</li><li>Phone support in English via callback request</li><li>Screen share request for critical issues</li></ul> |
-| Training | Access to premium content  | <ul><li>Access to premium content</li><li>1 virtual training class per year</li></ul> |
-| Members with support entitlements | 20 | 20 |
-| Resources | Priority ticket handling | <ul><li>Priority ticket handling</li><li>Named Customer Reliability Engineer</li></ul>   |
-| Health Checks | Unlimited automated Health Check reports (see "[Generating a Health Check for your enterprise]({% ifversion not ghes%}/enterprise-server@latest{% endif %}/admin/enterprise-management/monitoring-your-appliance/generating-a-health-check-for-your-enterprise)") | <ul><li>Unlimited automated Health Check reports (see "[Generating a Health Check for your enterprise]({% ifversion not ghes%}/enterprise-server@latest{% endif %}/admin/enterprise-management/monitoring-your-appliance/generating-a-health-check-for-your-enterprise)")</li><li>Quarterly enhanced Health Checks, with findings, interpretations, and recommendations from a Customer Reliability Engineer (by request)</li></ul>    |
-| Technical advisory hours| None | 4 hours per month  |
-| Application upgrade assistance | None | By request |
-| Cloud planning | None | By request |
+| 営業時間 | 24 x 7 | 24 x 7 |
+| 初期返答時間 | <ul><li>{% data variables.product.support_ticket_priority_urgent %}については30分</li><li>{% data variables.product.support_ticket_priority_high %}については4時間</li></ul> | <ul><li>{% data variables.product.support_ticket_priority_urgent %}については30分</li><li>{% data variables.product.support_ticket_priority_high %}については4時間</li></ul> |
+| サポートチャネル | <ul><li>オンラインチケットの提出</li><li>コールバック要求による英語での電話サポート</li><li>重大な issue についての画面共有要求</li></ul> | <ul><li>オンラインチケットの提出</li><li>コールバック要求による英語での電話サポート</li><li>重大な issue についての画面共有要求</li></ul> |
+| トレーニング | プレミアムコンテンツへのアクセス  | <ul><li>プレミアムコンテンツへのアクセス</li><li>1年ごとに1つの仮想トレーニングクラス</li></ul> |
+| サポート資格を持つメンバー | 20 | 20 |
+| リソース | 優先的なチケットの処理 | <ul><li>優先的なチケットの処理</li><li>指名されたカスタマーリライアビリティエンジニア</li></ul>   |
+| 正常性チェック | 無制限の自動正常性チェック レポート (「[Enterprise に関する正常性チェックを生成する]({% ifversion not ghes%}/enterprise-server@latest{% endif %}/admin/enterprise-management/monitoring-your-appliance/generating-a-health-check-for-your-enterprise)」を参照) | <ul><li>無制限の自動正常性チェック レポート (「[Enterprise に関する正常性チェックを生成する]({% ifversion not ghes%}/enterprise-server@latest{% endif %}/admin/enterprise-management/monitoring-your-appliance/generating-a-health-check-for-your-enterprise)」を参照)</li><li>カスタマー信頼性エンジニアからの調査結果、解釈、推奨事項を含む、四半期ごとの強化された正常性チェック (要求に応じて)</li></ul>    |
+| 技術相談時間数| なし | 4 時間/月  |
+| アプリケーション アップグレード サポート | なし | 要求に応じて |
+| クラウド計画 | なし | 要求に応じて |
 
   {% note %}
 
-  **Notes:**
-  - Enterprise owners and billing managers automatically have a support entitlement. Enterprise owners can add support entitlements to members of organizations owned by their enterprise account. For more information, see "[Managing support entitlements for your enterprise](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/managing-support-entitlements-for-your-enterprise)."
-  - For the {% data variables.product.premium_plus_support_plan %}, 50% of unused Managed Services hours roll over to the next month and expire at the end of the quarter.
+  **注:**
+  - エンタープライズ所有者と課金マネージャーは、自動的にサポート資格を持ちます。 エンタープライズ所有者は、エンタープライズ アカウントによって所有される Organization のメンバーにサポート資格を追加できます。 詳細については、「[Managing support entitlements for your enterprise (エンタープライズのサポート エンタイトルメントの管理)](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/managing-support-entitlements-for-your-enterprise)」を参照してください。
+  - {% data variables.product.premium_plus_support_plan %}では、未使用のマネージドサービスの時間の50%を次月に持ち越せます。これは四半期の終わりに期限が切れます。
 
   {% endnote %}
 
 
-## Signing up for {% data variables.contact.premium_support %}
+## {% data variables.contact.premium_support %} へのサインアップ
 
-To sign up for {% data variables.contact.premium_support %} or upgrade your plan, you can [contact our account management team](https://enterprise.github.com/contact) or call [+1 (877) 448-4820](tel:+1-877-448-4820).
+{% data variables.contact.premium_support %} にサインアップするか、プランをアップグレードするには、[アカウント管理チームに問い合わせる](https://enterprise.github.com/contact)か、[+1 (877) 448-4820](tel:+1-877-448-4820) に電話でご連絡ください。
 
-## Scope of support
+## サポートのスコープ
 
 {% data reusables.support.scope-of-support %}
 
-## Contacting {% data variables.contact.premium_support %}
+## {% data variables.contact.premium_support %} への連絡
 
-{% data variables.contact.premium_support %} customers can use the {% data variables.contact.contact_landing_page_portal %} to report issues in writing, in English.
+{% data variables.contact.premium_support %} のお客様は、{% data variables.contact.contact_landing_page_portal %} を使って問題を英語で記述して報告できます。
 
-## Hours of operation
+## 営業時間
 
-{% data variables.contact.premium_support %} is available 24 hours a day, 7 days per week. If you purchased {% data variables.contact.premium_support %} prior to September 17, 2018, support is limited during holidays. For more information on holidays {% data variables.contact.premium_support %} observes, see the holiday schedule at "[About {% data variables.contact.github_support %}](/enterprise-server@latest/admin/enterprise-support/overview/about-github-enterprise-support)."
+{% data variables.contact.premium_support %} は、24 時間 365 日利用できます。 {% data variables.contact.premium_support %} を 2018 年 9 月 17 日以前に購入した場合、休日のサポートは限定されます。 {% data variables.contact.premium_support %} が観察する休日の詳細については、「[{% data variables.contact.github_support %} について](/enterprise-server@latest/admin/enterprise-support/overview/about-github-enterprise-support)」の休日スケジュールを参照してください。
 
-## Service Level Agreement response times
+## サービスレベルアグリーメントにおける返信までの時間
 
-For tickets you submit, support is available 24 hours a day, 7 days per week. The initial response time guaranteed by the SLA is dependent on the priority level of the ticket. Response time begins when {% data variables.contact.premium_support %} sets the priority level of the ticket. A response does not mean the issue has been resolved.
+サブミットされたチケットに対しては、サポートは24時間・週7日対応します。 SLAが保証する初期の返信までの時間は、チケットの優先度によります。 返信までの時間は、{% data variables.contact.premium_support %}がチケットの優先度を設定したときから始まります。 返信は、問題が解決されたことを意味しません。
 
-| Ticket priority level | Initial response time |
+| チケットの優先レベル | 初期返答時間 |
 | --- | ---|
-| {% data variables.product.support_ticket_priority_urgent %} | 30 minutes |
-| {% data variables.product.support_ticket_priority_high %} | 4 hours |
+| {% data variables.product.support_ticket_priority_urgent %} | 30 分 |
+| {% data variables.product.support_ticket_priority_high %} | 4 時間 |
 
 {% data reusables.enterprise_enterprise_support.installing-releases %}
 
-You must install the minimum supported version of {% data variables.product.prodname_ghe_server %} pursuant to the Supported Releases section of your applicable license agreement within 90 days of placing an order for {% data variables.contact.premium_support %}.
+適用されるライセンスアグリーメントの Supported Releasesセクションに従い、{% data variables.contact.premium_support %} への発注から 90 日以内に {% data variables.product.prodname_ghe_server %} の最小限のサポートされるバージョンをインストールしなければなりません。
 
-## Assigning a priority to a support ticket
+## サポートチケットへの優先度の割り当て
 
-When you contact {% data variables.contact.premium_support %}, you can choose one of four priorities for the ticket: {% data variables.product.support_ticket_priority_urgent %}, {% data variables.product.support_ticket_priority_high %}, {% data variables.product.support_ticket_priority_normal %}, or {% data variables.product.support_ticket_priority_low %}.
+{% data variables.contact.premium_support %} へのお問い合わせ時に、チケットの優先度を {% data variables.product.support_ticket_priority_urgent %}、{% data variables.product.support_ticket_priority_high %}、{% data variables.product.support_ticket_priority_normal %}、または {% data variables.product.support_ticket_priority_low %} の 4 つから選択できます。
 
-- [Ticket priorities for {% data variables.product.prodname_ghe_cloud %}](#ticket-priorities-for-github-enterprise-cloud)
-- [Ticket priorities for {% data variables.product.prodname_ghe_server %}](#ticket-priorities-for-github-enterprise-server)
+- [{% data variables.product.prodname_ghe_cloud %} のチケット優先度](#ticket-priorities-for-github-enterprise-cloud)
+- [{% data variables.product.prodname_ghe_server %} のチケット優先度](#ticket-priorities-for-github-enterprise-server)
 
-### Ticket priorities for {% data variables.product.prodname_ghe_cloud %}
+### {% data variables.product.prodname_ghe_cloud %} のチケット優先度
 
-| Priority | Description | Examples |
+| 優先度 | 説明 | 例 |
 | :---: | --- | --- |
-| {% data variables.product.support_ticket_priority_urgent %} | Production workflows for your organization or enterprise on {% data variables.product.prodname_ghe_cloud %} are failing due to critical service errors or outages, and the failure directly impacts the operation of your business. | <ul><li>Errors or outages on {% data variables.product.prodname_dotcom_the_website %} affect core Git or web application functionality for all members of your organization or enterprise</li></ul> |
-| {% data variables.product.support_ticket_priority_high %} | Account or security issues with your organization or enterprise on {% data variables.product.prodname_ghe_cloud %} are causing limited impact to your business. | <ul><li>An organization or enterprise owner has unintentionally deleted an organization</li><li>An organization or enterprise member has uploaded sensitive data in a commit, issue, pull request, or issue attachment</li></ul> |
-| {% data variables.product.support_ticket_priority_normal %} | Members of your organization or enterprise on {% data variables.product.prodname_ghe_cloud %} are experiencing limited or moderate issues with {% data variables.product.prodname_dotcom_the_website %}, or you have general concerns or questions about your organization or enterprise. | <ul><li>Questions about using APIs and features for your organization or enterprise</li><li>Issues with tools for organization data migration that {% data variables.product.company_short %} provides</li><li>Features related to your organization or enterprise not working as expected</li><li>General security questions about your organization or enterprise</li></ul> |
-| {% data variables.product.support_ticket_priority_low %} | You have a question or suggestion about your organization or enterprise on {% data variables.product.prodname_ghe_cloud %} that is not time-sensitive, or does not otherwise block the productivity of your team. | <ul><li>Excessive resource usage for your organization or enterprise</li><li>Requests for health checks</li><li>Help with using Gists, notifications, wikis, {% data variables.product.prodname_pages %}, {% data variables.product.prodname_desktop %}, or other peripheral services or features with your organization or enterprise</li><li>Feature requests</li><li>Product feedback</li></ul> |
+| {% data variables.product.support_ticket_priority_urgent %} | {% data variables.product.prodname_ghe_cloud %}上のOrganizationあるいはEnterpriseのプロダクションワークフローが、重大なサービスのエラーもしくは中断のために失敗しており、その失敗が直接的にビジネスの運用に影響している。 | <ul><li>{% data variables.product.prodname_dotcom_the_website %}のエラーもしくは中断が、OrganizationもしくはEnterpriseのすべてのメンバーに対し、中核的なGitもしくはWebアプリケーションの機能に影響している。</li></ul> |
+| {% data variables.product.support_ticket_priority_high %} | {% data variables.product.prodname_ghe_cloud %}上のOrganizationもしくはEnterpriseにおけるアカウントもしくはセキュリティの問題が、ビジネスに限定的な影響を及ぼしている。 | <ul><li>OrganizationあるいはEnterpriseのオーナーが、意図せずOrganizationを削除した。</li><li>OrganizationあるいはEnterpriseのメンバーが、コミット、Issue、プルリクエスト、Issueへの添付ファイル内でセンシティブなデータをアップロードした。</li></ul> |
+| {% data variables.product.support_ticket_priority_normal %} | {% data variables.product.prodname_ghe_cloud %}上のOrganizationあるいはEnterpriseのメンバーが、{% data variables.product.prodname_dotcom_the_website %}において限定的あるいは中程度の問題を体験している、もしくはOrganizatonもしくはEnterpriseに関する一般的な懸念や疑問がある。 | <ul><li>OrganizationもしくはEnterpriseのためのAPIや機能の利用についての疑問</li><li>{% data variables.product.company_short %}が提供しているOrganizationのデータ移行のためのツールについての問題</li><li>OrganizationあるいはEnterpriseに関係する機能が、期待どおりに動作していない</li><li>OrganizationあるいはEnterpriseに関する一般的なセキュリティの疑問</li></ul> |
+| {% data variables.product.support_ticket_priority_low %} | {% data variables.product.prodname_ghe_cloud %}上のOrganizationあるいはEnterpriseに関して、時間の問題がない、あるいはチームの生産性を阻害していない疑問や提案がある。 | <ul><li>OrganizationあるいはEnterpriseによる過剰なリソースの利用</li><li>ヘルスチェックのリクエスト</li><li>Gists、通知、ウィキ、{% data variables.product.prodname_pages %}、{% data variables.product.prodname_desktop %}、Atom、あるいはその他のOrganizationあるいはEnterpriseについての周辺サービスや機能の利用に関する支援</li><li>機能のリクエスト</li><li>製品フィードバック</li></ul> |
 
 
-### Ticket priorities for {% data variables.product.prodname_ghe_server %}
+### {% data variables.product.prodname_ghe_server %} のチケット優先度
 
 {% data reusables.support.ghes-priorities %}
 
-## Resolving and closing support tickets
+## サポートチケットの解決とクローズ
 
-{% data variables.contact.premium_support %} may consider a ticket solved after providing an explanation, recommendation, usage instructions, workaround instructions, or by advising you of an available {% data variables.product.prodname_ghe_server %} release that addresses the issue.
+{% data variables.contact.premium_support %} は、説明、推薦事項、利用方法の指示、回避策の指示、その問題に対処している利用可能な {% data variables.product.prodname_ghe_server %} リリースのアドバイスの提供を持って、チケットが解決したものと見なすことがあります。
 
-If you use a custom or unsupported plug-in, module, or custom code, {% data variables.contact.premium_support %} may ask you to remove the unsupported plug-in, module, or code while attempting to resolve the issue. If the problem is fixed when the unsupported plug-in, module, or custom code is removed, {% data variables.contact.premium_support %} may consider the ticket solved.
+カスタムあるいはサポートされていないプラグイン、モジュール、カスタムコードを使っている場合、{% data variables.contact.premium_support %} は問題の解決を試みるに当たってサポートされていないプラグイン、モジュール、コードの削除をお願いすることがあります。 サポートされていないプラグイン、モジュール、カスタムコードが削除されたことで問題が修正された場合、{% data variables.contact.premium_support %}はチケットが解決されたと見なすことがあります。
 
-{% data variables.contact.premium_support %} may close a ticket if the ticket is outside the scope of support or if multiple attempts to contact you have gone unanswered. If {% data variables.contact.premium_support %} closes a ticket due to lack of response, you can request that {% data variables.contact.premium_support %} reopen the ticket.
+{% data variables.contact.premium_support %}は、チケットがサポートのスコープ外の場合、あるいは複数回の連絡に対して回答がなかった場合、チケットをクローズすることがあります。 反応がなかったことによって{% data variables.contact.premium_support %}がチケットをクローズした場合、{% data variables.contact.premium_support %}にチケットをサイドオープンするようリクエストできます。
 
-## Receiving credits for missed responses to support tickets
+## サポートチケットに対する応答の欠如に対するクレジットの受け取り
 
-If you don't receive an initial response within the guaranteed response time to more than four tickets in a given quarter based on {% data variables.product.company_short %}'s fiscal year, you're eligible for a credit. To honor the SLA, {% data variables.product.company_short %} will refund 20% of the quarterly {% data variables.contact.premium_support %} fee in cash. To receive the refund, you must submit a credit request.
+{% data variables.product.company_short %}の会計年度の四半期内に4つ以上のチケットで保証されている対応時間までに初回の返信がなかった場合、クレジットを受け取ることができます。 SLAを尊重し、{% data variables.product.company_short %}は四半期分の{% data variables.contact.premium_support %}の料金の20%を現金で返金します。 返金を受けるには、クレジットリクエストをサブミットしなければなりません。
 
-The credit request must be made within 30 days of the end of the quarter during which {% data variables.contact.premium_support %} did not respond to your tickets within the designated response time. Credit requests will not be honored if the respective deadline has passed. Once the respective deadline passes, you have waived the ability to claim a refund for the qualified credit.
+クレジットリクエストは、指定された対応期間内に{% data variables.contact.premium_support %}からチケットへの返信がなかった四半期の終わりから30日以内に行わなければなりません。 期限を過ぎてのクレジットリクエストは有効ではありません。 期限が過ぎた場合は、条件を満たしたクレジットに対する返金の要求権を破棄したことになります。
 
-To receive a refund, you must submit a completed credit request to <supportcredits@github.com>. To be eligible, the credit request must:
-- Be sent from an email address associated with your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}
-- Be received by {% data variables.product.company_short %} by the end of the 30th day after the quarter in which the four qualifying credits occurred
-- Include "Credit Request" in the subject line
+払い戻しを受け取るには、完了したクレジット要求を <supportcredits@github.com> に送信する必要があります。 クレジットリクエストは、以下を満たしていなければなりません。
+- {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} でアカウントに関連付けられているメール アドレスから送信する
+- 条件を満たした4回のクレジットが生じた四半期の終わりから30日以内に{% data variables.product.company_short %}が受け取る。
+- タイトル行に“Credit Request”が含まれる。
 
-The following information **must be included** in your credit request:
-- **Date** (The date must be within 30 days after the quarter based on {% data variables.product.company_short %}’s fiscal year end in which the claims occurred [January 31, April 30, July 31, or October 31].)
-- **Customer contact** (You must specify both name and email address.)
-- **Customer address**
-- **Qualifying credits** (You must provide the date of each qualifying credit and the associated ticket number.){% ifversion fpt or ghec %}
-- **Name of {% data variables.product.prodname_ghe_cloud %} organization**{% endif %}
-- **Ticket numbers**
+クレジット要求には、次の情報が **含まれている必要があります**。
+- **日付** (日付は、要求が発生した {% data variables.product.company_short %} の会計年度に基づく四半期の終わりから 30 日以内でなければなりません (1 月 31 日、4 月 30 日、7 月 31 日、10 月 31 日))
+- **顧客の連絡先** (名前とメール アドレスの両方を指定する必要があります)
+- **顧客住所**
+- **有効なクレジット** (それぞれの有効なクレジットの日付と関連するチケット番号を指定する必要があります){% ifversion fpt or ghec %}
+- **{% data variables.product.prodname_ghe_cloud %} Organization の名前**{% endif %}
+- **チケット番号**
 
-## Accessing premium content
+## プレミアムコンテンツにアクセスする
 
-You can access premium content by signing in to the {% data variables.contact.contact_landing_page_portal %}.
+{% data variables.contact.contact_landing_page_portal %} にサインインすることにより、プレミアム コンテンツにアクセスできます。

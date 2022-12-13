@@ -1,45 +1,44 @@
-1. Select the **Account or organization** dropdown menu and click the name of the account your support ticket is regarding.
-![Screenshot of the "Account or organization" dropdown menu.](/assets/images/help/support/account-field.png)
-1. Select the **From** drop-down menu and click the email address you'd like {% data variables.contact.github_support %} to contact.
-![Screenshot of the "From" dropdown menu.](/assets/images/help/support/from-field.png)
+---
+ms.openlocfilehash: b7f16729209b711d9ea95d059f5868ae867fa040
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "147419885"
+---
+1. Seleccione el menú desplegable **Cuenta u organización** y haga clic en el nombre de la cuenta relacionada con la incidencia de soporte técnico.
+![Captura de pantalla del menú desplegable "Cuenta u organización".](/assets/images/help/support/account-field.png)
+1. En el menú desplegable **Desde**, haga clic en la dirección de correo electrónico a la que quiere que contacte {% data variables.contact.github_support %}.
+![Captura de pantalla del menú desplegable "Desde".](/assets/images/help/support/from-field.png)
 {%- ifversion ghec or ghes %}
-1. Select the **Product** dropdown menu and click {% ifversion ghes %}**GitHub Enterprise Server (self-hosted)**{% else %}**GitHub Enterprise Cloud**{% endif %}.
-{% ifversion ghec %}![Screenshot of the "Product" dropdown menu.](/assets/images/help/support/product-field-ghec.png){% else %}![Screenshot of the "Product" dropdown menu.](/assets/images/help/support/product-field.png){% endif %}
+1. Seleccione el menú desplegable **Producto** y haga clic en {% ifversion ghes %}**GitHub Enterprise Server (autohospedado)** {% else %}**GitHub Enterprise Cloud**{% endif %}.
+{% ifversion ghec %}![Captura de pantalla del menú desplegable "Producto".](/assets/images/help/support/product-field-ghec.png){% else %}![Screenshot of the "Product" dropdown menu.](/assets/images/help/support/product-field.png){% endif %} {%- endif %} {%- ifversion ghes %}
+1. Si se le solicita, selecciona el menú desplegable **Instalación del servidor** y haga clic en la instalación relacionada con la incidencia de soporte técnico. Si la instalación no aparece en la lista, haga clic en **Otros**.
+![Captura de pantalla del menú desplegable "Instalación del servidor"](/assets/images/help/support/installation-field.png) {%- endif %} {%- ifversion ghes %}
+1. Seleccione el menú desplegable **Serie de versión** y haga clic en la versión que ejecute {% data variables.product.product_location_enterprise %}.
+![Captura de pantalla del menú desplegable "Serie de versión"](/assets/images/help/support/release-field.png) {%- endif %} {%- ifversion ghes or ghec %}
+1. Seleccione el menú desplegable **Prioridad** y haga clic en la urgencia adecuada. Para más información, vea "[Acerca de la prioridad de las incidencia de soporte técnico](/support/learning-about-github-support/about-ticket-priority)".
+  ![Captura de pantalla del menú desplegable "Prioridad".](/assets/images/help/support/priority-field.png)
+{%- endif %} {%- ifversion ghes %}
+    - Seleccione **{% data variables.product.support_ticket_priority_urgent %}** para notificar un {% ifversion fpt or ghec %}fallo crítico del sistema{% else %}fallos del sistema, interrupciones que afecten a operaciones críticas del sistema, incidentes de seguridad y licencias expiradas{% endif %}.
+    - Seleccione **{% data variables.product.support_ticket_priority_high %}** para notificar incidencias que afectan a las operaciones de la empresa, incluida {% ifversion fpt or ghec %}la eliminación de datos confidenciales (confirmaciones, incidencias, solicitudes de incorporación de cambios, datos adjuntos cargados) de restauraciones propias de la cuenta y la organización{% else %}problemas de rendimiento del sistema{% endif %}, o bien para notificar errores críticos.
+    - Seleccione **{% data variables.product.support_ticket_priority_normal %}** para {% ifversion fpt or ghec %}solicitar la recuperación de una cuenta o quitar marcas de spam, notificar incidencias de inicio de sesión de los usuarios{% else %}realizar solicitudes técnicas como cambios de configuración e integraciones de terceros{% endif %}, y para notificar errores que no sean críticos.
+    - Seleccione **{% data variables.product.support_ticket_priority_low %}** para formular preguntas generales y enviar solicitudes de nuevas características, compras, entrenamiento o comprobaciones de estado.
+{%- endif %} {%- ifversion ghes or ghec %}
+1. Opcionalmente, si tu cuenta incluye {% data variables.contact.premium_support %} y tu ticket es de prioridad {% ifversion ghes %}urgente o alta{% elsif ghec %}alta{% endif %}, puedes solicitar una llamada de vuelta en inglés. Seleccione **Solicitar una llamada al soporte técnico de GitHub**, seleccione el menú desplegable de código de país para elegir el suyo y escriba el número de teléfono.
+![Captura de pantalla de la casilla "Solicitar una llamada al soporte técnico de GitHub", menú desplegable "Código de país" y cuadro de texto "Número de teléfono".](/assets/images/help/support/request-callback.png)
 {%- endif %}
-{%- ifversion ghes %}
-1. If prompted, select the **Server installation** dropdown menu and click the installation your support ticket is regarding. If the installation is not listed, click **Other**.
-![Screenshot of the "Server Installation" dropdown menu](/assets/images/help/support/installation-field.png)
-{%- endif %}
-{%- ifversion ghes %}
-1. Select the **Release series** dropdown menu and click the release {% data variables.location.product_location_enterprise %} is running.
-![Screenshot of the "Release series" dropdown menu](/assets/images/help/support/release-field.png)
-{%- endif %}
-{%- ifversion ghes or ghec %}
-1. Select the **Priority** dropdown menu and click the appropriate urgency. For more information, see "[About ticket priority](/support/learning-about-github-support/about-ticket-priority)."
-  ![Screenshot of the "Priority" dropdown menu.](/assets/images/help/support/priority-field.png)
-{%- endif %}
-{%- ifversion ghes %}
-    - Choose **{% data variables.product.support_ticket_priority_urgent %}** to report {% ifversion fpt or ghec %}critical system failure{% else %}fatal system failures, outages impacting critical system operations, security incidents, and expired licenses{% endif %}.
-    - Choose **{% data variables.product.support_ticket_priority_high %}** to report issues impacting business operations, including {% ifversion fpt or ghec %}removing sensitive data (commits, issues, pull requests, uploaded attachments) from your own accounts and organization restorations{% else %}system performance issues{% endif %}, or to report critical bugs.
-    - Choose **{% data variables.product.support_ticket_priority_normal %}** to {% ifversion fpt or ghec %}request account recovery or spam unflagging, report user login issues{% else %}make technical requests like configuration changes and third-party integrations{% endif %}, and to report non-critical bugs.
-    - Choose **{% data variables.product.support_ticket_priority_low %}** to ask general questions and submit requests for new features, purchases, training, or health checks.
-{%- endif %}
-{%- ifversion ghes or ghec %}
-1. Optionally, if your account includes {% data variables.contact.premium_support %} and your ticket is {% ifversion ghes %}urgent or high{% elsif ghec %}high{% endif %} priority, you can request a callback in English. Select **Request a callback from GitHub Support**, select the country code dropdown menu to choose your country, and enter your phone number.
-![Screenshot of the "Request callback" checkbox, "Country code" dropdown menu, and "Phone number" text box.](/assets/images/help/support/request-callback.png)
-{%- endif %}
-1. Under "Subject", type a descriptive title for the issue you're having.
-![Screenshot of the "Subject" text box.](/assets/images/help/support/subject-field.png)
-1. Under "How can we help", provide any additional information that will help the Support team troubleshoot the problem. You can use markdown to format your message.
-  ![Screenshot of the "How can we help" text area.](/assets/images/help/support/how-can-we-help-field.png)
-   Helpful information may include:
-    - Steps to reproduce the issue
-    - Any special circumstances surrounding the discovery of the issue (for example, the first occurrence or occurrence after a specific event, frequency of occurrence, business impact of the problem, and suggested urgency)
-    - Exact wording of error messages
-{% indented_data_reference reusables.repositories.anyone-can-view-anonymized-url spaces=3 %}
+1. Debajo de "Asunto", teclea un título descriptivo para el problema que estás teniendo.
+![Captura de pantalla del cuadro de texto ""Asunto".](/assets/images/help/support/subject-field.png)
+1. Debajo de "Cómo podemos ayudar", proporciona cualquier tipo de información adicional que ayudará al equipo de soporte a solucionar el problema. Puedes utilizar lenguaje de marcado para formatear tu mensaje.
+  ![Captura de pantalla del área de texto "How can we help".](/assets/images/help/support/how-can-we-help-field.png)
+   La información adicional podría incluir:
+    - Pasos para reproducir el problema.
+    - Cualquier circunstancia especial para la detección del problema (por ejemplo, la primera vez que aparece o la aparición después de un evento específico, la frecuencia con la que aparece, el impacto empresarial del problema y la urgencia sugerida).
+    - Redacción exacta de mensajes de error {% indented_data_reference reusables.repositories.anyone-can-view-anonymized-url spaces=3 %}
 
 {%- ifversion ghes %}
-1. Optionally, attach diagnostics files and other files by dragging and dropping, uploading, or pasting from the clipboard.
+1. Opcionalmente, adjunta archivos de diagnóstico y de otros tipos arrastrándolos y soltándolos, cargándolos o copiándolos desde el portapapeles.
 {%- endif %}
-1. Click **Send request**.
-![Screenshot of the "Send request" button.](/assets/images/help/support/send-request-button.png)
+1. Haga clic en **Enviar solicitud**.
+![Captura de pantalla del botón "Enviar solicitud".](/assets/images/help/support/send-request-button.png)

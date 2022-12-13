@@ -1,6 +1,6 @@
 ---
-title: Updating your GitHub access credentials
-intro: '{% data variables.product.product_name %} credentials include{% ifversion not ghae %} not only your password, but also{% endif %} the access tokens, SSH keys, and application API tokens you use to communicate with {% data variables.product.product_name %}. Should you have the need, you can reset all of these access credentials yourself.'
+title: Atualizar credenciais de acesso do GitHub
+intro: 'As credenciais do {% data variables.product.product_name %} incluem{% ifversion not ghae %} não só sua senha, mas também{% endif %} os tokens de acesso, chaves SSH e tokens de API do aplicativo que você usa para se comunicar com {% data variables.product.product_name %}. Se houver necessidade, você mesmo pode redefinir todas essas credenciais de acesso.'
 redirect_from:
   - /articles/rolling-your-credentials
   - /articles/how-can-i-reset-my-password
@@ -16,73 +16,74 @@ topics:
   - Identity
   - Access management
 shortTitle: Update access credentials
+ms.openlocfilehash: 650c0027b679690def6d1c77d727a87b8688b889
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147508413'
 ---
 {% ifversion not ghae %}
-## Requesting a new password
+## Solicitar uma nova senha
 
-1. To request a new password, visit {% ifversion fpt or ghec %}https://{% data variables.product.product_url %}/password_reset{% else %}`https://{% data variables.product.product_url %}/password_reset`{% endif %}.
-2. Enter the email address associated with your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}, then click **Send password reset email.** The email will be sent to the backup email address if you have one configured.
-  ![Password reset email request dialog](/assets/images/help/settings/password-recovery-email-request.png)
-3. We'll email you a link that will allow you to reset your password. You must click on this link within 3 hours of receiving the email. If you didn't receive an email from us, make sure to check your spam folder.
-4. If you have enabled two-factor authentication, you will be prompted for your 2FA credentials:
-{% ifversion fpt or ghec %}
-   * If you have {% data variables.product.prodname_mobile %}, you will be sent a push notification to verify your identity. Open the push notification or the {% data variables.product.prodname_mobile %} app and enter the two-digit code shown to you on the password reset page in your browser.
-   ![Two-factor {% data variables.product.prodname_mobile %} authentication prompt](/assets/images/help/2fa/2fa-mobile-challenge-password-reset.png)
-      * To skip using GitHub Mobile to verify, click **Enter two-factor authentication or recovery code**.
-      ![Two-factor GitHub Mobile authentication prompt on {% data variables.product.product_name %} with "Enter two-factor authentication or recovery code" highlighted](/assets/images/help/2fa/2fa-github-mobile-password-reset.png)
-{% endif %}
-   * Type your authentication code or one of your recovery codes and click **Verify**.
-      ![Two-factor authentication prompt](/assets/images/help/2fa/2fa-password-reset.png)
-     * If you have added a security key to your account, click **Use security key** instead of typing an authentication code.
+1. Para solicitar uma nova senha, acesse {% ifversion fpt or ghec %} https://{% data variables.product.product_url %}/password_reset{% else %}`https://{% data variables.product.product_url %}/password_reset`{% endif %}.
+2. Insira o endereço de email associado à sua conta do {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} e clique em **Enviar email de redefinição de senha.** O email será enviado para o endereço de email de backup se você tiver um configurado.
+  ![Caixa de diálogo usada para solicitar o email de redefinição de senha](/assets/images/help/settings/password-recovery-email-request.png)
+3. Nós enviaremos por e-mail um link para você redefinir sua senha. Clique nele em até 3 horas após o recebimento do e-mail. Se você não receber o e-mail com o link, verifique sua pasta de spam.
+4. Se você tiver habilitado a autenticação de dois fatores, será solicitado que você crie suas credenciais de 2FA: {% ifversion fpt or ghec %}
+   * Se você tiver {% data variables.product.prodname_mobile %}, receberá uma notificação por push para verificar sua identidade. Abra a notificação por push ou o aplicativo {% data variables.product.prodname_mobile %} e digite o código de dois dígitos mostrado na página de redefinição de senha em seu navegador.
+   ![Prompt de autenticação {% data variables.product.prodname_mobile %} de dois fatores](/assets/images/help/2fa/2fa-mobile-challenge-password-reset.png)
+      * Para pular o uso da verificação do GitHub Mobile, clique em **Inserir autenticação de dois fatores ou código de recuperação**.
+      ![Prompt de autenticação de dois fatores do GitHub Mobile em {% data variables.product.product_name %} com "Inserir autenticação de dois fatores ou código de recuperação" realçado](/assets/images/help/2fa/2fa-github-mobile-password-reset.png) {% endif %}
+   * Digite o código de autenticação ou um dos códigos de recuperação e clique em **Verificar**.
+      ![Prompt da autenticação de dois fatores](/assets/images/help/2fa/2fa-password-reset.png)
+     * Se você adicionou uma chave de segurança à sua conta, clique em **Usar chave de segurança** em vez de digitar um código de autenticação.
      {% ifversion fpt or ghec %}
-     * If you have set up [{% data variables.product.prodname_mobile %}](https://github.com/mobile), click **Authenticate with GitHub Mobile** instead.
+     * Se você tiver configurado [dados {% data variables.product.prodname_mobile %}](https://github.com/mobile), clique em **Autenticar com o GitHub Mobile** .
      {% endif %}
-5. Type a new password, confirm your new password, and click **Change password**. For help creating a strong password, see "[Creating a strong password](/articles/creating-a-strong-password)."
-  {% ifversion fpt or ghec %}![Password recovery box](/assets/images/help/settings/password-recovery-page.png){% else %}
-  ![Password recovery box](/assets/images/enterprise/settings/password-recovery-page.png){% endif %}
+5. Digite uma nova senha, confirme a nova senha e clique em **Alterar senha**. Para obter ajuda para criar uma senha forte, confira "[Como criar uma senha forte](/articles/creating-a-strong-password)".
+  {% ifversion fpt or ghec %}![Caixa de Recuperação de senha](/assets/images/help/settings/password-recovery-page.png){% else %} ![Caixa de Recuperação de senha](/assets/images/enterprise/settings/password-recovery-page.png){% endif %}
 
 {% tip %}
 
-To avoid losing your password in the future, we suggest using a secure password manager, like [LastPass](https://lastpass.com/) or [1Password](https://1password.com/).
+Para evitar perder sua senha no futuro, sugerimos usar um gerenciador de senhas seguro, como o [LastPass](https://lastpass.com/) ou o [1Password](https://1password.com/).
 
 {% endtip %}
 
-## Changing an existing password
+## Alterar uma senha existente
 
 {% data reusables.repositories.blocked-passwords %}
 
-1. {% data variables.product.signin_link %} to {% data variables.product.product_name %}.
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.security %}
-4. Under "Change password", type your old password, a strong new password, and confirm your new password. For help creating a strong password, see "[Creating a strong password](/articles/creating-a-strong-password)"
-5. Click **Update password**.
+1. {% data variables.product.signin_link %} para o {% data variables.product.product_name %}.
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.security %}
+4. Em "Change password" (Alterar senha), insira a senha antiga, digite uma nova senha forte e confirme a nova senha. Para obter ajuda para criar uma senha forte, confira "[Como criar uma senha forte](/articles/creating-a-strong-password)"
+5. Clique em **Atualizar senha**.
 
 {% tip %}
 
-For greater security, enable two-factor authentication in addition to changing your password. See [About two-factor authentication](/articles/about-two-factor-authentication) for more details.
+Para maior segurança, além de alterar a senha, habilite também a autenticação de dois fatores. Confira [Sobre a autenticação de dois fatores](/articles/about-two-factor-authentication) para obter mais detalhes.
 
-{% endtip %}
-{% endif %}
-## Updating your access tokens
+{% endtip %} {% endif %}
+## Atualizar tokens de acesso
 
-See "[Reviewing your authorized integrations](/articles/reviewing-your-authorized-integrations)" for instructions on reviewing and deleting access tokens. To generate new access tokens, see "[Creating a {% data variables.product.pat_generic %}](/github/authenticating-to-github/creating-a-personal-access-token)."
-
-{% ifversion not ghae %}
-
-If you have reset your account password and would also like to trigger a sign-out from the {% data variables.product.prodname_mobile %} app, you can revoke your authorization of the "GitHub iOS" or "GitHub Android" OAuth App. This will sign out all instances of the {% data variables.product.prodname_mobile %} app associated with your account. For additional information, see "[Reviewing your authorized integrations](/authentication/keeping-your-account-and-data-secure/reviewing-your-authorized-integrations)."
-
-{% endif %}
-
-## Updating your SSH keys
-
-See "[Reviewing your SSH keys](/articles/reviewing-your-ssh-keys)" for instructions on reviewing and deleting SSH keys. To generate and add new SSH keys, see "[Generating an SSH key](/articles/generating-an-ssh-key)."
-
-## Resetting API tokens
-
-If you have any applications registered with {% data variables.product.product_name %}, you'll want to reset their OAuth tokens. For more information, see the "[Reset an authorization](/rest/reference/apps#reset-an-authorization)" endpoint.
+Confira "[Como revisar suas integrações autorizadas](/articles/reviewing-your-authorized-integrations)" para obter instruções sobre como revisar e excluir tokens de acesso. Para gerar novos tokens de acesso, confira "[Como criar um token de acesso pessoal](/github/authenticating-to-github/creating-a-personal-access-token)".
 
 {% ifversion not ghae %}
-## Preventing unauthorized access
 
-For more tips on securing your account and preventing unauthorized access, see "[Preventing unauthorized access](/articles/preventing-unauthorized-access)."
+Se você redefiniu sua senha da conta e também gostaria de disparar um logout do aplicativo {% data variables.product.prodname_mobile %}, revogue a sua autorização do aplicativo OAuth do "GitHub iOS" ou "GitHub Android". Isso removerá todas as instâncias do aplicativo {% data variables.product.prodname_mobile %} associado à sua conta. Para obter mais informações, confira "[Como revisar suas integrações autorizadas](/authentication/keeping-your-account-and-data-secure/reviewing-your-authorized-integrations)".
+
+{% endif %}
+
+## Atualizar chaves SSH
+
+Confira "[Como revisar suas chaves SSH](/articles/reviewing-your-ssh-keys)" para obter instruções sobre como revisar e excluir chaves SSH. Para gerar e adicionar novas chaves SSH, confira "[Como gerar uma chave SSH](/articles/generating-an-ssh-key)".
+
+## Redefinir tokens da API
+
+Se você tiver algum aplicativo registrado no {% data variables.product.product_name %}, talvez precise redefinir os tokens OAuth dele. Para obter mais informações, confira o ponto de extremidade "[Redefinir uma autorização](/rest/reference/apps#reset-an-authorization)".
+
+{% ifversion not ghae %}
+## Impedir acesso não autorizado
+
+Para obter mais dicas sobre como proteger sua conta e impedir o acesso não autorizado, confira "[Como impedir o acesso não autorizado](/articles/preventing-unauthorized-access)".
 {% endif %}

@@ -1,27 +1,31 @@
+---
+ms.openlocfilehash: 33d0297fab7d3dce2bea9fa3d63ba9c73ef5cb91
+ms.sourcegitcommit: dac72908e8660cb4a347fbf73beab61034eed8c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 11/25/2022
+ms.locfileid: "148182279"
+---
 <!-- If you update the list of supported languages for CodeQL, update docs-internal/content/get-started/learning-about-github/github-language-support.md to reflect the changes. -->
 - C/C++
 - C#
 - Go
-- Java{% ifversion codeql-kotlin-beta %}/Kotlin{% endif %}
+- Java
 - JavaScript/TypeScript
 - Python{% ifversion fpt or ghes > 3.3 or ghec or ghae > 3.3 %}
-- Ruby{% endif %}
+- Ruby
+
+{% ifversion ghes < 3.8 or ghae < 3.8 %} {% note %}
+
+**Observação**: atualmente, a análise do {% data variables.product.prodname_codeql %} para o Ruby está em versão beta. Durante a versão beta, a análise do Ruby será menos abrangente do que a análise do {% data variables.product.prodname_codeql %} de outras linguagens.
+
+{% endnote %} {% endif %}{% endif %}{% ifversion codeql-kotlin-beta %}
+- Kotlin
 
 {% note %}
 
-{% ifversion fpt or ghec or ghae or ghes > 3.3 %}
-**Notes**:
+**Observação**: atualmente, a análise do {% data variables.product.prodname_codeql %} para Kotlin está em versão beta. Durante a versão beta, a análise do {% data variables.product.prodname_codeql %} para Kotlin será menos abrangente do que para outras linguagens.
 
-{% ifversion ghes < 3.8 or ghae < 3.8 %}
-- {% data variables.product.prodname_codeql %} analysis for Ruby is currently in beta. During the beta, analysis of Ruby will be less comprehensive than {% data variables.product.prodname_codeql %} analysis of other languages.{% endif %}{% ifversion codeql-kotlin-beta %}
-- {% data variables.product.prodname_codeql %} analysis for Kotlin is currently in beta. During the beta, analysis of Kotlin will be less comprehensive than {% data variables.product.prodname_codeql %} analysis of other languages.
-- Use `java` to analyze code written in Java, Kotlin or both.{% endif %}
-- Use `javascript` to analyze code written in JavaScript, TypeScript or both.
+{% endnote %} {% endif %}
 
-{% else %}
-**Note**: Use `javascript` to analyze code written in JavaScript, TypeScript or both.
-{% endif %}
-
-{% endnote %}
-
-For more information, see the documentation on the {% data variables.product.prodname_codeql %} website: "[Supported languages and frameworks](https://codeql.github.com/docs/codeql-overview/supported-languages-and-frameworks/)."
+Para obter mais informações, confira a documentação no site do {% data variables.product.prodname_codeql %}: "[Linguagens e estruturas compatíveis](https://codeql.github.com/docs/codeql-overview/supported-languages-and-frameworks/)".

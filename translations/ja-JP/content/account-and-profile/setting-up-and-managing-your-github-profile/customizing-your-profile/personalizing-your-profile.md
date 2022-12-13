@@ -1,6 +1,6 @@
 ---
-title: Personalizing your profile
-intro: 'You can share information about yourself with other {% data variables.product.product_name %} users by setting a profile picture and adding a bio to your profile.'
+title: プロフィールをパーソナライズする
+intro: 'プロフィール画像を設定し、プロフィールに略歴を追加することで、自分自身についての情報を他の {% data variables.product.product_name %} ユーザと共有することができます。'
 redirect_from:
   - /articles/adding-a-bio-to-your-profile
   - /articles/setting-your-profile-picture
@@ -18,186 +18,156 @@ versions:
 topics:
   - Profiles
 shortTitle: Personalize
+ms.openlocfilehash: c12fccd91144428fe9aad2f01d2c0b0941fdd4d4
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '146681054'
 ---
-## Changing your profile picture
+## プロフィール画像を変更する
 
-Your profile picture helps identify you across {% data variables.product.product_name %} in pull requests, comments, contributions pages, and graphs.
+プロフィール画像は、{% data variables.product.product_name %} のプルリクエスト、コメント、コントリビューションページ、およびグラフにおいて、あなたを識別するのに役立ちます。
 
-When you sign up for an account, {% data variables.product.product_name %} provides you with a randomly generated "identicon". [Your identicon](https://github.com/blog/1586-identicons) generates from a hash of your user ID, so there's no way to control its color or pattern. You can replace your identicon with an image that represents you.
+アカウントにサインアップすると、{% data variables.product.product_name %} はとりあえずランダムなアイデンティコンを生成します。 [アイデンティコン](https://github.com/blog/1586-identicons)はユーザー ID のハッシュから生成されるので、その色やパターンを制御する方法はありません。 アイデンティコンは、あなたを表す画像に置き換えることができます。
 
 {% note %}
 
-**Note{% ifversion ghec %}s{% endif %}**: {% ifversion ghec %}
+**注{% ifversion ghec %}{% endif %}** : {% ifversion ghec %}
 
-* {% endif %}Your profile picture should be a PNG, JPG, or GIF file, and it must be less than 1 MB in size and smaller than 3000 by 3000 pixels. For the best quality rendering, we recommend keeping the image at about 500 by 500 pixels.
-{% ifversion ghec %}* Gravatar profile pictures are not supported with {% data variables.product.prodname_emus %}.{% endif %}
-
-{% endnote %}
-
-### Setting a profile picture
-
-{% data reusables.user-settings.access_settings %}
-2. Under **Profile Picture**, click {% octicon "pencil" aria-label="The edit icon" %} **Edit**.
-![Edit profile picture](/assets/images/help/profile/edit-profile-photo.png)
-3. Click **Upload a photo...**.{% ifversion not ghae %}
-![Update profile picture](/assets/images/help/profile/edit-profile-picture-options.png){% endif %}
-3. Crop your picture. When you're done, click **Set new profile picture**.
-	![Crop uploaded photo](/assets/images/help/profile/avatar_crop_and_save.png)
-
-### Resetting your profile picture to the identicon
-
-{% data reusables.user-settings.access_settings %}
-2. Under **Profile Picture**, click {% octicon "pencil" aria-label="The edit icon" %} **Edit**.
-![Edit profile picture](/assets/images/help/profile/edit-profile-photo.png)
-3. To revert to your identicon, click **Remove photo**. {% ifversion not ghae %}If your email address is associated with a [Gravatar](https://en.gravatar.com/), you cannot revert to your identicon. Click **Revert to Gravatar** instead.
-![Update profile picture](/assets/images/help/profile/edit-profile-picture-options.png){% endif %}
-
-## Changing your profile name
-
-You can change the name that is displayed on your profile. This name may also be displayed next to comments you make on private repositories owned by an organization. For more information, see "[Managing the display of member names in your organization](/articles/managing-the-display-of-member-names-in-your-organization)."
-
-{% ifversion fpt or ghec %}
-{% note %}
-
-**Note:** If you're a member of an {% data variables.enterprise.prodname_emu_enterprise %}, any changes to your profile name must be made through your identity provider instead of {% data variables.product.prodname_dotcom_the_website %}. {% data reusables.enterprise-accounts.emu-more-info-account %}
+* {% endif %}プロフィール画像は、PNG、JPG、または GIF ファイルでなければならず、1 MB 未満のサイズで、3000 x 3000 ピクセルより小さいものにする必要があります。 最高の画質をもたらすには、画像を 500 × 500 ピクセルに収めることを推奨します。
+{% ifversion ghec %}* Gravatar プロファイル画像は {% data variables.product.prodname_emus %} ではサポートされていません。{% endif %}
 
 {% endnote %}
-{% endif %}
+
+### プロフィール画像を設定する
 
 {% data reusables.user-settings.access_settings %}
-2. Under "Name", type the name you want to be displayed on your profile.
-  ![Name field in profile settings](/assets/images/help/profile/name-field.png)
+2. **[Profile Picture]\(プロファイル画像\)** の下にある {% octicon "pencil" aria-label="The edit icon" %} **[Edit]\(編集\)** をクリックします。
+![プロファイル画像を編集する](/assets/images/help/profile/edit-profile-photo.png)
+3. **[写真のアップロード]** をクリックします。{% ifversion not ghae %} ![プロフィール画像を更新する](/assets/images/help/profile/edit-profile-picture-options.png){% endif %}
+3. 画像をクロッピングします。 作業を終えたら **[Set new profile picture]\(新しいプロファイル画像の設定\)** をクリックします。
+    ![アップロードした画像をトリミングする](/assets/images/help/profile/avatar_crop_and_save.png)
 
-## Adding a bio to your profile
+### プロフィール画像をアイデンティコンへリセットする
 
-Add a bio to your profile to share information about yourself with other {% data variables.product.product_name %} users. With the help of [@mentions](/articles/basic-writing-and-formatting-syntax) and emoji, you can include information about where you currently or have previously worked, what type of work you do, or even what kind of coffee you drink.
+{% data reusables.user-settings.access_settings %}
+2. **[Profile Picture]\(プロファイル画像\)** の下にある {% octicon "pencil" aria-label="The edit icon" %} **[Edit]\(編集\)** をクリックします。
+![プロファイル画像を編集する](/assets/images/help/profile/edit-profile-photo.png)
+3. アイデンティコンに戻すには、 **[Remove photo]\(画像の削除\)** をクリックします。 {% ifversion not ghae %}メール アドレスが [Gravatar](https://en.gravatar.com/) に関連付けられている場合、アイデンティコンに戻すことはできません。 代わりに **[Revert to Gravatar]\(Gravatar に戻す\)** をクリックします。
+![プロフィール画像を更新する](/assets/images/help/profile/edit-profile-picture-options.png){% endif %}
+
+## プロフィール名を変更する
+
+プロフィールに表示される名前は変更可能です。 この名前は、Organization が所有するプライベートリポジトリへのコメントの横に表示されることもあります。 詳細については、「[組織のメンバー名表示を管理する](/articles/managing-the-display-of-member-names-in-your-organization)」を参照してください。
+
+{% ifversion fpt or ghec %} {% note %}
+
+**注:** {% data variables.product.prodname_emu_enterprise %} のメンバーである場合、プロファイル名の変更は {% data variables.product.prodname_dotcom_the_website %} ではなく、ID プロバイダーを介して行う必要があります。 {% data reusables.enterprise-accounts.emu-more-info-account %}
+
+{% endnote %} {% endif %}
+
+{% data reusables.user-settings.access_settings %}
+2. [Name] の下に、プロフィールに表示する名前を入力します。
+  ![プロファイル設定の [Name]\(名前\) フィールド](/assets/images/help/profile/name-field.png)
+
+## プロフィールに略歴を追加する
+
+自分に関する情報を他の {% data variables.product.product_name %} ユーザーと共有するには、プロフィールに略歴を追加します。 [@mentions](/articles/basic-writing-and-formatting-syntax) と絵文字を使えば、あなたの現在または過去の職場、職種、飲んでいるコーヒーの種類といった情報も含めることができます。
 
 {% ifversion fpt or ghes or ghec %}
 
-For a longer-form and more prominent way of displaying customized information about yourself, you can also use a profile README. For more information, see "[Managing your profile README](/github/setting-up-and-managing-your-github-profile/managing-your-profile-readme)."
+自分に関するカスタマイズした情報を長いフォームで、もっと目立つように表示する場合は、プロフィール README を使用することもできます。 詳細については、「[プロファイルの README を管理する](/github/setting-up-and-managing-your-github-profile/managing-your-profile-readme)」を参照してください。
 
 {% endif %}
 
 {% note %}
 
-**Note:**
-  If you have the activity overview section enabled for your profile and you @mention an organization you're a member of in your profile bio, then that organization will be featured first in your activity overview. For more information, see "[Showing an overview of your activity on your profile](/articles/showing-an-overview-of-your-activity-on-your-profile)."
+**注:** プロファイルでアクティビティ概要のセクションを有効にしており、プロファイルの略歴で自分がメンバーである組織に @mention した場合、アクティビティの概要ではその組織が最初に表示されます。 詳細については、「[プロファイルでアクティビティの概要を表示する](/articles/showing-an-overview-of-your-activity-on-your-profile)」を参照してください。
 
 {% endnote %}
 
 {% data reusables.user-settings.access_settings %}
-2. Under **Bio**, add the content that you want displayed on your profile. The bio field is limited to 160 characters.
-	![Update bio on profile](/assets/images/help/profile/bio-field.png)
+2. **[Bio]\(略歴\)** の下で、自分のプロファイルに表示する内容を追加します。 略歴フィールドの上限は 160 文字です。
+    ![プロファイルの略歴を更新する](/assets/images/help/profile/bio-field.png)
 
   {% tip %}
 
-  **Tip:** When you @mention an organization, only those that you're a member of will autocomplete. You can still @mention organizations that you're not a member of, like a previous employer, but the organization name won't autocomplete for you.
+  **ヒント:** 組織に @mention すると、自分がメンバーであるものだけがオートコンプリートされます。 以前の職場など、自分がメンバーではない組織に @mention することもできますが、その組織の名前はオートコンプリートされません。
 
   {% endtip %}
 
-{% data reusables.profile.update-profile %}
+3. **[プロファイルの更新]** をクリックします。
+    ![[Update profile]\(プロファイルの更新\) ボタン](/assets/images/help/profile/update-profile-button.png)
 
-{% ifversion profile-time-zone %}
+## ステータスを設定する
 
-## Setting your location and time zone
+ステータスを設定すると、あなたの現在の状況に関する情報を {% data variables.product.product_name %} に表示することができます。 ステータスは次の場所や状況で表示されます:
+- {% data variables.product.product_name %} のプロフィールページ。
+- {% data variables.product.product_name %} でユーザがあなたのユーザ名やアバターにカーソルを置いたとき。
+- 自分が Team メンバーになっている Team の Team ページ。 詳細については、「[Team について](/articles/about-teams/#team-pages)」を参照してください。
+- メンバーになっている Organization の Organization ダッシュボード。 詳細については、「[Organization ダッシュボードについて](/articles/about-your-organization-dashboard/)」を参照してください。
 
-You can set a location and time zone on your profile to show other people your local time. Your location and time zone will be visible:
-- on your {% data variables.product.product_name %} profile page.
-- when people hover over your username or avatar on {% data variables.product.product_name %}.
+ステータスを設定すると、あなたの時間的な制約について、{% data variables.product.product_name %} で他のユーザーに知らせることもできます。
 
-When you view your profile, you will see your location, local time, and your time zone in relation to Universal Time Coordinated.
+![@メンションされたユーザー名の横に "busy"(ビジー) ノートが表示される](/assets/images/help/profile/username-with-limited-availability-text.png)
 
-  ![Screenshot of the Octocat profile page emphasizing the location, local time, and time zone fields.](/assets/images/help/profile/profile-location-and-time.png)
+![依頼されたレビュー担当者には、ユーザー名の横に "busy"(ビジー) ノートが表示されます。](/assets/images/help/profile/request-a-review-limited-availability-status.png)
 
-When others view your profile, they will see your location, local time, and the time difference in hours from their own local time.
+[Busy]\(ビジー\) オプションを選ぶと、自分のユーザー名に誰かが @mention したとき、自分に issue や pull request が割り当てられたとき、または自分が pull request レビューをリクエストしたとき、ユーザー名の横にビジーであることを示すノートが表示されます。 また、自分が所属するチームに割り当てられた pull request の自動レビュー割り当てからも除外されます。 詳細については、「[チームのコード レビュー設定の管理](/organizations/organizing-members-into-teams/managing-code-review-settings-for-your-team)」を参照してください。
 
-  ![Screenshot of the Octocat profile page emphasizing the location, local time, and relative time fields.](/assets/images/help/profile/profile-relative-time.png)
-
-{% data reusables.user-settings.access_settings %}
-1. Under **Location**, type the location you want to be displayed on your profile.
-
-  ![Screenshot of the location and local time settings emphasizing the location field.](/assets/images/help/profile/location-field.png)
-
-1. Optionally, to display the current local time on your profile, select **Display current local time**.
-
-  ![Screenshot of the location and local time settings emphasizing the display current local time checkbox.](/assets/images/help/profile/display-local-time-checkbox.png)
-
-   - Select the **Time zone** dropdown menu, then click your local time zone.
-
-     ![Screenshot of the location and local time settings emphasizing the time zone dropdown menu.](/assets/images/help/profile/time-zone-dropdown.png)
-   
-{% data reusables.profile.update-profile %}
-
-{% endif %}
-
-## Setting a status
-
-You can set a status to display information about your current availability on {% data variables.product.product_name %}. Your status will show:
-- on your {% data variables.product.product_name %} profile page.
-- when people hover over your username or avatar on {% data variables.product.product_name %}.
-- on a team page for a team where you're a team member. For more information, see "[About teams](/articles/about-teams/#team-pages)."
-- on the organization dashboard in an organization where you're a member. For more information, see "[About your organization dashboard](/articles/about-your-organization-dashboard/)."
-
-When you set your status, you can also let people know that you have limited availability on {% data variables.product.product_name %}.
-
-![At-mentioned username shows "busy" note next to username](/assets/images/help/profile/username-with-limited-availability-text.png)
-
-![Requested reviewer shows "busy" note next to username](/assets/images/help/profile/request-a-review-limited-availability-status.png)
-
-If you select the "Busy" option, when people @mention your username, assign you an issue or pull request, or request a pull request review from you, a note next to your username will show that you're busy. You will also be excluded from automatic review assignment for pull requests assigned to any teams you belong to. For more information, see "[Managing code review settings for your team](/organizations/organizing-members-into-teams/managing-code-review-settings-for-your-team)."
-
-1. In the top right corner of {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom_the_website %}{% else %}{% data variables.product.product_name %}{% endif %}, click your profile photo, then click **Set status** or, if you already have a status set, click your current status.
-  ![Button on profile to set your status](/assets/images/help/profile/set-status-on-profile.png)
-2. To add custom text to your status, click in the text field and type a status message.
-  ![Field to type a status message](/assets/images/help/profile/type-a-status-message.png)
-3. Optionally, to set an emoji status, click the smiley icon and select an emoji from the list.
-  ![Button to select an emoji status](/assets/images/help/profile/select-emoji-status.png)
-4. Optionally, if you'd like to share that you have limited availability, select "Busy."
-  ![Busy option selected in Edit status options](/assets/images/help/profile/limited-availability-status.png)
-5. Use the **Clear status** drop-down menu, and select when you want your status to expire. If you don't select a status expiration, you will keep your status until you clear or edit your status.
-  ![Drop down menu to choose when your status expires](/assets/images/help/profile/status-expiration.png)
-6. Use the drop-down menu and click the organization you want your status visible to. If you don't select an organization, your status will be public.
-  ![Drop down menu to choose who your status is visible to](/assets/images/help/profile/status-visibility.png)
-7. Click **Set status**.
-  ![Button to set status](/assets/images/help/profile/set-status-button.png)
+1. {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom_the_website %}{% else %}{% data variables.product.product_name %}{% endif %} の右上にあるプロファイル画像をクリックし、 **[Set your status]\(ステータスの設定\)** をクリックします。または既にステータスが設定されている場合は、現在のステータスをクリックします。
+  ![ステータスを設定するプロファイルのボタン](/assets/images/help/profile/set-status-on-profile.png)
+2. ステータスにカスタムテキストを追加する場合は、テキストフィールドをクリックしてステータスメッセージを入力します。
+  ![ステータス メッセージを入力するフィールド](/assets/images/help/profile/type-a-status-message.png)
+3. オプションで、ステータス絵文字を設定する場合は、絵文字のアイコンをクリックしてリストから選択します。
+  ![絵文字のステータスを選ぶボタン](/assets/images/help/profile/select-emoji-status.png)
+4. オプションで、時間に制約があるという情報を共有するには、[Busy] を選択します。
+  ![[Edit status]\(ステータスの編集\) オプションで選ばれている [Busy]\(ビジー\) オプション](/assets/images/help/profile/limited-availability-status.png)
+5. **[Clear status]\(ステータスのクリア\)** ドロップダウン メニューを使って、ステータスの有効期限を選びます。 ステータスの有効期限を設定しない場合は、クリアするか編集するまで同じステータスのままになります。
+  ![ステータスの有効期限が切れたときに選ぶドロップダウン メニュー](/assets/images/help/profile/status-expiration.png)
+6. ドロップダウンメニューを使って、ステータスを表示する Organization をクリックします。 Organization を選択しない場合、あなたのステータスはパブリックになります。
+  ![ステータスが表示されるときに選ぶドロップダウン メニュー](/assets/images/help/profile/status-visibility.png)
+7. **[Set status]\(ステータスの設定\)** をクリックします。
+  ![ステータスを設定するボタン](/assets/images/help/profile/set-status-button.png)
 
 {% ifversion fpt or ghec %}
-## Displaying badges on your profile
+## プロフィールでバッジを表示する
 
-When you participate in certain programs, {% data variables.product.prodname_dotcom %} automatically displays a badge on your profile.
+特定のプログラムに参加すると、{% data variables.product.prodname_dotcom %} でプロフィールに自動的にバッジが表示されます。
 
-| Badge | Program | Description |
+| バッジ | プログラム | 説明 |
 | --- | --- | --- |
-| {% octicon "cpu" aria-label="The Developer Program icon" %} | **Developer Program Member** | If you're a registered member of the {% data variables.product.prodname_dotcom %} Developer Program, building an app with the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API, you'll get a Developer Program Member badge on your profile. For more information on the {% data variables.product.prodname_dotcom %} Developer Program, see [GitHub Developer](/program/). |
-| {% octicon "star-fill" aria-label="The star icon" %} | **Pro** | If you use {% data variables.product.prodname_pro %} you'll get a PRO badge on your profile. For more information about {% data variables.product.prodname_pro %}, see "[{% data variables.product.prodname_dotcom %}'s products](/github/getting-started-with-github/githubs-products#github-pro)." |
-| {% octicon "lock" aria-label="The lock icon" %} | **Security Bug Bounty Hunter** | If you helped out hunting down security vulnerabilities, you'll get a Security Bug Bounty Hunter badge on your profile. For more information about the {% data variables.product.prodname_dotcom %} Security program, see [{% data variables.product.prodname_dotcom %} Security](https://bounty.github.com/). |
-| {% octicon "mortar-board" aria-label="The mortar-board icon" %} | **{% data variables.product.prodname_dotcom %} Campus Expert** | If you participate in the {% data variables.product.prodname_campus_program %}, you will get a {% data variables.product.prodname_dotcom %} Campus Expert badge on your profile. For more information about the Campus Experts program, see [Campus Experts](https://education.github.com/experts). |
-| {% octicon "shield" aria-label="The shield icon" %} | **Security advisory credit** | If a security advisory you submit to the [{% data variables.product.prodname_dotcom %} Advisory Database](https://github.com/advisories) is accepted, you'll get a Security advisory credit badge on your profile. For more information about {% data variables.product.prodname_dotcom %} Security Advisories, see [{% data variables.product.prodname_dotcom %} Security Advisories](/code-security/repository-security-advisories/about-github-security-advisories-for-repositories). |
-| {% octicon "check" aria-label="The check icon" %} | **Discussion answered** | If your reply to a discussion is marked as the answer, you'll get a Discussion answered badge on your profile. For more information about {% data variables.product.prodname_dotcom %} Discussions, see [About discussions](/discussions/collaborating-with-your-community-using-discussions/about-discussions). |
+| {% octicon "cpu" aria-label="The Developer Program icon" %} | **開発者プログラム メンバー** | {% data variables.product.prodname_dotcom %} 開発者プログラムの登録メンバーである場合は、{% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API を使ってアプリをビルドすると、プロファイルに開発者プログラム メンバー バッジが表示されます。 {% data variables.product.prodname_dotcom %} 開発者プログラムの詳細については、[GitHub 開発者](/program/)に関するページを参照してください。 |
+| {% octicon "star-fill" aria-label="The star icon" %} | **Pro** | {% data variables.product.prodname_pro %} を使用すると、プロフィールで PRO バッジを取得します。 {% data variables.product.prodname_pro %} の詳細については、「[{% data variables.product.prodname_dotcom %} の製品](/github/getting-started-with-github/githubs-products#github-pro)」を参照してください。 |
+| {% octicon "lock" aria-label="The lock icon" %} | **セキュリティ バグ バウンティ ハンター** | セキュリティの脆弱性検出を支援した場合、プロファイルにセキュリティ バグ バウンティ ハンター バッジが表示されます。 {% data variables.product.prodname_dotcom %} セキュリティ プログラムの詳細については、[{% data variables.product.prodname_dotcom %} のセキュリティ](https://bounty.github.com/)に関するページを参照してください。 |
+| {% octicon "mortar-board" aria-label="The mortar-board icon" %} | **{% data variables.product.prodname_dotcom %} キャンパス エキスパート** | {% data variables.product.prodname_campus_program %} に参加すると、プロファイルに {% data variables.product.prodname_dotcom %} キャンパス エキスパート バッジが表示されます。 キャンパス エキスパート プログラムの詳細については、[キャンパス エキスパート](https://education.github.com/experts)に関するページを参照してください。 |
+| {% octicon "shield" aria-label="The shield icon" %} | **セキュリティ アドバイザリ クレジット** | [{% data variables.product.prodname_dotcom %} Advisory Database](https://github.com/advisories) に送信したセキュリティ アドバイザリが受け入れられると、プロフィールにセキュリティ アドバイザリ クレジット バッジが表示されます。 {% data variables.product.prodname_dotcom %} セキュリティ アドバイザリについて詳しくは、[{% data variables.product.prodname_dotcom %} セキュリティ アドバイザリ](/code-security/repository-security-advisories/about-github-security-advisories-for-repositories)に関するページをご覧ください。 |
+| {% octicon "check" aria-label="The check icon" %} | **回答済みディスカッション** | ディスカッションへの返信が回答としてマークされている場合は、プロフィールに回答済みディスカッション バッジが表示されます。 {% data variables.product.prodname_dotcom %} のディスカッションについて詳しくは、「[ディスカッションについて](/discussions/collaborating-with-your-community-using-discussions/about-discussions)」をご覧ください。 |
 
 {% endif %}
 
 {% ifversion fpt or ghec %}
 
-## Earning Achievements
+## アチーブメントの獲得
 
-Achievements celebrate specific events and actions that happen on {% data variables.product.prodname_dotcom %}. They will appear as small badges listed in the sidebar of your profile. Clicking or hovering on an achievement will show a detailed view that hints at how the achievement was earned, with a short description and links to the contributing events. The event links will only be visible to users that have access to the repository or organization that the event took place in. Event links will appear inaccessible to all users without access.
+アチーブメントは、{% data variables.product.prodname_dotcom %} で発生する特定のイベントとアクションを示します。 それは、プロフィールのサイドバーの小さなバッジとして表示されます。 アチーブメントをクリックまたはポイントすると、アチーブメントがどのようにして獲得されたのかがわかる詳細と、簡単な説明および関連するイベントへのリンクが表示されます。 イベント リンクは、イベントが発生したリポジトリまたは Organization にアクセスできるユーザーに対してだけ表示されます。 アクセス権のないすべてのユーザーには、アクセスできないイベント リンクが表示されます。
 
-To stop private contributions from counting toward your Achievements, or to turn off Achievements entirely, see "[Showing your private contributions and Achievements on your profile](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile)."
+非公開の貢献がアチーブメントにカウントされないようにするには、またはアチーブメントを完全にオフにするには、「[プロフィールに非公開の貢献とアチーブメントを表示する](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile)」をご覧ください。
 
 {% note %}
 
-**Note:** This feature is currently in beta and subject to change.
+**注:** この機能は現在ベータ版であり、変更されることがあります。
 
 {% endnote %}
 
 {% endif %}
 
-## List of qualifying repositories for Mars 2020 Helicopter Contributor achievement
+## Mars 2020 ヘリコプター共同作成者アチーブメントの対象リポジトリの一覧
 
-If you authored any commit(s) present in the commit history for the listed tag of one or more of the repositories below, you'll receive the Mars 2020 Helicopter Contributor achievement on your profile. The authored commit must be with a verified email address, associated with your account at the time {% data variables.product.prodname_dotcom %} determined the eligible contributions, in order to be attributed to you. You can be the original author or [one of the co-authors](/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/creating-a-commit-with-multiple-authors) of the commit. Future changes to verified emails will not have an effect on the badge. We built the list based on information received from NASA's Jet Propulsion Laboratory.
+次に示す 1 つ以上のリポジトリの一覧にあるタグについて、コミット履歴に存在するコミットを作成した場合、Mars 2020 ヘリコプター共同作成者アチーブメントがプロフィールに表示されます。 {% data variables.product.prodname_dotcom %} が適格な貢献と判断した時点であなたのアカウントに関連付けられていた、検証済みメール アドレスを使って作成したコミットである必要があります。これは、あなたの貢献と判断するために必要です。 そのコミットの元の作成者または[共同作成者の 1 人](/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/creating-a-commit-with-multiple-authors)である場合があります。 将来的に検証済みメール アドレスを変更しても、このバッジに影響はありません。 NASA の Jet Propulsion 研究所から受け取った情報に基づいて一覧を作成しました。
 
-| {% data variables.product.prodname_dotcom %} Repository | Version | Tag |
+| {% data variables.product.prodname_dotcom %} リポジトリ | バージョン | タグ |
 |---|---|---|
 | [torvalds/linux](https://github.com/torvalds/linux) | 3.4 | [v3.4](https://github.com/torvalds/linux/releases/tag/v3.4) |
 | [python/cpython](https://github.com/python/cpython) | 3.9.2 | [v3.9.2](https://github.com/python/cpython/releases/tag/v3.9.2) |
@@ -268,6 +238,6 @@ If you authored any commit(s) present in the commit history for the listed tag o
 | [locationtech/jts](https://github.com/locationtech/jts) | 1.15.0 | [jts-1.15.0](https://github.com/locationtech/jts/releases/tag/jts-1.15.0) |
 | [apache/logging-log4j2](https://github.com/apache/logging-log4j2) | 2.11 | [log4j-2.11.0](https://github.com/apache/logging-log4j2/releases/tag/log4j-2.11.0) |
 
-## Further reading
+## 参考資料
 
-- "[About your profile](/articles/about-your-profile)"
+- "[プロフィールについて](/articles/about-your-profile)"

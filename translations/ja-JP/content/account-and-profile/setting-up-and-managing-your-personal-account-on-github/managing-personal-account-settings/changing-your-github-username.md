@@ -1,6 +1,6 @@
 ---
-title: Changing your GitHub username
-intro: 'You can change the username for your account on {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom_the_website %}{% elsif ghes %}{% data variables.location.product_location %} if your instance uses built-in authentication{% endif %}.'
+title: GitHub ユーザ名の変更
+intro: 'インスタンスに組み込みの認証が使用されている場合は、{% endif %}{% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom_the_website %}{% elsif ghes %}{% data variables.product.product_location %} でアカウントのユーザー名を変更できます。'
 redirect_from:
   - /articles/how-to-change-your-username
   - /articles/changing-your-github-user-name
@@ -17,19 +17,24 @@ versions:
 topics:
   - Accounts
 shortTitle: Change your username
+ms.openlocfilehash: 28f4d0ea1a16fed0e44f34312abfd507e2f991b7
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145165263'
 ---
-
 {% ifversion ghec or ghes %}
 
 {% note %}
 
 {% ifversion ghec %}
 
-**Note**: Members of an {% data variables.enterprise.prodname_emu_enterprise %} cannot change usernames. Your enterprise's IdP administrator controls your username for {% data variables.product.product_name %}. For more information, see "[About {% data variables.product.prodname_emus %}](/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users)."
+**注**: {% data variables.product.prodname_emu_enterprise %} のメンバーは、ユーザー名を変更できません。 Enterprise の IdP 管理者は、{% data variables.product.product_name %} のユーザー名を制御します。 詳細については、「[{% data variables.product.prodname_emus %} について](/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users)」を参照してください。
 
 {% elsif ghes %}
 
-**Note**: If you sign into {% data variables.location.product_location %} with LDAP credentials or single sign-on (SSO), only your local administrator can change your username. For more information about authentication methods for {% data variables.product.product_name %}, see "[Authenticating users for {% data variables.location.product_location %}](/admin/authentication/authenticating-users-for-your-github-enterprise-server-instance)."
+**注**: LDAP 資格情報またはシングル サインオン (SSO) を使用して {% data variables.product.product_location %} にサインインする場合は、ローカル管理者のみがユーザー名を変更できます。 {% data variables.product.product_name %} の認証方法の詳細については、「[{% data variables.product.product_location %} でユーザーを認証する](/admin/authentication/authenticating-users-for-your-github-enterprise-server-instance)」を参照してください。
 
 {% endif %}
 
@@ -37,61 +42,55 @@ shortTitle: Change your username
 
 {% endif %}
 
-## About username changes
+## ユーザ名の変更について
 
-You can change your username to another username that is not currently in use.{% ifversion fpt or ghec %} If the username you want is not available, consider other names or unique variations. Using a number, hyphen, or an alternative spelling might help you find a similar username that's still available.
+ユーザー名は、現在使用されていない別のユーザー名に変更できます。{% ifversion fpt or ghec %}変更したいユーザー名が使用できない場合は、他の名前または一意のバリエーションを検討してください。 数字、ハイフン、別のつづりなどを使えば、同様のユーザ名が見つかるかもしれません。
 
-If you hold a trademark for the username, you can find more information about making a trademark complaint on our [Trademark Policy](/free-pro-team@latest/github/site-policy/github-trademark-policy) page. 
+ユーザー名の商標を保持している場合は、[商標ポリシー](/free-pro-team@latest/github/site-policy/github-trademark-policy)のページで商標の苦情を申し立てる方法の詳細を確認できます。 
 
-If you do not hold a trademark for the name, you can choose another username or keep your current username. {% data variables.contact.github_support %} cannot release the unavailable username for you. For more information, see "[Changing your username](#changing-your-username)."{% endif %}
+名前の商標を保持していない場合は、別のユーザー名を選択するか、現在のユーザー名を保持することができます。 {% data variables.contact.github_support %} では、利用できないユーザ名をリリースできません。 詳細については、「[ユーザー名を変更する](#changing-your-username)」を参照してください。{% endif %}
 
-After changing your username, your old username becomes available for anyone else to claim. Most references to your repositories under the old username automatically change to the new username. However, some links to your profile won't automatically redirect.
+ユーザ名を変更すると、変更前のユーザ名は誰でも取得できるようになります。 古いユーザ名の下にあるリポジトリへの参照のほとんどが、自動で新しいユーザ名に変わります。 ただし、プロフィールへのリンクによっては、自動的にリダイレクトされません。
 
-{% data variables.product.product_name %} cannot set up redirects for:
-- [@mentions](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams) using your old username
-- Links to [gists](/articles/creating-gists) that include your old username
+{% data variables.product.product_name %} は、次のリダイレクトを設定できません:
+- [@mentions](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams) 古いユーザー名を使用する
+- 古いユーザー名を含む [gists](/articles/creating-gists) へのリンク
 
 {% ifversion fpt or ghec %} 
 
-If you're a member of an {% data variables.enterprise.prodname_emu_enterprise %}, you cannot make changes to your username. {% data reusables.enterprise-accounts.emu-more-info-account %}
+{% data variables.product.prodname_emu_enterprise %} のメンバーである場合、ユーザー名を変更することはできません。 {% data reusables.enterprise-accounts.emu-more-info-account %}
 
 {% endif %}
 
-## Repository references
+## リポジトリ参照
 
-After you change your username, {% data variables.product.product_name %} will automatically redirect references to your repositories.
-- Web links to your existing repositories will continue to work. This can take a few minutes to complete after you make the change.
-- Command line pushes from your local repository clones to the old remote tracking URLs will continue to work.
+ユーザ名を変更した後、{% data variables.product.product_name %} は自動的にあなたのリポジトリへの参照をリダイレクトします。
+- 既存のリポジトリへの Web リンクは引き続き機能します。 変更を加えてから完了するまでに数分かかることがあります。
+- ローカルリポジトリのクローンから古いリモートトラッキング URL へのコマンドラインプッシュは引き続き機能します。
 
-If the new owner of your old username creates a repository with the same name as your repository, that will override the redirect entry and your redirect will stop working. Because of this possibility, we recommend you update all existing remote repository URLs after changing your username. For more information, see "[Managing remote repositories](/github/getting-started-with-github/managing-remote-repositories)."
+古いユーザ名の新しい所有者が、あなたのリポジトリと同じ名前のリポジトリを作成すると、リダイレクトエントリが上書きされ、リダイレクトは機能しなくなります。 こうしたことが起こることを防ぐため、ユーザ名を変更したら、既存のすべてのリモートリポジトリ URL を更新することをお勧めします。 詳細については、「[リモート リポジトリを管理する](/github/getting-started-with-github/managing-remote-repositories)」を参照してください。
 
-## Links to your previous profile page
+## 前のプロフィールページにリンクする
 
-After changing your username, links to your previous profile page, such as `https://{% data variables.command_line.backticks %}/previoususername`, will return a 404 error. We recommend updating any links to your account on {% data variables.location.product_location %} from elsewhere{% ifversion fpt or ghec %}, such as your LinkedIn or Twitter profile{% endif %}.
+ユーザー名を変更すると、前のプロファイル ページへのリンク (例: `https://{% data variables.command_line.backticks %}/previoususername`) で 404 エラーが返されます。 {% data variables.product.product_location %} のご自分のアカウントへのすべてのリンクを、他の場所から更新することをお勧めします{% ifversion fpt or ghec %} (例: LinkedIn や Twitter のプロフィールなど){% endif %}。
 
-## Your Git commits
+## Git コミット
 
-{% ifversion fpt or ghec %}Git commits that were associated with your {% data variables.product.product_name %}-provided `noreply` email address won't be attributed to your new username and won't appear in your contributions graph.{% endif %} If your Git commits are associated with another email address you've [added to your GitHub account](/articles/adding-an-email-address-to-your-github-account), {% ifversion fpt or ghec %}including the ID-based {% data variables.product.product_name %}-provided `noreply` email address, {% endif %}they'll continue to be attributed to you and appear in your contributions graph after you've changed your username. For more information on setting your email address, see "[Setting your commit email address](/articles/setting-your-commit-email-address)."
+{% ifversion fpt or ghec %}{% data variables.product.product_name %}-が提供する、`noreply` メールアドレスに関連付けられた Git コミットは、新しいユーザー名に関連付けられず、あなたのコントリビューション グラフには表示されません。{% endif %} あなたの Git コミットが、{% ifversion fpt or ghec %}ID ベースの {% data variables.product.product_name %} から提供された `noreply` メールアドレスを含む{% endif %} [GitHub アカウントに追加した](/articles/adding-an-email-address-to-your-github-account)別のメールアドレスに関連付けられている場合、ユーザー名を変更した後も、それらは引き続きあなたに帰属し、あなたのコントリビューション グラフに表示されます。 メール アドレスの設定の詳細については、「[コミッ トメール アドレスを設定する](/articles/setting-your-commit-email-address)」を参照してください。
 
-## Your gists
+## ユーザ名を変更する
 
-After changing your username, the URLs to any public or secret gists will also change and previous links to these will return a 404 error. We recommend updating the links to these gists anywhere you may have shared them.
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.account_settings %}
+3. [ユーザー名の変更] セクションで、 **[ユーザー名の変更]** をクリックします。
+   ![[ユーザー名の変更] ボタン](/assets/images/help/settings/settings-change-username.png){% ifversion fpt or ghec %}
+4. ユーザ名を変更することに関する警告を読みます。 ユーザー名を変更する場合は、 **[I understand, let's change my username]** をクリックします。
+   ![[ユーザー名の変更の警告] ボタン](/assets/images/help/settings/settings-change-username-warning-button.png)
+5. 新しいユーザ名を入力します。
+   ![新しいユーザー名のフィールド](/assets/images/help/settings/settings-change-username-enter-new-username.png)
+6. 選択したユーザー名が利用できる場合、 **[ユーザー名を変更する]** をクリックします。 選択したユーザ名が利用できない場合、別のユーザ名を入力するか、提案されたユーザ名を利用できます。
+   ![[ユーザー名の変更の警告] ボタン](/assets/images/help/settings/settings-change-my-username-button.png) {% endif %}
 
-## Changing your username
+## 参考資料
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.account_settings %}
-3. In the "Change username" section, click **Change username**.
-   ![Change Username button](/assets/images/help/settings/settings-change-username.png){% ifversion fpt or ghec %}
-4. Read the warnings about changing your username. If you still want to change your username, click **I understand, let's change my username**.
-   ![Change Username warning button](/assets/images/help/settings/settings-change-username-warning-button.png)
-5. Type a new username.
-   ![New username field](/assets/images/help/settings/settings-change-username-enter-new-username.png)
-6. If the username you've chosen is available, click **Change my username**. If the username you've chosen is unavailable, you can try a different username or one of the suggestions you see.
-   ![Change Username warning button](/assets/images/help/settings/settings-change-my-username-button.png)
-{% endif %}
-
-## Further reading
-
-- "[Why are my commits linked to the wrong user?](/pull-requests/committing-changes-to-your-project/troubleshooting-commits/why-are-my-commits-linked-to-the-wrong-user)"{% ifversion fpt or ghec %}
-- "[{% data variables.product.prodname_dotcom %} Username Policy](/free-pro-team@latest/github/site-policy/github-username-policy)"{% endif %}
+- [コミットが間違ったユーザーにリンクされているのはなぜですか?](/pull-requests/committing-changes-to-your-project/troubleshooting-commits/why-are-my-commits-linked-to-the-wrong-user){% ifversion fpt or ghec %}
+- [{% data variables.product.prodname_dotcom %} ユーザー名ポリシー](/free-pro-team@latest/github/site-policy/github-username-policy) {% endif %}

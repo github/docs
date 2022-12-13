@@ -1,6 +1,6 @@
 ---
-title: About Dependabot version updates
-intro: 'You can use {% data variables.product.prodname_dependabot %} to keep the packages you use updated to the latest versions.'
+title: GitHub Dependabot のバージョンアップデートについて
+intro: '{% data variables.product.prodname_dependabot %} を使用して、使用するパッケージを最新バージョンに更新しておくことができます。'
 redirect_from:
   - /github/administering-a-repository/about-dependabot
   - /github/administering-a-repository/about-github-dependabot
@@ -21,51 +21,53 @@ topics:
   - Dependencies
   - Pull requests
 shortTitle: Dependabot version updates
+ms.openlocfilehash: 56bac2fbf2fb42a418cffbd478aa526803b124d9
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145186085'
 ---
+{% data reusables.dependabot.beta-security-and-version-updates %} {% data reusables.dependabot.enterprise-enable-dependabot %}
 
-{% data reusables.dependabot.beta-security-and-version-updates %}
-{% data reusables.dependabot.enterprise-enable-dependabot %}
+## {% data variables.product.prodname_dependabot_version_updates %} について
 
-## About {% data variables.product.prodname_dependabot_version_updates %}
+{% data variables.product.prodname_dependabot %} は、依存関係を維持する手間を省きます。 これを使用して、リポジトリが依存するパッケージおよびアプリケーションの最新リリースに自動的に対応できるようにすることができます。
 
-{% data variables.product.prodname_dependabot %} takes the effort out of maintaining your dependencies. You can use it to ensure that your repository automatically keeps up with the latest releases of the packages and applications it depends on.
+`dependabot.yml` 構成ファイルをリポジトリにチェックインして、{% data variables.product.prodname_dependabot_version_updates %} を有効にします。 設定ファイルは、リポジトリに保存されているマニフェストまたは他のパッケージ定義ファイルの場所を指定します。 {% data variables.product.prodname_dependabot %} ではこの情報を使用して、期限切れのパッケージとアプリケーションが検査されます。 {% data variables.product.prodname_dependabot %} では、依存関係のセマンティック バージョニング ([semver](https://semver.org/)) を調べて、依存関係の新しいバージョンの有無が判断され、そのバージョンへ更新すべきかどうかが決定されます。 特定のパッケージマネージャーでは、{% data variables.product.prodname_dependabot_version_updates %} もベンダをサポートしています。 ベンダ (またはキャッシュ) された依存関係は、マニフェストで参照されるのではなく、リポジトリ内の特定のディレクトリにチェックインされる依存関係です。 パッケージサーバーが利用できない場合でも、ビルド時にベンダ依存関係を利用できます。 {% data variables.product.prodname_dependabot_version_updates %} は、ベンダの依存関係をチェックして新しいバージョンを確認し、必要に応じて更新するように設定できます。 
 
-You enable {% data variables.product.prodname_dependabot_version_updates %} by checking a `dependabot.yml` configuration file into your repository. The configuration file specifies the location of the manifest, or of other package definition files, stored in your repository. {% data variables.product.prodname_dependabot %} uses this information to check for outdated packages and applications. {% data variables.product.prodname_dependabot %} determines if there is a new version of a dependency by looking at the semantic versioning ([semver](https://semver.org/)) of the dependency to decide whether it should update to that version. For certain package managers, {% data variables.product.prodname_dependabot_version_updates %} also supports vendoring. Vendored (or cached) dependencies are dependencies that are checked in to a specific directory in a repository rather than referenced in a manifest. Vendored dependencies are available at build time even if package servers are unavailable. {% data variables.product.prodname_dependabot_version_updates %} can be configured to check vendored dependencies for new versions and update them if necessary. 
+{% data variables.product.prodname_dependabot %} で以前の依存関係が特定されると、マニフェストを依存関係の最新バージョンに更新する pull request が発行されます。 ベンダーの依存関係の場合、{% data variables.product.prodname_dependabot %} はプルリクエストを生成して、古い依存関係を新しいバージョンに直接置き換えます。 テストに合格したことを確認し、プルリクエストの概要に含まれている変更履歴とリリースノートを確認して、マージします。 詳細については、「[{% data variables.product.prodname_dependabot %} バージョンの更新の構成](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/enabling-and-disabling-dependabot-version-updates)」を参照してください。
 
-When {% data variables.product.prodname_dependabot %} identifies an outdated dependency, it raises a pull request to update the manifest to the latest version of the dependency. For vendored dependencies, {% data variables.product.prodname_dependabot %} raises a pull request to replace the outdated dependency with the new version directly. You check that your tests pass, review the changelog and release notes included in the pull request summary, and then merge it. For more information, see "[Configuring {% data variables.product.prodname_dependabot %} version updates](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/enabling-and-disabling-dependabot-version-updates)."
-
-If you enable _security updates_, {% data variables.product.prodname_dependabot %} also raises pull requests to update vulnerable dependencies. For more information, see "[About {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/about-dependabot-security-updates)."
+_セキュリティ更新プログラム_ を有効にすると、{% data variables.product.prodname_dependabot %} でも pull request が発行され、脆弱性のある依存関係を更新します。 詳細については、「[{% data variables.product.prodname_dependabot_security_updates %}について](/github/managing-security-vulnerabilities/about-dependabot-security-updates)」を参照してください。
 
 {% data reusables.dependabot.pull-request-security-vs-version-updates %}
 
-{% data reusables.dependabot.dependabot-updates-and-actions %}
-
 {% data reusables.dependabot.dependabot-tos %}
 
-## Frequency of {% data variables.product.prodname_dependabot %} pull requests
+## {% data variables.product.prodname_dependabot %} のプルリクエストの頻度
 
-You specify how often to check each ecosystem for new versions in the configuration file: daily, weekly, or monthly.
+設定ファイルで、新しいバージョンの各エコシステムをチェックする頻度を、毎日、毎週、毎月の中から指定します。
 
 {% data reusables.dependabot.initial-updates %}
 
-If you've enabled security updates, you'll sometimes see extra pull requests for security updates. These are triggered by a {% data variables.product.prodname_dependabot %} alert for a dependency on your default branch. {% data variables.product.prodname_dependabot %} automatically raises a pull request to update the vulnerable dependency.
+セキュリティアップデートを有効にした場合、セキュリティアップデートの追加に対するプルリクエストが表示されることがあります。 これらは、デフォルト ブランチへの依存関係に対する {% data variables.product.prodname_dependabot %} アラートによってトリガーされます。 {% data variables.product.prodname_dependabot %} はプルリクエストを自動的に生成し、脆弱性のある依存関係を更新します。
 
-## Supported repositories and ecosystems
+## サポートされているリポジトリとエコシステム
 <!-- If you make changes to this feature, check whether any of the changes affect languages listed in /get-started/learning-about-github/github-language-support. If so, please update the language support article accordingly. -->
 
-You can configure version updates for repositories that contain a dependency manifest or lock file for one of the supported package managers. For some package managers, you can also configure vendoring for dependencies. For more information, see "[Configuration options for the dependabot.yml file](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/configuration-options-for-dependency-updates#vendor)."
+サポートされているパッケージマネージャーのいずれかの依存関係マニフェストまたはロックファイルを含むリポジトリのバージョン更新を設定できます。 一部のパッケージマネージャーでは、依存関係のベンダを設定することもできます。 詳細については、「[dependabot.yml ファイルの構成オプション](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/configuration-options-for-dependency-updates#vendor)」を参照してください。
 {% note %}
 
 {% data reusables.dependabot.private-dependencies-note %} 
 
-{% data variables.product.prodname_dependabot %} doesn't support private {% data variables.product.prodname_dotcom %} dependencies for all package managers. See the details in the table below.
+{% data variables.product.prodname_dependabot %} は、すべてのパッケージマネージャーに対してプライベートな {% data variables.product.prodname_dotcom %} 依存関係をサポートしません。 詳細は、以下の表をご覧ください。
 
 {% endnote %}
 
 {% data reusables.dependabot.supported-package-managers %}
 
-If your repository already uses an integration for dependency management, you will need to disable this before enabling {% data variables.product.prodname_dependabot %}. {% ifversion fpt or ghec %}For more information, see "[About integrations](/github/customizing-your-github-workflow/about-integrations)."{% endif %}
+リポジトリですでに依存関係管理にインテグレーションを使用している場合は、{% data variables.product.prodname_dependabot %} を有効にする前にそれを無効にする必要があります。 {% ifversion fpt or ghec %}詳細については、「[統合について](/github/customizing-your-github-workflow/about-integrations)」を参照してください。{% endif %}
 
-## About notifications for {% data variables.product.prodname_dependabot %} version updates
+## {% data variables.product.prodname_dependabot %} バージョン更新の通知について
 
-You can filter your notifications on {% data variables.product.company_short %} to show notifications for pull requests created by {% data variables.product.prodname_dependabot %}. For more information, see "[Managing notifications from your inbox](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox)."
+{% data variables.product.company_short %} で通知をフィルター処理して、{% data variables.product.prodname_dependabot %} によって作成された pull request の通知を表示できます。 詳細については、「[受信トレイからの通知の管理](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox)」を参照してください。

@@ -1,0 +1,18 @@
+date: '25 de mayo de 2021'
+sections:
+  security_fixes:
+    - '**MEDIA:** Bajo ciertas circunstancias, los usuarios que se eliminaban de un equipo u organización podían retener el acceso de escritura a las ramas en las cuales tenían solicitudes de cambio existentes abiertas.'
+    - Los paquetes se han actualizado a las últimas versiones de seguridad.
+  bugs:
+    - La replicación normal se retrasa en las advertencias que genera MSSQL.
+    - "Las direcciones IP que agregaba un administrador utilizando el botón \"Crear entrada de lista de admisión\" podía bloquearse de todos modos."
+    - '`spokesd` creaba entradas de bitácora excesivas, incluyendo la frase "fixing placement skipped".'
+  changes:
+    - Se archivarán las anotaciones de verificación anteriores a 4 meses.
+  known_issues:
+    - "En un servidor de GitHub Enterprise recién configurado sin usuarios, un atacante podría crear el primer usuario administrador."
+    - Las reglas de firewall personalizadas no se mantienen durante una actualización.
+    - "Los archivos supervisados de Git LFS [cargados desde la interfaz web](https://github.com/blog/2105-upload-files-to-your-repositories) se agregan de manera incorrecta y directa al repositorio."
+    - Las incidencias no se pueden cerrar si contienen un vínculo permanente a un blob en el mismo repositorio en el que la ruta de acceso de archivo del blob tiene más de 255 caracteres.
+    - "Cuando se habilita \"Los usuarios pueden buscar en GitHub.com\" con GitHub Connect, las incidencias en los repositorios privados e internos no se incluyen en los resultados de la búsqueda de GitHub.com."
+    - "Cuando un nodo de réplica está sin conexión en una configuración de disponibilidad alta, es posible que {% data variables.product.product_name %} enrute las solicitudes a {% data variables.product.prodname_pages %} al nodo sin conexión, lo que reduce la disponibilidad de {% data variables.product.prodname_pages %} para los usuarios."

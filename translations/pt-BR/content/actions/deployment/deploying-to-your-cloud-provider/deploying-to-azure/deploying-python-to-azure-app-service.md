@@ -1,6 +1,6 @@
 ---
-title: Deploying Python to Azure App Service
-intro: You can deploy your Python project to Azure App Service as part of your continuous deployment (CD) workflows.
+title: Implementando o Python no Azure App Service
+intro: Você pode fazer a implantação do seu projeto Python no Azure App Service como parte de seus fluxos de trabalho de implantação contínua (CD).
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,34 +11,38 @@ topics:
   - CD
   - Python
   - Azure App Service
+ms.openlocfilehash: c9f1bc719068a250aaabfbb8dcb3581335dabdb1
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147409456'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+## Introdução
 
-## Introduction
+Este guia explica como usar o {% data variables.product.prodname_actions %} para criar e implantar um projeto do Python no [Serviço de Aplicativo do Azure](https://azure.microsoft.com/services/app-service/).
 
-This guide explains how to use {% data variables.product.prodname_actions %} to build and deploy a Python project to [Azure App Service](https://azure.microsoft.com/services/app-service/).
-
-{% ifversion fpt or ghec or ghes > 3.4 %}
+{% ifversion fpt or ghec or ghae-issue-4856 or ghes > 3.4 %}
 
 {% note %}
 
-**Note**: {% data reusables.actions.about-oidc-short-overview %} and "[Configuring OpenID Connect in Azure](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure)."
+**Observação**: {% data reusables.actions.about-oidc-short-overview %} e "[Como configurar o OpenID Connect no Azure](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure)".
 
 {% endnote %}
 
 {% endif %}
 
-## Prerequisites
+## Pré-requisitos
 
-Before creating your {% data variables.product.prodname_actions %} workflow, you will first need to complete the following setup steps:
+Antes de criar seu fluxo de trabalho de {% data variables.product.prodname_actions %}, primeiro você precisa concluir as etapas de configuração a seguir:
 
 {% data reusables.actions.create-azure-app-plan %}
 
-1. Create a web app.
+1. Crie um aplicativo Web.
 
-   For example, you can use the Azure CLI to create an Azure App Service web app with a Python runtime:
+   Por exemplo, você pode usar o CLI do Azure para criar um aplicativo web do com o tempo de execução do Python:
 
    ```bash{:copy}
    az webapp create \
@@ -48,21 +52,21 @@ Before creating your {% data variables.product.prodname_actions %} workflow, you
        --runtime "python|3.8"
    ```
 
-   In the command above, replace the parameters with your own values, where `MY_WEBAPP_NAME` is a new name for the web app.
+   No comando acima, substitua os parâmetros por valores próprios, em que `MY_WEBAPP_NAME` é um novo nome para o aplicativo Web.
 
 {% data reusables.actions.create-azure-publish-profile %}
 
-1. Add an app setting called `SCM_DO_BUILD_DURING_DEPLOYMENT` and set the value to `1`.
+1. Adicione uma configuração de aplicativo chamada `SCM_DO_BUILD_DURING_DEPLOYMENT` e defina o valor como `1`.
 
-5. Optionally, configure a deployment environment. {% data reusables.actions.about-environments %}
+5. Opcionalmente, configure um ambiente de implantação. {% data reusables.actions.about-environments %}
 
-## Creating the workflow
+## Criar o fluxo de trabalho
 
-Once you've completed the prerequisites, you can proceed with creating the workflow.
+Depois de preencher os pré-requisitos, você pode prosseguir com a criação do fluxo de trabalho.
 
-The following example workflow demonstrates how to build and deploy a Python project to Azure App Service when there is a push to the `main` branch.
+O exemplo de fluxo de trabalho a seguir demonstra como compilar e implantar um projeto do Python no Serviço de Aplicativo do Azure quando houver um push para o branch `main`.
 
-Ensure that you set `AZURE_WEBAPP_NAME` in the workflow `env` key to the name of the web app you created. If you use a version of Python other than `3.8`, change `PYTHON_VERSION` to the version that you use.
+Defina `AZURE_WEBAPP_NAME` na chave `env` de fluxo de trabalho como o nome do aplicativo Web que você criou. Se você usar uma versão do Python diferente de `3.8`, altere `PYTHON_VERSION` para a versão usada.
 
 {% data reusables.actions.delete-env-key %}
 
@@ -141,10 +145,10 @@ jobs:
           publish-profile: {% raw %}${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}{% endraw %}
 ```
 
-## Additional resources
+## Recursos adicionais
 
-The following resources may also be useful:
+Os seguintes recursos também podem ser úteis:
 
-* For the original starter workflow, see [`azure-webapps-python.yml`](https://github.com/actions/starter-workflows/blob/main/deployments/azure-webapps-python.yml) in the {% data variables.product.prodname_actions %} `starter-workflows` repository.
-* The action used to deploy the web app is the official Azure [`Azure/webapps-deploy`](https://github.com/Azure/webapps-deploy) action.
-* For more examples of GitHub Action workflows that deploy to Azure, see the [actions-workflow-samples](https://github.com/Azure/actions-workflow-samples) repository.
+* Para o fluxo de trabalho inicial original, confira [`azure-webapps-python.yml`](https://github.com/actions/starter-workflows/blob/main/deployments/azure-webapps-python.yml) no repositório `starter-workflows` do {% data variables.product.prodname_actions %}.
+* A ação usada para implantar o aplicativo Web é a ação [`Azure/webapps-deploy`](https://github.com/Azure/webapps-deploy) oficial do Azure.
+* Para ver mais exemplos de fluxos de trabalho do GitHub Action que são implantados no Azure, confira o repositório [actions-workflow-samples](https://github.com/Azure/actions-workflow-samples).

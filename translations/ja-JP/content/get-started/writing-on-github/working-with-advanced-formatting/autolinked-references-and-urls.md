@@ -1,6 +1,6 @@
 ---
-title: Autolinked references and URLs
-intro: 'References to URLs, issues, pull requests, and commits are automatically shortened and converted into links.'
+title: 自動リンクされた参照と URL
+intro: URL、Issue、プルリクエスト、コミットへの参照は、自動的に短縮されてリンクに変換されます。
 redirect_from:
   - /articles/autolinked-references-and-urls
   - /github/writing-on-github/autolinked-references-and-urls
@@ -11,68 +11,68 @@ versions:
   ghae: '*'
   ghec: '*'
 shortTitle: Auto linked references
+ms.openlocfilehash: 6f6548dbe931a7a6adb809aa4e5616db4358c242
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147419690'
 ---
-## URLs
+## URL
 
-{% data variables.product.product_name %} automatically creates links from standard URLs.
+{% data variables.product.product_name %}は自動的に標準的な URL からリンクを生成します。
 
 `Visit https://github.com`
 
-![Rendered autolinked URL](/assets/images/help/writing/url-autolink-rendered.png)
+![変換された自動リンク URL](/assets/images/help/writing/url-autolink-rendered.png)
 
-For more information on creating links, see "[Basic writing and formatting syntax](/articles/basic-writing-and-formatting-syntax/#links)."
+リンクの作成の詳細については、「[基本的な書き方とフォーマットの構文](/articles/basic-writing-and-formatting-syntax/#links)」を参照してください。
 
-## Issues and pull requests
+## Issue およびプルリクエスト
 
-Within conversations on {% data variables.product.product_name %}, references to issues and pull requests are automatically converted to shortened links.
+{% data variables.product.product_name %} 上の会話の中では、Issue やプルリクエストへの参照は自動的に短縮リンクに変換されます。
 
 {% note %}
 
-**Note:** Autolinked references are not created in wikis or files in a repository.
+**メモ:** 自動リンクされた参照は、ウィキやリポジトリ中のファイルでは作成されません。
 
 {% endnote %}
 
-| Reference type | Raw reference | Short link |
+| 参照の種類 | 未処理の参照 | ショート リンク |
 | --- | --- | --- |
-| Issue or pull request URL | https://github.com/jlord/sheetsee.js/issues/26 | [#26](https://github.com/jlord/sheetsee.js/issues/26)
-| `#` and issue or pull request number | #26 | [#26](https://github.com/jlord/sheetsee.js/issues/26) |
-| `GH-` and issue or pull request number | GH-26 | [GH-26](https://github.com/jlord/sheetsee.js/issues/26) |
-| `Username/Repository#` and issue or pull request number | jlord/sheetsee.js#26 | [jlord/sheetsee.js#26](https://github.com/jlord/sheetsee.js/issues/26)
-| `Organization_name/Repository#` and issue or pull request number | github/linguist#4039 | [github/linguist#4039](https://github.com/github/linguist/pull/4039)
+| イシューまたは pull request の URL | https://github.com/jlord/sheetsee.js/issues/26 | [#26](https://github.com/jlord/sheetsee.js/issues/26)
+| `#` と、イシューまたは pull request の番号 | #26 | [#26](https://github.com/jlord/sheetsee.js/issues/26) |
+| `GH-` と、イシューまたは pull request の番号 | GH-26 | [GH-26](https://github.com/jlord/sheetsee.js/issues/26) |
+| `Username/Repository#` と、イシューまたは pull request の番号 | jlord/sheetsee.js#26 | [jlord/sheetsee.js#26](https://github.com/jlord/sheetsee.js/issues/26)
+| `Organization_name/Repository#` と、イシューまたは pull request の番号 | github/linguist#4039 | [github/linguist#4039](https://github.com/github/linguist/pull/4039)
 
-{% ifversion fpt or ghec %}
-If you reference an issue, pull request, or discussion in a list, the reference will unfurl to show the title and state instead. For more information about task lists, see "[About task lists](/issues/tracking-your-work-with-issues/creating-issues/about-task-lists)."
+{% ifversion fpt or ghec %} リストで issue、pull request、ディスカッションを参照すると、その参照はタイトルと状態を表示するように展開されます。 タスク リストの詳細については、「[タスク リストについて](/issues/tracking-your-work-with-issues/creating-issues/about-task-lists)」を参照してください。
 {% endif %}
 
-## Labels
-When referencing the URL of a label in Markdown, the label is automatically rendered. Only labels of the same repository are rendered, URLs pointing to a label from a different repository are rendered as any [URL](/get-started/writing-on-github/working-with-advanced-formatting/autolinked-references-and-urls#urls).
+## ラベル
+Markdown でラベルの URL を参照すると、ラベルが自動的にレンダリングされます。 同じリポジトリのラベルのみがレンダリングされ、別のリポジトリのラベルを指す URL は任意の [URL](/get-started/writing-on-github/working-with-advanced-formatting/autolinked-references-and-urls#urls) としてレンダリングされます。
 
-The URL of a label can be found by navigating to the labels page and clicking on a label. For example, the URL of the label "enhancement" in our public [docs repository](https://github.com/github/docs/) is
+ラベルの URL は、ラベル ページに移動し、ラベルをクリックすることで見つけることができます。 たとえば、パブリック [ドキュメント リポジトリ](https://github.com/github/docs/)内のラベル "enhancement" の URL は次のようになります
 
 ```md
 https://github.com/github/docs/labels/enhancement
 ```
-{% note %}
 
-**Note:** If the label name contains a period (`.`), the label will not automatically render from the label URL.
+## コミット SHA
 
-{% endnote %}
+コミットの SHA ハッシュへの参照は、{% data variables.product.product_name %}上のコミットへの短縮リンクに自動的に変換されます。
 
-## Commit SHAs
-
-References to a commit's SHA hash are automatically converted into shortened links to the commit on {% data variables.product.product_name %}.
-
-| Reference type | Raw reference | Short link |
+| 参照の種類 | 未処理の参照 | ショート リンク |
 | --- | --- | --- |
-| Commit URL | [`https://github.com/jlord/sheetsee.js/commit/a5c3785ed8d6a35868bc169f07e40e889087fd2e`](https://github.com/jlord/sheetsee.js/commit/a5c3785ed8d6a35868bc169f07e40e889087fd2e) | [a5c3785](https://github.com/jlord/sheetsee.js/commit/a5c3785ed8d6a35868bc169f07e40e889087fd2e) |
+| コミット URL | [`https://github.com/jlord/sheetsee.js/commit/a5c3785ed8d6a35868bc169f07e40e889087fd2e`](https://github.com/jlord/sheetsee.js/commit/a5c3785ed8d6a35868bc169f07e40e889087fd2e) | [a5c3785](https://github.com/jlord/sheetsee.js/commit/a5c3785ed8d6a35868bc169f07e40e889087fd2e) |
 | SHA | a5c3785ed8d6a35868bc169f07e40e889087fd2e | [a5c3785](https://github.com/jlord/sheetsee.js/commit/a5c3785ed8d6a35868bc169f07e40e889087fd2e) |
 | User@SHA | jlord@a5c3785ed8d6a35868bc169f07e40e889087fd2e | [jlord@a5c3785](https://github.com/jlord/sheetsee.js/commit/a5c3785ed8d6a35868bc169f07e40e889087fd2e)
 | `Username/Repository@SHA` | `jlord/sheetsee.js@a5c3785ed8d6a35868bc169f07e40e889087fd2e` | [`jlord/sheetsee.js@a5c3785`](https://github.com/jlord/sheetsee.js/commit/a5c3785ed8d6a35868bc169f07e40e889087fd2e) |
 
-## Custom autolinks to external resources
+## 外部リソースへのカスタム自動リンク
 
 {% data reusables.repositories.autolink-references %}
 
-## Further reading
+## 参考資料
 
-- "[Basic writing and formatting syntax](/articles/basic-writing-and-formatting-syntax)"
+- [Basic writing and formatting syntax (基本的な書き方とフォーマットの構文)](/articles/basic-writing-and-formatting-syntax)

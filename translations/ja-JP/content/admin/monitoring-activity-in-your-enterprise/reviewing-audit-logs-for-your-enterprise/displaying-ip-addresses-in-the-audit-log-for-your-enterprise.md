@@ -1,6 +1,6 @@
 ---
-title: Displaying IP addresses in the audit log for your enterprise
-intro: You can display the source IP address for events in your enterprise's audit log.
+title: Enterprise の監査ログに IP アドレスを表示する
+intro: Enterprise の監査ログにイベントの発信元 IP アドレスを表示できます。
 shortTitle: IP addresses in audit log
 permissions: Enterprise owners can display IP addresses in the audit log for an enterprise.
 versions:
@@ -12,41 +12,44 @@ topics:
   - Logging
   - Networking
   - Security
+ms.openlocfilehash: 7dad3642866b637432442591d8e5714e3db6f59f
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147508076'
 ---
+## 監査ログ内の IP アドレスの表示について
 
-## About display of IP addresses in the audit log
+既定では、{% data variables.product.product_name %} の Enterprise の監査ログには、イベントの発信元 IP アドレスは表示されません。 必要に応じて、コンプライアンスを確保し、脅威に対応するために、各イベントの原因となるアクターに関連付けられている完全な IP アドレスを表示できます。 通常、アクターはユーザーですが、アプリや統合の場合もあります。
 
-By default, {% data variables.product.product_name %} does not display the source IP address for events in your enterprise's audit log. Optionally, to ensure compliance and respond to threats, you can display the full IP address associated with the actor responsible for each event. Actors are typically users, but can also be apps or integrations.
+Enterprise の監査ログに表示される IP アドレスの表示または保管に伴う法的義務は自身の責任で果たしてください。
 
-You are responsible for meeting any legal obligations that accompany the viewing or storage of IP addresses displayed within your enterprise's audit log.
+IP アドレスの表示を選ぶと、IP アドレスは Enterprise の監査ログにのみ表示されます。 IP アドレスは、Enterprise が所有する個々の Organaization の監査ログのイベントには表示されません。 Organaization 監査ログの詳しい情報については、「[Organaization の監査ログを確認する](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization)」をご覧ください。
 
-If you choose to display IP addresses, the IP addresses only appear in your enterprise's audit log. IP addresses will not appear for events in the audit logs for individual organizations owned by your enterprise. For more information about organization audit logs, see "[Reviewing the audit log for your organization](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization)."
+{% data variables.product.product_location %} で Enterprise にどの認証方法を使っているかに関係なく、監査ログに IP アドレスを表示できます。 詳細については、「[エンタープライズの認証について](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise)」を参照してください。
 
-You can display IP addresses in the audit log regardless of which authentication method you use for your enterprise on {% data variables.location.product_location %}. For more information, see "[About authentication for your enterprise](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise)."
+{% data variables.product.product_location %} でアカウントを作成すると、{% data variables.product.company_short %} が {% data variables.product.company_short %} のサービスへの接続に関する基本情報 (発信元 IP アドレスなど) を収集することに同意することになります。 詳しい情報については、「[GitHub のプライバシーについての声明](/free-pro-team@latest/site-policy/privacy-policies/github-privacy-statement#usage-information)」をご覧ください。
 
-When anyone creates an account on {% data variables.location.product_location %}, the person agrees to {% data variables.product.company_short %}'s collection of basic information about connections to {% data variables.product.company_short %}'s services, including source IP address. For more information, see "[GitHub Privacy Statement](/free-pro-team@latest/site-policy/privacy-policies/github-privacy-statement#usage-information)."
+## 監査ログに IP アドレスを表示するイベント
 
-## Events that display IP addresses in the audit log
+{% data variables.product.product_name %} では、Enterprise のメンバーが Enterprise または Enterprise 内の Organaization が所有するリソースを操作すると、監査ログに IP アドレスが表示されます。 たとえば、Enterprise 内の Organaization が所有する内部またはプライベート リポジトリ、またはそれらのリポジトリに関連付けられているリソースが関係する監査イベント (issue、pull request、アクション、プロジェクトなど) の IP アドレスが表示されます。
 
-{% data variables.product.product_name %} displays an IP address in the audit log when a member of the enterprise interacts with a resource owned by your enterprise or an organization in your enterprise. For example, you will see an IP address for audited events involving an internal or private repository owned by an organization in your enterprise, or resources associated with those repositories, such as an issue, pull request, action, or project.
-
-If members of your enterprise access {% data variables.location.product_location %} with personal accounts that they manage, because you do not use {% data variables.product.prodname_emus %}, {% data variables.product.product_name %} does not display an event or IP address in the audit log for the following actions.
+Enterprise のメンバーが、管理する個人アカウントで {% data variables.product.product_location %} にアクセスする場合は、{% data variables.product.prodname_emus %} を使わないため、{% data variables.product.product_name %} の次のアクションの監査ログにイベントまたは IP アドレスは表示されません。
   
-- Authentication to {% data variables.location.product_location %}
-- Interactions with a resource owned by the personal account, including a repository, gist, or project
-- Interactions with a public repository owned by an organization in your enterprise
+- {% data variables.product.product_location %} への認証
+- リポジトリ、gist、またはプロジェクトなど、個人アカウントが所有するリソースの操作
+- Enterprise 内の Organaization が所有するパブリック リポジトリの操作
 
-## Enabling display of IP addresses in the audit log
+## 監査ログ内の IP アドレスの表示を有効にする
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.audit-log-tab %}
-1. Under "Audit log", click **Source IP disclosure**.
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.settings-tab %} {% data reusables.enterprise-accounts.audit-log-tab %}
+1. [監査ログ] の **[送信元 IP の開示]** をクリックします。
 
-   ![Screenshot of "Source IP disclosure" tab](/assets/images/help/enterprises/audit-log-source-ip-disclosure-tab.png)
-1. Under "Disclose actor IP addresses in audit logs", select **Enable source IP disclosure**.
+   ![[送信元 IP の開示] タブのスクリーンショット](/assets/images/help/enterprises/audit-log-source-ip-disclosure-tab.png)
+1. [監査ログでアクター IP アドレスを開示する] で、 **[発信元 IP 開示を有効にする]** を選びます。
 
-   ![Screenshot of checkbox to enable display of IP addresses in audit logs](/assets/images/help/enterprises/audit-log-enable-source-ip-disclosure-checkbox.png)
-1. Click **Save**.
+   ![監査ログ内の IP アドレスの表示を有効にするチェックボックスのスクリーンショット](/assets/images/help/enterprises/audit-log-enable-source-ip-disclosure-checkbox.png)
+1. **[保存]** をクリックします。
 
-After you enable the feature, you can access the audit log to view events that include IP addresses. For more information, see "[Accessing the audit log for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/accessing-the-audit-log-for-your-enterprise)."
+この機能を有効にすると、監査ログにアクセスして、IP アドレスを含むイベントを表示できるようになります。 詳細については、「[企業の監査ログへのアクセス](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/accessing-the-audit-log-for-your-enterprise)」を参照してください。

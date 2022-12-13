@@ -1,1 +1,9 @@
-By default, the total cache storage that {% data variables.product.prodname_actions %} uses on the external storage for {% data variables.location.product_location %} is limited to a maximum of 10 GB per repository, and the maximum allowed size that can be set for a repository is 25 GB.
+---
+ms.openlocfilehash: ab5272155710feedd08dd5b5e4e0f84eacc36694
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "147067411"
+---
+既定では、{% data variables.product.prodname_actions %} が {% data variables.product.product_location %} の外部ストレージで使用するキャッシュ ストレージの合計は、リポジトリあたり最大 10 GB に制限され、リポジトリに設定できる最大サイズは 25 GB です。

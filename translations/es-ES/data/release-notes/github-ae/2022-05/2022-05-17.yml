@@ -1,0 +1,248 @@
+date: '2022-05-17'
+friendlyDate: '17 de mayo de 2022'
+title: '17 de mayo de 2022'
+currentWeek: true
+sections:
+  features:
+    - heading: 'Las características de GitHub Advanced Security están disponibles con carácter general'
+      notes:
+        - |El examen del código de códigos y el examen de secretos ahora están disponibles con carácter general para GitHub AE. Para más información, consulta "[Acerca del examen del código](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerability-and-errors/about-code-scanning)" y "[Acerca del examen de secretos](/code-security/secret-scanning/about-secret-scanning)".
+
+|
+        - |Los patrones personalizados para el examen de secretos ya están disponibles con carácter general. Para más información, consulta "[Definición de patrones personalizados para el examen de secretos](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)".
+
+|
+    - heading: 'Visualización de todas las alertas de examen del código para una solicitud de incorporación de cambios'
+      notes:
+        - |Ahora puedes encontrar todas las alertas de examen del código asociadas con la solicitud de incorporación de cambios con el nuevo filtro de solicitudes de incorporación de cambios en la página de alertas de examen del código. La página de comprobaciones de solicitudes de incorporación de cambios muestra las alertas introducidas en una solicitud de incorporación de cambios, pero no las alertas existentes en la rama de solicitudes de incorporación de cambios.  El nuevo vínculo "Ver todas las alertas de la rama" en la página Comprobaciones lleva a la página de alertas de examen del código con el filtro específico de solicitudes de incorporación de cambios ya aplicado, de forma que puedes ver todas las alertas asociadas con tu solicitud de incorporación de cambios. Esto puede ser útil para administrar muchas alertas y ver información más detallada para alertas individuales. Para más información, consulta "[Administración de alertas de examen del código para el repositorio](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository#filtering-code-scanning-alerts)".
+
+|
+    - heading: 'Información general de la seguridad para las organizaciones'
+      notes:
+        - |GitHub Advanced Security ahora ofrece una vista a nivel de organización de los riesgos de seguridad de la aplicación detectados por el examen del código, Dependabot y el examen de secretos. La información general de seguridad muestra el estado de habilitación de las características de seguridad en cada repositorio, así como el número de alertas detectadas.
+
+
+
+Además, la información general de la seguridad enumera todas las alertas del examen de secretos en el nivel de la organización. Vistas similares para Dependabot y alertas de examen del código llegarán en versiones futuras. Para más información, consulta "[Acerca de la información general de seguridad](/code-security/security-overview/about-the-security-overview)".
+
+
+
+![Captura de pantalla de la información general de seguridad](/assets/images/enterprise/3.2/release-notes/security-overview-UI.png)
+
+|
+    - heading: 'Gráfico de dependencia'
+      notes:
+        - |El gráfico de dependencia ahora está disponible en GitHub AE. El gráfico de dependencia ayuda a comprender el software de código abierto del que depende al analizar los manifiestos de dependencia registrados en los repositorios. Para más información, consulta "[Acerca del gráfico de dependencias](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)".
+
+|
+    - heading: 'Alertas de Dependabot'
+      notes:
+        - |Las alertas de Dependabot ahora pueden informarte sobre vulnerabilidades en tus dependencias en GitHub AE. Puedes habilitar las alertas de Dependabot habilitando el gráfico de dependencias, habilitando GitHub Connect y sincronizando las vulnerabilidades de GitHub Advisory Database. Esta función está en versión beta y sujeta a cambios. Para más información, consulta "[Acerca de las alertas de Dependabot](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)".
+
+
+
+Después de habilitar las alertas de Dependabot, los miembros de la organización recibirán notificaciones cada vez que se agregue una nueva vulnerabilidad que afecte a sus dependencias a GitHub Advisory Database o se agregue una dependencia vulnerable a su manifiesto. Los miembros pueden personalizar la configuración de las notificaciones. Para más información, consulta "[Configuración de notificaciones para % data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/configuring-notifications-for-dependabot-alerts)". <!-- ⚠️ Los artículos estarán disponibles cuando cambiemos las marcas de características de contenido -->
+
+|
+    - heading: 'Rol de administrador de seguridad para organizaciones'
+      notes:
+        - |Las organizaciones ahora pueden conceder permiso a los equipos para administrar alertas de seguridad y configuraciones en todos sus repositorios. El rol de "administrador de seguridad" se puede aplicar a cualquier equipo y concede a los miembros del equipo los siguientes permisos.
+
+
+
+- Acceso de lectura en todos los repositorios de la organización
+
+- Acceso de escritura en todas las alertas de seguridad de la organización
+
+- Acceso a la pestaña de seguridad en el nivel de organización
+
+- Acceso de escritura en la configuración de seguridad en el nivel de organización
+
+- Acceso de escritura en la configuración de seguridad en el nivel de repositorio
+
+
+
+Para más información, consulta "[Administración de administradores de seguridad en la organización](https://docs.github.com/en/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization)". <!-- ⚠️ El artículo estará disponible cuando cambiemos las marcas de características de contenido -->
+
+|
+    - heading: 'Ejecutores efímeros y webhooks de escalado automático para Acciones de GitHub'
+      notes:
+        - |GitHub AE ahora admite ejecutores autohospedados efímeros (de un solo trabajo) y un nuevo webhook de ["workflow_job"](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_job) para facilitar el escalado automático de los ejecutores.
+
+
+
+Los ejecutores efímeros son adecuados para los entornos autoadministrados en los que cada trabajo debe ejecutarse en una imagen limpia. Después de que se ejecuta un trabajo, GitHub AE cancela automáticamente el registro de los ejecutores efímeros, lo que permite realizar cualquier administración posterior al trabajo.
+
+
+
+Puedes combinar ejecutores efímeros con el nuevo webhook de "workflow_job" para escalar automáticamente ejecutores autohospedados en respuesta a solicitudes de trabajo desde Acciones de GitHub.
+
+
+
+Para más información, consulta "[Autoescalado con ejecutores autohospedados](/actions/hosting-your-own-runners/autoscaling-with-self-hosted-runners)" y "[Eventos y cargas útiles de un Webhook](/developers/webhooks -and-events/webhooks/webhook-events-and-payloads#workflow_job)". <!-- ⚠️ El artículo estará disponible cuando cambiemos las marcas de características de contenido -->
+
+|
+    - heading: 'Acciones compuestas para Acciones de GitHub'
+      notes:
+        - |Puedes reducir la duplicación en los flujos de trabajo mediante la composición para hacer referencia a otras acciones. Anteriormente, las acciones escritas en YAML solo podían usar scripts. Para más información, consulta "[Creación de una acción compuesta](/actions/creating-actions/creating-a-composite-action)".
+
+|
+    - heading: 'Nuevo ámbito de token para la administración de ejecutores autohospedados'
+      notes:
+        - |La administración de ejecutores autohospedados en el nivel empresarial ya no requiere el uso de tokens de acceso personal con el ámbito "admin:enterprise". En su lugar, puedes usar el ámbito "new manage_runners:enterprise" para restringir los permisos en los tokens. Los tokens con este ámbito pueden autenticarse en muchos puntos de conexión de API REST para administrar los ejecutores autohospedados de la empresa.
+
+|
+    - heading: 'Registro de auditoría accesible a través de la API REST'
+      notes:
+        - |Ahora puedes usar la API REST para interactuar mediante programación con el registro de auditoría. Si bien el reenvío del registro de auditoría ofrece la capacidad de retener y analizar datos con tu propio conjunto de herramientas y determinar patrones a lo largo del tiempo, la nueva API REST te ayudará a realizar un análisis limitado de eventos destacados que han ocurrido en la historia reciente. Para más información, consulta "[Revisión del registro de auditoría de la organización](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization#using-the-rest-api)".
+
+|
+    - heading: 'Fechas de expiración de los tokens de acceso personal'
+      notes:
+        - |Ahora puedes establecer una fecha de expiración en tokens de acceso personal nuevos y existentes. GitHub AE te enviará un correo electrónico cuando sea el momento de renovar un token que esté a punto de caducar. Los tokens que han expirado se pueden regenerar, lo que proporciona un token duplicado con las mismas propiedades que el original. Al usar un token con la API de GitHub AE, verás un nuevo encabezado, "GitHub-Authentication-Token-Expiration", que indica la fecha de expiración del token. Puedes usar esto en scripts, por ejemplo, para registrar un mensaje de advertencia a medida que se acerca la fecha de expiración. Para más información, consulta "[Creación de un token de acceso personal](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)" e "[Introducción a la API REST](/rest/guides/getting-started-with-the-rest-api#using-personal-access-tokens)".
+
+|
+    - heading: 'Exportación de una lista de personas con acceso a un repositorio'
+      notes:
+        - |Los propietarios de la organización ahora pueden exportar una lista de las personas con acceso a un repositorio en formato CSV. Para más información, consulta "[Visualización de personas con acceso al repositorio](/organizations/managing-access-to-your-organizations-repositories/viewing-people-with-access-to-your-repository#exporting-a-list-of-people-with-access-to-your-repository)".
+
+|
+    - heading: 'Administración mejorada de las asignaciones de revisión del código'
+      notes:
+        - |Las nuevas configuraciones para administrar la asignación de la revisión del código ayudan a distribuir la revisión de las solicitudes de incorporación de cambios de un equipo entre los miembros del equipo para que las revisiones no sean responsabilidad de solo uno o dos miembros del equipo.
+
+
+
+- Miembros secundarios del equipo: la asignación se limita solo a los miembros directos del equipo. Anteriormente, las solicitudes de revisión del equipo se podían asignar a miembros directos del equipo o miembros de equipos secundarios.
+
+- Contar solicitudes existentes: continuar con la asignación automática aunque uno o más miembros del equipo ya estén solicitados. Anteriormente, un miembro del equipo que ya estaba solicitado se contaba como una de las solicitudes de revisión automática del equipo.
+
+- Solicitud de revisión del equipo: mantener un equipo asignado para revisar incluso si uno o más miembros se asignan recientemente.
+
+
+
+Para más información, consulta "[Administración de la configuración de revisión de código para el equipo](/organizations/organizing-members-into-teams/managing-code-review-settings-for-your-team)".
+
+|
+    - heading: 'Nuevos temas'
+      notes:
+        - |Hay dos temas nuevos disponibles para la UI web de GitHub AE.
+
+
+
+- Un tema oscuro de alto contraste, con mayor contraste entre los elementos de primer plano y de fondo
+
+- Daltónico claro y oscuro, que intercambian colores como el rojo y el verde por el naranja y el azul.
+
+
+
+Para más información, consulta "[Administración de la configuración de tema](/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/managing-your-theme-settings)".
+
+|
+    - heading: 'Mejoras en Markdown'
+      notes:
+        - |Ahora puedes usar la sintaxis de notas al pie en cualquier campo Markdown para hacer referencia a información pertinente sin interrumpir el flujo de su prosa. Las notas al pie se muestran como vínculos en superíndice. Haz clic en una nota al pie para saltar a la referencia, que se muestra en una nueva sección en la parte inferior del documento. Para más información, consulta "[Sintaxis básica de escritura y formato](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#footnotes)". <!-- ⚠️ La sección de la página estará disponible cuando cambiemos las marcas de características de contenido -->
+
+|
+        - |Ahora puedes alternar entre la vista de origen y la vista de Markdown representada a través de la UI web haciendo clic en el botón {% octicon "code" aria-label="El icono de código" %} para "Mostrar la diferencia de origen" en la parte superior de cualquier archivo Markdown. Anteriormente, necesitabas usar la vista del último responsable para vincular a números de línea específicos en el origen de un archivo Markdown.
+
+|
+        - |GitHub AE ahora genera una tabla de contenido automáticamente para los Wikis, con base en los encabezados.
+
+|
+  changes:
+    - heading: 'Rendimiento'
+      notes:
+        - |Las cargas de página y los trabajos ahora son significativamente más rápidos para los repositorios con muchas referencias de Git.
+
+|
+    - heading: 'Administración'
+      notes:
+        - |Se mejora el proceso de suplantación de usuarios. Ahora, las sesiones de suplantación requieren una justificación para la suplantación, las acciones se registran en un registro de auditoría a medida que las realiza el usuario suplantado y el usuario que se suplanta recibirá una notificación por correo electrónico informándole de que un administrador de empresa lo ha suplantado. Para más información, consulta "[Suplantación de la identidad de un usuario](/admin/user-management/managing-users-in-your-enterprise/suplantar-a-user)".
+
+|
+    - heading: 'Acciones de GitHub'
+      notes:
+        - |Para mitigar los ataques internos de tipo "Man in the middle" cuando se usan acciones resueltas a través de GitHub Connect a GitHub.com desde GitHub AE, GitHub AE retira el espacio de nombres de acciones ("PROPIETARIO/NOMBRE") en uso. Retirar el espacio de nombres evita que se cree ese espacio de nombres en la empresa y garantiza que todos los flujos de trabajo que hacen referencia a la acción lo descargarán desde GitHub.com. Para más información, consulta "[Habilitación del acceso automático a las acciones de GitHub.com mediante GitHub Connect](/admin/github-actions/managing-access-to-actions-from-githubcom/enabling-automatic-access-to-githubcom-actions-using-github-connect#automatic-retirement-of-namespaces-for-actions-accessed-on-githubcom)".
+
+|
+        - |El registro de auditoría ahora incluye eventos adicionales para Acciones de GitHub. GitHub AE ahora registra las entradas del registro de auditoría para los siguientes eventos.
+
+
+
+- Un ejecutor autohospedado se registra o se quita.
+
+- Un ejecutor autohospedado se agrega a un grupo de ejecutores o se quita de un grupo de ejecutores.
+
+- Un grupo de ejecutores se crea o quita.
+
+- Una ejecución de flujo de trabajo se crea o completa.
+
+- Un trabajo de flujo de trabajo se prepara. Es importante destacar que este registro incluye la lista de secretos que se proporcionaron al ejecutor.
+
+
+
+Para más información, consulta "[Reforzamiento de la seguridad para Acciones de GitHub](/actions/security-guides/security-hardening-for-github-actions)".
+
+|
+    - heading: 'GitHub Advanced Security'
+      notes:
+        - |El examen del código ahora asignará alertas identificadas en los flujos de trabajo "on:push" para que aparezcan en las solicitudes de incorporación de cambios, cuando sea posible.  Las alertas que se muestran en la solicitud de incorporación de cambios son aquellas que se identifican comparando el análisis existente del encabezado de la rama con el análisis de la rama de destino con la que se está realizando la combinación. Ten en cuenta que si no se utiliza la confirmación de combinación de la solicitud de incorporación de cambios, las alertas pueden ser menos precisas en comparación con el enfoque que utiliza activadores "on:pull_request". Para más información, consulta "[Acerca del examen del código con CodeQL](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-with-codeql)".
+
+
+
+Otros sistemas de CI/CD pueden configurarse exclusivamente para desencadenar una canalización cuando el código se inserta en una rama, o incluso exclusivamente para cada confirmación. Cuando se desencadena una canalización de análisis como esta y los resultados se cargan en la API de SARIF, el examen del código también intentará hacer coincidir los resultados del análisis con una solicitud de incorporación de cambios abierta. Si se encuentra una solicitud de incorporación de cambios abierta, los resultados se publicarán como se describe anteriormente. Para más información, consulta "[Carga de un archivo SARIF en GitHub](/code-security/code-scanning/integrating-with-code-scanning/uploading-a-sarif-file-to-github)".
+
+|
+        - |GitHub AE ahora detecta secretos de proveedores adicionales. Para más información, consulta "[Patrones de examen de secretos](/code-security/secret-scanning/secret-scanning-patterns#supported-secrets)".
+
+|
+    - heading: 'Solicitudes de incorporación de cambios'
+      notes:
+        - |La escala de tiempo y la barra lateral Revisores que se encuentran en la página de solicitudes de incorporación de cambios ahora indican si una solicitud de revisión se ha asignado automáticamente a uno o más miembros del equipo porque ese equipo usa la asignación de revisión del código.
+
+
+
+![Captura de pantalla del indicador para la asignación automática de revisión del código](https://user-images.githubusercontent.com/2503052/134931920-409dea07-7a70-4557-b208-963357db7a0d.png)
+
+|
+        - |Ahora puedes filtrar las búsquedas de solicitud de incorporación de cambios para incluir solamente las solicitudes de incorporación de cambios que se te solicita que revises directamente seleccionando **En espera de revisión**. Para más información, consulta "[Búsqueda de incidencias y solicitudes de incorporación de cambios](https://docs.github.com/en/search-github/searching-on-github/searching-issues-and-pull-requests)".
+
+|
+        - |Si se especifica el nombre exacto de una rama cuando se usa el menú selector de ramas, el resultado ahora aparece en la parte superior de la lista de ramas coincidentes. Anteriormente, las coincidencias exactas de nombres de ramas podían aparecer al final de la lista.
+
+|
+        - |Al ver una rama que tiene una solicitud de incorporación de cambios abierta correspondiente, GitHub AE ahora se vincula directamente a la solicitud de incorporación de cambios. Anteriormente, habría un aviso para contribuir mediante la comparación de ramas o para abrir una nueva solicitud de incorporación de cambios.
+
+|
+        - |Ahora puedes hacer clic en un botón para copiar todo el contenido sin procesar de un archivo en el Portapapeles. Anteriormente, tenías que abrir el archivo sin procesar, seleccionar todo y luego copiar. Para copiar el contenido de un archivo, tienes que ir al archivo y hacer clic en la barra de herramientas. Ten en cuenta que esta característica actualmente solo está disponible en algunos exploradores.
+
+|
+        - |Ahora se muestra una advertencia al visualizar un archivo que contiene texto Unicode bidireccional. El texto Unicode bidireccional puede interpretarse o compilarse de forma diferente a la que aparece en la interfaz de usuario. Por ejemplo, los caracteres Unicode bidireccionales ocultos pueden utilizarse para intercambiar segmentos de texto en un archivo. Para más información sobre cómo reemplazar estos caracteres, consulta el [Registro de cambios de GitHub](https://github.blog/changelog/2021-10-31-warning-about-bidirectional-unicode-text/).
+
+|
+    - heading: 'Repositorios'
+      notes:
+        - |GitHub AE ahora incluye soporte mejorado para archivos _CITATION.cff_. Los archivos _CITATION.cff_ son archivos de texto sin formato con información de citas legible por humanos y máquinas. GitHub AE analiza esta información en formatos convenientes como [APA](https://apastyle.apa.org) y [BibTeX](https://en.wikipedia.org/wiki/BibTeX) que otros pueden copiar. Para más información, consulta "[Acerca de los archivos de CITATION](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-citation-files)".
+
+|
+        - |Ahora puedes agregar, eliminar o ver vínculos automáticos a través del punto de conexión de vínculos automáticos de la API de repositorios. Para más información, consulta "[Referencias y direcciones URL autovinculadas](/get-started/writing-on-github/working-with-advanced-formatting/autolinked-references-and-urls)" y "[Repositorios](/rest/reference/repos#autolinks)" en la documentación de API REST.
+
+|
+    - heading: 'Lanzamientos'
+      notes:
+
+        - |El componente de selección de etiquetas para las versiones de GitHub ahora es un menú desplegable en lugar de un campo de texto. Para más información, consulta "[Administración de versiones en un repositorioy](/repositories/releasing-projects-on-github/managing-releases-in-a-repository#creating-a-release)".
+
+|
+    - heading: 'Markdown'
+      notes:
+
+        - |Al arrastrar y colocar archivos, como imágenes y vídeos, en un editor Markdown, GitHub AE ahora usa la ubicación del puntero del mouse en lugar de la ubicación del cursor al colocar el archivo.
+
+|
+    - heading: 'API DE REST'
+      notes:
+        - |Las versiones preliminares de la API REST ahora se han graduado y son una parte oficial de la API. Los encabezados en versión preliminar ya no son necesarios para los puntos de conexión de la API REST, pero seguirán funcionando según lo previsto si continúas especificando una versión preliminar escalonada en el encabezado "Aceptar" de una solicitud.
+
+|

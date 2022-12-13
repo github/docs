@@ -1,0 +1,30 @@
+date: '23/11/2021'
+intro: Os downloads foram desabilitados devido a um grande bug que afetou vários clientes. Uma correção estará disponível no próximo patch.
+sections:
+  security_fixes:
+    - Os pacotes foram atualizados para as versões de segurança mais recentes.
+  bugs:
+    - "Executar \"ghe-repl-start\" ou \"ghe-repl-status\" às vezes poderia retornar erros conectados ao banco de dados quando o GitHub Actions foi habilitado."
+    - "Os ganchos de pré-recebimento falhariam devido a um \"PATH\" indefinido."
+    - 'A execução de "ghe-repl-setup" retornaria o erro: "não foi possível criar diretório/dados/usário/elasticsearch: o arquivo já existe" caso a instância tenha sido configurada anteriormente como uma réplica.'
+    - 'Executar "ghe-support-bundle" retornou um erro: "expressão de inteiro esperada".'
+    - 'Após configurar uma réplica de alta disponibilidade, o "ghe-repl-status" incluiu um erro na saída: "ação não fechada inesperada no comando".'
+    - "Em ambientes de grandes clusters, o back-end de autenticação pode estar indisponível em um subconjunto de nós do front-end."
+    - Alguns serviços críticos podem não estar disponíveis em nós de back-end do Cluster do GHES.
+    - "As permissões do repositório para o usuário retornado pela API \"/repos\" não retornariam a lista completa."
+    - "A conexão \"childTeam\" no objeto \"Team\" do esquema GraphQL produziu resultados incorretos em algumas circunstâncias."
+    - "Em uma configuração de alta disponibilidade, a manutenção de repositório sempre informou falha em stafftools, mesmo quando foi bem-sucedida."
+    - "Os padrões definidos pelo usuário não detectariam segredos em arquivos como \"package.json\" ou \"yarn.lock\"."
+  changes:
+    - "Uma camada externa adicional de compactação \"gzip\" ao criar um pacote de suporte de grupo com \"ghe-cluster-suport-bundle\" agora está desabilitada por padrão. Esta compactação externa pode ser aplicada com a opção de linha do comando \"ghe-cluster-suport-bundle -c\"."
+    - Incluímos texto adicional ao console de administração para lembrar os usuários da coleta de dados dos aplicativos móveis para fins de melhoria de experiência.
+    - "O registro de conexão de dados {% data variables.product.prodname_github_connect %} agora inclui uma lista de funcionalidades habilitadas de {% data variables.product.prodname_github_connect %}. [Atualizado em 2021-12-09]"
+  known_issues:
+    - "Em uma nova configuração de {% data variables.product.prodname_ghe_server %} sem qualquer usuário, um invasor pode criar o primeiro usuário administrador."
+    - As regras de firewall personalizadas são removidas durante o processo de atualização.
+    - "Arquivos LFS do Git [enviados através da interface Web](https://github.com/blog/2105-upload-files-to-your-repositories) são adicionados diretamente ao repositório e de maneira incorreta."
+    - "Os problemas não podem ser fechados se contiverem um permalink para um blob no mesmo repositório, em que o caminho do arquivo de blob é maior que 255 caracteres."
+    - "Quando a opção \"Usuários podem pesquisar pelo GitHub.com\" está habilitada com o GitHub Connect, os problemas em repositórios privados e internos não são incluídos nos resultados de pesquisa do GitHub.com."
+    - "O registro npm {% data variables.product.prodname_registry %} não retorna mais um valor temporal em respostas de metadados. Isso foi feito para permitir melhorias substanciais de desempenho. Continuamos a ter todos os dados necessários para retornar um valor temporal como parte da resposta de metadados e continuaremos a retornar este valor no futuro quando tivermos resolvido os problemas de desempenho existentes."
+    - Os limites de recursos que são específicos para processamento de ganchos de pré-recebimento podem causar falha em alguns ganchos de pré-recebimento.
+    - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'

@@ -1,6 +1,6 @@
 ---
-title: Configuring DNS nameservers
-intro: '{% data variables.product.prodname_ghe_server %} uses the dynamic host configuration protocol (DHCP) for DNS settings when DHCP leases provide nameservers. If nameservers are not provided by a dynamic host configuration protocol (DHCP) lease, or if you need to use specific DNS settings, you can specify the nameservers manually.'
+title: Configurar servidores de nomes DNS
+intro: 'O {% data variables.product.prodname_ghe_server %} usa o protocolo de configuração dinâmica de host (DHCP) para configurações de DNS quando as concessões de DHCP fornecem servidores de nomes. Se os servidores de nomes não forem fornecidos por uma concessão do protocolo DHCP, ou caso você precise usar configurações DNS específicas, será possível especificá-los manualmente.'
 redirect_from:
   - /enterprise/admin/guides/installation/about-dns-nameservers
   - /enterprise/admin/installation/configuring-dns-nameservers
@@ -15,28 +15,34 @@ topics:
   - Infrastructure
   - Networking
 shortTitle: Configure DNS servers
+ms.openlocfilehash: b01dc25b9002bf1feb672bbce597c8046b93f12f
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '147419710'
 ---
-The nameservers you specify must resolve {% data variables.location.product_location %}'s hostname.
+Os servidores de nomes especificados precisam resolver o nome do host do {% data variables.product.product_location %}.
 
 {% data reusables.enterprise_installation.changing-hostname-not-supported %}
 
-## Configuring nameservers using the virtual machine console
+## Configurar servidores de nomes usando o console de máquina virtual
 
 {% data reusables.enterprise_installation.open-vm-console-start %}
-2. Configure nameservers for your instance.
+2. Configure os servidores de nomes da sua instância.
 {% data reusables.enterprise_installation.vm-console-done %}
 
-## Configuring nameservers using the administrative shell
+## Configurar servidores de nomes usando o shell administrativo
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
 
-2. To edit your nameservers, use the `ghe-setup-network` command in visual mode. For more information, see "[Command-line utilities](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-setup-network)."
+2. Para editar seus nomes de servidores, use o comando `ghe-setup-network` no modo visual. Para obter mais informações, confira "[Utilitários de linha de comando](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-setup-network)".
 
   ```shell
   ghe-setup-network -v
   ```
 
-5. To add your new nameserver entries to {% data variables.location.product_location %}, run the following:
+5. Para adicionar as suas novas entradas de nameserver para {% data variables.product.product_location %}, execute o seguinte:
 
   ```shell
   sudo service resolvconf restart

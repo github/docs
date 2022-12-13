@@ -1,6 +1,6 @@
 ---
-title: Adding a GPG key to your GitHub account
-intro: 'To configure your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %} to use your new (or existing) GPG key, you''ll also need the key to your account.'
+title: Como adicionar uma chave GPG a uma conta do GitHub
+intro: 'Para configurar a sua conta em {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} para usar sua chave GPG nova (ou existente), você também precisará da chave para a sua conta.'
 redirect_from:
   - /articles/adding-a-gpg-key-to-your-github-account
   - /github/authenticating-to-github/adding-a-new-gpg-key-to-your-github-account
@@ -19,54 +19,55 @@ topics:
   - Identity
   - Access management
 shortTitle: Add a GPG key
+ms.openlocfilehash: db832d4e02ea5f19303b3178fb669967238e661b
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147369334'
 ---
+## Sobre a adição de chaves GPG à sua conta
 
-## About addition of GPG keys to your account
+Para assinar confirmações associadas à sua conta no {% data variables.product.product_name %}, adicione uma chave GPG pública à sua conta pessoal. Antes de realizar a adição, verifique se há chaves existentes. Se não houver, gere e copie uma nova chave. Para saber mais, confira "[Verificar se há chaves GPG existentes](/articles/checking-for-existing-gpg-keys)" e "[Gerar uma chave GPG](/articles/generating-a-new-gpg-key)".
 
-To sign commits associated with your account on {% data variables.product.product_name %}, you can add a public GPG key to your personal account. Before you add a key, you should check for existing keys. If you don't find any existing keys, you can generate and copy a new key. For more information, see "[Checking for existing GPG keys](/articles/checking-for-existing-gpg-keys)" and "[Generating a new GPG key](/articles/generating-a-new-gpg-key)."
+É possível adicionar várias chaves públicas à sua conta no {% data variables.product.product_name %}. As confirmações assinadas por qualquer uma das chaves privadas correspondentes serão mostradas conforme verificado. Se você remover uma chave pública, todas as confirmações assinadas pela chave privada correspondente não serão mais exibidas como verificadas.
 
-You can add multiple public keys to your account on {% data variables.product.product_name %}. Commits signed by any of the corresponding private keys will show as verified. If you remove a public key, any commits signed by the corresponding private key will no longer show as verified.
+{% ifversion upload-expired-or-revoked-gpg-key %} Para verificar o maior número possível de confirmações, adicione chaves expiradas e revogadas. Se a chave atender a todos os outros requisitos de verificação, as confirmações assinadas anteriormente por qualquer uma das chaves privadas correspondentes serão mostradas como verificadas e indicarão que a chave de assinatura expirou ou foi revogada.
 
-{% ifversion upload-expired-or-revoked-gpg-key %}
-To verify as many of your commits as possible, you can add expired and revoked keys. If the key meets all other verification requirements, commits that were previously signed by any of the corresponding private keys will show as verified and indicate that their signing key is expired or revoked.
-
-![A verified commit whose key expired](/assets/images/help/settings/gpg-verified-with-expired-key.png)
-{% endif %}
+![Uma confirmação verificada com uma chave que expirou](/assets/images/help/settings/gpg-verified-with-expired-key.png) {% endif %}
 
 {% data reusables.gpg.supported-gpg-key-algorithms %}
 
-When verifying a signature, {% data variables.product.product_name %} extracts the signature and attempts to parse its key ID. The key ID is then matched with keys added to {% data variables.product.product_name %}. Until a matching GPG key is added to {% data variables.product.product_name %}, it cannot verify your signatures.
+Ao verificar uma assinatura, o {% data variables.product.product_name %} a extrai e tenta analisar a ID de chave associada. Em seguida, essa ID de chave é correspondida com as chaves adicionadas ao {% data variables.product.product_name %}. Não será possível verificar suas assinaturas até que uma chave GPG seja adicionada ao {% data variables.product.product_name %}.
 
-## Adding a GPG key
+## Adicionar uma chave GPG
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.ssh %}
-3. Click **New GPG key**.
-   ![GPG Key button](/assets/images/help/settings/gpg-add-gpg-key.png)
-4. In the "Key" field, paste the GPG key you copied when you [generated your GPG key](/articles/generating-a-new-gpg-key).
-   ![The key field](/assets/images/help/settings/gpg-key-paste.png)
-5. Click **Add GPG key**.
-   ![The Add key button](/assets/images/help/settings/gpg-add-key.png)
-6. To confirm the action, enter your {% data variables.product.product_name %} password.
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.ssh %}
+3. Clique em **Nova chave GPG**.
+   ![Botão Chave GPG](/assets/images/help/settings/gpg-add-gpg-key.png)
+4. No campo "Chave", cole a chave GPG que você copiou ao [gerar a chave GPG](/articles/generating-a-new-gpg-key).
+   ![O campo de chave](/assets/images/help/settings/gpg-key-paste.png)
+5. Clique em **Adicionar chave GPG**.
+   ![O botão Adicionar chave](/assets/images/help/settings/gpg-add-key.png)
+6. Para confirmar a ação, insira sua senha do {% data variables.product.product_name %}.
 
-{% ifversion upload-expired-or-revoked-gpg-key %}
-{% else %}
-## Updating an expired GPG key
+{% ifversion upload-expired-or-revoked-gpg-key %} {% else %}
+## Atualizar uma chave GPG expirada
 
-When verifying a signature, {% data variables.product.product_name %} checks that the key is not revoked or expired. If your signing key is revoked or expired, {% data variables.product.product_name %} cannot verify your signatures.
+Ao verificar uma assinatura, o {% data variables.product.product_name %} confere se a chave foi revogada ou está expirada. Caso a chave de assinatura tenha sido revogada ou esteja expirada, o {% data variables.product.product_name %} não poderá verificar as assinaturas.
 
-If your key is expired, you must [update its expiration](https://www.gnupg.org/gph/en/manual.html#AEN329), export the new key, delete the expired key in your account on {% data variables.product.product_name %}, and add the new key to your account as described above. Your previous commits and tags will show as verified, as long as the key meets all other verification requirements.
+Se sua chave tiver expirado, [atualize a expiração](https://www.gnupg.org/gph/en/manual.html#AEN329), exporte a nova chave, exclua a chave expirada da conta no {% data variables.product.product_name %} e adicione a nova chave à conta, conforme descrito acima. As tags e os commits anteriores serão exibidos como verificados, desde que a chave atenda a todos os outros requisitos de verificação.
 
-If your key is revoked, use the primary key or another key that is not revoked to sign your commits.
+Se a chave foi revogada, use a chave principal ou outra chave que não tenha sido revogada para assinar os commits.
 
-If your key is invalid and you don't use another valid key in your key set, but instead generate a new GPG key with a new set of credentials, then your commits made with the revoked or expired key will continue to show as unverified. Also, your new credentials will not be able to re-sign or verify your old commits and tags.
+Se a chave for inválida, você não usar outra chave válida no conjunto de chaves e ainda gerar uma nova chave GPG com um novo conjunto de credenciais, os commits feitos com a chave revogada ou expirada continuarão sendo exibidos como não verificados. Além disso, as novas credenciais não poderão assinar novamente ou verificar marcas e confirmações antigas.
 {% endif %}
 
-## Further reading
+## Leitura adicional
 
-- "[Checking for existing GPG keys](/articles/checking-for-existing-gpg-keys)"
-- "[Generating a new GPG key](/articles/generating-a-new-gpg-key)"
-- "[Telling Git about your signing key](/articles/telling-git-about-your-signing-key)"
-- "[Associating an email with your GPG key](/articles/associating-an-email-with-your-gpg-key)"
-- "[Signing commits and tags using GPG keys](/articles/signing-commits-and-tags-using-gpg)"
-- "[About commit signature verification](/articles/about-commit-signature-verification)"
+- "[Como verificar se há chaves GPG existentes](/articles/checking-for-existing-gpg-keys)"
+- "[Como gerar uma nova chave GPG](/articles/generating-a-new-gpg-key)"
+- "[Como informar sua chave de assinatura ao Git](/articles/telling-git-about-your-signing-key)"
+- "[Como associar um email à sua chave GPG](/articles/associating-an-email-with-your-gpg-key)"
+- "[Como assinar commits e tags usando chaves GPG](/articles/signing-commits-and-tags-using-gpg)"
+- "[Sobre a verificação da assinatura de commit](/articles/about-commit-signature-verification)"

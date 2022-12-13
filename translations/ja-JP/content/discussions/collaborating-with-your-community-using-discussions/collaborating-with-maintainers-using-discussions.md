@@ -1,89 +1,60 @@
 ---
-title: Collaborating with maintainers using discussions
+title: ディスカッションを使用してメンテナとコラボレーションする
 shortTitle: Collaborating with maintainers
-intro: 'You can contribute to the goals, plans, health, and community for a project on {% data variables.product.product_name %} by communicating with the maintainers of the project in a discussion.'
+intro: 'ディスカッションでプロジェクトのメンテナと連絡を取り合うことにより、{% data variables.product.product_name %} でプロジェクトの目標、計画、健全性、およびコミュニティに貢献できます。'
 permissions: 'People with read access to a repository can start and participate in discussions and polls in the repository. People with read access to the source repository for organization discussions can start and participate in discussions and polls in the organization. {% data reusables.enterprise-accounts.emu-permission-interact %}'
 versions:
   feature: discussions
+ms.openlocfilehash: f090088d55e946e67c1f0b5d790deca9fd794a90
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147410252'
 ---
+## {% data variables.product.prodname_discussions %} を使用したメンテナとのコラボレーションについて
 
-
-## About collaboration with maintainers using {% data variables.product.prodname_discussions %}
-
-{% data reusables.discussions.about-discussions %} If you use or contribute to a project, you can start a discussion to make suggestions and engage with maintainers and community members about your plans, questions, ideas, and feedback. For more information, see "[About discussions](/discussions/collaborating-with-your-community-using-discussions/about-discussions)."
+{% data reusables.discussions.about-discussions %} プロジェクトを使用または貢献する場合は、ディスカッションを開始して提案を行い、計画、質問、アイデア、フィードバックについてメンテナやコミュニティメンバーと交流することができます。 詳細については、「[ディスカッションについて](/discussions/collaborating-with-your-community-using-discussions/about-discussions)」を参照してください。
 
 {% data reusables.discussions.about-categories-and-formats %} {% data reusables.discussions.about-announcement-format %} 
 
-Repository administrators and project maintainers can delete a discussion in that repository. Similarly, administrators and maintainers of the source repository for an organization's discussions can delete a discussion in that organization. For more information, see "[Managing discussions](/discussions/managing-discussions-for-your-community/managing-discussions#deleting-a-discussion)."
+リポジトリ管理者とプロジェクトのメンテナは、そのリポジトリ内のディスカッションを削除できます。 同様に、Organization のディスカッションのソース リポジトリの管理者とメンテナは、その Organization 内のディスカッションを削除できます。 詳しくは、「[ディスカッションの管理](/discussions/managing-discussions-for-your-community/managing-discussions#deleting-a-discussion)」を参照してください。
 
-{% data reusables.discussions.github-recognizes-members %} These members appear in a list of the most helpful contributors to the project's discussions. As your project grows, you can grant higher access permissions to active members of your community. For more information, see "[Granting higher permissions to top contributors](/discussions/guides/granting-higher-permissions-to-top-contributors)"
+{% data reusables.discussions.github-recognizes-members %} これらのメンバーは、プロジェクトのディスカッションに最も役立つコントリビューターのリストに表示されます。 プロジェクトが成長するにつれて、コミュニティのアクティブなメンバーにより高いアクセス許可を付与できます。 詳細については、「[上位貢献者により高いアクセス許可を付与する](/discussions/guides/granting-higher-permissions-to-top-contributors)」を参照してください
 
-![Most helpful contributors to discussions for a project](/assets/images/help/discussions/most-helpful.png)
+![プロジェクトのディスカッションに最も役立つ貢献者](/assets/images/help/discussions/most-helpful.png)
 
-Community members can upvote discussions and top-level comments inside discussions to communicate with maintainers about ideas that matter to them. Project maintainers can then sort discussions and comments based on upvotes to gain insight into what community members value.
+ディスカッションへの参加の詳細については、「[ディスカッションに参加する](/discussions/collaborating-with-your-community-using-discussions/participating-in-a-discussion)」を参照してください。
 
-For more information about participation in discussions, see "[Participating in a discussion](/discussions/collaborating-with-your-community-using-discussions/participating-in-a-discussion)."
+## 前提条件
 
-## Prerequisites
+リポジトリ ディスカッションでメンテナとコラボレーションするには、リポジトリ管理者またはプロジェクトのメンテナがリポジトリの {% data variables.product.prodname_discussions %} を有効にする必要があります。 詳細については、「[リポジトリの {% data variables.product.prodname_discussions %} を有効化または無効化する](/github/administering-a-repository/enabling-or-disabling-github-discussions-for-a-repository)」を参照してください。
 
-To collaborate with maintainers in repository discussions, a repository administrator or project maintainer must enable {% data variables.product.prodname_discussions %} for the repository. For more information, see "[Enabling or disabling {% data variables.product.prodname_discussions %} for a repository](/github/administering-a-repository/enabling-or-disabling-github-discussions-for-a-repository)."
+Organization のディスカッションでメンテナと共同作業するには、Organization に対して {% data variables.product.prodname_discussions %} を有効にする必要があります。 詳細については、「[Organization の {% data variables.product.prodname_discussions %} を有効化または無効化する](/organizations/managing-organization-settings/enabling-or-disabling-github-discussions-for-an-organization)」を参照してください。
 
-To collaborate with maintainers in organization discussions, {% data variables.product.prodname_discussions %} must be enabled for the organization. For more information, see "[Enabling or disabling {% data variables.product.prodname_discussions %} for an organization](/organizations/managing-organization-settings/enabling-or-disabling-github-discussions-for-an-organization)."
-
-## Starting a discussion
+## ディスカッションを開始する
 
 {% data reusables.discussions.starting-a-discussion %}
 
-## Starting a poll
+## ポーリングを開始する
 
 {% data reusables.discussions.starting-a-poll %}
 
-## Filtering the list of discussions
+## ディスカッションのリストをフィルタする
 
-You can search for discussions and filter the list of discussions in a repository or organization. For more information, see "[Searching discussions](/search-github/searching-on-github/searching-discussions)."
+ディスカッションを検索し、リポジトリまたは Organization 内のディスカッションのリストをフィルタできます。 詳細については、「[ディスカッションを検索する](/search-github/searching-on-github/searching-discussions)」を参照してください。
 
-{% data reusables.discussions.navigate-to-repo-or-org %}
-{% data reusables.discussions.discussions-tab %}
-1. In the **Search all discussions** field, type a search query. Optionally, to the right of the search field, click a button to further filter the results.
-  ![Search bar and buttons for filtering discussions](/assets/images/help/discussions/search-and-filter-controls.png)
-1. In the list of discussions, click the discussion you want to view.
-  ![Discussion search results](/assets/images/help/discussions/search-result.png)
+{% data reusables.discussions.navigate-to-repo-or-org %} {% data reusables.discussions.discussions-tab %}
+1. **[すべてのディスカッションを検索]** フィールドに、検索クエリを入力します。 必要に応じて、検索フィールドの右側にあるボタンをクリックして、結果をさらにフィルタします。
+  ![ディスカッションをフィルタするための検索バーとボタン](/assets/images/help/discussions/search-and-filter-controls.png)
+1. ディスカッションのリストで、表示するディスカッションをクリックします。
+  ![ディスカッション検索結果](/assets/images/help/discussions/search-result.png)
 
-## Sorting the list of discussions
+## Issue をディスカッションに変換する
 
-You can choose how to sort the list of discussions.
+{% data reusables.discussions.you-can-convert-an-issue %} 詳細については、「[ディスカッションをモデレートする](/discussions/managing-discussions-for-your-community/moderating-discussions#converting-an-issue-to-a-discussion)」を参照してください。
 
-{% data reusables.discussions.navigate-to-repo-or-org %}
-{% data reusables.discussions.discussions-tab %}
-1. To the right of the **Search all discussions** field, select **New**, or select **Top** and choose a time period from the drop down menu.
+## 参考資料
 
-   ![Buttons for sorting discussions](/assets/images/help/discussions/sort-discussions-buttons.png)
-
-    - Sort by **New** to display the discussions with the most recent activity at the top of the list.
-    - Sort by **Top** to display the discussions with the most upvotes at the top of the list. You can limit the list to only display discussions from a specific time period.
-
-## Sorting top-level comments in discussions
-
-You can choose how to sort top-level comments in discussions. Comment threads do not impact the order comments are sorted in.
-
-{% data reusables.discussions.navigate-to-repo-or-org %}
-{% data reusables.discussions.discussions-tab %}
-{% data reusables.discussions.click-discussion-in-list %}
-1. Under the main discussion post, select **Oldest**, **Newest**, or **Top**.
-
-   ![Buttons for sorting comments in discussions](/assets/images/help/discussions/sort-comments-buttons.png)
-
-    - Sort by **Oldest** to display the oldest top-level comments first.
-    - Sort by **Newest** to display the newest top-level comments first.
-    - Sort by **Top** to display the most upvoted top-level comments first.
-
-## Converting an issue to a discussion
-
-{% data reusables.discussions.you-can-convert-an-issue %} For more information, see "[Moderating discussions](/discussions/managing-discussions-for-your-community/moderating-discussions#converting-an-issue-to-a-discussion)."
-
-## Further reading
-
-- "[About writing and formatting on {% data variables.product.prodname_dotcom %}](/github/writing-on-github/about-writing-and-formatting-on-github)"
-{%- ifversion fpt or ghec %}
-- "[Maintaining your safety on {% data variables.product.prodname_dotcom %}](/communities/maintaining-your-safety-on-github)"
-{%- endif %}
+- 「[{% data variables.product.prodname_dotcom %} 上での執筆とフォーマットについて](/github/writing-on-github/about-writing-and-formatting-on-github)」{%- ifversion fpt or ghec %}
+- 「[{% data variables.product.prodname_dotcom %} での安全性を維持する](/communities/maintaining-your-safety-on-github)」{%- endif %}

@@ -1,6 +1,6 @@
 ---
-title: Inviting people to use your instance
-intro: 'When you use built-in authentication for {% data variables.product.product_name %}, you can invite people by email address to create a user account on your instance.'
+title: Convidar pessoas para usar sua instância
+intro: 'Ao usar a autenticação interna do {% data variables.product.product_name %}, você pode convidar pessoas por endereço de email para criar uma conta de usuário na sua instância.'
 versions:
   ghes: '*'
 permissions: 'Enterprise owners can invite people to create a user account on a {% data variables.product.product_name %} instance.'
@@ -11,20 +11,23 @@ topics:
   - Enterprise
   - Identity
 shortTitle: Invite people
+ms.openlocfilehash: d7ccb5e06f297a11ba97fa41d8250821909e5e3d
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147717794'
 ---
-
-## About invitations for new users
+## Sobre convites para usuários novos
 
 {% data reusables.enterprise_user_management.built-in-authentication-new-accounts %} {% data reusables.enterprise_user_management.unauthenticated-sign-ups %}
 
-You can disable unauthenticated sign-ups and require an invitation to create a new user account on your instance. For more information, see "[Disabling unauthenticated sign-ups](/admin/identity-and-access-management/using-built-in-authentication/disabling-unauthenticated-sign-ups)."
+Você pode desabilitar inscrições não autenticadas e exigir um convite para criar uma conta de usuário em sua instância. Para saber mais, confira "[Desabilitar inscrição não autenticada](/admin/identity-and-access-management/using-built-in-authentication/disabling-unauthenticated-sign-ups)".
 
 {% data reusables.enterprise_user_management.alternatively-enable-external-authentication %} 
 
-## Inviting people to create a user account
+## Convidar pessoas para criar uma conta de usuário
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.invite-user-sidebar-tab %}
-{% data reusables.enterprise_site_admin_settings.invite-user-reset-link %}
+{% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.enterprise_site_admin_settings.invite-user-sidebar-tab %} {% data reusables.enterprise_site_admin_settings.invite-user-reset-link %}
 
-If you've configured email for notifications on {% data variables.location.product_location %}, your instance will send the invitation to the provided email address. For more information, see "[Configuring email for notifications](/admin/configuration/configuring-your-enterprise/configuring-email-for-notifications)."
+Se você habilitou o email para notificações em {% data variables.product.product_location %}, sua instância enviará o convite para o endereço de email fornecido. Para obter mais informações, confira "[Como configurar o email para notificações](/admin/configuration/configuring-your-enterprise/configuring-email-for-notifications)".

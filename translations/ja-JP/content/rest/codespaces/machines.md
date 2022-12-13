@@ -1,18 +1,23 @@
 ---
-title: Codespaces machines
+title: Codespaces マシン
 allowTitleToDifferFromFilename: true
 shortTitle: Machines
-intro: 'Use the REST API to manage availability of machine types for a codespace.'
+intro: Codespaces マシン API を使うと、ユーザーは、特定のリポジトリまたは認証済みユーザーとして、codespace の作成に使えるマシン タイプを判断することができます。
 versions:
   fpt: '*'
   ghec: '*'
 topics:
   - API
 miniTocMaxHeadingLevel: 3
+ms.openlocfilehash: 4ef510cd054696025d885bec854f5360cae17e96
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147067979'
 ---
+## Codespaces マシン API について
 
-## About {% data variables.product.prodname_codespaces %} machines
+Codespaces マシン API を使うと、ユーザーは、特定のリポジトリまたは認証済みユーザーとして、codespace の作成に使えるマシン タイプを判断することができます。 詳細については、「[マシン タイプについて](/codespaces/developing-in-codespaces/changing-the-machine-type-for-your-codespace#about-machine-types)」を参照してください。
 
-You can determine which machine types are available to create a codespace, either on a given repository or as an authenticated user. For more information, see "[About machine types](/codespaces/developing-in-codespaces/changing-the-machine-type-for-your-codespace#about-machine-types)."
-
-You can also use this information when changing the machine of an existing codespace by updating its `machine` property. The machine update will take place the next time the codespace is restarted. For more information, see "[Changing the machine type for your codespace](/codespaces/developing-in-codespaces/changing-the-machine-type-for-your-codespace)."
+また、この情報は、既存の codespace のマシンを、その `machine` プロパティを更新することで変更する場合にも、参照することができます。 マシンの更新は、次回 codepace が起動するときに実行されます。 詳細については、「[codespace に合わせたコンピューターの種類の変更](/codespaces/developing-in-codespaces/changing-the-machine-type-for-your-codespace)」を参照してください。

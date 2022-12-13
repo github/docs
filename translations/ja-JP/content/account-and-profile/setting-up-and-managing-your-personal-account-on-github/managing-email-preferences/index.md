@@ -1,6 +1,6 @@
 ---
-title: Managing email preferences
-intro: 'You can add or change the email addresses associated with your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}. You can also manage emails you receive from {% data variables.product.product_name %}.'
+title: メール プリファレンスの管理
+intro: '{% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} のアカウントに関連付けられているメール アドレスを追加または変更できます。 {% data variables.product.product_name %} から受信するメールを管理することもできます。'
 redirect_from:
   - /categories/managing-email-preferences
   - /articles/managing-email-preferences
@@ -24,5 +24,11 @@ children:
   - /types-of-emails-github-sends
   - /managing-marketing-emails-from-github
 shortTitle: Manage email preferences
+ms.openlocfilehash: 8295d9884f7b2a9bfdef329f693c6492db636a61
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145164859'
 ---
 

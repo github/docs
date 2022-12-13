@@ -1,23 +1,29 @@
-{% data reusables.package_registry.packages-classic-pat-only %}
-
-1. Create a new {% data variables.product.pat_v1 %} with the appropriate scopes for the tasks you want to accomplish. If your organization requires SSO, you must enable SSO for your new token.
+---
+ms.openlocfilehash: 50e7f623d6585c8697d0b1c6c827a855df26c571
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "145122009"
+---
+1. Crea un token de acceso personal nuevo (PAT) con los alcances adecuados para las tareas que quieres realizar. Si tu organización requiere SSO, debes hablitarlo para tu token nuevo.
   {% warning %}
 
-  **Note:** By default, when you select the `write:packages` scope for your {% data variables.product.pat_v1 %} in the user interface, the `repo` scope will also be selected. The `repo` scope offers unnecessary and broad access, which we recommend you avoid using for {% data variables.product.prodname_actions %} workflows in particular. For more information, see "[Security hardening for GitHub Actions](/actions/getting-started-with-github-actions/security-hardening-for-github-actions#considering-cross-repository-access)." As a workaround, you can select just the `write:packages` scope for your {% data variables.product.pat_v1 %} in the user interface with this url: `https://{% ifversion fpt or ghec %}github.com{% else %}HOSTNAME{% endif %}/settings/tokens/new?scopes=write:packages`. 
+  **Nota:** De manera predeterminada, cuando selecciona el ámbito `write:packages` de tu token de acceso personal (PAT) en la interfaz de usuario, también se seleccionará el ámbito `repo`. El ámbito `repo` ofrece un acceso amplio e innecesario, el cual te recomendamos no utilices para los flujos de trabajo de Acciones de GitHub en particular. Si quieres obtener más información, consulta [Fortalecimiento de seguridad para GitHub Actions](/actions/getting-started-with-github-actions/security-hardening-for-github-actions#considering-cross-repository-access). Como solución alternativa, puedes seleccionar solo el ámbito `write:packages` de tu PAT en la interfaz de usuario con esta URL: `https://{% ifversion fpt or ghec %}github.com{% else %}HOSTNAME{% endif %}/settings/tokens/new?scopes=write:packages`. 
 
   {% endwarning %}
 
-    - Select the `read:packages` scope to download container images and read their metadata.
-    - Select the `write:packages` scope to download and upload container images and read and write their metadata.
-    - Select the `delete:packages` scope to delete container images.
+    - Selecciona el ámbito `read:packages` para descargar imágenes de contenedor y leer sus metadatos.
+    - Selecciona el ámbito `write:packages` para descargar y cargar imágenes de contenedor, así como para leer y escribir sus metadatos.
+    - Selecciona el ámbito `delete:packages` para eliminar imágenes de contenedor.
 
-  For more information, see "[Creating a {% data variables.product.pat_generic %} for the command line](/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line)."
+  Para obtener más información, consulta [Crear un token de acceso personal](/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line).
 
-2. Save your {% data variables.product.pat_v1 %}. We recommend saving your token as an environment variable.
+2. Guarda tu PAT. Te recomendamos guardar tu PAT como una variable de ambiente.
   ```shell
   $ export CR_PAT=YOUR_TOKEN
   ```
-3. Using the CLI for your container type, sign in to the {% data variables.product.prodname_container_registry %} service at `{% data reusables.package_registry.container-registry-hostname %}`.
+3. Utilizando el CLI de tu tipo de contenedor, inicia sesión en el servicio de {% data variables.product.prodname_container_registry %} en `{% data reusables.package_registry.container-registry-hostname %}`.
   {% raw %}
   ```shell
   $ echo $CR_PAT | docker login {% endraw %}{% data reusables.package_registry.container-registry-hostname %}{% raw %} -u USERNAME --password-stdin

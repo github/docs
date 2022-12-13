@@ -1,6 +1,6 @@
 ---
-title: Committing changes to a pull request branch created from a fork
-intro: You can commit changes on a pull request branch that was created from a fork of your repository with permission from the pull request creator.
+title: Confirmar cambios a una rama de solicitud de extracción desde una bifurcación
+intro: Puedes confirmar cambios en una rama de solicitud de extracción que se creó desde una bifurcación de tu repositorio con permiso del creador de la solicitud de extracción.
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/proposing-changes-to-your-work-with-pull-requests/committing-changes-to-a-pull-request-branch-created-from-a-fork
   - /articles/committing-changes-to-a-pull-request-branch-created-from-a-fork
@@ -14,40 +14,44 @@ versions:
 topics:
   - Pull requests
 shortTitle: Commit to PR branch from fork
+ms.openlocfilehash: 123775ecbcc199382fe2082f22ad04db21fb9661
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145137746'
 ---
-You can only make commits on pull request branches that:
-- are opened in a repository that you have push access to and that were created from a fork of that repository
-- are on a user-owned fork
-- have permission granted from the pull request creator
-- don't have [branch restrictions](/github/administering-a-repository/about-protected-branches#restrict-who-can-push-to-matching-branches) that will prevent you from committing
+Solo puedes realizar confirmaciones en las ramas de la solicitud de extracción que:
+- están abiertas en un repositorio al que tienes acceso de escritura y que se crearon a partir de una bifurcación de ese repositorio
+- se encuentren en una bifurcación propiedad del usuario
+- tienes permiso otorgado por parte del creador de la solicitud de extracción
+- no tengan [restricciones de rama](/github/administering-a-repository/about-protected-branches#restrict-who-can-push-to-matching-branches) que te impidan la confirmación
 
-Only the user who created the pull request can give you permission to push commits to the user-owned fork. For more information, see "[Allowing changes to a pull request branch created from a fork](/pull-requests/collaborating-with-pull-requests/working-with-forks/allowing-changes-to-a-pull-request-branch-created-from-a-fork)."
+Solo el usuario que creó la solicitud de extracción puede darte permiso para subir confirmaciones de cambios en la bifurcación de la cual es dueño. Para más información, vea "[Permiso para realizar cambios en una rama de solicitud de incorporación de cambios creada a partir de una bifurcación](/pull-requests/collaborating-with-pull-requests/working-with-forks/allowing-changes-to-a-pull-request-branch-created-from-a-fork)".
 
 {% note %}
 
-**Note:** You can also make commits to a pull request branch from a fork of your repository through {% data variables.location.product_location %} by creating your own copy (or fork) of the fork of your repository and committing changes to the same head branch that the original pull request changes were created on. For some general guidelines, see "[Creating a pull request from a fork](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork)."
+**Nota:** También puedes realizar confirmaciones a una rama de solicitud de incorporación de cambios desde una bifurcación de tu repositorio a través de {% data variables.product.product_location %} al crear tu propia copia (o bifurcación) de la bifurcación de tu repositorio y confirmar los cambios en la misma rama de encabezado en la que se crearon los cambios de la solicitud de incorporación de cambios original. Para ver algunas instrucciones generales, consulta "[Crear una solicitud de incorporación de cambios desde una bifurcación](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork)".
 
 {% endnote %}
 
-1. On {% data variables.product.product_name %}, navigate to the main page of the fork (or copy of your repository) where the pull request branch was created.
-{% data reusables.repositories.copy-clone-url %}
-{% data reusables.command_line.open_the_multi_os_terminal %}
- {% tip %}
+1. En {% data variables.product.product_name %}, desplázate hasta la página principal de la bifurcación (o copia de tu repositorio) donde se creó la rama de la solicitud de extracción.
+{% data reusables.repositories.copy-clone-url %} {% data reusables.command_line.open_the_multi_os_terminal %} {% tip %}
 
- **Tip:** If you prefer to clone the fork using {% data variables.product.prodname_desktop %}, then see "[Cloning a repository to {% data variables.product.prodname_desktop %}](/articles/cloning-a-repository/#cloning-a-repository-to-github-desktop)."
+ **Sugerencia:** Si prefieres clonar la bifurcación mediante {% data variables.product.prodname_desktop %}, consulta "[Clonar un repositorio en {% data variables.product.prodname_desktop %}](/articles/cloning-a-repository/#cloning-a-repository-to-github-desktop)".
 
  {% endtip %}
-4. Change the current working directory to the location where you want to download the cloned directory.
+4. Cambia el directorio de trabajo actual a la ubicación donde deseas descargar el directorio clonado.
   ```shell
   $ cd open-source-projects
   ```
-5. Type `git clone`, and then paste the URL you copied in Step 3.
+5. Escribe `git clone` y pega la dirección URL que has copiado en el paso 3.
   ```shell
-  $ git clone https://{% data variables.command_line.codeblock %}/USERNAME/FORK-OF-THE-REPOSITORY
+  $ git clone https://{% data variables.command_line.codeblock %}/<em>USERNAME</em>/<em>FORK-OF-THE-REPOSITORY</em>
   ```
-6. Press **Enter**. Your local clone will be created.
+6. Presione **ENTRAR**. Se creará tu clon local.
   ```shell
-  $ git clone https://{% data variables.command_line.codeblock %}/USERNAME/FORK-OF-THE-REPOSITORY
+  $ git clone https://{% data variables.command_line.codeblock %}/<em>USERNAME</em>/<em>FORK-OF-THE-REPOSITORY</em>
   > Cloning into `FORK-OF-THE-REPOSITORY`...
   > remote: Counting objects: 10, done.
   > remote: Compressing objects: 100% (8/8), done.
@@ -56,27 +60,26 @@ Only the user who created the pull request can give you permission to push commi
   ```
  {% tip %}
 
- **Tip:** The error message "fatal: destination path 'REPOSITORY-NAME' already exists and is not an empty directory" means that your current working directory already contains a repository with the same name. To resolve the error, you must clone the fork in a different directory.
+ **Sugerencia:** El mensaje de error "fatal: destination path 'REPOSITORY-NAME' already exists and is not an empty directory" significa que tu directorio de trabajo actual ya contiene un repositorio con el mismo nombre. Para resolver el error, debes clonar la bifurcación en un directorio diferente.
 
  {% endtip %}
-7. Navigate into your new cloned repository.
+7. Desplázate hasta el nuevo repositorio clonado.
   ```shell
-  $ cd FORK-OF-THE-REPOSITORY
+  $ cd <em>FORK-OF-THE-REPOSITORY</em>
   ```
-7. Switch branches to the compare branch of the pull request where the original changes were made. If you navigate to the original pull request, you'll see the compare branch at the top of the pull request.
-![compare-branch-example](/assets/images/help/pull_requests/compare-branch-example.png)
- In this example, the compare branch is `test-branch`:
+7. Alterna las ramas para comparar la rama de la solicitud de extracción donde se realizaron los cambios originales. Si te desplazas hasta la solicitud de extracción original, verás la rama de comparación en la parte superior de la solicitud de extracción.
+![compare-branch-example](/assets/images/help/pull_requests/compare-branch-example.png) En este ejemplo, la rama de comparación es `test-branch`:
   ```shell
-  $ git checkout TEST-BRANCH
+  $ git checkout <em>test-branch</em>
   ```
 
  {% tip %}
 
- **Tip:** For more information about pull request branches, including examples, see "[Creating a Pull Request](/articles/creating-a-pull-request#changing-the-branch-range-and-destination-repository)."
+ **Sugerencia:** Para obtener más información sobre las ramas de solicitudes de incorporación de cambios, con ejemplos incluidos, consulta "[Creación de una solicitud de incorporación de cambios](/articles/creating-a-pull-request#changing-the-branch-range-and-destination-repository)".
 
  {% endtip %}
-8. At this point, you can do anything you want with this branch. You can push new commits to it, run some local tests, or merge other branches into the branch. Make modifications as you like.
-9. After you commit your changes to the head branch of the pull request you can push your changes up to the original pull request directly. In this example, the head branch is `test-branch`:
+8. En este punto, puedes hacer lo que desees con esta rama. Puedes subir confirmaciones nuevas a ella, ejecutar algunas pruebas locales, o fusionar otras ramas en esta rama. Realiza las modificaciones que desees.
+9. Una vez que confirmas tus cambios en la rama de encabezado de la solicitud de extracción, puedes subir los cambios a la solicitud original directamente. En este ejemplo, la rama de encabezado es `test-branch`:
   ```shell
   $ git push origin <em>test-branch</em>
   > Counting objects: 32, done.
@@ -84,12 +87,12 @@ Only the user who created the pull request can give you permission to push commi
   > Compressing objects: 100% (26/26), done.
   > Writing objects: 100% (29/29), 74.94 KiB | 0 bytes/s, done.
   > Total 29 (delta 8), reused 0 (delta 0)
-  > To https://{% data variables.command_line.codeblock %}/USERNAME/FORK-OF-THE-REPOSITORY.git
-  > 12da2e9..250e946  TEST-BRANCH -> TEST-BRANCH
+  > To https://{% data variables.command_line.codeblock %}/<em>USERNAME</em>/<em>FORK-OF-THE-REPOSITORY</em>.git
+  > 12da2e9..250e946  <em>test-branch</em> -> <em>test-branch</em>
   ```
 
-Your new commits will be reflected on the original pull request on {% data variables.location.product_location %}.
+Tus nuevas confirmaciones se reflejarán en la solicitud de extracción original en {% data variables.product.product_location %}.
 
-## Further Reading
+## Lecturas adicionales
 
-- "[About forks](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)"
+- "[Acerca de las bifurcaciones](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)"

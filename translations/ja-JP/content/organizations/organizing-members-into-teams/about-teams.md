@@ -1,6 +1,6 @@
 ---
-title: About teams
-intro: Teams are groups of organization members that reflect your company or group's structure with cascading access permissions and mentions.
+title: Team について
+intro: Team は、アクセス権限とメンションをカスケードして会社またはグループの構造を反映する Organization メンバーのグループです。
 redirect_from:
   - /articles/about-teams
   - /github/setting-up-and-managing-organizations-and-teams/about-teams
@@ -12,71 +12,76 @@ versions:
 topics:
   - Organizations
   - Teams
+ms.openlocfilehash: 7b899cf08ca58170acdf8fb2fb2ad13d251b76e3
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145149846'
 ---
+![Organization 内の Team のリスト](/assets/images/help/teams/org-list-of-teams.png)
 
-![List of teams in an organization](/assets/images/help/teams/org-list-of-teams.png)
+Organization のオーナーとチームメンテナは、Organization のリポジトリに対する管理、読み取り、または書き込みのアクセス権を Team に付与できます。 Organization のメンバーは、Team の名前をメンションすることで、Team 全体に通知を送信できます。 Organization のメンバーは、Team のレビューを要求することでも、Team 全体に通知を送信することができます。 Organization のメンバーは、pull request が開かれているリポジトリに対する読み取りアクセス権を持つ特定の Team のレビューを要求できます。 コードの特定の種類や領域に対して Team をオーナーとして CODEOWNERS ファイルで指定できます。
 
-Organization owners and team maintainers can give teams admin, read, or write access to organization repositories. Organization members can send a notification to an entire team by mentioning the team's name. Organization members can also send a notification to an entire team by requesting a review from that team. Organization members can request reviews from specific teams with read access to the repository where the pull request is opened. Teams can be designated as owners of certain types or areas of code in a CODEOWNERS file.
+詳細については、次を参照してください。
+- [Organization のリポジトリに対するチームのアクセスを管理する](/articles/managing-team-access-to-an-organization-repository)
+- 「[ユーザーと Team をメンションする](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams)」
+- 「[コード オーナーについて](/articles/about-code-owners/)」
 
-For more information, see:
-- "[Managing team access to an organization repository](/articles/managing-team-access-to-an-organization-repository)"
-- "[Mentioning people and teams](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams)"
-- "[About code owners](/articles/about-code-owners/)"
-
-![Image of a team mention](/assets/images/help/teams/team-mention.png)
+![Team のメンションの画像](/assets/images/help/teams/team-mention.png)
 
 {% ifversion ghes %}
 
-You can also use LDAP Sync to synchronize {% data variables.location.product_location %} team members and team roles against your established LDAP groups. This lets you establish role-based access control for users from your LDAP server instead of manually within {% data variables.location.product_location %}. For more information, see "[Enabling LDAP Sync](/enterprise/admin/authentication/using-ldap#enabling-ldap-sync)."
+また、LDAP Sync を使って {% data variables.product.product_location %} の Team メンバーと Team ロールを、既成の LDAP グループと同期させることができます。 そうすることで、{% data variables.product.product_location %} 内で手動で行う代わりに、LDAP サーバーのユーザーのロールベースのアクセス制御を確立できます。 詳細については、「[LDAP Sync の有効化](/enterprise/admin/authentication/using-ldap#enabling-ldap-sync)」を参照してください。
 
 {% endif %}
 
 {% data reusables.organizations.team-synchronization %}
 
-## Team visibility
+## Team の可視性
 
 {% data reusables.organizations.types-of-team-visibility %}
 
-You can view all the teams you belong to on your personal dashboard. For more information, see "[About your personal dashboard](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/about-your-personal-dashboard#finding-your-top-repositories-and-teams)."
+自分が所属するすべてのTeamは、パーソナルダッシュボードで表示できます。 詳細については、[個人用ダッシュボード](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/about-your-personal-dashboard#finding-your-top-repositories-and-teams)に関するページを参照してください。
 
-## Team pages
+## Team のページ
 
-Each team has its own page within an organization. On a team's page, you can view team members, child teams, and the team's repositories. Organization owners and team maintainers can access team settings and update the team's description and profile picture from the team's page.
+各 Team は、Organization 内に独自のページを持ちます。 Team のページでは、Team メンバー、子チーム、Team のリポジトリを見ることができます。 Organization のオーナーとチームメンテナは、Team のページから Team の設定にアクセスし、Team の説明とプロフィール画像を更新できます。
 
-Organization members can create and participate in discussions with the team. For more information, see "[About team discussions](/organizations/collaborating-with-your-team/about-team-discussions)."
+Organization のメンバーは、Team 内のディスカッションを作成し、参加できます。 詳細については、「[Team ディスカッションについて](/organizations/collaborating-with-your-team/about-team-discussions)」を参照してください。
 
-![Team page listing team members and discussions](/assets/images/help/organizations/team-page-discussions-tab.png)
+![メンバーとディスカッションのリストがある Team ページ](/assets/images/help/organizations/team-page-discussions-tab.png)
 
-## Nested teams
+## 入れ子チーム
 
-You can reflect your group or company's hierarchy within your {% data variables.product.product_name %} organization with multiple levels of nested teams. A parent team can have multiple child teams, while each child team only has one parent team. You cannot nest secret teams.
+{% data variables.product.product_name %}の Organization では、複数レベルの入れ子チームでグループや会社の階層を反映させることができます。 親 Team は複数の子 Team を持つことができますが、各子 Team は 1 つの親 Team のみを持ちます。 シークレット Team を入れ子にすることはできません。
 
-Child teams inherit the parent's access permissions, simplifying permissions management for large groups. Members of child teams also receive notifications when the parent team is @mentioned, simplifying communication with multiple groups of people.
+子 Team は親のアクセス権限を継承し、大規模なグループの権限管理を簡素化します。 子 Team のメンバーは、親 Team が @mentioned された場合にも通知を受けるので、複数グループの人とのコミュニケーションがシンプルになります。
 
-For example, if your team structure is Employees > Engineering > Application Engineering > Identity, granting Engineering write access to a repository means Application Engineering and Identity also get that access. If you @mention the Identity Team or any team at the bottom of the organization hierarchy, they're the only ones who will receive a notification.
+たとえば Team の構造が「従業員 > エンジニアリング > アプリケーションエンジニアリング > アイデンティティ」となっているなら、エンジニアリングにリポジトリへの書き込みアクセスを許可すれば、アプリケーションエンジニアとアイデンティティもそのアクセス権を得ることになります。 ID Team または Organization 階層の最下位にある任意の Team に @mention すると、通知を受け取るのはその人たちだけになります。
 
-![Teams page with a parent team and child teams](/assets/images/help/teams/nested-teams-eng-example.png)
+![親チームと子チームがある Team のページ](/assets/images/help/teams/nested-teams-eng-example.png)
 
-To easily understand who shares a parent team's permissions and mentions, you can see all of the members of a parent team's child teams on the Members tab of the parent team's page. Members of a child team are not direct members of the parent team.
+親チームの権限とメンションを誰が共有するのかを簡単に知るには、親チームのページの [Members] タブで親チームの子チームのすべてのメンバーを見ることができます。 子チームのメンバーは、親チームの直接のメンバーではありません。
 
-![Parent team page with all members of child teams](/assets/images/help/teams/team-and-subteam-members.png)
+![子チームの全メンバーがある親チームのページ](/assets/images/help/teams/team-and-subteam-members.png)
 
-You can choose a parent when you create the team, or you can move a team in your organization's hierarchy later. For more information see, "[Moving a team in your organization’s hierarchy](/articles/moving-a-team-in-your-organization-s-hierarchy)."
+Team を作るときには親を選択できます。あるいは、作成済みの Team を Organization の階層の中で移動させることもできます。 詳細については、「[Organization 階層内で Team を移動する](/articles/moving-a-team-in-your-organization-s-hierarchy)」を参照してください。
 
 {% data reusables.enterprise_user_management.ldap-sync-nested-teams %}
 
-## Preparing to nest teams in your organization
+## Organization 内で Team を入れ子にする準備
 
-If your organization already has existing teams, you should audit each team's repository access permissions before you nest teams above or below it. You should also consider the new structure you'd like to implement for your organization.
+Organization がすでに既存の Team を持っている場合、その Team の上あるいは下に Team を入れ子にする前に、各 Team のリポジトリのアクセス権限を監査しておくべきです。 また、Organization に実装したい新しい構造についても考慮しておくべきです。
 
-At the top of the team hierarchy, you should give parent teams repository access permissions that are safe for every member of the parent team and its child teams. As you move toward the bottom of the hierarchy, you can grant child teams additional, more granular access to more sensitive repositories.
+Team 階層の最上位では、親チームとその子チームのすべてのメンバーにとって安全なアクセス権限を、親チームのリポジトリに与えるべきです。 階層を下っていくにつれて、より注意が必要なリポジトリへの、より細かいアクセスを、子チームに許可していくことができます。
 
-1. Remove all members from existing teams
-2. Audit and adjust each team's repository access permissions and give each team a parent
-3. Create any new teams you'd like to, choose a parent for each new team, and give them repository access
-4. Add people directly to teams
+1. 既存の Team からすべてのメンバーを削除する
+2. 各 Team のリポジトリのアクセス権限を監査して調整し、各 Team に親を与える
+3. 必要な新しい Team を作成し、それぞれの新 Team の親を選択し、それらにリポジトリのアクセス権を与える
+4. Team に直接人を追加する
 
-## Further reading
+## 参考資料
 
-- "[Creating a team](/articles/creating-a-team)"
-- "[Adding organization members to a team](/articles/adding-organization-members-to-a-team)"
+- 「[Team の作成](/articles/creating-a-team)」
+- 「[Team への Organization メンバーの追加](/articles/adding-organization-members-to-a-team)」
