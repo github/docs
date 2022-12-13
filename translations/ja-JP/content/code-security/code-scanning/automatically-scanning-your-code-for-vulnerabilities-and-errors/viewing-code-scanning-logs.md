@@ -1,6 +1,6 @@
 ---
-title: Viewing code scanning logs
-intro: 'You can view the output generated during {% data variables.product.prodname_code_scanning %} analysis in {% data variables.location.product_location %}.'
+title: Code scanningログの表示
+intro: '{% data variables.product.product_location %}の{% data variables.product.prodname_code_scanning %}分析で生成された出力を見ることができます。'
 product: '{% data reusables.gated-features.code-scanning %}'
 permissions: 'If you have write permissions to a repository, you can view the {% data variables.product.prodname_code_scanning %} logs for that repository.'
 miniTocMaxHeadingLevel: 4
@@ -14,69 +14,73 @@ versions:
 topics:
   - Security
 shortTitle: View code scanning logs
+ms.openlocfilehash: e4f4c3e601540e02c01bbe3761a11528a746a519
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147444630'
 ---
+{% data reusables.code-scanning.beta %} {% data reusables.code-scanning.enterprise-enable-code-scanning-actions %}
 
-{% data reusables.code-scanning.beta %}
-{% data reusables.code-scanning.enterprise-enable-code-scanning-actions %}
+## {% data variables.product.prodname_code_scanning %}のセットアップについて 
 
-## About your {% data variables.product.prodname_code_scanning %} setup 
+リポジトリでの{% data variables.product.prodname_code_scanning %}のセットアップには、様々なツールを使うことができます。 詳細については、「[リポジトリの{% data variables.product.prodname_code_scanning %} の設定](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/setting-up-code-scanning-for-a-repository#options-for-setting-up-code-scanning)」を参照してください。
 
-You can use a variety of tools to set up {% data variables.product.prodname_code_scanning %} in your repository. For more information, see  "[Setting up {% data variables.product.prodname_code_scanning %} for a repository](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/setting-up-code-scanning-for-a-repository#options-for-setting-up-code-scanning)."
+利用できるログと診断情報は、リポジトリ中での{% data variables.product.prodname_code_scanning %}の利用方法によります。 使用している{% data variables.product.prodname_code_scanning %}の種類を確認するには、リポジトリの **[セキュリティ]** タブで、アラート一覧の **[ツール]** ドロップダウン メニューを使用します。 詳細については、「[リポジトリの {% data variables.product.prodname_code_scanning %} アラートの管理](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository#viewing-the-alerts-for-a-repository)」を参照してください。
 
-The log and diagnostic information available to you depends on the method you use for {% data variables.product.prodname_code_scanning %} in your repository. You can check the type of {% data variables.product.prodname_code_scanning %} you're using in the **Security** tab of your repository, by using the **Tool** drop-down menu in the alert list. For more information, see "[Managing {% data variables.product.prodname_code_scanning %} alerts for your repository](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository#viewing-the-alerts-for-a-repository)."
+## 分析と診断情報について
 
-## About analysis and diagnostic information
+{% data variables.product.prodname_code_scanning %}の実行に対する分析と診断情報は、{% data variables.product.prodname_dotcom %}上の{% data variables.product.prodname_codeql %}分析を使用して見ることができます。 
 
-You can see analysis and diagnostic information for {% data variables.product.prodname_code_scanning %} run using {% data variables.product.prodname_codeql %} analysis on {% data variables.product.prodname_dotcom %}. 
+アラート一覧の上部にあるヘッダーに、最新の分析に関する **分析** 情報が表示されます。 詳細については、「[リポジトリの Code Scanning アラートの管理](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository#viewing-the-alerts-for-a-repository)」を参照してください。
 
-**Analysis** information is shown for the most recent analysis in a header at the top of the list of alerts. For more information, see "[Managing code scanning alerts for your repository](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository#viewing-the-alerts-for-a-repository)."
+**診断** 情報は [アクション] ワークフロー ログに表示され、概要メトリックと抽出診断からなります。 {% data variables.product.prodname_dotcom %} の {% data variables.product.prodname_code_scanning %} ログへのアクセスの詳細については、以下の「[{% data variables.product.prodname_code_scanning %}からのログ出力の表示](#viewing-the-logging-output-from-code-scanning)」を参照してください。
 
-**Diagnostic** information is displayed in the Action workflow logs and consists of summary metrics and extractor diagnostics. For information about accessing {% data variables.product.prodname_code_scanning %} logs on {% data variables.product.prodname_dotcom %}, see "[Viewing the logging output from {% data variables.product.prodname_code_scanning %}](#viewing-the-logging-output-from-code-scanning)" below.
+{% data variables.product.prodname_dotcom %}の外部で{% data variables.product.prodname_codeql_cli %}を使っているなら、診断情報はデータベース分析の間に生成された出力中に示されます。 この情報は、{% data variables.product.prodname_code_scanning %}の結果とともに{% data variables.product.prodname_dotcom %}にアップロードするSARIF結果ファイル中にも含まれています。
 
-If you're using the {% data variables.product.prodname_codeql_cli %} outside {% data variables.product.prodname_dotcom %}, you'll see diagnostic information in the output generated during database analysis. This information is also included in the SARIF results file you upload to {% data variables.product.prodname_dotcom %} with the {% data variables.product.prodname_code_scanning %} results.
+{% data variables.product.prodname_codeql_cli %} の詳細については、「[CI システムでの {% data variables.product.prodname_codeql_cli %} の構成](/code-security/secure-coding/using-codeql-code-scanning-with-your-existing-ci-system/configuring-codeql-cli-in-your-ci-system#viewing-log-and-diagnostic-information)」を参照してください。
 
-For information about the {% data variables.product.prodname_codeql_cli %}, see "[Configuring {% data variables.product.prodname_codeql_cli %} in your CI system](/code-security/secure-coding/using-codeql-code-scanning-with-your-existing-ci-system/configuring-codeql-cli-in-your-ci-system#viewing-log-and-diagnostic-information)."
-
-### About summary metrics
+### サマリメトリクスについて
 
 {% data reusables.code-scanning.summary-metrics %}
 
-### About {% data variables.product.prodname_codeql %} source code extraction diagnostics
+### {% data variables.product.prodname_codeql %}ソースコード抽出診断について
 
 {% data reusables.code-scanning.extractor-diagnostics %}
 
 {% ifversion codeql-action-debug-logging %}
 
-You can see more detailed information about {% data variables.product.prodname_codeql %} extractor errors and warnings that occurred during database creation by enabling debug logging. For more information, see "[Troubleshooting the CodeQL workflow](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/troubleshooting-the-codeql-workflow#creating-codeql-debugging-artifacts-by-re-running-jobs-with-debug-logging-enabled)."
+デバッグ ログを有効にすると、データベースの作成時に発生した {% data variables.product.prodname_codeql %} 抽出子のエラーと警告に関する詳しい情報を確認できます。 詳しくは、「[CodeQL ワークフローのトラブルシューティング](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/troubleshooting-the-codeql-workflow#creating-codeql-debugging-artifacts-by-re-running-jobs-with-debug-logging-enabled)」を参照してください。
 
 {% endif %}
 
-## Viewing the logging output from {% data variables.product.prodname_code_scanning %}
+## {% data variables.product.prodname_code_scanning %} からログ出力を表示する
 
-This section applies to {% data variables.product.prodname_code_scanning %} run using {% data variables.product.prodname_actions %} ({% data variables.product.prodname_codeql %} or third-party).
+このセクションは、{% data variables.product.prodname_actions %}を使って実行される{% data variables.product.prodname_code_scanning %}（{% data variables.product.prodname_codeql %}あるいはサードパーティ）に適用されます。
 
-After setting up {% data variables.product.prodname_code_scanning %} for your repository, you can watch the output of the actions as they run.
+リポジトリで{% data variables.product.prodname_code_scanning %}をセットアップしたら、アクションが実行されるとその出力を見ることができます。
 
 {% data reusables.repositories.actions-tab %}
 
-  You'll see a list that includes an entry for running the {% data variables.product.prodname_code_scanning %} workflow. The text of the entry is the title you gave your commit message.
+  {% data variables.product.prodname_code_scanning %} ワークフローを実行するためのエントリを含むリストが表示されます。 エントリのテキストは、コミットメッセージに付けるタイトルです。
 
-  ![Actions list showing {% data variables.product.prodname_code_scanning %} workflow](/assets/images/help/repository/code-scanning-actions-list.png)
+  ![{% data variables.product.prodname_code_scanning %} ワークフローを表示しているアクションのリスト](/assets/images/help/repository/code-scanning-actions-list.png)
 
-1. Click the entry for the {% data variables.product.prodname_code_scanning %} workflow.
+1. {% data variables.product.prodname_code_scanning %} ワークフローのエントリをクリックします。
 
-2. Click the job name on the left. For example, **Analyze (LANGUAGE)**.
+2. 左側のジョブ名をクリックします。 たとえば、 **[分析 (言語)]** です。
 
-  ![Log output from the {% data variables.product.prodname_code_scanning %} workflow](/assets/images/help/repository/code-scanning-logging-analyze-action.png)
+  ![{% data variables.product.prodname_code_scanning %} ワークフローからのログ出力](/assets/images/help/repository/code-scanning-logging-analyze-action.png)
 
-1. Review the logging output from the actions in this workflow as they run.
+1. このワークフローの実行時にアクションから出力されるログを確認します。
 
-1. Once all jobs are complete, you can view the details of any {% data variables.product.prodname_code_scanning %} alerts that were identified. For more information, see "[Managing {% data variables.product.prodname_code_scanning %} alerts for your repository](/code-security/secure-coding/managing-code-scanning-alerts-for-your-repository#viewing-the-alerts-for-a-repository)."
+1. すべてのジョブが完了すると、確認されたすべての {% data variables.product.prodname_code_scanning %} アラートの詳細を表示できます。 詳細については、「[リポジトリの {% data variables.product.prodname_code_scanning %} アラートの管理](/code-security/secure-coding/managing-code-scanning-alerts-for-your-repository#viewing-the-alerts-for-a-repository)」を参照してください。
 
 {% note %}
 
-**Note:** If you raised a pull request to add the {% data variables.product.prodname_code_scanning %} workflow to the repository, alerts from that pull request aren't displayed directly on the {% data variables.product.prodname_code_scanning_capc %} page until the pull request is merged. If any alerts were found you can view these, before the pull request is merged, by clicking the **_n_ alerts found** link in the banner on the {% data variables.product.prodname_code_scanning_capc %} page.
+**注釈:** {% data variables.product.prodname_code_scanning %} ワークフローを追加するための pull request をリポジトリに発行すると、その pull request からのアラートは、その pull request がマージされるまで {% data variables.product.prodname_code_scanning_capc %} ページに直接表示されません。 アラートが見つかった場合は、pull request がマージされる前に、{% data variables.product.prodname_code_scanning_capc %} ページのバナーにある **[_n_ のアラートを検出]** リンクをクリックして表示できます。
 
-![Click the "n alerts found" link](/assets/images/help/repository/code-scanning-alerts-found-link.png)
+![[n alerts found]\(n 件のアラートが見つかりました\) リンクをクリックします](/assets/images/help/repository/code-scanning-alerts-found-link.png)
 
 {% endnote %}

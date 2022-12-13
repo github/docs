@@ -1,6 +1,6 @@
 ---
-title: Managing multiple accounts
-intro: 'If you use one workstation to contribute to projects for more than one account on {% data variables.location.product_location %}, you can modify your Git configuration to simplify the contribution process.'
+title: 複数のアカウントの管理
+intro: '1 つのワークステーションを使用して {% data variables.product.product_location %} 上の複数のアカウントのプロジェクトにコントリビュートする場合は、Git 構成を変更してコントリビューション プロセスを簡略化できます。'
 versions:
   feature: multiple-accounts-one-workstation
 topics:
@@ -8,97 +8,84 @@ topics:
   - Git
   - GitHub
 shortTitle: Manage multiple accounts
+ms.openlocfilehash: 3d1c31cb645d9f592121e955e07e8bf9ee473a82
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147687245'
 ---
+## 複数アカウントの管理について
 
-## About management of multiple accounts
+場合によっては、{% data variables.product.product_location %} で複数のアカウントを使用する必要があります。 たとえば、オープン ソース コントリビューションの個人アカウントがあり、雇用主が Enterprise 内でユーザー アカウントを作成および管理することもできます。 
 
-In some cases, you may need to use multiple accounts on {% data variables.location.product_location %}. For example, you may have a personal account for open source contributions, and your employer may also create and manage a user account for you within an enterprise. 
+{% data variables.product.prodname_managed_user %} を使用して {% data variables.product.product_location %} のパブリック プロジェクトにコントリビュートすることはできません。そのため、個人アカウントを使用して、それらのリソースにコントリビュートする必要があります。 詳しくは、{% ifversion fpt %}{% data variables.product.prodname_ghe_cloud %} ドキュメントの{% elsif ghec %}{% endif %}「[{% data variables.product.prodname_emus %} について]({% ifversion fpt %}/enterprise-cloud@latest{% endif %}/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users#abilities-and-restrictions-of-managed-user-accounts)」を参照してください。
 
-You cannot use your {% data variables.enterprise.prodname_managed_user %} to contribute to public projects on {% data variables.location.product_location %}, so you must contribute to those resources using your personal account. For more information, see "[About  {% data variables.product.prodname_emus %}]({% ifversion fpt %}/enterprise-cloud@latest{% endif %}/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users#abilities-and-restrictions-of-managed-user-accounts){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% elsif ghec %}."{% endif %}
-
-If you want to use one workstation to contribute from both accounts, you can simplify contribution with Git by using a mixture of protocols to access repository data, or by using credentials on a per-repository basis.
+1 つのワークステーションを使用して両方のアカウントからコントリビュートする場合は、プロトコルの組み合わせを使用してリポジトリ データにアクセスするか、リポジトリごとに資格情報を使用することで、Git でのコントリビューションを簡略化できます。
 
 {% warning %}
 
-**Warning**: Be mindful when you use one workstation to contribute to two separate accounts. Management of two or more accounts can increase the chance of mistakenly leaking internal code to the public.
+**警告**: 1 つのワークステーションを使用して 2 つの個別のアカウントにコントリビュートする場合は注意してください。 2 つ以上のアカウントを管理すると、内部コードを誤って一般に漏洩させる可能性が高くなる場合があります。
 
 {% endwarning %}
 
-If you aren't required to use a {% data variables.enterprise.prodname_managed_user %}, {% data variables.product.company_short %} recommends that you use one personal account for all your work on {% data variables.location.product_location %}. With a single personal account, you can contribute to a combination of personal, open source, or professional projects using one identity. Other people can invite the account to contribute to both individual repositories and repositories owned by an organization, and the account can be a member of multiple organizations or enterprises.
+{% data variables.product.prodname_managed_user %} を使用する必要がない場合、{% data variables.product.company_short %} では、{% data variables.product.product_location %} のすべての作業に 1 つの個人アカウントを使用することが推奨されます。 1 つの個人アカウントで、1 つの ID を使用して、個人、オープン ソース、または専門的なプロジェクトの組み合わせにコントリビュートできます。 他のユーザーは、個々のリポジトリと Organization で所有されるリポジトリの両方にコントリビュートするようにアカウントを招待でき、そのアカウントは複数の Organization または Enterprise のメンバーにすることができます。
 
-## Contributing to two accounts using HTTPS and SSH
+## HTTPS と SSH を使用する 2 つのアカウントへのコントリビューション
 
-If you contribute with two accounts from one workstation, you can access repositories by using a different protocol and credentials for each account. 
+1 つのワークステーションから 2 つのアカウントでコントリビュートする場合は、アカウントごとに異なるプロトコルと資格情報を使用してリポジトリにアクセスできます。 
 
-Git can use either the HTTPS or SSH protocol to access and update data in repositories on {% data variables.location.product_location %}. The protocol you use to clone a repository determines which credentials your workstation will use to authenticate when you access the repository. With this approach to account management, you store the credentials for one account to use for HTTPS connections and upload an SSH key to the other account to use for SSH connections.
+Git では、HTTPS または SSH プロトコルのいずれかを使用して、{% data variables.product.product_location %} のリポジトリ内のデータにアクセスして更新できます。 リポジトリのクローンに使用するプロトコルによって、そのリポジトリにアクセスするときにワークステーションで認証に使用される資格情報が決まります。 アカウント管理に対するこのアプローチでは、HTTPS 接続に使用するために 1 つのアカウントの資格情報を格納し、SSH 接続に使用するために他のアカウントに SSH キーをアップロードします。
 
-You can find both the HTTPS or an SSH URLs for cloning a repository on {% data variables.product.product_name %}. For more information, see "[Cloning a repository](/repositories/creating-and-managing-repositories/cloning-a-repository)."
+{% data variables.product.product_name %} でリポジトリをクローンするための HTTPS と SSH URL の両方を見つけることができます。 詳細については、「[リポジトリをクローンする](/repositories/creating-and-managing-repositories/cloning-a-repository)」を参照してください。
 
-For more information about the use of SSH to access repositories on {% data variables.product.product_name %}, see "[Connecting to {% data variables.product.prodname_dotcom %} with SSH](/authentication/connecting-to-github-with-ssh)."
+{% data variables.product.product_name %} のリポジトリにアクセスするための SSH の使用について詳しくは、「[SSH を使用した {% data variables.product.prodname_dotcom %} への接続](/authentication/connecting-to-github-with-ssh)」を参照してください。
 
-## Contributing to multiple accounts using HTTPS and {% data variables.product.pat_generic %}s
+## HTTPS と PAT を使用する複数のアカウントへのコントリビューション
 
-Alternatively, if you want to use the HTTPS protocol for both accounts, you can use different {% data variables.product.pat_generic %}s for each account by configuring Git to store different credentials for each repository.
+両方のアカウントに HTTPS プロトコルを使用する場合は、リポジトリごとに異なる資格情報を格納するように Git を構成することで、アカウントごとに異なる個人用アクセス トークン (PAT) を使用することもできます。
 
 {% mac %}
 
-{% data reusables.git.open-terminal %}
-{% data reusables.git.confirm-credential-manager %}
-{% data reusables.git.clear-the-stored-credentials %}
-   {% data reusables.git.no-credential-manager %}
-   - If the output is `osxkeychain`, you're using the macOS keychain. To clear the credentials, enter the following command.
+{% data reusables.git.open-terminal %} {% data reusables.git.confirm-credential-manager %} {% data reusables.git.clear-the-stored-credentials %} {% data reusables.git.no-credential-manager %}
+   - 出力が `osxkeychain` の場合、macOS キーチェーンを使用しています。 資格情報をクリアするには、次のコマンドを入力します。
 
      ```shell{:copy}
      git credential-osxkeychain erase https://github.com
      ```
-   {% data reusables.git.clear-stored-gcm-credentials %}
-{% data reusables.git.cache-on-repository-path %}
-{% data reusables.accounts.create-personal-access-tokens %}
-{% data reusables.git.provide-credentials %}
+   {% data reusables.git.clear-stored-gcm-credentials %} {% data reusables.git.cache-on-repository-path %} {% data reusables.accounts.create-personal-access-tokens %} {% data reusables.git.provide-credentials %}
 
 {% endmac %}
 
 {% windows %}
 
-1. Open Git Bash.
-{% data reusables.git.confirm-credential-manager %}
-{% data reusables.git.clear-the-stored-credentials %}
-   {% data reusables.git.no-credential-manager %}
-   {% data reusables.git.clear-stored-gcm-credentials %}
-   - If the output is `wincred`, you're using the Windows Credential Manager. To clear the credentials, enter the following command.
+1. Git Bash を開きます。
+{% data reusables.git.confirm-credential-manager %} {% data reusables.git.clear-the-stored-credentials %} {% data reusables.git.no-credential-manager %} {% data reusables.git.clear-stored-gcm-credentials %}
+   - 出力が `wincred` の場合は、Windows Credential Manager を使用しています。 資格情報をクリアするには、次のコマンドを入力します。
 
      ```shell{:copy}
      cmdkey /delete:LegacyGeneric:target=git:https://github.com
      ```
-{% data reusables.git.cache-on-repository-path %}
-{% data reusables.accounts.create-personal-access-tokens %}
-{% data reusables.git.provide-credentials %}
+{% data reusables.git.cache-on-repository-path %} {% data reusables.accounts.create-personal-access-tokens %} {% data reusables.git.provide-credentials %}
 
 {% endwindows %}
 
 {% linux %}
 
-{% data reusables.git.open-terminal %}
-{% data reusables.git.confirm-credential-manager %}
-{% data reusables.git.clear-the-stored-credentials %}
-   {% data reusables.git.no-credential-manager %}
-   {% data reusables.git.clear-stored-gcm-credentials %}
-{% data reusables.git.cache-on-repository-path %}
-{% data reusables.accounts.create-personal-access-tokens %}
-{% data reusables.git.provide-credentials %}
+{% data reusables.git.open-terminal %} {% data reusables.git.confirm-credential-manager %} {% data reusables.git.clear-the-stored-credentials %} {% data reusables.git.no-credential-manager %} {% data reusables.git.clear-stored-gcm-credentials %} {% data reusables.git.cache-on-repository-path %} {% data reusables.accounts.create-personal-access-tokens %} {% data reusables.git.provide-credentials %}
 
 {% endlinux %}
 
-## Contributing to multiple accounts using SSH and `GIT_SSH_COMMAND`
+## SSH と `GIT_SSH_COMMAND` を使用する複数のアカウントへのコントリビューション
 
-If you want to use the SSH protocol for both accounts, you can use different SSH keys for each account. For more information about using SSH, see "[Connecting to {% data variables.product.prodname_dotcom %} with SSH](/authentication/connecting-to-github-with-ssh)."
+両方のアカウントに SSH プロトコルを使用する場合は、アカウントごとに異なる SSH キーを使用できます。 SSH の使用について詳しくは、「[SSH を使用した {% data variables.product.prodname_dotcom %} への接続](/authentication/connecting-to-github-with-ssh)」を参照してください。
 
-To use a different SSH key for different repositories that you clone to your workstation, you must write a shell wrapper function for Git operations. The function should perform the following steps.
-1. Determine the repository's full name with owner, using a command such as `git config --get remote.origin.url`.
-2. Choose the correct SSH key for authentication.
-3. Modify `GIT_SSH_COMMAND` accordingly. For more information about `GIT_SSH_COMMAND`, see [Environment Variables](https://git-scm.com/docs/git#Documentation/git.txt-codeGITSSHCOMMANDcode) in the Git documentation.
+ワークステーションにクローンする異なるリポジトリに別の SSH キーを使用するには、Git 操作用のシェル ラッパー関数を記述する必要があります。 この関数で以下の手順を行う必要があります。
+1. `git config --get remote.origin.url` などのコマンドを使用して、所有者を含むリポジトリのフル ネームを特定します。
+2. 認証用の正しい SSH キーを選びます。
+3. 適宜、`GIT_SSH_COMMAND` を変更します。 `GIT_SSH_COMMAND` について詳しくは、Git ドキュメントの「[環境変数](https://git-scm.com/docs/git#Documentation/git.txt-codeGITSSHCOMMANDcode)」を参照してください。
 
-For example, the following command sets the `GIT_SSH_COMMAND` environment variable to specify an SSH command that uses the private key file at **_PATH/TO/KEY/FILE_** for authentication to clone the repository named **_OWNER_**/**_REPOSITORY_** on {% data variables.location.product_location %}.
+たとえば、次のコマンドでは、{% data variables.product.product_location %} の **_OWNER_**/**_REPOSITORY_** という名前のリポジトリをクローンするために、認証に **_PATH/TO/KEY/FILE_** にある秘密キー ファイルを使用する SSH コマンドを指定するように `GIT_SSH_COMMAND` 環境変数を設定します。
 
 <pre>
 GIT_SSH_COMMAND='ssh -i <em>PATH/TO/KEY/FILE</em> -o IdentitiesOnly=yes' git clone git@github.com:<em>OWNER</em>/<em>REPOSITORY</em>

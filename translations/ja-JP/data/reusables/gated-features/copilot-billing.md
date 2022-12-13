@@ -1,3 +1,9 @@
-{% data variables.product.prodname_copilot %} can be managed through personal accounts with {% data variables.product.prodname_copilot_for_individuals %} or through invoiced {% data variables.product.prodname_ghe_cloud %} accounts with {% data variables.product.prodname_copilot_for_business %}.<br><br>
-
-{% data variables.product.prodname_ghe_cloud %} accounts paying through credit card or PayPal, and organizations on the {% data variables.product.prodname_team %} or {% data variables.product.prodname_free_team %} plans cannot manage {% data variables.product.prodname_copilot %} for their members at this time. If you are interested in managing {% data variables.product.prodname_copilot %} through your {% data variables.product.prodname_ghe_cloud %} account paying through credit card or PayPal, or your organization on the {% data variables.product.prodname_team %} or {% data variables.product.prodname_free_team %} plan, you can contact sales and request to join the [waitlist](https://github.com/enterprise/contact?ref_page=/pricing?_features=site_copilot_biz_ga&ref_cta=Contact%20Sales&ref_loc=cards).
+---
+ms.openlocfilehash: ed3544608134084a2a11c5db9e9c474b29c14e41
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 10/25/2022
+ms.locfileid: "148109348"
+---
+{% data variables.product.prodname_copilot %} の課金は、現在、個人アカウントでのみ管理できます。 現時点では、Organization のメンバーの {% data variables.product.prodname_copilot %} の課金を Organization で管理することはできません。 Organization で {% data variables.product.prodname_copilot %} の課金を管理することに関心がある場合は、[待機リスト](https://github.com/features/copilot/org_signup)に参加できます。

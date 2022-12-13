@@ -1,6 +1,6 @@
 ---
-title: Introduction to GraphQL
-intro: Learn useful terminology and concepts for using the GitHub GraphQL API.
+title: GraphQLの紹介
+intro: GitHub GraphQL APIを利用するための有益な用語と概念を学んでください。
 redirect_from:
   - /v4/guides/intro-to-graphql
   - /graphql/guides/intro-to-graphql
@@ -11,36 +11,40 @@ versions:
   ghae: '*'
 topics:
   - API
+ms.openlocfilehash: abc74dfd4aa65035405fd956c6438a487381284b
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145068471'
 ---
+## GraphQLの用語
 
-## GraphQL terminology
+GitHub GraphQL APIは、GitHub REST APIからのアーキテクチャ及び概念的な移行を表すものです。 GraphQL API の[リファレンス ドキュメント](/graphql)では、いくつかの新しい用語が登場することになるでしょう。
 
-The GitHub GraphQL API represents an architectural and conceptual shift from the GitHub REST API. You will likely encounter some new terminology in the GraphQL API [reference docs](/graphql).
+## スキーマ
 
-## Schema
+スキーマは、GraphQL APIの型システムを定義します。 これは、クライアントがアクセスできる、存在しうるデータ（オブジェクト、フィールド、リレーションシップ、すべて）の完全な集合を記述します。 クライアントからの呼び出しは、スキーマに対して[検証](https://graphql.github.io/learn/validation/)され、[実行](https://graphql.github.io/learn/execution/)されます。 クライアントは、[イントロスペクション](#discovering-the-graphql-api)を使用してスキーマに関する情報を確認できます。 スキーマはGraphQL APIサーバー上にあります。 詳細については、「[GraphQL API の検出](#discovering-the-graphql-api)」を参照してください。
 
-A schema defines a GraphQL API's type system. It describes the complete set of possible data (objects, fields, relationships, everything) that a client can access. Calls from the client are [validated](https://graphql.github.io/learn/validation/) and [executed](https://graphql.github.io/learn/execution/) against the schema. A client can find information about the schema via [introspection](#discovering-the-graphql-api). A schema resides on the GraphQL API server. For more information, see "[Discovering the GraphQL API](#discovering-the-graphql-api)."
+## フィールド
 
-## Field
+フィールドは、オブジェクトから取り出せるデータの単位です。 [GraphQL の公式ドキュメント](https://graphql.github.io/learn/schema/)では、「GraphQL クエリ言語は、基本的にオブジェクトのフィールドを選択するものです」と記載されています。
 
-A field is a unit of data you can retrieve from an object. As the [official GraphQL docs](https://graphql.github.io/learn/schema/) say:
-"The GraphQL query language is basically about selecting fields on objects."
+[公式仕様](https://graphql.github.io/graphql-spec/June2018/#sec-Language.Fields)では、フィールドについても次のように記載されています。
 
-The [official spec](https://graphql.github.io/graphql-spec/June2018/#sec-Language.Fields) also says about fields:
+> すべてのGraphQLの操作は、明確な形のレスポンスが保証されるよう、スカラー値を返すフィールドまで降りた指定をしなければなりません。
 
-> All GraphQL operations must specify their selections down to fields which return scalar values to ensure an unambiguously shaped response.
+これはすなわち、スカラーではないフィールドを返させようとすると、スキーマ検証でエラーが投げられるということです。 すべてのフィールドがスカラー値を返すまで、入れ子になったサブフィールドを追加しなければなりません。
 
-This means that if you try to return a field that is not a scalar, schema validation will throw an error. You must add nested subfields until all fields return scalars.
+## 引数
 
-## Argument
+引数は、特定のフィールドに添付されるキー/値ペアの集合です。 フィールドの中には、引数を必要とするものがあります。 [ミューテーション](/graphql/guides/forming-calls-with-graphql#about-mutations)では、引数として入力オブジェクトが要求されます。
 
-An argument is a set of key-value pairs attached to a specific field. Some fields require an argument. [Mutations](/graphql/guides/forming-calls-with-graphql#about-mutations) require an input object as an argument.
+## 実装
 
-## Implementation
+GraphQL スキーマでは、_実装_ という用語を使用して、オブジェクトが [インターフェイス](/graphql/reference/interfaces)からどのように継承されるかを定義することがあります。
 
-A GraphQL schema may use the term _implements_ to define how an object inherits from an [interface](/graphql/reference/interfaces).
-
-Here's a contrived example of a schema that defines interface `X` and object `Y`:
+以下は、インターフェース `X` とオブジェクト `Y` を定義するスキーマの考案された例です。
 
 ```
 interface X {
@@ -55,33 +59,33 @@ type Y implements X {
 }
 ```
 
-This means object `Y` requires the same fields/arguments/return types that interface `X` does, while adding new fields specific to object `Y`. (The `!` means the field is required.)
+これは、オブジェクト `Y` でインターフェース `X` と同じフィールド/引数/戻り値の型が必要とされる一方で、オブジェクト `Y` 固有の新たなフィールドを追加する必要があるということです。 (`!` はそのフィールドが必須であることを意味します。)
 
-In the reference docs, you'll find that:
+リファレンスドキュメントには、以下のような記述があります。
 
-* Each [object](/graphql/reference/objects) lists the interface(s) _from which it inherits_ under **Implements**.
+* 各 [オブジェクト](/graphql/reference/objects) には、継承元のインターフェイス _が_ **[実装**] の下に一覧表示されます。
 
-* Each [interface](/graphql/reference/interfaces) lists the objects _that inherit from it_ under **Implementations**.
+* 各 [インターフェイス](/graphql/reference/interfaces) には、継承 _するオブジェクトが_ **[実装]** の下に一覧表示されます。
 
 ## Connection
 
-Connections let you query related objects as part of the same call. With connections, you can use a single GraphQL call where you would have to use multiple calls to a REST API. For more information, see "[Migrating from REST to GraphQL](/graphql/guides/migrating-from-rest-to-graphql)."
+コネクションを使うと、同じ呼び出しの一部として関連するオブジェクトに対するクエリを実行できます。 コネクションを使うと、REST APIでは複数の呼び出しを使うような場合に、単一のGraphQL呼び出しを使うことができます。 詳細については、「[REST から GraphQL への移行](/graphql/guides/migrating-from-rest-to-graphql)」を参照してください。
 
-It's helpful to picture a graph: dots connected by lines. The dots are nodes, the lines are edges. A connection defines a relationship between nodes.
+点を線でつなぎ、グラフを図示すると役立ちます。 点はノードで、線はエッジです。 コネクションは、ノード間の関係を定義します。
 
 ## Edge
 
-Edges represent connections between nodes. When you query a connection, you traverse its edges to get to its nodes. Every `edges` field has a `node` field and a `cursor` field. Cursors are used for [pagination](https://graphql.github.io/learn/pagination/).
+エッジは、ノード間のコネクションを表します。 コネクションに対してクエリを行うと、そのエッジをトラバースしてノードを取得することになります。 すべての `edges` フィールドには、`node` フィールドと `cursor` フィールドがあります。 カーソルは[改ページ位置の自動修正](https://graphql.github.io/learn/pagination/)に使用されます。
 
 ## Node
 
-_Node_ is a generic term for an object. You can look up a node directly, or you can access related nodes via a connection. If you specify a `node` that does not return a [scalar](/graphql/reference/scalars), you must include subfields until all fields return scalars. For information on accessing node IDs via the REST API and using them in GraphQL queries, see "[Using Global Node IDs](/graphql/guides/using-global-node-ids)."
+_ノード_ はオブジェクトの総称です。 ノードは直接ルックアップすることもできますが、コネクションを通じて関連するノードにアクセスすることもできます。 [スカラー](/graphql/reference/scalars)を返さない `node` を指定する場合は、すべてのフィールドでスカラーが返されるまでサブフィールドを含める必要があります。 REST API を通じてノード ID にアクセスし、それらを GraphQL クエリで使用する方法について詳しくは、「[グローバル ノード ID を使用する](/graphql/guides/using-global-node-ids)」を参照してください。
 
-## Discovering the GraphQL API
+## GraphQL APIの発見
 
-GraphQL is [introspective](https://graphql.github.io/learn/introspection/). This means you can query a GraphQL schema for details about itself.
+GraphQL は[内省的](https://graphql.github.io/learn/introspection/)です。 これはすなわち、GraphQLスキーマに関する詳細をクエリできるということです。
 
-* Query `__schema` to list all types defined in the schema and get details about each:
+* `__schema` に対してクエリを実行して、スキーマで定義されているすべての型を一覧表示させ、それぞれの詳細を取得します。
 
   ```graphql
   query {
@@ -98,7 +102,7 @@ GraphQL is [introspective](https://graphql.github.io/learn/introspection/). This
   }
   ```
 
-* Query `__type` to get details about any type:
+* `__type` に対してクエリを実行して、任意の型の詳細を取得します。
 
   ```graphql
   query {
@@ -113,31 +117,31 @@ GraphQL is [introspective](https://graphql.github.io/learn/introspection/). This
   }
   ```
 
-* You can also run an _introspection query_ of the schema via a `GET` request:
+* `GET` 要求を使用して、スキーマの _イントロスペクション クエリ_ を実行することもできます。
 
   ```shell
-  $ curl -H "Authorization: bearer TOKEN" {% data variables.product.graphql_url_pre %}
+  $ curl -H "Authorization: bearer <em>token</em>" {% data variables.product.graphql_url_pre %}
   ```
   
   {% note %}
 
-  **Note**: If you get the response `"message": "Bad credentials"` or `401 Unauthorized`, check that you are using a valid token. The GraphQL API only supports authentication using a {% data variables.product.pat_v1 %}. For more information, see "[Creating a {% data variables.product.pat_generic %}](/github/authenticating-to-github/creating-a-personal-access-token)." 
+  **注**: `"message": "Bad credentials"` または `401 Unauthorized` 応答を受け取った場合は、有効なトークンを使用していることを確認してください。 詳細については、[個人アクセス トークンの作成](/github/authenticating-to-github/creating-a-personal-access-token)に関する記事を参照してください。 
 
   {% endnote %}
   
-  The results are in JSON, so we recommend pretty-printing them for easier reading and searching. You can use a command-line tool like [jq](https://stedolan.github.io/jq/) or pipe the results into `python -m json.tool` for this purpose.
+  結果はJSONで返されるので、読んだり検索したりしやすくするために、プリティプリントすることをおすすめします。 [jq](https://stedolan.github.io/jq/) などのコマンドライン ツールを使用したり、この目的のために結果を `python -m json.tool` にパイプしたりできます。
   
-  Alternatively, you can pass the `idl` media type to return the results in IDL format, which is a condensed version of the schema:
+  あるいは、`idl` メディア型を渡して、IDL 形式で結果を返してもらうこともできます。これはスキーマの圧縮バージョンです。
 
   ```shell
-  $ curl -H "Authorization: bearer TOKEN" -H "Accept: application/vnd.github.v4.idl" \
+  $ curl -H "Authorization: bearer <em>token</em>" -H "Accept: application/vnd.github.v4.idl" \
   {% data variables.product.graphql_url_pre %}
   ```
 
   {% note %}
 
-  **Note**: The introspection query is probably the only `GET` request you'll run in GraphQL. If you're passing a body, the GraphQL request method is `POST`, whether it's a query or a mutation.
+  **注**: イントロスペクション クエリは、おそらく GraphQL で実行する唯一の `GET` 要求です。 本文を渡す場合、GraphQL の要求メソッドは、クエリでもミューテーションでも `POST` です。
 
   {% endnote %}
 
-  For more information about performing queries, see "[Forming calls with GraphQL](/graphql/guides/forming-calls-with-graphql)."
+  クエリの実行について詳しくは、「[GraphQL での呼び出しの作成](/graphql/guides/forming-calls-with-graphql)」を参照してください。

@@ -1,1 +1,9 @@
-With {% data variables.product.prodname_actions %}, you can automate and customize {% data variables.location.product_location %}'s development workflow on {% data variables.product.product_name %}. You can create your own actions, and use and customize actions shared by the {% data variables.product.prodname_dotcom %} community. For more information, see "[Learn {% data variables.product.prodname_actions %}](/actions/learn-github-actions)."
+---
+ms.openlocfilehash: aec556bebd25dc78544f0ed8250442014a4eba71
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "147882096"
+---
+{% data variables.product.prodname_actions %} を利用すると、{% data variables.product.product_name %} で {% data variables.product.product_location %} の開発ワークフローを自動化したり、カスタマイズしたりできます。 独自のアクションを作成したり、{% data variables.product.prodname_dotcom %}コミュニティで共有されたアクションを利用したりカスタマイズしたりできます。 詳細については、「[{% data variables.product.prodname_actions %} について学ぶ](/actions/learn-github-actions)」を参照してください。

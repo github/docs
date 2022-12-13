@@ -1,0 +1,49 @@
+date: '2021-03-23'
+intro: 複数のお客様に影響する重大なバグのため、ダウンロードは無効になりました。修正は次回のパッチで利用可能になります。
+sections:
+  security_fixes:
+    - '**高:** GitHub Pages のサイトをビルドする際に悪用される可能性があるリモート コード実行の脆弱性が、GitHub Enterprise Server で見つかりました。GitHub Pages によって使われるユーザー制御の構成オプションが十分に制限されておらず、環境変数をオーバーライドすることができ、GitHub Enterprise Server インスタンスでファイルを読み取ることが可能になっていました。攻撃者がこの脆弱性を悪用するには、GitHub Enterprise Server インスタンス上に GitHub Pages サイトを作成して構築するためのアクセス許可が必要です。この脆弱性は、3.0.3 より前のすべてのバージョンの GitHub Enterprise Server に影響を与え、3.0.3、2.22.9、2.21.17 で修正されました。この脆弱性は、GitHub Bug Bounty プログラムを通じて報告され、CVE-2021-22864 を割り当てられました。'
+    - パッケージは最新のセキュリティ バージョンに更新されました。
+  bugs:
+    - "\"ghe-cluster-config-init\" を実行すると、クラスターが動作しなくなることがありました。"
+    - リポジトリでカスタム pre-receive フックが構成されていると、GUI でのマージ競合の解決が失敗しました。
+    - '"launch-deployer" と "launch-receiver" が DEBUG レベルでログされ、不要な情報がログに書き込まれていました。'
+    - システムが HAProxy の PID を見失うことがありました。
+    - Actions が S3 ストレージを使うように構成されていると、アクションのログの読み込みが失敗することがありました。
+    - フェールオーバーが成功した後、mysql-failover の警告がいつまでも表示されました。
+    - "\"ghe-cluster-config-init\" の実行でバックグラウンド ジョブの終了コードが完全に考慮されておらず、プレフライト チェックが不適切に処理される原因になっていました。"
+    - GitHub Actions を有効にすると、初期化が何の反応もなしに失敗することがありました。
+    - 脆弱性アラートが有効になっていると、3.0 シリーズへのアップグレードが失敗しました。
+    - Codespaces に関連するジョブがキューに追加され、未処理のジョブが蓄積されることになりました。
+  changes:
+    - "consul と normad の \"bootstrap_expect\" に相対的な値を使用することによって、クラスターは少数のノードがダウンしている場合でもブートストラップできます。"
+    - ログが、時間に加えてサイズに基づいてローテーションされます。
+    - "\"ghe-cluster-status\" コマンドに kafka-lite を追加しました。"
+  known_issues:
+    - 新しくセットアップされたユーザーのいない GitHub Enterprise Server で、攻撃者が最初の管理者ユーザーを作成できました。
+    - カスタム ファイアウォール規則は、アップグレード中維持されません。
+    - "[Web インターフェイスからアップロードされた](https://github.com/blog/2105-upload-files-to-your-repositories) Git LFS 追跡ファイルが誤ってリポジトリに直接追加されます。"
+    - 同じリポジトリ内の BLOB への固定リンクが含まれ、そのファイル パスが 255 文字を超える場合、issue をクローズできません。
+    - "GitHub Connect で [ユーザーが GitHub.com を検索できる] が有効になっている場合、プライベートと内部リポジトリの issue は GitHub.com の検索結果に含まれません。"
+    - "メンテナンス モードが有効な場合、一部のサービスが、\"アクティブ プロセス\" として一覧表示されます。特定されたサービスは、メンテナンス モードで実行される可能性もあります。この問題が発生し、不安な場合は、GitHub Enterprise Support (https://support.github.com/contact) にお問い合わせください。"
+    - ノートブックに非 ASCII UTF-8 文字が含まれている場合、Web UI での Jupyter Notebook のレンダリングが失敗することがあります。
+    - Web UI での reStructuredText (RST) のレンダリングが失敗し、代わりに RST マークアップ テキストが表示される場合があります。
+    - "Pages の古いビルドがクリーンアップされていないため、ユーザー ディスク (\"/data/user/\") がいっぱいになる可能性があります。"
+    - pull request のマージ後にブランチを削除すると、ブランチの削除は成功しますが、エラー メッセージが表示されます。
+    - |ログのローテーションが新しいログ ファイルへの移行をサービスに通知するのに失敗し、古いログ ファイルが使われ続け、最終的にルート ディスクの領域が枯渇してしまうことがあります。
+
+この問題を修復または回避するには、以下のコマンドを[管理シェル](https://docs.github.com/en/enterprise-server/admin/configuration/accessing-the-administrative-shell-ssh) (SSH)で実行するか、[GitHub Enterprise Support](https://support.github.com/) に連絡して支援を求めてください。
+
+
+
+```
+
+printf "PATH=/usr/local/sbin:/usr/local/bin:/usr/local/share/enterprise:/usr/sbin:/usr/bin:/sbin:/bin\n29,59 * * * * root /usr/sbin/logrotate /etc/logrotate.conf\n" | sudo sponge /etc/cron.d/logrotate
+
+sudo /usr/sbin/logrotate -f /etc/logrotate.conf
+
+```
+
+|
+    - "高可用性構成でレプリカ ノードがオフラインの場合、{% data variables.product.product_name %} によって、{% data variables.product.prodname_pages %} 要求が引き続きオフライン ノードにルーティングされる可能性があり、ユーザーに対して {% data variables.product.prodname_pages %} の可用性が下がります。"
+    - pre-receive フックの処理に固有のリソース制限により、一部の pre-receive フックが失敗する場合があります。

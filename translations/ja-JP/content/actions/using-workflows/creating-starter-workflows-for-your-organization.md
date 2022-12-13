@@ -1,7 +1,7 @@
 ---
-title: Creating starter workflows for your organization
-shortTitle: Create starter workflows
-intro: Learn how you can create starter workflows to help people in your team add new workflows more easily.
+title: Organization のスターター ワークフローを作成する
+shortTitle: Creating starter workflows
+intro: Team 内のユーザーがより簡単に新しいワークフローを追加できるように、スタート ワークフローを作成する方法について学びます。
 redirect_from:
   - /actions/configuring-and-managing-workflows/sharing-workflow-templates-within-your-organization
   - /actions/learn-github-actions/creating-workflow-templates
@@ -15,42 +15,43 @@ type: tutorial
 topics:
   - Workflows
   - CI
+ms.openlocfilehash: cbaecefc90f3593b8883c7ccad5256b4addf972c
+ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147884190'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
-
-## Overview
+## 概要
 
 {% data reusables.actions.workflow-organization-templates %}
 
 {% data reusables.actions.starter-workflow-categories %}
 
-## Creating a starter workflow
+## スターター ワークフローを作成する
 
-Starter workflows can be created by users with write access to the organization's `.github` repository. These can then be used by organization members who have permission to create workflows.
+Organization の `.github` リポジトリへの書き込みアクセス権を持つユーザーは、スターター ワークフローを作成できます。 その後、ワークフローを作成するアクセス許可を持つ Organization のメンバーはそれを使用できます。
 
-{% ifversion fpt %}
-Starter workflows created by users can only be used to create workflows in public repositories. Organizations using {% data variables.product.prodname_ghe_cloud %} can also use starter workflows to create workflows in private repositories. For more information, see the [{% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/actions/learn-github-actions/creating-starter-workflows-for-your-organization).
+{% ifversion fpt %}ユーザーが作成したスターター ワークフローは、パブリック リポジトリ内のワークフローの作成にのみ使用できます。 {% data variables.product.prodname_ghe_cloud %} を使っている Organization は、スターター ワークフローを使ってプライベート リポジトリのワークフローを作成することもできます。 詳細については、[{% data variables.product.prodname_ghe_cloud %} ドキュメント](/enterprise-cloud@latest/actions/learn-github-actions/creating-starter-workflows-for-your-organization)を参照してください。
 {% endif %}
 
-{% ifversion fpt or ghes > 3.3 or ghae > 3.3 or ghec %}
-{% note %}
+{% ifversion fpt or ghes > 3.3 or ghae-issue-4757 or ghec %} {% note %}
 
-**Note:** To avoid duplication among starter workflows you can call reusable workflows from within a workflow. This can help make your workflows easier to maintain. For more information, see "[Reusing workflows](/actions/learn-github-actions/reusing-workflows)."
+**注:** スターター ワークフロー間の重複を避けるには、ワークフロー内から再利用可能なワークフローを呼び出すことができます。 これにより、ワークフローの管理を容易にできます。 詳細については、「[ワークフローの再利用](/actions/learn-github-actions/reusing-workflows)」を参照してください。
 
-{% endnote %}
-{% endif %}
+{% endnote %} {% endif %}
 
-This procedure demonstrates how to create a starter workflow and metadata file. The metadata file describes how the starter workflows will be presented to users when they are creating a new workflow.
+この手順では、スターター ワークフローとメタデータ ファイルを作成する方法を示します。 メタデータ ファイルには、ユーザーが新しいワークフローを作成するときに、スターター ワークフローがどのように表示されるかが記述されています。
 
-1. If it doesn't already exist, create a new public repository named `.github` in your organization.
-2. Create a directory named `workflow-templates`.
-3. Create your new workflow file inside the `workflow-templates` directory.
+1. それがまだない場合は、Organization で `.github` という名前の新しいパブリック リポジトリを作成します。
+2. `workflow-templates` という名前のディレクトリを作成します。
+3. `workflow-templates` ディレクトリ内に新しいワークフロー ファイルを作成します。
 
-   If you need to refer to a repository's default branch, you can use the `$default-branch` placeholder. When a workflow is created the placeholder will be automatically replaced with the name of the repository's default branch.
+   リポジトリの既定のブランチを参照する必要がある場合は、`$default-branch` プレースホルダーを使用できます。 ワークフローが作成されるとき、プレースホルダーはリポジトリの既定のブランチの名前に自動的に置き換えられます。
 
-   For example, this file named `octo-organization-ci.yml` demonstrates a basic workflow.
+   たとえば、`octo-organization-ci.yml` という名前のこのファイルは、基本的なワークフローを示しています。
 
    ```yaml
    name: Octo Organization CI
@@ -71,7 +72,7 @@ This procedure demonstrates how to create a starter workflow and metadata file. 
          - name: Run a one-line script
            run: echo Hello from Octo Organization
    ```
-4. Create a metadata file inside the `workflow-templates` directory. The metadata file must have the same name as the workflow file, but instead of the `.yml` extension, it must be appended with `.properties.json`. For example, this file named `octo-organization-ci.properties.json` contains the metadata for a workflow file named `octo-organization-ci.yml`:
+4. `workflow-templates` ディレクトリ内にメタデータ ファイルを作成します。 メタデータ ファイルは、ワークフロー ファイルと同じ名前にする必要がありますが、`.yml` 拡張子の代わりに、`.properties.json` を付ける必要があります。 たとえば、`octo-organization-ci.properties.json` という名前のこのファイルには、`octo-organization-ci.yml` という名前のワークフロー ファイルのメタデータが含まれます。
    ```yaml
    {
        "name": "Octo Organization Workflow",
@@ -87,16 +88,16 @@ This procedure demonstrates how to create a starter workflow and metadata file. 
        ]
    }
    ```
-   * `name` - **Required.** The name of the workflow. This is displayed in the list of available workflows.
-   * `description` - **Required.** The description of the workflow. This is displayed in the list of available workflows.
-   * `iconName` - **Optional.** Specifies an icon for the workflow that's displayed in the list of workflows. The `iconName` must be the name of an SVG file, without the file name extension, stored in the `workflow-templates` directory. For example, an SVG file named `example-icon.svg` is referenced as `example-icon`.
-   * `categories` - **Optional.** Defines the language category of the workflow. When a user views the available starter workflows for a repository, the workflows that match the identified language for the project are featured more prominently. For information on the available language categories, see https://github.com/github/linguist/blob/master/lib/linguist/languages.yml.
-   * `filePatterns` - **Optional.** Allows the workflow to be used if the user's repository has a file in its root directory that matches a defined regular expression.
+   * `name` - **必須。** ワークフローの名前。 これは、使用可能なワークフローの一覧に表示されます。
+   * `description` - **必須。** ワークフローの説明。 これは、使用可能なワークフローの一覧に表示されます。
+   * `iconName` - **省略可能。** ワークフローの一覧に表示されるワークフローのアイコンを指定します。 `iconName` は、`workflow-templates` ディレクトリに格納されている SVG ファイルの名前からファイル名拡張子を除いたものでなければなりません。 たとえば、`example-icon.svg` という名前の SVG ファイルは `example-icon` として参照されます。
+   * `categories` - **省略可能。** ワークフローの言語カテゴリを定義します。 ユーザーがリポジトリで使用可能なスターター ワークフローを表示すると、プロジェクトで識別された言語に一致するワークフローが、より目立つように表示されます。 使用可能な言語カテゴリについては、 https://github.com/github/linguist/blob/master/lib/linguist/languages.yml をご覧ください。
+   * `filePatterns` - **省略可能。** ユーザーのリポジトリのルート ディレクトリに、定義された正規表現に一致するファイルがある場合、そのワークフローを使用できるようにします。
 
-To add another starter workflow, add your files to the same `workflow-templates` directory. For example:
+別のスターター ワークフローを追加するには、同じ `workflow-templates` ディレクトリにファイルを追加します。 たとえば次のような点です。
 
-![Workflow files](/assets/images/help/images/workflow-template-files.png)
+![ワークフロー ファイル](/assets/images/help/images/workflow-template-files.png)
 
-## Next steps
+## 次の手順
 
-To continue learning about {% data variables.product.prodname_actions %}, see "[Using starter workflows](/actions/using-workflows/using-starter-workflows)."
+{% data variables.product.prodname_actions %} についてさらに学ぶには、「[スターター ワークフローの使用](/actions/using-workflows/using-starter-workflows)」をご覧ください。

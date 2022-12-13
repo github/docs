@@ -1,14 +1,22 @@
-We record and display two numbers of committers for {% data variables.product.prodname_GH_advanced_security %} on {% data variables.location.product_location %}:
+---
+ms.openlocfilehash: 281a3a039c8a557c209e756d107ac1856a181017
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "145089088"
+---
+{% data variables.product.product_location %} 上の {% data variables.product.prodname_GH_advanced_security %} のコミッターの 2 つの数値を記録して表示します。
 
-- **Committers** is the number of committers who contributed to at least one {% ifversion fpt or ghec %}private {% endif %}repository in an organization and who use a seat in your enterprise license. That is, they are also an organization member, an external collaborator, or have a pending invitation to join an organization in your enterprise.
-- **Unique to this repository/organization** is the number of committers who contributed only to this repository, or to repositories in this organization. This number shows how many license seats you can free up by disabling {% data variables.product.prodname_GH_advanced_security %} for that repository or organization.
+- **コミッター** は、組織内の{% ifversion fpt or ghec %}プライベート {% endif %}リポジトリの少なくとも 1 つにコントリビュートし、エンタープライズ ライセンスのシートを使用するコミッターの数です。 つまり、Organization のメンバー、外部のコラボレータでもあるか、Enterprise 内の Organization に参加するための保留中の招待状を持っています。
+- **このリポジトリ/組織に固有** は、このリポジトリまたはこの組織のリポジトリにのみコントリビュートしたコミッターの数です。 この数値は、そのリポジトリまたは Organization の {% data variables.product.prodname_GH_advanced_security %} を無効にすることで解放できるライセンスシートの数を示しています。
 
-If there are no unique committers, all active committers also contribute to other repositories or organizations that use {% data variables.product.prodname_GH_advanced_security %}. Disabling the feature for that repository or organization would not free any seats on your license.
+一意のコミッターがない場合、これは、すべてのアクティブなコミッターが {% data variables.product.prodname_GH_advanced_security %} を使用する他のリポジトリまたは Organization にもコントリビュートしているということです。 そのリポジトリまたは Organization の機能を無効にしても、ライセンスのシートは解放されません。
 
-When you remove a user from your enterprise account, the user's license is freed within 24 hours.
+ユーザをEnterpriseアカウントから削除すると、そのユーザのライセンスは24時間以内に解放されます。
 
 {% note %}
 
-**Note:** Users can contribute to multiple repositories or organizations. Usage is measured across the whole enterprise account to ensure that each member uses one seat regardless of how many repositories or organizations the user contributes to.
+**注:** ユーザーは、複数のリポジトリまたは組織にコントリビュートできます。 使用状況はEnterpriseアカウント全体にわたって計測され、各ユーザがいくつのリポジトリあるいはOrganizationに貢献していても、1つのシートしか使わないことを保証します。
 
 {% endnote %}

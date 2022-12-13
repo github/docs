@@ -1,40 +1,38 @@
 ---
-title: Manually running a workflow
-intro: 'When a workflow is configured to run on the `workflow_dispatch` event, you can run the workflow using the Actions tab on {% data variables.product.prodname_dotcom %}, {% data variables.product.prodname_cli %}, or the REST API.'
+title: ワークフローの手動実行
+intro: 'ワークフローが `workflow_dispatch` イベントで実行されるように設定されている場合、{% data variables.product.prodname_dotcom %}、{% data variables.product.prodname_cli %}、または REST API の [Actions]\(アクション\) タブを使用してワークフローを実行できます。'
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
   ghec: '*'
 shortTitle: Manually run a workflow
+ms.openlocfilehash: 22717c31a6bc2599f066b0e870f0aa652c18cc6f
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145117181'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+## ワークフローを手動実行する設定
 
-## Configuring a workflow to run manually
-
-To run a workflow manually, the workflow must be configured to run on the `workflow_dispatch` event. To trigger the `workflow_dispatch` event, your workflow must be in the default branch. For more information about configuring the `workflow_dispatch` event, see "[Events that trigger workflows](/actions/reference/events-that-trigger-workflows#workflow_dispatch)".
+ワークフローを手動で実行するには、`workflow_dispatch` イベントで実行するようにワークフローを設定する必要があります。 `workflow_dispatch` イベントをトリガーするには、ワークフローが既定のブランチに存在する必要があります。 `workflow_dispatch` イベントの構成の詳細については、「[ワークフローをトリガーするイベント](/actions/reference/events-that-trigger-workflows#workflow_dispatch)」を参照してください。
 
 {% data reusables.repositories.permissions-statement-write %}
 
-## Running a workflow
+## ワークフローの実行
 
 {% webui %}
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.actions-tab %}
-1. In the left sidebar, click the workflow you want to run.
-
-   {% ifversion workflow-nav-2022 -%}
-   ![Actions select workflow](/assets/images/help/repository/actions-select-workflow-2022.png)
-   {%- else -%}
-   ![Actions select workflow](/assets/images/help/repository/actions-select-workflow.png)
-   {%- endif %}
-1. Above the list of workflow runs, select **Run workflow**.
-![actions workflow dispatch](/assets/images/actions-workflow-dispatch.png)
-1. Use the **Branch** dropdown to select the workflow's branch, and type the input parameters. Click **Run workflow**.
-![actions manually run workflow](/assets/images/actions-manually-run-workflow.png)
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.actions-tab %}
+1. 左のサイドバーで、実行したいワークフローをクリックしてください。
+![アクション選択ワークフロー](/assets/images/actions-select-workflow.png)
+1. ワークフロー実行の一覧の上にある **[ワークフローの実行]** を選択します。
+![アクション ワークフローのディスパッチ](/assets/images/actions-workflow-dispatch.png)
+1. **[分岐]** ドロップダウンを使用してワークフローのブランチを選択し、入力パラメーターを入力します。 **[ワークフローの実行]** をクリックします。
+![ワークフローを手動で実行するアクション](/assets/images/actions-manually-run-workflow.png)
 
 {% endwebui %}
 
@@ -42,31 +40,31 @@ To run a workflow manually, the workflow must be configured to run on the `workf
 
 {% data reusables.cli.cli-learn-more %}
 
-To run a workflow, use the `workflow run` subcommand. Replace the `workflow` parameter with either the name, ID, or file name of the workflow you want to run. For example, `"Link Checker"`, `1234567`, or `"link-check-test.yml"`. If you don't specify a workflow, {% data variables.product.prodname_cli %} returns an interactive menu for you to choose a workflow.
+ワークフローを実行するには、`workflow run` サブコマンドを使用します。 `workflow` パラメーターを、実行するワークフローの名前、ID、またはファイル名のいずれかに置き換えます。 たとえば、「`"Link Checker"`」、「`1234567`」、「`"link-check-test.yml"`」のように指定します。 ワークフローを指定しない場合、{% data variables.product.prodname_cli %} はワークフローを選択するためのインタラクティブメニューを返します。
 
 ```shell
-gh workflow run WORKFLOW
+gh workflow run <em>workflow</em>
 ```
 
-If your workflow accepts inputs, {% data variables.product.prodname_cli %} will prompt you to enter them. Alternatively, you can use `-f` or `-F` to add an input in `key=value` format. Use `-F` to read from a file.
+ワークフローに入力可能な場合、{% data variables.product.prodname_cli %} は入力を求めるプロンプトを表示します。 または、`-f` または `-F` を使用して `key=value` 形式の入力を追加できます。 `-F` を使用してファイルから読み取ります。
 
 ```shell
 gh workflow run greet.yml -f name=mona -f greeting=hello -F data=@myfile.txt
 ```
 
-You can also pass inputs as JSON by using standard input.
+標準入力を使用して、入力を JSON として渡すこともできます。
 
 ```shell
 echo '{"name":"mona", "greeting":"hello"}' | gh workflow run greet.yml --json
 ```
 
-To run a workflow on a branch other than the repository's default branch, use the `--ref` flag.
+リポジトリの既定のブランチ以外のブランチでワークフローを実行するには、`--ref` フラグを使用します。
 
 ```shell
-gh workflow run WORKFLOW --ref BRANCH
+gh workflow run <em>workflow</em> --ref <em>branch-name</em>
 ```
 
-To view the progress of the workflow run, use the `run watch` subcommand and select the run from the interactive list.
+ワークフロー実行の進行状況を表示するには、`run watch` サブコマンドを使用して、インタラクティブ リストから実行を選択します。
 
 ```shell
 gh run watch
@@ -74,14 +72,14 @@ gh run watch
 
 {% endcli %}
 
-## Running a workflow using the REST API
+## REST API を使用してワークフローを実行する
 
-When using the REST API, you configure the `inputs` and `ref` as request body parameters. If the inputs are omitted, the default values defined in the workflow file are used.
+REST API を使用する場合は、要求本文パラメーターとして `inputs` と `ref` を構成します。 入力を省略すると、ワークフロー ファイルで定義されているデフォルト値が使用されます。
 
 {% note %}
 
-**Note:** You can define up to 10 `inputs` for a `workflow_dispatch` event.
+**注:** 1 つの `workflow_dispatch` イベントに対して最大 10 個の `inputs` を定義できます。
 
 {% endnote %}
 
-For more information about using the REST API, see the "[Create a workflow dispatch event](/rest/reference/actions/#create-a-workflow-dispatch-event)."
+REST API の使用の詳細については、「[ワークフロー ディスパッチ イベントの作成](/rest/reference/actions/#create-a-workflow-dispatch-event)」を参照してください。

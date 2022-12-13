@@ -1,23 +1,18 @@
 projects_v2: 'projects'
-projects_v2_caps: 'Projects'
+projects_v2_caps: 'プロジェクト'
 project_v2: 'project'
 project_v2_caps: 'Project'
 
 projects_v1_board: >-
-  {% ifversion ghae or ghes%}project board{% else %}classic project{% endif %}
+  {% ifversion ghes or ghae %}プロジェクト ボード{% else %}クラシック プロジェクト{% endif %}
 projects_v1_board_caps: >-
-  {% ifversion ghes or ghae %}Project board{% else %}Classic project{% endif %}
+  {% ifversion ghes or ghae %}プロジェクト ボード{% else %}クラシック プロジェクト{% endif %}
 projects_v1_boards: >-
-  {% ifversion ghes or ghae %}project boards{% else %}classic projects{% endif %}
+  {% ifversion ghes or ghae %}プロジェクト ボード{% else %}クラシック プロジェクト{% endif %}
 projects_v1_boards_caps: >-
-  {% ifversion ghes or ghae %}Project boards{% else %}Classic projects{% endif %}
-
-command-palette-shortcut: '<kbd>Command</kbd>+<kbd>K</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>K</kbd> (Windows/Linux)'
+  {% ifversion ghes or ghae %}プロジェクト ボード{% else %}クラシック プロジェクト{% endif %}
+command-palette-shortcut: '<kbd>Command</kbd> + <kbd>K</kbd> (Mac) または <kbd>Ctrl</kbd> + <kbd>K</kbd> (Windows/Linux)'
 
 # Use feature flags to return which projects versions are available.
-projects_v2_and_v1: '{% ifversion projects-v2 %}{% data variables.projects.projects_v2 %}{% ifversion projects-v1 %} and {% data variables.projects.projects_v1_boards %}{% endif %}{% else %}{% data variables.projects.projects_v1_boards %}{% endif %}'
-project_v2_and_v1: '{% ifversion projects-v2 %}{% data variables.projects.project_v2 %}{% ifversion projects-v1 %} and {% data variables.projects.projects_v1_board %}{% endif %}{% else %}{% data variables.projects.projects_v1_board %}{% endif %}'
-
-# Limits
-item_limit: '1,200'
-archived_item_limit: '10,000'
+projects_v2_and_v1: '{% ifversion projects-v2 %}{% data variables.projects.projects_v2 %}{% ifversion projects-v1 %} および {% data variables.projects.projects_v1_boards %}{% endif %}{% else %}{% data variables.projects.projects_v1_boards %}{% endif %}'
+project_v2_and_v1: '{% ifversion projects-v2 %}{% data variables.projects.project_v2 %}{% ifversion projects-v1 %} および {% data variables.projects.projects_v1_board %}{% endif %}{% else %}{% data variables.projects.projects_v1_board %}{% endif %}'

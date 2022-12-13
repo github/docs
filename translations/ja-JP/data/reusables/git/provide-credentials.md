@@ -1,3 +1,11 @@
-1. The first time that you use Git to clone a repository or access data in a repository that you've already cloned, Git will request credentials. Provide the {% data variables.product.pat_generic %} for the account with access to the repository.
+---
+ms.openlocfilehash: 747226087edc6f69a45791c40b25271e86bec58a
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "147687129"
+---
+1. Git を使用してリポジトリをクローンしたり、既にクローンしたリポジトリ内のデータにアクセスしたりすると、Git によって資格情報が要求されます。 リポジトリへのアクセス権を持つアカウントの PAT を指定します。
 
-   Git will cache the {% data variables.product.pat_generic %} for the directory you're in, and you'll be able to access and write repository data on {% data variables.location.product_location %} using the correct account.
+   Git によって、現在のディレクトリの PAT がキャッシュされ、正しいアカウントを使用して {% data variables.product.product_location %} のリポジトリ データにアクセスして書き込むことができるようになります。

@@ -1,6 +1,6 @@
 ---
-title: Managing security managers in your organization
-intro: You can give your security team the least access they need to your organization by assigning a team to the security manager role.
+title: Organizationでのセキュリティマネージャーの管理
+intro: セキュリティマネージャーのロールを割り当てることで、セキュリティのTeamにOrganizationに対する必要最小限のアクセスを付与できます。
 versions:
   feature: security-managers
 topics:
@@ -8,48 +8,48 @@ topics:
   - Teams
 shortTitle: Security manager role
 permissions: Organization owners can assign the security manager role.
+ms.openlocfilehash: c29dd20a123ccb20a32d40896064e11d59643bd9
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145068302'
 ---
-
 {% data reusables.organizations.security-manager-beta-note %}
 
 {% data reusables.organizations.about-security-managers %}
 
-## Permissions for the security manager role
+## セキュリティマネージャーのロールの権限
 
-Members of a team with the security manager role have only the permissions required to effectively manage security for the organization.
+セキュリティマネージャーのロールを持つTeamのメンバーは、Organizationのセキュリティを効率的に管理するのに必要な権限だけを持ちます。
 
-- Read access on all repositories in the organization, in addition to any existing repository access
-- Write access on all security alerts in the organization {% ifversion not fpt %}
-- Access to the organization's security overview {% endif %}
-- The ability to configure security settings at the organization level{% ifversion not fpt %}, including the ability to enable or disable {% data variables.product.prodname_GH_advanced_security %}{% endif %}
-- The ability to configure security settings at the repository level{% ifversion not fpt %}, including the ability to enable or disable {% data variables.product.prodname_GH_advanced_security %}{% endif %}
+- 既存のすべてのリポジトリへのアクセスに加えて、Organization内のすべてのリポジトリへの読み取りアクセス
+- Organization内のすべてのセキュリティアラートに対する書き込みアクセス{% ifversion not fpt %}
+- Organizationのセキュリティの概要へのアクセス{% endif %}
+- {% ifversion not fpt %}{% data variables.product.prodname_GH_advanced_security %}の有効化や無効化を含む{% endif %}Organizatonレベルでのセキュリティ設定ができる
+- {% ifversion not fpt %}{% data variables.product.prodname_GH_advanced_security %}の有効化や無効化を含む{% endif %}リポジトリレベルでのセキュリティ設定ができる
 
-{% ifversion fpt %}
-Additional functionality, including a security overview for the organization, is available in organizations that use {% data variables.product.prodname_ghe_cloud %} with {% data variables.product.prodname_advanced_security %}. For more information, see the [{% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization).
+{% ifversion fpt %} Organization のセキュリティの概要を含む追加機能は、{% data variables.product.prodname_ghe_cloud %} と {% data variables.product.prodname_advanced_security %} を使用する Organization で利用できます。 詳細については、[{% data variables.product.prodname_ghe_cloud %} ドキュメント](/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization)を参照してください。
 {% endif %}
 
-If a team has the security manager role, people with admin access to the team and a specific repository can change the team's level of access to that repository but cannot remove the access. For more information, see "[Managing team access to an organization repository](/organizations/managing-access-to-your-organizations-repositories/managing-team-access-to-an-organization-repository){% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}" and "[Managing teams and people with access to your repository](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository)."{% else %}."{% endif %}
+あるTeamがセキュリティマネージャーのロールを持っているなら、そのTeamと特定のリポジトリに管理アクセスを持つ人は、そのリポジトリへのTeamのアクセスレベルを変更できますが、アクセスを削除することはできません。 詳細については、「[Organization リポジトリへの Team のアクセスを管理する](/organizations/managing-access-to-your-organizations-repositories/managing-team-access-to-an-organization-repository)」{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5974 %}および「[リポジトリへのアクセス権を持つ Team と人を管理する](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository)」{% else %}{% endif %}を参照してください。
 
-  ![Manage repository access UI with security managers](/assets/images/help/organizations/repo-access-security-managers.png)
+  ![セキュリティマネージャーのリポジトリアクセスUIの管理](/assets/images/help/organizations/repo-access-security-managers.png)
 
-## Assigning the security manager role to a team in your organization
-You can assign the security manager role to a maximum of 10 teams in your organization.
+## OrganizationのTeamへのセキュリティマネージャーロールの割り当て
+セキュリティマネージャーのロールは、最大でOrganization内の10のTeamに割り当てることができます。
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.security-and-analysis %}
-1. Under **Security managers**, search for and select the team to give the role. Each team you select will appear in a list below the search bar. 
-  ![Add security manager](/assets/images/help/organizations/add-security-managers.png)
-## Removing the security manager role from a team in your organization
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.organizations.security-and-analysis %}
+1. **[セキュリティ マネージャー]** で、ロールを付与するチームを検索して選択します。 選択した各Teamは、検索バーの下にリストされます。 
+  ![セキュリティ マネージャーの追加](/assets/images/help/organizations/add-security-managers.png)
+## OrganizatoinのTeamからセキュリティマネージャーロールを削除する
 
 {% warning %}
 
-**Warning:** Removing the security manager role from a team will remove the team's ability to manage security alerts and settings across the organization, but the team will retain read access to repositories that was granted when the role was assigned. You must remove any unwanted read access manually. For more information, see "[Managing team access to an organization repository](/organizations/managing-access-to-your-organizations-repositories/managing-team-access-to-an-organization-repository#removing-a-teams-access-to-a-repository)."
+**警告:** Team からセキュリティ マネージャーのロールを削除すると、その Team はセキュリティ アラートの管理や Organization 全体にわたる設定ができなくなります。ただし、ロールが割り当てられたときに付与されたリポジトリへの Team の読み取りアクセスはそのまま残ります。 不要な読み取りアクセスは手動で削除しなければなりません。 詳細については、「[Organization リポジトリへの Team のアクセスを管理する](/organizations/managing-access-to-your-organizations-repositories/managing-team-access-to-an-organization-repository#removing-a-teams-access-to-a-repository)」を参照してください。
 
 {% endwarning %}
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.security-and-analysis %}
-1. Under **Security managers**, to the right of the team you want to remove as security managers, click {% octicon "x" aria-label="The X icon" %}.
-  ![Remove security managers](/assets/images/help/organizations/remove-security-managers.png)
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.organizations.security-and-analysis %}
+1. **[セキュリティ マネージャー]** で、セキュリティ マネージャーから削除する Team の右にある {% octicon "x" aria-label="The X icon" %} をクリックします。
+  ![セキュリティ マネージャーの削除](/assets/images/help/organizations/remove-security-managers.png)

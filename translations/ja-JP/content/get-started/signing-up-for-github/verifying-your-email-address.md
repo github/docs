@@ -1,6 +1,6 @@
 ---
-title: Verifying your email address
-intro: 'Verifying your primary email address ensures strengthened security, allows {% data variables.product.prodname_dotcom %} staff to better assist you if you forget your password, and gives you access to more features on {% data variables.product.prodname_dotcom %}.'
+title: メールアドレスを検証する
+intro: 'プライマリメールアドレスを検証することでセキュリティが強化され、パスワードを忘れた場合、{% data variables.product.prodname_dotcom %} スタッフによる支援がさらに充実し、{% data variables.product.prodname_dotcom %} のその他の機能にアクセスできるようになります。'
 redirect_from:
   - /articles/troubleshooting-email-verification
   - /articles/setting-up-email-verification
@@ -13,59 +13,64 @@ versions:
 topics:
   - Accounts
 shortTitle: Verify your email address
+ms.openlocfilehash: 75c455907ab0cc89f1ba8b30d6fa1d37f2d9798f
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145125805'
 ---
-## About email verification
+## メール検証について
 
-You can verify your email address after signing up for a new account, or when you add a new email address. If an email address is undeliverable or bouncing, it will be unverified.
+新しいアカウントにサインアップした後、または新しいメールアドレスを追加するときに、メールアドレスを検証できます。 メールアドレスが配信不能またはバウンスしている場合、そのメールアドレスは未検証になります。
 
-If you do not verify your email address, you will not be able to:
-  - Create or fork repositories
-  - Create issues or pull requests
-  - Comment on issues, pull requests, or commits
-  - Authorize {% data variables.product.prodname_oauth_app %} applications
-  - Generate {% data variables.product.pat_generic %}s
-  - Receive email notifications
-  - Star repositories
-  - Create or update project boards, including adding cards
-  - Create or update gists
-  - Create or use {% data variables.product.prodname_actions %}
-  - Sponsor developers with {% data variables.product.prodname_sponsors %}
+メールアドレスを検証しなければ、次のことができません:
+  - リポジトリを作成またはフォークすること
+  - Issue またはプルリクエストを作成すること
+  - Issue、プルリクエスト、あるいはコメントにコメントする
+  - {% data variables.product.prodname_oauth_app %} アプリケーションを承認すること
+  - 個人アクセストークンを生成すること
+  - メール通知を受け取る
+  - リポジトリに Star を付けること
+  - カードの追加を含めて、プロジェクトボードを作成、更新すること
+  - Gist を作成すること
+  - {% data variables.product.prodname_actions %} を作成または利用すること
+  - {% data variables.product.prodname_sponsors %} で開発者をスポンサーする
 
 {% warning %}
 
-**Warnings**:
+**警告**:
 
 - {% data reusables.user-settings.no-verification-disposable-emails %}
 - {% data reusables.user-settings.verify-org-approved-email-domain %}
 
 {% endwarning %}
 
-## Verifying your email address
+## メールアドレスを検証する
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.emails %}
-1. Under your email address, click **Resend verification email**.
-  ![Resend verification email link](/assets/images/help/settings/email-verify-button.png)
-4. {% data variables.product.prodname_dotcom %} will send you an email with a link in it. After you click that link, you'll be taken to your {% data variables.product.prodname_dotcom %} dashboard and see a confirmation banner.
-  ![Banner confirming that your email was verified](/assets/images/help/settings/email-verification-confirmation-banner.png)
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.emails %}
+1. メールアドレスの下にある **[確認メールの再送信]** をクリックします。
+  ![[確認メールの再送信]](/assets/images/help/settings/email-verify-button.png) リンク
+4. {% data variables.product.prodname_dotcom %} からリンクが記載された電子メールが送信されます。 そのリンクをクリックすると、{% data variables.product.prodname_dotcom %} ダッシュボードに移動して確認バナーが表示されます。
+  ![メールが検証されたことを知らせるバナー](/assets/images/help/settings/email-verification-confirmation-banner.png)
 
-## Troubleshooting email verification
+## メール検証のトラブルシューティング
 
-### Unable to send verification email
+### 検証メールを送信できない
 
 {% data reusables.user-settings.no-verification-disposable-emails %}
 
-### Error page after clicking verification link
+### 検証用リンクをクリックした後のエラーページ
 
-The verification link expires after 24 hours. If you don't verify your email within 24 hours, you can request another email verification link. For more information, see "[Verifying your email address](/articles/verifying-your-email-address)."
+検証用リンクは、24 時間で期限が切れます。 24 時間以内にメールを検証しなかった場合、新たなメール検証用リンクをリクエストできます。 詳細については、「[メール アドレスを検証する](/articles/verifying-your-email-address)」を参照してください。
 
-If you click on the link in the confirmation email within 24 hours and you are directed to an error page, you should ensure that you're signed into the correct account on {% data variables.location.product_location %}.
+検証メールのリンクを 24 時間以内にクリックし、エラーページが表示された場合は、{% data variables.product.product_location %} で正しいアカウントにサインインしているか確認してください。
 
-1. {% data variables.product.signout_link %} of your personal account on {% data variables.location.product_location %}.
-2. Quit and restart your browser.
-3. {% data variables.product.signin_link %} to your personal account on {% data variables.location.product_location %}.
-4. Click on the verification link in the email we sent you.
+1. {% data variables.product.product_location %} の個人アカウントの {% data variables.product.signout_link %}。
+2. ブラウザを閉じて再起動します。
+3. {% data variables.product.product_location %} の個人アカウントの {% data variables.product.signin_link %}。
+4. 弊社が送ったメール上の検証リンクをクリックします。
 
-## Further reading
+## 参考資料
 
-- "[Changing your primary email address](/articles/changing-your-primary-email-address)"
+- [プライマリメールアドレスの変更](/articles/changing-your-primary-email-address)

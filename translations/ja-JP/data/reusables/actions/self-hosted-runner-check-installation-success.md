@@ -1,8 +1,16 @@
+---
+ms.openlocfilehash: a9030eae8492863ee750f2a02eeac584fd13513a
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "145068026"
+---
 
-### Checking that your self-hosted runner was successfully added
+### セルフホストランナーの追加に成功したことの確認
 
-After completing the steps to add a self-hosted runner, the runner and its status are now listed under {% ifversion fpt or ghec %}"Runners"{% elsif ghae or ghes %}"Self-hosted runners"{% endif %}.
+セルフホステッド ランナーを追加する手順を完了すると、ランナーとその状態が {% ifversion fpt または ghec %}"ランナー"{% elsif ghae または ghes %}"セルフホステッド ランナー"{% endif %} の下に表示されます。
 
-The self-hosted runner application must be active for the runner to accept jobs. When the runner application is connected to {% data variables.product.product_name %} and ready to receive jobs, you will see the following message on the machine's terminal.
+ジョブをランナーが受け付けるためには、セルフホストランナーアプリケーションが動作していなければなりません。 ランナー アプリケーションが {% data variables.product.product_name %} に接続されており、ジョブの受信準備ができたら、以下のメッセージがコンピューターのターミナルに表示されます。
 
 {% data reusables.actions.self-hosted-runner-connected-output %}
