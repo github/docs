@@ -51,7 +51,6 @@ You can search for repositories that are associated with a particular topic. For
 ## Limitations and quotas
 
 When creating a topic:
-
 - use lowercase letters, numbers, and hyphens.
 - use 50 characters or less.
 - add no more than 20 topics.
