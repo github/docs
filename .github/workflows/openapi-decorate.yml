@@ -65,3 +65,16 @@ jobs:
         env:
           # Disable pre-commit hooks; they don't play nicely with add-and-commit
           HUSKY: '0'
+
+      - name: Remove the dereferenced files
+        uses: EndBug/add-and-commit@050a66787244b10a4874a2a5f682130263edc192
+        with:
+          # The arguments for the `git add` command
+          remove: '["lib/rest/static/dereferenced/*"]'
+
+          # The message for the commit
+          message: 'Removed dereferenced OpenAPI schema files'
+
+        env:
+          # Disable pre-commit hooks; they don't play nicely with add-and-commit
+          HUSKY: '0'

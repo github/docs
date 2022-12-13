@@ -18,7 +18,7 @@ If you aren't comfortable going through the steps alone, sync up with a docs eng
     ```
     script/update-enterprise-dates.js
     ```
-- [ ] Create REST files based on previous version. Copy the latest GHES version of the dereferenced file from `lib/rest/static/dereferenced` to a new file in the same directory for the new GHES release. Ex, `cp lib/rest/static/dereferenced/ghes-3.4.deref.json lib/rest/static/dereferenced/ghes-3.5.deref.json`. Then run `script/rest/update-files.js --decorate-only` and check in the resulting files.
+- [ ] Create REST files based on previous version. Copy the latest GHES version of the decorate file from `lib/rest/static/decorated` to a new file in the same directory for the new GHES release. Ex, `cp lib/rest/static/decorated/ghes-3.4.json lib/rest/static/decorated/ghes-3.5.json`.
 
 - [ ] Create GraphQL files based on previous version:
 
@@ -76,16 +76,6 @@ If you aren't comfortable going through the steps alone, sync up with a docs eng
 
 ### Troubleshooting
 
-#### `OpenAPI dev mode check / check-schema-versions` failures
-
-If the `OpenAPI dev mode check / check-schema-versions` check fails with the following message:
-
->  :construction::warning: Your decorated and dereferenced schema files don't match. Ensure you're using decorated and dereferenced schemas from the automatically created pull requests by the 'github-openapi-bot' user. For more information, see 'script/rest/README.md'
-
-- run `git checkout origin/main lib/rest/static/*`
-- run `script/enterprise-server-releases/create-rest-files.js --oldVersion enterprise-server@<LATEST PUBLIC RELEASE NUMBER> --newVersion enterprise-server@<NEW RELEASE NUMBER>`
-- push the resulting changes
-
 #### `Node.js tests / test content` failures
 
 If the `Node.js tests / test content` check fails with the following message, the `lib/enterprise-dates.json` file is not up-to-date:
@@ -104,7 +94,7 @@ This file should be automatically updated, but you can also run `script/update-e
 - [ ] [Freeze the repos](https://github.com/github/docs-content/blob/main/docs-content-docs/docs-content-workflows/freezing.md) at least 1-2 days before the release, and post an announcement in Slack so everybody knows. It's helpful to freeze the repos before doing the OpenAPI merges to avoid changes to the megabranch while preparing and deploying.
 - [ ] Alert the Neon Squad (formally docs-ecosystem team)  1-2 days before the release to deploy to `github/github`. A PR should already be open in `github/github`, to change the OpenAPI schema config `published` to `true` in `app/api/description/config/releases/ghes-<NEXT RELEASE NUMBER>.yaml`. They will need to:
   - [ ] Get the required approval from `@github/ecosystem-api-reviewers` then deploy the PR to dotcom. This process generally takes 30-90 minutes.
-  - [ ] Once the PR merges, make sure that the auto-generated PR titled "Update OpenAPI Descriptions" in doc-internal contains both the dereferenced and decorated JSON files for the new GHES release. If everything looks good, merge the "Update OpenAPI Description" PR into the GHES release megabranch. **Note:** Be careful about resolving the conflicts correctly—you may wish to delete the existing OpenAPI files for the release version from the megabranch (that is, delete the GHES release version `lib/rest/static` decorated and dereferenced JSON files), so there are no conflicts to resolve and to ensure that the incoming artifacts are the correct ones.
+  - [ ] Once the PR merges, make sure that the auto-generated PR titled "Update OpenAPI Descriptions" in doc-internal contains the decorated JSON files for the new GHES release. If everything looks good, merge the "Update OpenAPI Description" PR into the GHES release megabranch. **Note:** Don't attempt to resolve conflicts for changes to the `lib/rest/static/decorated` files. Instead delete the existing OpenAPI files for the release version from the megabranch (that is, revert the changes to the `lib/rest/static` decorated JSON files, e.g., from the megabranch do a `git checkout origin/main lib/rest/static/*`), so there are no conflicts to resolve and to ensure that the incoming artifacts are the correct ones.
 - [ ] Alert the Ecosystem-API team in #ecosystem-api about the pending release freeze and incoming blocking review of OpenAPI updates in the public REST API description (the `rest-api-descriptions` repo). They'll need to block any future "Update OpenAPI Descriptions" PRs in the public REST API description until after the ship.
   - [ ] Add a blocking review to the auto-generated "Update OpenAPI Descriptions" PR in the public REST API description. (You or they will remove this blocking review once the GHES release ships.)
 
