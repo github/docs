@@ -1,6 +1,6 @@
 ---
-title: Deleting an organization account
-intro: 'When you delete an organization, all repositories, forks of private repositories, wikis, issues, pull requests, and Project or Organization Pages are deleted as well. {% ifversion fpt or ghec %}Your billing will end, and after 90 days the organization name becomes available for use on a new user or organization account.{% endif %}'
+title: Eliminación de una cuenta de organización
+intro: 'Cuando eliminas una organización, se eliminan también todos los repositorios, bifurcaciones de repositorios privados, wikis, propuestas, solicitudes de extracción y páginas del proyecto y de la organización. {% ifversion fpt or ghec %}Tu facturación terminará y, después de 90 días, el nombre de la organización estará disponible para que una cuenta de organización o de usuario nueva lo utilice.{% endif %}'
 redirect_from:
   - /articles/deleting-an-organization-account
   - /github/setting-up-and-managing-organizations-and-teams/deleting-an-organization-account
@@ -13,32 +13,33 @@ topics:
   - Organizations
   - Teams
 shortTitle: Delete organization
+ms.openlocfilehash: e923dcf7fb9135243c5bfe0e68a310719e87ef2e
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145109745'
 ---
+{% ifversion fpt or ghec %} {% tip %}
 
-{% ifversion fpt or ghec %}
-{% tip %}
-
-**Tip**: If you want to cancel your paid subscription, you can [downgrade your organization to {% data variables.product.prodname_free_team %}](/articles/downgrading-your-github-subscription) instead of deleting the organization and its content.
+**Sugerencia**: Si quiere cancelar la suscripción de pago, puede [cambiar a una versión anterior la organización a {% data variables.product.prodname_free_team %}](/articles/downgrading-your-github-subscription) en lugar de eliminar la organización y su contenido.
 
 {% endtip %}
 
 {% endif %}
 
-## 1. Back up your organization content
+## 1. Copia de seguridad del contenido de la organización
 
-{% ifversion not ghes %} After you delete an organization, {% data variables.product.company_short %} **cannot restore your content**. Therefore, before{% else %}Before{% endif %} you delete your organization, make sure you have a copy of all repositories, wikis, issues, and project boards from the account.
+{% ifversion not ghes %} Después de eliminar una organización, {% data variables.product.company_short %} **no puede restablecer el contenido**. Por lo tanto, antes{% else %}Anes{% endif %} de que borres tu organización, asegúrate de que tienes una copia de todos los repositorios, wikis, propuestas y tableros de proyecto de la cuenta.
 
-{% ifversion ghes %}
-{% note %}
+{% ifversion ghes %} {% note %}
 
-**Note:** If necessary, a site administrator for {% data variables.location.product_location %} may be able to partially restore a deleted organization. For more information, see "[Restoring a deleted organization](/admin/user-management/managing-organizations-in-your-enterprise/restoring-a-deleted-organization)."
+**Nota:** Si es necesario, un administrador de sitio de {% data variables.product.product_location %} podría restablecer parcialmente una organización eliminada. Para más información, vea "[Restauración de una organización eliminada](/admin/user-management/managing-organizations-in-your-enterprise/restoring-a-deleted-organization)".
 
-{% endnote %}
-{% endif %}
+{% endnote %} {% endif %}
 
-## 2. Delete the organization
+## 2. Eliminación de la organización
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-4. Near the bottom of the organization's settings page, click **Delete this Organization**.
-   ![Delete this organization button](/assets/images/help/settings/settings-organization-delete.png)
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %}
+4. Junto a la parte inferior de la página de configuración de la organización, haga clic en **Eliminar esta organización**.
+   ![Botón Eliminar esta organización](/assets/images/help/settings/settings-organization-delete.png)

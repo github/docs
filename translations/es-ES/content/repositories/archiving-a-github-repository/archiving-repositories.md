@@ -1,6 +1,6 @@
 ---
-title: Archiving repositories
-intro: You can archive a repository to make it read-only for all users and indicate that it's no longer actively maintained. You can also unarchive repositories that have been archived.
+title: Archivar repositorios
+intro: Puedes archivar un repositorio para que sea de solo lectura para todos los usuarios e indicar que ya no necesita mantenerse activamente. También puedes desarchivar los repositorios que han sido archivados.
 redirect_from:
   - /articles/archiving-repositories
   - /github/creating-cloning-and-archiving-repositories/archiving-repositories
@@ -15,54 +15,43 @@ versions:
   ghec: '*'
 topics:
   - Repositories
+ms.openlocfilehash: a9d5b33b94e6067bb4decfa8f47da8aa25860da4
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145137053'
 ---
+## Acerca del archivamiento de repositorios
 
-## About repository archival
+{% ifversion fpt or ghec %} {% note %}
 
-{% ifversion fpt or ghec %}
-{% note %}
+**Nota:** Si tiene un plan de facturación por repositorio heredado, se le seguirá cobrando por el repositorio archivado. Si no quieres que se te cobre por un repositorio archivado, debes actualizar a un producto nuevo. Para más información, vea "[Productos de {% data variables.product.prodname_dotcom %}](/articles/github-s-products)".
 
-**Note:** If you have a legacy per-repository billing plan, you will still be charged for your archived repository. If you don't want to be charged for an archived repository, you must upgrade to a new product. For more information, see "[{% data variables.product.prodname_dotcom %}'s products](/articles/github-s-products)."
+{% endnote %} {% endif %}
 
-{% endnote %}
-{% endif %}
+{% ifversion ghec or ghes > 3.4 or ghae-issue-6329 %} {% note %}
 
-{% ifversion ghec or ghes > 3.4 or ghae > 3.4 %}
-{% note %}
+**Nota:** Los clientes que usan {% data variables.product.prodname_GH_advanced_security %} pueden habilitar {% data variables.product.prodname_secret_scanning %} en los repositorios archivados. Para más información, vea "[Acerca de {% data variables.product.prodname_secret_scanning %}](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-for-private-repositories)".
 
-**Note:** Customers who use {% data variables.product.prodname_GH_advanced_security %} can enable {% data variables.product.prodname_secret_scanning %} on archived repositories. For more information, see "[About {% data variables.product.prodname_secret_scanning %}](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-for-private-repositories)."
-
-{% endnote %}
-{% endif %}
+{% endnote %} {% endif %}
 
 {% data reusables.repositories.archiving-repositories-recommendation %}
 
-Once a repository is archived, you cannot add or remove collaborators or teams. Contributors with access to the repository can only fork or star your project.
+Una vez que se archiva un repositorio, no puedes agregar ni eliminar colaboradores ni equipos. Solo los colaboradores con acceso al repositorio pueden bifurcar o iniciar tu proyecto.
 
-When a repository is archived, its issues, pull requests, code, labels, milestones, projects, wiki, releases, commits, tags, branches, reactions, code scanning alerts, comments and permissions become read-only. To make changes in an archived repository, you must unarchive the repository first.
+Cuando se archiva un repositorio, sus propuestas, solicitudes de cambio, código, etiquetas, hitos, proyectos, wiki, lanzamientos, confirmaciones, marcadores, ramas, reacciones, alertas de escaneo de código, comentarios y permisos se convierten en de solo lectura. Para realizar cambios en un repositorio archivado, primero debes desarchivar el repositorio.
 
-You can search for archived repositories. For more information, see "[Searching for repositories](/search-github/searching-on-github/searching-for-repositories/#search-based-on-whether-a-repository-is-archived)." You can also search for issues and pull requests within archived repositories. For more information, see "[Searching issues and pull requests](/search-github/searching-on-github/searching-issues-and-pull-requests/#search-based-on-whether-a-repository-is-archived)."  
+Puedes buscar repositorios archivados. Para más información, vea "[Búsqueda de repositorios](/search-github/searching-on-github/searching-for-repositories/#search-based-on-whether-a-repository-is-archived)". Para obtener más información, consulta "<a href="/articles/searching-for-repositories/#search-based-on-whether-a-repository-is-archived">Buscar repositorios</a>". Para más información, vea "[Búsqueda de incidencias y solicitudes de incorporación de cambios](/search-github/searching-on-github/searching-issues-and-pull-requests/#search-based-on-whether-a-repository-is-archived)".  
 
-## Archiving a repository
+## Archivar un repositorio
 
 {% data reusables.repositories.archiving-repositories-recommendation %}
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-3. Under "Danger Zone", click **Archive this repository**
-   ![Archive this repository button](/assets/images/help/repository/archive-repository.png)
-4. Read the warnings.
-5. Type the name of the repository you want to archive.
-  ![Archive repository warnings](/assets/images/help/repository/archive-repository-warnings.png)
-6. Click **I understand the consequences, archive this repository**.
-
-## Unarchiving a repository
-
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-3. Under "Danger Zone", click **Unarchive this repository**
-  ![Unarchive this repository button](/assets/images/help/repository/unarchive-repository.png)
-4. Read the warnings.
-5. Type the name of the repository you want to unarchive.
-  ![Unarchive repository warnings](/assets/images/help/repository/unarchive-repository-warnings.png)
-6. Click **I understand the consequences, unarchive this repository**.  
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %}
+3. En "Zona de peligro", haga clic en **Archivar este repositorio** o **Anular el archivo de este repositorio**.
+   ![Botón Archivar este repositorio](/assets/images/help/repository/archive-repository.png)
+4. Lea las advertencias.
+5. Escribe el nombre del repositorio que deseas archivar o desarchivar.
+  ![Advertencias de archivo del repositorio](/assets/images/help/repository/archive-repository-warnings.png)
+6. Haga clic en **Entiendo las consecuencias, archivar este repositorio**.

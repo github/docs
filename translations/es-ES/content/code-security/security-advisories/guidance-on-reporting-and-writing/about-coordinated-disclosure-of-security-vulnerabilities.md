@@ -1,6 +1,6 @@
 ---
-title: About coordinated disclosure of security vulnerabilities
-intro: Vulnerability disclosure is a coordinated effort between security reporters and repository maintainers.
+title: Acerca de la divulgación coordinada de las vulnerabilidades de seguridad
+intro: La divulgación de vulnerabilidaes es un esfuerzo coordinado entre los reporteros de seguridad y los mantenedores de los repositorios.
 redirect_from:
   - /code-security/security-advisories/about-coordinated-disclosure-of-security-vulnerabilities
   - /code-security/repository-security-advisories/about-coordinated-disclosure-of-security-vulnerabilities
@@ -14,81 +14,85 @@ topics:
   - Security advisories
   - Vulnerabilities
 shortTitle: Coordinated disclosure
+ms.openlocfilehash: 5f3e9983b3efcca68cb1b5c0bc5891a21f276216
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148160012'
 ---
-
-## About disclosing vulnerabilities in the industry
+## Acerca de divulgar las vulnerabilidades en la industria
 
 {% data reusables.security-advisory.disclosing-vulnerabilities %}
 
-The initial report of a vulnerability is made privately, and the full details are only published once the maintainer has acknowledged the issue, and ideally made remediations or a patch available, sometimes with a delay to allow more time for the patches to be installed. For more information, see the "[OWASP Cheat Sheet Series about vulnerability disclosure](https://cheatsheetseries.owasp.org/cheatsheets/Vulnerability_Disclosure_Cheat_Sheet.html#commercial-and-open-source-software)" on the OWASP Cheat Sheet Series website.
+El reporte inicial de una vulnerabilidad se hace en privado y los detalles completos solo se publican una vez que el mantenedor reconoce el problema e idealmente generó remediaciones o un parche disponible, algunas veces con un retraso para dar más tiempo para que se instalen los parches. Para más información, vea la "[serie de hojas de referencia rápida de OWASP sobre divulgación de vulnerabilidades](https://cheatsheetseries.owasp.org/cheatsheets/Vulnerability_Disclosure_Cheat_Sheet.html#commercial-and-open-source-software)" en el sitio web de OWASP Cheat Sheet Series.
 
-### Best practices for vulnerability reporters
+### Mejores prácticas para los reporteros de vulnerabilidades
 
-It's good practice to report vulnerabilities privately to maintainers. When possible, as a vulnerability reporter, we recommend you avoid:
-- Disclosing the vulnerability publicly without giving maintainers a chance to remediate.
-- Bypassing the maintainers.
-- Disclosing the vulnerability before a fixed version of the code is available.
-- Expecting to be compensated for reporting an issue, where no public bounty program exists.
+Es una buena práctica reportar las vulnerabilidades a los mantenedores en privado. Cuando sea posible, como reportero de vulnerabilidades, te recomendamos evitar:
+- Divulgar la vulnerabilidad públicamente sin dar oportunidad a los mantenedores para remediarla.
+- Saltarse a los mantenedores.
+- Divulgar la vulnerabilidad antes de que se encuentre disponible una versión corregida del código.
+- Esperar que se te recompense por reportar un problema cuando no existe un programa público de recompensas.
 
-It's acceptable for vulnerability reporters to disclose a vulnerability publicly after a period of time, if they have tried to contact the maintainers and not received a response, or contacted them and been asked to wait too long to disclose it. 
+Es aceptable que los reporteroes de vulnerabilidades divulguen una vulnerabilidad públicamente después de cierto tiempo, si han tratado de contactar a los mantenedores y no han recibido respuesta o si los contactaron y se les pidió esperar demasiado para divulgarla. 
 
-We recommend vulnerability reporters clearly state the terms of their disclosure policy as part of their reporting process. Even if the vulnerability reporter does not adhere to a strict policy, it's a good idea to set clear expectations for maintainers in terms of timelines on intended vulnerability disclosures. For an example of disclosure policy, see the "[Security Lab's disclosure policy](https://securitylab.github.com/advisories#policy)" on the GitHub Security Lab website.
+Recomendamos a los reporteros de vulnerabilidades que declaren claramente las condiciones de su política de divulgación como parte de su proceso de reporte. Aún si la vulnerabilidad no se apega a una política estricta, es una buena idea establecer expectativas claras para los mantenedores con respecto a los periodos de tiempo para cuando se pretende divulgar una vulnerabilidad. Para obtener un ejemplo de directiva de divulgación, vea la "[Directiva de divulgación de Security Lab](https://securitylab.github.com/advisories#policy)" en el sitio web de GitHub Security Lab.
 
-### Best practices for maintainers
+### Mejores prácticas para los mantenedores
 
-As a maintainer, it's good practice to clearly indicate how and where you want to receive reports for vulnerabilities. If this information is not clearly available, vulnerability reporters don't know how to contact you, and may resort to extracting developer email addresses from git commit histories to try to find an appropriate security contact. This can lead to friction, lost reports, or the publication of unresolved reports.
+Como mantenedor, es una buena práctica indicar claramente cómo y dónde quieres recibir los reportes de las vulnerabilidades. Si esta información no está disponible claramente, los reporteros de las vulnerabilidades no sabrán cómo contactarte y podrían recurrir a extrar las direcciónes de correo electrónico de los desarrolladores desde los historiales de confirmación de git para intentar encontrar un contacto de seguridad adecuado. Esto puede causar fricciones, reportes perdidos, o que se publiquen reportes sin resolución.
 
-Maintainers should disclose vulnerabilities in a timely manner. If there is a security vulnerability in your repository, we recommend you:
-- Treat the vulnerability as a security issue rather than a simple bug, both in your response and your disclosure. For example, you'll need to explicitly mention that the issue is a security vulnerability in the release notes.
-- Acknowledge receipt of the vulnerability report as quickly as possible, even if no immediate resources are available for investigation. This sends the message that you are quick to respond and act, and it sets a positive tone for the rest of the interaction between you and the vulnerability reporter.
-- Involve the vulnerability reporter when you verify the impact and veracity of the report. It's likely the vulnerability reporter has already spent time considering the vulnerability in a variety of scenarios, some of which you may have not considered yourself.
-- Remediate the issue in a way that you see fit, taking any concerns and advice provided by the vulnerability reporter into careful consideration. Often the vulnerability reporter will have knowledge of certain corner cases and remediation bypasses that are easy to miss without a security research background.
-- Always acknowledge the vulnerability reporter when you credit the discovery.
-- Aim to publish a fix as soon as you can.
-- Ensure that you make the wider ecosystem aware of the issue and its remediation when you disclose the vulnerability. It is not uncommon to see cases where a recognized security issue is fixed in the current development branch of a project, but the commit or subsequent release is not explicitly marked as a security fix or release. This can cause problems with downstream consumers.
+Los mantenedores deben divulgar las vulnerabilidades oportunamente. Si hay una vulnerabilidad de seguridad en tu repositorio, te recomendamos que:
+- Trates a la vulnerabilidad como un problema de seguridad en vez de como un error simple, tanto en tu respuesta como en tu divulgación de esta. Por ejemplo, necesitarás mencionar explícitamente que el problema es una vulnerabilidad de seguridad en las notas de lanzamiento.
+- Reconoce la recepción del reporte de vulnerabilidades tan pronto como sea posible, incluso si no hay recursos inmediatos disponibles para la investigación. Esto deja ver que eres rápido para responder y actuar, e instaura un tono positivo para el resto de la interacción entre quien reporta la vulnerabilidad y tú.
+- Involucra a quien reporta la vulnerabilidad cuando verifiques el impacto y la veracidad del reporte. Es probable que quien reporta la vulnerabilidad ya haya pasado tiempo considerándola en diversos escenarios, algunos de los cuales podrías aún no haber considerado.
+- Remedia el problema conforme lo consideres necesario, tomando en consideración cualquier preocupación o consejo que te proporcione quien reporta la vulnerabilidad. A menudo, quien reporta la vulnerabilidad tendrá conocimiento de ciertos casos límite y atajos de remediación que pueden omitirse fácilmente sin tener un antecedente de investigación de seguridad.
+- Reconoce siempre a quien reporta la vulnerabilidad cuando des crédito por el descubrimiento.
+- Busca publicar una solución tan pronto como puedas.
+- Asegúrate de que pones al tanto a todo el ecosistema sobre el problema y su remediación cuando divulgues la vulnerabilidad. No es raro encontrarse con casos en donde un problema de seguridad reconocido se fija en la rama de desarrollo actual de un proyecto, pero la confirmación de un lanzamiento subsecuente no se marca explícitamente como una corrección o lanzamiento de seguridad. Esto puede causar problemas con los consumidores en niveles inferiores.
 
-Publishing the details of a security vulnerability doesn't make maintainers look bad. Security vulnerabilities are present everywhere in software, and users will trust maintainers who have a clear and established process for disclosing security vulnerabilities in their code.
+El publicar los detalles de una vulnerabilidad de seguridad no da una mala imagen a los mantenedores. Las vulnerabilidades de seguridad están presentes en todas partes dentro del software, y los usuarios confiarán en los mantenedores que tengan un proceso claro y establecido para divulgar vulnerabilidades de seguridad en su código.
 
-## About reporting and disclosing vulnerabilities in projects on {% data variables.product.prodname_dotcom %}
+## Acerca de reportar y divulgar las vulnerabilidaes en los proyectos de {% data variables.product.prodname_dotcom %}
 
-There are two processes available on {% data variables.product.prodname_dotcom %}:
+Hay dos procesos disponibles en {% data variables.product.prodname_dotcom %}:
 
-- The standard process: Vulnerability reporters get in touch with the repository maintainers, using contact information located in the security policy for the repository. The repository maintainers then create a draft repository advisory if required.  
-- Private vulnerability reporting: Vulnerability reporters disclose vulnerability details directly and privately to the repository maintainers by proposing a draft repository advisory and providing details of their findings.
+- Proceso estándar: los informadores de vulnerabilidades se comunican con los mantenedores del repositorio, mediante la información de contacto ubicada en la directiva de seguridad del repositorio. A continuación, los mantenedores del repositorio crean un aviso de borrador del repositorio si es necesario.  
+- Informes de vulnerabilidades privados: los informadores de vulnerabilidades divulgan los detalles de vulnerabilidades directamente y de forma privada a los mantenedores del repositorio proponiendo un borrador de asesoramiento de repositorio y proporcionando detalles de sus conclusiones.
 
-### Standard process
+### Proceso estándar
 
-The process for reporting and disclosing vulnerabilities for projects on {% data variables.product.prodname_dotcom_the_website %} is as follows:
+El proceso para reportar y divulgar vulnerabilidades para los proyectos en {% data variables.product.prodname_dotcom_the_website %} es el siguiente:
 
- If you are a vulnerability reporter (for example, a security researcher) who would like report a vulnerability, first check if there is a security policy for the related repository. For more information, see "[About security policies](/code-security/getting-started/adding-a-security-policy-to-your-repository#about-security-policies)." If there is one, follow it to understand the process before contacting the security team for that repository. 
+ Si reportas una vulnerabilidad (por ejemplo, si eres un investigador de seguridad) y te gustaría proceder, revisa primero si existe una política de seguridad para el repositorio en cuestión. Para más información, vea "[Acerca de las directivas de seguridad](/code-security/getting-started/adding-a-security-policy-to-your-repository#about-security-policies)". Si esta existe, síguela para entender el proceso antes de contactar al equipo de seguridad de este repositorio. 
  
- If there isn't a security policy in place, the most efficient way to establish a private means of communication with maintainers is to create an issue asking for a preferred security contact. It's worth noting that the issue will be immediately publicly visible, so it should not include any information about the bug. Once communication is established, you can suggest the maintainers define a security policy for future use.
+ Si no existe una política de seguridad en vigor, la forma más eficiente de establecer un medio de comunicación privado con los mantenedores es crear una propuesta que solicite un conteacto preferente para asuntos de seguridad. No sirve de nada que la propuesta sea visible al público inmediatamente, así que no debería incluir ningún tipo de información sobre el error. Una vez que se haya establecido la comunicación, puedes sugerir a los mantenedores que definan una política de seguridad para su uso futuro.
 
 {% note %}
 
-**Note**: _For npm only_ - If we receive a report of malware in an npm package, we try to contact you privately. If you don't address the issue in a timely manner, we will disclose it. For more information, see "[Reporting malware in an npm package](https://docs.npmjs.com/reporting-malware-in-an-npm-package)" on the npm Docs website.
+**Nota**: _Solo para npm_: Si recibimos un informe de malware en un paquete npm, intentaremos ponernos en contacto con usted de forma privada. Si no tratas la propuesta de forma oportuna, la divulgaremos. Para más información, vea "[Notificación de malware en un paquete npm](https://docs.npmjs.com/reporting-malware-in-an-npm-package)" en el sitio web de la documentación de npm.
 
 {% endnote %}
 
- If you've found a security vulnerability in {% data variables.product.prodname_dotcom_the_website %}, please report the vulnerability through our coordinated disclosure process. For more information, see the [{% data variables.product.prodname_dotcom %} Security Bug Bounty](https://bounty.github.com/) website.
+ Si encontraste una vulnerabilidad de seguridad en {% data variables.product.prodname_dotcom_the_website %}, por favor, repórtala a través de nuestro proceso de divulgación coordinada. Para más información, vea el sitio web [Recompensas de errores de seguridad de {% variables.product.prodname_dotcom %}](https://bounty.github.com/).
 
- If you are a maintainer, you can take ownership of the process at the very beginning of the pipeline by setting up a security policy for your repository, or otherwise making security reporting instructions clearly available, for example in your project’s README file. For information about adding a security policy, see "[About security policies](/code-security/getting-started/adding-a-security-policy-to-your-repository#about-security-policies)." If there is no security policy, it's likely that a vulnerability reporter will try to email you or otherwise privately contact you. Alternatively, someone may open a (public) issue with details of a security issue.
+ Si eres un mantenedor, puedes tomar la responsabilidad del proceso desde el inicio de la red de comunicación si configuras una política de seguridad para tu repositorio o, de otra forma, poner las instrucciones de reporte de seguridad claramente disponibles, por ejemplo, en el archivo README de tu proyecto. Para obtener información sobre cómo agregar una directiva de seguridad, vea "[Acerca de las directivas de seguridad](/code-security/getting-started/adding-a-security-policy-to-your-repository#about-security-policies)". Si no hay políticas de seguridad, es probable que alguien que reporta una vulnerabilidad intente enviarte un correo electrónico o contactarte en privado de alguna otra forma. Como alternativa, alguien podría abrir una propuesta (pública) con detalles de un problema de seguridad.
 
- As a maintainer, to disclose a vulnerability in your code, you first create a draft security advisory in the package's repository in {% data variables.product.prodname_dotcom %}. {% data reusables.security-advisory.security-advisory-overview %} For more information, see "[About repository security advisories](/code-security/repository-security-advisories/about-github-security-advisories-for-repositories)."
+ Como mantenedor, para divulgar una vulnerabilidad en tu código, primero debes creer un borrador de asesoría de seguridad en el repositorio del paquete en {% data variables.product.prodname_dotcom %}. {% data reusables.security-advisory.security-advisory-overview %} Para más información, consulta "[Acerca de las asesorías de seguridad de repositorio](/code-security/repository-security-advisories/about-github-security-advisories-for-repositories)".
 
- To get started, see "[Creating a repository security advisory](/code-security/repository-security-advisories/creating-a-repository-security-advisory)."
+ Para empezar, vea "[Creación de un aviso de seguridad de repositorio](/code-security/repository-security-advisories/creating-a-repository-security-advisory)".
 
-### Private vulnerability reporting
+### Informes de vulnerabilidades privados
 
 {% data reusables.security-advisory.private-vulnerability-reporting-beta %}
 
 {% data reusables.security-advisory.private-vulnerability-reporting-enable %}
 
- Private vulnerability reporting provides an easy way for vulnerability reporters to privately disclose security risks to repository maintainers, within {% data variables.product.prodname_dotcom %}, and in a way that immediately notifies the repository maintainers of the issue. For more information for security researchers and repository maintainers, see "[Privately reporting a security vulnerability](/code-security/security-advisories/guidance-on-reporting-and-writing/privately-reporting-a-security-vulnerability)" and "[Managing privately reported security vulnerabilities](/code-security/security-advisories/guidance-on-reporting-and-writing/managing-privately-reported-security-vulnerabilities)", respectively.
+ Los informes de vulnerabilidades privados ofrecen a los informadores de vulnerabilidades una manera sencilla de revelar de forma privada los riesgos de seguridad a los mantenedores de repositorios, dentro de {% data variables.product.prodname_dotcom %}, y de notificarles de inmediato la incidencia. Para obtener más información sobre los investigadores de seguridad y los mantenedores de repositorios, consulta "[Creación de informes privados de una vulnerabilidad de seguridad](/code-security/security-advisories/guidance-on-reporting-and-writing/privately-reporting-a-security-vulnerability)" y "[Administración de vulnerabilidades de seguridad notificadas de forma privada](/code-security/security-advisories/guidance-on-reporting-and-writing/managing-privately-reported-security-vulnerabilities)", respectivamente.
 
 {% note %}
 
-**Note**:
-If the repository containing the vulnerability doesn't have private vulnerability reporting enabled, both security researchers and repository maintainers need to follow the instructions described in the "[Standard process](#standard-process)" section above.
+**Nota**: Si el repositorio que contiene la vulnerabilidad no tiene habilitada la notificación de vulnerabilidades privada, tanto los investigadores de seguridad como los mantenedores de repositorios deben seguir las instrucciones descritas en la sección "[Proceso estándar](#standard-process)" anterior.
 
 {% endnote %}

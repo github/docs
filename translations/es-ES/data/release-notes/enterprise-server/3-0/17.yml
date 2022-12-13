@@ -1,0 +1,25 @@
+date: '12-10-2021'
+sections:
+  security_fixes:
+    - 'Los paquetes se han actualizado a sus últimas versiones de seguridad. {% comment %} https://github.com/github/enterprise2/pull/27034, https://github.com/github/enterprise2/pull/27010 {% endcomment %}'
+  bugs:
+    - 'Los enlaces previos a la recepción personalizados fallaron debido a los límites demasiado restrictivos en la memoria virtual o CPU. {% comment %}https://github.com/github/enterprise2/pull/26971, https://github.com/github/enterprise2/pull/26955 {% endcomment %}'
+    - 'Al intentar borrar todos los ajustes de configuración existentes con "ghe-cleanup-settings", se producía un error al reiniciar el servicio de la Consola de administración. {% comment %} https://github.com/github/enterprise2/pull/26986, https://github.com/github/enterprise2/pull/26901 {% endcomment %}'
+    - 'Durante el desmonte de replicación mediante "ghe-repl-teardown", Memcached producía un error al reiniciarse. {% comment %} https://github.com/github/enterprise2/pull/26992, https://github.com/github/enterprise2/pull/26983 {% endcomment %}'
+    - 'Durante los periodos de carga alta, los usuarios recibían códigos de estado HTTP 503 cuando los servicios ascendentes fallaban en sus revisiones de salud interna. {% comment %} https://github.com/github/enterprise2/pull/27081, https://github.com/github/enterprise2/pull/26999 {% endcomment %}'
+    - 'Se prohibía que los entornos de los enlaces previos a la recepción llamaran al comando cat mediante BusyBox en Alpine.{% comment %} https://github.com/github/enterprise2/pull/27114, https://github.com/github/enterprise2/pull/27094 {% endcomment %}'
+    - 'La contraseña de la base de datos externa se registraba en texto simple. {% comment %} https://github.com/github/enterprise2/pull/27172, https://github.com/github/enterprise2/pull/26413 {% endcomment %}'
+    - 'Podía mostrarse un mensaje de error de "jq" erróneo al ejecutar "ghe-config-apply". {% comment %} https://github.com/github/enterprise2/pull/27203, https://github.com/github/enterprise2/pull/26784 {% endcomment %}'
+    - 'La recuperación de fallos desde un centro de datos de un clúster primario hacia uno de un clúster secundario fue exitosa, pero al recuperarse de los fallos nuevamente hacia el centro de datos del clúster primario original, no se podían promover los índices de Elasticsearch. {% comment %} https://github.com/github/github/pull/193180, https://github.com/github/github/pull/192447 {% endcomment %}'
+    - 'La página de administrador de sitio para los ejecutores auto-hospedados del repositorio devolvía un error HTTP 500 {% comment %} https://github.com/github/github/pull/194205 {% endcomment %}'
+    - 'En algunos casos, los administradores de GitHub Enterprise que intentaban visitar la página "Usuarios inactivos" recibían una respuesta de tipo "502 Bad Gateway" o "504 Gateway Timeout".{% comment %} https://github.com/github/github/pull/194259, https://github.com/github/github/pull/193609 {% endcomment %}'
+  changes:
+    - 'Se borran registros de webhook de forma más efectiva que salen de la ventana de retención de bitácoras de webhook. {% comment %} https://github.com/github/enterprise2/pull/27157 {% endcomment %}'
+  known_issues:
+    - "En una instalación nueva de {% data variables.product.prodname_ghe_server %} que no tenga ningún usuario, cualquier atacante podría crear el primer usuario administrativo."
+    - Las reglas de cortafuegos personalizadas se eliminan durante el proceso de actualización.
+    - "Los archivos supervisados de Git LFS [cargados desde la interface web](https://github.com/blog/2105-upload-files-to-your-repositories) se agregan de manera incorrecta y directa al repositorio."
+    - Las incidencias no se pueden cerrar si contienen un enlace permanente a un blob del mismo repositorio en el que la ruta es mayor de 255 caracteres.
+    - "Cuando se habilita \"Los usuarios pueden buscar en GitHub.com\" con GitHub Connect, las incidencias en los repositorios privados e internos no se incluyen en los resultados de la búsqueda de GitHub.com."
+    - "Cuando un nodo de réplica está sin conexión en una configuración de disponibilidad alta, es posible que {% data variables.product.product_name %} todavía enrute las solicitudes a {% data variables.product.prodname_pages %} al nodo sin conexión, lo que reduce la disponibilidad de {% data variables.product.prodname_pages %} para los usuarios."
+    - Los límites de recursos que son específicos para procesar enlaces previos a la recepción podrían ocasionar errores en algunos de ellos.

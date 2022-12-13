@@ -1,6 +1,6 @@
 ---
-title: Troubleshooting cloning errors
-intro: 'If you''re having trouble cloning a repository, check these common errors.'
+title: Solucionar los errores de clonado
+intro: 'Si estás teniendo problemas para clonar un repositorio, verifica estos errores comunes.'
 redirect_from:
   - /articles/error-the-requested-url-returned-error-403
   - /articles/error-the-requested-url-returned-error-401
@@ -19,41 +19,45 @@ versions:
   ghec: '*'
 topics:
   - Repositories
+ms.openlocfilehash: 60a5ff0350fed34841099c18f495b185b75f9832
+ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147093146'
 ---
+## Errores de clonación de HTTPS
 
-## HTTPS cloning errors
+Existen algunos errores comunes cuando se utiliza HTTPS con Git. Estos errores suelen indicar que tienes una versión antigua de Git o que no tienes acceso al repositorio.
 
-There are a few common errors when using HTTPS with Git. These errors usually indicate you have an old version of Git, or you don't have access to the repository.
-
-Here's an example of an HTTPS error you might receive:
+Aquí aparece un ejemplo de un error de HTTPS que puedes recibir:
 
 ```shell
 > error: The requested URL returned error: 401 while accessing
-> https://{% data variables.command_line.codeblock %}/USER/REPO.git/info/refs?service=git-receive-pack
+> https://{% data variables.command_line.codeblock %}/<em>user</em>/<em>repo</em>.git/info/refs?service=git-receive-pack
 > fatal: HTTP request failed
 ```
 
 ```shell
 > Error: The requested URL returned error: 403 while accessing
-> https://{% data variables.command_line.codeblock %}/USER/REPO.git/info/refs
+> https://{% data variables.command_line.codeblock %}/<em>user</em>/<em>repo</em>.git/info/refs
 > fatal: HTTP request failed
 ```
 
 ```shell
-> Error: https://{% data variables.command_line.codeblock %}/USER/REPO.git/info/refs not found: did you run git
+> Error: https://{% data variables.command_line.codeblock %}/<em>user</em>/<em>repo</em>.git/info/refs not found: did you run git
 > update-server-info on the server?
 ```
 
-### Check your Git version
+### Comprueba tu versión de Git
 
-There's no minimum Git version necessary to interact with {% data variables.product.product_name %}, but we've found version 1.7.10 to be a comfortable stable version that's available on many platforms. You can always [download the latest version on the Git website](https://git-scm.com/downloads).
+No hay una versión mínima de Git que sea necesaria para interactuar con {% data variables.product.product_name %}, pero hemos descubierto que la versión 1.7.10 es una versión estable y cómoda que está disponible en muchas plataformas. Siempre puede [descargar la versión más reciente en el sitio web de Git](https://git-scm.com/downloads).
 
-### Ensure the remote is correct
+### Asegúrate de que el remoto sea correcto
 
-The repository you're trying to fetch must exist on {% data variables.location.product_location %}, and the URL is case-sensitive.
+El repositorio que estás tratando de extraer debe existir en {% data variables.product.product_location %}, y la URL distingue entre mayúsculas y minúsculas.
 
-You can find the URL of the local repository by opening the command line and
-typing `git remote -v`:
+Para encontrar la dirección URL del repositorio local, abra la línea de comandos y escriba `git remote -v`:
 
 ```shell
 $ git remote -v
@@ -70,89 +74,86 @@ $ git remote -v
 > origin  https://github.com/ghost/ReactiveCocoa.git (push)
 ```
 
-Alternatively, you can change the URL through our
-[{% data variables.product.prodname_desktop %}](https://desktop.github.com/) application.
+También puede cambiar la dirección URL desde nuestra aplicación [{% data variables.product.prodname_desktop %}](https://desktop.github.com/).
 
-### Provide an access token
+### Proporciona un token de acceso
 
-To access {% data variables.product.prodname_dotcom %}, you must authenticate with a {% data variables.product.pat_generic %} instead of your password. For more information, see "[Creating a {% data variables.product.pat_generic %}](/github/authenticating-to-github/creating-a-personal-access-token)."
+Para acceder a {% data variables.product.prodname_dotcom %}, debes autenticarte con un token de acceso personal en vez de con tu contraseña. Para más información, vea "[Creación de un token de acceso personal](/github/authenticating-to-github/creating-a-personal-access-token)".
 
 {% data reusables.command_line.provide-an-access-token %}
 
-### Check your permissions
+### Comprobar los permisos
 
-When prompted for a username and password, make sure you use an account that has access to the repository.
+Cuando se te solicite un nombre de usuario y contraseña, asegúrate de usar una cuenta que tenga acceso al repositorio.
 
 {% tip %}
 
-**Tip**: If you don't want to enter your credentials every time you interact with the remote repository, you can turn on [credential caching](/github/getting-started-with-github/caching-your-github-credentials-in-git). If you are already using credential caching, please make sure that your computer has the correct credentials cached. Incorrect or out of date credentials will cause authentication to fail.
+**Sugerencia**: Si no desea escribir sus credenciales cada vez que interactúe con el repositorio remoto, puede activar el [almacenamiento en caché de credenciales](/github/getting-started-with-github/caching-your-github-credentials-in-git). Si ya estás utilizando el almacenamiento de credenciales en caché, por favor, asegúrate de que tu computadora tenga las credenciales correctas almacenadas en caché. Las credenciales erróneas o desactualizadas causarán que falle la autenticación.
 
 {% endtip %}
 
-### Use SSH instead
+### Usar SSH en su lugar
 
-If you've previously set up SSH keys, you can use the SSH clone URL instead of HTTPS.  For more information, see "[About remote repositories](/github/getting-started-with-github/about-remote-repositories)."
+Si ya has configurado claves SSH, puedes usar el clon SSH en lugar de HTTPS.  Para obtener más información, consulte "[Acerca de los repositorios](/github/getting-started-with-github/about-remote-repositories)".
 
-## Error: Repository not found
+## Error: Repositorio no encontrado
 
-{% ifversion fpt or ghae or ghec %}If you see this error when cloning a repository, it means that the repository does not exist or you do not have permission to access it.{% else %}If you see this error when cloning a repository, it means that the repository does not exist, you do not have permission to access it, or {% data variables.location.product_location %} is in private mode.{% endif %} There are a few solutions to this error, depending on the cause.
+{% ifversion fpt or ghae or ghec %}Si aparece este error al clonar un repositorio, significa que el repositorio no existe o no tiene permiso para acceder a él.{% else %}Si aparece este error al clonar un repositorio, significa que el repositorio no existe, no tiene permiso para acceder a él o {% data variables.product.product_location %} está en modo privado.{% endif %} Hay varias soluciones para este error que varían en función de la causa.
 
-### Check your spelling
+### Revise la ortografía
 
-Typos happen, and repository names are case-sensitive.  If you try to clone `git@{% data variables.command_line.codeblock %}:user/repo.git`, but the repository is really named `User/Repo` you will receive this error.
+Los errores tipográficos suceden, y los nombres de los repositorios distinguen mayúsculas de minúsculas.  Si intenta clonar `git@{% data variables.command_line.codeblock %}:user/repo.git`, pero el repositorio se denomina `User/Repo`, aparecerá este error.
 
-To avoid this error, when cloning, always copy and paste the clone URL from the repository's page. For more information, see "[Cloning a repository](/articles/cloning-a-repository)."
+Para evitar este error, cuando clonas, copia y pega siempre la URL del clon desde la página del repositorio. Para más información, vea "[Clonación de un repositorio](/articles/cloning-a-repository)".
 
-To update the remote on an existing repository, see "[Managing remote repositories](/github/getting-started-with-github/managing-remote-repositories)".
+Para actualizar el repositorio remoto en un repositorio existente, consulte "[Administración de repositorios remotos](/github/getting-started-with-github/managing-remote-repositories)".
 
-### Checking your permissions
+### Comprobar tus permisos
 
-If you are trying to clone a private repository but do not have permission to view the repository, you will receive this error.
+Si estás tratando de clonar un repositorio privado pero no tienes permiso para ver el repositorio, recibirás este error.
 
-Make sure that you have access to the repository in one of these ways:
+Verifica si tienes acceso al repositorio de alguna de las siguientes maneras:
 
-* The owner of the repository
-* A [collaborator](/articles/inviting-collaborators-to-a-personal-repository) on the repository
-* A [member of a team](/articles/adding-organization-members-to-a-team) that has access to the repository (if the repository belongs to an organization)
+* Como propietario del repositorio
+* Un [colaborador](/articles/inviting-collaborators-to-a-personal-repository) en el repositorio
+* Un [miembro de un equipo](/articles/adding-organization-members-to-a-team) que tenga acceso al repositorio (si el repositorio pertenece a una organización)
 
-### Check your SSH access
+### Comprueba tu acceso SSH
 
-In rare circumstances, you may not have the proper SSH access to a repository.
+En muy raros casos, es posible que no tengas el acceso SSH correcto al repositorio.
 
-You should ensure that the SSH key you are using is attached to your personal account on {% data variables.product.product_name %}. You can check this by typing
-the following into the command line:
+Debes asegurarte de que la clave SSH que estás usando se encuentre asociada a tu cuenta personal en {% data variables.product.product_name %}. Para comprobarlo, escriba lo siguiente en la línea de comandos:
 
 ```shell
 $ ssh -T git@{% data variables.command_line.codeblock %}
-> Hi USERNAME! You've successfully authenticated, but GitHub does not
+> Hi <em>username</em>! You've successfully authenticated, but GitHub does not
 > provide shell access.
 ```
 
-{% ifversion fpt or ghec %}
-If the repository belongs to an organization and you're using an SSH key generated by an OAuth App, OAuth App access may have been restricted by an organization owner. For more information, see "[About OAuth App access restrictions](/organizations/restricting-access-to-your-organizations-data/about-oauth-app-access-restrictions)."
+{% ifversion fpt or ghec %} Si el repositorio pertenece a una organización y estás usando una llave SSH generada por una OAuth App, puede que algún dueño de la organización haya restringido el acceso OAuth App. Para obtener más información, consulte "[Acerca de las restricciones de acceso a la aplicación de OAuth](/organizations/restricting-access-to-your-organizations-data/about-oauth-app-access-restrictions)".
 {% endif %}
 
-For more information, see [Adding a new SSH key to your GitHub account](/articles/adding-a-new-ssh-key-to-your-github-account).
+Para obtener más información, consulte [Agregar una clave SSH nueva a su cuenta de GitHub](/articles/adding-a-new-ssh-key-to-your-github-account).
 
 {% ifversion ghes %}
-### Check if your instance is in private mode
+### Comprueba si tu instancia se encuentra en el modo privado
 
-If your site administrator has enabled private mode on your GitHub Enterprise instance, anonymous clones over `git://` will be disabled. If you are unable to clone a repository, contact your site administrator.
+Si su administrador del sitio ha habilitado el modo privado en su instancia de GitHub Enterprise, los clones anónimos creados sobre `git://` se deshabilitarán. Si no puedes clonar un repositorio, comunícate con el administrador de tu sitio.
 {% endif %}
 
-### Check that the repository really exists
+### Comprueba que el repositorio realmente exista
 
-If all else fails, make sure that the repository really exists on {% data variables.location.product_location %}!
-If you're trying to push to a repository that doesn't exist, you'll get this error.
+Si nada de lo anterior funciona, verifica que el repositorio realmente exista en {% data variables.product.product_location %}.
+Si estás intentando subir a un repositorio que no existe, se producirá este error.
 
-## Error: Remote HEAD refers to nonexistent ref, unable to checkout
+## Error: HEAD remoto remite a una referencia que no existe, imposible de controlar
 
-This error occurs if the default branch of a repository has been deleted on {% data variables.location.product_location %}.
+Este error ocurre si la rama por defecto de un repositorio se ha eliminado en {% data variables.product.product_location %}.
 
-Detecting this error is simple; Git will warn you when you try to clone the repository:
+Es muy fácil detectar este error; Git te dará una advertencia cuando intentes clonar el repositorio:
 
 ```shell
-$ git clone https://{% data variables.command_line.codeblock %}/USER/REPO.git
+$ git clone https://{% data variables.command_line.codeblock %}/<em>user</em>/<em>repo</em>.git
 # Clone a repo
 > Cloning into 'repo'...
 > remote: Counting objects: 66179, done.
@@ -163,10 +164,10 @@ $ git clone https://{% data variables.command_line.codeblock %}/USER/REPO.git
 > warning: remote HEAD refers to nonexistent ref, unable to checkout.
 ```
 
-To fix the error, you'll need to be an administrator of the repository on {% data variables.location.product_location %}.
-You'll want to [change the default branch](/github/administering-a-repository/changing-the-default-branch) of the repository.
+Para resolver el error, es necesario que seas un administrador del repositorio en {% data variables.product.product_location %}.
+Le recomendamos [cambiar la rama predeterminada](/github/administering-a-repository/changing-the-default-branch) del repositorio.
 
-After that, you can get a list of all the available branches from the command line:
+Luego de hacerlo, puedes obtener una lista de todas las ramas disponibles en la línea de comando:
 
 ```shell
 $ git branch -a
@@ -176,7 +177,7 @@ $ git branch -a
 >   remotes/origin/new-main
 ```
 
-Then, you can just switch to your new branch:
+Luego, puedes pasar a tu nueva rama:
 
 ```shell
 $ git checkout new-main

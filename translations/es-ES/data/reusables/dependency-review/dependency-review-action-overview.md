@@ -1,3 +1,11 @@
-The {% data variables.dependency-review.action_name %} scans your pull requests for dependency changes and raises an error if any new dependencies have known vulnerabilities. The action is supported by an API endpoint that compares the dependencies between two revisions and reports any differences.
+---
+ms.openlocfilehash: 7e62876e5b30bfe98ea0f74229caf91a8328f4a4
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/09/2022
+ms.locfileid: "147773214"
+---
+La {% data variables.product.prodname_dependency_review_action %} examina las solicitudes de incorporación de cambios de dependencia y genera un error si las nuevas dependencias tienen vulnerabilidades conocidas. La acción es compatible con un punto de conexión de API que compara las dependencias entre dos revisiones e informa de las diferencias.
 
-For more information about the action and the API endpoint, see the [`dependency-review-action`](https://github.com/actions/dependency-review-action) documentation, and "[Dependency review](/rest/dependency-graph/dependency-review)" in the API documentation.
+Para obtener más información sobre la acción y el punto de conexión de API, consulta la documentación [`dependency-review-action`](https://github.com/actions/dependency-review-action) y "[Revisión de dependencias](/rest/dependency-graph/dependency-review)" en la documentación de la API.
