@@ -83,7 +83,7 @@
     "slash": "^5.0.0",
     "strip-html-comments": "^1.0.0",
     "styled-components": "^5.3.5",
-    "swr": "^1.3.0",
+    "swr": "^2.0.0",
     "ts-dedent": "^2.2.0",
     "unified": "^10.1.2",
     "unist-util-visit": "^4.1.0",
