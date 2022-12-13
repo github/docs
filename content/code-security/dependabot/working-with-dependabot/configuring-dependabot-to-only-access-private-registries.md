@@ -66,7 +66,7 @@ Set `replaces-base` as `true` in the `dependabot.yml` file. For more information
 
 To configure the Gradle ecosystem to only access private registries, you can use these configuration methods.
 
-Define the private registry configuration in a dependabot.yml file. For more information, see “[Configuration options for the dependabot.yml file](https://github.com/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#maven-repository).”
+Define the private registry configuration in a dependabot.yml file. For more information, see “[Configuration options for the dependabot.yml file](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#maven-repository).”
 
 {% note %}
 
