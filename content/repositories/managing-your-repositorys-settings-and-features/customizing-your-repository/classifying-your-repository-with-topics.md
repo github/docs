@@ -54,4 +54,4 @@ When creating a topic:
 
 - use lowercase letters, numbers, and hyphens.
 - use 50 characters or less.
-- Each repository cannot have more than 20 topics.
+- add no more than 20 topics.
