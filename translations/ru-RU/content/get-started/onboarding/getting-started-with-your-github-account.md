@@ -1,203 +1,199 @@
 ---
-title: Getting started with your GitHub account
-intro: 'With a personal account on {% data variables.product.prodname_dotcom %}, you can import or create repositories, collaborate with others, and connect with the {% data variables.product.prodname_dotcom %} community.'
+title: Начало работы с учетной записью GitHub
+intro: 'С помощью личной учетной записи в {% data variables.product.prodname_dotcom %} можно импортировать или создавать репозитории, сотрудничать с другими пользователями и связаться с сообществом {% data variables.product.prodname_dotcom %}.'
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
   ghec: '*'
+ms.openlocfilehash: 7644db01c91c2f96c94e6799c71405c791538c6a
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148093636'
 ---
+В этом руководстве описана настройка учетной записи {% data variables.product.company_short %}и начало работы с функциями {% data variables.product.product_name %} для совместной работы и сообщества.
 
-This guide will walk you through setting up your {% data variables.product.company_short %} account and getting started with {% data variables.product.product_name %}'s features for collaboration and community.
+## Часть 1. Настройка учетной записи {% data variables.product.prodname_dotcom %}
 
-## Part 1: Configuring your {% data variables.product.prodname_dotcom %} account
-
-{% ifversion fpt or ghec %}
-The first steps in starting with {% data variables.product.product_name %} are to create an account, choose a product that fits your needs best, verify your email, set up two-factor authentication, and view your profile.
-{% elsif ghes %}
-The first steps in starting with {% data variables.product.product_name %} are to access your account, set up two-factor authentication, and view your profile.
-{% elsif ghae %}
-The first steps in starting with {% data variables.product.product_name %} are to access your account and view your profile.
+{% ifversion fpt or ghec %} Первыми шагами при работе с {% data variables.product.product_name %} являются создание учетной записи, выбор продукта, который лучше всего соответствует вашим потребностям, подтверждение электронной почты, настройка двухфакторной проверки подлинности и просмотр вашего профиля.
+{% elsif ghes %} Первые шаги при работе с {% data variables.product.product_name %} предназначены для доступа к вашей учетной записи, настройки двухфакторной проверки подлинности и просмотра профиля.
+{% elsif ghae %} Первые шаги при работе с {% data variables.product.product_name %} — это доступ к вашей учетной записи и просмотр вашего профиля.
 {% endif %}
 
-{% ifversion fpt or ghec %}There are several types of accounts on {% data variables.product.prodname_dotcom %}. {% endif %} Every person who uses {% data variables.product.product_name %} has their own personal account, which can be part of multiple organizations and teams. Your personal account is your identity on {% data variables.location.product_location %} and represents you as an individual.
+{% ifversion fpt or ghec %}В {% data variables.product.prodname_dotcom %} доступно несколько типов учетных записей. {% endif %} У каждого пользователя, который использует {% data variables.product.product_name %}, есть личная учетная запись, которая может быть частью нескольких организаций и команд. Ваша личная учетная запись — это ваше удостоверение на {% данных variables.location.product_location %} и представляет вас как отдельного пользователя.
 
 {% ifversion fpt or ghec %}
-### 1. Creating an account
-To sign up for an account on {% data variables.location.product_location %}, navigate to https://github.com/ and follow the prompts.
+### 1. Создание учетной записи
+Чтобы зарегистрироваться для получения учетной записи на {% данных variables.location.product_location %}, перейдите к https://github.com/ запросу и следуйте инструкциям.
 
-To keep your {% data variables.product.prodname_dotcom %} account secure you should use a strong and unique password. For more information, see "[Creating a strong password](/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-strong-password)."
+Чтобы защитить свою учетную запись {% data variables.product.prodname_dotcom %}, используйте надежный и уникальный пароль. Дополнительные сведения см. в разделе [Создание надежного пароля](/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-strong-password).
 
-### 2. Choosing your {% data variables.product.prodname_dotcom %} product
-You can choose {% data variables.product.prodname_free_user %} or {% data variables.product.prodname_pro %} to get access to different features for your personal account. You can upgrade at any time if you are unsure at first which product you want.
+### 2. Выбор продукта {% data variables.product.prodname_dotcom %}
+Вы можете выбрать {% data variables.product.prodname_free_user %} или {% data variables.product.prodname_pro %}, чтобы получить доступ к различным функциям своей личной учетной записи. Вы можете выполнить обновление в любое время, если вы не уверены, какой продукт хотите использовать.
 
-For more information on all of {% data variables.product.prodname_dotcom %}'s plans, see "[{% data variables.product.prodname_dotcom %}'s products](/get-started/learning-about-github/githubs-products)."
+Дополнительные сведения обо всех планах {% data variables.product.prodname_dotcom %} см. в статье [Продукты {% data variables.product.prodname_dotcom %}](/get-started/learning-about-github/githubs-products).
 
-### 3. Verifying your email address
-To ensure you can use all the features in your {% data variables.product.product_name %} plan, verify your email address after signing up for a new account. For more information, see "[Verifying your email address](/github/getting-started-with-github/signing-up-for-github/verifying-your-email-address)."
+### 3. Подтверждение вашего адреса электронной почты
+Чтобы убедиться, что вы можете использовать все функции плана {% data variables.product.product_name %}, подтвердите свой адрес электронной почты после регистрации новой учетной записи. Дополнительные сведения см. в статье "[Проверка адреса электронной почты](/github/getting-started-with-github/signing-up-for-github/verifying-your-email-address)".
 {% endif %}
 
 {% ifversion ghes %}
-### 1. Accessing your account
-The administrator of your {% data variables.product.product_name %} instance will notify you about how to authenticate and access your account. The process varies depending on the authentication mode they have configured for the instance.
+### 1. Доступ к вашей учетной записи
+Администратор вашего экземпляра {% data variables.product.product_name %} сообщит вам, как пройти проверку подлинности и получить доступ к вашей учетной записи. Процесс зависит от режима проверки подлинности, настроенного для экземпляра.
 {% endif %}
 
 {% ifversion ghae %}
-### 1. Accessing your account
-You will receive an email notification once your enterprise owner for {% data variables.product.product_name %} has set up your account, allowing you to authenticate with SAML single sign-on (SSO) and access your account.
+### 1. Доступ к вашей учетной записи
+Вы получите уведомление по электронной почте, как только владелец вашего предприятия для {% data variables.product.product_name %} настроит вашу учетную запись, что позволит вам пройти проверку подлинности с помощью единого входа (SSO) SAML и получить доступ к своей учетной записи.
 {% endif %}
 
 {% ifversion fpt or ghes or ghec %}
-### {% ifversion fpt or ghec %}4.{% else %}2.{% endif %} Configuring two-factor authentication
-Two-factor authentication, or 2FA, is an extra layer of security used when logging into websites or apps. We strongly urge you to configure 2FA for the safety of your account. For more information, see "[About two-factor authentication](/github/authenticating-to-github/securing-your-account-with-two-factor-authentication-2fa/about-two-factor-authentication)."
+### {% ifversion fpt or ghec %}4.{% else %}2.{% endif %} Настройка двухфакторной проверки подлинности
+Двухфакторная проверка подлинности — это дополнительный слой обеспечения безопасности, используемый при входе на веб-сайты или в приложения. Мы настоятельно рекомендуем настроить 2FA для безопасности вашей учетной записи. Подробнее см. в разделе "[Сведения о двухфакторной проверке подлинности](/github/authenticating-to-github/securing-your-account-with-two-factor-authentication-2fa/about-two-factor-authentication)".
 {% endif %}
-### {% ifversion fpt or ghec %}5.{% elsif ghes %}3.{% else %}2.{% endif %} Viewing your {% data variables.product.prodname_dotcom %} profile and contribution graph
-Your {% data variables.product.prodname_dotcom %} profile tells people the story of your work through the repositories and gists you've pinned, the organization memberships you've chosen to publicize, the contributions you've made, and the projects you've created. For more information, see "[About your profile](/github/setting-up-and-managing-your-github-profile/customizing-your-profile/about-your-profile)" and "[Viewing contributions on your profile](/github/setting-up-and-managing-your-github-profile/managing-contribution-graphs-on-your-profile/viewing-contributions-on-your-profile)."
+### {% ifversion fpt or ghec %}5.{% elsif ghes %}3.{% else %}2.{% endif %} Просмотр вашего профиля {% data variables.product.prodname_dotcom %} и диаграммы вкладов
+В вашем профиле {% data variables.product.prodname_dotcom %} отображается история вашей работы с помощью репозиториев и списков, которые вы закрепили, о членстве в организациях, которые вы выбрали для публикации, о внесенных вами вкладах и созданных вами проектах. Дополнительные сведения см. в статьях [О вашем профиле](/github/setting-up-and-managing-your-github-profile/customizing-your-profile/about-your-profile) и [Просмотр вкладов в вашем профиле](/github/setting-up-and-managing-your-github-profile/managing-contribution-graphs-on-your-profile/viewing-contributions-on-your-profile).
 
-## Part 2: Using {% data variables.product.product_name %}'s tools and processes
-To best use {% data variables.product.product_name %}, you'll need to set up Git. Git is responsible for everything {% data variables.product.prodname_dotcom %}-related that happens locally on your computer. To effectively collaborate on {% data variables.product.product_name %}, you'll write in issues and pull requests using {% data variables.product.prodname_dotcom %} Flavored Markdown.
+## Часть 2. Использование инструментов и процессов {% data variables.product.product_name %}
+Чтобы наилучшим образом использовать {% data variables.product.product_name %}, вам необходимо настроить Git. Git отвечает за все, что связано с {% data variables.product.prodname_dotcom %} и происходит локально на вашем компьютере. Для эффективной совместной работы в {% data variables.product.product_name %} вы будете писать в задачах и запросах на вытягивание, используя {% data variables.product.prodname_dotcom %} Flavored Markdown.
 
-### 1. Learning Git
-{% data variables.product.prodname_dotcom %}'s collaborative approach to development depends on publishing commits from your local repository to {% data variables.product.product_name %} for other people to view, fetch, and update using Git. For more information about Git, see the "[Git Handbook](https://guides.github.com/introduction/git-handbook/)" guide. For more information about how Git is used on {% data variables.product.product_name %}, see "[{% data variables.product.prodname_dotcom %} flow](/get-started/quickstart/github-flow)."
-### 2. Setting up Git
-If you plan to use Git locally on your computer, whether through the command line, an IDE or text editor, you will need to install and set up Git. For more information, see "[Set up Git](/get-started/quickstart/set-up-git)."
+### 1. Изучение Git
+Совместный подход {% data variables.product.prodname_dotcom %} к разработке зависит от публикации фиксаций из вашего локального репозитория в {% data variables.product.product_name %} для просмотра, извлечения и обновления другими людьми с помощью Git. Дополнительные сведения о Git см. в [руководстве по Git](https://guides.github.com/introduction/git-handbook/). Дополнительные сведения о том, как Git используется в {% data variables.product.product_name %}, см. в статье [поток {% data variables.product.prodname_dotcom %}](/get-started/quickstart/github-flow).
+### 2. Настройка Git
+Если вы планируете использовать Git локально на своем компьютере, будь то через командную строку, IDE или текстовый редактор, вам необходимо будет установить и настроить Git. Дополнительные сведения см. в статье [Настройка Git](/get-started/quickstart/set-up-git).
 
-If you prefer to use a visual interface, you can download and use {% data variables.product.prodname_desktop %}. {% data variables.product.prodname_desktop %} comes packaged with Git, so there is no need to install Git separately. For more information, see "[Getting started with {% data variables.product.prodname_desktop %}](/desktop/installing-and-configuring-github-desktop/overview/getting-started-with-github-desktop)."
+Если вы предпочитаете использовать визуальный интерфейс, вы можете скачать и использовать {% data variables.product.prodname_desktop %}. {% data variables.product.prodname_desktop %} поставляется в комплекте с Git, поэтому нет необходимости устанавливать Git отдельно. Дополнительные сведения см. в статье [Начало работы с {% data variables.product.prodname_desktop %}](/desktop/installing-and-configuring-github-desktop/overview/getting-started-with-github-desktop).
 
-Once you install Git, you can connect to {% data variables.product.product_name %} repositories from your local computer, whether your own repository or another user's fork. When you connect to a repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %} from Git, you'll need to authenticate with {% data variables.product.product_name %} using either HTTPS or SSH. For more information, see "[About remote repositories](/get-started/getting-started-with-git/about-remote-repositories)."
+После установки Git вы можете подключаться к репозиториям {% data variables.product.product_name %} со своего локального компьютера, будь то ваш собственный репозиторий или вилка другого пользователя. При подключении к репозиторию на {% ifversion ghae %}{% данных variables.product.product_name %}{% else %}{% данных variables.location.product_location %}{% endif %} из Git необходимо пройти проверку подлинности с помощью {% данных variables.product.product_name %} с помощью ПРОТОКОЛА HTTPS или SSH. Дополнительные сведения см. в разделе [Сведения об удаленных репозиториях](/get-started/getting-started-with-git/about-remote-repositories).
 
-### 3. Choosing how to interact with {% data variables.product.product_name %}
-Everyone has their own unique workflow for interacting with {% data variables.product.prodname_dotcom %}; the interfaces and methods you use depend on your preference and what works best for your needs.
+### 3. Выбор способа взаимодействия с {% data variables.product.product_name %}
+У каждого есть свой уникальный рабочий процесс взаимодействия с {% data variables.product.prodname_dotcom %}. Интерфейсы и методы, которые вы используете, зависят от ваших предпочтений и от того, что лучше всего подходит для ваших нужд.
 
-For more information about how to authenticate to {% data variables.product.product_name %} with each of these methods, see "[About authentication to {% data variables.product.prodname_dotcom %}](/github/authenticating-to-github/keeping-your-account-and-data-secure/about-authentication-to-github)."
+Дополнительные сведения о проверке подлинности в {% data variables.product.product_name %} с помощью каждого из этих методов см. в статье [О проверке подлинности в {% data variables.product.prodname_dotcom %}](/github/authenticating-to-github/keeping-your-account-and-data-secure/about-authentication-to-github).
 
-| **Method**  | **Description** | **Use cases** |
+| **Метод**  | **Описание** | **Варианты использования** |
 | ------------- | ------------- | ------------- |
-| Browse to {% data variables.product.prodname_dotcom_the_website %} | If you don't need to work with files locally, {% data variables.product.product_name %} lets you complete most Git-related actions directly in the browser, from creating and forking repositories to editing files and opening pull requests.| This method is useful if you want a visual interface and need to do quick, simple changes that don't require working locally. |
-| {% data variables.product.prodname_desktop %} | {% data variables.product.prodname_desktop %} extends and simplifies your {% data variables.product.prodname_dotcom_the_website %} workflow, using a visual interface instead of text commands on the command line. For more information on getting started with {% data variables.product.prodname_desktop %}, see "[Getting started with {% data variables.product.prodname_desktop %}](/desktop/installing-and-configuring-github-desktop/overview/getting-started-with-github-desktop)." | This method is best if you need or want to work with files locally, but prefer using a visual interface to use Git and interact with {% data variables.product.product_name %}. |
-| IDE or text editor  | You can set a default text editor like [{% data variables.product.prodname_vscode %}](https://code.visualstudio.com/) to open and edit your files with Git, use extensions, and view the project structure. For more information, see "[Associating text editors with Git](/github/using-git/associating-text-editors-with-git)." | This is convenient if you are working with more complex files and projects and want everything in one place, since text editors or IDEs often allow you to directly access the command line in the editor. |
-| Command line, with or without {% data variables.product.prodname_cli %} | For the most granular control and customization of how you use Git and interact with {% data variables.product.product_name %}, you can use the command line. For more information on using Git commands, see "[Git cheatsheet](/github/getting-started-with-github/quickstart/git-cheatsheet)."<br/><br/> {% data variables.product.prodname_cli %} is a separate command-line tool you can install that brings pull requests, issues, {% data variables.product.prodname_actions %}, and other {% data variables.product.prodname_dotcom %} features to your terminal, so you can do all your work in one place. For more information, see "[{% data variables.product.prodname_cli %}](/github/getting-started-with-github/using-github/github-cli)." | This is most convenient if you are already working from the command line, allowing you to avoid switching context, or if you are more comfortable using the command line. |
-| {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API | {% data variables.product.prodname_dotcom %} has a REST API and GraphQL API that you can use to interact with {% data variables.product.product_name %}. For more information, see "[Getting started with the API](/github/extending-github/getting-started-with-the-api)." | The {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API would be most helpful if you wanted to automate common tasks, back up your data, or create integrations that extend {% data variables.product.prodname_dotcom %}. |
-### 4. Writing on {% data variables.product.product_name %}
-To make your communication clear and organized in issues and pull requests, you can use {% data variables.product.prodname_dotcom %} Flavored Markdown for formatting, which combines an easy-to-read, easy-to-write syntax with some custom functionality. For more information, see "[About writing and formatting on {% data variables.product.prodname_dotcom %}](/github/writing-on-github/about-writing-and-formatting-on-github)."
+| Перейдите на {% data variables.product.prodname_dotcom_the_website %} | Если вам не нужно работать с файлами локально, {% data variables.product.product_name %} позволяет выполнять большинство действий, связанных с Git, прямо в браузере — от создания и разветвления репозиториев до редактирования файлов и открытия запросов на вытягивание.| Этот метод полезен, если вам нужен визуальный интерфейс и вам нужно быстро внести небольшие изменения, не требующие локальной работы. |
+| {% data variables.product.prodname_desktop %} | {% data variables.product.prodname_desktop %} позволяет расширить и упростить рабочий процесс {% data variables.product.prodname_dotcom_the_website %} за счет визуального интерфейса вместо текстовых команд в командной строке. Дополнительные сведения о начале работы с {% data variables.product.prodname_desktop %} см. в статье [Начало работы с {% data variables.product.prodname_desktop %}](/desktop/installing-and-configuring-github-desktop/overview/getting-started-with-github-desktop). | Этот метод лучше всего подходит, если вам нужно или вы хотите работать с файлами локально, но предпочитаете использовать визуальный интерфейс для использования Git и взаимодействия с {% data variables.product.product_name %}. |
+| IDE или текстовый редактор  | Вы можете задать текстовый редактор по умолчанию, например [{% данных variables.product.prodname_vscode %}](https://code.visualstudio.com/) для открытия и редактирования файлов с помощью Git, использования расширений и просмотра структуры проекта. Дополнительные сведения см. в статье [Связывание текстовых редакторов с Git](/github/using-git/associating-text-editors-with-git). | Это удобно, если вы работаете с более сложными файлами и проектами и хотите, чтобы все было в одном месте, так как текстовые редакторы или IDE часто позволяют напрямую обращаться к командной строке в редакторе. |
+| Командная строка с {% data variables.product.prodname_cli %} или без нее | Для наиболее детального контроля и настройки использования Git и взаимодействия с {% data variables.product.product_name %} можно использовать командную строку. Дополнительные сведения об использовании команд Git см. в статье [Памятка по Git](/github/getting-started-with-github/quickstart/git-cheatsheet).<br/><br/> {% data variables.product.prodname_cli %} — это отдельный инструмент командной строки, который можно установить и который выдает запросы на вытягивание, проблемы, {% data variables.product.prodname_actions %} и другие функции {% data variables.product.prodname_dotcom %} в ваш терминал, чтобы вы могли выполнять всю свою работу в одном расположении. Дополнительные сведения см. в разделе [{% data variables.product.prodname_cli %}](/github/getting-started-with-github/using-github/github-cli). | Это наиболее удобно, если вы уже работаете из командной строки, что позволяет избежать переключения контекста, или если вам удобнее использовать командную строку. |
+| {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API | {% data variables.product.prodname_dotcom %} имеет REST API и API GraphQL, которые можно использовать для взаимодействия с {% data variables.product.product_name %}. Дополнительные сведения см. в статье [Начало работы с API](/github/extending-github/getting-started-with-the-api). | API {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} будут наиболее полезны, если необходимо автоматизировать обычные задачи, резервное копирование данных или создание интеграций, расширяющих {% data variables.product.prodname_dotcom %}. |
+### 4. Написание содержимого на {% data variables.product.product_name %}
+Чтобы ваше общение относительно проблем и запросов на вытягивание было понятным и организованным, вы можете использовать {% data variables.product.prodname_dotcom %} Flavored Markdown для форматирования, которое сочетает в себе простой для чтения и написания синтаксис с некоторыми пользовательскими функциями. Дополнительные сведения см. в разделе [Сведения о написании и форматировании в {% data variables.product.prodname_dotcom %}](/github/writing-on-github/about-writing-and-formatting-on-github).
 
-You can learn {% data variables.product.prodname_dotcom %} Flavored Markdown with the "[Communicate using Markdown](https://github.com/skills/communicate-using-markdown)" course on {% data variables.product.prodname_learning %}.
+Вы можете изучить {% data variables.product.prodname_dotcom %} Flavored Markdown с помощью курса [Общение с использованием Markdown](https://github.com/skills/communicate-using-markdown) на {% data variables.product.prodname_learning %}.
 
-### 5. Searching on {% data variables.product.product_name %}
-Our integrated search allows you to find what you are looking for among the many repositories, users and lines of code on {% data variables.product.product_name %}. You can search globally across all of {% data variables.product.product_name %} or limit your search to a particular repository or organization. For more information about the types of searches you can do on {% data variables.product.product_name %}, see "[About searching on {% data variables.product.prodname_dotcom %}](/github/searching-for-information-on-github/getting-started-with-searching-on-github/about-searching-on-github)."
+### 5. Поиск на {% data variables.product.product_name %}
+Наш встроенный поиск позволяет вам найти необходимые сведения среди множества репозиториев, пользователей и строк кода на {% data variables.product.product_name %}. Вы можете осуществлять глобальный поиск по всем {% data variables.product.product_name %} или ограничить поиск определенным репозиторием или организацией. Дополнительные сведения о типах поиска, которые можно выполнять в {% data variables.product.product_name %}, см. в статье [О поиске в {% data variables.product.prodname_dotcom %}](/github/searching-for-information-on-github/getting-started-with-searching-on-github/about-searching-on-github).
 
-Our search syntax allows you to construct queries using qualifiers to specify what you want to search for. For more information on the search syntax to use in search, see "[Searching on {% data variables.product.prodname_dotcom %}](/github/searching-for-information-on-github/searching-on-github)."
+Наш синтаксис поиска позволяет вам составлять запросы, используя квалификаторы, чтобы указать, что необходимо найти. Дополнительные сведения о синтаксисе поиска для использования в поиске см. в статье [Поиск в {% data variables.product.prodname_dotcom %}](/github/searching-for-information-on-github/searching-on-github).
 
-### 6. Managing files on {% data variables.product.product_name %}
-With {% data variables.product.product_name %}, you can create, edit, move and delete files in your repository or any repository you have write access to. You can also track the history of changes in a file line by line. For more information, see "[Managing files on {% data variables.product.prodname_dotcom %}](/github/managing-files-in-a-repository/managing-files-on-github)."
+### 6. Управление файлами в {% data variables.product.product_name %}
+С помощью {% data variables.product.product_name %} вы можете создавать, редактировать, перемещать и удалять файлы в своем репозитории или любом репозитории, к которому у вас есть доступ на запись. Вы также можете отслеживать историю изменений в файле построчно. Дополнительные сведения см. в статье [Управление файлами в {% data variables.product.prodname_dotcom %}](/github/managing-files-in-a-repository/managing-files-on-github).
 
-## Part 3: Collaborating on {% data variables.product.product_name %}
-Any number of people can work together in repositories across {% data variables.product.product_name %}. You can configure settings, create project boards, and manage your notifications to encourage effective collaboration.
+## Часть 3. Совместная работа над {% data variables.product.product_name %}
+В репозиториях {% data variables.product.product_name %} может работать вместе любое количество людей. Вы можете настраивать параметры, создавать доски проектов и управлять своими уведомлениями, чтобы способствовать эффективному сотрудничеству.
 
-### 1. Working with repositories
+### 1. Работа с репозиториями
 
-#### Creating a repository
-A repository is like a folder for your project. You can have any number of public and private repositories in your personal account. Repositories can contain folders and files, images, videos, spreadsheets, and data sets, as well as the revision history for all files in the repository. For more information, see "[About repositories](/github/creating-cloning-and-archiving-repositories/about-repositories)."
+#### Создание репозитория
+Репозиторий подобен папке для вашего проекта. У вас может быть сколько угодно публичных и приватных репозиториев в вашей личной учетной записи. Репозитории могут содержать папки и файлы, изображения, видео, электронные таблицы и наборы данных, а также журнал изменений для всех файлов в репозитории. Дополнительные сведения см. в разделе [Сведения о репозиториях](/github/creating-cloning-and-archiving-repositories/about-repositories).
 
-When you create a new repository, you should initialize the repository with a README file to let people know about your project. For more information, see "[Creating a new repository](/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/creating-a-new-repository)."
+При создании нового репозитория необходимо инициализировать репозиторий с файлом README, чтобы сообщить людям о вашем проекте. Дополнительные сведения см. в разделе [Создание репозитория](/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/creating-a-new-repository).
 
-#### Cloning a repository
-You can clone an existing repository from {% data variables.product.product_name %} to your local computer, making it easier to add or remove files, fix merge conflicts, or make complex commits. Cloning a repository pulls down a full copy of all the repository data that {% data variables.product.prodname_dotcom %} has at that point in time, including all versions of every file and folder for the project. For more information, see "[Cloning a repository](/github/creating-cloning-and-archiving-repositories/cloning-a-repository-from-github/cloning-a-repository)."
+#### Клонирование репозитория
+Вы можете клонировать имеющийся репозиторий из {% data variables.product.product_name %} на свой локальный компьютер, чтобы упростить добавление или удаление файлов, устранение конфликтов объединения или выполнение сложных фиксаций. При клонировании репозитория извлекается полная копия всех данных репозитория, которые {% data variables.product.prodname_dotcom %} содержит на данный момент времени, включая все версии каждого файла и папки для проекта. Дополнительные сведения см. в разделе [Клонирование репозитория](/github/creating-cloning-and-archiving-repositories/cloning-a-repository-from-github/cloning-a-repository).
 
-#### Forking a repository
-A fork is a copy of a repository that you manage, where any changes you make will not affect the original repository unless you submit a pull request to the project owner. Most commonly, forks are used to either propose changes to someone else's project or to use someone else's project as a starting point for your own idea. For more information, see "[Working with forks](/github/collaborating-with-pull-requests/working-with-forks)."
-### 2. Importing your projects
-If you have existing projects you'd like to move over to {% data variables.product.product_name %} you can import projects using the {% data variables.product.prodname_dotcom %} Importer, the command line, or external migration tools. For more information, see "[Importing source code to {% data variables.product.prodname_dotcom %}](/github/importing-your-projects-to-github/importing-source-code-to-github)."
+#### Создание вилки репозитория
+Вилка — это копия репозитория, которым вы управляете, где любые изменения, которые вы вносите, не повлияют на исходный репозиторий, если только вы не отправите запрос на вытягивание владельцу проекта. Чаще всего вилки используются либо для того, чтобы предложить изменения в чужом проекте, либо для того, чтобы использовать чужой проект в качестве отправной точки для вашей собственной идеи. Дополнительные сведения см. в разделе [Работа с вилками](/github/collaborating-with-pull-requests/working-with-forks).
+### 2. Импорт ваших проектов
+При наличии проектов, которые необходимо перенести в {% data variables.product.product_name %}, вы можете импортировать проекты с помощью {% data variables.product.prodname_dotcom %} Importer, командной строки или внешних инструментов переноса. Дополнительные сведения см. в статье [Импорт исходного кода в {% data variables.product.prodname_dotcom %}](/github/importing-your-projects-to-github/importing-source-code-to-github).
 
-### 3. Managing collaborators and permissions
-You can collaborate on your project with others using your repository's issues, pull requests, and project boards. You can invite other people to your repository as collaborators from the **Collaborators** tab in the repository settings. For more information, see "[Inviting collaborators to a personal repository](/github/setting-up-and-managing-your-github-user-account/managing-access-to-your-personal-repositories/inviting-collaborators-to-a-personal-repository)."
+### 3. Управление участниками совместной работы и разрешениями
+Вы можете совместно работать над своим проектом с другими, используя проблемы вашего репозитория, запросы на вытягивание и доски проектов. Вы можете пригласить других людей в свой репозиторий в качестве участников совместной работы на вкладке **Участники совместной работы** в настройках репозитория. Дополнительные сведения см. в статье [Приглашение участников совместной работы в личный репозиторий](/github/setting-up-and-managing-your-github-user-account/managing-access-to-your-personal-repositories/inviting-collaborators-to-a-personal-repository).
 
-You are the owner of any repository you create in your personal account and have full control of the repository. Collaborators have write access to your repository, limiting what they have permission to do. For more information, see "[Permission levels for a personal account repository](/github/setting-up-and-managing-your-github-user-account/managing-user-account-settings/permission-levels-for-a-user-account-repository)."
+Вы являетесь владельцем любого репозитория, созданного вами в учетной записи, и имеете полный контроль над ним. Участники совместной работы имеют доступ на запись в ваш репозиторий, что ограничивает их имеющиеся разрешения. Дополнительные сведения см. в статье [Уровни разрешений для репозитория личных учетных записей](/github/setting-up-and-managing-your-github-user-account/managing-user-account-settings/permission-levels-for-a-user-account-repository).
 
-### 4. Managing repository settings
-As the owner of a repository you can configure several settings, including the repository's visibility, topics, and social media preview. For more information, see "[Managing repository settings](/github/administering-a-repository/managing-repository-settings)."
+### 4. Управление параметрами репозитория
+Как владелец репозитория, вы можете настроить несколько параметров, включая видимость репозитория, темы и предварительный просмотр в социальных сетях. Дополнительные сведения см. в статье [Управление параметрами репозитория](/github/administering-a-repository/managing-repository-settings).
 
-### 5. Setting up your project for healthy contributions
-{% ifversion fpt or ghec %}
-To encourage collaborators in your repository, you need a community that encourages people to use, contribute to, and evangelize your project. For more information, see "[Building Welcoming Communities](https://opensource.guide/building-community/)" in the Open Source Guides.
+### 5. Настройка вашего проекта для действенных вкладов
+{% ifversion fpt or ghec %} Чтобы поощрять участников совместной работы вашего репозитория, вам необходимо сообщество, которое поощряет людей использовать ваш проект, вносить в него свой вклад и распространять его. Дополнительные сведения см. в статье [Создание доброжелательных сообществ](https://opensource.guide/building-community/) в руководствах по открытому исходному коду.
 
-By adding files like contributing guidelines, a code of conduct, and a license to your repository you can create an environment where it's easier for collaborators to make meaningful, useful contributions. For more information, see "[Setting up your project for healthy contributions](/communities/setting-up-your-project-for-healthy-contributions)."
-{% endif %}
-{% ifversion ghes or ghae %}
-By adding files like contributing guidelines, a code of conduct, and support resources to your repository you can create an environment where it's easier for collaborators to make meaningful, useful contributions. For more information, see "[Setting up your project for healthy contributions](/communities/setting-up-your-project-for-healthy-contributions)."
+Добавляя в репозиторий такие файлы, как рекомендации по внесению вклада, правила поведения и лицензию, вы можете создать окружение, в котором участникам совместной работы будет легче вносить значимый и полезный вклад. Дополнительные сведения см. в разделе "[Настройка проекта для внесения действенных вкладов](/communities/setting-up-your-project-for-healthy-contributions)".
+{% endif %} {% ifversion ghes or ghae %} Добавляя в репозиторий такие файлы, как рекомендации по внесению вклада, правила поведения и ресурсы поддержки, вы можете создать окружение, в котором участникам совместной работы будет легче вносить значимый и полезный вклад. Дополнительные сведения см. в разделе "[Настройка проекта для внесения действенных вкладов](/communities/setting-up-your-project-for-healthy-contributions)".
 {% endif %}
 
-### 6. Using GitHub Issues and project boards
-You can use GitHub Issues to organize your work with issues and pull requests and manage your workflow with project boards. For more information, see "[About issues](/issues/tracking-your-work-with-issues/about-issues)" and "[About project boards](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)."
+### 6. Использование проблем и досок проектов GitHub
+Вы можете использовать проблемы GitHub для организации своей работы с проблемами и запросами на вытягивание, а также для управления рабочим процессом с помощью досок проектов. Дополнительные сведения см. в статьях [О проблемах](/issues/tracking-your-work-with-issues/about-issues) и [О досках проектов](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards).
 
-### 7. Managing notifications
-Notifications provide updates about the activity on {% data variables.product.prodname_dotcom %} you've subscribed to or participated in. If you're no longer interested in a conversation, you can unsubscribe, unwatch, or customize the types of notifications you'll receive in the future. For more information, see "[About notifications](/github/managing-subscriptions-and-notifications-on-github/setting-up-notifications/about-notifications)."
+### 7. Управление уведомлениями
+Уведомления предоставляют обновления о действиях на {% data variables.product.prodname_dotcom %}, на который вы подписаны или в котором участвовали. Если вам больше не интересна беседа, вы можете отменить подписку, отменить отслеживание или настроить типы уведомлений, которые вы будете получать в будущем. Дополнительные сведения см. в разделе [Сведения об уведомлениях](/github/managing-subscriptions-and-notifications-on-github/setting-up-notifications/about-notifications).
 
-### 8. Working with {% data variables.product.prodname_pages %}
-You can use {% data variables.product.prodname_pages %} to create and host a website directly from a repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}. For more information, see "[About {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages)."
+### 8. Работа с {% data variables.product.prodname_pages %}
+Вы можете использовать {% данных variables.product.prodname_pages %} для создания и размещения веб-сайта непосредственно из репозитория на {% ifversion ghae %}{% данных variables.product.product_name %}{% else %}{% данных variables.location.product_location %}{% endif %}. Дополнительные сведения см. в статье [Сведения о {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages).
 
 {% ifversion discussions %}
-### 9. Using {% data variables.product.prodname_discussions %}
-You can enable {% data variables.product.prodname_discussions %} for your repository to help build a community around your project. Maintainers, contributors and visitors can use discussions to share announcements, ask and answer questions, and participate in conversations around goals. For more information, see "[About discussions](/discussions/collaborating-with-your-community-using-discussions/about-discussions)."
+### 9. Использование {% data variables.product.prodname_discussions %}
+Вы можете включить {% data variables.product.prodname_discussions %} для своего репозитория, чтобы создать сообщество вокруг вашего проекта. Сопровождающие, участники и посетители могут использовать обсуждения, чтобы делиться объявлениями, задавать вопросы и отвечать на них, а также участвовать в обсуждениях целей. Дополнительные сведения см. в разделе [Сведения об обсуждениях](/discussions/collaborating-with-your-community-using-discussions/about-discussions).
 {% endif %}
-## Part 4: Customizing and automating your work on {% data variables.product.product_name %}
+## Часть 4: Настройка и автоматизация работы с {% data variables.product.product_name %}
 
 {% data reusables.getting-started.customizing-and-automating %}
 
 {% ifversion fpt or ghec %}
-### 1. Using {% data variables.product.prodname_marketplace %}
-{% data reusables.getting-started.marketplace %}
-{% endif %}
-### {% ifversion fpt or ghec %}2.{% else %}1.{% endif %} Using the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API
+### 1. Использование {% data variables.product.prodname_marketplace %}
+{% data reusables.getting-started.marketplace %} {% endif %}
+### {% ifversion fpt or ghec %}2.{% else %}1.{% endif %} Использование API {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %}
 {% data reusables.getting-started.api %}
 
 ### {% ifversion fpt or ghec %}3.{% else %}2.{% endif %} Building {% data variables.product.prodname_actions %}
 {% data reusables.getting-started.actions %}
 
-### {% ifversion fpt or ghec %}4.{% else %}3.{% endif %} Publishing and managing {% data variables.product.prodname_registry %} 
+### {% ifversion fpt or ghec %}4.{% else %}3.{% endif %} Публикация и управление {% data variables.product.prodname_registry %} 
 {% data reusables.getting-started.packages %}
 
-## Part 5: Building securely on {% data variables.product.product_name %}
-{% data variables.product.product_name %} has a variety of security features that help keep code and secrets secure in repositories. Some features are available for all repositories, while others are only available for public repositories and repositories with a {% data variables.product.prodname_GH_advanced_security %} license. For an overview of {% data variables.product.product_name %} security features, see "[{% data variables.product.prodname_dotcom %} security features](/code-security/getting-started/github-security-features)."
+## Часть 5. Безопасное создание в {% data variables.product.product_name %}
+{% data variables.product.product_name %} обладает множеством функций безопасности, которые помогают защитить код и секреты в репозиториях. Некоторые функции доступны для всех репозиториев, а другие доступны только для общедоступных репозиториев и репозиториев с лицензией {% data variables.product.prodname_GH_advanced_security %}. Обзор функций безопасности {% data variables.product.product_name %} см. в статье о [функциях безопасности {% data variables.product.prodname_dotcom %}](/code-security/getting-started/github-security-features).
 
-### 1. Securing your repository
-As a repository administrator, you can secure your repositories by configuring repository security settings. These include managing access to your repository, setting a security policy, and managing dependencies. For public repositories, and for private repositories owned by organizations where {% data variables.product.prodname_GH_advanced_security %} is enabled, you can also configure code and secret scanning to automatically identify vulnerabilities and ensure tokens and keys are not exposed. 
+### 1. Защита вашего репозитория
+Как администратор репозитория, вы можете защитить свои репозитории, настроив параметры безопасности репозитория. К ним относятся управление доступом к вашему репозиторию, настройка политики безопасности и управление зависимостями. Для общедоступных репозиториев и для частных репозиториев, принадлежащих организациям, в которых включен {% data variables.product.prodname_GH_advanced_security %}, вы также можете настроить сканирование кода и секретов для автоматического выявления уязвимостей и защиты маркеров и ключей. 
 
-For more information on steps you can take to secure your repositories, see "[Securing your repository](/code-security/getting-started/securing-your-repository)."
+Дополнительные сведения о шагах, которые можно предпринять для защиты репозиториев, см. в статье [Защита репозитория](/code-security/getting-started/securing-your-repository).
 
 {% ifversion fpt or ghec %}
-### 2. Managing your dependencies
-A large part of building securely is maintaining your project's dependencies to ensure that all packages and applications you depend on are updated and secure. You can manage your repository's dependencies on {% data variables.product.product_name %} by exploring the dependency graph for your repository, using Dependabot to automatically raise pull requests to keep your dependencies up-to-date, and receiving Dependabot alerts and security updates for vulnerable dependencies. 
+### 2. Управление вашими зависимостями
+Большая часть безопасного построения — это поддержка зависимостей вашего проекта, чтобы гарантировать, что все пакеты и приложения, от которых вы зависите, обновлены и безопасны. Вы можете управлять зависимостями вашего репозитория от {% data variables.product.product_name %}, изучая граф зависимостей для вашего репозитория, используя Dependabot, чтобы автоматически инициировать запросы на вытягивание в целях поддержания ваших зависимостей в актуальном состоянии, а также получая оповещения Dependabot и обновления безопасности для уязвимых зависимостей. 
 
-For more information, see "[Securing your software supply chain](/code-security/supply-chain-security)."
+Дополнительные сведения см. в статье [Защита цепочки поставок программного обеспечения](/code-security/supply-chain-security).
 {% endif %}
 
-## Part 6: Participating in {% data variables.product.prodname_dotcom %}'s community
+## Часть 6. Участие в сообществе {% data variables.product.prodname_dotcom %}
 
 {% data reusables.getting-started.participating-in-community %}
 
-### 1. Contributing to open source projects
+### 1. Участие в проектах с открытым кодом
 {% data reusables.getting-started.open-source-projects %}
 
-### 2. Interacting with {% data variables.product.prodname_gcf %}
+### 2. Взаимодействие с {% data variables.product.prodname_gcf %}
 {% data reusables.support.ask-and-answer-forum %}
 
-### 3. Reading about {% data variables.product.product_name %} on {% data variables.product.prodname_docs %}
+### 3. Информация о {% data variables.product.product_name %} on {% data variables.product.prodname_docs %}
 
 {% data reusables.docs.you-can-read-docs-for-your-product %}
 
-### 4. Learning with {% data variables.product.prodname_learning %}
+### 4. Обучение с {% data variables.product.prodname_learning %}
 {% data reusables.getting-started.learning %}
 
 {% ifversion fpt or ghec %}
-### 5. Supporting the open source community
+### 5. Поддержка сообщества разработчиков решений с открытым кодом
 {% data reusables.getting-started.sponsors %}
 
-### 6. Contacting {% data variables.contact.github_support %}
+### 6. Обращение в {% data variables.contact.github_support %}
 {% data reusables.getting-started.contact-support %}
 
 {% ifversion fpt %}
-## Further reading
-- "[Getting started with {% data variables.product.prodname_team %}](/get-started/onboarding/getting-started-with-github-team)"
-{% endif %}
-{% endif %}
+## Дополнительные материалы
+- "[Начало работы с {% data variables.product.prodname_team %}](/get-started/onboarding/getting-started-with-github-team)" {% endif %} {% endif %}

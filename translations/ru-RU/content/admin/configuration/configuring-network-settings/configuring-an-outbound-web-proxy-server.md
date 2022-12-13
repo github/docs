@@ -1,6 +1,6 @@
 ---
-title: Configuring an outbound web proxy server
-intro: 'A proxy server provides an additional level of security for {% data variables.location.product_location %}.'
+title: Настройка сервера веб-прокси исходящего трафика
+intro: 'Прокси-сервер обеспечивает дополнительный уровень безопасности для {% данных variables.location.product_location %}.'
 redirect_from:
   - /enterprise/admin/guides/installation/configuring-a-proxy-server
   - /enterprise/admin/installation/configuring-an-outbound-web-proxy-server
@@ -15,29 +15,32 @@ topics:
   - Infrastructure
   - Networking
 shortTitle: Configure an outbound proxy
+ms.openlocfilehash: 6b40ceaefa91210000122ede73263e93df481631
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148098329'
 ---
+## Сведения о прокси-серверах с {% data variables.product.product_name %}
 
-## About proxies with {% data variables.product.product_name %}
-
-When a proxy server is enabled for {% data variables.location.product_location %}, outbound messages sent by {% data variables.product.prodname_ghe_server %} are first sent through the proxy server, unless the destination host is added as an HTTP proxy exclusion. Types of outbound messages include outgoing webhooks, uploading bundles, and fetching legacy avatars. The proxy server's URL is the protocol, domain or IP address, plus the port number, for example `http://127.0.0.1:8123`.
+Если прокси-сервер включен для {% данных variables.location.product_location %}, исходящие сообщения, отправленные {% данных variables.product.prodname_ghe_server %}, сначала отправляются через прокси-сервер, если конечный узел не добавляется в качестве исключения прокси-сервера HTTP. Типы исходящих сообщений включают исходящие веб-перехватчики, отправку пакетов и получение устаревших аватаров. URL-адрес прокси-сервера — это протокол, домен или IP-адрес, а также номер порта, например `http://127.0.0.1:8123`.
 
 {% note %}
 
-**Note:**  To connect {% data variables.location.product_location %} to {% data variables.product.prodname_dotcom_the_website %}, your proxy configuration must allow connectivity to `github.com` and `api.github.com`. For more information, see "[Connecting your enterprise account to {% data variables.product.prodname_dotcom_the_website %}](/admin/configuration/managing-connections-between-your-enterprise-accounts/connecting-your-enterprise-account-to-github-enterprise-cloud)."
+**Примечание:**  Чтобы подключить {% данных variables.location.product_location %} к {% данных variables.product.prodname_dotcom_the_website %}, конфигурация прокси-сервера должна разрешить подключение и `github.com` `api.github.com`. Дополнительные сведения см. в разделе «[Подключение корпоративной учетной записи к {% data variables.product.prodname_dotcom_the_website %}](/admin/configuration/managing-connections-between-your-enterprise-accounts/connecting-your-enterprise-account-to-github-enterprise-cloud)».
 
 {% endnote %}
 
-{% data reusables.actions.proxy-considerations %} For more information about using {% data variables.product.prodname_actions %} with {% data variables.product.prodname_ghe_server %}, see "[Getting started with {% data variables.product.prodname_actions %} for {% data variables.product.prodname_ghe_server %}](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/getting-started-with-github-actions-for-github-enterprise-server)."
+{% data reusables.actions.proxy-considerations %} Дополнительные сведения об использовании {% data variables.product.prodname_actions %} с {% data variables.product.prodname_ghe_server %} см. в разделе "[Начало работы с {% data variables.product.prodname_actions %} для {% data variables.product.prodname_ghe_server %}](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/getting-started-with-github-actions-for-github-enterprise-server)».
 
-## Configuring an outbound web proxy server
+## Настройка сервера веб-прокси исходящего трафика
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.management-console %}
-{% data reusables.enterprise_management_console.privacy %}
-1. Under **HTTP Proxy Server**, type the URL of your proxy server.
-  ![Field to type the HTTP Proxy Server URL](/assets/images/enterprise/management-console/http-proxy-field.png)
+{% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.enterprise_site_admin_settings.management-console %} {% data reusables.enterprise_management_console.privacy %}
+1. В поле **Прокси-сервер HTTP** введите URL-адрес прокси-сервера.
+  ![Поле для ввода URL-адреса прокси-сервера HTTP](/assets/images/enterprise/management-console/http-proxy-field.png)
   
-5. Optionally, under **HTTP Proxy Exclusion**, type any hosts that do not require proxy access, separating hosts with commas. To exclude all hosts in a domain from requiring proxy access, you can use `.` as a wildcard prefix.  For example: `.octo-org.tentacle`
-  ![Field to type any HTTP Proxy Exclusions](/assets/images/enterprise/management-console/http-proxy-exclusion-field.png)
+5. При необходимости в разделе **Исключения прокси-сервера HTTP** перечислите через запятую все узлы, которым не требуется доступ к прокси-серверу. Чтобы запретить всем узлам в домене доступ к прокси-серверу, можно использовать `.` в качестве префикса с подстановочными знаками.  Например. `.octo-org.tentacle`
+  ![Поле для ввода любых исключений прокси-сервера HTTP](/assets/images/enterprise/management-console/http-proxy-exclusion-field.png)
 
 {% data reusables.enterprise_management_console.save-settings %}

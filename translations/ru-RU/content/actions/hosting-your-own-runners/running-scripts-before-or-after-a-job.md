@@ -1,76 +1,81 @@
 ---
-title: Running scripts before or after a job
-intro: 'Scripts can automatically execute on a self-hosted runner, directly before or after a job.'
+title: Выполнение скриптов до или после задания
+intro: Скрипты можно автоматически выполнять на локально размещенном средстве выполнении тестов сразу до или после задания.
 versions:
   feature: job-hooks-for-runners
 type: tutorial
 miniTocMaxHeadingLevel: 3
 shortTitle: Run a script before or after a job
+ms.openlocfilehash: 2af9b5859f8f5a4b8285463f178e546224066e75
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148098983'
 ---
-
 {% note %}
 
-**Note**: This feature is currently in beta and is subject to change.
+**Примечание**. Эта функция в настоящее время доступна в виде бета-версии и может быть изменена.
 
 {% endnote %}
 
-## About pre- and post-job scripts
+## Сведения о выполнении скриптов до и после задания
 
-You can automatically execute scripts on a self-hosted runner, either before a job runs, or after a job finishes running. You could use these scripts to support the job's requirements, such as building or tearing down a runner environment, or cleaning out directories. You could also use these scripts to track telemetry of how your runners are used.
+Вы можете автоматически выполнять скрипты в локальном средстве выполнения либо перед запуском задания, либо после его завершения. С помощью этих скриптов можно выполнять требования задания, например создавать или удалять среду средства выполнения либо очищать каталоги. С их помощью можно также отслеживать использование средств выполнения посредством данных телеметрии.
 
-The custom scripts are automatically triggered when a specific environment variable is set on the runner; the environment variable must contain the absolute path to the script. For more information, see "[Triggering the scripts](#triggering-the-scripts)" below.
+Пользовательские скрипты активируются автоматически при задании определенной переменной среды в средстве выполнения. Переменная среды должна содержать абсолютный путь к скрипту. Дополнительные сведения см. в разделе [Активация скриптов](#triggering-the-scripts) ниже.
 
-The following scripting languages are supported:
+Поддерживаются следующие языки написания скриптов:
 
-- **Bash**: Uses `bash` and can fallback to `sh`. Executes by running `-e {pathtofile}`.
-- **PowerShell**: Uses `pwsh` and can fallback to `powershell`. Executes by running `-command \". '{pathtofile}'\"`.
+- **Bash**: использует `bash` и может переключаться на `sh`. Запускается путем выполнения команды `-e {pathtofile}`.
+- **PowerShell**: использует `pwsh` и может переключаться на `powershell`. Запускается путем выполнения команды `-command \". '{pathtofile}'\"`.
 
-## Writing the scripts
+## Написание скриптов
 
-Your custom scripts can use the following features:
+В пользовательских скриптах можно использовать перечисленные ниже возможности.
 
-- **Environment variables**:  Scripts have access to the default environment variables. The full webhook event payload can be found in `GITHUB_EVENT_PATH`. For more information, see "[Environment variables](/actions/learn-github-actions/environment-variables#default-environment-variables)."
-- **Workflow commands**: Scripts can use workflow commands. For more information, see ["Workflow commands for {% data variables.product.prodname_actions %}"](/actions/using-workflows/workflow-commands-for-github-actions){% ifversion actions-save-state-set-output-envs %}{% else %}, with the exception of `save-state` and `set-output`, which are not supported by these scripts{% endif %}. Scripts can also use environment files. For more information, see [Environment files](/actions/using-workflows/workflow-commands-for-github-actions#environment-files).
-
-{% note %}
-
-**Note**: Avoid using your scripts to output sensitive information to the console, as anyone with read access to the repository might be able to see the output in the UI logs.
-
-{% endnote %}
-
-### Handling exit codes
-
-For pre-job scripts, exit code `0` indicates that the script completed successfully, and the job will then proceed to run. If there is any other exit code, the job will not run and will be marked as failed. To see the results of your pre-job scripts, check the logs for `Set up runner` entries. For more information on checking the logs, see "[Viewing logs to diagnose failures](/actions/monitoring-and-troubleshooting-workflows/using-workflow-run-logs#viewing-logs-to-diagnose-failures)."
-
-The [`continue-on-error`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idcontinue-on-error) setting is not supported for use by these scripts.
-
-## Triggering the scripts
-
-The custom scripts must be located on the runner, but should not be stored in the `actions-runner` application directory. The scripts are executed in the security context of the service account that's running the runner service.
+- **Переменные среды**: скрипты имеют доступ к переменным среды по умолчанию. Полные полезные данные события веб-перехватчика можно найти в `GITHUB_EVENT_PATH`. Дополнительные сведения см. в разделе [Переменные среды](/actions/learn-github-actions/environment-variables#default-environment-variables).
+- **Команды рабочего процесса**: скрипты могут использовать команды рабочего процесса. Дополнительные сведения см. в разделе ["Команды рабочего процесса для {% данных variables.product.prodname_actions %}"](/actions/using-workflows/workflow-commands-for-github-actions){% ifversion actions-save-state-set-output-envs %}{% else %}, за исключением `save-state` и `set-output`которые не поддерживаются этими скриптами{% endif %}. Скрипты также могут использовать файлы среды. Дополнительные сведения см. в разделе [Файлы среды](/actions/using-workflows/workflow-commands-for-github-actions#environment-files).
 
 {% note %}
 
-**Note**: The triggered scripts are processed synchronously, so they will block job execution while they are running.
+**Примечание**. Избегайте использования скриптов для вывода конфиденциальной информации в консоль, так как любой пользователь с доступом на чтение к репозиторию может видеть выходные данные в журналах пользовательского интерфейса.
 
 {% endnote %}
 
-The scripts are automatically executed when the runner has the following environment variables containing an absolute path to the script:
-- `ACTIONS_RUNNER_HOOK_JOB_STARTED`: The script defined in this environment variable is triggered when a job has been assigned to a runner, but before the job starts running.
-- `ACTIONS_RUNNER_HOOK_JOB_COMPLETED`: The script defined in this environment variable is triggered after the job has finished processing.
+### Обработка кодов выхода
 
-To set these environment variables, you can either add them to the operating system, or add them to a file named `.env` within the self-hosted runner application directory. For example, the following `.env` entry will have the runner automatically run a script named `cleanup_script.sh` before each job runs:
+Для скриптов, выполняемых перед заданием, код выхода `0` указывает, что скрипт успешно завершен и далее будет запущено задание. При любом другом коде выхода задание не будет запущено и будет помечено как завершившееся сбоем. Чтобы просмотреть результаты скриптов, выполняемых перед заданием, проверьте наличие записей `Set up runner` в журналах. Дополнительные сведения о проверке журналов см. в разделе [Просмотр журналов для диагностики сбоев](/actions/monitoring-and-troubleshooting-workflows/using-workflow-run-logs#viewing-logs-to-diagnose-failures).
+
+Использование параметра [`continue-on-error`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idcontinue-on-error) этими скриптами не поддерживается.
+
+## Активация скриптов
+
+Пользовательские скрипты должны находиться в средстве выполнения, но не должны храниться в каталоге приложения `actions-runner`. Скрипты выполняются в контексте безопасности учетной записи службы, в котором запущена служба средства выполнения.
+
+{% note %}
+
+**Примечание**. Активированные скрипты обрабатываются синхронно, поэтому на это время выполнение задания блокируется.
+
+{% endnote %}
+
+Скрипты выполняются автоматически, если в средстве выполнения имеются следующие переменные среды, содержащие абсолютный путь к скрипту:
+- `ACTIONS_RUNNER_HOOK_JOB_STARTED`. Скрипт, определенный в этой переменной среды, активируется при назначении задания средству выполнения, но перед запуском задания.
+- `ACTIONS_RUNNER_HOOK_JOB_COMPLETED`. Скрипт, определенный в этой переменной среды, активируется после завершения обработки задания.
+
+Чтобы задать эти переменные среды, можно добавить их либо в операционную систему, либо в файл с именем `.env` в каталоге приложения локального средства выполнения. Например, следующая запись `.env` будет автоматически запускать скрипт `cleanup_script.sh` перед каждым выполнением задания:
 
 ```bash
 ACTIONS_RUNNER_HOOK_JOB_STARTED=/cleanup_script.sh
 ```
 
-## Troubleshooting
+## Устранение неполадок
 
 
-### No timeout setting
+### Отсутствие параметра времени ожидания
 
-There is currently no timeout setting available for scripts executed by `ACTIONS_RUNNER_HOOK_JOB_STARTED` or `ACTIONS_RUNNER_HOOK_JOB_COMPLETED`. As a result, you could consider adding timeout handling to your script.
+В настоящее время для скриптов, выполняемых посредством `ACTIONS_RUNNER_HOOK_JOB_STARTED` или `ACTIONS_RUNNER_HOOK_JOB_COMPLETED`, отсутствует параметр времени ожидания. Поэтому в скрипт может потребоваться добавить логику для обработки времени ожидания.
 
-### Reviewing the workflow run log
+### Просмотр журнала выполнения рабочего процесса
 
-To confirm whether your scripts are executing, you can review the logs for that job. The scripts will be listed within separate steps for either `Set up runner` or `Complete runner`, depending on which environment variable is triggering the script. For more information on checking the logs, see "[Viewing logs to diagnose failures](/actions/monitoring-and-troubleshooting-workflows/using-workflow-run-logs#viewing-logs-to-diagnose-failures)."
+Чтобы проверить, выполняются ли скрипты, можно просмотреть журналы задания. Скрипты будут указаны в отдельных шагах для `Set up runner` или `Complete runner` в зависимости от того, какая переменная среды активирует скрипт. Дополнительные сведения о проверке журналов см. в разделе [Просмотр журналов для диагностики сбоев](/actions/monitoring-and-troubleshooting-workflows/using-workflow-run-logs#viewing-logs-to-diagnose-failures).

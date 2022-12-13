@@ -1,6 +1,6 @@
 ---
-title: Troubleshooting cloning errors
-intro: 'If you''re having trouble cloning a repository, check these common errors.'
+title: Устранение ошибок клонирования
+intro: 'Если у вас возникли проблемы с клонированием репозитория, рассмотрите эти распространенные ошибки.'
 redirect_from:
   - /articles/error-the-requested-url-returned-error-403
   - /articles/error-the-requested-url-returned-error-401
@@ -19,13 +19,18 @@ versions:
   ghec: '*'
 topics:
   - Repositories
+ms.openlocfilehash: 01ee7c0c1403100570c1fd8b990e6adfe8831f80
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148094004'
 ---
+## Ошибки клонирования HTTPS
 
-## HTTPS cloning errors
+При использовании HTTPS с GIT распространен ряд ошибок. Обычно они указывают на то, что у вас старая версия GIT или нет доступа к репозиторию.
 
-There are a few common errors when using HTTPS with Git. These errors usually indicate you have an old version of Git, or you don't have access to the repository.
-
-Here's an example of an HTTPS error you might receive:
+Ниже приведен пример возможной ошибки HTTPS:
 
 ```shell
 > error: The requested URL returned error: 401 while accessing
@@ -44,16 +49,15 @@ Here's an example of an HTTPS error you might receive:
 > update-server-info on the server?
 ```
 
-### Check your Git version
+### Проверка версии GIT
 
-There's no minimum Git version necessary to interact with {% data variables.product.product_name %}, but we've found version 1.7.10 to be a comfortable stable version that's available on many platforms. You can always [download the latest version on the Git website](https://git-scm.com/downloads).
+Ограничений на минимальную версию GIT, требуемую для взаимодействия с {% data variables.product.product_name %}, нет, но, по нашему опыту, версия 1.7.10 является удобной, стабильной версией, доступной на многих платформах. Последнюю версию всегда можно скачать на [веб-сайте GIT](https://git-scm.com/downloads).
 
-### Ensure the remote is correct
+### Проверка правильности удаленного репозитория
 
-The repository you're trying to fetch must exist on {% data variables.location.product_location %}, and the URL is case-sensitive.
+Репозиторий, который вы пытаетесь получить, должен существовать в {% данных variables.location.product_location %}, и URL-адрес учитывает регистр.
 
-You can find the URL of the local repository by opening the command line and
-typing `git remote -v`:
+Чтобы узнать URL-адрес локального репозитория, можно открыть командную строку и ввести `git remote -v`:
 
 ```shell
 $ git remote -v
@@ -70,57 +74,55 @@ $ git remote -v
 > origin  https://github.com/ghost/ReactiveCocoa.git (push)
 ```
 
-Alternatively, you can change the URL through our
-[{% data variables.product.prodname_desktop %}](https://desktop.github.com/) application.
+Кроме того, можно изменить URL-адрес с помощью приложения [{% data variables.product.prodname_desktop %}](https://desktop.github.com/).
 
-### Provide an access token
+### Предоставление маркера доступа
 
-To access {% data variables.product.prodname_dotcom %}, you must authenticate with a {% data variables.product.pat_generic %} instead of your password. For more information, see "[Creating a {% data variables.product.pat_generic %}](/github/authenticating-to-github/creating-a-personal-access-token)."
+Чтобы получить доступ к {% данных variables.product.prodname_dotcom %}, необходимо пройти проверку подлинности с помощью {% данных variables.product.pat_generic %} вместо пароля. Дополнительные сведения см. в разделе "[Создание {% данных variables.product.pat_generic %}](/github/authenticating-to-github/creating-a-personal-access-token)".
 
 {% data reusables.command_line.provide-an-access-token %}
 
-### Check your permissions
+### Проверить свои разрешения
 
-When prompted for a username and password, make sure you use an account that has access to the repository.
+При появлении запроса на ввод имени пользователя и пароля используйте учетную запись с доступом к репозиторию.
 
 {% tip %}
 
-**Tip**: If you don't want to enter your credentials every time you interact with the remote repository, you can turn on [credential caching](/github/getting-started-with-github/caching-your-github-credentials-in-git). If you are already using credential caching, please make sure that your computer has the correct credentials cached. Incorrect or out of date credentials will cause authentication to fail.
+**Совет**. Если вы не хотите вводить учетные данные при каждом взаимодействии с удаленным репозиторием, можно включить [кэширование учетных данных](/github/getting-started-with-github/caching-your-github-credentials-in-git). Если кэширование учетных данных уже используется, убедитесь в том, что на компьютере кэшированы правильные учетные данные. Неправильные или устаревшие учетные данные не позволят пройти проверку подлинности.
 
 {% endtip %}
 
-### Use SSH instead
+### Использование SSH
 
-If you've previously set up SSH keys, you can use the SSH clone URL instead of HTTPS.  For more information, see "[About remote repositories](/github/getting-started-with-github/about-remote-repositories)."
+Если вы ранее настроили ключи SSH, можно использовать URL-адрес клонирования SSH вместо HTTPS.  Дополнительные сведения см. в разделе [Сведения об удаленных репозиториях](/github/getting-started-with-github/about-remote-repositories).
 
-## Error: Repository not found
+## Ошибка: репозиторий не найден
 
-{% ifversion fpt or ghae or ghec %}If you see this error when cloning a repository, it means that the repository does not exist or you do not have permission to access it.{% else %}If you see this error when cloning a repository, it means that the repository does not exist, you do not have permission to access it, or {% data variables.location.product_location %} is in private mode.{% endif %} There are a few solutions to this error, depending on the cause.
+{% ifversion fpt или ghae или ghec %} Если при клонирование репозитория возникает эта ошибка, это означает, что репозиторий не существует или у вас нет разрешения на доступ к нему. {% else %} Если при клонирование репозитория возникает эта ошибка, это означает, что репозиторий не существует, у вас нет разрешения на доступ к нему, или {% данных variables.location.product_location %} находится в закрытом режиме. {% endif %} В зависимости от причины существует несколько решений этой ошибки.
 
-### Check your spelling
+### Проверка правильности написания
 
-Typos happen, and repository names are case-sensitive.  If you try to clone `git@{% data variables.command_line.codeblock %}:user/repo.git`, but the repository is really named `User/Repo` you will receive this error.
+Всегда есть вероятность опечатки. Кроме того, в именах репозиториев учитывается регистр символов.  Если вы попытаетесь клонировать `git@{% data variables.command_line.codeblock %}:user/repo.git`, но репозиторий на самом деле называется `User/Repo`, произойдет эта ошибка.
 
-To avoid this error, when cloning, always copy and paste the clone URL from the repository's page. For more information, see "[Cloning a repository](/articles/cloning-a-repository)."
+Чтобы избежать этой ошибки, при клонировании всегда копируйте URL-адрес клона со страницы репозитория, а затем вставляйте его. Дополнительные сведения см. в разделе [Клонирование репозитория](/articles/cloning-a-repository).
 
-To update the remote on an existing repository, see "[Managing remote repositories](/github/getting-started-with-github/managing-remote-repositories)".
+Сведения об обновлении удаленного репозитория см. в разделе [Управление удаленными репозиториями](/github/getting-started-with-github/managing-remote-repositories).
 
-### Checking your permissions
+### Проверка разрешений
 
-If you are trying to clone a private repository but do not have permission to view the repository, you will receive this error.
+Если вы пытаетесь клонировать частный репозиторий, но не имеете разрешения на его просмотр, произойдет эта ошибка.
 
-Make sure that you have access to the repository in one of these ways:
+Убедитесь в том, что у вас есть один из следующих уровней доступа:
 
-* The owner of the repository
-* A [collaborator](/articles/inviting-collaborators-to-a-personal-repository) on the repository
-* A [member of a team](/articles/adding-organization-members-to-a-team) that has access to the repository (if the repository belongs to an organization)
+* владелец репозитория;
+* [участник совместной работы](/articles/inviting-collaborators-to-a-personal-repository) над репозиторием;
+* [участник команды](/articles/adding-organization-members-to-a-team), которая имеет доступ к репозиторию (если репозиторий принадлежит организации).
 
-### Check your SSH access
+### Проверка доступа по протоколу SSH
 
-In rare circumstances, you may not have the proper SSH access to a repository.
+В редких случаях может отсутствовать доступ к репозиторию по протоколу SSH из-за неправильной настройки.
 
-You should ensure that the SSH key you are using is attached to your personal account on {% data variables.product.product_name %}. You can check this by typing
-the following into the command line:
+Убедитесь в том, что используемый ключ SSH связан с личной учетной записью на {% data variables.product.product_name %}. Это можно проверить, введя в командную строку следующую команду:
 
 ```shell
 $ ssh -T git@{% data variables.command_line.codeblock %}
@@ -128,28 +130,27 @@ $ ssh -T git@{% data variables.command_line.codeblock %}
 > provide shell access.
 ```
 
-{% ifversion fpt or ghec %}
-If the repository belongs to an organization and you're using an SSH key generated by an OAuth App, OAuth App access may have been restricted by an organization owner. For more information, see "[About OAuth App access restrictions](/organizations/restricting-access-to-your-organizations-data/about-oauth-app-access-restrictions)."
+{% ifversion fpt or ghec %} Если репозиторий принадлежит организации и вы используете ключ SSH, созданный приложением OAuth, доступ к приложению может быть ограничен владельцем организации. Дополнительные сведения см. в разделе [Сведения об ограничениях доступа к приложению OAuth](/organizations/restricting-access-to-your-organizations-data/about-oauth-app-access-restrictions).
 {% endif %}
 
-For more information, see [Adding a new SSH key to your GitHub account](/articles/adding-a-new-ssh-key-to-your-github-account).
+Дополнительные сведения см. в разделе [Добавление нового ключа SSH в учетную запись GitHub](/articles/adding-a-new-ssh-key-to-your-github-account).
 
 {% ifversion ghes %}
-### Check if your instance is in private mode
+### Проверка режима, в котором находится экземпляр
 
-If your site administrator has enabled private mode on your GitHub Enterprise instance, anonymous clones over `git://` will be disabled. If you are unable to clone a repository, contact your site administrator.
+Если администратор сайта включил частный режим в экземпляре GitHub Enterprise, анонимные клоны по `git://` будут отключены. Если вам не удается клонировать репозиторий, обратитесь к администратору сайта.
 {% endif %}
 
-### Check that the repository really exists
+### Проверка существования репозитория
 
-If all else fails, make sure that the repository really exists on {% data variables.location.product_location %}!
-If you're trying to push to a repository that doesn't exist, you'll get this error.
+Если все остальное не удается, убедитесь, что репозиторий действительно существует в {% данных variables.location.product_location %}!
+Если вы пытаетесь выполнить отправку в несуществующий репозиторий, произойдет эта ошибка.
 
-## Error: Remote HEAD refers to nonexistent ref, unable to checkout
+## Ошибка: файл HEAD удаленного репозитория ссылается на несуществующую ветвь; не удалось выполнить извлечение
 
-This error occurs if the default branch of a repository has been deleted on {% data variables.location.product_location %}.
+Эта ошибка возникает, если ветвь репозитория по умолчанию удалена на {% данных variables.location.product_location %}.
 
-Detecting this error is simple; Git will warn you when you try to clone the repository:
+Обнаружить эту ошибку легко: GIT предупредит вас при попытке клонировать репозиторий:
 
 ```shell
 $ git clone https://{% data variables.command_line.codeblock %}/USER/REPO.git
@@ -163,10 +164,10 @@ $ git clone https://{% data variables.command_line.codeblock %}/USER/REPO.git
 > warning: remote HEAD refers to nonexistent ref, unable to checkout.
 ```
 
-To fix the error, you'll need to be an administrator of the repository on {% data variables.location.product_location %}.
-You'll want to [change the default branch](/github/administering-a-repository/changing-the-default-branch) of the repository.
+Чтобы устранить эту ошибку, необходимо быть администратором репозитория на {% данных variables.location.product_location %}.
+Вам потребуется [изменить ветвь по умолчанию](/github/administering-a-repository/changing-the-default-branch) репозитория.
 
-After that, you can get a list of all the available branches from the command line:
+После этого можно получить список всех доступных ветвей из командной строки:
 
 ```shell
 $ git branch -a
@@ -176,7 +177,7 @@ $ git branch -a
 >   remotes/origin/new-main
 ```
 
-Then, you can just switch to your new branch:
+Затем можно просто переключиться на новую ветвь:
 
 ```shell
 $ git checkout new-main

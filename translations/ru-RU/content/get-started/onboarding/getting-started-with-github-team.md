@@ -1,99 +1,104 @@
 ---
-title: Getting started with GitHub Team
-intro: 'With {% data variables.product.prodname_team %} groups of people can collaborate across many projects at the same time in an organization account.'
+title: Начало работы с GitHub Team
+intro: 'С помощью {% data variables.product.prodname_team %} группы людей могут совместно работать одновременно в нескольких проектах в учетной записи организации.'
 versions:
   fpt: '*'
+ms.openlocfilehash: b3a99092f3b701b2763dbefacd5f60867fa18690
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148099159'
 ---
+В этом руководстве описаны процессы настройки учетной записи {% data variables.product.prodname_team %} и управления ей в качестве владельца организации.
 
-This guide will walk you through setting up, configuring and managing your {% data variables.product.prodname_team %} account as an organization owner.
+## Часть 1. Настройка учетной записи для {% данных variables.location.product_location %}
+При начале работы с {% data variables.product.prodname_team %} прежде всего необходимо создать личную учетную запись или войти в существующую в {% data variables.product.prodname_dotcom %}, создать организацию и настроить выставление счетов.
 
-## Part 1: Configuring your account on {% data variables.location.product_location %}
-As the first steps in starting with {% data variables.product.prodname_team %}, you will need to create a personal account or log into your existing account on {% data variables.product.prodname_dotcom %}, create an organization, and set up billing.
+### 1. Сведения об организациях
+Организации являются общими учетными записями, в которых компании и проекты с открытым кодом могут совместно работать одновременно над несколькими проектами. Владельцы и администраторы могут управлять доступом участников к данным и проектам организации с помощью сложных функций безопасности и администрирования. Дополнительные сведения о функциях организаций см. в разделе [Сведения об организациях](/organizations/collaborating-with-groups-in-organizations/about-organizations#terms-of-service-and-data-protection-for-organizations).
 
-### 1. About organizations
-Organizations are shared accounts where businesses and open-source projects can collaborate across many projects at once. Owners and administrators can manage member access to the organization's data and projects with sophisticated security and administrative features. For more information on the features of organizations, see "[About organizations](/organizations/collaborating-with-groups-in-organizations/about-organizations#terms-of-service-and-data-protection-for-organizations)."
+### 2. Создание организации и регистрация для {% data variables.product.prodname_team %}
+Перед созданием организации необходимо создать личную учетную запись или войти в существующую учетную запись на {% данных variables.location.product_location %}. Дополнительные сведения см. в разделе [Регистрация для новой учетной записи {% data variables.product.prodname_dotcom %}](/get-started/signing-up-for-github/signing-up-for-a-new-github-account).
 
-### 2. Creating an organization and signing up for {% data variables.product.prodname_team %}
-Before creating an organization, you will need to create a personal account or log in to your existing account on {% data variables.location.product_location %}. For more information, see "[Signing up for a new {% data variables.product.prodname_dotcom %} account](/get-started/signing-up-for-github/signing-up-for-a-new-github-account)."
+После настройки личной учетной записи можно создать организацию и выбрать план. В этот момент можно выбрать подписку {% data variables.product.prodname_team %} для вашей организации. Дополнительные сведения см. в статье "[Создание новой организации с нуля](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)".
 
-Once your personal account is set up, you can create an organization and pick a plan. This is where you can choose a {% data variables.product.prodname_team %} subscription for your organization. For more information, see "[Creating a new organization from scratch](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)."
+### 3. Управление выставлением счетов для организации
+Вам необходимо отдельно управлять параметрами выставления счетов, способами оплаты и платными функциями и продуктами для каждой личной учетной записи и организации. Вы можете переключаться между параметрами для разных учетных записей с помощью переключателя контекста в разделе параметров. Дополнительные сведения см. в разделе [Переключение между параметрами для различных учетных записей](/billing/managing-your-github-billing-settings/about-billing-on-github#switching-between-settings-for-your-different-accounts).
 
-### 3. Managing billing for an organization
-You must manage billing settings, payment method, and paid features and products for each of your personal accounts and organizations separately. You can switch between settings for your different accounts using the context switcher in your settings. For more information, see "[Switching between settings for your different accounts](/billing/managing-your-github-billing-settings/about-billing-on-github#switching-between-settings-for-your-different-accounts)."
+На странице параметров выставления счетов вашей организации можно управлять такими параметрами, как способ оплаты, цикл выставления счетов и электронная почта для выставления счетов. На этой странице также можно просматривать информацию о подписке, даты выставления счетов и журнал платежей. Вы также можете просматривать и обновлять параметры хранилища и число минут GitHub Actions. Дополнительные сведения об управлении параметрами выставления счетов см. в разделе [Управление параметрами выставления счетов в {% data variables.product.prodname_dotcom %}](/billing/managing-your-github-billing-settings).
 
-Your organization's billing settings page allows you to manage settings like your payment method, billing cycle and billing email, or view information such as your subscription, billing date and payment history. You can also view and upgrade your storage and GitHub Actions minutes. For more information on managing your billing settings, see "[Managing your {% data variables.product.prodname_dotcom %} billing settings](/billing/managing-your-github-billing-settings)."
-
-Only organization members with the *owner* or *billing manager* role can access or change billing settings for your organization. A billing manager is someone  who manages the billing settings for your organization and does not use a paid license in your organization's subscription. For more information on adding a billing manager to your organization, see "[Adding a billing manager to your organization](/organizations/managing-peoples-access-to-your-organization-with-roles/adding-a-billing-manager-to-your-organization)."
+Доступ или изменение параметров выставления счетов для вашей организации может быть предоставлен только членам организации с ролью *владельца* или *менеджера выставления счетов*. Менеджер выставления счетов — это лицо, которое управляет параметрами выставления счетов для вашей организации и не использует платную лицензию в подписке вашей организации. Дополнительные сведения о добавлении менеджера выставления счетов в организацию см. в разделе [Добавление менеджера выставления счетов в организацию](/organizations/managing-peoples-access-to-your-organization-with-roles/adding-a-billing-manager-to-your-organization).
 
 
-## Part 2: Adding members and setting up teams
-After creating your organization, you can invite members and set permissions and roles. You can also create different levels of teams and set customized levels of permissions for your organization's repositories, project boards, and apps.
+## Часть 2. Добавление участников и настройка команд
+После создания организации можно пригласить участников и задать разрешения и роли. Также можно создавать различные уровни команд и задавать настраиваемые уровни разрешений для репозиториев, досок проектов и приложений вашей организации.
 
-### 1. Managing members of your organization
+### 1. Управление участниками организации
 {% data reusables.getting-started.managing-org-members %}
 
-### 2. Organization permissions and roles
+### 2. Разрешения и роли организации
 {% data reusables.getting-started.org-permissions-and-roles %}
 
-### 3. About and creating teams
+### 3. Сведения о командах и создание команд
 {% data reusables.getting-started.about-and-creating-teams %}
-### 4. Managing team settings
+### 4. Управление параметрами команды
 {% data reusables.getting-started.managing-team-settings %}
 
-### 5. Giving people and teams access to repositories, project boards and apps
+### 5. Предоставление пользователям и командам доступа к репозиториям, доскам проектов и приложениям
 {% data reusables.getting-started.giving-access-to-repositories-projects-apps %}
-## Part 3: Managing security for your organization
-You can help to make your organization more secure by recommending or requiring two-factor authentication for your organization members, configuring security features, and reviewing your organization's audit log and integrations.
+## Часть 3. Управление безопасностью для организации
+Вы можете помочь повысить уровень безопасности организации, сделав двухфакторную проверку подлинности рекомендуемой или обязательной для участников организации, настроив функции безопасности и просмотрев журналы аудита и интеграции вашей организации.
 
-### 1. Requiring two-factor authentication
+### 1. Обязательная двухфакторная проверка подлинности
 {% data reusables.getting-started.requiring-2fa %}
 
-### 2. Configuring security features for your organization
+### 2. Настройка функций безопасности для организации
 {% data reusables.getting-started.configuring-security-features %}
 
-### 3. Reviewing your organization's audit log and integrations
+### 3. Просмотр журнала аудита и интеграций организации
 {% data reusables.getting-started.reviewing-org-audit-log-and-integrations %}
 
-## Part 4: Setting organization level policies
-### 1. Managing organization policies
+## Часть 4. Настройка политик уровня организации
+### 1. Управление политиками организации
 {% data reusables.getting-started.managing-org-policies %}
-### 2. Managing repository changes
+### 2. Управление изменениями репозитория
 {% data reusables.getting-started.managing-repo-changes %}
-### 3. Using organization-level community health files and moderation tools
+### 3. Использование файлов работоспособности сообщества и средств модерации на уровне организации
 {% data reusables.getting-started.using-org-community-files-and-moderation-tools %}
-## Part 5: Customizing and automating your work on {% data variables.product.product_name %}
+## Часть 5. Настройка и автоматизация работы с {% data variables.product.product_name %}
 
 {% data reusables.getting-started.customizing-and-automating %}
-### 1. Using {% data variables.product.prodname_marketplace %}
+### 1. Использование {% data variables.product.prodname_marketplace %}
 {% data reusables.getting-started.marketplace %}
-### 2. Using the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API
+### 2. Использование API {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %}
 {% data reusables.getting-started.api %}
 
-### 3. Building {% data variables.product.prodname_actions %}
+### 3. Создание действий {% data variables.product.prodname_actions %}
 {% data reusables.getting-started.actions %}
 
-### 4. Publishing and managing {% data variables.product.prodname_registry %} 
+### 4. Публикация пакетов и управление ими в {% data variables.product.prodname_registry %} 
 {% data reusables.getting-started.packages %}
 
-## Part 6: Participating in {% data variables.product.prodname_dotcom %}'s community
+## Часть 6. Участие в сообществе {% data variables.product.prodname_dotcom %}
 {% data reusables.getting-started.participating-in-community %}
-### 1. Contributing to open source projects
+### 1. Участие в проектах с открытым кодом
 {% data reusables.getting-started.open-source-projects %}
 
-### 2. Interacting with the {% data variables.product.prodname_gcf %}
+### 2. Взаимодействие с {% data variables.product.prodname_gcf %}
 {% data reusables.support.ask-and-answer-forum %}
 
-### 3. Reading about {% data variables.product.prodname_team %} on {% data variables.product.prodname_docs %}
-You can read documentation that reflects the features available with {% data variables.product.prodname_team %}. For more information, see "[About versions of {% data variables.product.prodname_docs %}](/get-started/learning-about-github/about-versions-of-github-docs)."
+### 3. Ознакомление со сведениями о {% data variables.product.prodname_team %} в {% data variables.product.prodname_docs %}
+Вы можете прочитать документацию, в которой описаны доступные функции {% data variables.product.prodname_team %}. Дополнительные сведения см. в разделе [Сведения о версиях {% data variables.product.prodname_docs %}](/get-started/learning-about-github/about-versions-of-github-docs).
 
-### 4. Learning with {% data variables.product.prodname_learning %}
+### 4. Обучение с {% data variables.product.prodname_learning %}
 {% data reusables.getting-started.learning %}
 
-### 5. Supporting the open source community
+### 5. Поддержка сообщества разработчиков решений с открытым кодом
 {% data reusables.getting-started.sponsors %}
 
-### 6. Contacting {% data variables.contact.github_support %}
+### 6. Обращение в {% data variables.contact.github_support %}
 {% data reusables.getting-started.contact-support %}
-## Further reading
+## Дополнительные материалы
 
-- "[Getting started with your GitHub account](/get-started/onboarding/getting-started-with-your-github-account)"
+- [Начало работы с учетной записью GitHub](/get-started/onboarding/getting-started-with-your-github-account)

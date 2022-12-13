@@ -1,6 +1,6 @@
 ---
-title: About OAuth App access restrictions
-intro: 'Organizations can choose which {% data variables.product.prodname_oauth_apps %} have access to their repositories and other resources by enabling {% data variables.product.prodname_oauth_app %} access restrictions.'
+title: Сведения об ограничениях доступа к приложению OAuth
+intro: 'Организации могут выбрать, какие {% data variables.product.prodname_oauth_apps %} будут иметь доступ к их репозиториям и другим ресурсам, включив ограничения доступа {% data variables.product.prodname_oauth_app %}.'
 redirect_from:
   - /articles/about-third-party-application-restrictions
   - /articles/about-oauth-app-access-restrictions
@@ -13,60 +13,62 @@ topics:
   - Organizations
   - Teams
 shortTitle: OAuth App access
+ms.openlocfilehash: c751b547fe8a70a960ba86ffc2ad941304c0ab5d
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148098980'
 ---
+## Сведения об ограничениях доступа к приложению OAuth
 
-## About OAuth App access restrictions
+{% данных reusables.apps.oauth-app-access-restrictions %}
 
-{% data reusables.apps.oauth-app-access-restrictions %}
-
-{% ifversion limit-app-access-requests %}
-{% data reusables.organizations.restricted-app-access-requests %}{% endif %}
+{% ifversion limit-app-access-requests %} {% данных reusables.organizations.restricted-app-access-requests %} {% endif %}
 
 {% data reusables.organizations.oauth_app_restrictions_default %}
 
 {% tip %}
 
-**Tip**: When an organization has not set up {% data variables.product.prodname_oauth_app %} access restrictions, any {% data variables.product.prodname_oauth_app %} authorized by an organization member can also access the organization's private resources.
+**Совет.** Если организация не настроила ограничения доступа к {% data variables.product.prodname_oauth_app %}, любое {% data variables.product.prodname_oauth_app %}, авторизованное членом организации, также может получить доступ к частным ресурсам организации.
 
 {% endtip %}
 
-{% ifversion fpt %}
-To further protect your organization's resources, you can upgrade to {% data variables.product.prodname_ghe_cloud %}, which includes security features like SAML single sign-on. {% data reusables.enterprise.link-to-ghec-trial %}
-{% endif %}
+{% ifversion fpt %} Для дополнительной защиты ресурсов организации можно выполнить обновление до {% data variables.product.prodname_ghe_cloud %}, включая функции безопасности, такие как единый вход SAML. {% data reusables.enterprise.link-to-ghec-trial %} {% endif %}
 
-## Setting up {% data variables.product.prodname_oauth_app %} access restrictions
+## Настройка ограничений доступа к {% data variables.product.prodname_oauth_app %}
 
-When an organization owner sets up {% data variables.product.prodname_oauth_app %} access restrictions for the first time:
+Когда владелец организации впервые настраивает ограничения доступа к {% data variables.product.prodname_oauth_app %}:
 
-- **Applications that are owned by the organization** are automatically given access to the organization's resources.
-- **{% data variables.product.prodname_oauth_apps %}** immediately lose access to the organization's resources.
-- **SSH keys created before February 2014** immediately lose access to the organization's resources (this includes user and deploy keys).
-- **SSH keys created by {% data variables.product.prodname_oauth_apps %} during or after February 2014** immediately lose access to the organization's resources.
-- **Hook deliveries from private organization repositories** will no longer be sent to unapproved {% data variables.product.prodname_oauth_apps %}.
-- **API access** to private organization resources is not available for unapproved {% data variables.product.prodname_oauth_apps %}. In addition, there are no privileged create, update, or delete actions on public organization resources.
-- **Hooks created by users and hooks created before May 2014** will not be affected.
-- **Private forks of organization-owned repositories** are subject to the organization's access restrictions.
+- **Приложения, принадлежащие организации**, автоматически получают доступ к ресурсам организации.
+- **{% data variables.product.prodname_oauth_apps %}** незамедлительно теряют доступ к ресурсам организации.
+- **Ключи SSH, созданные до февраля 2014 г.** , незамедлительно теряют доступ к ресурсам организации (включая ключи пользователя и развертывания).
+- **Ключи SSH, созданные {% data variables.product.prodname_oauth_apps %} в феврале 2014 г. или после этой даты**, незамедлительно теряют доступ к ресурсам организации.
+- **Результаты перехватчиков из частных репозиториев организации** больше не будут отправляться неутвержденными {% data variables.product.prodname_oauth_apps %}.
+- **Доступ API** к частным ресурсам организации станет недоступен для неутвержденных {% data variables.product.prodname_oauth_apps %}. Кроме того, для общедоступных ресурсов организации будут отсутствовать привилегированные действия по созданию, обновлению или удалению.
+- **Перехватчики, созданные пользователями, и перехватчики, созданные до мая 2014 г.** , не будут затронуты.
+- Ограничения на доступ касаются и **частных вилок репозиториев, принадлежащих организации**.
 
-## Resolving SSH access failures
+## Устранение сбоев доступа по протоколу SSH
 
-When an SSH key created before February 2014 loses access to an organization with {% data variables.product.prodname_oauth_app %} access restrictions enabled, subsequent SSH access attempts will fail. Users will encounter an error message directing them to a URL where they can approve the key or upload a trusted key in its place.
+Если ключ SSH, созданный до февраля 2014 г., теряет доступ к организации с включенными ограничениями доступа к {% data variables.product.prodname_oauth_app %}, последующие попытки доступа по протоколу SSH завершатся ошибкой. Пользователи столкнутся с сообщением об ошибке, которое направляет их на URL-адрес, где можно утвердить ключ или отправить вместо него доверенный ключ.
 
-## Webhooks
+## Веб-перехватчики
 
-When an {% data variables.product.prodname_oauth_app %} is granted access to the organization after restrictions are enabled, any pre-existing webhooks created by that {% data variables.product.prodname_oauth_app %} will resume dispatching.
+После включения ограничений доступ к {% data variables.product.prodname_oauth_app %} для организации все существующие веб-перехватчики, созданные этим {% data variables.product.prodname_oauth_app %}, возобновят отправку.
 
-When an organization removes access from a previously-approved {% data variables.product.prodname_oauth_app %}, any pre-existing webhooks created by that application will no longer be dispatched (these hooks will be disabled, but not deleted).
+Когда организация отменяет доступ из ранее утвержденного {% data variables.product.prodname_oauth_app %}, все существующие веб-перехватчики, созданные этим приложением, больше не будут отправляться (эти перехватчики будут отключены, но не удалены).
 
-## Re-enabling access restrictions
+## Повторное включение ограничений доступа
 
-If an organization disables {% data variables.product.prodname_oauth_app %} access application restrictions, and later re-enables them, previously approved {% data variables.product.prodname_oauth_app %} are automatically granted access to the organization's resources.
+Если организация отключает ограничения доступа к приложению {% data variables.product.prodname_oauth_app %}, а затем повторно включает их, ранее утвержденные {% data variables.product.prodname_oauth_app %} автоматически получают доступ к ресурсам организации.
 
-## Further reading
+## Дополнительные материалы
 
-- "[Enabling {% data variables.product.prodname_oauth_app %} access restrictions for your organization](/articles/enabling-oauth-app-access-restrictions-for-your-organization)"
-- "[Approving {% data variables.product.prodname_oauth_apps %} for your organization](/articles/approving-oauth-apps-for-your-organization)"
-- "[Reviewing your organization's installed integrations](/articles/reviewing-your-organization-s-installed-integrations)"
-- "[Denying access to a previously approved {% data variables.product.prodname_oauth_app %} for your organization](/articles/denying-access-to-a-previously-approved-oauth-app-for-your-organization)"
-- "[Disabling {% data variables.product.prodname_oauth_app %} access restrictions for your organization](/articles/disabling-oauth-app-access-restrictions-for-your-organization)"
-- "[Requesting organization approval for {% data variables.product.prodname_oauth_apps %}](/articles/requesting-organization-approval-for-oauth-apps)"
-- "[Authorizing {% data variables.product.prodname_oauth_apps %}](/github/authenticating-to-github/keeping-your-account-and-data-secure/authorizing-oauth-apps)"
+- "[Включение ограничений доступа к {% data variables.product.prodname_oauth_app %} для вашей организации](/articles/enabling-oauth-app-access-restrictions-for-your-organization)"
+- "[Утверждение {% data variables.product.prodname_oauth_apps %} для вашей организации](/articles/approving-oauth-apps-for-your-organization)"
+- "[Проверка установленных интеграций вашей организации](/articles/reviewing-your-organization-s-installed-integrations)"
+- "[Запрет доступа к ранее утвержденному {% data variables.product.prodname_oauth_app %} для вашей организации](/articles/denying-access-to-a-previously-approved-oauth-app-for-your-organization)"
+- "[Отключение ограничений доступа к {% data variables.product.prodname_oauth_app %} для вашей организации](/articles/disabling-oauth-app-access-restrictions-for-your-organization)"
+- "[Запрос утверждения {% data variables.product.prodname_oauth_apps %} организацией](/articles/requesting-organization-approval-for-oauth-apps)"
+- [Авторизация {% data variables.product.prodname_oauth_apps %}](/github/authenticating-to-github/keeping-your-account-and-data-secure/authorizing-oauth-apps)

@@ -1,6 +1,6 @@
 ---
-title: Viewing contributions on your profile
-intro: 'Your {% data variables.product.product_name %} profile shows off {% ifversion fpt or ghes or ghec %}your pinned repositories, Achievements, and{% endif %} a graph of your repository contributions over the past year.'
+title: Просмотр вкладов в профиле
+intro: 'Ваш профиль {% data variables.product.product_name %} отображает {% ifversion fpt or ghes or ghec %}закрепленные репозитории, достижения и {% endif %}диаграмму вкладов в репозиторий за последний год.'
 redirect_from:
   - /articles/viewing-contributions
   - /articles/viewing-contributions-on-your-profile-page
@@ -15,83 +15,89 @@ versions:
 topics:
   - Profiles
 shortTitle: View contributions
+ms.openlocfilehash: b44e2727c53de87de9dbdb393502f35d8d72c265
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148099196'
 ---
-{% ifversion fpt or ghes or ghec %}Your contribution graph and Achievements show activity from public repositories. {% endif %}You can choose to show activity from {% ifversion fpt or ghes or ghec %}both public and {% endif %}private repositories, with specific details of your activity in private repositories anonymized. For more information, see "[Publicizing or hiding your private contributions on your profile](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile)."
+{% ifversion fpt or ghes or ghec %}На диаграмме вкладов и в разделе достижений отображаются действия из общедоступных репозиториев. {% endif %}Можно отображать действия {% ifversion fpt or ghes or ghec %}как из общедоступных, так и {% endif %}из частных репозиториев, при этом конкретные сведения о вашем действии в частных репозиториях будут анонимизированы. Дополнительные сведения см. в разделе [Публикация или скрытие личных вкладов в своем профиле](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile).
 
 {% note %}
 
-**Note:** Commits will only appear on your contributions graph if the email address you used to author the commits is connected to your account on {% data variables.product.product_name %}. For more information, see "[Why are my contributions not showing up on my profile?](/articles/why-are-my-contributions-not-showing-up-on-my-profile#your-local-git-commit-email-isnt-connected-to-your-account)"
+**Примечание.** Фиксации будут отображаться на диаграмме вкладов только в том случае, если адрес электронной почты, использованный для создания фиксаций, подключен к вашей учетной записи в {% data variables.product.product_name %}. Дополнительные сведения см. в разделе [Почему мои вклады не отображаются в моем профиле?](/articles/why-are-my-contributions-not-showing-up-on-my-profile#your-local-git-commit-email-isnt-connected-to-your-account)
 
 {% endnote %}
 
-## What counts as a contribution
+## Что считается вкладом
 
-On your profile page, certain actions count as contributions:
+На странице профиля вкладом считаются определенные действия.
 
-- Committing to a repository's default branch or `gh-pages` branch
-- Opening an issue
-- Opening a discussion
-- Answering a discussion
-- Proposing a pull request
-- Submitting a pull request review{% ifversion ghes or ghae %}
-- Co-authoring commits in a repository's default branch or `gh-pages` branch{% endif %}
+- Фиксация в ветви по умолчанию или ветви `gh-pages` репозитория
+- Открытие проблемы
+- Открытие обсуждения
+- Ответ на обсуждение
+- Предложение запроса на вытягивание
+- Отправка проверки запроса на вытягивание{% ifversion ghes or ghae %}
+- Совместные фиксации в ветви по умолчанию или ветви `gh-pages` репозитория{% endif %}
 
 {% data reusables.pull_requests.pull_request_merges_and_contributions %}
 
-## Popular repositories
+## Популярные репозитории
 
-This section displays your repositories with the most watchers. {% ifversion fpt or ghes or ghec %}Once you [pin repositories to your profile](/articles/pinning-repositories-to-your-profile), this section will change to "Pinned repositories."{% endif %}
+В этом разделе отображаются репозитории с наибольшим количеством наблюдателей. {% ifversion fpt or ghes or ghec %}После [закрепления репозиториев в профиле](/articles/pinning-repositories-to-your-profile) этот раздел изменится на "Закрепленные репозитории".{% endif %}
 
-![Popular repositories](/assets/images/help/profile/profile_popular_repositories.png)
+![Популярные репозитории](/assets/images/help/profile/profile_popular_repositories.png)
 
 {% ifversion fpt or ghes or ghec %}
 
-## Pinned repositories
+## Закрепленные репозитории
 
-This section displays up to six public repositories and can include your repositories as well as repositories you've contributed to. To easily see important details about the repositories you've chosen to feature, each repository in this section includes a summary of the work being done, the number of [stars](/articles/saving-repositories-with-stars/) the repository has received, and the main programming language used in the repository. For more information, see "[Pinning repositories to your profile](/articles/pinning-repositories-to-your-profile)."
+В этом разделе отображается до шести общедоступных репозиториев и могут содержаться ваши репозитории, а также репозитории, в которые вы внесли свой вклад. Для легкого просмотра важных сведений об избранных репозиториях каждый репозиторий в этом разделе содержит сводку по выполняемым работам, количество [полученных](/articles/saving-repositories-with-stars/) репозиторием звезд и основной язык программирования, используемый в репозитории. Дополнительные сведения см. в разделе [Закрепление репозиториев в профиле](/articles/pinning-repositories-to-your-profile).
 
-![Pinned repositories](/assets/images/help/profile/profile_pinned_repositories.png)
+![Закрепленные репозитории](/assets/images/help/profile/profile_pinned_repositories.png)
 
 {% endif %}
 
-## Contributions calendar
+## Календарь вкладов
 
-Your contributions calendar shows your contribution activity.
+В календаре вкладов отображаются ваши действия, связанные с вкладами.
 
-### Viewing contributions from specific times
+### Просмотр вкладов за определенное время
 
-- Click on a day's square to show the contributions made during that 24-hour period.
-- Press *Shift* and click on another day's square to show contributions made during that time span.
+- Щелкните квадрат дня, чтобы отобразить вклады, внесенные в течение этого 24-часового периода.
+- Нажмите клавишу *SHIFT* и щелкните квадрат другого дня, чтобы отобразить вклады, внесенные в течение этого периода времени.
 
 {% note %}
 
-**Note:** You can select up to a one-month range on your contributions calendar. If you select a larger time span, we will only display one month of contributions.
+**Примечание.** В календаре вкладов можно выбрать диапазон не длиннее месяца. При выборе большего промежутка времени мы отобразим только один месяц вкладов.
 
 {% endnote %}
 
-![Your contributions graph](/assets/images/help/profile/contributions_graph.png)
+![Диаграмма вкладов](/assets/images/help/profile/contributions_graph.png)
 
-### How contribution event times are calculated
+### Расчет времени событий вкладов
 
-Timestamps are calculated differently for commits and pull requests:
-- **Commits** use the time zone information in the commit timestamp. For more information, see "[Troubleshooting commits on your timeline](/articles/troubleshooting-commits-on-your-timeline)."
-- **Pull requests** and **issues** opened on {% data variables.product.product_name %} use your browser's time zone. Those opened via the API use the timestamp or time zone [specified in the API call](https://developer.github.com/changes/2014-03-04-timezone-handling-changes).
+Для фиксаций и запросов на вытягивание метки времени рассчитываются по-разному.
+- **Фиксации** используют сведения о часовом поясе в метке времени фиксации. Дополнительные сведения см. в разделе [Устранение неполадок, связанных с фиксациями на временной шкале](/articles/troubleshooting-commits-on-your-timeline).
+- **Запросы на вытягивание** и **проблемы**, открытые в {% data variables.product.product_name %}, используют часовой пояс браузера. Те из них, что открыты через API, используют метку времени или часовой пояс, [указанные в вызове API](https://developer.github.com/changes/2014-03-04-timezone-handling-changes).
 
-## Activity overview
+## Обзор активности
 
-{% data reusables.profile.activity-overview-summary %} For more information, see "[Showing an overview of your activity on your profile](/articles/showing-an-overview-of-your-activity-on-your-profile)."
+{% data reusables.profile.activity-overview-summary %} Дополнительные сведения см. в разделе [Отображение обзора действий в профиле](/articles/showing-an-overview-of-your-activity-on-your-profile).
 
-![Activity overview section on profile](/assets/images/help/profile/activity-overview-section.png)
+![Раздел "Обзор действий" в профиле](/assets/images/help/profile/activity-overview-section.png)
 
-The organizations featured in the activity overview are prioritized according to how active you are in the organization. If you @mention an organization in your profile bio, and you’re an organization member, then that organization is prioritized first in the activity overview. For more information, see "[Mentioning people and teams](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams)" or "[Adding a bio to your profile](/articles/adding-a-bio-to-your-profile/)."
+Приоритеты организаций, представленных в обзоре действий, расставляются в соответствии со степенью вашей активности в организации. Если вы @mention организацию в биографии профиля и являетесь участником организации, то именно этой организации назначается первый приоритет в обзоре действий. Дополнительные сведения см. в разделе [Упоминание пользователей и команд](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams) или [Добавление биографии в свой профиль](/articles/adding-a-bio-to-your-profile/).
 
-## Contribution activity
+## Действия, связанные с вкладами
 
-The contribution activity section includes a detailed timeline of your work, including commits you've made or co-authored, pull requests you've proposed, and issues you've opened. You can see your contributions over time by either clicking **Show more activity** at the bottom of your contribution activity or by clicking the year you're interested in viewing on the right side of the page. Important moments, like the date you joined an organization, proposed your first pull request, or opened a high-profile issue, are highlighted in your contribution activity. If you can't see certain events in your timeline, check to make sure you still have access to the organization or repository where the event happened.
+Раздел действий, связанных с вкладами, содержит подробную временную шкалу вашей работы, в том числе фиксации, сделанные вами или совместно с другими пользователями, запросы на вытягивание, предложенные вами, и проблемы, которые вы открыли. Чтобы просмотреть свои вклады с течением времени, нажмите кнопку **Показать другие действия** в нижней части раздела действий, связанных с вкладами, или щелкните нужный год в правой части страницы. В действиях, связанных с вкладами, выделяются важные моменты, такие как даты присоединения к организации, предложения первого запроса на вытягивание или открытия очень важных проблем. Если на временной шкале не отображаются определенные события, убедитесь, что у вас по-прежнему есть доступ к организации или репозиторию, где произошло событие.
 
-![Contribution activity time filter](/assets/images/help/profile/contributions_activity_time_filter.png)
+![Фильтрация действий, связанных с вкладами, по времени](/assets/images/help/profile/contributions_activity_time_filter.png)
 
-## Viewing contributions from {% data variables.product.prodname_enterprise %} on {% data variables.product.prodname_dotcom_the_website %}
+## Просмотр вкладов от {% data variables.product.prodname_enterprise %} в {% data variables.product.prodname_dotcom_the_website %}
 
-If you use {% ifversion fpt or ghec %}{% data variables.product.prodname_ghe_server %}{% ifversion ghae %} or {% data variables.product.prodname_ghe_managed %}{% endif %}{% else %}{% data variables.product.product_name %}{% endif %} and your enterprise owner enables {% data variables.enterprise.prodname_unified_contributions %}, you can send enterprise contribution counts from to your {% data variables.product.prodname_dotcom_the_website %} profile. For more information, see "[Sending enterprise contributions to your {% data variables.product.prodname_dotcom_the_website %} profile](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-graphs-on-your-profile/sending-enterprise-contributions-to-your-githubcom-profile)."
+Если вы используете {% ifversion fpt или ghec %}{% данных variables.product.prodname_ghe_server %}{% ifversion ghae %} или {% данных variables.product.prodname_ghe_managed %}{% endif %}{% else %}{% данных variables.product.product_name %}{% endif %} и владелец предприятия включает {% данных variables.enterprise.prodname_unified_contributions %}, вы можете отправить количество корпоративных вкладов из профиля {% данных variables.product.prodname_dotcom_the_website %}. Дополнительные сведения см. в разделе [Отправка вкладов предприятия в профиль {% data variables.product.prodname_dotcom_the_website %}](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-graphs-on-your-profile/sending-enterprise-contributions-to-your-githubcom-profile).
 

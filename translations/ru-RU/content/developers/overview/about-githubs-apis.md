@@ -1,6 +1,6 @@
 ---
-title: About GitHub's APIs
-intro: 'Learn about {% data variables.product.prodname_dotcom %}''s APIs to extend and customize your {% data variables.product.prodname_dotcom %} experience.'
+title: Сведения об API GitHub
+intro: 'Сведения об API {% data variables.product.prodname_dotcom %}, которые позволяют расширить и изменить взаимодействие с {% data variables.product.prodname_dotcom %}.'
 redirect_from:
   - /v3/versions
   - /articles/getting-started-with-the-api
@@ -12,21 +12,26 @@ versions:
   ghec: '*'
 topics:
   - API
+ms.openlocfilehash: 8b2f1c35e7dba7b31943b3fbb34aad1885bdd540
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148098903'
 ---
+## Об API-интерфейсах %% данных variables.product.company_short %}
 
-## About {% data variables.product.company_short %}'s APIs
+{% данных variables.product.company_short %} предоставляет два API: REST API и API GraphQL. Вы можете взаимодействовать с обоими API с помощью {% данных variables.product.prodname_cli %}, curl, официальных библиотек Octokit и сторонних библиотек. Иногда функция может поддерживаться в одном API, но не в другом.
 
-{% data variables.product.company_short %} provides two APIs: a REST API and a GraphQL API. You can interact with both APIs using {% data variables.product.prodname_cli %}, curl, the official Octokit libraries, and third party libraries. Occasionally, a feature may be supported on one API but not the other.
+Следует использовать API, который лучше всего соответствует вашим потребностям и что вы наиболее удобно использовать. Вам не нужно использовать только один API поверх другого. Идентификаторы узлов позволяют перемещаться между REST API и API GraphQL. Дополнительные сведения см. в разделе "[Использование идентификаторов глобальных узлов](/graphql/guides/using-global-node-ids)".
 
-You should use the API that best aligns with your needs and that you are most comfortable using. You don't need to exclusively use one API over the other. Node IDs let you move between the REST API and GraphQL API. For more information, see "[Using global node IDs](/graphql/guides/using-global-node-ids)."
+В этой статье рассматриваются преимущества каждого API. Дополнительные сведения об API GraphQL см. в разделе "[Сведения об API GraphQL](/graphql/overview/about-the-graphql-api)". Дополнительные сведения о REST API см. [в документации по REST](/rest).
 
-This article discusses the benefits of each API. For more information about the GraphQL API, see "[About the GraphQL API](/graphql/overview/about-the-graphql-api)." For more information about the REST API, see [the REST documentation](/rest).
+## Выбор API GraphQL
 
-## Choosing the GraphQL API
+API GraphQL возвращает именно запрашиваемые данные. GraphQL также возвращает данные в предварительно известной структуре на основе запроса. В отличие от этого, REST API возвращает больше данных, чем запрошено, и возвращает их в предварительно определенной структуре. Вы также можете выполнить эквивалент нескольких запросов REST API в одном запросе GraphQL. Возможность сделать меньше запросов и получить меньше данных делает GraphQL привлекательным для разработчиков мобильных приложений.
 
-The GraphQL API returns exactly the data that you request. GraphQL also returns the data in a pre-known structure based on your request. In contrast, the REST API returns more data than you requested and returns it in a pre-determined structure. You can also accomplish the equivalent of multiple REST API request in a single GraphQL request. The ability to make fewer requests and fetch less data makes GraphQL appealing to developers of mobile applications.
-
-For example, to get the {% data variables.product.product_name %} login of ten of your followers, and the login of ten followers of each of your followers, you can send a single request like:
+Например, чтобы получить {% данных variables.product.product_name %} имя входа десяти подписчиков и имя входа десяти подписчиков каждого из ваших подписчиков, можно отправить один запрос, например:
 
 ```graphql
 {
@@ -45,15 +50,15 @@ For example, to get the {% data variables.product.product_name %} login of ten o
 }
 ```
 
-The response will be a JSON object that follows the structure of your request.
+Ответ будет объектом JSON, который соответствует структуре запроса.
 
-In contrast, to get this same information from the REST API, you would need to first make a request to `GET /user/followers`. The API would return the login of each follower, along with other data about the followers that you don't need. Then, for each follower, you would need to make a request to `GET /users/{username}/followers`. In total, you would need to make 11 requests to get the same information that you could get from a single GraphQL request, and you would receive excess data.
+В отличие от этого, чтобы получить эти же сведения из REST API, необходимо сначала выполнить запрос.`GET /user/followers` API возвратит имя входа каждого подписчика, а также другие данные о подписчиках, которые вам не нужны. Затем для каждого подписчика необходимо отправить запрос.`GET /users/{username}/followers` В общей сложности вам потребуется выполнить 11 запросов, чтобы получить те же сведения, которые можно получить из одного запроса GraphQL, и вы получите лишние данные.
 
-## Choosing the REST API
+## Выбор REST API
 
-Because REST APIs have been around for longer than GraphQL APIs, some developers are more comfortable with the REST API. Since REST APIs use standard HTTP verbs and concepts, many developers are already familiar with the basic concepts to use the REST API.
+Так как интерфейсы REST API существуют дольше, чем API GraphQL, некоторые разработчики более комфортно работают с REST API. Так как ИНТЕРФЕЙСы REST API используют стандартные http-команды и понятия, многие разработчики уже знакомы с основными понятиями для использования REST API.
 
-For example, to create an issue in the `octocat/Spoon-Knife` repository, you would need to send a request to `POST /repos/octocat/Spoon-Knife/issues` with a JSON request body:
+Например, чтобы создать проблему в репозитории `octocat/Spoon-Knife` , необходимо отправить запрос `POST /repos/octocat/Spoon-Knife/issues` в текст запроса JSON:
 
 ```json
 {
@@ -62,7 +67,7 @@ For example, to create an issue in the `octocat/Spoon-Knife` repository, you wou
 }
 ```
 
-In contrast, to make an issue using the GraphQL API, you would need to get the node ID of the `octocat/Spoon-Knife` repository and then send a request like:
+В отличие от этого, чтобы устранить проблему с помощью API GraphQL, необходимо получить идентификатор `octocat/Spoon-Knife` узла репозитория, а затем отправить запрос следующим образом:
 
 ```graphql
 mutation {

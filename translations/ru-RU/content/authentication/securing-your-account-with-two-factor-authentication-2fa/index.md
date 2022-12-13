@@ -1,6 +1,6 @@
 ---
-title: Securing your account with two-factor authentication (2FA)
-intro: 'You can set up your account on {% data variables.location.product_location %} to require an authentication code in addition to your password when you sign in.'
+title: "Защита учетной записи с помощью двухфакторной проверки подлинности\_(2FA)"
+intro: 'Вы можете настроить учетную запись на {% данных variables.location.product_location %}, чтобы требовать код проверки подлинности в дополнение к паролю при входе.'
 redirect_from:
   - /categories/84/articles
   - /categories/two-factor-authentication-2fa
@@ -22,5 +22,11 @@ children:
   - /countries-where-sms-authentication-is-supported
   - /disabling-two-factor-authentication-for-your-personal-account
 shortTitle: Secure your account with 2FA
+ms.openlocfilehash: 4aa0c346fb283f90eb0d5093bd3a849c96933880
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148098655'
 ---
 

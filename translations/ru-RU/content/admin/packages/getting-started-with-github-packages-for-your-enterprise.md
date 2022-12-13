@@ -1,7 +1,7 @@
 ---
-title: Getting started with GitHub Packages for your enterprise
+title: Начало работы с GitHub Packages для вашего предприятия
 shortTitle: Getting started with GitHub Packages
-intro: 'You can start using {% data variables.product.prodname_registry %} on {% data variables.location.product_location %} by enabling the feature, configuring third-party storage, configuring the ecosystems you want to support, and updating your TLS certificate.'
+intro: 'Вы можете начать использовать {% данных variables.product.prodname_registry %} для {% данных variables.location.product_location %}, включив эту функцию, настроив стороннее хранилище, настроив экосистемы, которые вы хотите поддерживать, и обновив сертификат TLS.'
 redirect_from:
   - /enterprise/admin/packages/enabling-github-packages-for-your-enterprise
   - /admin/packages/enabling-github-packages-for-your-enterprise
@@ -11,42 +11,46 @@ type: how_to
 topics:
   - Enterprise
   - Packages
+ms.openlocfilehash: d437b69ecbe3a7c3f9221e7495cf8b01b9faa0b3
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148098676'
 ---
-
-
 {% data reusables.package_registry.packages-cluster-support %}
 
-## Step 1: Check whether {% data variables.product.prodname_registry %} is available for your enterprise
+## Шаг 1. Проверка доступности {% data variables.product.prodname_registry %} для вашего предприятия
 
-{% data variables.product.prodname_registry %} is available in {% data variables.product.prodname_ghe_server %} 3.0 or higher. If you're using an earlier version of {% data variables.product.prodname_ghe_server %}, you'll have to upgrade to use {% data variables.product.prodname_registry %}. For more information about upgrading your {% data variables.product.prodname_ghe_server %} instance, see "[About upgrades to new releases](/admin/overview/about-upgrades-to-new-releases)."
-## Step 2: Enable {% data variables.product.prodname_registry %} and configure external storage
+{% data variables.product.prodname_registry %} доступен в {% data variables.product.prodname_ghe_server %} 3.0 или более поздней версии. Если вы используете более раннюю версию {% data variables.product.prodname_ghe_server %}, вам придется выполнить обновление для использования {% data variables.product.prodname_registry %}. Дополнительные сведения об обновлении экземпляра {% data variables.product.prodname_ghe_server %} см. в статье [Сведения об обновлениях до новых выпусков](/admin/overview/about-upgrades-to-new-releases).
+## Шаг 2. Включение {% data variables.product.prodname_registry %} и настройка внешнего хранилища
 
-{% data variables.product.prodname_registry %} on {% data variables.product.prodname_ghe_server %} uses external blob storage to store your packages.
+{% data variables.product.prodname_registry %} на {% data variables.product.prodname_ghe_server %} использует внешнее хранилище BLOB-объектов для хранения пакетов.
 
-After enabling {% data variables.product.prodname_registry %} for {% data variables.location.product_location %}, you'll need to prepare your third-party storage bucket. The amount of storage required depends on your usage of {% data variables.product.prodname_registry %}, and the setup guidelines can vary by storage provider.
+После включения {% данных variables.product.prodname_registry %} для {% данных variables.location.product_location %}необходимо подготовить контейнер хранилища сторонних производителей. Требуемый объем хранилища зависит от использования {% data variables.product.prodname_registry %}, а рекомендации по настройке зависят от поставщика хранилища.
 
-Supported external storage providers
-- Amazon Web Services (AWS) S3 {% ifversion ghes %}
-- Azure Blob Storage {% endif %}
+Поддерживаемые внешние поставщики хранилища:
+- Amazon Web Services (AWS) S3; {% ifversion ghes %}
+- Хранилище BLOB-объектов Azure; {% endif %}
 - MinIO
 
-To enable {% data variables.product.prodname_registry %} and configure third-party storage, see:
-  - "[Enabling GitHub Packages with AWS](/admin/packages/enabling-github-packages-with-aws)"{% ifversion ghes %}
-  - "[Enabling GitHub Packages with Azure Blob Storage](/admin/packages/enabling-github-packages-with-azure-blob-storage)"{% endif %}
-  - "[Enabling GitHub Packages with MinIO](/admin/packages/enabling-github-packages-with-minio)"
+Чтобы включить {% data variables.product.prodname_registry %} и настроить стороннее хранилище, см.:
+  - [Включение GitHub Packages с использованием AWS](/admin/packages/enabling-github-packages-with-aws){% ifversion ghes %}
+  - [Включение GitHub Packages с использованием Хранилища BLOB-объектов Azure](/admin/packages/enabling-github-packages-with-azure-blob-storage){% endif %}
+  - [Включение GitHub Packages с использованием MinIO](/admin/packages/enabling-github-packages-with-minio)
 
-## Step 3: Specify the package ecosystems to support on your instance
+## Шаг 3. Указание экосистем пакетов для поддержки экземпляра
 
-Choose which package ecosystems you'd like to enable, disable, or set to read-only on {% data variables.location.product_location %}. Available options are {% ifversion ghes > 3.4 %}{% data variables.product.prodname_container_registry %}, {% endif %}Docker, RubyGems, npm, Apache Maven, Gradle, or NuGet.  For more information, see "[Configuring package ecosystem support for your enterprise](/enterprise/admin/packages/configuring-package-ecosystem-support-for-your-enterprise)."
+Выберите экосистемы пакетов, которые вы хотите включить, отключить или задать только для чтения для {% данных variables.location.product_location %}. Доступные параметры: {% ifversion ghes > 3.4 %}{% data variables.product.prodname_container_registry %}, {% endif %}Docker, RubyGems, npm, Apache Maven, Gradle или NuGet.  Дополнительные сведения см. в статье [Настройка поддержки экосистем пакетов для предприятия](/enterprise/admin/packages/configuring-package-ecosystem-support-for-your-enterprise).
 
-## Step 4: Ensure you have a TLS certificate for your package host URL, if needed
+## Шаг 4. Проверка наличия сертификата TLS для URL-адреса узла пакета
 
-If subdomain isolation is enabled for {% data variables.location.product_location %}, you will need to create and upload a TLS certificate that allows the package host URL for each ecosystem you want to use, such as `{% data reusables.package_registry.container-registry-hostname %}`. Make sure each package host URL includes `https://`.
+Если изоляция поддомена включена для {% данных variables.location.product_location %}, необходимо создать и отправить СЕРТИФИКАТ TLS, который позволяет URL-адрес узла пакета для каждой экосистемы, которую вы хотите использовать, например `{% data reusables.package_registry.container-registry-hostname %}`. Убедитесь, что каждый URL-адрес узла пакета содержит `https://`.
 
-  You can create the certificate manually, or you can use _Let's Encrypt_. If you already use _Let's Encrypt_, you must request a new TLS certificate after enabling {% data variables.product.prodname_registry %}. For more information about package host URLs, see "[Enabling subdomain isolation](/enterprise/admin/configuration/enabling-subdomain-isolation)." For more information about uploading TLS certificates to {% data variables.product.product_name %}, see "[Configuring TLS](/enterprise/admin/configuration/configuring-tls)."
+  Сертификат можно создать вручную или использовать _Let's Encrypt_. Если вы уже используете _Let's Encrypt_, необходимо запросить новый сертификат TLS после включения {% data variables.product.prodname_registry %}. Дополнительные сведения об URL-адресах узла пакета см. в статье [Включение изоляции поддомена](/enterprise/admin/configuration/enabling-subdomain-isolation). Дополнительные сведения о передаче сертификатов TLS в {% data variables.product.product_name %} см. в статье [Настройка TLS](/enterprise/admin/configuration/configuring-tls).
 
-## Step 5: Check for and rename reserved names
+## Шаг 5. Проверка и переименование зарезервированных имен
 
-If you want to use the Docker ecosystem with subdomain isolation disabled, you **must** first rename any user or organization named `v2` on {% data variables.location.product_location %}, prior to enabling Docker ecosystem support in the {% data variables.enterprise.management_console %}. Docker uses a `v2` account name to manage path conflicts with the Docker API, and once Docker registry support is enabled, you won't be able to use this name anymore.
+Если вы хотите использовать экосистему Docker с отключенной изоляцией поддомена, **необходимо** сначала переименовать любого пользователя или организацию с именем `v2` {% данных variables.location.product_location %}, прежде чем включить поддержку экосистемы Docker в {% данных variables.enterprise.management_console %}. Docker использует имя учетной записи `v2` для управления конфликтами путей с помощью API Docker. После включения поддержки реестра Docker вы больше не сможете использовать это имя.
 
-You can view a full list of logins reserved for internal use by navigating to the "Reserved logins" page in the Site admin dashboard. For more information, see "[Reserved logins](/admin/configuration/configuring-your-enterprise/site-admin-dashboard#reserved-logins)."
+Полный список имен для входа, зарезервированных для внутреннего использования, можно просмотреть, перейдя на страницу "Зарезервированные имена для входа" на панели мониторинга администратора сайта. Дополнительные сведения см. в разделе [Зарезервированные имена для входа](/admin/configuration/configuring-your-enterprise/site-admin-dashboard#reserved-logins).

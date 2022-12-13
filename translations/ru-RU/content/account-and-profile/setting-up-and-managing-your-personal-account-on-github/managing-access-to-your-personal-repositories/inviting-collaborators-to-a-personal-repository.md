@@ -1,6 +1,6 @@
 ---
-title: Inviting collaborators to a personal repository
-intro: 'You can {% ifversion fpt or ghec %}invite users to become{% else %}add users as{% endif %} collaborators to your personal repository.'
+title: Приглашение участников совместной работы в личный репозиторий
+intro: 'Вы можете {% ifversion fpt or ghec %}пригласить пользователей стать{% else %}добавить пользователей как{% endif %} участников совместной работы в личном репозитории.'
 redirect_from:
   - /articles/how-do-i-add-a-collaborator
   - /articles/adding-collaborators-to-a-personal-repository
@@ -18,50 +18,49 @@ topics:
   - Accounts
   - Repositories
 shortTitle: Invite collaborators
+ms.openlocfilehash: ddf095667b8125fc02fb46229f172fc36613dd31
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148098484'
 ---
-Repositories owned by an organization can grant more granular access. For more information, see "[Access permissions on {% data variables.product.prodname_dotcom %}](/articles/access-permissions-on-github)."
+Репозитории, принадлежащие организации, могут предоставлять более детализированный доступ. Дополнительные сведения см. в разделе [Разрешения на доступ к {% data variables.product.prodname_dotcom %}](/articles/access-permissions-on-github).
 
 {% data reusables.organizations.org-invite-expiration %}
 
 {% ifversion fpt or ghec %}
 
-If you're a member of an {% data variables.enterprise.prodname_emu_enterprise %}, you can only invite other members of your enterprise to collaborate with you. {% data reusables.enterprise-accounts.emu-more-info-account %}
+Если вы являетесь участником {% данных variables.enterprise.prodname_emu_enterprise %}, вы можете приглашать только других участников предприятия для совместной работы с вами. {% data reusables.enterprise-accounts.emu-more-info-account %}
 
 {% note %}
 
-**Note:** {% data variables.product.company_short %} limits the number of people who can be invited to a repository within a 24-hour period. If you exceed this limit, either wait 24 hours or create an organization to collaborate with more people.
+**Примечание.** {% data variables.product.company_short %} ограничивает количество пользователей, которые могут быть приглашены в репозиторий в течение 24-часового периода. Если это ограничение превышено, подождите 24 часа или создайте организацию для совместной работы с большим числом пользователей.
 
 {% endnote %}
 
 {% endif %}
 
-1. Ask for the username of the person you're inviting as a collaborator.{% ifversion fpt or ghec %} If they don't have a username yet, they can sign up for {% data variables.product.prodname_dotcom %} For more information, see "[Signing up for a new {% data variables.product.prodname_dotcom %} account](/articles/signing-up-for-a-new-github-account)".{% endif %}
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4%}
-{% data reusables.repositories.click-collaborators-teams %}
-1. Click **Invite a collaborator**.
-  !["Invite a collaborator" button](/assets/images/help/repository/invite-a-collaborator-button.png)
-2. In the search field, start typing the name of person you want to invite, then click a name in the list of matches.
-  ![Search field for typing the name of a person to invite to the repository](/assets/images/help/repository/manage-access-invite-search-field-user.png)
-3. Click **Add NAME to REPOSITORY**.
-    ![Button to add collaborator](/assets/images/help/repository/add-collaborator-user-repo.png)
-{% else %}
-5. In the left sidebar, click **Collaborators**.
-![Repository settings sidebar with Collaborators highlighted](/assets/images/help/repository/user-account-repo-settings-collaborators.png)
-6. Under "Collaborators", start typing the collaborator's username.
-7. Select the collaborator's username from the drop-down menu.
-   ![Collaborator list drop-down menu](/assets/images/help/repository/repo-settings-collab-autofill.png)
-8. Click **Add collaborator**.
-   !["Add collaborator" button](/assets/images/help/repository/repo-settings-collab-add.png)
-{% endif %}
-{% ifversion fpt or ghec %}
-9. The user will receive an email inviting them to the repository. Once they accept your invitation, they will have collaborator access to your repository.
+1. Запросите имя пользователя, которого вы приглашаете в качестве участника совместной работы. {% ifversion fpt или ghec %} Если у них еще нет имени пользователя, они могут зарегистрироваться для получения {% данных variables.product.prodname_dotcom %} Дополнительные сведения см. в разделе "[Регистрация для новой учетной записи {% данных variables.product.prodname_dotcom %}](/articles/signing-up-for-a-new-github-account) ". {% endif %} {% данных reusables.repositories.navigate-to-repo %} {% данных reusables.repositories.sidebar-settings %} {% ifversion fpt или ghec или ghes > 3,4 или ghae > 3,4%} {% данных reusables.repositories.click-collaborators-teams %}
+1. Нажмите кнопку **Пригласить участника совместной работы**.
+  ![Кнопка "Пригласить участника совместной работы"](/assets/images/help/repository/invite-a-collaborator-button.png)
+2. В поле поиска начните вводить имя пользователя, которого нужно пригласить, а затем щелкните имя в списке совпадений.
+  ![Поле поиска для ввода имени пользователя, которого нужно пригласить в репозиторий](/assets/images/help/repository/manage-access-invite-search-field-user.png)
+3. Нажмите кнопку **Добавить ИМЯ в РЕПОЗИТОРИЙ**.
+    ![Кнопка для добавления участника совместной работы](/assets/images/help/repository/add-collaborator-user-repo.png) {% else %}
+5. На левой боковой панели щелкните **Участники совместной работы**.
+![Боковая панель параметров репозитория с выделенным текстом "Участники совместной работы"](/assets/images/help/repository/user-account-repo-settings-collaborators.png)
+6. В разделе "Участники совместной работы" начните вводить имя пользователя участника совместной работы.
+7. Выберите имя пользователя участника совместной работы в раскрывающемся меню.
+   ![Раскрывающееся меню списка участников совместной работы](/assets/images/help/repository/repo-settings-collab-autofill.png)
+8. Нажмите кнопку **Добавить участника совместной работы**.
+   ![Кнопка "Добавить участника совместной работы"](/assets/images/help/repository/repo-settings-collab-add.png) {% endif %} {% ifversion fpt or ghec %}
+9. Пользователь получит электронное письмо с приглашением в репозиторий. После принятия приглашения у него будет доступ участника совместной работы к репозиторию.
 {% endif %}
 
-## Further reading
+## Дополнительные материалы
 
-- "[Permission levels for a personal account repository](/articles/permission-levels-for-a-user-account-repository/#collaborator-access-for-a-repository-owned-by-a-personal-account)"
-- "[Removing a collaborator from a personal repository](/articles/removing-a-collaborator-from-a-personal-repository)"
-- "[Removing yourself from a collaborator's repository](/articles/removing-yourself-from-a-collaborator-s-repository)"
-- "[Organizing members into teams](/organizations/organizing-members-into-teams)"
+- [Уровни разрешений для репозитория личной учетной записи](/articles/permission-levels-for-a-user-account-repository/#collaborator-access-for-a-repository-owned-by-a-personal-account)
+- [Удаление участника совместной работы из личного репозитория](/articles/removing-a-collaborator-from-a-personal-repository)
+- [Удаление себя из репозитория участника совместной работы](/articles/removing-yourself-from-a-collaborator-s-repository)
+- [Организация членов в команды](/organizations/organizing-members-into-teams)

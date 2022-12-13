@@ -1,6 +1,6 @@
 ---
-title: GitHub extensions and integrations
-intro: 'Use {% data variables.product.product_name %} extensions to work seamlessly in {% data variables.product.product_name %} repositories within third-party applications.'
+title: Расширения и интеграции GitHub
+intro: 'Используйте расширения {% data variables.product.product_name %} для эффективной работы в репозиториях {% data variables.product.product_name %} в сторонних приложениях.'
 redirect_from:
   - /articles/about-github-extensions-for-third-party-applications
   - /articles/github-extensions-and-integrations
@@ -10,43 +10,49 @@ versions:
   fpt: '*'
   ghec: '*'
 shortTitle: Extensions & integrations
+ms.openlocfilehash: 84fae00e80bd772146339bcd38f9634a31462523
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148094588'
 ---
-## Editor tools
+## Инструменты редактора
 
-You can connect to {% data variables.product.product_name %} repositories within third-party editor tools such as Unity and {% data variables.product.prodname_vs %}.
+Вы можете подключиться к репозиториям {% variables.product.product_name %} в сторонних средствах редактора, таких как Unity и {% данных variables.product.prodname_vs %}.
 
-### {% data variables.product.product_name %} for Unity
+### {% data variables.product.product_name %} для Unity
 
-With the {% data variables.product.product_name %} for Unity editor extension, you can develop on Unity, the open source game development platform, and see your work on {% data variables.product.product_name %}. For more information, see the official Unity editor extension [site](https://unity.github.com/) or the [documentation](https://github.com/github-for-unity/Unity/tree/master/docs).
+С помощью расширения редактора {% data variables.product.product_name %} для Unity вы можете заниматься разработкой на платформе Unity, открытой платформе для разработки игр, и просматривать результаты своей работы в {% data variables.product.product_name %}. Дополнительные сведения см. на официальном [сайте](https://unity.github.com/) расширения редактора для Unity или в [документации](https://github.com/github-for-unity/Unity/tree/master/docs).
 
-### {% data variables.product.product_name %} for {% data variables.product.prodname_vs %}
+### {% data variables.product.product_name %} для {% data variables.product.prodname_vs %}
 
-With the {% data variables.product.product_name %} for {% data variables.product.prodname_vs %} extension, you can work in {% data variables.product.product_name %} repositories without leaving {% data variables.product.prodname_vs %}. For more information, see the official {% data variables.product.prodname_vs %} extension [site](https://visualstudio.github.com/) or [documentation](https://github.com/github/VisualStudio/tree/master/docs).
+Расширение {% data variables.product.product_name %} для {% data variables.product.prodname_vs %} позволяет работать в репозиториях {% data variables.product.product_name %}, не выходя из {% data variables.product.prodname_vs %}. Дополнительные сведения см. на официальном [сайте](https://visualstudio.github.com/) расширения {% data variables.product.prodname_vs %} или в [документации](https://github.com/github/VisualStudio/tree/master/docs).
 
-### {% data variables.product.prodname_dotcom %} for {% data variables.product.prodname_vscode %}
+### {% data variables.product.prodname_dotcom %} для {% data variables.product.prodname_vscode %}
 
-With the {% data variables.product.prodname_dotcom %} for {% data variables.product.prodname_vscode %} extension, you can review and manage {% data variables.product.product_name %} pull requests in {% data variables.product.prodname_vscode_shortname %}. For more information, see the official {% data variables.product.prodname_vscode_shortname %} extension [site](https://vscode.github.com/) or [documentation](https://github.com/Microsoft/vscode-pull-request-github).
+Расширение {% data variables.product.prodname_dotcom %} для {% data variables.product.prodname_vscode %} позволяет просматривать запросы на вытягивание {% data variables.product.product_name %} и управлять такими запросами в {% data variables.product.prodname_vscode_shortname %}. Дополнительные сведения см. на официальном [сайте](https://vscode.github.com/) расширения {% data variables.product.prodname_vscode_shortname %} или в [документации](https://github.com/Microsoft/vscode-pull-request-github).
 
-## Project management tools
+## Инструменты управления проектами
 
-You can integrate your personal or organization account on {% data variables.location.product_location %} with third-party project management tools, such as Jira.
+Вы можете интегрировать личную или организационную учетную запись на {% данных variables.location.product_location %} со сторонними средствами управления проектами, такими как Jira.
 
-### Jira Cloud and {% data variables.product.product_name %}.com integration
+### Интеграция Jira Cloud и {% data variables.product.product_name %}.com
 
-You can integrate Jira Cloud with your personal or organization account to scan commits and pull requests, creating relevant metadata and hyperlinks in any mentioned Jira issues. For more information, visit the [Jira integration app](https://github.com/marketplace/jira-software-github) in the marketplace.
+Вы можете интегрировать Jira Cloud с личной учетной записью или учетной записью организации для сканирования фиксаций и запросов на вытягивание, создав соответствующие метаданные и гиперссылки в любых упомянутых проблемах Jira. Дополнительные сведения см. на странице [приложения интеграции Jira](https://github.com/marketplace/jira-software-github) в Marketplace.
 
-## Team communication tools
+## Инструменты взаимодействия в командах
 
-You can integrate your personal or organization account on {% data variables.location.product_location %} with third-party team communication tools, such as Slack or Microsoft Teams.
+Вы можете интегрировать личную или организационную учетную запись на {% данных variables.location.product_location %} со сторонними средствами связи команды, такими как Slack или Microsoft Teams.
 
-### Slack and {% data variables.product.product_name %} integration
+### Интеграция Slack и {% data variables.product.product_name %}
 
-The Slack + {% data variables.product.prodname_dotcom %} app lets you subscribe to your repositories or organizations and get realtime updates about issues, pull requests, commits, discussions, releases, deployment reviews and deployment statuses. You can also perform activities like opening and closing issues, and you can see detailed references to issues and pull requests without leaving Slack. The app will also ping you personally in Slack if you are mentioned as part of any {% data variables.product.prodname_dotcom %} notifications that you receive in your channels or personal chats.
+Slack и приложение {% data variables.product.prodname_dotcom %} позволяют подписаться на репозитории или организации и получать обновления о проблемах, запросах на вытягивание, фиксациях, обсуждениях, выпусках, проверках развертывания и состояниях развертывания в режиме реального времени. Вы также можете открывать и закрывать проблемы и просматривать подробные ссылки на проблемы и запросы на вытягивание, не выходя из Slack. Приложение также лично оповещает вас в Slack, если вы упоминаетесь в любых уведомлениях {% data variables.product.prodname_dotcom %}, которые получаете в каналах или в личных чатах.
 
-The Slack + {% data variables.product.prodname_dotcom %} app is also compatible with [Slack Enterprise Grid](https://slack.com/intl/en-in/help/articles/360000281563-Manage-apps-on-Enterprise-Grid). For more information, visit the [Slack + {% data variables.product.prodname_dotcom %} app](https://github.com/marketplace/slack-github) in the marketplace.
+Slack и приложение {% data variables.product.prodname_dotcom %} также совместимы со [Slack Enterprise Grid](https://slack.com/intl/en-in/help/articles/360000281563-Manage-apps-on-Enterprise-Grid). Дополнительные сведения см. на странице [Slack и приложения {% data variables.product.prodname_dotcom %}](https://github.com/marketplace/slack-github) в Marketplace.
 
-### Microsoft Teams and {% data variables.product.product_name %} integration
+### Интеграция Microsoft Teams и {% data variables.product.product_name %}
 
-The {% data variables.product.prodname_dotcom %} for Teams app lets you subscribe to your repositories or organizations and get realtime updates about issues, pull requests, commits, discussions, releases, deployment reviews and deployment statuses. You can also perform activities like opening and closing issues, commenting on your issues and pull requests, and you can see detailed references to issues and pull requests without leaving Microsoft Teams. The app will also ping you personally in Teams if you are mentioned as part of any {% data variables.product.prodname_dotcom %} notifications that you receive in your channels or personal chats.
+Приложение {% data variables.product.prodname_dotcom %} для Teams позволяет подписаться на репозитории или организации и получать обновления о проблемах, запросах на вытягивание, фиксациях, обсуждениях, выпусках, проверках развертывания и состояниях развертывания в режиме реального времени. Вы также можете выполнять такие действия, как открытие и закрытие проблем, комментирование проблем и запросов на вытягивание, а также просматривать подробные ссылки на проблемы и запросы на вытягивание, не выходя из Microsoft Teams. Приложение также лично оповещает вас в Teams, если вы упоминаетесь в любых уведомлениях {% data variables.product.prodname_dotcom %}, которые получаете в каналах или в личных чатах.
 
-For more information, visit the [{% data variables.product.prodname_dotcom %} for Teams app](https://appsource.microsoft.com/en-us/product/office/WA200002077) in Microsoft AppSource.
+Дополнительные сведения см. на странице [приложения {% data variables.product.prodname_dotcom %} для Teams](https://appsource.microsoft.com/en-us/product/office/WA200002077) в Microsoft AppSource.

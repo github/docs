@@ -1,6 +1,6 @@
 ---
-title: About authentication to GitHub
-intro: 'You can securely access your account''s resources by authenticating to {% data variables.product.product_name %}, using different credentials depending on where you authenticate.'
+title: Сведения о проверке подлинности в GitHub
+intro: 'Чтобы получить безопасный доступ к ресурсам своей учетной записи, пройдите проверку подлинности в {% data variables.product.product_name %} с помощью различных учетных данных в зависимости от того, где выполняется проверка подлинности.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -13,102 +13,108 @@ redirect_from:
   - /github/authenticating-to-github/about-authentication-to-github
   - /github/authenticating-to-github/keeping-your-account-and-data-secure/about-authentication-to-github
 shortTitle: Authentication to GitHub
+ms.openlocfilehash: 73caa1d527e87551078b5ce6d5830a3a936ed22d
+ms.sourcegitcommit: 38a390a0101fa2848c3c1f070e69644d738097d1
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/21/2022
+ms.locfileid: '148104303'
 ---
-## About authentication to {% data variables.product.prodname_dotcom %}
+## Сведения о проверке подлинности в {% data variables.product.prodname_dotcom %}
 
-To keep your account secure, you must authenticate before you can access{% ifversion not ghae %} certain{% endif %} resources on {% data variables.product.product_name %}. When you authenticate to {% data variables.product.product_name %}, you supply or confirm credentials that are unique to you to prove that you are exactly who you declare to be.
+Чтобы обеспечить безопасность учетной записи, необходимо пройти проверку подлинности перед доступом к{% ifversion not ghae %} некоторым{% endif %} ресурсам на {% data variables.product.product_name %}. При проверке подлинности в {% data variables.product.product_name %} вы предоставляете или подтверждаете свои уникальные учетные данные, чтобы доказать, что вы именно тот, кем себя называете.
 
-You can access your resources in {% data variables.product.product_name %} in a variety of ways: in the browser, via {% data variables.product.prodname_desktop %} or another desktop application, with the API, or via the command line. Each way of accessing {% data variables.product.product_name %} supports different modes of authentication.
+Доступ к ресурсам в {% data variables.product.product_name %} можно получать различными способами: в браузере, через {% data variables.product.prodname_desktop %} или другое классическое приложение, с помощью API или командной строки. Каждый способ доступа к {% data variables.product.product_name %} поддерживает различные режимы проверки подлинности:
 {%- ifversion not fpt %}
-- Your identity provider (IdP){% endif %}{% ifversion not ghae %}
-- Username and password with two-factor authentication{% endif %}
-- {% data variables.product.pat_generic_caps %}
-- SSH key
+- Ваш поставщик удостоверений (IdP){% endif %}{% ifversion not ghae %}
+- Имя пользователя и пароль с двухфакторной проверкой подлинности{% endif %}
+- {% данных variables.product.pat_generic_caps %}
+- Ключ SSH
 
-## Authenticating in your browser
+## Проверка подлинности в браузере
 
 {% ifversion ghae %}
 
-You can authenticate to {% data variables.product.product_name %} in your browser using your IdP. For more information, see "[About authentication with SAML single sign-on](/github/authenticating-to-github/about-authentication-with-saml-single-sign-on)."
+Вы можете пройти проверку подлинности в {% data variables.product.product_name %} в браузере с помощью поставщика удостоверений. Дополнительные сведения см. в разделе [Сведения о проверке подлинности с помощью единого входа SAML](/github/authenticating-to-github/about-authentication-with-saml-single-sign-on).
 
 {% else %}
 
 {% ifversion fpt or ghec %}
 
-If you're a member of an {% data variables.enterprise.prodname_emu_enterprise %}, you will authenticate to {% data variables.product.product_name %} in your browser using your IdP. For more information, see "[Authenticating as a managed user](/enterprise-cloud@latest/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users#authenticating-as-a-managed-user){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %} 
+Если вы являетесь членом {% данных variables.enterprise.prodname_emu_enterprise %}, вы будете проходить проверку подлинности в {% данных variables.product.product_name %} в браузере с помощью поставщика удостоверений. Дополнительные сведения см. в разделе [Проверка подлинности в качестве управляемого пользователя](/enterprise-cloud@latest/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users#authenticating-as-a-managed-user){% ifversion fpt %} в документации по {% data variables.product.prodname_ghe_cloud %}.{% else %}."{% endif %} 
 
-If you're not a member of an {% data variables.enterprise.prodname_emu_enterprise %}, you will authenticate using your {% data variables.product.prodname_dotcom_the_website %} username and password. You may also use two-factor authentication and SAML single sign-on, which can be required by organization and enterprise owners.
+Если вы не являетесь членом {% данных variables.enterprise.prodname_emu_enterprise %}, вы проверите проверку подлинности с помощью имени пользователя и пароля {% данных variables.product.prodname_dotcom_the_website %}. Вы также можете использовать двухфакторную проверку подлинности и единый вход SAML, если этого потребуют организация и владельцы предприятия.
 
 {% else %}
 
-You can authenticate to {% data variables.product.product_name %} in your browser in a number of ways.
+Проверку подлинности в {% data variables.product.product_name %} в браузере можно проходить различными способами.
 
 {% endif %}
 
-- **Username and password only**
-    - You'll create a password when you create your account on {% data variables.product.product_name %}. We recommend that you use a password manager to generate a random and unique password. For more information, see "[Creating a strong password](/github/authenticating-to-github/creating-a-strong-password)."{% ifversion fpt or ghec %}
-  - If you have not enabled 2FA, {% data variables.product.product_name %} will ask for additional verification when you first sign in from an unrecognized device, such as a new browser profile, a browser where the cookies have been deleted, or a new computer.
+- **Только имя пользователя и пароль**
+    - Пароль создается при создании учетной записи в {% data variables.product.product_name %}. Рекомендуется использовать диспетчер паролей для создания случайного уникального пароля. Дополнительные сведения см. в разделе [Создание надежного пароля](/github/authenticating-to-github/creating-a-strong-password). {% ifversion fpt or ghec %}
+  - Если вы не включили двухфакторную проверку подлинности, {% data variables.product.product_name %} будет запрашивать дополнительную проверку при первом входе с нераспознанного устройства, например из нового профиля браузера, из браузера, в котором были удалены файлы cookie, или с нового компьютера.
 
-   After providing your username and password, you will be asked to provide a verification code that we will send to you via email. If you have the {% data variables.product.prodname_mobile %} application installed, you'll receive a notification there instead. For more information, see "[{% data variables.product.prodname_mobile %}](/get-started/using-github/github-mobile)."{% endif %}
-- **Two-factor authentication (2FA)** (recommended)
-    - If you enable 2FA, after you successfully enter your username and password, we'll also prompt you to provide a code that's generated by a time-based one time password (TOTP) application on your mobile device{% ifversion fpt or ghec %} or sent as a text message (SMS){% endif %}. For more information, see "[Accessing {% data variables.product.prodname_dotcom %} using two-factor authentication](/github/authenticating-to-github/accessing-github-using-two-factor-authentication#providing-a-2fa-code-when-signing-in-to-the-website)."
-    - In addition to authentication with a TOTP application{% ifversion fpt or ghec %} or a text message{% endif %}, you can optionally add an alternative method of authentication with {% ifversion fpt or ghec %}{% data variables.product.prodname_mobile %} or{% endif %} a security key using WebAuthn. For more information, see {% ifversion fpt or ghec %}"[Configuring two-factor authentication with {% data variables.product.prodname_mobile %}](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication#configuring-two-factor-authentication-using-github-mobile)" and {% endif %}"[Configuring two-factor authentication using a security key](/github/authenticating-to-github/configuring-two-factor-authentication#configuring-two-factor-authentication-using-a-security-key)."{% ifversion ghes %}
-- **External authentication**
-  - Your site administrator may configure {% data variables.location.product_location %} to use external authentication instead of a username and password. For more information, see "[External authentication methods](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise#external-authentication)."{% endif %}{% ifversion fpt or ghec %}
-- **SAML single sign-on**
-  - Before you can access resources owned by an organization or enterprise account that uses SAML single sign-on, you may need to also authenticate through an IdP. For more information, see "[About authentication with SAML single sign-on](/authentication/authenticating-with-saml-single-sign-on/about-authentication-with-saml-single-sign-on){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}{% endif %}
+   После предоставления имени пользователя и пароля вам будет предложено указать код проверки, который мы отправим вам по электронной почте. Если у вас установлено приложение {% data variables.product.prodname_mobile %}, вместо этого вы будете получать уведомление. Дополнительные сведения см. в статье [{% data variables.product.prodname_mobile %}](/get-started/using-github/github-mobile).{% endif %}
+- **Двухфакторная проверка подлинности** (рекомендуется)
+    - Если вы включите двухфакторную проверку подлинности, то после успешного ввода имени пользователя и пароля мы также попросим вам указать код, созданный генератором одноразовых паролей с ограниченным сроком действия на мобильном устройстве{% ifversion fpt or ghec %} или отправленный в текстовом сообщении (SMS){% endif %}. Дополнительные сведения см. в разделе [Доступ к {% data variables.product.prodname_dotcom %} с помощью двухфакторной проверки подлинности](/github/authenticating-to-github/accessing-github-using-two-factor-authentication#providing-a-2fa-code-when-signing-in-to-the-website).
+    - Помимо проверки подлинности с помощью генератора одноразовых паролей с ограниченным сроком действия{% ifversion fpt or ghec %} или текстового сообщения{% endif %} можно также добавить альтернативный метод проверки подлинности с помощью {% ifversion fpt or ghec %}{% data variables.product.prodname_mobile %} или{% endif %} ключа безопасности, используя WebAuthn. Дополнительные сведения см. в разделах {% ifversion fpt or ghec %}[Настройка двухфакторной проверки подлинности с помощью {% data variables.product.prodname_mobile %}](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication#configuring-two-factor-authentication-using-github-mobile) и {% endif %}[Настройка двухфакторной проверки подлинности с использованием ключа безопасности](/github/authenticating-to-github/configuring-two-factor-authentication#configuring-two-factor-authentication-using-a-security-key).{% ifversion ghes %}
+- **Внешняя проверка подлинности**
+  - Администратор сайта может настроить {% данных variables.location.product_location %} для использования внешней проверки подлинности вместо имени пользователя и пароля. Дополнительные сведения см. в разделе [Внешние методы проверки подлинности](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise#external-authentication). {% endif %} {% ifversion fpt or ghec %}
+- **Единый вход SAML**
+  - Возможно, что для получения доступа к ресурсам, принадлежащим организации или корпоративной учетной записи, использующей единый вход SAML, вам нужно будет также пройти проверку подлинности с помощью поставщика удостоверений. Дополнительные сведения см. в разделе [Сведения о проверке подлинности с помощью единого входа SAML](/authentication/authenticating-with-saml-single-sign-on/about-authentication-with-saml-single-sign-on){% ifversion fpt %} в документации по {% data variables.product.prodname_ghe_cloud %}.{% else %}.{% endif %}{% endif %}
 
 {% endif %}
 
-## Authenticating with {% data variables.product.prodname_desktop %}
-You can authenticate with {% data variables.product.prodname_desktop %} using your browser. For more information, see "[Authenticating to {% data variables.product.prodname_dotcom %}](/desktop/getting-started-with-github-desktop/authenticating-to-github)."
+## Проверка подлинности с помощью {% data variables.product.prodname_desktop %}
+Вы можете пройти проверку подлинности с помощью {% data variables.product.prodname_desktop %} в браузере. Дополнительные сведения см. в разделе [Проверка подлинности в {% data variables.product.prodname_dotcom %}](/desktop/getting-started-with-github-desktop/authenticating-to-github).
 
-## Authenticating with the API
+## Проверка подлинности с помощью API
 
-You can authenticate with the API in different ways.
+Проверку подлинности с помощью API можно проходить разными способами.
 
-- **{% data variables.product.pat_generic_caps %}s**
-    - In limited situations, such as testing, you can use a {% data variables.product.pat_generic %} to access the API. Using a {% data variables.product.pat_generic %} enables you to revoke access at any time. For more information, see "[Creating a {% data variables.product.pat_generic %}](/github/authenticating-to-github/creating-a-personal-access-token)."
-- **Web application flow**
-    - For OAuth Apps in production, you should authenticate using the web application flow. For more information, see "[Authorizing OAuth Apps](/apps/building-oauth-apps/authorizing-oauth-apps/#web-application-flow)."
-- **GitHub Apps**
-    - For GitHub Apps in production, you should authenticate on behalf of the app installation. For more information, see "[Authenticating with {% data variables.product.prodname_github_apps %}](/apps/building-github-apps/authenticating-with-github-apps/)."
+- **{% данных variables.product.pat_generic_caps %}s**
+    - В ограниченных ситуациях, таких как тестирование, для доступа к API можно использовать {% данных variables.product.pat_generic %}. Использование {% данных variables.product.pat_generic %} позволяет отозвать доступ в любое время. Дополнительные сведения см. в разделе "[Создание {% данных variables.product.pat_generic %}](/github/authenticating-to-github/creating-a-personal-access-token)".
+- **Процесс в веб-приложении**
+    - Для рабочих приложений OAuth проверку подлинности следует проходить с помощью процесса в веб-приложении. Дополнительные сведения см. в разделе [Авторизация приложений OAuth](/apps/building-oauth-apps/authorizing-oauth-apps/#web-application-flow).
+- **Приложения GitHub**
+    - Для рабочих приложений GitHub проверку подлинности следует проходить от имени установленного приложения. Дополнительные сведения см. в разделе [Проверка подлинности с помощью {% data variables.product.prodname_github_apps %}](/apps/building-github-apps/authenticating-with-github-apps/).
 
-## Authenticating with the command line
+## Проверка подлинности с помощью командной строки
 
-You can access repositories on {% data variables.product.product_name %} from the command line in two ways, HTTPS and SSH, and both have a different way of authenticating. The method of authenticating is determined based on whether you choose an HTTPS or SSH remote URL when you clone the repository. For more information about which way to access, see "[About remote repositories](/github/getting-started-with-github/about-remote-repositories)."
+Доступ к репозиториям на {% data variables.product.product_name %} можно получать из командной строки двумя способами: по HTTPS и SSH, причем метод проверки подлинности в этих двух случаях разный. Метод проверки подлинности зависит от того, выбрали ли вы удаленный URL-адрес HTTPS или SSH при клонировании репозитория. Дополнительные сведения об используемых способах доступа см. в разделе [Сведения об удаленных репозиториях](/github/getting-started-with-github/about-remote-repositories).
 
 ### HTTPS
 
-You can work with all repositories on {% data variables.product.product_name %} over HTTPS, even if you are behind a firewall or proxy.
+Со всеми репозиториями на {% data variables.product.product_name %} можно работать по протоколу HTTPS, даже если вы находитесь за брандмауэром или прокси-сервером.
 
-If you authenticate with {% data variables.product.prodname_cli %}, you can either authenticate with a {% data variables.product.pat_generic %} or via the web browser. For more information about authenticating with {% data variables.product.prodname_cli %}, see [`gh auth login`](https://cli.github.com/manual/gh_auth_login).
+При проверке подлинности с помощью {% данных variables.product.prodname_cli %}можно выполнить проверку подлинности с помощью {% данных variables.product.pat_generic %} или через веб-браузер. Дополнительные сведения о проверке подлинности с помощью {% data variables.product.prodname_cli %} см. в разделе [`gh auth login`](https://cli.github.com/manual/gh_auth_login).
 
-If you authenticate without {% data variables.product.prodname_cli %}, you must authenticate with a {% data variables.product.pat_generic %}. {% data reusables.user-settings.password-authentication-deprecation %} Every time you use Git to authenticate with {% data variables.product.product_name %}, you'll be prompted to enter your credentials to authenticate with {% data variables.product.product_name %}, unless you cache them with a [credential helper](/github/getting-started-with-github/caching-your-github-credentials-in-git).
+При проверке подлинности без {% данных variables.product.prodname_cli %}необходимо пройти проверку подлинности с помощью {% данных variables.product.pat_generic %}. {% data reusables.user-settings.password-authentication-deprecation %} При каждом использовании Git для проверки подлинности с помощью {% data variables.product.product_name %} вам нужно будет вводить учетные данные для проверки подлинности с помощью {% data variables.product.product_name %}, если они не кэшируются [вспомогательным приложением для хранения учетных данных](/github/getting-started-with-github/caching-your-github-credentials-in-git).
 
 ### SSH
 
-You can work with all repositories on {% data variables.product.product_name %} over SSH, although firewalls and proxies might refuse to allow SSH connections.
+Со всеми репозиториями на {% data variables.product.product_name %} можно работать по протоколу SSH, хотя брандмауэры и прокси-серверы могут отклонять SSH-подключения.
 
-If you authenticate with {% data variables.product.prodname_cli %}, the CLI will find SSH public keys on your machine and will prompt you to select one for upload. If {% data variables.product.prodname_cli %} does not find a SSH public key for upload, it can generate a new SSH public/private keypair and upload the public key to your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}. Then, you can either authenticate with a {% data variables.product.pat_generic %} or via the web browser. For more information about authenticating with {% data variables.product.prodname_cli %}, see [`gh auth login`](https://cli.github.com/manual/gh_auth_login).
+При проверке подлинности с помощью {% data variables.product.prodname_cli %} интерфейс командной строки находит открытые ключи SSH на вашем компьютере и предлагает выбрать один из них для отправки. Если {% данных variables.product.prodname_cli %} не находит открытый ключ SSH для отправки, он может создать новый открытый или закрытый ключ SSH и передать открытый ключ в учетную запись на {% ifversion ghae %}{% данных variables.product.product_name %}{% else %}{% данных variables.location.product_location %}{% endif %}. Затем можно выполнить проверку подлинности с помощью {% данных variables.product.pat_generic %} или через веб-браузер. Дополнительные сведения о проверке подлинности с помощью {% data variables.product.prodname_cli %} см. в разделе [`gh auth login`](https://cli.github.com/manual/gh_auth_login).
 
-If you authenticate without {% data variables.product.prodname_cli %}, you will need to generate an SSH public/private keypair on your local machine and add the public key to your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}. For more information, see "[Generating a new SSH key and adding it to the ssh-agent](/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)." Every time you use Git to authenticate with {% data variables.product.product_name %}, you'll be prompted to enter your SSH key passphrase, unless you've [stored the key](/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#adding-your-ssh-key-to-the-ssh-agent).
+При проверке подлинности без {% данных variables.product.prodname_cli %}необходимо создать SSH public/private keypair на локальном компьютере и добавить открытый ключ в учетную запись {% ifversion ghae %}{% данных variables.product.product_name %}{% остальных %}{% данных variables.location.product_location %}{% endif %}. Дополнительные сведения см. в разделе [Создание нового ключа SSH и его добавление в агент SSH](/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent). Каждый раз, когда вы используете GIT для проверки подлинности на {% data variables.product.product_name %}, вам предлагается ввести парольную фразу ключа SSH, если [ключ не сохранен](/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#adding-your-ssh-key-to-the-ssh-agent).
 
 {% ifversion fpt or ghec %}
-### Authorizing for SAML single sign-on
+### Авторизация для единого входа SAML
 
-To use a {% data variables.product.pat_generic %} or SSH key to access resources owned by an organization that uses SAML single sign-on, you must also authorize the personal token or SSH key. For more information, see "[Authorizing a {% data variables.product.pat_generic %} for use with SAML single sign-on](/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on)" or "[Authorizing an SSH key for use with SAML single sign-on](/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/authorizing-an-ssh-key-for-use-with-saml-single-sign-on){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}{% endif %}
+Чтобы использовать ключ {% данных variables.product.pat_generic %} или SSH для доступа к ресурсам, принадлежащим организации, использующей единый вход SAML, необходимо также авторизовать личный маркер или ключ SSH. Дополнительные сведения см. в разделе "[Авторизация {% данных variables.product.pat_generic %} для использования с единым входом SAML](/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on)" или "[Авторизация ключа SSH для использования с единым входом SAML](/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/authorizing-an-ssh-key-for-use-with-saml-single-sign-on){% ifversion fpt %}" в документации по {% данных variables.product.prodname_ghe_cloud %}. {% else %}". {% endif %} {% endif %}
 
-## {% data variables.product.company_short %}'s token formats
+## Форматы токенов {% data variables.product.company_short %}
 
-{% data variables.product.company_short %} issues tokens that begin with a prefix to indicate the token's type.
+{% data variables.product.company_short %} выдает токены, начинающиеся с префикса, который указывает тип токена.
 
-| Token type | Prefix | More information |
+| Тип маркера | Prefix | Дополнительные сведения |
 | :- | :- | :- |
-| {% data variables.product.pat_v1_caps %} | `ghp_` | {% ifversion pat-v2 %}"[Creating a {% data variables.product.pat_generic %}](/github/authenticating-to-github/creating-a-personal-access-token#creating-a-personal-access-token-classic)"{% else %}"[Creating a {% data variables.product.pat_generic %}](/github/authenticating-to-github/creating-a-personal-access-token)"{% endif %}  |{% ifversion pat-v2 %}
-| {% data variables.product.pat_v2_caps %} | `github_pat_` | "[Creating a {% data variables.product.pat_generic %}](/github/authenticating-to-github/creating-a-personal-access-token#creating-a-fine-grained-personal-access-token)" |{% endif %}
-| OAuth access token | `gho_` | "[Authorizing {% data variables.product.prodname_oauth_apps %}](/developers/apps/authorizing-oauth-apps)" |
-| User-to-server token for a {% data variables.product.prodname_github_app %} | `ghu_` | "[Identifying and authorizing users for {% data variables.product.prodname_github_apps %}](/developers/apps/identifying-and-authorizing-users-for-github-apps)" |
-| Server-to-server token for a {% data variables.product.prodname_github_app %} | `ghs_` | "[Authenticating with {% data variables.product.prodname_github_apps %}](/developers/apps/authenticating-with-github-apps#authenticating-as-an-installation)" |
-| Refresh token for a {% data variables.product.prodname_github_app %} | `ghr_` | "[Refreshing user-to-server access tokens](/developers/apps/refreshing-user-to-server-access-tokens)" |
+| {% данных variables.product.pat_v1_caps %} | `ghp_` | {% ifversion pat-v2 %}"[Создание {% данных variables.product.pat_generic %}](/github/authenticating-to-github/creating-a-personal-access-token#creating-a-personal-access-token-classic)"{% else %}"[Создание {% данных variables.product.pat_generic %}](/github/authenticating-to-github/creating-a-personal-access-token)"{% endif %}  |{% ifversion pat-v2 %}
+| {% данных variables.product.pat_v2_caps %} | `github_pat_` | "[Создание variables.product.pat_generic данных {% %}](/github/authenticating-to-github/creating-a-personal-access-token#creating-a-fine-grained-personal-access-token)" |{% endif %}
+| Маркер доступа OAuth | `gho_` | [Авторизация {% data variables.product.prodname_oauth_apps %}](/developers/apps/authorizing-oauth-apps) |
+| Маркер "пользователь — сервер" для {% data variables.product.prodname_github_app %} | `ghu_` | [Определение и авторизация пользователей для {% data variables.product.prodname_github_apps %}](/developers/apps/identifying-and-authorizing-users-for-github-apps) |
+| Маркер "сервер — сервер" для {% data variables.product.prodname_github_app %} | `ghs_` | [Проверка подлинности в {% data variables.product.prodname_github_apps %}](/developers/apps/authenticating-with-github-apps#authenticating-as-an-installation) |
+| Обновление токена для {% data variables.product.prodname_github_app %} | `ghr_` | [Обновление маркеров доступа "пользователь — сервер"](/developers/apps/refreshing-user-to-server-access-tokens) |
 

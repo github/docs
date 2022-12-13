@@ -1,0 +1,20 @@
+date: '07.04.2020'
+sections:
+  security_fixes:
+    - 'Пакеты обновлены до последних версий системы безопасности. {% comment %} https://github.com/github/enterprise2/pull/19536, https://github.com/github/enterprise2/pull/19494 {% endcomment %}'
+  bugs:
+    - 'Максимальный размер объекта Git (100 МБ) нельзя выбрать для репозитория, если в глобальной корпоративной учетной записи доступно значение размера объекта Git, отличное от заданного значения 100 МБ. {% comment %} https://github.com/github/github/pull/138805, https://github.com/github/github/pull/138683 {% endcomment %}'
+    - 'Результаты из API проблем и API запросов на вытягивание могут демонстрировать несогласованное поведение при упорядочивании по полю `updated_at`. {% comment %} https://github.com/github/github/pull/139247, https://github.com/github/github/pull/138486 {% endcomment %}'
+    - 'Поле SecurityVulnerability `package` нельзя запросить с помощью API GraphQL. {% comment %} https://github.com/github/github/pull/139418, https://github.com/github/github/pull/138245 {% endcomment %}'
+    - 'При изменении репозитория с *public* на *internal* отображается несоответствующее сообщение о выставлении счетов. {% comment %} https://github.com/github/github/pull/139531, https://github.com/github/github/pull/139492 {% endcomment %}'
+  known_issues:
+    - 'После первой настройки версии GitHub Enterprise Server, в которой еще нет пользователей, злоумышленник мог создать первого пользователя с правами администратора. {% comment %} https://github.com/github/enterprise2/issues/1889 {% endcomment %}'
+    - 'Пользовательские правила брандмауэра не сохраняются в процессе обновления. {% comment %} https://github.com/github/enterprise2/issues/2823 {% endcomment %}'
+    - 'Отслеживаемые файлы Git LFS, [отправленные через веб-интерфейс](https://github.com/blog/2105-upload-files-to-your-repositories), ошибочно добавлялись напрямую в репозиторий. {% comment %} https://github.com/github/github/issues/54684 {% endcomment %}'
+    - 'Невозможно закрывать проблемы, если они содержат постоянную ссылку на BLOB-объект в том же репозитории с путем, длина которого превышает 255 символов. {% comment %} https://github.com/github/github/issues/107731 {% endcomment %}'
+    - 'При передаче объекта gist выдается исключение во время работы перехватчика последующего получения. {% comment %} https://github.com/github/github/issues/129091 {% endcomment %}'
+    - 'Когда в GitHub Connect включен параметр "Пользователи могут выполнять поиск на GitHub.com", результаты поиска на GitHub.com не включают проблемы в частных и внутренних репозиториях. {% comment %} https://github.com/github/admin-experience/issues/571 {% endcomment %}'
+    - 'При обновлении с предыдущий версий рабочие роли фонового задания не порождаются, из-за чего не работают основные функции, такие как объединение запросов на вытягивание. {% comment %} https://github.com/github/enterprise2/issues/19232 {% endcomment %}'
+    - 'Оповещения безопасности не включаются в отчет при передаче в репозитории посредством командной строки. (updated 2020-06-23) {% comment %} https://github.com/github/github/issues/143190 {% endcomment %}'
+    - 'Граф зависимостей не обнаруживает зависимости при развертывании в конфигурации кластера с несколькими узлами Redis. (updated 2020-06-30) {% comment %} https://github.com/github/dependency-graph/issues/81 {% endcomment %}'
+    - 'Если узел реплики находится в автономном режиме в конфигурации высокой доступности, {% data variables.product.product_name %} по-прежнему может маршрутизировать запросы {% data variables.product.prodname_pages %} на узел в автономном режиме, снижая доступность {% data variables.product.prodname_pages %} для пользователей.'

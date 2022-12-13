@@ -1,29 +1,30 @@
 ---
-title: Viewing job execution time
+title: Просмотр времени выполнения задания
 shortTitle: View job execution time
-intro: 'You can view the execution time of a job, including the billable minutes that a job accrued.'
+intro: 'Вы можете просмотреть время выполнения задания, включая оплачиваемые минуты, начисленные для задания.'
 redirect_from:
   - /actions/managing-workflow-runs/viewing-job-execution-time
 versions:
   fpt: '*'
   ghec: '*'
+ms.openlocfilehash: 2248c40de279e7b9f88775e98cf5a92d467eded5
+ms.sourcegitcommit: d6838593f16c4b800e83cac82f6d398a14f7516d
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/14/2022
+ms.locfileid: '148045725'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+Оплачиваемые минуты выполнения заданий отображаются только для заданий, выполняемых в частных репозиториях, которые используют средства выполнения, размещенные в {% data variables.product.prodname_dotcom %}, и эти минуты округляются до следующей минуты. Плата за минуты не взимается при использовании {% data variables.product.prodname_actions %} в общедоступных репозиториях или для заданий, выполняемых в локальных средствах выполнения.
 
-Billable job execution minutes are only shown for jobs run on private repositories that use {% data variables.product.prodname_dotcom %}-hosted runners and are rounded up to the next minute. There are no billable minutes when using {% data variables.product.prodname_actions %} in public repositories or for jobs run on self-hosted runners.
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.actions-tab %} {% data reusables.repositories.navigate-to-workflow %} {% data reusables.repositories.view-run %}
+1. В сводке задания можно просмотреть время выполнения задания. Чтобы просмотреть сведения о времени выполнения оплачиваемого задания, в левой боковой панели в разделе "Сведения о выполнении" щелкните **{% octicon "stopwatch" aria-label="Значок стоп-часы" %} Использование**.
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.actions-tab %}
-{% data reusables.repositories.navigate-to-workflow %}
-{% data reusables.repositories.view-run %}
-1. Under the job summary, you can view the job's execution time. To view details about the billable job execution time, in the left sidebar under "Run details", click **{% octicon "stopwatch" aria-label="The stopwatch icon" %} Usage**.
-
-   ![Run and billable time details link](/assets/images/help/repository/view-run-billable-time.png)
+   ![Ссылка на сведения о времени запуска и времени для выставления счетов](/assets/images/help/repository/view-run-billable-time.png)
 
    {% note %}
 
-   **Note:** The billable time shown does not include any minute multipliers. To view your total {% data variables.product.prodname_actions %} usage, including minute multipliers, see "[Viewing your {% data variables.product.prodname_actions %} usage](/billing/managing-billing-for-github-actions/viewing-your-github-actions-usage)."
+   **Примечание.** Показанное оплачиваемое время не включает в себя никакие множители минут. О том, как просмотреть общий объем потребления {% data variables.product.prodname_actions %}, включая множители минут, см. в разделе[Просмотр сведений о потреблении {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions/viewing-your-github-actions-usage).
 
    {% endnote %}

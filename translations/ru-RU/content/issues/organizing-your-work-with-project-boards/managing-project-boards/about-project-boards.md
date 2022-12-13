@@ -1,6 +1,6 @@
 ---
-title: 'About {% data variables.product.prodname_projects_v1 %}'
-intro: '{% data variables.product.prodname_projects_v1_caps %} on {% data variables.product.product_name %} help you organize and prioritize your work. You can create {% data variables.projects.projects_v1_boards %} for specific feature work, comprehensive roadmaps, or even release checklists. With {% data variables.product.prodname_projects_v1 %}, you have the flexibility to create customized workflows that suit your needs.'
+title: 'Сведения о {% data variables.product.prodname_projects_v1 %}'
+intro: '{% data variables.product.prodname_projects_v1_caps %} н {% data variables.product.product_name %} помогает упорядочивать и приоритизировать работу. Вы можете создавать {% data variables.projects.projects_v1_boards %} для работы конкретных компонентов, для комплексных дорожных карт и даже для контрольных списков выпусков. С помощью {% data variables.product.prodname_projects_v1 %} вы можете создавать настраиваемые рабочие процессы, которые соответствуют вашим потребностям.'
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards/about-project-boards
   - /articles/about-projects
@@ -11,64 +11,69 @@ versions:
 topics:
   - Pull requests
 allowTitleToDifferFromFilename: true
+ms.openlocfilehash: c14ee749a2e97bb9ef608e1b2d548098f18af0d0
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148107624'
 ---
-
 {% data reusables.projects.project_boards_old %}
 
-{% data variables.projects.projects_v1_boards_caps %} are made up of issues, pull requests, and notes that are categorized as cards in columns of your choosing. You can drag and drop or use keyboard shortcuts to reorder cards within a column, move cards from column to column, and change the order of columns.
+{% data variables.projects.projects_v1_boards_caps %} состоят из проблем, запросов на вытягивание и заметок, распределенных в виде карточек между столбцами по вашему выбору. Вы можете использовать перетаскивание или сочетания клавиш для изменения порядка карточек в столбце, перемещения карточек из столбца в столбец и изменения порядка столбцов.
 
-{% data variables.projects.projects_v1_board_caps %} cards contain relevant metadata for issues and pull requests, like labels, assignees, the status, and who opened it. {% data reusables.project-management.edit-in-project %}
+Карточки {% data variables.projects.projects_v1_board_caps %} содержат важные метаданные для проблем и запросов на вытягивание, такие как метки, уполномоченные лица, состояние и имя создателя. {% data reusables.project-management.edit-in-project %}
 
-You can create notes within columns to serve as task reminders, references to issues and pull requests from any repository on {% data variables.location.product_location %}, or to add information related to the {% data variables.projects.projects_v1_board %}. You can create a reference card for another {% data variables.projects.projects_v1_board %} by adding a link to a note. If the note isn't sufficient for your needs, you can convert it to an issue. For more information on converting notes to issues, see "[Adding notes to a {% data variables.product.prodname_project_v1 %}](/articles/adding-notes-to-a-project-board)."
+Заметки в столбцах можно создавать в качестве напоминаний о задачах, ссылаться на проблемы и извлекать запросы из любого репозитория на {% данных variables.location.product_location %}, или добавлять сведения, связанные с {% данных variables.projects.projects_v1_board %}. Вы можете создать ссылочную карточку для другой {% data variables.projects.projects_v1_board %}, добавив ссылку в заметку. Если заметки недостаточно, ее можно преобразовать в проблему. Дополнительные сведения о преобразовании заметок в проблемы см. в разделе [Добавление заметок в {% data variables.product.prodname_project_v1 %}](/articles/adding-notes-to-a-project-board).
 
-Types of project boards:
+Типы досок проектов:
 
-- **User-owned {% data variables.projects.projects_v1_board %}** can contain issues and pull requests from any personal repository.
-- **Organization-wide {% data variables.projects.projects_v1_board %}** can contain issues and pull requests from any repository that belongs to an organization.  {% data reusables.project-management.link-repos-to-project-board %} For more information, see "[Linking a repository to a {% data variables.product.prodname_project_v1 %}](/articles/linking-a-repository-to-a-project-board)."
-- **Repository {% data variables.projects.projects_v1_board %}** are scoped to issues and pull requests within a single repository. They can also include notes that reference issues and pull requests in other repositories.
+- **Пользовательская {% data variables.projects.projects_v1_board %}** может содержать проблемы и запросы на вытягивание из любого личного репозитория.
+- **{% data variables.projects.projects_v1_board %} на уровне организации** может содержать проблемы и запросы на вытягивание из любого репозитория, который принадлежит организации.  {% data reusables.project-management.link-repos-to-project-board %} Дополнительные сведения см. в разделе [Связывание репозитория с {% data variables.product.prodname_project_v1 %}](/articles/linking-a-repository-to-a-project-board).
+- Область действия **{% data variables.projects.projects_v1_board %} репозитория** ограничена проблемами и запросами на вытягивание в одном репозитории. Они также могут включать заметки, которые ссылаются на проблемы и запросы на вытягивание в других репозиториях.
 
-## Creating and viewing {% data variables.projects.projects_v1_boards %}
+## Создание и просмотр {% data variables.projects.projects_v1_boards %}
 
-To create a {% data variables.projects.projects_v1_board %} for your organization, you must be an organization member. Organization owners and people with {% data variables.projects.projects_v1_board %} admin permissions can customize access to the {% data variables.projects.projects_v1_board %}.
+Чтобы создать {% data variables.projects.projects_v1_board %} для вашей организации, необходимо быть членом организации. Владельцы и пользователи организации с разрешениями администратора {% data variables.projects.projects_v1_board %} могут настраивать доступ к {% data variables.projects.projects_v1_board %}.
 
 {% ifversion classic-project-visibility-permissions %}{% data reusables.projects.owners-can-limit-visibility-permissions %}{% endif %}
 
-If an organization-owned {% data variables.projects.projects_v1_board %} includes issues or pull requests from a repository that you don't have permission to view, the card will be redacted.  For more information, see "[{% data variables.product.prodname_project_v1_caps %} permissions for an organization](/articles/project-board-permissions-for-an-organization)."
+Если {% data variables.projects.projects_v1_board %}, принадлежащая организации, включает проблемы или запросы на вытягивание из репозитория, на просмотр которого у вас нет разрешения, карточка будет удалена.  Дополнительные сведения см. в разделе [Разрешения для {% data variables.product.prodname_project_v1_caps %} в организации](/articles/project-board-permissions-for-an-organization).
 
-The activity view shows the {% data variables.projects.projects_v1_board %}'s recent history, such as cards someone created or moved between columns. To access the activity view, click **Menu** and scroll down.
+В представлении действий отображается недавняя история {% data variables.projects.projects_v1_board %}, например созданные или перемещенные между столбцами карточки. Чтобы получить доступ к представлению действий, щелкните **меню** и прокрутите вниз.
 
-To find specific cards on a {% data variables.projects.projects_v1_board %} or view a subset of the cards, you can filter {% data variables.projects.projects_v1_board %} cards. For more information, see "[Filtering cards on a {% data variables.product.prodname_project_v1 %}](/articles/filtering-cards-on-a-project-board)."
+Чтобы найти определенные карточки на {% data variables.projects.projects_v1_board %} или просмотреть группу карточек, можно отфильтровать карточки {% data variables.projects.projects_v1_board %}. Дополнительные сведения см. в разделе [Фильтрация карточек на {% data variables.product.prodname_project_v1 %}](/articles/filtering-cards-on-a-project-board).
 
-To simplify your workflow and keep completed tasks off your {% data variables.projects.projects_v1_board %}, you can archive cards. For more information, see "[Archiving cards on a {% data variables.product.prodname_project_v1 %}](/articles/archiving-cards-on-a-project-board)."
+Чтобы упростить рабочий процесс и убирать завершенные задачи с {% data variables.projects.projects_v1_board %}, можно архивировать карточки. Дополнительные сведения см. в разделе [Архивация карточек на {% data variables.product.prodname_project_v1 %}](/articles/archiving-cards-on-a-project-board).
 
-If you've completed all of your {% data variables.projects.projects_v1_board %} tasks or no longer need to use your {% data variables.projects.projects_v1_board %}, you can close the {% data variables.projects.projects_v1_board %}. For more information, see "[Closing a {% data variables.product.prodname_project_v1 %}](/articles/closing-a-project-board)."
+Если вы выполнили все задачи на {% data variables.projects.projects_v1_board %} или больше не хотите использовать {% data variables.projects.projects_v1_board %}, можно закрыть {% data variables.projects.projects_v1_board %}. Дополнительные сведения см. в разделе [Закрытие {% data variables.product.prodname_project_v1 %}](/articles/closing-a-project-board).
 
-You can also [disable {% data variables.projects.projects_v1_boards %} in a repository](/articles/disabling-project-boards-in-a-repository) or [disable {% data variables.projects.projects_v1_boards %} in your organization](/articles/disabling-project-boards-in-your-organization), if you prefer to track your work in a different way.
+Вы также можете [отключить {% data variables.projects.projects_v1_boards %} в репозитории](/articles/disabling-project-boards-in-a-repository) или [отключить {% data variables.projects.projects_v1_boards %} в организации](/articles/disabling-project-boards-in-your-organization), если вы предпочитаете отслеживать работу по-другому.
 
 {% data reusables.project-management.project-board-import-with-api %}
 
-## Templates for {% data variables.projects.projects_v1_boards %}
+## Шаблоны для {% data variables.projects.projects_v1_boards %}
 
-You can use templates to quickly set up a new {% data variables.projects.projects_v1_board %}. When you use a template to create a {% data variables.projects.projects_v1_board %}, your new board will include columns as well as cards with tips for using {% data variables.product.prodname_projects_v1 %}. You can also choose a template with automation already configured.
+Шаблоны можно использовать для быстрой настройки новых {% data variables.projects.projects_v1_board %}. При использовании шаблона для создания {% data variables.projects.projects_v1_board %} новая доска будет включать столбцы, а также карточки с советами по использованию {% data variables.product.prodname_projects_v1 %}. Вы также можете выбрать шаблон с уже настроенной автоматизацией.
 
-| Template | Description |
+| Шаблон | Описание |
 | --- | --- |
-| Basic kanban | Track your tasks with To do, In progress, and Done columns |
-| Automated kanban | Cards automatically move between To do, In progress, and Done columns | 
-| Automated kanban with review | Cards automatically move between To do, In progress, and Done columns, with additional triggers for pull request review status |
-| Bug triage | Triage and prioritize bugs with To do, High priority, Low priority, and Closed columns |
+| Базовый канбан | Отслеживание задач с помощью столбцов "К выполнению", "Выполняется" и "Готово" |
+| Автоматизированный канбан | Карточки автоматически перемещаются между столбцами "К выполнению", "Выполняется" и "Готово" | 
+| Автоматизированный канбан с проверкой | Карточки автоматически перемещаются между столбцами "К выполнению", "Выполняется" и "Готово" с дополнительными триггерами для состояния проверки запроса на вытягивание |
+| Рассмотрение ошибок | Рассмотрение и определение приоритета ошибок с помощью столбцов "К выполнению", "Высокий приоритет", "Низкий приоритет" и "Закрыто" |
 
-For more information on automation for {% data variables.product.prodname_projects_v1 %}, see "[About automation for {% data variables.product.prodname_projects_v1 %}](/articles/about-automation-for-project-boards)."
+Дополнительные сведения об автоматизации для {% data variables.product.prodname_projects_v1 %} см. в разделе [Сведения об автоматизации для {% data variables.product.prodname_projects_v1 %}](/articles/about-automation-for-project-boards).
 
-![{% data variables.product.prodname_project_v1 %} with basic kanban template](/assets/images/help/projects/project-board-basic-kanban-template.png)
+![{% data variables.product.prodname_project_v1 %} с базовым шаблоном канбана](/assets/images/help/projects/project-board-basic-kanban-template.png)
 
 {% data reusables.project-management.copy-project-boards %}
 
-## Further reading
+## Дополнительные материалы
 
-- "[Creating a {% data variables.product.prodname_project_v1 %}](/articles/creating-a-project-board)"
-- "[Editing a {% data variables.product.prodname_project_v1 %}](/articles/editing-a-project-board)"{% ifversion fpt or ghec %}
-- "[Copying a {% data variables.product.prodname_project_v1 %}](/articles/copying-a-project-board)"{% endif %}
-- "[Adding issues and pull requests to a {% data variables.product.prodname_project_v1 %}](/articles/adding-issues-and-pull-requests-to-a-project-board)"
-- "[{% data variables.product.prodname_project_v1_caps %} permissions for an organization](/articles/project-board-permissions-for-an-organization)"
-- "[Keyboard shortcuts](/articles/keyboard-shortcuts/#project-boards)"
+- [Создание {% data variables.product.prodname_project_v1 %}](/articles/creating-a-project-board)
+- [Редактирование {% data variables.product.prodname_project_v1 %}](/articles/editing-a-project-board){% ifversion fpt or ghec %}
+- [Копирование {% data variables.product.prodname_project_v1 %}](/articles/copying-a-project-board){% endif %}
+- [Добавление проблем и запросов на вытягивание в {% data variables.product.prodname_project_v1 %}](/articles/adding-issues-and-pull-requests-to-a-project-board)
+- [Разрешения для {% data variables.product.prodname_project_v1_caps %} в организации](/articles/project-board-permissions-for-an-organization)
+- [Сочетания клавиш](/articles/keyboard-shortcuts/#project-boards)

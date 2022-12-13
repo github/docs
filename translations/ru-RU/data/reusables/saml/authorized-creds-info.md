@@ -1,7 +1,15 @@
-Before you can authorize a {% data variables.product.pat_generic %} or SSH key, you must have a linked SAML identity. If you're a member of an organization where SAML SSO is enabled, you can create a linked identity by authenticating to your organization with your IdP at least once. For more information, see "[About authentication with SAML single sign-on](/authentication/authenticating-with-saml-single-sign-on/about-authentication-with-saml-single-sign-on)."
+---
+ms.openlocfilehash: 3bb3621aef6adcf7c0d40336a4d4fc2495c10d47
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/20/2022
+ms.locfileid: "148099207"
+---
+Прежде чем авторизовать ключ {% данных variables.product.pat_generic %} или SSH, необходимо иметь связанное удостоверение SAML. Если вы являетесь членом организации, в которой включен единый вход SAML, можно создать связанное удостоверение, выполнив проверку подлинности в организации с помощью поставщика удостоверений хотя бы один раз. Дополнительные сведения см. в разделе [Сведения о проверке подлинности с помощью единого входа SAML](/authentication/authenticating-with-saml-single-sign-on/about-authentication-with-saml-single-sign-on).
 
-After you authorize a {% data variables.product.pat_generic %} or SSH key, the token or key will stay authorized until revoked in one of the following ways.
-- An organization or enterprise owner revokes the authorization.
-- You are removed from the organization.
-- The scopes in a {% data variables.product.pat_generic %} are edited, or the token is regenerated.
-- The {% data variables.product.pat_generic %} expired as defined during creation.
+После авторизации ключа {% данных variables.product.pat_generic %} или SSH маркер или ключ останутся авторизованными до отмены одним из следующих способов.
+- Владелец организации или предприятия отменяет авторизацию.
+- Вас удалили из организации.
+- Области в {% данных variables.product.pat_generic %} редактируются или маркер создается повторно.
+- Срок действия {% данных variables.product.pat_generic %} истек, как определено во время создания.

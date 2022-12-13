@@ -1,17 +1,25 @@
-{% data reusables.projects.access-workflows %}
-1. Under **Default workflows**, click on the workflow that you want to edit.
+---
+ms.openlocfilehash: cbba68b854667e33f37c1f95a6be537e8b1fd44a
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/20/2022
+ms.locfileid: "148098362"
+---
+{% данных reusables.projects.access-workflows %}
+1. В разделе **Рабочие процессы по умолчанию** щелкните рабочий процесс, который требуется изменить.
    
-   ![Screenshot showing default workflows](/assets/images/help/projects-v2/default-workflows.png)
+   ![Снимок экрана: рабочие процессы по умолчанию](/assets/images/help/projects-v2/default-workflows.png)
 
-2. If the workflow can apply to both issues and pull requests, next to **When**, check the item type(s) that you want to act on.
+2. Если рабочий процесс применим как к проблемам, так и к запросам на вытягивание, рядом с пунктом **Когда** проверьте типы элементов, для которых требуется выполнить действие.
    
-   ![Screenshot showing the "when" configuration for a workflow](/assets/images/help/projects-v2/workflow-when.png)
+   ![Снимок экрана: конфигурация "Когда" для рабочего процесса](/assets/images/help/projects-v2/workflow-when.png)
 
-3. Next to **Set**, choose the value that you want to set the status to.
+3. Рядом с параметром **Задать** выберите значение, для которого нужно задать состояние.
    
-   ![Screenshot showing the "set" configuration for a workflow](/assets/images/help/projects-v2/workflow-set.png)
+   ![Снимок экрана: конфигурация "Задать" для рабочего процесса](/assets/images/help/projects-v2/workflow-set.png)
 
-4. If the workflow is disabled, click the toggle next to **Off** to enable the workflow.
+4. Если рабочий процесс отключен, щелкните переключатель рядом с **параметром Off** , чтобы включить рабочий процесс.
    
-   ![Screenshot showing the "On/Off" control for a workflow](/assets/images/help/projects-v2/workflow-enable.png)
+   ![Снимок экрана: элемент управления "Вкл./Выкл." для рабочего процесса](/assets/images/help/projects-v2/workflow-enable.png)
    

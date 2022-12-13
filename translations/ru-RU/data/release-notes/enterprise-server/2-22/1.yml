@@ -1,0 +1,97 @@
+date: '09.10.2020'
+sections:
+  security_fixes:
+    - '**СРЕДНИЙ**:  ImageMagick обновлен для решения проблемы, связанной с [DSA-4715-1](https://www.debian.org/security/2020/dsa-4715). {% comment %} https://github.com/github/enterprise2/pull/22623, https://github.com/github/enterprise2/pull/22610 {% endcomment %}'
+    - 'Запросы от интеграции GitHub App на обновление маркера доступа OAuth будут приняты, если они отправлены с другим (допустимым) идентификатором клиента OAuth, а секрет клиента затем использован для создания маркера обновления. {% comment %} https://github.com/github/github/pull/154921, https://github.com/github/github/pull/154423, https://github.com/github/ecosystem-apps/issues/1066 {% endcomment %}'
+    - 'Пользователь, чье имя пользователя в каталоге LDAP стандартизировано до существующего имени для входа в учетную запись GHES, мог пройти проверку подлинности в существующей учетной записи. {% comment %} https://github.com/github/github/pull/156513, https://github.com/github/github/pull/155512 {% endcomment %}'
+    - 'Пакеты обновлены до последних версий системы безопасности. {% comment %} https://github.com/github/enterprise2/pull/22912, https://github.com/github/enterprise2/pull/22878 {% endcomment %}'
+
+  bugs:
+    - |Раскрывающееся меню "Формат NameID" в консоли управления сбрасывается до значения "Не указано" после настройки для него значения "Постоянный". {% comment %} https://github.com/github/enterprise2/pull/22376, https://github.com/github/enterprise2/pull/22331, https://github.com/github/enterprise2/issues/13446 {% endcomment %}
+
+|
+    - |Обновление с использованием горячего исправления завершается ошибкой `''libdbi1'' не найден` {% comment %} https://github.com/github/enterprise2/pull/22557, https://github.com/github/enterprise2/pull/22552 {% endcomment %}
+
+|
+    - |При сохранении параметров [консоли управления](/admin/configuration/accessing-the-management-console) присоединилась новая строка к файлам [сертификата и ключа TLS/SSL](/admin/configuration/configuring-tls), что запустило ненужную операцию перезагрузки некоторых служб {% comment %} https://github.com/github/enterprise2/pull/22570, https://github.com/github/enterprise2/pull/22540 {% endcomment %}
+
+|
+    - |Ротация системных журналов для графа зависимостей не выполнялась, что спровоцировало неограниченный рост объема хранилища. {% comment %} https://github.com/github/enterprise2/pull/22767, https://github.com/github/enterprise2/pull/22733 {% endcomment %}
+
+|
+    - |Граф производительности MS SQL Server показывает статистику из основного экземпляра, даже если выбрана реплика. {% comment %} https://github.com/github/enterprise2/pull/22778, https://github.com/github/enterprise2/pull/22750 {% endcomment %}
+
+|
+    - |`ghe-actions-precheck` выполняет выход без уведомления и без проверок хранилища, если Actions не включен. {% comment %} https://github.com/github/enterprise2/pull/22787, https://github.com/github/enterprise2/pull/22742 {% endcomment %}
+
+|
+    - |Обновление может завершиться ошибкой, если перемещенные пользователи переопределяют используемый параметр. {% comment %} https://github.com/github/enterprise2/pull/22836, https://github.com/github/enterprise2/pull/22814 {% endcomment %}
+
+|
+    - |Некоторые службы, запущенные в контейнерах, не отправляли логи в журнал. {% comment %} https://github.com/github/enterprise2/pull/22994, https://github.com/github/enterprise2/pull/22518 {% endcomment %}
+
+|
+    - |В ссылках на рекомендации по безопасности GitHub используется URL-адрес с именем узла экземпляра GitHub Enterprise Server вместо GitHub.com, который перенаправляет пользователя на несуществующий URL-адрес. {% comment %} https://github.com/github/github/pull/153316, https://github.com/github/github/pull/151301 {% endcomment %}
+
+|
+    - |При импорте репозитория с помощью команды `ghe-migrator`, может возникнуть непредвиденное исключение, если имеются несогласованные данные. {% comment %} https://github.com/github/github/pull/153850, https://github.com/github/github/pull/151552 {% endcomment %}
+
+|
+    - |На странице параметров безопасности корпоративной учетной записи отображается ссылка "Просмотреть текущие конфигурации своей организации" для параметра "Двухфакторная проверка подлинности", если используемый режим проверки подлинности не поддерживает встроенную двухфакторную проверку подлинности. {% comment %} https://github.com/github/github/pull/153860 {% endcomment %}
+
+|
+    - |Маркеры обновления OAuth удаляются преждевременно. {% comment %} https://github.com/github/github/pull/154271, https://github.com/github/github/pull/153694 {% endcomment %}
+
+|
+    - |Задания поиска и восстановления создают исключения на этапе миграции конфигурации. {% comment %} https://github.com/github/github/pull/154573, https://github.com/github/github/pull/153392 {% endcomment %}
+
+|
+    - |На странице параметров для GitHub Apps вкладка "Бета-версия функций" не отображается в определенных случаях. {% comment %} https://github.com/github/github/pull/154612, https://github.com/github/github/pull/154417 {% endcomment %}
+
+|
+    - |При использовании `ghe-migrator` для импорта запросов на проверку PR, записи, связанные с удаленными пользователями, приводят к появлению ненужных записей. {% comment %} https://github.com/github/github/pull/154960, https://github.com/github/github/pull/153169 {% endcomment %}
+
+|
+    - |При импорте пользователей с помощью команды `ghe-migrator`, возникает ошибка "Недопустимая электронная почта", если созданный системой адрес электронной почты содержит более 100 символов. {% comment %} https://github.com/github/github/pull/155109, https://github.com/github/github/pull/152418 {% endcomment %}
+
+|
+    - |Веб-перехватчик ведения журналов может использовать большие объемы дискового пространства, вызывая переполнение корневого диска. {% comment %} https://github.com/github/github/pull/155657, https://github.com/github/github/pull/154100 {% endcomment %}
+
+|
+    - |Пользователи могут наблюдать снижение производительности при клонировании и получении Git в экземпляре с репликами высокой доступности из-за переадресации операций чтения на другой узел. {% comment %} https://github.com/github/github/pull/156195, https://github.com/github/github/pull/156016, https://github.com/github/spokesd/issues/746 {% endcomment %}
+
+|
+    - |На странице репозитория "Параметры" для сайтов GitHub пользователя и организации отображается сообщение об ошибке "500 Внутренняя ошибка сервера". {% comment %} https://github.com/github/github/pull/156439, https://github.com/github/github/issues/156183 {% endcomment %}
+
+|
+    - |Операции обслуживания сети репозитория могу быть приостановлены в состоянии `running`. {% comment %} https://github.com/github/github/pull/156669, https://github.com/github/github/pull/156036 {% endcomment %}
+
+|
+    - |Репозиторий, которые удаляется сразу после отправки результатов проверки кода, может вызывать приостановку обработки результатов проверки кода для всех репозиториев. {% comment %} https://github.com/github/github/pull/157063, https://github.com/github/github/pull/156437 {% endcomment %}
+
+|
+    - |Если одновременно отправляется большой объем результатов проверки кода, возможен таймаут обработки пакетов, который приводит к приостановке обработки результатов проверки кода. {% comment %} https://github.com/github/github/pull/157065, https://github.com/github/github/pull/156462 {% endcomment %}
+
+|
+    - |[Создание GitHub App на основе манифеста](https://docs.github.com/en/enterprise/2.22/user/developers/apps/creating-a-github-app-from-a-manifest) завершается ошибкой. {% comment %} https://github.com/github/github/pull/157133, https://github.com/github/github/pull/156904, https://github.com/github/enterprise2/issues/22849 {% endcomment %}
+
+|
+    - |Имена пользователей GitHub были случайно изменены при использовании проверки подлинности SAML, если имя пользователя GitHub не совпадало со значением атрибута, сопоставленного с полем "username" в консоли управления. {% comment %} https://github.com/github/github/pull/158131, https://github.com/github/github/pull/157936, https://github.com/github/external-identities/issues/335 {% endcomment %}
+
+|
+  changes:
+    - "Добавлена поддержка для типа экземпляра AWS EC2 `m5.16xlarge`. {% comment %} https://github.com/github/enterprise2/pull/22502, https://github.com/github/enterprise2/pull/22473 {% endcomment %}"
+    - "Требование отпечатков SSH в архивах `ghe-migrator` можно удалить, потому что их всегда можно вычислить. {% comment %} https://github.com/github/github/pull/156946, https://github.com/github/github/pull/155387 {% endcomment %}"
+    - "Манифесты GitHub App теперь включают поле `request_oauth_on_install`. {% comment %} https://github.com/github/github/pull/156991, https://github.com/github/github/pull/155010, https://github.com/github/ecosystem-apps/issues/1055 {% endcomment %}"
+
+  known_issues:
+    - "После первой настройки версии GitHub Enterprise Server, в которой еще нет пользователей, злоумышленник мог создать первого пользователя с правами администратора. {% comment %} https://github.com/github/enterprise2/issues/1889 {% endcomment %}"
+    - "Пользовательские правила брандмауэра не сохраняются в процессе обновления. {% comment %} https://github.com/github/enterprise2/issues/2823 {% endcomment %}"
+    - "Отслеживаемые файлы Git LFS, [отправленные через веб-интерфейс](https://github.com/blog/2105-upload-files-to-your-repositories), ошибочно добавлялись напрямую в репозиторий. {% comment %} https://github.com/github/github/issues/54684 {% endcomment %}"
+    - "Невозможно закрывать проблемы, если они содержат постоянную ссылку на BLOB-объект в том же репозитории с путем, длина которого превышает 255 символов. {% comment %} https://github.com/github/github/issues/107731 {% endcomment %}"
+    - "Когда в GitHub Connect включен параметр \"Пользователи могут выполнять поиск на GitHub.com\", результаты поиска на GitHub.com не включают проблемы в частных и внутренних репозиториях. {% comment %} https://github.com/github/admin-experience/issues/571 {% endcomment %}"
+    - "Обновления конфигурации завершаются ошибкой при восстановлении данных в экземпляр с поддержкой GitHub Actions, если в источнике исходной резервной копии не включен соответствующий компонент. {% comment %} https://github.com/github/c2c-actions-runtime/issues/915 {% endcomment %}"
+    - "GitHub Actions может не запускаться, если ранее он был включен в экземпляре, где запущена версия 2.22.0, которая обновляется до версии 2.22.1. (обновлено 23.10.2020) {% comment %} https://github.com/github/c2c-actions/issues/1680 {% endcomment %}"
+    - "После первой настройки экземпляра версии 2.22.1 или после обновления до версии 2.22.1, канал активности на информационной панели организации больше обновляться не будет (обновлено 27.10.2020 г.) {% comment %}https://github.com/github/enterprise2/issues/23050{% endcomment %}"
+    - "Журналы аудита можно отнести к адресу 127.0.0.1 вместо фактического IP-адреса источника. (updated 2020-11-02) {% comment %} https://github.com/github/enterprise2/issues/21514 {% endcomment %}"
+    - "Если узел реплики находится в автономном режиме в конфигурации высокой доступности, {% data variables.product.product_name %} по-прежнему может маршрутизировать запросы {% data variables.product.prodname_pages %} на узел в автономном режиме, снижая доступность {% data variables.product.prodname_pages %} для пользователей."

@@ -1,6 +1,6 @@
 ---
-title: Security best practices for apps
-intro: 'Guidelines for preparing a secure app to share on {% data variables.product.prodname_marketplace %}.'
+title: Рекомендации по обеспечению безопасности приложений
+intro: 'Рекомендации по подготовке безопасного приложения для предоставления общего доступа к {% data variables.product.prodname_marketplace %}.'
 redirect_from:
   - /apps/marketplace/getting-started/security-review-process
   - /marketplace/getting-started/security-review-process
@@ -12,52 +12,58 @@ versions:
   ghec: '*'
 topics:
   - Marketplace
+ms.openlocfilehash: d2eaf391c35238417951ce60dc33cc84a651804f
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148098596'
 ---
-If you follow these best practices it will help you to provide a secure user experience.
+Если вы будете следовать этим рекомендациям, это поможет вам обеспечить безопасное взаимодействие с пользователями.
 
-## Authorization, authentication, and access control
+## Авторизация, проверка подлинности и контроль доступа
 
-We recommend creating a GitHub App rather than an OAuth App. {% data reusables.marketplace.github_apps_preferred %}. See "[Differences between GitHub Apps and OAuth Apps](/apps/differences-between-apps/)" for more details.
-- Apps should use the principle of least privilege and should only request the OAuth scopes and GitHub App permissions that the app needs to perform its intended functionality. For more information, see [Principle of least privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege) in Wikipedia.
-- Apps should provide customers with a way to delete their account, without having to email or call a support person.
-- Apps should not share tokens between different implementations of the app. For example, a desktop app should have a separate token from a web-based app. Individual tokens allow each app to request the access needed for GitHub resources separately.
-- Design your app with different user roles, depending on the functionality needed by each type of user. For example, a standard user should not have access to admin functionality, and billing managers might not need push access to repository code.
-- Apps should not share service accounts such as email or database services to manage your SaaS service.
-- All services used in your app should have unique login and password credentials.
-- Admin privilege access to the production hosting infrastructure should only be given to engineers and employees with administrative duties.
-- Apps should not use {% data variables.product.pat_generic %}s to authenticate and should authenticate as an [OAuth App](/apps/about-apps/#about-oauth-apps) or a [GitHub App](/apps/about-apps/#about-github-apps):
-  - OAuth Apps should authenticate using an [OAuth token](/apps/building-oauth-apps/authorizing-oauth-apps/).
-  - GitHub Apps should authenticate using either a [JSON Web Token (JWT)](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app), [OAuth token](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/), or [installation access token](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation).
+Рекомендуется создавать приложение GitHub, а не приложение OAuth. {% data reusables.marketplace.github_apps_preferred %}. Дополнительные сведения см. в разделе [Различия между приложениями GitHub и приложениями OAuth](/apps/differences-between-apps/).
+- Приложения должны использовать принцип наименьших привилегий и запрашивать только те области OAuth и разрешения приложения GitHub, которые необходимы приложению для выполнения своих функций. Дополнительные сведения см. в статье Википедии [Принцип наименьших привилегий](https://en.wikipedia.org/wiki/Principle_of_least_privilege).
+- Приложения должны предоставлять клиентам возможность удалить свою учетную запись без необходимости отправлять сообщения по электронной почте или обращаться в службу поддержки.
+- Приложения не должны совместно использовать маркеры в различных реализациях приложения. Например, классическое приложение должно иметь отдельный маркер от веб-приложения. Отдельные маркеры позволяют каждому приложению запрашивать доступ к ресурсам GitHub отдельно.
+- Разрабатывайте приложение с разными ролями пользователей в зависимости от функциональности, необходимой для каждого типа пользователя. Например, стандартный пользователь не должен иметь доступа к функциям администратора, а специалистам по выставлению счетов может не потребоваться доступ к отправке кода в репозиторий.
+- Приложения не должны совместно использовать учетные записи служб, такие как электронная почта или службы баз данных, для управления службой SaaS.
+- Все службы, используемые в приложении, должны иметь уникальные учетные данные с именем входа и паролем.
+- Права администратора на доступ к производственной инфраструктуре размещения должны предоставляться только инженерам и сотрудникам с административными обязанностями.
+- Приложения не должны использовать {% данных variables.product.pat_generic %}s для проверки подлинности и должны проходить проверку подлинности в качестве [приложения OAuth](/apps/about-apps/#about-oauth-apps) или [приложения GitHub](/apps/about-apps/#about-github-apps):
+  - Приложения OAuth должны проходить проверку подлинности с помощью [маркера OAuth](/apps/building-oauth-apps/authorizing-oauth-apps/).
+  - Приложения GitHub должны проходить проверку подлинности с помощью [JSON Web Token (JWT)](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app), [маркера OAuth](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/) или [маркера доступа к установке](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation).
 
-## Data protection
+## Защита данных
 
-- Apps should encrypt data transferred over the public internet using HTTPS, with a valid TLS certificate, or SSH for Git.
-- Apps should store client ID and client secret keys securely. We recommend storing them as [environmental variables](http://en.wikipedia.org/wiki/Environment_variable#Getting_and_setting_environment_variables).
-- Apps should delete all GitHub user data within 30 days of receiving a request from the user, or within 30 days of the end of the user's legal relationship with GitHub.
-- Apps should not require the user to provide their GitHub password.
-- Apps should encrypt tokens, client IDs, and client secrets.
+- Приложения должны шифровать данные, передаваемые через общедоступный Интернет, с помощью протокола HTTPS, действительного сертификата TLS или протокола SSH для Git.
+- Приложения должны безопасно хранить идентификатор клиента и секретные ключи клиента. Мы рекомендуем хранить их в виде [переменных среды](http://en.wikipedia.org/wiki/Environment_variable#Getting_and_setting_environment_variables).
+- Приложения должны удалять все пользовательские данные GitHub в течение 30 дней после получения запроса от пользователя или в течение 30 дней после окончания юридических отношений пользователя с GitHub.
+- Приложения не должны требовать, чтобы пользователь предоставил свой пароль на GitHub.
+- Приложения должны шифровать маркеры, идентификаторы и секреты клиента.
 
-## Logging and monitoring
+## Ведение журналов и мониторинг
 
-Apps should have logging and monitoring capabilities. App logs should be retained for at least 30 days and archived for at least one year.
-A security log should include:
+Приложения должны иметь возможности ведения журнала и мониторинга. Журналы приложений должны храниться не менее 30 дней и архивироваться на период не менее одного года.
+Журнал безопасности должен включать следующие данные:
 
-- Authentication and authorization events
-- Service configuration changes
-- Object reads and writes
-- All user and group permission changes
-- Elevation of role to admin
-- Consistent timestamping for each event
-- Source users, IP addresses, and/or hostnames for all logged actions
+- события аутентификации и авторизации;
+- изменения конфигурации службы;
+- операции чтения и записи объектов;
+- все изменения разрешений пользователей и групп;
+- повышение прав роли до администратора;
+- согласованные метки времени для каждого события;
+- исходные пользователи, IP-адреса и (или) имена узлов для всех зарегистрированных действий.
 
-## Incident response workflow
+## Рабочий процесс по реагированию на инциденты
 
-To provide a secure experience for users, you should have a clear incident response plan in place before listing your app. We recommend having a security and operations incident response team in your company rather than using a third-party vendor. You should have the capability to notify {% data variables.product.product_name %} within 24 hours of a confirmed incident.
+Чтобы обеспечить безопасное взаимодействие с пользователями, необходимо иметь четкий план реагирования на инциденты до публикации приложения. Мы рекомендуем иметь собственную группу по безопасности и оперативному реагированию на инциденты в компании, а не обращаться к сторонним поставщикам этих услуг. Вы должны иметь возможность уведомлять {% data variables.product.product_name %} в течение 24 часов после подтвержденного инцидента.
 
-For an example of an incident response workflow, see the "Data Breach Response Policy" on the [SANS Institute website](https://www.sans.org/information-security-policy/). A short document with clear steps to take in the event of an incident is more valuable than a lengthy policy template.
+Пример рабочего процесса реагирования на инциденты см. в разделе "Data Breach Response Policy" (Политика реагирования на нарушение безопасности данных) на [веб-сайте Института SANS](https://www.sans.org/information-security-policy/). Краткий документ с четкими действиями, которые необходимо предпринять в случае инцидента, является более полезным, чем длинный шаблон политики.
 
-## Vulnerability management and patching workflow
+## Рабочий процесс управления уязвимостями и исправлениями
 
-You should conduct regular vulnerability scans of production infrastructure. You should triage the results of vulnerability scans and define a period of time in which you agree to remediate the vulnerability.
+Следует проводить регулярные проверки уязвимостей производственной инфраструктуры. Следует проанализировать результаты сканирования уязвимостей и определить период времени, в течение которого вы соглашаетесь устранить уязвимость.
 
-If you are not ready to set up a full vulnerability management program, it's useful to start by creating a patching process. For guidance in creating a patch management policy, see this TechRepublic article "[Establish a patch management policy](https://www.techrepublic.com/article/establish-a-patch-management-policy-87756/)."
+Если вы не готовы сразу внедрить полную программу управления уязвимостями, можно начать с создания процесса установки исправлений. Рекомендации по созданию политики управления исправлениями см. в статье TechRepublic [Establish a patch management policy](https://www.techrepublic.com/article/establish-a-patch-management-policy-87756/) (Внедрение политики управления исправлениями).

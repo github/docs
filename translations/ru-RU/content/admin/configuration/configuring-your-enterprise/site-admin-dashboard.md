@@ -1,5 +1,5 @@
 ---
-title: Site admin dashboard
+title: Панель мониторинга администратора сайта
 intro: '{% data reusables.enterprise_site_admin_settings.about-the-site-admin-dashboard %}'
 redirect_from:
   - /enterprise/admin/articles/site-admin-dashboard
@@ -13,173 +13,178 @@ type: reference
 topics:
   - Enterprise
   - Fundamentals
+ms.openlocfilehash: 5567bbfa7be5a7267d7eb68f96bbe5af21b61f4d
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148094052'
 ---
-To access the dashboard, in the upper-right corner of any page, click {% octicon "rocket" aria-label="The rocket ship" %}.
-![Rocket ship icon for accessing site admin settings](/assets/images/enterprise/site-admin-settings/access-new-settings.png)
+Чтобы получить доступ к панели мониторинга, нажмите значок {% octicon "rocket" aria-label="The rocket ship" %} в правом верхнем углу любой страницы.
+![Значок ракеты для доступа к параметрам администратора сайта](/assets/images/enterprise/site-admin-settings/access-new-settings.png)
 
 {% ifversion ghes or ghae %}
 
-## Search
+## Поиск
 
-Refer to this section of the site admin dashboard to search for users and repositories, and to query the [audit log](#audit-log).
+См. этот раздел панели мониторинга администратора сайта, чтобы найти пользователей и репозитории, а также запросить [журнал аудита](#audit-log).
 
 {% else %}
 
-## License info & search
+## Поиск лицензий и информации по ним
 
-Refer to this section of the site admin dashboard to check your current {% data variables.product.prodname_enterprise %} license; to search for users and repositories; and to query the [audit log](#audit-log).
+Ознакомьтесь с этим разделом панели мониторинга администратора сайта для проверки текущей лицензии {% data variables.product.prodname_enterprise %}; для поиска пользователей и репозиториев; и для запроса [журнала аудита](#audit-log).
 
-{% endif %}
-{% ifversion ghes %}
+{% endif %} {% ifversion ghes %}
 ## {% data variables.enterprise.management_console %}
 
-Here you can launch the {% data variables.enterprise.management_console %} to manage virtual appliance settings such as the domain, authentication, and SSL.
+Здесь можно запустить {% data variables.enterprise.management_console %} для управления параметрами виртуального модуля, такого как домен, проверка подлинности и SSL.
 {% endif %}
-## Explore
+## Анализ
 
-Data for GitHub's [trending page][] is calculated into daily, weekly, and monthly time spans for both repositories and developers. You can see when this data was last cached and queue up new trending calculation jobs from the **Explore** section.
+Данные для [страницы трендов][] GitHub вычисляются за ежедневные, еженедельные и ежемесячные интервалы времени как для репозиториев, так и для разработчиков. Можно просмотреть, когда эти данные были в последний раз кэшированы и помещены в очередь для новых популярных заданий вычислений из раздела **Анализ**.
 
-  [trending page]: https://github.com/blog/1585-explore-what-is-trending-on-github
+  [страницы трендов]: https://github.com/blog/1585-explore-what-is-trending-on-github
 
-## Audit log
+## Журнал аудита
 
-{% data variables.product.product_name %} keeps a running log of audited actions that you can query.
+{% data variables.product.product_name %} сохраняет журнал выполняемых действий аудита, которые можно запрашивать.
 
-By default, the audit log shows you a list of all audited actions in reverse chronological order. You can filter this list by entering key-value pairs in the **Query** text box and then clicking **Search**, as explained in "[Searching the audit log for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/searching-the-audit-log-for-your-enterprise)."
+По умолчанию в журнале аудита отображается список всех проверенных действий в обратном хронологическом порядке. Этот список можно отфильтровать, введя пары "ключ-значение" в текстовом поле **Запрос**, а затем нажав **Поиск**, как описано в разделе "[Поиск в журнале аудита для вашей организации](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/searching-the-audit-log-for-your-enterprise)".
 
-For more information on audit logging in general, see "[About the audit log for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/about-the-audit-log-for-your-enterprise)." For a full list of audited actions, see "[Audit log events for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise)."
+Дополнительные сведения о ведении журнала аудита в целом см. в разделе "[Сведения о журнале аудита для вашей организации](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/about-the-audit-log-for-your-enterprise)". Полный список действий аудита см. в разделе "[События журнала аудита для вашей организации](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise)".
 
-## Reports
+## Отчеты
 
-If you need to get information on the users, organizations, and repositories in {% data variables.location.product_location %}, you would ordinarily fetch JSON data through the [GitHub API](/rest). Unfortunately, the API may not provide all of the data that you want and it requires a bit of technical expertise to use. The site admin dashboard offers a **Reports** section as an alternative, making it easy for you to download CSV reports with most of the information that you are likely to need for users, organizations, and repositories.
+Если вам нужно получить сведения о пользователях, организациях и репозиториях в {% данных variables.location.product_location %}, обычно вы будете получать данные JSON через [API GitHub](/rest). К сожалению, API может не предоставлять все необходимые данные, для этого требуется некоторые технические знания. В качестве альтернативы панель мониторинга администратора сайта содержит раздел **Отчеты**, что упрощает скачивание отчетов в формате CSV с большим объемом сведений, которые, вероятно, потребуются пользователям, организациям и репозиториям.
 
-Specifically, you can download CSV reports that list
+В частности, можно скачать отчеты CSV, перечисленные в списке
 
-- all users
-- all active users
-- all [dormant users](/admin/user-management/managing-dormant-users)
-- all users who have been suspended
-- all organizations
-- all repositories
+- все пользователи
+- все активные пользователи
+- все [неактивные пользователи](/admin/user-management/managing-dormant-users)
+- все пользователи, которые были заблокированы
+- все организации
+- все репозитории
 
-You can also access these reports programmatically via standard HTTP authentication with a site admin account. You must use a {% data variables.product.pat_v1 %} with the `site_admin` scope. For more information, see "[Creating a {% data variables.product.pat_generic %}](/github/authenticating-to-github/creating-a-personal-access-token)."
+Кроме того, можно получить доступ к этим отчетам программным способом с помощью стандартной проверки подлинности HTTP и учетной записи администратора сайта. Необходимо использовать {% данных variables.product.pat_v1 %} с областью `site_admin` действия. Дополнительные сведения см. в разделе "[Создание {% данных variables.product.pat_generic %}](/github/authenticating-to-github/creating-a-personal-access-token)".
 
-For example, here is how you would download the "all users" report using cURL:
+Например, вот как можно скачать отчет "все пользователи" с помощью cURL:
 
 ```shell
 curl -L -u USERNAME:TOKEN http(s)://HOSTNAME/stafftools/reports/all_users.csv
 ```
 
-To access the other reports programmatically, replace `all_users` with `active_users`, `dormant_users`, `suspended_users`, `all_organizations`, or `all_repositories`.
+Чтобы получить доступ к другим отчетам программным способом, замените `all_users` на`active_users`, `dormant_users`, `suspended_users`, `all_organizations` или `all_repositories`.
 
 {% note %}
 
-**Note:** The initial `curl` request will return a 202 HTTP response if there are no cached reports available; a report will be generated in the background. You can send a second request to download the report. You can use a password or an OAuth token with the `site_admin` scope in place of a password.
+**Примечание.** Первоначальный запрос `curl` вернет HTTP-ответ 202 при отсутствии кэшированных отчетов; отчет будет создан в фоновом режиме. Можно отправить второй запрос, чтобы скачать отчет. Вместо пароля можно использовать пароль или токен OAuth с областью `site_admin`.
 
 {% endnote %}
 
-### User reports
+### Пользовательские отчеты
 
-Key               | Description
+Ключ               | Описание
 -----------------:| ------------------------------------------------------------
-`created_at`      | When the user account was created (as an ISO 8601 timestamp)
-`id`              | Account ID for the user or organization
-`login`           | Account's login name
-`email`           | Account's primary email address
-`role`            | Whether the account is an admin or an ordinary user
-`suspended?`      | Whether the account has been suspended
-`last_logged_ip`  | Most recent IP address to log into the account
-`repos`           | Number of repositories owned by the account
-`ssh_keys`        | Number of SSH keys registered to the account
-`org_memberships` | Number of organizations to which the account belongs
-`dormant?`        | Whether the account is dormant
-`last_active`     | When the account was last active (as an ISO 8601 timestamp)
-`raw_login`       | Raw login information (in JSON format)
-`2fa_enabled?`    | Whether the user has enabled two-factor authentication
+`created_at`      | При создании учетной записи пользователя (в качестве метки времени ISO 8601)
+`id`              | Идентификатор учетной записи пользователя или организации
+`login`           | Имя для входа в учетную запись
+`email`           | Основной адрес электронной почты учетной записи
+`role`            | Принадлежит ли учетная запись администратору или обычному пользователю
+`suspended?`      | Заблокирована ли учетная запись
+`last_logged_ip`  | Последний IP-адрес для входа в учетную запись
+`repos`           | Количество репозиториев, принадлежащих учетной записи
+`ssh_keys`        | Количество ключей SSH, зарегистрированных в учетной записи
+`org_memberships` | Число организаций, которым принадлежит учетная запись
+`dormant?`        | Является ли учетная запись неактивной
+`last_active`     | Когда учетная запись была последней активной (как метка времени ISO 8601)
+`raw_login`       | Необработанные данные о входе (в формате JSON)
+`2fa_enabled?`    | Включил ли пользователь двухфакторную проверку подлинности
 
-### Organization reports
+### Отчеты организации
 
-Key            | Description
+Ключ            | Описание
 --------------:| ------------------------------------
-`id`           | Organization ID
-`created_at`   | When the organization was created
-`login`        | Organization's login name
-`email`        | Organization's primary email address
-`owners`       | Number of organization owners
-`members`      | Number of organization members
-`teams`        | Number of organization teams
-`repos`        | Number of organization repositories
-`2fa_required?`| Whether the organization requires two-factor authentication
+`id`           | идентификатор организации;
+`created_at`   | Когда организация была создана
+`login`        | Имя организации для входа
+`email`        | Основной адрес электронной почты организации
+`owners`       | Количество владельцев организации
+`members`      | Количество сотрудников в организации
+`teams`        | Количество команд в организации
+`repos`        | Количество репозиториев в организации
+`2fa_required?`| Требуется ли для организации двухфакторная проверка подлинности
 
-### Repository reports
+### Отчеты репозитория
 
-Key             | Description
+Ключ             | Описание
 ---------------:| ------------------------------------------------------------
-`created_at`    | When the repository was created
-`owner_id`      | ID of the repository's owner
-`owner_type`    | Whether the repository is owned by a user or an organization
-`owner_name`    | Name of the repository's owner
-`id`            | Repository ID
-`name`          | Repository name
-`visibility`    | Whether the repository is public or private
-`readable_size` | Repository's size in a human-readable format
-`raw_size`      | Repository's size as a number
-`collaborators` | Number of repository collaborators
-`fork?`         | Whether the repository is a fork
-`deleted?`      | Whether the repository has been deleted
+`created_at`    | Когда создан репозиторий
+`owner_id`      | Идентификатор владельца репозитория
+`owner_type`    | Принадлежит ли репозиторий пользователю или организации
+`owner_name`    | Имя владельца репозитория
+`id`            | Идентификатор репозитория
+`name`          | Имя репозитория
+`visibility`    | Является ли репозиторий общедоступным или частным
+`readable_size` | Размер репозитория в формате, доступном для чтения человеком
+`raw_size`      | Размер репозитория в виде числа
+`collaborators` | Количество участников совместной работы репозитория
+`fork?`         | Является ли репозиторий вилкой
+`deleted?`      | Удален ли репозиторий
 
 {% ifversion ghes %}
-## Indexing
+## Индексация
 
-GitHub's search features are powered by Elasticsearch. This section of the site admin dashboard shows you the current status of your Elasticsearch cluster and provides you with several tools to control search and index behavior.
+Функции поиска GitHub работают на базе Elasticsearch. В этом разделе панели мониторинга администратора сайта отображается текущее состояние кластера ElasticSearch и предоставляется несколько средств для управления поведением поиска и индексирования.
 
-For more information about code search, see "[Searching for information on {% data variables.product.prodname_dotcom %}](/search-github)." For more information about Elasticsearch, see the [Elasticsearch website](https://elastic.co).
+Дополнительные сведения поиске по коду см. в разделе [Поиск сведений на {% data variables.product.prodname_dotcom %}](/search-github). Дополнительные сведения об Elasticsearch см. на [веб-сайте Elasticsearch](https://elastic.co).
 
 {% note %}
 
-**Note**: In normal use, site administrators do not need to create new indices or schedule repair jobs. For troubleshooting or other support purposes, {% data variables.contact.github_support %} may instruct you to run a repair job.
+**Примечание.** В обычном режиме администраторам сайта не нужно создавать новые индексы или планировать задания восстановления. Для устранения неполадок или других целей поддержки {% data variables.contact.github_support %} может поручить выполнить задание восстановления.
 
 {% endnote %}
 
-### Index management
+### Управление индексами
 
-{% data variables.product.product_name %} reconciles the state of the search index with data on the instance automatically and regularly.
+{% data variables.product.product_name %} согласовывает состояние индекса поиска с данными экземпляра автоматически и регулярно.
 
-- Issues, pull requests, repositories, and users in the database
-- Git repositories (source code) on disk
+- Проблемы, запросы на вытягивание, репозитории и пользователи в базе данных
+- Репозитории Git (исходный код) на диске
 
-Your instance uses repair jobs to reconcile the data, and schedules a repair job in the background when the following events occur.
+Экземпляр использует задания восстановления для согласования данных и планирует задание восстановления в фоновом режиме при возникновении следующих событий:
 
-- A new search index is created.
-- Missing data needs to be backfilled.
-- Old search data needs to be updated.
+- при создании нового индекса поиска;
+- когда необходимо заполнить отсутствующие данные;
+- когда необходимо обновить старые данные поиска.
 
-You can create a new index, or you can click on an existing index in the list to manage the index. You can perform the following operations on an index.
+Можно создать новый индекс или щелкнуть существующий индекс в списке для управления индексом. Вы можете выполнить следующие действия с индексом:
 
-- Make the index searchable.
-- Make the index writable.
-- Update the index.
-- Delete the index
-- Reset the index repair state.
-- Start a new index repair job.
-- Enable or disable index repair jobs.
+- Сделать индекс доступным для поиска.
+- Сделать индекс доступным для записи.
+- Обновить индекс.
+- Удалить индекс.
+- Сбросить состояние восстановления индекса.
+- Запустить новое задание по восстановлению индекса.
+- Включить или отключить задания по восстановлению индекса.
 
-A progress bar shows the current status of a repair job across background workers. The bar is the percentage difference of the repair offset with the highest record ID in the database. You can ignore the value shown in the progress bar after a repair job has completed. The progress bar shows the difference between the repair offset and the highest record ID in the database, and will decrease as more repositories are added to {% data variables.location.product_location %} even though those repositories are actually indexed.
+Индикатор выполнения показывает текущее состояние задания по восстановлению в фоновых рабочих ролях. Это разница в процентах смещения восстановления с самым высоким идентификатором записи в базе данных. Значение, отображаемое на панели выполнения, можно игнорировать после завершения задания восстановления. На индикаторе выполнения отображается разница между смещением восстановления и самым высоким идентификатором записи в базе данных, и уменьшается по мере добавления дополнительных репозиториев в {% данных variables.location.product_location %}, даже если эти репозитории фактически индексируются.
 
-To minimize the effects on I/O performance and reduce the chances of operations timing out, run the repair job during off-peak hours. As the job reconciles the search index with database and Git repository data, one CPU will be used. Monitor your system's load averages and CPU usage with a utility like `top`. If you don't notice any significant increase in resource consumption, it should also be safe to run an index repair job during peak hours.
+Чтобы свести к минимуму влияние на производительность ввода-вывода и снизить вероятность истечения времени ожидания по операциям, попробуйте запустить задание по восстановлению в часы с низкой загрузкой. Так как задание согласовывает индекс поиска с данными базы данных и репозитория Git, будет использоваться один ЦП. Отслеживайте средние показатели загрузки системы и загрузку ЦП с помощью служебной программы, например `top`. Если вы не заметили значительного увеличения потребления ресурсов, можно запускать задание восстановления индекса в часы пиковых нагрузок.
 
-Repair jobs use a "repair offset" for parallelization. This is an offset into the database table for the record being reconciled. Multiple background jobs can synchronize work based on this offset.
+В заданиях по восстановлению используется "смещение восстановления" для параллелизации. Это смещение в таблицу базы данных для сверяемой записи. На основе этого смещения несколько фоновых заданий могут синхронизировать свою работу.
 
-### Code search
+### Поиск кода
 
-This allows you to enable or disable both search and index operations on source code.
+Это позволяет включать или отключать функции поиска и индексирования в исходном коде.
 
 {% endif %}
-## Reserved logins
+## Зарезервированные имена для входа
 
-Certain words are reserved for internal use in {% data variables.location.product_location %}, which means that these words cannot be used as usernames.
+Некоторые слова зарезервированы для внутреннего использования в {% данных variables.location.product_location %}, что означает, что эти слова нельзя использовать в качестве имен пользователей.
 
-For example, the following words are reserved, among others:
+Например, помимо прочего зарезервированы следующие слова:
 
 - `admin`
 - `enterprise`
@@ -187,63 +192,58 @@ For example, the following words are reserved, among others:
 - `staff`
 - `support`
 
-For the full list or reserved words, navigate to "Reserved logins" in the site admin dashboard.
+Полный список или зарезервированные слова см. в разделе "Зарезервированные имена для входа" на панели мониторинга администратора сайта.
 
 {% ifversion ghas-committers-calculator %}
-## {% data variables.product.prodname_advanced_security %} Committers
+## Средства фиксации {% data variables.product.prodname_advanced_security %}
 
-You can see the number of active committers that are currently using seats for {% data variables.product.prodname_GH_advanced_security %}, and you can calculate how many additional seats would be used if you enabled {% data variables.product.prodname_GH_advanced_security %} for more organizations and repositories.
+Вы можете увидеть количество активных средств фиксации, которые в настоящее время используют места для {% data variables.product.prodname_GH_advanced_security %}, и вы можете вычислить, количество дополнительных мест, которые будут использоваться, если вы включили {% data variables.product.prodname_GH_advanced_security %} для дополнительных организаций и репозиториев.
 
-Under "Current active committer count", you can see the number of active committers for repositories with {% data variables.product.prodname_GH_advanced_security %} enabled. This is the number of licensed seats that are currently being used.
+В разделе "Текущее количество активных средств фиксации" можно увидеть количество активных средств фиксации для репозиториев с включенным параметром {% data variables.product.prodname_GH_advanced_security %}. Это количество лицензированных мест, которые в настоящее время используются.
 
-Under "Maximum committers across entire instance", you can see the number of active committers across all the repositories in your enterprise. This is the number of seats that would be used if you enabled {% data variables.product.prodname_GH_advanced_security %} for every repository in your enterprise.
+В разделе "Максимальное количество средств фиксации во всем экземпляре" можно увидеть количество активных средств фиксации во всех репозиториях в вашей организации. Это количество рабочих мест, которые будут использоваться, если вы включили {% data variables.product.prodname_GH_advanced_security %} для каждого репозитория в вашей организации.
 
-Under "Calculate Additional Advanced Committers", you can calculate how many more additional seats will be used if you enable {% data variables.product.prodname_GH_advanced_security %} for specific organizations and repositories. Under "Organizations and Repositories", enter or paste a list of organizations and repositories, with one organization or repository per line. 
+В разделе «Вычислить дополнительные расширенные средства фиксации» можно вычислить дополнительные места, которые будут использоваться, если включить {% data variables.product.prodname_GH_advanced_security %} для конкретных организаций и репозиториев. В разделе "Организации и репозитории" введите или вставьте список организаций и репозиториев с одной организацией или репозиторием в одной строке. 
 
 ```
 example-org
 octo-org/octo-repo
 ```
 
-The result is the number of additional seats that would be used if you enabled {% data variables.product.prodname_GH_advanced_security %} for those organizations and repositories.
+Результатом будет количество дополнительных мест, которые будут использоваться, если вы включили параметр {% data variables.product.prodname_GH_advanced_security %} для этих организаций и репозиториев.
 
-For more information about billing for {% data variables.product.prodname_advanced_security %}, see "[About billing for {% data variables.product.prodname_advanced_security %}](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)."
+Дополнительные сведения о выставлении счетов для {% data variables.product.prodname_advanced_security %} см. в статье «[Сведения о выставлении счетов для {% data variables.product.prodname_advanced_security %}](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)».
 {% endif %}
 
-## Enterprise overview
+## Обзор Enterprise
 
-Refer to this section of the site admin dashboard to manage organizations, people, policies, and settings.
+См. этот раздел панели мониторинга администратора сайта для управления организациями, пользователями, политиками и параметрами.
 
-## Repositories
+## Репозитории
 
-This is a list of the repositories on {% data variables.location.product_location %}. You can click on a repository name and access functions for administering the repository.
+Это список репозиториев для {% данных variables.location.product_location %}. Нажмите имя репозитория и функции доступа для администрирования репозитория.
 
-- [Blocking force pushes to a repository](/enterprise/admin/guides/developer-workflow/blocking-force-pushes-to-a-repository/)
-- [Configuring {% data variables.large_files.product_name_long %}](/enterprise/admin/guides/installation/configuring-git-large-file-storage/#configuring-git-large-file-storage-for-an-individual-repository)
-- [Archiving and unarchiving repositories](/enterprise/admin/guides/user-management/archiving-and-unarchiving-repositories/)
+- [Блокирование принудительной отправки в репозиторий](/enterprise/admin/guides/developer-workflow/blocking-force-pushes-to-a-repository/)
+- [Настройка {% data variables.large_files.product_name_long %}](/enterprise/admin/guides/installation/configuring-git-large-file-storage/#configuring-git-large-file-storage-for-an-individual-repository)
+- [Архивация и неархивирование репозиториев](/enterprise/admin/guides/user-management/archiving-and-unarchiving-repositories/)
 
-## All users
+## все пользователи
 
-Here you can see all of the users on {% data variables.location.product_location %}, and [initiate an SSH key audit](/enterprise/admin/guides/user-management/auditing-ssh-keys).
+Здесь можно просмотреть всех пользователей на {% данных variables.location.product_location %}, а [также инициировать аудит ключа SSH](/enterprise/admin/guides/user-management/auditing-ssh-keys).
 
-## Site admins
+## Администраторы сайта
 
-Here you can see all of the administrators on {% data variables.location.product_location %}, and [initiate an SSH key audit](/enterprise/admin/guides/user-management/auditing-ssh-keys).
+Здесь можно просмотреть всех администраторов на {% данных variables.location.product_location %}, а [также инициировать аудит ключа SSH](/enterprise/admin/guides/user-management/auditing-ssh-keys).
 
-## Dormant users
-{% ifversion ghes %}
-Here you can see and [suspend](/enterprise/admin/guides/user-management/suspending-and-unsuspending-users) all of the inactive users on {% data variables.location.product_location %}. A user account is considered to be inactive ("dormant") when it:
-{% endif %}
-{% ifversion ghae %}
-Here you can see and suspend all of the inactive users on {% data variables.location.product_location %}. A user account is considered to be inactive ("dormant") when it:
-{% endif %}
+## Неактивные пользователи
+{% ghes ifversion %} Здесь можно увидеть и [приостановить](/enterprise/admin/guides/user-management/suspending-and-unsuspending-users) всех неактивных пользователей на {% данных variables.location.product_location %}. Учетная запись пользователя считается неактивной ("неактивной") при этом: {% endif %} {% ifversion ghae %} Здесь можно увидеть и приостановить всех неактивных пользователей на {% данных variables.location.product_location %}. Учетная запись пользователя считается неактивной ("неактивной"), когда: {% endif %}
 
-- Has existed for longer than the dormancy threshold that's set for {% data variables.location.product_location %}.
-- Has not generated any activity within that time period.
-- Is not a site administrator.
+- Существует дольше порогового значения dormancy, заданного для {% данных variables.location.product_location %}.
+- Не создавало никаких действий в течение этого периода времени.
+- Не является администратором сайта.
 
-{% data reusables.enterprise_site_admin_settings.dormancy-threshold %} For more information, see "[Managing dormant users](/enterprise/admin/guides/user-management/managing-dormant-users/#configuring-the-dormancy-threshold)."
+{% data reusables.enterprise_site_admin_settings.dormancy-threshold %} Дополнительные сведения см. в разделе «[Управление неактивными пользователями](/enterprise/admin/guides/user-management/managing-dormant-users/#configuring-the-dormancy-threshold)».
 
-## Suspended users
+## Заблокированные пользователи
 
-Here you can see all of the users who have been suspended on {% data variables.location.product_location %}, and [initiate an SSH key audit](/enterprise/admin/guides/user-management/auditing-ssh-keys).
+Здесь можно просмотреть всех пользователей, которые были приостановлены на {% данных variables.location.product_location %}, и [инициировать аудит ключа SSH](/enterprise/admin/guides/user-management/auditing-ssh-keys).

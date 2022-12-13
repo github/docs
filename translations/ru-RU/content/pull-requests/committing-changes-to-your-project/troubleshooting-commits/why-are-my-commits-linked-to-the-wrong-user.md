@@ -1,58 +1,63 @@
 ---
-title: Why are my commits linked to the wrong user?
+title: Почему мои фиксации связаны с неправильным пользователем?
 redirect_from:
   - /articles/how-do-i-get-my-commits-to-link-to-my-github-account
   - /articles/why-are-my-commits-linked-to-the-wrong-user
   - /github/committing-changes-to-your-project/why-are-my-commits-linked-to-the-wrong-user
   - /github/committing-changes-to-your-project/troubleshooting-commits/why-are-my-commits-linked-to-the-wrong-user
-intro: '{% data variables.product.product_name %} uses the email address in the commit header to link the commit to a GitHub user. If your commits are being linked to another user, or not linked to a user at all, you may need to change your local Git configuration settings{% ifversion not ghae %}, add an email address to your account email settings, or do both{% endif %}.'
+intro: '{% data variables.product.product_name %} использует адрес электронной почты в заголовке фиксации, чтобы связать фиксацию с пользователем GitHub. Если фиксации связаны с другим пользователем или вообще не связаны с пользователем, может потребоваться изменить параметры локальной конфигурации Git{% ifversion not ghae %}, добавить адрес электронной почты в параметры электронной почты учетной записи или выполнить оба действия{% endif %}.'
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
   ghec: '*'
 shortTitle: Linked to wrong user
+ms.openlocfilehash: c9fe8ce23f0052fde754a584d093577b2f8b809c
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148099308'
 ---
 {% tip %}
 
-**Note**: If your commits are linked to another user, that does not mean the user can access your repository. A user can only access a repository you own if you add them as a collaborator or add them to a team that has access to the repository.
+**Примечание**. Если фиксации связаны с другим пользователем, это не означает, что этот пользователь имеет доступ к репозиторию. Пользователь может получить доступ к принадлежащему вам репозиторию, только если вы добавили его в число участников совместной работы или в команду с доступом к репозиторию.
 
 {% endtip %}
 
-## Commits are linked to another user
+## Фиксации связаны с другим пользователем
 
-If your commits are linked to another user, that means the email address in your local Git configuration settings is connected to that user's account on {% data variables.product.product_name %}. In this case, you can change the email in your local Git configuration settings{% ifversion ghae %} to the address associated with your account on {% data variables.product.product_name %} to link your future commits. Old commits will not be linked. For more information, see "[Setting your commit email address](/github/setting-up-and-managing-your-github-user-account/setting-your-commit-email-address#setting-your-commit-email-address-in-git)."{% else %} and add the new email address to your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %} account to link future commits to your account.
+Если фиксации связаны с другим пользователем, это означает, что адрес электронной почты в локальных параметрах конфигурации GIT связан с учетной записью этого пользователя на {% data variables.product.product_name %}. В этом случае вы можете изменить адрес электронной почты в локальных параметрах конфигурации GIT{% ifversion ghae %} на адрес, связанный с вашей учетной записью на {% data variables.product.product_name %}, чтобы связать будущие фиксации. Старые фиксации не будут связаны. Дополнительные сведения см. в разделе "[Настройка адреса электронной почты фиксации](/github/setting-up-and-managing-your-github-user-account/setting-your-commit-email-address#setting-your-commit-email-address-in-git)". {% else %} и добавьте новый адрес электронной почты в учетную запись {% ifversion ghae %}{% данных variables.product.product_name %}{% else %}{% данных variables.location.product_location %}{% endif %} для связывания будущих фиксаций с вашей учетной записью.
 
-1. To change the email address in your local Git configuration, follow the steps in "[Setting your commit email address](/github/setting-up-and-managing-your-github-user-account/setting-your-commit-email-address#setting-your-commit-email-address-in-git)". If you work on multiple machines, you will need to change this setting on each one.
-2. Add the email address from step 2 to your account settings by following the steps in "[Adding an email address to your GitHub account](/articles/adding-an-email-address-to-your-github-account)".{% endif %}
+1. Чтобы изменить адрес электронной почты в локальной конфигурации GIT, выполните инструкции в разделе [Настройка адреса электронной почты для фиксации](/github/setting-up-and-managing-your-github-user-account/setting-your-commit-email-address#setting-your-commit-email-address-in-git). Если вы работаете на нескольких компьютерах, этот параметр необходимо изменить на каждом из них.
+2. Добавьте адрес электронной почты из шага 2 в параметры учетной записи, выполнив инструкции в разделе [Добавление адреса электронной почты в учетную запись GitHub](/articles/adding-an-email-address-to-your-github-account).{% endif %}
 
-Commits you make from this point forward will be linked to your account.
+Фиксации, вносимые с этого момента, будут связаны с вашей учетной записью.
 
-## Commits are not linked to any user
+## Фиксации не связаны ни с одним пользователем
 
-If your commits are not linked to any user, the commit author's name will not be rendered as a link to a user profile.
+Если фиксации не связаны ни с одним пользователем, имя автора фиксации не будет отображаться в виде ссылки на профиль пользователя.
 
-To check the email address used for those commits and connect commits to your account, take the following steps:
+Чтобы проверить адрес электронной почты, используемый для фиксаций, и связать фиксации с вашей учетной записью, выполните указанные ниже действия.
 
-1. Navigate to the commit by clicking the commit message link.
-![Commit message link](/assets/images/help/commits/commit-msg-link.png)
-2. To read a message about why the commit is not linked, hover over the blue {% octicon "question" aria-label="Question mark" %} to the right of the username.
-![Commit hover message](/assets/images/help/commits/commit-hover-msg.png)
+1. Перейдите к фиксации, щелкнув ссылку в сообщении о фиксации.
+![Ссылка в сообщении о фиксации](/assets/images/help/commits/commit-msg-link.png)
+2. Чтобы прочитать сообщение о том, почему фиксация не связана, наведите указатель мыши на синий значок {% octicon "question" aria-label="Question mark" %} справа от имени пользователя.
+![Сообщение при наведении указателя на фиксацию](/assets/images/help/commits/commit-hover-msg.png)
 
-  - **Unrecognized author (with email address)** If you see this message with an email address, the address you used to author the commit is not connected to your account on {% data variables.product.product_name %}. {% ifversion not ghae %}To link your commits, [add the email address to your GitHub email settings](/articles/adding-an-email-address-to-your-github-account).{% endif %}{% ifversion not ghae %} If the email address has a Gravatar associated with it, the Gravatar will be displayed next to the commit, rather than the default gray Octocat.{% endif %}
-  - **Unrecognized author (no email address)** If you see this message without an email address, you used a generic email address that can't be connected to your account on {% data variables.product.product_name %}.{% ifversion not ghae %} You will need to [set your commit email address in Git](/articles/setting-your-commit-email-address), then [add the new address to your GitHub email settings](/articles/adding-an-email-address-to-your-github-account) to link your future commits. Old commits will not be linked.{% endif %}
-  - **Invalid email** The email address in your local Git configuration settings is either blank or not formatted as an email address.{% ifversion not ghae %} You will need to [set your commit email address in Git](/articles/setting-your-commit-email-address), then [add the new address to your GitHub email settings](/articles/adding-an-email-address-to-your-github-account) to link your future commits. Old commits will not be linked.{% endif %}
+  - **Нераспознанный автор (с адресом электронной почты)** . Если вы видите это сообщение с адресом электронной почты, адрес, который вы использовали для создания фиксации, не связан с вашей учетной записью на {% data variables.product.product_name %}. {% ifversion not ghae %}Чтобы связать фиксации, [добавьте адрес электронной почты в параметры электронной почты GitHub](/articles/adding-an-email-address-to-your-github-account).{% endif %}{% ifversion not ghae %} Если с адресом электронной почты связан Gravatar, рядом с фиксацией будет отображаться Gravatar, а не серый Octocat.{% endif %}
+  - **Нераспознанный автор (без адреса электронной почты)** Если вы видите это сообщение без адреса электронной почты, вы использовали универсальный адрес электронной почты, который не может быть связан с вашей учетной записью на {% data variables.product.product_name %}.{% ifversion not ghae %} Вам потребуется [задать адрес электронной почты для фиксации в GIT](/articles/setting-your-commit-email-address), а затем [добавить новый адрес в параметры электронной почты GitHub](/articles/adding-an-email-address-to-your-github-account) для связывания с будущими фиксациями. Старые фиксации не будут связаны.{% endif %}
+  - **Недопустимый адрес электронной почты** Адрес электронной почты в локальных параметрах конфигурации GIT пуст или не отформатирован как адрес электронной почты.{% ifversion not ghae %} Вам потребуется [задать адрес электронной почты для фиксации в GIT](/articles/setting-your-commit-email-address), а затем [добавить новый адрес в параметрах электронной почты GitHub](/articles/adding-an-email-address-to-your-github-account) для связывания с будущими фиксациями. Старые фиксации не будут связаны.{% endif %}
 
-{% ifversion ghae %}
-You can change the email in your local Git configuration settings to the address associated with your account to link your future commits. Old commits will not be linked. For more information, see "[Setting your commit email address](/github/setting-up-and-managing-your-github-user-account/setting-your-commit-email-address#setting-your-commit-email-address-in-git)."
+{% ifversion ghae %} Вы можете изменить адрес электронной почты в локальных параметрах конфигурации GIT на адрес, связанный с вашей учетной записью, чтобы связать с ним будущие фиксации. Старые фиксации не будут связаны. Дополнительные сведения см. в разделе [Настройка адреса электронной почты для фиксации](/github/setting-up-and-managing-your-github-user-account/setting-your-commit-email-address#setting-your-commit-email-address-in-git).
 {% endif %}
 
 {% warning %}
 
-If your local Git configuration contained a generic email address, or an email address that was already attached to another user's account, then your previous commits will not be linked to your account. While Git does allow you to change the email address used for previous commits, we strongly discourage this, especially in a shared repository.
+Если локальная конфигурация GIT содержит универсальный адрес электронной почты или адрес электронной почты, уже связанный с учетной записью другого пользователя, предыдущие фиксации не будут связаны с вашей учетной записью. Хотя GIT позволяет изменить адрес электронной почты, используемый для предыдущих фиксаций, настоятельно не рекомендуется делать это, особенно в общем репозитории.
 
 {% endwarning %}
 
-## Further reading
+## Дополнительные материалы
 
-* "[Searching commits](/search-github/searching-on-github/searching-commits)"
+* [Поиск фиксаций](/search-github/searching-on-github/searching-commits)

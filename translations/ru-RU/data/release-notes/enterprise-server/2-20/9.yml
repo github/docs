@@ -1,0 +1,17 @@
+date: '06.02.2020'
+sections:
+  security_fixes:
+    - '**ВЫСОКИЙ.** В GitHub Enterprise Server API была обнаружена неправомерная уязвимость контроля доступа, которая позволяла члену организации повышать разрешения и получать доступ к несанкционированным репозиториям внутри организации. Эта уязвимость затронула все версии GitHub Enterprise Server до версии 2.21.  Мы выпустили [CVE-2020-10516](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-10516) в ответ на эту проблему. Об этой уязвимости сообщается посредством программы [GitHub Bug Bounty]. {https://bounty.github.com}. {% comment %} https://github.com/github/github/pull/144454, https://github.com/github/github/pull/143444 {% endcomment %}'
+    - 'Пакеты обновлены до последних версий системы безопасности. {% comment %} https://github.com/github/enterprise2/pull/20421, https://github.com/github/enterprise2/pull/20315 {% endcomment %}'
+  bugs:
+    - 'Экземпляры GitHub Enterprise Server с выходом в Интернет могут индексироваться поисковыми системами. {% comment %} https://github.com/github/github/pull/145073, https://github.com/github/github/pull/144973 {% endcomment %}'
+  known_issues:
+    - 'После первой настройки версии GitHub Enterprise Server, в которой еще нет пользователей, злоумышленник мог создать первого пользователя с правами администратора. {% comment %} https://github.com/github/enterprise2/issues/1889 {% endcomment %}'
+    - 'Пользовательские правила брандмауэра не сохраняются в процессе обновления. {% comment %} https://github.com/github/enterprise2/issues/2823 {% endcomment %}'
+    - 'Отслеживаемые файлы Git LFS, [отправленные через веб-интерфейс](https://github.com/blog/2105-upload-files-to-your-repositories), ошибочно добавлялись напрямую в репозиторий. {% comment %} https://github.com/github/github/issues/54684 {% endcomment %}'
+    - 'Невозможно закрывать проблемы, если они содержат постоянную ссылку на BLOB-объект в том же репозитории с путем, длина которого превышает 255 символов. {% comment %} https://github.com/github/github/issues/107731 {% endcomment %}'
+    - 'При передаче объекта gist выдается исключение во время работы перехватчика последующего получения. {% comment %} https://github.com/github/github/issues/129091 {% endcomment %}'
+    - 'Когда в GitHub Connect включен параметр "Пользователи могут выполнять поиск на GitHub.com", результаты поиска на GitHub.com не включают проблемы в частных и внутренних репозиториях. {% comment %} https://github.com/github/admin-experience/issues/571 {% endcomment %}'
+    - 'Оповещения безопасности не включаются в отчет при передаче в репозитории посредством командной строки. (updated 2020-06-23) {% comment %} https://github.com/github/github/issues/143190 {% endcomment %}'
+    - 'Граф зависимостей не обнаруживает зависимости при развертывании в конфигурации кластера с несколькими узлами Redis. (updated 2020-06-30) {% comment %} https://github.com/github/dependency-graph/issues/81 {% endcomment %}'
+    - 'Если узел реплики находится в автономном режиме в конфигурации высокой доступности, {% data variables.product.product_name %} по-прежнему может маршрутизировать запросы {% data variables.product.prodname_pages %} на узел в автономном режиме, снижая доступность {% data variables.product.prodname_pages %} для пользователей.'

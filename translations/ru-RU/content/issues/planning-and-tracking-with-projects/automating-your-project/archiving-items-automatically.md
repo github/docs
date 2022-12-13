@@ -1,53 +1,57 @@
 ---
-title: Archiving items automatically
+title: Архивация элементов автоматически
 shortTitle: Archiving automatically
-intro: You can configure your project's built-in workflows to automatically archive items that meet specific criteria.
+intro: 'Встроенные рабочие процессы проекта можно настроить для автоматического архивирования элементов, соответствующих определенным критериям.'
 miniTocMaxHeadingLevel: 3
 versions:
   feature: projects-v2-auto-archive
 type: tutorial
 topics:
   - Projects
+ms.openlocfilehash: 75346021f51cb8cc373b4a50aef43e0b5c7646dc
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148107224'
 ---
-
 {% note %}
 
-**Note:** Built-in workflows are available as part of a limited beta.
+**Примечание.** Встроенные рабочие процессы доступны в рамках ограниченной бета-версии.
 
 {% endnote %}
 
-## About automatically archiving items
+## Сведения об автоматической архивации элементов
 
-You can configure your project's built-in workflows to automatically archive items. Archiving items will help you stay below the limit of {% data variables.projects.item_limit %} items in each project.
+Встроенные рабочие процессы проекта можно настроить для автоматического архивации элементов. Элементы архивации помогут вам оставаться ниже предела элементов {% данных variables.projects.item_limit %} в каждом проекте.
 
-You can use the `is`, `reason`, and `last-updated` filters to specify when an item should be archived.
+Вы можете использовать `is``reason`и `last-updated` фильтры, чтобы указать, когда элемент должен быть архивирован.
 
-When you enable automatic archiving for issues or pull requests, items in your project that already meet your criteria will also be archived. There may be some delay in archiving large numbers of items that already meet the criteria.
+При включении автоматической архивации для проблем или запросов на вытягивание элементы в проекте, которые уже соответствуют вашим критериям, также будут архивироваться. При архивации большого количества элементов, которые уже соответствуют критериям, может возникнуть некоторая задержка.
 
-Projects also have a limit on the number of archived items they can contain. Your project can contain up to {% data variables.projects.archived_item_limit %} archived items. For more information on permanently deleting items, see "[Deleting items
-](/issues/planning-and-tracking-with-projects/managing-items-in-your-project/archiving-items-from-your-project#deleting-items)."
+Проекты также имеют ограничение на количество архивных элементов, которые они могут содержать. Проект может содержать до {% данных variables.projects.archived_item_limit %} архивных элементов. Дополнительные сведения об окончательном удалении элементов см. в разделе "[Удаление элементов ](/issues/planning-and-tracking-with-projects/managing-items-in-your-project/archiving-items-from-your-project#deleting-items)".
 
-## Configuring automatic archiving in your project
+## Настройка автоматической архивации в проекте
 
-{% data reusables.projects.access-workflows %}
-1. In the "Default workflows" list, click **Auto-archive items**.
+{% данных reusables.projects.access-workflows %}
+1. В списке "Рабочие процессы по умолчанию" щелкните элементы **автоархивирования**.
    
-   ![Screenshot showing auto archive workflows](/assets/images/help/projects-v2/archive-workflows.png)
+   ![Снимок экрана: рабочие процессы автоархивирования](/assets/images/help/projects-v2/archive-workflows.png)
    
-1. Next to **When**, check the item type(s) that you want to automatically archive.
+1. Рядом с параметром **"Когда**" проверьте типы элементов, которые требуется автоматически архивировать.
    
-   ![Screenshot showing the "when" configuration for a workflow](/assets/images/help/projects-v2/workflow-when-archive.png)
+   ![Снимок экрана: конфигурация "Когда" для рабочего процесса](/assets/images/help/projects-v2/workflow-when-archive.png)
 
-1. Next to {% octicon "filter" aria-label="The filter icon" %}, type the filter criteria you want to use to automatically archive items. You can only use the `is`, `reason`, and `last-updated` filters. For more information about filter syntax, see "[Filtering projects](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/filtering-projects)."
+1. Рядом с {% octicon "filter" aria-label="Значок фильтра" %}введите критерии фильтра, которые вы хотите использовать для автоматического архивирования элементов. Вы можете использовать `is`только фильтры и `last-updated` параметры. `reason` Дополнительные сведения о синтаксисе фильтров см. в разделе "[Фильтрация проектов](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/filtering-projects)".
    
-   ![Screenshot showing filter text area](/assets/images/help/projects-v2/auto-archive-filter.png)
+   ![Снимок экрана: область текста фильтра](/assets/images/help/projects-v2/auto-archive-filter.png)
    
-1. If the workflow is disabled, click the toggle next to **Off** to enable the workflow.
+1. Если рабочий процесс отключен, щелкните переключатель рядом с " **Выкл."** , чтобы включить рабочий процесс.
    
-   ![Screenshot showing the "On/Off" control for a workflow](/assets/images/help/projects-v2/workflow-enable.png)
+   ![Снимок экрана: элемент управления "Вкл./Выкл." для рабочего процесса](/assets/images/help/projects-v2/workflow-enable.png)
    
 
-## Further reading
+## Дополнительные материалы
 
-* "[Archiving items from your project](/issues/planning-and-tracking-with-projects/managing-items-in-your-project/archiving-items-from-your-project)"
-* "[Using the built-in automations](/issues/planning-and-tracking-with-projects/automating-your-project/using-the-built-in-automations)"
+* "[Архивация элементов из проекта](/issues/planning-and-tracking-with-projects/managing-items-in-your-project/archiving-items-from-your-project)"
+* Использование [встроенных автоматизации](/issues/planning-and-tracking-with-projects/automating-your-project/using-the-built-in-automations)

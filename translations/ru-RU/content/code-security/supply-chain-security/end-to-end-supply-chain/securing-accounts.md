@@ -1,8 +1,8 @@
 ---
-title: Best practices for securing accounts
+title: Рекомендации по защите учетных записей
 shortTitle: Securing accounts
 allowTitleToDifferFromFilename: true
-intro: Guidance on how to protect accounts with access to your software supply chain.
+intro: 'Руководство по защите учетных записей, которые имеют доступ к цепочке поставки программного обеспечения.'
 versions:
   fpt: '*'
   ghec: '*'
@@ -15,123 +15,117 @@ topics:
   - SSH
   - Security
   - Accounts
+ms.openlocfilehash: 1a6cfc1d45268ad0cab7bd1109a141224b45c078
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148098143'
 ---
-## About this guide
+## Об этом руководстве
 
-This guide describes the highest impact changes you can make to increase account security. Each section outlines a change you can make to your processes to improve the security. The highest impact changes are listed first.
+В этом руководстве описываются самые важные изменения, которые можно внести для повышения безопасности учетной записи. В каждом разделе описаны изменения, которые можно внести в процессы для повышения безопасности. Сначала указаны изменения с самым высоким влиянием.
 
-## What's the risk?
+## В чем заключаются риски?
 
-Account security is fundamental to the security of your supply chain. If an attacker can take over your account on {% data variables.product.product_name %}, they can then make malicious changes to your code or build process. So your first goal should be to make it difficult for someone to take over your account and the accounts of other {% ifversion ghes %}users{% else %}members{% endif %} of {% ifversion fpt %}your organization{% elsif ghec or ghae %}your organization or enterprise{% elsif ghes %}{% data variables.location.product_location %}{% endif %}.
+Безопасность учетных записей имеет важное значение для обеспечения безопасности цепочки поставок. Если злоумышленники перехватят контроль над вашей учетной записью {% data variables.product.product_name %}, они затем смогут внести вредоносные изменения в ваш код или процесс сборки. Поэтому ваша первая цель состоит в том, чтобы кому-то было трудно взять на себя учетную запись и учетные записи других {% ifversion ghes %}users{% else %}members{% endif %} {% ifversion fpt %}ваша организация{% elsif ghec или ghae %}ваша организация или предприятие{% elsif ghes %}{% данных variables.location.product_location %}{% endif %}.
 
 {% ifversion ghec or ghes %}
-## Centralize authentication
+## Централизованная проверка подлинности
 {% endif %}
 
-{% ifversion ghec %}
-If you're an enterprise or organization owner, you can configure centralized authentication with SAML. While you can add or remove members manually, it's simpler and more secure to set up single sign-on (SSO) and SCIM between {% data variables.product.product_name %} and your SAML identity provider (IdP). This also simplifies the authentication process for all members of your enterprise.
+{% ifversion ghec %} Если вы являетесь владельцем предприятия или организации, можно настроить централизованную проверку подлинности с помощью SAML. Хотя вы можете добавлять или удалять участников вручную, проще и безопаснее настроить единый вход (SSO) и SCIM между {% data variables.product.product_name %} и вашим поставщиком удостоверений SAML (IdP). Это также упрощает процесс проверки подлинности для всех участников вашего предприятия.
 
-You can configure SAML authentication for an enterprise or organization account. With SAML, you can grant access to the personal accounts of members of your enterprise or organization on {% data variables.location.product_location %} through your IdP, or you can create and control the accounts that belong to your enterprise by using {% data variables.product.prodname_emus %}. For more information, see "[About authentication for your enterprise](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise)."
+Вы можете настроить проверку подлинности SAML для учетной записи предприятия или организации. С помощью SAML вы можете предоставить доступ к личным учетным записям участников вашей организации или организации на {% данных variables.location.product_location %} с помощью поставщика удостоверений или создать и контролировать учетные записи, принадлежащие вашей организации, с помощью {% данных variables.product.prodname_emus %}. Дополнительные сведения см. в разделе [Сведения о проверке подлинности для предприятия](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise).
 
-After you configure SAML authentication, when members request access to your resources, they'll be directed to your SSO flow to ensure they are still recognized by your IdP. If they are unrecognized, their request is declined.
+Когда вы настроите проверку подлинности SAML, участники, запрашивающие доступ к вашим ресурсам, будут направляться в поток единого входа для проверки, распознаются ли они поставщиком удостоверений. Если они не распознаются, запрос отклоняется.
 
-Some IdPs support a protocol called SCIM, which can automatically provision or deprovision access on {% data variables.product.product_name %} when you make changes on your IdP. With SCIM, you can simplify administration as your team grows, and you can quickly revoke access to accounts. SCIM is available for individual organizations on {% data variables.product.product_name %}, or for enterprises that use {% data variables.product.prodname_emus %}. For more information, see "[About SCIM for organizations](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim-for-organizations)."
+Некоторые поставщики удостоверений поддерживают протокол SCIM, который может автоматически подготавливать или отзывать доступ к {% data variables.product.product_name %}, когда вы вносите изменения в поставщик удостоверений. С помощью SCIM вы можете упростить администрирование по мере роста команды, а также быстро отзывать доступ к учетным записям. Стандарт SCIM доступен для отдельных организаций в {% data variables.product.product_name %} или для предприятий, использующих {% data variables.product.prodname_emus %}. Дополнительные сведения см. в статье [Сведения об SCIM для организаций](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim-for-organizations).
 {% endif %}
 
-{% ifversion ghes %}
-If you're the site administrator for {% data variables.location.product_location %}, you can simplify the login experience for users by choosing an authentication method that connects with your existing identity provider (IdP), like CAS, SAML, or LDAP. This means that they no longer need to remember an extra password for {% data variables.product.prodname_dotcom %}.
+{% ifversion ghes %} Если вы являетесь администратором сайта для {% данных variables.location.product_location %}, вы можете упростить процесс входа для пользователей, выбрав метод проверки подлинности, который подключается к существующему поставщику удостоверений (IdP), например CAS, SAML или LDAP. Это означает, что им больше не придется запоминать дополнительный пароль для {% data variables.product.prodname_dotcom %}.
 
-Some authentication methods also support communicating additional information to {% data variables.product.product_name %}, for example, what groups the user is a member of, or synchronizing cryptographic keys for the user. This is a great way to simplify your administration as your organization grows.
+Некоторые методы проверки подлинности также поддерживают передачу дополнительных сведений в {% data variables.product.product_name %}, например, о членстве пользователя в группе или о синхронизации криптографических ключей для пользователя. Это отличный способ упростить администрирование по мере роста организации.
 
-For more information about the authentication methods available for {% data variables.product.product_name %}, see "[About authentication for your enterprise](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise)."
+Дополнительные сведения о методах проверки подлинности, доступных для {% data variables.product.product_name %}, см. в разделе [Сведения о проверке подлинности для предприятия](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise).
 {% endif %}
 
-## Configure two-factor authentication
+## Настройка двухфакторной проверки подлинности
 
-The best way to improve the security of {% ifversion fpt %}your personal account{% elsif ghes %}your personal account or {% data variables.location.product_location %}{% elsif ghec %}your accounts{% elsif ghae %}your enterprise on {% data variables.product.product_name %}{% endif %} is to configure two-factor authentication (2FA){% ifversion ghae %} on your SAML identity provider (IdP){% endif %}. Passwords by themselves can be compromised by being guessable, by being reused on another site that's been compromised, or by social engineering, like phishing. 2FA makes it much more difficult for your accounts to be compromised, even if an attacker has your password.
+Лучший способ повысить безопасность {% ifversion fpt %}ваша личная учетная запись{% elsif ghes %}ваша личная учетная запись или {% данных variables.location.product_location %}{% elsif ghec %}ваши учетные записи{% elsif g Ваша организация на {% данных variables.product.product_name %}{% endif %} предназначена для настройки двухфакторной проверки подлинности (2FA){% ifversion ghae %} в поставщике удостоверений SAML {% endif %}. Пароли сами по себе могут быть скомпрометированы путем угадывания, в результате повторного использования на другом сайте, который был скомпрометирован, или с помощью методов социотехники, например фишинга. Двухфакторная проверка подлинности значительно усложняет компрометацию учетных записей, даже если у злоумышленника есть пароль.
 
 {% ifversion not ghae %}
 
-{% ifversion ghec %}
-If you're an enterprise owner, you may be able to configure a policy to require 2FA for all organizations owned by your enterprise.
+{% ifversion ghec %} Если вы являетесь владельцем предприятия, вы можете настроить политику, требующую обязательной двухфакторной проверки подлинности во всех организациях, принадлежащих вашему предприятию.
 {% endif %}
 
-{% ifversion ghes %}
-If you're the site administrator for {% data variables.location.product_location %}, you may be able to configure 2FA for all users of your instance. The availability of 2FA on {% data variables.product.product_name %} depends on the authentication method that you use. For more information, see "[Centralize user authentication](#centralize-user-authentication)."
+{% ifversion ghes %} Если вы являетесь администратором сайта для {% данных variables.location.product_location %}, вы можете настроить 2FA для всех пользователей вашего экземпляра. Доступность двухфакторной проверки подлинности в {% data variables.product.product_name %} зависит от используемого вами способа проверки подлинности. Дополнительные сведения см. в разделе [Централизация проверки подлинности пользователей](#centralize-user-authentication).
 {% endif %}
 
-If you're an organization owner, then you {% ifversion fpt %}can{% else %}may be able to{% endif %} require that all members of the organization enable 2FA.
+Если вы являетесь владельцем организации, то {% ifversion fpt %}можете{% else %}имеете возможность{% endif %} потребовать, чтобы все члены организации включили двухфакторную проверку подлинности.
 
 {% ifversion ghec or ghes %}
 
-### Configure your enterprise account
+### Настройка корпоративной учетной записи
 
-Enterprise owners may be able to require 2FA for all {% ifversion ghes %}users on{% elsif ghec %}members of{% endif %} the {% ifversion ghes %}instance{% elsif ghec %}enterprise{% endif %}. The availability of 2FA policies on {% data variables.product.product_name %} depends on how {% ifversion ghes %}users{% else %}members{% endif %} authenticate to access your {% ifversion ghes %}instance{% elsif ghec %}enterprise's resources{% endif %}.
+Владельцы предприятия имеют возможность требовать двухфакторную проверку подлинности для всех {% ifversion ghes %}пользователей в{% elsif ghec %}членов{% endif %} {% ifversion ghes %}экземпляра{% elsif ghec %}предприятия{% endif %}. Доступность политик двухфакторной проверки подлинности в {% data variables.product.product_name %} зависит от того, как выполняется проверка подлинности {% ifversion ghes %}пользователей{% else %}членов{% endif %} для доступа к {% ifversion ghes %}вашему экземпляру{% elsif ghec %}ресурсам вашего предприятия{% endif %}.
 
 {% ifversion ghes %}
-- If you sign into {% data variables.location.product_location %} through an external IdP using CAS or SAML SSO, you
-{% elsif ghec %}
-If your enterprise uses {% data variables.product.prodname_emus %} or SAML authentication is enforced for your enterprise, you
-{%- endif %} cannot configure 2FA on {% data variables.product.product_name %}. Someone with administrative access to your IdP must configure 2FA for the IdP.
+- При входе в {% данных variables.location.product_location %} с помощью внешнего поставщика удостоверений с помощью единого входа CAS или SAML вы {% elsif ghec %} если ваше предприятие использует {% данных variables.product.prodname_emus %} или проверку подлинности SAML для вашего предприятия, то {%-endif %} не удается настроить 2FA для {% данных variables.product.product_name %}. Пользователь с административным доступом к вашему поставщику удостоверений должен настроить двухфакторную проверку подлинности для этого поставщика удостоверений.
 
 {% ifversion ghes %}
 
-- If you sign into {% data variables.location.product_location %} through an external LDAP directory, you can require 2FA for your enterprise on {% data variables.product.product_name %}. If you allow built-in authentication for users outside of your directory, individual users can enable 2FA, but you cannot require 2FA for your enterprise.
+- При входе в {% данных variables.location.product_location %} через внешний каталог LDAP можно потребовать 2FA для вашего предприятия на {% данных variables.product.product_name %}. Если вы разрешаете встроенную проверку подлинности для пользователей за пределами каталога, отдельные пользователи могут включить двухфакторную проверку подлинности, но ее нельзя включить для всего вашего предприятия.
 
 {% endif %}
 
-For more information, see {% ifversion ghec %}"[About identity and access management for your enterprise](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-identity-and-access-management-for-your-enterprise)" and {% endif %}"[Enforcing policies for security settings in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#requiring-two-factor-authentication-for-organizations-in-your-enterprise)."
+Дополнительные сведения см. в разделах {% ifversion ghec %}[Сведения об управлении удостоверениями и доступом для вашего предприятия](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-identity-and-access-management-for-your-enterprise) и {% endif %}[Применение политик для параметров безопасности в организации](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#requiring-two-factor-authentication-for-organizations-in-your-enterprise).
 
 {% endif %}
 
-### Configure your personal account
+### Настройка личной учетной записи
 
-{% ifversion ghec or ghes %}
-{% note %}
+{% ifversion ghec or ghes %} {% note %}
 
-**Note**: Depending on the authentication method that {% ifversion ghec %}an enterprise owner{% elsif ghes %}a site administrator{% endif %} has configured for {% ifversion ghec %}your enterprise on {% endif %}{% data variables.location.product_location %}, you may not be able to enable 2FA for your personal account.
+**Примечание.** В зависимости от метода проверки подлинности, который {% ifversion ghec %}владелец предприятия{% elsif ghes %}администратор сайта{% endif %} настроил для {% ifversion ghec %}ваше предприятие на {% endif %}{% данных variables.location.product_location %}, возможно, вы не сможете включить 2FA для личной учетной записи.
 
-{% endnote %}
-{% endif %}
+{% endnote %} {% endif %}
 
-{% data variables.product.product_name %} supports several options for 2FA, and while any of them is better than nothing, the most secure option is WebAuthn. WebAuthn requires either a hardware security key or a device that supports it through things like Windows Hello or Mac TouchID. It's possible, although difficult, to phish other forms of 2FA (for example, someone asking you to read them your 6 digit one-time password). However WebAuthn isn't phishable, because domain scoping is built into the protocol, which prevents credentials from a website impersonating a login page from being used on {% data variables.product.product_name %}.
+{% data variables.product.product_name %} поддерживает несколько вариантов двухфакторной проверки подлинности, и хотя любой из них лучше, чем ничего, наиболее безопасным является WebAuthn. Для WebAuthn требуется аппаратный ключ безопасности или устройство, которое поддерживает его через такие приложения, как Windows Hello или Mac TouchID. Фишинг других форм двухфакторной проверки подлинности (например, кто-то просит вас прочитать 6 цифр одноразового пароля) возможен, хотя и затруднителен. Но WebAuthn не поддается фишингу, поскольку в протокол встроен контроль области домена, что предотвращает использование учетных данных с веб-сайта, выдающего себя за страницу входа, в {% data variables.product.product_name %}.
 
-When you set up 2FA, you should always download the recovery codes and set up more than one factor. This ensures that access to your account doesn't depend on a single device. For more information, see "[Configuring two-factor authentication](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication)," "[Configuring two-factor authentication recovery methods](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication-recovery-methods)," and [GitHub Branded hardware security keys](https://thegithubshop.com/products/github-branded-yubikey) in the GitHub shop.
+При настройке двухфакторной проверки подлинности следует всегда скачивать коды восстановления и настраивать несколько факторов. Это гарантирует, что доступ к учетной записи не будет зависеть от одного устройства. Дополнительные сведения см. в разделах [Настройка двухфакторной проверки подлинности](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication), [Настройка методов восстановления двухфакторной проверки подлинности](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication-recovery-methods) и [Фирменные аппаратные ключи безопасности GitHub](https://thegithubshop.com/products/github-branded-yubikey) в магазине GitHub.
 
-### Configure your organization account
+### Настройка учетной записи организации
 
-{% ifversion ghec or ghes %}
-{% note %}
+{% ifversion ghec or ghes %} {% note %}
 
-**Note**: Depending on the authentication method that {% ifversion ghec %}an enterprise owner{% elsif ghes %}a site administrator{% endif %} has configured for {% ifversion ghec %}your enterprise on {% endif %}{% data variables.location.product_location %}, you may not be able to require 2FA for your organization.
+**Примечание.** В зависимости от метода проверки подлинности, который {% ifversion ghec %}владелец предприятия{% elsif ghes %}администратор сайта{% endif %} настроил для {% ifversion ghec %}ваше предприятие на {% endif %}{% данных variables.location.product_location %}, возможно, вы не сможете требовать 2FA для вашей организации.
 
-{% endnote %}
-{% endif %}
+{% endnote %} {% endif %}
 
-If you're an organization owner, you can see which users don't have 2FA enabled, help them get set up, and then require 2FA for your organization. To guide you through that process, see:
+Если вы являетесь владельцем организации, то можете видеть, у каких пользователей не включена двухфакторная проверка подлинности. Помогите им ее настроить, а затем можете требовать использование двухфакторной проверки подлинности в вашей организации. Инструкции по выполнению этого процесса см. в следующих разделах.
 
-1. "[Viewing whether users in your organization have 2FA enabled](/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/viewing-whether-users-in-your-organization-have-2fa-enabled)"
-2. "[Preparing to require two-factor authentication in your organization](/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/preparing-to-require-two-factor-authentication-in-your-organization)"
-3. "[Requiring two-factor authentication in your organization](/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/requiring-two-factor-authentication-in-your-organization)"
+1. "[Проверка включения 2FA у пользователей организации](/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/viewing-whether-users-in-your-organization-have-2fa-enabled)"
+2. [Подготовка к включению обязательной двухфакторной проверки подлинности в организации](/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/preparing-to-require-two-factor-authentication-in-your-organization)
+3. [Обязательная двухфакторная проверка подлинности в вашей организации](/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/requiring-two-factor-authentication-in-your-organization)
 
 {% endif %}
 
-## Connect to {% data variables.product.product_name %} using SSH keys
+## Подключение к {% data variables.product.product_name %} с помощью ключей SSH
 
-There are other ways to interact with {% data variables.product.product_name %} beyond signing into the website{% ifversion ghae %} via your IdP{% endif %}. Many people authorize the code they push to {% data variables.product.prodname_dotcom %} with an SSH private key. For more information, see "[About SSH](/authentication/connecting-to-github-with-ssh/about-ssh)."
+Существуют и другие способы взаимодействия с {% data variables.product.product_name %} помимо входа на веб-сайт{% ifversion ghae %} через поставщик удостоверений{% endif %}. Многие пользователи авторизуют код, который они отправляют в {% data variables.product.prodname_dotcom %}, с помощью закрытого ключа SSH. Дополнительные сведения см. в разделе [Сведения о SSH](/authentication/connecting-to-github-with-ssh/about-ssh).
 
-Just like {% ifversion ghae %}the password for your IdP account{% else %}your account password{% endif %}, if an attacker were able to get your SSH private key, they could impersonate you and push malicious code to any repository you have write access for. If you store your SSH private key on a disk drive, it's a good idea to protect it with a passphrase. For more information, see "[Working with SSH key passphrases](/authentication/connecting-to-github-with-ssh/working-with-ssh-key-passphrases)."
+Как и в случае с {% ifversion ghae %}паролем для учетной записи у поставщика удостоверений{% else %}паролем учетной записи{% endif %}, если злоумышленник получит ваш закрытый ключ SSH, он может выдать себя за вас и отправить вредоносный код в любой репозиторий, в котором у вас есть доступ на запись. Если вы храните закрытый ключ SSH на диске, рекомендуется защитить его с помощью парольной фразы. Дополнительные сведения см. в разделе [Работа с парольными фразами ключей SSH](/authentication/connecting-to-github-with-ssh/working-with-ssh-key-passphrases).
 
-Another option is to generate SSH keys on a hardware security key. You could use the same key you're using for 2FA. Hardware security keys are very difficult to compromise remotely, because the private SSH key remains on the hardware, and is not directly accessible from software. For more information, see "[Generating a new SSH key for a hardware security key](/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key-for-a-hardware-security-key)."
+Другой вариант — создать ключи SSH в аппаратном ключе безопасности. Вы можете использовать тот же ключ, что и для двухфакторной проверки подлинности. Аппаратные ключи безопасности очень трудно скомпрометировать удаленно, так как закрытый ключ SSH остается на оборудовании и недоступен напрямую из программного обеспечения. Дополнительные сведения см. в разделе [Создание нового ключа SSH для аппаратного ключа безопасности](/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key-for-a-hardware-security-key).
 
-{% ifversion ghec or ghes or ghae %}
-Hardware-backed SSH keys are quite secure, but the hardware requirement might not work for some organizations. An alternative approach is to use SSH keys that are only valid for a short period of time, so even if the private key is compromised it can't be exploited for very long. This is the concept behind running your own SSH certificate authority. While this approach gives you a lot of control over how users authenticate, it also comes with the responsibility of maintaining an SSH certificate authority yourself. For more information, see "[About SSH certificate authorities](/organizations/managing-git-access-to-your-organizations-repositories/about-ssh-certificate-authorities)."
+{% ifversion ghec or ghes or ghae %} Аппаратные ключи SSH довольно безопасны, но требования к оборудованию могут не работать для некоторых организаций. Альтернативный подход заключается в использовании ключей SSH, которые действительны только в течение короткого периода времени, поэтому даже если закрытый ключ скомпрометирован, его не получится использовать очень долго. Эта концепция лежит в основе запуска собственного центра сертификации SSH. Хотя этот подход обеспечивает широкий контроль над проверкой подлинности пользователей, вам также придется самостоятельно обслуживать центр сертификации SSH. Дополнительные сведения см. в разделе [Сведения о центрах сертификации SSH](/organizations/managing-git-access-to-your-organizations-repositories/about-ssh-certificate-authorities).
 {% endif %}
 
-## Next steps
+## Дальнейшие действия
 
-- "[Securing your end-to-end supply chain](/code-security/supply-chain-security/end-to-end-supply-chain/end-to-end-supply-chain-overview)"
+- [Защита сквозной цепочки поставок](/code-security/supply-chain-security/end-to-end-supply-chain/end-to-end-supply-chain-overview)
 
-- "[Best practices for securing code in your supply chain](/code-security/supply-chain-security/end-to-end-supply-chain/securing-code)"
+- [Рекомендации по защите кода в цепочке поставок](/code-security/supply-chain-security/end-to-end-supply-chain/securing-code)
 
-- "[Best practices for securing your build system](/code-security/supply-chain-security/end-to-end-supply-chain/securing-builds)"
+- [Рекомендации по обеспечению безопасности системы сборки](/code-security/supply-chain-security/end-to-end-supply-chain/securing-builds)

@@ -1,6 +1,6 @@
 ---
-title: Linking a pull request to an issue
-intro: 'You can link a pull request {% ifversion link-existing-branches-to-issue %}or branch {% endif %}to an issue to show that a fix is in progress and to automatically close the issue when the pull request {% ifversion link-existing-branches-to-issue %}or branch {% endif %} is merged.'
+title: Связывание запроса на вытягивание с проблемой
+intro: 'Вы можете связать запрос на вытягивание {% ifversion link-existing-branches-to-issue %}или ветвь {% endif %} с проблемой, чтобы показать, что выполняется исправление, и автоматически закрыть проблему при слиянии запроса на вытягивание {% ifversion link-existing-branches-to-issue %}или ветви{% endif %}.'
 redirect_from:
   - /github/managing-your-work-on-github/managing-your-work-with-issues-and-pull-requests/linking-a-pull-request-to-an-issue
   - /articles/closing-issues-via-commit-message
@@ -17,89 +17,92 @@ versions:
 topics:
   - Pull requests
 shortTitle: Link PR to issue
+ms.openlocfilehash: 8c3ec2b778029c91d0e97783ced873e6b9b28a9b
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148109367'
 ---
 {% note %}
 
-**Note:** The special keywords in a pull request description are interpreted when the pull request targets the repository's *default* branch. However, if the PR's base is *any other branch*, then these keywords are ignored, no links are created and merging the PR has no effect on the issues. **If you want to link a pull request to an issue using a keyword, the PR must be on the default branch.**
+**Примечание.** Специальные ключевые слова в описании запроса на вытягивание интерпретируются, когда запрос на вытягивание предназначен для ветви репозитория *по умолчанию*. Однако если база запроса на вытягивание является *любой другой ветвью*, эти ключевые слова игнорируются, ссылки не создаются и слияние запроса на вытягивание не влияет на проблемы. **Если вы хотите связать запрос на вытягивание с проблемой с помощью ключевого слова, запрос на вытягивание должен находиться в ветви по умолчанию.**
 
 {% endnote %}
 
-## About linked issues and pull requests
+## Сведения о связанных проблемах и запросах на вытягивание
 
-You can link an issue to a pull request manually or using a supported keyword in the pull request description.
+Вы можете связать проблему с запросом на вытягивание вручную или с помощью поддерживаемого ключевого слова в описании запроса на вытягивание.
 
-When you link a pull request to the issue the pull request addresses, collaborators can see that someone is working on the issue.
+Если запрос на вытягивание связан с проблемой, участники совместной работы видят, что кто-то работает над этой проблемой.
 
-When you merge a linked pull request into the default branch of a repository, its linked issue is automatically closed. For more information about the default branch, see "[Changing the default branch](/github/administering-a-repository/changing-the-default-branch)."
+При слиянии связанного запроса на вытягивание с ветвью репозитория по умолчанию связанная проблема автоматически закрывается. Дополнительные сведения о ветви по умолчанию см. в разделе [Изменение ветви по умолчанию](/github/administering-a-repository/changing-the-default-branch).
 
-## Linking a pull request to an issue using a keyword
+## Связывание запроса на вытягивание с проблемой с помощью ключевого слова
 
-You can link a pull request to an issue by using a supported keyword in the pull request's description or in a commit message. The pull request **must be** on the default branch.
+Вы можете связать запрос на вытягивание с проблемой, используя поддерживаемое ключевое слово в описании запроса на вытягивание или в сообщении о фиксации. Запрос на вытягивание **должен находиться** в ветви по умолчанию.
 
 * close
-* closes
+* закрывается
 * closed
-* fix
-* fixes
+* Исправление
+* исправляется
 * fixed
 * resolve
-* resolves
-* resolved
+* разрешается
+* разрешена
 
-If you use a keyword to reference a pull request comment in another pull request, the pull requests will be linked. Merging the referencing pull request also closes the referenced pull request.
+Если вы используете ключевое слово для ссылки на комментарий запроса на вытягивание в другом запросе на вытягивание, запросы на вытягивание будут связаны. При слиянии ссылающегося запроса на вытягивание также закрывается запрос на вытягивание, на который указывает ссылка.
 
-The syntax for closing keywords depends on whether the issue is in the same repository as the pull request.
+Синтаксис закрывающих ключевых слов зависит от того, находится ли проблема в том же репозитории, что и запрос на вытягивание.
 
-Linked issue | Syntax | Example
+Связанная проблема | Синтаксис | Пример
 --------------- | ------ | ------
-Issue in the same repository | *KEYWORD* #*ISSUE-NUMBER* | `Closes #10`
-Issue in a different repository | *KEYWORD* *OWNER*/*REPOSITORY*#*ISSUE-NUMBER* | `Fixes octo-org/octo-repo#100`
-Multiple issues | Use full syntax for each issue | `Resolves #10, resolves #123, resolves octo-org/octo-repo#100`
+Проблема в том же репозитории | *KEYWORD* #*ISSUE-NUMBER* | `Closes #10`
+Проблема в другом репозитории | *KEYWORD* *OWNER*/*REPOSITORY*#*ISSUE-NUMBER* | `Fixes octo-org/octo-repo#100`
+Несколько проблем | Использование полного синтаксиса для каждой проблемы | `Resolves #10, resolves #123, resolves octo-org/octo-repo#100`
 
-Only manually linked pull requests can be manually unlinked. To unlink an issue that you linked using a keyword, you must edit the pull request description to remove the keyword.
+Отключить связь вручную можно только для запросов на вытягивание, которые были привязаны вручную. Чтобы отменить связь с проблемой, установленную с помощью ключевого слова, необходимо изменить описание запроса на вытягивание, чтобы удалить ключевое слово.
 
-You can also use closing keywords in a commit message. The issue will be closed when you merge the commit into the default branch, but the pull request that contains the commit will not be listed as a linked pull request.
+Вы также можете использовать закрывающие ключевые слова в сообщении фиксации. Проблема будет закрыта при слиянии фиксации в ветвь по умолчанию, но запрос на вытягивание, содержащий фиксацию, не будет указан как связанный запрос на вытягивание.
 
-## Manually linking a pull request to an issue using the pull request sidebar
+## Связывание запроса на вытягивание вручную с проблемой с помощью боковой панели запроса на вытягивание
 
-Anyone with write permissions to a repository can manually link a pull request to an issue from the pull request sidebar.
+Любой пользователь с разрешениями на запись в репозиторий может вручную связать запрос на вытягивание с проблемой на боковой панели запроса на вытягивание.
 
-You can manually link up to ten issues to each pull request. The issue and pull request must be in the same repository.
+Вы можете вручную связать до десяти проблем с каждым запросом на вытягивание. Проблема и запрос на вытягивание должны находиться в одном репозитории.
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-pr %}
-3. In the list of pull requests, click the pull request that you'd like to link to an issue.
-{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
-4. In the right sidebar, in the "Development" section click {% octicon "gear" aria-label="The Gear icon" %}.
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-pr %}
+3. В списке запросов на вытягивание выберите запрос на вытягивание, который вы хотите связать с проблемой.
+{% ifversion fpt или ghec или ghes > 3.4 или ghae > 3,4 %}
+4. На правой боковой панели в разделе "Разработка" щелкните {% octicon "gear" aria-label="The Gear icon" %}.
 {% else %}
-4. In the right sidebar, click **Linked issues**.
-  ![Linked issues in the right sidebar](/assets/images/help/pull_requests/linked-issues.png)
-{% endif %}
-5. Click the issue you want to link to the pull request.
-  ![Drop down to link issue](/assets/images/help/pull_requests/link-issue-drop-down.png)
+4. На правой боковой панели щелкните **Связанные проблемы**.
+  ![Связанные проблемы на правой боковой панели](/assets/images/help/pull_requests/linked-issues.png) {% endif %}
+5. Щелкните проблему, которую вы хотите связать с запросом на вытягивание.
+  ![Раскрывающийся список для связи проблемы](/assets/images/help/pull_requests/link-issue-drop-down.png)
 
 {% ifversion link-existing-branches-to-issue %}
 
-## Manually linking a pull request or branch to an issue using the issue sidebar
+## Связывание запроса на вытягивание или ветви вручную с проблемой с помощью боковой панели проблемы
 
-Anyone with write permissions to a repository can manually link a pull request or branch to an issue from the issue sidebar.
+Любой пользователь с разрешениями на запись в репозиторий может вручную связать запрос на вытягивание или ветвь с проблемой на боковой панели проблемы.
 
-You can manually link up to ten issues to each pull request. The issue can be in a different repository than the linked pull request or branch. Your last selected repository will be remembered 
+Вы можете вручную связать до десяти проблем с каждым запросом на вытягивание. Проблема может находиться не в том репозитории, где находится связанный запрос на вытягивание или ветвь. Последний выбранный репозиторий будет запомнен. 
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-issues %}
-3. In the list of issues, click the issue that you'd like to link a pull request or branch to.
-4. In the right sidebar, click **Development**.
-  ![Development menu in the right sidebar](/assets/images/help/issues/development-menu.png)
-5. Click the repository containing the pull request or branch you want to link to the issue.
-  ![Drop down to select repository](/assets/images/help/issues/development-menu-select-repository.png)
-6. Click the pull request or branch you want to link to the issue.
-  ![Drop down to link pull request or branch](/assets/images/help/issues/development-menu-select-pr-or-branch.png)
-7. Click **Apply**.
-  ![Apply](/assets/images/help/issues/development-menu-apply.png)
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-issues %}
+3. В списке проблем щелкните проблему, с которой вы хотите связать запрос на вытягивание или ветвь.
+4. На правой боковой панели нажмите **Разработка**.
+  ![Меню разработки на правой боковой панели](/assets/images/help/issues/development-menu.png)
+5. Щелкните репозиторий, содержащий запрос на вытягивание или ветвь, которую вы хотите связать с проблемой.
+  ![Раскрывающийся список для выбора репозитория](/assets/images/help/issues/development-menu-select-repository.png)
+6. Щелкните запрос на вытягивание или ветвь, которую вы хотите связать с проблемой.
+  ![Раскрывающийся список для связи запроса на вытягивание или ветви](/assets/images/help/issues/development-menu-select-pr-or-branch.png)
+7. Щелкните **Применить**.
+  ![Применить](/assets/images/help/issues/development-menu-apply.png)
 
 {% endif %}
 
-## Further reading
+## Дополнительные материалы
 
-* "[Autolinked references and URLs](/articles/autolinked-references-and-urls/#issues-and-pull-requests)"
+* [Ссылки и URL-адреса при автоматическом связывании](/articles/autolinked-references-and-urls/#issues-and-pull-requests)

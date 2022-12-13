@@ -1,62 +1,64 @@
 ---
-title: Enforcing policies for personal access tokens in your enterprise
-intro: 'Enterprise owners can control whether to allow {% data variables.product.pat_v2 %}s and {% data variables.product.pat_v1_plural %}, and can require approval for {% data variables.product.pat_v2 %}s.'
+title: Применение политик для личных маркеров доступа в организации
+intro: 'Владельцы предприятия могут контролировать, разрешать ли {% данные variables.product.pat_v2 %}s и {% данных variables.product.pat_v1_plural %}} и требовать утверждения для {% данных variables.product.pat_v2 %}s.'
 versions:
   feature: pat-v2-enterprise
 shortTitle: '{% data variables.product.pat_generic_caps %} policies'
+ms.openlocfilehash: 6252f7ac67fe77cbe20ab85ff2cbd6f04ac17905
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148107008'
 ---
-
 {% note %}
 
-**Note**: {% data reusables.user-settings.pat-v2-beta %}
+**Примечание**. {% данных для повторного использования.user-settings.pat-v2-beta %}
 
-During the beta, enterprises must opt in to {% data variables.product.pat_v2 %}s. If your enterprise has not already opted-in, then you will be prompted to opt-in and set policies when you follow the steps below.
+В бета-версии предприятия должны принять участие в {% данных variables.product.pat_v2 %}s. Если ваше предприятие еще не согласилось, вам будет предложено принять участие и задать политики при выполнении приведенных ниже действий.
 
-Even if an enterprise has not opted in to {% data variables.product.pat_v2 %}s, organizations owned by the enterprise can still opt in. All users, including {% data variables.product.prodname_emus %}, can create {% data variables.product.pat_v2 %}s that can access resources owned by the user (such as repositories created under their account) even if the enterprise has not opted in to {% data variables.product.pat_v2 %}s.
+Даже если предприятие не предоставило согласие на {% данных variables.product.pat_v2 %}s, организации, принадлежащие организации, принадлежащие организации, по-прежнему могут согласиться. Все пользователи, включая {% данных variables.product.prodname_emus %}, могут создавать {% данных variables.product.pat_v2 %}s, которые могут получить доступ к ресурсам, принадлежащим пользователю (например, репозиториям, созданным в своей учетной записи), даже если предприятие не согласилось на {% данных variables.product.pat_v2 %}s.
 
 {% endnote %}
 
-## Restricting access by {% data variables.product.pat_v2 %}s
+## Ограничение доступа на {% данных variables.product.pat_v2 %}s
 
-Enterprise owners can prevent {% data variables.product.pat_v2 %}s from accessing private and internal resources owned by the enterprise. {% data variables.product.pat_v2_caps %}s will still be able to access public resources within the organizations. This setting only controls access by {% data variables.product.pat_v2 %}s, not {% data variables.product.pat_v1_plural %}. For more information about restricting access by {% data variables.product.pat_v1_plural %}, see "[Restricting access by {% data variables.product.pat_v1_plural %}](#restricting-access-by-personal-access-tokens-classic)" on this page.
+Владельцы предприятия могут предотвратить доступ к частным и внутренним ресурсам, принадлежащим организации, {% данных variables.product.pat_v2 %}s. {% данных variables.product.pat_v2_caps %}s по-прежнему смогут получать доступ к общедоступным ресурсам в организациях. Этот параметр управляет доступом только к {% данных variables.product.pat_v2 %}s, а не {% данных variables.product.pat_v1_plural %}. Дополнительные сведения об ограничении доступа с помощью {% данных variables.product.pat_v1_plural %}см. в разделе "[Ограничение доступа с помощью {% данных variables.product.pat_v1_plural %}](#restricting-access-by-personal-access-tokens-classic)" на этой странице.
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.policies-tab %}
-1. Under {% octicon "law" aria-label="The law icon" %} **Policies**, click **Organizations**.
-1. Under **Restrict access via {% data variables.product.pat_v2 %}s**, select the option that meets your needs:
-   - **Allow organizations to configure access requirements**: Each organization owned by the enterprise can decide whether to restrict access by {% data variables.product.pat_v2 %}s.
-   - **Restrict access via {% data variables.product.pat_v2 %}s**: {% data variables.product.pat_v2_caps %}s cannot access organizations owned by the enterprise. SSH keys created by {% data variables.product.pat_v2 %}s will continue to work. Organizations cannot override this setting.
-   - **Allow access via {% data variables.product.pat_v2 %}s**: {% data variables.product.pat_v2_caps %}s can access organizations owned by the enterprise. Organizations cannot override this setting.
-1. Click **Save**.
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.policies-tab %}
+1. В разделе {% octicon "law" aria-label="Значок закона" %} **Политики** щелкните **"Организации**".
+1. В разделе **"Ограничить доступ через {% данных variables.product.pat_v2 %}s**" выберите вариант, соответствующий вашим потребностям:
+   - **Разрешить организациям настраивать требования к доступу**: каждая организация, принадлежащей организации, может решить, следует ли ограничить доступ с помощью {% данных variables.product.pat_v2 %}s.
+   - **Ограничение доступа через {% данных variables.product.pat_v2 %}s**: {% данных variables.product.pat_v2_caps %}s не могут получить доступ к организациям, принадлежащим организации. Ключи SSH, созданные {% данных variables.product.pat_v2 %}s, будут продолжать работать. Организации не могут переопределить этот параметр.
+   - **Разрешить доступ через {% данных variables.product.pat_v2 %}s**: {% данных variables.product.pat_v2_caps %}s может получить доступ к организациям, принадлежащим организации. Организации не могут переопределить этот параметр.
+1. Выберите команду **Сохранить**.
 
-## Enforcing an approval policy for {% data variables.product.pat_v2 %}s
+## Применение политики утверждения для {% данных variables.product.pat_v2 %}s
 
-Enterprise owners can require that all organizations owned by the enterprise must approve each {% data variables.product.pat_v2 %} that can access the organization. {% data variables.product.pat_v2_caps %}s will still be able to read public resources within the organization without approval. Conversely, enterprise owners can allow {% data variables.product.pat_v2 %}s to access organizations in the enterprise without prior approval. Enterprise owners can also let each organization in the enterprise choose their own approval settings.
+Владельцы предприятия могут требовать, чтобы все организации, принадлежащие организации, должны утвердить каждый {% данных variables.product.pat_v2 %}, которые могут получить доступ к организации. {% данных variables.product.pat_v2_caps %}s по-прежнему смогут читать общедоступные ресурсы в организации без утверждения. И наоборот, владельцы предприятия могут разрешить {% данных variables.product.pat_v2 %}s для доступа к организациям в организации без предварительного утверждения. Владельцы предприятия также могут позволить каждой организации в организации выбирать собственные параметры утверждения.
 
 {% note %}
 
-**Note**: Only {% data variables.product.pat_v2 %}s, not {% data variables.product.pat_v1_plural %}, are subject to approval. Unless the organization or enterprise has restricted access by {% data variables.product.pat_v1_plural %}, any {% data variables.product.pat_v1 %} can access organization resources without prior approval. For more information about restricting {% data variables.product.pat_v1_plural %}, see "[Restricting access by {% data variables.product.pat_v1_plural %}](#restricting-access-by-personal-access-tokens-classic)" on this page and "[Setting a {% data variables.product.pat_generic %} policy for your organization](/organizations/managing-programmatic-access-to-your-organization/setting-a-personal-access-token-policy-for-your-organization)."
+**Примечание.** Только {% данных variables.product.pat_v2 %}s, а не {% данных variables.product.pat_v1_plural %}, подлежат утверждению. Если у организации или предприятия нет ограниченного доступа с помощью {% данных variables.product.pat_v1_plural %}, любой {% данных variables.product.pat_v1 %} может получить доступ к ресурсам организации без предварительного утверждения. Дополнительные сведения об ограничении {% данных variables.product.pat_v1_plural %}см. в разделе "[Ограничение доступа к {% данных variables.product.pat_v1_plural %}](#restricting-access-by-personal-access-tokens-classic)" на этой странице и "[Настройка политики {% данных variables.product.pat_generic %} для вашей организации](/organizations/managing-programmatic-access-to-your-organization/setting-a-personal-access-token-policy-for-your-organization)".
 
 {% endnote %}
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.policies-tab %}
-1. Under {% octicon "law" aria-label="The law icon" %} **Policies**, click **Organizations**.
-1. Under **Require approval of {% data variables.product.pat_v2 %}s**, select the option that meets your needs:
-   - **Allow organizations to configure approval requirements**: Each organization owned by the enterprise can decide whether to require approval of {% data variables.product.pat_v2 %} that can access the organization.
-   - **Require organizations to use the approval flow**: All organizations owned by the enterprise must approve each {% data variables.product.pat_v2 %} that can access the organization. {% data variables.product.pat_v2_caps %}s created by organization owners will not need approval. Organizations cannot override this setting.
-   - **Disable the approval flow in all organizations**: {% data variables.product.pat_v2_caps %}s created by organization members can access organizations owned by the enterprise without prior approval. Organizations cannot override this setting.
-1. Click **Save**.
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.policies-tab %}
+1. В разделе {% octicon "law" aria-label="Значок закона" %} **Политики** щелкните **"Организации**".
+1. В разделе **"Требовать утверждение {% данных variables.product.pat_v2 %}s**" выберите вариант, соответствующий вашим потребностям:
+   - **Разрешить организациям настраивать требования к утверждению**: каждая организация, принадлежающая организации, может решить, требуется ли утверждение {% данных variables.product.pat_v2 %}, которые могут получить доступ к организации.
+   - **Требовать от организаций использовать поток утверждения**: все организации, принадлежащие организации, должны утвердить каждый {% данных variables.product.pat_v2 %}, которые могут получить доступ к организации. {% данных variables.product.pat_v2_caps %}s, созданных владельцами организации, не требует утверждения. Организации не могут переопределить этот параметр.
+   - **Отключите поток утверждения во всех организациях**: {% данных variables.product.pat_v2_caps %}s, созданных членами организации, могут получить доступ к организациям, принадлежащим организации без предварительного утверждения. Организации не могут переопределить этот параметр.
+1. Выберите команду **Сохранить**.
 
-## Restricting access by {% data variables.product.pat_v1_plural %}
+## Ограничение доступа с помощью {% данных variables.product.pat_v1_plural %}
 
-Enterprise owners can prevent {% data variables.product.pat_v1_plural %} from accessing the enterprise and organizations owned by the enterprise. {% data variables.product.pat_v1_caps_plural %} will still be able to access public resources within the organization. This setting only controls access by {% data variables.product.pat_v1_plural %}, not {% data variables.product.pat_v2 %}s. For more information about restricting access by {% data variables.product.pat_v2 %}s, see "[Restricting access by {% data variables.product.pat_v2 %}s](#restricting-access-by-fine-grained-personal-access-tokens)" on this page.
+Владельцы предприятия могут предотвратить доступ к корпоративным и организациям, принадлежащим организации, {% данных variables.product.pat_v1_plural %}. {% данных variables.product.pat_v1_caps_plural %} по-прежнему смогут получать доступ к общедоступным ресурсам в организации. Этот параметр управляет доступом только к {% данных variables.product.pat_v1_plural %}, а не {% данных variables.product.pat_v2 %}s. Дополнительные сведения об ограничении доступа с помощью {% данных variables.product.pat_v2 %}s см. в разделе "[Ограничение доступа с помощью {% данных variables.product.pat_v2 %}s](#restricting-access-by-fine-grained-personal-access-tokens)" на этой странице.
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.policies-tab %}
-1. Under {% octicon "law" aria-label="The law icon" %} **Policies**, click **Organizations**.
-1. Under **Restrict {% data variables.product.pat_v1_plural %} from accessing your organizations**, select the option that meets your needs:
-   - **Allow organizations to configure {% data variables.product.pat_v1_plural %} access requirements**: Each organization owned by the enterprise can decide whether to restrict access by {% data variables.product.pat_v1_plural %}.
-   - **Restrict access via {% data variables.product.pat_v1_plural %}**: {% data variables.product.pat_v1_caps_plural %} cannot access the enterprise or organizations owned by the enterprise. SSH keys created by {% data variables.product.pat_v1_plural %} will continue to work. Organizations cannot override this setting.
-   - **Allow access via {% data variables.product.pat_v1_plural %}**: {% data variables.product.pat_v1_caps_plural %} can access the enterprise and organizations owned by the enterprise. Organizations cannot override this setting.
-1. Click **Save**.
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.policies-tab %}
+1. В разделе {% octicon "law" aria-label="Значок закона" %} **Политики** щелкните **"Организации**".
+1. В разделе **"Ограничение доступа к данным {% variables.product.pat_v1_plural %} для доступа к организациям** выберите вариант, соответствующий вашим потребностям:
+   - **Разрешить организациям настраивать требования к доступу к {% variables.product.pat_v1_plural %}**: каждая организация, принадлежащей организации, может решить, следует ли ограничить доступ с помощью {% данных variables.product.pat_v1_plural %}.
+   - **Ограничьте доступ через {% данных variables.product.pat_v1_plural %}: {% данных** variables.product.pat_v1_caps_plural %} не может получить доступ к предприятиям или организациям, принадлежащим организации. Ключи SSH, созданные {% данных variables.product.pat_v1_plural %}, будут продолжать работать. Организации не могут переопределить этот параметр.
+   - **Разрешить доступ через {% данных variables.product.pat_v1_plural %}: {% данных variables.product.pat_v1_caps_plural %**} может получить доступ к предприятиям и организациям, принадлежащим организации. Организации не могут переопределить этот параметр.
+1. Выберите команду **Сохранить**.
