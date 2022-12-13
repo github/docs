@@ -50,7 +50,7 @@ You can search for repositories that are associated with a particular topic. For
   
 ## Limitations and quotas
 
-The following limitations apply to topics:
+When creating a topic:
 
 - Topic names can only include basic alphanumeric characters.
 - Topic names can NOT include capital letters.
