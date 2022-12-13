@@ -53,5 +53,5 @@ You can search for repositories that are associated with a particular topic. For
 When creating a topic:
 
 - use lowercase letters, numbers, and hyphens.
-- Topic names can be no longer than 50 characters.
+- use 50 characters or less.
 - Each repository cannot have more than 20 topics.
