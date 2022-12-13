@@ -1,6 +1,6 @@
 ---
-title: Generating a Health Check for your enterprise
-intro: 'You can gain insight into the general health and Git and API requests of {% data variables.location.product_location %} by generating a Health Check.'
+title: Создание проверки работоспособности для предприятия
+intro: 'Вы можете получить представление об общем состоянии работоспособности и запросах Git и API для {% данных variables.location.product_location %} путем создания проверки работоспособности.'
 versions:
   ghes: '*'
 type: how_to
@@ -11,48 +11,53 @@ topics:
   - Monitoring
   - Performance
 product: '{% data reusables.gated-features.generated-health-checks %}'
+ms.openlocfilehash: 5b03c307c474d18c4f4e2a4891103759e9f8195e
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148098775'
 ---
-
 {% note %}
 
-**Note:** Generating a Health Check is currently in beta for {% data variables.product.prodname_ghe_server %} and subject to change.
+**Примечание.** Создание проверки работоспособности в настоящее время доступно в бета-версии для {% data variables.product.prodname_ghe_server %}, но это может измениться.
 
 {% endnote %}
 
-## About generated Health Checks
+## Сведения о созданных проверках работоспособности
 
-You can create a support bundle for {% data variables.location.product_location %} that contains a lot of data, such as diagnostics and log files. To help analyze and interpret this data, you can generate a Health Check. For more information about support bundles, see "[Providing data to {% data variables.contact.github_support %}](/support/contacting-github-support/providing-data-to-github-support#creating-and-sharing-support-bundles)."
+Вы можете создать пакет поддержки для {% данных variables.location.product_location %}, который содержит много данных, таких как файлы диагностики и журналов. Чтобы проанализировать и интерпретировать эти данные, можно создать проверку работоспособности. Дополнительные сведения о пакетах поддержки см. в статье [Предоставление данных для {% data variables.contact.github_support %}](/support/contacting-github-support/providing-data-to-github-support#creating-and-sharing-support-bundles).
 
-A Health Check provides the following information about {% data variables.location.product_location %}.
-- Insights into the general health of {% data variables.location.product_location %}, such as upgrade status, storage, and license seat consumption
-- A security section, which focuses on subdomain isolation and user authentication
-- Analysis of Git requests, with details about the busiest repositories and Git users 
-- Analysis of API requests, including the busiest times, most frequently requested endpoints, and most active callers
+Проверка работоспособности предоставляет следующие сведения о {% данных variables.location.product_location %}.
+- Общие сведения о работоспособности {% данных variables.location.product_location %}, таких как состояние обновления, хранение и потребление рабочих мест на лицензировании
+- Раздел безопасности, посвященный изоляции поддомена и проверке подлинности пользователей.
+- Анализ запросов Git с подробными сведениями о самых загруженных репозиториях и пользователях Git. 
+- Анализ запросов API, включая самое загруженное время, наиболее часто запрашиваемые конечные точки и самые активные вызывающие объекты.
 
-If you want to generate a Health Check for {% data variables.product.prodname_ghe_cloud %}, contact {% data variables.contact.github_support %}. For more information, see "[Creating a support ticket](/support/contacting-github-support/creating-a-support-ticket)."
+Чтобы создать проверку работоспособности для {% data variables.product.prodname_ghe_cloud %}, обратитесь к {% data variables.contact.github_support %}. Дополнительные сведения см. в разделе [Создание запроса в службу поддержки](/support/contacting-github-support/creating-a-support-ticket).
 
-## Generating a Health Check
+## Создание проверки работоспособности
 
-Before you can generate a Health Check, you must create a support bundle. For more information, see "[Providing data to {% data variables.contact.github_support %}](/support/contacting-github-support/providing-data-to-github-support#creating-and-sharing-support-bundles)."
+Перед генерированием проверки работоспособности необходимо создать пакет поддержки. Дополнительные сведения см. в разделе [Предоставление данных для {% data variables.contact.github_support %}](/support/contacting-github-support/providing-data-to-github-support#creating-and-sharing-support-bundles).
 
-1. Navigate to the [{% data variables.contact.support_portal %}](https://support.github.com/).
-2. In the upper-right corner of the page, click **Premium**.
+1. Перейдите на [{% data variables.contact.support_portal %}](https://support.github.com/).
+2. В правом верхнем углу страницы щелкните **Премиум**.
 
-   ![Screenshot of the "Premium" link in the GitHub Support Portal header.](/assets/images/enterprise/support/support-portal-header-premium.png)
+   ![Снимок экрана: ссылка "Премиум" в заголовке портала поддержки GitHub.](/assets/images/enterprise/support/support-portal-header-premium.png)
    
-3. To the right of **Health Checks**, click **Request Health Check**.
+3. Справа от **проверок работоспособности** нажмите кнопку **Request Health Check** (Запросить проверку работоспособности).
 
-   ![Screenshot of the "Request Health Check" button.](/assets/images/enterprise/support/support-portal-request-health-check.png)
+   ![Снимок экрана: кнопка Request Health Check (Запросить проверку работоспособности).](/assets/images/enterprise/support/support-portal-request-health-check.png)
    
-4. Under "Select an enterprise account", select the dropdown menu and click an enterprise account.
+4. В разделе Select an enterprise account (Выбор учетной записи предприятия) выберите раскрывающееся меню и щелкните учетную запись предприятия.
 
-   ![Screenshot of the "enterprise account" dropdown menu.](/assets/images/enterprise/support/health-check-dialog-ea.png)
+   ![Снимок экрана: раскрывающееся меню с учетной записью предприятия.](/assets/images/enterprise/support/health-check-dialog-ea.png)
    
-5. Under "Upload a support bundle", click **Chose File** and choose a file to upload. Then, click **Request Health Check**.
+5. В разделе Upload a support bundle (Отправка пакета поддержки) нажмите кнопку **Chose File** (Выбрать файл) и выберите файл для отправки. Затем нажмите кнопку **Request Health Check** (Запросить проверку работоспособности).
 
-   ![Screenshot of the "Choose file" and "Request Health Check" buttons.](/assets/images/enterprise/support/health-check-dialog-choose-file.png)
+   ![Снимок экрана: кнопки Choose file (Выбрать файл) и Request Health Check (Запросить проверку работоспособности).](/assets/images/enterprise/support/health-check-dialog-choose-file.png)
    
 
-After you request a Health Check, a job is scheduled to generate the Health Check. After several hours to one day, the generated Health Check will appear in the "Health Checks" section of the {% data variables.contact.support_portal %}.
+После запроса проверки работоспособности планируется задание для создания проверки работоспособности. В период от нескольких часов до одного дня созданная проверка работоспособности появится в разделе Health Checks (Проверки работоспособности) {% data variables.contact.support_portal %}.
 
-![Screenshot of the Health Checks section of the {% data variables.contact.support_portal %}.](/assets/images/enterprise/support/support-portal-health-checks-section.png)
+![Снимок экрана: раздел Health Checks (Проверки работоспособности) {% data variables.contact.support_portal %}.](/assets/images/enterprise/support/support-portal-health-checks-section.png)

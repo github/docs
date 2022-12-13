@@ -1,6 +1,6 @@
 ---
-title: Preventing unauthorized access
-intro: 'You may be alerted to a security incident in the media, such as the discovery of the [Heartbleed bug](http://heartbleed.com/), or your computer could be stolen while you''re signed in to {% data variables.location.product_location %}. In such cases, changing your password prevents any unintended future access to your account and projects.'
+title: Предотвращение несанкционированного доступа
+intro: 'Возможно, вы будете оповещены об инциденте безопасности на носителе, например об обнаружении [ошибки Heartbleed](http://heartbleed.com/), или компьютер может быть украден во время входа в {% данных variables.location.product_location %}. В таких случаях изменение пароля предотвращает все попытки непреднамеренного доступа к вашей учетной записи и проектам в будущем.'
 redirect_from:
   - /articles/preventing-unauthorized-access
   - /github/authenticating-to-github/preventing-unauthorized-access
@@ -13,18 +13,24 @@ topics:
   - Identity
   - Access management
 shortTitle: Unauthorized access
+ms.openlocfilehash: a7b6b2cf0fa6dc91860a440314de9a51a503dae1
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148098927'
 ---
-{% data variables.product.product_name %} requires a password to perform sensitive actions, such as adding new SSH keys, authorizing applications, or modifying team members.
+В {% data variables.product.product_name %} требуется пароль для выполнения конфиденциальных действий, таких как добавление новых ключей SSH, авторизация приложений или изменение участников команды.
 
-After changing your password, you should perform these actions to make sure that your account is secure:
+После изменения пароля необходимо выполнить следующие действия, чтобы убедиться, что ваша учетная запись защищена:
 
-- [Enable two-factor authentication](/articles/about-two-factor-authentication) on your account so that access requires more than just a password.
-- [Review your SSH keys](/articles/reviewing-your-ssh-keys), [deploy keys](/articles/reviewing-your-deploy-keys), and [authorized integrations](/articles/reviewing-your-authorized-integrations) and revoke unauthorized or unfamiliar access in your SSH and Applications settings.
+- [Включите двухфакторную проверку подлинности](/articles/about-two-factor-authentication) в учетной записи, чтобы для доступа требовался не только пароль.
+- [Просмотрите ключи SSH](/articles/reviewing-your-ssh-keys), [разверните ключи](/articles/reviewing-your-deploy-keys) и [авторизованные интеграции](/articles/reviewing-your-authorized-integrations) и отзовите несанкционированный или незнакомый доступ в параметрах SSH и приложений.
 {% ifversion fpt or ghec %}
-- [Verify all your email addresses](/articles/verifying-your-email-address). If an attacker added their email address to your account, it could allow them to force an unintended password reset.
+- [Проверьте все адреса электронной почты](/articles/verifying-your-email-address). Если злоумышленник добавил свой адрес электронной почты в вашу учетную запись, это может позволить ему принудительно сбросить пароль.
 {% endif %}
-- [Review your account's security log](/github/authenticating-to-github/reviewing-your-security-log). This provides an overview on various configurations made to your repositories. For example, you can ensure that no private repositories were turned public, or that no repositories were transferred.
-- [Review the webhooks](/articles/creating-webhooks) on your repositories. Webhooks could allow an attacker to intercept pushes made to your repository.
-- [Make sure that no new deploy keys](/guides/managing-deploy-keys/#deploy-keys) were created. This could enable outside servers access to your projects.
-- Review recent commits made to your repositories.
-- Review the list of collaborators for each repository.
+- [Просмотрите журнал безопасности учетной записи](/github/authenticating-to-github/reviewing-your-security-log). В нем представлены обзорные сведения о различных конфигурациях, сделанных в репозиториях. Например, можно убедиться, что закрытые репозитории не были преобразованы в общедоступные или не были переданы какие-либо репозитории.
+- [Просмотрите веб-перехватчики](/articles/creating-webhooks) в репозиториях. Веб-перехватчики могут позволить злоумышленнику перехватывать отправленные в репозиторий push-уведомления.
+- [Убедитесь, что не были созданы новые ключи развертывания ](/guides/managing-deploy-keys/#deploy-keys). Это может привести к тому, что к проектам может быть предоставлен доступ с внешних серверов.
+- Просмотрите последние фиксации, сделанные в репозиториях.
+- Просмотрите список участников совместной работы для каждого репозитория.

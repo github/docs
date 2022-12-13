@@ -1,6 +1,6 @@
 ---
-title: About dependency review
-intro: 'Dependency review lets you catch insecure dependencies before you introduce them to your environment, and provides information on license, dependents, and age of dependencies.'
+title: Сведения о проверке зависимостей
+intro: 'Проверка зависимостей позволяет перехватывать небезопасные зависимости до того, как они попадут в среду выполнения, и получать сведения о лицензиях, зависимых элементах и сроке существования зависимостей.'
 product: '{% data reusables.gated-features.dependency-review %}'
 shortTitle: Dependency review
 versions:
@@ -17,50 +17,53 @@ topics:
   - Pull requests
 redirect_from:
   - /code-security/supply-chain-security/about-dependency-review
+ms.openlocfilehash: 36a80324e75f6ffbe96a2b46016d56561da931f0
+ms.sourcegitcommit: 73b91dd4cdf592eadec4252319379d6fbe92858e
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 11/14/2022
+ms.locfileid: '148164117'
 ---
-
-## About dependency review
+## Сведения о проверке зависимостей
 
 {% data reusables.dependency-review.feature-overview %}  
 
-If a pull request targets your repository's default branch and contains changes to package manifests or lock files, you can display a dependency review to see what has changed. The dependency review includes details of changes to indirect dependencies in lock files, and it tells you if any of the added or updated dependencies contain known vulnerabilities.
+Если запрос на вытягивание предназначен для ветви репозитория по умолчанию и содержит изменения манифестов пакета или файлов блокировки, вы можете отобразить проверку зависимостей, чтобы увидеть, что изменилось. Проверка зависимостей содержит сведения об изменениях косвенных зависимостей в файлах блокировки и сообщает, имеются ли известные уязвимости в каких-либо добавленных или обновленных зависимостях.
 
-Sometimes you might just want to update the version of one dependency in a manifest and generate a pull request. However, if the updated version of this direct dependency also has updated dependencies, your pull request may have more changes than you expected. The dependency review for each manifest and lock file provides an easy way to see what has changed, and whether any of the new dependency versions contain known vulnerabilities.
+Иногда может потребоваться просто обновить версию одной зависимости в манифесте и создать запрос на вытягивание. Однако если обновленная версия этой прямой зависимости также имеет обновленные зависимости, запрос на вытягивание может иметь больше изменений, чем ожидалось. Проверка зависимостей для каждого файла манифеста и блокировки позволяет легко узнать, что изменилось, и содержат ли какие-либо из новых версий зависимостей известные уязвимости.
 
-By checking the dependency reviews in a pull request, and changing any dependencies that are flagged as vulnerable, you can avoid vulnerabilities being added to your project. For more information about how dependency review works, see "[Reviewing dependency changes in a pull request](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-dependency-changes-in-a-pull-request)."
+Просмотрев проверки зависимостей в запросе на вытягивание и изменив все зависимости, помеченные как уязвимые, можно избежать добавления уязвимостей в проект. Дополнительные сведения о том, как работает проверка зависимостей, см. в разделе [Проверка изменений зависимостей в запросе на вытягивание](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-dependency-changes-in-a-pull-request).
 
-For more information about configuring dependency review, see "[Configuring dependency review](/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-dependency-review)."
+Дополнительную информацию о настройке зависимостей см. в разделе [Сведения о настройке зависимостей](/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-dependency-review).
 
-{% data variables.product.prodname_dependabot_alerts %} will find vulnerabilities that are already in your dependencies, but it's much better to avoid introducing potential problems than to fix problems at a later date. For more information about {% data variables.product.prodname_dependabot_alerts %}, see "[About {% data variables.product.prodname_dependabot_alerts %}](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies#dependabot-alerts-for-vulnerable-dependencies)."
+{% data variables.product.prodname_dependabot_alerts %} обнаружит уязвимости, которые уже имеются в ваших зависимостях, но гораздо лучше избежать потенциальных проблем, чем позднее тратить время на их устранение. Дополнительные сведения об {% data variables.product.prodname_dependabot_alerts %} см. в разделе [Сведения об {% data variables.product.prodname_dependabot_alerts %}](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies#dependabot-alerts-for-vulnerable-dependencies).
 
-Dependency review supports the same languages and package management ecosystems as the dependency graph. For more information, see "[About the dependency graph](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph#supported-package-ecosystems)."
+Проверка зависимостей поддерживает те же языки и экосистемы управления пакетами, что и граф зависимостей. Дополнительные сведения см. в разделе [Сведения о графе зависимостей](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph#supported-package-ecosystems).
 
-For more information on supply chain features available on {% data variables.product.product_name %}, see "[About supply chain security](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-supply-chain-security)."
+Дополнительную информацию о функциях цепочки поставок, доступных в {% data variables.product.product_name %}, см. в разделе [Сведения о безопасности цепочки поставок](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-supply-chain-security).
 
 {% ifversion ghec or ghes %}
-## Enabling dependency review
+## Включение проверки зависимостей
 
-The dependency review feature becomes available when you enable the dependency graph. For more information, see "{% ifversion ghec %}[Enabling the dependency graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph#enabling-the-dependency-graph){% elsif ghes %}[Enabling the dependency graph for your enterprise](/admin/code-security/managing-supply-chain-security-for-your-enterprise/enabling-the-dependency-graph-for-your-enterprise){% endif %}."
+Функция проверки зависимостей становится доступной при включении графа зависимостей. Дополнительные сведения см. в разделе {% ifversion ghec %}[Включение графа зависимостей](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph#enabling-the-dependency-graph){% elsif ghes %}[Включение графа зависимостей для предприятия](/admin/code-security/managing-supply-chain-security-for-your-enterprise/enabling-the-dependency-graph-for-your-enterprise){% endif %}.
 {% endif %}
 
 {% ifversion fpt or ghec or ghes > 3.5 or ghae > 3.5 %}
-## Dependency review enforcement
+## Принудительное применение проверки зависимостей
 
-The action is available for all {% ifversion fpt or ghec %}public repositories, as well as private {% endif %}repositories that have {% data variables.product.prodname_GH_advanced_security %} enabled.
+Это действие доступно для всех {% ifversion fpt or ghec %}общедоступных репозиториев, а также для частных {% endif %}репозиториев, для которых включено {% data variables.product.prodname_GH_advanced_security %}.
 
 {% data reusables.dependency-review.action-enterprise %}
 
-You can use the {% data variables.dependency-review.action_name %} in your repository to enforce dependency reviews on your pull requests. The action scans for vulnerable versions of dependencies introduced by package version changes in pull requests, and warns you about the associated security vulnerabilities. This gives you better visibility of what's changing in a pull request, and helps prevent vulnerabilities being added to your repository. For more information, see [`dependency-review-action`](https://github.com/actions/dependency-review-action).
+Вы можете использовать {% data variables.product.prodname_dependency_review_action %} в своем репозитории, чтобы обеспечить проверки зависимостей в запросах на вытягивание. Это действие проверяет наличие уязвимых версий зависимостей, представленных изменениями версии пакета в запросах на вытягивание, и предупреждает о связанных с ними уязвимостях системы безопасности. Это позволяет лучше отслеживать изменения в запросе на вытягивание и предотвращать добавление уязвимостей в репозиторий. Дополнительные сведения см. на веб-сайте [`dependency-review-action`](https://github.com/actions/dependency-review-action).
 
-![Dependency review action example](/assets/images/help/graphs/dependency-review-action.png)
+![Пример действия проверки зависимостей](/assets/images/help/graphs/dependency-review-action.png)
 
-By default, the {% data variables.dependency-review.action_name %} check will fail if it discovers any vulnerable packages. A failed check blocks a pull request from being merged when the repository owner requires the dependency review check to pass. For more information, see "[About protected branches](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#require-status-checks-before-merging)."
+По умолчанию проверка {% data variables.product.prodname_dependency_review_action %} завершается ошибкой, если обнаруживает уязвимые пакеты. Ошибка проверки блокирует объединение запроса на вытягивание, если владелец репозитория потребовал обязательную проверку зависимостей. Дополнительные сведения см. в разделе [Сведения о защищенных ветвях](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#require-status-checks-before-merging).
 
-The action uses the Dependency Review REST API to get the diff of dependency changes between the base commit and head commit. You can use the Dependency Review API to get the diff of dependency changes, including vulnerability data, between any two commits on a repository. For more information, see "[Dependency review](/rest/reference/dependency-graph#dependency-review)."
+Это действие использует REST API проверки зависимостей для получения различий зависимостей между базовой фиксацией и головной фиксацией. API проверки зависимостей можно использовать для получения различий изменений зависимостей, включая данные об уязвимостях, между любыми двумя фиксациями в репозитории. Дополнительные сведения см. в разделе [Обзор зависимостей](/rest/reference/dependency-graph#dependency-review).
 
-{% ifversion dependency-review-action-configuration %}
-You can configure the {% data variables.dependency-review.action_name %} to better suit your needs. For example, you can specify the severity level that will make the action fail{% ifversion dependency-review-action-licenses %}, or set an allow or deny list for licenses to scan{% endif %}. For more information, see "[Configuring dependency review](/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-dependency-review#configuring-the-dependency-review-github-action)." 
-{% endif %}
+{% ifversion dependency-review-action-configuration %} Вы можете настроить {% data variables.product.prodname_dependency_review_action %} в соответствии с вашими потребностями. Например, можно указать уровень серьезности, при котором действие будет завершаться сбоем{% ifversion dependency-review-action-licenses %}, или задать список разрешенных или запрещенных лицензий{% endif %}. Дополнительные сведения см. в статье [Настройка проверки зависимостей](/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-dependency-review#configuring-the-dependency-review-github-action). {% endif %}
 
 {% endif %}
 

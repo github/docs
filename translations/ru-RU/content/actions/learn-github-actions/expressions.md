@@ -1,35 +1,38 @@
 ---
-title: Expressions
+title: Выражения
 shortTitle: Expressions
-intro: You can evaluate expressions in workflows and actions.
+intro: Выражения можно оценивать в рабочих процессах и действиях.
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
   ghec: '*'
 miniTocMaxHeadingLevel: 3
+ms.openlocfilehash: 1e88b76358bfb9ff7d3e9c9d965cc6b76e829bb2
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148098855'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+## Сведения о выражениях
 
-## About expressions
+С помощью выражений можно программно задавать переменные среды в файлах рабочих процессов и контекстах доступа. Выражение представляет собой сочетание литералов, ссылок на контекст и функций, которые соединяются с помощью операторов. Дополнительные сведения о контекстах см. в разделе [Контексты](/actions/learn-github-actions/contexts).
 
-You can use expressions to programmatically set environment variables in workflow files and access contexts. An expression can be any combination of literal values, references to a context, or functions. You can combine literals, context references, and functions using operators. For more information about contexts, see "[Contexts](/actions/learn-github-actions/contexts)."
+Выражения обычно используются с условным оператором `if` в файле рабочего процесса для определения того, следует ли выполнять шаг или нет. Если выражение в условии `if` равно `true`, шаг выполняется.
 
-Expressions are commonly used with the conditional `if` keyword in a workflow file to determine whether a step should run. When an `if` conditional is `true`, the step will run.
+Чтобы в {% data variables.product.prodname_dotcom %} выражение вычислялось, а не считалось строкой, необходимо использовать особый синтаксис.
 
-You need to use specific syntax to tell {% data variables.product.prodname_dotcom %} to evaluate an expression rather than treat it as a string.
-
-{% raw %}
-`${{ <expression> }}`
+{% raw %} `${{ <expression> }}`
 {% endraw %}
 
-{% data reusables.actions.expression-syntax-if %} For more information about `if` conditionals, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions/#jobsjob_idif)."
+{% data reusables.actions.expression-syntax-if %} Дополнительные сведения об условных выражениях `if` см. в разделе «[Синтаксис рабочего процесса для {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions/#jobsjob_idif)».
 
 {% data reusables.actions.context-injection-warning %}
 
-#### Example expression in an `if` conditional
+#### Пример выражения в условном операторе `if`
 
 ```yaml
 steps:
@@ -37,7 +40,7 @@ steps:
     if: {% raw %}${{ <expression> }}{% endraw %}
 ```
 
-#### Example setting an environment variable
+#### Пример настройки переменной среды
 
 {% raw %}
 ```yaml
@@ -46,18 +49,18 @@ env:
 ```
 {% endraw %}
 
-## Literals
+## Литералы
 
-As part of an expression, you can use `boolean`, `null`, `number`, or `string` data types.
+В выражении можно использовать типы данных `boolean`, `null`, `number` и `string`.
 
-| Data type | Literal value |
+| Тип данных | Литерал |
 |-----------|---------------|
-| `boolean` | `true` or `false` |
+| `boolean` | `true` или `false` |
 | `null`    | `null` |
-| `number`  | Any number format supported by JSON. |
-| `string`  | You don't need to enclose strings in `{% raw %}${{{% endraw %}` and `{% raw %}}}{% endraw %}`. However, if you do, you must use single quotes (`'`) around the string. To use a literal single quote, escape the literal single quote using an additional single quote (`''`). Wrapping with double quotes (`"`) will throw an error. |
+| `number`  | Любой числовой формат, поддерживаемый JSON. |
+| `string`  | Заключать строки в скобки `{% raw %}${{{% endraw %}` и `{% raw %}}}{% endraw %}` необязательно. Однако если вы решите это сделать, используйте одинарные кавычки (`'`) вокруг строки. Чтобы использовать литерал в виде одинарной кавычки, экранируйте его с помощью дополнительной одинарной кавычки (`''`). Если заключить такой литерал в двойные кавычки (`"`), возникнет ошибка. |
 
-#### Example
+#### Пример
 
 {% raw %}
 
@@ -75,105 +78,105 @@ env:
 
 {% endraw %}
 
-## Operators
+## Операторы
 
-| Operator    | Description |
+| Оператор    | Описание |
 | ---         | ---         |
-| `( )`       | Logical grouping |
-| `[ ]`       | Index
-| `.`         | Property de-reference |
+| `( )`       | Логическое группирование |
+| `[ ]`       | Индекс
+| `.`         | Разыменование свойства |
 | `!`         | Not |
-| `<`         | Less than |
-| `<=`        | Less than or equal |
-| `>`         | Greater than |
-| `>=`        | Greater than or equal |
-| `==`        | Equal |
-| `!=`        | Not equal |
+| `<`         | Меньше чем |
+| `<=`        | Меньше или равно |
+| `>`         | Больше чем |
+| `>=`        | Больше или равно |
+| `==`        | Равно |
+| `!=`        | Не равно |
 | `&&`        | And |
-|  <code>\|\|</code> | Or |
+|  <code>\|\|</code> | либо |
 
-{% data variables.product.prodname_dotcom %} performs loose equality comparisons.
+{% data variables.product.prodname_dotcom %} выполняет нестрогое сравнение.
 
-* If the types do not match, {% data variables.product.prodname_dotcom %} coerces the type to a number. {% data variables.product.prodname_dotcom %} casts data types to a number using these conversions:
+* Если типы не совпадают, {% data variables.product.prodname_dotcom %} приводит их к числовому типу. Для этого в {% data variables.product.prodname_dotcom %} используются следующие преобразования:
 
-  | Type    | Result |
+  | Тип    | Результат |
   | ---     | ---    |
-  | Null    | `0` |
-  | Boolean | `true` returns `1` <br /> `false` returns `0` |
-  | String  | Parsed from any legal JSON number format, otherwise `NaN`. <br /> Note: empty string returns `0`. |
+  | NULL    | `0` |
+  | Логическое значение | `true` возвращает `1` <br /> `false` возвращает `0` |
+  | Строка  | Преобразуется в любой допустимый числовой формат JSON, в противном случае дает значение `NaN`. <br /> Примечание. Для пустой строки возвращается `0`. |
   | Array   | `NaN` |
-  | Object  | `NaN` |
-* A comparison of one `NaN` to another `NaN` does not result in `true`. For more information, see the "[NaN Mozilla docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/NaN)."
-* {% data variables.product.prodname_dotcom %} ignores case when comparing strings.
-* Objects and arrays are only considered equal when they are the same instance.
+  | Объект  | `NaN` |
+* Сравнение одного значения `NaN` с другим `NaN` не дает `true`. Дополнительные сведения см. в разделе [о свойствах NaN в Mozilla](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/NaN).
+* При сравнении строк в {% data variables.product.prodname_dotcom %} регистр не учитывается.
+* Объект и массив считаются равными, только если это один экземпляр.
 
-## Functions
+## Функции
 
-{% data variables.product.prodname_dotcom %} offers a set of built-in functions that you can use in expressions. Some functions cast values to a string to perform comparisons. {% data variables.product.prodname_dotcom %} casts data types to a string using these conversions:
+В {% data variables.product.prodname_dotcom %} предлагается набор встроенных функций, которые можно использовать в выражениях. Чтобы выполнить сравнение, некоторые функции приводят значения к строковому типу. Для этого в {% data variables.product.prodname_dotcom %} используются следующие преобразования:
 
-| Type    | Result |
+| Тип    | Результат |
 | ---     | ---    |
-| Null    | `''` |
-| Boolean | `'true'` or `'false'` |
-| Number  | Decimal format, exponential for large numbers |
-| Array   | Arrays are not converted to a string |
-| Object  | Objects are not converted to a string |
+| NULL    | `''` |
+| Логическое значение | `'true'` или `'false'` |
+| Number  | Десятичный формат, экспоненциальная запись для больших чисел |
+| Array   | Массивы не преобразуются в строку |
+| Объект  | Объекты не преобразуются в строку |
 
 ### contains
 
 `contains( search, item )`
 
-Returns `true` if `search` contains `item`. If `search` is an array, this function returns `true` if the `item` is an element in the array. If `search` is a string, this function returns `true` if the `item` is a substring of `search`. This function is not case sensitive. Casts values to a string.
+Возвращает `true`, если `search` содержит `item`. Если `search` является массивом, эта функция возвращает значение `true`, когда `item` является элементом в массиве. Если `search` является строкой, эта функция возвращает значение `true`, когда `item` является подстрокой `search`. В этой функции регистр не учитывается. Приводит значения к строковому типу.
 
-#### Example using a string
+#### Пример использования строки
 
-`contains('Hello world', 'llo')` returns `true`.
+`contains('Hello world', 'llo')` возвращает `true`.
 
-#### Example using an object filter
+#### Пример использования фильтра объектов
 
-`contains(github.event.issue.labels.*.name, 'bug')` returns `true` if the issue related to the event has a label "bug".
+`contains(github.event.issue.labels.*.name, 'bug')` возвращает `true`, если проблема, связанная с событием, имеет метку "bug" (ошибка).
 
-For more information, see "[Object filters](#object-filters)."
+Дополнительные сведения см. в разделе [Фильтры объектов](#object-filters).
 
-#### Example matching an array of strings
+#### Пример сопоставления массива строк
 
-Instead of writing `github.event_name == "push" || github.event_name == "pull_request"`, you can use `contains()` with `fromJson()` to check if an array of strings contains an `item`.
+Вместо записи `github.event_name == "push" || github.event_name == "pull_request"` можно использовать `contains()` с `fromJson()`, чтобы проверить, содержит ли массив строк `item`.
 
-For example, `contains(fromJson('["push", "pull_request"]'), github.event_name)` returns `true` if `github.event_name` is "push" or "pull_request".
+Например, `contains(fromJson('["push", "pull_request"]'), github.event_name)` возвращает `true`, если `github.event_name` имеет значение "push" или "pull_request".
 
 ### startsWith
 
 `startsWith( searchString, searchValue )`
 
-Returns `true` when `searchString` starts with `searchValue`. This function is not case sensitive. Casts values to a string.
+Возвращает значение `true`, когда `searchString` начинается с `searchValue`. В этой функции регистр не учитывается. Приводит значения к строковому типу.
 
-#### Example
+#### Пример
 
-`startsWith('Hello world', 'He')` returns `true`.
+`startsWith('Hello world', 'He')` возвращает `true`.
 
 ### endsWith
 
 `endsWith( searchString, searchValue )`
 
-Returns `true` if `searchString` ends with `searchValue`. This function is not case sensitive. Casts values to a string.
+Возвращает значение `true`, если `searchString` заканчивается на `searchValue`. В этой функции регистр не учитывается. Приводит значения к строковому типу.
 
-#### Example
+#### Пример
 
-`endsWith('Hello world', 'ld')` returns `true`.
+`endsWith('Hello world', 'ld')` возвращает `true`.
 
 ### format
 
 `format( string, replaceValue0, replaceValue1, ..., replaceValueN)`
 
-Replaces values in the `string`, with the variable `replaceValueN`. Variables in the `string` are specified using the `{N}` syntax, where `N` is an integer. You must specify at least one `replaceValue` and `string`. There is no maximum for the number of variables (`replaceValueN`) you can use. Escape curly braces using double braces.
+Заменяет значения в строке `string` на значение переменной `replaceValueN`. Переменные в `string` указываются с помощью синтаксиса `{N}`, где `N` является целым числом. Необходимо указать хотя бы одно значение `replaceValue` и `string`. Максимальное количество переменных (`replaceValueN`) не ограничивается. Чтобы указать фигурную скобку, экранируйте ее еще одной фигурной скобкой.
 
-#### Example
+#### Пример
 
 `format('Hello {0} {1} {2}', 'Mona', 'the', 'Octocat')`
 
-Returns 'Hello Mona the Octocat'.
+Возвращает «Hello Mona the Octocat».
 
-#### Example escaping braces
+#### Пример экранирования фигурных скобок
 
 {% raw %}
 ```js
@@ -181,37 +184,37 @@ format('{{Hello {0} {1} {2}!}}', 'Mona', 'the', 'Octocat')
 ```
 {% endraw %}
 
-Returns '{Hello Mona the Octocat!}'.
+Возвращает «{Hello Mona the Octocat!}».
 
 ### join
 
 `join( array, optionalSeparator )`
 
-The value for `array` can be an array or a string. All values in `array` are concatenated into a string. If you provide `optionalSeparator`, it is inserted between the concatenated values. Otherwise, the default separator `,` is used. Casts values to a string.
+Значением `array` может быть массив или строка. Все значения в `array` сцепляются в строку. Между сцепленными значениями вставляется разделитель `optionalSeparator`. Если он не указан, используется разделитель по умолчанию — `,`. Приводит значения к строковому типу.
 
-#### Example
+#### Пример
 
-`join(github.event.issue.labels.*.name, ', ')` may return 'bug, help wanted'
+`join(github.event.issue.labels.*.name, ', ')` может вернуть «bug, help wanted» (ошибка, требуется помощь)
 
 ### toJSON
 
 `toJSON(value)`
 
-Returns a pretty-print JSON representation of `value`. You can use this function to debug the information provided in contexts.
+Возвращает значение `value` в правильном формате JSON. С помощью этой функции можно отлаживать данные, предоставленные в контекстах.
 
-#### Example
+#### Пример
 
-`toJSON(job)` might return `{ "status": "Success" }`
+`toJSON(job)` может вернуть `{ "status": "Success" }`
 
 ### fromJSON
 
 `fromJSON(value)`
 
-Returns a JSON object or JSON data type for `value`. You can use this function to provide a JSON object as an evaluated expression or to convert environment variables from a string.
+Возвращает объект JSON или тип данных JSON для `value`. С помощью этой функции можно представить объект JSON в виде вычисляемого выражения или преобразовать переменные среды из строки.
 
-#### Example returning a JSON object
+#### Пример возврата объекта JSON
 
-This workflow sets a JSON matrix in one job, and passes it to the next job using an output and `fromJSON`.
+Этот рабочий процесс задает матрицу JSON в одном задании и передает ее следующему заданию с помощью выходных данных и функции `fromJSON`.
 
 {% raw %}
 ```yaml
@@ -239,9 +242,9 @@ jobs:
 ```
 {% endraw %}
 
-#### Example returning a JSON data type
+#### Пример возврата типа данных JSON
 
-This workflow uses `fromJSON` to convert environment variables from a string to a Boolean or integer.
+Этот рабочий процесс с помощью функции `fromJSON` преобразует переменные среды из строки в логическое значение или целое число.
 
 {% raw %}
 ```yaml
@@ -264,37 +267,37 @@ jobs:
 
 `hashFiles(path)`
 
-Returns a single hash for the set of files that matches the `path` pattern. You can provide a single `path` pattern or multiple `path` patterns separated by commas. The `path` is relative to the `GITHUB_WORKSPACE` directory and can only include files inside of the `GITHUB_WORKSPACE`. This function calculates an individual SHA-256 hash for each matched file, and then uses those hashes to calculate a final SHA-256 hash for the set of files. If the `path` pattern does not match any files, this returns an empty string. For more information about SHA-256, see "[SHA-2](https://en.wikipedia.org/wiki/SHA-2)."
+Возвращает один хэш для набора файлов по шаблону пути `path`. Вы можете указать один шаблон `path` или несколько шаблонов `path`, разделенных запятыми. Путь `path` указывается относительно каталога `GITHUB_WORKSPACE` и может включать только файлы внутри `GITHUB_WORKSPACE`. Эта функция вычисляет отдельный хэш SHA-256 для каждого подходящего файла, а затем с помощью этих хэшей вычисляет окончательный хэш SHA-256 для набора файлов. Если по шаблону `path` файлы отсутствуют, функция возвращает пустую строку. Дополнительные сведения о SHA-256 см. в разделе «[SHA-2](https://en.wikipedia.org/wiki/SHA-2)».
 
-You can use pattern matching characters to match file names. Pattern matching is case-insensitive on Windows. For more information about supported pattern matching characters, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/using-workflows/workflow-syntax-for-github-actions/#filter-pattern-cheat-sheet)."
+Для сопоставления с именами файлов можно использовать подстановочные знаки. В Windows при сопоставлении по шаблону регистр не учитывается. Дополнительные сведения о поддерживаемых подстановочных знаках см. в разделе «[Синтаксис рабочего процесса для {% data variables.product.prodname_actions %}](/actions/using-workflows/workflow-syntax-for-github-actions/#filter-pattern-cheat-sheet)».
 
-#### Example with a single pattern
+#### Пример с одним шаблоном
 
-Matches any `package-lock.json` file in the repository.
+Соответствует любому файлу `package-lock.json` в репозитории.
 
 `hashFiles('**/package-lock.json')`
 
-#### Example with multiple patterns
+#### Пример с несколькими шаблонами
 
-Creates a hash for any `package-lock.json` and `Gemfile.lock` files in the repository.
+Создает хэш для всех файлов `package-lock.json` и `Gemfile.lock` в репозитории.
 
 `hashFiles('**/package-lock.json', '**/Gemfile.lock')`
 
 
-{% ifversion fpt or ghes > 3.3 or ghae > 3.3 or ghec %}
-## Status check functions
+{% ifversion fpt или ghes > 3.3 или ghae > 3.3 или ghec %}
+## Функции проверки состояния
 
-You can use the following status check functions as expressions in `if` conditionals. A default status check of `success()` is applied unless you include one of these functions. For more information about `if` conditionals, see "[Workflow syntax for GitHub Actions](/articles/workflow-syntax-for-github-actions/#jobsjob_idif)" and "[Metadata syntax for GitHub Composite Actions](/actions/creating-actions/metadata-syntax-for-github-actions/#runsstepsif)".
+Следующие функции проверки состояния можно использовать в качестве выражений в условных операторах `if`. Если не включить ни одну из этих функций, применяется проверка состояния по умолчанию `success()`. Дополнительные сведения об условных операторах `if` см. в разделе «[Синтаксис рабочего процесса для GitHub Actions](/articles/workflow-syntax-for-github-actions/#jobsjob_idif)» и «[Синтаксис метаданных для составных действий GitHub](/actions/creating-actions/metadata-syntax-for-github-actions/#runsstepsif)».
 {% else %}
-## Check Functions
-You can use the following status check functions as expressions in `if` conditionals. A default status check of `success()` is applied unless you include one of these functions. For more information about `if` conditionals, see "[Workflow syntax for GitHub Actions](/articles/workflow-syntax-for-github-actions/#jobsjob_idif)".
+## Функции проверки
+В качестве выражений в условных операторах `if` можно использовать следующие функции проверки состояния. Если не включить ни одну из этих функций, применяется проверка состояния по умолчанию `success()`. Дополнительные сведения об условных операторах `if` см. в разделе «[Синтаксис рабочего процесса для GitHub Actions](/articles/workflow-syntax-for-github-actions/#jobsjob_idif)».
 {% endif %}
 
-### success
+### Успешное завершение
 
-Returns `true` when none of the previous steps have failed or been canceled.
+Возвращает значение `true`, если ни один из предыдущих шагов не завершился сбоем или не был отменен.
 
-#### Example
+#### Пример
 
 ```yaml
 steps:
@@ -305,9 +308,9 @@ steps:
 
 ### always
 
-Causes the step to always execute, and returns `true`, even when canceled. A job or step will not run when a critical failure prevents the task from running. For example, if getting sources failed.
+Задает принудительное выполнение шага при любых обстоятельствах и возвращает значение `true` даже при отмене. Задание или шаг не выполняются, если выполнению задачи мешает критический сбой. Например, если не удалось получить источники.
 
-#### Example
+#### Пример
 
 ```yaml
 if: {% raw %}${{ always() }}{% endraw %}
@@ -315,19 +318,19 @@ if: {% raw %}${{ always() }}{% endraw %}
 
 ### cancelled
 
-Returns `true` if the workflow was canceled.
+Возвращает значение `true`, если рабочий процесс был отменен.
 
-#### Example
+#### Пример
 
 ```yaml
 if: {% raw %}${{ cancelled() }}{% endraw %}
 ```
 
-### failure
+### ошибка
 
-Returns `true` when any previous step of a job fails. If you have a chain of dependent jobs, `failure()` returns `true` if any ancestor job fails.
+Возвращает значение `true`, если любой предыдущий шаг задания завершается сбоем. При наличии цепочки зависимых заданий, функция `failure()` возвращает значение `true`, если сбоем завершается любое предыдущее задание.
 
-#### Example
+#### Пример
 
 ```yaml
 steps:
@@ -336,11 +339,11 @@ steps:
     if: {% raw %}${{ failure() }}{% endraw %}
 ```
 
-#### failure with conditions
+#### сбой с условиями
 
-You can include extra conditions for a step to run after a failure, but you must still include `failure()` to override the default status check of `success()` that is automatically applied to `if` conditions that don't contain a status check function.
+Вы можете включить дополнительные условия для шага, выполняемого после сбоя, но необходимо по-прежнему включить `failure()` для переопределения проверки состояния по умолчанию для `success()`, которая автоматически применяется к условиям `if`, не содержащим функцию проверки состояния.
 
-##### Example
+##### Пример
 
 ```yaml
 steps:
@@ -352,11 +355,11 @@ steps:
     if: {% raw %}${{ failure() && steps.demo.conclusion == 'failure' }}{% endraw %}
 ```
 
-## Object filters
+## Фильтры объектов
 
-You can use the `*` syntax to apply a filter and select matching items in a collection.
+С помощью записи `*` можно применить фильтр и подобрать соответствующие элементы из коллекции.
 
-For example, consider an array of objects named `fruits`.
+Например, рассмотрим массив объектов с именем `fruits`.
 
 ```json
 [
@@ -366,9 +369,9 @@ For example, consider an array of objects named `fruits`.
 ]
 ```
 
-The filter `fruits.*.name` returns the array `[ "apple", "orange", "pear" ]`.
+Фильтр `fruits.*.name` возвращает массив `[ "apple", "orange", "pear" ]`.
 
-You may also use the `*` syntax on an object. For example, suppose you have an object named `vegetables`.
+Синтаксис `*` также можно использовать для объекта. Например, допустим, у вас есть объект с именем `vegetables`.
 
 ```json
 
@@ -391,7 +394,7 @@ You may also use the `*` syntax on an object. For example, suppose you have an o
 }
 ```
 
-The filter `vegetables.*.ediblePortions` could evaluate to:
+Применение фильтра `vegetables.*.ediblePortions` может дать следующий результат:
 
 ```json
 
@@ -402,4 +405,4 @@ The filter `vegetables.*.ediblePortions` could evaluate to:
 ]
 ```
 
-Since objects don't preserve order, the order of the output can not be guaranteed.
+В объектах значения не являются упорядоченными, поэтому в выходных данных какой-то определенный порядок не гарантируется.

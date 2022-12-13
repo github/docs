@@ -1,6 +1,6 @@
 ---
-title: Triaging a single notification
-intro: 'When you review and investigate a single notification, you have several triaging options that are optimized for the detailed notification view.'
+title: Рассмотрение одного уведомления
+intro: 'При проверке и изучении одного уведомления доступно несколько вариантов рассмотрения, оптимизированных для подробного представления уведомлений.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -12,36 +12,42 @@ redirect_from:
   - /github/managing-subscriptions-and-notifications-on-github/triaging-a-single-notification
   - /github/managing-subscriptions-and-notifications-on-github/viewing-and-triaging-notifications/triaging-a-single-notification
 shortTitle: Triage a notification
+ms.openlocfilehash: c81cc30449dd1b37a58df0b91a036fbd629d8ae3
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145115915'
 ---
-## Saving a single notification
+## Сохранение одного уведомления
 
-To save a single notification to review later, to the right of the notification, click {% octicon "bookmark" aria-label="The bookmark icon" %}. You can only save one notification at a time.
+Чтобы сохранить одно уведомление и просмотреть его позже, справа от уведомления щелкните {% octicon "bookmark" aria-label="Значок закладки" %}. Нельзя сохранить несколько уведомлений одновременно.
 
-Saved notifications are kept indefinitely and can be viewed by clicking **Saved** in the sidebar or with the `is:saved` query. If your saved notification is older than 5 months and becomes unsaved, the notification will disappear from your inbox within a day.
+Сохраненные уведомления хранятся бессрочно, и их можно просмотреть, нажав кнопку **Сохранено** на боковой панели или с помощью запроса `is:saved`. Если сохраненное уведомление создано более 5 месяцев назад и его сохранение отменено, уведомление исчезнет из папки «Входящие» в течение дня.
 
-  ![Save triaging option](/assets/images/help/notifications-v2/save-triaging-option.png)
+  ![Сохранение варианта рассмотрения](/assets/images/help/notifications-v2/save-triaging-option.png)
 
-## Investigating a notification
+## Изучение уведомления
 
-When you click an individual notification from your inbox, you're directed to the conversation that prompted the notification. From the top of the page, you can:
-- Mark the individual notification as done
-- Unsubscribe from future notifications
-- Mark the notification as read
-- Save the notification for later
-- Return to your notifications inbox
+Если вы щелкните отдельное уведомление в папке «Входящие», вы будете перенаправлены в беседу с запросом, где отображается уведомление. В верхней части страницы можно:
+- Пометить отдельное уведомление как выполненное
+- Отменить подписку на будущие уведомления
+- Пометить уведомление как прочтенное
+- Сохранить уведомление для последующего использования
+- Вернуться в папку «Входящие»
 
-For more information about your triage options, see "[Managing notifications from your inbox](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox#triaging-options)."
+Дополнительные сведения о параметрах рассмотрения см. в разделе [Управление уведомлениями в папке «Входящие»](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox#triaging-options).
 
-## Customizing when to receive future updates for an issue or pull request
+## Настройка получения будущих обновлений для проблемы или запроса на вытягивание
 
-You can choose how you want to receive future notifications for a specific issue or pull request.
+Можно выбрать способ получения будущих уведомлений о конкретной проблеме или запросе на вытягивание.
 
-1. In the right column of the issue or pull request, next to "Notifications", click **Customize**.
+1. В правом столбце проблемы или запроса на вытягивание рядом с пунктом «Уведомления» нажмите кнопку **Настроить**.
 
-  ![Customize option under "Notifications"](/assets/images/help/notifications-v2/customize-notifications-for-specific-thread.png)
+  ![Настройка параметра в разделе «Уведомления»](/assets/images/help/notifications-v2/customize-notifications-for-specific-thread.png)
 
-2. Select **Custom** and choose when you'd like to receive a notification update for this thread. For example, you can choose to receive an update when the pull request has been merged, closed, or reopened. You will be subscribed again if you participate in the thread, your username is @mentioned, or a team you're a member of is @mentioned.
+2. Выберите **Настраиваемый** и выберите, когда вы хотите получать обновления уведомлений для этого потока. Например, можно получить обновление при объединении, закрытии или повторном открытии запроса на вытягивание. Ваша подписка будет возобновлена, если вы участвуете в потоке, ваше имя пользователя — @mentionedили вы являетесь участником команды @mentioned.
 
-  ![Options for customizing notifications](/assets/images/help/notifications-v2/custom-options-for-customizing-notification-thread-updates.png)
+  ![Варианты настройки уведомлений](/assets/images/help/notifications-v2/custom-options-for-customizing-notification-thread-updates.png)
 
-3. Click **Save**.
+3. Выберите команду **Сохранить**.

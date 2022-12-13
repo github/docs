@@ -1,6 +1,6 @@
 ---
-title: Enabling GitHub Packages with AWS
-intro: 'Set up {% data variables.product.prodname_registry %} with AWS as your external storage.'
+title: Включение GitHub Packages с AWS
+intro: 'Настройка {% data variables.product.prodname_registry %} с использованием AWS в качестве внешнего хранилища.'
 versions:
   ghes: '*'
 type: tutorial
@@ -10,22 +10,27 @@ topics:
   - Packages
   - Packages
 shortTitle: Enable Packages with AWS
+ms.openlocfilehash: 1e359bb3e91a9b53e220d9d576c674552a441f81
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148097771'
 ---
-
 {% warning %}
 
-**Warnings:**
-- It is critical that you configure any restrictive access policies you need for your storage bucket, because {% data variables.product.company_short %} does not apply specific object permissions or additional access control lists (ACLs) to your storage bucket configuration. For example, if you make your bucket public, data in the bucket will be accessible to the public internet. For more information, see "[Setting bucket and object access permissions](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/set-permissions.html)" in the AWS Documentation.
-- We recommend using a dedicated bucket for {% data variables.product.prodname_registry %}, separate from the bucket you use for {% data variables.product.prodname_actions %} storage.
-- Make sure to configure the bucket you'll want to use in the future. We do not recommend changing your storage after you start using {% data variables.product.prodname_registry %}.
+**Предупреждения.**
+- Крайне важно настроить ограничительные политики доступа, необходимые для контейнера хранилища, так как {% data variables.product.company_short %} не применяет к конфигурации контейнера хранилища конкретные разрешения объекта или дополнительные списки управления доступом (ACL). Например, если сделать контейнер общедоступным, данные в нем будут доступны в общедоступном Интернете. Дополнительные сведения см. в разделе [Настройка разрешений на доступ к контейнерам и объектам](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/set-permissions.html) в документации AWS.
+- Мы рекомендуем использовать для {% data variables.product.prodname_registry %} выделенный контейнер, который отделен от контейнера, используемого для хранилища {% data variables.product.prodname_actions %}.
+- Обязательно настройте контейнер, который хотите использовать в будущем. Не рекомендуется изменять хранилище после начала использования {% data variables.product.prodname_registry %}.
 
 {% endwarning %}
 
-## Prerequisites
+## Предварительные требования
 
-Before you can enable and configure {% data variables.product.prodname_registry %} on {% data variables.location.product_location_enterprise %}, you need to prepare your AWS storage bucket. To prepare your AWS storage bucket, we recommend consulting the official AWS docs at [AWS Documentation](https://docs.aws.amazon.com/index.html).
+Прежде чем включить и настроить {% данных variables.product.prodname_registry %} на {% данных variables.location.product_location_enterprise %}, необходимо подготовить контейнер хранилища AWS. Чтобы подготовить контейнер хранилища AWS, рекомендуется ознакомиться с официальными документами AWS в [документации по AWS](https://docs.aws.amazon.com/index.html).
 
-Ensure your AWS access key ID and secret have the following permissions:
+Убедитесь, что идентификатор ключа доступа и секрет AWS имеют следующие разрешения:
   - `s3:PutObject`
   - `s3:GetObject`
   - `s3:ListBucketMultipartUploads`
@@ -34,28 +39,23 @@ Ensure your AWS access key ID and secret have the following permissions:
   - `s3:DeleteObject`
   - `s3:ListBucket`
 
-## Enabling {% data variables.product.prodname_registry %} with AWS external storage
+## Включение {% data variables.product.prodname_registry %} с внешним хранилищем AWS
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.management-console %}
-{% data reusables.enterprise_site_admin_settings.packages-tab %}
-{% data reusables.package_registry.enable-enterprise-github-packages %}
+{% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.enterprise_site_admin_settings.management-console %} {% data reusables.enterprise_site_admin_settings.packages-tab %} {% data reusables.package_registry.enable-enterprise-github-packages %}
 
 {% ifversion ghes %}
-1. Under "Packages Storage", select **Amazon S3** and enter your storage bucket's details:
-    - **AWS Service URL:** The service URL for your bucket. For example, if your S3 bucket was created in the `us-west-2 region`, this value should be `https://s3.us-west-2.amazonaws.com`.
+1. В разделе "Хранилище пакетов" выберите **Amazon S3** и введите сведения о контейнере хранилища:
+    - **URL-адрес службы AWS.** URL-адрес службы для контейнера. Например, если контейнер S3 был создан в `us-west-2 region`, это значение должно быть `https://s3.us-west-2.amazonaws.com`.
 
-      For more information, see "[AWS service endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html)" in the AWS documentation.
+      Дополнительные сведения см. в разделе [Конечные точки службы AWS](https://docs.aws.amazon.com/general/latest/gr/rande.html) в документации по AWS.
 
-    - **AWS S3 Bucket:** The name of your S3 bucket dedicated to {% data variables.product.prodname_registry %}.
-    - **AWS S3 Access Key** and **AWS S3 Secret Key**: The AWS access key ID and secret key to access your bucket.
+    - **Контейнер AWS S3.** Имя контейнера S3, выделенного для {% data variables.product.prodname_registry %}.
+    - **Ключ доступа AWS S3** и **секретный ключ AWS S3**. Идентификатор ключа доступа AWS и секретный ключ для доступа к контейнеру.
 
-      For more information on managing AWS access keys, see the "[AWS Identity and Access Management Documentation](https://docs.aws.amazon.com/iam/index.html)."
+      Дополнительные сведения об управлении ключами доступа AWS см. в [документации по управлению удостоверениями и доступом AWS](https://docs.aws.amazon.com/iam/index.html).
 
-    ![Entry boxes for your S3 AWS bucket's details](/assets/images/help/package-registry/s3-aws-storage-bucket-details.png)
-{% endif %}
-{% data reusables.enterprise_management_console.save-settings %}
+    ![Поля записи для сведений о контейнере S3 AWS](/assets/images/help/package-registry/s3-aws-storage-bucket-details.png) {% endif %} {% data reusables.enterprise_management_console.save-settings %}
 
-## Next steps
+## Дальнейшие действия
 
 {% data reusables.package_registry.next-steps-for-packages-enterprise-setup %}

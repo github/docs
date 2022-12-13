@@ -1,6 +1,6 @@
 ---
-title: About enterprise policies
-intro: 'With enterprise policies, you can manage the policies for all the organizations owned by your enterprise.'
+title: Сведения о корпоративных политиках
+intro: 'С помощью корпоративных политик вы можете управлять политиками для всех организаций, принадлежащих вашей организации.'
 versions:
   ghec: '*'
   ghes: '*'
@@ -9,22 +9,26 @@ type: overview
 topics:
   - Enterprise
   - Policies
+ms.openlocfilehash: 041b763ad0b76d10161bab9a32df1ec0447a87d1
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148098748'
 ---
-
-To help you enforce business rules and regulatory compliance, policies provide a single point of management for all the organizations owned by an enterprise account. 
+Чтобы обеспечить соблюдение бизнес-правил и соответствие нормативным требованиям, политики предоставляют единую точку управления для всех организаций, принадлежащих корпоративной учетной записи. 
 
 {% data reusables.enterprise.about-policies %}
 
-For example, with the "Base permissions" policy, you can allow organization owners to configure the "Base permissions" policy for their organization, or you can enforce a specific base permissions level, such as "Read", for all organizations within the enterprise.
+Например, с помощью политики "Базовые разрешения" можно разрешить владельцам организации настроить политику "Базовые разрешения" для своей организации или применить определенный базовый уровень разрешений, например "Чтение", для всех организаций в корпорации.
 
-By default, no enterprise policies are enforced. To identify policies that should be enforced to meet the unique requirements of your business, we recommend reviewing all the available policies in your enterprise account, starting with repository management policies. For more information, see "[Enforcing repository management polices in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise)."
+По умолчанию корпоративные политики не применяются. Чтобы определить политики, которые должны применяться в соответствии с требованиями вашего бизнеса, рекомендуем просмотреть все доступные политики в вашей корпоративной учетной записи, начиная с политик управления репозиториями. Дополнительные сведения см. в статье [Применение политик управления репозиториями в организации](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise).
 
-While you're configuring enterprise policies, to help you understand the impact of changing each policy, you can view the current configurations for the organizations owned by your enterprise.
+При настройке корпоративных политик, чтобы понять влияние изменения каждой политики, можно просмотреть текущие конфигурации для организаций, принадлежащих вашей корпорации.
 
-{% ifversion ghes %}
-Another way to enforce standards within your enterprise is to use pre-receive hooks, which are scripts that run on {% data variables.location.product_location %} to implement quality checks. For more information, see "[Enforcing policy with pre-receive hooks](/admin/policies/enforcing-policy-with-pre-receive-hooks)."
+{% ghes ifversion %} Еще одним способом применения стандартов в организации является использование перехватчиков предварительного получения, которые являются скриптами, выполняющимися на {% данных variables.location.product_location %} для реализации проверок качества. Дополнительные сведения см. в статье [Применение политики с помощью перехватчиков предварительного получения](/admin/policies/enforcing-policy-with-pre-receive-hooks).
 {% endif %}
 
-## Further reading
+## Дополнительные материалы
 
-- "[About enterprise accounts](/admin/overview/about-enterprise-accounts)"
+- [О корпоративных учетных записях](/admin/overview/about-enterprise-accounts)

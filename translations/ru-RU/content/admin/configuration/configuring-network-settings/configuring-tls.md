@@ -1,6 +1,6 @@
 ---
-title: Configuring TLS
-intro: 'You can configure Transport Layer Security (TLS) on {% data variables.location.product_location %} so that you can use a certificate that is signed by a trusted certificate authority.'
+title: Настройка TLS
+intro: 'Протокол TLS можно настроить для {% данных variables.location.product_location %}, чтобы использовать сертификат, подписанный доверенным центром сертификации.'
 redirect_from:
   - /enterprise/admin/articles/ssl-configuration
   - /enterprise/admin/guides/installation/about-tls
@@ -16,70 +16,68 @@ topics:
   - Infrastructure
   - Networking
   - Security
+ms.openlocfilehash: 8e4a8842fd30cd0e3d90743324e4a50c1de72512
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148098847'
 ---
-## About Transport Layer Security
+## Сведения о протоколе TLS
 
-TLS, which replaced SSL, is enabled and configured with a self-signed certificate when {% data variables.product.prodname_ghe_server %} is started for the first time. As self-signed certificates are not trusted by web browsers and Git clients, these clients will report certificate warnings until you disable TLS or upload a certificate signed by a trusted authority, such as Let's Encrypt.
+Протокол TLS, пришедший на замену SSL, включается и настраивается с помощью самозаверяющего сертификата при первом запуске {% data variables.product.prodname_ghe_server %}. Так как самозаверяющие сертификаты не являются доверенными для веб-браузеров и клиентов Git, эти клиенты будут отправлять предупреждения о сертификатах, пока вы не отключите TLS или не отправите сертификат, подписанный доверенным центром, таким как Let's Encrypt.
 
-The {% data variables.product.prodname_ghe_server %} appliance will send HTTP Strict Transport Security headers when SSL is enabled. Disabling TLS will cause users to lose access to the appliance, because their browsers will not allow a protocol downgrade to HTTP. For more information, see "[HTTP Strict Transport Security (HSTS)](https://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security)" on Wikipedia.
+Устройство {% data variables.product.prodname_ghe_server %} отправляет заголовки HTTP Strict Transport Security при включении SSL. Отключение TLS приведет к тому, что пользователи потеряют доступ к устройству, так как браузеры не разрешают понижение уровня протокола до HTTP. Дополнительные сведения см. в статье [HTTP Strict Transport Security (HSTS)](https://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security) в Википедии.
 
 {% data reusables.enterprise_installation.terminating-tls %}
 
-To allow users to use FIDO U2F for two-factor authentication, you must enable TLS for your instance. For more information, see "[Configuring two-factor authentication](/articles/configuring-two-factor-authentication)."
+Чтобы разрешить пользователям использовать FIDO U2F для двухфакторной проверки подлинности, вы должны включить TLS для своего экземпляра. Подробнее: [Настройка двухфакторной проверки подлинности](/articles/configuring-two-factor-authentication).
 
-## Prerequisites
+## Предварительные требования
 
-To use TLS in production, you must have a certificate in an unencrypted PEM format signed by a trusted certificate authority.
+Чтобы использовать TLS в рабочей среде, необходимо иметь сертификат в незашифрованном формате PEM, подписанный доверенным центром сертификации.
 
-Your certificate will also need Subject Alternative Names configured for the subdomains listed in "[Enabling subdomain isolation](/enterprise/admin/guides/installation/enabling-subdomain-isolation#about-subdomain-isolation)" and will need to include the full certificate chain if it has been signed by an intermediate certificate authority. For more information, see "[Subject Alternative Name](http://en.wikipedia.org/wiki/SubjectAltName)" on Wikipedia.
+Сертификату также потребуются альтернативные имена субъектов, настроенные для поддоменов, перечисленных в разделе [Включение изоляции поддоменов](/enterprise/admin/guides/installation/enabling-subdomain-isolation#about-subdomain-isolation), и вам нужно будет включить полную цепочку сертификатов, если сертификат был подписан промежуточным центром сертификации. Дополнительные сведения см. в статье [Альтернативное имя субъекта](http://en.wikipedia.org/wiki/SubjectAltName) в Википедии.
 
-You can generate a certificate signing request (CSR) for your instance using the `ghe-ssl-generate-csr` command. For more information, see "[Command-line utilities](/enterprise/admin/guides/installation/command-line-utilities/#ghe-ssl-generate-csr)."
+Вы можете создать запрос на подпись сертификата (CSR) для своего экземпляра с помощью команды `ghe-ssl-generate-csr`. Дополнительные сведения см. в статье "[Программы командной строки](/enterprise/admin/guides/installation/command-line-utilities/#ghe-ssl-generate-csr)".
 
-Your key must be an RSA key and must not have a passphrase. For more information, see "[Removing the passphrase from your key file](/admin/guides/installation/troubleshooting-ssl-errors#removing-the-passphrase-from-your-key-file)".
+Это должен быть ключ RSA, который не имеет парольную фразу. Дополнительные сведения см. в разделе [Удаление парольной фразы из файла ключа](/admin/guides/installation/troubleshooting-ssl-errors#removing-the-passphrase-from-your-key-file).
 
-## Uploading a custom TLS certificate
+## Отправка настраиваемого сертификата TLS
 
 {% data reusables.enterprise_site_admin_settings.tls-downtime %}
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.management-console %}
-{% data reusables.enterprise_management_console.privacy %}
-{% data reusables.enterprise_management_console.select-tls-only %}
-4. Under "TLS Protocol support", select the protocols you want to allow.
-  ![Radio buttons with options to choose TLS protocols](/assets/images/enterprise/management-console/tls-protocol-support.png)
-5. Under "Certificate", click **Choose File** to choose a TLS certificate or certificate chain (in PEM format) to install. This file will usually have a *.pem*, *.crt*, or *.cer* extension.
-  ![Button to find TLS certificate file](/assets/images/enterprise/management-console/install-tls-certificate.png)
-6. Under "Unencrypted key", click **Choose File** to choose an RSA key (in PEM format) to install. This file will usually have a *.key* extension.
-  ![Button to find TLS key file](/assets/images/enterprise/management-console/install-tls-key.png)
+{% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.enterprise_site_admin_settings.management-console %} {% data reusables.enterprise_management_console.privacy %} {% data reusables.enterprise_management_console.select-tls-only %}
+4. В разделе "Поддержка протокола TLS" выберите протоколы, которые вы хотите разрешить.
+  ![Переключатели для выбора протоколов TLS](/assets/images/enterprise/management-console/tls-protocol-support.png)
+5. В разделе "Сертификат" щелкните **Выбрать файл**, чтобы выбрать сертификат TLS или цепочку сертификатов (в формате PEM) для установки. Обычно этот файл имеет расширение *PEM*, *CRT* или *CER*.
+  ![Кнопка для поиска файла сертификата TLS](/assets/images/enterprise/management-console/install-tls-certificate.png)
+6. В разделе "Незашифрованный ключ" щелкните **Выбрать файл**, чтобы выбрать ключ RSA (в формате PEM) для установки. Этот файл обычно имеет расширение *KEY*.
+  ![Кнопка для поиска файла ключа TLS](/assets/images/enterprise/management-console/install-tls-key.png)
 
 {% data reusables.enterprise_management_console.save-settings %}
 
-## About Let's Encrypt support
+## Сведения о поддержке Let's Encrypt
 
-Let's Encrypt is a public certificate authority that issues free, automated TLS certificates that are trusted by browsers using the ACME protocol. You can automatically obtain and renew Let's Encrypt certificates on your appliance without any required manual maintenance.
+Let's Encrypt — это общедоступный центр сертификации, который выдает бесплатные автоматические сертификаты TLS, которые принимаются как доверенные браузерами, использующими протокол ACME. Вы можете автоматически получать и обновлять сертификаты Let's Encrypt на устройстве без необходимости обслуживания вручную.
 
 {% data reusables.enterprise_installation.lets-encrypt-prerequisites %}
 
-When you enable automation of TLS certificate management using Let's Encrypt, {% data variables.location.product_location %} will contact the Let's Encrypt servers to obtain a certificate. To renew a certificate, Let's Encrypt servers must validate control of the configured domain name with inbound HTTP requests.
+Если включить автоматизацию управления сертификатами TLS с помощью Let's Encrypt, {% данных variables.location.product_location %} свяжется с серверами Let's Encrypt для получения сертификата. Для обновления сертификата серверы Let's Encrypt должны проверить управление настроенным доменным именем с помощью входящих HTTP-запросов.
 
-You can also use the `ghe-ssl-acme` command line utility on {% data variables.location.product_location %} to automatically generate a Let's Encrypt certificate. For more information, see "[Command-line utilities](/enterprise/admin/guides/installation/command-line-utilities#ghe-ssl-acme)."
+Служебную `ghe-ssl-acme` программу командной строки можно также использовать для {% данных variables.location.product_location %} для автоматического создания сертификата Let's Encrypt. Дополнительные сведения см. в статье "[Программы командной строки](/enterprise/admin/guides/installation/command-line-utilities#ghe-ssl-acme)".
 
-## Configuring TLS using Let's Encrypt
+## Настройка TLS с помощью Let's Encrypt
 
 {% data reusables.enterprise_installation.lets-encrypt-prerequisites %}
 
 {% data reusables.enterprise_site_admin_settings.tls-downtime %}
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.management-console %}
-{% data reusables.enterprise_management_console.privacy %}
-{% data reusables.enterprise_management_console.select-tls-only %}
-5. Select **Enable automation of TLS certificate management using Let's Encrypt**.
-  ![Checkbox to enable Let's Encrypt](/assets/images/enterprise/management-console/lets-encrypt-checkbox.png)
-{% data reusables.enterprise_management_console.save-settings %}
-{% data reusables.enterprise_management_console.privacy %}
-7. Click **Request TLS certificate**.
-  ![Request TLS certificate button](/assets/images/enterprise/management-console/request-tls-button.png)
-8. Wait for the "Status" to change from "STARTED" to "DONE".
-   ![Let's Encrypt status](/assets/images/enterprise/management-console/lets-encrypt-status.png)
-9. Click **Save configuration**.
+{% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.enterprise_site_admin_settings.management-console %} {% data reusables.enterprise_management_console.privacy %} {% data reusables.enterprise_management_console.select-tls-only %}
+5. Выберите **Включить автоматизацию управления сертификатами TLS с помощью Let's Encrypt**.
+  ![Флажок для включения Let's Encrypt](/assets/images/enterprise/management-console/lets-encrypt-checkbox.png) {% data reusables.enterprise_management_console.save-settings %} {% data reusables.enterprise_management_console.privacy %}
+7. Нажмите кнопку **Запросить сертификат TLS**.
+  ![Кнопка запроса сертификата TLS](/assets/images/enterprise/management-console/request-tls-button.png)
+8. Подождите, пока состояние изменится со "STARTED" на "DONE".
+   ![Состояние Let's Encrypt](/assets/images/enterprise/management-console/lets-encrypt-status.png)
+9. Щелкните **Save Configuration** (Сохранить конфигурацию).

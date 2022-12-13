@@ -1,6 +1,6 @@
 ---
-title: Using the latest version of the official bundled actions
-intro: 'You can update the actions that are bundled with your enterprise, or use actions directly from {% data variables.product.prodname_dotcom_the_website %}.'
+title: Использование последней версии официальных пакетных действий
+intro: 'Вы можете обновить действия, объединенные с вашим предприятием, или использовать действия непосредственно из {% data variables.product.prodname_dotcom_the_website %}.'
 versions:
   ghes: '*'
   ghae: '*'
@@ -12,43 +12,48 @@ topics:
 redirect_from:
   - /admin/github-actions/using-the-latest-version-of-the-official-bundled-actions
 shortTitle: Use the latest bundled actions
+ms.openlocfilehash: a86c731602bc39cc35fbff823ebdbfbdf2dec2c9
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148107032'
 ---
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-Your enterprise instance includes a number of built-in actions that you can use in your workflows. For more information about the bundled actions, see "[Official actions bundled with your enterprise instance](/admin/github-actions/about-using-actions-in-your-enterprise#official-actions-bundled-with-your-enterprise-instance)."
+Корпоративный экземпляр включает ряд встроенных действий, которые можно использовать в рабочих процессах. Дополнительные сведения о пакетных действиях см. в разделе [Официальные действия в комплекте с корпоративным экземпляром](/admin/github-actions/about-using-actions-in-your-enterprise#official-actions-bundled-with-your-enterprise-instance).
 
-These bundled actions are a point-in-time snapshot of the official actions found at https://github.com/actions, so there may be newer versions of these actions available. You can use the `actions-sync` tool to update these actions, or you can configure {% data variables.product.prodname_github_connect %} to allow access to the latest actions on {% data variables.product.prodname_dotcom_the_website %}. These options are described in the following sections.
+Эти пакетные действия представляют собой моментальный снимок официальных действий, находящихся в https://github.com/actions, так что могут быть доступны новые версии этих действий. Вы можете обновлять эти действия с помощью инструмента `actions-sync` или настроить {% data variables.product.prodname_github_connect %}, чтобы разрешить доступ к последним действиям в {% data variables.product.prodname_dotcom_the_website %}. Описание этих параметров приводится в следующих разделах.
 
-## Using `actions-sync` to update the bundled actions
+## Использование `actions-sync` для обновления пакетных действий
 
-To update the bundled actions, you can use the `actions-sync` tool to update the snapshot. For more information on using `actions-sync`, see "[Manually syncing actions from {% data variables.product.prodname_dotcom_the_website %}](/admin/github-actions/manually-syncing-actions-from-githubcom)."
+Для обновления пакетных действий вы можете с помощью инструмента `actions-sync` обновить моментальный снимок. Дополнительные сведения об использовании `actions-sync` см. в разделе [Синхронизация действий вручную с {% data variables.product.prodname_dotcom_the_website %}](/admin/github-actions/manually-syncing-actions-from-githubcom).
 
-## Using {% data variables.product.prodname_github_connect %} to access the latest actions
+## Использование {% data variables.product.prodname_github_connect %} для доступа к последним действиям
 
-You can use {% data variables.product.prodname_github_connect %} to allow {% data variables.product.product_name %} to use actions from {% data variables.product.prodname_dotcom_the_website %}. For more information, see "[Enabling automatic access to {% data variables.product.prodname_dotcom_the_website %} actions using {% data variables.product.prodname_github_connect %}](/admin/github-actions/enabling-automatic-access-to-githubcom-actions-using-github-connect)."
+Вы можете с помощью {% data variables.product.prodname_github_connect %} разрешить {% data variables.product.product_name %} использовать действия с {% data variables.product.prodname_dotcom_the_website %}. Дополнительные сведения см. в статье "[Включение автоматического доступа к действиям {% data variables.product.prodname_dotcom_the_website %} с помощью {% data variables.product.prodname_github_connect %}](/admin/github-actions/enabling-automatic-access-to-githubcom-actions-using-github-connect)".
 
-Once {% data variables.product.prodname_github_connect %} is configured, you can use the latest version of an action by deleting its local repository in the `actions` organization on your instance. For example, if your enterprise instance is using `v1` of the `actions/checkout` action, and you need to use `{% data reusables.actions.action-checkout %}` which isn't available on your enterprise instance, perform the following steps to be able to use the latest `checkout` action from {% data variables.product.prodname_dotcom_the_website %}:
+После настройки {% data variables.product.prodname_github_connect %} вы можете использовать последнюю версию действия, удалив локальный репозиторий в организации `actions` в вашем экземпляре. Например, если ваш корпоративный экземпляр использует `v1` действия `actions/checkout`, а вам нужно использовать `{% data reusables.actions.action-checkout %}`, которое недоступно в вашем корпоративном экземпляре, выполните следующие шаги, чтобы получить возможность использовать последнюю версию действия `checkout` с {% data variables.product.prodname_dotcom_the_website %}.
 
-1. From an enterprise owner account on {% data variables.product.product_name %}, navigate to the repository you want to delete from the *actions* organization (in this example `checkout`).
-1. By default, site administrators are not owners of the bundled *actions* organization. To get the access required to delete the `checkout` repository, you must use the site admin tools. Click {% octicon "rocket" aria-label="The rocket ship" %} in the upper-right corner of any page in that repository.
-  ![Rocketship icon for accessing site admin settings](/assets/images/enterprise/site-admin-settings/access-new-settings.png)
-1. Click {% octicon "shield-lock" %} **Security** to see the security overview for the repository.
-  ![Security header the repository](/assets/images/enterprise/site-admin-settings/access-repo-security-info.png)
-1. Under "Privileged access", click **Unlock**.
-  ![Unlock button](/assets/images/enterprise/site-admin-settings/unlock-priviledged-repo-access.png)
-1. Under **Reason**, type a reason for unlocking the repository, then click **Unlock**.
-  ![Confirmation dialog](/assets/images/enterprise/site-admin-settings/confirm-unlock-repo-access.png)
-1. Now that the repository is unlocked, you can leave the site admin pages and delete the repository within the `actions` organization. At the top of the page, click the repository name, in this example **checkout**, to return to the summary page.
-  ![Repository name link](/assets/images/enterprise/site-admin-settings/display-repository-admin-summary.png)
-1. Under "Repository info", click **View code** to leave the site admin pages and display the `checkout` repository.
-1. Delete the `checkout` repository within the `actions` organization. For information on how to delete a repository, see "[Deleting a repository](/github/administering-a-repository/deleting-a-repository)."
-  ![View code link](/assets/images/enterprise/site-admin-settings/exit-admin-page-for-repository.png)
-1. Configure your workflow's YAML to use `{% data reusables.actions.action-checkout %}`.
-1. Each time your workflow runs, the runner will use the specified version of `actions/checkout` from {% data variables.product.prodname_dotcom_the_website %}.
+1. В учетной записи владельца предприятия на {% data variables.product.product_name %} перейдите в репозиторий, который вы хотите удалить из организации *действия* (в данном примере `checkout`).
+1. По умолчанию администраторы сайта не являются владельцами организации пакетных *действий*. Чтобы получить доступ, необходимый для удаления репозитория `checkout`, необходимо использовать средства администрирования сайта. Щелкните {% octicon "rocket" aria-label="The rocket ship" %} в правом верхнем углу любой страницы этого репозитория.
+  ![Значок ракеты для доступа к параметрам администратора сайта](/assets/images/enterprise/site-admin-settings/access-new-settings.png)
+1. Щелкните {% octicon "shield-lock" %} **Безопасность**, чтобы просмотреть обзор безопасности для репозитория.
+  ![Заголовок "Безопасность" репозитория](/assets/images/enterprise/site-admin-settings/access-repo-security-info.png)
+1. В разделе "Привилегированный доступ" щелкните **Разблокировать**.
+  ![Кнопка разблокировки](/assets/images/enterprise/site-admin-settings/unlock-priviledged-repo-access.png)
+1. В разделе **Причина** введите причину разблокировки репозитория и нажмите кнопку **Разблокировать**.
+  ![Диалоговое окно подтверждения](/assets/images/enterprise/site-admin-settings/confirm-unlock-repo-access.png)
+1. Теперь, когда репозиторий разблокирован, вы можете уйти со страницы администрирования сайта и удалить репозиторий в организации `actions`. Вверху страницы щелкните имя репозитория (в этом примере **checkout**), чтобы вернуться на страницу сводки.
+  ![Ссылка с именем репозитория](/assets/images/enterprise/site-admin-settings/display-repository-admin-summary.png)
+1. В разделе "Сведения о репозитории" щелкните **Просмотреть код**, чтобы закрыть страницы администрирования сайта и отобразить репозиторий `checkout`.
+1. Удалите репозиторий `checkout` в организации `actions`. Сведения о том, как удалить репозиторий, см. в разделе [Удаление репозитория](/github/administering-a-repository/deleting-a-repository).
+  ![Ссылка "Просмотреть код"](/assets/images/enterprise/site-admin-settings/exit-admin-page-for-repository.png)
+1. Настройте YAML рабочего процесса для использования `{% data reusables.actions.action-checkout %}`.
+1. При каждом запуске рабочего процесса средство выполнения будет использовать указанную версию `actions/checkout` из {% data variables.product.prodname_dotcom_the_website %}.
 
    {% note %}
 
-   **Note:** The first time the `checkout` action is used from {% data variables.product.prodname_dotcom_the_website %}, the `actions/checkout` namespace is automatically retired on {% data variables.location.product_location %}. If you ever want to revert to using a local copy of the action, you first need to remove the namespace from retirement. For more information, see "[Automatic retirement of namespaces for actions accessed on {% data variables.product.prodname_dotcom_the_website%}](/admin/github-actions/managing-access-to-actions-from-githubcom/enabling-automatic-access-to-githubcom-actions-using-github-connect#automatic-retirement-of-namespaces-for-actions-accessed-on-githubcom)."
+   **Примечание:** При первом `checkout` использовании действия из {% данных variables.product.prodname_dotcom_the_website %} `actions/checkout` пространство имен автоматически прекращается на {% данных variables.location.product_location %}. Если вы когда-либо захотите вернуться к использованию локальной копии действия, сначала вам нужно будет удалить это пространство имен из выбывших. Дополнительные сведения см. в статье "[Автоматическое прекращение использования пространств имен для действий, доступных на сайте {% data variables.product.prodname_dotcom_the_website%}](/admin/github-actions/managing-access-to-actions-from-githubcom/enabling-automatic-access-to-githubcom-actions-using-github-connect#automatic-retirement-of-namespaces-for-actions-accessed-on-githubcom)".
 
    {% endnote %}

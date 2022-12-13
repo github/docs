@@ -1,9 +1,17 @@
-A self-hosted runner can be located in either your repository, organization, or {% ifversion fpt or ghec %}enterprise account settings on {% data variables.product.prodname_dotcom %}{% elsif ghes or ghae %} enterprise settings on {% data variables.location.product_location %}{% endif %}. To manage a self-hosted runner, you must have the following permissions, depending on where the self-hosted runner was added:
-- **User repository**: You must be the repository owner.
-- **Organization**: You must be an organization owner. 
-- **Organization repository**: You must be an organization owner, or have admin access to the repository.
+---
+ms.openlocfilehash: 3a9ea7fdc7089c5423254ca10f1ad789eaa81de1
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/20/2022
+ms.locfileid: "148099295"
+---
+Локальное средство выполнения может находиться в репозитории, организации или {% ifversion fpt или ghec %}корпоративные параметры учетной записи для {% данных variables.product.prodname_dotcom %}{% elsif ghes или ghae %} корпоративных параметров на {% данных variables.location.product_location %}{% endif %}. Для управления локальным средством выполнения необходимо иметь следующие разрешения в зависимости от того, куда было добавлено это локальное средство выполнения:
+- **Пользовательский репозиторий**: необходимо быть владельцем репозитория.
+- **Организация**: необходимо быть владельцем организации. 
+- **Репозиторий организации**: необходимо быть владельцем организации или иметь доступ к репозиторию с правами администратора.
 {% ifversion ghec %}
-- **Enterprise account**: You must be an enterprise owner.
+- **Учетная запись предприятия**: необходимо быть владельцем предприятия.
 {% elsif ghes or ghae %}
-- **Enterprise**: You must be a {% data variables.product.prodname_enterprise %} site administrator.
+- **Предприятие**: необходимо быть администратором сайта {% data variables.product.prodname_enterprise %}.
 {% endif %}

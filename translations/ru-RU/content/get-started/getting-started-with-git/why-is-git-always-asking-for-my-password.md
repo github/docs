@@ -1,6 +1,6 @@
 ---
-title: Why is Git always asking for my password?
-intro: 'If Git prompts you for a username and password every time you try to interact with GitHub, you''re probably using the HTTPS clone URL for your repository.'
+title: Почему Git всегда запрашивает пароль?
+intro: 'Если Git запрашивает имя пользователя и пароль при каждой попытке взаимодействия с GitHub, вероятно, вы используете URL-адрес клонирования HTTPS для репозитория.'
 redirect_from:
   - /articles/why-is-git-always-asking-for-my-password
   - /github/using-git/why-is-git-always-asking-for-my-password
@@ -12,15 +12,21 @@ versions:
   ghae: '*'
   ghec: '*'
 shortTitle: Git passwords
+ms.openlocfilehash: a0812060e1e9aeb7e4d36049678e77e542bd8919
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148098572'
 ---
-Using an HTTPS remote URL has some advantages compared with using SSH. It's easier to set up than SSH, and usually works through strict firewalls and proxies. However, it also prompts you to enter your {% data variables.product.product_name %} credentials every time you pull or push a repository. 
+Использование удаленного URL-адреса HTTPS имеет некоторые преимущества по сравнению с SSH. HTTPS более прост в настройке по сравнению с SSH и обычно работает через строгие брандмауэры и прокси-серверы. Однако при каждом извлечении и при каждой отправке репозитория с HTTPS вам будет необходимо указать учетные данные {% data variables.product.product_name %}. 
 
 {% data reusables.user-settings.password-authentication-deprecation %}
 
-You can avoid being prompted for your password by configuring Git to [cache your credentials](/github/getting-started-with-github/caching-your-github-credentials-in-git) for you. Once you've configured credential caching, Git automatically uses your cached {% data variables.product.pat_generic %} when you pull or push a repository using HTTPS.
+Чтобы не вводить пароль каждый раз, можно настроить [кэширование учетных данных](/github/getting-started-with-github/caching-your-github-credentials-in-git) в Git. После настройки кэширования учетных данных Git автоматически использует кэшированные данные {% variables.product.pat_generic %} при извлечении или отправке репозитория с помощью HTTPS.
 
-## Further reading
+## Дополнительные материалы
 
-- "[About remote repositories](/github/getting-started-with-github/about-remote-repositories)."
-- "[About authentication to {% data variables.product.prodname_dotcom %}](/github/authenticating-to-github/about-authentication-to-github)"
-- "[Adding your SSH key to the ssh-agent](/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#adding-your-ssh-key-to-the-ssh-agent)"
+- [Сведения об удаленных репозиториях](/github/getting-started-with-github/about-remote-repositories)
+- [Сведения о проверке подлинности для {% data variables.product.prodname_dotcom %}](/github/authenticating-to-github/about-authentication-to-github)
+- [Добавление ключа SSH в ssh-agent](/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#adding-your-ssh-key-to-the-ssh-agent)

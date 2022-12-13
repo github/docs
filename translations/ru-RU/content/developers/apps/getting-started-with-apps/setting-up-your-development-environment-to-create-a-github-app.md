@@ -1,6 +1,6 @@
 ---
-title: Setting up your development environment to create a GitHub App
-intro: 'Learn the foundations for extending and building new {% data variables.product.prodname_github_apps %}.'
+title: Настройка среды разработки для создания приложения GitHub
+intro: 'Изучите основы расширения и создания новых {% data variables.product.prodname_github_apps %}.'
 redirect_from:
   - /apps/quickstart-guides/setting-up-your-development-environment
   - /developers/apps/setting-up-your-development-environment-to-create-a-github-app
@@ -12,146 +12,151 @@ versions:
 topics:
   - GitHub Apps
 shortTitle: Development environment
+ms.openlocfilehash: 77cf8ca936bc6bf4b39e882c9bb2126714117d42
+ms.sourcegitcommit: be0ccdb85c412a3bf2f328b62157835f927948d6
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/07/2022
+ms.locfileid: '148012172'
 ---
-## Introduction
+## Введение
 
-This guide will walk through the steps needed to configure a GitHub App and run it on a server. GitHub Apps require some setup steps to manage webhook events and connect the app registration on GitHub to your code. The app in this guide serves as a foundation that you can use to extend and build new GitHub Apps.
+В этом руководстве описаны действия, необходимые для настройки приложения GitHub и его выполнения на сервере. Приложениям GitHub требуются некоторые действия по настройке для управления событиями веб-перехватчика и подключения регистрации приложения в GitHub к вашему коду. Приложение в этом руководстве является основой, которую можно использовать для расширения и создания приложений GitHub.
 
-By the end of this guide you'll have registered a GitHub App and set up a web server to receive webhook events. You'll learn how to use a tool called Smee to capture webhook payloads and forward them to your local development environment. The template app you'll configure in this section won't do anything special yet, but it will serve as a framework you can use to start writing app code using the API or complete other [quickstart guides](/apps/quickstart-guides/). {% ifversion fpt or ghec %}You can check out successful examples of apps on [GitHub Marketplace](https://github.com/marketplace) and [Works with GitHub](https://github.com/works-with).{% endif %}
+К концу этого руководства вы зарегистрируете приложение GitHub и настроите веб-сервер для получения событий веб-перехватчика. Вы узнаете, как использовать средство Smee для захвата полезных данных веб-перехватчика и перенаправления их в локальную среду разработки. Приложение-шаблон, которое вы настроите в этом разделе, не будет делать ничего особенного, но будет служить платформой, которую можно использовать для написания кода приложения с помощью API или выполнения инструкций из других [кратких руководств](/apps/quickstart-guides/). {% ifversion fpt or ghec %}Вы можете получить для изменения рабочие примеры приложений в [GitHub Marketplace](https://github.com/marketplace) и [Работает с приложениями GitHub](https://github.com/works-with).{% endif %}
 
-After completing this project you will understand how to authenticate as a GitHub App and an installation, and how those authentication methods are different.
+После завершения этого проекта вы узнаете, как пройти проверку подлинности для приложения GitHub и установки, а также чем эти способы проверки подлинности отличаются.
 
-Here are the steps you'll take to configure the template GitHub App:
+Ниже приведены действия по настройке шаблона приложения GitHub:
 
-1. [Start a new Smee channel](#step-1-start-a-new-smee-channel)
-1. [Register a new GitHub App](#step-2-register-a-new-github-app)
-1. [Save your private key and App ID](#step-3-save-your-private-key-and-app-id)
-1. [Prepare the runtime environment](#step-4-prepare-the-runtime-environment)
-1. [Review the GitHub App template code](#step-5-review-the-github-app-template-code)
-1. [Start the server](#step-6-start-the-server)
-1. [Install the app on your account](#step-7-install-the-app-on-your-account)
+1. [Запуск нового канала Smee](#step-1-start-a-new-smee-channel)
+1. [Регистрация нового приложения в GitHub Apps](#step-2-register-a-new-github-app)
+1. [Сохранение закрытого ключа и идентификатора приложения](#step-3-save-your-private-key-and-app-id)
+1. [Подготовка среды выполнения](#step-4-prepare-the-runtime-environment)
+1. [Проверка кода шаблона приложения GitHub](#step-5-review-the-github-app-template-code)
+1. [Запуск сервера](#step-6-start-the-server)
+1. [Установка приложения в учетной записи](#step-7-install-the-app-on-your-account)
 
 {% data reusables.apps.app-ruby-guides %}
 
-## Prerequisites
+## Предварительные требования
 
-You may find it helpful to have a basic understanding of the following:
+Могут быть полезны базовые знания в следующих областях:
 
-* [GitHub Apps](/apps/about-apps)
-* [Webhooks](/webhooks)
-* [The Ruby programming language](https://www.ruby-lang.org/en/)
-* [REST APIs](/rest)
-* [Sinatra](http://sinatrarb.com/)
+* [Приложения GitHub](/apps/about-apps)
+* [Объекты Webhook](/webhooks)
+* [язык Ruby](https://www.ruby-lang.org/en/);
+* [REST API](/rest);
+* [Sinatra](http://sinatrarb.com/).
 
-But you can follow along at any experience level. We'll link out to information you need along the way!
+Но вы можете работать, имея любой уровень опыта. Мы будем ссылаться на необходимую информацию на этом пути!
 
-Before you begin, you'll need to clone the repository with the template code used in this quickstart. Open your Terminal app and find a directory where you'd like to store the code. Run this command to clone the [GitHub App template](https://github.com/github-developer/github-app-template) repository:
+Перед началом работы необходимо клонировать репозиторий с помощью кода шаблона, используемого для выполнения этого краткого руководства. Откройте приложение терминала и найдите каталог, в котором вы хотите сохранить код. Выполните следующую команду, чтобы клонировать репозиторий [шаблона приложения GitHub](https://github.com/github-developer/github-app-template):
 
 ```shell
 $ git clone https://github.com/github-developer/github-app-template.git
 ```
 
-## Step 1. Start a new Smee channel
+## Шаг 1. Запуск нового канала Smee
 
-To help GitHub send webhooks to your local machine without exposing it to the internet, you can use a tool called Smee. First, go to https://smee.io and click **Start a new channel**. If you're already comfortable with other tools that expose your local machine to the internet like [`ngrok`](https://dashboard.ngrok.com/get-started) or [`localtunnel`](https://localtunnel.github.io/www/), feel free to use those.
+Чтобы помочь GitHub отправлять веб-перехватчики на локальный компьютер без предоставления доступа из Интернета, можно использовать средство Smee. Сначала перейдите по адресу https://smee.io и нажмите кнопку **Запустить новый канал**. Если вы уже уверенно пользуетесь другими средствами, которые предоставляют локальный компьютер из Интернете, как [`ngrok`](https://dashboard.ngrok.com/get-started) или [`localtunnel`](https://localtunnel.github.io/www/), то можете использовать их.
 
-![The Smee new channel button](/assets/images/smee-new-channel.png)
+![Кнопка нового канала Smee](/assets/images/smee-new-channel.png)
 
-Starting a new Smee channel creates a unique domain where GitHub can send webhook payloads. You'll need to know this domain for the next step. Here is an example of a unique domain at `https://smee.io/qrfeVRbFbffd6vD`:
+Запуск нового канала Smee создает уникальный домен, в котором GitHub может отправлять полезные данные веб-перехватчика. Нужно знать этот домен для выполнения следующего действия. Ниже приведен пример уникального домена по адресу `https://smee.io/qrfeVRbFbffd6vD`:
 
-![A Smee unique channel](/assets/images/smee-unique-domain.png)
+![Уникальный канал Smee](/assets/images/smee-unique-domain.png)
 
-Next, go back to the Terminal and follow these steps to run the Smee command-line interface (CLI) client:
+Затем вернитесь в терминал и выполните следующие действия, чтобы запустить клиент интерфейса командной строки (CLI) Smee:
 
 {% note %}
 
-**Note:** The following steps are slightly different than the "Use the CLI" instructions you'll see in your Smee channel page. You do **not** need to follow the "Use the Node.js client" or "Using Probot's built-in support" instructions.
+**Примечание.** Следующие действия немного отличаются от инструкций "Использование CLI", которые вы увидите на странице канала Smee. Вам **не** нужно следовать инструкциям "Использовать клиент Node.js" или "Использование встроенной поддержки Probot".
 
 {% endnote %}
 
-1. Install the client:
+1. Установите клиент:
 
     ```shell
     $ npm install --global smee-client
     ```
 
-2. Run the client (replacing `https://smee.io/qrfeVRbFbffd6vD` with your own domain):
+2. Запустите клиент (заменив `https://smee.io/qrfeVRbFbffd6vD` на значение для собственного домена):
 
     ```shell
     $ smee --url https://smee.io/qrfeVRbFbffd6vD --path /event_handler --port 3000
     ```
 
-    You should see output like the following:
+    Вы должны увидеть следующий результат:
 
     ```shell
     Forwarding https://smee.io/qrfeVRbFbffd6vD to http://127.0.0.1:3000/event_handler
     Connected https://smee.io/qrfeVRbFbffd6vD
     ```
 
-The `smee --url <unique_channel>` command tells Smee to forward all webhook events received by the Smee channel to the Smee client running on your computer. The `--path /event_handler` option forwards events to the `/event_handler` route, which we'll cover in a [later section](#step-5-review-the-github-app-template-code). The `--port 3000` option specifies port 3000, which is the port your server will be listening to. Using Smee, your machine does not need to be open to the public internet to receive webhooks from GitHub. You can also open that Smee URL in your browser to inspect webhook payloads as they come in.
+Команда `smee --url <unique_channel>` указывает Smee перенаправить все события веб-перехватчика (полученные каналом Smee) клиенту Smee, работающему на компьютере. Параметр `--path /event_handler` перенаправит события по маршруту `/event_handler`, который мы рассмотрим в [одном из следующих разделов](#step-5-review-the-github-app-template-code). Параметр `--port 3000` указывает порт 3000, по которому сервер будет ожидать передачи данных. Используя Smee, компьютер не будет открыт для свободного доступа из Интернета, чтобы получить веб-перехватчики из GitHub. Вы также можете открыть этот веб-адрес Smee в браузере, чтобы проверить полезные данные веб-перехватчика по мере их поступления.
 
-We recommend leaving this Terminal window open and keeping Smee connected while you complete the rest of the steps in this guide. Although you _can_ disconnect and reconnect the Smee client without losing your unique domain (unlike `ngrok`), you may find it easier to leave it connected and do other command-line tasks in a different Terminal window.
+Рекомендуем оставить открытым это окно терминала и сохранить подключение Smee во время выполнения остальных действий, описанных в этом руководстве. Хотя _можно_ отключить и повторно подключить клиент Smee, не теряя уникальный домен (в отличие от `ngrok`), но проще оставить его подключенным и выполнить другие задачи командной строки в другом окне терминала.
 
-## Step 2. Register a new GitHub App
+## Шаг 2. Регистрация нового приложения в GitHub Apps
 
-If you don't yet have a GitHub account, now is a [great time to join](https://github.com/join). Don't forget to verify your email before continuing! To register a new app, visit the [app settings page](https://github.com/settings/apps) in your GitHub profile, and click **New GitHub App**.
+Если у вас еще нет учетной записи GitHub, [пришло время создать ее](https://github.com/join). Не забудьте проверить электронную почту, прежде чем продолжить! Чтобы зарегистрировать новое приложение, перейдите на [страницу параметров приложения](https://github.com/settings/apps) в профиле GitHub и нажмите кнопку **New GitHub App** (Новое приложение GitHub).
 
-![GitHub website, showing the **New App**](/assets/images/new-app.png)
+![Веб-сайт GitHub: **Новое приложение**](/assets/images/new-app.png)
 
-You'll see a form where you can enter details about your app. See "[Creating a GitHub App](/apps/building-github-apps/creating-a-github-app/)" for general information about the fields on this page. For the purposes of this guide, you'll need to enter specific data in a few fields:
+Вы увидите форму, в которой можно ввести сведения о приложении. Общие сведения о полях на этой странице см. в статье [Создание приложения GitHub](/apps/building-github-apps/creating-a-github-app/). Для целей этого руководства необходимо ввести определенные данные в нескольких полях:
 
 {% note %}
 
-**Note:** You can always update these settings later to point to a hosted server.
+**Примечание.** Вы всегда можете обновить эти параметры позже, чтобы указать на размещенный сервер.
 
 {% endnote %}
 
-* For the "Homepage URL", use the domain issued by Smee. For example:
+* Для поля Homepage URL (URL-адрес домашней страницы) используйте домен, выданный Smee. Пример:
 
-    ![Form with Smee domain filled in for homepage URL](/assets/images/homepage-url.png)
+    ![Форма с доменом Smee, заполненная для URL-адреса домашней страницы](/assets/images/homepage-url.png)
 
-* For the "Webhook URL", again use the domain issued by Smee. For example:
+* Для поля Webhook URL (URL-адрес веб-перехватчика) снова используйте домен, выданный Smee. Пример:
 
-    ![Form with Smee domain filled in for webhook URL](/assets/images/webhook-url.png)
+    ![Форма с доменом Smee, заполненная для URL-адреса веб-перехватчика](/assets/images/webhook-url.png)
 
-* For the "Webhook secret", create a password to secure your webhook endpoints. This should be something that only you (and GitHub, via this form) know. The secret is important because you will be receiving payloads from the public internet, and you'll use this secret to verify the webhook sender. Note that the GitHub App settings say the webhook secret is optional, which is true in most cases, but for the template app code to work, you must set a webhook secret.
+* Для поля Webhook secret (Секрет веб-перехватчика) создайте пароль для защиты конечных точек веб-перехватчика. Его должны знать только вы (и GitHub через эту форму). Секрет важен, так как вы будете получать полезные данные из общедоступного Интернета, поэтому будете использовать этот секрет для проверки отправителя веб-перехватчика. Обратите внимание, что в параметрах приложения GitHub секрет веб-перехватчика является необязательным, что для большинства случаев правильно, но для работы кода приложения-шаблона необходимо задать секрет веб-перехватчика.
 
-    ![Form with webhook secret filled in](/assets/images/webhook-secret.png)
+    ![Форма с заполненным секретом веб-перехватчика](/assets/images/webhook-secret.png)
 
-* On the Permissions & Webhooks page, you can specify a set of permissions for your app, which determines how much data your app has access to. Under the "Repository permissions"
- section, scroll down to "Metadata" and select `Access: Read-only`. If you decide to extend this template app, you can update these permissions later.
+* На странице разрешений и веб-перехватчиков можно указать набор разрешений для приложения. Этот набор определяет объем данных, к которым у приложения есть доступ. В разделе Repository permissions (Разрешения репозитория) прокрутите вниз до Metadata (Метаданные) и выберите `Access: Read-only`. Если вы решите расширить это приложение-шаблон, то эти разрешения можно обновить позже.
 
-* At the bottom of the Permissions & Webhooks page, specify whether this is a private app or a public app. This refers to who can install it: just you, or anyone in the world? For now, leave the app as private by selecting **Only on this account**.
+* В нижней части страницы разрешений и веб-перехватчиков укажите, является ли это частным приложением или общедоступным. Это относится к тому, кто может его установить: только вы или все. Сейчас оставьте приложение частным, выбрав **Only on this account** (Только в этой учетной записи).
 
-    ![GitHub App privacy](/assets/images/create_app.png)
+    ![Конфиденциальность приложения GitHub](/assets/images/create_app.png)
 
-Click **Create GitHub App** to create your app!
+Нажмите кнопку **Create GitHub App** (Создать приложение GitHub), чтобы создать приложение!
 
-## Step 3. Save your private key and App ID
+## Шаг 3. Сохранение закрытого ключа и идентификатора приложения
 
-After you create your app, you'll be taken back to the [app settings page](https://github.com/settings/apps). You have two more things to do here:
+После создания приложения вы вернетесь на [страницу параметров приложения](https://github.com/settings/apps). Здесь необходимо выполнить еще два действия:
 
-* **Generate a private key for your app.** This is necessary to authenticate your app later on. Scroll down on the page and click **Generate a private key**. Save the resulting `PEM` file (called something like  _`app-name`_-_`date`_-`private-key.pem`) in a directory where you can find it again.
+* **Создать закрытый ключ для приложения.** Он понадобиться позже для проверки подлинности приложения. Прокрутите страницу вниз и нажмите кнопку **Generate a private key** (Создать закрытый ключ). Сохраните полученный файл `PEM` (под названием _`app-name`_ - _`date`_ -`private-key.pem`) в каталоге, где вы его сможете найти еще раз.
 
-    ![The private key generation dialog](/assets/images/private_key.png)
+    ![Диалоговое окно создания закрытого ключа](/assets/images/private_key.png)
 
-* **Note the app ID GitHub has assigned your app.** You'll need this to prepare your runtime environment.
+* **Обратите внимание, что идентификатор приложения GitHub назначенный вашему приложению.** Он потребуется для подготовки среды выполнения.
 
     <img src="/assets/images/app_id.png" alt="Your app's ID number" width="200px"/>
 
-## Step 4. Prepare the runtime environment
+## Шаг 4. Подготовка среды выполнения
 
-To keep your information secure, we recommend putting all your app-related secrets in your computer's memory where your app can find them, rather than putting them directly in your code. A handy development tool called [dotenv](https://github.com/bkeepers/dotenv) loads project-specific environment variables from a `.env` file to `ENV`. Never check your `.env` file into GitHub. This is a local file that stores sensitive information that you don't want on the public internet. The `.env` file is already included in the repository's [`.gitignore`](/github/getting-started-with-github/ignoring-files/) file to prevent that.
+Чтобы обеспечить безопасность информации, рекомендуем поместить все секреты, связанные с приложением, в память компьютера, где приложение сможет их найти, а не помещать их непосредственно в код. Удобное средство разработки под названием [dotenv](https://github.com/bkeepers/dotenv) загружает переменные среды для конкретного проекта из файла `.env` в `ENV`. Никогда не помещайте файл `.env` в GitHub. Это локальный файл, в котором хранятся конфиденциальные данные, которые не предназначены для общедоступного Интернета. Файл `.env` уже включен в файл репозитория [`.gitignore`](/github/getting-started-with-github/ignoring-files/), чтобы предотвратить это.
 
-The template code you downloaded in the [Prerequisites section](#prerequisites) already has an example file called `.env-example`. Rename the example file from `.env-example` to `.env` or create a copy of the `.env-example` file called `.env`. You haven't installed dotenv yet, but you will install it later in this quickstart when you run `bundle install`. **Note:** Quickstarts that reference the steps in this guide may include additional environment variables in the `.env-example` file. Reference the quickstart guide for the project you've cloned on GitHub for guidance setting those additional environment variables.
+Код шаблона, скачанный в [разделе предварительных требований](#prerequisites), уже содержит пример файла под названием `.env-example`. Переименуйте пример файла с `.env-example` на `.env` или создайте копию файла `.env-example` под названием `.env`. Вы еще не установили dotenv, но установите его позже с помощью этого краткого руководства при выполнении `bundle install`. **Примечание.** В кратких руководствах, ссылающихся на действия, описанные в этом руководстве, могут содержаться дополнительные переменные среды в файле `.env-example`. См. краткое руководство для проекта, клонированного на GitHub, чтобы настроить эти дополнительные переменные среды.
 
-You need to add these variables to the `.env` file:
+Эти переменные необходимо добавить в файл `.env`:
 
-* _`GITHUB_PRIVATE_KEY`_: Add the private key you [generated and saved previously](#step-3-save-your-private-key-and-app-id). Open the `.pem` file with a text editor or use the command line to display the contents of the file: `cat path/to/your/private-key.pem`. Copy the entire contents of the file as the value of `GITHUB_PRIVATE_KEY` in your `.env` file. **Note:** Because the PEM file is more than one line you'll need to add quotes around the value like the example below.
-* _`GITHUB_APP_IDENTIFIER`_: Use the app ID you noted in the previous section.
-* _`GITHUB_WEBHOOK_SECRET`_: Add your webhook secret.
+* _`GITHUB_PRIVATE_KEY`_ . Добавьте [созданный и сохраненный ранее](#step-3-save-your-private-key-and-app-id) закрытый ключ. Откройте файл `.pem` в текстовом редакторе или используйте командную строку для отображения содержимого файла: `cat path/to/your/private-key.pem`. Скопируйте все содержимое файла в качестве значения `GITHUB_PRIVATE_KEY` в файл `.env`. **Примечание.** Так как PEM-файл содержит несколько строк, необходимо добавить кавычки вокруг значения, как в примере ниже.
+* _`GITHUB_APP_IDENTIFIER`_ . Используйте идентификатор приложения, указанный в предыдущем разделе.
+* _`GITHUB_WEBHOOK_SECRET`_ . Добавьте секрет веб-перехватчика.
 
-Here is an example `.env` file:
+Ниже приведен пример файла `.env`:
 
 ```
 GITHUB_PRIVATE_KEY="-----BEGIN RSA PRIVATE KEY-----
@@ -163,26 +168,26 @@ GITHUB_APP_IDENTIFIER=12345
 GITHUB_WEBHOOK_SECRET=your webhook secret
 ```
 
-## Step 5. Review the GitHub App template code
+## Шаг 5. Проверка кода шаблона приложения GitHub
 
-The template app code already contains some code that every GitHub App will need. This sections walks you through the code that already exists in the GitHub App template. There aren't any steps that you need to complete in this section. If you're already familiar with the template code, you can skip ahead to "[Step 6. Start the server](#step-6-start-the-server)."
+Код приложения-шаблона уже содержит часть кода, который потребуется каждому приложению GitHub. В этом разделе описывается код, который уже есть в шаблоне приложения GitHub. При работе с этим разделом не нужно выполнять никаких действий. Если вы уже знакомы с кодом шаблона, можно перейти к разделу [Шаг 6. Запуск сервера](#step-6-start-the-server).
 
-Open up the `template_server.rb` file in your favorite text editor. You'll see comments throughout this file that provide additional context for the template code. We recommend reading those comments carefully and even adding your own comments to accompany new code you write.
+Откройте файл `template_server.rb` в предпочитаемом текстовом редакторе. В этом файле вы увидите комментарии, которые предоставляют дополнительный контекст для кода шаблона. Рекомендуем внимательно прочитать эти комментарии и даже добавлять собственные для сопровождения нового кода, который вы пишете.
 
-At the top of the file you'll see `set :port 3000`, which sets the port used when starting the web server to match the port you redirected your webhook payloads to in "[Step 1. Start a new Smee channel](#step-1-start-a-new-smee-channel)."
+В верхней части файла вы увидите `set :port 3000`, что задает порт, используемый при запуске веб-сервера в соответствии с портом, на который вы перенаправили полезные данные веб-перехватчика согласно инструкциям раздела [Шаг 1. Запуск нового канала Smee](#step-1-start-a-new-smee-channel).
 
-The next code you'll see is the `class GHApp < Sinatra::Application` declaration. You'll write all of the code for your GitHub App inside this class.
+В следующем коде, который вы увидите, будет объявление `class GHApp < Sinatra::Application`. Вы будете писать весь код для приложения GitHub в этом классе.
 
-Out of the box, the class in the template does the following things:
-* [Read the environment variables](#read-the-environment-variables)
-* [Turn on logging](#turn-on-logging)
-* [Define a before filter](#define-a-before-filter)
-* [Define the route handler](#define-a-route-handler)
-* [Define the helper methods](#define-the-helper-methods)
+По умолчанию класс в шаблоне выполняет следующие действия:
+* [Чтение переменных среды](#read-the-environment-variables)
+* [Включение ведения журнала](#turn-on-logging)
+* [Определение перед фильтром](#define-a-before-filter)
+* [Определение обработчика маршрутов](#define-a-route-handler)
+* [Определение вспомогательных методов](#define-the-helper-methods)
 
-### Read the environment variables
+### Чтение переменных среды
 
-The first thing that this class does is read the three environment variables you set in "[Step 4. Prepare the runtime environment](#step-4-prepare-the-runtime-environment)" and store them in variables to use later:
+Первое, что делает этот класс, — считывает три переменные среды, заданные в разделе [Шаг 4. Подготовка среды выполнения](#step-4-prepare-the-runtime-environment), и сохраняет их в переменных для последующего использования:
 
 ``` ruby
 # Expects that the private key in PEM format. Converts the newlines
@@ -196,9 +201,9 @@ WEBHOOK_SECRET = ENV['GITHUB_WEBHOOK_SECRET']
 APP_IDENTIFIER = ENV['GITHUB_APP_IDENTIFIER']
 ```
 
-### Turn on logging
+### Включите ведение журнала.
 
-Next is a code block that enables logging during development, which is the default environment in Sinatra. This code turns on logging at the `DEBUG` level to show useful output in the Terminal while you are developing the app:
+Далее приведен блок кода, который включает ведение журнала во время разработки, что является средой по умолчанию в Sinatra. Этот код включает ведение журнала на уровне `DEBUG`, чтобы отобразить полезные выходные данные в терминале во время разработки приложения:
 
 ``` ruby
 # Turn on Sinatra's verbose logging during development
@@ -207,9 +212,9 @@ configure :development do
 end
 ```
 
-### Define a before filter
+### Определение перед фильтром
 
-Sinatra uses [before filters](https://github.com/sinatra/sinatra#filters) that allow you to execute code before the route handler. The `before` block in the template calls four [helper methods](https://github.com/sinatra/sinatra#helpers). The template app defines those helper methods in a [later section](#define-the-helper-methods).
+Sinatra используется [перед фильтрами](https://github.com/sinatra/sinatra#filters), что позволяет выполнять код перед обработчиком маршрутов. Блок `before` в шаблоне вызывает четыре [вспомогательных метода](https://github.com/sinatra/sinatra#helpers). Приложение-шаблон определяет эти вспомогательные методы в [одном из следующих разделов](#define-the-helper-methods).
 
 ``` ruby
 # Before each request to the `/event_handler` route
@@ -222,9 +227,9 @@ before '/event_handler' do
 end
 ```
 
-### Define a route handler
+### Определение обработчика маршрутов
 
-An empty route is included in the template code. This code handles all `POST` requests to the `/event_handler` route. You won't write this event handler in this quickstart, but see the other [quickstart guides](/apps/quickstart-guides/) for examples of how to extend this template app.
+Пустой маршрут включается в код шаблона. Этот код обрабатывает все запросы `POST` к маршруту `/event_handler`. Вы не будете писать этот обработчик событий в рамках данного краткого руководства, но ознакомитесь с другими [краткими руководствами](/apps/quickstart-guides/) в качестве примера расширения этого приложения-шаблона.
 
 ``` ruby
 post '/event_handler' do
@@ -232,35 +237,35 @@ post '/event_handler' do
 end
 ```
 
-### Define the helper methods
+### Определение вспомогательных методов
 
-The helper methods in this template do most of the heavy lifting. Four helper methods are defined in this section of the code.
+Вспомогательные методы в этом шаблоне выполняют основную часть тяжелой работы. В этом разделе кода определены четыре вспомогательные методы.
 
-#### Handling the webhook payload
+#### Обработка полезных данных веб-перехватчика
 
-The first method `get_payload_request` captures the webhook payload and converts it to JSON format, which makes accessing the payload's data much easier.
+Первый метод `get_payload_request` захватывает полезные данные веб-перехватчика и преобразует их в формат JSON, что значительно упрощает к ним доступ.
 
-#### Verifying the webhook signature
+#### Проверка сигнатуры веб-перехватчика
 
-The second method `verify_webhook_signature` performs verification of the webhook signature to ensure that GitHub generated the event. To learn more about the code in the `verify_webhook_signature` helper method, see "[Securing your webhooks](/webhooks/securing/)." If the webhooks are secure, this method will log all incoming payloads to your Terminal. The logger code is helpful in verifying your web server is working but you can always remove it later.
+Второй метод `verify_webhook_signature` выполняет проверку сигнатуры веб-перехватчика, чтобы убедиться, что событие создано GitHub. Дополнительные сведения о коде во вспомогательном методе `verify_webhook_signature` см. в статье [Защита веб-перехватчиков](/webhooks/securing/). Если веб-перехватчики защищены, этот метод записывает все входящие полезные данные в терминал. Код средства ведения журнала полезен при проверке работы веб-сервера, но его всегда можно удалить позже.
 
-#### Authenticating as a GitHub App
+#### Проверка подлинности в качестве приложения GitHub
 
-To make API calls, you'll be using the [Octokit library](http://octokit.github.io/octokit.rb/). Doing anything interesting with this library will require you, or rather your app, to authenticate. GitHub Apps have two methods of authentication:
+Для выполнения вызовов API вы будете использовать [библиотеку Octokit](http://octokit.github.io/octokit.rb/). Для выполнения каких-либо интересных действий с помощью этой библиотеки от вас или, скорее, от вашего приложения потребуется проверка подлинности. Приложения GitHub имеют два метода проверки подлинности:
 
-- Authenticating as a GitHub App using a [JSON Web Token (JWT)](https://jwt.io/introduction).
-- Authenticating as a specific installation of a GitHub App using an installation access token.
+- Проверка подлинности в качестве приложения GitHub с помощью [JSON Web Token (JWT)](https://jwt.io/introduction).
+- Проверка подлинности в качестве конкретной установки приложения GitHub с помощью маркера доступа установки.
 
-You'll learn about authenticating as an installation in the [next section](#authenticating-as-an-installation).
+Вы узнаете о проверке подлинности как установке в [следующем разделе](#authenticating-as-an-installation).
 
-[Authenticating as a GitHub App](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app) lets you do a couple of things:
+[Проверка подлинности в качестве приложения GitHub](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app) позволяет выполнить несколько приведенных ниже действий:
 
- * You can retrieve high-level management information about your GitHub App.
- * You can request access tokens for an installation of the app.
+ * Вы можете получить общие сведения управления для приложения GitHub.
+ * Вы можете запросить маркеры доступа для установки приложения.
 
-For example, you would authenticate as a GitHub App to retrieve a list of the accounts (organization and personal) that have installed your app. But this authentication method doesn't allow you to do much with the API. To access a repository's data and perform operations on behalf of the installation, you need to authenticate as an installation. To do that, you'll need to authenticate as a GitHub App first to request an installation access token.
+Например, для получения списка учетных записей (организации и личных) с вашим установленным приложением можно выполнить проверку подлинности в качестве приложения GitHub. Но этот способ проверки подлинности не широкого спектра действий с API. Чтобы получить доступ к данным репозитория и выполнять операции от имени установки, необходимо пройти проверку подлинности в качестве установки. Для этого сначала необходимо пройти проверку подлинности в качестве приложения GitHub, чтобы запросить маркер доступа установки.
 
-Before you can use the Octokit.rb library to make API calls, you'll need to initialize an [Octokit client](http://octokit.github.io/octokit.rb/Octokit/Client.html) authenticated as a GitHub App. The `authenticate_app` helper method does just that!
+Прежде чем использовать библиотеку Octokit.rb для выполнения вызовов API, необходимо инициализировать [клиент Octokit](http://octokit.github.io/octokit.rb/Octokit/Client.html), прошедший проверку подлинности как приложение GitHub. Вспомогательный метод `authenticate_app` делает именно это!
 
 ``` ruby
 # Instantiate an Octokit client authenticated as a GitHub App.
@@ -288,11 +293,11 @@ def authenticate_app
 end
 ```
 
-The code above generates a [JSON Web Token (JWT)](https://jwt.io/introduction) and uses it (along with your app's private key) to initialize the Octokit client. GitHub checks a request's authentication by verifying the token with the app's stored public key. To learn more about how this code works, see "[Authenticating as a GitHub App](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app)."
+Приведенный выше код создает [JSON Web Token (JWT)](https://jwt.io/introduction) и использует его (вместе с закрытым ключом приложения) для инициализации клиента Octokit. GitHub проверяет проверку подлинности запроса, проверяя маркер с сохраненным открытым ключом приложения. Дополнительные сведения о работе этого кода см. в разделе [Проверка подлинности в качестве приложения GitHub](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app).
 
-#### Authenticating as an installation
+#### Проверка подлинности от имени установки
 
-An _installation_ refers to any user or organization account that has installed the app. Even if someone installs the app on more than one repository, it only counts as one installation because it's within the same account. The last helper method `authenticate_installation` initializes an [Octokit client](http://octokit.github.io/octokit.rb/Octokit/Client.html) authenticated as an installation. This Octokit client is what you'd use to make authenticated API calls.
+Под _установкой_ понимается учетная запись любого пользователя или организации, которые установили приложение. Даже если кто-то устанавливает приложение в нескольких репозиториях, то это считается одной установкой, так это происходит в рамках одной учетной записи. Последний вспомогательный метод `authenticate_installation` инициализирует [клиент Octokit](http://octokit.github.io/octokit.rb/Octokit/Client.html), прошедший проверку подлинности в качестве установки. Этот клиент Octokit используется для выполнения вызовов API, прошедших проверку подлинности.
 
 ``` ruby
 # Instantiate an Octokit client authenticated as an installation of a
@@ -304,40 +309,40 @@ def authenticate_installation(payload)
 end
 ```
 
-The [`create_app_installation_access_token`](http://octokit.github.io/octokit.rb/Octokit/Client/Apps.html#create_app_installation_access_token-instance_method) Octokit method creates an installation token. This method accepts two arguments:
+Метод Octokit [`create_app_installation_access_token`](http://octokit.github.io/octokit.rb/Octokit/Client/Apps.html#create_app_installation_access_token-instance_method) создает маркер установки. Этот метод принимает два аргумента:
 
-* Installation (integer): The ID of a GitHub App installation
-* Options (hash, defaults to `{}`): A customizable set of options
+* Установка (целое число): идентификатор установки приложения GitHub.
+* Параметры (хэш, по умолчанию `{}`): настраиваемый набор параметров.
 
-Any time a GitHub App receives a webhook, it includes an `installation` object with an `id`. Using the client authenticated as a GitHub App, you pass this ID to the `create_app_installation_access_token` method to generate an access token for each installation. Since you're not passing any options to the method, the options default to an empty hash. If you look back at [the docs](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation), you can see the response for `create_app_installation_access_token` includes two fields: `token` and `expired_at`. The template code selects the token in the response and initializes an installation client.
+Каждый раз, когда приложение GitHub получает веб-перехватчик, он включает объект `installation` с `id`. Используя клиент, прошедший проверку подлинности в качестве приложения GitHub, вы передаете этот идентификатор методу `create_app_installation_access_token` для создания маркера доступа для каждой установки. Так как вы не передаете параметры в метод, то параметры по умолчанию имеют пустой хэш. Если взглянуть на [документацию](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation), вы увидите ответ для `create_app_installation_access_token` с двумя полями: `token` и `expired_at`. Код шаблона выбирает маркер в ответе и инициализирует клиент установки.
 
-With this method in place, each time your app receives a new webhook payload, it creates a client for the installation that triggered the event. This authentication process enables your GitHub App to work for all installations on any account.
+При использовании этого метода каждый раз, когда приложение получает новые полезные данные веб-перехватчика, он создает клиент для установки, которая активировала событие. Этот процесс проверки подлинности позволяет приложению GitHub работать для всех установок в любой учетной записи.
 
-Now you're ready to start making API calls!
+Теперь все готово для выполнения вызовов API!
 
-## Step 6. Start the server
+## Шаг 6. Запуск сервера
 
-Your app doesn't _do_ anything yet, but at this point, you can get it running on the server.
+Приложение пока ничего не _делает_, но на этом этапе его можно запустить на сервере.
 
-Keep Smee running in the current tab in your Terminal. Open a new tab and `cd` into the directory where you [cloned the template app code](#prerequisites). The Ruby code in this repository will start up a [Sinatra](http://sinatrarb.com/) web server. This code has a few dependencies. You can install these by running:
+Не закрывайте Smee на текущей вкладке в терминале. Откройте новую вкладку и с помощью `cd` перейдите в каталог, где вы [клонировали код приложения-шаблона](#prerequisites). Код Ruby в этом репозитории запустит веб-сервер [Sinatra](http://sinatrarb.com/). Этот код имеет несколько зависимостей. Их можно установить, выполнив:
 
 ```shell
 $ gem install bundler
 ```
 
-Followed by:
+А затем:
 
 ```shell
 $ bundle install
 ```
 
-With the dependencies installed, you can start the server:
+После установки зависимостей можно запустить сервер:
 
 ```shell
 $ bundle exec ruby template_server.rb
 ```
 
-You should see a response like:
+Вы должны получить примерно следующий ответ:
 
 ```shell
 > == Sinatra (v2.0.3) has taken the stage on 3000 for development with backup from Puma
@@ -349,25 +354,25 @@ You should see a response like:
 > Use Ctrl-C to stop
 ```
 
-If you see an error, make sure you've created the `.env` file in the directory that contains `template_server.rb`.
+Если появится сообщение об ошибке, убедитесь, что вы создали файл `.env` в каталоге с `template_server.rb`.
 
-Once the server is running, you can test it by going to `http://localhost:3000` in your browser. If the app works as expected, you'll see a helpful error page:
+После запуска сервера его можно проверить, перейдя по адресу `http://localhost:3000` в браузере. Если приложение работает должным образом, вы увидите полезную страницу ошибки:
 
 <img src="/assets/images/sinatra-404.png" alt="Sinatra's 404 error page" width="500px"/>
 
-This is good! Even though it's an error page, it's a _Sinatra_ error page, which means your app is connected to the server as expected. You're seeing this message because you haven't given the app anything else to show.
+Это хорошо! Несмотря на то, что это страница ошибки, такая страница _Sinatra_ означает, что ваше приложение подключено к серверу должным образом. Вы видите это сообщение, так как вы ничего не предоставили приложению для отображения.
 
-## Step 7. Install the app on your account
+## Шаг 7. Установка приложения в учетной записи
 
-You can test that the server is listening to your app by triggering an event for it to receive. A simple event you can test is installing the app on your GitHub account, which should send the [`installation`](/webhooks/event-payloads/#installation) event. If the app receives it, you should see some output in the Terminal tab where you started `template_server.rb`.
+Вы можете проверить, ожидает ли сервер передачи данных приложения, активируя событие для получения. Простое событие, которое можно проверить, — это установка приложения в учетной записи GitHub, которая должна отправлять событие [`installation`](/webhooks/event-payloads/#installation). Если приложение получит его, вы увидите некоторые выходные данные на вкладке терминала, на которой вы запустили `template_server.rb`.
 
-To install the app, visit the [app settings page](https://github.com/settings/apps), choose your app, and click **Install App** in the sidebar. Next to your username, click **Install**.
+Чтобы установить приложение, перейдите на [страницу параметров приложения](https://github.com/settings/apps), выберите приложение и на боковой панели щелкните **Install App** (Установить приложение). Рядом с именем пользователя щелкните **Install** (Установить).
 
-You'll be asked whether to install the app on all repositories or selected repositories. If you don't want to install the app on _all_ of your repositories, that's okay! You may want to create a sandbox repository for testing purposes and install your app there.
+Вам будет предложено установить приложение во всех или выбранных репозиториях. Если вы не хотите устанавливать приложение во _всех_ репозиториях, это нормально! Вы можете создать репозиторий-песочницу для тестирования и установить приложение там.
 
 <img src="/assets/images/install_permissions.png" alt="App installation permissions" width="500px"/>
 
-After you click **Install**, look at the output in your Terminal. You should see something like this:
+После нажатия кнопки **Install** (Установить) просмотрите выходные данные в терминале. Отобразятся примерно следующие сведения:
 
 ```shell
 > D, [2018-06-29T15:45:43.773077 #30488] DEBUG -- : ---- received event integration_installation
@@ -378,31 +383,31 @@ After you click **Install**, look at the output in your Terminal. You should see
 > 192.30.252.39 - - [29/Jun/2018:15:45:43 -0400] "POST / HTTP/2" 200 2 0.0019
 ```
 
-This is good news! It means your app received a notification that it was installed on your GitHub account. If you see something like this, your app is running on the server as expected. 🙌
+Это хорошая новость! Это означает, что приложение получило уведомление об установке в учетной записи GitHub. Если вы видите примерно такое, приложение выполняется на сервере должным образом. 🙌
 
-If you don't see the output, make sure Smee is running correctly in another Terminal tab. If you need to restart Smee, note that you'll also need to _uninstall_ and _reinstall_ the app to send the `installation` event to your app again and see the output in Terminal. If Smee isn't the problem, see the "[Troubleshooting](#troubleshooting)" section for other ideas.
+Если выходные данные не отображаются, убедитесь, что Smee работает правильно на другой вкладке терминала. Если нужно перезапустить Smee, обратите внимание, что также потребуется _удалить_ и _переустановить_ приложение, чтобы отправить событие `installation` в приложение еще раз и увидеть выходные данные в терминале. Если проблема не в Smee, см. другие причины в разделе [Устранение неполадок](#troubleshooting).
 
-If you're wondering where the Terminal output above is coming from, it's written in the [app template code](#prerequisites) in `template_server.rb`.
+Если вы хотите узнать, откуда поступают указанные выше выходные данные терминала, то это прописано в [коде шаблона приложения](#prerequisites) в `template_server.rb`.
 
-## Troubleshooting
+## Устранение неполадок
 
-Here are a few common problems and some suggested solutions. If you run into any other trouble, you can ask for help or advice in the {% data reusables.support.prodname_support_forum_with_url %}.
+Ниже указаны некоторые распространенные проблемы и предлагаемые решения. Если у вас возникли другие проблемы, вы можете обратиться за помощью или советом в {% данных reusables.support.prodname_support_forum_with_url %}.
 
-* **Q:** When I try to install the Smee command-line client, I get the following error:
+* **Вопрос.** При попытке установить клиент командной строки Smee возникает следующее сообщение об ошибке:
 
     ```shell
     > npm: command not found
     ```
 
-    **A:** Looks like you don't have npm installed. The best way to install it is to download the Node.js package at https://nodejs.org and follow the installation instructions for your system. npm will be installed alongside Node.js.
+    **Ответ.** Похоже, у вас не установлен диспетчер npm. Лучший способ установить его — скачать пакет Node.js по адресу https://nodejs.org и следовать инструкциям по установке для системы. Диспетчер npm будет установлен вместе с Node.js.
 
-* **Q:** When I run the server, I get the following error:
+* **Вопрос.** При запуске сервера возникает следующее сообщение об ошибке:
 
     ```shell
     > server.rb:38:in `initialize': Neither PUB key nor PRIV key: header too long (OpenSSL::PKey::RSAError)
     ```
 
-    **A:** You probably haven't set up your private key environment variable quite right. Your `GITHUB_PRIVATE_KEY` variable should look like this:
+    **Ответ.** Возможно, вы не настроили правильно переменную среды закрытого ключа. Переменная `GITHUB_PRIVATE_KEY` должна выглядеть следующим образом:
 
     ```
     GITHUB_PRIVATE_KEY="-----BEGIN RSA PRIVATE KEY-----
@@ -412,42 +417,42 @@ Here are a few common problems and some suggested solutions. If you run into any
     -----END RSA PRIVATE KEY-----"
     ```
 
-    Double-check that you've copied the correct public key into your `.env` file.
+    Повторно убедитесь, что вы скопировали правильный открытый ключ в файл `.env`.
 
-* **Q:** When I run the server, it crashes with this error:
+* **Вопрос.** При запуске сервера происходит сбой со следующим сообщением об ошибке:
 
     ```shell
     > Octokit::Unauthorized ... 401 - Bad credentials`
     ```
 
-    **A:** You may be authenticated as a GitHub App but not as an installation. Make sure you follow all the steps under "[Authenticate as an installation](#authenticating-as-an-installation)," and use the `@installation_client` instance variable (authenticated with an installation access token) for your API operations, not the `@app_client` instance variable (authenticated with a JWT). The `@app_client` can only retrieve high-level information about your app and obtain installation access tokens. It can't do much else in the API.
+    **Ответ.** Возможно, вы проходите проверку подлинности в качестве приложения GitHub, но не в качестве установки. Убедитесь, что вы следуете всем инструкциям из раздела [Проверка подлинности в качестве установки](#authenticating-as-an-installation) и используете переменную экземпляра `@installation_client` (с проверкой подлинности с помощью маркера доступа к установке) для операций API, а не переменную экземпляра `@app_client` (с проверкой подлинности с помощью JWT). Переменная экземпляра `@app_client` может извлекать только общие сведения о приложении и получать маркеры доступа установки. Больше эта переменная ничего не может сделать в API.
 
-* **Q:** My server isn't listening to events! The Smee client is running in a Terminal window, and I'm installing the app on a repository on GitHub, but I don't see any output in the Terminal window where I'm running the server.
+* **Вопрос.** Что делать, если мой сервер не ожидает передачи данных событий? Клиент Smee работает в окне терминала, и я устанавливаю приложение в репозитории на сайте GitHub, но не вижу выходных данных в окне терминала, где работает сервер.
 
-    **A:** You may not be running the Smee client, running the Smee command with the wrong parameters or you may not have the correct Smee domain in your GitHub App settings. First check to make sure the Smee client is running in a Terminal tab. If that's not the problem, visit your [app settings page](https://github.com/settings/apps) and check the fields shown in "[Step 2. Register a new GitHub App](#step-2-register-a-new-github-app)." Make sure the domain in those fields matches the domain you used in your `smee -u <unique_channel>` command in "[Step 1. Start a new Smee channel](#step-1-start-a-new-smee-channel)." If none of the above work, check that you are running the full Smee command including the `--path` and `--port` options, for example: `smee --url https://smee.io/qrfeVRbFbffd6vD --path /event_handler --port 3000` (replacing `https://smee.io/qrfeVRbFbffd6vD` with your own Smee domain).
+    **Ответ.** Возможно, у вас не работает клиент Smee, так как вы выполняете команду Smee с неправильными параметрами или в параметрах приложения GitHub указан неправильный домен Smee. Сначала проверьте, работает ли клиент Smee на вкладке терминала. Если проблема не в этом, посетите [страницу параметров приложения](https://github.com/settings/apps) и проверьте поля, показанные в разделе [Шаг 2. Регистрация нового приложения в GitHub Apps](#step-2-register-a-new-github-app). Убедитесь, что домен в этих полях соответствует домену, который вы использовали в команде `smee -u <unique_channel>` при работе с разделом [Шаг 1. Запуске нового канала Smee](#step-1-start-a-new-smee-channel). Если ничего из указанного выше не помогло, убедитесь, что выполняется полная команда Smee, включая параметры `--path` и `--port`, например: `smee --url https://smee.io/qrfeVRbFbffd6vD --path /event_handler --port 3000` (заменив `https://smee.io/qrfeVRbFbffd6vD` на значение для собственного домена Smee).
 
-* **Q:** I'm getting an `Octokit::NotFound` 404 error in my debug output:
+* **Вопрос.** В выходных данных отладки я получаю ошибку 404 `Octokit::NotFound`:
     ```
     2018-12-06 15:00:56 - Octokit::NotFound - POST {% data variables.product.api_url_code %}/app/installations/500991/access_tokens: 404 - Not Found // See: /v3/apps/#create-a-new-installation-token:
     ```
 
-    **A:** Ensure the variables in your `.env` file are correct. Make sure that you have not set identical variables in any other environment variable files like `bash_profile`. You can check the environment variables your app is using by adding `puts` statements to your app code and re-running the code. For example, to ensure you have the correct private key set, you could add `puts PRIVATE_KEY` to your app code:
+    **Ответ.** Убедитесь, что переменные в файле `.env` правильные. Убедитесь, что в других файлах переменных среды (например, `bash_profile`) не заданы идентичные переменные. Вы можете проверить переменные среды, которые использует приложение, добавив инструкции `puts` в код приложения и повторно выполнив его. Например, чтобы убедиться в правильности набора закрытых ключей, можно добавить `puts PRIVATE_KEY` в код приложения:
 
     ```
     PRIVATE_KEY = OpenSSL::PKey::RSA.new(ENV['GITHUB_PRIVATE_KEY'].gsub('\n', "\n"))
     puts PRIVATE_KEY
     ```
 
-## Conclusion
+## Заключение
 
-After walking through this guide, you've learned the basic building blocks for developing GitHub Apps! To review, you:
+После прохождения этого руководства вы узнали об основных стандартных блоках для разработки приложений GitHub! Для этого вы:
 
-* Registered a new GitHub App
-* Used Smee to receive webhook payloads
-* Ran a simple web server via Sinatra
-* Authenticated as a GitHub App
-* Authenticated as an installation
+* Зарегистрировали новое приложение GitHub.
+* Использовали Smee для получения полезных данных веб-перехватчика.
+* Запустили простой веб-сервер с помощью Sinatra.
+* Выполнили проверку подлинности в качестве приложения GitHub.
+* Выполнили проверку подлинности в качестве установки.
 
-## Next steps
+## Дальнейшие действия
 
-You now have a GitHub App running on a server. It doesn't do anything special yet, but check out some of the ways you can customize your GitHub App template in the other [quickstart guides](/apps/quickstart-guides/).
+Теперь на сервере работает приложение GitHub. Оно еще не делает ничего особенного, но ознакомьтесь с некоторыми из способов настройки шаблона приложения GitHub в других [кратких руководствах](/apps/quickstart-guides/).

@@ -1,6 +1,6 @@
 ---
-title: Changing your GitHub username
-intro: 'You can change the username for your account on {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom_the_website %}{% elsif ghes %}{% data variables.location.product_location %} if your instance uses built-in authentication{% endif %}.'
+title: Изменение имени пользователя для GitHub
+intro: 'Вы можете изменить имя пользователя для вашей учетной записи на {% ifversion fpt или ghec %}{% данных variables.product.prodname_dotcom_the_website %}{% elsif ghes %}{% данных variables.location.product_location %}, если ваш экземпляр использует встроенную проверку подлинности{% endif %}.'
 redirect_from:
   - /articles/how-to-change-your-username
   - /articles/changing-your-github-user-name
@@ -17,19 +17,24 @@ versions:
 topics:
   - Accounts
 shortTitle: Change your username
+ms.openlocfilehash: cdd6e51ce609bb9e4b8f71535ebf3920ebe5911f
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148098242'
 ---
-
 {% ifversion ghec or ghes %}
 
 {% note %}
 
 {% ifversion ghec %}
 
-**Note**: Members of an {% data variables.enterprise.prodname_emu_enterprise %} cannot change usernames. Your enterprise's IdP administrator controls your username for {% data variables.product.product_name %}. For more information, see "[About {% data variables.product.prodname_emus %}](/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users)."
+**Примечание.** Члены {% данных variables.enterprise.prodname_emu_enterprise %} не могут изменять имена пользователей. Администратор IdP вашего предприятия управляет именем пользователя для {% data variables.product.product_name %}. Дополнительные сведения см. в разделе [Сведения о {% data variables.product.prodname_emus %}](/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users).
 
 {% elsif ghes %}
 
-**Note**: If you sign into {% data variables.location.product_location %} with LDAP credentials or single sign-on (SSO), only your local administrator can change your username. For more information about authentication methods for {% data variables.product.product_name %}, see "[Authenticating users for {% data variables.location.product_location %}](/admin/authentication/authenticating-users-for-your-github-enterprise-server-instance)."
+**Примечание.** При входе в {% данных variables.location.product_location %} с учетными данными LDAP или единым входом только локальный администратор может изменить имя пользователя. Дополнительные сведения о методах проверки подлинности для {% данных variables.product.product_name %}см. в разделе "[Проверка подлинности пользователей для {% данных variables.location.product_location %}](/admin/authentication/authenticating-users-for-your-github-enterprise-server-instance)".
 
 {% endif %}
 
@@ -37,61 +42,59 @@ shortTitle: Change your username
 
 {% endif %}
 
-## About username changes
+## Сведения об изменениях имен пользователя
 
-You can change your username to another username that is not currently in use.{% ifversion fpt or ghec %} If the username you want is not available, consider other names or unique variations. Using a number, hyphen, or an alternative spelling might help you find a similar username that's still available.
+Вы можете изменить имя пользователя на другое имя, которое в настоящее время не используется. {% ifversion fpt or ghec %} Если нужное имя пользователя недоступно, рассмотрите другие имена или уникальные варианты. Если вы используете число, дефис или альтернативное правописание, это можете помочь вам найти аналогичное доступное имя пользователя.
 
-If you hold a trademark for the username, you can find more information about making a trademark complaint on our [Trademark Policy](/free-pro-team@latest/github/site-policy/github-trademark-policy) page. 
+Если для имени пользователя вы удерживаете товарный знак, дополнительные сведения о том, как подать жалобу на товарные знаки, можно найти на странице [политики товарных знаков](/free-pro-team@latest/github/site-policy/github-trademark-policy). 
 
-If you do not hold a trademark for the name, you can choose another username or keep your current username. {% data variables.contact.github_support %} cannot release the unavailable username for you. For more information, see "[Changing your username](#changing-your-username)."{% endif %}
+Если вы не удерживаете товарный знак для имени, можете выбрать другое имя пользователя или сохранить текущее. {% data variables.contact.github_support %} не может освободить для вас недоступное имя пользователя. Дополнительные сведения см. в статье [Изменение имени пользователя](#changing-your-username).{% endif %}
 
-After changing your username, your old username becomes available for anyone else to claim. Most references to your repositories under the old username automatically change to the new username. However, some links to your profile won't automatically redirect.
+После изменения имени пользователя старое имя становится доступным для других пользователей. В большинстве ссылок на репозитории старое имя пользователя автоматически меняется на новое. При этом автоматическая переадресация работает не со всеми ссылками на ваш профиль.
 
-{% data variables.product.product_name %} cannot set up redirects for:
-- [@mentions](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams) using your old username
-- Links to [gists](/articles/creating-gists) that include your old username
+{% data variables.product.product_name %} не может настроить перенаправления для:
+- [@mentions](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams), использующего старое имя пользователя
+- Ссылки на [gist](/articles/creating-gists), включающие старое имя пользователя
 
 {% ifversion fpt or ghec %} 
 
-If you're a member of an {% data variables.enterprise.prodname_emu_enterprise %}, you cannot make changes to your username. {% data reusables.enterprise-accounts.emu-more-info-account %}
+Если вы являетесь участником {% данных variables.enterprise.prodname_emu_enterprise %}, вы не можете внести изменения в имя пользователя. {% data reusables.enterprise-accounts.emu-more-info-account %}
 
 {% endif %}
 
-## Repository references
+## Ссылки на репозиторий
 
-After you change your username, {% data variables.product.product_name %} will automatically redirect references to your repositories.
-- Web links to your existing repositories will continue to work. This can take a few minutes to complete after you make the change.
-- Command line pushes from your local repository clones to the old remote tracking URLs will continue to work.
+После изменения имени пользователя {% data variables.product.product_name %} автоматически перенаправит ссылки в репозитории.
+- Веб-ссылки на существующие репозитории будут продолжать работать. Они начнут функционировать в течение нескольких минут после того, как вы внесете изменение.
+- Отправки командной строки из клонов вашего локального репозитория на старые URL-адреса для удаленного отслеживания будут продолжать работать.
 
-If the new owner of your old username creates a repository with the same name as your repository, that will override the redirect entry and your redirect will stop working. Because of this possibility, we recommend you update all existing remote repository URLs after changing your username. For more information, see "[Managing remote repositories](/github/getting-started-with-github/managing-remote-repositories)."
+Если новый владелец вашего старого имени пользователя создаст репозиторий, имя которого будет совпадать с именем вашего репозитория, это переопределит запись перенаправления и перенаправление перестанет работать. Из-за такого вероятного риска рекомендуется обновить все существующие URL-адреса удаленного репозитория после изменения имени пользователя. Дополнительные сведения см. в разделе [Управление удаленными репозиториями](/github/getting-started-with-github/managing-remote-repositories).
 
-## Links to your previous profile page
+## Ссылки на предыдущую страницу профиля
 
-After changing your username, links to your previous profile page, such as `https://{% data variables.command_line.backticks %}/previoususername`, will return a 404 error. We recommend updating any links to your account on {% data variables.location.product_location %} from elsewhere{% ifversion fpt or ghec %}, such as your LinkedIn or Twitter profile{% endif %}.
+После изменения имени пользователя ссылки на предыдущую страницу профиля, например `https://{% data variables.command_line.backticks %}/previoususername`, возвращают ошибку 404. Мы рекомендуем обновить все ссылки на вашу учетную запись на {% данных variables.location.product_location %} из другого места{% ifversion fpt или ghec %}, например ваш профиль LinkedIn или Twitter{% endif %}.
 
-## Your Git commits
+## Фиксации Git
 
-{% ifversion fpt or ghec %}Git commits that were associated with your {% data variables.product.product_name %}-provided `noreply` email address won't be attributed to your new username and won't appear in your contributions graph.{% endif %} If your Git commits are associated with another email address you've [added to your GitHub account](/articles/adding-an-email-address-to-your-github-account), {% ifversion fpt or ghec %}including the ID-based {% data variables.product.product_name %}-provided `noreply` email address, {% endif %}they'll continue to be attributed to you and appear in your contributions graph after you've changed your username. For more information on setting your email address, see "[Setting your commit email address](/articles/setting-your-commit-email-address)."
+{% ifversion fpt or ghec %} Фиксации Git, которые были связаны с вашими адресами электронной почты `noreply`, предоставленными {% data variables.product.product_name %}, не будут привязаны к новому имени пользователя и не будут отображаться в графе вкладов.{% endif %} Если фиксации Git связаны с другим адресом электронной почты, [добавленным в учетную запись GitHub](/articles/adding-an-email-address-to-your-github-account), {% ifversion fpt or ghec %}, включая адреса электронной почты `noreply`, основанные на идентификаторе и предоставленные {% data variables.product.product_name %}, {% endif %}они будут по-прежнему привязаны к вам и будут отображаться в графе вкладов после изменения имени пользователя. Дополнительные сведения о настройке адреса электронной почты см. в статье [Настройка адреса электронной почты для фиксации](/articles/setting-your-commit-email-address).
 
-## Your gists
+## Ваши gists
 
-After changing your username, the URLs to any public or secret gists will also change and previous links to these will return a 404 error. We recommend updating the links to these gists anywhere you may have shared them.
+После изменения имени пользователя URL-адреса на любые общедоступные или секретные gists также изменятся, а предыдущие ссылки на них возвращают ошибку 404. Мы рекомендуем обновить ссылки на эти gists в любом месте, к которым вы, возможно, поделились ими.
 
-## Changing your username
+## Изменение имени пользователя
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.account_settings %}
-3. In the "Change username" section, click **Change username**.
-   ![Change Username button](/assets/images/help/settings/settings-change-username.png){% ifversion fpt or ghec %}
-4. Read the warnings about changing your username. If you still want to change your username, click **I understand, let's change my username**.
-   ![Change Username warning button](/assets/images/help/settings/settings-change-username-warning-button.png)
-5. Type a new username.
-   ![New username field](/assets/images/help/settings/settings-change-username-enter-new-username.png)
-6. If the username you've chosen is available, click **Change my username**. If the username you've chosen is unavailable, you can try a different username or one of the suggestions you see.
-   ![Change Username warning button](/assets/images/help/settings/settings-change-my-username-button.png)
-{% endif %}
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.account_settings %}
+3. В разделе "Изменение имени пользователя" нажмите кнопку **Изменить имя пользователя**.
+   ![Кнопка "Изменить имя пользователя"](/assets/images/help/settings/settings-change-username.png){% ifversion fpt or ghec %}
+4. Прочтите предупреждения об изменении имени пользователя. Если вы по-прежнему хотите изменить имя пользователя, нажмите **Все понятно. Перейти к изменению имени пользователя**.
+   ![Кнопка "Предупреждение об изменении имени пользователя"](/assets/images/help/settings/settings-change-username-warning-button.png)
+5. Введите новое имя пользователя.
+   ![Поле для нового имени пользователя](/assets/images/help/settings/settings-change-username-enter-new-username.png)
+6. Если выбранное имя пользователя доступно, нажмите **Изменить имя пользователя**. Если выбранное имя пользователя недоступно, попробуйте другое имя или один из предложенных вариантов.
+   ![Кнопка "Предупреждение об изменении имени пользователя"](/assets/images/help/settings/settings-change-my-username-button.png) {% endif %}
 
-## Further reading
+## Дополнительные материалы
 
-- "[Why are my commits linked to the wrong user?](/pull-requests/committing-changes-to-your-project/troubleshooting-commits/why-are-my-commits-linked-to-the-wrong-user)"{% ifversion fpt or ghec %}
-- "[{% data variables.product.prodname_dotcom %} Username Policy](/free-pro-team@latest/github/site-policy/github-username-policy)"{% endif %}
+- [Почему мои фиксации связаны с неправильным пользователем?](/pull-requests/committing-changes-to-your-project/troubleshooting-commits/why-are-my-commits-linked-to-the-wrong-user){% ifversion fpt or ghec %}
+- [Политика имен пользователя {% data variables.product.prodname_dotcom %}](/free-pro-team@latest/github/site-policy/github-username-policy){% endif %}

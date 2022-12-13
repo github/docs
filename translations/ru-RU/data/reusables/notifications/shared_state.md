@@ -1,5 +1,13 @@
+---
+ms.openlocfilehash: bd5fb05182927c8e8c631e66083d64bf4d94f024
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/20/2022
+ms.locfileid: "148098377"
+---
 {% tip %}
 
-**Tip:** If you receive both web and email notifications, you can automatically sync the read or unread status of the notification so that web notifications are automatically marked as read once you've read the corresponding email notification. To enable this sync, your email client must be able to view images from {% ifversion fpt or ghec %}`notifications@github.com`{% else %}the `no-reply` email address {% ifversion ghae %}for your {% data variables.product.product_name %} hostname{% elsif ghes %}for {% data variables.location.product_location %}, which your site administrator configures{% endif %}{% endif %}.
+**Совет.** Если вы получаете веб-уведомления и уведомления по электронной почте, вы можете автоматически синхронизировать статус "Прочитанные" или "Непрочитанные" для уведомления, чтобы веб-уведомления автоматически помечались как прочитанные после прочтения соответствующего уведомления по электронной почте. Чтобы включить эту синхронизацию, ваш почтовый клиент должен иметь возможность просматривать изображения из {% ifversion fpt или ghec %}{% else %}`notifications@github.com``no-reply`адрес электронной почты {% ifversion ghae %}для вашего {% данных variables.product.product_name %} имя узла{% elsif ghes %}для {% данных variables.location.product_location %}, который администратор сайта настраивает{% endif %}{% endif %}.
 
 {% endtip %}

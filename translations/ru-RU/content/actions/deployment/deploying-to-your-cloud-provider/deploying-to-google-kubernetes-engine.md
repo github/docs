@@ -1,6 +1,6 @@
 ---
-title: Deploying to Google Kubernetes Engine
-intro: You can deploy to Google Kubernetes Engine as part of your continuous deployment (CD) workflows.
+title: Развертывание в Google Kubernetes Engine
+intro: Вы можете выполнить развертывание в Google Kubernetes Engine в рамках рабочих процессов непрерывного развертывания (CD).
 redirect_from:
   - /actions/guides/deploying-to-google-kubernetes-engine
   - /actions/deployment/deploying-to-google-kubernetes-engine
@@ -15,122 +15,121 @@ topics:
   - Containers
   - Google Kubernetes Engine
 shortTitle: Deploy to Google Kubernetes Engine
+ms.openlocfilehash: 0572a326d52654b256e0e1ad7fe9c9c4e9d547ac
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147409550'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+## Введение
 
-## Introduction
+В этом руководстве объясняется, как использовать {% data variables.product.prodname_actions %} для создания контейнерного приложения, его отправки в Реестр контейнеров Google (GCR) и развертывания в Google Kubernetes Engine (GKE) при наличии отправки в ветвь `main`.
 
-This guide explains how to use {% data variables.product.prodname_actions %} to build a containerized application, push it to Google Container Registry (GCR), and deploy it to Google Kubernetes Engine (GKE) when there is a push to the `main` branch.
+GKE — это управляемая служба кластера Kubernetes от Google Cloud, которая может размещать контейнерные рабочие нагрузки в облаке или в вашем собственном центре обработки данных. Дополнительные сведения см. в статье о [Google Kubernetes Engine](https://cloud.google.com/kubernetes-engine).
 
-GKE is a managed Kubernetes cluster service from Google Cloud that can host your containerized workloads in the cloud or in your own datacenter. For more information, see [Google Kubernetes Engine](https://cloud.google.com/kubernetes-engine).
-
-{% ifversion fpt or ghec or ghes > 3.4 %}
+{% ifversion fpt or ghec or ghae-issue-4856 or ghes > 3.4 %}
 
 {% note %}
 
-**Note**: {% data reusables.actions.about-oidc-short-overview %}
+**Примечание.** {% data reusables.actions.about-oidc-short-overview %}
 
 {% endnote %}
 
 {% endif %}
 
-## Prerequisites
+## Предварительные требования
 
-Before you proceed with creating the workflow, you will need to complete the following steps for your Kubernetes project. This guide assumes the root of your project already has a `Dockerfile` and a Kubernetes Deployment configuration file. For an example, see [google-github-actions](https://github.com/google-github-actions/setup-gcloud/tree/master/example-workflows/gke).
+Прежде чем приступить к созданию рабочего процесса, необходимо выполнить следующие действия для проекта Kubernetes. В этом руководстве предполагается, что в корневом каталоге проекта уже есть `Dockerfile` и файл конфигурации развертывания Kubernetes. Пример см. на странице [google-github-actions](https://github.com/google-github-actions/setup-gcloud/tree/master/example-workflows/gke).
 
-### Creating a GKE cluster
+### Создание кластера GKE
 
-To create the GKE cluster, you will first need to authenticate using the `gcloud` CLI. For more information on this step, see the following articles:
+Чтобы создать кластер GKE, сначала потребуется пройти проверку подлинности с помощью CLI `gcloud`. Дополнительные сведения об этом действии см. в следующих статьях:
 - [`gcloud auth login`](https://cloud.google.com/sdk/gcloud/reference/auth/login)
 - [`gcloud` CLI](https://cloud.google.com/sdk/gcloud/reference)
-- [`gcloud` CLI and Cloud SDK](https://cloud.google.com/sdk/gcloud#the_gcloud_cli_and_cloud_sdk)
+- [CLI `gcloud` и пакет Cloud SDK](https://cloud.google.com/sdk/gcloud#the_gcloud_cli_and_cloud_sdk)
 
-For example:
+Пример.
 
 {% raw %}
 ```bash{:copy}
 $ gcloud container clusters create $GKE_CLUSTER \
-	--project=$GKE_PROJECT \
-	--zone=$GKE_ZONE
+    --project=$GKE_PROJECT \
+    --zone=$GKE_ZONE
 ```
 {% endraw %}
 
-### Enabling the APIs
+### Включение API-интерфейсов
 
-Enable the Kubernetes Engine and Container Registry APIs. For example:
+Включите API-интерфейсы Kubernetes Engine Реестра контейнеров. Пример.
 
 {% raw %}
 ```bash{:copy}
 $ gcloud services enable \
-	containerregistry.googleapis.com \
-	container.googleapis.com
+    containerregistry.googleapis.com \
+    container.googleapis.com
 ```
 {% endraw %}
 
-### Configuring a service account and storing its credentials
+### Настройка учетной записи службы и сохранение ее учетных данных
 
-This procedure demonstrates how to create the service account for your GKE integration. It explains how to create the account, add roles to it, retrieve its keys, and store them as a base64-encoded encrypted repository secret named `GKE_SA_KEY`.
+В этой процедуре показано, как создать учетную запись службы для интеграции GKE. В ней объясняется, как создать учетную запись, добавить в нее роли, получить ключи и сохранить их в виде зашифрованного в кодировке Base64 секрета репозитория с именем `GKE_SA_KEY`.
 
-1. Create a new service account:
-  {% raw %}
+1. Создайте учетную запись службы: {% raw %}
   ```
   $ gcloud iam service-accounts create $SA_NAME
   ```
   {% endraw %}
-1. Retrieve the email address of the service account you just created:
-  {% raw %}
+1. Получите адрес электронной почты только что созданной учетной записи службы: {% raw %}
   ```
   $ gcloud iam service-accounts list
   ```
   {% endraw %}
-1. Add roles to the service account. Note: Apply more restrictive roles to suit your requirements.
+1. Добавьте роли в учетную запись службы. Примечание. Примените более ограничительные роли в соответствии с вашими требованиями.
   {% raw %}
   ```
   $ gcloud projects add-iam-policy-binding $GKE_PROJECT \
-  	--member=serviceAccount:$SA_EMAIL \
-  	--role=roles/container.admin
+    --member=serviceAccount:$SA_EMAIL \
+    --role=roles/container.admin
   $ gcloud projects add-iam-policy-binding $GKE_PROJECT \
-  	--member=serviceAccount:$SA_EMAIL \
-  	--role=roles/storage.admin
+    --member=serviceAccount:$SA_EMAIL \
+    --role=roles/storage.admin
   $ gcloud projects add-iam-policy-binding $GKE_PROJECT \
-  	--member=serviceAccount:$SA_EMAIL \
-  	--role=roles/container.clusterViewer
+    --member=serviceAccount:$SA_EMAIL \
+    --role=roles/container.clusterViewer
   ```
   {% endraw %}
-1. Download the JSON keyfile for the service account:
-  {% raw %}
+1. Скачайте файл ключа JSON для учетной записи службы: {% raw %}
   ```
   $ gcloud iam service-accounts keys create key.json --iam-account=$SA_EMAIL
   ```
   {% endraw %}
-1. Store the service account key as a secret named `GKE_SA_KEY`:
-  {% raw %}
+1. Сохраните ключ учетной записи службы в виде секрета с именем `GKE_SA_KEY`: {% raw %}
   ```
   $ export GKE_SA_KEY=$(cat key.json | base64)
   ```
-  {% endraw %}
-  For more information about how to store a secret, see "[Encrypted secrets](/actions/security-guides/encrypted-secrets)."
+  {% endraw %} Дополнительные сведения о сохранении секрета см. в статье "[Зашифрованные секреты](/actions/security-guides/encrypted-secrets)".
 
-### Storing your project name
+### Сохранение имени проекта
 
-Store the name of your project as a secret named `GKE_PROJECT`. For more information about how to store a secret, see "[Encrypted secrets](/actions/security-guides/encrypted-secrets)."
+Сохраните имя проекта в виде секрета с именем `GKE_PROJECT`. Дополнительные сведения о сохранении секрета см. в статье "[Зашифрованные секреты](/actions/security-guides/encrypted-secrets)".
 
-### (Optional) Configuring kustomize
-Kustomize is an optional tool used for managing YAML specs. After creating a `kustomization` file, the workflow below can be used to dynamically set fields of the image and pipe in the result to `kubectl`. For more information, see [kustomize usage](https://github.com/kubernetes-sigs/kustomize#usage).
+### (Необязательно) Настройка kustomize
+Kustomize — это необязательное средство, используемое для управления спецификациями YAML. После создания файла `kustomization` приведенный ниже рабочий процесс можно использовать для динамического задания полей образа и канала в результате выполнения команды `kubectl`. Дополнительные сведения см. в разделе об [использовании kustomize](https://github.com/kubernetes-sigs/kustomize#usage).
 
-### (Optional) Configure a deployment environment
+### (Необязательно) Настройка среды развертывания
 
 {% data reusables.actions.about-environments %}
 
-## Creating the workflow
+## Создание рабочего процесса
 
-Once you've completed the prerequisites, you can proceed with creating the workflow.
+Выполнив предварительные требования, можно приступить к созданию рабочего процесса.
 
-The following example workflow demonstrates how to build a container image and push it to GCR. It then uses the Kubernetes tools (such as `kubectl` and `kustomize`) to pull the image into the cluster deployment.
+В следующем примере рабочего процесса показано, как создать образ контейнера и отправить его в GCR. Затем с помощью средств Kubernetes (например, `kubectl` и `kustomize`) образ извлекается в развертывание кластера.
 
-Under the `env` key, change the value of `GKE_CLUSTER` to the name of your cluster, `GKE_ZONE` to your cluster zone, `DEPLOYMENT_NAME` to the name of your deployment, and `IMAGE` to the name of your image.
+Под ключом `env` измените значение `GKE_CLUSTER` на имя кластера, `GKE_ZONE` на зону кластера, `DEPLOYMENT_NAME` на имя развертывания и `IMAGE` на имя образа.
 
 {% data reusables.actions.delete-env-key %}
 
@@ -210,11 +209,11 @@ jobs:
         kubectl get services -o wide
 ```
 
-## Additional resources
+## Дополнительные ресурсы
 
-For more information on the tools used in these examples, see the following documentation:
+Дополнительные сведения о средствах, используемых в этих примерах, см. в следующей документации:
 
-* For the full starter workflow, see the ["Build and Deploy to GKE" workflow](https://github.com/actions/starter-workflows/blob/main/deployments/google.yml).
-* For more starter workflows and accompanying code, see Google's [{% data variables.product.prodname_actions %} example workflows](https://github.com/google-github-actions/setup-gcloud/tree/master/example-workflows/).
-* The Kubernetes YAML customization engine: [Kustomize](https://kustomize.io/).
-* "[Deploying a containerized web application](https://cloud.google.com/kubernetes-engine/docs/tutorials/hello-app)" in the Google Kubernetes Engine documentation.
+* Полный начальный рабочий процесс см. на странице "[Сборка и развертывание в рабочий процесс GKE](https://github.com/actions/starter-workflows/blob/main/deployments/google.yml)".
+* Дополнительные начальные рабочие процессы и сопутствующий код см. в статье с [примерами рабочих процессов {% data variables.product.prodname_actions %}](https://github.com/google-github-actions/setup-gcloud/tree/master/example-workflows/) Google.
+* Модуль настройки YAML Kubernetes: [Kustomize](https://kustomize.io/).
+* "[Развертывание контейнерного веб-приложения](https://cloud.google.com/kubernetes-engine/docs/tutorials/hello-app)" в документации по Google Kubernetes Engine.

@@ -1,7 +1,7 @@
 ---
-title: Workflow commands for GitHub Actions
+title: Команды рабочего процесса для GitHub Actions
 shortTitle: Workflow commands
-intro: You can use workflow commands when running shell commands in a workflow or in an action's code.
+intro: При выполнении команд оболочки в рабочем процессе или в коде действия можно использовать команды рабочего процесса.
 defaultTool: bash
 redirect_from:
   - /articles/development-tools-for-github-actions
@@ -16,18 +16,22 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
+ms.openlocfilehash: b34a96bb62a885031584f3da017fd86b7469a277
+ms.sourcegitcommit: 2e1852bcdd690cb66b9b5d69cb056a2bb2b9a6b4
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 11/10/2022
+ms.locfileid: '148160835'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+## Общие сведения о командах рабочего процесса
 
-## About workflow commands
+GitHub Actions могут связываться с компьютером выполнения, чтобы задавать переменные среды, выводить значения, используемые другими действиями, добавлять сообщения отладки в журналы выходных данных и выполнять другие задачи.
 
-Actions can communicate with the runner machine to set environment variables, output values used by other actions, add debug messages to the output logs, and other tasks.
+Большинство команд рабочего процесса используют команду `echo` в определенном формате, остальные вызываются путем записи в файл. Дополнительные сведения см. в разделе [Файлы среды](#environment-files).
 
-Most workflow commands use the `echo` command in a specific format, while others are invoked by writing to a file. For more information, see "[Environment files](#environment-files)."
-
-### Example
+### Пример
 
 {% bash %}
 
@@ -47,30 +51,29 @@ Write-Output "::workflow-command parameter1={data},parameter2={data}::{command v
 
 {% note %}
 
-**Note:** Workflow command and parameter names are not case-sensitive.
+**Примечание.** В названиях команд рабочего процесса и параметров не учитывается регистр.
 
 {% endnote %}
 
 {% warning %}
 
-**Warning:** If you are using Command Prompt, omit double quote characters (`"`) when using workflow commands.
+**Предупреждение.** Если вы работаете с командной строкой, при использовании команд рабочего процесса не ставьте двойные кавычки (`"`).
 
 {% endwarning %}
 
-## Using workflow commands to access toolkit functions
+## Использование команд рабочего процесса для доступа к возможностям набора средств
 
-The [actions/toolkit](https://github.com/actions/toolkit) includes a number of functions that can be executed as workflow commands. Use the `::` syntax to run the workflow commands within your YAML file; these commands are then sent to the runner over `stdout`.
+В [actions/toolkit](https://github.com/actions/toolkit) содержится ряд функций, которые можно выполнять как команды рабочего процесса. Используйте синтаксис `::`, чтобы выполнить команды рабочего процесса в файле YAML. Затем они отправляются в средство выполнения через `stdout`.
 
-{%- ifversion actions-save-state-set-output-envs %}
-For example, instead of using code to create an error annotation, as below:
+{%- ifversion actions-save-state-set-output-envs %} Например, вместо использования кода для создания заметки об ошибке, как показано ниже:
 
 ```javascript{:copy}
 core.error('Missing semicolon', {file: 'app.js', startLine: 1})
 ```
 
-### Example: Creating an annotation for an error
+### Пример. Создание заметки для ошибки
 
-You can use the `error` command in your workflow to create the same error annotation:
+Вы можете использовать `error` команду в рабочем процессе, чтобы создать ту же заметку об ошибке:
 
 {% bash %}
 
@@ -92,17 +95,15 @@ You can use the `error` command in your workflow to create the same error annota
 ```
 {% endraw %}
 
-{% endpowershell %}
-{%- else %}
-For example, instead of using code to set an output, as below:
+{% endpowershell %} {%- else %} Например, вместо использования кода для задания выходных данных, как показано ниже:
 
 ```javascript{:copy}
 core.setOutput('SELECTED_COLOR', 'green');
 ```
 
-### Example: Setting a value
+### Пример: задание значения
 
-You can use the `set-output` command in your workflow to set the same value:
+Можно воспользоваться командой `set-output` в рабочем процессе, чтобы задать то же значение:
 
 {% bash %}
 
@@ -134,44 +135,35 @@ You can use the `set-output` command in your workflow to set the same value:
 
 {% endif %}
 
-The following table shows which toolkit functions are available within a workflow:
+В следующей таблице перечислены функции набора средств, которые доступны в рабочем процессе:
 
-| Toolkit function | Equivalent workflow command |
+| Функция набора средств | Аналогичная команда рабочего процесса |
 | ----------------- |  ------------- |
-| `core.addPath`    | Accessible using environment file `GITHUB_PATH` |
+| `core.addPath`    | Доступно с помощью файла среды `GITHUB_PATH` |
 | `core.debug`      | `debug` |
 | `core.notice`     | `notice` |
 | `core.error`      | `error` |
 | `core.endGroup`   | `endgroup` |
-| `core.exportVariable` | Accessible using environment file `GITHUB_ENV` |
-| `core.getInput`   | Accessible using environment variable `INPUT_{NAME}` |
-| `core.getState`   | Accessible using environment variable `STATE_{NAME}` |
-| `core.isDebug`    |  Accessible using environment variable `RUNNER_DEBUG` |
-{%- ifversion actions-job-summaries %}
-| `core.summary` | Accessible using environment file `GITHUB_STEP_SUMMARY` |
-{%- endif %}
-| `core.saveState`  | {% ifversion actions-save-state-set-output-envs %}Accessible using environment file `GITHUB_STATE`{% else %}`save-state`{% endif %} |
-| `core.setCommandEcho` | `echo` |
-| `core.setFailed`  | Used as a shortcut for `::error` and `exit 1` |
-| `core.setOutput`  | {% ifversion actions-save-state-set-output-envs %}Accessible using environment file `GITHUB_OUTPUT`{% else %}`set-output`{% endif %} |
-| `core.setSecret`  | `add-mask` |
-| `core.startGroup` | `group` |
-| `core.warning`    | `warning` |
+| `core.exportVariable` | Доступно с помощью файла среды `GITHUB_ENV` |
+| `core.getInput`   | Доступно с помощью переменной среды `INPUT_{NAME}` |
+| `core.getState`   | Доступно с помощью переменной среды `STATE_{NAME}` |
+| `core.isDebug`    |  Доступно с помощью переменной среды `RUNNER_DEBUG` |
+{%- ifversion actions-job-сводки %} | `core.summary` | Доступ к файлам среды `GITHUB_STEP_SUMMARY` | {%- endif %} | `core.saveState`  | {% ifversion actions-save-state-set-output-envs %} Доступно с помощью файла `GITHUB_STATE`среды {% else %}`save-state`{% endif %} | | `core.setCommandEcho` | `echo` | | `core.setFailed`  | Используется в качестве ярлыка для `::error` и `exit 1` | | `core.setOutput`  | {% ifversion actions-save-state-set-output-envs %} Доступно с помощью файла `GITHUB_OUTPUT`среды {% else %}`set-output`{% endif %} | |`add-mask`  | `core.setSecret` | | | | `core.startGroup` | `group``core.warning`    | `warning` |
 
-{% ifversion actions-save-state-set-output-envs %}{% else %}
-## Setting an output parameter
+{% ifversion actions-save-state-set-output-envs %} {% else %}
+## Задание параметра вывода
 
-Sets an action's output parameter.
+Задает параметр вывода действия.
 
 ```{:copy}
 ::set-output name={name}::{value}
 ```
 
-Optionally, you can also declare output parameters in an action's metadata file. For more information, see "[Metadata syntax for {% data variables.product.prodname_actions %}](/articles/metadata-syntax-for-github-actions#outputs-for-docker-container-and-javascript-actions)."
+При необходимости можно также объявить параметры вывода в файле метаданных действия. Дополнительные сведения см. в разделе [Синтаксис метаданных для {% data variables.product.prodname_actions %}](/articles/metadata-syntax-for-github-actions#outputs-for-docker-container-and-javascript-actions).
 
-You can escape multiline strings for setting an output parameter by creating an environment variable and using it in a workflow command. For more information, see "[Setting an environment variable](#setting-an-environment-variable)."
+Можно экранировать многостроковые строки для задания выходного параметра, создав переменную среды и используя ее в команде рабочего процесса. Дополнительные сведения см. в разделе [Настройка переменной среды](#setting-an-environment-variable).
 
-### Example: Setting an output parameter
+### Пример: задание параметра вывода
 
 {% bash %}
 
@@ -187,18 +179,17 @@ echo "::set-output name=action_fruit::strawberry"
 Write-Output "::set-output name=action_fruit::strawberry"
 ```
 
-{% endpowershell %}
-{% endif %}
+{% endpowershell %} {% endif %}
 
-## Setting a debug message
+## Задание сообщения отладки
 
-Prints a debug message to the log. You must create a secret named `ACTIONS_STEP_DEBUG` with the value `true` to see the debug messages set by this command in the log. For more information, see "[Enabling debug logging](/actions/managing-workflow-runs/enabling-debug-logging)."
+Записывает сообщение отладки в журнал. Чтобы просмотреть в журнале сообщения отладки, заданные этой командой, необходимо создать секрет под названием `ACTIONS_STEP_DEBUG` со значением `true`. Дополнительные сведения см. в статье ["Включение ведения журнала отладки"](/actions/managing-workflow-runs/enabling-debug-logging).
 
 ```{:copy}
 ::debug::{message}
 ```
 
-### Example: Setting a debug message
+### Пример: задание сообщения отладки
 
 {% bash %}
 
@@ -216,9 +207,9 @@ Write-Output "::debug::Set the Octocat variable"
 
 {% endpowershell %}
 
-## Setting a notice message
+## Задание сообщения уведомления
 
-Creates a notice message and prints the message to the log. {% data reusables.actions.message-annotation-explanation %}
+Создает сообщение уведомления и записывает его в журнал. {% data reusables.actions.message-annotation-explanation %}
 
 ```{:copy}
 ::notice file={name},line={line},endLine={endLine},title={title}::{message}
@@ -226,7 +217,7 @@ Creates a notice message and prints the message to the log. {% data reusables.ac
 
 {% data reusables.actions.message-parameters %}
 
-### Example: Setting a notice message
+### Пример: задание сообщения уведомления
 
 {% bash %}
 
@@ -244,9 +235,9 @@ Write-Output "::notice file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
 
 {% endpowershell %}
 
-## Setting a warning message
+## Задание сообщения предупреждения
 
-Creates a warning message and prints the message to the log. {% data reusables.actions.message-annotation-explanation %}
+Создает сообщение предупреждения и записывает его в журнал. {% data reusables.actions.message-annotation-explanation %}
 
 ```{:copy}
 ::warning file={name},line={line},endLine={endLine},title={title}::{message}
@@ -254,7 +245,7 @@ Creates a warning message and prints the message to the log. {% data reusables.a
 
 {% data reusables.actions.message-parameters %}
 
-### Example: Setting a warning message
+### Пример: задание сообщения предупреждения
 
 {% bash %}
 
@@ -271,9 +262,9 @@ Write-Output "::warning file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
 
 {% endpowershell %}
 
-## Setting an error message
+## Задание сообщения об ошибке
 
-Creates an error message and prints the message to the log. {% data reusables.actions.message-annotation-explanation %}
+Создает сообщение об ошибке и записывает его в журнал. {% data reusables.actions.message-annotation-explanation %}
 
 ```{:copy}
 ::error file={name},line={line},endLine={endLine},title={title}::{message}
@@ -281,7 +272,7 @@ Creates an error message and prints the message to the log. {% data reusables.ac
 
 {% data reusables.actions.message-parameters %}
 
-### Example: Setting an error message
+### Пример: задание сообщения об ошибке
 
 {% bash %}
 
@@ -299,16 +290,16 @@ Write-Output "::error file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
 
 {% endpowershell %}
 
-## Grouping log lines
+## Группировка строк журнала
 
-Creates an expandable group in the log. To create a group, use the `group` command and specify a `title`. Anything you print to the log between the `group` and `endgroup` commands is nested inside an expandable entry in the log.
+Создает группу с возможностью развертывания в журнале. Чтобы создать группу, воспользуйтесь командой `group` и укажите `title`. Любые данные, которые вы введете между командами `group` и `endgroup`, будут вложены в расширяемую запись журнала.
 
 ```{:copy}
 ::group::{title}
 ::endgroup::
 ```
 
-### Example: Grouping log lines
+### Пример: группировка строк журнала
 
 {% bash %}
 
@@ -342,19 +333,19 @@ jobs:
 
 {% endpowershell %}
 
-![Foldable group in workflow run log](/assets/images/actions-log-group.png)
+![Свертываемая группа в журнале выполнения рабочего процесса](/assets/images/actions-log-group.png)
 
-## Masking a value in log
+## Маскирование значения в журнале
 
 ```{:copy}
 ::add-mask::{value}
 ```
 
-Masking a value prevents a string or variable from being printed in the log. Each masked word separated by whitespace is replaced with the `*` character. You can use an environment variable or string for the mask's `value`. When you mask a value, it is treated as a secret and will be redacted on the runner. For example, after you mask a value, you won't be able to set that value as an output.
+Маскирование значения предотвращает запись строки или переменной в журнал. Каждое замаскированное слово, отделенное пробелом, заменяется символом `*`. Для `value` маски можно использовать переменную среды или строку. Когда вы маскируете значение, оно обрабатывается как секрет и будет скрыто в средстве выполнения. Например, после маскирования значения вы не сможете задать его в качестве выходных данных.
 
-### Example: Masking a string
+### Пример: маскирование строки
 
-When you print `"Mona The Octocat"` in the log, you'll see `"***"`.
+Если вы введете в журнале `"Mona The Octocat"`, вы увидите `"***"`.
 
 {% bash %}
 
@@ -374,13 +365,13 @@ Write-Output "::add-mask::Mona The Octocat"
 
 {% warning %}
 
-**Warning:** Make sure you register the secret with 'add-mask' before outputting it in the build logs or using it in any other workflow commands.
+**Предупреждение.** Прежде чем выводить секрет в журналы сборки или использовать его в других командах рабочего процесса, необходимо зарегистрировать секрет с помощью add-mask.
 
 {% endwarning %}
 
-### Example: Masking an environment variable
+### Пример: маскирование переменной среды
 
-When you print the variable `MY_NAME` or the value `"Mona The Octocat"` in the log, you'll see `"***"` instead of `"Mona The Octocat"`.
+Если вы введете в журнале переменную `MY_NAME` или значение `"Mona The Octocat"`, вы увидите `"***"` вместо `"Mona The Octocat"`.
 
 {% bash %}
 
@@ -412,19 +403,19 @@ jobs:
 
 {% endpowershell %}
 
-## Stopping and starting workflow commands
+## Остановка и запуск команд рабочего процесса
 
-Stops processing any workflow commands. This special command allows you to log anything without accidentally running a workflow command. For example, you could stop logging to output an entire script that has comments.
+Останавливает обработку всех команд рабочего процесса. Эта специальная команда позволяет записывать в журнал любые данные без риска случайно запустить команду рабочего процесса. Например, можно остановить ведение журнала, чтобы вывести целый скрипт с комментариями.
 
 ```{:copy}
 ::stop-commands::{endtoken}
 ```
 
-To stop the processing of workflow commands, pass a unique token to `stop-commands`. To resume processing workflow commands, pass the same token that you used to stop workflow commands.
+Чтобы остановить обработку команд рабочего процесса, передайте `stop-commands` уникальный маркер. Чтобы возобновить обработку команд рабочего процесса, передайте тот же маркер, с помощью которого вы остановили обработку.
 
 {% warning %}
 
-**Warning:** Make sure the token you're using is randomly generated and unique for each run.
+**Предупреждение.** Убедитесь, что используемый маркер создается случайным образом и является уникальным для каждого запуска.
 
 {% endwarning %}
 
@@ -432,7 +423,7 @@ To stop the processing of workflow commands, pass a unique token to `stop-comman
 ::{endtoken}::
 ```
 
-### Example: Stopping and starting workflow commands
+### Пример: остановка и запуск команд рабочего процесса
 
 {% bash %}
 
@@ -478,23 +469,23 @@ jobs:
 
 {% endpowershell %}
 
-{% ifversion actions-save-state-set-output-envs %}{% else %}
-## Echoing command outputs
+{% ifversion actions-save-state-set-output-envs %} {% else %}
+## Отображение выходных данных команд
 
-Enables or disables echoing of workflow commands. For example, if you use the `set-output` command in a workflow, it sets an output parameter but the workflow run's log does not show the command itself. If you enable command echoing, then the log shows the command, such as `::set-output name={name}::{value}`.
+Включает или отключает отображение команд рабочего процесса. Например, если вы используете в рабочем процессе команду `set-output`, она задаст параметр вывода, но сама команда не будет отображаться в журнале выполнения рабочего процесса. Если включить отображение команд, в журнале появятся команды, например `::set-output name={name}::{value}`.
 
 ```{:copy}
 ::echo::on
 ::echo::off
 ```
 
-Command echoing is disabled by default. However, a workflow command is echoed if there are any errors processing the command.
+Отображение команд отключено по умолчанию. Однако команда рабочего процесса отображается в журнале, если во время ее обработки возникли ошибки.
 
-The `add-mask`, `debug`, `warning`, and `error` commands do not support echoing because their outputs are already echoed to the log.
+Команды `add-mask`, `debug`, `warning` и `error` не поддерживают отображение, поскольку их выходные данные уже выводятся в журнале.
 
-You can also enable command echoing globally by turning on step debug logging using the `ACTIONS_STEP_DEBUG` secret. For more information, see "[Enabling debug logging](/actions/managing-workflow-runs/enabling-debug-logging)". In contrast, the `echo` workflow command lets you enable command echoing at a more granular level, rather than enabling it for every workflow in a repository.
+Также можно включить глобальное отображение команд, включив пошаговое ведение журнала отладки с помощью секрета `ACTIONS_STEP_DEBUG`. Дополнительные сведения см. в статье ["Включение ведения журнала отладки"](/actions/managing-workflow-runs/enabling-debug-logging). Напротив, команда рабочего процесса `echo` позволяет включить более детальное отображение команд вместо его включения для каждого рабочего процесса в репозитории.
 
-### Example: Toggling command echoing
+### Пример: переключение отображения команд
 
 {% bash %}
 
@@ -532,27 +523,26 @@ jobs:
 
 {% endpowershell %}
 
-The example above prints the following lines to the log:
+В примере выше в журнал записываются следующие строки:
 
 ```{:copy}
 ::set-output name=action_echo::enabled
 ::echo::off
 ```
 
-Only the second `set-output` and `echo` workflow commands are included in the log because command echoing was only enabled when they were run. Even though it is not always echoed, the output parameter is set in all cases.
+Только вторая команда `set-output` и команда `echo` записываются в журнал, потому что отображение команд было включено во время их выполнения. Параметр вывода задается во всех случаях, даже если он не всегда отображается.
  
 {% endif %}
 
-## Sending values to the pre and post actions
+## Отправка значений в предварительные и завершающие действия
 
-{% ifversion actions-save-state-set-output-envs %}You can create environment variables for sharing with your workflow's `pre:` or `post:` actions by writing to the file located at `GITHUB_STATE`{% else %}You can use the `save-state` command to create environment variables for sharing with your workflow's `pre:` or `post:` actions{% endif %}. For example, you can create a file with the `pre:` action,  pass the file location to the `main:` action, and then use the `post:` action to delete the file. Alternatively, you could create a file with the `main:` action, pass the file location to the `post:` action, and also use the `post:` action to delete the file.
+{% ifversion actions-save-state-set-output-envs %} Вы можете создать переменные среды для совместного использования действий рабочего процесса `pre:` или `post:` действий, записав в файл , расположенный по адресу `GITHUB_STATE`{% else %}Вы можете использовать `save-state` команду для создания переменных среды для совместного `pre:` использования с действиями рабочего процесса или `post:` {% endif %}. Например, можно создать файл действием `pre:`, передать расположение файла действию `main:`, а затем использовать действие `post:` для удаления файла. Также можно создать файл действием `main:`, передать его расположение действию `post:` и с помощью этого же действия `post:` удалить файл.
 
-If you have multiple `pre:` or `post:` actions, you can only access the saved value in the action where {% ifversion actions-save-state-set-output-envs %}it was written to `GITHUB_STATE`{% else %}`save-state` was used{% endif %}. For more information on the `post:` action, see "[Metadata syntax for {% data variables.product.prodname_actions %}](/actions/creating-actions/metadata-syntax-for-github-actions#runspost)."
+Если у вас несколько `pre:` действий или `post:` , доступ к сохраненному значению можно получить только в действии, где {% ifversion actions-save-state-set-output-envs %}оно было записано `GITHUB_STATE`в {% else %}`save-state` использовалось{% endif %}. Дополнительные сведения о действиях типа `post:` см. в статье ["Синтаксис метаданных для {% data variables.product.prodname_actions %}"](/actions/creating-actions/metadata-syntax-for-github-actions#runspost).
 
-{% ifversion actions-save-state-set-output-envs %}The `GITHUB_STATE` file is only available within an action{% else %}The `save-state` command can only be run within an action, and is not available to YAML files{% endif %}. The saved value is stored as an environment value with the `STATE_` prefix.
+{% ifversion actions-save-state-set-output-envs %} Файл `GITHUB_STATE` доступен только в действии{% else %}Команда `save-state` может выполняться только в рамках действия и недоступна для файлов YAML{% endif %}. Сохраненное значение хранится в виде значения среды с префиксом `STATE_`.
 
-{% ifversion actions-save-state-set-output-envs %}
-This example uses JavaScript to write to the `GITHUB_STATE` file. The resulting environment variable is named `STATE_processID` with the value of `12345`:
+{% ifversion actions-save-state-set-output-envs %} В этом примере для записи в `GITHUB_STATE` файл используется JavaScript. Итоговая переменная среды называется `STATE_processID` со значением `12345`:
 
 ```javascript{:copy}
 import * as fs from 'fs'
@@ -563,31 +553,30 @@ fs.appendFileSync(process.env.GITHUB_STATE, `processID=12345${os.EOL}`, {
 })
 ```
 
-{% else %}
-This example uses JavaScript to run the `save-state` command. The resulting environment variable is named `STATE_processID` with the value of `12345`:
+{% else %} В этом примере для выполнения `save-state` команды используется JavaScript. Итоговая переменная среды называется `STATE_processID` со значением `12345`:
 
 ```javascript{:copy}
 console.log('::save-state name=processID::12345')
 ```
 {% endif %}
 
-The `STATE_processID` variable is then exclusively available to the cleanup script running under the `main` action. This example runs in `main` and uses JavaScript to display the value assigned to the `STATE_processID` environment variable:
+Затем переменная `STATE_processID` становится доступной только скрипту очистки, который выполняется в рамках действия `main`. Этот пример выполняется в `main` и использует JavaScript для отображения значения, назначенного переменной среды `STATE_processID`:
 
 ```javascript{:copy}
 console.log("The running PID from the main action is: " +  process.env.STATE_processID);
 ```
 
-## Environment files
+## Файлы среды
 
-During the execution of a workflow, the runner generates temporary files that can be used to perform certain actions. The path to these files are exposed via environment variables. You will need to use UTF-8 encoding when writing to these files to ensure proper processing of the commands. Multiple commands can be written to the same file, separated by newlines.
+Во время выполнения рабочего процесса средство выполнения создает временные файлы, с помощью которых можно совершать определенные действия. Путь к этим файлам предоставляется через переменные среды. Чтобы обеспечить правильную обработку команд, при записи в эти файлы понадобится кодировка UTF-8. В один файл можно записать несколько команд, разделенных новыми строками.
 
-Most commands in the following examples use double quotes for echoing strings, which will attempt to interpolate characters like `$` for shell variable names. To always use literal values in quoted strings, you can use single quotes instead.
+Большинство команд в следующих примерах используют двойные кавычки для повторения строк, которые будут пытаться интерполировать символы, например `$` для имен переменных оболочки. Чтобы всегда использовать литеральные значения в строках с кавычками, можно использовать одинарные кавычки.
 
 {% powershell %}
 
 {% note %}
 
-**Note:** PowerShell versions 5.1 and below (`shell: powershell`) do not use UTF-8 by default, so you must specify the UTF-8 encoding. For example:
+**Примечание.** В PowerShell версии 5.1 и более ранних (`shell: powershell`) не используется UTF-8 по умолчанию, поэтому необходимо указать кодировку UTF-8. Пример:
 
 ```yaml{:copy}
 jobs:
@@ -599,7 +588,7 @@ jobs:
           "mypath" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
 ```
 
-PowerShell Core versions 6 and higher (`shell: pwsh`) use UTF-8 by default. For example:
+В PowerShell Core версии 6 и более поздних (`shell: pwsh`) используется кодировка UTF-8 по умолчанию. Пример:
 
 ```yaml{:copy}
 jobs:
@@ -615,7 +604,7 @@ jobs:
 
 {% endpowershell %}
 
-## Setting an environment variable
+## Указание переменной среды
 
 {% bash %}
 
@@ -627,13 +616,13 @@ echo "{environment_variable_name}={value}" >> $GITHUB_ENV
 
 {% powershell %}
 
-- Using PowerShell version 6 and higher:
+- С PowerShell версии 6 и более поздних:
 
   ```pwsh{:copy}
   "{environment_variable_name}={value}" >> $env:GITHUB_ENV
   ```
 
-- Using PowerShell version 5.1 and below:
+- С PowerShell версии 5.1 и более ранних:
 
   ```powershell{:copy}
   "{environment_variable_name}={value}" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
@@ -641,9 +630,9 @@ echo "{environment_variable_name}={value}" >> $GITHUB_ENV
 
 {% endpowershell %}
 
-You can make an environment variable available to any subsequent steps in a workflow job by defining or updating the environment variable and writing this to the `GITHUB_ENV` environment file. The step that creates or updates the environment variable does not have access to the new value, but all subsequent steps in a job will have access. The names of environment variables are case-sensitive, and you can include punctuation. For more information, see "[Environment variables](/actions/learn-github-actions/environment-variables)."
+Можно создать переменную среды, доступную всем последующим шагам в задании рабочего процесса. Для этого необходимо определить или обновить переменную среды и записать ее в файл среды `GITHUB_ENV`. Шаг, на котором переменная среды создается или обновляется, не будет иметь доступа к новому значению, но доступ получат все последующие шаги в задании. Имена переменных среды задаются с учетом регистра и могут содержать знаки препинания. Дополнительные сведения см. в разделе [Переменные среды](/actions/learn-github-actions/environment-variables).
 
-### Example
+### Пример
 
 {% bash %}
 
@@ -681,9 +670,9 @@ steps:
 
 {% endpowershell %}
 
-### Multiline strings
+### Многострочные строки
 
-For multiline strings, you may use a delimiter with the following syntax.
+В многострочных строках можно использовать разделитель со следующим синтаксисом.
 
 ```{:copy}
 {name}<<{delimiter}
@@ -693,13 +682,13 @@ For multiline strings, you may use a delimiter with the following syntax.
 
 {% warning %}
 
-**Warning:** Make sure the delimiter you're using is randomly generated and unique for each run. For more information, see "[Understanding the risk of script injections](/actions/security-guides/security-hardening-for-github-actions#understanding-the-risk-of-script-injections)".
+**Предупреждение.** Убедитесь, что используемый разделитель создается случайным образом и является уникальным для каждого запуска. Дополнительные сведения см. в разделе "[Основные сведения о риске вставки данных в скрипты](/actions/security-guides/security-hardening-for-github-actions#understanding-the-risk-of-script-injections)".
 
 {% endwarning %}
 
-#### Example
+#### Пример
 
-This example uses `EOF` as a delimiter, and sets the `JSON_RESPONSE` environment variable to the value of the `curl` response.
+В этом примере в качестве разделителя используется `EOF`, а переменной среды `JSON_RESPONSE` задается значение ответа `curl`.
 
 {% bash %}
 
@@ -731,9 +720,9 @@ steps:
 {% endpowershell %}
 
 {% ifversion actions-save-state-set-output-envs %}
-## Setting an output parameter
+## Задание параметра вывода
 
-Sets a step's output parameter. Note that the step will need an `id` to be defined to later retrieve the output value.
+Задает выходной параметр шага. Обратите внимание, что для последующего получения выходного `id` значения необходимо определить шаг .
 
 {% bash %}
 
@@ -750,11 +739,11 @@ echo "{name}={value}" >> $GITHUB_OUTPUT
 
 {% endpowershell %}
 
-### Example
+### Пример
 
 {% bash %}
 
-This example demonstrates how to set the `SELECTED_COLOR` output parameter and later retrieve it:
+В этом примере показано, как задать выходной `SELECTED_COLOR` параметр и получить его позже:
 
 {% raw %}
 ```yaml{:copy}
@@ -770,8 +759,7 @@ This example demonstrates how to set the `SELECTED_COLOR` output parameter and l
 
 {% powershell %}
 
-{% raw %}
-This example demonstrates how to set the `SELECTED_COLOR` output parameter and later retrieve it:
+{% raw %} В этом примере показано, как задать выходной `SELECTED_COLOR` параметр и получить его позже:
 
 ```yaml{:copy}
       - name: Set color
@@ -783,12 +771,11 @@ This example demonstrates how to set the `SELECTED_COLOR` output parameter and l
 ```
 {% endraw %}
 
-{% endpowershell %}
-{% endif %}
+{% endpowershell %} {% endif %}
 
 {% ifversion actions-job-summaries %}
 
-## Adding a job summary
+## Добавление сводки по заданию
 
 {% bash %}
 
@@ -806,13 +793,13 @@ echo "{markdown content}" >> $GITHUB_STEP_SUMMARY
 
 {% endpowershell %}
 
-You can set some custom Markdown for each job so that it will be displayed on the summary page of a workflow run. You can use job summaries to display and group unique content, such as test result summaries, so that someone viewing the result of a workflow run doesn't need to go into the logs to see important information related to the run, such as failures.
+Для каждого задания можно задать пользовательский Markdown, который будет отображаться на странице сводок о выполнении рабочего процесса. С помощью сводок по заданиям можно отображать и группировать уникальное содержимое, например сводки по результатам тестов, чтобы при просмотре результатов выполнения рабочего процесса пользователю не приходилось открывать журналы для получения важной информации, такой как сбои.
 
-Job summaries support [{% data variables.product.prodname_dotcom %} flavored Markdown](https://github.github.com/gfm/), and you can add your Markdown content for a step to the `GITHUB_STEP_SUMMARY` environment file. `GITHUB_STEP_SUMMARY` is unique for each step in a job. For more information about the per-step file that `GITHUB_STEP_SUMMARY` references, see "[Environment files](#environment-files)."
+Сводки по заданиям поддерживают [Markdown для {% data variables.product.prodname_dotcom %}](https://github.github.com/gfm/), и содержимое Markdown можно добавить в файл среды `GITHUB_STEP_SUMMARY` для каждого шага. `GITHUB_STEP_SUMMARY` является уникальным для каждого шага задания. Дополнительные сведения о файлах для каждого шага, на которые ссылается `GITHUB_STEP_SUMMARY`, см. в разделе ["Файлы среды"](#environment-files).
 
-When a job finishes, the summaries for all steps in a job are grouped together into a single job summary and are shown on the workflow run summary page. If multiple jobs generate summaries, the job summaries are ordered by job completion time.
+При завершении задания сводки по всем шагам группируются в единую сводку по заданию и отображаются на странице сводок о выполнении рабочего процесса. Если сводки создаются несколькими заданиями, они сортируются по времени завершения задания.
 
-### Example
+### Пример
 
 {% bash %}
 
@@ -830,13 +817,13 @@ echo "### Hello world! :rocket:" >> $GITHUB_STEP_SUMMARY
 
 {% endpowershell %}
 
-![Markdown summary example](/assets/images/actions-job-summary-simple-example.png)
+![Пример сводки Markdown](/assets/images/actions-job-summary-simple-example.png)
 
-### Multiline Markdown content
+### Многострочное содержимое Markdown
 
-For multiline Markdown content, you can use `>>` to continuously append content for the current step. With every append operation, a newline character is automatically added.
+Для поддержки многострочного содержимого Markdown можно использовать `>>`, чтобы непрерывно добавлять содержимое на текущем шаге. С каждой операцией добавления автоматически вставляется символ новой строки.
 
-#### Example
+#### Пример
 
 {% bash %}
 
@@ -866,11 +853,11 @@ For multiline Markdown content, you can use `>>` to continuously append content 
 
 {% endpowershell %}
 
-### Overwriting job summaries
+### Перезапись сводок по заданиям
 
-To clear all content for the current step, you can use `>` to overwrite any previously added content.
+Для очистки всего содержимого на текущем шаге можно использовать `>`, чтобы перезаписать ранее добавленное содержимое.
 
-#### Example
+#### Пример
 
 {% bash %}
 
@@ -894,11 +881,11 @@ To clear all content for the current step, you can use `>` to overwrite any prev
 
 {% endpowershell %}
 
-### Removing job summaries
+### Удаление сводок по заданиям
 
-To completely remove a summary for the current step, the file that `GITHUB_STEP_SUMMARY` references can be deleted.
+Чтобы окончательно удалить сводку по текущему шагу, можно удалить файл, на который ссылается `GITHUB_STEP_SUMMARY`.
 
-#### Example
+#### Пример
 
 {% bash %}
 
@@ -922,17 +909,17 @@ To completely remove a summary for the current step, the file that `GITHUB_STEP_
 
 {% endpowershell %}
 
-After a step has completed, job summaries are uploaded and subsequent steps cannot modify previously uploaded Markdown content. Summaries automatically mask any secrets that might have been added accidentally. If a job summary contains sensitive information that must be deleted, you can delete the entire workflow run to remove all its job summaries. For more information see "[Deleting a workflow run](/actions/managing-workflow-runs/deleting-a-workflow-run)."
+После завершения шага сводки по заданиям отправляются, и последующие шаги не могут изменить ранее отправленное содержимое Markdown. В сводках автоматически маскируются все секреты, которые могли в них случайно попасть. Если сводка по заданию содержит конфиденциальную информацию, которую необходимо удалить, можно удалить запуск рабочего процесса, чтобы удалить все его сводки. Дополнительные сведения см. в статье ["Удаление запуска рабочего процесса"](/actions/managing-workflow-runs/deleting-a-workflow-run).
 
-### Step isolation and limits
+### Разделение и ограничения шагов
 
-Job summaries are isolated between steps and each step is restricted to a maximum size of 1MiB. Isolation is enforced between steps so that potentially malformed Markdown from a single step cannot break Markdown rendering for subsequent steps. If more than 1MiB of content is added for a step, then the upload for the step will fail and an error annotation will be created. Upload failures for job summaries do not affect the overall status of a step or a job. A maximum of 20 job summaries from steps are displayed per job.
+Сводки по заданиям разделяются между шагами, а размер каждого шага не может превышать 1 МиБ. Разделение между шагами применяется для того, чтобы потенциально поврежденный Markdown одного шага не мог прервать вывод Markdown последующих шагов. Если для шага добавлено более 1 МиБ содержимого, отправка завершится сбоем и будет создана заметка об ошибке. Сбои отправки для сводок по заданиям не влияют на общее состояние шага или задания. Для каждого задания отображается не более 20 пошаговых сводок.
 
 {% endif %}
 
-## Adding a system path
+## Добавление системного пути
 
-Prepends a directory to the system `PATH` variable and automatically makes it available to all subsequent actions in the current job; the currently running action cannot access the updated path variable. To see the currently defined paths for your job, you can use `echo "$PATH"` in a step or an action.
+Добавляет каталог к системной переменной `PATH` и автоматически открывает к ней доступ всем последующим действиям в текущем задании, кроме выполняемого в настоящий момент действия. Чтобы просмотреть определенные на текущий момент пути для задания, можно использовать `echo "$PATH"` в шаге или действии.
 
 {% bash %}
 
@@ -949,11 +936,11 @@ echo "{path}" >> $GITHUB_PATH
 
 {% endpowershell %}
 
-### Example
+### Пример
 
 {% bash %}
 
-This example demonstrates how to add the user `$HOME/.local/bin` directory to `PATH`:
+В этом примере показывается, как добавить пользовательский каталог `$HOME/.local/bin` в `PATH`:
 
 ```bash{:copy}
 echo "$HOME/.local/bin" >> $GITHUB_PATH
@@ -963,7 +950,7 @@ echo "$HOME/.local/bin" >> $GITHUB_PATH
 
 {% powershell %}
 
-This example demonstrates how to add the user `$env:HOMEPATH/.local/bin` directory to `PATH`:
+В этом примере показывается, как добавить пользовательский каталог `$env:HOMEPATH/.local/bin` в `PATH`:
 
 ```pwsh{:copy}
 "$env:HOMEPATH/.local/bin" >> $env:GITHUB_PATH

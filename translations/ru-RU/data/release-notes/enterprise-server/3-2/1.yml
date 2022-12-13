@@ -1,0 +1,28 @@
+date: '12.10.2021'
+sections:
+  security_fixes:
+    - 'Пакеты обновлены до последних версий системы безопасности. {% comment %} https://github.com/github/enterprise2/pull/27118, https://github.com/github/enterprise2/pull/27110 {% endcomment %}'
+  bugs:
+    - 'Пользовательские перехватчики предварительного получения не работали из-за слишком больших ограничений виртуальной памяти или времени ЦП. {% comment %} https://github.com/github/enterprise2/pull/26973, https://github.com/github/enterprise2/pull/26955 {% endcomment %}'
+    - 'В конфигурации кластера серверов GitHub Enterprise параметры графа зависимостей могли быть применены неправильно. {% comment %} https://github.com/github/enterprise2/pull/26981, https://github.com/github/enterprise2/pull/26861 {% endcomment %}'
+    - 'Попытка очистить все существующие параметры конфигурации с помощью ghe-cleanup-settings не привела к перезапуску службы консоли управления. {% comment %} https://github.com/github/enterprise2/pull/26988, https://github.com/github/enterprise2/pull/26901 {% endcomment %}'
+    - 'Во время удаления репликации с помощью ghe-repl-teardown не удалось перезапустить Memcached. {% comment %} https://github.com/github/enterprise2/pull/26994, https://github.com/github/enterprise2/pull/26983 {% endcomment %}'
+    - 'В периоды высокой нагрузки пользователи получали коды состояния HTTP 503, когда вышестоящие службы не проходили внутреннюю проверку работоспособности. {% comment %} https://github.com/github/enterprise2/pull/27083, https://github.com/github/enterprise2/pull/26999 {% endcomment %}'
+    - 'Средам перехватчиков предварительного получения было запрещено вызывать команду cat через BusyBox на Alpine. {% comment %} https://github.com/github/enterprise2/pull/27116, https://github.com/github/enterprise2/pull/27094 {% endcomment %}'
+    - 'Отработка отказа с первичного центра обработки данных кластера на вторичный успешно выполнена, но в дальнейшем произошел сбой при возврате на изначальный первичный центр обработки данных кластера, что привело к сбою повышения уровня индексов Elasticsearch. {% comment %} https://github.com/github/github/pull/193182, https://github.com/github/github/pull/192447 {% endcomment %}'
+    - 'Кнопка Import teams (Импортировать команды) на странице "Команды" для организации вернула код HTTP 404. {% comment %} https://github.com/github/github/pull/193303 {% endcomment %}'
+    - 'Использовав API для отключения сканирования секретов, удалось правильно отключить свойство, но код HTTP 422 и сообщение об ошибке были неправильно возвращены. {% comment %} https://github.com/github/github/pull/193455, https://github.com/github/github/pull/192907 {% endcomment %}'
+    - 'В некоторых случаях администраторы GitHub Enterprise, пытающиеся просмотреть страницу "Неактивные пользователи" получали ответ "502 — недопустимый шлюз" или "504 — истекло время ожидания шлюза". {% comment %} https://github.com/github/github/pull/194262, https://github.com/github/github/pull/193609 {% endcomment %}'
+    - 'В некоторых ситуациях с высокой нагрузкой снижалась производительность из-за увеличения количества заданий SynchronizePullRequestJob. {% comment %} https://github.com/github/github/pull/195256, https://github.com/github/github/pull/194591 {% endcomment %}'
+    - 'Пользовательский шаблон, созданный для сканирования секретов, продолжает сканироваться даже после его удаления. {% comment %} https://github.com/github/token-scanning-service/pull/1039, https://github.com/github/token-scanning-service/pull/822 {% endcomment %}'
+  changes:
+    - 'Для приложений GitHub теперь установлена возможность сканирования секретов в репозитории в соответствии с API. {% comment %} https://github.com/github/github/pull/193456, https://github.com/github/github/pull/193125 {% endcomment %}'
+  known_issues:
+    - "Злоумышленник мог создать первого пользователя с правами администратора на новом, только что настроенном сервере {% data variables.product.prodname_ghe_server %}, не имеющем пользователей."
+    - Настраиваемые правила брандмауэра удаляются в процессе обновления.
+    - "Отслеживаемые файлы Git LFS, [отправленные через веб-интерфейс](https://github.com/blog/2105-upload-files-to-your-repositories), ошибочно добавлялись напрямую в репозиторий."
+    - "Проблемы не могут быть закрыты, если они содержат постоянную ссылку на большой двоичный объект в том же репозитории, где путь к файлу большого двоичного объекта длиннее 255 символов."
+    - "Когда в GitHub Connect включен параметр \"Пользователи могут выполнять поиск на GitHub.com\", результаты поиска на GitHub.com не включают проблемы в частных и внутренних репозиториях."
+    - "Реестр npm {% data variables.product.prodname_registry %} больше не возвращает значение времени в ответах метаданных. Это сделано, чтобы реализовать существенные улучшения производительности. Мы продолжим хранить все данные, необходимые для возврата значения времени в качестве части ответа метаданных, и возобновим возврат этого значения в будущем, как только решим существующие проблемы с производительностью."
+    - "Ограничения ресурсов, относящиеся к обработке предварительно полученных перехватчиков, могут приводить к сбою некоторых из них."
+    - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'

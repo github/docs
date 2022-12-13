@@ -1,6 +1,6 @@
 ---
-title: About merge methods on GitHub
-intro: 'You can allow contributors with push access to your repository to merge their pull requests on {% data variables.location.product_location %} with different merge options or enforce a specific merge method for all of your repository''s pull requests.'
+title: Сведения о методах слияния в GitHub
+intro: 'Вы можете разрешить участникам с принудительным доступом к репозиторию объединить запросы на вытягивание на {% данных variables.location.product_location %} с разными параметрами слияния или применить определенный метод слияния для всех запросов на вытягивание репозитория.'
 redirect_from:
   - /articles/about-merge-methods-on-github
   - /github/administering-a-repository/about-merge-methods-on-github
@@ -13,38 +13,42 @@ versions:
 topics:
   - Repositories
 shortTitle: About merge methods
+ms.openlocfilehash: 053a34ba2dd3e2fb948b06b61e65e477328aef3f
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148099303'
 ---
-{% data reusables.pull_requests.configure_pull_request_merges_intro %} You can enforce one type of merge method, such as commit squashing or rebasing, by only enabling the desired method for your repository.
+{% data reusables.pull_requests.configure_pull_request_merges_intro %} Вы можете применить один метод слияния, например фиксация со сжатием или перемещение изменений из одной ветви в другую, включив нужный метод для репозитория.
 
-{% ifversion fpt or ghec %}
-{% note %}
+{% ifversion fpt or ghec %} {% note %}
 
-**Note:** When using the merge queue, you no longer get to choose the merge method, as this is controlled by the queue. {% data reusables.pull_requests.merge-queue-references %}
+**Примечание.** При использовании очереди слияния вы больше не можете выбрать метод слияния, так как он управляется очередью. {% data reusables.pull_requests.merge-queue-references %}
 
-{% endnote %}
-{% endif %}
+{% endnote %} {% endif %}
 
 {% data reusables.pull_requests.default_merge_option %}
 
-The default merge method creates a merge commit. You can prevent anyone from pushing merge commits to a protected branch by enforcing a linear commit history. For more information, see "[About protected branches](/github/administering-a-repository/about-protected-branches#require-linear-history)."
+Метод слияния по умолчанию создает фиксацию слияния. Вы можете запретить любому пользователю принудительно отправлять фиксации слиянием в защищенную ветвь, применяя журнал линейной фиксации. Дополнительные сведения см. в разделе [Сведения о защищенных ветвях](/github/administering-a-repository/about-protected-branches#require-linear-history).
 
-## Squashing your merge commits
+## Сжатие фиксаций слиянием
 
 {% data reusables.pull_requests.squash_and_merge_summary %}
 
-Before enabling squashing commits, consider these disadvantages:
-- You lose information about when specific changes were originally made and who authored the squashed commits.
-- If you continue working on the head branch of a pull request after squashing and merging, and then create a new pull request between the same branches, commits that you previously squashed and merged will be listed in the new pull request. You may also have conflicts that you have to repeatedly resolve in each successive pull request. For more information, see "[About pull request merges](/github/collaborating-with-issues-and-pull-requests/about-pull-request-merges#squashing-and-merging-a-long-running-branch)."
-- Some Git commands that use the "SHA" or "hash" ID may be harder to use since the SHA ID for the original commits is lost. For example, using [`git rerere`](https://git-scm.com/docs/git-rerere) may not be as effective.
+Прежде чем включать сжатие фиксаций, учтите следующие недостатки:
+- Вы теряете сведения о том, когда конкретные изменения были внесены первоначально и кто создал сжатые фиксации.
+- Если вы продолжите работу с головной ветвью запроса на вытягивание после сжатия и объединения, а затем создадите новый запрос на вытягивание между теми же ветвями, фиксации, которые вы ранее сжали и объединили, будут перечислены в новом запросе на вытягивание. Кроме того, в каждом последующем запросе на вытягивание могут возникать конфликты, которые необходимо будет каждый раз разрешать. Дополнительную информацию см. в разделе [Сведения о слияниях запросов на вытягивание](/github/collaborating-with-issues-and-pull-requests/about-pull-request-merges#squashing-and-merging-a-long-running-branch).
+- Некоторые команды Git, использующие идентификатор SHA или hash, может быть сложнее использовать, так как идентификатор SHA для исходных фиксаций будет потерян. Например, использование [`git rerere`](https://git-scm.com/docs/git-rerere) может оказаться не столь эффективным.
 
-For more information, see "[Configuring commit squashing for pull requests](/articles/configuring-commit-squashing-for-pull-requests)."
+Дополнительные сведения см. в разделе [Настройка сжатия фиксации для запросов на вытягивание](/articles/configuring-commit-squashing-for-pull-requests).
 
-## Rebasing and merging your commits
+## Перемещение фиксации из одной ветви в другую и слияние
 
 {% data reusables.pull_requests.rebase_and_merge_summary %}
 
-Before enabling commit rebasing, consider these disadvantages:
-- Repository contributors may have to rebase on the command line, resolve any conflicts, and force push their changes to the pull request's topic branch (or remote head branch) before they can use the **rebase and merge** option on {% data variables.location.product_location %}. Force pushing must be done carefully so contributors don't overwrite work that others have based their work on. To learn more about when the **Rebase and merge** option is disabled on {% data variables.location.product_location %} and the workflow to re-enable it, see "[About pull request merges](/articles/about-pull-request-merges/#rebase-and-merge-your-pull-request-commits)."
+Перед включением перемещения фиксации из одной ветви в другую, рассмотрите следующие недостатки:
+- Участникам репозитория может потребоваться перебазироваться в командной строке, устранить любые конфликты и принудительно отправить изменения в разделную ветвь запроса на вытягивание (или удаленную ветвь), прежде чем они смогут использовать **параметр перебазы и слияния** в {% данных variables.location.product_location %}. Следует проявлять осторожность при отправке с параметром --force, чтобы не перезаписать работу, на основе которой работают другие пользователи. Дополнительные сведения о том, когда параметр **"Перебаза и слияние** " отключен для {% данных variables.location.product_location %}, и рабочий процесс для повторного включения см. в разделе "[Сведения о слиянии запросов на вытягивание](/articles/about-pull-request-merges/#rebase-and-merge-your-pull-request-commits)".
 - {% indented_data_reference reusables.pull_requests.rebase_and_merge_verification spaces=3 %}
 
-For more information, see "[Configuring commit rebasing for pull requests](/articles/configuring-commit-rebasing-for-pull-requests)."
+Дополнительные сведения см. в разделе [Настройка перемещения фиксации в другую ветвь для запросов на вытягивание](/articles/configuring-commit-rebasing-for-pull-requests).

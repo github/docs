@@ -1,12 +1,9 @@
 ---
-title: Managing IAM for your enterprise
+title: Управление IAM для вашего предприятия
 intro: |
-  {%- ifversion ghec %}
-  You can invite existing personal accounts on {% data variables.location.product_location %} to be members of your enterprise, and you can optionally enable SAML single sign-on (SSO) to centrally manage access. Alternatively, you can use {% data variables.product.prodname_emus %} with SAML SSO to create and control the accounts of your enterprise members.
-  {%- elsif ghes %}
-  You can use {% data variables.product.product_name %}'s built-in authentication, or you can centrally manage authentication and access to your instance with CAS, LDAP, or SAML.
-  {%- elsif ghae %}
-  You must use SAML single sign-on (SSO) to centrally manage authentication and access to your enterprise on {% data variables.product.product_name %}. Optionally, you can use System for Cross-domain Identity Management (SCIM) to automatically provision accounts and access on {% data variables.product.product_name %} when you make changes on your identity provider (IdP).
+  {%- ifversion ghec %} Вы можете пригласить существующие личные учетные записи на {% данных variables.location.product_location %}, чтобы быть участниками вашего предприятия, и при необходимости вы можете включить единый вход SAML для централизованного управления доступом. Кроме того, вы можете использовать {% data variables.product.prodname_emus %} с единым входом на основе SAML, чтобы создавать учетные записи корпоративных участников и управлять ими.
+  {%- elsif ghes %} Вы можете использовать встроенную проверку подлинности {% data variables.product.product_name %} или централизованно управлять проверкой подлинности и доступом к экземпляру с помощью CAS, LDAP либо SAML.
+  {%- elsif ghae %} Единый вход на основе SAML необходимо использовать для централизованного управления проверкой подлинности и доступом к вашему предприятию в {% data variables.product.product_name %}. Или вы можете использовать System for Cross-domain Identity Management (SCIM) для автоматической подготовки учетных записей и предоставления доступа к {% data variables.product.product_name %} при внесении изменений в поставщик удостоверений (IdP).
   {%- endif %}
 redirect_from:
   - /enterprise/admin/categories/authentication
@@ -32,5 +29,11 @@ children:
   - /allowing-built-in-authentication-for-users-outside-your-provider
   - /troubleshooting-identity-and-access-management-for-your-enterprise
 shortTitle: Manage IAM for your enterprise
+ms.openlocfilehash: 20415ca79bba676c9226a31736ded50f222b7e77
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148098407'
 ---
 

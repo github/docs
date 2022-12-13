@@ -1,38 +1,36 @@
+---
+ms.openlocfilehash: b62a0e5829c03ff7879fda2d714c4a7652d762b4
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/25/2022
+ms.locfileid: "148110063"
+---
 {% comment %} 
 
-Always include a security admonition above this procedure. This is either one of the following, depending on whether the context is self-hosted runners or larger runners.
+Всегда включайте объявление о безопасности над этой процедурой. Это одно из следующих действий, в зависимости от того, является ли контекст локальным средством выполнения или более крупными средством выполнения.
 
-{% data reusables.actions.self-hosted-runner-security-admonition %}
-{% data reusables.actions.hosted-runner-security-admonition %}
+{% data reusables.actions.self-hosted-runner-security-admonition %} {% data reusables.actions.hosted-runner-security-admonition %}
  
 {% endcomment %}
 
-All organizations have a single default runner group. Organizations within an enterprise account can create additional groups. Organization admins can allow individual repositories access to a runner group. For information about how to create a runner group with the REST API, see "[Self-hosted runner groups](/rest/reference/actions#self-hosted-runner-groups)."
+Все организации имеют единую группу средств выполнения по умолчанию. Организации в корпоративной учетной записи могут создавать дополнительные группы. Администраторы организации могут разрешать отдельным репозиториям доступ к группе средств выполнения. Сведения о том, как создать группу средств выполнения с помощью REST API, см. в разделе [Группы локальных средств выполнения](/rest/reference/actions#self-hosted-runner-groups).
 
-Runners are automatically assigned to the default group when created, and can only be members of one group at a time. You can move a runner from the default group to any group you create.
+Средства выполнения автоматически назначаются группе по умолчанию при создании и не могут одновременно находиться в нескольких группах. Вы можете переместить средство выполнения из группы по умолчанию в любую созданную вами группу.
 
-When creating a group, you must choose a policy that defines which repositories{% ifversion restrict-groups-to-workflows %} and workflows{% endif %} have access to the runner group.
+При создании группы необходимо выбрать политику, которая определяет, какие репозитории{% ifversion restrict-groups-to-workflows %} и рабочие процессы{% endif %} имеют доступ к группе средств выполнения.
 
-{% ifversion ghec or ghes > 3.3 or ghae > 3.3 %}
-{% data reusables.organizations.navigate-to-org %}
-{% data reusables.organizations.org_settings %}
-{% data reusables.organizations.settings-sidebar-actions-runner-groups %}
-1. In the "Runner groups" section, click **New runner group**.
-1. Enter a name for your runner group.
- {% data reusables.actions.runner-group-assign-policy-repo %}
-{% data reusables.actions.runner-group-assign-policy-workflow %}{%- ifversion restrict-groups-to-workflows %} Organization-owned runner groups cannot access workflows from a different organization in the enterprise; instead, you must create an enterprise-owned runner group.{% endif %}
-{% data reusables.actions.create-runner-group %}
-{% elsif ghae < 3.4 or ghes < 3.4 %}
-{% data reusables.organizations.navigate-to-org %}
-{% data reusables.organizations.org_settings %}
-{% data reusables.organizations.settings-sidebar-actions-runner-groups %}
-1. Under {% ifversion ghes or ghae %}"Runners"{% endif %}, click **Add new**, and then **New group**.
+{% ifversion ghec или ghes > 3.3 или ghae > 3,3 %} {% данных reusables.organizations.navigate-to-org %} {% данных reusables.organizations.org_settings %} {% данных reusables.organizations.settings-sidebar-actions-runner-groups %}
+1. В разделе "Группы средств выполнения" щелкните **Создать группу средств выполнения**.
+1. Введите имя для вашей группы средств выполнения.
+ {% данных reusables.actions.runner-group-assign-policy-repo %} {% данных reusables.actions.runner-group-assign-policy-workflow %} {%- ifversion restrict-groups-to-workflows %} Группы запуска, принадлежащие организации, не могут получить доступ к рабочим процессам из другой организации в организации; Вместо этого необходимо создать группу средств выполнения, принадлежащей организации. {% endif %} {% данных reusables.actions.create-runner-group %} {% elsif ghae < 3,4 или ghes < 3,4 %} {% данных reusables.organizations.navigate-to-org %} {% данных reusables.organizations.org_settings %} {% данных reusables.organizations.settings-sidebar-actions-runner-groups %}
+1. В разделе {% ifversion ghes or ghae %}"Средства выполнения"{% endif %}, нажмите **Добавить**, а затем выберите **Создать группу**.
 
-    ![Add runner group](/assets/images/help/settings/actions-org-add-runner-group.png)
-1. Enter a name for your runner group, and assign a policy for repository access.
+    ![Добавление группы средств выполнения](/assets/images/help/settings/actions-org-add-runner-group.png)
+1. Введите имя для вашей группы средств выполнения и назначьте политику для доступа репозиториев.
 
-   You can configure a runner group to be accessible to a specific list of repositories, or to all repositories in the organization.{% ifversion ghec or ghes %} By default, only private repositories can access runners in a runner group, but you can override this. This setting can't be overridden if configuring an organization's runner group that was shared by an enterprise.{% endif %}
+   Группу средств выполнения можно настроить так, чтобы она была доступна для репозиториев из определенного списка или для всех репозиториев в организации. {% ifversion ghec or ghes %} По умолчанию только частные репозитории могут обращаться к средствам выполнения в группе средств выполнения, но это можно переопределить. Этот параметр нельзя переопределить при настройке группы средств выполнения организации, которая совместно используется в предприятии. {% endif %}
    
-   ![Add runner group options](/assets/images/help/settings/actions-org-add-runner-group-options.png)
-1. Click **Save group** to create the group and apply the policy.
+   ![Добавление параметров группы средств выполнения](/assets/images/help/settings/actions-org-add-runner-group-options.png)
+1. Нажмите **Сохранить группу**, чтобы создать группу и применить политику.
 {% endif %}

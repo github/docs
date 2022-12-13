@@ -1,6 +1,6 @@
 ---
-title: Monitoring using SNMP
-intro: '{% data variables.product.prodname_enterprise %} provides data on disk usage, CPU utilization, memory usage, and more over SNMP.'
+title: Мониторинг с помощью SNMP
+intro: "{% data variables.product.prodname_enterprise %} предоставляет данные об использовании диска, ЦП, памяти и\_т.\_д. по протоколу SNMP."
 redirect_from:
   - /enterprise/admin/installation/monitoring-using-snmp
   - /enterprise/admin/articles/monitoring-using-snmp
@@ -14,67 +14,63 @@ topics:
   - Infrastructure
   - Monitoring
   - Performance
+ms.openlocfilehash: 1afc6d9a34015c0b577fe891caefb5317346ca7a
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148093803'
 ---
-SNMP is a common standard for monitoring devices over a network. We strongly recommend enabling SNMP so you can monitor the health of {% data variables.location.product_location %} and know when to add more memory, storage, or processor power to the host machine.
+SNMP является распространенным решением для мониторинга устройств в сети. Настоятельно рекомендуется включить SNMP, чтобы отслеживать работоспособность {% данных variables.location.product_location %} и знать, когда следует добавлять дополнительные объемы памяти, хранилища или процессора на хост-компьютер.
 
-{% data variables.product.prodname_enterprise %} has a standard SNMP installation, so you can take advantage of the [many plugins](https://www.monitoring-plugins.org/doc/man/check_snmp.html) available for Nagios or for any other monitoring system.
+{% data variables.product.prodname_enterprise %} содержит стандартную установку SNMP, поэтому вы можете воспользоваться [многими подключаемыми модулями](https://www.monitoring-plugins.org/doc/man/check_snmp.html), которые предоставляются для Nagios или любой другой системы мониторинга.
 
-## Configuring SNMP v2c
+## Настройка SNMP версии 2c
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.management-console %}
-{% data reusables.enterprise_management_console.access-monitoring %}
-{% data reusables.enterprise_management_console.enable-snmp %}
-4. In the **Community string** field, enter a new community string. If left blank, this defaults to `public`.
-![Field to add the community string](/assets/images/enterprise/management-console/community-string.png)
-{% data reusables.enterprise_management_console.save-settings %}
-5. Test your SNMP configuration by running the following command on a separate workstation with SNMP support in your network:
+{% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.enterprise_site_admin_settings.management-console %} {% data reusables.enterprise_management_console.access-monitoring %} {% data reusables.enterprise_management_console.enable-snmp %}
+4. В поле **Строка сообщества** введите новую строку сообщества. Если оставить это поле пустым, по умолчанию используется значение `public`.
+![Поле для добавления строки сообщества](/assets/images/enterprise/management-console/community-string.png) {% data reusables.enterprise_management_console.save-settings %}
+5. Проверьте конфигурацию SNMP, выполнив следующую команду на отдельной рабочей станции с поддержкой SNMP в сети:
   ```shell
   # community-string is your community string
   # hostname is the IP or domain of your Enterprise instance
   $ snmpget -v 2c -c COMMUNITY-STRING -O e HOSTNAME hrSystemDate.0
   ```
 
-This should return the system time on {% data variables.location.product_location %} host.
+Это должно возвращать системное время на узле {% данных variables.location.product_location %}.
 
-## User-based security
+## Пользовательская безопасность
 
-If you enable SNMP v3, you can take advantage of increased user based security through the User Security Model (USM). For each unique user, you can specify a security level:
-- `noAuthNoPriv`: This security level provides no authentication and no privacy.
-- `authNoPriv`: This security level provides authentication but no privacy. To query the appliance you'll need a username and password (that must be at least eight characters long). Information is sent without encryption, similar to SNMPv2. The authentication protocol can be either MD5 or SHA and defaults to SHA.
-- `authPriv`: This security level provides authentication with privacy. Authentication, including a minimum eight-character authentication password, is required and responses are encrypted. A privacy password is not required, but if provided it must be at least eight characters long. If a privacy password isn't provided, the authentication password is used. The privacy protocol can be either DES or AES and defaults to AES.
+Если настроена поддержка SNMP версии 3, вы можете получить более высокий уровень безопасности с контролем на уровне пользователей благодаря модели безопасности пользователей (USM). Для каждого уникального пользователя можно отдельно настроить один из следующих уровней безопасности.
+- `noAuthNoPriv`: этот уровень безопасности не предоставляет проверку подлинности и конфиденциальность.
+- `authNoPriv`: этот уровень безопасности предоставляет проверку подлинности, но не предоставляет конфиденциальность. Чтобы отправить запрос на устройство, потребуется имя пользователя и пароль (длиной не менее восьми символов). Информация отправляется без шифрования, как в протоколе SNMP версии 2. В качестве протокола проверки подлинности может использоваться MD5 или SHA, по умолчанию — SHA.
+- `authPriv`: этот уровень безопасности предоставляет проверку подлинности и конфиденциальность. Проверка подлинности является обязательной, пароль должен содержать не менее восьми символов, а ответы шифруются. Пароль конфиденциальности не является обязательным, но если он указан, то должен содержать не менее восьми символов. Если пароль конфиденциальности не указан, используется пароль проверки подлинности. В качестве протокола конфиденциальности может использоваться DES или AES, по умолчанию — AES.
 
-## Configuring users for SNMP v3
+## Настройка пользователей для SNMP версии 3
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.management-console %}
-{% data reusables.enterprise_management_console.access-monitoring %}
-{% data reusables.enterprise_management_console.enable-snmp %}
-4. Select **SNMP v3**.
-![Button to enable SNMP v3](/assets/images/enterprise/management-console/enable-snmpv3.png)
-5. In "Username", type the unique username of your SNMP v3 user.
-![Field to type the SNMP v3 username](/assets/images/enterprise/management-console/snmpv3-username.png)
-6. In the **Security Level** dropdown menu, click the security level for your SNMP v3 user.
-![Dropdown menu for the SNMP v3 user's security level](/assets/images/enterprise/management-console/snmpv3-securitylevel.png)
-7. For SNMP v3 users with the `authnopriv` security level:
-  ![Settings for the authnopriv security level](/assets/images/enterprise/management-console/snmpv3-authnopriv.png)
+{% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.enterprise_site_admin_settings.management-console %} {% data reusables.enterprise_management_console.access-monitoring %} {% data reusables.enterprise_management_console.enable-snmp %}
+4. Выберите **SNMP версии 3**.
+![Кнопка для включения SNMP версии 3](/assets/images/enterprise/management-console/enable-snmpv3.png)
+5. В поле "Имя пользователя" введите уникальное имя для пользователя SNMP версии 3.
+![Поле для ввода имени пользователя SNMP версии 3](/assets/images/enterprise/management-console/snmpv3-username.png)
+6. В раскрывающемся меню **Уровень безопасности** выберите уровень безопасности для пользователя SNMP версии 3.
+![Раскрывающееся меню для уровня безопасности пользователя SNMP версии 3](/assets/images/enterprise/management-console/snmpv3-securitylevel.png)
+7. Для пользователей SNMP версии 3 с уровнем безопасности `authnopriv`: ![Параметры для уровня безопасности authnopriv](/assets/images/enterprise/management-console/snmpv3-authnopriv.png)
     - {% data reusables.enterprise_management_console.authentication-password %}
     - {% data reusables.enterprise_management_console.authentication-protocol %}
-8. For SNMP v3 users with the `authpriv` security level:
-  ![Settings for the authpriv security level](/assets/images/enterprise/management-console/snmpv3-authpriv.png)
+8. Для пользователей SNMP версии 3 с уровнем безопасности `authpriv`: ![Параметры для уровня безопасности authpriv](/assets/images/enterprise/management-console/snmpv3-authpriv.png)
     - {% data reusables.enterprise_management_console.authentication-password %}
     - {% data reusables.enterprise_management_console.authentication-protocol %}
-    - Optionally, in "Privacy password", type the privacy password.
-    - On the right side of "Privacy password", in the **Protocol** dropdown menu, click the privacy protocol method you want to use.
-9. Click **Add user**.
-![Button to add SNMP v3 user](/assets/images/enterprise/management-console/snmpv3-adduser.png)
-{% data reusables.enterprise_management_console.save-settings %}
+    - При необходимости в поле "Пароль конфиденциальности" введите пароль конфиденциальности.
+    - В правой части раздела "Пароль конфиденциальности" выберите в раскрывающемся меню **Протокол** метод протокола конфиденциальности, который вы хотите использовать.
+9. Нажмите кнопку **Добавить пользователя**.
+![Кнопка для добавления пользователя SNMP версии 3](/assets/images/enterprise/management-console/snmpv3-adduser.png) {% data reusables.enterprise_management_console.save-settings %}
 
-#### Querying SNMP data
+#### Запрос данных SNMP
 
-Both hardware and software-level information about your appliance is available with SNMP v3. Due to the lack of encryption and privacy for the `noAuthNoPriv` and `authNoPriv` security levels, we exclude the `hrSWRun` table (1.3.6.1.2.1.25.4) from the resulting SNMP reports. We include this table if you're using the `authPriv` security level. For more information, see the "[OID reference documentation](https://oidref.com/1.3.6.1.2.1.25.4)." 
+В SNMP версии 3 доступны сведения об устройстве на аппаратном и программном уровнях. Из-за отсутствия шифрования и конфиденциальности, для уровней безопасности `noAuthNoPriv` и `authNoPriv` мы исключаем таблицу `hrSWRun` (1.3.6.1.2.1.25.4) из создаваемых отчетов SNMP. Если вы используете уровень безопасности `authPriv`, мы включаем эту таблицу. Дополнительные сведения см. в [справочной документации по API](https://oidref.com/1.3.6.1.2.1.25.4). 
 
-With SNMP v2c, only hardware-level information about your appliance is available. The applications and services within {% data variables.product.prodname_enterprise %} do not have OIDs configured to report metrics. Several MIBs are available, which you can see by running `snmpwalk` on a separate workstation with SNMP support in your network:
+В SNMP версии 2с доступны сведения об устройстве только на аппаратном уровне. Приложения и службы в {% data variables.product.prodname_enterprise %} не имеют настроенных идентификаторов OID для передачи метрик. Доступны несколько MIB, для получения списка которых можно выполнить `snmpwalk` на отдельной рабочей станции с поддержкой SNMP в сети:
 
 ```shell
 # community-string is your community string
@@ -82,18 +78,18 @@ With SNMP v2c, only hardware-level information about your appliance is available
 $ snmpwalk -v 2c -c COMMUNITY-STRING -O e HOSTNAME
 ```
 
-Of the available MIBs for SNMP, the most useful is `HOST-RESOURCES-MIB` (1.3.6.1.2.1.25). See the table below for some important objects in this MIB:
+Из доступных MIB для SNMP наиболее полезным является `HOST-RESOURCES-MIB` (1.3.6.1.2.1.25). В таблице ниже приведены некоторые важные объекты в этом MIB:
 
-| Name | OID | Description |
+| Имя | OID | Описание |
 | ---- | --- | ----------- |
-| hrSystemDate.2 | 1.3.6.1.2.1.25.1.2 | The hosts notion of the local date and time of day. |
-| hrSystemUptime.0 | 1.3.6.1.2.1.25.1.1.0 | How long it's been since the host was last initialized. |
-| hrMemorySize.0 | 1.3.6.1.2.1.25.2.2.0 | The amount of RAM on the host. |
-| hrSystemProcesses.0 | 1.3.6.1.2.1.25.1.6.0 | The number of process contexts currently loaded or running on the host. |
-| hrStorageUsed.1 | 1.3.6.1.2.1.25.2.3.1.6.1 | The amount of storage space consumed on the host, in hrStorageAllocationUnits. |
-| hrStorageAllocationUnits.1 | 1.3.6.1.2.1.25.2.3.1.4.1 | The size, in bytes, of an hrStorageAllocationUnit |
+| hrSystemDate.2 | 1.3.6.1.2.1.25.1.2 | Представление узлов о локальной дате и времени дня. |
+| hrSystemUptime.0 | 1.3.6.1.2.1.25.1.1.0 | Сколько времени прошло с момента последней инициализации узла. |
+| hrMemorySize.0 | 1.3.6.1.2.1.25.2.2.0 | Объем ОЗУ на виртуальной машине. |
+| hrSystemProcesses.0 | 1.3.6.1.2.1.25.1.6.0 | Количество контекстов процесса, загруженных или выполняющихся на узле в данный момент. |
+| hrStorageUsed.1 | 1.3.6.1.2.1.25.2.3.1.6.1 | Объем дискового пространства, потребляемого на узле, выраженный в hrStorageAllocationUnits. |
+| hrStorageAllocationUnits.1 | 1.3.6.1.2.1.25.2.3.1.4.1 | Размер hrStorageAllocationUnit в байтах |
 
-For example, to query for `hrMemorySize` with SNMP v3, run the following command on a separate workstation with SNMP support in your network:
+Например, чтобы получить `hrMemorySize` по протоколу SNMP версии 3, выполните следующую команду на отдельной рабочей станции с поддержкой SNMP в сети:
 ```shell
 # username is the unique username of your SNMP v3 user
 # auth password is the authentication password
@@ -105,7 +101,7 @@ $ snmpget -v 3 -u USERNAME -l authPriv \
   -O e HOSTNAME HOST-RESOURCES-MIB::hrMemorySize.0
 ```
 
-With SNMP v2c, to query for `hrMemorySize`, run the following command on a separate workstation with SNMP support in your network:
+Чтобы получить `hrMemorySize` по протоколу SNMP версии 2c, выполните следующую команду на отдельной рабочей станции с поддержкой SNMP в сети:
 ```shell
 # community-string is your community string
 # hostname is the IP or domain of your Enterprise instance
@@ -114,8 +110,8 @@ snmpget -v 2c -c COMMUNITY-STRING HOSTNAME HOST-RESOURCES-MIB::hrMemorySize.0
 
 {% tip %}
 
-**Note:** To prevent leaking information about services running on your appliance, we exclude the `hrSWRun` table (1.3.6.1.2.1.25.4) from the resulting SNMP reports unless you're using the `authPriv` security level with SNMP v3. If you're using the `authPriv` security level, we include the `hrSWRun` table.
+**Примечание:** чтобы предотвратить утечку сведений о службах, работающих на устройстве, мы исключаем таблицу `hrSWRun` (1.3.6.1.2.1.25.4) из создаваемых отчетов SNMP, если вы не используете уровень безопасности `authPriv` для SNMP версии 3. Если вы используете уровень безопасности `authPriv`, мы включаем таблицу `hrSWRun`.
 
 {% endtip %}
 
-For more information on OID mappings for common system attributes in SNMP, see "[Linux SNMP OID’s for CPU, Memory and Disk Statistics](http://www.linux-admins.net/2012/02/linux-snmp-oids-for-cpumemory-and-disk.html)".
+Дополнительные сведения о сопоставлениях OID для популярных системных атрибутов SNMP см. в разделе [OID для статистики по ЦП, памяти и дискам в Linux SNMP](http://www.linux-admins.net/2012/02/linux-snmp-oids-for-cpumemory-and-disk.html).

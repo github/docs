@@ -1,6 +1,6 @@
 ---
-title: Managing email preferences
-intro: 'You can add or change the email addresses associated with your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}. You can also manage emails you receive from {% data variables.product.product_name %}.'
+title: Управление настройками электронной почты
+intro: 'Вы можете добавить или изменить адреса электронной почты, связанные с вашей учетной записью, на {% ifversion ghae %}{% данных variables.product.product_name %}{% else %}{% данных variables.location.product_location %}{% endif %}. Вы также можете управлять сообщениями электронной почты, которые вы получаете от {% data variables.product.product_name %}.'
 redirect_from:
   - /categories/managing-email-preferences
   - /articles/managing-email-preferences
@@ -24,5 +24,11 @@ children:
   - /types-of-emails-github-sends
   - /managing-marketing-emails-from-github
 shortTitle: Manage email preferences
+ms.openlocfilehash: 0571ab5999fc45532870a623364e7c25d8315ffe
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148098476'
 ---
 

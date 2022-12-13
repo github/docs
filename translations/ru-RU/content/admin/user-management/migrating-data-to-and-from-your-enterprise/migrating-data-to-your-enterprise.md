@@ -1,6 +1,6 @@
 ---
-title: Migrating data to your enterprise
-intro: 'After generating a migration archive, you can import the data to your target {% data variables.product.prodname_ghe_server %} instance. You''ll be able to review changes for potential conflicts before permanently applying the changes to your target instance.'
+title: Миграция данных на предприятие
+intro: 'После создания архива миграции данные можно импортировать в целевой экземпляр {% data variables.product.prodname_ghe_server %}. Вы сможете просмотреть изменения для потенциальных конфликтов, прежде чем окончательно применить изменения к целевому экземпляру.'
 redirect_from:
   - /enterprise/admin/guides/migrations/importing-migration-data-to-github-enterprise
   - /enterprise/admin/migrations/applying-the-imported-data-on-github-enterprise-server
@@ -19,18 +19,24 @@ topics:
   - Enterprise
   - Migration
 shortTitle: Import to your enterprise
+ms.openlocfilehash: 9c8e31f1b20eb6c71ab6a31c5d202100e345e82d
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148093676'
 ---
-## Applying the imported data on {% data variables.product.prodname_ghe_server %}
+## Применение импортированных данных к {% data variables.product.prodname_ghe_server %}
 
-Before you can migrate data to your enterprise, you must prepare the data and resolve any conflicts. For more information, see "[Preparing to migrate data to your enterprise](/admin/user-management/preparing-to-migrate-data-to-your-enterprise)."
+Перед миграцией данных на предприятие необходимо подготовить данные и устранить любые конфликты. Дополнительные сведения см. в разделе [Подготовка к переносу данных в ваше предприятие](/admin/user-management/preparing-to-migrate-data-to-your-enterprise).
 
-After you prepare the data and resolve conflicts, you can apply the imported data on {% data variables.product.product_name %}.
+После подготовки данных и разрешения конфликтов можно применить импортированные данные к {% data variables.product.product_name %}.
 
 {% data reusables.enterprise_installation.ssh-into-target-instance %}
 
-2. Using the `ghe-migrator import` command, start the import process. You'll need:
-    * Your Migration GUID. For more information, see "[Preparing to migrate data to your enterprise](/admin/user-management/preparing-to-migrate-data-to-your-enterprise)."
-    * Your {% data variables.product.pat_generic %} for authentication. The {% data variables.product.pat_generic %} that you use is only for authentication as a site administrator, and does not require any specific scope{% ifversion pat-v2 %} or permissions{% endif %}. For more information, see "[Creating a {% data variables.product.pat_generic %}](/github/authenticating-to-github/creating-a-personal-access-token)."
+2. С помощью команды `ghe-migrator import` запустите процесс импорта. Что вам понадобится:
+    * GUID миграции. Дополнительные сведения см. в разделе [Подготовка к переносу данных в ваше предприятие](/admin/user-management/preparing-to-migrate-data-to-your-enterprise).
+    * Данные {% variables.product.pat_generic %} для проверки подлинности. Используемые данные {% variables.product.pat_generic %} используются только для проверки подлинности в качестве администратора сайта и не требуют какой-либо конкретной области{% ifversion pat-v2 %} или разрешений{% endif %}. Дополнительные сведения см. в разделе "[Создание {% данных variables.product.pat_generic %}](/github/authenticating-to-github/creating-a-personal-access-token)".
 
     ```shell
     $ ghe-migrator import /home/admin/MIGRATION-GUID.tar.gz -g MIGRATION-GUID -u USERNAME -p TOKEN
@@ -41,71 +47,71 @@ After you prepare the data and resolve conflicts, you can apply the imported dat
 
     * {% data reusables.enterprise_migrations.specify-staging-path %}
 
-## Reviewing migration data
+## Проверка данных миграции
 
-By default, `ghe-migrator audit` returns every record. It also allows you to filter records by:
+По умолчанию `ghe-migrator audit` возвращает каждую запись. Кроме того, это позволяет фильтровать записи по следующим критериям:
 
-  * The types of records.
-  * The state of the records.
+  * Типы записей.
+  * Состояние записей.
 
-The record types match those found in the [migrated data](/enterprise/admin/guides/migrations/about-migrations/#migrated-data).
+Типы записей соответствуют тем, которые находятся в [перенесенных данных](/enterprise/admin/guides/migrations/about-migrations/#migrated-data).
 
-## Record type filters
+## Фильтры типов записей
 
-|      Record type      | Filter name  |
+|      Тип записи      | Имя фильтра  |
 |-----------------------|--------|
-| Users           | `user`
-| Organizations   | `organization`
-| Repositories    | `repository`
+| Пользователи           | `user`
+| Организации   | `organization`
+| Репозитории    | `repository`
 | Teams           | `team`
-| Milestones      | `milestone`
-| Project boards  | `project`
-| Issues          | `issue`
-| Issue comments  | `issue_comment`
-| Pull requests   | `pull_request`
-| Pull request reviews | `pull_request_review`
-| Commit comments | `commit_comment`
-| Pull request review comments | `pull_request_review_comment`
-| Releases | `release`
-| Actions taken on pull requests or issues | `issue_event`
-| Protected branches | `protected_branch`
+| Вехи      | `milestone`
+| Панели проектов  | `project`
+| Проблемы          | `issue`
+| Комментарии к проблеме  | `issue_comment`
+| Запросы на вытягивание   | `pull_request`
+| Проверки запросов на включение изменений | `pull_request_review`
+| Комментарии фиксации | `commit_comment`
+| Комментарии к проверке запроса на вытягивание | `pull_request_review_comment`
+| Выпуски | `release`
+| Действия, выполняемые для запросов на вытягивание или проблем | `issue_event`
+| Защищенные ветви | `protected_branch`
 
-## Record state filters
+## Фильтры состояния записи
 
-| Record state    | Description    |
+| Состояние записи    | Описание    |
 |-----------------|----------------|
-| `export`        | The record will be exported. |
-| `import`        | The record will be imported. |
-| `map`           | The record will be mapped. |
-| `rename`        | The record will be renamed. |
-| `merge`         | The record will be merged. |
-| `exported`      | The record was successfully exported. |
-| `imported`      | The record was successfully imported. |
-| `mapped`        | The record was successfully mapped. |
-| `renamed`       | The record was successfully renamed. |
-| `merged`        | The record was successfully merged. |
-| `failed_export` | The record failed to export. |
-| `failed_import` | The record failed to be imported. |
-| `failed_map`    | The record failed to be mapped. |
-| `failed_rename` | The record failed to be renamed. |
-| `failed_merge`  | The record failed to be merged. |
+| `export`        | Запись будет экспортирована. |
+| `import`        | Запись будет импортирована. |
+| `map`           | Запись будет сопоставлена. |
+| `rename`        | Запись будет сопоставлена. |
+| `merge`         | Запись будет объединена. |
+| `exported`      | Запись экспортирована успешно. |
+| `imported`      | Запись импортирована успешно. |
+| `mapped`        | Запись сопоставлена успешно. |
+| `renamed`       | Запись переименована успешно. |
+| `merged`        | Запись объединена успешно. |
+| `failed_export` | Не удалось экспортировать запись. |
+| `failed_import` | Не удалось импортировать запись. |
+| `failed_map`    | Не удалось сопоставить запись. |
+| `failed_rename` | Не удалось переименовать запись. |
+| `failed_merge`  | Не удалось объединить запись. |
 
-## Filtering audited records
+## Фильтрация записей аудита
 
-With the `ghe-migrator audit` command, you can filter based on the record type using the `-m` flag. Similarly, you can filter on the import state using the `-s` flag. The command looks like this:
+С помощью команды `ghe-migrator audit` можно отфильтровать данные по типу записи с помощью флага `-m`. Аналогичным образом можно отфильтровать состояние импорта с помощью флага `-s`. Эта команда выглядит следующим образом:
 
 ```shell
 $ ghe-migrator audit -m RECORD_TYPE -s STATE -g MIGRATION-GUID
 ```
 
-For example, to view every successfully imported organization and team, you would enter:
+Например, чтобы просмотреть каждую успешно импортированную организацию и команду, необходимо ввести следующее:
 ```shell
 $ ghe-migrator audit -m organization,team -s mapped,renamed -g MIGRATION-GUID
 > model_name,source_url,target_url,state
 > organization,https://gh.source/octo-org/,https://ghe.target/octo-org/,renamed
 ```
 
-**We strongly recommend auditing every import that failed.** To do that, you will enter:
+**Настоятельно рекомендуется проводить аудит каждой операции импорта, завершившейся сбоем.** Для этого введите:
 ```shell
 $ ghe-migrator audit -s failed_import,failed_map,failed_rename,failed_merge -g MIGRATION-GUID
 > model_name,source_url,target_url,state
@@ -113,25 +119,24 @@ $ ghe-migrator audit -s failed_import,failed_map,failed_rename,failed_merge -g M
 > repository,https://gh.source/octo-org/octo-project,https://ghe.target/octo-org/octo-project,failed
 ```
 
-If you have any concerns about failed imports, contact {% data variables.contact.contact_ent_support %}.
+Если у вас возникли проблемы с ошибками импорта, обратитесь к {% data variables.contact.contact_ent_support %}.
 
-## Completing the import on {% data variables.product.prodname_ghe_server %}
+## Завершение импорта в {% data variables.product.prodname_ghe_server %}
 
-After your migration is applied to your target instance and you have reviewed the migration, you''ll unlock the repositories and delete them off the source. Before deleting your source data we recommend waiting around two weeks to ensure that everything is functioning as expected.
+После применения миграции к целевому экземпляру и проверки миграции следует разблокировать репозитории и удалить их из источника. Перед удалением исходных данных рекомендуется подождать около двух недель, чтобы убедиться, что все работает должным образом.
 
-## Unlocking repositories on the target instance
+## Разблокировка репозиториев на целевом экземпляре
 
-{% data reusables.enterprise_installation.ssh-into-instance %}
-{% data reusables.enterprise_migrations.unlocking-on-instances %}
+{% data reusables.enterprise_installation.ssh-into-instance %} {% data reusables.enterprise_migrations.unlocking-on-instances %}
 
-## Unlocking repositories on the source
+## Разблокировка репозиториев в источнике
 
-### Unlocking repositories from an organization on {% data variables.product.prodname_dotcom_the_website %}
+### Разблокировка репозиториев из организации в {% data variables.product.prodname_dotcom_the_website %}
 
-To unlock the repositories on a {% data variables.product.prodname_dotcom_the_website %} organization, you'll send a `DELETE` request to [the migration unlock endpoint](/free-pro-team@latest/rest/migrations#unlock-an-organization-repository). You'll need:
-  * Your access token for authentication
-  * The unique `id` of the migration
-  * The name of the repository to unlock
+Чтобы разблокировать репозитории в организации {% data variables.product.prodname_dotcom_the_website %}, отправьте запрос `DELETE` в [конечную точку разблокировки миграции](/free-pro-team@latest/rest/migrations#unlock-an-organization-repository). Что вам понадобится:
+  * Маркер доступа для проверки подлинности
+  * Уникальный `id` миграции
+  * Имя репозитория для разблокировки
 
 ```shell
 curl -H "Authorization: Bearer GITHUB_ACCESS_TOKEN" -X DELETE \
@@ -139,15 +144,14 @@ curl -H "Authorization: Bearer GITHUB_ACCESS_TOKEN" -X DELETE \
   https://api.github.com/orgs/ORG-NAME/migrations/ID/repos/REPO_NAME/lock
 ```
 
-### Deleting repositories from an organization on {% data variables.product.prodname_dotcom_the_website %}
+### Удаление репозиториев из организации в {% data variables.product.prodname_dotcom_the_website %}
 
-After unlocking the {% data variables.product.prodname_dotcom_the_website %} organization's repositories, you should delete every repository you previously migrated using [the repository delete endpoint](/rest/repos/#delete-a-repository). You'll need your access token for authentication:
+После разблокировки репозиториев организации {% data variables.product.prodname_dotcom_the_website %} следует удалить каждый репозиторий, перенесенный ранее с помощью [конечной точки удаления репозитория](/rest/repos/#delete-a-repository). Вам потребуется маркер доступа для проверки подлинности
 ```shell
 curl -H "Authorization: Bearer GITHUB_ACCESS_TOKEN" -X DELETE \
   https://api.github.com/repos/ORG-NAME/REPO_NAME
 ```
 
-### Unlocking repositories from a {% data variables.product.prodname_ghe_server %} instance
+### Разблокировка репозиториев из экземпляра {% data variables.product.prodname_ghe_server %}
 
-{% data reusables.enterprise_installation.ssh-into-instance %}
-{% data reusables.enterprise_migrations.unlocking-on-instances %}
+{% data reusables.enterprise_installation.ssh-into-instance %} {% data reusables.enterprise_migrations.unlocking-on-instances %}

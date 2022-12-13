@@ -1,107 +1,111 @@
 ---
-title: Autoscaling with self-hosted runners
+title: Автомасштабирование с помощью локальных средств выполнения
 shortTitle: Autoscale self-hosted runners
-intro: You can automatically scale your self-hosted runners in response to webhook events.
+intro: Вы можете автоматически масштабировать локальные средства выполнения тестов в ответ на события веб-перехватчика.
 versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
   ghae: '*'
 type: overview
+ms.openlocfilehash: 2fe0c197ac122ea9cd976c2718a492bd80c073fe
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148107560'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+## Сведения об автомасштабировании
 
-## About autoscaling
+Вы можете автоматически увеличивать или уменьшать количество локальных средств выполнения в вашей среде в ответ на полученные события веб-перехватчика с определенной меткой. Например, можно создать автоматизацию, которая добавляет новое локальное средство выполнения при каждом получении события веб-перехватчика [`workflow_job`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_job) с действием [`queued`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_job), которое уведомляет о готовности нового задания к обработке. Полезные данные веб-перехватчика содержат данные метки, поэтому вы можете определить тип средства выполнения, который запрашивает задание. После завершения задания можно создать автоматизацию, которая удаляет средство выполнения в ответ на действие `workflow_job` [`completed`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_job). 
 
-You can automatically increase or decrease the number of self-hosted runners in your environment in response to the webhook events you receive with a particular label. For example, you can create automation that adds a new self-hosted runner each time you receive a [`workflow_job`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_job) webhook event with the  [`queued`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_job) activity, which notifies you that a new job is ready for processing. The webhook payload includes label data, so you can identify the type of runner the job is requesting. Once the job has finished, you can then create automation that removes the runner in response to the `workflow_job` [`completed`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_job) activity. 
+## Рекомендуемые решения автомасштабирования
 
-## Recommended autoscaling solutions
+{% data variables.product.prodname_dotcom %} тесно сотрудничает с двумя проектами открытого кода, которые рекомендуется использовать для автомасштабирования средств выполнения. В зависимости от ваших потребностей вам может подойти одно или оба решения. 
 
-{% data variables.product.prodname_dotcom %} recommends and partners closely with two open source projects that you can use for autoscaling your runners. One or both solutions may be suitable, based on your needs. 
+Следующие репозитории содержат подробные инструкции по настройке этих средств автомасштабирования. 
 
-The following repositories have detailed instructions for setting up these autoscalers: 
+- [actions-runner-controller/actions-runner-controller](https://github.com/actions-runner-controller/actions-runner-controller) — контроллер Kubernetes для локальных средств выполнения {% data variables.product.prodname_actions %}.
+- [philips-labs/terraform-aws-github-runner](https://github.com/philips-labs/terraform-aws-github-runner) — модуль Terraform для масштабируемых средств выполнения {% data variables.product.prodname_actions %} в Amazon Web Services.
 
-- [actions-runner-controller/actions-runner-controller](https://github.com/actions-runner-controller/actions-runner-controller) - A Kubernetes controller for {% data variables.product.prodname_actions %} self-hosted runners.
-- [philips-labs/terraform-aws-github-runner](https://github.com/philips-labs/terraform-aws-github-runner) - A Terraform module for scalable {% data variables.product.prodname_actions %} runners on Amazon Web Services.
+Каждое решение имеет определенные особенности, которые важно учитывать.
 
-Each solution has certain specifics that may be important to consider:
-
-| **Features** | **actions-runner-controller** | **terraform-aws-github-runner** |
+| **Функции** | **actions-runner-controller** | **terraform-aws-github-runner** |
 | :--- | :--- | :--- |
-| Runtime | Kubernetes | Linux and Windows VMs |
-| Supported Clouds | Azure, Amazon Web Services, Google Cloud Platform, on-premises | Amazon Web Services |
-| Where runners can be scaled | Enterprise, organization, and repository levels. By runner label and runner group. | Organization and repository levels. By runner label and runner group. |
-| How runners can be scaled | Webhook events, Scheduled, Pull-based | Webhook events, Scheduled (org-level runners only) |
+| Параметры выполнения | Kubernetes | Виртуальные машины Linux и Windows |
+| Поддерживаемые облака | Azure, Amazon Web Services, Google Cloud Platform, локальная среда | Amazon Web Services |
+| Где можно масштабировать средства выполнения | Уровни предприятия, организации и репозитория. По метке и по группе средства выполнения. | Уровни организации и репозитория. По метке и по группе средства выполнения. |
+| Как можно масштабировать средства выполнения | События веб-перехватчика, по расписанию, по запросу | События веб-перехватчика, по расписанию (только средства выполнения на уровне организации) |
 
-## Using ephemeral runners for autoscaling
+## Использование временных средств выполнения для автомасштабирования
 
-{% data variables.product.prodname_dotcom %} recommends implementing autoscaling with ephemeral self-hosted runners; autoscaling with persistent self-hosted runners is not recommended. In certain cases, {% data variables.product.prodname_dotcom %} cannot guarantee that jobs are not assigned to persistent runners while they are shut down. With ephemeral runners, this can be guaranteed because {% data variables.product.prodname_dotcom %} only assigns one job to a runner.
+{% data variables.product.prodname_dotcom %} рекомендует реализовать автомасштабирование с помощью временных локальных средств выполнения. Автомасштабирование с постоянными локальными средствами выполнения не рекомендуется. В некоторых случаях {% data variables.product.prodname_dotcom %} не может гарантировать, что задания не назначаются постоянным средствам выполнения, которые завершили работу. При использовании временных средств выполнения это может быть гарантировано, так как {% data variables.product.prodname_dotcom %} назначает средству выполнения только одно задание.
 
-This approach allows you to manage your runners as ephemeral systems, since you can use automation to provide a clean environment for each job. This helps limit the exposure of any sensitive resources from previous jobs, and also helps mitigate the risk of a compromised runner receiving new jobs.  
+Такой подход позволяет управлять средствами выполнения как временными системами, так как вы можете использовать автоматизацию для обеспечения новой среды для каждого задания. Это помогает ограничить уязвимость любых конфиденциальных ресурсов из предыдущих заданий, а также снизить риск получения новых заданий скомпрометированным средством выполнения.  
 
-To add an ephemeral runner to your environment, include the `--ephemeral` parameter when registering your runner using `config.sh`. For example:
+Чтобы добавить в вашу среду временное средство выполнения, включите параметр `--ephemeral` при регистрации средства выполнения с помощью `config.sh`. Пример:
 
 ```shell
 ./config.sh --url https://github.com/octo-org --token example-token --ephemeral
 ```
 
-The {% data variables.product.prodname_actions %} service will then automatically de-register the runner after it has processed one job. You can then create your own automation that wipes the runner after it has been de-registered.
+Служба {% data variables.product.prodname_actions %} автоматически отменяет регистрацию средства выполнения после обработки одного задания. Затем вы можете создать собственную автоматизацию, которая очищает средство выполнения после отмены его регистрации.
 
 {% note %}
 
-**Note:**  If a job is labeled for a certain type of runner, but none matching that type are available, the job does not immediately fail at the time of queueing. Instead, the job will remain queued until the 24 hour timeout period expires.
+**Примечание.** Если задание помечено для средств выполнения определенного типа, но ни одно из них недоступно, задание в очереди не сразу завершается сбоем. Оно будет оставаться в очереди до истечения 24-часового периода ожидания.
 
 {% endnote %}
 
-{% ifversion fpt or ghec or ghes > 3.4 or ghae %}
+{% ifversion fpt или ghec или ghes > 3.4 или ghae %}
 
-## Controlling runner software updates on self-hosted runners
+## Управление обновлениями программного обеспечения на локальных средствах выполнения
 
-By default, self-hosted runners will automatically perform a software update whenever a new version of the runner software is available.  If you use ephemeral runners in containers then this can lead to repeated software updates when a new runner version is released.  Turning off automatic updates allows you to update the runner version on the container image directly on your own schedule.
+По умолчанию локальные средства выполнения будут автоматически выполнять обновление программного обеспечения каждый раз, когда становится доступной новая версия программного обеспечения средства выполнения.  Если в контейнерах используются временные средства выполнения, это может привести к неоднократным обновлениям программного обеспечения при выпуске новой версии средства выполнения.  Отключение автоматических обновлений позволяет обновлять версию средства выполнения в образе контейнера напрямую по собственному расписанию.
 
-To turn off automatic software updates and install software updates yourself, specify the `--disableupdate` flag when registering your runner using `config.sh`. For example:
+Чтобы отключить автоматическое обновление программного обеспечения и устанавливать обновления программного обеспечения самостоятельно, укажите флаг `--disableupdate` при регистрации средства выполнения с помощью `config.sh`. Пример:
 
 ```shell
 ./config.sh --url https://github.com/YOUR-ORGANIZATION --token EXAMPLE-TOKEN --disableupdate
 ```
 
-If you disable automatic updates, you must still update your runner version regularly.  New functionality in {% data variables.product.prodname_actions %} requires changes in both the {% data variables.product.prodname_actions %} service _and_ the runner software.  The runner may not be able to correctly process jobs that take advantage of new features in {% data variables.product.prodname_actions %} without a software update.
+Если автоматические обновления отключены, необходимо регулярно обновлять версию средства выполнения.  Для использования новых функциональных возможностей в {% data variables.product.prodname_actions %} требуются изменения как в службе {% data variables.product.prodname_actions %}, _так и_ в программном обеспечении средства выполнения.  Средство выполнения не сможет правильно обрабатывать задания, использующие новые функции в {% data variables.product.prodname_actions %}, без обновления программного обеспечения.
 
-If you disable automatic updates, you will be required to update your runner version within 30 days of a new version being made available.  You may want to subscribe to notifications for releases in the [`actions/runner` repository](https://github.com/actions/runner/releases). For more information, see "[Configuring notifications](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#about-custom-notifications)."
+Если вы отключаете автоматическое обновление, то должны будете обновлять версию средства выполнения в течение 30 дней после того, как станет доступной новая версия.  Вы можете подписаться на уведомления о выпусках в [репозитории`actions/runner`](https://github.com/actions/runner/releases). Дополнительные сведения см. в разделе [Настройка уведомлений](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#about-custom-notifications).
 
-For instructions on how to install the latest runner version, see the installation instructions for [the latest release](https://github.com/actions/runner/releases).
+Инструкции по установке последней версии средства выполнения см. в инструкциях по установке [последнего выпуска](https://github.com/actions/runner/releases).
 
 {% note %}
 
-**Note:** If you do not perform a software update within 30 days, the {% data variables.product.prodname_actions %} service will not queue jobs to your runner.  In addition, if a critical security update is required, the {% data variables.product.prodname_actions %} service will not queue jobs to your runner until it has been updated.
+**Примечание.** Если вы не выполните обновление программного обеспечения в течение 30 дней, служба {% data variables.product.prodname_actions %} не будет помещать задания в очередь для вашего средства выполнения.  Кроме того, если требуется критическое обновление системы безопасности, служба {% data variables.product.prodname_actions %} не будет помещать задания в очередь для вашего средства выполнения до его обновления.
 
 {% endnote %}
 
 {% endif %}
 
-## Using webhooks for autoscaling
+## Использование веб-перехватчиков для автомасштабирования
 
-You can create your own autoscaling environment by using payloads received from the [`workflow_job`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_job) webhook. This webhook is available at the repository, organization, and enterprise levels, and the payload for this event contains an `action` key that corresponds to the stages of a workflow job's life-cycle; for example when jobs are `queued`, `in_progress`, and `completed`. You must then create your own scaling automation in response to these webhook payloads.
+Вы можете создать собственную среду автомасштабирования с помощью полезных данных, полученных от веб-перехватчика [`workflow_job`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_job). Этот веб-перехватчик доступен на уровне репозитория, организации и предприятия, а полезные данные для этого события содержат ключ `action`, соответствующий этапам жизненного цикла задания рабочего процесса, например, когда задания `queued`, `in_progress` и `completed`. Затем вы должны создать собственную автоматизацию масштабирования в ответ на эти полезные данные веб-перехватчика.
 
-- For more information about the `workflow_job` webhook, see "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_job)."
-- To learn how to work with webhooks, see "[Creating webhooks](/developers/webhooks-and-events/webhooks/creating-webhooks)."
+- Дополнительные сведения о веб-перехватчике `workflow_job` см. в разделе [События и полезные данные веб-перехватчика](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_job).
+- Сведения о том, как работать с веб-перехватчиками, см. в разделе [Создание веб-перехватчиков](/developers/webhooks-and-events/webhooks/creating-webhooks).
 
-## Authentication requirements
+## Требования к проверке подлинности
 
-You can register and delete repository and organization self-hosted runners using [the API](/rest/reference/actions#self-hosted-runners). To authenticate to the API, your autoscaling implementation can use an access token or a {% data variables.product.prodname_dotcom %} app. 
+Вы можете регистрировать и удалять репозиторий и локальные средства выполнения организации с помощью [API](/rest/reference/actions#self-hosted-runners). Для проверки подлинности в API в вашей реализации автомасштабирования может использоваться маркер доступа или приложение {% data variables.product.prodname_dotcom %}. 
 
-Your access token will require the following scope:
+Для маркера доступа потребуется следующая область.
 
-- For private repositories, use an access token with the [`repo` scope](/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/#available-scopes).
-- For public repositories, use an access token with the [`public_repo` scope](/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/#available-scopes).
-- For organizations, use an access token with the [`admin:org` scope](/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/#available-scopes).
+- Для частных репозиториев используйте маркер доступа с [областью`repo`](/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/#available-scopes).
+- Для общедоступных репозиториев используйте маркер доступа с [областью`public_repo`](/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/#available-scopes).
+- Для организаций используйте маркер доступа с [областью`admin:org`](/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/#available-scopes).
 
-To  authenticate using a {% data variables.product.prodname_dotcom %} App, it must be assigned the following permissions:
-- For repositories, assign the `administration` permission.
-- For organizations, assign the `organization_self_hosted_runners` permission.
+Для проверки подлинности с помощью приложения {% data variables.product.prodname_dotcom %} необходимо назначить следующие разрешения.
+- Для репозиториев назначьте разрешение `administration`.
+- Для организаций назначьте разрешение `organization_self_hosted_runners`.
 
-You can register and delete enterprise self-hosted runners using [the API](/rest/reference/actions#self-hosted-runners). To authenticate to the API, your autoscaling implementation can use an access token.
+Вы можете регистрировать и удалять локальные средства выполнения предприятия с помощью [API](/rest/reference/actions#self-hosted-runners). Для проверки подлинности в API в вашей реализации автомасштабирования может использоваться маркер доступа.
 
-Your access token will require the `manage_runners:enterprise` scope.
+Для маркера доступа потребуется область `manage_runners:enterprise`.

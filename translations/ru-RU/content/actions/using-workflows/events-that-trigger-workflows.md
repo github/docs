@@ -1,6 +1,6 @@
 ---
-title: Events that trigger workflows
-intro: 'You can configure your workflows to run when specific activity on {% data variables.product.product_name %} happens, at a scheduled time, or when an event outside of {% data variables.product.product_name %} occurs.'
+title: 'События, инициирующие рабочие процессы'
+intro: 'Вы можете настроить рабочие процессы таким образом, чтобы они запускались при выполнении определенного действия в {% data variables.product.product_name %}, в запланированное время или при возникновении события за пределами {% data variables.product.product_name %}.'
 miniTocMaxHeadingLevel: 3
 redirect_from:
   - /articles/events-that-trigger-workflows
@@ -14,34 +14,39 @@ versions:
   ghae: '*'
   ghec: '*'
 shortTitle: Events that trigger workflows
+ms.openlocfilehash: 0b98c948f4246257336f174498596f3d3115cb08
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148093604'
 ---
+## Сведения о событиях, которые активируют рабочие процессы
 
-## About events that trigger workflows
+Триггеры рабочего процесса — это события, которые приводят к запуску рабочего процесса. Дополнительные сведения об использовании триггеров рабочего процесса см. в разделе [Активация рабочего процесса](/actions/using-workflows/triggering-a-workflow).
 
-Workflow triggers are events that cause a workflow to run. For more information about how to use workflow triggers, see "[Triggering a workflow](/actions/using-workflows/triggering-a-workflow)."
+## Доступные события
 
-## Available events
-
-Some events have multiple activity types. For these events, you can specify which activity types will trigger a workflow run. For more information about what each activity type means, see "[Webhook events and payloads](/developers/webhooks-and-events/webhook-events-and-payloads)." Note that not all webhook events trigger workflows.
+Некоторые события предусматривают несколько типов действий. Для таких событий можно указать типы действий, которые будут активировать рабочий процесс. Дополнительные сведения о каждом типе действия см. в разделе [События и полезные данные веб-перехватчика](/developers/webhooks-and-events/webhook-events-and-payloads). Обратите внимание, что не каждое событие веб-перехватчика активирует рабочие процессы.
 
 {% ifversion fpt or ghec or ghes > 3.3 or ghae  %}
 ### `branch_protection_rule`
 
-| Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
+| Полезные данные события веб-перехватчика | Типы действий | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
-| [`branch_protection_rule`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#branch_protection_rule) | - `created`<br/>- `edited`<br/>- `deleted` | Last commit on default branch | Default branch |
+| [`branch_protection_rule`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#branch_protection_rule) | - `created`<br/>- `edited`<br/>- `deleted` | Последняя фиксация в ветви по умолчанию | Ветвь по умолчанию |
 
 {% note %}
 
-**Note**: {% data reusables.developer-site.multiple_activity_types %} For information about each activity type, see "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#branch_protection_rule)." {% data reusables.developer-site.limit_workflow_to_activity_types %}
+**Примечание**.{% data reusables.developer-site.multiple_activity_types %} Дополнительные сведения о каждом типе действия см. в разделе [События и полезные данные веб-перехватчика](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#branch_protection_rule). {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 {% endnote %}
 
 {% data reusables.actions.branch-requirement %}
 
-Runs your workflow when branch protection rules in the workflow repository are changed. For more information about branch protection rules, see "[About protected branches](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches)." For information about the branch protection rule APIs, see "[BranchProtectionRule](/graphql/reference/objects#branchprotectionrule)" in the GraphQL API documentation or "[Branches](/rest/reference/branches)" in the REST API documentation.
+Это событие запускает рабочий процесс при изменении правил защиты ветви в репозитории рабочих процессов. Дополнительные сведения о правилах защиты ветви см. в разделе [Сведения о защищенных ветвях](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches). Сведения об API-интерфейсах правил защиты ветви см. в разделе [Правило BranchProtectionRule](/graphql/reference/objects#branchprotectionrule) документации по API GraphQL или в разделе [Ветви](/rest/reference/branches) документации по REST API.
 
-For example, you can run a workflow when a branch protection rule has been `created` or `deleted`:
+Например, можно запустить рабочий процесс, если к правилу защиты ветви был применен тип действия `created` или `deleted`:
 
 ```yaml
 on:
@@ -53,21 +58,21 @@ on:
 
 ### `check_run`
 
-| Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
+| Полезные данные события веб-перехватчика | Типы действий | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
-| [`check_run`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#check_run) | - `created`<br/>- `rerequested`<br/>- `completed`<br/>-`requested_action` | Last commit on default branch | Default branch |
+| [`check_run`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#check_run) | - `created`<br/>- `rerequested`<br/>- `completed`<br/>-`requested_action` | Последняя фиксация в ветви по умолчанию | Ветвь по умолчанию |
 
 {% note %}
 
-**Note**: {% data reusables.developer-site.multiple_activity_types %} For information about each activity type, see "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#check_run)." {% data reusables.developer-site.limit_workflow_to_activity_types %}
+**Примечание**.{% data reusables.developer-site.multiple_activity_types %} Дополнительные сведения о каждом типе действия см. в разделе [События и полезные данные веб-перехватчика](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#check_run). {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 {% endnote %}
 
 {% data reusables.actions.branch-requirement %}
 
-Runs your workflow when activity related to a check run occurs. A check run is an individual test that is part of a check suite. For information, see "[Getting started with the Checks API](/rest/guides/getting-started-with-the-checks-api)." For information about the check run APIs, see "[CheckRun](/graphql/reference/objects#checkrun)" in the GraphQL API documentation or "[Checks](/rest/reference/checks#runs)" in the REST API documentation.
+Это событие запускает рабочий процесс при действии, связанном с выполнением проверки. Выполнение проверки — это отдельный тест, входящий в состав набора проверок. Дополнительные сведения см. в разделе [Начало работы с API проверок](/rest/guides/getting-started-with-the-checks-api). Сведения об API запуска проверки см. в разделе [CheckRun](/graphql/reference/objects#checkrun) документации по API GraphQL или в разделе [Проверки](/rest/reference/checks#runs) документации по REST API.
 
-For example, you can run a workflow when a check run has been `rerequested` or `completed`.
+Например, можно запустить рабочий процесс, если проверка имеет тип действия `rerequested` или `completed`.
 
 ```yaml
 on:
@@ -77,13 +82,13 @@ on:
 
 ### `check_suite`
 
-| Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
+| Полезные данные события веб-перехватчика | Типы действий | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
-| [`check_suite`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#check_suite) | - `completed` | Last commit on default branch | Default branch |
+| [`check_suite`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#check_suite) | - `completed` | Последняя фиксация в ветви по умолчанию | Ветвь по умолчанию |
 
 {% note %}
 
-**Note**: {% data reusables.developer-site.multiple_activity_types %} For information about each activity type, see "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#check_suite)." Although only the `started` activity type is supported, specifying the activity type will keep your workflow specific if more activity types are added in the future. {% data reusables.developer-site.limit_workflow_to_activity_types %}
+**Примечание**. {% data reusables.developer-site.multiple_activity_types %} Дополнительные сведения о каждом типе действия см. в разделе [События и полезные данные веб-перехватчика](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#check_suite). Несмотря на то, что поддерживается только тип действия `started`, указание типа действия позволит сохранить специфичность рабочего процесса, что важно при добавлении других типов действия в будущем. {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 {% endnote %}
 
@@ -91,13 +96,13 @@ on:
 
 {% note %}
 
-**Note:** To prevent recursive workflows, this event does not trigger workflows if the check suite was created by {% data variables.product.prodname_actions %}.
+**Примечание**. В целях предотвращения рекурсивных рабочих процессов это событие не должно активировать рабочие процессы в случаях, когда набор проверок был создан с помощью действий {% data variables.product.prodname_actions %}.
 
 {% endnote %}
 
-Runs your workflow when check suite activity occurs. A check suite is a collection of the check runs created for a specific commit. Check suites summarize the status and conclusion of the check runs that are in the suite. For information, see "[Getting started with the Checks API](/rest/guides/getting-started-with-the-checks-api)." For information about the check suite APIs, see "[CheckSuite](/graphql/reference/objects#checksuite)" in the GraphQL API documentation or "[Checks](/rest/reference/checks#suites)" in the REST API documentation.
+Это событие запускает рабочий процесс при выполнении действий, связанных с набором проверок. Набор проверок — это коллекция запусков проверок, созданных для определенной фиксации. Набор проверок позволяет получить общее заключение о состоянии выполнения проверок, входящих в состав набора. Дополнительные сведения см. в разделе [Начало работы с API проверок](/rest/guides/getting-started-with-the-checks-api). Сведения об API набора проверок см. в разделе [CheckSuite](/graphql/reference/objects#checksuite) документации по API GraphQL или в разделе [Проверки](/rest/reference/checks#suites) документации по REST API.
 
-For example, you can run a workflow when a check suite has been `completed`.
+Например, можно запустить рабочий процесс, если набор проверок находится в состоянии `completed`.
 
 ```yaml
 on:
@@ -107,19 +112,19 @@ on:
 
 ### `create`
 
-| Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
+| Полезные данные события веб-перехватчика | Типы действий | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
-| [`create`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#create) | n/a | Last commit on the created branch or tag | Branch or tag created |
+| [`create`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#create) | Недоступно | Последняя фиксация в созданной ветви или теге | Созданная ветвь или тег |
 
 {% note %}
 
-**Note**: An event will not be created when you create more than three tags at once.
+**Примечание**. При одновременном создании более трех тегов событие не создается.
 
 {% endnote %}
 
-Runs your workflow when someone creates a Git reference (Git branch or tag) in the workflow's repository. For information about the APIs to create a Git reference, see "[createRef](/graphql/reference/mutations#createref)" in the GraphQL API documentation or "[Create a reference](/rest/reference/git#create-a-reference)" in the REST API documentation.
+Это событие запускает рабочий процесс при создании ссылки на Git (ветвь или тег Git) из репозитория рабочего процесса. Сведения об API-интерфейсах для создания ссылки на Git см. в разделе [createRef](/graphql/reference/mutations#createref) документации по API GraphQL или в разделе [Создание ссылки](/rest/reference/git#create-a-reference) документации по REST API.
 
-For example, you can run a workflow when the `create` event occurs.
+Например, можно запустить рабочий процесс при возникновении события `create`.
 
 ```yaml
 on:
@@ -128,21 +133,21 @@ on:
 
 ### `delete`
 
-| Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
+| Полезные данные события веб-перехватчика | Типы действий | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
-| [`delete`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#delete) | n/a | Last commit on default branch | Default branch |
+| [`delete`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#delete) | Недоступно | Последняя фиксация в ветви по умолчанию | Ветвь по умолчанию |
 
 {% data reusables.actions.branch-requirement %}
 
 {% note %}
 
-**Note**: An event will not be created when you delete more than three tags at once.
+**Примечание**. При одновременном удалении более трех тегов событие не создается.
 
 {% endnote %}
 
-Runs your workflow when someone deletes a Git reference (Git branch or tag) in the workflow's repository. For information about the APIs to delete a Git reference, see "[deleteRef](/graphql/reference/mutations#deleteref)" in the GraphQL API documentation or "[Delete a reference](/rest/reference/git#delete-a-reference)" in the REST API documentation.
+Это событие запускает рабочий процесс при удалении ссылки на Git (ветвь или тег Git) из репозитория рабочего процесса. Сведения об API-интерфейсах для удаления ссылки на Git см. в разделе [deleteRef](/graphql/reference/mutations#deleteref) документации по API GraphQL или в разделе [Удаление ссылки](/rest/reference/git#delete-a-reference) документации по REST API.
 
-For example, you can run a workflow when the `delete` event occurs.
+Например, можно запустить рабочий процесс при возникновении события `delete`.
 
 ```yaml
 on:
@@ -151,13 +156,13 @@ on:
 
 ### `deployment`
 
-| Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
+| Полезные данные события веб-перехватчика | Типы действий | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
-| [`deployment`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#deployment) | n/a | Commit to be deployed | Branch or tag to be deployed (empty if created with a commit SHA)|
+| [`deployment`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#deployment) | Недоступно | Фиксация для развертывания | Ветвь или тег для развертывания (пустые, если созданы с фиксацией SHA)|
 
-Runs your workflow when someone creates a deployment in the workflow's repository. Deployments created with a commit SHA may not have a Git ref. For information about the APIs to create a deployment, see "[createDeployment](/graphql/reference/mutations#createdeployment)" in the GraphQL API documentation or "[Deployments](/rest/reference/repos#deployments)" in the REST API documentation.
+Это событие запускает рабочий процесс при создании развертывания в репозитории рабочего процесса. Развертывания, созданные с помощью фиксации SHA, могут не иметь ссылок на Git. Сведения об API-интерфейсах для создания развертывания см. в разделе [createDeployment](/graphql/reference/mutations#createdeployment) документации по API GraphQL или в разделе [Развертывания](/rest/reference/repos#deployments) документации по REST API.
 
-For example, you can run a workflow when the `deployment` event occurs.
+Например, можно запустить рабочий процесс при возникновении события `deployment`.
 
 ```yaml
 on:
@@ -166,19 +171,19 @@ on:
 
 ### `deployment_status`
 
-| Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
+| Полезные данные события веб-перехватчика | Типы действий | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
-| [`deployment_status`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#deployment_status) | n/a | Commit to be deployed | Branch or tag to be deployed (empty if commit)|
+| [`deployment_status`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#deployment_status) | Недоступно | Фиксация для развертывания | Ветвь или тег для развертывания (пустые, если есть фиксация)|
 
 {% note %}
 
-**Note:** When a deployment status's state is set to `inactive`, a workflow run will not be triggered.
+**Примечание**. Если в качестве состояния развертывания задано значение `inactive`, рабочий процесс не запускается.
 
 {% endnote %}
 
-Runs your workflow when a third party provides a deployment status. Deployments created with a commit SHA may not have a Git ref. For information about the APIs to create a deployment status, see "[createDeploymentStatus](/graphql/reference/mutations#createdeploymentstatus)" in the GraphQL API documentation or "[Create a deployment status](/rest/reference/deployments#create-a-deployment-status)" in the REST API documentation.
+Это событие запускает рабочий процесс, когда состояние развертывания предоставляется третьей стороной. Развертывания, созданные с помощью фиксации SHA, могут не иметь ссылок на Git. Сведения об API-интерфейсах для создания состояния развертывания см. в разделе [createDeploymentStatus](/graphql/reference/mutations#createdeploymentstatus) документации по API GraphQL или в разделе [Создание состояния развертывания](/rest/reference/deployments#create-a-deployment-status) документации по REST API.
 
-For example, you can run a workflow when the `deployment_status` event occurs.
+Например, можно запустить рабочий процесс при возникновении события `deployment_status`.
 
 ```yaml
 on:
@@ -188,13 +193,13 @@ on:
 {% ifversion discussions %}
 ### `discussion`
 
-| Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
+| Полезные данные события веб-перехватчика | Типы действий | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
-| [`discussion`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#discussion) | - `created`<br/>- `edited`<br/>- `deleted`<br/>- `transferred`<br/>- `pinned`<br/>- `unpinned`<br/>- `labeled`<br/>- `unlabeled`<br/>- `locked`<br/>- `unlocked`<br/>- `category_changed`<br/> - `answered`<br/> - `unanswered` | Last commit on default branch | Default branch |
+| [`discussion`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#discussion) | - `created`<br/>- `edited`<br/>- `deleted`<br/>- `transferred`<br/>- `pinned`<br/>- `unpinned`<br/>- `labeled`<br/>- `unlabeled`<br/>- `locked`<br/>- `unlocked`<br/>- `category_changed`<br/> - `answered`<br/> - `unanswered` | Последняя фиксация в ветви по умолчанию | Ветвь по умолчанию |
 
 {% note %}
 
-**Note**: {% data reusables.developer-site.multiple_activity_types %} For information about each activity type, see "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#discussion)." {% data reusables.developer-site.limit_workflow_to_activity_types %}
+**Примечание**. {% data reusables.developer-site.multiple_activity_types %} Дополнительные сведения о каждом типе действия см. в разделе [События и полезные данные веб-перехватчика](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#discussion). {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 {% endnote %}
 
@@ -202,9 +207,9 @@ on:
 
 {% data reusables.webhooks.discussions-webhooks-beta %}
 
-Runs your workflow when a discussion in the workflow's repository is created or modified. For activity related to comments on a discussion, use the [`discussion_comment`](#discussion_comment) event. For more information about discussions, see "[About discussions](/discussions/collaborating-with-your-community-using-discussions/about-discussions)." For information about the GraphQL API, see "[Discussion](/graphql/reference/objects#discussion)."
+Это событие запускает рабочий процесс при создании или изменении обсуждения в репозитории рабочего процесса. Для действий, связанных с комментариями к обсуждению, используйте событие [`discussion_comment`](#discussion_comment). Дополнительные сведения см. в разделе [Сведения об обсуждениях](/discussions/collaborating-with-your-community-using-discussions/about-discussions). Сведения об API GraphQL см. в разделе [Обсуждение](/graphql/reference/objects#discussion).
 
-For example, you can run a workflow when a discussion has been `created`, `edited`, or `answered`.
+Например, можно запустить рабочий процесс, если обсуждение имеет тип действия `created`, `edited` или `answered`.
 
 ```yaml
 on:
@@ -214,13 +219,13 @@ on:
 
 ### `discussion_comment`
 
-| Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
+| Полезные данные события веб-перехватчика | Типы действий | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
-| [`discussion_comment`](/developers/webhooks-and-events/webhook-events-and-payloads#discussion_comment) | - `created`<br/>- `edited`<br/>- `deleted`<br/> | Last commit on default branch | Default branch |
+| [`discussion_comment`](/developers/webhooks-and-events/webhook-events-and-payloads#discussion_comment) | - `created`<br/>- `edited`<br/>- `deleted`<br/> | Последняя фиксация в ветви по умолчанию | Ветвь по умолчанию |
 
 {% note %}
 
-**Note**: {% data reusables.developer-site.multiple_activity_types %} For information about each activity type, see "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#discussion_comment)." {% data reusables.developer-site.limit_workflow_to_activity_types %}
+**Примечание**.{% data reusables.developer-site.multiple_activity_types %} Дополнительные сведения о каждом типе действия см. в разделе [События и полезные данные веб-перехватчика](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#discussion_comment). {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 {% endnote %}
 
@@ -228,9 +233,9 @@ on:
 
 {% data reusables.webhooks.discussions-webhooks-beta %}
 
-Runs your workflow when a comment on a discussion in the workflow's repository is created or modified. For activity related to a discussion as opposed to comments on the discussion, use the [`discussion`](#discussion) event. For more information about discussions, see "[About discussions](/discussions/collaborating-with-your-community-using-discussions/about-discussions)." For information about the GraphQL API, see "[Discussion](/graphql/reference/objects#discussion)."
+Это событие запускает рабочий процесс при создании или изменении комментария к обсуждению в репозитории рабочего процесса. Для действий, связанных с обсуждением, а не с комментариями к нему, используйте событие [`discussion`](#discussion). Дополнительные сведения см. в разделе [Сведения об обсуждениях](/discussions/collaborating-with-your-community-using-discussions/about-discussions). Сведения об API GraphQL см. в разделе [Обсуждение](/graphql/reference/objects#discussion).
 
-For example, you can run a workflow when a discussion comment has been `created` or `deleted`.
+Например, можно запустить рабочий процесс, если комментарий к обсуждению имеет тип действия `created` или `deleted`.
 
 ```yaml
 on:
@@ -242,15 +247,15 @@ on:
 
 ### `fork`
 
-| Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
+| Полезные данные события веб-перехватчика | Типы действий | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
-| [`fork`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#fork) | n/a | Last commit on default branch |  Default branch |
+| [`fork`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#fork) | Недоступно | Последняя фиксация в ветви по умолчанию |  Ветвь по умолчанию |
 
 {% data reusables.actions.branch-requirement %}
 
-Runs your workflow when someone forks a repository. For information about the REST API, see "[Create a fork](/rest/reference/repos#create-a-fork)."
+Это событие запускает рабочий процесс при создании вилки репозитория. Сведения о REST API см. в разделе [Создание вилки](/rest/reference/repos#create-a-fork).
 
-For example, you can run a workflow when the `fork` event occurs.
+Например, можно запустить рабочий процесс при возникновении события `fork`.
 
 ```yaml
 on:
@@ -259,15 +264,15 @@ on:
 
 ### `gollum`
 
-| Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
+| Полезные данные события веб-перехватчика | Типы действий | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
-| [`gollum`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#gollum) | n/a | Last commit on default branch |  Default branch |
+| [`gollum`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#gollum) | Недоступно | Последняя фиксация в ветви по умолчанию |  Ветвь по умолчанию |
 
 {% data reusables.actions.branch-requirement %}
 
-Runs your workflow when someone creates or updates a Wiki page. For more information, see "[About wikis](/communities/documenting-your-project-with-wikis/about-wikis)."
+Это событие запускает рабочий процесс при создании или обновлении вики-страницы. Дополнительные сведения см. в статье "[Сведения о вики-страницах](/communities/documenting-your-project-with-wikis/about-wikis)".
 
-For example, you can run a workflow when the `gollum` event occurs.
+Например, можно запустить рабочий процесс при возникновении события `gollum`.
 
 ```yaml
 on:
@@ -276,21 +281,21 @@ on:
 
 ### `issue_comment`
 
-| Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
+| Полезные данные события веб-перехватчика | Типы действий | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
-| [`issue_comment`](/developers/webhooks-and-events/webhook-events-and-payloads#issue_comment) | - `created`<br/>- `edited`<br/>- `deleted`<br/> | Last commit on default branch | Default branch |
+| [`issue_comment`](/developers/webhooks-and-events/webhook-events-and-payloads#issue_comment) | - `created`<br/>- `edited`<br/>- `deleted`<br/> | Последняя фиксация в ветви по умолчанию | Ветвь по умолчанию |
 
 {% note %}
 
-**Note**: {% data reusables.developer-site.multiple_activity_types %} For information about each activity type, see "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#issue_comment)." {% data reusables.developer-site.limit_workflow_to_activity_types %}
+**Примечание**.{% data reusables.developer-site.multiple_activity_types %} Дополнительные сведения о каждом типе действия см. в разделе [События и полезные данные веб-перехватчика](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#issue_comment). {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 {% endnote %}
 
 {% data reusables.actions.branch-requirement %}
 
-Runs your workflow when an issue or pull request comment is created, edited, or deleted. For information about the issue comment APIs, see "[IssueComment](/graphql/reference/objects#issuecomment)" in the GraphQL API documentation or "[Issue comments](/developers/webhooks-and-events/webhook-events-and-payloads#issue_comment)" in the REST API documentation.
+Это событие запускает рабочий процесс при создании, изменении или удалении комментария к проблеме или запросу на вытягивание. Сведения об API-интерфейсах для работы с комментариями к проблеме см. в разделе [IssueComment](/graphql/reference/objects#issuecomment) документации по API GraphQL или в разделе [Комментарии к проблеме](/developers/webhooks-and-events/webhook-events-and-payloads#issue_comment) документации по REST API.
 
-For example, you can run a workflow when an issue or pull request comment has been `created` or `deleted`.
+Например, можно запустить рабочий процесс, если к комментарию к проблеме или запросу на вытягивание применено действие `created` или `deleted`.
 
 ```yaml
 on:
@@ -298,11 +303,11 @@ on:
     types: [created, deleted]
 ```
 
-#### `issue_comment` on issues only or pull requests only
+#### `issue_comment` только для проблем или только для запросов на вытягивание
 
-The `issue_comment` event occurs for comments on both issues and pull requests. You can use the `github.event.issue.pull_request` property in a conditional to take different action depending on whether the triggering object was an issue or pull request.
+Событие `issue_comment` возникает как для комментариев к проблемам, так и для комментариев к запросам на вытягивание. Свойство `github.event.issue.pull_request` можно использовать в условном режиме для выполнения различных действий в зависимости от того, был ли объект-триггер проблемой или запросом на вытягивание.
 
-For example, this workflow will run the `pr_commented` job only if the `issue_comment` event originated from a pull request. It will run the `issue_commented` job only if the `issue_comment` event originated from an issue.
+Например, этот рабочий процесс будет выполнять задание `pr_commented`, только если событие `issue_comment` возникло из запроса на вытягивание. Этот рабочий процесс будет запускать задание `issue_commented`, только если событие `issue_comment` возникло из проблемы.
 
 ```yaml
 on: issue_comment
@@ -333,21 +338,21 @@ jobs:
 
 ### `issues`
 
-| Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
+| Полезные данные события веб-перехватчика | Типы действий | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
-| [`issues`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#issues) | - `opened`<br/>- `edited`<br/>- `deleted`<br/>- `transferred`<br/>- `pinned`<br/>- `unpinned`<br/>- `closed`<br/>- `reopened`<br/>- `assigned`<br/>- `unassigned`<br/>- `labeled`<br/>- `unlabeled`<br/>- `locked`<br/>- `unlocked`<br/>- `milestoned`<br/> - `demilestoned` | Last commit on default branch | Default branch |
+| [`issues`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#issues) | - `opened`<br/>- `edited`<br/>- `deleted`<br/>- `transferred`<br/>- `pinned`<br/>- `unpinned`<br/>- `closed`<br/>- `reopened`<br/>- `assigned`<br/>- `unassigned`<br/>- `labeled`<br/>- `unlabeled`<br/>- `locked`<br/>- `unlocked`<br/>- `milestoned`<br/> - `demilestoned` | Последняя фиксация в ветви по умолчанию | Ветвь по умолчанию |
 
 {% note %}
 
-**Note**: {% data reusables.developer-site.multiple_activity_types %} For information about each activity type, see "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#issues)." {% data reusables.developer-site.limit_workflow_to_activity_types %}
+**Примечание**.{% data reusables.developer-site.multiple_activity_types %} Дополнительные сведения о каждом типе действия см. в разделе [События и полезные данные веб-перехватчика](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#issues). {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 {% endnote %}
 
 {% data reusables.actions.branch-requirement %}
 
-Runs your workflow when an issue in the workflow's repository is created or modified. For activity related to comments in an issue, use the [`issue_comment`](#issue_comment) event. For more information about issues, see "[About issues](/issues/tracking-your-work-with-issues/about-issues)." For information about the issue APIs, see "[Issue](/graphql/reference/objects#issue)" in the GraphQL API documentation or "[Issues](/rest/reference/issues)" in the REST API documentation.
+Это событие запускает рабочий процесс при создании или изменении проблемы в репозитории рабочего процесса. Для действий, связанных с комментариями к проблеме, используйте событие [`issue_comment`](#issue_comment). Дополнительные сведения о проблемах см. в разделе [Сведения о проблемах](/issues/tracking-your-work-with-issues/about-issues). Сведения об API-интерфейсах для работы с проблемами см. в разделе [Issue](/graphql/reference/objects#issue) документации по API GraphQL или в разделе [Проблемы](/rest/reference/issues) документации по REST API.
 
-For example, you can run a workflow when an issue has been `opened`, `edited`, or `milestoned`.
+Например, можно запустить рабочий процесс, если к проблеме было применено действие `opened`, `edited` или `milestoned`.
 
 ```yaml
 on:
@@ -357,23 +362,23 @@ on:
 
 ### `label`
 
-| Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
+| Полезные данные события веб-перехватчика | Типы действий | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
-| [`label`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#label) | - `created`<br/>- `edited`<br/>- `deleted`<br/> | Last commit on default branch | Default branch |
+| [`label`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#label) | - `created`<br/>- `edited`<br/>- `deleted`<br/> | Последняя фиксация в ветви по умолчанию | Ветвь по умолчанию |
 
 {% note %}
 
-**Note**: {% data reusables.developer-site.multiple_activity_types %} For information about each activity type, see "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#label)." {% data reusables.developer-site.limit_workflow_to_activity_types %}
+**Примечание**.{% data reusables.developer-site.multiple_activity_types %} Дополнительные сведения о каждом типе действия см. в разделе [События и полезные данные веб-перехватчика](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#label). {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 {% endnote %}
 
 {% data reusables.actions.branch-requirement %}
 
-Runs your workflow when a label in your workflow's repository is created or modified. For more information about labels, see "[Managing labels](/issues/using-labels-and-milestones-to-track-work/managing-labels)." For information about the label APIs, see "[Label](/graphql/reference/objects#label)" in the GraphQL API documentation or "[Labels](/rest/reference/issues#labels)" in the REST API documentation.
+Это событие запускает рабочий процесс при создании или изменении метки в репозитории рабочего процесса. Дополнительные сведения о метках см. в статье "[Управление метками](/issues/using-labels-and-milestones-to-track-work/managing-labels)". Сведения об API-интерфейсах для работы с метками см. в разделе [Label](/graphql/reference/objects#label) документации по API GraphQL или в разделе [Метки](/rest/reference/issues#labels) документации по REST API.
 
-If you want to run your workflow when a label is added to or removed from an issue, pull request, or discussion, use the `labeled` or `unlabeled` activity types for the [`issues`](#issues), [`pull_request`](#pull_request), [`pull_request_target`](#pull_request_target), or [`discussion`](#discussion) events instead.
+Чтобы запустить рабочий процесс при добавлении метки в проблему, запрос на вытягивание или обсуждение либо при удалении метки, используйте типы действий `labeled` или `unlabeled` для событий [`issues`](#issues), [`pull_request`](#pull_request), [`pull_request_target`](#pull_request_target) или [`discussion`](#discussion).
 
-For example, you can run a workflow when a label has been `created` or `deleted`.
+Например, можно запустить рабочий процесс, если к метке было применено действие `created` или `deleted`.
 
 ```yaml
 on:
@@ -385,21 +390,21 @@ on:
 
 ### `merge_group`
 
-| Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
+| Полезные данные события веб-перехватчика | Типы действий | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
-| [`merge_group`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#merge_group) | `checks_requested` | SHA of the merge group | Ref of the merge group |
+| [`merge_group`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#merge_group) | `checks_requested` | SHA группы слияния | Ссылка на группу слияния |
 
 {% data reusables.pull_requests.merge-queue-beta %}
 
 {% note %}
 
-**Note**: {% data reusables.developer-site.multiple_activity_types %} Although only the `checks_requested` activity type is supported, specifying the activity type will keep your workflow specific if more activity types are added in the future. For information about each activity type, see "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#merge_group)." {% data reusables.developer-site.limit_workflow_to_activity_types %}
+**Примечание**. {% data reusables.developer-site.multiple_activity_types %} Несмотря на то, что поддерживается только тип действия `checks_requested`, указание типа действия позволит сохранить специфичность рабочего процесса, что важно при добавлении других типов действия в будущем. Сведения о каждом типе действия см. в разделе [События и полезные данные веб-перехватчика](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#merge_group). {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 {% endnote %}
 
-Runs your workflow when a pull request is added to a merge queue, which adds the pull request to a merge group. For more information see "[Merging a pull request with a merge queue](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request-with-a-merge-queue)".
+Запускает рабочий процесс при добавлении запроса на вытягивание в очередь слияния, которая добавляет запрос на вытягивание в группу слияния. Дополнительные сведения см. в статье [Слияние запроса на вытягивание с использованием очереди слияния](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request-with-a-merge-queue).
 
-For example, you can run a workflow when the `checks_requested` activity has occurred.
+Например, можно выполнить рабочий процесс при возникновении действия `checks_requested`.
 
 ```yaml
 on:
@@ -411,23 +416,23 @@ on:
 {% endif %}
 ### `milestone`
 
-| Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
+| Полезные данные события веб-перехватчика | Типы действий | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
-| [`milestone`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#milestone) | - `created`<br/>- `closed`<br/>- `opened`<br/>- `edited`<br/>- `deleted`<br/> | Last commit on default branch | Default branch |
+| [`milestone`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#milestone) | - `created`<br/>- `closed`<br/>- `opened`<br/>- `edited`<br/>- `deleted`<br/> | Последняя фиксация в ветви по умолчанию | Ветвь по умолчанию |
 
 {% note %}
 
-**Note**: {% data reusables.developer-site.multiple_activity_types %} For information about each activity type, see "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#milestone)." {% data reusables.developer-site.limit_workflow_to_activity_types %}
+**Примечание**.{% data reusables.developer-site.multiple_activity_types %} Дополнительные сведения о каждом типе действия см. в разделе [События и полезные данные веб-перехватчика](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#milestone). {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 {% endnote %}
 
 {% data reusables.actions.branch-requirement %}
 
-Runs your workflow when a milestone in the workflow's repository is created or modified. For more information about milestones, see "[About milestones](/issues/using-labels-and-milestones-to-track-work/about-milestones)." For information about the milestone APIs, see "[Milestone](/graphql/reference/objects#milestone)" in the GraphQL API documentation or "[Milestones](/rest/reference/issues#milestones)" in the REST API documentation.
+Это событие запускает рабочий процесс при создании или изменении вехи в репозитории рабочего процесса. Дополнительные сведения см. в разделе [Сведения о вехах](/issues/using-labels-and-milestones-to-track-work/about-milestones). Сведения об API-интерфейсах для работы с вехами см. в разделе [Milestone](/graphql/reference/objects#milestone) документации по API GraphQL или в разделе [Вехи](/rest/reference/issues#milestones) документации по REST API.
 
-If you want to run your workflow when an issue is added to or removed from a milestone, use the `milestoned` or `demilestoned` activity types for the [`issues`](#issues) event instead.
+Чтобы запустить рабочий процесс при добавлении проблемы в веху или ее удалении из вехи, используйте тип действия `milestoned` или `demilestoned` для события [`issues`](#issues).
 
-For example, you can run a workflow when a milestone has been `opened` or `deleted`.
+Например, можно запустить рабочий процесс, если к вехе было применено действие `opened` или `deleted`.
 
 ```yaml
 on:
@@ -437,15 +442,15 @@ on:
 
 ### `page_build`
 
-| Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
+| Полезные данные события веб-перехватчика | Типы действий | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
-| [`page_build`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#page_build) | n/a | Last commit on default branch | n/a |
+| [`page_build`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#page_build) | Недоступно | Последняя фиксация в ветви по умолчанию | Недоступно |
 
 {% data reusables.actions.branch-requirement %}
 
-Runs your workflow when someone pushes to a branch that is the publishing source for {% data variables.product.prodname_pages %}, if {% data variables.product.prodname_pages %} is enabled for the repository. For more information about {% data variables.product.prodname_pages %} publishing sources, see "[Configuring a publishing source for your GitHub Pages site](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)." For information about the REST API, see "[Pages](/rest/reference/repos#pages)."
+Это событие запускает рабочий процесс, когда выполняется отправка в ветвь, которая является источником публикации для {% data variables.product.prodname_pages %}, если для репозитория включена служба {% data variables.product.prodname_pages %}. Дополнительные сведения об источниках публикации {% data variables.product.prodname_pages %} см. в разделе [Настройка источника публикации для сайта GitHub Pages](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site). Сведения о REST API см. в разделе [Страницы](/rest/reference/repos#pages).
 
-For example, you can run a workflow when the `page_build` event occurs.
+Например, можно запустить рабочий процесс при возникновении события `page_build`.
 
 ```yaml
 on:
@@ -454,13 +459,13 @@ on:
 
 ### `project`
 
-| Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
+| Полезные данные события веб-перехватчика | Типы действий | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
-| [`project`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#project) | - `created`<br/>- `closed`<br/>- `reopened`<br/>- `edited`<br/>- `deleted`<br/> | Last commit on default branch | Default branch |
+| [`project`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#project) | - `created`<br/>- `closed`<br/>- `reopened`<br/>- `edited`<br/>- `deleted`<br/> | Последняя фиксация в ветви по умолчанию | Ветвь по умолчанию |
 
 {% note %}
 
-**Note**: {% data reusables.developer-site.multiple_activity_types %} The `edited` activity type refers to when a project board, not a column or card on the project board, is edited. For information about each activity type, see "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#project)." {% data reusables.developer-site.limit_workflow_to_activity_types %}
+**Примечание**. {% data reusables.developer-site.multiple_activity_types %} Тип действия `edited` относится только к редактированию доски проекта, а не столбца или карточки на доске проекта. Сведения о каждом типе действия см. в разделе [События и полезные данные веб-перехватчика](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#project). {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 {% endnote %}
 
@@ -468,21 +473,19 @@ on:
 
 {% note %}
 
-**Note**: This event only occurs for projects owned by the workflow's repository, not for organization-owned or user-owned projects or for projects owned by another repository.
+**Примечание**. Это событие возникает только в отношении проектов, принадлежащих репозиторию рабочего процесса, но не относится к проектам, принадлежащим организации, пользователю или другому репозиторию.
 
 {% endnote %}
 
-{% ifversion fpt or ghec %}
-{% note %}
+{% ifversion fpt or ghec %} {% note %}
 
-**Note**: This event only occurs for {% data variables.product.prodname_projects_v1 %}.
+**Примечание.** Это событие происходит только для {% data variables.product.prodname_projects_v1 %}.
 
-{% endnote %}
-{% endif %}
+{% endnote %} {% endif %}
 
-Runs your workflow when a project board is created or modified. For activity related to cards or columns in a project board, use the [`project_card`](#project_card) or [`project_column`](#project_column) events instead. For more information about project boards, see "[About project boards](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)." For information about the project board APIs, see "[Project](/graphql/reference/objects#project)" in the GraphQL API documentation or "[Projects](/rest/reference/projects)" in the REST API documentation.
+Это событие запускает рабочий процесс при создании или изменении доски проекта. Для действий, связанных с карточками или столбцами на доске проекта, используйте событие [`project_card`](#project_card) или [`project_column`](#project_column). Дополнительные сведения см. в разделе [Сведения о досках проектов](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards). Сведения об API-интерфейсах для работы с досками проектов см. в разделе [Project](/graphql/reference/objects#project) документации по API GraphQL или в разделе [Проекты](/rest/reference/projects) документации по REST API.
 
-For example, you can run a workflow when a project has been `created` or `deleted`.
+Например, можно запустить рабочий процесс, если к проекту было применено действие `created` или `deleted`.
 
 ```yaml
 on:
@@ -492,13 +495,13 @@ on:
 
 ### `project_card`
 
-| Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
+| Полезные данные события веб-перехватчика | Типы действий | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
-| [`project_card`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#project_card) | - `created`<br/>- `moved`<br/>- `converted` to an issue<br/>- `edited`<br/>- `deleted` | Last commit on default branch | Default branch |
+| [`project_card`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#project_card) | - `created`<br/>- `moved`<br/>- `converted` (для проблемы)<br/>- `edited`<br/>- `deleted` | Последняя фиксация в ветви по умолчанию | Ветвь по умолчанию |
 
 {% note %}
 
-**Note**: {% data reusables.developer-site.multiple_activity_types %} For information about each activity type, see "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#project_card)." {% data reusables.developer-site.limit_workflow_to_activity_types %}
+**Примечание**.{% data reusables.developer-site.multiple_activity_types %} Дополнительные сведения о каждом типе действия см. в разделе [События и полезные данные веб-перехватчика](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#project_card). {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 {% endnote %}
 
@@ -506,21 +509,19 @@ on:
 
 {% note %}
 
-**Note**: This event only occurs for projects owned by the workflow's repository, not for organization-owned or user-owned projects or for projects owned by another repository.
+**Примечание**. Это событие возникает только в отношении проектов, принадлежащих репозиторию рабочего процесса, но не относится к проектам, принадлежащим организации, пользователю или другому репозиторию.
 
 {% endnote %}
 
-{% ifversion fpt or ghec %}
-{% note %}
+{% ifversion fpt or ghec %} {% note %}
 
-**Note**: This event only occurs for {% data variables.product.prodname_projects_v1 %}.
+**Примечание.** Это событие происходит только для {% data variables.product.prodname_projects_v1 %}.
 
-{% endnote %}
-{% endif %}
+{% endnote %} {% endif %}
 
-Runs your workflow when a card on a project board is created or modified. For activity related to project boards or columns in a project board, use the [`project`](#project) or [`project_column`](#project_column) event instead. For more information about project boards, see "[About project boards](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)." For information about the project card APIs, see "[ProjectCard](/graphql/reference/objects#projectcard)" in the GraphQL API documentation or "[Project cards](/rest/reference/projects#cards)" in the REST API documentation.
+Это событие запускает рабочий процесс при создании или изменении карточки на доске проекта. Для действий, связанных с досками проектов или столбцами на доске проекта, используйте событие [`project`](#project) или [`project_column`](#project_column). Дополнительные сведения см. в разделе [Сведения о досках проектов](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards). Сведения об API-интерфейсах для работы с карточками проектов см. в разделе [ProjectCard](/graphql/reference/objects#projectcard) документации по API GraphQL или в разделе [Карточки проекта](/rest/reference/projects#cards) документации по REST API.
 
-For example, you can run a workflow when a project card has been `created` or `deleted`.
+Например, можно запустить рабочий процесс, если к карточке проекта было применено действие `created` или `deleted`.
 
 ```yaml
 on:
@@ -530,13 +531,13 @@ on:
 
 ### `project_column`
 
-| Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
+| Полезные данные события веб-перехватчика | Типы действий | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
-| [`project_column`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#project_column) | - `created`<br/>- `updated`<br/>- `moved`<br/>- `deleted` | Last commit on default branch | Default branch |
+| [`project_column`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#project_column) | - `created`<br/>- `updated`<br/>- `moved`<br/>- `deleted` | Последняя фиксация в ветви по умолчанию | Ветвь по умолчанию |
 
 {% note %}
 
-**Note**: {% data reusables.developer-site.multiple_activity_types %} For information about each activity type, see "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#project_column)." {% data reusables.developer-site.limit_workflow_to_activity_types %}
+**Примечание**.{% data reusables.developer-site.multiple_activity_types %} Дополнительные сведения о каждом типе действия см. в разделе [События и полезные данные веб-перехватчика](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#project_column). {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 {% endnote %}
 
@@ -544,21 +545,19 @@ on:
 
 {% note %}
 
-**Note**: This event only occurs for projects owned by the workflow's repository, not for organization-owned or user-owned projects or for projects owned by another repository.
+**Примечание**. Это событие возникает только в отношении проектов, принадлежащих репозиторию рабочего процесса, но не относится к проектам, принадлежащим организации, пользователю или другому репозиторию.
 
 {% endnote %}
 
-{% ifversion fpt or ghec %}
-{% note %}
+{% ifversion fpt or ghec %} {% note %}
 
-**Note**: This event only occurs for {% data variables.product.prodname_projects_v1 %}.
+**Примечание.** Это событие происходит только для {% data variables.product.prodname_projects_v1 %}.
 
-{% endnote %}
-{% endif %}
+{% endnote %} {% endif %}
 
-Runs your workflow when a column on a project board is created or modified. For activity related to project boards or cards in a project board, use the [`project`](#project) or [`project_card`](#project_card) event instead. For more information about project boards, see "[About project boards](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)." For information about the project column APIs, see "[Project Column](/graphql/reference/objects#projectcolumn)" in the GraphQL API documentation or "[Project columns](/rest/reference/projects#columns)" in the REST API documentation.
+Это событие запускает рабочий процесс при создании или изменении столбца на доске проекта. Для действий, связанных с досками проектов или карточками на доске проекта, используйте событие [`project`](#project) или [`project_card`](#project_card). Дополнительные сведения см. в разделе [Сведения о досках проектов](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards). Сведения об API-интерфейсах для работы со столбцами проектов см. в разделе [Project Column](/graphql/reference/objects#projectcolumn) документации по API GraphQL или в разделе [Столбцы проекта](/rest/reference/projects#columns) документации по REST API.
 
-For example, you can run a workflow when a project column has been `created` or `deleted`.
+Например, можно запустить рабочий процесс, если к столбцу проекта было применено действие `created` или `deleted`.
 
 ```yaml
 on:
@@ -568,15 +567,15 @@ on:
 
 ### `public`
 
-| Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
+| Полезные данные события веб-перехватчика | Типы действий | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
-| [`public`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#public) | n/a | Last commit on default branch |  Default branch |
+| [`public`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#public) | Недоступно | Последняя фиксация в ветви по умолчанию |  Ветвь по умолчанию |
 
 {% data reusables.actions.branch-requirement %}
 
-Runs your workflow when your workflow's repository changes from private to public. For information about the REST API, see "[Edit repositories](/rest/reference/repos#edit)."
+Это событие запускает рабочий процесс при изменении репозитория рабочего процесса с частного на общедоступный. Сведения о REST API см. в разделе [Изменение репозиториев](/rest/reference/repos#edit).
 
-For example, you can run a workflow when the `public` event occurs.
+Например, можно запустить рабочий процесс при возникновении события `public`.
 
 ```yaml
 on:
@@ -585,29 +584,29 @@ on:
 
 ### `pull_request`
 
-| Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
+| Полезные данные события веб-перехватчика | Типы действий | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
-| [`pull_request`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#pull_request) | - `assigned`<br/>- `unassigned`<br/>- `labeled`<br/>- `unlabeled`<br/>- `opened`<br/>- `edited`<br/>- `closed`<br/>- `reopened`<br/>- `synchronize`<br/>- `converted_to_draft`<br/>- `ready_for_review`<br/>- `locked`<br/>- `unlocked` <br/>- `review_requested` <br/>- `review_request_removed` <br/>- `auto_merge_enabled` <br/>- `auto_merge_disabled` | Last merge commit on the `GITHUB_REF` branch | PR merge branch `refs/pull/:prNumber/merge` |
+| [`pull_request`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#pull_request) | - `assigned`<br/>- `unassigned`<br/>- `labeled`<br/>- `unlabeled`<br/>- `opened`<br/>- `edited`<br/>- `closed`<br/>- `reopened`<br/>- `synchronize`<br/>- `converted_to_draft`<br/>- `ready_for_review`<br/>- `locked`<br/>- `unlocked` <br/>- `review_requested` <br/>- `review_request_removed` <br/>- `auto_merge_enabled` <br/>- `auto_merge_disabled` | Последняя фиксация слияния в ветви `GITHUB_REF` | Ветвь слияния PR `refs/pull/:prNumber/merge` |
 
 {% note %}
 
-**Note**: {% data reusables.developer-site.multiple_activity_types %} For information about each activity type, see "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#pull_request)." By default, a workflow only runs when a `pull_request` event's activity type is `opened`, `synchronize`, or `reopened`. To trigger workflows by different activity types, use the `types` keyword. For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions#onevent_nametypes)."
+**Примечание**. {% data reusables.developer-site.multiple_activity_types %} Дополнительные сведения о каждом типе действия см. в разделе [События и полезные данные веб-перехватчика](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#pull_request). По умолчанию рабочий процесс выполняется только в том случае, если для типа действия события `pull_request` указано `opened`, `synchronize` или `reopened`. Чтобы активировать рабочие процессы с помощью других типов действий, используйте ключевое слово `types`. Дополнительные сведения см. в статье [Синтаксис рабочего процесса для {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions#onevent_nametypes).
 
 {% endnote %}
 
 {% note %}
 
-**Note:** Workflows will not run on `pull_request` activity if the pull request has a merge conflict. The merge conflict must be resolved first.
+**Примечание**. Рабочие процессы не будут выполняться при вызове действия `pull_request`, если в запросе на вытягивание имеется конфликт слияния. Сначала необходимо разрешить этот конфликт.
 
-Conversely, workflows with the `pull_request_target` event will run even if the pull request has a merge conflict. Before using the `pull_request_target` trigger, you should be aware of the security risks. For more information, see [`pull_request_target`](#pull_request_target).
+Рабочие процессы с событием `pull_request_target`, напротив, будут выполняться даже при наличии конфликта слияния в запросе на вытягивание. Перед использованием триггера `pull_request_target` следует учесть риски безопасности. Дополнительные сведения см. на веб-сайте [`pull_request_target`](#pull_request_target).
 
 {% endnote %}
 
-Runs your workflow when activity on a pull request in the workflow's repository occurs. For example, if no activity types are specified, the workflow runs when a pull request is opened or reopened or when the head branch of the pull request is updated. For activity related to pull request reviews, pull request review comments, or pull request comments, use the [`pull_request_review`](#pull_request_review), [`pull_request_review_comment`](#pull_request_review_comment), or [`issue_comment`](#issue_comment) events instead. For information about the pull request APIs, see "[PullRequest](/graphql/reference/objects#pullrequest)" in the GraphQL API documentation or "[Pull requests](/rest/reference/pulls)" in the REST API documentation.
+Это событие запускает рабочий процесс при выполнении действия по запросу на вытягивание в репозитории рабочего процесса. Например, если типы действий не указаны, рабочий процесс запускается при открытии или повторном открытии запроса на вытягивание либо при обновлении главной ветви запроса на вытягивание. Для действий, связанных с проверкой запросов на вытягивание, комментариями к проверкам запросов на вытягивание или комментариями к запросам на вытягивание, используйте событие [`pull_request_review`](#pull_request_review), [`pull_request_review_comment`](#pull_request_review_comment) или [`issue_comment`](#issue_comment). Сведения об API-интерфейсах для работы с запросами на вытягивание см. в разделе [PullRequest](/graphql/reference/objects#pullrequest) документации по API GraphQL или в разделе [Запросы на вытягивание](/rest/reference/pulls) документации по REST API.
 
-Note that `GITHUB_SHA` for this event is the last merge commit of the pull request merge branch. If you want to get the commit ID for the last commit to the head branch of the pull request, use `github.event.pull_request.head.sha` instead.
+Обратите внимание, что переменная `GITHUB_SHA` для этого события — это последняя фиксация слияния для ветви слияния запроса на вытягивание. Чтобы получить идентификатор фиксации для последней фиксации в главной ветви запроса на вытягивание, используйте переменную `github.event.pull_request.head.sha`.
 
-For example, you can run a workflow when a pull request has been opened or reopened.
+Например, можно запустить рабочий процесс при открытии или повторном открытии запроса на вытягивание.
 
 ```yaml
 on:
@@ -615,7 +614,7 @@ on:
     types: [opened, reopened]
 ```
 
-You can use the event context to further control when jobs in your workflow will run. For example, this workflow will run when a review is requested on a pull request, but the `specific_review_requested` job will only run when a review by `octo-team` is requested.
+Контекст события можно использовать для дальнейшего управления выполнением заданий в рабочем процессе. Например, этот рабочий процесс будет выполняться при запросе проверки по запросу на вытягивание, но задание `specific_review_requested` будет выполняться, только если проверка запрошена командой `octo-team`.
 
 ```yaml
 on:
@@ -629,11 +628,11 @@ jobs:
       - run: echo 'A review from octo-team was requested'
 ```
 
-#### Running your workflow based on the head or base branch of a pull request
+#### Запуск рабочего процесса на основе главной или базовой ветви запроса на вытягивание
 
-You can use the `branches` or `branches-ignore` filter to configure your workflow to only run on pull requests that target specific branches. For more information, see "[Workflow syntax for GitHub Actions](/actions/learn-github-actions/workflow-syntax-for-github-actions#onpull_requestpull_request_targetbranchesbranches-ignore)."
+Используйте фильтр `branches` или `branches-ignore`, чтобы настроить запуск рабочего процесса только для запросов на вытягивание, предназначенных для конкретных ветвей. Дополнительные сведения см. в статье "[Синтаксис рабочего процесса для GitHub Actions](/actions/learn-github-actions/workflow-syntax-for-github-actions#onpull_requestpull_request_targetbranchesbranches-ignore)".
 
-For example, this workflow will run when someone opens a pull request that targets a branch whose name starts with `releases/`:
+Например, этот рабочий процесс будет выполняться при открытии запроса на вытягивание, предназначенного для ветви, имя которой начинается с `releases/`:
 
 ```yaml
 on:
@@ -646,7 +645,7 @@ on:
 
 {% note %}
 
-**Note:** {% data reusables.actions.branch-paths-filter %} For example, the following workflow will only run when a pull request that includes a change to a JavaScript (`.js`) file is opened on a branch whose name starts with `releases/`:
+**Примечание**. {% data reusables.actions.branch-paths-filter %} Например, следующий рабочий процесс будет выполняться только при открытии запроса на вытягивание, включающего изменение файла JavaScript (`.js`) в ветви, имя которой начинается с `releases/`:
 
 ```yaml
 on:
@@ -661,7 +660,7 @@ on:
 
 {% endnote %}
 
-To run a job based on the pull request's head branch name (as opposed to the pull request's base branch name), use the `github.head_ref` context in a conditional. For example, this workflow will run whenever a pull request is opened, but the `run_if` job will only execute if the head of the pull request is a branch whose name starts with `releases/`:
+Чтобы выполнить задание на основе имени главной ветви запроса на вытягивание (в отличие от имени базовой ветви запроса на вытягивание), используйте контекст `github.head_ref` в условном режиме. Например, этот рабочий процесс будет выполняться при каждом открытии запроса на вытягивание, но задание `run_if` будет выполняться только в том случае, если заголовок запроса на вытягивание является ветвью, имя которой начинается с `releases/`:
 
 ```yaml
 on:
@@ -676,11 +675,11 @@ jobs:
       - run: echo "The head of this PR starts with 'releases/'"
 ```
 
-#### Running your workflow based on files changed in a pull request
+#### Запуск рабочего процесса на основе файлов, измененных в запросе на вытягивание
 
-You can also configure your workflow to run when a pull request changes specific files. For more information, see "[Workflow syntax for GitHub Actions](/actions/learn-github-actions/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore)."
+Рабочий процесс можно настроить таким образом, чтобы он выполнялся при изменении определенных файлов в запросе на вытягивание. Дополнительные сведения см. в статье "[Синтаксис рабочего процесса для GitHub Actions](/actions/learn-github-actions/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore)".
 
-For example, this workflow will run when a pull request includes a change to a JavaScript file (`.js`):
+Например, этот рабочий процесс будет выполняться, когда в запросе на вытягивание изменен файл JavaScript (`.js`):
 
 ```yaml
 on:
@@ -691,7 +690,7 @@ on:
 
 {% note %}
 
-**Note:** {% data reusables.actions.branch-paths-filter %} For example, the following workflow will only run when a pull request that includes a change to a JavaScript (`.js`) file is opened on a branch whose name starts with `releases/`:
+**Примечание**. {% data reusables.actions.branch-paths-filter %} Например, следующий рабочий процесс будет выполняться только при открытии запроса на вытягивание, включающего изменение файла JavaScript (`.js`) в ветви, имя которой начинается с `releases/`:
 
 ```yaml
 on:
@@ -706,9 +705,9 @@ on:
 
 {% endnote %}
 
-#### Running your workflow when a pull request merges
+#### Запуск рабочего процесса при слиянии запроса на вытягивание
 
-When a pull request merges, the pull request is automatically closed. To run a workflow when a pull request merges, use the `pull_request` `closed` event type along with a conditional that checks the `merged` value of the event. For example, the following workflow will run whenever a pull request closes. The `if_merged` job will only run if the pull request was also merged.
+При слиянии запрос на вытягивание автоматически закрывается. Чтобы запустить рабочий процесс при слиянии запроса на вытягивание, используйте тип события `pull_request` `closed` вместе с условием, проверяющим значение `merged` события. Например, следующий рабочий процесс будет выполняться при закрытии запроса на вытягивание. Задание `if_merged` будет выполняться только в том случае, если произошло слияние запроса на вытягивание.
 
 ```yaml
 on:
@@ -727,25 +726,25 @@ jobs:
 
 {% data reusables.developer-site.pull_request_forked_repos_link %}
 
-### `pull_request_comment` (use `issue_comment`)
+### `pull_request_comment` (используйте `issue_comment`)
 
-To run your workflow when a comment on a pull request (not on a pull request's diff) is created, edited, or deleted, use the [`issue_comment`](#issue_comment) event. For activity related to pull request reviews or pull request review comments, use the [`pull_request_review`](#pull_request_review) or [`pull_request_review_comment`](#pull_request_review_comment) events.
+Чтобы запустить рабочий процесс при создании, изменении или удалении комментария к запросу на вытягивание (а не к разнице запроса на вытягивание), используйте событие [`issue_comment`](#issue_comment). Для действий, связанных с проверкой запросов на вытягивание или комментариями к проверкам запросов на вытягивание, используйте событие [`pull_request_review`](#pull_request_review) или [`pull_request_review_comment`](#pull_request_review_comment).
 
 ### `pull_request_review`
 
-| Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
+| Полезные данные события веб-перехватчика | Типы действий | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
-| [`pull_request_review`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#pull_request_review) | - `submitted`<br/>- `edited`<br/>- `dismissed` | Last merge commit on the `GITHUB_REF` branch | PR merge branch `refs/pull/:prNumber/merge` |
+| [`pull_request_review`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#pull_request_review) | - `submitted`<br/>- `edited`<br/>- `dismissed` | Последняя фиксация слияния в ветви `GITHUB_REF` | Ветвь слияния PR `refs/pull/:prNumber/merge` |
 
 {% note %}
 
-**Note**: {% data reusables.developer-site.multiple_activity_types %} For information about each activity type, see "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#pull_request_review)." {% data reusables.developer-site.limit_workflow_to_activity_types %}
+**Примечание**.{% data reusables.developer-site.multiple_activity_types %} Дополнительные сведения о каждом типе действия см. в разделе [События и полезные данные веб-перехватчика](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#pull_request_review). {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 {% endnote %}
 
-Runs your workflow when a pull request review is submitted, edited, or dismissed. A pull request review is a group of pull request review comments in addition to a body comment and a state. For activity related to pull request review comments or pull request comments, use the [`pull_request_review_comment`](#pull_request_review_comment) or [`issue_comment`](#issue_comment) events instead. For information about the pull request review APIs, see "[PullRequestReview](/graphql/reference/objects#pullrequest)" in the GraphQL API documentation or "[Pull request reviews](/rest/reference/pulls#reviews)" in the REST API documentation.
+Это событие запускает рабочий процесс при отправке, изменении или закрытии проверки запроса на вытягивание. Проверка запроса на вытягивание — это группа комментариев к проверке запроса на вытягивание, дополняющих комментарии к тексту запроса и его состояние. Для действий, связанных с комментариями к проверкам запросов на вытягивание или комментариями к запросам на вытягивание, используйте событие [`pull_request_review_comment`](#pull_request_review_comment) или [`issue_comment`](#issue_comment). Сведения об API-интерфейсах для работы с запросами на вытягивание см. в разделе [PullRequestReview](/graphql/reference/objects#pullrequest) документации по API GraphQL или в разделе [Проверки запросов на вытягивание](/rest/reference/pulls#reviews) документации по REST API.
 
-For example, you can run a workflow when a pull request review has been `edited` or `dismissed`.
+Например, можно запустить рабочий процесс, если к проверке запроса на вытягивание применен тип действия `edited` или `dismissed`.
 
 ```yaml
 on:
@@ -753,9 +752,9 @@ on:
     types: [edited, dismissed]
 ```
 
-#### Running a workflow when a pull request is approved
+#### Запуск рабочего процесса при утверждении запроса на вытягивание
 
-To run your workflow when a pull request has been approved, you can trigger your workflow with the `submitted` type of `pull_request_review` event, then check the review state with the `github.event.review.state` property. For example, this workflow will run whenever a pull request review is submitted, but the `approved` job will only run if the submitted review is an approving review:
+Чтобы запустить рабочий процесс при утверждении запроса на вытягивание, активируйте рабочий процесс, используя тип `submitted` события `pull_request_review`, а затем проверьте состояние проверки, используя свойство `github.event.review.state`. Например, этот рабочий процесс будет выполняться при отправке проверки запроса на вытягивание, однако задание `approved` будет выполняться, только если отправленная проверка утверждена:
 
 ```yaml
 on:
@@ -774,19 +773,19 @@ jobs:
 
 ### `pull_request_review_comment`
 
-| Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
+| Полезные данные события веб-перехватчика | Типы действий | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
-| [`pull_request_review_comment`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#pull_request_review_comment) | - `created`<br/>- `edited`<br/>- `deleted`| Last merge commit on the `GITHUB_REF` branch | PR merge branch `refs/pull/:prNumber/merge` |
+| [`pull_request_review_comment`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#pull_request_review_comment) | - `created`<br/>- `edited`<br/>- `deleted`| Последняя фиксация слияния в ветви `GITHUB_REF` | Ветвь слияния PR `refs/pull/:prNumber/merge` |
 
 {% note %}
 
-**Note**: {% data reusables.developer-site.multiple_activity_types %} For information about each activity type, see "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#pull_request_review_comment)." {% data reusables.developer-site.limit_workflow_to_activity_types %}
+**Примечание**.{% data reusables.developer-site.multiple_activity_types %} Дополнительные сведения о каждом типе действия см. в разделе [События и полезные данные веб-перехватчика](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#pull_request_review_comment). {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 {% endnote %}
 
-Runs your workflow when a pull request review comment is modified. A pull request review comment is a comment on a pull request's diff. For activity related to pull request reviews or pull request comments, use the [`pull_request_review`](#pull_request_review) or [`issue_comment`](#issue_comment) events instead. For information about the pull request review comment APIs, see "[PullRequestReviewComment](/graphql/reference/objects#pullrequestreviewcomment)" in the GraphQL API documentation or "[Review comments](/rest/reference/pulls#comments)" in the REST API documentation.
+Это событие запускает рабочий процесс при изменении комментария к проверке запроса на вытягивание. Комментарий к проверке запроса на вытягивание — это комментарий к разнице запроса на вытягивание. Для действий, связанных с проверкой запросов на вытягивание или комментариями к запросам, используйте событие [`pull_request_review`](#pull_request_review) или [`issue_comment`](#issue_comment). Сведения об API-интерфейсах для работы с запросами на вытягивание см. в разделе [PullRequestReviewComment](/graphql/reference/objects#pullrequestreviewcomment) документации по API GraphQL или в разделе [Комментарии к проверкам](/rest/reference/pulls#comments) документации по REST API.
 
-For example, you can run a workflow when a pull request review comment has been `created` or `deleted`.
+Например, можно запустить рабочий процесс, если к комментарию к проверке запроса на вытягивание применен тип действия `created` или `deleted`.
 
 ```yaml
 on:
@@ -798,29 +797,29 @@ on:
 
 ### `pull_request_target`
 
-| Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
+| Полезные данные события веб-перехватчика | Типы действий | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
-| [`pull_request`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#pull_request) | - `assigned`<br/>- `unassigned`<br/>- `labeled`<br/>- `unlabeled`<br/>- `opened`<br/>- `edited`<br/>- `closed`<br/>- `reopened`<br/>- `synchronize`<br/>- `converted_to_draft`<br/>- `ready_for_review`<br/>- `locked`<br/>- `unlocked` <br/>- `review_requested` <br/>- `review_request_removed` <br/>- `auto_merge_enabled` <br/>- `auto_merge_disabled` | Last commit on the PR base branch | PR base branch |
+| [`pull_request`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#pull_request) | - `assigned`<br/>- `unassigned`<br/>- `labeled`<br/>- `unlabeled`<br/>- `opened`<br/>- `edited`<br/>- `closed`<br/>- `reopened`<br/>- `synchronize`<br/>- `converted_to_draft`<br/>- `ready_for_review`<br/>- `locked`<br/>- `unlocked` <br/>- `review_requested` <br/>- `review_request_removed` <br/>- `auto_merge_enabled` <br/>- `auto_merge_disabled` | Последняя фиксация в базовой ветви запроса на вытягивание | Базовая ветвь PR |
 
 {% note %}
 
-**Note**: {% data reusables.developer-site.multiple_activity_types %} For information about each activity type, see "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#pull_request_target)." By default, a workflow only runs when a `pull_request_target` event's activity type is `opened`, `synchronize`, or `reopened`. To trigger workflows by different activity types, use the `types` keyword. For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions#onevent_nametypes)."
+**Примечание**. {% data reusables.developer-site.multiple_activity_types %} Дополнительные сведения о каждом типе действия см. в разделе [События и полезные данные веб-перехватчика](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#pull_request_target). По умолчанию рабочий процесс выполняется только в том случае, если для типа действия события `pull_request_target` указано `opened`, `synchronize` или `reopened`. Чтобы активировать рабочие процессы с помощью других типов действий, используйте ключевое слово `types`. Дополнительные сведения см. в статье [Синтаксис рабочего процесса для {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions#onevent_nametypes).
 
 {% endnote %}
 
-Runs your workflow when activity on a pull request in the workflow's repository occurs. For example, if no activity types are specified, the workflow runs when a pull request is opened or reopened or when the head branch of the pull request is updated.
+Это событие запускает рабочий процесс при выполнении действия по запросу на вытягивание в репозитории рабочего процесса. Например, если типы действий не указаны, рабочий процесс запускается при открытии или повторном открытии запроса на вытягивание либо при обновлении главной ветви запроса на вытягивание.
 
-This event runs in the context of the base of the pull request, rather than in the context of the merge commit, as the `pull_request` event does. This prevents execution of unsafe code from the head of the pull request that could alter your repository or steal any secrets you use in your workflow. This event allows your workflow to do things like label or comment on pull requests from forks. Avoid using this event if you need to build or run code from the pull request.
+Это событие, в отличие от события `pull_request`, выполняется в контексте базы запроса на вытягивание, а не в контексте фиксации слияния. Это предотвращает выполнение небезопасного кода из заголовка запроса на вытягивание, который может изменить репозиторий или украсть все секреты, используемые в рабочем процессе. Это событие позволяет рабочему процессу создавать метки или комментарии к запросам на вытягивание из вилок. Не рекомендуется использовать это событие для сборки или выполнения кода из запроса на вытягивание.
 
-To ensure repository security, branches with names that match certain patterns (such as those which look similar to SHAs) may not trigger workflows with the `pull_request_target` event.
+Чтобы обеспечить безопасность репозитория, ветви с именами, которые соответствуют определенным шаблонам (например, похожими на SHA), могут не запускать рабочие процессы с событием `pull_request_target`.
 
 {% warning %}
 
-**Warning:** For workflows that are triggered by the `pull_request_target` event, the `GITHUB_TOKEN` is granted read/write repository permission unless the `permissions` key is specified and the workflow can access secrets, even when it is triggered from a fork. Although the workflow runs in the context of the base of the pull request, you should make sure that you do not check out, build, or run untrusted code from the pull request with this event. Additionally, any caches share the same scope as the base branch. To help prevent cache poisoning, you should not save the cache if there is a possibility that the cache contents were altered. For more information, see "[Keeping your GitHub Actions and workflows secure: Preventing pwn requests](https://securitylab.github.com/research/github-actions-preventing-pwn-requests)" on the GitHub Security Lab website.
+**Предупреждение**. Для рабочих процессов, которые активируются событием `pull_request_target`: токену `GITHUB_TOKEN` предоставляется разрешение на чтение и запись в репозитории (если только не указан ключ `permissions`), а рабочий процесс получает доступ к секретам, даже если запуск выполняется из вилки. Несмотря на то, что рабочий процесс выполняется в контексте базы запроса на вытягивание, необходимо убедиться, что это событие не ведет к извлечению, сборке или запуску ненадежного кода из запроса на вытягивание. Кроме того, весь кэш использует ту же область, что и базовая ветвь. Не следует сохранять кэш, если есть вероятность изменения его содержимого: это позволит предотвратить отравление кэша. Дополнительные сведения см. в статье [Обеспечение безопасности GitHub Actions и рабочих процессов: предотвращение запросов pwn](https://securitylab.github.com/research/github-actions-preventing-pwn-requests) на веб-сайте лаборатории безопасности GitHub Security Lab.
 
 {% endwarning %}
 
-For example, you can run a workflow when a pull request has been `assigned`, `opened`, `synchronize`, or `reopened`.
+Например, можно запустить рабочий процесс, если к запросу на вытягивание применен тип действия `assigned`, `opened`, `synchronize` или `reopened`.
 
 ```yaml
 on:
@@ -828,11 +827,11 @@ on:
     types: [assigned, opened, synchronize, reopened]
 ```
 
-#### Running your workflow based on the head or base branch of a pull request
+#### Запуск рабочего процесса на основе главной или базовой ветви запроса на вытягивание
 
-You can use the `branches` or `branches-ignore` filter to configure your workflow to only run on pull requests that target specific branches. For more information, see "[Workflow syntax for GitHub Actions](/actions/learn-github-actions/workflow-syntax-for-github-actions#onpull_requestpull_request_targetbranchesbranches-ignore)."
+Используйте фильтр `branches` или `branches-ignore`, чтобы настроить запуск рабочего процесса только для запросов на вытягивание, предназначенных для конкретных ветвей. Дополнительные сведения см. в статье "[Синтаксис рабочего процесса для GitHub Actions](/actions/learn-github-actions/workflow-syntax-for-github-actions#onpull_requestpull_request_targetbranchesbranches-ignore)".
 
-For example, this workflow will run when someone opens a pull request that targets a branch whose name starts with `releases/`:
+Например, этот рабочий процесс будет выполняться при открытии запроса на вытягивание, предназначенного для ветви, имя которой начинается с `releases/`:
 
 ```yaml
 on:
@@ -845,7 +844,7 @@ on:
 
 {% note %}
 
-**Note:** {% data reusables.actions.branch-paths-filter %} For example, the following workflow will only run when a pull request that includes a change to a JavaScript (`.js`) file is opened on a branch whose name starts with `releases/`:
+**Примечание**. {% data reusables.actions.branch-paths-filter %} Например, следующий рабочий процесс будет выполняться только при открытии запроса на вытягивание, включающего изменение файла JavaScript (`.js`) в ветви, имя которой начинается с `releases/`:
 
 ```yaml
 on:
@@ -860,7 +859,7 @@ on:
 
 {% endnote %}
 
-To run a job based on the pull request's head branch name (as opposed to the pull request's base branch name), use the `github.head_ref` context in a conditional. For example, this workflow will run whenever a pull request is opened, but the `run_if` job will only execute if the head of the pull request is a branch whose name starts with `releases/`:
+Чтобы выполнить задание на основе имени главной ветви запроса на вытягивание (в отличие от имени базовой ветви запроса на вытягивание), используйте контекст `github.head_ref` в условном режиме. Например, этот рабочий процесс будет выполняться при каждом открытии запроса на вытягивание, но задание `run_if` будет выполняться только в том случае, если заголовок запроса на вытягивание является ветвью, имя которой начинается с `releases/`:
 
 ```yaml
 on:
@@ -875,11 +874,11 @@ jobs:
       - run: echo "The head of this PR starts with 'releases/'"
 ```
 
-#### Running your workflow based on files changed in a pull request
+#### Запуск рабочего процесса на основе файлов, измененных в запросе на вытягивание
 
-You can use the `paths` or `paths-ignore` filter to configure your workflow to run when a pull request changes specific files. For more information, see "[Workflow syntax for GitHub Actions](/actions/learn-github-actions/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore)."
+Используя фильтр `paths` или `paths-ignore`, можно настроить рабочий процесс таким образом, чтобы он выполнялся при изменении определенных файлов в запросе на вытягивание. Дополнительные сведения см. в статье "[Синтаксис рабочего процесса для GitHub Actions](/actions/learn-github-actions/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore)".
 
-For example, this workflow will run when a pull request includes a change to a JavaScript file (`.js`):
+Например, этот рабочий процесс будет выполняться, когда в запросе на вытягивание изменен файл JavaScript (`.js`):
 
 ```yaml
 on:
@@ -890,7 +889,7 @@ on:
 
 {% note %}
 
-**Note:** {% data reusables.actions.branch-paths-filter %} For example, the following workflow will only run when a pull request that includes a change to a JavaScript (`.js`) file is opened on a branch whose name starts with `releases/`:
+**Примечание**. {% data reusables.actions.branch-paths-filter %} Например, следующий рабочий процесс будет выполняться только при открытии запроса на вытягивание, включающего изменение файла JavaScript (`.js`) в ветви, имя которой начинается с `releases/`:
 
 ```yaml
 on:
@@ -905,9 +904,9 @@ on:
 
 {% endnote %}
 
-#### Running your workflow when a pull request merges
+#### Запуск рабочего процесса при слиянии запроса на вытягивание
 
-When a pull request merges, the pull request is automatically closed. To run a workflow when a pull request merges, use the `pull_request_target` `closed` event type along with a conditional that checks the `merged` value of the event. For example, the following workflow will run whenever a pull request closes. The `if_merged` job will only run if the pull request was also merged.
+При слиянии запрос на вытягивание автоматически закрывается. Чтобы запустить рабочий процесс при слиянии запроса на вытягивание, используйте тип события `pull_request_target` `closed` вместе с условием, проверяющим значение `merged` события. Например, следующий рабочий процесс будет выполняться при закрытии запроса на вытягивание. Задание `if_merged` будет выполняться только в том случае, если произошло слияние запроса на вытягивание.
 
 ```yaml
 on:
@@ -926,25 +925,25 @@ jobs:
 
 ### `push`
 
-| Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
+| Полезные данные события веб-перехватчика | Типы действий | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
-| [`push`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#push) | n/a | When you delete a branch, the SHA in the workflow run (and its associated refs) reverts to the default branch of the repository. | Updated ref |
+| [`push`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#push) | Недоступно | При удалении ветви SHA в запуске рабочего процесса (а также связанные ссылки) возвращается в ветвь репозитория по умолчанию. | Обновленная ссылка |
 
 {% note %}
 
-**Note:** The webhook payload available to GitHub Actions does not include the `added`, `removed`, and `modified` attributes in the `commit` object. You can retrieve the full commit object using the API. For information, see "[Commit](/graphql/reference/objects#commit)" in the GraphQL API documentation or "[Get a commit](/rest/reference/commits#get-a-commit)" in the REST API documentation.
+**Примечание**. К полезным данным веб-перехватчика, доступным для GitHub Actions, не относятся атрибуты `added`, `removed` и `modified` объекта `commit`. Полный объект фиксации можно получить с помощью API. Дополнительные сведения см. в разделе [Commit](/graphql/reference/objects#commit) документации по API GraphQL или в разделе [Получение фиксации](/rest/reference/commits#get-a-commit) в документации по REST API.
 
 {% endnote %}
 
 {% note %}
 
-**Note**: An event will not be created when you push more than three tags at once.
+**Примечание**. При одновременной отправке более трех тегов событие не создается.
 
 {% endnote %}
 
-Runs your workflow when you push a commit or tag.
+Это событие запускает рабочий процесс при отправке фиксации или тега.
 
-For example, you can run a workflow when the `push` event occurs.
+Например, можно запустить рабочий процесс при возникновении события `push`.
 
 ```yaml
 on:
@@ -953,15 +952,15 @@ on:
 
 {% note %}
 
-**Note**: When a `push` webhook event triggers a workflow run, the Actions UI's "pushed by" field shows the account of the pusher and not the author or committer. However, if the changes are pushed to a repository using SSH authentication with a deploy key, then the "pushed by" field will be the repository admin who verified the deploy key when it was added it to a repository.
+**Примечание.** Когда событие веб-перехватчика `push` активирует выполнение рабочего процесса, в поле "Кем отправлено" в пользовательском интерфейсе Actions отображается учетная запись того, кто отправил действие, а не того, кто его создал или зафиксировал. Однако если изменения отправляются в репозиторий с помощью проверки подлинности SSH с ключом развертывания, то в поле "Кем отправлено" будет указан администратор репозитория, который проверил ключ развертывания при добавлении в репозиторий.
 
 {% endnote %}
 
-#### Running your workflow only when a push to specific branches occurs
+#### Запуск рабочего процесса только при отправке в определенные ветви
 
-You can use the `branches` or `branches-ignore` filter to configure your workflow to only run when specific branches are pushed. For more information, see "[Workflow syntax for GitHub Actions](/actions/learn-github-actions/workflow-syntax-for-github-actions#onpushbranchestagsbranches-ignoretags-ignore)."
+Используйте фильтр `branches` или `branches-ignore`, чтобы настроить запуск рабочего процесса только при отправке в определенные ветви. Дополнительные сведения см. в статье "[Синтаксис рабочего процесса для GitHub Actions](/actions/learn-github-actions/workflow-syntax-for-github-actions#onpushbranchestagsbranches-ignoretags-ignore)".
 
-For example, this workflow will run when someone pushes to `main` or to a branch that starts with `releases/`.
+Например, этот рабочий процесс будет выполняться при отправке в ветвь `main` или в ветвь, имя которой начинается с `releases/`.
 
 ```yaml
 on:
@@ -973,7 +972,7 @@ on:
 
 {% note %}
 
-**Note:** {% data reusables.actions.branch-paths-filter %} For example, the following workflow will only run when a push that includes a change to a JavaScript (`.js`) file is made to a branch whose name starts with `releases/`:
+**Примечание**. {% data reusables.actions.branch-paths-filter %} Например, следующий рабочий процесс будет выполняться только при отправке, включающей изменение файла JavaScript (`.js`), в ветвь, имя которой начинается с `releases/`:
 
 ```yaml
 on:
@@ -986,11 +985,11 @@ on:
 
 {% endnote %}
 
-#### Running your workflow only when a push of specific tags occurs
+#### Запуск рабочего процесса только при отправке определенных тегов
 
-You can use the `tags` or `tags-ignore` filter to configure your workflow to only run when specific tags are pushed. For more information, see "[Workflow syntax for GitHub Actions](/actions/learn-github-actions/workflow-syntax-for-github-actions#onpushbranchestagsbranches-ignoretags-ignore)."
+Используйте фильтр `tags` или `tags-ignore`, чтобы настроить запуск рабочего процесса только при отправке определенных тегов. Дополнительные сведения см. в статье "[Синтаксис рабочего процесса для GitHub Actions](/actions/learn-github-actions/workflow-syntax-for-github-actions#onpushbranchestagsbranches-ignoretags-ignore)".
 
-For example, this workflow will run when someone pushes a tag that starts with `v1.`.
+Например, этот рабочий процесс будет выполняться при отправке тега, имя которого начинается с `v1.`.
 
 ```yaml
 on:
@@ -999,11 +998,11 @@ on:
       - v1.**
 ```
 
-#### Running your workflow only when a push affects specific files
+#### Запуск рабочего процесса только в случаях, когда отправка влияет на определенные файлы
 
-You can use the `paths` or `paths-ignore` filter to configure your workflow to run when a push to specific files occurs. For more information, see "[Workflow syntax for GitHub Actions](/actions/learn-github-actions/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore)."
+Используя фильтр `paths` или `paths-ignore`, можно настроить рабочий процесс таким образом, чтобы он выполнялся только тогда, когда отправка затрагивает определенные файлы. Дополнительные сведения см. в статье "[Синтаксис рабочего процесса для GitHub Actions](/actions/learn-github-actions/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore)".
 
-For example, this workflow will run when someone pushes a change to a JavaScript file (`.js`):
+Например, этот рабочий процесс будет выполняться при отправке изменений в файл JavaScript (`.js`):
 
 ```yaml
 on:
@@ -1014,7 +1013,7 @@ on:
 
 {% note %}
 
-**Note:** {% data reusables.actions.branch-paths-filter %} For example, the following workflow will only run when a push that includes a change to a JavaScript (`.js`) file is made to a branch whose name starts with `releases/`:
+**Примечание**. {% data reusables.actions.branch-paths-filter %} Например, следующий рабочий процесс будет выполняться только при отправке, включающей изменение файла JavaScript (`.js`), в ветвь, имя которой начинается с `releases/`:
 
 ```yaml
 on:
@@ -1029,21 +1028,21 @@ on:
 
 ### `registry_package`
 
-| Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
+| Полезные данные события веб-перехватчика | Типы действий | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
-| [`registry_package`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#package) | - `published`<br/>- `updated` | Commit of the published package | Branch or tag of the published package |
+| [`registry_package`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#package) | - `published`<br/>- `updated` | Фиксация опубликованного пакета | Ветвь или тег опубликованного пакета |
 
 {% note %}
 
-**Note**: {% data reusables.developer-site.multiple_activity_types %} For information about each activity type, see "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#registry_package)." {% data reusables.developer-site.limit_workflow_to_activity_types %}
+**Примечание**.{% data reusables.developer-site.multiple_activity_types %} Дополнительные сведения о каждом типе действия см. в разделе [События и полезные данные веб-перехватчика](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#registry_package). {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 {% endnote %}
 
 {% data reusables.actions.branch-requirement %}
 
-Runs your workflow when activity related to {% data variables.product.prodname_registry %} occurs in your repository. For more information, see "[{% data variables.product.prodname_registry %} Documentation](/packages)."
+Это событие запускает рабочий процесс, когда в репозитории выполняется действие, связанное с {% data variables.product.prodname_registry %}. Дополнительные сведения см. в разделе [Документация по {% data variables.product.prodname_registry %}](/packages).
 
-For example, you can run a workflow when a new package version has been `published`.
+Например, можно запустить рабочий процесс, если к новой версии пакета было применено действие `published`.
 
 ```yaml
 on:
@@ -1053,31 +1052,31 @@ on:
 
 ### `release`
 
-| Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
+| Полезные данные события веб-перехватчика | Типы действий | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
-| [`release`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#release) | - `published` <br/>- `unpublished` <br/>- `created` <br/>- `edited` <br/>- `deleted` <br/>- `prereleased`<br/> - `released` | Last commit in the tagged release | Tag ref of release `refs/tags/<tag_name>` |
+| [`release`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#release) | - `published` <br/>- `unpublished` <br/>- `created` <br/>- `edited` <br/>- `deleted` <br/>- `prereleased`<br/> - `released` | Последняя фиксация в выпуске с тегами | Ссылка на тег выпуска `refs/tags/<tag_name>` |
 
 {% note %}
 
-**Note**: {% data reusables.developer-site.multiple_activity_types %} For information about each activity type, see "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#release)." {% data reusables.developer-site.limit_workflow_to_activity_types %}
+**Примечание**. {% data reusables.developer-site.multiple_activity_types %} Дополнительные сведения о каждом типе действия см. в разделе [События и полезные данные веб-перехватчика](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#release). {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 {% endnote %}
 
 {% note %}
 
-**Note:** Workflows are not triggered for the `created`, `edited`, or `deleted` activity types for draft releases. When you create your release through the {% data variables.product.product_name %} browser UI, your release may automatically be saved as a draft.
+**Примечание**. Рабочие процессы не активируются для типов действий `created`, `edited` и `deleted` в черновых выпусках. При создании выпуска с помощью пользовательского интерфейса браузера {% data variables.product.product_name %} выпуск может автоматически сохраняться в виде черновика.
 
 {% endnote %}
 
 {% note %}
 
-**Note:** The `prereleased` type will not trigger for pre-releases published from draft releases, but the `published` type will trigger. If you want a workflow to run when stable *and* pre-releases publish, subscribe to `published` instead of `released` and `prereleased`.
+**Примечание**. Тип `prereleased` не запускает рабочий процесс для предварительных выпусков, опубликованных из черновых выпусков, однако тип `published` запускает его. Если требуется, чтобы рабочий процесс выполнялся при стабильной *и* предварительной публикации, подпишитесь на тип действия `published` вместо `released` и `prereleased`.
 
 {% endnote %}
 
-Runs your workflow when release activity in your repository occurs. For information about the release APIs, see "[Release](/graphql/reference/objects#release)" in the GraphQL API documentation or "[Releases](/rest/reference/releases)" in the REST API documentation.
+Это событие запускает рабочий процесс при выполнении действия выпуска в репозитории. Сведения об API-интерфейсах для работы с выпусками см. в разделе [Release](/graphql/reference/objects#release) документации по API GraphQL или в разделе [Выпуски](/rest/reference/releases) документации по REST API.
 
-For example, you can run a workflow when a release has been `published`.
+Например, можно запустить рабочий процесс, если к выпуску было применено действие `published`.
 
 ```yaml
 on:
@@ -1087,15 +1086,15 @@ on:
 
 ### `repository_dispatch`
 
-| Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
+| Полезные данные события веб-перехватчика | Типы действий | `GITHUB_SHA` | `GITHUB_REF` |
 | ------------------ | ------------ | ------------ | ------------------|
-| [repository_dispatch](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#repository_dispatch) | Custom | Last commit on default branch | Default branch |
+| [repository_dispatch](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#repository_dispatch) | Другой | Последняя фиксация в ветви по умолчанию | Ветвь по умолчанию |
 
 {% data reusables.actions.branch-requirement %}
 
-You can use the {% data variables.product.product_name %} API to trigger a webhook event called [`repository_dispatch`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#repository_dispatch) when you want to trigger a workflow for activity that happens outside of {% data variables.product.product_name %}. For more information, see "[Create a repository dispatch event](/rest/reference/repos#create-a-repository-dispatch-event)."
+API {% data variables.product.product_name %} можно использовать для активации события веб-перехватчика [`repository_dispatch`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#repository_dispatch), чтобы активировать рабочий процесс для действия, происходящего за пределами {% data variables.product.product_name %}. Дополнительные сведения см. в разделе [Создание события диспетчеризации репозитория](/rest/reference/repos#create-a-repository-dispatch-event).
 
-When you make a request to create a `repository_dispatch` event, you must specify an `event_type` to describe the activity type. By default, all `repository_dispatch`  activity types trigger a workflow to run. You can use the `types` keyword to limit your workflow to run when a specific `event_type` value is sent in the `repository_dispatch` webhook payload.
+При запросе на создание события `repository_dispatch` необходимо указать `event_type` в качестве описания типа действия. По умолчанию все типы действий `repository_dispatch` активируют рабочий процесс. Используйте ключевое слово `types`, чтобы ограничить выполнение рабочего процесса при отправке определенного значения `event_type` в полезные данные веб-перехватчика `repository_dispatch`.
 
 ```yaml
 on:
@@ -1105,11 +1104,11 @@ on:
 
 {% note %}
 
-**Note:** The `event_type` value is limited to 100 characters.
+**Примечание**. Значение `event_type` ограничено 100 символами.
 
 {% endnote %}
 
-Any data that you send through the `client_payload` parameter will be available in the `github.event` context in your workflow. For example, if you send this request body when you create a repository dispatch event:
+Все данные, которые отправляются с помощью параметра `client_payload`, доступны в контексте `github.event` рабочего процесса. Например, если отправить этот текст запроса при создании события диспетчеризации репозитория:
 
 ```json
 {
@@ -1121,7 +1120,7 @@ Any data that you send through the `client_payload` parameter will be available 
 }
 ```
 
-then you can access the payload in a workflow like this:
+можно получить доступ к полезным данным в рабочем процессе следующим образом:
 
 ```yaml
 on:
@@ -1140,17 +1139,17 @@ jobs:
 
 ### `schedule`
 
-| Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
+| Полезные данные события веб-перехватчика | Типы действий | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
-| n/a | n/a | Last commit on default branch | Default branch | When the scheduled workflow is set to run. A scheduled workflow uses [POSIX cron syntax](https://pubs.opengroup.org/onlinepubs/9699919799/utilities/crontab.html#tag_20_25_07). For more information, see "[Triggering a workflow with events](/articles/configuring-a-workflow/#triggering-a-workflow-with-events)." |
+| Недоступно | Недоступно | Последняя фиксация в ветви по умолчанию | Ветвь по умолчанию | Если настроен запуск запланированного рабочего процесса. Запланированный рабочий процесс использует [синтаксис POSIX cron](https://pubs.opengroup.org/onlinepubs/9699919799/utilities/crontab.html#tag_20_25_07). Дополнительные сведения см. в разделе [Активация рабочего процесса с помощью событий](/articles/configuring-a-workflow/#triggering-a-workflow-with-events). |
 
 {% data reusables.actions.schedule-delay %}
 
-The `schedule` event allows you to trigger a workflow at a scheduled time.
+Событие `schedule` позволяет активировать рабочий процесс в запланированное время.
 
 {% data reusables.repositories.actions-scheduled-workflow-example %}
 
-Cron syntax has five fields separated by a space, and each field represents a unit of time.
+Синтаксис Cron содержит пять полей, разделенных пробелом, где каждое поле представляет единицу времени.
 
 ```
 ┌───────────── minute (0 - 59)
@@ -1164,43 +1163,43 @@ Cron syntax has five fields separated by a space, and each field represents a un
 * * * * *
 ```
 
-You can use these operators in any of the five fields:
+Эти операторы можно использовать в любом из пяти полей:
 
-| Operator | Description | Example |
+| Оператор | Описание | Пример |
 | -------- | ----------- | ------- |
-| * | Any value | `15 * * * *` runs at every minute 15 of every hour of every day. |
-| , | Value list separator | `2,10 4,5 * * *` runs at minute 2 and 10 of the 4th and 5th hour of every day. |
-| - | Range of values | `30 4-6 * * *` runs at minute 30 of the 4th, 5th, and 6th hour. |
-| / | Step values | `20/15 * * * *` runs every 15 minutes starting from minute 20 through 59 (minutes 20, 35, and 50). |
+| * | Любое значение | `15 * * * *` запускается в каждую 15-ю минуту каждого часа каждого дня. |
+| , | Разделитель списка значений | `2,10 4,5 * * *` запускается во 2-ю и 10-ю минуты каждого 4-го и 5-го часов каждого дня. |
+| - | Диапазон значений | `30 4-6 * * *` запускается в 30-ю минуту каждого 4-го, 5-го и 6-го часов. |
+| / | Значения шага | `20/15 * * * *` запускается каждые 15 минут с 20-й по 59-ю минуту (в каждую 20-ю, 35-ю и 50-ю минуты). |
 
 {% note %}
 
-**Note:** {% data variables.product.prodname_actions %} does not support the non-standard syntax `@yearly`, `@monthly`, `@weekly`, `@daily`, `@hourly`, and `@reboot`.
+**Примечание.** {% data variables.product.prodname_actions %} не поддерживает нестандартный синтаксис: `@yearly`, `@monthly`, `@weekly`, `@daily`, `@hourly` и `@reboot`.
 
 {% endnote %}
 
-You can use [crontab guru](https://crontab.guru/) to help generate your cron syntax and confirm what time it will run. To help you get started, there is also a list of [crontab guru examples](https://crontab.guru/examples.html).
+Используйте редактор [crontab guru](https://crontab.guru/), чтобы создавать синтаксис cron и подтверждать время его выполнения. Начать работу можно со списка [примеров crontab guru](https://crontab.guru/examples.html).
 
-Notifications for scheduled workflows are sent to the user who last modified the cron syntax in the workflow file. For more information, see "[Notifications for workflow runs](/actions/monitoring-and-troubleshooting-workflows/notifications-for-workflow-runs)."
+Уведомления о запланированных рабочих процессах отправляются пользователю, который внес последние изменения в синтаксис cron файла рабочего процесса. Дополнительные сведения см. в разделе [Уведомления о запусках рабочих процессов](/actions/monitoring-and-troubleshooting-workflows/notifications-for-workflow-runs).
 
 ### `status`
 
-| Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
+| Полезные данные события веб-перехватчика | Типы действий | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
-| [`status`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#status) | n/a | Last commit on default branch | n/a |
+| [`status`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#status) | Недоступно | Последняя фиксация в ветви по умолчанию | Недоступно |
 
 {% data reusables.actions.branch-requirement %}
 
-Runs your workflow when the status of a Git commit changes. For example, commits can be marked as `error`, `failure`, `pending`, or `success`. If you want to provide more details about the status change, you may want to use the [`check_run`](#check_run) event. For information about the commit status APIs, see "[Status](/graphql/reference/objects#status)" in the GraphQL API documentation or "[Statuses](/rest/reference/commits#commit-statuses)" in the REST API documentation.
+Это событие запускает рабочий процесс при изменении состояния фиксации Git. Фиксации могут быть помечены как `error`, `failure`, `pending` или `success`. Чтобы предоставить дополнительные сведения об изменении состояния, может потребоваться использовать событие [`check_run`](#check_run). Сведения об API-интерфейсах состояния фиксации см. в разделе [Status](/graphql/reference/objects#status) документации по API GraphQL или в разделе [Состояния](/rest/reference/commits#commit-statuses) документации по REST API.
 
-For example, you can run a workflow when the `status` event occurs.
+Например, можно запустить рабочий процесс при возникновении события `status`.
 
 ```yaml
 on:
   status
 ```
 
-If you want to run a job in your workflow based on the new commit state, you can use the `github.event.state` context. For example, the following workflow triggers when a commit status changes, but the `if_error_or_failure` job only runs if the new commit state is `error` or `failure`.
+Чтобы запустить задание в рабочем процессе на основе нового состояния фиксации, можно использовать контекст `github.event.state`. Например, следующий рабочий процесс активируется при изменении состояния фиксации, но задание `if_error_or_failure` выполняется только в том случае, если новое состояние фиксации — `error` или `failure`.
 
 ```yaml
 on:
@@ -1220,21 +1219,21 @@ jobs:
 
 ### `watch`
 
-| Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
+| Полезные данные события веб-перехватчика | Типы действий | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
-| [`watch`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#watch) | - `started` | Last commit on default branch | Default branch |
+| [`watch`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#watch) | - `started` | Последняя фиксация в ветви по умолчанию | Ветвь по умолчанию |
 
 {% note %}
 
-**Note**: {% data reusables.developer-site.multiple_activity_types %} Although only the `started` activity type is supported, specifying the activity type will keep your workflow specific if more activity types are added in the future. For information about each activity type, see "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#watch)." {% data reusables.developer-site.limit_workflow_to_activity_types %}
+**Примечание**. {% data reusables.developer-site.multiple_activity_types %} Несмотря на то, что поддерживается только тип действия `started`, указание типа действия позволит сохранить специфичность рабочего процесса, что важно при добавлении других типов действия в будущем. Сведения о каждом типе действия см. в разделе [События и полезные данные веб-перехватчика](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#watch). {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 {% endnote %}
 
 {% data reusables.actions.branch-requirement %}
 
-Runs your workflow when the workflow's repository is starred. For information about the pull request APIs, see "[addStar](/graphql/reference/mutations#addstar)" in the GraphQL API documentation or "[Starring](/rest/reference/activity#starring)" in the REST API documentation.
+Это событие запускает рабочий процесс, когда репозиторий рабочего процесса добавляется в избранное. Сведения об API-интерфейсах для работы с запросами на вытягивание см. в разделе [addStar](/graphql/reference/mutations#addstar) документации по API GraphQL или в разделе [Добавление в избранное](/rest/reference/activity#starring) документации по REST API.
 
-For example, you can run a workflow when someone stars a repository, which is the `started` activity type for a watch event.
+Например, можно запустить рабочий процесс при добавлении в избранное репозитория, который является типом действия `started` для события наблюдения.
 
 ```yaml
 on:
@@ -1242,17 +1241,17 @@ on:
     types: [started]
 ```
 
-{% ifversion fpt or ghes > 3.3 or ghae > 3.3 or ghec %}
+{% ifversion fpt или ghes > 3.3 или ghae > 3.3 или ghec %}
 
 ### `workflow_call`
 
-| Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
+| Полезные данные события веб-перехватчика | Типы действий | `GITHUB_SHA` | `GITHUB_REF` |
 | ------------------ | ------------ | ------------ | ------------------|
-| Same as the caller workflow | n/a | Same as the caller workflow | Same as the caller workflow |
+| То же, что и рабочий процесс вызывающего объекта | Недоступно | То же, что и рабочий процесс вызывающего объекта | То же, что и рабочий процесс вызывающего объекта |
 
-`workflow_call` is used to indicate that a workflow can be called by another workflow. When a workflow is triggered with the `workflow_call` event, the event payload in the called workflow is the same event payload from the calling workflow. For more information see, "[Reusing workflows](/actions/learn-github-actions/reusing-workflows)."
+`workflow_call` используется для того, чтобы указать, что рабочий процесс может вызываться другим рабочим процессом. Когда рабочий процесс активируется с помощью события `workflow_call`, полезные данные события в вызываемом рабочем процессе идентичны полезным данным событий вызывающего рабочего процесса. Дополнительные сведения см. в статье "[Многократное использование рабочих процессов](/actions/learn-github-actions/reusing-workflows)."
 
-The example below only runs the workflow when it's called from another workflow:
+В приведенном ниже примере рабочий процесс запускается только при вызове из другого рабочего процесса:
 
 ```yaml
 on: workflow_call
@@ -1262,24 +1261,23 @@ on: workflow_call
 
 ### `workflow_dispatch`
 
-| Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
+| Полезные данные события веб-перехватчика | Типы действий | `GITHUB_SHA` | `GITHUB_REF` |
 | ------------------ | ------------ | ------------ | ------------------|
-| [workflow_dispatch](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#workflow_dispatch) | n/a | Last commit on the `GITHUB_REF` branch or tag | Branch or tag that received dispatch |
+| [workflow_dispatch](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#workflow_dispatch) | Недоступно | Последняя фиксация в ветви или теге `GITHUB_REF` | Ветвь или тег, получившие отправку |
 
-To manually trigger a workflow, use the `workflow_dispatch` event. You can manually trigger a workflow run using the {% data variables.product.product_name %} API, {% data variables.product.prodname_cli %}, or {% data variables.product.product_name %} browser interface. For more information, see "[Manually running a workflow](/actions/managing-workflow-runs/manually-running-a-workflow)."
+Чтобы вручную запустить рабочий процесс, используйте событие `workflow_dispatch`. Запустить рабочий процесс вручную можно с помощью API {% data variables.product.product_name %}, {% data variables.product.prodname_cli %} или интерфейса браузера {% data variables.product.product_name %}. Дополнительные сведения см. в статье [Запуск рабочего процесса вручную](/actions/managing-workflow-runs/manually-running-a-workflow).
 
 ```yaml
 on: workflow_dispatch
 ```
 
-#### Providing inputs
+#### Предоставление входных данных
 
-You can configure custom-defined input properties, default input values, and required inputs for the event directly in your workflow. When you trigger the event, you can provide the `ref` and any `inputs`. When the workflow runs, you can access the input values in the {% ifversion actions-unified-inputs %}`inputs`{% else %}`github.event.inputs`{% endif %} context. For more information, see "[Contexts](/actions/learn-github-actions/contexts)."
+Вы можете настроить пользовательские свойства входа, входные значения по умолчанию и необходимые входные данные для события непосредственно в рабочем процессе. При активации события можно указать ссылку `ref` и любые данные `inputs`. При выполнении рабочего процесса можно получить доступ к входным значениям в контексте {% ifversion actions-unified-inputs %}`inputs`{% else %}`github.event.inputs`{% endif %}. Дополнительные сведения см. в разделе «[Контексты](/actions/learn-github-actions/contexts)».
 
 {% data reusables.actions.inputs-vs-github-event-inputs %}
 
-{% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
-This example defines inputs called `logLevel`, `tags`, and `environment`. You pass values for these inputs to the workflow when you run it. This workflow then prints the values to the log, using the {% ifversion actions-unified-inputs %}`inputs.logLevel`, `inputs.tags`, and  `inputs.environment`{% else %}`github.event.inputs.logLevel`, `github.event.inputs.tags`, and  `github.event.inputs.environment`{% endif %} context properties.
+{% ifversion fpt или ghec или ghes > 3.3 или ghae > 3,3 %} В этом примере определяются входные данные, называемые `logLevel`, `tags`и `environment`. Значения этих входных данных передаются рабочему процессу при его запуске. Затем этот рабочий процесс выводит значения в журнал с помощью свойств контекста {% ifversion actions-unified-inputs %}`inputs.logLevel`, `inputs.tags` и `inputs.environment`{% else %}`github.event.inputs.logLevel`, `github.event.inputs.tags` и `github.event.inputs.environment`{% endif %}.
 
 ```yaml
 on:
@@ -1317,20 +1315,19 @@ jobs:
           ENVIRONMENT: {% ifversion actions-unified-inputs %}{% raw %}${{ inputs.environment }}{% endraw %}{% else %}{% raw %}${{ github.event.inputs.environment }}{% endraw %}{% endif %}
 ```
 
-If you run this workflow from a browser you must enter values for the required inputs manually before the workflow will run.
+При запуске этого рабочего процесса из браузера необходимо сначала ввести значения необходимых входных данных вручную.
 
-![Entering inputs for a workflow](/assets/images/help/images/workflow-dispatch-inputs.png)
+![Ввод входных данных для рабочего процесса](/assets/images/help/images/workflow-dispatch-inputs.png)
 
-You can also pass inputs when you run a workflow from a script, or by using {% data variables.product.prodname_cli %}. For example:
+Входные данные также можно передавать при запуске рабочего процесса из скрипта или с помощью {% data variables.product.prodname_cli %}. Пример:
 
 ```
 gh workflow run run-tests.yml -f logLevel=warning -f tags=false -f environment=staging
 ```
 
-For more information, see the {% data variables.product.prodname_cli %} information in "[Manually running a workflow](/actions/managing-workflow-runs/manually-running-a-workflow)."
+Дополнительные сведения о {% data variables.product.prodname_cli %} см. в разделе [Запуск рабочего процесса вручную](/actions/managing-workflow-runs/manually-running-a-workflow).
 
-{% else %}
-This example defines the `name` and `home` inputs and prints them using the {% ifversion actions-unified-inputs %}`inputs.name` and `inputs.home`{% else %}`github.event.inputs.name` and `github.event.inputs.home`{% endif %} contexts. If a `home` isn't provided, the default value 'The Octoverse' is printed.
+{% else %} В этом примере входные данные `name` и `home` определяются и выводятся с использованием контекстов {% ifversion actions-unified-inputs %}`inputs.name` и `inputs.home`{% else %}`github.event.inputs.name` и `github.event.inputs.home`{% endif %} contexts. Если значение `home` не указано, выводится значение по умолчанию: The Octoverse.
 
 ```yaml
 name: Manually triggered workflow
@@ -1361,13 +1358,13 @@ jobs:
 
 ### `workflow_run`
 
-| Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
+| Полезные данные события веб-перехватчика | Типы действий | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
-| [`workflow_run`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#workflow_run) | - `completed`<br/>- `requested`{% ifversion actions-workflow-run-in-progress %}<br/>- `in_progress`{% endif %} | Last commit on default branch | Default branch |
+| [`workflow_run`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#workflow_run) | - `completed`<br/>- `requested`{% ifversion actions-workflow-run-in-progress %}<br/>- `in_progress`{% endif %} | Последняя фиксация в ветви по умолчанию | Ветвь по умолчанию |
 
 {% note %}
 
-**Note**: {% data reusables.developer-site.multiple_activity_types %} The `requested` activity type does not occur when a workflow is re-run. For information about each activity type, see "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_run)." {% data reusables.developer-site.limit_workflow_to_activity_types %}
+**Примечание**. {% data reusables.developer-site.multiple_activity_types %} Тип действия `requested` не возникает при повторном запуске рабочего процесса. Сведения о каждом типе действия см. в разделе [События и полезные данные веб-перехватчика](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_run). {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 {% endnote %}
 
@@ -1375,13 +1372,13 @@ jobs:
 
 {% note %}
 
-**Note:** You can't use `workflow_run` to chain together more than three levels of workflows. For example, if you attempt to trigger five workflows (named `B` to `F`) to run sequentially after an initial workflow `A` has run (that is: `A` → `B` → `C` → `D` → `E` → `F`), workflows `E` and `F` will not be run.
+**Примечание**. Нельзя использовать `workflow_run` для объединения в цепочку более трех уровней рабочих процессов. Например, при попытке последовательно запустить пять рабочих процессов (от `B` до `F`) после запуска начального рабочего процесса `A` (т. е. `A` → `B` → `C` → `D` → `E` → `F`) рабочие процессы `E` и `F` не будут выполняться.
 
 {% endnote %}
 
-This event occurs when a workflow run is requested or completed. It allows you to execute a workflow based on execution or completion of another workflow. The workflow started by the `workflow_run` event is able to access secrets and write tokens, even if the previous workflow was not. This is useful in cases where the previous workflow is intentionally not privileged, but you need to take a privileged action in a later workflow.
+Это событие возникает при запросе или завершении запуска рабочего процесса. Оно позволяет выполнить рабочий процесс после выполнения или завершения другого рабочего процесса. Рабочий процесс, запущенный событием `workflow_run`, может получать доступ к секретам и записывать токены, даже если предыдущий рабочий процесс не имел таких разрешений. Это полезно в случаях, когда предыдущему рабочему процессу намеренно не предоставлены привилегии, но в дальнейшем необходимо выполнить привилегированное действие.
 
-In this example, a workflow is configured to run after the separate "Run Tests" workflow completes.
+В этом примере запуск рабочего процесса выполняется после завершения отдельного рабочего процесса Run Tests.
 
 ```yaml
 on:
@@ -1391,7 +1388,7 @@ on:
       - completed
 ```
 
-If you specify multiple `workflows` for the `workflow_run` event, only one of the workflows needs to run. For example, a workflow with the following trigger will run whenever the "Staging" workflow or the "Lab" workflow completes.
+При указании нескольких процессов `workflows` для события `workflow_run` необходимо запустить только один из этих рабочих процессов. Например, рабочий процесс со следующим триггером будет запускаться после завершения рабочего процесса Staging или Lab.
 
 ```yaml
 on:
@@ -1401,9 +1398,9 @@ on:
       - completed
 ```
 
-#### Running a workflow based on the conclusion of another workflow
+#### Запуск рабочего процесса на основе результатов другого рабочего процесса
 
-A workflow run is triggered regardless of the conclusion of the previous workflow. If you want to run a job or step based on the result of the triggering workflow, you can use a conditional with the `github.event.workflow_run.conclusion` property. For example, this workflow will run whenever a workflow named "Build" completes, but the `on-success` job will only run if the "Build" workflow succeeded, and the `on-failure` job will only run if the "Build" workflow failed:
+Запуск рабочего процесса выполняется независимо от результатов предыдущего рабочего процесса. Чтобы запустить задание или шаг на основе результата запуска рабочего процесса, можно использовать условие со свойством `github.event.workflow_run.conclusion`. Например, этот рабочий процесс будет выполняться всякий раз, когда завершается рабочий процесс Build, однако задание `on-success` будет выполняться только в случае, если рабочий процесс Build выполнен успешно, а задание `on-failure` будет выполняться только в случае, если рабочий процесс Build завершился ошибкой:
 
 ```yaml
 on:
@@ -1424,9 +1421,9 @@ jobs:
       - run: echo 'The triggering workflow failed'
 ```
 
-#### Limiting your workflow to run based on branches
+#### Ограничение запуска рабочего процесса на основе ветвей
 
-You can use the `branches` or `branches-ignore` filter to specify what branches the triggering workflow must run on in order to trigger your workflow. For more information, see "[Workflow syntax for GitHub Actions](/actions/learn-github-actions/workflow-syntax-for-github-actions#onworkflow_runbranchesbranches-ignore)." For example, a workflow with the following trigger will only run when the workflow named `Build` runs on a branch named `canary`.
+Используйте фильтр `branches` или `branches-ignore`, чтобы указать, в каких ветвях должен выполняться рабочий процесс, чтобы активировать его. Дополнительные сведения см. в статье "[Синтаксис рабочего процесса для GitHub Actions](/actions/learn-github-actions/workflow-syntax-for-github-actions#onworkflow_runbranchesbranches-ignore)". Например, рабочий процесс со следующим триггером будет выполняться только в случае, если рабочий процесс с именем `Build` выполняется в ветви с именем `canary`.
 
 ```yaml
 on:
@@ -1436,11 +1433,11 @@ on:
     branches: [canary]
 ```
 
-#### Using data from the triggering workflow
+#### Использование данных из рабочего процесса, активирующего триггер
 
-You can access the [`workflow_run` event payload](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_run) that corresponds to the workflow that triggered your workflow. For example, if your triggering workflow generates artifacts, a workflow triggered with the `workflow_run` event can access these artifacts.
+Можно получить доступ к [`workflow_run` полезным данным события](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_run), которые относятся к рабочему процессу, активирующему триггер для запуска рабочего процесса. Например, если рабочий процесс, активирующий триггер, создает артефакты, рабочий процесс, который активируется событием `workflow_run`, может получить доступ к этим артефактам.
 
-The following workflow uploads data as an artifact. (In this simplified example, the data is the pull request number.)
+Следующий рабочий процесс передает данные в виде артефакта. (Это упрощенный пример, где в качестве данных выступает номер запроса на вытягивание.)
 
 ```yaml
 name: Upload data
@@ -1465,7 +1462,7 @@ jobs:
           path: pr/
 ```
 
-When a run of the above workflow completes, it triggers a run of the following workflow. The following workflow uses the `github.event.workflow_run` context and the {% data variables.product.product_name %} REST API to download the artifact that was uploaded by the above workflow, unzips the downloaded artifact, and comments on the pull request whose number was uploaded as an artifact.
+После завершения указанного выше рабочего процесса запускается следующий рабочий процесс. Следующий рабочий процесс использует контекст `github.event.workflow_run` и REST API {% data variables.product.product_name %} для скачивания артефакта, отправленного указанным выше рабочим процессом. Затем он распаковывает скачанный артефакт и создает комментарии к запросу на вытягивание, номер которого был отправлен в качестве артефакта.
 
 ```yaml
 name: Use the data

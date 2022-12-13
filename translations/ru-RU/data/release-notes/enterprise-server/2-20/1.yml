@@ -1,0 +1,21 @@
+date: '2020-02-27'
+sections:
+  security_fixes:
+    - 'Пакеты обновлены до последних версий системы безопасности. {% comment %} https://github.com/github/enterprise2/pull/19116, https://github.com/github/enterprise2/pull/19110, https://github.com/github/enterprise2/pull/19154, https://github.com/github/enterprise2/pull/19142 {% endcomment %}'
+  bugs:
+    - 'Восстановление из резервных копий завершалось сбоем с ошибкой "Недопустимый номер версии RDB". {% comment %} https://github.com/github/enterprise2/pull/19117, https://github.com/github/enterprise2/pull/19109 {% endcomment %}'
+    - 'Обновление реплики высокого уровня доступности бессрочно останавливалось в ожидании запуска MySQL. {% comment %} https://github.com/github/enterprise2/pull/19168, https://github.com/github/enterprise2/pull/19101 {% endcomment %}'
+    - 'Комментарии к проверкам запросов на вытягивание с непредвиденными значениями в полях "position" и "original_position" приводили к сбою импорта. {% comment %} https://github.com/github/github/pull/135439, https://github.com/github/github/pull/135374 {% endcomment %}'
+    - 'Дублирование записей веб-перехватчика в базе данных могло приводить к сбою обновлений предыдущих версий. {% comment %} https://github.com/github/hookshot/pull/1541, https://github.com/github/hookshot/pull/1426, https://github.com/github/hookshot/pull/1540 {% endcomment %}'
+  known_issues:
+    - 'После первой настройки версии GitHub Enterprise Server, в которой еще нет пользователей, злоумышленник мог создать первого пользователя с правами администратора. {% comment %} https://github.com/github/enterprise2/issues/1889 {% endcomment %}'
+    - 'Пользовательские правила брандмауэра не сохраняются в процессе обновления. {% comment %} https://github.com/github/enterprise2/issues/2823 {% endcomment %}'
+    - 'Отслеживаемые файлы Git LFS, [отправленные через веб-интерфейс](https://github.com/blog/2105-upload-files-to-your-repositories), ошибочно добавляются напрямую в репозиторий. {% comment %} https://github.com/github/github/issues/54684 {% endcomment %}'
+    - 'Невозможно закрыть проблемы, если они содержат постоянную ссылку на BLOB-объект в том же репозитории с путем, длина которого превышает 255 символов. {% comment %} https://github.com/github/github/issues/107731 {% endcomment %}'
+    - 'При отправке в gist активируется исключение во время работы перехватчика после получения. {% comment %} https://github.com/github/github/issues/129091 {% endcomment %}'
+    - 'Обновления параметров и программного обеспечения завершаются сбоем после настройки конфигурации фоновых рабочих ролей. {% comment %} https://github.com/github/enterprise2/issues/19119 {% endcomment %}'
+    - 'Когда в GitHub Connect включен параметр "Пользователи могут выполнять поиск на GitHub.com", результаты поиска на GitHub.com не включают проблемы в частных и внутренних репозиториях. {% comment %} https://github.com/github/admin-experience/issues/571 {% endcomment %}'
+    - 'При обновлении с предыдущих версий рабочие роли фоновых заданий не порождаются, из-за чего не работают основные возможности, такие как слияние запросов на вытягивание (обновлено 07.04.2020). {% comment %} https://github.com/github/enterprise2/issues/19232 {% endcomment %}'
+    - 'Оповещения безопасности не включаются в отчет при отправке в репозиторий посредством командной строки (обновлено 23.06.2020). {% comment %} https://github.com/github/github/issues/143190 {% endcomment %}'
+    - 'Граф зависимостей не обнаруживает зависимости при развертывании в конфигурации кластера с несколькими узлами Redis (обновлено 30.06.2020). {% comment %} https://github.com/github/dependency-graph/issues/81 {% endcomment %}'
+    - 'Если узел реплики находится в автономном режиме в конфигурации высокой доступности, {% data variables.product.product_name %} по-прежнему может маршрутизировать запросы {% data variables.product.prodname_pages %} на узел в автономном режиме, снижая доступность {% data variables.product.prodname_pages %} для пользователей.'
