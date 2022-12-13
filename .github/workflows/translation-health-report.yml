@@ -41,23 +41,21 @@ jobs:
             language_dir: translations/zh-CN
             language_repo: github/docs-internal.zh-cn
 
-          # We'll be ready to add the following languages in a future effort.
+          - language: ru
+            language_dir: translations/ru-RU
+            language_repo: github/docs-internal.ru-ru
 
-          # - language: ru
-          #   language_dir: translations/ru-RU
-          #   language_repo: github/docs-internal.ru-ru
+          - language: ko
+            language_dir: translations/ko-KR
+            language_repo: github/docs-internal.ko-kr
 
-          # - language: ko
-          #   language_dir: translations/ko-KR
-          #   language_repo: github/docs-internal.ko-kr
+          - language: fr
+            language_dir: translations/fr-FR
+            language_repo: github/docs-internal.fr-fr
 
-          # - language: fr
-          #   language_dir: translations/fr-FR
-          #   language_repo: github/docs-internal.fr-fr
-
-          # - language: de
-          #   language_dir: translations/de-DE
-          #   language_repo: github/docs-internal.de-de
+          - language: de
+            language_dir: translations/de-DE
+            language_repo: github/docs-internal.de-de
 
     steps:
       - name: Checkout the docs-internal repo
@@ -81,7 +79,7 @@ jobs:
           echo "gitref=$gitref" >> $GITHUB_ENV
 
       - name: 'Setup node'
-        uses: actions/setup-node@17f8bd926464a1afa4c6a11669539e9c1ba77048
+        uses: actions/setup-node@8c91899e586c5b171469028077307d293428b516
         with:
           node-version: '16.17.0'
 

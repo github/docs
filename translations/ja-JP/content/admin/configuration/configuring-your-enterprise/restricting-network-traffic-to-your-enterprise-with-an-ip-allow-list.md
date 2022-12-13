@@ -1,7 +1,7 @@
 ---
-title: Restricting network traffic to your enterprise with an IP allow list
+title: IP 許可リストを使用して Enterprise へのネットワーク トラフィックを制限する
 shortTitle: Restricting network traffic
-intro: You can restrict access to your enterprise and only allow access to your resources from specified IP addresses by using an IP allow list.
+intro: IP 許可リストを使用すれば、Enterprise へのアクセスを制限して、指定された IP アドレスからリソースへのアクセスのみを許可することができます。
 permissions: Enterprise owners can configure IP allow lists.
 miniTocMaxHeadingLevel: 3
 versions:
@@ -17,192 +17,154 @@ topics:
 redirect_from:
   - /admin/configuration/restricting-network-traffic-to-your-enterprise
   - /admin/configuration/configuring-your-enterprise/restricting-network-traffic-to-your-enterprise
+ms.openlocfilehash: 8511499e723fdeb4a2d24c2fce627bce56ad9777
+ms.sourcegitcommit: 9af8891fea10039b3374c76818634e05410e349d
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 12/06/2022
+ms.locfileid: '148191895'
 ---
+## ネットワーク トラフィックの制限について
 
-## About network traffic restrictions
-
-By default, authorized users can access your enterprise from any IP address. You can restrict access to resources {% ifversion ghec %}owned by organizations in an enterprise account {% endif %}by configuring an allow list for specific IP addresses. {% data reusables.identity-and-permissions.ip-allow-lists-example-and-restrictions %}
+デフォルトでは、許可されたユーザは任意の IP アドレスから Enterprise にアクセスできます。 特定の IP アドレスに対して許可リストを構成することで、Enterprise アカウント {% endif %} 内の Organization が所有するリソース {% ifversion ghec %} へのアクセスを制限できます。 {% data reusables.identity-and-permissions.ip-allow-lists-example-and-restrictions %}
 
 {% ifversion ghec %}
 
-If your enterprise uses {% data variables.product.prodname_emus %} with Azure AD and OIDC, you can choose whether to use {% data variables.product.company_short %}'s IP allow list feature or to use the allow list restrictions for your identity provider (IdP). If your enterprise does not use {% data variables.product.prodname_emus %} with Azure and OIDC, you can use {% data variables.product.company_short %}'s allow list feature. 
+エンタープライズによって {% data variables.product.prodname_emus %} が Azure AD と OIDC で使用されている場合は、{% data variables.product.company_short %} の IP 許可リスト機能を使用するか、ID プロバイダー (IdP) 用の許可リスト制限を使用するかを選ぶことができます。 エンタープライズによって {% data variables.product.prodname_emus %} が Azure と OIDC で使用されていない場合は、{% data variables.product.company_short %} の許可リスト機能を使用できます。 
 
 {% elsif ghae %}
 
-By default, Azure network security group (NSG) rules leave all inbound traffic open on ports 22, 80, 443, and 25. You can contact {% data variables.contact.github_support %} to configure access restrictions for {% data variables.product.product_name %}.
+既定では、Azure ネットワークセキュリティグループ (NSG) ルールで、ポート 22、80、443、および 25 ですべてのインバウンドトラフィックが開いたままになります。 {% data variables.product.product_name %} に対してアクセス制限を構成するには、{% data variables.contact.github_support %} に連絡してください。
 
-For restrictions using Azure NSGs, contact {% data variables.contact.github_support %} with the IP addresses that should be allowed to access {% data variables.product.product_name %}. Specify address ranges using the standard CIDR (Classless Inter-Domain Routing) format. {% data variables.contact.github_support %} will configure the appropriate firewall rules to restrict network access over HTTP, SSH, HTTPS, and SMTP. For more information, see "[Receiving help from {% data variables.contact.github_support %}](/admin/enterprise-support/receiving-help-from-github-support)."
+Azure NSG を使用した制限については、{% data variables.product.product_name %}へのアクセスを許可される必要がある IP アドレスを {% data variables.contact.github_support %} に問い合わせてください。 標準の CIDR (Classless Inter-Domain Routing) 形式を使用してアドレス範囲を指定します。 {% data variables.contact.github_support %} では、HTTP、SSH、HTTPS、SMTP を介したネットワークアクセスを制限するために、適切なファイアウォールルールを設定します。 詳細については、「[{% data variables.contact.github_support %} からのヘルプの受信](/admin/enterprise-support/receiving-help-from-github-support)」を参照してください。
 
 {% endif %}
 
 {% ifversion ghec %}
 
-## About {% data variables.product.company_short %}'s IP allow list
+## {% data variables.product.company_short %} の IP 許可リスト
 
-You can use {% data variables.product.company_short %}'s IP allow list to control access to your enterprise and assets owned by organizations in your enterprise. 
+{% data variables.product.company_short %} の IP 許可リストを使用すれば、エンタープライズ内の組織が所有するエンタープライズおよび資産へのアクセスを制御できます。 
 
 {% data reusables.identity-and-permissions.ip-allow-lists-cidr-notation %} 
 
 {% data reusables.identity-and-permissions.ip-allow-lists-enable %} {% data reusables.identity-and-permissions.ip-allow-lists-enterprise %} 
 
-## About your IdP's allow list
+## IdP の許可リストについて
 
-If you are using {% data variables.product.prodname_emus %} with Azure AD and OIDC, you can use your IdP's allow list.
+Azure AD と OIDC で {% data variables.product.prodname_emus %} を使用している場合は、IdP の許可リストを使用できます。
 
-Using your IdP's allow list deactivates the {% data variables.product.company_short %} IP allow list configurations for all organizations in your enterprise and deactivates the GraphQL APIs for enabling and managing IP allow lists. 
+IdP の許可リストを使用すると、Enterprise 内のすべての Organization の {% data variables.product.company_short %} IP 許可リスト構成が無効になり、IP 許可リストを有効にして管理するための GraphQL API が無効になります。 
 
-By default, your IdP runs the CAP on the initial interactive SAML or OIDC sign-in to {% data variables.product.company_short %} for any IP allow list configuration you choose.
+既定で、IdP では、選ばれた IP 許可リスト構成の {% data variables.product.company_short %} への初期対話型 SAML または OIDC サインイン時に CAP を実行します。
 
-The OIDC CAP only applies for requests to the API using a user-to-server token, such as a token for an {% data variables.product.prodname_oauth_app %} or a {% data variables.product.prodname_github_app %} acting on behalf of a user. The OIDC CAP does not apply when a {% data variables.product.prodname_github_app %} uses a server-to-server token. For more information, see "[Authenticating with {% data variables.product.prodname_github_apps %}](/developers/apps/building-github-apps/authenticating-with-github-apps#authenticating-as-an-installation)" and "[About support for your IdPs Conditional Access Policy](/enterprise-cloud@latest/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-support-for-your-idps-conditional-access-policy#github-apps-and-oauth-apps)."
+OIDC CAP は、ユーザーからサーバーへのトークン (ユーザーに代わって機能する {% data variables.product.prodname_oauth_app %} または {% data variables.product.prodname_github_app %} 用のトークンなど) を使用して API へのリクエストにのみ適用されます。 {% data variables.product.prodname_github_app %} でサーバー間トークンが使用される場合、OIDC CAP は適用されません。 詳しくは、「[{% data variables.product.prodname_github_apps %} による認証](/developers/apps/building-github-apps/authenticating-with-github-apps#authenticating-as-an-installation)」および「[IdPs 条件付きアクセス ポリシーのサポートについて](/enterprise-cloud@latest/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-support-for-your-idps-conditional-access-policy#github-apps-and-oauth-apps)」を参照してください。
 
-To ensure seamless use of the OIDC CAP while still applying the policy to user-to-server tokens, you must copy all of the IP ranges from each {% data variables.product.prodname_github_app %} that your enterprise uses to your IdP policy. 
+ユーザーからサーバーへのトークンにポリシーを適用しながら OIDC CAP を確実にシームレスに使用するには、Enterprise で使用する各 {% data variables.product.prodname_github_app %} からすべての IP 範囲を IdP ポリシーにコピーする必要があります。 
 
-## Using {% data variables.product.company_short %}'s IP allow list
+## {% data variables.product.company_short %} の IP 許可リストを使用する
 
-### Enabling {% data variables.product.company_short %}'s IP allow list
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.security %}
-1. Under "IP allow list", enable the IP allow list. 
-   - If you are using {% data variables.product.prodname_emus %} with OIDC, select the dropdown menu and click **GitHub**.
-      ![Screenshot of dropdown menu showing three IP allow list configuration options: Disabled, Identity Provider, and GitHub](/assets/images/help/security/enable-github-ip-allow-list.png)
+### {% data variables.product.company_short %} の IP 許可リストを有効にする
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.organizations.security %}
+1. [IP 許可リスト] で、IP 許可リストを有効にします。 
+   - OIDC で {% data variables.product.prodname_emus %} を使用している場合は、ドロップダウン メニューを選び、 **[GitHub]** をクリックします。
+      ![[無効]、[ID プロバイダー]、[GitHub] の 3 つの IP 許可リスト構成オプションを示すドロップダウン メニューのスクリーンショット](/assets/images/help/security/enable-github-ip-allow-list.png)
    
-      Select **Enable IP allow list**.
-      ![Screenshot of checkbox to allow IP addresses](/assets/images/help/security/enable-ip-allow-list-ghec.png)
+      **[IP 許可リストを有効にする]** を選びます。
+      ![IP アドレスを許可するチェックボックスのスクリーンショット](/assets/images/help/security/enable-ip-allow-list-ghec.png)
 
-   - If you are not using {% data variables.product.prodname_emus %} with OIDC, select **Enable IP allow list**.
-     ![Screenshot of checkbox to allow IP addresses](/assets/images/help/security/enable-ip-allowlist-enterprise-checkbox.png)
-1. Click **Save**.
+   - OIDC で {% data variables.product.prodname_emus %} を使用していない場合は、 **[IP 許可リストを有効にする]** を選びます。
+     ![IP アドレスを許可するチェックボックスのスクリーンショット](/assets/images/help/security/enable-ip-allowlist-enterprise-checkbox.png)
+1. **[保存]** をクリックします。
 
-### Adding an allowed IP address
+### 許可 IP アドレスを追加する
 
 {% data reusables.identity-and-permissions.about-adding-ip-allow-list-entries %}
 
 {% data reusables.identity-and-permissions.ipv6-allow-lists %}
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.security-tab %}
-{% data reusables.identity-and-permissions.ip-allow-lists-add-ip %}
-{% data reusables.identity-and-permissions.ip-allow-lists-add-description %}
-{% data reusables.identity-and-permissions.ip-allow-lists-add-entry %}
-{% data reusables.identity-and-permissions.check-ip-address %}
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.settings-tab %} {% data reusables.enterprise-accounts.security-tab %} {% data reusables.identity-and-permissions.ip-allow-lists-add-ip %} {% data reusables.identity-and-permissions.ip-allow-lists-add-description %} {% data reusables.identity-and-permissions.ip-allow-lists-add-entry %} {% data reusables.identity-and-permissions.check-ip-address %}
 
-### Allowing access by {% data variables.product.prodname_github_apps %}
+### {% data variables.product.prodname_github_apps %}によるアクセスの許可
 
 {% data reusables.identity-and-permissions.ip-allow-lists-githubapps-enterprise %}
 
-### Editing an allowed IP address
+### 許可 IP アドレスを編集する
 
 {% data reusables.identity-and-permissions.about-editing-ip-allow-list-entries %}
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.security-tab %}
-{% data reusables.identity-and-permissions.ip-allow-lists-edit-entry %}
-{% data reusables.identity-and-permissions.ip-allow-lists-edit-ip %}
-{% data reusables.identity-and-permissions.ip-allow-lists-edit-description %}
-8. Click **Update**.
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.settings-tab %} {% data reusables.enterprise-accounts.security-tab %} {% data reusables.identity-and-permissions.ip-allow-lists-edit-entry %} {% data reusables.identity-and-permissions.ip-allow-lists-edit-ip %} {% data reusables.identity-and-permissions.ip-allow-lists-edit-description %}
+8. **[Update]** をクリックします。
 {% data reusables.identity-and-permissions.check-ip-address %}
 
-### Checking if an IP address is permitted
+### IP アドレスが許可されているかどうかを確認する
 
 {% data reusables.identity-and-permissions.about-checking-ip-address %}
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.security-tab %}
-{% data reusables.identity-and-permissions.check-ip-address-step %}
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.settings-tab %} {% data reusables.enterprise-accounts.security-tab %} {% data reusables.identity-and-permissions.check-ip-address-step %}
 
-### Deleting an allowed IP address
+### 許可 IP アドレスを削除する
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.security-tab %}
-{% data reusables.identity-and-permissions.ip-allow-lists-delete-entry %}
-{% data reusables.identity-and-permissions.ip-allow-lists-confirm-deletion %}
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.settings-tab %} {% data reusables.enterprise-accounts.security-tab %} {% data reusables.identity-and-permissions.ip-allow-lists-delete-entry %} {% data reusables.identity-and-permissions.ip-allow-lists-confirm-deletion %}
 
-## Using your identity provider's allow list
+## ID プロバイダーの許可リストを使用する
 
 {% note %}
 
-**Note:** Using your IdP's allow list is only supported for {% data variables.product.prodname_emus %} with Azure AD and OIDC. 
+**注:** IdP の許可リストの使用は、Azure AD と OIDC での {% data variables.product.prodname_emus %} でのみサポートされます。 
 
 {% endnote %}
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.security %}
-1. Under "IP allow list", select the dropdown and click **Identity Provider**.
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.organizations.security %}
+1. [IP 許可リスト] でドロップダウンを選び、 **[ID プロバイダー]** をクリックします。
 
-   ![Screenshot of dropdown menu showing three IP allow list configuration options: Disabled, Identity Provider, and GitHub](/assets/images/help/security/enable-identity-provider-ip-allow-list.png)
-1. Optionally, to allow installed {% data variables.product.company_short %} and {% data variables.product.prodname_oauth_apps %} to access your enterprise from any IP address, select **Skip IdP check for applications**.
+   ![[無効]、[ID プロバイダー]、[GitHub] の 3 つの IP 許可リスト構成オプションを示すドロップダウン メニューのスクリーンショット](/assets/images/help/security/enable-identity-provider-ip-allow-list.png)
+1. 必要に応じて、インストールされた {% data variables.product.company_short %} および {% data variables.product.prodname_oauth_apps %} が任意の IP アドレスから Enterprise にアクセスできるようにするには、 **[アプリケーションの IdP チェックをスキップする]** を選びます。
 
-   ![Checkbox to allow IP addresses](/assets/images/help/security/ip-allow-list-skip-idp-check.png)
-1. Click **Save**.
+   ![IP アドレスを許可するチェックボックス](/assets/images/help/security/ip-allow-list-skip-idp-check.png)
+1. **[保存]** をクリックします。
 
 {% endif %}
 
 {% ifversion ghae %}
 
-## Enabling allowed IP addresses
+## 許可 IP アドレスを有効化する
 
 {% data reusables.identity-and-permissions.about-enabling-allowed-ip-addresses %}
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.security-tab %}
-1. Under "IP allow list", select **Enable IP allow list**.
-  ![Checkbox to allow IP addresses](/assets/images/help/security/enable-ip-allowlist-enterprise-checkbox.png)
-4. Click **Save**.
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.settings-tab %} {% data reusables.enterprise-accounts.security-tab %}
+1. [IP 許可リスト] で、 **[IP 許可リストを有効にする]** を選択します。
+  ![IP アドレスを許可するチェックボックス](/assets/images/help/security/enable-ip-allowlist-enterprise-checkbox.png)
+4. **[保存]** をクリックします。
 
-## Adding an allowed IP address
+## 許可 IP アドレスを追加する
 
-{% data reusables.identity-and-permissions.about-adding-ip-allow-list-entries %}
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.security-tab %}
-{% data reusables.identity-and-permissions.ip-allow-lists-add-ip %}
-{% data reusables.identity-and-permissions.ip-allow-lists-add-description %}
-{% data reusables.identity-and-permissions.ip-allow-lists-add-entry %}
-{% data reusables.identity-and-permissions.check-ip-address %}
+{% data reusables.identity-and-permissions.about-adding-ip-allow-list-entries %} {% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.settings-tab %} {% data reusables.enterprise-accounts.security-tab %} {% data reusables.identity-and-permissions.ip-allow-lists-add-ip %} {% data reusables.identity-and-permissions.ip-allow-lists-add-description %} {% data reusables.identity-and-permissions.ip-allow-lists-add-entry %} {% data reusables.identity-and-permissions.check-ip-address %}
 
-## Allowing access by {% data variables.product.prodname_github_apps %}
+## {% data variables.product.prodname_github_apps %}によるアクセスの許可
 
 {% data reusables.identity-and-permissions.ip-allow-lists-githubapps-enterprise %}
 
-## Editing an allowed IP address
+## 許可 IP アドレスを編集する
 
 {% data reusables.identity-and-permissions.about-editing-ip-allow-list-entries %}
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.security-tab %}
-{% data reusables.identity-and-permissions.ip-allow-lists-edit-entry %}
-{% data reusables.identity-and-permissions.ip-allow-lists-edit-ip %}
-{% data reusables.identity-and-permissions.ip-allow-lists-edit-description %}
-8. Click **Update**.
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.settings-tab %} {% data reusables.enterprise-accounts.security-tab %} {% data reusables.identity-and-permissions.ip-allow-lists-edit-entry %} {% data reusables.identity-and-permissions.ip-allow-lists-edit-ip %} {% data reusables.identity-and-permissions.ip-allow-lists-edit-description %}
+8. **[Update]** をクリックします。
 {% data reusables.identity-and-permissions.check-ip-address %}
 
-## Checking if an IP address is permitted
+## IP アドレスが許可されているかどうかを確認する
 
 {% data reusables.identity-and-permissions.about-checking-ip-address %}
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.security-tab %}
-{% data reusables.identity-and-permissions.check-ip-address-step %}
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.settings-tab %} {% data reusables.enterprise-accounts.security-tab %} {% data reusables.identity-and-permissions.check-ip-address-step %}
 
-## Deleting an allowed IP address
+## 許可 IP アドレスを削除する
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.security-tab %}
-{% data reusables.identity-and-permissions.ip-allow-lists-delete-entry %}
-{% data reusables.identity-and-permissions.ip-allow-lists-confirm-deletion %}
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.settings-tab %} {% data reusables.enterprise-accounts.security-tab %} {% data reusables.identity-and-permissions.ip-allow-lists-delete-entry %} {% data reusables.identity-and-permissions.ip-allow-lists-confirm-deletion %}
 
 {% endif %}
 
-## Using {% data variables.product.prodname_actions %} with an IP allow list
+## IP許可リストで {% data variables.product.prodname_actions %} を使用する
 
 {% data reusables.actions.ip-allow-list-self-hosted-runners %}

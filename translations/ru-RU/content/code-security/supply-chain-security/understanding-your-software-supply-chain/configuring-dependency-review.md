@@ -1,6 +1,6 @@
 ---
-title: Настройка проверки зависимостей
-intro: Вы можете использовать проверку зависимостей для перехвата уязвимостей перед их добавлением в проект.
+title: Configuring dependency review
+intro: You can use dependency review to catch vulnerabilities before they are added to your project.
 miniTocMaxHeadingLevel: 3
 shortTitle: Configure dependency review
 versions:
@@ -15,71 +15,80 @@ topics:
   - Vulnerabilities
   - Dependencies
   - Pull requests
-ms.openlocfilehash: b5e5ccb5107cd96d1a88f896fd46d5b948a365cd
-ms.sourcegitcommit: c2aa10a61db44ee111c09565b6114dd5c97b6e2e
-ms.translationtype: MT
-ms.contentlocale: ru-RU
-ms.lasthandoff: 11/14/2022
-ms.locfileid: '148163355'
 ---
-## Сведения о проверке зависимостей
+
+## About dependency review
 
 {% data reusables.dependency-review.feature-overview %}   
 
-Дополнительные сведения см. в разделе "[Сведения о проверке зависимостей](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review)" и "[Просмотр изменений зависимостей в запросе на включение внесенных изменений](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-dependency-changes-in-a-pull-request)".
+For more information, see "[About dependency review](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review)" and "[Reviewing dependency changes in a pull request](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-dependency-changes-in-a-pull-request)."
 
-## Сведения о настройке проверки зависимостей
+## About configuring dependency review
 
-{% ifversion fpt %} Проверка зависимостей доступна во всех общедоступных репозиториях во всех продуктах, и ее нельзя отключить. Проверка зависимостей доступна в частных репозиториях, принадлежащих организациям, которые используют облако GitHub Enterprise и имеют лицензию на [{% data variables.product.prodname_GH_advanced_security %}](/get-started/learning-about-github/about-github-advanced-security). Дополнительные сведения см. в [документации по {% data variables.product.prodname_ghe_cloud %}](/enterprise-cloud@latest/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-dependency-review).
+{% ifversion fpt %}
+Dependency review is available in all public repositories in all products and cannot be disabled. Dependency review is available in private repositories owned by organizations that use GitHub Enterprise Cloud and have a license for [{% data variables.product.prodname_GH_advanced_security %}](/get-started/learning-about-github/about-github-advanced-security). For more information, see the [{% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-dependency-review).
 
-{% elsif ghec %} Проверка зависимостей включена в состав {% data variables.product.product_name %} для общедоступных репозиториев. Чтобы использовать проверку зависимостей в частных репозиториях, принадлежащих организациям, у вас должна быть лицензия на [{% data variables.product.prodname_GH_advanced_security %}](/get-started/learning-about-github/about-github-advanced-security) и включенная схема зависимостей.
+{% elsif ghec %}
+Dependency review is included in {% data variables.product.product_name %} for public repositories. To use dependency review in private repositories owned by organizations, you must have a license for [{% data variables.product.prodname_GH_advanced_security %}](/get-started/learning-about-github/about-github-advanced-security) and have the dependency graph enabled.
 
 {% data reusables.dependabot.enabling-disabling-dependency-graph-private-repo %}
-1. Если функция {% data variables.product.prodname_GH_advanced_security %} не включена, нажмите рядом с ней кнопку **Включить**.
-   ![Снимок экрана: функция расширенной безопасности GitHub с выделенной кнопкой "Включить"](/assets/images/help/security/enable-ghas-private-repo.png)
+1. If "{% data variables.product.prodname_GH_advanced_security %}" is not enabled, click **Enable** next to the feature.
+   ![Screenshot of GitHub Advanced Security feature with "Enable" button emphasized](/assets/images/help/security/enable-ghas-private-repo.png)
 
 {% elsif ghes or ghae %}
 
-Проверка зависимостей доступна, если граф зависимостей включен для {% data variables.location.product_location %}, а {% data variables.product.prodname_advanced_security %} включен для организации или репозитория. {% ifversion ghes %} Дополнительные сведения см. в разделе [Включение {% data variables.product.prodname_GH_advanced_security %} для вашего предприятия](/admin/code-security/managing-github-advanced-security-for-your-enterprise/enabling-github-advanced-security-for-your-enterprise). {% endif %}
+Dependency review is available when dependency graph is enabled for {% data variables.location.product_location %} and {% data variables.product.prodname_advanced_security %} is enabled for the organization or repository.{% ifversion ghes %} For more information, see "[Enabling {% data variables.product.prodname_GH_advanced_security %} for your enterprise](/admin/code-security/managing-github-advanced-security-for-your-enterprise/enabling-github-advanced-security-for-your-enterprise)."{% endif %}
 
-### Проверка включения схемы зависимостей
+### Checking if the dependency graph is enabled
 
-{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %} {% data reusables.repositories.navigate-to-code-security-and-analysis %}
-1. В разделе "Настройка функций безопасности и анализа" проверьте, включена ли схема зависимостей. 
-1. Если схема зависимостей включена, нажмите **Включить** рядом с пунктом {% data variables.product.prodname_GH_advanced_security %}, чтобы включить функцию {% data variables.product.prodname_advanced_security %}, в том числе проверку зависимостей. Кнопка включить отключена, если у вашего предприятия нет доступных лицензий для {% data variables.product.prodname_advanced_security %}. {% ifversion ghes %} ![ Снимок экрана: функции "Безопасность и анализ кода"](/assets/images/enterprise/3.4/repository/code-security-and-analysis-enable-ghas-3.4.png){% endif %}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+{% data reusables.repositories.navigate-to-code-security-and-analysis %}
+1. Under "Configure security and analysis features", check if the dependency graph is enabled. 
+1. If dependency graph is enabled, click **Enable** next to "{% data variables.product.prodname_GH_advanced_security %}" to enable {% data variables.product.prodname_advanced_security %}, including dependency review. The enable button is disabled if your enterprise has no available licenses for {% data variables.product.prodname_advanced_security %}.{% ifversion ghes %}
+    ![Screenshot of "Code security and analysis" features"](/assets/images/enterprise/3.4/repository/code-security-and-analysis-enable-ghas-3.4.png){% endif %}
 
 {% endif %}
 
 {% ifversion dependency-review-action-configuration %}
-## Сведения о настройке {% data variables.product.prodname_dependency_review_action %}
+## About configuring the {% data variables.dependency-review.action_name %}
 
 {% data reusables.dependency-review.dependency-review-action-overview %}
 
-Доступны следующие параметры конфигурации.
+The following configuration options are available.
 
-| Параметр | Обязательно | Использование |
+| Option | Required | Usage |
 |------------------|-------------------------------|--------|
-| `fail-on-severity` | Необязательно | Определяет пороговое значение для уровня серьезности (`low`, `moderate`, `high`, `critical`).</br>Действие завершится сбоем для любых запросов на вытягивание, которые добавляют уязвимости указанного уровня серьезности или выше. |
-{%- ifversion dependency-review-action-licenses %} | `allow-licenses` | Необязательно | Содержит список разрешенных лицензий. Возможные значения этого параметра можно найти на странице [Лицензии](/rest/licenses) в документации по API.</br>Действие завершится сбоем для запросов на вытягивание, которые содержат зависимости с лицензиями, не включенными в этот список..| {% endif %} {%- ifversion dependency-review-action-licenses %} | `deny-licenses` | Необязательно | Содержит список запрещенных лицензий. Возможные значения этого параметра можно найти на странице [Лицензии](/rest/licenses) в документации по API.</br>Действие завершится ошибкой в запросах на вытягивание, которые вводят зависимости с лицензиями, соответствующими list.| {% endif %} {% ifversion dependency-review-action-fail-on-scopes %} | `fail-on-scopes` | Необязательный | Содержит список строк, представляющих среды сборки, которые необходимо поддерживать (`development`, `runtime`, `unknown`). </br>Действие завершится ошибкой в запросах на вытягивание, которые представляют уязвимости в областях, соответствующих list.| {% endif %} | `allow-ghsas` | Необязательный | Содержит список идентификаторов {% data variables.product.prodname_advisory_database %}, которые можно пропустить во время обнаружения. Возможные значения для этого параметра можно найти в [{% data variables.product.prodname_advisory_database %}](https://github.com/advisories). | | `config-file` | Необязательный | Указывает путь к файлу конфигурации. Файл конфигурации может быть локальным для репозитория или файлом, расположенным во внешнем репозитории.| | `external-repo-token` | Необязательный | Указывает маркер для получения файла конфигурации, если файл находится в частном внешнем репозитории. Маркер должен иметь доступ на чтение к репозиторию repository.|
+| `fail-on-severity` | Optional | Defines the threshold for level of severity (`low`, `moderate`, `high`, `critical`).</br>The action will fail on any pull requests that introduce vulnerabilities of the specified severity level or higher. |
+{%- ifversion dependency-review-action-licenses %}
+| `allow-licenses` | Optional | Contains a list of allowed licenses. You can find the possible values for this parameter in the [Licenses](/rest/licenses) page of the API documentation.</br>The action will fail on pull requests that introduce dependencies with licenses that do not match the list.|{% endif %}
+{%- ifversion dependency-review-action-licenses %}
+| `deny-licenses` | Optional | Contains a list of prohibited licenses. You can find the possible values for this parameter in the [Licenses](/rest/licenses) page of the API documentation.</br>The action will fail on pull requests that introduce dependencies with licenses that match the list.|{% endif %}{% ifversion dependency-review-action-fail-on-scopes %}
+| `fail-on-scopes` | Optional | Contains a list of strings representing the build environments you want to support (`development`, `runtime`, `unknown`). </br>The action will fail on pull requests that introduce vulnerabilites in the scopes that match the list.|{% endif %}
+| `allow-ghsas` | Optional | Contains a list of {% data variables.product.prodname_advisory_database %} IDs that can be skipped during detection. You can find the possible values for this parameter in the [{% data variables.product.prodname_advisory_database %}](https://github.com/advisories). |
+| `config-file` | Optional | Specifies a path to a configuration file. The configuration file can be local to the repository or a file located in an external repository.|
+| `external-repo-token` | Optional | Specifies a token for fetching the configuration file, if the file resides in a private external repository. The token must have read access to the repository.|
 
-{% ifversion dependency-review-action-licenses %} {% tip %}
+{% ifversion dependency-review-action-licenses %}
+{% tip %}
 
-**Важно.** Параметры `allow-licenses` и `deny-licenses` являются взаимоисключающими.
+**Tip:** The  `allow-licenses` and  `deny-licenses` options are mutually exclusive.
 
-{% endtip %} {% endif %}
+{% endtip %}
+{% endif %}
 
-## Настройка {% data variables.product.prodname_dependency_review_action %}
+## Configuring the {% data variables.dependency-review.action_name %}
 
-Существует два метода настройки {% data variables.product.prodname_dependency_review_action %}: 
-- Встраивание параметров конфигурации в файл рабочего процесса. 
-- Ссылка на файл конфигурации в файле рабочего процесса.
+There are two methods of configuring the {% data variables.dependency-review.action_name %}: 
+- Inlining the configuration options in your workflow file. 
+- Referencing a configuration file in your workflow file.
 
-Обратите внимание, что во всех примерах для действия (`v3`) используется короткий номер версии вместо номера выпуска semver (например, `v3.0.8`). Это гарантирует использование последней дополнительной версии действия.
-### Использование встроенной конфигурации для настройки {% data variables.product.prodname_dependency_review_action %}
+Notice that all of the examples use a short version number for the action (`v3`) instead of a semver release number (for example, `v3.0.8`). This ensures that you use the most recent minor version of the action.
+### Using inline configuration to set up the {% data variables.dependency-review.action_name %}
 
-1. Добавьте новый рабочий процесс YAML в папку `.github/workflows` .   
+1. Add a new YAML workflow to your `.github/workflows` folder.   
    
-   {% ifversion ghes %} Для `runs-on`по умолчанию используется `self-hosted`метка . Вы можете заменить метку по умолчанию меткой любого средства выполнения. {% endif %}
+   {% ifversion ghes %}For `runs-on`, the default label is `self-hosted`. You can replace the default label with the label of any of your runners.{% endif %}
   ```yaml{:copy}
   name: 'Dependency Review'
   on: [pull_request]
@@ -97,9 +106,9 @@ ms.locfileid: '148163355'
          - name: Dependency Review
            uses: actions/dependency-review-action@v3
    ```
-1. Укажите нужные параметры.   
+1. Specify your settings.   
 
-   В этом примере файла {% data variables.product.prodname_dependency_review_action %} показано, как можно использовать доступные параметры конфигурации.
+   This {% data variables.dependency-review.action_name %} example file illustrates how you can use the available configuration options.
    ```yaml{:copy}
    name: 'Dependency Review'
    on: [pull_request]
@@ -137,11 +146,11 @@ ms.locfileid: '148163355'
            fail-on-scopes: development, runtime
   {% endif %}
    ```
-### Использование файла конфигурации для настройки {% data variables.product.prodname_dependency_review_action %}
+### Using a configuration file to set up {% data variables.dependency-review.action_name %}
 
-1. Добавьте новый рабочий процесс YAML в папку `.github/workflows` и используйте `config-file` , чтобы указать, что используется файл конфигурации.
+1. Add a new YAML workflow to your `.github/workflows` folder and use `config-file` to specify that you are using a configuration file.
 
-   {% ifversion ghes %} Для `runs-on`по умолчанию используется `self-hosted`метка . Вы можете заменить метку по умолчанию меткой любого средства выполнения. {% endif %}
+   {% ifversion ghes %}For `runs-on`, the default label is `self-hosted`. You can replace the default label with the label of any of your runners.{% endif %}
    ```yaml{:copy}
    name: 'Dependency Review'
    on: [pull_request]
@@ -169,9 +178,9 @@ ms.locfileid: '148163355'
             # Possible values: Any GitHub token with read access to the private external repository.  
             external-repo-token: 'ghp_123456789abcde'
    ```
-1. Создайте файл конфигурации по указанному пути.   
+1. Create the configuration file in the path you have specified.   
 
-   В этом примере файла YAML показано, как можно использовать доступные параметры конфигурации. 
+   This YAML example file illustrates how you can use the available configuration options. 
    ```yaml{:copy}
      # Possible values: "critical", "high", "moderate", "low" 
      fail-on-severity: critical
@@ -202,5 +211,5 @@ ms.locfileid: '148163355'
        - runtime
   {% endif %}
   ```
-Дополнительные сведения о параметрах конфигурации см. в разделе [`dependency-review-action`](https://github.com/actions/dependency-review-action#readme).
+For further details about the configuration options, see [`dependency-review-action`](https://github.com/actions/dependency-review-action#readme).
 {% endif %}

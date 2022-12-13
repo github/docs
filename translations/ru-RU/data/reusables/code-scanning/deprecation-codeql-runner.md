@@ -1,23 +1,31 @@
+---
+ms.openlocfilehash: 62262d7dceb6318775493dfe5431199d57d3b756
+ms.sourcegitcommit: b617c4a7a1e4bf2de3987a86e0eb217d7031490f
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 11/11/2022
+ms.locfileid: "148161238"
+---
 {% note %}
 
 {% ifversion fpt or ghec %}
 
-**Note:** The {% data variables.code-scanning.codeql_runner %} is deprecated. On {% data variables.product.product_name %}, the {% data variables.code-scanning.codeql_runner %} was supported until March 2022. You should upgrade to the latest version of [{% data variables.product.prodname_codeql_cli %}](https://github.com/github/codeql-action/releases).
+**Примечание:** {% data variables.code-scanning.codeql_runner %} является устаревшим. На {% data variables.product.product_name %} {% data variables.code-scanning.codeql_runner %} поддерживался до марта 2022 г. Необходимо обновить до последней версии [{% data variables.product.prodname_codeql_cli %}](https://github.com/github/codeql-action/releases).
 
 {% elsif ghes > 3.3 %}
 
-**Note:** The {% data variables.code-scanning.codeql_runner %} has been deprecated and is not included in {% data variables.product.prodname_ghe_server %} 3.4. You should migrate to [{% data variables.product.prodname_codeql_cli %}](https://github.com/github/codeql-action/releases) version 2.7.6. 
+**Примечание:** {% data variables.code-scanning.codeql_runner %} устарел и не включен в {% data variables.product.prodname_ghe_server %} 3.4. Необходимо перейти к версии [{% data variables.product.prodname_codeql_cli %}](https://github.com/github/codeql-action/releases) 2.7.6. 
 
 {% elsif ghes < 3.4 %}
 
-**Note:** The {% data variables.code-scanning.codeql_runner %} is being deprecated. On {% data variables.product.prodname_ghe_server %} 3.0 and greater, you can install [{% data variables.product.prodname_codeql_cli %}](https://github.com/github/codeql-action/releases) version 2.6.3 to replace {% data variables.code-scanning.codeql_runner %}. 
+**Примечание:** {% data variables.code-scanning.codeql_runner %} является устаревшим. В {% data variables.product.prodname_ghe_server %} 3.0 и более поздних версий можно установить [{% data variables.product.prodname_codeql_cli %}](https://github.com/github/codeql-action/releases) версии 2.6.3, чтобы заменить {% data variables.code-scanning.codeql_runner %}. 
 
 {% elsif ghae %}
 
-**Note:** The {% data variables.code-scanning.codeql_runner %} has been deprecated. You should migrate to [{% data variables.product.prodname_codeql_cli %}](https://github.com/github/codeql-action/releases). 
+**Примечание:** {% data variables.code-scanning.codeql_runner %} устарел. Необходимо перейти к [{% data variables.product.prodname_codeql_cli %}](https://github.com/github/codeql-action/releases). 
 
 {% endif %}
 
-For more information, see [the CodeQL runner deprecation](https://github.blog/changelog/2021-09-21-codeql-runner-deprecation/). For information on migrating to {% data variables.product.prodname_codeql_cli %}, see "[Migrating from the CodeQL runner to CodeQL CLI](/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/migrating-from-the-codeql-runner-to-codeql-cli)."
+Дополнительные сведения см. в разделе [ Прекращение поддержки средства выполнения тестов CodeQL](https://github.blog/changelog/2021-09-21-codeql-runner-deprecation/). Дополнительные сведения о переходе к {% data variables.product.prodname_codeql_cli %} см. в статье «[Переход со средства выполнения CodeQL на CodeQL CLI](/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/migrating-from-the-codeql-runner-to-codeql-cli)».
 
 {% endnote %}

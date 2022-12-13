@@ -1,6 +1,6 @@
 ---
-title: Troubleshooting cloning errors
-intro: 'If you''re having trouble cloning a repository, check these common errors.'
+title: 복제 오류 문제 해결
+intro: 리포지토리를 복제하는 데 문제가 있는 경우 다음의 일반적인 오류를 확인합니다.
 redirect_from:
   - /articles/error-the-requested-url-returned-error-403
   - /articles/error-the-requested-url-returned-error-401
@@ -19,13 +19,18 @@ versions:
   ghec: '*'
 topics:
   - Repositories
+ms.openlocfilehash: 01ee7c0c1403100570c1fd8b990e6adfe8831f80
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148094003'
 ---
+## HTTPS 복제 오류
 
-## HTTPS cloning errors
+Git에서 HTTPS를 사용하는 경우 몇 가지 일반적인 오류가 있습니다. 이러한 오류는 일반적으로 이전 버전의 Git이 있거나 리포지토리에 액세스할 수 없음을 나타냅니다.
 
-There are a few common errors when using HTTPS with Git. These errors usually indicate you have an old version of Git, or you don't have access to the repository.
-
-Here's an example of an HTTPS error you might receive:
+수신할 수 있는 HTTPS 오류의 예는 다음과 같습니다.
 
 ```shell
 > error: The requested URL returned error: 401 while accessing
@@ -44,16 +49,15 @@ Here's an example of an HTTPS error you might receive:
 > update-server-info on the server?
 ```
 
-### Check your Git version
+### Git 버전 확인
 
-There's no minimum Git version necessary to interact with {% data variables.product.product_name %}, but we've found version 1.7.10 to be a comfortable stable version that's available on many platforms. You can always [download the latest version on the Git website](https://git-scm.com/downloads).
+{% data variables.product.product_name %}와(과) 상호 작용하는 데 필요한 최소 Git 버전은 없지만, 버전 1.7.10은 많은 플랫폼에서 사용할 수 있는 편안한 안정적인 버전으로 확인되었습니다. 항상 [Git 웹 사이트에서 최신 버전을 다운로드](https://git-scm.com/downloads)할 수 있습니다.
 
-### Ensure the remote is correct
+### 원격이 올바른지 확인
 
-The repository you're trying to fetch must exist on {% data variables.location.product_location %}, and the URL is case-sensitive.
+페치하려는 리포지토리는 {% 데이터 variables.location.product_location %}에 있어야 하며 URL은 대/소문자를 구분합니다.
 
-You can find the URL of the local repository by opening the command line and
-typing `git remote -v`:
+명령줄을 열고 `git remote -v`를 입력하여 로컬 리포지토리의 URL을 찾을 수 있습니다.
 
 ```shell
 $ git remote -v
@@ -70,57 +74,55 @@ $ git remote -v
 > origin  https://github.com/ghost/ReactiveCocoa.git (push)
 ```
 
-Alternatively, you can change the URL through our
-[{% data variables.product.prodname_desktop %}](https://desktop.github.com/) application.
+또는 [{% data variables.product.prodname_desktop %}](https://desktop.github.com/) 애플리케이션을 통해 URL을 변경할 수 있습니다.
 
-### Provide an access token
+### 액세스 토큰 제공
 
-To access {% data variables.product.prodname_dotcom %}, you must authenticate with a {% data variables.product.pat_generic %} instead of your password. For more information, see "[Creating a {% data variables.product.pat_generic %}](/github/authenticating-to-github/creating-a-personal-access-token)."
+{% 데이터 variables.product.prodname_dotcom %}에 액세스하려면 암호 대신 {% 데이터 variables.product.pat_generic %}로 인증해야 합니다. 자세한 내용은 "[%}variables.product.pat_generic {% 데이터 만들기](/github/authenticating-to-github/creating-a-personal-access-token)"를 참조하세요.
 
 {% data reusables.command_line.provide-an-access-token %}
 
-### Check your permissions
+### 권한 확인
 
-When prompted for a username and password, make sure you use an account that has access to the repository.
+사용자 이름 및 암호를 묻는 메시지가 표시되면 리포지토리에 대한 액세스 권한이 있는 계정을 사용해야 합니다.
 
 {% tip %}
 
-**Tip**: If you don't want to enter your credentials every time you interact with the remote repository, you can turn on [credential caching](/github/getting-started-with-github/caching-your-github-credentials-in-git). If you are already using credential caching, please make sure that your computer has the correct credentials cached. Incorrect or out of date credentials will cause authentication to fail.
+**팁**: 원격 리포지토리와 상호 작용할 때마다 자격 증명을 입력하지 않으려면 [자격 증명 캐싱](/github/getting-started-with-github/caching-your-github-credentials-in-git)을 설정할 수 있습니다. 자격 증명 캐싱을 이미 사용하고 있는 경우 컴퓨터에 올바른 자격 증명이 캐시되어 있는지 확인하세요. 올바르지 않거나 오래된 자격 증명으로 인해 인증이 실패합니다.
 
 {% endtip %}
 
-### Use SSH instead
+### 대신 SSH 사용
 
-If you've previously set up SSH keys, you can use the SSH clone URL instead of HTTPS.  For more information, see "[About remote repositories](/github/getting-started-with-github/about-remote-repositories)."
+이전에 SSH 키를 설정한 경우 HTTPS 대신 SSH 복제 URL을 사용할 수 있습니다.  자세한 내용은 “[원격 리포지토리 정보](/github/getting-started-with-github/about-remote-repositories)”를 참조하세요.
 
-## Error: Repository not found
+## 오류: 리포지토리를 찾을 수 없음
 
-{% ifversion fpt or ghae or ghec %}If you see this error when cloning a repository, it means that the repository does not exist or you do not have permission to access it.{% else %}If you see this error when cloning a repository, it means that the repository does not exist, you do not have permission to access it, or {% data variables.location.product_location %} is in private mode.{% endif %} There are a few solutions to this error, depending on the cause.
+{% ifversion fpt 또는 ghae 또는 ghec %} 리포지토리를 복제할 때 이 오류가 표시되면 리포지토리가 없거나 액세스할 수 있는 권한이 없음을 의미합니다. {% else %} 리포지토리를 복제할 때 이 오류가 표시되면 리포지토리가 없거나 액세스 권한이 없거나 {% 데이터 variables.location.product_location %}이(가) 프라이빗 모드에 있음을 의미합니다. {% endif %} 원인에 따라 이 오류에 대한 몇 가지 해결 방법이 있습니다.
 
-### Check your spelling
+### 맞춤법 검사 수행
 
-Typos happen, and repository names are case-sensitive.  If you try to clone `git@{% data variables.command_line.codeblock %}:user/repo.git`, but the repository is really named `User/Repo` you will receive this error.
+오타가 발생하고 리포지토리 이름은 대/소문자를 구분합니다.  `git@{% data variables.command_line.codeblock %}:user/repo.git` 복제를 시도했지만 리포지토리의 이름이 실제로 `User/Repo`인 경우 이 오류가 발생합니다.
 
-To avoid this error, when cloning, always copy and paste the clone URL from the repository's page. For more information, see "[Cloning a repository](/articles/cloning-a-repository)."
+이 오류를 방지하려면 복제할 때 항상 리포지토리 페이지에서 복제 URL을 복사하여 붙여넣습니다. 자세한 내용은 “[리포지토리 복제](/articles/cloning-a-repository)”를 참조하세요.
 
-To update the remote on an existing repository, see "[Managing remote repositories](/github/getting-started-with-github/managing-remote-repositories)".
+기존 리포지토리에서 원격을 업데이트하려면 “[원격 리포지토리 관리](/github/getting-started-with-github/managing-remote-repositories)”를 참조하세요.
 
-### Checking your permissions
+### 사용 권한 확인
 
-If you are trying to clone a private repository but do not have permission to view the repository, you will receive this error.
+프라이빗 리포지토리를 복제하려고 하지만 리포지토리를 볼 수 있는 권한이 없는 경우 이 오류가 발생합니다.
 
-Make sure that you have access to the repository in one of these ways:
+다음 방법 중 하나로 리포지토리에 액세스할 수 있는지 확인합니다.
 
-* The owner of the repository
-* A [collaborator](/articles/inviting-collaborators-to-a-personal-repository) on the repository
-* A [member of a team](/articles/adding-organization-members-to-a-team) that has access to the repository (if the repository belongs to an organization)
+* 리포지토리의 소유자
+* 리포지토리의 [협력자](/articles/inviting-collaborators-to-a-personal-repository)
+* 리포지토리에 액세스할 수 있는 [팀의 구성원](/articles/adding-organization-members-to-a-team)(리포지토리가 조직에 속한 경우)
 
-### Check your SSH access
+### SSH 액세스 확인
 
-In rare circumstances, you may not have the proper SSH access to a repository.
+드문 경우지만 리포지토리에 대한 적절한 SSH 액세스 권한이 없을 수 있습니다.
 
-You should ensure that the SSH key you are using is attached to your personal account on {% data variables.product.product_name %}. You can check this by typing
-the following into the command line:
+사용 중인 SSH 키가 {% data variables.product.product_name %}의 개인 계정에 연결되어 있는지 확인해야 합니다. 명령줄에 다음을 입력하여 이를 확인할 수 있습니다.
 
 ```shell
 $ ssh -T git@{% data variables.command_line.codeblock %}
@@ -128,28 +130,27 @@ $ ssh -T git@{% data variables.command_line.codeblock %}
 > provide shell access.
 ```
 
-{% ifversion fpt or ghec %}
-If the repository belongs to an organization and you're using an SSH key generated by an OAuth App, OAuth App access may have been restricted by an organization owner. For more information, see "[About OAuth App access restrictions](/organizations/restricting-access-to-your-organizations-data/about-oauth-app-access-restrictions)."
+{% ifversion fpt or ghec %} 리포지토리가 조직에 속하고 OAuth 앱에서 생성된 SSH 키를 사용하는 경우 OAuth 앱 액세스가 조직 소유자에 의해 제한되었을 수 있습니다. 자세한 내용은 “[OAuth 앱 액세스 제한 정보](/organizations/restricting-access-to-your-organizations-data/about-oauth-app-access-restrictions)”를 참조하세요.
 {% endif %}
 
-For more information, see [Adding a new SSH key to your GitHub account](/articles/adding-a-new-ssh-key-to-your-github-account).
+자세한 내용은 [GitHub 계정에 새 SSH 키 추가](/articles/adding-a-new-ssh-key-to-your-github-account)를 참조하세요.
 
 {% ifversion ghes %}
-### Check if your instance is in private mode
+### 인스턴스가 프라이빗 모드인지 확인
 
-If your site administrator has enabled private mode on your GitHub Enterprise instance, anonymous clones over `git://` will be disabled. If you are unable to clone a repository, contact your site administrator.
+사이트 관리자가 GitHub Enterprise 인스턴스에서 프라이빗 모드를 사용하도록 설정한 경우 `git://`에 대한 익명 클론은 비활성화됩니다. 리포지토리를 복제할 수 없는 경우 사이트 관리자에게 문의하세요.
 {% endif %}
 
-### Check that the repository really exists
+### 리포지토리가 실제로 존재하는지 확인
 
-If all else fails, make sure that the repository really exists on {% data variables.location.product_location %}!
-If you're trying to push to a repository that doesn't exist, you'll get this error.
+다른 모든 작업이 실패하면 {% 데이터 variables.location.product_location %}에 리포지토리가 실제로 있는지 확인합니다.
+존재하지 않는 리포지토리로 푸시하려는 경우 이 오류가 발생합니다.
 
-## Error: Remote HEAD refers to nonexistent ref, unable to checkout
+## 오류: 원격 HEAD가 존재하지 않는 참조를 참조하여 체크 아웃할 수 없음
 
-This error occurs if the default branch of a repository has been deleted on {% data variables.location.product_location %}.
+이 오류는 {% 데이터 variables.location.product_location %}에서 리포지토리의 기본 분기가 삭제된 경우에 발생합니다.
 
-Detecting this error is simple; Git will warn you when you try to clone the repository:
+이 오류를 검색하는 것은 간단합니다. 리포지토리를 복제하려고 하면 Git에서 경고합니다.
 
 ```shell
 $ git clone https://{% data variables.command_line.codeblock %}/USER/REPO.git
@@ -163,10 +164,10 @@ $ git clone https://{% data variables.command_line.codeblock %}/USER/REPO.git
 > warning: remote HEAD refers to nonexistent ref, unable to checkout.
 ```
 
-To fix the error, you'll need to be an administrator of the repository on {% data variables.location.product_location %}.
-You'll want to [change the default branch](/github/administering-a-repository/changing-the-default-branch) of the repository.
+오류를 해결하려면 {% 데이터 variables.location.product_location %}에서 리포지토리의 관리자여야 합니다.
+리포지토리의 [기본 분기를 변경](/github/administering-a-repository/changing-the-default-branch)합니다.
 
-After that, you can get a list of all the available branches from the command line:
+그런 다음, 명령줄에서 사용 가능한 모든 분기 목록을 가져올 수 있습니다.
 
 ```shell
 $ git branch -a
@@ -176,7 +177,7 @@ $ git branch -a
 >   remotes/origin/new-main
 ```
 
-Then, you can just switch to your new branch:
+그런 다음, 새 분기로 전환할 수 있습니다.
 
 ```shell
 $ git checkout new-main

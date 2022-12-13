@@ -1,7 +1,7 @@
 ---
-title: Changing the default branch
-intro: 'If you have more than one branch in your repository, you can configure any branch as the default branch.'
-permissions: People with admin access for a repository can change the default branch for the repository.
+title: Изменение ветви по умолчанию
+intro: 'Если в репозитории есть несколько ветвей, можно настроить любую ветвь как ветвь по умолчанию.'
+permissions: People with admin permissions to a repository can change the default branch for the repository.
 versions:
   fpt: '*'
   ghes: '*'
@@ -15,38 +15,40 @@ redirect_from:
 topics:
   - Repositories
 shortTitle: Change the default branch
+ms.openlocfilehash: e8f88499ab258e5855804288a4f811b38237df97
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145136970'
 ---
-## About changing the default branch
+## Сведения об изменении ветви по умолчанию
 
-You can choose the default branch for a repository. The default branch is the base branch for pull requests and code commits. For more information about the default branch, see "[About branches](/github/collaborating-with-issues-and-pull-requests/about-branches#about-the-default-branch)."
+Можно выбирать ветвь по умолчанию для репозитория. Ветвь по умолчанию — это базовая ветвь для запросов на вытягивание и фиксаций кода. Дополнительные сведения о ветви по умолчанию см. в разделе [Сведения о ветвях](/github/collaborating-with-issues-and-pull-requests/about-branches#about-the-default-branch).
 
-{% ifversion not ghae %}
-{% note %}
+{% ifversion not ghae %} {% note %}
 
-**Note**: If you use the Git-Subversion bridge, changing the default branch will affect your `trunk` branch contents and the `HEAD` you see when you list references for the remote repository. For more information, see "[Support for Subversion clients](/github/importing-your-projects-to-github/support-for-subversion-clients)" and [git-ls-remote](https://git-scm.com/docs/git-ls-remote.html) in the Git documentation.
+**Примечание**. Если вы используете мост Git-Subversion, изменение ветви по умолчанию повлияет на содержимое ветви `trunk` и на `HEAD`, который отображается при перечислении ссылок на удаленный репозиторий. Дополнительные сведения см. в разделах [Поддержка клиентов Subversion](/github/importing-your-projects-to-github/support-for-subversion-clients) и [git-ls-remote](https://git-scm.com/docs/git-ls-remote.html) документации по Git.
 
-{% endnote %}
-{% endif %}
+{% endnote %} {% endif %}
 
-You can also rename the default branch. For more information, see "[Renaming a branch](/github/administering-a-repository/renaming-a-branch)."
+Можно также переименовать ветвь по умолчанию. Дополнительные сведения см. в разделе [Переименование ветви](/github/administering-a-repository/renaming-a-branch).
 
 {% data reusables.branches.set-default-branch %}
 
-## Prerequisites
+## Предварительные требования
 
-To change the default branch, your repository must have more than one branch. For more information, see "[Creating and deleting branches within your repository](/github/collaborating-with-issues-and-pull-requests/creating-and-deleting-branches-within-your-repository#creating-a-branch)."
+Чтобы изменить ветвь по умолчанию, репозиторий должен иметь несколько ветвей. Дополнительные сведения см. в разделе [Создание и удаление ветвей репозитория](/github/collaborating-with-issues-and-pull-requests/creating-and-deleting-branches-within-your-repository#creating-a-branch).
 
-## Changing the default branch
+## Изменение ветви по умолчанию
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-{% data reusables.repositories.repository-branches %}
-1. Under "Default branch", to the right of the default branch name, click {% octicon "arrow-switch" aria-label="The switch icon with two arrows" %}.
-   ![Switch icon with two arrows to the right of current default branch name](/assets/images/help/repository/repository-options-defaultbranch-change.png)
-1. Use the drop-down, then click a branch name.
-   ![Drop-down to choose new default branch](/assets/images/help/repository/repository-options-defaultbranch-drop-down.png)
-1. Click **Update**.
-   !["Update" button after choosing a new default branch](/assets/images/help/repository/repository-options-defaultbranch-update.png)
-1. Read the warning, then click **I understand, update the default branch.**
-   !["I understand, update the default branch." button to perform the update](/assets/images/help/repository/repository-options-defaultbranch-i-understand.png)
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %} {% data reusables.repositories.repository-branches %}
+1. В разделе "Ветвь по умолчанию" справа от имени ветви по умолчанию щелкните {% octicon "arrow-switch" aria-label="The switch icon with two arrows" %}.
+   ![Значок переключения с двумя стрелками справа от имени текущей ветви по умолчанию](/assets/images/help/repository/repository-options-defaultbranch-change.png)
+1. Откройте раскрывающийся список, а затем щелкните имя ветви.
+   ![Раскрывающийся список для выбора новой ветви по умолчанию](/assets/images/help/repository/repository-options-defaultbranch-drop-down.png)
+1. Нажмите кнопку **Обновить**.
+   ![Кнопка "Обновить" после выбора новой ветви по умолчанию](/assets/images/help/repository/repository-options-defaultbranch-update.png)
+1. Прочтите предупреждение, а затем щелкните **Я понимаю, обновить ветвь по умолчанию.** 
+   !["Я понимаю, обновить ветвь по умолчанию." кнопка для выполнения обновления](/assets/images/help/repository/repository-options-defaultbranch-i-understand.png)
 

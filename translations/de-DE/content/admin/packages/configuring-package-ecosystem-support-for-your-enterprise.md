@@ -1,6 +1,6 @@
 ---
-title: Configuring package ecosystem support for your enterprise
-intro: 'You can configure {% data variables.product.prodname_registry %} for your enterprise by globally enabling or disabling individual package ecosystems on your enterprise, including {% ifversion ghes > 3.4 %}{% data variables.product.prodname_container_registry %}, {% endif %}Docker, and npm. Learn about other configuration requirements to support specific package ecosystems.'
+title: Konfigurieren der Paketökosystemunterstützung für dein Unternehmen
+intro: 'Du kannst {% data variables.product.prodname_registry %} für dein Unternehmen konfigurieren, indem du einzelne Paketökosysteme einschließlich {% ifversion ghes > 3.4 %}{% data variables.product.prodname_container_registry %}, {% endif %}Docker und npm in deinem Unternehmen global aktivierst oder deaktivierst. Erfahre mehr über andere Konfigurationsanforderungen, um bestimmte Paketökosysteme zu unterstützen.'
 redirect_from:
   - /enterprise/admin/packages/configuring-packages-support-for-your-enterprise
   - /admin/packages/configuring-packages-support-for-your-enterprise
@@ -11,44 +11,43 @@ topics:
   - Enterprise
   - Packages
 shortTitle: Configure package ecosystems
+ms.openlocfilehash: 83de80e4233f671a7a923394d2fd3f6e554bba10
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147062546'
 ---
-
 {% data reusables.package_registry.packages-ghes-release-stage %}
 
-## Enabling or disabling individual package ecosystems
+## Aktivieren oder Deaktivieren einzelner Paketökosysteme
 
-To prevent new packages from being uploaded, you can set an ecosystem you previously enabled to **Read-Only**, while still allowing existing packages to be downloaded.
+Um zu verhindern, dass neue Pakete hochgeladen werden, kannst du ein Ökosystem einrichten, das du zuvor auf **Schreibgeschützt** festgelegt hast, wobei weiterhin vorhandene Pakete heruntergeladen werden können.
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.management-console %}
-{% data reusables.enterprise_site_admin_settings.packages-tab %}
-1. Under "Ecosystem Toggles", for each package type, select **Enabled**, **Read-Only**, or **Disabled**.
-   {%- ifversion ghes > 3.4 %}{% note -%}
-   **Note**: Subdomain isolation must be enabled to toggle the {% data variables.product.prodname_container_registry %} options.
-   {%- endnote %}{%- endif %}{%- ifversion ghes %}
-  ![Ecosystem toggles](/assets/images/enterprise/site-admin-settings/ecosystem-toggles.png){% else %}
-  ![Ecosystem toggles](/assets/images/enterprise/3.1/site-admin-settings/ecosystem-toggles.png){% endif %}
-{% data reusables.enterprise_management_console.save-settings %}
+{% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.enterprise_site_admin_settings.management-console %} {% data reusables.enterprise_site_admin_settings.packages-tab %}
+1. Wähle unter „Ökosystem-Umschaltflächen“ für jeden Pakettyp **Aktiviert**, **Schreibgeschützt** oder **Deaktiviert** aus.
+   {%- ifversion ghes > 3.4 %}{% note -%} **Hinweis:** Die Unterdomänenisolation muss aktiviert sein, um die Optionen für die {% data variables.product.prodname_container_registry %} umzuschalten.
+   {%- endnote %}{%- endif %}{%- ifversion ghes %} ![Ökosystem-Umschaltflächen](/assets/images/enterprise/site-admin-settings/ecosystem-toggles.png){% else %} ![Ökosystem-Umschaltflächen](/assets/images/enterprise/3.1/site-admin-settings/ecosystem-toggles.png){% endif %} {% data reusables.enterprise_management_console.save-settings %}
 
 {% ifversion ghes %}
-## Connecting to the official npm registry
+## Herstellen einer Verbindung mit der offiziellen npm-Registrierung
 
-If you've enabled npm packages on your enterprise and want to allow access to the official npm registry as well as the {% data variables.product.prodname_registry %} npm registry, then you must perform some additional configuration.
+Wenn du npm-Pakete für dein Unternehmen aktiviert hast und den Zugriff auf die offizielle npm-Registrierung sowie die {% data variables.product.prodname_registry %}-npm-Registrierung gewähren möchtest, musst du einige zusätzliche Konfigurationen durchführen.
 
-{% data variables.product.prodname_registry %} uses a transparent proxy for network traffic that connects to the official npm registry at `registry.npmjs.com`. The proxy is enabled by default and cannot be disabled.
+{% data variables.product.prodname_registry %} verwendet einen transparenten Proxy für Netzwerkdatenverkehr, der eine Verbindung mit der offiziellen npm-Registrierung unter `registry.npmjs.com` herstellt. Der Proxy ist standardmäßig aktiviert und kann nicht deaktiviert werden.
 
-To allow network connections to the npm registry, you will need to configure network ACLs that allow {% data variables.product.prodname_ghe_server %} to send HTTPS traffic to `registry.npmjs.com`  over port 443:
+Um Netzwerkverbindungen mit der npm-Registrierung zuzulassen, musst du Netzwerk-ACLs konfigurieren, damit {% data variables.product.prodname_ghe_server %} HTTPS-Datenverkehr über Port 443 an `registry.npmjs.com` senden kann:
 
-| Source | Destination | Port | Type |
+| `Source` | Destination | Port | type |
 |---|---|---|---|
 | {% data variables.product.prodname_ghe_server %} | `registry.npmjs.com` | TCP/443 | HTTPS |
 
-Note that connections to `registry.npmjs.com` traverse through the Cloudflare network, and subsequently do not connect to a single static IP address; instead, a connection is made to an IP address within the CIDR ranges listed here: https://www.cloudflare.com/ips/.
+Beachte, dass Verbindungen mit `registry.npmjs.com` das Cloudflare-Netzwerk durchlaufen und folglich keine Verbindung mit einer statischen IP-Adresse herstellen. Stattdessen wird eine Verbindung mit einer IP-Adresse innerhalb der unter https://www.cloudflare.com/ips/ aufgeführten CIDR-Bereiche hergestellt.
 
-If you wish to enable npm upstream sources, select `Enabled` for `npm upstreaming`.
+Wenn du npm-Upstreamquellen aktivieren möchtest, wähle `Enabled` für `npm upstreaming` aus.
 
 {% endif %}
 
-## Next steps
+## Nächste Schritte
 
-As a next step, we recommend you check if you need to update or upload a TLS certificate for your packages host URL. For more information, see "[Getting started with GitHub Packages for your enterprise](/admin/packages/getting-started-with-github-packages-for-your-enterprise)."
+Danach wird empfohlen, zu überprüfen, ob du ein TLS-Zertifikat für deine Pakethost-URL aktualisieren oder hochladen musst. Weitere Informationen findest du unter [Erste Schritte mit GitHub Packages für dein Unternehmen](/admin/packages/getting-started-with-github-packages-for-your-enterprise).

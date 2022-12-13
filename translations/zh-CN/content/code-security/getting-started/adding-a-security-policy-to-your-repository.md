@@ -1,6 +1,6 @@
 ---
-title: Adding a security policy to your repository
-intro: You can give instructions for how to report a security vulnerability in your project by adding a security policy to your repository.
+title: 将安全策略添加到存储库
+intro: 您可以为仓库添加安全政策，说明如何报告项目中的安全漏洞。
 redirect_from:
   - /articles/adding-a-security-policy-to-your-repository
   - /github/managing-security-vulnerabilities/adding-a-security-policy-to-your-repository
@@ -17,49 +17,47 @@ topics:
   - Repositories
   - Health
 shortTitle: Add a security policy
+ms.openlocfilehash: ef4a256c06b9149bd9db8d7afdce974dd1d29f0d
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148159267'
 ---
+## 关于安全政策
 
-## About security policies
-
-To give people instructions for reporting security vulnerabilities in your project,{% ifversion fpt or ghes or ghec %} you can add a _SECURITY.md_ file to your repository's root, `docs`, or `.github` folder.{% else %} you can add a _SECURITY.md_ file to your repository's root, or `docs` folder.{% endif %} When someone creates an issue in your repository, they will see a link to your project's security policy.
+要向人们提供报告项目中安全漏洞的说明，{% ifversion fpt or ghes or ghec %}可以将 _SECURITY.md_ 文件添加到存储库的根目录、`docs` 或 `.github` 文件夹。{% else %}可以将 _SECURITY.md_ 文件添加到存储库的根目录或 `docs` 文件夹。{% endif %}当有人在你的存储库中创建问题时，他们将会看到一个指向你的项目的安全策略的链接。
 
 {% ifversion not ghae %}
 <!-- no public repos in GHAE -->
-You can create a default security policy for your organization or personal account. For more information, see "[Creating a default community health file](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
+你可以为组织或个人帐户创建默认的安全政策。 有关详细信息，请参阅[创建默认社区运行状况文件](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)。
 {% endif %}
 
 {% tip %}
 
-**Tip:** To help people find your security policy, you can link to your _SECURITY.md_ file from other places in your repository, such as your README file. For more information, see "[About READMEs](/articles/about-readmes)."
+提示：为帮助人们查找安全策略，可以从存储库中的其他位置（如 README 文件）链接到 SECURITY.md 文件。 有关详细信息，请参阅“[关于 README](/articles/about-readmes)”。
 
 {% endtip %}
 
-{% ifversion fpt or ghec %}
-After someone reports a security vulnerability in your project, you can use {% data variables.product.prodname_security_advisories %} to disclose, fix, and publish information about the vulnerability. For more information about the process of reporting and disclosing vulnerabilities in {% data variables.product.prodname_dotcom %}, see "[About coordinated disclosure of security vulnerabilities](/code-security/security-advisories/guidance-on-reporting-and-writing/about-coordinated-disclosure-of-security-vulnerabilities#about-reporting-and-disclosing-vulnerabilities-in-projects-on-github)." For more information about repository security advisories, see "[About repository security advisories](/github/managing-security-vulnerabilities/about-github-security-advisories)."
+{% ifversion fpt or ghec %} 当有人报告项目中的安全漏洞后，可以使用 {% data variables.product.prodname_security_advisories %} 披露、修复和发布关于该漏洞的信息。 有关 {% data variables.product.prodname_dotcom %} 中报告和披露漏洞的过程的详细信息，请参阅“[关于安全漏洞的协调披露](/code-security/security-advisories/guidance-on-reporting-and-writing/about-coordinated-disclosure-of-security-vulnerabilities#about-reporting-and-disclosing-vulnerabilities-in-projects-on-github)”。 有关存储库安全公告的详细信息，请参阅“[关于存储库安全公告](/github/managing-security-vulnerabilities/about-github-security-advisories)”。
 
-{% data reusables.repositories.github-security-lab %}
-{% endif %}
-{% ifversion ghes or ghae %}
+{% data reusables.repositories.github-security-lab %} {% endif %} {% ifversion ghes or ghae %}
 <!-- alternative to the content about GitHub Security Advisories in the dotcom article -->
-By making security reporting instructions clearly available, you make it easy for your users to report any security vulnerabilities they find in your repository using your preferred communication channel.
+通过创建明确的安全报告说明，用户可以轻松地使用您喜欢的通信通道报告仓库中发现的任何安全漏洞。
 {% endif %}
 
-## Adding a security policy to your repository
+## 将安全策略添加到存储库
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-security %}
-3. In the left sidebar, click **Security policy**.
-  ![Security policy tab](/assets/images/help/security/security-policy-tab.png)
-4. Click **Start setup**.
-  ![Start setup button](/assets/images/help/security/start-setup-security-policy-button.png)
-5. In the new _SECURITY.md_ file, add information about supported versions of your project and how to report a vulnerability.
-{% data reusables.files.write_commit_message %}
-{% data reusables.files.choose-commit-email %}
-{% data reusables.files.choose_commit_branch %}
-{% data reusables.files.propose_file_change %}
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-security %}
+3. 在左边栏中，单击“安全策略”。
+  ![“安全策略”选项卡](/assets/images/help/security/security-policy-tab.png)
+4. 单击“开始设置”。
+  ![“开始设置”按钮](/assets/images/help/security/start-setup-security-policy-button.png)
+5. 在新的 SECURITY.md 文件中，添加关于项目受支持版本以及如何报告漏洞的信息。
+{% data reusables.files.write_commit_message %} {% data reusables.files.choose-commit-email %} {% data reusables.files.choose_commit_branch %} {% data reusables.files.propose_file_change %}
 
-## Further reading
+## 延伸阅读
 
-- "[Securing your repository](/code-security/getting-started/securing-your-repository)"{% ifversion not ghae %}
-- "[Setting up your project for healthy contributions](/communities/setting-up-your-project-for-healthy-contributions)"{% endif %}{% ifversion fpt or ghec %}
+- [保护存储库](/code-security/getting-started/securing-your-repository){% ifversion not ghae %}
+- [设置项目的健康贡献](/communities/setting-up-your-project-for-healthy-contributions){% endif %}{% ifversion fpt or ghec %}
 - [{% data variables.product.prodname_security %}]({% data variables.product.prodname_security_link %}){% endif %}

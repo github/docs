@@ -1,6 +1,6 @@
 ---
-title: About the GitHub Advisory database
-intro: 'The {% data variables.product.prodname_advisory_database %} contains a list of known security vulnerabilities {% ifversion GH-advisory-db-supports-malware %}and malware, {% endif %}grouped in two categories: {% data variables.product.company_short %}-reviewed advisories and unreviewed advisories.'
+title: Acerca de GitHub Advisory Database
+intro: '{% data variables.product.prodname_advisory_database %} contiene una lista de las vulnerabilidades de seguridad {% ifversion GH-advisory-db-supports-malware %}y malware {% endif %}que se conocen, agrupados en dos categorías: avisos revisados por {% data variables.product.company_short %} y avisos sin revisar.'
 miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
@@ -13,72 +13,76 @@ topics:
   - Alerts
   - Vulnerabilities
   - CVEs
+ms.openlocfilehash: 601fdd42050f112162898a255811c76aa23c6970
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148159081'
 ---
-
-## About the {% data variables.product.prodname_advisory_database %}
+## Acerca de {% data variables.product.prodname_advisory_database %}
 
 {% data reusables.repositories.tracks-vulnerabilities %}
 
-Security advisories are published as JSON files in the Open Source Vulnerability (OSV) format. For more information about the OSV format, see "[Open Source Vulnerability format](https://ossf.github.io/osv-schema/)."
+Los avisos de seguridad se publican como archivos JSON en el formato de vulnerabilidad de código abierto (OSV). Para obtener más información sobre el formato OSV, consulta "[Formato de vulnerabilidad de código abierto](https://ossf.github.io/osv-schema/)".
 
-## About types of security advisories
+## Acerca de los tipos de avisos de seguridad
 
 {% data reusables.advisory-database.beta-malware-advisories %}
 
-Each advisory in the {% data variables.product.prodname_advisory_database %} is for a vulnerability in open source projects{% ifversion GH-advisory-db-supports-malware %} or for malicious open source software{% endif %}. 
+Cada aviso en {% data variables.product.prodname_advisory_database %} se refiere a una vulnerabilidad en proyectos de código abierto{% ifversion GH-advisory-db-supports-malware %} o a software de código abierto malintencionado{% endif %}. 
 
-{% data reusables.repositories.a-vulnerability-is %} Vulnerabilities in code are usually introduced by accident and fixed soon after they are discovered. You should update your code to use the fixed version of the dependency as soon as it is available.
+{% data reusables.repositories.a-vulnerability-is %} Por lo general, las vulnerabilidades en el código se introducen por accidente y se corrigen poco después de su detección. Debes actualizar el código para usar la versión corregida de la dependencia en cuanto esté disponible.
 
 {% ifversion GH-advisory-db-supports-malware %}
 
-In contrast, malicious software, or malware, is code that is intentionally designed to perform unwanted or harmful functions. The malware may target hardware, software, confidential data, or users of any application that uses the malware. You need to remove the malware from your project and find an alternative, more secure replacement for the dependency.
+Por el contrario, el software malintencionado o malware es código diseñado intencionalmente para que lleve a cabo funciones dañinas o no deseadas. El malware puede estar dirigido a hardware, software, datos confidenciales o usuarios de cualquier aplicación que utilice el malware. Debes quitar el malware del proyecto y buscar un reemplazo alternativo más seguro para la dependencia.
 
 {% endif %}
 
-### {% data variables.product.company_short %}-reviewed advisories
+### Avisos revisados por {% data variables.product.company_short %}
 
-{% data variables.product.company_short %}-reviewed advisories are security vulnerabilities{% ifversion GH-advisory-db-supports-malware %} or malware{% endif %} that have been mapped to packages in ecosystems we support. We carefully review each advisory for validity and ensure that they have a full description, and contain both ecosystem and package information.
+Los avisos revisados por {% data variables.product.company_short %} son vulnerabilidades de seguridad{% ifversion GH-advisory-db-supports-malware %} o malware{% endif %} que se asignaron a paquetes en ecosistemas a los que brindamos soporte. Revisamos cuidadosamente la validez de cada aviso y nos aseguramos de que tengan una descripción completa e información tanto del ecosistema como del paquete.
 
-Generally, we name our supported ecosystems after the software programming language's associated package registry. We review advisories if they are for a vulnerability in a package that comes from a supported registry.
+Por lo general, asignamos a los ecosistemas compatibles un nombre en función del registro de paquetes asociado del lenguaje de programación de software. Revisamos los avisos si corresponden a una vulnerabilidad de un paquete proveniente de un registro compatible.
 
-- Composer (registry: https://packagist.org/){% ifversion GH-advisory-db-erlang-support %}
-- Erlang (registry: https://hex.pm/){% endif %}
-- Go (registry: https://pkg.go.dev/)
-{%- ifversion fpt or ghec or ghes > 3.6 or ghae > 3.6 %}
-- GitHub Actions (https://github.com/marketplace?type=actions/) {% endif %}
-- Maven (registry: https://repo.maven.apache.org/maven2)
-- npm (registry: https://www.npmjs.com/)
-- NuGet (registry: https://www.nuget.org/)
+- Composer (registro: https://packagist.org/){% ifversion GH-advisory-db-erlang-support %}
+- Erlang (registro: https://hex.pm/){% endif %}
+- Go (registro: https://pkg.go.dev/) {%- ifversion fpt or ghec or ghes > 3.6 or ghae > 3.6 %}
+- Acciones de GitHub (https://github.com/marketplace?type=actions/) {% endif %}
+- Maven (registro: https://repo.maven.apache.org/maven2)
+- npm (registro: https://www.npmjs.com/)
+- NuGet (registro: https://www.nuget.org/)
 - pip (registry: https://pypi.org/){% ifversion dependency-graph-dart-support %}
-- pub (registry: https://pub.dev/packages/registry){% endif %}
-- RubyGems (registry: https://rubygems.org/)
-- Rust (registry: https://crates.io/)
+- pub (registro: https://pub.dev/packages/registry){% endif %}
+- RubyGems (registro: https://rubygems.org/)
+- Rust (registro: https://crates.io/)
 
-If you have a suggestion for a new ecosystem we should support, please open an [issue](https://github.com/github/advisory-database/issues) for discussion.
+Si tienes alguna sugerencia sobre un ecosistema nuevo para el que deberíamos brindar soporte técnico, abre una [incidencia](https://github.com/github/advisory-database/issues) para analizarla.
 
-If you enable {% data variables.product.prodname_dependabot_alerts %} for your repositories, you are automatically notified when a new {% data variables.product.company_short %}-reviewed advisory reports a vulnerability {% ifversion GH-advisory-db-supports-malware %}or malware{% endif %} for a package you depend on. For more information, see "[About {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)."
+Si habilitas las {% data variables.product.prodname_dependabot_alerts %} para tu repositorio, recibirás una notificación automática cuando un aviso nuevo revisado por {% data variables.product.company_short %} informe de una vulnerabilidad {% ifversion GH-advisory-db-supports-malware %}o un malware{% endif %} en un paquete del que dependes. Para más información, vea "[Acerca de {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)".
 
-### Unreviewed advisories
+### Avisos sin revisar
 
-Unreviewed advisories are security vulnerabilites that we publish automatically into the {% data variables.product.prodname_advisory_database %}, directly from the National Vulnerability Database feed. 
+Las asesorías sin revisar son vulnerabilidades de seguridad que publicamos automáticamente en la {% data variables.product.prodname_advisory_database %}, directamente desde la fuente de la Base de Datos Nacional de Vulnerabilidades. 
 
-{% data variables.product.prodname_dependabot %} doesn't create {% data variables.product.prodname_dependabot_alerts %} for unreviewed advisories as this type of advisory isn't checked for validity or completion.
+El {% data variables.product.prodname_dependabot %} no crea {% data variables.product.prodname_dependabot_alerts %} para las asesorías sin revisar, ya que este tipo de asesoría no se revisa en su validez o finalización.
 
-## About information in security advisories
+## Acerca de la información en los avisos de seguridad
 
-Each security advisory contains information about the vulnerability{% ifversion GH-advisory-db-supports-malware %} or malware,{% endif %} which may include the description, severity, affected package, package ecosystem, affected versions and patched versions, impact, and optional information such as references, workarounds, and credits. In addition, advisories from the National Vulnerability Database list contain a link to the CVE record, where you can read more details about the vulnerability, its CVSS scores, and its qualitative severity level. For more information, see the "[National Vulnerability Database](https://nvd.nist.gov/)" from the National Institute of Standards and Technology.
+Cada aviso de seguridad contiene información sobre la vulnerabilidad{% ifversion GH-advisory-db-supports-malware %} o el malware{% endif %} que puede incluir la descripción, la gravedad, el paquete afectado, el ecosistema del paquete, las versiones afectadas y las versiones a las que se aplicaron revisiones, el impacto e información opcional como referencias, soluciones alternativas y créditos. Adicionalmente, las asesorías de la National Vulnerability Database contiene un enlace al registro de CVE, en donde puedes leer más sobre los detalles de la vulnerabilidad, su puntuación de CVSS y su nivel de severidad cualitativo. Para obtener más información, vea la "[Base de datos nacional de vulnerabilidades](https://nvd.nist.gov/)" del Instituto Nacional de Estándares y Tecnología.
 
-The severity level is one of four possible levels defined in the "[Common Vulnerability Scoring System (CVSS), Section 5](https://www.first.org/cvss/specification-document)."
-- Low
-- Medium/Moderate
-- High
-- Critical
+El nivel de gravedad es uno de los cuatro niveles posibles definidos en el "[Sistema común de puntuación de vulnerabilidades (CVSS), sección 5](https://www.first.org/cvss/specification-document)".
+- Bajo
+- Medio/Moderado
+- Alto
+- Crítico
 
-The {% data variables.product.prodname_advisory_database %} uses the CVSS levels described above. If {% data variables.product.company_short %} obtains a CVE, the {% data variables.product.prodname_advisory_database %} uses CVSS version 3.1. If the CVE is imported, the {% data variables.product.prodname_advisory_database %} supports both CVSS versions 3.0 and 3.1.
+La {% data variables.product.prodname_advisory_database %} utiliza los niveles del CVSS tal como se describen anteriormente. Si {% data variables.product.company_short %} obtiene un CVE, la {% data variables.product.prodname_advisory_database %} utilizará el CVSS versión 3.1. Si se importa el CVE, la {% data variables.product.prodname_advisory_database %} será compatible tanto con la versión 3.0 como con la 3.1 del CVSS.
 
 {% data reusables.repositories.github-security-lab %}
 
-## Further reading
+## Información adicional
 
-- "[About {% data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)"
-- MITRE's [definition of "vulnerability"](https://www.cve.org/ResourcesSupport/Glossary#vulnerability)
+- "[Acerca de {% data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)"
+- [Definición de MITRE de "vulnerabilidad"](https://www.cve.org/ResourcesSupport/Glossary#vulnerability)

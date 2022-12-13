@@ -26,8 +26,7 @@ For more information about viewing license usage on {% data variables.product.pr
 
 You can also use the REST API to return consumed licenses data and the status of the license sync job. For more information, see "[GitHub Enterprise administration](/enterprise-cloud@latest/rest/enterprise-admin/license)" in the REST API documentation.
 
-To learn more about the license data associated with your enterprise account and how the number of consumed user seats are calculated, see "[Troubleshooting license usage for GitHub Enterprise](/billing/managing-your-license-for-github-enterprise/troubleshooting-license-usage-for-github-enterprise)."
-
+To learn more about the license data associated with your enterprise account and how the number of consumed user {% ifversion ghas-billing-UI-update %}licenses{% else %}seats{% endif %} are calculated, see "[Troubleshooting license usage for GitHub Enterprise](/billing/managing-your-license-for-github-enterprise/troubleshooting-license-usage-for-github-enterprise)."
 
 ## Viewing license usage on {% ifversion ghec %}{% data variables.product.prodname_dotcom_the_website %}{% elsif ghes %}{% data variables.location.product_location %}{% endif %}
 
@@ -41,7 +40,7 @@ You can view the license usage for your enterprise and download a file with lice
   !["Enterprise licensing" tab in the enterprise account settings sidebar](/assets/images/help/enterprises/enterprise-licensing-tab.png)
 1. Review your current {% data variables.product.prodname_enterprise %} license, as well as consumed and available user licenses.
     - To download the consumed license report as a CSV file, in the top right, click {% octicon "download" aria-label="The download icon" %}. For more information about reviewing the data in this report, see "[Troubleshooting license usage for GitHub Enterprise](/billing/managing-your-license-for-github-enterprise/troubleshooting-license-usage-for-github-enterprise)."
-    - If your license includes {% data variables.product.prodname_GH_advanced_security %}, you can review your total seat use. For more information, see "[Viewing your {% data variables.product.prodname_GH_advanced_security %} usage](/billing/managing-billing-for-github-advanced-security/viewing-your-github-advanced-security-usage)."
+    - If you purchased {% data variables.product.prodname_GH_advanced_security %}, you can review your total {% ifversion ghas-billing-UI-update %}license{% else %}seat{% endif %} usage. For more information, see "[Viewing your {% data variables.product.prodname_GH_advanced_security %} usage](/billing/managing-billing-for-github-advanced-security/viewing-your-github-advanced-security-usage)."
 
 {% elsif ghes %}
 
@@ -50,7 +49,7 @@ You can view the license usage for your enterprise and download a file with lice
 {% data reusables.enterprise-accounts.license-tab %}
 1. Review your current {% data variables.product.prodname_enterprise %} license, as well as consumed and available user licenses.{% ifversion ghes %}
     - To download the consumed license report as a JSON file, in the top right under "Quick links", choose **Export license usage**. For more information about reviewing the data in this report, see "[Troubleshooting license usage for GitHub Enterprise](/billing/managing-your-license-for-github-enterprise/troubleshooting-license-usage-for-github-enterprise)."
-    - If your license includes {% data variables.product.prodname_GH_advanced_security %}, you can review your total seat use as well as a per-organization breakdown of committers. For more information, see "[Managing {% data variables.product.prodname_GH_advanced_security %} for your enterprise](/admin/advanced-security)."{% endif %}
+    - If you have purchased {% data variables.product.prodname_GH_advanced_security %}, you can review your total {% ifversion ghas-billing-UI-update %}licenses{% else %}seats{% endif %} used as well as a per-organization breakdown of active committers. For more information, see "[Managing {% data variables.product.prodname_GH_advanced_security %} for your enterprise](/admin/advanced-security)."{% endif %}
 
 {% endif %}
 {% ifversion ghec %}

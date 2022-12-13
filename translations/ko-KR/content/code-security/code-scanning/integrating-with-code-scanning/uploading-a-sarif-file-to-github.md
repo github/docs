@@ -1,5 +1,5 @@
 ---
-title: Uploading a SARIF file to GitHub
+title: GitHub에 SARIF 파일 업로드
 shortTitle: Upload a SARIF file
 intro: '{% data reusables.code-scanning.you-can-upload-third-party-analysis %}'
 permissions: 'People with write permissions to a repository can upload {% data variables.product.prodname_code_scanning %} data generated outside {% data variables.product.prodname_dotcom %}.'
@@ -23,54 +23,57 @@ topics:
   - Repositories
   - CI
   - SARIF
+ms.openlocfilehash: 3def104e487f54e2c48d462d1dcfe8bab63c6fa3
+ms.sourcegitcommit: b617c4a7a1e4bf2de3987a86e0eb217d7031490f
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/11/2022
+ms.locfileid: '148161163'
 ---
+{% data reusables.code-scanning.beta %} {% data reusables.code-scanning.enterprise-enable-code-scanning %}
 
+## {% data variables.product.prodname_code_scanning %}에 대한 SARIF 파일 업로드 정보
 
-{% data reusables.code-scanning.beta %}
-{% data reusables.code-scanning.enterprise-enable-code-scanning %}
+{% data variables.product.prodname_dotcom %}은 SARIF(정적 분석 결과 교환 형식) 파일의 정보를 사용하여 리포지토리에 {% data variables.product.prodname_code_scanning %} 경고를 만듭니다. API 또는 {% data variables.product.prodname_actions %}를 사용하여 리포지토리에 SARIF 파일을 업로드할 수 있습니다. 자세한 내용은 "[리포지토리에 대한 {% data variables.product.prodname_code_scanning %} 경고 관리](/code-security/secure-coding/managing-code-scanning-alerts-for-your-repository)"를 참조하세요.
 
-## About SARIF file uploads for {% data variables.product.prodname_code_scanning %}
+{% data variables.product.prodname_codeql %}을 포함한 많은 정적 분석 보안 테스트 도구를 사용하여 SARIF 파일을 생성할 수 있습니다. 그 결과에서 SARIF 버전 2.1.0을 사용해야 합니다. 자세한 내용은 "[{% data variables.product.prodname_code_scanning %}에 대한 SARIF 지원](/code-security/secure-coding/sarif-support-for-code-scanning)"을 참조하세요.
 
-{% data variables.product.prodname_dotcom %} creates {% data variables.product.prodname_code_scanning %} alerts in a repository using information from Static Analysis Results Interchange Format (SARIF) files. SARIF files can be uploaded to a repository using the API or {% data variables.product.prodname_actions %}. For more information, see "[Managing {% data variables.product.prodname_code_scanning %} alerts for your repository](/code-security/secure-coding/managing-code-scanning-alerts-for-your-repository)."
+{% data variables.product.prodname_actions %}, {% data variables.product.prodname_code_scanning %} API, {% ifversion codeql-runner-supported %} {% data variables.code-scanning.codeql_runner %}, {% endif %} 또는 {% data variables.product.prodname_codeql_cli %}를 사용하여 결과를 업로드할 수 있습니다. 최상의 업로드 방법은 SARIF 파일을 생성하는 방법에 따라 달라집니다. 다음 예를 참고하세요.
 
-You can generate SARIF files using many static analysis security testing tools, including {% data variables.product.prodname_codeql %}. The results must use SARIF version 2.1.0. For more information, see "[SARIF support for {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/sarif-support-for-code-scanning)."
-
-You can upload the results using {% data variables.product.prodname_actions %}, the {% data variables.product.prodname_code_scanning %} API,{% ifversion codeql-runner-supported %} the {% data variables.code-scanning.codeql_runner %},{% endif %} or the {% data variables.product.prodname_codeql_cli %}. The best upload method will depend on how you generate the SARIF file, for example, if you use:
-
-- {% data variables.product.prodname_actions %} to run the {% data variables.product.prodname_codeql %} action, there is no further action required. The {% data variables.product.prodname_codeql %} action uploads the SARIF file automatically when it completes analysis.
-- {% data variables.product.prodname_actions %} to run a SARIF-compatible analysis tool, you could update the workflow to include a final step that uploads the results (see below).
- - The {% data variables.product.prodname_codeql_cli %} to run {% data variables.product.prodname_code_scanning %} in your CI system, you can use the CLI to upload results to {% data variables.product.prodname_dotcom %} (for more information, see "[Installing {% data variables.product.prodname_codeql_cli %} in your CI system](/code-security/secure-coding/using-codeql-code-scanning-with-your-existing-ci-system/installing-codeql-cli-in-your-ci-system)").{% ifversion codeql-runner-supported %}
-- The {% data variables.code-scanning.codeql_runner %}, to run {% data variables.product.prodname_code_scanning %} in your CI system, by default the runner automatically uploads results to {% data variables.product.prodname_dotcom %} on completion. If you block the automatic upload, when you are ready to upload results you can use the `upload` command (for more information, see "[Running {% data variables.code-scanning.codeql_runner %} in your CI system](/code-security/secure-coding/running-codeql-runner-in-your-ci-system)").{% endif %}
-- A tool that generates results as an artifact outside of your repository, you can use the {% data variables.product.prodname_code_scanning %} API to upload the file (for more information, see "[Upload an analysis as SARIF data](/rest/reference/code-scanning#upload-an-analysis-as-sarif-data)").
+- {% data variables.product.prodname_actions %}를 사용하여 {% data variables.product.prodname_codeql %} 작업을 실행한다면 추가 작업이 필요하지 않습니다. {% data variables.product.prodname_codeql %} 작업은 분석이 끝나면 SARIF 파일을 자동으로 업로드합니다.
+- {% data variables.product.prodname_actions %}를 사용하여 SARIF 호환 분석 도구를 실행한다면, 결과를 업로드하는 최종 단계를 포함하도록 워크플로를 업데이트할 수 있습니다(아래 참조).
+ - CI 시스템에서 {% data variables.product.prodname_codeql_cli %}를 사용하여 {% data variables.product.prodname_code_scanning %}을 실행한다면 CLI를 사용하여 결과를 {% data variables.product.prodname_dotcom %}에 업로드할 수 있습니다(자세한 내용은 “[CI 시스템에 {% data variables.product.prodname_codeql_cli %} 설치](/code-security/secure-coding/using-codeql-code-scanning-with-your-existing-ci-system/installing-codeql-cli-in-your-ci-system)” 참조).{% ifversion codeql-runner-supported %}
+- {% data variables.code-scanning.codeql_runner %}는 CI 시스템에서 {% data variables.product.prodname_code_scanning %}를 실행하기 위해 기본적으로 실행기는 완료 시 {% data variables.product.prodname_dotcom %}에 결과를 자동으로 업로드합니다. 자동 업로드를 차단하는 경우 결과를 업로드할 준비가 되면 명령을 사용할 `upload` 수 있습니다(자세한 내용은 "[CI 시스템에서 {% data variables.code-scanning.codeql_runner %} 실행](/code-security/secure-coding/running-codeql-runner-in-your-ci-system)"을 참조하세요.{ % endif %}
+- 결과를 리포지토리 외부의 아티팩트로 생성하는 도구를 사용한다면 {% data variables.product.prodname_code_scanning %} API를 사용하여 파일을 업로드할 수 있습니다(자세한 내용은 "[분석을 SARIF 데이터로 업로드](/rest/reference/code-scanning#upload-an-analysis-as-sarif-data)" 참조).
 
 {% data reusables.code-scanning.not-available %}
 
-## Uploading a {% data variables.product.prodname_code_scanning %} analysis with {% data variables.product.prodname_actions %}
+## {% data variables.product.prodname_actions %}를 사용하여 {% data variables.product.prodname_code_scanning %} 분석 업로드
 
-To use {% data variables.product.prodname_actions %} to upload a third-party SARIF file to a repository, you'll need a  workflow. For more information, see "[Learn {% data variables.product.prodname_actions %}](/actions/learn-github-actions)."
+{% data variables.product.prodname_actions %}를 사용하여 타사 SARIF 파일을 리포지토리에 업로드하려면 워크플로가 필요합니다. 자세한 내용은 “[{% data variables.product.prodname_actions %} 알아보기](/actions/learn-github-actions)”를 참조하세요.
 
-Your workflow will need to use the `upload-sarif` action, which is part of the `github/codeql-action` repository. It has input parameters that you can use to configure the upload. The main input parameters you'll use are:
+워크플로는 `github/codeql-action` 리포지토리에 속한 `upload-sarif` 작업을 사용해야 합니다. 여기에는 업로드 구성에 사용할 수 있는 입력 매개 변수가 포함되어 있습니다. 사용할 기본 입력 매개 변수는 다음과 같습니다.
 
-- `sarif-file`, which configures the file or directory of SARIF files to be uploaded. The directory or file path is relative to the root of the repository.
-- `category` (optional), which assigns a category for results in the SARIF file. This enables you to analyze the same commit in multiple ways and review the results using the {% data variables.product.prodname_code_scanning %} views in {% data variables.product.prodname_dotcom %}. For example, you can analyze using multiple tools, and in mono-repos, you can analyze different slices of the repository based on the subset of changed files.
+- `sarif-file`은 업로드할 SARIF 파일의 파일 또는 디렉터리를 구성합니다. 디렉터리나 파일 경로는 리포지토리의 루트가 기준입니다.
+- `category`(선택 사항)는 SARIF 파일의 결과에 대한 범주를 할당합니다. 이렇게 하면 동일한 커밋을 다양한 방법으로 분석하고 {% data variables.product.prodname_dotcom %}의 {% data variables.product.prodname_code_scanning %} 보기를 사용하여 결과를 검토할 수 있습니다. 예를 들어 다양한 도구를 사용하여 분석할 수 있으며, 모노 리포지토리에서는 변경된 파일의 하위 집합에 따라 리포지토리의 여러 조각을 분석할 수 있습니다.
 
-For more information see the [`upload-sarif` action](https://github.com/github/codeql-action/tree/{% ifversion actions-node16-action %}v2{% else %}v1{% endif %}/upload-sarif).
+자세한 내용은 [`upload-sarif` 작업](https://github.com/github/codeql-action/tree/{% ifversion actions-node16-action %}v2{% else %}v1{% endif %}/upload-sarif)을 참조하세요.
 
-The `upload-sarif` action can be configured to run when the `push` and `scheduled` event occur. For more information about {% data variables.product.prodname_actions %}  events, see "[Events that trigger workflows](/actions/reference/events-that-trigger-workflows)."
+`push` 및 `scheduled` 이벤트가 발생할 때 실행되도록 `upload-sarif` 작업을 구성할 수 있습니다. {% data variables.product.prodname_actions %}  이벤트에 대한 자세한 내용은 "[워크플로를 트리거하는 이벤트](/actions/reference/events-that-trigger-workflows)"를 참조하세요.
 
-If your SARIF file doesn't include `partialFingerprints`, the `upload-sarif` action will calculate the `partialFingerprints` field for you and attempt to prevent duplicate alerts. {% data variables.product.prodname_dotcom %} can only create `partialFingerprints` when the repository contains both the SARIF file and the source code used in the static analysis. For more information about preventing duplicate alerts, see "[About SARIF support for code scanning](/code-security/secure-coding/sarif-support-for-code-scanning#providing-data-to-track-code-scanning-alerts-across-runs)."
+SARIF 파일에 `partialFingerprints`가 포함되지 않은 경우 `upload-sarif` 작업이 `partialFingerprints` 필드를 계산하고 중복 경고를 방지하려고 시도합니다. {% data variables.product.prodname_dotcom %}은 리포지토리에 SARIF 파일과 정적 분석에 사용되는 소스 코드가 모두 포함된 경우에만 `partialFingerprints`를 만들 수 있습니다. 중복 경고를 방지하는 자세한 방법은 "[코드 검사에 대한 SARIF 지원 정보](/code-security/secure-coding/sarif-support-for-code-scanning#providing-data-to-track-code-scanning-alerts-across-runs)"를 참조하세요.
 
 {% data reusables.code-scanning.upload-sarif-alert-limit %}
 
-### Example workflow for SARIF files generated outside of a repository
+### 리포지토리 외부에서 생성된 SARIF 파일에 대한 예제 워크플로
 
-You can create a new workflow that uploads SARIF files after you commit them to your repository. This is useful when the SARIF file is generated as an artifact outside of your repository.
+리포지토리에 커밋한 후 SARIF 파일을 업로드하는 새 워크플로를 만들 수 있습니다. 이는 SARIF 파일이 리포지토리 외부의 아티팩트로 생성될 때 유용합니다.
 
-This example workflow runs anytime commits are pushed to the repository. The action uses the `partialFingerprints` property to determine if changes have occurred. In addition to running when commits are pushed, the workflow is scheduled to run once per week. For more information, see "[Events that trigger workflows](/actions/reference/events-that-trigger-workflows)."
+이 예제에서는 커밋이 리포지토리에 푸시될 때마다 워크플로가 실행됩니다. 이 작업은 `partialFingerprints` 속성을 사용하여 변경이 발생했는지 여부를 확인합니다. 커밋이 푸시될 때 실행되는 것 외에도 이 워크플로는 일주일에 한 번 실행되도록 예약됩니다. 자세한 내용은 “[워크플로를 트리거하는 이벤트](/actions/reference/events-that-trigger-workflows)”를 참조하세요.
 
-This workflow uploads the `results.sarif` file located in the root of the repository. For more information about creating a workflow file, see "[Learn {% data variables.product.prodname_actions %}](/actions/learn-github-actions)."
+이 워크플로는 리포지토리의 루트에 있는 `results.sarif` 파일을 업로드합니다. 워크플로 파일 생성에 대한 자세한 내용은 "[{% data variables.product.prodname_actions %} 알아보기](/actions/learn-github-actions)"를 참조하세요.
 
-Alternatively, you could modify this workflow to upload a directory of SARIF files. For example, you could place all SARIF files in a directory in the root of your repository called `sarif-output` and set the action's input parameter `sarif_file` to `sarif-output`. Note that if you upload a directory, each SARIF file must include a unique `runAutomationDetails.id` to define the category for the results. For more information, see "[`runAutomationDetails` object](/code-security/code-scanning/integrating-with-code-scanning/sarif-support-for-code-scanning#runautomationdetails-object)."
+또는 이 워크플로를 수정하여 SARIF 파일 디렉터리를 업로드할 수도 있습니다. 예를 들어, 모든 SARIF 파일을 `sarif-output`는 리포지토리의 루트에 있는 디렉터리에 배치하고 작업의 입력 매개 변수 `sarif_file`를 `sarif-output`로 설정할 수 있을 것입니다. 디렉터리를 업로드하는 경우 각 SARIF 파일에는 결과의 범주를 정의하는 고유한 `runAutomationDetails.id` 항목이 포함되어야 합니다. 자세한 내용은 "[`runAutomationDetails` 개체](/code-security/code-scanning/integrating-with-code-scanning/sarif-support-for-code-scanning#runautomationdetails-object)"를 참조하세요.
 
 ```yaml
 name: "Upload SARIF"
@@ -105,13 +108,13 @@ jobs:
           category: my-analysis-tool
 ```
 
-### Example workflow that runs the ESLint analysis tool
+### ESLint 분석 도구를 실행하는 예제 워크플로
 
-If you generate your third-party SARIF file as part of a continuous integration (CI) workflow, you can add the `upload-sarif` action as a step after running your CI tests. If you don't already have a CI workflow, you can create one using a {% data variables.product.prodname_actions %} template. For more information, see the "[{% data variables.product.prodname_actions %} quickstart](/actions/quickstart)."
+CI(연속 통합) 워크플로의 일부로 타사 SARIF 파일을 생성하는 경우 `upload-sarif` 작업을 CI 테스트 실행 후 단계로 추가할 수 있습니다. CI 워크플로가 아직 없는 경우 {% data variables.product.prodname_actions %} 템플릿을 사용하여 만들 수 있습니다. 자세한 내용은 “[{% data variables.product.prodname_actions %} 빠른 시작](/actions/quickstart)”을 참조하세요.
 
-This example workflow runs anytime commits are pushed to the repository. The action uses the `partialFingerprints` property to determine if changes have occurred. In addition to running when commits are pushed, the workflow is scheduled to run once per week. For more information, see "[Events that trigger workflows](/actions/reference/events-that-trigger-workflows)."
+이 예제에서는 커밋이 리포지토리에 푸시될 때마다 워크플로가 실행됩니다. 이 작업은 `partialFingerprints` 속성을 사용하여 변경이 발생했는지 여부를 확인합니다. 커밋이 푸시될 때 실행되는 것 외에도 이 워크플로는 일주일에 한 번 실행되도록 예약됩니다. 자세한 내용은 “[워크플로를 트리거하는 이벤트](/actions/reference/events-that-trigger-workflows)”를 참조하세요.
 
-The workflow shows an example of running the ESLint static analysis tool as a step in a workflow. The `Run ESLint` step runs the ESLint tool and outputs the `results.sarif` file. The workflow then uploads the `results.sarif` file to {% data variables.product.prodname_dotcom %} using the `upload-sarif` action. For more information about creating a workflow file, see "[Introduction to GitHub Actions](/actions/learn-github-actions/introduction-to-github-actions)."
+워크플로는 ESLint 정적 분석 도구를 워크플로의 단계로서 실행하는 예제를 보여 줍니다. `Run ESLint` 단계에서는 ESLint 도구를 실행하고 `results.sarif` 파일을 출력합니다. 그런 다음 워크플로는 `upload-sarif` 작업을 사용하여 {% data variables.product.prodname_dotcom %}에 `results.sarif` 파일을 업로드합니다. 워크플로 파일을 만드는 자세한 방법은 "[GitHub Actions 소개"](/actions/learn-github-actions/introduction-to-github-actions)를 참조하세요.
 
 ```yaml
 name: "ESLint analysis"
@@ -147,9 +150,9 @@ jobs:
           sarif_file: results.sarif
 ```
 
-## Further reading
+## 추가 참고 자료
 
-- "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions)"
-- "[Viewing your workflow history](/actions/managing-workflow-runs/viewing-workflow-run-history)"
-- "[About {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} in your CI system](/code-security/secure-coding/about-codeql-code-scanning-in-your-ci-system)"
-- "[Upload an analysis as SARIF data](/rest/reference/code-scanning#upload-an-analysis-as-sarif-data)"
+- “[{% data variables.product.prodname_actions %}에 대한 워크플로 구문](/actions/reference/workflow-syntax-for-github-actions)”
+- "[워크플로 기록 보기](/actions/managing-workflow-runs/viewing-workflow-run-history)"
+- "[CI 시스템의 {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} 정보](/code-security/secure-coding/about-codeql-code-scanning-in-your-ci-system)"
+- "[분석을 SARIF 데이터로 업로드](/rest/reference/code-scanning#upload-an-analysis-as-sarif-data)"

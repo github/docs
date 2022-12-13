@@ -1,0 +1,24 @@
+date: '2021-01-29'
+release_candidate: true
+deprecated: true
+intro: "릴리스 후보 버전은 비프로덕션 환경에서 테스트해야 합니다. 릴리스 후보 프로그램에 관한 자세한 내용은 [GitHub 블로그](https://github.blog/2020-12-03-improving-the-ghes-release-process-release-candidates/) 또는 “[새 릴리스로 업그레이드 정보](/admin/overview/about-upgrades-to-new-releases)”를 참조하세요."
+sections:
+  bugs:
+    - heading: 릴리스 후보 1의 알려진 문제 수정
+      notes:
+        - Actions 설치에 실패한 후 Actions를 사용하지 않도록 설정하면 첫 번째 사용자를 만들고 어플라이언스를 사용할 수 없습니다.
+        - “필수 메시지가 표시됨” 감사 로그 이벤트가 저장되지 않았습니다.
+        - '복제를 시작하기 위해 `ghe-repl-setup`을 실행하려면 먼저 첫 번째 설치 중에 복제본에서 `ghe-config-apply`를 실행해야 했습니다.'
+        - 엔터프라이즈 소유자로서 자신을 제거하면 404가 반환되었습니다.
+    - heading: 기타 이슈 수정
+      notes:
+        - 3.0.0으로 마이그레이션 및 업그레이드에 관련된 이슈가 수정되었습니다.
+        - 이제 릴리스 후보 버전에 대한 백업 유틸리티 버전 관리가 작동합니다.
+        - 지원 번들 생성으로 인해 오케스트레이터 로그에서 오류가 발생했습니다.
+        - 대규모 복원으로 인해 Redis에서 메모리가 부족해질 수 있습니다.
+        - 관리 콘솔에서 GitHub Actions를 사용하도록 설정하는 확인란이 이제 인증 방법과 함께 표시됩니다.
+        - GitHub Actions는 필수 스토리지도 구성된 경우에만 사용하도록 설정할 수 있습니다.
+        - 'MSSQL 복제가 구성되지 않은 경우 `ghe-repl-status`가 자동으로 실패할 수 있습니다.'
+
+  known_issues:
+    - 나열된 버그 수정을 제외하고 릴리스 후보 1에 대한 알려진 이슈가 계속 적용됩니다.

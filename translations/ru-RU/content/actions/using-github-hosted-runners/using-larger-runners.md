@@ -1,115 +1,113 @@
 ---
-title: Using larger runners
+title: Использование крупных средств выполнения
 shortTitle: Larger runners
-intro: '{% data variables.product.prodname_dotcom %} offers larger runners with more RAM and CPU.'
+intro: '{% data variables.product.prodname_dotcom %} предлагает более крупные средства выполнения с большим объемом ОЗУ и ЦП.'
 miniTocMaxHeadingLevel: 3
 product: '{% data reusables.gated-features.hosted-runners %}'
 versions:
   feature: actions-hosted-runners
+ms.openlocfilehash: eca33ee8b427f918a3db5d8b4ca05947b7662896
+ms.sourcegitcommit: d0cea547f6a5d991a28c310257cafd616235889f
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 11/01/2022
+ms.locfileid: '148120876'
 ---
+## Общие сведения о {% data variables.actions.hosted_runner %}
 
-## Overview of {% data variables.actions.hosted_runner %}s
+Помимо [стандартных средств выполнения, размещенных на {% data variables.product.prodname_dotcom %}](/actions/using-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources), {% data variables.product.prodname_dotcom %} также предлагает клиентам с планом {% data variables.product.prodname_team %} и {% data variables.product.prodname_ghe_cloud %} ряд {% data variables.actions.hosted_runner %} с большим объемом ОЗУ и ЦП. Эти средства выполнения размещаются в {% data variables.product.prodname_dotcom %} и для них уже предустановлено приложение и другие инструменты.
 
-In addition to the [standard {% data variables.product.prodname_dotcom %}-hosted runners](/actions/using-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources), {% data variables.product.prodname_dotcom %} also offers customers on {% data variables.product.prodname_team %} and {% data variables.product.prodname_ghe_cloud %} plans a range of {% data variables.actions.hosted_runner %}s with more RAM and CPU. These runners are hosted by {% data variables.product.prodname_dotcom %} and have the runner application and other tools preinstalled.
+Если для вашей организации включены {% data variables.actions.hosted_runner %}s, автоматически создается группа средств выполнения по умолчанию с набором из четырех предварительно настроенных {% data variables.actions.hosted_runner %}s.
 
-When {% data variables.actions.hosted_runner %}s are enabled for your organization, a default runner group is automatically created for you with a set of four pre-configured {% data variables.actions.hosted_runner %}s.
+При добавлении {% data variables.actions.hosted_runner %} в организацию вы определяете тип компьютера из набора доступных спецификаций оборудования и образов операционной системы. Затем {% data variables.product.prodname_dotcom %} создаст несколько экземпляров этого средства выполнения, которые будут увеличивать и уменьшать масштаб в соответствии с требованиями заданий вашей организации на основе заданных ограничений автомасштабирования.
 
-When you add a {% data variables.actions.hosted_runner %} to an organization, you are defining a type of machine from a selection of available hardware specifications and operating system images. {% data variables.product.prodname_dotcom %} will then create multiple instances of this runner that scale up and down to match the job demands of your organization, based on the autoscaling limits you define.
+## Спецификации компьютера для {% data variables.actions.hosted_runner %}s 
 
-## Machine specs for {% data variables.actions.hosted_runner %}s 
-
-|Size (vcpu) | Memory (GB) | Storage (SSD) |
+|Размер (vcpu) | Память (ГБ) | Хранилище (SSD) |
 | ------------- | ------------- | ------------- |
-|4 cores | 16  RAM  | 150 GB|
-| 8 cores | 32 RAM | 300 GB |
-|16 cores| 64 RAM | 600 GB |
-|32 cores| 128 RAM| 1200 GB|
-|64 cores| 256 RAM | 2040 GB|
+|4 ядра | 16 ОЗУ  | 150 ГБ|
+| 8 ядер | 32 ОЗУ | 300 ГБ |
+|16 ядер| 64 ОЗУ | 600 ГБ |
+|32 ядра| 128 ОЗУ| 1200 ГБ|
+|64 ядра| 256 ОЗУ | 2040 ГБ|
 
-## Architectural overview of {% data variables.actions.hosted_runner %}s
+## Общие сведения об архитектуре {% data variables.actions.hosted_runner %}
 
-The {% data variables.actions.hosted_runner %}s are managed at the organization level, where they are arranged into groups that can contain multiple instances of the runner. They can also be created at the enterprise level and shared with organizations in the hierarchy. Once you've created a group, you can then add a runner to the group and update your workflows to target either the group name or the label assigned to the {% data variables.actions.hosted_runner %}. You can also control which repositories are permitted to send jobs to the group for processing. For more information about groups, see "[Controlling access to {% data variables.actions.hosted_runner %}s](/actions/using-github-hosted-runners/controlling-access-to-larger-runners)."
+{% data variables.actions.hosted_runner %} управляются на уровне организации, где они упорядочены по группам, которые могут содержать несколько экземпляров средства выполнения. Их также можно создавать на уровне предприятия и совместно использовать с организациями в иерархии. После создания группы можно добавить средство выполнения тестов в группу и обновить рабочие процессы, указав имя группы или метку, назначенную {% data variables.actions.hosted_runner %}. Вы также можете контролировать, какие репозитории могут отправлять задания группе для обработки. Дополнительные сведения о группах см. в разделе [Управление доступом к {% data variables.actions.hosted_runner %}](/actions/using-github-hosted-runners/controlling-access-to-larger-runners).
 
-In the following diagram, a class of hosted runner named `ubuntu-20.04-16core` has been defined with customized hardware and operating system configuration.
+На следующей схеме был определен класс размещенного средства выполнения `ubuntu-20.04-16core` с настраиваемой конфигурацией оборудования и операционной системы.
 
-![Diagram explaining {% data variables.actions.hosted_runner %}](/assets/images/hosted-runner.png)
+![Схема, объясняющая {% data variables.actions.hosted_runner %}](/assets/images/hosted-runner.png)
 
-1. Instances of this runner are automatically created and added to a group called `grp-ubuntu-20.04-16core`. 
-2. The runners have been assigned the label `ubuntu-20.04-16core`. 
-3. Workflow jobs use the `ubuntu-20.04-16core` label in their `runs-on` key to indicate the type of runner they need to execute the job.
-4. {% data variables.product.prodname_actions %} checks the runner group to see if your repository is authorized to send jobs to the runner.
-5. The job runs on the next available instance of the `ubuntu-20.04-16core` runner.
+1. Экземпляры этого средства выполнения создаются автоматически и добавляются в группу с именем `grp-ubuntu-20.04-16core`. 
+2. Средствам выполнения назначена метка `ubuntu-20.04-16core`. 
+3. Задания рабочего процесса используют метку `ubuntu-20.04-16core` в ключе `runs-on`, чтобы указать тип средства выполнения, который им необходим для выполнения задания.
+4. {% data variables.product.prodname_actions %} проверяет группу средств выполнения, чтобы узнать, разрешено ли репозиторию отправлять задания в средство выполнения.
+5. Задание выполняется на следующем доступном экземпляре средства выполнения `ubuntu-20.04-16core`.
 
-## Autoscaling {% data variables.actions.hosted_runner %}s
+## Автомасштабирование о {% data variables.actions.hosted_runner %}
 
-Your {% data variables.actions.hosted_runner %}s can be configured to automatically scale to suit your needs. When jobs are submitted for processing, more machines can be automatically provisioned to run the jobs, until reaching a pre-defined maximum limit. Each machine only handles one job at a time, so these settings effectively determine the number of jobs that can be run concurrently. 
+Ваши {% data variables.actions.hosted_runner %} можно настроить для автоматического масштабирования в соответствии с вашими потребностями. При отправке заданий для обработки больше компьютеров можно автоматически подготовить для выполнения заданий до достижения предварительно определенного максимального ограничения. Каждый компьютер обрабатывает только одно задание за раз, поэтому эти параметры эффективно определяют количество заданий, которые могут выполняться одновременно. 
 
-During the runner deployment process, you can configure the _Max_ option, which allows you to control your costs by setting the maximum parallel number of machines that are created in this set. A higher value here can help avoid workflows being blocked due to parallelism.
+Во время развертывания средства выполнения можно настроить параметр _Max_, который позволяет управлять затратами, устанавливая максимальное параллельное количество компьютеров, создаваемых в этом наборе. Более высокое значение поможет помочь избежать блокировки рабочих процессов из-за параллелизма.
 
-## Networking for {% data variables.actions.hosted_runner %}s
+## Создание сетей для {% data variables.actions.hosted_runner %}
 
-By default, {% data variables.actions.hosted_runner %}s receive a dynamic IP address that changes for each job run. Optionally, {% data variables.product.prodname_ghe_cloud %} customers can configure their {% data variables.actions.hosted_runner %}s to receive a static IP address from {% data variables.product.prodname_dotcom %}'s IP address pool. When enabled, instances of the {% data variables.actions.hosted_runner %} will receive an address from a range that is unique to the runner, allowing you to use this range to configure a firewall allowlist. {% ifversion fpt %}You can use up to 10 static IP address ranges in total across all your {% data variables.actions.hosted_runner %}s{% endif %}{% ifversion ghec %}You can use up to 10 static IP address ranges for the {% data variables.actions.hosted_runner %}s created at the enterprise level. In addition, you can use up to 10 static IP address ranges for the {% data variables.actions.hosted_runner %}s created at the organization level, for each organization in your enterprise{% endif %}.
-
-{% note %}
-
-**Note**: If runners are unused for more than 30 days, their IP address ranges are automatically removed and cannot be recovered.
-
-{% endnote %}
-
-## Planning for {% data variables.actions.hosted_runner %}s
-
-### Create a runner group
-
-Runner groups are used to collect sets of virtual machines and create a security boundary around them. You can then decide which organizations or repositories are permitted to run jobs on those sets of machines. During the {% data variables.actions.hosted_runner %} deployment process, the runner can be added to an existing group, or otherwise it will join a default group. You can create a group by following the steps in "[Controlling access to {% data variables.actions.hosted_runner %}s](/actions/using-github-hosted-runners/controlling-access-to-larger-runners)."
-
-### Understanding billing
+По умолчанию {% data variables.actions.hosted_runner %} получают динамический IP-адрес, который изменяется для каждого запуска задания. При необходимости клиенты {% data variables.product.prodname_ghe_cloud %} могут настроить свои {% data variables.actions.hosted_runner %} для получения статического IP-адреса из пула IP-адресов {% data variables.product.prodname_dotcom %}. Если этот параметр включен, экземпляры {% data variables.actions.hosted_runner %} получат адрес из диапазона, уникального для средства выполнения, что позволяет использовать этот диапазон для настройки списка разрешений брандмауэра. {% ifversion fpt %} Вы можете использовать до 10 диапазонов статических IP-адресов во всех {% data variables.actions.hosted_runner %}s{% endif %}{% ifversion ghec %}Можно использовать до 10 диапазонов статических IP-адресов для {% data variables.actions.hosted_runner %}s, созданных на уровне предприятия. Кроме того, можно использовать до 10 диапазонов статических IP-адресов для {% data variables.actions.hosted_runner %}, созданных на уровне организации, для каждой организации на предприятии{% endif %}.
 
 {% note %}
 
-**Note**: The {% data variables.actions.hosted_runner %}s do not use included entitlement minutes, and are not free for public repositories.
+**Примечание.** Если средства выполнения не используются в течение более 30 дней, их диапазоны IP-адресов автоматически удаляются и не могут быть восстановлены.
 
 {% endnote %}
 
-Compared to standard {% data variables.product.prodname_dotcom %}-hosted runners, {% data variables.actions.hosted_runner %}s are billed differently. For more information, see "[Per-minute rates](/billing/managing-billing-for-github-actions/about-billing-for-github-actions#per-minute-rates)".
+## Планирование для {% data variables.actions.hosted_runner %}
 
-## Adding a {% data variables.actions.hosted_runner %} to an enterprise
+### Создание группы средств выполнения
 
-You can add {% data variables.actions.hosted_runner %}s to an enterprise, where they can be assigned to multiple organizations. The organization admins can then control which repositories can use the runners. To add a {% data variables.actions.hosted_runner %} to an enterprise, you must be an enterprise owner.
+Группы средств выполнения используются для сбора наборов виртуальных машин и создания границы безопасности вокруг них. Затем можно решить, какие организации или репозитории могут выполнять задания на этих наборах машин. Во время процесса развертывания {% data variables.actions.hosted_runner %} средство выполнения можно добавить в существующую группу, или она присоединится к группе по умолчанию. Чтобы создать группу, выполните действия, описанные в разделе [Управление доступом к {% data variables.actions.hosted_runner %}](/actions/using-github-hosted-runners/controlling-access-to-larger-runners).
+
+### Общие сведения о выставлении счетов
+
+{% note %}
+
+**Примечание**. {% data variables.actions.hosted_runner %}s не используют включенные минуты прав и не являются бесплатными для общедоступных репозиториев.
+
+{% endnote %}
+
+По сравнению со стандартными средствами выполнения, размещенными на {% data variables.product.prodname_dotcom %}, плата за {% data variables.actions.hosted_runner %} выставляется иначе. Дополнительные сведения см. в разделе [Поминутные тарифы](/billing/managing-billing-for-github-actions/about-billing-for-github-actions#per-minute-rates).
+
+## Добавление {% data variables.actions.hosted_runner %} в предприятие
+
+Вы можете добавить {% data variables.actions.hosted_runner %}s в предприятие, где их можно назначить нескольким организациям. Затем администраторы организации могут управлять тем, какие репозитории могут использовать средства выполнения. Чтобы добавить {% data variables.actions.hosted_runner %} в предприятие, необходимо быть владельцем предприятия.
 
 {% data reusables.actions.add-hosted-runner-overview %}
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.policies-tab %}
-{% data reusables.enterprise-accounts.actions-tab %}
-{% data reusables.enterprise-accounts.actions-runners-tab %}
-{% data reusables.actions.add-hosted-runner %}
-1. To allow organizations to access your {% data variables.actions.hosted_runner %}s, you specify the list of organizations that can use it. For more information, see "[Managing access to your runners](#managing-access-to-your-runners)."
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.policies-tab %} {% data reusables.enterprise-accounts.actions-tab %} {% data reusables.enterprise-accounts.actions-runners-tab %} {% data reusables.actions.add-hosted-runner %}
+1. Чтобы разрешить организациям доступ к {% data variables.actions.hosted_runner %}, необходимо указать список организаций, которые могут использовать их. Дополнительные сведения см. в статье [Управление доступом к проектам](#managing-access-to-your-runners).
 
-## Adding a {% data variables.actions.hosted_runner %} to an organization
+## Добавление {% data variables.actions.hosted_runner %} в организацию
 
-You can add a {% data variables.actions.hosted_runner %} to an organization, where the organization admins can control which repositories can use it. 
+Вы можете добавить {% data variables.actions.hosted_runner %} в организацию, и администраторы организации могут контролировать, какие репозитории могут его использовать. 
 
 {% data reusables.actions.add-hosted-runner-overview %}
 
-{% data reusables.organizations.navigate-to-org %}
-{% data reusables.organizations.org_settings %}
-{% data reusables.organizations.settings-sidebar-actions-runners %}
-{% data reusables.actions.add-hosted-runner %}
-1. To allow repositories to access your {% data variables.actions.hosted_runner %}s, add them to the list of repositories that can use it. For more information, see "[Managing access to your runners](#managing-access-to-your-runners)."
+{% data reusables.organizations.navigate-to-org %} {% data reusables.organizations.org_settings %} {% data reusables.organizations.settings-sidebar-actions-runners %} {% data reusables.actions.add-hosted-runner %}
+1. Чтобы разрешить репозиториям доступ к {% data variables.actions.hosted_runner %}, добавьте их в список репозиториев, которые могут его использовать. Дополнительные сведения см. в статье [Управление доступом к проектам](#managing-access-to-your-runners).
 
-## Running jobs on your runner
+## Запуск заданий в средстве выполнения
 
-Once your runner type has been defined, you can update your workflow YAML files to send jobs to your newly created runner instances for processing. You can use runner groups or labels to define where your jobs run. 
+После определения типа средства выполнения можно обновить YAML-файлы рабочего процесса, чтобы отправлять задания в только что созданные экземпляры средства выполнения для обработки. Вы можете использовать группы или метки средств выполнения, чтобы определить, где выполняются задания. 
 
-Only owner or administrator accounts can see the runner settings. Non-administrative users can contact the organization administrator to find out which runners are enabled. Your organization administrator can create new runners and runner groups, as well as configure permissions to specify which repositories can access a runner group.
+Только учетные записи владельца или администратора могут просматривать параметры средства выполнения. Пользователи без прав администратора могут обратиться к администратору организации, чтобы узнать, какие средства выполнения включены. Администратор организации может создавать новые средства выполнения и группы средств выполнения, а также настраивать разрешения, чтобы указать, какие репозитории могут получить доступ к группе средств выполнения.
 
-### Using groups to control where jobs are run
+### Использование групп для управления выполнением заданий
 
 {% data reusables.actions.jobs.example-runs-on-groups %}
 
-### Using labels to control where jobs are run
+### Использование меток для управления выполнением заданий
 
-In this example, a runner group is populated with Ubuntu 16-core runners, which have also been assigned the label `ubuntu-20.04-16core`. The `runs-on` key sends the job to any available runner with a matching label:
+В этом примере группа средств выполнения заполняется 16-ядерными средствами выполнения Ubuntu, которым также назначена метка `ubuntu-20.04-16core`. Ключ `runs-on` отправляет задание в любое доступное средство выполнения с соответствующей меткой:
 
 ```yaml
 name: learn-github-actions
@@ -127,15 +125,15 @@ jobs:
       - run: bats -v
 ```
 
-### Using labels and groups to control where jobs are run
+### Использование меток и групп для управления выполнением заданий
 
 {% data reusables.actions.jobs.example-runs-on-labels-and-groups %}
 
-### Using multiple labels
+### Использование нескольких меток
 
-You can specify multiple labels that need to be matched for a job to run on a runner. A runner will need to match all labels to be eligible to run the job.
+Можно указать несколько меток, которые должны быть сопоставлены для выполнения задания в средстве выполнения. Средство выполнения должно соответствовать всем меткам, чтобы иметь право на выполнение задания.
 
-In this example, a runner will need to match all three of the labels to run the job:
+В этом примере средству выполнения тестов потребуется сопоставить все три метки для выполнения задания:
 
 ```yaml
 name: learn-github-actions
@@ -155,38 +153,37 @@ jobs:
 
 {% data reusables.actions.section-using-unique-names-for-runner-groups %}
 
-## Managing access to your runners
+## Управление доступом к средствам выполнения
 
 {% note %}
 
-**Note**: Before your workflows can send jobs to {% data variables.actions.hosted_runner %}s, you must first configure permissions for the runner group. See the following sections for more information.
+**Примечание.** Прежде чем рабочие процессы смогут отправлять задания в {% data variables.actions.hosted_runner %}, необходимо настроить разрешения для группы средств выполнения. Дополнительные сведения см. в следующих разделах.
 
 {% endnote %}
 
-Runner groups are used to control which repositories can run jobs on your {% data variables.actions.hosted_runner %}s. You must grant access to the group from each level of the management hierarchy, depending on where you've defined the {% data variables.actions.hosted_runner %}:
+Группы средств выполнения используются для управления тем, какие репозитории могут выполнять задания в {% data variables.actions.hosted_runner %}. Необходимо предоставить доступ к группе с каждого уровня иерархии управления в зависимости от того, где вы определили {% data variables.actions.hosted_runner %}:
 
-- **Runners at the enterprise level**: Configure the runner group to grant access to all the required organizations. In addition, for each organization, you must configure the group to specify which repositories are allowed access.
-- **Runners at the organization level**: Configure the runner group by specifying which repositories are allowed access.
+- **Средства выполнения на уровне предприятия**: настройте группу средств выполнения, чтобы предоставить доступ всем необходимым организациям. Кроме того, для каждой организации необходимо настроить группу, чтобы указать, какие репозитории разрешены.
+- **Средства выполнения на уровне организации**: настройте группу средств выполнения, указав, какие репозитории разрешены для доступа.
 
-For example, the following diagram has a runner group named `grp-ubuntu-20.04-16core` at the enterprise level. Before the repository named `octo-repo` can use the runners in the group, you must first configure the group at the enterprise level to allow access from the `octo-org` organization; you must then configure the group at the organization level to allow access from `octo-repo`:
+Например, на следующей схеме указана группа средств выполнения с именем `grp-ubuntu-20.04-16core` на уровне предприятия. Прежде чем именованный репозиторий `octo-repo` сможет использовать средства выполнения в группе, необходимо сначала настроить группу на уровне предприятия, чтобы разрешить доступ из организации `octo-org`. Затем необходимо настроить группу на уровне организации, чтобы разрешить доступ из `octo-repo`:
 
-![Diagram explaining {% data variables.actions.hosted_runner %} groups](/assets/images/hosted-runner-mgmt.png)
+![Схема, объясняющая группы {% data variables.actions.hosted_runner %}](/assets/images/hosted-runner-mgmt.png)
 
-### Allowing repositories to access a runner group
+### Разрешение репозиториям доступа к группе средств выполнения
 
-This procedure demonstrates how to configure group permissions at the enterprise and organization levels:
+В этой процедуре показано, как настроить разрешения группы на уровне предприятия и организации:
 
-{% data reusables.actions.runner-groups-navigate-to-repo-org-enterprise %}
-{% data reusables.actions.settings-sidebar-actions-runner-groups-selection %}
-  - For runner groups in an enterprise: under **Organization access**, modify which organizations can access the runner group.
-  - For runner groups in an organization: under **Repository access**, modify which repositories can access the runner group.
+{% data reusables.actions.runner-groups-navigate-to-repo-org-enterprise %} {% data reusables.actions.settings-sidebar-actions-runner-groups-selection %}
+  - Для корпоративных групп средств выполнения перейдите в раздел **Доступ организаций** и измените, какие организации могут получать доступ к группе средств выполнения.
+  - Для групп средств выполнения в организации перейдите в раздел **Доступ репозиториев** и измените, какие репозитории могут получать доступ к группе средств выполнения.
 
 {% warning %}
 
-**Warning**:
+**Предупреждение**:
 
 {% data reusables.actions.hosted-runner-security %}
 
-For more information, see "[Controlling access to {% data variables.actions.hosted_runner %}s](/actions/using-github-hosted-runners/controlling-access-to-larger-runners)."
+Дополнительные сведения см. в разделе [Управление доступом к {% data variables.actions.hosted_runner %}](/actions/using-github-hosted-runners/controlling-access-to-larger-runners).
 
 {% endwarning %}

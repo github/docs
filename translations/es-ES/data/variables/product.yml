@@ -213,9 +213,6 @@ prodname_dependabot_security_updates: 'Dependabot security updates'
 prodname_dependabot_version_updates: 'Dependabot version updates'
 prodname_dependabot_updates: 'Dependabot updates'
 
-# Dependency review action
-prodname_dependency_review_action: 'dependency review action'
-
 # GitHub Archive Program
 prodname_archive: 'GitHub Archive Program'
 prodname_arctic_vault: 'Arctic Code Vault'

@@ -1,6 +1,6 @@
 ---
-title: Creating a personal access token
-intro: 'You can create a {% data variables.product.pat_generic %} to use in place of a password with the command line or with the API.'
+title: Creación de un token de acceso personal
+intro: 'Puedes crear un {% data variables.product.pat_generic %} para usarlo en lugar de una contraseña con la línea de comandos o con la API.'
 redirect_from:
   - /articles/creating-an-oauth-token-for-command-line-use
   - /articles/creating-an-access-token-for-command-line-use
@@ -18,36 +18,41 @@ topics:
   - Identity
   - Access management
 shortTitle: 'Create a {% data variables.product.pat_generic %}'
+ms.openlocfilehash: 78928110c7a8861a9c13d093799454f945eaaf2c
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148107753'
 ---
-
 {% warning %}
 
-**Warning**: Treat your access tokens like passwords.
+**Advertencia**: Trata los tokens de acceso como si fueran contraseñas.
 
-To access {% data variables.product.company_short %} from the command line, consider using {% data variables.product.prodname_cli %} or [Git Credential Manager](https://github.com/GitCredentialManager/git-credential-manager/blob/main/README.md) instead of creating a {% data variables.product.pat_generic %}.
+Para acceder a {% data variables.product.company_short %} desde la línea de comandos, considera la posibilidad de usar la {% data variables.product.prodname_cli %} o el [Administrador de credenciales de Git](https://github.com/GitCredentialManager/git-credential-manager/blob/main/README.md), en lugar de crear un {% data variables.product.pat_generic %}.
 
-When using a {% data variables.product.pat_generic %} in a script, consider storing your token as a secret and running your script through {% data variables.product.prodname_actions %}. For more information, see "[Encrypted secrets](/actions/security-guides/encrypted-secrets)."{%- ifversion ghec or fpt %} You can also store your token as a {% data variables.product.prodname_codespaces %} secret and run your script in {% data variables.product.prodname_codespaces %}. For more information, see "[Managing encrypted secrets for your codespaces](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)."{% endif %}
+Al usar un {% data variables.product.pat_generic %} en un script, considera la posibilidad de almacenar el token como un secreto y ejecutar el script a través de {% data variables.product.prodname_actions %}. Para obtener más información, consulta "[Secretos cifrados](/actions/security-guides/encrypted-secrets)".{%- ifversion ghec or fpt %} También puedes almacenar el token como un secreto de {% data variables.product.prodname_codespaces %} y ejecutar el script en {% data variables.product.prodname_codespaces %}. Para más información, consulta "[Administración de secretos cifrados para los codespaces](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)"{% endif %}
 
-If these options are not possible, consider using another service such as [the 1Password CLI](https://developer.1password.com/docs/cli/secret-references/) to store your token securely.
+Si estas opciones no son posibles, considera la posibilidad de usar otro servicio como [la CLI de 1Password](https://developer.1password.com/docs/cli/secret-references/) para almacenar el token de forma segura.
 
 {% endwarning %}
 
-## About {% data variables.product.pat_generic %}s
+## Acerca del {% data variables.product.pat_generic %}
 
-{% data variables.product.pat_generic_caps %} are an alternative to using passwords for authentication to {% data variables.product.product_name %} when using the [GitHub API](/rest/overview/other-authentication-methods#via-oauth-and-personal-access-tokens) or the [command line](#using-a-token-on-the-command-line). {% data variables.product.pat_generic_caps %}s are intended to access {% data variables.product.company_short %} resources on behalf of yourself. To access resources on behalf of an organization, or for long-lived integrations, you should use a {% data variables.product.prodname_github_app %}. For more information, see "[About apps](/developers/apps/getting-started-with-apps/about-apps)."
+Un {% data variables.product.pat_generic_caps %} es una alternativa al uso de contraseñas para la autenticación en {% data variables.product.product_name %} cuando se usa la [API de GitHub](/rest/overview/other-authentication-methods#via-oauth-and-personal-access-tokens) o la [línea de comandos](#using-a-token-on-the-command-line). El {% data variables.product.pat_generic_caps %} está diseñado para acceder a los recursos de {% data variables.product.company_short %} en tu nombre. Para acceder a los recursos en nombre de una organización, o en el caso de las integraciones de larga duración, debes usar una {% data variables.product.prodname_github_app %}. Para más información, consulte "[Acerca de las actualizaciones](/developers/apps/getting-started-with-apps/about-apps)".
 
 {% ifversion pat-v2 %}
 
-{% data variables.product.company_short %} currently supports two types of {% data variables.product.pat_generic %}s: {% data variables.product.pat_v2 %}s and {% data variables.product.pat_v1_plural %}. {% data variables.product.company_short %} recommends that you use {% data variables.product.pat_v2 %}s instead of {% data variables.product.pat_v1_plural %} whenever possible. {% data variables.product.pat_v2_caps %}s have several security advantages over {% data variables.product.pat_v1_plural %}:
+{% data variables.product.company_short %} admite actualmente dos tipos de {% data variables.product.pat_generic %}: {% data variables.product.pat_v2 %} y {% data variables.product.pat_v1_plural %}. {% data variables.product.company_short %} recomienda usar un {% data variables.product.pat_v2 %} siempre que sea posible, en lugar de {% data variables.product.pat_v1_plural %}. El {% data variables.product.pat_v2_caps %} tiene varias ventajas de seguridad con respecto a los {% data variables.product.pat_v1_plural %}:
 
-- Each token can only access resources owned by a single user or organization.
-- Each token can only access specific repositories.
-- Each token is granted specific permissions, which offer more control than the scopes granted to {% data variables.product.pat_v1_plural %}.
-- Each token must have an expiration date.
-- Organization owners can require approval for any {% data variables.product.pat_v2 %}s that can access resources in the organization.{% ifversion ghec or ghes or ghae %}
-- Enterprise owners can require approval for any {% data variables.product.pat_v2 %}s that can access resources in organizations owned by the enterprise.{% endif %}
+- Cada token solo puede acceder a los recursos que pertenecen a un único usuario u organización.
+- Cada token solo puede acceder a repositorios específicos.
+- A cada token se le conceden permisos específicos, que ofrecen más control que los ámbitos concedidos a los {% data variables.product.pat_v1_plural %}.
+- Cada token debe tener una fecha de expiración.
+- Los propietarios de la organización pueden requerir la aprobación de cualquier {% data variables.product.pat_v2 %} que pueda acceder a los recursos de la organización.{% ifversion ghec or ghes or ghae %}
+- Los propietarios de la empresa pueden requerir la aprobación de cualquier {% data variables.product.pat_v2 %} que pueda acceder a los recursos de las organizaciones que pertenecen a la empresa.{% endif %}
 
-Additionally, organization owners can restrict the access of {% data variables.product.pat_v1 %} to their organization{% ifversion ghec or ghes or ghae %}, and enterprise owners can restrict the access of {% data variables.product.pat_v1 %} to the enterprise or organizations owned by the enterprise{% endif %}.
+Además, los propietarios de la organización pueden restringir el acceso del {% data variables.product.pat_v1 %} a su organización{% ifversion ghec or ghes or ghae %}, y los propietarios de la empresa pueden restringir el acceso del {% data variables.product.pat_v1 %} a la empresa u organizaciones propiedad de la empresa{% endif %}.
 
 {% data reusables.user-settings.patv2-limitations %}
 
@@ -57,40 +62,38 @@ Additionally, organization owners can restrict the access of {% data variables.p
 
 {% ifversion pat-v2 %}
 
-## Creating a {% data variables.product.pat_v2 %}
+## Creación de un {% data variables.product.pat_v2 %}
 
 {% note %}
 
-**Note**: {% data reusables.user-settings.pat-v2-beta %}
+**Nota**: {% data reusables.user-settings.pat-v2-beta %}
 
 {% endnote %}
 
-{% ifversion fpt or ghec %}1. [Verify your email address](/github/getting-started-with-github/verifying-your-email-address), if it hasn't been verified yet.{% endif %}
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.developer_settings %}
-1. In the left sidebar, under **{% octicon "key" aria-label="The key icon" %} {% data variables.product.pat_generic_caps %}s**, click **Fine-grained tokens**.
-1. Click **Generate new token**.
-1. Optionally, under **Token name**, enter a name for the token.
-1. Under **Expiration**, select an expiration for the token.
-1. Optionally, under **Description**, add a note to describe the purpose of the token.
-1. Under **Resource owner**, select a resource owner. The token will only be able to access resources owned by the selected resource owner. Organizations that you are a member of will not appear unless the organization opted in to {% data variables.product.pat_v2 %}s. For more information, see "[Setting a {% data variables.product.pat_generic %} policy for your organization](/organizations/managing-programmatic-access-to-your-organization/setting-a-personal-access-token-policy-for-your-organization)."{% ifversion ghec or ghae %} You may be required to perform SAML single sign-on (SSO) if the selected organization requires it and you do not already have an active SAML session.{% endif %}
-1. Optionally, if the resource owner is an organization that requires approval for {% data variables.product.pat_v2 %}s, below the resource owner, in the box, enter a justification for the request.
-1. Under **Repository access**, select which repositories you want the token to access. You should choose the minimal repository access that meets your needs. Tokens always include read-only access to all public repositories on GitHub.
-1. If you selected **Only select repositories** in the previous step, under the **Selected repositories** dropdown, select the repositories that you want the token to access.
-1. Under **Permissions**, select which permissions to grant the token. Depending on which resource owner and which repository access you specified, there are repository, organization, and account permissions. You should choose the minimal permissions necessary for your needs. For more information about what permissions are required for each REST API operation, see "[Permissions required for {% data variables.product.pat_v2 %}s](/rest/overview/permissions-required-for-fine-grained-personal-access-tokens)."
-1. Click **Generate token**.
+{% ifversion fpt or ghec %}1. [Verifica tu dirección de correo electrónico](/github/getting-started-with-github/verifying-your-email-address), si todavía no lo has hecho.{% endif %} {% data reusables.user-settings.access_settings %} {% data reusables.user-settings.developer_settings %}
+1. En la barra lateral izquierda, en **{% octicon "key" aria-label="The key icon" %} {% data variables.product.pat_generic_caps %}** , haz clic en **Tokens específicos**.
+1. Haga clic en **Generate new token** (Generar nuevo token).
+1. Opcionalmente, en **Nombre del token**, escribe un nombre para el token.
+1. En **Expiración**, selecciona cuándo expirará el token.
+1. Opcionalmente, en **Descripción**, agrega una nota para describir el propósito del token.
+1. En **Propietario del recurso**, selecciona un propietario del recurso. El token solo podrá acceder a los recursos que pertenecen al propietario del recurso seleccionado. Las organizaciones a las que pertenezcas no aparecerán a menos que hayan optado por el uso de un {% data variables.product.pat_v2 %}. Para obtener más información, consulta "[Establecimiento de una directiva de {% data variables.product.pat_generic %} para la organización](/organizations/managing-programmatic-access-to-your-organization/setting-a-personal-access-token-policy-for-your-organization)".{% ifversion ghec or ghae %} Es posible que tengas que realizar un inicio de sesión único (SSO) de SAML si la organización seleccionada lo requiere y aún no tienes una sesión de SAML activa.{% endif %}
+1. Opcionalmente, si el propietario del recurso es una organización que requiere aprobación para el uso de un {% data variables.product.pat_v2 %}, escribe una justificación para la solicitud en el cuadro que aparece debajo del propietario del recurso.
+1. En **Acceso al repositorio**, selecciona los repositorios a los que quieres que acceda el token. Debes elegir el acceso mínimo al repositorio que satisfaga tus necesidades. Los tokens siempre incluyen acceso de solo lectura a todos los repositorios públicos de GitHub.
+1. Si elegiste **Solo repositorios seleccionados** en el paso anterior, en la lista desplegable **Repositorios seleccionados**, elige los repositorios a los que quieres que acceda el token.
+1. En **Permisos**, selecciona los permisos que se concederán al token. En función del propietario del recurso y del acceso al repositorio que hayas especificado, hay permisos de repositorio, de organización y de cuenta. Debes elegir los permisos mínimos que necesites. Para obtener más información sobre los permisos necesarios para cada operación de la API REST, consulta "[Permisos necesarios para el {% data variables.product.pat_v2 %}](/rest/overview/permissions-required-for-fine-grained-personal-access-tokens)".
+1. Haga clic en **Generar token**.
 
-If you selected an organization as the resource owner and the organization requires approval for {% data variables.product.pat_v2 %}s, then your token will be marked as `pending` until it is reviewed by an organization administrator. Your token will only be able to read public resources until it is approved. If you are an owner of the organization, your request is automatically approved. For more information, see "[Reviewing and revoking {% data variables.product.pat_generic %}s in your organization](/organizations/managing-programmatic-access-to-your-organization/reviewing-and-revoking-personal-access-tokens-in-your-organization)".
+Si seleccionaste una organización como propietario del recurso y la organización requiere aprobación para el {% data variables.product.pat_v2 %}, el token se marcará como `pending` hasta que lo revise un administrador de la organización. El token solo podrá leer los recursos públicos hasta que se apruebe. Si eres propietario de la organización, tu solicitud se aprobará automáticamente. Para obtener más información, consulta "[Revisión y revocación de un {% data variables.product.pat_generic %} en la organización](/organizations/managing-programmatic-access-to-your-organization/reviewing-and-revoking-personal-access-tokens-in-your-organization)".
 
 {% endif %}
 
-## Creating a {% data variables.product.pat_v1 %}
+## Creación de un {% data variables.product.pat_v1 %}
 
 {% ifversion pat-v2 %}
 
 {% note %}
 
-**Note**: Organization owners can restrict the access of {% data variables.product.pat_v1 %} to their organization. If you try to use a {% data variables.product.pat_v1 %} to access resources in an organization that has disabled {% data variables.product.pat_v1 %} access, your request will fail with a 403 response. Instead, you must use a {% data variables.product.prodname_github_app %}, {% data variables.product.prodname_oauth_app %}, or {% data variables.product.pat_v2 %}.
+**Nota**: Los propietarios de la organización pueden restringir el acceso del {% data variables.product.pat_v1 %} a la organización. Si intentas usar un {% data variables.product.pat_v1 %} para acceder a los recursos de una organización que ha deshabilitado el acceso del {% data variables.product.pat_v1 %}, se producirá un error en la solicitud con una respuesta 403. En su lugar, debes usar una {% data variables.product.prodname_github_app %}, una {% data variables.product.prodname_oauth_app %} o un {% data variables.product.pat_v2 %}.
 
 {% endnote %}
 
@@ -100,48 +103,34 @@ If you selected an organization as the resource owner and the organization requi
 
 {% warning %}
 
-**Note**: Your {% data variables.product.pat_v1 %} can access every repository that you can access. {% data variables.product.company_short %} recommends that you use {% data variables.product.pat_v2 %}s instead, which you can restrict to specific repositories. {% data variables.product.pat_v2_caps %}s also enable you to specify fine-grained permissions instead of broad scopes.
+**Nota**: Tu {% data variables.product.pat_v1 %} puede acceder a todos los repositorios a los que tengas acceso. {% data variables.product.company_short %} recomienda usar en su lugar un {% data variables.product.pat_v2 %}, que puedes restringir a repositorios específicos. En un {% data variables.product.pat_v2_caps %} también puedes establecer permisos específicos, en lugar de ámbitos amplios.
 
 {% endwarning %}
 
 {% endif %}
 
-{% ifversion fpt or ghec %}1. [Verify your email address](/github/getting-started-with-github/verifying-your-email-address), if it hasn't been verified yet.{% endif %}
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.developer_settings %}
-{% ifversion pat-v2 %}1. In the left sidebar, under **{% octicon "key" aria-label="The key icon" %} {% data variables.product.pat_generic_caps %}s**, click **Tokens (classic)**.{% else %}{% data reusables.user-settings.personal_access_tokens %}{% endif %}
-{% ifversion pat-v2%}1. Select **Generate new token**, then click **Generate new token (classic)**.{% else %}{% data reusables.user-settings.generate_new_token %}{% endif %}
-5. Give your token a descriptive name.
-   ![Token description field](/assets/images/help/settings/token_description.png)
-6. To give your token an expiration, select the **Expiration** drop-down menu, then click a default or use the calendar picker.
-   ![Token expiration field](/assets/images/help/settings/token_expiration.png)
-7. Select the scopes you'd like to grant this token. To use your token to access repositories from the command line, select **repo**. A token with no assigned scopes can only access public information. For more information, see "[Available scopes](/apps/building-oauth-apps/scopes-for-oauth-apps#available-scopes)".
-   {% ifversion fpt or ghes or ghec %}
-   ![Selecting token scopes](/assets/images/help/settings/token_scopes.gif)
-   {% elsif ghae %}
-   ![Selecting token scopes](/assets/images/enterprise/github-ae/settings/access-token-scopes-for-ghae.png)
-   {% endif %}
-8. Click **Generate token**.
-   ![Generate token button](/assets/images/help/settings/generate_token.png)
-   {% ifversion fpt or ghec %}
-   ![Newly created token](/assets/images/help/settings/personal_access_tokens.png)
-   {% elsif ghes or ghae %}
-   ![Newly created token](/assets/images/help/settings/personal_access_tokens_ghe.png)
-   {% else %}
-   ![Newly created token](/assets/images/help/settings/personal_access_tokens_ghe_legacy.png){% endif %}{% ifversion fpt or ghec %}
-1. To use your token to access resources owned by an organization that uses SAML single sign-on, authorize the token. For more information, see "[Authorizing a {% data variables.product.pat_generic %} for use with SAML single sign-on](/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}{% endif %}
+{% ifversion fpt or ghec %}1. [Verifica tu dirección de correo electrónico](/github/getting-started-with-github/verifying-your-email-address), si todavía no lo has hecho.{% endif %} {% data reusables.user-settings.access_settings %} {% data reusables.user-settings.developer_settings %} {% ifversion pat-v2 %}1. En la barra lateral izquierda, en **{% octicon "key" aria-label="The key icon" %} {% data variables.product.pat_generic_caps %}** , haz clic en **Tokens (clásicos)** .{% else %}{% data reusables.user-settings.personal_access_tokens %}{% endif %} {% ifversion pat-v2%}1. Selecciona **Generar nuevo token** y, luego, haz clic en **Generar nuevo token (clásico)** .{% else %}{% data reusables.user-settings.generate_new_token %}{% endif %}
+5. Asígnale a tu token un nombre descriptivo.
+   ![Campo para la descripción del token](/assets/images/help/settings/token_description.png)
+6. Para asignar una expiración al token, seleccione el menú desplegable **Expiración** y, después, haga clic en un valor predeterminado, o bien use el selector de calendario.
+   ![Campo para la expiración del token](/assets/images/help/settings/token_expiration.png)
+7. Selecciona los ámbitos que quieres concederle a este token. A fin de usar el token para acceder a repositorios desde la línea de comandos, seleccione **repo**. Un token sin alcances asignados solo puede acceder a información pública. Para más información, vea "[Ámbitos disponibles](/apps/building-oauth-apps/scopes-for-oauth-apps#available-scopes)".
+   {% ifversion fpt or ghes or ghec %} ![Selección de ámbitos de token](/assets/images/help/settings/token_scopes.gif) {% elsif ghae %} ![Selecting token scopes](/assets/images/enterprise/github-ae/settings/access-token-scopes-for-ghae.png) {% endif %}
+8. Haga clic en **Generar token**.
+   ![Botón Generar token](/assets/images/help/settings/generate_token.png) {% ifversion fpt or ghec %} ![Token recién creado](/assets/images/help/settings/personal_access_tokens.png) {% elsif ghes or ghae %} ![Token recién creado](/assets/images/help/settings/personal_access_tokens_ghe.png) {% else %} ![Token recién creado](/assets/images/help/settings/personal_access_tokens_ghe_legacy.png){% endif %}{% ifversion fpt or ghec %}
+1. Para usar tu token para acceder a los recursos que pertenecen a una organización que usa el inicio de sesión único de SAML, autoriza el token. Para obtener más información, consulta "[Autorización de un {% data variables.product.pat_generic %} para usarlo con el inicio de sesión único de SAML](/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on){% ifversion fpt %}" en la documentación de {% data variables.product.prodname_ghe_cloud %}.{% else %}."{% endif %}{% endif %}
 
-## Using a token on the command line
+## Usar un token en la línea de comando
 
 {% data reusables.command_line.providing-token-as-password %}
 
-{% data variables.product.pat_generic_caps %}s can only be used for HTTPS Git operations. If your repository uses an SSH remote URL, you will need to [switch the remote from SSH to HTTPS](/github/getting-started-with-github/managing-remote-repositories/#switching-remote-urls-from-ssh-to-https).
+El {% data variables.product.pat_generic_caps %} solo se puede usar para las operaciones HTTPS de Git. Si en el repositorio se usa una dirección URL remota SSH, tendrá que [cambiarlo de SSH a HTTPS](/github/getting-started-with-github/managing-remote-repositories/#switching-remote-urls-from-ssh-to-https).
 
-If you are not prompted for your username and password, your credentials may be cached on your computer. You can [update your credentials in the Keychain](/github/getting-started-with-github/updating-credentials-from-the-macos-keychain) to replace your old password with the token.
+Si no se te solicita tu nombre de usuario y contraseña, tus credenciales pueden estar almacenadas en la caché de tu computadora. Puede [actualizar las credenciales en la cadena de claves](/github/getting-started-with-github/updating-credentials-from-the-macos-keychain) para reemplazar la contraseña antigua por el token.
 
-Instead of manually entering your {% data variables.product.pat_generic %} for every HTTPS Git operation, you can cache your {% data variables.product.pat_generic %} with a Git client. Git will temporarily store your credentials in memory until an expiry interval has passed. You can also store the token in a plain text file that Git can read before every request. For more information, see "[Caching your {% data variables.product.prodname_dotcom %} credentials in Git](/github/getting-started-with-github/caching-your-github-credentials-in-git)."
+En lugar de escribir manualmente el {% data variables.product.pat_generic %} para cada operación HTTPS de Git, puedes almacenar en caché el {% data variables.product.pat_generic %} con un cliente de Git. Git almacenará tus credenciales temporalmente en la memoria hasta que haya pasado un intervalo de vencimiento. También puedes almacenar el token en un archivo de texto simple que pueda leer Git antes de cada solicitud. Para más información, vea "[Almacenamiento en caché de las credenciales de {% data variables.product.prodname_dotcom %} en Git](/github/getting-started-with-github/caching-your-github-credentials-in-git)".
 
-## Further reading
+## Información adicional
 
-- "[About authentication to GitHub](/github/authenticating-to-github/about-authentication-to-github)"
-- "[Token expiration and revocation](/github/authenticating-to-github/keeping-your-account-and-data-secure/token-expiration-and-revocation)"
+- "[Acerca de la autenticación en GitHub](/github/authenticating-to-github/about-authentication-to-github)"
+- "[Expiración y revocación de tokens](/github/authenticating-to-github/keeping-your-account-and-data-secure/token-expiration-and-revocation)"

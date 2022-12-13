@@ -194,9 +194,12 @@ The same principles described above for using third-party actions also apply to 
 {% endif %}
 
 {% ifversion internal-actions %}
-## Allowing workflows to access internal repositories
+## Allowing workflows to access internal {% ifversion private-actions %}and private {% endif %}repositories
 
-{% data reusables.actions.outside-collaborators-internal-actions %} For more information, see "[Sharing actions and workflows with your enterprise](/actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise)."
+{% data reusables.actions.outside-collaborators-actions %} For more information, see "[Sharing actions and workflows with your enterprise](/actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise)."
+
+{% data reusables.actions.scoped-token-note %}
+
 {% endif %}
 
 {% ifversion allow-actions-to-approve-pr %}

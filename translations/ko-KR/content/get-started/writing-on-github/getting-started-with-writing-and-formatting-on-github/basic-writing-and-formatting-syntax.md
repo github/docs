@@ -1,6 +1,6 @@
 ---
-title: Basic writing and formatting syntax
-intro: Create sophisticated formatting for your prose and code on GitHub with simple syntax.
+title: 기본 쓰기 및 서식 지정 구문
+intro: 간단한 구문을 사용하여 GitHub에서 산문 및 코드에 대한 정교한 서식을 만듭니다.
 redirect_from:
   - /articles/basic-writing-and-formatting-syntax
   - /github/writing-on-github/basic-writing-and-formatting-syntax
@@ -11,10 +11,16 @@ versions:
   ghae: '*'
   ghec: '*'
 shortTitle: Basic formatting syntax
+ms.openlocfilehash: e8df0930f675834c120bbe187924f9696142e09f
+ms.sourcegitcommit: e4069b5613c10d74954185995d0fb73224079463
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/17/2022
+ms.locfileid: '148169250'
 ---
-## Headings
+## 제목
 
-To create a heading, add one to six <kbd>#</kbd> symbols before your heading text. The number of <kbd>#</kbd> you use will determine the size of the heading.
+제목을 만들려면 제목 텍스트 앞에 1~6개의 <kbd>#</kbd> 기호를 추가합니다. 사용하는 <kbd>#</kbd>의 수가 제목의 크기를 결정합니다.
 
 ```markdown
 # The largest heading
@@ -22,29 +28,29 @@ To create a heading, add one to six <kbd>#</kbd> symbols before your heading tex
 ###### The smallest heading
 ```
 
-![Rendered H1, H2, and H6 headings](/assets/images/help/writing/headings-rendered.png)
+![렌더링된 H1, H2, H6 제목](/assets/images/help/writing/headings-rendered.png)
 
-When you use two or more headings, GitHub automatically generates a table of contents which you can access by clicking {% octicon "list-unordered" aria-label="The unordered list icon" %} within the file header. Each heading title is listed in the table of contents and you can click a title to navigate to the selected section. 
+두 개 이상의 제목을 사용하는 경우 GitHub는 파일 헤더 내에서 {% octicon "list-unordered" aria-label="The unordered list icon" %}을 클릭하여 액세스할 수 있는 목차를 자동으로 생성합니다. 각 제목은 목차에 나열되며, 제목을 클릭하면 선택한 섹션으로 이동할 수 있습니다. 
 
-![Screenshot highlighting the table of contents icon](/assets/images/help/repository/headings_toc.png)
+![목차 아이콘이 강조 표시된 스크린샷](/assets/images/help/repository/headings_toc.png)
 
-## Styling text
+## 텍스트 스타일 지정
 
-You can indicate emphasis with bold, italic, strikethrough, subscript, or superscript text in comment fields and `.md` files.  
+주석 필드 및 `.md` 파일에서 굵게, 기울임꼴 또는 취소선 텍스트로 강조를 나타낼 수 있습니다.  
 
-| Style | Syntax | Keyboard shortcut | Example | Output |
+| 스타일 | Syntax | 바로 가기 키 | 예제 | 출력 |
 | --- | --- | --- | --- | --- |
-| Bold | `** **` or `__ __`| <kbd>Command</kbd>+<kbd>B</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>B</kbd> (Windows/Linux) | `**This is bold text**` | **This is bold text** |
-| Italic | `* *` or `_ _`     | <kbd>Command</kbd>+<kbd>I</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>I</kbd> (Windows/Linux) | `*This text is italicized*` | *This text is italicized* |
-| Strikethrough | `~~ ~~` | | `~~This was mistaken text~~` | ~~This was mistaken text~~ |
-| Bold and nested italic | `** **` and `_ _` | | `**This text is _extremely_ important**` | **This text is _extremely_ important** |
-| All bold and italic | `*** ***` | | `***All this text is important***` | ***All this text is important*** |
-| Subscript | `<sub> </sub>` | | `<sub>This is a subscript text</sub>` | <sub>This is a subscript text</sub> |
-| Superscript | `<sup> </sup>` | | `<sup>This is a superscript text</sup>` | <sup>This is a superscript text</sup> |
+| 굵게 | `** **` 또는 `__ __`| <kbd>Command</kbd>+<kbd>B</kbd>(Mac) 또는 <kbd>Ctrl</kbd>+<kbd>B</kbd>(Windows/Linux) | `**This is bold text**` | **굵게 표시된 텍스트** |
+| 기울임꼴 | `* *` 또는 `_ _`     | <kbd>Command</kbd>+<kbd>I</kbd>(Mac) 또는 <kbd>Ctrl</kbd>+<kbd>I</kbd>(Windows/Linux) | `*This text is italicized*` | *기울임꼴로 표시된 텍스트* |
+| 취소선 | `~~ ~~` | | `~~This was mistaken text~~` | ~~실수하여 취소된 텍스트~~ |
+| 굵게 및 중첩된 기울임꼴 | `** **` 및 `_ _` | | `**This text is _extremely_ important**` | **_매우_ 중요한 텍스트** |
+| 모든 굵게 및 기울임꼴 | `*** **_` | | `_*_All this text is important_*_` | _ *_모든 텍스트가 중요_** |
+| 아래 첨자 | `<sub> </sub>` | | `<sub>This is a subscript text</sub>` | <sub>아래 첨자 텍스트입니다</sub>. |
+| 위 첨자 | `<sup> </sup>` | | `<sup>This is a superscript text</sup>` | <sup>위 첨자 텍스트입니다</sup>. |
 
-## Quoting text
+## 텍스트 인용
 
-You can quote text with a <kbd>></kbd>.
+<kbd>></kbd>를 사용하여 텍스트를 인용할 수 있습니다.
 
 ```markdown
 Text that is not a quote
@@ -52,25 +58,25 @@ Text that is not a quote
 > Text that is a quote
 ```
 
-![Rendered quoted text](/assets/images/help/writing/quoted-text-rendered.png)
+![렌더링된 인용 텍스트](/assets/images/help/writing/quoted-text-rendered.png)
 
 {% tip %}
 
-**Tip:** When viewing a conversation, you can automatically quote text in a comment by highlighting the text, then typing <kbd>R</kbd>. You can quote an entire comment by clicking {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then **Quote reply**. For more information about keyboard shortcuts, see "[Keyboard shortcuts](/articles/keyboard-shortcuts/)."
+**팁:** 대화를 볼 때 텍스트를 강조 표시한 다음 <kbd>R</kbd>을 입력하여 주석의 텍스트를 자동으로 인용할 수 있습니다. {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}을 클릭한 다음 **회신 인용** 을 클릭하여 전체 주석을 인용할 수 있습니다. 바로 가기 키에 대한 자세한 내용은 “[바로 가기 키](/articles/keyboard-shortcuts/)”를 참조하세요.
 
 {% endtip %}
 
-## Quoting code
+## 인용 코드
 
-You can call out code or a command within a sentence with single backticks. The text within the backticks will not be formatted. You can also press the <kbd>Command</kbd>+<kbd>E</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>E</kbd> (Windows/Linux) keyboard shortcut to insert the backticks for a code block within a line of Markdown.
+단일 백틱을 사용하여 문장 내에서 코드 또는 명령을 표시할 수 있습니다. 백틱 내의 텍스트는 서식이 지정되지 않습니다. <kbd>Command</kbd>+<kbd>E</kbd>(Mac) 또는 <kbd>Ctrl</kbd>+<kbd>E</kbd>(Windows/Linux) 바로 가기 키를 눌러 Markdown 줄 안에 코드 블록에 대한 백틱을 삽입할 수도 있습니다.
 
 ```markdown
 Use `git status` to list all new or modified files that haven't yet been committed.
 ```
 
-![Rendered inline code block](/assets/images/help/writing/inline-code-rendered.png)
+![렌더링된 인라인 코드 블록](/assets/images/help/writing/inline-code-rendered.png)
 
-To format code or text into its own distinct block, use triple backticks.
+고유한 블록 안으로 코드 또는 텍스트의 서식을 지정하려면 삼중 백틱을 사용합니다.
 
 <pre>
 Some basic Git commands are:
@@ -81,112 +87,112 @@ git commit
 ```
 </pre>
 
-![Rendered code block](/assets/images/help/writing/code-block-rendered.png)
+![렌더링된 코드 블록](/assets/images/help/writing/code-block-rendered.png)
 
-For more information, see "[Creating and highlighting code blocks](/articles/creating-and-highlighting-code-blocks)."
+자세한 내용은 “[코드 블록 만들기 및 강조 표시](/articles/creating-and-highlighting-code-blocks)”를 참조하세요.
 
 {% data reusables.user-settings.enabling-fixed-width-fonts %}
 
-## Supported color models
+## 지원되는 색 모델
 
-In issues, pull requests, and discussions, you can call out colors within a sentence by using backticks. A supported color model within backticks will display a visualization of the color.
+이슈, 끌어오기 요청 및 토론에서 백틱을 사용하여 문장 내의 색을 나타낼 수 있습니다. 백틱 내에서 지원되는 색 모델은 색의 시각화를 표시합니다.
 
 ```markdown
 The background color should be `#ffffff` for light mode and `#0d1117` for dark mode.
 ```
 
-![Rendered supported color model.](/assets/images/help/writing/supported-color-models-rendered.png)
+![렌더링된 지원되는 색 모델입니다.](/assets/images/help/writing/supported-color-models-rendered.png)
 
-Here are the currently supported color models.
+현재 지원되는 색 모델은 다음과 같습니다.
 
-| Color | Syntax | Example | Output |
+| Color | 구문 | 예제 | 출력 |
 | --- | --- | --- | --- |
-| HEX | <code>\`#RRGGBB\`</code> | <code>\`#0969DA\`</code> | ![Rendered supported color model in HEX format.](/assets/images/help/writing/supported-color-models-hex-rendered.png) |
-| RGB | <code>\`rgb(R,G,B)\`</code> | <code>\`rgb(9, 105, 218)\`</code> | ![Rendered supported color model in RGB format.](/assets/images/help/writing/supported-color-models-rgb-rendered.png) |
-| HSL | <code>\`hsl(H,S,L)\`</code> | <code>\`hsl(212, 92%, 45%)\`</code> | ![Rendered supported color model in HSL format.](/assets/images/help/writing/supported-color-models-hsl-rendered.png) |
+| HEX | <code>\`#RRGGBB\`</code> | <code>\`#0969DA\`</code> | ![지원되는 색 모델을 HEX 형식으로 렌더링합니다.](/assets/images/help/writing/supported-color-models-hex-rendered.png) |
+| RGB | <code>\`rgb(R,G,B)\`</code> | <code>\`rgb(9, 105, 218)\`</code> | ![지원되는 색 모델을 RGB 형식으로 렌더링합니다.](/assets/images/help/writing/supported-color-models-rgb-rendered.png) |
+| HSL | <code>\`hsl(H,S,L)\`</code> | <code>\`hsl(212, 92%, 45%)\`</code> | ![지원되는 색 모델을 HSL 형식으로 렌더링합니다.](/assets/images/help/writing/supported-color-models-hsl-rendered.png) |
 
 {% note %}
 
-**Notes:**
+**참고:**
 
-- A supported color model cannot have any leading or trailing spaces within the backticks.
-- The visualization of the color is only supported in issues, pull requests, and discussions.
+- 지원되는 색 모델에서 백틱 내에는 선행 또는 후행 공백이 있을 수 없습니다.
+- 색 시각화는 이슈, 끌어오기 요청 및 토론에서만 지원됩니다.
 
 {% endnote %}
 
-## Links
+## 링크
 
-You can create an inline link by wrapping link text in brackets `[ ]`, and then wrapping the URL in parentheses `( )`. You can also use the keyboard shortcut <kbd>Command</kbd>+<kbd>K</kbd> to create a link.{% ifversion fpt or ghae > 3.3 or ghes > 3.3 or ghec %} When you have text selected, you can paste a URL from your clipboard to automatically create a link from the selection.{% endif %}
+링크 텍스트를 대괄호 `[ ]`로 묶은 다음 URL을 괄호 `( )`로 묶어 인라인 링크를 만들 수 있습니다. 바로 가기 키 <kbd>Command</kbd>+<kbd>K</kbd> 를 사용하여 링크를 만들 수도 있습니다.{ % ifversion fpt or ghae > 3.3 or ghes > 3.3 or ghec %} 텍스트를 선택한 경우 클립보드의 URL을 붙여넣어 선택 영역에서 링크를 자동으로 만들 수 있습니다. {% endif %}
 
-{% ifversion fpt or ghae > 3.5 or ghes > 3.5 or ghec %} You can also create a Markdown hyperlink by highlighting the text and using the keyboard shortcut <kbd>Command</kbd>+<kbd>V</kbd>. If you'd like to replace the text with the link, use the keyboard shortcut <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>V</kbd>.{% endif %}
+{% ifversion fpt or ghae > 3.5 or ghes > 3.5 or ghec %} 텍스트를 강조 표시하고 바로 가기 키 <kbd>명령</kbd>+<kbd>V</kbd>를 사용하여 Markdown 하이퍼링크를 만들 수도 있습니다. 텍스트를 링크로 바꾸려면 바로 가기 키 <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>V</kbd>를 사용합니다.{% endif %}
 
 `This site was built using [GitHub Pages](https://pages.github.com/).`
 
-![Rendered link](/assets/images/help/writing/link-rendered.png)
+![렌더링된 링크](/assets/images/help/writing/link-rendered.png)
 
 {% tip %}
 
-**Tip:** {% data variables.product.product_name %} automatically creates links when valid URLs are written in a comment. For more information, see "[Autolinked references and URLs](/articles/autolinked-references-and-urls)."
+**팁:** {% data variables.product.product_name %}는 주석에 유효한 URL이 작성되면 자동으로 링크를 만듭니다. 자세한 내용은 “[자동 링크된 참조 및 URL](/articles/autolinked-references-and-urls)”을 참조하세요.
 
 {% endtip %}
 
-## Section links
+## 섹션 링크
 
 {% data reusables.repositories.section-links %}
 
-## Relative links
+## 상대 링크
 
 {% data reusables.repositories.relative-links %}
 
-## Images
+## 이미지
 
-You can display an image by adding <kbd>!</kbd> and wrapping the alt text in `[ ]`. Then wrap the link for the image in parentheses `()`.
+<kbd>!</kbd>를 추가하고 `[ ]`에 대체 텍스트를 넣어 이미지를 표시할 수 있습니다. 그런 다음 이미지에 대한 링크를 괄호 `()`에 넣습니다.
 
 `![This is an image](https://myoctocat.com/assets/images/base-octocat.svg)`
 
-![Rendered Image](/assets/images/help/writing/image-rendered.png)
+![렌더링된 이미지](/assets/images/help/writing/image-rendered.png)
 
-{% data variables.product.product_name %} supports embedding images into your issues, pull requests{% ifversion fpt or ghec %}, discussions{% endif %}, comments  and `.md` files. You can display an image from your repository, add a link to an online image, or upload an image. For more information, see "[Uploading assets](#uploading-assets)."
+{% data variables.product.product_name %}는 이슈, 끌어오기 요청{% ifversion fpt or ghec %}, 토론{% endif %}, 주석, `.md` 파일에 이미지를 포함하는 기능을 지원합니다. 리포지토리에 있는 이미지를 표시하거나, 온라인 이미지에 대한 링크를 추가하거나, 이미지를 업로드할 수 있습니다. 자세한 내용은 “[자산 업로드](#uploading-assets)”를 참조하세요.
 
 {% tip %}
 
-**Tip:** When you want to display an image which is in your repository, you should use relative links instead of absolute links.
+**팁:** 리포지토리에 있는 이미지를 표시하려면 절대 링크 대신 상대 링크를 사용해야 합니다.
 
 {% endtip %}
 
-Here are some examples for using relative links to display an image.
+다음은 상대 링크를 사용하여 이미지를 표시하는 몇 가지 예입니다.
 
-| Context | Relative Link |
+| Context | 상대 링크 |
 | ------ | -------- |
-| In a `.md` file on the same branch | `/assets/images/electrocat.png` |
-| In a `.md` file on another branch | `/../main/assets/images/electrocat.png` |
-| In issues, pull requests and comments of the repository | `../blob/main/assets/images/electrocat.png?raw=true` |
-| In a `.md` file in another repository | `/../../../../github/docs/blob/main/assets/images/electrocat.png` |
-| In issues, pull requests and comments of another repository | `../../../github/docs/blob/main/assets/images/electrocat.png?raw=true` |
+| 동일한 분기의 `.md` 파일에서 | `/assets/images/electrocat.png` |
+| 다른 분기의 `.md` 파일에서 | `/../main/assets/images/electrocat.png` |
+| 리포지토리의 이슈, 끌어오기 요청, 주석에서 | `../blob/main/assets/images/electrocat.png?raw=true` |
+| 다른 리포지토리의 `.md` 파일에서 | `/../../../../github/docs/blob/main/assets/images/electrocat.png` |
+| 다른 리포지토리의 이슈, 끌어오기 요청, 주석에서 | `../../../github/docs/blob/main/assets/images/electrocat.png?raw=true` |
 
 {% note %}
 
-**Note**: The last two relative links in the table above will work for images in a private repository only if the viewer has at least read access to the private repository which contains these images.
+**참고**: 위 표의 마지막 두 상대 링크는 뷰어가 이러한 이미지를 포함하는 프라이빗 리포지토리에 대한 읽기 권한이 있는 경우에만 프라이빗 리포지토리의 이미지에 대해 작동합니다.
 
 {% endnote %}
 
-For more information, see "[Relative Links](#relative-links)."
+자세한 내용은 “[상대 링크](#relative-links)”를 참조하세요.
 
 {% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
-### Specifying the theme an image is shown to
+### 이미지가 표시되는 테마 지정
 
-You can specify the theme an image is displayed for in Markdown by using the HTML `<picture>` element in combination with the `prefers-color-scheme` media feature. We distinguish between light and dark color modes, so there are two options available. You can use these options to display images optimized for dark or light backgrounds. This is particularly helpful for transparent PNG images.
+`prefers-color-scheme` 미디어 기능과 함께 HTML `<picture>` 요소를 사용하여 Markdown에서 이미지가 표시되는 테마를 지정할 수 있습니다. 밝은 색 모드와 어두운 색 모드를 구분하므로 두 가지 옵션을 사용할 수 있습니다. 이러한 옵션을 사용하여 어둡거나 밝은 배경에 최적화된 이미지를 표시할 수 있습니다. 이는 투명한 PNG 이미지에 특히 유용합니다.
 
-For example, the following code displays a sun image for light themes and a moon for dark themes:
+예를 들어 다음 코드는 밝은 테마의 태양 이미지와 어두운 테마의 달을 표시합니다.
 
 {% data reusables.getting-started.picture-element-example %}
 
-The old method of specifying images based on the theme, by using a fragment appended to the URL (`#gh-dark-mode-only` or `#gh-light-mode-only`), is deprecated and will be removed in favor of the new method described above.
+URL에 추가된 조각(`#gh-dark-mode-only` 또는 `#gh-light-mode-only`)을 사용하여 테마를 기준으로 이미지를 지정하는 이전 방법은 더 이상 사용되지 않으며 위에서 설명한 새 방법을 위해 제거될 예정입니다.
 {% endif %}
 
-## Lists
+## 목록
 
-You can make an unordered list by preceding one or more lines of text with <kbd>-</kbd>, <kbd>*</kbd>, or <kbd>+</kbd>.
+, <kbd>*</kbd>또는 <kbd>+</kbd>를 사용하여 하나 이상의 텍스트 <kbd>-</kbd>줄 앞에 정렬되지 않은 목록을 만들 수 있습니다.
 
 ```markdown
 - George Washington
@@ -194,9 +200,9 @@ You can make an unordered list by preceding one or more lines of text with <kbd>
 + Thomas Jefferson
 ```
 
-![Rendered unordered list](/assets/images/help/writing/unordered-list-rendered.png)
+![렌더링된 순서가 지정되지 않은 목록](/assets/images/help/writing/unordered-list-rendered.png)
 
-To order your list, precede each line with a number.
+목록의 순서를 지정하려면 각 줄 앞에 숫자를 입력합니다.
 
 ```markdown
 1. James Madison
@@ -204,13 +210,13 @@ To order your list, precede each line with a number.
 3. John Quincy Adams
 ```
 
-![Rendered ordered list](/assets/images/help/writing/ordered-list-rendered.png)
+![렌더링된 순서가 지정된 목록](/assets/images/help/writing/ordered-list-rendered.png)
 
-### Nested Lists
+### 중첩된 목록
 
-You can create a nested list by indenting one or more list items below another item.
+하나 이상의 목록 항목을 다른 항목 아래에 포함하여 중첩된 목록을 만들 수 있습니다.
 
-To create a nested list using the web editor on {% data variables.product.product_name %} or a text editor that uses a monospaced font, like [{% data variables.product.prodname_vscode %}](https://code.visualstudio.com/), you can align your list visually. Type space characters in front of your nested list item, until the list marker character (<kbd>-</kbd> or <kbd>*</kbd>) lies directly below the first character of the text in the item above it.
+{% data variables.product.product_name %}의 웹 편집기 또는 [{% data variables.product.prodname_vscode %}](https://code.visualstudio.com/)와 같은 모노스페이스 글꼴을 사용하는 텍스트 편집기를 사용하여 중첩된 목록을 만들려면 목록을 시각적으로 정렬할 수 있습니다. 목록 표식 문자(<kbd>-</kbd> 또는 <kbd>*</kbd>)가 위 항목에 있는 텍스트의 첫 번째 문자 바로 아래에 올 때까지 중첩 목록 항목 앞에 공백 문자를 입력합니다.
 
 ```markdown
 1. First list item
@@ -220,26 +226,26 @@ To create a nested list using the web editor on {% data variables.product.produc
 
 {% tip %}
 
-**Note**: In the web-based editor, you can indent or dedent one or more lines of text by first highlighting the desired lines and then using <kbd>Tab</kbd> or <kbd>Shift</kbd>+<kbd>Tab</kbd> respectively.
+**참고**: 웹 기반 편집기에서 원하는 줄을 먼저 강조 표시한 다음 <kbd>Tab</kbd> 또는 <kbd>Shift</kbd>+<kbd>Tab</kbd>을 각각 사용하여 하나 이상의 텍스트 줄을 들여쓰거나 내어쓸 수 있습니다.
 
 {% endtip %}
 
-![Nested list with alignment highlighted](/assets/images/help/writing/nested-list-alignment.png)
+![맞춤이 강조 표시된 중첩된 목록](/assets/images/help/writing/nested-list-alignment.png)
 
-![List with two levels of nested items](/assets/images/help/writing/nested-list-example-1.png)
+![중첩된 항목의 두 수준이 포함된 목록](/assets/images/help/writing/nested-list-example-1.png)
 
-To create a nested list in the comment editor on {% data variables.product.product_name %}, which doesn't use a monospaced font, you can look at the list item immediately above the nested list and count the number of characters that appear before the content of the item. Then type that number of space characters in front of the nested list item.
+고정 폭 글꼴을 사용하지 않는 {% data variables.product.product_name %}의 주석 편집기에서 중첩된 목록을 만들려면, 중첩된 목록 바로 위에 있는 목록 항목을 확인하고 항목의 내용 앞에 표시되는 문자 수를 계산할 수 있습니다. 그런 다음 중첩된 목록 항목 앞에 해당 수만큼의 공백 문자를 입력합니다.
 
-In this example, you could add a nested list item under the list item `100. First list item` by indenting the nested list item a minimum of five spaces, since there are five characters (`100. `) before `First list item`.
+이 예제에서는 `First list item` 앞에 5개 문자(`100. `)가 있으므로 중첩된 목록 항목을 최소 5개 공백으로 들여써서 목록 항목 `100. First list item` 아래에 중첩된 목록 항목을 추가할 수 있습니다.
 
 ```markdown
 100. First list item
      - First nested list item
 ```
 
-![List with a nested list item](/assets/images/help/writing/nested-list-example-3.png)   
+![중첩된 목록 항목이 있는 목록](/assets/images/help/writing/nested-list-example-3.png)   
 
-You can create multiple levels of nested lists using the same method. For example, because the first nested list item has seven characters (`␣␣␣␣␣-␣`) before the nested list content `First nested list item`, you would need to indent the second nested list item by seven spaces.
+동일한 방법을 사용하여 여러 수준의 중첩된 목록을 만들 수 있습니다. 예를 들어 첫 번째 중첩된 목록 항목에는 중첩된 목록 내용 `First nested list item`앞에 7개 문자(`␣␣␣␣␣-␣`)가 있으므로 두 번째 중첩된 목록 항목을 7개 공백으로 들여써야 합니다.
 
 ```markdown
 100. First list item
@@ -247,86 +253,86 @@ You can create multiple levels of nested lists using the same method. For exampl
        - Second nested list item
 ```
 
-![List with two levels of nested items](/assets/images/help/writing/nested-list-example-2.png)    
+![중첩된 항목의 두 수준이 포함된 목록](/assets/images/help/writing/nested-list-example-2.png)    
 
-For more examples, see the [GitHub Flavored Markdown Spec](https://github.github.com/gfm/#example-265).
+더 많은 예제는 [GitHub Flavored Markdown 사양](https://github.github.com/gfm/#example-265)을 참조하세요.
 
-## Task lists
+## 작업 목록
 
 {% data reusables.repositories.task-list-markdown %}
 
-If a task list item description begins with a parenthesis, you'll need to escape it with <kbd>\\</kbd>:
+작업 목록 항목 설명이 괄호로 시작하는 경우 <kbd>\\</kbd>로 이스케이프해야 합니다.
 
 `- [ ] \(Optional) Open a followup issue`
 
-For more information, see "[About task lists](/articles/about-task-lists)."
+자세한 내용은 “[작업 목록 정보](/articles/about-task-lists)”를 참조하세요.
 
-## Mentioning people and teams
+## 사람과 팀 멘션
 
-You can mention a person or [team](/articles/setting-up-teams/) on {% data variables.product.product_name %} by typing <kbd>@</kbd> plus their username or team name. This will trigger a notification and bring their attention to the conversation. People will also receive a notification if you edit a comment to mention their username or team name. For more information about notifications, see "[About notifications](/github/managing-subscriptions-and-notifications-on-github/about-notifications)."
+<kbd>@</kbd>과 함께 사용자 이름 또는 팀 이름을 입력하여 {% data variables.product.product_name %}에서 사람 또는 [팀](/articles/setting-up-teams/)을 멘션할 수 있습니다. 그러면 알림이 트리거되고 해당 사용자의 주의를 대화에 집중시킬 수 있습니다. 또한 사용자 이름 또는 팀 이름을 멘션하는 메모를 편집하는 경우에도 해당 사용자는 알림을 받게 됩니다. 알림에 대한 자세한 내용은 "[알림 정보](/github/managing-subscriptions-and-notifications-on-github/about-notifications)"를 참조하세요.
 
 {% note %}
 
-**Note:** A person will only be notified about a mention if the person has read access to the repository and, if the repository is owned by an organization, the person is a member of the organization.
+**참고:** 리포지토리에 대한 읽기 권한이 있는 경우에만 멘션에 대한 알림을 받으며 리포지토리를 조직에서 소유한 경우 해당 사용자는 조직의 멤버가 됩니다.
 
 {% endnote %}
 
 `@github/support What do you think about these updates?`
 
-![Rendered @mention](/assets/images/help/writing/mention-rendered.png)
+![렌더링된 @mention](/assets/images/help/writing/mention-rendered.png)
 
-When you mention a parent team, members of its child teams also receive notifications, simplifying communication with multiple groups of people. For more information, see "[About teams](/articles/about-teams)."
+부모 팀을 멘션할 경우 자식 팀의 구성원도 알림을 수신하므로, 여러 사용자 그룹과의 통신이 간소화됩니다. 자세한 내용은 “[팀 정보](/articles/about-teams)”를 참조하세요.
 
-Typing an <kbd>@</kbd> symbol will bring up a list of people or teams on a project. The list filters as you type, so once you find the name of the person or team you are looking for, you can use the arrow keys to select it and press either tab or enter to complete the name. For teams, enter the @organization/team-name and all members of that team will get subscribed to the conversation.
+<kbd>@</kbd> 기호를 입력하면 프로젝트에 사용자 또는 팀 목록이 표시됩니다. 입력할 때 목록이 필터링되므로 찾고 있는 사용자나 팀의 이름을 찾았으면 화살표 키를 사용하여 선택하고 Tab 또는 Enter 키를 눌러 이름을 완성할 수 있습니다. 팀의 경우 @organization/team-name을 입력하면 해당 팀의 모든 구성원이 대화를 구독하게 됩니다.
 
-The autocomplete results are restricted to repository collaborators and any other participants on the thread.
+자동 완성 결과는 리포지토리 협력자 및 스레드의 다른 참가자로 제한됩니다.
 
-## Referencing issues and pull requests
+## 이슈 및 끌어오기 요청 참조
 
-You can bring up a list of suggested issues and pull requests within the repository by typing <kbd>#</kbd>. Type the issue or pull request number or title to filter the list, and then press either tab or enter to complete the highlighted result.
+<kbd>#</kbd>을 입력하여 리포지토리 내에서 제안된 이슈 및 끌어오기 요청 목록을 표시할 수 있습니다. 이슈, 끌어오기 요청 번호 또는 제목을 입력하여 목록을 필터링한 다음, Tab 또는 Enter 키를 눌러 강조 표시된 결과를 완성합니다.
 
-For more information, see "[Autolinked references and URLs](/articles/autolinked-references-and-urls)."
+자세한 내용은 “[자동 링크된 참조 및 URL](/articles/autolinked-references-and-urls)”을 참조하세요.
 
-## Referencing external resources
+## 외부 리소스 참조
 
 {% data reusables.repositories.autolink-references %}
 
 {% ifversion ghes < 3.4 %}
-## Content attachments
+## 콘텐츠 첨부 파일
 
-Some {% data variables.product.prodname_github_apps %} provide information in {% data variables.product.product_name %} for URLs that link to their registered domains. {% data variables.product.product_name %} renders the information provided by the app under the URL in the body or comment of an issue or pull request.
+일부 {% data variables.product.prodname_github_apps %}은 등록된 도메인에 연결되는 URL에 대한 정보를 {% data variables.product.product_name %}에서 제공합니다. {% data variables.product.product_name %}는 앱에서 제공하는 정보를 이슈 또는 끌어오기 요청의 본문이나 주석의 URL 아래에 렌더링합니다.
 
-![Content attachment](/assets/images/github-apps/content_reference_attachment.png)
+![콘텐츠 첨부 파일](/assets/images/github-apps/content_reference_attachment.png)
 
-To see content attachments, you must have a {% data variables.product.prodname_github_app %} that uses the Content Attachments API installed on the repository.{% ifversion fpt or ghec %} For more information, see "[Installing an app in your personal account](/articles/installing-an-app-in-your-personal-account)" and "[Installing an app in your organization](/articles/installing-an-app-in-your-organization)."{% endif %}
+콘텐츠 첨부 파일을 보려면 Content Attachments API를 사용하는 {% data variables.product.prodname_github_app %}이 리포지토리에 설치되어 있어야 합니다.{% ifversion fpt or ghec %} 자세한 내용은 “[개인 계정에 앱 설치](/articles/installing-an-app-in-your-personal-account)” 및 “[조직에 앱 설치](/articles/installing-an-app-in-your-organization)”를 참조하세요.{% endif %}
 
-Content attachments will not be displayed for URLs that are part of a markdown link.
+콘텐츠 첨부 파일은 Markdown 링크의 일부인 URL에 대해 표시되지 않습니다.
 
-For more information about building a {% data variables.product.prodname_github_app %} that uses content attachments, see "[Using Content Attachments](/apps/using-content-attachments)."{% endif %}
+콘텐츠 첨부 파일을 사용하는 {% data variables.product.prodname_github_app %}을 빌드하는 방법에 대한 자세한 내용은 “[콘텐츠 첨부 파일 사용](/apps/using-content-attachments)”을 참조하세요.{% endif %}
 
-## Uploading assets
+## 자산 업로드
 
-You can upload assets like images by dragging and dropping, selecting from a file browser, or pasting. You can upload assets to issues, pull requests, comments, and `.md` files in your repository.
+끌어서 놓기, 파일 브라우저에서 선택, 붙여넣기 등을 통해 이미지와 같은 자산을 업로드할 수 있습니다. 리포지토리의 이슈, 끌어오기 요청, 주석, `.md` 파일에 자산을 업로드할 수 있습니다.
 
-## Using emoji
+## 이모지 사용
 
-You can add emoji to your writing by typing `:EMOJICODE:`.
+`:EMOJICODE:`를 입력하여 글에 이모지를 추가할 수 있습니다.
 
 `@octocat :+1: This PR looks great - it's ready to merge! :shipit:`
 
-![Rendered emoji](/assets/images/help/writing/emoji-rendered.png)
+![렌더링된 이모지](/assets/images/help/writing/emoji-rendered.png)
 
-Typing <kbd>:</kbd> will bring up a list of suggested emoji. The list will filter as you type, so once you find the emoji you're looking for, press **Tab** or **Enter** to complete the highlighted result.
+<kbd>:</kbd>을 입력하면 제안된 이모지 목록이 표시됩니다. 입력할 때 목록이 필터링되므로 원하는 이모지를 찾았으면 **Tab** 또는 **Enter** 키를 눌러 강조 표시된 결과를 완성합니다.
 
-For a full list of available emoji and codes, check out [the Emoji-Cheat-Sheet](https://github.com/ikatyang/emoji-cheat-sheet/blob/master/README.md).
+사용 가능한 이모지 및 코드의 전체 목록을 보려면 [Emoji-Cheat-Sheet](https://github.com/ikatyang/emoji-cheat-sheet/blob/master/README.md)를 확인하세요.
 
-## Paragraphs
+## 단락
 
-You can create a new paragraph by leaving a blank line between lines of text.
+텍스트 줄 사이에 빈 줄을 두어 새 단락을 만들 수 있습니다.
 
-## Footnotes
+## 각주
 
-You can add footnotes to your content by using this bracket syntax:
+이 대괄호 구문을 사용하여 콘텐츠에 각주를 추가할 수 있습니다.
 
 ```
 Here is a simple footnote[^1].
@@ -343,43 +349,43 @@ You can also use words, to fit your writing style more closely[^note].
     This footnote also has been made with a different syntax using 4 spaces for new lines.
 ```
 
-The footnote will render like this:
+각주가 다음과 같이 렌더링됩니다.
 
-![Rendered footnote](/assets/images/site/rendered-footnote.png)
+![렌더링된 각주](/assets/images/site/rendered-footnote.png)
 
 {% tip %}
 
-**Note**: The position of a footnote in your Markdown does not influence where the footnote will be rendered. You can write a footnote right after your reference to the footnote, and the footnote will still render at the bottom of the Markdown.
+**참고**: Markdown에서 각주의 위치는 각주가 렌더링될 위치에 영향을 주지 않습니다. 각주에 대한 참조 바로 뒤에 각주를 작성할 수 있으며, 각주는 여전히 Markdown의 하단에 렌더링됩니다.
 
-Footnotes are not supported in wikis.
+각주는 wiki에서 지원되지 않습니다.
 
 {% endtip %}
 
-## Hiding content with comments
+## 주석이 있는 콘텐츠 숨기기
 
-You can tell {% data variables.product.product_name %} to hide content from the rendered Markdown by placing the content in an HTML comment.
+HTML 주석에 콘텐츠를 배치하여 렌더링된 Markdown에서 콘텐츠를 숨기도록 {% data variables.product.product_name %}에 지시할 수 있습니다.
 
 <pre>
 &lt;!-- This content will not appear in the rendered Markdown --&gt;
 </pre>
 
-## Ignoring Markdown formatting
+## Markdown 서식 무시
 
-You can tell {% data variables.product.product_name %} to ignore (or escape) Markdown formatting by using <kbd>\\</kbd> before the Markdown character.
+Markdown 문자 앞에 <kbd>\\</kbd>를 사용하여 Markdown 형식을 무시(또는 이스케이프)하도록 {% data variables.product.product_name %}에 지시할 수 있습니다.
 
 `Let's rename \*our-new-project\* to \*our-old-project\*.`
 
-![Rendered escaped character](/assets/images/help/writing/escaped-character-rendered.png)
+![렌더링된 이스케이프 문자](/assets/images/help/writing/escaped-character-rendered.png)
 
-For more information, see Daring Fireball's "[Markdown Syntax](https://daringfireball.net/projects/markdown/syntax#backslash)."
+자세한 내용은 Daring Fireball의 “[Markdown: 구문](https://daringfireball.net/projects/markdown/syntax#backslash)”을 참조하세요.
 
-## Disabling Markdown rendering
+## Markdown 렌더링 사용 안 함
 
 {% data reusables.repositories.disabling-markdown-rendering %}
 
-## Further reading
+## 추가 참고 자료
 
-- [{% data variables.product.prodname_dotcom %} Flavored Markdown Spec](https://github.github.com/gfm/)
-- "[About writing and formatting on GitHub](/articles/about-writing-and-formatting-on-github)"
-- "[Working with advanced formatting](/articles/working-with-advanced-formatting)"
-- "[Quickstart for writing on {% data variables.product.prodname_dotcom %}](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/quickstart-for-writing-on-github)"
+- [{% data variables.product.prodname_dotcom %} Flavored Markdown 사양](https://github.github.com/gfm/)
+- “[GitHub에서의 쓰기 및 서식 지정 정보](/articles/about-writing-and-formatting-on-github)”
+- “[고급 서식 지정 작업](/articles/working-with-advanced-formatting)”
+- "[{% data variables.product.prodname_dotcom %}에 쓰기 위한 빠른 시작](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/quickstart-for-writing-on-github)"

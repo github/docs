@@ -1,6 +1,6 @@
 ---
-title: Pushing a branch blocked by push protection
-intro: 'The push protection feature of {% data variables.product.prodname_secret_scanning %} proactively protects you against leaked secrets in your repositories. You can resolve blocked pushes and, once the detected secret is removed, you can push changes to your working branch from the command line or the web UI.'
+title: 'Отправка ветви, заблокированной защитой от отправки'
+intro: 'Функция защиты от отправки {% data variables.product.prodname_secret_scanning %} превентивно защищает вас от утечки секретов в репозиториях. Вы можете разрешить заблокированные отправки и после удаления обнаруженного секрета отправить изменения в рабочую ветвь из командной строки или пользовательского веб-интерфейса.'
 product: '{% data reusables.gated-features.secret-scanning %}'
 miniTocMaxHeadingLevel: 3
 versions:
@@ -12,51 +12,55 @@ topics:
   - Alerts
   - Repositories
 shortTitle: Push a blocked branch
+ms.openlocfilehash: 0d702637d55b7c04d71e7834c6d34743cc5f68b5
+ms.sourcegitcommit: 6bc8b888e02cc31ec01464186ed4530889cf2408
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148101617'
 ---
+## О защите от отправки для {% data variables.product.prodname_secret_scanning %}
 
-## About push protection for {% data variables.product.prodname_secret_scanning %}
-
-The push protection feature of {% data variables.product.prodname_secret_scanning %} helps to prevent security leaks by scanning for secrets before you push changes to your repository. {% data reusables.secret-scanning.push-protection-overview %} For information on the secrets and service providers supported for push protection, see "[{% data variables.product.prodname_secret_scanning_caps %} patterns](/code-security/secret-scanning/secret-scanning-patterns#supported-secrets-for-push-protection)."
+Функция защиты от отправки {% data variables.product.prodname_secret_scanning %} помогает предотвратить утечки секретных данных за счет проверки на наличие секретов перед отправкой изменений в репозиторий. {% data reusables.secret-scanning.push-protection-overview %} Сведения о секретах и поставщиках услуг, поддерживаемых функцией защиты от отправки, см. в разделе [{% data variables.product.prodname_secret_scanning_caps %} patterns](/code-security/secret-scanning/secret-scanning-patterns#supported-secrets-for-push-protection).
 
 {% data reusables.secret-scanning.push-protection-remove-secret %}
 
 {% tip %}
 
-**Tip** 
-If {% data variables.product.prodname_dotcom %} blocks a secret that you believe is safe to push, you can allow the secret and specify the reason why it should be allowed. For more information about bypassing push protection for a secret, see "[Allowing a blocked secret to be pushed](/code-security/secret-scanning/protecting-pushes-with-secret-scanning#allowing-a-blocked-secret-to-be-pushed)" and "[Bypassing push protection for a secret](/code-security/secret-scanning/protecting-pushes-with-secret-scanning#bypassing-push-protection-for-a-secret)" for the command line and the web UI, respectively. 
+**Совет.** Если {% data variables.product.prodname_dotcom %} блокирует секрет, который, как вы считаете, можно безопасно отправить, вы можете разрешить секрет и указать причину, по которой следует разрешить отправку. Дополнительные сведения об обходе защиты от отправки секретов см. в разделах [Как разрешить отправку заблокированного секрета](/code-security/secret-scanning/protecting-pushes-with-secret-scanning#allowing-a-blocked-secret-to-be-pushed) и [Обход защиты отправки секрета](/code-security/secret-scanning/protecting-pushes-with-secret-scanning#bypassing-push-protection-for-a-secret), касающихся командной строки и веб-интерфейса соответственно. 
 
 {% endtip %}
 
 {% ifversion push-protection-custom-link-orgs %} 
 
-Organization admins can provide a custom link that will be included in the message from {% data variables.product.product_name %} when your push is blocked. This custom link can contain resources and advice specific to your organization and its policies.
+Администраторы могут предоставить настраиваемую ссылку для включения в сообщение от {% data variables.product.product_name %} при блокировке вашей отправки. Эта ссылка может содержать ресурсы и рекомендации, относящиеся к вашей организации и ее политикам.
 {% endif %}
 
-## Resolving a blocked push on the command line
+## Как разрешить заблокированную отправку в командной строке
 
 {% data reusables.secret-scanning.push-protection-command-line-choice %}
 
 {% data reusables.secret-scanning.push-protection-multiple-branch-note %}
 
-If the blocked secret was introduced by the latest commit on your branch, you can follow the guidance below.
+Если заблокированный секрет был внесен последней фиксацией в вашей ветви, следуйте приведенным ниже инструкциям.
 
-1. Remove the secret from your code.
-1. Commit the changes, by using `git commit --amend`.
-1. Push your changes with `git push`.
+1. Удалите секрет из кода.
+1. Зафиксируйте изменения с помощью `git commit --amend`.
+1. Отправьте изменения с помощью команды `git push`.
 
-You can also remove the secret if the secret appears in an earlier commit in the Git history.
+Вы также можете удалить секрет, если он отображается в более ранней фиксации в журнале Git.
 
-1. Use `git log` to determine which commit surfaced in the push error came first in history.
-1. Start an interactive rebase with `git rebase -i <commit-id>~1`. <commit-id> is the id of the commit from step 1.
-1. Identify your commit to edit by changing `pick` to `edit` on the first line of the text that appears in the editor.
-1. Remove the secret from your code.
-1. Commit the change with `git commit --amend`.
-1. Run `git rebase --continue` to finish the rebase.
+1. Чтобы узнать, какая фиксация, появившаяся в ошибке отправки, была первой в журнале, используйте команду `git log`.
+1. Запустите интерактивное перемещение изменений из одной ветви в другую с помощью команды `git rebase -i <commit-id>~1`. <commit-id> — это идентификатор фиксации из шага 1.
+1. Определите фиксацию, которую нужно редактировать, изменив `pick` на `edit` в первой строке текста, который отображается в редакторе.
+1. Удалите секрет из кода.
+1. Зафиксируйте изменения с помощью команды `git commit --amend`.
+1. Выполните команду `git rebase --continue`, чтобы завершить перемещение изменений из одной ветви в другую.
 
-## Resolving a blocked commit in the web UI
+## Как разрешить заблокированную фиксацию в пользовательском веб-интерфейсе
 
 {% data reusables.secret-scanning.push-protection-web-ui-choice %}
 
-To resolve a blocked commit in the web UI, you need to remove the secret from the file, or use the **Bypass protection** dropdown to allow the secret. For more information about bypassing push protection from the web UI, see "[Protecting pushes with secret scanning](/code-security/secret-scanning/protecting-pushes-with-secret-scanning#bypassing-push-protection-for-a-secret)."
+Чтобы разрешить заблокированную фиксацию в веб-интерфейсе, необходимо удалить секрет из файла. Также можно воспользоваться раскрывающимся списком **Обход защиты**, чтобы разрешить секрет. Дополнительные сведения об обходе защиты от отправки в пользовательском веб-интерфейсе см. в разделе [Защита отправок с помощью сканирования секретов](/code-security/secret-scanning/protecting-pushes-with-secret-scanning#bypassing-push-protection-for-a-secret).
 
-If you confirm a secret is real, you need to remove the secret from the file. Once you remove the secret, the banner at the top of the page will change and tell you that you can now commit your changes.
+Если вы убедились, что секрет реальный, необходимо удалить его из файла. После удаления секрета баннер в верхней части страницы изменится — на нем будет информация о том, что теперь можно зафиксировать изменения.

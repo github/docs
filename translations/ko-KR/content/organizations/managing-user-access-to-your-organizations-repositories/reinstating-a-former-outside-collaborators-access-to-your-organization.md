@@ -1,6 +1,6 @@
 ---
-title: Reinstating a former outside collaborator's access to your organization
-intro: 'You can reinstate a former outside collaborator''s access permissions for organization repositories, forks, and settings.'
+title: 조직에 대한 이전 외부 협력자의 액세스 권한 복구
+intro: '조직 리포지토리, 포크, 설정에 대한 이전 외부 협력자의 액세스 권한을 복원할 수 있습니다.'
 redirect_from:
   - /articles/reinstating-a-former-outside-collaborator-s-access-to-your-organization
   - /articles/reinstating-a-former-outside-collaborators-access-to-your-organization
@@ -15,68 +15,61 @@ topics:
   - Organizations
   - Teams
 shortTitle: Reinstate collaborator
+ms.openlocfilehash: 6010a9c5488cbd8d343b52c7c2c3987848b774d2
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148098510'
 ---
-
-When an outside collaborator's access to your organization's private repositories is removed, the user's access privileges and settings are saved for three months. You can restore the user's privileges if you {% ifversion fpt or ghec %}invite{% else %}add{% endif %} them back to the organization within that time frame.
+조직의 개인 리포지토리에 대한 외부 협력자의 액세스가 제거되면 사용자의 액세스 권한 및 설정이 3개월 동안 저장됩니다. 해당 기간 내에 조직에 다시 {% ifversion fpt or ghec %}초대{% else %}추가{% endif %}하면 사용자의 권한을 복원할 수 있습니다.
 
 {% data reusables.two_fa.send-invite-to-reinstate-user-before-2fa-is-enabled %}
 
-When you reinstate a former outside collaborator, you can restore:
- - The user's former access to organization repositories
- - Any private forks of repositories owned by the organization
- - Membership in the organization's teams
- - Previous access and permissions for the organization's repositories
- - Stars for organization repositories
- - Issue assignments in the organization
- - Repository subscriptions (notification settings for watching, not watching, or ignoring a repository's activity)
+이전 외부 협력자를 복구하면 다음을 복원할 수 있습니다.
+ - 조직 리포지토리에 대한 사용자의 이전 액세스 권한
+ - 조직이 소유한 리포지토리의 모든 프라이빗 포크
+ - 조직의 팀 구성원 자격
+ - 조직의 리포지토리에 대한 이전 액세스 및 권한
+ - 조직 리포지토리에 대한 별
+ - 조직의 이슈 할당
+ - 리포지토리 구독(리포지토리의 활동을 보거나 보지 않거나 무시하기 위한 알림 설정)
 
 {% tip %}
 
-**Tips**:
+**팁**:
 
- - Only organization owners can reinstate outside collaborators' access to an organization.{% ifversion prevent-org-admin-add-outside-collaborator %} Enterprise owners may further restrict the ability to reinstate outside collaborators' access to enterprise owners only.{% endif %} For more information, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)."
- - The reinstating a member flow on {% data variables.location.product_location %} may use the term "member" to describe reinstating an outside collaborator but if you reinstate this person and keep their previous privileges, they will only have their previous [outside collaborator permissions](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization#outside-collaborators).{% ifversion fpt or ghec %}
- - If your organization has a paid per-user subscription, an unused license must be available before you can invite a new member to join the organization or reinstate a former organization member. For more information, see "[About per-user pricing](/articles/about-per-user-pricing)."{% endif %}
+ - 조직 소유자만 외부 협력자의 조직 액세스 권한을 복구할 수 있습니다.{% ifversion prevent-org-admin-add-outside-collaborator %} 엔터프라이즈 소유자는 외부 협력자의 엔터프라이즈 소유자 액세스만 복구하는 기능을 추가로 제한할 수 있습니다.{% endif %} 자세한 내용은 “[조직 내 역할](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)”을 참조하세요.
+ - {% 데이터 variables.location.product_location %}에서 멤버 흐름을 복원하는 경우 "멤버"라는 용어를 사용하여 외부 협력자 복원을 설명할 수 있지만 이 사용자를 복원하고 이전 권한을 유지하면 이전 [외부 공동 작업자 권한](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization#outside-collaborators)만 갖게 됩니다. {% ifversion fpt 또는 ghec %}
+ - 조직에 유료 사용자별 구독이 있는 경우 새 구성원을 조직에 초대하거나 이전 조직 구성원을 복구하려면 먼저 사용하지 않는 라이선스를 사용할 수 있어야 합니다. 자세한 내용은 “[사용자별 가격 책정 정보](/articles/about-per-user-pricing)”를 참조하세요. {% endif %}
 
 {% endtip %}
 
-{% data reusables.profile.access_org %}
-{% data reusables.user-settings.access_org %}
-{% data reusables.organizations.people %}
-{% data reusables.organizations.invite_member_from_people_tab %}
-{% data reusables.organizations.reinstate-user-type-username %}
-{% ifversion fpt or ghec %}
-1. Choose to restore the outside collaborator's previous privileges in the organization by clicking **Invite and reinstate** or choose to clear their previous privileges and set new access permissions by clicking **Invite and start fresh**.
+{% data reusables.profile.access_org %} {% data reusables.user-settings.access_org %} {% data reusables.organizations.people %} {% data reusables.organizations.invite_member_from_people_tab %} {% data reusables.organizations.reinstate-user-type-username %} {% ifversion fpt or ghec %}
+1. **초대 및 복구** 를 클릭하여 조직에서 외부 협력자의 이전 권한을 복원하도록 선택하거나, **초대 및 새로 시작** 을 클릭하여 이전 권한을 지우고 새 액세스 권한을 설정하도록 선택합니다.
 
   {% warning %}
 
-  **Warning:** If you want to upgrade the outside collaborator to a member of your organization, then choose **Invite and start fresh** and choose a new role for this person. Note, however, that this person's private forks of your organization's repositories will be lost if you choose to start fresh. To make the former outside collaborator a member of your organization *and* keep their private forks, choose **Invite and reinstate** instead. Once this person accepts the invitation, you can convert them to an organization member by [inviting them to join the organization as a member](/articles/converting-an-outside-collaborator-to-an-organization-member).
+  **경고:** 외부 협력자를 조직의 구성원으로 업그레이드하려면 **초대 및 새로 시작** 을 선택하고 이 사용자에 대한 새 역할을 선택합니다. 그러나 새로 시작하도록 선택하면 조직의 리포지토리에 대한 이 사용자의 프라이빗 포크가 손실됩니다. 이전 외부 협력자를 조직의 구성원으로 만들고 *동시에* 개인 포크를 유지하려면 대신 **초대 및 복구** 를 선택합니다. 이 사용자가 초대를 수락하면 [조직에 구성원으로 가입하도록 초대](/articles/converting-an-outside-collaborator-to-an-organization-member)하여 조직 구성원으로 변환할 수 있습니다.
 
   {% endwarning %}
 
-  ![Choose to restore settings or not](/assets/images/help/organizations/choose_whether_to_restore_org_member_info.png)
-{% else %}
-6. Choose to restore the outside collaborator's previous privileges in the organization by clicking **Add and reinstate** or choose to clear their previous privileges and set new access permissions by clicking **Add and start fresh**.
+  ![설정을 복원할지 여부 선택](/assets/images/help/organizations/choose_whether_to_restore_org_member_info.png) {% else %}
+6. **추가 및 복구** 를 클릭하여 조직에서 외부 협력자의 이전 권한을 복원하도록 선택하거나, **추가 및 새로 시작** 을 클릭하여 이전 권한을 지우고 새 액세스 권한을 설정하도록 선택합니다.
 
   {% warning %}
 
-  **Warning:** If you want to upgrade the outside collaborator to a member of your organization, then choose **Add and start fresh** and choose a new role for this person. Note, however, that this person's private forks of your organization's repositories will be lost if you choose to start fresh. To make the former outside collaborator a member of your organization *and* keep their private forks, choose **Add and reinstate** instead. Then, you can convert them to an organization member by [adding them to the organization as a member](/articles/converting-an-outside-collaborator-to-an-organization-member).
+  **경고:** 외부 협력자를 조직의 구성원으로 업그레이드하려면 **추가 및 새로 시작** 을 선택하고 이 사용자에 대한 새 역할을 선택합니다. 그러나 새로 시작하도록 선택하면 조직의 리포지토리에 대한 이 사용자의 프라이빗 포크가 손실됩니다. 이전 외부 협력자를 조직의 구성원으로 만들고 *동시에* 프라이빗 포크를 유지하려면 대신 **추가 및 복구** 를 선택합니다. 그런 다음, [조직에 구성원으로 추가](/articles/converting-an-outside-collaborator-to-an-organization-member)하여 조직 구성원으로 변환할 수 있습니다.
 
   {% endwarning %}
 
-  ![Choose to restore settings or not](/assets/images/help/organizations/choose_whether_to_restore_org_member_info_ghe.png)
-{% endif %}
-{% ifversion fpt or ghec %}
-7. If you cleared the previous privileges for a former outside collaborator, choose a role for the user and optionally add them to some teams, then click **Send invitation**.
-  ![Role and team options and send invitation button](/assets/images/help/organizations/add-role-send-invitation.png)
-{% else %}
-7. If you cleared the previous privileges for a former outside collaborator, choose a role for the user and optionally add them to some teams, then click **Add member**.
-  ![Role and team options and add member button](/assets/images/help/organizations/add-role-add-member.png)
-{% endif %}
-{% ifversion fpt or ghec %}
-8. The invited person will receive an email inviting them to the organization. They will need to accept the invitation before becoming an outside collaborator in the organization. {% data reusables.organizations.cancel_org_invite %}
-{% endif %}
+  ![설정을 복원할지 여부 선택](/assets/images/help/organizations/choose_whether_to_restore_org_member_info_ghe.png) {% endif %} {% ifversion fpt or ghec %}
+7. 이전 외부 협력자의 이전 권한을 지운 경우 사용자의 역할을 선택하고 필요에 따라 일부 팀에 추가한 다음, **초대 보내기** 를 클릭합니다.
+  ![역할 및 팀 옵션 및 초대 보내기 단추](/assets/images/help/organizations/add-role-send-invitation.png) {% else %}
+7. 이전 외부 협력자의 이전 권한을 지운 경우 사용자의 역할을 선택하고 필요에 따라 일부 팀에 추가한 다음, **구성원 추가** 를 클릭합니다.
+  ![역할 및 팀 옵션 및 구성원 추가 단추](/assets/images/help/organizations/add-role-add-member.png) {% endif %} {% ifversion fpt or ghec %}
+8. 초대된 사람은 조직에 초대하는 메일을 받게 됩니다. 조직에서 외부 협력자가 되기 전에 초대를 수락해야 합니다. {% data reusables.organizations.cancel_org_invite %} {% endif %}
 
-## Further Reading
+## 추가 정보
 
-- "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)"
+- “[조직의 리포지토리 역할](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)”

@@ -1,6 +1,6 @@
 ---
-title: Creating a new organization from scratch
-intro: Create an organization to apply fine-grained access permissions to repositories.
+title: Создание новой организации с нуля
+intro: 'Создайте организацию, чтобы применить детальные разрешения доступа к репозиториям.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -14,17 +14,20 @@ topics:
   - Organizations
   - Teams
 shortTitle: Create new organization
+ms.openlocfilehash: d9443aa84964fcc1202fee41d95800cf8e9ccd4c
+ms.sourcegitcommit: 5b1461b419dbef60ae9dbdf8e905a4df30fc91b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '147878792'
 ---
+Когда вы создаете новую организацию с нуля, с ней не связаны репозитории. Дополнительные сведения о добавлении репозиториев в организацию см. в разделах [Создание нового репозитория](/articles/creating-a-new-repository) и [Передача репозитория](/articles/transferring-a-repository).
 
-When you create a new organization from scratch, it doesn't have any repositories associated with it. For more information on adding repositories to your organization, see "[Creating a new repository](/articles/creating-a-new-repository)" and "[Transferring a repository](/articles/transferring-a-repository)."
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.organizations %} {% data reusables.organizations.new-organization %}
+4. Создайте организацию, следуя инструкциям. {% ifversion fpt or ghec %}Дополнительные сведения о планах, доступных для вашей команды, см. в разделе [Продукты {% data variables.product.prodname_dotcom %}](/articles/githubs-products).{% endif %}
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.organizations %}
-{% data reusables.organizations.new-organization %}
-4. Follow the prompts to create your organization. {% ifversion fpt or ghec %}For more information about the plans available for your team, see "[{% data variables.product.prodname_dotcom %}'s products](/articles/githubs-products)."{% endif %}
-
-## Further reading
+## Дополнительные материалы
 
 {% ifversion fpt or ghec %}
-- "[Setting your billing email](/articles/setting-your-billing-email)"{% endif %}
-- "[About organizations](/articles/about-organizations)"
+- [Настройка электронной почты для выставления счетов](/articles/setting-your-billing-email){% endif %}
+- [Сведения об организациях](/articles/about-organizations)

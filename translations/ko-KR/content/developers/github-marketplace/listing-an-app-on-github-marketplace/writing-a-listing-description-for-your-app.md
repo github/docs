@@ -1,6 +1,6 @@
 ---
-title: Writing a listing description for your app
-intro: 'To [list your app](/marketplace/listing-on-github-marketplace/) in the {% data variables.product.prodname_marketplace %}, you''ll need to write descriptions of your app and provide images that follow GitHub''s guidelines.'
+title: 앱에 대한 목록 설명 작성
+intro: '{% data variables.product.prodname_marketplace %}에 [앱을 나열](/marketplace/listing-on-github-marketplace/)하려면 앱에 대한 설명을 작성하고 GitHub의 지침을 따르는 이미지를 제공해야 합니다.'
 redirect_from:
   - /apps/marketplace/getting-started-with-github-marketplace-listings/guidelines-for-writing-github-app-descriptions
   - /apps/marketplace/creating-and-submitting-your-app-for-approval/writing-github-app-descriptions
@@ -17,180 +17,186 @@ versions:
 topics:
   - Marketplace
 shortTitle: Write listing descriptions
+ms.openlocfilehash: 84be7e69295be0426e792e9db25c9e397bc00384
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148099342'
 ---
-Here are guidelines about the fields you'll need to fill out in the **Listing description** section of your draft listing.
+다음은 초안 목록의 **목록 설명** 섹션에서 작성해야 하는 필드에 대한 지침입니다.
 
-## Naming and links
+## 이름 지정 및 링크
 
-### Listing name
+### 목록 이름
 
-Your listing's name will appear on the [{% data variables.product.prodname_marketplace %} homepage](https://github.com/marketplace). The name is limited to 255 characters and can be different from your app's name. Your listing cannot have the same name as an existing account on {% data variables.location.product_location %}, unless the name is your own user or organization name. 
+목록의 이름은 [{% data variables.product.prodname_marketplace %} homepage](https://github.com/marketplace)에 표시됩니다. 이름은 255자로 제한되며 앱 이름과 다를 수 있습니다. 이름이 사용자 또는 조직 이름이 아니면 {% 데이터 variables.location.product_location %}의 기존 계정과 이름이 같을 수 없습니다. 
 
-### Very short description
+### 간단한 설명
 
-The community will see the "very short" description under your app's name on the [{% data variables.product.prodname_marketplace %} homepage](https://github.com/marketplace).
+[{% data variables.product.prodname_marketplace %} 홈페이지](https://github.com/marketplace)의 앱 이름 아래에 “간단한” 설명이 표시됩니다.
 
-![{% data variables.product.prodname_marketplace %} app short description](/assets/images/marketplace/marketplace_short_description.png)
+![{% data variables.product.prodname_marketplace %} 간단한 앱 설명](/assets/images/marketplace/marketplace_short_description.png)
 
-#### Length
+#### 길이
 
-We recommend keeping short descriptions to 40-80 characters. Although you are allowed to use more characters, concise descriptions are easier for customers to read and understand quickly.
+간단한 설명은 40~80자로 유지하는 것이 좋습니다. 더 많은 문자를 사용할 수 있지만 설명이 간결해야 고객이 빠르게 읽고 더 쉽게 이해할 수 있습니다.
 
-#### Content
+#### 콘텐츠
 
-- Describe the app’s functionality. Don't use this space for a call to action. For example:
+- 앱의 기능을 설명합니다. 이 공간을 활용 방안에 사용하지 마세요. 예를 들면 다음과 같습니다.
 
-  **DO:** Lightweight project management for GitHub issues
+  **적절한 예:** Lightweight project management for GitHub issues
 
-  **DON'T:** Manage your projects and issues on GitHub
+  **잘못된 예:** Manage your projects and issues on GitHub
 
-  **Tip:** Add an "s" to the end of the verb in a call to action to turn it into an acceptable description: _Manages your projects and issues on GitHub_
+  **팁:** 활용 방안에서 동사의 끝에 “s”를 추가하여 허용 가능한 설명으로 바꿉니다. _GitHub에서 프로젝트 및 문제 관리_
 
-- Don’t repeat the app’s name in the description.
+- 설명에서 앱 이름을 반복해서 사용하지 마세요.
 
-  **DO:** A container-native continuous integration tool
+  **적절한 예:** A container-native continuous integration tool
 
-  **DON'T:** Skycap is a container-native continuous integration tool
+  **잘못된 예:** Skycap is a container-native continuous integration tool
 
-#### Formatting
+#### 서식 지정
 
-- Always use sentence-case capitalization. Only capitalize the first letter and proper nouns.
+- 문장은 항상 대문자로 시작합니다. 첫 글자와 적절한 명사만 대문자로 시작합니다.
 
-- Don't use punctuation at the end of your short description. Short descriptions should not include complete sentences, and definitely should not include more than one sentence.
+- 짧은 설명 끝에 문장 부호를 사용하지 마세요. 간단한 설명에는 전체 문장이 포함되면 안 되고, 문장이 두 개 이상 포함되면 안 됩니다.
 
-- Only capitalize proper nouns. For example:
+- 고유 명사만 대문자로 시작합니다. 예를 들면 다음과 같습니다.
 
-  **DO:** One-click delivery automation for web developers
+  **적절한 예:** One-click delivery automation for web developers
 
-  **DON'T:** One-click delivery automation for Web Developers
+  **잘못된 예:** One-click delivery automation for Web Developers
 
-- Always use a [serial comma](https://en.wikipedia.org/wiki/Serial_comma) in lists.
+- 목록에서는 항상 [연속 쉼표](https://en.wikipedia.org/wiki/Serial_comma)를 사용합니다.
 
-- Avoid referring to the GitHub community as "users."
+- GitHub 커뮤니티를 “사용자”로 언급하지 마세요.
 
-  **DO:** Create issues automatically for people in your organization
+  **적절한 예:** Create issues automatically for people in your organization
 
-  **DON'T:** Create issues automatically for an organization's users
+  **잘못된 예:** Create issues automatically for an organization's users
 
-- Avoid acronyms unless they’re well established (such as API). For example:
+- API와 같이 잘 알려진 경우가 아니면 약어를 사용하지 마세요. 예를 들면 다음과 같습니다.
 
-  **DO:** Agile task boards, estimates, and reports without leaving GitHub
+  **적절한 예:** Agile task boards, estimates, and reports without leaving GitHub
 
-  **DON'T:** Agile task boards, estimates, and reports without leaving GitHub’s UI
+  **잘못된 예:** Agile task boards, estimates, and reports without leaving GitHub’s UI
 
-### Categories
+### 범주
 
-Apps in {% data variables.product.prodname_marketplace %} can be displayed by category. Select the category that best describes the main functionality of your app in the **Primary category** dropdown, and optionally select a **Secondary category** that fits your app.
+{% data variables.product.prodname_marketplace %}의 앱은 범주별로 표시할 수 있습니다. **기본 범주** 드롭다운에서 앱의 기본 기능을 가장 잘 설명하는 범주를 선택하고, 경우에 따라 앱에 잘 맞는 **보조 범주** 를 선택합니다.
 
-### Supported languages
+### 지원되는 언어
 
-If your app only works with specific languages, select up to 10 programming languages that your app supports. These languages are displayed on your app's {% data variables.product.prodname_marketplace %} listing page. This field is optional.
+앱이 특정 언어로만 작동하는 경우 앱에서 지원하는 프로그래밍 언어를 최대 10개 선택합니다. 이러한 언어는 앱의 {% data variables.product.prodname_marketplace %} 목록 페이지에 표시됩니다. 이 필드는 선택 사항입니다.
 
-### Listing URLs
+### 목록 URL
 
-**Required URLs**
-* **Customer support URL:** The URL of a web page that your customers will go to when they have technical support, product, or account inquiries.
-* **Privacy policy URL:** The web page that displays your app's privacy policy.
-* **Installation URL:** This field is shown for OAuth Apps only. (GitHub Apps don't use this URL because they use the optional Setup URL from the GitHub App's settings page instead.) When a customer purchases your OAuth App, GitHub will redirect customers to the installation URL after they install the app. You will need to redirect customers to `https://github.com/login/oauth/authorize` to begin the OAuth authorization flow. See "[New purchases for OAuth Apps](/marketplace/integrating-with-the-github-marketplace-api/handling-new-purchases-and-free-trials/)" for more details. Skip this field if you're listing a GitHub App.
+**필요한 URL**
+* **고객 지원 URL:** 기술 지원, 제품 또는 계정 문의가 있을 때 고객이 이동하는 웹 페이지의 URL입니다.
+* **개인정보처리방침 URL:** 앱의 개인정보처리방침을 표시하는 웹 페이지입니다.
+* **설치 URL:** 이 필드는 OAuth 앱에 대해서만 표시됩니다. (GitHub 앱은 대신 GitHub 앱의 설정 페이지에서 선택적 설정 URL을 사용하기 때문에 이 URL을 사용하지 않습니다.) 고객이 OAuth 앱을 구매한 다음 설치하면 GitHub가 고객을 설치 URL로 리디렉션합니다. OAuth 권한 부여 흐름을 시작하려면 `https://github.com/login/oauth/authorize`로 고객을 리디렉션해야 합니다. 자세한 내용은 “[New purchases for OAuth Apps](/marketplace/integrating-with-the-github-marketplace-api/handling-new-purchases-and-free-trials/)”를 참조하세요. GitHub 앱을 나열하는 경우 이 필드를 건너뛰세요.
 
-**Optional URLs**
-* **Company URL:** A link to your company's website.
-* **Status URL:** A link to a web page that displays the status of your app. Status pages can include current and historical incident reports, web application uptime status, and scheduled maintenance.
-* **Documentation URL:** A link to documentation that teaches customers how to use your app.
+**선택적 URL**
+* **회사 URL:** 회사 웹 사이트에 대한 링크입니다.
+* **상태 URL:** 앱의 상태를 표시하는 웹 페이지에 대한 링크입니다. 상태 페이지에는 현재 및 과거 인시던트 보고서, 웹 애플리케이션 작동 시간 상태 및 예약된 유지 관리가 포함될 수 있습니다.
+* **문서 URL:** 고객에게 앱을 사용하는 방법을 가르치는 문서에 대한 링크입니다.
 
-## Logo and feature card
+## 로고 및 기능 카드
 
-{% data variables.product.prodname_marketplace %} displays all listings with a square logo image inside a circular badge to visually distinguish apps.
+{% data variables.product.prodname_marketplace %}는 목록에 사각형 로고 이미지가 그려진 원형 배지를 함께 표시하여 앱을 시각적으로 구분합니다.
 
-![GitHub Marketplace logo and badge images](/assets/images/marketplace/marketplace-logo-and-badge.png)
+![GitHub Marketplace 로고 및 배지 이미지](/assets/images/marketplace/marketplace-logo-and-badge.png)
 
-A feature card consists of your app's logo, name, and a custom background image that captures your brand personality. {% data variables.product.prodname_marketplace %} displays this card if your app is one of the four randomly featured apps at the top of the [homepage](https://github.com/marketplace). Each app's very short description is displayed below its feature card.
+기능 카드는 앱의 로고, 이름과 브랜드 개성을 드러낸 사용자 지정 배경 이미지로 구성됩니다. 앱이 [홈페이지](https://github.com/marketplace) 맨 위에 있는 무작위 추천 앱 4개 중 하나인 경우 {% data variables.product.prodname_marketplace %}에서 이 카드를 표시합니다. 각 앱의 간단한 설명은 기능 카드 아래에 표시됩니다.
 
-![Feature card](/assets/images/marketplace/marketplace_feature_card.png)
+![기능 카드](/assets/images/marketplace/marketplace_feature_card.png)
 
-As you upload images and select colors, your {% data variables.product.prodname_marketplace %} draft listing will display a preview of your logo and feature card.
+이미지를 업로드하고 색을 선택하면 {% data variables.product.prodname_marketplace %} 초안 목록에 로고 및 기능 카드의 미리 보기가 표시됩니다.
 
-#### Guidelines for logos
+#### 로고에 대한 지침
 
-You must upload a custom image for the logo. For the badge, choose a background color.
+로고에 대한 사용자 지정 이미지를 업로드해야 합니다. 배지의 경우 배경색을 선택합니다.
 
-- Upload a logo image that is at least 200 pixels x 200 pixels so your logo won't have to be upscaled when your listing is published.
-- Logos will be cropped to a square. We recommend uploading a square image file with your logo in the center.
-- For best results, upload a logo image with a transparent background.
-- To give the appearance of a seamless badge, choose a badge background color that matches the background color (or transparency) of your logo image.
-- Avoid using logo images with words or text in them. Logos with text do not scale well on small screens.
+- 목록을 게시할 때 로고를 확대할 필요가 없도록 200픽셀 x 200픽셀 이상의 로고 이미지를 업로드합니다.
+- 로고가 사각형으로 잘립니다. 중앙에 로고가 있는 사각형 이미지 파일을 업로드하는 것이 좋습니다.
+- 최상의 결과를 얻으려면 배경이 투명한 로고 이미지를 업로드하세요.
+- 원활한 배지 모양을 제공하려면 로고 이미지의 배경색(또는 투명도)과 일치하는 배지 배경색을 선택합니다.
+- 단어 또는 텍스트가 포함된 로고 이미지는 사용하지 마세요. 텍스트가 포함된 로고는 작은 화면에서 크기가 잘 조정되지 않습니다.
 
-#### Guidelines for feature cards
+#### 기능 카드에 대한 지침
 
-You must upload a custom background image for the feature card. For the app's name, choose a text color.
+기능 카드에 대한 사용자 지정 배경 이미지를 업로드해야 합니다. 앱 이름에 대해 텍스트 색을 선택합니다.
 
-- Use a pattern or texture in your background image to give your card a visual identity and help it stand out against the dark background of the {% data variables.product.prodname_marketplace %} homepage. Feature cards should capture your app's brand personality.
-- Background image measures 965 pixels x 482 pixels (width x height).
-- Choose a text color for your app's name that shows up clearly over the background image.
+- 배경 이미지에서 패턴 또는 질감을 사용하여 카드에 시각적 특성을 주고 {% data variables.product.prodname_marketplace %} 홈페이지의 어두운 배경에서 잘 보이도록 만듭니다. 기능 카드는 앱의 브랜드 개성을 잘 보여줘야 합니다.
+- 배경 이미지는 965픽셀 x 482픽셀(너비 x 높이)입니다.
+- 앱 이름 텍스트는 배경 이미지 위에서 뚜렷하게 잘 보이는 색상으로 선택합니다.
 
-## Listing details
+## 목록 세부 정보
 
-To get to your app's landing page, click your app's name from the {% data variables.product.prodname_marketplace %} homepage or category page. The landing page displays a longer description of the app, which includes two parts: an "Introductory description" and a "Detailed description."
+앱의 방문 페이지로 이동하려면 {% data variables.product.prodname_marketplace %} 홈페이지 또는 범주 페이지에서 앱의 이름을 클릭합니다. 방문 페이지에는 앱에 대한 더 긴 설명이 표시되는데, “소개 설명”과 “자세한 설명”, 이렇게 두 부분으로 구성되어 있습니다.
 
-Your "Introductory description" is displayed at the top of your app's {% data variables.product.prodname_marketplace %} landing page.
+“소개 설명”은 앱의 {% data variables.product.prodname_marketplace %} 방문 페이지 맨 위에 표시됩니다.
 
-![{% data variables.product.prodname_marketplace %} introductory description](/assets/images/marketplace/marketplace_intro_description.png)
+![{% data variables.product.prodname_marketplace %} 소개 설명](/assets/images/marketplace/marketplace_intro_description.png)
 
-Clicking **Read more...**, displays the "Detailed description."
+**자세히 읽기...** 를 클릭하면 “자세한 설명”이 표시됩니다.
 
-![{% data variables.product.prodname_marketplace %} detailed description](/assets/images/marketplace/marketplace_detailed_description.png)
+![{% data variables.product.prodname_marketplace %} 자세한 설명](/assets/images/marketplace/marketplace_detailed_description.png)
 
-Follow these guidelines for writing these descriptions.
+이러한 설명을 작성하려면 다음 지침을 따르세요.
 
-### Length
+### 길이
 
-We recommend writing a 1-2 sentence high-level summary between 150-250 characters in the required "Introductory description" field when [listing your app](/marketplace/listing-on-github-marketplace/). Although you are allowed to use more characters, concise summaries are easier for customers to read and understand quickly.
+[앱을 나열](/marketplace/listing-on-github-marketplace/)할 때 필수 “소개 설명” 필드에 1~2개 문장으로 구성된 150~250자 사이의 요약을 작성하는 것이 좋습니다. 더 많은 문자를 사용할 수 있지만 요약이 간결해야 고객이 빠르게 읽고 더 쉽게 이해할 수 있습니다.
 
-You can add more information in the optional "Detailed description" field. You see this description when you click **Read more...** below the introductory description on your app's landing page. A detailed description consists of 3-5 [value propositions](https://en.wikipedia.org/wiki/Value_proposition), with 1-2 sentences describing each one. You can use up to 1,000 characters for this description.
+선택적 “자세한 설명” 필드에서는 자세한 정보를 추가할 수 있습니다. 앱 방문 페이지의 소개 설명 아래에서 **자세히 알아보기...** 를 클릭하면 이 설명이 표시됩니다. 자세한 설명은 3~5개 [가치 제안](https://en.wikipedia.org/wiki/Value_proposition)으로 구성되며, 각 가치 제안은 1~2개 문장으로 설명합니다. 이 설명에는 최대 1,000자를 사용할 수 있습니다.
 
-### Content
+### 콘텐츠
 
-- Always begin introductory descriptions with your app's name.
+- 소개 설명은 항상 앱 이름으로 시작합니다.
 
-- Always write descriptions and value propositions using the active voice.
+- 설명 및 가치 제안은 항상 능동태로 작성합니다.
 
-### Formatting
+### 서식 지정
 
-- Always use sentence-case capitalization in value proposition titles. Only capitalize the first letter and proper nouns.
+- 가치 제안 제목은 항상 대문자로 시작합니다. 첫 글자와 적절한 명사만 대문자로 시작합니다.
 
-- Use periods in your descriptions. Avoid exclamation marks.
+- 설명에는 마침표를 사용합니다. 느낌표를 사용하지 마세요.
 
-- Don't use punctuation at the end of your value proposition titles. Value proposition titles should not include complete sentences, and should not include more than one sentence.
+- 가치 제안 제목 끝에는 문장 부호를 사용하지 마세요. 가치 제안 제목은 전체 문장을 포함해서는 안 되며 둘 이상의 문장을 포함하면 안 됩니다.
 
-- For each value proposition, include a title followed by a paragraph of description. Format the title as a [level-three header](/articles/basic-writing-and-formatting-syntax/#headings) using Markdown. For example:
+- 각 가치 제안의 경우 제목 다음에 설명 단락이 따라옵니다. Markdown을 사용하여 제목을 [3레벨 헤더](/articles/basic-writing-and-formatting-syntax/#headings)로 서식을 지정합니다. 예를 들면 다음과 같습니다.
 
-  ### Learn the skills you need
+  ### 필요한 기술 알아보기
 
-  GitHub Skills can help you learn how to use GitHub, communicate more effectively with Markdown, handle merge conflicts, and more.
+  GitHub 기술을 사용하면 GitHub를 사용하고, Markdown과 보다 효과적으로 통신하고, 병합 충돌을 처리하는 방법 등을 알아볼 수 있습니다.
 
-- Only capitalize proper nouns.
+- 고유 명사만 대문자로 시작합니다.
 
-- Always use the [serial comma](https://en.wikipedia.org/wiki/Serial_comma) in lists.
+- 목록에서는 항상 [연속 쉼표](https://en.wikipedia.org/wiki/Serial_comma)를 사용합니다.
 
-- Avoid referring to the GitHub community as "users."
+- GitHub 커뮤니티를 “사용자”로 언급하지 마세요.
 
-  **DO:** Create issues automatically for people in your organization
+  **적절한 예:** Create issues automatically for people in your organization
 
-  **DON'T:** Create issues automatically for an organization's users
+  **잘못된 예:** Create issues automatically for an organization's users
 
-- Avoid acronyms unless they’re well established (such as API).
+- API와 같이 잘 알려진 경우가 아니면 약어를 사용하지 마세요.
 
-## Product screenshots
+## 제품 스크린샷
 
-You can upload up to five screenshot images of your app to display on your app's landing page. Add an optional caption to each screenshot to provide context. After you upload your screenshots, you can drag them into the order you want them to be displayed on the landing page.
+앱의 방문 페이지에 표시할 앱의 스크린샷 이미지를 최대 5개 업로드할 수 있습니다. 각 스크린샷에 선택적 캡션을 추가하여 컨텍스트를 제공할 수 있습니다. 스크린샷을 업로드한 후에는 스크린샷을 방문 페이지에 표시하려는 순서로 끌 수 있습니다.
 
-### Guidelines for screenshots
+### 스크린샷에 대한 지침
 
-- Images must be of high resolution (at least 1200px wide).
-- All images must be the same height and width (aspect ratio) to avoid page jumps when people click from one image to the next.
-- Show as much of the user interface as possible so people can see what your app does.
-- When taking screenshots of your app in a browser, only include the content in the display window. Avoid including the address bar, title bar, or toolbar icons, which do not scale well to smaller screen sizes.
-- GitHub displays the screenshots you upload in a box on your app's landing page, so you don't need to add boxes or borders around your screenshots.
-- Captions are most effective when they are short and snappy.
+- 이미지는 고해상도여야 합니다(너비 1200px 이상).
+- 사용자가 한 이미지에서 다음 이미지로 클릭할 때 페이지 점프를 방지하려면 모든 이미지의 높이와 너비(가로 세로 비율)가 같아야 합니다.
+- 사용자가 앱의 기능을 볼 수 있도록 사용자 인터페이스를 가급적 많이 표시합니다.
+- 브라우저에서 앱의 스크린샷을 만들 때는 표시 창의 콘텐츠만 포함하세요. 더 작은 화면 크기에 맞춰 크기가 잘 조정되지 않는 주소 표시줄, 제목 표시줄 또는 도구 모음 아이콘은 포함하지 마세요.
+- GitHub는 업로드한 스크린샷을 앱 방문 페이지의 상자에 업로드하는 표시하므로 스크린샷 주위에 상자나 테두리를 추가할 필요가 없습니다.
+- 캡션은 짧고 명확할 때 가장 효과적입니다.
 
-![GitHub Marketplace screenshot image](/assets/images/marketplace/marketplace-screenshots.png)
+![GitHub Marketplace 스크린샷 이미지](/assets/images/marketplace/marketplace-screenshots.png)

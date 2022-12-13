@@ -12,12 +12,12 @@ versions:
 topics:
   - API
 shortTitle: Discover resources for a user
-ms.openlocfilehash: 9650ff8dee220f0b32d74cacb0f86acd236df5b6
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
+ms.openlocfilehash: 3b3fd627260ac03d0991db73fcb5492c1284b2c0
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145135945'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148193421'
 ---
 {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API에 인증된 요청을 수행할 때 애플리케이션은 종종 현재 사용자의 리포지토리 및 조직을 가져와야 합니다. 이 가이드에서는 이러한 리소스를 안정적으로 검색하는 방법을 설명합니다.
 
@@ -33,7 +33,7 @@ ms.locfileid: '145135945'
 
 [OAuth 범위][scopes] 및 [조직 애플리케이션 정책][oap]은 앱이 사용자에 대해 액세스할 수 있는 리포지토리를 결정합니다. 아래 워크플로를 사용하여 해당 리포지토리를 검색합니다.
 
-언제나처럼 먼저 [GitHub Octokit.rb][octokit.rb] Ruby 라이브러리가 필요합니다. 그런 다음 [페이지 매김][pagination]을 자동으로 처리하도록 Octokit.rb를 구성합니다.
+언제나처럼 먼저 [GitHub Octokit.rb][octokit.rb] Ruby 라이브러리가 필요합니다. 그런 다음 페이지 매김을 자동으로 처리하도록 Octokit.rb를 구성합니다. 페이지 매김에 대한 자세한 내용은 "[REST API에서 페이지 매김 사용"을](/rest/guides/using-pagination-in-the-rest-api) 참조하세요.
 
 ``` ruby
 require 'octokit'
@@ -70,7 +70,7 @@ end
 
 애플리케이션은 사용자를 위해 모든 종류의 조직 관련 작업을 수행할 수 있습니다. 이러한 작업을 수행하려면 앱에 충분한 권한이 있는 [OAuth 권한 부여][scopes]가 필요합니다. 예를 들어 `read:org` 범위를 사용하면 [팀을 나열][list-teams]할 수 있으며, `user` 범위를 통해 [사용자의 조직 멤버 자격을 공개][publicize-membership]할 수 있습니다. 사용자가 앱에 이러한 범위 중 하나 이상을 부여하면 사용자의 조직을 가져올 준비가 된 것입니다.
 
-위의 리포지토리를 검색할 때와 마찬가지로 먼저 [GitHub Octokit.rb][octokit.rb] Ruby 라이브러리를 요구하고 [페이지 매김][pagination]을 처리하도록 구성합니다.
+위의 리포지토리를 검색할 때와 마찬가지로 [먼저 GitHub의 Octokit.rb][octokit.rb] Ruby 라이브러리를 요구하고 페이지를 매길 수 있도록 구성합니다. 페이지 매김에 대한 자세한 내용은 "[REST API에서 페이지 매김 사용"을](/rest/guides/using-pagination-in-the-rest-api) 참조하세요.
 
 ``` ruby
 require 'octokit'
@@ -108,7 +108,6 @@ end
 [make-authenticated-request-for-user]: /rest/guides/basics-of-authentication#making-authenticated-requests
 [oap]: https://developer.github.com/changes/2015-01-19-an-integrators-guide-to-organization-application-policies/
 [octokit.rb]: https://github.com/octokit/octokit.rb
-[pagination]: /rest#pagination
 [platform samples]: https://github.com/github/platform-samples/tree/master/api/ruby/discovering-resources-for-a-user
 [publicize-membership]: /rest/reference/orgs#set-public-organization-membership-for-the-authenticated-user
 [register-oauth-app]: /rest/guides/basics-of-authentication#registering-your-app

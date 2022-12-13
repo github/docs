@@ -1,7 +1,7 @@
 ---
-title: Displaying verification statuses for all of your commits
+title: Отображение состояний проверки для всех фиксаций
 shortTitle: Displaying verification for all commits
-intro: You can enable vigilant mode for commit signature verification to mark all of your commits and tags with a signature verification status.
+intro: 'Вы можете включить строгий режим для проверки подписи фиксации, чтобы пометить все фиксации и теги состоянием проверки подписи.'
 versions:
   fpt: '*'
   ghec: '*'
@@ -12,30 +12,34 @@ topics:
 redirect_from:
   - /github/authenticating-to-github/displaying-verification-statuses-for-all-of-your-commits
   - /github/authenticating-to-github/managing-commit-signature-verification/displaying-verification-statuses-for-all-of-your-commits
+ms.openlocfilehash: 0622814d683df3decf7eac407a6e9bf2bd7e2afa
+ms.sourcegitcommit: 58f69d95fcc8a2fd1c2fb736a0ad8e7ee1858be4
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/07/2022
+ms.locfileid: '148012647'
 ---
-
 {% data reusables.identity-and-permissions.vigilant-mode-beta-note %}
 
-## About vigilant mode
+## Сведения о строгом режиме
 
-When you work locally on your computer, Git allows you to set the author of your changes and the identity of the committer. This, potentially, makes it difficult for other people to be confident that commits and tags you create were actually created by you. To help solve this problem you can sign your commits and tags. For more information, see "[Signing commits](/github/authenticating-to-github/signing-commits)" and "[Signing tags](/github/authenticating-to-github/signing-tags)." {% data variables.product.prodname_dotcom %} marks signed commits and tags with a verification status. 
+При работе на локальном компьютере GIT позволяет указывать автора изменений и удостоверение автора фиксаций. Из-за этого другие пользователи могут сомневаться в том, что фиксации и метки были на самом деле созданы вами. Чтобы решить эту проблему, можно подписывать фиксации и метки. Дополнительные сведения см. в разделах [Подписывание фиксаций](/github/authenticating-to-github/signing-commits) и [Подписывание меток](/github/authenticating-to-github/signing-tags). {% data variables.product.prodname_dotcom %} помечает подписанные фиксации и метки определенным состоянием проверки. 
 
-By default commits and tags are marked "Verified" if they are signed with a GPG{% ifversion ssh-commit-verification %}, SSH,{% endif %} or S/MIME key that was successfully verified. If a commit or tag has a signature that can't be verified by {% data variables.product.prodname_dotcom %}, we mark the commit or tag "Unverified." In all other cases no verification status is displayed.
+По умолчанию фиксации и метки помечаются как проверенные, если они подписаны с помощью успешно проверенного ключа GPG{% ifversion ssh-commit-verification %}, SSH,{% endif %} или S/MIME. Если фиксация или метка имеют подпись, которую нельзя проверить, {% data variables.product.prodname_dotcom %} оставляет их в состоянии "Не проверено". Во всех остальных случаях состояние проверки не отображается.
 
-However, you can give other users increased confidence in the identity attributed to your commits and tags by enabling vigilant mode in your {% data variables.product.prodname_dotcom %} settings. With vigilant mode enabled, all of your commits and tags are marked with one of three verification statuses.
+Однако вы можете повысить уверенность других пользователей в принадлежности ваших фиксаций и меток именно вам, включив строгий режим в параметрах {% data variables.product.prodname_dotcom %}. Если включен строгий режим, все фиксации и метки принимают одно из трех состояний проверки.
 
-![Signature verification statuses](/assets/images/help/commits/signature-verification-statuses.png)
+![Состояния проверки подписи](/assets/images/help/commits/signature-verification-statuses.png)
 
 {% data reusables.identity-and-permissions.vigilant-mode-verification-statuses %}
 
-You should only enable vigilant mode if you sign all of your commits and tags and use an email address that is verified for your account on {% data variables.product.product_name %} as your committer email address. After enabling this mode, any unsigned commits or tags that you generate locally and push to {% data variables.product.prodname_dotcom %} will be marked "Unverified."
+Включать строгий режим следует только в том случае, если вы подписываете все фиксации и метки и используете подтвержденный адрес электронной почты для учетной записи на {% data variables.product.product_name %} в качестве адреса для фиксаций. После включения этого режима все неподписанные фиксации и метки, создаваемые локально и отправляемые в {% data variables.product.prodname_dotcom %}, будут помечаться как непроверенные.
 
 {% data reusables.identity-and-permissions.verification-status-check %}
 
-## Enabling vigilant mode
+## Включение строгого режима
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.ssh %}
-3. On the SSH Settings page, under "Vigilant mode," select **Flag unsigned commits as unverified**.
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.ssh %}
+3. На странице параметров SSH в разделе "Строгий режим" установите флажок **Помечать неподписанные фиксации как непроверенные**.
 
-   ![Flag unsigned commits as unverified checkbox](/assets/images/help/commits/vigilant-mode-checkbox.png)
+   ![Флажок "Помечать неподписанные фиксации как непроверенные"](/assets/images/help/commits/vigilant-mode-checkbox.png)

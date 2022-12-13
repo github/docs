@@ -1,7 +1,7 @@
 ---
-title: Configuring SSH connections to your instance
+title: Configuration des connexions SSH sur votre instance
 shortTitle: Configure SSH connections
-intro: 'You can increase the security of {% data variables.location.product_location %} by configuring the SSH algorithms that clients can use to establish a connection.'
+intro: 'Vous pouvez accroître la sécurité de {% data variables.location.product_location %} en configurant les algorithmes SSH que les clients peuvent utiliser pour établir une connexion.'
 permissions: 'Site administrators can configure SSH connections to a {% data variables.product.product_name %} instance.'
 versions:
   ghes: '>= 3.6'
@@ -13,38 +13,43 @@ topics:
   - Networking
   - Security
   - SSH
+ms.openlocfilehash: 9b2cc81a447018eef350e1c53857dd5a74a3099a
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148107540'
 ---
-
-## About SSH connections to your instance
+## À propos des connexions SSH sur votre instance
 
 {% data reusables.enterprise.about-ssh-ports %}
 
-To accommodate the SSH clients in your environment, you can configure the types of connections that {% data variables.location.product_location %} will accept.
+Pour prendre en charge les clients SSH dans votre environnement, vous pouvez configurer les types de connexions qu’acceptera {% data variables.location.product_location %}.
 
-## Configuring SSH connections with RSA keys
+## Configuration des connexions SSH avec des clés RSA
 
-When users perform Git operations on {% data variables.location.product_location %} via SSH over port 22, the client can authenticate with an RSA key. The client may sign the attempt using the SHA-1 hash function. In this context, the SHA-1 hash function is no longer secure. For more information, see [SHA-1](https://en.wikipedia.org/wiki/SHA-1) on Wikipedia.
+Lorsque les utilisateurs effectuent des opérations Git sur {% data variables.location.product_location %} via SSH sur le port 22, le client peut s’authentifier avec une clé RSA. Le client peut signer la tentative à l’aide de la fonction de hachage SHA-1. Dans ce contexte, la fonction de hachage SHA-1 n’est plus sécurisée. Pour plus d’informations, consultez « [ShA-1](https://en.wikipedia.org/wiki/SHA-1) » sur Wikipédia.
 
-By default{% ifversion ghes < 3.7 %} on {% data variables.product.product_name %} 3.6 and later{% endif %}, SSH connections that satisfy **both** of the following conditions will fail.
+Par défaut{% ifversion ghes < 3.7 %} sur {% data variables.product.product_name %} 3.6 et ultérieur{% endif %}, les connexions SSH qui répondent aux **deux** conditions suivantes échouent.
 
 {% data reusables.ssh.rsa-sha-1-connection-failure-criteria %}
 
-You can adjust the cutoff date. If the user uploaded the RSA key before the cutoff date, the client can continue to connect successfuly using SHA-1 as long as the key remains valid. Alternatively, you can reject all SSH connections authenticated with an RSA key if the client signs the connection using the SHA-1 hash function.
+Vous pouvez ajuster la date limite. Si l’utilisateur a chargé la clé RSA avant la date limite, le client peut continuer à se connecter en utilisant SHA-1 tant que la clé reste valide. Vous pouvez également rejeter toutes les connexions SSH authentifiées avec une clé RSA si le client signe la connexion en utilisant la fonction de hachage SHA-1.
 
-Regardless of the setting you choose for your instance, clients can continue to connect using any RSA key signed with a SHA-2 hash function.
+Quel que soit le paramètre que vous choisissez pour votre instance, les clients peuvent continuer à se connecter en utilisant n’importe quelle clé RSA signée avec une fonction de hachage SHA-2.
 
-If you use an SSH certificate authority, connections will fail if the certificate's `valid_after` date is after the cutoff date. For more information, see "[About SSH certificate authorities](/organizations/managing-git-access-to-your-organizations-repositories/about-ssh-certificate-authorities)."
+Si vous utilisez une autorité de certification SSH, les connexions échouent si la date `valid_after` du certificat est postérieure à la date limite. Pour plus d’informations, consultez « [À propos des autorités de certification SSH](/organizations/managing-git-access-to-your-organizations-repositories/about-ssh-certificate-authorities) ».
 
-For more information, see [{% data variables.product.prodname_blog %}](https://github.blog/2022-06-28-improving-git-protocol-security-on-github-enterprise-server).
+Pour plus d’informations, consultez [{% data variables.product.prodname_blog %}](https://github.blog/2022-06-28-improving-git-protocol-security-on-github-enterprise-server).
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
-1. Audit your instance's logs for connections that use unsecure algorithms or hash functions using the `ghe-find-insecure-git-operations` utility. For more information, see "[Command-line utilities](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-find-insecure-git-operations)."
-1. To configure a cutoff date after which {% data variables.location.product_location %} will deny connections from clients that use an RSA key uploaded after the date if the connection is signed by the SHA-1 hash function, enter the following command. Replace _**RFC-3399-UTC-TIMESTAMP**_ with a valid RFC 3399 UTC timestamp. For example, the default value, August 1, 2022, would be represented as `2022-08-01T00:00:00Z`. For more information, see [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339) on the IETF website.
+1. Auditez les journaux de votre instance pour les connexions qui utilisent des algorithmes non sécurisés ou des fonctions de hachage avec l’utilitaire `ghe-find-insecure-git-operations`. Pour plus d’informations, consultez « [Utilitaires en ligne de commande](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-find-insecure-git-operations) ».
+1. Pour configurer une date limite après laquelle {% data variables.location.product_location %} refusera les connexions des clients qui utilisent une clé RSA chargée après la date si la connexion est signée par la fonction de hachage SHA-1, entrez la commande suivante. Remplacez _**RFC-3399-UTC-TIMESTAMP**_ par un horodatage UTC RFC 3399 valide. Par exemple, la valeur par défaut, 1er août 2022, serait représentée sous la forme `2022-08-01T00:00:00Z`. Pour plus d’informations, consultez la [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339) sur le site web IETF.
 
    <pre>
    $ ghe-config app.gitauth.rsa-sha1 RFC-3339-UTC-TIMESTAMP
    </pre>
-1. Alternatively, to completely disable SSH connections using RSA keys that are signed with the SHA-1 hash function, enter the following command.
+1. Vous pouvez aussi désactiver complètement les connexions SSH utilisant des clés RSA signées avec la fonction de hachage SHA-1. Pour cela, entrez la commande suivante.
 
    ```shell
    ghe-config app.gitauth.rsa-sha1 false

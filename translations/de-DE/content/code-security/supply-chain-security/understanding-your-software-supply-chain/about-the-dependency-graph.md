@@ -1,6 +1,6 @@
 ---
-title: About the dependency graph
-intro: You can use the dependency graph to identify all your project's dependencies. The dependency graph supports a range of popular package ecosystems.
+title: Informationen zum Abhängigkeitsdiagramm
+intro: 'Du kannst das Abhängigkeitsdiagramm verwenden, um alle Abhängigkeiten deines Projekts zu identifizieren. Das Abhängigkeitsdiagramm unterstützt eine Reihe beliebter Paketökosysteme.'
 redirect_from:
   - /github/visualizing-repository-data-with-graphs/about-the-dependency-graph
   - /code-security/supply-chain-security/about-the-dependency-graph
@@ -15,102 +15,84 @@ topics:
   - Dependencies
   - Repositories
 shortTitle: Dependency graph
+ms.openlocfilehash: 4a8d58f0844337e7b8f88aabe72690a9a46bfaa0
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148106493'
 ---
 <!--For this article in earlier GHES versions, see /content/github/visualizing-repository-data-with-graphs-->
 <!--Marketing-LINK: From /features/security and /features/security/software-supply-chain pages "How GitHub's dependency graph is generated".-->
 
-## About the dependency graph
+## Informationen zum Abhängigkeitsdiagramm
 
 {% data reusables.dependabot.about-the-dependency-graph %}
 
-When you push a commit to {% data variables.product.product_name %} that changes or adds a supported manifest or lock file to the default branch, the dependency graph is automatically updated.{% ifversion fpt or ghec %} In addition, the graph is updated when anyone pushes a change to the repository of one of your dependencies.{% endif %} For information on the supported ecosystems and manifest files, see "[Supported package ecosystems](#supported-package-ecosystems)" below.
+Wenn du ein Commit mit Push an {% data variables.product.product_name %} überträgst, das eine unterstützte Manifest- oder Sperrdatei ändert oder dem Standardbranch hinzufügt, wird das Abhängigkeitsdiagramm automatisch aktualisiert.{% ifversion fpt or ghec %} Darüber hinaus wird das Diagramm aktualisiert, wenn jemand eine Änderung mithilfe von Push an das Repository einer deiner Abhängigkeiten überträgt.{% endif %} Informationen zu den unterstützten Ökosystemen und Manifestdateien findest du unter [Unterstützte Paketökosysteme](#supported-package-ecosystems) weiter unten.
 
-{% ifversion dependency-submission-api %} 
-{% data reusables.dependency-submission.dependency-submission-link %}
-{% endif %}
+{% ifversion dependency-submission-api %} {% data reusables.dependency-submission.dependency-submission-link %} {% endif %}
 
-When you create a pull request containing changes to dependencies that targets the default branch, {% data variables.product.prodname_dotcom %} uses the dependency graph to add dependency reviews to the pull request. These indicate whether the dependencies contain vulnerabilities and, if so, the version of the dependency in which the vulnerability was fixed. For more information, see "[About dependency review](/code-security/supply-chain-security/about-dependency-review)."
+Beim Erstellen eines Pull Requests, der Änderungen an Abhängigkeiten enthält und auf den Standardbranch abzielt, verwendet {% data variables.product.prodname_dotcom %} das Abhängigkeitsdiagramm, um Abhängigkeitsüberprüfungen zum Pull Request hinzuzufügen. Diese geben an, ob die Abhängigkeiten Sicherheitsrisiken enthalten und zeigen ggf. die Version der Abhängigkeit an, in der die Sicherheitsanfälligkeit behoben wurde. Weitere Informationen findest du unter [Informationen zur Abhängigkeitsprüfung](/code-security/supply-chain-security/about-dependency-review).
 
-## Dependency graph availability
+## Verfügbarkeit von Abhängigkeitsdiagrammen
 
-{% ifversion fpt or ghec %}The dependency graph is available for every public repository that defines dependencies in a supported package ecosystem using a supported file format. Repository administrators can also set up the dependency graph for private repositories. {% endif %}For more information {% ifversion ghes %}about configuration of the dependency graph{% endif %}, see "[Configuring the dependency graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-the-dependency-graph)."
+{% ifversion fpt or ghec %}Das Abhängigkeitsdiagramm ist für jedes öffentliche Repository verfügbar, das Abhängigkeiten in einem unterstützten Paketökosystem mithilfe eines unterstützten Dateiformats definiert. Repositoryadministrator*innen können das Abhängigkeitsdiagramm außerdem für private Repositorys einrichten. {% endif %}Weitere Informationen {% ifversion ghes %}zur Konfiguration des Abhängigkeitsdiagramms {% endif %}findest du unter [Konfigurieren des Abhängigkeitsdiagramms](/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-the-dependency-graph).
 
 {% data reusables.code-scanning.enterprise-enable-dependency-graph %}
 
 {% data reusables.dependabot.dependabot-alerts-dependency-graph-enterprise %}
 
-## Dependencies included
+## Abhängigkeiten enthalten
 
-The dependency graph includes all the dependencies of a repository that are detailed in the manifest and lock files, or their equivalent, for supported ecosystems{% ifversion dependency-submission-api %}, as well as any dependencies that are submitted using the Dependency submission API (beta){% endif %}. This includes:
+Das Abhängigkeitsdiagramm enthält alle Abhängigkeiten eines Repositorys, die im Manifest und in den Sperrdateien oder deren Entsprechung für unterstützte Ökosysteme{% ifversion dependency-submission-api %} beschreiben werden, sowie alle Abhängigkeiten, die mit der Abhängigkeitsübermittlungs-API (Beta) übermittelt werden{% endif %}. Dies schließt Folgendes ein:
 
-- Direct dependencies, that are explicitly defined in a manifest or lock file {% ifversion dependency-submission-api %} or have been submitted using the Dependency submission API (beta){% endif %}
-- Indirect dependencies of these direct dependencies, also known as transitive dependencies or sub-dependencies
+- Direkte Abhängigkeiten, die explizit in einer Manifest- oder Sperrdatei definiert sind, {% ifversion dependency-submission-api %} oder mithilfe der Abhängigkeitsübermittlungs-API (Beta) übermittelt wurden{% endif %}
+- Indirekte Abhängigkeiten dieser direkten Abhängigkeiten, auch bekannt als transitive Abhängigkeiten oder Unterabhängigkeiten bezeichnet
 
-The dependency graph identifies indirect dependencies{% ifversion fpt or ghec %} either explicitly from a lock file or by checking the dependencies of your direct dependencies. For the most reliable graph, you should use lock files (or their equivalent) because they define exactly which versions of the direct and indirect dependencies you currently use. If you use lock files, you also ensure that all contributors to the repository are using the same versions, which will make it easier for you to test and debug code{% else %} from the lock files{% endif %}.
+Das Abhängigkeitsdiagramm identifiziert indirekte Abhängigkeiten{% ifversion fpt or ghec %} entweder explizit aus einer Sperrdatei oder durch Überprüfen der Abhängigkeiten deiner direkten Abhängigkeiten. Für eine optimale Zuverlässigkeit des Diagramms solltest du Sperrdateien (oder deren Entsprechungen) verwenden, da sie genau definieren, welche Versionen der direkten und indirekten Abhängigkeiten derzeit verwendet werden. Wenn du Sperrdateien verwendest, stelle auch sicher, dass alle Mitwirkenden des Repositorys dieselben Versionen verwenden, wodurch es dir erleichtert wird, Code{% else %} aus den Sperrdateien zu testen und zu debuggen{% endif %}.
 
-For more information on how {% data variables.product.product_name %} helps you understand the dependencies in your environment, see "[About supply chain security](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-supply-chain-security)."
+Weitere Informationen dazu, wie {% data variables.product.product_name %} dabei hilft, die Abhängigkeiten in deiner Umgebung zu verstehen, findest du unter [Informationen zur Sicherheit der Lieferkette](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-supply-chain-security).
 
 {% ifversion fpt or ghec %}
 
-## Dependents included
+## Abhängige Objekte enthalten
 
-For public repositories, only public repositories that depend on it or on packages that it publishes are reported. This information is not reported for private repositories.{% endif %}
+Bei öffentlichen Repositorys werden nur öffentliche Repositorys im Bericht angezeigt, die von ihnen oder den von ihnen veröffentlichten Paketen abhängig sind. Für private Repositorys werden diese Informationen nicht im Bericht angezeigt.{% endif %}
 
-## Using the dependency graph
+## Verwenden des Abhängigkeitsdiagramms
 
-You can use the dependency graph to:
+Du kannst das Abhängigkeitsdiagramm verwenden, um folgende Aktionen auszuführen:
 
-- Explore the repositories your code depends on{% ifversion fpt or ghec %}, and those that depend on it{% endif %}. For more information, see "[Exploring the dependencies of a repository](/github/visualizing-repository-data-with-graphs/exploring-the-dependencies-of-a-repository)." {% ifversion ghec %}
-- View a summary of the dependencies used in your organization's repositories in a single dashboard. For more information, see "[Viewing insights for your organization](/articles/viewing-insights-for-your-organization#viewing-organization-dependency-insights)."{% endif %}
-- View and update vulnerable dependencies for your repository. For more information, see "[About {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)."{% ifversion fpt or ghes or ghec %}
-- See information about vulnerable dependencies in pull requests. For more information, see "[Reviewing dependency changes in a pull request](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-dependency-changes-in-a-pull-request)."{% endif %}
+- Erkunden der Repositorys, von denen dein Code abhängig ist,{% ifversion fpt or ghec %}, und denen, die von ihm abhängig sind{% endif %}. Weitere Informationen findest du unter [Untersuchen der Abhängigkeiten eines Repositorys](/github/visualizing-repository-data-with-graphs/exploring-the-dependencies-of-a-repository). {% ifversion ghec %}
+- Anzeigen einer Zusammenfassung der in den Repositorys deiner Organisation verwendeten Abhängigkeiten in einem einzelnen Dashboard. Weitere Informationen findest du unter [Anzeigen von Erkenntnissen zu deiner Organisation](/articles/viewing-insights-for-your-organization#viewing-organization-dependency-insights).{% endif %}
+- Anzeigen und Aktualisieren von sicherheitsanfälligen Abhängigkeiten für dein Repository. Weitere Informationen findest du unter [Informationen zu {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies). {% ifversion fpt or ghes or ghec %}
+- Informationen zu sicherheitsanfälligen Abhängigkeiten in Pull Requests. Weitere Informationen findest du unter [Überprüfen von Abhängigkeitsänderungen in einem Pull Request](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-dependency-changes-in-a-pull-request).{% endif %}
 
-## Supported package ecosystems
+## Unterstützte Paket-Ökosysteme
 
-The recommended formats explicitly define which versions are used for all direct and all indirect dependencies. If you use these formats, your dependency graph is more accurate. It also reflects the current build set up and enables the dependency graph to report vulnerabilities in both direct and indirect dependencies.{% ifversion fpt or ghec %} Indirect dependencies that are inferred from a manifest file (or equivalent) are excluded from the checks for insecure dependencies.{% endif %}
+Die empfohlenen Formate definieren explizit, welche Versionen für alle direkten und indirekten Abhängigkeiten verwendet werden. Wenn du diese Formate verwendest, ist dein Abhängigkeitsdiagramm genauer. Außerdem wird der aktuelle Build eingerichtet und ermöglicht es dem Abhängigkeitsdiagramm, Sicherheitsrisiken sowohl in direkten als auch indirekten Abhängigkeiten zu melden.{% ifversion fpt or ghec %} Aus einer Manifestdatei (oder deren Entsprechung) abgeleitete indirekte Abhängigkeiten werden aus den Prüfungen auf unsichere Abhängigkeiten ausgeschlossen.{% endif %}
 
-| Package manager | Languages | Recommended formats | All supported formats |
+| Paket-Manager | Languages | Empfohlene Formate | Alle unterstützten Formate |
 | --- | --- | --- | ---|
-{%- ifversion dependency-graph-rust-support %}
-| Cargo | Rust | `Cargo.lock` | `Cargo.toml`, `Cargo.lock` | 
-{%- endif %}
-| Composer             | PHP           | `composer.lock` | `composer.json`, `composer.lock` |
-| NuGet | .NET languages (C#, F#, VB), C++  |   `.csproj`, `.vbproj`, `.nuspec`, `.vcxproj`, `.fsproj` |  `.csproj`, `.vbproj`, `.nuspec`, `.vcxproj`, `.fsproj`, `packages.config` |
-{%- ifversion github-actions-in-dependency-graph %}
-| {% data variables.product.prodname_actions %} workflows<sup>[†]</sup> | YAML | `.yml`, `.yaml` | `.yml`, `.yaml` |
-{%- endif %}
-| Go modules | Go | `go.sum` | `go.mod`, `go.sum` |
-| Maven | Java, Scala |  `pom.xml`  | `pom.xml`  |
-| npm | JavaScript |            `package-lock.json` | `package-lock.json`, `package.json`|
-| pip             | Python                    | `requirements.txt`, `pipfile.lock` | `requirements.txt`, `pipfile`, `pipfile.lock`, `setup.py`<sup>[‡]</sup> |
-{%- ifversion dependency-graph-dart-support %}
-| pub             | Dart                    | `pubspec.lock` | `pubspec.yaml`, `pubspec.lock` |
-{%- endif %}
-{%- ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
-| Python Poetry | Python                    | `poetry.lock` | `poetry.lock`, `pyproject.toml` |
-{%- endif %}
-| RubyGems             | Ruby           | `Gemfile.lock` | `Gemfile.lock`, `Gemfile`, `*.gemspec` |
-| Yarn | JavaScript | `yarn.lock` | `package.json`, `yarn.lock` |
+{%- ifversion dependency-graph-rust-support %} | Cargo | Rust | `Cargo.lock` | `Cargo.toml`, `Cargo.lock` | {%- endif %} | Composer             | PHP           | `composer.lock` | `composer.json`, `composer.lock` | | NuGet | .NET-Sprachen (C#, F#, VB), C++  |   `.csproj`, `.vbproj`, `.nuspec`, `.vcxproj`, `.fsproj` |  `.csproj`, `.vbproj`, `.nuspec`, `.vcxproj`, `.fsproj`, `packages.config` | {%- ifversion github-actions-in-dependency-graph %} | {% data variables.product.prodname_actions %}-Workflows<sup>[†]</sup> | YAML | `.yml`, `.yaml` | `.yml`, `.yaml` | {%- endif %} | Go-Module | Go | `go.sum` | `go.mod`, `go.sum` | | Maven | Java, Scala |  `pom.xml`  | `pom.xml`  | | npm | JavaScript |            `package-lock.json` | `package-lock.json`, `package.json`| | pip             | Python                    | `requirements.txt`, `pipfile.lock` | `requirements.txt`, `pipfile`, `pipfile.lock`, `setup.py`<sup>[‡]</sup> | {%- ifversion dependency-graph-dart-support %} | pub             | Dart                    | `pubspec.lock` | `pubspec.yaml`, `pubspec.lock` | {%- endif %} {%- ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %} | Python Poetry | Python                    | `poetry.lock` | `poetry.lock`, `pyproject.toml` | {%- endif %} | RubyGems             | Ruby           | `Gemfile.lock` | `Gemfile.lock`, `Gemfile`, `*.gemspec` | | Yarn | JavaScript | `yarn.lock` | `package.json`, `yarn.lock` |
 
-{% ifversion github-actions-in-dependency-graph %}
-[†] {% data reusables.enterprise.3-5-missing-feature %} {% data variables.product.prodname_actions %} workflows must be located in the `.github/workflows/` directory of a repository to be recognized as manifests. Any actions or workflows referenced using the syntax `jobs[*].steps[*].uses` or `jobs.<job_id>.uses` will be parsed as dependencies. For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/using-workflows/workflow-syntax-for-github-actions)."
+{% ifversion github-actions-in-dependency-graph %} [†] {% data reusables.enterprise.3-5-missing-feature %} {% data variables.product.prodname_actions %}-Workflows müssen sich im `.github/workflows/`-Verzeichnis eines Repositorys befinden, um als Manifeste erkannt zu werden. Alle Aktionen oder Workflows, auf die mithilfe der Syntax `jobs[*].steps[*].uses` oder `jobs.<job_id>.uses` verwiesen wird, werden als Abhängigkeiten analysiert. Weitere Informationen findest du unter [Workflowsyntax für {% data variables.product.prodname_actions %}](/actions/using-workflows/workflow-syntax-for-github-actions).
 
 {% endif %}
 
-[‡] If you list your Python dependencies within a `setup.py` file, we may not be able to parse and list every dependency in your project.
+[‡] Wenn du deine Python-Abhängigkeiten in einer `setup.py`-Datei auflistest, können wir möglicherweise nicht alle Abhängigkeiten in deinem Projekt analysieren und auflisten.
 
-{% ifversion github-actions-in-dependency-graph %}
-{% note %}
+{% ifversion github-actions-in-dependency-graph %} {% note %}
 
-**Note:** {% data variables.product.prodname_actions %} workflow dependencies are displayed in the dependency graph for informational purposes. Dependabot alerts are not currently supported for {% data variables.product.prodname_actions %} workflows.
+**Hinweis:** {% data variables.product.prodname_actions %} Workflowabhängigkeiten werden im Abhängigkeitsdiagramm zu Informationszwecken angezeigt. Dependabot-Warnungen werden für {% data variables.product.prodname_actions %}-Workflows derzeit nicht unterstützt.
 
-{% endnote %}
-{% endif %}
+{% endnote %} {% endif %}
 
-{% ifversion dependency-submission-api %}You can use the Dependency submission API (beta) to add dependencies from the package manager or ecosystem of your choice to the dependency graph, even if the ecosystem is not in the supported ecosystem list above. The dependency graph will display the submitted dependencies grouped by ecosystem, but separately from the dependencies parsed from manifest or lock files. You will only get {% data variables.product.prodname_dependabot_alerts %} for dependencies that are from one of the [supported ecosystems](https://github.com/github/advisory-database#supported-ecosystems) of the {% data variables.product.prodname_advisory_database %}. For more information on the Dependency submission API, see "[Using the Dependency submission API](/code-security/supply-chain-security/understanding-your-software-supply-chain/using-the-dependency-submission-api)."{% endif %}
-## Further reading
+{% ifversion dependency-submission-api %}Du kannst die Abhängigkeitsübermittlungs-API (Beta) verwenden, um Abhängigkeiten aus dem Paket-Manager oder dem Ökosystem deiner Wahl zum Abhängigkeitsdiagramm hinzuzufügen, selbst dann, wenn sich das Ökosystem nicht in der Liste der unterstützen Ökosysteme (oben) befindet. Das Abhängigkeitsdiagramm zeigt die übermittelten Abhängigkeiten nach Ökosystemen gruppiert an, jedoch getrennt von den aus Manifest- oder Sperrdateien geparsten Abhängigkeiten. Du empfängst {% data variables.product.prodname_dependabot_alerts %} nur für Abhängigkeiten, die von einem der [unterstützten Ökosysteme](https://github.com/github/advisory-database#supported-ecosystems) von {% data variables.product.prodname_advisory_database %} stammen. Weitere Informationen zur Abhängigkeitsübermittlungs-API findest du unter [Verwenden der Abhängigkeitsübermittlungs-API](/code-security/supply-chain-security/understanding-your-software-supply-chain/using-the-dependency-submission-api).{% endif %}
+## Weiterführende Themen
 
-- "[Dependency graph](https://en.wikipedia.org/wiki/Dependency_graph)" on Wikipedia
-- "[Exploring the dependencies of a repository](/github/visualizing-repository-data-with-graphs/exploring-the-dependencies-of-a-repository)"
-- "[Viewing and updating {% data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts)"
-- "[Troubleshooting the detection of vulnerable dependencies](/github/managing-security-vulnerabilities/troubleshooting-the-detection-of-vulnerable-dependencies)"
+- "[Abhängigkeitsdiagramm](https://en.wikipedia.org/wiki/Dependency_graph)" auf Wikipedia
+- [Untersuchen der Abhängigkeiten eines Repositorys](/github/visualizing-repository-data-with-graphs/exploring-the-dependencies-of-a-repository)
+- [Anzeigen und Aktualisieren von {% data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts)
+- [Problembehandlung bei der Erkennung von anfälligen Abhängigkeiten](/github/managing-security-vulnerabilities/troubleshooting-the-detection-of-vulnerable-dependencies)
