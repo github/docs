@@ -1,6 +1,6 @@
 ---
 title: Search
-intro: 'The Search API lets you to search for specific items on {% data variables.product.product_name %}.'
+intro: 'Use the REST API to search for specific items on {% data variables.product.product_name %}.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -13,9 +13,9 @@ redirect_from:
   - /rest/reference/search
 ---
 
-## About the Search API
+## About search
 
-The Search API helps you search for the specific item you want to find. For example, you can find a user or a specific file in a repository. Think of it the way you think of performing a search on Google. It's designed to help you find the one result you're looking for (or maybe the few results you're looking for). Just like searching on Google, you sometimes want to see a few pages of search results so that you can find the item that best meets your needs. To satisfy that need, the {% data variables.product.product_name %} Search API provides **up to 1,000 results for each search**.
+You can use the REST API to search for the specific item you want to find. For example, you can find a user or a specific file in a repository. Think of it the way you think of performing a search on Google. It's designed to help you find the one result you're looking for (or maybe the few results you're looking for). Just like searching on Google, you sometimes want to see a few pages of search results so that you can find the item that best meets your needs. To satisfy that need, the {% data variables.product.product_name %} REST API provides **up to 1,000 results for each search**.
 
 You can narrow your search using queries. To learn more about the search query syntax, see "[Constructing a search query](/rest/reference/search#constructing-a-search-query)."
 
@@ -27,7 +27,7 @@ Unless another sort option is provided as a query parameter, results are sorted 
 
 {% data reusables.enterprise.rate_limit %}
 
-The Search API has a custom rate limit. For requests using [Basic
+The REST API has a custom rate limit for searching. For requests using [Basic
 Authentication](/rest#authentication), [OAuth](/rest#authentication), or [client
 ID and secret](/rest#increasing-the-unauthenticated-rate-limit-for-oauth-applications), you can make up to
 30 requests per minute. For unauthenticated requests, the rate limit allows you
@@ -38,7 +38,7 @@ determining your current rate limit status.
 
 ### Constructing a search query
 
-Each endpoint in the Search API uses [query parameters](https://en.wikipedia.org/wiki/Query_string) to perform searches on {% data variables.product.product_name %}. See the individual endpoint in the Search API for an example that includes the endpoint and query parameters.
+Each endpoint for searching uses [query parameters](https://en.wikipedia.org/wiki/Query_string) to perform searches on {% data variables.product.product_name %}. See the individual endpoints for examples that include the endpoint and query parameters.
 
 A query can contain any combination of search qualifiers supported on {% data variables.product.product_name %}. The format of the search query is:
 
@@ -67,7 +67,7 @@ quantities, dates, or to exclude results, see "[Understanding the search syntax]
 
 ### Limitations on query length
 
-The Search API does not support queries that:
+You cannot use queries that:
 - are longer than 256 characters (not including operators or qualifiers).
 - have more than five `AND`, `OR`, or `NOT` operators.
 
@@ -75,11 +75,11 @@ These search queries will return a "Validation failed" error message.
 
 ### Search scope limits
 
-To keep the Search API fast for everyone, we limit the number of repositories a query will search through. The Search API will find up to 4,000 repositories that match your filters and return results from those repositories.
+To keep the REST API fast for everyone, we limit the number of repositories a query will search through. The REST API will find up to 4,000 repositories that match your filters and return results from those repositories.
 
 ### Timeouts and incomplete results
 
-To keep the Search API fast for everyone, we limit how long any individual query
+To keep the REST API fast for everyone, we limit how long any individual query
 can run. For queries that [exceed the time limit](https://developer.github.com/changes/2014-04-07-understanding-search-results-and-potential-timeouts/),
 the API returns the matches that were already found prior to the timeout, and
 the response has the `incomplete_results` property set to `true`.
@@ -97,7 +97,7 @@ For example, if your search query searches for the `octocat/test` and `codertoca
 
 ### Text match metadata
 
-On GitHub, you can use the context provided by code snippets and highlights in search results. The Search API offers additional metadata that allows you to highlight the matching search terms when displaying search results.
+On {% data variables.product.prodname_dotcom %}, you can use the context provided by code snippets and highlights in search results. The endpoints for searching return additional metadata that allows you to highlight the matching search terms when displaying search results.
 
 ![code-snippet-highlighting](/assets/images/text-match-search-api.png)
 
