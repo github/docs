@@ -17,7 +17,7 @@ Additionally, download:
 
 **Note**: This step can be performed independently of all other steps, and can be done several days before or along with the other steps.
 
-- [ ] In the `docs-content` repo, remove the deprecated GHES version number from the `options` list in the following files (in the `.github/ISSUE_TEMPLATE/` directory): [`release-tier-1-or-2-tracking.yml`](https://github.com/github/docs-content/blob/main/.github/ISSUE_TEMPLATE/release-tier-1-or-2-tracking.yml) and [`release-tier-3-or-tier-4.yml`](https://github.com/github/docs-content/blob/main/.github/ISSUE_TEMPLATE/release-tier-3-or-tier-4.yml).
+- [ ] In the `docs-content` repo, remove the deprecated GHES version number from the `options` list in [`release-tracking.yml`](https://github.com/github/docs-content/blob/main/.github/ISSUE_TEMPLATE/release-tracking.yml).
 - [ ] When the PR is approved, merge it in. This can be merged independently from all other steps.
 
 ## Step 1: Scrape the docs and archive the files

@@ -3,19 +3,15 @@ import yaml from 'js-yaml'
 import path from 'path'
 
 import { allVersions } from '../../../lib/all-versions.js'
+const OPEN_API_RELEASES_DIR = path.join('..', 'github', '/app/api/description/config/releases')
 
 // Gets the full list of unpublished + active, deprecated + active,
 // or active schemas from the github/github repo
 // `openApiReleaseDir` is the path to the `app/api/description/config/releases`
 // directory in `github/github`
 // You can also specify getting specific versions of schemas.
-export async function getSchemas(
-  openApiReleaseDir,
-  includeDeprecated = false,
-  includeUnpublished = false,
-  versions = []
-) {
-  const openAPIConfigs = await readdir(openApiReleaseDir)
+export async function getSchemas(directory = OPEN_API_RELEASES_DIR) {
+  const openAPIConfigs = await readdir(directory)
   const unpublished = []
   const deprecated = []
   const currentReleases = []
@@ -25,7 +21,7 @@ export async function getSchemas(
   for (const file of openAPIConfigs) {
     const fileBaseName = path.basename(file, '.yaml')
     const newFileName = `${fileBaseName}.deref.json`
-    const content = await readFile(path.join(openApiReleaseDir, file), 'utf8')
+    const content = await readFile(path.join(directory, file), 'utf8')
     const yamlContent = yaml.load(content)
 
     const isDeprecatedInDocs = !Object.keys(allVersions).find(
@@ -49,22 +45,11 @@ export async function getSchemas(
     }
   }
 
-  const allSchemas = { currentReleases, unpublished, deprecated }
-  if (versions.length) {
-    await validateVersionsOptions(allSchemas, versions)
-    return versions.map((elem) => `${elem}.deref.json`)
-  }
-  const schemas = allSchemas.currentReleases
-  if (includeUnpublished) {
-    schemas.push(...allSchemas.unpublished)
-  }
-  if (includeDeprecated) {
-    schemas.push(...allSchemas.deprecated)
-  }
-  return schemas
+  return { currentReleases, unpublished, deprecated }
 }
 
-async function validateVersionsOptions(schemas, versions) {
+export async function validateVersionsOptions(versions) {
+  const schemas = await getSchemas()
   // Validate individual versions provided
   versions.forEach((version) => {
     if (
