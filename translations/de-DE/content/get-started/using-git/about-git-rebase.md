@@ -1,5 +1,5 @@
 ---
-title: About Git rebase
+title: Informationen zu Git-Rebase
 redirect_from:
   - /rebase
   - /articles/interactive-rebase
@@ -7,68 +7,74 @@ redirect_from:
   - /github/using-git/about-git-rebase
   - /github/getting-started-with-github/about-git-rebase
   - /github/getting-started-with-github/using-git/about-git-rebase
-intro: 'The `git rebase` command allows you to easily change a series of commits, modifying the history of your repository. You can reorder, edit, or squash commits together.'
+intro: 'Mit dem Befehl `git rebase` kannst du schnell und einfach mehrere Commits auf einmal ändern und den Verlauf deines Repositorys anpassen. Du kannst Commits neu anordnen, bearbeiten oder squashen.'
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
   ghec: '*'
+ms.openlocfilehash: 5ffa3cbb1fcb6c8c37e56e434b08018582a0ff2b
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145104588'
 ---
-Typically, you would use `git rebase` to:
+Normalerweise würdest du Folgendes verwenden `git rebase`:
 
-* Edit previous commit messages
-* Combine multiple commits into one
-* Delete or revert commits that are no longer necessary
+* Frühere Commit-Mitteilungen bearbeiten
+* Mehrere Commits zu einem einzigen zusammenfassen
+* Commits, die nicht mehr benötigt werden, löschen oder rückgängig machen
 
 {% warning %}
 
-**Warning**: Because changing your commit history can make things difficult for everyone else using the repository, it's considered bad practice to rebase commits when you've already pushed to a repository. To learn how to safely rebase on {% data variables.location.product_location %}, see "[About pull request merges](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges)."
+**Warnung**: Da die Änderung deines Commit-Verlaufs zu Schwierigkeiten für alle anderen Benutzer des Repositorys führen kann, gilt ein Commit-Rebase nach dem Push an ein Repository als schlechte Praktik. Informationen zu einem sicheren Rebase auf {% data variables.product.product_location %} findest du unter „[Informationen zum Zusammenführen von Pull Requests](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges)“.
 
 {% endwarning %}
 
-## Rebasing commits against a branch
+## Commit-Rebase gegen einen Branch
 
-To rebase all the commits between another branch and the current branch state, you can enter the following command in your shell (either the command prompt for Windows, or the terminal for Mac and Linux):
+Um ein Rebase für alle Commits zwischen einem anderen Branch und dem aktuellen Branch-Status durchzuführen, kannst du den folgenden Befehl in deiner Shell eingeben (entweder die Eingabeaufforderung unter Windows oder das Terminal unter Mac und Linux):
 
 ```shell
-$ git rebase --interactive OTHER-BRANCH-NAME
+$ git rebase --interactive <em>other_branch_name</em>
 ```
 
-## Rebasing commits against a point in time
+## Commit-Rebase anhand eines Zeitpunkts
 
-To rebase the last few commits in your current branch, you can enter the following command in your shell:
+Um ein Rebase für die letzten Commits in deinem aktuellen Branch durchzuführen, kannst du den folgenden Befehl in deiner Shell eingeben:
 
 ```shell
 $ git rebase --interactive HEAD~7
 ```
 
-## Commands available while rebasing
+## Während des Rebasings verfügbare Befehle
 
-There are six commands available while rebasing:
+Beim Rebasing stehen sechs Befehle zur Verfügung:
 
 <dl>
 <dt><code>pick</code></dt>
-<dd><code>pick</code> simply means that the commit is included. Rearranging the order of the <code>pick</code> commands changes the order of the commits when the rebase is underway. If you choose not to include a commit, you should delete the entire line. </dd>
+<dd><code>pick</code> bedeutet einfach, dass der Commit enthalten ist. Wenn du die Reihenfolge der <code>pick</code>-Befehle neu anordnest, ändert sich die Reihenfolge der Commits während des Rebasings. Wenn du keinen Commit einbeziehen möchtest, solltest du die gesamte Zeile löschen. </dd>
 
 <dt><code>reword</code></dt>
-<dd>The <code>reword</code> command is similar to <code>pick</code>, but after you use it, the rebase process will pause and give you a chance to alter the commit message. Any changes made by the commit are not affected. </dd>
+<dd>Der Befehl <code>reword</code> ist vergleichbar mit <code>pick</code>. Nachdem du ihn verwendet hast, wird der Rebase-Prozess jedoch angehalten, sodass du die Commitnachricht ändern kannst. Die Änderungen, die durch den Commit vorgenommen werden, sind davon nicht betroffen. </dd>
 
 <dt><code>edit</code></dt>
-<dd>If you choose to <code>edit</code> a commit, you'll be given the chance to amend the commit, meaning that you can add or change the commit entirely. You can also make more commits before you continue the rebase. This allows you to split a large commit into smaller ones, or, remove erroneous changes made in a commit. </dd>
+<dd>Wenn du <code>edit</code> für einen Commit auswählst, hast du die Möglichkeit, den Commit zu ändern, was bedeutet, dass du den Commit hinzufügen oder komplett ändern kannst. Du kannst auch zusätzliche Commits erstellen, bevor du mit dem Rebasing fortfährst. Auf diese Weise kannst du einen großen Commit in kleinere aufteilen oder fehlerhafte Änderungen, die in einem Commit vorgenommen wurden, entfernen. </dd>
 
 <dt><code>squash</code></dt>
-<dd>This command lets you combine two or more commits into a single commit. A commit is squashed into the commit above it. Git gives you the chance to write a new commit message describing both changes.</dd>
+<dd>Mit diesem Befehl kannst du zwei oder mehr Commits zu einem einzigen Commit zusammenfassen. Ein Commit wird in den Commit darüber eingefügt. Git gibt Dir die Möglichkeit, eine neue Commit-Mitteilung zu schreiben, die beide Änderungen beschreibt.</dd>
 
 <dt><code>fixup</code></dt>
-<dd>This is similar to <code>squash</code>, but the commit to be merged has its message discarded. The commit is simply merged into the commit above it, and the earlier commit's message is used to describe both changes.</dd>
+<dd>Dies ist vergleichbar mit <code>squash</code>. Allerdings wird die Nachricht des zusammenzuführenden Commits verworfen. Der Commit wird einfach in den Commit darüber zusammengefügt, und die Mitteilung des vorstehenden Commits wird verwendet, um beide Änderungen zu beschreiben.</dd>
 
 <dt><code>exec</code></dt>
-<dd>This lets you run arbitrary shell commands against a commit.</dd>
+<dd>Hiermit kannst du beliebige Shell-Befehle auf einem Commit ausführen.</dd>
 </dl>
 
-## An example of using `git rebase`
+## Hier ist ein Beispiel zur Verwendung von `git rebase`.
 
-No matter which command you use, Git will launch [your default text editor](/github/getting-started-with-github/associating-text-editors-with-git) and open a file that details the commits in the range you've chosen. That file looks something like this:
+Unabhängig davon, welchen Befehl du verwendest, startet Git deinen [Standard-Text-Editor](/github/getting-started-with-github/associating-text-editors-with-git) und öffnet eine Datei, die die Commits im ausgewählten Bereich enthält. Diese Datei sieht in etwa so aus:
 
 ```
 pick 1fc6c95 Patch A
@@ -94,18 +100,18 @@ pick 7b36971 something to move before patch B
 #
 ```
 
-Breaking this information, from top to bottom, we see that:
+Wenn man diese Informationen von oben nach unten betrachtet, wird Folgendes deutlich:
 
-- Seven commits are listed, which indicates that there were seven changes between our starting point and our current branch state.
-- The commits you chose to rebase are sorted in the order of the oldest changes (at the top) to the newest changes (at the bottom).
-- Each line lists a command (by default, `pick`), the commit SHA, and the commit message. The entire `git rebase` procedure centers around your manipulation of these three columns. The changes you make are *rebased* onto your repository.
-- After the commits, Git tells you the range of commits we're working with (`41a72e6..7b36971`).
-- Finally, Git gives some help by telling you the commands that are available to you when rebasing commits.
+- Es werden sieben Commits aufgelistet, was darauf hindeutet, dass es sieben Änderungen zwischen unserem Startpunkt und unserem aktuellen Branch-Status gab.
+- Die Commits, die du für das Rebasing ausgewählt hast, werden in der Reihenfolge der ältesten Änderungen (oben) bis hin zu den neuesten Änderungen (unten) sortiert.
+- In jeder Zeile sind ein Befehl (standardmäßig `pick`), der Commit-SHA und die Commitnachricht aufgeführt. Beim gesamten `git rebase`-Verfahren geht es um die Änderung dieser drei Spalten. Die vorgenommenen Änderungen stellen ein *Rebase* auf dein Repository dar.
+- Nach den Commits erfährst du in Git, mit welchem Commitbereich wir arbeiten (`41a72e6..7b36971`).
+- Schließlich bietet Git etwas Unterstützung, indem es Dir die Befehle nennt, die Dir beim Rebasing von Commits zur Verfügung stehen.
 
-## Further reading
+## Weitere Informationsquellen
 
-- "[Using Git rebase](/articles/using-git-rebase)"
-- [The "Git Branching" chapter from the _Pro Git_ book](https://git-scm.com/book/en/Git-Branching-Rebasing)
-- [The "Interactive Rebasing" chapter from the _Pro Git_ book](https://git-scm.com/book/en/Git-Tools-Rewriting-History#_changing_multiple)
-- "[Squashing commits with rebase](http://gitready.com/advanced/2009/02/10/squashing-commits-with-rebase.html)"
-- "[Syncing your branch](/desktop/contributing-to-projects/syncing-your-branch)" in the {% data variables.product.prodname_desktop %} documentation
+- [Verwenden von Git-Rebase](/articles/using-git-rebase)
+- [Kapitel „Git-Branching“ im _Pro Git_-Buch](https://git-scm.com/book/en/Git-Branching-Rebasing)
+- [Kapitel „Interaktives Rebasing“ im _Pro Git_-Buch](https://git-scm.com/book/en/Git-Tools-Rewriting-History#_changing_multiple)
+- [Commit-Squashing mit Rebase](http://gitready.com/advanced/2009/02/10/squashing-commits-with-rebase.html)
+- „[Synchronisieren deines Branchs](/desktop/contributing-to-projects/syncing-your-branch)“ in der {% data variables.product.prodname_desktop %}-Dokumentation

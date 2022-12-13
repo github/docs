@@ -1,0 +1,23 @@
+date: '09.11.2021'
+sections:
+  security_fixes:
+    - "Ein Path Traversal-Sicherheitsrisiko wurde in {% data variables.product.prodname_pages %}-Builds auf {% data variables.product.prodname_ghe_server %} erkannt, wodurch ein Angreifer Systemdateien lesen konnte. Um dieses Sicherheitsrisiko auszunutzen, benötigte ein Angreifer die Berechtigung zum Erstellen einer {% data variables.product.prodname_pages %}-Website in der {% data variables.product.prodname_ghe_server %}-Instanz. Dieses Sicherheitsrisiko betraf alle Versionen von {% data variables.product.prodname_ghe_server %} vor Version 3.3 und wurde in den Versionen 3.0.19, 3.1.11 und 3.2.3 behoben. Dieses Sicherheitsrisiko wurde über das Bug Bounty-Programm von {% data variables.product.company_short %} gemeldet, und ihm wurde CVE-2021-22870 zugeordnet."
+    - Die Pakete wurden auf die neuesten Sicherheitsversionen aktualisiert.
+  bugs:
+    - "Bei einigen Git-Vorgänge traten nach dem Upgrade eines {% data variables.product.prodname_ghe_server %} 3.x-Clusters aufgrund der HAProxy-Konfiguration Fehler auf."
+    - Die Anzahl der Unicorn-Worker wurde möglicherweise im Clusteringmodus falsch festgelegt.
+    - Die Anzahl der Resqued-Worker wurde möglicherweise im Clusteringmodus falsch festgelegt.
+    - "Wenn der UFW-Status von Ubuntu (Uncomplicated Firewall) inaktiv war, hat ein Client dies nicht direkt in den Protokollen erkennen können."
+    - Einige Seiten und mit Git im Zusammenhang stehende Hintergrundaufgaben können möglicherweise nicht im Clustermodus mit bestimmten Clusterkonfigurationen ausgeführt werden.
+    - "Die Seite mit dem Unternehmensüberwachungsprotokoll hat keine Überwachungsereignisse für {% data variables.product.prodname_secret_scanning %} angezeigt."
+    - 'Benutzer wurden nicht über potenziell gefährliche bidirektionale Unicode-Zeichen beim Anzeigen von Dateien gewarnt. Weitere Informationen finden Sie unter [Warnung zu bidirektionalem Unicode-Text](https://github.co/hiddenchars) im {% data variables.product.prodname_blog %}.'
+    - "Hookshot Go hat Verteilungstypmetriken gesendet, die von Collectd nicht verarbeitet werden konnten, wodurch eine Erhöhung von Analysefehlern verursacht wurde."
+    - "In öffentlichen Repositorys wurden unerwartete Ergebnisse von {% data variables.product.prodname_secret_scanning %} mit dem Typ „Unbekanntes Token“ angezeigt."
+  known_issues:
+    - "In einer neu eingerichteten {% data variables.product.prodname_ghe_server %}-Instanz ohne Benutzer konnte ein Angreifer den ersten Administratorbenutzer erstellen."
+    - Benutzerdefinierte Firewallregeln werden während des Upgrades entfernt.
+    - "Nachverfolgte Git-LFS-Dateien, [die über die Webschnittstelle hochgeladen wurden](https://github.com/blog/2105-upload-files-to-your-repositories), werden dem Repository fälschlicherweise direkt hinzugefügt."
+    - "Issues können nicht geschlossen werden, wenn sie einen Permalink zu einem Blob im selben Repository enthalten und der Dateipfad des Blobs länger ist als 255 Zeichen."
+    - "Wenn die Option zum Durchsuchen von GitHub.com in GitHub Connect aktiviert ist, sind Issues in privaten und internen Repositorys nicht in den GitHub.com-Suchergebnissen enthalten."
+    - "Wenn ein Replikatknoten in einer Hochverfügbarkeitskonfiguration offline ist, kann {% data variables.product.product_name %} eventuell noch immer Anforderungen von {% data variables.product.prodname_pages %} an den Offlineknoten weiterleiten. Dadurch ist {% data variables.product.prodname_pages %} für Benutzer weniger verfügbar."
+    - "Ressourcengrenzwerte, die nur beim Verarbeiten von Pre-Receive-Hooks gelten, können bei manchen Pre-Receive-Hooks Fehler auslösen."

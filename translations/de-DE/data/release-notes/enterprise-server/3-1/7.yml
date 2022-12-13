@@ -1,0 +1,18 @@
+date: '2021-09-07'
+sections:
+  security_fixes:
+    - Die Pakete wurden auf die neuesten Sicherheitsversionen aktualisiert.
+  bugs:
+    - "Beim Nachbereiten eines neu hinzugefügten Replikatknotens durch Angeben seiner UUID mit `ghe-repl-teardown` tritt ein Fehler auf, ohne dass ein Fehler gemeldet wird, wenn die Replikation nicht gestartet wurde."
+    - "Builds von GitHub Pages wurden durch einen externen Proxy übergeben, wenn einer konfiguriert war."
+    - "Benutzerdefinierte Pre-Receive-Hooks, die Unterprozesse erstellen, wiesen keine `PATH`-Variable in ihrer Umgebung auf, was zum Fehler „Keine solche Datei oder Verzeichnis“ führt."
+    - "MySQL konnte während eines Upgrades ein Failover durchführen, wenn `mysql-auto-failover` aktiviert war."
+  known_issues:
+    - "Die npm-Registrierung von {% data variables.product.prodname_registry %} gibt in Metadatenantworten keine Zeitwerte mehr zurück. So sind erhebliche Leistungssteigerungen möglich. Die erforderlichen Daten zum Zurückgeben eines Zeitwerts in einer Metadatenantwort sind weiterhin verfügbar, und dieser Wert wird in Zukunft wieder zurückgegeben, sobald die vorhandenen Leistungsprobleme behoben sind."
+    - "Auf einem neu eingerichteten {% data variables.product.prodname_ghe_server %} ohne Benutzer*innen könnten Angreifer*innen den ersten Administratorbenutzer erstellen."
+    - Benutzerdefinierte Firewallregeln werden während des Upgrades entfernt.
+    - "Nachverfolgte Git-LFS-Dateien, [die über die Webschnittstelle hochgeladen wurden,](https://github.com/blog/2105-upload-files-to-your-repositories) werden dem Repository fälschlicherweise direkt hinzugefügt."
+    - "Issues können nicht geschlossen werden, wenn sie einen Permalink zu einem Blob im selben Repository enthalten und der Dateipfad des Blobs länger ist als 255 Zeichen."
+    - "Wenn „Benutzer können GitHub.com durchsuchen“ bei GitHub Connect aktiviert ist, sind Issues in privaten und internen Repositorys nicht in den GitHub.com-Suchergebnissen enthalten."
+    - "Wenn {% data variables.product.prodname_actions %} für {% data variables.product.prodname_ghe_server %} aktiviert ist, ist die Nachbereitung eines Replikatknotens mit `ghe-repl-teardown` erfolgreich, kann jedoch den Fehler `ERROR:Running migrations` zurückgeben."
+    - "Ressourcenbegrenzungen, die nur beim Verarbeiten von Pre-Receive-Hooks auftreten, können bei manchen Pre-Receive-Hooks Fehler auslösen."

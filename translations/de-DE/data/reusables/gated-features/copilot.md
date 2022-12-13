@@ -1,3 +1,11 @@
-{% data variables.product.prodname_copilot %} is available to {% data variables.product.company_short %} customers with a personal account on {% data variables.product.prodname_dotcom_the_website %} and {% data variables.product.prodname_ghe_cloud %} organizations owned by an enterprise account.<br><br>
+---
+ms.openlocfilehash: c408676063e80cca29eb7392181c00c4ecf7f76d
+ms.sourcegitcommit: d82f268a6f0236d1f4d2bf3d049974ada0170402
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 11/10/2022
+ms.locfileid: "148160774"
+---
+{% data variables.product.prodname_copilot %} ist für {% data variables.product.company_short %}-Kunden mit persönlichem Konto auf {% data variables.product.prodname_dotcom_the_website %} verfügbar. {% data reusables.copilot.emus-cannot-use-copilot %}<br><br>
 
-{% data variables.product.prodname_copilot %} is free to use for verified students, teachers, and maintainers of popular open source projects. If you are not a student, teacher, or maintainer of a popular open source project, you can try {% data variables.product.prodname_copilot %} for free with a one-time 60-day trial. After the free trial, you will need a paid subscription for continued use. For more information, see "[About billing for {% data variables.product.prodname_copilot %}](/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot)."
+{% data variables.product.prodname_copilot %} kann von verifizierten Student*innen, Lehrkräften und Verwalter*innen von beliebten Open Source-Projekten kostenlos verwendet werden. Wenn du kein(e) Student*in, Lehrkraft oder Verwalter*in von beliebten Open Source-Projekten bist, kannst du {% data variables.product.prodname_copilot %} mit einer einmaligen 60-Tage-Testversion kostenlos ausprobieren. Nach dem kostenlosen Test benötigst du ein kostenpflichtiges Abonnement für die weitere Nutzung. Weitere Informationen findest du unter [Informationen zur Abrechnung für {% data variables.product.prodname_copilot %}](/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot).

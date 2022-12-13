@@ -1,0 +1,30 @@
+date: '24.06.2021'
+sections:
+  security_fixes:
+    - Die Pakete wurden auf die neuesten Sicherheitsversionen aktualisiert.
+  bugs:
+    - In der Verwaltungskonsole konnte sich eine große Menge von Metriken des Typs „gauge-dependency-graph-api-dispatch_dispatch“ ansammeln.
+    - In Instanzen mit Google Cloud Platform konnte der SSHD-Dienst manchmal nicht gestartet werden.
+    - "Alte Upgradedateien sind auf dem Benutzerdatenträger verblieben, was manchmal dazu führte, dass kein Speicherplatz mehr verfügbar war."
+    - 'Von „gh-migrator“ wurde ein falscher Pfad zur zugehörigen Protokollausgabe angezeigt.'
+    - "Beim Importieren von Pull Requests durch ein Exportarchiv trat unbemerkt ein Fehler auf, wenn sie Überprüfungsanforderungen von Teams enthielten, die nicht im Archiv vorhanden waren."
+  changes:
+    - "Die {% data variables.product.prodname_actions %}-Runnerversion in GHES 3.1 wurde auf [v2.278.0](https://github.com/actions/runner/releases/tag/v2.278.0) aktualisiert."
+  known_issues:
+    - "Die npm-Registrierung von {% data variables.product.prodname_registry %} gibt in Metadatenantworten keinen Zeitwert mehr zurück. So sind erhebliche Leistungssteigerungen möglich. Die erforderlichen Daten zum Zurückgeben eines Zeitwerts in einer Metadatenantwort sind weiterhin verfügbar, und dieser Wert wird in Zukunft wieder zurückgegeben, sobald die vorhandenen Leistungsprobleme behoben wurden."
+    - "In einer neu eingerichteten {% data variables.product.prodname_ghe_server %}-Instanz ohne Benutzer konnte ein Angreifer den ersten Administratorbenutzer erstellen."
+    - Benutzerdefinierte Firewallregeln werden während des Upgrades entfernt.
+    - "Nachverfolgte Git LFS-Dateien, [die über die Webschnittstelle hochgeladen wurden](https://github.com/blog/2105-upload-files-to-your-repositories), werden dem Repository fälschlicherweise direkt hinzugefügt."
+    - "Issues können nicht geschlossen werden, wenn sie einen Permalink zu einem Blob im selben Repository enthalten und der Dateipfad des Blobs länger ist als 255 Zeichen."
+    - "Wenn die Option zum Durchsuchen von GitHub.com bei GitHub Connect aktiviert ist, sind Issues in privaten und internen Repositorys nicht in den GitHub.com-Suchergebnissen enthalten."
+    - |Nach dem Upgraden von 3.0.x auf 3.1.x kann bei GitHub Actions in manchen Fällen der Fehler „Beim Ausführen dieses Workflows ist ein unerwarteter Fehler aufgetreten“ auftreten. Stelle als Problemumgehung eine Verbindung mit der Verwaltungsshell (ssh) her, und führe Folgendes aus:
+
+```
+
+ghe-actions-console -s actions -c "Queue-ServiceJob -JobId 4DB1F4CF-19FD-40E0-A253-91288813DE8B"
+
+```
+
+|
+    - "Wenn {% data variables.product.prodname_actions %} für {% data variables.product.prodname_ghe_server %} aktiviert ist, ist die Nachbereitung eines Replikatknotens mit „ghe-repl-teardown“ erfolgreich. Dabei kann jedoch der Fehler „FEHLER: Aktive Migrationen“ zurückgegeben werden."
+    - "Ressourcenbegrenzungen, die nur beim Verarbeiten von Pre-Receive-Hooks auftreten, können bei manchen Pre-Receive-Hooks Fehler auslösen."

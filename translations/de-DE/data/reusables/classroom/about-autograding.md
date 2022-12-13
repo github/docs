@@ -1,1 +1,9 @@
-You can use autograding to automatically check a student's work for an assignment on {% data variables.product.prodname_classroom %}. You configure tests for an assignment, and the tests run immediately every time a student pushes to an assignment repository on {% data variables.location.product_location %}. The student can view the test results, make changes, and push to see new results.
+---
+ms.openlocfilehash: 861671360dc3718c5d796e9d07924952e221cbb7
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "145103387"
+---
+Du kannst die automatische Bewertung verwenden, um die Aufgaben eines Kursteilnehmers automatisch in {% data variables.product.prodname_classroom %} zu überprüfen. Du konfigurierst Tests für eine Aufgabe, und die Tests werden jedes Mal sofort ausgeführt, wenn ein Kursteilnehmer einen Push für ein Aufgabenrepository auf {% data variables.product.product_location %} ausführt. Der Kursteilnehmer kann die Testergebnisse anzeigen, Änderungen vornehmen und pushen, um neue Ergebnisse anzuzeigen.

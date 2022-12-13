@@ -1,0 +1,21 @@
+date: '2021-08-24'
+sections:
+  security_fixes:
+    - Die Pakete wurden auf die neuesten Sicherheitsversionen aktualisiert.
+  bugs:
+    - Beim Anhängen sehr großer Bilder oder animierter GIFs an Images oder Pull Requests tritt ein Fehler auf.
+    - Journald-Nachrichten zu automatischen Updates („Hinzufügen von beliebiger Zeit in h/m/s.“) wurden in „syslog“ protokolliert.
+    - 'Benutzerdefinierte Pre-Receive-Hooks, die eine Bash-Subshell verwendeten, gaben einen Fehler zurück: „Datei oder Verzeichnis nicht vorhanden“.'
+    - "Benutzerdefinierte Pre-Receive-Hooks, die Named Pipes (FIFOs) erstellt haben, stürzten ab oder reagierten nicht, was zu einem Timeoutfehler führte."
+    - Das Hinzufügen von Filtern zur erweiterten Suchseite für Überwachungsprotokolle füllte das Abfragetextfeld nicht in Echtzeit mit dem richtigen Facetpräfix und -wert.
+    - "Git-Hooks zur internen API, die zu Fehlern bei Anforderungen führen, gaben die Ausnahme „Nicht definierter Methodentext für \"success\":String (NoMethodError)“ zurück anstatt explizit „nil“."
+    - "Wenn eine Integration entfernt wurde, konnte auch eine nicht dazugehörige OAuth-Anwendung oder -Integration entfernt werden."
+    - "Wenn eine obligatorische Nachricht mit einem Emoji hinzugefügt wurde, wird beim Versuch, die Nachricht anzuzeigen oder zu ändern der interne Serverfehler 500 zurückgegeben."
+  known_issues:
+    - "In einer neu eingerichteten {% data variables.product.prodname_ghe_server %}-Instanz ohne Benutzer konnte ein Angreifer den ersten Administratorbenutzer erstellen."
+    - Benutzerdefinierte Firewallregeln werden während des Upgrades entfernt.
+    - "Nachverfolgte Git-LFS-Dateien, [die über die Webbenutzeroberfläche hochgeladen wurden](https://github.com/blog/2105-upload-files-to-your-repositories), werden dem Repository fälschlicherweise direkt hinzugefügt."
+    - "Issues können nicht geschlossen werden, wenn sie einen Permalink zu einem Blob im selben Repository enthalten und der Dateipfad des Blobs länger ist als 255 Zeichen."
+    - "Wenn die Option zum Durchsuchen von GitHub.com mit GitHub Connect aktiviert wird, sind Issues in privaten und internen Repositorys nicht in den GitHub.com-Suchergebnissen enthalten."
+    - "Wenn ein Replikatknoten in einer Hochverfügbarkeitskonfiguration offline ist, kann {% data variables.product.product_name %} eventuell noch immer Anfragen von {% data variables.product.prodname_pages %} an den Offlineknoten weiterleiten, was die Verfügbarkeit von {% data variables.product.prodname_pages %} für Benutzer verringert."
+    - "Ressourcengrenzwerte, die nur beim Verarbeiten von Pre-Receive-Hooks gelten, können bei manchen Pre-Receive-Hooks Fehler auslösen."

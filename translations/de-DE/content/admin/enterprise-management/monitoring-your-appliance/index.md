@@ -1,6 +1,6 @@
 ---
-title: Monitoring your appliance
-intro: 'As use of {% data variables.location.product_location %} increases over time, the utilization of system resources, like CPU, memory, and storage will also increase. You can configure monitoring and alerting so that you''re aware of potential issues before they become critical enough to negatively impact application performance or availability.'
+title: Überwachen deiner Appliance
+intro: 'Da die Nutzung von {% data variables.product.product_location %} mit der Zeit zunimmt, erhöht sich auch die Auslastung der Systemressourcen wie CPU, Arbeitsspeicher und Speicher. Du kannst die Überwachung und Warnungen so konfigurieren, dass du über potenzielle Probleme benachrichtigt wirst, bevor sie kritisch werden und sich negativ auf die Leistung oder Verfügbarkeit der Anwendung auswirken.'
 redirect_from:
   - /enterprise/admin/guides/installation/system-resource-monitoring-and-alerting
   - /enterprise/admin/guides/installation/monitoring-your-github-enterprise-appliance
@@ -18,5 +18,11 @@ children:
   - /monitoring-using-snmp
   - /about-system-logs
   - /generating-a-health-check-for-your-enterprise
+ms.openlocfilehash: 3232d21371c2ad18ff8a4ebc8dcf7ea603d152ac
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145104976'
 ---
 

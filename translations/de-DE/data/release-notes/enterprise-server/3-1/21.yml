@@ -1,0 +1,25 @@
+date: '2022-05-17'
+sections:
+  security_fixes:
+    - '**MITTEL:** Es wurde ein Sicherheitsproblem im nginx-Resolver identifiziert, bei dem ein Angreifer, der UDP-Pakete vom DNS-Server fälschen konnte, möglicherweise eine Überschreibung des 1-Byte-Arbeitsspeichers verursacht. Dies kann zum Absturz von Workerprozessen oder anderen potenziell schädlichen Auswirkungen führen. Dem Sicherheitsrisiko wurde [CVE-2021-23017](https://nvd.nist.gov/vuln/detail/CVE-2021-23017) zugeordnet.'
+    - "Die Aktionen „actions/checkout@v2“ und „actions/checkout@v3“ wurden aktualisiert, um neue Sicherheitsrisiken zu beheben, auf die im [Blogbeitrag zur Durchsetzung der Git-Sicherheit](https://github.blog/2022-04-12-git-security-vulnerability-announced/) aufmerksam gemacht wurde."
+    - Die Pakete wurden auf die neuesten Sicherheitsversionen aktualisiert. 
+  bugs:
+    - In einigen Clustertopologien hinterließ der Befehl „ghe-cluster-status“ leere Verzeichnisse in „/tmp“.
+    - SNMP protokollierte fälschlicherweise eine hohe Anzahl von „Cannot statfs“-Fehlermeldungen im Syslog.
+    - "Bei Instanzen, die mit SAML-Authentifizierung und integriertem Fallback konfiguriert sind, kam es für integrierte Benutzer zu einer Anmeldeschleife, wenn sie versuchten, sich über die nach dem Abmelden generierte Seite anzumelden."
+    - Bei der Verwendung von SAML-verschlüsselten Assertions wurden SSH-Schlüssel bei einigen Assertions nicht korrekt als verifiziert markiert.
+    - 'Die Seite mit den Releases gab einen 500-Fehler zurück, wenn das Repository Tags mit Nicht-ASCII-Zeichen enthielt. [Aktualisiert: 10.06.2022]'
+  changes:
+    - "Bei Hochverfügbarkeitskonfigurationen ist zu beachten, dass auf der Replikationsübersichtsseite in der Verwaltungskonsole nur die aktuelle Replikationskonfiguration und nicht der aktuelle Replikationsstatus angezeigt wird."
+    - "Bei der Aktivierung von {% data variables.product.prodname_registry %} sollte klargestellt werden, dass die Verwendung eines SAS-Tokens (Shared Access Signature) als Verbindungszeichenfolge nicht unterstützt wird."
+    - Supportbundles enthalten jetzt die Zeilenzahl von in MySQL gespeicherten Tabellen.
+  known_issues:
+    - "Die {% data variables.product.prodname_registry %}-npm-Registrierung gibt in Metadatenantworten keinen Zeitwert mehr zurück. So sind erhebliche Leistungssteigerungen möglich. Die erforderlichen Daten zum Zurückgeben eines Zeitwerts in einer Metadatenantwort sind weiterhin verfügbar, und dieser Wert wird in Zukunft wieder zurückgegeben, sobald die vorhandenen Leistungsprobleme behoben wurden."
+    - "Bei einer neu eingerichteten {% data variables.product.prodname_ghe_server %}-Instanz ohne Benutzer könnte ein Angreifer den ersten Administratorbenutzer erstellen."
+    - Benutzerdefinierte Firewallregeln werden während des Upgrades entfernt.
+    - "Nachverfolgte Git-LFS-Dateien, [die über die Webbenutzeroberfläche hochgeladen wurden](https://github.com/blog/2105-upload-files-to-your-repositories), werden dem Repository fälschlicherweise direkt hinzugefügt."
+    - "Issues können nicht geschlossen werden, wenn sie einen Permalink zu einem Blob im selben Repository enthalten und der Dateipfad des Blobs mehr als 255 Zeichen lang ist."
+    - "Wenn die Option zum Durchsuchen von GitHub.com mit {% data variables.product.prodname_github_connect %} aktiviert wird, sind Issues in privaten und internen Repositorys nicht in den {% data variables.product.prodname_dotcom_the_website %}-Suchergebnissen enthalten."
+    - "Wenn {% data variables.product.prodname_actions %} für {% data variables.product.prodname_ghe_server %} aktiviert ist, ist die Nachbereitung eines Replikatknotens mit „ghe-repl-teardown“ erfolgreich, kann jedoch den Fehler „ERROR:Running migrations“ zurückgeben."
+    - "Ressourcenbegrenzungen, die nur beim Verarbeiten von Pre-Receive-Hooks auftreten, können bei manchen Pre-Receive-Hooks Fehler auslösen."

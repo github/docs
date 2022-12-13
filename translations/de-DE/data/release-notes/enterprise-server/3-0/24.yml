@@ -1,0 +1,20 @@
+date: '2022-02-01'
+sections:
+  security_fixes:
+    - Die Pakete wurden auf die neuesten Sicherheitsversionen aktualisiert.
+  bugs:
+    - "Pages war nach einer MySQL-Geheimnisrotation nicht verfügbar, bis `nginx` manuell neu gestartet wurde."
+    - "Wenn der Wartungszeitplan mit einem ISO 8601-konformen Datum eingerichtet wird, stimmte die tatsächlich festgelegte Zeit nicht überein, da die Zeitzone nicht in UTC umgewandelt wurde."
+    - "Die Versionsnummer wurde nicht korrekt aktualisiert, nachdem ein Hotpatch mithilfe von `ghe-cluster-each` installiert wurde."
+    - In der Konsole wurden falsche Fehlermeldungen bezüglich `cloud-config.service` ausgegeben.
+    - "Wenn die CAS-Authentifizierung verwendet wurde und die Option „Gesperrte Benutzer reaktivieren“ aktiviert war, wurden gesperrte Benutzer*innen nicht automatisch reaktiviert."
+  changes:
+    - Der Datenverbindungseintrag von GitHub Connect umfasst nun die Anzahl von aktiven und inaktiven Benutzer*innen sowie die konfigurierte Inaktivitätsdauer.
+  known_issues:
+    - "Auf einem neu eingerichteten {% data variables.product.prodname_ghe_server %} ohne Benutzer*innen könnten Angreifer*innen den ersten Administratorbenutzer erstellen."
+    - Benutzerdefinierte Firewallregeln werden während des Upgrades entfernt.
+    - "Nachverfolgte Git-LFS-Dateien, [die über die Webschnittstelle hochgeladen wurden,](https://github.com/blog/2105-upload-files-to-your-repositories) werden dem Repository fälschlicherweise direkt hinzugefügt."
+    - "Issues können nicht geschlossen werden, wenn sie einen Permalink zu einem Blob im selben Repository enthalten und der Dateipfad des Blobs länger ist als 255 Zeichen."
+    - "Wenn „Benutzer können GitHub.com durchsuchen“ bei GitHub Connect aktiviert ist, sind Issues in privaten und internen Repositorys nicht in den GitHub.com-Suchergebnissen enthalten."
+    - "Wenn ein Replikatknoten in einer Hochverfügbarkeitskonfiguration offline ist, kann {% data variables.product.product_name %} eventuell noch immer Anforderungen von {% data variables.product.prodname_pages %} an den Offlineknoten weiterleiten, was die Verfügbarkeit von {% data variables.product.prodname_pages %} für die Benutzer*innen verringert."
+    - "Ressourcenbegrenzungen, die nur beim Verarbeiten von Pre-Receive-Hooks auftreten, können bei manchen Pre-Receive-Hooks Fehler auslösen."

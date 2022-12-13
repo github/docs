@@ -1,6 +1,6 @@
 ---
-title: Installing GitHub Enterprise Server on AWS
-intro: 'To install {% data variables.product.prodname_ghe_server %} on Amazon Web Services (AWS), you must launch an Amazon Elastic Compute Cloud (EC2) instance and create and attach a separate Amazon Elastic Block Store (EBS) data volume.'
+title: GitHub Enterprise Server auf AWS installieren
+intro: 'Zum Installieren von {% data variables.product.prodname_ghe_server %} in Amazon Web Services (AWS) musst du eine Amazon Elastic Compute Cloud-Instanz (EC2) starten und ein separates Amazon Elastic Block Store-Datenvolume (EBS) erstellen und anfügen.'
 redirect_from:
   - /enterprise/admin/guides/installation/installing-github-enterprise-on-aws
   - /enterprise/admin/installation/installing-github-enterprise-server-on-aws
@@ -14,133 +14,136 @@ topics:
   - Infrastructure
   - Set up
 shortTitle: Install on AWS
+ms.openlocfilehash: f91f2337cc13690d0476c836a15ec72a5c0685cb
+ms.sourcegitcommit: 5b1461b419dbef60ae9dbdf8e905a4df30fc91b7
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '147876966'
 ---
-## Prerequisites
+## Voraussetzungen
 
 - {% data reusables.enterprise_installation.software-license %}
-- You must have an AWS account capable of launching EC2 instances and creating EBS volumes. For more information, see the [Amazon Web Services website](https://aws.amazon.com/).
-- Most actions needed to launch {% data variables.location.product_location %} may also be performed using the AWS management console. However, we recommend installing the AWS command line interface (CLI) for initial setup. Examples using the AWS CLI are included below. For more information, see Amazon's guides "[Working with the AWS Management Console](http://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/getting-started.html)" and "[What is the AWS Command Line Interface](http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html)."
+- Du musst über ein AWS-Konto verfügen, mit dem EC2 Instances gestartet und EBS-Volumes erstellt werden können. Weitere Informationen findest du auf der [Amazon Web Services-Website](https://aws.amazon.com/).
+- Die meisten Aktionen, die zum Starten von {% data variables.product.product_location %} erforderlich sind, können auch mithilfe der AWS Management Console ausgeführt werden. Zur Ersteinrichtung solltest du jedoch die AWS-Befehlszeilen-Schnittstelle (CLI) installieren. Im Folgenden findest du Beispiele zur Verwendung der AWS-Befehlszeilen-Schnittstelle. Weitere Informationen findest du in den Leitfäden [Arbeiten mit der AWS Management Console](http://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/getting-started.html) und [Was ist die AWS Command Line Interface](http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html) von Amazon.
 
 {% note %}
 
-**Note:** At this time {% data variables.product.prodname_ghe_server %} does not support the use of the Amazon IDMSv2 Metadata API.
+**Hinweis:** Zu diesem Zeitpunkt unterstützt {% data variables.product.prodname_ghe_server %} die Verwendung der Amazon IDMSv2-Metadaten-API nicht.
 
 {% endnote %}
 
-This guide assumes you are familiar with the following AWS concepts:
+In diesem Leitfaden wird davon ausgegangen, dass du mit den folgenden AWS-Konzepten vertraut bist:
 
- - [Launching EC2 Instances](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/LaunchingAndUsingInstances.html)
- - [Managing EBS Volumes](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AmazonEBS.html)
- - [Using Security Groups](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html) (For managing network access to your instance)
- - [Elastic IP Addresses (EIP)](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html) (Strongly recommended for production environments)
- - [EC2 and Virtual Private Cloud](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-vpc.html) (If you plan to launch into a Virtual Private Cloud)
- - [AWS Pricing](https://aws.amazon.com/pricing/) (For calculating and managing costs)
+ - [Starten von EC2-Instanzen](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/LaunchingAndUsingInstances.html)
+ - [Verwalten von EBS-Volumes](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AmazonEBS.html)
+ - [Verwenden von Sicherheitsgruppen](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html) (zum Verwalten des Netzwerkzugriffs auf deine Instanz)
+ - [Elastische IP-Adressen (EIP)](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html) (in Produktionsumgebungen dringend empfohlen)
+ - [EC2 und Virtual Private Cloud](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-vpc.html) (wenn du den Start in einer Virtual Private Cloud planst)
+ - [AWS-Preise](https://aws.amazon.com/pricing/) (zum Berechnen und Verwalten der Kosten)
 
-For an architectural overview, see the "[AWS Architecture Diagram for Deploying GitHub Enterprise Server](/assets/images/installing-github-enterprise-server-on-aws.png)". 
+Eine Architekturübersicht findest du im [AWS-Architekturdiagramm für die Bereitstellung von GitHub Enterprise Server](/assets/images/installing-github-enterprise-server-on-aws.png). 
 
-This guide recommends the principle of least privilege when setting up {% data variables.location.product_location %} on AWS. For more information, refer to the [AWS Identity and Access Management (IAM) documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#grant-least-privilege).
+Dieser Leitfaden empfiehlt das Prinzip der geringsten Berechtigung beim Einrichten von {% data variables.product.product_location %} auf AWS. Weitere Informationen findest du in der [Dokumentation zu AWS Identity and Access Management (IAM)](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#grant-least-privilege).
 
-## Hardware considerations
+## Hardwareaspekte
 
 {% data reusables.enterprise_installation.hardware-considerations-all-platforms %}
 
-## Determining the instance type
+## Instanztyp bestimmen
 
-Before launching {% data variables.location.product_location %} on AWS, you'll need to determine the machine type that best fits the needs of your organization. To review the minimum requirements for {% data variables.product.product_name %}, see "[Minimum requirements](#minimum-requirements)."
+Bevor du {% data variables.product.product_location %} auf AWS startest, musst du den Computertyp ermitteln, der den Anforderungen deiner Organisation am besten entspricht. Informationen zum Überprüfen der Mindestanforderungen für {% data variables.product.product_name %} findest du unter [Mindestanforderungen](#minimum-requirements).
 
 {% data reusables.enterprise_installation.warning-on-scaling %}
 
 {% data reusables.enterprise_installation.aws-instance-recommendation %}
 
-## Selecting the {% data variables.product.prodname_ghe_server %} AMI
+## AMI für {% data variables.product.prodname_ghe_server %} auswählen
 
-You can select an Amazon Machine Image (AMI) for {% data variables.product.prodname_ghe_server %} using the {% data variables.product.prodname_ghe_server %} portal or the AWS CLI.
+Mithilfe des {% data variables.product.prodname_ghe_server %}-Portals oder der AWS CLI kannst du ein Amazon Machine Image (AMI) für {% data variables.product.prodname_ghe_server %} auswählen.
 
-AMIs for {% data variables.product.prodname_ghe_server %} are available in the AWS GovCloud (US-East and US-West) region. This allows US customers with specific regulatory requirements to run {% data variables.product.prodname_ghe_server %} in a federally compliant cloud environment. For more information on AWS's compliance with federal and other standards, see [AWS's GovCloud (US) page](http://aws.amazon.com/govcloud-us/) and [AWS's compliance page](https://aws.amazon.com/compliance/).
+AMIs für {% data variables.product.prodname_ghe_server %} sind in der AWS-Region „GovCloud“ („US-East“ und „US-West“) verfügbar. Dadurch können US-Kunden mit bestimmten gesetzlichen Anforderungen {% data variables.product.prodname_ghe_server %} in einer föderal konformen Cloud-Umgebung betreiben. Weitere Informationen zur Einhaltung von behördlichen und anderen Standards durch AWS findest du auf der [AWS-Seite zur GovCloud (US)](http://aws.amazon.com/govcloud-us/) und auf der [Complianceseite von AWS](https://aws.amazon.com/compliance/).
 
-### Using the {% data variables.product.prodname_ghe_server %} portal to select an AMI
+### {% data variables.product.prodname_ghe_server %}-Portl zur AMI-Auswahl verwenden
 
 {% data reusables.enterprise_installation.download-appliance %}
-3. Under "{% data variables.product.prodname_dotcom %} in the Cloud", select the "Select your platform" dropdown menu, and click **Amazon Web Services**.
-4. Select the "Select your AWS region" drop-down menu, and click your desired region.
-5. Take note of the AMI ID that is displayed.
+3. Wähle unter „{% data variables.product.prodname_dotcom %} in der Cloud“ das Dropdownmenü „Plattform auswählen“ aus, und klicke auf **Amazon Web Services**.
+4. Klicke im Dropdownmenü „AWS-Region auswählen“ auf die gewünschte Region.
+5. Notiere dich die angezeigte AMI-ID.
 
-### Using the AWS CLI to select an AMI
+### AWS CLI zur AMI-Auswahl verwenden
 
-1. Using the AWS CLI, get a list of {% data variables.product.prodname_ghe_server %} images published by {% data variables.product.prodname_dotcom %}'s AWS owner IDs (`025577942450` for GovCloud, and `895557238572` for other regions). For more information, see "[describe-images](http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-images.html)" in the AWS documentation.
+1. Rufe mithilfe der AWS CLI eine Liste der {% data variables.product.prodname_ghe_server %}-Images ab, die von den AWS-Inhaber-IDs (`025577942450` für GovCloud und `895557238572` für andere Regionen) von {% data variables.product.prodname_dotcom %} veröffentlicht wurden. Weitere Informationen findest du in der AWS-Dokumentation unter [describe-images](http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-images.html).
   ```shell
   aws ec2 describe-images \
-  --owners OWNER_ID \
+  --owners <em>OWNER ID</em> \
   --query 'sort_by(Images,&Name)[*].{Name:Name,ImageID:ImageId}' \
   --output=text
   ```
-2. Take note of the AMI ID for the latest {% data variables.product.prodname_ghe_server %} image.
+2. Notiere dich die AMI-ID für das neueste {% data variables.product.prodname_ghe_server %}-Image.
 
-## Creating a security group
+## Erstellen einer Sicherheitsgruppe
 
-If you're setting up your AMI for the first time, you will need to create a security group and add a new security group rule for each port in the table below. For more information, see the AWS guide "[Using Security Groups](http://docs.aws.amazon.com/cli/latest/userguide/cli-ec2-sg.html)."
+Bei der ersten AMI-Verwendung musst du eine Sicherheitsgruppe erstellen und für jeden in der folgenden Tabelle angegebenen Port eine neue Sicherheitsgruppenregel hinzufügen. Weitere Informationen findest du im AWS-Leitfaden zum [Verwenden von Sicherheitsgruppen](http://docs.aws.amazon.com/cli/latest/userguide/cli-ec2-sg.html).
 
-1. Using the AWS CLI, create a new security group. For more information, see "[create-security-group](http://docs.aws.amazon.com/cli/latest/reference/ec2/create-security-group.html)" in the AWS documentation.
+1. Erstelle an der AWS CLI eine neue Sicherheitsgruppe. Weitere Informationen findest du in der AWS-Dokumentation unter [create-security-group](http://docs.aws.amazon.com/cli/latest/reference/ec2/create-security-group.html).
   ```shell
-  $ aws ec2 create-security-group --group-name SECURITY_GROUP_NAME --description "SECURITY GROUP DESCRIPTION"
+  $ aws ec2 create-security-group --group-name <em>SECURITY_GROUP_NAME</em> --description "<em>SECURITY GROUP DESCRIPTION</em>"
   ```
 
-2. Take note of the security group ID (`sg-xxxxxxxx`) of your newly created security group.
+2. Notiere dir die Sicherheitsgruppen-ID (`sg-xxxxxxxx`) deiner neu erstellten Sicherheitsgruppe.
 
-3. Create a security group rule for each of the ports in the table below. For more information, see "[authorize-security-group-ingress](http://docs.aws.amazon.com/cli/latest/reference/ec2/authorize-security-group-ingress.html)" in the AWS documentation.
+3. Erstelle eine Sicherheitsgruppenregel für jeden der Ports in der folgenden Tabelle. Weitere Informationen findest du in der AWS-Dokumentation unter [authorize-security-group-ingress](http://docs.aws.amazon.com/cli/latest/reference/ec2/authorize-security-group-ingress.html).
   ```shell
-  $ aws ec2 authorize-security-group-ingress --group-id SECURITY_GROUP_ID --protocol PROTOCOL --port PORT_NUMBER --cidr SOURCE IP RANGE
+  $ aws ec2 authorize-security-group-ingress --group-id <em>SECURITY_GROUP_ID</em> --protocol <em>PROTOCOL</em> --port <em>PORT_NUMBER</em> --cidr <em>SOURCE IP RANGE</em>
   ```
-  This table identifies what each port is used for.
+  Diese Tabelle zeigt, wofür jeder Port verwendet wird.
 
   {% data reusables.enterprise_installation.necessary_ports %}
 
-## Creating the {% data variables.product.prodname_ghe_server %} instance
+## {% data variables.product.prodname_ghe_server %}-Instanz erstellen
 
-To create the instance, you'll need to launch an EC2 instance with your {% data variables.product.prodname_ghe_server %} AMI and attach an additional storage volume for your instance data. For more information, see "[Hardware considerations](#hardware-considerations)."
+Zum Erstellen der Instanz musst du eine EC-Instanz mit deinem {% data variables.product.prodname_ghe_server %}-AMI starten und ein zusätzliches Storage-Volume für deine Instanzdaten anhängen. Weitere Informationen findest du unter [Grundlegendes zur Hardware](#hardware-considerations).
 
 {% note %}
 
-**Note:** You can encrypt the data disk to gain an extra level of security and ensure that any data you write to your instance is protected. There is a slight performance impact when using encrypted disks. If you decide to encrypt your volume, we strongly recommend doing so **before** starting your instance for the first time.
- For more information, see the [Amazon guide on EBS encryption](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html).
+**Hinweis:** Du kannst den Datenträger für die Daten verschlüsseln, um eine zusätzliche Sicherheitsebene zu schaffen und sicherzustellen, dass alle Daten geschützt sind, die du auf deine Instanz schreibst. Die Verwendung verschlüsselter Disks wirkt sich geringfügig auf die Leistung aus. Wenn du dein Volume verschlüsseln möchtest, wird dringend empfohlen, dies zu erledigen, **bevor** du deine Instanz erstmals startest.
+Weitere Informationen findest du im [Amazon-Leitfaden zur EBS-Verschlüsselung](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html).
 
 {% endnote %}
 
 {% warning %}
 
-**Warning:** If you decide to enable encryption after you've configured your instance, you will need to migrate your data to the encrypted volume, which will incur some downtime for your users.
+**Warnung:** Wenn du die Verschlüsselung nach der Konfiguration deiner Instanz aktivierst, musst du deine Daten zum verschlüsselten Volume migrieren, was Ausfallzeiten für deine Benutzer*innen zur Folge hat.
 
 {% endwarning %}
 
-### Launching an EC2 instance
+### EC-Instanz starten
 
-In the AWS CLI, launch an EC2 instance using your AMI and the security group you created. Attach a new block device to use as a storage volume for your instance data, and configure the size based on your user license count. For more information, see "[run-instances](http://docs.aws.amazon.com/cli/latest/reference/ec2/run-instances.html)" in the AWS documentation.
+Starte an der AWS-CLI eine EC2-Instanz mit deinem AMI und der von dir erstellten Sicherheitsgruppe. Hänge ein neues Blockgerät an, das als ein Speicher-Volume für deine Instanzdaten verwendet werden soll, und konfiguriere die Größe anhand der Anzahl deiner Benutzerlizenzen. Weitere Informationen findest du in der AWS-Dokumentation unter [run-instances](http://docs.aws.amazon.com/cli/latest/reference/ec2/run-instances.html).
 
 ```shell
 aws ec2 run-instances \
-  --security-group-ids SECURITY_GROUP_ID \
-  --instance-type INSTANCE_TYPE \
-  --image-id AMI_ID \
-  --block-device-mappings '[{"DeviceName":"/dev/xvdf","Ebs":{"VolumeSize":SIZE,"VolumeType":"TYPE"}}]' \
-  --region REGION \
+  --security-group-ids <em>SECURITY_GROUP_ID</em> \
+  --instance-type <em>INSTANCE_TYPE</em> \
+  --image-id <em>AMI_ID</em> \
+  --block-device-mappings '[{"DeviceName":"/dev/xvdf","Ebs":{"VolumeSize":<em>SIZE</em>,"VolumeType":"<em>TYPE</em>"}}]' \
+  --region <em>REGION</em> \
   --ebs-optimized
 ```
 
-### Allocating an Elastic IP and associating it with the instance
+### Elastic IP zuordnen und mit der Instanz verknüpfen
 
-If this is a production instance, we strongly recommend allocating an Elastic IP (EIP) and associating it with the instance before proceeding to {% data variables.product.prodname_ghe_server %} configuration. Otherwise, the public IP address of the instance will not be retained after instance restarts. For more information, see "[Allocating an Elastic IP Address](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html#using-instance-addressing-eips-allocating)" and "[Associating an Elastic IP Address with a Running Instance](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html#using-instance-addressing-eips-associating)" in the Amazon documentation.  
+Wenn es sich hierbei um eine Produktionsinstanz handelt, wird dringend empfohlen, eine Elastic IP (EIP) zuzuordnen und sie mit der Instanz zu verknüpfen, bevor du zur {% data variables.product.prodname_ghe_server %}-Konfiguration weitergehst. Andernfalls wird die öffentliche IP-Adresse der Instanz nach dem Neustart der Instanz nicht beibehalten. Weitere Informationen findest du unter [Zuordnen einer elastischen IP-Adresse](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html#using-instance-addressing-eips-allocating) und [Zuordnen einer elastischen IP-Adresse zu einer ausgeführten Instanz](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html#using-instance-addressing-eips-associating) in der Amazon-Dokumentation.  
 
-Both primary and replica instances should be assigned separate EIPs in production High Availability configurations. For more information, see "[Configuring {% data variables.product.prodname_ghe_server %} for High Availability](/enterprise/admin/guides/installation/configuring-github-enterprise-server-for-high-availability/)."
+Den primären und Replikatinstanzen sollten in Hochverfügbarkeitskonfigurationen in der Produktion separate EIPs zugewiesen werden. Weitere Informationen findest du unter [Konfigurieren von {% data variables.product.prodname_ghe_server %} für Hochverfügbarkeit](/enterprise/admin/guides/installation/configuring-github-enterprise-server-for-high-availability/).
 
-## Configuring the {% data variables.product.prodname_ghe_server %} instance
+## {% data variables.product.prodname_ghe_server %}-Instanz konfigurieren
 
-{% data reusables.enterprise_installation.copy-the-vm-public-dns-name %}
-{% data reusables.enterprise_installation.upload-a-license-file %}
-{% data reusables.enterprise_installation.save-settings-in-web-based-mgmt-console %} For more information, see "[Configuring the {% data variables.product.prodname_ghe_server %} appliance](/enterprise/admin/guides/installation/configuring-the-github-enterprise-server-appliance)."
-{% data reusables.enterprise_installation.instance-will-restart-automatically %}
-{% data reusables.enterprise_installation.visit-your-instance %}
+{% data reusables.enterprise_installation.copy-the-vm-public-dns-name %} {% data reusables.enterprise_installation.upload-a-license-file %} {% data reusables.enterprise_installation.save-settings-in-web-based-mgmt-console %} Weitere Informationen findest du unter [Konfigurieren der {% data variables.product.prodname_ghe_server %}-Appliance](/enterprise/admin/guides/installation/configuring-the-github-enterprise-server-appliance).
+{% data reusables.enterprise_installation.instance-will-restart-automatically %} {% data reusables.enterprise_installation.visit-your-instance %}
 
-## Further reading
+## Weitere Informationsquellen
 
-- "[System overview](/enterprise/admin/guides/installation/system-overview)"{% ifversion ghes %}
-- "[About upgrades to new releases](/admin/overview/about-upgrades-to-new-releases)"{% endif %}
+- [Systemübersicht](/enterprise/admin/guides/installation/system-overview){% ifversion ghes %}
+- [Informationen zu Upgrades auf neue Releases](/admin/overview/about-upgrades-to-new-releases){% endif %}

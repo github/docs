@@ -1,6 +1,14 @@
-When using the `workflow_dispatch` event, you can optionally specify inputs that are passed to the workflow.
+---
+ms.openlocfilehash: 6a71d461562c3d6e390549739ac1f17cb274f3f2
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "146199793"
+---
+Bei Verwendung des `workflow_dispatch`-Ereignisses kannst du optional Eingaben angeben, die an den Workflow übergeben werden.
 
-The triggered workflow receives the inputs in the {% ifversion actions-unified-inputs %}`inputs`{% else %}`github.event.inputs`{% endif %} context. For more information, see "[Contexts]({% ifversion actions-unified-inputs %}/actions/learn-github-actions/contexts#inputs-context{% else %}/actions/learn-github-actions/contexts#github-context{% endif %})."
+Der ausgelöste Workflow empfängt die Eingaben im {% ifversion actions-unified-inputs %}`inputs`{% else %}`github.event.inputs`{% endif %}-Kontext. Weitere Informationen findest du unter [Kontexte]({% ifversion actions-unified-inputs %}/actions/learn-github-actions/contexts#inputs-context{% else %}/actions/learn-github-actions/contexts#github-context{% endif %}).
 
 {% data reusables.actions.inputs-vs-github-event-inputs %}
 
@@ -11,7 +19,7 @@ on:
       logLevel:
         description: 'Log level'
         required: true
-        default: 'warning' {% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
+        default: 'warning' {% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5511 %}
         type: choice
         options:
         - info
@@ -19,11 +27,11 @@ on:
         - debug {% endif %}
       print_tags:
         description: 'True to print to STDOUT'
-        required: true {% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
+        required: true {% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5511 %}
         type: boolean {% endif %}
       tags:
         description: 'Test scenario tags'
-        required: true {% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
+        required: true {% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5511 %}
         type: string
       environment:
         description: 'Environment to run tests against'

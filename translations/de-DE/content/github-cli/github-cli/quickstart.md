@@ -1,6 +1,6 @@
 ---
-title: GitHub CLI quickstart
-intro: 'Start using {% data variables.product.prodname_cli %} to work with {% data variables.product.company_short %} in the command line.'
+title: 'Schnellstart: GitHub CLI'
+intro: 'Verwende die {% data variables.product.prodname_cli %} zum Arbeiten mit {% data variables.product.company_short %} in der Befehlszeile.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,37 +11,41 @@ topics:
 type: overview
 allowTitleToDifferFromFilename: true
 shortTitle: Quickstart
+ms.openlocfilehash: 004f848e973aa66d19b9de6b922d65dba76f1aea
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145068538'
 ---
-
-## About {% data variables.product.prodname_cli %}
+## Informationen zu {% data variables.product.prodname_cli %}
 
 {% data reusables.cli.about-cli %}
 
-## Getting started
+## Erste Schritte
 
-1. [Install](https://github.com/cli/cli#installation) {% data variables.product.prodname_cli %} on macOS, Windows, or Linux.
-1. In the command line, authenticate to {% data variables.product.company_short %}.
+1. [Installiere](https://github.com/cli/cli#installation) {% data variables.product.prodname_cli %} unter macOS, Windows oder Linux.
+1. Authentifiziere dich in der Befehlszeile bei {% data variables.product.company_short %}.
 
   ```shell
   gh auth login
   ```
 
-  {% ifversion not fpt or ghec %}
-  To authenticate to {% data variables.location.product_location %}, use the `--hostname` flag.
+  {% ifversion not fpt or ghec %} Verwende das `--hostname`-Flag, um dich bei {% data variables.product.product_location %} zu authentifizieren.
 
   ```shell
-  gh auth login --hostname HOSTNAME
+  gh auth login --hostname <em>hostname</em>
   ```
 
   {% endif %}
-1. Start working with {% data variables.product.company_short %} in the command line. For example, find an issue to work on with `gh issue status` or `gh issue list --assignee @me`. Create a pull request with `gh pr create`. Review a pull request with `gh pr checkout`, `gh pr diff` and `gh pr review`.
+1. Beginne mit der Arbeit mit {% data variables.product.company_short %} in der Befehlszeile. Suche z. B. mit `gh issue status` oder `gh issue list --assignee @me` nach einem Issue, an dem du arbeiten möchtest. Erstelle einen Pull Request mit `gh pr create`. Überprüfe einen Pull Request mit `gh pr checkout`, `gh pr diff` und `gh pr review`.
 
-## Next steps
+## Nächste Schritte
 
-- Tell {% data variables.product.prodname_cli %} which text editor to use for commands that open a text editor. For example, enter `gh config set editor "code -w"` to set your preferred text editor to {% data variables.product.prodname_vscode %}. For more information, see [`gh config set`](https://cli.github.com/manual/gh_config_set).
+- Informiere die {% data variables.product.prodname_cli %}, welcher Text-Editor für Befehle verwendet werden soll, die einen Text-Editor öffnen. Gib beispielsweise `gh config set editor "code -w"` ein, um ihren bevorzugten Text-Editor auf {% data variables.product.prodname_vscode %} festzulegen. Weitere Informationen findest du unter [`gh config set`](https://cli.github.com/manual/gh_config_set).
 
-- Define aliases for commands that you commonly run. For example, if you run `gh alias set prd "pr create --draft"`, you will then be able to run `gh prd` to quickly open a draft pull request. For more information, see [`gh alias`](https://cli.github.com/manual/gh_alias).
+- Definiere Aliase für Befehle, die du häufig ausführst. Wenn du z. B. `gh alias set prd "pr create --draft"` ausführst, kannst du `gh prd` ausführen, um schnell einen Entwurfs-Pull Request zu öffnen. Weitere Informationen findest du unter [`gh alias`](https://cli.github.com/manual/gh_alias).
 
-- Create or add custom commands with {% data variables.product.prodname_cli %} extensions. For more information, see "[Using {% data variables.product.prodname_cli %} extensions](/github-cli/github-cli/using-github-cli-extensions)" and "[Creating {% data variables.product.prodname_cli %} extensions](/github-cli/github-cli/creating-github-cli-extensions)."
+- Erstelle benutzerdefinierte Befehle mit {% data variables.product.prodname_cli %}-Erweiterungen, oder füge sie hinzu. Weitere Informationen findest du unter [Verwenden von {% data variables.product.prodname_cli %}-Erweiterungen](/github-cli/github-cli/using-github-cli-extensions) und [Erstellen von {% data variables.product.prodname_cli %}-Erweiterungen](/github-cli/github-cli/creating-github-cli-extensions).
 
-- For more information about all of the commands that you can run with {% data variables.product.prodname_cli %}, see "[{% data variables.product.prodname_cli %} reference](/github-cli/github-cli/github-cli-reference)."
+- Weitere Informationen zu allen Befehlen, die du mit {% data variables.product.prodname_cli %} ausführen kannst, findest du in der [{% data variables.product.prodname_cli %}-Referenz](/github-cli/github-cli/github-cli-reference).

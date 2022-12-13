@@ -1,0 +1,18 @@
+date: '17.11.2020'
+sections:
+  security_fixes:
+    - "Die Pakete wurden auf die neuesten Sicherheitsversionen aktualisiert. {% comment %} https://github.com/github/enterprise2/pull/23845, https://github.com/github/enterprise2/pull/23712 {% endcomment %}"
+
+  bugs:
+    - "Die „babeld“-Protokolle wiesen kein Trennzeichen zwischen Sekunden und Mikrosekunden auf. {% comment %} https://github.com/github/babeld/pull/1006, https://github.com/github/babeld/pull/1002 {% endcomment %}"
+    - "Nach dem Upgraden von GHES mit einem Hotpatch tritt bei den Befehlen `ghe-actions-precheck` und `ghe-packages-precheck` der Fehler `\"docker load\" akzeptiert keine Argumente` auf. {% comment %} https://github.com/github/enterprise2/pull/23760, https://github.com/github/enterprise2/pull/23745 {% endcomment %}"
+    - "Wenn die Richtlinie „Repositorysichtbarkeitsänderung“ für das Unternehmenskonto auf „Aktiviert“ festgelegt war, konnten Organisationsbesitzer die Sichtbarkeit von Repositorys innerhalb der Organisation nicht ändern. {% comment %} https://github.com/github/github/pull/160920, https://github.com/github/github/pull/160773 {% endcomment %}"
+    - "Überwachungsprotokolle konnten 127.0.0.1 zugeordnet werden anstatt der tatsächlichen Quell-IP-Adresse. {% comment %} https://github.com/github/github/pull/162438, https://github.com/github/github/pull/161215 {% endcomment %}"
+
+  known_issues:
+    - "Angreifer*innen könnten auf einem neu eingerichteten GitHub Enterprise-Server den ersten Administratorbenutzer erstellen. {% comment %} https://github.com/github/enterprise2/issues/1889 {% endcomment %}"
+    - "Benutzerdefinierte Firewallregeln werden während eines Upgrades nicht aufrechterhalten. {% comment %} https://github.com/github/enterprise2/issues/2823 {% endcomment %}"
+    - "Nachverfolgte Git-LFS-Dateien, [die über die Webschnittstelle hochgeladen wurden,](https://github.com/blog/2105-upload-files-to-your-repositories) werden dem Repository fälschlicherweise direkt hinzugefügt. {% comment %} https://github.com/github/github/issues/54684 {% endcomment %}"
+    - "Issues können nicht geschlossen werden, wenn sie einen Permalink zu einem Blob im selben Repository enthalten, in dem der Dateipfad länger als 255 Zeichen ist. {% comment %} https://github.com/github/github/issues/107731 {% endcomment %}"
+    - "Wenn „Benutzer können GitHub.com durchsuchen“ mit GitHub Connect aktiviert ist, werden Issues in privaten und internen Repositorys nicht in den GitHub.com-Suchergebnissen angezeigt. {% comment %} https://github.com/github/admin-experience/issues/571 {% endcomment %}"
+    - "Wenn ein Replikatknoten in einer Hochverfügbarkeitskonfiguration offline ist, kann {% data variables.product.product_name %} eventuell noch immer Anforderungen von {% data variables.product.prodname_pages %} an den Offlineknoten weiterleiten, was die Verfügbarkeit von {% data variables.product.prodname_pages %} für die Benutzer*innen verringert."

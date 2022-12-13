@@ -1,0 +1,17 @@
+date: '02.06.2020'
+sections:
+  security_fixes:
+    - '**HOCH:** In der GitHub Enterprise Server-API wurde ein Sicherheitsrisiko aufgrund von falscher Zugriffssteuerung festgestellt, das einem Mitglied einer Organisation ermöglichte, die Berechtigungen zu eskalieren und Zugriff auf nicht autorisierte Repositorys innerhalb einer Organisation zu erhalten. Dieses Sicherheitsrisiko trat bei allen Versionen von GitHub Enterprise Server vor 2.21 auf.  Wir haben [CVE-2020-10516](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-10516) als Reaktion auf dieses Issue veröffentlicht. Das Sicherheitsrisiko wurde über das Programm [GitHub Security Bug Bounty](https://bounty.github.com) gemeldet. {% comment %} https://github.com/github/github/pull/144454, https://github.com/github/github/pull/143444 {% endcomment %}'
+    - 'Die Pakete wurden auf die neuesten Sicherheitsversionen aktualisiert. {% comment %} https://github.com/github/enterprise2/pull/20421, https://github.com/github/enterprise2/pull/20315 {% endcomment %}'
+  bugs:
+    - 'GitHub Enterprise Server-Instanzen mit Internetzugriff konnten von Suchmaschinen indiziert werden. {% comment %} https://github.com/github/github/pull/145073, https://github.com/github/github/pull/144973 {% endcomment %}'
+  known_issues:
+    - 'In einer neu eingerichteten GitHub Enterprise Server-Instanz ohne Benutzer konnte ein Angreifer den ersten Administratorbenutzer erstellen. {% comment %} https://github.com/github/enterprise2/issues/1889 {% endcomment %}'
+    - 'Benutzerdefinierte Firewallregeln werden während eines Upgrades nicht aufrechterhalten. {% comment %} https://github.com/github/enterprise2/issues/2823 {% endcomment %}'
+    - 'Nachverfolgte Git-LFS-Dateien, [die über die Webschnittstelle hochgeladen wurden](https://github.com/blog/2105-upload-files-to-your-repositories), werden dem Repository fälschlicherweise direkt hinzugefügt. {% comment %} https://github.com/github/github/issues/54684 {% endcomment %}'
+    - 'Issues können nicht geschlossen werden, wenn sie einen Permalink zu einem Blob im selben Repository enthalten und der Dateipfad länger ist als 255 Zeichen. {% comment %} https://github.com/github/github/issues/107731 {% endcomment %}'
+    - 'Beim Pushen an ein Gist konnte eine Ausnahme während des Post-Receive-Hooks ausgelöst werden. {% comment %} https://github.com/github/github/issues/129091 {% endcomment %}'
+    - 'Wenn die Option zum Durchsuchen von GitHub.com mit GitHub Connect aktiviert wird, sind Issues in privaten und internen Repositorys nicht in den GitHub.com-Suchergebnissen enthalten. {% comment %} https://github.com/github/admin-experience/issues/571 {% endcomment %}'
+    - 'Beim Pushen in ein Repository über die Befehlszeile werden keine Sicherheitswarnungen gemeldet. (Aktualisiert am 23.06.2020) {% comment %} https://github.com/github/github/issues/143190 {% endcomment %}'
+    - 'Das Abhängigkeitsdiagramm erkennt keine Abhängigkeiten, wenn es in einer Clusterkonfiguration mit mehreren Redis-Knoten bereitgestellt wird. (Aktualisiert am 30.06.2020) {% comment %} https://github.com/github/dependency-graph/issues/81 {% endcomment %}'
+    - 'Wenn ein Replikatknoten in einer Hochverfügbarkeitskonfiguration offline ist, kann {% data variables.product.product_name %} eventuell noch immer Anfragen von {% data variables.product.prodname_pages %} an den Offlineknoten weiterleiten, was die Verfügbarkeit von {% data variables.product.prodname_pages %} für Benutzer verringert.'

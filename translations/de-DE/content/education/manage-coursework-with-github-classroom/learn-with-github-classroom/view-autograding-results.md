@@ -1,30 +1,36 @@
 ---
-title: View autograding results
-intro: You can see results from autograding within the repository for your assignment.
+title: Anzeigen der automatischen Bewertung von Ergebnissen
+intro: Du kannst die Ergebnisse der automatischen Bewertung für deine Zuordnung innerhalb des Repositorys anzeigen.
 versions:
   fpt: '*'
 redirect_from:
   - /education/manage-coursework-with-github-classroom/reviewing-auto-graded-work-students
   - /education/manage-coursework-with-github-classroom/view-autograding-results
+ms.openlocfilehash: ea4de9b0122e39f5ecb4d960d4f0ee8c94ba2ee5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145106371'
 ---
-## About autograding
+## Informationen zur automatischen Bewertung
 
-Your teacher can configure tests that automatically check your work when you push to an assignment repository on {% data variables.location.product_location %}.
+Deine Lehrkraft kann Tests konfigurieren, die deine Arbeit automatisch überprüfen, wenn du ein Zuweisungsrepository auf {% data variables.product.product_location %} pushst.
 
-If you're a student and your instructor has configured autograding for your assignment in {% data variables.product.prodname_classroom %}, you'll find autograding test results throughout your assignment repository. If all tests succeed for a commit, you'll see a green checkmark. If any tests fail for a commit, you'll see a red X. You can see detailed logs by clicking the green checkmark or red X.
+Wenn du ein Kursteilnehmer bist und dein Kursleiter die automatische Bewertung für deine Zuweisung in {% data variables.product.prodname_classroom %} konfiguriert hat, findest du die automatische Bewertung der Testergebnisse im gesamten Zuweisungsrepository. Wenn alle Tests für einen Commit erfolgreich sind, wird ein grünes Häkchen angezeigt. Wenn Tests für einen Commit fehlschlagen, wird ein rotes X angezeigt. Du kannst detaillierte Protokolle aufrufen, indem du auf das grüne Häkchen oder das rote X anklickst.
 
-## Viewing autograding results for an assignment repository
+## Anzeigen der automatischen Bewertung der Ergebnisse für ein Zuweisungsrepository
 
-{% data variables.product.prodname_classroom %} uses {% data variables.product.prodname_actions %} to run autograding tests. For more information about viewing the logs for an autograding test, see "[Using workflow run logs](/actions/managing-workflow-runs/using-workflow-run-logs#viewing-logs-to-diagnose-failures)."
+{% data variables.product.prodname_classroom %} verwendet {% data variables.product.prodname_actions %} zum Ausführen von automatischen Bewertungen der Tests. Weitere Informationen zum Anzeigen der Protokolle für die automatische Bewertung von Tests findest du unter „[Verwenden von Protokollen für die Workflowausführung](/actions/managing-workflow-runs/using-workflow-run-logs#viewing-logs-to-diagnose-failures)“.
 
-The **Actions** tab shows the full history of test runs.
+Auf der Registerkarte **Aktionen** wird der vollständige Verlauf der Testläufe angezeigt.
 
-!["Actions" tab with "All workflows" selected](/assets/images/help/classroom/autograding-actions-tab.png)
+![Registerkarte „Aktionen“ mit ausgewählter Option „Alle Workflows“](/assets/images/help/classroom/autograding-actions-tab.png)
 
-You can click a specific test run to review log output, like compilation errors and test failures.
+Du kannst auf einen bestimmten Testlauf klicken, um die Protokollausgabe zu überprüfen, z. B. Kompilierungsfehler und Testfehler.
 
-![The "{% data variables.product.prodname_classroom %} Autograding Workflow" test results logs in {% data variables.product.prodname_actions %} ](/assets/images/help/classroom/autograding-actions-logs.png)
+![Die Testergebnisse im „{% data variables.product.prodname_classroom %}-Workflow für die automatische Bewertung“ werden in {% data variables.product.prodname_actions %} protokolliert. ](/assets/images/help/classroom/autograding-actions-logs.png)
 
-## Further reading
+## Weitere Informationsquellen
 
-- "[About status checks](/github/collaborating-with-issues-and-pull-requests/about-status-checks)"
+- „[Informationen zu Statuschecks](/github/collaborating-with-issues-and-pull-requests/about-status-checks)“

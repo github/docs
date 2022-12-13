@@ -1,6 +1,6 @@
 ---
-title: Monitoring and troubleshooting self-hosted runners
-intro: You can monitor your self-hosted runners to view their activity and diagnose common issues.
+title: Überwachen und Behandeln von Problemen mit selbstgehosteten Runnern
+intro: 'Du kannst deine selbst gehosteten Runner überwachen, um ihre Aktivität einzusehen und gängige Probleme zu diagnostizieren.'
 redirect_from:
   - /actions/hosting-your-own-runners/checking-the-status-of-self-hosted-runners
   - /github/automating-your-workflow-with-github-actions/checking-the-status-of-self-hosted-runners
@@ -11,119 +11,117 @@ versions:
   ghae: '*'
   ghec: '*'
 type: tutorial
-miniTocMaxHeadingLevel: 3
 defaultPlatform: linux
 shortTitle: Monitor & troubleshoot
+ms.openlocfilehash: 57ca9cad51c1936171fcadd73497cf313dd86dd7
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147065634'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
-
-## Checking the status of a self-hosted runner
+## Überprüfen des Status eines selbst gehosteten Läufers
 
 {% data reusables.actions.self-hosted-runner-management-permissions-required %}
 
-{% data reusables.actions.self-hosted-runner-navigate-repo-and-org %}
-{% data reusables.organizations.settings-sidebar-actions-runners %}
-1. Under "Runners", you can view a list of registered runners, including the runner's name, labels, and status.
+{% data reusables.actions.self-hosted-runner-navigate-repo-and-org %} {% data reusables.organizations.settings-sidebar-actions-runners %}
+1. Unter „Runner“ kannst du eine Liste registrierter Runner, einschließlich Name, Bezeichnungen und Status des Runners, einsehen.
 
-    The status can be one of the following:
+    Folgende Statuswerte sind möglich:
 
-    * **Idle**: The runner is connected to {% data variables.product.product_name %} and is ready to execute jobs.
-    * **Active**: The runner is currently executing a job.
-    * **Offline**: The runner is not connected to {% data variables.product.product_name %}. This could be because the machine is offline, the self-hosted runner application is not running on the machine, or the self-hosted runner application cannot communicate with {% data variables.product.product_name %}.
+    * **Leerlauf**: Der Runner ist mit {% data variables.product.product_name %} verbunden und bereit, Aufträge auszuführen.
+    * **Aktiv**: Der Runner führt derzeit einen Auftrag aus.
+    * **Offline**: Der Runner ist nicht mit {% data variables.product.product_name %} verbunden. Dies könnte daran liegen, dass der Rechner offline ist, die Anwendung für selbst-gehostete Runner nicht auf dem Rechner läuft, oder die Anwendung für selbst-gehostete Runner kann nicht mit {% data variables.product.product_name %} kommunizieren.
 
-## Troubleshooting network connectivity
+## Problembehandlung bei der Netzwerkkonnektivität
 
-### Checking self-hosted runner network connectivity
+### Überprüfen der Netzwerkkonnektivität für selbstgehostete Runner
 
-You can use the self-hosted runner application's `run` script with the `--check` parameter to check that a self-hosted runner can access all required network services on {% data variables.location.product_location %}.
+Du kannst das `run`-Skript der selbstgehosteten Runneranwendung mit dem Parameter `--check` verwenden, um zu überprüfen, ob ein selbstgehosteter Runner auf alle erforderlichen Netzwerkdienste in {% data variables.product.product_location %} zugreifen kann.
 
-In addition to `--check`, you must provide two arguments to the script:
+Zusätzlich zu `--check` müssen zwei weitere Argumente für das Skript angegeben werden:
 
-* `--url` with the URL to your {% data variables.product.company_short %} repository, organization, or enterprise. For example, `--url https://github.com/octo-org/octo-repo`.
-* `--pat` with the value of a {% data variables.product.pat_v1 %}, which must have the `workflow` scope{% ifversion pat-v2%}, or a {% data variables.product.pat_v2 %} with workflows read and write access {% endif %}. For example, `--pat ghp_abcd1234`. For more information, see "[Creating a {% data variables.product.pat_generic %}](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
+* `--url` mit der URL zu deinem bzw. deiner {% data variables.product.company_short %}-Repository, -Organisation oder -Unternehmen. Beispiel: `--url https://github.com/octo-org/octo-repo`.
+* `--pat` mit dem Wert eines persönlichen Zugriffstokens, das den Bereich `workflow` aufweisen muss. Beispiel: `--pat ghp_abcd1234`. Weitere Informationen findest du unter [Erstellen eines persönlichen Zugriffstokens](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token).
 
-For example:
+Beispiel:
 
 {% mac %}
 
 {% data reusables.actions.self-hosted-runner-check-mac-linux %}
 
-{% endmac %}
-{% linux %}
+{% endmac %} {% linux %}
 
 {% data reusables.actions.self-hosted-runner-check-mac-linux %}
 
-{% endlinux %}
-{% windows %}
+{% endlinux %} {% windows %}
 
 ```shell
-run.cmd --check --url https://github.com/YOUR-ORG/YOUR-REPO --pat GHP_ABCD1234
+run.cmd --check --url <em>https://github.com/octo-org/octo-repo</em> --pat <em>ghp_abcd1234</em>
 ```
 
 {% endwindows %}
 
-The script tests each service, and outputs either a `PASS` or `FAIL` for each one. If you have any failing checks, you can see more details on the problem in the log file for the check. The log files are located in the `_diag` directory where you installed the runner application, and the path of the log file for each check is shown in the console output of the script.
+Das Skript testet die einzelnen Dienste und gibt entweder `PASS` oder `FAIL` für jeden Dienst aus. Wenn die Überprüfung für einen Dienst nicht erfolgreich ist, findest du weitere Einzelheiten in der Protokolldatei der Überprüfung. Die Protokolldateien befinden sich im Verzeichnis `_diag`, in dem du die Runneranwendung installiert hast. Der Pfad der Protokolldateien für die einzelnen Überprüfungen wird zudem in der Konsolenausgabe des Skripts angezeigt.
 
-If you have any failing checks, you should also verify that your self-hosted runner machine meets all the communication requirements. For more information, see "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners#communication-requirements)."
+Wenn die Überprüfung für einen Dienst nicht erfolgreich ist, solltest du zudem überprüfen, ob der für deinen selbstgehosteten Runner verwendete Computer alle Kommunikationsanforderungen erfüllt. Weitere Informationen findest du unter „[Informationen zu selbstgehosteten Runnern](/actions/hosting-your-own-runners/about-self-hosted-runners#communication-requirements)“.
 
-### Disabling TLS certificate verification
-{% ifversion ghes %}
-By default, the self-hosted runner application verifies the TLS certificate for {% data variables.product.product_name %}.  If your {% data variables.product.product_name %} has a self-signed or internally-issued certificate, you may wish to disable TLS certificate verification for testing purposes.
-{% else %}
-By default, the self-hosted runner application verifies the TLS certificate for {% data variables.product.product_name %}.  If you encounter network problems, you may wish to disable TLS certificate verification for testing purposes.
+### Deaktivieren der TLS-Zertifikatüberprüfung
+{% ifversion ghes %} Standardmäßig überprüft die selbstgehostete Runneranwendung das TLS-Zertifikat für {% data variables.product.product_name %}.  Wenn {% data variables.product.product_name %} über ein selbstsigniertes oder intern ausgestelltes Zertifikat verfügt, soll die TLS-Zertifikatüberprüfung zu Testzwecken möglicherweise deaktiviert werden.
+{% else %} Standardmäßig überprüft die selbstgehostete Runneranwendung das TLS-Zertifikat für {% data variables.product.product_name %}.  Wenn Netzwerkprobleme auftreten, sollte die TLS-Zertifikatüberprüfung zu Testzwecken möglicherweise deaktiviert werden.
 {% endif %}
 
-To disable TLS certification verification in the self-hosted runner application, set the `GITHUB_ACTIONS_RUNNER_TLS_NO_VERIFY` environment variable to `1` before configuring and running the self-hosted runner application.
+Zum Deaktivieren der TLS-Zertifizierungsüberprüfung in der selbstgehosteten Runneranwendung legst du die `GITHUB_ACTIONS_RUNNER_TLS_NO_VERIFY`-Umgebungsvariable auf `1` fest, bevor du die selbstgehostete Runneranwendung konfigurierst und ausführst.
 
 ```shell
 export GITHUB_ACTIONS_RUNNER_TLS_NO_VERIFY=1
-./config.sh --url https://github.com/YOUR-ORG/YOUR-REPO --token
+./config.sh --url <em>https://github.com/octo-org/octo-repo</em> --token
 ./run.sh
 ```
 
 {% warning %}
 
-**Warning**: Disabling TLS verification is not recommended since TLS provides privacy and data integrity between the self-hosted runner application and {% data variables.product.product_name %}. We recommend that you install the {% data variables.product.product_name %} certificate in the operating system certificate store for your self-hosted runner. For guidance on how to install the {% data variables.product.product_name %} certificate, check with your operating system vendor.
+**Warnung**: Die Deaktivierung der TLS-Überprüfung wird nicht empfohlen. Der Grund dafür ist, dass mithilfe von TLS der Datenschutz und die Datenintegrität zwischen der selbstgehosteten Runneranwendung und {% data variables.product.product_name %} sichergestellt wird. Es wird empfohlen, das {% data variables.product.product_name %}-Zertifikat im Zertifikatspeicher des Betriebssystems für deinen selbstgehosteten Runner zu installieren. Informationen zur Installation des {% data variables.product.product_name %}-Zertifikats erhältst du beim Hersteller deines Betriebssystems.
 
 {% endwarning %}
 
-## Reviewing the self-hosted runner application log files
+## Die Logdateien der Anwendung für selbst-gehostete Runner überprüfen
 
-You can monitor the status of the self-hosted runner application and its activities. Log files are kept in the `_diag` directory where you installed the runner application, and a new log is generated each time the application is started. The filename begins with *Runner_*, and is followed by a UTC timestamp of when the application was started.
+Du kannst den Status der selbstgehosteten Runneranwendung und die zugehörigen Aktivitäten überwachen. Protokolldateien werden im Verzeichnis `_diag` gespeichert, in dem du die Runneranwendung installiert hast. Bei jedem Start der Anwendung wird ein neues Protokoll generiert. Der Dateiname beginnt mit *Runner_*, gefolgt von einem UTC-Zeitstempel des Anwendungsstarts.
 
-For detailed logs on workflow job executions, see the next section describing the *Worker_* files.
+Ausführliche Protokolle zur Ausführung von Workflowaufträgen findest du im nächsten Abschnitt zu den Dateien vom Typ *Worker_*.
 
-## Reviewing a job's log file
+## Logdatei eines Jobs überprüfen
 
-The self-hosted runner application creates a detailed log file for each job that it processes. These files are stored in the `_diag` directory where you installed the runner application, and the filename begins with *Worker_*.
+Die selbstgehostete Runneranwendung erstellt eine detaillierte Protokolldatei für jeden Auftrag, den sie verarbeitet. Diese Dateien werden im Verzeichnis `_diag` gespeichert, in dem du die Runneranwendung installiert hast. Der Dateiname beginnt mit *Worker_*.
 
 {% linux %}
 
-## Using journalctl to check the self-hosted runner application service
+## Den Anwendungs-Dienst für selbst-gehostete Runner mittels journalctl überprüfen
 
-For Linux-based self-hosted runners running the application using a service, you can use `journalctl` to monitor their real-time activity. The default systemd-based service uses the following naming convention: `actions.runner.<org>-<repo>.<runnerName>.service`. This name is truncated if it exceeds 80 characters, so the preferred way of finding the service's name is by checking the _.service_ file. For example:
+Für Linux-basierte selbstgehostete Runner, die die Anwendung mit einem Dienst ausführen, kannst du zur Überwachung der Echtzeitaktivität `journalctl` verwenden. Der standardmäßige systembasierte Dienst verwendet die folgende Namenskonvention: `actions.runner.<org>-<repo>.<runnerName>.service` Wenn dieser Name mehr als 80 Zeichen umfasst, wird er abgeschnitten. Aus diesem Grund sollte anhand der Datei _.service_ nach dem Namen des Diensts gesucht werden. Beispiel:
 
 ```shell
 $ cat ~/actions-runner/.service
 actions.runner.octo-org-octo-repo.runner01.service
 ```
 
-If this fails due to the service being installed elsewhere, you can find the service name in the list of running services. For example, on most Linux systems you can use the `systemctl` command:
+Wenn dieser Vorgang nicht möglich ist, weil der Dienst an anderer Stelle installiert ist, kannst du den Dienstnamen anhand der Liste der ausgeführten Dienste ermitteln. Auf den meisten Linux-Systemen kannst du z. B. den Befehl `systemctl` verwenden:
 
 ```shell
 $ systemctl --type=service | grep actions.runner
 actions.runner.octo-org-octo-repo.hostname.service loaded active running GitHub Actions Runner (octo-org-octo-repo.hostname)
 ```
 
-You can use `journalctl` to monitor the real-time activity of the self-hosted runner:
+Mithilfe von `journalctl` kannst du die Echtzeitaktivität des selbstgehosteten Runners überwachen:
 
 ```shell
 $ sudo journalctl -u actions.runner.octo-org-octo-repo.runner01.service -f
 ```
 
-In this example output, you can see `runner01` start, receive a job named `testAction`, and then display the resulting status:
+In dieser Beispielausgabe siehst du den Start von `runner01`, den Empfang des Auftrags `testAction` und den resultierenden Status:
 
 ```shell
 Feb 11 14:57:07 runner01 runsvc.sh[962]: Starting Runner listener with startup type: service
@@ -135,23 +133,23 @@ Feb 11 16:06:54 runner01 runsvc.sh[962]: 2020-02-11 16:06:54Z: Running job: test
 Feb 11 16:07:10 runner01 runsvc.sh[962]: 2020-02-11 16:07:10Z: Job testAction completed with result: Succeeded
 ```
 
-To view the `systemd` configuration, you can locate the service file here: `/etc/systemd/system/actions.runner.<org>-<repo>.<runnerName>.service`.
-If you want to customize the self-hosted runner application service, do not directly modify this file. Follow the instructions described in "[Configuring the self-hosted runner application as a service](/actions/hosting-your-own-runners/configuring-the-self-hosted-runner-application-as-a-service#customizing-the-self-hosted-runner-service)."
+Zum Anzeigen der `systemd`-Konfiguration kannst du hier nach der Dienstdatei suchen: `/etc/systemd/system/actions.runner.<org>-<repo>.<runnerName>.service`.
+Diese Datei darf nicht direkt bearbeitet werden, um den Dienst der selbstgehosteten Runneranwendung anzupassen. Befolge stattdessen die Anweisungen unter [Konfigurieren der selbstgehosteten Runneranwendung als Dienst](/actions/hosting-your-own-runners/configuring-the-self-hosted-runner-application-as-a-service#customizing-the-self-hosted-runner-service).
 
 {% endlinux %}
 
 {% mac %}
 
-## Using `launchd` to check the self-hosted runner application service
+## Überprüfen des selbstgehosteten Runneranwendungsdiensts mit `launchd`
 
-For macOS-based self-hosted runners running the application as a service, you can use `launchctl` to monitor their real-time activity. The default launchd-based service uses the following naming convention: `actions.runner.<org>-<repo>.<runnerName>`. This name is truncated if it exceeds 80 characters, so the preferred way of finding the service's name is by checking the _.service_ file in the runner directory:
+Für macOS-basierte selbstgehostete Runner, die die Anwendung als Dienst ausführen, kannst du zur Überwachung der Echtzeitaktivität `launchctl` verwenden. Der standardmäßige launchd-basierte Dienst verwendet die folgende Namenskonvention: `actions.runner.<org>-<repo>.<runnerName>` Wenn dieser Name mehr als 80 Zeichen umfasst, wird er abgeschnitten. Aus diesem Grund sollte anhand der Datei _.service_ im Runnerverzeichnis nach dem Namen des Diensts gesucht werden:
 
 ```shell
 % cat ~/actions-runner/.service
 /Users/exampleUsername/Library/LaunchAgents/actions.runner.octo-org-octo-repo.runner01.plist
 ```
 
-The `svc.sh` script uses `launchctl` to check whether the application is running. For example:
+Das Skript `svc.sh` überprüft mithilfe von `launchctl`, ob die Anwendung ausgeführt wird. Beispiel:
 
 ```shell
 $ ./svc.sh status
@@ -161,25 +159,25 @@ Started:
 379 0 actions.runner.example.runner01
 ```
 
-The resulting output includes the process ID and the name of the application’s `launchd` service.
+Die resultierende Ausgabe enthält die Prozess-ID und den Namen des `launchd`-Diensts der Anwendung.
 
-To view the `launchd` configuration, you can locate the service file here: `/Users/exampleUsername/Library/LaunchAgents/actions.runner.<repoName>.<runnerName>.service`.
-If you want to customize the self-hosted runner application service, do not directly modify this file. Follow the instructions described in "[Configuring the self-hosted runner application as a service](/actions/hosting-your-own-runners/configuring-the-self-hosted-runner-application-as-a-service#customizing-the-self-hosted-runner-service-1)."
+Zum Anzeigen der `launchd`-Konfiguration kannst du hier nach der Dienstdatei suchen: `/Users/exampleUsername/Library/LaunchAgents/actions.runner.<repoName>.<runnerName>.service`.
+Diese Datei darf nicht direkt bearbeitet werden, um den Dienst der selbstgehosteten Runneranwendung anzupassen. Befolge stattdessen die Anweisungen unter [Konfigurieren der selbstgehosteten Runneranwendung als Dienst](/actions/hosting-your-own-runners/configuring-the-self-hosted-runner-application-as-a-service#customizing-the-self-hosted-runner-service-1).
 
 {% endmac %}
 
 {% windows %}
 
-## Using PowerShell to check the self-hosted runner application service
+## Den Anwendungs-Dienst für selbst-gehostete Runner mittels PowerShell überprüfen
 
-For Windows-based self-hosted runners running the application as a service, you can use PowerShell to monitor their real-time activity. The service uses the naming convention `GitHub Actions Runner (<org>-<repo>.<runnerName>)`. You can also find the service's name by checking the _.service_ file in the runner directory:
+Für Windows-basierte selbstgehostete Runner, die die Anwendung als Dienst ausführen, kannst du zur Überwachung der Echtzeitaktivität PowerShell verwenden. Der Dienst verwendet die `GitHub Actions Runner (<org>-<repo>.<runnerName>)`-Namenskonvention. Du kannst den Namen des Diensts auch in der _.service_-Datei im Runnerverzeichnis ermitteln:
 
 ```shell
 PS C:\actions-runner> Get-Content .service
 actions.runner.octo-org-octo-repo.runner01.service
 ```
 
-You can view the status of the runner in the Windows _Services_ application (`services.msc`). You can also use PowerShell to check whether the service is running:
+Der Status des Runners kann in der Windows-Anwendung _Dienste_ (`services.msc`) angezeigt werden. Darüber hinaus kannst du auch mit PowerShell überprüfen, ob der Dienst ausgeführt wird:
 
 ```shell
 PS C:\actions-runner> Get-Service "actions.runner.octo-org-octo-repo.runner01.service" | Select-Object Name, Status
@@ -188,7 +186,7 @@ Name                                                  Status
 actions.runner.octo-org-octo-repo.runner01.service    Running
 ```
 
-You can use PowerShell to check the recent activity of the self-hosted runner. In this example output, you can see the application start, receive a job named `testAction`, and then display the resulting status:
+Mithilfe von PowerShell kannst du die aktuelle Aktivität des selbstgehosteten Runners überprüfen. In dieser Beispielausgabe siehst du den Anwendungsstart, den Empfang des Auftrags `testAction` und den resultierenden Status:
 
 ```shell
 PS C:\actions-runner> Get-EventLog -LogName Application -Source ActionsRunnerService
@@ -207,34 +205,34 @@ PS C:\actions-runner> Get-EventLog -LogName Application -Source ActionsRunnerSer
 
 {% endwindows %}
 
-## Monitoring the automatic update process
+## Den automatischen Aktualisierungsprozesses überwachen
 
-We recommend that you regularly check the automatic update process, as the self-hosted runner will not be able to process jobs if it falls below a certain version threshold. The self-hosted runner application automatically updates itself, but note that this process does not include any updates to the operating system or other software; you will need to separately manage these updates.
+Da der selbstgehostete Runner Aufträge nicht verarbeiten kann, wenn eine bestimmte Version unterschritten wird, solltest du den automatischen Updateprozess regelmäßig überprüfen. Die selbstgehostete Runneranwendung aktualisiert sich automatisch selbst. Dieser Vorgang umfasst jedoch keine Updates des Betriebssystems oder anderer Software. Diese Updates müssen separat verwaltet werden.
 
-You can view the update activities in the *Runner_* log files. For example:
+Die Updateaktivitäten können in den *Runner_*-Protokolldateien angezeigt werden. Beispiel:
 
 ```shell
 [Feb 12 12:37:07 INFO SelfUpdater] An update is available.
 ```
 
-In addition, you can find more information in the _SelfUpdate_ log files located in the `_diag` directory where you installed the runner application.
+Weitere Informationen findest du zudem in den _SelfUpdate_-Protokolldateien im `_diag`-Verzeichnis, in dem du die Runneranwendung installiert hast.
 
 {% linux %}
 
-## Troubleshooting containers in self-hosted runners
+## Fehlerbehebung für Container in selbst-gehosteten Runnern
 
-### Checking that Docker is installed
+### Überprüfen, ob Docker installiert ist
 
-If your jobs require containers, then the self-hosted runner must be Linux-based and needs to have Docker installed. Check that your self-hosted runner has Docker installed and that the service is running.
+Wenn für deine Aufträge Container benötigt werden, muss ein Linux-basierter selbstgehosteter Runner verwendet werden, und Docker muss installiert sein. Überprüfe, ob dein selbstgehosteter Runner über eine Docker-Installation verfügt und der Dienst ausgeführt wird.
 
-You can use `systemctl` to check the service status:
+Du kannst den Dienststatus mithilfe von `systemctl` überprüfen:
 
 ```shell
 $ sudo systemctl is-active docker.service
 active
 ```
 
-If Docker is not installed, then dependent actions will fail with the following errors:
+Wenn Docker nicht installiert ist, werden abhängige Aktionen mit den folgenden Fehlern abgebrochen:
 
 ```shell
 [2020-02-13 16:56:10Z INFO DockerCommandManager] Which: 'docker'
@@ -242,15 +240,15 @@ If Docker is not installed, then dependent actions will fail with the following 
 [2020-02-13 16:56:10Z ERR  StepsRunner] Caught exception from step: System.IO.FileNotFoundException: File not found: 'docker'
 ```
 
-### Checking the Docker permissions
+### Die Docker Berechtigungen überprüfen
 
-If your job fails with the following error:
+Gehe wie folgt vor, wenn dein Auftrag mit dem folgenden Fehler abgebrochen wird:
 
 ```shell
 dial unix /var/run/docker.sock: connect: permission denied
 ```
 
-Check that the self-hosted runner's service account has permission to use the Docker service. You can identify this account by checking the configuration of the self-hosted runner in `systemd`. For example:
+Überprüfe, ob das Dienstkonto des selbstgehosteten Runners für die Verwendung des Docker-Diensts berechtigt ist. Dieses Konto lässt sich anhand der Konfiguration des selbstgehosteten Runners in `systemd` ermitteln. Beispiel:
 
 ```shell
 $ sudo systemctl show -p User actions.runner.octo-org-octo-repo.runner01.service
@@ -260,26 +258,9 @@ User=runner-user
 {% endlinux %}
 
 {% ifversion ghes %}
-## Resolving runners that are offline after an upgrade of {% data variables.location.product_location %}
+## Auflösen von Runnern, die nach einem Upgrade von {% data variables.product.product_location %} offline sind
 
 {% data reusables.actions.upgrade-runners-before-upgrade-ghes %} 
 
-If your runners are offline for this reason, manually update the runners. For more information, see the installation instructions for [the latest release](https://github.com/actions/runner/releases/latest) in the actions/runner repository.
+Wenn deine Runner aus diesem Grund offline sind, aktualisiere sie manuell. Weitere Informationen findest du in den Installationsanweisungen für [die neueste Version](https://github.com/actions/runner/releases/latest) im Repository „actions/runner“.
 {% endif %}
-
-### Checking which Docker engine is installed on the runner
-
-If your build fails with the following error:
-
-```shell
-Error: Input required and not supplied: java-version
-```
-
-Check which Docker engine is installed on your self-hosted runner. To pass the inputs of an action into the Docker container, the runner uses environment variables that might contain dashes as part of their names. The action may not able to get the inputs if the Docker engine is not a binary executable, but is instead a shell wrapper or a link (for example, a Docker engine installed on Linux using `snap`). To address this error, configure your self-hosted runner to use a different Docker engine. 
-
-To check if your Docker engine was installed using `snap`, use the `which` command. In the following example, the Docker engine was installed using `snap`:
-
-```shell
-$ which docker
-/snap/bin/docker
-```

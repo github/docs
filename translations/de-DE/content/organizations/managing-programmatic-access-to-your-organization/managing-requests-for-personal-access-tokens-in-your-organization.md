@@ -1,40 +1,43 @@
 ---
-title: Managing requests for personal access tokens in your organization
-intro: 'Organization owners can approve or deny {% data variables.product.pat_v2 %}s that request access to their organization.'
+title: Verwalten von Anforderungen für persönliche Zugangstoken in deiner Organisation
+intro: 'Organisationsinhaber können {% data variables.product.pat_v2 %} genehmigen oder ablehnen, mit denen Zugriff auf ihre Organisation angefordert wird.'
 versions:
   feature: pat-v2
 shortTitle: Manage token requests
+ms.openlocfilehash: ea2f01436ca4649cae5310b14070625c5947922e
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148107404'
 ---
-
 {% data reusables.user-settings.pat-v2-org-opt-in %}
 
-## About {% data variables.product.pat_v2 %} requests
+## Informationen zu Anforderungen für {% data variables.product.pat_v2 %}
 
-When organization members create a {% data variables.product.pat_v2 %} to access resources owned by the organization, if the organization requires approval for {% data variables.product.pat_v2 %}s, then an organization owner must approve the token before it can be used to access any resources that are not public. For more information, see "[Setting a {% data variables.product.pat_generic %} policy for your organization](/organizations/managing-programmatic-access-to-your-organization/setting-a-personal-access-token-policy-for-your-organization)."
+Wenn Mitglieder einer Organisation ein {% data variables.product.pat_v2 %} erstellen, um auf Ressourcen zuzugreifen, die der Organisation gehören, muss der Organisationsbesitzer das Token genehmigen, sofern die Organisation eine Genehmigung für {% data variables.product.pat_v2 %}s verlangt, bevor das Token für den Zugriff auf nicht öffentliche Ressourcen verwendet werden kann. Weitere Informationen findest du unter [Festlegen einer Richtline für {% data variables.product.pat_generic %} für deine Organisation](/organizations/managing-programmatic-access-to-your-organization/setting-a-personal-access-token-policy-for-your-organization).
 
-{% data variables.product.company_short %} will notify organization owners with a daily email about all {% data variables.product.pat_v2 %}s that are awaiting approval. When a token is denied or approved, the user who created the token will receive an email notification.
+{% data variables.product.company_short %} benachrichtigt Organisationsbesitzer mit einer täglichen E-Mail über alle {% data variables.product.pat_v2 %}, für die eine Genehmigung aussteht. Wenn ein Token abgelehnt oder genehmigt wird, erhält der Benutzer, der das Token erstellt hat, eine E-Mail-Benachrichtigung.
 
 {% note %}
 
-**Note**: Only {% data variables.product.pat_v2 %}s, not {% data variables.product.pat_v1_plural %}, are subject to approval. Unless the organization has restricted access by {% data variables.product.pat_v1_plural %}, any {% data variables.product.pat_v1 %} can access organization resources without prior approval. For more information, see "[Setting a {% data variables.product.pat_generic %} policy for your organization](/organizations/managing-programmatic-access-to-your-organization/setting-a-personal-access-token-policy-for-your-organization)."
+**Hinweis**: Nur {% data variables.product.pat_v2 %} erfordern eine Genehmigung. Dies gilt nicht für {% data variables.product.pat_v1_plural %}. Sofern die Organisation den Zugriff über {% data variables.product.pat_v1_plural %} nicht eingeschränkt hat, kann über {% data variables.product.pat_v1 %} ohne vorherige Genehmigung auf Organisationsressourcen zugegriffen werden. Weitere Informationen findest du unter [Festlegen einer Richtline für {% data variables.product.pat_generic %} für deine Organisation](/organizations/managing-programmatic-access-to-your-organization/setting-a-personal-access-token-policy-for-your-organization).
 
 {% endnote %}
 
-## Managing {% data variables.product.pat_v2 %} requests
+## Verwalten von Anforderungen für {% data variables.product.pat_v2 %}
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-1. In the left sidebar, under **{% octicon "key" aria-label="The key icon" %} {% data variables.product.pat_generic_caps %}s**, click **Pending requests**. If any tokens are pending approval for your organization, they will be displayed.
-1. Click the name of the token that you want to approve or deny.
-1. Review the access and permissions that the token is requesting.
-1. To grant the token access to the organization, click **Approve**. To deny the token access to the organization, click **Deny**.
-1. If you denied the request, in the confirmation box, optionally enter the reason that you denied the token. This reason will be shared in the notification that is sent to the token owner. Then, click **Deny**.
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %}
+1. Klicke in der linken Randleiste unter **{% octicon "key" aria-label="The key icon" %} {% data variables.product.pat_generic_caps %}s** auf **Ausstehende Token**. Wenn für deine Organisation Token zur Genehmigung ausstehen, werden sie angezeigt.
+1. Klicke auf den Namen des Tokens, das du genehmigen oder ablehnen möchtest.
+1. Überprüfe den Zugriff und die Berechtigungen, die das Token anfordert.
+1. Um dem Token Zugriff auf die Organisation zu gewähren, klicke auf **Genehmigen**. Um dem Token den Zugriff auf die Organisation zu verweigern, klicke auf **Ablehnen**.
+1. Wenn du die Anforderung abgelehnt hast, kannst du im Bestätigungsfeld optional den Grund für die Ablehnung des Tokens angeben. Dieser Grund wird in der Benachrichtigung mitgeteilt, die an den Tokenbesitzer gesendet wird. Klicke dann auf **Ablehnen**.
 
-Alternatively, you can approve or deny multiple tokens at once:
+Alternativ kannst du auch in einem Arbeitsschritt mehrere Token genehmigen oder ablehnen:
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-1. In the left sidebar, under **{% octicon "key" aria-label="The key icon" %} {% data variables.product.pat_generic_caps %}s**, click **Pending requests**. If any tokens are pending approval for your organization, they will be displayed.
-{% data reusables.user-settings.patv2-filters %}
-1. Select each token that you want to approve or reject.
-1. Select the **request selected...** dropdown menu and click **Approve...** or **Deny...**.
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %}
+1. Klicke in der linken Randleiste unter **{% octicon "key" aria-label="The key icon" %} {% data variables.product.pat_generic_caps %}s** auf **Ausstehende Token**. Wenn für deine Organisation Token zur Genehmigung ausstehen, werden sie angezeigt.
+1. Optional kannst du die Dropdownmenüs **Besitzer** und **Repository** verwenden, um die Anforderungen nach dem Mitglied zu filtern, das die Anforderung stellt.
+1. Wähle jedes Token aus, das du genehmigen oder ablehnen möchtest.
+1. Wähle das Dropdownmenü **Ausgewählte Anforderung...** aus, und klicke auf **Genehmigen...** oder **Ablehnen...** .
