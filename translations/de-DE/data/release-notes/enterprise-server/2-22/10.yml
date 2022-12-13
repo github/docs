@@ -1,0 +1,16 @@
+date: '01.04.2021'
+sections:
+  security_fixes:
+    - "**HOCH:** In GitHub Enterprise Server wurde ein Sicherheitsrisiko aufgrund von falscher Zugriffssteuerung festgestellt, das es Zugriffstoken, die über den [Webauthentifizierungsflow](https://docs.github.com/en/developers/apps/identifying-and-authorizing-users-for-github-apps#web-application-flow) der GitHub-App generiert wurden, ermöglicht hat, private Repositorymetadaten über die REST-API zu lesen, ohne dass dafür die geeigneten Berechtigungen gewährt wurden. Um dieses Sicherheitsrisiko auszunutzen, müssen Angreifer eine GitHub-App in der Instanz erstellen, und ein Benutzer muss die Anwendung über den Webauthentifizierungsflow autorisieren. Die zurückgegebenen Metadaten des privaten Repositorys wurden auf Repositorys eingeschränkt, die dem Benutzer gehören, der vom Token identifiziert wurde. Dieses Sicherheitsrisiko trat bei allen Versionen von GitHub Enterprise Server vor 3.0.4 auf und wurde in den Versionen 3.0.4, 2.22.10 und 2.21.18 behoben. Diesem Sicherheitsrisiko wurde CVE-2021-22865 zugewiesen. Es wurde über das Programm [GitHub Security Bug Bounty](https://bounty.github.com) gemeldet."
+    - Die Pakete wurden auf die neuesten Sicherheitsversionen aktualisiert.
+  bugs:
+    - "Eine in GitHub Enterprise 11.10.x oder älteren Versionen festgelegte Zeitzone wurde von einigen Diensten nicht genutzt, die standardmäßig auf die UTC-Zeitzone festgelegt sind."
+    - "Dienste wurden im Rahmen der Protokollrotation nicht zu neuen Protokolldateien migriert, was zu einer höheren Datenträgerauslastung geführt hat."
+    - Die Bezeichnung bei Suchergebnissen für interne Repositorys wurde als „Privat“ und nicht als „Intern“ angezeigt.
+  known_issues:
+    - In einer neu eingerichteten GitHub Enterprise Server-Instanz ohne Benutzer konnte ein Angreifer den ersten Administratorbenutzer erstellen.
+    - Benutzerdefinierte Firewallregeln werden während eines Upgrades nicht aufrechterhalten.
+    - "Nachverfolgte Git-LFS-Dateien, [die über die Webbenutzeroberfläche hochgeladen wurden](https://github.com/blog/2105-upload-files-to-your-repositories), werden dem Repository fälschlicherweise direkt hinzugefügt."
+    - "Issues können nicht geschlossen werden, wenn sie einen Permalink zu einem Blob im selben Repository enthalten und der Dateipfad länger ist als 255 Zeichen."
+    - "Wenn die Option zum Durchsuchen von GitHub.com mit GitHub Connect aktiviert wird, sind Issues in privaten und internen Repositorys nicht in den GitHub.com-Suchergebnissen enthalten."
+    - "Wenn ein Replikatknoten in einer Hochverfügbarkeitskonfiguration offline ist, kann {% data variables.product.product_name %} eventuell noch immer Anfragen von {% data variables.product.prodname_pages %} an den Offlineknoten weiterleiten, was die Verfügbarkeit von {% data variables.product.prodname_pages %} für Benutzer verringert."

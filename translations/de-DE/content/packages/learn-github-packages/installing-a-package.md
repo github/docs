@@ -1,6 +1,6 @@
 ---
-title: Installing a package
-intro: 'You can install a package from {% data variables.product.prodname_registry %} and use the package as a dependency in your own project.'
+title: Installieren eines Pakets
+intro: 'Du kannst ein Paket aus {% data variables.product.prodname_registry %} installieren und das Paket als Abhängigkeit in deinem eigenen Projekt verwenden.'
 product: '{% data reusables.gated-features.packages %}'
 redirect_from:
   - /github/managing-packages-with-github-packages/installing-a-package
@@ -12,22 +12,26 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
+ms.openlocfilehash: 86c095ab1eddc969e4e04f3305059678ffcb9c20
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145134366'
 ---
+{% data reusables.package_registry.packages-ghes-release-stage %} {% data reusables.package_registry.packages-ghae-release-stage %}
 
-{% data reusables.package_registry.packages-ghes-release-stage %}
-{% data reusables.package_registry.packages-ghae-release-stage %}
+## Informationen zur Paketinstallation
 
-## About package installation
+Du kannst {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} durchsuchen, um Pakete in {% data variables.product.prodname_registry %} zu finden, die du in deinem eigenen Projekt installieren kannst. Weitere Information findest du unter [Durchsuchen von {% data variables.product.prodname_registry %} nach Paketen](/search-github/searching-on-github/searching-for-packages).
 
-You can search on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %} to find packages in {% data variables.product.prodname_registry %} that you can install in your own project. For more information, see "[Searching {% data variables.product.prodname_registry %} for packages](/search-github/searching-on-github/searching-for-packages)."
+Nachdem du ein Paket gefunden hast, kannst du die Beschreibung des Pakets sowie die Installations- und Verwendungsanweisungen auf der Seite des Pakets lesen.
 
-After you find a package, you can read the package's description and installation and usage instructions on the package page.
+## Installieren eines Pakets
 
-## Installing a package
+Du kannst ein Paket aus {% data variables.product.prodname_registry %} mit jedem {% ifversion fpt or ghae or ghec %}unterstützten Paketclient{% else %}Pakettyp, der für deine Instanz aktiviert wurde{% endif %} installieren, indem du die gleichen allgemeinen Anweisungen befolgst.
 
-You can install a package from {% data variables.product.prodname_registry %} using any {% ifversion fpt or ghae or ghec %}supported package client{% else %}package type enabled for your instance{% endif %} by following the same general guidelines.
+1. Befolge die Anweisungen für deinen Paketclient, um dich bei {% data variables.product.prodname_registry %} zu authentifizieren. Weitere Informationen findest du unter [Authentifizieren bei GitHub Packages](/packages/learn-github-packages/introduction-to-github-packages#authenticating-to-github-packages).
+2. Installiere das Paket mithilfe der Anweisungen für deinen Paketclient.
 
-1. Authenticate to {% data variables.product.prodname_registry %} using the instructions for your package client. For more information, see "[Authenticating to GitHub Packages](/packages/learn-github-packages/introduction-to-github-packages#authenticating-to-github-packages)."
-2. Install the package using the instructions for your package client.
-
-For instructions specific to your package client, see "[Working with a {% data variables.product.prodname_registry %} registry](/packages/working-with-a-github-packages-registry)."
+Unter [Arbeiten mit einer {% data variables.product.prodname_registry %}-Registrierung](/packages/working-with-a-github-packages-registry) findest du Anweisungen zu deinem Paketclient.

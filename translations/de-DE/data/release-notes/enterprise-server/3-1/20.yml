@@ -1,0 +1,22 @@
+date: '20.04.2022'
+sections:
+  security_fixes:
+    - Die Pakete wurden auf die neuesten Sicherheitsversionen aktualisiert. 
+  bugs:
+    - "Das Upgraden von Knoten in einem Hochverfügbarkeitspaar mit einem Upgradepaket könnte dazu führen, dass Elasticsearch in manchen Fällen in einen inkonsistenten Zustand übergeht." 
+    - In manchen Clustertopologien wurden die Befehlszeilenhilfsprogramme `ghe-spokesctl` und `ghe-btop` nicht ausgeführt.
+    - "Elasticsearch-Indizes könnten während eines Paketupgrades dupliziert werden, weil ein `elasticsearch-upgrade`-Dienst mehrere Male parallel ausgeführt wird." 
+    - "Die `maint_host_low`-Auftragswarteschlangen wurden nicht verarbeitet, was dazu führte, dass manche Wartungsaufgaben nicht ausgeführt wurden."
+    - "Beim Konvertieren eines Benutzerkontos in eine Organisation wird die konvertierte Organisation falsch in der Unternehmensinhaberliste angezeigt, wenn das Benutzerkonto ein Besitzer des Unternehmenskontos von {% data variables.product.prodname_ghe_server %} war." 
+    - "Das Erstellen eines OAuth-Token für den Identitätswechsel mithilfe der REST-API zur Verwaltung von Enterprise führte zu einem Fehler, wenn bereits eine Integration vorhanden war, die mit der OAuth-Anwendungs-ID übereinstimmte." 
+  changes:
+    - "Wenn versucht wurde, einen Wert zwischenzuspeichern, der größer ist als der in Memcached erlaubte Maximalwert, wurde ein Fehler generiert, der Schlüssel wurde jedoch nicht gemeldet." 
+  known_issues:
+    - "Die npm-Registrierung von {% data variables.product.prodname_registry %} gibt in Metadatenantworten keine Zeitwerte mehr zurück. So sind erhebliche Leistungssteigerungen möglich. Die erforderlichen Daten zum Zurückgeben eines Zeitwerts in einer Metadatenantwort sind weiterhin verfügbar, und dieser Wert wird in Zukunft wieder zurückgegeben, sobald die vorhandenen Leistungsprobleme behoben sind."
+    - "Bei einer Neueinrichtung einer {% data variables.product.prodname_ghe_server %}-Instanz ohne Benutzer*innen könnten Angreifer*innen die oder den erste*n Administratorbenutzer*in erstellen."
+    - Benutzerdefinierte Firewallregeln werden während des Upgrades entfernt.
+    - "Nachverfolgte Git-LFS-Dateien, [die über die Webschnittstelle hochgeladen wurden,](https://github.com/blog/2105-upload-files-to-your-repositories) werden dem Repository fälschlicherweise direkt hinzugefügt."
+    - "Issues können nicht geschlossen werden, wenn sie einen Permalink zu einem Blob im selben Repository enthalten und der Dateipfad des Blobs länger ist als 255 Zeichen."
+    - "Wenn „Benutzer können GitHub.com durchsuchen“ bei {% data variables.product.prodname_github_connect %} aktiviert ist, sind Issues in privaten und internen Repositorys nicht in den {% data variables.product.prodname_dotcom_the_website %}-Suchergebnissen enthalten."
+    - "Wenn {% data variables.product.prodname_actions %} für {% data variables.product.prodname_ghe_server %} aktiviert ist, ist die Nachbereitung eines Replikatknotens mit `ghe-repl-teardown` erfolgreich, kann jedoch den Fehler `ERROR:Running migrations` zurückgeben."
+    - "Ressourcenbegrenzungen, die nur beim Verarbeiten von Pre-Receive-Hooks auftreten, können bei manchen Pre-Receive-Hooks Fehler auslösen."

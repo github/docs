@@ -1,6 +1,6 @@
 ---
-title: Managing security managers in your organization
-intro: You can give your security team the least access they need to your organization by assigning a team to the security manager role.
+title: Verwalten von Sicherheitsmanagern in deiner Organisation
+intro: 'Du kannst deinem Sicherheitsteam den geringsten Zugriff gewähren, den es für deine Organisation benötigt, indem du ihm die Sicherheits-Manager-Rolle zuweist.'
 versions:
   feature: security-managers
 topics:
@@ -8,48 +8,48 @@ topics:
   - Teams
 shortTitle: Security manager role
 permissions: Organization owners can assign the security manager role.
+ms.openlocfilehash: c29dd20a123ccb20a32d40896064e11d59643bd9
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145068301'
 ---
-
 {% data reusables.organizations.security-manager-beta-note %}
 
 {% data reusables.organizations.about-security-managers %}
 
-## Permissions for the security manager role
+## Berechtigungen für die Rolle „Sicherheitsmanager“
 
-Members of a team with the security manager role have only the permissions required to effectively manage security for the organization.
+Teammitglieder mit der Rolle „Sicherheitsmanager“ besitzen nur die nötigen Berechtigungen, um die Sicherheit der Organisation effektiv zu verwalten.
 
-- Read access on all repositories in the organization, in addition to any existing repository access
-- Write access on all security alerts in the organization {% ifversion not fpt %}
-- Access to the organization's security overview {% endif %}
-- The ability to configure security settings at the organization level{% ifversion not fpt %}, including the ability to enable or disable {% data variables.product.prodname_GH_advanced_security %}{% endif %}
-- The ability to configure security settings at the repository level{% ifversion not fpt %}, including the ability to enable or disable {% data variables.product.prodname_GH_advanced_security %}{% endif %}
+- Lesezugriff auf alle Repositorys in der Organisation, zusätzlich zum bestehenden Zugriff auf Repositorys
+- Schreibzugriff auf alle Sicherheitswarnungen in der Organisation {% ifversion not fpt %}
+- Zugriff auf die Sicherheitsübersicht der Organisation {% endif %}
+- Konfigurieren von Sicherheitseinstellungen auf Organisationsebene{% ifversion not fpt %}, einschließlich der Berechtigung zum Aktivieren oder Deaktivieren von {% data variables.product.prodname_GH_advanced_security %}{% endif %}
+- Konfigurieren von Sicherheitseinstellungen auf Repositoryebene{% ifversion not fpt %}, einschließlich der Berechtigung zum Aktivieren oder Deaktivieren von {% data variables.product.prodname_GH_advanced_security %}{% endif %}
 
-{% ifversion fpt %}
-Additional functionality, including a security overview for the organization, is available in organizations that use {% data variables.product.prodname_ghe_cloud %} with {% data variables.product.prodname_advanced_security %}. For more information, see the [{% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization).
+{% ifversion fpt %} Weitere Funktionen, einschließlich einer Sicherheitsübersicht für die Organisation, sind für Organisationen verfügbar, die {% data variables.product.prodname_ghe_cloud %} mit {% data variables.product.prodname_advanced_security %} verwenden. Weitere Informationen findest du unter [Dokumentation zu {% data variables.product.prodname_ghe_cloud %}](/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization).
 {% endif %}
 
-If a team has the security manager role, people with admin access to the team and a specific repository can change the team's level of access to that repository but cannot remove the access. For more information, see "[Managing team access to an organization repository](/organizations/managing-access-to-your-organizations-repositories/managing-team-access-to-an-organization-repository){% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}" and "[Managing teams and people with access to your repository](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository)."{% else %}."{% endif %}
+Wenn ein Team die Rolle „Sicherheitsmanager“ besitzt, können Benutzer*innen mit Administratorzugriff auf das Team und ein bestimmtes Repository die Zugriffsebene des Teams auf das Repository ändern, den Zugriff jedoch nicht entziehen. Weitere Informationen findest du unter [Verwalten des Teamzugriffs auf ein Organisationsrepository](/organizations/managing-access-to-your-organizations-repositories/managing-team-access-to-an-organization-repository){% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5974 %} und [Verwalten von Teams und Benutzer*innen mit Zugriff auf dein Repository](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository).{% else %}."{% endif %}
 
-  ![Manage repository access UI with security managers](/assets/images/help/organizations/repo-access-security-managers.png)
+  ![Benutzeroberfläche zum Verwalten des Repositoryzugriffs als Sicherheitsmanager](/assets/images/help/organizations/repo-access-security-managers.png)
 
-## Assigning the security manager role to a team in your organization
-You can assign the security manager role to a maximum of 10 teams in your organization.
+## Zuweisen der Rolle „Sicherheitsmanager“ zu einem Team in deiner Organisation
+Du kannst die Rolle „Sicherheitsmanager“ maximal zehn Teams in deiner Organisation zuweisen.
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.security-and-analysis %}
-1. Under **Security managers**, search for and select the team to give the role. Each team you select will appear in a list below the search bar. 
-  ![Add security manager](/assets/images/help/organizations/add-security-managers.png)
-## Removing the security manager role from a team in your organization
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.organizations.security-and-analysis %}
+1. Suche unter **Sicherheitsmanager** nach dem Team, dem die Rolle zugewiesen werden soll. Alle von dir ausgewählten Teams werden in einer Liste unterhalb der Suchleiste angezeigt. 
+  ![Sicherheitsmanager hinzufügen](/assets/images/help/organizations/add-security-managers.png)
+## Entziehen der Rolle „Sicherheitsmanager“ von einem Team in deiner Organisation
 
 {% warning %}
 
-**Warning:** Removing the security manager role from a team will remove the team's ability to manage security alerts and settings across the organization, but the team will retain read access to repositories that was granted when the role was assigned. You must remove any unwanted read access manually. For more information, see "[Managing team access to an organization repository](/organizations/managing-access-to-your-organizations-repositories/managing-team-access-to-an-organization-repository#removing-a-teams-access-to-a-repository)."
+**Warnung:** Wenn du einem Team die Rolle „Sicherheitsmanager“ entziehst, kann das Team keine Sicherheitswarnungen und -einstellungen für die Organisation mehr verwalten, doch hat weiterhin Lesezugriff auf die Repositorys, für die dieser bei der Zuweisung der Rolle gewährt wurde. Du musst unerwünschten Lesezugriff manuell entziehen. Weitere Informationen findest du unter [Verwalten des Teamzugriffs auf ein Organisationsrepository](/organizations/managing-access-to-your-organizations-repositories/managing-team-access-to-an-organization-repository#removing-a-teams-access-to-a-repository).
 
 {% endwarning %}
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.security-and-analysis %}
-1. Under **Security managers**, to the right of the team you want to remove as security managers, click {% octicon "x" aria-label="The X icon" %}.
-  ![Remove security managers](/assets/images/help/organizations/remove-security-managers.png)
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.organizations.security-and-analysis %}
+1. Klicke unter **Sicherheitsmanager** rechts neben dem Team, dem diese Rolle entzogen werden soll, auf {% octicon "x" aria-label="The X icon" %}.
+  ![Sicherheitsmanager entfernen](/assets/images/help/organizations/remove-security-managers.png)

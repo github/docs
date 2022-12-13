@@ -1,6 +1,6 @@
 ---
-title: Quickstart for GitHub Copilot
-intro: '{% data variables.product.prodname_copilot %} can help you work, by offering inline suggestions as you code.'
+title: Schnellstart für GitHub Copilot
+intro: '{% data variables.product.prodname_copilot %} kann dir bei der Programmierung mit Inlinevorschlägen helfen.'
 product: '{% data reusables.gated-features.copilot %}'
 allowTitleToDifferFromFilename: true
 versions:
@@ -8,68 +8,60 @@ versions:
 shortTitle: Quickstart
 topics:
   - Copilot
+ms.openlocfilehash: 5aa3071cddc2bf83e7ee7082eabea00f79a66ea5
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147080244'
 ---
+## Einführung
 
-## Introduction
+{% data variables.product.prodname_copilot %} ist ein KI-Paarprogrammierer. {% data variables.product.prodname_copilot %} schlägt dir direkt im Editor ganze Zeilen oder Funktionen vor.
 
-{% data variables.product.prodname_copilot %} is an AI pair programmer. You can use {% data variables.product.prodname_copilot %} to get suggestions for whole lines or entire functions right inside your editor.
+In dieser Anleitung erfährst du, wie du dich für {% data variables.product.prodname_copilot %} registrierst, die Erweiterung {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode %} installierst und deinen ersten Vorschlag erhältst. Weitere Informationen zu {% data variables.product.prodname_copilot %} findest du unter [Informationen zu {% data variables.product.prodname_copilot %}](/copilot/overview-of-github-copilot/about-github-copilot). Ausführlichere Informationen zum Verwenden von {% data variables.product.prodname_copilot %} in einer Vielzahl von Umgebungen findest du unter [Erste Schritte](/copilot/getting-started-with-github-copilot).
 
-This guide will show you how to sign up for {% data variables.product.prodname_copilot %} through your personal account, install the {% data variables.product.prodname_copilot %} extension in {% data variables.product.prodname_vscode %}, and get your first suggestion. For more information on {% data variables.product.prodname_copilot %}, see "[About {% data variables.product.prodname_copilot %}](/copilot/overview-of-github-copilot/about-github-copilot)." For more in-depth information on how to use {% data variables.product.prodname_copilot %} in a variety of environments, see "[Getting Started](/copilot/getting-started-with-github-copilot)."
-
-## Prerequisites
+## Voraussetzungen
 
 {% data reusables.copilot.copilot-prerequisites %}
-- To use {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode %}, you must have {% data variables.product.prodname_vscode %} installed. For more information, see the [{% data variables.product.prodname_vscode %}](https://code.visualstudio.com/) documentation.
+- Um {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode %} zu verwenden, muss {% data variables.product.prodname_vscode %} installiert sein. Weitere Informationen findest du in der Dokumentation zu [{% data variables.product.prodname_vscode %}](https://code.visualstudio.com/).
 
-## Signing up for {% data variables.product.prodname_copilot %}
-
-Before you can start using {% data variables.product.prodname_copilot %}, you will need to set up a free trial or subscription for your personal account. 
-
-{% note %}
-
-**Note:** If you are a member of an organization owned by a {% data variables.product.prodname_ghe_cloud %} account with a {% data variables.product.prodname_copilot %} subscription, and you have been assigned a {% data variables.product.prodname_copilot %} seat by your organization, you can proceed to "[Installing the {% data variables.product.prodname_copilot %} extension for {% data variables.product.prodname_vscode %}](/copilot/quickstart#installing-the-github-copilot-extension-for-visual-studio-code)."
-
-{% endnote %}
+## Registrierung für {% data variables.product.prodname_copilot %}
 
 {% data reusables.copilot.signup-procedure %}
 
-## Installing the {% data variables.product.prodname_copilot %} extension for {% data variables.product.prodname_vscode %}
+## Installieren der {% data variables.product.prodname_copilot %}-Erweiterung für {% data variables.product.prodname_vscode %}
 
-To use {% data variables.product.prodname_copilot %}, you must first install the {% data variables.product.prodname_vscode %} extension.
+Um {% data variables.product.prodname_copilot %} zu verwenden, musst du zuerst die {% data variables.product.prodname_vscode %}-Erweiterung installieren.
 
-1. In the {% data variables.product.prodname_vscode %} Marketplace, go to the [{% data variables.product.prodname_copilot %} extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) page and click **Install**.
-   ![Install {% data variables.product.prodname_copilot %} extension {% data variables.product.prodname_vscode %}](/assets/images/help/copilot/install-copilot-extension-visual-studio-code.png)
-1. A popup will appear, asking to open {% data variables.product.prodname_vscode %}. Click **Open {% data variables.product.prodname_vscode %}**.
-1. In the "Extension: {% data variables.product.prodname_copilot %}" tab in {% data variables.product.prodname_vscode %}, click **Install**.
-   ![Install button in {% data variables.product.prodname_vscode %}](/assets/images/help/copilot/in-visual-studio-code-install-button.png)
-1. If you have not previously authorized {% data variables.product.prodname_vscode %} in your {% data variables.product.prodname_dotcom %} account, you will be prompted to sign in to {% data variables.product.prodname_dotcom %} in {% data variables.product.prodname_vscode %}.
-   - If you have previously authorized {% data variables.product.prodname_vscode %} in your {% data variables.product.prodname_dotcom %} account, {% data variables.product.prodname_copilot %} will be automatically authorized.
-   ![Screen shot of {% data variables.product.prodname_vscode %} authorization screen](/assets/images/help/copilot/vsc-copilot-authorize.png)
-1. In your browser, {% data variables.product.prodname_dotcom %} will request the necessary permissions for {% data variables.product.prodname_copilot %}. To approve these permissions, click **Authorize {% data variables.product.prodname_vscode %}**. 
-1. In {% data variables.product.prodname_vscode %}, in the "{% data variables.product.prodname_vscode %}" dialogue box, to confirm the authentication, click **Open**. 
+1. Wechsele im {% data variables.product.prodname_vscode %}-Marketplace zur Seite [{% data variables.product.prodname_copilot %}-Erweiterung](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot), und klicke auf **Installieren**.
+   ![Installieren der {% data variables.product.prodname_copilot %}-Erweiterung {% data variables.product.prodname_vscode %}](/assets/images/help/copilot/install-copilot-extension-visual-studio-code.png)
+1. Ein Popupfenster mit der Abfrage, ob {% data variables.product.prodname_vscode %} geöffnet werden soll, wird angezeigt. Klicke auf **{% data variables.product.prodname_vscode %} öffnen**.
+1. Klicke auf der Registerkarte „Erweiterung: {% data variables.product.prodname_copilot %}“ in {% data variables.product.prodname_vscode %} auf **Installieren**.
+   ![Schaltfläche „Installieren“ in {% data variables.product.prodname_vscode %}](/assets/images/help/copilot/in-visual-studio-code-install-button.png)
+1. Wenn du {% data variables.product.prodname_vscode %} noch nicht in deinem {% data variables.product.prodname_dotcom %}-Konto autorisiert hast, wirst du aufgefordert, dich bei {% data variables.product.prodname_dotcom %} in {% data variables.product.prodname_vscode %} anzumelden.
+   - Wenn du zuvor {% data variables.product.prodname_vscode %} in deinem {% data variables.product.prodname_dotcom %}-Konto autorisiert hast, wird {% data variables.product.prodname_copilot %} automatisch autorisiert.
+   ![Screenshot des {% data variables.product.prodname_vscode %}-Autorisierungsbildschirms](/assets/images/help/copilot/vsc-copilot-authorize.png)
+1. In deinem Browser wird {% data variables.product.prodname_dotcom %} die notwendigen Berechtigungen für {% data variables.product.prodname_copilot %} anfordern. Um diese Berechtigungen zu genehmigen, klicke auf **{% data variables.product.prodname_vscode %} autorisieren**. 
+1. Klicke in {% data variables.product.prodname_vscode %} im Dialogfeld „{% data variables.product.prodname_vscode %}“ auf **Öffnen**, um die Authentifizierung zu bestätigen. 
 
-## Getting your first suggestion
+## Anzeigen deines ersten Vorschlags
 
-{% data reusables.copilot.code-examples-limitations %}
+{% data reusables.copilot.supported-languages %} Die folgenden Beispiele sind in JavaScript geschrieben, andere Sprachen funktionieren jedoch ähnlich.
 
-{% data reusables.copilot.supported-languages %} The following samples are in JavaScript, but other languages will work similarly.
+1. Öffne {% data variables.product.prodname_vscode %}.
+{% data reusables.copilot.create-js-file %} {% data reusables.copilot.type-function-header %} {% data variables.product.prodname_copilot %} schlägt automatisch einen ganzen Funktionstext in ausgegrautem Text vor, wie unten gezeigt. Der genaue Vorschlag kann variieren.
+![Erster Vorschlag für {% data variables.product.prodname_vscode %}](/assets/images/help/copilot/first-suggestion-visual-studio-code.png) {% data reusables.copilot.accept-suggestion %}
 
-1. Open {% data variables.product.prodname_vscode %}.
-{% data reusables.copilot.create-js-file %}
-{% data reusables.copilot.type-function-header %}
-   {% data variables.product.prodname_copilot %} will automatically suggest an entire function body in grayed text, as shown below. The exact suggestion may vary.
-   ![First suggestion {% data variables.product.prodname_vscode %}](/assets/images/help/copilot/first-suggestion-visual-studio-code.png)
-{% data reusables.copilot.accept-suggestion %}
+## Nächste Schritte
 
-## Next Steps
+Du hast {% data variables.product.prodname_copilot %} erfolgreich installiert und deinen ersten Vorschlag erhalten, aber das ist nur der Anfang! Hier findest du einige hilfreiche Ressourcen für deine nächsten Schritte mit {% data variables.product.prodname_copilot %}.
 
-You successfully installed {% data variables.product.prodname_copilot %} and received your first suggestion, but that's just the beginning! Here are some helpful resources for taking your next steps with {% data variables.product.prodname_copilot %}.
-
-- [Getting Started](/copilot/getting-started-with-github-copilot): You've learned how to get your first suggestion in {% data variables.product.prodname_vscode %}. These guides show you how to set up and navigate the various functions of {% data variables.product.prodname_copilot %} across all of the supported environments.
-- [{% data variables.product.prodname_copilot %}](https://copilot.github.com/): See practical examples of how {% data variables.product.prodname_copilot %} can help you work.
-- [Configuring {% data variables.product.prodname_copilot %}](/copilot/configuring-github-copilot): These guides provide details on how to configure {% data variables.product.prodname_copilot %} to your personal preferences.
+- [Erste Schritte](/copilot/getting-started-with-github-copilot): Du hast gelernt, wie du deinen ersten Vorschlag in {% data variables.product.prodname_vscode %} erhältst. Diese Anleitungen zeigen dir, wie du die verschiedenen Funktionen von {% data variables.product.prodname_copilot %} in allen unterstützten Umgebungen einrichten und darin navigieren kannst.
+- [{% data variables.product.prodname_copilot %}](https://copilot.github.com/): Sieh dir praktische Beispiele der Unterstützung durch {% data variables.product.prodname_copilot %} an.
+- [Konfigurieren von {% data variables.product.prodname_copilot %}](/copilot/configuring-github-copilot): Diese Anleitungen bieten Details zum Konfigurieren deiner persönlichen Einstellungen für {% data variables.product.prodname_copilot %}.
 
 
-## Further reading
+## Weitere Informationsquellen
 
-- [About {% data variables.product.prodname_copilot %}](/copilot/overview-of-github-copilot/about-github-copilot)
+- [Informationen zu {% data variables.product.prodname_copilot %}](/copilot/overview-of-github-copilot/about-github-copilot)

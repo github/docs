@@ -1,7 +1,7 @@
 ---
-title: Configuring the referrer policy for your enterprise
+title: Konfigurieren der Referrerrichtlinie für dein Unternehmen
 shortTitle: Configure referrer policy
-intro: 'You can increase the privacy of {% data variables.location.product_location %} by configuring the policy for cross-origin requests.'
+intro: 'Du kannst den Datenschutz für {% data variables.product.product_location %} erhöhen, indem du die Richtlinie für ursprungsübergreifende Anforderungen konfigurierst.'
 versions:
   ghes: '*'
 type: how_to
@@ -10,29 +10,33 @@ topics:
   - Networking
   - Privacy
   - Security
+ms.openlocfilehash: 4824e938e044a89e9d0e534564214c6a46ba44da
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147066491'
 ---
+## Informationen zur Referrerrichtlinie für dein Unternehmen
 
-## About the referrer policy for your enterprise
+Die Referrerrichtlinie steuert die Informationen, die {% data variables.product.product_name %} in HTTP-Headern überträgt, wenn jemand einen Link von {% data variables.product.product_location %} zu einer externen Website besucht.
 
-The referrer policy controls the information that {% data variables.product.product_name %} transmits in HTTP headers when someone visits a link from {% data variables.location.product_location %} to an external site.
+Wenn ein Benutzer in {% data variables.product.product_location %} einen Link zu einer anderen Website aus einer Datei oder einem Kommentar in deiner Instanz besucht, enthält die Anforderung standardmäßig den Hostnamen für deine Instanz in Nur-Text-Form im `Referer`-Header. Wenn der Link zu einer externen Website führt, könnte der Besitzer der Website den Hostnamen für deine Instanz in Anforderungen oder Protokolldateien lesen.
 
-By default, when a user on {% data variables.location.product_location %} visits a link to another site from a file or comment on your instance, the request includes the hostname for your instance in plain text within the `Referer` header. If the link leads to an external website, the owner of the website could read the hostname for your instance in requests or log files.
+Du kannst die Informationen steuern, die {% data variables.product.product_name %} sendet, wenn ein Benutzer von deiner Instanz aus einen Link besucht.
 
-You can control the information that {% data variables.product.product_name %} sends when a user visits a link from your instance.
+## Aktivieren der Referenzrichtlinie `same-origin`
 
-## Enabling the `same-origin` referrer policy
-
-You can enable the `same-origin` referrer policy to instruct modern browsers to exclude the hostname for {% data variables.location.product_location %} from requests to external websites. The setting applies to all links from the web interface on your instance. By default, {% data variables.product.product_name %} uses the `origin-when-cross-origin` and `strict-origin-when-cross-origin` referrer policies, which means your instance's hostname will appear in HTTP and HTTPS requests to external websites.
+Mit der Referenzrichtlinie `same-origin` kannst du moderne Browser anweisen, den Hostnamen für {% data variables.product.product_location %} aus Anforderungen an externe Websites auszuschließen. Die Einstellung gilt für alle Links von der Weboberfläche deiner Instanz. Standardmäßig verwendet {% data variables.product.product_name %} die Referrerrichtlinien `origin-when-cross-origin` und `strict-origin-when-cross-origin`, was bedeutet, dass der Hostname deiner Instanz in HTTP- und HTTPS-Anforderungen an externe Websites angezeigt wird.
 
 {% note %}
 
-**Note**: Changing the referrer policy to `same-origin` can affect external sites that expect a hostname in the HTTP headers for a request.
+**Hinweis**: Das Ändern der Referrerrichtlinie zu `same-origin` kann sich auf externe Websites auswirken, die einen Hostnamen in den HTTP-Headern von Anforderungen erwarten.
 
 {% endnote %}
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-1. Under "User Agent Referrer Policy", select **Enable same origin referrer policy for all organizations**.
-  ![Checkbox for enabling same origin referrer policy](/assets/images/enterprise/settings/referrer-policy-checkbox.png)
-1. Click **Save**.
-  ![Save button for enabling same origin referrer policy](/assets/images/enterprise/settings/referrer-policy-save-button.png)
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.settings-tab %}
+1. Wähle unter „Referrerrichtlinie für Benutzer-Agent“ die Option **same-origin-Richtlinie für alle Organisationen aktivieren**.
+  ![Kontrollkästchen zum Aktivieren der same-origin-Referrerrichtlinie](/assets/images/enterprise/settings/referrer-policy-checkbox.png)
+1. Klicken Sie auf **Speichern**.
+  ![Schaltfläche „Speichern“ zum Aktivieren der same-origin-Referrerrichtlinie](/assets/images/enterprise/settings/referrer-policy-save-button.png)

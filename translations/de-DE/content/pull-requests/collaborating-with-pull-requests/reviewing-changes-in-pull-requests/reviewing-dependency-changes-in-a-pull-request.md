@@ -1,6 +1,6 @@
 ---
-title: Reviewing dependency changes in a pull request
-intro: 'If a pull request contains changes to dependencies, you can view a summary of what has changed and whether there are known vulnerabilities in any of the dependencies.'
+title: Überprüfen von Abhängigkeitsänderungen in einem Pull Request
+intro: 'Wenn ein Pull Request Änderungen an Abhängigkeiten enthält, kannst du eine Zusammenfassung dessen anzeigen, was geändert wurde,und ob bekannte Sicherheitsrisiken in einer der Abhängigkeiten vorhanden sind.'
 product: '{% data reusables.gated-features.dependency-review %}'
 versions:
   fpt: '*'
@@ -19,70 +19,71 @@ redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/reviewing-dependency-changes-in-a-pull-request
   - /github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-dependency-changes-in-a-pull-request
 shortTitle: Review dependency changes
+ms.openlocfilehash: 34cefbae8b7ccfd32773a47de2509a6eccc7a799
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148106605'
 ---
 <!--Marketing-LINK: From /features/security/software-supply-chain page "Sign up for the dependency review beta" and "Reviewing dependency changes in a pull request".-->
 
-## About dependency review
+## Informationen zur Abhängigkeitsüberprüfung
 
 {% data reusables.dependency-review.feature-overview %}
 
-{% ifversion ghec %}Before you can use dependency review in a private repository, you must enable the dependency graph. For more information, see "[Exploring the dependencies of a repository](/code-security/supply-chain-security/understanding-your-software-supply-chain/exploring-the-dependencies-of-a-repository#enabling-and-disabling-the-dependency-graph-for-a-private-repository)."{% endif %}
+{% ifversion ghec %} Bevor du die Abhängigkeitsüberprüfung in einem privaten Repository verwenden kannst, musst du das Abhängigkeitsdiagramm aktivieren. Weitere Informationen findest du unter [Untersuchen der Abhängigkeiten eines Repositorys](/code-security/supply-chain-security/understanding-your-software-supply-chain/exploring-the-dependencies-of-a-repository#enabling-and-disabling-the-dependency-graph-for-a-private-repository).{% endif %}
 
-{% ifversion ghes %} Before you can use dependency review, you must enable the dependency graph and connect {% data variables.location.product_location %} to {% data variables.product.prodname_dotcom_the_website %}. For more information, see "[Enabling alerts for vulnerable dependencies on {% data variables.product.prodname_ghe_server %}](/admin/configuration/managing-connections-between-github-enterprise-server-and-github-enterprise-cloud/enabling-alerts-for-vulnerable-dependencies-on-github-enterprise-server)."{% endif %}
+{% ifversion ghes %} Bevor du die Abhängigkeitsüberprüfung verwenden kannst, musst du das Abhängigkeitsdiagramm aktivieren und eine Verbindung von {% data variables.location.product_location %} mit {% data variables.product.prodname_dotcom_the_website %} herstellen. Weitere Informationen findest du unter [Aktivieren von Warnungen für Abhängigkeiten mit Sicherheitsrisiken auf {% data variables.product.prodname_ghe_server %}](/admin/configuration/managing-connections-between-github-enterprise-server-and-github-enterprise-cloud/enabling-alerts-for-vulnerable-dependencies-on-github-enterprise-server).{% endif %}
 
-Dependency review allows you to "shift left". You can use the provided predictive information to catch vulnerable dependencies before they hit production. For more information, see "[About dependency review](/code-security/supply-chain-security/about-dependency-review)."
+Die Abhängigkeitsüberprüfung ermöglicht dir, nach „links zu wechseln“. Du kannst die bereitgestellten prädiktiven Informationen verwenden, um Abhängigkeiten mit Sicherheitsrisiken zu erfassen, bevor sie in die Produktion eingehen. Weitere Informationen findest du unter [Informationen zur Abhängigkeitsprüfung](/code-security/supply-chain-security/about-dependency-review).
 
 {% ifversion fpt or ghec or ghes > 3.5 or ghae > 3.5 %}
 
-You can use the {% data variables.dependency-review.action_name %} to help enforce dependency reviews on pull requests in your repository. {% data reusables.dependency-review.dependency-review-action-overview %}
+Du kannst die {% data variables.product.prodname_dependency_review_action %} verwenden, um Abhängigkeitsüberprüfungen bei Pull Requests in deinem Repository zu erzwingen. {% data reusables.dependency-review.dependency-review-action-overview %}
 
-{% ifversion dependency-review-action-configuration %}
-You can configure the {% data variables.dependency-review.action_name %} to better suit your needs by specifying the type of dependency vulnerability you wish to catch. For more information, see "[Configuring dependency review](/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-dependency-review#configuring-the-dependency-review-github-action)." 
-{% endif %}
+{% ifversion dependency-review-action-configuration %} Du kannst die {% data variables.product.prodname_dependency_review_action %} so konfigurieren, dass sie deinen Anforderungen besser entspricht, indem du den Typ des Sicherheitsrisikos angibst, das du abfangen möchtest. Weitere Informationen findest du unter [Konfigurieren der Abhängigkeitsüberprüfung](/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-dependency-review#configuring-the-dependency-review-github-action). {% endif %}
 
 {% endif %}
-## Reviewing dependencies in a pull request
+## Überprüfen von Abhängigkeiten in einem Pull Request
 
-{% data reusables.repositories.sidebar-pr %}
-{% data reusables.repositories.choose-pr-review %}
-{% data reusables.repositories.changed-files %}
+{% data reusables.repositories.sidebar-pr %} {% data reusables.repositories.choose-pr-review %} {% data reusables.repositories.changed-files %}
 
-1. If the pull request contains many files, use the **File filter** drop-down menu to collapse all files that don't record dependencies. This will make it easier to focus your review on the dependency changes.
+1. Wenn der Pull Request viele Dateien enthält, verwende das Dropdownmenü **Dateifilter**, um alle Dateien auszublenden, die keine Abhängigkeiten aufzeichnen. Dadurch wird es einfacher, die Überprüfung auf die Änderungen in den Abhängigkeiten zu konzentrieren.
 
-   ![The file filter menu](/assets/images/help/pull_requests/file-filter-menu-json.png)
-   The dependency review provides a clearer view of what has changed in large lock files, where the source diff is not rendered by default.
+   ![Das Dateifiltermenü](/assets/images/help/pull_requests/file-filter-menu-json.png): Die Abhängigkeitsüberprüfung bietet eine klarere Ansicht dessen, was sich in großen Sperrdateien geändert hat, wobei das Quell-Diff standardmäßig nicht gerendert wird.
 
   {% note %}
 
-   **Note:** Dependency review rich diffs are not available for committed static JavaScript files like `jquery.js`.
+   **Hinweis:** Abhängigkeitsüberprüfungs-Rich-Diffs sind für committete statische JavaScript-Dateien wie `jquery.js` nicht verfügbar.
 
    {% endnote %}
 
-1. On the right of the header for a manifest or lock file, display the dependency review by clicking the **{% octicon "file" aria-label="The rich diff icon" %}** rich diff button.
+1. Zeige rechts neben dem Header für eine Manifest- oder Sperrdatei die Abhängigkeitsüberprüfung an, indem du auf die Rich-Diff-Schaltfläche **{% octicon "file" aria-label="The rich diff icon" %}** klickst.
 
-   ![The rich diff button](/assets/images/help/pull_requests/dependency-review-rich-diff.png)
+   ![Die Rich-Diff-Schaltfläche](/assets/images/help/pull_requests/dependency-review-rich-diff.png)
 
-2. Check the dependencies listed in the dependency review.
+2. Überprüfe die in der Abhängigkeitsüberprüfung aufgeführten Abhängigkeiten.
 
-   ![Vulnerability warnings in a dependency review](/assets/images/help/pull_requests/dependency-review-vulnerability.png)
+   ![Sicherheitsrisikowarnungen in einer Abhängigkeitsüberprüfung](/assets/images/help/pull_requests/dependency-review-vulnerability.png)
 
-   Any added or changed dependencies that have vulnerabilities are listed first, ordered by severity and then by dependency name. This means that the highest severity dependencies are always at the top of a dependency review. Other dependencies are listed alphabetically by dependency name.
+   Alle hinzugefügten oder geänderten Abhängigkeiten, die Sicherheitsrisiken aufweisen, werden zuerst aufgelistet, sortiert nach Schweregrad und dann nach Abhängigkeitsnamen. Dies bedeutet, dass die Abhängigkeiten mit dem höchsten Schweregrad in einer Abhängigkeitsüberprüfung immer oben liegen. Andere Abhängigkeiten werden alphabetisch nach Abhängigkeitsnamen aufgeführt.
 
-   The icon beside each dependency indicates whether the dependency has been added (<span style="color:#22863a">{% octicon "diff-added" aria-label="Dependency added icon" %}</span>), updated (<span style="color:#b08800">{% octicon "diff-modified" aria-label="Dependency modified icon" %}</span>), or removed (<span style="color:#cb2431">{% octicon "diff-removed" aria-label="Dependency removed icon" %}</span>) in this pull request.
+   Das Symbol neben jeder Abhängigkeit zeigt an, ob die Abhängigkeit in diesem Pull Request hinzugefügt (<span style="color:#22863a">{% octicon "diff-added" aria-label="Dependency added icon" %}</span>), aktualisiert (<span style="color:#b08800">{% octicon "diff-modified" aria-label="Dependency modified icon" %}</span>) oder entfernt (<span style="color:#cb2431">{% octicon "diff-removed" aria-label="Dependency removed icon" %}</span>) wurde.
 
-   Other information includes:
+   Diese Informationen umfassen Folgendes:
 
-   * The version, or version range, of the new, updated, or deleted dependency.
-   * For a specific version of a dependency:
-      * The age of that release of the dependency.
-      * The number of projects that are dependent on this software. This information is taken from the dependency graph. Checking the number of dependents can help you avoid accidentally adding the wrong dependency.
-      * The license used by this dependency, if this information is available. This is useful if you want to avoid code with certain licenses being used in your project.
+   * Die Version, oder der Versionsbereich der neuen, aktualisierten oder gelöschten Abhängigkeit.
+   * Für eine bestimmte Version einer Abhängigkeit:
+      * Das Alter dieser Veröffentlichung der Abhängigkeit.
+      * Die Anzahl der Projekte, die von dieser Software abhängig sind. Diese Informationen werden aus dem Abhängigkeitsdiagramm abgeleitet. Wenn du die Anzahl der Abhängigen überprüfst, kannst du vermeiden, versehentlich die falsche Abhängigkeit hinzuzufügen.
+      * Die von dieser Abhängigkeit verwendete Lizenz, wenn diese Informationen verfügbar sind. Dies ist nützlich, wenn du verhindern möchtest, dass Code mit bestimmten Lizenzen in deinem Projekt verwendet wird.
 
-   Where a dependency has a known vulnerability, the warning message includes:
+   Wenn eine Abhängigkeit ein bekanntes Sicherheitsrisiko aufweist, enthält die Warnmeldung Folgendes:
 
-   * A brief description of the vulnerability.
-   * A Common Vulnerabilities and Exposures (CVE) or {% data variables.product.prodname_security_advisories %} (GHSA) identification number. You can click this ID to find out more about the vulnerability.
-   * The severity of the vulnerability.
-   * The version of the dependency in which the vulnerability was fixed. If you are reviewing a pull request for someone, you might ask the contributor to update the dependency to the patched version, or a later release.
+   * Eine kurze Beschreibung des Sicherheitsrisikos.
+   * Eine CVE- oder {% data variables.product.prodname_security_advisories %}-Identifikationsnummer (Common Vulnerabilities and Exposures oder GHSA). Du kannst auf diese ID klicken, um mehr über das Sicherheitsrisiko zu erfahren.
+   * Der Schweregrad des Sicherheitsrisikos.
+   * Die Version der Abhängigkeit, in der das Sicherheitsrisiko behoben wurde. Wenn du einen Pull Request für jemanden überprüfst, bitte den Mitwirkenden, die Abhängigkeit auf die gepatchte Version oder eine spätere Version zu aktualisieren.
 
 {% data reusables.repositories.return-to-source-diff %}

@@ -1,6 +1,6 @@
 ---
-title: About wikis
-intro: 'You can host documentation for your repository in a wiki, so that others can use and contribute to your project.'
+title: Informationen zu Wikis
+intro: 'Du kannst die Dokumentation für dein Repository in einem Wiki verwalten, damit andere dein Projekt nutzen und daran mitwirken können.'
 redirect_from:
   - /articles/about-github-wikis
   - /articles/about-wikis
@@ -13,28 +13,33 @@ versions:
   ghec: '*'
 topics:
   - Community
+ms.openlocfilehash: 94800761c60bb984745e582e2c9691e294e7a90d
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147529623'
 ---
+Jedes Repository auf {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} ist mit einem Abschnitt zum Hosten von Dokumentation (als Wiki bezeichnet) ausgestattet. Du kannst das Wiki deines Repositorys verwenden, um ausführliche Informationen über dein Projekt auszutauschen, beispielsweise über seine Verwendung, seine Gestaltung und seine Kernprinzipien. Eine README-Datei zeigt schnell, was dein Projekt bezweckt, wohingegen du ein Wiki verwenden kannst, um zusätzliche Dokumentation bereitzustellen. Weitere Informationen findest du unter [Informationen zu README-Dateien](/articles/about-readmes).
 
-Every repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %} comes equipped with a section for hosting documentation, called a wiki. You can use your repository's wiki to  share long-form content about your project, such as how to use it, how you designed it, or its core principles. A README file quickly tells what your project can do, while you can use a wiki to provide additional documentation. For more information, see "[About READMEs](/articles/about-readmes)."
-
-With wikis, you can write content just like everywhere else on {% data variables.product.product_name %}. For more information, see "[Getting started with writing and formatting on {% data variables.product.prodname_dotcom %}](/articles/getting-started-with-writing-and-formatting-on-github)." We use [our open-source Markup library](https://github.com/github/markup) to convert different formats into HTML, so you can choose to write in Markdown or any other supported format. 
+Mit Wikis kannst du Inhalte wie überall sonst auf {% data variables.product.product_name %} verfassen. Weitere Informationen findest du unter [Erste Schritte beim Schreiben und Formatieren auf {% data variables.product.prodname_dotcom %}](/articles/getting-started-with-writing-and-formatting-on-github). Wir verwenden [unsere Open-Source Markupbibliothek](https://github.com/github/markup), um verschiedene Formate in HTML zu konvertieren. So kannst du auswählen, ob du in Markdown oder einem beliebigen anderen unterstützten Format schreiben möchtest. 
 
 {% data reusables.getting-started.math-and-diagrams %}
 
-{% ifversion fpt or ghes or ghec %}If you create a wiki in a public repository, the wiki is available to {% ifversion ghes %}anyone with access to {% data variables.location.product_location %}{% else %}the public{% endif %}. {% endif %}If you create a wiki in a private{% ifversion ghec or ghes %} or internal{% endif %} repository, only {% ifversion fpt or ghes or ghec %}people{% elsif ghae %}enterprise members{% endif %} with access to the repository can access the wiki. For more information, see "[Setting repository visibility](/articles/setting-repository-visibility)."
+{% ifversion fpt or ghes or ghec %}Wenn du ein Wiki in einem öffentlichen Repository erstellst, steht das Wiki für {% ifversion ghes %}jeden zur Verfügung, der auf {% data variables.product.product_location %} zugreifen kann{% else %}die Öffentlichkeit zur Verfügung{% endif %}. {% endif %}Wenn du ein Wiki in einem privaten{% ifversion ghec or ghes %} oder internen{% endif %} Repository erstellst, ist das Wiki nur für {% ifversion fpt or ghes or ghec %}Personen{% elsif ghae %}Unternehmensmitglieder{% endif %} mit Zugriff auf das Repository zugänglich. Weitere Informationen findest du unter [Festlegen der Sichtbarkeit des Repositorys](/articles/setting-repository-visibility).
 
-You can edit wikis directly on {% data variables.product.product_name %}, or you can edit wiki files locally. By default, only people with write access to your repository can make changes to wikis, although you can allow everyone on {% data variables.location.product_location %} to contribute to a wiki in {% ifversion ghae %}an internal{% else %}a public{% endif %} repository. For more information, see "[Changing access permissions for wikis](/communities/documenting-your-project-with-wikis/changing-access-permissions-for-wikis)."
+Du kannst Wikis direkt auf {% data variables.product.product_name %} bearbeiten, oder du kannst Wiki-Dateien lokal bearbeiten. Standardmäßig können nur Personen mit Schreibzugriff auf dein Repository Änderungen an Wikis vornehmen. Du kannst jedoch jedem auf {% data variables.product.product_location %} erlauben, an einem Wiki in einem {% ifversion ghae %}internen{% else %}öffentlichen{% endif %} Repository mitzuwirken. Weitere Informationen findest du unter [Ändern von Zugriffsberechtigungen für Wikis](/communities/documenting-your-project-with-wikis/changing-access-permissions-for-wikis).
 
 {% note %}
 
-**Note:** Search engines will not index the contents of wikis. To have your content indexed by search engines, you can use [{% data variables.product.prodname_pages %}](/pages) in a public repository.
+**Hinweis**: Durch Suchmaschinen wird der Inhalt von Wikis nicht indiziert. Damit deine Inhalte von Suchmaschinen indiziert werden können, kannst du [{% data variables.product.prodname_pages %}](/pages) in einem öffentlichen Repository verwenden.
 
 {% endnote %}
 
-## Further reading
+## Weiterführende Themen
 
-- "[Adding or editing wiki pages](/communities/documenting-your-project-with-wikis/adding-or-editing-wiki-pages)"
-- "[Creating a footer or sidebar for your wiki](/communities/documenting-your-project-with-wikis/creating-a-footer-or-sidebar-for-your-wiki)"
-- "[Editing wiki content](/communities/documenting-your-project-with-wikis/editing-wiki-content)"
-- "[Viewing a wiki's history of changes](/articles/viewing-a-wiki-s-history-of-changes)"
-- "[Searching wikis](/search-github/searching-on-github/searching-wikis)"
+- [Hinzufügen oder Bearbeiten von Wiki-Seiten](/communities/documenting-your-project-with-wikis/adding-or-editing-wiki-pages)
+- [Erstellen einer Fußzeile oder Randleiste für dein Wiki](/communities/documenting-your-project-with-wikis/creating-a-footer-or-sidebar-for-your-wiki)
+- [Bearbeiten von Wiki-Inhalten](/communities/documenting-your-project-with-wikis/editing-wiki-content)
+- [Anzeigen des Änderungsverlaufs eines Wikis](/articles/viewing-a-wiki-s-history-of-changes)
+- [Durchsuchen von Wikis](/search-github/searching-on-github/searching-wikis)

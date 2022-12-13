@@ -1,7 +1,8 @@
 ---
-title: Changing the machine type for your codespace
+title: Ändern des Computertyps für deinen Codespace
 shortTitle: Change the machine type
-intro: 'You can change the type of machine that''s running your codespace, so that you''re using resources appropriate for the work you''re doing.'
+intro: 'Du kannst den Computertyp ändern, auf dem dein Codespace ausgeführt wird, um die für deine Arbeit geeigneten Ressourcen zu nutzen.'
+product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
   ghec: '*'
@@ -10,21 +11,30 @@ redirect_from:
 topics:
   - Codespaces
 type: how_to
+ms.openlocfilehash: 618b031ce0c23c2b4eba52157fca2a6625fe3dfd
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148108310'
 ---
-
-## About machine types
-
-{% data reusables.codespaces.codespaces-machine-types %} You can choose an alternative machine type either when you create a codespace or at any time after you've created a codespace. 
-
-For information on choosing a machine type when you create a codespace, see "[Creating a codespace for a repository](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository#creating-a-codespace-for-a-repository)."
-
-{% data reusables.codespaces.machine-types-for-unpublished-codespaces %} For more information, see "[Creating a codespace from a template](/codespaces/developing-in-codespaces/creating-a-codespace-from-a-template)."
-
-## Changing the machine type
+## Informationen zu Computertypen
 
 {% note %}
 
-**Note**: {% data reusables.codespaces.codespaces-machine-type-availability %}
+**Hinweis:** Du kannst den Computertyp nur auswählen oder ändern, wenn du Mitglied einer Organisation bist, die {% data variables.product.prodname_github_codespaces %} verwendet, und einen Codespace in einem Repository dieser Organisation erstellst.
+
+{% endnote %}
+
+{% data reusables.codespaces.codespaces-machine-types %} Du kannst einen alternativen Computertyp auswählen – entweder, wenn du einen Codespace erstellst, oder jederzeit nach Erstellung eines Codespace. 
+
+Informationen zum Auswählen eines Computertyps beim Erstellen eines Codespace findest du unter [Erstellen eines Codespace](/codespaces/developing-in-codespaces/creating-a-codespace#creating-a-codespace).
+
+## Ändern des Computertyps
+
+{% note %}
+
+**Hinweis:** {% data reusables.codespaces.codespaces-machine-type-availability %}
 
 {% endnote %}
 
@@ -32,18 +42,18 @@ For information on choosing a machine type when you create a codespace, see "[Cr
 
 {% data reusables.codespaces.your-codespaces-procedure-step %}
 
-   The current machine type for each of your codespaces is displayed.
+   Der aktuelle Computertyp für jeden deiner Codespaces wird angezeigt.
 
-   !['Your codespaces' list](/assets/images/help/codespaces/your-codespaces-list.png)
+   ![Liste „Deine Codespaces“](/assets/images/help/codespaces/your-codespaces-list.png)
 
-{% data reusables.codespaces.ellipsis-settings %}
-1. Click **Change machine type**.
+1. Klicke rechts neben dem Codespace, den du ändern möchtest, auf die Auslassungspunkte (**...**).
+1. Klicke auf **Computertyp ändern**.
 
-   !['Change machine type' menu option](/assets/images/help/codespaces/change-machine-type-menu-option.png)
-1. If multiple machine types are available for your codespace, choose the type of machine you want to use.
+   ![Menüoption „Computertyp ändern“](/assets/images/help/codespaces/change-machine-type-menu-option.png)
+1. Falls für deinen Codespace mehrere Computertypen verfügbar sind, wähle den gewünschten Computertyp aus.
 
-   ![Dialog box showing available machine types to choose](/assets/images/help/codespaces/change-machine-type-choice.png)
-1. Click **Update codespace**. 
+   ![Dialogfeld mit verfügbaren Computertypen, die zur Auswahl stehen](/assets/images/help/codespaces/change-machine-type-choice.png)
+1. Klicke auf **Codespace aktualisieren**. 
 
 {% endwebui %}
 
@@ -55,39 +65,39 @@ For information on choosing a machine type when you create a codespace, see "[Cr
 
 {% cli %}
 
-You can use the `gh codespace edit --machine MACHINE-TYPE-NAME` {% data variables.product.prodname_cli %} command to change the machine type of a codespace. To use this command, you'll first need to find out the available machine types for your codespace.
+Du kannst den {% data variables.product.prodname_cli %}-Befehl `gh codespace edit --machine MACHINE-TYPE-NAME` verwenden, um den Computertyp für einen Codespace zu ändern. Bevor du diesen Befehl verwenden kannst, musst du zunächst die verfügbaren Computertypen für deinen Codespace ermitteln.
 
-1. To view your list of codespaces, in a terminal, enter the following command.
+1. Gib in einem Terminal den folgenden Befehl ein, um die Liste deiner Codespaces anzuzeigen.
    
    ```
    gh codespace list
    ```
-1. Optionally, to find the current machine type for a codespace, enter the following command.
+1. Optional kannst du mit dem folgenden Befehl den aktuellen Computertyp für einen Codespace ermitteln.
    
    ```
    gh api /user/codespaces/CODESPACE-NAME
    ```
 
-   Replace `CODESPACE-NAME` with the permanent name of the codespace, for example `octocat-literate-space-parakeet-mld5`. The permanent names are listed under the **NAME** column in the list returned by `gh codespace list`.
+   Ersetze `CODESPACE-NAME` durch den permanenten Namen des Codespaces, zum Beispiel `octocat-myrepo-gmc7`. Die permanenten Namen werden in der Spalte **NAME** in der durch `gh codespace list` zurückgegebenen Liste aufgeführt.
 
-   If you're prompted to request the `codespace` scope, follow the instructions in the terminal.
+   Wenn du aufgefordert wirst, den `codespace`-Bereich abzufragen, befolge die Anweisungen im Terminal.
 
-   Details for the current machine are listed under the `machine` field.
-1. To find the available machine types for a codespace, enter the following command.
+   Die Details zum aktuellen Computer werden unter dem Feld `machine` aufgelistet.
+1. Gib den folgenden Befehl ein, um die verfügbaren Computertypen für einen Codespace zu ermitteln.
    
    ```
    gh api /user/codespaces/CODESPACE-NAME/machines
    ```
 
-   Replace `CODESPACE-NAME` with the permanent name of the codespace, for example `octocat-literate-space-parakeet-mld5`.
-1. To change the machine type for a codespace, enter the following command.
+   Ersetze `CODESPACE-NAME` durch den permanenten Namen des Codespaces, zum Beispiel `octocat-myrepo-gmc7`.
+1. Gib den folgenden Befehl ein, um den Computertyp für einen Codespace zu ändern.
 
    ```
    gh codespace edit --machine MACHINE-TYPE-NAME
    ```
 
-   Replace `MACHINE-TYPE-NAME` with the name of an available machine type for your codespace, for example `standardLinux32gb`. 
-1. Using the arrow keys, navigate to the codespace you want to change, then press <kbd>Enter</kbd>.
+   Ersetze `MACHINE-TYPE-NAME` durch den Namen eines verfügbaren Computertyps für deinen Codespace, zum Beispiel `standardLinux32gb`. 
+1. Navigiere mithilfe der Pfeiltasten zu dem Codespace, den du ändern möchtest, und drücke dann die <kbd>EINGABETASTE</kbd>.
 
 {% endcli %}
 
@@ -95,9 +105,9 @@ You can use the `gh codespace edit --machine MACHINE-TYPE-NAME` {% data variable
 
 {% cli %}
 
-## Further reading
+## Weitere Informationsquellen
 
-- "[Codespaces machines](/rest/codespaces/machines)" in the REST API documentation
-- [`gh codespace edit`](https://cli.github.com/manual/gh_codespace_edit) in the {% data variables.product.prodname_cli %} manual
+- [Codespaces-Computer](/rest/codespaces/machines) in der REST-API-Dokumentation
+- [`gh codespace edit`](https://cli.github.com/manual/gh_codespace_edit) im Handbuch zur {% data variables.product.prodname_cli %}
 
 {% endcli %}

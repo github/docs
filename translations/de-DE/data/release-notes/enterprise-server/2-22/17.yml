@@ -1,0 +1,20 @@
+date: '14.07.2021'
+sections:
+  security_fixes:
+    - '**HOCH:** In GitHub Enterprise Server wurde ein Path Traversal-Sicherheitsrisiko identifiziert, das beim Erstellen einer GitHub Pages-Website ausgenutzt werden konnte. Die von GitHub Pages verwendeten benutzergesteuerten Konfigurationsoptionen wurden nicht ausreichend eingeschränkt. Dadurch konnten Dateien in der GitHub Enterprise Server-Instanz gelesen werden. Um dieses Sicherheitsrisiko auszunutzen, benötigte ein Angreifer die Berechtigung, eine GitHub Pages-Website in der GitHub Enterprise Server-Instanz zu erstellen. Dieses Sicherheitsrisiko trat bei allen Versionen von GitHub Enterprise Server vor 3.1.3 auf, und ihm wurde CVE-2021-22867 zugeordnet. Dieses Sicherheitsrisiko wurde über das Programm „GitHub Security Bug Bounty“ gemeldet.'
+    - Die Pakete wurden auf die neuesten Sicherheitsversionen aktualisiert.
+  bugs:
+    - '„ghe-cluster-config-node-init“ generierte während der Clustereinrichtung einen Fehler, wenn der HTTP-Proxy aktiviert wurde.'
+    - Collectd löste den Hostnamen des Weiterleitungsziels nach dem ersten Start nicht auf.
+    - "Der Auftrag, der veraltete gelöschte Repositorys endgültig gelöscht hat, konnte keinen Fortschritt erzielen, wenn für einige dieser Repositorys ein Löschschutz aufgrund gesetzlicher Aufbewahrungspflichten eingerichtet war."
+    - "Git-Pushvorgänge konnten während des Benutzerabgleichsvorgangs in Instanzen, die den LDAP-Authentifizierungsmodus nutzen, zum Fehler „500: Interner Serverfehler“ führen."
+    - "Eine große Anzahl des Fehlers 503 wurde immer dann protokolliert, wenn Benutzer die Seite „/settings“ eines Repositorys besuchten und das Abhängigkeitsdiagramm nicht aktiviert war."
+  changes:
+    - "Die Effizienz von „config-apply“ wurde durch Überspringen unveränderter Firewallregeln zum Zulassen von IP-Adressen verbessert, was bei großen Clustern zu erheblichen Zeiteinsparungen geführt hat."
+  known_issues:
+    - In einer neu eingerichteten GitHub Enterprise Server-Instanz ohne Benutzer konnte ein Angreifer den ersten Administratorbenutzer erstellen.
+    - Benutzerdefinierte Firewallregeln werden während des Upgrades entfernt.
+    - "Nachverfolgte Git-LFS-Dateien, [die über die Webbenutzeroberfläche hochgeladen wurden](https://github.com/blog/2105-upload-files-to-your-repositories), werden dem Repository fälschlicherweise direkt hinzugefügt."
+    - "Issues können nicht geschlossen werden, wenn sie einen Permalink zu einem Blob im selben Repository enthalten und der Dateipfad des Blobs länger ist als 255 Zeichen."
+    - "Wenn die Option zum Durchsuchen von GitHub.com mit GitHub Connect aktiviert wird, sind Issues in privaten und internen Repositorys nicht in den GitHub.com-Suchergebnissen enthalten."
+    - "Wenn ein Replikatknoten in einer Hochverfügbarkeitskonfiguration offline ist, kann {% data variables.product.product_name %} eventuell noch immer Anfragen von {% data variables.product.prodname_pages %} an den Offlineknoten weiterleiten, was die Verfügbarkeit von {% data variables.product.prodname_pages %} für Benutzer verringert."

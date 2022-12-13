@@ -1,7 +1,7 @@
 ---
-title: Caching dependencies to speed up workflows
+title: Abhängigkeiten zwischenspeichern um Workflows zu beschleunigen
 shortTitle: Cache dependencies
-intro: 'To make your workflows faster and more efficient, you can create and use caches for dependencies and other commonly reused files.'
+intro: 'Um deine Workflows schneller und effizienter zu gestalten, kannst du Caches für Abhängigkeiten und andere häufig wiederverwendete Dateien erstellen und verwenden.'
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/caching-dependencies-to-speed-up-workflows
   - /actions/automating-your-workflow-with-github-actions/caching-dependencies-to-speed-up-workflows
@@ -14,17 +14,22 @@ type: tutorial
 topics:
   - Workflows
 miniTocMaxHeadingLevel: 3
+ms.openlocfilehash: 380fe568e950a4dc388e8f811ecebd12f242c5df
+ms.sourcegitcommit: 34d500fe45b362043b4b4685d6705a7bfb484d11
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 11/15/2022
+ms.locfileid: '148164380'
 ---
+## Informationen zum Zwischenspeichern von Workflow-Abhängigkeiten
 
-## About caching workflow dependencies
+Workflow-Läufe verwenden häufig dieselben Ausgaben oder heruntergeladenen Abhängigkeiten in aufeinanderfolgenden Durchläufen. Tools zur Verwaltung von Paketen und Abhängigkeiten wie beispielsweise Maven, Gradle, npm und Yarn halten einen lokalen Cache mit heruntergeladenen Abhängigkeiten.
 
-Workflow runs often reuse the same outputs or downloaded dependencies from one run to another. For example, package and dependency management tools such as Maven, Gradle, npm, and Yarn keep a local cache of downloaded dependencies.
+{% ifversion fpt or ghec %} Aufträge für {% data variables.product.prodname_dotcom %}-gehostete Runner beginnen in einem sauberen Runner-Image und müssen Abhängigkeiten jedes Mal herunterladen. Dies führt zu erhöhter Netzwerkauslastung, längerer Laufzeit und erhöhten Kosten. {% endif %}Um die Zeit zum Neuerstellen von Dateien wie Abhängigkeiten einzusparen, kann {% data variables.product.prodname_dotcom %} in Workflows häufig verwendete Dateien zwischenspeichern.
 
-{% ifversion fpt or ghec %} Jobs on {% data variables.product.prodname_dotcom %}-hosted runners start in a clean runner image and must download dependencies each time, causing increased network utilization, longer runtime, and increased cost. {% endif %}To help speed up the time it takes to recreate files like dependencies, {% data variables.product.prodname_dotcom %} can cache files you frequently use in workflows.
+Um Abhängigkeiten für einen Auftrag zwischenzuspeichern, kannst du die [`cache`-Aktion](https://github.com/actions/cache) von {% data variables.product.prodname_dotcom %} verwenden. Die Aktion erstellt einen Cache, der durch einen eindeutigen Schlüssel identifiziert wird, und stellt diesen wieder her. Wenn du die unten aufgeführten Paket-Manager zwischenspeicherst, erfordert die Verwendung ihrer jeweiligen Setup-*-Aktionen minimale Konfiguration und erstellt Abhängigkeitscaches für dich und stellt diese wieder her.
 
-To cache dependencies for a job, you can use {% data variables.product.prodname_dotcom %}'s [`cache` action](https://github.com/actions/cache). The action creates and restores a cache identified by a unique key. Alternatively, if you are caching the package managers listed below, using their respective setup-* actions requires minimal configuration and will create and restore dependency caches for you.
-
-| Package managers | setup-* action for caching |
+| Paket-Manager | Setup-*-Aktion zum Zwischenspeichern |
 |---|---|
 | npm, Yarn, pnpm | [setup-node](https://github.com/actions/setup-node#caching-global-packages-data) |
 | pip, pipenv, Poetry | [setup-python](https://github.com/actions/setup-python#caching-packages-dependencies) |
@@ -34,45 +39,44 @@ To cache dependencies for a job, you can use {% data variables.product.prodname_
 
 {% warning %}
 
-**Warning**: {% ifversion fpt or ghec %}Be mindful of the following when using caching with {% data variables.product.prodname_actions %}:
+**Warnung**: {% ifversion fpt or ghec %}Beachte Folgendes, wenn du Zwischenspeicherung mit {% data variables.product.prodname_actions %} verwendest:
 
-* {% endif %}We recommend that you don't store any sensitive information in the cache. For example, sensitive information can include access tokens or login credentials stored in a file in the cache path. Also, command line interface (CLI) programs like `docker login` can save access credentials in a configuration file. Anyone with read access can create a pull request on a repository and access the contents of a cache. Forks of a repository can also create pull requests on the base branch and access caches on the base branch.
+* {% endif %}Es wird empfohlen, keine vertraulichen Informationen im Cache zu speichern. Sensible Informationen umfassen beispielsweise Zugriffstoken oder Anmeldedaten, die in einer Datei im Cache-Pfad gespeichert sind. Auch Befehlszeilenprogramme (CLI) wie `docker login` können Anmeldeinformationen in einer Konfigurationsdatei speichern. Jeder Benutzer mit Lesezugriff kann einen Pull-Request für ein Repository erstellen und auf den Inhalt des Caches zugreifen. Forks eines Repositorys können auch Pull-Requests auf den base branch (Basiszweig) erstellen und auf Caches im Basiszweig zugreifen.
 {%- ifversion fpt or ghec %}
-* When using self-hosted runners, caches from workflow runs are stored on {% data variables.product.company_short %}-owned cloud storage. A customer-owned storage solution is only available with {% data variables.product.prodname_ghe_server %}.
+* Bei der Verwendung von selbstgehosteten Runnern werden Caches aus Workflowausführungen auf {% data variables.product.company_short %}-eigenem Cloudspeicher gespeichert. Eine kundeneigene Speicherlösung ist nur mit {% data variables.product.prodname_ghe_server %} verfügbar.
 {%- endif %}
 
 {% endwarning %}
 
 {% data reusables.actions.comparing-artifacts-caching %}
 
-For more information on workflow run artifacts, see "[Persisting workflow data using artifacts](/github/automating-your-workflow-with-github-actions/persisting-workflow-data-using-artifacts)."
+Weitere Informationen zu Workflowausführungsartefakten findest du unter [Endgültiges Speichern von Workflowdaten mit Artefakten](/github/automating-your-workflow-with-github-actions/persisting-workflow-data-using-artifacts).
 
-## Restrictions for accessing a cache
+## Einschränkungen für den Zugriff auf einen Cache
 
-Access restrictions provide cache isolation and security by creating a logical boundary between different branches or tags. 
-Workflow runs can restore caches created in either the current branch or the default branch (usually `main`). If a workflow run is triggered for a pull request, it can also restore caches created in the base branch, including base branches of forked repositories. For example, if the branch `feature-b` has the base branch `feature-a`, a workflow run triggered on a pull request would have access to caches created in the default `main` branch, the base `feature-a` branch, and the current `feature-b` branch.
+Zugriffsbeschränkungen bieten Cache-Isolation und Sicherheit durch Ziehen einer logischen Grenze zwischen Branches oder Tags. Mit Workflowausführungen können Caches wiederhergestellt werden, die entweder im aktuellen Branch oder im Standardbranch (üblicherweise `main`) erstellt wurden. Wenn eine Workflowausführung für einen Pull Request ausgelöst wird, kann sie auch Caches wiederherstellen, die im Basisbranch erstellt wurden, einschließlich der Basisbranches von geforkten Repositorys. Wenn der Branch `feature-b` beispielsweise den Basisbranch `feature-a` verwendet, hat ein Workflow, der durch einen Pull Request ausgelöst wird, Zugriff auf die Caches, die im Standardbranch `main`, dem Basisbranch `feature-a` und dem aktuellen Branch `feature-b` erstellt wurden.
 
-Workflow runs cannot restore caches created for child branches or sibling branches. For example, a cache created for the child `feature-b` branch would not be accessible to a workflow run triggered on the parent `main` branch. Similarly, a cache created for the `feature-a` branch with the base `main` would not be accessible to its sibling `feature-c` branch with the base `main`. Workflow runs also cannot restore caches created for different tag names. For example, a cache created for the tag `release-a` with the base `main` would not be accessible to a workflow run triggered for the tag `release-b` with the base `main`.
+Mit Workflowausführungen können keine Caches wiederhergestellt werden, die für untergeordnete oder gleichgeordnete Branches erstellt wurden. Beispielsweise wäre ein für den untergeordneten Branch `feature-b` erstellter Cache nicht für einen Workflow zugänglich, der für den übergeordneten Branch `main` ausgelöst wurde. Ebenso wäre ein Cache, der für den Branch `feature-a` mit der Basis `main` erstellt wurde, nicht für den gleichgeordneten Branch `feature-c` mit der Basis `main` zugänglich. Mithilfe von Workflowausführungen können auch keine Caches wiederhergestellt werden, die für andere Tagnamen erstellt wurden. Zum Beispiel wäre ein Cache, der für das Tag `release-a` mit der Basis `main` erstellt wurde, nicht für eine Workflowausführung zugänglich, die für das Tag `release-b` mit der Basis `main` ausgelöst wurde.
 
-When a cache is created by a workflow run triggered on a pull request, the cache is created for the merge ref (`refs/pull/.../merge`). Because of this, the cache will have a limited scope and can only be restored by re-runs of the pull request. It cannot be restored by the base branch or other pull requests targeting that base branch.
+Wenn ein Cache über eine Workflowausführung erstellt wird, die durch einen Pull Request ausgelöst wurde, wird der Cache für den Mergeverweis (`refs/pull/.../merge`) erstellt. Aus diesem Grund hat der Cache einen begrenzten Bereich und kann nur durch erneutes Ausführen des Pull Request wiederhergestellt werden. Er kann nicht über den Basisbranch oder andere Pull Requests wiederhergestellt werden, die diesen Basisbranch als Ziel haben.
 
-Multiple workflow runs in a repository can share caches. A cache created for a branch in a workflow run can be accessed and restored from another workflow run for the same repository and branch.
+Mehrere Workflowausführungen in einem Repository können Caches gemeinsam nutzen. Ein Cache, der für einen Branch in einer Workflowausführung erstellt wurde, kann von einer anderen Workflowausführung für dasselbe Repository und denselben Branch aufgerufen und wiederhergestellt werden.
 
-## Using the `cache` action
+## Verwenden der `cache`-Aktion
 
-The [`cache` action](https://github.com/actions/cache) will attempt to restore a cache based on the `key` you provide. When the action finds a cache that _exactly_ matches the key, the action restores the cached files to the `path` you configure.
-You can optionally provide a list of `restore-keys` to use in case the `key` doesn't match an existing cache. A list of `restore-keys` is useful when you are restoring a cache from another branch because `restore-keys` can _partially_ match cache keys. For more information about matching `restore-keys`, see "[Matching a cache key](#matching-a-cache-key)."
+Die [`cache`-Aktion](https://github.com/actions/cache) versucht, einen Cache basierend auf dem bereitgestellten `key` wiederherzustellen. Wenn die Aktion einen Cache findet, der _exakt_ mit dem Schlüssel übereinstimmt, stellt die Aktion die zwischengespeicherten Dateien an dem von dir konfigurierten Pfad (`path`) wieder her.
+Du kannst optional eine Liste von `restore-keys` angeben, die verwendet werden sollen, falls `key` nicht mit einem vorhandenen Cache übereinstimmt. Eine Liste von `restore-keys` ist nützlich, wenn du einen Cache aus einem anderen Branch wiederherstellst, da `restore-keys` einen _Teilabgleich_ für Cacheschlüssel durchführen kann. Weitere Informationen zum Abgleichen von `restore-keys` findest du unter [Abgleichen eines Cacheschlüssels](#matching-a-cache-key).
 
-If there is an exact match to the provided `key`, this is considered a cache hit. If no cache exactly matches the provided `key`, this is considered a cache miss. On a cache miss, the action automatically creates a new cache if the job completes successfully. The new cache will use the `key` you provided and contains the files you specify in `path`. For more information about how this is handled, see "[Cache hits and misses](#cache-hits-and-misses)."
+Wenn es eine genaue Übereinstimmung mit dem angegebenen `key` gibt, wird dies als Cachetreffer gewertet. Wenn kein Cache genau mit den angegebenen `key` übereinstimmt, wird dies als Cachefehler gewertet. Bei einem Cachefehler erstellt die Aktion automatisch einen neuen Cache, wenn der Auftrag erfolgreich abgeschlossen wurde. Der neue Cache verwendet den bereitgestellten `key` und enthält die von Ihnen in `path` angegebenen Dateien. Weitere Informationen zur Handhabung dieser Situation findest du unter [Cachetreffer und -fehler](#cache-hits-and-misses).
 
-You cannot change the contents of an existing cache. Instead, you can create a new cache with a new key.
+Du kannst den Inhalt eines vorhandenen Caches nicht ändern. Stattdessen kannst du einen neuen Cache mit einem neuen Schlüssel erstellen.
 
 
-### Input parameters for the `cache` action
+### Eingabeparameter für die `cache`-Aktion
 
-- `key`: **Required** The key created when saving a cache and the key used to search for a cache. It can be any combination of variables, context values, static strings, and functions. Keys have a maximum length of 512 characters, and keys longer than the maximum length will cause the action to fail.
-- `path`: **Required** The path(s) on the runner to cache or restore.
-  - You can specify a single path, or you can add multiple paths on separate lines. For example:
+- `key`: **Erforderlich**. Der Schlüssel, der beim Speichern eines Caches erstellt wurde, und der Schlüssel, der zum Suchen nach einem Cache verwendet wird. Dies kann eine beliebige Kombination von Variablen, Kontextwerten, statischen Zeichenfolgen und Funktionen sein. Schlüssel haben eine maximale Länge von 512 Zeichen und Schlüssel, die die maximale Länge überschreiten, lassen die Aktion fehlschlagen.
+- `path`: **Erforderlich**. Die Pfade auf dem Runner, die zwischengespeichert oder wiederhergestellt werden sollen.
+  - Du kannst einen einzelnen Pfad angeben oder mehrere Pfade in separaten Zeilen hinzufügen. Beispiel:
 
     ```
     - name: Cache Gradle packages
@@ -82,9 +86,9 @@ You cannot change the contents of an existing cache. Instead, you can create a n
           ~/.gradle/caches
           ~/.gradle/wrapper
     ```
-  - You can specify either directories or single files, and glob patterns are supported.
-  - You can specify absolute paths, or paths relative to the workspace directory.
-- `restore-keys`: **Optional** A string containing alternative restore keys, with each restore key placed on a new line. If no cache hit occurs for `key`, these restore keys are used sequentially in the order provided to find and restore a cache. For example:
+  - Du kannst entweder Verzeichnisse oder einzelne Dateien angeben, und Globmuster werden unterstützt.
+  - Du kannst absolute Pfade oder zum Arbeitsbereichsverzeichnis relative Pfade angeben.
+- `restore-keys`: **Optional**. Eine Zeichenfolge mit alternativen Wiederherstellungsschlüsseln, wobei jeder Wiederherstellungsschlüssel in einer neuen Zeile platziert wird. Wenn kein Cachetreffer für `key` vorhanden ist, werden diese Wiederherstellungsschlüssel sequenziell in der bereitgestellten Reihenfolge verwendet, um einen Cache zu finden und wiederherzustellen. Beispiel:
 
   {% raw %}
   ```yaml
@@ -95,28 +99,28 @@ You cannot change the contents of an existing cache. Instead, you can create a n
   ```
   {% endraw %}
 
-### Output parameters for the `cache` action
+### Ausgabeparameter für die `cache`-Aktion
 
-- `cache-hit`: A boolean value to indicate an exact match was found for the key.
+- `cache-hit`: Ein boolescher Wert, der angibt, dass eine genaue Übereinstimmung für den Schlüssel gefunden wurde.
 
-### Cache hits and misses
-When `key` exactly matches an existing cache, it's called a _cache hit_, and the action restores the cached files to the `path` directory.
+### Cachetreffer und -fehler
+Wenn `key` exakt mit einem vorhandenen Cache übereinstimmt, wird dies als _Cachetreffer_ bezeichnet, und die Aktion stellt die zwischengespeicherten Dateien im Verzeichnis `path` wieder her.
 
-When `key` doesn't match an existing cache, it's called a _cache miss_, and a new cache is automatically created if the job completes successfully.
+Wenn `key` nicht mit einem vorhandenen Cache übereinstimmt, wird das als _Cachefehler_ bezeichnet. Wenn der Auftrag erfolgreich abgeschlossen wird, wird automatisch ein neuer Cache erstellt.
 
-When a cache miss occurs, the action also searches your specified `restore-keys` for any matches:
+Wenn ein Cachefehler auftritt, sucht die Aktion auch in den angegebenen `restore-keys` nach Übereinstimmungen:
 
-1. If you provide `restore-keys`, the `cache` action sequentially searches for any caches that match the list of `restore-keys`.
-   - When there is an exact match, the action restores the files in the cache to the `path` directory.
-   - If there are no exact matches, the action searches for partial matches of the restore keys. When the action finds a partial match, the most recent cache is restored to the `path` directory.
-1. The `cache` action completes and the next step in the job runs.
-1. If the job completes successfully, the action automatically creates a new cache with the contents of the `path` directory.
+1. Wenn du `restore-keys` angibst, sucht die `cache`-Aktion sequenziell nach Caches, die der Liste von `restore-keys` entsprechen.
+   - Wenn es eine genaue Übereinstimmung gibt, stellt die Aktion die Dateien aus dem Cache im Verzeichnis `path` wieder her.
+   - Wenn es keine exakten Übereinstimmungen gibt, sucht die Aktion nach partiellen Übereinstimmungen der „restore keys“ (Wiederherstellungs-Scvhlüssel). Wenn die Aktion eine partielle Übereinstimmung findet, wird der aktuellste Cache im Verzeichnis `path` wiederhergestellt.
+1. Die `cache`-Aktion wird abgeschlossen, und der nächste Schritt im Auftrag wird ausgeführt.
+1. Wenn der Auftrag erfolgreich abgeschlossen wurde, erstellt die Aktion automatisch einen neuen Cache mit dem Inhalt des Verzeichnisses `path`.
 
-For a more detailed explanation of the cache matching process, see "[Matching a cache key](#matching-a-cache-key)."
+Eine ausführlichere Erläuterung des Cacheabgleichs findest du unter [Abgleichen eines Cacheschlüssels](#matching-a-cache-key).
 
-### Example using the `cache` action
+### Beispiel für die Verwendung der `cache`-Aktion
 
-This example creates a new cache when the packages in `package-lock.json` file change, or when the runner's operating system changes. The cache key uses contexts and expressions to generate a key that includes the runner's operating system and a SHA-256 hash of the `package-lock.json` file.
+Dieses Beispiel erstellt einen neuen Cache, wenn sich die Pakete in `package-lock.json` ändern oder sich das Betriebssystem des Runners ändert. Das folgende Beispiel verwendet Kontexte und Ausdrücke, um einen Schlüssel zu generieren, der eine Kennung des Runnerbetriebssystems und einen SHA-256-Hash der Datei `package-lock.json` enthält.
 
 ```yaml{:copy}
 name: Caching with npm
@@ -156,13 +160,13 @@ jobs:
         run: npm test
 ```
 
-### Using contexts to create cache keys
+### Cache-Keys aus Kontexten erstellen
 
-A cache key can include any of the contexts, functions, literals, and operators supported by {% data variables.product.prodname_actions %}. For more information, see "[Contexts](/actions/learn-github-actions/contexts)" and "[Expressions](/actions/learn-github-actions/expressions)."
+Ein Cache-Key (Cache-Schlüssel) kann Kontexte, Funktionen, Literale und Operatoren enthalten, die von {% data variables.product.prodname_actions %} unterstützt werden. Weitere Informationen findest du unter [Kontexte](/actions/learn-github-actions/contexts) und [Ausdrücke](/actions/learn-github-actions/expressions).
 
-Using expressions to create a `key` allows you to automatically create a new cache when dependencies change.
+Wenn du zum Erstellen eines `key`s Ausdrücke verwendest, kannst du automatisch einen neuen Cache erstellen, wenn sich Abhängigkeiten ändern.
 
-For example, you can create a `key` using an expression that calculates the hash of an npm `package-lock.json` file. So, when the dependencies that make up the `package-lock.json` file change, the cache key changes and a new cache is automatically created.
+Du kannst z. B. einen `key` mit einem Ausdruck erstellen, der den Hash einer npm-Datei `package-lock.json` berechnet. Wenn sich also die Abhängigkeiten ändern, aus denen die Datei `package-lock.json` besteht, ändert sich der Cacheschlüssel, und ein neuer Cache wird automatisch erstellt.
 
 {% raw %}
 ```yaml
@@ -170,17 +174,17 @@ npm-${{ hashFiles('package-lock.json') }}
 ```
 {% endraw %}
 
-{% data variables.product.prodname_dotcom %} evaluates the expression `hash "package-lock.json"` to derive the final `key`.
+{% data variables.product.prodname_dotcom %} wertet den Ausdruck `hash "package-lock.json"` aus, um den endgültigen `key` abzuleiten.
 
 ```yaml
 npm-d5ea0750
 ```
 
-### Using the output of the `cache` action
+### Verwenden der Ausgabe der `cache`-Aktion
 
-You can use the output of the `cache` action to do something based on whether a cache hit or miss occurred. When an exact match is found for a cache for the specified `key`, the `cache-hit` output is set to `true`.
+Du kannst die Ausgabe der `cache`-Aktion verwenden, um eine Aktion abhängig davon auszuführen, ob ein Cachetreffer oder -fehler aufgetreten ist. Wenn eine genaue Übereinstimmung für einen Cache des angegebenen `key`-Elements gefunden wird, wird die Ausgabe von `cache-hit` auf `true` festgelegt.
 
-In the example workflow above, there is a step that lists the state of the Node modules if a cache miss occurred:
+Im Beispielworkflow oben gibt es einen Schritt, in dem der Status der Node-Module aufgelistet wird, wenn ein Cachefehler aufgetreten ist:
 
 ```yaml
 - if: {% raw %}${{ steps.cache-npm.outputs.cache-hit != 'true' }}{% endraw %}
@@ -189,15 +193,15 @@ In the example workflow above, there is a step that lists the state of the Node 
   run: npm list
 ```
 
-## Matching a cache key
+## Einen Cache-Key abgleichen
 
-The `cache` action first searches for cache hits for `key` and the cache _version_ in the branch containing the workflow run. If there is no hit, it searches for `restore-keys` and the _version_. If there are still no hits in the current branch, the `cache` action retries same steps on the default branch. Please note that the scope restrictions apply during the search. For more information, see "[Restrictions for accessing a cache](#restrictions-for-accessing-a-cache)."
+Die Aktion `cache` sucht zunächst nach Cachetreffern für `key` und den Cache _Version_ in dem Branch, der die Workflowausführung enthält. Wenn es keinen Treffer gibt, wird nach `restore-keys` und der _Version_ gesucht. Wenn es im aktuellen Branch weiterhin keine Treffer gibt, wiederholt die Aktion `cache` dieselben Schritte für den Standardbranch. Beachte, dass während der Suche die Bereichseinschränkungen gelten. Weitere Informationen findest du unter [Einschränkungen für den Zugriff auf einen Cache](#restrictions-for-accessing-a-cache).
 
-Cache version is a way to stamp a cache with metadata of the `path` and the compression tool used while creating the cache. This ensures that the consuming workflow run uniquely matches a cache it can actually decompress and use. For more information, see [Cache Version](https://github.com/actions/cache#cache-version) in the Actions Cache documentation.
+Über die Cacheversion kann ein Cache mit Metadaten für den `path` und das bei der Cacheerstellung verwendete Komprimierungstool versehen werden. So wird sichergestellt, dass die Workflowausführung eindeutig einem Cache entspricht, den sie tatsächlich dekomprimieren und nutzen kann. Weitere Informationen findest du unter [Cacheversion](https://github.com/actions/cache#cache-version) in der Dokumentation zum Actions-Cache.
 
-`restore-keys` allows you to specify a list of alternate restore keys to use when there is a cache miss on `key`. You can create multiple restore keys ordered from the most specific to least specific. The `cache` action searches the `restore-keys` in sequential order. When a key doesn't match directly, the action searches for keys prefixed with the restore key. If there are multiple partial matches for a restore key, the action returns the most recently created cache.
+`restore-keys` ermöglicht es Ihnen, eine Liste alternativer Wiederherstellungsschlüssel anzugeben, die verwendet werden sollen, wenn ein Cachefehler für `key` auftritt. Du kannst mehrere <code>restore-keys</code> erstellen, die von den spezifischsten zum am wenigsten spezifischen sortiert sind. Die `cache`-Aktion durchsucht die `restore-keys` sequenzielle Reihenfolge. Wenn ein Schlüssel nicht direkt übereinstimmt, sucht die Aktion nach Schlüsseln denen der Restore-Key vorangestellt ist. Wenn mehrere Teiltreffer für einen Restore-Key vorhanden sind, gibt die Aktion den zuletzt erstellten Cache zurück.
 
-### Example using multiple restore keys
+### Beispiel für die Verwendung mehrerer Restore-Keys
 
 {% raw %}
 ```yaml
@@ -208,7 +212,7 @@ restore-keys: |
 ```
 {% endraw %}
 
-The runner evaluates the expressions, which resolve to these `restore-keys`:
+Der Runner wertet die Ausdrücke aus, die in die folgenden `restore-keys` aufgelöst werden:
 
 {% raw %}
 ```yaml
@@ -219,13 +223,13 @@ restore-keys: |
 ```
 {% endraw %}
 
-The restore key `npm-feature-` matches any key that starts with the string `npm-feature-`. For example, both of the keys `npm-feature-fd3052de` and `npm-feature-a9b253ff` match the restore key. The cache with the most recent creation date would be used. The keys in this example are searched in the following order:
+Der Wiederherstellungsschlüssel `npm-feature-` stimmt mit jedem Schlüssel überein, der mit der Zeichenfolge `npm-feature-` beginnt. Beispielsweise entsprechen beide Schlüssel `npm-feature-fd3052de` und `npm-feature-a9b253ff` dem Wiederherstellungsschlüssel. Der Cache mit dem neuesten Erstellungsdatum wird verwendet. Die Schlüssel in diesem Beispiel werden in der folgenden Reihenfolge durchsucht:
 
-1. **`npm-feature-d5ea0750`** matches a specific hash.
-1. **`npm-feature-`** matches cache keys prefixed with `npm-feature-`.
-1. **`npm-`** matches any keys prefixed with `npm-`.
+1. **`npm-feature-d5ea0750`** stimmt mit einem bestimmten Hash überein.
+1. **`npm-feature-`** gleicht Cacheschlüssel mit dem Präfix `npm-feature-` ab.
+1. **`npm-`** gleicht alle Schlüssel mit dem Präfix `npm-` ab.
 
-#### Example of search priority
+#### Beispiel für die Suchpriorität
 
 ```yaml
 key:
@@ -235,132 +239,77 @@ restore-keys: |
   npm-
 ```
 
-For example, if a pull request contains a `feature` branch and targets the default branch (`main`), the action searches for `key` and `restore-keys` in the following order:
+Wenn beispielsweise ein Pull Request einen `feature`-Branch enthält und auf den Standardbranch (`main`) abzielt, sucht die Aktion nach `key` und `restore-keys` in der folgenden Reihenfolge:
 
-1. Key `npm-feature-d5ea0750` in the `feature` branch
-1. Key `npm-feature-` in the `feature` branch
-1. Key `npm-` in the `feature` branch
-1. Key `npm-feature-d5ea0750` in the `main` branch
-1. Key `npm-feature-` in the `main` branch
-1. Key `npm-` in the `main` branch
+1. Schlüssel `npm-feature-d5ea0750` im `feature`-Branch
+1. Schlüssel `npm-feature-` im `feature`-Branch
+1. Schlüssel `npm-` im `feature`-Branch
+1. Schlüssel `npm-feature-d5ea0750` im `main`-Branch
+1. Schlüssel `npm-feature-` im `main`-Branch
+1. Schlüssel `npm-` im `main`-Branch
 
-## Usage limits and eviction policy
+## Nutzungsbeschränkungen und Räumungsrichtlinien
 
-{% data variables.product.prodname_dotcom %} will remove any cache entries that have not been accessed in over 7 days. There is no limit on the number of caches you can store, but the total size of all caches in a repository is limited{% ifversion actions-cache-policy-apis %}. By default, the limit is 10 GB per repository, but this limit might be different depending on policies set by your enterprise owners or repository administrators.{% else %} to 10 GB.{% endif %} 
+{% data variables.product.prodname_dotcom %} wird alle Cache-Einträge entfernen, auf die seit mehr als 7 Tagen nicht zugegriffen wurde. Es gibt keine Grenze für die Anzahl der Caches, die du speichern kannst. Die Gesamtgröße aller Caches in einem Repository ist jedoch begrenzt{% ifversion actions-cache-policy-apis %}. Standardmäßig liegt der Grenzwert bei 10 GB pro Repository. Dieser Grenzwert kann jedoch je nach den von deinen Unternehmensinhaber*innen oder Repositoryadministrator*innen festgelegten Richtlinien abweisen.{% else %} auf 10 GB.{% endif %} 
 
-{% data reusables.actions.cache-eviction-process %} {% ifversion actions-cache-ui %}The cache eviction process may cause cache thrashing, where caches are created and deleted at a high frequency. To reduce this, you can review the caches for a repository and take corrective steps, such as removing caching from specific workflows. For more information, see "[Managing caches](#managing-caches)."{% endif %}{% ifversion actions-cache-admin-ui %} You can also increase the cache size limit for a repository. For more information, see "[Managing {% data variables.product.prodname_actions %} settings for a repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#configuring-cache-storage-for-a-repository)."
+{% data reusables.actions.cache-eviction-process %} {% ifversion actions-cache-ui %}Der Prozess zur Cacheleerung kann zu einem sogenannten Cache-Thrashing führen, bei dem Caches in hoher Frequenz erstellt und gelöscht werden. Um dies zu reduzieren, kannst du die Caches für ein Repository überprüfen und Korrekturmaßnahmen ergreifen, wie z. B. das Entfernen der Zwischenspeicherung aus bestimmten Workflows. Weitere Informationen findest du unter [Verwalten von Caches](#managing-caches).{% endif %}{% ifversion actions-cache-admin-ui %} Du kannst auch das Cachegrößenlimit für ein Repository erhöhen. Weitere Informationen findest du unter [Verwalten von {% data variables.product.prodname_actions %}-Einstellungen für ein Repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#configuring-cache-storage-for-a-repository).
 
 {% elsif actions-cache-policy-apis %}
 
-For information on changing the policies for the repository cache size limit, see "[Enforcing policies for {% data variables.product.prodname_actions %} in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#enforcing-a-policy-for-cache-storage-in-your-enterprise)" and "[Managing {% data variables.product.prodname_actions %} settings for a repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#configuring-cache-storage-for-a-repository)."
+Informationen zum Ändern der Richtlinien für das Größenlimit des Repositorycaches findest du unter [Erzwingen von Richtlinien für {% data variables.product.prodname_actions %} in deinem Unternehmen](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#enforcing-a-policy-for-cache-storage-in-your-enterprise) und [Verwalten von {% data variables.product.prodname_actions %}-Einstellungen für ein Repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#configuring-cache-storage-for-a-repository).
 
 {% endif %}
 
 {% ifversion actions-cache-management %}
 
-## Managing caches
+## Verwalten von Caches
 
 {% ifversion actions-cache-ui %}
 
-To manage caches created from your workflows, you can:
+Zum Verwalten der über deine Workflows erstellten Caches kannst du folgende Aufgaben ausführen:
 
-- View a list of all cache entries for a repository.
-- Filter and sort the list of caches using specific metadata such as cache size, creation time, or last accessed time.
-- Delete cache entries from a repository.
-- Monitor aggregate cache usage for repositories and organizations.
+- Anzeigen einer Liste aller Cacheeinträge für ein Repository
+- Filtern und Sortieren der Liste der Caches anhand bestimmter Metadaten, z. B. Cachegröße, Erstellungszeitpunkt oder Zeitpunkt des letzten Zugriffs
+- Löschen von Cacheeinträgen aus einem Repository
+- Überwachen der aggregierten Cachenutzung für Repositorys und Organisationen
 
-There are multiple ways to manage caches for your repositories:
+Es gibt mehrere Möglichkeiten, die Caches für deine Repositorys zu verwalten:
 
-- Using the {% data variables.product.prodname_dotcom %} web interface, as shown below.
-- Using the REST API. For more information, see the "[{% data variables.product.prodname_actions %} Cache](/rest/actions/cache)" REST API documentation.
-- Installing a {% data variables.product.prodname_cli %} extension to manage your caches from the command line. For more information, see the [gh-actions-cache](https://github.com/actions/gh-actions-cache) extension.
+- Verwenden der {% data variables.product.prodname_dotcom %}-Weboberfläche, wie unten gezeigt.
+- Verwendung der REST-API. Weitere Informationen findest du in der REST-API-Dokumentation [{% data variables.product.prodname_actions %}-Cache](/rest/actions/cache).
+- Installation einer {% data variables.product.prodname_cli %}-Erweiterung, um deine Caches über die Befehlszeile zu verwalten. Weitere Informationen findest du in der Erweiterung [gh-actions-cache](https://github.com/actions/gh-actions-cache).
 
 {% else %}
 
-You can use the {% data variables.product.product_name %} REST API to manage your caches. {% ifversion actions-cache-list-delete-apis %}You can use the API to list and delete cache entries, and see your cache usage.{% elsif actions-cache-management %}At present, you can use the API to see your cache usage, with more functionality expected in future updates.{% endif %} For more information, see the "[{% data variables.product.prodname_actions %} Cache](/rest/actions/cache)" REST API documentation.
+Du kannst die {% data variables.product.product_name %}-REST-API verwenden, um deine Caches zu verwalten. {% ifversion actions-cache-list-delete-apis %}Du kannst mithilfe der API Cacheeinträge auflisten sowie löschen und deine Cachenutzung anzeigen.{% elsif actions-cache-management %}Derzeit kannst du mithilfe der API deine Cachenutzung anzeigen, wobei in zukünftigen Updates weitere Funktionen erwartet werden.{% endif %} Weitere Informationen findest du in der Dokumentation zur REST-API unter [{% data variables.product.prodname_actions %}-Cache](/rest/actions/cache).
 
-You can also install a {% data variables.product.prodname_cli %} extension to manage your caches from the command line. For more information about the extension, see [the extension documentation](https://github.com/actions/gh-actions-cache#readme). For more information about {% data variables.product.prodname_cli %} extensions, see "[Using GitHub CLI extensions](/github-cli/github-cli/using-github-cli-extensions)."
+Du kannst auch eine {% data variables.product.prodname_cli %}-Erweiterung installieren, um deine Caches über die Befehlszeile zu verwalten. Weitere Informationen zur Erweiterung findest du in der [Erweiterungsdokumentation](https://github.com/actions/gh-actions-cache#readme). Weitere Informationen zu {% data variables.product.prodname_cli %}-Erweiterungen findest du unter [Verwenden von GitHub CLI-Erweiterungen](/github-cli/github-cli/using-github-cli-extensions).
 
 {% endif %}
 
 {% ifversion actions-cache-ui %}
 
-### Viewing cache entries
+### Anzeigen von Cacheeinträgen
 
-You can use the web interface to view a list of cache entries for a repository. In the cache list, you can see how much disk space each cache is using, when the cache was created, and when the cache was last used.
+Du kannst die Weboberfläche verwenden, um eine Liste der Cacheeinträge für ein Repository anzuzeigen. In der Cacheliste kannst du sehen, wie viel Speicherplatz jeder Cache verbraucht, wann der Cache erstellt und wann er zuletzt verwendet wurde.
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.actions-tab %}
-{% data reusables.repositories.actions-cache-list %}
-1. Review the list of cache entries for the repository.
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.actions-tab %} {% data reusables.repositories.actions-cache-list %}
+1. Überprüfe die Liste der Cacheeinträge für das Repository.
 
-   * To search for cache entries used for a specific branch, click the **Branch** dropdown menu and select a branch. The cache list will display all of the caches used for the selected branch.
-   * To search for cache entries with a specific cache key, use the syntax `key: key-name` in the **Filter caches** field. The cache list will display caches from all branches where the key was used.
+   * Um nach Cacheeinträgen zu suchen, die für einen bestimmten Branch verwendet werden, klicke auf das Dropdownmenü **Branch**, und wähle einen Branch aus. In der Cacheliste werden alle Caches angezeigt, die für den ausgewählten Branch verwendet werden.
+   * Um nach Cacheeinträgen mit einem bestimmten Cacheschlüssel zu suchen, verwende die Syntax `key: key-name` im Feld **Caches filtern**. In der Cacheliste werden Caches aus allen Branches angezeigt, in denen der Schlüssel verwendet wurde.
 
-   ![Screenshot of the list of cache entries](/assets/images/help/repository/actions-cache-entry-list.png)
+   ![Screenshot: Liste der Cacheeinträge](/assets/images/help/repository/actions-cache-entry-list.png)
 
-### Deleting cache entries
+### Löschen von Cacheeinträgen
 
-Users with `write` access to a repository can use the {% data variables.product.prodname_dotcom %} web interface to delete cache entries.
+Benutzer mit `write`-Zugriff auf ein Repository können die {% data variables.product.prodname_dotcom %}-Weboberfläche verwenden, um Cacheeinträge zu löschen.
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.actions-tab %}
-{% data reusables.repositories.actions-cache-list %}
-1. To the right of the cache entry you want to delete, click {% octicon "trash" aria-label="The trash icon" %}. 
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.actions-tab %} {% data reusables.repositories.actions-cache-list %}
+1. Klicke rechts neben dem Cacheeintrag, den du löschen möchtest, auf {% octicon "trash" aria-label="The trash icon" %}. 
 
-   ![Screenshot of the list of cache entries](/assets/images/help/repository/actions-cache-delete.png)
+   ![Screenshot: Liste der Cacheeinträge](/assets/images/help/repository/actions-cache-delete.png)
 
 {% endif %}
-
-{% endif %}
-
-{% ifversion actions-cache-list-delete-apis %}
-
-### Force deleting cache entries
-
-Caches have branch scope restrictions in place, which means some caches have limited usage options. For more information on cache scope restrictions, see "[Restrictions for accessing a cache](/actions/using-workflows/caching-dependencies-to-speed-up-workflows#restrictions-for-accessing-a-cache)." If caches limited to a specific branch are using a lot of storage quota, it may cause caches from the `default` branch to be created and deleted at a high frequency. 
-
-For example, a repository could have many new pull requests opened, each with their own caches that are restricted to that branch. These caches could take up the majority of the cache storage for that repository. Once a repository has reached its maximum cache storage, the cache eviction policy will create space by deleting the oldest caches in the repository. In order to prevent cache thrashing when this happens, you can set up workflows to delete caches on a faster cadence than the cache eviction policy will. You can use the [`gh-actions-cache`](https://github.com/actions/gh-actions-cache/) CLI extension to delete caches for specific branches.
-
-This example workflow uses `gh-actions-cache` to delete all the caches created by a branch once a pull request is closed.
-
-```yaml
-name: cleanup caches by a branch
-on:
-  pull_request:
-    types:
-      - closed
-  workflow_dispatch:
-
-jobs:
-  cleanup:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Check out code
-        uses: {% data reusables.actions.action-checkout %}
-        
-      - name: Cleanup
-        run: |
-          gh extension install actions/gh-actions-cache
-          
-          REPO=${{ github.repository }}
-          BRANCH=${{ github.ref }}
-
-          echo "Fetching list of cache key"
-          cacheKeysForPR=$(gh actions-cache list -R $REPO -B $BRANCH | cut -f 1 )
-
-          ## Setting this to not fail the workflow while deleting cache keys. 
-          set +e
-          echo "Deleting caches..."
-          for cacheKey in $cacheKeysForPR
-          do
-              gh actions-cache delete $cacheKey -R $REPO -B $BRANCH --confirm
-          done
-          echo "Done"
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-```
-
-Alternatively, you can use the API to programmatically delete caches on your own cadence. For more information, see "[Delete GitHub Actions caches for a repository](/rest/actions/cache#delete-github-actions-caches-for-a-repository-using-a-cache-key)."
 
 {% endif %}

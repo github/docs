@@ -1,0 +1,26 @@
+date: '2022-02-01'
+sections:
+  security_fixes:
+    - Die Pakete wurden auf die neuesten Sicherheitsversionen aktualisiert.
+  bugs:
+    - "Pages war nach einer MySQL-Geheimnisrotation nicht verfügbar, bis `nginx` manuell neu gestartet wurde."
+    - "Bei Migrationen konnte ein Fehler auftreten, wenn {% data variables.product.prodname_actions %} aktiviert wurde."
+    - "Wenn der Wartungszeitplan mit einem ISO 8601-konformen Datum eingerichtet wurde, stimmte die tatsächlich festgelegte Zeit nicht überein, da die Zeitzone nicht in UTC umgewandelt wurde."
+    - In der Konsole wurden falsche Fehlermeldungen bezüglich `cloud-config.service` ausgegeben.
+    - "Die Versionsnummer wurde nicht korrekt aktualisiert, nachdem ein Hotpatch mithilfe von `ghe-cluster-each` installiert wurde."
+    - "Webhook-Tabellenbereinigungsaufträge konnten gleichzeitig ausgeführt werden, was zu Ressourcenkonflikten und einer Verlängerung der Auftragslaufzeit führte."
+    - "Wenn `ghe-repl-teardown` vom primären System aus für ein Replikat ausgeführt wurde, wurde das Replikat nicht aus der MSSQL-Verfügbarkeitsgruppe entfernt."
+    - "Wenn die CAS-Authentifizierung verwendet wurde und die Option „Gesperrte Benutzer reaktivieren“ aktiviert war, wurden gesperrte Benutzer nicht automatisch reaktiviert."
+    - "Die Möglichkeit, E-Mail-basierte Benachrichtigungen auf Benutzer zu beschränken, deren E-Mail-Adressen zu einer verifizierten oder genehmigten Domäne gehörten, funktionierte nicht richtig."
+    - Eine langwierige Datenbankmigration im Zusammenhang mit den Einstellungen für Sicherheitswarnungen konnte den Abschluss des Upgrades verzögern.
+  changes:
+    - Der Datenverbindungseintrag von GitHub Connect umfasst nun die Anzahl von aktiven und inaktiven Benutzern sowie die konfigurierte Inaktivitätsdauer.
+  known_issues:
+    - "Auf einer neu eingerichteten {% data variables.product.prodname_ghe_server %}-Instanz ohne Benutzer könnte ein Angreifer den ersten Administratorbenutzer erstellen."
+    - Benutzerdefinierte Firewallregeln werden während des Upgrades entfernt.
+    - "Nachverfolgte Git-LFS-Dateien, [die über die Webbenutzeroberfläche hochgeladen wurden](https://github.com/blog/2105-upload-files-to-your-repositories), werden dem Repository fälschlicherweise direkt hinzugefügt."
+    - "Issues können nicht geschlossen werden, wenn sie einen Permalink zu einem Blob im selben Repository enthalten und der Dateipfad des Blobs mehr als 255 Zeichen lang ist."
+    - "Wenn die Option zum Durchsuchen von GitHub.com mit GitHub Connect aktiviert wird, sind Issues in privaten und internen Repositorys nicht in den GitHub.com-Suchergebnissen enthalten."
+    - "Die {% data variables.product.prodname_registry %}-npm-Registrierung gibt in Metadatenantworten keinen Zeitwert mehr zurück. So sind erhebliche Leistungssteigerungen möglich. Die erforderlichen Daten zum Zurückgeben eines Zeitwerts in einer Metadatenantwort sind weiterhin verfügbar, und dieser Wert wird in Zukunft wieder zurückgegeben, sobald die vorhandenen Leistungsprobleme behoben wurden."
+    - "Ressourcenbegrenzungen, die nur beim Verarbeiten von Pre-Receive-Hooks auftreten, können bei manchen Pre-Receive-Hooks Fehler auslösen."
+    - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'

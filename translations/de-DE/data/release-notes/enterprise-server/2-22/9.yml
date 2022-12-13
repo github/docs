@@ -1,0 +1,40 @@
+date: '23.03.2021'
+intro: "Downloads wurden aufgrund eines schwerwiegenden Fehlers deaktiviert, der sich auf mehreren Kunden ausgewirkt hat. Ein Fix wird im nächsten Patch verfügbar."
+sections:
+  security_fixes:
+    - '**HOCH:** In GitHub Enterprise Server wurde ein Sicherheitsrisiko bezüglich der Remoteausführung von Code identifiziert, das beim Erstellen einer GitHub Pages-Website ausgenutzt werden konnte. Von GitHub Pages verwendete benutzergesteuerte Konfigurationsoptionen wurden nicht ausreichend eingeschränkt. Dadurch konnten Umgebungsvariablen überschrieben werden, was zur Codeausführung in der GitHub Enterprise Server-Instanz führte. Um dieses Sicherheitsrisiko ausnutzen zu können, benötigte ein Angreifer die Berechtigung zum Erstellen einer GitHub Pages-Website in der GitHub Enterprise Server-Instanz. Dieses Sicherheitsrisiko trat bei allen Versionen von GitHub Enterprise Server vor 3.0.3 auf und wurde in den Versionen 3.0.3, 2.22.9 und 2.21.17 behoben. Dieses Sicherheitsrisiko wurde über das Programm „GitHub Security Bug Bounty“ gemeldet und CVE-2021-22864 zugewiesen.'
+    - Die Pakete wurden auf die neuesten Sicherheitsversionen aktualisiert.
+  bugs:
+    - "Das Ausführen von „ghe-cluster-config-init“ konnte dazu führen, dass ein Cluster nicht mehr verwendet werden konnte."
+    - In Systemd konnte die PID von HAProxy verloren gehen.
+    - Die Warnung von „mysql-failover“ wurde nach einem erfolgreichen Failover dauerhaft angezeigt.
+    - "Beim Ausführen von „ghe-cluster-config-init“ wurde der Exitcode von Hintergrundaufträgen nicht vollständig berücksichtigt, was zu einer nicht ordnungsgemäßen Behandlung von Preflightüberprüfungen führte."
+    - Auf der Seite mit den Einstellungen für Repositorys wurde im linken Navigationsbereich kein Link für die Sicherheit und Analyse angezeigt.
+    - Nach dem Deaktivieren von GitHub Packages wurde von einigen Organisationsseiten ein HTTP 500-Fehler zurückgegeben.
+  changes:
+    - Zur Verbesserung der Zuverlässigkeit von Nomad-Diensten wurde die in GitHub Enterprise Server 3.0 eingeführte Neustartrichtlinie implementiert.
+    - "Es wird eine relative Zahl für „bootstrap_expect“ im Zusammenhang mit Consul und Nomad verwendet, sodass ein Cluster ein Bootstrapping durchführen kann, auch wenn eine Reihe von Knoten inaktiv ist."
+    - "Protokolle werden nicht nur zeit-, sondern auch größenbasiert rotiert."
+    - Dem Befehl „ghe-cluster-status“ wurde „kafka-lite“ hinzugefügt.
+  known_issues:
+    - In einer neu eingerichteten GitHub Enterprise Server-Instanz ohne Benutzer konnte ein Angreifer den ersten Administratorbenutzer erstellen.
+    - Benutzerdefinierte Firewallregeln werden während eines Upgrades nicht aufrechterhalten.
+    - "Nachverfolgte Git LFS-Dateien, [die über die Webschnittstelle hochgeladen wurden](https://github.com/blog/2105-upload-files-to-your-repositories), werden dem Repository fälschlicherweise direkt hinzugefügt."
+    - "Issues können nicht geschlossen werden, wenn sie einen Permalink zu einem Blob im selben Repository enthalten und der Dateipfad länger ist als 255 Zeichen."
+    - "Wenn die Option zum Durchsuchen von GitHub.com bei GitHub Connect aktiviert ist, sind Issues in privaten und internen Repositorys nicht in den GitHub.com-Suchergebnissen enthalten."
+    - |Die Protokollrotation kann möglicherweise Diensten nicht signalisieren, dass eine Umstellung auf neue Protokolldateien durchgeführt werden soll. Dies kann zur Weiterverwendung älterer Protokolldateien und letztendlich zur Auslastung des Stammspeicherplatzes führen.
+
+Führe die folgenden Befehle in der [Verwaltungsshell](https://docs.github.com/en/enterprise-server/admin/configuration/accessing-the-administrative-shell-ssh) (SSH) aus, oder kontaktiere den [GitHub Enterprise-Support](https://support.github.com/), um dieses Problem zu beheben bzw. zu verhindern:
+
+
+
+```
+
+printf "PATH=/usr/local/sbin:/usr/local/bin:/usr/local/share/enterprise:/usr/sbin:/usr/bin:/sbin:/bin\n29,59 * * * * root /usr/sbin/logrotate /etc/logrotate.conf\n" | sudo sponge /etc/cron.d/logrotate
+
+sudo /usr/sbin/logrotate -f /etc/logrotate.conf
+
+```
+
+|
+    - 'Wenn ein Replikatknoten in einer Hochverfügbarkeitskonfiguration offline ist, kann {% data variables.product.product_name %} eventuell noch immer Anforderungen von {% data variables.product.prodname_pages %} an den Offlineknoten weiterleiten, was die Verfügbarkeit von {% data variables.product.prodname_pages %} für die Benutzer verringert.'

@@ -1,6 +1,6 @@
 ---
-title: Security best practices for apps
-intro: 'Guidelines for preparing a secure app to share on {% data variables.product.prodname_marketplace %}.'
+title: Bewährte Methoden für die Sicherheit von Apps
+intro: 'Richtlinien zum Vorbereiten einer sicheren App zum Freigeben auf dem {% data variables.product.prodname_marketplace %}'
 redirect_from:
   - /apps/marketplace/getting-started/security-review-process
   - /marketplace/getting-started/security-review-process
@@ -12,52 +12,58 @@ versions:
   ghec: '*'
 topics:
   - Marketplace
+ms.openlocfilehash: aaff313f73b74ba28f765050a8f993a9dddea1be
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145089755'
 ---
-If you follow these best practices it will help you to provide a secure user experience.
+Wenn du diese bewährten Verfahren befolgst, kannst du ein sicheres Benutzererlebnis schaffen.
 
-## Authorization, authentication, and access control
+## Autorisierung, Authentifizierung und Zugriffssteuerung
 
-We recommend creating a GitHub App rather than an OAuth App. {% data reusables.marketplace.github_apps_preferred %}. See "[Differences between GitHub Apps and OAuth Apps](/apps/differences-between-apps/)" for more details.
-- Apps should use the principle of least privilege and should only request the OAuth scopes and GitHub App permissions that the app needs to perform its intended functionality. For more information, see [Principle of least privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege) in Wikipedia.
-- Apps should provide customers with a way to delete their account, without having to email or call a support person.
-- Apps should not share tokens between different implementations of the app. For example, a desktop app should have a separate token from a web-based app. Individual tokens allow each app to request the access needed for GitHub resources separately.
-- Design your app with different user roles, depending on the functionality needed by each type of user. For example, a standard user should not have access to admin functionality, and billing managers might not need push access to repository code.
-- Apps should not share service accounts such as email or database services to manage your SaaS service.
-- All services used in your app should have unique login and password credentials.
-- Admin privilege access to the production hosting infrastructure should only be given to engineers and employees with administrative duties.
-- Apps should not use {% data variables.product.pat_generic %}s to authenticate and should authenticate as an [OAuth App](/apps/about-apps/#about-oauth-apps) or a [GitHub App](/apps/about-apps/#about-github-apps):
-  - OAuth Apps should authenticate using an [OAuth token](/apps/building-oauth-apps/authorizing-oauth-apps/).
-  - GitHub Apps should authenticate using either a [JSON Web Token (JWT)](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app), [OAuth token](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/), or [installation access token](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation).
+Es wird empfohlen, eine GitHub App anstatt einer OAuth-App zu erstellen. {% data reusables.marketplace.github_apps_preferred %}. Weitere Details findest du unter „[Unterschiede zwischen GitHub Apps und OAuth-Apps](/apps/differences-between-apps/).“
+- Apps sollten das Prinzip der geringsten Berechtigung anwenden und nur die OAuth-Bereiche und GitHub App-Berechtigungen anfordern, die die App benötigt, um ihre beabsichtigte Funktion auszuführen. Weitere Informationen findest du unter [Prinzip der geringsten Rechte](https://en.wikipedia.org/wiki/Principle_of_least_privilege) in Wikipedia.
+- Apps sollten den Kunden eine Möglichkeit bieten, ihr Konto zu löschen, ohne dass sie eine E-Mail schreiben oder einen Support-Mitarbeiter kontaktieren müssen.
+- Apps sollten keine Token zwischen verschiedenen Implementierungen der App freigeben. Zum Beispiel sollte eine Desktop-App ein anderes Token haben als eine webbasierte App. Mit individuellen Token kann jede App den Zugriff auf die GitHub-Ressourcen separat anfordern.
+- Entwirf deine App mit unterschiedlichen Benutzerrollen, je nachdem, welche Funktionen der jeweilige Benutzertyp benötigt. Ein Standardbenutzer sollte z.B. keinen Zugriff auf die Verwaltungsfunktionen haben, und Abrechnungsmanager brauchen vielleicht keinen Push-Zugriff auf den Repository-Code.
+- Apps sollten keine Dienstkonten wie E-Mail- oder Datenbankdienste freigeben, um deinen SaaS-Dienst zu verwalten.
+- Alle Dienste, die in deiner App verwendet werden, sollten eindeutige Anmelde- und Kennwortanmeldeinformationen aufweisen.
+- Der Zugriff auf die Produktionshosting-Infrastruktur mit Administratorrechten sollte nur Ingenieuren und Mitarbeitern mit administrativen Aufgaben gewährt werden.
+- Apps sollten keine persönlichen Zugangstoken zur Authentifizierung verwenden und sich als [OAuth-App](/apps/about-apps/#about-oauth-apps) oder [GitHub App](/apps/about-apps/#about-github-apps) authentifizieren:
+  - OAuth-Apps sollten sich mit einem [OAuth-Token](/apps/building-oauth-apps/authorizing-oauth-apps/) authentifizieren.
+  - GitHub Apps sollten sich mithilfe eines [JSON-Webtokens (JWT)](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app), [OAuth-Token](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/) oder [Installationszugriffstoken](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation) authentifizieren.
 
-## Data protection
+## Schutz von Daten
 
-- Apps should encrypt data transferred over the public internet using HTTPS, with a valid TLS certificate, or SSH for Git.
-- Apps should store client ID and client secret keys securely. We recommend storing them as [environmental variables](http://en.wikipedia.org/wiki/Environment_variable#Getting_and_setting_environment_variables).
-- Apps should delete all GitHub user data within 30 days of receiving a request from the user, or within 30 days of the end of the user's legal relationship with GitHub.
-- Apps should not require the user to provide their GitHub password.
-- Apps should encrypt tokens, client IDs, and client secrets.
+- Apps sollten Daten, die über das öffentliche Internet übertragen werden, mit HTTPS und einem gültigen TLS-Zertifikat oder SSH für Git verschlüsseln.
+- Apps sollten Client-ID und Geheimschlüssel sicher speichern. Es wird empfohlen, sie als [Umgebungsvariablen](http://en.wikipedia.org/wiki/Environment_variable#Getting_and_setting_environment_variables) zu speichern.
+- Apps sollten alle Benutzerdaten von GitHub innerhalb von 30 Tagen nach Erhalt einer Anfrage des Benutzers oder innerhalb von 30 Tagen nach Beendigung der Rechtsbeziehung des Benutzers mit GitHub löschen.
+- Apps sollten nicht verlangen, dass der Benutzer sein GitHub-Passwort angibt.
+- Apps sollten Token, Client-IDs und Clientschlüssel verschlüsseln.
 
-## Logging and monitoring
+## Protokollierung und Überwachung
 
-Apps should have logging and monitoring capabilities. App logs should be retained for at least 30 days and archived for at least one year.
-A security log should include:
+Apps sollten über Protokollierungs- und Überwachungsfunktionen verfügen. App-Protokolle sollten mindestens 30 Tage lang aufbewahrt und für mindestens ein Jahr archiviert werden.
+Ein Sicherheitsprotokoll sollte enthalten:
 
-- Authentication and authorization events
-- Service configuration changes
-- Object reads and writes
-- All user and group permission changes
-- Elevation of role to admin
-- Consistent timestamping for each event
-- Source users, IP addresses, and/or hostnames for all logged actions
+- Authentisierungs- und Autorisierungsereignisse
+- Änderungen der Dienstkonfiguration
+- Lesen und Schreiben von Objekten
+- Alle Benutzer- und Gruppenberechtigungsänderungen
+- Erhöhung der Rolle zum Administrator
+- Konsistente Zeitstempelung für jedes Ereignis
+- Quellbenutzer, IP-Adressen und/oder Hostnamen für alle protokollierten Aktionen
 
-## Incident response workflow
+## Workflow zur Reaktion auf Vorfälle
 
-To provide a secure experience for users, you should have a clear incident response plan in place before listing your app. We recommend having a security and operations incident response team in your company rather than using a third-party vendor. You should have the capability to notify {% data variables.product.product_name %} within 24 hours of a confirmed incident.
+Um den Benutzern eine sichere Umgebung zu bieten, solltest du einen klaren Plan zur Reaktion auf Vorfälle haben, bevor du deine App veröffentlichst. Es empfiehlt sich, ein eigenes Sicherheitsteam in deinem Unternehmen einzurichten, anstatt einen Drittanbieter zu beauftragen. Du solltest die Möglichkeit haben, {% data variables.product.product_name %} innerhalb von 24 Stunden nach einem bestätigten Vorfall zu benachrichtigen.
 
-For an example of an incident response workflow, see the "Data Breach Response Policy" on the [SANS Institute website](https://www.sans.org/information-security-policy/). A short document with clear steps to take in the event of an incident is more valuable than a lengthy policy template.
+Ein Beispiel für einen Workflow zur Reaktion auf einen Vorfall findest du auf der [SANS Institute-Website](https://www.sans.org/information-security-policy/) unter „Datenverletzungsantwortrichtlinie“. Ein kurzes Dokument mit klaren Schritten für den Fall eines Vorfalls ist wertvoller als eine lange Richtlinienvorlage.
 
-## Vulnerability management and patching workflow
+## Verwaltung von Sicherheitsrisiken und Patching-Workflow
 
-You should conduct regular vulnerability scans of production infrastructure. You should triage the results of vulnerability scans and define a period of time in which you agree to remediate the vulnerability.
+Du solltest regelmäßige Sicherheitsüberprüfungen der Produktionsinfrastruktur durchführen. Du solltest die Ergebnisse der Sicherheitsüberprüfungen bewerten und einen Zeitraum festlegen, innerhalb dessen du die Sicherheitsrisiken beheben willst.
 
-If you are not ready to set up a full vulnerability management program, it's useful to start by creating a patching process. For guidance in creating a patch management policy, see this TechRepublic article "[Establish a patch management policy](https://www.techrepublic.com/article/establish-a-patch-management-policy-87756/)."
+Wenn du noch nicht bereit bist, ein komplettes Programm zum Sicherheitsrisikomanagement einzurichten, ist es sinnvoll, mit der Erstellung eines Patching-Prozesses zu beginnen. Anleitungen zum Erstellen einer Patchverwaltungsrichtlinie findest du in diesem TechRepublic-Artikel „[Einrichten einer Patchverwaltungsrichtlinie](https://www.techrepublic.com/article/establish-a-patch-management-policy-87756/).“

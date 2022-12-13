@@ -1,0 +1,20 @@
+date: '28.06.2022'
+sections:
+  security_fixes:
+    - "**MITTEL**: Stellt sicher, dass `github.company.com` und `github-company.com` von internen Diensten nicht als identische Hostnamen ausgewertet werden, um einen potenziellen SSRF-Angriff (Server-Side Request Forgery, serverseitige Anforderungsfälschung) zu verhindern."
+    - "**NIEDRIG**: Ein Angreifer konnte mit einem Path Traversal-Angriff über HTTP selbst dann auf die Verwaltungskonsole zugreifen, wenn externe Firewallregeln den HTTP-Zugriff blockierten."
+    - Die Pakete wurden auf die neuesten Sicherheitsversionen aktualisiert.
+  bugs:
+    - In einigen Fällen wurden Websiteadministratoren nicht automatisch als Unternehmensbesitzer hinzugefügt. 
+    - Nach dem Mergen eines Branchs in den Standardbranch verweist der Link „Verlauf“ für eine Datei immer noch auf den vorherigen Branch statt auf den Zielbranch.
+  changes:
+    - "Beim Erstellen oder Aktualisieren von Prüfläufen oder Prüfsuiten konnte `500 Interner Serverfehler` zurückgegeben werden, wenn der Wert für bestimmte Felder, z. B. den Namen, zu lang war."
+  known_issues:
+    - "Bei einer neu eingerichteten {% data variables.product.prodname_ghe_server %}-Instanz ohne Benutzer könnte ein Angreifer den ersten Administratorbenutzer erstellen."
+    - Benutzerdefinierte Firewallregeln werden während des Upgrades entfernt.
+    - "Nachverfolgte Git-LFS-Dateien, [die über die Webbenutzeroberfläche hochgeladen wurden](https://github.com/blog/2105-upload-files-to-your-repositories), werden dem Repository fälschlicherweise direkt hinzugefügt."
+    - "Issues können nicht geschlossen werden, wenn sie einen Permalink zu einem Blob im selben Repository enthalten und der Dateipfad des Blobs mehr als 255 Zeichen lang ist."
+    - "Wenn die Option zum Durchsuchen von GitHub.com mit {% data variables.product.prodname_github_connect %} aktiviert wird, sind Issues in privaten und internen Repositorys nicht in den {% data variables.product.prodname_dotcom_the_website %}-Suchergebnissen enthalten."
+    - "Die {% data variables.product.prodname_registry %}-npm-Registrierung gibt in Metadatenantworten keinen Zeitwert mehr zurück. So sind erhebliche Leistungssteigerungen möglich. Die erforderlichen Daten zum Zurückgeben eines Zeitwerts in einer Metadatenantwort sind weiterhin verfügbar, und dieser Wert wird in Zukunft wieder zurückgegeben, sobald die vorhandenen Leistungsprobleme behoben wurden."
+    - "Ressourcenbegrenzungen, die nur beim Verarbeiten von Pre-Receive-Hooks auftreten, können bei manchen Pre-Receive-Hooks Fehler auslösen."
+    - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'

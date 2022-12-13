@@ -1,0 +1,22 @@
+date: '28.04.2021'
+sections:
+  security_fixes:
+    - Die Pakete wurden auf die neuesten Sicherheitsversionen aktualisiert.
+  bugs:
+    - Während Upgrades wird der Prozess nach `cleanup nomad job` unbegrenzt angehalten.
+    - 'Bei `ghe-cluster-failover` tritt ein Fehler mit der Fehlermeldung `Trilogy::Error: trilogy_connect` auf.'
+    - '`ghe-cluster-status-mysql` zeigt Warnungen zu Failovers als Fehler an.'
+    - "Das Setupskript, das auf der MySQL-Replikation ausgeführt wird, kann während des Datenbankfailovers unnötiges Datenbankreseeding ausgelöst haben."
+    - '`config-apply` könnte aufgrund des unnötigen Aufrufs von `rake db:migrate` länger als nötig dauern.'
+    - "Der Orchestrator könnte ein Failover zu einem MySQL-Replikat ausgeführt haben, das während der Seedingphase nicht von der primären Instanz repliziert hat, als keine Verbindung mit der primären Instanz hergestellt werden konnte."
+    - Organisationen oder Projekte mit Fehlern haben die Migration blockiert und konnten nicht ausgeschlossen werden.
+    - "Kunden mit mehr als drei Speicherhosts konnten ihre Notfallwiederherstellungscluster nicht wiederherstellen, da die vollsten Datenträger anstelle von leeren Knoten ausgewählt wurden."
+  changes:
+    - Preflightüberprüfungen erlauben standardmäßig alle AWS-Instanztypen.
+  known_issues:
+    - Auf einem neu eingerichteten GitHub Enterprise-Server ohne Benutzer*innen könnten Angreifer*innen den ersten Administratorbenutzer erstellen.
+    - Benutzerdefinierte Firewallregeln werden während eines Upgrades nicht aufrechterhalten.
+    - "Nachverfolgte Git-LFS-Dateien, [die über die Webschnittstelle hochgeladen wurden,](https://github.com/blog/2105-upload-files-to-your-repositories) werden dem Repository fälschlicherweise direkt hinzugefügt."
+    - "Issues können nicht geschlossen werden, wenn sie einen Permalink zu einem Blob im selben Repository enthalten, wobei der Dateipfad länger ist als 255 Zeichen."
+    - "Wenn „Benutzer können GitHub.com durchsuchen“ bei GitHub Connect aktiviert ist, sind Issues in privaten und internen Repositorys nicht in den GitHub.com-Suchergebnissen enthalten."
+    - "Wenn ein Replikatknoten in einer Hochverfügbarkeitskonfiguration offline ist, kann {% data variables.product.product_name %} eventuell noch immer Anforderungen von {% data variables.product.prodname_pages %} an den Offlineknoten weiterleiten, was die Verfügbarkeit von {% data variables.product.prodname_pages %} für die Benutzer*innen verringert."

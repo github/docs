@@ -1,6 +1,6 @@
 ---
-title: 'Disabling {% ifversion projects-v2 %}projects{% else %}project boards{% endif %} in your organization'
-intro: 'Organization owners can turn off {% ifversion projects-v2 %}organization-wide {% data variables.projects.projects_v2 %}, organization-wide {% data variables.projects.projects_v1_boards %}, and repository-level {% data variables.projects.projects_v1_boards %}{% else %}organization-wide project boards and repository project boards{% endif %} in an organization.'
+title: 'Deaktivieren von {% ifversion projects-v2 %}Projekten{% else %}Projektboards{% endif %} in deiner Organisation'
+intro: 'Organisationsbesitzer*innen können {% ifversion projects-v2 %}organisationsweite {% data variables.projects.projects_v2 %}, organisationsweite {% data variables.projects.projects_v1_boards %} sowie {% data variables.projects.projects_v1_boards %} auf Repositoryebene{% else %}organisationsweite Projektboards und Repository-Projektboards{% endif %} in einer Organisation deaktivieren.'
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards/disabling-project-boards-in-your-organization
   - /articles/disabling-project-boards-in-your-organization
@@ -14,32 +14,36 @@ topics:
   - Pull requests
 shortTitle: Disable projects
 allowTitleToDifferFromFilename: true
+ms.openlocfilehash: e1e2aed1e7c689bee83dabc4a6750f8976206f4a
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147423324'
 ---
-After you disable organization-wide project boards, it won’t be possible to create new project boards at the organization level, and any existing organization-level project boards will become inaccessible at their previous URLs. Project boards in repositories in the organization are not affected. {% ifversion projects-v2 %}These settings apply to {% data variables.projects.projects_v2 %} and {% data variables.projects.projects_v1_boards %}.{% endif %}
+Wenn du organisationsweite Projektboards deaktivierst, kannst du keine neuen Projektboards auf Organisationsebene mehr erstellen. Außerdem sind vorhandene Projektboards auf Organisationsebene dann nicht mehr über deren frühere URL zugänglich. Projektboards in Repositorys in der Organisation sind nicht betroffen. {% ifversion projects-v2 %} Diese Einstellungen gelten für {% data variables.projects.projects_v2 %} und {% data variables.projects.projects_v1_boards %}. {% endif %}
 
-After you disable repository project boards in an organization, it won't be possible to create new project boards in any repositories in the organization, and any existing project boards in repositories in the organization will become inaccessible at their previous URLs. Project boards at the organization level are not affected.
-
-
-When you disable project boards, you will no longer see project board information in timelines or [audit logs](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization).
+Wenn du Repository-Projektboards in einer Organisation deaktiviert hast, kannst du keine neuen Projektboards in den Repositorys der Organisation mehr erstellen. Außerdem sind vorhandene Projektboards in Repositorys der Organisation dann nicht mehr über deren frühere URL zugänglich. Projektboards auf Organisationsebene sind nicht betroffen.
 
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
-1. In the "Code planning, and automation" section of the sidebar, click **{% octicon "table" aria-label="The table icon" %} Projects**.
+Wenn du Projektboards deaktivierst, werden keine Projektboardinformationen mehr auf Zeitskalen oder in [Überwachungsprotokollen](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization) angezeigt.
+
+
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5658 %}
+1. Klicke im Abschnitt „Codeplanung und Automatisierung“ der Seitenleiste auf **{% octicon "table" aria-label="The table icon" %} Projekte**.
 {% endif %}
-1. Decide whether to disable organization-wide project boards, disable repository project boards in the organization, or both. Then, under "Projects":
-    - To disable organization-wide project boards, unselect **Enable projects for the organization**.
-    - To disable repository project boards in the organization, unselect **Enable projects for all repositories**.
-  ![Checkboxes to disable projects for an organization or for all of an organization's repositories](/assets/images/help/projects/disable-org-projects-checkbox.png)
-1. Click **Save**.
+1. Lege fest, ob du organisationsweite Projektboards, Repository-Projektboards der Organisation oder beides deaktivieren möchtest. Führe anschließend unter „Projects“ (Projekte) Folgendes aus:
+    - Um organisationsweite Projektboards zu deaktivieren, hebe die Auswahl von **Projekte für die Organisation aktivieren** auf.
+    - Um Repository-Projektboards in der Organisation zu deaktivieren, hebe die Auswahl von **Projekte für alle Repositorys aktivieren** auf.
+  ![Kontrollkästchen, um Projekte für eine Organisation oder für alle Repositorys einer Organisation zu deaktivieren](/assets/images/help/projects/disable-org-projects-checkbox.png)
+1. Klicken Sie auf **Speichern**.
 
 {% data reusables.organizations.disable_project_board_results %}
 
-## Further reading
+## Weiterführende Themen
 
-{% ifversion projects-v2 %}- "[About {% data variables.product.prodname_projects_v2 %}](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)"{% endif %}
-- "[About {% data variables.product.prodname_projects_v1 %}](/articles/about-project-boards)"
-- "[Closing a {% data variables.projects.projects_v1_board %}](/articles/closing-a-project-board)"
-- "[Deleting a {% data variables.projects.projects_v1_board %}](/articles/deleting-a-project-board)"
-- "[Disabling {% data variables.projects.projects_v1_boards %} in a repository](/articles/disabling-project-boards-in-a-repository)"
+{% ifversion projects-v2 %}- [Informationen zu {% data variables.product.prodname_projects_v2 %}](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects){% endif %}
+- [Informationen zu {% data variables.product.prodname_projects_v1 %}](/articles/about-project-boards)
+- [Schließen eines {% data variables.projects.projects_v1_board %}s](/articles/closing-a-project-board)
+- [Löschen eines {% data variables.projects.projects_v1_board %}s](/articles/deleting-a-project-board)
+- [Deaktivieren von {% data variables.projects.projects_v1_boards %} in einem Repository](/articles/disabling-project-boards-in-a-repository)

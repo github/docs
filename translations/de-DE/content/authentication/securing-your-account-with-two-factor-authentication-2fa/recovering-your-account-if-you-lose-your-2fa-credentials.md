@@ -1,6 +1,6 @@
 ---
-title: Recovering your account if you lose your 2FA credentials
-intro: 'If you lose access to your two-factor authentication credentials, you can use your recovery codes, or another recovery option, to regain access to your account.'
+title: Dein Konto beim Verlust der 2FA-Anmeldeinformationen wiederherstellen
+intro: 'Wenn du den Zugriff auf deine Anmeldeinformationen für die Zwei-Faktor-Authentifizierung verlierst, kannst du den Zugriff auf dein Konto mithilfe deiner Wiederherstellungscodes oder einer anderer Wiederherstellungsoption wiederherstellen.'
 redirect_from:
   - /articles/recovering-your-account-if-you-lost-your-2fa-credentials
   - /articles/authenticating-with-an-account-recovery-token
@@ -14,12 +14,18 @@ versions:
 topics:
   - 2FA
 shortTitle: Recover an account with 2FA
+ms.openlocfilehash: 1a93d77d4da76a6efbc96ba5d80d0fe7e800c08a
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145085920'
 ---
 {% ifversion fpt or ghec %}
 
 {% warning %}
 
-**Warnings**: 
+**Warnungen**: 
 
 - {% data reusables.two_fa.support-may-not-help %}
 
@@ -27,84 +33,83 @@ shortTitle: Recover an account with 2FA
 
 {% endif %}
 
-## Using a two-factor authentication recovery code
+## Einen Wiederherstellungscode für die Zwei-Faktor-Authentifizierung verwenden
 
-Use one of your recovery codes to automatically regain entry into your account. You may have saved your recovery codes to a password manager or your computer's downloads folder. The default filename for recovery codes is `github-recovery-codes.txt`. For more information about recovery codes, see "[Configuring two-factor authentication recovery methods](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication-recovery-methods#downloading-your-two-factor-authentication-recovery-codes)."
+Verwende einen deiner Wiederherstellungscodes, um automatisch wieder Zugriff auf dein Konto zu erhalten. Vielleicht hast du deine Wiederherstellungscodes in einem Passwort-Manager oder im Download-Ordner deines Computers gespeichert. Der Standarddateiname von Wiederherstellungscodes lautet `github-recovery-codes.txt`. Weitere Informationen zu Wiederherstellungscodes findest du unter [Konfigurieren von Wiederherstellungsmethoden für die zweistufige Authentifizierung](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication-recovery-methods#downloading-your-two-factor-authentication-recovery-codes).
 
-1. Type your username and password to prompt authentication.
+1. Gib deinen Benutzernamen und dein Passwort ein, um die Authentifizierung durchzuführen.
 
     {% warning %}
 
-    **Warning**: {% data reusables.accounts.you-must-know-your-password %}
+    **Warnung**: {% data reusables.accounts.you-must-know-your-password %}
     
     {% endwarning %}
 
 {% ifversion fpt or ghec %}
-1. Under "Having problems?", click **Use a recovery code or request a reset**.
+1. Klicke unter „Hast du Probleme?“ auf **Wiederherstellungscode verwenden oder Zurücksetzung anfordern**.
 
-   ![Screenshot of link to use a recovery code](/assets/images/help/2fa/2fa-recovery-code-link.png)
-{%- else %}
-1. On the 2FA page, under "Don't have your phone?", click **Enter a two-factor recovery code**.
+   ![Screenshot: Link zum Verwenden eines Wiederherstellungscodes](/assets/images/help/2fa/2fa-recovery-code-link.png) {%- else %}
+1. Klicke auf der 2FA-Seite unter „Kein Handy dabei?“ auf **Einen Wiederherstellungscode für die zweistufigen Authentifizierung eingeben**.
 
-   ![Screenshot of link to use a recovery code](/assets/images/help/2fa/2fa_recovery_dialog_box.png){% endif %}
-1. Type one of your recovery codes, then click **Verify**.
+   ![Screenshot: Link zur Verwendung eines Wiederherstellungscodes](/assets/images/help/2fa/2fa_recovery_dialog_box.png){% endif %}
+1. Gib einen der Wiederherstellungscodes ein, und klicke dann auf **Überprüfen**.
 
-   ![Field to type a recovery code and Verify button](/assets/images/help/2fa/2fa-type-verify-recovery-code.png)
+   ![Feld zum Eingeben eines Wiederherstellungscodes und Schaltfläche „Verify“ (Verifizieren)](/assets/images/help/2fa/2fa-type-verify-recovery-code.png)
 
 {% ifversion fpt or ghec %}
-## Authenticating with a fallback number
+## Authentifizierung mit einer Fallback-Nummer
 
-If you lose access to your primary TOTP app or phone number, you can provide a two-factor authentication code sent to your fallback number to automatically regain access to your account.
+Wenn du deine primäre TOTP-App oder Telefonnummer verlierst, kannst du einen Zwei-Faktor-Authentifizierungscode eingeben, der an deine Fallback-Nummer gesendet wurde, um automatisch wieder Zugriff auf dein Konto zu erhalten.
 {% endif %}
 
-## Authenticating with a security key
+## Authentifizierung mit einem Sicherheitsschlüssel
 
-If you configured two-factor authentication using a security key, you can use your security key as a secondary authentication method to automatically regain access to your account. For more information, see "[Configuring two-factor authentication](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication#configuring-two-factor-authentication-using-a-security-key)."
+Wenn du die Zwei-Faktor-Authentifizierung mit einem Sicherheitsschlüssel konfiguriert hast, kannst du den Sicherheitsschlüssel als sekundäre Authentifizierungsmethode verwenden, um automatisch wieder Zugriff auf dein Konto zu erhalten. Weitere Informationen findest du unter [Konfigurieren der zweistufigen Authentifizierung](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication#configuring-two-factor-authentication-using-a-security-key).
 
 {% ifversion fpt or ghec %}
-## Authenticating with a verified device, SSH token, or {% data variables.product.pat_generic %}
+## Authentifizierung mit einem verifizierten Gerät, einem SSH-Token oder einem persönlichen Zugriffstoken
 
-If you know your password for {% data variables.location.product_location %} but don't have the two-factor authentication credentials or your two-factor authentication recovery codes, you can have a one-time password sent to your verified email address to begin the verification process and regain access to your account.
+Wenn du dein Kennwort für {% data variables.product.product_location %} kennst, aber nicht über die Anmeldeinformationen für die zweistufige Authentifizierung oder die Wiederherstellungscodes für die zweistufige Authentifizierung verfügst, kannst du ein einmalig verwendbares Kennwort an deine verifizierte E-Mail-Adresse senden lassen, um die Überprüfung zu starten und wieder Zugang zu deinem Konto zu erhalten.
 
 {% note %}
 
-**Note**: For security reasons, regaining access to your account by authenticating with a one-time password can take up to three business days. {% data variables.product.company_short %} will not review additional requests submitted during this time.
+**Hinweis**: Wenn du dich mit einem einmalig verwendbaren Kennwort authentifizierst, kann es aus Sicherheitsgründen bis zu drei Werktage dauern, bis du wieder Zugriff auf dein Konto erhältst. {% data variables.product.company_short %} überprüft während dieses Zeitraums keine zusätzlichen Anforderungen.
 
 {% endnote %}
 
-You can use your two-factor authentication credentials or two-factor authentication recovery codes to regain access to your account anytime during the 3-5 day waiting period.
+Du kannst die Anmeldeinformationen oder die Wiederherstellungscodes deiner Zwei-Faktor-Authentifizierung verwenden, um jederzeit während der 3-5-tägigen Wartezeit den Zugriff auf dein Konto wiederherzustellen.
 
-1. Type your username and password to prompt authentication.
+1. Gib deinen Benutzernamen und dein Passwort ein, um die Authentifizierung durchzuführen.
 
     {% warning %}
 
-    **Warning**: {% data reusables.accounts.you-must-know-your-password %}
+    **Warnung**: {% data reusables.accounts.you-must-know-your-password %}
     
     {% endwarning %}
-1. Under "Having problems?", click **Use a recovery code or request a reset**.
+1. Klicke unter „Hast du Probleme?“ auf **Wiederherstellungscode verwenden oder Zurücksetzung anfordern**.
 
-   ![Screenshot of link if you don't have your 2fa device or recovery codes](/assets/images/help/2fa/no-access-link.png)
-1. To the right of "Locked out?", click **Try recovering your account**.
+   ![Screenshot: Der Link, den du anklicken kannst, wenn du über kein 2FA-Gerät oder keine Wiederherstellungscodes verfügst](/assets/images/help/2fa/no-access-link.png)
+1. Klicke rechts neben „Gesperrt“ auf **Konto wiederherstellen**.
 
-   ![Screenshot of link to try recovering your account](/assets/images/help/2fa/try-recovering-your-account-link.png)
-1. Click **I understand, get started** to request a reset of your authentication settings.
+   ![Screenshot: der Link zum Wiederherstellen deines Kontos](/assets/images/help/2fa/try-recovering-your-account-link.png)
+1. Klicke auf **Verstanden und weiter**, um die Zurücksetzung deiner Authentifizierungseinstellungen anzufordern.
 
-    ![Screenshot of button to start reset of authentication settings](/assets/images/help/2fa/reset-auth-settings.png)
-1. Click **Send one-time password** to send a one-time password to all eligible addresses associated with your account. Only verified emails are eligible for account recovery. If you've restricted password resets to your primary and/or backup addresses, these addresses are the only addresses eligible for account recovery.
+    ![Screenshot: Die Schaltfläche zum Zurücksetzen der Authentifizierungseinstellungen](/assets/images/help/2fa/reset-auth-settings.png)
+1. Klicke auf **Einmalig verwendbares Kennwort senden**, um ein einmalig verwendbares Kennwort an alle berechtigten Adressen zu senden, die mit deinem Konto verknüpft sind. Das Konto kann nur über verifizierte E-Mail-Adressen wiederhergestellt werden. Wenn du Kennwortzurücksetzungen auf deine primären Adressen und bzw. oder Sicherungsadressen eingeschränkt hast, kannst du nur diese Adressen für die Kontowiederherstellung verwenden.
 
-   ![Screenshot of button to send one-time password](/assets/images/help/2fa/send-one-time-password.png)
-1. Under "One-time password", type the temporary password from the recovery email {% data variables.product.prodname_dotcom %} sent.
+   ![Screenshot: Die Schaltfläche zum Senden des einmalig verwendbaren Kennworts](/assets/images/help/2fa/send-one-time-password.png)
+1. Gib unter „One-time password" (Einmal gültiges Passwort) das temporäre Passwort aus dem Wiederherstellungs-E-Mail von {% data variables.product.prodname_dotcom %} ein.
 
-   ![Screenshot of field to type one-time password](/assets/images/help/2fa/one-time-password-field.png)
-1. Click **Verify email address**.
+   ![Screenshot: Das Feld zum Eingeben des einmalig verwendbaren Kennworts](/assets/images/help/2fa/one-time-password-field.png)
+1. Klicke auf **E-Mail-Adresse überprüfen**.
 
-   ![Screenshot of button to verify email address](/assets/images/help/2fa/verify-email-address.png)
-1. Choose an alternative verification factor.
-    - If you've used your current device to log into this account before and would like to use the device for verification, click **Verify with this device**.
-    - If you've previously set up an SSH key on this account and would like to use the SSH key for verification, click **SSH key**.
-    - If you've previously set up a {% data variables.product.pat_generic %} and would like to use the {% data variables.product.pat_generic %} for verification, click **{% data variables.product.pat_generic_caps %}**.
+   ![Screenshot: Die Schaltfläche zum Überprüfen der E-Mail-Adresse](/assets/images/help/2fa/verify-email-address.png)
+1. Wähle einen alternativen Verifizierungsfaktor.
+    - Wenn du dein aktuelles Gerät bereits zum Anmelden bei diesem Konto verwendet hast und es für die Überprüfung verwenden möchtest, klicke auf **Mit diesem Gerät überprüfen**.
+    - Wenn du zuvor einen SSH-Schlüssel für dieses Konto eingerichtet hast und diesen zur Überprüfung verwenden möchtest, klicke auf **SSH-Schlüssel**.
+    - Wenn du zuvor ein persönliches Zugriffstoken eingerichtet hast und dieses zur Überprüfung verwenden möchtest, klicke auf **Persönliches Zugriffstoken**.
 
-   ![Screenshot of buttons for alternative verification](/assets/images/help/2fa/alt-verifications.png)
-1. A member of {% data variables.contact.github_support %} will review your request and email you within three business days. If your request is approved, you'll receive a link to complete your account recovery process. If your request is denied, the email will include a way to contact support with any additional questions.
+   ![Screenshot: Die Schaltflächen für alternative Überprüfungsmethoden](/assets/images/help/2fa/alt-verifications.png)
+1. Ein*e Mitarbeiter*in des {% data variables.contact.github_support %} überprüft deine Anfrage und sendet dir innerhalb von drei Werktagen eine E-Mail. Wenn deine Anfrage genehmigt wurde, wirst du einen Link erhalten, um deinen Konto-Wiederherstellungsprozess abzuschließen. Wenn deine Anfrage abgelehnt wurde, enthält die E-Mail eine Möglichkeit, den Support für alle weiteren Fragen zu kontaktieren.
 
 {% endif %}

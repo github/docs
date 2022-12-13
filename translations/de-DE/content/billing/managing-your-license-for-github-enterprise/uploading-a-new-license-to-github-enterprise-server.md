@@ -1,6 +1,6 @@
 ---
-title: Uploading a new license to GitHub Enterprise Server
-intro: 'You can upload your license file for {% data variables.product.prodname_enterprise %} to {% data variables.location.product_location_enterprise %} to validate your application.'
+title: Hochladen einer neuen Lizenz auf GitHub Enterprise Server
+intro: 'Du kannst deine Lizenzdatei für {% data variables.product.prodname_enterprise %} auf {% data variables.product.product_location_enterprise %} hochladen, um deine Anwendung zu überprüfen.'
 versions:
   ghes: '*'
 type: how_to
@@ -8,30 +8,33 @@ topics:
   - Enterprise
   - Licensing
 shortTitle: Upload a new license
+ms.openlocfilehash: 184206b210289e062e83e237acaa853bb80470c1
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145085603'
 ---
+## Informationen zu Lizenzdateien für {% data variables.product.prodname_enterprise %}
 
-## About license files for {% data variables.product.prodname_enterprise %}
-
-After you purchase or upgrade a license for {% data variables.product.prodname_enterprise %} from {% data variables.contact.contact_enterprise_sales %}, you must upload the new license file to {% data variables.location.product_location_enterprise %} to unlock your new user licenses. For more information about licenses for {% data variables.product.product_name %}, see "[About licenses for {% data variables.product.prodname_enterprise %}](/billing/managing-your-license-for-github-enterprise/about-licenses-for-github-enterprise)" and "[Downloading your license for {% data variables.product.prodname_enterprise %}](/billing/managing-your-license-for-github-enterprise/downloading-your-license-for-github-enterprise)."
+Nachdem du eine Lizenz für {% data variables.product.prodname_enterprise %} von {% data variables.contact.contact_enterprise_sales %} erworben oder ein Upgrade für sie durchgeführt hast, musst du die neue Lizenzdatei in {% data variables.product.product_location_enterprise %} hochladen, um deine neuen Benutzerlizenzen zu entsperren. Weitere Informationen zu Lizenzen für {% data variables.product.product_name %} findest du unter [Informationen zu Lizenzen für {% data variables.product.prodname_enterprise %}](/billing/managing-your-license-for-github-enterprise/about-licenses-for-github-enterprise) und [Herunterladen deiner Lizenz für {% data variables.product.prodname_enterprise %}](/billing/managing-your-license-for-github-enterprise/downloading-your-license-for-github-enterprise).
 
 {% data reusables.enterprise-licensing.contact-sales-for-renewals-or-seats %}
 
-## Uploading your license to {% data variables.location.product_location_enterprise %}
+## Hochladen deiner Lizenz auf {% data variables.product.product_location_enterprise %}
 
 {% warning %}
 
-**Warning:** Updating your license causes a small amount of downtime for {% data variables.location.product_location %}.
+**Warnung**: Das Aktualisieren deiner Lizenz führt zu einer geringen Downtime für {% data variables.product.product_location %}.
 
 {% endwarning %}
 
-1. Sign into {% data variables.location.product_location_enterprise %} as a site administrator.
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.license-tab %}
-1. Under "Quick links", click **Update license**.
-  ![Update license link](/assets/images/enterprise/business-accounts/update-license-link.png)
-1. To select your license, click **License file**, or drag your license file onto **License file**.
-  ![Upload license file](/assets/images/enterprise/management-console/upload-license.png)
-1. Click **Upload**.
-  ![Begin upload](/assets/images/enterprise/management-console/begin-upload.png)
+1. Melde dich bei {% data variables.product.product_location_enterprise %} als Websiteadministrator*in an.
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.settings-tab %} {% data reusables.enterprise-accounts.license-tab %}
+1. Klicke unter „Schnelllinks“ auf **Lizenz aktualisieren**.
+  ![Link zum Aktualisieren der Lizenz](/assets/images/enterprise/business-accounts/update-license-link.png)
+1. Wenn du deine Lizenz auswählen möchtest, klicke auf **Lizenzdatei**, oder ziehe deine Lizenzdatei auf **Lizenzdatei**.
+  ![Lizenzdatei hochladen](/assets/images/enterprise/management-console/upload-license.png)
+1. Klicken Sie auf **Hochladen**.
+  ![Starten des Uploads](/assets/images/enterprise/management-console/begin-upload.png)
 

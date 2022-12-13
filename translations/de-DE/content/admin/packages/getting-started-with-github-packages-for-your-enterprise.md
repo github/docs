@@ -1,7 +1,7 @@
 ---
-title: Getting started with GitHub Packages for your enterprise
+title: Erste Schritte mit GitHub-Paketen für dein Unternehmen
 shortTitle: Getting started with GitHub Packages
-intro: 'You can start using {% data variables.product.prodname_registry %} on {% data variables.location.product_location %} by enabling the feature, configuring third-party storage, configuring the ecosystems you want to support, and updating your TLS certificate.'
+intro: 'Du kannst mit der Nutzung von {% data variables.product.prodname_registry %} auf {% data variables.product.product_location %} beginnen, indem du das Feature aktivierst, den Drittanbieterspeicher konfigurierst, die Ökosysteme konfigurierst, die du unterstützen möchtest, und dein TLS-Zertifikat aktualisierst.'
 redirect_from:
   - /enterprise/admin/packages/enabling-github-packages-for-your-enterprise
   - /admin/packages/enabling-github-packages-for-your-enterprise
@@ -11,42 +11,46 @@ type: how_to
 topics:
   - Enterprise
   - Packages
+ms.openlocfilehash: 2389eba768a8b2f865165b43dde0e1b6381c6ae7
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '146199962'
 ---
-
-
 {% data reusables.package_registry.packages-cluster-support %}
 
-## Step 1: Check whether {% data variables.product.prodname_registry %} is available for your enterprise
+## Schritt 1: Überprüfen der Verfügbarkeit von {% data variables.product.prodname_registry %} für dein Unternehmen
 
-{% data variables.product.prodname_registry %} is available in {% data variables.product.prodname_ghe_server %} 3.0 or higher. If you're using an earlier version of {% data variables.product.prodname_ghe_server %}, you'll have to upgrade to use {% data variables.product.prodname_registry %}. For more information about upgrading your {% data variables.product.prodname_ghe_server %} instance, see "[About upgrades to new releases](/admin/overview/about-upgrades-to-new-releases)."
-## Step 2: Enable {% data variables.product.prodname_registry %} and configure external storage
+{% data variables.product.prodname_registry %} steht in {% data variables.product.prodname_ghe_server %} 3.0 oder höher zur Verfügung. Wenn du eine frühere Version von {% data variables.product.prodname_ghe_server %} verwendest, musst du ein Upgrade durchführen, um {% data variables.product.prodname_registry %} zu nutzen. Weitere Informationen zum Upgrade deiner {% data variables.product.prodname_ghe_server %}-Instanz findest du unter [Informationen zu Upgrades auf neue Releases](/admin/overview/about-upgrades-to-new-releases).
+## Schritt 2: Aktivieren von {% data variables.product.prodname_registry %} und Konfigurieren von externem Speicher
 
-{% data variables.product.prodname_registry %} on {% data variables.product.prodname_ghe_server %} uses external blob storage to store your packages.
+{% data variables.product.prodname_registry %} auf {% data variables.product.prodname_ghe_server %} verwendet externen Blobspeicher zum Speichern von Paketen.
 
-After enabling {% data variables.product.prodname_registry %} for {% data variables.location.product_location %}, you'll need to prepare your third-party storage bucket. The amount of storage required depends on your usage of {% data variables.product.prodname_registry %}, and the setup guidelines can vary by storage provider.
+Nachdem du {% data variables.product.prodname_registry %} für {% data variables.product.product_location %} aktiviert hast, musst du den Drittanbieter-Speicherbucket vorbereiten. Die erforderliche Speichermenge hängt von deiner Verwendung von {% data variables.product.prodname_registry %} ab, und die Setuprichtlinien können je nach Speicheranbieter variieren.
 
-Supported external storage providers
+Unterstützte externe Speicheranbieter
 - Amazon Web Services (AWS) S3 {% ifversion ghes %}
 - Azure Blob Storage {% endif %}
 - MinIO
 
-To enable {% data variables.product.prodname_registry %} and configure third-party storage, see:
-  - "[Enabling GitHub Packages with AWS](/admin/packages/enabling-github-packages-with-aws)"{% ifversion ghes %}
-  - "[Enabling GitHub Packages with Azure Blob Storage](/admin/packages/enabling-github-packages-with-azure-blob-storage)"{% endif %}
-  - "[Enabling GitHub Packages with MinIO](/admin/packages/enabling-github-packages-with-minio)"
+Informationen zum Aktivieren von {% data variables.product.prodname_registry %} und zum Konfigurieren von externem Speicher findest du unter folgenden Themen:
+  - [Aktivieren von GitHub-Paketen mit AWS](/admin/packages/enabling-github-packages-with-aws){% ifversion ghes %}
+  - [Aktivieren von GitHub-Paketen mit Azure Blob Storage](/admin/packages/enabling-github-packages-with-azure-blob-storage){% endif %}
+  - [Aktivieren von GitHub-Paketen mit MinIO](/admin/packages/enabling-github-packages-with-minio)
 
-## Step 3: Specify the package ecosystems to support on your instance
+## Schritt 3: Angeben der für deine Instanz zu unterstützenden Paketökosysteme
 
-Choose which package ecosystems you'd like to enable, disable, or set to read-only on {% data variables.location.product_location %}. Available options are {% ifversion ghes > 3.4 %}{% data variables.product.prodname_container_registry %}, {% endif %}Docker, RubyGems, npm, Apache Maven, Gradle, or NuGet.  For more information, see "[Configuring package ecosystem support for your enterprise](/enterprise/admin/packages/configuring-package-ecosystem-support-for-your-enterprise)."
+Wähle aus, welche Paketökosysteme du für {% data variables.product.product_location %} aktivieren, deaktivieren oder als schreibgeschützt festlegen möchtest. Verfügbare Optionen sind {% ifversion ghes > 3.4 %}{% data variables.product.prodname_container_registry %}, {% endif %}Docker, RubyGems, npm, Apache Maven, Gradle oder NuGet.  Weitere Informationen findest du unter [Konfigurieren der Unterstützung von Paketökosystemen für dein Unternehmen](/enterprise/admin/packages/configuring-package-ecosystem-support-for-your-enterprise).
 
-## Step 4: Ensure you have a TLS certificate for your package host URL, if needed
+## Schritt 4: Sicherstellen, dass bei Bedarf ein TLS-Zertifikat für die Pakethost-URL verfügbar ist
 
-If subdomain isolation is enabled for {% data variables.location.product_location %}, you will need to create and upload a TLS certificate that allows the package host URL for each ecosystem you want to use, such as `{% data reusables.package_registry.container-registry-hostname %}`. Make sure each package host URL includes `https://`.
+Wenn die Unterdomänenisolation für {% data variables.product.product_location %} aktiviert ist, musst du ein TLS-Zertifikat erstellen und hochladen, das die Pakethost-URL für jedes zu verwendende Ökosystem zulässt, z. B. `{% data reusables.package_registry.container-registry-hostname %}`. Stelle sicher, dass jede Pakethost-URL `https://` enthält.
 
-  You can create the certificate manually, or you can use _Let's Encrypt_. If you already use _Let's Encrypt_, you must request a new TLS certificate after enabling {% data variables.product.prodname_registry %}. For more information about package host URLs, see "[Enabling subdomain isolation](/enterprise/admin/configuration/enabling-subdomain-isolation)." For more information about uploading TLS certificates to {% data variables.product.product_name %}, see "[Configuring TLS](/enterprise/admin/configuration/configuring-tls)."
+  Du kannst das Zertifikat manuell erstellen oder _Let's Encrypt_ verwenden. Wenn du _Let's Encrypt_ bereits verwendest, musst du nach dem Aktivieren von {% data variables.product.prodname_registry %} ein neues TLS-Zertifikat anfordern. Weitere Informationen zu Pakethost-URLs findest du unter [Aktivieren der Unterdomänenisolation](/enterprise/admin/configuration/enabling-subdomain-isolation). Weitere Informationen zum Hochladen von TLS-Zertifikaten in {% data variables.product.product_name %} findest du unter [Konfigurieren von TLS](/enterprise/admin/configuration/configuring-tls).
 
-## Step 5: Check for and rename reserved names
+## Schritt 5: Überprüfen und Umbenennen reservierter Namen
 
-If you want to use the Docker ecosystem with subdomain isolation disabled, you **must** first rename any user or organization named `v2` on {% data variables.location.product_location %}, prior to enabling Docker ecosystem support in the {% data variables.enterprise.management_console %}. Docker uses a `v2` account name to manage path conflicts with the Docker API, and once Docker registry support is enabled, you won't be able to use this name anymore.
+Wenn du das Docker-Ökosystem mit deaktivierter Isolation von Unterdomänen nutzen möchtest, **musst** du zuerst alle Benutzer oder Organisationen mit dem Namen `v2` auf {% data variables.product.product_location %} umbenennen, bevor du die Unterstützung des Docker-Ökosystems in der {% data variables.enterprise.management_console %} aktivierst. Docker verwendet einen `v2`-Kontonamen, um Pfadkonflikte mit der Docker-API zu handhaben. Sobald die Unterstützung der Docker-Registrierung aktiviert ist, kannst du diesen Namen nicht mehr verwenden.
 
-You can view a full list of logins reserved for internal use by navigating to the "Reserved logins" page in the Site admin dashboard. For more information, see "[Reserved logins](/admin/configuration/configuring-your-enterprise/site-admin-dashboard#reserved-logins)."
+Du kannst eine vollständige Liste der für die interne Nutzung reservierten Anmeldungen einsehen, indem du im Dashboard des Websiteadministrators zur Seite „Reservierte Anmeldungen“ navigierst. Weitere Informationen findest du unter [Reservierte Anmeldungen](/admin/configuration/configuring-your-enterprise/site-admin-dashboard#reserved-logins).

@@ -1,0 +1,16 @@
+date: '2022-03-01'
+sections:
+  security_fixes:
+    - "HOCH: Im GitHub-Markdownparser wurde ein Sicherheitsrisiko aufgrund eines Ganzzahlüberlaufs ermittelt, das potenziell zur Offenlegung von Informationen und einer Remotebefehlsausführung (Remote Command Execution, RCE) führen könnte. Dieses Sicherheitsrisiko wurde über das GitHub Bug Bounty-Programm von Felix Wilhelm (Project Zero von Google) gemeldet, und es wurde die Kennung CVE-2022-24724 zugewiesen."
+  bugs:
+    - "Bei Upgrades könnte es zu einem Fehler kommen, wenn die Uhr eines Hochverfügbarkeitsreplikats nicht mit dem primären Replikat synchron war." 
+    - "OAuth-Anwendungen, die nach dem 1. September 2020 erstellt wurden, konnten den API-Endpunkt zum [Überprüfen einer Autorisierung](https://docs.github.com/en/enterprise-server@3.2/rest/reference/apps#check-an-authorization) nicht nutzen." 
+  known_issues:
+    - "Bei einer neu eingerichteten {% data variables.product.prodname_ghe_server %}-Instanz ohne Benutzer könnte ein Angreifer den ersten Administratorbenutzer erstellen."
+    - Benutzerdefinierte Firewallregeln werden während des Upgrades entfernt.
+    - "Nachverfolgte Git-LFS-Dateien, [die über die Webbenutzeroberfläche hochgeladen wurden](https://github.com/blog/2105-upload-files-to-your-repositories), werden dem Repository fälschlicherweise direkt hinzugefügt."
+    - "Issues können nicht geschlossen werden, wenn sie einen Permalink zu einem Blob im selben Repository enthalten und der Dateipfad des Blobs mehr als 255 Zeichen lang ist."
+    - "Wenn die Option zum Durchsuchen von GitHub.com mit GitHub Connect aktiviert wird, sind Issues in privaten und internen Repositorys nicht in den GitHub.com-Suchergebnissen enthalten."
+    - "Die {% data variables.product.prodname_registry %}-npm-Registrierung gibt in Metadatenantworten keinen Zeitwert mehr zurück. So sind erhebliche Leistungssteigerungen möglich. Die erforderlichen Daten zum Zurückgeben eines Zeitwerts in einer Metadatenantwort sind weiterhin verfügbar, und dieser Wert wird in Zukunft wieder zurückgegeben, sobald die vorhandenen Leistungsprobleme behoben wurden."
+    - "Ressourcenbegrenzungen, die nur beim Verarbeiten von Pre-Receive-Hooks auftreten, können bei manchen Pre-Receive-Hooks Fehler auslösen."
+    - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'
