@@ -71,6 +71,55 @@ jobs:
       - name: Merge docs-early-access repo's folders
         run: .github/actions-scripts/merge-early-access.sh
 
+      - name: Clone Simplified Chinese
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
+        with:
+          repository: github/docs-internal.zh-cn
+          token: ${{ secrets.DOCUBOT_REPO_PAT }}
+          path: translations/zh-cn
+
+      - name: Clone Japanese
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
+        with:
+          repository: github/docs-internal.ja-jp
+          token: ${{ secrets.DOCUBOT_REPO_PAT }}
+          path: translations/ja-jp
+
+      - name: Clone Spanish
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
+        with:
+          repository: github/docs-internal.es-es
+          token: ${{ secrets.DOCUBOT_REPO_PAT }}
+          path: translations/es-es
+
+      - name: Clone Portuguese
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
+        with:
+          repository: github/docs-internal.pt-br
+          token: ${{ secrets.DOCUBOT_REPO_PAT }}
+          path: translations/pt-br
+
+      - name: Clone German
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
+        with:
+          repository: github/docs-internal.de-de
+          token: ${{ secrets.DOCUBOT_REPO_PAT }}
+          path: translations/de-de
+
+      - name: Clone French
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
+        with:
+          repository: github/docs-internal.fr-fr
+          token: ${{ secrets.DOCUBOT_REPO_PAT }}
+          path: translations/fr-fr
+
+      - name: Clone Russian
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
+        with:
+          repository: github/docs-internal.ru-ru
+          token: ${{ secrets.DOCUBOT_REPO_PAT }}
+          path: translations/ru-ru
+
       - name: Clone Korean
         uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
         with:
@@ -85,6 +134,13 @@ jobs:
       # unnecessary weight to the container image.
       - name: Delete old checked in translation directories (TEMPORARY)
         run: |
+          rm -fr translations/zh-CN
+          rm -fr translations/ja-JP
+          rm -fr translations/es-ES
+          rm -fr translations/pt-BR
+          rm -fr translations/de-DE
+          rm -fr translations/fr-FR
+          rm -fr translations/ru-RU
           rm -fr translations/ko-KR
 
       - name: 'Build and push image'
