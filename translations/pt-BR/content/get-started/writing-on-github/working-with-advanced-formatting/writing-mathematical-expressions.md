@@ -1,32 +1,37 @@
 ---
-title: Writing mathematical expressions
-intro: 'Use Markdown to display mathematical expressions on {% data variables.product.company_short %}.'
+title: Como escrever expressões matemáticas
+intro: 'Use o Markdown para exibir expressões matemáticas no {% data variables.product.company_short %}.'
 versions:
   feature: math
 shortTitle: Mathematical expressions
+ms.openlocfilehash: b50cdde16f5496e65faf89f0692dc6201cccf15a
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147529748'
 ---
+## Sobre como escrever expressões matemáticas
 
-## About writing mathematical expressions
+Para permitir a comunicação clara das expressões matemáticas, o {% data variables.product.product_name %} dá suporte à matemática formatada LaTeX no Markdown. Para obter mais informações, confira [LaTeX/matemática](http://en.wikibooks.org/wiki/LaTeX/Mathematics) no Wikibooks.
 
-To enable clear communication of mathematical expressions, {% data variables.product.product_name %} supports LaTeX formatted math within Markdown. For more information, see [LaTeX/Mathematics](http://en.wikibooks.org/wiki/LaTeX/Mathematics) in Wikibooks.
+A funcionalidade de renderização de matemática do {% data variables.product.company_short %} usa o MathJax, um mecanismo de exibição baseado em JavaScript, de código aberto. O MathJax dá suporte a uma ampla variedade de macros LaTeX e a várias extensões de acessibilidade úteis. Para obter mais informações, confira [a documentação do MathJax](http://docs.mathjax.org/en/latest/input/tex/index.html#tex-and-latex-support) e [a documentação de Extensões de Acessibilidade do MathJax](https://mathjax.github.io/MathJax-a11y/docs/#reader-guide).
 
-{% data variables.product.company_short %}'s math rendering capability uses MathJax; an open source, JavaScript-based display engine. MathJax supports a wide range of LaTeX macros, and several useful accessibility extensions. For more information, see [the MathJax documentation](http://docs.mathjax.org/en/latest/input/tex/index.html#tex-and-latex-support) and [the MathJax Accessibility Extensions Documentation](https://mathjax.github.io/MathJax-a11y/docs/#reader-guide).
+A renderização de expressões matemáticas está disponível em {% data variables.product.prodname_github_issues %}, {% data variables.product.prodname_discussions %}, solicitações de pull, {% ifversion fpt or ghec or ghes > 3.6 or ghae-issue-7647 %}wikis, {% endif %}e arquivos markdown.
 
-Mathematical expressions rendering is available in {% data variables.product.prodname_github_issues %}, {% data variables.product.prodname_discussions %}, pull requests, {% ifversion fpt or ghec or ghes > 3.6 or ghae > 3.6 %}wikis, {% endif %}and Markdown files.
+## Como escrever expressões embutidas
 
-## Writing inline expressions
-
-To include a math expression inline with your text, delimit the expression with a dollar symbol `$`.
+Para incluir uma expressão matemática embutida no texto, delimite a expressão com um símbolo de dólar `$`.
 
 ```
 This sentence uses `$` delimiters to show math inline:  $\sqrt{3x-1}+(1+x)^2$
 ```
 
-![Inline math markdown rendering](/assets/images/help/writing/inline-math-markdown-rendering.png)
+![Renderização de markdown matemática embutida](/assets/images/help/writing/inline-math-markdown-rendering.png)
 
-## Writing expressions as blocks
+## Como escrever expressões como blocos
 
-To add a math expression as a block, start a new line and delimit the expression with two dollar symbols `$$`.
+Para adicionar uma expressão matemática como um bloco, inicie uma nova linha e delimite a expressão com dois símbolos de dólar `$$`.
 
 ```
 **The Cauchy-Schwarz Inequality**
@@ -34,11 +39,11 @@ To add a math expression as a block, start a new line and delimit the expression
 $$\left( \sum_{k=1}^n a_k b_k \right)^2 \leq \left( \sum_{k=1}^n a_k^2 \right) \left( \sum_{k=1}^n b_k^2 \right)$$
 ```
 
-![Math expression as a block rendering](/assets/images/help/writing/math-expression-as-a-block-rendering.png)
+![Renderização de expressão matemática como bloco](/assets/images/help/writing/math-expression-as-a-block-rendering.png)
 
 {% ifversion math-fenced-blocks %}
 
-Alternatively, you can use the <code>\`\`\`math</code> code block syntax to display a math expression as a block. With this syntax, you don't need to use `$$` delimiters.
+Como alternativa, você pode usar a sintaxe do bloco de código <code>\`\`\`math</code> para exibir uma expressão matemática como um bloco. Com essa sintaxe, você não precisa usar delimitadores `$$`.
 
 ````
 **Here is some math!**
@@ -48,32 +53,32 @@ Alternatively, you can use the <code>\`\`\`math</code> code block syntax to disp
 ```
 ````
 
-![Math expression in a fenced code block](/assets/images/help/writing/math-expression-as-a-fenced-code-block.png)
+![Expressão matemática em um bloco de código limitado](/assets/images/help/writing/math-expression-as-a-fenced-code-block.png)
 
 {% endif %}
 
-## Writing dollar signs in line with and within mathematical expressions
+## Como escrever sinais de dólar embutidos em expressões matemáticas
 
-To display a dollar sign as a character in the same line as a mathematical expression, you need to escape the non-delimiter `$` to ensure the line renders correctly.
+Para exibir um sinal de dólar como um caractere na mesma linha que uma expressão matemática, você precisa fazer o escape do não delimitador `$` para garantir que a linha seja renderizada corretamente.
   
-  - Within a math expression, add a `\` symbol before the explicit `$`.
+  - Dentro de uma expressão matemática, adicione um símbolo `\` antes do `$` explícito.
 
   ```
   This expression uses `\$` to display a dollar sign: $\sqrt{\$4}$
   ```
 
-  ![Dollar sign within math expression](/assets/images/help/writing/dollar-sign-within-math-expression.png)
+  ![Sinal de dólar dentro da expressão matemática](/assets/images/help/writing/dollar-sign-within-math-expression.png)
 
-  - Outside a math expression, but on the same line, use span tags around the explicit `$`.
+  - Fora de uma expressão matemática, mas na mesma linha, coloque o `$` explícito entre tags span.
 
   ```
   To split <span>$</span>100 in half, we calculate $100/2$
   ```
 
-  ![Dollar sign inline math expression](/assets/images/help/writing/dollar-sign-inline-math-expression.png)
+  ![Expressão matemática embutida com sinal de dólar](/assets/images/help/writing/dollar-sign-inline-math-expression.png)
 
-## Further reading
+## Leitura adicional
 
-* [The MathJax website](http://mathjax.org)
-* [Getting started with writing and formatting on GitHub](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github)
-* [GitHub Flavored Markdown Spec](https://github.github.com/gfm/)
+* [O site do MathJax](http://mathjax.org)
+* [Introdução à escrita e formatação no GitHub](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github)
+* [Especificações do GitHub Flavored Markdown](https://github.github.com/gfm/)

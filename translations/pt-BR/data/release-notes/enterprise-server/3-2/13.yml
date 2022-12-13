@@ -1,0 +1,28 @@
+date: '17-05-2022'
+sections:
+  security_fixes:
+    - '**MÉDIO:** foi identificado um problema de segurança no resolvedor nginx em que um invasor que pode forjar pacotes UDP do servidor DNS, o que pode causar uma substituição de memória de 1 byte, resultando em falhas no processo de trabalho ou outros impactos potencialmente prejudiciais. A vulnerabilidade foi atribuída [CVE-2021-23017](https://nvd.nist.gov/vuln/detail/CVE-2021-23017).'
+    - "Atualizadas as ações \"actions/checkout@v2\" e \"actions/checkout@v3\" para abordar novas vulnerabilidades anunciadas na [postagem do blog de aplicação de segurança do Git](https://github.blog/2022-04-12-git-security -vulnerabilidade anunciada/)."
+    - Os pacotes foram atualizados para as versões de segurança mais recentes.
+  bugs:
+    - "Em algumas topologias de cluster, o comando \"ghe-cluster-status\" deixou diretórios vazios em \"/tmp\"."
+    - "O SNMP registrou incorretamente um grande número de mensagens de erro \"Não foi possível registrar statfs\" no syslog."
+    - "Para instâncias configuradas com autenticação SAML e fallback integrado habilitado, os usuários integrados ficariam presos em um loop de \"login\" ao tentar entrar na página gerada após o logout."
+    - Os vídeos enviados para emitir comentários não seriam renderizados corretamente.
+    - "Ao usar declarações criptografadas SAML, algumas delas não marcavam corretamente as chaves SSH como verificadas."
+    - "Ao usar \"ghe-migrator\", uma migração falharia ao importar anexos de arquivos de vídeo em problemas e solicitações de pull."
+    - 'A página Versões retornaria o erro 500 quando o repositório apresentasse marcas com caracteres não ASCII. [Atualizado em: 10-06-2022]'
+  changes:
+    - "Em configurações de alta disponibilidade, esclareça que a página de visão geral da replicação no Console de Gerenciamento exibe apenas a configuração de replicação atual, não o status de replicação atual."
+    - "Ao habilitar {% data variables.product.prodname_registry %}, esclareça que o uso de um token de SAS (Assinatura de Acesso Compartilhado) como cadeia de conexão não tem suporte no momento."
+    - Os pacotes de suporte agora incluem a contagem de linhas de tabelas armazenadas no MySQL.
+    - "O Grafo de dependência agora pode ser habilitado sem dados de vulnerabilidade, permitindo visualizar quais dependências estão em uso e quais as versões. Habilitar o Grafo de dependência sem habilitar {% data variables.product.prodname_github_connect %} **não** fornecerá informações de vulnerabilidade."
+  known_issues:
+    - "Em uma instância de {% data variables.product.prodname_ghe_server %} recém-configurada sem usuários, um invasor pode criar o primeiro usuário administrador."
+    - As regras de firewall personalizadas são removidas durante o processo de atualização.
+    - "Arquivos LFS do Git [enviados através da interface Web](https://github.com/blog/2105-upload-files-to-your-repositories) são adicionados diretamente ao repositório e de maneira incorreta."
+    - "Os problemas não podem ser fechados se contiverem um permalink para um blob no mesmo repositório, em que o caminho do arquivo de blob é maior que 255 caracteres."
+    - "Quando \"Usuários podem pesquisar GitHub.com\" está habilitado com {% data variables.product.prodname_github_connect %}, os problemas em repositórios privados e internos não são incluídos nos resultados de pesquisa de {% data variables.product.prodname_dotcom_the_Website %}."
+    - "O registro npm {% data variables.product.prodname_registry %} não retorna mais um valor temporal em respostas de metadados. Isso foi feito para permitir melhorias substanciais de desempenho. Continuamos a ter todos os dados necessários para retornar um valor temporal como parte da resposta de metadados e continuaremos a retornar este valor no futuro quando tivermos resolvido os problemas de desempenho existentes."
+    - Os limites de recursos que são específicos para processamento de ganchos de pré-recebimento podem causar falha em alguns ganchos de pré-recebimento.
+    - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'

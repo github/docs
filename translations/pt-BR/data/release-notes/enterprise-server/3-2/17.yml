@@ -1,0 +1,20 @@
+date: '2022-08-11'
+sections:
+  security_fixes:
+    - |**CRÍTICO**: o contêiner Elasticsearch do servidor do GitHub Enterprise usava uma versão do OpenJDK 8 que era vulnerável a um problema de truncamento de inteiros ao processar folhas de estilo XSLT mal-intencionadas. A vulnerabilidade é rastreada como [CVE-2022-34169](https://github.com/advisories/GHSA-9339-86wc-4qgf).
+
+|
+    - |**ALTO**: os aplicativos instalados anteriormente em contas de usuário receberam permissão para acessar automaticamente uma organização em tokens de acesso com escopo depois que a conta de usuário foi transformada em uma conta de organização. Essa vulnerabilidade foi relatada pelo [Programa de recompensas por Bugs do GitHub](https://bounty.github.com).
+
+|
+  bugs:
+    - "Quando um limite de inatividade personalizado foi definido para a instância, a suspensão de todos os usuários inativos não respeitou o limite de maneira confiável. Para ver mais informações sobre inatividade, confira \"[Como gerenciar usuários inativos](/admin/user-management/managing-users-in-your-enterprise/managing-dormant-users).\""
+  known_issues:
+    - "Em uma instância de {% data variables.product.prodname_ghe_server %} recém-configurada sem usuários, um invasor pode criar o primeiro usuário administrador."
+    - As regras de firewall personalizadas são removidas durante o processo de atualização.
+    - "Arquivos LFS do Git [enviados através da interface da Web](https://github.com/blog/2105-upload-files-to-your-repositories) são adicionados diretamente ao repositório e de forma incorreta."
+    - "Os problemas não podem ser fechados se contiverem um permalink para um blob no mesmo repositório, onde o caminho do arquivo de blobs é maior que 255 caracteres."
+    - "Quando \"Usuários podem pesquisar GitHub.com\" está habilitado com {% data variables.product.prodname_github_connect %}, os problemas em repositórios privados e internos não são incluídos nos resultados de pesquisa de {% data variables.product.prodname_dotcom_the_website %}."
+    - "O registro npm {% data variables.product.prodname_registry %} não retorna mais um valor temporal em respostas de metadados. Isso foi feito para permitir melhorias substanciais de desempenho. Continuamos a ter todos os dados necessários para retornar um valor temporal como parte da resposta de metadados e continuaremos a retornar esse valor no futuro quando tivermos resolvido os problemas de desempenho existentes."
+    - Os limites de recursos que são específicos para processamento de hooks pre-receive podem causar falha em alguns hooks pre-receive.
+    - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'

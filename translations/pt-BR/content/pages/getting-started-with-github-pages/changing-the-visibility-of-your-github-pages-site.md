@@ -1,46 +1,49 @@
 ---
-title: Changing the visibility of your GitHub Pages site
-intro: You can manage access control for your project site by publishing the site publicly or privately.
+title: Alterar a visibilidade do site do GitHub Pages
+intro: Você pode gerenciar o controle de acesso no seu site de projeto publicando o site publicamente ou privadamente.
 versions:
   ghec: '*'
 permissions: 'People with admin access to a repository can change the visibility of a {% data variables.product.prodname_pages %} site.'
 redirect_from:
   - /github/working-with-github-pages/changing-the-visibility-of-your-github-pages-site
 shortTitle: Change visibility of site
+ms.openlocfilehash: f80ec04f0f16413414a4334e02ee3b45f534b46c
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145282854'
 ---
+## Sobre controle de acesso para sites de {% data variables.product.prodname_pages %}
 
-## About access control for {% data variables.product.prodname_pages %} sites
-
-With access control for {% data variables.product.prodname_pages %}, you can restrict access to your project site by publishing the site privately. A privately published site can only be accessed by people with read access to the repository the site is published from. You can use privately published sites to share your internal documentation or knowledge base with members of your enterprise.
+Com controle de acesso para {% data variables.product.prodname_pages %}, você pode restringir o acesso ao site do projeto publicando o site de modo privado. Um site publicado de forma privada só pode ser acessado por pessoas com acesso de leitura ao repositório a partir do qual o site é publicado. Você pode usar sites publicados de forma privada para compartilhar sua documentação interna ou base de conhecimento com integrantes da sua empresa. 
 
 {% data reusables.pages.privately-publish-ghec-only %}
 
-If your enterprise uses {% data variables.product.prodname_emus %}, access control is not available, and all {% data variables.product.prodname_pages %} sites are only accessible to other enterprise members. For more information about {% data variables.product.prodname_emus %}, see "[About {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages#limitations-for-enterprise-managed-users)."
+Se sua empresa usar {% data variables.product.prodname_emus %}, o controle de acesso não está disponível e todos os sites {% data variables.product.prodname_pages %} são acessíveis apenas para outros membros da empresa. Para obter mais informações sobre os {% data variables.product.prodname_emus %}, confira "[Sobre os {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages#limitations-for-enterprise-managed-users)".
 
-If your organization uses {% data variables.product.prodname_ghe_cloud %} without {% data variables.product.prodname_emus %}, you can choose to publish your project sites privately or publicly to anyone on the internet.
+Se a organização usa o {% data variables.product.prodname_ghe_cloud %} sem {% data variables.product.prodname_emus %}, você pode publicar os sites de modo privado ou público para qualquer pessoa na Internet.
 
-Access control is available for project sites that are published from a private or internal repository that are owned by the organization. You cannot manage access control for an organization site. For more information about the types of {% data variables.product.prodname_pages %} sites, see "[About {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages#types-of-github-pages-sites)."
+O controle de acesso está disponível para os sites de projeto publicados a partir de um repositório privado ou interno que pertencem à organização. Você não pode gerenciar o controle de acesso para um site da organização. Para obter mais informações sobre os tipos do sites do {% data variables.product.prodname_pages %}, confira "[Sobre o {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages#types-of-github-pages-sites)".
 
-## About subdomains for privately published sites
+## Sobre subdomínios para sites publicados privadamente
 
-Privately published sites are available at a different subdomain than publicly published sites. This ensures that your {% data variables.product.prodname_pages %} site is secure from the moment it's published:
+Os sites publicados em particular estão disponíveis em um subdomínio diferente dos sites publicados em modo público. Isso garante que seu site do {% data variables.product.prodname_pages %} esteja seguro a partir do momento em que for publicado:
 
-- We automatically secure every subdomain of `*.pages.github.io` with a TLS certificate, and enforce HSTS to ensure that browsers always serve the page over HTTPS.
-- We use a unique subdomain for the privately published site to ensure that other repositories in your organization cannot publish content on the same origin as the site. This protects your site from "[cookie tossing](https://github.blog/2013-04-09-yummy-cookies-across-domains/)". This is also why we don't host {% data variables.product.prodname_pages %} sites on the `github.com` domain.
+- Protegemos automaticamente cada subdomínio de `*.pages.github.io` com um certificado TLS e impomos o HSTS para garantir que os navegadores sempre forneçam a página por HTTPS.
+- Usamos um subdomínio único para o site publicado de forma privada para garantir que outros repositórios na organização não possam publicar conteúdo na mesma origem do site. Isso protege seu site contra "[jogo de cookie](https://github.blog/2013-04-09-yummy-cookies-across-domains/)". É por isso também que não hospedamos sites do {% data variables.product.prodname_pages %} no domínio `github.com`.
 
-You can see your site's unique subdomain in the "Pages" tab of your repository settings. If you're using a static site generator configured to build the site with the repository name as a path, you may need to update the settings for the static site generator when changing the site to private. For more information, see "[Configuring Jekyll in your {% data variables.product.prodname_pages %} site](/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site#configuring-a-subdomain)" or the documentation for your static site generator.
+Você pode visualizar o subdomínio único do site na guai "Páginas" das configurações do seu repositório. Se você estiver usando um gerador de site estático configurado para criar o site com o nome do repositório como um caminho, talvez seja necessário atualizar as configurações para o gerador do site estático ao alterar o site para privado. Para obter mais informações, confira "[Como configurar o Jekyll no seu site do {% data variables.product.prodname_pages %}](/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site#configuring-a-subdomain) ou a documentação do gerador de site estático.
 
-To use a shorter and more memorable domain for your privately published site, you can configure a custom domain. For more information, see "[Configuring a custom domain for your {% data variables.product.prodname_pages %} site](/pages/configuring-a-custom-domain-for-your-github-pages-site)."
+Para usar um domínio mais curto e memorável para seu site publicado privadamente, você poderá configurar um domínio personalizado. Para obter mais informações, confira "[Como configurar um domínio personalizado para o seu site do {% data variables.product.prodname_pages %}](/pages/configuring-a-custom-domain-for-your-github-pages-site)".
 
-## Changing the visibility of your {% data variables.product.prodname_pages %} site
+## Alterar a visibilidade do seu site de {% data variables.product.prodname_pages %}
 
-{% data reusables.pages.navigate-site-repo %}
-{% data reusables.repositories.sidebar-settings %}
-{% data reusables.pages.sidebar-pages %}
-3. Under "{% data variables.product.prodname_pages %}", select the **{% data variables.product.prodname_pages %} visibility** drop-down menu, then click a visibility.
-   ![Drop-down to choose a visibility for your site](/assets/images/help/pages/public-or-private-visibility.png)
-4. To see your published site, under "{% data variables.product.prodname_pages %}", click **{% octicon "link-external" aria-label="The external link icon" %} Visit site**.
-   ![Screenshot of the "Visit site" button next to the URL of a privately published site](/assets/images/help/pages/click-private-pages-url-to-preview.png)
+{% data reusables.pages.navigate-site-repo %} {% data reusables.repositories.sidebar-settings %} {% data reusables.pages.sidebar-pages %}
+3. Em "{% data variables.product.prodname_pages %}", selecione o menu suspenso **Visibilidade do {% data variables.product.prodname_pages %}** e clique em uma visibilidade.
+   ![Menu suspenso para escolher uma visibilidade para seu site](/assets/images/help/pages/public-or-private-visibility.png)
+4. Para ver seu site publicado, em "{% data variables.product.prodname_pages %}", clique na URL do seu site.
+![URL do seu site publicado no modo privado](/assets/images/help/pages/click-private-pages-url-to-preview.png)
 
   {% note %}
 

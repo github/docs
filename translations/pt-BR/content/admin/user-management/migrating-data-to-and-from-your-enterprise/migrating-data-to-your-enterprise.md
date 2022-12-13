@@ -1,6 +1,6 @@
 ---
-title: Migrating data to your enterprise
-intro: 'After generating a migration archive, you can import the data to your target {% data variables.product.prodname_ghe_server %} instance. You''ll be able to review changes for potential conflicts before permanently applying the changes to your target instance.'
+title: Migrar dados para a sua empresa
+intro: 'Após gerar um arquivo de migração, você poderá importar os dados para a sua instância de destino do {% data variables.product.prodname_ghe_server %}. Antes de aplicar as alterações permanentemente na instância de destino, será possível revisá-las para resolver possíveis conflitos.'
 redirect_from:
   - /enterprise/admin/guides/migrations/importing-migration-data-to-github-enterprise
   - /enterprise/admin/migrations/applying-the-imported-data-on-github-enterprise-server
@@ -19,21 +19,27 @@ topics:
   - Enterprise
   - Migration
 shortTitle: Import to your enterprise
+ms.openlocfilehash: 19bd9e1e8cee072e8a8f00861e2d8f876b5b8450
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147717666'
 ---
-## Applying the imported data on {% data variables.product.prodname_ghe_server %}
+## Aplicar os dados importados em {% data variables.product.prodname_ghe_server %}
 
-Before you can migrate data to your enterprise, you must prepare the data and resolve any conflicts. For more information, see "[Preparing to migrate data to your enterprise](/admin/user-management/preparing-to-migrate-data-to-your-enterprise)."
+Antes de migrar dados para sua empresa, você deve preparar os dados e resolver quaisquer conflitos. Para obter mais informações, confira "[Como se preparar para migrar dados para sua empresa](/admin/user-management/preparing-to-migrate-data-to-your-enterprise)".
 
-After you prepare the data and resolve conflicts, you can apply the imported data on {% data variables.product.product_name %}.
+Depois de preparar os dados e os conflitos de resolução, você poderá aplicar os dados importados em {% data variables.product.product_name %}.
 
 {% data reusables.enterprise_installation.ssh-into-target-instance %}
 
-2. Using the `ghe-migrator import` command, start the import process. You'll need:
-    * Your Migration GUID. For more information, see "[Preparing to migrate data to your enterprise](/admin/user-management/preparing-to-migrate-data-to-your-enterprise)."
-    * Your {% data variables.product.pat_generic %} for authentication. The {% data variables.product.pat_generic %} that you use is only for authentication as a site administrator, and does not require any specific scope{% ifversion pat-v2 %} or permissions{% endif %}. For more information, see "[Creating a {% data variables.product.pat_generic %}](/github/authenticating-to-github/creating-a-personal-access-token)."
+2. Usando o comando `ghe-migrator import`, inicie o processo de importação. Você precisará de:
+    * Seu Migration GUID. Para obter mais informações, confira "[Como se preparar para migrar dados para sua empresa](/admin/user-management/preparing-to-migrate-data-to-your-enterprise)".
+    * Seu token de acesso pessoal para autenticação. O token de acesso pessoal que você usa é apenas para autenticação como administrador do site e não requer nenhum escopo específico. Para obter mais informações, confira "[Como criar um token de acesso pessoal](/github/authenticating-to-github/creating-a-personal-access-token)".
 
     ```shell
-    $ ghe-migrator import /home/admin/MIGRATION-GUID.tar.gz -g MIGRATION-GUID -u USERNAME -p TOKEN
+    $ ghe-migrator import /home/admin/<em>MIGRATION_GUID</em>.tar.gz -g <em>MIGRATION_GUID</em> -u <em>username</em> -p <em>TOKEN</em>
 
     > Starting GitHub::Migrator
     > Import 100% complete /
@@ -41,113 +47,110 @@ After you prepare the data and resolve conflicts, you can apply the imported dat
 
     * {% data reusables.enterprise_migrations.specify-staging-path %}
 
-## Reviewing migration data
+## Revisar dados de migração
 
-By default, `ghe-migrator audit` returns every record. It also allows you to filter records by:
+Por padrão, `ghe-migrator audit` retorna todos os registros. Também é possível filtrar os registros por:
 
-  * The types of records.
-  * The state of the records.
+  * Tipos de registro;
+  * Estado de registro.
 
-The record types match those found in the [migrated data](/enterprise/admin/guides/migrations/about-migrations/#migrated-data).
+Os tipos de registros correspondem aos encontrados nos [dados migrados](/enterprise/admin/guides/migrations/about-migrations/#migrated-data).
 
-## Record type filters
+## Filtros por tipo de registro
 
-|      Record type      | Filter name  |
+|      Tipo de registro      | Nome do filtro  |
 |-----------------------|--------|
-| Users           | `user`
-| Organizations   | `organization`
-| Repositories    | `repository`
+| Usuários           | `user`
+| Organizações   | `organization`
+| Repositórios    | `repository`
 | Teams           | `team`
-| Milestones      | `milestone`
-| Project boards  | `project`
-| Issues          | `issue`
-| Issue comments  | `issue_comment`
-| Pull requests   | `pull_request`
-| Pull request reviews | `pull_request_review`
-| Commit comments | `commit_comment`
-| Pull request review comments | `pull_request_review_comment`
-| Releases | `release`
-| Actions taken on pull requests or issues | `issue_event`
-| Protected branches | `protected_branch`
+| Marcos      | `milestone`
+| Quadros de projeto  | `project`
+| Problemas          | `issue`
+| Comentários dos problemas  | `issue_comment`
+| Solicitações de pull   | `pull_request`
+| Revisões de pull request | `pull_request_review`
+| Comentários de commit | `commit_comment`
+| Comentários das revisões de pull request | `pull_request_review_comment`
+| Versões | `release`
+| Ações feitas em problemas ou em pull requests | `issue_event`
+| Branches protegidos | `protected_branch`
 
-## Record state filters
+## Filtros por estado de registro
 
-| Record state    | Description    |
+| Estado de registro    | Descrição    |
 |-----------------|----------------|
-| `export`        | The record will be exported. |
-| `import`        | The record will be imported. |
-| `map`           | The record will be mapped. |
-| `rename`        | The record will be renamed. |
-| `merge`         | The record will be merged. |
-| `exported`      | The record was successfully exported. |
-| `imported`      | The record was successfully imported. |
-| `mapped`        | The record was successfully mapped. |
-| `renamed`       | The record was successfully renamed. |
-| `merged`        | The record was successfully merged. |
-| `failed_export` | The record failed to export. |
-| `failed_import` | The record failed to be imported. |
-| `failed_map`    | The record failed to be mapped. |
-| `failed_rename` | The record failed to be renamed. |
-| `failed_merge`  | The record failed to be merged. |
+| `export`        | O registro será exportado. |
+| `import`        | O registro será importado. |
+| `map`           | O registro será mapeado. |
+| `rename`        | O registro será renomeado. |
+| `merge`         | O registro passará por merge. |
+| `exported`      | O registro foi exportado com êxito. |
+| `imported`      | O registro foi importado com êxito. |
+| `mapped`        | O registro foi mapeado com êxito. |
+| `renamed`       | O registro foi renomeado com êxito. |
+| `merged`        | O registro passou por merge com êxito. |
+| `failed_export` | Houve falha ao exportar o registro. |
+| `failed_import` | Houve falha ao importar o registro. |
+| `failed_map`    | Houve falha ao mapear o registro. |
+| `failed_rename` | Houve falha ao renomear o registro. |
+| `failed_merge`  | Houve falha ao fazer merge no registro. |
 
-## Filtering audited records
+## Filtrar registros auditados
 
-With the `ghe-migrator audit` command, you can filter based on the record type using the `-m` flag. Similarly, you can filter on the import state using the `-s` flag. The command looks like this:
+Com o comando `ghe-migrator audit`, você pode filtrar os registros com base no tipo usando o sinalizador `-m`. Da mesma forma, você pode filtrar o estado de importação usando o sinalizador `-s`. O comando se parece com o seguinte:
 
 ```shell
-$ ghe-migrator audit -m RECORD_TYPE -s STATE -g MIGRATION-GUID
+$ ghe-migrator audit -m <em>RECORD_TYPE</em> -s <em>STATE</em> -g <em>MIGRATION_GUID</em>
 ```
 
-For example, to view every successfully imported organization and team, you would enter:
+Por exemplo, para visualizar todas as organizações e equipes importadas com êxito, você digitaria:
 ```shell
-$ ghe-migrator audit -m organization,team -s mapped,renamed -g MIGRATION-GUID
+$ ghe-migrator audit -m organization,team -s mapped,renamed -g <em>MIGRATION_GUID</em>
 > model_name,source_url,target_url,state
 > organization,https://gh.source/octo-org/,https://ghe.target/octo-org/,renamed
 ```
 
-**We strongly recommend auditing every import that failed.** To do that, you will enter:
+**Recomendamos fortemente auditar todas as importações com falha.** Para fazer isso, você vai inserir:
 ```shell
-$ ghe-migrator audit -s failed_import,failed_map,failed_rename,failed_merge -g MIGRATION-GUID
+$ ghe-migrator audit -s failed_import,failed_map,failed_rename,failed_merge -g <em>MIGRATION_GUID</em>
 > model_name,source_url,target_url,state
 > user,https://gh.source/octocat,https://gh.target/octocat,failed
 > repository,https://gh.source/octo-org/octo-project,https://ghe.target/octo-org/octo-project,failed
 ```
 
-If you have any concerns about failed imports, contact {% data variables.contact.contact_ent_support %}.
+Em caso de problemas com falhas na importação, entre em contato com o {% data variables.contact.contact_ent_support %}.
 
-## Completing the import on {% data variables.product.prodname_ghe_server %}
+## Concluir a importação em {% data variables.product.prodname_ghe_server %}
 
-After your migration is applied to your target instance and you have reviewed the migration, you''ll unlock the repositories and delete them off the source. Before deleting your source data we recommend waiting around two weeks to ensure that everything is functioning as expected.
+Depois que sua migração for aplicada à sua instância de destino e você tiver revisado a migração, você desbloqueará os repositórios e os excluirá da fonte. Antes de excluir os dados da origem, é recomendável aguardar cerca de duas semanas para garantir o funcionamento adequado de todos os procedimentos.
 
-## Unlocking repositories on the target instance
+## Desbloquear repositórios na instância de destino
 
-{% data reusables.enterprise_installation.ssh-into-instance %}
-{% data reusables.enterprise_migrations.unlocking-on-instances %}
+{% data reusables.enterprise_installation.ssh-into-instance %} {% data reusables.enterprise_migrations.unlocking-on-instances %}
 
-## Unlocking repositories on the source
+## Desbloquear repositórios na origem
 
-### Unlocking repositories from an organization on {% data variables.product.prodname_dotcom_the_website %}
+### Desbloquear repositórios de uma organização no {% data variables.product.prodname_dotcom_the_website %}
 
-To unlock the repositories on a {% data variables.product.prodname_dotcom_the_website %} organization, you'll send a `DELETE` request to [the migration unlock endpoint](/free-pro-team@latest/rest/migrations#unlock-an-organization-repository). You'll need:
-  * Your access token for authentication
-  * The unique `id` of the migration
-  * The name of the repository to unlock
-
+Para desbloquear os repositórios em uma organização do {% data variables.product.prodname_dotcom_the_website %}, você enviará uma solicitação `DELETE` para o [ponto de extremidade de desbloqueio da migração](/free-pro-team@latest/rest/migrations#unlock-an-organization-repository). Você precisará de:
+  * Token de acesso para autenticação;
+  * A `id` exclusiva da migração
+  * Nome do repositório a ser desbloqueado.
 ```shell
-curl -H "Authorization: Bearer GITHUB_ACCESS_TOKEN" -X DELETE \
+curl -H "Authorization: Bearer <em>GITHUB_ACCESS_TOKEN</em>" -X DELETE \
   -H "Accept: application/vnd.github.wyandotte-preview+json" \
-  https://api.github.com/orgs/ORG-NAME/migrations/ID/repos/REPO_NAME/lock
+  https://api.github.com/orgs/<em>orgname</em>/migrations/<em>id</em>/repos/<em>repo_name</em>/lock
 ```
 
-### Deleting repositories from an organization on {% data variables.product.prodname_dotcom_the_website %}
+### Excluir repositórios de uma organização no {% data variables.product.prodname_dotcom_the_website %}
 
-After unlocking the {% data variables.product.prodname_dotcom_the_website %} organization's repositories, you should delete every repository you previously migrated using [the repository delete endpoint](/rest/repos/#delete-a-repository). You'll need your access token for authentication:
+Depois de desbloquear os repositórios da organização do {% data variables.product.prodname_dotcom_the_website %}, você deve excluir todos os repositórios já migrados usando [o ponto de extremidade de exclusão do repositório](/rest/repos/#delete-a-repository). Você precisará do token de acesso para autenticação:
 ```shell
-curl -H "Authorization: Bearer GITHUB_ACCESS_TOKEN" -X DELETE \
-  https://api.github.com/repos/ORG-NAME/REPO_NAME
+curl -H "Authorization: Bearer <em>GITHUB_ACCESS_TOKEN</em>" -X DELETE \
+  https://api.github.com/repos/<em>orgname</em>/<em>repo_name</em>
 ```
 
-### Unlocking repositories from a {% data variables.product.prodname_ghe_server %} instance
+### Desbloquear repositórios de uma instância do {% data variables.product.prodname_ghe_server %}
 
-{% data reusables.enterprise_installation.ssh-into-instance %}
-{% data reusables.enterprise_migrations.unlocking-on-instances %}
+{% data reusables.enterprise_installation.ssh-into-instance %} {% data reusables.enterprise_migrations.unlocking-on-instances %}

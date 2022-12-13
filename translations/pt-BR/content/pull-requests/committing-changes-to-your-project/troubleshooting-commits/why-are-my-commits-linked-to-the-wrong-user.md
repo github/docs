@@ -1,58 +1,63 @@
 ---
-title: Why are my commits linked to the wrong user?
+title: Por que meus commits estão vinculados ao usuário errado?
 redirect_from:
   - /articles/how-do-i-get-my-commits-to-link-to-my-github-account
   - /articles/why-are-my-commits-linked-to-the-wrong-user
   - /github/committing-changes-to-your-project/why-are-my-commits-linked-to-the-wrong-user
   - /github/committing-changes-to-your-project/troubleshooting-commits/why-are-my-commits-linked-to-the-wrong-user
-intro: '{% data variables.product.product_name %} uses the email address in the commit header to link the commit to a GitHub user. If your commits are being linked to another user, or not linked to a user at all, you may need to change your local Git configuration settings{% ifversion not ghae %}, add an email address to your account email settings, or do both{% endif %}.'
+intro: 'O {% data variables.product.product_name %} usa o endereço de e-mail no header do commit para vincular o commit a um usuário do GitHub. Se os commits estiverem sendo vinculados a outro usuário ou não estiverem vinculados a nenhum usuário, talvez você precise alterar as configurações locais do Git{% ifversion not ghae %} e/ou adicionar um endereço de email às configurações de email da conta{% endif %}.'
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
   ghec: '*'
 shortTitle: Linked to wrong user
+ms.openlocfilehash: 80a871c85aca151f06ca04d1d48d016bd14ed47f
+ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147883032'
 ---
 {% tip %}
 
-**Note**: If your commits are linked to another user, that does not mean the user can access your repository. A user can only access a repository you own if you add them as a collaborator or add them to a team that has access to the repository.
+**Observação**: se os commits estiverem vinculados a outro usuário, isso não significa que o usuário possa acessar seu repositório. Um usuário só poderá acessar um repositório seu se você adicioná-lo como colaborador ou incluí-lo em uma equipe que tenha acesso ao repositório.
 
 {% endtip %}
 
-## Commits are linked to another user
+## Commits vinculados a outro usuário
 
-If your commits are linked to another user, that means the email address in your local Git configuration settings is connected to that user's account on {% data variables.product.product_name %}. In this case, you can change the email in your local Git configuration settings{% ifversion ghae %} to the address associated with your account on {% data variables.product.product_name %} to link your future commits. Old commits will not be linked. For more information, see "[Setting your commit email address](/github/setting-up-and-managing-your-github-user-account/setting-your-commit-email-address#setting-your-commit-email-address-in-git)."{% else %} and add the new email address to your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %} account to link future commits to your account.
+Se seus commits estiverem vinculados a outro usuário, isso significa que o endereço de e-mail nas configurações locais do Git está conectado à conta desse usuário em {% data variables.product.product_name %}. Nesse caso, você pode alterar o email nas configurações do Git local{% ifversion ghae %} para o endereço associado à sua conta no {% data variables.product.product_name %} a fim de vincular os commits futuros. Os commits antigos não serão vinculados. Para obter mais informações, confira "[Como configurar seu endereço de email de commit](/github/setting-up-and-managing-your-github-user-account/setting-your-commit-email-address#setting-your-commit-email-address-in-git)".{% else %} e adicione o novo endereço de email à sua conta do {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} para vincular commits futuros a ela.
 
-1. To change the email address in your local Git configuration, follow the steps in "[Setting your commit email address](/github/setting-up-and-managing-your-github-user-account/setting-your-commit-email-address#setting-your-commit-email-address-in-git)". If you work on multiple machines, you will need to change this setting on each one.
-2. Add the email address from step 2 to your account settings by following the steps in "[Adding an email address to your GitHub account](/articles/adding-an-email-address-to-your-github-account)".{% endif %}
+1. Para alterar o endereço de email na configuração do Git local, siga as etapas descritas em "[Como definir seu endereço de email de commit](/github/setting-up-and-managing-your-github-user-account/setting-your-commit-email-address#setting-your-commit-email-address-in-git)". Se você trabalha em várias máquinas, precisa alterar essa configuração em cada uma deles.
+2. Adicione o endereço de email da etapa 2 às configurações da sua conta seguindo as etapas descritas em "[Como adicionar um endereço de email à sua conta do GitHub](/articles/adding-an-email-address-to-your-github-account)".{% endif %}
 
-Commits you make from this point forward will be linked to your account.
+Os commits criados a partir daí serão vinculados à sua conta.
 
-## Commits are not linked to any user
+## Commits não vinculados a nenhum usuário
 
-If your commits are not linked to any user, the commit author's name will not be rendered as a link to a user profile.
+Se seus commits não estiverem vinculados a nenhum usuário, o nome do autor do commit não será exibido como um link para o perfil de um usuário.
 
-To check the email address used for those commits and connect commits to your account, take the following steps:
+Para verificar o endereço de e-mail usado para esses commits e conectar commits à sua conta, siga estas etapas:
 
-1. Navigate to the commit by clicking the commit message link.
-![Commit message link](/assets/images/help/commits/commit-msg-link.png)
-2. To read a message about why the commit is not linked, hover over the blue {% octicon "question" aria-label="Question mark" %} to the right of the username.
-![Commit hover message](/assets/images/help/commits/commit-hover-msg.png)
+1. Navegue até o commit clicando no link da mensagem do commit.
+![Link da mensagem de commit](/assets/images/help/commits/commit-msg-link.png)
+2. Para ler uma mensagem sobre o motivo do commit não estar vinculado, posicione o cursor sobre o {% octicon "question" aria-label="Question mark" %} à direita do nome de usuário.
+![Mensagem exibida quando o curso é posicionado sobre o commit](/assets/images/help/commits/commit-hover-msg.png)
 
-  - **Unrecognized author (with email address)** If you see this message with an email address, the address you used to author the commit is not connected to your account on {% data variables.product.product_name %}. {% ifversion not ghae %}To link your commits, [add the email address to your GitHub email settings](/articles/adding-an-email-address-to-your-github-account).{% endif %}{% ifversion not ghae %} If the email address has a Gravatar associated with it, the Gravatar will be displayed next to the commit, rather than the default gray Octocat.{% endif %}
-  - **Unrecognized author (no email address)** If you see this message without an email address, you used a generic email address that can't be connected to your account on {% data variables.product.product_name %}.{% ifversion not ghae %} You will need to [set your commit email address in Git](/articles/setting-your-commit-email-address), then [add the new address to your GitHub email settings](/articles/adding-an-email-address-to-your-github-account) to link your future commits. Old commits will not be linked.{% endif %}
-  - **Invalid email** The email address in your local Git configuration settings is either blank or not formatted as an email address.{% ifversion not ghae %} You will need to [set your commit email address in Git](/articles/setting-your-commit-email-address), then [add the new address to your GitHub email settings](/articles/adding-an-email-address-to-your-github-account) to link your future commits. Old commits will not be linked.{% endif %}
+  - **Autor não reconhecido (com endereço de email)** Se você receber essa mensagem com um endereço de email, o endereço usado para criar o commit não estará conectado à sua conta do {% data variables.product.product_name %}. {% ifversion not ghae %}Para vincular os commits, [adicione o endereço de email às configurações de email do GitHub](/articles/adding-an-email-address-to-your-github-account).{% endif %}{% ifversion not ghae %} Se o endereço de email tiver um Gravatar associado, o Gravatar será exibido ao lado do commit, em vez do Octocat cinza padrão.{% endif %}
+  - **Autor não reconhecido (sem endereço de email)** Se você receber essa mensagem sem um endereço de email, isso indicará que você usou um endereço de email genérico que não pode ser conectado à sua conta do {% data variables.product.product_name %}.{% ifversion not ghae %} Você precisará [definir seu endereço de email de commit no Git](/articles/setting-your-commit-email-address) e [adicionar o novo endereço às configurações de email do GitHub](/articles/adding-an-email-address-to-your-github-account) para vincular os commits futuros. Os commits antigos não serão vinculados.{% endif %}
+  - **Email inválido** O endereço de email nas configurações do Git local está em branco ou não está formatado como um endereço de email.{% ifversion not ghae %} Você precisará [definir seu endereço de email de commit no Git](/articles/setting-your-commit-email-address) e [adicionar o novo endereço às configurações de email do GitHub](/articles/adding-an-email-address-to-your-github-account) para vincular os commits futuros. Os commits antigos não serão vinculados.{% endif %}
 
-{% ifversion ghae %}
-You can change the email in your local Git configuration settings to the address associated with your account to link your future commits. Old commits will not be linked. For more information, see "[Setting your commit email address](/github/setting-up-and-managing-your-github-user-account/setting-your-commit-email-address#setting-your-commit-email-address-in-git)."
+{% ifversion ghae %} Você pode alterar o email nas configurações do Git local para o endereço associado à sua conta a fim de vincular os commits futuros. Os commits antigos não serão vinculados. Para obter mais informações, confira "[Como definir seu endereço de email de commit](/github/setting-up-and-managing-your-github-user-account/setting-your-commit-email-address#setting-your-commit-email-address-in-git)".
 {% endif %}
 
 {% warning %}
 
-If your local Git configuration contained a generic email address, or an email address that was already attached to another user's account, then your previous commits will not be linked to your account. While Git does allow you to change the email address used for previous commits, we strongly discourage this, especially in a shared repository.
+Caso a configuração local do Git contenha um endereço de e-mail genérico ou um endereço de e-mail já anexado à conta de outro usuário, os commits anteriores não serão vinculados à sua conta. Embora o Git permita que você altere o endereço de e-mail usado para commits anteriores, é recomendável evitar isso, principalmente em um repositório compartilhado.
 
 {% endwarning %}
 
-## Further reading
+## Leitura adicional
 
-* "[Searching commits](/search-github/searching-on-github/searching-commits)"
+* "[Pesquisa de commits](/search-github/searching-on-github/searching-commits)"

@@ -1,0 +1,187 @@
+date: '2021-12-06'
+friendlyDate: '6 de Dezembro de 2021'
+title: '6 de Dezembro de 2021'
+currentWeek: false
+sections:
+  features:
+    - heading: 'Administração'
+      notes:
+        - |Os clientes com assinaturas ativas ou de teste para {% data variables.product.product_name %} agora podem provisionar recursos {% data variables.product.product_name %} do [Azure Portal](https://portal.azure.com/signin/index/). A sua assinatura do Azure deve ser sinalizada como recurso para acessar os recursos {% data variables.product.product_name %} no portal. Contate o gerente da sua conta ou {% data variables.contact.contact_enterprise_sales %} para validar a elegibilidade da sua assinatura do Azure. Para obter mais informações, consulte "[Configurar uma avaliação gratuita de {% data variables.product.prodname_ghe_managed %}](/get-started/signing-up-for-github/setting-up-a-trial-of-github-ae#deploying-github-ae-with-the-azure-portal)."
+
+|
+    - heading: 'GitHub Actions'
+      notes:
+        - |[GitHub Actions](https://github.com/features/actions) está agora em disponibilidade geral para {% data variables.product.product_name %}. GitHub Actions é uma solução poderosa e flexível para CI/CD e automação de fluxo de trabalho. Para obter mais informações, consulte "[Introdução ao GitHub Actions](/actions/learn-github-actions/introduction-to-github-actions)."
+
+|
+        - |Executores auto-hospedados são o tipo padrão sistema executor em {% data variables.product.product_name %} e agora estão em disponibilidade geral para o GitHub Actions. Com executores auto-hospedados, você pode gerenciar os seus próprios computadores ou contêineres para a execução de trabalhos do GitHub Actions. Para obter mais informações, consulte "[Sobre executores auto-hospedados](https://docs.github.com/en/github-ae@latest/actions/hosting-your-own-runners/about-self-hosted-runners)" e "[Adicionar executores auto-hospedados](/actions/hosting-your-own-runners/adding-self-hosted-runners)."
+
+|
+        - |Ambientes, regras de proteção de ambiente e segredos de ambiente agora estão em disponibilidade geral para o GitHub Actions em {% data variables.product.product_name %}. Para obter mais informações, consulte "[Ambientes](/actions/reference/environments)."
+
+|
+        - |GitHub Actions pode agora gerar um grafo visual do seu fluxo de trabalho em casa execução. Com a visualização do fluxo de trabalho, você pode realizar o seguinte.
+
+
+
+- Exibição e compreensão de fluxos de trabalho complexos.
+
+- Acompanhar o progresso dos fluxos de trabalho em tempo real.
+
+- Executar soluções de problemas rapidamente acessando com facilidade os metadados dos logs e dos trabalhos.
+
+- Monitorar o progresso dos trabalhos de implantação e acessar com facilidade os alvos de implantação.
+
+
+
+Para obter mais informações, consulte "[Usar o grafo de visualização](/actions/managing-workflow-runs/using-the-visualization-graph)."
+
+|
+        - |GitHub Actions agora permite que você controle as permissões concedidas para o segredo `GITHUB_TOKEN`. O `GITHUB_TOKEN` é um segredo gerado automaticamente que permite que você faça chamadas autenticadas para a API de {% data variables.product.product_name %} nas suas execuções de fluxo de trabalho. GitHub Actions gera um token novo para cada trabalho e cancela o token quando o trabalho é completado. O token tem permissões `write` para um número de [pontos de extremidade da API](/actions/reference/authentication-in-a-workflow#permissions-for-the-github_token) exceto no caso de solicitações de pull de bifurcações, que são sempre `read`. Estas novas configurações permitem que você siga o princípio de menor privilégio nos seus fluxos de trabalho. Para obter mais informações, consulte "[Autenticação em um fluxo de trabalho](/actions/reference/authentication-in-a-workflow#modifying-the-permissions-for-the-github_token)."
+
+|
+        - |O GitHub Actions agora é compatível com fluxos de trabalho `push` e `pull_request`, que procuram algumas palavras-chave comuns na sua mensagem de commit.
+
+|
+        - |GitHub CLI 1.9 e posterior permite que você trabalhe com GitHub Actions no seu terminal. Para obter mais informações, consulte [{% data variables.product.prodname_blog %}](https://github.blog/changelog/2021-04-15-github-cli-1-9-enables-you-to-work-with-github-actions-from-your-terminal/).
+
+|
+    - heading: 'Varredura de código'
+      notes:
+        - |A verificação de código agora está em beta para {% data variables.product.product_name %}. Para obter mais informações, consulte “[Sobre a verificação de código](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning)”.
+
+|
+    - heading: 'Verificação de segredo'
+      notes:
+        - |Agora você pode especificar os seus próprios padrões para verificação de segredo com a versão beta dos padrões personalizados em {% data variables.product.product_name %}. Você pode especificar padrões para repositórios, organizações e sua empresa inteira. Quando você especifica um novo padrão, a verificação de segredo pesquisa pelo padrão em todo o histórico Git do repositório, assim como qualquer novo commit. Para obter mais informações, consulte "[Definir padrões personalizados para verificação de segredo](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)."
+
+|
+    - heading: 'GitHub Connect'
+      notes:
+        - |GitHub Connect agora está disponível em beta para {% data variables.product.product_name %}. GitHub Connect usa o poder da maior comunidade do mundo de código aberto para {% data variables.product.product_location %}. Você pode permitir que usuários vejam resultados de pesquisa de {% data variables.product.prodname_dotcom_the_Website %} em {% data variables.product.product_name %}, mostrar as contagens de contribuição de {% data variables.product.product_name %} em {% data variables.product.prodname_dotcom_the_Website %} e usar os GitHub Actions de {% data variables.product.prodname_dotcom_the_Website %}. Para obter mais informações, consulte "[Gerenciar as conexões entre as contas da sua empresa](/admin/configuration/managing-connections-between-your-enterprise-accounts)."
+
+|
+    - heading: 'GitHub Packages'
+      notes:
+        - |Agora você pode excluir qualquer pacote ou versão de pacote para GitHub Packages da interface do usuário da Web de {% data variables.product.product_name %}. Você também pode desfazer a exclusão de qualquer pacote ou versão de pacote dentro de 30 dias. Para obter mais informações, consulte "[Excluir e restaurar um pacote](/packages/learn-github-packages/deleting-and-restoring-a-package)."
+
+|
+        - |O registro npm para o GitHub Packages e {% data variables.product.prodname_dotcom_the_Website %} não retorna mais o valor de tempo nas respostas de metadados, o que fornece melhorias substanciais de desempenho. {% data variables.product.company_short %} continuará retornando o valor de tempo no futuro.
+
+|
+    - heading: 'Log de auditoria'
+      notes:
+        - |Eventos para solicitações de pull e revisões de solicitação de pull agora estão incluídas no log de auditoria tanto para [empresas](/admin/user-management/monitoring-activity-in-your-enterprise/audited-actions) como [organizações](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization). Estes eventos ajudam os administradores a monitorar melhor a atividade de solicitação de pull e a garantir que os requisitos de segurança e de conformidade sejam atendidos. Os eventos podem ser exibidos pela interface de usuário da Web, exportados como CSV ou JSON ou acessados via API REST. Você também pode pesquisar eventos de solicitação de pull específicos no log de auditoria.
+
+|
+        - |Eventos adicionais para GitHub Actions agora estão incluídos no log de auditoria tanto para [empresas](/admin/user-management/monitoring-activity-in-your-enterprise/audited-actions) como [organizações](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization).
+
+
+
+- Um fluxo de trabalho está apagado ou foi executado novamente.
+
+- Uma versão do executor auto-hospedado está atualizada.
+
+|
+    - heading: 'Autenticação'
+      notes:
+        - |GitHub AE agora oficialmente oferece suporte de Okta para SSO de SAML (logon único) e provisionamento de usuário com SCIM. Você também pode mapear os grupos em Okta para equipes no GitHub AE. Para obter mais informações, consulte "[Configurar a autenticação e provisionamento para a sua empresa usando o Okta](/admin/authentication/configuring-authentication-and-provisioning-with-your-identity-provider/configuring-autentication-and-provisioning-for-your-enterprise-using-okta)" e "[Mapear grupos do Okta com equipes](/admin/authentication/configuring-authentication-and-provisioning-with-your-identity-provider/mapping-okta-groups-to-teams)."
+
+|
+        - |O formato dos tokens de autenticação para {% data variables.product.product_name %} foi alterado. A alteração afeta o formato dos tokes de acesso pessoal e dos tokens de acesso para os aplicativos OAuth, assim como usuário para servidor, servidor para servidor e tokens de atualização para os aplicativos do GitHub. {% data variables.product.company_short %} recomenda atualizar os tokens existentes assim que possível para melhorar a segurança e permitir a verificação de segredo para detectar os tokens. Para obter mais informações, consulte "[Sobre a autenticação para {% data variables.product.prodname_dotcom %}](/github/authenticating-to-github/keeping-your-account-and-data-secure/about-authentication-to-github#githubs-token-formats)" e "[Sobre verificação de segredo ](/code-security/secret-security/about-secret-scanning)."
+
+|
+        - |Agora você pode autenticar conexões SSH para {% data variables.product.product_name %} usando uma chave de segurança FIDO2 adicionando uma chave SSH `sk-ecdsa-sha2-nistp256@openssh.com` à sua conta. As chaves de segurança SSH armazenam material chave secreto em um dispositivo de hardware separado que exige verificação, como uma coleta, para operar. Armazenar a chave em um hardware separado e exigir a interação física da sua chave SSH oferece uma segurança adicional. Como a chave está armazenada no hardware e não pode ser extraída, a chave não pode ser lida ou roubada pelo software em execução no computador. A interação física evita o uso não autorizado da chave, pois a chave de segurança não será operada até que você interaja fisicamente com ela. Para obter mais informações, consulte "[Gerar uma nova chave SSH e adicioná-la ao ssh-agent](/github/authenticating-to-github/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key-for-a-hardware-security-key)."
+
+|
+        - |As versões GCM (Git Credential Manager) Core 2.0.452 e posteriores agora fornecem armazenamento de credencial seguro e suporte de autenticação multifator para {% data variables.product.product_name %}. GCM Core com suporte para {% data variables.product.product_name %} é incluído com [Git para Windows](https://gitforwindows.org) nas versões 2.32 e posterior. GCM Core não está incluído com Git para macOS ou Linux, mas pode ser instalado separadamente. Para obter mais informações, consulte [versão mais recente](https://github.com/microsoft/Git-Credential-Manager-Core/releases/) e [instruções de instalação](https://github.com/microsoft/Git-Credential-Manager-Core/releases/) no repositório `microsoft/Git-Credential-Manager-Core`.
+
+|
+    - heading: 'Notificações'
+      notes:
+        - |Agora você pode configurar para quais eventos você gostaria de ser notificado em {% data variables.product.product_name %}. Em qualquer repositório, selecione a lista suspensa {% octicon "file-code" aria-label="O ícone de código" %} **Inspecionar**, depois clique em **Personalizar**. Para obter mais informações, consulte "[Configurar notificações](/github/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications)."
+
+|
+    - heading: 'Problemas e solicitações de pull'
+      notes:
+        - |Com a [última versão de Octicons](https://github.com/primer/octicons/releases), os estados dos problemas e das solicitações de pull agora são mais visualmente distintos, para que você possa examinar os estados mais facilmente. Para obter mais informações, consulte [{% data variables.product.prodname_blog %}](https://github.blog/changelog/2021-06-08-new-issue-and-pull-request-state-icons/).
+
+|
+        - |Agora você pode ver todos os comentários de revisão de solicitação de pull na guia **Arquivos** para uma solicitação de pull selecionando a lista suspensa **Conversas**. Você também pode exigir que todos os comentários de revisão de solicitação de pull sejam resolvidos antes que qualquer pessoa migre a solicitação de pull. Para obter mais informações, consulte "[Sobre a revisão de solicitações de pull](/github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews#discovering-and-navigating-conversations)" e "[Sobre branches protegidos](/github/administering-a-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#require-conversation-resolution-before-merging)." Para obter mais informações sobre o gerenciamento das configurações de proteção do branch, consulte "[Branches](/rest/reference/branches#get-branch-protection)" na documentação da API REST e "[Mutações](/graphql/reference/mutations#createbranchprotectionrule)" na documentação da API GraphQL.
+
+|
+        - |Agora você pode fazer o upload de arquivos de vídeo em qualquer lugar em que você faz gravação Markdown em {% data variables.product.product_name %}. Compartilhe demonstrações, mostre etapas de reprodução e mais no problema e comentários de solicitação de pull, assim como em arquivos markdown dentro de repositórios, como READMEs. Para obter mais informações, consulte "[Anexar arquivos](/github/writing-on-github/working-with-advanced-formatting/attaching-files)."
+
+|
+        - |{% data variables.product.product_name %} agora mostra uma caixa de diálogo de confirmação quando você solicita uma revisão de uma equipe com mais de 100 integrantes, o que permite que você evite notificações desnecessárias para grandes equipes.
+
+|
+        - |Se um problema ou solicitação de pull tiver menos do que 30 destinatários possíveis, o controle de destinatários listará todos os usuários possíveis ao invés de um conjunto limitado de sugestões. Este comportamento ajuda as pessoas em organizações pequenas a encontrar o usuário correto rapidamente. Para obter mais informações sobre e atribuição de usuários a problemas e solicitações de pull, consulte "[Atribuir problemas e solicitações de pull para outros {% data variables.product.company_short %} users](/issues/tracking-your-work-with-issues/managing-issues/assigning-issues-and-pull-requests-to-other-github-users#assigning-an-individual-issue-or-pull-request)."
+
+|
+        - |Agora você pode incluir várias palavras depois de `#` em um comentário para um problema ou solicitação de pull para restringir ainda mais a sua pesquisa. Para ignorar as sugestões, pressione <kbd>Esc</kbd>.
+
+|
+        - |Para evitar a mesclagem de alterações inesperadas após você habilitar a mesclagem automática para uma solicitação de pull, a mesclagem automática é agora desabilitada automaticamente quando for efetuado o push de novas alterações por um usuário sem acesso de gravação no repositório. O usuários sem acesso de gravação ainda podem atualizar a solicitação de pull com alterações do branch de base quando a mesclagem automática estiver habilitada. Para evitar que um usuário malicioso use o conflito de mesclagem para introduzir alterações inesperadas à solicitação de pull, {% data variables.product.product_name %} desabilitará a mesclagem automática para a solicitação de pull se a atualização causar um conflito de mesclagem. Para obter mais informações sobre mesclagem automática, consulte "[Fazer mesclagem automática de uma solicitação de pull](/github/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/automatically-merging-a-pull-request)."
+
+|
+        - |Pessoas com acesso de manutenção agora podem gerenciar a configuração "Permitir mesclagem automática" no nível do repositório. Esta configuração, que está desativada por padrão, controla se a mesclagem automática está disponível para as solicitações de pull no repositório. Anteriormente, somente pessoas com acesso de administração podiam gerenciar esta configuração. Adicionalmente, agora esta configuração pode ser controlada usando as APIs REST "[Criar um repositório](/rest/reference/repos#create-an-organization-repository)" e "[Atualizar um repositório](/rest/reference/repos#update-a-repository)". Para obter mais informações, consulte "[Gerenciar a mesclagem automática para solicitações de pull no seu repositório](/github/administering-a-repository/configuring-pull-request-merges/managing-auto-merge-for-pull-requests-in-your-repository)."
+
+|
+        - |A seleção de destinatários para problemas e solicitações de pull agora oferecem suporte à pesquisa de digitação antecipada, para que você possa encontrar usuários na sua organização mais rapidamente. Adicionalmente, as classificações de resultado de pesquisa foram atualizadas para dar preferência à combinação ao início do nome do usuário ou nome do perfil da pessoa.
+
+|
+    - heading: 'Repositórios'
+      notes:
+        - |Ao visualizar o histórico de commit de um arquivo, agora você pode clicar em {% octicon "file-code" aria-label="O ícone de código" %} para ver o arquivo no momento especificado no histórico do repositório.
+
+|
+        - |Agora você pode usar a interface do usuário da Web para sincronizar um branch desatualizado de uma bifurcação com o branch upstream da bifurcação. Se não houver nenhum conflito de mesclagem entre os branches, {% data variables.product.product_name %} atualiza o seu branch com avanço rápido ou mesclando pelo upstream. Se houver algum conflito, {% data variables.product.product_name %} solicitará que você abra solicitações de pull para resolver os conflitos. Para obter mais informações, consulte "[Sincronizar uma bifurcação](/github/collaborating-with-pull-requests/working-with-forks/syncing-a-fork#syncing-a-fork-from-the-Web-ui)."
+
+|
+        - |Agora você pode classificar os repositórios no perfil de um usuário ou organização por contagem de estrelas.
+
+|
+        - |Os pontos de extremidade das APIs REST dos repositórios “comparar dois commits”, o que retorna uma lista de commits alcançáveis de um commit ou branch, mas não alcançável de outro, agora dão suporte à paginação. Agora a API também pode retornar os resultados para comparações de mais de 250 commits. Para obter mais informações, consulte a documentação da API REST "[Commits](/rest/reference/commits#compare-two-commits)" e "[Percorrer com paginação](/rest/guides/traversing-with-pagination)."
+
+|
+        - |Ao definir um submódulo em {% data variables.product.product_location %} com um caminho relativo, o submódulo agora pode ser clicado na interface do usuário da Web. Clicar no submódulo na interface do usuário da Web levará você para o repositório vinculado. Anteriormente, somente era possível clicar em submódulos com URLs absolutas. São compatíveis caminhos relativos para repositórios com o mesmo proprietário que segue o padrão <code>../<em>REPOSITORY</em></code> ou caminhos relativos para repositórios com um proprietário diferente que segue o padrão <code>../<em>OWNER</em>/<em>REPOSITORY</em></code>. Para mais informações sobre o trabalho com submódulos, consulte [Trabalhar com submódulos](https://github.blog/2016-02-01-working-with-submodules/) em {% data variables.product.prodname_blog %}.
+
+|
+        - |Ao pré-calcular as comprovações, a quantidade de tempo que um repositório está sob o bloqueio foi reduzida drasticamente, o que permitiu mais operações de escrita com sucesso e melhorando o desempenho do monorrepositório.
+
+|
+    - heading: 'Lançamentos'
+      notes:
+        - |Agora você pode reagir com emoji em todas as versões em {% data variables.product.product_name %}. Para obter mais informações, consulte "[Sobre as versões](/github/administering-a-repository/releasing-projects-on-github/about-releases)."
+
+|
+    - heading: 'Temas'
+      notes:
+        - |Temas escuros e sombrios estão agora disponíveis para a interface do usuário da Web. {% data variables.product.product_name %} combinará as preferências do seu sistema quando você não definiu as preferências do tema em {% data variables.product.product_name %}. Você também pode personalizar os temas que estão ativos durante o dia e a noite. Para obter mais informações, consulte "[Gerenciar as suas configurações de tema](/github/setting-up-and-managing-your-github-user-account/managing-user-account-settings/managing-your-theme-settings)."
+
+|
+    - heading: 'Markdown'
+      notes:
+        - |Agora os arquivos markdown nos seus repositórios geram automaticamente um sumário no cabeçalho quando o arquivo tiver dois ou mais títulos. Um sumário é interativo e faz o link para a seção correspondente. Todos os seis níveis de título do Markdown são compatíveis. Para obter mais informações, consulte "[Sobre READMEs](/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/about-readmes#auto-generated-table-of-contents-for-readme-files)."
+
+|
+        - |A marcação `code` é agora compatível em títulos para problemas e solicitações de pull. O texto dentro das aspas inversas (`` ` ``) aparecerá interpretado em uma fonte de largura fixa em qualquer lugar que o problema ou o título da solicitação de pull apareça na interface Web de {% data variables.product.product_name %}.
+
+|
+        - |Ao editar markdown em arquivos, problemas, solicitações de pull ou comentários, agora você pode usar um atalho de teclado para inserir um bloco de código. O atalho de teclado é <kbd>command</kbd> + <kbd>E</kbd> em um Mac ou <kbd>Ctrl</kbd> + <kbd>E</kbd> nos outros dispositivos. Para obter mais informações, consulte "[Gravação e formatação de sintaxe básica](/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#quoting-code)."
+
+|
+        - |Você pode acrescentar `?plain=1` ao URL para qualquer arquivo Markdown para exibir o arquivo sem renderização e com números de linha. Você pode usar a exibição simples para fazer o link para outros usuários e linhas específicos. Por exemplo, acrescentar `?plain=1#L52` destacará a linha 52 de um arquivo markdown de texto sem formatação. Para mais informações, "[Criar um link permanente para um snippet de código](/github/writing-on-github/working-with-advanced-formatting/creating-a-permanent-link-to-a-code-snippet#linking-to-markdown)."
+
+|
+    - heading: 'Aplicativos GitHub'
+      notes:
+        - |Solicitações de API para criar um token de acesso de instalação agora respeitam a lista de IP permitidos para uma empresa e organização. Qualquer solicitação de API feita com um token de acesso de instalação de um aplicativo GitHub instalado na sua organização já respeita a lista de IP permitidos. Este recurso não considera atualmente nenhuma regra do NSG (grupo de segurança de rede) do Azure que {% data variables.product.company_short %} foi configurado suporte para {% data variables.product.product_location %}. Para mais informações, consulte "[Restringir tráfego de rede para a sua empresa](/admin/configuration/configuring-your-enterprise/restricting-network-traffic-to-your-enterprise#about-ip-allow-lists)," "[Gerenciar endereços de IP permitidos para a sua organização](/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization)," e  "[Aplicativos](https://docs.github.com/en/rest/reference/apps#create-an-installation-access-token-for-an-app)" na documentação API REST.
+
+|
+    - heading: 'Webhooks'
+      notes:
+        - |Você pode reenviar programaticamente ou verificar o estado de Webhooks através de API REST. Para obter mais informações, consulte "[Repositories](https://docs.github.com/en/rest/reference/repos#Webhooks),"[Organizations](https://docs.github.com/en/rest/reference/orgs#Webhooks)," e "[Apps](https://docs.github.com/en/rest/reference/apps#Webhooks)" na documentação da API REST.
+
+|

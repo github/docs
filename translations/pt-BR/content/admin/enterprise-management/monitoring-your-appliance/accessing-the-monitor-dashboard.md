@@ -1,6 +1,6 @@
 ---
-title: Accessing the monitor dashboard
-intro: '{% data variables.product.prodname_ghe_server %} includes a web-based monitoring dashboard that displays historical data about your {% data variables.product.prodname_ghe_server %} appliance, such as CPU and storage usage, application and authentication response times, and general system health.'
+title: Acessar o painel de monitoramento
+intro: 'O {% data variables.product.prodname_ghe_server %} inclui um painel de monitoramento baseado na web que exibe os dados de histórico do seu appliance do {% data variables.product.prodname_ghe_server %}, como uso de CPU e armazenamento, tempos de resposta de aplicativos e autenticação, e informações gerais sobre a integridade do sistema.'
 redirect_from:
   - /enterprise/admin/installation/accessing-the-monitor-dashboard
   - /enterprise/admin/enterprise-management/accessing-the-monitor-dashboard
@@ -15,28 +15,33 @@ topics:
   - Monitoring
   - Performance
 shortTitle: Access the monitor dashboard
+ms.openlocfilehash: b529369813635a8cafe5f7c7ac6fc04af39001f5
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '146332365'
 ---
-## Accessing the monitor dashboard
+## Acessar o painel de monitoramento
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.management-console %}
-2. At the top of the page, click **Monitor**.
-![The Monitor Dashboard link](/assets/images/enterprise/management-console/monitor-dash-link.png)
+{% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.enterprise_site_admin_settings.management-console %}
+2. Na parte superior da página, clique em **Monitoramento**.
+![Link para o Painel de monitoramento](/assets/images/enterprise/management-console/monitor-dash-link.png)
 
-## Troubleshooting common resource allocation problems on your appliance
+## Resolver problemas comuns de alocação de recursos no appliance
 
 {% note %}
 
-**Note**: Because regularly polling {% data variables.location.product_location %} with continuous integration (CI) or build servers can effectively cause a denial of service attack that results in problems, we recommend using webhooks to push updates. For more information, see "[About webhooks](/enterprise/user/articles/about-webhooks/)".
+**Observação**: fazer sondagens regularmente no {% data variables.product.product_location %} com integração contínua (CI) ou servidores de build poderá causar um ataque de negação de serviço e gerar problemas. Portanto, recomendamos o uso de webhooks para fazer push das atualizações. Para obter mais informações, confira "[Sobre os webhooks](/enterprise/user/articles/about-webhooks/)".
 
 {% endnote %}
 
-Use the monitor dashboard to stay informed on your appliance's resource health and make decisions on how to fix high usage issues.  
+Use o painel de monitoramento para se manter a par da integridade dos recursos do seu appliance e decidir como corrigir os problemas de uso excessivo.  
 
-| Problem | Possible cause(s) | Recommendations |
+| Problema | Possíveis causas | Recomendações |
 | -------- | ----------------- | --------------- |
-| High CPU usage | VM contention from other services or programs running on the same host | If possible, reconfigure other services or programs to use fewer CPU resources. To increase total CPU resources for the VM, see "[Increasing CPU or memory resources](/enterprise/admin/guides/installation/increasing-cpu-or-memory-resources/)." |
-| High memory usage | VM contention from other services or programs running on the same host | If possible, reconfigure other services or programs to use less memory. To increase the total memory available on the VM, see "[Increasing CPU or memory resources](/enterprise/admin/guides/installation/increasing-cpu-or-memory-resources/)." |
-| Low disk space availability | Large binaries or log files consuming disk space | If possible, host large binaries on a separate server, and compress or archive log files. If necessary, increase disk space on the VM by following the steps for your platform in "[Increasing storage capacity](/enterprise/admin/guides/installation/increasing-storage-capacity/)." |
-| Higher than usual response times | Often caused by one of the above issues | Identify and fix the underlying issues. If response times remain high, contact {% data variables.contact.contact_ent_support %}. |
-| Elevated error rates | Software issues  | Contact {% data variables.contact.contact_ent_support %} and include your support bundle. For more information, see "[Providing data to {% data variables.product.prodname_enterprise %} Support](/enterprise/{{ currentVersion}}/admin/guides/enterprise-support/providing-data-to-github-support#creating-and-sharing-support-bundles)." |
+| Alto uso da CPU | Contenção da VM por outros serviços ou programas executados no mesmo host | Se possível, reconfigure outros serviços ou programas para usar menos recursos de CPU. Para aumentar o total de recursos de CPU para a VM, confira "[Como aumentar os recursos de CPU ou memória](/enterprise/admin/guides/installation/increasing-cpu-or-memory-resources/)". |
+| Alto uso da memória | Contenção da VM por outros serviços ou programas executados no mesmo host | Se possível, reconfigure outros serviços ou programas para usar menos memória. Para aumentar a memória total disponível na VM, confira "[Como aumentar os recursos de CPU ou memória](/enterprise/admin/guides/installation/increasing-cpu-or-memory-resources/)". |
+| Pouco espaço em disco | Consumo do espaço em disco por arquivos grandes binários ou de log | Se possível, hospede os arquivos binários grandes em outro servidor e compacte ou arquive os arquivos de log. Se necessário, aumente o espaço em disco na VM seguindo as etapas para sua plataforma em "[Aumentar a capacidade de armazenamento](/enterprise/admin/guides/installation/increasing-storage-capacity/)". |
+| Tempos de resposta maiores do que o comum | Costuma ser causado por um dos problemas acima | Identifique e corrija os problema subjacentes. Se os tempos de resposta continuarem altos, entre em contato com o {% data variables.contact.contact_ent_support %}. |
+| Altos índices de erro | Problemas de software  | Entre em contato com o {% data variables.contact.contact_ent_support %} e inclua seu pacote de suporte. Para obter mais informações, confira "[Como fornecer dados para o Suporte do {% data variables.product.prodname_enterprise %}](/enterprise/{{ currentVersion}}/admin/guides/enterprise-support/providing-data-to-github-support#creating-and-sharing-support-bundles)". |

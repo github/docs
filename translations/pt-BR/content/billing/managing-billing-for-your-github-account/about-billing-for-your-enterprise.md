@@ -1,6 +1,6 @@
 ---
-title: About billing for your enterprise
-intro: 'You can view billing information for your enterprise{% ifversion ghec or ghes %} account on {% data variables.product.prodname_dotcom_the_website %}{% endif %}.'
+title: Sobre a cobrança para a sua empresa
+intro: 'Você pode visualizar as informações de cobrança da empresa{% ifversion ghec or ghes %} conta corporativa em {% data variables.product.prodname_dotcom_the_website %}{% endif %}.'
 redirect_from:
   - /admin/overview/managing-billing-for-your-enterprise
   - /enterprise/admin/installation/managing-billing-for-github-enterprise
@@ -14,68 +14,69 @@ type: overview
 topics:
   - Enterprise
 shortTitle: Billing for your enterprise
+ms.openlocfilehash: 1b048c16293b7183636bc383ca926c4e5c7f0bd2
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147573406'
 ---
-
-## About billing for your enterprise
+## Sobre a cobrança para a sua empresa
 
 {% ifversion ghae %}
 
-{% data reusables.github-ae.about-billing %} Once per day, {% data variables.product.prodname_dotcom %} will count the number of users with a license for your enterprise. {% data variables.product.company_short %} bills you for each licensed user regardless of whether the user logged into {% data variables.product.prodname_ghe_managed %} that day.
+{% data reusables.github-ae.about-billing %} Uma vez por dia, {% data variables.product.prodname_dotcom %} contará o número de usuários com uma licença para sua empresa. {% data variables.product.company_short %} efetua a cobrança para cada usuário licenciado independentemente de o usuário estar conectado a {% data variables.product.prodname_ghe_managed %} nesse dia.
 
-For commercial regions, the price per user per day is $1.2580645161. For 31-day months, the monthly cost for each user is $39. For months with fewer days, the monthly cost is lower. Each billing month begins at a fixed time on the first day of the calendar month.
+Para regiões comerciais, o preço por usuário por dia é de $ 1,2580645161. Por meses de 31 dias, o custo mensal para cada usuário é de $ 39. Nos meses com menos dias, o custo mensal é menor. Cada mês de cobrança começa em um horário fixo no primeiro dia do mês do calendário.
 
-If you add a licensed user mid-month, that user will only be included in the count for the days they have a license. When you remove a licensed user, that user will remain in the count until the end of that month. Therefore, if you add a user mid-month and later remove the user in the same month, the user will be included in the count from the day the user was added through the end of the month. There is no additional cost if you re-add a user during the same month the user was removed.
+Se você adicionar um usuário licenciado no meio do mês, esse usuário será incluído apenas na contagem dos dias em que tem uma licença. Ao remover um usuário licenciado, esse usuário permanecerá na contagem até o final desse mês. Portanto, se você adicionar um usuário durante o mês ou depois remover o usuário no mesmo mês, o usuário será incluído na contagem a partir do dia em que o usuário foi adicionado até o final do mês. Não há custos adicionais se você adicionar novamente um usuário no mesmo mês em que o usuário foi removido.
 
-For example, here are the costs for users with licenses on different dates.
+Por exemplo, aqui estão os custos para os usuários com licenças em datas diferentes.
 
-User | License dates | Counted days | Cost
+Usuário | Datas de licença | Dias contados | Custo
 ---- | ------------ | ------- | -----
-@octocat | January 1 - January 31 | 31 | $39
-@robocat | February 1 - February 28 | 28 | $35.23
-@devtocat  | January 15 - January 31 | 17 | $21.39
-@doctocat | January 1 - January 15 | 31 | $39
-@prodocat | January 7 - January 15 | 25 | $31.45
-@monalisa | January 1 - January 7,<br>January 15 - January 31 | 31 | $39
+@octocat | 1 de Janeiro - 31 de Janeiro | 31 | US$ 39
+@robocat | 1 de fevereiro - 28 de fevereiro | 28 | $ 35,23
+@devtocat  | 15 de Janeiro - 31 de Janeiro | 17 | $ 21,39
+@doctocat | 1 de Janeiro - 15 de Janeiro | 31 | US$ 39
+@prodocat | 7 de Janeiro - 15 de Janeiro | 25 | $ 31,45
+@monalisa | 1º de janeiro – 7 de janeiro<br>15 de Janeiro - 31 de Janeiro | 31 | US$ 39
 
-{% data variables.product.prodname_ghe_managed %} has a 500-user minimum per instance. {% data variables.product.company_short %} bills you for a minimum of 500 users per instance, even if there are fewer than 500 users with a license that day.
+{% data variables.product.prodname_ghe_managed %} tem uma instância mínima de 500 usuários. {% data variables.product.company_short %} cobra de você um mínimo de 500 usuários por instância, mesmo que haja menos de 500 usuários com uma licença nesse dia.
 
-You can see your current usage in your [Azure account portal](https://portal.azure.com).
+Veja seu uso atual no [portal da conta do Azure](https://portal.azure.com).
 
 {% elsif ghec or ghes %}
 
 {% ifversion ghec %}
 
-When you use an enterprise account on {% data variables.location.product_location %}, the enterprise account is the central point for all billing within your enterprise, including the organizations that your enterprise owns.
+Quando você usa uma conta corporativa em {% data variables.product.product_location %}, a conta corporativa é o ponto central para toda a cobrança em sua empresa, incluindo as organizações que sua empresa possui.
 
-If you use {% data variables.product.product_name %} with an individual organization and do not yet have an enterprise account, you create an enterprise account and add your organization. For more information, see "[Creating an enterprise account](/admin/overview/creating-an-enterprise-account)."
+Se você usar {% data variables.product.product_name %} com uma organização individual e ainda não tiver uma conta corporativa, crie uma conta corporativa e adicione a sua organização. Para obter mais informações, confira "[Com criar uma conta empresarial](/admin/overview/creating-an-enterprise-account)".
 
-{% data variables.product.company_short %} bills monthly for the total number of licensed seats for your enterprise account, as well as any additional services you use with {% data variables.product.prodname_ghe_cloud %}, such as {% data variables.product.prodname_actions %} minutes. If you use a standalone organization on {% data variables.product.product_name %}, you'll be billed at the organization level for all usage. For more information your bill's license seats, see "[About per-user pricing](/billing/managing-billing-for-your-github-account/about-per-user-pricing)."
+{% data variables.product.company_short %} cobra mensalmente o número total de licenças de estação para sua conta corporativa, bem como quaisquer serviços adicionais que você usa com {% data variables.product.prodname_ghe_cloud %}, como minutos de {% data variables.product.prodname_actions %}. Se você usar uma organização autônoma em {% data variables.product.product_name %}, será cobrado no nível da organização por todo o uso. Para obter mais informações sobre as estações de licença da sua conta, confira "[Sobre preços por usuário](/billing/managing-billing-for-your-github-account/about-per-user-pricing)".
 
 {% elsif ghes %}
 
-Each user on {% data variables.location.product_location %} consumes a seat on your license. {% data variables.product.company_short %} bills monthly for the total number of seats consumed on your license.
+Cada usuário em {% data variables.product.product_location %} consome uma estação na sua licença. {% data variables.product.company_short %} faz a cobrança mensal no número total de estações consumidas na sua licença.
 
 {% endif %}
 
-{% ifversion ghec %}For {% data variables.product.prodname_ghe_cloud %} customers with an enterprise account, {% data variables.product.company_short %} bills through your enterprise account on {% data variables.product.prodname_dotcom_the_website %}. For invoiced customers, each{% elsif ghes %}For invoiced {% data variables.product.prodname_enterprise %} customers, {% data variables.product.company_short %} bills through an enterprise account on {% data variables.product.prodname_dotcom_the_website %}. Each{% endif %} invoice includes a single bill charge for all of your paid {% data variables.product.prodname_dotcom_the_website %} services and any {% data variables.product.prodname_ghe_server %} instances. For more information about {% ifversion ghes %}licensing, usage, and invoices{% elsif ghec %}usage and invoices{% endif %}, see the following{% ifversion ghes %} in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}.{% endif %}
+{% ifversion ghec %}Para clientes do {% data variables.product.prodname_ghe_cloud %} com uma conta corporativa, {% data variables.product.company_short %} a cobrança ocorre na conta corporativa em {% data variables.product.prodname_dotcom_the_website %}. Para clientes com fatura, cada{% elsif ghes %}Para clientes com fatura {% data variables.product.prodname_enterprise %}, {% data variables.product.company_short %} a cobrança ocorre na conta corporativa em {% data variables.product.prodname_dotcom_the_website %}. Cada{% endif %} fatura inclui uma única cobrança de fatura para todos os seus serviços de {% data variables.product.prodname_dotcom_the_website %} pagos e as instâncias de qualquer {% data variables.product.prodname_ghe_server %}. Para mais informações sobre {% ifversion ghes %} licenciamento, uso e faturas{% elsif ghec %}uso e faturas{% endif %}, confira o seguinte{% ifversion ghes %} na documentação de {% data variables.product.prodname_ghe_cloud %}.{% else %}.{% endif %}
 
 {%- ifversion ghes %}
-- "[About per-user pricing](/enterprise-cloud@latest/billing/managing-billing-for-your-github-account/about-per-user-pricing)"
-{%- endif %}
-- "[Viewing the subscription and usage for your enterprise account]({% ifversion ghes %}/enterprise-cloud@latest{% endif %}/billing/managing-billing-for-your-github-account/viewing-the-subscription-and-usage-for-your-enterprise-account)"
-- "[Managing invoices for your enterprise]({% ifversion ghes %}/enterprise-cloud@latest{% endif %}/billing/managing-billing-for-your-github-account/managing-invoices-for-your-enterprise)"
+- "[Sobre os preços por usuário](/enterprise-cloud@latest/billing/managing-billing-for-your-github-account/about-per-user-pricing)" {%- endif %}
+- "[Como ver a assinatura e o uso da sua conta corporativa]({% ifversion ghes %}/enterprise-cloud@latest{% endif %}/billing/managing-billing-for-your-github-account/viewing-the-subscription-and-usage-for-your-enterprise-account)"
+- "[Como gerenciar faturas da sua empresa]({% ifversion ghes %}/enterprise-cloud@latest{% endif %}/billing/managing-billing-for-your-github-account/managing-invoices-for-your-enterprise)"
 
-Administrators for your enterprise account on {% data variables.product.prodname_dotcom_the_website %} can access and manage billing for the enterprise. For more information, see "[Roles in an enterprise]({% ifversion ghes %}/enterprise-cloud@latest{% endif %}/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise){% ifversion ghec %}."{% elsif ghes %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% endif %}
+Os administradores da conta corporativa em {% data variables.product.prodname_dotcom_the_website %} podem acessar e gerenciar a cobrança da empresa. Para obter mais informações, confira "[Funções em uma empresa]({% ifversion ghes %}/enterprise-cloud@latest{% endif %}/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise){% ifversion ghec %}".{% elsif ghes %}" na documentação do {% data variables.product.prodname_ghe_cloud %}.{% endif %}
 
-{% ifversion ghec %}
-{% data reusables.enterprise-accounts.billing-microsoft-ea-overview %} For more information, see "[Connecting an Azure subscription to your enterprise](/billing/managing-billing-for-your-github-account/connecting-an-azure-subscription-to-your-enterprise)."
+{% ifversion ghec %} {% data reusables.enterprise-accounts.billing-microsoft-ea-overview %} Para obter mais informações, confira "[Como conectar uma assinatura do Azure à sua empresa](/billing/managing-billing-for-your-github-account/connecting-an-azure-subscription-to-your-enterprise)".
 {% endif %}
 
-{% ifversion ghes %}
-{% data reusables.billing.ghes-with-no-enterprise-account %}
-{% endif %}
+{% ifversion ghes %} {% data reusables.billing.ghes-with-no-enterprise-account %} {% endif %}
 
 {% endif %}
-## Further reading
+## Leitura adicional
 
-- "[About enterprise accounts](/admin/overview/about-enterprise-accounts)"
+- "[Sobre as contas corporativas](/admin/overview/about-enterprise-accounts)"
