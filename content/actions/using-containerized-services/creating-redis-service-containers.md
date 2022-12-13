@@ -294,11 +294,11 @@ redisClient.connect();
 
 // Sets the key "octocat" to a value of "Mona the octocat"
 redisClient.set("octocat", "Mona the Octocat", function (err, reply) { console.log("Reply: " + reply) });
-// Sets a key to "octocat", field to "species", and "value" to "Cat and Octopus"
+// Sets a key to "species", field to "octocat", and "value" to "Cat and Octopus"
 redisClient.hset("species", "octocat", "Cat and Octopus", function (err, reply) { console.log("Reply: " + reply) });
-// Sets a key to "octocat", field to "species", and "value" to "Dinosaur and Octopus"
+// Sets a key to "species", field to "dinotocat", and "value" to "Dinosaur and Octopus"
 redisClient.hset("species", "dinotocat", "Dinosaur and Octopus", function (err, reply) { console.log("Reply: " + reply) });
-// Sets a key to "octocat", field to "species", and "value" to "Cat and Robot"
+// Sets a key to "species", field to "robotocat", and "value" to "Cat and Robot"
 redisClient.hset(["species", "robotocat", "Cat and Robot"], function (err, reply) { console.log("Reply: " + reply) });
 
 // Gets all fields in "species" key
