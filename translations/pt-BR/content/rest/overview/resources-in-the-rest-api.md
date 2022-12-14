@@ -11,12 +11,12 @@ versions:
 miniTocMaxHeadingLevel: 3
 topics:
   - API
-ms.openlocfilehash: 4fd3e2aad72ee0ffc4778a86dc99cd5bb6f9d2c5
-ms.sourcegitcommit: 4daa156856e651cb3854ead40e35bd918e481ad6
+ms.openlocfilehash: c7928ce90b887d6fa3bd5342fc1633b3e30983f1
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2022
-ms.locfileid: '148190396'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148192846'
 ---
 {% ifversion api-date-versioning %}
 ## Versão da API
@@ -275,50 +275,7 @@ Em seguida, você pode expandir esses modelos usando algo como ogem [uri_templat
 
 ## Paginação
 
-Pedidos que retornam vários itens serão paginados para 30 itens por padrão.  Você pode especificar mais páginas com o parâmetro `page`. Para alguns recursos, você também pode definir um tamanho de página até 100 com o parâmetro `per_page`.
-Observe que por motivos técnicos nem todos os pontos de extremidade respeitam o parâmetro `per_page`, confira [eventos](/rest/reference/activity#events) por exemplo.
-
-```shell
-$ curl '{% data variables.product.api_url_pre %}/user/repos?page=2&per_page=100'
-```
-
-Observe que a numeração da página é baseada em 1 e que, ao omitir o parâmetro `page`, retornará a primeira página.
-
-Alguns pontos de extremidade usam paginação baseada no cursor. Um cursor é uma string que aponta para uma localização no conjunto de resultados.
-Com paginação baseada em cursor, não há um conceito fixo de "páginas" no conjunto de resultados. Portanto, você não pode navegar para uma página específica.
-Em vez disso, você pode percorrer os resultados usando os parâmetros `before` ou `after`.
-
-Para obter mais informações sobre paginação, confira nosso guia sobre [Deslocamento com paginação][pagination-guide].
-
-### Cabeçalho do link
-
-{% note %}
-
-**Observação:** É importante formar chamadas com valores de cabeçalho de link, em vez de construir suas URLs.
-
-{% endnote %}
-
-O [cabeçalho Link](https://datatracker.ietf.org/doc/html/rfc5988) inclui informações de paginação. Por exemplo:
-
-    Link: <{% data variables.product.api_url_code %}/user/repos?page=3&per_page=100>; rel="next",
-      <{% data variables.product.api_url_code %}/user/repos?page=50&per_page=100>; rel="last"
-
-_O exemplo inclui uma quebra de linha para legibilidade._
-
-Ou, se o ponto de extremidade usar paginação baseada em cursor:
-
-    Link: <{% data variables.product.api_url_code %}/orgs/ORG/audit-log?after=MTYwMTkxOTU5NjQxM3xZbGI4VE5EZ1dvZTlla09uWjhoZFpR&before=>; rel="next",
-
-Esse cabeçalho de resposta `Link` contém uma ou mais relações de link de [Hipermídia](/rest#hypermedia), algumas das quais podem exigir expansão como [modelos de URI](https://datatracker.ietf.org/doc/html/rfc6570).
-
-Os valores `rel` possíveis são:
-
-Nome | Descrição
------------|-----------|
-`next` |A relação de link para a próxima página de resultados.
-`last` |A relação de link para a última página de resultados.
-`first` |A relação de link para a primeira página de resultados.
-`prev` |A relação de link para a página de resultados anterior imediata.
+Quando uma resposta da API REST incluir muitos resultados, {% data variables.product.company_short %} paginará os resultados e retornará um subconjunto dos resultados. Você pode usar o cabeçalho do link da resposta para solicitar páginas adicionais de dados. Se um ponto de extremidade oferecer suporte ao parâmetro de consulta `per_page`, você poderá controlar quantos resultados são retornados em uma página. Para obter mais informações sobre paginação, confira "[Como usar paginação na API REST](/rest/guides/using-pagination-in-the-rest-api)".
 
 ## Tempos limite
 
@@ -675,5 +632,3 @@ Se nenhum cabeçalho `Time-Zone` for especificado e você fizer uma chamada aute
 ### Definir como padrão UTC sem outras informações de fuso horário
 
 Se as etapas acima não resultarem em nenhuma informação, usaremos UTC como o fuso horário para criar o commit do git.
-
-[pagination-guide]: /guides/traversing-with-pagination

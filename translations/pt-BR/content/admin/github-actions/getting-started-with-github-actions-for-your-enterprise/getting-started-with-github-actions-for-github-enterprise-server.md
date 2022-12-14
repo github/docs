@@ -14,12 +14,12 @@ type: how_to
 topics:
   - Actions
   - Enterprise
-ms.openlocfilehash: 6bfcb7cc2a14a70a6ba4397c12effaf0a8d8be3f
-ms.sourcegitcommit: 8f1801040a84ca9353899a2d1e6782c702aaed0d
+ms.openlocfilehash: a48e562898eb4c82b9027ee56ed52b71e7c5ebc7
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/16/2022
-ms.locfileid: '148166558'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148192958'
 ---
 {% data reusables.actions.enterprise-beta %}
 
@@ -127,7 +127,9 @@ Opcionalmente, você pode limitar o consumo de recursos em {% data variables.loc
 
 Para habilitar o {% data variables.product.prodname_actions %} em {% data variables.product.prodname_ghe_server %}, você deve ter acesso ao armazenamento externo do blob.
 
-O {% data variables.product.prodname_actions %} usa o armazenamento de blobs para armazenar os dados gerados pelas execuções de fluxo de trabalho, como logs de fluxo de trabalho{% ifversion actions-caching %}, caches{% endif %} e artefatos de build carregados pelo usuário. A quantidade de armazenamento necessária depende do seu uso de {% data variables.product.prodname_actions %}. Somente uma única configuração de armazenamento externo é compatível, e você não pode usar vários provedores de armazenamento ao mesmo tempo.
+{% data reusables.actions.enterprise-storage-contents %} A quantidade de armazenamento necessária depende do uso que você faz do {% data variables.product.prodname_actions %}. Somente uma única configuração de armazenamento externo é compatível, e você não pode usar vários provedores de armazenamento ao mesmo tempo.
+
+Todos os outros dados do {% data variables.product.prodname_actions %}, como os arquivos de fluxo de trabalho na estrutura de arquivos de um repositório, são armazenados no volume de armazenamento de dados para {% data variables.location.product_location %}.
 
 {% data variables.product.prodname_actions %} é compatível com estes provedores de armazenamento:
 

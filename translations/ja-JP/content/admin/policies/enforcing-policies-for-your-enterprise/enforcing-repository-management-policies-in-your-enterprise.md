@@ -44,12 +44,12 @@ topics:
   - Repositories
   - Security
 shortTitle: Repository management policies
-ms.openlocfilehash: 4abffb820c09b8d5896598fa1d233143e3872955
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 10b34ef1d0049ca68e1b0ec655f9d6351c06d396
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147683712'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148192642'
 ---
 ## Enterprise でのリポジトリ管理のポリシーについて
 
@@ -61,7 +61,7 @@ ms.locfileid: '147683712'
 
 ユーザーが Enterprise 内に新しいリポジトリを作成するたびに、そのユーザーはリポジトリの可視性を選ぶ必要があります。 その Enterprise のデフォルトの可視性の設定をする際には、デフォルトで選択される可視性を選択します。 リポジトリの可視性の詳細については、「[リポジトリについて](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)」を参照してください。
 
-Enterprise オーナーがメンバーによる特定のタイプのリポジトリの作成を禁止している場合、可視性設定がデフォルトでそのタイプに設定されていても、メンバーはそのタイプのリポジトリを作成できません。 詳しい情報については、「[リポジトリ作成のためのポリシーの設定](#setting-a-policy-for-repository-creation)」を参照してください。
+Enterprise オーナーがメンバーによる特定のタイプのリポジトリの作成を禁止している場合、可視性設定がデフォルトでそのタイプに設定されていても、メンバーはそのタイプのリポジトリを作成できません。 詳細については、「[リポジトリ作成のためのポリシーの適用](#enforcing-a-policy-for-repository-creation)」を参照してください。
 
 {% data reusables.enterprise-accounts.access-enterprise %} {% ifversion ghes or ghae %} {% data reusables.enterprise-accounts.policies-tab %} {% else %} {% data reusables.enterprise-accounts.settings-tab %} {% endif %} {% data reusables.enterprise-accounts.options-tab %}
 1. "Default repository visibility（デフォルトのリポジトリの可視性）"の下で、ドロップダウンメニューを使ってデフォルトの可視性を選択してください。
@@ -100,8 +100,10 @@ Enterprise で所有しているすべての Organization 全体で、メンバ�
   ![フォーク ポリシーによって無効にされたオプションのリストを示すスクリーンショット。](/assets/images/help/business-accounts/restrict-personal-namespace-enabled-setting.png){% endif %}
 
 ## プライベートまたは内部リポジトリのフォークに関するポリシーを適用する
-
 Enterprise が所有しているすべての Organization 全体で、ユーザーにリポジトリのフォーク用にプライベートまたは内部リポジトリへのアクセスを許可したり、プライベートまたは内部リポジトリのフォークを一切禁止したり、オーナーが Organization レベルで設定を管理できるようにしたりすることができます。
+
+{% ifversion org-owners-limit-forks-creation %} 管理者アクセス許可を持つ人はフォーク ポリシーをさらに細かく設定できます。 詳細については、「[Organization のフォーク ポリシーを管理する](/organizations/managing-organization-settings/managing-the-forking-policy-for-your-organization)」を参照してください。
+{% endif %}
 
 {% ifversion enterprise-namespace-repo-setting %} {% note %}
 
@@ -110,8 +112,8 @@ Enterprise が所有しているすべての Organization 全体で、ユーザ�
 {% endnote %} {% endif %}
 
 {% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.policies-tab %} {% data reusables.enterprise-accounts.repositories-tab %}
-3. [リポジトリのフォーク] で、設定変更についての情報を確認します。 {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
-4. [Repository forking] で、ドロップダウンメニューを使用してポリシーを選択します。
+1. [リポジトリのフォーク] で、設定変更についての情報を確認します。 {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
+2. [Repository forking] で、ドロップダウンメニューを使用してポリシーを選択します。
 
   ![リポジトリ フォーク ポリシーのオプションを含むドロップダウン メニュー](/assets/images/help/business-accounts/repository-forking-policy-drop-down.png){% ifversion innersource-fork-policies %}
 5. フォークが有効な場合、リポジトリのフォークをユーザーに許可する場所を指定できます。 設定の変更に関する情報を確認し、ポリシーを選びます。
@@ -145,7 +147,7 @@ Enterprise で所有しているすべての Organization 全体で、メンバ�
 
 Enterprise で所有しているすべての Organization 全体で、管理者アクセス権を持つメンバーがリポジトリの可視性を変更できるようにしたり、リポジトリの可視性の変更を Organization 所有者に限定したり、所有者が Organization レベルで設定を管理できるようにしたりできます。 メンバーがリポジトリの可視性を変更できないようにした場合、Enterprise のオーナーのみがリポジトリの可視性を変更できます。
 
-Enterprise のオーナーがリポジトリの作成を Organization のオーナーのみに制限している場合、メンバーはリポジトリの可視性を変更できません。 Enterprise のオーナーがメンバーリポジトリの作成をプライベートリポジトリのみに制限している場合、メンバーはリポジトリの可視性をプライベートにのみ変更できます。 詳しい情報については、「[リポジトリ作成のためのポリシーの設定](#setting-a-policy-for-repository-creation)」を参照してください。
+Enterprise のオーナーがリポジトリの作成を Organization のオーナーのみに制限している場合、メンバーはリポジトリの可視性を変更できません。 Enterprise のオーナーがメンバーリポジトリの作成をプライベートリポジトリのみに制限している場合、メンバーはリポジトリの可視性をプライベートにのみ変更できます。 詳細については、「[リポジトリ作成のためのポリシーの適用](#enforcing-a-policy-for-repository-creation)」を参照してください。
 
 {% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.policies-tab %} {% data reusables.enterprise-accounts.repositories-tab %}
 1. [Repository visibility change] で、設定変更についての情報を確認します。 {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
@@ -256,7 +258,7 @@ Enterprise で所有しているすべての Organization 全体で、メンバ�
 
 {% data reusables.enterprise_user_management.disclaimer-for-git-read-access %}
 
-{% data variables.product.product_location %}に対して[プライベート モードを有効にしている](/enterprise/admin/configuration/enabling-private-mode)場合、リポジトリ管理者にパブリック リポジトリへの匿名 Git 読み取りアクセスの有効化を許可できます。
+{% data variables.location.product_location %} に対して[プライベート モードを有効にしている](/enterprise/admin/configuration/enabling-private-mode)場合、リポジトリ管理者にパブリック リポジトリへの匿名 Git 読み取りアクセスの有効化を許可できます。
 
 匿名 Git 読み取りアクセスを有効化すると、ユーザは Enterprise 上のカスタムツールの認証をバイパスできるようになります。 ユーザーまたはリポジトリ管理者がリポジトリに対してこのアクセス設定を有効にすると、認証されていない Git 操作 (そして {% data variables.product.product_name %} へのネットワーク アクセスができる人は誰でも) が、認証なしでリポジトリに読み取りアクセスできることになります。
 
@@ -266,7 +268,18 @@ Enterprise で所有しているすべての Organization 全体で、メンバ�
 The unauthenticated git protocol on port 9418 is no longer supported.
 ```
 
-環境内で認証されていない Git プロトコルをサポートする場合は、この機能を手動で再度有効にする必要があります。 {% data variables.product.company_short %} では、Git プロトコルの代わりに SSH を使用することが推奨されています。 詳しくは、[{% data variables.product.prodname_blog %}](https://github.blog/2022-06-28-improving-git-protocol-security-on-github-enterprise-server)を参照してください。
+{% ifversion ghes > 3.5 %}
+
+環境内で認証されていない Git プロトコルをサポートする場合は、この機能を手動で再度有効にする必要があります。 アップグレード後に次のコマンドを実行します。
+
+```ShellSession
+$ sudo ghe-config app.gitauth.git-protocol true
+$ sudo ghe-config-apply
+```
+
+{% endif %}
+
+匿名 Git 読み取りアクセスは {% data variables.product.prodname_ghe_server %} の今後のリリースで完全に削除される予定です。 {% data variables.product.company_short %} では、Git プロトコルの代わりに SSH を使用することが推奨されています。 この変更の詳細については、「[{% data variables.product.prodname_blog %}](https://github.blog/2022-06-28-improving-git-protocol-security-on-github-enterprise-server)」をご覧ください。
 
 {% endif %}
 

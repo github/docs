@@ -1,6 +1,6 @@
 ---
-title: Deploying PHP to Azure App Service
-intro: You can deploy your PHP project to Azure App Service as part of your continuous deployment (CD) workflows.
+title: 将 PHP 部署到 Azure App Service
+intro: 作为持续部署 (CD) 工作流程的一部分，您可以将 PHP 项目部署到 Azure App Service。
 versions:
   fpt: '*'
   ghes: '*'
@@ -10,34 +10,38 @@ type: tutorial
 topics:
   - CD
   - Azure App Service
+ms.openlocfilehash: 28314e1ccea9af232ff86712e86d7e6aec2d61a7
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147410161'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+## 简介
 
-## Introduction
+本指南说明如何使用 {% data variables.product.prodname_actions %} 构建 PHP 项目并将其部署到 [Azure 应用服务](https://azure.microsoft.com/services/app-service/)。
 
-This guide explains how to use {% data variables.product.prodname_actions %} to build and deploy a PHP project to [Azure App Service](https://azure.microsoft.com/services/app-service/).
-
-{% ifversion fpt or ghec or ghes > 3.4 %}
+{% ifversion fpt or ghec or ghae-issue-4856 or ghes > 3.4 %}
 
 {% note %}
 
-**Note**: {% data reusables.actions.about-oidc-short-overview %} and "[Configuring OpenID Connect in Azure](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure)."
+注意：{% data reusables.actions.about-oidc-short-overview %} 和“[在 Azure 中配置 OpenID Connect](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure)”。
 
 {% endnote %}
 
 {% endif %}
 
-## Prerequisites
+## 先决条件
 
-Before creating your {% data variables.product.prodname_actions %} workflow, you will first need to complete the following setup steps:
+在创建 {% data variables.product.prodname_actions %} 工作流程之前，首先需要完成以下设置步骤：
 
 {% data reusables.actions.create-azure-app-plan %}
 
-2. Create a web app.
+2. 创建 Web 应用。
 
-   For example, you can use the Azure CLI to create an Azure App Service web app with a PHP runtime:
+   例如，可以使用 Azure CLI 创建具有 PHP 运行时的 Azure App Service Web 应用：
 
    ```bash{:copy}
    az webapp create \
@@ -47,19 +51,19 @@ Before creating your {% data variables.product.prodname_actions %} workflow, you
        --runtime "php|7.4"
    ```
 
-   In the command above, replace the parameters with your own values, where `MY_WEBAPP_NAME` is a new name for the web app.
+   在上面的命令中，将参数替换为你自己的值，其中 `MY_WEBAPP_NAME` 是 Web 应用的新名称。
 
 {% data reusables.actions.create-azure-publish-profile %}
 
 5. Optionally, configure a deployment environment. {% data reusables.actions.about-environments %}
 
-## Creating the workflow
+## 创建工作流程
 
-Once you've completed the prerequisites, you can proceed with creating the workflow.
+完成先决条件后，可以继续创建工作流程。
 
-The following example workflow demonstrates how to build and deploy a PHP project to Azure App Service when there is a push to the `main` branch.
+以下示例工作流演示如何在推送到 `main` 分支时构建 PHP 项目并将其部署到 Azure 应用服务。
 
-Ensure that you set `AZURE_WEBAPP_NAME` in the workflow `env` key to the name of the web app you created. If the path to your project is not the repository root, change `AZURE_WEBAPP_PACKAGE_PATH` to the path to your project. If you use a version of PHP other than `8.x`, change`PHP_VERSION` to the version that you use.
+确保在工作流 `env` 中将 `AZURE_WEBAPP_NAME` 密钥设置为创建的 Web 应用的名称。 如果项目的路径不是存储库根路径，请将 `AZURE_WEBAPP_PACKAGE_PATH` 更改为你的项目路径。 如果使用的 PHP 版本不是 `8.x`，请将 `PHP_VERSION` 更改为你使用的版本。
 
 {% data reusables.actions.delete-env-key %}
 
@@ -102,11 +106,7 @@ jobs:
         id: composer-cache
         if: steps.check_files.outputs.files_exists == 'true'
         run: |
-{%- ifversion actions-save-state-set-output-envs %}
-          echo "dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
-{%- else %}
           echo "::set-output name=dir::$(composer config cache-files-dir)"
-{%- endif %}
 
       - name: Set up dependency caching for faster installs
         uses: {% data reusables.actions.action-cache %}
@@ -149,10 +149,10 @@ jobs:
           package: .
 ```
 
-## Additional resources
+## 其他资源
 
-The following resources may also be useful:
+以下资源也可能有用：
 
-* For the original starter workflow, see [`azure-webapps-php.yml`](https://github.com/actions/starter-workflows/blob/main/deployments/azure-webapps-php.yml) in the {% data variables.product.prodname_actions %} `starter-workflows` repository.
-* The action used to deploy the web app is the official Azure [`Azure/webapps-deploy`](https://github.com/Azure/webapps-deploy) action.
-* For more examples of GitHub Action workflows that deploy to Azure, see the [actions-workflow-samples](https://github.com/Azure/actions-workflow-samples) repository.
+* 对于原始初学者工作流，请参阅 {% data variables.product.prodname_actions %} `starter-workflows` 存储库中的 [`azure-webapps-php.yml`](https://github.com/actions/starter-workflows/blob/main/deployments/azure-webapps-php.yml)。
+* 用于部署 Web 应用的操作是官方 Azure [`Azure/webapps-deploy`](https://github.com/Azure/webapps-deploy) 操作。
+* 有关部署到 Azure 的 GitHub 操作工作流的更多示例，请参阅 [actions-workflow-samples](https://github.com/Azure/actions-workflow-samples) 存储库。

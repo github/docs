@@ -12,12 +12,12 @@ versions:
 topics:
   - API
 shortTitle: Discover resources for a user
-ms.openlocfilehash: 9650ff8dee220f0b32d74cacb0f86acd236df5b6
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 3b3fd627260ac03d0991db73fcb5492c1284b2c0
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145126771'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148193149'
 ---
 Ao fazer solicitações autenticadas na API de {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %}, os aplicativos frequentemente precisam buscar os repositórios e organizações do usuário atual. Neste guia, explicaremos como descobrir esses recursos de forma confiável.
 
@@ -33,7 +33,7 @@ Além de ter seus próprios repositórios pessoais, um usuário pode ser um cola
 
 Os [escopos do OAuth][scopes] e as [políticas de aplicativo da organização][oap] determinam quais desses repositórios seu aplicativo pode acessar para um usuário. Use o fluxo de trabalho abaixo para descobrir esses repositórios.
 
-Como sempre, primeiro, precisaremos da biblioteca [Octokit.rb do Ruby do GitHub][octokit.rb]. Em seguida, vamos configurar o Octokit.rb para tratar a [paginação][pagination] automaticamente.
+Como sempre, primeiro, precisaremos da biblioteca [Octokit.rb do Ruby do GitHub][octokit.rb]. Em seguida, vamos configurar o Octokit.rb para tratar a paginação automaticamente. Para obter mais informações sobre paginação, confira "[Como usar paginação na API REST](/rest/guides/using-pagination-in-the-rest-api)".
 
 ``` ruby
 require 'octokit'
@@ -70,7 +70,7 @@ end
 
 Os aplicativos podem executar todos os tipos de tarefas relacionadas à organização para um usuário. Para executar essas tarefas, o aplicativo precisa de uma [autorização OAuth][scopes] com permissão suficiente. Por exemplo, o escopo `read:org` permite que você [liste as equipes][list-teams], e o escopo `user` permite que você [torne pública a associação à organização do usuário][publicize-membership]. Assim que um usuário conceder um ou mais desses escopos para o seu aplicativo, você estará pronto para buscar as organizações do usuário.
 
-Assim como fizemos ao descobrirmos os repositórios acima, começaremos com [a biblioteca Octokit.rb do Ruby do GitHub][octokit.rb] e configurando-a para cuidar da [paginação][pagination] para nós:
+Assim como fizemos ao descobrir os repositórios acima, começaremos exigindo a biblioteca Ruby [Octokit.rb do GitHub][octokit.rb] e configurando-a para cuidar da paginação para nós. Para obter mais informações sobre paginação, confira "[Como usar paginação na API REST](/rest/guides/using-pagination-in-the-rest-api)".
 
 ``` ruby
 require 'octokit'
@@ -108,7 +108,6 @@ Como um aplicativo, normalmente você quer todas as organizações do usuário q
 [make-authenticated-request-for-user]: /rest/guides/basics-of-authentication#making-authenticated-requests
 [oap]: https://developer.github.com/changes/2015-01-19-an-integrators-guide-to-organization-application-policies/
 [octokit.rb]: https://github.com/octokit/octokit.rb
-[pagination]: /rest#pagination
 [platform samples]: https://github.com/github/platform-samples/tree/master/api/ruby/discovering-resources-for-a-user
 [publicize-membership]: /rest/reference/orgs#set-public-organization-membership-for-the-authenticated-user
 [register-oauth-app]: /rest/guides/basics-of-authentication#registering-your-app

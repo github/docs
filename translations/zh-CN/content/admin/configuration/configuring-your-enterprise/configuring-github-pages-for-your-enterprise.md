@@ -1,6 +1,6 @@
 ---
-title: Configuring GitHub Pages for your enterprise
-intro: 'You can enable or disable {% data variables.product.prodname_pages %} for your enterprise{% ifversion ghes %} and choose whether to make sites publicly accessible{% endif %}.'
+title: 为企业配置 GitHub Pages
+intro: '您可以为企业{% ifversion ghes %} 启用或禁用 {% data variables.product.prodname_pages %} ，并选择是否使网站{% endif %}可公开访问。'
 redirect_from:
   - /enterprise/admin/guides/installation/disabling-github-enterprise-pages
   - /enterprise/admin/guides/installation/configuring-github-enterprise-pages
@@ -17,76 +17,68 @@ topics:
   - Enterprise
   - Pages
 shortTitle: Configure GitHub Pages
+ms.openlocfilehash: 1cb2bd78f006bfd86a3f0a2e42db4fcf2cea3b73
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145098112'
 ---
-
 {% ifversion ghes %}
 
-## Enabling public sites for {% data variables.product.prodname_pages %}
+## 为 {% data variables.product.prodname_pages %} 启用公共站点
 
-If private mode is enabled on your enterprise, the public cannot access {% data variables.product.prodname_pages %} sites hosted by your enterprise unless you enable public sites.
+如果在企业上启用了专用模式，则除非启用公用网站，否则公众无法访问企业托管的 {% data variables.product.prodname_pages %} 网站。
 
 {% warning %}
 
-**Warning:** If you enable public sites for {% data variables.product.prodname_pages %}, every site in every repository on your enterprise will be accessible to the public.
+**警告：** 如果为 {% data variables.product.prodname_pages %} 启用公共站点，则企业上每个存储库中的每个站点均可由公众访问。
 
 {% endwarning %}
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.management-console %}
-{% data reusables.enterprise_management_console.pages-tab %}
-4. Select **Public Pages**.
-  ![Checkbox to enable Public Pages](/assets/images/enterprise/management-console/public-pages-checkbox.png)
-{% data reusables.enterprise_management_console.save-settings %}
+{% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.enterprise_site_admin_settings.management-console %} {% data reusables.enterprise_management_console.pages-tab %}
+4. 选择“公共页面”。
+  ![启用“公共页面”的复选框](/assets/images/enterprise/management-console/public-pages-checkbox.png) {% data reusables.enterprise_management_console.save-settings %}
 
-## Disabling {% data variables.product.prodname_pages %} for your enterprise
+## 为企业禁用 {% data variables.product.prodname_pages %}
 
-If subdomain isolation is disabled for your enterprise, you should also disable {% data variables.product.prodname_pages %} to protect yourself from potential security vulnerabilities. For more information, see "[Enabling subdomain isolation](/admin/configuration/enabling-subdomain-isolation)."
+如果为企业禁用了子域隔离，则还应禁用 {% data variables.product.prodname_pages %}，以免遭受潜在安全漏洞的攻击。 有关详细信息，请参阅“[启用子域隔离](/admin/configuration/enabling-subdomain-isolation)”。
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.management-console %}
-{% data reusables.enterprise_management_console.pages-tab %}
-1. Unselect **Enable Pages**.
-  ![Checkbox to disable {% data variables.product.prodname_pages %}](/assets/images/enterprise/management-console/pages-select-button.png)
-{% data reusables.enterprise_management_console.save-settings %}
+{% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.enterprise_site_admin_settings.management-console %} {% data reusables.enterprise_management_console.pages-tab %}
+1. 取消选择“启用页面”。
+  ![禁用 {% data variables.product.prodname_pages %} 的复选框](/assets/images/enterprise/management-console/pages-select-button.png) {% data reusables.enterprise_management_console.save-settings %}
 
 {% endif %}
 
 {% ifversion ghae %}
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.policies-tab %}
-{% data reusables.enterprise-accounts.pages-tab %}
-1. Under "Pages policies", deselect **Enable {% data variables.product.prodname_pages %}**.
-  ![Checkbox to disable {% data variables.product.prodname_pages %}](/assets/images/enterprise/business-accounts/enable-github-pages-checkbox.png)
-{% data reusables.enterprise-accounts.pages-policies-save %}
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.policies-tab %} {% data reusables.enterprise-accounts.pages-tab %}
+1. 在“页面策略”下，取消选择“启用 {% data variables.product.prodname_pages %}”。
+  ![禁用 {% data variables.product.prodname_pages %} 的复选框](/assets/images/enterprise/business-accounts/enable-github-pages-checkbox.png) {% data reusables.enterprise-accounts.pages-policies-save %}
 
 {% endif %}
 
 {% ifversion ghes > 3.4 %}
 
-## Configuring {% data variables.product.prodname_pages %} response headers for your enterprise
+## 为企业配置 {% data variables.product.prodname_pages %} 响应头
 
-You can add or override response headers for {% data variables.product.prodname_pages %} sites hosted by {% data variables.location.product_location %}.
+你可以为 {% data variables.product.product_location %} 托管的 {% data variables.product.prodname_pages %} 站点添加或覆盖响应头。
 
 {% warning %}
 
-**Warning:** Ensure that your response headers are properly configured before saving. Improper configurations may negatively impact the security of {% data variables.location.product_location %}.
+**警告：** 确保在保存前正确配置响应头。 配置错误可能会对 {% data variables.product.product_location %} 的安全性产生负面影响。
 
 {% endwarning %}
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.management-console %}
-{% data reusables.enterprise_management_console.pages-tab %}
-1. Type the headers settings, then click **Add headers**.
-   - In the **Http Header Name** field, type the header name. The length of header name should less than 128 characters.
-   - In the **Http Header Value** field, type the header value. The length of header value should less than 300 characters.
-![The {% data variables.product.prodname_pages %} response header name and value fields in the {% data variables.enterprise.management_console %}](/assets/images/enterprise/management-console/pages-override-header-section.png)
-{% data reusables.enterprise_management_console.save-settings %}
+{% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.enterprise_site_admin_settings.management-console %} {% data reusables.enterprise_management_console.pages-tab %}
+1. 键入标头设置，然后单击“添加标头”。
+   - 在“Http 标头名称”字段中，输入标头名称。 标头名称的长度应小于 128 个字符。
+   - 在“Http 标头值”字段中，键入标头值。 标头值的长度应小于 300 个字符。
+![{% data variables.enterprise.management_console %} 中的 {% data variables.product.prodname_pages %} 响应头名称和值字段](/assets/images/enterprise/management-console/pages-override-header-section.png) {% data reusables.enterprise_management_console.save-settings %}
 
 {% endif %}
 
 {% ifversion ghes %}
-## Further reading
+## 延伸阅读
 
-- "[Enabling private mode](/admin/configuration/enabling-private-mode)"
-{% endif %}
+- “[启用专用模式](/admin/configuration/enabling-private-mode)”{% endif %}

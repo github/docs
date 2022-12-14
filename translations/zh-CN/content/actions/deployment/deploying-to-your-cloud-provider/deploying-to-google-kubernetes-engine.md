@@ -1,6 +1,6 @@
 ---
-title: Deploying to Google Kubernetes Engine
-intro: You can deploy to Google Kubernetes Engine as part of your continuous deployment (CD) workflows.
+title: 部署到 Google Kubernetes Engine
+intro: 您可以部署到 Google Kubernetes Engine 引擎，作为持续部署 (CD) 工作流程的一部分。
 redirect_from:
   - /actions/guides/deploying-to-google-kubernetes-engine
   - /actions/deployment/deploying-to-google-kubernetes-engine
@@ -15,122 +15,121 @@ topics:
   - Containers
   - Google Kubernetes Engine
 shortTitle: Deploy to Google Kubernetes Engine
+ms.openlocfilehash: 0572a326d52654b256e0e1ad7fe9c9c4e9d547ac
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147409545'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+## 简介
 
-## Introduction
+本指南介绍如何使用 {% data variables.product.prodname_actions %} 构建容器化应用程序，将其推送到 Google 容器注册表 (GCR)，以及要推送到 `main` 分支时将其部署到 Google Kubernetes Engine (GKE)。
 
-This guide explains how to use {% data variables.product.prodname_actions %} to build a containerized application, push it to Google Container Registry (GCR), and deploy it to Google Kubernetes Engine (GKE) when there is a push to the `main` branch.
+GKE 是 Google Cloud 的托管 Kubernetes 群集服务，可以在云中或您自己的数据中心中托管您的容器化工作负载。 有关详细信息，请参阅 [Google Kubernetes Engine](https://cloud.google.com/kubernetes-engine)。
 
-GKE is a managed Kubernetes cluster service from Google Cloud that can host your containerized workloads in the cloud or in your own datacenter. For more information, see [Google Kubernetes Engine](https://cloud.google.com/kubernetes-engine).
-
-{% ifversion fpt or ghec or ghes > 3.4 %}
+{% ifversion fpt or ghec or ghae-issue-4856 or ghes > 3.4 %}
 
 {% note %}
 
-**Note**: {% data reusables.actions.about-oidc-short-overview %}
+注意：{% data reusables.actions.about-oidc-short-overview %}
 
 {% endnote %}
 
 {% endif %}
 
-## Prerequisites
+## 先决条件
 
-Before you proceed with creating the workflow, you will need to complete the following steps for your Kubernetes project. This guide assumes the root of your project already has a `Dockerfile` and a Kubernetes Deployment configuration file. For an example, see [google-github-actions](https://github.com/google-github-actions/setup-gcloud/tree/master/example-workflows/gke).
+在继续创建工作流程之前，您需要完成 Kubernetes 项目的以下步骤。 本指南假定项目的根目录已有 `Dockerfile` 和 Kubernetes 部署配置文件。 有关示例，请参阅 [google-github-actions](https://github.com/google-github-actions/setup-gcloud/tree/master/example-workflows/gke)。
 
-### Creating a GKE cluster
+### 创建 GKE 群集
 
-To create the GKE cluster, you will first need to authenticate using the `gcloud` CLI. For more information on this step, see the following articles:
+要创建 GKE 群集，首先需要使用 `gcloud` CLI 进行身份验证。 有关此步骤的更多信息，请参阅以下文章：
 - [`gcloud auth login`](https://cloud.google.com/sdk/gcloud/reference/auth/login)
 - [`gcloud` CLI](https://cloud.google.com/sdk/gcloud/reference)
-- [`gcloud` CLI and Cloud SDK](https://cloud.google.com/sdk/gcloud#the_gcloud_cli_and_cloud_sdk)
+- [`gcloud` CLI 和 Cloud SDK](https://cloud.google.com/sdk/gcloud#the_gcloud_cli_and_cloud_sdk)
 
-For example:
+例如：
 
 {% raw %}
 ```bash{:copy}
 $ gcloud container clusters create $GKE_CLUSTER \
-	--project=$GKE_PROJECT \
-	--zone=$GKE_ZONE
+    --project=$GKE_PROJECT \
+    --zone=$GKE_ZONE
 ```
 {% endraw %}
 
-### Enabling the APIs
+### 启用 API
 
-Enable the Kubernetes Engine and Container Registry APIs. For example:
+启用 Kubernetes Engine 和 Container Registry API。 例如：
 
 {% raw %}
 ```bash{:copy}
 $ gcloud services enable \
-	containerregistry.googleapis.com \
-	container.googleapis.com
+    containerregistry.googleapis.com \
+    container.googleapis.com
 ```
 {% endraw %}
 
-### Configuring a service account and storing its credentials
+### 配置服务帐户并存储其凭据
 
-This procedure demonstrates how to create the service account for your GKE integration. It explains how to create the account, add roles to it, retrieve its keys, and store them as a base64-encoded encrypted repository secret named `GKE_SA_KEY`.
+此程序显示如何为您的 GKE 集成创建服务帐户。 它说明了如何创建帐户、向其添加角色、检索其密钥，以及将它们存储为名为 `GKE_SA_KEY` 以 base64 编码的加密存储库机密。
 
-1. Create a new service account:
-  {% raw %}
+1. 创建新服务帐户：{% raw %}
   ```
   $ gcloud iam service-accounts create $SA_NAME
   ```
   {% endraw %}
-1. Retrieve the email address of the service account you just created:
-  {% raw %}
+1. 检索你刚刚创建的服务帐户的电子邮件地址：{% raw %}
   ```
   $ gcloud iam service-accounts list
   ```
   {% endraw %}
-1. Add roles to the service account. Note: Apply more restrictive roles to suit your requirements.
+1. 向服务帐户添加角色。 注意：应用限制更严格的角色以满足您的要求。
   {% raw %}
   ```
   $ gcloud projects add-iam-policy-binding $GKE_PROJECT \
-  	--member=serviceAccount:$SA_EMAIL \
-  	--role=roles/container.admin
+    --member=serviceAccount:$SA_EMAIL \
+    --role=roles/container.admin
   $ gcloud projects add-iam-policy-binding $GKE_PROJECT \
-  	--member=serviceAccount:$SA_EMAIL \
-  	--role=roles/storage.admin
+    --member=serviceAccount:$SA_EMAIL \
+    --role=roles/storage.admin
   $ gcloud projects add-iam-policy-binding $GKE_PROJECT \
-  	--member=serviceAccount:$SA_EMAIL \
-  	--role=roles/container.clusterViewer
+    --member=serviceAccount:$SA_EMAIL \
+    --role=roles/container.clusterViewer
   ```
   {% endraw %}
-1. Download the JSON keyfile for the service account:
-  {% raw %}
+1. 下载服务帐户的 JSON 密钥文件：{% raw %}
   ```
   $ gcloud iam service-accounts keys create key.json --iam-account=$SA_EMAIL
   ```
   {% endraw %}
-1. Store the service account key as a secret named `GKE_SA_KEY`:
-  {% raw %}
+1. 将服务帐户密钥存储为名为 `GKE_SA_KEY` 的机密：{% raw %}
   ```
   $ export GKE_SA_KEY=$(cat key.json | base64)
   ```
-  {% endraw %}
-  For more information about how to store a secret, see "[Encrypted secrets](/actions/security-guides/encrypted-secrets)."
+  {% endraw %} 有关如何存储机密的详细信息，请参阅“[加密机密](/actions/security-guides/encrypted-secrets)”。
 
-### Storing your project name
+### 存储项目名称
 
-Store the name of your project as a secret named `GKE_PROJECT`. For more information about how to store a secret, see "[Encrypted secrets](/actions/security-guides/encrypted-secrets)."
+将项目的名称存储为名为 `GKE_PROJECT` 的机密。 有关如何存储机密的详细信息，请参阅“[加密机密](/actions/security-guides/encrypted-secrets)”。
 
-### (Optional) Configuring kustomize
-Kustomize is an optional tool used for managing YAML specs. After creating a `kustomization` file, the workflow below can be used to dynamically set fields of the image and pipe in the result to `kubectl`. For more information, see [kustomize usage](https://github.com/kubernetes-sigs/kustomize#usage).
+### （可选）配置 kustomize
+Kustomize 是用于管理 YAML 规范的可选工具。 在创建 `kustomization` 文件之后， 下面的工作流可用于将结果中的图像和管道字段动态设置为 `kubectl`。 有关详细信息，请参阅 [Kustomize 用法](https://github.com/kubernetes-sigs/kustomize#usage)。
 
-### (Optional) Configure a deployment environment
+### （可选）配置部署环境
 
 {% data reusables.actions.about-environments %}
 
-## Creating the workflow
+## 创建工作流程
 
-Once you've completed the prerequisites, you can proceed with creating the workflow.
+完成先决条件后，可以继续创建工作流程。
 
-The following example workflow demonstrates how to build a container image and push it to GCR. It then uses the Kubernetes tools (such as `kubectl` and `kustomize`) to pull the image into the cluster deployment.
+下面的示例工作流程演示如何生成容器映像并推送到 GCR。 然后，它使用 Kubernetes 工具（如 `kubectl` 和 `kustomize`）将映像拉取入群集部署。
 
-Under the `env` key, change the value of `GKE_CLUSTER` to the name of your cluster, `GKE_ZONE` to your cluster zone, `DEPLOYMENT_NAME` to the name of your deployment, and `IMAGE` to the name of your image.
+在 `env` 密钥下，将值 `GKE_CLUSTER` 更改为群集的名称，将 `GKE_ZONE` 更改为群集区域，将 `DEPLOYMENT_NAME` 更改为部署的名称以及将 `IMAGE` 更改为映像的名称。
 
 {% data reusables.actions.delete-env-key %}
 
@@ -210,11 +209,11 @@ jobs:
         kubectl get services -o wide
 ```
 
-## Additional resources
+## 其他资源
 
-For more information on the tools used in these examples, see the following documentation:
+有关这些示例中使用的工具的详细信息，请参阅以下文档：
 
-* For the full starter workflow, see the ["Build and Deploy to GKE" workflow](https://github.com/actions/starter-workflows/blob/main/deployments/google.yml).
-* For more starter workflows and accompanying code, see Google's [{% data variables.product.prodname_actions %} example workflows](https://github.com/google-github-actions/setup-gcloud/tree/master/example-workflows/).
-* The Kubernetes YAML customization engine: [Kustomize](https://kustomize.io/).
-* "[Deploying a containerized web application](https://cloud.google.com/kubernetes-engine/docs/tutorials/hello-app)" in the Google Kubernetes Engine documentation.
+* 有关完整的初学者工作流，请参阅[“生成并部署到 GKE”工作流](https://github.com/actions/starter-workflows/blob/main/deployments/google.yml)。
+* 有关更多初学者工作流和随附的代码，请参阅 Google 的 [{% data variables.product.prodname_actions %} 示例工作流](https://github.com/google-github-actions/setup-gcloud/tree/master/example-workflows/)。
+* Kubernetes YAML 自定义引擎：[Kustomize](https://kustomize.io/)。
+* Google Kubernetes Engine 文档中的“[部署容器化 Web 应用程序](https://cloud.google.com/kubernetes-engine/docs/tutorials/hello-app)”。

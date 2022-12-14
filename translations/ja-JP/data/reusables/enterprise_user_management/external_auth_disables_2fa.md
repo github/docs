@@ -1,9 +1,9 @@
 ---
-ms.openlocfilehash: 8892790c359353b634712895ee217b84965db88c
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 8a1a48f6f0394be842a772c0c05735a33bf75919
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "146332049"
+ms.lasthandoff: 12/09/2022
+ms.locfileid: "148193460"
 ---
-SAMLあるいはCASを利用する場合、{% data variables.product.prodname_ghe_server %}上では2要素認証はサポートあるいは管理されませんが、外部の認証プロバイダではサポートされることがあります。 Organizationでの2要素認証の強制はできません。 組織で 2 要素認証を適用する方法については、「[組織で 2 要素認証を要求する](/enterprise/user/articles/requiring-two-factor-authentication-in-your-organization/)」を参照してください。
+SAML あるいは CAS を使う場合、{% data variables.product.prodname_ghe_server %} インスタンスで 2 要素認証はサポートあるいは管理されませんが、外部の認証プロバイダがサポートしている可能性があります。 Organizationでの2要素認証の強制はできません。 組織で 2 要素認証を適用する方法については、「[組織で 2 要素認証を要求する](/enterprise/user/articles/requiring-two-factor-authentication-in-your-organization/)」を参照してください。

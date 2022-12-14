@@ -1,6 +1,6 @@
 ---
-title: Configuring built-in firewall rules
-intro: 'You can view default firewall rules and customize rules for {% data variables.location.product_location %}.'
+title: 配置内置防火墙规则
+intro: '可以查看默认防火墙规则并自定义 {% data variables.product.product_location %} 的规则。'
 redirect_from:
   - /enterprise/admin/guides/installation/configuring-firewall-settings
   - /enterprise/admin/installation/configuring-built-in-firewall-rules
@@ -15,19 +15,25 @@ topics:
   - Infrastructure
   - Networking
 shortTitle: Configure firewall rules
+ms.openlocfilehash: 7492f69c6b334847229c76f7462beaabbc4154a2
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145100090'
 ---
-## About {% data variables.location.product_location %}'s firewall
+## 关于 {% data variables.product.product_location %} 的防火墙
 
-{% data variables.product.prodname_ghe_server %} uses Ubuntu's Uncomplicated Firewall (UFW) on the virtual appliance. For more information see "[UFW](https://help.ubuntu.com/community/UFW)" in the Ubuntu documentation. {% data variables.product.prodname_ghe_server %} automatically updates the firewall allowlist of allowed services with each release.
+{% data variables.product.prodname_ghe_server %} 在虚拟设备上使用 Ubuntu 的简单防火墙 (UFW)。 有关详细信息，请参阅 Ubuntu 文档中的 [UFW](https://help.ubuntu.com/community/UFW)。 {% data variables.product.prodname_ghe_server %} 在每次发布时都会自动更新允许服务的防火墙允许名单。
 
-After you install {% data variables.product.prodname_ghe_server %}, all required network ports are automatically opened to accept connections. Every non-required port is automatically configured as `deny`, and the default outgoing policy is configured as `allow`. Stateful tracking is enabled for any new connections; these are typically network packets with the `SYN` bit set. For more information, see "[Network ports](/enterprise/admin/guides/installation/network-ports)."
+安装 {% data variables.product.prodname_ghe_server %} 之后，所有必要的网络端口都会自动打开，以接受连接。 每个非必要的端口都会自动配置为 `deny`，默认传出策略会配置为 `allow`。 会为任何新连接启用状态跟踪；这些连接通常是设置了 `SYN` 位的网络数据包。 有关详细信息，请参阅“[网络端口](/enterprise/admin/guides/installation/network-ports)”。
 
-The UFW firewall also opens several other ports that are required for {% data variables.product.prodname_ghe_server %} to operate properly. For more information on the UFW rule set, see [the UFW README](https://bazaar.launchpad.net/~jdstrand/ufw/0.30-oneiric/view/head:/README#L213).
+UFW 防火墙还会打开 {% data variables.product.prodname_ghe_server %} 所需的其他多个端口才能正常运行。 有关 UFW 规则集的详细信息，请参阅 [UFW 自述文件](https://bazaar.launchpad.net/~jdstrand/ufw/0.30-oneiric/view/head:/README#L213)。
 
-## Viewing the default firewall rules
+## 查看默认防火墙规则
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
-2. To view the default firewall rules, use the `sudo ufw status` command. You should see output similar to this:
+2. 若要查看默认防火墙规则，请使用 `sudo ufw status` 命令。 此时会看到与下面类似的输出：
   ```shell
   $ sudo ufw status
   > Status: active
@@ -55,46 +61,46 @@ The UFW firewall also opens several other ports that are required for {% data va
   > ghe-9418 (v6)              ALLOW       Anywhere (v6)
   ```
 
-## Adding custom firewall rules
+## 添加自定义防火墙规则
 
 {% warning %}
 
-**Warning:** Before you add custom firewall rules, back up your current rules in case you need to reset to a known working state. If you're locked out of your server, contact {% data variables.contact.contact_ent_support %} to reconfigure the original firewall rules. Restoring the original firewall rules involves downtime for your server.
+警告：在添加自定义防火墙规则之前，请备份当前规则，以便在需要时可以重置为已知的工作状态。 如果您被锁定在服务器之外，请与 {% data variables.contact.contact_ent_support %} 联系，以重新配置原始防火墙规则。 恢复原始防火墙规则会导致服务器停机。
 
 {% endwarning %}
 
-1. Configure a custom firewall rule.
-2. Check the status of each new rule with the `status numbered` command.
+1. 配置自定义防火墙规则。
+2. 使用 `status numbered` 命令检查每条新规则的状态。
   ```shell
   $ sudo ufw status numbered
   ```
-3. To back up your custom firewall rules, use the `cp`command to move the rules to a new file.
+3. 要备份自定义防火墙规则，请使用 `cp` 命令将规则移动到新文件。
   ```shell
   $ sudo cp -r /etc/ufw ~/ufw.backup
   ```
 
-After you upgrade {% data variables.location.product_location %}, you must reapply your custom firewall rules. We recommend that you create a script to reapply your firewall custom rules.
+升级 {% data variables.product.product_location %} 后，必须重新应用自定义防火墙规则。 我们建议您创建脚本来重新应用防火墙自定义规则。
 
-## Restoring the default firewall rules
+## 恢复默认防火墙规则
 
-If something goes wrong after you change the firewall rules, you can reset the rules from your original backup.
+如果更改防火墙规则后出现问题，您可以通过原始备份重置规则。
 
 {% warning %}
 
-**Warning:** If you didn't back up the original rules before making changes to the firewall, contact {% data variables.contact.contact_ent_support %} for further assistance.
+警告：如果对防火墙进行更改之前未备份原始规则，请联系 {% data variables.contact.contact_ent_support %} 获取更多帮助。
 
 {% endwarning %}
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
-2. To restore the previous backup rules, copy them back to the firewall with the `cp` command.
+2. 要还原之前的备份规则，请使用 `cp` 命令将规则复制到防火墙。
   ```shell
   $ sudo cp -f ~/ufw.backup/*rules /etc/ufw
   ```
-3. Restart the firewall with the `systemctl` command.
+3. 使用 `systemctl` 命令重启防火墙。
   ```shell
   $ sudo systemctl restart ufw
   ```
-4. Confirm that the rules are back to their defaults with the `ufw status` command.
+4. 使用 `ufw status` 命令确认规则已恢复为默认状态。
   ```shell
   $ sudo ufw status
   > Status: active

@@ -1,7 +1,6 @@
 ---
-title: Publishing Docker images
-shortTitle: Publish Docker images
-intro: 'You can publish Docker images to a registry, such as Docker Hub or {% data variables.product.prodname_registry %}, as part of your continuous integration (CI) workflow.'
+title: 发布 Docker 映像
+intro: '您可以将 Docker 映像发布到注册表，例如 Docker Hub 或 {% data variables.product.prodname_registry %}，作为持续集成 (CI) 工作流程的一部分。'
 redirect_from:
   - /actions/language-and-framework-guides/publishing-docker-images
   - /actions/guides/publishing-docker-images
@@ -15,63 +14,61 @@ topics:
   - Packaging
   - Publishing
   - Docker
+ms.openlocfilehash: 01f20527dedeea3685855797993187e7af462de4
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147410289'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+## 简介
 
-## Introduction
-
-This guide shows you how to create a workflow that performs a Docker build, and then publishes Docker images to Docker Hub or {% data variables.product.prodname_registry %}. With a single workflow, you can publish images to a single registry or to multiple registries.
+本指南介绍如何创建执行 Docker 构建的工作流程，然后将 Docker 映像发布到 Docker Hub 或 {% data variables.product.prodname_registry %}。 通过单个工作流程，您可以将映像发布到单一注册表或多个注册表。
 
 {% note %}
 
-**Note:** If you want to push to another third-party Docker registry, the example in the "[Publishing images to {% data variables.product.prodname_registry %}](#publishing-images-to-github-packages)" section can serve as a good template.
+注意：如果你想推送到另一个第三方 Docker 注册表，“[将映像发布到 {% data variables.product.prodname_registry %}](#publishing-images-to-github-packages)”部分中的示例可以用作一个很好的模板。
 
 {% endnote %}
 
-## Prerequisites
+## 先决条件
 
-We recommend that you have a basic understanding of workflow configuration options and how to create a workflow file. For more information, see "[Learn {% data variables.product.prodname_actions %}](/actions/learn-github-actions)."
+建议基本了解工作流程配置选项和如何创建工作流程文件。 有关详细信息，请参阅“[了解 {% data variables.product.prodname_actions %}](/actions/learn-github-actions)。”
 
-You might also find it helpful to have a basic understanding of the following:
+您可能还发现基本了解以下内容是有帮助的：
 
-- "[Encrypted secrets](/actions/reference/encrypted-secrets)"
-- "[Authentication in a workflow](/actions/reference/authentication-in-a-workflow)"{% ifversion fpt or ghec %}
-- "[Working with the {% data variables.product.prodname_container_registry %}](/packages/working-with-a-github-packages-registry/working-with-the-container-registry)"{% else %}
-- "[Working with the Docker registry](/packages/working-with-a-github-packages-registry/working-with-the-docker-registry)"{% endif %}
+- [加密的机密](/actions/reference/encrypted-secrets)
+- [工作流中的身份验证](/actions/reference/authentication-in-a-workflow){% ifversion fpt or ghec %}
+- [使用 {% data variables.product.prodname_container_registry %}](/packages/working-with-a-github-packages-registry/working-with-the-container-registry){% else %}
+- [使用 Docker 注册表](/packages/working-with-a-github-packages-registry/working-with-the-docker-registry){% endif %}
 
-## About image configuration
+## 关于映像配置
 
-This guide assumes that you have a complete definition for a Docker image stored in a {% data variables.product.prodname_dotcom %} repository. For example, your repository must contain a _Dockerfile_, and any other files needed to perform a Docker build to create an image.
+本指南假定您对存储在 {% data variables.product.prodname_dotcom %} 仓库的 Docker 映像有完整的定义。 例如，存储库必须包含一个 Dockerfile，以及执行 Docker 构建以创建映像所需的任何其他文件。
 
-{% ifversion fpt or ghec or ghes > 3.4 %}
-
-{% data reusables.package_registry.about-docker-labels %} For more information, see "[Working with the {% data variables.product.prodname_container_registry %}](/packages/working-with-a-github-packages-registry/working-with-the-container-registry#labelling-container-images)."
-
-{% endif %}
-
-In this guide, we will use the Docker `build-push-action` action to build the Docker image and push it to one or more Docker registries. For more information, see [`build-push-action`](https://github.com/marketplace/actions/build-and-push-docker-images).
+在本指南中，我们将使用 Docker `build-push-action` 操作来构建 Docker 映像并将其推送到一个或多个 Docker 注册表。 有关详细信息，请参阅 [`build-push-action`](https://github.com/marketplace/actions/build-and-push-docker-images)。
 
 {% data reusables.actions.enterprise-marketplace-actions %}
 
-## Publishing images to Docker Hub
+## 将映像发布到 Docker Hub
 
 {% data reusables.actions.release-trigger-workflow %}
 
-In the example workflow below, we use the Docker `login-action` and `build-push-action` actions to build the Docker image and, if the build succeeds, push the built image to Docker Hub.
+在下面的示例工作流中，我们使用 Docker `login-action` 和 `build-push-action` 操作来构建 Docker 映像，如果构建成功，则将构建的映像推送到 Docker Hub。
 
-To push to Docker Hub, you will need to have a Docker Hub account, and have a Docker Hub repository created. For more information, see "[Pushing a Docker container image to Docker Hub](https://docs.docker.com/docker-hub/repos/#pushing-a-docker-container-image-to-docker-hub)" in the Docker documentation.
+要推送到 Docker Hub，您需要有一个 Docker Hub 帐户，并创建一个 Docker Hub 仓库。 有关详细信息，请参阅 Docker 文档中的“[将 Docker 容器映像推送到 Docker Hub](https://docs.docker.com/docker-hub/repos/#pushing-a-docker-container-image-to-docker-hub)”。
 
-The `login-action` options required for Docker Hub are:
-* `username` and `password`: This is your Docker Hub username and password. We recommend storing your Docker Hub username and password as secrets so they aren't exposed in your workflow file. For more information, see "[Creating and using encrypted secrets](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)."
+Docker Hub 所需的 `login-action` 选项是：
+* `username` 和 `password`：这是 Docker Hub 用户名和密码。 我们建议将 Docker Hub 用户名和密码存储为机密，使它们不会公开在工作流程文件中。 有关详细信息，请参阅“[创建和使用已加密的机密](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)。”
 
-The `metadata-action` option required for Docker Hub is:
-* `images`: The namespace and name for the Docker image you are building/pushing to Docker Hub.
+Docker Hub 所需的 `metadata-action` 选项是：
+* `images`：你正在构建/推送到 Docker Hub 的 Docker 映像的命名空间和名称。
 
-The `build-push-action` options required for Docker Hub are:
-* `tags`: The tag of your new image in the format `DOCKER-HUB-NAMESPACE/DOCKER-HUB-REPOSITORY:VERSION`. You can set a single tag as shown below, or specify multiple tags in a list.
-* `push`: If set to `true`, the image will be pushed to the registry if it is built successfully.
+Docker Hub 所需的 `build-push-action` 选项是：
+* `tags`：你的新映像的标签，格式为 `DOCKER-HUB-NAMESPACE/DOCKER-HUB-REPOSITORY:VERSION`。 您可以如下所示设置单个标记，或在列表中指定多个标记。
+* `push`：如果设置为 `true`，则映像将推送到注册表（如果成功构建）。
 
 ```yaml{:copy}
 {% data reusables.actions.actions-not-certified-by-github-comment %}
@@ -113,42 +110,38 @@ jobs:
           labels: {% raw %}${{ steps.meta.outputs.labels }}{% endraw %}
 ```
 
-The above workflow checks out the {% data variables.product.prodname_dotcom %} repository, uses the `login-action` to log in to the registry, and then uses the `build-push-action` action to: build a Docker image based on your repository's `Dockerfile`; push the image to Docker Hub, and apply a tag to the image.
+上述工作流签出 {% data variables.product.prodname_dotcom %} 存储库，使用 `login-action` 登录注册表，然后使用 `build-push-action` 操作：基于存储库的 `Dockerfile` 构建 Docker 映像；将映像推送到 Docker Hub，并向映像应用标签。
 
-## Publishing images to {% data variables.product.prodname_registry %}
+## 发布映像到 {% data variables.product.prodname_registry %}
 
-{% ifversion ghes > 3.4 %}
-{% data reusables.package_registry.container-registry-ghes-beta %}
-{% endif %}
+{% ifversion ghes > 3.4 %} {% data reusables.package_registry.container-registry-ghes-beta %} {% endif %}
 
 {% data reusables.actions.release-trigger-workflow %}
 
-In the example workflow below, we use the Docker `login-action`{% ifversion fpt or ghec %}, `metadata-action`,{% endif %} and `build-push-action` actions to build the Docker image, and if the build succeeds, push the built image to {% data variables.product.prodname_registry %}.
+在下面的示例工作流中，我们使用 Docker `login-action`{% ifversion fpt or ghec %}、`metadata-action`、{% endif %}和 `build-push-action` 操作来构建 Docker 映像，如果构建成功，则将构建的映像推送到 {% data variables.product.prodname_registry %}。
 
-The `login-action` options required for {% data variables.product.prodname_registry %} are:
-* `registry`: Must be set to {% ifversion fpt or ghec %}`ghcr.io`{% elsif ghes > 3.4 %}`{% data reusables.package_registry.container-registry-hostname %}`{% else %}`docker.pkg.github.com`{% endif %}.
-* `username`: You can use the {% raw %}`${{ github.actor }}`{% endraw %} context to automatically use the username of the user that triggered the workflow run. For more information, see "[Contexts](/actions/learn-github-actions/contexts#github-context)."
-* `password`: You can use the automatically-generated `GITHUB_TOKEN` secret for the password. For more information, see "[Authenticating with the GITHUB_TOKEN](/actions/automating-your-workflow-with-github-actions/authenticating-with-the-github_token)."
+{% data variables.product.prodname_registry %} 所需的 `login-action` 选项是：
+* `registry`：必须设置为 {% ifversion fpt or ghec %}`ghcr.io`{% elsif ghes > 3.4 %}`{% data reusables.package_registry.container-registry-hostname %}`{% else %}`docker.pkg.github.com`{% endif %}。
+* `username`：你可以使用 {% raw %}`${{ github.actor }}` {% endraw %} 上下文自动使用触发工作流运行的用户的用户名。 有关详细信息，请参阅“[上下文](/actions/learn-github-actions/contexts#github-context)。”
+* `password`：可以使用自动生成 `GITHUB_TOKEN` 的密码机密。 有关详细信息，请参阅“[使用 GITHUB_TOKEN 进行身份验证](/actions/automating-your-workflow-with-github-actions/authenticating-with-the-github_token)。”
 
-{% ifversion fpt or ghec %}
-The `metadata-action` option required for {% data variables.product.prodname_registry %} is:
-* `images`: The namespace and name for the Docker image you are building.
+{% ifversion fpt or ghec %} {% data variables.product.prodname_registry %} 所需的 `metadata-action` 选项是：
+* `images`：正在构建的 Docker 映像的命名空间和名称。
 {% endif %}
 
-The `build-push-action` options required for {% data variables.product.prodname_registry %} are:{% ifversion fpt or ghec %}
-* `context`: Defines the build's context as the set of files located in the specified path.{% endif %}
-* `push`: If set to `true`, the image will be pushed to the registry if it is built successfully.{% ifversion fpt or ghec %}
-* `tags` and `labels`: These are populated by output from `metadata-action`.{% else %}
-* `tags`: Must be set in the format {% ifversion ghes > 3.4 %}`{% data reusables.package_registry.container-registry-hostname %}/OWNER/REPOSITORY/IMAGE_NAME:VERSION`. 
+{% data variables.product.prodname_registry %} 所需的 `build-push-action` 选项是：{% ifversion fpt or ghec %}
+* `context`：将构建的上下文定义为位于指定路径中的文件集。{% endif %}
+* `push`：如果设置为 `true`，则映像将推送到注册表（如果成功构建）。{% ifversion fpt or ghec %}
+* `tags` 和 `labels`：它们由 `metadata-action` 的输出填充。{% else %}
+* `tags`：必须采用格式 {% ifversion ghes > 3.4 %}`{% data reusables.package_registry.container-registry-hostname %}/OWNER/REPOSITORY/IMAGE_NAME:VERSION` 设置。 
   
-   For example, for an image named `octo-image` stored on {% data variables.product.prodname_ghe_server %} at `https://HOSTNAME/octo-org/octo-repo`, the `tags` option should be set to `{% data reusables.package_registry.container-registry-hostname %}/octo-org/octo-repo/octo-image:latest`{% else %}`docker.pkg.github.com/OWNER/REPOSITORY/IMAGE_NAME:VERSION`.
+   例如，对于存储在 `https://HOSTNAME/octo-org/octo-repo` 的 {% data variables.product.prodname_ghe_server %} 上的名为 `octo-image` 的映像，`tags` 选项应设置为 `{% data reusables.package_registry.container-registry-hostname %}/octo-org/octo-repo/octo-image:latest`{% else %}`docker.pkg.github.com/OWNER/REPOSITORY/IMAGE_NAME:VERSION`。
   
-   For example, for an image named `octo-image` stored on {% data variables.product.prodname_dotcom %} at `http://github.com/octo-org/octo-repo`, the `tags` option should be set to `docker.pkg.github.com/octo-org/octo-repo/octo-image:latest`{% endif %}. You can set a single tag as shown below, or specify multiple tags in a list.{% endif %}
+   例如，对于存储在 `http://github.com/octo-org/octo-repo` 的 {% data variables.product.prodname_dotcom %} 上的名为 `octo-image` 的映像，`tags` 选项应设置为 `docker.pkg.github.com/octo-org/octo-repo/octo-image:latest`{% endif %}。 您可以如下所示设置单个标记，或在列表中指定多个标记。{% endif %}
 
-{% ifversion fpt or ghec or ghes > 3.4 %}
-{% data reusables.package_registry.publish-docker-image %}
+{% ifversion fpt or ghec or ghes > 3.4 %} {% data reusables.package_registry.publish-docker-image %}
 
-The above workflow is triggered by a push to the "release" branch. It checks out the GitHub repository, and uses the `login-action` to log in to the {% data variables.product.prodname_container_registry %}. It then extracts labels and tags for the Docker image. Finally, it uses the `build-push-action` action to build the image and publish it on the {% data variables.product.prodname_container_registry %}.
+上述工作流程通过推送到“发行版”分支触发。 它签出 GitHub 存储库，并使用 `login-action` 登录到 {% data variables.product.prodname_container_registry %}。 然后，它将提取 Docker 映像的标签和标记。 最后，它使用 `build-push-action` 操作构建映像并将其发布到 {% data variables.product.prodname_container_registry %}。
 
 {% else %}
 
@@ -190,18 +183,16 @@ jobs:
             {% ifversion ghae %}docker.YOUR-HOSTNAME.com{% else %}docker.pkg.github.com{% endif %}{% raw %}/${{ github.repository }}/octo-image:${{ github.event.release.tag_name }}{% endraw %}
 ```
 
-The above workflow checks out the {% data variables.product.product_name %} repository, uses the `login-action` to log in to the registry, and then uses the `build-push-action` action to: build a Docker image based on your repository's `Dockerfile`; push the image to the Docker registry, and apply the commit SHA and release version as image tags.
+上述工作流签出 {% data variables.product.product_name %} 存储库，使用 `login-action` 登录注册表，然后使用 `build-push-action` 操作：基于存储库的 `Dockerfile` 构建 Docker 映像；将映像推送到 Docker 注册表，并将提交 SHA 和发布版本应用为映像标签。
 {% endif %}
 
-## Publishing images to Docker Hub and {% data variables.product.prodname_registry %}
+## 发布映像到 Docker Hub 和 {% data variables.product.prodname_registry %}
 
-{% ifversion ghes > 3.4 %}
-{% data reusables.package_registry.container-registry-ghes-beta %}
-{% endif %}
+{% ifversion ghes > 3.4 %} {% data reusables.package_registry.container-registry-ghes-beta %} {% endif %}
 
-In a single workflow, you can publish your Docker image to multiple registries by using the `login-action` and `build-push-action` actions for each registry.
+在单个工作流中，你可以通过对每个注册表使用 `login-action` 和 `build-push-action` 操作将 Docker 映像发布到多个注册表。
 
-The following example workflow uses the steps from the previous sections ("[Publishing images to Docker Hub](#publishing-images-to-docker-hub)" and "[Publishing images to {% data variables.product.prodname_registry %}](#publishing-images-to-github-packages)") to create a single workflow that pushes to both registries.
+以下示例工作流使用上述部分（“[将映像发布到 Docker Hub](#publishing-images-to-docker-hub)”和“[将映像发布到 {% data variables.product.prodname_registry %}](#publishing-images-to-github-packages)”）中的步骤创建推送到两个注册表的单个工作流。
 
 ```yaml{:copy}
 {% data reusables.actions.actions-not-certified-by-github-comment %}
@@ -255,5 +246,5 @@ jobs:
           labels: {% raw %}${{ steps.meta.outputs.labels }}{% endraw %}
 ```
 
-The above workflow checks out the {% data variables.product.product_name %} repository, uses the `login-action` twice to log in to both registries and generates tags and labels with the `metadata-action` action.
-Then the `build-push-action` action builds and pushes the Docker image to Docker Hub and the {% ifversion fpt or ghec or ghes > 3.4 %}{% data variables.product.prodname_container_registry %}{% else %}Docker registry{% endif %}.
+上述工作流签出 {% data variables.product.product_name %} 存储库，使用 `login-action` 两次以登录到两个注册表，并使用 `metadata-action` 操作生成标记和标签。
+然后 `build-push-action` 操作构建 Docker 映像并将其推送到 Docker Hub 和 {% ifversion fpt or ghec or ghes > 3.4 %}{% data variables.product.prodname_container_registry %}{% else %}Docker 注册表{% endif %}。

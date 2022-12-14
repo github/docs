@@ -10,12 +10,12 @@ redirect_from:
 versions:
   fpt: '*'
 shortTitle: For students
-ms.openlocfilehash: 198f0354e63721a4763e8fa32f832a19b2dac9d9
-ms.sourcegitcommit: 3abdbdbb47a9319f20e11845e9c2d8a7fce63422
+ms.openlocfilehash: b5d1d75e8c93bc147bc5185106ecef8c00a67c05
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/15/2022
-ms.locfileid: '148165098'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148193138'
 ---
 学校のプロジェクトで{% data variables.product.prodname_dotcom %}を利用することは、他者とコラボレーションして実世界の体験を見てもらうためのポートフォリオを構築するための実際的な方法です。
 
@@ -40,7 +40,7 @@ Global Campus に申請する前に、ご自分の学習コミュニティが既
 - GitHub Community Exchange から学生が作成したリポジトリを見つける。 詳しくは、「[GitHub Community Exchange について](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/about-github-community-exchange)」を参照してください。
 
 {% data variables.product.prodname_global_campus %} の学生は、次の {% data variables.product.prodname_dotcom %} 特典も受け取ります。
-- **{% data variables.product.prodname_copilot %}** : 検証済みの学生は、{% data variables.product.prodname_copilot %} の無料サブスクリプションを受け取ります。 アカウント設定で {% data variables.product.prodname_copilot %} サブスクリプション ページにアクセスすると、無料サブスクリプションに関して自動的に通知されます。 {% data variables.product.prodname_copilot %} のサブスクライブと使用について詳しくは、「[{% data variables.product.prodname_copilot %} サブスクリプションの管理](/billing/managing-billing-for-github-copilot/managing-your-github-copilot-subscription#setting-up-a-trial-of-github-copilot)」と「[{% data variables.product.prodname_copilot %} について](/copilot/overview-of-github-copilot/about-github-copilot)」を参照してください。
+- **{% data variables.product.prodname_copilot %}** : 検証済みの学生は、{% data variables.product.prodname_copilot %} の無料サブスクリプションを受け取ります。 アカウント設定で {% data variables.product.prodname_copilot %} サブスクリプション ページにアクセスすると、無料サブスクリプションに関して自動的に通知されます。 {% data variables.product.prodname_copilot %} のサブスクライブと使用について詳しくは、「[{% data variables.product.prodname_copilot_for_individuals %} サブスクリプションの管理](/billing/managing-billing-for-github-copilot/managing-your-github-copilot-for-individuals-subscription#setting-up-a-trial-of-github-copilot)」と「[{% data variables.product.prodname_copilot %} について](/copilot/overview-of-github-copilot/about-github-copilot)」をご覧ください。
 - **{% data variables.product.prodname_github_codespaces %}** : {% data reusables.education.student-codespaces-benefit %} {% data variables.product.prodname_github_codespaces %} の使用を始める方法について詳しくは、「[{% data variables.product.prodname_github_codespaces %} の概要](/codespaces/overview)」を参照してください。
 
 {% note %}

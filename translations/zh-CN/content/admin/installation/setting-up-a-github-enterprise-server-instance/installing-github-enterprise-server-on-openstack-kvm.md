@@ -1,6 +1,6 @@
 ---
-title: Installing GitHub Enterprise Server on OpenStack KVM
-intro: 'To install {% data variables.product.prodname_ghe_server %} on OpenStack KVM, you must have OpenStack access and download the {% data variables.product.prodname_ghe_server %} QCOW2 image.'
+title: 在 OpenStack KVM 上安装 GitHub Enterprise Server
+intro: '要在 OpenStack KVM 上安装 {% data variables.product.prodname_ghe_server %}，您必须具有 OpenStack 访问权限并下载 {% data variables.product.prodname_ghe_server %} QCOW2 映像。'
 redirect_from:
   - /enterprise/admin/guides/installation/installing-github-enterprise-on-openstack-kvm
   - /enterprise/admin/installation/installing-github-enterprise-server-on-openstack-kvm
@@ -14,44 +14,46 @@ topics:
   - Infrastructure
   - Set up
 shortTitle: Install on OpenStack
+ms.openlocfilehash: 105201d2759b333d297278aa7fe32a9544c68839
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147884953'
 ---
-## Prerequisites
+## 先决条件
 
 - {% data reusables.enterprise_installation.software-license %}
-- You must have access to an installation of OpenStack Horizon, the web-based user interface to OpenStack services. For more information, see the [Horizon documentation](https://docs.openstack.org/horizon/latest/).
+- 您必须有权访问 OpenStack Horizon，即 OpenStack 服务基于 Web 的用户界面。 有关详细信息，请参阅 [Horizon 文档](https://docs.openstack.org/horizon/latest/)。
 
-## Hardware considerations
+## 硬件注意事项
 
 {% data reusables.enterprise_installation.hardware-considerations-all-platforms %}
 
-## Downloading the {% data variables.product.prodname_ghe_server %} image
+## 下载 {% data variables.product.prodname_ghe_server %} 映像
 
-{% data reusables.enterprise_installation.download-license %}
-{% data reusables.enterprise_installation.download-appliance %}
-4. Under "{% data variables.product.prodname_dotcom %} On-premises", select the "Select your hypervisor" dropdown menu and click **OpenStack KVM (QCOW2)**.
-5. Click **Download for OpenStack KVM (QCOW2)**.
+{% data reusables.enterprise_installation.download-license %} {% data reusables.enterprise_installation.download-appliance %}
+4. 在“{% data variables.product.prodname_dotcom %} 本地”下，选择“选择虚拟机监控程序”下拉菜单，然后单击“OpenStack KVM (QCOW2)”。
+5. 单击“下载 OpenStack KVM (QCOW2)”。
 
-## Creating the {% data variables.product.prodname_ghe_server %} instance
+## 创建 {% data variables.product.prodname_ghe_server %} 实例
 
 {% data reusables.enterprise_installation.create-ghe-instance %}
 
-1. In OpenStack Horizon, upload the {% data variables.product.prodname_ghe_server %} image you downloaded. For instructions, see the "Upload an image" section of the OpenStack guide "[Upload and manage images](https://docs.openstack.org/horizon/latest/user/manage-images.html)."
-{% data reusables.enterprise_installation.create-attached-storage-volume %} For instructions, see the OpenStack guide "[Create and manage volumes](https://docs.openstack.org/horizon/latest/user/manage-volumes.html)."
-3. Create a security group, and add a new security group rule for each port in the table below. For instructions, see the OpenStack guide "[Configure access and security for instances](https://docs.openstack.org/horizon/latest/user/configure-access-and-security-for-instances.html)."
+1. 在 OpenStack Horizon 中，上传您下载的 {% data variables.product.prodname_ghe_server %} 映像。 有关说明，请参阅 OpenStack 指南“[上传和管理映像](https://docs.openstack.org/horizon/latest/user/manage-images.html)”的“上传映像”部分。
+{% data reusables.enterprise_installation.create-attached-storage-volume %} 有关说明，请参阅 OpenStack 指南“[创建和管理卷](https://docs.openstack.org/horizon/latest/user/manage-volumes.html)”。
+3. 创建安全组，并为下表中的各个端口添加新的安全组规则。 有关说明，请参阅 OpenStack 指南“[为实例配置访问和安全性](https://docs.openstack.org/horizon/latest/user/configure-access-and-security-for-instances.html)”
 
   {% data reusables.enterprise_installation.necessary_ports %}
-4. Optionally, associate a floating IP to the instance. Depending on your OpenStack setup, you may need to allocate a floating IP to the project and associate it to the instance. Contact your system administrator to determine if this is the case for you. For more information, see "[Allocate a floating IP address to an instance](https://docs.openstack.org/horizon/latest/user/configure-access-and-security-for-instances.html#allocate-a-floating-ip-address-to-an-instance)" in the OpenStack documentation.
-5. Launch {% data variables.location.product_location %} using the image, data volume, and security group created in the previous steps. For instructions, see the OpenStack guide "[Launch and manage instances](https://docs.openstack.org/horizon/latest/user/launch-instances.html)."
+4. 也可以将浮动 IP 关联到实例。 根据 OpenStack 设置，您可能需要将浮动 IP 分配给项目并将其关联到实例。 请联系您的系统管理员以确定您是否属于这种情况。 有关详细信息，请参阅 OpenStack 文档中的“[将浮动 IP 地址分配给实例](https://docs.openstack.org/horizon/latest/user/configure-access-and-security-for-instances.html#allocate-a-floating-ip-address-to-an-instance)”。
+5. 使用在前几步创建的映像、数据卷和安全组启动 {% data variables.product.product_location %}。 有关说明，请参阅 OpenStack 指南“[启动和管理实例](https://docs.openstack.org/horizon/latest/user/launch-instances.html)”。
 
-## Configuring the {% data variables.product.prodname_ghe_server %} instance
+## 配置 {% data variables.product.prodname_ghe_server %} 实例
 
-{% data reusables.enterprise_installation.copy-the-vm-public-dns-name %}
-{% data reusables.enterprise_installation.upload-a-license-file %}
-{% data reusables.enterprise_installation.save-settings-in-web-based-mgmt-console %} For more information, see "[Configuring the {% data variables.product.prodname_ghe_server %} appliance](/enterprise/admin/guides/installation/configuring-the-github-enterprise-server-appliance)."
-{% data reusables.enterprise_installation.instance-will-restart-automatically %}
-{% data reusables.enterprise_installation.visit-your-instance %}
+{% data reusables.enterprise_installation.copy-the-vm-public-dns-name %} {% data reusables.enterprise_installation.upload-a-license-file %} {% data reusables.enterprise_installation.save-settings-in-web-based-mgmt-console %} 有关详细信息，请参阅“[配置 {% data variables.product.prodname_ghe_server %} 设备](/enterprise/admin/guides/installation/configuring-the-github-enterprise-server-appliance)”。
+{% data reusables.enterprise_installation.instance-will-restart-automatically %} {% data reusables.enterprise_installation.visit-your-instance %}
 
-## Further reading
+## 延伸阅读
 
-- "[System overview](/enterprise/admin/guides/installation/system-overview)"{% ifversion ghes %}
-- "[About upgrades to new releases](/admin/overview/about-upgrades-to-new-releases)"{% endif %}
+- [系统概述](/enterprise/admin/guides/installation/system-overview) {% ifversion ghes %}
+- [关于升级到新版本](/admin/overview/about-upgrades-to-new-releases) {% endif %}

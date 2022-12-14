@@ -1,0 +1,78 @@
+date: '2021-03-16'
+intro: "对于 {% data variables.product.prodname_ghe_server %} 3.0+，最低基础设施要求已经增加。有关详细信息，请参阅“[关于 GitHub Enterprise Server 3.0 及更高版本的最低要求](/admin/enterprise-management/upgrading-github-enterprise-server#about-minimum-requirements-for-github-enterprise-server-30-and-later)”。"
+sections:
+  security_fixes:
+    - 包已更新到最新的安全版本。
+  bugs:
+    - "在备份过程中尝试清理可清除的存储对象时，出现了“警告&#58：源设备上未找到一个或多个存储对象。”的错误。"
+    - 依赖项关系图无法解析 `yarn.lock` JavaScript 清单文件，导致日志中的 HTTP 500 错误。
+    - 禁用 GitHub Actions 有时会失败。
+    - 自定义预接收挂钩不允许写入 `/tmp`，从而阻止某些脚本正常运行。
+    - 在多个地方复制了系统日志。
+    - 在 GitHub Enterprise 11.10.x 或更早版本上设置的时区在升级到 3.0 后被重置为 UTC 时间，导致时间戳在某些情况下改变。
+    - 单击存储库上包侧边栏中的“发布你的第一个包”将导致空白页面。
+    - 站点管理员在尝试查看从专用存储库引用的问题时可能会收到 500 错误页面。
+    - 禁用 GitHub Packages 后，一些组织页面会返回 HTTP 500 错误响应。
+    - 从 GitHub Enterprise Server 导入缺少存储库文件的存储库存档将失败并报告错误。
+    - "存储库[部署密钥](/developers/overview/managing-deply-keys) 无法用于包含 LFS 对象的存储库。"
+    - 在存储库包侧边栏中，Docker 图标是灰色的，工具提示显示“此服务已弃用”。
+    - 使用 `application/x-www-form-urlencoded` 的内容类型配置的 Webhook 在 POST 请求正文中未接收到查询参数。
+    - 用户无需选中所有复选框即可关闭必读消息。
+    - 在某些情况下，从 2.22.X 实例升级后，web 接口资产丢失，页面无法正确显示。
+    - 运行 `ghe-config-apply` 可能会超时，并且因“找不到 stanza 作业”而出现“等待 nomad 作业应用失败”。
+  known_issues:
+    - 在新建的没有任何用户的 GitHub Enterprise Server 上，攻击者可以创建第一个管理员用户。
+    - 在升级期间不会维护自定义防火墙规则。
+    - "[通过 Web 界面上传](https://github.com/blog/2105-upload-files-to-your-repositories)的 Git LFS 跟踪文件被错误地直接添加到存储库。"
+    - 问题若是包含同一存储库中文件路径长于 255 个字符的 blob 的永久链接，则无法关闭。
+    - 对 GitHub Connect 启用“用户可以搜索 GitHub.com”后，专用和内部存储库中的问题不包括在 GitHub.com 搜索结果中。
+    - "启用维护模式后，某些服务会继续列为“活动进程”。确定的服务预计将在维护模式期间运行。如果遇到此问题并且不确定，请联系 [GitHub Enterprise 支持](https://support.github.com/contact)。"
+    - 如果笔记本包含非 ASCII UTF-8 字符，则无法在 Web UI 中显示 Jupyter Notebook。
+    - 可能无法在 Web UI 中显示 reStructuredText (RST)，反而显示原始 RST 标记文本。
+    - Pages 的旧版本未清理，可能会填充用户磁盘 (`/data/user/`)。
+    - 如果在合并拉取请求后删除分支，即使分支删除成功也会出现错误消息。
+    - |用户可能会遇到资产问题，例如头像未加载，或推送/拉取代码失败。这可能是由于 `haproxy-cluster-proxy` 服务中的 PID 不匹配造成的。若要确定实例是否受到影响：
+
+
+
+**单实例**
+
+
+
+1.在[管理 shell](https://docs.github.com/en/enterprise-server/admin/configuration/accessing-the-administrative-shell-ssh) (SSH) 中运行：
+
+
+
+  ```
+
+  if [ $(cat /var/run/haproxy-cluster-proxy.pid) -ne $(systemctl show --property MainPID --value haproxy-cluster-proxy) ]; then echo ''Main PID of haproxy-cluster-proxy does not match /var/run/haproxy-cluster-proxy.pid''; fi
+
+  ```
+
+
+
+2.如果显示不匹配，请重启实例。
+
+
+
+**群集或高可用性配置**
+
+
+
+1.在[管理 shell](https://docs.github.com/en/enterprise-server/admin/configuration/accessing-the-administrative-shell-ssh) (SSH) 中运行：
+
+
+
+  ```
+
+  ghe-cluster-each -- ''if [ $(cat /var/run/haproxy-cluster-proxy.pid) -ne $(systemctl show --property MainPID --value haproxy-cluster-proxy) ]; then echo ''Main PID of haproxy-cluster-proxy does not match /var/run/haproxy-cluster-proxy.pid''; fi''
+
+  ```
+
+
+
+2.如果显示一个或多个节点受到影响，请重启受影响的节点。
+
+|
+    - "当副本节点在高可用性配置下离线时，{% data variables.product.product_name %} 仍可能将 {% data variables.product.prodname_pages %} 请求路由到离线节点，从而减少用户的 {% data variables.product.prodname_pages %} 可用性。"
+    - 特定于处理预接收挂钩的资源限制可能导致部分预接收挂钩失败。

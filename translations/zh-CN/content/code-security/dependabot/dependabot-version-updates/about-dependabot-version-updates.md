@@ -1,6 +1,6 @@
 ---
-title: About Dependabot version updates
-intro: 'You can use {% data variables.product.prodname_dependabot %} to keep the packages you use updated to the latest versions.'
+title: 关于 Dependabot 版本更新
+intro: '您可以使用 {% data variables.product.prodname_dependabot %} 来确保您使用的包更新到最新版本。'
 redirect_from:
   - /github/administering-a-repository/about-dependabot
   - /github/administering-a-repository/about-github-dependabot
@@ -21,51 +21,53 @@ topics:
   - Dependencies
   - Pull requests
 shortTitle: Dependabot version updates
+ms.openlocfilehash: 56bac2fbf2fb42a418cffbd478aa526803b124d9
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145186082'
 ---
+{% data reusables.dependabot.beta-security-and-version-updates %} {% data reusables.dependabot.enterprise-enable-dependabot %}
 
-{% data reusables.dependabot.beta-security-and-version-updates %}
-{% data reusables.dependabot.enterprise-enable-dependabot %}
+## 关于 {% data variables.product.prodname_dependabot_version_updates %}
 
-## About {% data variables.product.prodname_dependabot_version_updates %}
+{% data variables.product.prodname_dependabot %} 负责维护您的依赖项。 您可以使用它来确保仓库自动跟上它所依赖的包和应用程序的最新版本。
 
-{% data variables.product.prodname_dependabot %} takes the effort out of maintaining your dependencies. You can use it to ensure that your repository automatically keeps up with the latest releases of the packages and applications it depends on.
+通过将 `dependabot.yml` 配置文件签入存储库，可启用 {% data variables.product.prodname_dependabot_version_updates %}。 配置文件指定存储在仓库中的清单或其他包定义文件的位置。 {% data variables.product.prodname_dependabot %} 使用此信息检查过时的包和应用程序。 {% data variables.product.prodname_dependabot %} 通过查看依赖项的语义版本控制 ([semver](https://semver.org/)) 来确定是否存在新版本的依赖项，从而决定它是否应该更新到该版本。 对于某些软件包管理器，{% data variables.product.prodname_dependabot_version_updates %} 也支持供应。 供应（或缓存）的依赖项是检入仓库中特定目录的依赖项，而不是在清单中引用的依赖项。 即使包服务器不可用，供应的依赖项在生成时也可用。 {% data variables.product.prodname_dependabot_version_updates %} 可以配置为检查为新版本供应的依赖项，并在必要时更新它们。 
 
-You enable {% data variables.product.prodname_dependabot_version_updates %} by checking a `dependabot.yml` configuration file into your repository. The configuration file specifies the location of the manifest, or of other package definition files, stored in your repository. {% data variables.product.prodname_dependabot %} uses this information to check for outdated packages and applications. {% data variables.product.prodname_dependabot %} determines if there is a new version of a dependency by looking at the semantic versioning ([semver](https://semver.org/)) of the dependency to decide whether it should update to that version. For certain package managers, {% data variables.product.prodname_dependabot_version_updates %} also supports vendoring. Vendored (or cached) dependencies are dependencies that are checked in to a specific directory in a repository rather than referenced in a manifest. Vendored dependencies are available at build time even if package servers are unavailable. {% data variables.product.prodname_dependabot_version_updates %} can be configured to check vendored dependencies for new versions and update them if necessary. 
+当 {% data variables.product.prodname_dependabot %} 发现过时的依赖项时，它将引发一个拉取请求，用于将清单更新到依赖项的最新版本。 对于供应和依赖项，{% data variables.product.prodname_dependabot %} 提出拉取请求以直接将过时的依赖项替换为新版本。 检查测试是否通过，查看拉取请求摘要中包含的更改日志和发行说明，然后合并它。 有关详细信息，请参阅“[配置 {% data variables.product.prodname_dependabot %} 版本更新](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/enabling-and-disabling-dependabot-version-updates)”。
 
-When {% data variables.product.prodname_dependabot %} identifies an outdated dependency, it raises a pull request to update the manifest to the latest version of the dependency. For vendored dependencies, {% data variables.product.prodname_dependabot %} raises a pull request to replace the outdated dependency with the new version directly. You check that your tests pass, review the changelog and release notes included in the pull request summary, and then merge it. For more information, see "[Configuring {% data variables.product.prodname_dependabot %} version updates](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/enabling-and-disabling-dependabot-version-updates)."
-
-If you enable _security updates_, {% data variables.product.prodname_dependabot %} also raises pull requests to update vulnerable dependencies. For more information, see "[About {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/about-dependabot-security-updates)."
+如果启用“安全更新”，{% data variables.product.prodname_dependabot %} 还将引发用于更新易受攻击的依赖项的拉取请求。 有关详细信息，请参阅“[关于 {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/about-dependabot-security-updates)”。
 
 {% data reusables.dependabot.pull-request-security-vs-version-updates %}
 
-{% data reusables.dependabot.dependabot-updates-and-actions %}
-
 {% data reusables.dependabot.dependabot-tos %}
 
-## Frequency of {% data variables.product.prodname_dependabot %} pull requests
+## {% data variables.product.prodname_dependabot %} 拉取请求的频率
 
-You specify how often to check each ecosystem for new versions in the configuration file: daily, weekly, or monthly.
+在配置文件中指定检查每个生态系统的新版本的频率：每日、每周或每月。
 
 {% data reusables.dependabot.initial-updates %}
 
-If you've enabled security updates, you'll sometimes see extra pull requests for security updates. These are triggered by a {% data variables.product.prodname_dependabot %} alert for a dependency on your default branch. {% data variables.product.prodname_dependabot %} automatically raises a pull request to update the vulnerable dependency.
+如果您启用了安全更新，有时会看到额外的安全更新拉取请求。 这些请求是由依赖于默认分支的 {% data variables.product.prodname_dependabot %} 警报触发的。 {% data variables.product.prodname_dependabot %} 自动提出拉取请求以更新有漏洞的依赖项。
 
-## Supported repositories and ecosystems
+## 支持的仓库和生态系统
 <!-- If you make changes to this feature, check whether any of the changes affect languages listed in /get-started/learning-about-github/github-language-support. If so, please update the language support article accordingly. -->
 
-You can configure version updates for repositories that contain a dependency manifest or lock file for one of the supported package managers. For some package managers, you can also configure vendoring for dependencies. For more information, see "[Configuration options for the dependabot.yml file](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/configuration-options-for-dependency-updates#vendor)."
+您可以为包含其中一个受支持包管理器的依赖项清单或锁定文件的仓库配置版本更新。 对于某些软件包管理器，您也可以配置依赖项的供应。 有关详细信息，请参阅“[dependabot.yml 文件的配置选项](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/configuration-options-for-dependency-updates#vendor)”。
 {% note %}
 
 {% data reusables.dependabot.private-dependencies-note %} 
 
-{% data variables.product.prodname_dependabot %} doesn't support private {% data variables.product.prodname_dotcom %} dependencies for all package managers. See the details in the table below.
+{% data variables.product.prodname_dependabot %} 不支持所有包管理器的私有 {% data variables.product.prodname_dotcom %} 依赖项。 详见下表。
 
 {% endnote %}
 
 {% data reusables.dependabot.supported-package-managers %}
 
-If your repository already uses an integration for dependency management, you will need to disable this before enabling {% data variables.product.prodname_dependabot %}. {% ifversion fpt or ghec %}For more information, see "[About integrations](/github/customizing-your-github-workflow/about-integrations)."{% endif %}
+如果您的仓库已使用集成进行依赖项管理，则在启用 {% data variables.product.prodname_dependabot %} 前需要禁用此集成。 {% ifversion fpt or ghec %} 有关详细信息，请参阅“[关于集成](/github/customizing-your-github-workflow/about-integrations)”。{% endif %}
 
-## About notifications for {% data variables.product.prodname_dependabot %} version updates
+## 关于 {% data variables.product.prodname_dependabot %} 版本更新通知
 
-You can filter your notifications on {% data variables.product.company_short %} to show notifications for pull requests created by {% data variables.product.prodname_dependabot %}. For more information, see "[Managing notifications from your inbox](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox)."
+您可以按 {% data variables.product.company_short %} 筛选通知，以显示由 {% data variables.product.prodname_dependabot %}创建的拉取请求的通知。 有关详细信息，请参阅“[管理收件箱中的通知](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox)”。

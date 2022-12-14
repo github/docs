@@ -1,6 +1,6 @@
 ---
-title: About enterprise policies
-intro: 'With enterprise policies, you can manage the policies for all the organizations owned by your enterprise.'
+title: 关于企业策略
+intro: 使用企业策略，可以管理企业拥有的所有组织的策略。
 versions:
   ghec: '*'
   ghes: '*'
@@ -9,22 +9,26 @@ type: overview
 topics:
   - Enterprise
   - Policies
+ms.openlocfilehash: d452a6f24b3108b915e20b673ebd317a409ac8ae
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147718115'
 ---
-
-To help you enforce business rules and regulatory compliance, policies provide a single point of management for all the organizations owned by an enterprise account. 
+为了帮助你实施业务规则和法规合规性，策略为企业帐户拥有的所有组织提供单个管理点。 
 
 {% data reusables.enterprise.about-policies %}
 
-For example, with the "Base permissions" policy, you can allow organization owners to configure the "Base permissions" policy for their organization, or you can enforce a specific base permissions level, such as "Read", for all organizations within the enterprise.
+例如，使用“基本权限”策略，可以允许组织所有者为其组织配置“基本权限”策略，也可以为企业中的所有组织强制实施特定的基本权限级别，例如“读取”。
 
-By default, no enterprise policies are enforced. To identify policies that should be enforced to meet the unique requirements of your business, we recommend reviewing all the available policies in your enterprise account, starting with repository management policies. For more information, see "[Enforcing repository management polices in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise)."
+默认情况下，不会强制实施企业策略。 要确定应强制实施以满足业务独特需求的策略，建议从存储库管理策略开始，查看企业帐户中所有可用的策略。 有关详细信息，请参阅“[在企业中强制实施存储库管理策略](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise)”。
 
-While you're configuring enterprise policies, to help you understand the impact of changing each policy, you can view the current configurations for the organizations owned by your enterprise.
+配置企业策略时，如需了解更改每个策略所产生的影响，可以查看企业拥有的组织的当前配置。
 
-{% ifversion ghes %}
-Another way to enforce standards within your enterprise is to use pre-receive hooks, which are scripts that run on {% data variables.location.product_location %} to implement quality checks. For more information, see "[Enforcing policy with pre-receive hooks](/admin/policies/enforcing-policy-with-pre-receive-hooks)."
+{% ifversion ghes %} 在企业中强制实施标准的另一种方法是使用预接收挂钩（即在 {% data variables.product.product_location %} 上运行的脚本）来实现质量检查。 有关详细信息，请参阅“[使用预接收挂钩强制实施策略](/admin/policies/enforcing-policy-with-pre-receive-hooks)”。
 {% endif %}
 
-## Further reading
+## 延伸阅读
 
-- "[About enterprise accounts](/admin/overview/about-enterprise-accounts)"
+- “[关于企业帐户](/admin/overview/about-enterprise-accounts)”

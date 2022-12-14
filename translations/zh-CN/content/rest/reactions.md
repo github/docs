@@ -1,6 +1,6 @@
 ---
-title: Reactions
-intro: 'Use the REST API to interact with reactions on {% data variables.product.prodname_dotcom %}.'
+title: 反应
+intro: '使用 REST API 与 {% data variables.product.prodname_dotcom %} 上的反应进行交互。'
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,10 +11,15 @@ topics:
 miniTocMaxHeadingLevel: 3
 redirect_from:
   - /rest/reference/reactions
+ms.openlocfilehash: b6b8b10a28fdc48963fae6da931d9dd5b3af5a4d
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148193246'
 ---
+## 关于反应
 
-## About reactions
-
-You can create and manage reactions to comments, issues, pull requests, and discussions on {% data variables.product.prodname_dotcom %}. When creating a reaction, the allowed values for the `content` parameter are as follows (with the corresponding emoji for reference):
+你可以创建和管理对 {% data variables.product.prodname_dotcom %} 上的评论、问题、拉取请求和讨论的反应。 创建反应时，`content` 参数的允许值如下（对应的表情符号供参考）：
 
 {% data reusables.repositories.reaction_list %}

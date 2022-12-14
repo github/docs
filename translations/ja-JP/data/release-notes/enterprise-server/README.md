@@ -1,14 +1,23 @@
 ---
-ms.openlocfilehash: a43b7fac5396fcbdb1b7d9ec241af9879de7b2b8
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: bf7a1cdb9c8b1300ef8ba8ab2dd427a9b5d28128
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "145115021"
+ms.lasthandoff: 12/09/2022
+ms.locfileid: "148193463"
 ---
 # GitHub Enterprise Serverリリースノート
 
 表示場所: https://docs.github.com/en/enterprise-server@latest/admin/release-notes
+
+## 非推奨の GitHub Enterprise Server リリースへのリリース ノートの追加
+
+[この Issue テンプレート](/.github/actions-scripts/enterprise-server-issue-templates/deprecation-issue.md)に従った非推奨の GitHub Enterprise Server リリースでは、バージョンのリリース ノートを含む YAML ファイルがドキュメント エンジニアリングによって `github/docs-internal` から削除されます。
+
+利害関係者から非推奨のリリース ノートの更新を求められた場合には、次の手順を実行してノートを更新できます。
+
+1. 実行時間の長いブランチ <code>enterprise-<em>VERSION</em>-release</code> を確認し、PR を作成して、そのブランチの非推奨バージョンのリリース ノートを更新します。
+2. #docs-engineering に連絡して、Azure に格納されているコンテンツの再スクレイピングと更新を求めます。 [非推奨のチェックリスト](/.github/actions-scripts/enterprise-server-issue-templates/deprecation-issue.md)のコンテンツの再スクレイピングに関するセクションをご覧ください。
 
 ## しくみ
 
@@ -30,7 +39,7 @@ ms.locfileid: "145115021"
 
 ### ミドルウェアの処理
 
-YAML データは `middleware/contextualizers/release-notes.js` によって処理、並べ替えされ、`context` オブジェクトに追加されます。
+YAML データは `middleware/contextualizers/ghes-release-notes.js` によって処理、並べ替えされ、`context` オブジェクトに追加されます。
 
 ### Layouts
 
@@ -40,6 +49,6 @@ YAML データは `middleware/contextualizers/release-notes.js` によって処�
 
 ### スキーマ
 
-YAML データを検証するスキーマは `tests/helpers/schemas/ghes-release-notes-schema.js` に存在します。 必須及びオプションのプロパティを調べるには、このスキーマファイルを見てください。
+YAML データを検証するスキーマは `tests/helpers/schemas/release-notes-schema.js` に存在します。 必須及びオプションのプロパティを調べるには、このスキーマファイルを見てください。
 
 スキーマは `tests/linting/lint-files.js` のテストによって実行されます。 データが検証をパスしなければ、このテストは失敗します。

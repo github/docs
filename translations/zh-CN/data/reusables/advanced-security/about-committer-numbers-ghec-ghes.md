@@ -1,14 +1,22 @@
-We record and display two numbers of committers for {% data variables.product.prodname_GH_advanced_security %} on {% data variables.location.product_location %}:
+---
+ms.openlocfilehash: 281a3a039c8a557c209e756d107ac1856a181017
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "145084818"
+---
+我们在 {% data variables.product.product_location %} 上记录并显示 {% data variables.product.prodname_GH_advanced_security %} 的两名提交者：
 
-- **Committers** is the number of committers who contributed to at least one {% ifversion fpt or ghec %}private {% endif %}repository in an organization and who use a seat in your enterprise license. That is, they are also an organization member, an external collaborator, or have a pending invitation to join an organization in your enterprise.
-- **Unique to this repository/organization** is the number of committers who contributed only to this repository, or to repositories in this organization. This number shows how many license seats you can free up by disabling {% data variables.product.prodname_GH_advanced_security %} for that repository or organization.
+- “提交者数”是指在组织中参与至少一个 {% ifversion fpt or ghec %} 专用{% endif %}存储库，并在你的企业许可中使用一个席位的提交者数量。 也就是说，他们也是组织成员、外部协作者，或者具有待处理的企业帐户中组织加入邀请。
+- “是此存储库/组织唯一”是指仅向此存储库或此组织中的存储库作出贡献的提交者数量。 此数字显示您可以通过禁用该仓库或组织的 {% data variables.product.prodname_GH_advanced_security %} 来释放多少许可证席位。
 
-If there are no unique committers, all active committers also contribute to other repositories or organizations that use {% data variables.product.prodname_GH_advanced_security %}. Disabling the feature for that repository or organization would not free any seats on your license.
+如果没有唯一的提交者，则意味着所有活跃的提交者也参与其他使用 {% data variables.product.prodname_GH_advanced_security %} 的仓库或组织。 禁用该仓库或组织的功能将不会在您的许可证上腾出任何席位。
 
-When you remove a user from your enterprise account, the user's license is freed within 24 hours.
+从企业帐户中删除用户后，用户的许可证在 24 小时内被释放。
 
 {% note %}
 
-**Note:** Users can contribute to multiple repositories or organizations. Usage is measured across the whole enterprise account to ensure that each member uses one seat regardless of how many repositories or organizations the user contributes to.
+注意：用户可以参与多个存储库或组织。 使用数是在整个企业帐户中计量的，确保每个成员使用一个席位，无论该用户参与多少个仓库或组织。
 
 {% endnote %}

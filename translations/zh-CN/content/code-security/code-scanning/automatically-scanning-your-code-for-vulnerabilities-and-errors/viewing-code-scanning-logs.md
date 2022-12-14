@@ -1,6 +1,6 @@
 ---
-title: Viewing code scanning logs
-intro: 'You can view the output generated during {% data variables.product.prodname_code_scanning %} analysis in {% data variables.location.product_location %}.'
+title: 查看代码扫描日志
+intro: '您可以在 {% data variables.product.product_location %} 中查看 {% data variables.product.prodname_code_scanning %} 分析期间生成的输出。'
 product: '{% data reusables.gated-features.code-scanning %}'
 permissions: 'If you have write permissions to a repository, you can view the {% data variables.product.prodname_code_scanning %} logs for that repository.'
 miniTocMaxHeadingLevel: 4
@@ -14,69 +14,73 @@ versions:
 topics:
   - Security
 shortTitle: View code scanning logs
+ms.openlocfilehash: e4f4c3e601540e02c01bbe3761a11528a746a519
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147444627'
 ---
+{% data reusables.code-scanning.beta %} {% data reusables.code-scanning.enterprise-enable-code-scanning-actions %}
 
-{% data reusables.code-scanning.beta %}
-{% data reusables.code-scanning.enterprise-enable-code-scanning-actions %}
+## 关于第三方 {% data variables.product.prodname_code_scanning %} 设置 
 
-## About your {% data variables.product.prodname_code_scanning %} setup 
+您可以使用各种工具在仓库中设置 {% data variables.product.prodname_code_scanning %} 。 有关详细信息，请参阅“[为存储库设置 {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/setting-up-code-scanning-for-a-repository#options-for-setting-up-code-scanning)”。
 
-You can use a variety of tools to set up {% data variables.product.prodname_code_scanning %} in your repository. For more information, see  "[Setting up {% data variables.product.prodname_code_scanning %} for a repository](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/setting-up-code-scanning-for-a-repository#options-for-setting-up-code-scanning)."
+您可用的日志和诊断信息取决于您在 {% data variables.product.prodname_code_scanning %} 中使用的方法。 你可以使用警报列表中的“工具”下拉菜单，检查存储库的“安全性”选项卡中使用的 {% data variables.product.prodname_code_scanning %} 类型。 有关详细信息，请参阅“[管理存储库的 {% data variables.product.prodname_code_scanning %} 警报](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository#viewing-the-alerts-for-a-repository)”。
 
-The log and diagnostic information available to you depends on the method you use for {% data variables.product.prodname_code_scanning %} in your repository. You can check the type of {% data variables.product.prodname_code_scanning %} you're using in the **Security** tab of your repository, by using the **Tool** drop-down menu in the alert list. For more information, see "[Managing {% data variables.product.prodname_code_scanning %} alerts for your repository](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository#viewing-the-alerts-for-a-repository)."
+## 关于分析和诊断信息
 
-## About analysis and diagnostic information
+您可以使用 {% data variables.product.prodname_dotcom %} 上的 {% data variables.product.prodname_codeql %} 分析查看 {% data variables.product.prodname_code_scanning %} 运行的分析和诊断信息。 
 
-You can see analysis and diagnostic information for {% data variables.product.prodname_code_scanning %} run using {% data variables.product.prodname_codeql %} analysis on {% data variables.product.prodname_dotcom %}. 
+在警报列表顶部的标题中显示最近分析的“分析”信息。 有关详细信息，请参阅“[管理存储库的代码扫描警报](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository#viewing-the-alerts-for-a-repository)”。
 
-**Analysis** information is shown for the most recent analysis in a header at the top of the list of alerts. For more information, see "[Managing code scanning alerts for your repository](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository#viewing-the-alerts-for-a-repository)."
+“诊断”信息显示在行动工作流日志中，包含摘要指标和提取器诊断。 有关访问 {% data variables.product.prodname_dotcom %} 上的 {% data variables.product.prodname_code_scanning %} 日志的信息，请参阅下面的“[查看 {% data variables.product.prodname_code_scanning %} 的日志记录输出](#viewing-the-logging-output-from-code-scanning)”。
 
-**Diagnostic** information is displayed in the Action workflow logs and consists of summary metrics and extractor diagnostics. For information about accessing {% data variables.product.prodname_code_scanning %} logs on {% data variables.product.prodname_dotcom %}, see "[Viewing the logging output from {% data variables.product.prodname_code_scanning %}](#viewing-the-logging-output-from-code-scanning)" below.
+如果您在 {% data variables.product.prodname_dotcom %} 外部使用 {% data variables.product.prodname_codeql_cli %} ，您将在数据库分析期间生成的输出中看到诊断信息。 此信息也包含在您随 {% data variables.product.prodname_code_scanning %} 结果上传到 {% data variables.product.prodname_dotcom %} 的 SARIF 结果文件中。
 
-If you're using the {% data variables.product.prodname_codeql_cli %} outside {% data variables.product.prodname_dotcom %}, you'll see diagnostic information in the output generated during database analysis. This information is also included in the SARIF results file you upload to {% data variables.product.prodname_dotcom %} with the {% data variables.product.prodname_code_scanning %} results.
+有关 {% data variables.product.prodname_codeql_cli %} 的信息，请参阅“[在 CI 系统中配置 {% data variables.product.prodname_codeql_cli %}](/code-security/secure-coding/using-codeql-code-scanning-with-your-existing-ci-system/configuring-codeql-cli-in-your-ci-system#viewing-log-and-diagnostic-information)”。
 
-For information about the {% data variables.product.prodname_codeql_cli %}, see "[Configuring {% data variables.product.prodname_codeql_cli %} in your CI system](/code-security/secure-coding/using-codeql-code-scanning-with-your-existing-ci-system/configuring-codeql-cli-in-your-ci-system#viewing-log-and-diagnostic-information)."
-
-### About summary metrics
+### 关于摘要指标
 
 {% data reusables.code-scanning.summary-metrics %}
 
-### About {% data variables.product.prodname_codeql %} source code extraction diagnostics
+### 关于 {% data variables.product.prodname_codeql %} 源代码提取诊断信息
 
 {% data reusables.code-scanning.extractor-diagnostics %}
 
 {% ifversion codeql-action-debug-logging %}
 
-You can see more detailed information about {% data variables.product.prodname_codeql %} extractor errors and warnings that occurred during database creation by enabling debug logging. For more information, see "[Troubleshooting the CodeQL workflow](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/troubleshooting-the-codeql-workflow#creating-codeql-debugging-artifacts-by-re-running-jobs-with-debug-logging-enabled)."
+通过启用调试日志记录，可以查看有关在创建数据库期间发生的 {% data variables.product.prodname_codeql %} 提取器错误和警告的更多详细信息。 有关详细信息，请参阅“[对 CodeQL 工作流进行故障排除](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/troubleshooting-the-codeql-workflow#creating-codeql-debugging-artifacts-by-re-running-jobs-with-debug-logging-enabled)”。
 
 {% endif %}
 
-## Viewing the logging output from {% data variables.product.prodname_code_scanning %}
+## 查看来自 {% data variables.product.prodname_code_scanning %} 的日志记录输出
 
-This section applies to {% data variables.product.prodname_code_scanning %} run using {% data variables.product.prodname_actions %} ({% data variables.product.prodname_codeql %} or third-party).
+本节适用于使用 {% data variables.product.prodname_code_scanning %} 的 {% data variables.product.prodname_actions %} 运行（{% data variables.product.prodname_codeql %} 或第三方）。
 
-After setting up {% data variables.product.prodname_code_scanning %} for your repository, you can watch the output of the actions as they run.
+为仓库设置 {% data variables.product.prodname_code_scanning %} 后，您可以关注操作运行时的输出。
 
 {% data reusables.repositories.actions-tab %}
 
-  You'll see a list that includes an entry for running the {% data variables.product.prodname_code_scanning %} workflow. The text of the entry is the title you gave your commit message.
+  You can view the run status of {% data variables.product.prodname_code_scanning %} and get notifications for completed runs. For more information, see "<a href="/actions/configuring-and-managing-workflows/managing-a-workflow-run">Managing a workflow run</a>" and "<a href="/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#github-actions-notification-options">Configuring notifications</a>." 条目的文本是提交消息的标题。
 
-  ![Actions list showing {% data variables.product.prodname_code_scanning %} workflow](/assets/images/help/repository/code-scanning-actions-list.png)
+  ![显示 {% data variables.product.prodname_code_scanning %} 工作流的操作列表](/assets/images/help/repository/code-scanning-actions-list.png)
 
-1. Click the entry for the {% data variables.product.prodname_code_scanning %} workflow.
+1. 单击 {% data variables.product.prodname_code_scanning %} 工作流程的项目。
 
-2. Click the job name on the left. For example, **Analyze (LANGUAGE)**.
+2. 单击左侧的作业名称。 例如，“分析(语言)”。
 
-  ![Log output from the {% data variables.product.prodname_code_scanning %} workflow](/assets/images/help/repository/code-scanning-logging-analyze-action.png)
+  ![{% data variables.product.prodname_code_scanning %} 工作流程的日志输出](/assets/images/help/repository/code-scanning-logging-analyze-action.png)
 
-1. Review the logging output from the actions in this workflow as they run.
+1. 查看此工作流运行时操作的日志记录输出。
 
-1. Once all jobs are complete, you can view the details of any {% data variables.product.prodname_code_scanning %} alerts that were identified. For more information, see "[Managing {% data variables.product.prodname_code_scanning %} alerts for your repository](/code-security/secure-coding/managing-code-scanning-alerts-for-your-repository#viewing-the-alerts-for-a-repository)."
+1. 在所有作业完成后，您可以查看已识别的任何 {% data variables.product.prodname_code_scanning %} 警报的详细信息。 有关详细信息，请参阅“[管理存储库的 {% data variables.product.prodname_code_scanning %} 警报](/code-security/secure-coding/managing-code-scanning-alerts-for-your-repository#viewing-the-alerts-for-a-repository)”。
 
 {% note %}
 
-**Note:** If you raised a pull request to add the {% data variables.product.prodname_code_scanning %} workflow to the repository, alerts from that pull request aren't displayed directly on the {% data variables.product.prodname_code_scanning_capc %} page until the pull request is merged. If any alerts were found you can view these, before the pull request is merged, by clicking the **_n_ alerts found** link in the banner on the {% data variables.product.prodname_code_scanning_capc %} page.
+注意：如果发起将 {% data variables.product.prodname_code_scanning %} 工作流添加到存储库的拉取请求，则在合并拉取请求之前，来自该拉取请求的警报不会直接显示在 {% data variables.product.prodname_code_scanning_capc %} 页面上。 如果发现任何警报，你可以在合并拉取请求之前查看这些警报，方法是在 {% data variables.product.prodname_code_scanning_capc %} 页面的横幅中单击“发现 n 条警报”的链接。
 
-![Click the "n alerts found" link](/assets/images/help/repository/code-scanning-alerts-found-link.png)
+![单击“发现的 n 条警报”链接](/assets/images/help/repository/code-scanning-alerts-found-link.png)
 
 {% endnote %}

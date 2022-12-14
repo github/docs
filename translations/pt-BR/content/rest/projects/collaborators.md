@@ -2,7 +2,7 @@
 title: 'Colaboradores de {% data variables.product.prodname_project_v1_caps %}'
 shortTitle: Collaborators
 allowTitleToDifferFromFilename: true
-intro: 'A API de colaboradores do {% data variables.product.prodname_project_v1 %} permite que você gerencie colaboradores em um {% data variables.projects.projects_v1_board %}.'
+intro: 'Use a API REST para gerenciar colaboradores em um {% data variables.projects.projects_v1_board %}.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,11 +11,13 @@ versions:
 topics:
   - API
 miniTocMaxHeadingLevel: 3
-ms.openlocfilehash: 72473eabf86bc1eab841b86a85acfdf9ffe6bb01
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 648e251f1cc45b408acf7eccbe20c75971d29a02
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147423057'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148193169'
 ---
 {% data reusables.projects.projects-api %}
+
+{% data reusables.user-settings.classic-projects-api-classic-pat-only %}

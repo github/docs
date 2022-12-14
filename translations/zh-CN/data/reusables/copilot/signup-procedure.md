@@ -1,15 +1,13 @@
 ---
-ms.openlocfilehash: 8fd599404931b2ec2334e0ad0200bbf8734f962e
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 495034c23fd83bd0d70bd080c03bbe0cfe455608
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "147079826"
+ms.lasthandoff: 12/09/2022
+ms.locfileid: "148193236"
 ---
-在开始使用 {% data variables.product.prodname_copilot %} 之前，需要设置免费试用或订阅。
-
 {% data reusables.user-settings.access_settings %}
-1. 在边栏的“代码、规划和自动化”部分，单击“{% octicon "copilot" aria-label="The copilot icon" %} GitHub Copilot”。
+1. 在边栏的“代码、规划和自动化”部分，单击“{% octicon "copilot" aria-label="The copilot icon" %} {% data variables.product.prodname_copilot %}”。
 1. 在 {% data variables.product.prodname_copilot %} 设置页面上，单击“启用 {% data variables.product.prodname_copilot %}”。
 
    ![GitHub Copilot 设置屏幕截图，其中突出显示了启用 {% data variables.product.prodname_copilot %} 按钮](/assets/images/help/copilot/copilot-settings-enable-button.png)

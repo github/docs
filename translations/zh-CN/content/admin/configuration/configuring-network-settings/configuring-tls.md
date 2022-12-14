@@ -1,6 +1,6 @@
 ---
-title: Configuring TLS
-intro: 'You can configure Transport Layer Security (TLS) on {% data variables.location.product_location %} so that you can use a certificate that is signed by a trusted certificate authority.'
+title: 配置 TLS
+intro: '你可以在 {% data variables.product.product_location %} 上配置传输层安全性 (TLS)，以便使用由可信证书颁发机构签名的证书。'
 redirect_from:
   - /enterprise/admin/articles/ssl-configuration
   - /enterprise/admin/guides/installation/about-tls
@@ -16,70 +16,68 @@ topics:
   - Infrastructure
   - Networking
   - Security
+ms.openlocfilehash: c11f78b69f5b251a63c0796d46bca4d6c926f002
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '146682331'
 ---
-## About Transport Layer Security
+## 关于传输层安全
 
-TLS, which replaced SSL, is enabled and configured with a self-signed certificate when {% data variables.product.prodname_ghe_server %} is started for the first time. As self-signed certificates are not trusted by web browsers and Git clients, these clients will report certificate warnings until you disable TLS or upload a certificate signed by a trusted authority, such as Let's Encrypt.
+当 {% data variables.product.prodname_ghe_server %} 首次启动时，会启用 TLS（替代了 SSL）并通过自签名证书进行配置。 由于自签名证书不受 Web 浏览器和 Git 客户端的信任，因此这些客户端将报告证书警告，直至您禁用 TLS 或上传由 Let's Encrypt 等可信颁发机构签名的证书。
 
-The {% data variables.product.prodname_ghe_server %} appliance will send HTTP Strict Transport Security headers when SSL is enabled. Disabling TLS will cause users to lose access to the appliance, because their browsers will not allow a protocol downgrade to HTTP. For more information, see "[HTTP Strict Transport Security (HSTS)](https://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security)" on Wikipedia.
+{% data variables.product.prodname_ghe_server %} 设备将在 SSL 启用时发送 HTTP 严格传输安全标头。 禁用 TLS 会导致用户无法访问设备，因为用户的浏览器将不允许协议降级为 HTTP。 有关详细信息，请参阅维基百科上的“[HTTP 严格传输安全 (HSTS)](https://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security)”。
 
 {% data reusables.enterprise_installation.terminating-tls %}
 
-To allow users to use FIDO U2F for two-factor authentication, you must enable TLS for your instance. For more information, see "[Configuring two-factor authentication](/articles/configuring-two-factor-authentication)."
+要允许用户使用 FIDO U2F 进行双重身份验证，您必须为实例启用 TLS。 有关详细信息，请参阅“[配置双因素身份验证](/articles/configuring-two-factor-authentication)”。
 
-## Prerequisites
+## 先决条件
 
-To use TLS in production, you must have a certificate in an unencrypted PEM format signed by a trusted certificate authority.
+要在生产中使用 TLS，您必须具有由可信证书颁发机构签名的未加密 PEM 格式的证书。
 
-Your certificate will also need Subject Alternative Names configured for the subdomains listed in "[Enabling subdomain isolation](/enterprise/admin/guides/installation/enabling-subdomain-isolation#about-subdomain-isolation)" and will need to include the full certificate chain if it has been signed by an intermediate certificate authority. For more information, see "[Subject Alternative Name](http://en.wikipedia.org/wiki/SubjectAltName)" on Wikipedia.
+证书还需要为“[启用子域隔离](/enterprise/admin/guides/installation/enabling-subdomain-isolation#about-subdomain-isolation)”中列出的子域配置使用者可选名称，如果证书已由中间证书颁发机构签名，将需要包含完整的证书链。 有关详细信息，请参阅维基百科上的“[使用者可选名称](http://en.wikipedia.org/wiki/SubjectAltName)”。
 
-You can generate a certificate signing request (CSR) for your instance using the `ghe-ssl-generate-csr` command. For more information, see "[Command-line utilities](/enterprise/admin/guides/installation/command-line-utilities/#ghe-ssl-generate-csr)."
+可使用 `ghe-ssl-generate-csr` 命令为实例生成证书签名请求 (CSR)。 有关详细信息，请参阅“[命令行实用程序](/enterprise/admin/guides/installation/command-line-utilities/#ghe-ssl-generate-csr)”。
 
-Your key must be an RSA key and must not have a passphrase. For more information, see "[Removing the passphrase from your key file](/admin/guides/installation/troubleshooting-ssl-errors#removing-the-passphrase-from-your-key-file)".
+密钥必须是 RSA 密钥，并且不能有密码。 有关详细信息，请参阅“[从密钥文件中删除密码](/admin/guides/installation/troubleshooting-ssl-errors#removing-the-passphrase-from-your-key-file)。
 
-## Uploading a custom TLS certificate
+## 上传自定义 TLS 证书
 
 {% data reusables.enterprise_site_admin_settings.tls-downtime %}
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.management-console %}
-{% data reusables.enterprise_management_console.privacy %}
-{% data reusables.enterprise_management_console.select-tls-only %}
-4. Under "TLS Protocol support", select the protocols you want to allow.
-  ![Radio buttons with options to choose TLS protocols](/assets/images/enterprise/management-console/tls-protocol-support.png)
-5. Under "Certificate", click **Choose File** to choose a TLS certificate or certificate chain (in PEM format) to install. This file will usually have a *.pem*, *.crt*, or *.cer* extension.
-  ![Button to find TLS certificate file](/assets/images/enterprise/management-console/install-tls-certificate.png)
-6. Under "Unencrypted key", click **Choose File** to choose an RSA key (in PEM format) to install. This file will usually have a *.key* extension.
-  ![Button to find TLS key file](/assets/images/enterprise/management-console/install-tls-key.png)
+{% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.enterprise_site_admin_settings.management-console %} {% data reusables.enterprise_management_console.privacy %} {% data reusables.enterprise_management_console.select-tls-only %}
+4. 在“TLS Protocol support”下，选择您想要允许的协议。
+  ![包含用于选择 TLS 协议的选项的单选按钮](/assets/images/enterprise/management-console/tls-protocol-support.png)
+5. 在“证书”下，单击“选择文件”以选择要安装的 TLS 证书或证书链（PEM 格式）。 此文件通常采用 .pem、.crt 或 .cer 扩展名  。
+  ![用于查找 TLS 证书文件的按钮](/assets/images/enterprise/management-console/install-tls-certificate.png)
+6. 在“未加密密钥”下，单击“选择文件”以选择要安装的 RSA 密钥（PEM 格式）。 此文件通常采用 .key 扩展名。
+  ![用于查找 TLS 密钥文件的按钮](/assets/images/enterprise/management-console/install-tls-key.png)
 
 {% data reusables.enterprise_management_console.save-settings %}
 
-## About Let's Encrypt support
+## 关于 Let's Encrypt 支持
 
-Let's Encrypt is a public certificate authority that issues free, automated TLS certificates that are trusted by browsers using the ACME protocol. You can automatically obtain and renew Let's Encrypt certificates on your appliance without any required manual maintenance.
+Let's Encrypt 是公共证书颁发机构，他们使用 ACME 协议颁发受浏览器信任的免费、自动化 TLS 证书。 您可以在设备上自动获取并续订 Let's Encrypt 证书，无需手动维护。
 
 {% data reusables.enterprise_installation.lets-encrypt-prerequisites %}
 
-When you enable automation of TLS certificate management using Let's Encrypt, {% data variables.location.product_location %} will contact the Let's Encrypt servers to obtain a certificate. To renew a certificate, Let's Encrypt servers must validate control of the configured domain name with inbound HTTP requests.
+在使用 Let's Encrypt 启用 TLS 证书管理自动化后，{% data variables.product.product_location %} 将与 Let's Encrypt 服务器通信，以获取证书。 要续订证书，Let's Encrypt 服务器必须通过入站 HTTP 请求验证已配置域名的控制。
 
-You can also use the `ghe-ssl-acme` command line utility on {% data variables.location.product_location %} to automatically generate a Let's Encrypt certificate. For more information, see "[Command-line utilities](/enterprise/admin/guides/installation/command-line-utilities#ghe-ssl-acme)."
+还可以在 {% data variables.product.product_location %} 上使用 `ghe-ssl-acme` 命令行实用程序自动生成 Let's Encrypt 证书。 有关详细信息，请参阅“[命令行实用程序](/enterprise/admin/guides/installation/command-line-utilities#ghe-ssl-acme)”。
 
-## Configuring TLS using Let's Encrypt
+## 使用 Let's Encrypt 配置 TLS
 
 {% data reusables.enterprise_installation.lets-encrypt-prerequisites %}
 
 {% data reusables.enterprise_site_admin_settings.tls-downtime %}
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.management-console %}
-{% data reusables.enterprise_management_console.privacy %}
-{% data reusables.enterprise_management_console.select-tls-only %}
-5. Select **Enable automation of TLS certificate management using Let's Encrypt**.
-  ![Checkbox to enable Let's Encrypt](/assets/images/enterprise/management-console/lets-encrypt-checkbox.png)
-{% data reusables.enterprise_management_console.save-settings %}
-{% data reusables.enterprise_management_console.privacy %}
-7. Click **Request TLS certificate**.
-  ![Request TLS certificate button](/assets/images/enterprise/management-console/request-tls-button.png)
-8. Wait for the "Status" to change from "STARTED" to "DONE".
-   ![Let's Encrypt status](/assets/images/enterprise/management-console/lets-encrypt-status.png)
-9. Click **Save configuration**.
+{% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.enterprise_site_admin_settings.management-console %} {% data reusables.enterprise_management_console.privacy %} {% data reusables.enterprise_management_console.select-tls-only %}
+5. 选择“使用 Let's Encrypt 启用 TLS 证书管理自动化”。
+  ![用于启用 Let's Encrypt 的复选框](/assets/images/enterprise/management-console/lets-encrypt-checkbox.png) {% data reusables.enterprise_management_console.save-settings %} {% data reusables.enterprise_management_console.privacy %}
+7. 单击“请求 TLS 证书”。
+  ![“请求 TLS 证书”按钮](/assets/images/enterprise/management-console/request-tls-button.png)
+8. 等待“状态”从“开始”更改为“完成”。
+   ![Let's Encrypt 状态](/assets/images/enterprise/management-console/lets-encrypt-status.png)
+9. 单击“保存配置”。

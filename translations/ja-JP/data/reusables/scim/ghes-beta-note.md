@@ -1,16 +1,16 @@
 ---
-ms.openlocfilehash: 006bc6ea241b79ff5891db29591ce4a3e6f8976d
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.openlocfilehash: d45c0fa18ce8bcf70dcdd85e4fffa7300712f23f
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/25/2022
-ms.locfileid: "148109404"
+ms.lasthandoff: 12/09/2022
+ms.locfileid: "148192706"
 ---
 {% ifversion scim-for-ghes %}
 
 {% note %}
 
-**注:** {% data variables.product.product_name %} の SCIM は現在プライベート ベータ版であり、変更される可能性があります。 ベータ版にアクセスするには、{% data variables.contact.contact_enterprise_sales %} のアカウント マネージャーにお問い合わせください。
+**注:** {% data variables.product.product_name %} の SCIM は現在プライベート ベータ版であり、変更される可能性があります。 ベータ版にアクセスするには、{% data variables.contact.contact_enterprise_sales %} のアカウント マネージャーにお問い合わせください。 [GitHub コミュニティ ディスカッション](https://github.com/orgs/community/discussions/36825)でフィードバックを提供してください。
 
 {% endnote %}
 

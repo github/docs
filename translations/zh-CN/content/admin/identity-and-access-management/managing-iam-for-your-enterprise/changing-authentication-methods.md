@@ -1,6 +1,6 @@
 ---
-title: Changing authentication methods
-intro: 'You can change the way {% data variables.product.prodname_ghe_server %} authenticates with your existing accounts at any time.'
+title: 更改身份验证方法
+intro: '您可以随时更改 {% data variables.product.prodname_ghe_server %} 对您现有的帐户进行身份验证的方法。'
 redirect_from:
   - /enterprise/admin/user-management/changing-authentication-methods
   - /enterprise/admin/authentication/changing-authentication-methods
@@ -16,27 +16,33 @@ topics:
   - Enterprise
   - Identity
 shortTitle: Change authentication methods
+ms.openlocfilehash: 074c4fe8784d3ea7b8ada6b532e680384571facf
+ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147882689'
 ---
-User accounts on {% data variables.location.product_location %} are preserved when you change the authentication method and users will continue to log into the same account as long as their username doesn't change.
+更改身份验证方法时，{% data variables.product.product_location %} 上的用户帐户将保留，只要他们的用户名没有发生变化，用户就可以继续登录原来的帐户。
 
-If the new method of authentication changes usernames, new accounts will be created. As an administrator, you can rename users through the site admin settings or by using [the User Administration API](/rest/reference/enterprise-admin#update-the-username-for-a-user).
+如果新的身份验证方法更改了用户名，将创建新帐户。 作为管理员，可以通过站点管理员设置或使用[用户管理 API](/rest/reference/enterprise-admin#update-the-username-for-a-user) 重命名用户。
 
-Other issues you should take into consideration include:
+您应当考虑的其他问题包括：
 
-* **Passwords:** If you switch to using built-in authentication for your instance, users must [set a password](/enterprise/user/articles/how-can-i-reset-my-password/) after the change is completed.
+* **密码：** 如果对实例改为使用内置身份验证方法，则用户必须在更改完成后 [设置密码](/enterprise/user/articles/how-can-i-reset-my-password/)。
 
-* **Site administrators:** Administrative privileges are [controlled by your identity provider when you use SAML](/enterprise/admin/guides/user-management/using-saml/#saml-attributes) and can be [controlled by group membership when you use LDAP](/enterprise/admin/authentication/using-ldap#configuring-ldap-with-your-github-enterprise-server-instance).
+* **站点管理员：** 管理权限 [在你使用 SAML 时由你的标识提供者控制](/enterprise/admin/guides/user-management/using-saml/#saml-attributes)，而 [在你使用 LDAP 时由组成员身份控制](/enterprise/admin/authentication/using-ldap#configuring-ldap-with-your-github-enterprise-server-instance)。
 
-* **Team membership:** Only LDAP lets you [control team membership](/enterprise/admin/authentication/using-ldap#configuring-ldap-with-your-github-enterprise-server-instance) from your directory server.
+* **团队成员身份：** 只有 LDAP 可让你从目录服务器 [控制团队成员身份](/enterprise/admin/authentication/using-ldap#configuring-ldap-with-your-github-enterprise-server-instance)。
 
-* **User suspension:** When you use LDAP to authenticate, access to {% data variables.product.prodname_ghe_server %} can be controlled via _restricted groups_. After switching to LDAP, if restricted groups are configured, existing users who are not in one of those groups will be suspended. Suspension will occur either when they log in or during the next LDAP Sync.
+* **用户挂起：** 当你使用 LDAP 进行身份验证时，可以通过受限制的组控制对 {% data variables.product.prodname_ghe_server %} 的访问权限。 在切换到 LDAP 后，如果配置受限制的组，那么不属于其中任何一个组的现有用户将被挂起。 在用户登录或下一次 LDAP 同步期间将发生挂起。
 
-* **Group membership:** When you use LDAP to authenticate, users are automatically [suspended and unsuspended](/enterprise/admin/guides/user-management/suspending-and-unsuspending-users) based on restricted group membership and account status with Active Directory.
+* **组成员身份：** 当你使用 LDAP 进行身份验证时，系统会根据受限制的组成员身份和 Active Directory 中的帐户状态自动 [挂起和取消挂起](/enterprise/admin/guides/user-management/suspending-and-unsuspending-users)。
 
-* **Git authentication:** SAML and CAS only supports Git authentication over HTTP or HTTPS using a [{% data variables.product.pat_generic %}](/articles/creating-an-access-token-for-command-line-use). Password authentication over HTTP or HTTPS is not supported. LDAP supports password-based Git authentication by default, but we recommend that you [disable that method](/enterprise/admin/authentication/using-ldap#disabling-password-authentication-for-git-operations) and force authentication via a {% data variables.product.pat_generic %} or SSH key.
+* **Git 身份验证：** SAML 和 CAS 仅支持通过 HTTP 或 HTTPS 使用 [个人访问令牌](/articles/creating-an-access-token-for-command-line-use)进行的 Git 身份验证。 不支持通过 HTTP 或 HTTPS 进行的密码身份验证。 LDAP 默认支持基于密码的 Git 身份验证，但我们建议你[禁用该方法](/enterprise/admin/authentication/using-ldap#disabling-password-authentication-for-git-operations)，并强制通过个人访问令牌或 SSH 密钥进行身份验证。
 
-* **API authentication:** SAML and CAS only supports API authentication using a [{% data variables.product.pat_generic %}](/articles/creating-an-access-token-for-command-line-use). Basic authentication is not supported.
+* **API 身份验证：** SAML 和 CAS 仅支持使用 [个人访问令牌](/articles/creating-an-access-token-for-command-line-use)进行的 API 身份验证。 不支持基本身份验证。
 
-* **Two-factor authentication:** {% data reusables.enterprise_user_management.external_auth_disables_2fa %}
+* **双因素身份验证：** {% data reusables.enterprise_user_management.external_auth_disables_2fa %}
 
-* **Fallback authentication for users with no account on your external authentication provider:** You can invite users to authenticate to {% data variables.location.product_location %} without adding them to your identity provider. For more information, see "[Allowing built-in authentication for users outside your provider](/admin/identity-and-access-management/managing-iam-for-your-enterprise/allowing-built-in-authentication-for-users-outside-your-provider)."
+* **对在外部身份验证提供者中无帐户的用户进行身份验证：** 你可以邀请用户在 {% data variables.product.product_location %} 中进行身份验证，而无需将他们添加到标识提供者中。 有关详细信息，请参阅“[允许对提供者外部的用户使用内置身份验证](/admin/identity-and-access-management/managing-iam-for-your-enterprise/allowing-built-in-authentication-for-users-outside-your-provider)”。

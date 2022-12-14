@@ -14,12 +14,12 @@ redirect_from:
   - /guides/getting-started
   - /v3/guides/getting-started
 miniTocMaxHeadingLevel: 3
-ms.openlocfilehash: 73b92aa20c38377f878bf9b6fffb7c1c6e2639b9
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 001c4e3291e697be034579525d9f0bc6da8c0c88
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147718198'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148192882'
 ---
 この記事では、{% data variables.product.prodname_cli %}、JavaScript、または cURL を使用して、{% data variables.product.prodname_dotcom %} REST API の使用をすばやく開始する方法について説明します。 詳しいガイドについては、「[REST API を使用した作業の開始](/rest/guides/getting-started-with-the-rest-api)」をご覧ください。
 
@@ -67,7 +67,7 @@ jobs:
 
 {% data variables.product.prodname_github_app %} を使用して認証する場合は、ワークフロー内にインストール アクセス トークンを作成します。
 
-1. {% data variables.product.prodname_github_app %} の ID をシークレットとして保存します。 以下の例では、`APP_ID` をシークレットの名前に置き換えます。 アプリケーションIDは、アプリケーションの設定ページで、あるいはアプリケーションのAPIを通じて確認できます。 詳細については、「[アプリ](/rest/apps/apps#get-an-app)」を参照してください。 シークレットについて詳しくは、「[暗号化されたシークレット](/actions/security-guides/encrypted-secrets)」を参照してください。
+1. {% data variables.product.prodname_github_app %} の ID をシークレットとして保存します。 以下の例では、`APP_ID` をシークレットの名前に置き換えます。 アプリ ID は、アプリの設定ページで、あるいは API を通じて確認できます。 詳しくは、REST API のドキュメントの「[アプリ](/rest/apps/apps#get-an-app)」をご覧ください。 シークレットについて詳しくは、「[暗号化されたシークレット](/actions/security-guides/encrypted-secrets)」を参照してください。
 1. アプリケーションの秘密鍵を生成してください。 作成されたファイルの内容をシークレットとして保存します。 (`-----BEGIN RSA PRIVATE KEY-----` および `-----END RSA PRIVATE KEY-----` を含め、ファイルの内容全体を保存します)。以下の例では、`APP_PEM` をシークレットの名前に置き換えます。 詳細については、「[{% data variables.product.prodname_github_apps %} による認証](/developers/apps/building-github-apps/authenticating-with-github-apps#generating-a-private-key)」を参照してください。
 1. トークンを生成するステップを追加し、`GITHUB_TOKEN` ではなくそのトークンを使用します。 このトークンは 60 分後に期限切れになるので注意してください。 次に例を示します。
 
@@ -104,11 +104,11 @@ Octokit.js を使用すれば、JavaScript スクリプト内で {% data variabl
 
 ### Octokit.js の使用
 
-1. アクセス トークンを作成します。 たとえば、個人用アクセス トークン (PAT) または {% data variables.product.prodname_github_app %} のユーザーからサーバーへのアクセス トークンを作成します。 詳しくは、「[個人用アクセス トークンの作成](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)」または「[GitHub アプリのユーザーを特定および認可する](/developers/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps)」を参照してください。
+1. アクセス トークンを作成します。 たとえば、{% data variables.product.pat_generic %} または {% data variables.product.prodname_github_app %} のユーザーからサーバーへのアクセス トークンを作成します。 詳しい情報については、「[{% data variables.product.pat_generic %} の作成](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)」か「[GitHub App のユーザーの特定と認可](/developers/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps)」を参照してください。
 
    {% warning %}
 
-   **警告**: アクセス トークンは、パスワードと同様の扱いとしてください。
+   **警告**: アクセス トークンはパスワードと同様に扱ってください。
 
    トークンを安全な状態に保つには、ご利用のトークンをシークレットとして格納し、{% data variables.product.prodname_actions %} を介してスクリプトを実行します。 詳しくは、「[{% data variables.product.prodname_actions %} での Octokit.js の使用](#using-octokitjs-in-github-actions)」セクションを参照してください。
 
@@ -169,7 +169,7 @@ jobs:
       - name: Setup Node
         uses: {% data reusables.actions.action-setup-node %}
         with:
-          node-version: '16.15.0'
+          node-version: '16.17.0'
           cache: npm
 
       - name: Install dependencies
@@ -227,7 +227,7 @@ jobs:
       - name: Setup Node
         uses: {% data reusables.actions.action-setup-node %}
         with:
-          node-version: '16.15.0'
+          node-version: '16.17.0'
           cache: npm
 
       - name: Install dependencies
@@ -262,7 +262,7 @@ jobs:
 {% endnote %}
 
 1. cURL がまだコンピューターにインストールされていない場合は、cURL をインストールします。 cURL がインストールされているかどうかを確認するには、コマンド ラインで `curl --version` を実行します。 出力が cURL バージョンに関する情報である場合は、cURL がインストールされています。 `command not found: curl` のようなメッセージが表示された場合は、cURL をダウンロードしてインストールする必要があります。 詳しくは、[cURL プロジェクトのダウンロードに関するページ](https://curl.se/download.html)を参照してください。
-1. アクセス トークンを作成します。 たとえば、個人用アクセス トークン (PAT) または {% data variables.product.prodname_github_app %} のユーザーからサーバーへのアクセス トークンを作成します。 詳しくは、「[個人用アクセス トークンの作成](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)」または「[GitHub アプリのユーザーを特定および認可する](/developers/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps)」を参照してください。
+1. アクセス トークンを作成します。 たとえば、{% data variables.product.pat_generic %} または {% data variables.product.prodname_github_app %} のユーザーからサーバーへのアクセス トークンを作成します。 詳しい情報については、「[{% data variables.product.pat_generic %} の作成](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)」か「[GitHub App のユーザーの特定と認可](/developers/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps)」を参照してください。
 
    {% warning %}
 
@@ -283,8 +283,8 @@ jobs:
    ```shell
    curl --request GET \
    --url "https://api.github.com/repos/octocat/Spoon-Knife/issues" \
-   --header "Accept: application/vnd.github.v3+json" \
-   --header "Authorization: Bearer <em>YOUR-TOKEN</em>"
+   --header "Accept: application/vnd.github+json" \
+   --header "Authorization: Bearer YOUR-TOKEN"
    ```
 
    {% note %}
@@ -313,7 +313,7 @@ jobs:
         run: |
           curl --request GET \
           --url "https://api.github.com/repos/octocat/Spoon-Knife/issues" \
-          --header "Accept: application/vnd.github.v3+json" \
+          --header "Accept: application/vnd.github+json" \
           --header "Authorization: Bearer $GH_TOKEN"
 ```
 
@@ -345,7 +345,7 @@ jobs:
         run: |
           curl --request GET \
           --url "https://api.github.com/repos/octocat/Spoon-Knife/issues" \
-          --header "Accept: application/vnd.github.v3+json" \
+          --header "Accept: application/vnd.github+json" \
           --header "Authorization: Bearer $GH_TOKEN"
 ```
 

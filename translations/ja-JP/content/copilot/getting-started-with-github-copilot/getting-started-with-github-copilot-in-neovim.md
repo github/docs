@@ -7,12 +7,12 @@ versions:
   feature: copilot
 topics:
   - Copilot
-ms.openlocfilehash: 6296ff5b89e86b4b51cbb04bd9ac4ba91863a1ac
-ms.sourcegitcommit: 7fb7ec2e665856fc5f7cd209b53bd0fb1c9bbc67
+ms.openlocfilehash: 2eab3d278453ad283337d8e8dd6e66f7d39364e8
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/29/2022
-ms.locfileid: '148185068'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148193034'
 ---
 {% data reusables.copilot.copilot-cta-button %}
 
@@ -24,7 +24,7 @@ Neovim を使用すると、{% data variables.product.prodname_copilot %} から
 
 ## 前提条件
 
-- {% data variables.product.prodname_copilot %} を使用するには、アクティブな {% data variables.product.prodname_copilot %} サブスクリプションが必要です。 詳しくは、「[{% data variables.product.prodname_copilot %} の課金について](/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot)」をご覧ください。
+{% data reusables.copilot.subscription-prerequisite %}
 
 - Neovim で {% data variables.product.prodname_copilot %} を使うには、Neovim と Node.js バージョン 17 以降をインストールする必要があります。 詳細については、[Neovim のドキュメント](https://neovim.io/doc/)と [Node.js の Web サイト](https://nodejs.org/en/)を参照してください。
 

@@ -1,0 +1,248 @@
+date: '2022-05-17'
+friendlyDate: '2022 年 5 月 17 日'
+title: '2022 年 5 月 17 日'
+currentWeek: true
+sections:
+  features:
+    - heading: 'GitHub Advanced Security 功能正式发布'
+      notes:
+        - |代码扫描和机密扫描现针对 GitHub AE 正式发布。有关详细信息，请参阅“[关于代码扫描](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning)”和“[关于机密扫描](/code-security/secret-scanning/about-secret-scanning)”。
+
+|
+        - |机密扫描的自定义模式现正式发布。有关详细信息，请参阅“[定义机密扫描的自定义模式](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)”。
+
+|
+    - heading: '查看拉取请求的所有代码扫描警报'
+      notes:
+        - |现在，你可以在代码扫描警报页面上通过新的拉取请求筛选器找到与你的拉取请求相关的所有代码扫描警报。拉取请求检查页面显示拉取请求中引入的警报，但不显示拉取请求分支上的现有警报。 “检查”页面上的“查看所有分支警报”新链接可以转到代码扫描警报页面，其中已经应用了特定拉取请求筛选器，因此你可以看到与拉取请求相关的所有警报。这对于管理大量警报和查看单个警报的更详细信息非常有用。有关详细信息，请参阅“[管理存储库的代码扫描警报](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository#filtering-code-scanning-alerts)”。
+
+|
+    - heading: '组织安全概览'
+      notes:
+        - |GitHub Advanced Security 现提供通过代码扫描、Dependabot 和机密扫描检测到的应用程序安全风险的组织级别视图。安全概览显示每个存储库上安全功能的启用状态以及检测到的警报数量。
+
+
+
+此外，安全概览将列出组织级别的所有机密扫描警报。Dependabot 和代码扫描警报的类似视图将在未来的版本中发布。有关详细信息，请参阅“[关于安全概览](/code-security/security-overview/about-the-security-overview)”。
+
+
+
+![安全概览的屏幕截图](/assets/images/enterprise/3.2/release-notes/security-overview-UI.png)
+
+|
+    - heading: '依赖项关系图'
+      notes:
+        - |依赖项关系图现已在 GitHub AE 上提供。依赖项关系图通过解析签入存储库的依赖项清单，帮助你了解所依赖的开源软件。有关详细信息，请参阅“[关于依赖项关系图](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)”。
+
+|
+    - heading: 'Dependabot 警报'
+      notes:
+        - |Dependabot 警报现在会就 GitHub AE 上的依赖项漏洞通知你。可以通过启用依赖项关系图、启用 GitHub Connect 和从 GitHub 顾问数据库同步漏洞来启用 Dependabot 警报。此功能为 beta 版本，可能会有变动。有关详细信息，请参阅“[关于 Dependabot 警报](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)”。
+
+
+
+启用 Dependabot 警报后，当影响组织成员依赖项的新漏洞被添加到 GitHub 顾问数据库或易受攻击的依赖项被添加到其清单中时，他们将收到通知。成员可以自定义通知设置。有关详细信息，请参阅“[为 % data variables.product.prodname_dependabot_alerts %} 配置通知](/code-security/dependabot/dependabot-alerts/configuring-notifications-for-dependabot-alerts)”。<!-- ⚠️ 切换内容功能标志时，文章将可用 -->
+
+|
+    - heading: '组织安全管理员角色'
+      notes:
+        - |组织现在可以授权团队管理其所有存储库上的安全警报和设置。“安全管理员”角色可以应用到任何团队，并授予团队成员以下权限。
+
+
+
+- 对组织中所有存储库的读取访问
+
+- 对组织中所有安全警报的写入访问
+
+- 对组织级“安全性”选项卡的访问
+
+- 在组织级别对安全设置的写入权限
+
+- 在存储库级别对安全设置的写入权限
+
+
+
+有关详细信息，请参阅“[管理组织中的安全管理员](https://docs.github.com/en/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization)”。<!-- ⚠️ 切换内容功能标志时，文章将可用 -->
+
+|
+    - heading: 'GitHub Actions 临时运行器和自动缩放 Webhook'
+      notes:
+        - |GitHub AE 现支持临时（单个作业）自承载运行器和一个新的[“workflow_job”](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_job) Webhook，以便更轻松地自动缩放运行器。
+
+
+
+临时运行器适合自托管环境，其中每个作业都需要在干净的映像上运行。作业运行后，GitHub AE 会自动注销临时运行器，允许你执行任何作业后管理。
+
+
+
+可以将临时运行器与新的“workflow_job”Webhook 组合在一起来自动缩放自承载运行器，以响应来自 GitHub Actions 的作业请求。
+
+
+
+有关详细信息，请参阅“[使用自承载运行器自动缩放](/actions/hosting-your-own-runners/ Autoscaling -with-self- hosting- runners)”和“[Webhook 事件和有效负载](/developers/ Webhook -and-events/ Webhook -events-and-payloads#workflow_job)”。<!-- ⚠️ 切换内容功能标志时，文章将可用 -->
+
+|
+    - heading: 'GitHub Actions 复合操作'
+      notes:
+        - |通过使用复合来引用其他操作，可以减少工作流中的重复工作量。以前，用 YAML 编写的操作只能使用脚本。有关详细信息，请参阅“[创建复合操作](/actions/creating-actions/creating-a-composite-action)”。
+
+|
+    - heading: '管理自承载运行器的新令牌范围'
+      notes:
+        - |在企业级别管理自承载运行器不再需要使用具有“admin:enterprise”范围的个人访问令牌。可以使用“新 manage_runners:enterprise”范围来限制令牌上的权限。具有此范围的令牌可以对许多 REST API 终结点进行身份验证，以管理企业的自承载运行器。
+
+|
+    - heading: '可通过 REST API 访问审核日志'
+      notes:
+        - |现在可以使用 REST API 以编程方式与审核日志连接。虽然审核日志转发使你能够使用自己的工具包保留和分析数据并随时间的推移确定模式，但新的 REST API 将帮助你对最近历史记录中发生的值得注意的事件执行有限的分析。有关详细信息，请参阅“[审查组织的审核日志](/organizations/keeping-your-organization-secure/ management -security-settings- For -organization/ checking -the-audit-log- For -organization#using-the-rest-api)”。
+
+|
+    - heading: '个人访问令牌到期日期'
+      notes:
+        - |现在可以为新的和现有的个人访问令牌设置到期日期。当需要续订即将到期的令牌时，GitHub AE 会向你发送电子邮件。可以重新生成已到期的令牌，为你提供具有与原始令牌相同属性的副本令牌。当使用带有 GitHub AE API 的令牌时，你会看到一个新标题“GitHub-Authentication-Token-Expiration”，指示令牌的过期日期。你可以在脚本中使用它，例如，在到期日期临近时记录警告消息。有关详细信息，请参阅“[创建个人访问令牌](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)”和“[REST API 入门](/rest/guides/getting-started-with-the-rest-api#using-personal-access-tokens)”。
+
+|
+    - heading: '导出具有存储库访问权限的人员列表'
+      notes:
+        - |组织所有者现在可以 CSV 格式导出具有存储库访问权限的人员列表。有关详细信息，请参阅“[查看有权访问存储库的人员](/organizations/managing-access-to-your-organizations-repositories/viewing-people-with-access-to-your-repository#exporting-a-list-of-people-with-access-to-your-repository)”。
+
+|
+    - heading: '改进了代码评审分配管理'
+      notes:
+        - |管理代码评审分配的新设置有助于在团队成员之间分配团队的拉取请求评审，这样评审就不只是一两个团队成员的责任了。
+
+
+
+-子团队成员：只分配给团队的直接成员。以前，团队评审请求可以分配给团队的直接成员或子团队的成员。
+
+- 现有请求计数：即使已请求一个或多个团队成员，也会继续自动分配。在此之前，已请求的团队成员将被计为团队自动评审请求中的一个。
+
+- 团队评审请求：指定一个团队负责评审，即使新指定了一个或多个成员。
+
+
+
+有关详细信息，请参阅“[管理团队的代码评审设置](/organizations/organizing-members-into-teams/managing-code-review-settings-for-your-team)”。
+
+|
+    - heading: '新主题'
+      notes:
+        - |两个新主题可用于 GitHub AE Web UI。
+
+
+
+- 一个在前景和背景元素之间有更大对比度的深色高对比度主题
+
+- 浅色和深色色盲，将红色和绿色之类的颜色转换为橙色和蓝色
+
+
+
+有关详细信息，请参阅“[管理主题设置](/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/managing-your-theme-settings)”。
+
+|
+    - heading: 'Markdown 改进'
+      notes:
+        - |现在，你可以在任何 Markdown 字段中使用脚注语法来引用相关信息，而不会中断散文流。脚注显示为上标链接。单击脚注可跳转到引用，该引用显示在文档底部的新建部分中。有关详细信息，请参阅“[基本写入和格式化语法](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#footnotes)”。<!-- ⚠️ 切换内容功能标志时，页面部分将可用 -->
+
+|
+        - |现在可以通过 Web UI 在源视图和呈现的 Markdown 视图之间进行切换，方法是单击 {% octicon "code" aria-label="The Code icon" %} 按钮，以在任何 Markdown 文件顶部“显示源差异”。以前，你需要使用意见视图链接到 Markdown 文件源中的特定行号。
+
+|
+        - |GitHub AE 现在根据标题自动为 Wikis 生成一个目录。
+
+|
+  changes:
+    - heading: '性能'
+      notes:
+        - |对于有很多 Git 引用的存储库，页面加载和作业现在显著更快。
+
+|
+    - heading: '管理'
+      notes:
+        - |改进了用户模拟过程。现在，模拟会话需要模拟理由，操作将被记录到审核日志中，因为由模拟用户执行，被模拟的用户将收到一封电子邮件通知，说明他们已被企业所有者模拟。有关详细信息，请参阅“[模拟用户](/admin/user-management/managing-users-in-your-enterprise/impersonating-a-user)”。
+
+|
+    - heading: 'GitHub 操作'
+      notes:
+        - |当使用通过 GitHub Connect 从 GitHub AE 解析到 GitHub.com 的操作时，为了缓解内部中间人攻击，GitHub AE 在使用时停用了操作命名空间（“OWNER/NAME”）。停用命名空间可以防止在企业中创建该命名空间，并确保所有引用该操作的工作流都将从 GitHub.com 下载它。有关详细信息，请参阅“[使用 GitHub Connect 启用对 GitHub.com 操作的自动访问](/admin/github-actions/managing-access-to-actions-from-githubcom/enabling-automatic-access-to-githubcom-actions-using-github-connect#automatic-retirement-of-namespaces-for-actions-accessed-on-githubcom)”。
+
+|
+        - |审核日志现在包含 GitHub Actions 的附加事件。GitHub AE 现记录以下事件的审核日志条目。
+
+
+
+- 注册或移除自承载运行器。
+
+- 将自承载运行器添加到运行器组中或从运行器组中删除。
+
+- 创建或移除运行器组。
+
+- 创建或完成工作流运行。
+
+- 工作流作业准备就绪。重要的是，该日志包括提供给运行器的机密列表。
+
+
+
+有关详细信息，请参阅“[GitHub Actions 安全性增强](/actions/security-guides/security-hardening-for-github-actions)”。
+
+|
+    - heading: 'GitHub 高级安全'
+      notes:
+        - |代码扫描现在尽可能将“on:push”工作流中识别的警报映射到拉取请求中，以在其中显示。 在拉取请求中显示的警报是通过比较对分支头的现有分析与对你要合并的目标分支的分析来确定的。请注意，如果没有使用拉取请求的合并提交，警报的准确性可能低于使用“on:pull_request”触发器的方法。有关详细信息，请参阅“[关于使用 CodeQL 进行代码扫描](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-with-codeql)”。
+
+
+
+其他一些 CI/CD 系统可以专门配置为在代码被推送到分支时触发管道，甚至专门配置为在每次提交时触发管道。每当触发此类分析管道并将结果上传到 SARIF API 时，代码扫描将尝试将分析结果与一个打开的拉取请求相匹配。如果找到一个打开的拉取请求，结果发布将如上所述。有关详细信息，请参阅“[将 SARIF 文件上传到 GitHub](/code-security/code-scanning/integrating-with-code-scanning/uploading-a-sarif-file-to-github)”。
+
+|
+        - |GitHub AE 现在检测来自其他提供商的机密。有关详细信息，请参阅“[机密扫描模式](/code-security/secret-scanning/secret-scanning-patterns#supported-secrets)”。
+
+|
+    - heading: '拉取请求'
+      notes:
+        - |现在，拉取请求页面上的时间线和审阅者边栏将指示评审请求是否自动分配给了一个或多个团队成员，因为该团队使用代码评审分配。
+
+
+
+![代码评审自动分配指示器的屏幕截图](https://user-images.githubusercontent.com/2503052/134931920-409dea07-7a70-4557-b208-963357db7a0d.png)
+
+|
+        - |现在可以通过选择**“待评审”**来筛选拉取请求搜索，以只包含直接请求评审的拉取请求。有关详细信息，请参阅“[搜索问题和拉取请求](https://docs.github.com/en/search-github/searching-on-github/searching-issues-and-pull-requests)”。
+
+|
+        - |如果在使用分支选择器菜单时指定了分支的确切名称，那么结果现在会显示在匹配分支列表顶部。以前，确切的分支名称匹配项可能显示在列表底部。
+
+|
+        - |当查看具有相应打开的拉取请求的分支时，GitHub AE 现在会直接链接到该拉取请求。以前，会有一个提示促使使用分支比较或打开新的拉取请求。
+
+|
+        - |现在可以单击一个按钮将文件的全部原始内容复制到剪贴板。以前，你需要打开原始文件，选择所有，然后复制。若要复制文件内容，请导航到文件并单击工具栏。注意，此功能目前仅适用于某些浏览器。
+
+|
+        - |现在，在查看包含双向 Unicode 文本的文件时，会显示警告。双向 Unicode 文本的解释或编译方式可以与它在用户界面中显示的方式不同。例如，可以使用隐藏的双向 Unicode 字符来交换文件中的文本段。有关替换这些字符的详细信息，请参阅 [GitHub 更改日志](https://github.blog/changelog/2021-10-31-warning-about-bidirectional-unicode-text/)。
+
+|
+    - heading: '存储库'
+      notes:
+        - |GitHub AE 现包括对 _CITATION.cff_ 文件的增强支持。_CITATION.cff_ 文件是纯文本文件，包含人机可读的引用信息。GitHub AE 将这些信息解析为简便格式，如可由他人复制的 [APA](https://apastyle.apa.org) 和 [BibTeX](https://en.wikipedia.org/wiki/BibTeX)。有关详细信息，请参阅“[关于 CITATION 文件](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-citation-files)”。
+
+|
+        - |现在可以通过存储库 API 的自动链接终结点添加、删除或查看自动链接。有关详细信息，请参阅 REST API 文档中的“[自动链接文档和 URL](/get-started/writing-on-github/working-with-advanced-formatting/autolinked-references-and-urls)”和“[存储库](/rest/reference/repos#autolinks)”。
+
+|
+    - heading: '发行版本'
+      notes:
+
+        - |GitHub 版本的标签选择组件现在是一个下拉菜单，而不是文本字段。有关详细信息，请参阅“[管理存储库中的发布](/repositories/releasing-projects-on-github/managing-releases-in-a-repository#creating-a-release)”。
+
+|
+    - heading: 'Markdown'
+      notes:
+
+        - |将图像和视频等文件拖放到 Markdown 编辑器中时，GitHub AE 现在在放置文件时使用鼠标指针位置（而不是光标位置）。
+
+|
+    - heading: 'REST API'
+      notes:
+        - |REST API 预览现已完结，并成为 API 的正式组成部分。REST API 终结点不再需要预览报头，但如果你继续在请求的“Accept”标头中指定已完结预览，那么它仍将按预期发挥作用。
+
+|

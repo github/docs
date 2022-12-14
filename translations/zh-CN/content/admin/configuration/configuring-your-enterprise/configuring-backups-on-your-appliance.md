@@ -1,5 +1,5 @@
 ---
-title: Configuring backups on your appliance
+title: 在设备上配置备份
 shortTitle: Configuring backups
 redirect_from:
   - /enterprise/admin/categories/backups-and-restores
@@ -14,7 +14,7 @@ redirect_from:
   - /enterprise/admin/installation/configuring-backups-on-your-appliance
   - /enterprise/admin/configuration/configuring-backups-on-your-appliance
   - /admin/configuration/configuring-backups-on-your-appliance
-intro: 'As part of a disaster recovery plan, you can protect production data on {% data variables.location.product_location %} by configuring automated backups.'
+intro: '作为灾难恢复计划的一部分，你可以通过配置自动备份的方式保护 {% data variables.product.product_location %} 中的生产数据。'
 versions:
   ghes: '*'
 type: how_to
@@ -23,158 +23,162 @@ topics:
   - Enterprise
   - Fundamentals
   - Infrastructure
+ms.openlocfilehash: 4403ec24aa3da63f6700ae4bfcd2392ec0cfd194
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147861650'
 ---
-## About {% data variables.product.prodname_enterprise_backup_utilities %}
+## 关于 {% data variables.product.prodname_enterprise_backup_utilities %}
 
-{% data variables.product.prodname_enterprise_backup_utilities %} is a backup system you install on a separate host, which takes backup snapshots of {% data variables.location.product_location %} at regular intervals over a secure SSH network connection. You can use a snapshot to restore an existing {% data variables.product.prodname_ghe_server %} instance to a previous state from the backup host.
+{% data variables.product.prodname_enterprise_backup_utilities %} 是安装在单独主机上的备份系统，它通过安全的 SSH 网络连接定期对 {% data variables.product.product_location %} 进行备份快照。 您可以使用快照将现有的 {% data variables.product.prodname_ghe_server %} 实例从备份主机还原为上一个状态。
 
-Only data added since the last snapshot will transfer over the network and occupy additional physical storage space. To minimize performance impact, backups are performed online under the lowest CPU/IO priority. You do not need to schedule a maintenance window to perform a backup.
+只有自上一个快照之后添加的数据将通过网络传输并占用额外的物理存储空间。 要最大限度地减小对性能的影响，会以最低 CPU/IO 优先级在线执行备份。 您不需要排定维护窗口来执行备份。
 
-Major releases and version numbers for {% data variables.product.prodname_enterprise_backup_utilities %} align with feature releases of {% data variables.product.product_name %}. We support the four most recent versions of both products. For more information, see "[{% data variables.product.product_name %} releases](/admin/all-releases)."
+{% data variables.product.prodname_enterprise_backup_utilities %} 的主要版本和版本号与 {% data variables.product.product_name %} 的功能版一致。 我们支持这两种产品的四个最新版本。 有关详细信息，请参阅“[{% data variables.product.product_name %} 版本](/admin/all-releases)”。
 
-For more detailed information on features, requirements, and advanced usage, see the [{% data variables.product.prodname_enterprise_backup_utilities %} README](https://github.com/github/backup-utils#readme) in the {% data variables.product.prodname_enterprise_backup_utilities %} project documentation.
+有关功能、要求和高级使用情况的更多详细信息，请参阅 {% data variables.product.prodname_enterprise_backup_utilities %} 项目文档中的 [{% data variables.product.prodname_enterprise_backup_utilities %} README](https://github.com/github/backup-utils#readme)。
 
-## Prerequisites
+## 先决条件
 
-To use {% data variables.product.prodname_enterprise_backup_utilities %}, you must have a Linux or Unix host system separate from {% data variables.location.product_location %}.
+若要使用 {% data variables.product.prodname_enterprise_backup_utilities %}，必须将 Linux 或 Unix 主机系统与 {% data variables.product.product_location %} 分开。
 
-You can also integrate {% data variables.product.prodname_enterprise_backup_utilities %} into an existing environment for long-term permanent storage of critical data.
+您还可以将 {% data variables.product.prodname_enterprise_backup_utilities %} 集成到现有环境中，以便长期、永久地存储重要数据。
 
-We recommend that the backup host and {% data variables.location.product_location %} be geographically distant from each other. This ensures that backups are available for recovery in the event of a major disaster or network outage at the primary site.
+建议将备份主机和 {% data variables.product.product_location %} 放置在相距较远的地理位置。 这样可以确保在主要站点发生重大事故或网络故障的情况下通过备份进行还原。
 
-Physical storage requirements will vary based on Git repository disk usage and expected growth patterns:
+物理存储要求将因 Git 仓库磁盘使用情况以及预计的增长情况而异：
 
-| Hardware | Recommendation |
+| 硬件 | 建议 |
 | -------- | --------- |
-| **vCPUs**  | 2 |
-| **Memory** | 2 GB |
-| **Storage** | Five times the primary instance's allocated storage |
+| **vCPU**  | 2 |
+| **内存** | 2 GB |
+| **存储** | 等于为主要实例分配的存储空间的五倍 |
 
-More resources may be required depending on your usage, such as user activity and selected integrations.
+根据您的使用情况（例如用户活动和选定的集成），可能需要更多资源。
 
-For more information, see [{% data variables.product.prodname_enterprise_backup_utilities %} requirements](https://github.com/github/backup-utils/blob/master/docs/requirements.md) in the {% data variables.product.prodname_enterprise_backup_utilities %} project documentation.
+有关详细信息，请参阅 {% data variables.product.prodname_enterprise_backup_utilities %} 项目文档中的 [{% data variables.product.prodname_enterprise_backup_utilities %} 要求](https://github.com/github/backup-utils/blob/master/docs/requirements.md)。
 
-## Installing {% data variables.product.prodname_enterprise_backup_utilities %}
+## 安装 {% data variables.product.prodname_enterprise_backup_utilities %}
 
-To install {% data variables.product.prodname_enterprise_backup_utilities %} on your backup host, we recommend cloning the project's Git repository. This approach allows you to fetch new releases directly using Git, and your existing backup configuration file, `backup.config`, will be preserved when installing a new version.
+若要在备份主机上安装 {% data variables.product.prodname_enterprise_backup_utilities %}，建议克隆项目的 Git 存储库。 使用此方法可以直接使用 Git 提取新版本，并且会在安装新版本时保留现有备份配置文件 `backup.config`。
 
-Alternatively, if the host machine can't access the internet, you can download each {% data variables.product.prodname_enterprise_backup_utilities %} release as a compressed archive, then extract and install the contents. For more information, see [Getting started](https://github.com/github/backup-utils/blob/master/docs/getting-started.md) in the {% data variables.product.prodname_enterprise_backup_utilities %} project documentation.
+或者，如果主机无法访问 Internet，你可以将每个 {% data variables.product.prodname_enterprise_backup_utilities %} 版本下载为压缩存档，然后解压缩并安装这些内容。 有关详细信息，请参阅 {% data variables.product.prodname_enterprise_backup_utilities %} 项目文档中的[入门指南](https://github.com/github/backup-utils/blob/master/docs/getting-started.md)。
 
-Backup snapshots are written to the disk path set by the `GHE_DATA_DIR` data directory variable in your `backup.config` file. Snapshots need to be stored on a filesystem which supports symbolic and hard links.
+备份快照会写入通过 `backup.config` 文件中的 `GHE_DATA_DIR` 数据目录变量设置的磁盘路径。 快照需要存储在支持符号链接和硬链接的文件系统上。
 
 {% note %}
 
-**Note:** We recommend ensuring your snapshots are not kept in a subdirectory of the {% data variables.product.prodname_enterprise_backup_utilities %} installation directory, to avoid inadvertently overwriting your data directory when upgrading {% data variables.product.prodname_enterprise_backup_utilities %} versions.
+注意：建议确保快照未保存在 {% data variables.product.prodname_enterprise_backup_utilities %} 安装目录的子目录中，以避免在升级 {% data variables.product.prodname_enterprise_backup_utilities %} 版本时意外覆盖数据目录。
 
 {% endnote %}
 
-1. To clone the [{% data variables.product.prodname_enterprise_backup_utilities %} project repository](https://github.com/github/backup-utils/) to a local directory on your backup host, run the following command.
+1. 若要将 [{% data variables.product.prodname_enterprise_backup_utilities %} 项目存储库](https://github.com/github/backup-utils/)克隆到备份主机上的本地目录，请运行以下命令。
 
   ```
   $ git clone https://github.com/github/backup-utils.git /path/to/target/directory/backup-utils
   ```
-1. To change into the local repository directory, run the following command.
+1. 若要更改为本地存储库目录，请运行以下命令。
 
   ```
   cd backup-utils
   ```
 {% data reusables.enterprise_backup_utilities.enterprise-backup-utils-update-repo %}
-1. To copy the included `backup.config-example` file to `backup.config`, run the following command.
+1. 若要将包含的 `backup.config-example` 文件复制到 `backup.config`，请运行以下命令。
 
    ```shell
    cp backup.config-example backup.config
    ```
-1. To customize your configuration, edit `backup.config` in a text editor.
-   1. Set the `GHE_HOSTNAME` value to your primary {% data variables.product.prodname_ghe_server %} instance's hostname or IP address.
+1. 若要自定义配置，请在文本编辑器中编辑 `backup.config`。
+   1. 将 `GHE_HOSTNAME` 值设置为主要 {% data variables.product.prodname_ghe_server %} 实例的主机名或 IP 地址。
 
      {% note %}
 
-     **Note:** If {% data variables.location.product_location %} is deployed as a cluster or in a high availability configuration using a load balancer, the `GHE_HOSTNAME` can be the load balancer hostname, as long as it allows SSH access (on port 122) to {% data variables.location.product_location %}.
+     注意：如果使用负载均衡器将 {% data variables.product.product_location %} 部署为群集或部署在高可用性配置中，则 `GHE_HOSTNAME` 可以是负载均衡器主机名，只要它允许对 {% data variables.product.product_location %} 进行 SSH 访问（在端口 122 上）。
 
-     To ensure a recovered appliance is immediately available, perform backups targeting the primary instance even in a geo-replication configuration.
+     为确保恢复的设备立即可用，即使在异地复制配置中也应针对主实例执行备份。
 
      {% endnote %}
-   1. Set the `GHE_DATA_DIR` value to the filesystem location where you want to store backup snapshots. We recommend choosing a location on the same filesystem as your backup host, but outside of where you cloned the Git repository in step 1.
-1. To grant your backup host access to your instance, open your primary instance's settings page at `http(s)://HOSTNAME/setup/settings` and add the backup host's SSH key to the list of authorized SSH keys. For more information, see "[Accessing the administrative shell (SSH)](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh#enabling-access-to-the-administrative-shell-via-ssh)."
-1. On your backup host, verify SSH connectivity with {% data variables.location.product_location %} with the `ghe-host-check` command.
+   1. 将 `GHE_DATA_DIR` 值设置为要存储备份快照的文件系统位置。 建议在备份主机所在的同一文件系统上选择一个位置，但在步骤 1 中克隆 Git 存储库的位置除外。
+1. 若要授予备份主机对实例的访问权限，请在 `http(s)://HOSTNAME/setup/settings` 上打开主实例的设置页，并将备份主机的 SSH 密钥添加到授权的 SSH 密钥列表中。 有关详细信息，请参阅“[访问管理 shell (SSH)](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh#enabling-access-to-the-administrative-shell-via-ssh)”。
+1. 在备份主机上，使用 `ghe-host-check` 命令验证与 {% data variables.product.product_location %} 的 SSH 连接。
 
   ```shell
   ./bin/ghe-host-check
-  ```		  
-1. To create an initial full backup, run the following command.
+  ```         
+1. 若要创建初始完整备份，请运行以下命令。
 
   ```shell
   ./bin/ghe-backup
   ```
 
-For more information on advanced usage, see the [{% data variables.product.prodname_enterprise_backup_utilities %} README](https://github.com/github/backup-utils#readme) in the {% data variables.product.prodname_enterprise_backup_utilities %} project documentation.
+有关高级使用情况的更多详细信息，请参阅 {% data variables.product.prodname_enterprise_backup_utilities %} 项目文档中的 [{% data variables.product.prodname_enterprise_backup_utilities %} README](https://github.com/github/backup-utils#readme)。
 
-## Upgrading {% data variables.product.prodname_enterprise_backup_utilities %}
+## 升级 {% data variables.product.prodname_enterprise_backup_utilities %}
 
-When upgrading {% data variables.product.prodname_enterprise_backup_utilities %}, you must choose a release that will work with your current version of {% data variables.product.product_name %}. Your installation of {% data variables.product.prodname_enterprise_backup_utilities %} must be at least the same version as {% data variables.location.product_location %}, and cannot be more than two versions ahead. For more information, see [{% data variables.product.prodname_ghe_server %} version requirements](https://github.com/github/backup-utils/blob/master/docs/requirements.md#github-enterprise-server-version-requirements) in the {% data variables.product.prodname_enterprise_backup_utilities %} project documentation.
-You can upgrade {% data variables.product.prodname_enterprise_backup_utilities %} in a Git repository by fetching and checking out the latest changes.
+升级 {% data variables.product.prodname_enterprise_backup_utilities %} 时，必须选择适用于当前版本的 {% data variables.product.product_name %} 的版本。 安装的 {% data variables.product.prodname_enterprise_backup_utilities %} 的版本必须至少与 {% data variables.product.product_location %} 的版本相同，并且不能低于两个版本。 有关详细信息，请参阅 {% data variables.product.prodname_enterprise_backup_utilities %} 项目文档中的 [{% data variables.product.prodname_ghe_server %} 要求](https://github.com/github/backup-utils/blob/master/docs/requirements.md#github-enterprise-server-version-requirements)。
+可以通过提取和签出最新更改来升级 Git 存储库中的 {% data variables.product.prodname_enterprise_backup_utilities %}。
 
-Alternatively, if you don't use a Git repository for your installation, you can extract a new archive into place, or you can change your approach to use a Git repository instead.
+或者，如果不使用 Git 存储库进行安装，则可以将新存档提取到适当位置，也可以更改方法，改为使用 Git 存储库。
 
-### Verifying the installation type
+### 验证安装类型
 
-You can verify the installation method for {% data variables.product.prodname_enterprise_backup_utilities %} and determine the best way to upgrade your installation.
+可以验证 {% data variables.product.prodname_enterprise_backup_utilities %} 的安装方法，并确定升级安装的最佳方法。
 
 {% data reusables.enterprise_backup_utilities.enterprise-backup-utils-directory %}
-1. To check if a valid working directory exists inside a Git repository, run the following command.
+1. 若要检查 Git 存储库中是否存在有效的工作目录，请运行以下命令。
 
    ```
    git rev-parse --is-inside-work-tree
    ```
 
-   If the output is `true`, {% data variables.product.prodname_enterprise_backup_utilities %} was installed by cloning the project's Git repository. If the output includes `fatal: not a git repository (or any of the parent directories)`, {% data variables.product.prodname_enterprise_backup_utilities %} was likely installed by extracting a compressed archive file.
-If your installation is in a Git repository, you can install the latest version using Git. If the installation is from a compressed archive file, you can either download and extract the latest version, or you can reinstall {% data variables.product.prodname_enterprise_backup_utilities %} using Git to simplify future upgrades.
+   如果输出为 `true`，则已通过克隆项目的 Git 存储库安装 {% data variables.product.prodname_enterprise_backup_utilities %}。 如果输出包含 `fatal: not a git repository (or any of the parent directories)`，则可能已通过提取压缩存储文件安装 {% data variables.product.prodname_enterprise_backup_utilities %}。
+如果在 Git 存储库中进行安装，则可以使用 Git 安装最新版本。 如果从压缩存档文件进行安装，则可以下载并提取最新版本，也可以使用 Git 重新安装 {% data variables.product.prodname_enterprise_backup_utilities %} 以简化未来的升级。
 
-- [Upgrading an installation in a Git repository](#upgrading-an-installation-in-a-git-repository)
-- [Using Git instead of compressed archives for upgrades](#using-git-instead-of-compressed-archives-for-upgrades)
+- [升级 Git 存储库中的安装](#upgrading-an-installation-in-a-git-repository)
+- [使用 Git 而不是压缩存档进行升级](#using-git-instead-of-compressed-archives-for-upgrades)
 
-### Upgrading an installation in a Git repository
+### 升级 Git 存储库中的安装
 
-{% data reusables.enterprise_backup_utilities.enterprise-backup-utils-directory %}
-  {% note %}
+{% data reusables.enterprise_backup_utilities.enterprise-backup-utils-directory %} {% note %}
 
-  **Note:** We recommend creating a copy of your existing `backup.config` file in a temporary location, like `$HOME/backup.config`, before upgrading {% data variables.product.prodname_enterprise_backup_utilities %}.
+  注意：建议在升级 {% data variables.product.prodname_enterprise_backup_utilities %} 之前在临时位置（如 `$HOME/backup.config`）创建现有 `backup.config` 文件的副本。
 
   {% endnote %}
 
-1. Download the latest project updates by running the `git fetch` command.
+1. 通过运行 `git fetch` 命令下载最新的项目更新。
 
   ```shell
   git fetch
   ```
 
-{% data reusables.enterprise_backup_utilities.enterprise-backup-utils-update-repo %}
-{% data reusables.enterprise_backup_utilities.enterprise-backup-utils-verify-upgrade %}
+{% data reusables.enterprise_backup_utilities.enterprise-backup-utils-update-repo %} {% data reusables.enterprise_backup_utilities.enterprise-backup-utils-verify-upgrade %}
 
-### Using Git instead of compressed archives for upgrades
+### 使用 Git 而不是压缩存档进行升级
 
-If your backup host has internet connectivity and you previously used a compressed archive (`.tar.gz`) to install or upgrade {% data variables.product.prodname_enterprise_backup_utilities %}, we recommend using a Git repository for your installation instead. Upgrading using Git requires less work and preserves your backup configuration.
+如果备份主机具有 Internet 连接，并且你之前使用了压缩存档 (`.tar.gz`) 来安装或升级 {% data variables.product.prodname_enterprise_backup_utilities %}，建议改用 Git 存储库进行安装。 使用 Git 进行升级需要执行的工作量更少，并可保留备份配置。
 
 {% data reusables.enterprise_backup_utilities.enterprise-backup-utils-directory %}
-1. To back up your existing {% data variables.product.prodname_enterprise_backup_utilities %} configuration, copy your current `backup.config` file to a safe location, such as your home directory.
+1. 若要备份现有 {% data variables.product.prodname_enterprise_backup_utilities %} 配置，请将当前 `backup.config` 文件复制到安全位置，例如主目录。
 
   ```
   $ cp backup.config $HOME/backup.config.saved-$(date +%Y%m%d-%H%M%S)
   ```
 
-1. Change to the local directory on your backup host where you want to install the {% data variables.product.prodname_enterprise_backup_utilities %} Git repository.
-1. To clone the [project repository](https://github.com/github/backup-utils/) to the directory on your backup host, run the following command.
+1. 更改为备份主机上要安装 {% data variables.product.prodname_enterprise_backup_utilities %} Git 存储库的本地目录。
+1. 若要将[项目存储库](https://github.com/github/backup-utils/)克隆到备份主机上的目录，请运行以下命令。
 
   ```
   git clone https://github.com/github/backup-utils.git
   ```
-1. To change into the cloned repository, run the following command.
+1. 若要更改为克隆的存储库，请运行以下命令。
 
   ```
   cd backup-utils
   ```
 {% data reusables.enterprise_backup_utilities.enterprise-backup-utils-update-repo %}
-1. To restore your backup configuration from earlier, copy your existing backup configuration file to the local repository directory. Replace the path in the command with the location of the file saved in step 2.
+1. 若要还原之前的备份配置，请将现有备份配置文件复制到本地存储库目录。 将命令中的路径替换为步骤 2 中保存的文件的位置。
 
   ```
   $ cp PATH/TO/BACKUP/FROM/STEP/2 backup.config
@@ -182,44 +186,44 @@ If your backup host has internet connectivity and you previously used a compress
   
   {% note %}
 
-  **Note:** You can choose where to restore your backup configuration file to after cloning. For more information about where configuration files can be located, see [Getting started](https://github.com/github/backup-utils/blob/master/docs/getting-started.md) in the {% data variables.product.prodname_enterprise_backup_utilities %} project documentation.
+  注意：可以选择在克隆后将备份配置文件还原到的位置。 有关可放置配置文件的位置的详细信息，请参阅 {% data variables.product.prodname_enterprise_backup_utilities %} 项目文档中的[入门指南](https://github.com/github/backup-utils/blob/master/docs/getting-started.md)。
 
   {% endnote %}
 
-1. To confirm that the paths to directories or scripts in your backup configuration file are correct, review the file in a text editor.
+1. 若要确认指向备份配置文件中目录或脚本的路径是否正确，请查看文本编辑器中的文件。
 {% data reusables.enterprise_backup_utilities.enterprise-backup-utils-verify-upgrade %}
-1. Delete your old GitHub Enterprise Server Backup Utilities directory from step 1 (where the compressed archive installation was located).
+1. 删除步骤 1 中的旧 GitHub Enterprise Server 备份实用程序目录（压缩存档安装所在的位置）。
 
-## Scheduling a backup
+## 排定备份
 
-You can schedule regular backups on the backup host using the `cron(8)` command or a similar command scheduling service. The configured backup frequency will dictate the worst case recovery point objective (RPO) in your recovery plan. For example, if you have scheduled the backup to run every day at midnight, you could lose up to 24 hours of data in a disaster scenario. We recommend starting with an hourly backup schedule, guaranteeing a worst case maximum of one hour of data loss if the primary site data is destroyed.
+可以使用 `cron(8)` 命令或类似的命令调度服务在备份主机上调度定期备份。 配置的备份频率将决定您的恢复计划中的最坏情况恢复点目标 (RPO)。 例如，如果您已排定在每天午夜运行备份，则在发生灾难的情况下，可能丢失长达 24 小时的数据。 建议在开始时采用每小时备份日程，从而确保在主要站点数据受到破坏时，最坏情况下最多会丢失一小时的数据。
 
-If backup attempts overlap, the `ghe-backup` command will abort with an error message, indicating the existence of a simultaneous backup. If this occurs, we recommended decreasing the frequency of your scheduled backups. For more information, see the "Scheduling backups" section of the [{% data variables.product.prodname_enterprise_backup_utilities %} README](https://github.com/github/backup-utils#scheduling-backups) in the {% data variables.product.prodname_enterprise_backup_utilities %} project documentation.
+如果备份尝试重叠，`ghe-backup` 命令将以错误消息中止，指示存在同时备份。 如果出现这种情况，建议降低已排定的备份的频率。 有关详细信息，请参阅 {% data variables.product.prodname_enterprise_backup_utilities %} 项目文档中的 [{% data variables.product.prodname_enterprise_backup_utilities %} README](https://github.com/github/backup-utils#scheduling-backups) 的“计划备份”部分。
 
-## Restoring a backup
+## 还原备份
 
-In the event of prolonged outage or catastrophic event at the primary site, you can restore {% data variables.location.product_location %} by provisioning another {% data variables.product.prodname_enterprise %} appliance and performing a restore from the backup host. You must add the backup host's SSH key to the target {% data variables.product.prodname_enterprise %} appliance as an authorized SSH key before restoring an appliance.
-
-{% note %}
-
-**Note:** When performing backup restores to {% data variables.location.product_location %}, the same version supportability rules apply. You can only restore data from at most two feature releases behind.
-
-For example, if you take a backup from {% data variables.product.product_name %} 3.0.x, you can restore the backup to a {% data variables.product.product_name %} 3.2.x instance. You cannot restore data from a backup of {% data variables.product.product_name %} 2.22.x to an instance running 3.2.x, because that would be three jumps between versions (2.22 to 3.0 to 3.1 to 3.2). You would first need to restore to an instance running 3.1.x, and then upgrade to 3.2.x.
-
-{% endnote %}
-
-To restore {% data variables.location.product_location %} from the last successful snapshot, use the `ghe-restore` command.
+如果主站点发生长时间故障或灾难性事件，则可以通过预配另一台 {% data variables.product.prodname_enterprise %} 设备并从备份主机执行还原 {% data variables.product.product_location %}。 在还原设备之前，您必须将备份主机的 SSH 密钥作为已授权 SSH 密钥添加到目标 {% data variables.product.prodname_enterprise %} 设备。
 
 {% note %}
 
-**Note:** Prior to restoring a backup, ensure:
-- Maintenance mode is enabled on the primary instance and all active processes have completed. For more information, see "[Enabling maintenance mode](/enterprise/admin/guides/installation/enabling-and-scheduling-maintenance-mode/)."
-- Replication is stopped on all replicas in high availability configurations. For more information, see the `ghe-repl-stop` command in "[About high availability configuration](/admin/enterprise-management/configuring-high-availability/about-high-availability-configuration#ghe-repl-stop)."
-- If {% data variables.location.product_location %} has {% data variables.product.prodname_actions %} enabled, you must first configure the {% data variables.product.prodname_actions %} external storage provider on the replacement appliance. For more information, see "[Backing up and restoring {% data variables.product.prodname_ghe_server %} with {% data variables.product.prodname_actions %} enabled](/admin/github-actions/backing-up-and-restoring-github-enterprise-server-with-github-actions-enabled)."
+**注意：** 当执行备份还原到 {% data variables.product.product_location %} 时，同样的版本支持性规则也适用。 您最多只能从后面两个功能版本恢复数据。
+
+例如，如果从 {% data variables.product.product_name %} 3.0.x 获取备份，则可以将备份还原到 {% data variables.product.product_name %} 3.2.x 实例。 无法将数据从 {% data variables.product.product_name %} 2.22.x 的备份还原到运行 3.2.x 的实例，因为这样会跨过三个版本（2.22 到 3.0 到 3.1 到 3.2）。 需要先还原到运行 3.1.x 的实例，然后升级到 3.2.x。
 
 {% endnote %}
 
-When running the `ghe-restore` command, you should see output similar to this:
+若要从上次成功快照还原 {% data variables.product.product_location %}，请使用 `ghe-restore` 命令。
+
+{% note %}
+
+注意：还原备份之前，请确保：
+- 在主实例上启用了维护模式，并且所有活动进程都已完成。 有关详细信息，请参阅“[启用维护模式](/enterprise/admin/guides/installation/enabling-and-scheduling-maintenance-mode/)”。
+- 在高可用性配置中的所有副本上停止复制。 有关详细信息，请参阅“[关于高可用性配置](/admin/enterprise-management/configuring-high-availability/about-high-availability-configuration#ghe-repl-stop)”中的 `ghe-repl-stop` 命令。
+- 如果 {% data variables.product.product_location %} 启用了 {% data variables.product.prodname_actions %}，则必须在替换设备上配置 {% data variables.product.prodname_actions %} 外部存储提供程序。 有关详细信息，请参阅“[在启用 {% data variables.product.prodname_actions %} 的情况下备份和还原 {% data variables.product.prodname_ghe_server %}](/admin/github-actions/backing-up-and-restoring-github-enterprise-server-with-github-actions-enabled)”。
+
+{% endnote %}
+
+运行 `ghe-restore` 命令之后，你应该会看到类似于以下内容的输出：
 
 ```shell
 $ ghe-restore -c 169.154.1.1
@@ -238,20 +242,15 @@ $ ghe-restore -c 169.154.1.1
 > Visit https://169.154.1.1/setup/settings to review appliance configuration.
 ```
 
-{% ifversion ip-exception-list %}
-Optionally, to validate the restore, configure an IP exception list to allow access to a specified list of IP addresses. For more information, see "[Validating changes in maintenance mode using the IP exception list](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode#validating-changes-in-maintenance-mode-using-the-ip-exception-list)."
+{% ifversion ip-exception-list %}（可选）若要验证还原，请配置 IP 例外列表以允许访问指定 IP 地址列表。 有关详细信息，请参阅“[使用 IP 异常列表在维护模式下验证更改](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode#validating-changes-in-maintenance-mode-using-the-ip-exception-list)”。
 {% endif %}
 
 {% note %}
 
-**Note:** 
-
-- The network settings are excluded from the backup snapshot. You must manually configure the network on the target {% data variables.product.prodname_ghe_server %} appliance as required for your environment.
-
-- When restoring to new disks on an existing or empty {% data variables.product.prodname_ghe_server %} instance, stale UUIDs may be present, resulting in Git and/or Alambic replication reporting as out of sync. Stale server entry IDs can be the result of a retired node in a high availability configuration still being present in the application database, but not in the restored replication configuration. To remediate, stale UUIDs can be torn down using `ghe-repl-teardown` once the restore has completed and prior to starting replication. In this scenario, contact {% data variables.contact.contact_ent_support %} for further assistance.
+**注意：** 网络设置会排除在备份快照之外。 您必须根据环境的要求在目标 {% data variables.product.prodname_ghe_server %} 设备上手动配置网络。
 
 {% endnote %}
 
-You can use these additional options with `ghe-restore` command:
-- The `-c` flag overwrites the settings, certificate, and license data on the target host even if it is already configured. Omit this flag if you are setting up a staging instance for testing purposes and you wish to retain the existing configuration on the target. For more information, see the "Using backup and restore commands" section of the [{% data variables.product.prodname_enterprise_backup_utilities %} README](https://github.com/github/backup-utils#using-the-backup-and-restore-commands) in the {% data variables.product.prodname_enterprise_backup_utilities %} project documentation.
-- The `-s` flag allows you to select a different backup snapshot.
+可以使用 `ghe-restore` 命令使用这些附加选项：
+- 即使已配置 `-c` 标志，该标志也会覆盖目标主机上的设置、证书和许可证数据。 如果您要为测试设置暂存实例，并且希望在目标设备上保留现有配置，请省略此标志。 有关详细信息，请参阅 {% data variables.product.prodname_enterprise_backup_utilities %} 项目文档中的 [{% data variables.product.prodname_enterprise_backup_utilities %} README](https://github.com/github/backup-utils#using-the-backup-and-restore-commands) 的“使用备份和还原命令”部分。
+- `-s` 标志让你能够选择不同的备份快照。

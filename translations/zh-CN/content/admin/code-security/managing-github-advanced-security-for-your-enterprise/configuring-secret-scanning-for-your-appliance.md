@@ -1,7 +1,7 @@
 ---
-title: Configuring secret scanning for your appliance
+title: 为设备配置密码扫描
 shortTitle: Configuring secret scanning
-intro: 'You can enable, configure, and disable {% data variables.product.prodname_secret_scanning %} for {% data variables.location.product_location %}. {% data variables.product.prodname_secret_scanning_caps %} allows users to scan code for accidentally committed secrets.'
+intro: '您可以为 {% data variables.product.product_location %} 启用、配置和禁用 {% data variables.product.prodname_secret_scanning %}。 {% data variables.product.prodname_secret_scanning_caps %} 允许用户扫描代码以寻找意外泄露的密码。'
 product: '{% data reusables.gated-features.secret-scanning %}'
 miniTocMaxHeadingLevel: 3
 redirect_from:
@@ -15,59 +15,58 @@ topics:
   - Enterprise
   - Secret scanning
   - Security
+ms.openlocfilehash: c44d724293b970ff3075deb1befb2f0eae427d5c
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147066319'
 ---
-
 {% data reusables.secret-scanning.beta %}
 
-## About {% data variables.product.prodname_secret_scanning %}
+## 关于 {% data variables.product.prodname_secret_scanning %}
 
-If someone checks a secret with a known pattern into a repository, {% data variables.product.prodname_secret_scanning %} catches the secret as it's checked in, and helps you mitigate the impact of the leak. Repository administrators are notified about any commit that contains a secret, and they can quickly view all detected secrets in the Security tab for the repository. For more information, see "[About {% data variables.product.prodname_secret_scanning %}](/code-security/secret-scanning/about-secret-scanning)."
+如果有人将使用已知模式的机密签入存储库，{% data variables.product.prodname_secret_scanning %} 会在签入机密时对其进行捕获，帮助降低机密被泄的影响。 仓库管理员会收到包含密码的任何提交的通知， 然后他们可以快速查看仓库安全选项卡中所有检测到的密码。 有关详细信息，请参阅“[关于 {% data variables.product.prodname_secret_scanning %}](/code-security/secret-scanning/about-secret-scanning)”。
 
-## Checking whether your license includes {% data variables.product.prodname_GH_advanced_security %}
+## 检查您的许可是否包含 {% data variables.product.prodname_GH_advanced_security %}
 
 {% data reusables.advanced-security.check-for-ghas-license %}
 
-## Prerequisites for {% data variables.product.prodname_secret_scanning %}
+## {% data variables.product.prodname_secret_scanning %} 的前提条件
 
-- The [SSSE3](https://www.intel.com/content/dam/www/public/us/en/documents/manuals/64-ia-32-architectures-optimization-manual.pdf#G3.1106470) (Supplemental Streaming SIMD Extensions 3) CPU flag needs to be enabled on the VM/KVM that runs {% data variables.location.product_location %}.
+- [SSSE3](https://www.intel.com/content/dam/www/public/us/en/documents/manuals/64-ia-32-architectures-optimization-manual.pdf#G3.1106470)（补充流式处理 SIMD 扩展 3）CPU 标志需要在运行 {% data variables.product.product_location %} 的 VM/KVM 上启用。
 
-- A license for {% data variables.product.prodname_GH_advanced_security %}{% ifversion ghes %} (see "[About billing for {% data variables.product.prodname_GH_advanced_security %}](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)"){% endif %}
+- {% data variables.product.prodname_GH_advanced_security %}{% ifversion ghes %} 的许可证（请参阅“[关于 {% data variables.product.prodname_GH_advanced_security %} 的计费](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)”）{% endif %}
 
-- {% data variables.product.prodname_secret_scanning_caps %} enabled in the management console (see "[Enabling {% data variables.product.prodname_GH_advanced_security %} for your enterprise](/admin/advanced-security/enabling-github-advanced-security-for-your-enterprise)")
+- 在管理控制台中启用的 {% data variables.product.prodname_secret_scanning_caps %}（请参阅“[为企业启用 {% data variables.product.prodname_GH_advanced_security %}](/admin/advanced-security/enabling-github-advanced-security-for-your-enterprise)”）
 
-### Checking support for the SSSE3 flag on your vCPUs
+### 检查您的 vCPU 上的 SSSE3 标志的支持
 
-The SSSE3 set of instructions is required because {% data variables.product.prodname_secret_scanning %} leverages hardware accelerated pattern matching to find potential credentials committed to your {% data variables.product.prodname_dotcom %} repositories. SSSE3 is enabled for most modern CPUs. You can check whether SSSE3 is enabled for the vCPUs available to your {% data variables.product.prodname_ghe_server %} instance.
+SSSE3 指令集是必需的，因为 {% data variables.product.prodname_secret_scanning %} 利用硬件加速模式匹配来查找提交给 {% data variables.product.prodname_dotcom %} 仓库的潜在凭据。 大多数现代 CPU 都启用了 SSSE3。 您可以检查您的 {% data variables.product.prodname_ghe_server %} 实例的可用 vCPU 是否启用了 SSSE3。
 
-1. Connect to the administrative shell for your {% data variables.product.prodname_ghe_server %} instance. For more information, see "[Accessing the administrative shell (SSH)](/admin/configuration/accessing-the-administrative-shell-ssh)."
-2. Enter the following command:
+1. 连接到 {% data variables.product.prodname_ghe_server %} 实例的管理 shell。 有关详细信息，请参阅“[访问管理 shell (SSH)](/admin/configuration/accessing-the-administrative-shell-ssh)”。
+2. 输入以下命令：
 
    ```shell
    grep -iE '^flags.*ssse3' /proc/cpuinfo >/dev/null | echo $?
    ```
 
-   If this returns the value `0`, it means that the SSSE3 flag is available and enabled. You can now enable {% data variables.product.prodname_secret_scanning %} for {% data variables.location.product_location %}. For more information, see "[Enabling {% data variables.product.prodname_secret_scanning %}](#enabling-secret-scanning)" below.
+   如果返回值 `0`，则意味着 SSSE3 标志可用并且已启用。 您现在可以为 {% data variables.product.product_location %} 启用 {% data variables.product.prodname_secret_scanning %}。 有关详细信息，请参阅下面的“[启用 {% data variables.product.prodname_secret_scanning %}](#enabling-secret-scanning)”。
 
-   If this doesn't return `0`, SSSE3 is not enabled on your VM/KVM. You need to refer to the documentation of the hardware/hypervisor on how to enable the flag, or make it available to guest VMs.
+   如果不返回 `0`，则 SSSE3 未在 VM/KVM 上启用。 您需要参考硬件/虚拟机监控程序的文档，以了解如何启用该标志，或者如何使其可用于访客 VM。
 
-## Enabling {% data variables.product.prodname_secret_scanning %}
-
-{% data reusables.enterprise_management_console.enable-disable-security-features %}
-
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.management-console %}
-{% data reusables.enterprise_management_console.advanced-security-tab %}
-1. Under "Security," click **{% data variables.product.prodname_secret_scanning_caps %}**.
-![Checkbox to enable or disable {% data variables.product.prodname_secret_scanning %}](/assets/images/enterprise/management-console/enable-secret-scanning-checkbox.png)
-{% data reusables.enterprise_management_console.save-settings %}
-
-## Disabling {% data variables.product.prodname_secret_scanning %}
+## 启用 {% data variables.product.prodname_secret_scanning %}
 
 {% data reusables.enterprise_management_console.enable-disable-security-features %}
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.management-console %}
-{% data reusables.enterprise_management_console.advanced-security-tab %}
-1. Under "Security," unselect **{% data variables.product.prodname_secret_scanning_caps %}**.
-![Checkbox to enable or disable {% data variables.product.prodname_secret_scanning %}](/assets/images/enterprise/management-console/secret-scanning-disable.png)
-{% data reusables.enterprise_management_console.save-settings %}
+{% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.enterprise_site_admin_settings.management-console %} {% data reusables.enterprise_management_console.advanced-security-tab %}
+1. 在“安全性”下，单击 {% data variables.product.prodname_secret_scanning_caps %}。
+![用于启用或禁用 {% data variables.product.prodname_secret_scanning %}](/assets/images/enterprise/management-console/enable-secret-scanning-checkbox.png) {% data reusables.enterprise_management_console.save-settings %} 的复选框
+
+## 禁用 {% data variables.product.prodname_secret_scanning %}
+
+{% data reusables.enterprise_management_console.enable-disable-security-features %}
+
+{% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.enterprise_site_admin_settings.management-console %} {% data reusables.enterprise_management_console.advanced-security-tab %}
+1. 在“安全性”下，取消选择 {% data variables.product.prodname_secret_scanning_caps %}。
+![用于启用或禁用 {% data variables.product.prodname_secret_scanning %}](/assets/images/enterprise/management-console/secret-scanning-disable.png) {% data reusables.enterprise_management_console.save-settings %} 的复选框

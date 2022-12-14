@@ -22,12 +22,12 @@ redirect_from:
   - /admin/authentication/managing-identity-and-access-for-your-enterprise/about-identity-and-access-management-for-your-enterprise
   - /admin/identity-and-access-management/managing-iam-for-your-enterprise/about-identity-and-access-management-for-your-enterprise
   - /admin/identity-and-access-management/using-saml-for-enterprise-iam/about-identity-and-access-management-for-your-enterprise
-ms.openlocfilehash: d719ef81948cef75018b0976fc97ef45c267469f
-ms.sourcegitcommit: c562c85cc75ffe1eb4e9595d8adc09ec71697ab1
+ms.openlocfilehash: ea9db1269f389bdc126c8693ffeeb4b11dc42f99
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/22/2022
-ms.locfileid: '148180030'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148192690'
 ---
 ## {% ifversion ghec or ghes %}{% data variables.location.product_location %}{% elsif ghae %}{% data variables.product.product_name %}{% endif %}{% ifversion ghec or ghae %} 上のエンタープライズ{% endif %}の SAML SSO について
 
@@ -45,11 +45,11 @@ Enterprise メンバーが {% data variables.location.product_location %} 上で
 
 SAML SSO を有効にした後、使用する IdP によっては、追加のアイデンティおよびアクセス管理機能を有効にできる場合があります。 
 
-IdP として Azure AD を使用している場合は、Team 同期を使用して、各 Organization 内の Team メンバーシップを管理できます。 {% data reusables.identity-and-permissions.about-team-sync %} 詳細については、[エンタープライズ アカウントでの組織のチーム同期の管理](/admin/authentication/managing-identity-and-access-for-your-enterprise/managing-team-synchronization-for-organizations-in-your-enterprise)に関するページを参照してください。
+IdP として Azure AD を使用している場合は、Team 同期を使用して、各 Organization 内の Team メンバーシップを管理できます。 {% data reusables.identity-and-permissions.about-team-sync %}
 
 {% note %}
 
-**注:** {% data variables.product.prodname_emus %} に対してエンタープライズが有効ではない場合、エンタープライズ レベルでは SCIM を使用できません。
+**注:** {% data variables.product.prodname_emus %} を使用する目的でアカウントが作成されたのでなければ、エンタープライズ アカウントに SCIM を構成できません。 詳細については、「[{% data variables.product.prodname_emus %} について](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users)」を参照してください。
 
 {% endnote %}
 
@@ -61,23 +61,37 @@ SAML SSO を使用すると、ユーザーは ID 管理のために外部シス�
 
 SAML は、認証と認可のための XML ベースの標準です。 {% data variables.location.product_location %} の SAML を構成する場合、認証用の外部システムは ID プロバイダー (IdP) と呼ばれます。 インスタンスは SAML サービス プロバイダー (SP) として機能します。 SAML 標準の詳細については、Wikipedia の「[Security Assertion Markup Language](https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language)」を参照してください。
 
-{% data variables.product.product_name %} 上の SAML SSO の構成については、「[エンタープライズ向けの SAML シングル サインオンの構成](/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise)」を参照してください。
+{% elsif ghae %}
 
-{% data reusables.saml.saml-ghes-account-revocation %}
+{% data reusables.saml.ae-uses-saml-sso %} {% data reusables.saml.ae-enable-saml-sso-during-bootstrapping %}
+
+ID プロバイダー (IdP) で {% data variables.product.product_name %} 用にアプリケーションを構成した後は、IdP でユーザーとグループをアプリケーションに割り当てることによって、{% data variables.location.product_location %} へのアクセスをプロビジョニングできます。 {% data variables.product.product_name %} の SAML SSO の詳細については、「[エンタープライズ向けの SAML シングル サインオンの構成](/admin/authentication/configuring-saml-single-sign-on-for-your-enterprise)」を参照してください。
+
+{% endif %}
+
+{% ifversion ghes < 3.6 %}
+
+アプリケーションを割り当てあるいは割り当て解除したときに、IdP は{% data variables.product.product_name %} と自動的に通信はしません。 誰かが初めて {% data variables.product.product_name %} に移動し、あなたの IdP を使って認証してサインインしたときに、{% data variables.product.product_name %} により、SAML Just-in-Time (JIT) プロビジョニングを使ってユーザー アカウントが作成されます。 {% data variables.product.product_name %} へのアクセスを付与するとき、場合によっては、手動でユーザーに通知する必要があります。
+
+{% endif %}
+
+{% ifversion ghes %}
 
 {% data reusables.enterprise_user_management.external_auth_disables_2fa %}
 
 {% data reusables.enterprise_user_management.built-in-authentication %}
 
-{% elsif ghae %}
+{% endif %}
 
-{% data reusables.saml.ae-uses-saml-sso %} {% data reusables.saml.ae-enable-saml-sso-during-bootstrapping %}
+{% data variables.product.product_name %} で SAML SSO を構成する方法に関する詳細については、「[Enterprise 向けの SAML シングルサインオンを設定する](/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise)」を参照してください。 {% ifversion ghec or ghae or scim-for-ghes %} 認証と {% data variables.location.product_location %} の {% ifversion ghae or ghes %}ユーザー{% endif %} プロビジョニングの両方を特定の IdP で構成する方法については、「[Enterprise IAM での SAML の使用](/admin/identity-and-access-management/using-saml-for-enterprise-iam)」の個人 IdP に関する記事を参照してください。 "{% endif %}
 
-ID プロバイダー (IdP) で {% data variables.product.product_name %} 用にアプリケーションを構成した後は、IdP でユーザーとグループにアプリケーションを割り当てることによって、{% data variables.location.product_location %} へのアクセスをプロビジョニングできます。 {% data variables.product.product_name %} の SAML SSO の詳細については、「[エンタープライズ向けの SAML シングル サインオンの構成](/admin/authentication/configuring-saml-single-sign-on-for-your-enterprise)」を参照してください。
+{% ifversion ghae or scim-for-ghes %}
+
+## ユーザー アカウントの作成について
 
 {% data reusables.scim.after-you-configure-saml %} 詳細については、「[エンタープライズ向けのユーザー プロビジョニングの構成](/admin/authentication/configuring-user-provisioning-for-your-enterprise)」を参照してください。
 
-特定の IdP で {% data variables.location.product_location %} 用に認証とユーザー プロビジョニングの両方を構成する方法については、「[ID プロバイダーでの認証とプロビジョニングの構成](/admin/authentication/configuring-authentication-and-provisioning-with-your-identity-provider)」をご覧ください。
+{% data reusables.saml.saml-ghes-account-revocation %}
 
 {% endif %}
 
@@ -128,6 +142,6 @@ IdP として Okta を使う場合は、Okta グループを {% data variables.p
 
 ## 参考資料
 
-- OASIS の Web サイトの [SAML Wiki](https://wiki.oasis-open.org/security)
-- IETF の Web サイトの[クロスドメイン ID 管理のためのシステム: プロトコル (RFC 7644)](https://tools.ietf.org/html/rfc7644) に関する説明{%- ifversion ghae %}
+- OASIS Web サイトの [SAML Wiki](https://wiki.oasis-open.org/security) {%- ifversion ghae or scim-for-ghes %}
+- IETF の Web サイトの[クロスドメイン ID 管理のためのシステム: プロトコル (RFC 7644)](https://tools.ietf.org/html/rfc7644) に関する説明 {%- endif %} {%- ifversion ghae %}
 - [IP 許可リストを使用してエンタープライズへのネットワーク トラフィックを制限する](/admin/configuration/configuring-your-enterprise/restricting-network-traffic-to-your-enterprise-with-an-ip-allow-list){%- endif %}

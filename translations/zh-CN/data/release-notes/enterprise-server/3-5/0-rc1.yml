@@ -3,419 +3,495 @@ release_candidate: true
 deprecated: true
 intro: |
   {% note %}
-
-  **Note:** If {% data variables.location.product_location %} is running a release candidate build, you can't upgrade with a hotpatch. We recommend only running release candidates on test environments.
-
+  
+  注意：如果 {% data variables.product.product_location %} 正在运行候选发布版本，则无法使用热补丁升级。****建议仅在测试环境中运行候选发布版本。
+  
   {% endnote %}
-
-  For upgrade instructions, see "[Upgrading {% data variables.product.prodname_ghe_server %}](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server)."
+  
+  有关升级说明，请参阅“[升级 {% data variables.product.prodname_ghe_server %}](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server)”。
 sections:
   features:
-    - heading: IP exception list for validation testing after maintenance
+    - heading: 用于在维护后验证测试的 IP 例外列表
       notes:
         # https://github.com/github/releases/issues/2109
-        - |
-          You can now configure an allow list of IP addresses that can access application services on your GitHub Enterprise Server instance while maintenance mode is enabled. Administrators who visit the instance's web interface from an allowed IP address can validate the instance's functionality post-maintenance and before disabling maintenance mode. For more information, see "[Enabling and scheduling maintenance mode](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode#validating-changes-in-maintenance-mode-using-the-ip-exception-list)."
+        - |现在，你可以在启用维护模式的情况下，配置可以访问 GitHub Enterprise Server 实例上应用程序服务的 IP 地址允许列表。从允许 IP 地址访问实例的 Web 界面的管理员可以在维护后和禁用维护模式之前验证实例的功能。有关详细信息，请参阅“[启用和调度维护模式](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode#validating-changes-in-maintenance-mode-using-the-ip-exception-list)”。
 
-    - heading: Custom repository roles are generally available
+|
+    - heading: 通常可以使用自定义存储库角色
       notes:
         # https://github.com/github/releases/issues/1945
-        - |
-          With custom repository roles, organizations now have more granular control over the repository access permissions they can grant to users. For more information, see "[Managing custom repository roles for an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)."
+        - |通过自定义存储库角色，组织现在可以对授予用户的存储库访问权限进行更精细的控制。有关详细信息，请参阅“[管理组织的自定义存储库角色](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)”。
 
-          A custom repository role is created by an organization owner, and is available across all repositories in that organization. Each role can be given a custom name, and a description. It can be configured from a set of over 40 fine grained permissions. Once created, repository admins can assign a custom role to any user, team or outside collaborator in their repository.
 
-          Custom repository roles can be created, viewed, edited and deleted via the new **Repository roles** tab in an organization's settings. A maximum of 3 custom roles can be created within an organization. 
 
-          Custom repository roles are also fully supported in the GitHub Enterprise Server REST APIs. The Organizations API can be used to list all custom repository roles in an organization, and the existing APIs for granting repository access to individuals and teams have been extended to support custom repository roles. For more information, see "[Organizations](/rest/reference/orgs#list-custom-repository-roles-in-an-organization)" in the REST API documentation.
+自定义存储库角色由组织所有者创建，并可跨该组织中的所有存储库使用。每个角色都可以指定自定义名称和说明。可以从一组超过 40 个细粒度权限对其进行配置。创建角色后，存储库管理员可以将自定义角色分配给存储库中的任何用户、团队或外部协作者。
 
-    - heading: GitHub Container registry in public beta 
+
+
+通过组织设置中的新**“存储库角色”**选项卡，可以创建、查看、编辑和删除自定义存储库角色。最多可在组织中创建 3 个自定义角色。
+
+
+
+自定义存储库角色在 GitHub Enterprise Server REST API 中也完全受支持。组织 API 可用于列出组织中的所有自定义存储库角色，并且已扩展了向个人和团队授予存储库访问权限的现有 API，以支持自定义存储库角色。有关详细信息，请参阅 REST API 文档中的“[组织](/rest/reference/orgs#list-custom-repository-roles-in-an-organization)”。
+
+|
+    - heading: 公共 beta 版本中的 GitHub 容器注册表 
       notes: 
         # https://github.com/github/releases/issues/2005
-         - |
-           The GitHub Container registry (GHCR) is now available in GitHub Enterprise Server 3.5 as a public beta, offering developers the ability to publish, download, and manage containers. GitHub Packages container support implements the OCI standards for hosting Docker images. For more information, see "[GitHub Container registry](/packages/working-with-a-github-packages-registry/working-with-the-container-registry)."
-    
-    - heading: Dependabot updates are generally available
+         - |GitHub 容器注册表 (GHCR) 现在 GitHub Enterprise Server 3.5 中作为公共 beta 版本提供，为开发人员提供了发布、下载和管理容器的能力。GitHub Packages 容器支持实现托管 Docker 映像的 OCI 标准。有关详细信息，请参阅“[GitHub 容器注册表](/packages/working-with-a-github-packages-registry/working-with-the-container-registry)”。
+
+|
+    - heading: Dependabot 更新已正式发布。
       notes:
        # https://github.com/github/releases/issues/2089
-        - |
-          Dependabot version and security updates are now generally available in GitHub Enterprise Server 3.5. All the popular ecosystems and features that work on GitHub.com repositories now can be set up on your GitHub Enterprise Server instance. Dependabot on GitHub Enterprise Server requires GitHub Actions and a pool of self-hosted Dependabot runners, GitHub Connect enabled, and Dependabot enabled by an admin. For more information, see "[Setting up Dependabot updates](https://docs.github.com/en/enterprise-server@3.5/admin/github-actions/enabling-github-actions-for-github-enterprise-server/setting-up-dependabot-updates)."
+        - |Dependabot 版本和安全更新现在 GitHub Enterprise Server 3.5 中正式发布。所有在 GitHub.com 存储库上运行的热门生态系统和功能现在可以在 GitHub Enterprise Server 实例上设置。GitHub Enterprise Server 上的 Dependabot 需要 GitHub Actions 和自承载 Dependabot 运行器池，启用 GitHub Connect，并由管理员启用 Dependabot。有关详细信息，请参阅“[设置 Dependabot 更新](https://docs.github.com/en/enterprise-server@3.5/admin/github-actions/enabling-github-actions-for-github-enterprise-server/setting-up-dependabot-updates)”。
 
-
-
-    - heading: Server Statistics in public beta
+|
+    - heading: 公共 beta 版中的服务器统计信息
       notes:
         # https://github.com/github/releases/issues/2183
-        - |
-          You can now analyze how your team works, understand the value you get from GitHub Enterprise Server, and help us improve our products by reviewing your instance's usage data and sharing this aggregate data with GitHub. You can use your own tools to analyze your usage over time by downloading your data in a CSV or JSON file or by accessing it using the REST API. To see the list of aggregate metrics collected, see "[About Server Statistics](/admin/monitoring-activity-in-your-enterprise/analyzing-how-your-team-works-with-server-statistics/about-server-statistics#server-statistics-data-collected)." Server Statistics data includes no personal data nor GitHub content, such as code, issues, comments, or pull requests content.  For a better understanding of how we store and secure Server Statistics data, see "[GitHub Security](https://github.com/security)."  For more information about Server Statistics, see "[Analyzing how your team works with Server Statistics](/admin/monitoring-activity-in-your-enterprise/analyzing-how-your-team-works-with-server-statistics)." This feature is available in public beta.
+        - |现在可以分析团队的工作方式，了解你从 GitHub Enterprise Server 中获得的价值，并通过审查实例的使用情况数据和与 GitHub 共享这些聚合数据来帮助我们改进产品。通以 CSV 或 JSON 文件形式下载数据，或者使用 REST API 访问数据，你可以使用自己的工具来分析一段时间的使用情况。要查看收集的聚合指标列表，请参阅“[关于服务器统计信息](/admin/monitoring-activity-in-your-enterprise/analyzing-how-your-team-works-with-server-statistics/about-server-statistics#server-statistics-data-collected)”。 服务器统计数据不包括个人数据或 GitHub 内容，如代码、问题、评论或拉取请求内容。 若要更好地了解如何存储和保护服务器统计信息数据，请参阅“[GitHub 安全性](https://github.com/security)”。  有关服务器统计信息的详细信息，请参阅“[分析团队如何使用服务器统计信息](/admin/monitoring-activity-in-your-enterprise/analyzing-how-your-team-works-with-server-statistics)”。 此功能目前以公共 beta 版本提供。
 
-    - heading: GitHub Actions rate limiting is now configurable
+|
+    - heading: GitHub Actions 速率限制现可配置
       notes:
         # https://github.com/github/releases/issues/2123
-        - |
-          Site administrators can now enable and configure a rate limit for GitHub Actions. By default, the rate limit is disabled. When workflow jobs cannot immediately be assigned to an available runner, they will wait in a queue until a runner is available. However, if GitHub Actions experiences a sustained high load, the queue can back up faster than it can drain and the performance of the GitHub Enterprise Server instance may degrade. To avoid this, an administrator can configure a rate limit. When the rate limit is exceeded, additional workflow runs will fail immediately rather than being put in the queue. Once the rate has stabilized below the threshold, new runs can be queued again. For more information, see "[Configuring rate limits](/admin/configuration/configuring-your-enterprise/configuring-rate-limits#configuring-rate-limits-for-github-actions)."
+        - |站点管理员现在可以为 GitHub Actions 启用和配置速率限制。默认情况下，速率限制处于禁用状态。如果工作流作业不能立即分配给可用的运行器，那么它们将在队列中等待，直到运行器可用。然而，如果 GitHub Actions 遇到持续高负载，队列的备份速度可能比它的耗尽速度要快，并且 GitHub Enterprise Server 实例的性能可能会下降。为了避免这种情况，管理员可以配置速率限制。当超过速率限制时，额外的工作流运行将立即失败，而不是放入队列中。一旦速率稳定在阈值以下，新运行可以再次排队。有关详细信息，请参阅“[配置速率限制](/admin/configuration/configuring-your-enterprise/configuring-rate-limits#configuring-rate-limits-for-github-actions)”。
 
-    - heading: OpenID Connect (OIDC) for secure deployments with GitHub Actions
+|
+    - heading: OpenID Connect (OIDC) 用于 GitHub Actions 的安全部署
       notes:
         # https://github.com/github/releases/issues/2066
-        - |
-          GitHub Actions on GitHub Enterprise Server now supports OIDC for secure deployments to cloud providers, which uses short-lived tokens that are automatically rotated for each deployment. OIDC enables the following functionality.
+        - |GitHub Enterprise Server 上的 GitHub Actions 现支持 OIDC，以安全部署到云提供商，它使用为每次部署自动轮换的短期令牌。OIDC 支持以下功能。
 
-          - Seamless authentication between cloud providers and GitHub Enterprise Server without the need for storing any long-lived cloud secrets on your instance
-          - Cloud administrators can rely on the security mechanisms of a particular cloud provider to ensure that GitHub Actions workflows have minimal access to cloud resources. There is no duplication of secret management between GitHub Enterprise Server and the cloud.
-          
-          For more information, see "[Security hardening your deployments](/actions/deployment/security-hardening-your-deployments)."
 
-    - heading: Sharing GitHub Actions within your enterprise is generally available
+
+- 云供应商和 GitHub Enterprise Server 之间的无缝身份验证，无需在你的实例上存储任何长期云机密
+
+- 云管理员可以依赖特定云提供商的安全机制，以确保 GitHub Actions 工作流对云资源拥有最小访问权限。在 GitHub Enterprise Server 和云之间没有重复的机密管理。
+
+
+
+有关详细信息，请参阅“[安全强化你的部署](/actions/deployment/security-hardening-your-deployments)”。
+
+|
+    - heading: 在企业内共享 GitHub Actions 正式发布
       notes:
         # https://github.com/github/releases/issues/2085
-        - |
-          Support for GitHub Actions in internal repositories is now generally available for organizations on your GitHub Enterprise Server instance. You can innersource automation by sharing actions in internal repositories. You can manage a repository's settings or use the REST API to allow access to workflows in other repositories within the organization or in any organization on the instance. For more information, see "[Sharing actions and workflows with your enterprise](/actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise)," "[Managing GitHub Actions settings for a repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#allowing-access-to-components-in-an-internal-repository)," and "[Actions Permissions](/rest/actions/permissions#get-the-level-of-access-for-workflows-outside-of-the-repository)" in the REST API documentation.
-    
-    - heading: Cache support for GitHub Actions on GitHub Enterprise Server is now generally available
+        - |内部存储库中对 GitHub Actions 的支持现在在 GitHub Enterprise Server 实例中正式发布。可以通过在内部存储库中共享操作来内源自动化。可以管理存储库的设置，或者使用 REST API 来允许访问组织内或实例上任何组织中其他存储库中的工作流。有关详细信息，请参阅 REST API 文档中的“[与企业共享操作和工作流](/actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise)”、“[管理存储库的 GitHub Actions 设置](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#allowing-access-to-components-in-an-internal-repository)”以及“[操作权限](/rest/actions/permissions#get-the-level-of-access-for-workflows-outside-of-the-repository)”。
+
+|
+    - heading: 在 GitHub Enterprise Server 上对 GitHub Actions 的缓存支持现已正式发布
       notes:
         # https://github.com/github/releases/issues/2110
-        - |
-          You can now use dependency caching to speed up your GitHub Actions workflows. To cache dependencies for a job, you can include the [actions/cache](https://github.com/actions/cache) action to create a cache with a unique key. You can share caches across all workflows in the same repository. These workflows can then restore the cache and run faster.
-
-          Actions users can also use our cache APIs to:
-
-          - Define the enterprise policy for cache size range allowed per repository.
-          - Query the cache usage within each repository and monitor if the total size of all caches is reaching the upper limit.
-          - Increase the maximum cache size for a repository within the allowed enterprise limits, based on the cache requirements of the repository.
-          - Monitor aggregate cache usage at organization level or at enterprise level.
-
-          The external blob storage that is configured within your enterprise account will now be shared across workflow artifacts, logs, and also the caches. For more information, see "[Caching dependencies to speed up workflows](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)."
+        - |现在可以使用依赖缓存来加速 GitHub Actions 工作流。要缓存作业依赖项，可以包括[操作/缓存](https://github.com/actions/cache)操作，以创建具有惟一键的缓存。可以在同一个存储库中的所有工作流之间共享缓存。这些工作流可以恢复缓存并更快地运行。
 
 
-    - heading: Automatically sign commits made in the web UI
+
+Actions 用户还可以使用我们的缓存 API：
+
+
+
+- 为每个存储库允许的缓存大小范围定义企业策略。
+
+- 查询每个存储库内的缓存使用情况，并监视所有缓存的总大小是否达到上限。
+
+- 根据存储库的缓存需求，在允许的企业范围内增加存储库的最大缓存大小。
+
+- 在组织级或企业级监视聚合缓存使用情况。
+
+
+
+在企业帐户中配置的外部 blob 存储现将跨工作流项目、日志和缓存共享。有关详细信息，请参阅“缓存依赖项以加快工作流](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)”。
+
+|
+    - heading: 在 Web UI 中自动签署提交
       notes:
         # https://github.com/github/releases/issues/1963
-        - |
-          You can now configure GitHub Enterprise Server to automatically sign commits made in the web interface, such as from editing a file or merging a pull request. Signed commits increase confidence that changes come from trusted sources. This feature allows the [Require signed commits](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#require-signed-commits) branch protection setting to block unsigned commits from entering a repository, while allowing entry of signed commits – even those made in the web interface. For more information, see "[Configuring web commit signing](/admin/configuration/configuring-your-enterprise/configuring-web-commit-signing)."
+        - |现在可以配置 GitHub Enterprise Server 来自动签署在 Web 界面中提交的文件，比如编辑文件或合并拉取请求。已签名的提交增加了更改来自受信任源的置信度。此功能允许[要求签名提交](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#require-signed-commits)分支保护设置阻止未签名的提交进入存储库，同时允许已签名的提交进入，即使是在 Web 界面中生成的提交也允许。有关详细信息，请参阅“[配置 Web 提交签名](/admin/configuration/configuring-your-enterprise/configuring-web-commit-signing)”。
 
-    - heading: Sync license usage any time
+|
+    - heading: 随时同步许可证使用情况
       notes:
         # https://github.com/github/releases/issues/2201
-        - |
-          For customers that sync license usage between GitHub Enterprise Server and GitHub Enterprise Cloud automatically using GitHub Connect, you now have the ability to sync your license usage independently of the automatic weekly sync. This feature also reports the status of sync job. For more information, see "[Syncing license usage between GitHub Enterprise Server and GitHub Enterprise Cloud](/billing/managing-your-license-for-github-enterprise/syncing-license-usage-between-github-enterprise-server-and-github-enterprise-cloud#manually-syncing-license-usage)."
+        - |对于那些使用 GitHub Connect 在 GitHub Enterprise Server 和 GitHub Enterprise 云之间自动同步许可证使用情况的客户，你现在可以独立于每周自动同步来同步你的许可证使用情况。此功能还报告同步作业的状态。有关详细信息，请参阅“[同步 GitHub Enterprise Server 和 GitHub Enterprise Cloud 之间的许可证使用情况](/billing/managing-your-license-for-github-enterprise/syncing-license-usage-between-github-enterprise-server-and-github-enterprise-cloud#manually-syncing-license-usage)”。
 
-    - heading: Reusable workflows for GitHub Actions are generally available
+|
+    - heading: GitHub Actions 可重用工作流正式发布
       notes:
         # https://github.com/github/releases/issues/1767
         # https://github.com/github/releases/issues/1950
         # https://github.com/github/releases/issues/2114
-          - |
-            Reusable workflows are now generally available. Reusable workflows help you reduce duplication by enabling you to reuse an entire workflow as if it were an action. With the general availability release, a number of improvements are now available for GitHub Enterprise Server. For more information, see "[Reusing workflows](/actions/using-workflows/reusing-workflows)."
-            
-            - You can utilize outputs to pass data from reusable workflows to other jobs in the caller workflow.
-            - You can pass environment secrets to reusable workflows.
-            - The audit log includes information about which reusable workflows are used.
-            - Reusable workflows in the same repository as the calling repository can be referenced with just the path and filename (`PATH/FILENAME`). The called workflow will be from the same commit as the caller workflow.
-          
-    - heading: Self-hosted runners for GitHub Actions can now disable automatic updates
+          - |Power BI 工作流现已正式发布。可重用工作流使你能够像重用操作那样重用整个工作流，从而帮助减少重复工作量。随着正式版本的发布，GitHub Enterprise Server 有了许多改进。有关详细信息，请参阅“[重用工作流](/actions/using-workflows/reusing-workflows)”。
+
+
+
+- 可以利用输出将数据从可重用工作流传递到调用方工作流中的其他作业。
+
+- 可以将环境机密传递给可重用的工作流。
+
+- 审核日志包含使用了哪些可重用工作流的信息。
+
+- 与调用存储库相同存储库中的可重用工作流可以仅通过路径和文件名 (`PATH/FILENAME`) 引用。调用的工作流将来自与调用方工作流相同的提交。
+
+|
+    - heading: GitHub Actions 的自承载运行器现在可以禁用自动更新
       notes:
         # https://github.com/github/releases/issues/2014
-        - |
-          You now have more control over when your self-hosted runners perform software updates. If you specify the `--disableupdate` flag to the runner then it will not try to perform an automatic software update if a newer version of the runner is available. This allows you to update the self-hosted runner on your own schedule, and is especially convenient if your self-hosted runner is in a container.
+        - |现在可以更好地控制自承载运行器何时执行软件更新。如果为运行器指定 `--disableupdate` 标志，那么如果运行器的新版本可用，它就不会尝试执行自动软件更新。这允许你按照自己的计划更新自承载运行器，如果自承载运行器位于容器中，就会更加方便。
 
-           For compatibility with the GitHub Actions service, you will need to manually update your runner within 30 days of a new runner version being available.  For instructions on how to install the latest runner version, please see the installation instructions for [the latest release in the runner repo](https://github.com/actions/runner/releases).
 
-    - heading: Secure self-hosted runners for GitHub Actions by limiting workflows
+
+ 为了与 GitHub Actions 服务兼容，你需要在新运行器版本可用的 30 天内手动更新运行器。 有关如何安装最新运行器版本的说明，请参阅安装说明，了解[运行器存储库中的最新版本](https://github.com/actions/runner/releases)。
+
+|
+    - heading: 通过限制工作流来保护 GitHub Actions 的自承载运行器
       notes:
         # https://github.com/github/releases/issues/2013
-        - |
-          Organization owners can now increase the security of CI/CD workflows on self-hosted runners by choosing which workflows can access a runner group. Previously, any workflow in a repository, such as an issue labeler, could access the self-hosted runners available to an organization. For more information, see "[Managing access to self-hosted runners using groups](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#changing-what-workflows-can-access-a-runner-group)" and the [GitHub Blog](https://github.blog/2022-03-23-github-actions-secure-self-hosted-runners-specific-workflows/).
+        - |组织所有者现在可以通过选择可访问运行器组的工作流来增加自承载运行器上 CI/CD 工作流的安全性。以前，存储库中的任何工作流（如问题标记工具）都可以访问组织可用的自承载运行器。有关详细信息，请参阅“[使用组管理对自承载运行器的访问](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#changing-what-workflows-can-access-a-runner-group)”以及 [GitHub 博客](https://github.blog/2022-03-23-github-actions-secure-self-hosted-runners-specific-workflows/)。
 
-    - heading: Prevent GitHub Actions from approving pull requests
+|
+    - heading: 阻止 GitHub Actions 批准拉取请求
       notes:
         # https://github.com/github/releases/issues/1959
-        - |
-          You can now control whether GitHub Actions can approve pull requests. This feature protects against a user using GitHub Actions to satisfy the "Required approvals" branch protection requirement and merging a change that was not reviewed by another user. To prevent breaking existing workflows, **Allow GitHub Actions reviews to count towards required approval** is enabled by default. Organization owners can disable the feature in the organization's GitHub Actions settings. For more information, see "[Disabling or limiting GitHub Actions for your organization](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization#preventing-github-actions-from-approving-pull-requests)."
+        - |现在可以控制 GitHub Actions 是否可以批准拉取请求。该功能可以防止用户使用 GitHub Actions 来满足“需要审批”分支保护需求，并合并未经其他用户审查的更改。为了防止破坏现有工作流，默认启用**“允许 GitHub Actions 审核计入所需审批”**。组织所有者可以在组织的 GitHub Actions 设置中禁用此功能。有关详细信息，请参阅“[禁用或限制组织的 GitHub Actions](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization#preventing-github-actions-from-approving-pull-requests)”。
 
-    - heading: Re-run failed or individual GitHub Actions jobs
+|
+    - heading: 重新运行失败或单个 GitHub Actions 作业
       notes:
         # https://github.com/github/releases/issues/1503
-        - |
-          You can now re-run only failed jobs or an individual job in a GitHub Actions workflow run. For more information, see "[Re-running workflows and jobs](/actions/managing-workflow-runs/re-running-workflows-and-jobs)."
+        - |现在，你可以在 GitHub Actions 工作流中重新运行失败作业或单个作业。有关详细信息，请参阅“[重新运行工作流和作业](/actions/managing-workflow-runs/re-running-workflows-and-jobs)”。
 
-    - heading: Dependency graph supports GitHub Actions
+|
+    - heading: 依赖项关系图支持 GitHub Actions
       notes:
         # https://github.com/github/releases/issues/1913
-        - |
-          The dependency graph now detects YAML files for GitHub Actions workflows. GitHub Enterprise Server will display the workflow files within the **Insights** tab's dependency graph section. Repositories that publish actions will also be able to see the number of repositories that depend on that action from the "Used By" control on the repository homepage. For more information, see "[About the dependency graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)."
+        - |依赖项关系图现在检测 GitHub Actions 工作流的 YAML 文件。GitHub Enterprise Server 将在**“见解”**标签的依赖项关系图部分中显示工作流文件。发布操作的存储库还可以从存储库主页上的“使用者”控件中查看依赖于该操作的存储库数量。有关详细信息，请参阅“[关于依赖项关系图](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)”。
 
-    - heading: Security overview for enterprises in public beta
+|
+    - heading: beta 版本中的企业安全概览
       notes:
         # https://github.com/github/releases/issues/2040
-        - |
-          GitHub Advanced Security customers can now view an overview of security alerts at the enterprise level. The new **Security** tab at the enterprise level provides a repository-centric view of application security risks, as well as an alert-centric view of all secret scanning alerts. For more information, see "[About the security overview](/code-security/security-overview/about-the-security-overview)."
+        - |GitHub 高级安全客户现在可以在企业级别查看安全警报概述。企业级的新**“安全性”**选项卡提供了以存储库为中心的应用程序安全风险视图，以及以警报为中心的所有机密扫描警报视图。有关详细信息，请参阅“[关于安全概览](/code-security/security-overview/about-the-security-overview)”。
 
-    - heading: Security view for organizations is generally available
+|
+    - heading: 组织的安全视图正式发布
       notes:
         # https://github.com/github/releases/issues/2096
-        - |
-          The overview of security alerts at the organization level is now generally available. GitHub Advanced Security customers can use the security overview to view a repository-centric view of application security risks, or an alert-centric view of all code scanning, Dependabot, and secret scanning alerts for all repositories in an organization. For more information, see "[About the security overview](/code-security/security-overview/about-the-security-overview)."
+        - |组织级别的安全警报概述现已正式发布。GitHub 高级安全客户可以使用安全概览查看以存储库为中心的应用程序安全风险视图，或者以警报为中心的所有代码扫描、Dependabot 以及组织中所有存储库的机密扫描警报视图。有关详细信息，请参阅“[关于安全概览](/code-security/security-overview/about-the-security-overview)”。
 
-    - heading: Code scanning detects more security issues, supports new language versions
+|
+    - heading: 代码扫描可以检测到更多安全问题，并支持新的语言版本
       notes:
         # https://github.com/github/releases/issues/2097
-        - |
-          Code scanning now detects a larger number of CWEs, and CodeQL code scanning fully supports the standard language features in the following language releases.
+        - |代码扫描现在可以检测到更多 CWE，并且 CodeQL 代码扫描完全支持以下语言版本中的标准语言功能。
 
-          - C# 10 / .NET 6
-          - Python 3.10
-          - Java 17
-          - TypeScript 4.5
 
-          For more information, see the [GitHub Blog](https://github.blog/changelog/2022-02-25-code-scanning-detects-more-security-issues-supports-new-language-versions/).
 
-    - heading: View code scanning alerts across an organization
+- C# 10 / .NET 6
+
+- Python 3.10
+
+- Java 17
+
+- TypeScript 4.5
+
+
+
+有关详细信息，请参阅 [GitHub 博客](https://github.blog/changelog/2022-02-25-code-scanning-detects-more-security-issues-supports-new-language-versions/)。
+
+|
+    - heading: 跨组织查看代码扫描警报
       notes:
         # https://github.com/github/releases/issues/1792
-        - |
-          GitHub Advanced Security customers can now view code scanning alerts in an organization's **Security** tab. This view is available to organization owners and members of teams with the [security manager role](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization). For more information, see "[About the security overview](/code-security/security-overview/about-the-security-overview)."
+        - |GitHub 高级安全客户现在可以在组织的**“安全性”**选项卡中查看代码扫描警报。该视图可用于具有[安全管理人员角色](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization)的组织所有者和团队成员。有关详细信息，请参阅“[关于安全概览](/code-security/security-overview/about-the-security-overview)”。
 
+|
         # https://github.com/github/releases/issues/1763
-        - |
-          Users can now retrieve code scanning alerts for an organization on your GitHub Enterprise Server instance via the REST API. This new API endpoint supplements the existing [endpoint for repositories](/rest/reference/code-scanning#list-code-scanning-alerts-for-a-repository). For more information, see [Code Scanning](/rest/code-scanning) in the REST API documentation.
+        - |用户现在可以通过 REST API 在 GitHub Enterprise Server 实例上检索组织的代码扫描警报。这个新 API 终结点补充了现有[存储库终结点](/rest/reference/code-scanning#list-code-scanning-alerts-for-a-repository)。有关详细信息，请参阅 REST API 文档中的[代码扫描](/rest/code-scanning)。
 
-    - heading: Secret scanning available as a push protection
+|
+    - heading: 机密扫描可作为推送保护
       notes:
         # 
-        - |
-          GitHub Enterprise Server can now block any pushes where a token is detected with high confidence. Developers can bypass the block by providing details of why the secret needs to be committed via a web UI. For more information, see "[Protecting pushes with secret scanning](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)."
+        - |GitHub Enterprise Server 现在可以阻止任何推送，其中一个令牌检测到高置信度。开发人员可以通过提供机密需要通过 Web UI 提交的原因的详细信息来绕过这一阻碍。有关详细信息，请参阅“[使用机密扫描保护推送](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)”。
 
-    - heading: Dry runs for custom patterns with secret scanning
+|
+    - heading: 使用机密扫描试运行自定义模式
       notes:
         # https://github.com/github/releases/issues/1703
         # https://github.com/github/releases/issues/2084
-        - |
-          GitHub Advanced Security customers can now dry run custom secret scanning patterns at the organization or repository level. Dry runs allow people with owner or admin access to review and hone their patterns before publishing them and generating alerts. You can compose a pattern, then use **Save and dry run** to retrieve results. The scans typically take just a few seconds, but GitHub Enterprise Server will also notify organization owners or repository admins via email when dry run results are ready. For more information, see "[About secret scanning](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-for-private-repositories)" and "[Defining custom patterns for secret scanning](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)."
+        - |GitHub 高级安全客户现在可以在组织或存储库级别试运行自定义机密扫描模式。试运行允许拥有所有者或管理员访问权限的人员在发布模式和生成警报之前检查和训练他们的模式。可以撰写一个模式，然后使用**“保存和试运行**来检索结果。扫描通常只需要几秒钟，但当试运行结果准备就绪时，GitHub Enterprise Server 还会通过电子邮件通知组织所有者或存储库管理员。有关详细信息，请参阅“[关于机密扫描](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-for-private-repositories)”和“[定义机密扫描的自定义模式](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)”。
 
-    - heading: Secret scanning custom pattern events now in the audit log
+|
+    - heading: 机密扫描自定义模式事件现在在审核日志中
       notes:
         # https://github.com/github/releases/issues/2154
-        - |
-          The audit log now includes events associated with secret scanning custom patterns. This data helps GitHub Advanced Security customers understand actions taken on their [repository](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization#repository_secret_scanning_custom_pattern-category-actions)-, [organization](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization#org_secret_scanning_custom_pattern-category-actions)-, or [enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#business_secret_scanning_custom_pattern-category-actions)-level custom patterns for security and compliance audits. For more information, see "[Reviewing the audit log for your organization](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization)" or "[Reviewing audit logs for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise)."
+        - |审核日志现包含与机密扫描自定义模式相关的事件。这些数据有助于 GitHub 高级安全客户了解对他们的[存储库](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization#repository_secret_scanning_custom_pattern-category-actions)、[组织](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization#org_secret_scanning_custom_pattern-category-actions)或[企业](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#business_secret_scanning_custom_pattern-category-actions)级客户模式针对安全性与合规性审核所执行的操作。有关详细信息，请参阅“[审查组织的审核日志](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization)”或“[审查企业的审核日志](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise)”。
 
-    - heading: Configure permissions for secret scanning with custom repository roles
+|
+    - heading: 配置使用自定义存储库角色进行机密扫描的权限
       notes:
         # https://github.com/github/releases/issues/1909
-        - |
-          You can now configure two new permissions for secret scanning when managing custom repository roles.
+        - |现在可以在管理自定义存储库角色时为机密扫描配置两个新的权限。
 
-          - View secret scanning results
-          - Dismiss or reopen secret scanning results
 
-          For more information, see  "[Managing custom repository roles for an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)."
 
-    - heading: Secret scanning now supports archived repositories
+- 查看机密扫描结果
+
+- 关闭或重新打开机密扫描结果
+
+
+
+有关详细信息，请参阅“[管理组织的自定义存储库角色](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)”。
+
+|
+    - heading: 机密扫描现支持存档存储库
       notes:
         # https://github.com/github/releases/issues/2076
-        - |
-          GitHub Advanced Security customers can now enable secret scanning for archived repositories via the UI and API. For more information, see "[About secret scanning](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-for-private-repositories)," "[About archived repositories](/repositories/archiving-a-github-repository/archiving-repositories)," and "[Repositories](/rest/repos/repos#update-a-repository)" in the REST API documentation.
+        - |GitHub 高级安全客户现在可以通过 UI 和 API 对存档存储库启用机密扫描。有关详细信息，请参阅 REST API 文档中的[关于机密扫描](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-for-private-repositories)”、“[关于存档存储库](/repositories/archiving-a-github-repository/archiving-repositories)”以及“[存储库](/rest/repos/repos#update-a-repository)”。
 
-    - heading: Secret scanning webhooks for alert locations
+|
+    - heading: 机密扫描警报位置 Webhook
       notes:
         # https://github.com/github/releases/issues/2149
-        - |
-          GitHub Advanced Security customers using secret scanning can now opt to receive a webhook each time a secret is detected in a new location. The `secret_scanning_alert_location` webhook event includes location details, like the commit SHA, and the associated alert for the detection. A location is created for every new file path containing the detected secret. For more information, see "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#secret_scanning_alert_location)."
+        - |使用机密扫描的 GitHub 高级安全客户现在可以选择每次在新位置检测到机密时接收 Webhook。`secret_scanning_alert_location` Webhook 事件包括位置详细信息，比如提交 SHA 和相关的检测警报。为包含检测到的机密的每个新文件路径创建一个位置。有关详细信息，请参阅“[Webhook 事件和有效负载](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#secret_scanning_alert_location)”。
 
-    - heading: View Dependabot alerts across an organization
+|
+    - heading: 跨组织查看 Dependabot 警报
       notes:
         # https://github.com/github/releases/issues/1992
-        - |
-          GitHub Advanced Security customers can now view Dependabot alerts in in an organization's **Security** tab. This view is available to organization owners and members of teams with the [security manager role](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization). For more information, see "[About the security overview](/code-security/security-overview/about-the-security-overview)."
+        - |GitHub 高级安全客户现在可以在组织的**“安全性”**选项卡中查看 Dependabot 警报。该视图可用于具有[安全管理人员角色](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization)的组织所有者和团队成员。有关详细信息，请参阅“[关于安全概览](/code-security/security-overview/about-the-security-overview)”。
 
-    - heading: Configure permissions for Dependabot alerts with custom repository roles
+|
+    - heading: 配置使用自定义存储库角色查看 Dependabot 警报的权限
       notes:
         # https://github.com/github/releases/issues/1958
-        - |
-          You can now configure two new permissions for Dependabot alerts when managing custom repository roles.
-          
-          - View Dependabot alerts
-          - Dismiss or reopen Dependabot alerts
+        - |现在，在管理自定义存储库角色时，可以为 Dependabot 警报配置两个新权限。
 
-          For more information, see  "[Managing custom repository roles for an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)."
 
-    - heading: Reopen dismissed Dependabot alerts
+
+- 查看 Dependabot 警报
+
+- 关闭或重新打开 Dependabot 警报
+
+
+
+有关详细信息，请参阅“[管理组织的自定义存储库角色](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)”。
+
+|
+    - heading: 重新打开 Dependabot 警报
       notes:
         # https://github.com/github/releases/issues/1923
-        - |
-          You can now reopen dismissed Dependabot alerts through the UI page for a closed alert. This does not affect Dependabot pull requests or the GraphQL API. For more information, see "[About Dependabot alerts](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)."
+        - |现在，你可以通过 UI 页面重新打开已关闭的 Dependabot 警报。这不会影响 Dependabot 的拉取请求或 GraphQL API。有关详细信息，请参阅“[关于 Dependabot 警报](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)”。
 
-    - heading: Pub support for Dependabot version updates is in public beta
+|
+    - heading: 公共 beta 版本中对 Dependabot 版本更新的 Pub 支持
       notes:
         # https://github.com/github/releases/issues/2086
-        - |
-          Users of Dependabot version updates can now proactively update dependencies for Flutter or Dart projects that use the Pub package manager.  
+        - |Dependabot 版本更新用户现在可以主动更新使用 Pub 包管理器的 Flutter 或 Dart 项目的依赖项。 
 
-          To test [version updates](/code-security/dependabot/dependabot-version-updates/about-dependabot-version-updates) on your own Dart or Flutter repository, add the following configuration file in <code>[.github/dependabot.yaml](/code-security/dependabot/dependabot-version-updates/configuring-dependabot-version-updates#enabling-dependabot-version-updates)</code>. Note the `package-ecosystem: "pub"` and `enable-beta-ecosystems: true` flags.
-          ```yaml
-          version: 2
-          enable-beta-ecosystems: true
-          updates:
-            - package-ecosystem: "pub"
-              directory: "/"
-              schedule:
-                interval: "weekly"
-          ```
 
-    - heading: See pull request associated with a repository's Dependabot alerts via GraphQL API
+
+要在你自己的 Dart 或 Flutter 存储库上测试[版本更新](/code-security/dependabot/dependabot-version-updates/about-dependabot-version-updates)，请在 <code>[.github/dependabot.yaml](/code-security/dependabot/dependabot-version-updates/configuring-dependabot-version-updates#enabling-dependabot-version-updates)</code> 中添加以下配置文件。注意 `package-ecosystem: "pub"` 和 `enable-beta-ecosystems: true` 标志。
+
+```yaml
+
+version: 2
+
+enable-beta-ecosystems: true
+
+updates:
+
+  - package-ecosystem: "pub"
+
+    directory: "/"
+
+    schedule:
+
+      interval: "weekly"
+
+```
+
+|
+    - heading: 查看通过 GraphQL API 与存储库的 Dependabot 警报关联的拉取请求
       notes:
         # https://github.com/github/releases/issues/2088
-        - |
-          The new `DependabotUpdate` GraphQL object lets you view information about what happens to your repository's security updates. When GitHub Enterprise Server detects that a dependency in your repository is vulnerable, Dependabot will attempt to open a pull request to update that dependency to a non-vulnerable version. You can now see the pull request that fixes the vulnerability. In some cases, Dependabot fails to open a pull request. Previously, the error message that Dependabot generated was only visible in the "Dependabot Alerts" section of the **Security** tab. Now, if Dependabot runs into an error when trying to open a pull request for a security alert, you can determine the reason using the GraphQL API. For more information, see "[Objects](/graphql/reference/objects#dependabotupdate)" in the GraphQL API documentation.
+        - |新的 `DependabotUpdate` GraphQL 对象允许你查看存储库安全更新所发生情况的相关信息。当 GitHub Enterprise Server 检测到存储库中的依赖项易受攻击，Dependabot 将尝试打开一个拉取请求，将该依赖项更新为非易受攻击版本。现在可以看到修复漏洞的拉取请求。在某些情况下，Dependabot 无法打开拉取请求。以前，Dependabot 生成的错误消息只在**“安全性”**选项卡的“Dependabot 警报”部分可见。现在，如果 Dependabot 在尝试打开安全警报的拉取请求时遇到错误，你可以使用 GraphQL API 确定原因。有关详细信息，请参阅 GraphQL API 文档中的“[对象](/graphql/reference/objects#dependabotupdate)”。
 
-    - heading: Access more information about Dependabot alerts via GraphQL API
+|
+    - heading: 通过 GraphQL API 访问有关 Dependabot 警报的详细信息
       notes:
         # https://github.com/github/releases/issues/1922
-        - |
-          You can now view fixed alerts from Dependabot with the GraphQL API. You can also access and filter by state, as well as by unique numeric identifier, and you can filter by state on the vulnerability alert object. The following fields now exist for a `RepositoryVulnerabilityAlert`.
+        - |现在，你可以使用 GraphQL API 从 Dependabot 查看固定警报。还可以按状态和惟一数字标识符进行访问和筛选，并且可以按漏洞警报对象上的状态进行筛选。`RepositoryVulnerabilityAlert` 现存在以下字段。
 
-          - `number`
-          - `fixed_at`
-          - `fix_reason`
-          - `state`
 
-          For more information, see "[Objects](/graphql/reference/objects#repositoryvulnerabilityalert)" in the GraphQL API documentation.
 
-    - heading: Git events in the enterprise audit log
+- `number`
+
+- `fixed_at`
+
+- `fix_reason`
+
+- `state`
+
+
+
+有关详细信息，请参阅 GraphQL API 文档中的“[对象](/graphql/reference/objects#repositoryvulnerabilityalert)”。
+
+|
+    - heading: 企业审核日志中的 Git 事件
       notes:
         # https://github.com/github/releases/issues/2205
-        - |
-          The following Git-related events can now appear in the enterprise audit log. If you enable the feature and set an audit log retention period, the new events will be available for search via the UI and API, or export via JSON or CSV.
-          
-          - `git.clone`
-          - `git.fetch`
-          - `git.push`
-          
-          Due to the large number of Git events logged, we recommend you monitor your instance's file storage and review your related alert configurations. For more information, see "[Configuring the audit log for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/configuring-the-audit-log-for-your-enterprise#managing-git-events-in-the-audit-log)."
+        - |下面与 Git 相关的事件现在可以显示在企业审核日志中。如果启用该功能并设置审核日志保持期，则可以通过 UI 和 API 搜索新事件，或通过 JSON 或 CSV 导出新事件。
 
-    - heading: Improvements to CODEOWNERS
+
+
+- `git.clone`
+
+- `git.fetch`
+
+- `git.push`
+
+
+
+由于记录了大量的 Git 事件，建议监视实例的文件存储并查看相关警报配置。有关详细信息，请参阅“[为企业配置审核日志](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/configuring-the-audit-log-for-your-enterprise#managing-git-events-in-the-audit-log)”。
+
+|
+    - heading: 针对 CODEOWNERS 的改进
       notes:
         # https://github.com/github/releases/issues/1994
-        - |
-          This release includes improvements to CODEOWNERS.
-          
-          - Syntax errors are now surfaced when viewing a CODEOWNERS file from the web. Previously, when a line in a CODEOWNERS file had a syntax error, the error would be ignored or in some cases cause the entire CODEOWNERS file to not load. GitHub Apps and Actions can access the same list of errors using new REST and GraphQL APIs. For more information, see "[Repositories](/rest/repos/repos#list-codeowners-errors)" in the REST API documentation or "[Objects](/graphql/reference/objects#repositorycodeowners)" in the GraphQL API documentation.
-          - After someone creates a new pull request or pushes new changes to a draft pull request, any code owners that will be requested for review are now listed in the pull request under "Reviewers". This feature gives you an early look at who will be requested to review once the pull request is marked ready for review.
-          - Comments in CODEOWNERS files can now appear at the end of a line, not just on dedicated lines.
-          
-          For more information, see "[About code owners](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners)."
+        - |此版本包括针对 CODEOWNERS 的改进。
 
-    - heading: More ways to keep a pull request's topic branch up to date
+
+
+- 从 Web 查看 CODEOWNERS 文件时，现在会显示语法错误。以前，当 CODEOWNERS 文件中的某一行存在语法错误时，该错误将被忽略，或者在某些情况下导致整个 CODEOWNERS 文件无法加载。GitHub Apps 和 Actions 可以使用新的 REST 和 GraphQL API 访问相同的错误列表。有关详细信息，请参阅 REST API 文档中的“[存储库](/rest/repos/repos#list-codeowners-errors)”或 GraphQL API 文档中的“[对象](/graphql/reference/objects#repositorycodeowners)”。
+
+- 当有人创建了新的拉取请求或将新更改推送到草稿拉取请求后，任何将被要求审查的代码所有者现都在拉取请求的“审阅者”下列出。此功能使你可以尽早了解，一旦拉取请求标记为准备审查，将要求谁进行审查。
+
+- CODEOWNERS 文件中的注释现在可以显示在行尾，而不是只显示在专用行上。
+
+
+
+有关详细信息，请参阅“[关于代码所有者](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners)”。
+
+|
+    - heading: 使拉取请求的主题分支保持更新的更多方法
       notes:
         # https://github.com/github/releases/issues/1566
-        - |
-          The **Update branch** button on the pull request page lets you update your pull request's branch with the latest changes from the base branch. This is useful for verifying your changes are compatible with the current version of the base branch before you merge. Two enhancements now give you more ways to keep your branch up-to-date.
+        - |通过拉取请求页面上的**“更新分支”**按钮，你可以使用来自基础分支的最新更改来更新拉取请求的分支。这对于在合并之前验证更改是否与基础分支的当前版本兼容非常有用。现在有两个增强功能为你提供了保持分支更新的更多方法。
 
-          - When your pull request's topic branch is out of date with the base branch, you now have the option to update it by rebasing on the latest version of the base branch. Rebasing applies the changes from your branch onto the latest version of the base branch, resulting in a branch with a linear history since no merge commit is created. To update by rebasing, click the drop down menu next to the **Update Branch** button, click **Update with rebase**, and then click **Rebase branch**. Previously, **Update branch** performed a traditional merge that always resulted in a merge commit in your pull request branch. This option is still available, but now you have the choice. For more information, see "[Keeping your pull request in sync with the base branch](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/keeping-your-pull-request-in-sync-with-the-base-branch)."
 
-          - A new repository setting allows the **Update branch** button to always be available when a pull request's topic branch is not up to date with the base branch. Previously, this button was only available when the **Require branches to be up to date before merging** branch protection setting was enabled. People with admin or maintainer access can manage the **Always suggest updating pull request branches** setting from the **Pull Requests** section in repository settings. For more information, see "[Managing suggestions to update pull request branches](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/managing-suggestions-to-update-pull-request-branches)."
 
-    - heading: Configure custom HTTP headers for GitHub Pages sites
+- 当拉取请求主题分支的基础分支过时时，你现在可以选择对基础分支的最新版本进行变基来更新它。变基将分支中的更改应用到基础分支的最新版本，这会生成一个具有线性历史记录的分支，因为没有创建合并提交。若要通过变基更新，单击**“更新分支”**按钮旁的下拉菜单，单击**“使用变基更新”**，然后单击**“变基分支”**。在此之前，**更新分支**执行的是传统合并，它总是导致拉取请求分支中的合并提交。此选项仍然可用，但现在你有更多选择。有关详细信息，请参阅“[使拉取请求与基础分支保持同步](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/keeping-your-pull-request-in-sync-with-the-base-branch)”。
+
+
+
+- 新的存储库设置允许在拉取请求主题分支的基础分支不是最新时**“更新分支”**按钮始终可用。在此之前，此按钮仅在**“要求分支在合并之前更新”**分支保护设置启用时可用。具有管理员或维护员访问权限的人员可以在存储库设置的**“拉取请求”**部分管理**“始终建议更新拉取请求分支”设置。有关详细信息，请参阅“[管理更新拉取请求分支的建议](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/managing-suggestions-to-update-pull-request-branches)”。
+
+|
+    - heading: 为 GitHub Pages 站点配置自定义 HTTP 标头
       notes: 
         # https://github.com/github/releases/issues/2124
-        - |
-          You can now configure custom HTTP headers that apply to all GitHub Pages sites served from your GitHub Enterprise Server instance. For more information, see "[Configuring GitHub Pages for your enterprise](/admin/configuration/configuring-your-enterprise/configuring-github-pages-for-your-enterprise#configuring-github-pages-response-headers-for-your-enterprise)."
+        - |现在，你可以配置自定义 HTTP 标头，该标头应用于从 GitHub Enterprise Server 实例提供的所有 GitHub Pages 站点。有关详细信息，请参阅“[为企业配置 GitHub Pages](/admin/configuration/configuring-your-enterprise/configuring-github-pages-for-your-enterprise#configuring-github-pages-response-headers-for-your-enterprise)”。
 
-    - heading: Ignore commits in blame view
+|
+    - heading: 忽略意见视图中的提交
       notes:
         # https://github.com/github/releases/issues/2090
-        - |
-          It's now possible to ignore revisions in the blame view by creating a _.git-blame-ignore-revs_ file in the root of your repository. For more information, see "[Viewing a file](/repositories/working-with-files/using-files/viewing-a-file#ignore-commits-in-the-blame-view)."
+        - |现在可以通过在存储库的根目录中创建 _.git-blame-ignore-revs_ 文件来忽略意见视图中的修订。有关详细信息，请参阅“[查看文件](/repositories/working-with-files/using-files/viewing-a-file#ignore-commits-in-the-blame-view)”。
 
-    - heading: Light high contrast theme is generally available
+|
+    - heading: 光高对比度主题正式发布
       notes:
         # https://github.com/github/releases/issues/2011
-        - |
-          A light high contrast theme, with greater contrast between foreground and background elements, is now generally available. For more information, see "[Managing your theme settings](/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/managing-your-theme-settings)."
+        - |一个在前景和背景元素之间有更大对比度的光高对比度主题，现在正式发布。有关详细信息，请参阅“[管理主题设置](/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/managing-your-theme-settings)”。
 
-    - heading: Tag protection rules
+|
+    - heading: 标记保护规则
       notes:
         # https://github.com/github/releases/issues/1793
-        - |
-          Repository owners can now configure tag protection rules to protect a repository's tags. Once protected by a tag protection rule, tags matching a specified name pattern can only be created and deleted by users with the Maintain or Admin role in the repository. For more information, see "[Configuring tag protection rules](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/configuring-tag-protection-rules)."
+        - |存储库所有者现在可以配置标记保护规则来保护存储库的标记。一旦受到标记保护规则的保护，匹配指定名称模式的标记只能由存储库中具有维护或管理员角色的用户创建和删除。有关详细信息，请参阅“[配置标记保护规则](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/configuring-tag-protection-rules)”。
 
+|
   bugs:
     # https://github.com/github/releases/issues/1934
-    - |
-      It is now possible for GitHub Apps to upload release assets.
+    - |GitHub Apps 现在可以上传发布资产。
 
+|
   changes:
     # https://github.com/github/releases/issues/2063
-    - |
-      To use the device authorization flow for OAuth and GitHub Apps, you must manually enable the feature. This change reduces the likelihood of apps being used in phishing attacks against GitHub Enterprise Server users by ensuring integrators are aware of the risks and make a conscious choice to support this form of authentication. If you own or manage an OAuth App or GitHub App and you want to use the device flow, you can enable it for your app via the app's settings page. The device flow API endpoints will respond with status code `400` to apps that have not enabled this feature. For more information, see "[Authorizing OAuth Apps](/developers/apps/building-oauth-apps/authorizing-oauth-apps#device-flow)."
+    - |要使用 OAuth 和 GitHub 应用的设备授权流，必须手动启用该功能。通过确保集成者意识到风险，并有意识地选择支持这种形式的身份验证，这一更改降低了应用被用于针对 GitHub Enterprise Server 用户的钓鱼攻击的可能性。如果你拥有或管理 OAuth 应用或 GitHub 应用，并且希望使用设备流，则可以通过应用的设置页面为应用启用它。设备流 API 终结点将以状态代码 `400` 响应未启用此功能的应用。有关详细信息，请参阅“[授权 OAuth 应用](/developers/apps/building-oauth-apps/authorizing-oauth-apps#device-flow)”。
 
+|
     # https://github.com/github/releases/issues/2049
-    - |
-      The code scanning alert page now always shows the alert status and information for the default branch. There is a new "Affected branches" panel in the sidebar where you can see the status of the alert in other branches. If the alert does not exist in your default branch, the alert page will show the status as "In branch" or "In pull request" for the location where the alert was last seen. This improvement makes it easier to understand the status of alerts which have been introduced into your code base. For more information, see "[About code scanning alerts](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts#about-alert-details)."
+    - |代码扫描警报页面现在总是显示默认分支的警报状态和信息。在侧边栏中有一个新的“受影响的分支”面板，在那里你可以看到其他分支中的警报状态。如果警报在默认分支中不存在，警报页面将为最后一次看到警报的位置显示状态为“在分支中”或“在拉取请求中”。此改进使我们更易于理解引入到代码库中的警报状态。有关详细信息，请参阅“[关于代码扫描警报](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts#about-alert-details)”。
 
-      The alert list page is not changed and can be filtered by `branch`. You can use the code scanning API to retrieve more detailed branch information for alerts. For more information, see "[Code Scanning](/rest/code-scanning)" in the REST API documentation.
 
+
+警报列表页面没有变化，可以按 `branch` 进行筛选。可以使用代码扫描 API 为警报检索更详细的分支信息。有关详细信息，请参阅 REST API 文档中的“[代码扫描](/rest/code-scanning)”。
+
+|
     # https://github.com/github/releases/issues/2050
-    - |
-      Code scanning now shows the details of the analysis origin of an alert. If an alert has more than one analysis origin, it is shown in the "Affected branches" sidebar and in the alert timeline. You can hover over the analysis origin icon in the "Affected branches" sidebar to see the alert status in each analysis origin. If an alert only has a single analysis origin, no information about analysis origins is displayed on the alert page. These improvements will make it easier to understand your alerts. In particular, it will help you understand those that have multiple analysis origins. This is especially useful for setups with multiple analysis configurations, such as monorepos. For more information, see "[About code scanning alerts](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts#about-analysis-origins)."
+    - |代码扫描现在显示警报分析源的详细信息。如果一个警报有多个分析源，它将显示在“受影响的分支”边栏和警报时间线中。可以将鼠标悬停在“受影响的分支”边栏中的分析源图标上，以查看每个分析源中的警报状态。如果警报只有一个分析源，则警报页上不会显示任何有关分析源的信息。这些改进将使你更易于理解警报。特别是，它将帮助你理解那些具有多个分析源的内容。这对于具有多个分析配置的设置尤其有用，例如单存储库。有关详细信息，请参阅“[关于代码扫描警报](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts#about-analysis-origins)”。
 
+|
     # https://github.com/github/releases/issues/2071
-    - |
-      Lists of repositories owned by a user or organization now have an additional filter option, "Templates", making it easier to find template repositories.
+    - |由用户或组织拥有的存储库列表现在有一个额外的筛选选项，即“模板”，可以更轻松地找到模板存储库。
 
+|
     # https://github.com/github/releases/issues/1947
-    - |
-      GitHub Enterprise Server can display several common image formats, including PNG, JPG, GIF, PSD, and SVG, and provides several ways to compare differences between versions. Now when reviewing added or changed images in a pull request, previews of those images are shown by default. Previously, you would see a message indicating that binary files could not be shown and you would need to toggle the "Display rich diff" option. For more information, see  "[Working with non-code files](/repositories/working-with-files/using-files/working-with-non-code-files)."
+    - |GitHub Enterprise Server 可以显示几种常见的图像格式，包括 PNG、JPG、GIF、PSD 和 SVG，并提供了几种方法来比较版本之间的差异。现在，当查看拉取请求中添加或更改的图像时，默认会显示这些图像的预览形式。以前，你会看到一条消息，指示无法显示二进制文件，需要切换“显示多差异”选项。有关详细信息，请参阅“[使用非代码文件](/repositories/working-with-files/using-files/working-with-non-code-files)”。
 
+|
     # https://github.com/github/releases/issues/2054
-    - |
-      New gists are now created with a default branch name of either `main` or the alternative default branch name defined in your user settings. This matches how other repositories are created on GitHub Enterprise Server. For more information, see "[About branches](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches#about-the-default-branch)" and "[Managing the default branch name for your repositories](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/managing-the-default-branch-name-for-your-repositories)."
+    - |现在使用默认分支名称 `main` 或用户设置中定义的替代默认分支名称来创建新 Gist。这与在 GitHub Enterprise Server 上创建其他存储库的方式相匹配。有关详细信息，请参阅“[关于分支](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches#about-the-default-branch)”和”[管理存储库的默认分支名称](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/managing-the-default-branch-name-for-your-repositories)”。
 
+|
     # https://github.com/github/releases/issues/2028
-    - |
-      Gists now only show the 30 most recent comments when first displayed. You can click **Load earlier comments...** to view more. This allows gists that have many comments to appear more quickly. For more information, see "[Editing and sharing content with gists](/get-started/writing-on-github/editing-and-sharing-content-with-gists)."
+    - |第一次显示时，Gist 现在只显示最近 30 条评论。可以单击**“加载之前的评论...”**查看详细信息。这使得有很多评论的 Gist 可以更快地出现。有关详细信息，请参阅“[通过 Gist 编辑和共享内容](/get-started/writing-on-github/editing-and-sharing-content-with-gists)”。
 
+|
     # https://github.com/github/releases/issues/2036
-    - |
-      Settings pages for users, organizations, repositories, and teams have been redesigned, grouping similar settings pages into sections for improved information architecture and discoverability. For more information, see the [GitHub changelog](https://github.blog/changelog/2022-02-02-redesign-of-githubs-settings-pages/). 
+    - |对用户、组织、存储库和团队的设置页面进行了重新设计，将类似的设置页面分组为小节，以改进信息体系结构并提高可发现性。有关详细信息，请参阅 [GitHub 更改日志](https://github.blog/changelog/2022-02-02-redesign-of-githubs-settings-pages/)。
 
+|
     # https://github.com/github/releases/issues/2129
-    - |
-        Focusing or hovering over a label now displays the label description in a tooltip.
+    - |聚焦或悬停在标签上现在会在工具提示中显示标签说明。
 
+|
     # https://github.com/github/releases/issues/1983
-    - |
-        Creating and removing repository invitations, whether done through the API or web interface, are now subject to rate limits that may be enabled on your GitHub Enterprise Server instance. For more information about rate limits, see "[Configuring rate limits](/admin/configuration/configuring-your-enterprise/configuring-rate-limits)."
+    - |创建和删除存储库邀请，无论是通过 API 还是通过 Web 界面，现在都受制于可以在 GitHub Enterprise Server 实例上启用的速率限制。有关详细信息，请参阅“[配置速率限制](/admin/configuration/configuring-your-enterprise/configuring-rate-limits)”。
 
+|
     # https://github.com/github/releases/issues/2291
-    - |
-        MinIO has announced the removal of the MinIO Gateways starting June 1st, 2022. While MinIO Gateway for NAS continues to be one of the supported storage providers for Github Actions and Github Packages, we recommend moving to MinIO LTS support to avail support and bug fixes from MinIO. For more information about rate limits, see "[Scheduled removal of MinIO Gateway for GCS, Azure, HDFS in the minio/minio repository](https://github.com/minio/minio/issues/14331)."
+    - |MinIO 已宣布从 2022 年 6 月 1 日开始移除 MinIO 网关。虽然 MinIO NAS 网关仍然是 Github Actions 和 Github Packages 所支持的存储提供商之一，但我们建议转移到 MinIO LTS 支持，以利用 MinIO 提供的支持和 bug 修复。有关速率限制的详细信息，请参阅“[计划删除 minio/minio 存储库中适用于 GCS、Azure、HDFS 的 MinIO 网关](https://github.com/minio/minio/issues/14331)”。
 
-
+|
   deprecations:
-    - heading: Change to the format of authentication tokens
+    - heading: 更改身份验证令牌的格式
       notes:
         # https://github.com/github/releases/issues/1235
-        - |
-          GitHub Connect will no longer work after June 3rd for instances running GitHub Enterprise Server 3.1 or older, due to the format of GitHub authentication tokens changing. For more information, see the [GitHub changelog](https://github.blog/changelog/2021-03-31-authentication-token-format-updates-are-generally-available/).
+        - |由于 GitHub 身份验证令牌的格式发生变化，6 月 3 日之后，运行 GitHub Enterprise Server 3.1 或更早版本的实例将不再使用 GitHub Connect。有关详细信息，请参阅 [GitHub 更改日志](https://github.blog/changelog/2021-03-31-authentication-token-format-updates-are-generally-available/)。
 
-    - heading: CodeQL runner deprecated in favor of CodeQL CLI
+|
+    - heading: CodeQL 运行器已弃用，而改用 CodeQL CLI
       notes:
         # https://github.com/github/releases/issues/1632
-        - |
-          The CodeQL runner is deprecated in favor of the CodeQL CLI. GitHub Enterprise Server 3.4 and later no longer include the CodeQL runner. This deprecation only affects users who use CodeQL code scanning in 3rd party CI/CD systems. GitHub Actions users are not affected. GitHub strongly recommends that customers migrate to the CodeQL CLI, which is a feature-complete replacement for the CodeQL runner and has many additional features. For more information, see "[Migrating from the CodeQL runner to CodeQL CLI](/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/migrating-from-the-codeql-runner-to-codeql-cli)."
-    
-    - heading: Theme picker for GitHub Pages has been removed
+        - |CodeQL 运行器已弃用，而改用 CodeQL CLI。GitHub Enterprise Server 3.4 和更高版本不再包含 CodeQL 运行器。此弃用只影响在第三方 CI/CD 系统中使用 CodeQL 代码扫描的用户。GitHub Actions 用户不受影响。GitHub 强烈建议客户迁移到 CodeQL CLI，它是 CodeQL 运行器功能完善的替代工具，并具有许多额外功能。有关详细信息，请参阅“[从 CodeQL 运行器迁移到 CodeQL CLI](/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/migrating-from-the-codeql-runner-to-codeql-cli)”。
+
+|
+    - heading: GitHub Pages 主题选取器已删除
       notes:
-        - |
-          The theme picker for GitHub Pages has been removed from the Pages settings. For more information about configuration of themes for GitHub Pages, see "[Adding a theme to your GitHub Pages site using Jekyll](/pages/setting-up-a-github-pages-site-with-jekyll/adding-a-theme-to-your-github-pages-site-using-jekyll)."
-        
+        - |GitHub Pages 主题选取器已从“页面设置”中删除。有关 GitHub Pages 主题配置的详细信息，请参阅“[使用 Jekyll 向 GitHub Pages 站点添加主题](/pages/setting-up-a-github-pages-site-with-jekyll/adding-a-theme -to-your-github-pages-site-using-jekyll)”。
+
+|
   known_issues:
-      - On a freshly set up {% data variables.product.prodname_ghe_server %} instance without any users, an attacker could create the first admin user.
-      - Custom firewall rules are removed during the upgrade process.
-      - Git LFS tracked files [uploaded through the web interface](https://github.com/blog/2105-upload-files-to-your-repositories) are incorrectly added directly to the repository.
-      - Issues cannot be closed if they contain a permalink to a blob in the same repository, where the blob's file path is longer than 255 characters.
-      - When "Users can search GitHub.com" is enabled with GitHub Connect, issues in private and internal repositories are not included in GitHub.com search results.
-      - The {% data variables.product.prodname_registry %} npm registry no longer returns a time value in metadata responses. This was done to allow for substantial performance improvements. We continue to have all the data necessary to return a time value as part of the metadata response and will resume returning this value in the future once we have solved the existing performance issues.
-      - Resource limits that are specific to processing pre-receive hooks may cause some pre-receive hooks to fail.
-      - Actions services need to be restarted after restoring an appliance from a backup taken on a different host.
+      - "在新建的没有任何用户的 {% data variables.product.prodname_ghe_server %} 实例上，攻击者可以创建第一个管理员用户。"
+      - 自定义防火墙规则在升级过程中被删除。
+      - "[通过 Web 界面上传](https://github.com/blog/2105-upload-files-to-your-repositories)的 Git LFS 跟踪文件被错误地直接添加到存储库。"
+      - 如果问题包含文件路径长于 255 个字符的同一存储库中 blob 的永久链接，则问题无法关闭。
+      - 在 GitHub Connect 中启用了“用户可以搜索 GitHub.com”时，专用和内部存储库中的问题不包括在 GitHub.com 搜索结果中。
+      - "{% data variables.product.prodname_registry %} npm 注册表不再在元数据响应中返回时间值。这样可以大幅改善性能。我们继续拥有将时间值作为元数据响应的一部分返回所需的所有数据，并将在以后解决现有性能问题后恢复返回该值。"
+      - 特定于处理预接收挂钩的资源限制可能导致部分预接收挂钩失败。
+      - 从不同主机上的备份恢复设备后，需要重新启动操作服务。

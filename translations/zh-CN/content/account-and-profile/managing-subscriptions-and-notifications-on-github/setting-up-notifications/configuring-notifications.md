@@ -1,6 +1,6 @@
 ---
-title: Configuring notifications
-intro: 'Choose the type of activity on {% data variables.product.prodname_dotcom %} that you want to receive notifications for and how you want these updates delivered.'
+title: 配置通知
+intro: '选择 {% data variables.product.prodname_dotcom %} 上您想要接收其通知的活动类型以及您希望如何发送这些更新。'
 redirect_from:
   - /articles/about-web-notifications
   - /format-of-notification-emails
@@ -22,88 +22,78 @@ versions:
   ghec: '*'
 topics:
   - Notifications
+ms.openlocfilehash: b7822a7db40455476c5fc5ac6f779e45d7f558a9
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147060760'
 ---
+## 通知递送选项
 
-## Notification delivery options
+可以在以下位置的 {% data variables.product.product_location %} 上接收活动的通知。
 
-You can receive notifications for activity on {% data variables.location.product_location %} in the following locations.
+  - {% data variables.product.product_location %} Web 界面{% ifversion fpt or ghes or ghec %}中的通知收件箱
+  - {% data variables.product.prodname_mobile %} 上的通知收件箱，它与 {% data variables.product.product_location %} 上的收件箱同步{% endif %}
+  - 使用经验证电子邮件地址的电子邮件客户端，也可以与 {% data variables.product.product_location %}{% ifversion fpt or ghes or ghec %} 及 {% data variables.product.prodname_mobile %} 上的通知收件箱同步{% endif %}
 
-  - The notifications inbox in the {% data variables.location.product_location %} web interface{% ifversion fpt or ghes or ghec %}
-  - The notifications inbox on {% data variables.product.prodname_mobile %}, which syncs with the inbox on {% data variables.location.product_location %}{% endif %}
-  - An email client that uses a verified email address, which can also sync with the notifications inbox on {% data variables.location.product_location %}{% ifversion fpt or ghes or ghec %} and {% data variables.product.prodname_mobile %}{% endif %}
-
-{% ifversion fpt or ghes or ghec %}
-{% data reusables.notifications-v2.notifications-inbox-required-setting %} For more information, see "[Choosing your notification settings](#choosing-your-notification-settings)."
+{% ifversion fpt or ghes or ghec %} {% data reusables.notifications-v2.notifications-inbox-required-setting %} 有关详细信息，请参阅“[选择通知设置](#choosing-your-notification-settings)”。
 {% endif %}
 
 {% data reusables.notifications.shared_state %}
 
-### Benefits of the notifications inbox
+### 通知收件箱的优点
 
-The notifications inbox on {% data variables.location.product_location %}{% ifversion fpt or ghes or ghec %} and {% data variables.product.prodname_mobile %}{% endif %} includes triaging options designed specifically for your {% data variables.product.prodname_dotcom %} notifications flow, including options to:
-  - Triage multiple notifications at once.
-  - Mark completed notifications as **Done** and remove them from your inbox. To view all of your notifications marked as **Done**, use the `is:done` query.
-  - Save a notification to review later. Saved notifications are flagged in your inbox and kept indefinitely. To view all of your saved notifications, use the `is:saved` query.
-  - Unsubscribe and remove a notification from your inbox.
-  - Preview the issue, pull request, or team discussion where the notification originates on {% data variables.location.product_location %} from within the notifications inbox.
-  - See one of the latest reasons you're receiving a notification from your inbox with a `reasons` label.
-  - Create custom filters to focus on different notifications when you want.
-  - Group notifications in your inbox by repository or date to get a quick overview with less context switching
+{% data variables.product.product_location %}{% ifversion fpt or ghes or ghec %} 和 {% data variables.product.prodname_mobile %}{% endif %} 上的通知收件箱包含专为你的 {% data variables.product.prodname_dotcom %} 通知流程设计的分类选项，包括：
+  - 一次分类多个通知。
+  - 将已完成的通知标记为“完成”并将其从收件箱中删除。 要查看标记为“完成”的所有通知，请使用 `is:done` 查询。
+  - 保存通知以供以后查看。 已保存的通知会在收件箱中标记并无限期保留。 要查看保存的所有通知，请使用 `is:saved` 查询。
+  - 取消订阅并从收件箱中删除通知。
+  - 从通知收件箱预览 {% data variables.product.product_location %} 上产生通知的议题、拉取请求或团队讨论。
+  - 查看你从收件箱收到带有 `reasons` 标签的通知的最新原因之一。
+  - 创建自定义筛选器，以便在需要时关注不同的通知。
+  - 按仓库或日期对收件箱中的通知进行分组，以快速概览通知，减少上下文切换
 
-{% ifversion fpt or ghes or ghec %}
-In addition, you can receive and triage notifications on your mobile device with {% data variables.product.prodname_mobile %}. For more information, see "[Managing your notification settings with GitHub Mobile](#managing-your-notification-settings-with-github-mobile)" or "[GitHub Mobile](/get-started/using-github/github-mobile)."
+{% ifversion fpt or ghes or ghec %} 此外，可以通过 {% data variables.product.prodname_mobile %} 在移动设备上接收和分类通知。 有关详细信息，请参阅“[使用 GitHub Mobile 管理通知设置](#managing-your-notification-settings-with-github-mobile)”或“[GitHub Mobile](/get-started/using-github/github-mobile)”。
 {% endif %}
 
-### Benefits of using an email client for notifications
+### 对通知使用电子邮件客户端的优点
 
-One benefit of using an email client is that all of your notifications can be kept indefinitely depending on your email client's storage capacity. Your inbox notifications are only kept for 5 months on {% data variables.product.prodname_dotcom %} unless you've marked them as **Saved**. **Saved** notifications are kept indefinitely. For more information about your inbox's retention policy, see "[About notifications](/github/managing-subscriptions-and-notifications-on-github/about-notifications#notification-retention-policy)."
+使用电子邮件客户端的一个好处是，可以无限期地保留所有通知，具体取决于电子邮件客户端的存储容量。 收件箱通知在 {% data variables.product.prodname_dotcom %} 上仅保留 5 个月，除非将它们标记为“已保存”。 “已保存”通知将无限期保留。 有关收件箱保留策略的详细信息，请参阅“[关于通知](/github/managing-subscriptions-and-notifications-on-github/about-notifications#notification-retention-policy)”。
 
-Sending notifications to your email client also allows you to customize your inbox according to your email client's settings, which can include custom or color-coded labels.
+向电子邮件客户端发送通知还允许您根据电子邮件客户端的设置（可以包括自定义或颜色编码的标签）自定义收件箱。
 
-Email notifications also allow flexibility with the types of notifications you receive and allow you to choose different email addresses for updates. For example, you can send certain notifications for a repository to a  verified personal email address. For more information, about your email customization options, see "[Customizing your email notifications](#customizing-your-email-notifications)."
+电子邮件通知还允许您灵活地设置收到的通知类型，并允许您选择不同的电子邮件地址进行更新。 例如，您可以向经验证的个人电子邮件地址发送仓库的某些通知。 有关电子邮件自定义选项的详细信息，请参阅“[自定义电子邮件通知](#customizing-your-email-notifications)”。
 
-## About participating and watching notifications
+## 关于参与和查看通知
 
-When you watch a repository, you're subscribing to updates for activity in that repository. Similarly, when you watch a specific team's discussions, you're subscribing to all conversation updates on that team's page. For more information, see "[About team discussions](/organizations/collaborating-with-your-team/about-team-discussions)."
+关注仓库，意味着订阅该仓库中的活动更新。 同样，关注特定团队的讨论，意味着订阅该团队页面上的所有对话更新。 有关详细信息，请参阅“[关于团队讨论](/organizations/collaborating-with-your-team/about-team-discussions)”。
 
-To see repositories that you're watching, go to your [watching page](https://github.com/watching). For more information, see "[Managing subscriptions and notifications on GitHub](/github/managing-subscriptions-and-notifications-on-github/managing-subscriptions-for-activity-on-github)."
+若要查看正在监视的存储库，请参阅[监视页面](https://github.com/watching)。 有关详细信息，请参阅“[在 GitHub 上管理订阅和通知](/github/managing-subscriptions-and-notifications-on-github/managing-subscriptions-for-activity-on-github)”。
 
 {% ifversion ghae %}
-### Configuring notifications
-{% endif %}
-You can configure notifications for a repository on the repository page, or on your watching page.
+### 配置通知
+{% endif %} 可以在存储库页面上或在监视页面上为存储库配置通知。
 
-### About custom notifications
-You can customize notifications for a repository. For example, you can choose to only be notified when updates to one or more types of events ({% data reusables.notifications-v2.custom-notification-types %}) happen within a repository, or ignore all notifications for a repository. For more information, see "[Configuring your watch settings for an individual repository](#configuring-your-watch-settings-for-an-individual-repository)" below.
+### 关于自定义通知
+您可以自定义仓库的通知。 例如，您可以选择仅在仓库中发生一类或多类事件 ({% data reusables.notifications-v2.custom-notification-types %}) 的更新时收到通知，或者忽略仓库的所有通知。 有关详细信息，请参阅下方的“[为单个存储库配置监视设置](#configuring-your-watch-settings-for-an-individual-repository)”。
 
-### Participating in conversations
-Anytime you comment in a conversation or when someone @mentions your username, you are _participating_ in a conversation. By default, you are automatically subscribed to a conversation when you participate in it. You can unsubscribe from a conversation you've participated in manually by clicking **Unsubscribe** on the issue or pull request or through the **Unsubscribe** option in the notifications inbox.
+### 参与对话
+每当你在对话中发表评论或有人 @mentions你的用户名时，你都在参与对话。 默认情况下，当您参与对话时，会自动订阅该对话。 你可以通过单击议题或拉取请求上的“取消订阅”或通过通知收件箱中的“取消订阅”选项，手动取消订阅已参与的对话 。
 
-{% ifversion update-notification-settings-22 %}For conversations you're watching or participating in, you can choose whether you want to receive notifications on {% data variables.product.company_short %} or by email in your notification settings. For more information, see "[Choosing your notification settings](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#choosing-your-notification-settings)."
+对于你监视或参与的对话，你可以选择是通过电子邮件还是 {% data variables.product.product_location %}{% ifversion fpt or ghes or ghec %} 和 {% data variables.product.prodname_mobile %}{% endif %} 上的收件箱接收通知。
 
-![Animated GIF of participating and watching subscriptions options](/assets/images/help/notifications/selecting-participating-notifications.gif) 
+![参与和关注通知选项](/assets/images/help/notifications-v2/participating-and-watching-options.png)
 
-{% else %}
+例如：
+  - 如果不希望将通知发送到你的电子邮件地址，请取消选中“电子邮件”以便参与和监视通知。
+  - 如果希望在参与对话时通过电子邮件接收通知，则可以选中“参与”下的“电子邮件”。
 
-For conversations you're watching or participating in, you can choose whether you want to receive notifications by email or through the notifications inbox on {% data variables.location.product_location %}{% ifversion ghes %} and {% data variables.product.prodname_mobile %}{% endif %}. For more information, see "[Choosing your notification settings](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#choosing-your-notification-settings)."
+如果未对 Web{% ifversion fpt or ghes or ghec %} 和移动{% endif %}启用监视或参与通知，则你的通知收件箱不会收到任何更新。
 
-![Screenshot of participating and watching notifications options](/assets/images/help/notifications-v2/participating-and-watching-options.png){% endif %}
+## 自定义电子邮件通知
 
-
-
-For example:
-  - If you don't want notifications to be sent to your email, unselect **email** for participating and watching notifications.
-  - If you want to receive notifications by email when you've participated in a conversation, then you can select **email** under "Participating".
-
-{% ifversion update-notification-settings-22 %}If you do not enable "Notify me: On GitHub" for watching or participating notifications, then your notifications inbox will not have any updates.
-
-{% else %}
-
-If you do not enable watching or participating notifications for web{% ifversion ghes %} and mobile{% endif %}, then your notifications inbox will not have any updates.{% endif %}
-
-## Customizing your email notifications
-
-After enabling email notifications, {% data variables.location.product_location %} will send notifications to you as multipart emails that contain both HTML and plain text copies of the content. Email notification content includes any Markdown, @mentions, emojis, hash-links, and more, that appear in the original content on {% data variables.location.product_location %}. If you only want to see the text in the email, you can configure your email client to display the plain text copy only.
+在启用电子邮件通知后，{% data variables.product.product_location %} 将以多部分电子邮件向你发送通知，其中包含内容的 HTML 和纯文本副本。 电子邮件通知内容包含出现在 {% data variables.product.product_location %} 上的原始内容中的任何 Markdown、@mentions、表情符号、哈希链接等。 如果您只想查看电子邮件中的文本，可以配置电子邮件客户端只显示明文副本。
 
 {% data reusables.notifications.outbound_email_tip %}
 
@@ -111,194 +101,150 @@ After enabling email notifications, {% data variables.location.product_location 
 
 {% ifversion fpt or ghec %}
 
-If you're using Gmail, you can click a button beside the notification email to visit the original issue or pull request that generated the notification.
+如果您使用 Gmail，可以单击通知电子邮件旁边的按钮访问生成该通知的原始议题或拉取请求。
 
-![Buttons in Gmail](/assets/images/help/notifications/gmail-buttons.png)
+![Gmail 中的按钮](/assets/images/help/notifications/gmail-buttons.png)
 
 {% endif %}
 
-Choose a default email address where you want to send updates for conversations you're participating in or watching. You can also specify which activity on {% data variables.location.product_location %} you want to receive updates for using your default email address. For example, choose whether you want updates to your default email from:
-  - Comments on issues and pull requests.
-  - Pull request reviews.
-  - Pull request pushes.
-  - Your own updates, such as when you open, comment on, or close an issue or pull request.
+选择一个默认电子邮件地址，用于发送您参与或关注的对话的更新。 还可以指定希望使用默认电子邮件地址接收 {% data variables.product.product_location %} 上哪些活动的更新。 例如，选择您的默认电子邮件地址是否要接收以下更新：
+  - 对问题和拉取请求的评论。
+  - 拉取请求评审。
+  - 拉取请求推送。
+  - 您自己的更新，例如当您打开、评论或关闭议题或拉取请求时。
 
-Depending on the organization that owns the repository, you can also send notifications to different email addresses. Your organization may require the email address to be verified for a specific domain. For more information, see "[Choosing where your organization’s email notifications are sent](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#choosing-where-your-organizations-email-notifications-are-sent)."
+您还可以向不同电子邮件地址发送通知，具体取决于拥有仓库的组织。 您的组织可能要求验证特定域的电子邮件地址。 有关详细信息，请参阅“[选择接收组织的电子邮件通知的位置](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#choosing-where-your-organizations-email-notifications-are-sent)”。
 
-You can also send notifications for a specific repository to an email address. For more information, see "[About email notifications for pushes to your repository](/github/administering-a-repository/about-email-notifications-for-pushes-to-your-repository)."
+您也可以将特定仓库的通知发送到电子邮件地址。 有关详细信息，请参阅“[关于推送到存储库的电子邮件通知](/github/administering-a-repository/about-email-notifications-for-pushes-to-your-repository)”。
 
 {% data reusables.notifications-v2.email-notification-caveats %}
 
-## Filtering email notifications
+## 过滤电子邮件通知
 
-Each email notification that {% data variables.location.product_location %} sends contains header information. The header information in every email is consistent, so you can use it in your email client to filter or forward all {% data variables.product.prodname_dotcom %} notifications, or certain types of {% data variables.product.prodname_dotcom %} notifications.
+{% data variables.product.product_location %} 发送的每封电子邮件通知都包含标头信息。 每封电子邮件的标头信息都是一致的，因此可用于在电子邮件客户端中筛选或转发所有 {% data variables.product.prodname_dotcom %} 通知，或特定类型的 {% data variables.product.prodname_dotcom %} 通知。
 
-If you believe you're receiving notifications that don't belong to you, examine the `X-GitHub-Recipient` and `X-GitHub-Recipient-Address` headers. These headers show who the intended recipient is. Depending on your email setup, you may receive notifications intended for another user.
+如果你认为你收到不属于你的通知，请检查 `X-GitHub-Recipient` 和 `X-GitHub-Recipient-Address` 标题。 这些标头显示预期的收件人。 根据您的电子邮件设置，您可能会收到预期发给其他用户的通知。
 
-Email notifications from {% data variables.location.product_location %} contain the following header information:
+来自 {% data variables.product.product_location %} 的电子邮件通知包含以下标头信息：
 
-| Header | Information |
+| 标头 | 信息 |
 | --- | --- |
-| `From` address | This address will always be {% ifversion fpt or ghec %}'`notifications@github.com`'{% else %}'the no-reply email address configured by your site administrator'{% endif %}. |
-| `To` field | This field connects directly to the thread.{% ifversion not ghae %} If you reply to the email, you'll add a new comment to the conversation.{% endif %} |
-| `Cc` address | {% data variables.product.product_name %} will `Cc` you if you're subscribed to a conversation. The second `Cc` email address matches the notification reason. The suffix for these notification reasons is {% data variables.notifications.cc_address %}. The possible notification reasons are: <ul><li>`assign`: You were assigned to an issue or pull request.</li><li>`author`: You created an issue or pull request.</li><li>`ci_activity`: A {% data variables.product.prodname_actions %} workflow run that you triggered was completed.</li><li>`comment`: You commented on an issue or pull request.</li><li>`manual`: There was an update to an issue or pull request you manually subscribed to.</li><li>`mention`: You were mentioned on an issue or pull request.</li><li>`push`: Someone committed to a pull request you're subscribed to.</li><li>`review_requested`: You or a team you're a member of was requested to review a pull request.</li><li>`security_alert`: {% data variables.product.prodname_dotcom %} detected a vulnerability in a repository you receive alerts for.</li><li>`state_change`: An issue or pull request you're subscribed to was either closed or opened.</li><li>`subscribed`: There was an update in a repository you're watching.</li><li>`team_mention`: A team you belong to was mentioned on an issue or pull request.</li><li>`your_activity`: You opened, commented on, or closed an issue or pull request.</li></ul> |
-| `mailing list` field | This field identifies the name of the repository and its owner. The format of this address is always `<repository name>.<repository owner>.{% data variables.command_line.backticks %}`. |
-| `X-GitHub-Severity` field | {% data reusables.repositories.security-alerts-x-github-severity %} The possible severity levels are:<ul><li>`low`</li><li>`moderate`</li><li>`high`</li><li>`critical`</li></ul>For more information, see "[About {% data variables.product.prodname_dependabot_alerts %}](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)." |
+| `From` 地址 | 此地址始终是{% ifversion fpt or ghec %}'`notifications@github.com`'{% else %}“站点管理员配置的无需回复电子邮件地址”{% endif %}。 |
+| `To` 字段 | 此字段直接连接到线程。{% ifversion not ghae %} 如果你回复电子邮件，将在对话中添加一个新的评论。{% endif %} |
+| `Cc` 地址 | 如果你订阅了对话，{% data variables.product.product_name %} 将会 `Cc` 给你。 第二个 `Cc` 电子邮件地址与通知原因匹配。 这些通知原因的后缀是 {% data variables.notifications.cc_address %}。 可能的通知原因包括： <ul><li>`assign`：为你分配了一个议题或拉取请求。</li><li>`author`：你创建了议题或拉取请求。</li><li>`ci_activity`：你触发的 {% data variables.product.prodname_actions %} 工作流程运行已完成。</li><li>`comment`：你对议题或拉取请求发表了评论。</li><li>`manual`：你手动订阅的议题或拉取请求有更新。</li><li>`mention`：有人在议题或拉取请求中提及了你。</li><li>`push`：有人提交了你订阅的拉取请求。</li><li>`review_requested`：有人申请你或你所在的团队评审拉取请求。</li><li>`security_alert`：{% data variables.product.prodname_dotcom %} 检测到你要接收其漏洞警报的存储库中存在漏洞。</li><li>`state_change`：你订阅的议题或拉取请求已关闭或打开。</li><li>`subscribed`：你监视的存储库有更新。</li><li>`team_mention`：你所属的团队在议题或拉取请求中被提及。</li><li>`your_activity`：你打开、评论或关闭了议题或拉取请求。</li></ul> |
+| `mailing list` 字段 | 此字段识别仓库名称及其所有者。 此地址的格式始终为 `<repository name>.<repository owner>.{% data variables.command_line.backticks %}`。 |
+| `X-GitHub-Severity` 字段 | {% data reusables.repositories.security-alerts-x-github-severity %} 可能的严重程度等级包括：<ul><li>`low`</li><li>`moderate`</li><li>`high`</li><li>`critical`</li></ul>有关详细信息，请参阅“[关于 {% data variables.product.prodname_dependabot_alerts %}](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)”。 |
 
-## Choosing your notification settings
+## 选择通知设置
 
-{% data reusables.notifications.access_notifications %}
-{% data reusables.notifications-v2.manage-notifications %}
-3. On the notifications settings page, choose how you receive notifications when:
-    - There are updates in repositories or team discussions you're watching or in a conversation you're participating in. For more information, see "[About participating and watching notifications](#about-participating-and-watching-notifications)."
-    - You gain access to a new repository or you've joined a new team. For more information, see "[Automatic watching](#automatic-watching)."
-    - There are new {% data variables.product.prodname_dependabot_alerts %} in your repository. For more information, see "[{% data variables.product.prodname_dependabot_alerts %} notification options](#dependabot-alerts-notification-options)."  {% ifversion fpt or ghec %}
-    - There are workflow runs updates on repositories set up with {% data variables.product.prodname_actions %}. For more information, see "[{% data variables.product.prodname_actions %} notification options](#github-actions-notification-options)."{% endif %}{% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
-    - There are new deploy keys added to repositories that belong to organizations that you're an owner of. For more information, see "[Organization alerts notification options](#organization-alerts-notification-options)."{% endif %}
+{% data reusables.notifications.access_notifications %} {% data reusables.notifications-v2.manage-notifications %}
+3. 在通知设置页面上，选择在以下情况下如何接收通知：
+    - 在您关注的仓库或团队讨论或参与的对话中发生了更新。 有关详细信息，请参阅“[关于参与和监视通知](#about-participating-and-watching-notifications)”。
+    - 您获得了新仓库的访问权限或加入了新团队。 有关详细信息，请参阅“[自动监视](#automatic-watching)”。
+    - 存储库中有新的 {% data variables.product.prodname_dependabot_alerts %}。 有关详细信息，请参阅“[{% data variables.product.prodname_dependabot_alerts %} 通知选项](#dependabot-alerts-notification-options)”。  {% ifversion fpt or ghec %}
+    - 在使用 {% data variables.product.prodname_actions %} 设置的仓库上有工作流程运行更新。 有关详细信息，请参阅“[{% data variables.product.prodname_actions %} notification options](#github-actions-notification-options)”。{% endif %}{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5668 %}
+    - 新部署密钥已添加到属于您作为其所有者的组织的仓库。 有关详细信息，请参阅“[组织警报通知选项](#organization-alerts-notification-options)”。{% endif %}
 
-## Automatic watching
+## 自动关注
 
-By default, anytime you gain access to a new repository, you will automatically begin watching that repository. Anytime you join a new team, you will automatically be subscribed to updates and receive notifications when that team is @mentioned. If you don't want to automatically be subscribed, you can unselect the automatic watching options in your notification settings. 
+默认情况下，每当您获得新仓库的访问权限时，您将会自动开始关注该仓库。 每当你加入新团队时，你都会自动订阅更新，并在该团队被 @mentioned时收到通知。 如果不想自动订阅，您可以取消选择自动关注选项。
 
-{% ifversion update-notification-settings-22 %}
-![Automatic watching options for teams and repositories](/assets/images/automatically-watch-repos-and-teams.png)
-{% else %}
-![Automatic watching options](/assets/images/help/notifications-v2/automatic-watching-options.png){% endif %}
+  ![自动关注选项](/assets/images/help/notifications-v2/automatic-watching-options.png)
 
-If "Automatically watch repositories" is disabled, then you will not automatically watch your own repositories. You must navigate to your repository page and choose the watch option. 
+如果禁用了“Automatically watch repositories（自动关注仓库）”，您将不会自动关注自己拥有的仓库。 您必须导航到仓库页面，然后选择关注选项。
 
-For more information, see "[Choosing your notification settings](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#choosing-your-notification-settings)."
+## 配置单个仓库的关注设置
 
-## Configuring your watch settings for an individual repository
-
-You can choose whether to watch or unwatch an individual repository. You can also choose to only be notified of certain event types such as {% data reusables.notifications-v2.custom-notification-types %} (if enabled for the repository) , or completely ignore an individual repository.
+您可以选择关注还是取消关注单个仓库。 您还可以选择仅接收某些事件类型的通知，例如 {% data reusables.notifications-v2.custom-notification-types %} （如果为存储库启用），或者完全忽略单个存储库。
 
 {% data reusables.repositories.navigate-to-repo %}
-2. In the upper-right corner, select the "Watch" drop-down menu to click a watch option.
-   ![Watch options in a drop-down menu for a repository](/assets/images/help/notifications-v2/watch-repository-options-custom.png)
+2. 在右上角，选择“Watch（关注）”下拉菜单以单击关注选项。
+{% ifversion fpt or ghes or ghae-issue-4910 or ghec %} ![存储库下拉菜单中的“监视”选项](/assets/images/help/notifications-v2/watch-repository-options-custom.png)
 
-   The **Custom** option allows you to further customize notifications so that you're only notified when specific events happen in the repository, in addition to participating and @mentions.
-   ![Custom watch options in a drop-down menu for a repository](/assets/images/help/notifications-v2/watch-repository-options-custom2-dotcom.png)
-   If you select "Issues", you will be notified about, and subscribed to, updates on every issue (including those that existed prior to you selecting this option) in the repository. If you're @mentioned in a pull request in this repository, you'll receive notifications for that too, and you'll be subscribed to updates on that specific pull request, in addition to being notified about issues.
+   “自定义”选项可用于进一步自定义通知，以便除了参与和 @mentions之外，你仅在存储库中发生特定事件时才收到通知。
+{% else %} ![存储库下拉菜单中的“监视”选项](/assets/images/help/notifications-v2/watch-repository-options.png){% endif %} {% ifversion fpt or ghes or ghae-issue-4910 or ghec %} ![存储库下拉菜单中的“自定义监视”选项](/assets/images/help/notifications-v2/watch-repository-options-custom2-dotcom.png) 如果选择“议题”，你将收到存储库中每个议题（包括在你选择此选项之前存在的议题）的更新通知并订阅这些更新。 如果你在此存储库中的拉取请求中被 @mentioned，则除了收到有关议题的通知外，你还将收到有关该特定拉取请求的通知并订阅其更新。
+   {% endif %}
 
-## Choosing where your organization’s email notifications are sent
+## 选择接收组织的电子邮件通知的位置
 
-If you belong to an organization, you can choose the email account you want notifications for organization activity sent to. For example, if you belong to an organization for work, you may want your notifications sent to your work email address, rather than your personal address.	
+如果您属于某个组织，您可以选择要接收组织活动通知的电子邮件帐户。 例如，如果您属于某个工作组织，您可能希望通知发送到您的工作电子邮件地址，而不是您的个人地址。    
 
 {% data reusables.notifications-v2.email-notification-caveats %}
 
-{% data reusables.notifications.access_notifications %}
-{% data reusables.notifications-v2.manage-notifications %}
+{% data reusables.notifications.access_notifications %} {% data reusables.notifications-v2.manage-notifications %}
+3. 在“Default notification email（默认通知电子邮件）”下，选择要接收通知的电子邮件地址。   
+![默认通知电子邮件地址下拉菜单](/assets/images/help/notifications/notifications_primary_email_for_orgs.png) 
+4. 单击“ **保存**”。  
 
-3. Under "Default notification email", select the email address you'd like notifications sent to.	
-{% ifversion update-notification-settings-22 %}
+### 自定义每个组织的电子邮件路由   
 
-   ![Screenshot of the default notification email address setting](/assets/images/help/notifications/default-email-address-emphasized.png)
+如果您是多个组织的成员，您可以配置每个组织发送通知到任何{% ifversion fpt or ghec %} 您已验证的电子邮件地址{% else %} 帐户的电子邮件地址{% endif %}。 {% ifversion fpt or ghec %} 有关详细信息，请参阅“[验证电子邮件地址](/articles/verifying-your-email-address)”。{% endif %} 
 
-{% else %}
+{% data reusables.notifications.access_notifications %} {% data reusables.notifications-v2.manage-notifications %}
+3. 在“Custom routing（自定义路由）”下，在列表中找到您组织的名称。   
+![组织和电子邮件地址列表](/assets/images/help/notifications/notifications_org_emails.png)    
+4. 单击要更改的电子邮件地址旁边的“编辑”。
+![编辑组织的电子邮件地址](/assets/images/help/notifications/notifications_edit_org_emails.png)   
+5. 选择一个经验证的电子邮件地址，然后单击“保存”。    
+![切换组织对应的电子邮件地址](/assets/images/help/notifications/notifications_switching_org_email.gif)
 
-   ![Screenshot of the default notification email address dropdown](/assets/images/help/notifications/notifications_primary_email_for_orgs.png){% endif %}
-{% ifversion ghes or ghae %}
-4. Click **Save**.{% endif %}	
+## {% data variables.product.prodname_dependabot_alerts %} 通知选项 
 
-### Customizing email routes per organization	
+{% data reusables.notifications.vulnerable-dependency-notification-enable %} {% data reusables.notifications.vulnerable-dependency-notification-delivery-method-customization2 %} {% data reusables.notifications.vulnerable-dependency-notification-options %}
 
-If you are a member of more than one organization, you can configure each one to send notifications to any of{% ifversion fpt or ghec %} your verified email addresses{% else %} the email addresses for your account{% endif %}. {% ifversion fpt or ghec %} For more information, see "[Verifying your email address](/articles/verifying-your-email-address)."{% endif %} 
+若要详细了解可用的通知传递方法，并查看关于优化 {% data variables.product.prodname_dependabot_alerts %} 通知的建议，请参阅“[为 {% data variables.product.prodname_dependabot_alerts %} 配置通知](/code-security/dependabot/dependabot-alerts/configuring-notifications-for-dependabot-alerts)”。
 
-{% data reusables.notifications.access_notifications %}
-{% data reusables.notifications-v2.manage-notifications %}
-{% ifversion update-notification-settings-22 %}
-3. Under "Default notifications email", click **Custom routing**.
+{% ifversion fpt or ghes or ghec %}
+## {% data variables.product.prodname_actions %} 通知选项
 
-   ![Screenshot of default notifications email settings with custom routing button emphasised](/assets/images/help/notifications/custom-router-emphasized.png)
+选择您希望如何接收所关注仓库的工作流程运行更新，通过 {% data variables.product.prodname_actions %} 设置。 您也可以选择仅接收关于失败的工作流程运行的通知。
 
-4. Click **Add new route**.
+  ![{% data variables.product.prodname_actions %} 的警报选项](/assets/images/help/notifications-v2/github-actions-notification-options.png)
 
-   ![Screenshot of custom routing settings with add new route button emphasised](/assets/images/help/notifications/add-new-route-emphasized.png)
+{% endif %}
 
-5. Click **Pick organization**, then select the organization you want to customize from the dropdown.
+{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5668 %}
+## 组织警报通知选项 
 
-   ![Screenshot of dropdown to pick organization](/assets/images/help/notifications/organization-dropdown-custom-routing-emphasis.png)
-
-6. Select one of your verified email addresses, then click **Save**. 
-
-   ![Screenshot of custom routing page with save button](/assets/images/help/notifications/select-email-address-custom-routing-and-save.png)
-
-{% else %}
-3. Under "Custom routing," find your organization's name in the list.
-
-   ![List of organizations and email addresses](/assets/images/help/notifications/notifications_org_emails.png)	
-
-4. Click **Edit** next to the email address you want to change.
-
-   ![Editing an organization's email addresses](/assets/images/help/notifications/notifications_edit_org_emails.png)	
-
-5. Select one of your verified email addresses, then click **Save**.	
-
-   ![Switching your per-org email address](/assets/images/help/notifications/notifications_switching_org_email.gif){% endif %}
-
-## {% data variables.product.prodname_dependabot_alerts %} notification options 
-
-{% data reusables.notifications.vulnerable-dependency-notification-enable %}
-{% data reusables.notifications.vulnerable-dependency-notification-delivery-method-customization2 %}
-{% data reusables.notifications.vulnerable-dependency-notification-options %}
-
-For more information about the notification delivery methods available to you, and advice on optimizing your notifications for {% data variables.product.prodname_dependabot_alerts %}, see "[Configuring notifications for {% data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/configuring-notifications-for-dependabot-alerts)."
-
-{% ifversion update-notification-settings-22 or ghes %}
-## {% data variables.product.prodname_actions %} notification options
-
-Choose how you want to receive workflow run updates for repositories that you are watching that are set up with {% data variables.product.prodname_actions %}. You can also choose to only receive notifications for failed workflow runs.{% endif %}
-
-{% ifversion update-notification-settings-22 %}
-![Animated GIF of notification options for {% data variables.product.prodname_actions %}](/assets/images/help/notifications/github-actions-customize-notifications.gif){% endif %}
-
-{% ifversion ghes %}
-  ![Screenshot of the notification options for {% data variables.product.prodname_actions %}](/assets/images/help/notifications-v2/github-actions-notification-options.png){% endif %}
-
-
-{% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
-## Organization alerts notification options 
-
-If you're an organization owner, you'll receive email notifications by default when organization members add new deploy keys to repositories within the organization. You can unsubscribe from these notifications. On the notification settings page, under "Organization alerts", unselect **Email**. 
+如果您是组织所有者，则当组织成员向组织内的存储库添加新的部署密钥时，默认情况下，您将收到电子邮件通知。 您可以取消订阅这些通知。 在通知设置页面上的“组织警报”下，取消选择“电子邮件”。 
 
 {% endif %}
 
 {% ifversion fpt or ghes or ghec %}
-## Managing your notification settings with {% data variables.product.prodname_mobile %}
+## 使用 {% data variables.product.prodname_mobile %} 管理通知设置
 
-When you install {% data variables.product.prodname_mobile %}, you will automatically be opted into web notifications. Within the app, you can enable push notifications for the following events.
-- Direct mentions
-- Assignments to issues or pull requests
-- Requests to review a pull request
-- Requests to approve a deployment
+安装 {% data variables.product.prodname_mobile %} 时，您将自动选择 web 通知。 在应用程序中，您可以为以下事件启用推送通知。
+- 直接提及
+- 分配到议题或拉取请求
+- 请求审核拉取请求
+- 请求批准部署
 
-You can also schedule when {% data variables.product.prodname_mobile %} will send push notifications to your mobile device.
+您还可以安排 {% data variables.product.prodname_mobile %} 何时向移动设备发送推送通知。
 
 {% data reusables.mobile.push-notifications-on-ghes %}
 
-### Managing your notification settings with {% data variables.product.prodname_ios %}
+### 使用 {% data variables.product.prodname_ios %} 管理通知设置
 
-1. In the bottom menu, tap **Profile**.
-2. To view your settings, tap {% octicon "gear" aria-label="The Gear icon" %}.
-3. To update your notification settings, tap **Notifications** and then use the toggles to enable or disable your preferred types of push notifications.
-4. Optionally, to schedule when {% data variables.product.prodname_mobile %} will send push notifications to your mobile device, tap **Working Hours**, use the **Custom working hours** toggle, and then choose when you would like to receive push notifications.
+1. 在底部菜单中，点击“配置文件”。
+2. 要查看设置，请点击 {% octicon "gear" aria-label="The Gear icon" %}。
+3. 要更新通知设置，请点击“通知”，然后使用切换开关来启用或禁用首选类型的推送通知。
+4. （可选）要安排 {% data variables.product.prodname_mobile %} 何时向移动设备发送推送通知，请点击“工作时间”，使用“自定义工作时间”切换开关，然后选择何时接收推送通知 。
 
-### Managing your notification settings with {% data variables.product.prodname_android %}
+### 使用 {% data variables.product.prodname_android %} 管理通知设置
 
-1. In the bottom menu, tap **Profile**.
-2. To view your settings, tap {% octicon "gear" aria-label="The Gear icon" %}.
-3. To update your notification settings, tap **Configure Notifications** and then use the toggles to enable or disable your preferred types of push notifications.
-4. Optionally, to schedule when {% data variables.product.prodname_mobile %} will send push notifications to your mobile device, tap **Working Hours**, use the **Custom working hours** toggle, and then choose when you would like to receive push notifications.
+1. 在底部菜单中，点击“配置文件”。
+2. 要查看设置，请点击 {% octicon "gear" aria-label="The Gear icon" %}。
+3. 要更新通知设置，请点击“配置通知”，然后使用切换开关来启用或禁用首选类型的推送通知。
+4. （可选）要安排 {% data variables.product.prodname_mobile %} 何时向移动设备发送推送通知，请点击“工作时间”，使用“自定义工作时间”切换开关，然后选择何时接收推送通知 。
 
-## Configuring your watch settings for an individual repository with {% data variables.product.prodname_mobile %} 
+## 使用 {% data variables.product.prodname_mobile %} 配置个别仓库的关注设置 
 
-You can choose whether to watch or unwatch an individual repository. You can also choose to only be notified of {% ifversion fpt or ghec %}certain event types such as issues, pull requests, discussions (if enabled for the repository) and {% endif %}new releases, or completely ignore an individual repository.
+您可以选择关注还是取消关注单个仓库。 你也可以选择接收{% ifversion fpt or ghec %}特定事件类型，如议题、拉取请求、讨论（如已对存储库启用）以及{% endif %}新版本的通知，或者完全忽略单个存储库。
 
-1. On {% data variables.product.prodname_mobile %}, navigate to the main page of the repository.
-2. Tap **Watch**.
-   ![The watch button on {% data variables.product.prodname_mobile %}](/assets/images/help/notifications-v2/mobile-watch-button.png)
-3. To choose what activities you receive notifications for, tap your preferred watch settings.
-   ![Watch settings dropdown menu in {% data variables.product.prodname_mobile %}](/assets/images/help/notifications-v2/mobile-watch-settings.png)
+1. 在 {% data variables.product.prodname_mobile %} 上，导航到存储库的主页面。
+2. 点击“监视”。
+   ![{% data variables.product.prodname_mobile %} 上的监视按钮](/assets/images/help/notifications-v2/mobile-watch-button.png)
+3. 要选择接收通知的活动，请点击首选的关注设置。
+   ![{% data variables.product.prodname_mobile %} 中的监视设置下拉菜单](/assets/images/help/notifications-v2/mobile-watch-settings.png)
 
 {% endif %}

@@ -1,13 +1,13 @@
 ---
-ms.openlocfilehash: d08df6f87611aec73985fd0ecd279b67079e2a1f
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 727611615f31b6b6064340ba97757509a1834db2
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "147067375"
+ms.lasthandoff: 12/09/2022
+ms.locfileid: "148193193"
 ---
 {% ifversion ghes %}
 
-Se você remover um usuário do seu IdP, também deverá suspendê-lo manualmente. Caso contrário, o proprietário da conta poderá continuar fazendo autenticação usando tokens de acesso ou chaves SSH. Para obter mais informações, confira "[Como suspender e cancelar a suspensão de usuários](/enterprise/admin/guides/user-management/suspending-and-unsuspending-users)".
+Com o provisionamento JIT, se você remover um usuário do IdP, também deverá suspender manualmente a conta do usuário em {% data variables.location.product_location %}. Caso contrário, o proprietário da conta poderá continuar fazendo autenticação usando tokens de acesso ou chaves SSH. Para obter mais informações, confira "[Como suspender e cancelar a suspensão de usuários](/enterprise/admin/guides/user-management/suspending-and-unsuspending-users)".
 
 {% endif %}
