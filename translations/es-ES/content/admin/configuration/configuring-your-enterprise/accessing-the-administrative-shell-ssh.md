@@ -1,5 +1,5 @@
 ---
-title: Accessing the administrative shell (SSH)
+title: Acceder al shell administrativo (SSH)
 redirect_from:
   - /enterprise/admin/articles/ssh-access
   - /enterprise/admin/articles/adding-an-ssh-key-for-shell-access
@@ -20,30 +20,34 @@ topics:
   - Fundamentals
   - SSH
 shortTitle: Access the admin shell (SSH)
+ms.openlocfilehash: 8d8b9cd71a436c0874355b1bdd53ba2e400660a0
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145120738'
 ---
-## About administrative shell access
+## Acerca del acceso al shell administrativo
 
-If you have SSH access to the administrative shell, you can run {% data variables.product.prodname_ghe_server %}'s command line utilities. SSH access is also useful for troubleshooting, running backups, and configuring replication. Administrative SSH access is managed separately from Git SSH access and is accessible only via port 122.
+Si tienes acceso SSH al shell administrativo, puedes ejecutar las utilidades de la línea de comando del {% data variables.product.prodname_ghe_server %}. El acceso SSH también es útil para la solución de problemas, para ejecutar copias de seguridad y para configurar la replicación. El acceso SSH administrativo se administra por separado desde el acceso SSH de Git y es accesible solo desde el puerto 122.
 
-## Enabling access to the administrative shell via SSH
+## Habilitar el acceso al shell administrativo por medio de SSH
 
-To enable administrative SSH access, you must add your SSH public key to your instance's list of authorized keys. For more information, see "[Generating a new SSH key and adding it to the ssh-agent](/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#adding-your-ssh-key-to-the-ssh-agent)."
+Para habilitar el acceso SSH administrativo, debes agregar tu llave pública SSH a tu lista de llaves autorizadas de la instancia.
 
 {% tip %}
 
-**Tip:** Changes to authorized SSH keys take effect immediately.
+**Sugerencia:** Los cambios en las claves SSH autorizadas tienen efecto inmediato.
 
 {% endtip %}
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.management-console %}
-3. Under "SSH access", paste your key into the text box, then click **Add key**.
-  ![Text box and button for adding an SSH key](/assets/images/enterprise/settings/add-authorized-ssh-key-admin-shell.png)
-{% data reusables.enterprise_management_console.save-settings %}
+{% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.enterprise_site_admin_settings.management-console %}
+3. En "SSH access", pegue la clave en el cuadro de texto y haga clic en **Add key**.
+  ![Cuadro de texto y botón para agregar una clave SSH](/assets/images/enterprise/settings/add-authorized-ssh-key-admin-shell.png) {% data reusables.enterprise_management_console.save-settings %}
 
-## Connecting to the administrative shell over SSH
+## Conectarse con el shell administrativo por SSH
 
-After you've added your SSH key to the list, connect to the instance over SSH as the `admin` user on port 122.
+Después de agregar la clave SSH a la lista, conéctese a la instancia mediante SSH como usuario de `admin` en el puerto 122.
 
 ```shell
 $ ssh -p 122 admin@github.example.com
@@ -51,29 +55,29 @@ Last login: Sun Nov 9 07:53:29 2014 from 169.254.1.1
 admin@github-example-com:~$ █
 ```
 
-### Troubleshooting SSH connection problems
+### Solucionar problemas de conexión al SSH
 
-If you encounter the `Permission denied (publickey)` error when you try to connect to {% data variables.location.product_location %} via SSH, confirm that you are connecting over port 122. You may need to explicitly specify which private SSH key to use.
+Si se encuentra el error `Permission denied (publickey)` al intentar conectarse a {% data variables.product.product_location %} mediante SSH, confirme que se está conectando a través del puerto 122. Puede que debas especificar de manera explícita qué clave SSH privada utilizar.
 
-To specify a private SSH key using the command line, run `ssh` with the `-i` argument.
+Para especificar una clave SSH privada mediante la línea de comandos, ejecute `ssh` con el argumento `-i`.
 
 ```shell
-ssh -i /path/to/ghe_private_key -p 122 admin@HOSTNAME
+ssh -i /path/to/ghe_private_key -p 122 admin@<em>hostname</em>
 ```
 
-You can also specify a private SSH key using the SSH configuration file (`~/.ssh/config`).
+También puede especificar una clave SSH privada mediante el archivo de configuración SSH (`~/.ssh/config`).
 
 ```shell
-Host HOSTNAME
+Host <em>hostname</em>
   IdentityFile /path/to/ghe_private_key
   User admin
   Port 122
 ```
 
-## Accessing the administrative shell using the local console
+## Acceder al shell administrativo utilizando la consola local
 
-In an emergency situation, for example if SSH is unavailable, you can access the administrative shell locally. Sign in as the `admin` user and use the password established during initial setup of {% data variables.product.prodname_ghe_server %}.
+En una situación de emergencia, por ejemplo, si el SSH no está disponible, puedes acceder al shell administrativo de manera local. Inicie sesión como usuario de `admin` y utilice la contraseña establecida durante la configuración inicial de {% data variables.product.prodname_ghe_server %}.
 
-## Access limitations for the administrative shell
+## Limitaciones de acceso al shell administrativo
 
-Administrative shell access is permitted for troubleshooting and performing documented operations procedures only. Modifying system and application files, running programs, or installing unsupported software packages may void your support contract. Please contact {% data variables.contact.contact_ent_support %} if you have a question about the activities allowed by your support contract.
+El acceso al shell administrativo se permite solo para la solución de problemas y para realizar procedimientos de operaciones documentadas. Si modificas archivos del sistema y de la aplicación, ejecutas programas o instalas paquetes de software incompatibles se puede invalidar tu contrato de asistencia. Contáctate con {% data variables.contact.contact_ent_support %} si tienes alguna pregunta acerca de las actividades que permite tu contrato de asistencia.

@@ -1,6 +1,6 @@
 ---
-title: Recovering your account if you lose your 2FA credentials
-intro: 'If you lose access to your two-factor authentication credentials, you can use your recovery codes, or another recovery option, to regain access to your account.'
+title: Восстановление учетной записи при утере учетных данных для двухфакторной проверки подлинности
+intro: 'Если вы потеряете доступ к своим учетным данным двухфакторной проверки подлинности, то для восстановления доступа к учетной записи сможете использовать коды восстановления или другой вариант восстановления.'
 redirect_from:
   - /articles/recovering-your-account-if-you-lost-your-2fa-credentials
   - /articles/authenticating-with-an-account-recovery-token
@@ -14,12 +14,18 @@ versions:
 topics:
   - 2FA
 shortTitle: Recover an account with 2FA
+ms.openlocfilehash: 94993cb3d22419a4d2de9405852768d77b2c7b36
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148097936'
 ---
 {% ifversion fpt or ghec %}
 
 {% warning %}
 
-**Warnings**: 
+**Предупреждения** 
 
 - {% data reusables.two_fa.support-may-not-help %}
 
@@ -27,84 +33,83 @@ shortTitle: Recover an account with 2FA
 
 {% endif %}
 
-## Using a two-factor authentication recovery code
+## Использование кода восстановления двухфакторной проверки подлинности
 
-Use one of your recovery codes to automatically regain entry into your account. You may have saved your recovery codes to a password manager or your computer's downloads folder. The default filename for recovery codes is `github-recovery-codes.txt`. For more information about recovery codes, see "[Configuring two-factor authentication recovery methods](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication-recovery-methods#downloading-your-two-factor-authentication-recovery-codes)."
+Чтобы автоматически восстановить доступ к учетной записи, используйте один из кодов восстановления. Возможно, вы сохранили коды восстановления в диспетчере паролей или папке загрузки компьютера. Имя файла по умолчанию для кодов восстановления — `github-recovery-codes.txt`. Дополнительные сведения о кодах восстановления см. в разделе [Настройка методов восстановления двухфакторной проверки подлинности](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication-recovery-methods#downloading-your-two-factor-authentication-recovery-codes).
 
-1. Type your username and password to prompt authentication.
+1. Введите имя пользователя и пароль для запроса проверки подлинности.
 
     {% warning %}
 
-    **Warning**: {% data reusables.accounts.you-must-know-your-password %}
+    **Предупреждение**. {% data reusables.accounts.you-must-know-your-password %}
     
     {% endwarning %}
 
 {% ifversion fpt or ghec %}
-1. Under "Having problems?", click **Use a recovery code or request a reset**.
+1. В разделе "Возникли проблемы?" щелкните ссылку **Использовать код восстановления или запросить сброс**.
 
-   ![Screenshot of link to use a recovery code](/assets/images/help/2fa/2fa-recovery-code-link.png)
-{%- else %}
-1. On the 2FA page, under "Don't have your phone?", click **Enter a two-factor recovery code**.
+   ![Снимок экрана: ссылка для использования кода восстановления](/assets/images/help/2fa/2fa-recovery-code-link.png) {%- else %}
+1. На странице двухфакторной проверки подлинности в разделе "Нет телефона?" щелкните **Ввести код восстановления двухфакторной проверки подлинности**.
 
-   ![Screenshot of link to use a recovery code](/assets/images/help/2fa/2fa_recovery_dialog_box.png){% endif %}
-1. Type one of your recovery codes, then click **Verify**.
+   ![Снимок экрана: ссылка для использования кода восстановления](/assets/images/help/2fa/2fa_recovery_dialog_box.png){% endif %}
+1. Введите один из кодов восстановления и нажмите кнопку **Проверить**.
 
-   ![Field to type a recovery code and Verify button](/assets/images/help/2fa/2fa-type-verify-recovery-code.png)
+   ![Поле для ввода кода восстановления и кнопка "Проверить"](/assets/images/help/2fa/2fa-type-verify-recovery-code.png)
 
 {% ifversion fpt or ghec %}
-## Authenticating with a fallback number
+## Проверка подлинности с помощью резервного номера
 
-If you lose access to your primary TOTP app or phone number, you can provide a two-factor authentication code sent to your fallback number to automatically regain access to your account.
+Если вы утратили доступ к основному приложению или номеру телефона для получения одноразового пароля с ограниченным сроком действия (TOTP), вы можете ввести код двухфакторной проверки подлинности, отправленный на резервный номер, чтобы автоматически восстановить доступ к учетной записи.
 {% endif %}
 
-## Authenticating with a security key
+## Проверка подлинности с помощью ключа безопасности
 
-If you configured two-factor authentication using a security key, you can use your security key as a secondary authentication method to automatically regain access to your account. For more information, see "[Configuring two-factor authentication](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication#configuring-two-factor-authentication-using-a-security-key)."
+Если вы настроили ключ безопасности в качестве дополнительного способа двухфакторной проверки подлинности, то можете использовать этот ключ для автоматического восстановления доступа к учетной записи. Подробнее: [Настройка двухфакторной проверки подлинности](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication#configuring-two-factor-authentication-using-a-security-key).
 
 {% ifversion fpt or ghec %}
-## Authenticating with a verified device, SSH token, or {% data variables.product.pat_generic %}
+## Проверка подлинности с помощью проверенного устройства, маркера SSH или {% данных variables.product.pat_generic %}
 
-If you know your password for {% data variables.location.product_location %} but don't have the two-factor authentication credentials or your two-factor authentication recovery codes, you can have a one-time password sent to your verified email address to begin the verification process and regain access to your account.
+Если вы знаете пароль для {% данных variables.location.product_location %}, но у вас нет учетных данных двухфакторной проверки подлинности или кодов восстановления двухфакторной проверки подлинности, вы можете отправить одноразовый пароль на проверенный адрес электронной почты, чтобы начать процесс проверки и восстановить доступ к вашей учетной записи.
 
 {% note %}
 
-**Note**: For security reasons, regaining access to your account by authenticating with a one-time password can take up to three business days. {% data variables.product.company_short %} will not review additional requests submitted during this time.
+**Примечание**. По соображениям безопасности восстановление доступа к учетной записи путем проверки подлинности с помощью одноразового пароля может занять до трех рабочих дней. {% data variables.product.company_short %} не будет проверять дополнительные запросы, отправленные в течение этого времени.
 
 {% endnote %}
 
-You can use your two-factor authentication credentials or two-factor authentication recovery codes to regain access to your account anytime during the 3-5 day waiting period.
+Вы можете использовать учетные данные или коды восстановления двухфакторной проверки подлинности, чтобы восстановить доступ к учетной записи в любое время в течение 3–5 дней ожидания.
 
-1. Type your username and password to prompt authentication.
+1. Введите имя пользователя и пароль для запроса проверки подлинности.
 
     {% warning %}
 
-    **Warning**: {% data reusables.accounts.you-must-know-your-password %}
+    **Предупреждение**. {% data reusables.accounts.you-must-know-your-password %}
     
     {% endwarning %}
-1. Under "Having problems?", click **Use a recovery code or request a reset**.
+1. В разделе "Возникли проблемы?" щелкните ссылку **Использовать код восстановления или запросить сброс**.
 
-   ![Screenshot of link if you don't have your 2fa device or recovery codes](/assets/images/help/2fa/no-access-link.png)
-1. To the right of "Locked out?", click **Try recovering your account**.
+   ![Снимок экрана: ссылка, отображаемая при отсутствии устройства или кодов восстановления двухфакторной проверки подлинности](/assets/images/help/2fa/no-access-link.png)
+1. Справа от надписи "Заблокированы?" щелкните ссылку **Попробовать восстановить учетную запись**.
 
-   ![Screenshot of link to try recovering your account](/assets/images/help/2fa/try-recovering-your-account-link.png)
-1. Click **I understand, get started** to request a reset of your authentication settings.
+   ![Снимок экрана: ссылка для попытки восстановления учетной записи](/assets/images/help/2fa/try-recovering-your-account-link.png)
+1. Щелкните **Я понимаю, начать**, чтобы запросить сброс параметров проверки подлинности.
 
-    ![Screenshot of button to start reset of authentication settings](/assets/images/help/2fa/reset-auth-settings.png)
-1. Click **Send one-time password** to send a one-time password to all eligible addresses associated with your account. Only verified emails are eligible for account recovery. If you've restricted password resets to your primary and/or backup addresses, these addresses are the only addresses eligible for account recovery.
+    ![Снимок экрана: кнопка для запуска сброса параметров проверки подлинности](/assets/images/help/2fa/reset-auth-settings.png)
+1. Щелкните **Отправить одноразовый пароль**, чтобы отправить одноразовый пароль на все соответствующие адреса, связанные с вашей учетной записью. Для восстановления учетной записи можно использовать только проверенные адреса электронной почты. Если вы ограничили сброс пароля основным и (или) резервным адресами, эти адреса являются единственными адресами, подходящими для восстановления учетной записи.
 
-   ![Screenshot of button to send one-time password](/assets/images/help/2fa/send-one-time-password.png)
-1. Under "One-time password", type the temporary password from the recovery email {% data variables.product.prodname_dotcom %} sent.
+   ![Снимок экрана: кнопка для отправки одноразового пароля](/assets/images/help/2fa/send-one-time-password.png)
+1. В поле "Одноразовый пароль" введите временный пароль, полученный с {% data variables.product.prodname_dotcom %} на резервный адрес электронной почты.
 
-   ![Screenshot of field to type one-time password](/assets/images/help/2fa/one-time-password-field.png)
-1. Click **Verify email address**.
+   ![Снимок экрана: поле для ввода одноразового пароля](/assets/images/help/2fa/one-time-password-field.png)
+1. Нажмите кнопку **Проверить адрес электронной почты**.
 
-   ![Screenshot of button to verify email address](/assets/images/help/2fa/verify-email-address.png)
-1. Choose an alternative verification factor.
-    - If you've used your current device to log into this account before and would like to use the device for verification, click **Verify with this device**.
-    - If you've previously set up an SSH key on this account and would like to use the SSH key for verification, click **SSH key**.
-    - If you've previously set up a {% data variables.product.pat_generic %} and would like to use the {% data variables.product.pat_generic %} for verification, click **{% data variables.product.pat_generic_caps %}**.
+   ![Снимок экрана: кнопка для проверки адреса электронной почты](/assets/images/help/2fa/verify-email-address.png)
+1. Выберите дополнительный фактор проверки.
+    - Если вы ранее использовали текущее устройство для входа в эту учетную запись и хотите использовать его для проверки, щелкните **Проверить с помощью этого устройства**.
+    - Если вы ранее настроили ключ SSH в этой учетной записи и хотите использовать его для проверки, щелкните **Ключ SSH**.
+    - Если вы ранее настроили {% данных variables.product.pat_generic %} и хотите использовать {% данных variables.product.pat_generic %} для проверки, щелкните **{% данных variables.product.pat_generic_caps %}**.
 
-   ![Screenshot of buttons for alternative verification](/assets/images/help/2fa/alt-verifications.png)
-1. A member of {% data variables.contact.github_support %} will review your request and email you within three business days. If your request is approved, you'll receive a link to complete your account recovery process. If your request is denied, the email will include a way to contact support with any additional questions.
+   ![Снимок экрана: кнопки для выбора дополнительного фактора проверки](/assets/images/help/2fa/alt-verifications.png)
+1. Участник {% data variables.contact.github_support %} проверит ваш запрос и ответит вам по электронной почте в течение трех рабочих дней. Если ваш запрос утвержден, вы получите ссылку для завершения восстановления учетной записи. Если ваш запрос отклонен, в сообщении электронной почты будет указан способ обращения в службу поддержки по дополнительным вопросам.
 
 {% endif %}

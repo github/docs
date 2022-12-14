@@ -1,0 +1,1 @@
+The roadmap layout provides a high-level visualization of your project across a configurable timespan, and allows you to drag items to affect their start and target dates. Roadmaps use your custom date fields to position your issues, pull requests, and draft issues on a timeline, allowing you to track work over time and watch progress.

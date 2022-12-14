@@ -1,6 +1,6 @@
 ---
-title: Getting permanent links to files
-intro: 'When viewing a file on {% data variables.location.product_location %}, you can press the "y" key to update the URL to a permalink to the exact version of the file you see.'
+title: ファイルへのパーマリンクを取得する
+intro: '{% data variables.product.product_location %} でファイルを表示する際に y キーを押すと、URL を、表示されているファイルと完全に同じバージョンへのパーマリンクへと更新できます。'
 redirect_from:
   - /articles/getting-a-permanent-link-to-a-file
   - /articles/how-do-i-get-a-permanent-link-from-file-view-to-permanent-blob-url
@@ -15,43 +15,49 @@ versions:
 topics:
   - Repositories
 shortTitle: Permanent links to files
+ms.openlocfilehash: 4e3d5ec282f7f7ba820094240698c88e298cdb69
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145131886'
 ---
 {% tip %}
 
-**Tip**: Press "?" on any page in {% data variables.product.product_name %} to see all available keyboard shortcuts.
+**ヒント**: {% data variables.product.product_name %} の任意のページで [?] を押すと、使用可能なキーボードのショートカットをすべて確認できます。
 
 {% endtip %}
 
-## File views show the latest version on a branch
+## ファイルのビューにはブランチの最新バージョンが表示されます
 
-When viewing a file on {% data variables.location.product_location %}, you usually see the version at the current head of a branch.  For example:
+{% data variables.product.product_location %} でファイルを表示する際、通常はブランチの現在の head でのバージョンが表示されます。  たとえば次のような点です。
 
 * [https://github.com/github/codeql/blob/**main**/README.md](https://github.com/github/codeql/blob/main/README.md)
 
-refers to GitHub's `codeql` repository, and shows the `main` branch's current version of the `README.md` file.
+これは、GitHub の `codeql` リポジトリであり、`main` ブランチの現在のバージョンの `README.md` ファイルを示しています。
 
-The version of a file at the head of branch can change as new commits are made, so if you were to copy the normal URL, the file contents might not be the same when someone looks at it later.
+ブランチのヘッドにあるファイルのバージョンは、新たなコミットが行われるたびに変更される場合があるため、通常の URL をコピーすると、後で他のユーザが見るときはファイルのコンテンツが同一ではない場合があります。
 
-## Press <kbd>Y</kbd> to permalink to a file in a specific commit
+## <kbd>Y</kbd> を押して特定のコミット内のファイルへのパーマリンクを取得する
 
-For a permanent link to the specific version of a file that you see, instead of using a branch name in the URL (i.e. the `main` part in the example above), put a commit id.  This will permanently link to the exact version of the file in that commit.  For example:
+表示されるファイルの特定のバージョンへの永続的なリンクに、URL でブランチ名 (つまり、上記の例の `main` 部分) を使う代わりに、コミット ID を入力します。これにより、そのコミット内のファイルの正確なバージョンに永続的にリンクされます。  たとえば次のような点です。
 
 * [https://github.com/github/codeql/blob/**b212af08a6cffbb434f3c8a2795a579e092792fd**/README.md](https://github.com/github/codeql/blob/b212af08a6cffbb434f3c8a2795a579e092792fd/README.md)
 
-replaces `main` with a specific commit id and the file content will not change.
+これでは、特定のコミット ID を `main` に置き換えています。ファイルの内容は変わりません。
 
-Looking up the commit SHA by hand is inconvenient, however, so as a shortcut you can type <kbd>y</kbd> to automatically update the URL to the permalink version.  Then you can copy the URL knowing that anyone you share it with will see exactly what you saw.
+コミット SHA を手作業で探すのは不便ですが、ショートカットとして <kbd>y</kbd> を押すと、URL がパーマリンクのバージョンに自動で更新されます。  その後、URL をコピーし、共有すると、自分が表示したのとまったく同じものが表示されます。
 
 {% tip %}
 
-**Tip**: You can put any identifier that can be resolved to a commit in the URL, including branch names, specific commit SHAs, or tags!
+**ヒント**: ブランチ名、特定のコミット SHA、タグなど、URL 内のコミットに解決できる任意の識別子を配置できます。
 
 {% endtip %}
 
-## Creating a permanent link to a code snippet
+## コードスニペットへのパーマリンクを作成する
 
-You can create a permanent link to a specific line or range of lines of code in a specific version of a file or pull request. For more information, see "[Creating a permanent link to a code snippet](/articles/creating-a-permanent-link-to-a-code-snippet/)."
+特定バージョンのファイルやプルリクエストにある特定のコード行やコード行の範囲へのパーマリンクを作成できます。 詳しい情報については、「[コード スニペットへのパーマリンクを作成する](/articles/creating-a-permanent-link-to-a-code-snippet/)」を参照してください。
 
-## Further reading
+## 参考資料
 
-- "[Archiving a GitHub repository](/articles/archiving-a-github-repository)"
+- 「[GitHub リポジトリのアーカイブ](/articles/archiving-a-github-repository)」

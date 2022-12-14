@@ -1,6 +1,6 @@
 ---
-title: Backing up a repository
-intro: 'You can use{% ifversion ghes or ghae %} Git and{% endif %} the API {% ifversion fpt or ghec %}or a third-party tool {% endif %}to back up your repository.'
+title: Резервное копирование репозитория
+intro: 'Можно использовать Git{% ifversion ghes or ghae %} и API-интерфейс{% endif %} {% ifversion fpt or ghec %}или сторонний инструмент {% endif %}для резервного копирования репозитория.'
 redirect_from:
   - /articles/backing-up-a-repository
   - /github/creating-cloning-and-archiving-repositories/backing-up-a-repository
@@ -12,34 +12,39 @@ versions:
   ghec: '*'
 topics:
   - Repositories
+ms.openlocfilehash: 544d1661ef52be263deb1e0f67378b0e004ea5a3
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148099052'
 ---
 {% ifversion fpt or ghec %}
 
-To download an archive of your repository, you can use the API for user or organization migrations. For more information, see "[Migrations](/rest/reference/migrations)."
+Для скачивания архива репозитория можно использовать API миграции пользователей или организаций. Дополнительные сведения см. в разделе [Миграция](/rest/reference/migrations).
 {% else %}
 
-You can download and back up your repositories manually:
+Вы можете скачивать репозитории и создавать их резервные копии вручную:
 
-- To download a repository's Git data to your local machine, you'll need to clone the repository. For more information, see "[Cloning a repository](/articles/cloning-a-repository)."
-- You can also download your repository's wiki. For more information, see "[Adding or editing wiki pages](/communities/documenting-your-project-with-wikis/adding-or-editing-wiki-pages)."
+- Чтобы скачать данные репозитория Git на локальный компьютер, необходимо клонировать репозиторий. Дополнительные сведения см. в разделе [Клонирование репозитория](/articles/cloning-a-repository).
+- Также можно скачать вики-сайт репозитория. Дополнительные сведения см. в разделе [Добавление и редактирование вики-страниц](/communities/documenting-your-project-with-wikis/adding-or-editing-wiki-pages).
 
-When you clone a repository or wiki, only Git data, such as project files and commit history, is downloaded. You can use our API to export other elements of your repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %} to your local machine:
+При клонировании репозитория или вики-сайта скачиваются только данные Git, например файлы проекта и журнал фиксаций. Вы можете использовать наш API для экспорта других элементов репозитория на {% ifversion ghae %}{% данных variables.product.product_name %}{% else %}{% данных %}{% variables.location.product_location %}{% endif %} на локальный компьютер:
 
-- [Issues](/rest/reference/issues#list-issues-for-a-repository)
-- [Pull requests](/rest/reference/pulls#list-pull-requests)
-- [Forks](/rest/reference/repos#list-forks)
-- [Comments](/rest/reference/issues#list-issue-comments-for-a-repository)
-- [Milestones](/rest/reference/issues#list-milestones)
-- [Labels](/rest/reference/issues#list-labels-for-a-repository)
-- [Watchers](/rest/reference/activity#list-watchers)
+- [Проблемы](/rest/reference/issues#list-issues-for-a-repository)
+- [Запросы на включение внесенных изменений](/rest/reference/pulls#list-pull-requests)
+- [Вилки](/rest/reference/repos#list-forks)
+- [Комментарии](/rest/reference/issues#list-issue-comments-for-a-repository)
+- [Вехи](/rest/reference/issues#list-milestones)
+- [Метки](/rest/reference/issues#list-labels-for-a-repository)
+- [Наблюдатели](/rest/reference/activity#list-watchers)
 - [Stargazers](/rest/reference/activity#list-stargazers)
-- [Projects](/rest/reference/projects#list-repository-projects)
-{% endif %}
+- [Проекты](/rest/reference/projects#list-repository-projects) {% endif %}
 
-Once you have {% ifversion ghes or ghae %}a local version of all the content you want to back up, you can create a zip archive and {% else %}downloaded your archive, you can {% endif %}copy it to an external hard drive and/or upload it to a cloud-based backup or storage service such as [Azure Blob Storage](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blobs-overview/), [Google Drive](https://www.google.com/drive/) or [Dropbox](https://www.dropbox.com/).
+После {% ifversion ghes or ghae %}получения локальной версии всего содержимого, которое требуется резервировать, вы можете создать ZIP-архив и {% else %}скачивания архива вы можете {% endif %}скопировать его на внешний жесткий диск и (или) отправить в облачную службу резервного копирования или хранения, такую как [Хранилище BLOB-объектов Azure](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blobs-overview/), [Google Drive](https://www.google.com/drive/) или [Dropbox](https://www.dropbox.com/).
 
 {% ifversion fpt or ghec %}
-## Third-party backup tools
+## Сторонние средства для резервного копирования
 
-A number of self-service tools exist that automate backups of repositories. Unlike archival projects, which archive _all_ public repositories on {% data variables.product.product_name %} that have not opted out and make the data accessible to anyone, backup tools will download data from _specific_ repositories and organize it within a new branch or directory. For more information about archival projects, see "[About archiving content and data on {% data variables.product.prodname_dotcom %}](/github/creating-cloning-and-archiving-repositories/about-archiving-content-and-data-on-github#about-the-github-archive-program)." For more information about self-service backup tools, see the [Backup Utilities category on {% data variables.product.prodname_marketplace %}](https://github.com/marketplace?category=backup-utilities).
+Существует ряд средств для самостоятельной автоматизации резервного копирования репозиториев. В отличие от архивных проектов, которые содержат _все_ не исключенные отдельно общедоступные репозитории на {% data variables.product.product_name %} и позволяют любому пользователю получить доступ к данным, с помощью средств резервного копирования можно скачать _конкретные_ репозитории и создать новые ветвь или каталог. Дополнительные сведения об архивных проектах см. в разделе [Сведения об архивации содержимого и данных на {% data variables.product.prodname_dotcom %}](/github/creating-cloning-and-archiving-repositories/about-archiving-content-and-data-on-github#about-the-github-archive-program). Дополнительные сведения о средствах самостоятельного резервного копирования см. в [категории "Программы для резервного копирования" на {% data variables.product.prodname_marketplace %}](https://github.com/marketplace?category=backup-utilities).
 {% endif %}

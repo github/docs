@@ -1,7 +1,7 @@
 ---
-title: SAML configuration reference
+title: Справочник по конфигурации SAML
 shortTitle: SAML reference
-intro: 'You can see SAML metadata for {% ifversion ghec %}your organization or enterprise on {% data variables.product.product_name %}{% elsif ghes %}{% data variables.location.product_location %}{% elsif ghae %}your enterprise on {% data variables.product.product_name %}{% endif %}, and you can learn more about available SAML attributes and response requirements.'
+intro: 'Вы можете просмотреть метаданные SAML для {% ifversion ghec %}вашей организации или предприятия на {% данных variables.product.product_name %}{% elsif ghes %}{% данных variables.location.product_location %}{% elsif ghae %}ваше предприятие на {% данных variables.product.product_name %}{% endif %}, и вы можете узнать больше о доступных атрибутах SAML и требованиях к ответу.'
 versions:
   ghec: '*'
   ghes: '*'
@@ -13,82 +13,80 @@ topics:
   - Enterprise
   - Identity
   - SSO
+ms.openlocfilehash: 8a6e0a569e21bb12b2fd31a40c8c0bd98e34fe65
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148098287'
 ---
+## Сведения о конфигурации SAML
 
-## About SAML configuration
+Чтобы использовать единый вход SAML для проверки подлинности на {% данных variables.product.product_name %}, Необходимо настроить внешний поставщик удостоверений SAML (IdP) и {% ifversion ghes %}{% данных variables.location.product_location %}{% elsif ghec %}ваше предприятие или организация на {% данных variables.location.product_location %}{% elsif ghae %}вашей организации на {% данных variables.product.product_name %}{% endif %}. В конфигурации SAML {% data variables.product.product_name %} используется как поставщик услуг (SP) SAML.
 
-To use SAML single sign-on (SSO) for authentication to {% data variables.product.product_name %}, you must configure both your external SAML identity provider (IdP) and {% ifversion ghes %}{% data variables.location.product_location %}{% elsif ghec %}your enterprise or organization on {% data variables.location.product_location %}{% elsif ghae %}your enterprise on {% data variables.product.product_name %}{% endif %}. In a SAML configuration, {% data variables.product.product_name %} functions as a SAML service provider (SP).
+Вы должны ввести уникальные значения из вашего SAML IdP при настройке SAML SSO для {% data variables.product.product_name %}, а также вы должны ввести уникальные значения из {% data variables.product.product_name %} в вашем IdP. Дополнительные сведения о настройке единого входа SAML для {% data variables.product.product_name %} см. в разделах [Настройка единого входа SAML для вашего предприятия](/admin/identity-and-access-management/managing-iam-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise){% ifversion ghes or ghae %}{% elsif ghec %} и [Включение и тестирование единого входа SAML для вашей организации](/organizations/managing-saml-single-sign-on-for-your-organization/enabling-and-testing-saml-single-sign-on-for-your-organization){% endif %}.
 
-You must enter unique values from your SAML IdP when configuring SAML SSO for {% data variables.product.product_name %}, and you must also enter unique values from {% data variables.product.product_name %} on your IdP. For more information about the configuration of SAML SSO for {% data variables.product.product_name %}, see "[Configuring SAML single sign-on for your enterprise](/admin/identity-and-access-management/managing-iam-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise){% ifversion ghes or ghae %}{% elsif ghec %}" or "[Enabling and testing SAML single sign-on for your organization](/organizations/managing-saml-single-sign-on-for-your-organization/enabling-and-testing-saml-single-sign-on-for-your-organization){% endif %}."
-
-## SAML metadata
+## Метаданные SAML
 
 {% ifversion ghec %}
 
-The SP metadata for {% data variables.product.product_name %} is available for either organizations or enterprises with SAML SSO. {% data variables.product.product_name %} uses the `urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST` binding.
+Метаданные SP для {% data variables.product.product_name %} доступны как для организаций, так и для предприятий с единым входом SAML. В {% data variables.product.product_name %} используется привязка `urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST`.
 
-### Organizations
+### Организации
 
-You can configure SAML SSO for an individual organization in your enterprise. You can also configure SAML SSO for an organization if you use an individual organization on {% data variables.product.product_name %} and do not use an enterprise account. For more information, see "[Managing SAML single sign-on for your organization](/organizations/managing-saml-single-sign-on-for-your-organization)."
+Единый вход SAML можно настроить для отдельной организации в предприятии. Вы также можете настроить единый вход SAML SSO для организации, если вы используете отдельную организацию в {% data variables.product.product_name %} и не используете корпоративную учетную запись. Дополнительные сведения см. в разделе [Управление единым входом SAML для организации](/organizations/managing-saml-single-sign-on-for-your-organization).
 
-The SP metadata for an organization on {% data variables.location.product_location %} is available at `https://github.com/orgs/ORGANIZATION/saml/metadata`, where **ORGANIZATION** is the name of your organization on {% data variables.location.product_location %}.
+Метаданные субъекта-службы для организации на {% данных variables.location.product_location %} доступны в `https://github.com/orgs/ORGANIZATION/saml/metadata`том месте, где **ОРГАНИЗАЦИЯ** — это название вашей организации на {% данных variables.location.product_location %}.
 
-| Value | Other names | Description | Example |
+| Значение | Другие названия | Описание | Пример |
 | :- | :- | :- | :- |
-| SP Entity ID | SP URL, audience restriction | The top-level URL for your organization on {% data variables.location.product_location %} | `https://github.com/orgs/ORGANIZATION` |
-| SP Assertion Consumer Service (ACS) URL | Reply, recipient, or destination URL | URL where IdP sends SAML responses | `https://github.com/orgs/ORGANIZATION/saml/consume` |
-| SP Single Sign-On (SSO) URL | | URL where IdP begins SSO |  `https://github.com/orgs/ORGANIZATION/saml/sso` |
+| Идентификатор сущности SP | URL-адрес SP, ограничение аудитории | URL-адрес верхнего уровня для вашей организации на {% данных variables.location.product_location %} | `https://github.com/orgs/ORGANIZATION` |
+| URL-адрес службы контроля доступа (ACS) | URL-адрес ответа, получателя или назначения | URL-адрес, с которого IdP отправляет ответы SAML | `https://github.com/orgs/ORGANIZATION/saml/consume` |
+| URL-адрес единого входа SP | | URL-адрес, по которому IdP начинает единый вход |  `https://github.com/orgs/ORGANIZATION/saml/sso` |
 
-### Enterprises
+### Предприятия
 
-The SP metadata for an enterprise on {% data variables.location.product_location %} is available at `https://github.com/enterprises/ENTERPRISE/saml/metadata`, where **ENTERPRISE** is the name of your enterprise on {% data variables.location.product_location %}.
+Метаданные субъекта-службы для предприятия на {% данных variables.location.product_location %} доступны в `https://github.com/enterprises/ENTERPRISE/saml/metadata`том месте, где **ENTERPRISE** — это имя вашего предприятия на {% данных variables.location.product_location %}.
 
-| Value | Other names | Description | Example |
+| Значение | Другие названия | Описание | Пример |
 | :- | :- | :- | :- |
-| SP Entity ID | SP URL, audience restriction | The top-level URL for your enterprise on {% data variables.location.product_location %} | `https://github.com/enterprises/ENTERPRISE` |
-| SP Assertion Consumer Service (ACS) URL | Reply, recipient, or destination URL | URL where IdP sends SAML responses | `https://github.com/enterprises/ENTERPRISE/saml/consume` |
-| SP Single Sign-On (SSO) URL | | URL where IdP begins SSO |  `https://github.com/enterprises/ENTERPRISE/saml/sso` |
+| Идентификатор сущности SP | URL-адрес SP, ограничение аудитории | URL-адрес верхнего уровня для вашего предприятия на {% данных variables.location.product_location %} | `https://github.com/enterprises/ENTERPRISE` |
+| URL-адрес службы контроля доступа (ACS) | URL-адрес ответа, получателя или назначения | URL-адрес, с которого IdP отправляет ответы SAML | `https://github.com/enterprises/ENTERPRISE/saml/consume` |
+| URL-адрес единого входа SP | | URL-адрес, по которому IdP начинает единый вход |  `https://github.com/enterprises/ENTERPRISE/saml/sso` |
 
 {% elsif ghes %}
 
-The SP metadata for {% data variables.location.product_location %} is available at `http(s)://HOSTNAME/saml/metadata`, where **HOSTNAME** is the hostname for your instance. {% data variables.product.product_name %} uses the `urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST` binding.
+Метаданные sp для {% данных variables.location.product_location %} доступны по `http(s)://HOSTNAME/saml/metadata`адресу **, где HOSTNAME** — это имя узла для вашего экземпляра. В {% data variables.product.product_name %} используется привязка `urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST`.
 
-| Value | Other names | Description | Example |
+| Значение | Другие названия | Описание | Пример |
 | :- | :- | :- | :- |
-| SP Entity ID | SP URL, audience restriction | Your top-level URL for {% data variables.product.product_name %} | `http(s)://HOSTNAME`
-| SP Assertion Consumer Service (ACS) URL | Reply, recipient, or destination URL | URL where IdP sends SAML responses | `http(s)://HOSTNAME/saml/consume` |
-| SP Single Sign-On (SSO) URL | | URL where IdP begins SSO |  `http(s)://HOSTNAME/sso` |
+| Идентификатор сущности SP | URL-адрес SP, ограничение аудитории | URL-адрес верхнего уровня для {% data variables.product.product_name %} | `http(s)://HOSTNAME`
+| URL-адрес службы контроля доступа (ACS) | URL-адрес ответа, получателя или назначения | URL-адрес, с которого IdP отправляет ответы SAML | `http(s)://HOSTNAME/saml/consume` |
+| URL-адрес единого входа SP | | URL-адрес, по которому IdP начинает единый вход |  `http(s)://HOSTNAME/sso` |
 
 {% elsif ghae %}
 
-The SP metadata for your enterprise on {% data variables.product.product_name %} is available at `https://HOSTNAME/saml/metadata`, where **HOSTNAME** is the hostname for your enterprise on {% data variables.product.product_name %}. {% data variables.product.product_name %} uses the `urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST` binding.
+Метаданные SP для вашего предприятия на {% data variables.product.product_name %} доступны по адресу `https://HOSTNAME/saml/metadata`, где **HOSTNAME** — это имя узла вашего предприятия в {% data variables.product.product_name %}. В {% data variables.product.product_name %} используется привязка `urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST`.
 
-| Value | Other names | Description | Example |
+| Значение | Другие названия | Описание | Пример |
 | :- | :- | :- | :- |
-| SP Entity ID | SP URL, audience restriction | Your top-level URL for {% data variables.product.product_name %} | `https://HOSTNAME` |
-| SP Assertion Consumer Service (ACS) URL | Reply, recipient, or destination URL | URL where IdP sends SAML responses | `https://HOSTNAME/saml/consume` |
-| SP Single Sign-On (SSO) URL | | URL where IdP begins SSO |  `https://HOSTNAME/sso` |
+| Идентификатор сущности SP | URL-адрес SP, ограничение аудитории | URL-адрес верхнего уровня для {% data variables.product.product_name %} | `https://HOSTNAME` |
+| URL-адрес службы контроля доступа (ACS) | URL-адрес ответа, получателя или назначения | URL-адрес, с которого IdP отправляет ответы SAML | `https://HOSTNAME/saml/consume` |
+| URL-адрес единого входа SP | | URL-адрес, по которому IdP начинает единый вход |  `https://HOSTNAME/sso` |
 
 {% endif %}
 
-## SAML attributes
+## Атрибуты SAML
 
-The following SAML attributes are available for {% data variables.product.product_name %}.{% ifversion ghes %} You can change the attribute names in the management console, with the exception of the `administrator` attribute. For more information, see "[Accessing the management console](/admin/configuration/configuring-your-enterprise/accessing-the-management-console)."{% endif %}
+Следующие атрибуты SAML доступны для {% data variables.product.product_name %}.{% ifversion ghes %} Вы можете изменить имена атрибутов в консоли управления, за исключением самого атрибута `administrator`. Дополнительные сведения см. в разделе [Доступ к консоли управления](/admin/configuration/configuring-your-enterprise/accessing-the-management-console).{% endif %}
 
-| Name | Required? | Description |
+| Имя | Необходим? | Описание |
 | :- | :- | :- |
-| `NameID` | Yes | A persistent user identifier. Any persistent name identifier format may be used. {% ifversion ghec %}If you use an enterprise with {% data variables.product.prodname_emus %}, {% endif %}{% data variables.product.product_name %} will normalize the `NameID` element to use as a username unless one of the alternative assertions is provided. For more information, see "[Username considerations for external authentication](/admin/identity-and-access-management/managing-iam-for-your-enterprise/username-considerations-for-external-authentication)."<br><br>{% note %}**Note:** It's important to use a human-readable, persistent identifier. Using a transient identifier format like `urn:oasis:names:tc:SAML:2.0:nameid-format:transient` will result in re-linking of accounts on every sign-in, which can be detrimental to authorization management.{% endnote %}  |
-| `SessionNotOnOrAfter` | No | The date that {% data variables.product.product_name %} invalidates the associated session. After invalidation, the person must authenticate once again to access {% ifversion ghec or ghae %}your enterprise's resources{% elsif ghes %}{% data variables.location.product_location %}{% endif %}. For more information, see "[Session duration and timeout](#session-duration-and-timeout)." |
-{%- ifversion ghes or ghae %}
-| `administrator` | No | When the value is `true`, {% data variables.product.product_name %} will automatically promote the user to be a {% ifversion ghes %}site administrator{% elsif ghae %}enterprise owner{% endif %}. Setting this attribute to anything but `true` will result in demotion, as long as the value is not blank. Omitting this attribute or leaving the value blank will not change the role of the user. |
-| `username` | No | The username for {% data variables.location.product_location %}. |
-{%- endif %}
-| `full_name` | No | {% ifversion ghec %}If you configure SAML SSO for an enterprise and you use {% data variables.product.prodname_emus %}, the{% else %}The{% endif %} full name of the user to display on the user's profile page. |
-| `emails` | No | The email addresses for the user.{% ifversion ghes or ghae %} You can specify more than one address.{% endif %}{% ifversion ghec or ghes %} If you sync license usage between {% data variables.product.prodname_ghe_server %} and {% data variables.product.prodname_ghe_cloud %}, {% data variables.product.prodname_github_connect %} uses `emails` to identify unique users across products. For more information, see "[Syncing license usage between {% data variables.product.prodname_ghe_server %} and {% data variables.product.prodname_ghe_cloud %}](/billing/managing-your-license-for-github-enterprise/syncing-license-usage-between-github-enterprise-server-and-github-enterprise-cloud)."{% endif %} |
-| `public_keys` | No | {% ifversion ghec %}If you configure SAML SSO for an enterprise and you use {% data variables.product.prodname_emus %}, the{% else %}The{% endif %} public SSH keys for the user. You can specify more than one key. |
-| `gpg_keys` | No | {% ifversion ghec %}If you configure SAML SSO for an enterprise and you use {% data variables.product.prodname_emus %}, the{% else %}The{% endif %} GPG keys for the user. You can specify more than one key. |
+| `NameID` | Да | Постоянный идентификатор пользователя. Можно использовать любой формат идентификатора постоянного имени. {% ifversion ghec %}Если вы используете предприятие с {% data variables.product.prodname_emus %}, {% endif %}{% data variables.product.product_name %} нормализует элемент `NameID` для использования в качестве имени пользователя, если не указано одно из альтернативных утверждений. Дополнительные сведения см. в разделе [Рекомендации по использованию имени пользователя для внешней проверки подлинности](/admin/identity-and-access-management/managing-iam-for-your-enterprise/username-considerations-for-external-authentication).<br><br>{% note %}**Примечание.** Важно, чтобы идентификатор был понятным человеку и постоянным. Переменный формат идентификатора, например `urn:oasis:names:tc:SAML:2.0:nameid-format:transient`, приведет к повторной привязке учетных записей при каждом входе, что может затруднить управление авторизацией.{% endnote %}  |
+| `SessionNotOnOrAfter` | Нет | Дата, когда {% data variables.product.product_name %} делает соответствующий сеанс недействительным. После недопустимости пользователь должен еще раз пройти проверку подлинности, чтобы получить доступ к {% ifversion ghec или ghae %}ресурсы вашего предприятия{% elsif ghes %}{% данных variables.location.product_location %}{% endif %}. Дополнительные сведения см. в разделе [Длительность сеанса и время ожидания](#session-duration-and-timeout). |
+{%- ifversion ghes or ghae %} | `administrator` | Нет | Если значение равно `true`, {% data variables.product.product_name %} автоматически повысит пользователя до {% ifversion ghes %}администратора сайта{% elsif ghae %}владельца предприятия{% endif %}. Задание для этого атрибута всех значений, кроме `true`, приведет к понижению уровня при условии, что значение не пустое. Если пропустить этот атрибут или оставить значение пустым, роль пользователя не изменится. | | `username` | Нет | Имя пользователя для {% данных variables.location.product_location %}. | {%- endif %} | `full_name` | Нет | {% ifversion ghec %}Если вы настраиваете единый вход SAML для предприятия и используете {% data variables.product.prodname_emus %}, {% else %}{% endif %}Полное имя пользователя, которое будет отображаться на странице профиля пользователя. | | `emails` | Нет | Адреса электронной почты пользователя.{% ifversion ghes or ghae %} Вы можете указать более одного адреса.{% endif %}{% ifversion ghec or ghes %} Если вы синхронизируете использование лицензии между {% data variables.product.prodname_ghe_server %} и {% data variables.product.prodname_ghe_cloud %}, {% data variables.product.prodname_github_connect %} будет использовать `emails` для идентификации уникальных пользователей в продуктах. Дополнительные сведения см. в разделе [Синхронизация использования лицензии между {% data variables.product.prodname_ghe_server %} и {% data variables.product.prodname_ghe_cloud %}](/billing/managing-your-license-for-github-enterprise/syncing-license-usage-between-github-enterprise-server-and-github-enterprise-cloud). {% endif %} | | `public_keys` | Нет | {% ifversion ghec %}Если вы настраиваете единый вход SAML для предприятия и используете {% data variables.product.prodname_emus %}, {% else %}{% endif %}Открытые ключи SSH для пользователя. Можно указать несколько ключей. | | `gpg_keys` | Нет | {% ifversion ghec %}Если вы настраиваете единый вход SAML для предприятия и используете {% data variables.product.prodname_emus %}, {% else %}{% endif %}Ключи GPG для пользователя. Можно указать несколько ключей. |
 
-To specify more than one value for an attribute, use multiple `<saml2:AttributeValue>` elements.
+Чтобы указать несколько значений для атрибута, используйте несколько элементов `<saml2:AttributeValue>`.
 
 ```xml
 <saml2:Attribute FriendlyName="public_keys" Name="urn:oid:1.2.840.113549.1.1.1" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
@@ -97,20 +95,20 @@ To specify more than one value for an attribute, use multiple `<saml2:AttributeV
 </saml2:Attribute>
 ```
 
-## SAML response requirements
+## Требования к ответу SAML
 
-{% data variables.product.product_name %} requires that the response message from your IdP fulfill the following requirements.
+{% data variables.product.product_name %} требует, чтобы ответное сообщение от вашего IdP соответствовало следующим требованиям.
 
-- Your IdP must provide the `<Destination>` element on the root response document and match the ACS URL only when the root response document is signed. If your IdP signs the assertion, {% data variables.product.product_name %} will ignore the assertion.
-- Your IdP must always provide the `<Audience>` element as part of the `<AudienceRestriction>` element. The value must match your `EntityId` for {% data variables.product.product_name %}.{% ifversion ghes or ghae %} This value is the URL where you access {% data variables.location.product_location %}, such as {% ifversion ghes %}`http(s)://HOSTNAME`{% elsif ghae %}`https://SUBDOMAIN.githubenterprise.com`, `https://SUBDOMAIN.github.us`, or `https://SUBDOMAIN.ghe.com`{% endif %}.{% endif %}
+- Ваш IdP должен предоставить элемент `<Destination>` в корневом документе ответа и обеспечить соответствие URL-адресу ACS, только если корневой документ ответа подписан. Если ваш IdP подпишет утверждение, {% data variables.product.product_name %} проигнорирует это утверждение.
+- Ваш IdP всегда должен предоставлять элемент `<Audience>` как часть элемента `<AudienceRestriction>`. Значение должно соответствовать `EntityId` значению для {% данных variables.product.product_name %}.{ % ifversion ghes или ghae %} Это значение является URL-адресом, в котором осуществляется доступ к {% данных variables.location.product_location %}, например {% ifversion ghes %}`http(s)://HOSTNAME`{% elsif ghae %}`https://SUBDOMAIN.githubenterprise.com`, `https://SUBDOMAIN.github.us`или `https://SUBDOMAIN.ghe.com`{% endif %}.{ % endif %}
   
   {%- ifversion ghec %}
-  - If you configure SAML for an organization, this value is `https://github.com/orgs/ORGANIZATION`.
-  - If you configure SAML for an enterprise, this URL is `https://github.com/enterprises/ENTERPRISE`.
+  - Если вы настраиваете SAML для организации, это значение будет равно `https://github.com/orgs/ORGANIZATION`.
+  - Если вы настраиваете SAML для предприятия, это значение будет равно `https://github.com/enterprises/ENTERPRISE`.
   {%- endif %}
-- Your IdP must protect each assertion in the response with a digital signature. You can accomplish this by signing each individual `<Assertion>` element or by signing the `<Response>` element.
-- Your IdP must provide a `<NameID>` element as part of the `<Subject>` element. You may use any persistent name identifier format.
-- Your IdP must include the `Recipient` attribute, which must be set to the ACS URL. The following example demonstrates the attribute.
+- Ваш IdP должен защищать каждое утверждение в ответе цифровой подписью. Это можно сделать, подписав каждый отдельный элемент `<Assertion>` или подписав элемент `<Response>`.
+- IdP должен предоставить элемент `<NameID>` как часть элемента `<Subject>`. Вы можете использовать любой формат идентификатора постоянного имени.
+- Ваш IdP должен включать атрибут `Recipient`, который должен быть настроен с URL-адресом ACS. В следующем примере демонстрируется атрибут.
 
      ```xml
      <samlp:Response ...>
@@ -130,21 +128,20 @@ To specify more than one value for an attribute, use multiple `<saml2:AttributeV
      </samlp:Response>
      ```
 
-## Session duration and timeout
+## Длительность сеанса и время ожидания
 
-To prevent a person from authenticating with your IdP and staying authorized indefinitely, {% data variables.product.product_name %} periodically invalidates the session for each user account with access to {% ifversion ghec or ghae %}your enterprise's resources{% elsif ghes %}{% data variables.location.product_location %}{% endif %}. After invalidation, the person must authenticate with your IdP once again. By default, if your IdP does not assert a value for the `SessionNotOnOrAfter` attribute, {% data variables.product.product_name %} invalidates a session {% ifversion ghec %}24 hours{% elsif ghes or ghae %}one week{% endif %} after successful authentication with your IdP.
+Чтобы предотвратить проверку подлинности пользователя с помощью поставщика удостоверений и оставаться авторизованным на неопределенный срок, {% данных variables.product.product_name %} периодически делает сеанс недействительным для каждой учетной записи пользователя с доступом к {% ifversion ghec или ghae %}ресурсы вашего предприятия{% elsif ghes %}{% данных variables.location.product_location %}{% endif %}. После этого пользователь должен снова выполнить проверку подлинности с помощью IdP. По умолчанию, если ваш IdP не утверждает значение атрибута `SessionNotOnOrAfter`, {% data variables.product.product_name %} делает сеанс недействительным на {% ifversion ghec %}24 часа{% elsif ghes or ghae %}одну неделю{% endif %} после успешной проверки подлинности с использованием вашего IdP.
 
-To customize the session duration, you may be able to define the value of the `SessionNotOnOrAfter` attribute on your IdP. If you define a value less than 24 hours, {% data variables.product.product_name %} may prompt people to authenticate every time {% data variables.product.product_name %} initiates a redirect.
+Чтобы настроить длительность сеанса, можно определить значение атрибута `SessionNotOnOrAfter` в IdP. Если вы укажете значение менее 24 часов, {% data variables.product.product_name %} может предлагать пользователям выполнять проверку подлинности каждый раз, когда {% data variables.product.product_name %} инициирует перенаправление.
 
-{% ifversion ghec %}
-To prevent authentication errors, we recommend a minimum session duration of 4 hours. For more information, see "[Troubleshooting SAML authentication](/admin/identity-and-access-management/using-saml-for-enterprise-iam/troubleshooting-saml-authentication#users-are-repeatedly-redirected-to-authenticate)."
+{% ifversion ghec %} Чтобы предотвратить ошибки при проверке подлинности, рекомендуется использовать минимальную продолжительность сеанса 4 часа. Дополнительные сведения см. в разделе [Устранение неполадок с проверкой подлинности SAML](/admin/identity-and-access-management/using-saml-for-enterprise-iam/troubleshooting-saml-authentication#users-are-repeatedly-redirected-to-authenticate).
 {% endif %}
 
 {% note %}
 
-**Notes**:
+**Примечания**
 
-- For Azure AD, the configurable lifetime policy for SAML tokens does not control session timeout for {% data variables.product.product_name %}.
-- Okta does not currently send the `SessionNotOnOrAfter` attribute during SAML authentication with {% data variables.product.product_name %}. For more information, contact Okta.
+- Для Azure AD настраиваемая политика времени жизни для токенов SAML не контролирует время ожидания сеанса для {% data variables.product.product_name %}.
+- Сейчас Okta не отправляет атрибут `SessionNotOnOrAfter` во время проверки подлинности SAML с {% data variables.product.product_name %}. Чтобы получить дополнительные сведения, обратитесь в Okta.
 
 {% endnote %}

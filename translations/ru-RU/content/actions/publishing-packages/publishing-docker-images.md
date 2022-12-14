@@ -1,7 +1,7 @@
 ---
-title: Publishing Docker images
+title: Публикация образов Docker
 shortTitle: Publish Docker images
-intro: 'You can publish Docker images to a registry, such as Docker Hub or {% data variables.product.prodname_registry %}, as part of your continuous integration (CI) workflow.'
+intro: 'Образы Docker можно публиковать в реестре, например Docker Hub или {% data variables.product.prodname_registry %}, в рамках рабочего процесса непрерывной интеграции (CI).'
 redirect_from:
   - /actions/language-and-framework-guides/publishing-docker-images
   - /actions/guides/publishing-docker-images
@@ -15,63 +15,67 @@ topics:
   - Packaging
   - Publishing
   - Docker
+ms.openlocfilehash: 4e34516985f7e96bccc24820b64669a8bd9102bc
+ms.sourcegitcommit: 7b86410fc3bc9fecf0cb71dda4c7d2f0da745b85
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/05/2022
+ms.locfileid: '148010056'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+## Введение
 
-## Introduction
-
-This guide shows you how to create a workflow that performs a Docker build, and then publishes Docker images to Docker Hub or {% data variables.product.prodname_registry %}. With a single workflow, you can publish images to a single registry or to multiple registries.
+В этом руководстве показано, как создать рабочий процесс, который выполняет сборку Docker, а затем публикует образы Docker в Docker Hub или {% data variables.product.prodname_registry %}. С помощью одного рабочего процесса можно публиковать образы в одном или нескольких реестрах.
 
 {% note %}
 
-**Note:** If you want to push to another third-party Docker registry, the example in the "[Publishing images to {% data variables.product.prodname_registry %}](#publishing-images-to-github-packages)" section can serve as a good template.
+**Примечание.** Если требуется выполнить отправку в другой сторонний реестр Docker, пример в разделе «[Публикация образов в {% data variables.product.prodname_registry %}](#publishing-images-to-github-packages)» может послужить хорошим шаблоном.
 
 {% endnote %}
 
-## Prerequisites
+## Предварительные требования
 
-We recommend that you have a basic understanding of workflow configuration options and how to create a workflow file. For more information, see "[Learn {% data variables.product.prodname_actions %}](/actions/learn-github-actions)."
+Рекомендуется иметь базовое представление о параметрах конфигурации рабочих процессов, а также о том, как создавать файл рабочего процесса. Дополнительные сведения см. в статье со [сведениями о {% data variables.product.prodname_actions %}](/actions/learn-github-actions).
 
-You might also find it helpful to have a basic understanding of the following:
+Кроме того, могут быть полезны базовые знания в следующих областях:
 
-- "[Encrypted secrets](/actions/reference/encrypted-secrets)"
-- "[Authentication in a workflow](/actions/reference/authentication-in-a-workflow)"{% ifversion fpt or ghec %}
-- "[Working with the {% data variables.product.prodname_container_registry %}](/packages/working-with-a-github-packages-registry/working-with-the-container-registry)"{% else %}
-- "[Working with the Docker registry](/packages/working-with-a-github-packages-registry/working-with-the-docker-registry)"{% endif %}
+- [Зашифрованные секреты](/actions/reference/encrypted-secrets)
+- [Проверка подлинности в рабочем процессе](/actions/reference/authentication-in-a-workflow){% ifversion fpt or ghec %}
+- [Работа с {% data variables.product.prodname_container_registry %}](/packages/working-with-a-github-packages-registry/working-with-the-container-registry){% else %}
+- [Работа с реестром Docker](/packages/working-with-a-github-packages-registry/working-with-the-docker-registry){% endif %}
 
-## About image configuration
+## Сведения о конфигурации образа
 
-This guide assumes that you have a complete definition for a Docker image stored in a {% data variables.product.prodname_dotcom %} repository. For example, your repository must contain a _Dockerfile_, and any other files needed to perform a Docker build to create an image.
+В этом руководстве предполагается, что у вас имеется полное определение образа Docker, хранящегося в репозитории {% data variables.product.prodname_dotcom %}. Например, репозиторий должен содержать _Dockerfile_ и все остальные файлы, необходимые для выполнения сборки Docker и создания образа.
 
 {% ifversion fpt or ghec or ghes > 3.4 %}
 
-{% data reusables.package_registry.about-docker-labels %} For more information, see "[Working with the {% data variables.product.prodname_container_registry %}](/packages/working-with-a-github-packages-registry/working-with-the-container-registry#labelling-container-images)."
+{% данных reusables.package_registry.about-docker-labels %} Дополнительные сведения см. в разделе "[Работа с {% данных variables.product.prodname_container_registry %}](/packages/working-with-a-github-packages-registry/working-with-the-container-registry#labelling-container-images)".
 
 {% endif %}
 
-In this guide, we will use the Docker `build-push-action` action to build the Docker image and push it to one or more Docker registries. For more information, see [`build-push-action`](https://github.com/marketplace/actions/build-and-push-docker-images).
+В этом руководстве мы будем использовать действие `build-push-action` Docker для сборки образа Docker и отправки его в один или несколько реестров Docker. Дополнительные сведения см. на веб-сайте [`build-push-action`](https://github.com/marketplace/actions/build-and-push-docker-images).
 
 {% data reusables.actions.enterprise-marketplace-actions %}
 
-## Publishing images to Docker Hub
+## Публикация образов в Docker Hub
 
 {% data reusables.actions.release-trigger-workflow %}
 
-In the example workflow below, we use the Docker `login-action` and `build-push-action` actions to build the Docker image and, if the build succeeds, push the built image to Docker Hub.
+В приведенном ниже примере рабочего процесса мы используем действия Docker `login-action` и `build-push-action` для сборки образа Docker и в случае успешного выполнения сборки отправляем созданный образ в Docker Hub.
 
-To push to Docker Hub, you will need to have a Docker Hub account, and have a Docker Hub repository created. For more information, see "[Pushing a Docker container image to Docker Hub](https://docs.docker.com/docker-hub/repos/#pushing-a-docker-container-image-to-docker-hub)" in the Docker documentation.
+Для отправки в Docker Hub потребуется учетная запись Docker Hub и создания репозитория Docker Hub. Дополнительные сведения см. в разделе «[Отправка образа контейнера Docker в Docker Hub](https://docs.docker.com/docker-hub/repos/#pushing-a-docker-container-image-to-docker-hub)» документации по Docker.
 
-The `login-action` options required for Docker Hub are:
-* `username` and `password`: This is your Docker Hub username and password. We recommend storing your Docker Hub username and password as secrets so they aren't exposed in your workflow file. For more information, see "[Creating and using encrypted secrets](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)."
+Ниже приведены параметры `login-action`, необходимые для Docker Hub.
+* `username` и `password`: это имя пользователя и пароль Docker Hub. Рекомендуется хранить имя пользователя и пароль Docker Hub в качестве секретов, чтобы не раскрыть их в файле рабочего процесса. Дополнительные сведения см. в статье «[Создание и использование зашифрованных секретов](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)».
 
-The `metadata-action` option required for Docker Hub is:
-* `images`: The namespace and name for the Docker image you are building/pushing to Docker Hub.
+Ниже приведен параметр `metadata-action`, необходимый для Docker Hub.
+* `images`: пространство имен и имя образа Docker, который вы собираете или отправляете в Docker Hub.
 
-The `build-push-action` options required for Docker Hub are:
-* `tags`: The tag of your new image in the format `DOCKER-HUB-NAMESPACE/DOCKER-HUB-REPOSITORY:VERSION`. You can set a single tag as shown below, or specify multiple tags in a list.
-* `push`: If set to `true`, the image will be pushed to the registry if it is built successfully.
+Ниже приведены параметры `build-push-action`, необходимые для Docker Hub.
+* `tags`: тег нового образа в формате `DOCKER-HUB-NAMESPACE/DOCKER-HUB-REPOSITORY:VERSION`. Можно задать один тег, как показано ниже, или указать несколько тегов в виде списка.
+* `push`: если задано значение `true`, образ будет отправлен в реестр в случае успешной сборки.
 
 ```yaml{:copy}
 {% data reusables.actions.actions-not-certified-by-github-comment %}
@@ -113,42 +117,38 @@ jobs:
           labels: {% raw %}${{ steps.meta.outputs.labels }}{% endraw %}
 ```
 
-The above workflow checks out the {% data variables.product.prodname_dotcom %} repository, uses the `login-action` to log in to the registry, and then uses the `build-push-action` action to: build a Docker image based on your repository's `Dockerfile`; push the image to Docker Hub, and apply a tag to the image.
+Приведенный выше рабочий процесс извлекает репозиторий {% data variables.product.prodname_dotcom %}, использует `login-action` для входа в реестр, а затем использует действие `build-push-action` для создания образа Docker на основе `Dockerfile` репозитория, отправки образа в Docker Hub и применения тега к образу.
 
-## Publishing images to {% data variables.product.prodname_registry %}
+## Публикация образов в {% data variables.product.prodname_registry %}
 
-{% ifversion ghes > 3.4 %}
-{% data reusables.package_registry.container-registry-ghes-beta %}
-{% endif %}
+{% ifversion ghes > 3.4 %} {% data reusables.package_registry.container-registry-ghes-beta %} {% endif %}
 
 {% data reusables.actions.release-trigger-workflow %}
 
-In the example workflow below, we use the Docker `login-action`{% ifversion fpt or ghec %}, `metadata-action`,{% endif %} and `build-push-action` actions to build the Docker image, and if the build succeeds, push the built image to {% data variables.product.prodname_registry %}.
+В приведенном ниже примере рабочего процесса мы используем действия Docker `login-action`{% ifversion fpt or ghec %}, `metadata-action`{% endif %} и `build-push-action` для сборки образа Docker и, если сборка выполнена успешно, отправляем собранный образ в {% data variables.product.prodname_registry %}.
 
-The `login-action` options required for {% data variables.product.prodname_registry %} are:
-* `registry`: Must be set to {% ifversion fpt or ghec %}`ghcr.io`{% elsif ghes > 3.4 %}`{% data reusables.package_registry.container-registry-hostname %}`{% else %}`docker.pkg.github.com`{% endif %}.
-* `username`: You can use the {% raw %}`${{ github.actor }}`{% endraw %} context to automatically use the username of the user that triggered the workflow run. For more information, see "[Contexts](/actions/learn-github-actions/contexts#github-context)."
-* `password`: You can use the automatically-generated `GITHUB_TOKEN` secret for the password. For more information, see "[Authenticating with the GITHUB_TOKEN](/actions/automating-your-workflow-with-github-actions/authenticating-with-the-github_token)."
+Ниже приведены параметры `login-action`, необходимые для {% data variables.product.prodname_registry %}.
+* `registry`: необходимо задать значение {% ifversion fpt or ghec %}`ghcr.io`{% elsif ghes > 3.4 %}`{% data reusables.package_registry.container-registry-hostname %}`{% else %}`docker.pkg.github.com`{% endif %}.
+* `username`: можно использовать контекст {% raw %}`${{ github.actor }}`{% endraw %} для автоматического использования имени пользователя, активировавшего выполнение рабочего процесса. Дополнительные сведения см. в разделе «[Контексты](/actions/learn-github-actions/contexts#github-context)».
+* `password`: для пароля можно использовать автоматически созданный секрет `GITHUB_TOKEN`. Дополнительные сведения см. в разделе «[Проверка подлинности с помощью GITHUB_TOKEN](/actions/automating-your-workflow-with-github-actions/authenticating-with-the-github_token)».
 
-{% ifversion fpt or ghec %}
-The `metadata-action` option required for {% data variables.product.prodname_registry %} is:
-* `images`: The namespace and name for the Docker image you are building.
+{% ifversion fpt or ghec %} Ниже приведен параметр `metadata-action`, необходимый для {% data variables.product.prodname_registry %}.
+* `images`: пространство имен и имя образа Docker, который вы собираете.
 {% endif %}
 
-The `build-push-action` options required for {% data variables.product.prodname_registry %} are:{% ifversion fpt or ghec %}
-* `context`: Defines the build's context as the set of files located in the specified path.{% endif %}
-* `push`: If set to `true`, the image will be pushed to the registry if it is built successfully.{% ifversion fpt or ghec %}
-* `tags` and `labels`: These are populated by output from `metadata-action`.{% else %}
-* `tags`: Must be set in the format {% ifversion ghes > 3.4 %}`{% data reusables.package_registry.container-registry-hostname %}/OWNER/REPOSITORY/IMAGE_NAME:VERSION`. 
+Ниже приведены параметры `build-push-action`, необходимые для {% data variables.product.prodname_registry %}.{% ifversion fpt or ghec %}.
+* `context`: определяет контекст сборки как набор файлов, расположенных по указанному пути.{% endif %}
+* `push`: если задано значение `true`, в случае успешной сборки образ будет отправлен в реестр.{% ifversion fpt or ghec %}
+* `tags` и `labels`: заполняются выходными данными из `metadata-action`.{% else %}
+* `tags`: необходимо задать в формате {% ifversion ghes > 3.4 %}`{% data reusables.package_registry.container-registry-hostname %}/OWNER/REPOSITORY/IMAGE_NAME:VERSION`. 
   
-   For example, for an image named `octo-image` stored on {% data variables.product.prodname_ghe_server %} at `https://HOSTNAME/octo-org/octo-repo`, the `tags` option should be set to `{% data reusables.package_registry.container-registry-hostname %}/octo-org/octo-repo/octo-image:latest`{% else %}`docker.pkg.github.com/OWNER/REPOSITORY/IMAGE_NAME:VERSION`.
+   Например, для образа с именем `octo-image`, хранящегося на {% data variables.product.prodname_ghe_server %} в `https://HOSTNAME/octo-org/octo-repo`, для параметра `tags` необходимо задать значение `{% data reusables.package_registry.container-registry-hostname %}/octo-org/octo-repo/octo-image:latest`{% else %}`docker.pkg.github.com/OWNER/REPOSITORY/IMAGE_NAME:VERSION`.
   
-   For example, for an image named `octo-image` stored on {% data variables.product.prodname_dotcom %} at `http://github.com/octo-org/octo-repo`, the `tags` option should be set to `docker.pkg.github.com/octo-org/octo-repo/octo-image:latest`{% endif %}. You can set a single tag as shown below, or specify multiple tags in a list.{% endif %}
+   Например, для образа с именем`octo-image`, хранящегося на {% data variables.product.prodname_dotcom %} в `http://github.com/octo-org/octo-repo`, для параметра `tags` необходимо задать значение `docker.pkg.github.com/octo-org/octo-repo/octo-image:latest`{% endif %}. Можно задать один тег, как показано ниже, или указать несколько тегов в виде списка.{% endif %}
 
-{% ifversion fpt or ghec or ghes > 3.4 %}
-{% data reusables.package_registry.publish-docker-image %}
+{% ifversion fpt or ghec or ghes > 3.4 %} {% data reusables.package_registry.publish-docker-image %}
 
-The above workflow is triggered by a push to the "release" branch. It checks out the GitHub repository, and uses the `login-action` to log in to the {% data variables.product.prodname_container_registry %}. It then extracts labels and tags for the Docker image. Finally, it uses the `build-push-action` action to build the image and publish it on the {% data variables.product.prodname_container_registry %}.
+Приведенный выше рабочий процесс активируется отправкой в ветвь «выпуска». Он извлекает репозиторий GitHub и использует `login-action` для входа в {% data variables.product.prodname_container_registry %}. Затем он извлекает метки и теги для образа Docker. Наконец, он использует действие `build-push-action` для сборки образа и его публикации на {% data variables.product.prodname_container_registry %}.
 
 {% else %}
 
@@ -190,18 +190,16 @@ jobs:
             {% ifversion ghae %}docker.YOUR-HOSTNAME.com{% else %}docker.pkg.github.com{% endif %}{% raw %}/${{ github.repository }}/octo-image:${{ github.event.release.tag_name }}{% endraw %}
 ```
 
-The above workflow checks out the {% data variables.product.product_name %} repository, uses the `login-action` to log in to the registry, and then uses the `build-push-action` action to: build a Docker image based on your repository's `Dockerfile`; push the image to the Docker registry, and apply the commit SHA and release version as image tags.
+Приведенный выше рабочий процесс извлекает репозиторий {% data variables.product.product_name %}, использует `login-action` для входа в реестр, а затем использует действие `build-push-action` для сборки образа Docker на основе `Dockerfile` репозитория, отправки образа в реестр Docker и применения SHA фиксации и версии выпуска в качестве тегов образа.
 {% endif %}
 
-## Publishing images to Docker Hub and {% data variables.product.prodname_registry %}
+## Публикация образов в Docker Hub и {% data variables.product.prodname_registry %}
 
-{% ifversion ghes > 3.4 %}
-{% data reusables.package_registry.container-registry-ghes-beta %}
-{% endif %}
+{% ifversion ghes > 3.4 %} {% data reusables.package_registry.container-registry-ghes-beta %} {% endif %}
 
-In a single workflow, you can publish your Docker image to multiple registries by using the `login-action` and `build-push-action` actions for each registry.
+В одном рабочем процессе образ Docker можно опубликовать в нескольких реестрах с помощью действий `login-action` и `build-push-action` для каждого реестра.
 
-The following example workflow uses the steps from the previous sections ("[Publishing images to Docker Hub](#publishing-images-to-docker-hub)" and "[Publishing images to {% data variables.product.prodname_registry %}](#publishing-images-to-github-packages)") to create a single workflow that pushes to both registries.
+В следующем примере рабочего процесса используются шаги из предыдущих разделов («[Публикация образов в Docker Hub](#publishing-images-to-docker-hub)» и «[Публикация образов в {% data variables.product.prodname_registry %}](#publishing-images-to-github-packages)») для создания одного рабочего процесса, который выполняет отправку в оба реестра.
 
 ```yaml{:copy}
 {% data reusables.actions.actions-not-certified-by-github-comment %}
@@ -255,5 +253,5 @@ jobs:
           labels: {% raw %}${{ steps.meta.outputs.labels }}{% endraw %}
 ```
 
-The above workflow checks out the {% data variables.product.product_name %} repository, uses the `login-action` twice to log in to both registries and generates tags and labels with the `metadata-action` action.
-Then the `build-push-action` action builds and pushes the Docker image to Docker Hub and the {% ifversion fpt or ghec or ghes > 3.4 %}{% data variables.product.prodname_container_registry %}{% else %}Docker registry{% endif %}.
+Приведенный выше рабочий процесс извлекает репозиторий {% data variables.product.product_name %}, дважды использует `login-action` для входа в оба реестра и создает теги и метки с помощью действия `metadata-action`.
+Затем действие `build-push-action` собирает и отправляет образ Docker в Docker Hub и {% ifversion fpt or ghec or ghes > 3.4 %}{% data variables.product.prodname_container_registry %}{% else %}реестр Docker{% endif %}.

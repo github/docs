@@ -1,6 +1,6 @@
 ---
-title: Using a staging environment
-intro: 'Learn about using {% data variables.product.prodname_actions %} with {% data variables.product.prodname_ghe_server %} staging instances.'
+title: Utilizar un ambiente de montaje
+intro: 'Obtén información sobre el uso de {% data variables.product.prodname_actions %} con instancias de almacenamiento provisional de {% data variables.product.prodname_ghe_server %}.'
 versions:
   ghes: '*'
 type: how_to
@@ -12,41 +12,46 @@ topics:
 redirect_from:
   - /admin/github-actions/using-a-staging-environment
 shortTitle: Use staging environment
+ms.openlocfilehash: 3d244d25aae5a6e21b4db1cd04352343d6650975
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145120457'
 ---
+## Acerca de los entornos de ensayo para {% data variables.product.product_name %}
 
-## About staging environments for {% data variables.product.product_name %}
+Puede ser útil tener un ambiente de montaje o de pruebas para {% data variables.product.product_location %}, para que así puedas probar las actualizaciones o características nuevas antes de implementarlas en tu ambiente productivo. Para más información, vea "[Configuración de una instancia de almacenamiento provisional](/admin/installation/setting-up-a-github-enterprise-server-instance/setting-up-a-staging-instance)".
 
-It can be useful to have a staging or testing environment for {% data variables.location.product_location %}, so that you can test updates or new features before implementing them in your production environment. For more information, see "[Setting up a staging instance](/admin/installation/setting-up-a-github-enterprise-server-instance/setting-up-a-staging-instance)."
+## Uso de un entorno de ensayo con {% data variables.product.prodname_actions %}
 
-## Using a staging environment with {% data variables.product.prodname_actions %}
+Una manera común de crear el entorno de ensayo es restaurar una copia de seguridad de la instancia de {% data variables.product.product_name %} en producción a una máquina virtual nueva en el entorno de ensayo. Si utilizas una instancia de almacenamiento provisional y planeas probar la funcionalidad de {% data variables.product.prodname_actions %}, debes revisar la configuración de almacenamiento del entorno de ensayo.
 
-A common way to create the staging environment is to restore a backup of your production {% data variables.product.product_name %} instance to a new virtual machine in the staging environment. If you use a staging instance and plan to test {% data variables.product.prodname_actions %} functionality, you should review your storage configuration in the staging environment.
+Después de restaurar una copia de seguridad de {% data variables.product.prodname_ghe_server %} en la instancia de almacenamiento provisional, si intentas ver registros o artefactos de ejecuciones de flujos de trabajo de {% data variables.product.prodname_actions %} existentes, verás `404` errores, porque estos datos faltarán en la ubicación del almacenamiento provisional. Para solucionar los `404` errores, puedes copiar los datos del entorno de producción para utilizarlos en el entorno de ensayo.
 
-After you restore a {% data variables.product.prodname_ghe_server %} backup to the staging instance, if you try to view logs or artifacts from existing {% data variables.product.prodname_actions %} workflow runs on your staging instance, you will see `404` errors, because this data will be missing from your staging storage location. To work around the `404` errors, you can copy data from production to use in your staging environment.
+### Configuración del almacenamiento
 
-### Configuring storage
-
-When you set up a staging environment that includes a {% data variables.product.product_name %} instance with {% data variables.product.prodname_actions %} enabled, you must use a different external storage configuration for {% data variables.product.prodname_actions %} storage than your production environment.
+Cuando configures un entorno de ensayo que incluya una instancia de {% data variables.product.product_name %} con {% data variables.product.prodname_actions %} habilitado, debes usar una configuración de almacenamiento externo para el almacenamiento de {% data variables.product.prodname_actions %} que sea diferente a la de tu entorno de producción.
 
 {% warning %}
 
-**Warning**: If you don't change the storage configuration, your staging instance may be able to write to the same external storage that you use for production, which could result in loss of data.
+**Advertencia**: Si no cambias la configuración de almacenamiento, es posible que la instancia de almacenamiento provisional pueda escribir en el mismo almacenamiento externo que utilizas para producción, lo que podría provocar la pérdida de datos.
 
 {% endwarning %}
 
-For more information about storage configuration for {% data variables.product.prodname_actions %}, see "[Getting started with {% data variables.product.prodname_actions %} for {% data variables.product.prodname_ghe_server %}](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server#enabling-github-actions-with-your-storage-provider)."
+Para más información sobre la configuración de almacenamiento para {% data variables.product.prodname_actions %}, consulta "[Introducción a {% data variables.product.prodname_actions %} para {% data variables.product.prodname_ghe_server %}](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server#enabling-github-actions-with-your-storage-provider)".
 
-### Copying files from production to staging
+### Copia de archivos de producción al almacenamiento provisional
 
-To more accurately mirror your production environment, you can optionally copy files from your production storage location for {% data variables.product.prodname_actions %} to the staging storage location.
+Para reflejar con más precisión el entorno de producción, tienes la opción de copiar archivos desde la ubicación de almacenamiento de producción para {% data variables.product.prodname_actions %} a la ubicación del almacenamiento provisional.
 
-* For an Azure storage account, you can use [`azcopy`](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-blobs#copy-all-containers-directories-and-blobs-to-another-storage-account). For example:
+* Para una cuenta de almacenamiento de Azure, puede usar [`azcopy`](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-blobs#copy-all-containers-directories-and-blobs-to-another-storage-account). Por ejemplo:
 
   ```shell
   azcopy copy 'https://<em>SOURCE-STORAGE-ACCOUNT-NAME</em>.blob.core.windows.net/<em>SAS-TOKEN</em>' 'https://<em>DESTINATION-STORAGE-ACCOUNT-NAME</em>.blob.core.windows.net/' --recursive
   ```
-* For Amazon S3 buckets, you can use [`aws s3 sync`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/sync.html). For example:
+* Para los cubos de Amazon S3, puede usar [`aws s3 sync`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/sync.html). Por ejemplo:
 
   ```shell
-  aws s3 sync s3://SOURCE-BUCKET s3://DESTINATION-BUCKET
+  aws s3 sync s3://<em>SOURCE-BUCKET</em> s3://<em>DESTINATION-BUCKET</em>
   ```

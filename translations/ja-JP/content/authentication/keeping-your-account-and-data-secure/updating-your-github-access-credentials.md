@@ -1,6 +1,6 @@
 ---
-title: Updating your GitHub access credentials
-intro: '{% data variables.product.product_name %} credentials include{% ifversion not ghae %} not only your password, but also{% endif %} the access tokens, SSH keys, and application API tokens you use to communicate with {% data variables.product.product_name %}. Should you have the need, you can reset all of these access credentials yourself.'
+title: GitHub アクセス認証情報を更新する
+intro: '{% data variables.product.product_name %} 認証情報には、{% ifversion not ghae %}パスワードだけではなく、{% endif %}{% data variables.product.product_name %} に伝達するのに使うアクセス トークン、SSH キー、およびアプリケーション API トークンが含まれます。 必要があれば、すべてのアクセス認証情報をリセットできます。'
 redirect_from:
   - /articles/rolling-your-credentials
   - /articles/how-can-i-reset-my-password
@@ -16,73 +16,74 @@ topics:
   - Identity
   - Access management
 shortTitle: Update access credentials
+ms.openlocfilehash: 650c0027b679690def6d1c77d727a87b8688b889
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147508417'
 ---
 {% ifversion not ghae %}
-## Requesting a new password
+## 新しいパスワードをリクエストする
 
-1. To request a new password, visit {% ifversion fpt or ghec %}https://{% data variables.product.product_url %}/password_reset{% else %}`https://{% data variables.product.product_url %}/password_reset`{% endif %}.
-2. Enter the email address associated with your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}, then click **Send password reset email.** The email will be sent to the backup email address if you have one configured.
-  ![Password reset email request dialog](/assets/images/help/settings/password-recovery-email-request.png)
-3. We'll email you a link that will allow you to reset your password. You must click on this link within 3 hours of receiving the email. If you didn't receive an email from us, make sure to check your spam folder.
-4. If you have enabled two-factor authentication, you will be prompted for your 2FA credentials:
-{% ifversion fpt or ghec %}
-   * If you have {% data variables.product.prodname_mobile %}, you will be sent a push notification to verify your identity. Open the push notification or the {% data variables.product.prodname_mobile %} app and enter the two-digit code shown to you on the password reset page in your browser.
-   ![Two-factor {% data variables.product.prodname_mobile %} authentication prompt](/assets/images/help/2fa/2fa-mobile-challenge-password-reset.png)
-      * To skip using GitHub Mobile to verify, click **Enter two-factor authentication or recovery code**.
-      ![Two-factor GitHub Mobile authentication prompt on {% data variables.product.product_name %} with "Enter two-factor authentication or recovery code" highlighted](/assets/images/help/2fa/2fa-github-mobile-password-reset.png)
-{% endif %}
-   * Type your authentication code or one of your recovery codes and click **Verify**.
-      ![Two-factor authentication prompt](/assets/images/help/2fa/2fa-password-reset.png)
-     * If you have added a security key to your account, click **Use security key** instead of typing an authentication code.
+1. 新しいパスワードを要求するには、{% ifversion fpt or ghec %} https://{% data variables.product.product_url %}/password_reset{% else %}`https://{% data variables.product.product_url %}/password_reset`{% endif %} にアクセスしてください。
+2. {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}にあるアカウントに関連付けられているメール アドレスを入力し、 **[パスワード リセット メールの送信]** をクリックします。 構成済みの場合、メールはバックアップ メール アドレスに送信されます。
+  ![パスワード リセットのメール要求ダイアログ](/assets/images/help/settings/password-recovery-email-request.png)
+3. パスワードをリセットするためのリンクがメールで届きます。 メールを受信してから 3 時間以内に、このリンクをクリックする必要があります。 弊社からメールが届かない場合、スパムフォルダを確認してください。
+4. 2 要素認証を有効にしている場合は、2 要素認証の資格情報の入力を求められます。{% ifversion fpt or ghec %}
+   * {% data variables.product.prodname_mobile %} の場合は、ID を確認するためのプッシュ通知が送信されます。 プッシュ通知または {% data variables.product.prodname_mobile %} アプリを開き、ブラウザーのパスワード リセット ページに表示される 2 桁のコードを入力します。
+   ![2 要素 {% data variables.product.prodname_mobile %} 認証プロンプト](/assets/images/help/2fa/2fa-mobile-challenge-password-reset.png)
+      * GitHub Mobile の使用をスキップして検証するには、 **[2 要素認証または回復コードの入力]** をクリックします。
+      ![[2 要素認証または回復コードの入力] が強調表示された {% data variables.product.product_name %} の 2 要素 GitHub Mobile 認証プロンプト](/assets/images/help/2fa/2fa-github-mobile-password-reset.png) {% endif %}
+   * 認証コードまたはいずれかの回復コードを入力し、 **[確認]** をクリックします。
+      ![2 要素認証プロンプト](/assets/images/help/2fa/2fa-password-reset.png)
+     * アカウントにセキュリティ キーを追加した場合は、認証コードを入力する代わりに **[セキュリティ キーの使用]** をクリックできます。
      {% ifversion fpt or ghec %}
-     * If you have set up [{% data variables.product.prodname_mobile %}](https://github.com/mobile), click **Authenticate with GitHub Mobile** instead.
+     * [{% data variables.product.prodname_mobile %}](https://github.com/mobile) を設定している場合は、代わりに **[GitHub Mobile での認証]** をクリックします。
      {% endif %}
-5. Type a new password, confirm your new password, and click **Change password**. For help creating a strong password, see "[Creating a strong password](/articles/creating-a-strong-password)."
-  {% ifversion fpt or ghec %}![Password recovery box](/assets/images/help/settings/password-recovery-page.png){% else %}
-  ![Password recovery box](/assets/images/enterprise/settings/password-recovery-page.png){% endif %}
+5. 新しいパスワードを入力し、新しいパスワードを確認して、 **[パスワードの変更]** をクリックします。 強力なパスワードの作成については、「[強力なパスワードの作成](/articles/creating-a-strong-password)」を参照してください。
+  {% ifversion fpt or ghec %}![パスワード回復ボックス](/assets/images/help/settings/password-recovery-page.png){% else %} ![パスワード回復ボックス](/assets/images/enterprise/settings/password-recovery-page.png){% endif %}
 
 {% tip %}
 
-To avoid losing your password in the future, we suggest using a secure password manager, like [LastPass](https://lastpass.com/) or [1Password](https://1password.com/).
+今後パスワードが失われるのを防ぐために、[LastPass](https://lastpass.com/) や [1Password](https://1password.com/) などのセキュリティで保護されたパスワード マネージャーを使用することをお勧めします。
 
 {% endtip %}
 
-## Changing an existing password
+## 既存のパスワードを変更する
 
 {% data reusables.repositories.blocked-passwords %}
 
-1. {% data variables.product.signin_link %} to {% data variables.product.product_name %}.
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.security %}
-4. Under "Change password", type your old password, a strong new password, and confirm your new password. For help creating a strong password, see "[Creating a strong password](/articles/creating-a-strong-password)"
-5. Click **Update password**.
+1. {% data variables.product.product_name %} への {% data variables.product.signin_link %}
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.security %}
+4. [Change password] の下で、古いパスワード、新しい強靭なパスワードを入力し、新しいパスワードを確認します。 強力なパスワードの作成については、「[強力なパスワードの作成](/articles/creating-a-strong-password)」を参照してください。
+5. **[パスワードの更新]** をクリックします。
 
 {% tip %}
 
-For greater security, enable two-factor authentication in addition to changing your password. See [About two-factor authentication](/articles/about-two-factor-authentication) for more details.
+セキュリティを強化するために、パスワードの変更に加えて 2 要素認証を有効にしてください。 詳細については、「[2 要素認証について](/articles/about-two-factor-authentication)」を参照してください。
 
-{% endtip %}
-{% endif %}
-## Updating your access tokens
+{% endtip %} {% endif %}
+## アクセストークンを更新する
 
-See "[Reviewing your authorized integrations](/articles/reviewing-your-authorized-integrations)" for instructions on reviewing and deleting access tokens. To generate new access tokens, see "[Creating a {% data variables.product.pat_generic %}](/github/authenticating-to-github/creating-a-personal-access-token)."
-
-{% ifversion not ghae %}
-
-If you have reset your account password and would also like to trigger a sign-out from the {% data variables.product.prodname_mobile %} app, you can revoke your authorization of the "GitHub iOS" or "GitHub Android" OAuth App. This will sign out all instances of the {% data variables.product.prodname_mobile %} app associated with your account. For additional information, see "[Reviewing your authorized integrations](/authentication/keeping-your-account-and-data-secure/reviewing-your-authorized-integrations)."
-
-{% endif %}
-
-## Updating your SSH keys
-
-See "[Reviewing your SSH keys](/articles/reviewing-your-ssh-keys)" for instructions on reviewing and deleting SSH keys. To generate and add new SSH keys, see "[Generating an SSH key](/articles/generating-an-ssh-key)."
-
-## Resetting API tokens
-
-If you have any applications registered with {% data variables.product.product_name %}, you'll want to reset their OAuth tokens. For more information, see the "[Reset an authorization](/rest/reference/apps#reset-an-authorization)" endpoint.
+アクセス トークンの確認と削除の手順については、「[承認された統合の確認](/articles/reviewing-your-authorized-integrations)」を参照してください。 新しいアクセス トークンを生成するには、「[個人用アクセス トークンの作成](/github/authenticating-to-github/creating-a-personal-access-token)」を参照してください。
 
 {% ifversion not ghae %}
-## Preventing unauthorized access
 
-For more tips on securing your account and preventing unauthorized access, see "[Preventing unauthorized access](/articles/preventing-unauthorized-access)."
+アカウントのパスワードをリセットし、さらに {% data variables.product.prodname_mobile %} アプリからのサインアウトをトリガーする場合は、"GitHub iOS" または "GitHub Android" OAuth アプリの承認を取り消すことができます。 これにより、ご自分のアカウントに関連付けられている {% data variables.product.prodname_mobile %} アプリのすべてのインスタンスがサインアウトされます。 詳細については、「[承認された統合の確認](/authentication/keeping-your-account-and-data-secure/reviewing-your-authorized-integrations)」を参照してください。
+
+{% endif %}
+
+## SSH キーを更新する
+
+SSH キーの確認と削除の手順については、「[SSH キーの確認](/articles/reviewing-your-ssh-keys)」を参照してください。 新しい SSH キーを生成して追加するには、「[SSH キーの生成](/articles/generating-an-ssh-key)」を参照してください。
+
+## API トークンをリセットする
+
+{% data variables.product.product_name %} に登録したアプリケーションがある場合、OAuthトークンのリセットを考えることになります。 詳細については、「[承認のリセット](/rest/reference/apps#reset-an-authorization)」エンドポイントを参照してください。
+
+{% ifversion not ghae %}
+## 許可されていないアクセスを防止する
+
+アカウントのセキュリティ保護と不正アクセスの防止に関する詳細なヒントについては、「[不正アクセスの防止](/articles/preventing-unauthorized-access)」を参照してください。
 {% endif %}

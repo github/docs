@@ -1,6 +1,6 @@
 ---
-title: Deploying Node.js to Azure App Service
-intro: You can deploy your Node.js project to Azure App Service as part of your continuous deployment (CD) workflows.
+title: Развертывание Node.js в Службе приложений Azure
+intro: Проект Node.js можно развернуть для Службы приложений Azure в рамках рабочих процессов непрерывного развертывания (CD).
 redirect_from:
   - /actions/guides/deploying-to-azure-app-service
   - /actions/deployment/deploying-to-azure-app-service
@@ -16,34 +16,38 @@ topics:
   - Node
   - JavaScript
   - Azure App Service
+ms.openlocfilehash: d4b5a5f19098d2b84b63ae56791814eadb0fcb72
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147410174'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+## Введение
 
-## Introduction
+Это руководство объясняет, как использовать {% data variables.product.prodname_actions %} для создания, тестирования и развертывания проекта Node.js в [Службе приложений Azure](https://azure.microsoft.com/services/app-service/).
 
-This guide explains how to use {% data variables.product.prodname_actions %} to build, test, and deploy a Node.js project to [Azure App Service](https://azure.microsoft.com/services/app-service/).
-
-{% ifversion fpt or ghec or ghes > 3.4 %}
+{% ifversion fpt or ghec or ghae-issue-4856 or ghes > 3.4 %}
 
 {% note %}
 
-**Note**: {% data reusables.actions.about-oidc-short-overview %} and "[Configuring OpenID Connect in Azure](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure)."
+**Примечание**. {% data reusables.actions.about-oidc-short-overview %} и [Настройка OpenID Connect в Azure](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure).
 
 {% endnote %}
 
 {% endif %}
 
-## Prerequisites
+## Предварительные требования
 
-Before creating your {% data variables.product.prodname_actions %} workflow, you will first need to complete the following setup steps:
+Перед созданием рабочего процесса {% data variables.product.prodname_actions %} сначала нужно выполнить следующие действия по настройке:
 
 {% data reusables.actions.create-azure-app-plan %}
 
-2. Create a web app.
+2. Создание веб-приложения.
 
-   For example, you can use the Azure CLI to create an Azure App Service web app with a Node.js runtime:
+   Например, можно использовать Azure CLI для создания веб-приложения Службы приложений Azure с помощью среды выполнения Node.js:
 
    ```bash{:copy}
    az webapp create \
@@ -53,19 +57,19 @@ Before creating your {% data variables.product.prodname_actions %} workflow, you
        --runtime "NODE|14-lts"
    ```
 
-   In the command above, replace the parameters with your own values, where `MY_WEBAPP_NAME` is a new name for the web app.
+   В приведенной выше команде замените параметры собственными значениями, где `MY_WEBAPP_NAME` — это новое имя для веб-приложения.
 
 {% data reusables.actions.create-azure-publish-profile %}
 
-5. Optionally, configure a deployment environment. {% data reusables.actions.about-environments %}
+5. При необходимости настройте среду развертывания. {% data reusables.actions.about-environments %}
 
-## Creating the workflow
+## Создание рабочего процесса
 
-Once you've completed the prerequisites, you can proceed with creating the workflow.
+Выполнив предварительные требования, можно приступить к созданию рабочего процесса.
 
-The following example workflow demonstrates how to build, test, and deploy the Node.js project to Azure App Service when there is a push to the `main` branch.
+В следующем примере рабочего процесса показано, как создать, протестировать и развернуть проект Node.js в Службе приложений Azure при отправке в ветвь `main`.
 
-Ensure that you set `AZURE_WEBAPP_NAME` in the workflow `env` key to the name of the web app you created. If the path to your project is not the repository root, change `AZURE_WEBAPP_PACKAGE_PATH`  to your project path. If you use a version of Node.js other than `10.x`, change `NODE_VERSION` to the version that you use.
+Убедитесь, что в ключе `env` рабочего процесса в качестве имени созданного веб-приложения задано значение `AZURE_WEBAPP_NAME`. Если путь к проекту не является корнем репозитория, замените `AZURE_WEBAPP_PACKAGE_PATH`  на путь к вашему проекту. Если вы используете версию Node.js, отличную от версии `10.x`, замените `NODE_VERSION` на используемую версию.
 
 {% data reusables.actions.delete-env-key %}
 
@@ -129,12 +133,11 @@ jobs:
         package: {% raw %}${{ env.AZURE_WEBAPP_PACKAGE_PATH }}{% endraw %}
 ```
 
-## Additional resources
+## Дополнительные ресурсы
 
-The following resources may also be useful:
+Следующие ресурсы также содержат полезные сведения на эти темы:
 
-* For the original starter workflow, see [`azure-webapps-node.yml`](https://github.com/actions/starter-workflows/blob/main/deployments/azure-webapps-node.yml) in the {% data variables.product.prodname_actions %} `starter-workflows` repository.
-* The action used to deploy the web app is the official Azure [`Azure/webapps-deploy`](https://github.com/Azure/webapps-deploy) action.
-* For more examples of GitHub Action workflows that deploy to Azure, see the 
-[actions-workflow-samples](https://github.com/Azure/actions-workflow-samples) repository.
-* The "[Create a Node.js web app in Azure](https://docs.microsoft.com/azure/app-service/quickstart-nodejs)" quickstart in the Azure web app documentation demonstrates using {% data variables.product.prodname_vscode %} with the [Azure App Service extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice).
+* Исходный начальный рабочий процесс см. в [`azure-webapps-node.yml`](https://github.com/actions/starter-workflows/blob/main/deployments/azure-webapps-node.yml) из репозитория `starter-workflows` {% data variables.product.prodname_actions %}.
+* Действие, используемое для развертывания веб-приложения, является официальным действием [`Azure/webapps-deploy`](https://github.com/Azure/webapps-deploy) Azure.
+* Дополнительные примеры рабочих процессов GitHub Actions, которые развертываются в Azure, см. в репозитории [actions-workflow-samples](https://github.com/Azure/actions-workflow-samples).
+* Краткое руководство [Создание веб-приложения Node.js в Azure](https://docs.microsoft.com/azure/app-service/quickstart-nodejs) в документации по веб-приложениям Azure демонстрирует использование {% data variables.product.prodname_vscode %} с [расширением Службы приложений Azure](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice).

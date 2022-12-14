@@ -1,0 +1,37 @@
+date: '20-10-2020'
+sections:
+  security_fixes:
+    - "Los paquetes se han actualizado a sus últimas versiones de seguridad. {% comment %} https://github.com/github/enterprise2/pull/23097, https://github.com/github/enterprise2/pull/23081 {% endcomment %}"
+
+  bugs:
+    - |Si la configuración de la cuenta de almacenamiento fallaba su validación cuando al configurar Acciones de GitHub era necesario ejecutar `ghe-actions-teardown` antes de volver a intentarlo. {% comment %} https://github.com/github/enterprise2/pull/23057, https://github.com/github/enterprise2/pull/22981 {% endcomment %}
+
+|
+    - |Una configuración de proxy personalizado podía afectar de forma adversa al entorno de Acciones de Github. {% comment %} https://github.com/github/enterprise2/pull/23121, https://github.com/github/enterprise2/pull/23092, https://github.com/github/c2c-actions-platform/issues/2254 {% endcomment %}
+
+|
+    - |En un cambio de dirección de eth0, Nomad y Consul podían dejar de responder. {% comment %} https://github.com/github/enterprise2/pull/23227, https://github.com/github/enterprise2/pull/23153 {% endcomment %}
+
+|
+    - |Cuando se utilizaban certificados autofirmados, GHES podía tener excepciones de validación de SSL al configurar las Acciones de Github. {% comment %} https://github.com/github/enterprise2/pull/23381 {% endcomment %}
+
+|
+    - |Al utilizar una GitHub Action desde un nombre de rama con un caracter `+` o `/` se generaba un error: `Unable to resolve action`. {% comment %} https://github.com/github/github/pull/157942, https://github.com/github/github/pull/157819, https://github.com/github/launch/pull/3463 {% endcomment %}
+
+|
+    - |El mensaje "Política de confirmación para el requisito bifactorial" en cuentas empresariales era incorrecto. {% comment %} https://github.com/github/github/pull/158735 {% endcomment %}
+
+|
+    - |En ciertas solicitudes superiores a 100 MB, el buffer de Kafka podía estar sobreasignado. {% comment %} https://github.com/github/kafka-lite/pull/286, https://github.com/github/kafka-lite/pull/285 {% endcomment %}
+
+|
+  known_issues:
+    - "En una instancia de GitHub Enterprise Server recién configurada sin ningún usuario, un atacante podría crear el primer usuario administrador. {% comment %} https://github.com/github/enterprise2/issues/1889 {% endcomment %}"
+    - "Las reglas de cortafuegos personalizadas no se mantienen durante una actualización. {% comment %} https://github.com/github/enterprise2/issues/2823 {% endcomment %}"
+    - "Los archivos supervisados de Git LFS [cargados desde la interfaz web](https://github.com/blog/2105-upload-files-to-your-repositories) se agregan de forma incorrecta y directa al repositorio. {% comment %} https://github.com/github/github/issues/54684 {% endcomment %}"
+    - "Las incidencias no se pueden cerrar si contienen un enlace permanente a un blob del mismo repositorio en el que la ruta es mayor de 255 caracteres. {% comment %} https://github.com/github/github/issues/107731 {% endcomment %}"
+    - "Cuando se habilita \"Los usuarios pueden buscar en GitHub.com\" con GitHub Connect, las incidencias en los repositorios privados e internos no se incluyen en los resultados de la búsqueda de GitHub.com. {% comment %} https://github.com/github/admin-experience/issues/571 {% endcomment %}"
+    - "Las Acciones de Github pueden no iniciarse si se habilitaron previamente en una instancia que ejecutara la versión 2.22.0 y se actualiza a la versión 2.22.2. (Actualizado el 23-10-2020) {% comment %} https://github.com/github/c2c-actions/issues/1680 {% endcomment %}"
+    - "En una instancia 2.22.2 recién configurada o después de actualizar a 2.22.2, ya no se actualizará la fuente de actividad en el tablero de una organización. (Actualizado el 27-10-2020) {% comment %}https://github.com/github/enterprise2/issues/23050{% endcomment %}"
+    - "Los registros de auditoría se pueden atribuir a 127.0.0.1 en lugar de a la dirección IP de origen real. (Actualizado el 02-11-2020) {% comment %} https://github.com/github/enterprise2/issues/21514 {% endcomment %}"
+    - "Cuando un nodo de réplica está sin conexión en una configuración de disponibilidad alta, es posible que {% data variables.product.product_name %} enrute las solicitudes a {% data variables.product.prodname_pages %} al nodo sin conexión, lo que reduce la disponibilidad de {% data variables.product.prodname_pages %} para los usuarios."

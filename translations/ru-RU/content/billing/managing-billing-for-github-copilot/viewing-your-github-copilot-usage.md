@@ -1,6 +1,6 @@
 ---
-title: Viewing your GitHub Copilot usage
-intro: 'You can view how many users have access to {% data variables.product.prodname_copilot %} across all the organizations in your enterprise.'
+title: Просмотр использования GitHub Copilot
+intro: 'Вы можете просмотреть, сколько пользователей имеют доступ к {% data variables.product.prodname_copilot %} во всех организациях вашего предприятия.'
 product: '{% data reusables.gated-features.copilot-billing %}'
 miniTocMaxHeadingLevel: 3
 permissions: 'Enterprise owners can view usage for {% data variables.product.prodname_copilot %} in their enterprise.'
@@ -10,33 +10,36 @@ type: how_to
 topics:
   - Copilot
 shortTitle: View your usage
+ms.openlocfilehash: 9b481cfd11a3c96ce98175d3b30e3b26889c4148
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148193424'
 ---
+## Сведения об использовании {% data variables.product.prodname_copilot %}
 
-## About your {% data variables.product.prodname_copilot %} usage
+Вы можете просмотреть сведения об использовании {% data variables.product.prodname_copilot %} на предприятии с разбивкой по организации или в вашей организации с разбивкой по состоянию назначения рабочих мест. На уровне предприятия эти сведения включают количество рабочих мест, назначенных в каждой организации, и общие расходы, связанные с каждой организацией, за текущий цикл выставления счетов. На уровне организации эти сведения включают общее количество рабочих мест, рабочих мест, перенесенных из предыдущего цикла выставления счетов, новых рабочих мест, добавленных в течение текущего цикла, и мест, которые будут удалены в конце текущего цикла. 
 
-You can view usage information for {% data variables.product.prodname_copilot %} in your enterprise, broken down by organization, or in your organization, broken down by seat assignment status. At the enterprise level, this information includes the number of seats assigned in each organization, and the total spending associated with each organization, for the current billing cycle. At the organization level, this information includes the total number of seats, seats carried over from the previous billing cycle, new seats added during the current cycle, and seats to be removed at the end of the current cycle. 
+Если администратор организации назначил одно или несколько рабочих мест в течение текущего цикла выставления счетов, в информации корпоративного уровня будет отображаться десятичное число рабочих мест. Например, если организация начала цикл выставления счетов с назначенными 3 рабочими местами, а затем назначила дополнительное рабочее место на полпути, в сведениях об использовании рабочих мест будет отображаться 3,5 места. Значение "3", представляющее места, назначенные в начале цикла, и "0,5", представляющее дополнительное место, назначенное на полпути цикла. 
 
-If an organization admin has assigned one or more seats partway through the current billing cycle, the enterprise-level information will display a decimal number of seats. For example, if the organization started the billing cycle with 3 seats assigned, and then assigned an additional seat half way through the cycle, the seat usage information will display 3.5 seats. The "3" representing the seats assigned at the start of the cycle, and the "0.5" representing the additional seat assigned halfway through the cycle. 
+Сведения о расходах будут отображать общие расходы для каждой организации за текущий цикл выставления счетов. Общая сумма расходов организации за текущий цикл обычно будет составлять количество назначенных рабочих мест, умноженное на стоимость каждого места (19 долл. США за место в месяц). Однако если одному и тому же участнику организации назначено место в нескольких организациях, его использование будет отражено в каждой организации, но так как с предприятия будет взиматься плата только один раз, его расходы будут отражены только в организации, где ему впервые было назначено место.
 
-The spending information will display the total spending for each organization for the current billing cycle. The total spending for the organization for the current cycle will usually be the number of seats assigned, multiplied by the cost per seat ($19 per seat per month). However, if the same organization member is assigned a seat in multiple organizations, their seat usage will be reflected in each organization, but as the enterprise will only be charged once, their spending will only be reflected in the organization where they were first assigned a seat.
+## Просмотр сведений об использовании {% data variables.product.prodname_copilot_for_business %}
 
-## Viewing your usage for {% data variables.product.prodname_copilot_for_business %}
+### На уровне организации
 
-### At the enterprise-level
+{% data reusables.enterprise-accounts.settings-tab %} {% data reusables.enterprise-accounts.billing-tab %}
+1. В разделе "{% data variables.product.prodname_copilot_short %} ежемесячное использование" просмотрите разбивку использования {% data variables.product.prodname_copilot %}.
+    - В разделе "Использование рабочих мест" можно просмотреть общее количество мест, назначенных в настоящее время для каждой организации, с десятичным числом, представляющим рабочие места, назначенные частично в течение текущего цикла выставления счетов.
+    - В разделе "Расходы" можно просмотреть общую стоимость {% data variables.product.prodname_copilot_for_business %} за текущий цикл выставления счетов для каждой организации.
 
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.billing-tab %}
-1. Under "{% data variables.product.prodname_copilot_short %} monthly usage," view the breakdown of your {% data variables.product.prodname_copilot %} usage.
-    - Under "Seat usage" you can view the total number of seats currently assigned per organization, with a decimal number representing seats assigned partway through the current billing cycle.
-    - Under "Spending" you can view the total cost of {% data variables.product.prodname_copilot_for_business %} for the current billing cycle per organization.
+   ![Снимок экрана: страница использования {% data variables.product.prodname_copilot %}](/assets/images/help/copilot/monthly-usage-enterprise.png)
 
-   ![Screenshot of the {% data variables.product.prodname_copilot %} usage page](/assets/images/help/copilot/monthly-usage-enterprise.png)
+### На уровне отдела
 
-### At the organization-level
-
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-1. In the "Access" section of the sidebar, click **{% octicon "credit-card" aria-label="The credit card icon" %} Billing and plans**.
-1. Under "{% data variables.product.prodname_copilot_short %}", view the breakdown of your {% data variables.product.prodname_copilot %} usage and upcoming changes in your organization.
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %}
+1. В разделе «Доступ» боковой панели щелкните **{% octicon "credit-card" aria-label="Значок кредитной карты" %} Выставление счетов и планов**.
+1. В разделе "{% data variables.product.prodname_copilot_short %}" просмотрите сведения об использовании {% data variables.product.prodname_copilot %} и предстоящих изменениях в организации.
  
-   ![Screenshot of the organization-level {% data variables.product.prodname_copilot %} seat usage page](/assets/images/help/copilot/org-level-seat-view.png)
+   ![Снимок экрана: страница использования рабочих мест на уровне организации {% data variables.product.prodname_copilot %}](/assets/images/help/copilot/org-level-seat-view.png)

@@ -1,0 +1,24 @@
+date: '13.05.2021'
+sections:
+  security_fixes:
+    - "**HOCH:** Ein Sicherheitsrisiko durch eine falsche Benutzeroberflächendarstellung wurde in GitHub Enterprise Server ermittelt. Dadurch wurden während des Benutzerautorisierungswebflows in einer GitHub-App mehr Berechtigungen erteilt, als dem oder der Benutzer*in während der Genehmigung angezeigt wurden. Um dieses Sicherheitsrisiko auszunutzen, müssen Angreifer*innen auf der Instanz eine GitHub-App erstellen, und ein Benutzer oder eine Benutzerin muss die Anwendung über den Webauthentifizierungsflow autorisieren. Wenn alle Berechtigungen erteilt wurden, wird dies wahrscheinlich während der ersten Autorisierung angezeigt. Doch unter gewissen Umständen werden diese zusätzlichen Berechtigungen eventuell nicht angezeigt, z. B. wenn der oder die Benutzer*in zum Autorisierungsflow zurückkehrt, nachdem die GitHub-App zusätzliche Berechtigungen auf Benutzerebene konfiguriert hat. Dies führt dazu, dass mehr Berechtigungen erteilt werden, als möglicherweise gewollt. Dieses Sicherheitsrisiko trat bei GitHub Enterprise Server 3.0.x vor 3.0.7 und bei 2.22.x vor 2.22.13 auf. Es wurde in den Versionen 3.0.7 und 2.22.13 behoben. Diesem Sicherheitsrisiko wurde der Name CVE-2021-22866 zugeordnet. Es wurde über das [GitHub Bug Bounty Program](https://bounty.github.com/) gemeldet."
+    - Die Pakete wurden auf die neuesten Sicherheitsversionen aktualisiert.
+  bugs:
+    - In der Speicherkonfiguration von Actions oder Packages enthaltene Anführungszeichen können Fehler verursachen.
+    - Bei benutzerdefinierten Pre-Receive-Hooks können aufgrund von zu restriktiver Dateigröße oder Begrenzung der Anzahl offener Dateien Fehler auftreten.
+    - Das automatische Failover für den Orchestrator könnte während der Konfigurationsanwendungsphase aktiviert werden.
+    - Benutzer*innen mit Verwaltungsberechtigungen für ein Repository wurde eine E-Mail-Überprüfungswarnung angezeigt anstatt eines erfolgreichen Seitenbuilds auf der Repositoryeinstellungsseite in Pages.
+    - "Der oder die Codebesitzer*in einer Platzhalterregel würde fälschlicherweise der Besitzerliste für den Codebesitzerbadge hinzugefügt, selbst wenn eine spätere Regel Vorrang gegenüber diesem Pfad hat."
+    - OpenAPI-Dokumentation mit Verweis auf einen ungültigen Header
+    - "Beim Erstellen oder Bearbeiten eines Pre-Receive-Hooks, bedeutete eine Racebedingung auf der Benutzeroberfläche, dass nach Auswählen eines Repositorys Dateien in diesem Repository in der Dateidropdownliste manchmal nicht ausgefüllt wurden."
+  changes:
+    - Die Protokollierung für Konfigurationsänderungen beim neuerlichen Laden von HAProxy wurde hinzugefügt.
+    - Die Protokollierung für das Erstellen von Repositorys wurde hinzugefügt.
+  known_issues:
+    - Auf einem neu eingerichteten GitHub Enterprise-Server ohne Benutzer*innen könnten Angreifer*innen den ersten Administratorbenutzer erstellen.
+    - Benutzerdefinierte Firewallregeln werden während eines Upgrades nicht aufrechterhalten.
+    - "Nachverfolgte Git-LFS-Dateien, [die über die Webschnittstelle hochgeladen wurden,](https://github.com/blog/2105-upload-files-to-your-repositories) werden dem Repository fälschlicherweise direkt hinzugefügt."
+    - "Issues können nicht geschlossen werden, wenn sie einen Permalink zu einem Blob im selben Repository enthalten, wobei der Dateipfad länger ist als 255 Zeichen."
+    - "Wenn „Benutzer können GitHub.com durchsuchen“ bei GitHub Connect aktiviert ist, sind Issues in privaten und internen Repositorys nicht in den GitHub.com-Suchergebnissen enthalten."
+    - "Wenn ein Replikatknoten in einer Hochverfügbarkeitskonfiguration offline ist, kann {% data variables.product.product_name %} eventuell noch immer Anforderungen von {% data variables.product.prodname_pages %} an den Offlineknoten weiterleiten, was die Verfügbarkeit von {% data variables.product.prodname_pages %} für die Benutzer*innen verringert."
+    - "Ressourcenbegrenzungen, die nur beim Verarbeiten von Pre-Receive-Hooks auftreten, können bei manchen Pre-Receive-Hooks Fehler auslösen."

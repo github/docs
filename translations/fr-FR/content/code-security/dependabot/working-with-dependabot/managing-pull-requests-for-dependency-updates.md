@@ -1,6 +1,6 @@
 ---
-title: Managing pull requests for dependency updates
-intro: 'You manage pull requests raised by {% data variables.product.prodname_dependabot %} in much the same way as other pull requests, but there are some extra options.'
+title: Gestion des demandes de tirage (pull request) pour les mises à jour des dépendances
+intro: 'Vous gérez les demandes de tirage déclenchées par {% data variables.product.prodname_dependabot %} de la même façon que d’autres demandes de tirage, mais il existe des options supplémentaires.'
 redirect_from:
   - /github/administering-a-repository/managing-pull-requests-for-dependency-updates
   - /code-security/supply-chain-security/managing-pull-requests-for-dependency-updates
@@ -18,53 +18,55 @@ topics:
   - Dependencies
   - Vulnerabilities
 shortTitle: Manage Dependabot PRs
+ms.openlocfilehash: e33b176ced7d10ed70f4c521ce2c18be776a7f8e
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147112317'
 ---
+{% data reusables.dependabot.beta-security-and-version-updates %} {% data reusables.dependabot.enterprise-enable-dependabot %}
 
-{% data reusables.dependabot.beta-security-and-version-updates %}
-{% data reusables.dependabot.enterprise-enable-dependabot %}
-
-## About {% data variables.product.prodname_dependabot %} pull requests
+## À propos des demandes de tirage {% data variables.product.prodname_dependabot %}
 
 {% data reusables.dependabot.pull-request-introduction %}
 
-When {% data variables.product.prodname_dependabot %} raises a pull request, you're notified by your chosen method for the repository. Each pull request contains detailed information about the proposed change, taken from the package manager. These pull requests follow the normal checks and tests defined in your repository. 
-{% ifversion fpt or ghec %}In addition, where enough information is available, you'll see a compatibility score. This may also help you decide whether or not to merge the change. For information about this score, see "[About {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/about-dependabot-security-updates)."{% endif %}
+Quand {% data variables.product.prodname_dependabot %} déclenche une demande de tirage, vous êtes averti par la méthode que vous avez choisie pour le dépôt. Chaque demande de tirage contient des informations détaillées sur la modification proposée, extraites du gestionnaire de package. Ces demandes de tirage suivent les vérifications et tests normaux définis dans votre dépôt. {% ifversion fpt or ghec %}En outre, quand suffisamment d’informations sont disponibles, vous voyez un score de compatibilité. Celui-ci peut également vous aider à décider s’il convient de fusionner ou non la modification. Pour plus d’informations sur ce score, consultez « [À propos des {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/about-dependabot-security-updates). »{% endif %}
 
-If you have many dependencies to manage, you may want to customize the configuration for each package manager so that pull requests have specific reviewers, assignees, and labels. For more information, see "[Customizing dependency updates](/github/administering-a-repository/customizing-dependency-updates)."
+Si vous avez de nombreuses dépendances à gérer, vous souhaiterez peut-être personnaliser la configuration de chaque gestionnaire de packages afin que les demandes de tirage aient des réviseurs, des destinataires et des étiquettes spécifiques. Pour plus d’informations, consultez « [Personnalisation des mises à jour des dépendances](/github/administering-a-repository/customizing-dependency-updates) ».
 
-## Viewing {% data variables.product.prodname_dependabot %} pull requests
+## Affichage des demandes de tirage {% data variables.product.prodname_dependabot %}
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-pr %}
-1. Any pull requests for security or version updates are easy to identify.
-    - The author is {% ifversion fpt or ghec %}[dependabot](https://github.com/dependabot){% else %}dependabot{% endif %}, the bot account used by {% data variables.product.prodname_dependabot %}.
-    - By default, they have the `dependencies` label.
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-pr %}
+1. Toutes les demandes de tirage pour les mises à jour de sécurité ou de version sont faciles à identifier.
+    - L’auteur est {% ifversion fpt or ghec %}[dependabot](https://github.com/dependabot){% else %}dependabot{% endif %}, le compte de bot utilisé par {% data variables.product.prodname_dependabot %}.
+    - Par défaut, elles ont l’étiquette `dependencies`.
 
-## Changing the rebase strategy for {% data variables.product.prodname_dependabot %} pull requests
+## Modification de la stratégie de rebasage pour les demandes de tirage {% data variables.product.prodname_dependabot %}
 
-By default, {% data variables.product.prodname_dependabot %} automatically rebases pull requests to resolve any conflicts. If you'd prefer to handle merge conflicts manually, you can disable this using the `rebase-strategy` option. For details, see "[Configuration options for the dependabot.yml file](/github/administering-a-repository/configuration-options-for-dependency-updates#rebase-strategy)."
+Par défaut, {% data variables.product.prodname_dependabot %} rebase automatiquement les demandes de tirage pour résoudre les conflits. Si vous préférez gérer les conflits de fusion manuellement, vous pouvez désactiver cette configuration avec l’option `rebase-strategy`. Pour plus d’informations, consultez « [Options de configuration pour le fichier dependabot.yml](/github/administering-a-repository/configuration-options-for-dependency-updates#rebase-strategy) ».
 
-## Allowing {% data variables.product.prodname_dependabot %} to rebase and force push over extra commits
+## Autorisation à {% data variables.product.prodname_dependabot %} de procéder au rebasage et forcer la poussée sur des commits supplémentaires
 
-By default, {% data variables.product.prodname_dependabot %} will stop rebasing a pull request once extra commits have been pushed to it. To allow {% data variables.product.prodname_dependabot %} to force push over commits added to its branches, include any of the following strings: `[dependabot skip]` , `[skip dependabot]`, `[dependabot-skip]`, or `[skip-dependabot]`, in either lower or uppercase, to the commit message.
+Par défaut, {% data variables.product.prodname_dependabot %} arrête de procéder au rebasage d’une demande de tirage une fois que des commits supplémentaires ont été poussés vers celle-ci. Pour autoriser {% data variables.product.prodname_dependabot %} à forcer la poussée sur des commits ajoutés à ses branches, incluez l’une des chaînes suivantes : `[dependabot skip]`, `[skip dependabot]`, `[dependabot-skip]` ou `[skip-dependabot]`, en minuscules ou en majuscules, au message de commit.
 
-## Managing {% data variables.product.prodname_dependabot %} pull requests with comment commands
+## Gestion des demandes de tirage {% data variables.product.prodname_dependabot %} avec des commandes de commentaire
 
-{% data variables.product.prodname_dependabot %} responds to simple commands in comments. Each pull request contains details of the commands you can use to process the pull request (for example: to merge, squash, reopen, close, or rebase the pull request) under the "{% data variables.product.prodname_dependabot %} commands and options" section. The aim is to make it as easy as possible for you to triage these automatically generated pull requests.
+{% data variables.product.prodname_dependabot %} répond à des commandes simples dans les commentaires. Chaque demande de tirage contient des détails sur les commandes que vous pouvez utiliser pour la traiter (par exemple : fusionner, condenser, rouvrir, fermer ou rebaser la demande de tirage) sous la section « Commandes et options {% data variables.product.prodname_dependabot %} ». L’objectif est de faciliter le tri de ces demandes de tirage automatiquement générées.
 
-You can use any of the following commands on a {% data variables.product.prodname_dependabot %} pull request.
+Vous pouvez utiliser l’une des commandes suivantes sur une demande de tirage {% data variables.product.prodname_dependabot %}.
 
-- `@dependabot cancel merge` cancels a previously requested merge.
-- `@dependabot close` closes the pull request and prevents {% data variables.product.prodname_dependabot %} from recreating that pull request. You can achieve the same result by closing the pull request manually.
-- `@dependabot ignore this dependency` closes the pull request and prevents {% data variables.product.prodname_dependabot %} from creating any more pull requests for this dependency (unless you reopen the pull request or upgrade to the suggested version of the dependency yourself).
-- `@dependabot ignore this major version` closes the pull request and prevents {% data variables.product.prodname_dependabot %} from creating any more pull requests for this major version (unless you reopen the pull request or upgrade to this major version yourself).
-- `@dependabot ignore this minor version` closes the pull request and prevents {% data variables.product.prodname_dependabot %} from creating any more pull requests for this minor version (unless you reopen the pull request or upgrade to this minor version yourself).
-- `@dependabot merge` merges the pull request once your CI tests have passed.
-- `@dependabot rebase` rebases the pull request.
-- `@dependabot recreate` recreates the pull request, overwriting any edits that have been made to the pull request.
-- `@dependabot reopen` reopens the pull request if the pull request is closed.
-- `@dependabot squash and merge` squashes and merges the pull request once your CI tests have passed.
+- `@dependabot cancel merge` annule une fusion demandée.
+- `@dependabot close` ferme la demande de tirage et empêche {% data variables.product.prodname_dependabot %} de la recréer. Vous pouvez obtenir le même résultat en fermant la demande de tirage manuellement.
+- `@dependabot ignore this dependency` ferme la demande de tirage et empêche {% data variables.product.prodname_dependabot %} de créer davantage de demandes de tirage pour cette dépendance (sauf si vous rouvrez la demande de tirage ou effectuez vous-même une mise à niveau vers la version suggérée de la dépendance).
+- `@dependabot ignore this major version` ferme la demande de tirage et empêche {% data variables.product.prodname_dependabot %} de créer davantage de demandes de tirage pour cette version principale (sauf si vous rouvrez la demande de tirage ou effectuez vous-même une mise à niveau vers cette version principale).
+- `@dependabot ignore this minor version` ferme la demande de tirage et empêche {% data variables.product.prodname_dependabot %} de créer davantage de demandes de tirage pour cette version mineure (sauf si vous rouvrez la demande de tirage ou effectuez vous-même une mise à niveau vers cette version mineure).
+- `@dependabot merge` fusionne la demande de tirage une fois que vos tests CI ont réussi.
+- `@dependabot rebase` rebase la demande de tirage.
+- `@dependabot recreate` recrée la demande de tirage, en écrasant toutes les modifications qui y ont été apportées.
+- `@dependabot reopen` rouvre la demande de tirage si elle est fermée.
+- `@dependabot squash and merge` condense et fusionne la demande de tirage une fois que vos tests CI ont réussi.
 
-{% data variables.product.prodname_dependabot %} will react with a "thumbs up" emoji to acknowledge the command, and may respond with a comment on the pull request. While {% data variables.product.prodname_dependabot %} usually responds quickly, some commands may take several minutes to complete if {% data variables.product.prodname_dependabot %} is busy processing other updates or commands.
+{% data variables.product.prodname_dependabot %} réagit avec un emoji « pouce vers le haut » pour reconnaître la commande et peut répondre avec un commentaire sur la demande de tirage. Même si {% data variables.product.prodname_dependabot %} répond généralement rapidement, l’exécution de certaines commandes peut prendre plusieurs minutes si {% data variables.product.prodname_dependabot %} est occupé à traiter d’autres mises à jour ou commandes.
 
-If you run any of the commands for ignoring dependencies or versions, {% data variables.product.prodname_dependabot %} stores the preferences for the repository centrally. While this is a quick solution, for repositories with more than one contributor it is better to explicitly define the dependencies and versions to ignore in the configuration file. This makes it easy for all contributors to see why a particular dependency isn't being updated automatically. For more information, see "[Configuration options for the dependabot.yml file](/github/administering-a-repository/configuration-options-for-dependency-updates#ignore)."
+Si vous exécutez l’une des commandes permettant d’ignorer les dépendances ou les versions, {% data variables.product.prodname_dependabot %} stocke les préférences du dépôt de façon centralisée. Même s’il s’agit d’une solution rapide, pour les dépôts avec plusieurs contributeurs, il est préférable de définir explicitement les dépendances et les versions à ignorer dans le fichier de configuration. Ainsi, tous les contributeurs peuvent facilement voir pourquoi une dépendance particulière n’est pas automatiquement mise à jour. Pour plus d’informations, consultez « [Options de configuration pour le fichier dependabot.yml](/github/administering-a-repository/configuration-options-for-dependency-updates#ignore) ».

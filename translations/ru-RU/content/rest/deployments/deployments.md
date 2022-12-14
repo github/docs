@@ -1,6 +1,6 @@
 ---
-title: Deployments
-intro: The Deployments API allows you to create and delete deployments and deployment environments.
+title: Развернутые приложения
+intro: API развертываний позволяет создавать и удалять развертывания и среды развертывания.
 versions:
   fpt: '*'
   ghes: '*'
@@ -9,20 +9,24 @@ versions:
 topics:
   - API
 miniTocMaxHeadingLevel: 3
+ms.openlocfilehash: a75c94b609bd166971e23516e8b2af318236a026
+ms.sourcegitcommit: 95e6f3d3aba8c637a3f72b571a6beacaa38d367f
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2022
+ms.locfileid: '147067965'
 ---
+## <a name="about-the-deployments-api"></a>Сведения об API развертываний
 
-## About the deployments API
+Развертывания — это запросы на развертывание определенной ссылки (ветвь, SHA, тег). GitHub подготавливает к отправке [событие `deployment`](/developers/webhooks-and-events/webhook-events-and-payloads#deployment), которое внешние службы могут ожидать и на основе которого они могут действовать при создании развертываний. Развертывания позволяют разработчикам и организациям создавать слабосвязанные средства для развертываний, не беспокоясь о деталях реализации доставки различных типов приложений (например, веб-приложений, собственных приложений).
 
-Deployments are requests to deploy a specific ref (branch, SHA, tag). GitHub dispatches a [`deployment` event](/developers/webhooks-and-events/webhook-events-and-payloads#deployment) that external services can listen for and act on when new deployments are created. Deployments enable developers and organizations to build loosely coupled tooling around deployments, without having to worry about the implementation details of delivering different types of applications (e.g., web, native).
+Состояния развертывания позволяют внешним службам помечать развертывания состоянием `error`, `failure`, `pending`, `in_progress`, `queued` или `success`, которое могут потреблять системы, ожидающие [события `deployment_status`](/developers/webhooks-and-events/webhook-events-and-payloads#deployment_status).
 
-Deployment statuses allow external services to mark deployments with an `error`, `failure`, `pending`, `in_progress`, `queued`, or `success` state that systems listening to [`deployment_status` events](/developers/webhooks-and-events/webhook-events-and-payloads#deployment_status) can consume.
+Состояния развертывания также могут включать в себя необязательные параметры `description` и `log_url`, которые настоятельно рекомендуется использовать, так как они делают состояния развертывания более полезными и удобными. `log_url` — это полный URL-адрес выходных данных развертывания, а `description` — это общая сводка о том, что произошло с развертыванием.
 
-Deployment statuses can also include an optional `description` and `log_url`, which are highly recommended because they make deployment statuses more useful. The `log_url` is the full URL to the deployment output, and
-the `description` is a high-level summary of what happened with the deployment.
+GitHub подготавливает к отправке события `deployment` и `deployment_status` при создании развертываний и состояний развертывания. Эти события позволяют интеграциям сторонних продуктов получать ответы на запросы развертывания и обновлять состояние развертывания по мере выполнения.
 
-GitHub dispatches `deployment` and `deployment_status` events when new deployments and deployment statuses are created. These events allow third-party integrations to receive and respond to deployment requests, and update the status of a deployment as progress is made.
-
-Below is a simple sequence diagram for how these interactions would work.
+Ниже приведена простая схема последовательностей для описания работы таких взаимодействий.
 
 ```
 +---------+             +--------+            +-----------+        +-------------+
@@ -51,12 +55,12 @@ Below is a simple sequence diagram for how these interactions would work.
      |                      |                       |                     |
 ```
 
-Keep in mind that GitHub is never actually accessing your servers. It's up to your third-party integration to interact with deployment events. Multiple systems can listen for deployment events, and it's up to each of those systems to decide whether they're responsible for pushing the code out to your servers, building native code, etc.
+Имейте в виду, что GitHub никогда не обращается к вашим серверам. Взаимодействие с событиями развертывания осуществляют интеграции сторонних продуктов. Ожидать передачи событий развертывания могут несколько систем, и каждая из них сама решает, отвечает ли она за отправку кода на ваши серверы, создание машинного кода и т. д.
 
-Note that the `repo_deployment` [OAuth scope](/developers/apps/scopes-for-oauth-apps) grants targeted access to deployments and deployment statuses **without** granting access to repository code, while the {% ifversion not ghae %}`public_repo` and{% endif %}`repo` scopes grant permission to code as well.
+Обратите внимание, что [область OAuth](/developers/apps/scopes-for-oauth-apps) `repo_deployment` предоставляет целевой доступ к развертываниям и состояниям развертывания **без** предоставления доступа к коду репозитория, тогда как области {% ifversion not ghae %}`public_repo` и{% endif %}`repo` предоставляют также и разрешение на код.
 
-### Inactive deployments
+### <a name="inactive-deployments"></a>Неактивные развертывания
 
-When you set the state of a deployment to `success`, then all prior non-transient, non-production environment deployments in the same repository with the same environment name will become `inactive`. To avoid this, you can set `auto_inactive` to `false` when creating the deployment status.
+При задании для состояния развертывания значения `success` все предыдущие развертывания, не являющиеся временными и не относящиеся к рабочей среде, в одном репозитории с тем же именем среды станут `inactive`. Чтобы избежать этого, можно задать значение `false` для `auto_inactive` при создании состояния развертывания.
 
-You can communicate that a transient environment no longer exists by setting its `state` to `inactive`.  Setting the `state` to `inactive` shows the deployment as `destroyed` in {% data variables.product.prodname_dotcom %} and removes access to it.
+Вы можете указать, что временная среда больше не существует, задав для ее `state` значение `inactive`.  Если установить для параметра `state` значение `inactive`, развертывание отображается в {% data variables.product.prodname_dotcom %} как `destroyed` и становится недоступно.

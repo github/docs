@@ -1,6 +1,6 @@
 ---
-title: Configuring applications
-intro: 'You can configure internal application settings for {% data variables.location.product_location %}.'
+title: 애플리케이션 구성
+intro: '{% 데이터 variables.location.product_location %}에 대한 내부 애플리케이션 설정을 구성할 수 있습니다.'
 redirect_from:
   - /enterprise/admin/installation/configuring-applications
   - /enterprise/admin/configuration/configuring-applications
@@ -11,15 +11,19 @@ type: how_to
 topics:
   - Enterprise
   - Fundamentals
+ms.openlocfilehash: 166206b891f1137e4b69fed702f5b6f1a1bb7a9e
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148098058'
 ---
-## Adjusting image caching
+## 이미지 캐싱 조정
 
-You can choose the amount of time that {% data variables.location.product_location %} caches avatars. When you increase the cache time, you increase the amount of time a user's avatar will take to load. Configuring the cache time with too low a value can overload {% data variables.location.product_location %} work processes. 
+{% 데이터 variables.location.product_location %}에서 아바타를 캐시하는 시간을 선택할 수 있습니다. 캐시 시간을 늘리면 사용자의 아바타가 로드하는 데 걸리는 시간이 늘어나게 됩니다. 값이 너무 낮은 캐시 시간을 구성하면 {% 데이터 variables.location.product_location %} 작업 프로세스를 오버로드할 수 있습니다. 
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.management-console %}
-3. In the left sidebar, click **Applications**.
-![Applications tab in the settings sidebar](/assets/images/enterprise/management-console/sidebar-applications.png)
-4. Under "Avatar image cache time (seconds)", type the number of seconds that you would like {% data variables.location.product_location %} to cache avatar images.
-![Avatar image caching form field](/assets/images/enterprise/management-console/add-image-caching-value-field.png)
-{% data reusables.enterprise_management_console.save-settings %}
+{% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.enterprise_site_admin_settings.management-console %}
+3. 왼쪽 사이드바에서 **애플리케이션** 을 클릭합니다.
+![설정 사이드바의 애플리케이션 탭](/assets/images/enterprise/management-console/sidebar-applications.png)
+4. "아바타 이미지 캐시 시간(초)"에서 {% 데이터 variables.location.product_location %}에서 아바타 이미지를 캐시할 시간(초)을 입력합니다.
+![아바타 이미지 캐시 양식 필드](/assets/images/enterprise/management-console/add-image-caching-value-field.png) {% data reusables.enterprise_management_console.save-settings %}

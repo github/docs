@@ -1,0 +1,24 @@
+date: '13-05-2021'
+sections:
+  security_fixes:
+    - "**ALTO RIESGO:** se identificó una vulnerabilidad de representación incorrecta en la IU en el servidor de GitHub Enterprise que permitía otorgar más permisos de los que se mostraban al usuario en la aprobación durante el flujo web de autorización de usuarios en una aplicación de GitHub. Para aprovechar esta vulnerabilidad, un atacante tendría que crear una aplicación de GitHub en la instancia y hacer que el usuario la autorice mediante el flujo de autenticación web. Todos los permisos que se otorgaran se mostrarían correctamente durante la primera autorización, pero en ciertas circunstancias, si el usuario volvía a visitar el flujo de autorización después de haber configurado los permisos de nivel de usuario en la aplicación de GitHub, los permisos adicionales podían no mostrarse, lo que causaba que el usuario otorgara más permisos de los previstos. Esta vulnerabilidad afectó a las versiones del servidor de GitHub Enterprise desde la 3.0.x hasta la 3.0.7 y la 2.22.x hasta la 2.22.13. Se corrigió en las versiones 3.0.7 y 2.22.13. Esta vulnerabilidad se ha asignado a CVE-2021-22866 y se ha notificado mediante [GitHub Bug Bounty Program](https://bounty.github.com/)."
+    - Los paquetes se han actualizado a las últimas versiones de seguridad.
+  bugs:
+    - Las citas que se incluyen en la configuración del almacenamiento de paquetes o acciones podían causar errores.
+    - Los enlaces previos a la recepción personalizados podrían fallar debido a la cantidad o tamaño de archivo muy restringido de los límites de archivo abiertos.
+    - La conmutación por error automática de Orchestrator se puede habilitar durante la fase de aplicación de configuración.
+    - A los usuarios con permiso de mantenedor en un repositorio se les mostraba una advertencia de verificación por correo electrónico en vez de una compilación de página correcta en la página de configuración de Pages del repositorio.
+    - "El propietario del código de una regla de comodín se agregaba incorrectamente a la lista de propietarios para la insignia de propietarios de código, incluso si una regla tardía prevalecía en dicha ruta."
+    - La documentación de OpenAPI conducía a un encabezado inválido.
+    - "Al crear o editar enlaces previos a la recepción, una condición de carrera en la interfaz de usuario significaba que, después de seleccionar un repositorio, los archivos dentro de este a veces no se llenaban en el menú desplegable de los archivos."
+  changes:
+    - Se agregó el registro para cambios de configuración en una recarga de HAProxy.
+    - Se agregó el registro para la creación de repositorios.
+  known_issues:
+    - "En un servidor de GitHub Enterprise recién configurado sin usuarios, un atacante podría crear el primer usuario administrador."
+    - Las reglas de firewall personalizadas no se mantienen durante una actualización.
+    - "Los archivos supervisados de Git LFS [cargados desde la interface web](https://github.com/blog/2105-upload-files-to-your-repositories) se han agregado de manera incorrecta y directa al repositorio."
+    - Las incidencias no se pueden cerrar si contienen un vínculo permanente a un blob en el mismo repositorio en el que la ruta de acceso de archivo del blob tiene más de 255 caracteres.
+    - "Cuando se habilita \"Los usuarios pueden buscar en GitHub.com\" con GitHub Connect, las incidencias en los repositorios privados e internos no se incluyen en los resultados de la búsqueda de GitHub.com."
+    - "Cuando un nodo de réplica está sin conexión en una configuración de disponibilidad alta, es posible que {% data variables.product.product_name %} todavía enrute las solicitudes a {% data variables.product.prodname_pages %} al nodo sin conexión, lo que reduce la disponibilidad de {% data variables.product.prodname_pages %} para los usuarios."
+    - Los límites de recursos que son específicos para procesar enlaces previos a la recepción podrían ocasionar errores en algunos de ellos.

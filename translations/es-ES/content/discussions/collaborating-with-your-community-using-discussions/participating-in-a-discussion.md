@@ -1,66 +1,40 @@
 ---
-title: Participating in a discussion
-intro: 'You can converse with the community and maintainers in a forum within the repository for a project on {% data variables.product.product_name %}.'
+title: Participar en un debate
+intro: 'Puedes conversar con la comunidad y con los mantenedores en un foro dentro del repositorio de un proyecto en {% data variables.product.product_name %}.'
 permissions: 'People with read access to a repository can participate in discussions and polls in the repository. People with read access to the source repository for organization discussions can participate in discussions and polls in that organization. {% data reusables.enterprise-accounts.emu-permission-interact %}'
 versions:
   feature: discussions
 shortTitle: Participate in discussion
+ms.openlocfilehash: 07db8d3583c218e592ca1b68171292e52fcfc12f
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147410239'
 ---
+## Acerca de la perticipación en un debate
 
+{% data reusables.discussions.about-discussions %} Para obtener más información, consulte "[Acerca de las debates](/discussions/collaborating-with-your-community-using-discussions/about-discussions)".
 
-## About participation in a discussion
+Además de iniciar o visualizar debates y sondeos, puedes comentar como respuesta al comentario original del autor del debate. También puedes crear un hilo de comentarios si respondes a un comentario individual que otro miembro de la comunidad haya hecho dentro del debate, y reaccionar a los comentarios con emojis.
 
-{% data reusables.discussions.about-discussions %} For more information, see "[About discussions](/discussions/collaborating-with-your-community-using-discussions/about-discussions)."
+{% ifversion fpt or ghec %}Puedes bloquear usuarios y reportar el contenido perjudicial para mantener un ambiente agradable y seguro en {% data variables.product.product_name %}. Para obtener más información, consulta "[Mantenimiento de la seguridad en {% data variables.product.prodname_dotcom %}](/communities/maintaining-your-safety-on-github)".{% endif %}
 
-In addition to starting or viewing discussions and polls, you can:
+## Prerrequisitos
 
-- Comment in response to the original comment from the author of the discussion
-- Create a comment thread by replying to an individual comment that another community member made within the discussion
-- React to comments with emoji
-- Upvote discussions and top-level comments to give them more visibility
+Los {% data variables.product.prodname_discussions %} deben estar habilitados en el repositorio o la organización para que puedas participar en ellos. Para obtener más información, consulta "[Habilitación o deshabilitación de {% data variables.product.prodname_discussions %} para un repositorio](/github/administering-a-repository/enabling-or-disabling-github-discussions-for-a-repository)" y "[Habilitación o deshabilitación de debates de GitHub para una organización](/organizations/managing-organization-settings/enabling-or-disabling-github-discussions-for-an-organization)."
 
-{% ifversion fpt or ghec %}You can block users and report disruptive content to maintain a safe and pleasant environment for yourself on {% data variables.product.product_name %}. For more information, see "[Maintaining your safety on {% data variables.product.prodname_dotcom %}](/communities/maintaining-your-safety-on-github)."{% endif %}
-
-## Prerequisites
-
-{% data variables.product.prodname_discussions %} must be enabled for the repository or organization for you to participate in a discussion in the repository or organization. For more information, see "[Enabling or disabling {% data variables.product.prodname_discussions %} for a repository](/github/administering-a-repository/enabling-or-disabling-github-discussions-for-a-repository)" and "[Enabling or disabling GitHub Discussions for an organization](/organizations/managing-organization-settings/enabling-or-disabling-github-discussions-for-an-organization)."
-
-## Creating a discussion
+## Crear un debate
 
 {% data reusables.discussions.starting-a-discussion %}
 
-## Creating a poll
+## Creación de un sondeo
 
 {% data reusables.discussions.starting-a-poll %}
 
-## Marking a comment as an answer
+## Marcar un comentario como una respuesta
 
-Discussion authors and users with the triage role or greater for a repository can mark a comment as the answer to a discussion in the repository.
-Similarly, discussion authors and users with the triage role or greater for the source repository for organization discussions can mark a comment as the answer to a discussion in the organization.
+Los autores de los debates y los usuarios con el rol de clasificación o superior dentro del repositorio pueden marcar un comentario como la respuesta a un debate dentro de dicho repositorio.
+De forma similar, los autores y los usuarios de debates con el rol de evaluación de prioridades o superior en el repositorio de origen de los debates de la organización pueden marcar un comentario como respuesta a un debate de la organización.
 
 {% data reusables.discussions.marking-a-comment-as-an-answer %}
-
-## Upvoting a discussion
-
-You can upvote discussions to give more visibility to the topics that matter to you, and sort discussions to see which have been upvoted the most. For more information on sorting discussions, see "[Sorting the list of discussions](/discussions/collaborating-with-your-community-using-discussions/collaborating-with-maintainers-using-discussions#sorting-the-list-of-discussions)."
-
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.discussions.discussions-tab %}
-1. In the list of discussions, find the discussion you want to upvote.
-1. To the left of the discussion, click the upvote arrow.
-
-   ![Discussion list and upvote button for upvoting discussions](/assets/images/help/discussions/upvote-discussion-button.png)
-1. Optionally, click the upvote arrow again to remove your upvote.
-
-## Upvoting a comment
-
-You can upvote top-level comments in discussions, and sort top-level comments to see which comments have been upvoted the most. For more information on sorting comments, see "[Sorting top-level comments in discussions](/discussions/collaborating-with-your-community-using-discussions/collaborating-with-maintainers-using-discussions#sorting-top-level-comments-in-discussions)."
-
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.discussions.discussions-tab %}
-{% data reusables.discussions.click-discussion-in-list %}
-1. In the discussion, find a top-level comment you want to upvote. 
-1. Click on the upvote arrow at the bottom left of the comment.
-
-   ![Top-level comment and upvote button for upvoting comments](/assets/images/help/discussions/upvote-comment-button.png)
-1. Optionally, click the upvote arrow again to remove your upvote.

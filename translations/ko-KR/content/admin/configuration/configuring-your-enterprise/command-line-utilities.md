@@ -1,6 +1,6 @@
 ---
-title: Command-line utilities
-intro: '{% data variables.product.prodname_ghe_server %} includes a variety of utilities to help resolve particular problems or perform specific tasks.'
+title: 명령줄 유틸리티
+intro: '{% data variables.product.prodname_ghe_server %}에는 특정 문제를 해결하거나 특정 작업을 수행하는 데 도움이 되는 다양한 유틸리티가 포함되어 있습니다.'
 redirect_from:
   - /enterprise/admin/articles/viewing-all-services
   - /enterprise/admin/articles/command-line-utilities
@@ -14,14 +14,20 @@ type: reference
 topics:
   - Enterprise
   - SSH
+ms.openlocfilehash: 290a7eab73e10a88bae1e056e3f5b43d92274f8f
+ms.sourcegitcommit: 5b16250eaa0806bf9497756cb27c54a80f688eec
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/18/2022
+ms.locfileid: '148172807'
 ---
-You can execute these commands from anywhere on the VM after signing in as an SSH admin user. For more information, see "[Accessing the administrative shell (SSH)](/enterprise/admin/guides/installation/accessing-the-administrative-shell-ssh/)."
+SSH 관리 사용자로 로그인한 후에는 VM의 어디에서나 해당 명령을 실행할 수 있습니다. 자세한 내용은 “[관리 셸(SSH) 액세스](/enterprise/admin/guides/installation/accessing-the-administrative-shell-ssh/)”를 참조하세요.
 
-## General
+## 일반
 
 ### ghe-announce
 
-This utility sets a banner at the top of every {% data variables.product.prodname_enterprise %} page. You can use it to broadcast a message to your users.
+이 유틸리티는 모든 {% data variables.product.prodname_enterprise %} 페이지의 맨 위에 배너를 설정합니다. 이를 사용하여 사용자에게 메시지를 브로드캐스트할 수 있습니다.
 
 ```shell
 # Sets a message that's visible to everyone
@@ -32,8 +38,7 @@ $ ghe-announce -u
 > Removed the announcement message
 ```
 
-{% ifversion ghe-announce-dismiss %}
-To allow each user to dismiss the announcement for themselves, use the `-d` flag.
+{% ifversion ghe-announce-dismiss %} 각 사용자가 스스로 알림을 해제할 수 있도록 하려면 `-d` 플래그를 사용합니다.
 ```shell
 # Sets a user-dismissible message that's visible to everyone
 $ ghe-announce -d -s MESSAGE
@@ -44,8 +49,7 @@ $ ghe-announce -u
 ```
 {% endif %}
 
-{% ifversion ghes %}
-You can also set an announcement banner using the enterprise settings on {% data variables.product.product_name %}. For more information, see "[Customizing user messages on your instance](/enterprise/admin/user-management/customizing-user-messages-on-your-instance#creating-a-global-announcement-banner)."
+{% ifversion ghes %} {% data variables.product.product_name %}의 엔터프라이즈 설정을 사용하여 알림 배너를 설정할 수도 있습니다. 자세한 내용은 “[인스턴스의 사용자 메시지 사용자 지정](/enterprise/admin/user-management/customizing-user-messages-on-your-instance#creating-a-global-announcement-banner)”을 참조하세요.
 {% endif %}
 
 {% ifversion ghes %}
@@ -53,18 +57,18 @@ You can also set an announcement banner using the enterprise settings on {% data
 
 ### ghe-aqueduct
 
-This utility displays information on background jobs, both active and in the queue. It provides the same job count numbers as the admin stats bar at the top of every page.
+이 유틸리티는 활성 및 큐에 있는 백그라운드 작업에 대한 정보를 표시합니다. 모든 페이지의 맨 위에 있는 관리자 통계 표시줄과 동일한 작업 수를 제공합니다.
 
-This utility can help identify whether the Aqueduct server is having problems processing background jobs. Any of the following scenarios might be indicative of a problem with Aqueduct:
+이 유틸리티는 Aqueduct 서버가 백그라운드 작업을 처리하는 데 문제가 있는지를 식별하는 데 도움이 될 수 있습니다. 다음 시나리오 중 어느 것이든 Aqueduct의 문제를 나타낼 수 있습니다.
 
-* The number of background jobs is increasing, while the active jobs remain the same.
-* The event feeds are not updating.
-* Webhooks are not being triggered.
-* The web interface is not updating after a Git push.
+* 활성 작업은 동일하게 유지되는 반면 백그라운드 작업의 수는 증가하고 있습니다.
+* 이벤트 피드가 업데이트되지 않습니다.
+* 웹후크가 트리거되지 않습니다.
+* Git 푸시 후에 웹 인터페이스가 업데이트되지 않습니다.
 
-If you suspect Aqueduct is failing, contact {% data variables.contact.contact_ent_support %} for help.
+Aqueduct에 오류가 있는 것으로 의심되는 경우 {% data variables.contact.contact_ent_support %}에 문의하여 도움을 요청하세요.
 
-With this command, you can also pause or resume jobs in the queue.
+이 명령을 사용하면 큐에서 작업을 일시 중지하거나 계속할 수도 있습니다.
 
 ```shell
 $ ghe-aqueduct status
@@ -80,7 +84,7 @@ $ ghe-aqueduct resume --queue QUEUE
 
 ### ghe-check-disk-usage
 
-This utility checks the disk for large files or files that have been deleted but still have open file handles. This should be run when you're trying to free up space on the root partition.
+이 유틸리티는 삭제되었지만 아직 파일 핸들이 열려 있는 대용량 파일 또는 파일을 디스크에서 확인합니다. 루트 파티션의 공간을 확보하려면 이 작업을 실행해야 합니다.
 
 ```shell
 ghe-check-disk-usage
@@ -88,18 +92,18 @@ ghe-check-disk-usage
 
 ### ghe-cleanup-caches
 
-This utility cleans up a variety of caches that might potentially take up extra disk space on the root volume. If you find your root volume disk space usage increasing notably over time it would be a good idea to run this utility to see if it helps reduce overall usage.
+이 유틸리티는 잠재적으로 루트 볼륨에 추가 디스크 공간을 차지할 수 있는 다양한 캐시를 정리합니다. 시간이 지남에 따라 루트 볼륨 디스크 공간 사용량이 눈에 띄게 증가하는 경우 이 유틸리티를 실행하여 전체 사용량을 줄이는 데 도움이 될지 확인하는 것이 좋습니다.
 
 ```shell
 ghe-cleanup-caches
 ```
 ### ghe-cleanup-settings
 
-This utility wipes all existing {% data variables.enterprise.management_console %} settings.
+이 유틸리티는 기존 {% data variables.enterprise.management_console %} 설정을 모두 초기화합니다.
 
 {% tip %}
 
-**Tip**: {% data reusables.enterprise_enterprise_support.support_will_ask_you_to_run_command %}
+**팁**: {% data reusables.enterprise_enterprise_support.support_will_ask_you_to_run_command %}
 
 {% endtip %}
 
@@ -109,7 +113,7 @@ ghe-cleanup-settings
 
 ### ghe-config
 
-With this utility, you can both retrieve and modify the configuration settings of {% data variables.location.product_location %}.
+이 유틸리티를 사용하면 {% data variables.location.product_location %}의 구성 설정을 검색하고 수정할 수 있습니다.
 
 ```shell
 $ ghe-config core.github-hostname
@@ -119,14 +123,13 @@ $ ghe-config core.github-hostname URL
 $ ghe-config -l
 # Lists all the configuration values
 ```
-Allows you to find the universally unique identifier (UUID) of your node in `cluster.conf`.
+`cluster.conf`에서 노드의 UUID(범용 고유 식별자)를 찾을 수 있습니다.
 
 ```shell
   $ ghe-config HOSTNAME.uuid
 ```
 
-{% ifversion ghes %}
-Allows you to exempt a list of users from REST API rate limits. A hard limit of 120,000 requests will still apply to these users. For more information, see "[Resources in the REST API](/rest/overview/resources-in-the-rest-api#rate-limiting)."
+{% ifversion ghes %} REST API 속도 제한에서 사용자 목록에 예외를 허용할 수 있습니다. 해당 사용자에게는 120,000개 요청의 하드 제한이 계속 적용됩니다. 자세한 내용은 “[REST API의 리소스](/rest/overview/resources-in-the-rest-api#rate-limiting)”를 참조하세요.
 
 ``` shell
 $ ghe-config app.github.rate-limiting-exempt-users "HUBOT GITHUB-ACTIONS"
@@ -136,9 +139,9 @@ $ ghe-config app.github.rate-limiting-exempt-users "HUBOT GITHUB-ACTIONS"
 
 ### ghe-config-apply
 
-This utility applies {% data variables.enterprise.management_console %} settings, reloads system services, prepares a storage device, reloads application services, and runs any pending database migrations. It is equivalent to clicking **Save settings** in the {% data variables.enterprise.management_console %}'s web UI or to sending a POST request to [the `/setup/api/configure` endpoint](/enterprise/user/rest/reference/enterprise-admin#management-console).
+이 유틸리티는 {% data variables.enterprise.management_console %} 설정을 적용하고, 시스템 서비스를 다시 로드하며, 스토리지 디바이스를 준비하고, 애플리케이션 서비스를 다시 로드하고, 보류 중인 데이터베이스 마이그레이션을 실행합니다. {% data variables.enterprise.management_console %}의 웹 UI에서 **설정 저장** 을 클릭하거나 [ `/setup/api/configure` 엔드포인트](/enterprise/user/rest/reference/enterprise-admin#management-console)에 POST 요청을 보내는 것과 같습니다.
 
-You will probably never need to run this manually, but it's available if you want to automate the process of saving your settings via SSH.
+수동으로 실행할 필요는 없지만 SSH를 통해 설정을 저장하는 프로세스를 자동화하려는 경우 사용할 수 있습니다.
 
 ```shell
 ghe-config-apply
@@ -146,7 +149,7 @@ ghe-config-apply
 
 ### ghe-console
 
-This utility opens the GitHub Rails console on your {% data variables.product.prodname_enterprise %} appliance. {% data reusables.command_line.use_with_support_only %}
+이 유틸리티는 {% data variables.product.prodname_enterprise %} 어플라이언스에서 GitHub Rails 콘솔을 엽니다. {% data reusables.command_line.use_with_support_only %}
 
 ```shell
 ghe-console
@@ -154,16 +157,16 @@ ghe-console
 
 ### ghe-dbconsole
 
-This utility opens a MySQL database session on your {% data variables.product.prodname_enterprise %} appliance. {% data reusables.command_line.use_with_support_only %}
+이 유틸리티는 {% data variables.product.prodname_enterprise %} 어플라이언스에서 MySQL 데이터베이스 세션을 엽니다. {% data reusables.command_line.use_with_support_only %}
 
 ```shell
 ghe-dbconsole
 ```
 
 ### ghe-es-index-status
-This utility returns a summary of Elasticsearch indexes in CSV format.
+이 유틸리티는 Elasticsearch 인덱스의 요약을 CSV 형식으로 반환합니다.
 
-Print an index summary with a header row to `STDOUT`:
+머리글 행이 있는 인덱스 요약을 `STDOUT`으로 출력합니다.
 ```shell
 $ ghe-es-index-status -do
 > warning: parser/current is loading parser/ruby23, which recognizes
@@ -182,7 +185,7 @@ $ ghe-es-index-status -do
 > wikis-4,true,true,true,true,100.0,2613dec44bd14e14577803ac1f9e4b7e07a7c234
 ```
 
-Print an index summary and pipe results to `column` for readability:
+가독성을 위해 인덱스 요약 및 파이프 결과를 `column`으로 출력합니다.
 
 ```shell
 $ ghe-es-index-status -do | column -ts,
@@ -204,7 +207,7 @@ $ ghe-es-index-status -do | column -ts,
 
 ### ghe-legacy-github-services-report
 
-This utility lists repositories on your appliance that use {% data variables.product.prodname_dotcom %} Services, an integration method that will be discontinued on October 1, 2018. Users on your appliance may have set up {% data variables.product.prodname_dotcom %} Services to create notifications for pushes to certain repositories. For more information, see "[Announcing the deprecation of {% data variables.product.prodname_dotcom %} Services](https://developer.github.com/changes/2018-04-25-github-services-deprecation/)" on {% data variables.product.prodname_blog %} or "[Replacing {% data variables.product.prodname_dotcom %} Services](/developers/overview/replacing-github-services)." For more information about this command or for additional options, use the `-h` flag.
+이 유틸리티는 2018년 10월 1일에 중단될 통합 방법인 {% data variables.product.prodname_dotcom %} 서비스를 사용하는 어플라이언스의 리포지토리를 나열합니다. 어플라이언스의 사용자가 {% data variables.product.prodname_dotcom %} 서비스를 설정하여 특정 리포지토리에 푸시할 알림을 만들 수 있습니다. 자세한 내용은 {% data variables.product.prodname_blog %} 또는 “[{% data variables.product.prodname_dotcom %} 서비스 대체](/developers/overview/replacing-github-services)”에서 “[{% data variables.product.prodname_dotcom %} 서비스 지원 중단 발표](https://developer.github.com/changes/2018-04-25-github-services-deprecation/)”를 참조하세요. 이 명령 또는 추가 옵션을 자세히 알아보려면 `-h` 플래그를 사용합니다.
 
 ```shell
 ghe-legacy-github-services-report
@@ -213,7 +216,7 @@ ghe-legacy-github-services-report
 
 ### ghe-logs-tail
 
-This utility lets you tail log all relevant log files from your installation. You can pass options in to limit the logs to specific sets. Use the -h flag for additional options.
+이 유틸리티를 사용하면 설치의 모든 관련 로그 파일을 비상 로그할 수 있습니다. 옵션을 전달하여 로그를 특정 집합으로 제한할 수 있습니다. 추가 옵션에는 -h 플래그를 사용합니다.
 
 ```shell
 ghe-logs-tail
@@ -221,7 +224,7 @@ ghe-logs-tail
 
 ### ghe-maintenance
 
-This utility allows you to control the state of the installation's maintenance mode. It's designed to be used primarily by the {% data variables.enterprise.management_console %} behind-the-scenes, but it can be used directly. For more information, see "[Enabling and scheduling maintenance mode](/admin/guides/installation/enabling-and-scheduling-maintenance-mode)."
+이 유틸리티를 사용하면 설치 유지 관리 모드의 상태를 제어할 수 있습니다. 주로 {% data variables.enterprise.management_console %} 백그라운드에서 사용하도록 설계되었지만 직접 사용할 수도 있습니다. 자세한 내용은 “[유지 관리 모드 사용 및 예약](/admin/guides/installation/enabling-and-scheduling-maintenance-mode)”을 참조하세요.
 
 ```shell
 ghe-maintenance -h
@@ -229,7 +232,7 @@ ghe-maintenance -h
 
 ### ghe-motd
 
-This utility re-displays the message of the day (MOTD) that administrators see when accessing the instance via the administrative shell. The output contains an overview of the instance's state.
+이 유틸리티는 관리자가 관리 셸을 통해 인스턴스에 액세스할 때 표시되는 MOTD(오늘의 메시지)를 다시 표시합니다. 출력에는 인스턴스 상태에 대한 개요가 포함되어 있습니다.
 
 ```shell
 ghe-motd
@@ -237,7 +240,7 @@ ghe-motd
 
 ### ghe-nwo
 
-This utility returns a repository's name and owner based on the repository ID.  
+이 유틸리티는 리포지토리 ID에 따라 리포지토리의 이름 및 소유자를 반환합니다.  
 
 ```shell
 ghe-nwo REPOSITORY_ID
@@ -245,36 +248,36 @@ ghe-nwo REPOSITORY_ID
 
 ### ghe-org-admin-promote
 
-Use this command to give organization owner privileges to users with site admin privileges on the appliance, or to give organization owner privileges to any single user in a single organization. You must specify a user and/or an organization. The `ghe-org-admin-promote` command will always ask for confirmation before running unless you use the `-y` flag to bypass the confirmation.
+이 명령을 사용하여 어플라이언스에 대한 사이트 관리자 권한이 있는 사용자에게 조직 소유자 권한을 부여하거나 단일 조직의 단일 사용자에게 조직 소유자 권한을 부여합니다. 사용자 및/또는 조직을 지정해야 합니다. `-y` 플래그를 사용하여 확인을 바이패스하지 않는 한 실행하기 전에 `ghe-org-admin-promote` 명령이 항상 확인을 요청합니다.
 
-You can use these options with the utility:
+유틸리티에서 다음 옵션을 사용할 수 있습니다.
 
-- The `-u` flag specifies a username. Use this flag to give organization owner privileges to a specific user. Omit the `-u` flag to promote all site admins to the specified organization.
-- The `-o` flag specifies an organization. Use this flag to give owner privileges in a specific organization. Omit the `-o` flag to give owner permissions in all organizations to the specified site admin.
-- The `-a` flag gives owner privileges in all organizations to all site admins.
-- The `-y` flag bypasses the manual confirmation.
+- `-u` 플래그는 사용자 이름을 지정합니다. 이 플래그를 사용하여 특정 사용자에게 조직 소유자 권한을 부여합니다. `-u` 플래그를 생략하여 모든 사이트 관리자를 지정된 조직으로 승격합니다.
+- `-o` 플래그는 조직을 지정합니다. 이 플래그를 사용하여 특정 조직에서 소유자 권한을 부여합니다. `-o` 플래그를 생략하여 모든 조직의 소유자 권한을 지정된 사이트 관리자에게 부여합니다.
+- `-a` 플래그는 모든 조직에서 모든 사이트 관리자에게 소유자 권한을 부여합니다.
+- `-y` 플래그는 수동 확인을 바이패스합니다.
 
-This utility cannot promote a non-site admin to be an owner of all organizations. You can promote an ordinary user account to a site admin with [ghe-user-promote](#ghe-user-promote).
+이 유틸리티는 비사이트 관리자를 모든 조직의 소유자로 승격할 수 없습니다. [ghe-user-promote](#ghe-user-promote)를 사용하여 일반 사용자 계정을 사이트 관리자로 승격할 수 있습니다.
 
-Give organization owner privileges in a specific organization to a specific site admin
+특정 사이트 관리자에게 특정 조직의 조직 소유자 권한 부여
 
 ```shell
 ghe-org-admin-promote -u USERNAME -o ORGANIZATION
 ```
 
-Give organization owner privileges in all organizations to a specific site admin
+특정 사이트 관리자에게 모든 조직의 조직 소유자 권한 부여
 
 ```shell
 ghe-org-admin-promote -u USERNAME
 ```
 
-Give organization owner privileges in a specific organization to all site admins
+모든 사이트 관리자에게 특정 조직의 조직 소유자 권한 부여
 
 ```shell
 ghe-org-admin-promote -o ORGANIZATION
 ```
 
-Give organization owner privileges in all organizations to all site admins
+모든 사이트 관리자에게 모든 조직의 조직 소유자 권한 부여
 
 ```shell
 ghe-org-admin-promote -a
@@ -282,7 +285,7 @@ ghe-org-admin-promote -a
 
 ### ghe-reactivate-admin-login
 
-Use this command to immediately unlock the {% data variables.enterprise.management_console %} after {% ifversion enterprise-authentication-rate-limits %}an account lockout. To configure authentication policies for {% data variables.location.product_location %}, see "[Configuring authentication policy rate limits](/admin/configuration/configuring-your-enterprise/configuring-rate-limits#configuring-authentication-policy-rate-limits)".{% else %}10 failed login attempts in the span of 10 minutes.{% endif %}
+{% ifversion enterprise-authentication-rate-limits %}계정 잠금 후 {% data variables.enterprise.management_console %}을(를) 즉시 잠금 해제하려면 이 명령을 사용합니다. {% data variables.location.product_location %}에 대한 인증 정책을 구성하려면 "[인증 정책 속도 제한 구성"을 참조하세요](/admin/configuration/configuring-your-enterprise/configuring-rate-limits#configuring-authentication-policy-rate-limits). {% else %}10분 동안 로그인 시도에 실패했습니다. {% endif %}
 
 ```shell
 $ ghe-reactivate-admin-login
@@ -291,26 +294,26 @@ $ ghe-reactivate-admin-login
 
 ### ghe-saml-mapping-csv
 
-This utility can help map SAML records.
+이 유틸리티는 SAML 레코드를 매핑하는 데 도움이 될 수 있습니다.
 
-To create a CSV file containing all the SAML mapping for your {% data variables.product.product_name %} users:
+{% data variables.product.product_name %} 사용자에 대한 모든 SAML 매핑을 포함해 CSV 파일을 만들려면 다음을 사용합니다.
 ```shell
 $ ghe-saml-mapping-csv -d
 ```
 
-To perform a dry run of updating SAML mappings with new values:
+새 값을 사용하여 SAML 매핑을 업데이트하는 드라이 런을 수행하려면 다음을 사용합니다.
 ```shell
 $ ghe-saml-mapping-csv -u -n -f /path/to/file
 ```
 
-To update SAML mappings with new values:
+새 값으로 SAML 매핑을 업데이트하려면 다음을 사용합니다.
 ```shell
 $ ghe-saml-mapping-csv -u -f /path/to/file
 ```
 
 ### ghe-service-list
 
-This utility lists all of the services that have been started or stopped (are running or waiting) on your appliance.
+이 유틸리티는 어플라이언스에서 시작 또는 중지(실행 중 또는 대기 중)된 모든 서비스를 나열합니다.
 
 ```shell
 $ ghe-service-list
@@ -391,7 +394,7 @@ stop/waiting
 
 ### ghe-set-password
 
-With `ghe-set-password`, you can set a new password to authenticate into the [{% data variables.enterprise.management_console %}](/enterprise/admin/guides/installation/accessing-the-management-console).
+`ghe-set-password`로 새 암호를 설정하여 [{% data variables.enterprise.management_console %}](/enterprise/admin/guides/installation/accessing-the-management-console)에 인증할 수 있습니다.
 
 ```shell
 ghe-set-password <new_password>
@@ -399,31 +402,31 @@ ghe-set-password <new_password>
 
 ### ghe-setup-network
 
-This utility allows you to configure the primary network interface.
+이 유틸리티를 사용하면 기본 네트워크 인터페이스를 구성할 수 있습니다.
 
-To enter visual mode, which will guide you through configuration of network settings:
+네트워크 설정 구성을 안내하는 시각적 모드로 전환하려면
 
 ```shell
 $ ghe-setup-network -v
 ```
 
-Use the -h flag for additional options.
+추가 옵션에는 -h 플래그를 사용합니다.
 
 ### ghe-ssh-check-host-keys
 
-This utility checks the existing SSH host keys against the list of known leaked SSH host keys.
+이 유틸리티는 유출된 것으로 알려진 SSH 호스트 키 목록에 대해 기존 SSH 호스트 키를 확인합니다.
 
 ```shell
 $ ghe-ssh-check-host-keys
 ```
 
-If a leaked host key is found the utility exits with status `1` and a message:
+유출된 호스트 키가 발견되면 유틸리티가 상태 `1` 및 메시지와 함께 종료됩니다.
 ```shell
 > One or more of your SSH host keys were found in the blacklist.
 > Please reset your host keys using ghe-ssh-roll-host-keys.
 ```
 
-If a leaked host key was not found, the utility exits with status `0` and a message:
+유출된 호스트 키가 발견되지 않으면 유틸리티가 상태 `0` 및 메시지와 함께 종료됩니다.
 ```shell
 > The SSH host keys were not found in the SSH host key blacklist.
 > No additional steps are needed/recommended at this time.
@@ -431,7 +434,7 @@ If a leaked host key was not found, the utility exits with status `0` and a mess
 
 ### ghe-ssh-roll-host-keys
 
-This utility rolls the SSH host keys and replaces them with newly generated keys.
+이 유틸리티는 SSH 호스트 키를 롤업하고 새로 생성된 키로 바꿉니다.
 
 ```shell
 $ sudo ghe-ssh-roll-host-keys
@@ -445,7 +448,7 @@ existing keys in /etc/ssh/ssh_host_* and generate new ones. [y/N]
 
 ### ghe-ssh-weak-fingerprints
 
-This utility returns a report of known weak SSH keys stored on the {% data variables.product.prodname_enterprise %} appliance. You can optionally revoke user keys as a bulk action. The utility will report weak system keys, which you must manually revoke in the [{% data variables.enterprise.management_console %}](/enterprise/admin/guides/installation/accessing-the-management-console).
+이 유틸리티는 {% data variables.product.prodname_enterprise %} 어플라이언스에 저장되어 있으며 약한 것으로 알려진 SSH 키에 대한 보고서를 반환합니다. 필요에 따라 사용자 키를 대량 작업으로 해지할 수 있습니다. 유틸리티는 [{% data variables.enterprise.management_console %}](/enterprise/admin/guides/installation/accessing-the-management-console)에서 수동으로 해지해야 하는 약한 시스템 키를 보고합니다.
 
 ```shell
 # Print a report of weak user and system SSH keys
@@ -457,9 +460,9 @@ $ ghe-ssh-weak-fingerprints --revoke
 
 ### ghe-ssl-acme
 
-This utility allows you to install a Let's Encrypt certificate on your {% data variables.product.prodname_enterprise %} appliance. For more information, see "[Configuring TLS](/enterprise/admin/guides/installation/configuring-tls)."
+이 유틸리티를 사용하면 {% data variables.product.prodname_enterprise %} 어플라이언스에 Let's Encrypt 인증서를 설치할 수 있습니다. 자세한 내용은 “[TLS 구성](/enterprise/admin/guides/installation/configuring-tls)”을 참조하세요.
 
-You can use the `-x` flag to remove the ACME configuration.
+`-x` 플래그를 사용하여 ACME 구성을 제거할 수 있습니다.
 
 ```shell
 ghe-ssl-acme -e
@@ -467,11 +470,11 @@ ghe-ssl-acme -e
 
 ### ghe-ssl-ca-certificate-install
 
-This utility allows you to install a custom root CA certificate on your {% data variables.product.prodname_enterprise %} server. The certificate must be in PEM format. Furthermore, if your certificate provider includes multiple CA certificates in a single file, you must separate them into individual files that you then pass to `ghe-ssl-ca-certificate-install` one at a time.
+이 유틸리티를 사용하면 {% data variables.product.prodname_enterprise %} 서버에 사용자 지정 루트 CA 인증서를 설치할 수 있습니다. 인증서는 PEM 형식이어야 합니다. 또한 인증서 공급 기업이 단일 파일에 여러 CA 인증서를 포함하는 경우 개별 파일로 분리한 다음 한 번에 하나씩 `ghe-ssl-ca-certificate-install`에 전달해야 합니다.
 
-Run this utility to add a certificate chain for S/MIME commit signature verification. For more information, see "[About commit signature verification](/enterprise/user/articles/about-commit-signature-verification/)."
+이 유틸리티를 실행하여 S/MIME 커밋 서명 확인을 위한 인증서 체인을 추가합니다. 자세한 내용은 “[커밋 서명 확인 정보](/enterprise/user/articles/about-commit-signature-verification/)”를 참조하세요.
 
-Run this utility when {% data variables.location.product_location %} is unable to connect to another server because the latter is using a self-signed SSL certificate or an SSL certificate for which it doesn't provide the necessary CA bundle. One way to confirm this is to run `openssl s_client -connect host:port -verify 0 -CApath /etc/ssl/certs` from {% data variables.location.product_location %}. If the remote server's SSL certificate can be verified, your `SSL-Session` should have a return code of 0, as shown below.
+{% data variables.location.product_location %}이(가) 다른 서버에 연결할 수 없는 경우 이 유틸리티를 실행합니다. 후자는 자체 서명된 SSL 인증서 또는 필요한 CA 번들을 제공하지 않는 SSL 인증서를 사용하고 있기 때문입니다. 이를 확인하는 한 가지 방법은 {% data variables.location.product_location %}에서 실행하는 `openssl s_client -connect host:port -verify 0 -CApath /etc/ssl/certs` 것입니다. 원격 서버의 SSL 인증서를 확인할 수 있는 경우 `SSL-Session`의 반환 코드는 아래와 같이 0이어야 합니다.
 
 ```
 SSL-Session:
@@ -486,7 +489,7 @@ SSL-Session:
     Verify return code: 0 (ok)
 ```
 
-If, on the other hand, the remote server's SSL certificate can *not* be verified, your `SSL-Session` should have a nonzero return code:
+반면에 원격 서버의 SSL 인증서를 확인할 수 없는 경우 `SSL-Session`에는 0이 아닌 반환 코드가 있어야 합니다.
 
 ```
 SSL-Session:
@@ -501,9 +504,9 @@ SSL-Session:
     Verify return code: 27 (certificate not trusted)
 ```
 
-You can use these additional options with the utility:
-- The `-r` flag allows you to uninstall a CA certificate.
-- The `-h` flag displays more usage information.
+유틸리티에서 다음 추가 옵션을 사용할 수 있습니다.
+- `-r` 플래그를 사용하면 CA 인증서를 제거할 수 있습니다.
+- `-h` 플래그는 더 많은 사용 정보를 표시합니다.
 
 ```shell
 ghe-ssl-ca-certificate-install -c CERTIFICATE_PATH
@@ -511,9 +514,9 @@ ghe-ssl-ca-certificate-install -c CERTIFICATE_PATH
 
 ### ghe-ssl-certificate-setup
 
-This utility allows you to update an SSL certificate for {% data variables.location.product_location %}. 
+이 유틸리티를 사용하면 {% data variables.location.product_location %}에 대한 SSL 인증서를 업데이트할 수 있습니다. 
 
-For more information about this command or for additional options, use the `-h` flag.
+이 명령 또는 추가 옵션을 자세히 알아보려면 `-h` 플래그를 사용합니다.
 
 ```shell
 ghe-ssl-certificate-setup
@@ -521,9 +524,9 @@ ghe-ssl-certificate-setup
 
 ### ghe-ssl-generate-csr
 
-This utility allows you to generate a private key and certificate signing request (CSR), which you can share with a commercial or private certificate authority to get a valid certificate to use with your instance. For more information, see "[Configuring TLS](/enterprise/admin/guides/installation/configuring-tls)."
+이 유틸리티를 사용하면 프라이빗 키 및 CSR(인증서 서명 요청)을 생성할 수 있습니다. 이 요청은 인스턴스와 함께 사용할 유효한 인증서를 가져오기 위해 상업용 또는 프라이빗 인증 기관과 공유할 수 있습니다. 자세한 내용은 “[TLS 구성](/enterprise/admin/guides/installation/configuring-tls)”을 참조하세요.
 
-For more information about this command or for additional options, use the `-h` flag.
+이 명령 또는 추가 옵션을 자세히 알아보려면 `-h` 플래그를 사용합니다.
 
 ```shell
 ghe-ssl-generate-csr
@@ -531,7 +534,7 @@ ghe-ssl-generate-csr
 
 ### ghe-storage-extend
 
-Some platforms require this script to expand the user volume. For more information, see "[Increasing Storage Capacity](/enterprise/admin/guides/installation/increasing-storage-capacity/)".
+일부 플랫폼에서는 사용자 볼륨을 확장하기 위해서는 이 스크립트가 필요합니다. 자세한 내용은 “[스토리지 용량 증가](/enterprise/admin/guides/installation/increasing-storage-capacity/)”를 참조하세요.
 
 ```shell
 $ ghe-storage-extend
@@ -539,7 +542,7 @@ $ ghe-storage-extend
 
 ### ghe-version
 
-This utility prints the version, platform, and build of {% data variables.location.product_location %}.
+이 유틸리티는 {% data variables.location.product_location %}의 버전, 플랫폼 및 빌드를 인쇄합니다.
 
 ```shell
 $ ghe-version
@@ -547,27 +550,25 @@ $ ghe-version
 
 ### ghe-webhook-logs
 
-This utility returns webhook delivery logs for administrators to review and identify any issues.
+이 유틸리티는 관리자가 문제를 검토하고 식별할 수 있도록 웹후크 제공 로그를 반환합니다.
 
 ```shell
 ghe-webhook-logs
 ```
 
-To show all failed hook deliveries in the past day:
-{% ifversion ghes %}
+전날 실패한 후크 전송 모두 표시: {% ifversion ghes %}
 ```shell
 ghe-webhook-logs -f -a YYYY-MM-DD
 ```
 
-The date format should be `YYYY-MM-DD`, `YYYY-MM-DD HH:MM:SS`, or `YYYY-MM-DD HH:MM:SS (+/-) HH:M`.
+날짜 형식은 `YYYY-MM-DD`, `YYYY-MM-DD HH:MM:SS` 또는 `YYYY-MM-DD HH:MM:SS (+/-) HH:M`이어야 합니다.
 {% else %}
 ```shell
 ghe-webhook-logs -f -a YYYYMMDD
 ```
 {% endif %}
 
-To show the full hook payload, result, and any exceptions for the delivery:
-{% ifversion ghes %}
+전송에 대한 전체 후크 페이로드, 결과, 예외 표시: {% ifversion ghes %}
 ```shell
 ghe-webhook-logs -g DELIVERY_GUID
 ```
@@ -581,7 +582,7 @@ ghe-webhook-logs -g DELIVERY_GUID -v
 
 ### ghe-cluster-status
 
-Check the health of your nodes and services in a cluster deployment of {% data variables.product.prodname_ghe_server %}.
+{% data variables.product.prodname_ghe_server %}의 클러스터 배포에서 노드 및 서비스의 상태를 확인합니다.
 
 ```shell
 $ ghe-cluster-status
@@ -589,26 +590,26 @@ $ ghe-cluster-status
 
 ### ghe-cluster-support-bundle
 
-This utility creates a support bundle tarball containing important logs from each of the nodes in either a Geo-replication or Clustering configuration.
+이 유틸리티는 지역 복제 또는 클러스터링 구성의 각 노드에서 중요한 로그를 포함하는 지원 번들 Tarball을 만듭니다.
 
-By default, the command creates the tarball in */tmp*, but you can also have it `cat` the tarball to `STDOUT` for easy streaming over SSH. This is helpful in the case where the web UI is unresponsive or downloading a support bundle from */setup/support* doesn't work. You must use this command if you want to generate an *extended* bundle, containing older logs. You can also use this command to upload the cluster support bundle directly to {% data variables.product.prodname_enterprise %} support.
+기본적으로 명령은 */tmp* 에서 Tarball을 만들지만 SSH를 통해 쉽게 스트리밍할 수 있도록 `STDOUT`에 `cat` tarball을 사용할 수도 있습니다. 이는 웹 UI가 응답하지 않거나 */setup/support* 에서 지원 번들을 다운로드하는 것이 유효하지 않는 경우에 유용합니다. 이전 로그를 포함하는 확장 번들을 생성하려면 이 명령을 사용해야 합니다. 이 명령을 사용하여 클러스터 지원 번들을 {% data variables.product.prodname_enterprise %} 지원에 직접 업로드할 수도 있습니다.
 
-To create a standard bundle:
+표준 번들을 만들려면 다음을 사용합니다.
 ```shell
 $ ssh -p 122 admin@HOSTNAME -- 'ghe-cluster-support-bundle -o' > cluster-support-bundle.tgz
 ```
 
-To create an extended bundle:
+확장 번들을 만들려면 다음을 사용합니다.
 ```shell
 $ ssh -p 122 admin@HOSTNAME -- 'ghe-cluster-support-bundle -x -o' > cluster-support-bundle.tgz
 ```
 
-To send a bundle to {% data variables.contact.github_support %}:
+{% data variables.contact.github_support %}에 번들을 보내려면 다음을 사용합니다.
 ```shell
 $ ssh -p 122 admin@HOSTNAME -- 'ghe-cluster-support-bundle -u'
 ```
 
-To send a bundle to {% data variables.contact.github_support %} and associate the bundle with a ticket:
+{% data variables.contact.github_support %}에 번들을 보내고 번들을 티켓과 연결하려면 다음을 사용합니다.
 ```shell
 $ ssh -p 122 admin@HOSTNAME -- 'ghe-cluster-support-bundle -t TICKET_ID'
 ```
@@ -616,7 +617,7 @@ $ ssh -p 122 admin@HOSTNAME -- 'ghe-cluster-support-bundle -t TICKET_ID'
 {% ifversion ghes %}
 ### ghe-cluster-failover
 
-Fail over from active cluster nodes to passive cluster nodes. For more information, see "[Initiating a failover to your replica cluster](/enterprise/admin/enterprise-management/initiating-a-failover-to-your-replica-cluster)."
+활성 클러스터 노드에서 수동 클러스터 노드로 장애 조치(failover)합니다. 자세한 내용은 “[복제본 클러스터로 장애 조치(failover) 시작](/enterprise/admin/enterprise-management/initiating-a-failover-to-your-replica-cluster)”을 참조하세요.
 
 ```shell
 ghe-cluster-failover
@@ -625,43 +626,43 @@ ghe-cluster-failover
 
 ### ghe-dpages
 
-This utility allows you to manage the distributed {% data variables.product.prodname_pages %} server.
+이 유틸리티를 사용하면 분산된 {% data variables.product.prodname_pages %} 서버를 관리할 수 있습니다.
 
 ```shell
 ghe-dpages
 ```
 
-To show a summary of repository location and health:
+리포지토리 위치 및 상태에 대한 요약을 표시하려면 다음을 사용합니다.
 ```shell
 ghe-dpages status
 ```
 
-To evacuate a {% data variables.product.prodname_pages %} storage service before evacuating a cluster node:
+클러스터 노드를 비우기 전에 {% data variables.product.prodname_pages %} 스토리지 서비스를 비우려면 다음을 사용합니다.
 ```shell
 ghe-dpages evacuate pages-server-UUID
 ```
 
 ### ghe-spokes
 
-This utility allows you to manage the three copies of each repository on the distributed git servers.
+이 유틸리티를 사용하면 분산된 git 서버에서 각 리포지토리의 세 복사본을 관리할 수 있습니다.
 
 ```shell
 ghe-spokes
 ```
 
-To show a summary of repository location and health:
+리포지토리 위치 및 상태에 대한 요약을 표시하려면 다음을 사용합니다.
 
 ```shell
 ghe-spokes status
 ```
 
-To show the servers in which the repository is stored:
+리포지토리가 저장된 서버를 표시하려면 다음을 사용합니다.
 
 ```shell
 ghe-spokes route
 ```
 
-To evacuate storage services on a cluster node:
+클러스터 노드의 스토리지 서비스를 비우려면 다음을 사용합니다.
 
 ```shell
 ghe-spokes server evacuate git-server-UUID
@@ -669,7 +670,7 @@ ghe-spokes server evacuate git-server-UUID
 
 ### ghe-storage
 
-This utility allows you to evacuate all storage services before evacuating a cluster node.
+이 유틸리티를 사용하면 클러스터 노드를 비우기 전에 모든 스토리지 서비스를 비울 수 있습니다.
 
 ```shell
 ghe-storage evacuate storage-server-UUID
@@ -679,7 +680,7 @@ ghe-storage evacuate storage-server-UUID
 
 ### ghe-btop
 
-A `top`-like interface for current Git operations.
+현재 Git 작업에 대한 `top` 같은 인터페이스입니다.
 
 ```shell
 ghe-btop [ <port number> | --help | --usage ]
@@ -687,7 +688,7 @@ ghe-btop [ <port number> | --help | --usage ]
 
 #### ghe-governor
 
-This utility helps to analyze Git traffic. It queries _Governor_ data files, located under `/data/user/gitmon`. {% data variables.product.company_short %} holds one hour of data per file, retained for two weeks. For more information, see [Analyzing Git traffic using Governor](https://github.community/t/analyzing-git-traffic-using-governor/13516) in {% data variables.product.prodname_github_community %}.
+이 유틸리티는 Git 트래픽을 분석하는 데 도움이 됩니다. `/data/user/gitmon` 아래에 있는 _Governor_ 데이터 파일을 쿼리합니다. {% data variables.product.company_short %}은 2주 동안 보존된 파일당 1시간의 데이터를 보유합니다. 자세한 내용은 {% data variables.product.prodname_github_community %}에서 [Governor를 사용한 Git 트래픽 분석](https://github.community/t/analyzing-git-traffic-using-governor/13516)을 참조하세요.
 
 ```bash
 ghe-governor <subcommand> <column> [options]
@@ -712,7 +713,7 @@ Try ghe-governor <subcommand> --help for more information on the arguments each 
 
 ### ghe-repo
 
-This utility allows you to change to a repository's directory and open an interactive shell as the `git` user. You can perform manual inspection or maintenance of a repository via commands like `git-*` or `git-nw-*`.
+이 유틸리티를 사용하면 리포지토리의 디렉터리로 변경하고 `git` 사용자로 대화형 셸을 열 수 있습니다. `git-*` 또는 `git-nw-*` 같은 명령을 통해 리포지토리의 수동 검사 또는 유지 관리를 수행할 수 있습니다.
 
 ```shell
 ghe-repo USERNAME/REPONAME
@@ -720,13 +721,13 @@ ghe-repo USERNAME/REPONAME
 
 ### ghe-repo-gc
 
-This utility manually repackages a repository network to optimize pack storage. If you have a large repository, running this command may help reduce its overall size. {% data variables.product.prodname_enterprise %} automatically runs this command throughout your interaction with a repository network.
+이 유틸리티는 수동으로 리포지토리 네트워크를 다시 패키지하여 팩 스토리지를 최적화합니다. 큰 리포지토리가 있는 경우 이 명령을 실행하면 전체 크기를 줄이는 데 도움이 될 수 있습니다. {% data variables.product.prodname_enterprise %}는 리포지토리 네트워크와의 상호 작용 전체에서 이 명령을 자동으로 실행합니다.
 
-You can add the optional `--prune` argument to remove unreachable Git objects that aren't referenced from a branch, tag, or any other ref. This is particularly useful for immediately removing [previously expunged sensitive information](/enterprise/user/articles/remove-sensitive-data/).
+선택적 `--prune` 인수를 추가하여 분기, 태그 또는 기타 참조에서 참조되지 않으며 연결할 수 없는 Git 개체를 제거할 수 있습니다. 이는 [이전에 삭제된 중요한 정보](/enterprise/user/articles/remove-sensitive-data/)를 즉시 제거하는 데 특히 유용합니다.
 
 {% warning %}
 
-**Warning**: Before using the `--prune` argument to remove unreachable Git objects, put {% data variables.location.product_location %} into maintenance mode, or ensure all repositories within the same repository network are locked. For more information, see "[Enabling and scheduling maintenance mode](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode)."
+**경고**: 인수를 `--prune` 사용하여 연결할 수 없는 Git 개체를 제거하기 전에 {% data variables.location.product_location %}를 유지 관리 모드로 전환하거나 동일한 리포지토리 네트워크 내의 모든 리포지토리가 잠겨 있는지 확인합니다. 자세한 내용은 “[유지 관리 모드 사용 및 예약](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode)”을 참조하세요.
 
 {% endwarning %}
 
@@ -738,7 +739,7 @@ ghe-repo-gc USERNAME/REPONAME
 
 ### ghe-actions-check
 
-This utility checks that all services for {% data variables.product.prodname_actions %} are healthy. For more information, see  "[Getting started with {% data variables.product.prodname_actions %} for {% data variables.product.product_name %}](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server)" and "[Troubleshooting {% data variables.product.prodname_actions %} for your enterprise](/admin/github-actions/advanced-configuration-and-troubleshooting/troubleshooting-github-actions-for-your-enterprise)."
+이 유틸리티는 {% data variables.product.prodname_actions %}에 대한 모든 서비스가 정상인지 확인합니다. 자세한 내용은 “[{% data variables.product.product_name %}용 {% data variables.product.prodname_actions %} 시작하기](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server)” 및 “[엔터프라이즈용 {% data variables.product.prodname_actions %} 문제 해결](/admin/github-actions/advanced-configuration-and-troubleshooting/troubleshooting-github-actions-for-your-enterprise)”을 참조하세요.
 
 ```shell
 ghe-actions-check
@@ -746,70 +747,70 @@ ghe-actions-check
 
 ### ghe-actions-precheck
 
-This utility tests the blob storage configuration for {% data variables.product.prodname_actions %} on {% data variables.location.product_location %}. You can use the utility to verify your storage configuration before you enable {% data variables.product.prodname_actions %} for your instance.
+이 유틸리티는 {% data variables.location.product_location %}에서 {% data variables.product.prodname_actions %}에 대한 Blob Storage 구성을 테스트합니다. 인스턴스에 {% data variables.product.prodname_actions %}를 사용 설정하기 전에 유틸리티를 사용하여 스토리지 구성을 확인할 수 있습니다.
 
-For more information about the configuration of {% data variables.product.prodname_actions %}, see "[Getting started with {% data variables.product.prodname_actions %} for {% data variables.product.product_name %}](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server)."
+{% data variables.product.prodname_actions %}의 구성에 관한 자세한 내용은 “[{% data variables.product.product_name %}용 {% data variables.product.prodname_actions %} 시작하기](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server)”를 참조하세요.
 
 ```shell
 ghe-actions-precheck -p [PROVIDER] -cs ["CONNECTION-STRING"]
 ```
 
-If your storage system is configured correctly, you'll see the following output.
+스토리지 시스템이 올바르게 구성된 경우 다음 출력이 표시됩니다.
 
 ```
 All Storage tests passed
 ```
 
-## Import and export
+## 가져오기 및 내보내기
 
 ### ghe-migrator
 
-`ghe-migrator` is a hi-fidelity tool to help you migrate from one GitHub instance to another. You can consolidate your instances or move your organization, users, teams, and repositories from GitHub.com to {% data variables.product.prodname_enterprise %}.
+`ghe-migrator`는 한 GitHub 인스턴스에서 다른 인스턴스로 마이그레이션하는 데 도움이 되는 고화질 도구입니다. 인스턴스를 통합하거나 조직, 사용자, 팀 및 리포지토리를 GitHub.com에서 {% data variables.product.prodname_enterprise %}으로 이동할 수 있습니다.
 
-For more information, please see our guides on [migrating data to and from your enterprise](/enterprise/admin/user-management/migrating-data-to-and-from-your-enterprise/).
+자세한 내용은 [기업에서 데이터를 마이그레이션](/enterprise/admin/user-management/migrating-data-to-and-from-your-enterprise/)하는 방법에 대한 가이드를 참조하세요.
 
 ### git-import-detect
 
-Given a URL, detect which type of source control management system is at the other end. During a manual import this is likely already known, but this can be very useful in automated scripts.
+URL이 지정된 경우 다른 쪽 끝에 있는 소스 제어 관리 시스템의 유형을 검색합니다. 수동 가져오기 중에는 이미 알려진 것 같지만 자동화된 스크립트에서는 매우 유용할 수 있습니다.
 ```shell
 git-import-detect
 ```
 
 ### git-import-hg-raw
 
-This utility imports a Mercurial repository to this Git repository. For more information, see "[Importing data from third party version control systems](/enterprise/admin/guides/migrations/importing-data-from-third-party-version-control-systems/)."
+이 유틸리티는 Mercurial 리포지토리를 이 Git 리포지토리로 가져옵니다. 자세한 내용은 “[타사 버전 제어 시스템에서 데이터 가져오기](/enterprise/admin/guides/migrations/importing-data-from-third-party-version-control-systems/)”를 참조하세요.
 ```shell
 git-import-hg-raw
 ```
 
 ### git-import-svn-raw
 
-This utility imports Subversion history and file data into a Git branch. This is a straight copy of the tree, ignoring any trunk or branch distinction. For more information, see "[Importing data from third party version control systems](/enterprise/admin/guides/migrations/importing-data-from-third-party-version-control-systems/)."
+이 유틸리티는 Subversion 기록 및 파일 데이터를 Git 분기로 가져옵니다. 트리의 직선 복사본으로, 트렁크 또는 분기 구분을 무시합니다. 자세한 내용은 “[타사 버전 제어 시스템에서 데이터 가져오기](/enterprise/admin/guides/migrations/importing-data-from-third-party-version-control-systems/)”를 참조하세요.
 ```shell
 git-import-svn-raw
 ```
 
 ### git-import-tfs-raw
 
-This utility imports from Team Foundation Version Control (TFVC). For more information, see "[Importing data from third party version control systems](/enterprise/admin/guides/migrations/importing-data-from-third-party-version-control-systems/)."
+이 유틸리티는 TFVC(Team Foundation 버전 제어)에서 가져옵니다. 자세한 내용은 “[타사 버전 제어 시스템에서 데이터 가져오기](/enterprise/admin/guides/migrations/importing-data-from-third-party-version-control-systems/)”를 참조하세요.
 ```shell
 git-import-tfs-raw
 ```
 
 ### git-import-rewrite
 
-This utility rewrites the imported repository. This gives you a chance to rename authors and, for Subversion and TFVC, produces Git branches based on folders. For more information, see "[Importing data from third party version control systems](/enterprise/admin/guides/migrations/importing-data-from-third-party-version-control-systems/)."
+이 유틸리티는 가져온 리포지토리를 다시 작성합니다. 이렇게 하면 작성자 이름을 바꿀 수 있으며 Subversion 및 TFVC의 경우 폴더를 기반으로 Git 분기를 생성합니다. 자세한 내용은 “[타사 버전 제어 시스템에서 데이터 가져오기](/enterprise/admin/guides/migrations/importing-data-from-third-party-version-control-systems/)”를 참조하세요.
 ```shell
 git-import-rewrite
 ```
 
 {% ifversion ghes > 3.3 %}
 
-## Security
+## 보안
 
 ### ghe-find-insecure-git-operations
 
-This utility searches your instance's logs and identifies Git operations over SSH that use insecure algorithms or hash functions, including DSA, RSA-SHA-1, HMAC-SHA-1, and CBC ciphers. You can use the output to support each client's transition to a more secure SSH connection. For more information, see [{% data variables.product.prodname_blog %}](https://github.blog/2022-06-28-improving-git-protocol-security-on-github-enterprise-server){% ifversion ghes < 3.6 %}.{% elsif ghes > 3.5 %} and "[Configuring SSH connections to your instance](/admin/configuration/configuring-your-enterprise/configuring-ssh-connections-to-your-instance)."{% endif %}
+이 유틸리티는 인스턴스의 로그를 검색하고 DSA, RSA-SHA-1, HMAC-SHA-1 및 CBC 암호화를 비롯한 안전하지 않은 알고리즘 또는 해시 함수를 사용하는 SSH를 통해 Git 작업을 식별합니다. 출력을 사용하여 클라이언트에서 보다 안전한 SSH 연결로 전환하도록 지원할 수 있습니다. 자세한 내용은 [{% data variables.product.prodname_blog %}](https://github.blog/2022-06-28-improving-git-protocol-security-on-github-enterprise-server){% ifversion ghes < 3.6 %}.{% elsif ghes > 3.5 %} 및 “[인스턴스에 대한 SSH 연결 구성](/admin/configuration/configuring-your-enterprise/configuring-ssh-connections-to-your-instance)”을 참조하세요.{% endif %}
 
 ```shell
 ghe-find-insecure-git-operations
@@ -817,13 +818,13 @@ ghe-find-insecure-git-operations
 
 {% endif %}
 
-## Support
+## 지원
 
 ### ghe-diagnostics
 
-This utility performs a variety of checks and gathers information about your installation that you can send to support to help diagnose problems you're having.
+이 유틸리티는 다양한 검사를 수행하고 사용자가 겪고 있는 문제를 진단하는 데 도움이 되도록 지원하기 위해 전송할 수 있는 설치에 대한 정보를 수집합니다.
 
-Currently, this utility's output is similar to downloading the diagnostics info in the {% data variables.enterprise.management_console %}, but may have additional improvements added to it over time that aren't available in the web UI. For more information, see "[Creating and sharing diagnostic files](/enterprise/admin/guides/enterprise-support/providing-data-to-github-support#creating-and-sharing-diagnostic-files)."
+현재 이 유틸리티의 출력은 {% data variables.enterprise.management_console %}에서 진단 정보를 다운로드하는 것과 유사하지만 시간이 지남에 따라 웹 UI에서 사용할 수 없는 추가 개선 사항이 추가될 수 있습니다. 자세한 내용은 “[진단 파일 만들기 및 공유](/enterprise/admin/guides/enterprise-support/providing-data-to-github-support#creating-and-sharing-diagnostic-files)”를 참조하세요.
 
 ```shell
 ghe-diagnostics
@@ -831,27 +832,26 @@ ghe-diagnostics
 
 ### ghe-support-bundle
 
-{% data reusables.enterprise_enterprise_support.use_ghe_cluster_support_bundle %}
-This utility creates a support bundle tarball containing important logs from your instance.
+{% data reusables.enterprise_enterprise_support.use_ghe_cluster_support_bundle %} 이 유틸리티는 인스턴스의 중요한 로그를 포함하는 지원 번들 Tarball을 만듭니다.
 
-By default, the command creates the tarball in */tmp*, but you can also have it `cat` the tarball to `STDOUT` for easy streaming over SSH. This is helpful in the case where the web UI is unresponsive or downloading a support bundle from */setup/support* doesn't work. You must use this command if you want to generate an *extended* bundle, containing older logs. You can also use this command to upload the support bundle directly to {% data variables.product.prodname_enterprise %} support.
+기본적으로 명령은 */tmp* 에서 Tarball을 만들지만 SSH를 통해 쉽게 스트리밍할 수 있도록 `STDOUT`에 `cat` tarball을 사용할 수도 있습니다. 이는 웹 UI가 응답하지 않거나 */setup/support* 에서 지원 번들을 다운로드하는 것이 유효하지 않는 경우에 유용합니다. 이전 로그를 포함하는 확장 번들을 생성하려면 이 명령을 사용해야 합니다. 이 명령을 사용하여 {% data variables.product.prodname_enterprise %} 지원에 직접 지원 번들을 업로드할 수도 있습니다.
 
-To create a standard bundle:
+표준 번들을 만들려면 다음을 사용합니다.
 ```shell
 $ ssh -p 122 admin@HOSTNAME -- 'ghe-support-bundle -o' > support-bundle.tgz
 ```
 
-To create an extended bundle:
+확장 번들을 만들려면 다음을 사용합니다.
 ```shell
 $ ssh -p 122 admin@HOSTNAME -- 'ghe-support-bundle -x -o' > support-bundle.tgz
 ```
 
-To send a bundle to {% data variables.contact.github_support %}:
+{% data variables.contact.github_support %}에 번들을 보내려면 다음을 사용합니다.
 ```shell
 $ ssh -p 122 admin@HOSTNAME -- 'ghe-support-bundle -u'
 ```
 
-To send a bundle to {% data variables.contact.github_support %} and associate the bundle with a ticket:
+{% data variables.contact.github_support %}에 번들을 보내고 번들을 티켓과 연결하려면 다음을 사용합니다.
 
 ```shell
 $ ssh -p 122 admin@HOSTNAME -- 'ghe-support-bundle -t TICKET_ID'
@@ -859,32 +859,32 @@ $ ssh -p 122 admin@HOSTNAME -- 'ghe-support-bundle -t TICKET_ID'
 
 ### ghe-support-upload
 
-This utility sends information from your appliance to {% data variables.product.prodname_enterprise %} support. You can either specify a local file, or provide a stream of up to 100MB of data via `STDIN`. The uploaded data can optionally be associated with a support ticket.
+이 유틸리티는 어플라이언스에서 {% data variables.product.prodname_enterprise %} 지원으로 정보를 보냅니다. 로컬 파일을 지정하거나 `STDIN`을 통해 최대 100MB의 데이터 스트림을 제공할 수 있습니다. 업로드된 데이터는 선택적으로 지원 티켓과 연결될 수 있습니다.
 
-To send a file to {% data variables.contact.github_support %} and associate the file with a ticket:
+{% data variables.contact.github_support %}에 파일을 보내고 파일을 티켓과 연결하려면 다음을 사용합니다.
 ```shell
 ghe-support-upload -f FILE_PATH -t TICKET_ID
 ```
 
-To upload data via `STDIN` and associating the data with a ticket:
+`STDIN`을 통해 데이터를 업로드하고 티켓과 데이터를 연결하려면 다음을 사용합니다.
 ```shell
 ghe-repl-status -vv | ghe-support-upload -t TICKET_ID -d "Verbose Replication Status"
 ```
 
-In this example, `ghe-repl-status -vv` sends verbose status information from a replica appliance. You should replace `ghe-repl-status -vv` with the specific data you'd like to stream to `STDIN`, and `Verbose Replication Status` with a brief description of the data. {% data reusables.enterprise_enterprise_support.support_will_ask_you_to_run_command %}
+이 예제에서 `ghe-repl-status -vv`는 복제본 어플라이언스에서 자세한 상태 정보를 보냅니다. `ghe-repl-status -vv`를 `STDIN`에 스트리밍하려는 특정 데이터로, `Verbose Replication Status`를 데이터에 대한 간략한 설명으로 바꿔야 합니다. {% data reusables.enterprise_enterprise_support.support_will_ask_you_to_run_command %}
 
-## Upgrading {% data variables.product.prodname_ghe_server %}
+## {% data variables.product.prodname_ghe_server %} 업그레이드
 
 ### ghe-upgrade
 
-This utility installs or verifies an upgrade package. You can also use this utility to roll back a patch release if an upgrade fails or is interrupted. For more information, see "[Upgrading {% data variables.product.prodname_ghe_server %}](/enterprise/admin/guides/installation/upgrading-github-enterprise-server/)."
+이 유틸리티는 업그레이드 패키지를 설치하거나 확인합니다. 업그레이드가 실패하거나 중단된 경우 이 유틸리티를 사용하여 패치 릴리스를 롤백할 수도 있습니다. 자세한 내용은 “[{% data variables.product.prodname_ghe_server %} 업그레이드](/enterprise/admin/guides/installation/upgrading-github-enterprise-server/)”를 참조하세요.
 
-To verify an upgrade package:
+업그레이드 패키지를 확인하려면 다음을 사용합니다.
 ```shell
 ghe-upgrade --verify UPGRADE-PACKAGE-FILENAME
 ```
 
-To install an upgrade package:
+업그레이드 패키지를 설치하려면 다음을 사용합니다.
 ```shell
 ghe-upgrade UPGRADE-PACKAGE-FILENAME
 ```
@@ -893,45 +893,45 @@ ghe-upgrade UPGRADE-PACKAGE-FILENAME
 
 ### ghe-upgrade-scheduler
 
-This utility manages scheduled installation of upgrade packages. You can show, create new, or remove scheduled installations. You must create schedules using cron expressions. For more information, see the [Cron Wikipedia entry](https://en.wikipedia.org/wiki/Cron#Overview).
+이 유틸리티는 업그레이드 패키지의 예약된 설치를 관리합니다. 예약된 설치를 표시하거나 새로 만들거나 제거할 수 있습니다. cron 식을 사용하여 일정을 만들어야 합니다. 자세한 내용은 [Cron Wikipedia 항목](https://en.wikipedia.org/wiki/Cron#Overview)을 참조하세요.
 
-The `ghe-upgrade-scheduler` utility is best suited for scheduling hotpatch upgrades, which do not require maintenance mode or a reboot in most cases. This utility is not practical for full package upgrades, which require an administrator to manually set maintenance mode, reboot the instance, and unset maintenance mode. For more information about the different types of upgrades, see "[Upgrading {% data variables.product.product_name %}](/admin/enterprise-management/upgrading-github-enterprise-server#upgrading-with-an-upgrade-package)"
+유틸리티는 `ghe-upgrade-scheduler` 대부분의 경우 유지 관리 모드 또는 다시 부팅이 필요하지 않은 핫패치 업그레이드 예약에 가장 적합합니다. 이 유틸리티는 관리자가 수동으로 유지 관리 모드를 설정하고 인스턴스를 다시 부팅하며 유지 관리 모드를 설정하지 않은 전체 패키지 업그레이드에는 실용적이지 않습니다. 다양한 유형의 업그레이드에 대한 자세한 내용은 "[{% data variables.product.product_name %} 업그레이드"를 참조하세요](/admin/enterprise-management/upgrading-github-enterprise-server#upgrading-with-an-upgrade-package).
 
-To schedule a new installation for a package:
+패키지에 대한 새 설치를 예약하려면 다음을 사용합니다.
 ```shell
 $ ghe-upgrade-scheduler -c "0 2 15 12 *" UPGRADE-PACKAGE-FILENAME
 ```
 
-To show scheduled installations for a package:
+패키지에 대해 예약된 설치를 표시하려면 다음을 사용합니다.
 ```shell
 $ ghe-upgrade-scheduler -s UPGRADE PACKAGE FILENAME
 > 0 2 15 12 * /usr/local/bin/ghe-upgrade -y -s UPGRADE-PACKAGE-FILENAME > /data/user/common/UPGRADE-PACKAGE-FILENAME.log 2>&1
 ```
 
-To remove scheduled installations for a package:
+패키지에 대해 예약된 설치를 제거하려면 다음을 사용합니다.
 ```shell
 $ ghe-upgrade-scheduler -r UPGRADE PACKAGE FILENAME
 ```
 
 ### ghe-update-check
 
-This utility will check to see if a new patch release of {% data variables.product.prodname_enterprise %} is available. If it is, and if space is available on your instance, it will download the package. By default, it's saved to */var/lib/ghe-updates*. An administrator can then [perform the upgrade](/enterprise/admin/guides/installation/updating-the-virtual-machine-and-physical-resources/).
+이 유틸리티는 {% data variables.product.prodname_enterprise %}의 새 패치 릴리스를 사용할 수 있는지 확인합니다. 릴리스를 사용할 수 있고 인스턴스에 공간이 있는 경우 패키지를 다운로드합니다. 기본적으로 */var/lib/ghe-updates* 에 저장됩니다. 그러면 관리자가 [업그레이드를 수행](/enterprise/admin/guides/installation/updating-the-virtual-machine-and-physical-resources/)할 수 있습니다.
 
-A file containing the status of the download is available at */var/lib/ghe-updates/ghe-update-check.status*.
+다운로드 상태를 포함하는 파일은 */var/lib/ghe-updates/ghe-update-check.status* 에서 제공됩니다.
 
-To check for the latest {% data variables.product.prodname_enterprise %} release, use the `-i` switch.
+최신 {% data variables.product.prodname_enterprise %} 릴리스를 확인하려면 `-i` 스위치를 사용합니다.
 
 ```shell
 $ ssh -p 122 admin@HOSTNAME -- 'ghe-update-check'
 ```
 
-## User management
+## 사용자 관리
 
 ### ghe-license-usage
 
-This utility exports a list of the installation's users in JSON format. If your instance is connected to {% data variables.product.prodname_ghe_cloud %}, {% data variables.product.prodname_ghe_server %} uses this information for reporting licensing information to {% data variables.product.prodname_ghe_cloud %}. For more information, see "[Connecting your enterprise account to {% data variables.product.prodname_ghe_cloud %} ](/admin/configuration/managing-connections-between-your-enterprise-accounts/connecting-your-enterprise-account-to-github-enterprise-cloud)."
+이 유틸리티는 설치 사용자 목록을 JSON 형식으로 내보냅니다. 인스턴스가 {% data variables.product.prodname_ghe_cloud %}에 연결된 경우 {% data variables.product.prodname_ghe_server %}는 이 정보를 사용해 라이선스 정보를 {% data variables.product.prodname_ghe_cloud %}에 보고합니다. 자세한 내용은 “[{% data variables.product.prodname_ghe_cloud %}에 엔터프라이즈 계정 연결](/admin/configuration/managing-connections-between-your-enterprise-accounts/connecting-your-enterprise-account-to-github-enterprise-cloud)”을 참조하세요.
 
-By default, the list of users in the resulting JSON file is encrypted. Use the `-h` flag for more options.
+기본적으로 결과 JSON 파일의 사용자 목록은 암호화됩니다. 더 많은 옵션을 이용하려면 `-h` 플래그를 사용합니다.
 
 ```shell
 ghe-license-usage
@@ -939,7 +939,7 @@ ghe-license-usage
 
 ### ghe-org-membership-update
 
-This utility will enforce the default organization membership visibility setting on all members in your instance. For more information, see "[Configuring visibility for organization membership](/enterprise/admin/guides/user-management/configuring-visibility-for-organization-membership)." Setting options are `public` or `private`.
+이 유틸리티는 인스턴스의 모든 구성원에 기본 조직 구성원 자격 표시 여부 설정을 적용합니다. 자세한 내용은 “[조직 구성원 자격에 대한 표시 여부 구성](/enterprise/admin/guides/user-management/configuring-visibility-for-organization-membership)”을 참조하세요. 설정 옵션은 `public` 또는 `private`입니다.
 
 ```shell
 ghe-org-membership-update --visibility=SETTING
@@ -947,7 +947,7 @@ ghe-org-membership-update --visibility=SETTING
 
 ### `ghe-user-csv`
 
-This utility exports a list of all the users in the installation into CSV format. The CSV file includes the email address, which type of user they are (e.g., admin, user), how many repositories they have, how many SSH keys, how many organization memberships, last logged IP address, etc. Use the `-h` flag for more options.
+이 유틸리티는 설치의 모든 사용자 목록을 CSV 형식으로 내보냅니다. CSV 파일에는 메일 주소, 사용자 유형(예: 관리자, 사용자), 리포지토리 수, SSH 키 수, 조직 멤버 자격 수, 마지막으로 기록된 IP 주소 등이 포함됩니다. 더 많은 옵션을 이용하려면 `-h` 플래그를 사용합니다.
 
 ```shell
 ghe-user-csv -o > users.csv
@@ -955,7 +955,7 @@ ghe-user-csv -o > users.csv
 
 ### ghe-user-demote
 
-This utility demotes the specified user from admin status to that of a regular user. We recommend using the web UI to perform this action, but provide this utility in case the `ghe-user-promote` utility is run in error and you need to demote a user again from the CLI.
+이 유틸리티는 지정된 사용자를 관리자 상태에서 일반 사용자의 상태로 강등합니다. 웹 UI를 사용하여 이 작업을 수행하는 것이 좋지만 `ghe-user-promote` 유틸리티가 잘못 실행되고 CLI에서 사용자를 다시 강등해야 하는 경우 이 유틸리티를 제공합니다.
 
 ```shell
 ghe-user-demote USERNAME
@@ -963,7 +963,7 @@ ghe-user-demote USERNAME
 
 ### ghe-user-promote
 
-This utility promotes the specified user account to a site administrator.
+이 유틸리티는 지정된 사용자 계정을 사이트 관리자로 승격합니다.
 
 ```shell
 ghe-user-promote USERNAME
@@ -971,7 +971,7 @@ ghe-user-promote USERNAME
 
 ### ghe-user-suspend
 
-This utility suspends the specified user, preventing them from logging in, pushing, or pulling from your repositories.
+이 유틸리티는 지정된 사용자를 일시 중단하여 리포지토리에서 로그인, 푸시 또는 끌어오지 못하게 합니다.
 
 ```shell
 ghe-user-suspend USERNAME
@@ -979,7 +979,7 @@ ghe-user-suspend USERNAME
 
 ### ghe-user-unsuspend
 
-This utility unsuspends the specified user, granting them access to login, push, and pull from your repositories.
+이 유틸리티는 지정된 사용자를 일시 중단하지 않고 리포지토리에서 로그인, 푸시 및 풀하기 위한 액세스 권한을 부여합니다.
 
 ```shell
 ghe-user-unsuspend USERNAME

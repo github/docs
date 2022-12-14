@@ -1,0 +1,24 @@
+date: '10-06-2021'
+sections:
+  security_fixes:
+    - Los paquetes se han actualizado a las últimas versiones de seguridad.
+  bugs:
+    - El proceso de actualización podría fallar al actualizar las acciones si la instancia no pudo hacer auto-solicitudes utilizando el nombre de host configurado.
+    - "El SVN 1.7 y los clientes más antiguos mostraron un error cuando se utilizaron los comandos \"svn co\" y \"svn export\"."
+    - "El acceso a un repositorio mediante el shell administrativo utilizando \"ghe-repo <owner>/<reponame>\" provocaba bloqueos."
+    - "Después de la actualización, los usuarios experimentaron disponibilidad reducida durante el uso intensivo, porque los servicios se reiniciaron con demasiada frecuencia. Esto sucedería a causa del error de coincidencia de tiempo de expiración entre la configuración nómada y la de los servicios internos."
+    - "En algunas instancias, la ejecución de \"ghe-repl-status\" después de haber configurado las Acciones de GitHub produjo un error y \"ghe-actions-teardown\" falló."
+    - '"ghe-dbconsole" devolvió errores en algunas circunstancias.'
+    - "Los errores de importación de organizaciones o repositorios desde orígenes distintos a GitHub podrían producir un error de tipo \"método sin definir \"[]\" para nil:NilClass\"."
+    - "Los nombres de perfil de GitHub podrían haber cambiado accidentalmente al utilizar la autenticación de SAML, si el nombre de perfil de GitHub no coincidió con el valor del atributo que se asignó en el campo \"Full name\" de la consola de administración."
+  changes:
+    - "El campo \"firstPatchedVersion\" ahora está disponible en los objetos de \"SecurityVulnerability\" en la API de GraphQL."
+    - "Los usuarios de GraphQL API pueden consultar el campo público \"closingIssuesReferences\" en el objeto \"PullRequest\". Este campo recupera incidencias que se cerrarán de forma automática cuando se combine la solicitud de incorporación de cambios relacionada. Este enfoque también permitirá migrar estos datos en el futuro, como parte de un proceso de migración más fiel."
+  known_issues:
+    - "En un servidor de GitHub Enterprise recién configurado sin usuarios, un atacante podría crear el primer usuario administrador."
+    - Las reglas de cortafuegos personalizadas se eliminan durante el proceso de actualización.
+    - "Los archivos supervisados de Git LFS [cargados desde la interface web](https://github.com/blog/2105-upload-files-to-your-repositories) se han agregado de manera incorrecta y directa al repositorio."
+    - Las incidencias no se pueden cerrar si contienen un enlace permanente a un blob del mismo repositorio en el que la ruta es mayor de 255 caracteres.
+    - "Cuando se habilita \"Los usuarios pueden buscar en GitHub.com\" con GitHub Connect, las incidencias en los repositorios privados e internos no se incluyen en los resultados de la búsqueda de GitHub.com."
+    - "Cuando un nodo de réplica está sin conexión en una configuración de disponibilidad alta, es posible que {% data variables.product.product_name %} todavía enrute las solicitudes a {% data variables.product.prodname_pages %} al nodo sin conexión, lo que reduce la disponibilidad de {% data variables.product.prodname_pages %} para los usuarios."
+    - Los límites de recursos que son específicos para procesar enlaces previos a la recepción podrían ocasionar errores en algunos de ellos.

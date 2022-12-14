@@ -7,9 +7,6 @@ name: 'Link Checker: On PR'
 on:
   workflow_dispatch:
   merge_group:
-  push:
-    branches:
-      - main
   pull_request:
 
 permissions:
@@ -31,14 +28,20 @@ jobs:
       - name: Checkout
         uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
 
-      - name: Setup node
-        uses: actions/setup-node@17f8bd926464a1afa4c6a11669539e9c1ba77048
+      - name: Cache node_modules
+        uses: actions/cache@9b0c1fce7a93df8e3bb8926b0d6e9d89e92f20a7
         with:
-          node-version: '16.15.0'
+          path: node_modules
+          key: ${{ runner.os }}-node_modules-${{ hashFiles('package*.json') }}
+
+      - name: Setup node
+        uses: actions/setup-node@8c91899e586c5b171469028077307d293428b516
+        with:
+          node-version: '16.17.0'
           cache: npm
 
-      - name: Install
-        run: npm ci --ignore-scripts
+      - name: Install dependencies
+        run: npm install --prefer-offline --no-audit --ignore-scripts
 
       - name: Figure out which docs-early-access branch to checkout, if internal repo
         if: ${{ github.repository == 'github/docs-internal' }}

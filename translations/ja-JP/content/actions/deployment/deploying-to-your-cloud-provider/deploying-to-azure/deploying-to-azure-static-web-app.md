@@ -1,6 +1,6 @@
 ---
-title: Deploying to Azure Static Web App
-intro: You can deploy your web app to Azure Static Web App as part of your continuous deployment (CD) workflows.
+title: Azure 静的 Web アプリへのデプロイ
+intro: 継続的デプロイ (CD) ワークフローの一部として、Web アプリを Azure Static Web App にデプロイできます。
 versions:
   fpt: '*'
   ghes: '*'
@@ -10,46 +10,50 @@ type: tutorial
 topics:
   - CD
   - Azure Static Web Apps
+ms.openlocfilehash: 3e5b9a90e91e237fbd1b5679624ed3cdb3865856
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147410548'
 ---
-
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
 
-## Introduction
+## はじめに
 
-This guide explains how to use {% data variables.product.prodname_actions %} to build and deploy a web app to [Azure Static Web Apps](https://azure.microsoft.com/services/app-service/static/).
+このガイドでは、{% data variables.product.prodname_actions %} を使用して、Web アプリをビルドし、[Azure 静的 Web アプリ](https://azure.microsoft.com/services/app-service/static/)にデプロイする方法について説明します。
 
-{% ifversion fpt or ghec or ghes > 3.4 %}
+{% ifversion fpt or ghec or ghae-issue-4856 or ghes > 3.4 %}
 
 {% note %}
 
-**Note**: {% data reusables.actions.about-oidc-short-overview %} and "[Configuring OpenID Connect in Azure](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure)."
+**注**: {% data reusables.actions.about-oidc-short-overview %} と「[Configuring OpenID Connect in Azure](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure)」 (Azure での OpenID Connect の構成)。
 
 {% endnote %}
 
 {% endif %}
 
-## Prerequisites
+## 前提条件
 
-Before creating your {% data variables.product.prodname_actions %} workflow, you will first need to complete the following setup steps:
+{% data variables.product.prodname_actions %}ワークフローを作成する前に、まず以下のセットアップのステップを完了しておかなければなりません。
 
-1. Create an Azure Static Web App using the 'Other' option for deployment source. For more information, see "[Quickstart: Building your first static site in the Azure portal](https://docs.microsoft.com/azure/static-web-apps/get-started-portal)" in the Azure documentation. 
+1. デプロイ ソースの [Other]\(その他) オプションを使用して、Azure 静的 Web アプリを作成します。 詳細については、Azure ドキュメントの「[クイックスタート: Azure portal で最初の静的サイトを構築する](https://docs.microsoft.com/azure/static-web-apps/get-started-portal)」を参照してください。 
 
-2. Create a secret called `AZURE_STATIC_WEB_APPS_API_TOKEN` with the value of your static web app deployment token. For more information about how to find your deployment token, see "[Reset deployment tokens in Azure Static Web Apps](https://docs.microsoft.com/azure/static-web-apps/deployment-token-management)" in the Azure documentation.
+2. 静的 Web アプリのデプロイ トークンの値を使用して、`AZURE_STATIC_WEB_APPS_API_TOKEN` という名前のシークレットを作成します。 デプロイ トークンの検索方法の詳細については、Azure ドキュメントの「[Azure Static Web Apps のデプロイ トークンをリセットする](https://docs.microsoft.com/azure/static-web-apps/deployment-token-management)」を参照してください。
 
-## Creating the workflow
+## ワークフローの作成
 
-Once you've completed the prerequisites, you can proceed with creating the workflow.
+必要な環境を整えたら、ワークフローの作成に進むことができます。
 
-The following example workflow demonstrates how to build and deploy an Azure static web app when there is a push to the `main` branch or when a pull request targeting `main` is opened, synchronized, or reopened. The workflow also tears down the corresponding pre-production deployment when a pull request targeting `main` is closed.
+次のワークフローの例では、`main` ブランチへのプッシュがある場合、または `main` がターゲットとして設定されている pull request が開いているか、同期しているか、再び開いている場合に、Azure 静的 Web アプリをビルドして、デプロイする方法のデモを行います。 また、`main` がターゲットとして設定されている pull request が閉じている場合は、対応する実稼働前デプロイが、ワーフクローによって破棄されます。
 
-Under the workflow `env` key, change the following values:
-- `APP_LOCATION` to the location of your client code
-- `API_LOCATION` to the location of your API source code. If `API_LOCATION` is not relevant, you can delete the variable and the lines where it is used.
-- `APP_ARTIFACT_LOCATION` to the location of your client code build output
+ワークフロー `env` キーで、次の値を変更します。
+- `APP_LOCATION` をクライアント コードの場所に
+- `API_LOCATION` を API ソース コードの場所に。 `API_LOCATION` が関連していない場合は、変数およびそれが使用されている行を削除することができます。
+- `APP_ARTIFACT_LOCATION` をクライアント コードのビルド出力の場所に
 
-For more information about these values, see "[Build configuration for Azure Static Web Apps](https://docs.microsoft.com/azure/static-web-apps/build-configuration?tabs=github-actions)" in the Azure documentation.
+これらの値の詳細については、Azure ドキュメントの「[Azure Static Web Apps のビルド構成](https://docs.microsoft.com/azure/static-web-apps/build-configuration?tabs=github-actions)」を参照してください。
 
 ```yaml{:copy}
 {% data reusables.actions.actions-not-certified-by-github-comment %}
@@ -107,10 +111,10 @@ jobs:
           action: "close"
 ```
 
-## Additional resources
+## その他のリソース
 
-The following resources may also be useful:
+以下のリソースも役に立つでしょう。
 
-* For the original starter workflow, see [`azure-staticwebapp.yml`](https://github.com/actions/starter-workflows/blob/main/deployments/azure-staticwebapp.yml) in the {% data variables.product.prodname_actions %} `starter-workflows` repository.
-* The action used to deploy the web app is the official Azure [`Azure/static-web-apps-deploy`](https://github.com/Azure/static-web-apps-deploy) action.
-* For more examples of GitHub Action workflows that deploy to Azure, see the [actions-workflow-samples](https://github.com/Azure/actions-workflow-samples) repository.
+* もともとのスターター ワークフローについては、{% data variables.product.prodname_actions %} `starter-workflows` リポジトリの [`azure-staticwebapp.yml`](https://github.com/actions/starter-workflows/blob/main/deployments/azure-staticwebapp.yml) を参照してください。
+* Web アプリのデプロイに使用されるアクションは、Azure の公式な [`Azure/static-web-apps-deploy`](https://github.com/Azure/static-web-apps-deploy) アクションです。
+* Azure にデプロイする GitHub アクション ワークフローの例が他にも必要であれば、[actions-workflow-samples](https://github.com/Azure/actions-workflow-samples) リポジトリを参照してください。

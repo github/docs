@@ -1,6 +1,6 @@
 ---
-title: Creating gists
-intro: 'You can create two kinds of gists: {% ifversion ghae %}internal{% else %}public{% endif %} and secret. Create {% ifversion ghae %}an internal{% else %}a public{% endif %} gist if you''re ready to share your ideas with {% ifversion ghae %}enterprise members{% else %}the world{% endif %} or a secret gist if you''re not.'
+title: Gists erstellen
+intro: 'Du kannst zwei Arten von Gists erstellen: {% ifversion ghae %}intern{% else %}öffentlich{% endif %} und geheim. Erstelle {% ifversion ghae %}ein internes{% else %}ein öffentliches{% endif %} Gist, wenn du bereit bist, deine Ideen mit {% ifversion ghae %}Unternehmensmitgliedern{% else %}der Welt{% endif %} oder einem geheimen Gist zu teilen, wenn du es noch nicht bist.'
 permissions: '{% data reusables.enterprise-accounts.emu-permission-gist %}'
 redirect_from:
   - /articles/about-gists
@@ -14,70 +14,76 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
+ms.openlocfilehash: e0ac449dc71bb0c525ee1559b82e509a281e55ac
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145068679'
 ---
-## About gists
+## Informationen zu Gists
 
-Every gist is a Git repository, which means that it can be forked and cloned. {% ifversion not ghae %}If you are signed in to {% data variables.product.product_name %} when{% else %}When{% endif %} you create a gist, the gist will be associated with your account and you will see it in your list of gists when you navigate to your {% data variables.gists.gist_homepage %}.
+Jeder Gist ist ein Git-Repository, d. h., er kann geforkt und geklont werden. {% ifversion not ghae %}Wenn du bei der Erstellung von Gists bei {% data variables.product.product_name %} angemeldet{% else %}{% endif %} bist, wird das Gist mit deinem Konto verknüpft und in der Liste deiner Gists angezeigt, sobald du deine {% data variables.gists.gist_homepage %} aufrufst.
 
-Gists can be {% ifversion ghae %}internal{% else %}public{% endif %} or secret. {% ifversion ghae %}Internal{% else %}Public{% endif %} gists show up in {% data variables.gists.discover_url %}, where {% ifversion ghae %}enterprise members{% else %}people{% endif %} can browse new gists as they're created. They're also searchable, so you can use them if you'd like other people to find and see your work.
+Gists können {% ifversion ghae %}intern{% else %}öffentlich{% endif %} oder geheim sein. {% ifversion ghae %}Interne{% else %}Öffentliche{% endif %} Gists werden unter {% data variables.gists.discover_url %} angezeigt, wo {% ifversion ghae %}Unternehmensmitglieder{% else %}Benutzer*innen{% endif %} neue Gists durchsuchen können, sobald diese erstellt wurden. Gists können auch durchsucht werden. Du kannst sie also verwenden, wenn du möchtest, dass andere Benutzer*innen deine Arbeit finden und ansehen können.
 
-Secret gists don't show up in {% data variables.gists.discover_url %} and are not searchable unless you are logged in and are the author of the secret gist. Secret gists aren't private. If you send the URL of a secret gist to {% ifversion ghae %}another enterprise member{% else %}a friend{% endif %}, they'll be able to see it. However, if {% ifversion ghae %}any other enterprise member{% else %}someone you don't know{% endif %} discovers the URL, they'll also be able to see your gist. If you need to keep your code away from prying eyes, you may want to [create a private repository](/articles/creating-a-new-repository) instead.
+Geheime Gists werden nicht unter {% data variables.gists.discover_url %} angezeigt und können nicht durchsucht werden. Geheime Gists sind nicht privat. Wenn du die URL eines geheimen Gists an {% ifversion ghae %}ein anderes Unternehmensmitglied{% else %}eine*n Freund*in{% endif %} sendest, ist es für diese Benutzer*innen sichtbar. Wenn jedoch {% ifversion ghae %}ein anderes Unternehmensmitglied{% else %}eine Person, die du nicht kennst{% endif %} die URL entdeckt, ist dein Gist auch für diese Benutzer*innen sichtbar. Um deinen Code vor neugierigen Blicken zu schützen, solltest du gegebenenfalls stattdessen [ein privates Repository](/articles/creating-a-new-repository) erstellen.
 
 {% data reusables.gist.cannot-convert-public-gists-to-secret %}
 
 {% ifversion ghes %}
 
-If your site administrator has disabled private mode, you can also use anonymous gists, which can be public or secret.
+Wenn dein Websiteadministrator den privaten Modus deaktiviert hat, kannst du auch anonyme Gists verwenden, die öffentlich oder geheim sein können.
 
 {% data reusables.gist.anonymous-gists-cannot-be-deleted %}
 
 {% endif %}
 
-You'll receive a notification when:
-- You are the author of a gist.
-- Someone mentions you in a gist.
-- You subscribe to a gist, by clicking **Subscribe** at the top of any gist.
+In folgenden Fällen erhältst du eine Benachrichtigung:
+- Du bist der Autor eines Gists.
+- Jemand erwähnt Dich in einem Gist.
+- Klicke oben in der Liste der Gists auf **Abonnieren**, um ein Gist zu abonnieren.
 
 {% ifversion fpt or ghes or ghec %}
 
-You can pin gists to your profile so other people can see them easily. For more information, see "[Pinning items to your profile](/articles/pinning-items-to-your-profile)."
+Du kannst Gists an deinem Profil anheften, damit andere Personen sie leichter sehen. Weitere Informationen findest du unter [Anheften von Elementen an dein Profil](/articles/pinning-items-to-your-profile).
 
 {% endif %}
 
-You can discover {% ifversion ghae %}internal{% else %}public{% endif %} gists others have created by going to the {% data variables.gists.gist_homepage %} and clicking **All Gists**. This will take you to a page of all gists sorted and displayed by time of creation or update. You can also search gists by language with {% data variables.gists.gist_search_url %}. Gist search uses the same search syntax as [code search](/search-github/searching-on-github/searching-code).
+Um nach {% ifversion ghae %}internen{% else %}öffentlichen{% endif %} Gists zu suchen, die von anderen Benutzer*innen erstellt wurden, klickst du auf der {% data variables.gists.gist_homepage %} auf **Alle Gists**. Daraufhin wird eine Seite mit allen Gists angezeigt, die nach dem Zeitpunkt der Erstellung oder Aktualisierung sortiert sind. Mit der {% data variables.gists.gist_search_url %} kannst du Gists auch nach Sprache suchen. Für die Suche nach Gists wird dieselbe Suchsyntax verwendet wie bei der [Codesuche](/search-github/searching-on-github/searching-code).
 
-Since gists are Git repositories, you can view their full commit history, complete with diffs. You can also fork or clone gists. For more information, see ["Forking and cloning gists"](/articles/forking-and-cloning-gists).
+Da es sich bei Gists um Git-Repositorys handelt, kannst du ihren vollständigen Commit-Verlauf anzeigen, einschließlich der Diffs. Du kannst Gists auch forken oder klonen. Weitere Informationen findest du unter [Forken und Klonen von Gists](/articles/forking-and-cloning-gists).
 
-You can download a ZIP file of a gist by clicking the **Download ZIP** button at the top of the gist. You can embed a gist in any text field that supports Javascript, such as a blog post. To get the embed code, click the clipboard icon next to the **Embed** URL of a gist. To embed a specific gist file, append the **Embed** URL with `?file=FILENAME`.
+Klicke im oberen Bereich des Gists auf die Schaltfläche **ZIP herunterladen**, um eine ZIP-Datei eines Gists herunterzuladen. Du kannst einen Gist in jedem Textfeld einbetten, das JavaScript unterstützt, z. B. in Blog-Beiträgen. Um den Einbettungscode abzurufen, klickst du neben der **Einbettungs-URL** eines Gists auf das Symbol für die Zwischenablage. Zum Einbetten einer bestimmten Gistdatei fügst du `?file=FILENAME` an die **Einbettungs-URL** an.
 
 {% ifversion fpt or ghec %}
 
-Gist supports mapping GeoJSON files. These maps are displayed in embedded gists, so you can easily share and embed maps. For more information, see "[Working with non-code files](/repositories/working-with-files/using-files/working-with-non-code-files#mapping-geojson-files-on-github)."
+Gists unterstützen den Gebrauch von geoJSON-Dateien. Diese Karten werden in eingebetteten Gists angezeigt, sodass du die Karten leicht freigeben und einbetten kannst. Weitere Informationen findest du unter [Arbeiten mit Nicht-Codedateien](/repositories/working-with-files/using-files/working-with-non-code-files#mapping-geojson-files-on-github).
 
 {% endif %}
 
-## Creating a gist
+## Einen Gist erstellen
 
-Follow the steps below to create a gist.
+Führe die unten aufgeführten Schritte aus, um ein Gist zu erstellen.
 
 {% note %}
 
-You can also create a gist using the {% data variables.product.prodname_cli %}. For more information, see "[`gh gist create`](https://cli.github.com/manual/gh_gist_create)" in the {% data variables.product.prodname_cli %} documentation.
+Gists können auch über die {% data variables.product.prodname_cli %} erstellt werden. Weitere Informationen findest du unter „[`gh gist create`](https://cli.github.com/manual/gh_gist_create)“ in der Dokumentation zur {% data variables.product.prodname_cli %}.
 
-Alternatively, you can drag and drop a text file from your desktop directly into the editor.
+Alternativ kannst du eine Textdatei per Drag & Drop von deinem Desktop direkt in den Editor ziehen.
 
 {% endnote %}
 
-1. Sign in to {% data variables.product.product_name %}.
-2. Navigate to your {% data variables.gists.gist_homepage %}.
-3. Type an optional description and name for your gist.
-![Gist name description](/assets/images/help/gist/gist_name_description.png)
+1. Melde dich bei {% data variables.product.product_name %} an.
+2. Navigiere zu deiner {% data variables.gists.gist_homepage %}.
+3. Gib eine optionale Beschreibung und einen Namen für deinen Gist ein.
+![Name und Beschreibung des Gists](/assets/images/help/gist/gist_name_description.png)
 
-4. Type the text of your gist into the gist text box.
-![Gist text box](/assets/images/help/gist/gist_text_box.png)
+4. Gib den Text für den Gist in das Gist-Textfeld ein.
+![Gist-Textfeld](/assets/images/help/gist/gist_text_box.png)
 
-5. Optionally, to create {% ifversion ghae %}an internal{% else %}a public{% endif %} gist, click {% octicon "triangle-down" aria-label="The downwards triangle icon" %}, then click **Create {% ifversion ghae %}internal{% else %}public{% endif %} gist**.
+5. Optional klickst du zum Erstellen {% ifversion ghae %}eines internen{% else %}eines öffentlichen{% endif %} Gists auf {% octicon "triangle-down" aria-label="The downwards triangle icon" %} und dann auf **{% ifversion ghae %}Internes{% else %}Öffentliches{% endif %} Gist erstellen**.
 ![Drop-down menu to select gist visibility]{% ifversion ghae %}(/assets/images/help/gist/gist-visibility-drop-down-ae.png){% else %}(/assets/images/help/gist/gist-visibility-drop-down.png){% endif %}
 
-6. Click **Create secret Gist** or **Create {% ifversion ghae %}internal{% else %}public{% endif %} gist**.
-  ![Button to create gist](/assets/images/help/gist/create-secret-gist-button.png)
+6. Klicke auf **Geheimes Gist erstellen** oder **{% ifversion ghae %}Internes{% else %}Öffentliches{% endif %} Gist erstellen**.
+  ![Schaltfläche zum Erstellen von Gists](/assets/images/help/gist/create-secret-gist-button.png)

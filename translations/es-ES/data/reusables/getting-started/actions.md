@@ -1,1 +1,9 @@
-With {% data variables.product.prodname_actions %}, you can automate and customize {% data variables.location.product_location %}'s development workflow on {% data variables.product.product_name %}. You can create your own actions, and use and customize actions shared by the {% data variables.product.prodname_dotcom %} community. For more information, see "[Learn {% data variables.product.prodname_actions %}](/actions/learn-github-actions)."
+---
+ms.openlocfilehash: aec556bebd25dc78544f0ed8250442014a4eba71
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "147882099"
+---
+Con las {% data variables.product.prodname_actions %}, puedes automatizar y personalizar el flujo de desarrollo de {% data variables.product.product_location %} en {% data variables.product.product_name %}. Puedes crear tus propias acciones y usar y personalizar acciones compartidas por la comunidad {% data variables.product.prodname_dotcom %}. Para más información, vea "[Más información sobre {% data variables.product.prodname_actions %}](/actions/learn-github-actions)".

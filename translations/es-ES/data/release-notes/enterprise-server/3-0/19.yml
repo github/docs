@@ -1,0 +1,23 @@
+date: '09-11-2021'
+sections:
+  security_fixes:
+    - "Se ha identificado una vulnerabilidad de salto de directorio en compilaciones {% data variables.product.prodname_pages %} en {% data variables.product.prodname_ghe_server %} que permitían al atacante leer archivos del sistema. Para aprovecharse de esta vulnerabilidad, el atacante necesitaba permiso para crear y compilar un sitio {% data variables.product.prodname_pages %} en la instancia {% data variables.product.prodname_ghe_server %}. Esta vulnerabilidad afectó a todas las versiones de {% data variables.product.prodname_ghe_server %} anteriores a la 3.3 y se corrigió en las versiones 3.0.19, 3.1.11 y 3.2.3. Esta vulnerabilidad se notificó mediante el Bug Bounty Program de {% data variables.product.prodname_dotcom %} y se le ha asignado CVE-2021-22870."
+    - Los paquetes se han actualizado a las últimas versiones de seguridad.
+  bugs:
+    - "Algunas de las operaciones de Git fallaron después de actualizar un clúster de {% data variables.product.prodname_ghe_server %} 3.x debido a la configuración de HAProxy."
+    - Los recuentos de trabajadores Unicorn pueden haberse configurado incorrectamente en el modo de agrupación en clústeres.
+    - Los recuentos de trabajadores Resque pueden haberse configurado incorrectamente en el modo de agrupación en clústeres.
+    - "Si el estado del Cortafuegos Simple de Ubuntu (UFW, por sus siglas en inglés) era inactivo, los clientes no podían verlo claramente en los registros."
+    - Algunas páginas y trabajos en segundo plano relacionados con Git podrían no ejecutarse en modo clúster con algunas configuraciones de clúster.
+    - "La página de registros de auditoría de la empresa no mostraba eventos de auditoría para {% data variables.product.prodname_secret_scanning %}."
+    - 'No se advertía a los usuarios sobre caracteres de Unicode bidireccionales potencialmente peligrosos al ver archivos. Para obtener más información, consulta "[Advertencia de texto Unicode bidireccional](https://github.co/hiddenchars)" en {% data variables.product.prodname_blog %}.'
+    - "Hookshot Go enviaba métricas de tipo de distribución que Collectd no podía manejar, lo cual ocasionaba un aumento de los errores de análisis."
+    - "Los repositorios públicos mostraban resultados inesperados del {% data variables.product.prodname_secret_scanning %} con un tipo de \"Unknown Token\"."
+  known_issues:
+    - "En una instalación nueva de {% data variables.product.prodname_ghe_server %} que no tenga ningún usuario, cualquier atacante podría crear el primer usuario administrativo."
+    - Las reglas de cortafuegos personalizadas se eliminan durante el proceso de actualización.
+    - "Los archivos supervisados de Git LFS [cargados desde la interface web](https://github.com/blog/2105-upload-files-to-your-repositories) se han agregado de manera incorrecta y directa al repositorio."
+    - Las incidencias no se pueden cerrar si contienen un enlace permanente a un blob del mismo repositorio en el que la ruta es mayor de 255 caracteres.
+    - "Cuando se habilita \"Los usuarios pueden buscar en GitHub.com\" con GitHub Connect, las incidencias en los repositorios privados e internos no se incluyen en los resultados de la búsqueda de GitHub.com."
+    - "Cuando un nodo de réplica está sin conexión en una configuración de disponibilidad alta, es posible que {% data variables.product.product_name %} todavía enrute las solicitudes a {% data variables.product.prodname_pages %} al nodo sin conexión, lo que reduce la disponibilidad de {% data variables.product.prodname_pages %} para los usuarios."
+    - Los límites de recursos que son específicos para procesar enlaces previos a la recepción podrían ocasionar errores en algunos de ellos.

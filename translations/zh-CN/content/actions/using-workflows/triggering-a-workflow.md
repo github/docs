@@ -1,7 +1,7 @@
 ---
-title: Triggering a workflow
+title: 触发工作流程
 shortTitle: Trigger a workflow
-intro: 'How to automatically trigger {% data variables.product.prodname_actions %} workflows'
+intro: '如何自动触发 {% data variables.product.prodname_actions %} 工作流程'
 versions:
   fpt: '*'
   ghes: '*'
@@ -13,32 +13,36 @@ topics:
   - CI
   - CD
 miniTocMaxHeadingLevel: 3
+ms.openlocfilehash: cd91670d3d06d4d8f954afa114f6c4f189825d86
+ms.sourcegitcommit: 9af8891fea10039b3374c76818634e05410e349d
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 12/06/2022
+ms.locfileid: '148191901'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
-
-## About workflow triggers
+## 关于工作流程触发器
 
 {% data reusables.actions.about-triggers %}
 
-Workflow triggers are defined with the `on` key. For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions#on)."
+工作流触发器使用 `on` 键定义。 有关详细信息，请参阅“[{% data variables.product.prodname_actions %} 的工作流语法](/articles/workflow-syntax-for-github-actions#on)”。
 
-The following steps occur to trigger a workflow run:
+以下步骤将触发工作流程运行：
 
-1. An event occurs on your repository. The event has an associated commit SHA and Git ref.
-1. {% data variables.product.product_name %} searches the `.github/workflows` directory in your repository for workflow files that are present in the associated commit SHA or Git ref of the event.
-1. A workflow run is triggered for any workflows that have `on:` values that match the triggering event. Some events also require the workflow file to be present on the default branch of the repository in order to run.
+1. 存储库上发生事件。 该事件具有关联的提交 SHA 和 Git 引用。
+1. {% data variables.product.product_name %} 在存储库的 `.github/workflows` 目录中搜索事件的关联提交 SHA 或 Git 引用中存在的工作流文件。
+1. 对于具有与触发事件匹配的 `on:` 值的任何工作流，触发工作流运行。 某些事件还要求工作流程文件位于存储库的默认分支上才能运行。
 
-  Each workflow run will use the version of the workflow that is present in the associated commit SHA or Git ref of the event. When a workflow runs, {% data variables.product.product_name %} sets the `GITHUB_SHA` (commit SHA) and `GITHUB_REF` (Git ref) environment variables in the runner environment. For more information, see "[Using environment variables](/actions/automating-your-workflow-with-github-actions/using-environment-variables)."
+  每个工作流程运行都将使用事件的关联提交 SHA 或 Git ref 中存在的工作流程版本。 当工作流运行时，{% data variables.product.product_name %} 会在运行器环境中设置 `GITHUB_SHA`（提交 SHA）和 `GITHUB_REF`（Git 引用）环境变量。 有关详细信息，请参阅“[使用环境变量](/actions/automating-your-workflow-with-github-actions/using-environment-variables)”。
 
-### Triggering a workflow from a workflow
+### 从工作流程触发工作流程
 
-{% data reusables.actions.actions-do-not-trigger-workflows %} For more information, see "[Authenticating with the GITHUB_TOKEN](/actions/configuring-and-managing-workflows/authenticating-with-the-github_token)."
+{% data reusables.actions.actions-do-not-trigger-workflows %} 有关详细信息，请参阅“[使用 GITHUB_TOKEN 进行身份验证](/actions/configuring-and-managing-workflows/authenticating-with-the-github_token)”。
 
-If you do want to trigger a workflow from within a workflow run, you can use a {% data variables.product.pat_generic %} instead of `GITHUB_TOKEN` to trigger events that require a token. You'll need to create a {% data variables.product.pat_generic %} and store it as a secret. To minimize your {% data variables.product.prodname_actions %} usage costs, ensure that you don't create recursive or unintended workflow runs. For more information about creating a {% data variables.product.pat_generic %}, see "[Creating a {% data variables.product.pat_generic %}](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)." For more information about storing a {% data variables.product.pat_generic %} as a secret, see "[Creating and storing encrypted secrets](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets)."
+如果确实要从工作流运行中触发工作流，则可以使用 {% data variables.product.pat_generic %}（而不是 `GITHUB_TOKEN`）来触发需要令牌的事件。 你需要创建 {% data variables.product.pat_generic %} 并将其存储为机密。 为了最大限度地降低 {% data variables.product.prodname_actions %} 使用成本，请确保不要创建递归或意外的工作流程。 有关创建 {% data variables.product.pat_generic %} 的详细信息，请参阅“[创建 {% data variables.product.pat_generic %}](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)”。 有关将 {% data variables.product.pat_generic %} 存储为机密的详细信息，请参阅“[创建和存储加密机密](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets)”。
 
-For example, the following workflow uses a {% data variables.product.pat_generic %} (stored as a secret called `MY_TOKEN`) to add a label to an issue via {% data variables.product.prodname_cli %}. Any workflows that run when a label is added will run once this step is performed.
+例如，以下工作流使用 {% data variables.product.pat_generic %}（存储为称为 `MY_TOKEN` 的机密）通过 {% data variables.product.prodname_cli %} 向问题添加标签。 添加标签时运行的任何工作流程都将在执行此步骤后运行。
 
 ```yaml
 on:
@@ -57,7 +61,7 @@ jobs:
           gh issue edit $ISSUE_URL --add-label "triage"
 ```
 
-Conversely, the following workflow uses `GITHUB_TOKEN` to add a label to an issue. It will not trigger any workflows that run when a label is added.
+相反，以下工作流使用 `GITHUB_TOKEN` 向问题添加标签。 它不会触发在添加标签时运行的任何工作流程。
 
 ```yaml
 on:
@@ -76,68 +80,68 @@ jobs:
           gh issue edit $ISSUE_URL --add-label "triage"
 ```
 
-## Using events to trigger workflows
+## 使用事件触发工作流程
 
-Use the `on` key to specify what events trigger your workflow. For more information about events you can use, see "[Events that trigger workflows](/actions/using-workflows/events-that-trigger-workflows)."
+使用 `on` 键指定触发工作流的事件。 有关可以使用的事件的详细信息，请参阅“[触发工作流的事件](/actions/using-workflows/events-that-trigger-workflows)”。
 
-### Using a single event
+### 使用单个事件
 
 {% data reusables.actions.on-single-example %}
 
-### Using multiple events
+### 使用多个事件
 
 {% data reusables.actions.on-multiple-example %}
 
-### Using activity types and filters with multiple events
+### 将活动类型和筛选器用于多个事件
 
-You can use activity types and filters to further control when your workflow will run. For more information, see [Using event activity types](#using-event-activity-types) and [Using filters](#using-filters). {% data reusables.actions.actions-multiple-types %}
+您可以使用活动类型和筛选器进一步控制工作流程的运行时间。 有关详细信息，请参阅[使用事件活动类型](#using-event-activity-types)和[使用筛选器](#using-filters)。 {% data reusables.actions.actions-multiple-types %}
 
-## Using event activity types
+## 使用事件活动类型
 
 {% data reusables.actions.actions-activity-types %}
 
-## Using filters
+## 使用筛选器
 
 {% data reusables.actions.actions-filters %}
 
-### Using filters to target specific branches for pull request events
+### 使用筛选器定位拉取请求事件的特定分支
 
 {% data reusables.actions.workflows.section-triggering-a-workflow-branches %}
 
-### Using filters to target specific branches or tags for push events
+### 使用筛选器定位推送事件的特定分支或标记
 
 {% data reusables.actions.workflows.section-run-on-specific-branches-or-tags %}
 
-### Using filters to target specific paths for pull request or push events
+### 使用筛选器定位拉取请求或推送事件的特定路径
 
 {% data reusables.actions.workflows.section-triggering-a-workflow-paths %}
 
-### Using filters to target specific branches for workflow run events
+### 使用筛选器定位工作流程运行事件的特定分支
 
 {% data reusables.actions.workflows.section-specifying-branches %}
 
-## Defining inputs for manually triggered workflows
+## 定义手动触发的工作流程的输入
 
 {% data reusables.actions.workflow-dispatch-inputs %}
 
 {% ifversion fpt or ghes > 3.3 or ghae > 3.3 or ghec %}
-## Defining inputs, outputs, and secrets for reusable workflows
+## 定义可重复使用的工作流程的输入、输出和机密
 
 {% data reusables.actions.reusable-workflows-enterprise-beta %}
 
-You can define inputs and secrets that a reusable workflow should receive from a calling workflow. You can also specify outputs that a reusable workflow will make available to a calling workflow. For more information, see "[Reusing workflows](/actions/using-workflows/reusing-workflows)."
+您可以定义可重用工作流程应从调用工作流程接收的输入和机密。 您还可以指定可重用工作流程将提供给调用工作流程的输出。 有关详细信息，请参阅“[重用工作流](/actions/using-workflows/reusing-workflows)”。
 
 {% endif %}
 
-## Using event information
+## 使用事件信息
 
-Information about the event that triggered a workflow run is available in the `github.event` context. The properties in the `github.event` context depend on the type of event that triggered the workflow. For example, a workflow triggered when an issue is labeled would have information about the issue and label.
+有关触发工作流运行的事件的信息可在 `github.event` 上下文中找到。 上下文中的 `github.event` 属性取决于触发工作流的事件的类型。 例如，在标记议题时触发的工作流程将包含有关议题和标签的信息。
 
-### Viewing all properties of an event
+### 查看事件的所有属性
 
-Reference the webhook event documentation for common properties and example payloads. For more information, see "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads)."
+有关常见属性和示例负载，请参阅 web 挂钩事件文档。 有关详细信息，请参阅“[Webhook 事件和有效负载](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads)”。
 
-You can also print the entire `github.event` context to see what properties are available for the event that triggered your workflow:
+你还可以将整个 `github.event` 上下文打印出来，以查看哪些属性可用于触发工作流的事件：
 
 ```yaml
 jobs:
@@ -150,9 +154,9 @@ jobs:
           echo $EVENT_CONTEXT
 ```
 
-### Accessing and using event properties
+### 访问和使用事件属性
 
-You can use the `github.event` context in your workflow. For example, the following workflow runs when a pull request that changes `package*.json`, `.github/CODEOWNERS`, or `.github/workflows/**` is opened. If the pull request author (`github.event.pull_request.user.login`) is not `octobot` or `dependabot[bot]`, then the workflow uses the {% data variables.product.prodname_cli %} to label and comment on the pull request (`github.event.pull_request.number`).
+你可以在工作流中使用 `github.event` 上下文。 例如，以下工作流在打开更改 `package*.json`、`.github/CODEOWNERS` 或 `.github/workflows/**` 的拉取请求时运行。 如果拉取请求作者 (`github.event.pull_request.user.login`) 不是 `octobot` 或 `dependabot[bot]`，则工作流使用 {% data variables.product.prodname_cli %} 来标记和注释拉取请求 (`github.event.pull_request.number`)。
 
 ```yaml
 on:
@@ -180,19 +184,19 @@ jobs:
           gh pr comment $PR --body 'It looks like you edited `package*.json`, `.github/CODEOWNERS`, or `.github/workflows/**`. We do not allow contributions to these files. Please review our [contributing guidelines](https://github.com/octo-org/octo-repo/blob/main/CONTRIBUTING.md) for what contributions are accepted.'
 ```
 
-For more information about contexts, see "[Contexts](/actions/learn-github-actions/contexts)." For more information about event payloads, see "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads)."
+有关上下文的详细信息，请参阅“[上下文](/actions/learn-github-actions/contexts)”。 有关事件负载的详细信息，请参阅“[Webhook 事件和负载](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads)”。
 
-## Further controlling how your workflow will run
+## 进一步控制工作流程的运行方式
 
-If you want more granular control than events, event activity types, or event filters provide, you can use conditionals and environments to control whether individual jobs or steps in your workflow will run.
+如果需要比事件、事件活动类型或事件筛选器更精细的控制，则可以使用条件和环境来控制工作流中的单个作业或步骤是否运行。
 
-### Using conditionals
+### 使用条件
 
-You can use conditionals to further control whether jobs or steps in your workflow will run.
+您可以使用条件进一步控制工作流程中的作业或步骤是否运行。
 
-#### Example using a value in the event payload
+#### 在事件负载中使用值的示例
 
-For example, if you want the workflow to run when a specific label is added to an issue, you can trigger on the `issues labeled` event activity type and use a conditional to check what label triggered the workflow. The following workflow will run when any label is added to an issue in the workflow's repository, but the `run_if_label_matches` job will only execute if the label is named `bug`.
+例如，如果希望在向问题添加特定标签时运行工作流，则可以在 `issues labeled` 事件活动类型上触发，并使用条件来检查触发工作流的标签。 将任何标签添加到工作流的存储库中的问题时，将运行以下工作流，但仅当标签命名为 `bug` 时，才会执行 `run_if_label_matches` 作业。
 
 ```yaml
 on:
@@ -208,9 +212,9 @@ jobs:
       - run: echo 'The label was bug'
 ```
 
-#### Example using event type
+#### 使用事件类型的示例
 
-For example, if you want to run different jobs or steps depending on what event triggered the workflow, you can use a conditional to check whether a specific event type exists in the event context. The following workflow will run whenever an issue or pull request is closed. If the workflow ran because an issue was closed, the `github.event` context will contain a value for `issue` but not for `pull_request`. Therefore, the `if_issue` step will run but the `if_pr` step will not run. Conversely, if the workflow ran because a pull request was closed, the `if_pr` step will run but the `if_issue` step will not run.
+例如，如果要根据触发工作流程的事件运行不同的作业或步骤，则可以使用条件来检查事件上下文中是否存在特定的事件类型。 每当议题或拉取请求关闭时，将运行以下工作流程。 如果工作流因问题已关闭而运行，则 `github.event` 上下文将包含 `issue` 的值，但不包含 `pull_request` 的值。 因此，`if_issue` 步骤将运行，但 `if_pr` 步骤不会运行。 相反，如果工作流因拉取请求关闭而运行，则 `if_pr` 步骤将运行，但 `if_issue` 步骤不会运行。
 
 ```yaml
 on:
@@ -235,13 +239,13 @@ jobs:
         echo A pull request was closed
 ```
 
-For more information about what information is available in the event context, see "[Using event information](#using-event-information)." For more information about how to use conditionals, see "[Expressions](/actions/learn-github-actions/expressions)."
+有关事件上下文中可用信息的详细信息，请参阅“[使用事件信息](#using-event-information)”。 有关如何使用条件的详细信息，请参阅“[表达式](/actions/learn-github-actions/expressions)”。
 
-### Using environments to manually trigger workflow jobs
+### 使用环境手动触发工作流程作业
 
-If you want to manually trigger a specific job in a workflow, you can use an environment that requires approval from a specific team or user. First, configure an environment with required reviewers. For more information, see "[Using environments for deployment](/actions/deployment/targeting-different-environments/using-environments-for-deployment)." Then, reference the environment name in a job in your workflow using the `environment:` key. Any job referencing the environment will not run until at least one reviewer approves the job.
+如果要手动触发工作流程中的特定作业，可以使用需要特定团队或用户批准的环境。 首先，使用所需的审阅者配置环境。 有关详细信息，请参阅“[使用环境进行部署](/actions/deployment/targeting-different-environments/using-environments-for-deployment)”。 然后，使用`environment:` 键在工作流的作业中引用环境名称。 在至少有一个审阅者批准该作业之前，引用环境的任何作业都不会运行。
 
-For example, the following workflow will run whenever there is a push to main. The `build` job will always run. The `publish` job will only run after the `build` job successfully completes (due to `needs: [build]`) and after all of the rules (including required reviewers) for the environment called `production` pass (due to `environment: production`).
+例如，只要有推送到 main 分支，以下工作流程就会运行。 `build` 作业将始终运行。 只有在 `build` 作业成功完成（由于 `needs: [build]`）并且称为 `production` 的环境的所有规则（包括必需的审阅者）通过（由于 `environment: production`）之后，`publish` 作业才会运行。
 
 ```yaml
 on:
@@ -271,6 +275,6 @@ jobs:
 
 {% endnote %}
 
-## Available events
+## 可用事件
 
-For a full list of available events, see "[Events that trigger workflows](/actions/using-workflows/events-that-trigger-workflows)."
+有关可用事件的完整列表，请参阅“[触发工作流的事件](/actions/using-workflows/events-that-trigger-workflows)”。

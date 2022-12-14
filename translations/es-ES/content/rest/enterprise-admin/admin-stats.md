@@ -1,6 +1,6 @@
 ---
-title: Admin stats
-intro: The Admin Stats API provides a variety of metrics about your installation.
+title: Estadísticas de los Administradores
+intro: La API de estadísticas de los administradores proporciona diversas métricas sobre tu instalación.
 versions:
   ghes: '*'
   ghae: '*'
@@ -9,8 +9,11 @@ versions:
 topics:
   - API
 miniTocMaxHeadingLevel: 3
+ms.openlocfilehash: a3330488afc37426ef68231eb8d4fed515dcfe16
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147060053'
 ---
-
-*It is only available to [authenticated](/rest/overview/resources-in-the-rest-api#authentication) site administrators.* Normal users will receive a `404` response if they try to access it.
-
-{% data reusables.user-settings.enterprise-admin-api-classic-pat-only %}
+*Solo está disponible para los administradores de sitios [autenticados](/rest/overview/resources-in-the-rest-api#authentication).* Los usuarios normales recibirán una respuesta `404` si intentan acceder a ella.

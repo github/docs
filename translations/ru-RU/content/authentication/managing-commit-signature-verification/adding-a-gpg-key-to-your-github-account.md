@@ -1,6 +1,6 @@
 ---
-title: Adding a GPG key to your GitHub account
-intro: 'To configure your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %} to use your new (or existing) GPG key, you''ll also need the key to your account.'
+title: Добавление ключа GPG в учетную запись GitHub
+intro: 'Чтобы настроить учетную запись на {% ifversion ghae %}{% данных variables.product.product_name %}{% else %}{% данных variables.location.product_location %}{% endif %} для использования нового (или существующего) ключа групповой политики, вам также потребуется ключ для вашей учетной записи.'
 redirect_from:
   - /articles/adding-a-gpg-key-to-your-github-account
   - /github/authenticating-to-github/adding-a-new-gpg-key-to-your-github-account
@@ -19,54 +19,55 @@ topics:
   - Identity
   - Access management
 shortTitle: Add a GPG key
+ms.openlocfilehash: 60c4e440c26332b25f9172b95a2bfb059e03e495
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148098807'
 ---
+## Сведения о добавлении ключей GPG в учетную запись
 
-## About addition of GPG keys to your account
+Чтобы подписывать фиксации, связанные с вашей учетной записью на {% data variables.product.product_name %}, можно добавить открытый ключ GPG в личную учетную запись. Перед добавлением ключа необходимо проверить наличие существующих ключей. Если существующие ключи не обнаружены, можно создать и скопировать новый. Дополнительные сведения см. в статьях "[Проверка наличия существующих ключей GPG](/articles/checking-for-existing-gpg-keys)" и "[Создание ключа GPG](/articles/generating-a-new-gpg-key)".
 
-To sign commits associated with your account on {% data variables.product.product_name %}, you can add a public GPG key to your personal account. Before you add a key, you should check for existing keys. If you don't find any existing keys, you can generate and copy a new key. For more information, see "[Checking for existing GPG keys](/articles/checking-for-existing-gpg-keys)" and "[Generating a new GPG key](/articles/generating-a-new-gpg-key)."
+В учетную запись на {% data variables.product.product_name %} можно добавить несколько открытых ключей. Фиксации, подписанные любым из соответствующих закрытых ключей, будут отображаться как проверенные. При удалении открытого ключа все фиксации, подписанные соответствующим закрытым ключом, больше не будут отображаться как проверенные.
 
-You can add multiple public keys to your account on {% data variables.product.product_name %}. Commits signed by any of the corresponding private keys will show as verified. If you remove a public key, any commits signed by the corresponding private key will no longer show as verified.
+{% ifversion upload-expired-or-revoked-gpg-key %} Чтобы проверить как можно больше фиксаций, можно добавить просроченные и отозванные ключи. Если ключ удовлетворяет остальным требованиям проверки, фиксации, ранее подписанные любым из соответствующих закрытых ключей, будут отображаться как проверенные с пометкой о том, что ключ подписывания просрочен или отозван.
 
-{% ifversion upload-expired-or-revoked-gpg-key %}
-To verify as many of your commits as possible, you can add expired and revoked keys. If the key meets all other verification requirements, commits that were previously signed by any of the corresponding private keys will show as verified and indicate that their signing key is expired or revoked.
-
-![A verified commit whose key expired](/assets/images/help/settings/gpg-verified-with-expired-key.png)
-{% endif %}
+![Проверенная фиксация с просроченным ключом](/assets/images/help/settings/gpg-verified-with-expired-key.png) {% endif %}
 
 {% data reusables.gpg.supported-gpg-key-algorithms %}
 
-When verifying a signature, {% data variables.product.product_name %} extracts the signature and attempts to parse its key ID. The key ID is then matched with keys added to {% data variables.product.product_name %}. Until a matching GPG key is added to {% data variables.product.product_name %}, it cannot verify your signatures.
+Во время проверки подписи {% data variables.product.product_name %} извлекает ее и пытается проанализировать ее идентификатор ключа. Затем идентификатор ключа сопоставляется с ключами, добавленными в {% data variables.product.product_name %}. Если не добавить соответствующий ключ GPG в {% data variables.product.product_name %}, он не сможет проверить ваши подписи.
 
-## Adding a GPG key
+## Добавление ключа GPG
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.ssh %}
-3. Click **New GPG key**.
-   ![GPG Key button](/assets/images/help/settings/gpg-add-gpg-key.png)
-4. In the "Key" field, paste the GPG key you copied when you [generated your GPG key](/articles/generating-a-new-gpg-key).
-   ![The key field](/assets/images/help/settings/gpg-key-paste.png)
-5. Click **Add GPG key**.
-   ![The Add key button](/assets/images/help/settings/gpg-add-key.png)
-6. To confirm the action, enter your {% data variables.product.product_name %} password.
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.ssh %}
+3. Щелкните **Новый ключ GPG**.
+   ![Кнопка "Ключ GPG"](/assets/images/help/settings/gpg-add-gpg-key.png)
+4. В поле "Ключ" вставьте ключ GPG, скопированный при [создании ключа GPG](/articles/generating-a-new-gpg-key).
+   ![Поле ключа](/assets/images/help/settings/gpg-key-paste.png)
+5. Щелкните **Добавить ключ GPG**.
+   ![Кнопка "Добавить ключ"](/assets/images/help/settings/gpg-add-key.png)
+6. Чтобы подтвердить действие, введите пароль {% data variables.product.product_name %}.
 
-{% ifversion upload-expired-or-revoked-gpg-key %}
-{% else %}
-## Updating an expired GPG key
+{% ifversion upload-expired-or-revoked-gpg-key %} {% else %}
+## Обновление ключа GPG с истекшим сроком действия
 
-When verifying a signature, {% data variables.product.product_name %} checks that the key is not revoked or expired. If your signing key is revoked or expired, {% data variables.product.product_name %} cannot verify your signatures.
+При проверке подписи {% data variables.product.product_name %} выполняет проверку, чтобы убедиться, что ключ не отозван и не истек. Если ключ подписывания отозван или истек, {% data variables.product.product_name %} не сможет проверить подписи.
 
-If your key is expired, you must [update its expiration](https://www.gnupg.org/gph/en/manual.html#AEN329), export the new key, delete the expired key in your account on {% data variables.product.product_name %}, and add the new key to your account as described above. Your previous commits and tags will show as verified, as long as the key meets all other verification requirements.
+Если ключ просрочен, необходимо [обновить его срок действия](https://www.gnupg.org/gph/en/manual.html#AEN329), экспортировать новый ключ, удалить просроченный ключ в учетной записи {% data variables.product.product_name %}, а затем добавить новый в учетную запись, как это описано выше. Предыдущие фиксации и теги будут отображаться как проверенные при условии, что ключ соответствует всем остальным требованиям проверки.
 
-If your key is revoked, use the primary key or another key that is not revoked to sign your commits.
+Если ключ отозван, используйте для подписывания своих фиксаций первичный ключ или другой ключ, который не был отозван.
 
-If your key is invalid and you don't use another valid key in your key set, but instead generate a new GPG key with a new set of credentials, then your commits made with the revoked or expired key will continue to show as unverified. Also, your new credentials will not be able to re-sign or verify your old commits and tags.
+Если ключ недопустим, и вы не используете другой допустимый ключ в наборе ключей, а генерируете новый ключ GPG с новым набором учетных данных, то фиксации, выполненные с отозванным или просроченным ключом, будут по-прежнему отображаться как непроверенные. Кроме того, новые учетные данные невозможно использовать для повторного подписания или проверки старых фиксаций и тегов.
 {% endif %}
 
-## Further reading
+## Дополнительные материалы
 
-- "[Checking for existing GPG keys](/articles/checking-for-existing-gpg-keys)"
-- "[Generating a new GPG key](/articles/generating-a-new-gpg-key)"
-- "[Telling Git about your signing key](/articles/telling-git-about-your-signing-key)"
-- "[Associating an email with your GPG key](/articles/associating-an-email-with-your-gpg-key)"
-- "[Signing commits and tags using GPG keys](/articles/signing-commits-and-tags-using-gpg)"
-- "[About commit signature verification](/articles/about-commit-signature-verification)"
+- [Проверка наличия существующих ключей GPG](/articles/checking-for-existing-gpg-keys)
+- [Создание нового ключа GPG](/articles/generating-a-new-gpg-key)
+- [Предоставление Git информации о ключе для подписывания](/articles/telling-git-about-your-signing-key)
+- [Связывание адреса электронной почты с ключом GPG](/articles/associating-an-email-with-your-gpg-key)
+- [Подписывание фиксаций и тегов с помощью ключей GPG](/articles/signing-commits-and-tags-using-gpg)
+- "[Сведения о проверке подписи фиксации](/articles/about-commit-signature-verification)"

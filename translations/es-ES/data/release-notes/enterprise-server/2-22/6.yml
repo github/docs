@@ -1,0 +1,18 @@
+date: '17-12-2020'
+sections:
+  security_fixes:
+    - '**BAJA:** El uso elevado de CPU podía deberse a una solicitud hecha específicamente al puente de SVN, lo cual resultaba en una negación del servicio (DoS). {% comment %} https://github.com/github/slumlord/pull/1022, https://github.com/github/slumlord/pull/1017 {% endcomment %}'
+    - 'Los paquetes se han actualizado a sus últimas versiones de seguridad. {% comment %} https://github.com/github/enterprise2/pull/24353, https://github.com/github/enterprise2/pull/23866 {% endcomment %}'
+  bugs:
+    - 'Las solicitudes para algunos recursos de archivos como un archivo ZIP o un archivo RAW podían ingresar en un bucle de redirección. {% comment %} https://github.com/github/enterprise2/pull/24193, https://github.com/github/enterprise2/pull/24075 {% endcomment %}'
+    - 'Un límite de tiempo podía impedir que algunas búsquedas de propuestas y solicitudes de cambios proporcionasen resultados de búsqueda completos. {% comment %} https://github.com/github/github/pull/164155, https://github.com/github/github/pull/163845 {% endcomment %}'
+    - 'Las pestañas personalizadas con caracteres no alfabéticos en pantallas pequeñas no se interpretaban correctamente. {% comment %} https://github.com/github/github/pull/164310, https://github.com/github/github/pull/164159 {% endcomment %}'
+    - 'Un comportamiento subyacente provocaba fallos cuando se subía contenido a un repositorio de Git habilitado con LFS. {% comment %} https://github.com/github/github/pull/164663, https://github.com/github/github/pull/150179 {% endcomment %}'
+    - 'En algunos casos poco frecuentes las propuestas podían causar un error 500 cuando se accedía a ellas a través de la interfaz web. {% comment %} https://github.com/github/github/pull/165298, https://github.com/github/github/pull/159674 {% endcomment %}'
+  known_issues:
+    - 'En una instancia de GitHub Enterprise Server recién configurada sin ningún usuario, un atacante podría crear el primer usuario administrador. {% comment %} https://github.com/github/enterprise2/issues/1889 {% endcomment %}'
+    - 'Las reglas de cortafuegos personalizadas no se mantienen durante una actualización. {% comment %} https://github.com/github/enterprise2/issues/2823 {% endcomment %}'
+    - 'Los archivos supervisados de Git LFS [cargados desde la interface web](https://github.com/blog/2105-upload-files-to-your-repositories) se han agregado de forma incorrecta y directa al repositorio. {% comment %} https://github.com/github/github/issues/54684 {% endcomment %}'
+    - 'Las incidencias no se pueden cerrar si contienen un enlace permanente a un blob del mismo repositorio en el que la ruta es mayor de 255 caracteres. {% comment %} https://github.com/github/github/issues/107731 {% endcomment %}'
+    - 'Cuando se habilita "Los usuarios pueden buscar en GitHub.com" con GitHub Connect, las incidencias en los repositorios privados e internos no se incluyen en los resultados de la búsqueda de GitHub.com. {% comment %} https://github.com/github/admin-experience/issues/571 {% endcomment %}'
+    - 'Cuando un nodo de réplica está sin conexión en una configuración de disponibilidad alta, es posible que {% data variables.product.product_name %} enrute las solicitudes a {% data variables.product.prodname_pages %} al nodo sin conexión, lo que reduce la disponibilidad de {% data variables.product.prodname_pages %} para los usuarios.'

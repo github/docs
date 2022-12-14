@@ -1,6 +1,6 @@
 ---
-title: Configuring commit merging for pull requests
-intro: 'You can enforce, allow, or disable merging with a merge commit for all pull request merges on {% data variables.location.product_location %} in your repository.'
+title: Configuração da mesclagem de commit para solicitações pull
+intro: 'Você pode impor, permitir ou desabilitar a mesclagem com um commit de mesclagem para todas as mesclagens de solicitação pull em {% data variables.product.product_location %} em seu repositório.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -9,24 +9,23 @@ versions:
 topics:
   - Repositories
 shortTitle: Configure commit merging
+ms.openlocfilehash: 322f74168935175a75f3a8f19cc4faca2cde174b
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147580720'
 ---
 {% data reusables.pull_requests.configure_pull_request_merges_intro %}
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-1. Under {% ifversion fpt or ghec or ghes > 3.5 or ghae > 3.4 %}"Pull Requests"{% else %}"Merge button"{% endif %}, select **Allow merge commits**. This allows contributors to merge a pull request with a full history of commits.{% ifversion default-merge-squash-commit-message %}
- ![Screenshot of Pull Request settings with allow merge commits checkbox emphasized](/assets/images/help/repository/allow-merge-commits.png){% endif %}{% ifversion ghes = 3.6 %}
- ![Screenshot of Pull Request settings with allow merge commits checkbox emphasized](/assets/images/help/repository/allow-merge-commits-no-dropdown.png){% endif %}
-{% ifversion ghes < 3.6  %}
- ![allow_standard_merge_commits](/assets/images/help/repository/pr-merge-full-commits.png){% endif %}
-{% ifversion default-merge-squash-commit-message %}
-1. Optionally, under **Allow merge commits**, use the dropdown to choose the format of the commit message presented to contributors when merging. The default message includes the pull request number and title. For example, `Merge pull request #123 from patch-1`. You can also choose to use just the pull request title, or the pull request title and description. 
-![Screenshot of emphasized default commit message dropdown](/assets/images/help/repository/default-commit-message-dropdown.png)
-{% endif %}
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %}
+1. Em {% ifversion fpt or ghec or ghes > 3.5 or ghae-issue-6069 %}"Solicitações de Pull"{% else %}"Mesclar botão"{% endif %}, selecione **Permitir commits de mesclagem**. Isso permite que os contribuidores mesclem uma solicitação pull com um histórico completo de commits.{% ifversion default-merge-squash-commit-message %} ![Captura de tela das configurações da solicitação de pull com caixa de seleção permitir commits de mesclagem realçada](/assets/images/help/repository/allow-merge-commits.png){% endif %}{% ifversion ghes = 3.6 %} ![Captura de tela das configurações de Solicitação de pull com caixa de seleção permitir commits de mesclagem realçada](/assets/images/help/repository/allow-merge-commits-no-dropdown.png){% endif %} {% ifversion ghes < 3.6  %}![allow_standard_merge_commits](/assets/images/help/repository/pr-merge-full-commits.png){% endif %} {% ifversion default-merge-squash-commit-message %}
+1. Opcionalmente, em **Permitir commits de mesclagem**, use a lista suspensa para escolher o formato da mensagem de commit apresentada aos colaboradores ao mesclar. A mensagem padrão inclui o número e o título da solicitação de pull. Por exemplo, `Merge pull request #123 from patch-1`. Você também pode optar por usar apenas o título ou o título e a descrição da solicitação de pull. 
+![Captura de tela da lista suspensa de mensagens de commit padrão realçada](/assets/images/help/repository/default-commit-message-dropdown.png) {% endif %}
 
-If you select more than one merge method, collaborators can choose which type of merge commit to use when they merge a pull request. {% data reusables.repositories.squash-and-rebase-linear-commit-history %}
+Se você selecionar mais de um método de mesclagem, os colaboradores poderão escolher qual tipo de confirmação de mesclagem usar ao mesclar uma solicitação de pull. {% data reusables.repositories.squash-and-rebase-linear-commit-history %}
 
-## Further reading
+## Leitura adicional
 
-- "[About pull request merges](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges)"
-- "[Merging a pull request](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request)"
+- "[Sobre as mesclagens de solicitações de pull](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges)"
+- "[Como mesclar uma solicitação de pull](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request)"

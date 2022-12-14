@@ -1,6 +1,6 @@
 ---
-title: Deleting a repository
-intro: You can delete any repository or fork if you're either an organization owner or have admin permissions for the repository or fork. Deleting a forked repository does not delete the upstream repository.
+title: Suppression d’un référentiel
+intro: Vous pouvez supprimer n’importe quel dépôt ou duplication (fork) si vous êtes propriétaire d’une organisation ou disposez d’autorisations d’administrateur pour le dépôt ou la duplication. La suppression d’un dépôt dupliqué ne supprime pas le dépôt en amont.
 redirect_from:
   - /delete-a-repo
   - /deleting-a-repo
@@ -14,27 +14,32 @@ versions:
   ghec: '*'
 topics:
   - Repositories
+ms.openlocfilehash: 53e6b69113a5483ea37c7ddd34dee7921959b62a
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145132305'
 ---
-{% data reusables.organizations.owners-and-admins-can %} delete an organization repository. If **Allow members to delete or transfer repositories for this organization** has been disabled, only organization owners can delete organization repositories. {% data reusables.organizations.new-repo-permissions-more-info %}
+{% data reusables.organizations.owners-and-admins-can %} peuvent supprimer un référentiel de l’organisation. Si l’option **Autoriser les membres à supprimer ou transférer des référentiels pour cette organisation** a été désactivée, seuls les propriétaires de l’organisation peuvent supprimer des référentiels de l’organisation. {% data reusables.organizations.new-repo-permissions-more-info %}
 
-{% ifversion not ghae %}Deleting a public repository will not delete any forks of the repository.{% endif %}
+{% ifversion not ghae %}La suppression d’un référentiel public ne supprime aucune duplication du référentiel.{% endif %}
 
 {% warning %}
 
-**Warnings**:
+**Avertissements** :
 
-- Deleting a repository will **permanently** delete release attachments and team permissions. This action **cannot** be undone.
-- Deleting a private{% ifversion ghes or ghec or ghae %} or internal{% endif %} repository will delete all forks of the repository.
+- La suppression d’un référentiel supprime **définitivement** les pièces jointes de mise en production et les autorisations d’équipe. Cette opération est **irréversible**.
+- La suppression d’un référentiel privé{% ifversion ghes or ghec or ghae %} ou interne{% endif %} supprime toutes les duplications du référentiel.
 
 {% endwarning %}
 
-Some deleted repositories can be restored within 90 days of deletion. {% ifversion ghes or ghae %}Your site administrator may be able to restore a deleted repository for you. For more information, see "[Restoring a deleted repository](/admin/user-management/managing-repositories-in-your-enterprise/restoring-a-deleted-repository)." {% else %}For more information, see "[Restoring a deleted repository](/articles/restoring-a-deleted-repository)."{% endif %}
+Certains dépôts supprimés peuvent être restaurés dans les 90 jours qui suivent la suppression. {% ifversion ghes or ghae %}Votre administrateur de site peut être en mesure de restaurer un référentiel supprimé pour vous. Pour plus d’informations, consultez « [Restauration d’un dépôt supprimé](/admin/user-management/managing-repositories-in-your-enterprise/restoring-a-deleted-repository) ». {% else %}Pour plus d’informations, consultez « [Restauration d’un référentiel supprimé](/articles/restoring-a-deleted-repository) ».{% endif %}
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-2. Under Danger Zone, click **Delete this repository**.
-   ![Repository deletion button](/assets/images/help/repository/repo-delete.png)
-3. **Read the warnings**.
-4. To verify that you're deleting the correct repository, type the name of the repository you want to delete.
-   ![Deletion labeling](/assets/images/help/repository/repo-delete-confirmation.png)
-5. Click **I understand the consequences, delete this repository**.
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %}
+2. Sous Zone de danger, cliquez sur **Supprimer ce référentiel**.
+   ![Bouton de suppression d’un référentiel](/assets/images/help/repository/repo-delete.png)
+3. **Lisez les avertissements**.
+4. Pour vérifier que vous supprimez le référentiel qui convient, entrez le nom du référentiel que vous souhaitez supprimer.
+   ![Étiquetage de la suppression](/assets/images/help/repository/repo-delete-confirmation.png)
+5. Cliquez sur **Je comprends les conséquences, supprimer ce référentiel**.

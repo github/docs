@@ -1,6 +1,6 @@
 ---
-title: Deploying Java to Azure App Service
-intro: You can deploy your Java project to Azure App Service as part of your continuous deployment (CD) workflows.
+title: Bereitstellen von Java in Azure App Service
+intro: Du kannst dein Java-Projekt im Rahmen deiner Continuous Deployment-Workflows (CD) in Azure App Service bereitstellen.
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,34 +11,38 @@ topics:
   - CD
   - Java
   - Azure App Service
+ms.openlocfilehash: ede24c0173cfe0493ad529b2f5d8a03f97ade7b9
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '147410099'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+## Einführung
 
-## Introduction
+In diesem Leitfaden wird erläutert, wie {% data variables.product.prodname_actions %} zum Erstellen und Bereitstellen eines Java-Projekts für [Azure App Service](https://azure.microsoft.com/services/app-service/) verwendet wird.
 
-This guide explains how to use {% data variables.product.prodname_actions %} to build and deploy a Java project to [Azure App Service](https://azure.microsoft.com/services/app-service/).
-
-{% ifversion fpt or ghec or ghes > 3.4 %}
+{% ifversion fpt or ghec or ghae-issue-4856 or ghes > 3.4 %}
 
 {% note %}
 
-**Note**: {% data reusables.actions.about-oidc-short-overview %} and "[Configuring OpenID Connect in Azure](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure)."
+**Hinweis**: {% data reusables.actions.about-oidc-short-overview %} und [Konfigurieren von OpenID Connect in Azure](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure).
 
 {% endnote %}
 
 {% endif %}
 
-## Prerequisites
+## Voraussetzungen
 
-Before creating your {% data variables.product.prodname_actions %} workflow, you will first need to complete the following setup steps:
+Bevor du deinen {% data variables.product.prodname_actions %}-Workflow erstellst, musst du die folgenden Einrichtungsschritte ausführen:
 
 {% data reusables.actions.create-azure-app-plan %}
 
-1. Create a web app.
+1. Erstellen einer Web-App
 
-   For example, you can use the Azure CLI to create an Azure App Service web app with a Java runtime:
+   Du kannst beispielsweise die Azure CLI verwenden, um eine Azure App Service-Web-App mit einer Java-Runtime zu erstellen:
 
    ```bash{:copy}
    az webapp create \
@@ -48,19 +52,19 @@ Before creating your {% data variables.product.prodname_actions %} workflow, you
        --runtime "JAVA|11-java11"
    ```
 
-   In the command above, replace the parameters with your own values, where `MY_WEBAPP_NAME` is a new name for the web app.
+   Ersetze im obigen Befehl die Parameter durch eigene Werte, wobei `MY_WEBAPP_NAME` ein neuer Name für die Web-App ist.
 
 {% data reusables.actions.create-azure-publish-profile %}
 
-1. Optionally, configure a deployment environment. {% data reusables.actions.about-environments %}
+1. Konfiguriere optional auch eine Bereitstellungsumgebung. {% data reusables.actions.about-environments %}
 
-## Creating the workflow
+## Erstellen des Workflows
 
-Once you've completed the prerequisites, you can proceed with creating the workflow.
+Wenn die Voraussetzungen erfüllt sind, kannst du mit dem Erstellen des Workflows fortfahren.
 
-The following example workflow demonstrates how to build and deploy a Java project to Azure App Service when there is a push to the `main` branch.
+Der folgende Beispielworkflow veranschaulicht, wie ein Java-Projekt erstellt und in Azure App Service bereitgestellt wird, wenn ein Push zum `main`-Branch vorhanden ist.
 
-Ensure that you set `AZURE_WEBAPP_NAME` in the workflow `env` key to the name of the web app you created. If you want to use a Java version other than `11`, change `JAVA_VERSION`.
+Stelle sicher, dass du `AZURE_WEBAPP_NAME` im Workflowschlüssel `env` auf den Namen der von dir erstellten Web-App festgelegt hast. Wenn du eine andere Java-Version als `11` verwenden möchtest, ändere `JAVA_VERSION`.
 
 {% data reusables.actions.delete-env-key %}
 
@@ -124,10 +128,10 @@ jobs:
           package: '*.jar'
 ```
 
-## Additional resources
+## Zusätzliche Ressourcen
 
-The following resources may also be useful:
+Die folgenden Ressourcen können ebenfalls nützlich sein:
 
-* For the original starter workflow, see [`azure-webapps-java-jar.yml`](https://github.com/actions/starter-workflows/blob/main/deployments/azure-webapps-java-jar.yml) in the {% data variables.product.prodname_actions %} `starter-workflows` repository.
-* The action used to deploy the web app is the official Azure [`Azure/webapps-deploy`](https://github.com/Azure/webapps-deploy) action.
-* For more examples of GitHub Action workflows that deploy to Azure, see the [actions-workflow-samples](https://github.com/Azure/actions-workflow-samples) repository.
+* Den ursprünglichen Startworkflow findest du unter [`azure-webapps-java-jar.yml`](https://github.com/actions/starter-workflows/blob/main/deployments/azure-webapps-java-jar.yml) im {% data variables.product.prodname_actions %}-Repository `starter-workflows`.
+* Die zum Bereitstellen der Web-App verwendete Aktion ist die offizielle Azure-Aktion [`Azure/webapps-deploy`](https://github.com/Azure/webapps-deploy).
+* Weitere Beispiele für GitHub Action-Workflows, die in Azure bereitgestellt werden können, findest du im Repository [actions-workflow-samples](https://github.com/Azure/actions-workflow-samples).

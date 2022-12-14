@@ -1,126 +1,120 @@
 ---
-title: Authenticating to GitHub
+title: Authentifizierung bei GitHub
 shortTitle: Authentication
-intro: 'You can securely access your account''s resources on {% data variables.product.prodname_desktop %} by authenticating to {% data variables.product.prodname_dotcom %}.'
+intro: 'Du kannst sicher auf die Ressourcen deines Kontos auf {% data variables.product.prodname_desktop %} zugreifen, indem du dich bei {% data variables.product.prodname_dotcom %} authentifizierst.'
 redirect_from:
   - /desktop/getting-started-with-github-desktop/authenticating-to-github-using-the-browser
   - /desktop/getting-started-with-github-desktop/authenticating-to-github
   - /desktop/installing-and-configuring-github-desktop/authenticating-to-github
 versions:
   fpt: '*'
+ms.openlocfilehash: e88d59a03d876b23d8eb72aae7324db64981096f
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145105272'
 ---
-## About authentication
+## Informationen zur Authentifizierung
 
-To keep your account secure, you must authenticate before you can use {% data variables.product.prodname_desktop %} to access resources on {% data variables.product.prodname_dotcom %}.
+Damit die Sicherheit deines Kontos gewahrt bleibt, musst du dich authentifizieren, bevor du mit {% data variables.product.prodname_desktop %} auf Ressourcen auf {% data variables.product.prodname_dotcom %} zugreifen kannst.
 
-Before you authenticate, {% data reusables.desktop.get-an-account %}
+Vor der Authentifizierung bei {% data reusables.desktop.get-an-account %}
 
 {% mac %}
 
-## Authenticating an account on {% data variables.product.prodname_dotcom %}
+## Authentifizieren eines Kontos auf {% data variables.product.prodname_dotcom %}
 
-{% data reusables.desktop.mac-select-desktop-menu %}
-{% data reusables.desktop.mac-select-accounts %}
-3. To the right of "{% data variables.product.prodname_dotcom_the_website %}," click **Sign In**.
-  ![The Sign In button for GitHub](/assets/images/help/desktop/mac-sign-in-github.png)
-{% data reusables.desktop.sign-in-browser %}
+{% data reusables.desktop.mac-select-desktop-menu %} {% data reusables.desktop.mac-select-accounts %}
+3. Klicke rechts neben „{% data variables.product.prodname_dotcom_the_website %}“ auf **Sign in** (Anmelden).
+  ![Die Schaltfläche „Anmelden“ für GitHub](/assets/images/help/desktop/mac-sign-in-github.png) {% data reusables.desktop.sign-in-browser %}
 
 
-{% data reusables.desktop.authenticate-in-browser %}
-{% data reusables.desktop.2fa-in-browser %}
-7. After {% data variables.product.prodname_dotcom %} authenticates your account, follow the prompts to return to {% data variables.product.prodname_desktop %}.
+{% data reusables.desktop.authenticate-in-browser %} {% data reusables.desktop.2fa-in-browser %}
+7. Befolge nach Authentifizierung des Kontos durch {% data variables.product.prodname_dotcom %} die Aufforderungen, um zu {% data variables.product.prodname_desktop %} zurückzukehren.
 
-## Authenticating an account on {% data variables.product.prodname_ghe_server %}
+## Authentifizieren eines Kontos in {% data variables.product.prodname_ghe_server %}
 
 
-{% data reusables.desktop.mac-select-desktop-menu %}
-{% data reusables.desktop.mac-select-accounts %}
-{% data reusables.desktop.choose-product-authenticate %}
-4. To add an account on {% data variables.location.product_location_enterprise %}, type the URL for your instance under "Enterprise address," then click **Continue**.
-  ![The Sign In button for GitHub Enterprise](/assets/images/help/desktop/mac-sign-in-button-enterprise.png)
-{% data reusables.desktop.sign-in-browser %}
-1. To authenticate to {% data variables.location.product_location_enterprise %} account, type your account credentials and click **Sign in**.
-  ![The Sign In button for {% data variables.product.prodname_ghe_server %} in browser](/assets/images/help/desktop/enterprise-sign-in-button-browser.png)
+{% data reusables.desktop.mac-select-desktop-menu %} {% data reusables.desktop.mac-select-accounts %} {% data reusables.desktop.choose-product-authenticate %}
+4. Um ein Konto auf {% data variables.product.product_location_enterprise %} hinzuzufügen, gibst du die URL für deine Instanz unter „Unternehmensadresse“ ein und klickst dann auf **Weiter**.
+  ![Die Schaltfläche „Anmelden“ für GitHub Enterprise](/assets/images/help/desktop/mac-sign-in-button-enterprise.png) {% data reusables.desktop.sign-in-browser %}
+1. Um dich beim {% data variables.product.product_location_enterprise %}-Konto zu authentifizieren, gibst du deine Anmeldeinformationen für das Konto ein und klickst auf **Anmelden**.
+  ![Die Schaltfläche „Anmelden“ für {% data variables.product.prodname_ghe_server %} im Browser](/assets/images/help/desktop/enterprise-sign-in-button-browser.png)
 
-  Alternatively, if you were already signed in to {% data variables.location.product_location_enterprise %} account, follow the prompts to return to {% data variables.product.prodname_desktop %} to finish authenticating. 
+  Wenn du bereits bei deinem {% data variables.product.product_location_enterprise %}-Konto angemeldet warst, kannst du auch zu {% data variables.product.prodname_desktop %} zurückkehren, um die Authentifizierung abzuschließen. 
 
 {% endmac %}
 
 {% windows %}
 
-## Authenticating an account on {% data variables.product.prodname_dotcom %}
+## Authentifizieren eines Kontos auf {% data variables.product.prodname_dotcom %}
 
-{% data reusables.desktop.windows-choose-options %}
-{% data reusables.desktop.windows-select-accounts %}
-3. To the right of "GitHub.com," click **Sign in**.
-  ![The Sign In button for GitHub](/assets/images/help/desktop/windows-sign-in-github.png)
-{% data reusables.desktop.sign-in-browser %}
+{% data reusables.desktop.windows-choose-options %} {% data reusables.desktop.windows-select-accounts %}
+3. Klicke rechts neben „GitHub.com“ auf **Sign in** (Anmelden).
+  ![Die Schaltfläche „Anmelden“ für GitHub](/assets/images/help/desktop/windows-sign-in-github.png) {% data reusables.desktop.sign-in-browser %}
 
   {% data reusables.user-settings.password-authentication-deprecation-desktop %}
 
-{% data reusables.desktop.authenticate-in-browser %}
-{% data reusables.desktop.2fa-in-browser %}
-7. After {% data variables.product.prodname_dotcom %} authenticates your account, follow the prompts to return to {% data variables.product.prodname_desktop %}.
+{% data reusables.desktop.authenticate-in-browser %} {% data reusables.desktop.2fa-in-browser %}
+7. Befolge nach Authentifizierung des Kontos durch {% data variables.product.prodname_dotcom %} die Aufforderungen, um zu {% data variables.product.prodname_desktop %} zurückzukehren.
 
-## Authenticating an account on {% data variables.product.prodname_enterprise %}
+## Authentifizieren eines Kontos in {% data variables.product.prodname_enterprise %}
 
 
-{% data reusables.desktop.windows-choose-options %}
-{% data reusables.desktop.windows-select-accounts %}
-{% data reusables.desktop.choose-product-authenticate %}
-4. To add a {% data variables.product.prodname_enterprise %} account, type your credentials under "Enterprise address," then click **Continue**.
-  ![The Sign In button for GitHub Enterprise](/assets/images/help/desktop/windows-sign-in-button-enterprise.png)
-{% data reusables.desktop.retrieve-2fa %}
+{% data reusables.desktop.windows-choose-options %} {% data reusables.desktop.windows-select-accounts %} {% data reusables.desktop.choose-product-authenticate %}
+4. Um ein {% data variables.product.prodname_enterprise %}-Konto hinzuzufügen, gibst du deine Anmeldeinformationen unter „Unternehmensadresse“ ein und klickst dann auf **Weiter**.
+  ![Schaltfläche „Sign in“ (Anmelden) für GitHub Enterprise](/assets/images/help/desktop/windows-sign-in-button-enterprise.png) {% data reusables.desktop.retrieve-2fa %}
 
 {% endwindows %}
 
-## Troubleshooting authentication issues
+## Problembehandlung bei Authentifizierungsproblemen
 
-If {% data variables.product.prodname_desktop %} encounters an authentication error, you can use error messages to troubleshoot.
+Wenn in {% data variables.product.prodname_desktop %} ein Authentifizierungsfehler auftritt, kannst du Fehlermeldungen zur Problembehandlung verwenden.
 
-If you encounter an authentication error, first try signing out and signing back in to your account on {% data variables.product.prodname_desktop %}.
+Wenn ein Authentifizierungsfehler auftritt, versuche zunächst, sich in deinem Konto bei {% data variables.product.prodname_desktop %} abzumelden und dann wieder anzumelden.
 
-For some errors, {% data variables.product.prodname_desktop %} will prompt you with an error message. If you are not prompted, or to find more information about any error, view the {% data variables.product.prodname_desktop %} log files by using the following steps.
+Bei einigen Fehlern wird von {% data variables.product.prodname_desktop %} eine Aufforderung mit einer Fehlermeldung angezeigt. Wenn du keine Aufforderung erhalten oder weitere Informationen zu einem Fehler finden möchtest, zeige die {% data variables.product.prodname_desktop %}-Protokolldateien mithilfe der folgenden Schritte an.
 
 {% mac %}
 
-1. Use the **Help** drop-down menu and click **Show Logs in Finder**.
-  ![The Show Logs in Finder button](/assets/images/help/desktop/mac-show-logs.png)
-2. Select the log file from the date when you encountered the authentication error.
+1. Verwende das Dropdownmenü **Help** (Hilfe), und klicke auf **Show Logs in Finder** (Protokolle im Finder anzeigen).
+  ![Schaltfläche „Show Logs in Finder“ (Protokolle im Finder anzeigen)](/assets/images/help/desktop/mac-show-logs.png)
+2. Wähle die Protokolldatei mit dem Datum aus, an dem der Authentifizierungsfehler aufgetreten ist.
 
 {% endmac %}
 
 {% windows %}
 
-1. Use the **Help** drop-down menu and click **Show Logs in Explorer**.
-  ![The Show Logs in Explorer button](/assets/images/help/desktop/windows-show-logs.png)
-2. Select the log file from the date when you encountered the authentication error.
+1. Verwende das Dropdownmenü **Help** (Hilfe), und klicke auf **Show Logs in Explorer** (Protokolle im Explorer anzeigen).
+  ![Schaltfläche „Show Logs in Explorer“ (Protokolle im Explorer anzeigen)](/assets/images/help/desktop/windows-show-logs.png)
+2. Wähle die Protokolldatei mit dem Datum aus, an dem der Authentifizierungsfehler aufgetreten ist.
 
 {% endwindows %}
 
-Review the troubleshooting information below for the error message that you encounter.
+Lies sich die nachstehenden Problembehandlungsinformationen für die aufgetretene Fehlermeldung durch.
 
-### Bad credentials
+### Ungültige Anmeldeinformationen
 
 ```shell
 Error: Bad credentials
 ```
 
-This error means that there is an issue with your stored account credentials.
+Dieser Fehler bedeutet, dass es ein Problem mit deinen gespeicherten Kontoanmeldeinformationen gibt.
 
-To troubleshoot, sign out of your account on {% data variables.product.prodname_desktop %} and then sign back in.
+Melde dich zur Problembehandlung bei deinem {% data variables.product.prodname_desktop %}-Konto ab, und melde dich dann wieder an.
 
-### Empty token
+### Leeres Token
 
 ```shell
-info: [ui] [AppStore.withAuthenticatingUser] account found for repository: node - USERNAME (empty token)
+info: [ui] [AppStore.withAuthenticatingUser] account found for repository: node - <username> (empty token)
 ```
 
-This error means that {% data variables.product.prodname_desktop %} is unable to find the access token that it created in the system keychain.
+Dieser Fehler bedeutet, dass das in der Systemkeychain generierte Zugriffstoken von {% data variables.product.prodname_desktop %} nicht gefunden wurde.
 
-To troubleshoot, sign out of your account on {% data variables.product.prodname_desktop %} and then sign back in.
+Melde dich zur Problembehandlung bei deinem {% data variables.product.prodname_desktop %}-Konto ab, und melde dich dann wieder an.
 
-### Repository not found
+### Repository nicht gefunden
 
 ```shell
 fatal: repository 'https://github.com/<user>/<repo>.git' not found
@@ -128,11 +122,11 @@ fatal: repository 'https://github.com/<user>/<repo>.git' not found
 (The error was parsed as 8: The repository does not seem to exist anymore. You may not have access, or it may have been deleted or renamed.)
 ```
 
-This error means that you do not have permission to access the repository that you are trying to clone.
+Dieser Fehler bedeutet, dass du nicht über die Berechtigung zum Zugreifen auf das Repository verfügst, das du zu klonen versuchst.
 
-To troubleshoot, contact the person in your organization who administers permissions.
+Wende dich zur Problembehandlung an die Person in deiner Organisation, die Berechtigungen verwaltet.
 
-### Could not read from remote repository
+### Remoterepository konnte nicht gelesen werden
 
 ```shell
 git@github.com: Permission denied (publickey).
@@ -141,11 +135,11 @@ fatal: Could not read from remote repository.
 Please make sure you have the correct access rights and the repository exists.
 ```
 
-This error means that you do not have a valid SSH key set up.
+Dieser Fehler bedeutet, dass du keinen gültigen SSH-Schlüssel eingerichtet hast.
 
-To troubleshoot, see "[Generating a new SSH key and adding it to the SSH agent](/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)."
+Weitere Informationen zur Problembehandlung findest du unter [Generieren eines neuen SSH-Schlüssels und Hinzufügen des Schlüssels zum SSH-Agent](/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
 
-### Failed to clone
+### Fehler beim Klonen
 
 ```shell
 fatal: clone of 'git@github.com:<user>/<repo>' into submodule path '<path>' failed
@@ -157,34 +151,34 @@ Please make sure you have the correct access rights
 and the repository exists.
 ```
 
-This error means that either the repository that you are trying to clone has submodules that you do not have access to or you do not have a valid SSH key set up.
+Dieser Fehler bedeutet, dass entweder das Repository, das du klonen möchtest, über Untermodule verfügt, auf die du keinen Zugriff hast, oder dass du keinen gültigen SSH-Schlüssel eingerichtet hast.
 
-If you do not have access to the submodules, troubleshoot by contacting the person who administers permissions for the repository.
+Wenn du keinen Zugriff auf die Untermodule hast, wende dich zur Problembehandlung an die Person, die Berechtigungen für das Repository verwaltet.
 
-If you do not have a valid SSH key set up, see "[Generating a new SSH key and adding it to the SSH agent](/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)."
+Wenn du keinen gültigen SSH-Schlüssel eingerichtet hast, lies die Beschreibung unter [Generieren eines neuen SSH-Schlüssels und Hinzufügen des Schlüssels zum SSH-Agent](/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent).
 
 {% windows %}
 
-### Unable to read AskPass response
+### AskPass-Antwort kann nicht gelesen werden
 
 ```shell
 error: unable to read askpass response from '/Users/<path>/GitHub Desktop.app/Contents/Resources/app/static/ask-pass-trampoline.sh'
 fatal: could not read Username for 'https://github.com': terminal prompts disabled
 ```
 
-This error can be caused by multiple events.
+Dieser Fehler kann durch mehrere Ereignisse verursacht werden.
 
-If the `Command Processor` registry entries are modified, {% data variables.product.prodname_desktop %} will respond with an `Authentication failed` error. To check if these registry entries have been modified, follow these steps.
+Wenn die `Command Processor`-Registrierungseinträge geändert werden, reagiert {% data variables.product.prodname_desktop %} mit einem `Authentication failed`-Fehler. Führe die folgenden Schritte aus, um zu überprüfen, ob diese Registrierungseinträge geändert wurden.
 
-1. Open the Registry Editor (`regedit.exe`) and navigate to the following locations.
+1. Öffne den Registrierungs-Editor (`regedit.exe`), und navigiere zu den folgenden Speicherorten.
   `HKEY_CURRENT_USER\Software\Microsoft\Command Processor\`
   `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Command Processor\`
-2. Check to see if there is an `Autorun` value in either location.
-3. If there is an `Autorun` value, delete it.
+2. Überprüfen, ob an einem der beiden Speicherorte ein `Autorun`-Wert vorhanden ist.
+3. Wenn ein `Autorun`-Wert vorhanden ist, lösche ihn.
 
-If your Windows username has extended Unicode characters, it may cause an AskPass response error. To troubleshoot, create a new Windows user account and migrate your files to that account. For more information, see "[Create a user account in Windows](https://support.microsoft.com/en-us/help/13951/windows-create-user-account)" in the Microsoft documentation.
+Wenn dein Windows-Benutzername erweiterte Unicode-Zeichen beinhaltet, kann ein AskPass-Antwortfehler ausgelöst werden. Erstelle zur Problembehandlung ein neues Windows-Benutzerkonto, und migriere deine Dateien zu diesem Konto. Weitere Informationen findest du in der Microsoft-Dokumentation unter [Erstellen eines Benutzerkontos in Windows](https://support.microsoft.com/en-us/help/13951/windows-create-user-account).
 
 {% endwindows %}
 
-## Further reading
-- "[About authentication to GitHub](/github/authenticating-to-github/about-authentication-to-github)"
+## Weitere Informationsquellen
+- [Informationen zur Authentifizierung für GitHub](/github/authenticating-to-github/about-authentication-to-github)

@@ -1,6 +1,6 @@
 ---
-title: 'Error: Agent admitted failure to sign'
-intro: 'In rare circumstances, connecting to {% data variables.product.product_name %} via SSH on Linux produces the error `"Agent admitted failure to sign using the key"`. Follow these steps to resolve the problem.'
+title: 'Ошибка: агент признал ошибку при подписании'
+intro: 'В редких случаях подключение к {% data variables.product.product_name %} по SSH в Linux приводит к ошибке `"Agent admitted failure to sign using the key"`. Чтобы устранить такую проблему, выполните следующие действия.'
 redirect_from:
   - /articles/error-agent-admitted-failure-to-sign-using-the-key
   - /articles/error-agent-admitted-failure-to-sign
@@ -14,8 +14,14 @@ versions:
 topics:
   - SSH
 shortTitle: Agent failure to sign
+ms.openlocfilehash: 46817ec184394b93a27cbb796ea59a71f4a63248
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148093748'
 ---
-When trying to SSH into {% data variables.location.product_location %} on a Linux computer, you may see the following message in your terminal:
+При попытке SSH-подключения к {% данных variables.location.product_location %} на компьютере Linux может отображаться следующее сообщение в терминале:
 
 ```shell
 $ ssh -vT git@{% data variables.command_line.codeblock %}
@@ -25,11 +31,11 @@ $ ssh -vT git@{% data variables.command_line.codeblock %}
 > Permission denied (publickey).
 ```
 
-For more details, see <a href="https://bugs.launchpad.net/ubuntu/+source/gnome-keyring/+bug/201786" data-proofer-ignore>this issue report</a>.
+Дополнительные сведения см. в <a href="https://bugs.launchpad.net/ubuntu/+source/gnome-keyring/+bug/201786" data-proofer-ignore>этом отчете о проблеме</a>.
 
-## Resolution
+## Решение
 
-You should be able to fix this error by loading your keys into your SSH agent with `ssh-add`:
+Эту ошибку можно исправить, загрузив ключи в агент SSH с помощью `ssh-add`:
 
 ```shell
 # start the ssh-agent in the background
@@ -40,7 +46,7 @@ $ ssh-add
 > Identity added: /home/YOU/.ssh/id_rsa (/home/YOU/.ssh/id_rsa)
 ```
 
-If your key does not have the default filename (`/.ssh/id_rsa`), you'll have to pass that path to `ssh-add`:
+Если ключ не имеет имени файла по умолчанию (`/.ssh/id_rsa`), потребуется передать этот путь к `ssh-add`:
 
 ```shell
 # start the ssh-agent in the background

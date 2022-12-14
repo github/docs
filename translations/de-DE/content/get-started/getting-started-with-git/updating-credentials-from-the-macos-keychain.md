@@ -1,6 +1,6 @@
 ---
-title: Updating credentials from the macOS Keychain
-intro: 'You''ll need to update your saved credentials in the `git-credential-osxkeychain` helper if you change your{% ifversion not ghae %} username, password, or{% endif %} {% data variables.product.pat_generic %} on {% data variables.product.product_name %}.'
+title: Aktualisieren der Anmeldeinformationen über die macOS Keychain
+intro: 'Du musst die gespeicherten Anmeldeinformationen im `git-credential-osxkeychain`-Hilfsprogramm aktualisieren, wenn du {% ifversion not ghae %} deinen Benutzernamen, dein Kennwort oder{% endif %} dein persönliches Zugriffstoken in {% data variables.product.product_name %} änderst.'
 redirect_from:
   - /articles/updating-credentials-from-the-osx-keychain
   - /github/using-git/updating-credentials-from-the-osx-keychain
@@ -13,38 +13,44 @@ versions:
   ghae: '*'
   ghec: '*'
 shortTitle: macOS Keychain credentials
+ms.openlocfilehash: ce2e225bcff1aca0c034e564fe3233e5f9cb68d2
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145131266'
 ---
 {% tip %}
 
-**Note:** Updating credentials from the macOS Keychain only applies to users who manually configured a {% data variables.product.pat_generic %} using the  `osxkeychain` helper that is built-in to macOS. 
+**Hinweis:** Das Aktualisieren von Anmeldeinformationen aus der macOS Keychain gilt nur für Benutzer, die manuell einen PAT mit dem `osxkeychain`-Hilfsprogramm konfiguriert haben, das in macOS integriert ist. 
 
-We recommend you either [configure SSH](/articles/generating-an-ssh-key) or upgrade to the [Git Credential Manager](/get-started/getting-started-with-git/caching-your-github-credentials-in-git) (GCM) instead. GCM can manage authentication on your behalf (no more manual {% data variables.product.pat_generic %}s) including 2FA (two-factor auth).
+Es wird empfohlen, [SSH zu konfigurieren](/articles/generating-an-ssh-key) oder stattdessen ein Upgrade auf den [Git Credential Manager](/get-started/getting-started-with-git/caching-your-github-credentials-in-git) (GCM) durchzuführen. Mit GCM kann die Authentifizierung in deinem Namen (keine manuellen PATs mehr) einschließlich 2FA (zweistufiger Auth) verwaltet werden.
 
 {% endtip %}
 
 {% data reusables.user-settings.password-authentication-deprecation %}
 
-## Updating your credentials via Keychain Access
+## Anmeldeinformationen über Keychain Access aktualisieren
 
-1. Click on the Spotlight icon (magnifying glass) on the right side of the menu bar. Type `Keychain access` then press the Enter key to launch the app.
-   ![Spotlight Search bar](/assets/images/help/setup/keychain-access.png)
-2. In Keychain Access, search for **{% data variables.command_line.backticks %}**.
-3. Find the "internet password" entry for `{% data variables.command_line.backticks %}`.
-4. Edit or delete the entry accordingly.
+1. Klicke auf das Spotlight-Symbol (Lupe) auf der rechten Seite der Menüleiste. Gib `Keychain access` ein und drücke dann die Eingabetaste, um die Anwendung zu starten.
+   ![Spotlight-Suchleiste](/assets/images/help/setup/keychain-access.png)
+2. Suche in Keychain Access nach **{% data variables.command_line.backticks %}**.
+3. Suche den Eintrag "Internet password" (Internetkennwort) für `{% data variables.command_line.backticks %}`.
+4. Bearbeite oder lösche den Eintrag je nach Bedarf.
 
-## Deleting your credentials via the command line
+## Anmeldeinformationen über die Befehlszeile löschen
 
-Through the command line, you can use the credential helper directly to erase the keychain entry.
+In der Befehlszeile kannst du den Keychain-Eintrag direkt über das Hilfsprogramm für Anmeldeinformationen löschen.
 
 ```shell
 $ git credential-osxkeychain erase
 host={% data variables.command_line.codeblock %}
 protocol=https
-> [Press Return]
+> <em>[Press Return]</em>
 ```
 
-If it's successful, nothing will print out. To test that it works, try and clone a private repository from {% data variables.location.product_location %}. If you are prompted for a password, the keychain entry was deleted.
+Wenn dies erfolgreich ist, wird nichts gedruckt. Um zu testen, ob es funktioniert, versuche, ein privates Repository aus {% data variables.product.product_location %} zu klonen. Wenn du nach einem Kennwort gefragt wirst, wurde der Keychain-Eintrag gelöscht.
 
-## Further reading
+## Weitere Informationsquellen
 
-- "[Caching your {% data variables.product.prodname_dotcom %} credentials in Git](/github/getting-started-with-github/caching-your-github-credentials-in-git/)"
+- "[Zwischenspeichern von {% data variables.product.prodname_dotcom %}-Anmeldeinformationen in Git](/github/getting-started-with-github/caching-your-github-credentials-in-git/)"

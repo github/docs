@@ -1,7 +1,7 @@
 ---
-title: Triaging code scanning alerts in pull requests
+title: Рассмотрение оповещений проверки кода в запросах на вытягивание
 shortTitle: Triage alerts in pull requests
-intro: 'When {% data variables.product.prodname_code_scanning %} identifies a problem in a pull request, you can review the highlighted code and resolve the alert.'
+intro: 'Если {% data variables.product.prodname_code_scanning %} выявляет проблему в запросе на вытягивание, вы можете просмотреть выделенный код и разрешить оповещение.'
 product: '{% data reusables.gated-features.code-scanning %}'
 permissions: 'If you have read permission for a repository, you can see annotations on pull requests. With write permission, you can see detailed information and resolve {% data variables.product.prodname_code_scanning %} alerts for that repository.'
 redirect_from:
@@ -20,105 +20,95 @@ topics:
   - Pull requests
   - Alerts
   - Repositories
+ms.openlocfilehash: 657a4c90b1296da97b08ab704cbace5c4e9ab982
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148108806'
 ---
-
-
 {% data reusables.code-scanning.beta %}
 
-## About {% data variables.product.prodname_code_scanning %} results on pull requests
+## Сведения о результатах функции {% data variables.product.prodname_code_scanning %} для запросов на вытягивание
 
-In repositories where {% data variables.product.prodname_code_scanning %} is configured as a pull request check, {% data variables.product.prodname_code_scanning %} checks the code in the pull request. By default, this is limited to pull requests that target the default branch, but you can change this configuration within {% data variables.product.prodname_actions %} or in a third-party CI/CD system. If merging the changes would introduce new {% data variables.product.prodname_code_scanning %} alerts to the target branch, the alerts are reported in multiple places.
+В репозиториях можно настроить {% data variables.product.prodname_code_scanning %} как проверку запросов на вытягивание, при этом {% data variables.product.prodname_code_scanning %} будет проверять код в запросах на вытягивание. По умолчанию проверка осуществляется только для запросов на вытягивание, предназначенных для ветви по умолчанию, но при необходимости это поведение можно настроить в {% data variables.product.prodname_actions %} или в сторонней системе непрерывной интеграции и поставки (CI/CD). Если после слияния изменений в целевой ветви появятся новые оповещения {% data variables.product.prodname_code_scanning %}, они будут отображаться в нескольких расположениях.
 
-- Check results in the pull request {% ifversion code-scanning-pr-conversations-tab %}
-- The **Conversation** tab of the pull request, as part of a pull request review {% endif %} 
-- The **Files changed** tab of the pull request
+- Проверьте результаты в запросе на вытягивание {% ifversion code-scanning-pr-conversations-tab %}.
+- Вкладка **Сообщения** запроса на вытягивание в рамках проверки запроса на вытягивание {% endif %}. 
+- Вкладка **Измененные файлы** запроса на вытягивание.
 
-If you have write permission for the repository, you can see any existing {% data variables.product.prodname_code_scanning %} alerts on the **Security** tab. For information about repository alerts, see "[Managing {% data variables.product.prodname_code_scanning %} alerts for your repository](/code-security/secure-coding/managing-code-scanning-alerts-for-your-repository)."
+Если у вас есть разрешение на запись для репозитория, вы можете просмотреть все существующие оповещения функции {% data variables.product.prodname_code_scanning %} на вкладке **Безопасность**. Дополнительные сведения об оповещениях репозитория см. в разделе [Управление оповещениями {% data variables.product.prodname_code_scanning %} для репозитория](/code-security/secure-coding/managing-code-scanning-alerts-for-your-repository).
 
-In repositories where {% data variables.product.prodname_code_scanning %} is configured to scan each time code is pushed, {% data variables.product.prodname_code_scanning %} will also map the results to any open pull requests and add the alerts as annotations in the same places as other pull request checks. For more information, see "[Scanning on push](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning#scanning-on-push)."
+В репозиториях, где {% данных variables.product.prodname_code_scanning %} настроено для сканирования при каждой отправке кода, {% данных variables.product.prodname_code_scanning %} также сопоставляет результаты с любыми открытыми запросами на вытягивание и добавляет оповещения в виде заметок в тех же местах, что и другие проверки запросов на вытягивание. Дополнительные сведения см. в разделе [Сканирование при принудительной отправке](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning#scanning-on-push).
 
-If your pull request targets a protected branch that uses {% data variables.product.prodname_code_scanning %}, and the repository owner has configured required status checks, then the "{% data variables.product.prodname_code_scanning_capc %} results" check must pass before you can merge the pull request. For more information, see "[About protected branches](/github/administering-a-repository/about-protected-branches#require-status-checks-before-merging)."
+Если запрос на вытягивание нацелен на защищенную ветвь, в которой используется функция {% data variables.product.prodname_code_scanning %}, а владелец репозитория настроил обязательные проверки состояния, перед слиянием запроса на вытягивание необходимо пройти проверку "Результаты {% data variables.product.prodname_code_scanning_capc %}. Дополнительные сведения см. в разделе [Сведения о защищенных ветвях](/github/administering-a-repository/about-protected-branches#require-status-checks-before-merging).
 
-## About {% data variables.product.prodname_code_scanning %} as a pull request check
+## Сведения об использовании функции {% data variables.product.prodname_code_scanning %} в качестве проверки запроса на вытягивание
 
-There are many options for configuring {% data variables.product.prodname_code_scanning %} as a pull request check, so the exact setup of each repository will vary and some will have more than one check. 
+Функцию {% data variables.product.prodname_code_scanning %} можно настроить в качестве проверки запроса на вытягивание разными способами, поэтому в каждом репозитории может использоваться своя конфигурация, а в некоторых из них настраивается несколько проверок. 
 
-### {% data variables.product.prodname_code_scanning_capc %} results check
+### Проверка "Результаты {% data variables.product.prodname_code_scanning_capc %}"
 
-For all configurations of {% data variables.product.prodname_code_scanning %}, the check that contains the results of {% data variables.product.prodname_code_scanning %} is: **{% data variables.product.prodname_code_scanning_capc %} results**. The results for each analysis tool used are shown separately. Any new alerts caused by changes in the pull request are shown as annotations. 
+В любой конфигурации функции {% data variables.product.prodname_code_scanning %} результаты {% data variables.product.prodname_code_scanning %} содержит проверка **Результаты {% data variables.product.prodname_code_scanning_capc %}** . Результаты для каждого используемого средства анализа отображаются отдельно. Все новые оповещения, связанные с изменениями в запросе на вытягивание, отображаются в виде заметок. 
 
-To see the full set of alerts for the analyzed branch, click **View all branch alerts**. This opens the full alert view where you can filter all the alerts on the branch by type, severity, tag, etc. For more information, see "[Managing code scanning alerts for your repository](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository#filtering-and-searching-for-code-scanning-alerts)."
+Чтобы просмотреть полный набор оповещений для проанализированной ветви, щелкните **"Просмотреть все оповещения ветви**". Откроется полное представление оповещений, в котором можно отфильтровать все оповещения в ветви по типу, уровню серьезности, тегу и т. д. Дополнительные сведения см. в разделе [Управление оповещениями проверки кода для репозитория](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository#filtering-and-searching-for-code-scanning-alerts).
 
-![{% data variables.product.prodname_code_scanning_capc %} results check on a pull request](/assets/images/help/repository/code-scanning-results-check.png)
+![{% данных variables.product.prodname_code_scanning_capc %} результаты проверки по запросу на вытягивание](/assets/images/help/repository/code-scanning-results-check.png)
 
-### {% data variables.product.prodname_code_scanning_capc %} results check failures
+### Сбой проверки "Результаты {% data variables.product.prodname_code_scanning_capc %}"
 
-If the {% data variables.product.prodname_code_scanning %} results check finds any problems with a severity of `error`, `critical`, or `high`, the check fails and the error is reported in the check results. If all the results found by {% data variables.product.prodname_code_scanning %} have lower severities, the alerts are treated as warnings or notes and the check succeeds.
+Если проверка результатов {% data variables.product.prodname_code_scanning %} выявит какие-либо проблемы с уровнем серьезности `error`, `critical` или `high`, она завершается сбоем, а в ее результатах отображается ошибка. Если все найденные функцией {% data variables.product.prodname_code_scanning %} результаты имеют более низкий уровень серьезности, оповещения обрабатываются как предупреждения или заметки, а проверка завершается успешно.
 
-![Failed {% data variables.product.prodname_code_scanning %} check on a pull request](/assets/images/help/repository/code-scanning-check-failure.png)
+![Завершившаяся сбоем проверка {% data variables.product.prodname_code_scanning %} в запросе на вытягивание](/assets/images/help/repository/code-scanning-check-failure.png)
 
-You can override the default behavior in your repository settings, by specifying the level of severities and security severities that will cause a pull request check failure. For more information, see "[Defining the severities causing pull request check failure](/code-security/secure-coding/configuring-code-scanning#defining-the-severities-causing-pull-request-check-failure)".
+Вы можете переопределить поведение по умолчанию в параметрах репозитория, указав уровень серьезности и условия уровней безопасности, которые приведут к сбою проверки запроса на вытягивание. Дополнительные сведения см. в разделе [Определение серьезности сбоя проверки запроса на вытягивание](/code-security/secure-coding/configuring-code-scanning#defining-the-severities-causing-pull-request-check-failure).
 
-### Other {% data variables.product.prodname_code_scanning %} checks
+### Другие проверки {% data variables.product.prodname_code_scanning %}
 
-Depending on your configuration, you may see additional checks running on pull requests with {% data variables.product.prodname_code_scanning %} configured. These are usually workflows that analyze the code or that upload {% data variables.product.prodname_code_scanning %} results. These checks are useful for troubleshooting when there are problems with the analysis. 
+В разных конфигурациях могут быть настроены дополнительные проверки, выполняемые для запросов на вытягивание с помощью функции {% data variables.product.prodname_code_scanning %}. Как правило, это рабочие процессы, которые анализируют код или отправляют результаты функции {% data variables.product.prodname_code_scanning %}. Эти проверки могут выполняться для устранения неполадок при возникновении проблем с анализом. 
 
-For example, if the repository uses the {% data variables.code-scanning.codeql_workflow %} a **{% data variables.product.prodname_codeql %} / Analyze (LANGUAGE)** check is run for each language before the results check runs. The analysis check may fail if there are configuration problems, or if the pull request breaks the build for a language that the analysis needs to compile (for example, C/C++, C#, or Java). 
+Например, если в репозитории используется {% data variables.product.prodname_codeql_workflow %}, перед началом проверки результатов для каждого языка выполняется проверка **{% data variables.product.prodname_codeql %} / Анализ (ЯЗЫК)** . Проверка "Анализ" может завершиться сбоем при возникновении проблем с конфигурацией, а также если запрос на вытягивание нарушает работу сборки для языка, который этой проверке требуется скомпилировать (например, C/C++, C# или Java). 
 
-As with other pull request checks, you can see full details of the check failure on the **Checks** tab. For more information about configuring and troubleshooting, see "[Configuring {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/configuring-code-scanning)" or "[Troubleshooting the {% data variables.product.prodname_codeql %} workflow](/code-security/secure-coding/troubleshooting-the-codeql-workflow)."
+Как и в случае с другими проверками запросов на вытягивание, полные сведения о сбое проверки можно просмотреть на вкладке **Проверки**. Дополнительные сведения см. в разделах [Настройка {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/configuring-code-scanning) и [Устранение неполадок с рабочим процессом {% data variables.product.prodname_codeql %}](/code-security/secure-coding/troubleshooting-the-codeql-workflow).
 
-## Viewing an alert on your pull request
+## Просмотр оповещения по запросу на вытягивание
 
-{% ifversion code-scanning-pr-conversations-tab %}
-You can see any {% data variables.product.prodname_code_scanning %} alerts introduced in a pull request by viewing the **Conversation** tab. {% data variables.product.prodname_code_scanning_capc %} posts a pull request review that shows each alert as an annotation on the lines of code that triggered the alert. You can comment on the alerts, dismiss the alerts, and view paths for the alerts, directly from the annotations. You can view the full details of an alert by clicking the "Show more details" link, which will take you to the alert details page.
+{% ifversion code-scanning-pr-conversations-tab %} Все оповещения {% data variables.product.prodname_code_scanning %} по запросу на вытягивание можно просмотреть на вкладке **Сообщения**. {% data variables.product.prodname_code_scanning_capc %} выведет проверку запроса на вытягивание, в которой каждое оповещение будет отображаться в виде заметки в строках кода, из которых оно было активировано. Вы можете прокомментировать оповещения, закрыть оповещения и просмотреть пути для оповещений непосредственно из заметок. Вы можете просмотреть полные сведения об оповещении, щелкнув ссылку "Подробнее", чтобы перейти на страницу сведений об оповещении.
 
-![Alert annotation within a pull request Conversations tab](/assets/images/help/repository/code-scanning-pr-conversation-tab.png)
+![Заметка для оповещения на вкладке "Сообщения" запроса на вытягивание](/assets/images/help/repository/code-scanning-pr-conversation-tab.png)
 
-You can also view all {% data variables.product.prodname_code_scanning %} alerts in the **Files changed** tab of the pull request. Existing {% data variables.product.prodname_code_scanning %} alerts on a file that are outside the diff of the changes introduced in the pull request will only appear in the **Files changed** tab.
+Вы также можете просмотреть все оповещения {% data variables.product.prodname_code_scanning %} на вкладке **Измененные файлы** запроса на вытягивание. Существующие оповещения {% data variables.product.prodname_code_scanning %} по файлам, которые не относятся к изменениям в запросе на вытягивание, будут отображаться на вкладке **Измененные файлы**.
 
-{% else %} 
-You can see any {% data variables.product.prodname_code_scanning %} alerts introduced in a pull request by displaying the **Files changed** tab. Each alert is shown as an annotation on the lines of code that triggered the alert. The severity of the alert is displayed in the annotation. 
+{% else %} Все оповещения {% data variables.product.prodname_code_scanning %} по запросу на вытягивание можно просмотреть на вкладке **Измененные файлы**. Каждое оповещение отображается в виде заметки в строках кода, из которых оно было активировано. В заметке отображается уровень серьезности оповещения. 
 
-![Alert annotation within a pull request diff](/assets/images/help/repository/code-scanning-pr-annotation.png)
-{% endif %}
+![Заметка для оповещения в инструменте сравнения запроса на вытягивание](/assets/images/help/repository/code-scanning-pr-annotation.png) {% endif %}
 
-If you have write permission for the repository, some annotations contain links with extra context for the alert. In the example above, from {% data variables.product.prodname_codeql %} analysis, you can click **user-provided value** to see where the untrusted data enters the data flow (this is referred to as the source). In this case you can also view the full path from the source to the code that uses the data (the sink) by clicking **Show paths**. This makes it easy to check whether the data is untrusted or if the analysis failed to recognize a data sanitization step between the source and the sink. For information about analyzing data flow using {% data variables.product.prodname_codeql %}, see "[About data flow analysis](https://codeql.github.com/docs/writing-codeql-queries/about-data-flow-analysis/)."
+Если у вас есть разрешение на запись для репозитория, в некоторых заметках будут содержаться ссылки с дополнительным контекстом для оповещения. В приведенном выше примере из анализа {% data variables.product.prodname_codeql %} с помощью ссылки **Предоставленное пользователем значение** можно просмотреть, на каком этапе в поток данных поступают ненадежные данные (источник данных). В этом случае также можно просмотреть полный путь из источника в использующий данные код (приемник) с помощью кнопки **Показать пути**. Так можно проверить, являются ли данные ненадежными или анализу не удалось распознать шаг очистки данных между источником и приемником. Дополнительные сведения об анализе потока данных с помощью {% data variables.product.prodname_codeql %} см. в разделе [Сведения об анализе потока данных](https://codeql.github.com/docs/writing-codeql-queries/about-data-flow-analysis/).
 
-To see more information about an alert, users with write permission can click the **Show more details** link shown in the annotation. This allows you to see all of the context and metadata provided by the tool in an alert view. In the example below, you can see tags showing the severity, type, and relevant common weakness enumerations (CWEs) for the problem. The view also shows which commit introduced the problem.
+Дополнительные сведения об оповещении пользователь с разрешением на запись может просмотреть по ссылке **Показать подробности**, представленной в заметке. С ее помощью можно в полном объеме просмотреть контекст и метаданные, выводимые средством в представлении оповещения. В приведенном ниже примере можно увидеть теги, показывающие уровень серьезности, тип и соответствующие распространенные уязвимости (CWE) для проблемы. В этом представлении также показана фиксация, в связи с которой возникла проблема.
 
-{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
-{% data reusables.code-scanning.alert-default-branch %}
-{% endif %}
+{% ifversion fpt или ghec или ghes > 3.4 или ghae > 3,4 %} {% данных reusables.code-scanning.alert-default-branch %} {% endif %}
 
-In the detailed view for an alert, some {% data variables.product.prodname_code_scanning %} tools, like {% data variables.product.prodname_codeql %} analysis, also include a description of the problem and a **Show more** link for guidance on how to fix your code.
+В подробном представлении оповещения некоторые средства {% data variables.product.prodname_code_scanning %}, например анализ {% data variables.product.prodname_codeql %}, также выводят описание проблемы и ссылку **Показать больше** для просмотра указаний по исправлению кода.
 
-{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
-![Alert description and link to show more information](/assets/images/help/repository/code-scanning-pr-alert.png)
-{% else %}
-![Alert description and link to show more information](/assets/images/enterprise/3.4/repository/code-scanning-pr-alert.png)
-{% endif %}
+{% ifversion fpt или ghec или ghes > 3.4 или ghae > 3.4 %} ![ Описание оповещений и ссылка для отображения дополнительных сведений](/assets/images/help/repository/code-scanning-pr-alert.png) {% остальных %} ![описание оповещений и ссылка для отображения дополнительных сведений](/assets/images/enterprise/3.4/repository/code-scanning-pr-alert.png) {% endif %}
 
 {% ifversion code-scanning-pr-conversations-tab %}
-## Commenting on an alert in a pull request
+## Комментарий к оповещению в запросе на вытягивание
 
-You can comment on any {% data variables.product.prodname_code_scanning %} alert introduced by the changes in a pull request. Alerts appear as annotations in the **Conversation** tab of a pull request, as part of a  pull request review, and also are shown in the **Files changed** tab. You can only comment on alerts introduced by the changes in a pull request. Existing {% data variables.product.prodname_code_scanning %} alerts, on files that are outside the changes introduced in the pull request, will appear in the **Files changed** tab but cannot be commented on.
+Вы можете прокомментировать любое оповещение{% data variables.product.prodname_code_scanning %}, вызванное изменениями в запросе на вытягивание. Оповещения отображаются как заметки на вкладке **Сообщения** запроса на вытягивание, в рамках проверки запроса на вытягивание, а также на вкладке **Измененные файлы**. Вы можете прокомментировать только оповещения, вызванные изменениями в запросе на вытягивание. Существующие оповещения {% data variables.product.prodname_code_scanning %} по файлам, которые не относятся к изменениям в запросе на вытягивание, будут отображаться на вкладке **Измененные файлы**, но без возможности комментирования.
 
-You can choose to require all conversations in a pull request, including those on {% data variables.product.prodname_code_scanning %} alerts, to be resolved before a pull request can be merged. For more information, see "[About protected branches](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#require-conversation-resolution-before-merging)."
+Вы можете выбрать, чтобы все сообщения в запросе на вытягивание (в том числе для оповещений {% data variables.product.prodname_code_scanning %}), разрешались до слияния запроса на вытягивание. Дополнительные сведения см. в разделе [Сведения о защищенных ветвях](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#require-conversation-resolution-before-merging).
 {% endif %}
-## Fixing an alert on your pull request
+## Исправление оповещения по запросу на вытягивание
 
-Anyone with push access to a pull request can fix a {% data variables.product.prodname_code_scanning %} alert that's identified on that pull request. If you commit changes to the pull request this triggers a new run of the pull request checks. If your changes fix the problem, the alert is closed and the annotation removed.
+Любой пользователь с доступом на отправку к запросу на вытягивание может исправить оповещение {% data variables.product.prodname_code_scanning %}, указанное в этом запросе. После фиксации изменений в запросе на вытягивание будут заново выполнены его проверки. Если в результате внесения изменений проблема исправлена, оповещение закрывается, а заметка удаляется.
 
-## Dismissing an alert on your pull request
+## Отклонение оповещения по запросу на вытягивание
 
-An alternative way of closing an alert is to dismiss it. You can dismiss an alert if you don't think it needs to be fixed. {% data reusables.code-scanning.close-alert-examples %} If you have write permission for the repository, the **Dismiss** button is available in code annotations and in the alerts summary. When you click **Dismiss** you will be prompted to choose a reason for closing the alert.
-{% ifversion comment-dismissed-code-scanning-alert %}
-![Screenshot of code scanning alert with dropdown to choose dismissal reason emphasized](/assets/images/help/repository/code-scanning-alert-dropdown-reason.png)
-{% else %}
-![Choosing a reason for dismissing an alert](/assets/images/help/repository/code-scanning-alert-close-drop-down.png)
-{% endif %}
-{% data reusables.code-scanning.choose-alert-dismissal-reason %}
+Оповещение также можно закрыть, отклонив его. Если вы не считаете, что оповещение требуется исправлять, его можно отклонить. {% data reusables.code-scanning.close-alert-examples %} Если у вас есть разрешение на запись для репозитория, в аннотациях в коде и в сводке оповещений будет доступна кнопка **Отклонить**. При нажатии кнопки **Отклонить** вам будет предложено выбрать причину закрытия оповещения.
+{% ifversion comment-dismissed-code-scanning-alert %} ![Снимок экрана: оповещение о проверке кода с выделенным раскрывающимся списком для выбора причины закрытия](/assets/images/help/repository/code-scanning-alert-dropdown-reason.png) {% else %} ![Выбор причины для закрытия оповещения](/assets/images/help/repository/code-scanning-alert-close-drop-down.png) {% endif %} {% data reusables.code-scanning.choose-alert-dismissal-reason %}
 
 {% data reusables.code-scanning.false-positive-fix-codeql %}
 
-For more information about dismissing alerts, see {% ifversion delete-code-scanning-alerts %}"[Managing {% data variables.product.prodname_code_scanning %} alerts for your repository](/code-security/secure-coding/managing-code-scanning-alerts-for-your-repository#dismissing-or-deleting-alerts)."{% else %} "[Managing {% data variables.product.prodname_code_scanning %} alerts for your repository](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository#dismissing--alerts)."{% endif %}
+Дополнительные сведения о закрытии оповещений см. в разделе {% ifversion delete-code-scanning-alerts %}[Управление оповещениями {% data variables.product.prodname_code_scanning %} для репозитория](/code-security/secure-coding/managing-code-scanning-alerts-for-your-repository#dismissing-or-deleting-alerts).{% else %} "[Управление оповещениями {% data variables.product.prodname_code_scanning %} для репозитория](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository#dismissing--alerts).{% endif %}

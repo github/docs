@@ -7,12 +7,12 @@ versions:
 shortTitle: Visual Studio
 topics:
   - Copilot
-ms.openlocfilehash: cb24557b15eafd4a5be8ef1a991ae3c43f376c67
-ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
-ms.translationtype: HT
+ms.openlocfilehash: 05ac86405caadf3085b15a2aed9b54acb84f91f1
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2022
-ms.locfileid: '147786031'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148193470'
 ---
 ## {% data variables.product.prodname_vs %}의 {% data variables.product.prodname_copilot %} 정보
 
@@ -37,13 +37,20 @@ ms.locfileid: '147786031'
 {% data variables.product.prodname_copilot %}을 사용할 때 {% data variables.product.prodname_vs %}에서 기본 바로 가기 키를 사용하지 않으려면 각 특정 명령에 대해 원하는 바로 가기 키를 사용하여 키보드 편집기에서 바로 가기 키를 다시 바인딩할 수 있습니다.
 
 1. {% data variables.product.prodname_vs %} 도구 모음의 **도구** 아래에서 **옵션** 을 클릭합니다.
+   
    ![{% data variables.product.prodname_vs %} 도구 모음의 “옵션” 옵션 스크린샷](/assets/images/help/copilot/vs-toolbar-options.png)
+
 1. "옵션" 대화 상자의 **환경** 아래에서 **키보드** 를 클릭합니다.
+   
    !["옵션" 대화 상자의 키보드 옵션 스크린샷](/assets/images/help/copilot/vs-options-dialogue.png)
+
 1. "다음 문자열을 포함하는 명령 표시:"에서 다시 바인딩할 명령을 검색합니다.
-   ![다음 문자열을 포함하는 명령 표시 검색 창의 스크린샷](/assets/images/help/copilot/vs-show-commands-containing.png)
-1. "바로 가기 키 누르기"에서 명령에 할당할 바로 가기 키를 입력하고 **할당** 을 클릭합니다.
-   ![바로 가기 키 할당의 스크린샷](/assets/images/help/copilot/vs-rebind-shortcut.png)
+   
+   ![검색 창이 포함된 show 명령의 스크린샷](/assets/images/help/copilot/vs-show-commands-containing.png)
+
+1. "바로 가기 키 누르기"에서 명령에 할당할 바로 가기를 입력한 다음 **할당** 을 클릭합니다.
+
+   ![바로 가기 키 할당의 스크린샷](/assets/images/help/copilot/vs-rebind-shortcut.png)```
 
 {% data reusables.copilot.enabling-or-disabling-vs %}
 

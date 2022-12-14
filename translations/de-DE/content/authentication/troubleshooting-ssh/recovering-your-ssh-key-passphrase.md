@@ -1,6 +1,6 @@
 ---
-title: Recovering your SSH key passphrase
-intro: 'If you''ve lost your SSH key passphrase, depending on the operating system you use, you may either recover it or you may need to generate a new SSH key passphrase.'
+title: SSH-Schlüssel-Passphrase wiederherstellen
+intro: 'Wenn du deine SSH-Schlüsselpassphrase verloren hast, kannst du sie je nach verwendetem Betriebssystem wiederherstellen oder musst eine neue SSH-Schlüsselpassphrase generieren.'
 redirect_from:
   - /articles/how-do-i-recover-my-passphrase
   - /articles/how-do-i-recover-my-ssh-key-passphrase
@@ -15,30 +15,36 @@ versions:
 topics:
   - SSH
 shortTitle: Recover SSH key passphrase
+ms.openlocfilehash: 28d768e81f3076898c23b2b1668314ae5573ec5c
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145085848'
 ---
 {% mac %}
 
-If you [configured your SSH passphrase with the macOS keychain](/articles/working-with-ssh-key-passphrases#saving-your-passphrase-in-the-keychain), you may be able to recover it.
+Wenn du [deine SSH-Passphrase mit der macOS-Schlüsselkette konfiguriert](/articles/working-with-ssh-key-passphrases#saving-your-passphrase-in-the-keychain) hast, kannst du sie möglicherweise wiederherstellen.
 
-1. In Finder, search for the **Keychain Access** app.
-   ![Spotlight Search bar](/assets/images/help/setup/keychain-access.png)
-2. In Keychain Access, search for **SSH**.
-3. Double click on the entry for your SSH key to open a new dialog box.
-4. In the lower-left corner, select **Show password**.
-   ![Keychain access dialog](/assets/images/help/setup/keychain_show_password_dialog.png)
-5. You'll be prompted for your administrative password. Type it into the "Keychain Access" dialog box.
-6. Your password will be revealed.
+1. Suche über die Suchfunktion nach der **Keychain Access**-App.
+   ![Suchleiste von Spotlight](/assets/images/help/setup/keychain-access.png)
+2. Suche in Keychain Access nach **SSH**.
+3. Doppelklicke auf den Eintrag für deinen SSH-Schlüssel, um ein neues Dialogfeld zu öffnen.
+4. Klicke in der unteren linken Ecke auf **Passwort anzeigen**.
+   ![Dialogfenster in Keychain Access](/assets/images/help/setup/keychain_show_password_dialog.png)
+5. Du wirst nach deinem Administrator-Passwort gefragt. Gib es im Dialogfeld „Keychain Access“ (Keychain Zugriff) ein.
+6. Dein Passwort wird angezeigt.
 
 {% endmac %}
 
 {% windows %}
 
-If you lose your SSH key passphrase, there's no way to recover it. You'll need to [generate a brand new SSH keypair](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) or [switch to HTTPS cloning](/github/getting-started-with-github/about-remote-repositories#cloning-with-https-urls) so you can use a {% data variables.product.pat_generic %} instead.
+Wenn du deine SSH-Schlüssel-Passphrase verlierst, kannst du sie nicht wiederherstellen. Du musst [ein brandneues SSH-Schlüsselpaar generieren](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) oder [zum HTTPS-Klonen wechseln](/github/getting-started-with-github/managing-remote-repositories), damit du stattdessen dein GitHub-Kennwort verwenden kannst.
 
 {% endwindows %}
 
 {% linux %}
 
-If you lose your SSH key passphrase, there's no way to recover it. You'll need to [generate a brand new SSH keypair](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) or [switch to HTTPS cloning](/github/getting-started-with-github/about-remote-repositories#cloning-with-https-urls) so you can use a {% data variables.product.pat_generic %} instead.
+Wenn du deine SSH-Schlüssel-Passphrase verlierst, kannst du sie nicht wiederherstellen. Du musst [ein brandneues SSH-Schlüsselpaar generieren](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) oder [zum HTTPS-Klonen wechseln](/github/getting-started-with-github/about-remote-repositories/#cloning-with-https-urls), damit du stattdessen dein GitHub-Kennwort verwenden kannst.
 
 {% endlinux %}

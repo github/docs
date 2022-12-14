@@ -1,6 +1,6 @@
 ---
-title: Configuring a hostname
-intro: We recommend setting a hostname for your appliance instead of using a hard-coded IP address.
+title: Hostname konfigurieren
+intro: 'Es wird empfohlen, einen Hostnamen für deine Appliance festzulegen, anstatt eine hartcodierte IP-Adresse zu verwenden.'
 redirect_from:
   - /enterprise/admin/guides/installation/configuring-hostnames
   - /enterprise/admin/installation/configuring-a-hostname
@@ -13,27 +13,29 @@ topics:
   - Enterprise
   - Fundamentals
   - Infrastructure
+ms.openlocfilehash: a12955707c3ebcfbb65e5be8053ea0b62bc82072
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147723231'
 ---
-If you configure a hostname instead of a hard-coded IP address, you will be able to change the physical hardware that {% data variables.location.product_location %} runs on without affecting users or client software.
+Wenn du einen Hostnamen konfigurierst, anstatt eine hartcodierte IP-Adresse zu verwenden, kannst du die physische Hardware ändern, auf der {% data variables.product.product_location %} ausgeführt wird, ohne dass sich dies auf die Benutzer oder auf die Clientsoftware auswirkt.
 
-The hostname setting in the {% data variables.enterprise.management_console %} should be set to an appropriate fully qualified domain name (FQDN) which is resolvable on the internet or within your internal network. For example, your hostname setting could be `github.companyname.com.` Web and API requests will automatically redirect to the hostname configured in the {% data variables.enterprise.management_console %}. Note that `localhost` is not a valid hostname setting. 
+Die Einstellung des Hostnamens in der {% data variables.enterprise.management_console %} sollte auf einen geeigneten vollqualifizierten Domainnamen (FQDN) gesetzt werden, der im Internet oder in deinem internen Netzwerk auflösbar ist. Deine Hostnameneinstellung könnte beispielsweise `github.companyname.com.` sein. Web- und API-Anforderungen werden automatisch an den in der {% data variables.enterprise.management_console %} konfigurierten Hostnamen weitergeleitet. Beachte, dass `localhost` keine gültige Hostnameneinstellung ist. 
 
-Hostnames must be less than 63 characters in length per [Section 2.3.4 of the Domain Names Specification RFC](https://datatracker.ietf.org/doc/html/rfc1035#section-2.3.4).
+Hostnamen müssen gemäß [Abschnitt 2.3.4 des RFC für Domänennamenspezifikation](https://datatracker.ietf.org/doc/html/rfc1035#section-2.3.4) weniger als 63 Zeichen lang sein.
 
-After you configure a hostname, you can enable subdomain isolation to further increase the security of {% data variables.location.product_location %}. For more information, see "[Enabling subdomain isolation](/enterprise/admin/guides/installation/enabling-subdomain-isolation/)."
+Nachdem du einen Hostnamen konfiguriert hast, kannst du die Subdomain-Isolation aktivieren, um die Sicherheit von {% data variables.product.product_location %} weiter zu steigern. Weitere Informationen findest du unter [Aktivieren der Subdomain-Isolation](/enterprise/admin/guides/installation/enabling-subdomain-isolation/).
 
-For more information on the supported hostname types, see [Section 2.1 of the HTTP RFC](https://tools.ietf.org/html/rfc1123#section-2).
+Weitere Informationen zu den unterstützten Hostnamentypen findest du im [Abschnitt 2.1 des HTTP-RFC](https://tools.ietf.org/html/rfc1123#section-2).
 
 {% data reusables.enterprise_installation.changing-hostname-not-supported %}
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.management-console %}
-{% data reusables.enterprise_management_console.hostname-menu-item %}
-4. Type the hostname you'd like to set for {% data variables.location.product_location %}.
-  ![Field for setting a hostname](/assets/images/enterprise/management-console/hostname-field.png)
-5. To test the DNS and SSL settings for the new hostname, click **Test domain settings**.
-  ![Test domain settings button](/assets/images/enterprise/management-console/test-domain-settings.png)
-{% data reusables.enterprise_management_console.test-domain-settings-failure %}
-{% data reusables.enterprise_management_console.save-settings %}
+{% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.enterprise_site_admin_settings.management-console %} {% data reusables.enterprise_management_console.hostname-menu-item %}
+4. Gib den Hostnamen ein, den du für {% data variables.product.product_location %} festlegen möchtest.
+  ![Feld zum Festlegen eines Hostnamens](/assets/images/enterprise/management-console/hostname-field.png)
+5. Klicke zum Testen der DNS- und SSL-Einstellungen für den neuen Hostnamen auf **Domäneneinstellungen testen**.
+  ![Schaltfläche „Domäneneinstellungen testen“](/assets/images/enterprise/management-console/test-domain-settings.png) {% data reusables.enterprise_management_console.test-domain-settings-failure %} {% data reusables.enterprise_management_console.save-settings %}
 
-To help mitigate various cross-site scripting vulnerabilities, we recommend that you enable subdomain isolation for {% data variables.location.product_location %} after you configure a hostname. For more information, see "[Enabling subdomain isolation](/enterprise/admin/guides/installation/enabling-subdomain-isolation/)."
+Um verschiedene Cross-Site Scripting-Sicherheitsrisiken zu verringern, solltest du die Subdomain-Isolation für {% data variables.product.product_location %} aktivieren, nachdem du einen Hostnamen konfiguriert hast. Weitere Informationen findest du unter [Aktivieren der Subdomain-Isolation](/enterprise/admin/guides/installation/enabling-subdomain-isolation/).

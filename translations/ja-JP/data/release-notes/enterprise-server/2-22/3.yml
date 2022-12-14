@@ -1,0 +1,27 @@
+date: '2020-11-03'
+sections:
+  security_fixes:
+    - |**低:** SVN ブリッジへの特別に作成された要求によって CPU 使用率が高くなり、SVN ブリッジ サービスでサービス拒否 (DoS) が発生する可能性がありました。(2020-11-16 に更新) {% comment %} https://github.com/github/slumlord/pull/1005, https://github.com/github/slumlord/pull/1000 {% endcomment %}
+
+|
+    - |**低:** 不正確なトークンの検証によって、認証中のトークンの照合に関するエントロピーが低下していました。分析では、実際には大きなセキュリティ上のリスクはないことが示されています。{% comment %} https://github.com/github/github/pull/159457, https://github.com/github/github/pull/159193 {% endcomment %}
+
+|
+    - |パッケージが最新のセキュリティ バージョンに更新されました。{% comment %} https://github.com/github/enterprise2/pull/23540, https://github.com/github/enterprise2/pull/23171, https://github.com/github/enterprise2/pull/23693, https://github.com/github/enterprise2/pull/23677 {% endcomment %}
+
+|
+  bugs:
+    - "以前に 2.22.0 を実行するインスタンスで有効にされていた GitHub Actions が、2.22.1 または 2.22.2 にアップグレードされた場合、正常に起動しないことがありました。{% comment %} https://github.com/github/enterprise2/pull/23622, https://github.com/github/enterprise2/pull/23490, https://github.com/github/c2c-actions/issues/1680 {% endcomment %}"
+    - "高可用性レプリカをセットアップするとき、GitHub Actions の構成ファイルがレプリカにコピーされず、\"ghe-repl-promote\" の間にエラーが発生する可能性がありました。{% comment %} https://github.com/github/enterprise2/pull/23703, https://github.com/github/enterprise2/pull/23683 {% endcomment %}"
+    - "2.22.1 または 2.22.2 のインスタンスを新しくセットアップするときや、2.22.1 または 2.22.2 にアップグレードした後で、Organization のダッシュボードのアクティビティ フィードが更新されませんでした。{% comment %} https://github.com/github/github/pull/159376, https://github.com/github/github/pull/159235, https://github.com/github/enterprise2/issues/23050 {% endcomment %}"
+    - "非 ASCII 文字を含むファイル名が使われている issue テンプレートを編集すると、\"500 内部サーバー エラー\" で失敗しました。{% comment %} https://github.com/github/github/pull/160588, https://github.com/github/github/pull/159747 {% endcomment %}"
+    - "バックグラウンド ジョブのメトリック収集方式のため、CPU 使用率が増大しました。(2020-11-03 に更新) {% comment %} https://github.com/github/github/pull/160109 {% endcomment %}"
+
+  known_issues:
+    - "新しくセットアップされたユーザーのいない GitHub Enterprise Server で、攻撃者が最初の管理者ユーザーを作成できました。 {% comment %} https://github.com/github/enterprise2/issues/1889 {% endcomment %}"
+    - "カスタム ファイアウォール規則は、アップグレード中維持されません。 {% comment %} https://github.com/github/enterprise2/issues/2823 {% endcomment %}"
+    - "Git LFS 追跡ファイル (\"Web インターフェイスからアップロードされたファイル\" (https://github.com/blog/2105-upload-files-to-your-repositories)) が誤ってリポジトリに直接追加されます。 {% comment %} https://github.com/github/github/issues/54684 {% endcomment %}"
+    - "同じリポジトリ内の BLOB へのパーマリンクが含まれ、ファイル パスが 255 文字を超える場合、issue をクローズできません。{% comment %} https://github.com/github/github/issues/107731 {% endcomment %}"
+    - "GitHub Connect で [ユーザーが GitHub.com を検索できる] が有効になっている場合、プライベートと内部リポジトリの issue は GitHub.com の検索結果に含まれません。 {% comment %} https://github.com/github/admin-experience/issues/571 {% endcomment %}"
+    - "監査ログが、実際のソース IP アドレスではなく、127.0.0.1 に起因する場合があります。{% comment %} https://github.com/github/enterprise2/issues/21514 {% endcomment %}"
+    - "高可用性構成でレプリカ ノードがオフラインの場合、{% data variables.product.product_name %} によって、{% data variables.product.prodname_pages %} 要求が引き続きオフライン ノードにルーティングされる可能性があり、ユーザーに対して {% data variables.product.prodname_pages %} の可用性が下がります。"

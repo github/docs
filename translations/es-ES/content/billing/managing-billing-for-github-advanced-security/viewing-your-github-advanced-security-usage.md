@@ -1,6 +1,6 @@
 ---
-title: Viewing your GitHub Advanced Security usage
-intro: 'You can view usage of {% data variables.product.prodname_GH_advanced_security %} for your enterprise.'
+title: Visualizar tu uso de GitHub Advanced Security
+intro: 'Puedes ver el uso de {% data variables.product.prodname_GH_advanced_security %} de tu empresa.'
 permissions: 'Enterprise owners can view usage for {% data variables.product.prodname_GH_advanced_security %}.'
 product: '{% data reusables.gated-features.ghas %}'
 redirect_from:
@@ -18,97 +18,87 @@ topics:
   - Advanced Security
   - Enterprise
 shortTitle: View Advanced Security usage
+ms.openlocfilehash: 8647ba2eb00f580256bd3f49ac2218331e45eef3
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '146180491'
 ---
+## Acerca de las licencias para {% data variables.product.prodname_GH_advanced_security %}
 
-## About licenses for {% data variables.product.prodname_GH_advanced_security %}
+{% data reusables.advanced-security.about-ghas-license-seats %} Para más información, vea "[Acerca de la facturación de {% data variables.product.prodname_GH_advanced_security %}](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)".
 
-{% data reusables.advanced-security.about-ghas-license-seats %} For more information, see "[About billing for {% data variables.product.prodname_GH_advanced_security %}](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)."
-
-{% ifversion ghas-committers-calculator %}
-You can calculate how many additional seats will be used if you enable {% data variables.product.prodname_GH_advanced_security %} for more organizations and repositories with the site admin dashboard. For more information, see "[Site admin dashboard](/admin/configuration/configuring-your-enterprise/site-admin-dashboard#advanced-security-active-committers)."
+{% ifversion ghas-committers-calculator %} Puedes calcular cuántos puestos adicionales se usarán si habilitas {% data variables.product.prodname_GH_advanced_security %} para más organizaciones y repositorios con el panel de administración del sitio. Para obtener más información, consulta "[Panel de administración del sitio](/admin/configuration/configuring-your-enterprise/site-admin-dashboard#advanced-security-active-committers)".
 {% endif %}
 
-## Viewing {% data variables.product.prodname_GH_advanced_security %} license usage for your enterprise account
+## Visualizar el uso del licenciamiento de {% data variables.product.prodname_GH_advanced_security %} para tu cuenta empresarial
 
-You can check how many seats your license includes and how many of them are currently used.
+Puedes verificar cuántas plazas incluye tu licencia y cuántas de ellas se están utilizando.
 
 {% ifversion fpt or ghec %}
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.license-tab %}
-   The "{% data variables.product.prodname_GH_advanced_security %}" section shows details of the current usage.
-  ![{% data variables.product.prodname_GH_advanced_security %} in enterprise licensing settings](/assets/images/help/enterprises/enterprise-licensing-tab-ghas.png)
-  If you run out of seats, the section will be red and show "Limit exceeded." You should either reduce your use of {% data variables.product.prodname_GH_advanced_security %} or purchase more seats. For more information, see "[About billing for {% data variables.product.prodname_GH_advanced_security %}](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security#getting-the-most-out-of-github-advanced-security)."
-  ![{% data variables.product.prodname_GH_advanced_security %} in enterprise licensing settings showing "Limit exceeded"](/assets/images/help/enterprises/enterprise-licensing-tab-ghas-no-seats.png)
-4. Optionally, to see a detailed breakdown of usage per organization, in the left sidebar, click **Billing**.
-  ![Billing tab in the enterprise account settings sidebar](/assets/images/help/business-accounts/settings-billing-tab.png)
-  In the "{% data variables.product.prodname_GH_advanced_security %}" section you can see the number of committers and unique committers for each organization.
-  ![{% data variables.product.prodname_GH_advanced_security %} in enterprise billing settings](/assets/images/help/billing/ghas-orgs-list-enterprise-dotcom.png)
-5. Optionally, click the name of an organization where you are an owner to display the security and analysis settings for the organization.
-  ![Owned organization in {% data variables.product.prodname_GH_advanced_security %} section of enterprise billing settings](/assets/images/help/billing/ghas-orgs-list-enterprise-click-org.png)
-6. On the "Security & analysis" settings page, scroll to the "{% data variables.product.prodname_GH_advanced_security %} repositories" section to see a detailed breakdown of usage by repository for this organization.
-  ![{% data variables.product.prodname_GH_advanced_security %} repositories section](/assets/images/help/enterprises/settings-security-analysis-ghas-repos-list.png)
-  For more information, see "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)."
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.settings-tab %} {% data reusables.enterprise-accounts.license-tab %} En la sección "{% data variables.product.prodname_GH_advanced_security %}" se muestran los detalles del uso actual.
+  ![{% data variables.product.prodname_GH_advanced_security %} en la configuración de licencias empresariales](/assets/images/help/enterprises/enterprise-licensing-tab-ghas.png) Si se agotan los puestos, la sección será de color rojo y se mostrará "Límite superado". Debes ya sea reducir tu uso de {% data variables.product.prodname_GH_advanced_security %} o comprar más plazas. Para más información, vea "[Acerca de la facturación de {% data variables.product.prodname_GH_advanced_security %}](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security#getting-the-most-out-of-github-advanced-security)".
+  ![{% data variables.product.prodname_GH_advanced_security %} en los ajustes de licencias de empresa donde se muestra "Limit superado"](/assets/images/help/enterprises/enterprise-licensing-tab-ghas-no-seats.png)
+4. Opcionalmente, para ver un desglose detallado del uso por organización, haga clic en **Facturación** en la barra lateral izquierda.
+  ![Pestaña Facturación de la barra lateral de configuración de la cuenta de empresa](/assets/images/help/business-accounts/settings-billing-tab.png) En la sección "{% data variables.product.prodname_GH_advanced_security %}" puede ver el número de confirmadores y confirmadores únicos para cada organización.
+  ![{% data variables.product.prodname_GH_advanced_security %} en la configuración de facturación de la empresa](/assets/images/help/billing/ghas-orgs-list-enterprise-dotcom.png)
+5. Opcionalmente, haz clic en el nombre de una organización que te pertenezca para mostrar la configuración de seguridad y análisis para la organización.
+  ![Organización de su propiedad en la sección {% data variables.product.prodname_GH_advanced_security %} de la configuración de facturación empresarial](/assets/images/help/billing/ghas-orgs-list-enterprise-click-org.png)
+6. En la página de configuración "Seguridad y análisis", desplácese hacia la sección de repositorios de "{% data variables.product.prodname_GH_advanced_security %}" para ver un resumen detallado del uso por repositorio en esta organización.
+  ![Sección de repositorios de {% data variables.product.prodname_GH_advanced_security %}](/assets/images/help/enterprises/settings-security-analysis-ghas-repos-list.png) Para más información, vea "[Administración de la configuración de seguridad y análisis para la organización](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)".
 
 {% elsif ghes %}
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.license-tab %}
-   The "{% data variables.product.prodname_GH_advanced_security %}" section shows details of the current usage. You can see the total number of seats used, as well as a table with the number of committers and unique committers for each organization.
-  ![{% data variables.product.prodname_GH_advanced_security %} section of Enterprise license](/assets/images/help/billing/ghas-orgs-list-enterprise-ghes.png)
-5. Optionally, click the name of an organization where you are an owner to display the security and analysis settings for the organization.
-  ![Owned organization in {% data variables.product.prodname_GH_advanced_security %} section of enterprise billing settings](/assets/images/help/billing/ghas-orgs-list-enterprise-click-org.png)
-6. On the "Security & analysis" settings page, scroll to the "{% data variables.product.prodname_GH_advanced_security %} repositories" section to see a detailed breakdown of usage by repository for this organization.
-  ![{% data variables.product.prodname_GH_advanced_security %} repositories section](/assets/images/help/enterprises/settings-security-analysis-ghas-repos-list.png)
-  For more information, see "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)."
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.settings-tab %} {% data reusables.enterprise-accounts.license-tab %} En la sección "{% data variables.product.prodname_GH_advanced_security %}" se muestran los detalles del uso actual. Puedes ver la cantidad total de plazas utilizadas, así como una tabla con la cantidad de confirmantes y confirmantes únicos para cada organización.
+  ![Sección de la licencia Enterprise de {% data variables.product.prodname_GH_advanced_security %}](/assets/images/help/billing/ghas-orgs-list-enterprise-ghes.png)
+5. Opcionalmente, haz clic en el nombre de una organización que te pertenezca para mostrar la configuración de seguridad y análisis para la organización.
+  ![Organización de su propiedad en la sección {% data variables.product.prodname_GH_advanced_security %} de la configuración de facturación empresarial](/assets/images/help/billing/ghas-orgs-list-enterprise-click-org.png)
+6. En la página de configuración "Seguridad y análisis", desplácese hacia la sección de repositorios de "{% data variables.product.prodname_GH_advanced_security %}" para ver un resumen detallado del uso por repositorio en esta organización.
+  ![Sección de repositorios de {% data variables.product.prodname_GH_advanced_security %}](/assets/images/help/enterprises/settings-security-analysis-ghas-repos-list.png) Para más información, vea "[Administración de la configuración de seguridad y análisis para la organización](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)".
 
 {% endif %}
 
-{% ifversion ghec or ghes > 3.3 %}
+{% ifversion ghec or ghes > 3.3 or ghae-issue-5378 %}
 
-## Downloading {% data variables.product.prodname_GH_advanced_security %} license usage information
+## Descargar la información de uso de licencia de {% data variables.product.prodname_GH_advanced_security %}
 
-You can download a CSV file with {% data variables.product.prodname_GH_advanced_security %} license usage information at both the enterprise and organization levels. The CSV file contains information about each {% data variables.product.prodname_advanced_security %} seat that is in use, including:
+Puedes descargar un archivo de CSV con la información de uso de licencia de {% data variables.product.prodname_GH_advanced_security %} tanto en los niveles de empresa como de organización. El archivo CSV contiene información sobre cada plaza de {% data variables.product.prodname_advanced_security %} que se encuentra en uso, incluyendo:
 
-- The username of the person using the seat
-- The {% data variables.product.prodname_advanced_security %}-enabled repositories where commits were made
-- The organizations that people using seats belong to
-- The most recent commit dates
+- El nombre de la persona que utiliza la plaza
+- Los repositorios con la {% data variables.product.prodname_advanced_security %} habilitada en donde se hicieron las confirmaciones
+- Las organizaciones a las cuales pertenecen las personas que utilizan las plazas
+- Las fechas de confirmación más recientes
 
-You can use this information for insights into how your {% data variables.product.prodname_advanced_security %} licenses are being used, such as which members of your enterprise are using an {% data variables.product.prodname_advanced_security %} seat or how {% data variables.product.prodname_advanced_security %} licenses are being consumed across your organizations.
+Puedes utilizar esta información para obtener perspectivas de cómo se están utilizando las licencias de {% data variables.product.prodname_advanced_security %}, tales como qué miembros de tu empresa están utilizando una plaza de {% data variables.product.prodname_advanced_security %} o cómo se están consumiendo las licencias de {% data variables.product.prodname_advanced_security %} en tus organizaciones.
 
-You can download the {% data variables.product.prodname_advanced_security %} license usage CSV through the {% data variables.product.product_name %} user interface or the REST API.
+Puedes descargar el CSV de uso de licencias de {% data variables.product.prodname_advanced_security %} mediante la interfaz de usuario de {% data variables.product.product_name %} o de la API de REST.
 
-### Downloading {% data variables.product.prodname_advanced_security %} license usage information through the UI
+### Descargar la información de uso de licencia de {% data variables.product.prodname_advanced_security %} a través de la IU
 
-#### At the organization-level
+#### A nivel organizacional
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.billing_plans %}
-1. Underneath "{% data variables.product.prodname_GH_advanced_security %}," click **{% octicon "download" aria-label="The download icon" %} CSV report** next to "Committers."
-  ![Download button for organization-level data](/assets/images/help/billing/download-organization-GHAS-usage-data.png)
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.organizations.billing_plans %}
+1. Debajo de "{% data variables.product.prodname_GH_advanced_security %}", haz clic en {% octicon "download" aria-label="The download icon" %} junto a "Confirmantes".
+  ![Botón de descarga para los datos de nivel de organización](/assets/images/help/billing/download-organization-GHAS-usage-data.png)
 
-#### At the enterprise-level
+#### A nivel empresarial
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.license-tab %}
-1. Under "{% data variables.product.prodname_GH_advanced_security %}," click **{% octicon "download" aria-label="The download icon" %} CSV report** next to "Committers."
-  ![Download button for enterprise-level data](/assets/images/help/billing/download-enterprise-GHAS-usage-data.png)
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.settings-tab %} {% data reusables.enterprise-accounts.license-tab %}
+1. Debajo de "{% data variables.product.prodname_GH_advanced_security %}", haz clic en {% octicon "download" aria-label="The download icon" %} junto a "Confirmantes".
+  ![Botón de descarga para los datos de nivel de empresa](/assets/images/help/billing/download-enterprise-GHAS-usage-data.png)
 
-### Downloading {% data variables.product.prodname_advanced_security %} license usage information through the REST API
+### Descargar la información de uso de licencia de {% data variables.product.prodname_advanced_security %} a través de la API de REST
 
-You can retrieve {% data variables.product.prodname_advanced_security %} usage information via the billing API.
+Puedes recuperar la información de uso de {% data variables.product.prodname_advanced_security %} a través de la API de facturación.
 
 {% ifversion ghec %}
 
-For organization-level data, use the `/orgs/{org}/settings/billing/advanced-security` endpoint. For more information, see "[Billing](/rest/reference/billing#get-github-advanced-security-active-committers-for-an-organization)" in the {% data variables.product.prodname_dotcom %} REST API documentation.
+Para los datos de nivel de organización, use el punto de conexión `/orgs/{org}/settings/billing/advanced-security`. Para más información, vea "[Facturación](/rest/reference/billing#get-github-advanced-security-active-committers-for-an-organization)" en la documentación de la API REST de {% data variables.product.prodname_dotcom %}.
 
 {% endif %}
 
-For enterprise-level data, use the `/enterprises/{enterprise}/settings/billing/advanced-security` endpoint. For more information, see "[{% data variables.product.prodname_enterprise %} administration](/rest/reference/enterprise-admin#get-github-advanced-security-active-committers-for-an-enterprise)" in the {% data variables.product.prodname_dotcom %} REST API documentation.
+Para los datos de nivel de empresa, use el punto de conexión `/enterprises/{enterprise}/settings/billing/advanced-security`. Para más información, vea "[Administración de {% data variables.product.prodname_enterprise %}](/rest/reference/enterprise-admin#get-github-advanced-security-active-committers-for-an-enterprise)" en la documentación de la API REST de {% data variables.product.prodname_dotcom %}.
 
 {% endif %}

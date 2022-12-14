@@ -1,5 +1,5 @@
 ---
-title: About Git rebase
+title: О перемещении изменений между ветвями в Git
 redirect_from:
   - /rebase
   - /articles/interactive-rebase
@@ -7,68 +7,74 @@ redirect_from:
   - /github/using-git/about-git-rebase
   - /github/getting-started-with-github/about-git-rebase
   - /github/getting-started-with-github/using-git/about-git-rebase
-intro: 'The `git rebase` command allows you to easily change a series of commits, modifying the history of your repository. You can reorder, edit, or squash commits together.'
+intro: 'Команда `git rebase` позволяет легко изменить ряд фиксаций, изменив журнал репозитория. Вы можете переупорядочивать, изменять фиксации или выполнять их сжатие.'
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
   ghec: '*'
+ms.openlocfilehash: 83518644864623c452f7fa1e8bd4cbd42f80a7cf
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148094372'
 ---
-Typically, you would use `git rebase` to:
+Как правило, команда `git rebase` используется в следующих целях:
 
-* Edit previous commit messages
-* Combine multiple commits into one
-* Delete or revert commits that are no longer necessary
+* изменение предыдущих сообщений о фиксациях;
+* объединение нескольких фиксаций в одну;
+* удаление или отмена фиксаций, которые больше не нужны.
 
 {% warning %}
 
-**Warning**: Because changing your commit history can make things difficult for everyone else using the repository, it's considered bad practice to rebase commits when you've already pushed to a repository. To learn how to safely rebase on {% data variables.location.product_location %}, see "[About pull request merges](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges)."
+**Предупреждение**. Так как изменение журнала фиксаций может затруднить работу всех остальных пользователей репозитория, перемещать фиксации из одной ветви в другую после отправки в репозиторий не рекомендуется. Сведения о безопасном перебазе данных на {% variables.location.product_location %}см. в разделе "[Сведения о слиянии запросов на вытягивание](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges)".
 
 {% endwarning %}
 
-## Rebasing commits against a branch
+## Перемещение фиксаций между ветвями
 
-To rebase all the commits between another branch and the current branch state, you can enter the following command in your shell (either the command prompt for Windows, or the terminal for Mac and Linux):
+Чтобы переместить все фиксации между другой ветвью и текущей, в оболочке (командной строке в Windows или терминале в MacOS и Linux) можно ввести следующую команду:
 
 ```shell
 $ git rebase --interactive OTHER-BRANCH-NAME
 ```
 
-## Rebasing commits against a point in time
+## Перемещение фиксаций на момент времени
 
-To rebase the last few commits in your current branch, you can enter the following command in your shell:
+Чтобы переместить последние несколько фиксаций в текущей ветви, в оболочке можно ввести следующую команду:
 
 ```shell
 $ git rebase --interactive HEAD~7
 ```
 
-## Commands available while rebasing
+## Команды, доступные при перемещении изменений между ветвями
 
-There are six commands available while rebasing:
+При перемещении изменений между ветвями доступны шесть команд.
 
 <dl>
 <dt><code>pick</code></dt>
-<dd><code>pick</code> simply means that the commit is included. Rearranging the order of the <code>pick</code> commands changes the order of the commits when the rebase is underway. If you choose not to include a commit, you should delete the entire line. </dd>
+<dd><code>pick</code> просто означает, что фиксация включается. Изменение порядка команд <code>pick</code> изменяет порядок фиксаций при перемещении изменений из одной ветви в другую. Если вы решили не включать фиксацию, удалите всю строку. </dd>
 
 <dt><code>reword</code></dt>
-<dd>The <code>reword</code> command is similar to <code>pick</code>, but after you use it, the rebase process will pause and give you a chance to alter the commit message. Any changes made by the commit are not affected. </dd>
+<dd>Команда <code>reword</code> аналогична команде <code>pick</code>, но после ее использования процесс перемещения изменений из одной ветви в другую приостанавливается, что дает возможность изменить сообщение о фиксации. Любые изменения, внесенные фиксацией, не затрагиваются. </dd>
 
 <dt><code>edit</code></dt>
-<dd>If you choose to <code>edit</code> a commit, you'll be given the chance to amend the commit, meaning that you can add or change the commit entirely. You can also make more commits before you continue the rebase. This allows you to split a large commit into smaller ones, or, remove erroneous changes made in a commit. </dd>
+<dd>Если вы решили применить к фиксации команду <code>edit</code>, то получите возможность добавить фиксацию или изменить ее полностью. Вы также можете создать дополнительные фиксации, прежде чем продолжать перемещение изменений из одной ветви в другую. Это позволяет разделить большую фиксацию на меньшие или удалить ошибочные изменения, внесенные в фиксации. </dd>
 
 <dt><code>squash</code></dt>
-<dd>This command lets you combine two or more commits into a single commit. A commit is squashed into the commit above it. Git gives you the chance to write a new commit message describing both changes.</dd>
+<dd>Эта команда позволяет объединить две или более фиксаций в одну. Фиксация вносится в вышестоящую. GIT дает возможность написать новое сообщение о фиксации с описанием обоих изменений.</dd>
 
 <dt><code>fixup</code></dt>
-<dd>This is similar to <code>squash</code>, but the commit to be merged has its message discarded. The commit is simply merged into the commit above it, and the earlier commit's message is used to describe both changes.</dd>
+<dd>Эта команда похожа на <code>squash</code>, но сообщение подлежащей слиянию фиксации удаляется. Фиксация просто объединяется с вышестоящей фиксацией, сообщение которой используется для описания обоих изменений.</dd>
 
 <dt><code>exec</code></dt>
-<dd>This lets you run arbitrary shell commands against a commit.</dd>
+<dd>Позволяет выполнять произвольные команды оболочки применительно к фиксации.</dd>
 </dl>
 
-## An example of using `git rebase`
+## Пример использования `git rebase`
 
-No matter which command you use, Git will launch [your default text editor](/github/getting-started-with-github/associating-text-editors-with-git) and open a file that details the commits in the range you've chosen. That file looks something like this:
+Независимо от используемой команды GIT запустит [текстовый редактор по умолчанию](/github/getting-started-with-github/associating-text-editors-with-git) и откроет файл с подробными сведениями о фиксациях в выбранном диапазоне. Этот файл выглядит примерно так:
 
 ```
 pick 1fc6c95 Patch A
@@ -94,18 +100,18 @@ pick 7b36971 something to move before patch B
 #
 ```
 
-Breaking this information, from top to bottom, we see that:
+Последовательно разобрав эти сведения, можно прийти к следующим выводам:
 
-- Seven commits are listed, which indicates that there were seven changes between our starting point and our current branch state.
-- The commits you chose to rebase are sorted in the order of the oldest changes (at the top) to the newest changes (at the bottom).
-- Each line lists a command (by default, `pick`), the commit SHA, and the commit message. The entire `git rebase` procedure centers around your manipulation of these three columns. The changes you make are *rebased* onto your repository.
-- After the commits, Git tells you the range of commits we're working with (`41a72e6..7b36971`).
-- Finally, Git gives some help by telling you the commands that are available to you when rebasing commits.
+- Перечислены семь фиксаций, то есть между отправной точкой и текущим состоянием ветви произошло семь изменений.
+- Фиксации, выбранные для перемещения, отсортированы в порядке от самых старых изменений (вверху) до самых новых (внизу).
+- Каждая строка содержит команду (по умолчанию `pick`), SHA фиксации и сообщение о фиксации. Процедура `git rebase` сосредоточена на операциях с этими тремя столбцами. Внесенные изменения *перемещаются* в ваш репозиторий.
+- После завершения фиксаций GIT сообщает диапазон фиксаций, с которыми ведется работа (`41a72e6..7b36971`).
+- Наконец, GIT оказывает некоторую помощь, сообщая команды, которые доступны при перемещении фиксаций между ветвями.
 
-## Further reading
+## Дополнительные материалы
 
-- "[Using Git rebase](/articles/using-git-rebase)"
-- [The "Git Branching" chapter from the _Pro Git_ book](https://git-scm.com/book/en/Git-Branching-Rebasing)
-- [The "Interactive Rebasing" chapter from the _Pro Git_ book](https://git-scm.com/book/en/Git-Tools-Rewriting-History#_changing_multiple)
-- "[Squashing commits with rebase](http://gitready.com/advanced/2009/02/10/squashing-commits-with-rebase.html)"
-- "[Syncing your branch](/desktop/contributing-to-projects/syncing-your-branch)" in the {% data variables.product.prodname_desktop %} documentation
+- [Перемещение изменений из одной ветви в другую в GIT](/articles/using-git-rebase)
+- [Глава "Ветвление Git" из книги _Pro Git_](https://git-scm.com/book/en/Git-Branching-Rebasing)
+- [Глава "Интерактивное перемещение изменений из одной ветви в другую" из книги _Pro Git_](https://git-scm.com/book/en/Git-Tools-Rewriting-History#_changing_multiple)
+- [Уплотнение фиксаций путем перемещения изменений из одной ветви в другую](http://gitready.com/advanced/2009/02/10/squashing-commits-with-rebase.html)
+- Раздел [Синхронизация ветви](/desktop/contributing-to-projects/syncing-your-branch) в документации по {% data variables.product.prodname_desktop %}

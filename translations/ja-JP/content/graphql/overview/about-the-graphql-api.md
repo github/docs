@@ -1,6 +1,6 @@
 ---
-title: About the GraphQL API
-intro: 'The {% data variables.product.prodname_dotcom %} GraphQL API offers flexibility and the ability to define precisely the data you want to fetch.'
+title: GraphQL APIについて
+intro: '{% data variables.product.prodname_dotcom %}のGraphQL APIは、柔軟性と、フェッチしたいデータを正確に定義できる機能を提供します。'
 versions:
   fpt: '*'
   ghec: '*'
@@ -8,52 +8,55 @@ versions:
   ghae: '*'
 topics:
   - API
+ms.openlocfilehash: 9b447925609425157d5d965370c09fdd12d30b56
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145068422'
 ---
+## 概要
 
-## Overview
+以下は、GraphQL APIを使い始めるためのクイックリンクです。
 
-Here are some quick links to get you up and running with the GraphQL API:
+* [認証](/graphql/guides/forming-calls-with-graphql#authenticating-with-graphql)
+* [ルート エンドポイント](/graphql/guides/forming-calls-with-graphql#the-graphql-endpoint)
+* [スキーマ イントロスペクション](/graphql/guides/introduction-to-graphql#discovering-the-graphql-api)
+* [転送率の制限](/graphql/overview/resource-limitations)
+* [REST からの移行](/graphql/guides/migrating-from-rest-to-graphql)
 
-* [Authentication](/graphql/guides/forming-calls-with-graphql#authenticating-with-graphql)
-* [Root endpoint](/graphql/guides/forming-calls-with-graphql#the-graphql-endpoint)
-* [Schema introspection](/graphql/guides/introduction-to-graphql#discovering-the-graphql-api)
-* [Rate limits](/graphql/overview/resource-limitations)
-* [Migrating from REST](/graphql/guides/migrating-from-rest-to-graphql)
+## GraphQLについて
 
-For more information about {% data variables.product.company_short %}'s APIs, see "[About {% data variables.product.company_short %}'s APIs](/developers/overview/about-githubs-apis)."
+[GraphQL](https://graphql.github.io/) データ クエリ言語は次のとおりです。
 
-## About GraphQL
+* **[仕様](https://graphql.github.io/graphql-spec/June2018/)です。** 仕様によって、API サーバー上の [スキーマ](/graphql/guides/introduction-to-graphql#schema) の有効性が決まります。 スキーマは、クライアントの呼び出しの正当性を決定します。
 
-The [GraphQL](https://graphql.github.io/) data query language is:
+* **[厳密に型指定](#about-the-graphql-schema-reference)されます。** スキーマによって、API の型システムとすべてのオブジェクト リレーションシップが定義されます。
 
-* **A [specification](https://graphql.github.io/graphql-spec/June2018/).** The spec determines the validity of the [schema](/graphql/guides/introduction-to-graphql#schema) on the API server. The schema determines the validity of client calls.
+* **[内省的](/graphql/guides/introduction-to-graphql#discovering-the-graphql-api)です。** クライアントはスキーマに対してクエリを実行して、スキーマの詳細を確認できます。
 
-* **[Strongly typed](#about-the-graphql-schema-reference).** The schema defines an API's type system and all object relationships.
+* **[階層構造](/graphql/guides/forming-calls-with-graphql)です。** GraphQL 呼び出しの構造は、返される JSON データの構造を反映しています。 [入れ子になったフィールド](/graphql/guides/migrating-from-rest-to-graphql#example-nesting)を使用すると、1 回のラウンド トリップで指定したデータのみをクエリおよび受信できます。
 
-* **[Introspective](/graphql/guides/introduction-to-graphql#discovering-the-graphql-api).** A client can query the schema for details about the schema.
+* **アプリケーション レイヤーです。** GraphQL は、ストレージ モデルまたはデータベース クエリ言語ではありません。 _graph_ は、スキーマで定義されたグラフ構造を指します。[ノード](/graphql/guides/introduction-to-graphql#node)でオブジェクトが定義され、[エッジ](/graphql/guides/introduction-to-graphql#edge)でオブジェクト間のリレーションシップが定義されます。 APIは、データがどのように保存されているかに関係なく、スキーマ定義に従ってアプリケーションデータをトラバースして返します。
 
-* **[Hierarchical](/graphql/guides/forming-calls-with-graphql).** The shape of a GraphQL call mirrors the shape of the JSON data it returns. [Nested fields](/graphql/guides/migrating-from-rest-to-graphql#example-nesting) let you query for and receive only the data you specify in a single round trip.
+## GitHubがGraphQLを使う理由
 
-* **An application layer.** GraphQL is not a storage model or a database query language. The _graph_ refers to graph structures defined in the schema, where [nodes](/graphql/guides/introduction-to-graphql#node) define objects and [edges](/graphql/guides/introduction-to-graphql#edge) define relationships between objects. The API traverses and returns application data based on the schema definitions, independent of how the data is stored.
+GitHubは、インテグレーターにとって大きな柔軟性を提供してくれることから、GraphQLを選択しました。 必要&mdash;なデータを正確に定義する機能と、必要 _なデータ_ のみを&mdash;定義できることは、従来の REST API エンドポイントよりも強力な利点です。 GraphQL を使用すると、複数の REST 要求を _1 回の呼び出しに_ 置き換えて、指定したデータをフェッチできます。
 
-## Why GitHub is using GraphQL
+GitHub が GraphQL に投資した理由の詳細については、元の[お知らせブログ記事](https://github.blog/2016-09-14-the-github-graphql-api/)をご覧ください。
 
-GitHub chose GraphQL because it offers significantly more flexibility for our integrators. The ability to define precisely the data you want&mdash;and _only_ the data you want&mdash;is a powerful advantage over traditional REST API endpoints. GraphQL lets you replace multiple REST requests with _a single call_ to fetch the data you specify.
+## GraphQLのスキーマ参照について
 
-For more details about why GitHub invested in GraphQL, see the original [announcement blog post](https://github.blog/2016-09-14-the-github-graphql-api/).
+サイドバーのドキュメントは、{% data variables.product.prodname_dotcom %} GraphQL [スキーマ](/graphql/guides/introduction-to-graphql#discovering-the-graphql-api)から生成されます。 すべての呼び出しは、このスキーマに対して検証され、実行されます。 以下のドキュメントを使って、呼び出せるデータを見つけてください。
 
-## About the GraphQL schema reference
+* 許可される操作: [クエリ](/graphql/reference/queries)と[ミューテーション](/graphql/reference/mutations)。
 
-The docs in the sidebar are generated from the {% data variables.product.prodname_dotcom %} GraphQL [schema](/graphql/guides/introduction-to-graphql#discovering-the-graphql-api). All calls are validated and executed against the schema. Use these docs to find out what data you can call:
+* スキーマ定義型: [スカラー](/graphql/reference/scalars)、[オブジェクト](/graphql/reference/objects)、[列挙型](/graphql/reference/enums)、[インターフェイス](/graphql/reference/interfaces)、[和集合](/graphql/reference/unions)、[および入力オブジェクト](/graphql/reference/input-objects)。
 
-* Allowed operations: [queries](/graphql/reference/queries) and [mutations](/graphql/reference/mutations).
+この同じコンテンツには、[Explorer のドキュメントのサイドバー](/graphql/guides/using-the-explorer#accessing-the-sidebar-docs)からアクセスできます。 GraphQL APIの呼び出しをうまく行うためには、ドキュメントとスキーマ検証の両方に依存しなければならないことがあります。
 
-* Schema-defined types: [scalars](/graphql/reference/scalars), [objects](/graphql/reference/objects), [enums](/graphql/reference/enums), [interfaces](/graphql/reference/interfaces), [unions](/graphql/reference/unions), and [input objects](/graphql/reference/input-objects).
+認証やレート制限の詳細など、その他の情報については「[ガイド](/graphql/guides)」を参照してください。
 
-You can access this same content via the [Explorer Docs sidebar](/graphql/guides/using-the-explorer#accessing-the-sidebar-docs). Note that you may need to rely on both the docs and the schema validation to successfully call the GraphQL API.
-
-For other information, such as authentication and rate limit details, check out the [guides](/graphql/guides).
-
-## Requesting support
+## サポートのリクエスト
 
 {% data reusables.support.help_resources %}

@@ -1,7 +1,7 @@
 ---
-title: Troubleshooting CodeQL runner in your CI system
+title: Problembehandlung des CodeQL-Runners im CI-System
 shortTitle: Troubleshoot CodeQL runner
-intro: 'If you''re having problems with the {% data variables.code-scanning.codeql_runner %}, you can troubleshoot by using these tips.'
+intro: 'Wenn du Probleme mit {% data variables.code-scanning.codeql_runner %} hast, kannst du sie mithilfe dieser Tipps beheben.'
 product: '{% data reusables.gated-features.code-scanning %}'
 redirect_from:
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/troubleshooting-code-scanning-in-your-ci-system
@@ -19,51 +19,53 @@ topics:
   - Troubleshooting
   - Integration
   - CI
+ms.openlocfilehash: b241e0c01b463a46a1eb3b47b68ba0283a94609d
+ms.sourcegitcommit: b617c4a7a1e4bf2de3987a86e0eb217d7031490f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 11/11/2022
+ms.locfileid: '148161168'
 ---
+{% data reusables.code-scanning.deprecation-codeql-runner %} {% data reusables.code-scanning.beta %} {% data reusables.code-scanning.not-available %}
 
+## Der Befehl `init` dauert zu lange
 
-{% data reusables.code-scanning.deprecation-codeql-runner %}
-{% data reusables.code-scanning.beta %}
-{% data reusables.code-scanning.not-available %}
+Bevor der {% data variables.code-scanning.codeql_runner %} Code erstellen und analysieren kann, benötigt er Zugriff auf das {% data variables.product.prodname_codeql %}-Bundle, das die {% data variables.product.prodname_codeql %}-CLI und die {% data variables.product.prodname_codeql %}-Bibliotheken enthält.
 
-## The `init` command takes too long
+Wenn Du den {% data variables.code-scanning.codeql_runner %} zum ersten Mal auf Deinem Computer verwendest, lädt der Befehl `init` das {% data variables.product.prodname_codeql %}-Bundle auf Deinen Computer herunter. Dieser Download kann einige Minuten dauern.
+Das {% data variables.product.prodname_codeql %}-Bundle wird zwischen den Ausführungen zwischengespeichert, sodass, wenn Du den {% data variables.code-scanning.codeql_runner %} erneut auf demselben Computer verwendest, das {% data variables.product.prodname_codeql %}-Bundle nicht erneut heruntergeladen wird.
 
-Before the {% data variables.code-scanning.codeql_runner %} can build and analyze code, it needs access to the {% data variables.product.prodname_codeql %} bundle, which contains the {% data variables.product.prodname_codeql %} CLI and the {% data variables.product.prodname_codeql %} libraries.
+Um diesen automatischen Download zu vermeiden, kannst du das {% data variables.product.prodname_codeql %} auf deinen Computer herunterladen und den Pfad mithilfe des Flags `--codeql-path` des Befehls `init` angeben.
 
-When you use the {% data variables.code-scanning.codeql_runner %} for the first time on your machine, the `init` command downloads the {% data variables.product.prodname_codeql %} bundle to your machine. This download can take a few minutes.
-The {% data variables.product.prodname_codeql %} bundle is cached between runs, so if you use the {% data variables.code-scanning.codeql_runner %} again on the same machine, it won't download the {% data variables.product.prodname_codeql %} bundle again.
+## Während des Builds wurde kein Code gefunden
 
-To avoid this automatic download, you can manually download the {% data variables.product.prodname_codeql %} bundle to your machine and specify the path using the `--codeql-path` flag of the `init` command.
+Wenn der Befehl `analyze` für den {% data variables.code-scanning.codeql_runner %} mit einem Fehler `No source code was seen during the build` fehlschlägt, gibt dies an, dass {% data variables.product.prodname_codeql %} den Code nicht überwachen konnte. Es gibt mehrere Gründe für einen solchen Fehler:
 
-## No code found during the build
+1. Die automatische Spracherkennung hat eine unterstützte Sprache identifiziert, aber es gibt keinen analysierbaren Code dieser Sprache im Repository. Ein typisches Beispiel hierfür ist, dass der Spracherkennungsdienst eine Datei findet (z. B. `.h`- oder `.gyp`-Datei), die einer bestimmten Programmiersprache zugeordnet ist, aber kein ausführbarer Code im Repository vorhanden ist. Um das Problem zu lösen, kannst du die Sprachen, die du analysieren möchten, manuell definieren, indem du das Flag `--languages` des Befehls `init` verwendest. Weitere Informationen findest du unter [Konfigurieren von {% data variables.code-scanning.codeql_runner %} im CI-System](/code-security/secure-coding/configuring-codeql-runner-in-your-ci-system).
 
-If the `analyze` command for the {% data variables.code-scanning.codeql_runner %} fails with an error `No source code was seen during the build`, this indicates that {% data variables.product.prodname_codeql %} was unable to monitor your code. Several reasons can explain such a failure.
-
-1. Automatic language detection identified a supported language, but there is no analyzable code of that language in the repository. A typical example is when our language detection service finds a file associated with a particular programming language like a `.h`, or `.gyp` file, but no corresponding executable code is present in the repository. To solve the problem, you can manually define the languages you want to analyze by using the `--languages` flag of the `init` command. For more information, see "[Configuring {% data variables.code-scanning.codeql_runner %} in your CI system](/code-security/secure-coding/configuring-codeql-runner-in-your-ci-system)."
-
-1. You're analyzing a compiled language without using the `autobuild` command and you run the build steps yourself after the `init` step. For the build to work, you must set up the environment such that the {% data variables.code-scanning.codeql_runner %} can monitor the build process. The `init` command generates instructions for how to export the required environment variables, so you can copy and run the script after you've run the `init` command.
-   - On macOS and Linux:
+1. Du analysierst eine kompilierte Sprache ohne Verwendung des Befehls `autobuild` und führst die Buildschritte nach dem Schritt `init` selbst aus. Damit der Build funktioniert, musst Du die Umgebung so einrichten, dass der {% data variables.code-scanning.codeql_runner %} den Buildprozess überwachen kann. Der Befehl `init` generiert Anweisungen zum Exportieren der erforderlichen Umgebungsvariablen, sodass du das Skript kopieren und ausführen kannst, nachdem du den Befehl `init` ausgeführt hast.
+   - Unter macOS und Linux:
      ```shell
       $ . codeql-runner/codeql-env.sh
      ```
-   - On Windows, using the Command shell (`cmd`) or a batch file (`.bat`):
+   - Verwende unter Windows die Befehlsshell (`cmd`) oder eine Batchdatei (`.bat`):
      ```shell
      > call codeql-runner\codeql-env.bat
      ```
-   - On Windows, using PowerShell:
+   - Unter Windows, mit PowerShell:
      ```shell
      > cat codeql-runner\codeql-env.sh | Invoke-Expression
      ```
 
-   The environment variables are also stored in the file `codeql-runner/codeql-env.json`. This file contains a single JSON object which maps environment variable keys to values. If you can't run the script generated by the `init` command, then you can use the data in JSON format instead.
+   Die Umgebungsvariablen werden auch in der Datei `codeql-runner/codeql-env.json` gespeichert. Diese Datei enthält ein einzelnes JSON-Objekt, das Umgebungsvariablenschlüssel zu Werten zugeordnet. Wenn du das vom Befehl `init` generierte Skript nicht ausführen kannst, kannst du stattdessen die Daten im JSON-Format verwenden.
 
    {% note %}
 
-   **Note:** If you used the `--temp-dir` flag of the `init` command to specify a custom directory for temporary files, the path to the `codeql-env` files might be different.
+   **Hinweis:** Wenn du das Flag `--temp-dir` des Befehls `init` verwendet hast, um ein benutzerdefiniertes Verzeichnis für temporäre Dateien anzugeben, kann der Pfad zu den `codeql-env`-Dateien unterschiedlich sein.
 
    {% endnote %}
 
-1. You're analyzing a compiled language on macOS without using the `autobuild` command and you run the build steps yourself after the `init` step. If SIP (System Integrity Protection) is enabled, which is the default on recent versions of OSX, analysis might fail. To fix this, prefix the build command with the `$CODEQL_RUNNER` environment variable. 
-   For example, if your build command is `cmd arg1 arg2`, you should run `$CODEQL_RUNNER cmd arg1 arg2`.
+1. Du analysierst eine kompilierte Sprache unter macOS ohne Verwendung des Befehls `autobuild` und führst die Buildschritte nach dem Schritt `init` selbst aus. Wenn SIP (Systemintegritätsschutz) aktiviert ist, was die Standardeinstellung für aktuelle Versionen von OSX ist, kann die Analyse fehlschlagen. Um dies zu beheben, musst du den Buildbefehl mit der Umgebungsvariable `$CODEQL_RUNNER` mit einem Präfix versehen. 
+   Wenn der Buildbefehl beispielsweise lautet `cmd arg1 arg2`, solltest du `$CODEQL_RUNNER cmd arg1 arg2` ausführen.
 
-1. The code is built in a container or on a separate machine. If you use a containerized build or if you outsource the build to another machine, make sure to run the {% data variables.code-scanning.codeql_runner %} in the container or on the machine where your build task takes place. For more information, see "[Running CodeQL code scanning in a container](/code-security/secure-coding/running-codeql-code-scanning-in-a-container)."
+1. Der Code wird in einem Container oder auf einem separaten Computer erstellt. Wenn Du einen containerisierten Build verwendest oder den Build auf einem anderen Computer auslagerst, stelle sicher, dass Du den {% data variables.code-scanning.codeql_runner %} im Container oder auf dem Computer ausführst, in bzw. auf dem Deine Buildaufgabe stattfindet. Weitere Informationen findest du unter [Ausführen der CodeQL-Codeüberprüfung in einem Container](/code-security/secure-coding/running-codeql-code-scanning-in-a-container).

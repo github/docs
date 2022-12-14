@@ -1,6 +1,6 @@
 ---
-title: Deploying to Amazon Elastic Container Service
-intro: You can deploy to Amazon Elastic Container Service (ECS) as part of your continuous deployment (CD) workflows.
+title: Desplegar hacia Amazon Elastic Container Service
+intro: Puedes hacer despliegues para Amazon Elastic Container Service (ECS) como parte de tus flujos de trabajo de despliegue contínuo (DC).
 redirect_from:
   - /actions/guides/deploying-to-amazon-elastic-container-service
   - /actions/deployment/deploying-to-amazon-elastic-container-service
@@ -15,37 +15,40 @@ topics:
   - Containers
   - Amazon ECS
 shortTitle: Deploy to Amazon ECS
+ms.openlocfilehash: 259a3fd5bc0076f60d0c08f356b3ec9914effe89
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147881110'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+## Introducción
 
-## Introduction
+En esta guía se explica cómo usar {% data variables.product.prodname_actions %} para crear una aplicación contenedorizada, insertarla en [Amazon Elastic Container Registry (ECR)](https://aws.amazon.com/ecr/) e implementarla en [Amazon Elastic Container Service (ECS)](https://aws.amazon.com/ecs/) cuando se realice una inserción en la rama `main`.
 
-This guide explains how to use {% data variables.product.prodname_actions %} to build a containerized application, push it to [Amazon Elastic Container Registry (ECR)](https://aws.amazon.com/ecr/), and deploy it to [Amazon Elastic Container Service (ECS)](https://aws.amazon.com/ecs/) when there is a push to the `main` branch.
+En cada nueva inserción en `main` en el repositorio de {% data variables.product.company_short %}, el flujo de trabajo de {% data variables.product.prodname_actions %} crea e inserta una imagen de contenedor nueva en Amazon ECR y, después, implementa una nueva tarea de definición en Amazon ECS.
 
-On every new push to `main` in your {% data variables.product.company_short %} repository, the {% data variables.product.prodname_actions %} workflow builds and pushes a new container image to Amazon ECR, and then deploys a new task definition to Amazon ECS.
-
-{% ifversion fpt or ghec or ghes > 3.4 %}
+{% ifversion fpt or ghec or ghae-issue-4856 or ghes > 3.4 %}
 
 {% note %}
 
-**Note**: {% data reusables.actions.about-oidc-short-overview %} and ["Configuring OpenID Connect in Amazon Web Services"](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-amazon-web-services).
+**Nota**: {% data reusables.actions.about-oidc-short-overview %} y "[Configuración de OpenID Connect en Amazon Web Services](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-amazon-web-services)".
 
 {% endnote %}
 
 {% endif %}
 
-## Prerequisites
+## Prerrequisitos
 
-Before creating your {% data variables.product.prodname_actions %} workflow, you will first need to complete the following setup steps for Amazon ECR and ECS:
+Antes de que crees tu flujo de trabajo de {% data variables.product.prodname_actions %}, primero necesitas completar los siguientes pasos de configuración para Amazon ECR y ECS:
 
-1. Create an Amazon ECR repository to store your images.
+1. Crea un repositorio de Amazon ECR para almacenar tus imágenes.
 
-   For example, using [the AWS CLI](https://aws.amazon.com/cli/):
+   Por ejemplo, mediante [la CLI de AWS](https://aws.amazon.com/cli/):
 
-   {% raw %}```bash{:copy}
-   aws ecr create-repository \
+   {% raw %}```bash{:copy} aws ecr create-repository \
        --repository-name MY_ECR_REPOSITORY \
        --region MY_AWS_REGION
    ```{% endraw %}
@@ -143,12 +146,8 @@ jobs:
           # push it to ECR so that it can
           # be deployed to ECS.
           docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
-          docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG{% endraw %}
-{%- ifversion actions-save-state-set-output-envs %}
-          echo "image=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG" >> $GITHUB_OUTPUT
-{%- else %}
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
           echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
-{%- endif %}{% raw %}
 
       - name: Fill in the new image ID in the Amazon ECS task definition
         id: task-def
@@ -167,14 +166,14 @@ jobs:
           wait-for-service-stability: true{% endraw %}
 ```
 
-## Additional resources
+## Recursos adicionales
 
-For the original starter workflow, see [`aws.yml`](https://github.com/actions/starter-workflows/blob/main/deployments/aws.yml) in the {% data variables.product.prodname_actions %} `starter-workflows` repository.
+Para obtener el flujo de trabajo de inicio original, vea [`aws.yml`](https://github.com/actions/starter-workflows/blob/main/deployments/aws.yml) en el repositorio `starter-workflows` de {% data variables.product.prodname_actions %}.
 
-For more information on the services used in these examples, see the following documentation:
+Para obtener más información sobre los servicios que se utilizan en estos ejemplos, consulta la siguiente documentación:
 
-* "[Security best practices in IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html)" in the Amazon AWS documentation.
-* Official AWS "[Configure AWS Credentials](https://github.com/aws-actions/configure-aws-credentials)" action.
-* Official AWS [Amazon ECR "Login"](https://github.com/aws-actions/amazon-ecr-login) action.
-* Official AWS [Amazon ECS "Render Task Definition"](https://github.com/aws-actions/amazon-ecs-render-task-definition) action.
-* Official AWS [Amazon ECS "Deploy Task Definition"](https://github.com/aws-actions/amazon-ecs-deploy-task-definition) action.
+* "[Procedimientos recomendados de seguridad en IAM" ](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html) en la documentación de Amazon AWS.
+* Acción oficial de AWS "[Configurar credenciales de AWS](https://github.com/aws-actions/configure-aws-credentials)".
+* Acción oficial de AWS ["Iniciar sesión en Amazon ECR](https://github.com/aws-actions/amazon-ecr-login)".
+* Acción oficial de AWS ["Representar definición de tarea" de Amazon ECS](https://github.com/aws-actions/amazon-ecs-render-task-definition).
+* Acción oficial de AWS ["Implementar definición de tarea" de Amazon ECS](https://github.com/aws-actions/amazon-ecs-deploy-task-definition).

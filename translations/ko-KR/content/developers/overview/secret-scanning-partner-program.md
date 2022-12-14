@@ -1,6 +1,6 @@
 ---
-title: Secret scanning partner program
-intro: 'As a service provider, you can partner with {% data variables.product.prodname_dotcom %} to have your secret token formats secured through secret scanning, which searches for accidental commits of your secret format and can be sent to a service provider''s verify endpoint.'
+title: 비밀 검사 파트너 프로그램
+intro: '서비스 공급자는 {% data variables.product.prodname_dotcom %}와 협력하여 비밀 검색을 통해 비밀 토큰 형식을 보호하도록 할 수 있습니다. 그러면 커밋한 비밀 형식을 검색하고 서비스 공급자의 확인 엔드포인트로 보낼 수 있습니다.'
 miniTocMaxHeadingLevel: 3
 redirect_from:
   - /partnerships/token-scanning
@@ -12,54 +12,59 @@ versions:
 topics:
   - API
 shortTitle: Secret scanning
+ms.openlocfilehash: 1fcda97f00dd0ab35c0d4da7797ee9f8716b6be8
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148094595'
 ---
+{% data variables.product.prodname_dotcom %}는 실수로 커밋된 자격 증명이 사기에 사용되지 않도록 알려진 비밀 형식이 있는지 리포지토리를 검색합니다. 기본적으로 {% data variables.product.prodname_secret_scanning_caps %}은(는) 퍼블릭 리포지토리에서 수행되며, 리포지토리 관리자 또는 조직 소유자가 프라이빗 리포지토리에서 사용하도록 설정할 수 있습니다. 서비스 공급자는 {% data variables.product.prodname_dotcom %}과 협력하여 비밀 형식이 {% data variables.product.prodname_secret_scanning %}에 포함되도록 할 수 있습니다.
 
-{% data variables.product.prodname_dotcom %} scans repositories for known secret formats to prevent fraudulent use of credentials that were committed accidentally. {% data variables.product.prodname_secret_scanning_caps %} happens by default on public repositories, and can be enabled on private repositories by repository administrators or organization owners. As a service provider, you can partner with {% data variables.product.prodname_dotcom %} so that your secret formats are included in our {% data variables.product.prodname_secret_scanning %}.
+비밀 형식의 일치 항목이 퍼블릭 리포지토리에 있으면 선택한 HTTP 엔드포인트로 페이로드가 전송됩니다.
 
-When a match of your secret format is found in a public repository, a payload is sent to an HTTP endpoint of your choice.
+{% data variables.product.prodname_secret_scanning %}에 대해 구성된 프라이빗 리포지토리에서 비밀 형식 일치 항목이 발견되면 리포지토리 관리자와 커밋한 사람이 알림을 받고 {% data variables.product.prodname_dotcom %}에서 {% data variables.product.prodname_secret_scanning %} 결과를 보고 관리할 수 있습니다. 자세한 내용은 “[{% data variables.product.prodname_secret_scanning %}의 알림 관리](/github/administering-a-repository/managing-alerts-from-secret-scanning)”를 참조하세요.
 
-When a match of your secret format is found in a private repository configured for {% data variables.product.prodname_secret_scanning %}, then repository admins and the committer are alerted and can view and manage the {% data variables.product.prodname_secret_scanning %} result on {% data variables.product.prodname_dotcom %}. For more information, see "[Managing alerts from {% data variables.product.prodname_secret_scanning %}](/github/administering-a-repository/managing-alerts-from-secret-scanning)."
+이 문서에서는 서비스 공급자로 {% data variables.product.prodname_dotcom %}와 협력하는 방법과 {% data variables.product.prodname_secret_scanning %} 파트너 프로그램에 가입하는 방법을 설명합니다.
 
-This article describes how you can partner with {% data variables.product.prodname_dotcom %} as a service provider and join the {% data variables.product.prodname_secret_scanning %} partner program.
+## {% data variables.product.prodname_secret_scanning %} 프로세스
 
-## The {% data variables.product.prodname_secret_scanning %} process
+#### 퍼블릭 리포지토리에서 {% data variables.product.prodname_secret_scanning %}가 작동하는 방식
 
-#### How {% data variables.product.prodname_secret_scanning %} works in a public repository
+다음 다이어그램은 서비스 공급자의 확인 엔드포인트로 전송된 모든 일치 항목과 함께 퍼블릭 리포지토리에 대한 {% data variables.product.prodname_secret_scanning %} 프로세스가 요약되어 나와 있습니다.
 
-The following diagram summarizes the {% data variables.product.prodname_secret_scanning %} process for public repositories, with any matches sent to a service provider's verify endpoint.
+![비밀을 검색하고 서비스 공급자의 확인 엔드포인트에 일치 항목을 보내는 프로세스를 보여 주는 흐름 다이어그램](/assets/images/secret-scanning-flow.png "{% data variables.product.prodname_secret_scanning_caps %} 흐름")
 
-![Flow diagram showing the process of scanning for a secret and sending matches to a service provider's verify endpoint](/assets/images/secret-scanning-flow.png "{% data variables.product.prodname_secret_scanning_caps %} flow")
+## {% data variables.product.prodname_dotcom %}에서 {% data variables.product.prodname_secret_scanning %} 프로그램에 조인
 
-## Joining the {% data variables.product.prodname_secret_scanning %} program on {% data variables.product.prodname_dotcom %}
+1. {% data variables.product.prodname_dotcom %}에 문의하여 이 프로세스를 시작합니다.
+1. 검색하려는 관련 비밀을 식별하고 해당 비밀을 캡처하는 정규식을 만듭니다.
+1. 퍼블릭 리포지토리에 있는 비밀 일치 항목의 경우 {% data variables.product.prodname_dotcom %}의 웹후크를 허용하는 비밀 알림 서비스를 만듭니다. 이 서비스에는 {% data variables.product.prodname_secret_scanning %} 메시지 페이로드가 포함되어 있습니다.
+1. 비밀 알림 서비스에서 서명 확인을 구현합니다.
+1. 비밀 알림 서비스에서 비밀 해지 및 사용자 알림을 구현합니다.
+1. 가양성(선택 사항)에 대한 피드백을 제공합니다.
 
-1. Contact {% data variables.product.prodname_dotcom %} to get the process started.
-1. Identify the relevant secrets you want to scan for and create regular expressions to capture them.
-1. For secret matches found in public repositories, create a secret alert service which accepts webhooks from {% data variables.product.prodname_dotcom %}  that contain the {% data variables.product.prodname_secret_scanning %} message payload.
-1. Implement signature verification in your secret alert service.
-1. Implement secret revocation and user notification in your secret alert service.
-1. Provide feedback for false positives (optional).
+### {% data variables.product.prodname_dotcom %}에 문의하여 이 프로세스를 시작합니다.
 
-### Contact {% data variables.product.prodname_dotcom %} to get the process started
+등록 프로세스를 시작하려면 <a href="mailto:secret-scanning@github.com">secret-scanning@github.com</a>으로 메일을 보내세요.
 
-To get the enrollment process started, email <a href="mailto:secret-scanning@github.com">secret-scanning@github.com</a>.
+{% data variables.product.prodname_secret_scanning %} 프로그램에 대한 세부 정보를 받게 되며 계속 진행하기 전에 {% data variables.product.prodname_dotcom %}의 참여 약관에 동의해야 합니다.
 
-You will receive details on the {% data variables.product.prodname_secret_scanning %} program, and you will need to agree to {% data variables.product.prodname_dotcom %}'s terms of participation before proceeding.
+### 비밀 식별 및 정규식 만들기
 
-### Identify your secrets and create regular expressions
+비밀을 검색하려면 {% data variables.product.prodname_dotcom %}에는 {% data variables.product.prodname_secret_scanning %} 프로그램에 포함하려는 각 비밀에 대해 다음 정보가 필요합니다.
 
-To scan for your secrets, {% data variables.product.prodname_dotcom %} needs the following pieces of information for each secret that you want included in the {% data variables.product.prodname_secret_scanning %} program:
+* 사람이 읽을 수 있는, 비밀 형식에 대한 고유한 이름. 이 정보를 사용하여 나중에 메시지 페이로드에서 `Type` 값을 만들 수 있습니다.
+* 비밀 형식을 찾는 정규식. 이로 인해 가양성의 수가 줄어들기 때문에 가능한 한 정확해야 합니다.
+* {% data variables.product.prodname_dotcom %}에서 메시지를 받는 엔드포인트의 URL. 이 URL은 각 비밀 유형에 대해 고유할 필요는 없습니다.
 
-* A unique, human readable name for the secret type. We'll use this to generate the `Type` value in the message payload later.
-* A regular expression which finds the secret type. Be as precise as possible, because this will reduce the number of false positives.
-* The URL of the endpoint that receives messages from {% data variables.product.prodname_dotcom %}. This does not have to be unique for each secret type.
+이 정보를 <a href="mailto:secret-scanning@github.com">secret-scanning@github.com</a>으로 보냅니다.
 
-Send this information to <a href="mailto:secret-scanning@github.com">secret-scanning@github.com</a>.
+### 비밀 경고 서비스 만들기
 
-### Create a secret alert service
+사용자가 제공한 URL에서 인터넷에 액세스할 수 있는 퍼블릭 HTTP 엔드포인트를 만듭니다. 퍼블릭 리포지토리에서 정규식의 일치 항목이 발견되면 {% data variables.product.prodname_dotcom %}가 엔드포인트에 HTTP `POST` 메시지를 보냅니다.
 
-Create a public, internet accessible HTTP endpoint at the URL you provided to us. When a match of your regular expression is found in a public repository, {% data variables.product.prodname_dotcom %} will send an HTTP `POST` message to your endpoint.
-
-#### Example request body
+#### 요청 본문 예제
 
 ```json
 [
@@ -72,17 +77,17 @@ Create a public, internet accessible HTTP endpoint at the URL you provided to us
 ]
 ```
 
-The message body is a JSON array that contains one or more objects, with each object representing a single secret match. Your endpoint should be able to handle requests with a large number of matches without timing out. The keys for each secret match are:
+메시지 본문은 하나 이상의 개체를 포함하는 JSON 배열이며 각 개체는 단일 비밀 일치를 나타냅니다. 엔드포인트는 시간 제한 없이 많은 수의 일치 항목으로 요청을 처리할 수 있어야 합니다. 각 비밀 일치의 키는 다음과 같습니다.
 
-* **token**: The value of the secret match.
-* **type**: The unique name you provided to identify your regular expression.
-* **url**: The public URL where the match was found (may be empty)
-* **source**: Where the token was found on {% data variables.product.prodname_dotcom %}.
+* **token**: 비밀 일치 값입니다.
+* **형식**: 정규식을 식별하기 위해 제공한 고유한 이름입니다.
+* **url**: 일치 항목이 발견된 공용 URL(비어 있을 수 있음)
+* **원본**: {% 데이터 variables.product.prodname_dotcom %}에서 토큰이 발견된 위치입니다.
 
-The list of valid values for `source` are:
+유효한 값 `source` 목록은 다음과 같습니다.
 
-* content
-* commit
+* 콘텐츠
+* 커밋(commit)
 * pull_request_description
 * pull_request_comment
 * issue_description
@@ -92,35 +97,32 @@ The list of valid values for `source` are:
 * commit_comment
 * gist_content
 * gist_comment
-* unknown
+* 알 수 없음
 
-### Implement signature verification in your secret alert service
+### 비밀 알림 서비스에서 서명 확인을 구현합니다.
 
-The HTTP request to your service will also contain headers that we strongly recommend using
-to validate the messages you receive are genuinely from {% data variables.product.prodname_dotcom %}, and are not malicious.
+서비스에 대한 HTTP 요청에는 수신한 메시지가 {% 데이터 variables.product.prodname_dotcom %}에서 온 것이며 악의적이지 않은지 확인하는 데 사용하는 것이 좋습니다.
 
-The two HTTP headers to look for are:
+찾을 두 HTTP 헤더는 다음과 같습니다.
 
-* `GITHUB-PUBLIC-KEY-IDENTIFIER`: Which `key_identifier` to use from our API
-* `GITHUB-PUBLIC-KEY-SIGNATURE`: Signature of the payload
+* `GITHUB-PUBLIC-KEY-IDENTIFIER``key_identifier`: API에서 사용할 작업
+* `GITHUB-PUBLIC-KEY-SIGNATURE`: 페이로드의 서명
 
-You can retrieve the {% data variables.product.prodname_dotcom %} secret scanning public key from https://api.github.com/meta/public_keys/secret_scanning and validate the message using the `ECDSA-NIST-P256V1-SHA256` algorithm. The endpoint
-will provide several `key_identifier` and public keys. You can determine which public
-key to use based on the value of `GITHUB-PUBLIC-KEY-IDENTIFIER`.
+https://api.github.com/meta/public_keys/secret_scanning 에서 {% data variables.product.prodname_dotcom %} 비밀 검사 퍼블릭 키를 검색하고 `ECDSA-NIST-P256V1-SHA256` 알고리즘을 사용하여 메시지의 유효성을 검사할 수 있습니다. 엔드포인트는 여러 공개 `key_identifier` 키를 제공합니다. 의 값 `GITHUB-PUBLIC-KEY-IDENTIFIER`에 따라 사용할 공개 키를 결정할 수 있습니다.
 
 {% note %}
 
-**Note**: When you send a request to the public key endpoint above, you may hit rate limits. To avoid hitting rate limits, you can use a {% data variables.product.pat_v1 %} (no scopes required){% ifversion pat-v2 %} or a {% data variables.product.pat_v2 %} (only the automatic public repositories read access required){% endif %} as suggested in the samples below, or use a conditional request. For more information, see "[Getting started with the REST API](/rest/guides/getting-started-with-the-rest-api#conditional-requests)."
+**참고**: 위의 퍼블릭 키 엔드포인트에 요청을 보내면 속도 제한에 도달할 수 있습니다. 속도 제한에 도달하지 않도록 하려면 {% 데이터 variables.product.pat_v1 %}(범위 필요 없음){% ifversion pat-v2 %} 또는 {% 데이터 variables.product.pat_v2 %}(자동 공용 리포지토리 읽기 액세스만 필요){% endif %}를 아래 샘플에 제안된 대로 사용하거나 조건부 요청을 사용할 수 있습니다. 자세한 내용은 “[ 시작](/rest/guides/getting-started-with-the-rest-api#conditional-requests)”을 참조하세요.
 
 {% endnote %}
 
 {% note %}
 
-**Note**: The signature was generated using the raw message body. So it's important you also use the raw message body for signature validation, instead of parsing and stringifying the JSON, to avoid rearranging the message or changing spacing.
+**참고**: 서명은 원시 메시지 본문을 사용하여 생성되었습니다. 따라서 메시지를 다시 정렬하거나 간격을 변경하지 않도록 JSON을 구문 분석하고 문자열로 변환하는 대신 서명 유효성 검사에 원시 메시지 본문을 사용하는 것도 중요합니다.
 
 {% endnote %}
 
-**Sample HTTP POST sent to verify endpoint**
+**엔드포인트를 확인하기 위해 전송된 샘플 HTTP POST**
 
 ```http
 POST / HTTP/2
@@ -136,8 +138,8 @@ Content-Length: 83
 
 {% note %}
 
-**Note**: The key id and signature from the example payload is derived from a test key.
-The public key for them is:
+**참고**: 예제 페이로드의 키 ID 및 서명은 테스트 키에서 파생됩니다.
+공개 키는 다음과 같습니다.
 
 ```
 -----BEGIN PUBLIC KEY-----
@@ -148,10 +150,10 @@ HzZFI03Exwz8Lh/tCfL3YxwMdLjB+bMznsanlhK0RwcGP3IDb34kQDIo3Q==
 
 {% endnote %}
 
-The following code snippets demonstrate how you could perform signature validation.
-The code examples assume you've set an environment variable called `GITHUB_PRODUCTION_TOKEN` with a generated [{% data variables.product.pat_generic %}](https://github.com/settings/tokens) to avoid hitting rate limits. The {% data variables.product.pat_generic %} does not need any scopes/permissions.
+다음 코드 조각에서는 서명 유효성 검사를 수행하는 방법을 보여 줍니다.
+코드 예제에서는 속도 제한에 도달하지 않도록 생성된 [{% 데이터 variables.product.pat_generic %}](https://github.com/settings/tokens)로 호출 `GITHUB_PRODUCTION_TOKEN` 된 환경 변수를 설정했다고 가정합니다. {% 데이터 variables.product.pat_generic %}에는 범위/권한이 필요하지 않습니다.
 
-**Validation sample in Go**
+**Go의 유효성 검사 샘플**
 ```golang
 package main
 
@@ -281,7 +283,7 @@ type asn1Signature struct {
 }
 ```
 
-**Validation sample in Ruby**
+**Go의 유효성 검사 샘플**
 ```ruby
 require 'openssl'
 require 'net/http'
@@ -321,7 +323,7 @@ openssl_key = OpenSSL::PKey::EC.new(current_key)
 puts openssl_key.verify(OpenSSL::Digest::SHA256.new, Base64.decode64(signature), payload.chomp)
 ```
 
-**Validation sample in JavaScript**
+**의 유효성 검사 샘플**
 ```js
 const crypto = require("crypto");
 const axios = require("axios");
@@ -363,17 +365,17 @@ const verify_signature = async (payload, signature, keyID) => {
 };
 ```
 
-### Implement secret revocation and user notification in your secret alert service
+### 비밀 알림 서비스에서 비밀 해지 및 사용자 알림을 구현합니다.
 
-For {% data variables.product.prodname_secret_scanning %} in public repositories, you can enhance your secret alert service to revoke the exposed secrets and notify the affected users. How you implement this in your secret alert service is up to you, but we recommend considering any secrets that {% data variables.product.prodname_dotcom %} sends you messages about as public and compromised.
+퍼블릭 리포지토리의 {% data variables.product.prodname_secret_scanning %}의 경우 비밀 알림 서비스를 개선하여 노출된 비밀을 해지하고 영향을 받는 사용자에게 알릴 수 있습니다. 비밀 알림 서비스에서 이를 구현하는 방법은 사용자에게 달려 있지만 {% data variables.product.prodname_dotcom %}가 퍼블픽 및 손상에 대한 메시지를 보내는 비밀을 고려하는 것이 좋습니다.
 
-### Provide feedback for false positives
+### 가양성에 대한 피드백 제공
 
-We collect feedback on the validity of the detected individual secrets in partner responses. If you wish to take part, email us at <a href="mailto:secret-scanning@github.com">secret-scanning@github.com</a>.
+파트너 응답에서 검색된 개별 비밀의 유효성에 대한 피드백을 수집합니다. 참여하려면 <a href="mailto:secret-scanning@github.com">secret-scanning@github.com</a>으로 이메일을 보내주세요.
 
-When we report secrets to you, we send a JSON array with each element containing the token, type identifier, and commit URL. When you send us feedback, you send us information about whether the detected token was a real or false credential. We accept feedback in the following formats.
+귀하에게 비밀을 보고할 때 토큰, 형식 식별자 및 커밋 URL을 포함하고 있는 각 요소가 포함된 JSON 배열을 보냅니다. 귀하가 피드백을 보낼 때 검색된 토큰이 실제 또는 거짓 자격 증명인지에 대한 정보를 같이 보냅니다. 다음과 같은 형식의 피드백을 수락합니다.
 
-You can send us the raw token:
+원시 토큰을 보낼 수 있습니다.
 
 ```
 [
@@ -384,7 +386,7 @@ You can send us the raw token:
   }
 ]
 ```
-You may also provide the token in hashed form after performing a one way cryptographic hash of the raw token using SHA-256:
+또한 SHA-256을 사용하여 원시 토큰의 단방향 암호화 해시를 수행한 후 해시된 형식으로 토큰을 제공할 수도 있습니다.
 
 ```
 [
@@ -395,13 +397,13 @@ You may also provide the token in hashed form after performing a one way cryptog
   }
 ]
 ```
-A few important points:
-- You should only send us either the raw form of the token ("token_raw"), or the hashed form ("token_hash"), but not both.
-- For the hashed form of the raw token, you can only use SHA-256 to hash the token, not any other hashing algorithm.
-- The label indicates whether the token is a true ("true_positive") or a false positive ("false_positive"). Only these two lowercased literal strings are allowed.
+몇 가지 중요 사항:
+- 토큰의 원시 형식(“token_raw”) 또는 해시된 양식(“token_hash”)만 보내야 하지만 둘 다 보내지는 않습니다.
+- 원시 토큰의 해시된 형식의 경우 SHA-256만 사용하여 다른 해시 알고리즘이 아닌 토큰을 해시할 수 있습니다.
+- 레이블은 토큰이 진양성(“true_positive”) 또는 가양성(“false_positive”)인지 여부를 나타냅니다. 이러한 소문자 리터럴 문자열 두 개만 허용됩니다.
 
 {% note %}
 
-**Note:** Our request timeout is set to be higher (that is, 30 seconds) for partners who provide data about false positives. If you require a timeout higher than 30 seconds, email us at <a href="mailto:secret-scanning@github.com">secret-scanning@github.com</a>.
+**참고:** 가양성에 대한 데이터를 제공하는 파트너의 경우 요청 시간 제한이 더 높게(즉, 30초) 설정됩니다. 30초보다 더 높은 시간 제한이 필요한 경우 <a href="mailto:secret-scanning@github.com">secret-scanning@github.com</a>으로 메일을 보내 주세요.
 
 {% endnote %}

@@ -1,6 +1,6 @@
 ---
-title: Configuring pull request merges
-intro: 'You can configure pull request merges on {% data variables.location.product_location %} to match your workflow and preferences for managing Git history.'
+title: プルリクエストマージを設定する
+intro: '{% data variables.product.product_location %} でプルリクエストのマージを設定して、Git 履歴を管理するためのワークフローと設定に一致させることができます。'
 redirect_from:
   - /articles/configuring-pull-request-merges
   - /github/administering-a-repository/configuring-pull-request-merges
@@ -21,5 +21,11 @@ children:
   - /managing-auto-merge-for-pull-requests-in-your-repository
   - /managing-the-automatic-deletion-of-branches
 shortTitle: Configure PR merges
+ms.openlocfilehash: 625392c72ae470fffea4f92288aa7c3124bc18ab
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147580608'
 ---
 

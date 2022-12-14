@@ -1,7 +1,7 @@
 ---
-title: 'Adding items to your {% data variables.projects.project_v2 %}'
+title: 'Добавление элементов в {% data variables.projects.project_v2 %}'
 shortTitle: Adding items
-intro: 'Learn how to add pull requests, issues, and draft issues to your projects individually or in bulk.'
+intro: 'Узнайте, как добавлять запросы на вытягивание, проблемы и черновики проблем в проекты по отдельности или массово.'
 miniTocMaxHeadingLevel: 4
 versions:
   feature: projects-v2
@@ -9,78 +9,82 @@ type: tutorial
 topics:
   - Projects
 allowTitleToDifferFromFilename: true
+ms.openlocfilehash: cba8a20d0ec17ec8fceb0cb30671eb3d608ae715
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148107616'
 ---
-
-Your project can track draft issues, issues, and pull requests. 
+Ваш проект может отслеживать черновики проблем, проблемы и запросы на вытягивание. 
 
 {% note %}
 
-**Note:** A project can contain a maximum of {% data variables.projects.item_limit %} items and {% data variables.projects.archived_item_limit %} archived items. {% ifversion projects-v2-auto-archive %}To learn more about automatically archiving items when they meet specific criteria, see "[Archiving items automatically](/issues/planning-and-tracking-with-projects/automating-your-project/archiving-items-automatically)."{% endif %}
+**Примечание:** Проект может содержать не более {% данных variables.projects.item_limit %} элементов и {% данных variables.projects.archived_item_limit %} архивированных элементов. {% ifversion projects-v2-auto-archive %} Дополнительные сведения об автоматическом архивации элементов при выполнении определенных условий см. в разделе "[Автоматическое архивация элементов](/issues/planning-and-tracking-with-projects/automating-your-project/archiving-items-automatically)". {% endif %}
 
 {% endnote %}
 
-### Adding issues and pull requests to a project
+### Добавление проблем и запросов на вытягивание в проект
 
-#### Pasting the URL of an issue or pull request
+#### Вставка URL-адреса проблемы или запроса на вытягивание
 
 {% data reusables.projects.add-item-via-paste %}
 
-#### Searching for an issue or pull request
+#### Поиск проблемы или запроса на вытягивание
 
 {% data reusables.projects.add-item-bottom-row %}
-2. Enter <kbd>#</kbd>.
-3. Select the repository where the pull request or issue is located. You can type part of the repository name to narrow down your options.
-  ![Screenshot showing pasting an issue URL to add it to the project](/assets/images/help/projects-v2/add-item-select-repo.png)
-4. Select the issue or pull request. You can type part of the title to narrow down your options.
-  ![Screenshot showing pasting an issue URL to add it to the project](/assets/images/help/projects-v2/add-item-select-issue.png)
+2. Укажите <kbd>#</kbd> .
+3. Выберите репозиторий, в котором расположен запрос на вытягивание или проблема. Можно ввести часть названия репозитория, чтобы сузить выбор.
+  ![Снимок экрана: вставка URL-адреса проблемы для добавления в проект](/assets/images/help/projects-v2/add-item-select-repo.png)
+4. Выберите проблему или запрос на вытягивание. Можно ввести часть названия, чтобы сузить выбор.
+  ![Снимок экрана: вставка URL-адреса проблемы для добавления в проект](/assets/images/help/projects-v2/add-item-select-issue.png)
 
-#### Bulk adding issues and pull requests
+#### Массовое добавление проблем и запросов на вытягивание
 
-1. In the bottom row of the project, click {% octicon "plus" aria-label="plus icon" %}.
-  ![Screenshot showing + button at the bottom of the project](/assets/images/help/projects-v2/omnibar-add.png)
-1. Click **Add item from repository**.
-  ![Screenshot showing "add item from repository" menu item](/assets/images/help/projects-v2/add-bulk-menu-item.png)
-{% data reusables.projects.bulk-add %}
+1. В нижней строке проекта щелкните {% octicon "plus" aria-label="plus icon" %}.
+  ![Снимок экрана: кнопка "+" в нижней части проекта](/assets/images/help/projects-v2/omnibar-add.png)
+1. Щелкните **Добавить элемент из репозитория**.
+  ![Снимок экрана: пункт меню "Добавить элемент из репозитория"](/assets/images/help/projects-v2/add-bulk-menu-item.png) {% data reusables.projects.bulk-add %}
 
-#### Adding multiple issues or pull requests from a repository
+#### Добавление нескольких проблем или запросов на вытягивание из репозитория
 
-1. On {% data variables.location.product_location %}, navigate to the repository that contains the issues or pull requests you want to add to your project.
+1. В {% данных variables.location.product_location %}перейдите в репозиторий, содержащий проблемы или запросы на вытягивание, которые вы хотите добавить в проект.
 {% data reusables.repositories.sidebar-issue-pr %}
-1. To the left of each issue title, select the issues that you want to add to your project.
-  ![Screenshot showing checkbox to select issue or pull request](/assets/images/help/issues/select-issue-checkbox.png)
-1. Optionally, to select every issue or pull request on the page, at the top of the list of issues or pull requests, select all. 
-  ![Screenshot showing checkbox to select all on screen](/assets/images/help/issues/select-all-checkbox.png)
-1. Above the list of issues or pull requests, click **Projects**. 
-  ![Screenshot showing projects option](/assets/images/help/projects-v2/issue-index-project-menu.png)
-1. Click the projects you want to add the selected issues or pull requests to.
-  ![Screenshot showing checkbox to select all on screen](/assets/images/help/projects-v2/issue-index-select-project.png)
+1. Выберите проблемы, которые хотите добавить в проект, щелкнув поле слева от их названий.
+  ![Снимок экрана: флажок для выбора проблемы или запроса на вытягивание](/assets/images/help/issues/select-issue-checkbox.png)
+1. При необходимости выберите все проблемы или запросы на вытягивание в верхней части их списка. 
+  ![Снимок экрана: флажок для выбора всех элементов на экране](/assets/images/help/issues/select-all-checkbox.png)
+1. Над списком проблем или запросов на вытягивание щелкните **Проекты**. 
+  ![Снимок экрана: параметр "Проекты"](/assets/images/help/projects-v2/issue-index-project-menu.png)
+1. Щелкните проекты, в которые хотите добавить выбранные проблемы или запросы на вытягивание.
+  ![Снимок экрана: список проектов в репозитории](/assets/images/help/projects-v2/issue-index-select-project.png)
 
-#### Assigning a project from within an issue or pull request
+#### Назначение проекта из проблемы или запроса на вытягивание
 
-1. Navigate to the issue or pull request that you want to add to a project.
-2. In the side bar, click **Projects**.
-  ![Screenshot showing "Projects" in the issue sidebar](/assets/images/help/projects-v2/issue-sidebar-projects.png)
-3. Select the project that you want to add the issue or pull request to.
-  ![Screenshot showing selecting a project from the issue sidebar](/assets/images/help/projects-v2/issue-sidebar-select-project.png)
-4. Optionally, populate the custom fields.
-  ![Project sidebar](/assets/images/help/projects-v2/issue-edit-project-sidebar.png)
+1. Перейдите к проблеме или запросу на вытягивание, который хотите добавить в проект.
+2. На боковой панели щелкните **Проекты**.
+  ![Снимок экрана: "Проекты" на боковой панели проблемы](/assets/images/help/projects-v2/issue-sidebar-projects.png)
+3. Выберите проект, в который хотите добавить проблему или запрос на вытягивание.
+  ![Снимок экрана: выбор проекта на боковой панели проблемы](/assets/images/help/projects-v2/issue-sidebar-select-project.png)
+4. При необходимости заполните настраиваемые поля.
+  ![Боковая панель проекта](/assets/images/help/projects-v2/issue-edit-project-sidebar.png)
 
-#### Using the command palette to add an issue or pull request
+#### Добавление проблемы или запроса на вытягивание с помощью палитры команд
 
 1. {% data reusables.projects.open-command-palette %}
-1. Start typing "Add items" and press <kbd>Return</kbd>.
+1. Начните вводить "Добавить элементы" и нажмите <kbd>Возврат</kbd>.
 {% data reusables.projects.bulk-add %}
 
-### Creating draft issues
+### Создание черновиков проблем
 
-Draft issues are useful to quickly capture ideas. Unlike issues and pull requests that are referenced from your repositories, draft issues exist only in your project.
+С помощью черновиков проблем можно быстро записать идеи. В отличие от проблем и запросов на вытягивание, на которые ссылаются репозитории, черновики существуют только в проекте.
 
 {% data reusables.projects.add-draft-issue %}
 
-Draft issues can have a title, text body, assignees, and any custom fields from your project. In order to populate the repository, labels, or milestones for a draft issue, you must first convert the draft issue to an issue. For more information, see "[Converting draft issues to issues](/issues/planning-and-tracking-with-projects/managing-items-in-your-project/converting-draft-issues-to-issues)."
+Черновики проблем могут содержать название, основной текст, уполномоченных пользователей и любые настраиваемые поля из вашего проекта. Чтобы заполнить репозиторий, метки или вехи черновика проблемы, необходимо сначала преобразовать черновик в проблему. Дополнительные сведения см. в разделе ["Преобразование черновиков в проблемы"](/issues/planning-and-tracking-with-projects/managing-items-in-your-project/converting-draft-issues-to-issues).
 
 {% note %}
 
-**Note**: Users will not receive notifications when they are assigned to or mentioned in a draft issue unless the draft issue is converted to an issue.
+**Примечание.** Пользователи не будут получать уведомления, когда их назначают или упоминают в черновике проблемы, если черновик не преобразовать в проблему.
 
 {% endnote %}

@@ -21,6 +21,12 @@ When you first create an iteration field, three iterations are automatically cre
 
 ![Screenshot showing the settings for an iteration field](/assets/images/help/issues/iterations-example.png)
 
+{% ifversion projects-v2-roadmaps %}
+
+If your project makes use of iteration fields, you can use the roadmap layout to view items on a timeline. For more information, see "[Changing the layout of a view](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/changing-the-layout-of-a-view)" and "[Customizing the roadmap layout](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/customizing-the-roadmap-layout)."
+
+{% endif %}
+
 ## Adding an iteration field
 
 {% data reusables.projects.new-field %}

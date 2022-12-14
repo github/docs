@@ -1,0 +1,15 @@
+date: '08-09-2020'
+sections:
+  bugs:
+    - 'Una revisión del estado del servicio provocaba un crecimiento de la sesión que resultaba en el agotamiento del inode del sistema de archivos. {% comment %} https://github.com/github/enterprise2/pull/22481, https://github.com/github/enterprise2/pull/22475 {% endcomment %}'
+    - "La realización de mejoras utilizando hotpatches podía fallar con un error de tipo `'libdbi1' was not found` {% comment %} https://github.com/github/enterprise2/pull/22556, https://github.com/github/enterprise2/pull/22552 {% endcomment %}"
+    - "La configuración del permiso de un repositorio en `Triage` o `Maintain` ya no genera fallos."
+  known_issues:
+    - 'En una instancia de GitHub Enterprise Server recién configurada sin ningún usuario, un atacante podría crear el primer usuario administrador. {% comment %} https://github.com/github/enterprise2/issues/1889 {% endcomment %}'
+    - 'Las reglas de cortafuegos personalizadas no se mantienen durante una actualización. {% comment %} https://github.com/github/enterprise2/issues/2823 {% endcomment %}'
+    - 'Los archivos supervisados de Git LFS [cargados desde la interfaz web](https://github.com/blog/2105-upload-files-to-your-repositories) se agregan de forma incorrecta y directa al repositorio. {% comment %} https://github.com/github/github/issues/54684 {% endcomment %}'
+    - 'Las incidencias no se pueden cerrar si contienen un enlace permanente a un blob del mismo repositorio en el que la ruta es mayor de 255 caracteres. {% comment %} https://github.com/github/github/issues/107731 {% endcomment %}'
+    - 'Cuando se habilita "Los usuarios pueden buscar en GitHub.com" con GitHub Connect, las incidencias en los repositorios privados e internos no se incluyen en los resultados de la búsqueda de GitHub.com. {% comment %} https://github.com/github/admin-experience/issues/571 {% endcomment %}'
+    - 'Las alertas de seguridad no se notifican cuando se realiza la inserción en un repositorio en la línea de comandos. {% comment %} https://github.com/github/github/issues/143190 {% endcomment %}'
+    - 'Los registros de auditoría se pueden atribuir a 127.0.0.1 en lugar de a la dirección IP de origen real. (Actualizado el 02-11-2020) {% comment %} https://github.com/github/enterprise2/issues/21514 {% endcomment %}'
+    - 'Cuando un nodo de réplica está sin conexión en una configuración de disponibilidad alta, es posible que {% data variables.product.product_name %} enrute las solicitudes a {% data variables.product.prodname_pages %} al nodo sin conexión, lo que reduce la disponibilidad de {% data variables.product.prodname_pages %} para los usuarios.'

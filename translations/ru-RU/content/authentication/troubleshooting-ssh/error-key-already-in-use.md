@@ -1,6 +1,6 @@
 ---
-title: 'Error: Key already in use'
-intro: 'This error occurs when you try to [add a key](/articles/adding-a-new-ssh-key-to-your-github-account) that''s already been added to another account or repository.'
+title: 'Ошибка: ключ уже используется'
+intro: 'Эта ошибка возникает при попытке [добавить ключ](/articles/adding-a-new-ssh-key-to-your-github-account), который уже добавлен в другую учетную запись или репозиторий.'
 redirect_from:
   - /articles/error-key-already-in-use
   - /github/authenticating-to-github/error-key-already-in-use
@@ -12,10 +12,16 @@ versions:
   ghec: '*'
 topics:
   - SSH
+ms.openlocfilehash: ac5bf63d3c7763bb3df38f031a4e79a31d4f572c
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148094212'
 ---
-## Finding where the key has been used
+## Поиск места использования ключа
 
-To determine where the key has already been used, open a terminal and type the `ssh` command. Use the `-i` flag to provide the path to the key you want to check:
+Чтобы определить, где ранее был использован ключ, откройте терминал и введите команду `ssh`. С помощью флага `-i` укажите путь к ключу, который требуется проверить:
 
 ```shell
 $ ssh -T -ai ~/.ssh/id_rsa git@{% data variables.command_line.codeblock %}
@@ -24,21 +30,21 @@ $ ssh -T -ai ~/.ssh/id_rsa git@{% data variables.command_line.codeblock %}
 > provide shell access.
 ```
 
-The *username* in the response is the account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %} that the key is currently attached to. If the response looks something like "username/repo", the key has been attached to a repository as a [*deploy key*](/guides/managing-deploy-keys#deploy-keys).
+*Имя пользователя* в ответе — это учетная запись {% ifversion ghae %}{% данных variables.product.product_name %}{% остальных %}{% данных variables.location.product_location %}{% endif %}}, к которому в настоящее время подключен ключ. Если ответ имеет форму "имя_пользователя/репозиторий", значит ключ был присоединен к репозиторию в качестве [*ключа развертывания*](/guides/managing-deploy-keys#deploy-keys).
 
 
-To force SSH to use only the key provided on the command line, use `-o` to add the `IdentitiesOnly=yes` option:
+Чтобы принудительно использовать SSH для использования только ключа, указанного в командной строке, добавьте параметр `IdentitiesOnly=yes` с помощью `-o`:
 
 ```shell
 $ ssh -v -o "IdentitiesOnly=yes" -i ~/.ssh/id_rsa git@{% data variables.command_line.codeblock %}
 ```
 
-## Fixing the issue
+## Устранение проблемы
 
-To resolve the issue, first remove the key from the other account or repository and then [add it to your account](/articles/adding-a-new-ssh-key-to-your-github-account).
+Чтобы устранить эту проблему, сначала удалите ключ из других учетной записи или репозитория, а затем [добавьте его в свою учетную запись](/articles/adding-a-new-ssh-key-to-your-github-account).
 
-If you don't have permissions to transfer the key, and can't contact a user who does, remove the keypair and [generate a brand new one](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent).
+Если у вас нет разрешений на передачу ключа и возможности связаться с пользователем, у которого они есть, удалите пару ключей и [создайте новую](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent).
 
-## Deploy keys
+## Ключи развертывания
 
-Once a key has been attached to one repository as a deploy key, it cannot be used on another repository.  If you're running into this error while setting up deploy keys, see "[Managing deploy keys](/guides/managing-deploy-keys)."
+Ключ, присоединенный к репозиторию в качестве ключа развертывания, нельзя использовать в другом репозитории.  Если при настройке ключей развертывания возникает эта ошибка, см. раздел [Управление ключами развертывания](/guides/managing-deploy-keys).

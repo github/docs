@@ -1,5 +1,13 @@
+---
+ms.openlocfilehash: 8dc6617bb382fa9a362194fccb4b26ff1ddf3e5c
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/20/2022
+ms.locfileid: "148094100"
+---
 {% note %}
 
-**Note:** Because {% data variables.product.prodname_dotcom %} adds an underscore and short code to the normalized identifier provided by your IdP when creating each username, conflicts can only occur within each {% data variables.enterprise.prodname_emu_enterprise %}. {% data variables.enterprise.prodname_managed_users_caps %} can share IdP identifiers or email addresses with other user accounts on {% data variables.product.prodname_dotcom_the_website %} that are outside the enterprise.
+**Примечание:** Так как {% данных variables.product.prodname_dotcom %} добавляет символ подчеркивания и короткий код в нормализованный идентификатор, предоставленный idP при создании каждого имени пользователя, конфликты могут возникать только в пределах каждого {% данных variables.enterprise.prodname_emu_enterprise %}. {% данных variables.enterprise.prodname_managed_users_caps %} может совместно использовать идентификаторы поставщика удостоверений или адреса электронной почты с другими учетными записями пользователей на {% данных variables.product.prodname_dotcom_the_website %}, которые находятся за пределами предприятия.
 
 {% endnote %}

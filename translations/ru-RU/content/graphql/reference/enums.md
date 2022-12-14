@@ -1,5 +1,5 @@
 ---
-title: Enums
+title: Перечисления
 redirect_from:
   - /v4/enum
   - /v4/reference/enum
@@ -10,16 +10,21 @@ versions:
   ghae: '*'
 topics:
   - API
+ms.openlocfilehash: 3be1688849e7cfef4a0b81af1ee045a3ddccd625
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148109051'
 ---
+## Сведения о перечислениях
 
-## About enums
+[Перечисления](https://graphql.github.io/graphql-spec/June2018/#sec-Enums) представляют возможные наборы значений для поля.
 
-[Enums](https://graphql.github.io/graphql-spec/June2018/#sec-Enums) represent possible sets of values for a field.
+Например, у объекта [`Issue`](/graphql/reference/objects#issue) есть поле `state`. Состояние представляет собой перечисление (в частности, типа [`IssueState`](/graphql/reference/enums#issuestate)), так как оно может иметь значение `OPEN` или `CLOSED`.
 
-For example, the [`Issue`](/graphql/reference/objects#issue) object has a field called `state`. The state is an enum (specifically, of type [`IssueState`](/graphql/reference/enums#issuestate)) because it may be `OPEN` or `CLOSED`.
+Дополнительные сведения см. в разделе [Общие сведения о GraphQL](/graphql/guides/introduction-to-graphql).
 
-For more information, see "[Introduction to GraphQL](/graphql/guides/introduction-to-graphql)."
-
-{% data reusables.projects.graphql-ghes %}
+{% данных reusables.projects.graphql-ghes %}
 
 <!-- Content after this section is automatically generated -->

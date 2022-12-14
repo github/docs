@@ -1,6 +1,6 @@
 ---
-title: About writing and formatting on GitHub
-intro: GitHub combines a syntax for formatting text called GitHub Flavored Markdown with a few unique writing features.
+title: Informationen zum Schreiben und Formatieren bei GitHub
+intro: GitHub kombiniert eine Syntax zur Formatierung von Text namens GitHub Flavored Markdown mit einigen einzigartigen Schreibfeatures.
 redirect_from:
   - /articles/about-writing-and-formatting-on-github
   - /github/writing-on-github/about-writing-and-formatting-on-github
@@ -10,36 +10,40 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
-shortTitle: About writing & formatting
+shortTitle: Write & format on GitHub
+ms.openlocfilehash: 7819ebc6bbf3ffa8696c87f82745a19c103c8134
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147860834'
 ---
-[Markdown](http://daringfireball.net/projects/markdown/) is an easy-to-read, easy-to-write syntax for formatting plain text.
+[Markdown](http://daringfireball.net/projects/markdown/) ist eine leicht lesbare, einfach zu schreibende Syntax für die Formatierung von Nur-Text.
 
-We've added some custom functionality to create {% data variables.product.prodname_dotcom %} Flavored Markdown, used to format prose and code across our site.
+Wir haben einige benutzerdefinierte Funktionen hinzugefügt, um {% data variables.product.prodname_dotcom %} Flavored Markdown zu erstellen, das verwendet wird, um Fließtext und Code auf unserer Website zu formatieren.
 
-You can also interact with other users in pull requests and issues using features like [@mentions](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams), [issue and PR references](/articles/basic-writing-and-formatting-syntax/#referencing-issues-and-pull-requests), and [emoji](/articles/basic-writing-and-formatting-syntax/#using-emoji).
+Du kannst auch mit anderen Benutzern bei Pull-Anfragen und Problemen interagieren, indem du Features wie[@mentions](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams), [Problem- und PR-Verweise](/articles/basic-writing-and-formatting-syntax/#referencing-issues-and-pull-requests) und [Emojis](/articles/basic-writing-and-formatting-syntax/#using-emoji) verwendest.
 
-## Text formatting toolbar
+## Symbolleiste für die Textformatierung
 
-Every comment field on {% data variables.product.product_name %} contains a text formatting toolbar, allowing you to format your text without learning Markdown syntax. In addition to Markdown formatting like bold and italic styles and creating headers, links, and lists, the toolbar includes {% data variables.product.product_name %}-specific features such as @mentions, task lists, and links to issues and pull requests.
+Jedes Kommentarfeld auf {% data variables.product.product_name %} enthält eine Symbolleiste für die Textformatierung, mit der du deinen Text formatieren kannst, ohne die Markdown-Syntax erlernen zu müssen. Zusätzlich zur Markdown-Formatierung (z. B. fettgedruckte und kursive Stile und Erstellung von Überschriften, Links und Listen) enthält die Symbolleiste {% data variables.product.product_name %}-spezifische Funktionen wie @mentions, Aufgabenlisten und Links zu Problemen und Pull-Anfragen.
 
 {% ifversion fixed-width-font-gfm-fields %}
 
-## Enabling fixed-width fonts in the editor
+## Aktivieren von Schriftarten mit fester Breite im Editor
 
-You can enable a fixed-width font in every comment field on {% data variables.product.product_name %}. Each character in a fixed-width, or monospace, font occupies the same horizontal space which can make it easier to edit advanced Markdown structures such as tables and code snippets.
+Du kannst eine Schriftart mit fester Breite in jedem Kommentarfeld auf {% data variables.product.product_name %} aktivieren. Jedes Zeichen in einer festen Breite, oder Monospace, belegt denselben horizontalen Raum, der das Bearbeiten erweiterter Markdown-Strukturen wie Tabellen und Codeschnipsel erleichtern kann.
 
-![Screenshot showing the {% data variables.product.product_name %} comment field with fixed-width fonts enabled](/assets/images/help/writing/fixed-width-example.png)
+![Screenshot des {% data variables.product.product_name %}-Kommentarfelds mit aktivierten Schriftarten mit fester Breite](/assets/images/help/writing/fixed-width-example.png)
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.appearance-settings %}
-1. Under "Markdown editor font preference", select **Use a fixed-width (monospace) font when editing Markdown**.
-  ![Screenshot showing the {% data variables.product.product_name %} comment field with fixed width fonts enabled](/assets/images/help/writing/enable-fixed-width.png)
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.appearance-settings %}
+1. Wähle unter "Markdown editor font preference" (Schriftarteinstellungen des Markdown-Editors) **Use a fixed-width (monospace) font when editing Markdown** (Beim Bearbeiten des Markdown-Editors die Schriftart "Feste Breite (Monospace) verwenden") aus.
+  ![Screenshot des {% data variables.product.product_name %}-Kommentarfelds mit aktivierten Schriftarten mit fester Breite](/assets/images/help/writing/enable-fixed-width.png)
 
 {% endif %}
 
-## Further reading
+## Weitere Informationsquellen
 
-- [{% data variables.product.prodname_dotcom %} Flavored Markdown Spec](https://github.github.com/gfm/)
-- "[Basic writing and formatting syntax](/articles/basic-writing-and-formatting-syntax)"
-- "[Working with advanced formatting](/articles/working-with-advanced-formatting)"
-- "[Quickstart for writing on {% data variables.product.prodname_dotcom %}](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/quickstart-for-writing-on-github)"
+- [{% data variables.product.prodname_dotcom %} Flavored Markdown – Spezifikation](https://github.github.com/gfm/)
+- [Grundlegende Schreib- und Formatierungssyntax](/articles/basic-writing-and-formatting-syntax)
+- "[Arbeiten mit erweiterter Formatierung](/articles/working-with-advanced-formatting)"

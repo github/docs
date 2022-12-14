@@ -1,6 +1,6 @@
 ---
-title: Working with the Apache Maven registry
-intro: 'You can configure Apache Maven to publish packages to {% data variables.product.prodname_registry %} and to use packages stored on {% data variables.product.prodname_registry %} as dependencies in a Java project.'
+title: Работа с реестром Apache Maven
+intro: 'Вы можете настроить в Apache Maven публикацию пакетов в {% data variables.product.prodname_registry %} и использование пакетов, хранящихся в {% data variables.product.prodname_registry %}, в качестве зависимостей в проекте Java.'
 product: '{% data reusables.gated-features.packages %}'
 redirect_from:
   - /articles/configuring-apache-maven-for-use-with-github-package-registry
@@ -14,36 +14,38 @@ versions:
   ghae: '*'
   ghec: '*'
 shortTitle: Apache Maven registry
+ms.openlocfilehash: 7231e2298c02bcddec875d62ffb334b1d068c1a8
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148099132'
 ---
-
-{% data reusables.package_registry.packages-ghes-release-stage %}
-{% data reusables.package_registry.packages-ghae-release-stage %}
+{% data reusables.package_registry.packages-ghes-release-stage %} {% data reusables.package_registry.packages-ghae-release-stage %}
 
 {% data reusables.package_registry.admins-can-configure-package-types %}
 
-## Authenticating to {% data variables.product.prodname_registry %}
+## Проверка подлинности в {% data variables.product.prodname_registry %}
 
 {% data reusables.package_registry.authenticate-packages %}
 
 {% data reusables.package_registry.authenticate-packages-github-token %}
 
-### Authenticating with a {% data variables.product.pat_generic %}
+### Проверка подлинности с помощью {% данных variables.product.pat_generic %}
 
 {% data reusables.package_registry.required-scopes %}
 
-You can authenticate to {% data variables.product.prodname_registry %} with Apache Maven by editing your *~/.m2/settings.xml* file to include your {% data variables.product.pat_v1 %}. Create a new *~/.m2/settings.xml* file if one doesn't exist.
+Вы можете пройти проверку подлинности в {% данных variables.product.prodname_registry %} с помощью Apache Maven, изменив *файл ~/.m2/settings.xml* , чтобы включить данные {% variables.product.pat_v1 %}. Создайте новый файл *~/.m2/settings.xml*, если он не существует.
 
-In the `servers` tag, add a child `server` tag with an `id`, replacing *USERNAME* with your {% data variables.product.prodname_dotcom %} username, and *TOKEN* with your {% data variables.product.pat_generic %}.
+В теге `servers` добавьте дочерний `server` тег с `id`именем пользователя, заменив *имя пользователя* {% данными variables.product.prodname_dotcom %} и *ТОКЕН* своими данными {% variables.product.pat_generic %}.
 
-In the `repositories` tag, configure a repository by mapping the `id` of the repository to the `id` you added in the `server` tag containing your credentials. Replace {% ifversion ghes or ghae %}*HOSTNAME* with the host name of {% data variables.location.product_location %}, and{% endif %} *OWNER* with the name of the user or organization account that owns the repository. Because uppercase letters aren't supported, you must use lowercase letters for the repository owner even if the {% data variables.product.prodname_dotcom %} user or organization name contains uppercase letters.
+В теге `repositories` настройте репозиторий, сопоставив `id` репозитория с `id`, добавленным в теге `server`, который содержит учетные данные. Замените {% ifversion ghes или ghae %}*HOSTNAME* именем узла {% данных variables.location.product_location %}, а *владелец* {% endif %} — именем учетной записи пользователя или организации, которая владеет репозиторием. Поскольку прописные буквы не поддерживаются, необходимо использовать строчные буквы для указания владельца репозитория, даже если имя пользователя или организации {% data variables.product.prodname_dotcom %} содержит прописные буквы.
 
-If you want to interact with multiple repositories, you can add each repository to separate `repository` children in the `repositories` tag, mapping the `id` of each to the credentials in the `servers` tag.
+Для взаимодействия с несколькими репозиториями можно добавить каждый репозиторий в отдельный дочерний элемент `repository` тега `repositories`, сопоставив `id` каждого репозитория с учетными данными в теге `servers`.
 
 {% data reusables.package_registry.apache-maven-snapshot-versions-supported %}
 
-{% ifversion ghes %}
-If your instance has subdomain isolation enabled:
-{% endif %}
+{% ifversion ghes %} Если в вашем экземпляре включена изоляция поддоменов: {% endif %}
 
 ```xml
 <settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
@@ -84,8 +86,7 @@ If your instance has subdomain isolation enabled:
 </settings>
 ```
 
-{% ifversion ghes %}
-If your instance has subdomain isolation disabled:
+{% ifversion ghes %} Если в вашем экземпляре выключена изоляция поддоменов:
 
 ```xml
 <settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
@@ -127,17 +128,17 @@ If your instance has subdomain isolation disabled:
 ```
 {% endif %}
 
-## Publishing a package
+## Публикация пакета
 
-{% data reusables.package_registry.default-name %} For example, {% data variables.product.prodname_dotcom %} will publish a package named `com.example:test` in a repository called `OWNER/test`.
+{% data reusables.package_registry.default-name %} Например, {% data variables.product.prodname_dotcom %} опубликует пакет с именем `com.example:test` в репозитории `OWNER/test`.
 
-If you would like to publish multiple packages to the same repository, you can include the URL of the repository in the `<distributionManagement>` element of the *pom.xml* file. {% data variables.product.prodname_dotcom %} will match the repository based on that field. Since the repository name is also part of the `distributionManagement` element, there are no additional steps to publish multiple packages to the same repository.
+Чтобы опубликовать несколько пакетов в одном репозитории, можно включить URL-адрес репозитория в элемент `<distributionManagement>` файла *pom.xml*. {% data variables.product.prodname_dotcom %} сопоставит репозиторий на основе этого поля. Поскольку имя репозитория также является частью элемента `distributionManagement`, дополнительные действия по публикации нескольких пакетов в одном репозитории не требуются.
 
-For more information on creating a package, see the [maven.apache.org documentation](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html).
+Дополнительные сведения о создании пакета см. в [документации по maven.apache.org](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html).
 
-1. Edit the `distributionManagement` element of the *pom.xml* file located in your package directory, replacing {% ifversion ghes or ghae %}*HOSTNAME* with the host name of {% data variables.location.product_location %}, {% endif %}`OWNER` with the name of the user or organization account that owns the repository and `REPOSITORY` with the name of the repository containing your project.{% ifversion ghes %}
+1. Измените `distributionManagement` элемент файла *pom.xml* , расположенного в каталоге пакета, заменив {% ifversion ghes или ghae %}*HOSTNAME* именем узла {% данных variables.location.product_location %}, {% endif %}`OWNER` именем учетной записи пользователя или организации, которая владеет репозиторием и `REPOSITORY` именем репозитория, содержащего проект.{ % ghes ifversion %}
 
-  If your instance has subdomain isolation enabled:{% endif %}
+  Если в вашем экземпляре включена изоляция поддоменов:{% endif %}
   ```xml
   <distributionManagement>
      <repository>
@@ -165,12 +166,12 @@ For more information on creating a package, see the [maven.apache.org documentat
 
 {% data reusables.package_registry.viewing-packages %}
 
-## Installing a package
+## Установка пакета
 
-To install an Apache Maven package from {% data variables.product.prodname_registry %}, edit the *pom.xml* file to include the package as a dependency. If you want to install packages from more than one repository, add a `repository` tag for each. For more information on using a *pom.xml* file in your project, see "[Introduction to the POM](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html)" in the Apache Maven documentation.
+Чтобы установить пакет Apache Maven из {% data variables.product.prodname_registry %}, измените файл *pom.xml*, включив в него пакет в качестве зависимости. Чтобы установить пакеты из нескольких репозиториев, добавьте для каждого из них тег `repository`. Дополнительные сведения об использовании файла *pom.xml* в проекте см. в разделе "[Введение в POM](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html)" в документации по Apache Maven.
 
 {% data reusables.package_registry.authenticate-step %}
-2. Add the package dependencies to the `dependencies` element of your project *pom.xml* file, replacing `com.example:test` with your package.
+2. Добавьте зависимости пакета в элемент `dependencies` файла проекта *pom.xml*, заменив `com.example:test` своим пакетом.
 
   ```xml
   <dependencies>
@@ -182,13 +183,13 @@ To install an Apache Maven package from {% data variables.product.prodname_regis
   </dependencies>
   ```
 {% data reusables.package_registry.checksum-maven-plugin %}
-3. Install the package.
+3. Установите пакет.
 
   ```shell
   $ mvn install
   ```
 
-## Further reading
+## Дополнительные материалы
 
-- "[Working with the Gradle registry](/packages/working-with-a-github-packages-registry/working-with-the-gradle-registry)"
-- "[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package)"
+- [Работа с реестром Gradle](/packages/working-with-a-github-packages-registry/working-with-the-gradle-registry)
+- "[Удаление и восстановление пакета](/packages/learn-github-packages/deleting-and-restoring-a-package)"

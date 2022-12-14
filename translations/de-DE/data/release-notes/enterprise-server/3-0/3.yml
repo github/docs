@@ -1,0 +1,49 @@
+date: '23.03.2021'
+intro: "Downloads wurden aufgrund eines schwerwiegenden Fehlers deaktiviert, der sich auf mehreren Kunden ausgewirkt hat. Ein Fix wird im nächsten Patch verfügbar sein."
+sections:
+  security_fixes:
+    - '**HOCH:** In GitHub Enterprise Server wurde ein Sicherheitsrisiko bezüglich der Remoteausführung von Code identifiziert, das beim Erstellen einer GitHub Pages-Site ausgenutzt werden könnte. Die benutzergesteuerte Konfigurationsoptionen, die von GitHub Pages verwendet werden, waren nicht ausreichend eingeschränkt und ermöglichten, Umgebungsvariablen außer Kraft zu setzen, die zur Codeausführung auf der GitHub Enterprise Server-Instanz führt. Um dieses Sicherheitsrisiko auszunutzen, benötigt ein*e Angreifer*in die Berechtigung, eine GitHub Pages-Site auf der GitHub Enterprise Server-Instanz zu erstellen. Dieses Sicherheitsrisiko trat bei allen Versionen von GitHub Enterprise Server vor 3.0.3 auf und wurde in den Versionen 3.0.3, 2.22.9 und 2.21.17 behoben. Dieses Sicherheitsrisiko wurde über das GitHub Bug Bounty Program gemeldet, und CVE-2021-22864 wurde zugewiesen.'
+    - Die Pakete wurden auf die neuesten Sicherheitsversionen aktualisiert.
+  bugs:
+    - "Die Ausführung von `ghe-cluster-config-init` könnte dazu führen, dass ein Cluster nicht mehr ausgeführt werden kann."
+    - "Die Auflösung von Mergekonflikten in der GUI schlägt fehl, wenn benutzerdefinierte Pre-Receive-Hooks auf dem Repository konfiguriert werden."
+    - '`launch-deployer` und `launch-receiver` haben auf DEBUG-Ebene protokolliert und Protokolle mit unnötigen Informationen aufgefüllt.'
+    - Systemd könnte die Übersicht über die PID von HAProxy verlieren.
+    - "Wenn Actions konfiguriert wurde, um S3-Speicher zu verwenden, können die Protokolle für eine Aktion manchmal nicht geladen werden."
+    - Die mysql-failover-Warnung wurde nach einem erfolgreichen Failover endlos angezeigt.
+    - "Die `ghe-cluster-config-init`-Ausführung hat den Exitcode von Hintergrundaufträgen nicht vollständig berücksichtigt, was zu einer ungeeigneten Verarbeitung von Preflightüberprüfungen führt."
+    - "Wenn GitHub Actions aktiviert wird, wird für die Intitialisierung im Hintergrund ein Fehler erzeugt."
+    - "Wenn Warnungen für Sicherheitsrisiken aktiviert sind, schlagen Upgrades auf die 3.0-Serie fehl."
+    - "Aufträge, die mit Codespaces im Zusammenhang stehen, wurden in die Warteschlange eingereiht, was zu einer Akkumulation nicht verarbeiteter Aufträge führt."
+  changes:
+    - "Verwende eine relative Zahl für Consul- und Nomad-Features für `bootstrap_expect`, wodurch ein Cluster ein Bootstrapping durchführen kann, obwohl eine Reihe von Knoten inaktiv sind."
+    - Protokolle werden basierend auf ihrer Größe zusätzlich zur Zeit rotiert.
+    - Kafka-lite wurde dem `ghe-cluster-status`-Befehl hinzugefügt.
+  known_issues:
+    - Auf einer neu eingerichteten GitHub Enterprise Server-Instanz ohne Benutzer*innen könnten Angreifer*innen den ersten Administratorbenutzer erstellen.
+    - Benutzerdefinierte Firewallregeln werden während eines Upgrades nicht aufrechterhalten.
+    - "Nachverfolgte Git LFS-Dateien, [die über die Webschnittstelle hochgeladen wurden,](https://github.com/blog/2105-upload-files-to-your-repositories) werden dem Repository fälschlicherweise direkt hinzugefügt."
+    - "Issues können nicht geschlossen werden, wenn sie einen Permalink zu einem Blob im selben Repository enthalten und der Dateipfad länger ist als 255 Zeichen."
+    - "Wenn die Option zum Durchsuchen von GitHub.com bei GitHub Connect aktiviert ist, sind Issues in privaten und internen Repositorys nicht in den GitHub.com-Suchergebnissen enthalten."
+    - "Wenn das Wartungsmodell aktiviert ist, werden einige Dienste weiterhin als „aktive Prozesse“ aufgeführt. Von den angegebenen Diensten wird erwartet, dass sie während des Wartungsmodus ausgeführt werden. Falls dieses Issue bei dir auftritt und du nicht sicher bist, wende dich an den [GitHub Enterprise-Support](https://support.github.com/contact)."
+    - "Das Jupyter Notebook-Rendering auf der Webbenutzeroberfläche ist möglicherweise nicht erfolgreich, wenn das Notebook ASCII-fremde UTF-8-Zeichen enthält."
+    - "Das RST-Rendering (reStructuredText) auf der Webbenutzeroberfläche schlug fehl, und es wurde stattdessen unformatierter RST-Markuptext angezeigt."
+    - "Alte Builds von Pages werden nicht bereinigt, was dazu führen kann, dass sich der Benutzerdatenträger (/data/user/) füllt."
+    - "Beim Löschen eines Branchs nach dem Mergen eines Pull Requests wird eine Fehlermeldung angezeigt, obwohl der Branch erfolgreich gelöscht wird."
+    - |Die Protokollrotation kann möglicherweise Diensten nicht signalisieren, eine Umstellung auf neue Protokolldateien durchzuführen, was dazu führt, dass ältere Protokolldateien weiterhin verwendet werden, was letztendlich zu einer Auslastung des Stammspeicherplatzes führt.
+
+Um dieses Problem zu lösen bzw. zu verhindern, führe die folgenden Befehle in der [Verwaltungsshell](https://docs.github.com/en/enterprise-server/admin/configuration/accessing-the-administrative-shell-ssh) (SSH) aus, oder kontaktiere den [GitHub Enterprise-Support](https://support.github.com/):
+
+
+
+```
+
+printf "PATH=/usr/local/sbin:/usr/local/bin:/usr/local/share/enterprise:/usr/sbin:/usr/bin:/sbin:/bin\n29,59 * * * * root /usr/sbin/logrotate /etc/logrotate.conf\n" | sudo sponge /etc/cron.d/logrotate
+
+sudo /usr/sbin/logrotate -f /etc/logrotate.conf
+
+```
+
+|
+    - "Wenn ein Replikatknoten in einer Hochverfügbarkeitskonfiguration offline ist, kann {% data variables.product.product_name %} eventuell noch immer Anforderungen von {% data variables.product.prodname_pages %} an den Offlineknoten weiterleiten, was die Verfügbarkeit von {% data variables.product.prodname_pages %} für die Benutzer*innen verringert."
+    - "Ressourcenbegrenzungen, die nur beim Verarbeiten von Pre-Receive-Hooks auftreten, können bei manchen Pre-Receive-Hooks Fehler auslösen."

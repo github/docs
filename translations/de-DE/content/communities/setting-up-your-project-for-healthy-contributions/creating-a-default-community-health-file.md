@@ -1,6 +1,6 @@
 ---
-title: Creating a default community health file
-intro: 'You can create default community health files, such as CONTRIBUTING and CODE_OF_CONDUCT. Default files will be used for any repository owned by the account that does not contain its own file of that type.'
+title: Erstellen einer Standard-Community-Health-File
+intro: "Du kannst standardmäßige Community-Unterstützungsdateien wie z.\_B. CONTRIBUTING oder CODE_OF_CONDUCT erstellen. Standarddateien werden für alle Repositorys eines Kontos verwendet, das keine eigene Datei dieser Art enthält."
 redirect_from:
   - /articles/creating-a-default-community-health-file-for-your-organization
   - /github/building-a-strong-community/creating-a-default-community-health-file-for-your-organization
@@ -12,46 +12,41 @@ versions:
 topics:
   - Community
 shortTitle: Community health file
+ms.openlocfilehash: 762af2fcbbc16e0bfc671df2409fede9ea6e2c67
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145105412'
 ---
+## Informationen zu Standard-Community-Unterstützungsdateien
 
-## About default community health files
+Du kannst standardmäßige Communityintegritätsdateien einem öffentlichen Repository namens `.github` im Stammverzeichnis des Repositorys oder in den Ordnern `docs` oder `.github` hinzufügen.
 
-You can add default community health files to a public repository called `.github`, in the root of the repository or in the `docs` or `.github` folders.
+Standarddateien werden von {% data variables.product.product_name %} für beliebige im Besitz des Kontos befindliche Repositorys verwendet und angezeigt, die an keiner der folgenden Stellen über eigene Dateien dieses Typs verfügen:
+- im Root des Repositorys
+- im Ordner `.github`
+- im Ordner `docs`
 
-{% data variables.product.product_name %} will use and display default files for any repository owned by the account that does not have its own file of that type in any of the following places:
-- the root of the repository
-- the `.github` folder
-- the `docs` folder
+Wenn z. B. jemand einen Issue oder Pull Request in einem Repository erstellt, das keine eigene CONTRIBUTING-Datei enthält, wird ein Link zur standardmäßigen CONTRIBUTING-Datei angezeigt. Wenn ein Repository Dateien in seinem eigenen `.github/ISSUE_TEMPLATE`-Ordner{% ifversion fpt or ghes or ghec %} enthält, einschließlich Issuevorlagen oder einer *config.yml*-Datei,{% endif %} wird keiner der Inhalte des standardmäßigen `.github/ISSUE_TEMPLATE`-Ordners verwendet.
 
-For example, anyone who creates an issue or pull request in a repository that does not have its own CONTRIBUTING file will see a link to the default CONTRIBUTING file. If a repository has any files in its own `.github/ISSUE_TEMPLATE` folder{% ifversion fpt or ghes or ghec %}, including issue templates or a *config.yml* file,{% endif %} none of the contents of the default `.github/ISSUE_TEMPLATE` folder will be used.
+Standarddateien sind nicht in Klonen, Paketen oder Downloads von einzelnen Repositorys enthalten, da sie nur im `.github`-Repository gespeichert sind.
 
-Default files are not included in clones, packages, or downloads of individual repositories because they are stored only in the `.github` repository.
+## Unterstützte Dateitypen
 
-## Supported file types
+Du kannst in deiner Organisation{% ifversion fpt or ghes or ghec %} oder deinem persönlichen Konto{% endif %} Standardeinstellungen für die folgenden Communityintegritätsdateien erstellen:
 
-You can create defaults in your organization{% ifversion fpt or ghes or ghec %} or personal account{% endif %} for the following community health files:
+Communityintegritätsdatei | Beschreibung --- | ---{% ifversion fpt or ghec %} *CODE_OF_CONDUCT.md* | Eine A CODE_OF_CONDUCT-Datei definiert Standards für die Interaktion in einer Community. Weitere Informationen findest du unter „[Hinzufügen eines Verhaltenskodexes zum Projekt](/articles/adding-a-code-of-conduct-to-your-project/)“.{% endif %} *CONTRIBUTING.md* | Eine CONTRIBUTING-Datei vermittelt, wie Personen zu deinem Projekt beitragen sollten. Weitere Informationen findest du unter „[Festlegen von Richtlinien für Repositorymitwirkende](/articles/setting-guidelines-for-repository-contributors/)“.{% ifversion fpt or ghec %} *FUNDING.yml* | Eine FUNDING-Datei zeigt eine Sponsorenschaltfläche in deinem Repository an, um die Transparenz von Finanzierungsoptionen für dein Open Source Projekt zu erhöhen. Weitere Informationen findest du unter „[Anzeigen einer Sponsorenschaltfläche im Repository](/articles/displaying-a-sponsor-button-in-your-repository)“.{% endif %} Issue- und Pull Request-Vorlagen{% ifversion fpt or ghes or ghec %} und *config.yml*{% endif %} | Mit Issue- und Pull Request-Vorlagen kannst du die Informationen, die Mitarbeiter beim Erstellen von Issues und Pull Requests in deinem Repository verwenden sollen, anpassen und standardisieren. Weitere Informationen findest du unter „[Informationen zu Issue- und Pull Request-Vorlagen](/articles/about-issue-and-pull-request-templates/)“.{% ifversion fpt or ghes or ghec %} *SECURITY.md |* Eine SECURITY-Datei enthält Anweisungen zum Melden eines Sicherheitsrisikos in deinem Projekt. Weitere Informationen findest du unter „[Hinzufügen einer Sicherheitsrichtlinie zum Repository](/code-security/getting-started/adding-a-security-policy-to-your-repository)“.{% endif %} *SUPPORT.md |* Eine SUPPORT-Datei informiert Personen über Möglichkeiten, Hilfe zu deinem Projekt zu erhalten. Weitere Informationen findest du unter „[Hinzufügen von Supportressourcen zum Projekt](/articles/adding-support-resources-to-your-project/)“.
 
-Community health file | Description
---- | ---{% ifversion fpt or ghec %}
-*CODE_OF_CONDUCT.md* | A CODE_OF_CONDUCT file defines standards for how to engage in a community. For more information, see "[Adding a code of conduct to your project](/articles/adding-a-code-of-conduct-to-your-project/)."{% endif %}
-*CONTRIBUTING.md* | A CONTRIBUTING file communicates how people should contribute to your project. For more information, see "[Setting guidelines for repository contributors](/articles/setting-guidelines-for-repository-contributors/)."{% ifversion discussion-category-forms %}
-Discussion category forms | Discussion category forms customize the templates that are available for community members to use when they open new discussions in your repository. For more information, see "[Creating discussion category forms](/discussions/managing-discussions-for-your-community/creating-discussion-category-forms)."{% endif %}{% ifversion fpt or ghec %}
-*FUNDING.yml* | A FUNDING file displays a sponsor button in your repository to increase the visibility of funding options for your open source project. For more information, see "[Displaying a sponsor button in your repository](/articles/displaying-a-sponsor-button-in-your-repository)."{% endif %}
-Issue and pull request templates{% ifversion fpt or ghes or ghec %} and *config.yml*{% endif %} | Issue and pull request templates customize and standardize the information you'd like contributors to include when they open issues and pull requests in your repository. For more information, see "[About issue and pull request templates](/articles/about-issue-and-pull-request-templates/)."{% ifversion fpt or ghes or ghec %}
-*SECURITY.md* | A SECURITY file gives instructions for how to report a security vulnerability in your project. For more information, see "[Adding a security policy to your repository](/code-security/getting-started/adding-a-security-policy-to-your-repository)."{% endif %}
-*SUPPORT.md* | A SUPPORT file lets people know about ways to get help with your project. For more information, see "[Adding support resources to your project](/articles/adding-support-resources-to-your-project/)."
+Du kannst keine Standard-Lizenzdatei erstellen. Lizenzdateien müssen zu individuellen Repositorys hinzugefügt werden, damit die Datei bei Klonen, Paketieren und Herunterladen des Projekts enthalten ist.
 
-You cannot create a default license file. License files must be added to individual repositories so the file will be included when a project is cloned, packaged, or downloaded.
-
-## Creating a repository for default files
+## Ein Repository für Standarddateien erstellen
 
 {% data reusables.repositories.create_new %}
-2. Use the **Owner** drop-down menu, and select the organization{% ifversion fpt or ghes or ghec %} or personal account{% endif %} you want to create default files for.
-  ![Owner drop-down menu](/assets/images/help/repository/create-repository-owner.png)
-3. Type **.github** as the name for your repository, and an optional description.
-  ![Create repository field](/assets/images/help/repository/default-file-repository-name.png)
-4. Make sure the repository status is set to **Public** (a repository for default files cannot be private).
-  ![Radio buttons to select private or public status](/assets/images/help/repository/create-repository-public-private.png)
-{% data reusables.repositories.initialize-with-readme %}
-{% data reusables.repositories.create-repo %}
-7. In the repository, create one of the supported community health files. Issue templates{% ifversion fpt or ghes or ghec %} and their configuration file{% endif %} must be in a folder called `.github/ISSUE_TEMPLATE`. All other supported files may be in the root of the repository, the `.github` folder, or the `docs` folder. For more information, see "[Creating new files](/articles/creating-new-files/)."
+2. Verwende das Dropdownmenü **Besitzer**, und wähle die Organisation{% ifversion fpt or ghes or ghec %} oder das persönliche Konto{% endif %} aus, für die bzw. das du Standarddateien erstellen möchtest.
+  ![Dropdownmenü „Besitzer“](/assets/images/help/repository/create-repository-owner.png)
+3. Gib **.github** als Namen für dein Repository und eine optionale Beschreibung ein.
+  ![Feld „Repository erstellen“](/assets/images/help/repository/default-file-repository-name.png)
+4. Stelle sicher, dass der Repositorystatus auf **Öffentlich** festgelegt ist (ein Repository für Standarddateien darf nicht privat sein).
+  ![Optionsfelder zum Auswählen des privaten oder öffentlichen Status](/assets/images/help/repository/create-repository-public-private.png) {% data reusables.repositories.initialize-with-readme %} {% data reusables.repositories.create-repo %}
+7. Erstelle im Repository eine der möglichen Community-Unterstützungsdateien. Issuevorlagen{% ifversion fpt or ghes or ghec %} und die zugehörige Konfigurationsdatei{% endif %} müssen sich in einem Ordner namens `.github/ISSUE_TEMPLATE` befinden. Alle anderen unterstützten Dateien können sich im Stammverzeichnis des Repositorys, im `.github`-Ordner oder im `docs`-Ordner befinden. Weitere Informationen findest du unter [Erstellen neuer Dateien](/articles/creating-new-files/).

@@ -1,0 +1,16 @@
+date: '2022-08-30'
+sections:
+  bugs:
+    - Doppelte administrative SSH-Schlüssel konnten sowohl in der Verwaltungskonsole als auch in der Datei `/home/admin/.ssh/authorized_keys` vorkommen.
+    - "In einigen Fällen konnten Hintergrundaufgaben aufgrund einer Bibliothek, die gleichzeitig verwendet wurde, obwohl sie nicht threadsicher war, zum Stillstand kommen."
+  changes:
+    - "Die Generierung von Supportbundles wird durch die parallelisierte Protokollbereinigung beschleunigt. Weitere Informationen zu Supportbundles findest du unter [Daten für den GitHub-Support bereitstellen](/support/contacting-github-support/providing-data-to-github-support)."
+  known_issues:
+    - "Bei einer neu eingerichteten {% data variables.product.prodname_ghe_server %}-Instanz ohne Benutzer könnte ein Angreifer den ersten Administratorbenutzer erstellen."
+    - Benutzerdefinierte Firewallregeln werden während des Upgrades entfernt.
+    - "Nachverfolgte Git-LFS-Dateien, [die über die Webbenutzeroberfläche hochgeladen wurden](https://github.com/blog/2105-upload-files-to-your-repositories), werden dem Repository fälschlicherweise direkt hinzugefügt."
+    - "Issues können nicht geschlossen werden, wenn sie einen Permalink zu einem Blob im selben Repository enthalten und der Dateipfad des Blobs mehr als 255 Zeichen lang ist."
+    - "Wenn die Option zum Durchsuchen von GitHub.com mit {% data variables.product.prodname_github_connect %} aktiviert wird, sind Issues in privaten und internen Repositorys nicht in den {% data variables.product.prodname_dotcom_the_website %}-Suchergebnissen enthalten."
+    - "Die {% data variables.product.prodname_registry %}-npm-Registrierung gibt in Metadatenantworten keinen Zeitwert mehr zurück. So sind erhebliche Leistungssteigerungen möglich. Die erforderlichen Daten zum Zurückgeben eines Zeitwerts in einer Metadatenantwort sind weiterhin verfügbar, und dieser Wert wird in Zukunft wieder zurückgegeben, sobald die vorhandenen Leistungsprobleme behoben wurden."
+    - "Ressourcenbegrenzungen, die nur beim Verarbeiten von Pre-Receive-Hooks auftreten, können bei manchen Pre-Receive-Hooks Fehler auslösen."
+    - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'

@@ -1,6 +1,6 @@
 ---
-title: Increasing storage capacity
-intro: 'You can increase or change the amount of storage available for Git repositories, databases, search indexes, and other persistent application data.'
+title: 스토리지 용량 늘리기
+intro: 'Git 리포지토리, 데이터베이스, 검색 인덱스 및 기타 영구 애플리케이션 데이터에 사용할 수 있는 스토리지 크기를 늘리거나 변경할 수 있습니다.'
 redirect_from:
   - /enterprise/admin/installation/increasing-storage-capacity
   - /enterprise/admin/enterprise-management/increasing-storage-capacity
@@ -14,80 +14,86 @@ topics:
   - Performance
   - Storage
 shortTitle: Increase storage capacity
+ms.openlocfilehash: bdf8819d295dae4a93e03ca0381a1c0eed93943d
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148098765'
 ---
 {% data reusables.enterprise_installation.warning-on-upgrading-physical-resources %}
 
-As more users join {% data variables.location.product_location %}, you may need to resize your storage volume. Refer to the documentation for your virtualization platform for information on resizing storage.
+더 많은 사용자가 {% 데이터 variables.location.product_location %}에 가입하면 스토리지 볼륨의 크기를 조정해야 할 수 있습니다. 스토리지 크기 조정에 대한 자세한 내용은 가상화 플랫폼에 대한 설명서를 참조하세요.
 
-## Requirements and recommendations
+## 요구 사항 및 권장 사항
 
 {% note %}
 
-**Note:** Before resizing any storage volume, put your instance in maintenance mode.{% ifversion ip-exception-list %} You can validate changes by configuring an IP exception list to allow access from specified IP addresses. {% endif %} For more information, see "[Enabling and scheduling maintenance mode](/enterprise/admin/guides/installation/enabling-and-scheduling-maintenance-mode)."
+**참고:** 스토리지 볼륨의 크기를 조정하기 전에 인스턴스를 유지 관리 모드로 전환합니다.{% ifversion ip-exception-list %} 지정된 IP 주소의 액세스를 허용하도록 IP 예외 목록을 구성하여 변경 내용의 유효성을 검사할 수 있습니다. {% endif %} 자세한 내용은 “[유지 관리 모드 사용 및 예약](/enterprise/admin/guides/installation/enabling-and-scheduling-maintenance-mode)”을 참조하세요.
 
 {% endnote %}
 
-### Minimum requirements
+### 최소 요구 사항
 
 {% data reusables.enterprise_installation.hardware-rec-table %}
 
-## Increasing the data partition size
+## 데이터 파티션 크기 늘리기
 
-1. Resize the existing user volume disk using your virtualization platform's tools.
+1. 가상화 플랫폼의 도구를 사용하여 기존 사용자 볼륨 디스크의 크기를 조정합니다.
 {% data reusables.enterprise_installation.ssh-into-instance %}
-3. Put the appliance in maintenance mode. For more information, see "[Enabling and scheduling maintenance mode](/enterprise/admin/guides/installation/enabling-and-scheduling-maintenance-mode)."
-4. Reboot the appliance to detect the new storage allocation:
+3. 어플라이언스를 유지 관리 모드로 전환합니다. 자세한 내용은 “[유지 관리 모드 사용 및 예약](/enterprise/admin/guides/installation/enabling-and-scheduling-maintenance-mode)”을 참조하세요.
+4. 어플라이언스를 다시 부팅하여 새 스토리지 할당 검색:
   ```shell
   $ sudo reboot
   ```
-5. Run the `ghe-storage-extend` command to expand the `/data/user` filesystem:
+5. `ghe-storage-extend` 명령을 실행하여 `/data/user` 파일 시스템을 확장합니다.
   ```shell
   $ ghe-storage-extend
   ```
 
-## Increasing the root partition size using a new appliance
+## 새 어플라이언스로 루트 파티션 크기 늘리기
 
-1. Set up a new {% data variables.product.prodname_ghe_server %} instance with a larger root disk using the same version as your current appliance. For more information, see "[Setting up a {% data variables.product.prodname_ghe_server %} instance](/enterprise/admin/guides/installation/setting-up-a-github-enterprise-server-instance)."
-2. Shut down the current appliance:
+1. 현재 어플라이언스와 동일한 버전을 사용하여 더 큰 루트 디스크가 있는 새 {% data variables.product.prodname_ghe_server %} 인스턴스를 설정합니다. 자세한 내용은 “[{% data variables.product.prodname_ghe_server %} 인스턴스 설정](/enterprise/admin/guides/installation/setting-up-a-github-enterprise-server-instance)”을 참조하세요.
+2. 현재 어플라이언스 종료:
   ```shell
   $ sudo poweroff
   ```
-3. Detach the data disk from the current appliance using your virtualization platform's tools.
-4. Attach the data disk to the new appliance with the larger root disk.
+3. 가상화 플랫폼의 도구를 사용하여 현재 어플라이언스에서 데이터 디스크를 분리합니다.
+4. 더 큰 루트 디스크를 사용하여 데이터 디스크를 새 어플라이언스로 연결합니다.
 
-## Increasing the root partition size using an existing appliance
+## 기존 어플라이언스로 루트 파티션 크기 늘리기
 
 {% warning %}
 
-**Warning:** Before increasing the root partition size, you must put your instance in maintenance mode. For more information, see "[Enabling and scheduling maintenance mode](/enterprise/admin/guides/installation/enabling-and-scheduling-maintenance-mode)."
+**경고:** 루트 파티션 크기를 늘리기 전에 인스턴스를 유지 관리 모드로 전환해야 합니다. 자세한 내용은 “[유지 관리 모드 사용 및 예약](/enterprise/admin/guides/installation/enabling-and-scheduling-maintenance-mode)”을 참조하세요.
 
 {% endwarning %}
 
-1. Attach a new disk to your {% data variables.product.prodname_ghe_server %} appliance.
-1. Run the `lsblk` command to identify the new disk's device name.
-1. Run the `parted` command to format the disk, substituting your device name for `/dev/xvdg`:
+1. {% data variables.product.prodname_ghe_server %} 어플라이언스로 새 디스크를 연결합니다.
+1. `lsblk` 명령을 실행하여 새 디스크의 디바이스 이름을 식별합니다.
+1. `parted` 명령을 실행하여 디스크를 포맷하고 디바이스 이름을 `/dev/xvdg`로 바꿉니다.
   ```shell
   $ sudo parted /dev/xvdg mklabel msdos
   $ sudo parted /dev/xvdg mkpart primary ext4 0% 50%
   $ sudo parted /dev/xvdg mkpart primary ext4 50% 100%
   ```
-1. To stop replication, run the `ghe-repl-stop` command.
+1. 복제를 중지하려면 `ghe-repl-stop` 명령을 실행합니다.
 
    ```shell
    $ ghe-repl-stop
    ```
    
-1. Run the `ghe-upgrade` command to install a full, platform specific package to the newly partitioned disk. A universal hotpatch upgrade package, such as `github-enterprise-2.11.9.hpkg`, will not work as expected. After the `ghe-upgrade` command completes, application services will automatically terminate.
+1. `ghe-upgrade` 명령을 실행하여 새로 분할된 디스크에 플랫폼별 전체 패키지를 설치합니다. 유니버설 핫패치 업그레이드 패키지(예: `github-enterprise-2.11.9.hpkg`)는 예상대로 작동하지 않습니다. `ghe-upgrade` 명령이 완료되면 애플리케이션 서비스가 자동으로 종료됩니다.
 
   ```shell
   $ ghe-upgrade PACKAGE-NAME.pkg -s -t /dev/xvdg1
   ```
-1. Shut down the appliance:
+1. 애플리케이션 종료:
   ```shell
   $ sudo poweroff
   ```
-1. In the hypervisor, remove the old root disk and attach the new root disk at the same location as the old root disk.
-1. Start the appliance.
-1. Ensure system services are functioning correctly, then release maintenance mode. For more information, see "[Enabling and scheduling maintenance mode](/admin/guides/installation/enabling-and-scheduling-maintenance-mode)."
+1. 하이퍼바이저에서 이전 루트 디스크를 제거하고 이전 루트 디스크와 동일한 위치에 새 루트 디스크를 연결합니다.
+1. 어플라이언스를 시작합니다.
+1. 시스템 서비스가 제대로 작동하는지 확인하고 유지 관리 모드를 해제합니다. 자세한 내용은 “[유지 관리 모드 사용 및 예약](/admin/guides/installation/enabling-and-scheduling-maintenance-mode)”을 참조하세요.
 
-If your appliance is configured for high-availability or geo-replication, remember to start replication on each replica node using `ghe-repl-start` after the storage on all nodes has been upgraded.
+어플라이언스가 고가용성 또는 지역 복제를 위해 구성된 경우 모든 노드의 스토리지가 업그레이드된 후 `ghe-repl-start`를 사용하여 각 복제본 노드에서 복제를 시작해야 합니다.

@@ -1,6 +1,6 @@
 ---
-title: Managing deploy keys
-intro: Learn different ways to manage SSH keys on your servers when you automate deployment scripts and which way is best for you.
+title: 배포 키 관리
+intro: 배포 스크립트를 자동화할 때 서버에서 SSH 키를 관리하는 다양한 방법과 가장 적합한 방법을 알아봅니다.
 redirect_from:
   - /guides/managing-deploy-keys
   - /v3/guides/managing-deploy-keys
@@ -14,90 +14,93 @@ versions:
   ghec: '*'
 topics:
   - API
+ms.openlocfilehash: d038e6d56395a5a3d414170e431487fc0b80b426
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148094187'
 ---
+SSH 에이전트 전달, OAuth 토큰을 사용하는 HTTPS, 배포 키 또는 컴퓨터 사용자를 사용하여 배포 스크립트를 자동화할 때 서버에서 SSH 키를 관리할 수 있습니다.
 
+## SSH 에이전트 전달
 
-You can manage SSH keys on your servers when automating deployment scripts using SSH agent forwarding, HTTPS with OAuth tokens, deploy keys, or machine users.
+대부분의 경우, 특히 프로젝트의 시작 부분에서 SSH 에이전트 전달은 가장 빠르고 간단한 사용 방법입니다. 에이전트 전달은 로컬 개발 컴퓨터에서 사용하는 것과 동일한 SSH 키를 사용합니다.
 
-## SSH agent forwarding
+#### 장점
 
-In many cases, especially in the beginning of a project, SSH agent forwarding is the quickest and simplest method to use. Agent forwarding uses the same SSH keys that your local development computer uses.
+* 새 키를 생성하거나 추적할 필요가 없습니다.
+* 키 관리가 없습니다. 서버에서 사용자는 로컬에서 수행하는 것과 동일한 권한을 갖습니다.
+* 서버에 저장된 키가 없으므로 서버가 손상된 경우 손상된 키를 찾아 제거할 필요가 없습니다.
 
-#### Pros
+#### 단점
 
-* You do not have to generate or keep track of any new keys.
-* There is no key management; users have the same permissions on the server that they do locally.
-* No keys are stored on the server, so in case the server is compromised, you don't need to hunt down and remove the compromised keys.
+* 배포하려면 사용자가 SSH에 **있어야 합니다**. 그러지 않으면 자동화된 배포 프로세스를 사용할 수 없습니다.
+* SSH 에이전트 전달은 Windows 사용자에 대해 실행하는 데 문제가 될 수 있습니다.
 
-#### Cons
+#### 설정
 
-* Users **must** SSH in to deploy; automated deploy processes can't be used.
-* SSH agent forwarding can be troublesome to run for Windows users.
+1. 로컬로 에이전트 전달을 켭니다. 자세한 내용은 [SSH 에이전트 전달에 대한 가이드][ssh-agent-forwarding]를 참조하세요.
+2. 에이전트 전달을 사용하도록 배포 스크립트를 설정합니다. 예를 들어 bash 스크립트에서 에이전트 전달을 사용하도록 설정하려면 다음과 같이 입력합니다. `ssh -A serverA 'bash -s' < deploy.sh`
 
-#### Setup
+## OAuth 토큰을 사용하는 HTTPS 복제
 
-1. Turn on agent forwarding locally. See [our guide on SSH agent forwarding][ssh-agent-forwarding] for more information.
-2. Set your deploy scripts to use agent forwarding. For example, on a bash script, enabling agent forwarding would look something like this:
-`ssh -A serverA 'bash -s' < deploy.sh`
+SSH 키를 사용하지 않으려면 OAuth 토큰을 사용하는 HTTPS를 사용할 수 있습니다.
 
-## HTTPS cloning with OAuth tokens
+#### 장점
 
-If you don't want to use SSH keys, you can use HTTPS with OAuth tokens.
-
-#### Pros
-
-* Anyone with access to the server can deploy the repository.
-* Users don't have to change their local SSH settings.
-* Multiple tokens (one for each user) are not needed; one token per server is enough.
-* A token can be revoked at any time, turning it essentially into a one-use password.
+* 서버에 액세스할 수 있는 모든 사용자는 리포지토리를 배포할 수 있습니다.
+* 사용자는 로컬 SSH 설정을 변경할 필요가 없습니다.
+* 여러 토큰이 필요하지 않습니다(각 사용자에 대해 하나씩만 필요함). 서버당 하나의 토큰으로 충분합니다.
+* 토큰은 언제든지 해지하여 기본적으로 일회용 암호로 전환할 수 있습니다.
 {% ifversion ghes %}
-* Generating new tokens can be easily scripted using [the OAuth API](/rest/reference/oauth-authorizations#create-a-new-authorization).
+* [OAuth API](/rest/reference/oauth-authorizations#create-a-new-authorization)를 사용하여 새 토큰 생성을 쉽게 스크립팅할 수 있습니다.
 {% endif %}
 
-#### Cons
+#### 단점
 
-* You must make sure that you configure your token with the correct access scopes.
-* Tokens are essentially passwords, and must be protected the same way.
+* 올바른 액세스 범위로 토큰을 구성했는지 확인해야 합니다.
+* 토큰은 기본적으로 암호이며 동일한 방식으로 보호되어야 합니다.
 
-#### Setup
+#### 설정
 
-See [our guide on creating a {% data variables.product.pat_generic %}](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token).
+[{% 데이터 variables.product.pat_generic %}을(를) 만드는 방법에 대한 가이드](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)를 참조하세요.
 
-## Deploy keys
+## 키 배포
 
 {% data reusables.repositories.deploy-keys %}
 
 {% data reusables.repositories.deploy-keys-write-access %}
 
-#### Pros
+#### 장점
 
-* Anyone with access to the repository and server has the ability to deploy the project.
-* Users don't have to change their local SSH settings.
-* Deploy keys are read-only by default, but you can give them write access when adding them to a repository.
+* 리포지토리 및 서버에 액세스할 수 있는 모든 사용자가 프로젝트를 배포할 수 있습니다.
+* 사용자는 로컬 SSH 설정을 변경할 필요가 없습니다.
+* 배포 키는 기본적으로 읽기 전용이지만 리포지토리에 추가할 때 쓰기 권한을 부여할 수 있습니다.
 
-#### Cons
+#### 단점
 
-* Deploy keys only grant access to a single repository. More complex projects may have many repositories to pull to the same server.
-* Deploy keys are usually not protected by a passphrase, making the key easily accessible if the server is compromised.
+* 배포 키는 단일 리포지토리에 대한 액세스 권한만 부여합니다. 더 복잡한 프로젝트에는 동일한 서버로 풀할 리포지토리가 많을 수 있습니다.
+* 배포 키는 일반적으로 암호로 보호되지 않으므로 서버가 손상된 경우 키에 쉽게 액세스할 수 있습니다.
 
-#### Setup
+#### 설정
 
-1. [Run the `ssh-keygen` procedure][generating-ssh-keys] on your server, and remember where you save the generated public and private rsa key pair.
+1. 서버에서 [`ssh-keygen` 프로시저를 실행][generating-ssh-keys]하고 생성된 퍼블릭 및 프라이빗 rsa 키 쌍을 저장하는 위치를 기억합니다.
 {% data reusables.profile.navigating-to-profile %} 
 
-   ![Navigation to profile](/assets/images/profile-page.png)
-1. On your profile page, click **Repositories**, then click the name of your repository. ![Repositories link](/assets/images/repos.png)
-2. From your repository, click **Settings**. ![Repository settings](/assets/images/repo-settings.png)
-3. In the sidebar, click **Deploy Keys**, then click **Add deploy key**. ![Add Deploy Keys link](/assets/images/add-deploy-key.png)
-4. Provide a title, paste in your public key.  ![Deploy Key page](/assets/images/deploy-key.png)
-5. Select **Allow write access** if you want this key to have write access to the repository. A deploy key with write access lets a deployment push to the repository.
-6. Click **Add key**.
+   ![프로필 탐색](/assets/images/profile-page.png)
+1. 프로필 페이지에서 **리포지토리** 를 클릭한 다음 리포지토리의 이름을 클릭합니다. ![리포지토리 링크](/assets/images/repos.png)
+2. 리포지토리에서 **설정** 을 클릭합니다. ![리포지토리 설정](/assets/images/repo-settings.png)
+3. 사이드바에서 **배포 키** 를 클릭한 다음 **배포 키 추가** 를 클릭합니다. ![키 배포 추가 링크](/assets/images/add-deploy-key.png)
+4. 제목을 입력하고 퍼블릭 키를 붙여 넣습니다.  ![배포 키 페이지](/assets/images/deploy-key.png)
+5. 이 키가 리포지토리에 대한 쓰기 액세스 권한을 갖도록 하려면 **쓰기 액세스 허용** 을 선택합니다. 쓰기 액세스 권한이 있는 배포 키를 사용하면 배포가 리포지토리로 푸시됩니다.
+6. **키 추가** 를 클릭합니다.
 
-#### Using multiple repositories on one server
+#### 서버 하나에서 여러 리포지토리 사용
 
-If you use multiple repositories on one server, you will need to generate a dedicated key pair for each one. You can't reuse a deploy key for multiple repositories.
+한 서버에서 여러 리포지토리를 사용하는 경우 각 서버에 대해 전용 키 쌍을 생성해야 합니다. 여러 리포지토리에 대해 배포 키 하나를 다시 사용할 수 없습니다.
 
-In the server's SSH configuration file (usually `~/.ssh/config`), add an alias entry for each repository. For example:
+서버의 SSH 구성 파일(일반적으로 `~/.ssh/config`)에서 각 리포지토리에 대한 별칭 항목을 추가합니다. 예를 들면 다음과 같습니다.
 
 ```bash
 Host {% ifversion fpt or ghec %}github.com{% else %}my-GHE-hostname.com{% endif %}-repo-0
@@ -109,79 +112,79 @@ Host {% ifversion fpt or ghec %}github.com{% else %}my-GHE-hostname.com{% endif 
         IdentityFile=/home/user/.ssh/repo-1_deploy_key
 ```
 
-* `Host {% ifversion fpt or ghec %}github.com{% else %}my-GHE-hostname.com{% endif %}-repo-0` - The repository's alias.
-* `Hostname {% ifversion fpt or ghec %}github.com{% else %}my-GHE-hostname.com{% endif %}` - Configures the hostname to use with the alias.
-* `IdentityFile=/home/user/.ssh/repo-0_deploy_key` - Assigns a private key to the alias.
+* `Host {% ifversion fpt or ghec %}github.com{% else %}my-GHE-hostname.com{% endif %}-repo-0` - 리포지토리의 별칭
+* `Hostname {% ifversion fpt or ghec %}github.com{% else %}my-GHE-hostname.com{% endif %}` - 별칭과 함께 사용할 호스트 이름을 구성합니다.
+* `IdentityFile=/home/user/.ssh/repo-0_deploy_key` - 별칭에 프라이빗 키를 할당합니다.
 
-You can then use the hostname's alias to interact with the repository using SSH, which will use the unique deploy key assigned to that alias. For example:
+그런 다음 호스트 이름의 별칭을 사용하여 해당 별칭에 할당된 고유 배포 키를 사용하는 SSH를 사용하여 리포지토리와 상호 작용할 수 있습니다. 예를 들면 다음과 같습니다.
 
 ```bash
 $ git clone git@{% ifversion fpt or ghec %}github.com{% else %}my-GHE-hostname.com{% endif %}-repo-1:OWNER/repo-1.git
 ```
 
-## Server-to-server tokens
+## GitHub 서버 간 토큰
 
-If your server needs to access repositories across one or more organizations, you can use a GitHub App to define the access you need, and then generate _tightly-scoped_, _server-to-server_ tokens from that GitHub App. The server-to-server tokens can be scoped to single or multiple repositories, and can have fine-grained permissions. For example, you can generate a token with read-only access to a repository's contents.
+서버가 하나 이상의 조직 간에 리포지토리에 액세스해야 하는 경우 GitHub 앱을 사용하여 필요한 액세스를 정의한 다음 해당 GitHub 앱에서 _범위가 엄격하게 지정된_ _서버 간_ 토큰을 생성할 수 있습니다. 서버-서버 토큰은 범위를 단일 또는 여러 리포지토리로 지정할 수 있으며 세분화된 권한을 가질 수 있습니다. 예를 들어 리포지토리의 콘텐츠에 대한 읽기 전용 액세스 권한을 가진 토큰을 생성할 수 있습니다.
 
-Since GitHub Apps are a first class actor on  {% data variables.product.product_name %}, the server-to-server tokens are decoupled from any GitHub user, which makes them comparable to "service tokens". Additionally, server-to-server tokens have dedicated rate limits that scale with the size of the organizations that they act upon. For more information, see [Rate limits for {% data variables.product.prodname_github_apps %}](/developers/apps/rate-limits-for-github-apps).
+GitHub 앱은 {% data variables.product.product_name %}에서 첫 번째 클래스 작업자이므로 서버 간 토큰은 모든 GitHub 사용자와 분리되어 “서비스 토큰”과 비슷합니다. 또한 서버-서버 토큰에는 작업하는 조직의 크기에 따라 크기가 스케일링되는 전용 속도 제한이 있습니다. 자세한 내용은 [{% data variables.product.prodname_github_apps %}의 속도 제한](/developers/apps/rate-limits-for-github-apps)을 참조하세요.
 
-#### Pros
+#### 장점
 
-- Tightly-scoped tokens with well-defined permission sets and expiration times (1 hour, or less if revoked manually using the API).
-- Dedicated rate limits that grow with your organization.
-- Decoupled from GitHub user identities, so they do not consume any licensed seats.
-- Never granted a password, so cannot be directly signed in to.
+- 잘 정의된 권한 집합 및 만료 시간(API를 사용하여 수동으로 해지된 경우 1시간 이하)이 있는, 범위가 엄격하게 지정된 토큰
+- 조직에 따라 증가하는 전용 속도 제한
+- GitHub 사용자에게서 분리되어 GitHub 사용자가 라이선스가 부여된 사용자를 더 이상 사용하지 않음
+- 암호를 부여하지 않으므로 직접 로그인할 수 없음
 
-#### Cons
+#### 단점
 
-- Additional setup is needed to create the GitHub App.
-- Server-to-server tokens expire after 1 hour, and so need to be re-generated, typically on-demand using code.
+- GitHub 앱을 만들려면 추가 설정이 필요함
+- 서버-서버 토큰은 1시간 후에 만료되므로 일반적으로 코드를 사용하여 주문형으로 다시 생성해야 함
 
-#### Setup
+#### 설정
 
-1. Determine if your GitHub App should be public or private. If your GitHub App will only act on repositories within your organization, you likely want it private.
-1. Determine the permissions your GitHub App requires, such as read-only access to repository contents.
-1. Create your GitHub App via your organization's settings page. For more information, see [Creating a GitHub App](/developers/apps/creating-a-github-app).
-1. Note your GitHub App `id`.
-1. Generate and download your GitHub App's private key, and store this safely. For more information, see [Generating a private key](/developers/apps/authenticating-with-github-apps#generating-a-private-key).
-1. Install your GitHub App on the repositories it needs to act upon, optionally you may install the GitHub App on all repositories in your organization.
-1. Identify the `installation_id` that represents the connection between your GitHub App and the organization repositories it can access.  Each GitHub App and organization pair have at most a single `installation_id`. You can identify this `installation_id` via [Get an organization installation for the authenticated app](/rest/reference/apps#get-an-organization-installation-for-the-authenticated-app). This requires authenticating as a GitHub App using a JWT, for more information see [Authenticating as a GitHub App](/developers/apps/authenticating-with-github-apps#authenticating-as-a-github-app).
-1. Generate a server-to-server token using the corresponding REST API endpoint, [Create an installation access token for an app](/rest/reference/apps#create-an-installation-access-token-for-an-app). This requires authenticating as a GitHub App using a JWT, for more information see [Authenticating as a GitHub App](/developers/apps/authenticating-with-github-apps#authenticating-as-a-github-app), and [Authenticating as an installation](/developers/apps/authenticating-with-github-apps#authenticating-as-an-installation).
-1. Use this server-to-server token to interact with your repositories, either via the REST or GraphQL APIs, or via a Git client.
+1. GitHub 앱이 퍼블릭 또는 프라이빗이어야 하는지 확인합니다. GitHub 앱이 조직 내의 리포지토리에서만 작동하는 경우 비공개로 사용할 수 있습니다.
+1. GitHub 앱에 필요한 권한(예: 리포지토리 콘텐츠에 대한 읽기 전용 액세스 권한)을 결정합니다.
+1. 조직의 설정 페이지를 통해 GitHub 앱을 만듭니다. 자세한 내용은 [OAuth 앱 만들기](/developers/apps/creating-a-github-app)를 참조하세요.
+1. GitHub 앱 `id`를 기록해 둡니다.
+1. GitHub 앱의 프라이빗 키를 생성 및 다운로드하고 안전하게 저장합니다. 자세한 내용은 [프라이빗 키 생성](/developers/apps/authenticating-with-github-apps#generating-a-private-key)을 참조하세요.
+1. 작업이 필요한 리포지토리에 GitHub 앱을 설치합니다. 필요에 따라 조직의 모든 리포지토리에 GitHub 앱을 설치할 수 있습니다.
+1. GitHub 앱과 액세스할 수 있는 조직 리포지토리 간의 연결을 나타내는 `installation_id`를 식별합니다.  각 GitHub 앱 및 조직 쌍에는 최대 하나의 `installation_id`가 있습니다. [인증된 앱에 대한 조직 설치 가져오기](/rest/reference/apps#get-an-organization-installation-for-the-authenticated-app)를 통해 `installation_id`를 식별할 수 있습니다. 이를 위해서는 JWT를 사용하여 GitHub 앱으로 인증해야 합니다. 자세한 내용은 [GitHub 앱으로 인증](/developers/apps/authenticating-with-github-apps#authenticating-as-a-github-app)을 참조하세요.
+1. 해당 REST API 엔드포인트를 사용하여 서버 간 토큰을 생성하고, [앱에 대한 설치 액세스 토큰을 만듭니다](/rest/reference/apps#create-an-installation-access-token-for-an-app). 이를 위해서는 JWT를 사용하여 GitHub 앱으로 인증해야 합니다. 자세한 내용은 [GitHub 앱으로 인증](/developers/apps/authenticating-with-github-apps#authenticating-as-a-github-app) 및 [설치로 인증](/developers/apps/authenticating-with-github-apps#authenticating-as-an-installation)을 참조하세요.
+1. 이 서버-서버 토큰을 사용하여 REST 또는 GraphQL API를 통해 아니면 Git 클라이언트를 통해 리포지토리와 상호 작용합니다.
 
-## Machine users
+## 컴퓨터 사용자
 
-If your server needs to access multiple repositories, you can create a new account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %} and attach an SSH key that will be used exclusively for automation. Since this account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %} won't be used by a human, it's called a _machine user_. You can add the machine user as a [collaborator][collaborator] on a personal repository (granting read and write access), as an [outside collaborator][outside-collaborator] on an organization repository (granting read, write, or admin access), or to a [team][team] with access to the repositories it needs to automate (granting the permissions of the team).
+서버가 여러 리포지토리에 액세스해야 하는 경우 {% ifversion ghae %}{% 데이터 variables.product.product_name %}{% else %}{% 데이터 variables.location.product_location %}{% endif %}에 새 계정을 만들고 자동화에만 사용되는 SSH 키를 연결할 수 있습니다. {% ifversion ghae %}{% 데이터 variables.product.product_name %}{% else %}{% 데이터 variables.location.product_location %}{% endif %}에 대한 이 계정은 사람이 사용하지 않으므로 _컴퓨터 사용자_ 라고 합니다. 컴퓨터 사용자는 개인 리포지토리에서 [협력자][collaborator]로(읽기 및 쓰기 액세스 권한 부여), 조직 리포지토리에서 [외부 협력자][outside-collaborator]로(읽기, 쓰기 또는 관리자 액세스 권한 부여) 또는 자동화해야 하는 리포지토리에 대한 액세스 권한이 있는 [팀][team]에 추가할 수 있습니다(팀의 사용 권한 부여).
 
 {% ifversion fpt or ghec %}
 
 {% tip %}
 
-**Tip:** Our [terms of service][tos] state:
+**팁:** [서비스 약관][tos] 상태:
 
-> *Accounts registered by "bots" or other automated methods are not permitted.*
+> *"봇" 또는 기타 자동화된 메서드가 등록한 계정은 허용되지 않습니다.*
 
-This means that you cannot automate the creation of accounts. But if you want to create a single machine user for automating tasks such as deploy scripts in your project or organization, that is totally cool.
+즉, 계정 생성은 자동화할 수 없습니다. 그러나 프로젝트 또는 조직에 스크립트 배포와 같은 작업을 자동화하기 위한 단일 컴퓨터 사용자를 만들려는 경우에는 아주 유용합니다.
 
 {% endtip %}
 
 {% endif %}
 
-#### Pros
+#### 장점
 
-* Anyone with access to the repository and server has the ability to deploy the project.
-* No (human) users need to change their local SSH settings.
-* Multiple keys are not needed; one per server is adequate.
+* 리포지토리 및 서버에 액세스할 수 있는 모든 사용자가 프로젝트를 배포할 수 있습니다.
+* 사람이 아닌 사용자가 로컬 SSH 설정을 변경할 필요가 없습니다.
+* 여러 키가 필요하지 않고 서버당 1개가 적절합니다.
 
-#### Cons
+#### 단점
 
-* Only organizations can restrict machine users to read-only access. Personal repositories always grant collaborators read/write access.
-* Machine user keys, like deploy keys, are usually not protected by a passphrase.
+* 조직만 컴퓨터 사용자를 읽기 전용 액세스로 제한할 수 있습니다. 개인 리포지토리는 항상 공동 협력자에게 읽기/쓰기 권한을 부여합니다.
+* 배포 키와 같은 컴퓨터 사용자 키는 일반적으로 암호로 보호되지 않습니다.
 
-#### Setup
+#### 설정
 
-1. [Run the `ssh-keygen` procedure][generating-ssh-keys] on your server and attach the public key to the machine user account.
-2. Give the machine user account access to the repositories you want to automate. You can do this by adding the account as a [collaborator][collaborator], as an [outside collaborator][outside-collaborator], or to a [team][team] in an organization.
+1. 서버에서 [`ssh-keygen` 프로시저][generating-ssh-keys]를 실행하고 퍼블릭 키를 컴퓨터 사용자 계정에 연결합니다.
+2. 컴퓨터 사용자 계정에 자동화하려는 리포지토리에 대한 액세스 권한을 부여합니다. 조직에서 계정을 [협력자][collaborator], [외부 협력자][outside-collaborator] 또는 [팀][team]으로 추가하여 이러한 액세스 권한을 부여할 수 있습니다.
 
 [ssh-agent-forwarding]: /guides/using-ssh-agent-forwarding/
 [generating-ssh-keys]: /articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/#generating-a-new-ssh-key
@@ -191,5 +194,5 @@ This means that you cannot automate the creation of accounts. But if you want to
 [outside-collaborator]: /articles/adding-outside-collaborators-to-repositories-in-your-organization
 [team]: /articles/adding-organization-members-to-a-team
 
-## Further reading
-- [Configuring notifications](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#organization-alerts-notification-options)
+## 추가 참고 자료
+- [알림 구성](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#organization-alerts-notification-options)

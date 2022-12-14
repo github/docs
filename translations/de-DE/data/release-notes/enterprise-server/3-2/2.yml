@@ -1,0 +1,23 @@
+date: '2021-10-28'
+sections:
+  security_fixes:
+    - 'Es war möglich, dass Kennwörter in bestimmten Protokolldateien im Klartext aufgeführt wurden.'
+    - 'Mehrere bekanntermaßen schwache öffentliche SSH-Schlüssel wurden der Verweigerungsliste hinzugefügt und können nicht mehr registriert werden. Darüber hinaus wurden die Versionen von GitKraken, die bekanntermaßen schwache SSH-Schlüssel erzeugen (7.6.x, 7.7.x und 8.0.0), für die Registrierung neuer öffentlicher Schlüssel gesperrt.'
+    - 'Die Pakete wurden auf die neuesten Sicherheitsversionen aktualisiert.'
+  bugs:
+    - 'Bei der Wiederherstellung kann bei Unternehmensservern im Clusteringmodus ein Fehler auftreten, wenn der Orchestrator nicht fehlerfrei ist.'
+    - 'Codespaces-Links wurden in den Organisationseinstellungen angezeigt.'
+    - 'Einige Teile der Anwendung waren für Benutzer, die Inhaber mehrerer Organisationen sind, unbrauchbar.'
+    - 'Ein Link zu „https://docs.github.com“ wurde korrigiert.'
+  changes:
+    - 'Für Repositorys mit vielen Verweisen wurden Browsen und Arbeitsleistung optimiert.'
+  known_issues:
+    - Nach dem Speichern eines neuen Releases in einem Repository zeigt die Seite `/releases` einen 500-Fehler an. Ein Fix für dieses Issue ist voraussichtlich in 3.2.3 verfügbar.
+    - "Auf einer neu eingerichteten {% data variables.product.prodname_ghe_server %}-Instanz ohne Benutzer könnte ein Angreifer den ersten Administratorbenutzer erstellen."
+    - Benutzerdefinierte Firewallregeln werden während des Upgrades entfernt.
+    - "Nachverfolgte Git-LFS-Dateien, [die über die Webbenutzeroberfläche hochgeladen wurden](https://github.com/blog/2105-upload-files-to-your-repositories), werden dem Repository fälschlicherweise direkt hinzugefügt."
+    - "Issues können nicht geschlossen werden, wenn sie einen Permalink zu einem Blob im selben Repository enthalten und der Dateipfad des Blobs mehr als 255 Zeichen lang ist."
+    - "Wenn die Option zum Durchsuchen von GitHub.com mit GitHub Connect aktiviert wird, sind Issues in privaten und internen Repositorys nicht in den GitHub.com-Suchergebnissen enthalten."
+    - "Die {% data variables.product.prodname_registry %}-npm-Registrierung gibt in Metadatenantworten keinen Zeitwert mehr zurück. So sind erhebliche Leistungssteigerungen möglich. Die erforderlichen Daten zum Zurückgeben eines Zeitwerts in einer Metadatenantwort sind weiterhin verfügbar, und dieser Wert wird in Zukunft wieder zurückgegeben, sobald die vorhandenen Leistungsprobleme behoben wurden."
+    - "Ressourcenbegrenzungen, die nur beim Verarbeiten von Pre-Receive-Hooks auftreten, können bei manchen Pre-Receive-Hooks Fehler auslösen."
+    - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'

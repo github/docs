@@ -1,7 +1,7 @@
 ---
-title: Enabling GitHub Advanced Security for your enterprise
+title: Habilitación de GitHub Advanced Security para su empresa
 shortTitle: Enabling GitHub Advanced Security
-intro: 'You can configure {% data variables.product.product_name %} to include {% data variables.product.prodname_GH_advanced_security %}. This provides extra features that help users find and fix security problems in their code.'
+intro: 'Puedes configurar {% data variables.product.product_name %} para que incluya {% data variables.product.prodname_GH_advanced_security %}. Esto proporciona características adicionales que ayudan a los usuarios a encontrar y solucionar problemas de seguridad en su código.'
 product: '{% data reusables.gated-features.ghas %}'
 redirect_from:
   - /admin/advanced-security/enabling-github-advanced-security-for-your-enterprise
@@ -14,79 +14,72 @@ topics:
   - Enterprise
   - Secret scanning
   - Security
+ms.openlocfilehash: bc516af0c0788eeafe1b833c5627e471982e1c05
+ms.sourcegitcommit: ac00e2afa6160341c5b258d73539869720b395a4
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147878564'
 ---
-
-## About enabling {% data variables.product.prodname_GH_advanced_security %}
+## Acerca de habilitar la {% data variables.product.prodname_GH_advanced_security %}
 
 {% data reusables.advanced-security.ghas-helps-developers %}
 
-{% ifversion ghes %}
-When you enable {% data variables.product.prodname_GH_advanced_security %} for your enterprise, repository administrators in all organizations can enable the features unless you set up a policy to restrict access. For more information, see "[Enforcing policies for {% data variables.product.prodname_advanced_security %} in your enterprise](/admin/policies/enforcing-policies-for-advanced-security-in-your-enterprise)."
-{% else %}
-When you enable {% data variables.product.prodname_GH_advanced_security %} for your enterprise, repository administrators in all organizations can enable the features. 
+{% ifversion ghes %} Cuando habilita {% data variables.product.prodname_GH_advanced_security %} para la empresa, los administradores de repositorios de todas las organizaciones pueden habilitar las características, a menos que configure una directiva para restringir el acceso. Para más información, vea "[Aplicación de directivas para {% data variables.product.prodname_advanced_security %} en la empresa](/admin/policies/enforcing-policies-for-advanced-security-in-your-enterprise)".
+{% else %} Cuando habilita {% data variables.product.prodname_GH_advanced_security %} para la empresa, los administradores de repositorios de todas las organizaciones pueden habilitar las características. {% endif %}
+
+{% ifversion ghes %} Para obtener instrucciones sobre cómo hacer una implementación por fases de GitHub Advanced Security, consulta "[Introducción a la adopción de GitHub Advanced Security a gran escala](/code-security/adopting-github-advanced-security-at-scale/introduction-to-adopting-github-advanced-security-at-scale)".
 {% endif %}
 
-{% ifversion ghes %}
-For guidance on a phased deployment of GitHub Advanced Security, see "[Introduction to adopting GitHub Advanced Security at scale](/code-security/adopting-github-advanced-security-at-scale/introduction-to-adopting-github-advanced-security-at-scale)."
-{% endif %}
+## Verificar si tu licencia incluye a la {% data variables.product.prodname_GH_advanced_security %}
 
-## Checking whether your license includes {% data variables.product.prodname_GH_advanced_security %}
+{% ifversion ghes %} {% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.settings-tab %} {% data reusables.enterprise-accounts.license-tab %}
+1. Si tu licencia incluye a la {% data variables.product.prodname_GH_advanced_security %}, la página de licencia incluirá una sección que muestra los detalles de uso actuales.
+![Sección de {% data variables.product.prodname_GH_advanced_security %} de la licencia Enterprise](/assets/images/help/billing/ghas-orgs-list-enterprise-ghes.png) {% endif %}
 
-{% ifversion ghes %}
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.license-tab %}
-1. If your license includes {% data variables.product.prodname_GH_advanced_security %}, the license page includes a section showing details of current usage.
-![{% data variables.product.prodname_GH_advanced_security %} section of Enterprise license](/assets/images/help/billing/ghas-orgs-list-enterprise-ghes.png)
-{% endif %}
+## Prerequisitos para habilitar la {% data variables.product.prodname_GH_advanced_security %}
 
-## Prerequisites for enabling {% data variables.product.prodname_GH_advanced_security %}
+1. Actualice la licencia de {% data variables.product.product_name %} para incluir {% data variables.product.prodname_GH_advanced_security %}.{% ifversion ghes %} Para obtener información sobre las licencias, vea "[Acerca de la facturación para {% data variables.product.prodname_GH_advanced_security %}](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)".{% endif %}
+2. Descarga el archivo de licencia nuevo. Para más información, vea "[Descarga de la licencia para {% data variables.product.prodname_enterprise %}](/billing/managing-your-license-for-github-enterprise/downloading-your-license-for-github-enterprise)".
+3. Carga el archivo de licencia nuevo en {% data variables.product.product_location %}. Para obtener más información, vea "[Carga de una nueva licencia en {% data variables.product.prodname_ghe_server %}](/billing/managing-your-license-for-github-enterprise/uploading-a-new-license-to-github-enterprise-server)".{% ifversion ghes %}
+4. Revisa los prerequisitos para las características que piensas habilitar.
 
-1. Upgrade your license for {% data variables.product.product_name %} to include {% data variables.product.prodname_GH_advanced_security %}.{% ifversion ghes %} For information about licensing, see "[About billing for {% data variables.product.prodname_GH_advanced_security %}](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)."{% endif %}
-2. Download the new license file. For more information, see "[Downloading your license for {% data variables.product.prodname_enterprise %}](/billing/managing-your-license-for-github-enterprise/downloading-your-license-for-github-enterprise)."
-3. Upload the new license file to {% data variables.location.product_location %}. For more information, see "[Uploading a new license to {% data variables.product.prodname_ghe_server %}](/billing/managing-your-license-for-github-enterprise/uploading-a-new-license-to-github-enterprise-server)."{% ifversion ghes %}
-4. Review the prerequisites for the features you plan to enable.
+    - {% data variables.product.prodname_code_scanning_capc %}, vea "[Configuración de {% data variables.product.prodname_code_scanning %} para el dispositivo](/admin/advanced-security/configuring-code-scanning-for-your-appliance#prerequisites-for-code-scanning)".
+    - {% data variables.product.prodname_secret_scanning_caps %}, vea "[Configuración de {% data variables.product.prodname_secret_scanning %} para el dispositivo](/admin/advanced-security/configuring-secret-scanning-for-your-appliance#prerequisites-for-secret-scanning)".{% endif %}
+    - {% data variables.product.prodname_dependabot %}, vea "[Habilitación de {% data variables.product.prodname_dependabot %} para la empresa](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)". 
 
-    - {% data variables.product.prodname_code_scanning_capc %}, see "[Configuring {% data variables.product.prodname_code_scanning %} for your appliance](/admin/advanced-security/configuring-code-scanning-for-your-appliance#prerequisites-for-code-scanning)."
-    - {% data variables.product.prodname_secret_scanning_caps %}, see "[Configuring {% data variables.product.prodname_secret_scanning %} for your appliance](/admin/advanced-security/configuring-secret-scanning-for-your-appliance#prerequisites-for-secret-scanning)."{% endif %}
-    - {% data variables.product.prodname_dependabot %}, see "[Enabling {% data variables.product.prodname_dependabot %} for your enterprise](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)." 
-
-## Enabling and disabling {% data variables.product.prodname_GH_advanced_security %} features
+## Habilitar e inhabilitar las característcicas de la {% data variables.product.prodname_GH_advanced_security %}
 
 {% data reusables.enterprise_management_console.enable-disable-security-features %}
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.management-console %}
-{% data reusables.enterprise_management_console.advanced-security-tab %}{% ifversion ghes %}
-1. Under "Security," select the features that you want to enable and deselect any features you want to disable.
-{% ifversion ghes %}![Checkbox to enable or disable {% data variables.product.prodname_advanced_security %} features](/assets/images/enterprise/3.2/management-console/enable-security-checkboxes.png){% else %}![Checkbox to enable or disable {% data variables.product.prodname_advanced_security %} features](/assets/images/enterprise/management-console/enable-advanced-security-checkboxes.png){% endif %}{% else %}
-1. Under "{% data variables.product.prodname_advanced_security %}," click **{% data variables.product.prodname_code_scanning_capc %}**.
-![Checkbox to enable or disable {% data variables.product.prodname_code_scanning %}](/assets/images/enterprise/management-console/enable-code-scanning-checkbox.png){% endif %}
-{% data reusables.enterprise_management_console.save-settings %}
+{% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.enterprise_site_admin_settings.management-console %} {% data reusables.enterprise_management_console.advanced-security-tab %}{% ifversion ghes %}
+1. Debajo de "Seguridad", selecciona las características que quieres habilitar y quita la selección las que quieres deshabilitar.
+{% ifversion ghes %}![Casilla para habilitar o deshabilitar las características de {% data variables.product.prodname_advanced_security %} ](/assets/images/enterprise/3.2/management-console/enable-security-checkboxes.png){% else %}![Casilla para habilitar o deshabilitar las características de {% data variables.product.prodname_advanced_security %} ](/assets/images/enterprise/management-console/enable-advanced-security-checkboxes.png){% endif %}{% else %}
+1. En "{% data variables.product.prodname_advanced_security %}", haga clic en **{% data variables.product.prodname_code_scanning_capc %}** .
+![Casilla para habilitar o deshabilitar {% data variables.product.prodname_code_scanning %}](/assets/images/enterprise/management-console/enable-code-scanning-checkbox.png){% endif %} {% data reusables.enterprise_management_console.save-settings %}
 
-When {% data variables.product.product_name %} has finished restarting, you're ready to set up any additional resources required for newly enabled features. For more information, see "[Configuring {% data variables.product.prodname_code_scanning %} for your appliance](/admin/advanced-security/configuring-code-scanning-for-your-appliance)."
+Cuando {% data variables.product.product_name %} termina de reiniciarse, estás listo para configurar cualquier recurso adicional que se requiera para las características recién habilitadas. Para más información, vea "[Configuración de {% data variables.product.prodname_code_scanning %} para el dispositivo](/admin/advanced-security/configuring-code-scanning-for-your-appliance)".
 
-## Enabling or disabling {% data variables.product.prodname_GH_advanced_security %} features via the administrative shell (SSH)
+## Habilitar o inhabilitar las características de la {% data variables.product.prodname_GH_advanced_security %} a través del shell administrativo (SSH)
 
-You can enable or disable features programmatically on {% data variables.location.product_location %}. For more information about the administrative shell and command-line utilities for {% data variables.product.prodname_ghe_server %}, see "[Accessing the administrative shell (SSH)](/admin/configuration/accessing-the-administrative-shell-ssh)" and "[Command-line utilities](/admin/configuration/command-line-utilities#ghe-config)."
+Puedes habilitar o inhabilitar las características mediante programación en {% data variables.product.product_location %}. Para obtener más información sobre el shell administrativo y las utilidades de línea de comandos para {% data variables.product.prodname_ghe_server %}, vea "[Acceso al shell administrativo (SSH)](/admin/configuration/accessing-the-administrative-shell-ssh)" y "[Utilidades de la línea de comandos](/admin/configuration/command-line-utilities#ghe-config)".
 
-For example, you can enable any {% data variables.product.prodname_GH_advanced_security %} feature with your infrastructure-as-code tooling when you deploy an instance for staging or disaster recovery.
+Por ejemplo, puedes habilitar cualquier característica de {% data variables.product.prodname_GH_advanced_security %} con tus herramientas de infraestructura-como-código cuando despliegas una instancia para hacer pruebas o para recuperación de desastres.
 
-1. SSH into {% data variables.location.product_location %}.
-1. Enable features for {% data variables.product.prodname_GH_advanced_security %}.
+1. SSH en {% data variables.product.product_location %}.
+1. Habilita las características de {% data variables.product.prodname_GH_advanced_security %}.
 
-    - To enable {% data variables.product.prodname_code_scanning_capc %}, enter the following commands.
+    - Para habilitar el {% data variables.product.prodname_code_scanning_capc %}, ingresa los siguientes comandos.
     ```shell
     ghe-config app.minio.enabled true
     ghe-config app.code-scanning.enabled true
     ```
-    - To enable {% data variables.product.prodname_secret_scanning_caps %}, enter the following command.
+    - Para habilitar el {% data variables.product.prodname_secret_scanning_caps %}, ingresa el siguiente comando.
     ```shell
     ghe-config app.secret-scanning.enabled true
     ```
-    - To enable the dependency graph, enter the following {% ifversion ghes %}command{% else %}commands{% endif %}.
-    {% ifversion ghes %}```shell
-    ghe-config app.dependency-graph.enabled true
+    - Para habilitar el gráfico de dependencias, escribe {% ifversion ghes %}command{% else %}commands{% endif %}.
+    {% ifversion ghes %}```shell ghe-config app.dependency-graph.enabled true
     ```
     {% else %}```shell
     ghe-config app.github.dependency-graph-enabled true
@@ -99,13 +92,12 @@ For example, you can enable any {% data variables.product.prodname_GH_advanced_s
     ghe-config app.minio.enabled false
     ghe-config app.code-scanning.enabled false
     ```
-    - To disable {% data variables.product.prodname_secret_scanning %}, enter the following command.
+    - Para inhabilitar el {% data variables.product.prodname_secret_scanning %}, ingresa el siguiente comando.
     ```shell
     ghe-config app.secret-scanning.enabled false
     ```
-    - To disable the dependency graph, enter the following {% ifversion ghes %}command{% else %}commands{% endif %}.
-    {% ifversion ghes %}```shell
-    ghe-config app.dependency-graph.enabled false
+    - Para deshabilitar el gráfico de dependencias, escribe {% ifversion ghes %}command{% else %}commands{% endif %}.
+    {% ifversion ghes %}```shell ghe-config app.dependency-graph.enabled false
     ```
     {% else %}```shell
     ghe-config app.github.dependency-graph-enabled false

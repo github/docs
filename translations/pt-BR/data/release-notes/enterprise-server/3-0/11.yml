@@ -1,0 +1,26 @@
+date: '14/07/2021'
+sections:
+  security_fixes:
+    - '**ALTO:** Foi identificada uma vulnerabilidade de transversalidade de caminho no GitHub Enterprise Server que poderia ser explorada ao compilar um site GitHub Pages. As opções de configuração controladas pelo usuário usadas pelas páginas GitHuB não foram suficientemente restringidas e tornaram possível a leitura de arquivos na instância do GitHub Enterprise Server. Para explorar esta vulnerabilidade, um invasor precisaria de permissão para criar e compilar um site GitHub Pages na instância do GitHub Enterprise Server. Esta vulnerabilidade afetou todas as versões do GitHub Enterprise Server anteriores à 3.1.3 e foi designada CVE-2021-22867. Esta vulnerabilidade foi relatada pelo Programa de Recompensas por Bugs do GitHub.'
+    - Os pacotes foram atualizados para as últimas versões de segurança.
+  bugs:
+    - A variável de data de vencimento do SAML não era configurável.
+    - Os serviços do aplicativo falhariam as suas verificações de saúde durante a configuração fossem aplicadas antes de poderem entrar em um estado saudável.
+    - '`ghe-cluster-config-node-init` falharia durante a configuração do cluster se o proxy HTTP estiver habilitado.'
+    - Os hooks de pre-receive podem encontrar um erro `Failed to resolve full path of the current executable` due to `/proc` não sendo montado no contêiner.
+    - O Collectd não resolveria o nome de host de destino após a inicialização.
+    - O trabalho que os repositórios obsoletos excluídos pode não conseguir progredir se alguns desses repositórios estiverem protegidos da exclusão por retenção legal.
+    - Executar `git nw-gc --pristine` geraria um erro.
+    - Os trabalhos de fundo estavam sendo enfileirados na fila `spam` que não estavam sendo processados.
+    - O método de mesclagem preferido seria redefinido ao tentar novamente após uma mesclagem de PR falhada.
+    - Os pushes do Git podem gerar um erro de 500 servidor interno durante o processo de reconciliação do usuário em instâncias usando o modo de autenticação do LDAP.
+  changes:
+    - "Aprimorou-se a eficiência da aplicação da configuração ao ignorar as regras de firewall para permitir IP, que não haviam sido alteradas, o que economizou tempo significativo em grandes clusters."
+  known_issues:
+    - "Em uma nova configuração do GitHub Enterprise Server sem nenhum usuário, um invasor pode criar o primeiro usuário administrador."
+    - As regras de firewall personalizadas são removidas durante o processo de atualização.
+    - "Arquivos LFS do Git [enviados através da interface Web](https://github.com/blog/2105-upload-files-to-your-repositories) são adicionados diretamente ao repositório e de maneira incorreta."
+    - "Os problemas não podem ser fechados se contiverem um permalink para um blob no mesmo repositório, em que o caminho do arquivo blob's é maior que 255 caracteres."
+    - "Quando \"Usuários podem pesquisar pelo GitHub.com\" está habilitado com o GitHub Connect, os problemas em repositórios privados e internos não estão incluídos nos resultados de pesquisa do GitHub.com."
+    - "Quando um nó de réplica está offline em uma configuração de alta disponibilidade, {% data variables.product.product_name %} ainda pode encaminhar solicitações de {% data variables.product.prodname_pages %} para o nó offline, reduzindo a disponibilidade de {% data variables.product.prodname_pages %} para os usuários."
+    - Os limites de recursos que são específicos para processamento de hooks pre-receive podem causar falha em alguns hooks pre-receive.

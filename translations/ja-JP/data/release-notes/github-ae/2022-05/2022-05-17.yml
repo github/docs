@@ -1,0 +1,248 @@
+date: '2022-05-17'
+friendlyDate: '2022 年 5 月 17 日'
+title: '2022 年 5 月 17 日'
+currentWeek: true
+sections:
+  features:
+    - heading: 'GitHub Advanced Security 機能が一般提供されました'
+      notes:
+        - |GitHub AE の Code Scanning と Secret Scanning が一般提供されました。詳細については、「[Code Scanning について](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning)」と「[Secret Scanning について](/code-security/secret-scanning/about-secret-scanning)」を参照してください。
+
+|
+        - |Secret Scanning のカスタム パターンが一般提供されました。詳細については、「[Secret Scanning のカスタム パターンの定義](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)」を参照してください。
+
+|
+    - heading: '1 つの pull request に対する Code Scanning アラートをすべて表示する'
+      notes:
+        - |Code Scanning アラート ページの新しい pull request フィルターを使って、pull request に関連付けられたすべての Code Scanning アラートを見つけられるようになりました。pull request チェック ページには、pull request に導入されたアラートは表示されますが、pull request ブランチに存在するアラートは表示されません。 [Checks]\(チェック\) ページの新しい [View all branch alerts]\(すべてのブランチのアラートを表示する\) リンクを選ぶと、特定の pull request フィルターが既に適用された Code Scanning アラート ページに移動するので、pull request に関連付けられたすべてのアラートを確認できます。これは、多数のアラートを管理する場合や、個々のアラートの詳細な情報を確認する場合に便利です。詳細については、「[リポジトリの Code Scanning アラートを管理する](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository#filtering-code-scanning-alerts)」を参照してください。
+
+|
+    - heading: '組織のセキュリティの概要'
+      notes:
+        - |GitHub Advanced Security では、Code Scanning、Dependabot、Secret Scanning によって検出されたアプリケーションのセキュリティ リスクを組織レベルで確認できるようになりました。セキュリティの概要は、各リポジトリでのセキュリティ機能の有効化ステータスと、検出されたアラートの数を示しています。
+
+
+
+さらに、セキュリティ概要には、組織レベルの Secret Scanning アラートがすべて一覧表示されます。Dependabot と Code Scanning アラートの同様のビューも今後のリリースで提供される予定です。詳細については、「[セキュリティの概要について](/code-security/security-overview/about-the-security-overview)」を参照してください。
+
+
+
+![セキュリティの概要のスクリーンショット](/assets/images/enterprise/3.2/release-notes/security-overview-UI.png)
+
+|
+    - heading: '依存関係グラフ'
+      notes:
+        - |GitHub AE で依存関係グラフを使用できるようになりました。リポジトリにチェックインされた依存関係マニフェストを解析して、依存しているオープン ソース ソフトウェアを理解する場合に依存関係グラフが役立ちます。詳細については、「[依存関係グラフについて](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)」を参照してください。
+
+|
+    - heading: 'Dependabot アラート'
+      notes:
+        - |Dependabot アラートを使って、GitHub AE 上の依存関係内にある脆弱性を通知を受けられるようになりました。Dependabot アラートを有効にするには、依存関係グラフを有効にし、GitHub Connect を有効にし、GitHub Advisory Database の脆弱性を同期します。この機能はベータ版であり、変更される可能性があります。詳細については、「[Dependabot アラートについて](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)」を参照してください。
+
+
+
+Dependabot アラートを有効にすると、組織のメンバーは、依存関係に影響する新しい脆弱性が GitHub Advisory Database に追加されたとき、または脆弱な依存関係が自分のマニフェストに追加されたときに、通知を受け取ります。メンバーは通知設定をカスタマイズできます。詳細については、「[{% data variables.product.prodname_dependabot_alerts %} の通知を構成する](/code-security/dependabot/dependabot-alerts/configuring-notifications-for-dependabot-alerts)」を参照してください。<!-- ⚠️ コンテンツ機能フラグを切り替えると、記事を参照できるようになります -->
+
+|
+    - heading: '組織のセキュリティ マネージャー ロール'
+      notes:
+        - |組織は、すべてのリポジトリのセキュリティ アラートと設定を管理するアクセス許可をチームに付与できるようになりました。"セキュリティ マネージャー" ロールは、どのチームにも適用でき、チームのメンバーに次のアクセス許可を付与します。
+
+
+
+- 組織内のすべてのリポジトリに対する読み取りアクセス
+
+- 組織内のすべてのセキュリティ アラートに対する書き込みアクセス
+
+- 組織レベルのセキュリティ タブへのアクセス
+
+- 組織レベルのセキュリティ設定に対する書き込みアクセス
+
+- リポジトリ レベルのセキュリティ設定に対する書き込みアクセス
+
+
+
+詳細については、「[組織のセキュリティ マネージャーを管理する](https://docs.github.com/en/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization)」を参照してください。<!-- ⚠️ コンテンツ機能フラグを切り替えると、記事を参照できるようになります -->
+
+|
+    - heading: 'GitHub Actions のエフェメラル ランナーと自動スケーリング Webhook'
+      notes:
+        - |GitHub AE は、エフェメラル (単一ジョブの) セルフホステッド ランナーと新しい [`workflow_job`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_job) Webhook をサポートし、ランナーの自動スケーリングが簡単になりました。
+
+
+
+エフェメラル ランナーは、各ジョブをクリーンなイメージで実行する必要がある自己管理環境に適しています。ジョブの実行後、GitHub AE によってエフェメラル ランナーの登録が自動的に解除されます。その結果、ジョブ後の管理を実行できるようになります。
+
+
+
+エフェメラル ランナーを新しい `workflow_job` Webhook と組み合わせて、GitHub Actions からのジョブの要求に応じてセルフホステッド ランナーを自動的にスケーリングできます。
+
+
+
+詳細については、「[セルフホステッド ランナーでの自動スケーリング](/actions/hosting-your-own-runners/autoscaling-with-self-hosted-runners)」と「[Webhook イベントとペイロード](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_job)」を参照してください。<!-- ⚠️ コンテンツ機能フラグを切り替えると、記事を参照できるようになります -->
+
+|
+    - heading: 'GitHub Actions の複合アクション'
+      notes:
+        - |複合を使って他のアクションを参照することで、ワークフローの重複を減らすことができます。これまでは YAML で記述されたアクションに使えるのはスクリプトのみでした。詳細については、「[複合アクションを作成する](/actions/creating-actions/creating-a-composite-action)」を参照してください。
+
+|
+    - heading: 'セルフホステッド ランナーを管理するための新しいトークン スコープ'
+      notes:
+        - |エンタープライ ズレベルでセルフホステッド ランナーを管理する場合、`admin:enterprise` スコープで個人用アクセス トークンを使う必要がなくなりました。代わりに、新しい `manage_runners:enterprise` スコープを使って、トークンのアクセス許可を制限できます。このスコープを持つトークンを使って、エンタープライズのセルフホステッド ランナーを管理する多くの REST API エンドポイントに対して認証することができます。
+
+|
+    - heading: 'REST API 経由でアクセスできる監査ログ'
+      notes:
+        - |プログラムで REST API を使って監査ログとやり取りできるようになりました。監査ログを転送すると、データの保持と分析に独自のツールキットを使い、時系列でパターンを判断できます。一方、新しい REST API を使うと、最近の履歴で発生した注目すべきイベントについて限定的な分析を実行できます。詳細については、「[組織の監査ログを確認する](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization#using-the-rest-api)」を参照してください。
+
+|
+    - heading: '個人用アクセス トークンの有効期限'
+      notes:
+        - |新規と既存の個人用アクセス トークンに有効期限を設定できるようになりました。有効期限が近づいているトークンを更新する時期になると、GitHub AE からメールが送信されます。有効期限が切れたトークンを再生成して、元のトークンとプロパティが同じ複製トークンをユーザーに提供します。GitHub AE API でトークンを使うと、トークンの有効期限を示す新しいヘッダー `GitHub-Authentication-Token-Expiration` が表示されます。これをスクリプトで使うと、有効期限が近づいたときに、たとえば警告メッセージをログに記録することができます。詳細については、「[個人用アクセス トークンの作成](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)」と「[REST API の概要](/rest/guides/getting-started-with-the-rest-api#using-personal-access-tokens)」を参照してください。
+
+|
+    - heading: 'リポジトリへのアクセス権を持つ人のリストをエクスポートする'
+      notes:
+        - |組織所有者は、リポジトリへのアクセス権を持つユーザーの一覧を CSV 形式でエクスポートできるようになりました。詳細については、「[自分のリポジトリに対してアクセス権を持つユーザーを表示する](/organizations/managing-access-to-your-organizations-repositories/viewing-people-with-access-to-your-repository#exporting-a-list-of-people-with-access-to-your-repository)」を参照してください。
+
+|
+    - heading: 'コード レビューの割り当て管理の機能強化'
+      notes:
+        - |コード レビューの割り当てを管理する新しい設定を使うと、チームの pull request のレビューをチーム メンバー間で分担するのに役立ちます。レビューは 1 人や 2 人のチーム メンバーのみの責任ではなくなります。
+
+
+
+- 子チーム メンバー: 割り当てをチームの直接メンバーのみに制限します。これまでは、チームの直接のメンバーまたは子チームのメンバーにチーム レビュー要求を割り当てることができました。
+
+- 既存の要求のカウント: 1 人以上のチーム メンバーが既に要求されている場合でも、自動割り当てを続けます。以前は、既に要求されているチーム メンバーは、チームの自動レビュー要求の 1 人としてカウントされていました。
+
+- チーム レビュー要求: 1 人以上のメンバーが新たに割り当てられた場合でも、チームをレビューに割り当てたままにします。
+
+
+
+詳細については、「[チームのコード レビュー設定を管理する](/organizations/organizing-members-into-teams/managing-code-review-settings-for-your-team)」を参照してください。
+
+|
+    - heading: '新しいテーマ'
+      notes:
+        - |GitHub AE Web UI に 2 つの新しいテーマが追加されました。
+
+
+
+- 前景と背景の要素間のコントラストを高めた、暗いハイ コントラスト テーマ
+
+- 赤や緑などの色をオレンジや青に置き換えたライトとダークの視覚障がい対応
+
+
+
+詳細については、「[テーマ設定を管理する](/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/managing-your-theme-settings)」を参照してください。
+
+|
+    - heading: 'Markdown の機能強化'
+      notes:
+        - |どの Markdown フィールドでも脚注構文を使い、文章の流れを中断することなく関連情報を参照できるようになりました。脚注は上付き文字のリンクとして表示されます。脚注をクリックすると、ドキュメントの下部にある新しいセクションに表示される参照先にジャンプします。詳細については、「[基本的な構文の記述と書式設定](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#footnotes)」を参照してください。<!-- ⚠️ コンテンツ機能フラグを切り替えると、ページのセクションを参照できるようになります -->
+
+|
+        - |Markdown ファイルの上部にある {% octicon "code" aria-label="The Code icon" %} ボタンをクリックして、ソース ビューとレンダリングされた Markdown ビューを Web UI で切り替えられるようになりました。従来は、変更履歴ビューを使って、Markdown ファイルのソース内の特定の行番号にリンクする必要がありました。
+
+|
+        - |GitHub AE では、見出しを元にして Wiki の目次を自動的に生成できるようになりました。
+
+|
+  changes:
+    - heading: 'パフォーマンス'
+      notes:
+        - |Git 参照が多いリポジトリに対するページ読み込みとジョブが大幅に高速化されました。
+
+|
+    - heading: '管理'
+      notes:
+        - |ユーザー偽装プロセスが機能強化されました。偽装セッションで偽装の正当な理由が必要となり、アクションは、偽装されたユーザーとして実行されたものとして監査ログに記録され、偽装されたユーザーは、エンタープライズ所有者から、偽装されているというメール通知を受け取るようになりました。詳細については、「[ユーザーの偽装](/admin/user-management/managing-users-in-your-enterprise/impersonating-a-user)」を参照してください。
+
+|
+    - heading: 'GitHub のアクション'
+      notes:
+        - |GitHub Connect を介して GitHub AE から GitHub.com に解決されるアクションを使うときのインサイダー中間者攻撃を軽減するために、GitHub AE では、使用時のアクションの名前空間 (`OWNER/NAME`) を廃止しました。名前空間の廃止により、その名前空間はエンタープライズで作成されなくなり、アクションを参照しているすべてのワークフローが GitHub.com からダウンロードされるようになります。詳細については、「[GitHub Connect を使って GitHub.com アクションへの自動アクセスを有効にする](/admin/github-actions/managing-access-to-actions-from-githubcom/enabling-automatic-access-to-githubcom-actions-using-github-connect#automatic-retirement-of-namespaces-for-actions-accessed-on-githubcom)」を参照してください。
+
+|
+        - |監査ログに GitHub Actions の新しいイベントが追加されました。GitHub AE によって、次のイベントの監査ログ エントリが記録されるようになりました。
+
+
+
+- セルフホステッド ランナーが登録または削除された。
+
+- セルフホステッド ランナーがランナー グループに追加されたか、ランナー グループから削除された。
+
+- ランナー グループが作成または削除された。
+
+- ワークフローの実行が作成または完了した。
+
+- ワークフロー ジョブの準備が整った。重要なのは、このログに、ランナーに提供されたシークレットのリストが含まれていることです。
+
+
+
+詳細については、「[GitHub Actions のセキュリティ強化](/actions/security-guides/security-hardening-for-github-actions)」を参照してください。
+
+|
+    - heading: 'GitHub Advanced Security'
+      notes:
+        - |Code Scanning では、可能な限り `on:push` ワークフローで特定されたアラートを pull request にマップして表示するようになりました。 pull request に表示されるアラートは、ブランチの先頭の既存の分析と、マージ先のターゲット ブランチの分析を比較することで特定されるものです。pull request のマージ コミットを使わない場合、`on:pull_request` トリガーを使うアプローチと比較すると、アラートの精度が低くなる可能性があることに注意してください。詳細については、「[CodeQL でのコード スキャンについて](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts#about-alert-details)」を参照してください。
+
+
+
+他の一部の CI/CD システムは、コードがブランチにプッシュされたときにパイプラインをトリガーするように、またはコミットごとに排他的に構成することさえできます。このような分析パイプラインがトリガーされ、結果が SARIF API にアップロードされるたびに、Code Scanning によって、分析結果とオープン状態の pull request の照合が試行されます。オープン状態の pull request が見つかった場合、結果が上記のように公開されます。詳細については、「[SARIF ファイルを GitHub にアップロードする](/code-security/code-scanning/integrating-with-code-scanning/uploading-a-sarif-file-to-github)」を参照してください。
+
+|
+        - |GitHub AE により、追加のプロバイダーからのシークレットが検出されるようになりました。詳細については、「[Secret Scanning のパターン](/code-security/secret-scanning/secret-scanning-patterns#supported-secrets)」を参照してください。
+
+|
+    - heading: 'Pull Request'
+      notes:
+        - |チームにコード レビューの割り当てが使われている場合、pull request ページのタイムラインとレビューアー サイドバーに、レビュー要求が 1 人以上のチーム メンバーに自動的に割り当てられたかどうかが示されるようになりました。
+
+
+
+![コード レビューの自動割り当てのインジケーターのスクリーンショット](https://user-images.githubusercontent.com/2503052/134931920-409dea07-7a70-4557-b208-963357db7a0d.png)
+
+|
+        - |pull request 検索をフィルター処理して、**[Awaiting review from you]\(あなたのレビュー待ちです\)** を選んでレビューするように自分に求められている pull request のみを含めることができるようになりました。詳細については、「[issue と pull requests の検索](https://docs.github.com/en/search-github/searching-on-github/searching-issues-and-pull-requests)」を参照してください。
+
+|
+        - |ブランチ セレクター メニューを使う際にブランチ名を正確に指定すると、一致したブランチのリストの一番上に結果が表示されるようになりました。従来は、正確なブランチ名の一致がリストの一番下に表示されることがありました。
+
+|
+        - |GitHub AE では、対応する未処理の pull request があるブランチを表示するときに、pull request に直接リンクするようになりました。従来は、ブランチ比較を使ってコントリビュートするか、新しい pull request を開くように求めるプロンプトが表示されました。
+
+|
+        - |ボタンをクリックして、ファイルの生の内容全体をクリップボードにコピーできるようになりました。従来は、生ファイルを開き、すべて選んでからコピーする必要がありました。ファイルの内容をコピーするには、ファイルに移動し、ツール バーでクリックします。この機能は現在、一部のブラウザーでのみ使用できることに注意してください。
+
+|
+        - |双方向の Unicode テキストが含まれるファイルを表示すると、警告が表示されるようになりました。双方向の Unicode テキストは、ユーザー インターフェイスの表示とは異なるように解釈またはコンパイルできます。たとえば、非表示で双方向の Unicode 文字列を使って、ファイル内のテキスト セグメントを入れ替えることができます。これらの文字列の置換の詳細については、[GitHub の変更ログ](https://github.blog/changelog/2021-10-31-warning-about-bidirectional-unicode-text/)を参照してください。
+
+|
+    - heading: 'リポジトリ'
+      notes:
+        - |GitHub AE は、_CITATION.cff_ ファイルのサポートを拡張しました。_CITATION.cff_ ファイルは、人間と機械が読み取れる引用情報を含むプレーンテキスト ファイルです。GitHub AE によって、この情報は [APA](https://apastyle.apa.org) や [BibTeX](https://en.wikipedia.org/wiki/BibTeX) などの他のユーザーがコピーできる便利な形式へと解析されます。詳細については、「[CITATION ファイルについて](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-citation-files)」を参照してください。
+
+|
+        - |Repositories API の Autolinks エンドポイントを介して、自動リンクの追加、削除、表示を実行できるようになりました。詳細については、REST API ドキュメントの「[自動リンクされた参照と URL](/get-started/writing-on-github/working-with-advanced-formatting/autolinked-references-and-urls)」と「[リポジトリ](/rest/reference/repos#autolinks)」を参照してください。
+
+|
+    - heading: 'リリース'
+      notes:
+
+        - |GitHub リリースのタグ選択コンポーネントは、テキスト フィールドではなく、ドロップダウン メニューになりました。詳細については、「[リポジトリのリリースを管理する](/repositories/releasing-projects-on-github/managing-releases-in-a-repository#creating-a-release)」を参照してください。
+
+|
+    - heading: 'Markdown'
+      notes:
+
+        - |画像や動画などのファイルを Markdown エディターにドラッグ アンド ドロップした場合、ファイルの配置は、GitHub AE によって、カーソルの位置ではなく、マウス ポインターの位置が使用されるようになりました。
+
+|
+    - heading: 'REST API'
+      notes:
+        - |REST API のプレビュー段階が終了して、正式に API に含まれるようになりました。プレビュー ヘッダーは REST API エンドポイントで不要になりましたが、プレビュー段階の終了を要求の `Accept` ヘッダーに引き続き指定することで、期待どおりに動作します。
+
+|

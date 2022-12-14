@@ -1,6 +1,6 @@
 ---
-title: Enabling GitHub Packages with AWS
-intro: 'Set up {% data variables.product.prodname_registry %} with AWS as your external storage.'
+title: Habilitar GitHub packages con AWS
+intro: 'Configura el {% data variables.product.prodname_registry %} con AWS como tu almacenamiento externo.'
 versions:
   ghes: '*'
 type: tutorial
@@ -10,22 +10,27 @@ topics:
   - Packages
   - Packages
 shortTitle: Enable Packages with AWS
+ms.openlocfilehash: 185373657cad88bc0a45e48eb5835abdf394f9ce
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145116441'
 ---
-
 {% warning %}
 
-**Warnings:**
-- It is critical that you configure any restrictive access policies you need for your storage bucket, because {% data variables.product.company_short %} does not apply specific object permissions or additional access control lists (ACLs) to your storage bucket configuration. For example, if you make your bucket public, data in the bucket will be accessible to the public internet. For more information, see "[Setting bucket and object access permissions](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/set-permissions.html)" in the AWS Documentation.
-- We recommend using a dedicated bucket for {% data variables.product.prodname_registry %}, separate from the bucket you use for {% data variables.product.prodname_actions %} storage.
-- Make sure to configure the bucket you'll want to use in the future. We do not recommend changing your storage after you start using {% data variables.product.prodname_registry %}.
+**Advertencias:**
+- Es crítico que configures cualquier política de acceso restrictivo que necesites para tu bucket de almacenamiento, ya que {% data variables.product.company_short %} no aplica permisos de objeto específicos para cualquier lista de control de accesos (ACL) a tu configuración de bucket de almacenamiento. Por ejemplo, si haces público tu bucket, el público general en la internet podrá acceder a los datos que se encuentren ahí. Para más información, vea "[Establecimiento de permisos de acceso a cubos y objetos](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/set-permissions.html)" en la documentación de AWS.
+- Te recomendamos utilizar un bucket dedicado para {% data variables.product.prodname_registry %}, separado de aquél que utilices para almacenar {% data variables.product.prodname_actions %}.
+- Asegúrate de configurar el bucket que quieres utilizar en el futuro. No te recomendamos cambiar tu almacenamiento después de que comienzas a utilizar {% data variables.product.prodname_registry %}.
 
 {% endwarning %}
 
-## Prerequisites
+## Requisitos previos
 
-Before you can enable and configure {% data variables.product.prodname_registry %} on {% data variables.location.product_location_enterprise %}, you need to prepare your AWS storage bucket. To prepare your AWS storage bucket, we recommend consulting the official AWS docs at [AWS Documentation](https://docs.aws.amazon.com/index.html).
+Antes de que puedas habilitar y configurar el {% data variables.product.prodname_registry %} en {% data variables.product.product_location_enterprise %}, necesitas preparar tu bucket de almacenamiento de AWS. Para preparar el cubo de almacenamiento de AWS, se recomienda consultar la documentación oficial de AWS en la [documentación de AWS](https://docs.aws.amazon.com/index.html).
 
-Ensure your AWS access key ID and secret have the following permissions:
+Asegúrate de que la ID de tu clave y secreto de acceso de AWS tengan los siguientes permisos:
   - `s3:PutObject`
   - `s3:GetObject`
   - `s3:ListBucketMultipartUploads`
@@ -34,28 +39,23 @@ Ensure your AWS access key ID and secret have the following permissions:
   - `s3:DeleteObject`
   - `s3:ListBucket`
 
-## Enabling {% data variables.product.prodname_registry %} with AWS external storage
+## Habilitar el {% data variables.product.prodname_registry %} con el almacenamiento externo de AWS
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.management-console %}
-{% data reusables.enterprise_site_admin_settings.packages-tab %}
-{% data reusables.package_registry.enable-enterprise-github-packages %}
+{% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.enterprise_site_admin_settings.management-console %} {% data reusables.enterprise_site_admin_settings.packages-tab %} {% data reusables.package_registry.enable-enterprise-github-packages %}
 
 {% ifversion ghes %}
-1. Under "Packages Storage", select **Amazon S3** and enter your storage bucket's details:
-    - **AWS Service URL:** The service URL for your bucket. For example, if your S3 bucket was created in the `us-west-2 region`, this value should be `https://s3.us-west-2.amazonaws.com`.
+1. En "Almacenamiento de paquetes", seleccione **Amazon S3** y escriba los detalles del cubo de almacenamiento:
+    - **URL del servicio de AWS**: la dirección URL del servicio del cubo. Por ejemplo, si el cubo de S3 se ha creado en `us-west-2 region`, este valor debe ser `https://s3.us-west-2.amazonaws.com`.
 
-      For more information, see "[AWS service endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html)" in the AWS documentation.
+      Para más información, vea "[Puntos de conexión del servicio AWS](https://docs.aws.amazon.com/general/latest/gr/rande.html)" en la documentación de AWS.
 
-    - **AWS S3 Bucket:** The name of your S3 bucket dedicated to {% data variables.product.prodname_registry %}.
-    - **AWS S3 Access Key** and **AWS S3 Secret Key**: The AWS access key ID and secret key to access your bucket.
+    - **Cubo AWS S3:** nombre del cubo de S3 dedicado para {% data variables.product.prodname_registry %}.
+    - **Clave de acceso de AWS S3** y **Clave secreta de AWS S3**: el identificador de la clave de acceso de AWS y la clave secreta para acceder al cubo.
 
-      For more information on managing AWS access keys, see the "[AWS Identity and Access Management Documentation](https://docs.aws.amazon.com/iam/index.html)."
+      Para más información sobre cómo administrar las claves de acceso de AWS,vea la "[documentación sobre administración de identidades y accesos de AWS](https://docs.aws.amazon.com/iam/index.html)".
 
-    ![Entry boxes for your S3 AWS bucket's details](/assets/images/help/package-registry/s3-aws-storage-bucket-details.png)
-{% endif %}
-{% data reusables.enterprise_management_console.save-settings %}
+    ![Cuadros de entrada para los detalles del cubo de AWS S3](/assets/images/help/package-registry/s3-aws-storage-bucket-details.png) {% endif %} {% data reusables.enterprise_management_console.save-settings %}
 
-## Next steps
+## Pasos siguientes
 
 {% data reusables.package_registry.next-steps-for-packages-enterprise-setup %}

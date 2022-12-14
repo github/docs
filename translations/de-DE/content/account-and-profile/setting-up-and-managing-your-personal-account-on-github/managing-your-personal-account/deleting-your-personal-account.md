@@ -1,6 +1,6 @@
 ---
-title: Deleting your personal account
-intro: 'You can delete your personal account on {% data variables.location.product_location %} at any time.'
+title: Löschen deines persönlichen Kontos
+intro: 'Du kannst dein persönliches Konto bei {% data variables.product.product_location %} jederzeit löschen.'
 redirect_from:
   - /articles/deleting-a-user-account
   - /articles/deleting-your-user-account
@@ -15,53 +15,55 @@ versions:
 topics:
   - Accounts
 shortTitle: Delete your account
+ms.openlocfilehash: c26ae9af0266defeaa7d0e15afc22b2edee2b7d2
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147687182'
 ---
+## Informationen zum Löschen deines persönlichen Kontos
 
-## About deletion of your personal account
-
-Deleting your personal account removes all repositories, forks of private repositories, wikis, issues, pull requests, and pages owned by your account. {% ifversion fpt or ghec %}Issues and pull requests you've created and comments you've made in repositories owned by other users will not be deleted. Your resources and comments will become associated with the [ghost user](https://github.com/ghost).{% else %}Issues and pull requests you've created and comments you've made in repositories owned by other users will not be deleted.{% endif %}
+Wenn du dein persönliches Konto löschst, werden alle Repositorys, Forks von privaten Repositorys, Wikis, Issues, Pull Requests und Seiten, die zu deinem Konto gehören, ebenfalls gelöscht. {% ifversion fpt or ghec %}Issues und Pull Requests, die du erstellt hast, sowie Kommentare, die du in Repositorys anderer Benutzer gemacht hast, werden nicht gelöscht. Deine Ressourcen und Kommentare werden dem [Geisterbenutzer](https://github.com/ghost) zugeordnet.{% else %}Issues und Pull Requests, die du erstellt hast, und Kommentare, die du in Repositorys anderer Benutzer gemacht hast, werden nicht gelöscht.{% endif %}
 
 {% ifversion ghec %}
 
 {% note %}
 
-**Note**: If your enterprise manages your account and you sign into {% data variables.location.product_location %} through your company's identity provider (IdP), you cannot delete your account. For more information, see "[About {% data variables.product.prodname_emus %}](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users)."
+**Hinweis**: Wenn dein Unternehmen dein Konto verwaltet, und du dich über den Identitätsanbieter deines Unternehmens (IdP) bei {% data variables.product.product_location %} anmeldest, kannst du dein Konto nicht löschen. Weitere Informationen findest du unter [Informationen zu {% data variables.product.prodname_emus %}](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users).
 
 {% endnote %}
 
 {% endif %}
 
-{% ifversion fpt or ghec %}When you delete your account we stop billing you. The email address associated with the account becomes available for use with a different account on {% data variables.location.product_location %}. After 90 days, the account name also becomes available to anyone else to use on a new account. {% endif %}
+{% ifversion fpt or ghec %}Wenn du dein Konto löschst, werden keine Gebühren mehr erhoben. Die mit dem Konto verknüpfte E-Mail-Adresse wird für die Nutzung mit einem anderen Konto auf {% data variables.product.product_location %} freigegeben. Nach 90 Tagen wird auch der Kontoname freigegeben und kann von allen anderen Personen für ein neues Konto verwendet werden. {% endif %}
 
-If you're the only owner of an organization, you must transfer ownership to another person or delete the organization before you can delete your personal account. If there are other owners in the organization, you must remove yourself from the organization before you can delete your personal account.
+Wenn du der einzige Besitzer einer Organisation bist, musst du den Besitz auf eine andere Person übertragen oder die Organisation löschen, bevor du dein Benutzerkonto löschen kannst. Wenn es noch weitere Besitzer*innen in deiner Organisation gibt, musst du dich selbst aus der Organisation entfernen, bevor du dein Benutzerkonto löschen kannst.
 
-For more information, see the following articles.
+Weitere Informationen findest du in den folgenden Artikeln.
 
-- "[Transferring organization ownership](/articles/transferring-organization-ownership)"
-- "[Deleting an organization account](/articles/deleting-an-organization-account)"
-- "[Removing yourself from an organization](/articles/removing-yourself-from-an-organization/)"
+- [Übertragen des Besitzes einer Organisation](/articles/transferring-organization-ownership)
+- [Löschen eines Organisationskontos](/articles/deleting-an-organization-account)
+- [Entfernen der eigenen Person aus einer Organisation](/articles/removing-yourself-from-an-organization/)
 
-## Back up your account data
+## Deine Kontoinformationen sichern
 
-Before you delete your personal account, make a copy of all repositories, private forks, wikis, issues, and pull requests owned by your account. For more information, see "[Backing up a repository](/repositories/archiving-a-github-repository/backing-up-a-repository)."
+Bevor du dein persönliches Konto löschst, erstelle Kopien aller Repositorys, privaten Forks, Wikis, Issues und Pull Requests, die zu deinem Konto gehören. Weitere Informationen findest du unter [Backup eines Repositorys durchführen](/repositories/archiving-a-github-repository/backing-up-a-repository).
 
 {% warning %}
 
-**Warning:** Once your personal account has been deleted, {% ifversion fpt or ghec %}{% data variables.product.company_short %}{% elsif ghes or ghae %}an enterprise owner{% endif %} cannot restore your content.
+**Warnung:** Nachdem dein persönliches Konto gelöscht wurde, kann {% ifversion fpt or ghec %}{% data variables.product.company_short %}{% elsif ghes or ghae %}ein Unternehmensbesitzer{% endif %} deine Inhalte nicht wiederherstellen.
 
 {% endwarning %}
 
-## Delete your personal account
+## Löschen deines persönlichen Kontos
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.account_settings %}
-3. At the bottom of the Account Settings page, under "Delete account", click **Delete your account**. Before you can delete your personal account:
-    - If you're the only owner in the organization, you must transfer ownership to another person or delete your organization.
-    - If there are other organization owners in the organization, you must remove yourself from the organization.
-   ![Account deletion button](/assets/images/help/settings/settings-account-delete.png)
-4. In the "Make sure you want to do this" dialog box, complete the steps to confirm you understand what happens when your account is deleted:
-  ![Delete account confirmation dialog](/assets/images/help/settings/settings-account-deleteconfirm.png)
-  {% ifversion fpt or ghec %}- Recall that all repositories, forks of private repositories, wikis, issues, pull requests and {% data variables.product.prodname_pages %} sites owned by your account will be deleted and your billing will end immediately, and your username will be available to anyone for use on {% data variables.product.product_name %} after 90 days.
-  {% else %}- Recall that all repositories, forks of private repositories, wikis, issues, pull requests and pages owned by your account will be deleted, and your username will be available for use on {% data variables.product.product_name %}.
-  {% endif %}- In the first field, type your {% data variables.product.product_name %} username or email.
-    - In the second field, type the phrase from the prompt.
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.account_settings %}
+3. Klicke unten auf der Seite mit den Kontoeinstellungen unter „Konto löschen“ auf **Dein Konto löschen**. Bevor du dein persönliches Konto löschen kannst, musst du Folgendes ausführen:
+    - Wenn du der alleinige Inhaber einer Organisation bist, musst du die Inhaberschaft auf eine andere Person übertragen oder die Organisation löschen.
+    - Wenn es andere Inhaber der Organisation gibt, musst du Dich selbst aus der Organisation entfernen.
+   ![Schaltfläche zum Löschen des Kontos](/assets/images/help/settings/settings-account-delete.png)
+4. Führe im Dialogfeld „Sicherstellen, dass du dies tun möchtest“ die folgenden Schritte durch, um zu bestätigen, dass du verstanden hast, was passiert, wenn dein Konto gelöscht wird: ![Dialogfeld zum Bestätigen der Kontolöschung](/assets/images/help/settings/settings-account-deleteconfirm.png) {% ifversion fpt or ghec %}– Denke daran, dass alle Repositorys, Forks privater Repositorys, Wikis, Issues, Pull Requests und {% data variables.product.prodname_pages %}-Websites, die zu deinem Konto gehören, gelöscht werden. Gleichzeitig wird die Abrechnung sofort beendet, und dein Benutzername wird nach 90 Tagen zur Verwendung durch andere Personen auf {% data variables.product.product_name %} freigegeben.
+  {% else %}– Denke daran, dass alle Repositorys, Forks von privaten Repositorys, Wikis, Issues, Pull Requests und Seiten von deinem Konto ebenfalls gelöscht werden und dein Benutzername wieder für die Verwendung auf {% data variables.product.product_name %} freigegeben wird.
+  {% endif %}– Gib im ersten Feld deinen {% data variables.product.product_name %}-Benutzernamen oder deine E-Mail-Adresse ein.
+    - Gib im zweiten Feld den Text von der Aufforderung ein.

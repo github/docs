@@ -1,6 +1,6 @@
 ---
-title: Linking a pull request to an issue
-intro: 'You can link a pull request {% ifversion link-existing-branches-to-issue %}or branch {% endif %}to an issue to show that a fix is in progress and to automatically close the issue when the pull request {% ifversion link-existing-branches-to-issue %}or branch {% endif %} is merged.'
+title: 将拉取请求链接到议题
+intro: '可以将拉取请求{% ifversion link-existing-branches-to-issue %}或分支{% endif %}链接到问题，以显示修复正在进行，并在拉取请求{% ifversion link-existing-branches-to-issue %}或分支{% endif %}合并时自动关闭问题。'
 redirect_from:
   - /github/managing-your-work-on-github/managing-your-work-with-issues-and-pull-requests/linking-a-pull-request-to-an-issue
   - /articles/closing-issues-via-commit-message
@@ -17,89 +17,92 @@ versions:
 topics:
   - Pull requests
 shortTitle: Link PR to issue
+ms.openlocfilehash: 8c3ec2b778029c91d0e97783ced873e6b9b28a9b
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148108193'
 ---
 {% note %}
 
-**Note:** The special keywords in a pull request description are interpreted when the pull request targets the repository's *default* branch. However, if the PR's base is *any other branch*, then these keywords are ignored, no links are created and merging the PR has no effect on the issues. **If you want to link a pull request to an issue using a keyword, the PR must be on the default branch.**
+**注意：** 当拉取请求指向存储库的“默认”分支时，将解析拉取请求说明中的特殊关键字。 但是，如果拉取请求的基础是“任何其他分支”，则系统将忽略这些关键字，并且不会创建任何链接，合并拉取请求对议题没有影响。 如果要使用关键字将拉取请求链接到议题，则该拉取请求必须位于默认分支上。
 
 {% endnote %}
 
-## About linked issues and pull requests
+## 关于链接的议题和拉取请求
 
-You can link an issue to a pull request manually or using a supported keyword in the pull request description.
+你可以采用手动方式或在拉取请求说明中使用支持的关键字将问题链接到拉取请求。
 
-When you link a pull request to the issue the pull request addresses, collaborators can see that someone is working on the issue.
+当您将拉取请求链接到拉取请求指向的议题，如果有人正在操作该议题，协作者可以看到。
 
-When you merge a linked pull request into the default branch of a repository, its linked issue is automatically closed. For more information about the default branch, see "[Changing the default branch](/github/administering-a-repository/changing-the-default-branch)."
+将链接的拉取请求合并到仓库的默认分支时，其链接的议题将自动关闭。 有关默认分支的详细信息，请参阅“[更改默认分支](/github/administering-a-repository/changing-the-default-branch)”。
 
-## Linking a pull request to an issue using a keyword
+## 使用关键词将拉取请求链接到议题
 
-You can link a pull request to an issue by using a supported keyword in the pull request's description or in a commit message. The pull request **must be** on the default branch.
+你可以通过在拉取请求说明或提交消息中使用支持的关键字将拉取请求链接到问题。 拉取请求必须位于默认分支上。
 
-* close
+* 关闭
 * closes
-* closed
-* fix
+* 已关闭
+* 修复
 * fixes
 * fixed
 * resolve
 * resolves
 * resolved
 
-If you use a keyword to reference a pull request comment in another pull request, the pull requests will be linked. Merging the referencing pull request also closes the referenced pull request.
+如果使用关键字在另一个拉取请求中引用拉取请求注释，则将链接拉取请求。 合并引用拉取请求也会关闭引用的拉取请求。
 
-The syntax for closing keywords depends on whether the issue is in the same repository as the pull request.
+关闭关键词的语法取决于议题是否与拉取请求在同一仓库中。
 
-Linked issue | Syntax | Example
+链接的议题 | 语法 | 示例
 --------------- | ------ | ------
-Issue in the same repository | *KEYWORD* #*ISSUE-NUMBER* | `Closes #10`
-Issue in a different repository | *KEYWORD* *OWNER*/*REPOSITORY*#*ISSUE-NUMBER* | `Fixes octo-org/octo-repo#100`
-Multiple issues | Use full syntax for each issue | `Resolves #10, resolves #123, resolves octo-org/octo-repo#100`
+同一仓库中的议题 | *KEYWORD* #*ISSUE-NUMBER* | `Closes #10`
+不同仓库中的议题 | *KEYWORD* *OWNER*/*REPOSITORY*#*ISSUE-NUMBER* | `Fixes octo-org/octo-repo#100`
+多个议题 | 对每个议题使用完整语法 | `Resolves #10, resolves #123, resolves octo-org/octo-repo#100`
 
-Only manually linked pull requests can be manually unlinked. To unlink an issue that you linked using a keyword, you must edit the pull request description to remove the keyword.
+只有手动链接的拉取请求才能以手动方式取消链接。 要取消链接你使用关键字链接的问题，必须编辑拉取请求说明以删除该关键字。
 
-You can also use closing keywords in a commit message. The issue will be closed when you merge the commit into the default branch, but the pull request that contains the commit will not be listed as a linked pull request.
+您也可以在提交消息中使用关闭关键词。 议题将在提交合并到默认分支时关闭，但包含提交的拉取请求不会列为链接的拉取请求。
 
-## Manually linking a pull request to an issue using the pull request sidebar
+## 使用拉取请求边栏手动将拉取请求链接到问题
 
-Anyone with write permissions to a repository can manually link a pull request to an issue from the pull request sidebar.
+对存储库有写入权限的任何人都可以从拉取请求边栏手动将拉取请求链接到议题。
 
-You can manually link up to ten issues to each pull request. The issue and pull request must be in the same repository.
+您可以手动链接最多 10 个议题到每个拉取请求。 议题和拉取请求必须位于同一仓库中。
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-pr %}
-3. In the list of pull requests, click the pull request that you'd like to link to an issue.
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-pr %}
+3. 在拉取请求列表中，单击要链接到议题的拉取请求。
 {% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
-4. In the right sidebar, in the "Development" section click {% octicon "gear" aria-label="The Gear icon" %}.
+4. 在右侧边栏的“Development（开发）”部分，单击 {% octicon "gear" aria-label="The Gear icon" %}。
 {% else %}
-4. In the right sidebar, click **Linked issues**.
-  ![Linked issues in the right sidebar](/assets/images/help/pull_requests/linked-issues.png)
-{% endif %}
-5. Click the issue you want to link to the pull request.
-  ![Drop down to link issue](/assets/images/help/pull_requests/link-issue-drop-down.png)
+4. 在右侧栏中，单击“链接的议题”。
+  ![右侧边栏中链接的议题](/assets/images/help/pull_requests/linked-issues.png) {% endif %}
+5. 单击要链接到拉取请求的议题。
+  ![下拉以链接问题](/assets/images/help/pull_requests/link-issue-drop-down.png)
 
 {% ifversion link-existing-branches-to-issue %}
 
-## Manually linking a pull request or branch to an issue using the issue sidebar
+## 使用问题边栏手动将拉取请求或分支链接到问题
 
-Anyone with write permissions to a repository can manually link a pull request or branch to an issue from the issue sidebar.
+对存储库有写入权限的任何人都可以从问题边栏手动将拉取请求或分支链接到议题。
 
-You can manually link up to ten issues to each pull request. The issue can be in a different repository than the linked pull request or branch. Your last selected repository will be remembered 
+您可以手动链接最多 10 个议题到每个拉取请求。 问题可以处于与链接拉取请求或分支不同的存储库中。 将记住最后一个所选存储库 
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-issues %}
-3. In the list of issues, click the issue that you'd like to link a pull request or branch to.
-4. In the right sidebar, click **Development**.
-  ![Development menu in the right sidebar](/assets/images/help/issues/development-menu.png)
-5. Click the repository containing the pull request or branch you want to link to the issue.
-  ![Drop down to select repository](/assets/images/help/issues/development-menu-select-repository.png)
-6. Click the pull request or branch you want to link to the issue.
-  ![Drop down to link pull request or branch](/assets/images/help/issues/development-menu-select-pr-or-branch.png)
-7. Click **Apply**.
-  ![Apply](/assets/images/help/issues/development-menu-apply.png)
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-issues %}
+3. 在问题列表中，单击要将拉取请求或分支链接到的问题。
+4. 在右侧边栏中，单击“开发”。
+  ![右侧边栏中的开发菜单](/assets/images/help/issues/development-menu.png)
+5. 单击包含要链接到问题的拉取请求或分支的存储库。
+  ![用于选择存储库的下拉菜单](/assets/images/help/issues/development-menu-select-repository.png)
+6. 单击要链接到问题的拉取请求或分支。
+  ![用于链接拉取请求或分支的下拉菜单](/assets/images/help/issues/development-menu-select-pr-or-branch.png)
+7. 单击“应用”。
+  ![应用](/assets/images/help/issues/development-menu-apply.png)
 
 {% endif %}
 
-## Further reading
+## 延伸阅读
 
-* "[Autolinked references and URLs](/articles/autolinked-references-and-urls/#issues-and-pull-requests)"
+* “[自动链接的引用和 URL](/articles/autolinked-references-and-urls/#issues-and-pull-requests)”

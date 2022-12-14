@@ -1,6 +1,6 @@
 ---
-title: Commit exists on GitHub but not in my local clone
-intro: 'Sometimes a commit will be viewable on {% data variables.product.product_name %}, but will not exist in your local clone of the repository.'
+title: 'Commit ist auf GitHub vorhanden, aber nicht in meinem lokalen Klon'
+intro: 'Manchmal kann ein Commit auf {% data variables.product.product_name %} angezeigt werden, befindet sich aber nicht im lokalen Klon des Repositorys.'
 redirect_from:
   - /articles/commit-exists-on-github-but-not-in-my-local-clone
   - /github/committing-changes-to-your-project/commit-exists-on-github-but-not-in-my-local-clone
@@ -11,62 +11,57 @@ versions:
   ghae: '*'
   ghec: '*'
 shortTitle: Commit missing in local clone
+ms.openlocfilehash: 9374b17a111bc3f88bf81d60de97e354c0bcf8ac
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145132531'
 ---
-When you use `git show` to view a specific commit on the command line, you may get a fatal error.
+Wenn du mit `git show` einen bestimmten Commit in der Befehlszeile anzeigen möchtest, kann ein schwerer Fehler auftreten.
 
-For example, you may receive a `bad object` error locally:
+Beispielsweise kannst du lokal einen `bad object`-Fehler erhalten:
 
 ```shell
 $ git show 1095ff3d0153115e75b7bca2c09e5136845b5592
 > fatal: bad object 1095ff3d0153115e75b7bca2c09e5136845b5592
 ```
 
-However, when you view the commit on {% data variables.location.product_location %}, you'll be able to see it without any problems:
+Wenn du den Commit jedoch auf {% data variables.product.product_location %} anzeigst, kannst du ihn ohne Probleme sehen:
 
 `github.com/$account/$repository/commit/1095ff3d0153115e75b7bca2c09e5136845b5592`
 
-There are several possible explanations:
+Dafür sind mehrere Erklärungen möglich:
 
-* The local repository is out of date.
-* The branch that contains the commit was deleted, so the commit is no longer referenced.
-* Someone force pushed over the commit.
+* Das lokale Repository ist veraltet.
+* Der Branch, der den Commit enthält, wurde gelöscht, weshalb nicht mehr auf den Commit verwiesen wird.
+* Jemand hat einen Push über den Commit erzwungen.
 
-## The local repository is out of date
+## Das lokale Repository ist veraltet
 
-Your local repository may not have the commit yet. To get information from your remote repository to your local clone, use `git fetch`:
+Möglicherweise enthält dein lokales Repository den Commit noch nicht. Um Informationen aus dem Remoterepository auf den lokalen Klon abzurufen, verwende den Befehl `git fetch`:
 
 ```shell
-$ git fetch REMOTE
+$ git fetch <em>remote</em>
 ```
 
-This safely copies information from the remote repository to your local clone without making any changes to the files you have checked out.
-You can use `git fetch upstream` to get information from a repository you've forked, or `git fetch origin` to get information from a repository you've only cloned.
+Dadurch werden Informationen aus dem Remoterepository sicher auf den lokalen Klon kopiert, ohne Änderungen an den Dateien vorzunehmen, die du ausgecheckt hast. Über `git fetch upstream` kannst du Informationen aus einem geforkten Repository abrufen. Du kannst auch `git fetch origin` verwenden, um Informationen aus einem Repository abzurufen, das du nur geklont hast.
 
 {% tip %}
 
-**Tip**: For more information, read about [managing remotes and fetching data](https://git-scm.com/book/en/Git-Basics-Working-with-Remotes) in the [Pro Git](https://git-scm.com/book) book.
+**Tipp**: Weitere Informationen zum [Verwalten von Remoterepositorys und zum Abrufen von Daten](https://git-scm.com/book/en/Git-Basics-Working-with-Remotes) findest du im [Pro Git](https://git-scm.com/book)-Buch.
 
 {% endtip %}
 
-## The branch that contained the commit was deleted
+## Der Branch, der den Commit enthielt, wurde gelöscht
 
-If a collaborator on the repository has deleted the branch containing the commit
-or has force pushed over the branch, the missing commit may have been orphaned
-(i.e. it cannot be reached from any reference) and therefore will not be fetched
-into your local clone.
+Wenn ein Mitarbeiter des Repositorys den Branch mit dem Commit gelöscht oder durch einen erzwungenen Push überschrieben hat, ist der fehlende Commit möglicherweise verwaist (das heißt, er kann über keine Referenz mehr erreicht werden). Er wird daher nicht in deinen lokalen Klon abgerufen.
 
-Fortunately, if any collaborator has a local clone of the repository with the
-missing commit, they can push it back to {% data variables.product.product_name %}.  They need to make sure the commit
-is referenced by a local branch and then push it as a new branch to {% data variables.product.product_name %}.
+Wenn ein Mitarbeiter jedoch einen lokalen Klon des Repositorys mit dem fehlenden Commit besitzt, kann er ihn jedoch wieder zurück an {% data variables.product.product_name %} pushen.  Dabei muss er sicherstellen, dass von einem lokalen Branch auf den Commit verwiesen wird, und ihn dann als neuen Branch an {% data variables.product.product_name %} pushen.
 
-Let's say that the person still has a local branch (call it `B`) that contains
-the commit.  This might be tracking the branch that was force pushed or deleted
-and they simply haven't updated yet.  To preserve the commit, they can push that
-local branch to a new branch (call it `recover-B`) on {% data variables.product.product_name %}.  For this example,
-let's assume they have a remote named `upstream` via which they have push access
-to `github.com/$account/$repository`.
+Nehmen wir an, die Person verfügt noch über einen lokalen Branch (nennen wir ihn `B`), der den Commit enthält.  Dieser verfolgt vielleicht den Branch, der durch einen erzwungenen Push überschrieben oder gelöscht wurde, und es wurde einfach noch keine Aktualisierung durchgeführt.  Um den Commit beizubehalten, kann die Person diesen lokalen Branch an einen neuen Branch (nennen wir ihn `recover-B`) auf {% data variables.product.product_name %} pushen.  Gehen wir in diesem Beispiel davon aus, dass die Person über ein Remoterepository namens `upstream` verfügt, über das sie Pushzugriff auf `github.com/$account/$repository` besitzt.
 
-The other person runs:
+Die andere Person führt Folgendes aus:
 
 ```shell
 $ git branch recover-B B
@@ -75,18 +70,18 @@ $ git push upstream B:recover-B
 # Push local B to new upstream branch, creating new reference to commit
 ```
 
-Now, *you* can run:
+Jetzt kannst *du* Folgendes ausführen:
 
 ```shell
 $ git fetch upstream recover-B
 # Fetch commit into your local repository.
 ```
 
-## Avoid force pushes
+## Erzwungene Push-Vorgänge vermeiden
 
-Avoid force pushing to a repository unless absolutely necessary. This is especially true if more than one person can push to the repository. If someone force pushes to a repository, the force push may overwrite commits that other people based their work on. Force pushing changes the repository history and can corrupt pull requests.
+Vermeide erzwungenes Pushen zu einem Repository, sofern es nicht absolut notwendig ist. Dies gilt insbesondere, wenn mehrere Personen Pushes zum Repository durchführen können. Wenn jemand einen Push an ein Repository erzwingt, überschreibt der erzwungene Push möglicherweise Commits, auf denen die Arbeit anderer Projektmitarbeiter basiert. Erzwungene Pushes ändern den Repositoryverlauf und können Pull Requests beschädigen.
 
-## Further reading
+## Weitere Informationsquellen
 
-- ["Working with Remotes" from the _Pro Git_ book](https://git-scm.com/book/en/Git-Basics-Working-with-Remotes)
-- ["Data Recovery" from the _Pro Git_ book](https://git-scm.com/book/en/Git-Internals-Maintenance-and-Data-Recovery)
+- [„Arbeiten mit Remoterepositorys“ aus dem _Pro Git_-Buch](https://git-scm.com/book/en/Git-Basics-Working-with-Remotes)
+- [„Datenwiederherstellung“ aus dem _Pro Git_-Buch](https://git-scm.com/book/en/Git-Internals-Maintenance-and-Data-Recovery)

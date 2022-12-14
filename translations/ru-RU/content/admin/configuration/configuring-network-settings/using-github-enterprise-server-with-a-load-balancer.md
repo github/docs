@@ -1,6 +1,6 @@
 ---
-title: Using GitHub Enterprise Server with a load balancer
-intro: 'Use a load balancer in front of a single {% data variables.product.prodname_ghe_server %} instance or a pair of instances in a High Availability configuration.'
+title: Использование сервера GitHub Enterprise с подсистемой балансировки нагрузки
+intro: 'Используйте подсистему балансировки нагрузки перед одним экземпляром {% data variables.product.prodname_ghe_server %} или парой экземпляров в конфигурации с высоким уровнем доступности.'
 redirect_from:
   - /enterprise/admin/guides/installation/using-github-enterprise-with-a-load-balancer
   - /enterprise/admin/installation/using-github-enterprise-server-with-a-load-balancer
@@ -15,17 +15,22 @@ topics:
   - Infrastructure
   - Networking
 shortTitle: Use a load balancer
+ms.openlocfilehash: d703b7c0161a4b53fd2870aa5beafe930f56ee41
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148098065'
 ---
-
-## About load balancers
+## Сведения о подсистеме балансировки нагрузки
 
 {% data reusables.enterprise_clustering.load_balancer_intro %}
 
 {% data reusables.enterprise_clustering.load_balancer_dns %}
 
-## Handling client connection information
+## Обработка сведений о подключениях клиентов
 
-Because client connections to {% data variables.product.prodname_ghe_server %} come from the load balancer, the client IP address can be lost.
+Так как клиентские подключения к {% data variables.product.prodname_ghe_server %} поступают из подсистемы балансировки нагрузки, IP-адрес клиента может быть утерян.
 
 {% data reusables.enterprise_clustering.proxy_preference %}
 
@@ -33,70 +38,63 @@ Because client connections to {% data variables.product.prodname_ghe_server %} c
 
 {% data reusables.enterprise_installation.terminating-tls %}
 
-### Enabling PROXY protocol support on {% data variables.location.product_location %}
+### Включение поддержки протокола PROXY для {% данных variables.location.product_location %}
 
-We strongly recommend enabling PROXY protocol support for both your instance and the load balancer. Use the instructions provided by your vendor to enable the PROXY protocol on your load balancer. For more information, see [the PROXY protocol documentation](http://www.haproxy.org/download/1.8/doc/proxy-protocol.txt).
+Настоятельно рекомендуется включить поддержку протокола PROXY как для экземпляр, так и для подсистемы балансировки нагрузки. Используйте инструкции, предоставленные поставщиком, чтобы включить протокол PROXY в подсистеме балансировки нагрузки. Дополнительные сведения см. в [документации протокола PROXY](http://www.haproxy.org/download/1.8/doc/proxy-protocol.txt).
 
 {% data reusables.enterprise_installation.proxy-incompatible-with-aws-nlbs %}
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.management-console %}
-{% data reusables.enterprise_management_console.privacy %}
-3. Under **External load balancers**, select **Enable support for PROXY protocol**.
-![Checkbox to enable support for PROXY protocol](/assets/images/enterprise/management-console/enable-proxy.png)
-{% data reusables.enterprise_management_console.save-settings %}
+{% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.enterprise_site_admin_settings.management-console %} {% data reusables.enterprise_management_console.privacy %}
+3. В разделе **Внешние балансировщики нагрузки** выберите **Включить поддержку протокола PROXY**.
+![Флажок для включения поддержки протокола PROXY](/assets/images/enterprise/management-console/enable-proxy.png) {% data reusables.enterprise_management_console.save-settings %}
 
 {% data reusables.enterprise_clustering.proxy_protocol_ports %}
 
-### Enabling X-Forwarded-For support on {% data variables.location.product_location %}
+### Включение поддержки X-Forwarded-For для {% данных variables.location.product_location %}
 
 {% data reusables.enterprise_clustering.x-forwarded-for %}
 
 {% warning %}
 
-**Warning**: If you configure `X-Forwarded-For` support on {% data variables.location.product_location %} and load balancer, you may not be able to connect to the {% data variables.enterprise.management_console %}. For more information, see "[Error: "Your session has expired" for connections to the {% data variables.enterprise.management_console %}](/admin/configuration/configuring-network-settings/using-github-enterprise-server-with-a-load-balancer#error-your-session-has-expired-for-connections-to-the-management-console)."
+**Предупреждение.** Если вы настроите `X-Forwarded-For` поддержку {% данных variables.location.product_location %} и подсистеме балансировки нагрузки, возможно, вы не сможете подключиться к {% данных variables.enterprise.management_console %}. Дополнительные сведения см. в разделе [Ошибка: "Срок действия сеанса истек" для подключений к {% data variables.enterprise.management_console %}](/admin/configuration/configuring-network-settings/using-github-enterprise-server-with-a-load-balancer#error-your-session-has-expired-for-connections-to-the-management-console).
 
 {% endwarning %}
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.management-console %}
-{% data reusables.enterprise_management_console.privacy %}
-3. Under **External load balancers**, select **Allow HTTP X-Forwarded-For header**.
-![Checkbox to allow the HTTP X-Forwarded-For header](/assets/images/enterprise/management-console/allow-xff.png)
-{% data reusables.enterprise_management_console.save-settings %}
+{% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.enterprise_site_admin_settings.management-console %} {% data reusables.enterprise_management_console.privacy %}
+3. В разделе **Внешние балансировщики нагрузки** выберите **Разрешить заголовок HTTP X-Forwarded-For**.
+![Флажок для разрешения заголовка HTTP X-Forwarded-For](/assets/images/enterprise/management-console/allow-xff.png) {% data reusables.enterprise_management_console.save-settings %}
 
 {% data reusables.enterprise_clustering.without_proxy_protocol_ports %}
 
-## Configuring health checks
+## Настройка проверок работоспособности
 
-Health checks allow a load balancer to stop sending traffic to a node that is not responding if a pre-configured check fails on that node. If the instance is offline due to maintenance or unexpected failure, the load balancer can display a status page. In a High Availability (HA) configuration, a load balancer can be used as part of a failover strategy. However, automatic failover of HA pairs is not supported. You must manually promote the replica instance before it will begin serving requests. For more information, see "[Configuring {% data variables.product.prodname_ghe_server %} for High Availability](/enterprise/admin/guides/installation/configuring-github-enterprise-server-for-high-availability/)."
+Проверки работоспособности позволяют подсистеме балансировки нагрузки прекратить направлять трафик узлу, который не отвечает, в случае неудачной попытки выполнения предварительно настроенной проверки этого узла. Если экземпляр находится в автономном режиме из-за обслуживания или непредвиденного сбоя, подсистема балансировки нагрузки может отобразить страницу состояния. В конфигурации высокого уровня доступности подсистема балансировки нагрузки может использоваться как элемент стратегии отработки отказа. Однако автоматический переход на другой ресурс пар высокого уровня доступности не поддерживается. Необходимо вручную повысить уровень экземпляра-реплики, прежде чем он начнет обслуживание запросов. Дополнительные сведения см. в разделе [Настройка {% data variables.product.prodname_ghe_server %} для обеспечения высокого уровня доступности](/enterprise/admin/guides/installation/configuring-github-enterprise-server-for-high-availability/).
 
-{% data reusables.enterprise_clustering.health_checks %}
-{% data reusables.enterprise_site_admin_settings.maintenance-mode-status %}
+{% data reusables.enterprise_clustering.health_checks %} {% data reusables.enterprise_site_admin_settings.maintenance-mode-status %}
 
-## Troubleshooting connectivity through a load balancer
+## Устранение неполадок с подключением через подсистему балансировки нагрузки
 
-If you cannot connect to services on {% data variables.location.product_location %} through a load balancer, you can review the following information to troubleshoot the problem.
+Если вы не можете подключиться к службам на {% данных variables.location.product_location %} с помощью подсистемы балансировки нагрузки, ознакомьтесь со следующими сведениями, чтобы устранить проблему.
 
 {% note %}
 
-**Note**: Always test changes to your network infrastructure and instance configuration in a staging environment. For more information, see "[Setting up a staging instance](/admin/installation/setting-up-a-github-enterprise-server-instance/setting-up-a-staging-instance)."
+**Примечание.** Всегда тестируйте изменения в сетевой инфраструктуре и конфигурации экземпляров в промежуточной среде. Дополнительные сведения см. в разделе [Настройка экземпляра промежуточного процесса](/admin/installation/setting-up-a-github-enterprise-server-instance/setting-up-a-staging-instance).
 
 {% endnote %}
 
-### Error: "Your session has expired" for connections to the {% data variables.enterprise.management_console %}
+### Ошибка: "Срок действия сеанса истек" для подключений к {% data variables.enterprise.management_console %}.
 
-If you enable support for the `X-Forwarded-For` header on your instance and load balancer, you may not be able to access your instance's {% data variables.enterprise.management_console %}. For more information about the {% data variables.enterprise.management_console %} and ports required for connections, see "[Accessing the management console](/admin/configuration/configuring-your-enterprise/accessing-the-management-console)" and "[Network ports](/admin/configuration/configuring-network-settings/network-ports)."
+Если включить поддержку заголовка `X-Forwarded-For` в экземпляре и подсистемы балансировки нагрузки, возможно, вы не сможете получить доступ к {% data variables.enterprise.management_console %} экземпляра. Дополнительные сведения о {% data variables.enterprise.management_console %} и портах, необходимых для подключений, см. в разделе [Доступ к консоли управления](/admin/configuration/configuring-your-enterprise/accessing-the-management-console) и [Сетевые порты](/admin/configuration/configuring-network-settings/network-ports).
 
-If {% data variables.location.product_location %} indicates that your session has expired when you connect to the {% data variables.enterprise.management_console %} through a load balancer, try one of the following configurations on your load balancer.
+Если {% данных variables.location.product_location %} указывает, что срок действия сеанса истек при подключении к {% данных variables.enterprise.management_console %} через подсистему балансировки нагрузки, попробуйте одну из следующих конфигураций в подсистеме балансировки нагрузки.
 
-- Disable `X-Forwarded-For` headers for connections to your instance on ports 8080 and 8443.
-- Configure your load balancer to operate on Layer 4, and use the PROXY protocol instead of `X-Forwarded-For` for passthrough of client IP addresses. For more information, see "[Enabling PROXY protocol support on {% data variables.location.product_location %}](#enabling-proxy-protocol-support-on-your-github-enterprise-server-instance)."
+- Отключите заголовки `X-Forwarded-For` для подключений к экземпляру через порты 8080 и 8443.
+- Настройте подсистему балансировки нагрузки для работы на уровне 4 и используйте протокол PROXY вместо `X-Forwarded-For` для прохода по IP-адресам клиента. Дополнительные сведения см. в разделе "[Включение поддержки протокола PROXY для {% данных variables.location.product_location %}](#enabling-proxy-protocol-support-on-your-github-enterprise-server-instance)".
 
-For more information, refer to the documentation for your load balancer.
+Дополнительные сведения см. в документации по подсистеме балансировки нагрузки.
 
-### Live updates to issues and check runs not working
+### Динамические обновления для проблем и проверка запусков не работают
 
-When {% data variables.location.product_location %} is accessed via a load balancer or reverse proxy, expected live updates, such as new comments on issues and changes in notification badges or check run output, may not display until the page is refreshed. This is most common when the reverse proxy or load balancer is running in a layer 7 mode or does not support the required [websocket](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API) protocol. 
+Когда доступ к данным {% variables.location.product_location %} осуществляется через подсистему балансировки нагрузки или обратный прокси-сервер, ожидаемые динамические обновления, такие как новые комментарии по проблемам и изменениям индикаторов уведомлений или проверка выходных данных выполнения, могут не отображаться до обновления страницы. Это особенно верно, если обратный прокси-сервер или подсистема балансировки нагрузки работают в режиме уровня 7 или не поддерживают требуемый протокол [веб-сокета](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API). 
 
-To enable live updates, you may need to reconfigure the load balancer or proxy. For more information, refer to the documentation for your load balancer.
+Чтобы включить динамические обновления, может потребоваться перенастроить подсистему балансировки нагрузки или прокси-сервер. Дополнительные сведения см. в документации по подсистеме балансировки нагрузки.

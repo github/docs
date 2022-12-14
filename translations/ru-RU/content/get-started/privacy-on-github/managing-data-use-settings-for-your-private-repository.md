@@ -1,6 +1,6 @@
 ---
-title: Managing data use settings for your private repository
-intro: 'To help {% data variables.product.product_name %} connect you to relevant tools, people, projects, and information, you can configure data use for your private repository.'
+title: Управление параметрами использования данных для частного репозитория
+intro: 'Чтобы вам было проще с помощью {% data variables.product.product_name %} подключиться к соответствующим средствам, проектам и информации, а также связаться с определенными людьми, можно настроить использование данных для частного репозитория.'
 redirect_from:
   - /articles/opting-into-or-out-of-data-use-for-your-private-repository
   - /github/understanding-how-github-uses-and-protects-your-data/opting-into-or-out-of-data-use-for-your-private-repository
@@ -12,38 +12,39 @@ topics:
   - Policy
   - Legal
 shortTitle: Manage data use for private repo
+ms.openlocfilehash: 36ddc4449726b67863e7d4e045dd1582b12f2c27
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147526673'
 ---
+## Сведения об использовании данных для частного репозитория
 
-## About data use for your private repository
 
+Использованием данных для частного репозитория можно управлять с помощью функций безопасности и анализа. 
 
-You can control data use for your private repository with the security and analysis features. 
+- Включите граф зависимостей, чтобы разрешить анализ данных только для чтения в репозитории. 
+- Отключите граф зависимостей, чтобы заблокировать анализ данных только для чтения в репозитории. 
 
-- Enable the dependency graph to allow read-only data analysis on your repository. 
-- Disable the dependency graph to block read-only data analysis of your repository. 
-
-When you enable data use for your private repository, you'll be able to access the dependency graph, where you can track your repository's dependencies and receive {% data variables.product.prodname_dependabot_alerts %} when {% data variables.product.product_name %} detects vulnerable dependencies. For more information, see "[About {% data variables.product.prodname_dependabot_alerts %}](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies#dependabot-alerts-for-vulnerable-dependencies)."
+Включив использование данных для своего частного репозитория, вы сможете получить доступ к графу зависимостей, где можно отслеживать зависимости репозитория и получать {% data variables.product.prodname_dependabot_alerts %} в случае, если {% data variables.product.product_name %} обнаружит уязвимые зависимости. Дополнительные сведения см. в статье "[Сведения о {% data variables.product.prodname_dependabot_alerts %}](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies#dependabot-alerts-for-vulnerable-dependencies)".
 
 
 {% note %}
 
-**Note:** If you disable the dependency graph, {% data variables.product.prodname_dependabot_alerts %} and {% data variables.product.prodname_dependabot_security_updates %} are also disabled. For more information, see "[About the dependency graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)." 
+**Примечание.** Если отключить граф зависимостей, {% data variables.product.prodname_dependabot_alerts %} и {% data variables.product.prodname_dependabot_security_updates %} также будут отключены. Дополнительные сведения см. в статье [Сведения о графе зависимостей](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph). 
 
 {% endnote %}
 
-## Enabling or disabling data use through security and analysis features
+## Включение или отключение использования данных с помощью функций безопасности и анализа
 
 {% data reusables.security.security-and-analysis-features-enable-read-only %}
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-{% data reusables.repositories.navigate-to-code-security-and-analysis %}
-4. Under "Code security and analysis", to the right of the feature, click **Disable** or **Enable**.{% ifversion fpt %}
-  !["Enable" or "Disable" button for "Configure security and analysis" features](/assets/images/help/repository/security-and-analysis-disable-or-enable-fpt-private.png){% elsif ghec %}
-  !["Enable" or "Disable" button for "Configure security and analysis" features](/assets/images/help/repository/security-and-analysis-disable-or-enable-ghec-private.png){% endif %}
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %} {% data reusables.repositories.navigate-to-code-security-and-analysis %}
+4. В разделе "Безопасность и анализ кода" справа от функции нажмите кнопку **Отключить** или **Включить**.{% ifversion fpt %} ![Кнопка "Включить" или "Отключить" для функций настройки безопасности и анализа](/assets/images/help/repository/security-and-analysis-disable-or-enable-fpt-private.png){% elsif ghec %} ![Кнопка "Включить" или "Отключить" для функций настройки безопасности и анализа](/assets/images/help/repository/security-and-analysis-disable-or-enable-ghec-private.png){% endif %}
 
-## Further reading
+## Дополнительные материалы
 
-- "[About {% data variables.product.prodname_dotcom %}'s use of your data](/articles/about-github-s-use-of-your-data)"
-- "[Viewing and updating {% data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts)"
-- "[Managing security and analysis settings for your repository](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)"
+- [Каким образом {% data variables.product.prodname_dotcom %} использует ваши данные](/articles/about-github-s-use-of-your-data)
+- [Просмотр и обновление {% data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts)
+- [Управление параметрами безопасности и анализа для репозитория](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)

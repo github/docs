@@ -1,6 +1,6 @@
 ---
-title: Approving OAuth Apps for your organization
-intro: 'When an organization member or outside collaborator requests {% data variables.product.prodname_oauth_app %} access to organization resources, organization owners can approve or deny the request.'
+title: Утверждение приложений OAuth для вашей организации
+intro: 'Когда участник организации или внешний участник запрашивает доступ к ресурсам организации {% данных variables.product.prodname_oauth_app %}, владельцы организации могут утвердить или отклонить запрос.'
 redirect_from:
   - /articles/approving-third-party-applications-for-your-organization
   - /articles/approving-oauth-apps-for-your-organization
@@ -13,20 +13,23 @@ topics:
   - Organizations
   - Teams
 shortTitle: Approve OAuth Apps
+ms.openlocfilehash: f7d68ee0169b46f7f517a35aa847a1fc01c20ec1
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148098551'
 ---
-When {% data variables.product.prodname_oauth_app %} access restrictions are enabled, organization members and outside collaborators must [request approval](/articles/requesting-organization-approval-for-oauth-apps) from an organization owner before they can authorize an {% data variables.product.prodname_oauth_app %} that has access to the organization's resources.
+Если включены ограничения доступа на {% данных variables.product.prodname_oauth_app %}, члены организации и внешние участники должны [запросить утверждение](/articles/requesting-organization-approval-for-oauth-apps) у владельца организации, прежде чем они смогут авторизовать {% данных variables.product.prodname_oauth_app %} с доступом к ресурсам организации.
 
-{% ifversion limit-app-access-requests %}
-{% data reusables.organizations.restricted-app-access-requests %}{% endif %}
+{% ifversion limit-app-access-requests %} {% данных reusables.organizations.restricted-app-access-requests %} {% endif %}
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.oauth_app_access %}
-5. Next to the application you'd like to approve, click **Review**.
-![Review request link](/assets/images/help/settings/settings-third-party-approve-review.png)
-6. After you review the information about the requested application, click **Grant access**.
-![Grant access button](/assets/images/help/settings/settings-third-party-approve-grant.png)
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.organizations.oauth_app_access %}
+5. Рядом с приложением, которое требуется утвердить, нажмите **Проверить**.
+![Ссылка для проверки запроса](/assets/images/help/settings/settings-third-party-approve-review.png)
+6. После проверки сведений о запрашиваемом приложении нажмите кнопку **Предоставить доступ**.
+![Кнопка "Предоставить доступ"](/assets/images/help/settings/settings-third-party-approve-grant.png)
 
-## Further reading
+## Дополнительные материалы
 
-- "[About {% data variables.product.prodname_oauth_app %} access restrictions](/articles/about-oauth-app-access-restrictions)"
+- [Сведения об ограничениях доступа {% data variables.product.prodname_oauth_app %}](/articles/about-oauth-app-access-restrictions)

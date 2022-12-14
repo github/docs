@@ -1,7 +1,7 @@
 ---
-title: Understanding GitHub Actions
-shortTitle: Understand GitHub Actions
-intro: 'Learn the basics of {% data variables.product.prodname_actions %}, including core concepts and essential terminology.'
+title: Entender las GitHub Actions
+shortTitle: Understanding GitHub Actions
+intro: 'Aprende lo básico de las {% data variables.product.prodname_actions %}, incluyendo los conceptos nucleares y la terminología esencial.'
 miniTocMaxHeadingLevel: 3
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/core-concepts-for-github-actions
@@ -16,87 +16,96 @@ versions:
 type: overview
 topics:
   - Fundamentals
+ms.openlocfilehash: b1e82506da6ede65b5ab93f94ce67dee681f81f1
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147763576'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+## Información general
 
-## Overview
+{% data reusables.actions.about-actions %} Puedes crear flujos de trabajo y crear y probar cada solicitud de cambios en tu repositorio o desplegar solicitudes de cambios fusionadas a producción.
 
-{% data reusables.actions.about-actions %}  You can create workflows that build and test every pull request to your repository, or deploy merged pull requests to production.
-
-{% data variables.product.prodname_actions %} goes beyond just DevOps and lets you run workflows when other events happen in your repository. For example, you can run a workflow to automatically add the appropriate labels whenever someone creates a new issue in your repository.
+{% data variables.product.prodname_actions %} va más allá de solo DevOps y te permite ejecutar flujos de trabajo cuando otros eventos suceden en tu repositorio. Por ejemplo, puedes ejecutar un flujo de trabajo para que agregue automáticamente las etiquetas adecuadas cada que alguien cree una propuesta nueva en tu repositorio.
 
 {% ifversion fpt or ghec %}
 
-{% data variables.product.prodname_dotcom %} provides Linux, Windows, and macOS virtual machines to run your workflows, or you can host your own self-hosted runners in your own data center or cloud infrastructure.
+{% data variables.product.prodname_dotcom %} proporciona máquinas virtuales Linux, Windows y macOS para que ejecutes tus flujos de trabajo o puedes hospedar tus propios ejecutores auto-hospedados en tu propio centro de datos o infraestructura en la nube.
 
 {% elsif ghes or ghae %}
 
-You must host your own Linux, Windows, or macOS virtual machines to run workflows for {% data variables.location.product_location %}. {% data reusables.actions.self-hosted-runner-locations %}
+Debes hospedar tus propias máquinas virtuales Linux, Windows o macOS para ejecutar flujos de trabajo para {% data variables.product.product_location %}. {% data reusables.actions.self-hosted-runner-locations %}
 
 {% endif %}
 
 {% ifversion ghec or ghes or ghae %}
 
-For more information about introducing {% data variables.product.prodname_actions %} to your enterprise, see "[Introducing {% data variables.product.prodname_actions %} to your enterprise](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/introducing-github-actions-to-your-enterprise)."
+Para más información sobre cómo introducir {% data variables.product.prodname_actions %} en la empresa, vea "[Introducción de {% data variables.product.prodname_actions %} en la empresa](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/introducing-github-actions-to-your-enterprise)".
 
 {% endif %}
 
-## The components of {% data variables.product.prodname_actions %}
+## Los componentes de las {% data variables.product.prodname_actions %}
 
-You can configure a {% data variables.product.prodname_actions %} _workflow_ to be triggered when an _event_ occurs in your repository, such as a pull request being opened or an issue being created.  Your workflow contains one or more _jobs_ which can run in sequential order or in parallel.  Each job will run inside its own virtual machine _runner_, or inside a container, and has one or more _steps_ that either run a script that you define or run an _action_, which is a reusable extension that can simplify your workflow.
+Puede configurar un _flujo de trabajo_ de {% data variables.product.prodname_actions %} que se desencadene cuando se produzca un _evento_ en el repositorio, por ejemplo, la apertura de una solicitud de incorporación de cambios o la creación de una incidencia.  El flujo de trabajo contiene uno o varios _trabajos_ que se pueden ejecutar en orden secuencial o en paralelo.  Cada trabajo se ejecutará dentro de su propio _ejecutor_ de máquina virtual o dentro de un contenedor, y tendrá uno o varios _pasos_ que pueden ejecutar un script que defina, o bien una _acción_, que es una extensión reutilizable que puede simplificar el flujo de trabajo.
 
-![Workflow overview](/assets/images/help/images/overview-actions-simple.png)
+![Introducción al flujo de trabajo](/assets/images/help/images/overview-actions-simple.png)
 
 ### Workflows
 
 {% data reusables.actions.about-workflows-long %}
 
-{% ifversion fpt or ghes > 3.3 or ghae > 3.3 or ghec %}You can reference a workflow within another workflow, see "[Reusing workflows](/actions/learn-github-actions/reusing-workflows)."{% endif %}
+{% ifversion fpt or ghes > 3.3 or ghae-issue-4757 or ghec %}Puede hacer referencia a un flujo de trabajo dentro de otro; vea "[Reutilización de flujos de trabajo](/actions/learn-github-actions/reusing-workflows)".{% endif %}
 
-For more information about workflows, see "[Using workflows](/actions/using-workflows)."
+Para más información sobre los flujos de trabajo, vea "[Uso de flujos de trabajo](/actions/using-workflows)".
 
-### Events
+### Eventos
 
-An event is a specific activity in a repository that triggers a workflow run. For example, activity can originate from {% data variables.product.prodname_dotcom %} when someone creates a pull request, opens an issue, or pushes a commit to a repository.  You can also trigger a workflow run on a schedule, by [posting to a REST API](/rest/reference/repos#create-a-repository-dispatch-event), or manually.
+Un evento es una actividad específica en un repositorio, la cual activa una ejecución de flujo de trabajo. Por ejemplo, la actividad puede originarse desde {% data variables.product.prodname_dotcom %} cuando alguien crea una solicitud de cambios, abre una propuesta o sube una confirmación a un repositorio.  También puede desencadenar una ejecución de flujo de trabajo según una programación, mediante la [publicación en una API REST](/rest/reference/repos#create-a-repository-dispatch-event) o manualmente.
 
-For a complete list of events that can be used to trigger workflows, see [Events that trigger workflows](/actions/reference/events-that-trigger-workflows).
+Para obtener una lista completa de eventos que se pueden usar para desencadenar flujos de trabajo, vea [Eventos que desencadenan flujos de trabajo](/actions/reference/events-that-trigger-workflows).
 
-### Jobs
+### Trabajos
 
-A job is a set of _steps_ in a workflow that execute on the same runner.  Each step is either a shell script that will be executed, or an _action_ that will be run.  Steps are executed in order and are dependent on each other.  Since each step is executed on the same runner, you can share data from one step to another.  For example, you can have a step that builds your application followed by a step that tests the application that was built.
+Un trabajo es un conjunto de _pasos_ en un flujo de trabajo que se ejecutan en el mismo ejecutor.  Cada paso puede ser un script de shell o una _acción_ que se ejecutarán.  Los pasos se ejecutarán en orden y serán dependientes uno del otro.  Ya que cada paso se ejecuta en el mismo ejecutor, puedes compartir datos de un paso a otro.  Por ejemplo, puedes tener un paso que compile tu aplicación, seguido de otro que pruebe la aplicación que se compiló.
 
-You can configure a job's dependencies with other jobs; by default, jobs have no dependencies and run in parallel with each other.  When a job takes a dependency on another job, it will wait for the dependent job to complete before it can run.  For example, you may have multiple build jobs for different architectures that have no dependencies, and a packaging job that is dependent on those jobs.  The build jobs will run in parallel, and when they have all completed successfully, the packaging job will run.
+Puedes configurar las dependencias de un job con otros jobs; predeterminadamente, los jobs no tienen dependencias y se ejecutan en paralelo entre ellos.  Cuando un job lleva una dependencia a otro job, este esperará a que el job dependiente se complete antes de que pueda ejecutarse.  Por ejemplo, puedes tener jobs de compilación múltiple para arquitecturas diferentes que no tengan dependencias y un job de empaquetado que sea dependiente de estos jobs.  Los jobs de compilación se ejecutarán en paralelo y, cuando se hayan completado con éxito, se ejecutará el job de empaquetado.
 
-For more information about jobs, see "[Using jobs](/actions/using-jobs)."
+Para más información sobre los trabajos, vea "[Uso de trabajos](/actions/using-jobs)".
 
-### Actions
+### Acciones
 
-An _action_ is a custom application for the {% data variables.product.prodname_actions %} platform that performs a complex but frequently repeated task.  Use an action to help reduce the amount of repetitive code that you write in your workflow files.  An action can pull your git repository from {% data variables.product.prodname_dotcom %}, set up the correct toolchain for your build environment, or set up the authentication to your cloud provider.
+Una _acción_ es una aplicación personalizada para la plataforma de {% data variables.product.prodname_actions %} que realiza una tarea compleja pero que se repite frecuentemente.  Utiliza una acción para ayudarte a reducir la cantidad de código repetitivo que escribes en tus archivos de flujo de trabajo.  Una acción puede extraer tu repositorio de git desde {% data variables.product.prodname_dotcom %}, configurar la cadena de herramientas correcta para tu ambiente de compilación o configurar la autenticación en tu proveedor de servicios en la nube.
 
-You can write your own actions, or you can find actions to use in your workflows in the {% data variables.product.prodname_marketplace %}.
+Puedes escribir tus propias acciones o puedes encontrar acciones para utilizar en tus flujos de trabajo dentro de {% data variables.product.prodname_marketplace %}.
 
 {% data reusables.actions.internal-actions-summary %}
 
-For more information, see "[Creating actions](/actions/creating-actions)."
+Para más información, vea "[Creación de acciones](/actions/creating-actions)".
 
-### Runners
+### Ejecutores
 
-{% data reusables.actions.about-runners %} Each runner can run a single job at a time. {% ifversion ghes or ghae %} You must host your own runners for {% data variables.product.product_name %}. {% elsif fpt or ghec %}{% data variables.product.company_short %} provides Ubuntu Linux, Microsoft Windows, and macOS runners to run your workflows; each workflow run executes in a fresh, newly-provisioned virtual machine. {% ifversion actions-hosted-runners %} {% data variables.product.prodname_dotcom %} also offers {% data variables.actions.hosted_runner %}s, which are available in larger configurations. For more information, see "[Using {% data variables.actions.hosted_runner %}s](/actions/using-github-hosted-runners/using-larger-runners)." {% endif %}If you need a different operating system or require a specific hardware configuration, you can host your own runners.{% endif %} For more information{% ifversion fpt or ghec %} about self-hosted runners{% endif %}, see "[Hosting your own runners](/actions/hosting-your-own-runners)."
+{% data reusables.actions.about-runners %} Cada ejecutor puede ejecutar un job individual a la vez. {% ifversion ghes or ghae %} Debes hospedar tus propios ejecutores para {% data variables.product.product_name %}. {% elsif fpt or ghec %}{% data variables.product.company_short %} proporciona ejecutores de Ubuntu Linux, Microsoft Windows y macOS para ejecutar tus flujos de trabajo; cada flujo de trabajo se ejecuta en una máquina virtual nueva y recién aprovisionada. {% ifversion actions-hosted-runners %} {% data variables.product.prodname_dotcom %} también ofrece {% data variables.actions.hosted_runner %}, que están disponibles en configuraciones más grandes. Para obtener más información, consulta "[Uso de {% data variables.actions.hosted_runner %}](/actions/using-github-hosted-runners/using-larger-runners)". {% endif %} Si necesita otro sistema operativo o una configuración de hardware específica, puede hospedar ejecutores propios.{% endif %} Para más información{% ifversion fpt or ghec %} sobre los ejecutores autohospedados{% endif %}, consulta "[Hospedaje de ejecutores propios](/actions/hosting-your-own-runners)".
 
 {% data reusables.actions.workflow-basic-example-and-explanation %}
 
-## Next steps
+## Ejemplos más complejos
+{% data reusables.actions.link-to-example-library %}
 
-{% data reusables.actions.onboarding-next-steps %}
+## Pasos siguientes
 
-## Contacting support
+- Para continuar el aprendizaje sobre {% data variables.product.prodname_actions %}, vea "[Búsqueda y personalización de acciones](/actions/learn-github-actions/finding-and-customizing-actions)".
+{% ifversion fpt or ghec or ghes %}
+- A fin de comprender cómo funciona la facturación para {% data variables.product.prodname_actions %}, consulta "[Acerca de la facturación de {% data variables.product.prodname_actions %}](/actions/reference/usage-limits-billing-and-administration#about-billing-for-github-actions)."
+{% endif %}
+
+## Contactando con el soporte técnico
 
 {% data reusables.actions.contacting-support %}
 
 {% ifversion ghec or ghes or ghae %}
-## Further reading
+## Información adicional
 
-- "[About {% data variables.product.prodname_actions %} for enterprises](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises)"
-{% endif %}
+- "[Acerca de {% data variables.product.prodname_actions %} for enterprises](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises)" {% endif %}

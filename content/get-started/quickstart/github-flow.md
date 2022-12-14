@@ -46,7 +46,7 @@ To follow {% data variables.product.prodname_dotcom %} flow, you will need a {% 
 
 ### Make changes
 
-On your branch, make any desired changes to the repository. For more information, see "[Creating new files](/articles/creating-new-files)," "[Editing files](/articles/editing-files)," "[Renaming a file](/articles/renaming-a-file)," "[Moving a file to a new location](/articles/moving-a-file-to-a-new-location)," or "[Deleting files in a repository](/github/managing-files-in-a-repository/deleting-files-in-a-repository)."
+On your branch, make any desired changes to the repository. For more information, see "[Creating new files](/articles/creating-new-files)", "[Editing files](/articles/editing-files)", "[Renaming a file](/articles/renaming-a-file)", "[Moving a file to a new location](/articles/moving-a-file-to-a-new-location)", or "[Deleting files in a repository](/github/managing-files-in-a-repository/deleting-files-in-a-repository)".
 
 Your branch is a safe place to make changes. If you make a mistake, you can revert your changes or push additional changes to fix the mistake. Your changes will not end up on the default branch until you merge your branch.
 

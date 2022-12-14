@@ -1,6 +1,6 @@
 ---
-title: About migrations
-intro: 'A migration is the process of transferring data from a *source* location (either a {% data variables.product.prodname_dotcom_the_website %} organization or a {% data variables.product.prodname_ghe_server %} instance) to a *target* {% data variables.product.prodname_ghe_server %} instance. Migrations can be used to transfer your data when changing platforms or upgrading hardware on your instance.'
+title: Сведения о миграциях
+intro: 'Миграция представляет собой процесс передачи данных из *исходного* расположения (например, организации {% data variables.product.prodname_dotcom_the_website %} или экземпляра {% data variables.product.prodname_ghe_server %}) в *целевой* экземпляр {% data variables.product.prodname_ghe_server %}. Миграции можно использовать для передачи данных при изменении платформ или обновлении оборудования на экземпляре.'
 redirect_from:
   - /enterprise/admin/migrations/about-migrations
   - /enterprise/admin/user-management/about-migrations
@@ -11,41 +11,47 @@ type: overview
 topics:
   - Enterprise
   - Migration
+ms.openlocfilehash: 08c736c4e183a42aca7d15c7313547754cc6ac0d
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148098812'
 ---
-## Types of migrations
+## Типы миграций
 
-There are three types of migrations you can perform:
+С точки зрения времени доступно три типа миграции.
 
-- A migration from a {% data variables.product.prodname_ghe_server %} instance to another {% data variables.product.prodname_ghe_server %} instance. You can migrate any number of repositories owned by any user or organization on the instance. Before performing a migration, you must have site administrator access to both instances.
-- A migration from a {% data variables.product.prodname_dotcom_the_website %} organization to a {% data variables.product.prodname_ghe_server %} instance. You can migrate any number of repositories owned by the organization. Before performing a migration, you must have [administrative access](/enterprise/user/articles/permission-levels-for-an-organization/) to the {% data variables.product.prodname_dotcom_the_website %} organization as well as site administrator access to the target instance.
-- *Trial runs* are migrations that import data to a [staging instance](/enterprise/admin/guides/installation/setting-up-a-staging-instance/). These can be useful to see what *would* happen if a migration were applied to {% data variables.location.product_location %}. **We strongly recommend that you perform a trial run on a staging instance before importing data to your production instance.**
+- Миграция из экземпляра {% data variables.product.prodname_ghe_server %} в другой экземпляр {% data variables.product.prodname_ghe_server %}. Вы можете перенести любое количество репозиториев, принадлежащих любому пользователю или организации в экземпляре. До выполнения миграции необходимо иметь доступ администратора сайта к обоим экземплярам.
+- Миграция из организации {% data variables.product.prodname_dotcom_the_website %} в экземпляр {% data variables.product.prodname_ghe_server %}. Вы можете перенести любое количество репозиториев, принадлежащих организации. Перед миграцией необходимо иметь [доступ с правами администратора](/enterprise/user/articles/permission-levels-for-an-organization/) к организации {% data variables.product.prodname_dotcom_the_website %} и доступ с правами администратора сайта к целевому экземпляру.
+- *Пробные запуски* — это миграции, в ходе которых импортируются данные в [промежуточный экземпляр](/enterprise/admin/guides/installation/setting-up-a-staging-instance/). Это может быть полезно для просмотра того, что *произойдет* , если миграция была применена к {% данных variables.location.product_location %}. **Настоятельно рекомендуется выполнить пробный запуск на промежуточном экземпляре перед импортом данных в рабочий экземпляр.**
 
-## Migrated data
+## Перенесенные данные
 
-In a migration, everything revolves around a repository. Most data associated with a repository can be migrated. For example, a repository within an organization will migrate the repository *and* the organization, as well as any users, teams, issues, and pull requests associated with the repository.
+При миграции все сосредоточено на репозитории. Большинство данных, связанных с репозиторием, можно перенести. Например, репозиторий в организации перенесет репозиторий *и* организацию, а также всех пользователей, команды, проблемы и запросы на вытягивание, связанные с репозиторием.
 
-The items in the table below can be migrated with a repository. Any items not shown in the list of migrated data can not be migrated, including {% data variables.large_files.product_name_short %} assets.
+Элементы в таблице ниже можно перенести вместе с репозиторием. Невозможно перенести все элементы, не отображаемые в списке перенесенных данных, в том числе ресурсы {% data variables.large_files.product_name_short %}.
 
 {% data reusables.enterprise_migrations.fork-persistence %}
 
-|  Data associated with a migrated repository | Notes  |
+|  Данные, связанные с перенесенным репозиторием | Примечания  |
 |---------------------------------------------|--------|
-| Users | **@mentions** of users are rewritten to match the target.
-| Organizations | An organization's name and details are migrated.
-| Repositories | Links to Git trees, blobs, commits, and lines are rewritten to match the target. The migrator follows a maximum of three repository redirects. Internal repositories are migrated as private repositories. Archive status is unset.
-| Wikis | All wiki data is migrated.
-| Teams | **@mentions** of teams are rewritten to match the target.
-| Milestones | Timestamps are preserved.
-| Project boards | Project boards associated with the repository and with the organization that owns the repository are migrated.
-| Issues | Issue references and timestamps are preserved.
-| Issue comments | Cross-references to comments are rewritten for the target instance.
-| Pull requests | Cross-references to pull requests are rewritten to match the target. Timestamps are preserved.
-| Pull request reviews | Pull request reviews and associated data are migrated.
-| Pull request review comments | Cross-references to comments are rewritten for the target instance. Timestamps are preserved.
-| Commit comments | Cross-references to comments are rewritten for the target instance. Timestamps are preserved.
-| Releases | All releases data is migrated.
-| Actions taken on pull requests or issues | All modifications to pull requests or issues, such as assigning users, renaming titles, and modifying labels are preserved, along with timestamps for each action.
-|  File attachments | [File attachments on issues and pull requests](/articles/file-attachments-on-issues-and-pull-requests) are migrated. You can choose to disable this as part of the migration.
-| Webhooks | Only active webhooks are migrated.
-| Repository deploy keys | Repository deploy keys are migrated.
-| Protected branches | Protected branch settings and associated data are migrated.
+| Пользователи | **@mentions** пользователей перезаписываются в соответствии с целевым объектом.
+| Организации | Переносятся название и данные об организации.
+| Репозитории | Ссылки на деревья Git, большие двоичные объекты, фиксации и строки перезаписываются в соответствии с целевым объектом. Средство миграции выполняет не более трех перенаправлений репозитория. Внутренние репозитории переносятся как частные репозитории. Состояние архива не задано.
+| Вики | Все данные вики-статей переносятся.
+| Teams | **@mentions** команд перезаписываются в соответствии с целевым объектом.
+| Вехи | Метки времени сохраняются.
+| Панели проектов | Переносятся панели проекта, связанные с репозиторием и организацией, владеющей репозиторием.
+| Проблемы | Ссылки на проблемы и метки времени сохраняются.
+| Комментарии к проблеме | Перекрестные ссылки на комментарии перезаписываются для целевого экземпляра.
+| Запросы на вытягивание | Перекрестные ссылки на запросы на вытягивание перезаписываются в соответствии с целевым объектом. Метки времени сохраняются.
+| Проверки запросов на включение изменений | Переносятся проверки запросов на вытягивание и связанные данные.
+| Комментарии к проверке запроса на вытягивание | Перекрестные ссылки на комментарии перезаписываются для целевого экземпляра. Метки времени сохраняются.
+| Комментарии фиксации | Перекрестные ссылки на комментарии перезаписываются для целевого экземпляра. Метки времени сохраняются.
+| Выпуски | Все данные выпусков переносятся.
+| Действия, выполняемые для запросов на вытягивание или проблем | Все изменения запросов на вытягивание или проблем, такие как назначение пользователей, переименование заголовков и изменение меток, сохраняются вместе с метками времени для каждого действия.
+|  Вложения файлов | Переносятся [вложения файлов для проблем и запросов на вытягивание](/articles/file-attachments-on-issues-and-pull-requests). Его можно отключить в процессе миграции.
+| Веб-перехватчики | Переносятся только активные веб-перехватчики.
+| Ключи развертывания репозитория | Переносятся ключи развертывания репозитория.
+| Защищенные ветви | Переносятся параметры защищенной ветви и связанные данные.

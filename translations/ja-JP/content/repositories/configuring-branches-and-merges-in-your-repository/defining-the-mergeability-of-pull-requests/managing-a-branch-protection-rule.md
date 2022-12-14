@@ -1,6 +1,6 @@
 ---
-title: Managing a branch protection rule
-intro: 'You can create a branch protection rule to enforce certain workflows for one or more branches, such as requiring an approving review or passing status checks for all pull requests merged into the protected branch.'
+title: ブランチ保護ルールを管理する
+intro: ブランチ保護ルールを作成して、1 つ以上のブランチに特定のワークフローを強制することができます。たとえば、承認レビューを要求したり、保護されたブランチにマージされるすべての pull request について状態チェックを渡したりすることができます。
 product: '{% data reusables.gated-features.protected-branches %}'
 redirect_from:
   - /articles/configuring-protected-branches
@@ -27,127 +27,102 @@ permissions: People with admin permissions to a repository can manage branch pro
 topics:
   - Repositories
 shortTitle: Branch protection rule
+ms.openlocfilehash: aed3ab7599d8c74c16d95e4667e94aa3264c9491
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147614176'
 ---
-## About branch protection rules
+## ブランチ保護ルールについて
 
 {% data reusables.repositories.branch-rules-example %}
 
-You can create a rule for all current and future branches in your repository with the wildcard syntax `*`. Because {% data variables.product.company_short %} uses the `File::FNM_PATHNAME` flag for the `File.fnmatch` syntax, the wildcard does not match directory separators (`/`). For example, `qa/*` will match all branches beginning with `qa/` and containing a single slash. You can include multiple slashes with `qa/**/*`, and you can extend the `qa` string with `qa**/**/*` to make the rule more inclusive. For more information about syntax options for branch rules, see the [fnmatch documentation](https://ruby-doc.org/core-2.5.1/File.html#method-c-fnmatch).
+ワイルドカード構文 `*` を使用して、リポジトリ内の現在および将来のブランチすべてに対する規則を作成できます。 {% data variables.product.company_short %} は `File::FNM_PATHNAME` フラグを `File.fnmatch` 構文で使用するため、ワイルドカードがディレクトリ区切り記号 (`/`) と一致しません。 たとえば、`qa/*` は、`qa/` で始まり、1 つのスラッシュを含むすべてのブランチと一致します。 複数のスラッシュを含めるには `qa/**/*` を使用します。また、`qa**/**/*` を使用して `qa` 文字列を拡張すると、規則をさらに包括的にすることができます。 ブランチ規則の構文オプションの詳細については、[fnmatch のドキュメント](https://ruby-doc.org/core-2.5.1/File.html#method-c-fnmatch)を参照してください。
 
-If a repository has multiple protected branch rules that affect the same branches, the rules that include a specific branch name have the highest priority. If there is more than one protected branch rule that references the same specific branch name, then the branch rule created first will have higher priority.
+リポジトリが同じブランチに影響する複数の保護されたブランチのルールを持っているなら、特定のブランチ名を含むルールがもっとも高い優先順位を持ちます。 同じ特定のブランチ名を参照する保護されたブランチのルールが複数あるなら、最初に作成されたブランチルールが高い優先順位を持ちます。
 
-Protected branch rules that mention a special character, such as `*`, `?`, or `]`, are applied in the order they were created, so older rules with these characters have a higher priority.
+`*`、`?`、`]` などの特殊文字を含む、保護されたブランチのルールは、作成された順序で適用されるので、これらの文字が含まれる規則は古い方が高い優先順位を持ちます。
 
-To create an exception to an existing branch rule, you can create a new branch protection rule that is higher priority, such as a branch rule for a specific branch name.
+既存のブランチのルールに例外を作成するため、特定のブランチ名に対するルールなど、優先度の高いブランチ保護ルールを新しく作成できます。
 
-For more information about each of the available branch protection settings, see "[About protected branches](/github/administering-a-repository/about-protected-branches)."
+使用可能なブランチ保護設定それぞれの詳細については、「[保護されたブランチについて](/github/administering-a-repository/about-protected-branches)」を参照してください。
 
-## Creating a branch protection rule
+## ブランチ保護ルールを作成する
 
-When you create a branch rule, the branch you specify doesn't have to exist yet in the repository.
+ブランチのルールを作成する際に、指定したブランチがリポジトリにしている必要はありません。
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-{% data reusables.repositories.repository-branches %}
-{% data reusables.repositories.add-branch-protection-rules %}
-{% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
-1. Optionally, enable required pull requests.
-   - Under "Protect matching branches", select **Require a pull request before merging**.
-     ![Pull request review restriction checkbox](/assets/images/help/repository/PR-reviews-required-updated.png)
-   - Optionally, to require approvals before a pull request can be merged, select **Require approvals**, click the **Required number of approvals before merging** drop-down menu, then select the number of approving reviews you would like to require on the branch.
-     ![Drop-down menu to select number of required review approvals](/assets/images/help/repository/number-of-required-review-approvals-updated.png)
-{% else %}
-1. Optionally, enable required pull request reviews.
-   - Under "Protect matching branches", select **Require pull request reviews before merging**.
-     ![Pull request review restriction checkbox](/assets/images/help/repository/PR-reviews-required.png)
-   - Click the **Required approving reviews** drop-down menu, then select the number of approving reviews you would like to require on the branch. 
-     ![Drop-down menu to select number of required review approvals](/assets/images/help/repository/number-of-required-review-approvals.png)
-{% endif %}
-   - Optionally, to dismiss a pull request approval review when a code-modifying commit is pushed to the branch, select **Dismiss stale pull request approvals when new commits are pushed**.
-     ![Dismiss stale pull request approvals when new commits are pushed checkbox](/assets/images/help/repository/PR-reviews-required-dismiss-stale.png)
-   - Optionally, to require review from a code owner when the pull request affects code that has a designated owner, select **Require review from Code Owners**. For more information, see "[About code owners](/github/creating-cloning-and-archiving-repositories/about-code-owners)."
-     ![Require review from code owners](/assets/images/help/repository/PR-review-required-code-owner.png)
-{% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
-   - Optionally, to allow specific actors to push code to the branch without creating pull requests when they're required, select **Allow specified actors to bypass required pull requests**. Then, search for and select the actors who should be allowed to skip creating a pull request.
-     ![Allow specific actors to bypass pull request requirements checkbox]{% ifversion integration-branch-protection-exceptions %}(/assets/images/help/repository/PR-bypass-requirements-with-apps.png){% else %}(/assets/images/help/repository/PR-bypass-requirements.png){% endif %}
-{% endif %}
-   - Optionally, if the repository is part of an organization, select **Restrict who can dismiss pull request reviews**. Then, search for and select the actors who are allowed to dismiss pull request reviews. For more information, see "[Dismissing a pull request review](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/dismissing-a-pull-request-review)."
-     ![Restrict who can dismiss pull request reviews checkbox]{% ifversion integration-branch-protection-exceptions %}(/assets/images/help/repository/PR-review-required-dismissals-with-apps.png){% else %}(/assets/images/help/repository/PR-review-required-dismissals.png){% endif %}
-{% ifversion last-pusher-require-approval %}
-   - Optionally, to require someone other than the last person to push to a branch to approve a pull request prior to merging, select **Require approval from someone other than the last pusher**. For more information, see "[About protected branches](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#require-pull-request-reviews-before-merging)."
-     ![Require review from someone other than the last pusher](/assets/images/help/repository/last-pusher-review-required.png)
-{% endif %}
-1. Optionally, enable required status checks. For more information, see "[About status checks](/pull-requests/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/about-status-checks)."
-   - Select **Require status checks to pass before merging**.
-     ![Required status checks option](/assets/images/help/repository/required-status-checks.png)
-   - Optionally, to ensure that pull requests are tested with the latest code on the protected branch, select **Require branches to be up to date before merging**.
-     ![Loose or strict required status checkbox](/assets/images/help/repository/protecting-branch-loose-status.png)
-   - Search for status checks, selecting the checks you want to require.
-     ![Search interface for available status checks, with list of required checks](/assets/images/help/repository/required-statuses-list.png)
-1. Optionally, select **Require conversation resolution before merging**.
-  ![Require conversation resolution before merging option](/assets/images/help/repository/require-conversation-resolution.png)
-1. Optionally, select **Require signed commits**.
-  ![Require signed commits option](/assets/images/help/repository/require-signed-commits.png)
-1. Optionally, select **Require linear history**.
-  ![Required linear history option](/assets/images/help/repository/required-linear-history.png)
-{%- ifversion fpt or ghec %}
-1. Optionally, to merge pull requests using a merge queue, select **Require merge queue**. {% data reusables.pull_requests.merge-queue-references %}
-  ![Require merge queue option](/assets/images/help/repository/require-merge-queue.png)
-  {% tip %}
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %} {% data reusables.repositories.repository-branches %} {% data reusables.repositories.add-branch-protection-rules %} {% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5506 %}
+1. 必要に応じて、必須の pull request を有効化します。
+   - [Protect matching branches]\(一致するブランチを保護する\) で、 **[Require a pull request before merging]\(マージ前に pull request 必須\)** を選択します。
+     ![pull request レビュー制限のチェックボックス](/assets/images/help/repository/PR-reviews-required-updated.png)
+   - 必要に応じて、pull request のマージ前の承認を必須にするには、 **[Require approvals]\(承認必須\)** を選択し、 **[Required number of approvals before merging]\(マージ前に必要な承認の数\)** ドロップダウン メニューをクリックし、ブランチで必須にする承認レビューの数を選択します。
+     ![必要なレビュー承認数を選択するドロップダウン メニュー](/assets/images/help/repository/number-of-required-review-approvals-updated.png) {% else %}
+1. 必要に応じて、Pull Requestレビュー必須を有効化します。
+   - [Protect matching branches]\(一致するブランチを保護する\) で、 **[Require pull request reviews before merging]\(マージ前に pull request レビュー必須\)** を選択します。
+     ![pull request レビュー制限のチェックボックス](/assets/images/help/repository/PR-reviews-required.png)
+   - **[Required approving reviews]\(承認レビュー必須\)** ドロップダウン メニューをクリックし、ブランチで必要とする承認レビューの数を選択します。 
+     ![必要なレビュー承認数を選択するドロップダウン メニュー](/assets/images/help/repository/number-of-required-review-approvals.png) {% endif %}
+   - 必要に応じて、コードを変更するコミットがブランチにプッシュされたときに pull request 承認レビューを却下するには、 **[Dismiss stale pull request approvals when new commits are pushed]\(新しいコミットがプッシュされたときに古い pull request 承認を却下する\)** を選択します。
+     ![新たなコミットがプッシュされたときに古い pull request の承認を却下するチェックボックス](/assets/images/help/repository/PR-reviews-required-dismiss-stale.png)
+   - 必要に応じて、pull request が影響するコードに所有者が指定されているとき、コード所有者のレビューを必須にするには、 **[Require review from Code Owners]\(コード所有者のレビュー必須\)** を選択します。 詳細については、「[コードオーナーについて](/github/creating-cloning-and-archiving-repositories/about-code-owners)」を参照してください。
+     ![[Require review from code owners]\(コード所有者のレビュー必須\)](/assets/images/help/repository/PR-review-required-code-owner.png) {% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5611 %}
+   - 必要に応じて、pull request が必須であるときに、特定のアクターがそれを作成せずにコードをブランチにプッシュできるようにするには、 **[Allow specified actors to bypass required pull requests]\(指定したアクターが必須 pull request をバイパスすることを許可\)** を選択します。 次に、pull request の作成をスキップすることを許可するアクターを探して選択します。
+     ![特定のアクターが pull request 要件をバイパスすることを許可するチェックボックス]{% ifversion integration-branch-protection-exceptions %}(/assets/images/help/repository/PR-bypass-requirements-with-apps.png){% else %}(/assets/images/help/repository/PR-bypass-requirements.png){% endif %} {% endif %}
+   - 必要に応じて、リポジトリが組織に含まれる場合に、 **[Restrict who can dismiss pull request reviews]\(pull request レビューを却下できるユーザーを制限\)** を選択します。 次に、pull request レビューの却下を許可するアクターを探して選択します。 詳細については、「[プル リクエスト レビューの却下](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/dismissing-a-pull-request-review)」を参照してください。
+     ![pull request レビューを却下できるユーザーを制限するチェックボックス]{% ifversion integration-branch-protection-exceptions %}(/assets/images/help/repository/PR-review-required-dismissals-with-apps.png){% else %}(/assets/images/help/repository/PR-review-required-dismissals.png){% endif %}
+1. 必要に応じて、ステータスチェック必須を有効化します。 詳細については、「[ステータスチェックについて](/pull-requests/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/about-status-checks)」を参照してください。
+   - **[Require status checks to pass before merging]\(マージ前に状態チェック合格必須\)** を選択します。
+     ![必須状態チェックのオプション](/assets/images/help/repository/required-status-checks.png)
+   - 必要に応じて、保護されたブランチの最新コードに対して pull request を確実にテストするには、 **[Require branches to be up to date before merging]\(マージ前にブランチの最新状態必須\)** を選択します。
+     ![寛容または厳格な必須状態のチェックボックス](/assets/images/help/repository/protecting-branch-loose-status.png)
+   - 状態チェックを探して、必須にするチェックを選択します。
+     ![使用可能な状態チェックと必須チェックの一覧を検索するインターフェイス](/assets/images/help/repository/required-statuses-list.png)
+1. 必要に応じて、 **[Require conversation resolution before merging]\(マージ前に会話の解決必須\)** を選択します。
+  ![[マージ前に会話の解決必須] オプション](/assets/images/help/repository/require-conversation-resolution.png)
+1. 必要に応じて、 **[Require signed commits]\(署名済みコミット必須\)** を選択します。
+  ![[Require signed commits]\(署名済みコミット必須\) オプション](/assets/images/help/repository/require-signed-commits.png)
+1. 必要に応じて、 **[Require linear history]\(直線状の履歴必須\)** を選択します。
+  ![[Require linear history]\(直線状の履歴必須\) オプション](/assets/images/help/repository/required-linear-history.png) {%- ifversion fpt or ghec %}
+1. 必要に応じて、マージ キューを使用して pull request をマージするには、 **[Require merge queue]\(マージ キュー必須\)** を選択します。 {% data reusables.pull_requests.merge-queue-references %} ![[Require merge queue]\(マージ キュー必須\) オプション](/assets/images/help/repository/require-merge-queue.png) {% tip %}
 
-  **Tip:** The pull request merge queue feature is currently in limited public beta and subject to change. Organizations owners can request early access to the beta by joining the [waitlist](https://github.com/features/merge-queue/signup).
+  **ヒント:** 現在、pull request マージ キュー機能はパブリック ベータ版限定であり、変更される可能性があります。 Organization の所有者は、[待機リスト](https://github.com/features/merge-queue/signup)に参加することでベータへの早期アクセスを要求できます。
 
-  {% endtip %}
-{%- endif %}
-{%- ifversion required-deployments %}
-1. Optionally, to choose which environments the changes must be successfully deployed to before merging, select **Require deployments to succeed before merging**, then select the environments.
-   ![Require successful deployment option](/assets/images/help/repository/require-successful-deployment.png)
-{%- endif %}
-{% ifversion lock-branch %}
-1. Optionally, select **Lock branch** to make branch read-only.
-![Screenshot of the checkbox to lock a branch](/assets/images/help/repository/lock-branch.png) 
-   -  Optionally, to allow fork syncing, select **Allow fork syncing**.
-![Screenshot of the checkbox to allow fork syncing](/assets/images/help/repository/lock-branch-forksync.png) 
-{%- endif %}
-1. Optionally, select {% ifversion bypass-branch-protections %}**Do not allow bypassing the above settings**.
-![Do not allow bypassing the above settings checkbox](/assets/images/help/repository/do-not-allow-bypassing-the-above-settings.png){% else %}**Apply the rules above to administrators**.
-![Apply the rules above to administrators checkbox](/assets/images/help/repository/include-admins-protected-branches.png){% endif %}
-1. Optionally,{% ifversion fpt or ghec %} if your repository is owned by an organization using {% data variables.product.prodname_team %} or {% data variables.product.prodname_ghe_cloud %},{% endif %} enable branch restrictions.
-   - Select **Restrict who can push to matching branches**.
-     ![Branch restriction checkbox](/assets/images/help/repository/restrict-branch.png){% ifversion restrict-pushes-create-branch %}
-   - Optionally, to also restrict the creation of matching branches, select **Restrict pushes that create matching branches**.
-     ![Branch creation restriction checkbox](/assets/images/help/repository/restrict-branch-create.png){% endif %}
-   - Search for and select the people, teams, or apps who will have permission to push to the protected branch or create a matching branch.
-     ![Branch restriction search]{% ifversion restrict-pushes-create-branch %}(/assets/images/help/repository/restrict-branch-search-with-create.png){% else %}(/assets/images/help/repository/restrict-branch-search.png){% endif %}
-1. Optionally, under "Rules applied to everyone including administrators", select **Allow force pushes**.
-  ![Allow force pushes option](/assets/images/help/repository/allow-force-pushes.png)
-{% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
-  Then, choose who can force push to the branch.
-    - Select **Everyone** to allow everyone with at least write permissions to the repository to force push to the branch, including those with admin permissions.
-    - Select **Specify who can force push** to allow only specific actors to force push to the branch. Then, search for and select those actors.
-      ![Screenshot of the options to specify who can force push]{% ifversion integration-branch-protection-exceptions %}(/assets/images/help/repository/allow-force-pushes-specify-who-with-apps.png){% else %}(/assets/images/help/repository/allow-force-pushes-specify-who.png){% endif %}
-{% endif %}
+  {% endtip %} {%- endif %} {%- ifversion required-deployments %}
+1. 必要に応じて、マージ前に変更を正常にデプロイする必要がある環境を選択するには、 **[Require deployments to succeed before merging]\(マージ前にデプロイ成功必須\)** を選択してから環境を選択します。
+   ![デプロイ成功必須のオプション](/assets/images/help/repository/require-successful-deployment.png) {%- endif %}
+1. 必要に応じて、{% ifversion bypass-branch-protections %} **[上の設定のバイパスを許可しない]** を選択します。
+![[上の設定のバイパスを許可しない] チェックボックス](/assets/images/help/repository/do-not-allow-bypassing-the-above-settings.png){% else %} **[上のルールを管理者に適用する]** を選択します。
+![[上のルールを管理者に適用する] チェックボックス](/assets/images/help/repository/include-admins-protected-branches.png){% endif %}
+1. 必要に応じて、{% ifversion fpt or ghec %}リポジトリを所有する組織が {% data variables.product.prodname_team %} または {% data variables.product.prodname_ghe_cloud %} を使用する場合は、{% endif %}ブランチの制限を有効にします。
+   - **[Restrict who can push to matching branches]\(一致するブランチにプッシュできるユーザーを制限\)** を選択します。
+     ![ブランチ制限のチェックボックス](/assets/images/help/repository/restrict-branch.png){% ifversion restrict-pushes-create-branch %}
+   - 必要に応じて、一致するブランチの作成も制限するには、 **[Restrict pushes that create matching branches]\(一致するブランチを作成するプッシュを制限する\)** を選択します。
+     ![ブランチ作成制限のチェックボックス](/assets/images/help/repository/restrict-branch-create.png){% endif %}
+   - 保護されたブランチにプッシュできるアクセス許可または一致するブランチを作成するアクセス許可を設定する、ユーザ、チーム、またはアプリを探して、選択します。
+     ![ブランチ制限の検索]{% ifversion restrict-pushes-create-branch %}(/assets/images/help/repository/restrict-branch-search-with-create.png){% else %}(/assets/images/help/repository/restrict-branch-search.png){% endif %}
+1. 必要に応じて、[Rules applied to everyone including administrators]\(管理者を含む全員に適用されるルール\) の下で **[Allow force pushes]\(フォース プッシュを許可\)** を選択します。
+  ![[Allow force pushes]\(フォース プッシュを許可\) オプション](/assets/images/help/repository/allow-force-pushes.png) {% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5624 %} その後、ブランチにフォース プッシュできるユーザーを選択します。
+    - **[Everyone]\(すべてのユーザー\)** を選択し、リポジトリに対して少なくとも書き込みアクセス許可を持つすべてのユーザー (管理者権限を持つユーザーを含む) が、ブランチにフォース プッシュできるようにします。
+    - **[Specify who can force push]\(フォース プッシュできるユーザーを指定する\)** を選択し、ブランチへのフォース プッシュを特定のアクターに許可します。 次に、そのようなアクターを探して選択します。
+      ![プッシュを強制できるユーザーを指定するオプションのスクリーンショット]{% ifversion integration-branch-protection-exceptions %}(/assets/images/help/repository/allow-force-pushes-specify-who-with-apps.png){% else %}(/assets/images/help/repository/allow-force-pushes-specify-who.png){% endif %} {% endif %}
 
-    For more information about force pushes, see "[Allow force pushes](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches/#allow-force-pushes)."
-1. Optionally, select **Allow deletions**.
-  ![Allow branch deletions option](/assets/images/help/repository/allow-branch-deletions.png)
-1. Click **Create**.
+    詳細については、「[フォース プッシュを許可](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches/#allow-force-pushes)」を参照してください。
+1. 必要に応じて、 **[Allow deletions]\(削除を許可\)** を選択します。
+  ![ブランチの削除を許可するオプション](/assets/images/help/repository/allow-branch-deletions.png)
+1. **Create** をクリックしてください。
 
-## Editing a branch protection rule
+## ブランチ保護ルールを編集する
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-{% data reusables.repositories.repository-branches %}
-1. To the right of the branch protection rule you want to edit, click **Edit**.
-  ![Edit button](/assets/images/help/repository/edit-branch-protection-rule.png)
-1. Make your desired changes to the branch protection rule.
-1. Click **Save changes**.
-  ![Save changes button](/assets/images/help/repository/save-branch-protection-rule.png)
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %} {% data reusables.repositories.repository-branches %}
+1. 編集しようとするブランチ保護規則の右側の **[編集]** をクリックします。
+  ![[編集] ボタン](/assets/images/help/repository/edit-branch-protection-rule.png)
+1. ブランチ保護ルールを自由に変更してください。
+1. **[変更を保存]** をクリックします。
+  ![[変更を保存] ボタン](/assets/images/help/repository/save-branch-protection-rule.png)
 
-## Deleting a branch protection rule
+## ブランチ保護ルールを削除する
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-{% data reusables.repositories.repository-branches %}
-1. To the right of the branch protection rule you want to delete, click **Delete**.
-    ![Delete button](/assets/images/help/repository/delete-branch-protection-rule.png)
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %} {% data reusables.repositories.repository-branches %}
+1. 削除しようとするブランチ保護規則の右側の **[削除]** をクリックします。
+    ![[削除] ボタン](/assets/images/help/repository/delete-branch-protection-rule.png)

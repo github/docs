@@ -1,6 +1,6 @@
 ---
-title: Changing your primary email address
-intro: You can change the email address associated with your personal account at any time.
+title: Ändern der primären E-Mail-Adresse
+intro: Du kannst die mit deinem persönlichen Konto verknüpfte E-Mail-Adresse jederzeit ändern.
 redirect_from:
   - /articles/changing-your-primary-email-address
   - /github/setting-up-and-managing-your-github-user-account/changing-your-primary-email-address
@@ -14,20 +14,25 @@ topics:
   - Accounts
   - Notifications
 shortTitle: Primary email address
+ms.openlocfilehash: 5624a44c888b20350497fd2a4ec5a0d07186cdfe
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145164973'
 ---
 {% note %}
 
-**Note:** You cannot change your primary email address to an email that is already set to be your backup email address.
+**Hinweis:** Du kannst deine primäre E-Mail-Adresse nicht in eine E-Mail-Adresse ändern, die bereits als Backup-E-Mail-Adresse festgelegt ist.
 
 {% endnote %}
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.emails %}
-3. If you'd like to add a new email address to set as your primary email address, under "Add email address", type a new email address and click **Add**.
-   ![Add another email address button](/assets/images/help/settings/add_another_email_address.png)
-4. Under "Primary email address", use the drop-down menu to click the email address you'd like to set as your primary email address, and click **Save**.
-   ![Set as primary button](/assets/images/help/settings/set_as_primary_email.png)
-5. To remove the old email address from your account, next to the old email, click {% octicon "trash" aria-label="The trash symbol" %}.
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.emails %}
+3. Gib unter „E-Mail-Adresse hinzufügen“ eine neue E-Mail-Adresse ein, und klicke auf **Hinzufügen**, wenn du eine neue E-Mail-Adresse hinzufügen und als primäre E-Mail-Adresse festlegen möchtest.
+   ![Schaltfläche zum Hinzufügen einer weiteren E-Mail-Adresse](/assets/images/help/settings/add_another_email_address.png)
+4. Klicke im Dropdownmenü unter „Primäre E-Mail-Adresse“ auf die E-Mail-Adresse, die du als primäre E-Mail-Adresse festlegen möchtest, und klicke dann auf **Speichern**.
+   ![Schaltfläche zum Festlegen einer primären E-Mail-Adresse](/assets/images/help/settings/set_as_primary_email.png)
+5. Klicke neben der alten E-Mail-Adresse auf {% octicon "trash" aria-label="The trash symbol" %}, um sie aus deinem Konto zu entfernen.
 {% ifversion fpt or ghec %}
-6. Verify your new primary email address. Without a verified email address, you won't be able to use all of {% data variables.product.product_name %}'s features. For more information, see "[Verifying your email address](/articles/verifying-your-email-address)."
+6. Verifiziere deine neue primäre E-Mail-Adresse. Ohne verifizierte E-Mail-Adresse kannst du nicht alle Funktionen von {% data variables.product.product_name %} nutzen. Weitere Informationen findest du unter [Verifizieren deiner E-Mail-Adresse](/articles/verifying-your-email-address).
 {% endif %}

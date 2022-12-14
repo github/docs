@@ -1,6 +1,6 @@
 ---
-title: Setting up a staging instance
-intro: 'You can set up a {% data variables.product.product_name %} instance in a separate, isolated environment, and use the instance to validate and test changes.'
+title: Настройка промежуточного экземпляра
+intro: 'Экземпляр {% data variables.product.product_name %} можно настроить в отдельной изолированной среде, а затем использовать для проверки и тестирования изменений.'
 redirect_from:
   - /enterprise/admin/installation/setting-up-a-staging-instance
   - /admin/installation/setting-up-a-staging-instance
@@ -13,96 +13,100 @@ topics:
   - Upgrades
 shortTitle: Set up a staging instance
 miniTocMaxHeadingLevel: 3
+ms.openlocfilehash: ce7d9dde9f86ea5159657203e13d9d191b6b7466
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148106864'
 ---
+## Сведения о промежуточных экземплярах
 
-## About staging instances
+{% данных variables.product.company_short %} рекомендует настроить отдельную среду для тестирования резервных копий, обновлений или изменений конфигурации для {% данных variables.location.product_location %}. Эта среда, которую следует изолировать от рабочих систем, называется промежуточной.
 
-{% data variables.product.company_short %} recommends that you set up a separate environment to test backups, updates, or changes to the configuration for {% data variables.location.product_location %}. This environment, which you should isolate from your production systems, is called a staging environment.
-
-For example, to protect against loss of data, you can regularly validate the backup of your production instance. You can regularly restore the backup of your production data to a separate {% data variables.product.product_name %} instance in a staging environment. On this staging instance, you could also test the upgrade to the latest feature release of {% data variables.product.product_name %}.
+Например, для защиты от потери данных можно регулярно проверять резервную копию рабочего экземпляра. Резервную копию рабочих данных можно регулярно восстанавливать в отдельном экземпляре {% data variables.product.product_name %} в промежуточной среде. На этом промежуточном экземпляре можно также протестировать обновление до последнего выпуска компонента {% data variables.product.product_name %}.
 
 {% tip %}
 
-**Tip:** You may reuse your existing {% data variables.product.prodname_enterprise %} license file as long as the staging instance is not used in a production capacity.
+**Совет.** Можно повторно использовать существующий файл лицензии {% data variables.product.prodname_enterprise %}, если промежуточный экземпляр не используется для рабочей среды.
 
 {% endtip %}
 
-## Considerations for a staging environment
+## Рекомендации для промежуточной среды
 
-To thoroughly test {% data variables.product.product_name %} and recreate an environment that's as similar to your production environment as possible, consider the external systems that interact with your instance. For example, you may want to test the following in your staging environment.
+Чтобы тщательно протестировать {% data variables.product.product_name %} и воссоздать среду, аналогичную рабочей среде, рассмотрите внешние системы, взаимодействующие с вашим экземпляром. Например, может потребоваться протестировать в промежуточной среде следующее.
 
-- Authentication, especially if you use an external authentication provider like SAML
-- Integration with an external ticketing system
-- Integration with a continuous integration server
-- External scripts or software that use the {% data variables.product.prodname_enterprise_api %}
-- External SMTP server for email notifications
+- Проверка подлинности, особенно при использовании внешнего поставщика проверки подлинности, например, SAML
+- Интеграция с внешней системой запросов
+- Интеграция с сервером непрерывной интеграции
+- Внешние скрипты или программное обеспечение, использующие {% данных variables.product.prodname_enterprise_api %}
+- Внешний SMTP-сервер для уведомлений по электронной почте
 
-## Setting up a staging instance
+## Настройка промежуточного экземпляра
 
-You can set up a staging instance from scratch and configure the instance however you like. For more information, see "[Setting up a {% data variables.product.product_name %} instance](/admin/installation/setting-up-a-github-enterprise-server-instance)" and "[Configuring your enterprise](/admin/configuration/configuring-your-enterprise)."
+Промежуточный экземпляр можно настроить с нуля и настроить нужный экземпляр. Дополнительные сведения см. в разделе "[Настройка экземпляра {% данных variables.product.product_name %}](/admin/installation/setting-up-a-github-enterprise-server-instance)" и "[Настройка предприятия](/admin/configuration/configuring-your-enterprise)".
 
-Alternatively, you can create a staging instance that reflects your production configuration by restoring a backup of your production instance to the staging instance.
+Кроме того, можно создать промежуточный экземпляр, который отражает рабочую конфигурацию, восстановив резервную копию рабочего экземпляра в промежуточный экземпляр.
 
-1. [Back up your production instance](#1-back-up-your-production-instance).
-2. [Set up a staging instance](#2-set-up-a-staging-instance).
-3. [Configure {% data variables.product.prodname_actions %}](#3-configure-github-actions).
-4. [Configure {% data variables.product.prodname_registry %}](#4-configure-github-packages).
-5. [Restore your production backup](#5-restore-your-production-backup).
-6. [Review the instance's configuration](#6-review-the-instances-configuration).
-7. [Apply the instance's configuration](#7-apply-the-instances-configuration).
+1. [Создайте резервную копию рабочего экземпляра](#1-back-up-your-production-instance).
+2. [Настройка промежуточного экземпляра](#2-set-up-a-staging-instance).
+3. [Настройте {% данных variables.product.prodname_actions %}](#3-configure-github-actions).
+4. [Настройте {% данных variables.product.prodname_registry %}](#4-configure-github-packages).
+5. [Восстановите рабочую резервную копию](#5-restore-your-production-backup).
+6. [Проверьте конфигурацию экземпляра](#6-review-the-instances-configuration).
+7. [Примените конфигурацию экземпляра](#7-apply-the-instances-configuration).
 
-### 1. Back up your production instance
+### 1. Резервное копирование рабочего экземпляра
 
-If you want to test changes on an instance that contains the same data and configuration as your production instance, back up the data and configuration from the production instance using {% data variables.product.prodname_enterprise_backup_utilities %}. For more information, see "[Configuring backups on your appliance](/admin/configuration/configuring-your-enterprise/configuring-backups-on-your-appliance)."
-
-{% warning %}
-
-**Warning**: If you use {% data variables.product.prodname_actions %} or {% data variables.product.prodname_registry %} in production, your backup will include your production configuration for external storage. To avoid potential loss of data by writing to your production storage from your staging instance, you must configure each feature in steps 3 and 4 before you restore your backup.
-
-{% endwarning %}
-
-### 2. Set up a staging instance
-
-Set up a new instance to act as your staging environment. You can use the same guides for provisioning and installing your staging instance as you did for your production instance. For more information, see "[Setting up a {% data variables.product.prodname_ghe_server %} instance](/enterprise/admin/guides/installation/setting-up-a-github-enterprise-server-instance/)."
-
-If you plan to restore a backup of your production instance, continue to the next step. Alternatively, you can configure the instance manually and skip the following steps.
-
-### 3. Configure {% data variables.product.prodname_actions %}
-
-Optionally, if you use {% data variables.product.prodname_actions %} on your production instance, configure the feature on the staging instance before restoring your production backup. If you don't use {% data variables.product.prodname_actions %}, skip to "[4. Configure {% data variables.product.prodname_registry %}](#4-configure-github-packages)."
+Если вы хотите протестировать изменения в экземпляре, содержающем те же данные и конфигурацию, что и рабочий экземпляр, создайте резервную копию данных и конфигурации из рабочего экземпляра с помощью {% данных variables.product.prodname_enterprise_backup_utilities %}. Дополнительные сведения см. в статье "[Настройка резервных копий на устройстве](/admin/configuration/configuring-your-enterprise/configuring-backups-on-your-appliance)".
 
 {% warning %}
 
-**Warning**: If you don't configure {% data variables.product.prodname_actions %} on the staging instance before restoring your production backup, your staging instance will use your production instance's external storage, which could result in loss of data. We strongly recommended that you use different external storage for your staging instance. For more information, see "[Using a staging environment](/admin/github-actions/advanced-configuration-and-troubleshooting/using-a-staging-environment)."
+**Предупреждение.** При использовании {% данных variables.product.prodname_actions %} или {% данных variables.product.prodname_registry %} в рабочей среде резервная копия будет включать рабочую конфигурацию для внешнего хранилища. Чтобы избежать потенциальной потери данных путем записи в рабочее хранилище из промежуточного экземпляра, необходимо настроить каждую функцию на шагах 3 и 4 перед восстановлением резервной копии.
 
 {% endwarning %}
 
-{% data reusables.enterprise_installation.ssh-into-staging-instance %}
-1. To configure the staging instance to use an external storage provider for {% data variables.product.prodname_actions %}, enter one of the following commands.
-{% indented_data_reference reusables.actions.configure-storage-provider-platform-commands spaces=3 %}
-{% data reusables.actions.configure-storage-provider %}
-1. To prepare to enable {% data variables.product.prodname_actions %} on the staging instance, enter the following command.
+### 2. Настройка промежуточного экземпляра
+
+Настройте новый экземпляр для использования в качестве промежуточной среды. Вы можете использовать для подготовки и установки промежуточного экземпляра те же инструкции, что и в случае с рабочим экземпляром. Дополнительные сведения см. в разделе [Настройка экземпляра {% data variables.product.prodname_ghe_server %}](/enterprise/admin/guides/installation/setting-up-a-github-enterprise-server-instance/).
+
+Если вы планируете восстановить резервную копию рабочего экземпляра, перейдите к следующему шагу. Кроме того, можно настроить экземпляр вручную и пропустить следующие действия.
+
+### 3. Настройка {% данных variables.product.prodname_actions %}
+
+При необходимости при использовании {% данных variables.product.prodname_actions %} в рабочем экземпляре настройте эту функцию на промежуточном экземпляре перед восстановлением рабочей резервной копии. Если вы не используете {% данных variables.product.prodname_actions %}, перейдите к разделу "[4. Настройте {% данных variables.product.prodname_registry %}](#4-configure-github-packages)".
+
+{% warning %}
+
+**Предупреждение.** Если вы не настроите {% данных variables.product.prodname_actions %} на промежуточном экземпляре перед восстановлением рабочей резервной копии, промежуточный экземпляр будет использовать внешнее хранилище рабочего экземпляра, что может привести к потере данных. Настоятельно рекомендуется использовать другое внешнее хранилище для промежуточного экземпляра. Дополнительные сведения см. в разделе [Использование промежуточной среды](/admin/github-actions/advanced-configuration-and-troubleshooting/using-a-staging-environment).
+
+{% endwarning %}
+
+{% данных reusables.enterprise_installation.ssh-into-staging-instance %}
+1. Чтобы настроить промежуточный экземпляр для использования внешнего поставщика хранилища для {% данных variables.product.prodname_actions %}, введите одну из следующих команд.
+{% indented_data_reference reusables.actions.configure-storage-provider-platform-commands spaces=3 %} {% данных reusables.actions.configure-storage-provider %}
+1. Чтобы подготовиться к включению {% данных variables.product.prodname_actions %} на промежуточном экземпляре, введите следующую команду.
 
    ```shell{:copy}
    ghe-config app.actions.enabled true
    ```
 
-### 4. Configure {% data variables.product.prodname_registry %}
+### 4. Настройка {% данных variables.product.prodname_registry %}
 
-Optionally, if you use {% data variables.product.prodname_registry %} on your production instance, configure the feature on the staging instance before restoring your production backup. If you don't use {% data variables.product.prodname_registry %}, skip to "[5. Restore your production backup](#5-restore-your-production-backup)."
+При необходимости, если вы используете {% данных variables.product.prodname_registry %} в рабочем экземпляре, настройте эту функцию на промежуточном экземпляре перед восстановлением рабочей резервной копии. Если вы не используете {% данных variables.product.prodname_registry %}, перейдите к разделу "[5. Восстановите рабочую резервную копию](#5-restore-your-production-backup)".
 
 {% warning %}
 
-**Warning**: If you don't configure {% data variables.product.prodname_registry %} on the staging instance before restoring your production backup, your staging instance will use your production instance's external storage, which could result in loss of data. We strongly recommended that you use different external storage for your staging instance.
+**Предупреждение.** Если вы не настроите {% данных variables.product.prodname_registry %} на промежуточном экземпляре перед восстановлением рабочей резервной копии, промежуточный экземпляр будет использовать внешнее хранилище рабочего экземпляра, что может привести к потере данных. Настоятельно рекомендуется использовать другое внешнее хранилище для промежуточного экземпляра.
 
 {% endwarning %}
 
-1. Review the backup you will restore to the staging instance.
-   - If you took the backup with {% data variables.product.prodname_enterprise_backup_utilities %} 3.5 or later, the backup includes the configuration for {% data variables.product.prodname_registry %}. Continue to the next step.
-   - If you took the backup with {% data variables.product.prodname_enterprise_backup_utilities %} 3.4 or earlier, configure {% data variables.product.prodname_registry %} on the staging instance. For more information, see "[Getting started with {% data variables.product.prodname_registry %} for your enterprise](/admin/packages/getting-started-with-github-packages-for-your-enterprise)."
-{% data reusables.enterprise_installation.ssh-into-staging-instance %}
-1. Configure the external storage connection by entering the following commands, replacing the placeholder values with actual values for your connection.
-   - Azure Blob Storage:
+1. Просмотрите резервную копию, восстанавливаемую в промежуточном экземпляре.
+   - Если вы выполнили резервное копирование с {% данных variables.product.prodname_enterprise_backup_utilities %} 3.5 или более поздней версии, резервная копия включает конфигурацию для {% данных variables.product.prodname_registry %}. Перейдите к следующему шагу.
+   - Если вы выполнили резервное копирование с {% данных variables.product.prodname_enterprise_backup_utilities %} 3.4 или более ранней версии, настройте {% данных variables.product.prodname_registry %} на промежуточном экземпляре. Дополнительные сведения см. в разделе "[Начало работы с {% данных variables.product.prodname_registry %} для вашего предприятия](/admin/packages/getting-started-with-github-packages-for-your-enterprise)".
+{% данных reusables.enterprise_installation.ssh-into-staging-instance %}
+1. Настройте подключение к внешнему хранилищу, введя следующие команды, заменив значения заполнителей фактическими значениями для подключения.
+   - Хранилище BLOB-объектов Azure:
 
      ```shell{:copy}
      ghe-config secrets.packages.blob-storage-type "azure"
@@ -118,40 +122,40 @@ Optionally, if you use {% data variables.product.prodname_registry %} on your pr
      ghe-config secrets.packages.aws-access-key "S3 ACCESS KEY ID"
      ghe-config secrets.packages.aws-secret-key "S3 ACCESS SECRET"
      ```
-1. To prepare to enable {% data variables.product.prodname_registry %} on the staging instance, enter the following command.
+1. Чтобы подготовиться к включению {% данных variables.product.prodname_registry %} в промежуточном экземпляре, введите следующую команду.
 
    ```shell{:copy}
    ghe-config app.packages.enabled true
    ```
 
-### 5. Restore your production backup
+### 5. Восстановление рабочей резервной копии
 
-Use the `ghe-restore` command to restore the rest of the data from the backup. For more information, see "[Restoring a backup](/admin/configuration/configuring-backups-on-your-appliance#restoring-a-backup)."
+`ghe-restore` Используйте команду для восстановления остальных данных из резервной копии. Дополнительные сведения см. в разделе [Восстановление резервной копии](/admin/configuration/configuring-backups-on-your-appliance#restoring-a-backup).
 
-If the staging instance is already configured and you want to overwrite settings, certificate, and license data, add the `-c` option to the command. For more information about the option, see [Using the backup and restore commands](https://github.com/github/backup-utils/blob/master/docs/usage.md#restoring-settings-tls-certificate-and-license) in the {% data variables.product.prodname_enterprise_backup_utilities %} documentation.
+Если промежуточный экземпляр уже настроен и вы хотите перезаписать параметры, сертификаты и данные лицензии, добавьте `-c` этот параметр в команду. Дополнительные сведения о параметре см. в разделе ["Использование команд резервного копирования и восстановления](https://github.com/github/backup-utils/blob/master/docs/usage.md#restoring-settings-tls-certificate-and-license) " в документации по {% данных variables.product.prodname_enterprise_backup_utilities %}.
 
-### 6. Review the instance's configuration
+### 6. Проверка конфигурации экземпляра
 
-To access the staging instance using the same hostname, update your local hosts file to resolve the staging instance's hostname by IP address by editing the `/etc/hosts` file in macOS or Linux, or the `C:\Windows\system32\drivers\etc` file in Windows.
+Чтобы получить доступ к промежуточному экземпляру с помощью того же имени узла, обновите файл локальных узлов, чтобы разрешить имя узла промежуточного экземпляра по IP-адресу, изменив `/etc/hosts` файл в macOS или Linux или `C:\Windows\system32\drivers\etc` файл в Windows.
 
 {% note %}
 
-**Note**: Your staging instance must be accessible from the same hostname as your production instance. Changing the hostname for {% data variables.location.product_location %} is not supported. For more information, see "[Configuring a hostname](/admin/configuration/configuring-network-settings/configuring-a-hostname)."
+**Примечание.** Промежуточный экземпляр должен быть доступен из того же имени узла, что и рабочий экземпляр. Изменение имени узла для {% данных variables.location.product_location %} не поддерживается. Дополнительные сведения см. в разделе [Настройка имени узла](/admin/configuration/configuring-network-settings/configuring-a-hostname).
 
 {% endnote %}
 
-Then, review the staging instance's configuration in the {% data variables.enterprise.management_console %}. For more information, see "[Accessing the  {% data variables.enterprise.management_console %}](/admin/configuration/configuring-your-enterprise/accessing-the-management-console)."
+Затем просмотрите конфигурацию промежуточного экземпляра в {% данных variables.enterprise.management_console %}. Дополнительные сведения см. в разделе "[Доступ к {% данных variables.enterprise.management_console %}](/admin/configuration/configuring-your-enterprise/accessing-the-management-console)".
 
 {% warning %}
 
-**Warning**: If you configured {% data variables.product.prodname_actions %} or {% data variables.product.prodname_registry %} for the staging instance, to avoid overwriting production data, ensure that the external storage configuration in the {% data variables.enterprise.management_console %} does not match your production instance.
+**Предупреждение.** Если вы настроили {% данных variables.product.prodname_actions %} или {% данных variables.product.prodname_registry %} для промежуточного экземпляра, чтобы избежать перезаписи рабочих данных, убедитесь, что конфигурация внешнего хранилища в {% данных variables.enterprise.management_console %} не соответствует рабочему экземпляру.
 
 {% endwarning %}
 
-### 7. Apply the instance's configuration
+### 7. Применение конфигурации экземпляра
 
-To apply the configuration from the {% data variables.enterprise.management_console %}, click **Save settings**.
+Чтобы применить конфигурацию из {% данных variables.enterprise.management_console %}, нажмите кнопку **"Сохранить параметры**".
 
-## Further reading
+## Дополнительные материалы
 
-- "[About upgrades to new releases](/admin/overview/about-upgrades-to-new-releases)"
+- [Сведения об обновлении до новых выпусков](/admin/overview/about-upgrades-to-new-releases)

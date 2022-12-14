@@ -1,6 +1,6 @@
 ---
-title: Cluster network configuration
-intro: '{% data variables.product.prodname_ghe_server %} clustering relies on proper DNS name resolution, load balancing, and communication between nodes to operate properly.'
+title: Конфигурация сети кластера
+intro: 'Для правильной работы кластеризации {% data variables.product.prodname_ghe_server %} используется правильное разрешение DNS-имен, балансировку нагрузки и обмен данными между узлами.'
 redirect_from:
   - /enterprise/admin/clustering/cluster-network-configuration
   - /enterprise/admin/enterprise-management/cluster-network-configuration
@@ -14,62 +14,68 @@ topics:
   - Infrastructure
   - Networking
 shortTitle: Configure a cluster network
+ms.openlocfilehash: 73b011bcaea2655fef728a142b20d1067a4df0b6
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148098412'
 ---
-## Network considerations
+## Рекомендации по сети
 
-The simplest network design for clustering is to place the nodes on a single LAN. If a cluster must span subnetworks, we do not recommend configuring any firewall rules between the networks. The latency between nodes should be less than 1 millisecond.
+Реализация самого простого проекта сети для кластеризации заключается в размещении узлов в одной локальной сети. Если кластер должен охватывать подсети, не рекомендуется настраивать правила брандмауэра между сетями. Задержка между узлами должна быть меньше 1 миллисекунд.
 
-{% data reusables.enterprise_clustering.network-latency %}
+{% данных reusables.enterprise_clustering.network-latency %}
 
-### Application ports for end users
+### Порты приложений для конечных пользователей
 
-Application ports provide web application and Git access for end users.
+Порты приложений предоставляют конечным пользователям доступ к веб-приложениям и Git.
 
-| Port     | Description     | Encrypted  |
+| Порт     | Описание     | С шифрованием  |
 | :------------- | :------------- | :------------- |
-| 22/TCP    | Git over SSH | Yes |
-| 25/TCP    | SMTP | Requires STARTTLS |
-| 80/TCP    | HTTP | No<br>(When SSL is enabled this port redirects to HTTPS) |
-| 443/TCP   | HTTPS | Yes |
-| 9418/TCP  | Simple Git protocol port<br>(Disabled in private mode) | No |
+| 22/TCP    | Git по протоколу SSH | Да |
+| 25/TCP    | SMTP | Требуется STARTTLS |
+| 80/TCP    | HTTP | Нет<br>(Если протокол SSL включен, этот порт перенаправляет на HTTPS) |
+| 443/TCP   | HTTPS | Да |
+| 9418/TCP  | Простой порт протокола Git<br>(Отключено в частном режиме) | Нет |
 
-### Administrative ports
+### Административные порты
 
-Administrative ports are not required for basic application use by end users.
+Административные порты не требуются для использования основного приложения конечными пользователями.
 
-| Port     | Description     | Encrypted  |
+| Порт     | Описание     | С шифрованием  |
 | :------------- | :------------- | :------------- |
-| ICMP      | ICMP Ping | No |
-| 122/TCP   | Administrative SSH | Yes |
-| 161/UDP    | SNMP | No |
-| 8080/TCP  | Management Console HTTP | No<br>(When SSL is enabled this port redirects to HTTPS) |
-| 8443/TCP  | Management Console HTTPS | Yes |
+| ICMP      | Проверка связи ICMP | Нет |
+| 122/TCP   | Административный SSH | Да |
+| 161/UDP    | SNMP | Нет |
+| 8080/TCP  | HTTP консоли управления | Нет<br>(Если протокол SSL включен, этот порт перенаправляет на HTTPS) |
+| 8443/TCP  | HTTPS консоли управления | Да |
 
-### Cluster communication ports
+### Порты взаимодействия кластера
 
-If a network level firewall is in place between nodes, these ports will need to be accessible. The communication between nodes is not encrypted. These ports should not be accessible externally.
+Если брандмауэр уровня сети установлен между узлами, эти порты должны быть доступны. Обмен данными между узлами не шифруется. Эти порты не должны быть доступны извне.
 
-| Port     | Description     |
+| Порт     | Описание     |
 | :------------- | :------------- |
-| 1336/TCP  | Internal API |
-| 3033/TCP  | Internal SVN access |
-| 3037/TCP  | Internal SVN access |
+| 1336/TCP  | Внутренний API |
+| 3033/TCP  | Внутренний доступ к SVN |
+| 3037/TCP  | Внутренний доступ к SVN |
 | 3306/TCP  | MySQL |
-| 4486/TCP  | Governor access |
-| 5115/TCP  | Storage backend |
-| 5208/TCP  | Internal SVN access |
+| 4486/TCP  | Доступ к регулятору |
+| 5115/TCP  | Серверная часть служба хранилища |
+| 5208/TCP  | Внутренний доступ к SVN |
 | 6379/TCP  | Redis |
 | 8001/TCP  | Grafana |
-| 8090/TCP  | Internal GPG access |
-| 8149/TCP  | GitRPC file server access |
+| 8090/TCP  | Внутренний доступ к GPG |
+| 8149/TCP  | Доступ к файловому серверу GitRPC |
 | 8300/TCP | Consul |
 | 8301/TCP | Consul |
 | 8302/TCP | Consul |
-| 9000/TCP  | Git Daemon |
-| 9102/TCP  | Pages file server |
-| 9105/TCP  | LFS server |
+| 9000/TCP  | Управляющая программа Git |
+| 9102/TCP  | Файловый сервер Pages |
+| 9105/TCP  | Сервер LFS |
 | 9200/TCP  | Elasticsearch |
-| 9203/TCP | Semantic code service |
+| 9203/TCP | Служба семантического кода |
 | 9300/TCP  | Elasticsearch |
 | 11211/TCP | Memcache |
 | 161/UDP   | SNMP |
@@ -78,42 +84,42 @@ If a network level firewall is in place between nodes, these ports will need to 
 | 8302/UDP | Consul |
 | 25827/UDP | Collectd |
 
-## Configuring a load balancer
+## Настройка подсистемы балансировки нагрузки
 
- We recommend an external TCP-based load balancer that supports the PROXY protocol to distribute traffic across nodes. Consider these load balancer configurations:
+ Рекомендуется использовать внешнюю подсистему балансировки нагрузки на основе TCP, которая поддерживает протокол PROXY для распределения трафика между узлами. Рассмотрите возможность использования следующих конфигураций подсистемы балансировки нагрузки:
 
- - TCP ports (shown below) should be forwarded to nodes running the `web-server` service. These are the only nodes that serve external client requests.
- - Sticky sessions shouldn't be enabled.
+ - TCP-порты (как показано ниже) следует перенаправить на узлы, на которых запущена служба `web-server`. Это единственные узлы, обслуживающие внешние клиентские запросы.
+ - Прикрепленные сеансы не должны быть включены.
 
 {% data reusables.enterprise_installation.terminating-tls %}
 
-## Handling client connection information
+## Обработка сведений о подключениях клиентов
 
-Because client connections to the cluster come from the load balancer, the client IP address can be lost. To properly capture the client connection information, additional consideration is required.
+Так как подключения клиентов к кластеру выполняются из подсистемы балансировки нагрузки, IP-адрес клиента может быть потерян. Для корректной записи сведений о подключении клиента требуется учесть некоторые особенности.
 
 {% data reusables.enterprise_clustering.proxy_preference %}
 
 {% data reusables.enterprise_clustering.proxy_xff_firewall_warning %}
 
-### Enabling PROXY support on {% data variables.product.prodname_ghe_server %}
+### Включение поддержки PROXY на {% data variables.product.prodname_ghe_server %}
 
-We strongly recommend enabling PROXY support for both your instance and the load balancer.
+Настоятельно рекомендуется включить поддержку PROXY для экземпляра и подсистемы балансировки нагрузки.
 
 {% data reusables.enterprise_installation.proxy-incompatible-with-aws-nlbs %}
 
- - For your instance, use this command:
+ - Для имеющегося экземпляра используйте следующую команду:
   ```shell
   $ ghe-config 'loadbalancer.proxy-protocol' 'true' && ghe-cluster-config-apply
   ```
-  - For the load balancer, use the instructions provided by your vendor.
+  - Для подсистемы балансировки нагрузки следуйте инструкциям, предоставленным поставщиком.
 
   {% data reusables.enterprise_clustering.proxy_protocol_ports %}
 
-### Enabling X-Forwarded-For support on {% data variables.product.prodname_ghe_server %}
+### Включение поддержки X-Forwarded-For на {% data variables.product.prodname_ghe_server %}
 
 {% data reusables.enterprise_clustering.x-forwarded-for %}
 
-To enable the `X-Forwarded-For` header, use this command:
+Чтобы включить заголовок `X-Forwarded-For`, используйте следующую команду:
 
 ```shell
 $ ghe-config 'loadbalancer.http-forward' 'true' && ghe-cluster-config-apply
@@ -121,12 +127,11 @@ $ ghe-config 'loadbalancer.http-forward' 'true' && ghe-cluster-config-apply
 
 {% data reusables.enterprise_clustering.without_proxy_protocol_ports %}
 
-### Configuring Health Checks
-Health checks allow a load balancer to stop sending traffic to a node that is not responding if a pre-configured check fails on that node. If a cluster node fails, health checks paired with redundant nodes provides high availability.
+### Настройка проверок работоспособности
+Проверки работоспособности позволяют подсистеме балансировки нагрузки прекратить направлять трафик узлу, который не отвечает, в случае неудачной попытки выполнения предварительно настроенной проверки этого узла. Если узел кластера завершается сбоем, проверки работоспособности, связанные с избыточными узлами, обеспечивают высокий уровень доступности.
 
-{% data reusables.enterprise_clustering.health_checks %}
-{% data reusables.enterprise_site_admin_settings.maintenance-mode-status %}
+{% data reusables.enterprise_clustering.health_checks %} {% data reusables.enterprise_site_admin_settings.maintenance-mode-status %}
 
-## DNS Requirements
+## Требования к DNS
 
 {% data reusables.enterprise_clustering.load_balancer_dns %}

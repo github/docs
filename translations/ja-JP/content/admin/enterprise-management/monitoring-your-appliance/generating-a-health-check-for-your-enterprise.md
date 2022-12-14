@@ -1,6 +1,6 @@
 ---
-title: Generating a Health Check for your enterprise
-intro: 'You can gain insight into the general health and Git and API requests of {% data variables.location.product_location %} by generating a Health Check.'
+title: 企業に関する正常性チェックの生成
+intro: '正常性チェックを生成することで、{% data variables.product.product_location %} の全般的な正常性と Git および API 要求に関する分析情報を得ることができます。'
 versions:
   ghes: '*'
 type: how_to
@@ -11,48 +11,53 @@ topics:
   - Monitoring
   - Performance
 product: '{% data reusables.gated-features.generated-health-checks %}'
+ms.openlocfilehash: f02fc61f050fc01a69f9fafe2dcdc95d91322dfa
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '146460022'
 ---
-
 {% note %}
 
-**Note:** Generating a Health Check is currently in beta for {% data variables.product.prodname_ghe_server %} and subject to change.
+**注:** {% data variables.product.prodname_ghe_server %} の正常性チェックの生成は現在ベータ版であり、変更される可能性があります。
 
 {% endnote %}
 
-## About generated Health Checks
+## 生成される正常性チェックについて
 
-You can create a support bundle for {% data variables.location.product_location %} that contains a lot of data, such as diagnostics and log files. To help analyze and interpret this data, you can generate a Health Check. For more information about support bundles, see "[Providing data to {% data variables.contact.github_support %}](/support/contacting-github-support/providing-data-to-github-support#creating-and-sharing-support-bundles)."
+診断やログ ファイルなど、多くのデータを含む {% data variables.product.product_location %} のサポート バンドルを作成できます。 このデータの分析と解釈を支援するため、正常性チェックを生成できます。 サポート バンドルの詳細については、「[{% data variables.contact.github_support %} へのデータ提供](/support/contacting-github-support/providing-data-to-github-support#creating-and-sharing-support-bundles)」を参照してください。
 
-A Health Check provides the following information about {% data variables.location.product_location %}.
-- Insights into the general health of {% data variables.location.product_location %}, such as upgrade status, storage, and license seat consumption
-- A security section, which focuses on subdomain isolation and user authentication
-- Analysis of Git requests, with details about the busiest repositories and Git users 
-- Analysis of API requests, including the busiest times, most frequently requested endpoints, and most active callers
+正常性チェックでは、{% data variables.product.product_location %} に関する次の情報が提供されます。
+- アップグレードの状態、ストレージ、ライセンス シートの使用量など、{% data variables.product.product_location %} の全般的な正常性に関する分析情報
+- サブドメインの分離とユーザー認証に焦点を当てたセキュリティ セクション
+- Git 要求の分析と、最も使用量の多いリポジトリと Git ユーザーに関する詳細 
+- 最も処理量の多い時間帯、最も頻繁に要求されるエンドポイント、最もアクティブな呼び出し元など、API 要求の分析
 
-If you want to generate a Health Check for {% data variables.product.prodname_ghe_cloud %}, contact {% data variables.contact.github_support %}. For more information, see "[Creating a support ticket](/support/contacting-github-support/creating-a-support-ticket)."
+{% data variables.product.prodname_ghe_cloud %} の正常性チェックを生成したい場合は、{% data variables.contact.github_support %} にお問い合わせください。 詳細については、「[サポート チケットの作成](/support/contacting-github-support/creating-a-support-ticket)」を参照してください。
 
-## Generating a Health Check
+## 正常性チェックの生成
 
-Before you can generate a Health Check, you must create a support bundle. For more information, see "[Providing data to {% data variables.contact.github_support %}](/support/contacting-github-support/providing-data-to-github-support#creating-and-sharing-support-bundles)."
+正常性チェックを生成する前に、サポート バンドルを作成する必要があります。 詳細については、「[{% data variables.contact.github_support %} へのデータ提供](/support/contacting-github-support/providing-data-to-github-support#creating-and-sharing-support-bundles)」を参照してください。
 
-1. Navigate to the [{% data variables.contact.support_portal %}](https://support.github.com/).
-2. In the upper-right corner of the page, click **Premium**.
+1. [{% data variables.contact.support_portal %}](https://support.github.com/) に移動します。
+2. ページの右上隅にある **[プレミアム]** をクリックします
 
-   ![Screenshot of the "Premium" link in the GitHub Support Portal header.](/assets/images/enterprise/support/support-portal-header-premium.png)
+   ![GitHub サポート ポータル ヘッダーの [プレミアム] リンクのスクリーンショット。](/assets/images/enterprise/support/support-portal-header-premium.png)
    
-3. To the right of **Health Checks**, click **Request Health Check**.
+3. **[正常性チェック]** の右側にある **[正常性チェックの要求]** をクリックします。
 
-   ![Screenshot of the "Request Health Check" button.](/assets/images/enterprise/support/support-portal-request-health-check.png)
+   ![[正常性チェックの要求] ボタンのスクリーンショット。](/assets/images/enterprise/support/support-portal-request-health-check.png)
    
-4. Under "Select an enterprise account", select the dropdown menu and click an enterprise account.
+4. [エンタープライズ アカウントの選択] の下のドロップダウン メニューを選択し、エンタープライズ アカウントをクリックします。
 
-   ![Screenshot of the "enterprise account" dropdown menu.](/assets/images/enterprise/support/health-check-dialog-ea.png)
+   !["エンタープライズ アカウント" のドロップダウン メニューのスクリーンショット。](/assets/images/enterprise/support/health-check-dialog-ea.png)
    
-5. Under "Upload a support bundle", click **Chose File** and choose a file to upload. Then, click **Request Health Check**.
+5. [サポート バンドルのアップロード] で **[ファイルの選択]** をクリックして、アップロードするファイルを選択します。 次に、 **[正常性チェックの要求]** をクリックします。
 
-   ![Screenshot of the "Choose file" and "Request Health Check" buttons.](/assets/images/enterprise/support/health-check-dialog-choose-file.png)
+   ![[ファイルの選択] ボタンと [正常性チェックの要求] ボタンのスクリーンショット。](/assets/images/enterprise/support/health-check-dialog-choose-file.png)
    
 
-After you request a Health Check, a job is scheduled to generate the Health Check. After several hours to one day, the generated Health Check will appear in the "Health Checks" section of the {% data variables.contact.support_portal %}.
+正常性チェックを要求すると、正常性チェックを生成するジョブがスケジュールされます。 数時間から 1 日後に、生成された正常性チェックが {% data variables.contact.support_portal %} の [正常性チェック] セクションに表示されます。
 
-![Screenshot of the Health Checks section of the {% data variables.contact.support_portal %}.](/assets/images/enterprise/support/support-portal-health-checks-section.png)
+![{% data variables.contact.support_portal %} の [正常性チェック] セクションのスクリーンショット。](/assets/images/enterprise/support/support-portal-health-checks-section.png)

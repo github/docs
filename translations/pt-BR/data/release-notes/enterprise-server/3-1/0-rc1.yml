@@ -1,0 +1,20 @@
+date: '2021-05-06'
+release_candidate: true
+deprecated: true
+intro: "Se {% data variables.product.product_location %} estiver executando a compilação de um candidato à versão, você não poderá atualizar com um patch dinâmico. Recomendamos somente executar versões Release Candidate em ambientes de teste."
+sections:
+  security_fixes:
+    - '**MÉDIO** Em certas circunstâncias, os usuários que foram removidos de uma equipe ou organização poderiam manter acesso de escrita a branches para os quais tinham aberto uma solicitação de pull.'
+    - Os pacotes foram atualizados para as últimas versões de segurança.
+  bugs:
+    - 'Uma tarefa de limpeza agendada pode fazer com que o desempenho diminua em uma instância com uma tabela de `check_annotations` muito grande.'
+  changes:
+    - Serão arquivadas as anotações com mais de 4 meses de anotações de verificação.
+    - 'O campo `firstPatchedVersion` agora está disponível nos objetos `SecurityVulnerability` na API GraphQL.'
+  known_issues:
+    - O registro npm do GitHub Packages não retorna mais um valor temporal em respostas de metadados. Isso foi feito para permitir melhorias substanciais de desempenho. Continuamos a ter todos os dados necessários para retornar um valor temporal como parte da resposta de metadados e continuaremos a retornar este valor no futuro quando tivermos resolvido os problemas de desempenho existentes.
+    - "Em uma nova configuração do GitHub Enterprise Server sem nenhum usuário, um invasor pode criar o primeiro usuário administrador."
+    - As regras personalizadas de firewall não são mantidas durante uma atualização.
+    - "Arquivos LFS do Git [enviados através da interface Web](https://github.com/blog/2105-upload-files-to-your-repositories) são adicionados diretamente ao repositório e de maneira incorreta."
+    - Os problemas não podem ser fechados se contiverem um permalink para um blob no mesmo repositório em que o caminho do arquivo tem mais de 255 caracteres.
+    - "Quando \"Usuários podem pesquisar pelo GitHub.com\" está habilitado com o GitHub Connect, os problemas em repositórios privados e internos não estão incluídos nos resultados de pesquisa do GitHub.com."

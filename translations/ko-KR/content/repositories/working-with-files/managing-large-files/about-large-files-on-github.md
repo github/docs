@@ -1,6 +1,6 @@
 ---
-title: About large files on GitHub
-intro: '{% data variables.product.product_name %} limits the size of files you can track in regular Git repositories. Learn how to track or remove files that are beyond the limit.'
+title: GitHub의 대용량 파일 정보
+intro: '{% data variables.product.product_name %}은(는) 일반 Git 리포지토리에서 추적할 수 있는 파일의 크기를 제한합니다. 제한을 초과하는 파일을 추적하거나 제거하는 방법을 알아봅니다.'
 redirect_from:
   - /articles/distributing-large-binaries
   - /github/managing-large-files/distributing-large-binaries
@@ -22,85 +22,88 @@ versions:
   ghae: '*'
   ghec: '*'
 shortTitle: Large files
+ms.openlocfilehash: 9e047ab3b237ced16c48cd6174b72bd48db7cffa
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148094547'
 ---
+## {% data variables.product.product_name %}의 크기 제한 정보
 
-## About size limits on {% data variables.product.product_name %}
+{% ifversion fpt or ghec %} {% data variables.product.product_name %}은(는) 파일 및 리포지토리 크기에 대한 하드 제한이 있지만 모든 Git 리포지토리에 풍부한 스토리지를 제공하려고 합니다. 사용자의 성능과 안정성을 보장하기 위해 전체 리포지토리 상태의 신호를 적극적으로 모니터링합니다. 리포지토리 상태는 크기, 커밋 빈도, 콘텐츠, 구조를 비롯한 다양한 상호 작용 요소의 함수입니다.
 
-{% ifversion fpt or ghec %}
-{% data variables.product.product_name %} tries to provide abundant storage for all Git repositories, although there are hard limits for file and repository sizes. To ensure performance and reliability for our users, we actively monitor signals of overall repository health. Repository health is a function of various interacting factors, including size, commit frequency, contents, and structure.
-
-### File size limits
+### 파일 크기 제한
 {% endif %}
 
-{% data variables.product.product_name %} limits the size of files allowed in repositories. If you attempt to add or update a file that is larger than {% data variables.large_files.warning_size %}, you will receive a warning from Git. The changes will still successfully push to your repository, but you can consider removing the commit to minimize performance impact. For more information, see "[Removing files from a repository's history](#removing-files-from-a-repositorys-history)."
+{% data variables.product.product_name %}은(는) 리포지토리에 허용되는 파일의 크기를 제한합니다. {% data variables.large_files.warning_size %}보다 큰 파일을 추가하거나 업데이트하려고 하면 Git에서 경고가 표시됩니다. 변경 내용은 여전히 리포지토리에 성공적으로 푸시되지만 성능 영향을 최소화하기 위해 커밋을 제거하는 것이 좋습니다. 자세한 내용은 “[리포지토리의 기록에서 파일 제거](#removing-files-from-a-repositorys-history)”를 참조하세요.
 
 {% note %}
 
-**Note:** If you add a file to a repository via a browser, the file can be no larger than {% data variables.large_files.max_github_browser_size %}. For more information, see "[Adding a file to a repository](/repositories/working-with-files/managing-files/adding-a-file-to-a-repository)."
+**참고:** 브라우저를 통해 리포지토리에 파일을 추가하는 경우 파일은 {% data variables.large_files.max_github_browser_size %}보다 클 수 없습니다. 자세한 내용은 “[리포지토리에 파일 추가](/repositories/working-with-files/managing-files/adding-a-file-to-a-repository)”를 참조하세요.
 
 {% endnote %}
 
-{% ifversion ghes %}By default, {% endif %}{% data variables.product.product_name %} blocks files larger than {% data variables.large_files.max_github_size %}. {% ifversion ghes %}However, a site administrator can configure a different limit for {% data variables.location.product_location %}.  For more information, see "[Setting Git push limits](/enterprise/admin/guides/installation/setting-git-push-limits)."{% endif %}
+{% ifversion ghes %} 기본적으로 {% endif %}{% 데이터 variables.product.product_name %}은(는) {% data variables.large_files.max_github_size %}보다 큰 파일을 차단합니다. {% ifversion ghes %} 그러나 사이트 관리자는 {% 데이터 variables.location.product_location %}에 대해 다른 제한을 구성할 수 있습니다.  자세한 내용은 “[Git 푸시 제한 설정](/enterprise/admin/guides/installation/setting-git-push-limits)”을 참조하세요.{% endif %}
 
-To track files beyond this limit, you must use {% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %}). For more information, see "[About {% data variables.large_files.product_name_long %}](/repositories/working-with-files/managing-large-files/about-git-large-file-storage)."
+이 제한을 초과하는 파일을 추적하려면 {% data variables.large_files.product_name_long %}({% data variables.large_files.product_name_short %})을(를) 사용해야 합니다. 자세한 내용은 “[{% data variables.large_files.product_name_long %} 정보](/repositories/working-with-files/managing-large-files/about-git-large-file-storage)”를 참조하세요.
 
-If you need to distribute large files within your repository, you can create releases on {% data variables.location.product_location %} instead of tracking the files. For more information, see "[Distributing large binaries](#distributing-large-binaries)."
+리포지토리 내에 큰 파일을 배포해야 하는 경우 파일을 추적하는 대신 {% 데이터 variables.location.product_location %}에 릴리스를 만들 수 있습니다. 자세한 내용은 “[큰 이진 파일 배포](#distributing-large-binaries)”를 참조하세요.
 
-Git is not designed to handle large SQL files. To share large databases with other developers, we recommend using [Dropbox](https://www.dropbox.com/).
+Git은 대용량 SQL 파일을 처리하도록 설계되지 않았습니다. 대규모 데이터베이스를 다른 개발자와 공유하려면 [Dropbox](https://www.dropbox.com/)를 사용하는 것이 좋습니다.
 
 {% ifversion fpt or ghec or ghae %}
-### Repository size limits
+### 리포지토리 크기 제한
 
-We recommend repositories remain small, ideally less than 1 GB, and less than 5 GB is strongly recommended. {% ifversion ghae %}The maximum size for a repository on {% data variables.product.product_name %} is 100 GB. {% endif %}Smaller repositories are faster to clone and easier to work with and maintain. If your repository excessively impacts our infrastructure, you might receive an email from {% data variables.contact.github_support %} asking you to take corrective action. We try to be flexible, especially with large projects that have many collaborators, and will work with you to find a resolution whenever possible. You can prevent your repository from impacting our infrastructure by effectively managing your repository's size and overall health. You can find advice and a tool for repository analysis in the [`github/git-sizer`](https://github.com/github/git-sizer) repository.
+리포지토리는 작게 유지되고 이상적으로는 1GB 미만이며 5GB 미만을 사용하는 것이 좋습니다. {% ifversion ghae %} {% 데이터 variables.product.product_name %}에 있는 리포지토리의 최대 크기는 100GB입니다. {% endif %} 리포지토리가 작을수록 복제 속도가 빨라지고 작업 및 유지 관리가 더 쉬워집니다. 리포지토리가 인프라에 지나치게 영향을 주는 경우 {% data variables.contact.github_support %}에서 정정 작업을 수행하라는 메일을 받을 수 있습니다. 우리는 특히 많은 협력자가 있는 대규모 프로젝트에서 유연하게 작업하려고 노력하며 가능한 한 해결책을 찾기 위해 귀하와 협력할 것입니다. 리포지토리의 크기와 전반적인 상태를 효과적으로 관리하여 리포지토리가 인프라에 영향을 주지 않도록 방지할 수 있습니다. [`github/git-sizer`](https://github.com/github/git-sizer) 리포지토리에서 리포지토리 분석을 위한 조언과 도구를 찾을 수 있습니다.
 
-External dependencies can cause Git repositories to become very large. To avoid filling a repository with external dependencies, we recommend you use a package manager. Popular package managers for common languages include [Bundler](http://bundler.io/), [Node's Package Manager](http://npmjs.org/), and [Maven](http://maven.apache.org/). These package managers support using Git repositories directly, so you don't need pre-packaged sources.
+외부 종속성으로 인해 Git 리포지토리가 매우 커질 수 있습니다. 리포지토리에 외부 종속성이 채워지는 것을 방지하려면 패키지 관리자를 사용하는 것이 좋습니다. 공용 언어에 대한 인기 있는 패키지 관리자로는 [Bundler](http://bundler.io/), [Node의 패키지 관리자](http://npmjs.org/), [Maven](http://maven.apache.org/)이 있습니다. 이러한 패키지 관리자는 Git 리포지토리를 직접 사용할 수 있도록 지원하므로 미리 패키지된 원본이 필요하지 않습니다.
 
-Git is not designed to serve as a backup tool. However, there are many solutions specifically designed for performing backups, such as [Arq](https://www.arqbackup.com/), [Carbonite](http://www.carbonite.com/), and [CrashPlan](https://www.crashplan.com/en-us/).
+Git은 백업 도구로 사용하도록 설계되지 않았습니다. 그러나 [Arq](https://www.arqbackup.com/), [Carbonite](http://www.carbonite.com/), [CrashPlan](https://www.crashplan.com/en-us/)과 같은 백업을 수행하도록 특별히 설계된 많은 솔루션이 있습니다.
 {% endif %}
 
-## Removing files from a repository's history
+## 리포지토리의 기록에서 파일 제거
 
 {% warning %}
 
-**Warning**: These procedures will permanently remove files from the repository on your computer and {% data variables.location.product_location %}. If the file is important, make a local backup copy in a directory outside of the repository.
+**경고**: 이러한 절차는 컴퓨터의 리포지토리 및 {% 데이터 variables.location.product_location %}에서 파일을 영구적으로 제거합니다. 파일이 중요한 경우 리포지토리 외부의 디렉터리에 로컬 백업 복사본을 만듭니다.
 
 {% endwarning %}
 
-### Removing a file added in the most recent unpushed commit
+### 가장 최근에 푸시되지 않은 커밋에 추가된 파일 제거
 
-If the file was added with your most recent commit, and you have not pushed to {% data variables.location.product_location %}, you can delete the file and amend the commit:
+파일이 가장 최근 커밋과 함께 추가되었으며 {% 데이터 variables.location.product_location %}에 푸시하지 않은 경우 파일을 삭제하고 커밋을 수정할 수 있습니다.
 
-{% data reusables.command_line.open_the_multi_os_terminal %}
-{% data reusables.command_line.switching_directories_procedural %}
-3. To remove the file, enter `git rm --cached`:
+{% data reusables.command_line.open_the_multi_os_terminal %} {% data reusables.command_line.switching_directories_procedural %}
+3. 파일을 제거하려면 `git rm --cached`를 입력합니다.
   ```shell
   $ git rm --cached GIANT_FILE
   # Stage our giant file for removal, but leave it on disk
   ```
-4. Commit this change using `--amend -CHEAD`:
+4. `--amend -CHEAD`를 사용하여 이 변경 내용을 커밋합니다.
   ```shell
   $ git commit --amend -CHEAD
   # Amend the previous commit with your change
   # Simply making a new commit won't work, as you need
   # to remove the file from the unpushed history as well
   ```
-5. Push your commits to {% data variables.location.product_location %}:
+5. {% 데이터 variables.location.product_location %}에 커밋 푸시:
   ```shell
   $ git push
   # Push our rewritten, smaller commit
   ```
 
-### Removing a file that was added in an earlier commit
+### 이전 커밋에서 추가된 파일 제거
 
-If you added a file in an earlier commit, you need to remove it from the repository's history. To remove files from the repository's history, you can use the BFG Repo-Cleaner or the `git filter-branch` command. For more information see "[Removing sensitive data from a repository](/github/authenticating-to-github/removing-sensitive-data-from-a-repository)."
+이전 커밋에서 파일을 추가한 경우 리포지토리의 기록에서 파일을 제거해야 합니다. 리포지토리의 기록에서 파일을 제거하려면 BFG Repo-Cleaner 또는 `git filter-branch` 명령을 사용할 수 있습니다. 자세한 내용은 “[리포지토리에서 중요한 데이터 제거](/github/authenticating-to-github/removing-sensitive-data-from-a-repository)”를 참조하세요.
 
-## Distributing large binaries
+## 큰 이진 파일 배포
 
-If you need to distribute large files within your repository, you can create releases on {% data variables.location.product_location %}. Releases allow you to package software, release notes, and links to binary files, for other people to use. For more information, visit "[About releases](/github/administering-a-repository/about-releases)."
+리포지토리 내에 큰 파일을 배포해야 하는 경우 {% 데이터 variables.location.product_location %}에 릴리스를 만들 수 있습니다. 릴리스를 사용하면 다른 사용자가 사용할 수 있도록 소프트웨어, 릴리스 정보, 이진 파일에 대한 링크를 패키지할 수 있습니다. 자세한 내용은 “[릴리스 정보](/github/administering-a-repository/about-releases)”를 참조하세요.
 
 {% ifversion fpt or ghec %}
 
-We don't limit the total size of the binary files in the release or the bandwidth used to deliver them. However, each individual file must be smaller than {% data variables.large_files.max_lfs_size %}.
+릴리스에서 이진 파일의 총 크기 또는 파일을 배달하는 데 사용되는 대역폭은 제한하지 않습니다. 그러나 각 개별 파일은 {% data variables.large_files.max_lfs_size %}보다 작아야 합니다.
 
 {% endif %}
 

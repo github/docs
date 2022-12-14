@@ -1,6 +1,6 @@
 ---
-title: Reviewing your deploy keys
-intro: You should review deploy keys to ensure that there aren't any unauthorized (or possibly compromised) keys. You can also approve existing deploy keys that are valid.
+title: Deployment-Schlüssel überprüfen
+intro: 'Du solltest Deine Deployment-Schlüssel überprüfen, um sicherzustellen, dass keine unautorisierten (und möglicherweise kompromittierten) Schlüssel vorhanden sind. Vorhandene Deployment-Schlüssel, die gültig sind, kannst du auch genehmigen.'
 redirect_from:
   - /articles/reviewing-your-deploy-keys
   - /github/authenticating-to-github/reviewing-your-deploy-keys
@@ -14,19 +14,22 @@ topics:
   - Identity
   - Access management
 shortTitle: Deploy keys
+ms.openlocfilehash: 964ec4cbc91745c041dd973e4e950b605c5c0233
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145086012'
 ---
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
-3. In the "Security" section of the sidebar, click **{% octicon "key" aria-label="The key icon" %} Deploy keys**.
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %} {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5658 %}
+3. Klicke im Abschnitt „Sicherheit“ der Seitenleiste auf **{% octicon "key" aria-label="The key icon" %} Bereitstellungsschlüssel**.
 {% else %}
-3. In the left sidebar, click **Deploy keys**.
-![Deploy keys setting](/assets/images/help/settings/settings-sidebar-deploy-keys.png)
-{% endif %}
-4. On the Deploy keys page, take note of the deploy keys associated with your account. For those that you don't recognize, or that are out-of-date, click **Delete**. If there are valid deploy keys you'd like to keep, click **Approve**.
-	![Deploy key list](/assets/images/help/settings/settings-deploy-key-review.png)
+3. Klicke auf der linken Seitenleiste auf **Bereitstellungsschlüssel**.
+![Einstellung „Bereitstellungsschlüssel“](/assets/images/help/settings/settings-sidebar-deploy-keys.png) {% endif %}
+4. Überprüfe auf der Seite mit den Deployment-Schlüsseln die Deinem Konto zugeordneten Schlüssel. Bei denjenigen, die Du nicht kennst oder die nicht mehr aktuell sind, klicke auf **Löschen**. Bei gültigen Bereitstellungsschlüsseln, die Du behalten möchtest, klicke auf **Genehmigen**.
+    ![Liste der Bereitstellungsschlüssel](/assets/images/help/settings/settings-deploy-key-review.png)
 
-For more information, see "[Managing deploy keys](/guides/managing-deploy-keys)."
+Weitere Informationen findest du unter [Verwalten von Bereitstellungsschlüsseln](/guides/managing-deploy-keys).
 
-## Further reading
-- [Configuring notifications](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#organization-alerts-notification-options)
+## Weiterführende Themen
+- [Configuring notifications](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#organization-alerts-notification-options) („Konfigurieren von Benachrichtigungen“)

@@ -1,5 +1,5 @@
 ---
-title: Using CAS
+title: Использование центра администрирования
 redirect_from:
   - /enterprise/admin/articles/configuring-cas-authentication
   - /enterprise/admin/articles/about-cas-authentication
@@ -8,7 +8,7 @@ redirect_from:
   - /admin/authentication/using-cas
   - /enterprise/admin/authentication/authenticating-users-for-your-github-enterprise-server-instance/using-cas
   - /admin/identity-and-access-management/authenticating-users-for-your-github-enterprise-server-instance/using-cas
-intro: 'If you use Central Authentication Service (CAS) to centralize access to multiple web applications, you can integrate {% data variables.product.product_name %} by configuring CAS authentication for your instance.'
+intro: 'Если вы используете центральную службу проверки подлинности (CAS) для централизованного доступа к нескольким веб-приложениям, можно интегрировать {% data variables.product.product_name %}, настроив проверку подлинности CAS для вашего экземпляра.'
 versions:
   ghes: '*'
 type: how_to
@@ -18,39 +18,42 @@ topics:
   - Enterprise
   - Identity
   - SSO
+ms.openlocfilehash: 6064d3cc063068ee5be602d70c1c0031270539d2
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148099175'
 ---
+## Сведения о проверке подлинности CAS для {% data variables.product.product_name %}
 
-## About CAS authentication for {% data variables.product.product_name %}
+CAS — это протокол единого входа (SSO), который обеспечивает централизированную проверку подлинности для нескольких веб-приложений. Дополнительные сведения см. в разделе [Служба централизированной проверки подлинности](https://en.wikipedia.org/wiki/Central_Authentication_Service) в Википедии.
 
-CAS is a single sign-on (SSO) protocol that centralizes authentication to multiple web applications. For more information, see "[Central Authentication Service](https://en.wikipedia.org/wiki/Central_Authentication_Service)" on Wikipedia.
+После настройки cas пользователи, использующие {% данных variables.location.product_location %}, должны использовать {% данных variables.product.pat_generic %} для проверки подлинности запросов API или Git по протоколу HTTP(S). Учетные данные CAS нельзя использовать для проверки подлинности этих запросов. Дополнительные сведения см. в разделе "[Создание {% данных variables.product.pat_generic %}](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)".
 
-After you configure CAS, people who use {% data variables.location.product_location %} must use a {% data variables.product.pat_generic %} to authenticate API or Git requests over HTTP(S). CAS credentials cannot be used to authenticate these requests. For more information, see "[Creating a {% data variables.product.pat_generic %}](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
-
-If you configure CAS, people with accounts on your identity provider (IdP) do not consume a user license until the person signs into {% data variables.location.product_location %}.
+Если настроить cas, пользователи с учетными записями поставщика удостоверений (IdP) не используют лицензию пользователя, пока пользователь не войдет в {% данных variables.location.product_location %}.
 
 {% data reusables.enterprise_user_management.built-in-authentication %}
 
-## Username considerations with CAS
+## Рекомендации по использованию имени пользователя в центре администрирования
 
-{% data reusables.enterprise_user_management.consider-usernames-for-external-authentication %} For more information, see "[Username considerations for external authentication](/admin/identity-and-access-management/managing-iam-for-your-enterprise/username-considerations-for-external-authentication)."
+{% data reusables.enterprise_user_management.consider-usernames-for-external-authentication %} Дополнительные сведения см. в разделе [Рекомендации по использованию имени пользователя для внешней проверки подлинности](/admin/identity-and-access-management/managing-iam-for-your-enterprise/username-considerations-for-external-authentication).
 
-## CAS attributes
+## Атрибуты центра администрирования
 
-The following attributes are available.
+Доступны следующие атрибуты.
 
-| Attribute name           | Type     | Description |
+| Имя атрибута           | Тип     | Описание |
 |--------------------------|----------|-------------|
-| `username`               | Required | The {% data variables.product.prodname_ghe_server %} username. |
+| `username`               | Обязательно | {% data variables.product.prodname_ghe_server %} username. |
 
-## Configuring CAS
+## Настройка центра администрирования
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.management-console %}
-{% data reusables.enterprise_management_console.authentication %}
-3. Select **CAS**.
+{% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.enterprise_site_admin_settings.management-console %} {% data reusables.enterprise_management_console.authentication %}
+3. Выберите **Центр администрирования**.
 
-   ![Screenshot of selection of CAS for authentication](/assets/images/enterprise/management-console/cas-select.png)
+   ![Снимок экрана: выбор CAS для проверки подлинности](/assets/images/enterprise/management-console/cas-select.png)
 4. {% data reusables.enterprise_user_management.built-in-authentication-option %}
 
-   ![Screenshot of of fallback built-in authentication option for CAS](/assets/images/enterprise/management-console/cas-built-in-authentication.png)
-5. In the **Server URL** field, type the full URL of your CAS server. If your CAS server uses a certificate that can't be validated by {% data variables.product.prodname_ghe_server %}, you can use the `ghe-ssl-ca-certificate-install` command to install it as a trusted certificate. For more information, see "[Command-line utilities](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-ssl-ca-certificate-install)."
+   ![Снимок экрана: вариант резервной встроенной проверки подлинности для CAS](/assets/images/enterprise/management-console/cas-built-in-authentication.png)
+5. В поле **URL-адрес сервера** введите полный URL-адрес сервера центра администрирования. Если сервер центра администрирования использует сертификат, который нельзя проверить {% data variables.product.prodname_ghe_server %}, можно использовать команду `ghe-ssl-ca-certificate-install` для установки в качестве доверенного сертификата. Дополнительные сведения см. в статье "[Программы командной строки](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-ssl-ca-certificate-install)".

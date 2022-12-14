@@ -1,0 +1,20 @@
+date: '2022-08-11'
+sections:
+  security_fixes:
+    - |**重大**: GitHub Enterprise Server の Elasticsearch コンテナーで使われていたバージョンの OpenJDK 8 は、悪意のある XSLT スタイルシートを処理するときの整数切り捨ての問題に脆弱でした。この脆弱性は、[CVE-2022-34169](https://github.com/advisories/GHSA-9339-86wc-4qgf) として追跡されています。
+
+|
+    - |**高**: ユーザー アカウントが Organization アカウントに変換された後、ユーザー アカウントに前にインストールされていたアプリに、スコープ付きのアクセス トークンで Organization にアクセスするためのアクセス許可が自動的に付与されました。この脆弱性は、[GitHub Bug Bounty プログラム](https://bounty.github.com)を通じて報告されました。
+
+|
+  bugs:
+    - "カスタム休眠しきい値がインスタンスに設定されている場合、すべての休眠ユーザーの一時停止で、しきい値が確実に適用されませんでした。休眠について詳しくは、「[休眠ユーザの管理](/admin/user-management/managing-users-in-your-enterprise/managing-dormant-users)」をご覧ください。"
+  known_issues:
+    - "{% data variables.product.prodname_ghe_server %} インスタンスを設定したばかりでユーザーがいない場合、攻撃者が最初の管理者ユーザーを作成できました。"
+    - カスタムのファイアウォール規則は、アップグレード プロセス中に削除されます。
+    - "[Web インターフェイスからアップロードされた](https://github.com/blog/2105-upload-files-to-your-repositories) Git LFS 追跡ファイルが誤ってリポジトリに直接追加されます。"
+    - 同じリポジトリ内の BLOB への固定リンクが含まれ、その BLOB のファイル パスが 255 文字を超える場合、issue をクローズできません。
+    - "{% data variables.product.prodname_github_connect %} で [Users can search GitHub.com]\\(ユーザーが GitHub.com を検索できる\\) が有効になっている場合、プライベートおよび内部リポジトリの issue は {% data variables.product.prodname_dotcom_the_website %} の検索結果に含まれません。"
+    - "{% data variables.product.prodname_registry %} npm レジストリが、メタデータ応答で時刻値を返さなくなります。これは、パフォーマンスの大幅な向上を見込んで行われました。メタデータ応答の一部として時刻値を返すために必要なすべてのデータを引き続き保持します。また、既存のパフォーマンスの問題を解決したら、将来的にはこの値を再び返す予定です。"
+    - pre-receive フックの処理に固有のリソース制限が、一部の pre-receive フックのエラーを引き起こす場合があります。
+    - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'

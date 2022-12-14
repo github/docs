@@ -1,7 +1,7 @@
 ---
-title: Configuring web commit signing
+title: Web コミット署名を構成する
 shortTitle: Configure web commit signing
-intro: 'You can enable auto-signing of commits made in the web interface of {% data variables.product.product_name %}.'
+intro: '{% data variables.product.product_name %} の Web インターフェイスで行われるコミットの自動署名を有効にすることができます。'
 versions:
   ghes: '>=3.5'
 type: how_to
@@ -11,67 +11,62 @@ topics:
   - Fundamentals
   - Identity
   - Security
-permissions: 'Site administrators can configure web commit signing for {% data variables.location.product_location %}.'
+permissions: 'Site administrators can configure web commit signing for {% data variables.product.product_location %}.'
+ms.openlocfilehash: 759b158235e5727b474441d10b33016b58277c7f
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147068035'
 ---
+## Web コミット署名について
 
-## About web commit signing
+Web コミット署名を有効にした場合、{% data variables.product.product_name %} は、ユーザーが {% data variables.product.product_location %} の Web インターフェイスで行ったコミットに、GPG を使って自動的に署名します。 {% data variables.product.product_name %} によって署名されたコミットは、確認済みの状態になります。 詳細については、「[コミット署名の検証について](/authentication/managing-commit-signature-verification/about-commit-signature-verification)」を参照してください。
 
-If you enable web commit signing, {% data variables.product.product_name %} will automatically use GPG to sign commits users make on the web interface of {% data variables.location.product_location %}. Commits signed by {% data variables.product.product_name %} will have a verified status. For more information, see "[About commit signature verification](/authentication/managing-commit-signature-verification/about-commit-signature-verification)."
+Web コミット署名を有効にし、Web コミット署名に使われる秘密キーをローテーションして、Web コミット署名を無効にすることができます。
 
-You can enable web commit signing, rotate the private key used for web commit signing, and disable web commit signing.
-
-## Enabling web commit signing
+## Web コミット署名を有効にする
 
 {% data reusables.enterprise_site_admin_settings.create-pgp-key-web-commit-signing %}
-    - Use `web-flow` as the username. If `web-flow` is unavailable or unusable, use any new unique username. Use this username throughout the following steps in this article.
-   - If you have a no-reply email address defined in the {% data variables.enterprise.management_console %}, use that email address. If not, use any email address, such as `web-flow@my-company.com`. The email address does not need to be valid.
-{% data reusables.enterprise_site_admin_settings.pgp-key-no-passphrase %}
-{% data reusables.enterprise_site_admin_settings.pgp-key-env-variable %}
-{% data reusables.enterprise_site_admin_settings.update-commit-signing-service %}
-1. Enable web commit signing.
+   - {% data variables.enterprise.management_console %} で定義された no-reply メール アドレスがある場合は、そのメール アドレスを使います。 ない場合は、`web-flow@my-company.com` のような任意のメール アドレスを使います。 メール アドレスは有効である必要はありません。
+{% data reusables.enterprise_site_admin_settings.pgp-key-no-passphrase %} {% data reusables.enterprise_site_admin_settings.pgp-key-env-variable %} {% data reusables.enterprise_site_admin_settings.update-commit-signing-service %}
+1. Web コミット署名を有効にします。
 
     ```bash{:copy}
     ghe-config app.github.web-commit-signing-enabled true
     ```
-1. Apply the configuration, then wait for the configuration run to complete.
+1. 構成を適用した後、構成の実行が終わるまで待ちます。
 
    ```bash{:copy}
    ghe-config-apply
    ```
-1. Create a new user on {% data variables.location.product_location %} via built-in authentication or external authentication. For more information, see "[About authentication for your enterprise](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise)."
-   - The user's username must be the same username you used when creating the PGP key in step 1 above, for example, `web-flow`. 
-   - The user's email address must be the same address you used when creating the PGP key. 
-{% data reusables.enterprise_site_admin_settings.add-key-to-web-flow-user %}
-{% data reusables.enterprise_site_admin_settings.email-settings %}
-1. Under "No-reply email address", type the same email address you used when creating the PGP key. 
+1. 組み込みの認証または外部認証を使って、{% data variables.product.product_location %} で新しいユーザーを作成します。 詳しくは、「[Enterprise の認証について](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise)」をご覧ください。
+   - ユーザーのユーザー名は、`web-flow` でなければなりません。
+   - ユーザーのメール アドレスは、PGP キーに使ったものと同じアドレスでなければなりません。 {% data reusables.enterprise_site_admin_settings.add-key-to-web-flow-user %} {% data reusables.enterprise_site_admin_settings.email-settings %}
+1. [no-reply メール アドレス] に、PGP キーに使ったものと同じメール アドレスを入力します。 
 
    {% note %}
 
-   **Note:** The "No-reply email address" field will only be displayed if you've enabled email for {% data variables.location.product_location %}. For more information, see "[Configuring email for notifications](/admin/configuration/configuring-your-enterprise/configuring-email-for-notifications#configuring-smtp-for-your-enterprise)."
+   **注:** [no-reply メール アドレス] フィールドは、{% data variables.product.product_location %} のメールを有効にしてある場合にのみ表示されます。 詳しくは、「[通知のためのメール設定](/admin/configuration/configuring-your-enterprise/configuring-email-for-notifications#configuring-smtp-for-your-enterprise)」をご覧ください。
 
-   {% endnote %}
-{% data reusables.enterprise_management_console.save-settings %}
+   {% endnote %} {% data reusables.enterprise_management_console.save-settings %}
 
-## Rotating the private key used for web commit signing
+## Web コミット署名に使用される秘密キーをローテーションする
 
 {% data reusables.enterprise_site_admin_settings.create-pgp-key-web-commit-signing %}
-   - Use the web commit signing user's username, for example, `web-flow`.
-   - Use the no-reply email address defined in the {% data variables.enterprise.management_console %}, which should be the same as the email address of the web commit signing user, for example, `web-flow`.
-{% data reusables.enterprise_site_admin_settings.pgp-key-no-passphrase %}
-{% data reusables.enterprise_site_admin_settings.pgp-key-env-variable %}
-{% data reusables.enterprise_site_admin_settings.update-commit-signing-service %}
-{% data reusables.enterprise_site_admin_settings.add-key-to-web-flow-user %}
+   - {% data variables.enterprise.management_console %} で定義されている no-reply メール アドレスを使います。これは、`web-flow` ユーザーのメール アドレスと同じである必要があります。
+{% data reusables.enterprise_site_admin_settings.pgp-key-no-passphrase %} {% data reusables.enterprise_site_admin_settings.pgp-key-env-variable %} {% data reusables.enterprise_site_admin_settings.update-commit-signing-service %} {% data reusables.enterprise_site_admin_settings.add-key-to-web-flow-user %}
 
-## Disabling web commit signing
+## Web コミット署名を無効にする
 
-You can disable web commit signing for {% data variables.location.product_location %}.
+{% data variables.product.product_location %} の Web コミット署名を無効にすることができます。
 
-1. In the administrative shell, run the following command.
+1. 管理シェルで、次のコマンドを実行します。
 
    ```bash{:copy}
    ghe-config app.github.web-commit-signing-enabled false
    ```
-1. Apply the configuration.
+1. 構成を適用します。
 
    ```bash{:copy}
    ghe-config-apply

@@ -1,6 +1,6 @@
 ---
-title: Enabling automatic user license sync for your enterprise
-intro: 'You can manage license usage across your {% data variables.product.prodname_enterprise %} environments by automatically syncing user licenses from {% data variables.location.product_location %} to {% data variables.product.prodname_ghe_cloud %}.'
+title: Включение автоматической синхронизации пользовательских лицензий в вашей организации
+intro: 'Вы можете управлять использованием лицензий в средах {% данных variables.product.prodname_enterprise %} путем автоматической синхронизации пользовательских лицензий с {% данных variables.location.product_location %} с {% данных variables.product.prodname_ghe_cloud %}.'
 redirect_from:
   - /enterprise/admin/installation/enabling-automatic-user-license-sync-between-github-enterprise-server-and-github-enterprise-cloud
   - /enterprise/admin/configuration/enabling-automatic-user-license-sync-between-github-enterprise-server-and-github-enterprise-cloud
@@ -16,28 +16,33 @@ topics:
   - GitHub Connect
   - Licensing
 shortTitle: Automatic user license sync
+ms.openlocfilehash: 38bac4b212045482b497b741bff583a2245a753b
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148099028'
 ---
-## About automatic license synchronization
+## Сведения об автоматической синхронизации лицензий
 
 {% data reusables.enterprise-licensing.unique-user-licensing-model %}
 
-{% data reusables.enterprise-licensing.about-license-sync %} For more information, see "[About {% data variables.product.prodname_github_connect %}](/admin/configuration/configuring-github-connect/about-github-connect#data-transmission-for-github-connect)."
+{% data reusables.enterprise-licensing.about-license-sync %} Дополнительные сведения см. в разделе "[Сведения о {% data variables.product.prodname_github_connect %}](/admin/configuration/configuring-github-connect/about-github-connect#data-transmission-for-github-connect)".
 
-If you enable automatic user license sync for your enterprise, {% data variables.product.prodname_github_connect %} will automatically synchronize license usage between {% data variables.product.prodname_ghe_server %} and {% data variables.product.prodname_ghe_cloud %} weekly.{% ifversion ghes > 3.4 %} You can also synchronize your license data at any time outside of the automatic weekly sync, by manually triggering a license sync job. For more information, see "[Triggering a license sync job](/billing/managing-your-license-for-github-enterprise/syncing-license-usage-between-github-enterprise-server-and-github-enterprise-cloud#triggering-a-license-sync-job)."{% endif %}
+Если вы включите автоматическую синхронизацию пользовательских лицензий для своей организации, {% data variables.product.prodname_github_connect %} автоматически синхронизирует использование лицензий между {% data variables.product.prodname_ghe_server %} и {% data variables.product.prodname_ghe_cloud %} еженедельно. {% ifversion ghes > 3.4 %} Вы также можете в любое время синхронизировать данные лицензии, не используя режим автоматической еженедельной синхронизации, вручную запуская задание синхронизации лицензий. Дополнительные сведения см. в разделе "[Активация задания синхронизации лицензий](/billing/managing-your-license-for-github-enterprise/syncing-license-usage-between-github-enterprise-server-and-github-enterprise-cloud#triggering-a-license-sync-job)".{% endif %}
 
-If you use multiple {% data variables.product.prodname_ghe_server %} instances, you can enable automatic license sync between each of your instances and the same organization or enterprise account on {% data variables.product.prodname_ghe_cloud %}.
+При использовании нескольких экземпляров данных {% data variables.product.prodname_ghe_server %} можно включить автоматическую синхронизацию лицензий между каждым экземпляром и одной организацией или корпоративной учетной записью в {% data variables.product.prodname_ghe_cloud %}.
 
 {% data reusables.enterprise-licensing.view-consumed-licenses %}
 
-You can also manually upload {% data variables.product.prodname_ghe_server %} user license information to {% data variables.product.prodname_ghe_cloud %}. For more information, see "[Syncing license usage between {% data variables.product.prodname_ghe_server %} and {% data variables.product.prodname_ghe_cloud %}](/billing/managing-your-license-for-github-enterprise/syncing-license-usage-between-github-enterprise-server-and-github-enterprise-cloud)."
+Вы также можете вручную передать информацию о пользовательских лицензиях {% data variables.product.prodname_ghe_server %} в {% data variables.product.prodname_ghe_cloud %}. Дополнительные сведения см. в разделе "[Синхронизация использования лицензий между {% data variables.product.prodname_ghe_server %} и {% data variables.product.prodname_ghe_cloud %}](/billing/managing-your-license-for-github-enterprise/syncing-license-usage-between-github-enterprise-server-and-github-enterprise-cloud)".
 
 {% data reusables.enterprise-licensing.verified-domains-license-sync %}
 
-## Enabling license synchronization
+## Включение синхронизации лицензий
 
-Before enabling license synchronization on {% data variables.location.product_location %}, you must enable {% data variables.product.prodname_github_connect %}. For more information, see "[Managing {% data variables.product.prodname_github_connect %}](/admin/configuration/configuring-github-connect/managing-github-connect)."
+Перед включением синхронизации лицензий для {% данных variables.location.product_location %}необходимо включить {% данных variables.product.prodname_github_connect %}. Дополнительные сведения см. в статье "[Управление {% data variables.product.prodname_github_connect %}](/admin/configuration/configuring-github-connect/managing-github-connect)".
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.github-connect-tab %}
-1. Under "Server can sync user license count and usage", use the drop-down menu and select **Enabled**.
-  ![Drop-down menu to enable automatic user license sync](/assets/images/enterprise/site-admin-settings/enable-user-license-drop-down.png)
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.github-connect-tab %}
+1. В разделе "Сервер может синхронизировать количество и использование пользовательских лицензий" откройте раскрывающееся меню и выберите **Включено**.
+  ![Раскрывающееся меню для включения автоматической синхронизации пользовательских лицензий](/assets/images/enterprise/site-admin-settings/enable-user-license-drop-down.png)

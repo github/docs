@@ -1,0 +1,20 @@
+date: '14-07-2021'
+sections:
+  security_fixes:
+    - '**ALTA:** se ha identificado una vulnerabilidad de salto de directorio en GitHub Enterprise Server que podía explotarse al crear un sitio de GitHub Pages. Las opciones de configuración controladas por el usuario utilizadas por GitHub Pages no estaban lo suficientemente restringidas y permitían leer archivos en la instancia de GitHub Enterprise Server. Para aprovechar esta vulnerabilidad de seguridad, un atacante necesitaría permiso para crear un sitio de GitHub Pages en la instancia de GitHub Enterprise Server. Esta vulnerabilidad afectaba a todas las versiones de GitHub Enterprise Server anteriores a la 3.1.3 y se le ha asignado el código CVE-2021-22867. Se informó de esta vulnerabilidad mediante el programa de GitHub Bug Bounty.'
+    - Los paquetes se han actualizado a las últimas versiones de seguridad.
+  bugs:
+    - '`ghe-cluster-config-node-init` fallaba durante la configuración de clúster si se había habilitado el proxy de HTTP.'
+    - Collectd no resolvía el nombre de host destino que se estaba reenviando después del inicio principal.
+    - El job que purgaba los repositorios inactivos borrados podía fallar durante el progreso si alguno de estos repositorios estaba protegido contra borrado debido a limitaciones legales.
+    - Las subidas de Git dieron como resultado un Error de servidor interno 500 durante el proceso de reconciliación del usuario en las instancias que utilizaban el modo de autenticación de LDAP.
+    - Una cantidad significativa de errores 503 se registraba cada vez que un usuario visitaba la página `/settings` de un repositorio si la gráfica de dependencias no estaba habilitada.
+  changes:
+    - "Se ha mejorado el rendimiento de la aplicación de configuración al omitir las reglas de cortafuegos para permitir IP, las cuales no hubieran cambiado, con lo cual se ha ahorrado tiempo significativo en los clústeres grandes."
+  known_issues:
+    - "En un servidor de GitHub Enterprise recién configurado sin usuarios, un atacante podría crear el primer usuario administrador."
+    - Las reglas de cortafuegos personalizadas se eliminan durante el proceso de actualización.
+    - "Los archivos supervisados de Git LFS [cargados desde la interfaz web](https://github.com/blog/2105-upload-files-to-your-repositories) se agregan de manera incorrecta y directa al repositorio."
+    - Las incidencias no se pueden cerrar si contienen un enlace permanente a un blob del mismo repositorio en el que la ruta es mayor de 255 caracteres.
+    - "Cuando se habilita \"Los usuarios pueden buscar en GitHub.com\" con GitHub Connect, las incidencias en los repositorios privados e internos no se incluyen en los resultados de la búsqueda de GitHub.com."
+    - "Cuando un nodo de réplica está sin conexión en una configuración de disponibilidad alta, es posible que {% data variables.product.product_name %} enrute las solicitudes a {% data variables.product.prodname_pages %} al nodo sin conexión, lo que reduce la disponibilidad de {% data variables.product.prodname_pages %} para los usuarios."

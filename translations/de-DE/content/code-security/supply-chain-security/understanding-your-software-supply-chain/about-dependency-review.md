@@ -1,6 +1,6 @@
 ---
-title: About dependency review
-intro: 'Dependency review lets you catch insecure dependencies before you introduce them to your environment, and provides information on license, dependents, and age of dependencies.'
+title: Informationen zur Abhängigkeitsüberprüfung
+intro: 'Mit der Abhängigkeitsüberprüfung kannst du unsichere Abhängigkeiten erfassen, bevor du sie in deine Umgebung einführst, und Informationen zu Lizenz, Abhängigkeiten und deren Alter bereitstellen.'
 product: '{% data reusables.gated-features.dependency-review %}'
 shortTitle: Dependency review
 versions:
@@ -17,50 +17,53 @@ topics:
   - Pull requests
 redirect_from:
   - /code-security/supply-chain-security/about-dependency-review
+ms.openlocfilehash: 36a80324e75f6ffbe96a2b46016d56561da931f0
+ms.sourcegitcommit: 73b91dd4cdf592eadec4252319379d6fbe92858e
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 11/14/2022
+ms.locfileid: '148164114'
 ---
-
-## About dependency review
+## Informationen zur Abhängigkeitsüberprüfung
 
 {% data reusables.dependency-review.feature-overview %}  
 
-If a pull request targets your repository's default branch and contains changes to package manifests or lock files, you can display a dependency review to see what has changed. The dependency review includes details of changes to indirect dependencies in lock files, and it tells you if any of the added or updated dependencies contain known vulnerabilities.
+Wenn ein Pull Request auf den Standardzweig deines Repositorys abzielt und Änderungen an Paketmanifesten oder Sperrdateien enthält, kannst du eine Abhängigkeitsüberprüfung anzeigen, um zu sehen, was sich geändert hat. Die Abhängigkeitsüberprüfung enthält Details zu Änderungen an indirekten Abhängigkeiten in Sperrdateien und sagt Dir, ob eine der hinzugefügten oder aktualisierten Abhängigkeiten bekannte Sicherheitslücken enthält.
 
-Sometimes you might just want to update the version of one dependency in a manifest and generate a pull request. However, if the updated version of this direct dependency also has updated dependencies, your pull request may have more changes than you expected. The dependency review for each manifest and lock file provides an easy way to see what has changed, and whether any of the new dependency versions contain known vulnerabilities.
+Manchmal möchtest du vielleicht nur die Version einer Abhängigkeit in einem Manifest aktualisieren und einen Pull Request erstellen. Wenn die aktualisierte Version dieser direkten Abhängigkeit jedoch auch aktualisierte Abhängigkeiten hat, kann dein Pull Request mehr Änderungen enthalten, als du erwartet hast. Die Überprüfung der Abhängigkeiten für jede Manifest- und Sperrdatei bietet eine einfache Möglichkeit zu sehen, was sich geändert hat und ob eine der neuen Abhängigkeitsversionen bekannte Systemanfälligkeiten enthält.
 
-By checking the dependency reviews in a pull request, and changing any dependencies that are flagged as vulnerable, you can avoid vulnerabilities being added to your project. For more information about how dependency review works, see "[Reviewing dependency changes in a pull request](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-dependency-changes-in-a-pull-request)."
+Indem du die Abhängigkeitsüberprüfungen in einem Pull Request überprüfst und alle Abhängigkeiten änderst, die als anfällig gekennzeichnet sind, kannst du verhindern, dass deinem Projekt Sicherheitsrisiken hinzugefügt werden. Weitere Informationen zur Funktionsweise der Abhängigkeitsüberprüfung findest du unter [Überprüfen von Abhängigkeitsänderungen in einem Pull Request](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-dependency-changes-in-a-pull-request).
 
-For more information about configuring dependency review, see "[Configuring dependency review](/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-dependency-review)."
+Weitere Informationen zum Konfigurieren der Abhängigkeitsüberprüfung findest du unter [Konfigurieren der Abhängigkeitsüberprüfung](/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-dependency-review).
 
-{% data variables.product.prodname_dependabot_alerts %} will find vulnerabilities that are already in your dependencies, but it's much better to avoid introducing potential problems than to fix problems at a later date. For more information about {% data variables.product.prodname_dependabot_alerts %}, see "[About {% data variables.product.prodname_dependabot_alerts %}](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies#dependabot-alerts-for-vulnerable-dependencies)."
+{% data variables.product.prodname_dependabot_alerts %} findet Sicherheitsrisiken, die sich bereits in deinen Abhängigkeiten befinden. Es ist jedoch wesentlich besser, die Einführung potenzieller Probleme zu vermeiden, als später Probleme beheben zu müssen. Weitere Informationen zu {% data variables.product.prodname_dependabot_alerts %} findest du unter [Informationen zu {% data variables.product.prodname_dependabot_alerts %}](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies#dependabot-alerts-for-vulnerable-dependencies).
 
-Dependency review supports the same languages and package management ecosystems as the dependency graph. For more information, see "[About the dependency graph](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph#supported-package-ecosystems)."
+Abhängigkeitsüberprüfung unterstützt dieselben Sprachen und Paketverwaltungsökosysteme wie das Abhängigkeitsdiagramm. Weitere Informationen findest du unter [Informationen zum Abhängigkeitsdiagramm](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph#supported-package-ecosystems).
 
-For more information on supply chain features available on {% data variables.product.product_name %}, see "[About supply chain security](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-supply-chain-security)."
+Weitere Informationen zu den auf {% data variables.product.product_name %} verfügbaren Lieferkettenfeatures findest du unter [Informationen zur Lieferkettensicherheit](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-supply-chain-security).
 
 {% ifversion ghec or ghes %}
-## Enabling dependency review
+## Aktivieren der Abhängigkeitsüberprüfung
 
-The dependency review feature becomes available when you enable the dependency graph. For more information, see "{% ifversion ghec %}[Enabling the dependency graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph#enabling-the-dependency-graph){% elsif ghes %}[Enabling the dependency graph for your enterprise](/admin/code-security/managing-supply-chain-security-for-your-enterprise/enabling-the-dependency-graph-for-your-enterprise){% endif %}."
+Das Abhängigkeitsüberprüfungsfeature wird verfügbar, wenn du das Abhängigkeitsdiagramm aktivierst. Weitere Informationen findest du unter {% ifversion ghec %}[Aktivieren des Abhängigkeitsdiagramms](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph#enabling-the-dependency-graph){% elsif ghes %}[Aktivieren des Abhängigkeitsdiagramms für dein Unternehmen](/admin/code-security/managing-supply-chain-security-for-your-enterprise/enabling-the-dependency-graph-for-your-enterprise){% endif %}.
 {% endif %}
 
 {% ifversion fpt or ghec or ghes > 3.5 or ghae > 3.5 %}
-## Dependency review enforcement
+## Erzwingung der Abhängigkeitsüberprüfung
 
-The action is available for all {% ifversion fpt or ghec %}public repositories, as well as private {% endif %}repositories that have {% data variables.product.prodname_GH_advanced_security %} enabled.
+Die Aktion ist für alle {% ifversion fpt or ghec %}öffentlichen Repositorys sowie für private {% endif %}Repositorys, für die {% data variables.product.prodname_GH_advanced_security %} aktiviert ist, verfügbar.
 
 {% data reusables.dependency-review.action-enterprise %}
 
-You can use the {% data variables.product.prodname_dependency_review_action %} in your repository to enforce dependency reviews on your pull requests. The action scans for vulnerable versions of dependencies introduced by package version changes in pull requests, and warns you about the associated security vulnerabilities. This gives you better visibility of what's changing in a pull request, and helps prevent vulnerabilities being added to your repository. For more information, see [`dependency-review-action`](https://github.com/actions/dependency-review-action).
+Du kannst die {% data variables.product.prodname_dependency_review_action %} in deinem Repository verwenden, um Abhängigkeitsüberprüfungen für deine Pull Requests zu erzwingen. Die Aktion sucht nach anfälligen Versionen von Abhängigkeiten, die durch Paketversionsänderungen in Pull Requests eingeführt wurden, und warnt dich vor den damit verbundenen Sicherheitsrisiken. So erhältst du einen besseren Überblick darüber, was sich in einem Pull Request ändert, und kannst verhindern, dass deinem Repository Sicherheitsrisiken hinzugefügt werden. Weitere Informationen findest du unter [`dependency-review-action`](https://github.com/actions/dependency-review-action).
 
-![Dependency review action example](/assets/images/help/graphs/dependency-review-action.png)
+![Beispiel für eine Abhängigkeitsüberprüfungsaktion](/assets/images/help/graphs/dependency-review-action.png)
 
-By default, the {% data variables.product.prodname_dependency_review_action %} check will fail if it discovers any vulnerable packages. A failed check blocks a pull request from being merged when the repository owner requires the dependency review check to pass. For more information, see "[About protected branches](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#require-status-checks-before-merging)."
+Standardmäßig schlägt die {% data variables.product.prodname_dependency_review_action %} fehl, wenn sie anfällige Pakete erkennt. Bei einer fehlgeschlagenen Überprüfung wird das Zusammenführen eines Pull Requests blockiert, wenn der bzw. die Repositorybesitzer*in das Bestehen der Abhängigkeitsüberprüfung verlangt. Weitere Informationen findest du unter [Informationen zu geschützten Branches](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#require-status-checks-before-merging).
 
-The action uses the Dependency Review REST API to get the diff of dependency changes between the base commit and head commit. You can use the Dependency Review API to get the diff of dependency changes, including vulnerability data, between any two commits on a repository. For more information, see "[Dependency review](/rest/reference/dependency-graph#dependency-review)."
+Die Aktion nutzt die Abhängigkeitsüberprüfung der REST-API, um die Abhängigkeitsänderungen zwischen dem Basis-Commit und dem Head-Commit zu ermitteln. Mit der Abhängigkeitsüberprüfungs-API kannst du die Abhängigkeitsänderungen zwischen zwei beliebigen Commits eines Repositorys abrufen, einschließlich der Daten zu Sicherheitsrisiken. Weitere Informationen findest du unter [Abhängigkeitsprüfung](/rest/reference/dependency-graph#dependency-review).
 
-{% ifversion dependency-review-action-configuration %}
-You can configure the {% data variables.product.prodname_dependency_review_action %} to better suit your needs. For example, you can specify the severity level that will make the action fail{% ifversion dependency-review-action-licenses %}, or set an allow or deny list for licenses to scan{% endif %}. For more information, see "[Configuring dependency review](/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-dependency-review#configuring-the-dependency-review-github-action)." 
-{% endif %}
+{% ifversion dependency-review-action-configuration %} Du kannst die {% data variables.product.prodname_dependency_review_action %} so konfigurieren, dass sie deinen Anforderungen besser entspricht. Du kannst z. B. den Schweregrad angeben, der dazu führt, dass die Aktion fehlschlägt{% ifversion dependency-review-action-licenses %}, oder eine Zulassungs- oder Ablehnungsliste für die zu überprüfenden Lizenzen festlegen{% endif %}. Weitere Informationen findest du unter [Konfigurieren der Abhängigkeitsüberprüfung](/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-dependency-review#configuring-the-dependency-review-github-action). {% endif %}
 
 {% endif %}
 

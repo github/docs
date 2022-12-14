@@ -1,6 +1,6 @@
 ---
-title: Connect a learning management system course to a classroom
-intro: 'You can configure an LTI-compliant learning management system (LMS) course to connect to {% data variables.product.prodname_classroom %} so that you can import a roster for your classroom.'
+title: Подключение курса системы управления обучением к классу
+intro: 'Вы можете настроить курс управления обучением, совместимый с LTI (LMS), чтобы подключиться к {% данных variables.product.prodname_classroom %} таким образом, чтобы можно было импортировать список для вашего класса.'
 versions:
   fpt: '*'
 permissions: 'Organization owners who are admins for a classroom can connect learning management systems to {% data variables.product.prodname_classroom %}. {% data reusables.classroom.classroom-admins-link %}'
@@ -14,111 +14,113 @@ redirect_from:
   - /education/manage-coursework-with-github-classroom/connect-a-learning-management-system-to-github-classroom
   - /education/manage-coursework-with-github-classroom/teach-with-github-classroom/connect-a-learning-management-system-to-github-classroom
 shortTitle: Connect an LMS course
+ms.openlocfilehash: 6c750201bf46c7cf5d6965623f60bebc8e64e4ab
+ms.sourcegitcommit: 04329ee7464efbb558d77d06664e8578cd154d87
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/15/2022
+ms.locfileid: '148046458'
 ---
-## About connecting an LMS to your classroom
+## О подключении LMS к классу
 
-You can connect a learning management system (LMS) to {% data variables.product.prodname_classroom %} and import a roster of student identifiers from the LMS. 
+Вы можете подключить систему управления обучением (LMS) к {% данных variables.product.prodname_classroom %} и импортировать список идентификаторов учащихся из LMS. 
 
-## Prerequisites
+## Предварительные требования
 
-Before you can connect your LMS to a classroom, an administrator for your LMS instance needs to register your LMS with GitHub Classroom to initiate the OAuth handshake. An admin only needs to do this registration process once, then any teacher who uses their LMS instance may sync their LMS courses to classrooms. For more information, see "[Register a learning management system with GitHub Classroom](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/register-a-learning-management-system-with-github-classroom)."
+Прежде чем подключить LMS к аудитории, администратору экземпляра LMS необходимо зарегистрировать LMS в GitHub Classroom, чтобы инициировать подтверждение OAuth. Администратору нужно выполнить этот процесс регистрации только один раз, то любой преподаватель, использующий экземпляр LMS, может синхронизировать свои курсы LMS с классами. Дополнительные сведения см. в статье "[Регистрация системы управления обучением в GitHub Classroom](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/register-a-learning-management-system-with-github-classroom)".
 
 {% note %}
 
-**Note:** {% data reusables.classroom.google-classroom-note %}
+**Примечание.** {% данных для повторного использования.classroom.google-classroom-note %}
 
 {% endnote %}
 
-To configure an LMS to connect to {% data variables.product.prodname_classroom %}, you must first create a classroom. For more information, see "[Manage classrooms](/education/manage-coursework-with-github-classroom/manage-classrooms#creating-a-classroom)."
+Чтобы настроить LMS для подключения к {% data variables.product.prodname_classroom %}, необходимо сначала создать класс. Дополнительные сведения см. в статье [Управление аудиториями](/education/manage-coursework-with-github-classroom/manage-classrooms#creating-a-classroom).
 
-## Supported LMSes
+## Поддерживаемые системы управления обучением
 
-{% data reusables.classroom.supported-lmses %}
+{% данных reusables.classroom.supported-lmses %}
 
-## Linking a Canvas course with a classroom
+## Связывание курса Canvas с классом
 
-You can link your Moodle course with a classroom in {% data variables.product.prodname_classroom %}. For more information about Canvas, see the [Canvas website](https://www.instructure.com/canvas/).
+Вы можете связать курс Moodle с классом в {% данных variables.product.prodname_classroom %}. Дополнительные сведения о Canvas см. на [веб-сайте Canvas](https://www.instructure.com/canvas/).
 
-An administrator needs to register your LMS instance with classroom before you can link an LMS course. For more information, see "[Configuring Canvas for {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/register-a-learning-management-system-with-github-classroom#configuring-canvas-for-github-classroom)."
+Чтобы связать курс LMS, администратор должен зарегистрировать экземпляр LMS в классе. Дополнительные сведения см. в разделе "[Настройка холста для {% данных variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/register-a-learning-management-system-with-github-classroom#configuring-canvas-for-github-classroom)".
 
-1. Sign into [Canvas](https://www.instructure.com/canvas/#login).
-1. Select the Canvas course to integrate with {% data variables.product.prodname_classroom %}.
-2. Click "Settings" in the left sidebar, then click the "Apps" tab. 
-3. Click the **+ App** button. 
-4. Under "Configuration Type", select **By Client ID** from the dropdown menu. 
-5. Under "Client ID", input the Client ID that your LMS administrator created when registering your LMS instance with {% data variables.product.prodname_classroom %}.
-6. Click **Submit**, then click **Install**.
-7. Refresh the page, and you should see a **GitHub Classroom** link in the course sub-navigation menu on the right hand side of the course details page. Note that the name may be different if your LMS admin named it something else when registering your LMS.
-8. Clicking the **GitHub Classroom** link will launch you into {% data variables.product.prodname_classroom %}, where you can select a classroom to link with your LMS course. 
+1. Войдите в [Canvas](https://www.instructure.com/canvas/#login).
+1. Выберите курс Canvas, который нужно интегрировать с {% data variables.product.prodname_classroom %}.
+2. Щелкните "Параметры" на левой боковой панели, а затем перейдите на вкладку "Приложения". 
+3. Нажмите кнопку **"+ Приложение** ". 
+4. В разделе "Тип конфигурации" выберите **"По идентификатору клиента** " в раскрывающемся меню. 
+5. В поле "Идентификатор клиента" введите идентификатор клиента, созданный администратором LMS при регистрации экземпляра LMS с {% данных variables.product.prodname_classroom %}.
+6. Нажмите кнопку **"Отправить**", а затем нажмите кнопку **"Установить**".
+7. Обновите страницу, и вы увидите ссылку **на GitHub Classroom** в меню вложенной навигации курса в правой части страницы сведений о курсе. Обратите внимание, что имя может отличаться, если администратор LMS назвал его другим именем при регистрации LMS.
+8. Щелкнув ссылку **на GitHub Classroom** , вы перейдете в {% данных variables.product.prodname_classroom %}, где можно выбрать класс, чтобы связаться с курсом LMS. 
 
-Once your course is linked, you can import your roster from your LMS course to your classroom. For more information, see "[Importing a roster from your LMS](#importing-a-roster-from-your-lms)."
-## Linking a Moodle course with a classroom
+После связывания курса вы можете импортировать список из курса LMS в аудиторию. Дополнительные сведения см. в разделе "[Импорт списка из LMS](#importing-a-roster-from-your-lms)".
+## Связывание курса Moodle с классом
 
-You can link your Moodle course with a classroom in {% data variables.product.prodname_classroom %}. For more information about Moodle, see the [Moodle website](https://moodle.org).
+Вы можете связать курс Moodle с классом в {% данных variables.product.prodname_classroom %}. Дополнительные сведения о Moodle см. на [веб-сайте Moodle](https://moodle.org).
 
-An administrator needs to register your LMS instance with classroom before you can link an LMS course. For more information, see "[Configuring Moodle for {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/register-a-learning-management-system-with-github-classroom#configuring-moodle-for-github-classroom)."
+Чтобы связать курс LMS, администратор должен зарегистрировать экземпляр LMS в классе. Дополнительные сведения см. в разделе "[Настройка Moodle для {% данных variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/register-a-learning-management-system-with-github-classroom#configuring-moodle-for-github-classroom)".
 
-You must be using Moodle version 3.0 or greater.
+Необходимо использовать Moodle версии 3.0 или более поздней.
 
-1. Sign into [Moodle](https://moodle.org/login/).
-1. Select the Moodle course to integrate with {% data variables.product.prodname_classroom %}.
-2. Under "External Tools, under "General", you should see a button with the name "GitHub Classroom". Note that the name may be different if your LMS admin named it something else when registering your LMS.
-3. Clicking the **GitHub Classroom** button will launch you into {% data variables.product.prodname_classroom %}, where you can select a classroom to link with your LMS course. 
+1. Войдите в [Moodle](https://moodle.org/login/).
+1. Выберите курс Moodle, который нужно интегрировать с {% data variables.product.prodname_classroom %}.
+2. В разделе "Внешние инструменты" в разделе "Общие" должна появиться кнопка с именем "GitHub Classroom". Обратите внимание, что имя может отличаться, если администратор LMS назвал его другим именем при регистрации LMS.
+3. Нажав кнопку **GitHub Classroom** , вы перейдете в {% данных variables.product.prodname_classroom %}, где можно выбрать аудиторию, чтобы связаться с курсом LMS. 
 
-Once your course is linked, you can import your roster from your LMS course to your classroom. For more information, see "[Importing a roster from your LMS](#importing-a-roster-from-your-lms)."
-## Linking a Sakai course with a classroom
+После связывания курса вы можете импортировать список из курса LMS в аудиторию. Дополнительные сведения см. в разделе "[Импорт списка из LMS](#importing-a-roster-from-your-lms)".
+## Связывание курса Sakai с аудиторией
 
-You can link your Sakai course with a classroom in {% data variables.product.prodname_classroom %}. For more information about Sakai, see the [Sakai website](https://www.sakailms.org/).
+Вы можете связать курс Sakai с классом в {% данных variables.product.prodname_classroom %}. Дополнительные сведения о Сакаи см. на [веб-сайте Sakai](https://www.sakailms.org/).
 
-An administrator needs to register your LMS instance with classroom before you can link an LMS course. For more information, see "[Configuring Moodle for {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/register-a-learning-management-system-with-github-classroom#configuring-moodle-for-github-classroom)."
+Чтобы связать курс LMS, администратор должен зарегистрировать экземпляр LMS в классе. Дополнительные сведения см. в разделе "[Настройка Moodle для {% данных variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/register-a-learning-management-system-with-github-classroom#configuring-moodle-for-github-classroom)".
 
-1. Sign into your Sakai instance.
-2. Select the Sakai course to integrate with {% data variables.product.prodname_classroom %}.
-3. Click on **External Tools**. 
-4. Click on **Tool Links**.
-5. Clicking the "GitHub Classroom" link will launch you into {% data variables.product.prodname_classroom %}, where you can select a classroom to link with your LMS course.
+1. Войдите в экземпляр Sakai.
+2. Выберите курс Sakai для интеграции с {% данных variables.product.prodname_classroom %}.
+3. Щелкните **"Внешние инструменты**". 
+4. Щелкните **ссылки на инструмент**.
+5. Щелкнув ссылку "Класс GitHub", откроется {% данных variables.product.prodname_classroom %}, где можно выбрать аудиторию, чтобы связаться с курсом LMS.
 
-Once your course is linked, you can import your roster from your LMS course to your classroom. For more information, see "[Importing a roster from your LMS](#importing-a-roster-from-your-lms)."
+После связывания курса вы можете импортировать список из курса LMS в аудиторию. Дополнительные сведения см. в разделе "[Импорт списка из LMS](#importing-a-roster-from-your-lms)".
 
 
-## Importing a roster from your LMS
+## Импорт списка из вашей системы управления обучением
 
-To import your roster from your LMS:
-1. Open your linked classroom in {% data variables.product.prodname_classroom %} and select the "Students" tab. 
-2. Click the **Import from...** button containing the name of your LMS (Canvas, Sakai, or Moodle). 
+Чтобы импортировать список из LMS, выполните приведенные далее действия.
+1. Откройте связанный класс в {% данных variables.product.prodname_classroom %} и перейдите на вкладку "Учащиеся". 
+2. Нажмите кнопку **импорта из...** с именем LMS (Canvas, Sakai или Moodle). 
    
-   ![Import from Canvas button](/assets/images/help/classroom/import-from-connected-lms.png)
+   ![Кнопка "Импорт из холста"](/assets/images/help/classroom/import-from-connected-lms.png)
 
-3. Select which identifier you'd like to use for your students, then click **Import roster entries**, and your roster will be imported.
+3. Выберите идентификатор, который вы хотите использовать для учащихся, а затем щелкните **"Импорт записей реестра**", и список будет импортирован.
 
-To update an existing roster:
- 1. Open your linked classroom in {% data variables.product.prodname_classroom %} and select the "Students" tab. 
- 2. Click the **Sync from...** button containing the name of your LMS (Canvas, Sakai, or Moodle).
+Чтобы обновить существующий реестр, выполните приведенные далее действия.
+ 1. Откройте связанный класс в {% данных variables.product.prodname_classroom %} и перейдите на вкладку "Учащиеся". 
+ 2. Нажмите кнопку **"Синхронизировать из..."** с именем LMS (Canvas, Sakai или Moodle).
 
-![Sync from Moodle button](/assets/images/help/classroom/moodle-sync-roster.png)
+![Синхронизация с кнопкой Moodle](/assets/images/help/classroom/moodle-sync-roster.png)
 
-## Importing a roster from Google Classroom
+## Импорт списка из Google Classroom
 
-Google Classroom does not use the LTI protocol so does not need to be connected to GitHub Classroom before importing the roster.
+Google Classroom не использует протокол LTI, поэтому не нужно подключаться к GitHub Classroom перед импортом реестра.
 
-{% data reusables.classroom.sign-into-github-classroom %}
-{% data reusables.classroom.click-classroom-in-list %}
-{% data reusables.classroom.click-students %}
-1. If your classroom already has a roster, you can either update the roster or delete the roster and create a new roster.
-    - For more information about deleting and creating a roster, see "[Deleting a roster for a classroom](/education/manage-coursework-with-github-classroom/manage-classrooms#deleting-a-roster-for-a-classroom)" and "[Creating a roster for your classroom](/education/manage-coursework-with-github-classroom/manage-classrooms#creating-a-roster-for-your-classroom)."
-    - For more information about updating a roster, see "[Adding students to the roster for your classroom](/education/manage-coursework-with-github-classroom/manage-classrooms#adding-students-to-the-roster-for-your-classroom)."
-1. In the list of LMSes, click **Google Classroom**.
-  !["Google Classroom" button](/assets/images/help/classroom/classroom-settings-click-google-classroom.png)
-1. Sign in to Google, then select the Classroom to link to.
+{% data reusables.classroom.sign-into-github-classroom %} {% data reusables.classroom.click-classroom-in-list %} {% data reusables.classroom.click-students %}
+1. Если у вашей аудитории уже есть список учащихся, вы можете изменить этот список, либо удалить его и создать новый.
+    - Дополнительные сведения об удалении и создании списка приведены в статье [Удаление списка участников аудитории](/education/manage-coursework-with-github-classroom/manage-classrooms#deleting-a-roster-for-a-classroom) и [Создание списка участников для аудитории](/education/manage-coursework-with-github-classroom/manage-classrooms#creating-a-roster-for-your-classroom).
+    - Дополнительные сведения об изменении списка можно найти в статье [Добавление учащихся в список участников аудитории](/education/manage-coursework-with-github-classroom/manage-classrooms#adding-students-to-the-roster-for-your-classroom).
+1. В списке LMSes щелкните **Google Classroom**.
+  ![Кнопка "Google Classroom"](/assets/images/help/classroom/classroom-settings-click-google-classroom.png)
+1. Войдите в Google, а затем выберите Класс, чтобы подключиться.
 
-## Disconnecting your LMS
+## Отключение системы управления обучением
 
-You can disconnect your classroom from your LMS in {% data variables.product.prodname_classroom %} settings.
+Класс можно отключить от LMS в параметрах {% данных variables.product.prodname_classroom %}.
 
-{% data reusables.classroom.sign-into-github-classroom %}
-{% data reusables.classroom.click-classroom-in-list %}
-{% data reusables.classroom.click-settings %}
-1. Under "Connect to a learning management system (LMS)", click **Connection Settings**.
-  !["Connection settings" link in classroom settings](/assets/images/help/classroom/classroom-settings-click-connection-settings.png)
-1. Under "Delete Connection to your learning management system", click **Disconnect from your learning management system**.
-  !["Disconnect from your learning management system" button in connection settings for classroom](/assets/images/help/classroom/classroom-settings-click-disconnect-from-your-lms-button.png)
+{% data reusables.classroom.sign-into-github-classroom %} {% data reusables.classroom.click-classroom-in-list %} {% data reusables.classroom.click-settings %}
+1. В разделе "Подключение к системе управления обучением (LMS)" щелкните **Параметры подключения**.
+  ![Ссылка "Параметры подключения" в параметрах аудитории](/assets/images/help/classroom/classroom-settings-click-connection-settings.png)
+1. В разделе "Удалить подключение к системе управления обучением" нажмите кнопку **Отключиться от системы управления обучением**.
+  ![Кнопка "Отключиться от системы управления обучением" в параметрах подключения для аудитории](/assets/images/help/classroom/classroom-settings-click-disconnect-from-your-lms-button.png)

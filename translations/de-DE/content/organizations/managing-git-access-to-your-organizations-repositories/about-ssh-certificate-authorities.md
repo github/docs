@@ -1,6 +1,6 @@
 ---
-title: About SSH certificate authorities
-intro: 'With an SSH certificate authority, your organization or enterprise account can provide SSH certificates that members can use to access your resources with Git.'
+title: Informationen zu SSH-Zertifizierungsstellen
+intro: 'Mit einer SSH-Zertifizierungsstelle kann deine Organisation oder dein Unternehmenskonto SSH-Zertifikate bereitstellen, mit denen Mitglieder unter Verwendung von Git auf deine Ressourcen zugreifen können.'
 redirect_from:
   - /articles/about-ssh-certificate-authorities
   - /github/setting-up-and-managing-organizations-and-teams/about-ssh-certificate-authorities
@@ -12,60 +12,64 @@ topics:
   - Organizations
   - Teams
 shortTitle: SSH certificate authorities
+ms.openlocfilehash: c4940399efa3c1e88c68224c421de7f43f7ea89b
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147061980'
 ---
+## Informationen zu SSH-Zertifizierungsstellen
 
-## About SSH certificate authorities
-
-An SSH certificate is a mechanism for one SSH key to sign another SSH key. If you use an SSH certificate authority (CA) to provide your organization members with signed SSH certificates, you can add the CA to your enterprise account or organization to allow organization members to use their certificates to access organization resources. 
+Ein SSH-Zertifikat ist ein Mechanismus, mit dem ein SSH-Schlüssel einen anderen SSH-Schlüssel signieren kann. Wenn du eine SSH-Zertifizierungsstelle (CA) verwendest, um den Mitgliedern deiner Organisation signierte SSH-Zertifikate bereitzustellen, kannst du die Zertifizierungsstelle zu deinem Enterprise-Konto oder deiner Organisation hinzufügen, damit die Organisationsmitglieder mit ihren Zertifikaten auf die Ressourcen der Organisation zugreifen können. 
 
 {% data reusables.organizations.ssh-ca-ghec-only %}
 
-After you add an SSH CA to your organization or enterprise account, you can use the CA to sign client SSH certificates for organization members. Organization members can use the signed certificates to access your organization's repositories (and only your organization's repositories) with Git. Optionally, you can require that members use SSH certificates to access organization resources. For more information, see "[Managing your organization's SSH certificate authorities](/articles/managing-your-organizations-ssh-certificate-authorities)" and "[Enforcing policies for security settings in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#managing-ssh-certificate-authorities-for-your-enterprise)."
+Wenn du eine SSH-Zertifizierungsstelle zu deiner Organisation oder deinem Enterprise-Konto hinzugefügt hast, kannst du mit der Zertifizierungsstelle Client-SSH-Zertifikate für Organisationsmitglieder signieren. Organisationsmitglieder können mit den signierten Zertifikaten mit Git auf die Repositorys deiner Organisation (und nur auf diese) zugreifen. Optional kannst du festlegen, dass Mitglieder SSH-Zertifikate verwenden müssen, um auf Organisationsressourcen zuzugreifen. Weitere Informationen findest du unter [Verwalten der SSH-Zertifizierungsstellen deiner Organisation](/articles/managing-your-organizations-ssh-certificate-authorities) und [Erzwingen von Richtlinien für die Sicherheitseinstellungen in deinem Unternehmen](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#managing-ssh-certificate-authorities-for-your-enterprise).
 
-For example, you can build an internal system that issues a new certificate to your developers every morning. Each developer can use their daily certificate to work on your organization's repositories on {% data variables.product.product_name %}. At the end of the day, the certificate can automatically expire, protecting your repositories if the certificate is later compromised.
+Du kannst beispielsweise ein internes System einrichten, das jeden Morgen ein neues Zertifikat für deine Entwickler herausgibt. Die Entwickler*innen können mit ihrem aktuellen Zertifikat in den Repositorys deiner Organisation auf {% data variables.product.product_name %} arbeiten. Am Ende des Tages läuft das Zertifikat automatisch ab. So werden deine Repositorys geschützt, falls das Zertifikat zu einem späteren Zeitpunkt kompromittiert wird.
 
-{% ifversion ghec %}
-Organization members can use their signed certificates for authentication even if you've enforced SAML single sign-on. Unless you make SSH certificates a requirement, organization members can continue to use other means of authentication to access your organization's resources with Git, including their username and password, {% data variables.product.pat_generic %}s, and their own SSH keys.
+{% ifversion ghec %} Organisationsmitglieder können ihre signierten Zertifikate selbst dann zur Authentifizierung nutzen, wenn du „Einmaliges Anmelden mit SAML“ erzwingst. Sofern du die Verwendung von SSH-Zertifikaten nicht vorschreibst, können Organisationsmitglieder auch weiterhin andere Authentifizierungsmethoden verwenden, um mit Git auf die Ressourcen deiner Organisation zuzugreifen, z. B. ihren Benutzernamen und ihr Passwort, persönliche Zugriffstoken und ihre eigenen SSH-Schlüssel.
 {% endif %}
 
-Members will not be able to use their certificates to access forks of your repositories that are owned by their personal accounts. 
+Mitglieder können ihre Zertifikate nicht verwenden, um auf Forks deiner Repositorys zuzugreifen, die sich im Besitz ihrer persönlichen Konten befinden. 
 
-## About SSH URLs with SSH certificates
+## Informationen zu SSH-URLs mit SSH-Zertifikaten
 
-If your organization requires SSH certificates, to prevent authentication errors, organization members should use a special URL that includes the organization ID when performing Git operations over SSH. This special URL allows the client and server to more easily negotiate which key on the member's computer should be used for authentication. If a member uses the normal URL, which starts with `git@github.com`, the SSH client might offer the wrong key, causing the operation to fail.
+Falls deine Organisation SSH-Zertifikate verlangt, sollten Organisationsmitglieder eine spezielle URL mit der Organisations-ID verwenden, wenn sie Git-Vorgänge über SSH ausführen. So können Authentifizierungsfehler vermieden werden. Mit dieser speziellen URL können der Client und der Server einfacher aushandeln, welche Schlüssel auf dem Computer des Mitglieds für die Authentifizierung verwendet werden sollen. Wenn ein Mitglied die normale URL verwendet, die mit `git@github.com` anfängt, bietet der SSH-Client möglicherweise den falschen Schlüssel an, wodurch der Vorgang fehlschlägt.
 
-Anyone with read access to the repository can find this URL by selecting the **Code** dropdown menu on the main page of the repository, then clicking **Use SSH**.
+Jeder mit Lesezugriff auf das Repository kann diese URL finden, indem er das Dropdownmenü **Code** auf der Hauptseite des Repositorys auswählt und dann auf **SSH verwenden** klickt.
 
-If your organization doesn't require SSH certificates, members can continue to use their own SSH keys, or other means of authentication. In that case, either the special URL or the normal URL, which starts with `git@github.com`, will work.
+Wenn deine Organisation keine SSH-Zertifikate verlangt, können Mitglieder weiterhin eigene SSH-Schlüssel oder andere Authentifizierungsmethoden verwenden. In diesem Fall funktioniert entweder die spezielle URL oder die normale URL, die mit `git@github.com` beginnt.
 
-## Issuing certificates
+## Ausgabe von Zertifikaten
 
-When you issue each certificate, you must include an extension that specifies which {% data variables.product.product_name %} user the certificate is for. For example, you can use OpenSSH's `ssh-keygen` command, replacing _KEY-IDENTITY_ with your key identity and _USERNAME_ with a {% data variables.product.product_name %} username. The certificate you generate will be authorized to act on behalf of that user for any of your organization's resources. Make sure you validate the user's identity before you issue the certificate.
+Beim Herausgeben der einzelnen Zertifikate musst du eine Erweiterung hinzufügen, die festlegt, für welchen {% data variables.product.product_name %}-Benutzer das Zertifikat gedacht ist. Du kannst z. B. den OpenSSH-Befehl `ssh-keygen` verwenden und dabei _KEY-IDENTITY_ durch deine Schlüsselidentität und _USERNAME_ durch einen {% data variables.product.product_name %}-Benutzernamen ersetzen. Das von dir generierte Zertifikat ist berechtigt, im Auftrag dieses Benutzers bzw. dieser Benutzerin für alle Ressourcen deiner Organisation zu handeln. Stelle sicher, dass du die Identität des Benutzers überprüfst, bevor du das Zertifikat ausstellst.
 
 {% note %}
 
-**Note:** You must update to OpenSSH 7.6 or later to use these commands.
+**Hinweis:** Du musst ein Update auf OpenSSH 7.6 oder höher durchführen, um diese Befehle verwenden zu können.
 
 {% endnote %}
 
 ```shell
-$ ssh-keygen -s ./ca-key -V '+1d' -I KEY-IDENTITY -O extension:login@{% data variables.product.product_url %}=USERNAME ./user-key.pub
+$ ssh-keygen -s ./ca-key -V '+1d' -I <em>KEY-IDENTITY</em> -O extension:login@{% data variables.product.product_url %}=<em>USERNAME</em> ./user-key.pub
 ```
 
 {% warning %}
 
-**Warning**: After a certificate has been signed and issued, the certificate cannot be revoked. Make sure to use the -`V` flag to configure a lifetime for the certificate, or the certificate can be used indefinitely.
+**Warnung**: Nachdem ein Zertifikat signiert und ausgestellt wurde, kann das Zertifikat nicht gesperrt werden. Stelle sicher, dass du das Flag -`V` verwendest, um eine Lebensdauer für das Zertifikat zu konfigurieren. Andernfalls kann das Zertifikat unbegrenzt verwendet werden.
 
 {% endwarning %}
 
-To issue a certificate for someone who uses SSH to access multiple {% data variables.product.company_short %} products, you can include two login extensions to specify the username for each product. For example, the following command would issue a certificate for _USERNAME-1_ for the user's account for {% data variables.product.prodname_ghe_cloud %}, and _USERNAME-2_ for the user's account on {% data variables.product.prodname_ghe_managed %} or {% data variables.product.prodname_ghe_server %} at _HOSTNAME_.
+Um ein Zertifikat für eine Person auszustellen, die SSH verwendet, um auf mehrere {% data variables.product.company_short %}-Produkte zuzugreifen, kannst du zwei Anmeldeerweiterungen einschließen, um den Benutzernamen für jedes Produkt anzugeben. Zum Beispiel würde der folgende Befehl ein Zertifikat für _USERNAME-1_ für das Benutzerkonto für {% data variables.product.prodname_ghe_cloud %} und _USERNAME-2_ für das Benutzerkonto auf {% data variables.product.prodname_ghe_managed %} oder {% data variables.product.prodname_ghe_server %} auf _HOSTNAME_ ausstellen.
 
 ```shell
-$ ssh-keygen -s ./ca-key -V '+1d' -I KEY-IDENTITY -O extension:login@github.com=USERNAME-1 extension:login@HOSTNAME=USERNAME-2 ./user-key.pub
+$ ssh-keygen -s ./ca-key -V '+1d' -I <em>KEY-IDENTITY</em> -O extension:login@github.com=<em>USERNAME-1</em> extension:login@<em>HOSTNAME</em>=<em>USERNAME-2</em> ./user-key.pub
 ```
 
-You can restrict the IP addresses from which an organization member can access your organization's resources by using a `source-address` extension. The extension accepts a specific IP address or a range of IP addresses using CIDR notation. You can specify multiple addresses or ranges by separating the values with commas. For more information, see "[Classless Inter-Domain Routing](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation)" on Wikipedia.
+Mit der Erweiterung `source-address` schränkst du die IP-Adressen ein, von denen aus ein Organisationsmitglied auf die Ressourcen deiner Organisation zugreifen kann. Als Erweiterung ist eine bestimmte IP-Adresse oder ein IP-Adressbereich mit CIDR-Notation zulässig. Sollen mehrere Adressen oder Bereiche angegeben werden, trenne sie durch Komma voneinander ab. Weitere Informationen findest du unter [Klassenloses Routing zwischen Domänen](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation) auf Wikipedia.
 
 ```shell
-$ ssh-keygen -s ./ca-key -V '+1d' -I KEY-IDENTITY -O extension:login@{% data variables.product.product_url %}=USERNAME -O source-address=COMMA-SEPARATED-LIST-OF-IP-ADDRESSES-OR-RANGES ./user-key.pub
+$ ssh-keygen -s ./ca-key -V '+1d' -I <em>KEY-IDENTITY</em> -O extension:login@{% data variables.product.product_url %}=<em>USERNAME</em> -O source-address=<em>COMMA-SEPARATED-LIST-OF-IP-ADDRESSES-OR-RANGES</em> ./user-key.pub
 ```

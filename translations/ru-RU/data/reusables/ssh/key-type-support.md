@@ -1,11 +1,18 @@
-{% ifversion fpt or ghec %}
-{% note %}
+---
+ms.openlocfilehash: efa96c86f8e6393265a4052e0ce6d650a21805b4
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/25/2022
+ms.locfileid: "148107344"
+---
+{% ifversion fpt or ghec %} {% note %}
 
-**Note:** {% data variables.product.company_short %} improved security by dropping older, insecure key types on March 15, 2022.
+**Примечание.** {% data variables.product.company_short %} улучшили безопасность за счет удаления старых небезопасных типов ключей 15 марта 2022 г.
 
-As of that date, DSA keys (`ssh-dss`) are no longer supported. You cannot add new DSA keys to your personal account on {% data variables.location.product_location %}.
+По состоянию на эту дату ключи DSA (`ssh-dss`) больше не поддерживаются. Нельзя добавить новые ключи DSA в личную учетную запись на {% данных variables.location.product_location %}.
 
-RSA keys (`ssh-rsa`) with a `valid_after` before November 2, 2021 may continue to use any signature algorithm. RSA keys generated after that date must use a SHA-2 signature algorithm. Some older clients may need to be upgraded in order to use SHA-2 signatures.
+Ключи RSA (`ssh-rsa`) с `valid_after` до 2 ноября 2021 г. могут продолжать использовать любой алгоритм подписи. Ключи RSA, созданные после этой даты, должны использовать алгоритм подписи SHA-2. Для использования сигнатур SHA-2 может потребоваться обновить некоторые старые клиенты.
 
 {% endnote %}
 
@@ -13,15 +20,15 @@ RSA keys (`ssh-rsa`) with a `valid_after` before November 2, 2021 may continue t
 
 {% note %}
 
-**Note**: By default with {% data variables.product.product_name %} 3.6 and later, as of the cutoff date of midnight UTC on August 1, 2022, SSH connections that satisfy **both** of the following conditions will fail.
+**Примечание.** По умолчанию, начиная с {% data variables.product.product_name %} версии 3.6 и более поздних версий, по состоянию на 0:00 UTC 1 августа 2022 г. подключение по протоколу SSH, удовлетворяющее **обоим** следующим условиям, будет завершено сбоем.
 
 <br/>
 
 {% data reusables.ssh.rsa-sha-1-connection-failure-criteria %}
 
-{% data variables.product.product_name %} 3.6 and later also does not support SSH connections that use DSA, HMAC-SHA-1, or CBC ciphers. RSA SSH keys uploaded before the cutoff date can continue to authenticate using the SHA-1 hash function as long as the key remains valid. For more information about finding the version of {% data variables.product.product_name %} that you use, see "[About versions of {% data variables.product.prodname_docs %}](/get-started/learning-about-github/about-versions-of-github-docs#github-enterprise-server)."
+{% data variables.product.product_name %} версии 3.6 и более поздних версий также не поддерживает SSH-подключения, использующие шифры DSA, HMAC-SHA-1 или CBC. Ключи RSA SSH, отправленные до даты прекращения, могут по-прежнему проходить проверку подлинности с помощью хэш-функции SHA-1, пока ключ остается действительным. Дополнительные сведения о поиске используемой версии {% data variables.product.product_name %} см. в разделе [Сведения о версиях {% data variables.product.prodname_docs %}](/get-started/learning-about-github/about-versions-of-github-docs#github-enterprise-server).
 
-Your site administrator can adjust the cutoff date for connections using RSA-SHA-1, and may block all connections using RSA-SHA-1. For more information, contact your site administrator or see "[Configuring SSH connections to your instance](/admin/configuration/configuring-your-enterprise/configuring-ssh-connections-to-your-instance)."
+Администратор сайта может настроить дату прекращения подключений с помощью RSA-SHA-1 и заблокировать все подключения с помощью RSA-SHA-1. Для получения дополнительных сведений обратитесь к администратору сайта или к разделу [Настройка SSH-подключений к экземпляру](/admin/configuration/configuring-your-enterprise/configuring-ssh-connections-to-your-instance).
 
 {% endnote %}
 

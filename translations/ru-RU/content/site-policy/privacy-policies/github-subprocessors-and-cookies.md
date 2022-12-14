@@ -1,5 +1,5 @@
 ---
-title: GitHub Subprocessors and Cookies
+title: Дополнительные обработчики GitHub и файлы cookie
 redirect_from:
   - /subprocessors
   - /github-subprocessors
@@ -12,25 +12,30 @@ versions:
 topics:
   - Policy
   - Legal
+ms.openlocfilehash: a7f017ec2243c015d93797b0117229fe9fdb528c
+ms.sourcegitcommit: d298d354a4585e6c154f2a8428aebb214d49e2a1
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/07/2022
+ms.locfileid: '147858627'
 ---
+Дата вступления в силу: **1 сентября 2022 г.**
 
-Effective date: **September 1, 2022**
 
+GitHub обеспечивает большую прозрачность в отношении того, как мы используем ваши данные, как мы собираем ваши данные и с кем мы делимся вашими данными. С этой целью мы предоставляем эту страницу, на которой подробно указаны [наши дополнительные обработчики](#github-subprocessors), и детально описано то, как мы используем [файлы cookie](#cookies-on-github).
 
-GitHub provides a great deal of transparency regarding how we use your data, how we collect your data, and with whom we share your data. To that end, we provide this page, which details [our subprocessors](#github-subprocessors), and how we use [cookies](#cookies-on-github).
+## Дополнительные обработчики GitHub
 
-## GitHub Subprocessors
+Когда мы делимся вашей информацией со сторонними дополнительными обработчиками, такими как наши поставщики и поставщики услуг, мы остаемся ответственными за нее. Мы прилагаем все усилия, чтобы сохранить ваше доверие, когда мы привлекаем новых поставщиков, и мы требуем, чтобы все поставщики заключали с нами соглашения о защите данных, которые ограничивают обработку ими личной информации пользователей (как определено в [Заявлении о конфиденциальности](/articles/github-privacy-statement/)).
 
-When we share your information with third party subprocessors, such as our vendors and service providers, we remain responsible for it. We work very hard to maintain your trust when we bring on new vendors, and we require all vendors to enter into data protection agreements with us that restrict their processing of Users' Personal Information (as defined in the [Privacy Statement](/articles/github-privacy-statement/)).
+Когда мы привлекаем нового дополнительного обработчика данных, который обрабатывает Личную информацию наших пользователей, или удаляем дополнительного обработчика, или меняем способ использования дополнительного обработчика, мы обновляем список дополнительных обработчиков. Просмотреть текущий список дополнительных обработчиков и подписаться на получение обновлений списка дополнительных обработчиков можно на странице [https://www.github.com/privacy/subprocessors](https://www.github.com/privacy/subprocessors).
 
-When we bring on a new subprocessor who handles our Users' Personal Information, or remove a subprocessor, or we change how we use a subprocessor, we will update the list of subprocessors. You can view the current list of subprocessors, and sign up to receive subprocessor list updates, at [https://github.com/privacy/subprocessors](https://github.com/privacy/subprocessors).
+Если у вас есть вопросы или опасения по поводу нового дополнительного обработчика, мы будем рады помочь. Пожалуйста, свяжитесь с нами через {% data variable.contact.contact_privacy %}.
 
-If you have questions or concerns about a new subprocessor, we'd be happy to help. Please contact us via {% data variables.contact.contact_privacy %}.
+## Файлы cookie на GitHub
 
-## Cookies on GitHub
+GitHub использует файлы cookie для предоставления и защиты наших веб-сайтов, а также для анализа использования наших веб-сайтов, чтобы обеспечивать вам удобство использования. Пожалуйста, взгляните на наше [Заявление о конфиденциальности](/github/site-policy/github-privacy-statement#our-use-of-cookies-and-tracking), если вам нужна дополнительная информация о файлах cookie, а также о том, как и почему мы их используем. 
+ 
+Просмотреть текущий список файлов cookie на сайте GitHub и подписаться на получение обновлений списка файлов cookie можно на странице [https://github.com/privacy/cookies](https://github.com/privacy/cookies).
 
-GitHub uses cookies to provide and secure our websites, as well as to analyze the usage of our websites, in order to offer you a great user experience. Please take a look at our [Privacy Statement](/github/site-policy/github-privacy-statement#our-use-of-cookies-and-tracking) if you’d like more information about cookies, and on how and why we use them.
-
-You can view the current list of cookies on GitHub, and sign up to receive cookie list updates, at [https://github.com/privacy/cookies](https://github.com/privacy/cookies).
-
-(!) Please note while we limit our use of third party cookies to those necessary to provide external functionality when rendering external content, certain pages on our website may set other third party cookies. For example, we may embed content, such as videos, from another site that sets a cookie. While we try to minimize these third party cookies, we can’t always control what cookies this third party content sets.
+(!) Обратите внимание на то, что, хотя мы ограничиваем использование сторонних файлов cookie теми, которые необходимы для обеспечения внешних функций при отображении внешнего контента, на некоторых страницах нашего веб-сайта могут быть установлены сторонние файлы cookie. Например, мы можем встраивать контент, такой как видео, с другого сайта, который устанавливает файлы cookie. Хотя мы стараемся свести к минимуму эти сторонние файлы cookie, мы не всегда можем контролировать, какие файлы cookie устанавливает этот сторонний контент.

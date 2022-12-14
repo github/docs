@@ -1,6 +1,6 @@
 ---
-title: Creating gists
-intro: 'You can create two kinds of gists: {% ifversion ghae %}internal{% else %}public{% endif %} and secret. Create {% ifversion ghae %}an internal{% else %}a public{% endif %} gist if you''re ready to share your ideas with {% ifversion ghae %}enterprise members{% else %}the world{% endif %} or a secret gist if you''re not.'
+title: Создание gist
+intro: 'Вы можете создать два вида gist: {% ifversion ghae %}внутренний{% else %}общедоступный{% endif %} и секретный. Создайте {% ifversion ghae %}внутренний{% else %}общедоступный{% endif %} gist, если вы готовы поделиться своими идеями с {% ifversion ghae %}участниками предприятия{% else %}мир{% endif %} или секретный gist, если не готовы делать это.'
 permissions: '{% data reusables.enterprise-accounts.emu-permission-gist %}'
 redirect_from:
   - /articles/about-gists
@@ -14,70 +14,76 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
+ms.openlocfilehash: e0ac449dc71bb0c525ee1559b82e509a281e55ac
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145069881'
 ---
-## About gists
+## Сведения о gist
 
-Every gist is a Git repository, which means that it can be forked and cloned. {% ifversion not ghae %}If you are signed in to {% data variables.product.product_name %} when{% else %}When{% endif %} you create a gist, the gist will be associated with your account and you will see it in your list of gists when you navigate to your {% data variables.gists.gist_homepage %}.
+Каждый gist — это репозиторий GIT, поэтому он допускает создание вилок и клонирование. {% ifversion not ghae %}При условии входа в {% data variables.product.product_name %} при{% else %}При{% endif %} создании gist он будет связан с вашей учетной записью и появится в списке gist на {% data variables.gists.gist_homepage %}.
 
-Gists can be {% ifversion ghae %}internal{% else %}public{% endif %} or secret. {% ifversion ghae %}Internal{% else %}Public{% endif %} gists show up in {% data variables.gists.discover_url %}, where {% ifversion ghae %}enterprise members{% else %}people{% endif %} can browse new gists as they're created. They're also searchable, so you can use them if you'd like other people to find and see your work.
+Gist может быть {% ifversion ghae %}внутренним{% else %}общедоступным{% endif %} или секретным. {% ifversion ghae %}Внутренние{% else %}Общедоступные{% endif %} gist отображаются на странице {% data variables.gists.discover_url %}, где {% ifversion ghae %}сотрудники организации{% else %}пользователи{% endif %} могут просматривать новые gist по мере их создания. Они также доступны для поиска, так что другие пользователи могут находить их и знакомиться с результатами вашей работы.
 
-Secret gists don't show up in {% data variables.gists.discover_url %} and are not searchable unless you are logged in and are the author of the secret gist. Secret gists aren't private. If you send the URL of a secret gist to {% ifversion ghae %}another enterprise member{% else %}a friend{% endif %}, they'll be able to see it. However, if {% ifversion ghae %}any other enterprise member{% else %}someone you don't know{% endif %} discovers the URL, they'll also be able to see your gist. If you need to keep your code away from prying eyes, you may want to [create a private repository](/articles/creating-a-new-repository) instead.
+Секретные gist не отображаются на странице {% data variables.gists.discover_url %} и недоступны для поиска. Секретные gist не являются частными. Если вы отправляете URL-адрес секретного gist {% ifversion ghae %}другому сотруднику организации{% else %}другу{% endif %}, он сможет просмотреть его. Однако если {% ifversion ghae %}любой другой сотрудник организации{% else %}кто-то незнакомый вам{% endif %} найдет этот URL-адрес, он также сможет просмотреть ваш gist. Если вам нужно скрыть код от посторонних, возможно, потребуется вместо этого [создать частный репозиторий](/articles/creating-a-new-repository).
 
 {% data reusables.gist.cannot-convert-public-gists-to-secret %}
 
 {% ifversion ghes %}
 
-If your site administrator has disabled private mode, you can also use anonymous gists, which can be public or secret.
+Если администратор сайта отключил частный режим, можно также использовать анонимные gist, которые могут быть общедоступными или секретными.
 
 {% data reusables.gist.anonymous-gists-cannot-be-deleted %}
 
 {% endif %}
 
-You'll receive a notification when:
-- You are the author of a gist.
-- Someone mentions you in a gist.
-- You subscribe to a gist, by clicking **Subscribe** at the top of any gist.
+Вы получите уведомление в указанных ниже случаях.
+- Вы являетесь автором gist.
+- Кто-то упоминает вас в gist.
+- Вы подписались на gist, нажав кнопку **Подписаться** в верхней его части.
 
 {% ifversion fpt or ghes or ghec %}
 
-You can pin gists to your profile so other people can see them easily. For more information, see "[Pinning items to your profile](/articles/pinning-items-to-your-profile)."
+Вы можете закреплять gist в своем профиле, чтобы другие пользователи могли легко их видеть. Дополнительные сведения см. в разделе [Закрепление элементов в профиле](/articles/pinning-items-to-your-profile).
 
 {% endif %}
 
-You can discover {% ifversion ghae %}internal{% else %}public{% endif %} gists others have created by going to the {% data variables.gists.gist_homepage %} and clicking **All Gists**. This will take you to a page of all gists sorted and displayed by time of creation or update. You can also search gists by language with {% data variables.gists.gist_search_url %}. Gist search uses the same search syntax as [code search](/search-github/searching-on-github/searching-code).
+Вы можете обнаружить {% ifversion ghae %}внутренние{% else %}общедоступные{% endif %} gist, созданные другими пользователями, перейдя на {% data variables.gists.gist_homepage %} и щелкнув **Все gist**. Вы перейдете на страницу со всеми gist, отсортированными по времени создания или изменения. Gist можно также искать по языку с помощью {% data variables.gists.gist_search_url %}. При поиске gist используется тот же синтаксис, что и при [поиске кода](/search-github/searching-on-github/searching-code).
 
-Since gists are Git repositories, you can view their full commit history, complete with diffs. You can also fork or clone gists. For more information, see ["Forking and cloning gists"](/articles/forking-and-cloning-gists).
+Так как gist — это репозитории GIT, вы можете просматривать их полный журнал фиксаций вместе с различиями. Gist также допускают создание вилок или клонирование. Дополнительные сведения см. в разделе [Создание вилок и клонирование gist](/articles/forking-and-cloning-gists).
 
-You can download a ZIP file of a gist by clicking the **Download ZIP** button at the top of the gist. You can embed a gist in any text field that supports Javascript, such as a blog post. To get the embed code, click the clipboard icon next to the **Embed** URL of a gist. To embed a specific gist file, append the **Embed** URL with `?file=FILENAME`.
+ZIP-файл с gist можно скачать, нажав кнопку **Скачать ZIP** в верхней части gist. Gist можно внедрить в любое текстовое поле, поддерживающее JavaScript, например в запись блога. Чтобы получить код внедрения, щелкните значок буфера обмена рядом с URL-адресом **внедрения** gist. Чтобы внедрить определенный файл gist, добавьте к URL-адресу **внедрения** элемент `?file=FILENAME`.
 
 {% ifversion fpt or ghec %}
 
-Gist supports mapping GeoJSON files. These maps are displayed in embedded gists, so you can easily share and embed maps. For more information, see "[Working with non-code files](/repositories/working-with-files/using-files/working-with-non-code-files#mapping-geojson-files-on-github)."
+Gist поддерживает сопоставление файлов GeoJSON. Эти карты отображаются во внедренных gist, так что ими можно легко делиться и внедрять их. Дополнительные сведения см. в статье [Работа с файлами, не связанными с кодом](/repositories/working-with-files/using-files/working-with-non-code-files#mapping-geojson-files-on-github).
 
 {% endif %}
 
-## Creating a gist
+## Создание gist
 
-Follow the steps below to create a gist.
+Чтобы создать gist, выполните указанные ниже действия.
 
 {% note %}
 
-You can also create a gist using the {% data variables.product.prodname_cli %}. For more information, see "[`gh gist create`](https://cli.github.com/manual/gh_gist_create)" in the {% data variables.product.prodname_cli %} documentation.
+Вы можете легко создать gist с помощью {% data variables.product.prodname_cli %}. Дополнительные сведения см. в разделе [`gh gist create`](https://cli.github.com/manual/gh_gist_create) в документации по {% data variables.product.prodname_cli %}.
 
-Alternatively, you can drag and drop a text file from your desktop directly into the editor.
+Кроме того, можно перетащить текстовый файл с рабочего стола непосредственно в редактор.
 
 {% endnote %}
 
-1. Sign in to {% data variables.product.product_name %}.
-2. Navigate to your {% data variables.gists.gist_homepage %}.
-3. Type an optional description and name for your gist.
-![Gist name description](/assets/images/help/gist/gist_name_description.png)
+1. Войдите в {% data variables.product.product_name %}.
+2. Перейдите на {% data variables.gists.gist_homepage %}.
+3. Введите необязательное описание и имя gist.
+![Описание и имя gist](/assets/images/help/gist/gist_name_description.png)
 
-4. Type the text of your gist into the gist text box.
-![Gist text box](/assets/images/help/gist/gist_text_box.png)
+4. Введите текст gist в текстовом поле gist.
+![Текстовое поле gist](/assets/images/help/gist/gist_text_box.png)
 
-5. Optionally, to create {% ifversion ghae %}an internal{% else %}a public{% endif %} gist, click {% octicon "triangle-down" aria-label="The downwards triangle icon" %}, then click **Create {% ifversion ghae %}internal{% else %}public{% endif %} gist**.
-![Drop-down menu to select gist visibility]{% ifversion ghae %}(/assets/images/help/gist/gist-visibility-drop-down-ae.png){% else %}(/assets/images/help/gist/gist-visibility-drop-down.png){% endif %}
+5. Если необходимо создать {% ifversion ghae %}внутренний{% else %}общедоступный{% endif %} gist, щелкните значок {% octicon "triangle-down" aria-label="The downwards triangle icon" %}, а затем выберите пункт **Создать {% ifversion ghae %}внутренний{% else %}общедоступный{% endif %} gist**.
+![Раскрывающееся меню для выбора видимости gist]{% ifversion ghae %}(/assets/images/help/gist/gist-visibility-drop-down-ae.png){% else %}(/assets/images/help/gist/gist-visibility-drop-down.png){% endif %}
 
-6. Click **Create secret Gist** or **Create {% ifversion ghae %}internal{% else %}public{% endif %} gist**.
-  ![Button to create gist](/assets/images/help/gist/create-secret-gist-button.png)
+6. Щелкните **Создать секретный gist** или **Создать {% ifversion ghae %}внутренний{% else %}общедоступный{% endif %} gist**.
+  ![Кнопка для создания gist](/assets/images/help/gist/create-secret-gist-button.png)

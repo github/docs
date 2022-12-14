@@ -1,6 +1,6 @@
 ---
-title: Authorizing an SSH key for use with SAML single sign-on
-intro: 'To use an SSH key with an organization that uses SAML single sign-on (SSO), you must first authorize the key.'
+title: Einen SSH-Schlüssel für die Verwendung mit SAML Single Sign-On autorisieren
+intro: 'Um einen SSH-Schlüssel in einer Organisation zu verwenden, die SAML Single Sign-On (SSO) nutzt, musst Du den Schlüssel zunächst autorisieren.'
 redirect_from:
   - /articles/authorizing-an-ssh-key-for-use-with-a-saml-single-sign-on-organization
   - /articles/authorizing-an-ssh-key-for-use-with-saml-single-sign-on
@@ -11,8 +11,14 @@ versions:
 topics:
   - SSO
 shortTitle: SSH Key with SAML
+ms.openlocfilehash: f4b11c123c01d56263de883cbdd0f87c48eee04b
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147854283'
 ---
-You can authorize an existing SSH key, or create a new SSH key and then authorize it. For more information about creating a new SSH key, see "[Generating a new SSH key and adding it to the ssh-agent](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)."
+Du kannst einen vorhandenen SSH-Schlüssel autorisieren oder einen neuen SSH-Schlüssel erstellen und ihn anschließend autorisieren. Weitere Informationen zum Erstellen eines neuen SSH-Schlüssels findest du unter [Generieren eines neuen SSH-Schlüssels und Hinzufügen des Schlüssels zum SSH-Agent](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent).
 
 {% data reusables.saml.must-authorize-linked-identity %}
 
@@ -20,20 +26,19 @@ You can authorize an existing SSH key, or create a new SSH key and then authoriz
 
 {% note %}
 
-**Note:** If your SSH key authorization is revoked by an organization, you will not be able to reauthorize the same key. You will need to create a new SSH key and authorize it. For more information about creating a new SSH key, see "[Generating a new SSH key and adding it to the ssh-agent](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)."
+**Hinweis:** Wenn deine Autorisierung des SSH-Schlüssels von einer Organisation aufgehoben wird, kannst du denselben Schlüssel nicht erneut autorisieren. Du musst stattdessen einen neuen SSH-Schlüssel erstellen und ihn autorisieren. Weitere Informationen zum Erstellen eines neuen SSH-Schlüssels findest du unter [Generieren eines neuen SSH-Schlüssels und Hinzufügen des Schlüssels zum SSH-Agent](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent).
 
 {% endnote %}
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.ssh %}
-1. To the right of the SSH key you'd like to authorize, click **Configure SSO**. {% data reusables.saml.authenticate-with-saml-at-least-once %}
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.ssh %}
+1. Klicke rechts neben dem SSH-Schlüssel, den du autorisieren möchtest, auf **SSO konfigurieren**.
 
-   ![Screenshot of the SSO token authorize button](/assets/images/help/settings/ssh-sso-button.png)
-1. To the right of the organization you'd like to authorize the SSH key for, click **Authorize**.
+   ![Screenshot der Schaltfläche zum Autorisieren des SSO-Tokens](/assets/images/help/settings/ssh-sso-button.png)
+1. Klicke rechts neben der Organisation, für die du den SSH-Schlüssel autorisieren möchtest, auf **Autorisieren**.
 
-   ![Screenshot of the token authorize button](/assets/images/help/settings/ssh-sso-authorize.png)
+   ![Screenshot der Schaltfläche zum Autorisieren des Tokens](/assets/images/help/settings/ssh-sso-authorize.png)
 
-## Further reading
+## Weiterführende Themen
 
-- "[Checking for existing SSH keys](/articles/checking-for-existing-ssh-keys)"
-- "[About authentication with SAML single sign-on](/articles/about-authentication-with-saml-single-sign-on)"
+- [Auf vorhandene SSH-Schlüssel prüfen](/articles/checking-for-existing-ssh-keys)
+- [Informationen zur Authentifizierung mit SAML Single Sign-On](/articles/about-authentication-with-saml-single-sign-on)

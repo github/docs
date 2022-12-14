@@ -1,6 +1,6 @@
 ---
-title: Deploying to Amazon Elastic Container Service
-intro: You can deploy to Amazon Elastic Container Service (ECS) as part of your continuous deployment (CD) workflows.
+title: Развертывание в Amazon Elastic Container Service
+intro: Вы можете выполнить развертывание в Amazon Elastic Container Service (ECS) в рамках рабочих процессов непрерывного развертывания (CD).
 redirect_from:
   - /actions/guides/deploying-to-amazon-elastic-container-service
   - /actions/deployment/deploying-to-amazon-elastic-container-service
@@ -15,37 +15,40 @@ topics:
   - Containers
   - Amazon ECS
 shortTitle: Deploy to Amazon ECS
+ms.openlocfilehash: bddc39944949ad48e12e86c0c5834b7ff0a6e0c0
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148098684'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+## Введение
 
-## Introduction
+В этом руководстве объясняется, как использовать {% data variables.product.prodname_actions %} для создания контейнерного приложения, его отправки в [Amazon Elastic Container Registry (ECR)](https://aws.amazon.com/ecr/) и развертывания в [Amazon Elastic Container Service (ECS)](https://aws.amazon.com/ecs/) при наличии отправки в ветвь `main`.
 
-This guide explains how to use {% data variables.product.prodname_actions %} to build a containerized application, push it to [Amazon Elastic Container Registry (ECR)](https://aws.amazon.com/ecr/), and deploy it to [Amazon Elastic Container Service (ECS)](https://aws.amazon.com/ecs/) when there is a push to the `main` branch.
-
-On every new push to `main` in your {% data variables.product.company_short %} repository, the {% data variables.product.prodname_actions %} workflow builds and pushes a new container image to Amazon ECR, and then deploys a new task definition to Amazon ECS.
+При каждой новой отправке `main` в репозиторий{% data variables.product.company_short %} рабочий процесс {% data variables.product.prodname_actions %} создает образ контейнера и отправляет его Amazon ECR, а затем развертывает в Amazon ECS новое определение задачи.
 
 {% ifversion fpt or ghec or ghes > 3.4 %}
 
 {% note %}
 
-**Note**: {% data reusables.actions.about-oidc-short-overview %} and ["Configuring OpenID Connect in Amazon Web Services"](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-amazon-web-services).
+**Примечание**. {% data reusables.actions.about-oidc-short-overview %} и [Настройка OpenID Connect в Amazon Web Services](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-amazon-web-services).
 
 {% endnote %}
 
 {% endif %}
 
-## Prerequisites
+## Предварительные требования
 
-Before creating your {% data variables.product.prodname_actions %} workflow, you will first need to complete the following setup steps for Amazon ECR and ECS:
+Перед созданием рабочего процесса {% data variables.product.prodname_actions %} сначала нужно выполнить следующие действия по настройке Amazon ECR и ECS:
 
-1. Create an Amazon ECR repository to store your images.
+1. Создайте репозиторий Amazon ECR для хранения образов.
 
-   For example, using [the AWS CLI](https://aws.amazon.com/cli/):
+   Например, воспользуйтесь [AWS CLI](https://aws.amazon.com/cli/):
 
-   {% raw %}```bash{:copy}
-   aws ecr create-repository \
+   {% raw %}```bash{:copy} aws ecr create-repository \
        --repository-name MY_ECR_REPOSITORY \
        --region MY_AWS_REGION
    ```{% endraw %}
@@ -167,14 +170,14 @@ jobs:
           wait-for-service-stability: true{% endraw %}
 ```
 
-## Additional resources
+## Дополнительные ресурсы
 
-For the original starter workflow, see [`aws.yml`](https://github.com/actions/starter-workflows/blob/main/deployments/aws.yml) in the {% data variables.product.prodname_actions %} `starter-workflows` repository.
+Исходный начальный рабочий процесс см. в [`aws.yml`](https://github.com/actions/starter-workflows/blob/main/deployments/aws.yml) из репозитория `starter-workflows` {% data variables.product.prodname_actions %}.
 
-For more information on the services used in these examples, see the following documentation:
+Дополнительные сведения о службах, используемых в этих примерах, см. в следующей документации:
 
-* "[Security best practices in IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html)" in the Amazon AWS documentation.
-* Official AWS "[Configure AWS Credentials](https://github.com/aws-actions/configure-aws-credentials)" action.
-* Official AWS [Amazon ECR "Login"](https://github.com/aws-actions/amazon-ecr-login) action.
-* Official AWS [Amazon ECS "Render Task Definition"](https://github.com/aws-actions/amazon-ecs-render-task-definition) action.
-* Official AWS [Amazon ECS "Deploy Task Definition"](https://github.com/aws-actions/amazon-ecs-deploy-task-definition) action.
+* [Security best practices in IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html) (Рекомендации по обеспечению безопасности в IAM) в документации по Amazon AWS.
+* Официальное действие AWS [Configure AWS Credentials](https://github.com/aws-actions/configure-aws-credentials) (Настройка учетных данных AWS).
+* Официальное действие AWS [Amazon ECR "Login"](https://github.com/aws-actions/amazon-ecr-login) (Вход в Amazon ECR).
+* Официальное действие AWS [Amazon ECS "Render Task Definition"](https://github.com/aws-actions/amazon-ecs-render-task-definition) (Определение задачи отрисовки в Amazon ECS).
+* Официальное действие AWS [Amazon ECS "Deploy Task Definition"](https://github.com/aws-actions/amazon-ecs-deploy-task-definition) (Определение задачи развертывания в Amazon ECS).

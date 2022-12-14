@@ -1,6 +1,6 @@
 ---
-title: Working with the Gradle registry
-intro: 'You can configure Gradle to publish packages to the {% data variables.product.prodname_registry %} Gradle registry and to use packages stored on {% data variables.product.prodname_registry %} as dependencies in a Java project.'
+title: Работа с реестром Gradle
+intro: 'Вы можете настроить в Gradle публикацию пакетов в реестр Gradle {% data variables.product.prodname_registry %} и использование пакетов, хранящихся в {% data variables.product.prodname_registry %}, в качестве зависимостей в проекте Java.'
 product: '{% data reusables.gated-features.packages %}'
 redirect_from:
   - /articles/configuring-gradle-for-use-with-github-package-registry
@@ -14,40 +14,42 @@ versions:
   ghae: '*'
   ghec: '*'
 shortTitle: Gradle registry
+ms.openlocfilehash: 14826e29b3bce7b867af6b387a258990798cf58e
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148093828'
 ---
-
-{% data reusables.package_registry.packages-ghes-release-stage %}
-{% data reusables.package_registry.packages-ghae-release-stage %}
+{% data reusables.package_registry.packages-ghes-release-stage %} {% data reusables.package_registry.packages-ghae-release-stage %}
 
 {% data reusables.package_registry.admins-can-configure-package-types %}
 
-## Authenticating to {% data variables.product.prodname_registry %}
+## Проверка подлинности в {% data variables.product.prodname_registry %}
 
 {% data reusables.package_registry.authenticate-packages %}
 
-{% data reusables.package_registry.authenticate-packages-github-token %} For more information about using `GITHUB_TOKEN` with Gradle, see "[Publishing Java packages with Gradle](/actions/guides/publishing-java-packages-with-gradle#publishing-packages-to-github-packages)."
+{% data reusables.package_registry.authenticate-packages-github-token %} Дополнительные сведения об использовании `GITHUB_TOKEN` с Gradle см. в статье [Публикация пакетов Java с помощью Gradle](/actions/guides/publishing-java-packages-with-gradle#publishing-packages-to-github-packages).
 
-### Authenticating with a {% data variables.product.pat_generic %}
+### Проверка подлинности с помощью {% данных variables.product.pat_generic %}
 
 {% data reusables.package_registry.required-scopes %}
 
-You can authenticate to {% data variables.product.prodname_registry %} with Gradle using either Gradle Groovy or Kotlin DSL by editing your *build.gradle* file (Gradle Groovy) or *build.gradle.kts* file (Kotlin DSL) file to include your {% data variables.product.pat_v1 %}. You can also configure Gradle Groovy and Kotlin DSL to recognize a single package or multiple packages in a repository.
+Вы можете пройти проверку подлинности в {% данных variables.product.prodname_registry %} с помощью Gradle Groovy или Kotlin DSL, изменив файл *build.gradle* (Gradle Groovy) или файл *build.gradle.kts* (Kotlin DSL), чтобы включить данные {% variables.product.pat_v1 %}. Вы также можете настроить Gradle Groovy и Kotlin DSL для распознавания одного пакета или нескольких пакетов в репозитории.
 
-{% ifversion ghes %}
-Replace *REGISTRY-URL* with the URL for your instance's Maven registry. If your instance has subdomain isolation enabled, use `maven.HOSTNAME`. If your instance has subdomain isolation disabled, use `HOSTNAME/_registry/maven`. In either case, replace *HOSTNAME* with the host name of your {% data variables.product.prodname_ghe_server %} instance.
-{% elsif ghae %}
-Replace *REGISTRY-URL* with the URL for your enterprise's Maven registry, `maven.HOSTNAME`. Replace *HOSTNAME* with the host name of {% data variables.location.product_location %}.
+{% ifversion ghes %} Замените *REGISTRY-URL* URL-адресом реестра Maven вашего экземпляра. Если в вашем экземпляре включена изоляция поддоменов, используйте `maven.HOSTNAME`. Если в вашем экземпляре отключена изоляция поддоменов, используйте `HOSTNAME/_registry/maven`. В любом случае замените *HOSTNAME* на имя узла экземпляра {% data variables.product.prodname_ghe_server %}.
+{% elsif ghae %} Замените *REGISTRY-URL* URL-адресом реестра Maven вашего предприятия, `maven.HOSTNAME`. Замените *HOSTNAME* именем узла {% данных variables.location.product_location %}.
 {% endif %}
 
-Replace *USERNAME* with your {% data variables.product.prodname_dotcom %} username, *TOKEN* with your {% data variables.product.pat_v1 %}, *REPOSITORY* with the name of the repository containing the package you want to publish, and *OWNER* with the name of the user or organization account on {% data variables.product.prodname_dotcom %} that owns the repository. Because uppercase letters aren't supported, you must use lowercase letters for the repository owner even if the {% data variables.product.prodname_dotcom %} user or organization name contains uppercase letters.
+Замените *username* именем пользователя {% данных variables.product.prodname_dotcom %}, *TOKEN* на {% данных variables.product.pat_v1 %}, *репозиторий именем репозитория* , содержащего пакет, который требуется опубликовать, и *OWNER* — именем учетной записи пользователя или организации в {% данных variables.product.prodname_dotcom %}, которому принадлежит репозиторий. Поскольку прописные буквы не поддерживаются, необходимо использовать строчные буквы для указания владельца репозитория, даже если имя пользователя или организации {% data variables.product.prodname_dotcom %} содержит прописные буквы.
 
 {% note %}
 
-**Note:** {% data reusables.package_registry.apache-maven-snapshot-versions-supported %} For an example, see "[Configuring Apache Maven for use with {% data variables.product.prodname_registry %}](/packages/using-github-packages-with-your-projects-ecosystem/configuring-apache-maven-for-use-with-github-packages)."
+**Примечание.** {% data reusables.package_registry.apache-maven-snapshot-versions-supported %} Пример см. в статье [Настройка Apache Maven для использования с {% data variables.product.prodname_registry %}](/packages/using-github-packages-with-your-projects-ecosystem/configuring-apache-maven-for-use-with-github-packages).
 
 {% endnote %}
 
-#### Example using Gradle Groovy for a single package in a repository
+#### Пример использования Gradle Groovy для одного пакета в репозитории
 
 ```shell
 plugins {
@@ -72,7 +74,7 @@ publishing {
 }
 ```
 
-#### Example using Gradle Groovy for multiple packages in the same repository
+#### Пример использования Gradle Groovy для нескольких пакетов в том же репозитории
 
 ```shell
 plugins {
@@ -100,7 +102,7 @@ subprojects {
 }
 ```
 
-#### Example using Kotlin DSL for a single package in the same repository
+#### Пример использования Kotlin DSL для одного пакета в том же репозитории
 
 ```shell
 plugins {
@@ -125,7 +127,7 @@ publishing {
 }
 ```
 
-#### Example using Kotlin DSL for multiple packages in the same repository
+#### Пример использования Kotlin DSL для нескольких пакетов в том же репозитории
 
 ```shell
 plugins {
@@ -153,42 +155,42 @@ subprojects {
 }
 ```
 
-## Publishing a package
+## Публикация пакета
 
-{% data reusables.package_registry.default-name %} For example, {% data variables.product.prodname_dotcom %} will publish a package named `com.example.test` in the `OWNER/test` {% data variables.product.prodname_registry %} repository.
+{% data reusables.package_registry.default-name %} Например, {% data variables.product.prodname_dotcom %} опубликует пакет под названием `com.example.test` в `OWNER/test` репозитория {% data variables.product.prodname_registry %}.
 
 {% data reusables.package_registry.viewing-packages %}
 
 {% data reusables.package_registry.authenticate-step %}
-2. After creating your package, you can publish the package.
+2. После создания пакета его можно опубликовать.
 
   ```shell
    $ gradle publish
   ```
 
-## Using a published package
+## Использование опубликованного пакета
 
-To use a published package from {% data variables.product.prodname_registry %}, add the package as a dependency and add the repository to your project. For more information, see "[Declaring dependencies](https://docs.gradle.org/current/userguide/declaring_dependencies.html)" in the Gradle documentation.
+Чтобы использовать опубликованный пакет из {% data variables.product.prodname_registry %}, добавьте пакет в качестве зависимости и добавьте репозиторий в свой проект. Дополнительные сведения см. в статье [Объявление зависимостей](https://docs.gradle.org/current/userguide/declaring_dependencies.html) в документации Gradle.
 
 {% data reusables.package_registry.authenticate-step %}
-2. Add the package dependencies to your *build.gradle* file (Gradle Groovy) or *build.gradle.kts* file (Kotlin DSL) file.
+2. Добавьте зависимости пакета в файл *build.gradle* (Gradle Groovy) или файл *build.gradle.kts* (Kotlin DSL).
 
-  Example using Gradle Groovy:
+  Пример использования Gradle Groovy:
   ```shell
   dependencies {
       implementation 'com.example:package'
   }
   ```
-  Example using Kotlin DSL:
+  Пример использования Kotlin DSL:
   ```shell
   dependencies {
       implementation("com.example:package")
   }
   ```
 
-3. Add the repository to your *build.gradle* file (Gradle Groovy) or *build.gradle.kts* file (Kotlin DSL) file.
+3. Добавьте репозиторий в файл *build.gradle* (Gradle Groovy) или файл *build.gradle.kts* (Kotlin DSL).
 
-  Example using Gradle Groovy:
+  Пример использования Gradle Groovy:
   ```shell
   repositories {
       maven {
@@ -200,7 +202,7 @@ To use a published package from {% data variables.product.prodname_registry %}, 
       }
   }
   ```
-  Example using Kotlin DSL:
+  Пример использования Kotlin DSL:
   ```shell
   repositories {
       maven {
@@ -213,7 +215,7 @@ To use a published package from {% data variables.product.prodname_registry %}, 
   }
   ```
 
-## Further reading
+## Дополнительные материалы
 
-- "[Working with the Apache Maven registry](/packages/working-with-a-github-packages-registry/working-with-the-apache-maven-registry)"
-- "[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package)"
+- [Работа с реестром Apache Maven](/packages/working-with-a-github-packages-registry/working-with-the-apache-maven-registry)
+- "[Удаление и восстановление пакета](/packages/learn-github-packages/deleting-and-restoring-a-package)"

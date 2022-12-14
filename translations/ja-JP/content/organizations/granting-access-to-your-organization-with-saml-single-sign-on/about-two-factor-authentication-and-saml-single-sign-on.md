@@ -1,6 +1,6 @@
 ---
-title: About two-factor authentication and SAML single sign-on
-intro: Organizations administrators can enable both SAML single sign-on and two-factor authentication to add additional authentication measures for their organization members.
+title: 2 要素認証と SAML シングルサインオンについて
+intro: Organization の管理者は、SAML シングルサインオンと 2 要素認証を共に有効化し、Organization のメンバーの認証方法を追加できます。
 redirect_from:
   - /articles/about-two-factor-authentication-and-saml-single-sign-on
   - /github/setting-up-and-managing-organizations-and-teams/about-two-factor-authentication-and-saml-single-sign-on
@@ -10,17 +10,22 @@ topics:
   - Organizations
   - Teams
 shortTitle: 2FA & SAML single sign-on
+ms.openlocfilehash: 1dc8eff35906a5f2c59f097d3bf53482547bd1f5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145130851'
 ---
+2 要素認証 (2FA) は、Organization のメンバーに基本的な認証を提供します。 2FA を有効化することで、Organization の管理者は{% data variables.product.product_location %}のメンバーアカウントが悪用される可能性を抑制できます。 2 要素認証の詳細については、「[2 要素認証について](/articles/about-two-factor-authentication)」を参照してください。
 
-Two-factor authentication (2FA) provides basic authentication for organization members. By enabling 2FA, organization administrators limit the likelihood that a member's account on {% data variables.location.product_location %} could be compromised. For more information on 2FA, see "[About two-factor authentication](/articles/about-two-factor-authentication)."
+追加の認証手段を追加するために、Organization の管理者は、Organization のメンバーがシングル サインオンを使用して Organization にアクセスしなければならないように、[SAML シングル サインオン (SSO) を有効](/articles/enabling-and-testing-saml-single-sign-on-for-your-organization)にすることもできます。 SAML SSO の詳細については、「[SAML シングル サインオンを使用した ID およびアクセス管理について](/articles/about-identity-and-access-management-with-saml-single-sign-on)」を参照してください。
 
-To add additional authentication measures, organization administrators can also [enable SAML single sign-on (SSO)](/articles/enabling-and-testing-saml-single-sign-on-for-your-organization) so that organization members must use single sign-on to access an organization. For more information on SAML SSO, see "[About identity and access management with SAML single sign-on](/articles/about-identity-and-access-management-with-saml-single-sign-on)."
+2 要素認証と SAML SSO をどちらも有効化した場合、Organization のメンバーは以下のようにしなければなりません:
+- {% data variables.product.product_location %}のアカウントへのログインに2FAを利用
+- Organization へのアクセスにはシングルサインオンを利用
+- API あるいは Git のアクセスには認可されたトークンを使い、トークンの認可にはシングルサインオンを利用
 
-If both 2FA and SAML SSO are enabled, organization members must do the following:
-- Use 2FA to log in to their account on {% data variables.location.product_location %}
-- Use single sign-on to access the organization
-- Use an authorized token for API or Git access and use single sign-on to authorize the token
+## 参考資料
 
-## Further reading
-
-- "[Enforcing SAML single sign-on for your organization](/articles/enforcing-saml-single-sign-on-for-your-organization)"
+- 「[Organization に SAML シングル サインオンを適用する](/articles/enforcing-saml-single-sign-on-for-your-organization)」

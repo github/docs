@@ -1,6 +1,6 @@
 ---
-title: Authentication
-intro: 'Keep your account and data secure with features like {% ifversion not ghae %}two-factor authentication, {% endif %}SSH{% ifversion not ghae %},{% endif %} and commit signature verification.'
+title: 인증
+intro: '{% ifversion not ghae %}2단계 인증, {% endif %}SSH{% ifversion not ghae %},{% endif %} 등의 기능을 사용하여 계정과 데이터를 안전하게 유지하고 서명 확인을 커밋합니다.'
 redirect_from:
   - /categories/56/articles
   - /categories/ssh
@@ -56,5 +56,11 @@ children:
   - /troubleshooting-ssh
   - /managing-commit-signature-verification
   - /troubleshooting-commit-signature-verification
+ms.openlocfilehash: b5428934e7300a8e7581b03c7d43d2afd7c600bd
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145115060'
 ---
 

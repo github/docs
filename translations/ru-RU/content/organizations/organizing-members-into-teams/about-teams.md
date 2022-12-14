@@ -1,6 +1,6 @@
 ---
-title: About teams
-intro: Teams are groups of organization members that reflect your company or group's structure with cascading access permissions and mentions.
+title: Сведения о командах
+intro: Группы состоят из участников организации и отражают структуру компании или группы. Они имеют каскадные разрешения на доступ и упоминания.
 redirect_from:
   - /articles/about-teams
   - /github/setting-up-and-managing-organizations-and-teams/about-teams
@@ -12,71 +12,76 @@ versions:
 topics:
   - Organizations
   - Teams
+ms.openlocfilehash: 3f6d408a9dfbb3564f16b97c7d3ef559672b18f1
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148099332'
 ---
+![Список команд в организации](/assets/images/help/teams/org-list-of-teams.png)
 
-![List of teams in an organization](/assets/images/help/teams/org-list-of-teams.png)
+Владельцы организации и ответственные за группы могут предоставлять группам права на администрирование, чтение или запись в репозитории организации. Участники организации могут отправить уведомление всей группе, указав ее имя. Участники организации могут также отправить уведомление всей группе, запросив у группы проверку. Участники организации могут запрашивать проверки у конкретных групп с доступом на чтение к репозиторию, в котором открыт запрос на вытягивание. Команды можно назначить владельцами определенных типов или областей кода в файле CODEOWNERS.
 
-Organization owners and team maintainers can give teams admin, read, or write access to organization repositories. Organization members can send a notification to an entire team by mentioning the team's name. Organization members can also send a notification to an entire team by requesting a review from that team. Organization members can request reviews from specific teams with read access to the repository where the pull request is opened. Teams can be designated as owners of certain types or areas of code in a CODEOWNERS file.
+Дополнительные сведения см. в разделе:
+- [Управление доступом команды к репозиторию организации](/articles/managing-team-access-to-an-organization-repository)
+- [Упоминание людей и команд](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams)
+- [О владельцах кода](/articles/about-code-owners/)
 
-For more information, see:
-- "[Managing team access to an organization repository](/articles/managing-team-access-to-an-organization-repository)"
-- "[Mentioning people and teams](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams)"
-- "[About code owners](/articles/about-code-owners/)"
-
-![Image of a team mention](/assets/images/help/teams/team-mention.png)
+![Изображение упоминания команды](/assets/images/help/teams/team-mention.png)
 
 {% ifversion ghes %}
 
-You can also use LDAP Sync to synchronize {% data variables.location.product_location %} team members and team roles against your established LDAP groups. This lets you establish role-based access control for users from your LDAP server instead of manually within {% data variables.location.product_location %}. For more information, see "[Enabling LDAP Sync](/enterprise/admin/authentication/using-ldap#enabling-ldap-sync)."
+Синхронизацию LDAP можно также использовать для синхронизации {% данных variables.location.product_location %} участников команды и ролей команды с установленными группами LDAP. Это позволяет устанавливать управление доступом на основе ролей для пользователей с сервера LDAP, а не вручную в {% данных variables.location.product_location %}. Дополнительные сведения см. в статье "[Включение синхронизации LDAP](/enterprise/admin/authentication/using-ldap#enabling-ldap-sync)".
 
 {% endif %}
 
 {% data reusables.organizations.team-synchronization %}
 
-## Team visibility
+## Видимость команды
 
 {% data reusables.organizations.types-of-team-visibility %}
 
-You can view all the teams you belong to on your personal dashboard. For more information, see "[About your personal dashboard](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/about-your-personal-dashboard#finding-your-top-repositories-and-teams)."
+Вы можете просмотреть все команды, к которым принадлежите, на личной панели мониторинга. Дополнительные сведения см. в разделе [Сведения о личной панели мониторинга](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/about-your-personal-dashboard#finding-your-top-repositories-and-teams).
 
-## Team pages
+## Страницы команд
 
-Each team has its own page within an organization. On a team's page, you can view team members, child teams, and the team's repositories. Organization owners and team maintainers can access team settings and update the team's description and profile picture from the team's page.
+Каждая команда имеет собственную страницу в организации. На странице команды можно просматривать участников команды, дочерние команды и репозитории команды. Владельцы организации и координаторы команд могут получить доступ к параметрам команды и обновить описание команды и изображение профиля на странице команды.
 
-Organization members can create and participate in discussions with the team. For more information, see "[About team discussions](/organizations/collaborating-with-your-team/about-team-discussions)."
+Участники организации могут создавать обсуждения с командой и участвовать в них. Дополнительные сведения см. в разделе [Сведения об обсуждениях в команде](/organizations/collaborating-with-your-team/about-team-discussions).
 
-![Team page listing team members and discussions](/assets/images/help/organizations/team-page-discussions-tab.png)
+![Страница группы с описанием участников и обсуждений](/assets/images/help/organizations/team-page-discussions-tab.png)
 
-## Nested teams
+## Вложенные команды
 
-You can reflect your group or company's hierarchy within your {% data variables.product.product_name %} organization with multiple levels of nested teams. A parent team can have multiple child teams, while each child team only has one parent team. You cannot nest secret teams.
+Вы можете отразить иерархию группы или компании в организации {% data variables.product.product_name %}, использовав несколько уровней вложенных команд. Родительская группа может иметь несколько дочерних, в то время как каждая дочерняя группа может иметь только одну родительскую. Нельзя использовать вложенные секретные группы.
 
-Child teams inherit the parent's access permissions, simplifying permissions management for large groups. Members of child teams also receive notifications when the parent team is @mentioned, simplifying communication with multiple groups of people.
+Дочерние группы наследуют разрешения на доступ родительской группы, что упрощает управление разрешениями для больших групп. Участники дочерних команд также получают уведомления, когда родительская группа обозначена как @mentioned, что упрощает общение с несколькими группами людей.
 
-For example, if your team structure is Employees > Engineering > Application Engineering > Identity, granting Engineering write access to a repository means Application Engineering and Identity also get that access. If you @mention the Identity Team or any team at the bottom of the organization hierarchy, they're the only ones who will receive a notification.
+Например, если структура вашей команды такова: "Сотрудники" > "Инженеры" > "Инженеры приложений" > "Удостоверения", предоставление категории "Инженеры" репозиторию означает, что категории "Инженеры приложений" и "Удостоверения" также получат такой доступ. Если вы @mention специалистам по удостоверениям или любой команде в нижней части иерархии организации, они будут единственными, кто получит уведомление.
 
-![Teams page with a parent team and child teams](/assets/images/help/teams/nested-teams-eng-example.png)
+![Страница "Команды" с родительской командой и дочерними командами](/assets/images/help/teams/nested-teams-eng-example.png)
 
-To easily understand who shares a parent team's permissions and mentions, you can see all of the members of a parent team's child teams on the Members tab of the parent team's page. Members of a child team are not direct members of the parent team.
+Чтобы легко понять, кто делится разрешениями и упоминаниями родительской команды, можно увидеть просмотреть всех участников дочерних команд родительской команды на вкладке "Участники" на странице родительской команды. Участники дочерней команды не являются прямыми участниками родительской команды.
 
-![Parent team page with all members of child teams](/assets/images/help/teams/team-and-subteam-members.png)
+![Страница родительской команды со всеми участниками дочерних команд](/assets/images/help/teams/team-and-subteam-members.png)
 
-You can choose a parent when you create the team, or you can move a team in your organization's hierarchy later. For more information see, "[Moving a team in your organization’s hierarchy](/articles/moving-a-team-in-your-organization-s-hierarchy)."
+Вы можете выбрать родительскую команду при создании команды или переместить команду в иерархию организации позже. Дополнительные сведения см. в разделе [Перемещение команды в иерархии организации](/articles/moving-a-team-in-your-organization-s-hierarchy).
 
 {% data reusables.enterprise_user_management.ldap-sync-nested-teams %}
 
-## Preparing to nest teams in your organization
+## Подготовка к вложению команд в организации
 
-If your organization already has existing teams, you should audit each team's repository access permissions before you nest teams above or below it. You should also consider the new structure you'd like to implement for your organization.
+Если у вашей организации уже есть команды, необходимо проводить аудит разрешений доступа к репозиторию для каждой команды, прежде чем вложить команды выше или ниже его уровня. Кроме того, следует рассмотреть новую структуру, которую вы хотите реализовать для вашей организации.
 
-At the top of the team hierarchy, you should give parent teams repository access permissions that are safe for every member of the parent team and its child teams. As you move toward the bottom of the hierarchy, you can grant child teams additional, more granular access to more sensitive repositories.
+В верхней части иерархии команд необходимо предоставить родительским командам разрешения на доступ к репозиторию, которые будут безопасными для всех участников родительской команды и ее дочерних команд. При переходе к нижней части иерархии можно предоставить дочерним командам дополнительный, более детализированный доступ к репозиториям с повышенным уровнем конфиденциальности.
 
-1. Remove all members from existing teams
-2. Audit and adjust each team's repository access permissions and give each team a parent
-3. Create any new teams you'd like to, choose a parent for each new team, and give them repository access
-4. Add people directly to teams
+1. Удаление всех участников из существующих команд
+2. Аудит и настройка разрешений доступа к репозиторию каждой команды и предоставление каждой команде родительской команды
+3. Создайте любые новые команды, выберите родительскую команду для каждой новой команды и предоставьте им доступ к репозиторию.
+4. Добавление пользователей непосредственно в команды
 
-## Further reading
+## Дополнительные материалы
 
-- "[Creating a team](/articles/creating-a-team)"
-- "[Adding organization members to a team](/articles/adding-organization-members-to-a-team)"
+- [Создание команды](/articles/creating-a-team)
+- [Добавление участников организации в команду](/articles/adding-organization-members-to-a-team)

@@ -1,6 +1,6 @@
 ---
-title: About protected branches
-intro: 'You can protect important branches by setting branch protection rules, which define whether collaborators can delete or force push to the branch and set requirements for any pushes to the branch, such as passing status checks or a linear commit history.'
+title: Сведения о защищенных ветвях
+intro: 'Вы можете защитить важные ветви, задав правила защиты ветвей, которые определяют, могут ли участники совместной работы удалять ветвь или выполнять принудительную отправку в нее, и устанавливают требования для любых отправок в ветвь, таких как прохождение проверок состояния или журнал линейной фиксации.'
 product: '{% data reusables.gated-features.protected-branches %}'
 redirect_from:
   - /articles/about-protected-branches
@@ -24,191 +24,176 @@ versions:
   ghec: '*'
 topics:
   - Repositories
+ms.openlocfilehash: 8ec8ac1b43eacc64f44cf785f66a370466bbae8b
+ms.sourcegitcommit: bf11c3e08cbb5eab6320e0de35b32ade6d863c03
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/27/2022
+ms.locfileid: '148111572'
 ---
-## About branch protection rules
+## Сведения о правилах защиты ветвей
 
-You can enforce certain workflows or requirements before a collaborator can push changes to a branch in your repository, including merging a pull request into the branch, by creating a branch protection rule.
+Создав правило защиты ветви, вы можете применять определенные рабочие процессы или требования, прежде чем сотрудник может отправить изменения в ветвь в репозитории, включая объединение запроса на вытягивание в ветвь.
 
-By default, each branch protection rule disables force pushes to the matching branches and prevents the matching branches from being deleted. You can optionally disable these restrictions and enable additional branch protection settings.
+По умолчанию каждое правило защиты ветви отключает принудительные отправки в соответствующие ветви и предотвращает удаление соответствующих ветвей. При необходимости эти ограничения можно отключить и включить дополнительные параметры защиты ветви.
 
-{% ifversion bypass-branch-protections %}
-By default, the restrictions of a branch protection rule don't apply to people with admin permissions to the repository or custom roles with the "bypass branch protections" permission. You can optionally apply the restrictions to administrators and roles with the "bypass branch protections" permission, too. For more information, see "[Managing custom repository roles for an organization](/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)".
-{% else %} 
-By default, the restrictions of a branch protection rule don't apply to people with admin permissions to the repository. You can optionally choose to include administrators, too.{% endif %}
+{% ifversion bypass-branch-protections %} По умолчанию ограничения правила защиты ветви не применяются к пользователям с разрешениями администратора для репозитория или пользовательских ролей с разрешением "обход защиты ветви". При необходимости вы также можете применить ограничения к администраторам и ролям с разрешением "обход защиты ветви". Дополнительные сведения см. в статье [Управление пользовательскими ролями репозитория для организации](/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization).
+{% else %} По умолчанию ограничения правила защиты ветви не применяются к пользователям с разрешениями администратора в репозитории. При необходимости можно также включить администраторов.{% endif %}
 
-{% data reusables.repositories.branch-rules-example %} For more information about branch name patterns, see "[Managing a branch protection rule](/github/administering-a-repository/managing-a-branch-protection-rule)."
+{% data reusables.repositories.branch-rules-example %} Дополнительные сведения о шаблонах имен ветвей см. в статье [Управление правилами защиты ветвей](/github/administering-a-repository/managing-a-branch-protection-rule).
 
 {% data reusables.pull_requests.you-can-auto-merge %}
 
-## About branch protection settings
+## Сведения о параметрах защиты ветвей
 
-For each branch protection rule, you can choose to enable or disable the following settings.
-- [Require pull request reviews before merging](#require-pull-request-reviews-before-merging)
-- [Require status checks before merging](#require-status-checks-before-merging)
-- [Require conversation resolution before merging](#require-conversation-resolution-before-merging)
-- [Require signed commits](#require-signed-commits)
-- [Require linear history](#require-linear-history)
-{% ifversion fpt or ghec %}
-- [Require merge queue](#require-merge-queue)
-{% endif %}
-{%- ifversion required-deployments %}
-- [Require deployments to succeed before merging](#require-deployments-to-succeed-before-merging)
-{%- endif %}
-{%- ifversion lock-branch %}
-- [Lock branch](#lock-branch)
-{%- endif %}
-{% ifversion bypass-branch-protections %}- [Do not allow bypassing the above settings](#do-not-allow-bypassing-the-above-settings){% else %}- [Include administrators](#include-administrators){% endif %}
-- [Restrict who can push to matching branches](#restrict-who-can-push-to-matching-branches)
-- [Allow force pushes](#allow-force-pushes)
-- [Allow deletions](#allow-deletions)
+Для каждого правила защиты ветви можно включить или отключить приведенные ниже параметры.
+- [Требовать проверки запросов на вытягивание перед слиянием](#require-pull-request-reviews-before-merging)
+- [Требовать проверки состояния перед слиянием](#require-status-checks-before-merging)
+- [Требовать устранения разногласий перед слиянием](#require-conversation-resolution-before-merging)
+- [Требовать подписанные фиксации](#require-signed-commits)
+- [Требовать линейный журнал](#require-linear-history) {% ifversion fpt or ghec %}
+- [Требовать очередь слияния](#require-merge-queue) {% endif %} {%- ifversion required-deployments %}
+- [Требовать успешного развертывания перед слиянием](#require-deployments-to-succeed-before-merging) {%- endif %} {%- ifversion lock-branch %}
+- [Блокировка ветви](#lock-branch) {%- endif %} {% ifversion bypass-branch-protections %}- [Не разрешать обход указанных выше параметров](#do-not-allow-bypassing-the-above-settings){% else %}- [Включение администраторов](#include-administrators){% endif %}
+- [Ограничить пользователей, которые могут выполнять отправку в соответствующие ветви](#restrict-who-can-push-to-matching-branches)
+- [Разрешить принудительные отправки](#allow-force-pushes)
+- [Разрешить удаления](#allow-deletions)
 
-For more information on how to set up branch protection, see "[Managing a branch protection rule](/github/administering-a-repository/managing-a-branch-protection-rule)."
+Дополнительные сведения о настройке защиты ветви см. в статье [Управление правилами защиты ветвей](/github/administering-a-repository/managing-a-branch-protection-rule).
 
-### Require pull request reviews before merging
+### Требовать проверки запросов на вытягивание перед слиянием
 
 {% data reusables.pull_requests.required-reviews-for-prs-summary %}
 
-If you enable required reviews, collaborators can only push changes to a protected branch via a pull request that is approved by the required number of reviewers with write permissions.
+Если включить необходимые проверки, участники совместной работы могут отправлять изменения только в защищенную ветвь с помощью запроса на вытягивание, утвержденного требуемым количеством рецензентов с разрешениями на запись.
 
-If a person with admin permissions chooses the **Request changes** option in a review, then that person must approve the pull request before the pull request can be merged. If a reviewer who requests changes on a pull request isn't available, anyone with write permissions for the repository can dismiss the blocking review.
+Если пользователь с разрешениями администратора выбирает параметр **Требовать изменения** в проверке, он должен утвердить запрос на вытягивание до его слияния. Если рецензент, требующий изменения для запроса на вытягивание, недоступен, любой пользователь с разрешениями на запись в репозиторий может отклонить блокирующую проверку.
 
 {% data reusables.repositories.review-policy-overlapping-commits %}
 
-If a collaborator attempts to merge a pull request with pending or rejected reviews into the protected branch, the collaborator will receive an error message.
+Если участник совместной работы пытается выполнить слияние запроса на вытягивание с ожидающими или отклоненными проверками в защищенную ветвь, он получит сообщение об ошибке.
 
 ```shell
 remote: error: GH006: Protected branch update failed for refs/heads/main.
 remote: error: Changes have been requested.
 ```
 
-Optionally, you can choose to dismiss stale pull request approvals when commits are pushed. If anyone pushes a commit that modifies code to an approved pull request, the approval will be dismissed, and the pull request cannot be merged. This doesn't apply if the collaborator pushes commits that don't modify code, like merging the base branch into the pull request's branch. For information about the base branch, see "[About pull requests](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)."
+При необходимости при отправке фиксаций можно отклонять устаревшие утверждения запросов на вытягивание. Если кто-либо отправляет фиксацию, которая изменяет код на утвержденный запрос на вытягивание, утверждение будет отклонено, и запрос на вытягивание будет невозможно объединить. Это не относится к случаям, когда участник совместной работы отправляет фиксации, не изменяющие код, например, слияние базовой ветви в ветвь запроса на вытягивание. Сведения о базовой ветви см. в статье [Сведения о запросах на вытягивание](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests).
 
-Optionally, you can restrict the ability to dismiss pull request reviews to specific people or teams. For more information, see "[Dismissing a pull request review](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/dismissing-a-pull-request-review)."
+При необходимости можно ограничить возможность отклонять проверки запросов на вытягивание определенными людьми или командами. Дополнительные сведения см. в разделе [Пропуск проверки запроса на вытягивание](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/dismissing-a-pull-request-review).
 
-Optionally, you can choose to require reviews from code owners. If you do, any pull request that affects code with a code owner must be approved by that code owner before the pull request can be merged into the protected branch.
+При необходимости можно требовать проведение проверок от владельцев кода. В этом случае любой запрос на вытягивание, влияющий на код, должен быть утвержден этим владельцем кода, прежде чем запрос на вытягивание можно будет объединить в защищенную ветвь.
 
-{% ifversion last-pusher-require-approval %}
-Optionally, you can require approvals from someone other than the last person to push to a branch before a pull request can be merged. This ensures more than one person sees pull requests in their final state before they are merged into a protected branch. If you enable this feature, the most recent user to push their changes will need an approval regardless of the required approvals branch protection. Users who have already reviewed a pull request can reapprove after the most recent push to meet this requirement.
+{% ifversion last-pusher-require-approval %} При необходимости вы можете потребовать утверждения от кого-то, кроме последнего пользователя для отправки в ветвь, прежде чем можно будет объединить запрос на вытягивание. Это гарантирует, что несколько пользователей увидят запросы на вытягивание в конечном состоянии, прежде чем они будут объединены в защищенную ветвь. Если вы включите эту функцию, последнему пользователю, который отправляет свои изменения, потребуется утверждение независимо от требуемой защиты ветви утверждений. Пользователи, которые уже рассмотрели запрос на вытягивание, могут повторно принять его после последней отправки в соответствии с этим требованием.
 {% endif %}
 
-### Require status checks before merging
+### Требовать проверки состояния перед слиянием
 
-Required status checks ensure that all required CI tests are passing before collaborators can make changes to a protected branch. Required status checks can be checks or statuses. For more information, see "[About status checks](/github/collaborating-with-issues-and-pull-requests/about-status-checks)."
+Обязательные проверки состояния обеспечивают выполнение всех необходимых тестов непрерывной интеграции перед тем, как соавторы смогут вносить изменения в защищенную ветвь. Обязательные проверки состояния могут быть проверками или состояниями. Дополнительные сведения см. в разделе [Сведения о проверках состояния](/github/collaborating-with-issues-and-pull-requests/about-status-checks).
 
-Before you can enable required status checks, you must configure the repository to use the commit status API. For more information, see "[Commit statuses](/rest/commits/statuses)" in the REST API documentation.
+Перед включением обязательных проверок состояния необходимо настроить репозиторий для использования API состояния фиксации. Дополнительные сведения см. в разделе "[Состояния фиксации](/rest/commits/statuses)" документации по REST API.
 
-After enabling required status checks, all required status checks must pass before collaborators can merge changes into the protected branch. After all required status checks pass, any commits must either be pushed to another branch and then merged or pushed directly to the protected branch.
+После включения необходимых проверок состояния все они должны быть выполнены, после чего участники совместной работы смогут объединять изменения в защищенную ветвь. После прохождения всех необходимых проверок состояния все фиксации должны быть либо отправлены в другую ветвь, а затем объединены, либо или отправлены непосредственно в защищенную ветвь.
 
-Any person or integration with write permissions to a repository can set the state of any status check in the repository{% ifversion fpt or ghes > 3.3 or ghae > 3.3 or ghec %}, but in some cases you may only want to accept a status check from a specific {% data variables.product.prodname_github_app %}. When you add a required status check, you can select an app that has recently set this check as the expected source of status updates.{% endif %} If the status is set by any other person or integration, merging won't be allowed. If you select "any source", you can still manually verify the author of each status, listed in the merge box.
+Любой пользователь или интеграция с разрешениями на запись в репозиторий может задать состояние любой проверки состояния в репозитории{% ifversion fpt or ghes > 3.3 или ghae > 3.3 или ghec %}, но в некоторых случаях может потребоваться принять проверку состояния только из определенного {% data variables.product.prodname_github_app %}. При добавлении требуемой проверки состояния можно выбрать приложение, которое недавно задало эту проверку в качестве ожидаемого источника обновлений состояния.{% endif %} Если состояние задано любым другим человеком или интеграцией, слияние будет запрещено. Если выбрать вариант "Любой источник", по-прежнему можно вручную проверять автора каждого состояния, указанного в поле слияния.
 
-You can set up required status checks to either be "loose" or "strict." The type of required status check you choose determines whether your branch is required to be up to date with the base branch before merging.
+Вы можете настроить требуемые проверки состояния как "Нестрогие" или "Строгие". Выбранный тип требуемой проверки состояния определяет, должна ли ваша ветвь быть обновлена в соответствии с базовой ветвью перед слиянием.
 
-| Type of required status check | Setting | Merge requirements | Considerations |
+| Тип требуемой проверки состояния | Параметр | Требования к слиянию | Рекомендации |
 | --- | --- | --- | --- |
-| **Strict** | The **Require branches to be up to date before merging** checkbox is checked. | The branch **must** be up to date with the base branch before merging. | This is the default behavior for required status checks. More builds may be required, as you'll need to bring the head branch up to date after other collaborators merge pull requests to the protected base branch.|
-| **Loose** | The **Require branches to be up to date before merging** checkbox is **not** checked. | The branch **does not** have to be up to date with the base branch before merging. | You'll have fewer required builds, as you won't need to bring the head branch up to date after other collaborators merge pull requests. Status checks may fail after you merge your branch if there are incompatible changes with the base branch. |
-| **Disabled** | The **Require status checks to pass before merging** checkbox is **not** checked. | The branch has no merge restrictions. | If required status checks aren't enabled, collaborators can merge the branch at any time, regardless of whether it is up to date with the base branch. This increases the possibility of incompatible changes.
+| **Strict** | Установлен флажок **Требовать актуальность ветвей перед слиянием**. | Перед слиянием ветвь **должна** быть обновлена в соответствии с базовой ветвью. | Это поведение по умолчанию для требуемых проверок состояния. Могут потребоваться дополнительные сборки, так как вам будет необходимо обновлять главную ветвь после того, как другие участники совместной работы объединят запросы на вытягивание в защищенную базовую ветвь.|
+| **Нестрогая** | Флажок **Требовать актуальность ветвей перед слиянием** **не** установлен. | Перед слиянием ветвь **не должна** быть обновлена в соответствии с базовой ветвью. | У вас будет меньше требуемых сборок, так как вам не нужно будет обновлять главную ветвь после того, как другие участники совместной работы объединят запросы на вытягивание. При наличии изменений, несовместимых с главной ветвью, проверки состояния могут завершиться ошибкой после слияния ветви. |
+| **Отключено** | Флажок **Требовать прохождения проверок состояния перед слиянием** **не** установлен. | Ветвь не имеет ограничений на слияние. | Если требуемые проверки состояния не включены, участники совместной работы могут объединить ветвь в любое время независимо от того, обновлена ли она в соответствии с базовой ветвью. Это повышает вероятность возникновения несовместимых изменений.
 
-For troubleshooting information, see "[Troubleshooting required status checks](/github/administering-a-repository/troubleshooting-required-status-checks)."
+Сведения об устранении неполадок см. в статье [Устранение неполадок, связанных с требуемыми проверками состояния](/github/administering-a-repository/troubleshooting-required-status-checks).
 
-### Require conversation resolution before merging
+### Требовать устранения разногласий перед слиянием
 
-Requires all comments on the pull request to be resolved before it can be merged to a protected branch. This ensures that all comments are addressed or acknowledged before merge.
+Требует, чтобы все комментарии к запросу на вытягивание были разрешены, прежде чем его можно будет объединить с защищенной ветвью. Это гарантирует, что перед слиянием все комментарии будут разрешены или подтверждены.
 
-### Require signed commits
+### Требование подписания фиксаций
 
-When you enable required commit signing on a branch, contributors {% ifversion fpt or ghec %}and bots{% endif %} can only push commits that have been signed and verified to the branch. For more information, see "[About commit signature verification](/articles/about-commit-signature-verification)."
+При включении обязательного подписывания фиксации в ветви участники совместной работы {% ifversion fpt or ghec %}и боты{% endif %} могут отправлять в ветвь только подписанные и проверенные фиксации. Дополнительные сведения см. в разделе [Сведения о проверке сигнатуры фиксации](/articles/about-commit-signature-verification).
 
 {% note %}
 
-{% ifversion fpt or ghec %}
-**Notes:** 
+{% ifversion fpt or ghec %} **Примечания.** 
 
-* If you have enabled vigilant mode, which indicates that your commits will always be signed, any commits that {% data variables.product.prodname_dotcom %} identifies as "Partially verified" are permitted on branches that require signed commits. For more information about vigilant mode, see "[Displaying verification statuses for all of your commits](/github/authenticating-to-github/displaying-verification-statuses-for-all-of-your-commits)."
-* If a collaborator pushes an unsigned commit to a branch that requires commit signatures, the collaborator will need to rebase the commit to include a verified signature, then force push the rewritten commit to the branch.
+* Если включен режим бдительности, указывающий, что фиксации всегда будут подписаны, все фиксации, которые {% data variables.product.prodname_dotcom %} идентифицирует как "Частично проверенные", разрешены в ветвях, требующих подписанных фиксаций. Дополнительные сведения о режиме бдительности см. в статье [Отображение состояний проверки для всех фиксаций](/github/authenticating-to-github/displaying-verification-statuses-for-all-of-your-commits).
+* Если участник совместной работы отправляет неподписанную фиксацию в ветвь, требующую подписания фиксации, ему потребуется переместить изменения из одной ветви в другую, чтобы включить проверенную подпись, а затем принудительно отправить переписанную фиксацию в ветвь.
 
-{% else %}
-**Note:** If a collaborator pushes an unsigned commit to a branch that requires commit signatures, the collaborator will need to rebase the commit to include a verified signature, then force push the rewritten commit to the branch.
+{% else %} **Примечание.** Если участник совместной работы отправляет неподписанную фиксацию в ветвь, требующую подписания фиксации, ему потребуется переместить изменения из одной ветви в другую, чтобы включить проверенную подпись, а затем принудительно отправить переписанную фиксацию в ветвь.
 {% endif %}
 
 {% endnote %}
 
-You can always push local commits to the branch if the commits are signed and verified. {% ifversion fpt or ghec %}You can also merge signed and verified commits into the branch using a pull request on {% data variables.product.product_name %}. However, you cannot squash and merge a pull request into the branch on {% data variables.product.product_name %} unless you are the author of the pull request.{% else %} However, you cannot merge pull requests into the branch on {% data variables.product.product_name %}.{% endif %} You can {% ifversion fpt or ghec %}squash and {% endif %}merge pull requests locally. For more information, see "[Checking out pull requests locally](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/checking-out-pull-requests-locally)."
+Вы всегда можете отправлять локальные фиксации в ветвь, если они подписаны и проверены. {% ifversion fpt or ghec %}Вы можете также объединить подписанные и проверенные фиксации в ветвь с помощью запроса на вытягивание в {% data variables.product.product_name %}. Однако вы не можете объединить запрос на вытягивание в ветвь на {% data variables.product.product_name %}, если вы не являетесь автором запроса на вытягивание. {% else %} Однако вы не можете объединить запросы на вытягивание в ветвь на {% data variables.product.product_name %}. {% endif %} Вы можете {% ifversion fpt or ghec %}squash и {% endif %}объединить запросы на вытягивание локально. Дополнительные сведения см. в статье [Локальное извлечение запросов на вытягивание](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/checking-out-pull-requests-locally).
 
-{% ifversion fpt or ghec %} For more information about merge methods, see "[About merge methods on {% data variables.product.prodname_dotcom %}](/github/administering-a-repository/about-merge-methods-on-github)."{% endif %}
+{% ifversion fpt or ghec %} Дополнительные сведения о методах слияния см. в статье [Сведения о методах слияния в {% data variables.product.prodname_dotcom %}](/github/administering-a-repository/about-merge-methods-on-github).{% endif %}
 
-### Require linear history
+### Требовать линейный журнал
 
-Enforcing a linear commit history prevents collaborators from pushing merge commits to the branch. This means that any pull requests merged into the protected branch must use a squash merge or a rebase merge. A strictly linear commit history can help teams reverse changes more easily. For more information about merge methods, see "[About pull request merges](/github/collaborating-with-issues-and-pull-requests/about-pull-request-merges)."
+Если применяется линейный журнал фиксаций, участники совместной работы не смогут отправлять фиксации слияния в ветвь. Это означает, что все запросы на вытягивание, объединенные в защищенную ветвь, должны использовать слияние со сжатием или слияние с перемещением из одной ветви в другую. Используя строго линейный журнал фиксаций, команды могут быстрее отменять изменения. Дополнительные сведения о методах слияния см. в статье [Сведения о слияниях запросов на вытягивание](/github/collaborating-with-issues-and-pull-requests/about-pull-request-merges).
 
-Before you can require a linear commit history, your repository must allow squash merging or rebase merging. For more information, see "[Configuring pull request merges](/github/administering-a-repository/configuring-pull-request-merges)."
+Прежде чем требовать линейный журнал фиксаций, репозиторий должен разрешить слияние со сжатием или слияние с перемещением из одной ветви в другую. Дополнительные сведения см. в разделе [Настройка объединения запросов на вытягивание](/github/administering-a-repository/configuring-pull-request-merges).
 
 {% ifversion fpt or ghec %}
-### Require merge queue
+### Требовать очередь слияния
 
-{% data reusables.pull_requests.merge-queue-beta %}
-{% data reusables.pull_requests.merge-queue-overview %}
+{% data reusables.pull_requests.merge-queue-beta %} {% data reusables.pull_requests.merge-queue-overview %}
  
-{% data reusables.pull_requests.merge-queue-merging-method %}
-{% data reusables.pull_requests.merge-queue-references %}
+{% data reusables.pull_requests.merge-queue-merging-method %} {% data reusables.pull_requests.merge-queue-references %}
 
 {% endif %}
 
-### Require deployments to succeed before merging
+### Требовать успешного развертывания перед слиянием
 
-You can require that changes are successfully deployed to specific environments before a branch can be merged. For example, you can use this rule to ensure that changes are successfully deployed to a staging environment before the changes merge to your default branch.
+Вы можете потребовать успешного развертывания изменений в определенные среды, прежде чем можно будет выполнить слияние ветви. Например, это правило можно использовать для успешного развертывания изменений в промежуточную среду перед слиянием изменений в ветвь по умолчанию.
 
 {% ifversion lock-branch %}
-### Lock branch
+### Блокировка ветви
 
-Locking a branch ensures that no commits can be made to the branch. 
-By default, a forked repository does not support syncing from its upstream repository. You can enable **Allow fork syncing** to pull changes from the upstream repository while preventing other contributions to the fork's branch.
-{%  endif %}
-
-{% ifversion bypass-branch-protections %}### Do not allow bypassing the above settings{% else %}
-### Include administrators{% endif %}
-
-{% ifversion bypass-branch-protections %}
-By default, the restrictions of a branch protection rule do not apply to people with admin permissions to the repository or custom roles with the "bypass branch protections" permission in a repository. 
-
-You can enable this setting to apply the restrictions to admins and roles with the "bypass branch protections" permission, too.  For more information, see "[Managing custom repository roles for an organization](/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)".
-{% else %}
-By default, protected branch rules do not apply to people with admin permissions to a repository. You can enable this setting to include administrators in your protected branch rules.{% endif %}
-
-### Restrict who can push to matching branches
-
-{% ifversion fpt or ghec %}
-You can enable branch restrictions if your repository is owned by an organization using {% data variables.product.prodname_team %} or {% data variables.product.prodname_ghe_cloud %}.
+Блокировка ветви гарантирует отсутствие фиксаций в ветви. По умолчанию вилку репозитория не поддерживает синхронизацию из вышестоящего репозитория. Вы можете включить **параметр Разрешить синхронизацию вилок** для извлечения изменений из вышестоящего репозитория, не позволяя вносить другие изменения в ветвь вилки.
 {% endif %}
 
-When you enable branch restrictions, only users, teams, or apps that have been given permission can push to the protected branch. You can view and edit the users, teams, or apps with push access to a protected branch in the protected branch's settings. When status checks are required, the people, teams, and apps that have permission to push to a protected branch will still be prevented from merging into the branch when the required checks fail. People, teams, and apps that have permission to push to a protected branch will still need to create a pull request when pull requests are required.
+{% ifversion bypass-branch-protections %}### Не разрешать обход указанных выше параметров{% else %}
+### Включить администраторов{% endif %}
 
-{% ifversion restrict-pushes-create-branch %}
-Optionally, you can apply the same restrictions to the creation of branches that match the rule. For example, if you create a rule that only allows a certain team to push to any branches that contain the word `release`, only members of that team would be able to create a new branch that contains the word `release`.
+{% ifversion bypass-branch-protections %} По умолчанию ограничения правила защиты ветви не применяются к пользователям с разрешениями администратора для репозитория или пользовательских ролей с разрешением "обход защиты ветви" в репозитории. 
+
+Вы также можете включить этот параметр для применения ограничений к администраторам и ролям с разрешением "обход защиты ветви".  Дополнительные сведения см. в статье [Управление пользовательскими ролями репозитория для организации](/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization).
+{% else %} По умолчанию правила защищенных ветвей не применяются к пользователям с разрешениями администратора в репозитории. Этот параметр можно использовать для включения администраторов в правила защищенных ветвей.{% endif %}
+
+### Ограничить пользователей, которые могут выполнять отправку в соответствующие ветви
+
+{% ifversion fpt or ghec %} Вы можете включить ограничения для ветвей, если ваш репозиторий принадлежит организации, использующей {% data variables.product.prodname_team %} или {% data variables.product.prodname_ghe_cloud %}.
 {% endif %}
 
-You can only give push access to a protected branch, or give permission to create a matching branch, to users, teams, or installed {% data variables.product.prodname_github_apps %} with write access to a repository. People and apps with admin permissions to a repository are always able to push to a protected branch{% ifversion restrict-pushes-create-branch %} or create a matching branch{% endif %}.
+При включении ограничений для ветвей выполнять отправку в защищенную ветвь могут только пользователи, команды или приложения, которым предоставлено соответствующее разрешение. Просматривать и изменять пользователей, команды или приложения с правами на отправку в защищенную ветвь можно в параметрах защищенной ветви. Если требуются проверки состояния, пользователям, командам и приложениям, имеющим разрешение на отправку в защищенную ветвь, по-прежнему будет запрещено выполнять слияние в ветвь при сбое требуемых проверок. Пользователям, командам и приложениям, имеющим разрешение на отправку в защищенную ветвь, по-прежнему потребуется создать запрос на вытягивание, если требуются запросы на вытягивание.
 
-### Allow force pushes
-
-{% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
-By default, {% data variables.product.product_name %} blocks force pushes on all protected branches. When you enable force pushes to a protected branch, you can choose one of two groups who can force push:
-
-1. Allow everyone with at least write permissions to the repository to force push to the branch, including those with admin permissions.
-1. Allow only specific people or teams to force push to the branch.
-
-If someone force pushes to a branch, the force push may overwrite commits that other collaborators based their work on. People may have merge conflicts or corrupted pull requests.
-
-{% else %}
-By default, {% data variables.product.product_name %} blocks force pushes on all protected branches. When you enable force pushes to a protected branch, anyone with at least write permissions to the repository can force push to the branch, including those with admin permissions. If someone force pushes to a branch, the force push may overwrite commits that other collaborators based their work on. People may have merge conflicts or corrupted pull requests.
+{% ifversion restrict-pushes-create-branch %} При необходимости можно применить те же ограничения к созданию ветвей, которые соответствуют правилу. Например, если вы создаете правило, которое позволяет выполнять отправки в ветви, содержащие слово `release`, только определенной команде, только члены этой команды смогут создать новую ветвь, содержащую слово `release`.
 {% endif %}
 
-Enabling force pushes will not override any other branch protection rules. For example, if a branch requires a linear commit history, you cannot force push merge commits to that branch.
+Вы можете предоставить права на отправку в защищенную ветвь или предоставить разрешение на создание соответствующей ветви только пользователям, командам или установленным {% data variables.product.prodname_github_apps %} с доступом на запись в репозиторий. Люди и приложения с разрешениями администратора для репозитория всегда могут отправить в защищенную ветвь{% ifversion restrict-pushes-create-branch %} или создать соответствующую ветвь{% endif %}.
 
-{% ifversion ghes or ghae %}You cannot enable force pushes for a protected branch if a site administrator has blocked force pushes to all branches in your repository. For more information, see "[Blocking force pushes to repositories owned by a personal account or organization](/enterprise/admin/developer-workflow/blocking-force-pushes-to-repositories-owned-by-a-user-account-or-organization)."
+### Разрешить принудительные отправки
 
-If a site administrator has blocked force pushes to the default branch only, you can still enable force pushes for any other protected branch.{% endif %}
+{% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %} По умолчанию {% data variables.product.product_name %} блокирует принудительные отправки во все защищенные ветви. При включении принудительной отправки в защищенную ветвь можно выбрать одну из двух групп, которые поддерживают принудительную отправку:
 
-### Allow deletions
+1. Разрешить всем, у кого есть по крайней мере разрешения на запись в репозиторий, включая администраторов, выполнять принудительную отправку в ветвь.
+1. Разрешить выполнять принудительную отправку в ветвь только определенным пользователям или командам.
 
-By default, you cannot delete a protected branch. When you enable deletion of a protected branch, anyone with at least write permissions to the repository can delete the branch.
+Если кто-то выполняет принудительную отправку в ветвь, такая отправка может перезаписать фиксации, являющиеся основой работы других участников совместной работы. У людей могут возникнуть конфликты слияния или появиться поврежденные запросы на вытягивание.
+
+{% else %} По умолчанию {% data variables.product.product_name %}блокирует принудительные отправки во все защищенные ветви. При включении принудительной отправки в защищенную ветвь выполнять такой вид отправки может любой пользователь, имеющий по крайней мере разрешения на запись в репозиторий. Это могут делать и пользователи с разрешениями администратора. Если кто-то выполняет принудительную отправку в ветвь, такая отправка может перезаписать фиксации, являющиеся основой работы других участников совместной работы. У людей могут возникнуть конфликты слияния или появиться поврежденные запросы на вытягивание.
+{% endif %}
+
+Включение принудительных отправок не переопределит другие правила защиты ветвей. Например, если ветви требуется линейный журнал фиксаций, принудительно отправлять фиксации слияния в эту ветвь невозможно.
+
+{% ifversion ghes or ghae %}Вы не можете включить принудительные отправки в защищенную ветвь, если администратор сайта заблокировал принудительные отправки во все ветви в вашем репозитории. Дополнительные сведения см. в статье [Блокировка принудительных отправок в репозитории, принадлежащие личной учетной записи или организации](/enterprise/admin/developer-workflow/blocking-force-pushes-to-repositories-owned-by-a-user-account-or-organization).
+
+Если администратор сайта заблокировал принудительные отправки только в ветвь по умолчанию, вы по-прежнему можете включить принудительные отправки в любую другую защищенную ветвь.{% endif %}
+
+### Разрешить удаления
+
+По умолчанию удалить защищенную ветвь невозможно. Если включено удаление защищенной ветви, удалить ее может любой пользователь, имеющий по крайней мере разрешения на запись в репозиторий.

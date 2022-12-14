@@ -1,6 +1,6 @@
 ---
-title: Working with the Apache Maven registry
-intro: 'You can configure Apache Maven to publish packages to {% data variables.product.prodname_registry %} and to use packages stored on {% data variables.product.prodname_registry %} as dependencies in a Java project.'
+title: Apache Maven 레지스트리 작업
+intro: '패키지를 {% data variables.product.prodname_registry %}에 게시하고 {% data variables.product.prodname_registry %}에 저장된 패키지를 Java 프로젝트의 종속성으로 사용하도록 Apache Maven을 구성할 수 있습니다.'
 product: '{% data reusables.gated-features.packages %}'
 redirect_from:
   - /articles/configuring-apache-maven-for-use-with-github-package-registry
@@ -14,36 +14,38 @@ versions:
   ghae: '*'
   ghec: '*'
 shortTitle: Apache Maven registry
+ms.openlocfilehash: 7231e2298c02bcddec875d62ffb334b1d068c1a8
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148099133'
 ---
-
-{% data reusables.package_registry.packages-ghes-release-stage %}
-{% data reusables.package_registry.packages-ghae-release-stage %}
+{% data reusables.package_registry.packages-ghes-release-stage %} {% data reusables.package_registry.packages-ghae-release-stage %}
 
 {% data reusables.package_registry.admins-can-configure-package-types %}
 
-## Authenticating to {% data variables.product.prodname_registry %}
+## {% data variables.product.prodname_registry %} 인증
 
 {% data reusables.package_registry.authenticate-packages %}
 
 {% data reusables.package_registry.authenticate-packages-github-token %}
 
-### Authenticating with a {% data variables.product.pat_generic %}
+### {% 데이터 variables.product.pat_generic %}을(를) 사용하여 인증
 
 {% data reusables.package_registry.required-scopes %}
 
-You can authenticate to {% data variables.product.prodname_registry %} with Apache Maven by editing your *~/.m2/settings.xml* file to include your {% data variables.product.pat_v1 %}. Create a new *~/.m2/settings.xml* file if one doesn't exist.
+{% 데이터 variables.product.prodname_registry %}을(를) 포함하도록 *~/.m2/settings.xml* 파일을 편집하여 Apache Maven에서 {% 데이터 variables.product.pat_v1 %}에 인증할 수 있습니다. *~/.m2/settings.xml* 파일이 없으면 새로 만듭니다.
 
-In the `servers` tag, add a child `server` tag with an `id`, replacing *USERNAME* with your {% data variables.product.prodname_dotcom %} username, and *TOKEN* with your {% data variables.product.pat_generic %}.
+태그에 `servers` 자식 `server` 태그를 `id`추가하고 *USERNAME* 을 {% 데이터 variables.product.prodname_dotcom %} 사용자 이름으로 대체하고 *토큰* 을 {% 데이터 variables.product.pat_generic %}으로 추가합니다.
 
-In the `repositories` tag, configure a repository by mapping the `id` of the repository to the `id` you added in the `server` tag containing your credentials. Replace {% ifversion ghes or ghae %}*HOSTNAME* with the host name of {% data variables.location.product_location %}, and{% endif %} *OWNER* with the name of the user or organization account that owns the repository. Because uppercase letters aren't supported, you must use lowercase letters for the repository owner even if the {% data variables.product.prodname_dotcom %} user or organization name contains uppercase letters.
+`repositories` 태그에서 자격 증명을 포함하는 `server` 태그에 추가한 `id`에 리포지토리의 `id`를 자격 증명을 매핑하여 리포지토리를 구성합니다. {% ifversion ghes 또는 ghae %}*HOSTNAME* 을 {% data variables.location.product_location %}의 호스트 이름으로 바꾸고{% endif %} *OWNER* 를 리포지토리를 소유한 사용자 또는 조직 계정의 이름으로 바꿉니다. 대문자는 지원되지 않으므로 {% data variables.product.prodname_dotcom %} 사용자 이름 또는 조직 이름에 대문자가 포함되어 있더라도 리포지토리 소유자에는 소문자를 사용해야 합니다.
 
-If you want to interact with multiple repositories, you can add each repository to separate `repository` children in the `repositories` tag, mapping the `id` of each to the credentials in the `servers` tag.
+여러 리포지토리와 상호 작용하려는 경우 `repositories` 태그의 개별적인 `repository` 자식에 각 리포지토리를 추가하여 `servers` 태그의 자격 증명에 각 리포지토리의 `id`를 매핑할 수 있습니다.
 
 {% data reusables.package_registry.apache-maven-snapshot-versions-supported %}
 
-{% ifversion ghes %}
-If your instance has subdomain isolation enabled:
-{% endif %}
+{% ifversion ghes %} 인스턴스에 하위 도메인 격리가 사용된 경우: {% endif %}
 
 ```xml
 <settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
@@ -84,8 +86,7 @@ If your instance has subdomain isolation enabled:
 </settings>
 ```
 
-{% ifversion ghes %}
-If your instance has subdomain isolation disabled:
+{% ifversion ghes %} 인스턴스에 하위 도메인 격리가 사용되지 않은 경우:
 
 ```xml
 <settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
@@ -127,17 +128,17 @@ If your instance has subdomain isolation disabled:
 ```
 {% endif %}
 
-## Publishing a package
+## 패키지 게시
 
-{% data reusables.package_registry.default-name %} For example, {% data variables.product.prodname_dotcom %} will publish a package named `com.example:test` in a repository called `OWNER/test`.
+{% data reusables.package_registry.default-name %} 예를 들어 {% data variables.product.prodname_dotcom %}는 `OWNER/test`라는 이름의 리포지토리의 `com.example:test`라는 이름의 패키지를 게시합니다.
 
-If you would like to publish multiple packages to the same repository, you can include the URL of the repository in the `<distributionManagement>` element of the *pom.xml* file. {% data variables.product.prodname_dotcom %} will match the repository based on that field. Since the repository name is also part of the `distributionManagement` element, there are no additional steps to publish multiple packages to the same repository.
+여러 패키지를 동일한 리포지토리에 게시하려는 경우 `<distributionManagement>`pom.xml *파일의* 요소에 리포지토리의 URL을 포함할 수 있습니다. {% data variables.product.prodname_dotcom %}은 해당 필드에 따라 리포지토리와 일치시킵니다. 리포지토리 이름도 `distributionManagement` 요소의 일부이므로 동일한 리포지토리에 여러 패키지를 게시하는 추가 단계는 없습니다.
 
-For more information on creating a package, see the [maven.apache.org documentation](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html).
+패키지를 만드는 방법에 대한 자세한 내용은 [maven.apache.org 설명서](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html)를 참조하세요.
 
-1. Edit the `distributionManagement` element of the *pom.xml* file located in your package directory, replacing {% ifversion ghes or ghae %}*HOSTNAME* with the host name of {% data variables.location.product_location %}, {% endif %}`OWNER` with the name of the user or organization account that owns the repository and `REPOSITORY` with the name of the repository containing your project.{% ifversion ghes %}
+1. `distributionManagement` 패키지 디렉터리에 있는 *pom.xml* 파일의 요소를 편집하여 {% ifversion ghes 또는 ghae %}*HOSTNAME* 을 {% data variables.location.product_location %}의 호스트 이름으로, {% endif %}`OWNER`을(를) 리포지 `REPOSITORY` 토리를 소유하는 사용자 또는 조직 계정의 이름과 프로젝트가 포함된 리포지토리의 이름으로 바꿔야 합니다.{ % ifversion ghes %}
 
-  If your instance has subdomain isolation enabled:{% endif %}
+  인스턴스에 하위 도메인 격리가 사용 설정된 경우:{% endif %}
   ```xml
   <distributionManagement>
      <repository>
@@ -165,12 +166,12 @@ For more information on creating a package, see the [maven.apache.org documentat
 
 {% data reusables.package_registry.viewing-packages %}
 
-## Installing a package
+## 패키지 설치
 
-To install an Apache Maven package from {% data variables.product.prodname_registry %}, edit the *pom.xml* file to include the package as a dependency. If you want to install packages from more than one repository, add a `repository` tag for each. For more information on using a *pom.xml* file in your project, see "[Introduction to the POM](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html)" in the Apache Maven documentation.
+{% data variables.product.prodname_registry %}에서 Apache Maven 패키지를 설치하려면 패키지를 종속성으로 포함하도록 *pom.xml* 파일을 편집합니다. 둘 이상의 리포지토리에서 패키지를 설치하려면 각 리포지토리에 대한 `repository` 태그를 추가합니다. 프로젝트에서 *pom.xml* 파일을 사용하는 방법에 대한 자세한 내용은 Apache Maven 설명서의 “[POM 소개](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html)”를 참조하세요.
 
 {% data reusables.package_registry.authenticate-step %}
-2. Add the package dependencies to the `dependencies` element of your project *pom.xml* file, replacing `com.example:test` with your package.
+2. 패키지 종속성을 프로젝트 *pom.xml* 파일의 `dependencies` 요소에 패키지 종속성을 추가하고 `com.example:test`를 패키지로 변경합니다.
 
   ```xml
   <dependencies>
@@ -182,13 +183,13 @@ To install an Apache Maven package from {% data variables.product.prodname_regis
   </dependencies>
   ```
 {% data reusables.package_registry.checksum-maven-plugin %}
-3. Install the package.
+3. 패키지를 설치합니다.
 
   ```shell
   $ mvn install
   ```
 
-## Further reading
+## 추가 참고 자료
 
-- "[Working with the Gradle registry](/packages/working-with-a-github-packages-registry/working-with-the-gradle-registry)"
-- "[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package)"
+- “[Gradle 레지스트리 작업](/packages/working-with-a-github-packages-registry/working-with-the-gradle-registry)”
+- “[패키지 삭제 및 복원](/packages/learn-github-packages/deleting-and-restoring-a-package)”

@@ -1,6 +1,6 @@
 ---
-title: Drafting a listing for your app
-intro: 'When you create a {% data variables.product.prodname_marketplace %} listing, GitHub saves it in draft mode until you submit the app for approval. Your listing shows customers how they can use your app.'
+title: Создание черновика профиля для приложения
+intro: 'При создании списка {% data variables.product.prodname_marketplace %} GitHub сохраняет его в режиме черновика, пока вы не отправите приложение на утверждение. Ваш список показывает пользователям, как использовать ваше приложение.'
 redirect_from:
   - /apps/adding-integrations/listing-apps-on-github-marketplace/listing-an-app-on-github-marketplace
   - /apps/marketplace/listing-apps-on-github-marketplace/listing-an-app-on-github-marketplace
@@ -19,50 +19,54 @@ versions:
 topics:
   - Marketplace
 shortTitle: Draft an app listing
+ms.openlocfilehash: 9dccf5486c446c5cdd9dbef4d36650340116e044
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145089693'
 ---
-## Create a new draft {% data variables.product.prodname_marketplace %} listing
+## Создание черновика профиля в {% data variables.product.prodname_marketplace %}
 
-You can only create draft listings for apps that are public. Before creating your draft listing, you can read the following guidelines for writing and configuring settings in your {% data variables.product.prodname_marketplace %} listing:
+Создавать черновики профилей можно только для общедоступных приложений. Перед созданием черновика профиля можно ознакомиться со следующими рекомендациями по написанию и настройке параметров в профиле {% data variables.product.prodname_marketplace %}:
 
-* [Writing {% data variables.product.prodname_marketplace %} listing descriptions](/marketplace/listing-on-github-marketplace/writing-github-marketplace-listing-descriptions/)
-* [Setting a {% data variables.product.prodname_marketplace %} listing's pricing plan](/marketplace/listing-on-github-marketplace/setting-a-github-marketplace-listing-s-pricing-plan/)
-* [Configuring the {% data variables.product.prodname_marketplace %} Webhook](/marketplace/listing-on-github-marketplace/configuring-the-github-marketplace-webhook/)
+* [Написание описаний для профилей в {% data variables.product.prodname_marketplace %}](/marketplace/listing-on-github-marketplace/writing-github-marketplace-listing-descriptions/)
+* [Задание ценового плана для профиля в {% data variables.product.prodname_marketplace %}](/marketplace/listing-on-github-marketplace/setting-a-github-marketplace-listing-s-pricing-plan/)
+* [Настройка веб-перехватчика {% data variables.product.prodname_marketplace %}](/marketplace/listing-on-github-marketplace/configuring-the-github-marketplace-webhook/)
 
-To create a {% data variables.product.prodname_marketplace %} listing:
+Чтобы создать профиль в {% data variables.product.prodname_marketplace %}, выполните указанные ниже действия.
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.developer_settings %}
-3. In the left sidebar, click either **OAuth Apps** or **GitHub Apps** depending on the app you're adding to {% data variables.product.prodname_marketplace %}.
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.developer_settings %}
+3. На левой боковой панели выберите пункт **Приложения OAuth** или **Приложения GitHub** в зависимости от того, какое приложение добавляется в {% data variables.product.prodname_marketplace %}.
 
   {% note %}
 
-  **Note**: You can also add a listing by navigating to https://github.com/marketplace/new, viewing your available apps, and clicking **Create draft listing**.
+  **Примечание**. Профиль можно также добавить, перейдя к https://github.com/marketplace/new, просмотрев доступные приложения и нажав кнопку **Создать черновик профиля**.
 
   {% endnote %}
 
-  ![App type selection](/assets/images/settings/apps_choose_app.png)
+  ![Выбор типа приложения](/assets/images/settings/apps_choose_app.png)
 
-4. Select the app you'd like to add to {% data variables.product.prodname_marketplace %}.
-![App selection for {% data variables.product.prodname_marketplace %} listing](/assets/images/github-apps/github_apps_select-app.png)
-{% data reusables.user-settings.edit_marketplace_listing %}
-5. Once you've created a new draft listing, you'll see an overview of the sections that you'll need to visit before your {% data variables.product.prodname_marketplace %} listing will be complete.
-![GitHub Marketplace listing](/assets/images/marketplace/marketplace_listing_overview.png)
+4. Выберите приложение, которое нужно добавить в {% data variables.product.prodname_marketplace %}.
+![Выбор приложения для профиля в {% data variables.product.prodname_marketplace %}](/assets/images/github-apps/github_apps_select-app.png) {% data reusables.user-settings.edit_marketplace_listing %}
+5. После создания черновика профиля вы увидите обзор разделов, которые необходимо заполнить, чтобы завершить создание профиля в {% data variables.product.prodname_marketplace %}.
+![Профиль в GitHub Marketplace](/assets/images/marketplace/marketplace_listing_overview.png)
 
 
 {% note %}
 
-**Note:** In the "Contact info" section of your listing, we recommend using individual email addresses, rather than group emails addresses like support@domain.com. GitHub will use these email addresses to contact you about updates to {% data variables.product.prodname_marketplace %} that might affect your listing, new feature releases, marketing opportunities, payouts, and information on conferences and sponsorships.
+**Примечание**. В разделе "Контактные данные" профиля рекомендуется использовать отдельные адреса электронной почты, а не групповые, например support@domain.com. GitHub будет использовать эти адреса электронной почты, чтобы сообщать вам об обновлениях в {% data variables.product.prodname_marketplace %}, которые могут повлиять на ваш профиль, выпуске новых функций, маркетинговых возможностях, выплатах, конференциях и спонсорских предложениях.
 
 {% endnote %}
 
-## Editing your listing
+## Редактирование профиля
 
-Once you've created a {% data variables.product.prodname_marketplace %} draft listing, you can come back to modify information in your listing anytime. If your app is already approved and in {% data variables.product.prodname_marketplace %}, you can edit the information and images in your listing, but you will not be able to change existing published pricing plans. See "[Setting a {% data variables.product.prodname_marketplace %} listing's pricing plan](/marketplace/listing-on-github-marketplace/setting-a-github-marketplace-listing-s-pricing-plan/)."
+После создания черновика профиля в {% data variables.product.prodname_marketplace %} вы можете в любое время вернуться к изменению сведений профиля. Если приложение уже утверждено и опубликовано в {% data variables.product.prodname_marketplace %}, вы можете изменять сведения и изображения в профиле, но не опубликованные ценовые планы. См. раздел [Задание ценового плана для профиля в {% data variables.product.prodname_marketplace %}](/marketplace/listing-on-github-marketplace/setting-a-github-marketplace-listing-s-pricing-plan/).
 
-## Submitting your app
+## Отправка приложения
 
-Once you've completed your {% data variables.product.prodname_marketplace %} listing, you can submit your listing for review from the **Overview** page. You'll need to read and accept the "[{% data variables.product.prodname_marketplace %} Developer Agreement](/free-pro-team@latest/github/site-policy/github-marketplace-developer-agreement/)," and then you can click **Submit for review**. After you submit your app for review, an onboarding expert will contact you with additional information about the onboarding process.
+Завершив создание профиля в {% data variables.product.prodname_marketplace %}, можно отправить его на проверку со страницы **Обзор**. Вам потребуется прочитать и принять условия [Соглашения {% data variables.product.prodname_marketplace %} для разработчиков](/free-pro-team@latest/github/site-policy/github-marketplace-developer-agreement/), а затем щелкнуть **Отправить на проверку**. После отправки приложения на проверку специалист по подключению свяжется с вами и даст дополнительные указания.
 
-## Removing a {% data variables.product.prodname_marketplace %} listing
+## Удаление профиля {% data variables.product.prodname_marketplace %}
 
-If you no longer want to list your app in {% data variables.product.prodname_marketplace %}, contact {% data variables.contact.contact_support %} to remove your listing.
+Если вы хотите убрать приложение из {% data variables.product.prodname_marketplace %}, обратитесь в {% data variables.contact.contact_support %}.

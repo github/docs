@@ -1,7 +1,15 @@
-When you select the **Squash and merge** option on a pull request on {% data variables.location.product_location %}, the pull request's commits are squashed into a single commit. Instead of seeing all of a contributor's individual commits from a topic branch, the commits are combined into one commit and merged into the default branch. Pull requests with squashed commits are merged using the [fast-forward option](https://git-scm.com/docs/git-merge#_fast_forward_merge).
+---
+ms.openlocfilehash: c7eea7975ef49a5a6e3deed2ade3cb6bb5543ac0
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "145105859"
+---
+Wenn du die Option **Squashmerge** in einem Pull Request auf {% data variables.product.product_location %} auswählst, werden die Commits des Pull Requests in einem einzigen Commit zusammengefasst. Anstatt dass alle einzelnen Commits eines Mitarbeiters aus einem Themen-Branch angezeigt werden, werden die Commits in einem Commit kombiniert und in den Standardbranch zusammengeführt. Pull Request mit so zusammengefassten Commits werden mithilfe der [Vorlaufoption](https://git-scm.com/docs/git-merge#_fast_forward_merge) gemergt.
 
-To squash and merge pull requests, you must have [write permissions](/articles/repository-permission-levels-for-an-organization/) in the repository, and the repository must [allow squash merging](/articles/configuring-commit-squashing-for-pull-requests/).
+Zum Squashmergen von Pull Requests musst du über [Schreibberechtigungen](/articles/repository-permission-levels-for-an-organization/) im Repository verfügen, und das Repository muss das [Squashmergen zulassen](/articles/configuring-commit-squashing-for-pull-requests/).
 
-![commit-squashing-diagram](/assets/images/help/pull_requests/commit-squashing-diagram.png)
+![Commit-Squashing-Diagramm](/assets/images/help/pull_requests/commit-squashing-diagram.png)
 
-You can use squash and merge to create a more streamlined Git history in your repository. Work-in-progress commits are helpful when working on a feature branch, but they aren’t necessarily important to retain in the Git history. If you squash these commits into one commit while merging to the default branch, you can retain the original changes with a clear Git history.
+Mittels Squash und Merge kannst du einen optimierteren Git-Verlauf in deinem Repository erstellen. In Arbeit befindliche Commits sind hilfreich, wenn du auf einem Feature-Branch arbeitest, sie müssen aber nicht unbedingt im Git-Verlauf beibehalten werden. Wenn du diese Commits während dem Merge zum Standardbranch in einen Commit zusammenführst (squashen), kannst du die ursprünglichen Änderungen in einem leeren Git-Verlauf beibehalten.

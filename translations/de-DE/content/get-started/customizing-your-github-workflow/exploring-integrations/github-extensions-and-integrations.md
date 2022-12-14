@@ -1,6 +1,6 @@
 ---
-title: GitHub extensions and integrations
-intro: 'Use {% data variables.product.product_name %} extensions to work seamlessly in {% data variables.product.product_name %} repositories within third-party applications.'
+title: GitHub-Erweiterungen und -Integrationen
+intro: 'Mit {% data variables.product.product_name %}-Erweiterungen kannst du problemlos in {% data variables.product.product_name %}-Repositorys mit Anwendungen von Drittanbietern zusammenarbeiten.'
 redirect_from:
   - /articles/about-github-extensions-for-third-party-applications
   - /articles/github-extensions-and-integrations
@@ -10,43 +10,53 @@ versions:
   fpt: '*'
   ghec: '*'
 shortTitle: Extensions & integrations
+ms.openlocfilehash: f33ce9b9ae55e523bedff1309f3f2f15202dcf82
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147884213'
 ---
-## Editor tools
+## Editor-Tools
 
-You can connect to {% data variables.product.product_name %} repositories within third-party editor tools such as Unity and {% data variables.product.prodname_vs %}.
+Um Verbindungen mit {% data variables.product.product_name %}-Repositorys herzustellen, kannst du Editortools von Drittanbietern wie Atom, Unity und {% data variables.product.prodname_vs %} verwenden.
 
-### {% data variables.product.product_name %} for Unity
+### {% data variables.product.product_name %} für Atom
 
-With the {% data variables.product.product_name %} for Unity editor extension, you can develop on Unity, the open source game development platform, and see your work on {% data variables.product.product_name %}. For more information, see the official Unity editor extension [site](https://unity.github.com/) or the [documentation](https://github.com/github-for-unity/Unity/tree/master/docs).
+Mit der {% data variables.product.product_name %}-Erweiterung für Atom stehen im Atom-Editor Funktionen zum Committen, Pushen, Abrufen mit <code>pull</code>, Beheben von Mergekonflikten etc. zur Verfügung. Weitere Informationen findest du auf der offiziellen [Website von {% data variables.product.product_name %} für Atom](https://github.atom.io/).
 
-### {% data variables.product.product_name %} for {% data variables.product.prodname_vs %}
+### {% data variables.product.product_name %} für Unity
 
-With the {% data variables.product.product_name %} for {% data variables.product.prodname_vs %} extension, you can work in {% data variables.product.product_name %} repositories without leaving {% data variables.product.prodname_vs %}. For more information, see the official {% data variables.product.prodname_vs %} extension [site](https://visualstudio.github.com/) or [documentation](https://github.com/github/VisualStudio/tree/master/docs).
+Mit der {% data variables.product.product_name %}-Erweiterung für den Unity-Editor kannst Du auf Unity (der Open-Source Spiele-Entwicklungsplattform) entwickeln und Deine Arbeit auf {% data variables.product.product_name %} ansehen. Weitere Informationen findest du auf der offiziellen [Website](https://unity.github.com/) zur Unity-Editor-Erweiterung oder in der [Dokumentation](https://github.com/github-for-unity/Unity/tree/master/docs).
 
-### {% data variables.product.prodname_dotcom %} for {% data variables.product.prodname_vscode %}
+### {% data variables.product.product_name %} für {% data variables.product.prodname_vs %}
 
-With the {% data variables.product.prodname_dotcom %} for {% data variables.product.prodname_vscode %} extension, you can review and manage {% data variables.product.product_name %} pull requests in {% data variables.product.prodname_vscode_shortname %}. For more information, see the official {% data variables.product.prodname_vscode_shortname %} extension [site](https://vscode.github.com/) or [documentation](https://github.com/Microsoft/vscode-pull-request-github).
+Mit der {% data variables.product.product_name %}-Erweiterung für {% data variables.product.prodname_vs %} kannst du in {% data variables.product.product_name %}-Repositorys arbeiten, ohne {% data variables.product.prodname_vs %} zu verlassen. Weitere Informationen findest du auf der offiziellen [Website](https://visualstudio.github.com/) oder in der [Dokumentation](https://github.com/github/VisualStudio/tree/master/docs) zur {% data variables.product.prodname_vs %}-Erweiterung.
 
-## Project management tools
+### {% data variables.product.prodname_dotcom %} für {% data variables.product.prodname_vscode %}
 
-You can integrate your personal or organization account on {% data variables.location.product_location %} with third-party project management tools, such as Jira.
+Mit der {% data variables.product.prodname_dotcom %}-Erweiterung für {% data variables.product.prodname_vscode %} kannst du {% data variables.product.product_name %}-Pull Requests in {% data variables.product.prodname_vscode_shortname %} überprüfen und verwalten. Weitere Informationen findest du auf der offiziellen [Website](https://vscode.github.com/) oder in der [Dokumentation](https://github.com/Microsoft/vscode-pull-request-github) zur {% data variables.product.prodname_vscode_shortname %}-Erweiterung.
 
-### Jira Cloud and {% data variables.product.product_name %}.com integration
+## Projektmanagementtools
 
-You can integrate Jira Cloud with your personal or organization account to scan commits and pull requests, creating relevant metadata and hyperlinks in any mentioned Jira issues. For more information, visit the [Jira integration app](https://github.com/marketplace/jira-software-github) in the marketplace.
+Du kannst dein persönliches Konto oder Organisationskonto auf {% data variables.product.product_location %} in Projektverwaltungstools von Drittanbietern wie Jira integrieren.
 
-## Team communication tools
+### Jira Cloud und {% data variables.product.product_name %}.com-Integration
 
-You can integrate your personal or organization account on {% data variables.location.product_location %} with third-party team communication tools, such as Slack or Microsoft Teams.
+Du kannst Jira Cloud in Dein persönliches Organisations-Konto integrieren, um Commits und Pull Requests zu scannen und relevante Metadaten und Hyperlinks in allen erwähnten Jira-Issues zu erstellen. Weitere Informationen findest du unter der [Jira-Integrations-App](https://github.com/marketplace/jira-software-github) im Marketplace.
 
-### Slack and {% data variables.product.product_name %} integration
+## Teamkommunikationstools
 
-The Slack + {% data variables.product.prodname_dotcom %} app lets you subscribe to your repositories or organizations and get realtime updates about issues, pull requests, commits, discussions, releases, deployment reviews and deployment statuses. You can also perform activities like opening and closing issues, and you can see detailed references to issues and pull requests without leaving Slack. The app will also ping you personally in Slack if you are mentioned as part of any {% data variables.product.prodname_dotcom %} notifications that you receive in your channels or personal chats.
+Du kannst dein persönliches Konto oder Organisationskonto auf {% data variables.product.product_location %} in Teamkommunikationstools von Drittanbietern wie Slack oder Microsoft Teams integrieren.
 
-The Slack + {% data variables.product.prodname_dotcom %} app is also compatible with [Slack Enterprise Grid](https://slack.com/intl/en-in/help/articles/360000281563-Manage-apps-on-Enterprise-Grid). For more information, visit the [Slack + {% data variables.product.prodname_dotcom %} app](https://github.com/marketplace/slack-github) in the marketplace.
+### Slack- und {% data variables.product.product_name %}-Integration
 
-### Microsoft Teams and {% data variables.product.product_name %} integration
+Mit der Slack- und {% data variables.product.prodname_dotcom %}-App kannst du deine Repositorys oder Organisationen abonnieren und Echtzeitupdates zu Issues, Pull Requests, Commits, Diskussionen, Versionen, Bereitstellungsüberprüfungen und dem Status von Bereitstellungen abrufen. Außerdem kannst du Issues öffnen und schließen und ausführliche Informationen zu Issues und Pull Requests anzeigen, ohne Slack zu verlassen. Die App pingt dich auch persönlich in Slack, wenn du in {% data variables.product.prodname_dotcom %}-Benachrichtigungen erwähnt wirst, die du über deine Kanäle oder persönlichen Chats erhältst.
 
-The {% data variables.product.prodname_dotcom %} for Teams app lets you subscribe to your repositories or organizations and get realtime updates about issues, pull requests, commits, discussions, releases, deployment reviews and deployment statuses. You can also perform activities like opening and closing issues, commenting on your issues and pull requests, and you can see detailed references to issues and pull requests without leaving Microsoft Teams. The app will also ping you personally in Teams if you are mentioned as part of any {% data variables.product.prodname_dotcom %} notifications that you receive in your channels or personal chats.
+Die Slack- und {% data variables.product.prodname_dotcom %}-App ist auch mit dem [Slack Enterprise Grid](https://slack.com/intl/en-in/help/articles/360000281563-Manage-apps-on-Enterprise-Grid) kompatibel. Weitere Informationen findest du unter der [Slack- und {% data variables.product.prodname_dotcom %}-App](https://github.com/marketplace/slack-github) im Marketplace.
 
-For more information, visit the [{% data variables.product.prodname_dotcom %} for Teams app](https://appsource.microsoft.com/en-us/product/office/WA200002077) in Microsoft AppSource.
+### Microsoft Teams- und {% data variables.product.product_name %}-Integration
+
+Mit der {% data variables.product.prodname_dotcom %}-App für Teams kannst du deine Repositorys oder Organisationen abonnieren und Echtzeitupdates zu Issues, Pull Requests, Commits, Diskussionen, Versionen, Bereitstellungsüberprüfungen und dem Status von Bereitstellungen abrufen. Außerdem kannst du Issues öffnen und schließen, Issues und Pull Requests kommentieren und ausführliche Informationen zu Issues und Pull Requests anzeigen, ohne Microsoft Teams zu verlassen. Die App pingt dich auch persönlich in Teams, wenn du in {% data variables.product.prodname_dotcom %}-Benachrichtigungen erwähnt wirst, die du über deine Kanäle oder persönlichen Chats erhältst.
+
+Weitere Informationen findest du unter der [{% data variables.product.prodname_dotcom %}-App für Teams](https://appsource.microsoft.com/en-us/product/office/WA200002077) in Microsoft AppSource.

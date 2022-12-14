@@ -1,0 +1,165 @@
+intro: Компания GitHub рада представить GitHub Enterprise Server 2.22.0.
+date: '23.09.2020'
+sections:
+  features:
+    - heading: GitHub Actions (бета-версия)
+      notes:
+        - |[GitHub Actions](https://github.com/features/actions) — это мощное и гибкое решение для непрерывной поставки и непрерывной интеграции, а также автоматизации рабочих процессов. GitHub Actions на Enterprise Server включает инструменты, которые помогут в управлении службой, в том числе ключевые метрики в Консоли управления, журналы аудита и элементы управления доступом, позволяющие управлять развертыванием.
+
+
+
+Вам потребуется предоставить собственное [хранилище](https://docs.github.com/en/enterprise/2.22/admin/github-actions/enabling-github-actions-and-configuring-storage) и средства выполнения тестов GitHub Actions. Поддерживаются AWS S3, Azure Blob Storage и MinIO. Ознакомьтесь с [обновленными минимальными требованиями для вашей платформы](https://docs.github.com/en/enterprise/2.22/admin/installation/setting-up-a-github-enterprise-server-instance) перед включением GitHub Actions. Для получения дополнительных сведений свяжитесь со специалистами по продажам GitHub или [зарегистрируйтесь для тестирования бета-версии](https://resources.github.com/beta-signup/). {% comment %} https://github.com/github/releases/issues/775 {% endcomment %}
+
+|
+    - heading: GitHub Packages (бета-версия)
+      notes:
+        - |[GitHub Packages](https://github.com/features/packages) представляет собой службу размещения пакетов, встроенную в API GitHub, Actions и веб-перехватчики. Создайте [сквозной рабочий процесс DevOps](https://docs.github.com/en/enterprise/2.22/admin/packages/configuring-packages-support-for-your-enterprise), который будет включать ваш код, непрерывную интеграцию и решения для развертывания.
+
+
+
+Поддерживаемые серверные части хранилища включают AWS S3 и MinIO (поддержка BLOB-объектов Azure будет добавлена в будущем). Обратите внимание, что текущая поддержка Docker в следующем выпуске будет заменена бета-версией нового реестра контейнеров GitHub. Ознакомьтесь с [обновленными минимальными требованиями для своей платформы](https://docs.github.com/en/enterprise/2.22/admin/installation/setting-up-a-github-enterprise-server-instance) перед включением GitHub Packages. Для получения дополнительных сведений свяжитесь со специалистами по продажам GitHub или [зарегистрируйтесь для тестирования бета-версии](https://resources.github.com/beta-signup/). {% comment %} https://github.com/github/releases/issues/773 {% endcomment %}
+
+|
+    - heading: Проверка кода расширенного управления безопасностью (бета-версия)
+      notes:
+        - |[Проверка кода расширенного управления GitHub](https://github.com/features/security) представляет собой ориентированную на разработчиков систему статического тестирования приложений, встроенную в GitHub (SAST). С помощью мощнейшей системы анализа кода CodeQL вы сможете быстро выявить уязвимости безопасности еще до того, как они проявятся в рабочей среде.
+
+
+
+Администраторы, использующие расширенное управление безопасностью GitHub могут [зарегистрироваться для](https://resources.github.com/beta-signup/) и [enable](https://docs.github.com/en/enterprise/2.22/admin/configuration/configuring-code-scanning-for-your-appliance) тестирования проверки кода расширенного управления безопасностью GitHub (бета-версия). Ознакомьтесь с [обновленными минимальными требованиями для вашей платформы](https://docs.github.com/en/enterprise/2.22/admin/installation/setting-up-a-github-enterprise-server-instance) перед включением проверки кода расширенного управления безопасностью GitHub. {% comment %} https://github.com/github/releases/issues/768 {% endcomment %}
+
+|
+    - heading: Перенацеливание запроса на вытягивание
+      notes:
+        - |Если [главная ветвь запроса на вытягивание](https://docs.github.com/en/enterprise/2.22/user/github/collaborating-with-issues-and-pull-requests/about-branches#working-with-branches) объединяется и удаляется, все остальные открытые запросы на вытягивание в том же репозитории, которые нацелены на эту ветвь, теперь перенацеливаются на базовую ветвь объединенного запроса на вытягивание. Ранее эти запросы на вытягивание были закрыты. {% comment %} https://github.com/github/releases/issues/801 {% endcomment %}
+
+|
+    - heading: Приостановка и возобновление установки приложения
+      notes:
+        - |Администраторы и пользователи могут [приостановить доступ для всех приложений GitHub](https://docs.github.com/enterprise/2.22/user/rest/reference/apps#suspend-an-app-installation) на любой период и [возобновить приложение](https://docs.github.com/enterprise/2.22/user/rest/reference/apps#unsuspend-an-app-installation) по команде с помощью раздела "Параметры" и API. Приостановленные приложения не могут осуществлять доступ к событиям API GitHub или веб-перехватчиков. Можно использовать эту функцию вместо удаления приложения, при котором отменяется авторизация всех пользователей. {% comment %} https://github.com/github/github/pull/138316 https://github.com/github/github/pull/150869 {% endcomment %}''''
+
+|
+    - heading: Повышение производительности в большом масштабе
+      notes:
+        - |Мы пересмотрели свой подход к планированию обслуживания сети для репозиториев, чтобы обеспечить возможность предотвратить возникновение ошибок монорепозиториев. {% comment %} https://github.com/github/github/pull/146789, https://github.com/github/github/pull/147931, https://github.com/github/github/pull/146724, https://github.com/github/git-protocols/issues/94 {% endcomment %}''''
+
+
+
+Пассивные реплики теперь [можно настроить в развертываниях кластеров GitHub Enterprise Server](https://docs.github.com/en/enterprise/2.22/admin/enterprise-management/configuring-high-availability-replication-for-a-cluster). Эти изменения обеспечивают ускоренную отработку отказа, сокращая целевую точки восстановления и RPO. {% comment %} https://github.com/github/releases/issues/905 {% endcomment %}
+
+|
+    - heading: Просмотр всех пользователей
+      notes:
+        - |Для очень больших команд администраторы могут [изменить для списков пользователей максимально допустимое количество по умолчанию, равное 1500 пользователей](https://docs.github.com/en/enterprise/2.22/admin/configuration/command-line-utilities#ghe-config). {% comment %} https://github.com/github/github/pull/146508 {% endcomment %}''''
+
+|
+  changes:
+    - heading: Изменения администрирования
+      notes:
+        - "Поддерживаются совместно используемые рабочие роли, которые позволяют повысить отказоустойчивость обновлений в реальном времени путем совместного использования подключений различными вкладками. {% comment %} https://github.com/github/releases/issues/914 {% endcomment %}"
+        - "Ссылка \"Связаться со службой поддержки\" на страницах ошибки \"50x\" теперь ведет на адрес электронной почты службы поддержки или по ссылке, настроенной в консоли управления. {% comment %} https://github.com/github/github/pull/142123 {% endcomment %}"
+        - "Теперь вы можете [управлять глобальными объявлениями и датами окончания срока действия с помощью параметров корпоративной учетной записи](https://docs.github.com/en/enterprise/2.22/admin/installation/command-line-utilities#ghe-announce). {% comment %} https://github.com/github/releases/issues/945, https://github.com/github/github/pull/148475, https://github.com/github/github/pull/148494 {% endcomment %}"
+        - "Теперь вы можете [отменить для отдельных пользователей стандартные ограничения скорости для API в консоли управления](https://docs.github.com/en/enterprise/2.22/admin/configuration/configuring-rate-limits), if necessary. {% comment %} https://github.com/github/github/pull/148673 {% endcomment %}"
+        - "Администраторы репозитория теперь могут [настроить для своего репозитория любые доступные параметры видимости](https://docs.github.com/en/enterprise/2.22/user/github/administering-a-repository/setting-repository-visibility) с помощью одного диалогового окна в разделе параметров репозитория. Раньше вам приходилось перемещаться между отдельными разделами, кнопками и диалоговыми окнами, чтобы изменить общедоступные параметры на закрытые и наоборот. {% comment %} https://github.com/github/releases/issues/882 {% endcomment %}"
+        - "Новая ссылка на корпоративные параметры в раскрывающемся меню пользователя упрощает навигацию по параметрам корпоративной учетной записи. {% comment %} https://github.com/github/releases/issues/946, https://github.com/github/github/pull/150595, https://github.com/github/github/pull/150520, https://github.com/github/github/pull/151121, https://github.com/github/hydro-schemas/pull/1244 {% endcomment %}"
+        - "Устаревшая ссылка \"Центр администрирования\" на странице /stafftools была удалена. Ссылка \"Корпоративные\" теперь является оптимальным средством навигации по корпоративной учетной записи со страницы /stafftools. {% comment %} https://github.com/github/github/pull/147633 {% endcomment %}"
+        - "Подпункт меню \"Параметры\" в корпоративной учетной записи перенесен из раздела \"Параметры\" в раздел \"Политики\". {% comment %} https://github.com/github/releases/issues/944, https://github.com/github/github/pull/148477 {% endcomment %}"
+        - '[Доступ к ресурсам с помощью личного маркера доступа или ключа SSH теперь считается активностью пользователя](https://docs.github.com/en/enterprise/2.22/admin/user-management/managing-dormant-users). Это снимает с администратором обязанность отфильтровывать конкретных пользователей из отчетов о неактивности пользователей и повышает уровень безопасности при использовании кнопки "Приостановить все", не рискуя приостановить работу пользователей, которые осуществляли только доступ к GitHub с правами только на чтение посредством API с использованием личного маркера доступа или ключа SSH. {% comment %} https://github.com/github/github/pull/140433, https://github.com/github/help-docs/pull/14853, https://github.com/github/customer-feedback/issues/174, https://github.com/github/supportability/issues/14 {% endcomment %}'
+
+    - heading: Изменения системы безопасности
+      notes:
+        - "Двухфакторные коды восстановления больше нельзя использовать для двухфакторного входа. Одноразовые пароли являются единственными приемлемыми значениями. {% comment %} https://github.com/github/github/pull/145016, https://github.com/github/github/pull/140208 {% endcomment %}"
+        - "Когда пользователь входит в GitHub Enterprise Server, используя единый вход, [выбирается значение видимости репозитория по умолчанию \"Закрытый\"](https://docs.github.com/en/enterprise/2.22/user/github/administering-a-repository/setting-repository-visibility). {% comment %} https://github.com/github/releases/issues/872 {% endcomment %}"
+        - "Владельцы приложений GitHub Apps теперь могут настроить для [маркеров доступа пользователей к серверам истечение срока действия через 8 часов](https://developer.github.com/changes/2020-04-30-expiring-user-to-server-access-tokens-for-github-apps/), чтобы обеспечить регулярную ротацию маркеров и снизить влияние скомпрометированных маркеров. {% comment %} https://github.com/github/releases/issues/966 {% endcomment %}"
+
+    - heading: Изменения разработчика
+      notes:
+        - '[Внешний вид и структура пользовательского интерфейса GitHub была обновлена](https://github.blog/changelog/2020-06-23-design-updates-to-repositories-and-github-ui/), а также изменен дизайн домашней страницы репозиториев, в том числе улучшено взаимодействие с макетом и мобильный веб-интерфейс. {% comment %} https://github.com/github/releases/issues/886 {% endcomment %}'
+        - "В раскрывающемся меню \"Клонирование с помощью SSH\"пользователи теперь получают уведомление в случае, если у них нет настроенных ключей. {% comment %} https://github.com/github/github/pull/149098 {% endcomment %}"
+        - "Фиксации теперь упорядочиваются хронологически на временной шкале запроса на вытягивание и вкладке \"Фиксации\". Этот новый порядок также отражается в REST API [\"Список фиксаций в запросе на вытягивание\"](https://docs.github.com/en/enterprise/2.22/user/rest/reference/pulls#list-commits-on-a-pull-request) и GraphQL [\"PullRequest object\"](https://docs.github.com/en/enterprise/2.22/user/graphql/reference/objects#pullrequest) timeline connection. {% comment %} https://github.com/github/releases/issues/867 {% endcomment %}"
+        - "Пользователи теперь могут [задать значение тона кожи по умолчанию для результатов автозавершения эмодзи](https://github.blog/changelog/2020-07-17-customizable-skin-tones-in-emoji-autocomplete/) в текстовых областях комментария. {% comment %} https://github.com/github/releases/issues/916 {% endcomment %}"
+        - '[Tree-sitter](https://github.com/tree-sitter/tree-sitter) улучшает выделение синтаксис и теперь используется для анализа языка в качестве библиотеки по умолчанию. {% comment %} https://github.com/github/releases/issues/918, https://github.com/github/windrose/issues/44 {% endcomment %}'
+
+    - heading: Пользователи и организации могут добавить имена пользователей Twitter в свои профили GitHub
+      notes:
+        - '[Разработчики и организации теперь могут добавлять свои имена пользователей Twitter в свой профиль](https://github.blog/changelog/2020-07-22-users-and-organizations-can-now-add-twitter-usernames-to-their-github-profiles/) {% comment %}  https://github.com/github/github/pull/145127 {% endcomment %}'
+
+    - heading: Изменения API
+      notes:
+        - |#### Дифференцированные предварительные версии
+
+
+
+Следующие предварительные версии теперь официально включены в API:
+
+* API GitHub Apps и конечные точки, возвращавшие свойство "performed_via_github_app", больше не требуют заголовка предварительную версию [`machine-man`](https://developer.github.com/changes/2020-08-20-graduate-machine-man-and-sailor-v-previews/). {% comment %} https://github.com/github/releases/issues/965 {% endcomment %}
+
+* Чтобы добавить и просмотреть причину блокировки для проблемы, вам больше не требуется использовать заголовок предварительной версии [`sailor-v`](https://developer.github.com/changes/2020-08-20-graduate-machine-man-and-sailor-v-previews/). {% comment %} https://github.com/github/github/pull/143676 {% endcomment %}
+
+|
+        - |#### Изменения схемы GraphQL
+
+
+
+* [Изменения схемы GraphQL] (https://docs.github.com/enterprise/2.22/user/graphql/overview/changelog) включают изменения в обратной совместимости, предварительные версии схемы и предстоящие критические изменения.
+
+|
+    - heading: Изменения драйвера сети VMware
+      notes:
+        - |Тип сетевого адаптера по умолчанию GitHub Enterprise Server для заказчиков VMware изменен с E1000 на VMXNET3, начина с выпуска 2.22.0. Если при обновлении с более ранней версии до версии 2.22.0 или более поздней обнаружен сетевой адаптер E1000 во время проверки перед обновлением, в командной строке отображается следующее сообщение:
+
+
+
+```
+
+ПРЕДУПРЕЖДЕНИЕ. Ваш виртуальный модуль в настоящее время использует эмулированный сетевой адаптер Intel E1000.
+
+Для достижения оптимальной производительности следует обновить конфигурацию виртуальной машины на узле VMware, чтобы использовать драйвер VMXNET3.
+
+Перейти к установке? [д/Н]
+
+```
+
+
+
+Администратор может обновить тип сетевого адаптера до VMXNET3 до обновления GitHub Enterprise Server или после него. Для такого изменения необходимо отключить сетевой модуль. Заказчики должны выполнить рекомендованные VMware шаги по [изменению конфигурации сетевого адаптера виртуальной машины](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.vm_admin.doc/GUID-3719A0BE-4B4A-44FF-8A21-290950918FBD.html) на VMXNET3. Обратите внимание, что VMXNET3 не будет доступным вариантом, если версия ОС для виртуального модуля задана как "Другие ОС Linux (64-разрядные)". В этом случае версию OS сначала нужно изменить с "Другие ОС Linux (64-разрядные)" на "Другая ОС Linux 2.6.x (64-разрядная)" или (если доступно) "Debian GNU/Linux 9". Мы рекомендуем проверить эти изменения в [промежуточном экземпляре](https://docs.github.com/en/enterprise-server@2.22/admin/installation/setting-up-a-staging-instance), прежде чем применить их в рабочем экземпляре GitHub Enterprise Server. {% comment %} https://github.com/github/ghes-infrastructure/issues/781 {% endcomment %}
+
+|
+  bugs:
+    - "На странице stafftools для просмотра ожидающего обработки участника совместной работы отображается сообщение \"500 Внутренняя ошибка сервера\", если есть приглашение по электронной почте, ожидающее обработки. {% comment %} https://github.com/github/github/pull/150836 {% endcomment %}"
+    - "Проверка работоспособности репозитория в разделе stafftools может дать неверный результат в случае высокой загруженности репозитория. {% comment %} https://github.com/github/github/pull/151160 {% endcomment %}"
+    - "Пользователь, выполнивший вход, пытается принять приглашение по электронной почте, и получает ошибку \"404 Не найдено\". {% comment %} https://github.com/github/github/pull/150848 {% endcomment %}"
+    - "Если пользователь перешел к репозиторию, имя которого начинается с \"repositories.\", он будет перенаправлен на вкладку владельца \"Репозитории\" вместо перемещения на страницу обзора репозитория. {% comment %} https://github.com/github/github/pull/149704 {% endcomment %}"
+    - "Метки на временной шкале информационной панели не имеют достаточной контрастности. {% comment %} https://github.com/github/github/pull/146749 {% endcomment %}"
+
+  deprecations:
+    - heading: Предстоящее прекращение поддержки GitHub Enterprise Server 2.19
+      notes:
+        - '**Поддержка GitHub Enterprise Server 2.19 будет прекращена 12 ноября 2020 г.** Иными словами, после этой даты исправления выпускаться не будут даже для критических проблем с безопасностью. Чтобы улучшить производительность, безопасность и получить новые возможности, как можно быстрее [выполните обновлении до самой последней версии GitHub Enterprise Server] (https://help.github.com/enterprise/admin/guides/installation/upgrading-github-enterprise/).'
+    - heading: Прекращение поддержки устаревших событий веб-перехватчика приложения GitHub
+      notes:
+        - "Начиная с GitHub Enterprise Server 2.21.0, два устаревших события веб-перехватчика, относящихся к GitHub Apps, больше не поддерживаются и будут удалены в GitHub Enterprise Server 2.25.0. Устаревшие события \"integration_installation\" и \"integration_installation_repositories\" содержат эквивалентные события, которые будут поддерживаться. Дополнительные сведения доступны в [публикации блога с объявлением о прекращении поддержки](https://developer.github.com/changes/2020-04-15-replacing-the-installation-and-installation-repositories-events/). {% comment %} https://github.com/github/enterprise-web/pull/6419#issuecomment-668303461 {% endcomment %}"
+    - heading: Прекращение поддержки конечных точек GitHub Apps
+      notes:
+        - "Начиная с GitHub Enterprise Server 2.21.0, устаревшая конечная точка GitHub Apps для создания маркеров доступа для установки больше не поддерживается и будут удалены в GitHub Enterprise Server 2.25.0.  Дополнительные сведения доступны в [публикации блога с объявлением о прекращении поддержки](https://developer.github.com/changes/2020-04-15-replacing-create-installation-access-token-endpoint/). {% comment %} https://github.com/github/enterprise-web/pull/6419#issuecomment-668303461 {% endcomment %}"
+    - heading: Прекращение поддержки API приложения OAuth
+      notes:
+        - "GitHub больше не поддерживают конечные точки приложения OAuth, которые содержат в качестве параметра пути параметр access_token. Мы представляем новые конечные точки, которые позволяют безопасно управлять маркерами для OAuth Apps путем перемещения access_token в текстовую область запроса. Хотя поддержка прекращения, конечные точки по-прежнему доступы в этой версии. Мы планируем удалить их в версии GitHub Enterprise Server 3.4. Подробнее см. в [записи блога с объявлением о прекращении поддержки](https://developer.github.com/changes/2020-02-14-deprecating-oauth-app-endpoint/)."
+
+  backups:
+    - "В GitHub Enterprise Server 2.22 требуется хотя бы [утилиты резервного копирования GitHub Enterprise](https://github.com/github/backup-utils) 2.22.0 для [резервного копирования и аварийного восстановления](https://help.github.com/enterprise/2.22/admin/guides/installation/backups-and-disaster-recovery/)."
+
+  known_issues:
+    - "После первой настройки версии GitHub Enterprise Server, в которой еще нет пользователей, злоумышленник мог создать первого пользователя с правами администратора. {% comment %} https://github.com/github/enterprise2/issues/1889 {% endcomment %}"
+    - "Пользовательские правила брандмауэра не сохраняются в процессе обновления. {% comment %} https://github.com/github/enterprise2/issues/2823 {% endcomment %}"
+    - "Отслеживаемые файлы Git LFS, [отправленные через веб-интерфейс](https://github.com/blog/2105-upload-files-to-your-repositories), ошибочно добавлялись напрямую в репозиторий. {% comment %} https://github.com/github/github/issues/54684 {% endcomment %}"
+    - "Невозможно закрывать проблемы, если они содержат постоянную ссылку на BLOB-объект в том же репозитории с путем, длина которого превышает 255 символов. {% comment %} https://github.com/github/github/issues/107731 {% endcomment %}"
+    - "Когда в GitHub Connect включен параметр \"Пользователи могут выполнять поиск на GitHub.com\", результаты поиска на GitHub.com не включают проблемы в частных и внутренних репозиториях. {% comment %} https://github.com/github/admin-experience/issues/571 {% endcomment %}"
+    - "Раскрывающийся список \"Формат идентификатора\" на консоли управления выполняет сброс до значения \"Не задано\" после того, как для экземпляра задано значением \"Постоянный\". {% comment %} https://github.com/github/enterprise2/issues/13446 {% endcomment %}"
+    - "На странице репозитория \"Параметры\" для сайтов GitHub пользователя и организации отображается сообщение об ошибке \"500 Внутренняя ошибка сервера\". {% comment %} https://github.com/github/github/issues/156183 {% endcomment %}"
+    - "Пользователи могут наблюдать снижение производительности при клонировании и получении Git в экземпляре с репликами высокой доступности из-за переадресации операций чтения на другой узел. {% comment %} https://github.com/github/spokesd/issues/746 {% endcomment %}"
+    - '[Создание экземпляра GitHub App на основе манифеста](https://docs.github.com/en/enterprise/2.22/user/developers/apps/creating-a-github-app-from-a-manifest) fails. Для решения этой проблемы пользователи могут выполнить инструкции в руководстве по [созданию экземпляра GitHub App](https://docs.github.com/en/enterprise/2.22/user/developers/apps/creating-a-github-app). {% comment %} https://github.com/github/enterprise2/issues/22849 {% endcomment %}'
+    - "Имена пользователей GitHub могут быть случайно изменены при использовании проверки подлинности SAML, если имя пользователя GitHub не совпадает со значением атрибута, сопоставленного с полем \"username\" в консоли управления. (updated 2020-10-08) {% comment %} https://github.com/github/external-identities/issues/335 {% endcomment %}"
+    - "После первой настройки экземпляра версии 2.22.0 или после обновления до версии 2.22.0, канал активности на информационной панели организации больше обновляться не будет (обновлено 27.10.2020 г.) {% comment %}https://github.com/github/enterprise2/issues/23050{% endcomment %}"
+    - "Журналы аудита можно отнести к адресу 127.0.0.1 вместо фактического IP-адреса источника. (updated 2020-11-02) {% comment %} https://github.com/github/enterprise2/issues/21514 {% endcomment %}"
+    - "Если узел реплики находится в автономном режиме в конфигурации высокой доступности, {% data variables.product.product_name %} по-прежнему может маршрутизировать запросы {% data variables.product.prodname_pages %} на узел в автономном режиме, снижая доступность {% data variables.product.prodname_pages %} для пользователей."

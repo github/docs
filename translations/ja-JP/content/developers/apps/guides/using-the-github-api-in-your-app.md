@@ -1,6 +1,6 @@
 ---
-title: Using the GitHub API in your app
-intro: Learn how to set up your app to listen for events and use the Octokit library to perform REST API operations.
+title: アプリケーションでのGitHub APIの利用
+intro: イベントを待ち受けるアプリケーションのセットアップと、Octokitライブラリを使ったREST APIの操作の方法を学んでください。
 redirect_from:
   - /apps/building-your-first-github-app
   - /apps/quickstart-guides/using-the-github-api-in-your-app
@@ -13,88 +13,94 @@ versions:
 topics:
   - GitHub Apps
 shortTitle: Build an app with the REST API
+ms.openlocfilehash: 93679e41fe145406ed1eb99e2daaba6bf8e10e76
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145089911'
 ---
-## Introduction
+## はじめに
 
-This guide will help you build a GitHub App and run it on a server. The app you build will add a label to all new issues opened in the repository where the app is installed.
+このガイドは、GitHub Appをビルドしてサーバー上で実行するのに役立ちます。 ビルドするアプリケーションは、アプリケーションがインストールされたリポジトリでオープンされたすべての新しいIssueにラベルを付けます。
 
-This project will walk you through the following:
+このプロジェクトでは、以下を見ていきます。
 
-* Programming your app to listen for events
-* Using the Octokit.rb library to do REST API operations
+* イベントを待ち受けるアプリケーションのプログラミング
+* Octokit.rbライブラリを使ったREST APIの操作の実行
 
 {% data reusables.apps.app-ruby-guides %}
 
-Once you've worked through the steps, you'll be ready to develop other kinds of integrations using the full suite of GitHub APIs. {% ifversion fpt or ghec %}You can check out successful examples of apps on [GitHub Marketplace](https://github.com/marketplace) and [Works with GitHub](https://github.com/works-with).{% endif %}
+以下のステップを行っていけば、GitHub APIの完全な一式を使って他の種類のインテグレーションを開発する準備が整います。 {% ifversion fpt or ghec %}[GitHub Marketplace](https://github.com/marketplace) と「[GitHub での作業](https://github.com/works-with)」でアプリの成功事例を確認できます。{% endif %}
 
-## Prerequisites
+## 前提条件
 
-You may find it helpful to have a basic understanding of the following:
+以下に関する基本的な理解があると役立つでしょう。
 
-* [GitHub Apps](/apps/about-apps)
-* [Webhooks](/webhooks)
-* [The Ruby programming language](https://www.ruby-lang.org/en/)
-* [REST APIs](/rest)
+* [GitHub アプリ](/apps/about-apps)
+* [Webhook](/webhooks)
+* [プログラミング言語の Ruby](https://www.ruby-lang.org/en/)
+* [REST API](/rest)
 * [Sinatra](http://sinatrarb.com/)
 
-But you can follow along at any experience level. We'll link out to information you need along the way!
+とはいえ、経験のレベルにかかわらず見ていくことはできます。 その過程で必要な情報にはリンクしていきます！
 
-Before you begin, you'll need to do the following:
+始める前に、以下を行っておく必要があります。
 
-1. Clone the [Using the GitHub API in your app](https://github.com/github-developer/using-the-github-api-in-your-app) repository.
+1. [アプリでの GitHub API の使用](https://github.com/github-developer/using-the-github-api-in-your-app)リポジトリをクローンします。
   ```shell
     $ git clone https://github.com/github-developer/using-the-github-api-in-your-app.git
   ```
 
-  Inside the directory, you'll find a `template_server.rb` file with the template code you'll use in this quickstart and a `server.rb` file with the completed project code.
+  ディレクトリの中には、このクイックスタートで使うテンプレート コードを含む `template_server.rb` ファイルと、完成したプロジェクト コードを含む `server.rb` ファイルがあります。
 
-1. Follow the steps in the [Setting up your development environment](/apps/quickstart-guides/setting-up-your-development-environment/) quickstart to configure and run the `template_server.rb` app server. If you've previously completed a GitHub App quickstart other than [Setting up your development environment](/apps/quickstart-guides/setting-up-your-development-environment/), you should register a _new_ GitHub App and start a new Smee channel to use with this quickstart.
+1. [開発環境のセットアップ](/apps/quickstart-guides/setting-up-your-development-environment/)に関するクイックスタートの手順に従い、`template_server.rb` アプリ サーバーを構成して実行します。 [開発環境のセットアップ](/apps/quickstart-guides/setting-up-your-development-environment/)以外の GitHub App のクイックスタートを以前に完了している場合は、 _"新しい"_ GitHub App を登録し、このクイックスタートで使用する新しい Smee チャネルを開始する必要があります。
 
-  This quickstart includes the same `template_server.rb` code as the [Setting up your development environment](/apps/quickstart-guides/setting-up-your-development-environment/) quickstart. **Note:** As you follow along with the [Setting up your development environment](/apps/quickstart-guides/setting-up-your-development-environment/) quickstart, make sure to use the project files included in the [Using the GitHub API in your app](https://github.com/github-developer/using-the-github-api-in-your-app) repository.
+  このクイックスタートには、[開発環境のセットアップ](/apps/quickstart-guides/setting-up-your-development-environment/)に関するクイックスタートと同じ `template_server.rb` コードが含まれています。 **注:** [開発環境のセットアップ](/apps/quickstart-guides/setting-up-your-development-environment/)に関するクイックスタートに従って、[アプリでの GitHub API の使用](https://github.com/github-developer/using-the-github-api-in-your-app)リポジトリに含まれているプロジェクト ファイルを必ず使用してください。
 
-  See the [Troubleshooting](/apps/quickstart-guides/setting-up-your-development-environment/#troubleshooting) section if you are running into problems setting up your template GitHub App.
+  テンプレート GitHub App の設定で問題が発生する場合は、「[トラブルシューティング](/apps/quickstart-guides/setting-up-your-development-environment/#troubleshooting)」セクションをご覧ください。
 
-## Building the app
+## アプリケーションのビルド
 
-Now that you're familiar with the `template_server.rb` code, you're going to create code that automatically adds the `needs-response` label to all issues opened in the repository where the app is installed.
+`template_server.rb` のコードに馴染んだところで、アプリケーションがインストールされたリポジトリでオープンされたすべての issue に自動的に `needs-response` ラベルを追加するコードを作成しましょう。
 
-The `template_server.rb` file contains app template code that has not yet been customized. In this file, you'll see some placeholder code for handling webhook events and some other code for initializing an Octokit.rb client.
+この `template_server.rb` ファイルには、まだカスタマイズされていないアプリ テンプレート コードが含まれています。 このファイルには、webhookイベントを処理するためのプレースホルダーのコードや、Octokit.rbクライアントを初期化する他のコードが含まれています。
 
 {% note %}
 
-**Note:** `template_server.rb` contains many code comments that complement this guide and explain additional technical details. You may find it helpful to read through the comments in that file now, before continuing with this section, to get an overview of how the code works.
+**注:** `template_server.rb` には、このガイドを補完し、追加の技術的な詳細を説明する多くのコード コメントが含まれています。 このセクションの先に進む前に、コードの動作の概要をつかむために、この時点でこのファイル中のコメントを読み通しておくと役立つかもしれません。
 
-The final customized code that you'll create by the end of this guide is provided in [`server.rb`](https://github.com/github-developer/using-the-github-api-in-your-app/blob/master/server.rb). Try waiting until the end to look at it, though!
+このガイドの終わりまでに作成するカスタマイズされた最終コードは、[`server.rb`](https://github.com/github-developer/using-the-github-api-in-your-app/blob/master/server.rb) にあります。 とはいえ、最後までそれを見るのは待ってみてください!
 
 {% endnote %}
 
-These are the steps you'll complete to create your first GitHub App:
+以下が、最初のGitHub Appを作成するまでに行うステップです。
 
-1. [Update app permissions](#step-1-update-app-permissions)
-2. [Add event handling](#step-2-add-event-handling)
-3. [Create a new label](#step-3-create-a-new-label)
-4. [Add label handling](#step-4-add-label-handling)
+1. [アプリのアクセス許可を更新する](#step-1-update-app-permissions)
+2. [イベント処理の追加](#step-2-add-event-handling)
+3. [新しいラベルの作成](#step-3-create-a-new-label)
+4. [ラベルの処理の追加](#step-4-add-label-handling)
 
-## Step 1. Update app permissions
+## 手順 1. アプリのアクセス許可を更新する
 
-When you [first registered your app](/apps/quickstart-guides/setting-up-your-development-environment/#step-2-register-a-new-github-app), you accepted the default permissions, which means your app doesn't have access to most resources. For this example, your app will need permission to read issues and write labels.
+[最初にアプリを登録](/apps/quickstart-guides/setting-up-your-development-environment/#step-2-register-a-new-github-app)したときは、既定のアクセス許可を受け入れました。これは、アプリがほとんどのリソースにアクセスできないことを意味します。 この例においては、アプリケーションはIssueを読み、ラベルを書く権限を必要とします。
 
-To update your app's permissions:
+アプリケーションの権限を更新するには、以下の手順に従います。
 
-1. Select your app from the [app settings page](https://github.com/settings/apps) and click **Permissions & Webhooks** in the sidebar.
-1. In the "Permissions" section, find "Issues," and select **Read & Write** in the "Access" dropdown next to it. The description says this option grants access to both issues and labels, which is just what you need.
-1. In the "Subscribe to events" section, select **Issues** to subscribe to the event.
+1. [アプリの設定ページ](https://github.com/settings/apps)でアプリを選び、サイドバーの **[アクセス許可と Webhook]** をクリックします。
+1. [アクセス許可] セクションで [Issue] を探し、その横にある [アクセス] ドロップダウンで **[読み取りと書き込み]** を選びます。 このオプションはIssueとラベルの両方へのアクセスを許可するものと説明されており、これはまさに必要なことです。
+1. [イベントのサブスクライブ] セクションで、 **[Issue]** を選んでイベントをサブスクライブします。
 {% data reusables.apps.accept_new_permissions_steps %}
 
-Great! Your app has permission to do the tasks you want it to do. Now you can add the code to make it work.
+すばらしい。 アプリケーションは必要なタスクを実行する権限を所有しています。 これで、アプリケーションを動作させるコードを追加できるようになりました。
 
-## Step 2. Add event handling
+## 手順 2. イベント処理の追加
 
-The first thing your app needs to do is listen for new issues that are opened. Now that you've subscribed to the **Issues** event, you'll start receiving the [`issues`](/webhooks/event-payloads/#issues) webhook, which is triggered when certain issue-related actions occur. You can filter this event type for the specific action you want in your code.
+アプリケーションが最初にやらなければならないのは、オープンされた新しいIssueを待ち受けることです。 **Issue** イベントをサブスクライブしたので、特定の issue 関連のアクションが発生したときにトリガーされる [`issues`](/webhooks/event-payloads/#issues) Webhook の受信を開始します。 コード中にほしい特定のアクションに対してこのイベントの種類をフィルターできます。
 
-GitHub sends webhook payloads as `POST` requests. Because you forwarded your Smee webhook payloads to `http://localhost/event_handler:3000`, your server will receive the `POST` request payloads in the `post '/event_handler'` route.
+GitHub は、Webhook ペイロードを `POST` 要求として送信します。 Smee Webhook ペイロードを `http://localhost/event_handler:3000` に転送したため、サーバーは `post '/event_handler'` ルートで `POST` 要求のペイロードを受信します。
 
-An empty `post '/event_handler'` route is already included in the `template_server.rb` file, which you downloaded in the [prerequisites](#prerequisites) section. The empty route looks like this:
+空の `post '/event_handler'` ルートは、「[前提条件](#prerequisites)」セクションでダウンロードした `template_server.rb` ファイルに既に含まれています。 空のルートは次のようになっています。
 
 ``` ruby
   post '/event_handler' do
@@ -107,7 +113,7 @@ An empty `post '/event_handler'` route is already included in the `template_serv
   end
 ```
 
-Use this route to handle the `issues` event by adding the following code:
+以下のコードを追加することで、このルートを使って `issues` イベントを処理します。
 
 ``` ruby
 case request.env['HTTP_X_GITHUB_EVENT']
@@ -118,9 +124,9 @@ when 'issues'
 end
 ```
 
-Every event that GitHub sends includes a request header called `HTTP_X_GITHUB_EVENT`, which indicates the type of event in the `POST` request. Right now, you're only interested in `issues` event types. Each event has an additional `action` field that indicates the type of action that triggered the events. For `issues`, the `action` field can be `assigned`, `unassigned`, `labeled`, `unlabeled`, `opened`, `edited`, `milestoned`, `demilestoned`, `closed`, or `reopened`.
+GitHub が送信する全てのイベントには、`HTTP_X_GITHUB_EVENT` という要求ヘッダーが含まれており、これは `POST` 要求でのイベントの種類を示します。 この時点では、関心があるのは`issues` というイベントの種類だけです。 各イベントには、イベントをトリガーしたアクションの種類を示す追加の `action` フィールドがあります。 `issues` の場合、`action` フィールドは `assigned`、`unassigned`、`labeled`、`unlabeled`、`opened`、`edited`、`milestoned`、`demilestoned`、`closed`、または `reopened` になります。
 
-To test your event handler, try adding a temporary helper method. You'll update later when you [Add label handling](#step-4-add-label-handling). For now, add the following code inside the `helpers do` section of the code. You can put the new method above or below any of the other helper methods. Order doesn't matter.
+イベントハンドラをテストするには、一時的なヘルパーメソッドを追加してみてください。 [後でラベル処理を追加](#step-4-add-label-handling)するときに更新します。 この時点では、コードの `helpers do` セクションの中に以下のコードを追加してください。 他の任意のヘルパーメソッドの前後に新しいメソッドを追加できます。 順序は問題ではありません。
 
 ``` ruby
 def handle_issue_opened_event(payload)
@@ -128,37 +134,37 @@ def handle_issue_opened_event(payload)
 end
 ```
 
-This method receives a JSON-formatted event payload as an argument. This means you can parse the payload in the method and drill down to any specific data you need. You may find it helpful to inspect the full payload at some point: try changing `logger.debug 'An issue was opened!` to `logger.debug payload`. The payload structure you see should match what's [shown in the `issues` webhook event docs](/webhooks/event-payloads/#issues).
+このメソッドはJSON形式のイベントペイロードを引数として受け取ります。 これは、メソッド中でペイロードをパースして、任意の必要なデータへとドリルダウンしていけるということです。 どこかの時点でペイロード全体を調べると役立つかもしれません。`logger.debug 'An issue was opened!` を `logger.debug payload` に変更してみてください。 表示されるペイロード構造は、[`issues` Webhook イベント ドキュメントに表示されているもの](/webhooks/event-payloads/#issues)と一致している必要があります。
 
-Great! It's time to test the changes.
+すばらしい。 変更をテストしてみましょう。
 
 {% data reusables.apps.sinatra_restart_instructions %}
 
-In your browser, visit the repository where you installed your app. Open a new issue in this repository. The issue can say anything you like. It's just for testing.
+ブラウザで、アプリケーションをインストールしたリポジトリにアクセスしてください。 そのリポジトリで新しいIssueをオープンしてください。 そのIssueは好きな内容でかまいません。 これは単にテストにすぎません。
 
-When you look back at your Terminal, you should see a message in the output that says, `An issue was opened!` Congrats! You've added an event handler to your app. 💪
+ターミナルを見直してみれば、`An issue was opened!` というメッセージが出力にあるはずです。おめでとうございます! アプリケーションにイベントハンドラを追加できました。 💪
 
-## Step 3. Create a new label
+## 手順 3. 新しいラベルの作成
 
-Okay, your app can tell when issues are opened. Now you want it to add the label `needs-response` to any newly opened issue in a repository the app is installed in.
+これで、アプリケーションはIssueがオープンされたときを示せるようになりました。 今度は、アプリケーションがインストールされたリポジトリの新しくオープンされた任意の issue に `needs-response` というラベルを追加しましょう。
 
-Before the label can be _added_ anywhere, you'll need to _create_ the custom label in your repository. You'll only need to do this one time. For the purposes of this guide, create the label manually on GitHub. In your repository, click **Issues**, then **Labels**, then click **New label**. Name the new label `needs-response`.
+ラベルを任意の場所に _追加_ する前に、リポジトリにカスタム ラベルを _作成_ する必要があります。 これをする必要があるのは一度だけです。 このガイドのためには、ラベルをGitHub上で手動で作成します。 リポジトリで、 **[Issue]** 、 **[ラベル]** 、 **[新しいラベル]** の順にクリックします。 新しいラベルに `needs-response` という名前を付けます。
 
 {% tip %}
 
-**Tip**: Wouldn't it be great if your app could create the label programmatically? [It can](/rest/reference/issues#create-a-label)! Try adding the code to do that on your own after you finish the steps in this guide.
+**ヒント**: アプリでラベルをプログラムから作成できたら素晴らしいのではないでしょうか? [できます](/rest/reference/issues#create-a-label)。 このガイドのステップを終えた後に、自分でそのためのコードを追加してみてください。
 
 {% endtip %}
 
-Now that the label exists, you can program your app to use the REST API to [add the label to any newly opened issue](/rest/reference/issues#add-labels-to-an-issue).
+ラベルが存在するようになったので、REST API を使用して [新しくオープンした issue にラベルを追加するように](/rest/reference/issues#add-labels-to-an-issue)アプリをプログラミングできます。
 
-## Step 4. Add label handling
+## 手順 4. ラベルの処理の追加
 
-Congrats—you've made it to the final step: adding label handling to your app. For this task, you'll want to use the [Octokit.rb Ruby library](http://octokit.github.io/octokit.rb/).
+おめでとうございます。最後のステップである、アプリケーションへのラベル処理の追加にまで来ました。 このタスクでは、[Octokit.rb Ruby ライブラリ](http://octokit.github.io/octokit.rb/)を使用します。
 
-In the Octokit.rb docs, find the list of [label methods](http://octokit.github.io/octokit.rb/Octokit/Client/Labels.html). The method you'll want to use is [`add_labels_to_an_issue`](http://octokit.github.io/octokit.rb/Octokit/Client/Labels.html#add_labels_to_an_issue-instance_method).
+Octokit.rb ドキュメントで、[ メソッド](http://octokit.github.io/octokit.rb/Octokit/Client/Labels.html)の一覧を見つけます。 使用するメソッドは [`add_labels_to_an_issue`](http://octokit.github.io/octokit.rb/Octokit/Client/Labels.html#add_labels_to_an_issue-instance_method) です。
 
-Back in `template_server.rb`, find the method you defined previously:
+`template_server.rb` に戻って、前に定義したメソッドを見つけます。
 
 ``` ruby
 def handle_issue_opened_event(payload)
@@ -166,13 +172,13 @@ def handle_issue_opened_event(payload)
 end
 ```
 
-The [`add_labels_to_an_issue`](http://octokit.github.io/octokit.rb/Octokit/Client/Labels.html#add_labels_to_an_issue-instance_method) docs show you'll need to pass three arguments to this method:
+[`add_labels_to_an_issue`](http://octokit.github.io/octokit.rb/Octokit/Client/Labels.html#add_labels_to_an_issue-instance_method) ドキュメントでは、このメソッドに 3 つの引数を渡す必要があることがわかります。
 
-* Repo (string in `"owner/name"` format)
-* Issue number (integer)
+* リポジトリ (`"owner/name"` 形式の文字列)
+* Issue number(integer)
 * Labels (array)
 
-You can parse the payload to get both the repo and the issue number. Since the label name will always be the same (`needs-response`), you can pass it as a hardcoded string in the labels array. Putting these pieces together, your updated method might look like this:
+ペイロードをパースすれば、リポジトリとIssue番号を取得できます。 ラベル名は常に同じ (`needs-response`) なので、labels 配列にハードコードした文字列で渡せます。 これらのピースをまとめると、更新されたメソッドは以下のようになるでしょう。
 
 ``` ruby
 # When an issue is opened, add a label
@@ -183,56 +189,56 @@ def handle_issue_opened_event(payload)
 end
 ```
 
-Try opening a new issue in your test repository and see what happens! If nothing happens right away, try refreshing.
+新しいIssueをテストのリポジトリでオープンして、何が起こるか見てみてください! もしすぐには何も起こらなければ、リフレッシュしてみてください。
 
-You won't see much in the Terminal, _but_ you should see that a bot user has added a label to the issue.
+ターミナルにはあまり表示されません _が_ 、ボット ユーザーが問題にラベルを追加していることがわかります。
 
 {% note %}
 
-**Note:** When GitHub Apps take actions via the API, such as adding labels, GitHub shows these actions as being performed by _bot_ accounts. For more information, see "[Machine vs. bot accounts](/apps/differences-between-apps/#machine-vs-bot-accounts)."
+**メモ：** GitHub Apps が API を介してラベルの追加などのアクションを実行すると、これらのアクションが _ボット_ アカウントによって実行されていると表示GitHub。 詳しくは、「[マシンアカウントとボット アカウント](/apps/differences-between-apps/#machine-vs-bot-accounts)」をご覧ください。
 
 {% endnote %}
 
-If so, congrats! You've successfully built a working app! 🎉
+そうなっていたら、おめでとうございます! 動作するアプリケーションの構築に成功しました! 🎉
 
-You can see the final code in `server.rb` in the [app template repository](https://github.com/github-developer/using-the-github-api-in-your-app).
+最終的なコードは、`server.rb`アプリ テンプレート リポジトリ[で](https://github.com/github-developer/using-the-github-api-in-your-app)確認できます。
 
-See "[Next steps](#next-steps)" for ideas about where you can go from here.
+ここから移動できる場所に関するアイデアについては、「[次のステップ](#next-steps)」を参照してください。
 
-## Troubleshooting
+## トラブルシューティング
 
-Here are a few common problems and some suggested solutions. If you run into any other trouble, you can ask for help or advice in the {% data reusables.support.prodname_support_forum_with_url %}.
+以下は、いくつかの一般的な問題と推奨される解決策です。 他の問題が生じた場合は、{% data variables.product.prodname_support_forum_with_url %}で助けやアドバイスを求めることができます。
 
-* **Q:** My server isn't listening to events! The Smee client is running in a Terminal window, and I'm sending events on GitHub.com by opening new issues, but I don't see any output in the Terminal window where I'm running the server.
+* **Q:** サーバーがイベントをリッスンしていません。 Smeeクライアントはターミナルウィンドウで動作していて、新しいIssueをオープンしてGitHub.com上でイベントを送信していますが、サーバーを動作させているターミナルウィンドウに出力がありません。
 
-    **A:** You may not have the correct Smee domain in your app settings. Visit your [app settings page](https://github.com/settings/apps) and double-check the fields shown in "[Register a new app with GitHub](/apps/quickstart-guides/setting-up-your-development-environment/#step-2-register-a-new-github-app)." Make sure the domain in those fields matches the domain you used in your `smee -u <unique_channel>` command in "[Start a new Smee channel](/apps/quickstart-guides/setting-up-your-development-environment/#step-1-start-a-new-smee-channel)."
+    **A:** アプリ設定の Smee ドメインが正しくないかもしれません。 [アプリ設定ページ](https://github.com/settings/apps)にアクセスし、「[新しいアプリを GitHub に登録する](/apps/quickstart-guides/setting-up-your-development-environment/#step-2-register-a-new-github-app)」に示されているフィールドを再確認します。 これらのフィールドのドメインが、「[新しい Smee チャンネルの開始](/apps/quickstart-guides/setting-up-your-development-environment/#step-1-start-a-new-smee-channel)」の `smee -u <unique_channel>` コマンドで使用したドメインと一致していることを確認します。
 
-* **Q:** My app doesn't work! I opened a new issue, but even after refreshing, no label has been added to it.
+* **Q:** アプリが機能しません。 新しいIssueをオープンしましたが、リフレッシュしてもラベルが追加されません。
 
-    **A:** Make sure all of the following are true:
+    **A:** 次のすべてに該当することを確認してください。
 
-    * You [installed the app](/apps/quickstart-guides/setting-up-your-development-environment/#step-7-install-the-app-on-your-account) on the repository where you're opening the issue.
-    * Your [Smee client is running](/apps/quickstart-guides/setting-up-your-development-environment/#step-1-start-a-new-smee-channel) in a Terminal window.
-    * Your [web server is running](/apps/quickstart-guides/setting-up-your-development-environment/#step-6-start-the-server) with no errors in another Terminal window.
-    * Your app has [read & write permissions on issues and is subscribed to issue events](/apps/quickstart-guides/setting-up-your-development-environment/#step-1-start-a-new-smee-channel).
-    * You [checked your email](#step-1-update-app-permissions) after updating the permissions and accepted the new permissions.
+    * issue を開いているリポジトリに[アプリをインストールした](/apps/quickstart-guides/setting-up-your-development-environment/#step-7-install-the-app-on-your-account)。
+    * [Smee クライアント](/apps/quickstart-guides/setting-up-your-development-environment/#step-1-start-a-new-smee-channel)がターミナル ウィンドウで実行されている。
+    * [Web サーバーが](/apps/quickstart-guides/setting-up-your-development-environment/#step-6-start-the-server)別のターミナル ウィンドウでエラーなしで実行されている。
+    * アプリには、[issue に対する読み取りおよび書き込みアクセス許可があり、issue イベントをサブスクライブしている](/apps/quickstart-guides/setting-up-your-development-environment/#step-1-start-a-new-smee-channel)。
+    * アクセス許可を更新した後に[メールを確認](#step-1-update-app-permissions)し、新しいアクセス許可を受け入れた。
 
-## Conclusion
+## まとめ
 
-After walking through this guide, you've learned the basic building blocks for developing GitHub Apps! To review, you:
+このガイドを見終えれば、GitHub Appを開発するための基本的なビルディングブロックを学んだことになります! 振り返ると、以下を行いました。
 
-* Programmed your app to listen for events
-* Used the Octokit.rb library to do REST API operations
+* イベントを待ち受けるようにアプリケーションをプログラム
+* Octokit.rbライブラリを使ったREST APIの操作
 
-## Next steps
+## 次の手順
 
-Here are some ideas for what you can do next:
+以下は、次に行えることのいくつかのアイデアです。
 
-* [Rewrite your app using GraphQL](https://developer.github.com/changes/2018-04-30-graphql-supports-github-apps/)!
-* Rewrite your app in Node.js using [Probot](https://github.com/probot/probot)!
-* Have the app check whether the `needs-response` label already exists on the issue, and if not, add it.
-* When the bot successfully adds the label, show a message in the Terminal. (Hint: compare the `needs-response` label ID with the ID of the label in the payload as a condition for your message, so that the message only displays when the relevant label is added and not some other label.)
-* Add a landing page to your app and hook up a [Sinatra route](https://github.com/sinatra/sinatra#routes) for it.
-* Move your code to a hosted server (like Heroku). Don't forget to update your app settings with the new domain.
-* Share your project or get advice in the {% data reusables.support.prodname_support_forum_with_url %}{% ifversion fpt or ghec %}
-* Have you built a shiny new app you think others might find useful? [Add it to GitHub Marketplace](/apps/marketplace/creating-and-submitting-your-app-for-approval/)!{% endif %}
+* [GraphQL を使用してアプリを書き換える](https://developer.github.com/changes/2018-04-30-graphql-supports-github-apps/)。
+* [Probot](https://github.com/probot/probot) を使用して Node.js でアプリを書き換える。
+* `needs-response` ラベルが issue に既にあるかをアプリで確認して、なければ追加する。
+* ボットがラベルを追加できたら、ターミナルにメッセージを表示する。 (ヒント: メッセージの条件として `needs-response` ラベルの ID をペイロードのラベルの ID と比較し、他のラベルではなく関連するラベルが追加されたときにのみメッセージが表示されるようにします)
+* ランディング ページをアプリに追加し、それに対する [Sinatra ルート](https://github.com/sinatra/sinatra#routes)を接続する。
+* コードをホストされたサーバー（Herokuのような）に移す。 新しいドメインでアプリケーションの設定を更新するのを忘れないようにしてください。
+* {% data variables.product.prodname_support_forum_with_url %} でプロジェクトを共有したりアドバイスをもらったりする。{% ifversion fpt or ghec %}
+* 他の人の役に立つかもと思うような、新しい輝くアプリケーションを構築しましたか？ [GitHub Marketplace に追加する](/apps/marketplace/creating-and-submitting-your-app-for-approval/)。{% endif %}

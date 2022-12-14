@@ -1,0 +1,20 @@
+date: '19.05.2020'
+sections:
+  security_fixes:
+    - 'Die Pakete wurden auf die neuesten Sicherheitsversionen aktualisiert. {% comment %} https://github.com/github/enterprise2/pull/20108, https://github.com/github/enterprise2/pull/20086 {% endcomment %}'
+  bugs:
+    - 'Nachdem die Lizenzdatei aktualisiert wurde, wurden Dienste nicht ordnungsgemäß neu geladen, was zu einem Funktionsverlust führte. {% comment %} https://github.com/github/enterprise2/pull/20072, https://github.com/github/enterprise2/pull/19989 {% endcomment %}'
+    - 'Interne API-Anforderungen, die Daten des Abhängigkeitsdiagramms aktualisieren, konnten fehlschlagen, wenn der Anforderungstext zu lang war. {% comment %} https://github.com/github/enterprise2/pull/20231, https://github.com/github/enterprise2/pull/20208 {% endcomment %}'
+    - 'Das `affiliations`-Argument bestimmter GraphQL-Repositoryverbindungen wurde nicht berücksichtigt. {% comment %} https://github.com/github/github/pull/142036, https://github.com/github/github/pull/140658 {% endcomment %}'
+    - 'Das automatische Aufheben der Sperre von Benutzer*innen über SSO wurde nicht abgeschlossen, wenn das SAML-E-Mail-Attribut eine andere Groß-/Kleinschreibung aufwies als die E-Mail-Adresse des GitHub-Benutzers oder der GitHub-Benutzerin. {% comment %} https://github.com/github/github/pull/143321, https://github.com/github/github/pull/142915 {% endcomment %}'
+    - 'Beim Wiederherstellen der Mitgliedschaft von Benutzer*innen für eine Organisation wurde der Akteur nicht in Webhook- und Überwachungsprotokoll-Nutzdaten instrumentiert. {% comment %} https://github.com/github/github/pull/143231, https://github.com/github/github/pull/140849 {% endcomment %}'
+  known_issues:
+    - 'Angreifer*innen könnten auf einem neu eingerichteten GitHub Enterprise-Server den ersten Administratorbenutzer erstellen. {% comment %} https://github.com/github/enterprise2/issues/1889 {% endcomment %}'
+    - 'Benutzerdefinierte Firewallregeln werden während eines Upgrades nicht aufrechterhalten. {% comment %} https://github.com/github/enterprise2/issues/2823 {% endcomment %}'
+    - 'Nachverfolgte Git LFS-Dateien, [die über die Webschnittstelle hochgeladen wurden](https://github.com/blog/2105-upload-files-to-your-repositories), werden dem Repository fälschlicherweise direkt hinzugefügt. {% comment %} https://github.com/github/github/issues/54684 {% endcomment %}'
+    - 'Issues können nicht geschlossen werden, wenn sie einen Permalink zu einem Blob im selben Repository enthalten, in dem der Dateipfad länger als 255 Zeichen ist. {% comment %} https://github.com/github/github/issues/107731 {% endcomment %}'
+    - 'Beim Pushen an ein Gist könnte eine Ausnahme während des Post-Receive-Hooks ausgelöst werden. {% comment %} https://github.com/github/github/issues/129091 {% endcomment %}'
+    - 'Wenn „Benutzer können GitHub.com durchsuchen“ mit GitHub Connect aktiviert ist, werden Issues in privaten und internen Repositorys nicht in den GitHub.com-Suchergebnissen angezeigt. {% comment %} https://github.com/github/admin-experience/issues/571 {% endcomment %}'
+    - 'Sicherheitswarnungen werden nicht gemeldet, wenn Pushs zu einem Repository über die Befehlszeile durchgeführt werden. (aktualisiert am 23.06.2020) {% comment %} https://github.com/github/github/issues/143190 {% endcomment %}'
+    - 'Das Abhängigkeitsdiagramm erkennt keine Abhängigkeiten, wenn es in einer Clusterkonfiguration mit mehreren Redis-Knoten bereitgestellt ist. (aktualisiert am 30.06.2020) {% comment %} https://github.com/github/dependency-graph/issues/81 {% endcomment %}'
+    - 'Wenn ein Replikatknoten in einer Hochverfügbarkeitskonfiguration offline ist, kann {% data variables.product.product_name %} eventuell noch immer Anforderungen von {% data variables.product.prodname_pages %} an den Offlineknoten weiterleiten, was die Verfügbarkeit von {% data variables.product.prodname_pages %} für Benutzer*innen verringert.'

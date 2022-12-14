@@ -1,7 +1,7 @@
 ---
-title: About GitHub-hosted runners
+title: 'О средствах выполнения, размещенных в GitHub'
 shortTitle: About GitHub-hosted runners
-intro: '{% data variables.product.prodname_dotcom %} offers hosted virtual machines to run workflows. The virtual machine contains an environment of tools, packages, and settings available for {% data variables.product.prodname_actions %} to use.'
+intro: '{% data variables.product.prodname_dotcom %} предлагает размещенные виртуальные машины для выполнения рабочих процессов. Виртуальная машина содержит среду инструментов, пакетов и параметров, доступных для использования в {% data variables.product.prodname_actions %}.'
 redirect_from:
   - /articles/virtual-environments-for-github-actions
   - /github/automating-your-workflow-with-github-actions/virtual-environments-for-github-actions
@@ -15,33 +15,37 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
+ms.openlocfilehash: f44c5bcf8c6cc9c48a2910d2a0d371087debd158
+ms.sourcegitcommit: 1668466c58f50415e8c4d3ad932d697f79fc87c7
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 11/22/2022
+ms.locfileid: '148180688'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+## Обзор средств выполнения, размещенных на {% data variables.product.prodname_dotcom %}
 
-## Overview of {% data variables.product.prodname_dotcom %}-hosted runners
+Средства выполнения — это компьютеры, выполняющие задания в рабочем процессе {% data variables.product.prodname_actions %}. Например, средство выполнения может клонировать репозиторий локально, установить тестовое программное обеспечение, а затем выполнить команды, которые оценивают код. 
 
-Runners are the machines that execute jobs in a {% data variables.product.prodname_actions %} workflow. For example, a runner can clone your repository locally, install testing software, and then run commands that evaluate your code. 
-
-{% data variables.product.prodname_dotcom %} provides runners that you can use to run your jobs, or you can [host your own runners](/actions/hosting-your-own-runners/about-self-hosted-runners). Each {% data variables.product.prodname_dotcom %}-hosted runner is a new virtual machine (VM) hosted by {% data variables.product.prodname_dotcom %} with the runner application and other tools preinstalled, and is available with Ubuntu Linux, Windows, or macOS operating systems. When you use a {% data variables.product.prodname_dotcom %}-hosted runner, machine maintenance and upgrades are taken care of for you.
+{% data variables.product.prodname_dotcom %} предоставляет средства выполнения, которые можно использовать для выполнения заданий или [размещения собственных средств выполнения](/actions/hosting-your-own-runners/about-self-hosted-runners). Каждое средство выполнения, размещенное на {% data variables.product.prodname_dotcom %}, — это новая виртуальная машина, размещенная на {% data variables.product.prodname_dotcom %}, с предварительно установленным приложением средства выполнения и другими средствами. Эта виртуальная машина может работать на Ubuntu Linux, Windows или macOS. Если вы используете средство выполнения, размещенное в {% data variables.product.prodname_dotcom %}, обслуживание и обновление компьютера будет делаться за вас.
 
 {% ifversion not ghes %}
 
-## Using a {% data variables.product.prodname_dotcom %}-hosted runner
+## Использование средства выполнения, размещенного на {% data variables.product.prodname_dotcom %}
 
-To use a {% data variables.product.prodname_dotcom %}-hosted runner, create a job and use `runs-on` to specify the type of runner that will process the job, such as `ubuntu-latest`, `windows-latest`, or `macos-latest`. For the full list of runner types, see "[Supported runners and hardware resources](/actions/using-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources)."
+Чтобы использовать средство выполнения, размещенное на {% data variables.product.prodname_dotcom %}, создайте задание и используйте `runs-on`, чтобы указать тип средства выполнения, обрабатывающего задание, например `ubuntu-latest`, `windows-latest` или `macos-latest`. Полный список типов средств выполнения см. в разделе [Поддерживаемые средства выполнения и аппаратные ресурсы](/actions/using-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources).
 
-When the job begins, {% data variables.product.prodname_dotcom %} automatically provisions a new VM for that job. All steps in the job execute on the VM, allowing the steps in that job to share information using the runner's filesystem. You can run workflows directly on the VM or in a Docker container. When the job has finished, the VM is automatically decommissioned.
+При запуске задания {% data variables.product.prodname_dotcom %} автоматически подготавливает новую виртуальную машину для этого задания. Все шаги в задании выполняются на виртуальной машине, а значит могут обмениваться информацией через файловую систему средства выполнения. Вы можете запускать рабочие процессы непосредственно на виртуальной машине или в контейнере Docker. По завершении задания виртуальная машина будет автоматически завершена.
 
-The following diagram demonstrates how two jobs in a workflow are executed on two different {% data variables.product.prodname_dotcom %}-hosted runners. 
+На следующей схеме показано, как два задания в рабочем процессе выполняются в двух разных средствах выполнения, размещенных на {% data variables.product.prodname_dotcom %}. 
 
-![Two runners processing separate jobs](/assets/images/help/images/overview-github-hosted-runner.png)
+![Два средства выполнения обрабатывают отдельные задания](/assets/images/help/images/overview-github-hosted-runner.png)
 
-The following example workflow has two jobs, named `Run-npm-on-Ubuntu` and `Run-PSScriptAnalyzer-on-Windows`. When this workflow is triggered, {% data variables.product.prodname_dotcom %} provisions a new virtual machine for each job. 
+В следующем примере рабочего процесса есть два задания: `Run-npm-on-Ubuntu` и `Run-PSScriptAnalyzer-on-Windows`. При активации этого рабочего процесса {% data variables.product.prodname_dotcom %} подготавливает новую виртуальную машину для каждого задания. 
 
-- The job named `Run-npm-on-Ubuntu` is executed on a Linux VM, because the job's `runs-on:` specifies `ubuntu-latest`. 
-- The job named `Run-PSScriptAnalyzer-on-Windows` is executed on a Windows VM, because the job's `runs-on:` specifies `windows-latest`. 
+- Задание `Run-npm-on-Ubuntu` выполняется на виртуальной машине Linux, так как для параметра `runs-on:` в задании указано `ubuntu-latest`. 
+- Задание `Run-PSScriptAnalyzer-on-Windows` выполняется на виртуальной машине Windows, так как для параметра `runs-on:` в задании указано `windows-latest`. 
 
 ```yaml{:copy}
 name: Run commands on different operating systems
@@ -78,130 +82,128 @@ jobs:
           Get-ScriptAnalyzerRule
 ```
 
-While the job runs, the logs and output can be viewed in the {% data variables.product.prodname_dotcom %} UI:
+Во время выполнения задания журналы и выходные данные можно просмотреть в пользовательском интерфейсе {% data variables.product.prodname_dotcom %}:
 
-![Job output in the Actions UI](/assets/images/help/repository/actions-runner-output.png)
+![Выходные данные задания в пользовательском интерфейсе Actions](/assets/images/help/repository/actions-runner-output.png)
 
 {% data reusables.actions.runner-app-open-source %}
 
-## Supported runners and hardware resources
+## Поддерживаемые средства выполнения и аппаратные ресурсы
 
 {% ifversion actions-hosted-runners %}
 
 {% note %}
 
-**Note**: {% data variables.product.prodname_dotcom %} also offers {% data variables.actions.hosted_runner %}s, which are available in larger configurations. For more information, see "[Machine specs for {% data variables.actions.hosted_runner %}s](/actions/using-github-hosted-runners/using-larger-runners#machine-specs-for-larger-runners)."  
+**Примечание.** {% data variables.product.prodname_dotcom %} также предлагает {% data variables.actions.hosted_runner %}, которые доступны в более крупных конфигурациях. Дополнительные сведения см. в разделе [Спецификации компьютера для {% data variables.actions.hosted_runner %}s](/actions/using-github-hosted-runners/using-larger-runners#machine-specs-for-larger-runners).  
 
-{% endnote %}
-{% endif %}
+{% endnote %} {% endif %}
 
-Hardware specification for Windows and Linux virtual machines:
-- 2-core CPU (x86_64)
-- 7 GB of RAM
-- 14 GB of SSD space
+Спецификация оборудования для виртуальных машин Windows и Linux:
+- Двухъядерный ЦП (x86_64)
+- 7 ГБ ОЗУ
+- 14 ГБ пространства SSD
 
-Hardware specification for macOS virtual machines:
-- 3-core CPU (x86_64)
-- 14 GB of RAM
-- 14 GB of SSD space
+Спецификация оборудования для виртуальных машин macOS:
+- Трехъядерный ЦП (x86_64)
+- 14 ГБ ОЗУ
+- 14 ГБ пространства SSD
 
 {% data reusables.actions.supported-github-runners %}
 
-Workflow logs list the runner used to run a job. For more information, see "[Viewing workflow run history](/actions/managing-workflow-runs/viewing-workflow-run-history)."
+В журналах рабочих процессов указывается средство выполнения, использовавшееся для запуска задания. Дополнительные сведения см. в статье "[Просмотр журнала выполнения рабочего процесса](/actions/managing-workflow-runs/viewing-workflow-run-history)".
 
-## Supported software
+## Поддерживаемое программное обеспечение
 
-The software tools included in {% data variables.product.prodname_dotcom %}-hosted runners are updated weekly. The update process takes several days, and the list of preinstalled software on the `main` branch is updated after the whole deployment ends.
+Программные инструменты, которые включены в средства выполнения, размещенные в {% data variables.product.prodname_dotcom %}, обновляются еженедельно. Процесс обновления занимает несколько дней, а список предустановленного программного обеспечения в ветви `main` обновляется после завершения всего развертывания.
 
-### Preinstalled software
+### Предустановленное программное обеспечение
 
-Workflow logs include a link to the preinstalled tools on the exact runner. To find this information in the workflow log, expand the `Set up job` section. Under that section, expand the `Runner Image` section. The link following `Included Software` will describe the preinstalled tools on the runner that ran the workflow.
-![Installed software link](/assets/images/actions-runner-installed-software-link.png)
-For more information, see "[Viewing workflow run history](/actions/managing-workflow-runs/viewing-workflow-run-history)."
+Журналы рабочих процессов включают ссылку на предустановленные инструменты в точном средстве выполнения. Чтобы найти эти сведения в журнале рабочего процесса, разверните раздел `Set up job`. В этом разделе разверните раздел `Runner Image`. Ссылка, следующая за `Included Software`, описывает предустановленные инструменты в средстве выполнения, которое выполняло рабочий процесс.
+![Ссылка на установленное программное обеспечение](/assets/images/actions-runner-installed-software-link.png) Дополнительные сведения см. в разделе [Просмотр журнала выполнения рабочего процесса](/actions/managing-workflow-runs/viewing-workflow-run-history).
 
-For the overall list of included tools for each runner operating system, see the links below:
+Общий список включенных инструментов для каждой операционной системы средства выполнения см. по ссылкам ниже.
 
 * [Ubuntu 22.04 LTS](https://github.com/actions/runner-images/blob/main/images/linux/Ubuntu2204-Readme.md)
 * [Ubuntu 20.04 LTS](https://github.com/actions/runner-images/blob/main/images/linux/Ubuntu2004-Readme.md)
-* [Ubuntu 18.04 LTS](https://github.com/actions/runner-images/blob/main/images/linux/Ubuntu1804-Readme.md) (deprecated)
+* [Ubuntu 18.04 LTS](https://github.com/actions/runner-images/blob/main/images/linux/Ubuntu1804-Readme.md) (не рекомендуется)
 * [Windows Server 2022](https://github.com/actions/runner-images/blob/main/images/win/Windows2022-Readme.md)
-* [Windows Server 2019](https://github.com/actions/runner-images/blob/main/images/win/Windows2019-Readme.md)
+* [Windows Server 2019](https://github.com/actions/runner-images/blob/main/images/win/Windows2019-Readme.md)
 * [macOS 12](https://github.com/actions/runner-images/blob/main/images/macos/macos-12-Readme.md)
-* [macOS 11](https://github.com/actions/runner-images/blob/main/images/macos/macos-11-Readme.md)
-* [macOS 10.15](https://github.com/actions/runner-images/blob/main/images/macos/macos-10.15-Readme.md)
+* [macOS 11](https://github.com/actions/runner-images/blob/main/images/macos/macos-11-Readme.md)
+* [macOS 10.15](https://github.com/actions/runner-images/blob/main/images/macos/macos-10.15-Readme.md)
 
-{% data variables.product.prodname_dotcom %}-hosted runners include the operating system's default built-in tools, in addition to the packages listed in the above references. For example, Ubuntu and macOS runners include `grep`, `find`, and `which`, among other default tools. 
+Средства выполнения, размещенные в {% data variables.product.prodname_dotcom %}, включают встроенные инструменты операционной системы по умолчанию в дополнение к пакетам, перечисленным в приведенных выше ссылках. Например, средства выполнения Ubuntu и macOS включают `grep`, `find`, `which` и другие инструменты по умолчанию. 
 
-### Using preinstalled software
+### Использование предустановленного программного обеспечения
 
-We recommend using actions to interact with the software installed on runners. This approach has several benefits:
-- Usually, actions provide more flexible functionality like versions selection, ability to pass arguments, and parameters
-- It ensures the tool versions used in your workflow will remain the same regardless of software updates
+Для взаимодействия с программным обеспечением, установленным в средствах выполнения, рекомендуется использовать действия. Такой подход имеет несколько преимуществ.
+- Как правило, действия предоставляют более гибкие функциональные возможности, такие как выбор версий, возможность передачи аргументов и параметры.
+- Он гарантирует, что версии инструментов, используемые в рабочем процессе, останутся неизменными независимо от обновлений программного обеспечения.
 
-If there is a tool that you'd like to request, please open an issue at [actions/runner-images](https://github.com/actions/runner-images). This repository also contains announcements about all major software updates on runners.
+Если вы хотите запросить какой-либо инструмент, откройте проблему в разделе [actions/runner-images](https://github.com/actions/runner-images). Этот репозиторий также содержит объявления обо всех основных обновлениях программного обеспечения для средств выполнения.
 
-### Installing additional software
+### Установка дополнительного программного обеспечения
 
-You can install additional software on {% data variables.product.prodname_dotcom %}-hosted runners. For more information, see "[Customizing GitHub-hosted runners](/actions/using-github-hosted-runners/customizing-github-hosted-runners)".
+Вы можете устанавливать дополнительное программное обеспечение на средства выполнения, размещенные в {% data variables.product.prodname_dotcom %}. Дополнительные сведения см. в разделе [Настройка средств выполнения, размещенных в GitHub](/actions/using-github-hosted-runners/customizing-github-hosted-runners).
 
-## Cloud hosts used by {% data variables.product.prodname_dotcom %}-hosted runners
+## Облачные узлы, используемые средствами выполнения, размещенными в {% data variables.product.prodname_dotcom %}
 
-{% data variables.product.prodname_dotcom %} hosts Linux and Windows runners on `Standard_DS2_v2` virtual machines in Microsoft Azure with the {% data variables.product.prodname_actions %} runner application installed. The {% data variables.product.prodname_dotcom %}-hosted runner application is a fork of the Azure Pipelines Agent. Inbound ICMP packets are blocked for all Azure virtual machines, so ping or traceroute commands might not work. For more information about the `Standard_DS2_v2` resources, see "[Dv2 and DSv2-series](https://docs.microsoft.com/azure/virtual-machines/dv2-dsv2-series#dsv2-series)" in the Microsoft Azure documentation.
+{% data variables.product.prodname_dotcom %} размещает средства выполнения Linux и Windows на виртуальных машинах `Standard_DS2_v2` в Microsoft Azure с установленным приложением средства выполнения {% data variables.product.prodname_actions %}. Приложение средства выполнения, размещенного в {% data variables.product.prodname_dotcom %}является вилкой агента Azure Pipelines. Входящие пакеты ICMP блокируются для всех виртуальных машин Azure, поэтому команды проверки связи или traceroute могут не работать. Дополнительные сведения о ресурсах `Standard_DS2_v2` см. в разделе [Серии Dv2 и DSv2](https://docs.microsoft.com/azure/virtual-machines/dv2-dsv2-series#dsv2-series) в документации Microsoft Azure.
 
-{% data variables.product.prodname_dotcom %} hosts macOS runners in {% data variables.product.prodname_dotcom %}'s own macOS Cloud.
+{% data variables.product.prodname_dotcom %} размещает средства выполнения macOS в облаке macOS, принадлежащем {% data variables.product.prodname_dotcom %}.
 
-## Workflow continuity
+## Непрерывность рабочих процессов
 
 {% data reusables.actions.runner-workflow-continuity %}
 
-In addition, if the workflow run has been successfully queued, but has not been processed by a {% data variables.product.prodname_dotcom %}-hosted runner within 45 minutes, then the queued workflow run is discarded.
+Кроме того, если выполнение рабочего процесса успешно поставлено в очередь, но не обработано средством выполнения, размещенным в {% data variables.product.prodname_dotcom %}, в течение 45 минут, запуск рабочего процесса в очереди отменяется.
 
-## Administrative privileges
+## Права администратора
 
-The Linux and macOS virtual machines both run using passwordless `sudo`. When you need to execute commands or install tools that require more privileges than the current user, you can use `sudo` without needing to provide a password. For more information, see the "[Sudo Manual](https://www.sudo.ws/man/1.8.27/sudo.man.html)."
+Виртуальные машины Linux и macOS работают с использованием `sudo` без пароля. Если необходимо выполнить команды или установить средства, требующие больше привилегий, чем имеется у текущего пользователя, можно использовать `sudo` без необходимости вводить пароль. Дополнительные сведения см. в [руководстве по sudo](https://www.sudo.ws/man/1.8.27/sudo.man.html).
 
-Windows virtual machines are configured to run as administrators with User Account Control (UAC) disabled. For more information, see "[How User Account Control works](https://docs.microsoft.com/windows/security/identity-protection/user-account-control/how-user-account-control-works)" in the Windows documentation.
+Виртуальные машины Windows настроены для запуска от имени администраторов с отключенной функцией контроля учетных записей (UAC). Дополнительные сведения см. в разделе [Принцип работы контроля учетных записей пользователей](https://docs.microsoft.com/windows/security/identity-protection/user-account-control/how-user-account-control-works) в документации Windows.
 
-## IP addresses
+## IP-адреса
 
 {% note %}
 
-**Note:** If you use an IP address allow list for your {% data variables.product.prodname_dotcom %} organization or enterprise account, you cannot use {% data variables.product.prodname_dotcom %}-hosted runners and must instead use self-hosted runners. For more information, see "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners)."
+**Примечание.** Если вы используете список разрешенных IP-адресов для учетной записи вашей организации или предприятия {% data variables.product.prodname_dotcom %}, то не можете использовать средства выполнения, размещенные в {% data variables.product.prodname_dotcom %}. Вместо них вы должны использовать локальные средства выполнения. Дополнительные сведения см. в статье "[Сведения о локально размещенных средствах выполнения](/actions/hosting-your-own-runners/about-self-hosted-runners)."
 
 {% endnote %}
 
-To get a list of IP address ranges that {% data variables.product.prodname_actions %} uses for {% data variables.product.prodname_dotcom %}-hosted runners, you can use the {% data variables.product.prodname_dotcom %} REST API. For more information, see the `actions` key in the response of the "[Get GitHub meta information](/rest/reference/meta#get-github-meta-information)" endpoint.
+Получить список диапазонов IP-адресов, которые используются {% data variables.product.prodname_actions %} для средств выполнения, размещенных в {% data variables.product.prodname_dotcom %}, можно с помощью REST API {% data variables.product.prodname_dotcom %}. Дополнительные сведения см. в ключе `actions` в ответе конечной точки [Получение метаданных GitHub](/rest/reference/meta#get-github-meta-information).
 
-Windows and Ubuntu runners are hosted in Azure and subsequently have the same IP address ranges as the Azure datacenters. macOS runners are hosted in {% data variables.product.prodname_dotcom %}'s own macOS cloud.
+Средства выполнения Windows и Ubuntu размещаются в Azure и, следовательно, имеют те же диапазоны IP-адресов, что и центры обработки данных Azure. Средства выполнения macOS размещаются в облаке macOS, принадлежащем {% data variables.product.prodname_dotcom %}.
 
-Since there are so many IP address ranges for {% data variables.product.prodname_dotcom %}-hosted runners, we do not recommend that you use these as allow-lists for your internal resources.
+Так как существует много диапазонов IP-адресов для средств выполнения, размещенных в {% data variables.product.prodname_dotcom %}, не рекомендуется использовать их в качестве списков разрешенных IP-адресов для внутренних ресурсов.
 
-The list of {% data variables.product.prodname_actions %} IP addresses returned by the API is updated once a week. 
+Список IP-адресов {% data variables.product.prodname_actions %}, возвращаемых API, обновляется раз в неделю. 
 
-## File systems
+## Файловые системы
 
-{% data variables.product.prodname_dotcom %} executes actions and shell commands in specific directories on the virtual machine. The file paths on virtual machines are not static. Use the environment variables {% data variables.product.prodname_dotcom %} provides to construct file paths for the `home`, `workspace`, and `workflow` directories.
+{% data variables.product.prodname_dotcom %} выполняет действия и команды оболочки в определенных каталогах на виртуальной машине. Пути к файлам на виртуальных машинах не являются статическими. Используйте переменные среды, предоставляемые {% data variables.product.prodname_dotcom %}, для создания путей к файлам в каталогах `home`, `workspace`и `workflow`.
 
-| Directory | Environment variable | Description |
+| Каталог | Переменная среды | Описание |
 |-----------|----------------------|-------------|
-| `home` | `HOME` | Contains user-related data. For example, this directory could contain credentials from a login attempt. |
-| `workspace` | `GITHUB_WORKSPACE` | Actions and shell commands execute in this directory. An action can modify the contents of this directory, which subsequent actions can access. |
-| `workflow/event.json` | `GITHUB_EVENT_PATH` | The `POST` payload of the webhook event that triggered the workflow. {% data variables.product.prodname_dotcom %} rewrites this each time an action executes to isolate file content between actions.
+| `home` | `HOME` | Содержит данные, связанные с пользователем. Например, этот каталог может содержать учетные данные из попытки входа. |
+| `workspace` | `GITHUB_WORKSPACE` | В этом каталоге выполняются действия и команды оболочки. Действие может изменить содержимое этого каталога, к которому могут обращаться последующие действия. |
+| `workflow/event.json` | `GITHUB_EVENT_PATH` | Полезные данные `POST` события веб-перехватчика, которое активировало рабочий процесс. {% data variables.product.prodname_dotcom %} перезаписывает их каждый раз при выполнении действия для изоляции содержимого файла между действиями.
 
-For a list of the environment variables {% data variables.product.prodname_dotcom %} creates for each workflow, see "[Using environment variables](/github/automating-your-workflow-with-github-actions/using-environment-variables)."
+Список переменных среды, которые {% data variables.product.prodname_dotcom %} создает для каждого рабочего процесса, см. в разделе [Использование переменных среды](/github/automating-your-workflow-with-github-actions/using-environment-variables).
 
-### Docker container filesystem
+### Файловая система контейнера Docker
 
-Actions that run in Docker containers have static directories under the `/github` path. However, we strongly recommend using the default environment variables to construct file paths in Docker containers.
+Действия, выполняемые в контейнерах Docker, имеют статические каталоги по пути `/github`. Однако мы настоятельно рекомендуем использовать переменные среды по умолчанию для создания путей к файлам в контейнерах Docker.
 
-{% data variables.product.prodname_dotcom %} reserves the `/github` path prefix and creates three directories for actions.
+{% data variables.product.prodname_dotcom %} резервирует префикс пути `/github` и создает три каталога для действий.
 
 - `/github/home`
 - `/github/workspace` - {% data reusables.repositories.action-root-user-required %}
 - `/github/workflow`
 
-## Further reading
-- "[Managing billing for {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions)"
-- You can use a matrix strategy to run your jobs on multiple images. For more information, see "[Using a matrix for your jobs](/actions/using-jobs/using-a-matrix-for-your-jobs)."
+## Дополнительные материалы
+- [Управление выставлением счетов для {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions)
+- Вы можете использовать стратегию матрицы для выполнения заданий с несколькими образами. Дополнительные сведения см. в разделе [Использование матрицы для заданий](/actions/using-jobs/using-a-matrix-for-your-jobs).
 
 {% endif %}
