@@ -1,0 +1,24 @@
+date: '29/01/2021'
+release_candidate: true
+deprecated: true
+intro: "Les versions Release Candidate doivent être testées dans des environnements hors production. Pour plus d’informations sur le programme des versions Release Candidate, consultez le [Blog GitHub](https://github.blog/2020-12-03-improving-the-ghes-release-process-release-candidates/) ou « [À propos des mises à niveau vers de nouvelles versions](/admin/overview/about-upgrades-to-new-releases) »."
+sections:
+  bugs:
+    - heading: Corrections des problèmes connus de la version Release Candidate 1
+      notes:
+        - "Si vous avez désactivé GitHub Actions suite à l’échec d’une tentative de configuration de GitHub Actions, vous ne pouvez pas créer le premier utilisateur et utiliser l’appliance."
+        - L’événement de journal d’audit « Message obligatoire affiché » n’était pas enregistré.
+        - '« ghe-config-apply » devait être exécuté sur un réplica pendant une configuration initiale avant que « ghe-repl-setup » puisse être exécuté pour démarrer la réplication.'
+        - Le fait de vous supprimer en tant que propriétaire d’entreprise a retourné une erreur 404.
+    - heading: Correctifs pour d’autres problèmes
+      notes:
+        - Les problèmes avec les migrations et les mises à niveau vers la version 3.0.0 ont été résolus.
+        - Le versioning des utilitaires de sauvegarde fonctionne désormais pour les versions Release Candidate.
+        - La génération d’un bundle de support retournait une erreur dans les journaux d’Orchestrator.
+        - Une sauvegarde volumineuse peut entraîner l’épuisement de la mémoire dans Redis.
+        - La case à cocher permettant d’activer GitHub Actions dans la Console de gestion est désormais visible avec n’importe quelle méthode d’authentification.
+        - GitHub Actions peut être activé uniquement si le stockage nécessaire est également configuré.
+        - '« ghe-repl-status » peut échouer silencieusement si la réplication n’est pas configurée.'
+
+  known_issues:
+    - "Les problèmes connus concernant la version Release Candidate 1 continuent de s’appliquer, à l’exception des correctifs de bogues listés."

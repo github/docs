@@ -1,104 +1,109 @@
 ---
-title: Use the Git and GitHub starter assignment
-intro: 'You can use the Git & {% data variables.product.company_short %} starter assignment to give students an overview of Git and {% data variables.product.company_short %} fundamentals.'
+title: Utiliser le devoir de démarrage Git et GitHub
+intro: 'Vous pouvez utiliser le devoir de démarrage Git et {% data variables.product.company_short %} pour donner aux étudiants une vue d’ensemble des bases de Git et de {% data variables.product.company_short %}.'
 versions:
   fpt: '*'
 permissions: 'Organization owners who are admins for a classroom can use Git & {% data variables.product.company_short %} starter assignments. {% data reusables.classroom.classroom-admins-link %}'
 redirect_from:
   - /education/manage-coursework-with-github-classroom/use-the-git-and-github-starter-assignment
 shortTitle: Starter assignment
+ms.openlocfilehash: ec19f9ce78b3a14803ee7383a05e7d0188830c7f
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147574011'
 ---
+Le devoir de démarrage Git et {% data variables.product.company_short %} est un cours prédéfini qui résume les principes de base de Git et {% data variables.product.company_short %}, et propose aux étudiants des liens vers des ressources pour en savoir plus sur des sujets spécifiques.
 
-The Git & {% data variables.product.company_short %} starter assignment is a pre-made course that summarizes the basics of Git and {% data variables.product.company_short %} and links students to resources to learn more about specific topics.
-
-## Prerequisites
+## Prérequis
 
 {% data reusables.classroom.assignments-classroom-prerequisite %}
 
-## Creating the starter assignment
+## Création du devoir de démarrage
 
-### If there are no existing assignments in the classroom
+### S’il n’y a pas encore de devoirs dans la classe
 
-1. Sign into {% data variables.product.prodname_classroom_with_url %}.
-2. Navigate to a classroom.
-3. In the {% octicon "repo" aria-label="The repo icon" %} **Assignments** tab, click  **Use starter assignment**.
+1. Connectez-vous à {% data variables.product.prodname_classroom_with_url %}.
+2. Accédez à une classe.
+3. Sous l’onglet {% octicon "repo" aria-label="The repo icon" %} **Devoirs**, cliquez sur **Utiliser le devoir de démarrage**.
 
 <div class="procedural-image-wrapper">
   <img alt="Creating your first assignment" class="procedural-image-wrapper" src="/assets/images/help/classroom/assignments-create-first-assignment.png">
 </div>
 
-### If there already are existing assignments in the classroom
+### S’il y a déjà des devoirs dans la classe
 
-1. Sign into {% data variables.product.prodname_classroom_with_url %}.
-2. Navigate to a classroom.
-3. In the {% octicon "repo" aria-label="The repo icon" %} **Assignments** tab, click the link on the blue banner.
+1. Connectez-vous à {% data variables.product.prodname_classroom_with_url %}.
+2. Accédez à une classe.
+3. Sous l’onglet {% octicon "repo" aria-label="The repo icon" %} **Devoirs**, cliquez sur le lien de la bannière bleue.
 
 <div class="procedural-image-wrapper">
   <img alt="The 'New assignment' button" class="procedural-image-wrapper" src="/assets/images/help/classroom/assignments-click-new-starter-assignment-button.png">
 </div>
 
-## Setting up the basics for an assignment
+## Configuration des éléments de base d’un devoir
 
-Import the starter course into your organization, name your assignment, decide whether to assign a deadline, and choose the visibility of assignment repositories.
+Importez le cours de démarrage dans votre organisation, donnez un nom à votre devoir, choisissez éventuellement une échéance ainsi que la visibilité des dépôts de devoir.
 
-- [Prerequisites](#prerequisites)
-- [Creating the starter assignment](#creating-the-starter-assignment)
-  - [If there are no existing assignments in the classroom](#if-there-are-no-existing-assignments-in-the-classroom)
-  - [If there already are existing assignments in the classroom](#if-there-already-are-existing-assignments-in-the-classroom)
-- [Setting up the basics for an assignment](#setting-up-the-basics-for-an-assignment)
-  - [Importing the assignment](#importing-the-assignment)
-  - [Naming the assignment](#naming-the-assignment)
-  - [Assigning a deadline for an assignment](#assigning-a-deadline-for-an-assignment)
-  - [Choosing a visibility for assignment repositories](#choosing-a-visibility-for-assignment-repositories)
-- [Inviting students to an assignment](#inviting-students-to-an-assignment)
-- [Next steps](#next-steps)
-- [Further reading](#further-reading)
+- [Composants requis](#prerequisites)
+- [Création du devoir de démarrage](#creating-the-starter-assignment)
+  - [S’il n’y a pas encore de devoirs dans la classe](#if-there-are-no-existing-assignments-in-the-classroom)
+  - [S’il y a déjà des devoirs dans la classe](#if-there-already-are-existing-assignments-in-the-classroom)
+- [Configuration des éléments de base d’un devoir](#setting-up-the-basics-for-an-assignment)
+  - [Importation du devoir](#importing-the-assignment)
+  - [Nommage du devoir](#naming-the-assignment)
+  - [Attribution d’une échéance pour un devoir](#assigning-a-deadline-for-an-assignment)
+  - [Choix d’une visibilité pour les dépôts de devoir](#choosing-a-visibility-for-assignment-repositories)
+- [Invitation d’étudiants à un devoir](#inviting-students-to-an-assignment)
+- [Étapes suivantes](#next-steps)
+- [Pour aller plus loin](#further-reading)
 
-### Importing the assignment
+### Importation du devoir
 
-You first need to import the Git & {% data variables.product.product_name %} starter assignment into your organization.
+Vous devez d’abord importer le devoir de démarrage Git et {% data variables.product.product_name %} dans votre organisation.
 
 <div class="procedural-image-wrapper">
   <img alt="The `Import the assignment` button" class="procedural-image-wrapper" src="/assets/images/help/classroom/assignments-import-starter-assignment.png">
 </div>
 
-### Naming the assignment
+### Nommage du devoir
 
-For an individual assignment, {% data variables.product.prodname_classroom %} names repositories by the repository prefix and the student's {% data variables.product.product_name %} username. By default, the repository prefix is the assignment title. For example, if you name an assignment "assignment-1" and the student's username on {% data variables.product.product_name %} is @octocat, the name of the assignment repository for @octocat will be `assignment-1-octocat`.
+Pour un devoir individuel, {% data variables.product.prodname_classroom %} nomme les dépôts avec le préfixe du dépôt et le nom d’utilisateur {% data variables.product.product_name %} de l’étudiant. Par défaut, le préfixe du dépôt est le titre du devoir. Par exemple, si vous nommez un devoir « assignment-1 » et que le nom d’utilisateur de l’étudiant sur {% data variables.product.product_name %} est @octocat, le nom du dépôt de devoir pour @octocat est `assignment-1-octocat`.
 
 {% data reusables.classroom.assignments-type-a-title %}
 
-### Assigning a deadline for an assignment
+### Attribution d’une échéance pour un devoir
 
 {% data reusables.classroom.assignments-guide-assign-a-deadline %}
 
-### Choosing a visibility for assignment repositories
+### Choix d’une visibilité pour les dépôts de devoir
 
-The repositories for an assignment can be public or private. If you use private repositories, only the student can see the feedback you provide. Under "Repository visibility," select a visibility.
+Les dépôts d’un devoir peuvent être publics ou privés. Si vous utilisez des dépôts privés, seul l’étudiant peut voir les commentaires que vous fournissez. Sous « Visibilité du dépôt », sélectionnez une visibilité.
 
-When you're done, click **Continue**. {% data variables.product.prodname_classroom %} will create the assignment and bring you to the assignment page.
+Quand vous avez terminé, cliquez sur **Continuer**. {% data variables.product.prodname_classroom %} crée le devoir et vous dirige vers la page du devoir.
 
 <div class="procedural-image-wrapper">
   <img alt="'Continue' button" class="procedural-image-wrapper" src="/assets/images/help/classroom/assignments-click-continue-button.png">
 </div>
 
-## Inviting students to an assignment
+## Invitation d’étudiants à un devoir
 
 {% data reusables.classroom.assignments-guide-invite-students-to-assignment %}
 
-You can see whether a student has joined the classroom and accepted or submitted an assignment in the **All students** tab for the assignment. {% data reusables.classroom.assignments-to-prevent-submission %}
+Vous pouvez voir si un étudiant a rejoint la classe et a accepté ou envoyé un devoir sous l’onglet **Tous les étudiants** du devoir. {% data reusables.classroom.assignments-to-prevent-submission %}
 
 <div class="procedural-image-wrapper">
   <img alt="Individual assignment" class="procedural-image-wrapper" src="/assets/images/help/classroom/assignment-individual-hero.png">
 </div>
 
-The Git & {% data variables.product.company_short %} starter assignment is only available for individual students, not for groups. Once you create the assignment, students can start work on the assignment.
+Le devoir de démarrage Git et {% data variables.product.company_short %} est disponible seulement pour les étudiants individuels, pas pour les groupes. Une fois que vous avez créé le devoir, les étudiants peuvent commencer à travailler dessus.
 
-## Next steps
+## Étapes suivantes
 
-- Make additional assignments customized to your course. For more information, see "[Create an individual assignment](/education/manage-coursework-with-github-classroom/create-an-individual-assignment)," "[Create a group assignment](/education/manage-coursework-with-github-classroom/create-a-group-assignment)," and "[Reuse an assignment](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/reuse-an-assignment)."
+- Personnaliser des devoirs supplémentaires pour votre cours. Pour plus d’informations, consultez « [Créer un devoir individuel](/education/manage-coursework-with-github-classroom/create-an-individual-assignment) », « [Créer un devoir de groupe](/education/manage-coursework-with-github-classroom/create-a-group-assignment) » et « [Réutiliser un devoir](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/reuse-an-assignment) ».
 
-## Further reading
+## Pour aller plus loin
 
-- "[{% data variables.product.prodname_global_campus %} for teachers](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers)"
-- "[Connect a learning management system course to a classroom](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/connect-a-learning-management-system-course-to-a-classroom)"
+- « [{% data variables.product.prodname_global_campus %} pour les enseignants](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers) »
+- « [Connecter un système de gestion des formations à {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/connect-a-learning-management-system-to-github-classroom) »

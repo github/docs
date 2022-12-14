@@ -1,0 +1,92 @@
+date: '02/03/2021'
+intro: "Les exigences minimales d’infrastructure ont augmenté pour {% data variables.product.prodname_ghe_server %} 3.0+. Pour plus d’informations, consultez « [À propos des exigences minimales pour GitHub Enterprise Server 3.0 et versions ultérieures](/admin/enterprise-management/upgrading-github-enterprise-server#about-minimum-requirements-for-github-enterprise-server-30-and-later) »"
+sections:
+  security_fixes:
+    - '**ÉLEVÉE** Une vulnérabilité de contrôle d’accès inapproprié a été identifiée dans GitHub Enterprise Server ; elle permettait aux utilisateurs authentifiés de l’instance d’obtenir un accès en écriture à des dépôts non autorisés via des demandes de tirage et des requêtes d’API REST spécifiquement conçues. Un attaquant devait être capable de dupliquer le dépôt ciblé, un paramètre qui est désactivé par défaut pour les dépôts privés appartenant à l’organisation. Les protections de la branche, comme l’examen obligatoire des demandes de tirage ou les vérifications de l’état d’avancement, empêchaient les validations non autorisées d’être fusionnées sans examen ou validation supplémentaire. Cette vulnérabilité s’est vu affecter le numéro CVE-2021-22861. Ce problème a été signalé via le [programme GitHub Bug Bounty](https://bounty.github.com).'
+    - '**ÉLEVÉE:** Une vulnérabilité de contrôle d’accès inapproprié a été identifiée dans l’API GraphQL de GitHub Enterprise Server ; elle permettait aux utilisateurs authentifiés de l’instance de modifier l’autorisation de collaboration du mainteneur d’une demande de tirage sans autorisation appropriée. En exploitant cette vulnérabilité, un attaquant était en mesure d’accéder aux branches principales des demandes de tirage ouvertes sur les dépôts dont il est le mainteneur. La duplication est désactivée par défaut pour les dépôts privés appartenant à l’organisation et empêchait cette vulnérabilité. De plus, des protections de branche, comme des examens obligatoires des demandes de tirage ou des vérifications d’état, empêchaient les validations non autorisées d’être fusionnées sans examen ou validation supplémentaire. Cette vulnérabilité s’est vu affecter le numéro CVE-2021-22863. Ce problème a été signalé via le [programme GitHub Bug Bounty](https://bounty.github.com).'
+    - '**ÉLEVÉE** Une vulnérabilité de contrôle d’accès inapproprié a été identifiée dans GitHub Enterprise Server ; elle permettait à un utilisateur authentifié à même de dupliquer un dépôt de divulguer des secrets Actions pour le dépôt parent de la duplication. Cette vulnérabilité était due à un défaut qui permettait à la référence de base d’une demande de tirage d’être mise à jour pour pointer vers un SHA arbitraire ou une autre demande de tirage en dehors du dépôt de duplication. L’établissement de cette référence incorrecte dans une demande de tirage permettait de contourner les restrictions qui limitent les secrets Actions envoyés à un workflow depuis les duplications. Cette vulnérabilité affectait GitHub Enterprise Server versions 3.0.0, 3.0.0.rc2 et 3.0.0.rc1 et s’est vu attribuer le numéro CVE-2021-22862. Cette vulnérabilité a été signalée via le programme GitHub Bug Bounty.'
+    - '**MOYENNE :** Les jetons GitHub des builds GitHub Pages pouvaient se retrouver dans les journaux.'
+    - 'Les packages ont été mis à jour avec les dernières versions de sécurité.'
+  bugs:
+    - 'Les vérifications d’intégrité de l’équilibreur de charge pouvaient, dans certains cas, saturer les journaux babeld avec des erreurs sur le protocole PROXY.'
+    - 'Les en-têtes HTTP n’étaient pas conformes aux normes RFC HTTP dans des réponses spécifiques comme l’état 304 des archives.'
+    - 'Une instance hébergeant des dépôts Python sur lesquels la fonctionnalité Graphe de dépendances est activée pouvait cesser de répondre si le disque racine était saturé de journaux d’erreurs.'
+    - 'Un message d’information était involontairement enregistré en tant qu’erreur pendant les instantanés de GitHub Enterprise Backup Utilities, ce qui entraînait l’envoi d’e-mails inutiles quand les sauvegardes étaient programmées par des tâches cron qui écoutent la sortie sur stderr.'
+    - 'Sur VMWare ESX 6.7, la configuration initiale pouvait se bloquer lors de la création de clés d’hôte, ce qui rendait l’instance inaccessible via SSH.'
+    - 'Quand GitHub Actions était activé, la désactivation du mode maintenance dans la console de gestion échouait.'
+    - 'Le paramètre Création de package était affiché dans la page des paramètres des membres de l’organisation, bien que cette fonctionnalité ne soit pas encore disponible.'
+    - 'Lors de l’activation de l’analyse des secrets dans la page Sécurité et analyse, la boîte de dialogue mentionne incorrectement des dépôts privés.'
+    - 'Lors de la modification d’une page de Wiki, un utilisateur pouvait rencontrer une erreur 500 quand il cliquait sur le bouton Enregistrer.'
+    - 'Une validation signée S/MIME utilisant un certificat avec plusieurs noms dans le nom alternatif du sujet s’affichait incorrectement comme « Non vérifiée » dans le badge de la validation.'
+    - 'L’utilisateur voyait une erreur 500 lors de l’exécution d’opérations git sur une instance configurée avec l’authentification LDAP.'
+    - 'Un utilisateur suspendu recevait des e-mails quand il était ajouté à une équipe.'
+    - 'Quand un dépôt avait un grand nombre de manifestes, l’erreur « Vous avez atteint le nombre maximal de fichiers manifestes autorisés (20) pour ce dépôt. » était affichée sous l’onglet Insights -> Graphe de dépendances. Pour plus d’informations, consultez [Limites des visualisations](https://docs.github.com/en/github/managing-security-vulnerabilities/troubleshooting-the-detection-of-vulnerable-dependencies#are-there-limits-which-affect-the-dependency-graph-data).'
+    - 'Résolution de la situation dans laquelle l’utilisateur se voyait proposer l’option permettant de configurer l’événement Action d’analyse de code même si Actions n’était pas activé pour son dépôt.'
+    - 'La case « Empêcher les administrateurs de dépôt de changer l’accès en lecture Git anonyme » disponible dans les paramètres du compte d’entreprise ne pouvait pas être cochée ou décochée correctement.'
+    - 'La fenêtre modale utilisée pour afficher un message obligatoire ne contenait pas de barre de défilement verticale, empêchant l’affichage complet des messages plus longs.'
+    - 'Parfois, le démarrage de Redis échouait après un redémarrage forcé ou le plantage d’une application.'
+    - 'Le graphe de dépendances ne parvient pas à analyser les fichiers manifestes Python « setup.py », engendrant des erreurs HTTP 500 dans les journaux. Cela, combiné avec le problème de journalisation dupliquée, entraîne une augmentation de l’utilisation du volume racine.'
+  changes:
+    - 'Satisfaction simultanée des demandes quand plusieurs utilisateurs téléchargent la même archive, ce qui aboutit à une amélioration des performances.'
+  known_issues:
+    - 'Sur un serveur GitHub Enterprise fraîchement configuré et sans utilisateur, un attaquant pourrait créer le premier utilisateur administrateur.'
+    - 'Les règles de pare-feu personnalisées ne sont pas conservées lors d’une mise à niveau.'
+    - 'Les fichiers suivis par Git LFS [chargés via l’interface web](https://github.com/blog/2105-upload-files-to-your-repositories) sont incorrectement ajoutés directement au dépôt.'
+    - 'Les questions ne peuvent pas être fermées si elles contiennent un permalien vers un blob dans le même dépôt, où le chemin de fichier est supérieur à 255 caractères.'
+    - 'Quand l’option « Les utilisateurs peuvent effectuer des recherches sur GitHub.com » est activée avec GitHub Connect, les problèmes dans les dépôts privés et internes ne sont pas inclus dans les résultats de recherche de GitHub.com.'
+    - 'Quand le mode maintenance est activé, certains services continuent d’être listés en tant que « processus actifs ». Les services identifiés sont censés s’exécuter pendant le mode maintenance. Si vous rencontrez ce problème et avez des doutes, contactez le [support GitHub Enterprise](https://support.github.com/contact).'
+    - 'La duplication de la journalisation dans « /var/log/messages », « /var/log/syslog » et « /var/log/user.log » entraîne une augmentation de l’utilisation du volume racine.'
+    - 'Les utilisateurs peuvent ignorer un message obligatoire sans cocher toutes les cases.'
+    - 'Les [scripts de hook de pré-réception](/admin/policies/enforcing-policy-with-pre-receive-hooks) ne peuvent pas écrire de fichiers temporaires, ce qui peut entraîner l’échec de l’exécution des scripts. Les utilisateurs qui utilisent des hooks de pré-réception doivent effectuer des tests dans un environnement de préproduction pour voir si les scripts nécessitent un accès en écriture.'
+    - 'Il est impossible d’utiliser des [clés de déploiement](/developers/overview/managing-deploy-keys) de dépôt avec des dépôts contenant des objets LFS.'
+    - Le rendu de Jupyter Notebook dans l’interface utilisateur web peut échouer si le notebook comprend des caractères UTF-8 non-ASCII.
+    - 'Le rendu de reStructuredText (RST) dans l’interface utilisateur web peut échouer et afficher du texte de balisage RST brut à la place.'
+    - 'Le graphe de dépendances ne parvient pas à analyser les fichiers manifestes Javascript « yarn.lock», engendrant des erreurs HTTP 500 dans les journaux.'
+    - 'Les instances avec un fuseau horaire personnalisé qui étaient mises à niveau à partir d’une version antérieure de GitHub Enterprise Server peuvent avoir des horodatages incorrects dans l’interface utilisateur web.'
+    - 'Les anciennes builds de Pages ne sont pas nettoyées, ce qui pourrait entraîner la saturation du disque utilisateur (« /data/user/ »).'
+    - 'Lors de la suppression d’une branche après la fusion d’une demande de tirage, un message d’erreur s’affichait même si la suppression de la branche réussissait.'
+    - |Les utilisateurs peuvent rencontrer des ressources telles que des avatars qui ne se chargent pas ou des échecs de poussée (push) ou de tirage (pull) de code. Cela peut être dû à une non-correspondance de PID dans le service « haproxy-cluster-proxy ». Pour déterminer si vous avez une instance affectée :
+
+
+
+**Instance unique**
+
+
+
+1. Exécutez la commande suivante dans le [shell d’administration](https://docs.github.com/en/enterprise-server/admin/configuration/accessing-the-administrative-shell-ssh) (SSH) :
+
+
+
+  ```
+
+  if [ $(cat /var/run/haproxy-cluster-proxy.pid) -ne $(systemctl show --property MainPID --value haproxy-cluster-proxy) ]; then echo ''Main PID of haproxy-cluster-proxy does not match /var/run/haproxy-cluster-proxy.pid''; fi
+
+  ```
+
+
+
+2. Si la commande révèle une absence de correspondance, redémarrez l’instance.
+
+
+
+**Cluster ou configuration à haute disponibilité**
+
+
+
+1. Exécutez la commande suivante dans le [shell d’administration](https://docs.github.com/en/enterprise-server/admin/configuration/accessing-the-administrative-shell-ssh) (SSH) :
+
+
+
+  ```
+
+  ghe-cluster-each -- ''if [ $(cat /var/run/haproxy-cluster-proxy.pid) -ne $(systemctl show --property MainPID --value haproxy-cluster-proxy) ]; then echo ''Main PID of haproxy-cluster-proxy does not match /var/run/haproxy-cluster-proxy.pid''; fi''
+
+  ```
+
+
+
+2. Si la commande révèle qu’un ou plusieurs nœuds sont affectés, redémarrez les nœuds affectés.
+
+|
+    - 'Quand un nœud de réplica est hors ligne dans une configuration de haute disponibilité, {% data variables.product.product_name %} peut toujours acheminer les demandes de {% data variables.product.prodname_pages %} vers le nœud hors ligne, réduisant ainsi la disponibilité de {% data variables.product.prodname_pages %} pour les utilisateurs.'
+    - Les limites de ressources spécifiques au traitement des hooks de pré-réception peuvent entraîner l’échec de certains hooks de pré-réception.

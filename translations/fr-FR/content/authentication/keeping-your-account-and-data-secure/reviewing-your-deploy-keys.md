@@ -1,6 +1,6 @@
 ---
-title: Reviewing your deploy keys
-intro: You should review deploy keys to ensure that there aren't any unauthorized (or possibly compromised) keys. You can also approve existing deploy keys that are valid.
+title: Examen de vos clés de déploiement
+intro: Examinez les clés de déploiement pour vérifier qu’aucune des clés est non autorisée (voire compromise). Vous pouvez aussi approuver des clés de déploiement existantes qui sont valides.
 redirect_from:
   - /articles/reviewing-your-deploy-keys
   - /github/authenticating-to-github/reviewing-your-deploy-keys
@@ -14,19 +14,22 @@ topics:
   - Identity
   - Access management
 shortTitle: Deploy keys
+ms.openlocfilehash: 964ec4cbc91745c041dd973e4e950b605c5c0233
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145086013'
 ---
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
-3. In the "Security" section of the sidebar, click **{% octicon "key" aria-label="The key icon" %} Deploy keys**.
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %} {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5658 %}
+3. Dans la section « Sécurité » de la barre latérale, cliquez sur Clés de déploiement en regard de **{% octicon "key" aria-label="The key icon" %}** .
 {% else %}
-3. In the left sidebar, click **Deploy keys**.
-![Deploy keys setting](/assets/images/help/settings/settings-sidebar-deploy-keys.png)
-{% endif %}
-4. On the Deploy keys page, take note of the deploy keys associated with your account. For those that you don't recognize, or that are out-of-date, click **Delete**. If there are valid deploy keys you'd like to keep, click **Approve**.
-	![Deploy key list](/assets/images/help/settings/settings-deploy-key-review.png)
+3. Dans la barre latérale de gauche, cliquez sur **Clés de déploiement**.
+![Paramétrage des clés de déploiement](/assets/images/help/settings/settings-sidebar-deploy-keys.png) {% endif %}
+4. Dans la page Clés de déploiement, notez les clés de déploiement associées à votre compte. Pour celles que vous ne reconnaissez pas ou qui sont obsolètes, cliquez sur **Supprimer**. Si vous souhaitez conserver certaines clés de déploiement valides, cliquez sur **Approuver**.
+    ![Liste des clés de déploiement](/assets/images/help/settings/settings-deploy-key-review.png)
 
-For more information, see "[Managing deploy keys](/guides/managing-deploy-keys)."
+Pour plus d’informations, consultez « [Gestion des clés de déploiement](/guides/managing-deploy-keys) ».
 
-## Further reading
-- [Configuring notifications](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#organization-alerts-notification-options)
+## Pour aller plus loin
+- [Configuration des notifications](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#organization-alerts-notification-options)

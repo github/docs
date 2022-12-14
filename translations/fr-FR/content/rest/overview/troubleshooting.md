@@ -10,12 +10,12 @@ versions:
   ghec: '*'
 topics:
   - API
-ms.openlocfilehash: ecfa3a360ef9b042d96a1f80a2f0cde49390727f
-ms.sourcegitcommit: d2f0b59ed096b9e68ef8f6fa019cd925165762ec
+ms.openlocfilehash: c696f18d89ffe7d9c9c7c13eda933285502132ae
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/29/2022
-ms.locfileid: '148184230'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148192832'
 ---
 Si vous rencontrez des anomalies dans l’API, voici une liste de solutions à certains des problèmes que vous pouvez rencontrer.
 
@@ -46,7 +46,7 @@ Pour résoudre ce problème, vérifiez que [vous vous authentifiez correctement]
 
 La plupart des appels d’API qui accèdent à une liste de ressources (_par exemple_, les utilisateurs, les problèmes, _etc._ ) prennent en charge la pagination. Si vous effectuez des demandes et que vous recevez un ensemble incomplet de résultats, il est probable que vous ne voyiez que la première page. Vous devrez demander les pages restantes afin d’obtenir plus de résultats.
 
-Il est important de *ne pas* essayer de deviner le format de l’URL de pagination. Tous les appels d’API n’utilisent pas la même structure. Au lieu de cela, extrayez les informations de pagination de [l’en-tête Link](/rest#pagination) qui est envoyé avec chaque demande.
+Il est important de *ne pas* essayer de deviner le format de l’URL de pagination. Tous les appels d’API n’utilisent pas la même structure. Au lieu de cela, extrayez les informations de pagination de l’en-tête de lien, qui sont retournées avec chaque demande. Pour plus d’informations sur la pagination, consultez « [Utilisation de la pagination dans l’API REST](/rest/guides/using-pagination-in-the-rest-api) ».
 
 [oap-guide]: https://developer.github.com/changes/2015-01-19-an-integrators-guide-to-organization-application-policies/
 

@@ -1,0 +1,40 @@
+date: '23/03/2021'
+intro: Les téléchargements ont été désactivés en raison d’un bogue majeur affectant plusieurs clients. Un correctif sera disponible dans la prochaine mise à jour.
+sections:
+  security_fixes:
+    - '**ÉLEVÉE : ** Une vulnérabilité d’exécution de code à distance a été identifiée dans GitHub Enterprise Server ; elle pouvait être exploitée lors de la génération d’un site GitHub Pages. Les options de configuration contrôlées par l’utilisateur et utilisées par GitHub Pages n’étaient pas suffisamment restreintes et permettaient de remplacer des variables d’environnement, ce qui entraînait l’exécution de code sur l’instance GitHub Enterprise Server. Pour exploiter cette vulnérabilité, un attaquant devait avoir l’autorisation de créer et générer un site GitHub Pages sur l’instance GitHub Enterprise Server. Cette vulnérabilité affectait toutes les versions de GitHub Enterprise Server antérieures à 3.0.3 et a été corrigée dans les versions 3.0.3, 2.22.9 et 2.21.17. Cette vulnérabilité a été signalée via le programme GitHub Bug Bounty et a été affectée au numéro CVE-2021-22864.'
+    - Les packages ont été mis à jour avec les dernières versions de sécurité.
+  bugs:
+    - L’exécution de `ghe-cluster-config-init` pouvait rendre un cluster inutilisable.
+    - Systemd pouvait perdre la trace du PID de HAProxy.
+    - L’avertissement mysql-failover s’affichait indéfiniment après un basculement réussi.
+    - "L’exécution de `ghe-cluster-config-init` ne tenait pas entièrement compte du code de sortie des travaux d’arrière-plan, ce qui entraînait une mauvaise gestion des vérifications préalables."
+    - "Le lien Sécurité et analyse ne s’affichait pas dans le menu de navigation de gauche, dans la page Paramètres des dépôts."
+    - "Après la désactivation de GitHub Packages, certaines pages d’organisation retournaient une réponse d’erreur HTTP 500."
+  changes:
+    - Améliore la fiabilité des services nomad en implémentant la stratégie de redémarrage de GitHub Enterprise Server 3.0.
+    - L’utilisation d’un nombre relatif pour `bootstrap_expect` consul et nomad permettait à un cluster de démarrer même si plusieurs nœuds étaient en panne.
+    - La rotation des journaux se fera en fonction de leur taille en plus du temps.
+    - Ajout de kafka-lite à la commande `ghe-cluster-status`.
+  known_issues:
+    - "Sur un serveur GitHub Enterprise fraîchement configuré et sans utilisateur, un attaquant pourrait créer le premier utilisateur administrateur."
+    - Les règles de pare-feu personnalisées ne sont pas conservées lors d’une mise à niveau.
+    - "Les fichiers suivis par Git LFS [chargés via l’interface web](https://github.com/blog/2105-upload-files-to-your-repositories) sont incorrectement ajoutés directement au dépôt."
+    - Les problèmes ne peuvent pas être fermés s’ils contiennent un lien permanent vers un objet blob situé dans le dépôt où le chemin de fichier est supérieur à 255 caractères.
+    - "Lorsque l’option « Les utilisateurs peuvent effectuer des recherches sur GitHub.com » est activée avec GitHub Connect, les problèmes dans les dépôts privés et internes ne sont pas inclus dans les résultats de recherche de GitHub.com."
+    - |La rotation des journaux peut ne pas signaler aux services de passer à de nouveaux fichiers journaux, ce qui entraîne la poursuite de l’utilisation des anciens fichiers journaux et l’épuisement éventuel de l’espace disque racine.
+
+Pour remédier à ce problème et/ou le prévenir, exécutez les commandes suivantes dans le [shell d’administration](https://docs.github.com/en/enterprise-server/admin/configuration/accessing-the-administrative-shell-ssh) (SSH), ou contactez le [support GitHub Enterprise](https://support.github.com/contact) pour obtenir de l’aide :
+
+
+
+```
+
+printf "PATH=/usr/local/sbin:/usr/local/bin:/usr/local/share/enterprise:/usr/sbin:/usr/bin:/sbin:/bin\n29,59 * * * * root /usr/sbin/logrotate /etc/logrotate.conf\n" | sudo sponge /etc/cron.d/logrotate
+
+sudo /usr/sbin/logrotate -f /etc/logrotate.conf
+
+```
+
+|
+    - 'Lorsqu’un nœud de réplica est hors ligne dans une configuration de haute disponibilité, {% data variables.product.product_name %} peut toujours acheminer les demandes de {% data variables.product.prodname_pages %} vers le nœud hors ligne, réduisant ainsi la disponibilité de {% data variables.product.prodname_pages %} pour les utilisateurs.'

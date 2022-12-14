@@ -1,0 +1,17 @@
+date: '07-09-2021'
+sections:
+  security_fixes:
+    - Les packages ont été mis à jour avec les dernières versions de sécurité.
+  bugs:
+    - La tentative de démontage d’un nœud de réplica nouvellement ajouté en spécifiant son UUID avec « ghe-repl-teardown » échouait sans signaler d’erreur si la réplication n’était pas démarrée.
+    - Les builds GitHub Pages étaient transmises via un proxy externe si un proxy de ce type était configuré.
+    - "Une variable « PATH » faisait défaut dans l’environnement des hooks de pré-réception personnalisés qui créaient des sous-processus, ce qui entraînait des erreurs « Pas de fichier ou de répertoire correspondant »."
+    - MySQL pouvait opérer un basculement pendant une mise à niveau si « mysql-auto-failover » était activé.
+  known_issues:
+    - "Sur un {% data variables.product.prodname_ghe_server %} fraîchement configuré sans aucun utilisateur, un attaquant pourrait créer le premier utilisateur administrateur."
+    - Les règles de pare-feu personnalisées sont supprimées pendant le processus de mise à niveau.
+    - "Les fichiers suivis par Git LFS [chargés via l’interface web](https://github.com/blog/2105-upload-files-to-your-repositories) sont incorrectement ajoutés directement au dépôt."
+    - "Les questions ne peuvent pas être fermées si elles contiennent un permalien vers un blob dans le même dépôt, où le chemin de fichier du blob est supérieur à 255 caractères."
+    - "Quand l’option « Les utilisateurs peuvent effectuer des recherches sur GitHub.com » est activée avec GitHub Connect, les problèmes dans les dépôts privés et internes ne sont pas inclus dans les résultats de recherche de GitHub.com."
+    - "Quand un nœud de réplica est hors ligne dans une configuration de haute disponibilité, {% data variables.product.product_name %} peut toujours acheminer les demandes de {% data variables.product.prodname_pages %} vers le nœud hors ligne, réduisant ainsi la disponibilité de {% data variables.product.prodname_pages %} pour les utilisateurs."
+    - Les limites de ressources spécifiques au traitement des hooks de pré-réception peuvent entraîner l’échec de certains hooks de pré-réception.

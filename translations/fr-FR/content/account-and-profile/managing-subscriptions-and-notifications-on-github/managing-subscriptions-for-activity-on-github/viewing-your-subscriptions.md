@@ -1,6 +1,6 @@
 ---
-title: Viewing your subscriptions
-intro: 'To understand where your notifications are coming from and your notifications volume, we recommend reviewing your subscriptions and watched repositories regularly.'
+title: Affichage de vos abonnements
+intro: 'Pour comprendre d’où viennent vos notifications et connaître le volume de ces dernières, nous vous recommandons de passer en revue régulièrement vos abonnements et vos dépôts surveillés.'
 redirect_from:
   - /articles/subscribing-to-conversations
   - /articles/unsubscribing-from-conversations
@@ -24,61 +24,63 @@ versions:
 topics:
   - Notifications
 shortTitle: View subscriptions
+ms.openlocfilehash: 34faad79004d34f5beb14e8992b9aff4e6a3ab39
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145105214'
 ---
-You receive notifications for your subscriptions of ongoing activity on {% data variables.product.product_name %}. There are many reasons you can be subscribed to a conversation. For more information, see "[About notifications](/github/managing-subscriptions-and-notifications-on-github/about-notifications#notifications-and-subscriptions)."
+Vous recevez des notifications pour vos abonnements de l’activité continue sur {% data variables.product.product_name %}. Il existe de nombreuses raisons pour lesquelles vous pouvez être abonné à une conversation. Pour plus d’informations, consultez « [À propos des notifications »](/github/managing-subscriptions-and-notifications-on-github/about-notifications#notifications-and-subscriptions).
 
-We recommend auditing and unsubscribing from your subscriptions as a part of a healthy notifications workflow. For more information about your options for unsubscribing, see "[Managing subscriptions](/github/managing-subscriptions-and-notifications-on-github/managing-your-subscriptions)."
+Nous vous recommandons d’auditer et d’annuler vos abonnements dans le cadre d’un flux de travail de notifications sain. Pour plus d’informations sur les options d’annulation d’abonnement, consultez « [Gestion des abonnements](/github/managing-subscriptions-and-notifications-on-github/managing-your-subscriptions) ».
 
-## Diagnosing why you receive too many notifications
+## Diagnostic de la raison pour laquelle vous recevez trop de notifications
 
-When your inbox has too many notifications to manage, consider whether you have oversubscribed or how you can change your notification settings to reduce the subscriptions you have and the types of notifications you're receiving. For example, you may consider disabling the settings to automatically watch all repositories and all team discussions whenever you've joined a team or repository.
+Lorsque votre boîte de réception a trop de notifications à gérer, vérifiez si vous ne vous êtes pas surabonné ou réfléchissez à la façon dont vous pourriez modifier vos paramètres de notification de façon à réduire vos abonnements et les types de notifications que vous recevez. Par exemple, vous pourriez envisager de désactiver les paramètres de surveillance automatique de tous les dépôts et toutes les discussions d’équipe chaque fois que vous avez rejoint une équipe ou un dépôt.
 
-{% ifversion update-notification-settings-22 %}
-![Screenshot of automatic watching options for teams and repositories](/assets/images/automatically-watch-repos-and-teams.png)
-{% else %}
-![Screenshot of automatic watching options for teams and repositories](/assets/images/help/notifications-v2/automatic-watching-example.png){% endif %}
+![Surveillance automatique](/assets/images/help/notifications-v2/automatic-watching-example.png)
 
-For more information, see "[Configuring notifications](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#automatic-watching)."
+Pour plus d’informations, consultez « [Configuration des notifications](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#automatic-watching) ».
 
-To see an overview of your repository subscriptions, see "[Reviewing repositories that you're watching](#reviewing-repositories-that-youre-watching)." 
-{% tip %}
+Pour voir une vue d’ensemble de vos abonnements aux dépôts, consultez « [Passage en revue des dépôts que vous surveillez](#reviewing-repositories-that-youre-watching) ». {% tip %}
 
-**Tip:** You can select the types of event to be notified of by using the **Custom** option of the **Watch/Unwatch** dropdown list in your [watching page](https://github.com/watching) or on any repository page on {% data variables.product.product_name %}. For more information, see "[Configuring notifications](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#configuring-your-watch-settings-for-an-individual-repository)."
+**Astuce :** Vous pouvez sélectionner les types d’événements pour lesquels recevoir des notifications à l’aide de l’option **Personnalisé** de la liste déroulante **Surveiller/Ne plus surveiller** dans votre [page de surveillance](https://github.com/watching) ou dans n’importe quelle page de dépôt sur {% data variables.product.product_name %}. Pour plus d’informations, consultez « [Configuration des notifications](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#configuring-your-watch-settings-for-an-individual-repository) ».
 
 {% endtip %}
 
-Many people forget about repositories that they've chosen to watch in the past. From the "Watched repositories" page you can quickly unwatch repositories. For more information on ways to unsubscribe, see "[Unwatch recommendations](https://github.blog/changelog/2020-11-10-unwatch-recommendations/)" on {% data variables.product.prodname_blog %} and "[Managing your subscriptions](/github/managing-subscriptions-and-notifications-on-github/managing-your-subscriptions)." You can also create a triage workflow to help with the notifications you receive. For guidance on triage workflows, see "[Customizing a workflow for triaging your notifications](/github/managing-subscriptions-and-notifications-on-github/customizing-a-workflow-for-triaging-your-notifications)."
+Beaucoup de gens oublient les dépôts qu’ils ont choisi de surveiller dans le passé. À partir de la page « Dépôts surveillés », vous pouvez rapidement annuler la surveillance de dépôts. Pour plus d’informations sur les façons de se désabonner, consultez « [Recommandations relatives à l’annulation de la surveillance](https://github.blog/changelog/2020-11-10-unwatch-recommendations/) » sur {% data variables.product.prodname_blog %} et « [Gestion de vos abonnements](/github/managing-subscriptions-and-notifications-on-github/managing-your-subscriptions) ». Vous pouvez également créer un flux de travail de triage pour vous aider à gérer les notifications que vous recevez. Pour obtenir des conseils sur les flux de travail de triage, consultez « [Personnalisation d’un flux de travail pour trier vos notifications](/github/managing-subscriptions-and-notifications-on-github/customizing-a-workflow-for-triaging-your-notifications) ».
 
-## Reviewing all of your subscriptions
+## Passage en revue de tous vos abonnements
 
 {% data reusables.notifications.access_notifications %}
-1. In the left sidebar, under the list of repositories that you have notifications from, use the "Manage notifications" drop-down to click **Subscriptions**.
-  ![Manage notifications drop down menu options](/assets/images/help/notifications-v2/manage-notifications-options.png)
+1. Dans la barre latérale gauche, sous la liste des dépôts pour lesquels vous recevez des notifications, utilisez la liste déroulante « Gérer les notifications » pour cliquer sur **Abonnements**.
+  ![Options de menu déroulant Gérer les notifications](/assets/images/help/notifications-v2/manage-notifications-options.png)
 
-2. Use the filters and sort to narrow the list of subscriptions and begin unsubscribing to conversations you no longer want to receive notifications for.
+2. Utilisez les filtres et options de tri pour affiner la liste des abonnements, et commencez à vous désabonner des conversations pour lesquelles vous ne souhaitez plus recevoir de notifications.
 
-  ![Subscriptions page](/assets/images/help/notifications-v2/all-subscriptions.png)
+  ![Page des abonnements](/assets/images/help/notifications-v2/all-subscriptions.png)
 
 {% tip %}
 
-**Tips:**
-- To review subscriptions you may have forgotten about, sort by "least recently subscribed."
+**Conseils :**
+- Pour passer en revue les abonnements que vous avez peut-être oubliés, triez par « abonnements les moins récents ».
 
-- To review a list of repositories that you can still receive notifications for, see the repository list in the "filter by repository" drop-down menu.
+- Pour afficher une liste des dépôts pour lesquels vous pouvez toujours recevoir des notifications, consultez la liste des dépôts dans le menu déroulant « Filtrer par dépôt ».
 
 {% endtip %}
 
-## Reviewing repositories that you're watching
+## Passage en revue des dépôts que vous surveillez
 
-1. In the left sidebar, under the list of repositories, use the "Manage notifications" drop-down menu and click **Watched repositories**.
-  ![Manage notifications drop down menu options](/assets/images/help/notifications-v2/manage-notifications-options.png)
-2. Evaluate the repositories that you are watching and decide if their updates are still relevant and helpful. When you watch a repository, you will be notified of all conversations for that repository.
-![Watched notifications page](/assets/images/help/notifications-v2/watched-notifications-custom.png)
+1. Dans la barre latérale gauche, sous la liste des dépôts, utilisez le menu déroulant « Gérer les notifications » et cliquez sur **Dépôts surveillés**.
+  ![Options de menu déroulant Gérer les notifications](/assets/images/help/notifications-v2/manage-notifications-options.png)
+2. Évaluez les dépôts que vous surveillez et décidez si leurs mises à jour sont toujours pertinentes et utiles. Lorsque vous surveillez un dépôt, vous êtes informé de toutes les conversations pour ce dépôt.
+![Page de notifications surveillées](/assets/images/help/notifications-v2/watched-notifications-custom.png)
 
   {% tip %}
 
-  **Tip:** Instead of watching a repository, consider only receiving notifications when there are updates to {% data reusables.notifications-v2.custom-notification-types %} (if enabled for the repository), or any combination of these options, or completely unwatching a repository.
+  **Astuce :** Au lieu de surveiller un dépôt, vous pouvez recevoir uniquement des notifications lorsque des mises à jour sont apportées à des {% data reusables.notifications-v2.custom-notification-types %} (si c’est activé pour le dépôt), ou toute combinaison de ces options, ou bien annuler purement et simplement la surveillance d’un dépôt.
   
-  When you unwatch a repository, you can still be notified when you're @mentioned or participating in a thread. When you configure to receive notifications for certain event types, you're only notified when there are updates to these event types in the repository, you're participating in a thread, or you or a team you're on is @mentioned.
+  Lorsque vous annulez la surveillance d’un dépôt, vous pouvez toujours être averti lorsque vous êtes @mentioned ou participez à un thread. Lorsque vous choisissez de recevoir des notifications pour certains types d’événements, vous n’êtes averti qu’en cas de mise à jour de ces types d’événements dans le dépôt, de participation à un thread, ou quand vous ou une équipe dont vous êtes membre est @mentioned.
 
   {% endtip %}

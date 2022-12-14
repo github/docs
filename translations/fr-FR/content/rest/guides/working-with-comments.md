@@ -1,6 +1,6 @@
 ---
-title: Working with comments
-intro: 'Using the REST API, you can access and manage comments in your pull requests, issues, or commits.'
+title: Utilisation des commentaires
+intro: 'À l’aide de l’API REST, vous pouvez accéder et gérer des commentaires dans vos demandes de tirage, problèmes ou commits.'
 redirect_from:
   - /guides/working-with-comments
   - /v3/guides/working-with-comments
@@ -11,31 +11,26 @@ versions:
   ghec: '*'
 topics:
   - API
+ms.openlocfilehash: 9b3b768d66199fda62bc5e644da9539d5425215e
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145129041'
 ---
+Pour toutes les demandes de tirage, {% data variables.product.product_name %} fournit trois types de commentaires : les [commentaires sur la demande de tirage][PR comment] dans son ensemble, les [commentaires sur une ligne spécifique][PR line comment] de la demande de tirage et les [commentaires sur un commit spécifique][commit comment] de la demande de tirage. 
 
+Chacun de ces types passe par une partie différente de l’API {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %}.
+Dans ce guide, nous allons voir comment accéder à chacun d’eux et comment les manipuler. Pour chaque exemple, nous allons utiliser [cet exemple de demande de tirage][sample PR] effectuée sur le dépôt « octocat ». Comme toujours, vous trouverez des exemples dans [notre dépôt platform-samples][platform-samples].
 
+## Commentaires sur les demandes de tirage
 
-For any Pull Request, {% data variables.product.product_name %} provides three kinds of comment views:
-[comments on the Pull Request][PR comment] as a whole, [comments on a specific line][PR line comment] within the Pull Request,
-and [comments on a specific commit][commit comment] within the Pull Request. 
+Pour accéder aux commentaires d’une demande de tirage, vous devez passer par [l’API Issues][issues].
+Au premier abord, cela peut sembler contre-intuitif. Toutefois, une fois que vous comprenez qu’une demande de tirage n’est qu’un problème de code, il paraît logique d’utiliser l’API Issues pour créer des commentaires à propos d’une demande de tirage.
 
-Each of these types of comments goes through a different portion of the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API.
-In this guide, we'll explore how you can access and manipulate each one. For every
-example, we'll be using [this sample Pull Request made][sample PR] on the "octocat"
-repository. As always, samples can be found in [our platform-samples repository][platform-samples].
+Nous allons montrer comment récupérer les commentaires d’une demande de tirage en créant un script Ruby avec [Octokit.rb][octokit.rb]. Vous devrez également créer un [jeton d’accès personnel][personal token].
 
-## Pull Request Comments
-
-To access comments on a Pull Request, you'll go through [the Issues API][issues].
-This may seem counterintuitive at first. But once you understand that a Pull
-Request is just an Issue with code, it makes sense to use the Issues API to
-create comments on a Pull Request.
-
-We'll demonstrate fetching Pull Request comments by creating a Ruby script using
-[Octokit.rb][octokit.rb]. You'll also want to create a [{% data variables.product.pat_generic %}][personal token].
-
-The following code should help you get started accessing comments from a Pull Request
-using Octokit.rb:
+Le code suivant doit vous aider à accéder aux commentaires d’une demande de tirage avec Octokit.rb :
 
 ``` ruby
 require 'octokit'
@@ -53,18 +48,13 @@ client.issue_comments("octocat/Spoon-Knife", 1176).each do |comment|
 end
 ```
 
-Here, we're specifically calling out to the Issues API to get the comments (`issue_comments`),
-providing both the repository's name (`octocat/Spoon-Knife`), and the Pull Request ID
-we're interested in (`1176`). After that, it's simply a matter of iterating through
-the comments to fetch information about each one.
+Ici, nous appelons spécifiquement l’API Issues pour obtenir les commentaires (`issue_comments`), en fournissant le nom du dépôt (`octocat/Spoon-Knife`) et l’ID de la demande de tirage qui nous intéresse (`1176`). Après cela, il s’agit simplement d’itérer dans les commentaires pour récupérer les informations sur chacun d’eux.
 
-## Pull Request Comments on a Line
+## Commentaires sur une ligne d’une demande de tirage
 
-Within the diff view, you can start a discussion on a particular aspect of a singular
-change made within the Pull Request. These comments occur on the individual lines
-within a changed file. The endpoint URL for this discussion comes from [the Pull Request Review API][PR Review API].
+Dans la vue différentielle, vous pouvez commencer une discussion à propos d’un aspect particulier d’une modification apportée à la demande de tirage. Ces commentaires se font sur les lignes d’un fichier modifié. L’URL du point de terminaison de cette discussion provient de l’[API Pull Request Review][PR Review API].
 
-The following code fetches all the Pull Request comments made on files, given a single Pull Request number:
+Le code suivant récupère tous les commentaires de demande de tirage effectués sur les fichiers, à partir d’un seul numéro de demande de tirage :
 
 ``` ruby
 require 'octokit'
@@ -84,19 +74,15 @@ client.pull_request_comments("octocat/Spoon-Knife", 1176).each do |comment|
 end
 ```
 
-You'll notice that it's incredibly similar to the example above. The difference
-between this view and the Pull Request comment is the focus of the conversation.
-A comment made on a Pull Request should be reserved for discussion or ideas on
-the overall direction of the code. A comment made as part of a Pull Request review should
-deal specifically with the way a particular change was implemented within a file.
+Vous remarquerez qu’il est très similaire à l’exemple ci-dessus. La différence entre cette vue et le commentaire de demande de tirage est le focus de la conversation.
+Les commentaires concernant une demande de tirage doivent être réservés aux discussions ou aux idées sur la direction globale du code. Les commentaires faits dans le cadre d’une révision de demande de tirage doivent concerner uniquement la façon dont une modification a été implémentée dans un fichier.
 
 ## Commit Comments
 
-The last type of comments occur specifically on individual commits. For this reason,
-they make use of [the commit comment API][commit comment API].
+Le dernier type de commentaires concerne les commits. Pour cela, l’[API Commit Comments][commit comment API] est utilisée.
 
-To retrieve the comments on a commit, you'll want to use the SHA1 of the commit.
-In other words, you won't use any identifier related to the Pull Request. Here's an example:
+Pour récupérer les commentaires concernant un commit, vous devez utiliser le SHA1 du commit.
+En d’autres termes, vous n’utiliserez aucun identificateur lié à la demande de tirage. Voici un exemple :
 
 ``` ruby
 require 'octokit'
@@ -114,8 +100,7 @@ client.commit_comments("octocat/Spoon-Knife", "cbc28e7c8caee26febc8c013b0adfb97a
 end
 ```
 
-Note that this API call will retrieve single line comments, as well as comments made
-on the entire commit.
+Notez que cet appel d’API récupérera aussi bien les commentaires concernant une seule ligne que les commentaires concernant l’intégralité d’un commit.
 
 [PR comment]: https://github.com/octocat/Spoon-Knife/pull/1176#issuecomment-24114792
 [PR line comment]: https://github.com/octocat/Spoon-Knife/pull/1176#discussion_r6252889

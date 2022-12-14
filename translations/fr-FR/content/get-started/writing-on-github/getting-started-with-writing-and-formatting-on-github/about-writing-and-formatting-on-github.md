@@ -1,6 +1,6 @@
 ---
-title: About writing and formatting on GitHub
-intro: GitHub combines a syntax for formatting text called GitHub Flavored Markdown with a few unique writing features.
+title: À propos de l’écriture et de la mise en forme sur GitHub
+intro: GitHub combine une syntaxe pour la mise en forme du texte appelée GitHub Flavored Markdown avec quelques fonctionnalités d’écriture uniques.
 redirect_from:
   - /articles/about-writing-and-formatting-on-github
   - /github/writing-on-github/about-writing-and-formatting-on-github
@@ -10,36 +10,40 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
-shortTitle: About writing & formatting
+shortTitle: Write & format on GitHub
+ms.openlocfilehash: 7819ebc6bbf3ffa8696c87f82745a19c103c8134
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147860833'
 ---
-[Markdown](http://daringfireball.net/projects/markdown/) is an easy-to-read, easy-to-write syntax for formatting plain text.
+[Markdown](http://daringfireball.net/projects/markdown/) est une syntaxe facile à lire et à écrire pour mettre en forme du texte brut.
 
-We've added some custom functionality to create {% data variables.product.prodname_dotcom %} Flavored Markdown, used to format prose and code across our site.
+Nous avons ajouté des fonctionnalités personnalisées pour créer un Markdown adapté à {% data variables.product.prodname_dotcom %}, utilisé pour mettre en forme la prose et le code sur notre site.
 
-You can also interact with other users in pull requests and issues using features like [@mentions](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams), [issue and PR references](/articles/basic-writing-and-formatting-syntax/#referencing-issues-and-pull-requests), and [emoji](/articles/basic-writing-and-formatting-syntax/#using-emoji).
+Vous pouvez également interagir avec d’autres utilisateurs dans des demandes de tirage et des problèmes en utilisant des fonctionnalités telles que [@mentions](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams), [des références de problème et de demande de tirage](/articles/basic-writing-and-formatting-syntax/#referencing-issues-and-pull-requests) et des [emojis](/articles/basic-writing-and-formatting-syntax/#using-emoji).
 
-## Text formatting toolbar
+## Barre d’outils de mise en forme de texte
 
-Every comment field on {% data variables.product.product_name %} contains a text formatting toolbar, allowing you to format your text without learning Markdown syntax. In addition to Markdown formatting like bold and italic styles and creating headers, links, and lists, the toolbar includes {% data variables.product.product_name %}-specific features such as @mentions, task lists, and links to issues and pull requests.
+Chaque champ de commentaire sur {% data variables.product.product_name %} contient une barre d’outils de mise en forme de texte, qui vous permet de mettre en forme votre texte sans apprendre la syntaxe Markdown. Outre la mise en forme Markdown comme les styles gras et italique et la création d’en-têtes, de liens et de listes, la barre d’outils inclut des fonctionnalités spécifiques de {% data variables.product.product_name %}, telles que @mentions, des listes de tâches et des liens vers des problèmes et des demandes de tirage.
 
 {% ifversion fixed-width-font-gfm-fields %}
 
-## Enabling fixed-width fonts in the editor
+## Activation des polices de largeur fixe dans l’éditeur
 
-You can enable a fixed-width font in every comment field on {% data variables.product.product_name %}. Each character in a fixed-width, or monospace, font occupies the same horizontal space which can make it easier to edit advanced Markdown structures such as tables and code snippets.
+Vous pouvez activer une police de largeur fixe dans chaque champ de commentaire sur {% data variables.product.product_name %}. Chaque caractère dans une police de largeur fixe, ou à espacement fixe (monospace), occupe le même espace horizontal, ce qui peut faciliter la modification de structures Markdown avancées telles que des tables et des extraits de code.
 
-![Screenshot showing the {% data variables.product.product_name %} comment field with fixed-width fonts enabled](/assets/images/help/writing/fixed-width-example.png)
+![Capture d’écran montrant le champ de commentaire {% data variables.product.product_name %} avec les polices de largeur fixe activées](/assets/images/help/writing/fixed-width-example.png)
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.appearance-settings %}
-1. Under "Markdown editor font preference", select **Use a fixed-width (monospace) font when editing Markdown**.
-  ![Screenshot showing the {% data variables.product.product_name %} comment field with fixed width fonts enabled](/assets/images/help/writing/enable-fixed-width.png)
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.appearance-settings %}
+1. Sous « Préférence de police de l’éditeur Markdown », sélectionnez **Utiliser une police de largeur fixe (monospace) lors de l’édition de Markdown**.
+  ![Capture d’écran montrant le champ de commentaire {% data variables.product.product_name %} avec les polices de largeur fixe activées](/assets/images/help/writing/enable-fixed-width.png)
 
 {% endif %}
 
-## Further reading
+## Pour aller plus loin
 
-- [{% data variables.product.prodname_dotcom %} Flavored Markdown Spec](https://github.github.com/gfm/)
-- "[Basic writing and formatting syntax](/articles/basic-writing-and-formatting-syntax)"
-- "[Working with advanced formatting](/articles/working-with-advanced-formatting)"
-- "[Quickstart for writing on {% data variables.product.prodname_dotcom %}](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/quickstart-for-writing-on-github)"
+- [Spécification Markdown saveur {% data variables.product.prodname_dotcom %}](https://github.github.com/gfm/)
+- « [Syntaxe de base pour l’écriture et la mise en forme ](/articles/basic-writing-and-formatting-syntax) »
+- « [Utilisation de la mise en forme avancée](/articles/working-with-advanced-formatting) »

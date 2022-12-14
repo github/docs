@@ -1,6 +1,6 @@
 ---
-title: Creating a commit with multiple authors
-intro: 'You can attribute a commit to more than one author by adding one or more `Co-authored-by` trailers to the commit''s message. Co-authored commits are visible on {% data variables.product.product_name %}{% ifversion ghes or ghae %} and can be included in the profile contributions graph and the repository''s statistics{% endif %}.'
+title: Création d’une validation avec plusieurs auteurs
+intro: 'Vous pouvez attribuer un commit à plusieurs auteurs en ajoutant un ou plusieurs codes de fin `Co-authored-by` au message du commit. Les commits co-créés sont visibles sur {% data variables.product.product_name %}{% ifversion ghes or ghae %} et peuvent être inclus dans le graphe de contributions de profil et les statistiques du dépôt{% endif %}.'
 redirect_from:
   - /articles/creating-a-commit-with-multiple-authors
   - /github/committing-changes-to-your-project/creating-a-commit-with-multiple-authors
@@ -11,80 +11,86 @@ versions:
   ghae: '*'
   ghec: '*'
 shortTitle: With multiple authors
+ms.openlocfilehash: 4aa5b707e75480ead830e680151064db5f278557
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145132539'
 ---
-## Required co-author information
+## Informations de co-auteur requises
 
-Before you can add a co-author to a commit, you must know the appropriate email to use for each co-author. For the co-author's commit to count as a contribution, you must use the email associated with their account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}.
+Avant d’ajouter un co-auteur à une validation, vous devez connaître l’adresse e-mail à utiliser pour chaque co-auteur. Pour que la validation du co-auteur soit prise en compte en tant que contribution, vous devez utiliser l’adresse e-mail associée à son compte sur {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}.
 
 {% ifversion fpt or ghec %}
 
-If a person chooses to keep their email address private, you should use their {% data variables.product.product_name %}-provided `no-reply` email to protect their privacy. Otherwise, the co-author's email will be available to the public in the commit message. If you want to keep your email private, you can choose to use a {% data variables.product.product_name %}-provided `no-reply` email for Git operations and ask other co-authors to list your `no-reply` email in commit trailers.
+Si une personne choisit de ne pas divulguer son adresse e-mail, vous devez utiliser l'adresse `no-reply` fournie par {% data variables.product.product_name %} pour protéger sa vie privée. Sinon, l'adresse e-mail du co-auteur sera disponible au public dans le message de validation. Si vous ne souhaitez pas divulguer votre adresse e-mail, vous pouvez choisir d’utiliser une adresse e-mail `no-reply` fournie par {% data variables.product.product_name %} pour les opérations Git et demander à d’autres co-auteurs de répertorier votre adresse e-mail `no-reply` dans les codes de fin de validation.
 
-For more information, see "[Setting your commit email address](/articles/setting-your-commit-email-address)."
+Pour plus d’informations, consultez « [Définition de votre adresse e-mail de commit](/articles/setting-your-commit-email-address) ».
 
   {% tip %}
 
-  **Tip:** You can help a co-author find their preferred email address by sharing this information:
-  - To find your {% data variables.product.product_name %}-provided `no-reply` email, navigate to your email settings page under "Keep my email address private."
-  - To find the email you used to configure Git on your computer, run `git config user.email` on the command line.
+  **Conseil :** vous pouvez aider un co-auteur à trouver son adresse e-mail préférée en partageant ces informations :
+  - Pour trouver votre adresse `no-reply` fournie par {% data variables.product.product_name %}, accédez à votre page de paramètres de messagerie sous « Laisser mon adresse e-mail privée ».
+  - Pour trouver l’adresse e-mail utilisée pour configurer Git sur votre ordinateur, exécutez-`git config user.email` sur la ligne de commande.
 
   {% endtip %}
 
 {% endif %}
 
-## Creating co-authored commits using {% data variables.product.prodname_desktop %}
+## Création de validations co-créées à l’aide de {% data variables.product.prodname_desktop %}
 
-You can use {% data variables.product.prodname_desktop %} to create a commit with a co-author. For more information, see "[Write a commit message and push your changes](/desktop/contributing-to-projects/committing-and-reviewing-changes-to-your-project#4-write-a-commit-message-and-push-your-changes)" and [{% data variables.product.prodname_desktop %}](https://desktop.github.com).
+Vous pouvez utiliser {% data variables.product.prodname_desktop %} pour créer une validation avec un co-auteur. Pour plus d’informations, consultez « [Écrire un message de validation et envoyer (push) vos modifications](/desktop/contributing-to-projects/committing-and-reviewing-changes-to-your-project#4-write-a-commit-message-and-push-your-changes) » et [{% data variables.product.prodname_desktop %}](https://desktop.github.com).
 
-![Add a co-author to the commit message](/assets/images/help/desktop/co-authors-demo-hq.gif)
+![Ajouter un co-auteur au message de validation](/assets/images/help/desktop/co-authors-demo-hq.gif)
 
-## Creating co-authored commits on the command line
+## Création de validations co-créées sur la ligne de commande
 
 {% data reusables.pull_requests.collect-co-author-commit-git-config-info %}
 
-1. Type your commit message and a short, meaningful description of your changes. After your commit description, instead of a closing quotation, add two empty lines.
-  ```
+1. Entrez votre message de validation ainsi qu’une description courte et explicite de vos modifications. Après votre description de validation, plutôt qu’un guillemet fermant, ajoutez deux lignes vides.
+  ```shell
   $ git commit -m "Refactor usability tests.
   >
   >
   ```
   {% tip %}
 
-  **Tip:** If you're using a text editor on the command line to type your commit message, ensure there are two newlines between the end of your commit description and the `Co-authored-by:` commit trailer.
+  **Conseil :** si vous utilisez un éditeur de texte sur la ligne de commande pour entrer votre message de validation, vérifiez qu’il existe bien deux nouvelles lignes entre la fin de votre description de validation et le code de fin de la validation `Co-authored-by:`.
 
   {% endtip %}
 
-3. On the next line of the commit message, type `Co-authored-by: name <name@example.com>` with specific information for each co-author. After the co-author information, add a closing quotation mark.
+3. Sur la ligne suivante du message de validation, entrez `Co-authored-by: name <name@example.com>` avec les informations spécifiques pour chaque co-auteur. Après les informations de co-auteur, ajoutez un guillemet fermant.
 
-  If you're adding multiple co-authors, give each co-author their own line and `Co-authored-by:` commit trailer.
-  ```
+  Si vous ajoutez plusieurs co-auteurs, donnez à chacun sa propre ligne et son propre code de fin de validation `Co-authored-by:`.
+  ```shell
   $ git commit -m "Refactor usability tests.
   >
   >
-  Co-authored-by: NAME <NAME@EXAMPLE.COM>
-  Co-authored-by: AUTHOR-NAME <ANOTHER-NAME@EXAMPLE.COM>"
+  Co-authored-by: <em>name</em> &lt;<em>name@example.com</em>&gt;
+  Co-authored-by: <em>another-name</em> &lt;<em>another-name@example.com</em>&gt;"
   ```
 
-The new commit and message will appear on {% data variables.location.product_location %} the next time you push. For more information, see "[Pushing changes to a remote repository](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/)."
+La nouvelle validation et le message s’affichent sur {% data variables.product.product_location %} lors de l’envoi (push) suivant. Pour plus d’informations, consultez « [Envoi de modifications à un référentiel distant](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/) ».
 
-## Creating co-authored commits on {% data variables.product.product_name %}
+## Création de validations co-créées sur {% data variables.product.product_name %}
 
-After you've made changes in a file using the web editor on {% data variables.product.product_name %}, you can create a co-authored commit by adding a `Co-authored-by:` trailer to the commit's message.
+Après avoir apporté des modifications à un fichier à l’aide de l’éditeur web sur {% data variables.product.product_name %}, vous pouvez créer une validation co-créée en ajoutant un code de fin `Co-authored-by:` au message de la validation.
 
 {% data reusables.pull_requests.collect-co-author-commit-git-config-info %}
-2. After making your changes together, at the bottom of the page, type a short, meaningful commit message that describes the changes you made.
-  ![Commit message for your change](/assets/images/help/repository/write-commit-message-quick-pull.png)
-3. In the text box below your commit message, add `Co-authored-by: name <name@example.com>` with specific information for each co-author. If you're adding multiple co-authors, give each co-author their own line and `Co-authored-by:` commit trailer.
+2. Une fois vos modifications apportées, en bas de la page, entrez un message de validation court et explicite décrivant ces modifications.
+  ![Message de validation pour votre modification](/assets/images/help/repository/write-commit-message-quick-pull.png)
+3. Dans la zone de texte située sous votre message de validation, ajoutez `Co-authored-by: name <name@example.com>` avec les informations spécifiques pour chaque co-auteur. Si vous ajoutez plusieurs co-auteurs, donnez à chacun sa propre ligne et son propre code de fin de validation `Co-authored-by:`.
 
-  ![Commit message co-author trailer example in second commit message text box](/assets/images/help/repository/write-commit-message-co-author-trailer.png)
-4. Click **Commit changes** or **Propose changes**.
+  ![Exemple de code de fin de co-auteur de message de validation dans la deuxième zone de texte de message de validation](/assets/images/help/repository/write-commit-message-co-author-trailer.png)
+4. Cliquez sur **Valider les modifications** ou **Proposer des modifications**.
 
-The new commit and message will appear on {% data variables.location.product_location %}.
+La nouvelle validation et le message s’affichent sur {% data variables.product.product_location %}.
 
-## Further reading
+## Pour aller plus loin
 {% ifversion ghes or ghae %}
-- "[Viewing contributions on your profile](/articles/viewing-contributions-on-your-profile)"
-- "[Why are my contributions not showing up on my profile?](/articles/why-are-my-contributions-not-showing-up-on-my-profile)"{% endif %}
-- "[Viewing a project's contributors](/articles/viewing-a-projects-contributors)"
-- "[Changing a commit message](/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/changing-a-commit-message)"
-- "[Committing and reviewing changes to your project](/desktop/contributing-to-projects/committing-and-reviewing-changes-to-your-project#4-write-a-commit-message-and-push-your-changes)" in the {% data variables.product.prodname_desktop %} documentation
+- « [Affichage des contributions sur votre profil](/articles/viewing-contributions-on-your-profile) »
+- « [Pourquoi mes contributions ne s’affichent-elles pas sur mon profil ?](/articles/why-are-my-contributions-not-showing-up-on-my-profile) »{% endif %}
+- « [Affichage des contributeurs d’un projet](/articles/viewing-a-projects-contributors) »
+- « [Modification d’un message de validation](/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/changing-a-commit-message) »
+- « [Révision et validation des modifications de votre projet](/desktop/contributing-to-projects/committing-and-reviewing-changes-to-your-project#4-write-a-commit-message-and-push-your-changes) » dans la documentation {% data variables.product.prodname_desktop %}

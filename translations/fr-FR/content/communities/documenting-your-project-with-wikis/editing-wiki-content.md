@@ -1,6 +1,6 @@
 ---
-title: Editing wiki content
-intro: 'You can add images and links to content in your wiki, and use some supported MediaWiki formats.'
+title: Modification du contenu d’un wiki
+intro: 'Vous pouvez ajouter des images et des liens vers des contenus dans votre wiki, et utiliser certains formats MediaWiki pris en charge.'
 redirect_from:
   - /articles/adding-links-to-wikis
   - /articles/how-do-i-add-links-to-my-wiki
@@ -19,47 +19,51 @@ versions:
   ghec: '*'
 topics:
   - Community
+ms.openlocfilehash: 0afae4335dbf6ff78c0b0e1a2bef4cebed637a5e
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147578939'
 ---
+## Ajout de liens
 
-## Adding links
+Vous pouvez créer des liens dans les wikis en utilisant les balises standard prises en charge par votre page, ou la syntaxe MediaWiki. Par exemple :
 
-You can create links in wikis using the standard markup supported by your page, or using MediaWiki syntax. For example:
+- Si vos pages sont affichées au format Markdown, la syntaxe du lien est `[Link Text](full-URL-of-wiki-page)`.
+- Avec la syntaxe MediaWiki, la syntaxe du lien est `[[nameofwikipage|Link Text]]`.
 
-- If your pages are rendered with Markdown, the link syntax is `[Link Text](full-URL-of-wiki-page)`.
-- With MediaWiki syntax, the link syntax is `[[nameofwikipage|Link Text]]`.
+## Ajout d’images
 
-## Adding images
+Les wikis peuvent afficher des images PNG, JPEG et GIF.
 
-Wikis can display PNG, JPEG, and GIF images.
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-wiki %}
+3. À l’aide de la barre latérale du wiki, accédez à la page à changer, puis cliquez sur **Modifier**.
+4. Dans la barre d’outils du wiki, cliquez sur **Image**.
+   ![Bouton d’ajout d’image au wiki](/assets/images/help/wiki/wiki_add_image.png)
+5. Dans la boîte de dialogue « Insérer une image », tapez l’URL de l’image et le texte de remplacement (utilisé par les moteurs de recherche et les lecteurs d’écran).
+6. Cliquez sur **OK**.
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-wiki %}
-3. Using the wiki sidebar, navigate to the page you want to change, and then click **Edit**.
-4. On the wiki toolbar, click **Image**.
-   ![Wiki Add image button](/assets/images/help/wiki/wiki_add_image.png)
-5. In the "Insert Image" dialog box, type the image URL and the alt text (which is used by search engines and screen readers).
-6. Click **OK**.
+### Liaison d’images dans un dépôt
 
-### Linking to images in a repository
-
-You can link to an image in a repository on {% data variables.product.product_name %} by copying the URL in your browser and using that as the path to the image. For example, embedding an image in your wiki using Markdown might look like this:
+Vous pouvez créer un lien vers une image située dans un dépôt sur {% data variables.product.product_name %} en copiant l’URL dans votre navigateur et en l’utilisant en tant que chemin de l’image. Par exemple, l’incorporation d’une image dans votre wiki en Markdown peut ressembler à ceci :
 
     [[https://github.com/USERNAME/REPOSITORY/blob/main/img/octocat.png|alt=octocat]]
 
-{% ifversion fpt or ghec or ghes > 3.6 or ghae > 3.6 %}
-## Adding mathematical expressions and diagrams{% endif %}
+{% ifversion fpt or ghec or ghes > 3.6 or ghae-issue-7647 %}
+## Ajout d’expressions mathématiques et de diagrammes{% endif %}
 
 {% data reusables.getting-started.math-and-diagrams %}
 
-## Supported MediaWiki formats
+## Formats MediaWiki pris en charge
 
-No matter which markup language your wiki page is written in, certain MediaWiki syntax will always be available to you.
-- Links ([except AsciiDoc](https://github.com/gollum/gollum/commit/d1cf698b456cd6a35a54c6a8e7b41d3068acec3b))
-- Horizontal rules via `---`
-- Shorthand symbol entities (such as `&delta;` or `&euro;`)
+Quel que soit le langage de balises dans lequel votre page wiki est écrite, certaines syntaxes MediaWiki vous seront toujours accessibles.
+- Liens ([à l’exception d’AsciiDoc](https://github.com/gollum/gollum/commit/d1cf698b456cd6a35a54c6a8e7b41d3068acec3b))
+- Règles horizontales via `---`
+- Entités de symboles abrégés (par exemple `&delta;` ou `&euro;`)
 
-For security and performance reasons, some syntaxes are unsupported.
+Pour des raisons de sécurité et de performance, certaines syntaxes ne sont pas prises en charge.
 - [Transclusion](https://www.mediawiki.org/wiki/Transclusion)
-- Definition lists
+- Listes de définitions
 - Indentation
-- Table of contents
+- Table des matières

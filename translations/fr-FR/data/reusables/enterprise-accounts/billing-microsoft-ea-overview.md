@@ -1,1 +1,9 @@
-If you purchased {% data variables.product.prodname_enterprise %} through a Microsoft Enterprise Agreement, you can connect your Azure Subscription ID to your enterprise account to enable and pay for any {% data variables.product.prodname_github_codespaces %} usage, and for {% data variables.product.prodname_actions %} or {% data variables.product.prodname_registry %} usage beyond the amounts included with your account.
+---
+ms.openlocfilehash: a946c9f584b5ba850347f35b8a578e3997c7d632
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "145108629"
+---
+Si vous avez acheté {% data variables.product.prodname_enterprise %} par le biais d’un Accord Entreprise Microsoft, vous pouvez connecter votre ID d’abonnement Azure à votre compte d’entreprise pour activer et payer toute utilisation de {% data variables.product.prodname_codespaces %} et l’utilisation de {% data variables.product.prodname_actions %} ou {% data variables.product.prodname_registry %} au-delà des montants inclus avec votre compte.

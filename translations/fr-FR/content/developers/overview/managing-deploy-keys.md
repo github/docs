@@ -1,6 +1,6 @@
 ---
-title: Managing deploy keys
-intro: Learn different ways to manage SSH keys on your servers when you automate deployment scripts and which way is best for you.
+title: Gestion des clés de déploiement
+intro: Découvrez différentes façons de gérer les clés SSH sur vos serveurs lorsque vous automatisez les scripts de déploiement et quelle méthode est la meilleure pour vous.
 redirect_from:
   - /guides/managing-deploy-keys
   - /v3/guides/managing-deploy-keys
@@ -14,90 +14,91 @@ versions:
   ghec: '*'
 topics:
   - API
+ms.openlocfilehash: 425535eb582c84801d79f00df751bb48d4a5b05e
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '146058467'
 ---
+Vous pouvez gérer des clés SSH sur vos serveurs pendant l’automatisation des scripts de déploiement en utilisant le transfert d’agent SSH, HTTPS avec des jetons OAuth, des clés de déploiement ou des utilisateurs de machine.
 
+## Transfert d’agent SSH
 
-You can manage SSH keys on your servers when automating deployment scripts using SSH agent forwarding, HTTPS with OAuth tokens, deploy keys, or machine users.
+Dans de nombreux cas, en particulier au début d’un projet, le transfert d’agent SSH est la méthode la plus rapide et la plus simple. Le transfert d’agent utilise les mêmes clés SSH que votre ordinateur de développement local.
 
-## SSH agent forwarding
+#### Avantages
 
-In many cases, especially in the beginning of a project, SSH agent forwarding is the quickest and simplest method to use. Agent forwarding uses the same SSH keys that your local development computer uses.
+* Vous n’avez pas besoin de générer ni de suivre de nouvelles clés.
+* Il n’y a pas de gestion des clés, les utilisateurs ont les mêmes autorisations sur le serveur que celles qu’ils ont localement.
+* Comme aucune clé n’est stockée sur le serveur, si le serveur est compromis, vous n’avez pas besoin de chasser ni de supprimer les clés compromises.
 
-#### Pros
+#### Inconvénients
 
-* You do not have to generate or keep track of any new keys.
-* There is no key management; users have the same permissions on the server that they do locally.
-* No keys are stored on the server, so in case the server is compromised, you don't need to hunt down and remove the compromised keys.
+* Les utilisateurs **doivent** ouvrir une connexion SSH pour le déploiement, les processus de déploiement automatiques ne peuvent pas être utilisés.
+* Le transfert d’agent SSH peut être difficile à exécuter pour les utilisateurs Windows.
 
-#### Cons
+#### Configuration
 
-* Users **must** SSH in to deploy; automated deploy processes can't be used.
-* SSH agent forwarding can be troublesome to run for Windows users.
+1. Activez le transfert d’agent localement. Pour plus d’informations, consultez [notre guide sur le transfert d’agent SSH][ssh-agent-forwarding].
+2. Définissez vos scripts de déploiement pour utiliser le transfert d’agent. Par exemple, sur un script bash, l’activation du transfert d’agent ressemble à ceci : `ssh -A serverA 'bash -s' < deploy.sh`
 
-#### Setup
+## Clonage HTTPS avec des jetons OAuth
 
-1. Turn on agent forwarding locally. See [our guide on SSH agent forwarding][ssh-agent-forwarding] for more information.
-2. Set your deploy scripts to use agent forwarding. For example, on a bash script, enabling agent forwarding would look something like this:
-`ssh -A serverA 'bash -s' < deploy.sh`
+Si vous ne voulez pas utiliser de clés SSH, vous pouvez utiliser HTTPS avec des jetons OAuth.
 
-## HTTPS cloning with OAuth tokens
+#### Avantages
 
-If you don't want to use SSH keys, you can use HTTPS with OAuth tokens.
-
-#### Pros
-
-* Anyone with access to the server can deploy the repository.
-* Users don't have to change their local SSH settings.
-* Multiple tokens (one for each user) are not needed; one token per server is enough.
-* A token can be revoked at any time, turning it essentially into a one-use password.
+* Toute personne ayant accès au serveur peut déployer le dépôt.
+* Les utilisateurs n’ont pas besoin de changer leurs paramètres SSH locaux.
+* Vous n’avez pas besoin d’avoir plusieurs jetons (un pour chaque utilisateur), un jeton par serveur suffit.
+* Un jeton peut être révoqué à tout moment, ce qui le convertit essentiellement en mot de passe à usage unique.
 {% ifversion ghes %}
-* Generating new tokens can be easily scripted using [the OAuth API](/rest/reference/oauth-authorizations#create-a-new-authorization).
+* La génération de nouveaux jetons peut être facilement scriptée avec [l’API OAuth](/rest/reference/oauth-authorizations#create-a-new-authorization).
 {% endif %}
 
-#### Cons
+#### Inconvénients
 
-* You must make sure that you configure your token with the correct access scopes.
-* Tokens are essentially passwords, and must be protected the same way.
+* Vous devez veiller à configurer votre jeton avec les étendues d’accès appropriées.
+* Les jetons sont essentiellement des mots de passe et doivent être protégés de la même façon.
 
-#### Setup
+#### Configuration
 
-See [our guide on creating a {% data variables.product.pat_generic %}](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token).
+Consultez [notre guide sur la création d’un jeton d’accès personnel](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token).
 
-## Deploy keys
+## Clés de déploiement
 
 {% data reusables.repositories.deploy-keys %}
 
 {% data reusables.repositories.deploy-keys-write-access %}
 
-#### Pros
+#### Avantages
 
-* Anyone with access to the repository and server has the ability to deploy the project.
-* Users don't have to change their local SSH settings.
-* Deploy keys are read-only by default, but you can give them write access when adding them to a repository.
+* Toute personne ayant accès au dépôt et au serveur a la possibilité de déployer le projet.
+* Les utilisateurs n’ont pas besoin de changer leurs paramètres SSH locaux.
+* Les clés de déploiement sont en lecture seule par défaut, mais vous pouvez leur accorder un accès en écriture quand vous les ajoutez à un dépôt.
 
-#### Cons
+#### Inconvénients
 
-* Deploy keys only grant access to a single repository. More complex projects may have many repositories to pull to the same server.
-* Deploy keys are usually not protected by a passphrase, making the key easily accessible if the server is compromised.
+* Déployer des clés accorde uniquement l’accès à un seul dépôt. Les projets plus complexes peuvent avoir de nombreux dépôts à tirer sur le même serveur.
+* Les clés de déploiement ne sont généralement pas protégées par une phrase secrète, ce qui rend la clé facilement accessible si le serveur est compromis.
 
-#### Setup
+#### Configuration
 
-1. [Run the `ssh-keygen` procedure][generating-ssh-keys] on your server, and remember where you save the generated public and private rsa key pair.
-{% data reusables.profile.navigating-to-profile %} 
+1. [Exécutez la procédure `ssh-keygen`][generating-ssh-keys] sur votre serveur et notez l’endroit où vous enregistrez la paire de clés RSA publique et privée générée.
+2. En haut à droite de n’importe quelle page {% data variables.product.product_name %}, cliquez sur votre photo de profil, puis sur **Votre profil**. ![Navigation vers le profil](/assets/images/profile-page.png)
+3. Dans votre page de profil, cliquez sur **Dépôts**, puis sur le nom de votre dépôt. ![Lien des dépôts](/assets/images/repos.png)
+4. Dans votre dépôt, cliquez sur **Paramètres**. ![Paramètres de dépôt](/assets/images/repo-settings.png)
+5. Dans la barre latérale, cliquez sur **Clés de déploiement**, puis sur **Ajouter une clé de déploiement**. ![Lien Ajouter des clés de déploiement](/assets/images/add-deploy-key.png)
+6. Fournissez un titre, collez-le dans votre clé publique.  ![Page Clé de déploiement](/assets/images/deploy-key.png)
+7. Sélectionnez **Autoriser l’accès en écriture** pour que cette clé ait un accès en écriture sur le dépôt. Une clé de déploiement avec un accès en écriture permet à un déploiement de pousser vers le dépôt.
+8. Cliquez sur **Ajouter une clé**.
 
-   ![Navigation to profile](/assets/images/profile-page.png)
-1. On your profile page, click **Repositories**, then click the name of your repository. ![Repositories link](/assets/images/repos.png)
-2. From your repository, click **Settings**. ![Repository settings](/assets/images/repo-settings.png)
-3. In the sidebar, click **Deploy Keys**, then click **Add deploy key**. ![Add Deploy Keys link](/assets/images/add-deploy-key.png)
-4. Provide a title, paste in your public key.  ![Deploy Key page](/assets/images/deploy-key.png)
-5. Select **Allow write access** if you want this key to have write access to the repository. A deploy key with write access lets a deployment push to the repository.
-6. Click **Add key**.
+#### Utilisation de plusieurs dépôts sur un seul serveur
 
-#### Using multiple repositories on one server
+Si vous utilisez plusieurs dépôts sur un serveur, vous devez générer une paire de clés dédiée pour chacun. Vous ne pouvez pas réutiliser une clé de déploiement pour plusieurs dépôts.
 
-If you use multiple repositories on one server, you will need to generate a dedicated key pair for each one. You can't reuse a deploy key for multiple repositories.
-
-In the server's SSH configuration file (usually `~/.ssh/config`), add an alias entry for each repository. For example:
+Dans le fichier de configuration SSH du serveur (généralement `~/.ssh/config`), ajoutez une entrée d’alias pour chaque dépôt. Par exemple :
 
 ```bash
 Host {% ifversion fpt or ghec %}github.com{% else %}my-GHE-hostname.com{% endif %}-repo-0
@@ -109,79 +110,79 @@ Host {% ifversion fpt or ghec %}github.com{% else %}my-GHE-hostname.com{% endif 
         IdentityFile=/home/user/.ssh/repo-1_deploy_key
 ```
 
-* `Host {% ifversion fpt or ghec %}github.com{% else %}my-GHE-hostname.com{% endif %}-repo-0` - The repository's alias.
-* `Hostname {% ifversion fpt or ghec %}github.com{% else %}my-GHE-hostname.com{% endif %}` - Configures the hostname to use with the alias.
-* `IdentityFile=/home/user/.ssh/repo-0_deploy_key` - Assigns a private key to the alias.
+* `Host {% ifversion fpt or ghec %}github.com{% else %}my-GHE-hostname.com{% endif %}-repo-0` : alias du dépôt.
+* `Hostname {% ifversion fpt or ghec %}github.com{% else %}my-GHE-hostname.com{% endif %}` : configure le nom d’hôte à utiliser avec l’alias.
+* `IdentityFile=/home/user/.ssh/repo-0_deploy_key` : attribue une clé privée à l’alias.
 
-You can then use the hostname's alias to interact with the repository using SSH, which will use the unique deploy key assigned to that alias. For example:
+Vous pouvez ensuite utiliser l’alias du nom d’hôte pour interagir avec le dépôt en utilisant SSH, qui utilise la clé de déploiement unique attribuée à cet alias. Par exemple :
 
 ```bash
 $ git clone git@{% ifversion fpt or ghec %}github.com{% else %}my-GHE-hostname.com{% endif %}-repo-1:OWNER/repo-1.git
 ```
 
-## Server-to-server tokens
+## Jetons serveur à serveur
 
-If your server needs to access repositories across one or more organizations, you can use a GitHub App to define the access you need, and then generate _tightly-scoped_, _server-to-server_ tokens from that GitHub App. The server-to-server tokens can be scoped to single or multiple repositories, and can have fine-grained permissions. For example, you can generate a token with read-only access to a repository's contents.
+Si votre serveur doit accéder aux dépôts d’une ou de plusieurs organisations, vous pouvez utiliser une application GitHub pour définir l’accès dont vous avez besoin, puis générer des jetons _serveur à serveur_ avec une _étendue limitée_ à partir de cette application GitHub. Les jetons serveur à serveur peuvent être limités à un ou plusieurs dépôts, et peuvent avoir des autorisations affinées. Par exemple, vous pouvez générer un jeton avec un accès en lecture seule sur le contenu d’un dépôt.
 
-Since GitHub Apps are a first class actor on  {% data variables.product.product_name %}, the server-to-server tokens are decoupled from any GitHub user, which makes them comparable to "service tokens". Additionally, server-to-server tokens have dedicated rate limits that scale with the size of the organizations that they act upon. For more information, see [Rate limits for {% data variables.product.prodname_github_apps %}](/developers/apps/rate-limits-for-github-apps).
+Comme les applications GitHub sont des acteurs de choix sur {% data variables.product.product_name %}, les jetons serveur à serveur sont découplés à partir de n’importe quel utilisateur GitHub, ce qui les rend comparables aux « jetons de service ». Par ailleurs, les jetons serveur à serveur ont des limites de débit dédiées qui se mettent à l’échelle en fonction de la taille des organisations sur lesquelles ils agissent. Pour plus d’informations, consultez [Limites de débit des {% data variables.product.prodname_github_apps %}](/developers/apps/rate-limits-for-github-apps).
 
-#### Pros
+#### Avantages
 
-- Tightly-scoped tokens with well-defined permission sets and expiration times (1 hour, or less if revoked manually using the API).
-- Dedicated rate limits that grow with your organization.
-- Decoupled from GitHub user identities, so they do not consume any licensed seats.
-- Never granted a password, so cannot be directly signed in to.
+- Jetons avec une étendue limitée, et avec des jeux d’autorisation et des délais d’expiration bien définis (1 heure ou moins s’ils sont révoqués manuellement avec l’API).
+- Limites de débit dédiées qui augmentent avec votre organisation.
+- Découplés à partir des identités utilisateur GitHub, ils ne consomment donc aucun siège avec licence.
+- Ne reçoit jamais de mot de passe, ne peut donc pas recevoir de connexion directe.
 
-#### Cons
+#### Inconvénients
 
-- Additional setup is needed to create the GitHub App.
-- Server-to-server tokens expire after 1 hour, and so need to be re-generated, typically on-demand using code.
+- Une configuration supplémentaire est nécessaire pour créer l’application GitHub.
+- Les jetons serveur à serveur expirent au bout d’une heure, ils doivent donc être regénérés, en général à la demande dans le code.
 
-#### Setup
+#### Configuration
 
-1. Determine if your GitHub App should be public or private. If your GitHub App will only act on repositories within your organization, you likely want it private.
-1. Determine the permissions your GitHub App requires, such as read-only access to repository contents.
-1. Create your GitHub App via your organization's settings page. For more information, see [Creating a GitHub App](/developers/apps/creating-a-github-app).
-1. Note your GitHub App `id`.
-1. Generate and download your GitHub App's private key, and store this safely. For more information, see [Generating a private key](/developers/apps/authenticating-with-github-apps#generating-a-private-key).
-1. Install your GitHub App on the repositories it needs to act upon, optionally you may install the GitHub App on all repositories in your organization.
-1. Identify the `installation_id` that represents the connection between your GitHub App and the organization repositories it can access.  Each GitHub App and organization pair have at most a single `installation_id`. You can identify this `installation_id` via [Get an organization installation for the authenticated app](/rest/reference/apps#get-an-organization-installation-for-the-authenticated-app). This requires authenticating as a GitHub App using a JWT, for more information see [Authenticating as a GitHub App](/developers/apps/authenticating-with-github-apps#authenticating-as-a-github-app).
-1. Generate a server-to-server token using the corresponding REST API endpoint, [Create an installation access token for an app](/rest/reference/apps#create-an-installation-access-token-for-an-app). This requires authenticating as a GitHub App using a JWT, for more information see [Authenticating as a GitHub App](/developers/apps/authenticating-with-github-apps#authenticating-as-a-github-app), and [Authenticating as an installation](/developers/apps/authenticating-with-github-apps#authenticating-as-an-installation).
-1. Use this server-to-server token to interact with your repositories, either via the REST or GraphQL APIs, or via a Git client.
+1. Déterminez si votre application GitHub doit être publique ou privée. Si votre application GitHub agit uniquement sur les dépôts au sein de votre organisation, elle peut être privée.
+1. Déterminez les autorisations dont a besoin votre application GitHub, par exemple, un accès en lecture seule au contenu du dépôt.
+1. Créez votre application GitHub dans la page des paramètres de votre organisation. Pour plus d’informations, consultez [Création d’une application GitHub](/developers/apps/creating-a-github-app).
+1. Notez l’`id` de votre application GitHub.
+1. Générez et téléchargez la clé privée de votre application GitHub, et stockez-la en lieu sûr. Pour plus d’informations, consultez [Génération d’une clé privée](/developers/apps/authenticating-with-github-apps#generating-a-private-key).
+1. Installez votre application GitHub sur les dépôts sur lesquelles elle doit agir, vous pouvez éventuellement installer l’application GitHub sur tous les dépôts de votre organisation.
+1. Identifiez l’`installation_id` qui représente la connexion entre votre application GitHub et les dépôts de l’organisation auxquels elle peut accéder.  Chaque paire application GitHub/organisation a un seul `installation_id`. Vous pouvez identifier cet `installation_id` avec [Obtenir une installation d’organisation pour l’application authentifiée](/rest/reference/apps#get-an-organization-installation-for-the-authenticated-app). L’application doit être authentifiée comme une application GitHub avec un jeton JWT. Pour plus d’informations, consultez [Authentification comme une application GitHub](/developers/apps/authenticating-with-github-apps#authenticating-as-a-github-app).
+1. Générez un jeton serveur à serveur en utilisant le point de terminaison d’API REST correspondant, [Créer un jeton d’accès d’installation pour une application](/rest/reference/apps#create-an-installation-access-token-for-an-app). L’application doit être authentifiée comme une application GitHub avec un jeton JWT. Pour plus d’informations, consultez [Authentification comme une application GitHub](/developers/apps/authenticating-with-github-apps#authenticating-as-a-github-app) et [Authentification comme une installation](/developers/apps/authenticating-with-github-apps#authenticating-as-an-installation).
+1. Utilisez ce jeton serveur à serveur pour interagir avec vos dépôts, via l’API REST ou l’API GraphQL, ou via un client Git.
 
-## Machine users
+## Utilisateurs machines
 
-If your server needs to access multiple repositories, you can create a new account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %} and attach an SSH key that will be used exclusively for automation. Since this account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %} won't be used by a human, it's called a _machine user_. You can add the machine user as a [collaborator][collaborator] on a personal repository (granting read and write access), as an [outside collaborator][outside-collaborator] on an organization repository (granting read, write, or admin access), or to a [team][team] with access to the repositories it needs to automate (granting the permissions of the team).
+Si votre serveur doit avoir accès à plusieurs dépôts, vous pouvez créer un compte sur {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} et attacher une clé SSH, utilisée exclusivement pour l’automatisation. Comme ce compte sur {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} n’est pas utilisé par un humain, on l’appelle _utilisateur machine_. Vous pouvez ajouter l’utilisateur machine comme [collaborateur][collaborator] sur un dépôt personnel (en lui accordant un accès en lecture et en écriture), comme [collaborateur externe][outside-collaborator] sur un dépôt d’organisation (en lui accordant un accès en lecture, en écriture ou d’administrateur) ou l’ajouter à une [équipe][team] avec un accès aux dépôts dont il a besoin pour l’automatisation (en lui accordant les autorisations de l’équipe).
 
 {% ifversion fpt or ghec %}
 
 {% tip %}
 
-**Tip:** Our [terms of service][tos] state:
+**Astuce :** Nos [conditions d’utilisation][tos] stipulent :
 
-> *Accounts registered by "bots" or other automated methods are not permitted.*
+> *Les comptes inscrits par des « bots » ou d’autres méthodes automatisées ne sont pas autorisés.*
 
-This means that you cannot automate the creation of accounts. But if you want to create a single machine user for automating tasks such as deploy scripts in your project or organization, that is totally cool.
+Cela signifie que vous ne pouvez pas automatiser la création de comptes. Toutefois, si vous voulez créer un utilisateur machine pour automatiser des tâches comme le déploiement de scripts dans votre projet ou organisation, vous pouvez le faire.
 
 {% endtip %}
 
 {% endif %}
 
-#### Pros
+#### Avantages
 
-* Anyone with access to the repository and server has the ability to deploy the project.
-* No (human) users need to change their local SSH settings.
-* Multiple keys are not needed; one per server is adequate.
+* Toute personne ayant accès au dépôt et au serveur a la possibilité de déployer le projet.
+* Aucun utilisateur (humain) n’a besoin de changer ses paramètres SSH locaux.
+* Vous n’avez pas besoin de plusieurs clés, une par serveur suffit.
 
-#### Cons
+#### Inconvénients
 
-* Only organizations can restrict machine users to read-only access. Personal repositories always grant collaborators read/write access.
-* Machine user keys, like deploy keys, are usually not protected by a passphrase.
+* Seules les organisations peuvent limiter les utilisateurs machines à l’accès en lecture seule. Les dépôts personnels accordent toujours aux collaborateurs un accès en lecture/écriture.
+* Les clés d’utilisateur machine, comme les clés de déploiement, ne sont généralement pas protégées par une phrase secrète.
 
-#### Setup
+#### Configuration
 
-1. [Run the `ssh-keygen` procedure][generating-ssh-keys] on your server and attach the public key to the machine user account.
-2. Give the machine user account access to the repositories you want to automate. You can do this by adding the account as a [collaborator][collaborator], as an [outside collaborator][outside-collaborator], or to a [team][team] in an organization.
+1. [Exécutez la procédure `ssh-keygen`][generating-ssh-keys] sur votre serveur et attachez la clé publique au compte de l’utilisateur machine.
+2. Donnez au compte de l’utilisateur machine un accès aux dépôts que vous voulez automatiser. Pour ce faire, vous pouvez ajouter le compte comme [collaborateur][collaborator], comme [collaborateur externe][outside-collaborator] ou l’ajouter à une [équipe][team] d’organisation.
 
 [ssh-agent-forwarding]: /guides/using-ssh-agent-forwarding/
 [generating-ssh-keys]: /articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/#generating-a-new-ssh-key
@@ -191,5 +192,5 @@ This means that you cannot automate the creation of accounts. But if you want to
 [outside-collaborator]: /articles/adding-outside-collaborators-to-repositories-in-your-organization
 [team]: /articles/adding-organization-members-to-a-team
 
-## Further reading
-- [Configuring notifications](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#organization-alerts-notification-options)
+## Pour aller plus loin
+- [Configuration des notifications](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#organization-alerts-notification-options)

@@ -1,6 +1,6 @@
 ---
-title: Initiating a failover to your replica appliance
-intro: 'You can failover to a {% data variables.product.prodname_ghe_server %} replica appliance using the command line for maintenance and testing, or if the primary appliance fails.'
+title: Lancement d’un basculement vers votre appliance réplica
+intro: 'Vous pouvez basculer vers une appliance réplica {% data variables.product.prodname_ghe_server %} à l’aide de la ligne de commande pour la maintenance et les tests, ou en cas de défaillance de l’appliance primaire.'
 redirect_from:
   - /enterprise/admin/installation/initiating-a-failover-to-your-replica-appliance
   - /enterprise/admin/enterprise-management/initiating-a-failover-to-your-replica-appliance
@@ -13,60 +13,66 @@ topics:
   - High availability
   - Infrastructure
 shortTitle: Initiate failover to appliance
+ms.openlocfilehash: e2c15dab0a812fe6031f78e7edbccaff6a2503c0
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148192992'
 ---
-The time required to failover depends on how long it takes to manually promote the replica and redirect traffic. The average time ranges between 20-30 minutes.
+La durée du basculement dépend du temps nécessaire pour promouvoir manuellement le réplica et rediriger le trafic. La durée moyenne varie entre 20 et 30 minutes.
 
 {% data reusables.enterprise_installation.promoting-a-replica %}
 
-1. If the primary appliance is available, to allow replication to finish before you switch appliances, on the primary appliance, put the primary appliance into maintenance mode.
+1. Si l’appliance principale est disponible, pour permettre à la réplication d’aboutir avant le changement d’appliance, sur l’appliance principale, faites passer celle-ci en mode maintenance.
 
-    - Put the appliance into maintenance mode.
+    - Faites passer l’appliance en mode maintenance.
 
-       - To use the management console, see "[Enabling and scheduling maintenance mode](/enterprise/admin/guides/installation/enabling-and-scheduling-maintenance-mode/)"
+       - Pour utiliser la console de gestion, consultez « [Activation et planification du mode maintenance](/enterprise/admin/guides/installation/enabling-and-scheduling-maintenance-mode/) »
 
-       - You can also use the `ghe-maintenance -s` command.
+       - Vous pouvez également utiliser la commande `ghe-maintenance -s`.
          ```shell
          $ ghe-maintenance -s
          ```
 
-   - When the number of active Git operations, MySQL queries, and Resque jobs reaches zero, wait 30 seconds. 
+   - Une fois que le nombre d’opérations Git, de requêtes MySQL et de travaux Resque actifs a atteint zéro, patientez 30 secondes. 
 
       {% note %}
 
-      **Note:** Nomad will always have jobs running, even in maintenance mode, so you can safely ignore these jobs.
+      **Remarque :** Vous trouverez toujours des travaux Nomad en cours d’exécution, même en mode maintenance. Vous pouvez donc les ignorer sans risque.
     
       {% endnote %}
 
-   - To verify all replication channels report `OK`, use the `ghe-repl-status -vv` command.
+   - Pour vérifier que tous les canaux de réplication indique `OK`, utilisez la commande `ghe-repl-status -vv`.
 
       ```shell
       $ ghe-repl-status -vv
       ```
 
-4. On the replica appliance, to stop replication and promote the replica appliance to primary status, use the `ghe-repl-promote` command. This will also automatically put the primary node in maintenance mode if it’s reachable.
+4. Sur l’appliance réplica, pour arrêter la réplication et promouvoir l’appliance réplica à l’état principal, utilisez la commande `ghe-repl-promote`. Celle-ci fera aussi passer automatiquement le nœud principal en mode maintenance s’il est accessible.
   ```shell
   $ ghe-repl-promote
   ```
 
    {% note %}
 
-   **Note:** If the primary node is unavailable, warnings and timeouts may occur but can be ignored.
+   **Remarque :** Si le nœud principal n’est pas disponible, des avertissements et des délais d’expiration peuvent se produire, mais peuvent être ignorés.
 
   {% endnote %}
 
-5. Update the DNS record to point to the IP address of the replica. Traffic is directed to the replica after the TTL period elapses. If you are using a load balancer, ensure it is configured to send traffic to the replica.
-6. Notify users that they can resume normal operations.
-7. If desired, set up replication from the new primary to existing appliances and the previous primary. For more information, see "[About high availability configuration](/enterprise/admin/guides/installation/about-high-availability-configuration/#utilities-for-replication-management)."
-8. Appliances you do not intend to setup replication to that were part of the high availability configuration prior the failover, need to be removed from the high availability configuration by UUID.
-    - On the former appliances, get their UUID via `cat /data/user/common/uuid`.
+5. Mettez à jour l’enregistrement DNS pour le faire pointer vers l’adresse IP du réplica. Le trafic est dirigé vers le réplica une fois la période TTL écoulée. Si vous utilisez un équilibreur de charge, vérifiez qu’il est configuré pour envoyer le trafic au réplica.
+6. Informez les utilisateurs qu’ils peuvent reprendre le cours normal des opérations.
+7. Si vous le souhaitez, configurez la réplication de l’appliance principale vers des appliances existantes et la précédente appliance principale. Pour plus d’informations, consultez « [À propos de la configuration à haute disponibilité](/enterprise/admin/guides/installation/about-high-availability-configuration/#utilities-for-replication-management) ».
+8. Les appliances que vous n’avez pas l’intention de configurer pour la réplication et qui faisaient partie de la configuration à haute disponibilité avant le basculement, doivent être retirées de la configuration à haute disponibilité par UUID.
+    - Sur les anciennes appliances, obtenez leur UUID via `cat /data/user/common/uuid`.
       ```shell
       $ cat /data/user/common/uuid
       ```
-    - On the new primary, remove the UUIDs using `ghe-repl-teardown`. Please replace *`UUID`* with a UUID you retrieved in the previous step.
+    - Sur la nouvelle appliance principale, supprimez les UUID à l’aide de `ghe-repl-teardown`. Remplacez *`UUID`* par un UUID que vous avez récupéré à l’étape précédente.
       ```shell
       $ ghe-repl-teardown -u  UUID
       ```
 
-## Further reading
+## Pour aller plus loin
 
-- "[Utilities for replication management](/enterprise/admin/guides/installation/about-high-availability-configuration/#utilities-for-replication-management)"
+- « [Utilitaires pour la gestion de la réplication](/enterprise/admin/guides/installation/about-high-availability-configuration/#utilities-for-replication-management) »

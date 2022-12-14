@@ -1,0 +1,248 @@
+date: '17/05/2022'
+friendlyDate: '17 mai 2022'
+title: '17 mai 2022'
+currentWeek: true
+sections:
+  features:
+    - heading: 'Les fonctionnalités de GitHub Advanced Security sont en disponibilité générale'
+      notes:
+        - |L’analyse du code et l’analyse des secrets sont désormais en disponibilité générale pour GitHub AE. Pour plus d’informations, consultez « [À propos de l’analyse du code](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning) » et « [À propos de l’analyse des secrets](/code-security/secret-scanning/about-secret-scanning). »
+
+|
+        - |Les modèles personnalisés pour l’analyse des secrets est à présent en disponibilité générale. Pour plus d’informations, consultez « [Définition des modèles personnalisés pour l’analyse des secrets](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning). »
+
+|
+    - heading: 'Afficher toutes les alertes d’analyse du code pour une demande de tirage (pull request)'
+      notes:
+        - |Vous pouvez à présent rechercher toutes les alertes d’analyse du code associées à une demande de tirage (pull request) avec le nouveau filtre de demande de tirage (pull request) sur la page des alertes d’analyse du code. La page des vérifications de demandes de tirage (pull request) affiche les alertes lancées dans une demande de tirage (pull request) sur une branche de demande de tirage (pull request).  Le nouveau lien « Afficher toutes les alertes de branches » sur la page Vérifications vous fait accéder à la page des alertes d’analyse du code avec le filtre de demandes de tirage (pull request) spécifique déjà appliqué, de sorte d’afficher toutes les alertes associées à la demande de tirage (pull request). Ceci peut être utile pour gérer de nombreuses alertes et afficher des informations plus détaillées pour les alertes individuelles. Pour plus d’informations, consultez « [Gestion des alertes d’analyse du code pour votre référentiel](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository#filtering-code-scanning-alerts). »
+
+|
+    - heading: 'Vue d’ensemble de la sécurité des organisations'
+      notes:
+        - |GitHub Advanced Security offre à présent un affichage au niveau de l’entreprise sur les risques de sécurité de l’application détectés par analyse du code, Dependabot et l’analyse des secrets. La vue d’ensemble de la sécurité présente l’état d’activation des fonctionnalités de sécurité pour chaque référentiel ainsi que le nombre d’alertes détectées.
+
+
+
+Par ailleurs, elle répertorie toutes les alertes d’analyse des secrets au niveau de l’organisation. Des affichages relatifs à Dependabot et aux alertes d’analyse du code sont en prévision dans des versions futures. Pour plus d’informations, consultez « [À propos de la vue d’ensemble sécurité](/code-security/security-overview/about-the-security-overview)."
+
+
+
+![Capture d’écran de la vue d’ensemble sécurité](/assets/images/enterprise/3.2/release-notes/security-overview-UI.png)
+
+|
+    - heading: 'Graphe de dépendances'
+      notes:
+        - |Le graphe des dépendances est désormais disponible sur GitHub AE. Le graphe des dépendances vous aident à comprendre le logiciel en open source duquel vous dépendez en analysant les manifestes de dépendances enregistrés dans des référentiels. Pour plus d’informations, consultez « [À propos du graphe des dépendances](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph). »
+
+|
+    - heading: 'Alertes Dependabot'
+      notes:
+        - |Les alertes Dependabot peuvent à présent vous informer des vulnérabilités de vos dépendances sur GitHub AE. Pour activer les alertes Dependabot, activez le graphe des dépendances, GitHub Connect et synchronisez les vulnérabilités de la Base de données GitHub Advisory. Cette fonctionnalité est en version bêta et est sujette à modifications. Pour plus d’informations, consultez « [À propos des alertes Dependabot](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts). »
+
+
+
+Une fois les alertes Dependabot désactivées, les membres de votre organisation reçoivent des notifications à chaque fois qu’une nouvelle vulnérabilité affectant leurs dépendances est ajoutée à la Base de données GitHub Advisory ou qu’une dépendance vulnérable est ajoutée à leur manifeste. Les membres peuvent personnaliser des paramètres de notification. Pour plus d’informations, consultez « [Configuration des notifications pour % data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/configuring-notifications-for-dependabot-alerts). <!-- ⚠️ Les articles seront disponibles au moment de la bascule des indicateurs de fonctionnalité de contenu -->
+
+|
+    - heading: 'Rôle de Gestionnaire de sécurité pour les organisations'
+      notes:
+        - |Les organisations peuvent maintenant accorder aux équipes l’autorisation de gérer des alertes et des paramètres de sécurité sur tous leurs référentiels. Le rôle « Gestionnaire de sécurité » peut être appliqué à n’importe quelle équipe et accorde aux membres les autorisations suivantes :
+
+
+
+- Accès en lecture sur tous les référentiels de l’organisation
+
+- Accès en écriture sur toutes les alertes de sécurité de l’organisation
+
+- Accès à l’onglet de sécurité au niveau de l’organisation
+
+- Accès en écriture sur les paramètres de sécurité au niveau de l’organisation
+
+- Accès en écriture sur les paramètres de sécurité au niveau du référentiel
+
+
+
+Pour plus d’informations, consultez « [Gestion des gestionnaires de sécurité dans votre organisation](https://docs.github.com/en/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization). » <!-- ⚠️ L’article sera disponible au moment de la bascule des indicateurs de fonctionnalité de contenu -->
+
+|
+    - heading: 'Exécuteurs éphémères et webhooks en mise à l’échelle automatique pour GitHub Actions'
+      notes:
+        - |GitHub AE prend désormais en charge les exécuteurs éphémères (un seul travail) auto-hébergés et un nouveau webhook [`workflow_job`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_job) pour faciliter la mise à l’échelle automatique des exécuteurs.
+
+
+
+Les exécuteurs éphémères conviennent aux environnements autogérés où chaque travail doit s’exécuter sur une image propre. Une fois une tâche exécutée, GitHub AE désenregistre automatiquement des exécuteurs éphémères, vous permettant ainsi d’effectuer toute gestion post-tâche.
+
+
+
+Vous pouvez combiner des exécuteurs éphémères avec le nouveau webhook « workflow_job » pour mettre à l’échelle automatiquement les exécuteurs auto-hébergés en réponse aux demandes de travail de GitHub Actions.
+
+
+
+Pour plus d’informations, consultez « [Mise à l’échelle automatique avec des exécuteurs auto-hébergés](/actions/hosting-your-own-runners/autoscaling-with-self-hosted-runners) » et « [Événements et charges utiles de Webhooks](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_job) ». <!-- ⚠️ L’article sera disponible au moment de la bascule des indicateurs de fonctionnalité de contenu -->
+
+|
+    - heading: 'Actions composites pour GitHub Actions'
+      notes:
+        - |Vous pouvez réduire la duplication dans vos workflows à l’aide de la composition pour référencer d’autres actions. Les actions écrites en YAML ne pouvaient précédemment utiliser que des scripts. Pour plus d’informations, consultez « [Création d’une action composite](/actions/creating-actions/creating-a-composite-action). »
+
+|
+    - heading: 'Nouvelle étendue de jetons pour la gestion des exécuteurs auto-hébergés'
+      notes:
+        - |La gestion des exécuteurs auto-hébergés au niveau de l’entreprise n’a plus besoin de jetons d’accès personnels avec l’étendue « admin:enterprise ». Vous pouvez utiliser à la place l’étendue « new manage_runners:enterprise » pour limiter les autorisations de vos jetons. Les jetons ayant cette étendue peuvent s’authentifier à plusieurs points de terminaison API REST pour gérer les exécuteurs auto-hébergés de votre entreprise.
+
+|
+    - heading: 'Journal d''audit accessible via l’API REST'
+      notes:
+        - |Vous pouvez désormais utiliser l’API REST pour l’interface de programmation avec le journal d''audit. Bien que le transfert du journal d’audit vous permette de conserver et d’analyser les données avec votre propre boîte à outils et de déterminer des modèles au fil du temps, la nouvelle API REST peut vous aider à effectuer des analyses limitées sur les récents événements à noter. Pour plus d’informations, consultez « [Évaluation du journal d’audit pour votre organisation](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization#using-the-rest-api). »
+
+|
+    - heading: 'Dates d’expiration de vos jetons d''accès personnels'
+      notes:
+        - |Vous pouvez à présent définir une date d’expiration pour les jetons d’accès personnels nouveaux et existants. GitHub AE vous envoie un e-mail lorsqu’il est temps de renouveler un jeton sur le point d’expirer. Les jetons qui ont expiré peuvent être regénérés, vous recevez alors un double du jeton qui a les mêmes propriétés que celui d’origine. Lorsque vous utilisez un jeton avec l’API GitHub AE, un nouvel en-tête « GitHub-Authentication-Token-Expiration » s’affiche, indiquant la date d’expiration du jeton. Vous pouvez l’utiliser dans des scripts, par exemple pour consigner un message d’avertissement lorsque la date d’expiration approche. Pour plus d’informations, consultez « [Création d’un jeton d’accès personnel](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) » et « [Bien démarrer avec l’API REST](/rest/guides/getting-started-with-the-rest-api#using-personal-access-tokens). »
+
+|
+    - heading: 'Exporter une liste des personnes ayant accès à un référentiel'
+      notes:
+        - |Les propriétaires d’organisation peuvent à présent exporter une liste de personnes ayant accès à un référentiel au format CSV. Pour plus d’informations, consultez « [Affichage des personnes ayant accès à votre référentiel](/organizations/managing-access-to-your-organizations-repositories/viewing-people-with-access-to-your-repository#exporting-a-list-of-people-with-access-to-your-repository). »
+
+|
+    - heading: 'Gestion approuvée des affectations de révision du code'
+      notes:
+        - |De nouveaux paramètres permettant de gérer l’affectation de la révision du code aident à la distribution d’une révision de demande de tirage (pull request) de l’équipe entre les membres de l’équipe, de sorte que les révisions ne soient pas responsable d’un seul ou de deux membres seuls de l’équipe.
+
+
+
+- Membres enfants de l’équipe : limiter l’affectation aux seuls membres directs de l’équipe. Précédemment, les requêtes de révision de l’équipe pouvaient être attribuées aux membres directs de l’équipe ou aux membres des équipes enfants.
+
+- Nombre de requêtes existantes : continuer l’attribution automatique même si un ou plusieurs membres de l’équipe ont déjà été invités à la révision. Précédemment, un membre de l’équipe déjà invité à la révision aurait été compté comme une des requêtes de révision automatiques de l’équipe.
+
+- Requête de révision de l’équipe : garder une équipe attribuée à la révision même si un ou plusieurs des membres viennent d’être attribués.
+
+
+
+Pour plus d’informations, consultez « [Gestion des paramètres de révision du code pour votre équipe](/organizations/organizing-members-into-teams/managing-code-review-settings-for-your-team). »
+
+|
+    - heading: 'Nouveaux thèmes'
+      notes:
+        - |Deux nouveaux thèmes sont disponibles pour votre interface utilisateur web GitHub AE.
+
+
+
+- Un thème sombre à contraste élevé, avec un contraste supérieur entre les éléments de premier plan et ceux d''arrière-plan
+
+- Daltoniens des couleurs froides et chaudes qui perçoivent le rouge et le vert orange et bleu
+
+
+
+Pour plus d’informations, consultez « [Gestion des paramètres de votre thème](/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/managing-your-theme-settings). »
+
+|
+    - heading: 'Améliorations Markdown'
+      notes:
+        - |Vous pouvez désormais utiliser la syntaxe des notes de bas de page dans tous les champs Markdown pour référencer des informations importantes sans interrompre le flux de votre prose. Les notes de bas de page sont affichées comme des liens exposants. Cliquez sur une note de bas de page pour accéder à la référence, affichée dans une nouvelle section, en bas du document. Pour plus d’informations, consultez « [Syntaxe de base pour l’écriture et la mise en forme](/get-started/writing-on-github/getting-started-with writing-and-formatting-on-github/basic-writing-and-formatting-syntax#links). » <!-- ⚠️ La section sur la page sera disponible au moment de la bascule des indicateurs de fonctionnalité de contenu -->
+
+|
+        - |Vous pouvez à présent basculer entre l’affichage source et l’affichage Markdown rendu via l’interface utilisateur web en cliquant sur le bouton {% octicon "code" aria-label="The Code icon" %} pour « Afficher la Diff source » en haut de tous les fichiers Markdown. Auparavant, vous deviez utiliser l’affichage du responsable pour être dirigé vers les numéros de ligne spécifiques dans la source du fichier Markdown.
+
+|
+        - |GitHub AE génère désormais automatiquement une table des matières pour les Wikis, basée sur des titres.
+
+|
+  changes:
+    - heading: 'Performances'
+      notes:
+        - |Les travaux et les charges de page sont maintenant bien plus rapides pour les référentiels qui ont plusieurs références Git.
+
+|
+    - heading: 'Administration'
+      notes:
+        - |Le processus d’emprunt d’identité de l’utilisateur a été amélioré. Une session d’emprunt d’identité a maintenant besoin d’une justification pour l’emprunt d’identité, les actions sont enregistrées dans le journal d’audit quand elles sont exécutées avec un utilisateur impersonné et l’utilisateur impersonné reçoit un e-mail de notification pour le prévenir que son identité a été empruntée par un propriétaire de l’entreprise. Pour plus d’informations, consultez « [Emprunt d’identité d’un utilisateur](/admin/user-management/managing-users-in-your-enterprise/impersonating-a-user). »
+
+|
+    - heading: 'GitHub Actions'
+      notes:
+        - |Pour limiter les attaques de l’intercepteur lors de l’utilisation des actions résolues par le biais de GitHub Connect vers GitHub.com à partir de GitHub AE, GitHub AE met l’espace de noms des actions (« OWNER/NAME ») utilisé hors service. La mise hors service de l’espace de noms permet d’éviter que l’espace de noms soit créé dans votre entreprise et garantit que tous les workflows faisant référence à l’action le téléchargent à partir de GitHub.com. Pour plus d’informations, consultez « [Activation de l’accès automatique aux actions GitHub.com à l’aide de GitHub Connect](/admin/github-actions/managing-access-to-actions-from-githubcom/enabling-automatic-access-to-githubcom-actions-using-github-connect#automatic-retirement-of-namespaces-for-actions-accessed-on-githubcom). »
+
+|
+        - |Le journal d''audit inclut désormais des événements supplémentaires pour GitHub Actions. GitHub AE enregistre désormais des entrées du journal d’audit pour les événements suivants.
+
+
+
+- Un exécuteur auto-hébergé est inscrit ou supprimé.
+
+- Un exécuteur auto-hébergé est ajouté à un groupe d’exécuteurs ou supprimé d’un groupe d’exécuteurs.
+
+- Un groupe d’exécuteurs est créé ou supprimé.
+
+- Une exécution de workflow est créée ou effectuée.
+
+- Un travail de workflow est préparé. Notez que ce journal comprend la liste des secrets fournis à l’exécuteur.
+
+
+
+Pour plus d’informations, consultez « [Durcissement de la sécurité pour GitHub Actions](/actions/security-guides/security-hardening-for-github-actions). »
+
+|
+    - heading: 'GitHub Advanced Security'
+      notes:
+        - |L’analyse du code mappe désormais des alertes identifiées dans des workflows « on:push » pour s’afficher sur les demandes de tirage (pull request), le cas échéant.  Les alertes affichées dans la demande de tirage (pull request) sont celles qui sont identifiées en comparant l’analyse existante de la tête de la branche à l’analyse de la branche cible à fusionner. Notez que si la validation de fusion de la demande de tirage (pull request) n’est pas utilisée, les alertes peuvent être moins précises lors de la comparaison avec l’approche qui utilise des déclencheurs « on:pull_request ». Pour plus d’informations, consultez « [À propos de l’analyse du code avec CodeQL](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-with-codeql). »
+
+
+
+Certains autres systèmes CI/CD peuvent être configurés exclusivement pour déclencher un pipeline quand le code est envoyé dans une branche ou même exclusivement pour chaque validation. Chaque fois que ce type de pipeline d’analyse est déclenché et que les résultats sont chargés dans l’API SARIF, l’analyse de code essaie également de faire correspondre les résultats d’analyse à une demande de tirage ouverte. Si une demande de tirage ouverte est trouvée, les résultats sont publiés comme décrit plus haut. Pour plus d’informations, consultez « [Chargement d’un fichier SARIF dans GitHub](/code-security/code-scanning/integrating-with-code-scanning/uploading-a-sarif-file-to-github). »
+
+|
+        - |GitHub AE détecte à présent des secrets de fournisseurs supplémentaires. Pour plus d’informations, consultez « [Modèles d’analyse des secrets](/code-security/secret-scanning/secret-scanning-patterns#supported-secrets). »
+
+|
+    - heading: 'Demandes de tirage'
+      notes:
+        - |La chronologie et la barre latérale des réviseurs dans la page des demandes de tirage indiquent maintenant si une demande de révision a été automatiquement attribuée à un ou plusieurs membres de l’équipe, étant donné que cette équipe utilise l’affectation de la révision du code.
+
+
+
+![Capture d’écran de l’indicateur pour l’affectation automatique de la révision du code](https://user-images.githubusercontent.com/2503052/134931920-409dea07-7a70-4557-b208-963357db7a0d.png)
+
+|
+        - |Vous pouvez maintenant filtrer les recherches de demandes de tirage pour obtenir seulement les demandes de tirage que vous avez été directement invité à réviser en choisissant **En attente de votre révision**. Pour plus d’informations, consultez « [Recherche de problèmes et de demandes de tirage (pull request)](https://docs.github.com/en/search-github/searching-on-github/searching-issues-and-pull-requests). »
+
+|
+        - |Si vous spécifiez le nom exact d’une branche quand vous utilisez le menu de sélection de branche, le résultat s’affiche maintenant en haut de la liste des branches correspondantes. Auparavant, les correspondances de nom de branche exactes pouvaient s’afficher en bas de la liste.
+
+|
+        - |Quand une branche est associée à une demande de tirage ouverte, GitHub AE renvoie désormais directement à la demande de tirage. Auparavant, vous étiez invité à contribuer en utilisant une comparaison de branches ou à ouvrir une nouvelle demande de tirage.
+
+|
+        - |Vous pouvez maintenant cliquer sur un bouton pour copier tout le contenu brut d’un fichier dans le Presse-papiers. Auparavant, vous deviez ouvrir le fichier brut, sélectionner tout le contenu, puis le copier. Pour copier le contenu d’un fichier, accédez au fichier et cliquez sur dans la barre d’outils. Notez que cette fonctionnalité est actuellement disponible seulement dans certains navigateurs.
+
+|
+        - |Un avertissement est maintenant affiché quand un fichier contient du texte Unicode bidirectionnel. Le texte Unicode bidirectionnel peut être interprété ou compilé différemment comparé à la façon dont il s’affiche dans une interface utilisateur. Par exemple, les caractères Unicode bidirectionnels masqués peuvent être utilisés pour échanger des segments de texte dans un fichier. Pour plus d’informations sur le remplacement de ces caractères, consultez le [Journal des modifications de {% data variables.product.prodname_dotcom %}](https://github.blog/changelog/2021-10-31-warning-about-bidirectional-unicode-text/).
+
+|
+    - heading: 'Référentiels'
+      notes:
+        - |GitHub AE inclut désormais un support renforcé des fichiers _CITATION.cff_. Les fichiers _CITATION.cff_ sont des fichiers en texte brut avec des informations de citation lisibles par ordinateur et par l’humain. GitHub AE analyse ces information into convenient formats such as [APA](https://apastyle.apa.org) and [BibTeX](https://en.wikipedia.org/wiki/BibTeX) that can be copied by others. Pour plus d’informations, consultez « [À propos des fichiers CITATION](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-citation-files). »
+
+|
+        - |Vous pouvez désormais ajouter, supprimer ou afficher des liens automatiques via le point de terminaison des liens automatiques de l’API des référentiels. Pour plus d’informations, consultez « [Références et URL automatiquement liées](/get-started/writing-on-github/working-with-advanced-formatting/autolinked-references-and-urls) » et « [Référentiels](/rest/reference/repos#autolinks) » dans la documentation de l’API REST.
+
+|
+    - heading: 'Publications'
+      notes:
+
+        - |Le composant de sélection des étiquettes pour les mises en production GitHub est à présent un menu déroulant plutôt qu’un champ de texte. Pour plus d’informations, consultez « [Gestion des mises en production dans un référentiel](/repositories/releasing-projects-on-github/managing-releases-in-a-repository#creating-a-release). »
+
+|
+    - heading: 'Markdown'
+      notes:
+
+        - |Quand vous faites un glisser-déposer de fichiers, comme des images et des vidéos dans un éditeur Markdown, GitHub AE utilise désormais la position du pointeur de la souris au lieu de celle du curseur au moment du placement du fichier.
+
+|
+    - heading: 'API REST'
+      notes:
+        - |La plupart des préversions de l’API REST ont désormais passé les tests et font officiellement partie de l’API. Les en-têtes de préversion ne sont plus nécessaires dans la plupart des points de terminaison de l’API REST, mais fonctionnent encore comme prévu si vous spécifiez une préversion approuvée dans l’en-tête « Accepter » d’une requête.
+
+|

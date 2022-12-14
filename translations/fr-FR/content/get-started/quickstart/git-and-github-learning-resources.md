@@ -1,12 +1,12 @@
 ---
-title: Git and GitHub learning resources
+title: Ressources pédagogiques Git et GitHub
 redirect_from:
   - /articles/good-resources-for-learning-git-and-github
   - /articles/what-are-other-good-resources-for-learning-git-and-github
   - /articles/git-and-github-learning-resources
   - /github/getting-started-with-github/git-and-github-learning-resources
   - /github/getting-started-with-github/quickstart/git-and-github-learning-resources
-intro: 'There are a lot of helpful Git and {% data variables.product.product_name %} resources on the web. This is a short list of our favorites!'
+intro: 'Il existe de nombreuses ressources Git et {% data variables.product.product_name %} utiles sur le web. Il s’agit d’une courte liste de nos favoris!'
 versions:
   fpt: '*'
   ghes: '*'
@@ -15,49 +15,55 @@ versions:
 authors:
   - GitHub
 shortTitle: Learning resources
+ms.openlocfilehash: d8d0457de2842392febee0c90660285e9b1afef8
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '146139295'
 ---
-## Using Git
+## Utilisation de Git
 
-Familiarize yourself with Git by visiting the [official Git project site](https://git-scm.com) and reading the [ProGit book](http://git-scm.com/book). You can also review the [Git command list](https://git-scm.com/docs).
+Familiarisez-vous avec Git en consultant le [site officiel du projet Git](https://git-scm.com) et en lisant le [livre ProGit](http://git-scm.com/book). Vous pouvez également consulter la [liste des commandes Git](https://git-scm.com/docs).
 
-## Using {% data variables.product.product_name %}
+## Utilisation de {% data variables.product.product_name %}
 
 {% ifversion fpt or ghec %}
 
-{% data variables.product.prodname_learning %} offers free interactive courses that are built into {% data variables.product.prodname_dotcom %} with instant automated feedback and help. Learn to open your first pull request, make your first open source contribution, create a {% data variables.product.prodname_pages %} site, and more. For more information about course offerings, see [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %}).
+{% data variables.product.prodname_learning %} propose des cours interactifs gratuits intégrés à {% data variables.product.prodname_dotcom %} avec des commentaires et une aide automatisés instantanés. Découvrez comment ouvrir votre première demande de tirage (pull request), apporter votre première contribution open source, créer un site {% data variables.product.prodname_pages %} et bien plus encore. Pour plus d’informations sur les offres de cours, consultez [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %}).
 
 {% endif %}
 
-Become better acquainted with {% data variables.product.product_name %} through our [getting started](/categories/getting-started-with-github/) articles. See our [{% data variables.product.prodname_dotcom %} flow](https://guides.github.com/introduction/flow) for a process introduction. Refer to our [overview guides](https://guides.github.com) to walk through basic concepts.
+Faites connaissance avec {% data variables.product.product_name %} par le biais de nos articles disponibles [pour bien démarrer](/categories/getting-started-with-github/). Consultez notre [flux {% data variables.product.prodname_dotcom %}](https://guides.github.com/introduction/flow) pour accéder à une présentation du processus. Reportez-vous à nos [guides de présentation](https://guides.github.com) pour découvrir progressivement les concepts de base.
 
 {% data reusables.support.ask-and-answer-forum %}
 
-### Branches, forks, and pull requests
+### Branches, duplications (forks) et demandes de tirage
 
-Learn about [Git branching](http://learngitbranching.js.org/) using an interactive tool. Read about [forks](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks) and [pull requests](/articles/using-pull-requests) as well as [how we use pull requests](https://github.com/blog/1124-how-we-use-pull-requests-to-build-github) at {% data variables.product.prodname_dotcom %}. Access references about using {% data variables.product.prodname_dotcom %} from the [command line](https://cli.github.com/).
+Découvrez la [création de branches Git](http://learngitbranching.js.org/) à l’aide d’un outil interactif. Informez-vous sur [les duplications (forks)](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks) et les [demandes de tirage](/articles/using-pull-requests), ainsi que sur [la façon dont nous utilisons les demandes de tirage](https://github.com/blog/1124-how-we-use-pull-requests-to-build-github) chez {% data variables.product.prodname_dotcom %}. Accédez à des informations de référence sur l’utilisation de {% data variables.product.prodname_dotcom %} à partir de la [ligne de commande](https://cli.github.com/).
 
-### Tune in
+### Restez à l’écoute
 
-Our {% data variables.product.prodname_dotcom %} [YouTube Training and Guides channel](https://youtube.com/githubguides) offers tutorials about [pull requests](https://www.youtube.com/watch?v=d5wpJ5VimSU&list=PLg7s6cbtAD15G8lNyoaYDuKZSKyJrgwB-&index=19), [forking](https://www.youtube.com/watch?v=5oJHRbqEofs), [rebase](https://www.youtube.com/watch?v=SxzjZtJwOgo&list=PLg7s6cbtAD15G8lNyoaYDuKZSKyJrgwB-&index=22), and [reset](https://www.youtube.com/watch?v=BKPjPMVB81g) functions. Each topic is covered in 5 minutes or less.
+Notre [chaîne Formation et guides YouTube](https://youtube.com/githubguides) {% data variables.product.prodname_dotcom %} propose des tutoriels sur les [demandes de tirage (pull requests)](https://www.youtube.com/watch?v=d5wpJ5VimSU&list=PLg7s6cbtAD15G8lNyoaYDuKZSKyJrgwB-&index=19), la [duplication (fork)](https://www.youtube.com/watch?v=5oJHRbqEofs), le [rebasage](https://www.youtube.com/watch?v=SxzjZtJwOgo&list=PLg7s6cbtAD15G8lNyoaYDuKZSKyJrgwB-&index=22) et les fonctions [reset](https://www.youtube.com/watch?v=BKPjPMVB81g). Chaque sujet est traité en 5 minutes maximum.
 
-## Training
+## Entrainement
 
-### Free courses
+### Cours gratuits
 
-{% data variables.product.product_name %} offers a series of interactive, [on-demand training courses](https://skills.github.com/) including [Introduction to {% data variables.product.prodname_dotcom %}](https://github.com/skills/introduction-to-github); and courses on {% data variables.product.product_name %} specific tools such as {% data variables.product.prodname_actions %}.
+{% data variables.product.product_name %} propose une série de [cours de formation à la demande](https://skills.github.com/) interactifs, notamment [Introduction à {% data variables.product.prodname_dotcom %}](https://github.com/skills/introduction-to-github), des cours sur les outils spécifiques {% data variables.product.product_name %} tels que {% data variables.product.prodname_actions %}.
 
-### {% data variables.product.prodname_dotcom %}'s web-based educational programs
+### Programmes de formation web de {% data variables.product.prodname_dotcom %}
 
-{% data variables.product.prodname_dotcom %} offers live [trainings](https://services.github.com/#upcoming-events) with a hands-on, project-based approach for those who love the command line and those who don't.
+{% data variables.product.prodname_dotcom %} propose des [formations](https://services.github.com/#upcoming-events) en direct avec une approche pratique basée sur des projets pour celles et ceux qui aiment la ligne de commande et celles et ceux qui la détestent.
 
-### Training for your company
+### Formation pour votre entreprise
 
-{% data variables.product.prodname_dotcom %} offers [in-person classes](https://services.github.com/#offerings) taught by our highly-experienced educators. [Contact us](https://services.github.com/#contact) to ask your training-related questions.
+{% data variables.product.prodname_dotcom %} propose des [cours en présentiel](https://services.github.com/#offerings) dispensés par nos formateurs hautement expérimentés. [Contactez-nous](https://services.github.com/#contact) pour poser toutes vos questions sur les formations.
 
 ## Extras
 
-An interactive [online Git course](https://www.pluralsight.com/courses/code-school-git-real) from [Pluralsight](https://www.pluralsight.com/codeschool) has seven levels with dozens of exercises in a fun game format. Feel free to adapt our [.gitignore templates](https://github.com/github/gitignore) to meet your needs.
+Un [cours Git en ligne](https://www.pluralsight.com/courses/code-school-git-real) interactif de [Pluralsight](https://www.pluralsight.com/codeschool) propose sept niveaux avec des dizaines d’exercices sous forme de jeux amusants. N’hésitez pas à adapter nos [modèles .gitignore](https://github.com/github/gitignore) pour répondre à vos besoins.
 
-Extend your {% data variables.product.prodname_dotcom %} reach through {% ifversion fpt or ghec %}[integrations](/articles/about-integrations){% else %}integrations{% endif %}, or by installing [{% data variables.product.prodname_desktop %}](https://desktop.github.com) and the robust [{% data variables.product.prodname_vscode %}](https://code.visualstudio.com/) text editor.
+Développez vos compétences {% data variables.product.prodname_dotcom %} grâce aux {% ifversion fpt or ghec %}[intégrations](/articles/about-integrations){% else %}intégrations{% endif %} ou en installant [{% data variables.product.prodname_desktop %}](https://desktop.github.com) et le puissant éditeur de texte [Atom](https://atom.io).
 
-Learn how to launch and grow your open source project with the [Open Source Guides](https://opensource.guide/).
+Découvrez comment lancer et développer votre projet open source avec [Open Source Guides](https://opensource.guide/).

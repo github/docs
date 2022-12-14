@@ -14,12 +14,12 @@ topics:
   - Security
   - Secret store
 shortTitle: Encrypted secrets
-ms.openlocfilehash: f2ef60c9311a81ea59ec4f71cb7c1a432102b063
-ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.openlocfilehash: a1ea1c87581feccd737314db0d7bf237f983357a
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2022
-ms.locfileid: '148160441'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148192808'
 ---
 ## À propos des secrets chiffrés pour {% data variables.product.prodname_github_codespaces %}
 
@@ -28,7 +28,7 @@ Vous pouvez ajouter des secrets chiffrés à votre compte personnel en vue de le
 - Jetons d’accès aux services cloud
 - Principaux de service
 - Identificateurs d’abonnement
-- [Informations d’identification d’un registre d’images privé](/codespaces/codespaces-reference/allowing-your-codespace-to-access-a-private-image-registry)
+- Informations d’identification pour un registre d’images privées (pour plus d’informations, voir « [Autoriser votre codespace à accéder à un registre privé](/codespaces/codespaces-reference/allowing-your-codespace-to-access-a-private-registry) »)
 
 Vous pouvez déterminer quels dépôts doivent avoir accès à chaque secret. Ensuite, vous pouvez utiliser chaque secret dans un codespace que vous créez pour un dépôt qui a accès à ces secrets. Pour partager un secret avec un codespace créé à partir d’un modèle, vous devez publier le codespace dans un dépôt sur {% data variables.product.prodname_dotcom %}, puis accorder à ce dépôt l’accès au secret.
 

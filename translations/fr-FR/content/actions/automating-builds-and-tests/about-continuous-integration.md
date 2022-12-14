@@ -1,6 +1,6 @@
 ---
-title: About continuous integration
-intro: 'You can create custom continuous integration (CI) workflows directly in your {% data variables.product.prodname_dotcom %} repository with {% data variables.product.prodname_actions %}.'
+title: À propos de l’intégration continue
+intro: 'Vous pouvez créer des flux d’intégration continue (CI) personnalisés directement dans votre référentiel {% data variables.product.prodname_dotcom %} avec {% data variables.product.prodname_actions %}.'
 redirect_from:
   - /articles/about-continuous-integration
   - /github/automating-your-workflow-with-github-actions/about-continuous-integration
@@ -16,45 +16,48 @@ type: overview
 topics:
   - CI
 shortTitle: Continuous integration
+ms.openlocfilehash: 26b9088133ad561900d06a0c885d6b06b9b55861
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '147880660'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+## À propos de l’intégration continue
 
-## About continuous integration
+L’intégration continue (CI) est une pratique logicielle qui nécessite un committing fréquent du code dans un dépôt partagé. La plupart du temps, le fait de commiter le code permet de détecter plus rapidement les erreurs, et réduit la quantité de code dont un développeur a besoin pour le débogage lorsqu’il recherche la source d’une erreur. Les mises à jour fréquentes du code facilitent également la fusion des modifications apportées par différents membres d’une équipe de développement logiciel. Ceci est idéal pour les développeurs, qui peuvent alors passer plus de temps à écrire du code et moins de temps à déboguer des erreurs ou à résoudre les conflits de fusion.
 
-Continuous integration (CI) is a software practice that requires frequently committing code to a shared repository. Committing code more often detects errors sooner and reduces the amount of code a developer needs to debug when finding the source of an error. Frequent code updates also make it easier to merge changes from different members of a software development team. This is great for developers, who can spend more time writing code and less time debugging errors or resolving merge conflicts.
+Lorsque vous commitez du code dans votre dépôt, vous pouvez générer et tester le code en continu pour être sûr que le commit ne provoque pas d’erreurs. Vos tests peuvent inclure des linters de code (qui vérifient la mise en forme du style), des vérifications de sécurité, la couverture du code, des tests fonctionnels et d’autres vérifications personnalisées.
 
-When you commit code to your repository, you can continuously build and test the code to make sure that the commit doesn't introduce errors. Your tests can include code linters (which check style formatting), security checks, code coverage, functional tests, and other custom checks.
+La génération et le test de votre code nécessitent un serveur. Vous pouvez générer et tester des mises à jour localement avant de pousser (push) du code vers un dépôt, ou vous pouvez utiliser un serveur d’intégration continue qui recherche les nouveaux commits de code dans un dépôt.
 
-Building and testing your code requires a server. You can build and test updates locally before pushing code to a repository, or you can use a CI server that checks for new code commits in a repository.
+## À propos de l’intégration continue avec {% data variables.product.prodname_actions %}
 
-## About continuous integration using {% data variables.product.prodname_actions %}
-
-{% ifversion ghae %}CI using {% data variables.product.prodname_actions %} offers workflows that can build the code in your repository and run your tests. Workflows can run on runner systems that you host. For more information, see "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners)."
-{% else %} CI using {% data variables.product.prodname_actions %} offers workflows that can build the code in your repository and run your tests. Workflows can run on {% data variables.product.prodname_dotcom %}-hosted virtual machines, or on machines that you host yourself. For more information, see "[About {% data variables.product.prodname_dotcom %}-hosted runners](/actions/using-github-hosted-runners/about-github-hosted-runners)" and "[About self-hosted runners](/actions/automating-your-workflow-with-github-actions/about-self-hosted-runners)."
+{% ifversion ghae %}L’intégration continue avec {% data variables.product.prodname_actions %} offre des workflows qui peuvent générer du code dans votre dépôt et exécuter vos tests. Les workflows peuvent s’exécuter sur les exécuteurs que vous hébergez. Pour plus d’informations, consultez « [About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners) ».
+{% else %}L’intégration continue avec {% data variables.product.prodname_actions %} offre des workflows qui peuvent générer du code dans votre dépôt et exécuter vos tests. Les workflows peuvent s’exécuter sur des machines virtuelles hébergées dans {% data variables.product.prodname_dotcom %}, ou sur des machines que vous hébergez vous-même. Pour plus d’informations, consultez « [À propos des exécuteurs hébergés par {% data variables.product.prodname_dotcom %}](/actions/using-github-hosted-runners/about-github-hosted-runners) » et « [À propos des exécuteurs auto-hébergés](/actions/automating-your-workflow-with-github-actions/about-self-hosted-runners) ».
 {% endif %}
 
-You can configure your CI workflow to run when a {% data variables.product.prodname_dotcom %} event occurs (for example, when new code is pushed to your repository), on a set schedule, or when an external event occurs using the repository dispatch webhook.
+Vous pouvez configurer votre workflow d’intégration continue pour qu’il s’exécute lorsqu’un événement {% data variables.product.prodname_dotcom %} se produit (par exemple, lorsque le nouveau code est poussé vers votre dépôt), lorsqu’un événement externe se produit si vous utilisez le webhook de dispatch du dépôt, ou selon une planification définie.
 
-{% data variables.product.product_name %} runs your CI tests and provides the results of each test in the pull request, so you can see whether the change in your branch introduces an error. When all CI tests in a workflow pass, the changes you pushed are ready to be reviewed by a team member or merged. When a test fails, one of your changes may have caused the failure.
+{% data variables.product.product_name %} exécute vos tests d’intégration continue et fournit les résultats de chaque test dans la demande de tirage (pull request). Vous pouvez donc voir si la modification de votre branche provoque une erreur. Lorsque tous les tests d’intégration continue d’un workflow réussissent, les modifications que vous avez poussées sont prêtes à être examinées ou fusionnées par un membre de l’équipe. Lorsqu’un test échoue, cela peut signifier que l’une de vos modifications a provoqué l’échec.
 
-When you set up CI in your repository, {% data variables.product.product_name %} analyzes the code in your repository and recommends CI workflows based on the language and framework in your repository. For example, if you use [Node.js](https://nodejs.org/en/), {% data variables.product.product_name %} will suggest a starter workflow that installs your Node.js packages and runs your tests. You can use the CI starter workflow suggested by {% data variables.product.product_name %}, customize the suggested starter workflow, or create your own custom workflow file to run your CI tests.
+Lorsque vous configurez l’intégration continue dans votre dépôt, {% data variables.product.product_name %} analyse le code de votre dépôt et recommande des workflows d’intégration continue basés sur le langage et le framework de votre dépôt. Par exemple, si vous utilisez [Node.js](https://nodejs.org/en/), {% data variables.product.product_name %} suggère un workflow de démarrage qui installe vos packages Node.js et exécute vos tests. Vous pouvez utiliser le workflow de démarrage d’intégration continue suggéré par {% data variables.product.product_name %}, personnaliser le workflow de démarrage suggéré ou créer votre propre fichier de workflow personnalisé pour exécuter vos tests d’intégration continue.
 
-![Screenshot of suggested continuous integration starter workflows](/assets/images/help/repository/ci-with-actions-template-picker.png)
+![Capture d’écran des workflows de démarrage d’intégration continue suggérés](/assets/images/help/repository/ci-with-actions-template-picker.png)
 
-In addition to helping you set up CI workflows for your project, you can use {% data variables.product.prodname_actions %} to create workflows across the full software development life cycle. For example, you can use actions to deploy, package, or release your project. For more information, see "[About {% data variables.product.prodname_actions %}](/articles/about-github-actions)."
+En plus de vous aider à configurer des workflows d’intégration continue pour votre projet, {% data variables.product.prodname_actions %} vous permet de créer des workflows dans le cycle de vie complet de développement logiciel. Par exemple, vous pouvez utiliser des actions pour déployer, empaqueter ou publier votre projet. Pour plus d’informations, consultez « [À propos de {% data variables.product.prodname_actions %}](/articles/about-github-actions) ».
 
-For a definition of common terms, see "[Core concepts for {% data variables.product.prodname_actions %}](/github/automating-your-workflow-with-github-actions/core-concepts-for-github-actions)."
+Pour obtenir la définition des termes courants, consultez « [Concepts fondamentaux concernant {% data variables.product.prodname_actions %}](/github/automating-your-workflow-with-github-actions/core-concepts-for-github-actions) ».
 
-## Starter workflow
+## Workflow de démarrage
 
-{% data variables.product.product_name %} offers CI starter workflow for a variety of languages and frameworks.
+{% data variables.product.product_name %} propose des workflows de démarrage d’intégration continue pour divers langages et frameworks.
 
-Browse the complete list of CI starter workflow offered by {% data variables.product.company_short %} in the {% ifversion fpt or ghec %}[actions/starter-workflows](https://github.com/actions/starter-workflows/tree/main/ci) repository{% else %} `actions/starter-workflows` repository on {% data variables.location.product_location %}{% endif %}.
+Parcourez la liste complète des workflows de démarrage d’intégration continue proposés par {% data variables.product.company_short %} dans le dépôt {% ifversion fpt or ghec %}[actions/starter-workflows](https://github.com/actions/starter-workflows/tree/main/ci) repository{% else %} `actions/starter-workflows` présent dans l’{% data variables.product.product_location %}{% endif %}.
 
-## Further reading
+## Pour aller plus loin
 
 {% ifversion fpt or ghec %}
-- "[Managing billing for {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions)"
-{% endif %}
+- « [Gestion de la facturation pour {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions) » {% endif %}

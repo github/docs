@@ -1,15 +1,13 @@
 ---
-ms.openlocfilehash: 8fd599404931b2ec2334e0ad0200bbf8734f962e
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 495034c23fd83bd0d70bd080c03bbe0cfe455608
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "147079827"
+ms.lasthandoff: 12/09/2022
+ms.locfileid: "148193333"
 ---
-Avant de pouvoir commencer à utiliser {% data variables.product.prodname_copilot %}, vous devrez mettre en place un essai gratuit ou un abonnement.
-
 {% data reusables.user-settings.access_settings %}
-1. Dans la section « Code, planification et automatisation » de la barre latérale, cliquez sur **{% octicon "copilot" aria-label="The copilot icon" %} GitHub Copilot**.
+1. Dans la section « Code, planification et automatisation » de la barre latérale, cliquez sur **{% octicon "copilot" aria-label="The copilot icon" %} {% data variables.product.prodname_copilot %}** .
 1. Sur la page des paramètres de {% data variables.product.prodname_copilot %}, cliquez sur **Activer {% data variables.product.prodname_copilot %}** .
 
    ![Capture d’écran des paramètres de GitHub Copilot avec le bouton Activer {% data variables.product.prodname_copilot %} mis en évidence](/assets/images/help/copilot/copilot-settings-enable-button.png)

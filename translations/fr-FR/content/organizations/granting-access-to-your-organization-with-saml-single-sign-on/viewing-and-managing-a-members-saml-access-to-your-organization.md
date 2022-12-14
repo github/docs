@@ -1,6 +1,6 @@
 ---
-title: Viewing and managing a member's SAML access to your organization
-intro: 'You can view and revoke an organization member''s linked identity, active sessions, and authorized credentials.'
+title: Affichage et gestion de l’accès SAML d’un membre à votre organisation
+intro: 'Vous pouvez afficher et révoquer l’identité liée, les sessions actives et les informations d’identification autorisées d’un membre de l’organisation.'
 permissions: Organization owners can view and manage a member's SAML access to an organization.
 redirect_from:
   - /articles/viewing-and-revoking-organization-members-authorized-access-tokens
@@ -12,65 +12,50 @@ topics:
   - Organizations
   - Teams
 shortTitle: Manage SAML access
+ms.openlocfilehash: 5b8dbe15037eabe416a6b0c63df7f893db8445bb
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145128560'
 ---
+## À propos de l’accès SAML à votre organisation
 
-## About SAML access to your organization
+Quand vous activez l’authentification unique SAML pour votre organisation, chaque membre de celle-ci peut lier son identité externe sur votre fournisseur d’identité (IdP) à son compte existant sur {% data variables.product.product_location %}. Pour accéder aux ressources de votre organisation sur {% data variables.product.product_name %}, le membre doit disposer d’une session SAML active dans son navigateur. Pour accéder aux ressources de votre organisation à l’aide de l’API ou du Git, le membre doit utiliser un jeton d’accès personnel ou une clé SSH dont il a autorisé l’utilisation avec votre organisation.
 
-When you enable SAML single sign-on for your organization, each organization member can link their external identity on your identity provider (IdP) to their existing account on {% data variables.location.product_location %}. To access your organization's resources on {% data variables.product.product_name %}, the member must have an active SAML session in their browser. To access your organization's resources using the API or Git, the member must use a {% data variables.product.pat_generic %} or SSH key that the member has authorized for use with your organization.
+Vous pouvez afficher et révoquer l’identité liée, les sessions actives et les informations d’identification autorisées de chaque membre sur la même page.
 
-You can view and revoke each member's linked identity, active sessions, and authorized credentials on the same page.
-
-## Viewing and revoking a linked identity
+## Visualisation et révocation d’une identité liée
 
 {% data reusables.saml.about-linked-identities %} 
 
-When available, the entry will include SCIM data. For more information, see "[About SCIM for organizations](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim-for-organizations)."
+Quand elle est disponible, l’entrée inclut les données SCIM. Pour plus d’informations, consultez « [À propos de SCIM pour les organisations](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim-for-organizations) ».
 
 {% warning %}
 
-**Warning:** For organizations using SCIM:
-- Revoking a linked user identity on {% data variables.product.product_name %} will also remove the SAML and SCIM metadata. As a result, the identity provider will not be able to synchronize or deprovision the linked user identity.
-- An admin must revoke a linked identity through the identity provider.
-- To revoke a linked identity and link a different account through the identity provider, an admin can remove and re-assign the user to the {% data variables.product.product_name %} application. For more information, see your identity provider's documentation.
+**Avertissement :** pour les organisations utilisant SCIM :
+- La révocation d’une identité utilisateur liée sur {% data variables.product.product_name %} aura également pour effet de supprimer les métadonnées SAML et SCIM. Par conséquent, le fournisseur d’identité ne pourra pas synchroniser ou déprovisionner l’identité utilisateur liée.
+- Un administrateur doit révoquer une identité liée via le fournisseur d’identité.
+- Pour révoquer une identité liée et lier un autre compte via le fournisseur d’identité, un administrateur peut supprimer et réaffecter l’utilisateur à l’application {% data variables.product.product_name %}. Pour plus d’informations, consultez la documentation de votre fournisseur d’identité.
 
 {% endwarning %}
 
 
 {% data reusables.identity-and-permissions.revoking-identity-team-sync %}
 
-{% data reusables.profile.access_org %}
-{% data reusables.user-settings.access_org %}
-{% data reusables.organizations.people %}
-{% data reusables.saml.click-person-revoke-identity %}
-{% data reusables.saml.saml-identity-linked %}
-{% data reusables.saml.view-sso-identity %}
-{% data reusables.saml.revoke-sso-identity %}
-{% data reusables.saml.confirm-revoke-identity %}
+{% data reusables.profile.access_org %} {% data reusables.user-settings.access_org %} {% data reusables.organizations.people %} {% data reusables.saml.click-person-revoke-identity %} {% data reusables.saml.saml-identity-linked %} {% data reusables.saml.view-sso-identity %} {% data reusables.saml.revoke-sso-identity %} {% data reusables.saml.confirm-revoke-identity %}
 
-## Viewing and revoking an active SAML session
+## Visualisation et révocation d’une session SAML active
 
-{% data reusables.profile.access_org %}
-{% data reusables.user-settings.access_org %}
-{% data reusables.organizations.people %}
-{% data reusables.saml.click-person-revoke-session %}
-{% data reusables.saml.saml-identity-linked %}
-{% data reusables.saml.view-saml-sessions %}
-{% data reusables.saml.revoke-saml-session %}
+{% data reusables.profile.access_org %} {% data reusables.user-settings.access_org %} {% data reusables.organizations.people %} {% data reusables.saml.click-person-revoke-session %} {% data reusables.saml.saml-identity-linked %} {% data reusables.saml.view-saml-sessions %} {% data reusables.saml.revoke-saml-session %}
 
-## Viewing and revoking authorized credentials
+## Visualisation et révocation d’informations d’identification autorisées
 
 {% data reusables.saml.about-authorized-credentials %}
 
-{% data reusables.profile.access_org %}
-{% data reusables.user-settings.access_org %}
-{% data reusables.organizations.people %}
-{% data reusables.saml.click-person-revoke-credentials %}
-{% data reusables.saml.saml-identity-linked %}
-{% data reusables.saml.view-authorized-credentials %}
-{% data reusables.saml.revoke-authorized-credentials %}
-{% data reusables.saml.confirm-revoke-credentials %}
+{% data reusables.profile.access_org %} {% data reusables.user-settings.access_org %} {% data reusables.organizations.people %} {% data reusables.saml.click-person-revoke-credentials %} {% data reusables.saml.saml-identity-linked %} {% data reusables.saml.view-authorized-credentials %} {% data reusables.saml.revoke-authorized-credentials %} {% data reusables.saml.confirm-revoke-credentials %}
 
-## Further reading
+## Pour aller plus loin
 
-- "[About identity and access management with SAML single sign-on](/articles/about-identity-and-access-management-with-saml-single-sign-on)"{% ifversion ghec %}
-- "[Viewing and managing a user's SAML access to your enterprise account](/admin/user-management/managing-users-in-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise)"{% endif %}
+- « [À propos de la gestion des identités et des accès avec l’authentification unique SAML](/articles/about-identity-and-access-management-with-saml-single-sign-on) »{% ifversion ghec %}
+- « [Visualisation et gestion de l’accès SAML d’un utilisateur à votre entreprise](/admin/user-management/managing-users-in-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise) »{% endif %}

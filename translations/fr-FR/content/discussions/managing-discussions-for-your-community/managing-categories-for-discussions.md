@@ -1,68 +1,70 @@
 ---
-title: Managing categories for discussions
-intro: 'You can categorize discussions to organize conversations for your community members, and you can choose a format for each category.'
+title: Gestion de catégories pour les discussions
+intro: 'Vous pouvez catégoriser les discussions afin d’organiser les conversations des membres de votre communauté, et vous pouvez choisir un format pour chaque catégorie.'
 permissions: Repository administrators and people with write or greater access to a repository can manage categories for discussions in the repository. Repository administrators and people with write or greater access to the source repository for organization discussions can manage categories for discussions in the organization.
 versions:
   feature: discussions
 shortTitle: Manage categories
 redirect_from:
   - /discussions/managing-discussions-for-your-community/managing-categories-for-discussions-in-your-repository
+ms.openlocfilehash: e16d25ad2bb72f4aea9b441529cb8e9a7a0fee48
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147410466'
 ---
-
-
-## About categories for discussions
+## Gestion des catégories pour les discussions
 
 {% data reusables.discussions.about-discussions %} {% data reusables.discussions.about-categories-and-formats %}
 
 {% data reusables.discussions.about-announcement-format %}
 
-Each category must have a unique name and emoji pairing, and can be accompanied by a detailed description stating its purpose. Categories help maintainers organize how conversations are filed and are customizable to help distinguish categories that are Q&A or more open-ended conversations. {% data reusables.discussions.repository-category-limit %} For more information, see "[About discussions](/discussions/collaborating-with-your-community-using-discussions/about-discussions#about-categories-and-formats-for-discussions)."
+Chaque catégorie doit avoir un appairage de nom et d’emoji unique, et peut être accompagnée d’une description détaillée indiquant son objectif. Les catégories aident les responsables de la maintenance à organiser le stockage des conversations, et sont personnalisables pour aider à distinguer entre celles qui sont des questions-réponses et celles qui sont des conversations plus ouvertes. {% data reusables.discussions.repository-category-limit %} Pour plus d’informations, consultez « [À propos des discussions](/discussions/collaborating-with-your-community-using-discussions/about-discussions#about-categories-and-formats-for-discussions) ».
 
-## Default categories
+## Catégories par défaut
 
-| Category | Purpose | Format |
+| Category | Objectif | Format |
 | :- | :- | :- |
-| 📣 Announcements | Updates and news from project maintainers | Announcement |
-| #️⃣ General | Anything and everything relevant to the project | Open-ended discussion |
-|💡 Ideas | Ideas to change or improve the project | Open-ended discussion |
-| 🗳 Polls | Polls with multiple options for the community to vote for and discuss | Polls |
-| 🙏 Q&A | Questions for the community to answer, with a question/answer format | Question and Answer |
-| 🙌 Show and tell | Creations, experiments, or tests relevant to the project | Open-ended discussion |
+| Annonces 📣 | Mises à jour et actualités des responsables de la maintenance | Annonce |
+| #️⃣ General | Tout ce qui est pertinent pour le projet | Discussion ouverte |
+|💡 Idées | Idées pour changer ou améliorer le projet | Discussion ouverte |
+| 🗳 Sondages | Sondages avec plusieurs options de vote et de discussion pour la communauté | Sondages |
+| 🙏 Questions et réponses | Questions auxquelles la communauté doit répondre, sous forme de questions/réponses | Question et réponse |
+| 🙌 Montrer et expliquer | Créations, expériences ou tests pertinents pour le projet | Discussion ouverte |
 
-## Creating a category
+## Création d’une catégorie
 
-1. On {% data variables.location.product_location %}, navigate to the main page of the repository or organization where you want to create a category.
+1. Sur {% data variables.product.product_location %}, accédez à la page principale du dépôt ou de l’organisation où vous souhaitez créer une catégorie.
+{% data reusables.discussions.discussions-tab %} {% data reusables.discussions.edit-categories %}
+1. Cliquez sur **Nouvelle catégorie**.
+  ![Bouton « Nouvelle catégorie » au-dessus de la liste des catégories de discussion pour un dépôt](/assets/images/help/discussions/click-new-category-button.png)
+1. Modifiez l’emoji, le titre, la description et le format de discussion pour la catégorie. Pour plus d’informations sur les formats de discussions, consultez « [À propos des discussions](/discussions/collaborating-with-your-community-using-discussions/about-discussions#about-categories-and-formats-for-discussions) ».
+  ![Emoji, titre, description et format de discussion pour une nouvelle catégorie](/assets/images/help/discussions/edit-category-details.png)
+1. Cliquez sur **Créer**.
+  ![Bouton « Créer » pour une nouvelle catégorie](/assets/images/help/discussions/new-category-click-create-button.png)
+
+## Modification d’une catégorie
+
+Vous pouvez modifier une catégorie afin d’en changer l’emoji, le titre, la description et le format de discussion.
+
+1. Dans {% data variables.product.product_location %}, accédez à la page principale du dépôt ou de l’organisation où vous voulez modifier une catégorie.
 {% data reusables.discussions.discussions-tab %}
-{% data reusables.discussions.edit-categories %}
-1. Click **New category**.
-  !["New category" button above list of discussion categories for a repository](/assets/images/help/discussions/click-new-category-button.png)
-1. Edit the emoji, title, description, and discussion format for the category. For more information about discussion formats, see "[About discussions](/discussions/collaborating-with-your-community-using-discussions/about-discussions#about-categories-and-formats-for-discussions)."
-  ![Emoji, title, description, and discussion format for new category](/assets/images/help/discussions/edit-category-details.png)
-1. Click **Create**.
-  !["Create" button for new category](/assets/images/help/discussions/new-category-click-create-button.png)
+1. À la droite d’une catégorie dans la liste, cliquez sur {% octicon "pencil" aria-label="The pencil icon" %}.
+  ![Bouton Modifier à droite d’une catégorie dans la liste des catégories d’un dépôt](/assets/images/help/discussions/click-edit-for-category.png)
+1. {% data reusables.discussions.edit-category-details %} ![Modification de l’emoji, du titre, de la description et du format de discussion pour une catégorie existante](/assets/images/help/discussions/edit-existing-category-details.png)
+1. Cliquez sur **Save changes**.
+  ![Bouton « Enregistrer les modifications » pour une catégorie existante](/assets/images/help/discussions/existing-category-click-save-changes-button.png)
 
-## Editing a category
+## Suppression d’une catégorie
 
-You can edit a category to change the category's emoji, title, description, and discussion format.
+Lorsque vous supprimez une catégorie, {% data variables.product.product_name %} déplace toutes les discussions de la catégorie supprimée vers une catégorie existante de votre choix.
 
-1. On {% data variables.location.product_location %}, navigate to the main page of the repository or organization where you want to edit a category.
+1. Dans {% data variables.product.product_location %}, accédez à la page principale du dépôt ou de l’organisation où vous voulez supprimer une catégorie.
 {% data reusables.discussions.discussions-tab %}
-1. To the right of a category in the list, click {% octicon "pencil" aria-label="The pencil icon" %}.
-  ![Edit button to the right of category in list of categories for a repository](/assets/images/help/discussions/click-edit-for-category.png)
-1. {% data reusables.discussions.edit-category-details %}
-  ![Editing emoji, title, description, and discussion format for existing category](/assets/images/help/discussions/edit-existing-category-details.png)
-1. Click **Save changes**.
-  !["Save changes" button for existing category](/assets/images/help/discussions/existing-category-click-save-changes-button.png)
-
-## Deleting a category
-
-When you delete a category, {% data variables.product.product_name %} will move all discussions in the deleted category to an existing category that you choose.
-
-1. On {% data variables.location.product_location %}, navigate to the main page of the repository or organization where you want to delete a category.
-{% data reusables.discussions.discussions-tab %}
-1. To the right of a category in the list, click {% octicon "trash" aria-label="The trash icon" %}.
-  ![Trash button to the right of category in list of categories for a repository](/assets/images/help/discussions/click-delete-for-category.png)
-1. Use the drop-down menu, and choose a new category for any discussions in the category you're deleting.
-  ![Drop-down menu for choosing new category when deleting an existing category](/assets/images/help/discussions/choose-new-category.png)
-1. Click **Delete & Move**.
-  ![Drop-down menu for choosing new category when deleting an existing category](/assets/images/help/discussions/click-delete-and-move-button.png)
+1. À la droite d’une catégorie dans la liste, cliquez sur {% octicon "trash" aria-label="The trash icon" %}.
+  ![Bouton Corbeille à la droite d’une catégorie dans la liste des catégories d’un dépôt](/assets/images/help/discussions/click-delete-for-category.png)
+1. Utilisez le menu déroulant pour choisir une nouvelle catégorie pour chaque discussion dans la catégorie que vous supprimez.
+  ![Menu déroulant pour choisir une nouvelle catégorie lors de la suppression d’une catégorie existante](/assets/images/help/discussions/choose-new-category.png)
+1. Cliquez sur **Supprimer et déplacer**.
+  ![Menu déroulant pour choisir une nouvelle catégorie lors de la suppression d’une catégorie existante](/assets/images/help/discussions/click-delete-and-move-button.png)

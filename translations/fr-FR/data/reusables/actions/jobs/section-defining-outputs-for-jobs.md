@@ -1,12 +1,20 @@
-You can use `jobs.<job_id>.outputs` to create a `map` of outputs for a job. Job outputs are available to all downstream jobs that depend on this job. For more information on defining job dependencies, see [`jobs.<job_id>.needs`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idneeds).
+---
+ms.openlocfilehash: 446bc8429d81d54d38eeaf2852a61d25db17da68
+ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "145186075"
+---
+Vous pouvez utiliser `jobs.<job_id>.outputs` pour créer une `map` de sorties pour un travail. Les sorties de travail sont disponibles pour tous les travaux en aval qui dépendent de ce travail. Pour plus d’informations sur la définition des dépendances de travail, consultez [`jobs.<job_id>.needs`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idneeds).
 
 {% data reusables.actions.output-limitations %}
 
-Job outputs containing expressions are evaluated on the runner at the end of each job. Outputs containing secrets are redacted on the runner and not sent to {% data variables.product.prodname_actions %}.
+Les sorties de travail contenant des expressions sont évaluées sur l’exécuteur à la fin de chaque travail. Les sorties contenant des secrets sont rédigées sur l’exécuteur et ne sont pas envoyées à {% data variables.product.prodname_actions %}.
 
-To use job outputs in a dependent job, you can use the `needs` context. For more information, see "[Contexts](/actions/learn-github-actions/contexts#needs-context)."
+Pour utiliser les sorties de travail dans un travail dépendant, vous pouvez utiliser le contexte `needs`. Pour plus d’informations, consultez « [Contextes](/actions/learn-github-actions/contexts#needs-context) ».
 
-### Example: Defining outputs for a job
+### Exemple : Définition de sorties pour un travail
 
 {% raw %}
 ```yaml
@@ -18,18 +26,10 @@ jobs:
       output1: ${{ steps.step1.outputs.test }}
       output2: ${{ steps.step2.outputs.test }}
     steps:
-      - id: step1{% endraw %}
-{%- ifversion actions-save-state-set-output-envs %}
-        run: echo "test=hello" >> $GITHUB_OUTPUT
-{%- else %}
+      - id: step1
         run: echo "::set-output name=test::hello"
-{%- endif %}{% raw %}
-      - id: step2{% endraw %}
-{%- ifversion actions-save-state-set-output-envs %}
-        run: echo "test=world" >> $GITHUB_OUTPUT
-{%- else %}
+      - id: step2
         run: echo "::set-output name=test::world"
-{%- endif %}{% raw %}
   job2:
     runs-on: ubuntu-latest
     needs: job1

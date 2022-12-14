@@ -2,7 +2,7 @@
 title: Git blobs
 shortTitle: Blobs
 allowTitleToDifferFromFilename: true
-intro: 'L’API Git blobs vous permet de créer et d’obtenir un blob (binary large object) Git, le type d’objet utilisé pour stocker le contenu de chaque fichier dans un référentiel.'
+intro: 'Utilisez l’API REST pour interagir avec un blob (binary large object) Git, type d’objet utilisé pour stocker le contenu de chaque fichier dans un dépôt.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,14 +11,14 @@ versions:
 topics:
   - API
 miniTocMaxHeadingLevel: 3
-ms.openlocfilehash: 3b7cac6d268fb4c7e786651a7281ca5ce4241ec5
-ms.sourcegitcommit: cfe91073c844cb762131b2de9fb41f7f9db792fc
+ms.openlocfilehash: b29c69d2635e20720d23aad62c7aa88984cff984
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2022
-ms.locfileid: '148181244'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148192720'
 ---
-## À propos de l’API Git blobs
+## À propos des blobs Git
 
 Un blob (binary large object) Git est le type d’objet utilisé pour stocker le contenu de chaque fichier dans un dépôt. Le hachage SHA-1 du fichier est calculé et stocké dans l’objet blob. Ces points de terminaison vous permettent de lire et d’écrire des [objets blob](https://git-scm.com/book/en/v2/Git-Internals-Git-Objects) dans votre base de données Git sur {% data variables.product.product_name %}. Les blobs tirent parti de [ces types de médias personnalisés](#custom-media-types-for-blobs). Plus d’informations sur l’utilisation des types de médias dans l’API sont disponibles [ici](/rest/overview/media-types).
 

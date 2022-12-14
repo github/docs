@@ -1,8 +1,9 @@
 ---
-title: Enabling GitHub Codespaces for your organization
+title: Activation de GitHub Codespaces pour votre organisation
 shortTitle: 'Enable {% data variables.product.prodname_codespaces %}'
-intro: "You can control which users in your organization can use {% data variables.product.prodname_github_codespaces %} at the organization's expense."
-permissions: "To alter an organization's billing settings, you must be an organization owner."
+intro: 'Vous pouvez contrôler qui, dans votre organisation, peut utiliser {% data variables.product.prodname_github_codespaces %}, aux frais de l’organisation.'
+product: '{% data reusables.gated-features.codespaces %}'
+permissions: 'To alter an organization''s billing settings, you must be an organization owner.'
 redirect_from:
   - /codespaces/managing-codespaces-for-your-organization/managing-user-permissions-for-your-organization
   - /codespaces/managing-codespaces-for-your-organization/enabling-codespaces-for-your-organization
@@ -14,70 +15,69 @@ topics:
   - Codespaces
   - Billing
   - Administrator
+ms.openlocfilehash: 97d8b3fce0499ea945c9a2dcfe469759a097d77e
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148106484'
 ---
+## À propos de l’activation de {% data variables.product.prodname_github_codespaces %} pour votre organisation
 
-## About enabling {% data variables.product.prodname_github_codespaces %} for your organization
+Les propriétaires de l’organisation peuvent déterminer quels utilisateurs au sein de votre organisation peuvent créer et utiliser des codespaces, aux frais de l’organisation. Pour plus d’informations sur les tarifs, consultez « [À propos de la facturation pour GitHub Codespaces](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces) ».
 
-Organization owners can control which users in your organization can create and use codespaces at the organization's expense. For information about pricing, see "[About billing for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)."
+Seules les personnes qui peuvent cloner un dépôt peuvent créer un codespace pour ce dépôt. Pour permettre aux utilisateurs de créer des codespaces pour les dépôts appartenant à votre organisation, vous devez effectuer les opérations suivantes :
 
-Only people who can either push changes to a repository, or fork the repository, can create a codespace for that repository. To allow people to create codespaces for repositories owned by your organization, you must:
+- Vérifiez que les utilisateurs ont au moins accès en écriture aux dépôts dans lesquels ils veulent utiliser un codespace. Pour plus d’informations, consultez « [Gestion des équipes et des personnes ayant accès à votre dépôt](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository) ».
+- Vérifiez que votre organisation n’a pas de liste d’adresses IP autorisées activée. Pour plus d’informations, consultez « [Gestion des adresses IP autorisées pour votre organisation](/{% ifversion fpt %}enterprise-cloud@latest/{% endif %}organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization){% ifversion fpt %} » dans la documentation de {% data variables.product.prodname_ghe_cloud %}.{% else %}.{% endif %}
 
-- Ensure that users have at least write access to the repositories where they want to use a codespace. For more information, see "[Managing teams and people with access to your repository](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository)."
-- Ensure that your organization does not have an IP address allow list enabled. For more information, see "[Managing allowed IP addresses for your organization](/{% ifversion fpt %}enterprise-cloud@latest/{% endif %}organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}
+Pour permettre aux utilisateurs de créer des codespaces pour lesquels votre organisation sera facturée, vous devez :
 
-To allow people to create codespaces for which your organization will be billed, you must:
+- [Définir une limite de dépense](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-codespaces)
+- [Choisir qui peut créer des codespaces facturés à votre organisation](#choose-who-can-create-codespaces-that-are-billed-to-your-organization)
 
-- [Set a spending limit](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-codespaces)
-- [Choose who can create codespaces that are billed to your organization](#choose-who-can-create-codespaces-that-are-billed-to-your-organization)
+{% ifversion fpt %} {% note %}
 
-{% ifversion fpt %}
-{% note %}
+**Remarque :** Si vous êtes formateur vérifié ou enseignant, vous devez activer {% data variables.product.prodname_codespaces %} à partir d’une {% data variables.product.prodname_classroom %} pour utiliser votre avantage {% data variables.product.prodname_codespaces %} Education. Pour plus d’informations, consultez « [Utilisation de GitHub Codespaces avec GitHub Classroom](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/using-github-codespaces-with-github-classroom#about-the-codespaces-education-benefit-for-verified-teachers) ».
 
-**Note:** If you are a verified educator or a teacher, you must enable {% data variables.product.prodname_github_codespaces %} from a {% data variables.product.prodname_classroom %} to use your {% data variables.product.prodname_codespaces %} Education benefit. For more information, see "[Using {% data variables.product.prodname_github_codespaces %} with {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/using-github-codespaces-with-github-classroom#about-the-codespaces-education-benefit-for-verified-teachers)."
+{% endnote %} {% endif %}
 
-{% endnote %}
-{% endif %}
+Par défaut, un codespace peut uniquement accéder au dépôt à partir duquel il a été créé. Si vous voulez que les codespaces de votre organisation puissent accéder à d’autres dépôts de l’organisation auxquels le créateur du codespace peut accéder, consultez « [Gestion de l’accès aux dépôts pour les codespaces de votre organisation](/codespaces/managing-codespaces-for-your-organization/managing-repository-access-for-your-organizations-codespaces) ».
 
-By default, a codespace can only access the repository from which it was created. If you want codespaces in your organization to be able to access other organization repositories that the codespace creator can access, see "[Managing repository access for your organization's codespaces](/codespaces/managing-codespaces-for-your-organization/managing-repository-access-for-your-organizations-codespaces)."
+## Choisir qui peut créer des codespaces facturés à votre organisation
 
-## Choose who can create codespaces that are billed to your organization
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.organizations.click-codespaces %}
+1. Sous « Facturation », sélectionnez l’une des options suivantes :
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.click-codespaces %}
-1. Under "Billing," select one of the following options:
+   * **Désactivé** : Votre organisation n’est pas facturée pour l’utilisation des codespaces. Les {% data variables.product.prodname_codespaces %} créés pour les dépôts de votre organisation seront facturés aux utilisateurs particuliers qui les créent.
+   * **Membres sélectionnés** : Les {% data variables.product.prodname_codespaces %} créés pour les dépôts de votre organisation par les membres sélectionnés seront facturées à l’organisation.
+   * **Tous les membres** : Les {% data variables.product.prodname_codespaces %} créés pour les dépôts de votre organisation par les membres de votre organisation seront facturées à l’organisation.
+   * **Tous les membres et collaborateurs extérieurs** : Les {% data variables.product.prodname_codespaces %} créés pour les dépôts de votre organisation par les membres de l’organisation et ses collaborateurs extérieurs seront facturés à l’organisation.
 
-   * **Disabled** - Your organization will not be charged for codespace usage. {% data variables.product.prodname_codespaces %} created for your organization's repositories will be billed to the individual users who create them.
-   * **Selected members** - {% data variables.product.prodname_codespaces %} created for your organization's repositories by selected members will be billed to the organization.
-   * **All members** - {% data variables.product.prodname_codespaces %} created for your organization's repositories by members of your organization will be billed to the organization.
-   * **All members and outside collaborators** - {% data variables.product.prodname_codespaces %} created for your organization's repositories by organization members and outside collaborators will be billed to the organization.
-
-   ![Radio buttons for "Billing"](/assets/images/help/codespaces/codespaces-org-billing-settings.png)
+   ![Cases d’option pour « Facturation »](/assets/images/help/codespaces/codespaces-org-billing-settings.png)
 
    {% note %}
 
-   **Note:** When you select **All members and outside collaborators**,  all outside collaborators who have been added to specific repositories can create and use {% data variables.product.prodname_codespaces %} for those repositories, and your organization will be billed for this usage. For more information on managing outside collaborators, see "[About outside collaborators](/organizations/managing-access-to-your-organizations-repositories/adding-outside-collaborators-to-repositories-in-your-organization#about-outside-collaborators)."
+   **Remarque :** Quand vous sélectionnez **Tous les membres et collaborateurs extérieurs**, tous les collaborateurs extérieurs qui ont été ajoutés à des dépôts spécifiques peuvent créer et utiliser des {% data variables.product.prodname_codespaces %} pour ces dépôts. C’est votre organisation qui sera facturée pour cette utilisation. Pour plus d’informations sur la gestion des collaborateurs extérieurs, consultez « [À propos des collaborateurs extérieurs](/organizations/managing-access-to-your-organizations-repositories/adding-outside-collaborators-to-repositories-in-your-organization#about-outside-collaborators) ».
 
    {% endnote %}
 
-1. Click **Save**.
-1. If you chose **Selected members**, an input box is displayed for you to enter the names of users you want to select.
+1. Cliquez sur **Enregistrer**.
+1. Si vous avez choisi **Membres sélectionnés**, une zone d’entrée s’affiche pour vous permettre d’entrer les noms des utilisateurs que vous voulez sélectionner.
 
-   ![Input box for selecting users](/assets/images/help/codespaces/codespaces-org-billing-add-users.png)
+   ![Zone d’entrée pour la sélection d’utilisateurs](/assets/images/help/codespaces/codespaces-org-billing-add-users.png)
 
-## Disabling {% data variables.product.prodname_codespaces %} for your organization
+## Désactivation de {% data variables.product.prodname_codespaces %} pour votre organisation
 
-You can prevent the creation and use of codespaces billable to your organization.
+Vous pouvez empêcher la création et l’utilisation de codespaces facturables à votre organisation.
 
 {% data reusables.codespaces.codespaces-disabling-org-billing %}
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.click-codespaces %}
-1. Under "Billing," select **Disabled**.
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.organizations.click-codespaces %}
+1. Sous « Facturation », sélectionnez **Désactivé**.
 
-## Setting a spending limit
+## Définition d’une limite de dépense
 
 {% data reusables.codespaces.codespaces-spending-limit-requirement %} 
 
-For information on managing and changing your account's spending limit, see "[Managing your spending limit for {% data variables.product.prodname_codespaces %}](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-codespaces)."
+Pour plus d’informations sur la gestion et la modification de la limite de dépense de votre compte, consultez « [Gestion de votre limite de dépense pour {% data variables.product.prodname_codespaces %}](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-codespaces) ».

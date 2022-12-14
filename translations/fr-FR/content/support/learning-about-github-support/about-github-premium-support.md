@@ -1,6 +1,6 @@
 ---
-title: About GitHub Premium Support
-intro: '{% data variables.contact.premium_support %} is a paid, supplemental support offering for {% data variables.product.prodname_enterprise %} customers.'
+title: À propos du Support Premium GitHub
+intro: '{% data variables.contact.premium_support %} est une offre de support supplémentaire payante pour les clients {% data variables.product.prodname_enterprise %}.'
 shortTitle: GitHub Premium Support
 versions:
   ghec: '*'
@@ -20,125 +20,130 @@ redirect_from:
   - /support/about-github-support/about-github-premium-support
 topics:
   - Support
+ms.openlocfilehash: 23504e6554b6dc1dbe0f239d2b73006e588711f9
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147052303'
 ---
-
 {% note %}
 
-**Notes:**
+**Remarques :**
 
-- The terms of {% data variables.contact.premium_support %} are subject to change without notice and are effective as of November 2021. 
+- Les conditions du {% data variables.contact.premium_support %} entrent en vigueur en novembre 2021 et peuvent changer sans préavis. 
 
 - {% data reusables.support.data-protection-and-privacy %}
 
 {% endnote %}
 
-## About {% data variables.contact.premium_support %}
+## À propos du {% data variables.contact.premium_support %}
 
 {% data reusables.support.premium-support-features %}
 
-## {% data variables.contact.premium_support %} plans
+## Plans du {% data variables.contact.premium_support %}
 
-There are two {% data variables.contact.premium_support %} plans: Premium and Premium Plus / {% data variables.product.microsoft_premium_plus_support_plan %}.
+Il existe deux plans pour le {% data variables.contact.premium_support %} : Premium et Premium Plus / {% data variables.product.microsoft_premium_plus_support_plan %}.
 
 | | {% data variables.product.premium_support_plan %} | {% data variables.product.premium_plus_support_plan %} |
 |---|---|------|
-| Hours of operation | 24 x 7 | 24 x 7 |
-| Initial response time | <ul><li>30 minutes for {% data variables.product.support_ticket_priority_urgent %}</li><li>4 hours for {% data variables.product.support_ticket_priority_high %}</li></ul> | <ul><li>30 minutes for {% data variables.product.support_ticket_priority_urgent %}</li><li>4 hours for {% data variables.product.support_ticket_priority_high %}</li></ul> |
-| Support channels | <ul><li>Online ticket submission</li><li>Phone support in English via callback request</li><li>Screen share request for critical issues</li></ul> | <ul><li>Online ticket submission</li><li>Phone support in English via callback request</li><li>Screen share request for critical issues</li></ul> |
-| Training | Access to premium content  | <ul><li>Access to premium content</li><li>1 virtual training class per year</li></ul> |
-| Members with support entitlements | 20 | 20 |
-| Resources | Priority ticket handling | <ul><li>Priority ticket handling</li><li>Named Customer Reliability Engineer</li></ul>   |
-| Health Checks | Unlimited automated Health Check reports (see "[Generating a Health Check for your enterprise]({% ifversion not ghes%}/enterprise-server@latest{% endif %}/admin/enterprise-management/monitoring-your-appliance/generating-a-health-check-for-your-enterprise)") | <ul><li>Unlimited automated Health Check reports (see "[Generating a Health Check for your enterprise]({% ifversion not ghes%}/enterprise-server@latest{% endif %}/admin/enterprise-management/monitoring-your-appliance/generating-a-health-check-for-your-enterprise)")</li><li>Quarterly enhanced Health Checks, with findings, interpretations, and recommendations from a Customer Reliability Engineer (by request)</li></ul>    |
-| Technical advisory hours| None | 4 hours per month  |
-| Application upgrade assistance | None | By request |
-| Cloud planning | None | By request |
+| Heures d’ouverture | 24 x 7 | 24 x 7 |
+| Temps de réponse initial | <ul><li>30 minutes pour le niveau {% data variables.product.support_ticket_priority_urgent %}</li><li>4 heures pour le niveau {% data variables.product.support_ticket_priority_high %}</li></ul> | <ul><li>30 minutes pour le niveau {% data variables.product.support_ticket_priority_urgent %}</li><li>4 heures pour le niveau {% data variables.product.support_ticket_priority_high %}</li></ul> |
+| Canaux de support | <ul><li>Soumission de tickets en ligne</li><li>Support téléphonique en anglais via une demande de rappel</li><li>Demande de partage d’écran pour les problèmes critiques</li></ul> | <ul><li>Soumission de tickets en ligne</li><li>Support téléphonique en anglais via une demande de rappel</li><li>Demande de partage d’écran pour les problèmes critiques</li></ul> |
+| Entrainement | Accès au contenu premium  | <ul><li>Accès au contenu premium</li><li>1 classe de formation virtuelle par an</li></ul> |
+| Membres disposant de droits d’utilisation du support | 20 | 20 |
+| Ressources | Traitement prioritaire des tickets | <ul><li>Traitement prioritaire des tickets</li><li>Ingénieur de fiabilité client nommé</li></ul>   |
+| Contrôles d'intégrité | Rapports de contrôle d’intégrité automatisé illimités (voir « [Génération d’un contrôle d’intégrité pour votre entreprise]({% ifversion not ghes%}/enterprise-server@latest{% endif %}/admin/enterprise-management/monitoring-your-appliance/generating-a-health-check-for-your-enterprise) ») | <ul><li>Rapports de contrôle d’intégrité automatisé illimités (voir « [Génération d’un contrôle d’intégrité pour votre entreprise]({% ifversion not ghes%}/enterprise-server@latest{% endif %}/admin/enterprise-management/monitoring-your-appliance/generating-a-health-check-for-your-enterprise) »)</li><li>Contrôles d’intégrité améliorés trimestriels, avec résultats, interprétations et recommandations d’un ingénieur de fiabilité client (à la demande)</li></ul>    |
+| Heures de conseil technique| Aucun | 4 heures par mois  |
+| Assistance sur la mise à niveau d’application | None | À la demande |
+| Planification cloud | None | À la demande |
 
   {% note %}
 
-  **Notes:**
-  - Enterprise owners and billing managers automatically have a support entitlement. Enterprise owners can add support entitlements to members of organizations owned by their enterprise account. For more information, see "[Managing support entitlements for your enterprise](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/managing-support-entitlements-for-your-enterprise)."
-  - For the {% data variables.product.premium_plus_support_plan %}, 50% of unused Managed Services hours roll over to the next month and expire at the end of the quarter.
+  **Remarques :**
+  - Les propriétaires d’entreprise et gestionnaires de facturation ont automatiquement droit au support. Les propriétaires d’entreprise peuvent ajouter des droits d’utilisation du support aux membres des organisations faisant partie de leur compte d’entreprise. Pour plus d’informations, consultez « [Gestion des droits au support pour votre entreprise](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/managing-support-entitlements-for-your-enterprise) ».
+  - Pour le {% data variables.product.premium_plus_support_plan %}, 50 % des heures de services managés non utilisées sont reportées au mois suivant et expirent à la fin du trimestre.
 
   {% endnote %}
 
 
-## Signing up for {% data variables.contact.premium_support %}
+## Inscription au {% data variables.contact.premium_support %}
 
-To sign up for {% data variables.contact.premium_support %} or upgrade your plan, you can [contact our account management team](https://enterprise.github.com/contact) or call [+1 (877) 448-4820](tel:+1-877-448-4820).
+Pour vous inscrire au {% data variables.contact.premium_support %} ou pour mettre à niveau votre plan, vous pouvez [contacter notre équipe de gestion des comptes](https://enterprise.github.com/contact) ou appeler le [+1 (877) 448-4820](tel:+1-877-448-4820).
 
-## Scope of support
+## Étendue du support
 
 {% data reusables.support.scope-of-support %}
 
-## Contacting {% data variables.contact.premium_support %}
+## Contact du {% data variables.contact.premium_support %}
 
-{% data variables.contact.premium_support %} customers can use the {% data variables.contact.contact_landing_page_portal %} to report issues in writing, in English.
+Les clients du {% data variables.contact.premium_support %} peuvent utiliser le {% data variables.contact.contact_landing_page_portal %} pour signaler des problèmes par écrit, en anglais.
 
-## Hours of operation
+## Heures d’ouverture
 
-{% data variables.contact.premium_support %} is available 24 hours a day, 7 days per week. If you purchased {% data variables.contact.premium_support %} prior to September 17, 2018, support is limited during holidays. For more information on holidays {% data variables.contact.premium_support %} observes, see the holiday schedule at "[About {% data variables.contact.github_support %}](/enterprise-server@latest/admin/enterprise-support/overview/about-github-enterprise-support)."
+Le {% data variables.contact.premium_support %} est disponible 24h/24 et 7j/7. Si vous avez acheté l’accès au {% data variables.contact.premium_support %} avant le 17 septembre 2018, le support technique est limité pendant les jours fériés. Pour plus d’informations sur les jours fériés observés par le {% data variables.contact.premium_support %}, consultez le calendrier des jours fériés dans « [À propos de {% data variables.contact.github_support %}](/enterprise-server@latest/admin/enterprise-support/overview/about-github-enterprise-support) ».
 
-## Service Level Agreement response times
+## Temps de réponse établis par le contrat de niveau de service
 
-For tickets you submit, support is available 24 hours a day, 7 days per week. The initial response time guaranteed by the SLA is dependent on the priority level of the ticket. Response time begins when {% data variables.contact.premium_support %} sets the priority level of the ticket. A response does not mean the issue has been resolved.
+Pour les tickets que vous soumettez, le support est disponible 24h/24 et 7j/7. Le temps de réponse initial garanti par le contrat SLA dépend du niveau de priorité du ticket. Le temps de réponse commence quand le {% data variables.contact.premium_support %} définit le niveau de priorité du ticket. Une réponse ne signifie pas que le problème a été résolu.
 
-| Ticket priority level | Initial response time |
+| Niveau de priorité des tickets | Temps de réponse initial |
 | --- | ---|
-| {% data variables.product.support_ticket_priority_urgent %} | 30 minutes |
-| {% data variables.product.support_ticket_priority_high %} | 4 hours |
+| {% data variables.product.support_ticket_priority_urgent %} | 30 minutes |
+| {% data variables.product.support_ticket_priority_high %} | 4 heures |
 
 {% data reusables.enterprise_enterprise_support.installing-releases %}
 
-You must install the minimum supported version of {% data variables.product.prodname_ghe_server %} pursuant to the Supported Releases section of your applicable license agreement within 90 days of placing an order for {% data variables.contact.premium_support %}.
+Vous devez installer la version minimale prise en charge de {% data variables.product.prodname_ghe_server %} conformément à la section Versions prises en charge de votre contrat de licence applicable, dans les 90 jours qui suivent la commande du {% data variables.contact.premium_support %}.
 
-## Assigning a priority to a support ticket
+## Affectation d’une priorité à un ticket de support
 
-When you contact {% data variables.contact.premium_support %}, you can choose one of four priorities for the ticket: {% data variables.product.support_ticket_priority_urgent %}, {% data variables.product.support_ticket_priority_high %}, {% data variables.product.support_ticket_priority_normal %}, or {% data variables.product.support_ticket_priority_low %}.
+Quand vous contactez le {% data variables.contact.premium_support %}, vous pouvez choisir l’un des quatre niveaux de priorité pour le ticket : {% data variables.product.support_ticket_priority_urgent %}, {% data variables.product.support_ticket_priority_high %}, {% data variables.product.support_ticket_priority_normal %} ou {% data variables.product.support_ticket_priority_low %}.
 
-- [Ticket priorities for {% data variables.product.prodname_ghe_cloud %}](#ticket-priorities-for-github-enterprise-cloud)
-- [Ticket priorities for {% data variables.product.prodname_ghe_server %}](#ticket-priorities-for-github-enterprise-server)
+- [Niveau de priorité des tickets pour {% data variables.product.prodname_ghe_cloud %}](#ticket-priorities-for-github-enterprise-cloud)
+- [Niveau de priorité des tickets pour {% data variables.product.prodname_ghe_server %}](#ticket-priorities-for-github-enterprise-server)
 
-### Ticket priorities for {% data variables.product.prodname_ghe_cloud %}
+### Niveau de priorité des tickets pour {% data variables.product.prodname_ghe_cloud %}
 
-| Priority | Description | Examples |
+| Priority | Description | Exemples |
 | :---: | --- | --- |
-| {% data variables.product.support_ticket_priority_urgent %} | Production workflows for your organization or enterprise on {% data variables.product.prodname_ghe_cloud %} are failing due to critical service errors or outages, and the failure directly impacts the operation of your business. | <ul><li>Errors or outages on {% data variables.product.prodname_dotcom_the_website %} affect core Git or web application functionality for all members of your organization or enterprise</li></ul> |
-| {% data variables.product.support_ticket_priority_high %} | Account or security issues with your organization or enterprise on {% data variables.product.prodname_ghe_cloud %} are causing limited impact to your business. | <ul><li>An organization or enterprise owner has unintentionally deleted an organization</li><li>An organization or enterprise member has uploaded sensitive data in a commit, issue, pull request, or issue attachment</li></ul> |
-| {% data variables.product.support_ticket_priority_normal %} | Members of your organization or enterprise on {% data variables.product.prodname_ghe_cloud %} are experiencing limited or moderate issues with {% data variables.product.prodname_dotcom_the_website %}, or you have general concerns or questions about your organization or enterprise. | <ul><li>Questions about using APIs and features for your organization or enterprise</li><li>Issues with tools for organization data migration that {% data variables.product.company_short %} provides</li><li>Features related to your organization or enterprise not working as expected</li><li>General security questions about your organization or enterprise</li></ul> |
-| {% data variables.product.support_ticket_priority_low %} | You have a question or suggestion about your organization or enterprise on {% data variables.product.prodname_ghe_cloud %} that is not time-sensitive, or does not otherwise block the productivity of your team. | <ul><li>Excessive resource usage for your organization or enterprise</li><li>Requests for health checks</li><li>Help with using Gists, notifications, wikis, {% data variables.product.prodname_pages %}, {% data variables.product.prodname_desktop %}, or other peripheral services or features with your organization or enterprise</li><li>Feature requests</li><li>Product feedback</li></ul> |
+| {% data variables.product.support_ticket_priority_urgent %} | L’exécution des workflows de production de votre organisation ou de votre entreprise sur {% data variables.product.prodname_ghe_cloud %} est perturbée par des erreurs ou des pannes de service critiques. Cette défaillance impacte directement votre activité. | <ul><li>Des erreurs ou des pannes sur {% data variables.product.prodname_dotcom_the_website %} affectent les principales fonctionnalités d’application web ou Git pour tous les membres de votre organisation ou entreprise</li></ul> |
+| {% data variables.product.support_ticket_priority_high %} | Des problèmes de compte ou de sécurité liés à votre organisation ou entreprise sur {% data variables.product.prodname_ghe_cloud %} impactent votre activité de manière limitée. | <ul><li>Le propriétaire d’une organisation ou d’une entreprise a supprimé par inadvertance une organisation</li><li>Un membre d’une organisation ou d’une entreprise a chargé des données sensibles dans un commit, un problème, une demande de tirage ou une pièce jointe à un problème</li></ul> |
+| {% data variables.product.support_ticket_priority_normal %} | Les membres de votre organisation ou entreprise sur {% data variables.product.prodname_ghe_cloud %} rencontrent des problèmes limités ou modérés avec {% data variables.product.prodname_dotcom_the_website %}, ou vous avez des préoccupations ou des questions d’ordre général concernant votre organisation ou entreprise. | <ul><li>Questions sur l’utilisation des API et des fonctionnalités pour votre organisation ou votre entreprise</li><li>Problèmes liés aux outils de migration des données d’organisation fournis par {% data variables.product.company_short %}</li><li>Les fonctionnalités liées à votre organisation ou votre entreprise ne fonctionnent pas comme prévu</li><li>Questions de sécurité générales relatives à votre organisation ou votre entreprise</li></ul> |
+| {% data variables.product.support_ticket_priority_low %} | Vous avez une question ou une suggestion concernant votre organisation ou votre entreprise sur {% data variables.product.prodname_ghe_cloud %}, qui n’est pas urgente ou qui ne bloque pas la productivité de votre équipe. | <ul><li>Utilisation excessive des ressources pour votre organisation ou votre entreprise</li><li>Demandes de contrôles d’intégrité</li><li>Aide relative à l’utilisation des Gists, des notifications, des wikis, de {% data variables.product.prodname_pages %}, de {% data variables.product.prodname_desktop %}, d’Atom ou d’autres services ou fonctionnalités périphériques pour votre organisation ou votre entreprise</li><li>Demandes de fonctionnalités</li><li>Commentaires sur le produit</li></ul> |
 
 
-### Ticket priorities for {% data variables.product.prodname_ghe_server %}
+### Niveau de priorité des tickets pour {% data variables.product.prodname_ghe_server %}
 
 {% data reusables.support.ghes-priorities %}
 
-## Resolving and closing support tickets
+## Résolution et fermeture des tickets de support
 
-{% data variables.contact.premium_support %} may consider a ticket solved after providing an explanation, recommendation, usage instructions, workaround instructions, or by advising you of an available {% data variables.product.prodname_ghe_server %} release that addresses the issue.
+Le {% data variables.contact.premium_support %} peut considérer qu’un ticket est résolu une fois qu’il a fourni une explication, une recommandation, des instructions d’utilisation, des instructions de contournement, ou qu’il vous a informé de l’existence d’une version disponible de {% data variables.product.prodname_ghe_server %} permettant de résoudre le problème.
 
-If you use a custom or unsupported plug-in, module, or custom code, {% data variables.contact.premium_support %} may ask you to remove the unsupported plug-in, module, or code while attempting to resolve the issue. If the problem is fixed when the unsupported plug-in, module, or custom code is removed, {% data variables.contact.premium_support %} may consider the ticket solved.
+Si vous utilisez un plug-in, un module ou du code personnalisé ou non pris en charge, le {% data variables.contact.premium_support %} peut vous demander de supprimer le plug-in, le module ou le code non pris en charge pendant la tentative de résolution du problème. Si le problème est résolu après la suppression du plug-in, du module ou du code personnalisé non pris en charge, le {% data variables.contact.premium_support %} peut considérer que le ticket est résolu.
 
-{% data variables.contact.premium_support %} may close a ticket if the ticket is outside the scope of support or if multiple attempts to contact you have gone unanswered. If {% data variables.contact.premium_support %} closes a ticket due to lack of response, you can request that {% data variables.contact.premium_support %} reopen the ticket.
+Le {% data variables.contact.premium_support %} peut fermer un ticket s’il sort du cadre du support, ou si plusieurs tentatives visant à vous joindre sont restées sans réponse. Si le {% data variables.contact.premium_support %} ferme un ticket en raison d’une absence de réponse de votre part, vous pouvez demander au {% data variables.contact.premium_support %} de rouvrir le ticket.
 
-## Receiving credits for missed responses to support tickets
+## Réception de crédits pour non-réponse aux tickets de support
 
-If you don't receive an initial response within the guaranteed response time to more than four tickets in a given quarter based on {% data variables.product.company_short %}'s fiscal year, you're eligible for a credit. To honor the SLA, {% data variables.product.company_short %} will refund 20% of the quarterly {% data variables.contact.premium_support %} fee in cash. To receive the refund, you must submit a credit request.
+Si vous ne recevez pas de réponse initiale dans le temps de réponse garanti pour plus de quatre tickets au cours d’un trimestre donné en fonction de l’année d’exercice de {% data variables.product.company_short %}, vous avez droit à un crédit. Pour honorer le SLA, le {% data variables.product.company_short %} rembourse 20 % des frais trimestriels du {% data variables.contact.premium_support %} en espèces. Pour recevoir le remboursement, vous devez soumettre une demande de crédit.
 
-The credit request must be made within 30 days of the end of the quarter during which {% data variables.contact.premium_support %} did not respond to your tickets within the designated response time. Credit requests will not be honored if the respective deadline has passed. Once the respective deadline passes, you have waived the ability to claim a refund for the qualified credit.
+La demande de crédit doit être effectuée dans les 30 jours qui suivent la fin du trimestre au cours duquel le {% data variables.contact.premium_support %} n’a pas répondu à vos tickets dans le temps de réponse spécifié. Les demandes de crédit ne seront pas honorées si l’échéance correspondante est dépassée. Le dépassement de l’échéance correspondante signifie que vous renoncez à votre demande de remboursement du crédit éligible.
 
-To receive a refund, you must submit a completed credit request to <supportcredits@github.com>. To be eligible, the credit request must:
-- Be sent from an email address associated with your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}
-- Be received by {% data variables.product.company_short %} by the end of the 30th day after the quarter in which the four qualifying credits occurred
-- Include "Credit Request" in the subject line
+Pour recevoir un remboursement, vous devez envoyer une demande de crédit remplie à <supportcredits@github.com>. Pour être éligible, la demande de crédit doit :
+- Être envoyée à partir d’une adresse e-mail associée à votre compte sur {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}
+- Être reçue par {% data variables.product.company_short %} avant la fin du 30e jour qui suit le trimestre au cours duquel les quatre crédits qualifiants ont eu lieu
+- Inclure « Credit Request » (Demande de crédit) dans la ligne d’objet
 
-The following information **must be included** in your credit request:
-- **Date** (The date must be within 30 days after the quarter based on {% data variables.product.company_short %}’s fiscal year end in which the claims occurred [January 31, April 30, July 31, or October 31].)
-- **Customer contact** (You must specify both name and email address.)
-- **Customer address**
-- **Qualifying credits** (You must provide the date of each qualifying credit and the associated ticket number.){% ifversion fpt or ghec %}
-- **Name of {% data variables.product.prodname_ghe_cloud %} organization**{% endif %}
-- **Ticket numbers**
+Les informations suivantes **doivent être incluses** dans votre demande de crédit :
+- **Date** (La date doit être comprise dans les 30 jours qui suivent le trimestre au cours duquel les demandes ont eu lieu, en fonction de la fin de l’année d’exercice de {% data variables.product.company_short %} [31 janvier, 30 avril, 31 juillet ou 31 octobre].)
+- **Contact client** (Vous devez spécifier à la fois le nom et l’adresse e-mail.)
+- **Adresse du client**
+- **Crédits éligibles** (Vous devez fournir la date de chaque crédit éligible et le numéro de ticket associé.){% ifversion fpt or ghec %}
+- **Nom de l’organisation {% data variables.product.prodname_ghe_cloud %}** {% endif %}
+- **Numéros de ticket**
 
-## Accessing premium content
+## Accès à du contenu premium
 
-You can access premium content by signing in to the {% data variables.contact.contact_landing_page_portal %}.
+Vous pouvez accéder à du contenu premium en vous connectant au {% data variables.contact.contact_landing_page_portal %}.

@@ -1,6 +1,6 @@
 ---
 title: Gitignore
-intro: L’API Gitignore extrait des modèles `.gitignore` qui peuvent être utilisés pour ignorer des fichiers et répertoires.
+intro: Utilisez l’API REST pour obtenir des modèles `.gitignore` qui peuvent être utilisés pour ignorer les fichiers et les répertoires.
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,21 +11,15 @@ topics:
 miniTocMaxHeadingLevel: 3
 redirect_from:
   - /rest/reference/gitignore
-ms.openlocfilehash: e830b0f00d60f3eb121fa2a99a910b073780700e
-ms.sourcegitcommit: cfe91073c844cb762131b2de9fb41f7f9db792fc
+ms.openlocfilehash: a3d6d35014a0c6bc46102fa7abfa11659fff6fbf
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2022
-ms.locfileid: '148181267'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148193040'
 ---
-## À propos de l’API gitignore
+## À propos de gitignore
 
-Quand vous créez un référentiel sur {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %} via l’API, vous pouvez spécifier un [modèle .gitignore](/github/getting-started-with-github/ignoring-files) à appliquer au référentiel lors de la création. L’API de modèles .gitignore répertorie et extrait des modèles à partir du [référentiel .gitignore](https://github.com/github/gitignore) {% data variables.product.product_name %}.
+Quand vous créez un référentiel sur {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %} via l’API, vous pouvez spécifier un [modèle .gitignore](/github/getting-started-with-github/ignoring-files) à appliquer au référentiel lors de la création. Vous pouvez utiliser l’API REST pour obtenir les modèles .gitignore du [dépôt .gitignore](https://github.com/github/gitignore) {% data variables.product.product_name %}.
 
-### Types de médias personnalisés pour gitignore
-
-Vous pouvez utiliser ce type de média personnalisé lors de l’obtention d’un modèle gitignore.
-
-    application/vnd.github.raw
-
-Pour plus d’informations, consultez « [Types de médias](/rest/overview/media-types) ».
+Vous pouvez utiliser le type de média personnalisé `application/vnd.github.raw` lors de l’obtention d’un modèle gitignore. Pour plus d’informations, consultez « [Types de médias](/rest/overview/media-types) ».

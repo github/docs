@@ -1,8 +1,16 @@
+---
+ms.openlocfilehash: 5e5e40bc161c7779bdfc27931921963c5bf74fc5
+ms.sourcegitcommit: 5b1461b419dbef60ae9dbdf8e905a4df30fc91b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "145103841"
+---
 {% ifversion ghes %}
 
 {% note %}
 
-**Note:** {% data variables.product.prodname_actions %} on {% data variables.location.product_location %} may have limited access to actions on {% data variables.product.prodname_dotcom_the_website %} or {% data variables.product.prodname_marketplace %}. For more information, see "[Managing access to actions from {% data variables.product.prodname_dotcom_the_website %}](/enterprise/admin/github-actions/managing-access-to-actions-from-githubcom)" and contact your {% data variables.product.prodname_enterprise %} site administrator.
+**Remarque :** {% data variables.product.prodname_actions %} sur {% data variables.product.product_location %} peut avoir un accès limité aux actions sur {% data variables.product.prodname_dotcom_the_website %} ou {% data variables.product.prodname_marketplace %}. Pour plus d’informations, consultez « [Gestion de l’accès aux actions à partir de {% data variables.product.prodname_dotcom_the_website %}](/enterprise/admin/github-actions/managing-access-to-actions-from-githubcom)» et contactez votre administrateur de site {% data variables.product.prodname_enterprise %}.
 
 {% endnote %}
 

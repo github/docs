@@ -1,6 +1,6 @@
 ---
-title: Switching your SAML configuration from an organization to an enterprise account
-intro: Learn special considerations and best practices for replacing an organization-level SAML configuration with an enterprise-level SAML configuration.
+title: Basculement de votre configuration SAML d’une organisation à un compte d’entreprise
+intro: Découvrez des considérations spéciales et les bonnes pratiques pour remplacer une configuration SAML au niveau de l’organisation par une configuration SAML au niveau de l’entreprise.
 permissions: Enterprise owners can configure SAML single sign-on for an enterprise account.
 versions:
   ghec: '*'
@@ -14,34 +14,37 @@ redirect_from:
   - /github/setting-up-and-managing-your-enterprise/configuring-identity-and-access-management-for-your-enterprise-account/switching-your-saml-configuration-from-an-organization-to-an-enterprise-account
   - /admin/authentication/managing-identity-and-access-for-your-enterprise/switching-your-saml-configuration-from-an-organization-to-an-enterprise-account
   - /admin/identity-and-access-management/managing-iam-for-your-enterprise/switching-your-saml-configuration-from-an-organization-to-an-enterprise-account
+ms.openlocfilehash: 0fa75185767984db574fc12a9e84404d5da9e002
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145102902'
 ---
-
-## About SAML single sign-on for enterprise accounts
+## À propos de l’authentification unique SAML pour les comptes d’entreprise
 
 {% data reusables.saml.dotcom-saml-explanation %} {% data reusables.saml.about-saml-enterprise-accounts %}
 
 {% data reusables.saml.switching-from-org-to-enterprise %} 
 
-When you configure SAML SSO at the organization level, each organization must be configured with a unique SSO tenant in your IdP, which means that your members will be associated with a unique SAML identity record for each organization they have successfully authenticated with. If you configure SAML SSO for your enterprise account instead, each enterprise member will have one SAML identity that is used for all organizations owned by the enterprise account.
+Lorsque vous configurez l’authentification unique SAML au niveau de l’organisation, chaque organisation doit être configurée avec un locataire SSO unique dans votre fournisseur d’identité, ce qui signifie que vos membres sont associés à un enregistrement d’identité SAML unique pour chaque organisation avec laquelle ils ont réussi à s’authentifier. Si vous configurez l’authentification unique SAML pour votre compte d’entreprise à la place, chaque membre d’entreprise aura une identité SAML utilisée pour toutes les organisations appartenant au compte d’entreprise.
 
-After you configure SAML SSO for your enterprise account, the new configuration will override any existing SAML SSO configurations for organizations owned by the enterprise account.
+Une fois que vous avez configuré l’authentification unique SAML pour votre compte d’entreprise, la nouvelle configuration remplace toutes les configurations d’authentification unique SAML existantes pour les organisations appartenant au compte d’entreprise.
 
-Enterprise members will not be notified when an enterprise owner enables SAML for the enterprise account. If SAML SSO was previously enforced at the organization level, members should not see a major difference when navigating directly to organization resources. The members will continue to be prompted to authenticate via SAML. If members navigate to organization resources via their IdP dashboard, they will need to click the new tile for the enterprise-level app, instead of the old tile for the organization-level app. The members will then be able to choose the organization to navigate to. 
+Les membres d’entreprise ne sont pas avertis lorsqu’un propriétaire d’entreprise active SAML pour le compte d’entreprise. Si l’authentification unique SAML était précédemment appliquée au niveau de l’organisation, les membres ne doivent pas voir une différence majeure lorsqu’ils accèdent directement aux ressources de l’organisation. Les membres continuent d’être invités à s’authentifier via SAML. Si les membres accèdent aux ressources de l’organisation via leur tableau de bord de fournisseur d’identité, ils doivent cliquer sur la nouvelle vignette de l’application au niveau de l’entreprise, au lieu de l’ancienne vignette de l’application au niveau de l’organisation. Les membres pourront ensuite choisir l’organisation à laquelle accéder. 
 
-Any {% data variables.product.pat_generic %}s, SSH keys, {% data variables.product.prodname_oauth_apps %}, and {% data variables.product.prodname_github_apps %} that were previously authorized for the organization will continue to be authorized for the organization. However, members will need to authorize any PATs, SSH keys, {% data variables.product.prodname_oauth_apps %}, and {% data variables.product.prodname_github_apps %} that were never authorized for use with SAML SSO for the organization.
+Tous les jetons d’accès personnels (PAT), les clés SSH, les {% data variables.product.prodname_oauth_apps %} et les {% data variables.product.prodname_github_apps %} qui étaient précédemment autorisés pour l’organisation continuent d’être autorisés pour l’organisation. Toutefois, les membres doivent autoriser les jetons PAT, les clés SSH, les {% data variables.product.prodname_oauth_apps %} et les {% data variables.product.prodname_github_apps %} qui n’ont jamais été autorisés à être utilisés avec l’authentification unique SAML pour l’organisation.
 
-SCIM provisioning is not currently supported when SAML SSO is configured for an enterprise account. If you are currently using SCIM for an organization owned by your enterprise account, you will lose this functionality when switching to an enterprise-level configuration.
+Le provisionnement SCIM n’est actuellement pas pris en charge lorsque l’authentification unique SAML est configurée pour un compte d’entreprise. Si vous utilisez actuellement SCIM pour une organisation appartenant à votre compte d’entreprise, vous perdrez cette fonctionnalité lors du passage à une configuration au niveau de l’entreprise.
 
-You are not required to remove any organization-level SAML configurations before configuring SAML SSO for your enterprise account, but you may want to consider doing so. If SAML is ever disabled for the enterprise account in the future, any remaining organization-level SAML configurations will take effect. Removing the organization-level configurations can prevent unexpected issues in the future.
+Vous n’êtes pas obligé de supprimer les configurations SAML au niveau de l’organisation avant de configurer l’authentification unique SAML pour votre compte d’entreprise, mais vous pouvez envisager de le faire. Si SAML est désactivé pour le compte d’entreprise à l’avenir, toutes les configurations SAML restantes au niveau de l’organisation prendront effet. La suppression des configurations au niveau de l’organisation peut empêcher des problèmes inattendus à l’avenir.
 
-For more information about the decision to implement SAML SSO at the organization or enterprise level, see "[About authentication for your enterprise](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise#considerations-for-enabling-saml-for-an-enterprise-or-organization)."
+## Basculement de votre configuration SAML d’une organisation à un compte d’entreprise
 
-## Switching your SAML configuration from an organization to an enterprise account
-
-1. Enforce SAML SSO for your enterprise account, making sure all organization members are assigned or given access to the IdP app being used for the enterprise account. For more information, see "[Configuring SAML single sign-on for your enterprise](/admin/authentication/managing-identity-and-access-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise)."
-1. Optionally, remove any existing SAML configuration for organizations owned by the enterprise account. To help you decide whether to remove the configurations, see "[About SAML single sign-on for enterprise accounts](#about-saml-single-sign-on-for-enterprise-accounts)."
-1. If you kept any organization-level SAML configurations in place, to prevent confusion, consider hiding the tile for the organization-level apps in your IdP.
-1. Advise your enterprise members about the change.
-   -  Members will no longer be able to access their organizations by clicking the SAML app for the organization in the IdP dashboard. They will need to use the new app configured for the enterprise account.
-   - Members will need to authorize any PATs or SSH keys that were not previously authorized for use with SAML SSO for their organization. For more information, see "[Authorizing a {% data variables.product.pat_generic %} for use with SAML single sign-on](/github/authenticating-to-github/authenticating-with-saml-single-sign-on/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on)" and "[Authorizing an SSH key for use with SAML single sign-on](/github/authenticating-to-github/authenticating-with-saml-single-sign-on/authorizing-an-ssh-key-for-use-with-saml-single-sign-on)."
-   - Members may need to reauthorize {% data variables.product.prodname_oauth_apps %} that were previously authorized for the organization. For more information, see "[About authentication with SAML single sign-on](/github/authenticating-to-github/authenticating-with-saml-single-sign-on/about-authentication-with-saml-single-sign-on#about-oauth-apps-github-apps-and-saml-sso)."
+1. Appliquez l’authentification unique SAML pour votre compte d’entreprise, en vous assurant que tous les membres de l’organisation sont affectés ou se voient attribuer l’accès à l’application de fournisseur d’identité utilisée pour le compte d’entreprise. Pour plus d’informations, consultez « [Configuration de l’authentification unique SAML pour votre entreprise](/admin/authentication/managing-identity-and-access-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise) ».
+1. Si vous le souhaitez, supprimez toute configuration SAML existante pour les organisations appartenant au compte d’entreprise. Pour vous aider à décider s’il faut ou non supprimer les configurations, consultez « [À propos de l’authentification unique SAML pour les comptes d’entreprise](#about-saml-single-sign-on-for-enterprise-accounts) ».
+1. Si vous avez maintenu en place des configurations SAML au niveau de l’organisation, pour éviter toute confusion, envisagez de masquer la vignette pour les applications au niveau de l’organisation dans votre fournisseur d’identité.
+1. Conseillez les membres de votre entreprise au sujet de la modification.
+   -  Les membres ne pourront plus accéder à leur organisation en cliquant sur l’application SAML de l’organisation dans le tableau de bord du fournisseur d’identité. Ils devront utiliser la nouvelle application configurée pour le compte d’entreprise.
+   - Les membres devront autoriser les jetons PAT ou les clés SSH qui n’étaient pas précédemment autorisées à être utilisées avec l’authentification unique SAML pour leur organisation. Pour plus d’informations, consultez « [Autorisation d’un jeton d’accès personnel à utiliser avec l’authentification unique SAML](/github/authenticating-to-github/authenticating-with-saml-single-sign-on/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on) » ou « [Autorisation d’une clé SSH pour l’utiliser avec l’authentification unique SAML](/github/authenticating-to-github/authenticating-with-saml-single-sign-on/authorizing-an-ssh-key-for-use-with-saml-single-sign-on) ».
+   - Les membres peuvent avoir besoin d’autoriser à nouveau les {% data variables.product.prodname_oauth_apps %} qui étaient précédemment autorisées pour l’organisation. Pour plus d’informations, consultez « [À propos de l’authentification à l’aide de l’authentification unique SAML](/github/authenticating-to-github/authenticating-with-saml-single-sign-on/about-authentication-with-saml-single-sign-on#about-oauth-apps-github-apps-and-saml-sso) ».

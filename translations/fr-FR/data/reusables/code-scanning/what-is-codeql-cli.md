@@ -1,1 +1,9 @@
-The {% data variables.product.prodname_codeql_cli %} is a standalone product that you can use to analyze code. Its main purpose is to generate a database representation of a codebase, a {% data variables.product.prodname_codeql %} database. Once the database is ready, you can query it interactively, or run a suite of queries to generate a set of results in SARIF format and upload the results to {% data variables.location.product_location %}.
+---
+ms.openlocfilehash: ec454deef6771dc385435a4148e5e095acfc1659
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "145104341"
+---
+{% data variables.product.prodname_codeql_cli %} est un produit autonome que vous pouvez utiliser pour analyser le code. Son objectif principal est de générer une représentation de base de données d’un codebase, une base de données {% data variables.product.prodname_codeql %}. Une fois que la base de données est prête, vous pouvez l’interroger de manière interactive, ou exécuter une suite de requêtes pour générer un ensemble de résultats au format SARIF et charger les résultats dans {% data variables.product.product_location %}.

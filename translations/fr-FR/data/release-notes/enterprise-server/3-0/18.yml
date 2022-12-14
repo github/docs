@@ -1,0 +1,15 @@
+date: '28-10-2021'
+sections:
+  security_fixes:
+    - 'Plusieurs clés publiques SSH faibles connues ont été ajoutées à la liste d’exclusion et ne peuvent plus être inscrites. En outre, les versions de GitKraken connues pour générer des clés SSH faibles (7.6.x, 7.7.x et 8.0.0) ont été empêchées d’inscrire de nouvelles clés publiques.'
+    - 'Les packages ont été mis à jour avec les dernières versions de sécurité.'
+  bugs:
+    - 'Plusieurs parties de l’application étaient inutilisables pour les utilisateurs qui sont propriétaires de plusieurs organisations.'
+  known_issues:
+    - "Sur un {% data variables.product.prodname_ghe_server %} fraîchement configuré sans aucun utilisateur, un attaquant peut créer le premier utilisateur administrateur."
+    - Les règles de pare-feu personnalisées sont supprimées pendant le processus de mise à niveau.
+    - "Les fichiers suivis par Git LFS [chargés via l’interface web](https://github.com/blog/2105-upload-files-to-your-repositories) sont, à tort, ajoutés directement au dépôt."
+    - Les problèmes ne peuvent pas être fermés s’ils contiennent un lien permanent vers un objet blob situé dans le même dépôt dont le chemin de fichier dépasse les 255 caractères.
+    - "Quand l’option « Les utilisateurs peuvent effectuer des recherches sur GitHub.com » est activée avec GitHub Connect, les problèmes dans les dépôts privés et internes ne sont pas inclus dans les résultats de recherche de GitHub.com."
+    - "Quand un nœud de réplica est hors connexion dans une configuration de haute disponibilité, {% data variables.product.product_name %} peut toujours router les requêtes de {% data variables.product.prodname_pages %} vers le nœud hors connexion, réduisant ainsi la disponibilité de {% data variables.product.prodname_pages %} pour les utilisateurs."
+    - Les limites de ressources propres au traitement des hooks de pré-réception peuvent entraîner l’échec de certains d’entre eux.

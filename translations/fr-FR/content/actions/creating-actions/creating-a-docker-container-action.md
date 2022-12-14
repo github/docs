@@ -1,7 +1,6 @@
 ---
 title: Creating a Docker container action
-shortTitle: Create a Docker container action
-intro: 'This guide shows you the minimal steps required to build a Docker container action. '
+intro: 'Ce guide vous montre les étapes minimales nécessaires pour générer une action de conteneur Docker. '
 redirect_from:
   - /articles/creating-a-docker-container-action
   - /github/automating-your-workflow-with-github-actions/creating-a-docker-container-action
@@ -16,47 +15,50 @@ type: tutorial
 topics:
   - Action development
   - Docker
+shortTitle: Docker container action
+ms.openlocfilehash: f22b361f25f406dfdb1233f4d9ce62f2b6b919dc
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147518783'
 ---
-
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Introduction
 
-In this guide, you'll learn about the basic components needed to create and use a packaged Docker container action. To focus this guide on the components needed to package the action, the functionality of the action's code is minimal. The action prints "Hello World" in the logs or "Hello [who-to-greet]" if you provide a custom name.
+Dans ce guide, vous allez découvrir les composants de base qui sont nécessaires pour créer et utiliser une action de conteneur Docker empaquetée. Afin de nous concentrer sur les composants nécessaires à l’empaquetage de l’action, nous avons réduit la fonctionnalité du code de l’action à son strict minimum. L’action affiche « Hello World » dans les journaux ou « Hello [who-to-greet] » si vous fournissez un nom personnalisé.
 
-Once you complete this project, you should understand how to build your own Docker container action and test it in a workflow.
+Une fois que vous aurez terminé ce projet, vous saurez comment créer votre propre action de conteneur Docker et la tester dans un workflow.
 
 {% data reusables.actions.self-hosted-runner-reqs-docker %}
 
 {% data reusables.actions.context-injection-warning %}
 
-## Prerequisites
+## Prérequis
 
-You may find it helpful to have a basic understanding of {% data variables.product.prodname_actions %} environment variables and the Docker container filesystem:
+Une compréhension de base des variables d’environnement {% data variables.product.prodname_actions %} et du système de fichiers conteneur Docker pourra vous être utile :
 
-- "[Using environment variables](/actions/automating-your-workflow-with-github-actions/using-environment-variables)"
-{% ifversion ghae %}
-- "[Docker container filesystem](/actions/using-github-hosted-runners/about-ae-hosted-runners#docker-container-filesystem)."
-{% else %}
-- "[About {% data variables.product.prodname_dotcom %}-hosted runners](/actions/using-github-hosted-runners/about-github-hosted-runners#docker-container-filesystem)"
-{% endif %}
+- « [Utilisation des variables d’environnement](/actions/automating-your-workflow-with-github-actions/using-environment-variables) » {% ifversion ghae %}
+- « [Système de fichiers conteneur Docker](/actions/using-github-hosted-runners/about-ae-hosted-runners#docker-container-filesystem) ».
+{% else %} 
+- « [À propos des exécuteurs hébergés par {% data variables.product.prodname_dotcom %}](/actions/using-github-hosted-runners/about-github-hosted-runners#docker-container-filesystem) » {% endif %}
 
-Before you begin, you'll need to create a {% data variables.product.prodname_dotcom %} repository.
+Avant de commencer, vous devez créer un dépôt {% data variables.product.prodname_dotcom %}.
 
-1. Create a new repository on {% data variables.location.product_location %}. You can choose any repository name or use "hello-world-docker-action" like this example. For more information, see "[Create a new repository](/articles/creating-a-new-repository)."
+1. Créez un dépôt dans {% data variables.product.product_location %}. Vous pouvez choisir n’importe quel nom de dépôt ou utiliser « hello-world-docker-action » comme dans cet exemple. Pour en savoir plus, consultez « [Créer un dépôt](/articles/creating-a-new-repository) ».
 
-1. Clone your repository to your computer. For more information, see "[Cloning a repository](/articles/cloning-a-repository)."
+1. Clonez votre dépôt sur votre ordinateur. Pour plus d’informations, consultez « [Clonage d’un dépôt](/articles/cloning-a-repository) ».
 
-1. From your terminal, change directories into your new repository.
+1. À partir de votre terminal, remplacez les répertoires par votre nouveau dépôt.
 
   ```shell{:copy}
   cd hello-world-docker-action
   ```
 
-## Creating a Dockerfile
+## Création d’un Dockerfile
 
-In your new `hello-world-docker-action` directory, create a new `Dockerfile` file. Make sure that your filename is capitalized correctly (use a capital `D` but not a capital `f`) if you're having issues. For more information, see "[Dockerfile support for {% data variables.product.prodname_actions %}](/actions/creating-actions/dockerfile-support-for-github-actions)."
+Dans le nouveau répertoire `hello-world-docker-action`, créez un fichier `Dockerfile`. Vérifiez que le nom de votre fichier est bien en majuscules (utilisez un `D` majuscule et non un `f` majuscule) si vous rencontrez des problèmes. Pour plus d’informations, consultez « [Prise en charge de Dockerfile pour {% data variables.product.prodname_actions %}](/actions/creating-actions/dockerfile-support-for-github-actions) ».
 
 **Dockerfile**
 ```Dockerfile{:copy}
@@ -70,12 +72,11 @@ COPY entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
 ```
 
-## Creating an action metadata file
+## Création d’un fichier de métadonnées d’action
 
-Create a new `action.yml` file in the `hello-world-docker-action` directory you created above. For more information, see "[Metadata syntax for {% data variables.product.prodname_actions %}](/actions/creating-actions/metadata-syntax-for-github-actions)."
+Créez un fichier `action.yml` dans le répertoire `hello-world-docker-action` que vous avez créé ci-dessus. Pour plus d’informations, consultez « [Syntaxe des métadonnées pour {% data variables.product.prodname_actions %} »](/actions/creating-actions/metadata-syntax-for-github-actions).
 
-{% raw %}
-**action.yml**
+{% raw %} **action.yml**
 ```yaml{:copy}
 # action.yml
 name: 'Hello World'
@@ -96,19 +97,19 @@ runs:
 ```
 {% endraw %}
 
-This metadata defines one `who-to-greet`  input and one `time` output parameter. To pass inputs to the Docker container, you should declare the input using `inputs` and pass the input in the `args` keyword. Everything you include in `args` is passed to the container, but for better discoverability for users of your action, we recommended using inputs.
+Ces métadonnées définissent une entrée `who-to-greet` et un paramètre de sortie `time`. Pour passer des entrées au conteneur Docker, vous devez déclarer les entrées à l’aide de `inputs` et les passer dans le mot clé `args`. Tout ce que vous incluez dans `args` est passé au conteneur. Toutefois, pour que les utilisateurs puissent mieux découvrir votre action, nous vous recommandons d’utiliser des entrées.
 
-{% data variables.product.prodname_dotcom %} will build an image from your `Dockerfile`, and run commands in a new container using this image.
+{% data variables.product.prodname_dotcom %} crée une image à partir de votre `Dockerfile`et exécute les commandes dans un nouveau conteneur à l’aide de cette image.
 
-## Writing the action code
+## Écriture du code d’action
 
-You can choose any base Docker image and, therefore, any language for your action. The following shell script example uses the `who-to-greet` input variable to print "Hello [who-to-greet]" in the log file.
+Vous pouvez choisir n’importe quelle image Docker de base et, donc, n’importe quel langage pour votre action. L’exemple de script shell suivant utilise la variable d’entrée `who-to-greet` pour afficher « Hello [who-to-greet] » dans le fichier journal.
 
-Next, the script gets the current time and sets it as an output variable that actions running later in a job can use. In order for {% data variables.product.prodname_dotcom %} to recognize output variables, you must {% ifversion actions-save-state-set-output-envs %}write them to the `$GITHUB_OUTPUT` environment file: `echo "<output name>=<value>" >> $GITHUB_OUTPUT`{% else %}use a workflow command in a specific syntax: `echo "::set-output name=<output name>::<value>"`{% endif %}. For more information, see "[Workflow commands for {% data variables.product.prodname_actions %}](/actions/reference/workflow-commands-for-github-actions#setting-an-output-parameter)."
+Ensuite, le script obtient l’heure actuelle et la définit comme une variable de sortie que pourront utiliser les prochaines actions d’un travail. Pour que {% data variables.product.prodname_dotcom %} reconnaisse les variables de sortie, vous devez utiliser une commande de workflow en utilisant une syntaxe spécifique : `echo "::set-output name=<output name>::<value>"`. Pour plus d’informations, consultez « [Syntaxe des commandes pour {% data variables.product.prodname_actions %}](/actions/reference/workflow-commands-for-github-actions#setting-an-output-parameter) ».
 
-1. Create a new `entrypoint.sh` file in the `hello-world-docker-action` directory.
+1. Dans le répertoire `hello-world-docker-action`, créez un fichier `entrypoint.sh`.
 
-1. Add the following code to your `entrypoint.sh` file.
+1. Ajoutez le code suivant à votre fichier `entrypoint.sh`.
 
   **entrypoint.sh**
   ```shell{:copy}
@@ -116,41 +117,28 @@ Next, the script gets the current time and sets it as an output variable that ac
 
   echo "Hello $1"
   time=$(date)
-{%- ifversion actions-save-state-set-output-envs %}
-  echo "time=$time" >> $GITHUB_OUTPUT
-{%- else %}
   echo "::set-output name=time::$time"
-{%- endif %}
   ```
-  If `entrypoint.sh` executes without any errors, the action's status is set to `success`. You can also explicitly set exit codes in your action's code to provide an action's status. For more information, see "[Setting exit codes for actions](/actions/creating-actions/setting-exit-codes-for-actions)."
+  Si `entrypoint.sh` s’exécute sans erreur, l’état de l’action est défini sur `success`. Pour indiquer l’état d’une action, vous pouvez définir explicitement des codes de sortie dans le code de l’action. Pour plus d’informations, consultez « [Définition de codes de sortie pour les actions](/actions/creating-actions/setting-exit-codes-for-actions) ».
 
-
-1. Make your `entrypoint.sh` file executable. Git provides a way to explicitly change the permission mode of a file so that it doesn’t get reset every time there is a clone/fork.
+1. Rendez votre fichier `entrypoint.sh` exécutable en exécutant la commande suivante sur votre système.
 
   ```shell{:copy}
-  $ git update-index --chmod=+x entrypoint.sh
+  $ chmod +x entrypoint.sh
   ```
 
-1. Optionally, to check the permission mode of the file in the git index, run the following command.
+## Création d’un fichier README
 
-  ```shell{:copy}
-  $ git ls-files --stage entrypoint.sh
-  ```
+Pour expliquer aux utilisateurs comment utiliser votre action, vous pouvez créer un fichier README. Un fichier README est très utile si vous prévoyez de partager votre action publiquement, mais c’est aussi un excellent moyen de vous rappeler comment utiliser l’action.
 
-   An output like `100755 e69de29bb2d1d6434b8b29ae775ad8c2e48c5391 0       entrypoint.sh` means the file has the executable permission. In this example, `755` denotes the executable permission.
+Dans votre répertoire `hello-world-docker-action`, créez un fichier `README.md` qui spécifie les informations suivantes :
 
-## Creating a README
-
-To let people know how to use your action, you can create a README file. A README is most helpful when you plan to share your action publicly, but is also a great way to remind you or your team how to use the action.
-
-In your `hello-world-docker-action` directory, create a `README.md` file that specifies the following information:
-
-- A detailed description of what the action does.
-- Required input and output arguments.
-- Optional input and output arguments.
-- Secrets the action uses.
-- Environment variables the action uses.
-- An example of how to use your action in a workflow.
+- Une description détaillée de ce que fait l’action.
+- Les arguments d’entrée et de sortie obligatoires.
+- Les arguments d’entrée et de sortie facultatifs.
+- Les secrets utilisés par l’action.
+- Les variables d’environnement utilisées par l’action.
+- Un exemple d’utilisation de votre action dans un workflow.
 
 **README.md**
 ```markdown{:copy}
@@ -172,16 +160,16 @@ The time we greeted you.
 
 ## Example usage
 
-uses: actions/hello-world-docker-action@{% ifversion actions-save-state-set-output-envs %}v2{% else %}v1{% endif %}
+uses: actions/hello-world-docker-action@v1
 with:
   who-to-greet: 'Mona the Octocat'
 ```
 
-## Commit, tag, and push your action to {% data variables.product.product_name %}
+## Commiter, étiqueter et pousser votre action vers {% data variables.product.product_name %}
 
-From your terminal, commit your `action.yml`, `entrypoint.sh`, `Dockerfile`, and `README.md` files.
+À partir de votre terminal, commitez vos fichiers `action.yml`, `entrypoint.sh`, `Dockerfile` et `README.md`.
 
-It's best practice to also add a version tag for releases of your action. For more information on versioning your action, see "[About actions](/actions/automating-your-workflow-with-github-actions/about-actions#using-release-management-for-actions)."
+Il est recommandé d’ajouter également une étiquette de version pour les versions de votre action. Pour plus d’informations sur le versioning de votre action, consultez « [À propos des actions](/actions/automating-your-workflow-with-github-actions/about-actions#using-release-management-for-actions) ».
 
 ```shell{:copy}
 git add action.yml entrypoint.sh Dockerfile README.md
@@ -190,17 +178,17 @@ git tag -a -m "My first action release" v1
 git push --follow-tags
 ```
 
-## Testing out your action in a workflow
+## Tester votre action dans un workflow
 
-Now you're ready to test your action out in a workflow. When an action is in a private repository, the action can only be used in workflows in the same repository. Public actions can be used by workflows in any repository.
+Vous êtes maintenant prêt à tester votre action dans un workflow. Quand une action se trouve dans un dépôt privé, elle peut être utilisée seulement dans des workflows du même dépôt. Les actions publiques peuvent être utilisées par les workflows dans n’importe quel dépôt.
 
 {% data reusables.actions.enterprise-marketplace-actions %}
 
-### Example using a public action
+### Exemple utilisant une action publique
 
-The following workflow code uses the completed _hello world_ action in the public [`actions/hello-world-docker-action`](https://github.com/actions/hello-world-docker-action) repository. Copy the following workflow example code into a `.github/workflows/main.yml` file, but replace the `actions/hello-world-docker-action` with your repository and action name. You can also replace the `who-to-greet` input with your name. {% ifversion fpt or ghec %}Public actions can be used even if they're not published to {% data variables.product.prodname_marketplace %}. For more information, see "[Publishing an action](/actions/creating-actions/publishing-actions-in-github-marketplace#publishing-an-action)." {% endif %}
+Le code du workflow suivant utilise l’action _hello world_ terminée dans le dépôt public [`actions/hello-world-docker-action`](https://github.com/actions/hello-world-docker-action). Copiez l’exemple de code de workflow suivant dans un fichier `.github/workflows/main.yml`, en remplaçant `actions/hello-world-docker-action` par le nom de votre dépôt et le nom de votre action. Vous pouvez également remplacer l’entrée `who-to-greet` par votre nom. {% ifversion fpt or ghec %}Les actions publiques peuvent être utilisées même si elles ne sont pas publiées dans {% data variables.product.prodname_marketplace %}. Pour plus d’informations, consultez « [Publication d’une action](/actions/creating-actions/publishing-actions-in-github-marketplace#publishing-an-action) ». {% endif %}
 
-**.github/workflows/main.yml**
+{% raw %} **.github/workflows/main.yml**
 ```yaml{:copy}
 on: [push]
 
@@ -211,17 +199,18 @@ jobs:
     steps:
       - name: Hello world action step
         id: hello
-        uses: actions/hello-world-docker-action{% ifversion actions-save-state-set-output-envs %}v2{% else %}v1{% endif %}
+        uses: actions/hello-world-docker-action@v1
         with:
           who-to-greet: 'Mona the Octocat'
       # Use the output from the `hello` step
       - name: Get the output time
-        run: echo "The time was {% raw %}${{ steps.hello.outputs.time }}"{% endraw %}
+        run: echo "The time was ${{ steps.hello.outputs.time }}"
 ```
+{% endraw %}
 
-### Example using a private action
+### Exemple utilisant une action privée
 
-Copy the following example workflow code into a `.github/workflows/main.yml` file in your action's repository. You can also replace the `who-to-greet` input with your name. {% ifversion fpt or ghec %}This private action can't be published to {% data variables.product.prodname_marketplace %}, and can only be used in this repository.{% endif %}
+Copiez le code de l’exemple de workflow suivant dans un fichier `.github/workflows/main.yml` du dépôt de votre action. Vous pouvez également remplacer l’entrée `who-to-greet` par votre nom. {% ifversion fpt or ghec %} Cette action privée ne peut pas être publiée dans {% data variables.product.prodname_marketplace %}, et ne peut être utilisée que dans ce dépôt. {% endif %}
 
 **.github/workflows/main.yml**
 ```yaml{:copy}
@@ -246,7 +235,7 @@ jobs:
         run: echo "The time was {% raw %}${{ steps.hello.outputs.time }}"{% endraw %}
 ```
 
-From your repository, click the **Actions** tab, and select the latest workflow run. Under **Jobs** or in the visualization graph, click **A job to say hello**. You should see "Hello Mona the Octocat" or the name you used for the `who-to-greet` input and the timestamp printed in the log.
+Dans votre dépôt, cliquez sur l’onglet **Actions**, puis sélectionnez la dernière exécution du workflow. Sous **Travaux** ou dans le graphe de visualisation, cliquez sur **A job to say hello**. Vous devez voir « Hello Mona the Octocat » ou le nom que vous avez utilisé pour l’entrée `who-to-greet`, ainsi que l’horodatage affiché dans le journal.
 
-![A screenshot of using your action in a workflow](/assets/images/help/repository/docker-action-workflow-run-updated.png)
+![Capture d’écran de l’utilisation de votre action dans un workflow](/assets/images/help/repository/docker-action-workflow-run-updated.png)
 

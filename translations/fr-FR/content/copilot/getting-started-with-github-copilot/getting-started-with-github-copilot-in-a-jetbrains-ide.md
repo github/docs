@@ -1,125 +1,127 @@
 ---
-title: Getting started with GitHub Copilot in a JetBrains IDE
+title: Bien démarrer avec GitHub Copilot dans un IDE JetBrains
 shortTitle: JetBrains IDE
-intro: 'Learn how to install {% data variables.product.prodname_copilot %} in a JetBrains IDE, and start seeing suggestions as you write comments and code.'
+intro: 'Découvrez comment installer {% data variables.product.prodname_copilot %} dans un IDE JetBrains, et commencez à voir des suggestions lorsque vous écrivez des commentaires et du code.'
 product: '{% data reusables.gated-features.copilot %}'
 versions:
   feature: copilot
 topics:
   - Copilot
+ms.openlocfilehash: f5b90fb18645b69f86e9e45e08ba47e534678ae4
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148192782'
 ---
-
 {% data reusables.copilot.copilot-cta-button %}
 
-## About {% data variables.product.prodname_copilot %} and JetBrains IDEs
+## À propos de {% data variables.product.prodname_copilot %} et des IDE JetBrains
 
 {% data reusables.copilot.procedural-intro %}
 
-If you use a JetBrains IDE, you can view and incorporate suggestions from {% data variables.product.prodname_copilot %} directly within the editor. This guide demonstrates how to use {% data variables.product.prodname_copilot %} within a JetBrains IDE for macOS, Windows, or Linux.
+Si vous utilisez un IDE JetBrains, vous pouvez visualiser et intégrer les suggestions de {% data variables.product.prodname_copilot %} directement dans l’éditeur. Ce guide montre comment utiliser {% data variables.product.prodname_copilot %} dans un IDE JetBrains pour macOS, Windows ou Linux.
 
-## Prerequisites
+## Prérequis
 
 {% data reusables.copilot.subscription-prerequisite %}
 
 {% data reusables.copilot.jetbrains-ides %}
 
-## Installing the {% data variables.product.prodname_copilot %} extension in your JetBrains IDE
+## Installation de l’extension {% data variables.product.prodname_copilot %} dans votre IDE JetBrains
 
-To use {% data variables.product.prodname_copilot %} in a JetBrains IDE, you must install the {% data variables.product.prodname_copilot %} extension. The following procedure will guide you through installation of the {% data variables.product.prodname_copilot %} plugin in IntelliJ IDEA. Steps to install the plugin in another supported IDE may differ.
+Pour utiliser {% data variables.product.prodname_copilot %} dans un IDE JetBrains, vous devez installer l’extension {% data variables.product.prodname_copilot %}. La procédure suivante vous guide tout au long de l’installation du plug-in {% data variables.product.prodname_copilot %} dans IntelliJ IDEA. Les étapes d’installation du plug-in peuvent différer dans les autres IDE pris en charge.
 
-1. In your JetBrains IDE, under the **File** menu for Windows or under the name of your IDE for Mac (for example, **PyCharm** or **IntelliJ**), click **Settings** for Windows or **Preferences** for Mac.
-2. In the left-side menu of the **Settings/Preferences** dialog box, click **Plugins**.
-3. At the top of the **Settings/Preferences** dialog box, click **Marketplace**. In the search bar, search for **{% data variables.product.prodname_copilot %}**, then click **Install**.
-   ![Screenshot of Marketplace search](/assets/images/help/copilot/jetbrains-marketplace.png)
-1. After {% data variables.product.prodname_copilot %} is installed, click **Restart IDE**.
-1. After your JetBrains IDE has restarted, click the **Tools** menu. Click **{% data variables.product.prodname_copilot %}**, then click **Login to {% data variables.product.prodname_dotcom %}**. 
-    ![Screenshot of JetBrains tools menu](/assets/images/help/copilot/jetbrains-tools-menu.png)
-1. In the "Sign in to {% data variables.product.prodname_dotcom %}" dialog box, to copy the device code and open the device activation window, click **Copy and Open**.
-    ![Screenshot of device code copy and open](/assets/images/help/copilot/device-code-copy-and-open.png)
-1. A device activation window will open in your browser. Paste the device code, then click **Continue**.
+1. Dans votre IDE JetBrains, sous le menu **Fichier** pour Windows, ou sous le nom de votre IDE pour Mac (par exemple **, PyCharm** ou **IntelliJ**), cliquez sur **Paramètres** pour Windows ou **Préférences** pour Mac.
+2. Dans le menu de gauche de la boîte de dialogue **Paramètres/Préférences**, cliquez sur **Plug-ins**.
+3. En haut de la boîte de dialogue **Paramètres/Préférences**, cliquez sur **Marketplace**. Dans la barre de recherche, recherchez **{% data variables.product.prodname_copilot %}** , puis cliquez sur **Installer**.
+   ![Capture d’écran de la recherche Marketplace](/assets/images/help/copilot/jetbrains-marketplace.png)
+1. Une fois {% data variables.product.prodname_copilot %} installé, cliquez sur **Redémarrer l’IDE**.
+1. Une fois votre IDE JetBrains redémarré, cliquez sur le menu **Outils**. Cliquez sur **{% data variables.product.prodname_copilot %}** , puis cliquez sur **Se connecter à {% data variables.product.prodname_dotcom %}** . 
+    ![Capture d’écran du menu Outils JetBrains](/assets/images/help/copilot/jetbrains-tools-menu.png)
+1. Dans la boîte de dialogue « Se connecter à {% data variables.product.prodname_dotcom %} », pour copier le code de l’appareil et ouvrir la fenêtre d’activation de l’appareil, cliquez sur **Copier et ouvrir**.
+    ![Capture d’écran de la copie et de l’ouverture du code de l’appareil](/assets/images/help/copilot/device-code-copy-and-open.png)
+1. Une fenêtre d’activation d’appareil s’ouvrira dans votre navigateur. Collez le code de l’appareil, puis cliquez sur **Continuer**.
 
-   - To paste the code in Windows or Linux, press <kbd>Ctrl</kbd>+<kbd>v</kbd>.
-   - To paste the code in macOS, press <kbd>command</kbd>+<kbd>v</kbd>.
-1. {% data variables.product.prodname_dotcom %} will request the necessary permissions for {% data variables.product.prodname_copilot %}. To approve these permissions, click **Authorize {% data variables.product.prodname_copilot %} Plugin**.
-1. After the permissions have been approved, your JetBrains IDE will show a confirmation. To begin using {% data variables.product.prodname_copilot %}, click **OK**.
-   ![Screenshot of JetBrains IDE permissions confirmation](/assets/images/help/copilot/jetbrains-ide-confirmation.png)
+   - Pour coller le code sur un système Windows ou Linux, appuyez sur <kbd>Ctrl</kbd>+<kbd>v</kbd>.
+   - Pour coller le code sur un système macOS, appuyez sur <kbd>commande</kbd>+<kbd>v</kbd>.
+1. {% data variables.product.prodname_dotcom %} demandera les autorisations nécessaires pour {% data variables.product.prodname_copilot %}. Pour approuver ces autorisations, cliquez sur **Autoriser le plug-in {% data variables.product.prodname_copilot %}** .
+1. Une fois les autorisations approuvées, votre IDE JetBrains affichera une confirmation. Pour commencer à utiliser {% data variables.product.prodname_copilot %}, cliquez sur **OK**.
+   ![Capture d’écran de la confirmation des autorisations IDE JetBrains](/assets/images/help/copilot/jetbrains-ide-confirmation.png)
    
 
-## Seeing your first suggestion
+## Voir votre première suggestion
 
 {% data reusables.copilot.code-examples-limitations %}
 
-{% data reusables.copilot.supported-languages %} The following samples are in Java, but other languages will work similarly.
+{% data reusables.copilot.supported-languages %} Les exemples suivants sont en Java. Cependant, d’autres langages ont un fonctionnement similaire.
 
 {% data reusables.copilot.create-java-file %}
-1. In the Java file, create a class by typing `class Test`.
-   {% data variables.product.prodname_copilot %} will automatically suggest a class body in grayed text, as shown below. The exact suggestion may vary.
-   ![Screenshot of the Java class body suggestion](/assets/images/help/copilot/java-class-body-suggestion-jetbrains.png)
-{% data reusables.copilot.accept-suggestion %}
-1. To prompt {% data variables.product.prodname_copilot %} to suggest a function body, type the following line below the bracket of the `main` function. The exact suggestion may vary.
+1. Dans le fichier Java, créez une classe en tapant `class Test`.
+   {% data variables.product.prodname_copilot %} suggère automatiquement un corps de classe en texte grisé, comme indiqué ci-dessous. La suggestion exacte peut varier.
+   ![Capture d’écran de la suggestion de corps de classe Java](/assets/images/help/copilot/java-class-body-suggestion-jetbrains.png) {% data reusables.copilot.accept-suggestion %}
+1. Pour inviter {% data variables.product.prodname_copilot %} à suggérer un corps de fonction, tapez la ligne suivante sous le crochet de la fonction `main`. La suggestion exacte peut varier.
 {% indented_data_reference reusables.copilot.java-int-snippet spaces=3 %}
 
-   ![Screenshot of the Java function body suggestion](/assets/images/help/copilot/java-function-body-suggestion-jetbrains.png)
-{% data reusables.copilot.accept-suggestion %}
+   ![Capture d’écran de la suggestion de corps de fonction Java](/assets/images/help/copilot/java-function-body-suggestion-jetbrains.png) {% data reusables.copilot.accept-suggestion %}
 
-{% data variables.product.prodname_copilot %} will attempt to match the context and style of your code. You can always edit the suggested code.
+{% data variables.product.prodname_copilot %} tentera de correspondre au contexte et au style de votre code. Vous pouvez toujours modifier le code suggéré.
 
-## Seeing alternative suggestions
+## Voir d’autres suggestions
 
 {% data reusables.copilot.alternative-suggestions %}
 
 {% data reusables.copilot.create-java-file %}
-1. To prompt {% data variables.product.prodname_copilot %} to show you a suggestion, type the following line in the Java file.
-{% indented_data_reference reusables.copilot.java-int-snippet spaces=3 %}
-{% data reusables.copilot.see-alternative-suggestions %}
+1. Pour inviter {% data variables.product.prodname_copilot %} à afficher une suggestion, tapez la ligne suivante dans le fichier Java.
+{% indented_data_reference reusables.copilot.java-int-snippet spaces=3 %} {% data reusables.copilot.see-alternative-suggestions %}
 
-   | OS | See next suggestion | See previous suggestion |
+   | Système d''exploitation | Voir la suggestion suivante | Voir la suggestion précédente |
    | :- | :- | :- |
    | macOS | <kbd>Option</kbd>+<kbd>]</kbd> | <kbd>Option</kbd>+<kbd>[</kbd> |
    | Windows | <kbd>Alt</kbd>+<kbd>]</kbd> | <kbd>Alt</kbd>+<kbd>[</kbd> |
    | Linux | <kbd>Alt</kbd>+<kbd>]</kbd> | <kbd>Alt</kbd>+<kbd>[</kbd> |
 {% data reusables.copilot.accept-or-reject-suggestion %}
 
-## Seeing multiple suggestions in a new tab
+## Affichage de plusieurs suggestions sous un nouvel onglet
 
 {% data reusables.copilot.suggestions-new-tab %}
 
 {% data reusables.copilot.create-java-file %}
-1. To prompt {% data variables.product.prodname_copilot %} to show you a suggestion, type the following line in the Java file.
+1. Pour inviter {% data variables.product.prodname_copilot %} à afficher une suggestion, tapez la ligne suivante dans le fichier Java.
 {% indented_data_reference reusables.copilot.java-int-snippet spaces=3 %}
-1. Open a new tab with multiple additional suggestions.
-    - On macOS, press <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>A</kbd>, then click **Open GitHub Copilot**, or press <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>\</kbd> to open the new tab immediately.
-    - On Windows or Linux, press <kbd>Ctrl</kbd>+<kbd>Enter</kbd>, then click **Open GitHub Copilot**.
-  ![Screenshot of dialogue to open Copilot](/assets/images/help/copilot/open-copilot-tab-jetbrains.png)
-1. To accept a suggestion, above the suggestion, click **Accept Solution**. To reject all suggestions, close the tab.
+1. Ouvrez un nouvel onglet avec plusieurs suggestions supplémentaires.
+    - Sur macOS, appuyez sur <kbd>Commande</kbd>+<kbd>Maj</kbd>+<kbd>A</kbd>, puis cliquez sur **Ouvrir GitHub Copilot**, ou appuyez sur <kbd>Commande</kbd>+<kbd>Maj</kbd>+<kbd>\</kbd> pour ouvrir immédiatement le nouvel onglet.
+    - Sur Windows ou Linux, appuyez sur <kbd>Ctrl</kbd>+<kbd>Entrée</kbd>, puis cliquez sur **Ouvrir GitHub Copilot**.
+  ![Capture d’écran de la boîte de dialogue d’ouverture de Copilot](/assets/images/help/copilot/open-copilot-tab-jetbrains.png)
+1. Pour accepter une suggestion, au-dessus de celle-ci, cliquez sur **Accepter la solution**. Pour rejeter toutes les suggestions, fermez l’onglet.
 
-## Generating code suggestions from comments
+## Génération de suggestions de code à partir de commentaires
 
 {% data reusables.copilot.generating-suggestions-from-comments %}
 
 {% data reusables.copilot.create-java-file %}
-1. To prompt {% data variables.product.prodname_copilot %} to suggest an implementation of a function in the Java file, type the following lines.
+1. Pour inviter {% data variables.product.prodname_copilot %} à suggérer une implémentation d’une fonction dans le fichier Java, tapez les lignes suivantes.
     ```java{:copy}
     // find all images without alternate text
     // and give them a red border
     void process () {
     ```
-  ![Screenshot of the Java function body suggestion](/assets/images/help/copilot/comment-suggestion-jetbrains.png)
+  ![Capture d’écran de la suggestion de corps de la fonction Java](/assets/images/help/copilot/comment-suggestion-jetbrains.png)
 
-## Enabling and disabling {% data variables.product.prodname_copilot %}
+## Activation et désactivation de {% data variables.product.prodname_copilot %}
 
-You can enable or disable {% data variables.product.prodname_copilot %} for all languages, or for individual languages. The {% data variables.product.prodname_copilot %} status icon in the bottom panel of your JetBrains IDE window indicates whether {% data variables.product.prodname_copilot %} is enabled or disabled. When enabled, the icon is highlighted. When disabled, the icon is grayed out.
+Vous pouvez activer ou désactiver {% data variables.product.prodname_copilot %} pour tous les langages ou seulement certains langages. L’icône d’état {% data variables.product.prodname_copilot %} dans le panneau inférieur de la fenêtre de l’IDE JetBrains indique si {% data variables.product.prodname_copilot %} est activé ou désactivé. Quand cette option est activée, l’icône est mise en évidence. Quand elle est désactivée, l’icône est grisée.
 
-1. To enable or disable {% data variables.product.prodname_copilot %}, click the status icon in the bottom panel of the JetBrains window.
-   ![Screenshot of the status icon in IntelliJ IDEA](/assets/images/help/copilot/status-icon-jetbrains.png)
-2. If you are disabling {% data variables.product.prodname_copilot %}, you will be asked whether you want to disable it globally, or for the language of the file you are currently editing.
+1. Pour activer ou désactiver {% data variables.product.prodname_copilot %}, cliquez sur l’icône d’état dans le panneau inférieur de la fenêtre JetBrains.
+   ![Capture d’écran de l’icône d’état dans IntelliJ IDEA](/assets/images/help/copilot/status-icon-jetbrains.png)
+2. Si vous désactivez {% data variables.product.prodname_copilot %}, il vous sera demandé si vous souhaitez le désactiver entièrement ou seulement pour le langage du fichier que vous êtes en train de modifier.
 
-   - To disable suggestions from {% data variables.product.prodname_copilot %} globally, click **Disable Completions**.
-   - To disable suggestions from {% data variables.product.prodname_copilot %} for the specified language, click **Disable Completions for _LANGUAGE_**.
-   ![Screenshot of option to disable {% data variables.product.prodname_copilot %} globally or for the current language](/assets/images/help/copilot/disable-copilot-global-or-langugage-jetbrains.png)
+   - Pour désactiver les suggestions de {% data variables.product.prodname_copilot %} globalement, cliquez sur **Désactiver les saisies semi-automatiques**.
+   - Pour désactiver les suggestions de {% data variables.product.prodname_copilot %} pour le langage spécifié, cliquez sur **Désactiver les saisies semi-automatiques pour _LANGAGE_**.
+   ![Capture d’écran de l’option permettant de désactiver {% data variables.product.prodname_copilot %} globalement ou pour le langage actuel](/assets/images/help/copilot/disable-copilot-global-or-langugage-jetbrains.png)
 
 
-## Further reading
+## Pour aller plus loin
 
-- [The {% data variables.product.prodname_copilot %} website](https://copilot.github.com/)
-- [About {% data variables.product.prodname_copilot %}](/copilot/overview-of-github-copilot/about-github-copilot#about-the-license-for-the-github-copilot-plugin-in-jetbrains-ides)
+- [Site web de {% data variables.product.prodname_copilot %}](https://copilot.github.com/)
+- [À propos de {% data variables.product.prodname_copilot %}](/copilot/overview-of-github-copilot/about-github-copilot#about-the-license-for-the-github-copilot-plugin-in-jetbrains-ides)

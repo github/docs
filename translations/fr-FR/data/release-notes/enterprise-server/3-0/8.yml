@@ -1,0 +1,27 @@
+date: '2021-05-25'
+sections:
+  security_fixes:
+    - '**MOYENNE :** Dans certaines circonstances, les utilisateurs qui avaient été retirés d’une équipe ou d’une organisation pouvaient conserver l’accès en écriture aux branches pour lesquelles ils avaient des demandes de tirage (pull request) ouvertes.'
+    - Les packages ont été mis à jour avec les dernières versions de sécurité.
+  bugs:
+    - "Dans la page « Configurer les actions et les packages » du processus d’installation initial, quand un administrateur cliquait sur le bouton « Tester les paramètres de domaine », le test ne s’effectuait pas."
+    - "L’exécution de « ghe-btop » échouait avec l’erreur « Impossible de trouver un conteneur 'babeld' »."
+    - "Les utilisateurs rencontraient une indisponibilité de service après la mise à niveau, en raison d’une non-correspondance des valeurs de délai d’attente interne et externe."
+    - Les délais de réplication normaux dans MSSQL généraient des avertissements.
+    - Le lien pour le Guide de clustering GitHub Enterprise sur la console de gestion était incorrect.
+    - Une adresse IP ajoutée par un administrateur à l’aide du bouton « Créer une entrée de liste verte » pouvait être toujours bloquée.
+    - Les références aux fonctionnalités « Graphe des dépendances » et « Alertes Dependabot » étaient affichées sur des dépôts dans lesquelles elles n’étaient pas activées.
+    - Les requêtes HTTP POST adressées au point de terminaison « /hooks » pouvaient échouer avec une réponse 401 en raison du paramètre « hookID » mal configuré.
+    - "Le processus « build-server » ne réussissait pas à nettoyer les processus, les laissant dans l’état « defunct »."
+    - '« spokesd » créait un nombre excessif d’entrées de journal, avec l’expression« fixing placement skipped ».'
+  changes:
+    - Les annotations de contrôle datant de plus de 4 mois seront archivées.
+  known_issues:
+    - "L’accès à un dépôt par le shell d’administration en utilisant « ghe-repo <propriétaire>/<nom_dépôt> » se bloquera. Comme solution de contournement, utilisez « ghe-repo <propriétaire>/<nom_dépôt> -c \"bash -i\" » jusqu’à ce qu’un correctif soit disponible dans la prochaine version."
+    - "Sur une instance GitHub Enterprise Server fraîchement configurée et sans utilisateur, un attaquant peut créer le premier utilisateur administrateur."
+    - Les règles de pare-feu personnalisées ne sont pas conservées lors d’une mise à niveau.
+    - "Les fichiers suivis par Git LFS [chargés via l’interface web](https://github.com/blog/2105-upload-files-to-your-repositories) sont, à tort, ajoutés directement au dépôt."
+    - "Les problèmes ne peuvent pas être fermés s’ils contiennent un lien permanent vers un objet blob se trouvant dans le même dépôt, où le chemin de fichier dépasse 255 caractères."
+    - "Quand l’option « Les utilisateurs peuvent effectuer des recherches sur GitHub.com » est activée avec GitHub Connect, les problèmes dans les dépôts privés et internes ne sont pas inclus dans les résultats de recherche de GitHub.com."
+    - "Quand un nœud de réplica est hors connexion dans une configuration de haute disponibilité, {% data variables.product.product_name %} peut toujours router les requêtes de {% data variables.product.prodname_pages %} vers le nœud hors connexion, réduisant ainsi la disponibilité de {% data variables.product.prodname_pages %} pour les utilisateurs."
+    - Les limites de ressources propres au traitement des hooks de pré-réception peuvent entraîner l’échec de certains d’entre eux.

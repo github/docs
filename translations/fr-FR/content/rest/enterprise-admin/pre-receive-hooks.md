@@ -1,29 +1,31 @@
 ---
-title: Pre-receive Hooks
-intro: 'The Pre-receive Hooks API allows you to create, list, update and delete pre-receive hooks.'
+title: Hooks de pré-réception
+intro: 'L’API Hooks de pré-réception vous permet de créer, répertorier, mettre à jour et supprimer des hooks de pré-réception.'
 versions:
   ghes: '*'
 topics:
   - API
 miniTocMaxHeadingLevel: 3
+ms.openlocfilehash: dd776e7ec95a970f025d4de1ec03f07b2a7b29f7
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147066153'
 ---
+*Uniquement disponible pour les administrateurs de site [authentifiés](/rest/overview/resources-in-the-rest-api#authentication).* Les utilisateurs normaux recevront une réponse `404` s’ils essaient d’y accéder.
 
-*It is only available to [authenticated](/rest/overview/resources-in-the-rest-api#authentication) site administrators.* Normal users will receive a `404` response if they try to access it.
+### Attributs d’objet
 
-{% data reusables.user-settings.enterprise-admin-api-classic-pat-only %}
+#### Hook de pré-réception
 
-### Object attributes
-
-#### Pre-receive Hook
-
-| Name                             | Type      | Description                                                     |
+| Nom                             | Type      | Description                                                     |
 |----------------------------------|-----------|-----------------------------------------------------------------|
-| `name`                           | `string`  | The name of the hook.                                           |
-| `script`                         | `string`  | The script that the hook runs.                                  |
-| `script_repository`              | `object`  | The GitHub repository where the script is kept.                 |
-| `environment`                    | `object`  | The pre-receive environment where the script is executed.       |
-| `enforcement`                    | `string`  | The state of enforcement for this hook.                         |
-| `allow_downstream_configuration` | `boolean` | Whether enforcement can be overridden at the org or repo level. |
+| `name`                           | `string`  | Nom du hook.                                           |
+| `script`                         | `string`  | Script exécuté par le hook.                                  |
+| `script_repository`              | `object`  | Référentiel GitHub où le script est conservé.                 |
+| `environment`                    | `object`  | Environnement de pré-réception dans lequel le script est exécuté.       |
+| `enforcement`                    | `string`  | État d’application de ce hook.                         |
+| `allow_downstream_configuration` | `boolean` | Indique si l’application peut être remplacée au niveau de l’organisation ou du référentiel. |
 
-Possible values for *enforcement* are `enabled`, `disabled` and`testing`. `disabled` indicates the pre-receive hook will not run. `enabled` indicates it will run and reject
-any pushes that result in a non-zero status. `testing` means the script will run but will not cause any pushes to be rejected.
+Les valeurs possibles pour *enforcement* sont `enabled`, `disabled` et `testing`. `disabled` indique que le hook pré-réception ne s’exécute pas. `enabled` indique qu’il s’exécute et rejette tous les envois qui entraînent un état différent de zéro. `testing` signifie que le script s’exécute, mais n’entraîne pas de rejet des envois.
