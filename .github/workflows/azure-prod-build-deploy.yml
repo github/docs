@@ -159,10 +159,6 @@ jobs:
         run: |
           sed 's|#{IMAGE}#|${{ env.DOCKER_IMAGE }}|g' docker-compose.prod.tmpl.yaml > docker-compose.prod.yaml
 
-      - name: 'Show the created docker-compose.prod.yaml'
-        run: |
-          cat docker-compose.prod.yaml
-
       - name: 'Apply updated docker-compose.prod.yaml config to canary slot'
         run: |
           az webapp config container set --multicontainer-config-type COMPOSE --multicontainer-config-file docker-compose.prod.yaml --slot canary -n ghdocs-prod -g docs-prod
