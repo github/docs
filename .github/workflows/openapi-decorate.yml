@@ -54,6 +54,7 @@ jobs:
         run: script/rest/update-files.js --decorate-only
 
       - name: Check if pull request should be closed
+        id: close-pr
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR_URL: ${{ github.event.pull_request.html_url }}
@@ -64,11 +65,13 @@ jobs:
             then
               echo "No decorated file changes found"
               gh pr comment "$PR_URL" --body "🤖 This pull request has no changes to lib/rest/static/decorated, so it is being closed automatically."
-              gh pr close "$PR_URL"
+              gh pr close "$PR_URL" --delete-branch
+              echo "NO_DECORATED=true" >> $GITHUB_OUTPUT
               exit 0
           fi
 
       - name: Check in the decorated files
+        if: ${{ steps.close-pr.outputs.NO_DECORATED != 'true' }}
         uses: EndBug/add-and-commit@050a66787244b10a4874a2a5f682130263edc192
         with:
           # The arguments for the `git add` command
@@ -82,6 +85,7 @@ jobs:
           HUSKY: '0'
 
       - name: Remove the dereferenced files
+        if: ${{ steps.close-pr.outputs.NO_DECORATED != 'true' }}
         uses: EndBug/add-and-commit@050a66787244b10a4874a2a5f682130263edc192
         with:
           # The arguments for the `git add` command
