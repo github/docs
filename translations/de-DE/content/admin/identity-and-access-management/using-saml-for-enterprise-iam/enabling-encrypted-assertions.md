@@ -1,7 +1,7 @@
 ---
-title: Enabling encrypted assertions
+title: Aktivieren von verschlüsselten Assertionen
 shortTitle: Enable encrypted assertions
-intro: 'You can improve {% data variables.location.product_location %}''s security with SAML single sign-on (SSO) by encrypting the messages that your SAML identity provider (IdP) sends.'
+intro: 'Du kannst die Sicherheit von {% data variables.product.product_location %} mit SAML Single Sign-On (SSO) verbessern, indem du die Nachrichten verschlüsselst, die dein SAML-Identitätsanbieter sendet.'
 permissions: 'Site administrators can configure encrypted assertions for a {% data variables.product.product_name %} instance.'
 versions:
   ghes: '> 3.3'
@@ -13,48 +13,51 @@ topics:
   - Identity
   - Security
   - SSO
+ms.openlocfilehash: ecb60a4398993155fa7498f26e7628660e88e54a
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147063778'
 ---
+## Informationen zu verschlüsselten Assertionen
 
-## About encrypted assertions
+Wenn dein IdP die Verschlüsselung von SAML-Assertionen unterstützt, kannst du verschlüsselte Assertionen in {% data variables.product.product_name %} konfigurieren und so während des Authentifizierungsprozesses erhöhte Sicherheit gewährleisten.
 
-If your IdP support encryption of assertions, you can configure encrypted assertions on {% data variables.product.product_name %} for increased security during the authentication process.
+## Voraussetzungen
 
-## Prerequisites
+Um verschlüsselte Assertionen für die Authentifizierung auf {% data variables.product.product_name %} zu aktivieren, musst du die SAML-Authentifizierung konfigurieren, und dein IdP muss verschlüsselte Assertionen unterstützen.
 
-To enable encrypted assertions for authentication to {% data variables.product.product_name %}, you must configure SAML authentication, and your IdP must support encrypted assertions.
+## Aktivieren von verschlüsselten Assertionen
 
-## Enabling encrypted assertions
-
-To enable encrypted assertions, you must provide {% data variables.location.product_location %}'s public certificate to your IdP, and configure encryption settings that match your IdP.
+Um verschlüsselte Assertionen zu aktivieren, musst du dem IdP das öffentliche Zertifikat von {% data variables.product.product_location %} bereitstellen und Verschlüsselungseinstellungen konfigurieren, die dem IdP entsprechen.
 
 {% note %}
 
-**Note**: {% data reusables.enterprise.test-in-staging %}
+**Hinweis**: {% data reusables.enterprise.test-in-staging %}
 
 {% endnote %}
 
-1. Optionally, enable SAML debugging. SAML debugging records verbose entries in {% data variables.product.product_name %}'s authentication log, and may help you troubleshoot failed authentication attempts. For more information, see "[Troubleshooting SAML authentication](/admin/identity-and-access-management/using-saml-for-enterprise-iam/troubleshooting-saml-authentication#configuring-saml-debugging)."
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.management-console %}
-{% data reusables.enterprise_management_console.authentication %}
-1. Select **Require encrypted assertions**.
+1. Aktiviere optional SAML-Debugging. Beim SAML-Debugging werden ausführliche Einträge im Authentifizierungsprotokoll von {% data variables.product.product_name %} aufgezeichnet. Dies hilft Ihnen möglicherweise bei der Problembehandlung im Fall fehlgeschlagener Authentifizierungsversuche. Weitere Informationen findest du unter [Problembehandlung bei der SAML-Authentifizierung](/admin/identity-and-access-management/using-saml-for-enterprise-iam/troubleshooting-saml-authentication#configuring-saml-debugging).
+{% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.enterprise_site_admin_settings.management-console %} {% data reusables.enterprise_management_console.authentication %}
+1. Wähle **Require encrypted assertions** (Verschlüsselte Assertionen erforderlich) aus.
 
-   ![Screenshot of "Enable encrypted assertions" checkbox within management console's "Authentication" section](/assets/images/help/saml/management-console-enable-encrypted-assertions.png)
-1. To the right of "Encryption Certificate", click **Download** to save a copy of {% data variables.location.product_location %}'s public certificate on your local machine.
+   ![Screenshot des Kontrollkästchens „Enable encrypted assertions“ (Verschlüsselte Assertionen aktivieren) im Abschnitt „Authentication“ (Authentifizierung) der Verwaltungskonsole](/assets/images/help/saml/management-console-enable-encrypted-assertions.png)
+1. Klicke rechts neben „Encryption Certificate“ (Verschlüsselungszertifikat) auf **Download** (Herunterladen), um eine Kopie des öffentlichen Zertifikats von {% data variables.product.product_location %} auf dem lokalen Computer zu speichern.
 
-   ![Screenshot of "Download" button for public certificate for encrypted assertions](/assets/images/help/saml/management-console-encrypted-assertions-download-certificate.png)
-1. Sign into your SAML IdP as an administrator.
-1. In the application for {% data variables.location.product_location %}, enable encrypted assertions.
-   - Note the encryption method and key transport method.
-   - Provide the public certificate you downloaded in step 7.
-1. Return to the management console on {% data variables.location.product_location %}.
-1. To the right of "Encryption Method", select the encryption method for your IdP from step 9.
+   ![Screenshot der Schaltfläche „Download“ (Herunterladen) für öffentliche Zertifikate für verschlüsselte Assertionen](/assets/images/help/saml/management-console-encrypted-assertions-download-certificate.png)
+1. Melde dich als Administrator bei deinem SAML-IdP an.
+1. Aktiviere in der Anwendung für {% data variables.product.product_location %} verschlüsselte Assertionen.
+   - Beachte die Verschlüsselungsmethode und die Schlüsseltransportmethode.
+   - Stelle das öffentliche Zertifikat bereit, das du in Schritt 7 heruntergeladen hast.
+1. Kehre zur Verwaltungskonsole in {% data variables.product.product_location %} zurück.
+1. Wähle rechts neben „Encryption Method“ (Verschlüsselungsmethode) die Verschlüsselungsmethode für deinen IdP aus Schritt 9 aus.
 
-   ![Screenshot of "Encryption Method" for encrypted assertions](/assets/images/help/saml/management-console-encrypted-assertions-encryption-method.png)
-1. To the right of "Key Transport Method", select the key transport method for your IdP from step 9.
+   ![Screenshot von „Encryption Method“ (Verschlüsselungsmethode) für verschlüsselte Assertionen](/assets/images/help/saml/management-console-encrypted-assertions-encryption-method.png)
+1. Wähle rechts neben „Key Transport Method“ (Schlüsseltransportmethode) die Schlüsseltransportmethode für deinen IdP aus Schritt 9 aus.
 
-   ![Screenshot of "Key Transport Method" for encrypted assertions](/assets/images/help/saml/management-console-encrypted-assertions-key-transport-method.png)
-1. Click **Save settings**.
+   ![Screenshot von „Key Transport Method“ (Schlüsseltransportmethode) für verschlüsselte Assertionen](/assets/images/help/saml/management-console-encrypted-assertions-key-transport-method.png)
+1. Klicke auf **Save settings** (Einstellungen speichern).
 {% data reusables.enterprise_site_admin_settings.wait-for-configuration-run %}
 
-If you enabled SAML debugging to test authentication with encrypted assertions, disable SAML debugging when you're done testing. For more information, see "[Troubleshooting SAML authentication](/admin/identity-and-access-management/using-saml-for-enterprise-iam/troubleshooting-saml-authentication#configuring-saml-debugging)."
+Wenn du SAML-Debugging aktiviert hast, um die Authentifizierung mit verschlüsselten Assertionen zu testen, deaktiviere SAML-Debugging, wenn du mit dem Testen fertig bist. Weitere Informationen findest du unter [Problembehandlung bei der SAML-Authentifizierung](/admin/identity-and-access-management/using-saml-for-enterprise-iam/troubleshooting-saml-authentication#configuring-saml-debugging).

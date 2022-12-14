@@ -1,6 +1,6 @@
 ---
-title: Verifying or approving a domain for your organization
-intro: 'You can verify your ownership of domains with {% data variables.product.company_short %} to confirm your organization''s identity. You can also approve domains that {% data variables.product.company_short %} can send email notifications to for members of your organization.'
+title: Проверка или утверждение домена для вашей организации
+intro: 'Вы можете проверить владение доменами с помощью {% data variables.product.company_short %}, чтобы подтвердить удостоверение своей организации. Вы также можете утверждать домены, на которые {% data variables.product.company_short %} может отправлять уведомления по электронной почте участникам вашей организации.'
 redirect_from:
   - /articles/verifying-your-organization-s-domain
   - /articles/verifying-your-organizations-domain
@@ -17,77 +17,66 @@ topics:
   - Organizations
   - Policy
 shortTitle: Verify or approve a domain
+ms.openlocfilehash: ef866608c32bbcce36292822521f941a5c37476f
+ms.sourcegitcommit: 5f40f9341dd1e953f4be8d1642f219e628e00cc8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/04/2022
+ms.locfileid: '148009883'
 ---
+## Проверка домена
 
-## About domain verification
+После проверки владения доменами вашей организации будет отображаться значок "Проверено" в профиле организации. {% ifversion ghec %}Если ваша организация согласилась с корпоративными условиями обслуживания, владельцы организации смогут проверить личность ее членов, просмотрев адрес электронной почты каждого в проверенном домене. Дополнительные сведения см. в разделе [Страница профиля вашей организации](/articles/about-your-organization-s-profile/) и <a href="/articles/upgrading-to-the-corporate-terms-of-service" class="dotcom-only">Переход на корпоративные условия обслуживания</a>.{% endif %}
 
-After verifying ownership of your organization's domains, a "Verified" badge will display on the organization's profile. {% ifversion ghec %}If your organization has agreed to the Corporate Terms of Service, organization owners will be able to verify the identity of organization members by viewing each member's email address within the verified domain. For more information, see "[About your organization's profile page](/articles/about-your-organization-s-profile/)" and "<a href="/articles/upgrading-to-the-corporate-terms-of-service" class="dotcom-only">Upgrading to the Corporate Terms of Service</a>."{% endif %}
+{% ifversion ghec %}Если ваша организация принадлежит корпоративной учетной записи, значок {% elsif ghes %}A{% endif %} "Проверено" будет отображаться в профиле вашей организации для всех доменов, проверенных для корпоративной учетной записи, в дополнение к любым доменам, проверенным для организации. Владельцы организаций могут просматривать любые домены, проверенные или утвержденные владельцем предприятия, и редактировать их, если владелец организации также является владельцем предприятия. Дополнительные сведения см. в разделе [Проверка или утверждение домена для предприятия](/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise).
 
-{% ifversion ghec %}If your organization is owned by an enterprise account, a{% elsif ghes %}A{% endif %} "Verified" badge will display on your organization's profile for any domains verified for the enterprise account, in addition to any domains verified for the organization. Organization owners can view any domains that an enterprise owner has verified or approved, and edit the domains if the organization owner is also an enterprise owner. For more information, see "[Verifying or approving a domain for your enterprise](/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise)."
+{% ifversion ghec %} {% note %}
 
-{% ifversion ghec %}
-{% note %}
+**Примечание.** Чтобы проверять или подтверждать домены, ваша организация должна использовать {% data variables.product.prodname_ghe_cloud %}. {% data reusables.enterprise.link-to-ghec-trial %}
 
-**Note:** To verify or approve domains, your organization must use {% data variables.product.prodname_ghe_cloud %}. {% data reusables.enterprise.link-to-ghec-trial %}
-
-{% endnote %}
-{% endif %}
+{% endnote %} {% endif %}
 
 {% data reusables.organizations.verified-domains-details %}
 
-{% ifversion ghec or ghes %}
-After verifying ownership of your organization's domain, you can restrict email notifications for the organization to that domain. For more information, see "[Restricting email notifications for your organization](/organizations/keeping-your-organization-secure/restricting-email-notifications-for-your-organization)."
+{% ifversion ghec or ghes %} После проверки владения доменом организации можно ограничить отправку уведомлений по электронной почте для организации на такой домен. Дополнительные сведения см. в статье [Ограничение уведомлений по электронной почте для организации](/organizations/keeping-your-organization-secure/restricting-email-notifications-for-your-organization).
 {% endif %}
 
-{% ifversion ghec %}You can also verify custom domains used for {% data variables.product.prodname_pages %} to prevent domain takeovers when a custom domain remains configured but your {% data variables.product.prodname_pages %} site is either disabled or no longer uses the domain. For more information, see "[Verifying your custom domain for {% data variables.product.prodname_pages %}](/pages/configuring-a-custom-domain-for-your-github-pages-site/verifying-your-custom-domain-for-github-pages)."{% endif %}
+{% ifversion ghec %}Вы также можете проверить личные домены, используемые для {% data variables.product.prodname_pages %}, чтобы предотвратить перехват домена, когда личный домен остается настроенным, но ваш сайт {% data variables.product.prodname_pages %} либо отключен, либо больше не использует домен. Дополнительные сведения см. в разделе [Подтверждение личного домена для {% data variables.product.prodname_pages %}](/pages/configuring-a-custom-domain-for-your-github-pages-site/verifying-your-custom-domain-for-github-pages).{% endif %}
 
-## About domain approval
+## Сведения об утверждении домена
 
 {% data reusables.enterprise-accounts.approved-domains-beta-note %}
 
 {% data reusables.enterprise-accounts.approved-domains-about %}
 
-After you approve domains for your organization, you can restrict email notifications for activity within the organization to users with verified email addresses within verified or approved domains. For more information, see "[Restricting email notifications for your organization](/organizations/keeping-your-organization-secure/restricting-email-notifications-for-your-organization)."
+После утверждения доменов для вашей организации можно ограничить уведомления по электронной почте для действий в вашей организации только пользователями с проверенными адресами электронной почты в проверенных или утвержденных доменах. Дополнительные сведения см. в статье [Ограничение уведомлений по электронной почте для организации](/organizations/keeping-your-organization-secure/restricting-email-notifications-for-your-organization).
 
-Enterprise owners cannot see which organization members or email addresses receive notifications within approved domains.
+Владельцы предприятия не могут видеть, какие члены организации или адреса электронной почты получают уведомления в утвержденных доменах.
 
-Enterprise owners can also approve additional domains for organizations owned by the enterprise. {% ifversion ghec %}For more information, see "[Verifying or approving a domain for your enterprise](/enterprise-cloud@latest/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise)."{% endif %}{% ifversion ghes %}For more information, see "[Verifying or approving a domain for your enterprise](/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise)."{% endif %}
+Владельцы предприятия также могут утверждать дополнительные домены для организаций, принадлежащих предприятию. {% ifversion ghec %}Дополнительные сведения см. в статье [Проверка или утверждение домена для предприятия](/enterprise-cloud@latest/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise).{% endif %}{% ifversion ghes %}Дополнительные сведения см. в статье [Проверка или утверждение домена для предприятия](/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise).{% endif %}
 
-## Verifying a domain for your organization
+## Проверка домена для организации
 
-To verify a domain, you must have access to modify domain records with your domain hosting service.
+Чтобы проверить домен, необходимо иметь доступ для изменения записей домена с помощью службы размещения доменов.
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.verified-domains %}
-{% data reusables.organizations.add-a-domain %}
-{% data reusables.organizations.add-domain %}
-{% data reusables.organizations.add-dns-txt-record %}
-1. Wait for your DNS configuration to change, which may take up to 72 hours. You can confirm your DNS configuration has changed by running the `dig` command on the command line, replacing `ORGANIZATION` with the name of your organization and `example.com` with the domain you'd like to verify. You should see your new TXT record listed in the command output.
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.organizations.verified-domains %} {% data reusables.organizations.add-a-domain %} {% data reusables.organizations.add-domain %} {% data reusables.organizations.add-dns-txt-record %}
+1. Дождитесь изменения конфигурации DNS (это может занять до 72 часов). Можно подтвердить изменение конфигурации DNS, выполнив команду `dig` в командной строке, заменив `ORGANIZATION` именем вашей организации и `example.com` доменом, который вы хотите проверить. В выходных данных команды должна появиться новая запись в текстовом формате.
    ```shell
    $ dig _github-challenge-ORGANIZATION.example.com +nostats +nocomments +nocmd TXT
    ```
-1. After confirming your TXT record is added to your DNS, follow steps one through three above to navigate to your organization's approved and verified domains.
+1. После подтверждения добавления записи TXT в DNS выполните шаги с первого по третий, чтобы перейти к утвержденным и проверенным доменам организации.
 {% data reusables.organizations.continue-verifying-domain %}
-11. Optionally, once the "Verified" badge is visible on your organization's profile page, you can delete the TXT entry from the DNS record at your domain hosting service.
-![Verified badge](/assets/images/help/organizations/verified-badge.png)
+11. При необходимости после того, как значок "Проверено" отобразится на странице профиля вашей организации, можно удалить запись TXT из записи DNS в службе размещения домена.
+![Индикатор событий "Проверено"](/assets/images/help/organizations/verified-badge.png)
 
-## Approving a domain for your organization
+## Утверждение домена для организации
 
 {% data reusables.enterprise-accounts.approved-domains-beta-note %}
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.verified-domains %}
-{% data reusables.organizations.add-a-domain %}
-{% data reusables.organizations.add-domain %}
-{% data reusables.organizations.domains-approve-it-instead %}
-{% data reusables.organizations.domains-approve-domain %}
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.organizations.verified-domains %} {% data reusables.organizations.add-a-domain %} {% data reusables.organizations.add-domain %} {% data reusables.organizations.domains-approve-it-instead %} {% data reusables.organizations.domains-approve-domain %}
 
-## Removing an approved or verified domain
+## Удаление утвержденного или проверенного домена
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.verified-domains %}
-1. To the right of the domain to remove, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then click **Delete**.
-    !["Delete" for a domain](/assets/images/help/organizations/domains-delete.png)
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.organizations.verified-domains %}
+1. Справа от удаляемого домена щелкните {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, а затем нажмите кнопку **Удалить**.
+    ![Команда "Удалить" для домена](/assets/images/help/organizations/domains-delete.png)

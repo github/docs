@@ -1,6 +1,6 @@
 ---
-title: Configuring applications
-intro: 'You can configure internal application settings for {% data variables.location.product_location %}.'
+title: Настройка приложений
+intro: 'Внутренние параметры приложения можно настроить для {% данных variables.location.product_location %}.'
 redirect_from:
   - /enterprise/admin/installation/configuring-applications
   - /enterprise/admin/configuration/configuring-applications
@@ -11,15 +11,19 @@ type: how_to
 topics:
   - Enterprise
   - Fundamentals
+ms.openlocfilehash: 166206b891f1137e4b69fed702f5b6f1a1bb7a9e
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148098059'
 ---
-## Adjusting image caching
+## Настройка кэширования изображений
 
-You can choose the amount of time that {% data variables.location.product_location %} caches avatars. When you increase the cache time, you increase the amount of time a user's avatar will take to load. Configuring the cache time with too low a value can overload {% data variables.location.product_location %} work processes. 
+Вы можете выбрать период времени, когда {% данных variables.location.product_location %} кэширует аватары. При увеличении времени кэша увеличивается время загрузки аватара пользователя. Настройка времени кэша с слишком низким значением может перегружать рабочие процессы {% данных variables.location.product_location %}. 
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.management-console %}
-3. In the left sidebar, click **Applications**.
-![Applications tab in the settings sidebar](/assets/images/enterprise/management-console/sidebar-applications.png)
-4. Under "Avatar image cache time (seconds)", type the number of seconds that you would like {% data variables.location.product_location %} to cache avatar images.
-![Avatar image caching form field](/assets/images/enterprise/management-console/add-image-caching-value-field.png)
-{% data reusables.enterprise_management_console.save-settings %}
+{% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.enterprise_site_admin_settings.management-console %}
+3. На левой боковой панели щелкните **Приложения**.
+![Вкладка "Приложения" на боковой панели параметров](/assets/images/enterprise/management-console/sidebar-applications.png)
+4. В разделе "Время кэша изображений аватара (в секундах)" введите количество секунд, в которых требуется {% данных variables.location.product_location %} для кэширования изображений аватаров.
+![Поле формы кэширования изображения аватара](/assets/images/enterprise/management-console/add-image-caching-value-field.png) {% data reusables.enterprise_management_console.save-settings %}

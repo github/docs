@@ -1,6 +1,6 @@
 ---
-title: Keeping your organization secure
-intro: 'You can harden security for your organization by managing security settings,{% ifversion not ghae %} requiring two-factor authentication (2FA),{% endif %} and reviewing the activity and integrations within your organization.'
+title: Schützen deiner Organisation
+intro: 'Du kannst die Sicherheit deiner Organisation durch das Verwalten von Sicherheitseinstellungen,{% ifversion not ghae %} die zweistufige Authentifizierung (2FA){% endif %} und das Überprüfen der Aktivitäten und Integrationen in deiner Organisation verbessern.'
 redirect_from:
   - /articles/preventing-unauthorized-access-to-organization-information
   - /articles/keeping-your-organization-secure
@@ -17,5 +17,11 @@ children:
   - /managing-two-factor-authentication-for-your-organization
   - /managing-security-settings-for-your-organization
 shortTitle: Organization security
+ms.openlocfilehash: 21d2d6e6ee641dd1be2441c4ba00baf172bedb2d
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145130826'
 ---
 

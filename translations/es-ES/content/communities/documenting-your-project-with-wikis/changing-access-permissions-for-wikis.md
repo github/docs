@@ -1,6 +1,6 @@
 ---
-title: Changing access permissions for wikis
-intro: 'Only repository collaborators can edit a {% ifversion fpt or ghec or ghes %}public{% endif %} repository''s wiki by default, but you can allow anyone with an account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %} to edit your wiki.'
+title: Cambiar permisos de acceso para wikis
+intro: 'Solo los colaboradores del repositorio pueden editar el wiki de un repositorio {% ifversion fpt or ghec or ghes %}público{% endif %}, pero puedes permitir que cualquiera que tenga una cuenta en {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} edite dicho wiki.'
 product: '{% data reusables.gated-features.wikis %}'
 redirect_from:
   - /articles/changing-access-permissions-for-wikis
@@ -13,13 +13,17 @@ versions:
 topics:
   - Community
 shortTitle: Change access permissions
+ms.openlocfilehash: 51a9ec690f0bdad1be302592091565b65e5f9b9b
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145092440'
 ---
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %}
+3. En Características, anule la selección de **Restringir las modificaciones solo a los colaboradores**.
+   ![Edición de restricción de la wiki](/assets/images/help/wiki/wiki_restrict_editing.png)
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-3. Under Features, unselect **Restrict edits to collaborators only**.
-   ![Wiki restrict editing](/assets/images/help/wiki/wiki_restrict_editing.png)
+## Información adicional
 
-## Further reading
-
-- "[Disabling wikis](/communities/documenting-your-project-with-wikis/disabling-wikis)"
+- "[Deshabilitación de wikis](/communities/documenting-your-project-with-wikis/disabling-wikis)"

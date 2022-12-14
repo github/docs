@@ -1,0 +1,49 @@
+date: '23-03-2021'
+intro: Se han desactivado las descargas debido a un error importante que afectó a varios clientes. Se proporcionará una solución en el siguiente parche.
+sections:
+  security_fixes:
+    - '**ALTO RIESGO:** se ha identificado una vulnerabilidad de ejecución de código remoto en el servidor de GitHub Enterprise que podría explotarse al crear un sitio de GitHub Pages. Las opciones de configuración controladas por el usuario y utilizadas por GitHub Pages no estaban lo suficientemente restringidas y permitían reemplazar variables de entorno, lo que provocaba la ejecución de código en la instancia del servidor de GitHub Enterprise. Para aprovechar esta vulnerabilidad de seguridad, un atacante necesitaría permiso para crear un sitio de GitHub Pages en la instancia del servidor de GitHub Enterprise. Esta vulnerabilidad afectaba a todas las versiones del servidor de GitHub Enterprise anteriores a la 3.0.3 y se ha corregido en las versiones 3.0.3, 2.22.9 y 2.21.17. Se informó de esta vulnerabilidad mediante el programa de GitHub Bug Bounty y se le ha asignado CVE-2021-22864.'
+    - Los paquetes se han actualizado a las últimas versiones de seguridad.
+  bugs:
+    - "La ejecución de \"ghe-cluster-config-init\" pudo haber causado que un clúster fuera inoperable."
+    - La resolución de conflictos de fusión en la GUI fallaba cuando los enlaces previos a la recepción personalizados se configuraban en el repositorio.
+    - '"launch-deployer" y "launch-receiver" se estaban registrando al nivel de DEBUG y llenaban los registros con información innecesaria.'
+    - El sistema pudo haber perdido el rastreo del PID de HAProxy.
+    - "Cuando se configuraron las acciones para utilizar un almacenamiento de S3, los registros para una acción fallaban en cargarse algunas veces."
+    - La advertencia de la conmutación por error de mysql se mostró indefinidamente después de una recuperación de fallos exitosa.
+    - "La ejecución de \"ghe-cluster-config-init\" no reconocía completamente el código de salida de los trabajos en segundo plano que condujeron a un manejo inadecuado de las verificaciones previas al vuelo."
+    - "Al habilitar las Acciones de GitHub, la inicialización podía fallar silenciosamente."
+    - "Cuando se habilitaron las alertas de vulnerabilidades, las actualizaciones a la serie 3.0 fallaron."
+    - "Los trabajos relacionados con los Codespaces se estaban poniendo en cola, lo cual causó una acumulación de trabajos sin procesar."
+  changes:
+    - "Utiliza una cantidad relativa para el \"bootstrap_expect\" cónsul y nómada, lo cual permitió que un clúster hiciera un arranque primario, incluso si un conjunto de nodos estaba fuera de servicio."
+    - Los registros rotarán según su tamaño y tiempo.
+    - "Se agregó kafka-lite al comando \"ghe-cluster-status\"."
+  known_issues:
+    - "En un servidor de GitHub Enterprise recién configurado sin usuarios, un atacante podría crear el primer usuario administrador."
+    - Las reglas de firewall personalizadas no se mantienen durante una actualización.
+    - "Los archivos supervisados de Git LFS [cargados desde la interface web](https://github.com/blog/2105-upload-files-to-your-repositories) se han agregado de manera incorrecta y directa al repositorio."
+    - Las incidencias no se pueden cerrar si contienen un vínculo permanente a un blob en el mismo repositorio en el que la ruta de acceso de archivo del blob tiene más de 255 caracteres.
+    - "Cuando se habilita \"Los usuarios pueden buscar en GitHub.com\" con GitHub Connect, las incidencias en los repositorios privados e internos no se incluyen en los resultados de la búsqueda de GitHub.com."
+    - "Cuando el modo de mantenimiento está habilitado, algunos servicios siguen incluyéndose en la lista como \"procesos activos\". Se espera que los servicios identificados se ejecuten durante el modo de mantenimiento. Si experimentas esta incidencia y no estás seguro, ponte en contacto con [GitHub Enterprise Support](https://support.github.com/contact)."
+    - La interpretación de Jupyter Notebook en la IU web podría fallar si el bloc de notas incluye caracteres diferentes a los de ASCII UTF-8.
+    - El reStructuredText (RST) que se representa en la IU web podría fallar y mostrar un texto de marcado RST sin procesar.
+    - "Las compilaciones antiguas de las páginas no se limpiaron, lo cual pudo haber llenado el disco del usuario (`/data/user/`)."
+    - "Cuando borras una rama después de fusionar una solicitud de cambios, se mostrará un mensaje de error aunque el borrado de la rama sea exitoso."
+    - |La rotación de registros podría experimentar un error al enviar una señal para realizar la transición de archivos de registro nuevos, lo que provocaría que se continuaran usando archivos de registro antiguos y que eventualmente se agotara el espacio en el disco raíz.
+
+Para solucionar o prevenir esta incidencia, ejecuta los comandos siguientes en [administrative shell](https://docs.github.com/en/enterprise-server/admin/configuration/accessing-the-administrative-shell-ssh) (SSH), o ponte en contacto con [el soporte de GitHub Enterprise](https://support.github.com/) para recibir asistencia:
+
+
+
+```
+
+printf "PATH=/usr/local/sbin:/usr/local/bin:/usr/local/share/enterprise:/usr/sbin:/usr/bin:/sbin:/bin\n29,59 * * * * root /usr/sbin/logrotate /etc/logrotate.conf\n" | sudo sponge /etc/cron.d/logrotate
+
+sudo /usr/sbin/logrotate -f /etc/logrotate.conf
+
+```
+
+|
+    - "Cuando un nodo de réplica está sin conexión en una configuración de disponibilidad alta, es posible que {% data variables.product.product_name %} todavía enrute las solicitudes a {% data variables.product.prodname_pages %} al nodo sin conexión, lo que reduce la disponibilidad de {% data variables.product.prodname_pages %} para los usuarios."
+    - Los límites de recursos que son específicos para procesar enlaces previos a la recepción podrían ocasionar errores en algunos de ellos.

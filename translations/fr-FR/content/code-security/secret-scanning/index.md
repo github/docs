@@ -1,7 +1,7 @@
 ---
-title: Keeping secrets secure with secret scanning
+title: Sécurisation des secrets avec l’analyse des secrets
 shortTitle: Secret scanning
-intro: 'Let {% data variables.product.company_short %} do the hard work of ensuring that tokens, private keys, and other code secrets are not exposed in your repository.'
+intro: 'Laissez {% data variables.product.company_short %} faire le travail difficile qui consiste à s’assurer que les jetons, les clés privées et d’autres secrets de code ne sont pas exposés dans votre dépôt.'
 product: '{% data reusables.gated-features.secret-scanning-partner %}'
 redirect_from:
   - /code-security/secret-security
@@ -22,5 +22,11 @@ children:
   - /secret-scanning-patterns
   - /protecting-pushes-with-secret-scanning
   - /pushing-a-branch-blocked-by-push-protection
+ms.openlocfilehash: 6fc7f1abe29f341263e1dad78768e5bc36b44748
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147578632'
 ---
 

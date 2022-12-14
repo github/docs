@@ -1,51 +1,54 @@
 ---
-title: API Versions
+title: Версии API
 shortTitle: API Versions
-intro: 'You must specify which REST API version to use whenever you make a request to the REST API.'
+intro: 'Необходимо указать версию REST API, которую следует использовать при выполнении запроса к REST API.'
 versions:
   feature: api-date-versioning
+ms.openlocfilehash: 6689d8c342930a44c7d243c3872cdc431007eb1c
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148192868'
 ---
-
-## About API versioning
+## Сведения об управлении версиями API
 
 {% data reusables.rest-api.about-api-versions %}
 
 {% ifversion ghes %}
 
-## About {% data variables.product.prodname_ghe_server %} versioning and REST API versioning
+## Сведения об управлении версиями {% data variables.product.prodname_ghe_server %} и управлении версиями REST API
 
-{% data variables.product.prodname_ghe_server %} versions are decoupled from REST API versions. You can upgrade your {% data variables.product.prodname_ghe_server %} version but keep the same REST API version, as long as the API version is included in the {% data variables.product.prodname_ghe_server %} version. Similarly, you can upgrade your REST API version without updating your {% data variables.product.prodname_ghe_server %} version, as long as the new REST API version you choose is available for your {% data variables.product.prodname_ghe_server %} version.
+Версии {% data variables.product.prodname_ghe_server %} отделены от версий REST API. Вы можете обновить версию {% data variables.product.prodname_ghe_server %}, но сохранить ту же версию REST API, если версия API включена в версию {% data variables.product.prodname_ghe_server %}. Аналогичным образом вы можете обновить версию REST API, не обновляя версию {% data variables.product.prodname_ghe_server %}, если выбранная вами новая версия REST API доступна для вашей версии {% data variables.product.prodname_ghe_server %}.
 
-The {% data variables.product.prodname_ghe_server %} release notes will state when a REST API version is no longer supported. For more information, see "[Release notes](/admin/release-notes)."
+В заметках о выпуске {% data variables.product.prodname_ghe_server %} будет указано, что версия REST API больше не поддерживается. Дополнительные сведения см. в разделе Заметки [о выпуске](/admin/release-notes).
 
 {% endif %}
 
-## Specifying an API version
+## Указание версии API
 
-You should use the `X-GitHub-Api-Version` header to specify an API version. For example:
+Чтобы указать версию API, `X-GitHub-Api-Version` следует использовать заголовок . Пример:
 
 ```shell
 $ curl {% data reusables.rest-api.version-header %} https://api.github.com/zen
 ```
 
-Requests without the `X-GitHub-Api-Version` header will default to use the `{{ initialRestVersioningReleaseDate }}` version.
+Запросы без заголовка `X-GitHub-Api-Version` будут по умолчанию использовать версию `{{ initialRestVersioningReleaseDate }}` .
 
-If you specify an API version that is no longer supported, you will receive a `400` error.
+Если указать версию API, которая больше не поддерживается, появится сообщение об ошибке `400` .
 
-## Upgrading to a new API version
+## Обновление до новой версии API
 
-Before upgrading to a new REST API version, you should read the changelog of breaking changes for the new API version to understand what breaking changes are included and to learn more about how to upgrade to that specific API version. For more information, see "[Breaking changes](/rest/overview/breaking-changes)."
+Перед обновлением до новой версии REST API необходимо прочитать журнал изменений критических изменений для новой версии API, чтобы понять, какие критические изменения включены, и узнать больше о том, как выполнить обновление до конкретной версии API. Дополнительные сведения см. в разделе [Критические изменения](/rest/overview/breaking-changes).
 
-When you update your integration to specify the new API version in the `X-GitHub-Api-Version` header, you'll also need to make any changes required for your integration to work with the new API version.
+При обновлении интеграции для указания новой версии API в `X-GitHub-Api-Version` заголовке необходимо также внести все необходимые изменения, чтобы интеграция работала с новой версией API.
 
-Once your integration is updated, test your integration to verify that it works with the new API version.
+После обновления интеграции проверьте ее, чтобы убедиться, что она работает с новой версией API.
 
-## Supported API versions
+## Поддерживаемые версии API
 
-The following REST API versions are currently supported:
+В настоящее время поддерживаются следующие версии REST API:
 
-{% for apiVersion in allVersions[currentVersion].apiVersions %}
-{{ apiVersion }}
-{% endfor %}
+{% для apiVersion in allVersions[currentVersion].apiVersions %} {{ apiVersion }} {% endfor %}
 
-You can also make an API request to get all of the supported API versions. For more information, see "[Get all API versions](/rest/meta#get-all-api-versions)."
+Вы также можете сделать запрос API, чтобы получить все поддерживаемые версии API. Дополнительные сведения см. в разделе [Получение всех версий API](/rest/meta#get-all-api-versions).

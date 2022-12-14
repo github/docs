@@ -1,0 +1,24 @@
+date: '10/06/2021'
+sections:
+  security_fixes:
+    - Os pacotes foram atualizados para as últimas versões de segurança.
+  bugs:
+    - O processo de atualização pode falhar ao atualizar as ações se a instância não puder fazer autorrequisições usando seu nome de host configurado.
+    - Os clientes SVN 1.7 e os mais antigos mostraram um erro ao usar os comandos `svn co` e `svn export`.
+    - Acessar um repositório por meio do shell administrativo usando `ghe-repo <owner>/<reponame>` geraria atraso.
+    - "Após a atualização, os usuários relataram disponibilidade reduzida durante uso intenso, porque os serviços se reiniciavam muito frequentemente. Isso ocorria devido à falhas de combinação do tempo limite entre a configuração nômade e a configuração dos serviços internos."
+    - "Em algumas instâncias, executar o `ghe-repl-status` após configurar o GitHub Actions produziria um erro e o `ghe-actions-teardown` falharia."
+    - 'O arquivo `ghe-dbconsole` retornaria erros em algumas circunstâncias.'
+    - "Importar falhas de organizações ou repositórios de fontes que não são do GitHub podem produzir um erro `undefined method '[]' for nil:NilClass`."
+    - "Nomes de perfis do GitHub podem ter mudado involuntariamente ao usar a autenticação SAML, se o nome de perfil do GitHub não corresponder ao valor do atributo mapeado para o campo `Full name` no Console de Gerenciamento."
+  changes:
+    - O campo `firstPatchedVersion` agora está disponível nos objetos `SecurityVulnerability` na API GraphQL.
+    - "Usuários da API GraphQL podem consultar o campo público `closingIssuesReferences` no objeto `PullRequest`. Este campo recupera problemas que será automaticamente fechados quando a solicitação de pull relacionada for mesclada. Esta abordagem também permitirá a migração futura destes dados, como parte de um processo de migração de maior fidelidade."
+  known_issues:
+    - "Em uma nova configuração do GitHub Enterprise Server sem nenhum usuário, um invasor pode criar o primeiro usuário administrador."
+    - As regras de firewall personalizadas são removidas durante o processo de atualização.
+    - "Arquivos LFS do Git [enviados através da interface Web](https://github.com/blog/2105-upload-files-to-your-repositories) são adicionados diretamente ao repositório e de maneira incorreta."
+    - "Os problemas não podem ser fechados se contiverem um permalink para um blob no mesmo repositório, em que o caminho do arquivo blob's é maior que 255 caracteres."
+    - "Quando \"Usuários podem pesquisar pelo GitHub.com\" está habilitado com o GitHub Connect, os problemas em repositórios privados e internos não estão incluídos nos resultados de pesquisa do GitHub.com."
+    - "Quando um nó de réplica está offline em uma configuração de alta disponibilidade, {% data variables.product.product_name %} ainda pode encaminhar solicitações de {% data variables.product.prodname_pages %} para o nó offline, reduzindo a disponibilidade de {% data variables.product.prodname_pages %} para os usuários."
+    - Os limites de recursos que são específicos para processamento de hooks pre-receive podem causar falha em alguns hooks pre-receive.

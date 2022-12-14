@@ -1,0 +1,14 @@
+date: '20.10.2020'
+sections:
+  security_fixes:
+    - 'Die Pakete wurden auf die neuesten Sicherheitsversionen aktualisiert. {% comment %} https://github.com/github/enterprise2/pull/23095, https://github.com/github/enterprise2/pull/23081 {% endcomment %}'
+  bugs:
+    - 'Die Meldung „Richtlinie für erforderliche Zwei-Faktor-Authentifizierung bestätigen“ des Unternehmenskontos war falsch. {% comment %} https://github.com/github/github/pull/158737 {% endcomment %}'
+  known_issues:
+    - 'In einer neu eingerichteten GitHub Enterprise Server-Instanz ohne Benutzer konnte ein Angreifer den ersten Administratorbenutzer erstellen. {% comment %} https://github.com/github/enterprise2/issues/1889 {% endcomment %}'
+    - 'Benutzerdefinierte Firewallregeln werden während eines Upgrades nicht aufrechterhalten. {% comment %} https://github.com/github/enterprise2/issues/2823 {% endcomment %}'
+    - 'Nachverfolgte Git-LFS-Dateien, [die über die Webschnittstelle hochgeladen wurden](https://github.com/blog/2105-upload-files-to-your-repositories), werden dem Repository fälschlicherweise direkt hinzugefügt. {% comment %} https://github.com/github/github/issues/54684 {% endcomment %}'
+    - 'Issues können nicht geschlossen werden, wenn sie einen Permalink zu einem Blob im selben Repository enthalten und der Dateipfad länger ist als 255 Zeichen. {% comment %} https://github.com/github/github/issues/107731 {% endcomment %}'
+    - 'Wenn die Option zum Durchsuchen von GitHub.com mit GitHub Connect aktiviert wird, sind Issues in privaten und internen Repositorys nicht in den GitHub.com-Suchergebnissen enthalten. {% comment %} https://github.com/github/admin-experience/issues/571 {% endcomment %}'
+    - 'Sicherheitswarnungen werden nicht gemeldet, wenn etwas über die Befehlszeile an ein Repository gepusht wird. {% comment %} https://github.com/github/github/issues/143190 {% endcomment %}'
+    - 'Wenn ein Replikatknoten in einer Hochverfügbarkeitskonfiguration offline ist, kann {% data variables.product.product_name %} eventuell noch immer Anfragen von {% data variables.product.prodname_pages %} an den Offlineknoten weiterleiten, was die Verfügbarkeit von {% data variables.product.prodname_pages %} für Benutzer verringert.'

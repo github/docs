@@ -1,0 +1,16 @@
+date: '01-04-2021'
+sections:
+  security_fixes:
+    - "**ALTA:** Se ha identificado una vulnerabilidad de control de acceso incorrecta en GitHub Enterprise Server que permitía que tokens de acceso generados desde el [flujo de autenticación web] de una GitHub App (https://docs.github.com/en/developers/apps/identifying-and-authorizing-users-for-github-apps#web-application-flow) leyeran metadatos de repositorios privados mediante la API REST sin tener los permisos correctos asignados. Para aprovechar esta vulnerabilidad, un atacante tendría que crear una GitHub App en la instancia y hacer que el usuario la autorice mediante el flujo de autenticación web. Los metadatos de repositorio privado devueltos estarían limitados a repositorios propiedad del usuario identificado por el token. Esta vulnerabilidad afectaba a todas las versiones de GitHub Enterprise Server anteriores a la 3.0.4 y se ha corregido en las versiones 3.0.4, 2.22.10 y 2.21.18. Esta vulnerabilidad se ha asignado a CVE-2021-22865 y se ha notificado mediante [GitHub Bug Bounty Program](https://bounty.github.com)."
+    - Los paquetes se han actualizado a las últimas versiones de seguridad.
+  bugs:
+    - Algunos servicios que daban la hora UTC de manera predeterminada no utilizaban la zona horaria definida en GitHub Enterprise 11.10.x o una versión anterior.
+    - "Los servicios no realizaban la transición a los nuevos archivos de bitácora como parte de la rotación de bitácoras, lo que generaba un aumento del uso de disco."
+    - "La etiqueta de los resultados de la búsqueda para los repositorios internos se mostraba como \"Privada\" en vez de como \"Interna\"."
+  known_issues:
+    - "En un servidor de GitHub Enterprise recién configurado sin usuarios, un atacante podría crear el primer usuario administrador."
+    - Las reglas de firewall personalizadas no se mantienen durante una actualización.
+    - "Los archivos rastreados de Git LFS [cargados a través de la interfaz web](https://github.com/blog/2105-upload-files-to-your-repositories) se agregan de forma incorrecta y directa al repositorio."
+    - Las incidencias no se pueden cerrar si contienen un vínculo permanente a un blob en el mismo repositorio en el que la ruta de acceso de archivo del blob tiene más de 255 caracteres.
+    - "Cuando se habilita \"Los usuarios pueden buscar en GitHub.com\" con GitHub Connect, las incidencias en los repositorios privados e internos no se incluyen en los resultados de la búsqueda de GitHub.com."
+    - "Cuando un nodo de réplica está sin conexión en una configuración de disponibilidad alta, es posible que {% data variables.product.product_name %} enrute las solicitudes a {% data variables.product.prodname_pages %} al nodo sin conexión, lo que reduce la disponibilidad de {% data variables.product.prodname_pages %} para los usuarios."

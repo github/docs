@@ -14,12 +14,12 @@ topics:
   - Security
   - Secret store
 shortTitle: Encrypted secrets
-ms.openlocfilehash: f2ef60c9311a81ea59ec4f71cb7c1a432102b063
-ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.openlocfilehash: a1ea1c87581feccd737314db0d7bf237f983357a
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/09/2022
-ms.locfileid: '148160445'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148192812'
 ---
 ## Сведения о зашифрованных секретах для {% data variables.product.prodname_github_codespaces %}
 
@@ -28,7 +28,7 @@ ms.locfileid: '148160445'
 - Маркеры доступа к облачным службам
 - Субъекты-службы
 - Идентификаторы подписок
-- [Учетные данные для частного реестра изображений](/codespaces/codespaces-reference/allowing-your-codespace-to-access-a-private-image-registry)
+- Учетные данные для частного реестра образов (дополнительные сведения см. в разделе [Предоставление codespace доступа к частному реестру](/codespaces/codespaces-reference/allowing-your-codespace-to-access-a-private-registry))
 
 Можно выбрать какие репозитории должны иметь доступ к каждому секрету. Затем можно использовать секрет в любом codespace, создаваемом для репозитория с доступом к секрету. Чтобы поделиться секретом с codespace, созданным на основе шаблона, необходимо опубликовать codespace в репозитории на {% data variables.product.prodname_dotcom %}, а затем предоставить репозиторию доступ к секрету.
 

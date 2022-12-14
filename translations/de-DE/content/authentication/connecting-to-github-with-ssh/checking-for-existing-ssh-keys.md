@@ -1,6 +1,6 @@
 ---
-title: Checking for existing SSH keys
-intro: 'Before you generate an SSH key, you can check to see if you have any existing SSH keys.'
+title: Auf vorhandene SSH-Schlüssel prüfen
+intro: 'Bevor du einen SSH-Schlüssel erstellst, kannst du überprüfen, ob für dich bereits SSH-Schlüssel vorhanden sind.'
 redirect_from:
   - /articles/checking-for-existing-ssh-keys
   - /github/authenticating-to-github/checking-for-existing-ssh-keys
@@ -13,41 +13,46 @@ versions:
 topics:
   - SSH
 shortTitle: Check for existing SSH key
+ms.openlocfilehash: 4487e44b1cbba7038364e92f3194d5c3c06c505b
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147409107'
 ---
+## Informationen über SSH-Schlüssel
 
-## About SSH keys
+Über SSH (Secure Shell Protocol) kannst du Git-Vorgänge für Repositorys in {% ifversion fpt or ghec or ghes %}{% data variables.product.product_location %}{% elsif ghae %}{% data variables.product.product_name %}{% endif %} ausführen. Weitere Informationen findest du unter [Informationen zu SSH](/authentication/connecting-to-github-with-ssh/about-ssh).
 
-You can use SSH to perform Git operations in repositories on {% ifversion fpt or ghec or ghes %}{% data variables.location.product_location %}{% elsif ghae %}{% data variables.product.product_name %}{% endif %}. For more information, see "[About SSH](/authentication/connecting-to-github-with-ssh/about-ssh)."
+Wenn du über einen bestehenden SSH-Schlüssel verfügst, kannst du Git-Vorgänge mit diesem Schlüssel über SSH authentifizieren.
 
-If you have an existing SSH key, you can use the key to authenticate Git operations over SSH.
+## Auf vorhandene SSH-Schlüssel prüfen
 
-## Checking for existing SSH keys
-
-Before you generate a new SSH key, you should check your local machine for existing keys.
+Bevor du einen neuen SSH-Schlüssel generierst, solltest du deinen lokalen Computer auf bestehende Schlüssel prüfen.
 
 {% data reusables.ssh.key-type-support %}
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
-2. Enter `ls -al ~/.ssh` to see if existing SSH keys are present.
+2. Gib `ls -al ~/.ssh` ein, um zu sehen, ob SSH-Schlüssel vorhanden sind.
 
   ```shell
   $ ls -al ~/.ssh
   # Lists the files in your .ssh directory, if they exist
   ```
 
-3. Check the directory listing to see if you already have a public SSH key. By default, the {% ifversion ghae %}filename of a supported public key for {% data variables.product.product_name %} is *id_rsa.pub*.{% else %}filenames of supported public keys for {% data variables.product.product_name %} are one of the following.
+3. Überprüfe die Verzeichnisliste, um zu ermitteln, ob du bereits einen öffentlichen SSH-Schlüssel besitzen. Standardmäßig ist der {% ifversion ghae %}-Dateiname eines unterstützten öffentlichen Schlüssels für {% data variables.product.product_name %} *id_rsa.pub*. {% else %}Dateinamender unterstützten öffentlichen Schlüssel für {% data variables.product.product_name %} sind einer der Folgenden.
     - *id_rsa.pub*
     - *id_ecdsa.pub*
     - *id_ed25519.pub*{% endif %}
 
   {% tip %}
 
-  **Tip**: If you receive an error that *~/.ssh* doesn't exist, you do not have an existing SSH key pair in the default location. You can create a new SSH key pair in the next step.
+  **Tipp**: Wenn du einen Fehler erhältst, das *~/.* ssh nicht vorhanden ist, verfügst du nicht über ein vorhandenes SSH-Schlüsselpaar am Standardspeicherort. Du kannst im nächsten Schritt ein neues SSH-Schlüsselpaar erstellen.
 
   {% endtip %}
 
-4. Either generate a new SSH key or upload an existing key.
-    - If you don't have a supported public and private key pair, or don't wish to use any that are available, generate a new SSH key.
-    - If you see an existing public and private key pair listed (for example, *id_rsa.pub* and *id_rsa*) that you would like to use to connect to {% data variables.product.product_name %}, you can add the key to the ssh-agent.
+4. Generiere entweder einen neuen SSH-Schlüssel oder lade einen vorhandenen Schlüssel hoch.
+    - Wenn du nicht über ein unterstütztes öffentliches und privates Schlüsselpaar verfügst oder keine verfügbaren verwenden möchtest, generierst du einen neuen SSH-Schlüssel.
+    - Wenn ein vorhandenes öffentliches und privates Schlüsselpaar aufgeführt ist (z. B. *id_rsa.pub* und *id_rsa*), mit dem du eine Verbindung mit {% data variables.product.product_name %} herstellen möchtest, kannst du dem ssh-Agent den Schlüssel hinzufügen.
 
-      For more information about generation of a new SSH key or addition of an existing key to the ssh-agent, see "[Generating a new SSH key and adding it to the ssh-agent](/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)."
+      Weitere Informationen zum Erstellen eines neuen SSH-Schlüssels oder einer Ergänzung eines vorhandenen Schlüssels zum ssh-Agent findest du unter „[Generieren eines neuen SSH-Schlüssels und Hinzufügen zum ssh-Agent](/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)“.

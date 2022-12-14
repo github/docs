@@ -1,0 +1,14 @@
+date: '2021-12-13'
+sections:
+  security_fixes:
+    - '{% octicon "alert" aria-label="The alert icon" %} **위험:** Log4j 라이브러리의 원격 코드 실행 취약성이 [CVE-2021-44228](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-44228)로 식별되었고, 3.3.1 이전의 모든 {% data variables.product.prodname_ghe_server %} 버전에 영향을 미칩니다. Log4j 라이브러리는 {% data variables.product.prodname_ghe_server %} 인스턴스에서 실행되는 오픈 소스 서비스에 사용됩니다. 이 취약성은 {% data variables.product.prodname_ghe_server %} 버전 3.0.22, 3.1.14, 3.2.6, 3.3.1.에서 수정되었습니다.  자세한 내용은 GitHub 블로그의 [이 게시물](https://github.blog/2021-12-13-githubs-response-to-log4j-vulnerability-cve-2021-44228/)을 참조하세요.'
+    - '**2021년 12월 17일 업데이트**: 이 릴리스에 적용된 수정 사항은 [CVE-2021-45046](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-45046)도 완화하며 이 릴리스 이후 게시되었습니다. CVE-2021-44228 및 CVE-2021-45046을 모두 완화하기 위해 {% data variables.product.prodname_ghe_server %}에 대한 추가 업그레이드는 필요하지 않습니다.'
+  known_issues:
+    - "사용자 없이 새로 설정된 {% data variables.product.prodname_ghe_server %}에서 공격자는 첫 번째 관리 사용자를 만들 수 있습니다."
+    - 사용자 지정 방화벽 규칙은 업그레이드 프로세스 중에 제거됩니다.
+    - "Git LFS 추적 파일[웹 인터페이스를 통해 업로드됨](https://github.com/blog/2105-upload-files-to-your-repositories)이 리포지토리에 직접 잘못 추가되었습니다."
+    - 이슈에 동일한 리포지토리의 Blob에 대한 고정 링크가 포함되었지만 Blob의 파일 경로가 255자보다 긴 경우 해당 이슈를 종료할 수 없습니다.
+    - GitHub Connect에서 “사용자가 GitHub.com을 검색할 수 있음”이 사용하도록 설정되면 프라이빗 및 내부 리포지토리의 이슈가 GitHub.com 검색 결과에 포함되지 않습니다.
+    - "{% data variables.product.prodname_registry %} npm 레지스트리는 더 이상 메타데이터 응답에서 시간 값을 반환하지 않습니다. 이 작업은 성능을 크게 향상시키기 위해 수행되었습니다. 메타데이터 응답의 일부로 시간 값을 반환하는 데 필요한 모든 데이터를 계속 보유하고 있으며, 기존 성능 이슈가 해결되면 이 값의 반환을 다시 시작할 예정입니다."
+    - 사전 수신 후크 처리에만 해당되는 리소스 한도로 인해 일부 사전 수신 후크가 실패할 수 있습니다.
+    - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'

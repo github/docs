@@ -1,0 +1,28 @@
+date: '2021-12-07'
+sections:
+  security_fixes:
+    - "Supportbundles könnten vertrauliche Dateien enthalten, wenn sie bestimmte Bedingungen erfüllen." 
+    - "Ein Sicherheitsrisiko durch eine falsche Benutzeroberflächendarstellung wurde in GitHub Enterprise Server ermittelt. Dadurch wurden während des Benutzerautorisierungswebflows in einer GitHub-App mehr Berechtigungen erteilt, als dem Benutzer während der Genehmigung angezeigt wurden. Dieses Sicherheitsrisiko trat bei allen Versionen von GitHub Enterprise Server vor 3.3 auf und wurde in den Versionen 3.2.5, 3.1.13 und 3.0.21 behoben. Dieses Sicherheitsrisiko wurde über das GitHub Bug Bounty Program gemeldet, und ihm wurde der Name [CVE-2021-41598](https://www.cve.org/CVERecord?id=CVE-2021-41598) zugeordnet."
+    - "In GitHub Enterprise Server wurde ein Sicherheitsrisiko bezüglich der Remoteausführung von Code identifiziert, das beim Erstellen einer GitHub Pages-Site ausgenutzt werden könnte. Dieses Sicherheitsrisiko trat bei allen Versionen von GitHub Enterprise Server vor 3.3 auf und wurde in den Versionen 3.0.21, 3.1.13 und 3.2.5 behoben. Dieses Sicherheitsrisiko wurde über das GitHub Bug Bounty Program gemeldet, und ihm wurde der Name [CVE-2021-41599](https://www.cve.org/CVERecord?id=CVE-2021-41599) zugeordnet. Aktualisiert: 17. Februar 2022."
+  bugs:
+    - "In einigen Fällen, in denen Actions nicht aktiviert war, meldete `ghe-support-bundle` eine unerwartete Meldung `MS SQL-Container nicht gefunden`." 
+    - Beim Ausführen von `ghe-config-apply` können manchmal Fehler aufgrund von Berechtigungsproblemen in `/data/user/tmp/pages` auftreten. 
+    - Eine Fehlkonfiguration in der Verwaltungskonsole führte zu Planungsfehlern. 
+    - Docker hielt Protokolldateien nach einer Protokollrotation offen. 
+    - Migrationen konnten aufgrund einer falschen Behandlung nicht UTF-8-kompatibler `blob_path`-Werte blockiert werden. 
+    - GraphQL-Anforderungen legten die GITHUB_USER_IP-Variable in Pre-Receive-Hook-Umgebungen nicht fest. 
+    - Paginierungslinks in Organisationsüberwachungsprotokollen behielten Abfrageparameter nicht bei. 
+    - "Während eines Hotpatchs konnten doppelte Hashes auftreten, wenn ein Übergang mehrmals ausgeführt wurde." 
+  changes:
+    - Verdeutlicht die Erklärung des Actions-Pfadformats in der Dokumentation. 
+    - "Aktualisiert die Supportkontakt-URLs, um die aktuelle Supportwebsite „support.github.com“ zu verwenden." 
+    - Zusätzliche Problembehandlung wird zur Ausführung von `ghe-mssql-diagnostic` bereitgestellt.
+  known_issues:
+    - "Auf einer neu eingerichteten {% data variables.product.prodname_ghe_server %}-Instanz ohne Benutzer könnte ein Angreifer den ersten Administratorbenutzer erstellen."
+    - Benutzerdefinierte Firewallregeln werden während des Upgrades entfernt.
+    - "Nachverfolgte Git-LFS-Dateien, [die über die Webbenutzeroberfläche hochgeladen wurden](https://github.com/blog/2105-upload-files-to-your-repositories), werden dem Repository fälschlicherweise direkt hinzugefügt."
+    - "Issues können nicht geschlossen werden, wenn sie einen Permalink zu einem Blob im selben Repository enthalten und der Dateipfad des Blobs mehr als 255 Zeichen lang ist."
+    - "Wenn die Option zum Durchsuchen von GitHub.com mit GitHub Connect aktiviert wird, sind Issues in privaten und internen Repositorys nicht in den GitHub.com-Suchergebnissen enthalten."
+    - "Die {% data variables.product.prodname_registry %}-npm-Registrierung gibt in Metadatenantworten keinen Zeitwert mehr zurück. So sind erhebliche Leistungssteigerungen möglich. Die erforderlichen Daten zum Zurückgeben eines Zeitwerts in einer Metadatenantwort sind weiterhin verfügbar, und dieser Wert wird in Zukunft wieder zurückgegeben, sobald die vorhandenen Leistungsprobleme behoben wurden."
+    - "Ressourcenbegrenzungen, die nur beim Verarbeiten von Pre-Receive-Hooks auftreten, können bei manchen Pre-Receive-Hooks Fehler auslösen."
+    - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'

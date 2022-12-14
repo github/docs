@@ -1,6 +1,6 @@
 ---
 title: SCIM
-intro: You can control and manage your GitHub organization members access using SCIM API.
+intro: Du kannst den Zugriff der Mitglieder deiner GitHub-Organisation über die SCIM-API steuern und verwalten.
 versions:
   ghec: '*'
 topics:
@@ -8,45 +8,50 @@ topics:
 miniTocMaxHeadingLevel: 3
 redirect_from:
   - /rest/reference/scim
+ms.openlocfilehash: 314ed9433ffeb1ef3f189795727a3b654c529c96
+ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147883043'
 ---
+## Informationen zur SCIM-API
 
-## About the SCIM API
+### Bereitstellen von SCIM für Organisationen
 
-### SCIM Provisioning for Organizations
-
-The SCIM API is used by SCIM-enabled Identity Providers (IdPs) to automate provisioning of {% data variables.product.product_name %} organization membership. The {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API is based on version 2.0 of the [SCIM standard](http://www.simplecloud.info/). The {% data variables.product.product_name %} SCIM endpoint that an IdP should use is: `{% data variables.product.api_url_code %}/scim/v2/organizations/{org}/`.
+Die SCIM-API wird von SCIM-fähigen Identitätsanbietern (IdPs) dazu verwendet, das Bereitstellen der Organisationsmitgliedschaft für {% data variables.product.product_name %} zu automatisieren. Die API von {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} basiert auf Version 2.0 des [SCIM-Standard](http://www.simplecloud.info/). Der SCIM-Endpunkt von {% data variables.product.product_name %}, den ein Identitätsanbieter verwenden sollte, lautet: `{% data variables.product.api_url_code %}/scim/v2/organizations/{org}/`.
 
 {% note %}
 
-**Notes:** 
-  - The SCIM API is available only for individual organizations that use [{% data variables.product.prodname_ghe_cloud %}](/billing/managing-billing-for-your-github-account/about-billing-for-github-accounts) with [SAML SSO](/rest/overview/other-authentication-methods#authenticating-for-saml-sso) enabled. For more information about SCIM, see "[About SCIM for organizations](/enterprise-cloud@latest/organizations/managing-saml-single-sign-on-for-your-organization/about-scim-for-organizations)."
-  - The SCIM API cannot be used with an enterprise account or with an {% data variables.enterprise.prodname_emu_org %}.
+**Hinweise:** 
+  - Die SCIM-API ist nur für einzelne Organisationen verfügbar, die [{% data variables.product.prodname_ghe_cloud %}](/billing/managing-billing-for-your-github-account/about-billing-for-github-accounts) mit aktiviertem [einmaligen SAML-Anmelden](/rest/overview/other-authentication-methods#authenticating-for-saml-sso) verwenden. Weitere Informationen zu SCIM findest du unter [Informationen zu SCIM für Organisationen](/enterprise-cloud@latest/organizations/managing-saml-single-sign-on-for-your-organization/about-scim-for-organizations).
+  - Die SCIM-API kann nicht mit einem Unternehmenskonto oder mit einer {% data variables.product.prodname_emu_org %} verwendet werden.
 
 {% endnote %}
 
-### Authenticating calls to the SCIM API
+### Authentifizieren von Aufrufen der SCIM-API
 
-You must authenticate as an owner of a {% data variables.product.product_name %} organization to use its SCIM API. The API expects an [OAuth 2.0 Bearer](/developers/apps/authenticating-with-github-apps) token to be included in the `Authorization` header. If you use a {% data variables.product.pat_v1 %} for authentication, it must have the `admin:org` scope and you must also [authorize it for use with your SAML SSO organization](/github/authenticating-to-github/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on).
+Du musst dich als Besitzer*in einer Organisation von {% data variables.product.product_name %} authentifizieren, um die zugehörige SCIM-API zu verwenden. Die API erwartet, dass ein [OAuth 2.0 Bearer](/developers/apps/authenticating-with-github-apps)-Token in den Header `Authorization` aufgenommen wird. Du kannst auch ein persönliches Zugriffstoken verwenden, doch du musst es erst [für die Verwendung mit deiner SAML-SSO-Organisation autorisieren](/github/authenticating-to-github/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on).
 
-### Mapping of SAML and SCIM data
+### Zuordnen von SAML- und SCIM-Daten
 
 {% data reusables.scim.nameid-and-username-must-match %}
 
-### Supported SCIM User attributes
+### Unterstützte SCIM-Benutzerattribute
 
-Name | Type | Description
+Name | type | BESCHREIBUNG
 -----|------|--------------
-`userName`|`string` | The username for the user.
-`name.givenName`|`string` | The first name of the user.
-`name.familyName`|`string` | The last name of the user.
-`emails` | `array` | List of user emails.
-`externalId` | `string` | This identifier is generated by the SAML provider, and is used as a unique ID by the SAML provider to match against a GitHub user. You can find the `externalID` for a user either at the SAML provider, or using the [List SCIM provisioned identities](#list-scim-provisioned-identities) endpoint and filtering on other known attributes, such as a user's GitHub username or email address.
-`id` | `string` | Identifier generated by the GitHub SCIM endpoint.
-`active` | `boolean` | Used to indicate whether the identity is active (true) or should be deprovisioned (false).
+`userName`|`string` | Der Benutzername für den oder die Benutzer*in
+`name.givenName`|`string` | Der Vorname des Benutzers.
+`name.familyName`|`string` | Der Nachname des Benutzers.
+`emails` | `array` | Liste der Benutzer-E-Mails
+`externalId` | `string` | Dieser Bezeichner wird vom SAML-Anbieter generiert und als eindeutige ID verwendet, um ihn einem oder einer GitHub-Benutzer*in zuzuordnen. Du findest die `externalID` für Benutzer*innen entweder beim SAML-Anbieter oder indem du den Endpunkt von [Auflisten durch SCIM bereitgestellter Identitäten](#list-scim-provisioned-identities) verwendest und nach anderen bekannten Attributen filterst, z. B. nach dem GitHub-Benutzernamen oder der E-Mail-Adresse.
+`id` | `string` | Bezeichner, der vom GitHub-SCIM-Endpunkt generiert wurde
+`active` | `boolean` | Gibt an, ob die Identität aktiv (true) ist oder die Bereitstellung aufgehoben werden soll (false)
 
 {% note %}
 
-**Note:** Endpoint URLs for the SCIM API are case sensitive. For example, the first letter in the `Users` endpoint must be capitalized:
+**Hinweis:** Bei Endpunkt-URLs für die SCIM-API muss die Groß-/Kleinschreibung beachtet werden. Beispielsweise muss der erste Buchstabe des `Users`-Endpunkts großgeschrieben werden:
 
 ```shell
 GET /scim/v2/organizations/{org}/Users/{scim_user_id}

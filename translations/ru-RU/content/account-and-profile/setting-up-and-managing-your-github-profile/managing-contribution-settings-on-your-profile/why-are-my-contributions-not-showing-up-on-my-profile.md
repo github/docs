@@ -1,6 +1,6 @@
 ---
-title: Why are my contributions not showing up on my profile?
-intro: Learn common reasons that contributions may be missing from your contributions graph.
+title: Почему мои вклады не отображаются в моем профиле?
+intro: 'Узнайте о распространенных причинах, по которым вклады могут отсутствовать в графе вкладов.'
 redirect_from:
   - /articles/why-are-my-contributions-not-showing-up-on-my-profile
   - /github/setting-up-and-managing-your-github-profile/why-are-my-contributions-not-showing-up-on-my-profile
@@ -14,49 +14,54 @@ versions:
 topics:
   - Profiles
 shortTitle: Missing contributions
+ms.openlocfilehash: dbdf99a77c423774c03f69d21542f8174e813bc6
+ms.sourcegitcommit: e98b752895109965b32cb277610985da5799f8a1
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 11/01/2022
+ms.locfileid: '148127662'
 ---
+## Сведения о диаграмме вкладов
 
-## About your contribution graph
+Граф вкладов профилей — это запись вкладов, внесенных в репозитории {% ifversion ghae %}, принадлежащие{% else %}на{% endif %} {% data variables.location.product_location %}. Вклады сопровождаются метками времени в формате UTC, а не в соответствии с местным часовым поясом. Вклады учитываются только в том случае, если они соответствуют определенным критериям. В некоторых случаях может потребоваться перестроить диаграмму, чтобы вклады отобразились.
 
-Your profile contributions graph is a record of contributions you've made to repositories {% ifversion ghae %}owned by{% else %}on{% endif %} {% data variables.location.product_location %}. Contributions are timestamped according to Coordinated Universal Time (UTC) rather than your local time zone. Contributions are only counted if they meet certain criteria. In some cases, we may need to rebuild your graph in order for contributions to appear.
+Если вы входите в организацию, использующую единый вход SAML, то не сможете просмотреть действия, связанные с вкладами организации, в своем профиле при отсутствии активного сеанса единого входа. Пользователи, просматривающие ваш профиль за пределами организации, будут видеть для вашей организации анонимные действия, связанные со вкладами.
 
-If you are part of an organization that uses SAML single sign-on (SSO), you won’t be able to see contribution activity from the organization on your profile if you do not have an active SSO session. People viewing your profile from outside your organization will see anonymized contribution activity of your contribution activity for your organization.
+## Вклады, которые учитываются
 
-## Contributions that are counted
+### Проблемы, запросы на вытягивание и обсуждения
 
-### Issues, pull requests and discussions
+Проблемы, запросы на вытягивание и обсуждения будут отображаться в графе вкладов, если они были открыты в автономном репозитории, а не вилке.
 
-Issues, pull requests, and discussions will appear on your contribution graph if they were opened in a standalone repository, not a fork.
+### Фиксации
+Фиксации будут отображаться на диаграмме вкладов, если они соответствуют **всем** следующим условиям.
+- Адрес электронной почты, используемый для фиксаций, связан с вашей учетной записью в {% data variables.location.product_location %}.
+- Фиксации были сделаны в изолированном репозитории, а не в вилке.
+- Фиксации были сделаны:
+  - в ветви репозитория по умолчанию;
+  - в ветви `gh-pages` (для репозиториев с сайтами проектов).
 
-### Commits
-Commits will appear on your contributions graph if they meet **all** of the following conditions:
-- The email address used for the commits is associated with your account on {% data variables.location.product_location %}.
-- The commits were made in a standalone repository, not a fork.
-- The commits were made:
-  - In the repository's default branch
-  - In the `gh-pages` branch (for repositories with project sites)
+Дополнительные сведения о сайтах проектов см. в разделе [Сведения о {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages#types-of-github-pages-sites).
 
-For more information on project sites, see "[About {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages#types-of-github-pages-sites)."
+Кроме того, должно выполняться **по крайней мере одно** из указанных ниже условий.
+- Вы являетесь участником совместной работы в репозитории или членом организации, которая владеет репозиторием.
+- Вы создали вилку репозитория.
+- Вы открыли запрос на вытягивание или проблему в репозитории.
+- Вы пометили репозиторий звездочкой.
 
-In addition, **at least one** of the following must be true:
-- You are a collaborator on the repository or are a member of the organization that owns the repository.
-- You have forked the repository.
-- You have opened a pull request or issue in the repository.
-- You have starred the repository.
-
-## Common reasons that contributions are not counted
+## Распространенные причины, по которым вклады не учитываются
 
 {% data reusables.pull_requests.pull_request_merges_and_contributions %}
 
-### Commit was made less than 24 hours ago
+### Фиксация была выполнена менее 24 часов назад
 
-After making a commit that meets the requirements to count as a contribution, you may need to wait for up to 24 hours to see the contribution appear on your contributions graph.
+Прежде чем фиксация, соответствующая требованиям для того, чтобы считаться вкладом, появится на диаграмме вкладов, может пройти до 24 часов с момента ее выполнения.
 
-### Your local Git commit email isn't connected to your account
+### Электронная почта для фиксации в локальном репозитории Git не подключена к вашей учетной записи
 
-Commits must be made with an email address that is connected to your account on {% data variables.location.product_location %}{% ifversion fpt or ghec %}, or the {% data variables.product.prodname_dotcom %}-provided `noreply` email address provided to you in your email settings,{% endif %} in order to appear on your contributions graph.{% ifversion fpt or ghec %} For more information about `noreply` email addresses, see "[Setting your commit email address](/github/setting-up-and-managing-your-github-user-account/setting-your-commit-email-address#about-commit-email-addresses)."{% endif %}
+Фиксации должны выполняться с помощью адреса электронной почты, подключенного к вашей учетной записи в {% data variables.location.product_location %}{% ifversion fpt or ghec %}, или адреса электронной почты, предоставленного `noreply` {% data variables.product.prodname_dotcom %}, предоставленного вам в параметрах электронной почты,{% endif %} для отображения в графе вкладов.{ % ifversion fpt or ghec %} Дополнительные сведения об `noreply` адресах электронной почты см. в разделе [Настройка адреса электронной почты для фиксации](/github/setting-up-and-managing-your-github-user-account/setting-your-commit-email-address#about-commit-email-addresses). {% endif %}
 
-You can check the email address used for a commit by adding `.patch` to the end of a commit URL, e.g. <a href="https://github.com/octocat/octocat.github.io/commit/67c0afc1da354d8571f51b6f0af8f2794117fd10.patch" data-proofer-ignore>https://github.com/octocat/octocat.github.io/commit/67c0afc1da354d8571f51b6f0af8f2794117fd10.patch</a>:
+Чтобы проверить адрес электронной почты, используемый для фиксации, добавьте `.patch` в конец URL-адреса фиксации, например, <a href="https://github.com/octocat/octocat.github.io/commit/67c0afc1da354d8571f51b6f0af8f2794117fd10.patch" data-proofer-ignore>https://github.com/octocat/octocat.github.io/commit/67c0afc1da354d8571f51b6f0af8f2794117fd10.patch</a>:
 
 ```
 From 67c0afc1da354d8571f51b6f0af8f2794117fd10 Mon Sep 17 00:00:00 2001
@@ -65,41 +70,39 @@ Date: Sun, 27 Apr 2014 15:36:39 +0530
 Subject: [PATCH] updated index for better welcome message
 ```
 
-The email address in the `From:` field is the address that was set in the [local git config settings](/articles/set-up-git). In this example, the email address used for the commit is `octocat@nowhere.com`.
+Адрес электронной почты в поле `From:` — это адрес, заданный в [параметрах конфигурации локального репозитория Git](/articles/set-up-git). В этом примере для фиксации используется адрес электронной почты `octocat@nowhere.com`.
 
-If the email address used for the commit is not connected to your account on {% data variables.location.product_location %}, {% ifversion ghae %}change the email address used to author commits in Git. For more information, see "[Setting your commit email address](/github/setting-up-and-managing-your-github-user-account/setting-your-commit-email-address#setting-your-commit-email-address-in-git)."{% else %}you must [add the email address](/articles/adding-an-email-address-to-your-github-account) to your account on {% data variables.location.product_location %}. Your contributions graph will be rebuilt automatically when you add the new address.{% endif %}
+Если адрес электронной почты, используемый для фиксации, не подключен к вашей учетной записи в {% data variables.location.product_location %}, {% ifversion ghae %}измените адрес электронной почты, используемый для создания фиксаций в Git. Дополнительные сведения см. в разделе [Настройка адреса электронной почты фиксации](/github/setting-up-and-managing-your-github-user-account/setting-your-commit-email-address#setting-your-commit-email-address-in-git). {% else %}необходимо [добавить адрес электронной почты](/articles/adding-an-email-address-to-your-github-account) в учетную запись в {% data variables.location.product_location %}. Диаграмма вкладов будет перестроена автоматически при добавлении нового адреса.{% endif %}
 
-{% ifversion fpt or ghec %}
-{% note %}
+{% ifversion fpt or ghec %} {% note %}
 
-**Note**: If you use a {% data variables.enterprise.prodname_managed_user %}, you cannot add additional email addresses to the account, even if multiple email addresses are registered with your identity provider (IdP). Therefore, only commits that are authored by the primary email address registered with your IdP can be associated with your {% data variables.enterprise.prodname_managed_user %}.
+**Примечание**. Если вы используете {% data variables.enterprise.prodname_managed_user %}, вы не сможете добавить в учетную запись дополнительные адреса электронной почты, даже если в поставщике удостоверений (IdP) зарегистрировано несколько адресов электронной почты. Таким образом, только фиксации, созданные основным адресом электронной почты, зарегистрированным в поставщике удостоверений, могут быть связаны с {% data variables.enterprise.prodname_managed_user %}.
 
-{% endnote %}
-{% endif %}
+{% endnote %} {% endif %}
 
-Generic email addresses, such as `jane@computer.local`, cannot be added to {% data variables.product.prodname_dotcom %} accounts and linked to commits. If you've authored any commits using a generic email address, the commits will not be linked to your {% data variables.product.prodname_dotcom %} profile and will not show up in your contribution graph.
+Универсальные адреса электронной почты, такие как `jane@computer.local`, нельзя добавить в учетные записи {% data variables.product.prodname_dotcom %} и связать с фиксациями. Если вы создали фиксации с помощью универсального адреса электронной почты, фиксации не будут связаны с профилем {% data variables.product.prodname_dotcom %} и не будут отображаться в графе вкладов.
 
-### Commit was not made in the default or `gh-pages` branch
+### Фиксация не была выполнена в ветви по умолчанию или ветви `gh-pages`
 
-Commits are only counted if they are made in the default branch or the `gh-pages` branch (for repositories with project sites). For more information, see "[About {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages#types-of-github-pages-sites)."
+Учитываются только фиксации, выполненные в ветви по умолчанию или ветви `gh-pages` (для репозиториев с сайтами проектов). Дополнительные сведения см. в статье [Сведения о {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages#types-of-github-pages-sites).
 
-If your commits are in a non-default or non-`gh-pages` branch and you'd like them to count toward your contributions, you will need to do one of the following:
-- [Open a pull request](/articles/creating-a-pull-request) to have your changes merged into the default branch or the `gh-pages` branch.
-- [Change the default branch](/github/administering-a-repository/changing-the-default-branch) of the repository.
+Если фиксации находятся в ветви, не являющейся ветвью по умолчанию или ветвью `gh-pages`, и требуется учитывать их в качестве вкладов, необходимо выполнить одно из следующих действий.
+- [Открыть запрос на вытягивание](/articles/creating-a-pull-request), чтобы объединить изменения в ветвь по умолчанию или ветвь `gh-pages`.
+- [Изменить ветвь по умолчанию](/github/administering-a-repository/changing-the-default-branch) репозитория.
 
 {% warning %}
 
-**Warning**: Changing the default branch of the repository will change it for all repository collaborators. Only do this if you want the new branch to become the base against which all future pull requests and commits will be made.
+**Предупреждение**. Изменение ветви репозитория по умолчанию приведет к ее изменению для всех участников совместной работы в репозитории. Делать это следует только в том случае, если требуется, чтобы новая ветвь стала базой, в которой будут выполняться все будущие запросы на вытягивание и фиксации.
 
 {% endwarning %}
 
-### Commit was made in a fork
+### Фиксация была выполнена в вилке
 
-Commits made in a fork will not count toward your contributions. To make them count, you must do one of the following:
-- [Open a pull request](/articles/creating-a-pull-request) to have your changes merged into the parent repository.
-- To detach the fork and turn it into a standalone repository on {% data variables.location.product_location %}, contact {% data variables.contact.contact_support %}. If the fork has forks of its own, let {% data variables.contact.contact_support %} know if the forks should move with your repository into a new network or remain in the current network. For more information, see "[About forks](/articles/about-forks/)."
+Фиксации, выполненные в вилке, не будут учитываться в качестве вкладов. Чтобы они учитывались, необходимо выполнить одно из следующих действий.
+- [Открыть запрос на вытягивание](/articles/creating-a-pull-request), чтобы объединить изменения с родительским репозиторием.
+- Чтобы отсоединить вилку и превратить ее в автономный репозиторий на {% data variables.location.product_location %}, обратитесь к {% data variables.contact.contact_support %}. Если в вилке есть собственные вилки, сообщите {% data variables.contact.contact_support %}, требуется ли переместить вилки вместе с репозиторием в новую сеть или оставить в текущей сети. Дополнительные сведения см. в статье [Сведения о вилках](/articles/about-forks/).
 
-## Further reading
+## Дополнительные материалы
 
-- "[Publicizing or hiding your private contributions on your profile](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile)"
-- "[Viewing contributions on your profile page](/articles/viewing-contributions-on-your-profile-page)"
+- [Публикация или скрытие личных вкладов в своем профиле](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile)
+- [Просмотр вкладов на странице профиля](/articles/viewing-contributions-on-your-profile-page)

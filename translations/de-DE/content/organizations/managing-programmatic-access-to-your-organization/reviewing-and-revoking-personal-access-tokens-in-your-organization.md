@@ -1,37 +1,40 @@
 ---
-title: Reviewing and revoking personal access tokens in your organization
-intro: 'Organization owners can review the {% data variables.product.pat_v2 %}s that can access their organization. They can also revoke access of specific {% data variables.product.pat_v2 %}s.'
+title: Überprüfen und Widerrufen persönlicher Zugriffstoken in deiner Organisation
+intro: 'Organisationsbesitzer können {% data variables.product.pat_v2 %} mit Zugriff auf ihre Organisation überprüfen. Sie können auch den Zugriff über bestimmte {% data variables.product.pat_v2 %} widerrufen.'
 versions:
   feature: pat-v2
 shortTitle: Review token access
+ms.openlocfilehash: 5503d5c0daaa506030ffc022e7251f9a016a8034
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148107389'
 ---
-
 {% data reusables.user-settings.pat-v2-org-opt-in %}
 
-## About reviewing and revoking  {% data variables.product.pat_v2 %}s
+## Informationen zum Überprüfen und Widerrufen von {% data variables.product.pat_v2 %}
 
-Organization owners can view all {% data variables.product.pat_v2 %}s that can access resources owned by the organization. Organization owners can also revoke access by {% data variables.product.pat_v2 %}s. When a {% data variables.product.pat_v2 %} is revoked, SSH keys created by the token will continue to work and the token will still be able to read public resources within the organization.
+Organisationsbesitzer können alle {% data variables.product.pat_v2 %} mit Zugriff auf Ressourcen anzeigen, die der Organisation gehören. Sie können den Zugriff durch {% data variables.product.pat_v2 %} auch widerrufen. Wird ein {% data variables.product.pat_v2 %} widerrufen, funktionieren die durch das Token erstellte SSH-Schlüssel weiterhin, und das Token kann weiter öffentliche Ressourcen innerhalb der Organisation lesen.
 
-When a token is revoked, the user who created the token will receive an email notification.
+Wird ein Token widerrufen, erhält der Benutzer/die Benutzerin, der/die das Token erstellt hat, eine Benachrichtigung per E-Mail.
 
-Organization owners can only view and revoke {% data variables.product.pat_v2 %}s, not {% data variables.product.pat_v1_plural %}. Unless the organization {% ifversion ghec or ghes or ghae %}or enterprise {% endif %}has restricted access by {% data variables.product.pat_v1_plural %}, any {% data variables.product.pat_v1 %} can access organization resources until the token expires. For more information about restricting access by {% data variables.product.pat_v1_plural %}, see "[Setting a {% data variables.product.pat_generic %} policy for your organization](/organizations/managing-programmatic-access-to-your-organization/setting-a-personal-access-token-policy-for-your-organization)"{% ifversion ghec or ghes or ghae %} and "[Enforcing policies for {% data variables.product.pat_generic %}s in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-personal-access-tokens-in-your-enterprise)"{% endif %}.
+Organisationsbesitzer können nur {% data variables.product.pat_v2 %} anzeigen und widerrufen, nicht {% data variables.product.pat_v1_plural %}. Sofern die Organisation {% ifversion ghec or ghes or ghae %}oder das Unternehmen {% endif %}den Zugriff über {% data variables.product.pat_v1_plural %} nicht eingeschränkt hat, können {% data variables.product.pat_v1 %} bis zum Ablauf des Tokens auf Organisationsressourcen zugreifen. Weitere Informationen zur Einschränkung des Zugriffs über {% data variables.product.pat_v1_plural %} findest du unter [Festlegen einer {% data variables.product.pat_generic %}-Richtlinie für deine Organisation](/organizations/managing-programmatic-access-to-your-organization/setting-a-personal-access-token-policy-for-your-organization){% ifversion ghec or ghes or ghae %} und [Erzwingen von Richtlinien für {% data variables.product.pat_generic %} in deinem Unternehmen](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-personal-access-tokens-in-your-enterprise){% endif %}.
 
-{% ifversion ghec %} Organization owners can also view and revoke {% data variables.product.pat_v1_plural %} if their organization requires SAML single-sign on. For more information, see "[Viewing and managing a user's SAML access to your enterprise](/admin/user-management/managing-users-in-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise#viewing-and-revoking-authorized-credentials)". For more information about using the REST API to do this, see "[List SAML SSO authorizations for an organization](/rest/orgs/orgs#list-saml-sso-authorizations-for-an-organization)" and "[Remove a SAML SSO authorization for an organization](/rest/orgs/orgs#remove-a-saml-sso-authorization-for-an-organization)."{% endif %}
+{% ifversion ghec %} Organisationsbesitzer können {% data variables.product.pat_v1_plural %} auch anzeigen und widerrufen, wenn ihre Organisation das einmalige Anmelden mit SAML erfordert. Weitere Informationen findest du unter [Anzeigen und Verwalten des SAML-Zugriffs von Benutzer*innen auf dein Unternehmen](/admin/user-management/managing-users-in-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise#viewing-and-revoking-authorized-credentials). Weitere Informationen zur Verwendung der REST-API in diesem Zusammenhang findest du unter [Auflisten von SAML-SSO-Autorisierungen für eine Organisation](/rest/orgs/orgs#list-saml-sso-authorizations-for-an-organization) und [Entfernen einer SAML-SSO-Autorisierung für eine Organisation](/rest/orgs/orgs#remove-a-saml-sso-authorization-for-an-organization).{% endif %}
 
-## Reviewing and revoking  {% data variables.product.pat_v2 %}s
+## Überprüfen und Widerrufen von {% data variables.product.pat_v2 %}
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-1. In the left sidebar, under **{% octicon "key" aria-label="The key icon" %} {% data variables.product.pat_generic_caps %}s**, click **Active tokens**. Any {% data variables.product.pat_v2 %}s that can access your organization will be displayed.
-1. Click the name of the token that you want review or revoke.
-1. Review the access and permissions that the token has.
-1. To revoke access by the token to the organization, click **Revoke**.
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %}
+1. Klicke in der linken Randleiste unter **{% octicon "key" aria-label="The key icon" %} {% data variables.product.pat_generic_caps %}** auf **Aktive Token**. Es werden alle {% data variables.product.pat_v2 %} mit Zugriff auf deine Organisation angezeigt.
+1. Klicke auf den Namen des Tokens, das du überprüfen oder widerrufen möchtest.
+1. Überprüfe den Zugriff und die Berechtigungen, über die das Token verfügt.
+1. Klicke auf **Widerrufen**, um den Zugriff des Tokens auf die Organisation zu widerrufen.
 
-Alternatively, you can revoke multiple tokens at once:
+Du kannst auch mehrere Token gleichzeitig widerrufen:
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-1. In the left sidebar, under **{% octicon "key" aria-label="The key icon" %} {% data variables.product.pat_generic_caps %}s**, click **Active tokens**. Any {% data variables.product.pat_v2 %}s that can access your organization will be displayed.
-{% data reusables.user-settings.patv2-filters %}
-1. Select each token that you want to revoke.
-1. Select the **tokens selected...** dropdown menu and click **Revoke...**.
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %}
+1. Klicke in der linken Randleiste unter **{% octicon "key" aria-label="The key icon" %} {% data variables.product.pat_generic_caps %}** auf **Aktive Token**. Es werden alle {% data variables.product.pat_v2 %} mit Zugriff auf deine Organisation angezeigt.
+1. Optional kannst du über das Dropdownmenü **Besitzer** die Token nach den Mitgliedern filtern, die das Token erstellt haben.
+1. Wähle alle Token aus, die du widerrufen möchtest.
+1. Wähle das Dropdownmenü **Ausgewählte Token** aus, und klicke auf **Widerrufen**.

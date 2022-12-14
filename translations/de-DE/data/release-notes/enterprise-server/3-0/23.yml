@@ -1,0 +1,19 @@
+date: '18.01.2022'
+sections:
+  security_fixes:
+    - 'Die Pakete wurden auf die neuesten Sicherheitsversionen aktualisiert. Mit diesen Updates wurde Log4j auf die Version 2.17.1 aktualisiert. Hinweis: Vorherige Risikominderungen, die in 3.3.1, 3.2.6, 3.1.14 und 3.0.22 veröffentlicht wurden, reichen aus, um die Auswirkungen von CVE-2021-44228, CVE-2021-45046, CVE-2021-45105 und CVE-2021-44832 in diesen Versionen von GitHub Enterprise Server zu behandeln.'
+    - Bereinigen von mehr Geheimnissen in den generierten Supportbundles
+    - Die Pakete wurden auf die neuesten Sicherheitsversionen aktualisiert.
+  bugs:
+    - Beim Ausführen von `ghe-config-apply` können manchmal Fehler aufgrund von Berechtigungsproblemen in `/data/user/tmp/pages` auftreten.
+    - Die Schaltfläche zum Speichern in der Verwaltungskonsole konnte durch Scrollen in Browsern mit niedrigerer Auflösung nicht erreicht werden.
+    - IOPS- und Speichertrafficüberwachungsdiagramme wurden nach dem Versionsupgrade nicht aktualisiert.
+    - Einige Aufträge in Verbindung mit Webhooks könnten große Mengen an Protokollen generieren.
+  known_issues:
+    - "Auf einem neu eingerichteten {% data variables.product.prodname_ghe_server %} ohne Benutzer*innen könnten Angreifer*innen den ersten Administratorbenutzer erstellen."
+    - Benutzerdefinierte Firewallregeln werden während des Upgrades entfernt.
+    - "Nachverfolgte Git-LFS-Dateien, [die über die Webschnittstelle hochgeladen wurden,](https://github.com/blog/2105-upload-files-to-your-repositories) werden dem Repository fälschlicherweise direkt hinzugefügt."
+    - "Issues können nicht geschlossen werden, wenn sie einen Permalink zu einem Blob im selben Repository enthalten, wobei der Dateipfad des Blobs länger ist als 255 Zeichen."
+    - "Wenn „Benutzer können GitHub.com durchsuchen“ bei GitHub Connect aktiviert ist, sind Issues in privaten und internen Repositorys nicht in den GitHub.com-Suchergebnissen enthalten."
+    - "Wenn ein Replikatknoten in einer Hochverfügbarkeitskonfiguration offline ist, kann {% data variables.product.product_name %} eventuell noch immer Anforderungen von {% data variables.product.prodname_pages %} an den Offlineknoten weiterleiten, was die Verfügbarkeit von {% data variables.product.prodname_pages %} für die Benutzer*innen verringert."
+    - "Ressourcenbegrenzungen, die nur beim Verarbeiten von Pre-Receive-Hooks auftreten, können bei manchen Pre-Receive-Hooks Fehler auslösen."

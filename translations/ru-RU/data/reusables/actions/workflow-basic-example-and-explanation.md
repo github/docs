@@ -1,17 +1,22 @@
-## Create an example workflow
+---
+ms.openlocfilehash: 53dbd22ad351ec7a1abc92107b366ecd8c71a3a9
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "147064541"
+---
+## Создание примера рабочего процесса
 
-{% data variables.product.prodname_actions %} uses YAML syntax to define the workflow.  Each workflow is stored as a separate YAML file in your code repository, in a directory named `.github/workflows`.
+Для определения рабочего процесса {% data variables.product.prodname_actions %} использует синтаксис YAML.  Каждый рабочий процесс хранится как отдельный YAML-файл в репозитории кода в каталоге с именем `.github/workflows`.
 
-You can create an example workflow in your repository that automatically triggers a series of commands whenever code is pushed. In this workflow, {% data variables.product.prodname_actions %} checks out the pushed code, installs the [bats](https://www.npmjs.com/package/bats) testing framework, and runs a basic command to output the bats version: `bats -v`.
+Можно создать пример рабочего процесса в репозитории, который автоматически активирует ряд команд при отправке кода. В этом рабочем процессе {% data variables.product.prodname_actions %} извлекает отправленный код, устанавливает платформу тестирования [bats](https://www.npmjs.com/package/bats) и выполняет базовую команду для вывода версии bats: `bats -v`.
 
-1. In your repository, create the `.github/workflows/` directory to store your workflow files.
-1. In the `.github/workflows/` directory, create a new file called `learn-github-actions.yml` and add the following code.
+1. В репозитории создайте каталог `.github/workflows/` для хранения файлов рабочего процесса.
+1. В каталоге `.github/workflows/` создайте файл с именем `learn-github-actions.yml` и добавьте следующий код.
 
-   ```yaml{:copy}
+   ```yaml
    name: learn-github-actions
-   {%- ifversion actions-run-name %}
-   run-name: {% raw %}${{ github.actor }}{% endraw %} is learning GitHub Actions
-   {%- endif %}
    on: [push]
    jobs:
      check-bats-version:
@@ -24,13 +29,13 @@ You can create an example workflow in your repository that automatically trigger
          - run: npm install -g bats
          - run: bats -v
    ```
-1. Commit these changes and push them to your {% data variables.product.prodname_dotcom %} repository.
+1. Зафиксируйте эти изменения и отправьте их в репозиторий {% data variables.product.prodname_dotcom %}.
 
-Your new {% data variables.product.prodname_actions %} workflow file is now installed in your repository and will run automatically each time someone pushes a change to the repository. To see the details about a workflow's execution history, see "[Viewing the activity for a workflow run](#viewing-the-activity-for-a-workflow-run)."
+Новый файл рабочего процесса {% data variables.product.prodname_actions %} теперь установлен в репозитории и будет выполняться автоматически каждый раз, когда кто-то отправляет изменения в репозиторий. Дополнительные сведения о журнале выполнения рабочего процесса см. в разделе "[Просмотр действия для выполнения рабочего процесса](#viewing-the-activity-for-a-workflow-run)".
 
-## Understanding the workflow file
+## Общие сведения о файле рабочего процесса
 
-To help you understand how YAML syntax is used to create a workflow file, this section explains each line of the introduction's example:
+Чтобы понять, как используется синтаксис YAML для создания файла рабочего процесса, просмотрите объяснение каждой строки вводного примера.
 
 <table>
 <tr>
@@ -41,23 +46,9 @@ To help you understand how YAML syntax is used to create a workflow file, this s
   ```
 </td>
 <td>
-  <em>Optional</em> - The name of the workflow as it will appear in the "Actions" tab of the {% data variables.product.prodname_dotcom %} repository.
+  <em>Необязательно</em>. Имя рабочего процесса в том виде, как оно отображается на вкладке "Действия" репозитория {% data variables.product.prodname_dotcom %}.
 </td>
 </tr>
-{%- ifversion actions-run-name %}
-<tr>
-<td>
-
-  ```yaml
-  run-name: {% raw %}${{ github.actor }}{% endraw %} is learning GitHub Actions
-  ```
-</td>
-<td>
-
-  <em>Optional</em> - The name for workflow runs generated from the workflow, which will appear in the list of workflow runs on your repository's "Actions" tab. This example uses an expression with the `github` context to display the username of the actor that triggered the workflow run. For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/using-workflows/workflow-syntax-for-github-actions#run-name)."
-</td>
-</tr>
-{%- endif %}
 <tr>
 <td>
 
@@ -66,7 +57,7 @@ To help you understand how YAML syntax is used to create a workflow file, this s
   ```
 </td>
 <td>
-Specifies the trigger for this workflow. This example uses the <code>push</code> event, so a workflow run is triggered every time someone pushes a change to the repository or merges a pull request.  This is triggered by a push to every branch; for examples of syntax that runs only on pushes to specific branches, paths, or tags, see "<a href="/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore">Workflow syntax for {% data variables.product.prodname_actions %}</a>."
+Указывает триггер для этого рабочего процесса. В этом примере используется событие <code>push</code>, поэтому выполнение рабочего процесса запускается каждый раз, когда кто-то отправляет изменения в репозиторий или объединяет запрос на вытягивание.  Он активируется при отправке в каждую ветвь. Примеры синтаксиса, который выполняется только при отправке в определенные ветви, пути или теги, см. в статье «<a href="/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore">Синтаксис рабочего процесса для {% data variables.product.prodname_actions %}</a>».
 </td>
 </tr>
 <tr>
@@ -77,7 +68,7 @@ Specifies the trigger for this workflow. This example uses the <code>push</code>
   ```
 </td>
 <td>
- Groups together all the jobs that run in the <code>learn-github-actions</code> workflow.
+Объединяет все задания, выполняемые в рабочем процессе <code>learn-github-actions</code>.
 </td>
 </tr>
 <tr>
@@ -88,7 +79,7 @@ Specifies the trigger for this workflow. This example uses the <code>push</code>
   ```
 </td>
 <td>
-Defines a job named <code>check-bats-version</code>. The child keys will define properties of the job.
+Определяет задание с именем <code>check-bats-version</code>. Дочерние ключи определяют свойства задания.
 </td>
 </tr>
 <tr>
@@ -99,7 +90,7 @@ Defines a job named <code>check-bats-version</code>. The child keys will define 
   ```
 </td>
 <td>
-  Configures the job to run on the latest version of an Ubuntu Linux runner. This means that the job will execute on a fresh virtual machine hosted by GitHub. For syntax examples using other runners, see "<a href="/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on">Workflow syntax for {% data variables.product.prodname_actions %}</a>."
+Настраивает задание для выполнения в последней версии средства выполнения Ubuntu Linux. Это означает, что задание будет выполняться на новой виртуальной машине, размещенной в GitHub. Примеры синтаксиса, где используются другие средства выполнения тестов, см. в статье «<a href="/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on">Синтаксис рабочего процесса для {% data variables.product.prodname_actions %}</a>».
 </td>
 </tr>
 <tr>
@@ -110,7 +101,7 @@ Defines a job named <code>check-bats-version</code>. The child keys will define 
   ```
 </td>
 <td>
-  Groups together all the steps that run in the <code>check-bats-version</code> job. Each item nested under this section is a separate action or shell script.
+Объединяет все этапы, выполняемые в рабочем процессе <code>check-bats-version</code>. Каждый элемент, вложенный в этот раздел, является отдельным действием или скриптом оболочки.
 </td>
 </tr>
 <tr>
@@ -121,7 +112,7 @@ Defines a job named <code>check-bats-version</code>. The child keys will define 
   ```
 </td>
 <td>
-The <code>uses</code> keyword specifies that this step will run <code>v3</code> of the <code>actions/checkout</code> action. This is an action that checks out your repository onto the runner, allowing you to run scripts or other actions against your code (such as build and test tools). You should use the checkout action any time your workflow will run against the repository's code.
+Ключевое слово <code>uses</code> указывает, что этот этап будет выполнять <code>v3</code> действия <code>actions/checkout</code>. Это действие, которое извлекает репозиторий в средство выполнения, позволяя выполнять скрипты или другие действия в коде (например, средства сборки и тестирования). Действие извлечения следует использовать каждый раз, когда рабочий процесс будет выполняться в коде репозитория.
 </td>
 </tr>
 <tr>
@@ -134,7 +125,7 @@ The <code>uses</code> keyword specifies that this step will run <code>v3</code> 
   ```
 </td>
 <td>
-  This step uses the <code>{% data reusables.actions.action-setup-node %}</code> action to install the specified version of the Node.js (this example uses v14). This puts both the <code>node</code> and <code>npm</code> commands in your <code>PATH</code>.
+Этот этап использует действие <code>{% data reusables.actions.action-setup-node %}</code> для установки указанной версии Node.js (в этом примере используется версия 14). В этом случае команды <code>node</code> и <code>npm</code> помещаются в <code>PATH</code>.
 </td>
 </tr>
 <tr>
@@ -145,7 +136,7 @@ The <code>uses</code> keyword specifies that this step will run <code>v3</code> 
   ```
 </td>
 <td>
-  The <code>run</code> keyword tells the job to execute a command on the runner. In this case, you are using <code>npm</code> to install the <code>bats</code> software testing package.
+Ключевое слово <code>run</code> указывает заданию выполнить команду в средстве выполнения. В этом случае используется <code>npm</code> для установки пакета тестирования ПО <code>bats</code>.
 </td>
 </tr>
 <tr>
@@ -156,34 +147,34 @@ The <code>uses</code> keyword specifies that this step will run <code>v3</code> 
   ```
 </td>
 <td>
-  Finally, you'll run the <code>bats</code> command with a parameter that outputs the software version.
+Наконец, выполняется команда <code>bats</code> с параметром, которая выводит версию программного обеспечения.
 </td>
 </tr>
 </table>
 
-### Visualizing the workflow file
+### Визуализация файла рабочего процесса
 
-In this diagram, you can see the workflow file you just created and how the {% data variables.product.prodname_actions %} components are organized in a hierarchy. Each step executes a single action or shell script. Steps 1 and 2 run actions, while steps 3 and 4 run shell scripts. To find more prebuilt actions for your workflows, see "[Finding and customizing actions](/actions/learn-github-actions/finding-and-customizing-actions)."
+На этой схеме показан только что созданный файл рабочего процесса и порядок организации компонентов {% data variables.product.prodname_actions %} в иерархии. Каждый этап выполняет одно действие или скрипт оболочки. Этапы 1 и 2 выполняют действия, а этапы 3 и 4 выполняют скрипты оболочки. Дополнительные предварительно созданные действия для рабочих процессов см. в статье "[Поиск и настройка действий](/actions/learn-github-actions/finding-and-customizing-actions)".
 
-![Workflow overview](/assets/images/help/images/overview-actions-event.png)
+![Обзор рабочего процесса](/assets/images/help/images/overview-actions-event.png)
 
-## Viewing the activity for a workflow run
+## Просмотр действия для выполнения рабочего процесса
 
-When your workflow is triggered, a _workflow run_ is created that executes the workflow. After a workflow run has started, you can see a visualization graph of the run's progress and view each step's activity on {% data variables.product.prodname_dotcom %}.
+При активации рабочего процесса создается _запуск рабочего процесса_, который выполняет рабочий процесс. После запуска рабочего процесса можно увидеть граф визуализации хода выполнения и просмотреть действие на каждом этапе в {% data variables.product.prodname_dotcom %}.
 
 {% data reusables.repositories.navigate-to-repo %}
-1. Under your repository name, click **Actions**.
+1. Под именем своего репозитория щелкните **Действия**.
 
-   ![Navigate to repository](/assets/images/help/images/learn-github-actions-repository.png)
-1. In the left sidebar, click the workflow you want to see.
+   ![Переход к репозиторию](/assets/images/help/images/learn-github-actions-repository.png)
+1. На левой боковой панели щелкните нужный рабочий процесс.
 
-   ![Screenshot of workflow results](/assets/images/help/images/learn-github-actions-workflow.png)
-1. Under "Workflow runs", click the name of the run you want to see.
+   ![Снимок экрана: результаты рабочего процесса](/assets/images/help/images/learn-github-actions-workflow.png)
+1. В разделе "Выполнения рабочего процесса" выберите имя выполнения, которое требуется просмотреть.
 
-   ![Screenshot of workflow runs](/assets/images/help/images/learn-github-actions-run.png)
-1. Under **Jobs** or in the visualization graph, click the job you want to see.
+   ![Снимок экрана: выполнения рабочего процесса](/assets/images/help/images/learn-github-actions-run.png)
+1. В разделе **Задания** или на графе визуализации выберите задание, которое требуется просмотреть.
 
-   ![Select job](/assets/images/help/images/overview-actions-result-navigate.png)
-1. View the results of each step.
+   ![Выбор задания](/assets/images/help/images/overview-actions-result-navigate.png)
+1. Просмотрите результаты каждого шага.
 
-   ![Screenshot of workflow run details](/assets/images/help/images/overview-actions-result-updated-2.png)
+   ![Снимок экрана: сведения о выполнении рабочего процесса](/assets/images/help/images/overview-actions-result-updated-2.png)

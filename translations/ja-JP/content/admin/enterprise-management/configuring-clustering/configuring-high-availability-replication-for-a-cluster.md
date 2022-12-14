@@ -1,6 +1,6 @@
 ---
-title: Configuring high availability replication for a cluster
-intro: 'You can configure a passive replica of your entire {% data variables.product.prodname_ghe_server %} cluster in a different location, allowing your cluster to fail over to redundant nodes.'
+title: クラスタの High Availability レプリケーションを設定する
+intro: '{% data variables.product.prodname_ghe_server %} クラスタ全体のパッシブレプリカを別の場所に設定することで、クラスタを冗長ノードにフェイルオーバーできるようにします。'
 miniTocMaxHeadingLevel: 3
 redirect_from:
   - /enterprise/admin/enterprise-management/configuring-high-availability-replication-for-a-cluster
@@ -14,80 +14,86 @@ topics:
   - High availability
   - Infrastructure
 shortTitle: Configure HA replication
+ms.openlocfilehash: 3663fe290fab6644c5650c3f1ff435dfae87bcf4
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145120630'
 ---
-## About high availability replication for clusters
+## クラスタの High Availability レプリケーションについて
 
-You can configure a cluster deployment of {% data variables.product.prodname_ghe_server %} for high availability, where an identical set of passive nodes sync with the nodes in your active cluster. If hardware or software failures affect the datacenter with your active cluster, you can manually fail over to the replica nodes and continue processing user requests, minimizing the impact of the outage.
+High Availability を実現するために、{% data variables.product.prodname_ghe_server %} のクラスタデプロイメントを設定できます。この場合、パッシブノードの同一のセットがアクティブクラスタ内のノードと同期されます。 ハードウェアまたはソフトウェアの障害がアクティブなクラスタのデータセンターに影響を与える場合は、手動でレプリカノードにフェイルオーバーし、ユーザリクエストの処理を続行して、停止の影響を最小限に抑えることができます。
 
-In high availability mode, each active node syncs regularly with a corresponding passive node. The passive node runs in standby and does not serve applications or process user requests.
+High Availability モードでは、各アクティブノードは対応するパッシブノードと定期的に同期します。 パッシブノードはスタンバイで実行され、アプリケーションへのサービス提供や、ユーザ要求の処理は行われません。
 
-We recommend configuring high availability as a part of a comprehensive disaster recovery plan for {% data variables.product.prodname_ghe_server %}. We also recommend performing regular backups. For more information, see "[Configuring backups on your appliance](/enterprise/admin/configuration/configuring-backups-on-your-appliance)."
+{% data variables.product.prodname_ghe_server %} の包括的なシステム災害復旧計画の一部として High Availability を設定することをお勧めします。 また、定期的なバックアップを実行することをお勧めします。 詳細については、「[アプライアンスでのバックアップの設定](/enterprise/admin/configuration/configuring-backups-on-your-appliance)」を参照してください。
 
-## Prerequisites
+## 前提条件
 
-### Hardware and software
+### ハードウェアとソフトウェア
 
-For each existing node in your active cluster, you'll need to provision a second virtual machine with identical hardware resources. For example, if your cluster has 11 nodes and each node has 12 vCPUs, 96 GB of RAM, and 750 GB of attached storage, you must provision 11 new virtual machines that each have 12 vCPUs, 96 GB of RAM, and 750 GB of attached storage.
+アクティブなクラスタ内の既存のノードごとに、同一のハードウェアリソースを使用して2番目の仮想マシンをプロビジョニングする必要があります。 たとえば、クラスターに 11 個のノードがあり、各ノードに 12 個の vCPU、96 GB の RAM、および 750 GB の接続ストレージがある場合、それぞれが 12 個の vCPU、96 GB の RAM、および 750 GB の接続ストレージを備えた 11 個の新しい仮想マシンをプロビジョニングする必要があります。
 
-On each new virtual machine, install the same version of {% data variables.product.prodname_ghe_server %} that runs on the nodes in your active cluster. You don't need to upload a license or perform any additional configuration. For more information, see "[Setting up a {% data variables.product.prodname_ghe_server %} instance](/enterprise/admin/installation/setting-up-a-github-enterprise-server-instance)."
+新しい仮想マシンごとに、アクティブクラスタ内のノードで実行されているものと同じバージョンの {% data variables.product.prodname_ghe_server %} をインストールします。 ライセンスをアップロードしたり、追加の設定を実行したりする必要はありません。 詳細については、「[{% data variables.product.prodname_ghe_server %} インスタンスをセットアップする](/enterprise/admin/installation/setting-up-a-github-enterprise-server-instance)」を参照してください。
 
 {% note %}
 
-**Note**: The nodes that you intend to use for high availability replication should be standalone {% data variables.product.prodname_ghe_server %} instances. Don't initialize the passive nodes as a second cluster.
+**注**: High Availability レプリケーションに使用する予定のノードは、スタンドアロンの {% data variables.product.prodname_ghe_server %} インスタンスである必要があります。 パッシブノードを2番目のクラスタとして初期化しないでください。
 
 {% endnote %}
 
-### Network
+### ネットワーク
 
-You must assign a static IP address to each new node that you provision, and you must configure a load balancer to accept connections and direct them to the nodes in your cluster's front-end tier.
+プロビジョニングする新しいノードごとに静的 IP アドレスを割り当てる必要があります。また、接続を受け入れてクラスタのフロントエンド層のノードに転送するようにロードバランサを設定する必要があります。
 
-{% data reusables.enterprise_clustering.network-latency %} For more information about network connectivity between nodes in the passive cluster, see "[Cluster network configuration](/enterprise/admin/enterprise-management/cluster-network-configuration)."
+アクティブクラスタを使用するネットワークとパッシブクラスタを使用するネットワークの間にファイアウォールを設定することはお勧めしません。 アクティブノードのあるネットワークとパッシブノードのあるネットワークの間の遅延は、70 ミリ秒未満である必要があります。 パッシブ クラスター内のノード間のネットワーク接続の詳細については、「[クラスターのネットワーク構成](/enterprise/admin/enterprise-management/cluster-network-configuration)」を参照してください。
 
-## Creating a high availability replica for a cluster
+## クラスタの High Availability レプリカを作成する
 
-- [Assigning active nodes to the primary datacenter](#assigning-active-nodes-to-the-primary-datacenter)
-- [Adding passive nodes to the cluster configuration file](#adding-passive-nodes-to-the-cluster-configuration-file)
-- [Example configuration](#example-configuration)
+- [アクティブ ノードをプライマリ データセンターに割り当てる](#assigning-active-nodes-to-the-primary-datacenter)
+- [パッシブ ノードをクラスター構成ファイルに追加する](#adding-passive-nodes-to-the-cluster-configuration-file)
+- [構成例](#example-configuration)
 
-### Assigning active nodes to the primary datacenter
+### アクティブノードをプライマリデータセンターに割り当てる
 
-Before you define a secondary datacenter for your passive nodes, ensure that you assign your active nodes to the primary datacenter.
+パッシブノードのセカンダリデータセンターを定義する前に、アクティブノードをプライマリデータセンターに割り当てていることを確認してください。
 
 {% data reusables.enterprise_clustering.ssh-to-a-node %}
 
 {% data reusables.enterprise_clustering.open-configuration-file %}
 
-3. Note the name of your cluster's primary datacenter. The `[cluster]` section at the top of the cluster configuration file defines the primary datacenter's name, using the `primary-datacenter` key-value pair. By default, the primary datacenter for your cluster is named `default`.
+3. クラスタのプライマリデータセンターの名前に注意します。 クラスター構成ファイルの上部にある `[cluster]` セクションでは、キーと値のペア `primary-datacenter` を使用して、プライマリ データセンターの名前を定義します。 既定では、クラスターのプライマリ データセンターの名前は `default` です。
 
     ```shell
     [cluster]
-      mysql-master = HOSTNAME
-      redis-master = HOSTNAME
+      mysql-master = <em>HOSTNAME</em>
+      redis-master = <em>HOSTNAME</em>
       <strong>primary-datacenter = default</strong>
     ```
 
-    - Optionally, change the name of the primary datacenter to something more descriptive or accurate by editing the value of `primary-datacenter`.
+    - 必要に応じて、`primary-datacenter` の値を編集して、プライマリ データセンター名をよりわかりやすい名前に変更します。
 
-4. {% data reusables.enterprise_clustering.configuration-file-heading %} Under each node's heading, add a new key-value pair to assign the node to a datacenter. Use the same value as `primary-datacenter` from step 3 above. For example, if you want to use the default name (`default`), add the following key-value pair to the section for each node.
+4. {% data reusables.enterprise_clustering.configuration-file-heading %} 各ノードの見出しの下に、新しいキー/値ペアのペアを追加して、ノードをデータセンターに割り当てます。 上記のステップ 3 と同じ値 `primary-datacenter` を使用します。 たとえば、既定の名前 (`default`) を使用する場合は、次のキーと値のペアを各ノードのセクションに追加します。
 
     ```
     datacenter = default
     ```
 
-    When you're done, the section for each node in the cluster configuration file should look like the following example. {% data reusables.enterprise_clustering.key-value-pair-order-irrelevant %}
+    完了すると、クラスタ設定ファイルの各ノードのセクションは次の例のようになります。 {% data reusables.enterprise_clustering.key-value-pair-order-irrelevant %}
 
     ```shell
-    [cluster "HOSTNAME"]
+    [cluster "<em>HOSTNAME</em>"]
       <strong>datacenter = default</strong>
-      hostname = HOSTNAME
-      ipv4 = IP-ADDRESS
+      hostname = <em>HOSTNAME</em>
+      ipv4 = <em>IP ADDRESS</em>
       ...
     ...
     ```
 
     {% note %}
 
-    **Note**: If you changed the name of the primary datacenter in step 3, find the `consul-datacenter` key-value pair in the section for each node and change the value to the renamed primary datacenter. For example, if you named the primary datacenter `primary`, use the following key-value pair for each node.
+    **注**: ステップ 3 でプライマリ データセンター名を変更した場合は、各ノードのセクションでキーと値のペア `consul-datacenter` を見つけ、その値を名前変更したプライマリ データセンターに変更します。 たとえば、プライマリ データセンターに `primary` という名前を付けた場合は、ノードごとに次のキーと値のペアを使用します。
 
     ```
     consul-datacenter = primary
@@ -99,123 +105,123 @@ Before you define a secondary datacenter for your passive nodes, ensure that you
 
 {% data reusables.enterprise_clustering.configuration-finished %}
 
-After {% data variables.product.prodname_ghe_server %} returns you to the prompt, you've finished assigning your nodes to the cluster's primary datacenter.
+{% data variables.product.prodname_ghe_server %} がプロンプトに戻ったら、ノードをクラスタのプライマリデータセンターに割り当てます。
 
-### Adding passive nodes to the cluster configuration file
+### パッシブノードをクラスタ設定ファイルに追加する
 
-To configure high availability, you must define a corresponding passive node for every active node in your cluster. The following instructions create a new cluster configuration that defines both active and passive nodes. You will:
+High Availability を設定するには、クラスタ内のすべてのアクティブノードに対応するパッシブノードを定義する必要があります。 次の手順では、アクティブノードとパッシブノードの両方を定義する新しいクラスタ設定を作成します。 このチュートリアルの内容は次のとおりです。
 
-- Create a copy of the active cluster configuration file.
-- Edit the copy to define passive nodes that correspond to the active nodes, adding the IP addresses of the new virtual machines that you provisioned.
-- Merge the modified copy of the cluster configuration back into your active configuration.
-- Apply the new configuration to start replication.
+- アクティブなクラスタ設定ファイルのコピーを作成します。
+- コピーを編集して、アクティブノードに対応するパッシブノードを定義し、プロビジョニングした新しい仮想マシンの IP アドレスを追加します。
+- クラスタ設定の変更されたコピーをアクティブな設定にマージします。
+- 新しい設定を適用してレプリケーションを開始します。
 
-For an example configuration, see "[Example configuration](#example-configuration)."
+構成例については、「[構成例](#example-configuration)」を参照してください。
 
-1. For each node in your cluster, provision a matching virtual machine with identical specifications, running the same version of  {% data variables.product.prodname_ghe_server %}. Note the IPv4 address and hostname for each new cluster node. For more information, see "[Prerequisites](#prerequisites)."
+1. クラスタ内のノードごとに、同じバージョンの {% data variables.product.prodname_ghe_server %} を実行して、同じ仕様で一致する仮想マシンをプロビジョニングします。 新しい各クラスターノードの IPv4 アドレスとホスト名に注意してください。 詳しい情報については、「[前提条件](#prerequisites)」を参照してください。
 
     {% note %}
 
-    **Note**: If you're reconfiguring high availability after a failover, you can use the old nodes from the primary datacenter instead.
+    **注**: フェイルオーバー後に High Availability を再構成する場合は、代わりにプライマリ データセンターの古いノードを使用できます。
 
     {% endnote %}
 
 {% data reusables.enterprise_clustering.ssh-to-a-node %}
 
-3. Back up your existing cluster configuration.
+3. 既存のクラスタ設定をバックアップします。
 
     ```
     cp /data/user/common/cluster.conf ~/$(date +%Y-%m-%d)-cluster.conf.backup
     ```
 
-4. Create a copy of your existing cluster configuration file in a temporary location, like _/home/admin/cluster-passive.conf_. Delete unique key-value pairs for IP addresses (`ipv*`), UUIDs (`uuid`), and public keys for WireGuard (`wireguard-pubkey`).
+4. _/home/admin/cluster-passive.conf_ などの一時的な場所に、既存のクラスター設定ファイルのコピーを作成します。 IP アドレス (`ipv*`)、UUID (`uuid`)、WireGuard の公開キー (`wireguard-pubkey`) に対するキーと値のペアを削除します。
 
     ```
     grep -Ev "(?:|ipv|uuid|vpn|wireguard\-pubkey)" /data/user/common/cluster.conf > ~/cluster-passive.conf
     ```
 
-5. Remove the `[cluster]` section from the temporary cluster configuration file that you copied in the previous step.
+5. 前のステップでコピーした一時クラスター構成ファイルから `[cluster]` セクションを削除します。
 
     ```
     git config -f ~/cluster-passive.conf --remove-section cluster
     ```
 
-6. Decide on a name for the secondary datacenter where you provisioned your passive nodes, then update the temporary cluster configuration file with the new datacenter name. Replace `SECONDARY` with the name you choose.
+6. パッシブノードをプロビジョニングしたセカンダリデータセンターの名前を決定してから、一時クラスタ設定ファイルを新しいデータセンター名で更新します。 `SECONDARY` を、選んだ名前に置き換えます。
 
     ```shell
-    sed -i 's/datacenter = default/datacenter = SECONDARY/g' ~/cluster-passive.conf
+    sed -i 's/datacenter = default/datacenter = <em>SECONDARY</em>/g' ~/cluster-passive.conf
     ```
 
-7. Decide on a pattern for the passive nodes' hostnames.
+7. パッシブノードのホスト名のパターンを決定します。
 
     {% warning %}
 
-    **Warning**: Hostnames for passive nodes must be unique and differ from the hostname for the corresponding active node.
+    **警告**: パッシブ ノードのホスト名は一意であり、対応するアクティブ ノードのホスト名とは違うものにする必要があります。
 
     {% endwarning %}
 
-8. Open the temporary cluster configuration file from step 3 in a text editor. For example, you can use Vim.
+8. ステップ 3 の一時クラスタ設定ファイルをテキストエディタで開きます。 たとえばVimを利用できます。
 
     ```shell
     sudo vim ~/cluster-passive.conf
     ```
 
-9. In each section within the temporary cluster configuration file, update the node's configuration. {% data reusables.enterprise_clustering.configuration-file-heading %}
+9. 一時クラスタ設定ファイル内の各セクションで、ノードの設定を更新します。 {% data reusables.enterprise_clustering.configuration-file-heading %}
 
-    - Change the quoted hostname in the section heading and the value for `hostname` within the section to the passive node's hostname, per the pattern you chose in step 7 above.
-    - Add a new key named `ipv4`, and set the value to the passive node's static IPv4 address.
-    - Add a new key-value pair, `replica = enabled`.
+    - 上記のステップ 7 で選んだパターンに従って、セクション見出しの引用符で囲まれたホスト名とセクション内の `hostname` の値をパッシブ ノードのホスト名に変更します。
+    - `ipv4` という名前の新しいキーを追加し、その値をパッシブノードの静的 IPv4 アドレスに設定します。
+    - 新しいキーと値のペア `replica = enabled` を追加します。
 
     ```shell
-    [cluster "NEW PASSIVE NODE HOSTNAME"]
+    [cluster "<em>NEW PASSIVE NODE HOSTNAME</em>"]
       ...
-      hostname = NEW PASSIVE NODE HOSTNAME
-      ipv4 = NEW PASSIVE NODE IPV4 ADDRESS
+      hostname = <em>NEW PASSIVE NODE HOSTNAME</em>
+      ipv4 = <em>NEW PASSIVE NODE IPV4 ADDRESS</em>
       <strong>replica = enabled</strong>
       ...
     ...
     ```
 
-10. Append the contents of the temporary cluster configuration file that you created in step 4 to the active configuration file.
+10. ステップ 4 で作成した一時クラスタ設定ファイルの内容をアクティブ設定ファイルに追加します。
 
     ```shell
     cat ~/cluster-passive.conf >> /data/user/common/cluster.conf
     ```
 
-11. Designate the primary MySQL and Redis nodes in the secondary datacenter. Replace `REPLICA MYSQL PRIMARY HOSTNAME` and `REPLICA REDIS PRIMARY HOSTNAME` with the hostnames of the passives node that you provisioned to match your existing MySQL and Redis primaries.
+11. セカンダリデータセンターのプライマリ MySQL ノードと Redis ノードを指定します。 `REPLICA MYSQL PRIMARY HOSTNAME` と `REPLICA REDIS PRIMARY HOSTNAME` を、既存の MySQL および Redis プライマリと一致するようにプロビジョニングしたパッシブ ノードのホスト名に置き換えます。
 
     ```shell
-    git config -f /data/user/common/cluster.conf cluster.mysql-master-replica REPLICA-MYSQL-PRIMARY-HOSTNAME
-    git config -f /data/user/common/cluster.conf cluster.redis-master-replica REPLICA-REDIS-PRIMARY-HOSTNAME
+    git config -f /data/user/common/cluster.conf cluster.mysql-master-replica <em>REPLICA MYSQL PRIMARY HOSTNAME</em>
+    git config -f /data/user/common/cluster.conf cluster.redis-master-replica <em>REPLICA REDIS PRIMARY HOSTNAME</em>
     ```
 
     {% warning %}
 
-    **Warning**: Review your cluster configuration file before proceeding.
+    **警告**: 続ける前に、クラスター構成ファイルを確認してください。
 
-    - In the top-level `[cluster]` section, ensure that the values for `mysql-master-replica` and `redis-master-replica` are the correct hostnames for the passive nodes in the secondary datacenter that will serve as the MySQL and Redis primaries after a failover.
-    - In each section for an active node named <code>[cluster "ACTIVE NODE HOSTNAME"]</code>, double-check the following key-value pairs.
-      - `datacenter` should match the value of `primary-datacenter` in the top-level `[cluster]` section.
-      - `consul-datacenter` should match the value of `datacenter`, which should be the same as the value for `primary-datacenter` in the top-level `[cluster]` section.
-    - Ensure that for each active node, the configuration has **one** corresponding section for **one** passive node with the same roles. In each section for a passive node, double-check each key-value pair.
-      - `datacenter` should match all other passive nodes.
-      - `consul-datacenter` should match all other passive nodes.
-      - `hostname` should match the hostname in the section heading.
-      - `ipv4` should match the node's unique, static IPv4 address.
-      - `replica` should be configured as `enabled`.
-    - Take the opportunity to remove sections for offline nodes that are no longer in use.
+    - トップレベルの `[cluster]` セクションで、`mysql-master-replica` と `redis-master-replica` の値が、フェイルオーバー後に MySQL と Redis のプライマリとして機能するセカンダリ データセンター内のパッシブ ノードに対する正しいホスト名であることを保証します。
+    - <code>[cluster "<em>ACTIVE NODE HOSTNAME</em>"]</code> という名前の付いたアクティブ ノードの各セクションで、次のキーと値のペアをもう一度確認します。
+      - `datacenter` は、最上位セクション `primary-datacenter` の `[cluster]` 値と一致する必要があります。
+      - `consul-datacenter` は、`datacenter` の値と一致する必要があります。これは、最上位セクション `[cluster]` にある `primary-datacenter` の値と同じです。
+    - アクティブ ノードごとに、構成には、同じロールを持つ **1 つ** のパッシブ ノードに対応するセクションが構成に **1 つ** 確実に存在するようにします。 パッシブノードの各セクションで、各キー/値ペアを再確認します。
+      - `datacenter` は、他のすべてのパッシブ ノードと一致する必要があります。
+      - `consul-datacenter` は、他のすべてのパッシブ ノードと一致する必要があります。
+      - `hostname` は、セクション見出しのホスト名と一致する必要があります。
+      - `ipv4` は、ノードの一意の静的 IPv4 アドレスと一致する必要があります。
+      - `replica` は `enabled` として構成する必要があります。
+    - 必要に応じて、使用されなくなったオフラインノードのセクションを削除してください。
 
-    To review an example configuration, see "[Example configuration](#example-configuration)."
+    構成例を確認するには、「[構成例](#example-configuration)」を参照してください。
 
     {% endwarning %}
 
-13. Initialize the new cluster configuration. {% data reusables.enterprise.use-a-multiplexer %}
+13. 新しいクラスタ設定を初期化します。 {% data reusables.enterprise.use-a-multiplexer %}
 
     ```shell
     ghe-cluster-config-init
     ```
 
-14. After the initialization finishes, {% data variables.product.prodname_ghe_server %} displays the following message.
+14. 初期化が完了すると、{% data variables.product.prodname_ghe_server %} は次のメッセージを表示します。
 
     ```shell
     Finished cluster initialization
@@ -225,33 +231,33 @@ For an example configuration, see "[Example configuration](#example-configuratio
 
 {% data reusables.enterprise_clustering.configuration-finished %}
 
-17. Configure a load balancer that will accept connections from users if you fail over to the passive nodes. For more information, see "[Cluster network configuration](/enterprise/admin/enterprise-management/cluster-network-configuration#configuring-a-load-balancer)."
+17. パッシブノードにフェイルオーバーした場合にユーザからの接続を受け入れるロードバランサを設定します。 詳細については、[クラスター ネットワーク構成](/enterprise/admin/enterprise-management/cluster-network-configuration#configuring-a-load-balancer)に関する記事を参照してください。
 
-You've finished configuring high availability replication for the nodes in your cluster. Each active node begins replicating configuration and data to its corresponding passive node, and you can direct traffic to the load balancer for the secondary datacenter in the event of a failure. For more information about failing over, see "[Initiating a failover to your replica cluster](/enterprise/admin/enterprise-management/initiating-a-failover-to-your-replica-cluster)."
+クラスタ内のノードの High Availability レプリケーションの設定が完了しました。 各アクティブノードは、対応するパッシブノードへの設定とデータの複製を開始します。障害が発生した場合は、トラフィックをセカンダリデータセンターのロードバランサに転送できます。 フェールオーバーの詳細については、「[レプリカ クラスターへのフェールオーバーの開始](/enterprise/admin/enterprise-management/initiating-a-failover-to-your-replica-cluster)」を参照してください。
 
-### Example configuration
+### 構成例
 
-The top-level `[cluster]` configuration should look like the following example.
+最上位の `[cluster]` 構成は、次の例のようになります。
 
 ```shell
 [cluster]
-  mysql-master = HOSTNAME-OF-ACTIVE-MYSQL-MASTER
-  redis-master = HOSTNAME-OF-ACTIVE-REDIS-MASTER
-  primary-datacenter = PRIMARY-DATACENTER-NAME
-  mysql-master-replica = HOSTNAME-OF-PASSIVE-MYSQL-MASTER
-  redis-master-replica = HOSTNAME-OF-PASSIVE-REDIS-MASTER
+  mysql-master = <em>HOSTNAME OF ACTIVE MYSQL MASTER</em>
+  redis-master = <em>HOSTNAME OF ACTIVE REDIS MASTER</em>
+  primary-datacenter = <em>PRIMARY DATACENTER NAME</em>
+  mysql-master-replica = <em>HOSTNAME OF PASSIVE MYSQL MASTER</em>
+  redis-master-replica = <em>HOSTNAME OF PASSIVE REDIS MASTER</em>
   mysql-auto-failover = false
 ...
 ```
 
-The configuration for an active node in your cluster's storage tier should look like the following example.
+クラスタのストレージ層のアクティブノードの設定は、次の例のようになります。
 
 ```shell
 ...
-[cluster "UNIQUE ACTIVE NODE HOSTNAME"]
+[cluster "<em>UNIQUE ACTIVE NODE HOSTNAME</em>"]
   datacenter = default
-  hostname = UNIQUE-ACTIVE-NODE-HOSTNAME
-  ipv4 = IPV4-ADDRESS
+  hostname = <em>UNIQUE ACTIVE NODE HOSTNAME</em>
+  ipv4 = <em>IPV4 ADDRESS</em>
   consul-datacenter = default
   consul-server = true
   git-server = true
@@ -262,26 +268,26 @@ The configuration for an active node in your cluster's storage tier should look 
   memcache-server = true
   metrics-server = true
   storage-server = true
-  vpn = IPV4 ADDRESS SET AUTOMATICALLY
-  uuid = UUID SET AUTOMATICALLY
-  wireguard-pubkey = PUBLIC KEY SET AUTOMATICALLY
+  vpn = <em>IPV4 ADDRESS SET AUTOMATICALLY</em>
+  uuid = <em>UUID SET AUTOMATICALLY</em>
+  wireguard-pubkey = <em>PUBLIC KEY SET AUTOMATICALLY</em>
 ...
 ```
 
-The configuration for the corresponding passive node in the storage tier should look like the following example.
+ストレージ層内の対応するパッシブノードの設定は、次の例のようになります。
 
-- Important differences from the corresponding active node are **bold**.
-- {% data variables.product.prodname_ghe_server %} assigns values for `vpn`, `uuid`, and `wireguard-pubkey` automatically, so you shouldn't define the values for passive nodes that you will initialize.
-- The server roles, defined by `*-server` keys, match the corresponding active node.
+- 対応するアクティブ ノードとの大きな違いは **太字** であることです。
+- {% data variables.product.prodname_ghe_server %} は、`vpn`、`uuid`、および `wireguard-pubkey` の値を自動的に割り当てるため、初期化するパッシブ ノードの値を定義しないでください。
+- `*-server` キーで定義されたサーバー ロールは、対応するアクティブ ノードと一致します。
 
 ```shell
 ...
-<strong>[cluster "UNIQUE PASSIVE NODE HOSTNAME"]</strong>
+<strong>[cluster "<em>UNIQUE PASSIVE NODE HOSTNAME</em>"]</strong>
   <strong>replica = enabled</strong>
-  <strong>ipv4 = IPV4 ADDRESS OF NEW VM WITH IDENTICAL RESOURCES</strong>
-  <strong>datacenter = SECONDARY DATACENTER NAME</strong>
-  <strong>hostname = UNIQUE PASSIVE NODE HOSTNAME</strong>
-  <strong>consul-datacenter = SECONDARY DATACENTER NAME</strong>
+  <strong>ipv4 = <em>IPV4 ADDRESS OF NEW VM WITH IDENTICAL RESOURCES</em></strong>
+  <strong>datacenter = <em>SECONDARY DATACENTER NAME</em></strong>
+  <strong>hostname = <em>UNIQUE PASSIVE NODE HOSTNAME</em></strong>
+  <strong>consul-datacenter = <em>SECONDARY DATACENTER NAME</em></strong>
   consul-server = true
   git-server = true
   pages-server = true
@@ -291,73 +297,73 @@ The configuration for the corresponding passive node in the storage tier should 
   memcache-server = true
   metrics-server = true
   storage-server = true
-  <strong>vpn = DO NOT DEFINE</strong>
-  <strong>uuid = DO NOT DEFINE</strong>
-  <strong>wireguard-pubkey = DO NOT DEFINE</strong>
+  <strong>vpn = <em>DO NOT DEFINE</em></strong>
+  <strong>uuid = <em>DO NOT DEFINE</em></strong>
+  <strong>wireguard-pubkey = <em>DO NOT DEFINE</em></strong>
 ...
 ```
 
-## Monitoring replication between active and passive cluster nodes
+## アクティブクラスターノードとパッシブクラスターノード間のレプリケーションを監視する
 
-Initial replication between the active and passive nodes in your cluster takes time. The amount of time depends on the amount of data to replicate and the activity levels for {% data variables.product.prodname_ghe_server %}.
+クラスタ内のアクティブノードとパッシブノード間の初期レプリケーションには時間がかかります。 時間は、複製するデータの量と {% data variables.product.prodname_ghe_server %} のアクティビティレベルによって異なります。
 
-You can monitor the progress on any node in the cluster, using command-line tools available via the {% data variables.product.prodname_ghe_server %} administrative shell. For more information about the administrative shell, see "[Accessing the administrative shell (SSH)](/enterprise/admin/configuration/accessing-the-administrative-shell-ssh)."
+{% data variables.product.prodname_ghe_server %} 管理シェルから利用できるコマンドラインツールを使用して、クラスタ内の任意のノードの進行状況を監視できます。 管理シェルの詳細については、「[管理シェル (SSH) にアクセスする](/enterprise/admin/configuration/accessing-the-administrative-shell-ssh)」を参照してください。
 
-- Monitor replication of databases:
+- データベースのレプリケーションの監視する:
 
   ```
   /usr/local/share/enterprise/ghe-cluster-status-mysql
   ```
 
-- Monitor replication of repository and Gist data:
+- リポジトリと Gist データのレプリケーションを監視する:
 
   ```
   ghe-spokes status
   ```
 
-- Monitor replication of attachment and LFS data:
+- 添付ファイルと LFS データのレプリケーションを監視する:
 
   ```
   ghe-storage replication-status
   ```
 
-- Monitor replication of Pages data:
+- Pages データのレプリケーションを監視する:
 
   ```
   ghe-dpages replication-status
   ```
 
-You can use `ghe-cluster-status` to review the overall health of your cluster. For more information, see  "[Command-line utilities](/enterprise/admin/configuration/command-line-utilities#ghe-cluster-status)."
+`ghe-cluster-status` を使用すると、クラスターの全体的な正常性を確認することができます。 詳細については、「[コマンド ライン ユーティリティ](/enterprise/admin/configuration/command-line-utilities#ghe-cluster-status)」を参照してください。
 
-## Reconfiguring high availability replication after a failover
+## フェイルオーバー後の High Availability レプリケーションを再設定する
 
-After you fail over from the cluster's active nodes to the cluster's passive nodes, you can reconfigure high availability replication in two ways.
+クラスタのアクティブノードからクラスタのパッシブノードにフェイルオーバーした後、2 つの方法で High Availability レプリケーションを再設定できます。
 
-### Provisioning and configuring new passive nodes
+### 新しいパッシブノードのプロビジョニングと設定
 
-After a failover, you can reconfigure high availability in two ways. The method you choose will depend on the reason that you failed over, and the state of the original active nodes.
+フェイルオーバー後、2 つの方法で High Availability を再設定できます。 選択する方法は、フェイルオーバーした理由と元のアクティブノードの状態によって異なります。
 
-1. Provision and configure a new set of passive nodes for each of the new active nodes in your secondary datacenter.
+1. セカンダリデータセンターの新しいアクティブノードごとに、パッシブノードの新しいセットをプロビジョニングして設定します。
 
-2. Use the old active nodes as the new passive nodes.
+2. 古いアクティブノードを新しいパッシブノードとして使用します。
 
-The process for reconfiguring high availability is identical to the initial configuration of high availability. For more information, see "[Creating a high availability replica for a cluster](#creating-a-high-availability-replica-for-a-cluster)."
+High Availability を再設定するプロセスは、High Availability の初期設定と同じです。 詳細については、「[クラスターの High Availability レプリカを作成する](#creating-a-high-availability-replica-for-a-cluster)」を参照してください。
 
 
-## Disabling high availability replication for a cluster
+## クラスタの High Availability レプリケーションを無効化する
 
-You can stop replication to the passive nodes for your cluster deployment of {% data variables.product.prodname_ghe_server %}.
+{% data variables.product.prodname_ghe_server %} のクラスタデプロイメントのパッシブノードへのレプリケーションを停止できます。
 
 {% data reusables.enterprise_clustering.ssh-to-a-node %}
 
 {% data reusables.enterprise_clustering.open-configuration-file %}
 
-3. In the top-level `[cluster]` section, delete the `redis-master-replica`, and `mysql-master-replica` key-value pairs.
+3. 最上位のセクション `[cluster]` で、`redis-master-replica` と `mysql-master-replica` のキーと値のペアを削除します。
 
-4. Delete each section for a passive node. For passive nodes, `replica` is configured as `enabled`.
+4. パッシブノードの各セクションを削除します。 パッシブ ノードの場合、`replica` は `enabled` として構成されます。
 
 {% data reusables.enterprise_clustering.apply-configuration %}
 
 {% data reusables.enterprise_clustering.configuration-finished %}
 
-After {% data variables.product.prodname_ghe_server %} returns you to the prompt, you've finished disabling high availability replication.
+{% data variables.product.prodname_ghe_server %} がプロンプトに戻ったら、High Availability レプリケーションの無効化が完了したことになります。

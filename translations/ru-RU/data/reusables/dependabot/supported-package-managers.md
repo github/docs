@@ -1,63 +1,66 @@
-The following table shows, for each package manager:
-- The YAML value to use in the *dependabot.yml* file
-- The supported versions of the package manager
-- Whether dependencies in private {% data variables.product.prodname_dotcom %} repositories or registries are supported
-- Whether vendored dependencies are supported
+---
+ms.openlocfilehash: f37c93394be7f73c417b5cd040696b453c82e42d
+ms.sourcegitcommit: e4069b5613c10d74954185995d0fb73224079463
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 11/17/2022
+ms.locfileid: "148169243"
+---
+В следующей таблице показано (для каждого диспетчера пакетов):
+- Значение YAML, которое будет использоваться в файле *dependabot.yml*.
+- Поддерживаемые версии диспетчера пакетов
+- Поддержка зависимостей в частных репозиториях или реестрах {% data variables.product.prodname_dotcom %}
+- Поддержка зависимостей, доступных в рамках вендоринга
 
-Package manager | YAML value      | Supported versions | Private repositories | Private registries | Vendoring
+Диспетчер пакетов | Значение YAML      | Поддерживаемые версии | Частные репозитории | Частные реестры | Вендоринг
 ---------------|------------------|------------------|:---:|:---:|:---:
-Bundler        | `bundler`        | v1, v2           | | **✓** | **✓** |
-Cargo          | `cargo`          | v1               | **✓** | **✓** | |
-Composer       | `composer`       | v1, v2           | **✓** | **✓** | |
-Docker {% ifversion dependabot-version-updates-enhanced-docker-support %}<sup>[1]</sup>{% endif %}         | `docker`         | v1               | **✓** | **✓** | |
-Hex            | `mix`            | v1               | | **✓** | |
-elm-package    | `elm`            | v0.19            | **✓** | **✓** | |
-git submodule  | `gitsubmodule`   | N/A (no version) | **✓** | **✓** | |
-GitHub Actions | `github-actions` | N/A (no version) | **✓** | **✓** | |
-Go modules     | `gomod`          | v1               | **✓** | **✓** | **✓** |
-Gradle         | `gradle`         | N/A (no version)<sup>[2]</sup>   | **✓** | **✓** | |
-Maven          | `maven`          | N/A (no version)<sup>[3]</sup>   | **✓** | **✓** | |
-npm            | `npm`            | v6, v7, v8       | **✓** | **✓** | |
+Средство увязки программ в пакеты        | `bundler`        | версия 1, версия 2           | | **✓** | **✓** |
+Грузовой          | `cargo`          | Версия 1               | **✓** | **✓** | |
+Composer       | `composer`       | версия 1, версия 2           | **✓** | **✓** | |
+Docker {% ifversion dependabot-version-updates-enhanced-docker-support %}<sup>[1]</sup>{% endif %}         | `docker`         | Версия 1               | **✓** | **✓** | |
+Hex            | `mix`            | Версия 1               | | **✓** | |
+Пакет ELM    | `elm`            | Версия 0.19            | **✓** | **✓** | |
+Субмодуль Git  | `gitsubmodule`   | Н/У (нет версии) | **✓** | **✓** | |
+Действия GitHub | `github-actions` | Н/У (нет версии) | **✓** | **✓** | |
+Модули Go     | `gomod`          | Версия 1               | **✓** | **✓** | **✓** |
+Gradle         | `gradle`         | Н/У (нет версии)<sup>[2]</sup>   | **✓** | **✓** | |
+Maven          | `maven`          | Н/Д (без версии)<sup>[3]</sup>   | **✓** | **✓** | |
+npm            | `npm`            | версия 6, версия 7, версия 8       | **✓** | **✓** | |
 NuGet          | `nuget`          | <= 4.8<sup>[4]</sup> | **✓** | **✓** | |
-pip{% ifversion dependabot-PEP621-support %}<sup>[5]</sup>{% endif %}          | `pip`            | v21.1.2          | | **✓** | |
+pip{% ifversion dependabot-PEP621-support %}<sup>[5]</sup>{% endif %}          | `pip`            | версия 21.1.2          | | **✓** | |
 pipenv         | `pip`            | <= 2021-05-29    | | **✓** | |
 pip-compile{% ifversion dependabot-PEP621-support %}<sup>[5]</sup>{% endif %}   | `pip`            | 6.1.0            | | **✓** | |
-poetry         | `pip`            | v1               | | **✓** | |{% ifversion fpt or ghec or ghes > 3.4 %}
-pub            | `pub`            | v2 <sup>[6]</sup> | | | |{% endif %}
+poetry         | `pip`            | Версия 1               | | **✓** | |{% ifversion fpt or ghec or ghes > 3.4 %}
+паб            | `pub`            | версия 2 <sup>[6]</sup> | | | |{% endif %}
 Terraform      | `terraform`      | >= 0.13, <= 1.2.x  | **✓** | **✓** | |
-{% ifversion dependabot-yarn-v3-update %}yarn           | `npm`            | v1, v2, v3       | **✓** | **✓** | **✓**<sup>[7]</sup> |{% else %}yarn           | `npm`            | v1               | **✓** | **✓** |  |
+{% ifversion dependabot-yarn-v3-update %}yarn           | `npm`            | v1, v2, v3       | **✓** | **✓** | **✓**<sup>[7]</sup> |{% else %}yarn           | `npm`            | Версия 1               | **✓** | **✓** |  |
 {% endif %}
 
 {% tip %}
 
-**Tip:** For package managers such as `pipenv` and `poetry`, you need to use the `pip` YAML value. For example, if you use `poetry` to manage your Python dependencies and want {% data variables.product.prodname_dependabot %} to monitor your dependency manifest file for new versions, use `package-ecosystem: "pip"` in your *dependabot.yml* file.
+**Совет.** Для диспетчеров пакетов, таких как `pipenv` и `poetry`, необходимо использовать значение YAML `pip`. Например, если вы используете `poetry` для управления зависимостями Python и хотите, чтобы {% data variables.product.prodname_dependabot %} отслеживал файл манифеста зависимостей для новых версий, используйте `package-ecosystem: "pip"` в файле *dependabot.yml*.
 
 {% endtip %}
 
-{% ifversion dependabot-version-updates-enhanced-docker-support %}
-[1] {% data variables.product.prodname_dependabot %} can update Docker image tags in Kubernetes manifests. Add an entry to the Docker `package-ecosystem` element of your _dependabot.yml_ file for each directory containing a Kubernetes manifest which references Docker image tags. Kubernetes manifests can be Kubernetes Deployment YAML files or Helm charts. For information about configuring your _dependabot.yml_ file for `docker`, see  "`package-ecosystem`" in "[Configuration options for the dependabot.yml file](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#package-ecosystem)."
+{% ifversion dependabot-version-updates-enhanced-docker-support %} [1] {% data variables.product.prodname_dependabot %} может обновлять теги образов Docker в манифестах Kubernetes. Добавьте запись в элемент Docker `package-ecosystem` файла _dependabot.yml_ для каждого каталога, содержащего манифест Kubernetes, который ссылается на теги образа Docker. Манифесты Kubernetes могут быть YAML-файлами развертывания Kubernetes или диаграммами Helm. Сведения о настройке файла _dependabot.yml_ для `docker`см. в разделе "`package-ecosystem`" [статьи Параметры конфигурации для файла dependabot.yml](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#package-ecosystem).
 
-   {% data variables.product.prodname_dependabot %} supports both public and private Docker registries. For a list of the supported registries, see "`docker-registry`" in "[Configuration options for the dependabot.yml file](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#docker-registry)."
+   {% data variables.product.prodname_dependabot %} поддерживает как общедоступные, так и частные реестры Docker. Список поддерживаемых реестров см. в разделе "`docker-registry`Параметры [конфигурации для файла dependabot.yml](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#docker-registry)".
 {% endif %}
 
-[2] {% data variables.product.prodname_dependabot %} doesn't run Gradle but supports updates to the following files: `build.gradle`, `build.gradle.kts` (for Kotlin projects), and files included via the `apply` declaration that have `dependencies` in the filename. Note that `apply` does not support `apply to`, recursion, or advanced syntaxes (for example, Kotlin's `apply` with `mapOf`, filenames defined by property).
+[2] {% data variables.product.prodname_dependabot %} не запускает Gradle, но поддерживает обновления следующих файлов: `build.gradle`, `build.gradle.kts` (для проектов Kotlin) и файлов, включенных в `apply` объявление, которые содержатся `dependencies` в имени файла. Обратите внимание, что `apply` не поддерживает `apply to`, рекурсию или расширенные синтаксисы (например,`apply` в Kotlin с `mapOf`, имена файлов, определенные свойством).
 
-[3] {% data variables.product.prodname_dependabot %} doesn't run Maven but supports updates to `pom.xml` files.
+[3] {% data variables.product.prodname_dependabot %} не запускает Maven, но поддерживает обновления `pom.xml` файлов.
 
-[4] {% data variables.product.prodname_dependabot %} doesn't run the NuGet CLI but does support most features up until version 4.8.
+[4] {% data variables.product.prodname_dependabot %} не запускает Интерфейс командной строки NuGet, но поддерживает большинство функций до версии 4.8.
 
-{% ifversion dependabot-PEP621-support %}
-[5] In addition to supporting updates to `requirements.txt` files, {% data variables.product.prodname_dependabot %} supports updates to `pyproject.toml` files if they follow the PEP 621 standard. {% endif %}
+{% ifversion dependabot-PEP621-support %} [5] Помимо поддержки обновлений `requirements.txt` файлов, {% data variables.product.prodname_dependabot %} поддерживает обновления `pyproject.toml` файлов, если они соответствуют стандарту PEP 621. {% endif %}
 
-{% ifversion fpt or ghec or ghes > 3.4 %}
-[6] {% ifversion ghes = 3.5 %}`pub` support is currently in beta. Any known limitations are subject to change. Note that {% data variables.product.prodname_dependabot %}:
-   - Doesn't support updating git dependencies for `pub`. 
-   - Won't perform an update when the version that it tries to update to is ignored, even if an earlier version is available.
+{% ifversion fpt or ghec or ghes > 3.4 %} [6] Поддержка {% ifversion ghes = 3,5 %}`pub` в настоящее время находится в бета-версии. Все известные ограничения могут быть изменены. Обратите внимание, что {% data variables.product.prodname_dependabot %}:
+   - Не поддерживает обновление зависимостей Git для `pub`. 
+   - Обновление не выполняется, если игнорируется версия, которую оно пытается обновить, даже если доступна более ранняя версия.
 
-   For information about configuring your _dependabot.yml_ file for `pub`, see "[Enabling support for beta-level ecosystems](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#enable-beta-ecosystems)."
-   {%- else %}{% data variables.product.prodname_dependabot %} won't perform an update for `pub` when the version that it tries to update to is ignored, even if an earlier version is available.{% endif %}
-{% endif %} 
+   Сведения о настройке файла _dependabot.yml_ для `pub` см. в разделе [Включение поддержки бета-версий экосистемы](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#enable-beta-ecosystems).
+   {%- else %}{% data variables.product.prodname_dependabot %} не будет выполнять обновление дл `pub`, когда версия, которую он пытается обновить, пропускается, даже если доступна более ранняя версия.{% endif %} {% endif %} 
 
-{% ifversion dependabot-yarn-v3-update %}
-[7] Dependabot supports vendored dependencies for v2 onwards.{% endif %}
+{% ifversion dependabot-yarn-v3-update %} [7] Dependabot поддерживает зависимости поставщиков для версии 2 и более поздних версий. {% endif %}
 

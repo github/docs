@@ -1,6 +1,6 @@
 ---
-title: Preventing unauthorized access
-intro: 'You may be alerted to a security incident in the media, such as the discovery of the [Heartbleed bug](http://heartbleed.com/), or your computer could be stolen while you''re signed in to {% data variables.location.product_location %}. In such cases, changing your password prevents any unintended future access to your account and projects.'
+title: Impedir acesso não autorizado
+intro: 'Você pode receber alertas sobre incidentes de segurança na mídia, como a descoberta do [bug Heartbleed](http://heartbleed.com/), ou seu computador pode ser roubado enquanto você está conectado ao {% data variables.product.product_location %}. Em casos assim, alterar a sua senha previne acessos futuros indesejados em sua conta e projetos.'
 redirect_from:
   - /articles/preventing-unauthorized-access
   - /github/authenticating-to-github/preventing-unauthorized-access
@@ -13,18 +13,24 @@ topics:
   - Identity
   - Access management
 shortTitle: Unauthorized access
+ms.openlocfilehash: 2b7a29ad3df05ef758c82330f24fe7568e137130
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145083629'
 ---
-{% data variables.product.product_name %} requires a password to perform sensitive actions, such as adding new SSH keys, authorizing applications, or modifying team members.
+O {% data variables.product.product_name %} solicita uma senha para executar ações confidenciais, como adicionar novas chaves SSH, autorizar aplicativos ou modificar os integrantes da equipe.
 
-After changing your password, you should perform these actions to make sure that your account is secure:
+Depois de alterar sua senha, você deve executar estas ações para confirmar que sua conta está segura:
 
-- [Enable two-factor authentication](/articles/about-two-factor-authentication) on your account so that access requires more than just a password.
-- [Review your SSH keys](/articles/reviewing-your-ssh-keys), [deploy keys](/articles/reviewing-your-deploy-keys), and [authorized integrations](/articles/reviewing-your-authorized-integrations) and revoke unauthorized or unfamiliar access in your SSH and Applications settings.
+- [Habilite a autenticação de dois fatores](/articles/about-two-factor-authentication) na sua conta para que o acesso exija mais do que apenas uma senha.
+- [Revise suas chaves SSH](/articles/reviewing-your-ssh-keys), [chaves de implantação](/articles/reviewing-your-deploy-keys) e [integrações autorizadas](/articles/reviewing-your-authorized-integrations) e revogue o acesso não autorizado ou desconhecido nas configurações de SSH e Aplicativos.
 {% ifversion fpt or ghec %}
-- [Verify all your email addresses](/articles/verifying-your-email-address). If an attacker added their email address to your account, it could allow them to force an unintended password reset.
+- [Verifique todos os seus endereços de email](/articles/verifying-your-email-address). Se um invasor adicionou o endereço de e-mail dele à sua conta, isso pode permitir que ele force uma reinicialização de senha indesejada.
 {% endif %}
-- [Review your account's security log](/github/authenticating-to-github/reviewing-your-security-log). This provides an overview on various configurations made to your repositories. For example, you can ensure that no private repositories were turned public, or that no repositories were transferred.
-- [Review the webhooks](/articles/creating-webhooks) on your repositories. Webhooks could allow an attacker to intercept pushes made to your repository.
-- [Make sure that no new deploy keys](/guides/managing-deploy-keys/#deploy-keys) were created. This could enable outside servers access to your projects.
-- Review recent commits made to your repositories.
-- Review the list of collaborators for each repository.
+- [Revise o log de segurança da sua conta](/github/authenticating-to-github/reviewing-your-security-log). O histórico apresenta uma uma visão geral sobre várias configurações feitas em seus repositórios. Por exemplo, você pode confirmar que nenhum repositório privado se tornou público ou foi transferido.
+- [Revise os webhooks](/articles/creating-webhooks) nos seus repositórios. Os webhooks podem permitir que um invasor intercepte pushes feitos em seu repositório.
+- [Garanta que nenhuma nova chave de implantação](/guides/managing-deploy-keys/#deploy-keys) seja criada. Isso poderia habilitar o acesso de servidores externos em seus projetos.
+- Revise os commits recentes feitos em seus repositórios.
+- Revise a lista de colaboradores de cada repositório.

@@ -2,7 +2,6 @@ import { existsSync, mkdirSync } from 'fs'
 import { readFile, writeFile } from 'fs/promises'
 import path from 'path'
 import { slug } from 'github-slugger'
-import rimraf from 'rimraf'
 
 import { allVersions } from '../../../lib/all-versions.js'
 import { categoriesWithoutSubcategories } from '../../../lib/rest/index.js'
@@ -68,7 +67,6 @@ async function getWebhookOperations(webhookSchemas) {
 }
 
 async function createStaticRestFiles(restOperations) {
-  rimraf.sync(`${REST_DECORATED_DIR}/*`)
   const operationsEnabledForGitHubApps = {}
   const clientSideRedirects = await getCategoryOverrideRedirects()
   for (const schemaName in restOperations) {

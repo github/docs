@@ -1,6 +1,6 @@
 ---
-title: Adding self-hosted runners
-intro: 'You can add a self-hosted runner to a repository, an organization, or an enterprise.'
+title: Selbst-gehostete Runner hinzufügen
+intro: 'Du kannst einem Repository, einer Organisation oder einem Unternehmen einen selbstgehosteten Runner hinzufügen.'
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/adding-self-hosted-runners
   - /actions/automating-your-workflow-with-github-actions/adding-self-hosted-runners
@@ -11,91 +11,71 @@ versions:
   ghec: '*'
 type: tutorial
 shortTitle: Add self-hosted runners
+ms.openlocfilehash: c58fbc6ac67fe1466458888eb0c55f58483dac6c
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148109297'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+Du kannst einem Repository, einer Organisation oder einem Unternehmen einen selbstgehosteten Runner hinzufügen.
 
-You can add a self-hosted runner to a repository, an organization, or an enterprise.
+Wenn du ein Organisations- oder Unternehmensadministrator bist, möchtest du möglicherweise deine selbstgehosteten Runner auf Organisations- oder Unternehmensebene hinzufügen. Mit diesem Ansatz machst du den Runner für mehrere Repositorys in deiner Organisation oder deinem Unternehmen verfügbar und kannst deine Runner an einem zentralen Ort verwalten.
 
-If you are an organization or enterprise administrator, you might want to add your self-hosted runners at the organization or enterprise level. This approach makes the runner available to multiple repositories in your organization or enterprise, and also lets you to manage your runners in one place.
+Informationen zu unterstützten Betriebssystemen für selbstgehostete Runner oder zur Verwendung von selbstgehosteten Runnern mit einem Proxyserver findest du unter [Informationen zu selbstgehosteten Runnern](/github/automating-your-workflow-with-github-actions/about-self-hosted-runners).
 
-For information on supported operating systems for self-hosted runners, or using self-hosted runners with a proxy server, see "[About self-hosted runners](/github/automating-your-workflow-with-github-actions/about-self-hosted-runners)."
+{% ifversion not ghae %} {% warning %}
 
-{% ifversion not ghae %}
-{% warning %}
+**Warnung:** {% data reusables.actions.self-hosted-runner-security %}
 
-**Warning:** {% data reusables.actions.self-hosted-runner-security %}
+Weitere Informationen findest du unter „[Informationen zu selbstgehosteten Runnern](/github/automating-your-workflow-with-github-actions/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories)“.
 
-For more information, see "[About self-hosted runners](/github/automating-your-workflow-with-github-actions/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories)."
-
-{% endwarning %}
-{% endif %}
+{% endwarning %} {% endif %}
 
 {% ifversion fpt or ghec or ghes %}
 
-You can set up automation to scale the number of self-hosted runners. For more information, see "[Autoscaling with self-hosted runners](/actions/hosting-your-own-runners/autoscaling-with-self-hosted-runners)."
+Du kannst eine Automatisierung einrichten, um die Anzahl der selbstgehosteten Runner zu skalieren. Weitere Informationen findest du unter [Automatische Skalierung mit selbstgehosteten Runnern](/actions/hosting-your-own-runners/autoscaling-with-self-hosted-runners).
 
 {% endif %}
 
-## Prerequisites
+## Voraussetzungen
 
 {% data reusables.actions.self-hosted-runners-prerequisites %}
 
-## Adding a self-hosted runner to a repository
+## Einen selbst-gehosteten Runner zu einem Repository hinzufügen
 
-You can add self-hosted runners to a single repository. To add a self-hosted runner to a user repository, you must be the repository owner. For an organization repository, you must be an organization owner or have admin access to the repository. For information about how to add a self-hosted runner with the REST API, see "[Self-hosted runners](/rest/reference/actions#self-hosted-runners)."
+Du kannst selbst-gehostete Runner zu einem einzigen Repository hinzufügen. Um einem Benutzerrepository einen selbstgehosteten Runner hinzuzufügen, musst du der Repositorybesitzer sein. Für ein Organisationsrepository musst du der Besitzer der Organisation sein oder über Administratorzugriff auf das Repository verfügen. Weitere Informationen zum Hinzufügen eines selbstgehosteten Runners mit der REST-API findest du unter [Selbstgehostete Runner](/rest/reference/actions#self-hosted-runners).
 
-{% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-{% data reusables.repositories.settings-sidebar-actions-runners %}
-1. Click **New self-hosted runner**.
-{% data reusables.actions.self-hosted-runner-configure %}
-{% elsif ghae or ghes < 3.4 %}
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-{% data reusables.repositories.settings-sidebar-actions-runners %}
-1. Under {% ifversion ghes or ghae or ghec %}"Runners"{% else %}"Self-hosted runners"{% endif %}, click **Add runner**.
-{% data reusables.actions.self-hosted-runner-configure %}
-{% endif %}
-{% data reusables.actions.self-hosted-runner-check-installation-success %}
+{% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %} {% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %} {% data reusables.repositories.settings-sidebar-actions-runners %}
+1. Klicke auf **Neuer selbstgehosteter Runner**.
+{% data reusables.actions.self-hosted-runner-configure %} {% elsif ghae or ghes < 3.4 %} {% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %} {% data reusables.repositories.settings-sidebar-actions-runners %}
+1. Klicke unter {% ifversion ghes or ghae or ghec %}„Runner“{% else %}„Selbstgehostete Runner“{% endif %} auf **Runner hinzufügen**.
+{% data reusables.actions.self-hosted-runner-configure %} {% endif %} {% data reusables.actions.self-hosted-runner-check-installation-success %}
 
-For more information, see "[Monitoring and troubleshooting self-hosted runners](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners)."
+Weitere Informationen findest du unter [Überwachen von und Behandeln von Problemen mit selbstgehosteten Runnern](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners).
 
-## Adding a self-hosted runner to an organization
+## Einen selbst-gehosteten Runner zu einer Organisation hinzufügen
 
-You can add self-hosted runners at the organization level, where they can be used to process jobs for multiple repositories in an organization. To add a self-hosted runner to an organization, you must be an organization owner. For information about how to add a self-hosted runner with the REST API, see "[Self-hosted runners](/rest/reference/actions#self-hosted-runners)."
+Du kannst selbst-gehostete Runner auf Organisationsebene hinzufügen, wo sie verwendet werden können, um Jobs für mehrere Repositories in einer Organisation zu verarbeiten. Um einen selbst-gehosteten Runner zu einer Organisation hinzuzufügen, musst du Organisationsinhaber sein. Weitere Informationen zum Hinzufügen eines selbstgehosteten Runners mit der REST-API findest du unter [Selbstgehostete Runner](/rest/reference/actions#self-hosted-runners).
 
-{% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
-{% data reusables.organizations.navigate-to-org %}
-{% data reusables.organizations.org_settings %}
-{% data reusables.organizations.settings-sidebar-actions-runners %}
-{% ifversion actions-hosted-runners %}1. Click **New runner**, then click **New self-hosted runner**.{% else %}1. Click **New runner**.{% endif %}
-{% data reusables.actions.self-hosted-runner-configure %}
-{% elsif ghae or ghes < 3.4 %}
-{% data reusables.organizations.navigate-to-org %}
-{% data reusables.organizations.org_settings %}
-{% data reusables.organizations.settings-sidebar-actions-runners %}
-1. Under {% ifversion ghes or ghae %}"Runners", click **Add new**, then click **New runner**.{% endif %}
-{% data reusables.actions.self-hosted-runner-configure %}
-{% endif %}
-{% data reusables.actions.self-hosted-runner-check-installation-success %}
+{% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %} {% data reusables.organizations.navigate-to-org %} {% data reusables.organizations.org_settings %} {% data reusables.organizations.settings-sidebar-actions-runners %} {% ifversion actions-hosted-runners %}1. Klicke auf **Neuer Runner** und dann auf **Neuer selbstgehosteter Runner**.{% else %}1. Klicke auf **Neuer Runner**.{% endif %} {% data reusables.actions.self-hosted-runner-configure %} {% elsif ghae or ghes < 3.4 %} {% data reusables.organizations.navigate-to-org %} {% data reusables.organizations.org_settings %} {% data reusables.organizations.settings-sidebar-actions-runners %}
+1. Klicke unter {% ifversion ghes or ghae %}„Runner“ auf **Neu hinzufügen** und anschließend auf **Neuer Runner**.{% endif %} {% data reusables.actions.self-hosted-runner-configure %} {% endif %} {% data reusables.actions.self-hosted-runner-check-installation-success %}
 
-For more information, see "[Monitoring and troubleshooting self-hosted runners](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners)."
+Weitere Informationen findest du unter [Überwachen von und Behandeln von Problemen mit selbstgehosteten Runnern](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners).
 
 {% data reusables.actions.self-hosted-runner-public-repo-access %}
 
-## Adding a self-hosted runner to an enterprise
+## Hinzufügen eines selbstgehosteten Runners zu einem Unternehmen
 
-{% ifversion fpt %}If you use {% data variables.product.prodname_ghe_cloud %}, you{% elsif ghec or ghes or ghae %}You{% endif %} can add self-hosted runners to an enterprise, where they can be assigned to multiple organizations. The organization admins are then able to control which repositories can use it. {% ifversion fpt %}For more information, see the [{% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/actions/hosting-your-own-runners/adding-self-hosted-runners#adding-a-self-hosted-runner-to-an-enterprise).{% endif %}
+{% ifversion fpt %}Wenn du {% data variables.product.prodname_ghe_cloud %} verwendest, kannst du{% elsif ghec or ghes or ghae %}Du kannst{% endif %} einem Unternehmen selbstgehostete Runner hinzufügen. Von dort können sie dann mehreren Organisationen zugewiesen werden. Die Organisationsadministrator*innen können dann steuern, welche Repositorys sie verwenden können. {% ifversion fpt %}Weitere Informationen findest du in der [Dokumentation zu {% data variables.product.prodname_ghe_cloud %}](/enterprise-cloud@latest/actions/hosting-your-own-runners/adding-self-hosted-runners#adding-a-self-hosted-runner-to-an-enterprise).{% endif %}
 
-{% ifversion ghec or ghes or ghae %}
-New runners are assigned to the default group. You can modify the runner's group after you've registered the runner. For more information, see "[Managing access to self-hosted runners](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#moving-a-self-hosted-runner-to-a-group)."
+{% ifversion ghec or ghes or ghae %} Neue Runner werden der Standardgruppe zugewiesen. Du kannst die Gruppe des Runners ändern, nachdem du den Läufer registriert hast. Weitere Informationen findest du unter [Verwalten des Zugriffs auf selbstgehostete Runner](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#moving-a-self-hosted-runner-to-a-group).
 
 {% ifversion ghec or ghes > 3.3 or ghae > 3.3 %}
 
-To add a self-hosted runner to an enterprise, you must be an enterprise owner. For information about how to add a self-hosted runner with the REST API,  see the enterprise endpoints in the [{% data variables.product.prodname_actions %} REST API](/rest/reference/actions#self-hosted-runners).
+Um einem Unternehmen einen selbstgehosteten Runner hinzufügen zu können, musst du ein Unternehmensbesitzer sein. Weitere Informationen zum Hinzufügen eines selbstgehosteten Runners mit der REST-API findest du unter den Unternehmensendpunkten in der [{% data variables.product.prodname_actions %}-REST-API](/rest/reference/actions#self-hosted-runners).
 
 {% endif %}
 
@@ -103,23 +83,23 @@ To add a self-hosted runner to an enterprise, you must be an enterprise owner. F
 
 {% data reusables.actions.self-hosted-runner-check-installation-success %}
 
-For more information, see "[Monitoring and troubleshooting self-hosted runners](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners)."
+Weitere Informationen findest du unter [Überwachen von und Behandeln von Problemen mit selbstgehosteten Runnern](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners).
 
 {% data reusables.actions.self-hosted-runner-public-repo-access %}
 
-### Making enterprise runners available to repositories
+### Verfügbarmachen von Unternehmensrunnern für Repositorys
 
-By default, runners in an enterprise's "Default" self-hosted runner group are available to all organizations in the enterprise, but are not available to all repositories in each organization.
+Standardmäßig sind Runner in der selbstgehosteten Runnergruppe „Default“ eines Unternehmens für alle Organisationen im Unternehmen verfügbar, dies gilt aber nicht für alle Repositorys in jeder Organisation.
 
-To make an enterprise-level self-hosted runner group available to an organization repository, you might need to change the organization's inherited settings for the runner group to make the runner available to repositories in the organization.
+Um eine selbstgehostete Runnergruppe auf Unternehmensebene für ein Organisationsrepository verfügbar zu machen, musst du möglicherweise die geerbten Einstellungen der Organisation für die Runnergruppe ändern, um den Runner für Repositorys in der Organisation verfügbar zu machen.
 
-For more information on changing runner group access settings, see "[Managing access to self-hosted runners using groups](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#changing-the-access-policy-of-a-self-hosted-runner-group)."
+Weitere Informationen zum Ändern der Zugriffseinstellungen für Runnergruppen findest du unter [Verwalten des Zugriffs auf selbstgehostete Runner mithilfe von Gruppen](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#changing-the-access-policy-of-a-self-hosted-runner-group).
 {% endif %}
 
 {% ifversion ghec or ghes or ghae %}
 
-## Further reading
+## Weitere Informationsquellen
 
-- "[Getting started with self-hosted runners for your enterprise](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-self-hosted-runners-for-your-enterprise)"
+- [Erste Schritte mit selbstgehosteten Runnern für dein Unternehmen](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-self-hosted-runners-for-your-enterprise)
 
 {% endif %}

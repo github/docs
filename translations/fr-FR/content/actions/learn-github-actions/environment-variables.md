@@ -1,6 +1,6 @@
 ---
-title: Environment variables
-intro: '{% data variables.product.prodname_dotcom %} sets default environment variables for each {% data variables.product.prodname_actions %} workflow run. You can also set custom environment variables in your workflow file.'
+title: Variables d'environnement
+intro: '{% data variables.product.prodname_dotcom %} définit les variables d’environnement par défaut pour chaque exécution de workflow {% data variables.product.prodname_actions %}. Vous pouvez également définir des variables d’environnement personnalisées dans votre fichier de workflow.'
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/using-environment-variables
   - /actions/automating-your-workflow-with-github-actions/using-environment-variables
@@ -11,22 +11,26 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
+ms.openlocfilehash: 578b85facbb8fc6a7ff45f0d56a460eb3e2ab217
+ms.sourcegitcommit: 99eb4456062aea31ca381977396417cf92e5798d
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/21/2022
+ms.locfileid: '148179539'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+## À propos des variables d’environnement
 
-## About environment variables
+Vous pouvez utiliser des variables d’environnement pour stocker les informations que vous souhaitez référencer dans votre workflow. Vous référencez des variables d’environnement au sein d’une étape de workflow ou d’une action, et les variables sont interpolées sur la machine de l’exécuteur qui exécute votre workflow. Les commandes qui s’exécutent dans des actions ou des étapes de workflow peuvent créer, lire ou modifier des variables d’environnement.
 
-You can use environment variables to store information that you want to reference in your workflow. You reference environment variables within a workflow step or an action, and the variables are interpolated on the runner machine that runs your workflow. Commands that run in actions or workflow steps can create, read, and modify environment variables.
+Vous pouvez définir vos propres variables d’environnement personnalisées, vous pouvez utiliser les variables d’environnement par défaut que {% data variables.product.prodname_dotcom %} définit automatiquement, et vous pouvez également utiliser toutes les autres variables d’environnement définies dans l’environnement de travail sur l’exécuteur. Les variables d’environnement respectent la casse. 
 
-You can set your own custom environment variables, you can use the default environment variables that {% data variables.product.prodname_dotcom %} sets automatically, and you can also use any other environment variables that are set in the working environment on the runner. Environment variables are case-sensitive. 
+Pour définir une variable d’environnement personnalisée, vous devez la définir dans le fichier de workflow. L’étendue d’une variable d’environnement personnalisée est limitée à l’élément dans lequel elle est définie. Vous pouvez définir des variables d’environnement dont l’étendue est :
 
-To set a custom environment variable, you must define it in the workflow file. The scope of a custom environment variable is limited to the element in which it is defined. You can define environment variables that are scoped for:
-
-* The entire workflow, by using [`env`](/actions/using-workflows/workflow-syntax-for-github-actions#env) at the top level of the workflow file.
-* The contents of a job within a workflow, by using [`jobs.<job_id>.env`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idenv).
-* A specific step within a job, by using [`jobs.<job_id>.steps[*].env`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsenv).
+* Le workflow entier, en utilisant [`env`](/actions/using-workflows/workflow-syntax-for-github-actions#env) au niveau supérieur du fichier de workflow.
+* Le contenu d’un travail au sein d’un workflow, en utilisant [`jobs.<job_id>.env`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idenv).
+* Une étape spécifique dans un travail, en utilisant [`jobs.<job_id>.steps[*].env`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsenv).
 
 {% raw %}
 ```yaml
@@ -51,21 +55,21 @@ jobs:
 ```
 {% endraw %}
 
-The example above shows three custom environment variables being used in an `echo` command: `$DAY_OF_WEEK`, `$Greeting`, and  `$First_Name`. The values for these environment variables are set, and scoped, at the workflow, job, and step level respectively. 
+L’exemple ci-dessus montre trois variables d’environnement personnalisées utilisées dans une commande `echo` : `$DAY_OF_WEEK`, `$Greeting` et `$First_Name`. Les valeurs de ces variables d’environnement sont définies et limitées au niveau du workflow, du travail et de l’étape, respectivement. 
 
-Because environment variable interpolation is done after a workflow job is sent to a runner machine, you must use the appropriate syntax for the shell that's used on the runner. In this example, the workflow specifies `ubuntu-latest`. By default, Linux runners use the bash shell, so you must use the syntax `$NAME`. If the workflow specified a Windows runner, you would use the syntax for PowerShell, `$env:NAME`. For more information about shells, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idstepsshell)."
+Étant donné que l’interpolation des variables d’environnement est effectuée une fois qu’un travail de workflow est envoyé à une machine d’exécuteur, vous devez utiliser la syntaxe appropriée pour l’interpréteur de commandes utilisé sur l’exécuteur. Dans cet exemple, le workflow spécifie `ubuntu-latest`. Par défaut, les exécuteurs Linux utilisent l’interpréteur de commandes bash. Vous devez donc utiliser la syntaxe `$NAME`. Si le workflow a spécifié un exécuteur Windows, vous utiliserez la syntaxe pour PowerShell, `$env:NAME`. Pour plus d’informations sur les interpréteurs de commandes, consultez « [Syntaxe de workflow pour {% data variables.product.prodname_actions %}](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idstepsshell) ».
 
 {% note %}
 
-**Note**: You can list the entire set of environment variables that are available to a workflow step by using <span style="white-space: nowrap;">`run: env`</span> in a step and then examining the output for the step.
+**Remarque** : Vous pouvez lister l’ensemble des variables d’environnement disponibles pour une étape de workflow en utilisant <span style="white-space: nowrap;">`run: env`</span> dans une étape, puis en examinant la sortie de cette étape.
 
 {% endnote %}
 
-## Using contexts to access environment variable values
+## Utilisation de contextes pour accéder aux valeurs des variables d’environnement
 
-In addition to environment variables, {% data variables.product.prodname_actions %} also allows you to set and read values using contexts. Environment variables and contexts are intended for use at different points in the workflow.
+Outre les variables d’environnement, {% data variables.product.prodname_actions %} vous permet également de définir et de lire des valeurs à l’aide de contextes. Les variables d’environnement et les contextes sont destinés à être utilisés à différents points du workflow.
 
-Environment variables are always interpolated on the virtual machine runner. However, parts of a workflow are processed by {% data variables.product.prodname_actions %} and are not sent to the runner. You cannot use environment variables in these parts of a workflow file. Instead, you can use contexts. For example, an `if` conditional, which determines whether a job or step is sent to the runner, is always processed by {% data variables.product.prodname_actions %}. You can use a context in an `if` conditional statement to access the value of an environment variable.
+Les variables d’environnement sont toujours interpolées sur l’exécuteur de machine virtuelle. Toutefois, les parties d’un workflow sont traitées par {% data variables.product.prodname_actions %} et ne sont pas envoyées à l’exécuteur. Vous ne pouvez pas utiliser de variables d’environnement dans ces parties d’un fichier de workflow. À la place, vous pouvez utiliser des contextes. Par exemple, une condition `if`, qui détermine si un travail ou une étape sont envoyés à l’exécuteur, est toujours traitée par {% data variables.product.prodname_actions %}. Vous pouvez utiliser un contexte dans une instruction conditionnelle `if` pour accéder à la valeur d’une variable d’environnement.
 
 {% raw %}
 ```yaml
@@ -86,105 +90,79 @@ jobs:
 ```
 {% endraw %}
 
-In this modification of the first example, we've introduced an `if` conditional. The workflow step is now only run if `DAYS_OF_WEEK` is set to "Monday". We access this value from the `if` conditional statement by using the [`env` context](/actions/learn-github-actions/contexts#env-context).
+Dans cette modification du premier exemple, nous avons introduit une condition `if`. L’étape de workflow est désormais exécutée uniquement si la variable `DAYS_OF_WEEK` a pour valeur « Monday » (Lundi). Nous accédons à cette valeur à partir de l’instruction conditionnelle `if` en utilisant le [contexte `env`](/actions/learn-github-actions/contexts#env-context).
 
 {% note %}
 
-**Note**: Contexts are usually denoted using the dollar sign and curly braces, as {% raw %}`${{ context.property }}`{% endraw %}. In an `if` conditional, the {% raw %}`${{` and `}}`{% endraw %} are optional, but if you use them they must enclose the entire comparison statement, as shown above. 
+**Remarque** : Les contextes sont généralement indiqués par un signe dollar et des accolades, comme {% raw %}`${{ context.property }}`{% endraw %}. Dans une condition `if`, les éléments {% raw %}`${{` et `}}`{% endraw %} sont facultatifs, mais si vous les utilisez, ils doivent contenir l’instruction de comparaison entière, comme indiqué ci-dessus. 
 
 {% endnote %}
 
-You will commonly use either the `env` or `github` context to access environment variable values in parts of the workflow that are processed before jobs are sent to runners. 
+Vous utilisez généralement le contexte `env` ou `github` pour accéder aux valeurs des variables d’environnement figurant dans les parties du workflow traitées avant que les travaux soient envoyés aux exécuteurs. 
 
 
-| Context | Use case | Example |
+| Context | Cas d’utilisation | Exemple |
 | --- | --- | --- |
-| `env` | Reference custom environment variables defined in the workflow. | <span style="white-space: nowrap;">{% raw %}`${{ env.MY_VARIABLE }}`{% endraw %}</span> |
-| `github` | Reference information about the workflow run and the event that triggered the run. | <span style="white-space: nowrap;">{% raw %}`${{ github.repository }}`{% endraw %}</span> |
+| `env` | Référencer les variables d’environnement personnalisées définies dans le workflow. | <span style="white-space: nowrap;">{% raw %}`${{ env.MY_VARIABLE }}`{% endraw %}</span> |
+| `github` | Référencer des informations sur l’exécution du workflow et l’événement qui a déclenché cette exécution. | <span style="white-space: nowrap;">{% raw %}`${{ github.repository }}`{% endraw %}</span> |
 
 
  
-There are many other contexts that you can use for a variety of purposes in your workflows. For more information, see "[Contexts](/actions/learn-github-actions/contexts)." For details of where you can use specific contexts within a workflow, see "[Context availability](/actions/learn-github-actions/contexts#context-availability)."
+Il existe de nombreux autres contextes que vous pouvez utiliser à diverses fins dans vos workflows. Pour plus d’informations, consultez « [Contextes](/actions/learn-github-actions/contexts) ». Pour plus d’informations sur l’emplacement où vous pouvez utiliser des contextes spécifiques au sein d’un workflow, consultez « [Disponibilité des contextes](/actions/learn-github-actions/contexts#context-availability) ».
 
-### Other types of variables
+### Autres types de variables
 
-In most places in a workflow, the only types of variables that you can use are either environment variables, such as `$MY_VARIABLE`, or the equivalent context property, such as <span style="white-space: nowrap;">{% raw %}`${{ env.MY_VARIABLE }}`{% endraw %}</span>. Exceptions are:
+Dans la plupart des parties d’un workflow, les seuls types de variables que vous pouvez utiliser sont des variables d’environnement, telles que `$MY_VARIABLE`, ou la propriété de contexte équivalente, telle que <span style="white-space: nowrap;">{% raw %}`${{ env.MY_VARIABLE }}`{% endraw %}</span>. Les exceptions sont les suivantes :
 
-* Inputs for the `workflow_call` and `workflow_dispatch` events, which allow you to pass values to a workflow. For more information, see [`on.workflow_call.inputs`](/actions/learn-github-actions/workflow-syntax-for-github-actions#onworkflow_callinputs) and [`on.workflow_dispatch.inputs`](/actions/learn-github-actions/workflow-syntax-for-github-actions#onworkflow_dispatchinputs).
-* Job outputs, which allow you to pass values between jobs in a workflow. For more information, see [`jobs.<job_id>.outputs`](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idoutputs).
-* The variables in a format expression, which allow you to replace parts of a string. For more information, see [`format`](/actions/learn-github-actions/expressions#format).
+* Entrées pour les événements `workflow_call` et `workflow_dispatch`, qui vous permettent de transmettre des valeurs à un workflow. Pour plus d’informations, consultez [`on.workflow_call.inputs`](/actions/learn-github-actions/workflow-syntax-for-github-actions#onworkflow_callinputs) et [`on.workflow_dispatch.inputs`](/actions/learn-github-actions/workflow-syntax-for-github-actions#onworkflow_dispatchinputs).
+* Sorties de travail, qui vous permettent de transmettre des valeurs entre les travaux dans un workflow. Pour plus d’informations, consultez [`jobs.<job_id>.outputs`](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idoutputs).
+* Variables figurant dans une expression de format, qui vous permettent de remplacer des parties d’une chaîne. Pour plus d’informations, consultez [`format`](/actions/learn-github-actions/expressions#format).
 
-## Naming conventions for environment variables
+## Conventions d’affectation de noms pour les variables d’environnement
 
-When you set a custom environment variable, you cannot use any of the default environment variable names. For a complete list of these, see "[Default environment variables](#default-environment-variables)" below. If you attempt to override the value of one of these default environment variables, the assignment is ignored.
+Lorsque vous définissez une variable d’environnement personnalisée, vous ne pouvez pas utiliser les noms de variable d’environnement par défaut. Pour obtenir la liste complète de ces noms, consultez « [Variables d’environnement par défaut](#default-environment-variables) » ci-dessous. Si vous tentez de remplacer la valeur de l’une de ces variables d’environnement par défaut, l’affectation est ignorée.
 
-Any new environment variables you set that point to a location on the filesystem should have a `_PATH` suffix. The `GITHUB_ENV` and `GITHUB_WORKSPACE` default environment variables are exceptions to this convention.
+Toutes les nouvelles variables d’environnement que vous définissez et qui pointent vers un emplacement dans le système de fichiers doivent avoir un suffixe `_PATH`. Les variables d’environnement par défaut `GITHUB_ENV` et `GITHUB_WORKSPACE` sont des exceptions à cette convention.
 
-## Default environment variables
+## Variables d’environnement par défaut
 
-The default environment variables that {% data variables.product.prodname_dotcom %} sets are available to every step in a workflow. 
+Les variables d’environnement par défaut que {% data variables.product.prodname_dotcom %} définit sont disponibles pour chaque étape d’un workflow. 
 
-We strongly recommend that actions use environment variables to access the filesystem rather than using hardcoded file paths. {% data variables.product.prodname_dotcom %} sets environment variables for actions to use in all runner environments.
+Nous recommandons vivement que les actions utilisent des variables d’environnement pour accéder au système de fichiers plutôt que des chemins de fichier codés en dur. {% data variables.product.prodname_dotcom %} définit les variables d’environnement pour les actions à utiliser dans tous les environnements d’exécution.
 
-| Environment variable | Description |
+| Variable d’environnement | Description |
 | ---------------------|------------ |
-| `CI` | Always set to `true`. |
-| `GITHUB_ACTION` | The name of the action currently running, or the [`id`](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idstepsid) of a step. For example, for an action, `__repo-owner_name-of-action-repo`.<br><br>{% data variables.product.prodname_dotcom %} removes special characters, and uses the name `__run` when the current step runs a script without an `id`. If you use the same script or action more than once in the same job, the name will include a suffix that consists of the sequence number preceded by an underscore. For example, the first script you run will have the name `__run`, and the second script will be named `__run_2`. Similarly, the second invocation of `actions/checkout` will be `actionscheckout2`. |
-| `GITHUB_ACTION_PATH` | The path where an action is located. This property is only supported in composite actions. You can use this path to access files located in the same repository as the action. For example, `/home/runner/work/_actions/repo-owner/name-of-action-repo/v1`. |
-| `GITHUB_ACTION_REPOSITORY` | For a step executing an action, this is the owner and repository name of the action. For example, `actions/checkout`. |
-| `GITHUB_ACTIONS` | Always set to `true` when {% data variables.product.prodname_actions %} is running the workflow. You can use this variable to differentiate when tests are being run locally or by {% data variables.product.prodname_actions %}.
-| `GITHUB_ACTOR` | The name of the person or app that initiated the workflow. For example, `octocat`. |
-| `GITHUB_API_URL` | Returns the API URL. For example: `{% data variables.product.api_url_code %}`.
-| `GITHUB_BASE_REF` | The name of the base ref or target branch of the pull request in a workflow run. This is only set when the event that triggers a workflow run is either `pull_request` or `pull_request_target`. For example, `main`. |
-| `GITHUB_ENV` | The path on the runner to the file that sets environment variables from workflow commands. This file is unique to the current step and changes for each step in a job. For example, `/home/runner/work/_temp/_runner_file_commands/set_env_87406d6e-4979-4d42-98e1-3dab1f48b13a`. For more information, see "[Workflow commands for {% data variables.product.prodname_actions %}](/actions/using-workflows/workflow-commands-for-github-actions#setting-an-environment-variable)." | 
-| `GITHUB_EVENT_NAME` | The name of the event that triggered the workflow. For example, `workflow_dispatch`. |
-| `GITHUB_EVENT_PATH` | The path to the file on the runner that contains the full event webhook payload. For example, `/github/workflow/event.json`. |
-| `GITHUB_GRAPHQL_URL` | Returns the GraphQL API URL. For example: `{% data variables.product.graphql_url_code %}`.
-| `GITHUB_HEAD_REF` | The head ref or source branch of the pull request in a workflow run. This property is only set when the event that triggers a workflow run is either `pull_request` or `pull_request_target`. For example, `feature-branch-1`. |
-| `GITHUB_JOB` | The [job_id](/actions/reference/workflow-syntax-for-github-actions#jobsjob_id) of the current job. For example, `greeting_job`. |
-| `GITHUB_PATH` | The path on the runner to the file that sets system `PATH` variables from workflow commands. This file is unique to the current step and changes for each step in a job.  For example, `/home/runner/work/_temp/_runner_file_commands/add_path_899b9445-ad4a-400c-aa89-249f18632cf5`. For more information, see "[Workflow commands for {% data variables.product.prodname_actions %}](/actions/using-workflows/workflow-commands-for-github-actions#adding-a-system-path)." |
+| `CI` | Toujours défini sur `true`. |
+| `GITHUB_ACTION` | Nom de l’action en cours d’exécution ou [`id`](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idstepsid) d’une étape. Par exemple, pour une action, `__repo-owner_name-of-action-repo`.<br><br>{% data variables.product.prodname_dotcom %} supprime les caractères spéciaux et utilise le nom `__run` quand l’étape actuelle exécute un script sans `id`. Si vous utilisez le même script ou la même action plusieurs fois dans un même travail, le nom inclut un suffixe qui se compose du numéro de séquence précédé d’un trait de soulignement. Par exemple, le premier script que vous exécutez aura le nom `__run` et le deuxième script sera nommé `__run_2`. De même, le deuxième appel de `actions/checkout` sera `actionscheckout2`. |
+| `GITHUB_ACTION_PATH` | Chemin où figure une action. Cette propriété est prise en charge uniquement dans les actions composites. Vous pouvez utiliser ce chemin pour accéder aux fichiers situés dans le même dépôt que l’action. Par exemple : `/home/runner/work/_actions/repo-owner/name-of-action-repo/v1`. |
+| `GITHUB_ACTION_REPOSITORY` | Pour une étape exécutant une action, il s’agit du propriétaire et du nom du dépôt de l’action. Par exemple : `actions/checkout`. |
+| `GITHUB_ACTIONS` | Toujours définie sur `true` quand {% data variables.product.prodname_actions %} exécute le workflow. Vous pouvez utiliser cette variable pour différencier quand les tests sont exécutés localement ou par {% data variables.product.prodname_actions %}.
+| `GITHUB_ACTOR` | Nom de la personne ou de l’application qui a lancé le workflow. Par exemple : `octocat`. |
+| `GITHUB_API_URL` | Retourne l’URL de l’API. Par exemple : `{% data variables.product.api_url_code %}`.
+| `GITHUB_BASE_REF` | Nom de la référence de base ou de la branche cible de la demande de tirage (pull request) dans une exécution de workflow. Il est défini uniquement lorsque l’événement qui déclenche une exécution de workflow est `pull_request` ou `pull_request_target`. Par exemple : `main`. |
+| `GITHUB_ENV` | Chemin sur l’exécuteur jusqu’au fichier qui définit les variables d’environnement à partir des commandes de workflow. Ce fichier est unique à l’étape actuelle et change pour chaque étape d’un travail. Par exemple : `/home/runner/work/_temp/_runner_file_commands/set_env_87406d6e-4979-4d42-98e1-3dab1f48b13a`. Pour plus d’informations, consultez « [Commandes de workflow pour {% data variables.product.prodname_actions %}](/actions/using-workflows/workflow-commands-for-github-actions#setting-an-environment-variable) ». | 
+| `GITHUB_EVENT_NAME` | Nom de l’événement qui a déclenché le workflow. Par exemple : `workflow_dispatch`. |
+| `GITHUB_EVENT_PATH` | Chemin jusqu’au fichier sur l’exécuteur qui contient la charge utile de webhook d’événement complet. Par exemple : `/github/workflow/event.json`. |
+| `GITHUB_GRAPHQL_URL` | Retourne l’URL de l’API GraphQL. Par exemple : `{% data variables.product.graphql_url_code %}`.
+| `GITHUB_HEAD_REF` | Référence principale ou branche source de la demande de tirage (pull request) dans une exécution de workflow. Cette propriété est définie uniquement quand l’événement qui déclenche une exécution de workflow est `pull_request` ou `pull_request_target`. Par exemple : `feature-branch-1`. |
+| `GITHUB_JOB` | Élément [job_id](/actions/reference/workflow-syntax-for-github-actions#jobsjob_id) du travail actuel. Par exemple : `greeting_job`. |
+| `GITHUB_PATH` | Chemin sur l’exécuteur jusqu’au fichier qui définit les variables `PATH` système à partir des commandes de workflow. Ce fichier est unique à l’étape actuelle et change pour chaque étape d’un travail.  Par exemple : `/home/runner/work/_temp/_runner_file_commands/add_path_899b9445-ad4a-400c-aa89-249f18632cf5`. Pour plus d’informations, consultez « [Commandes de workflow pour {% data variables.product.prodname_actions %}](/actions/using-workflows/workflow-commands-for-github-actions#adding-a-system-path) ». |
 | `GITHUB_REF` | {% data reusables.actions.ref-description %} |
-{%- ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
-| `GITHUB_REF_NAME` | {% data reusables.actions.ref_name-description %} |
-| `GITHUB_REF_PROTECTED` | {% data reusables.actions.ref_protected-description %} |
-| `GITHUB_REF_TYPE` | {% data reusables.actions.ref_type-description %} |
-{%- endif %}
-| `GITHUB_REPOSITORY` | The owner and repository name. For example, `octocat/Hello-World`. |
-| `GITHUB_REPOSITORY_OWNER` | The repository owner's name. For example, `octocat`. |
-| `GITHUB_RETENTION_DAYS` | The number of days that workflow run logs and artifacts are kept. For example, `90`. |
-| `GITHUB_RUN_ATTEMPT` | A unique number for each attempt of a particular workflow run in a repository. This number begins at 1 for the workflow run's first attempt, and increments with each re-run. For example, `3`. |
-| `GITHUB_RUN_ID` | {% data reusables.actions.run_id_description %} For example, `1658821493`. |
-| `GITHUB_RUN_NUMBER` | {% data reusables.actions.run_number_description %} For example, `3`. |
-| `GITHUB_SERVER_URL`| The URL of the {% data variables.product.product_name %} server. For example: `https://{% data variables.product.product_url %}`.
-| `GITHUB_SHA` | {% data reusables.actions.github_sha_description %} |
-{%- ifversion actions-job-summaries %}
-| `GITHUB_STEP_SUMMARY` | The path on the runner to the file that contains job summaries from workflow commands. This file is unique to the current step and changes for each step in a job. For example, `/home/rob/runner/_layout/_work/_temp/_runner_file_commands/step_summary_1cb22d7f-5663-41a8-9ffc-13472605c76c`. For more information, see "[Workflow commands for {% data variables.product.prodname_actions %}](/actions/using-workflows/workflow-commands-for-github-actions#adding-a-job-summary)." |
-{%- endif %}
-| `GITHUB_WORKFLOW` | The name of the workflow. For example, `My test workflow`. If the workflow file doesn't specify a `name`, the value of this variable is the full path of the workflow file in the repository. |
-| `GITHUB_WORKSPACE` | The default working directory on the runner for steps, and the default location of your repository when using the [`checkout`](https://github.com/actions/checkout) action. For example, `/home/runner/work/my-repo-name/my-repo-name`. |
-{%- ifversion actions-runner-arch-envvars %}
-| `RUNNER_ARCH` | {% data reusables.actions.runner-arch-description %} |
-{%- endif %}
-| `RUNNER_DEBUG` | {% data reusables.actions.runner-debug-description %} |
-| `RUNNER_NAME` | {% data reusables.actions.runner-name-description %} For example, `Hosted Agent` |
-| `RUNNER_OS` | {% data reusables.actions.runner-os-description %} For example, `Windows` |
-| `RUNNER_TEMP` | {% data reusables.actions.runner-temp-directory-description %} For example, `D:\a\_temp` |
-{%- ifversion not ghae %}
-| `RUNNER_TOOL_CACHE` | {% data reusables.actions.runner-tool-cache-description %} For example, `C:\hostedtoolcache\windows` |
-{%- endif %}
+{%- ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %} | `GITHUB_REF_NAME` | {% data reusables.actions.ref_name-description %} | | `GITHUB_REF_PROTECTED` | {% data reusables.actions.ref_protected-description %} | | `GITHUB_REF_TYPE` | {% data reusables.actions.ref_type-description %} | {%- endif %} | `GITHUB_REPOSITORY` | Nom du propriétaire et du référentiel. Par exemple : `octocat/Hello-World`. | | `GITHUB_REPOSITORY_OWNER` | Nom du propriétaire du dépôt. Par exemple : `octocat`. | | `GITHUB_RETENTION_DAYS` | Nombre de jours pendant lesquels les journaux et artefacts d’exécution de workflow sont conservés. Par exemple : `90`. | | `GITHUB_RUN_ATTEMPT` | Numéro unique pour chaque tentative d’exécution d’un workflow particulier dans un dépôt. Ce numéro commence à 1 pour la première tentative d’exécution du workflow et augmente d’une unité à chaque nouvelle exécution. Par exemple : `3`. | | `GITHUB_RUN_ID` | {% data reusables.actions.run_id_description %} Par exemple, `1658821493`. | | `GITHUB_RUN_NUMBER` | {% data reusables.actions.run_number_description %} Par exemple, `3`. | | `GITHUB_SERVER_URL`| URL du serveur {% data variables.product.product_name %}. Par exemple : `https://{% data variables.product.product_url %}`.
+| `GITHUB_SHA` | {% data reusables.actions.github_sha_description %} | {%- ifversion actions-job-summaries %} | `GITHUB_STEP_SUMMARY` | Chemin sur l’exécuteur du fichier qui contient les récapitulatifs des travaux des commandes de workflow. Ce fichier est unique à l’étape actuelle et change pour chaque étape d’un travail. Par exemple : `/home/rob/runner/_layout/_work/_temp/_runner_file_commands/step_summary_1cb22d7f-5663-41a8-9ffc-13472605c76c`. Pour plus d’informations, consultez « [Commandes de workflow pour {% data variables.product.prodname_actions %}](/actions/using-workflows/workflow-commands-for-github-actions#adding-a-job-summary) ». | {%- endif %} | `GITHUB_WORKFLOW` | Nom du workflow. Par exemple : `My test workflow`. Si le fichier de workflow ne spécifie pas un `name`, la valeur de cette variable est le chemin complet du fichier de workflow dans le dépôt. | | `GITHUB_WORKSPACE` | Répertoire de travail par défaut sur l’exécuteur pour les étapes et emplacement par défaut de votre dépôt lors de l’utilisation de l’action [`checkout`](https://github.com/actions/checkout). Par exemple : `/home/runner/work/my-repo-name/my-repo-name`. | {%- ifversion actions-runner-arch-envvars %} | `RUNNER_ARCH` | {% data reusables.actions.runner-arch-description %} | {%- endif %} | `RUNNER_DEBUG` | {% data reusables.actions.runner-debug-description %} | | `RUNNER_NAME` | {% data reusables.actions.runner-name-description %} Par exemple, `Hosted Agent` | | `RUNNER_OS` | {% data reusables.actions.runner-os-description %} For example, `Windows` | | `RUNNER_TEMP` | {% data reusables.actions.runner-temp-directory-description %} Par exemple, `D:\a\_temp` | {%- ifversion not ghae %} | `RUNNER_TOOL_CACHE` | {% data reusables.actions.runner-tool-cache-description %} Par exemple, `C:\hostedtoolcache\windows` | {%- endif %}
 
 {% note %}
 
-**Note:** 
+**Remarque :** 
 
-* If you need to use a workflow run's URL from within a job, you can combine these environment variables: `$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID`
-* Most of the default environment variables have a corresponding, and similarly named, context property. For example, the value of the `GITHUB_REF` environment variable can be read during workflow processing using the {% raw %}`${{ github.ref }}`{% endraw %} context property.
+* Si vous devez utiliser l’URL de l’exécution d’un workflow à partir d’un travail, vous pouvez combiner ces variables d’environnement : `$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID`
+* La plupart des variables d’environnement par défaut ont une propriété de contexte correspondante et portant un nom similaire. Par exemple, la valeur de la variable d’environnement `GITHUB_REF` peut être lue pendant le traitement du workflow à l’aide de la propriété de contexte {% raw %}`${{ github.ref }}`{% endraw %}.
 
 {% endnote %}
 
-## Detecting the operating system
+## Détection du système d’exploitation
 
-You can write a single workflow file that can be used for different operating systems by using the `RUNNER_OS` default environment variable and the corresponding context property <span style="white-space: nowrap;">{% raw %}`${{ runner.os }}`{% endraw %}</span>. For example, the following workflow could be run successfully if you changed the operating system from `macos-latest` to `windows-latest` without having to alter the syntax of the environment variables, which differs depending on the shell being used by the runner.
+Vous pouvez écrire un fichier de workflow individuel qui peut être utilisé pour différents systèmes d’exploitation à l’aide de la variable d’environnement par défaut `RUNNER_OS` et de la propriété de contexte correspondante <span style="white-space: nowrap;">{% raw %}`${{ runner.os }}`{% endraw %}</span>. Par exemple, le workflow suivant peut être exécuté correctement si vous avez remplacé le système d’exploitation `macos-latest` par `windows-latest` sans avoir à modifier la syntaxe des variables d’environnement, ce qui diffère selon l’interpréteur de commandes utilisé par l’exécuteur.
 
 {% raw %}
 ```yaml
@@ -201,11 +179,11 @@ jobs:
 ```
 {% endraw %}
 
-In this example, the two `if` statements check the `os` property of the `runner` context to determine the operating system of the runner. `if` conditionals are processed by {% data variables.product.prodname_actions %}, and only steps where the check resolves as `true` are sent to the runner. Here one of the checks will always be `true` and the other `false`, so only one of these steps is sent to the runner. Once the job is sent to the runner, the step is executed and the environment variable in the `echo` command is interpolated using the appropriate syntax (`$env:NAME` for PowerShell on Windows, and `$NAME` for bash and sh on Linux and MacOS). In this example, the statement `runs-on: macos-latest` means that the second step will be run.
+Dans cet exemple, les deux instructions `if` vérifient la propriété `os` du contexte `runner` pour déterminer le système d’exploitation de l’exécuteur. Les conditions `if` sont traitées par {% data variables.product.prodname_actions %} et seules les étapes où la vérification est résolue comme `true` sont envoyées à l’exécuteur. Ici, l’une des vérifications sera toujours `true` et l’autre `false`, si bien qu’une seule de ces étapes est envoyée à l’exécuteur. Une fois le travail envoyé à l’exécuteur, l’étape est exécutée et la variable d’environnement dans la commande `echo` est interpolée à l’aide de la syntaxe appropriée (`$env:NAME` pour PowerShell sur Windows, et `$NAME` pour bash et sh sur Linux et MacOS). Dans cet exemple, l’instruction `runs-on: macos-latest` signifie que la deuxième étape sera exécutée.
 
-## Passing values between steps and jobs in a workflow
+## Transmission de valeurs entre les étapes et les travaux dans un workflow
 
- If you generate a value in one step of a job, you can use the value in subsequent steps of the same job by assigning the value to an existing or new environment variable and then writing this to the `GITHUB_ENV` environment file. The environment file can be used directly by an action, or from a shell command in the workflow file by using the `run` keyword. For more information, see "[Workflow commands for {% data variables.product.prodname_actions %}](/actions/reference/workflow-commands-for-github-actions/#setting-an-environment-variable)." 
+ Si vous générez une valeur dans une étape d’un travail, vous pouvez utiliser cette valeur dans les étapes suivantes du même travail en affectant la valeur à une variable d’environnement existante ou nouvelle, puis en écrivant cette dernière dans le fichier d’environnement `GITHUB_ENV`. Le fichier d’environnement peut être utilisé directement par une action ou à partir d’une commande shell dans le fichier de workflow à l’aide du mot clé `run`. Pour plus d’informations, consultez « [Commandes de workflow pour {% data variables.product.prodname_actions %}](/actions/reference/workflow-commands-for-github-actions/#setting-an-environment-variable) ». 
  
- If you want to pass a value from a step in one job in a workflow to a step in another job in the workflow, you can define the value as a job output. You can then reference this job output from a step in another job. For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idoutputs)." 
+ Si vous souhaitez transmettre une valeur d’une étape d’un travail dans un workflow vers une étape d’un autre travail dans le workflow, vous pouvez définir la valeur en tant que sortie de travail. Vous pouvez ensuite référencer cette sortie de travail à partir d’une étape dans un autre travail. Pour plus d’informations, consultez « [Syntaxe de workflow pour {% data variables.product.prodname_actions %}](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idoutputs) ». 
  

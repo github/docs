@@ -1,1 +1,9 @@
-To access each organization's resources on {% data variables.product.product_name %}, the member must have an active SAML session in their browser. To access each organization's protected resources using the API and Git, the member must use a {% data variables.product.pat_generic %} or SSH key that the member has authorized for use with the organization. Enterprise owners can view and revoke a member's linked identity, active sessions, or authorized credentials at any time.
+---
+ms.openlocfilehash: 04954ae5ee27ff705ec85210d207464f1fd7c3d0
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/20/2022
+ms.locfileid: "148098155"
+---
+Чтобы получить доступ к ресурсам организации в {% data variables.product.product_name %}, в браузере у участника должен быть активный сеанс SAML. Чтобы получить доступ к защищенным ресурсам каждой организации с помощью API и Git, участник должен использовать ключ {% данных variables.product.pat_generic %} или ключ SSH, авторизованный участником для использования с организацией. Владельцы предприятия могут просматривать и отзывать связанное удостоверение участника, активные сеансы или авторизованные учетные данные в любое время.

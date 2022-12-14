@@ -1,6 +1,6 @@
 ---
-title: Troubleshooting cloning errors
-intro: 'If you''re having trouble cloning a repository, check these common errors.'
+title: クローンエラーのトラブルシューティング
+intro: リポジトリのクローン作成に問題がある場合は、次の一般的なエラーを確認します。
 redirect_from:
   - /articles/error-the-requested-url-returned-error-403
   - /articles/error-the-requested-url-returned-error-401
@@ -19,41 +19,45 @@ versions:
   ghec: '*'
 topics:
   - Repositories
+ms.openlocfilehash: 60a5ff0350fed34841099c18f495b185b75f9832
+ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147093143'
 ---
+## HTTPS クローニングエラー
 
-## HTTPS cloning errors
+Git で HTTPS を使用する際によく生じるエラーがいくつかあります。 これらのエラーは通常、古いバージョンの Git を使用しているか、もしくはリポジトリへのアクセス権を持っていないことが原因です。
 
-There are a few common errors when using HTTPS with Git. These errors usually indicate you have an old version of Git, or you don't have access to the repository.
-
-Here's an example of an HTTPS error you might receive:
+HTTPS エラーの例を次に示します:
 
 ```shell
 > error: The requested URL returned error: 401 while accessing
-> https://{% data variables.command_line.codeblock %}/USER/REPO.git/info/refs?service=git-receive-pack
+> https://{% data variables.command_line.codeblock %}/<em>user</em>/<em>repo</em>.git/info/refs?service=git-receive-pack
 > fatal: HTTP request failed
 ```
 
 ```shell
 > Error: The requested URL returned error: 403 while accessing
-> https://{% data variables.command_line.codeblock %}/USER/REPO.git/info/refs
+> https://{% data variables.command_line.codeblock %}/<em>user</em>/<em>repo</em>.git/info/refs
 > fatal: HTTP request failed
 ```
 
 ```shell
-> Error: https://{% data variables.command_line.codeblock %}/USER/REPO.git/info/refs not found: did you run git
+> Error: https://{% data variables.command_line.codeblock %}/<em>user</em>/<em>repo</em>.git/info/refs not found: did you run git
 > update-server-info on the server?
 ```
 
-### Check your Git version
+### 使用している Git のバージョンを確認する
 
-There's no minimum Git version necessary to interact with {% data variables.product.product_name %}, but we've found version 1.7.10 to be a comfortable stable version that's available on many platforms. You can always [download the latest version on the Git website](https://git-scm.com/downloads).
+{% data variables.product.product_name %} を使用するために最低限必要な Git のバージョンはありませんが、安定度の高いバージョン 1.7.10 を推奨しています。バージョン 1.7.10 は多くのプラットフォームで利用可能です。 いつでも [Git の Web サイトで最新バージョンをダウンロードできます](https://git-scm.com/downloads)。
 
-### Ensure the remote is correct
+### リモートが正しいことを確かめる
 
-The repository you're trying to fetch must exist on {% data variables.location.product_location %}, and the URL is case-sensitive.
+フェッチするリポジトリが {% data variables.product.product_location %} に存在する必要があります。また、URL では大文字と小文字が区別されます。
 
-You can find the URL of the local repository by opening the command line and
-typing `git remote -v`:
+コマンド ラインを開き、「`git remote -v`」と入力して、ローカル リポジトリの URL を見つけることができます。
 
 ```shell
 $ git remote -v
@@ -70,89 +74,86 @@ $ git remote -v
 > origin  https://github.com/ghost/ReactiveCocoa.git (push)
 ```
 
-Alternatively, you can change the URL through our
-[{% data variables.product.prodname_desktop %}](https://desktop.github.com/) application.
+または、[{% data variables.product.prodname_desktop %}](https://desktop.github.com/) アプリケーションを使って URL を変更できます。
 
-### Provide an access token
+### アクセストークンを入力する
 
-To access {% data variables.product.prodname_dotcom %}, you must authenticate with a {% data variables.product.pat_generic %} instead of your password. For more information, see "[Creating a {% data variables.product.pat_generic %}](/github/authenticating-to-github/creating-a-personal-access-token)."
+{% data variables.product.prodname_dotcom %} にアクセスするには、パスワードではなく個人アクセストークンで認証する必要があります。 詳細については、[個人アクセス トークンの作成](/github/authenticating-to-github/creating-a-personal-access-token)に関する記事を参照してください。
 
 {% data reusables.command_line.provide-an-access-token %}
 
-### Check your permissions
+### 権限を確認します
 
-When prompted for a username and password, make sure you use an account that has access to the repository.
+ユーザ名およびパスワードを求められた場合は、該当のリポジトリにアクセスできるアカウントを使用してください。
 
 {% tip %}
 
-**Tip**: If you don't want to enter your credentials every time you interact with the remote repository, you can turn on [credential caching](/github/getting-started-with-github/caching-your-github-credentials-in-git). If you are already using credential caching, please make sure that your computer has the correct credentials cached. Incorrect or out of date credentials will cause authentication to fail.
+**ヒント**: リモート リポジトリを操作するたびに資格情報を入力したくない場合は、[資格情報のキャッシュ](/github/getting-started-with-github/caching-your-github-credentials-in-git)を有効にできます。 すでに認証情報のキャッシュを使用している場合は、コンピューターに正しい認証情報がキャッシュされていることを確認してください。 認証情報が正しくない、または古い場合、認証に失敗します。
 
 {% endtip %}
 
-### Use SSH instead
+### 代わりに SSH を使用する
 
-If you've previously set up SSH keys, you can use the SSH clone URL instead of HTTPS.  For more information, see "[About remote repositories](/github/getting-started-with-github/about-remote-repositories)."
+すでに SSH キーをセットアップしている場合は、HTTPS の代わりに SSH クローン URL を使用できます。  詳しくは、「[リモート リポジトリについて](/github/getting-started-with-github/about-remote-repositories)」をご覧ください。
 
 ## Error: Repository not found
 
-{% ifversion fpt or ghae or ghec %}If you see this error when cloning a repository, it means that the repository does not exist or you do not have permission to access it.{% else %}If you see this error when cloning a repository, it means that the repository does not exist, you do not have permission to access it, or {% data variables.location.product_location %} is in private mode.{% endif %} There are a few solutions to this error, depending on the cause.
+{% ifversion fpt or ghae or ghec %}リポジトリのクローン作成時にこのエラーが表示される場合は、リポジトリが存在しないか、リポジトリにアクセスする権限がないことを示します。{% else %}リポジトリのクローン作成時にこのエラーが表示される場合は、リポジトリが存在しないか、リポジトリにアクセスする権限がないか、{% data variables.product.product_location %} がプライベート モードになっていることを示します。{% endif %}原因に応じて、このエラーに対するいくつかの解決策があります。
 
-### Check your spelling
+### 綴りをチェックしてください
 
-Typos happen, and repository names are case-sensitive.  If you try to clone `git@{% data variables.command_line.codeblock %}:user/repo.git`, but the repository is really named `User/Repo` you will receive this error.
+入力ミスは起こるものです。また、リポジトリ名は大文字と小文字を区別します。  `git@{% data variables.command_line.codeblock %}:user/repo.git` をクローンしようとして、リポジトリの実際の名前が `User/Repo` である場合、このエラーが表示されます。
 
-To avoid this error, when cloning, always copy and paste the clone URL from the repository's page. For more information, see "[Cloning a repository](/articles/cloning-a-repository)."
+このエラーを回避するには、クローン時は常にリポジトリのページからクローン URL をコピーして貼り付けるようにします。 詳細については、「[リポジトリをクローンする](/articles/cloning-a-repository)」を参照してください。
 
-To update the remote on an existing repository, see "[Managing remote repositories](/github/getting-started-with-github/managing-remote-repositories)".
+既存のリポジトリでリモートを更新するには、「[リモート リポジトリを管理する](/github/getting-started-with-github/managing-remote-repositories)」をご覧ください。
 
-### Checking your permissions
+### 権限をチェックする
 
-If you are trying to clone a private repository but do not have permission to view the repository, you will receive this error.
+プライベートリポジトリをクローンしようとしているが、リポジトリの表示権限がない場合、このエラーが表示されます。
 
-Make sure that you have access to the repository in one of these ways:
+以下のいずれかによってリポジトリへのアクセス権があることを確認してください:
 
-* The owner of the repository
-* A [collaborator](/articles/inviting-collaborators-to-a-personal-repository) on the repository
-* A [member of a team](/articles/adding-organization-members-to-a-team) that has access to the repository (if the repository belongs to an organization)
+* リポジトリのオーナー
+* リポジトリ上の[コラボレーター](/articles/inviting-collaborators-to-a-personal-repository)
+* リポジトリへのアクセス権がある[チームのメンバー](/articles/adding-organization-members-to-a-team) (リポジトリが Organization に属している場合)
 
-### Check your SSH access
+### SSH アクセスをチェックする
 
-In rare circumstances, you may not have the proper SSH access to a repository.
+ごくまれに、リポジトリへの正しい SSH アクセス権がない場合があります。
 
-You should ensure that the SSH key you are using is attached to your personal account on {% data variables.product.product_name %}. You can check this by typing
-the following into the command line:
+使用している SSH キーが {% data variables.product.product_name %} の個人アカウントにアタッチされていることを確認する必要があります。 以下をコマンド ラインに入力することで、これをチェックできます。
 
 ```shell
 $ ssh -T git@{% data variables.command_line.codeblock %}
-> Hi USERNAME! You've successfully authenticated, but GitHub does not
+> Hi <em>username</em>! You've successfully authenticated, but GitHub does not
 > provide shell access.
 ```
 
-{% ifversion fpt or ghec %}
-If the repository belongs to an organization and you're using an SSH key generated by an OAuth App, OAuth App access may have been restricted by an organization owner. For more information, see "[About OAuth App access restrictions](/organizations/restricting-access-to-your-organizations-data/about-oauth-app-access-restrictions)."
+{% ifversion fpt or ghec %}リポジトリが Organization に属し、OAuth App によって生成された SSH キーを使用している場合、OAuth App へのアクセスは Organization のオーナーによって制限されている可能性があります。 詳しくは、「[OAuth アプリケーションのアクセス制限について](/organizations/restricting-access-to-your-organizations-data/about-oauth-app-access-restrictions)」をご覧ください。
 {% endif %}
 
-For more information, see [Adding a new SSH key to your GitHub account](/articles/adding-a-new-ssh-key-to-your-github-account).
+詳しくは、「[GitHub アカウントへの新しい SSH キーの追加](/articles/adding-a-new-ssh-key-to-your-github-account)」をご覧ください。
 
 {% ifversion ghes %}
-### Check if your instance is in private mode
+### インスタンスがプライベートモードであるかを確認する
 
-If your site administrator has enabled private mode on your GitHub Enterprise instance, anonymous clones over `git://` will be disabled. If you are unable to clone a repository, contact your site administrator.
+サイト管理者が GitHub Enterprise インスタンスでプライベート モードを有効にしている場合、`git://` による匿名のクローンは無効になります。 リポジトリをクローンできない場合は、サイト管理者にお問い合わせください。
 {% endif %}
 
-### Check that the repository really exists
+### リポジトリが実際に存在することを確認する
 
-If all else fails, make sure that the repository really exists on {% data variables.location.product_location %}!
-If you're trying to push to a repository that doesn't exist, you'll get this error.
+すべて失敗した場合は、リポジトリが {% data variables.product.product_location %} に実際に存在していることを確認してください。
+存在しないリポジトリにプッシュを試みると、このエラーが表示されます。
 
 ## Error: Remote HEAD refers to nonexistent ref, unable to checkout
 
-This error occurs if the default branch of a repository has been deleted on {% data variables.location.product_location %}.
+このエラーは、リポジトリのデフォルトブランチが {% data variables.product.product_location %}で削除された場合に発生します。
 
-Detecting this error is simple; Git will warn you when you try to clone the repository:
+このエラーの検出方法は簡単です。リポジトリのクローンを試みると Git により警告されます:
 
 ```shell
-$ git clone https://{% data variables.command_line.codeblock %}/USER/REPO.git
+$ git clone https://{% data variables.command_line.codeblock %}/<em>user</em>/<em>repo</em>.git
 # Clone a repo
 > Cloning into 'repo'...
 > remote: Counting objects: 66179, done.
@@ -163,10 +164,10 @@ $ git clone https://{% data variables.command_line.codeblock %}/USER/REPO.git
 > warning: remote HEAD refers to nonexistent ref, unable to checkout.
 ```
 
-To fix the error, you'll need to be an administrator of the repository on {% data variables.location.product_location %}.
-You'll want to [change the default branch](/github/administering-a-repository/changing-the-default-branch) of the repository.
+このエラーを解決するには、{% data variables.product.product_location %} リポジトリの管理者になる必要があります。
+リポジトリの[既定のブランチを変更する](/github/administering-a-repository/changing-the-default-branch)必要があります。
 
-After that, you can get a list of all the available branches from the command line:
+その後、コマンドラインで使用可能なブランチすべてのリストを取得できます:
 
 ```shell
 $ git branch -a
@@ -176,7 +177,7 @@ $ git branch -a
 >   remotes/origin/new-main
 ```
 
-Then, you can just switch to your new branch:
+その後、新しいブランチにスイッチするだけです:
 
 ```shell
 $ git checkout new-main

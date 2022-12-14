@@ -1,7 +1,7 @@
 ---
-title: Releasing and maintaining actions
-shortTitle: Release and maintain actions
-intro: You can leverage automation and open source best practices to release and maintain actions.
+title: アクションのリリースと管理
+shortTitle: Releasing and maintaining actions
+intro: 自動化とオープンソースのベスト プラクティスを活用して、アクションを解放および維持できます。
 type: tutorial
 topics:
   - Action development
@@ -12,84 +12,88 @@ versions:
   ghec: '*'
   ghes: '*'
   ghae: '*'
+ms.openlocfilehash: 563a63a3af79c75c6912777c1c3f0ecdace6403e
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145068788'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+## はじめに
 
-## Introduction
+アクションを作成した後、コミュニティ投稿を操作しながら、引き続き新機能をリリースする必要があります。 このチュートリアルでは、オープン ソースでアクションをリリースおよび管理するために従うことができるプロセスの例について説明します。 この例では、次の処理を実行します。
 
-After you create an action, you'll want to continue releasing new features while working with community contributions. This tutorial describes an example process you can follow to release and maintain actions in open source. The example:
+* 継続的インテグレーション、依存関係の更新、リリース管理、タスクの自動化に {% data variables.product.prodname_actions %} を活用する。
+* 自動テストとビルド バッジにより信頼度を提供する。
+* 理想的にはより広範なワークフローの一部として、アクションを使用する方法を示す。
+* 歓迎するコミュニティ投稿の種類を伝える (issue、pull request、脆弱性レポートなど)。
 
-* Leverages {% data variables.product.prodname_actions %} for continuous integration, dependency updates, release management, and task automation.
-* Provides confidence through automated tests and build badges.
-* Indicates how the action can be used, ideally as part of a broader workflow.
-* Signal what type of community contributions you welcome. (For example, issues, pull requests, or vulnerability reports.)
+このプロセスの適用例については、[github-developer/javascript-action](https://github.com/github-developer/javascript-action) を参照してください。
 
-For an applied example of this process, see [github-developer/javascript-action](https://github.com/github-developer/javascript-action).
+## アクションの開発とリリース
 
-## Developing and releasing actions
+このセクションでは、アクションを開発およびリリースするプロセスの例について説明し、{% data variables.product.prodname_actions %} を使用してプロセスを自動化する方法を示します。
 
-In this section, we discuss an example process for developing and releasing actions and show how to use {% data variables.product.prodname_actions %} to automate the process.
+### JavaScript アクションについて
 
-### About JavaScript actions
+JavaScript アクションは、メタデータを含む Node.js リポジトリです。 しかし、JavaScript アクションには、従来の Node.js プロジェクトと比較して追加のプロパティがあります。
 
-JavaScript actions are Node.js repositories with metadata. However, JavaScript actions have additional properties compared to traditional Node.js projects:
-
-* Dependent packages are committed alongside the code, typically in a compiled and minified form. This means that automated builds and secure community contributions are important.
+* 依存パッケージは、通常、コンパイルおよび縮小された形式でコードと共にコミットされます。 これは、自動ビルドとセキュリティで保護されたコミュニティ投稿が重要であることを意味します。
 
 {% ifversion fpt or ghec %}
 
-* Tagged releases can be published directly to {% data variables.product.prodname_marketplace %} and consumed by workflows across {% data variables.product.prodname_dotcom %}.
+* タグ付けされたリリースは、{% data variables.product.prodname_marketplace %} に直接公開し、{% data variables.product.prodname_dotcom %} 全体のワークフローで使用できます。
 
 {% endif %}
 
-* Many actions make use of {% data variables.product.prodname_dotcom %}'s APIs and third party APIs, so we encourage robust end-to-end testing.
+* 多くのアクションでは、{% data variables.product.prodname_dotcom %} の API とサード パーティの API が利用されるため、堅牢なエンドツーエンドのテストをお勧めします。
 
-### Setting up {% data variables.product.prodname_actions %} workflows
+### {% data variables.product.prodname_actions %} ワークフローの設定
 
-To support the developer process in the next section, add two {% data variables.product.prodname_actions %} workflows to your repository:
+次のセクションで開発者プロセスをサポートするには、2 つの {% data variables.product.prodname_actions %} ワークフローをリポジトリに追加します。
 
-1. Add a workflow that triggers when a commit is pushed to a feature branch or to `main` or when a pull request is created. Configure the workflow to run your unit and integration tests. For an example, see [this workflow](https://github.com/github-developer/javascript-action/blob/963a3b9a9c662fd499419a240ed8c49411ff5add/.github/workflows/test.yml).
-2. Add a workflow that triggers when a release is published or edited. Configure the workflow to ensure semantic tags are in place. You can use an action like [JasonEtco/build-and-tag-action](https://github.com/JasonEtco/build-and-tag-action) to compile and bundle the JavaScript and metadata file and force push semantic major, minor, and patch tags. For an example, see [this workflow](https://github.com/github-developer/javascript-action/blob/963a3b9a9c662fd499419a240ed8c49411ff5add/.github/workflows/publish.yml). For more information about semantic tags, see "[About semantic versioning](https://docs.npmjs.com/about-semantic-versioning)."
+1. コミットが機能ブランチまたは `main` にプッシュされたとき、あるいは pull request が作成されたときにトリガーされるワークフローを追加します。 単体および統合テストを実行するようにワークフローを構成します。 例については、[こちらのワークフロー](https://github.com/github-developer/javascript-action/blob/963a3b9a9c662fd499419a240ed8c49411ff5add/.github/workflows/test.yml)をご覧ください。
+2. リリースが公開または編集されたときにトリガーされるワークフローを追加します。 セマンティック タグが確実に配置されるようにワークフローを構成します。 [JasonEtco/build-and-tag-action](https://github.com/JasonEtco/build-and-tag-action) などのアクションを使用して、JavaScript とメタデータ ファイルをコンパイルしてバンドルし、セマンティック メジャー、マイナー、およびパッチ タグを強制的にプッシュできます。 例については、[こちらのワークフロー](https://github.com/github-developer/javascript-action/blob/963a3b9a9c662fd499419a240ed8c49411ff5add/.github/workflows/publish.yml)を参照してください。 セマンティック タグの詳細については、「[セマンティック バージョン管理について](https://docs.npmjs.com/about-semantic-versioning)」を参照してください。
 
-### Example developer process
+### 開発者プロセスの例
 
-Here is an example process that you can follow to automatically run tests, create a release{% ifversion fpt or ghec%} and publish to {% data variables.product.prodname_marketplace %}{% endif %}, and publish your action.
+自動的にテストを実行し、リリース{% ifversion fpt or ghec%} を作成し、{% data variables.product.prodname_marketplace %}{% endif %} に公開して、アクションを公開するプロセスの例を以下に示します。
 
-1. Do feature work in branches per GitHub flow. For more information, see "[GitHub flow](/get-started/quickstart/github-flow)."
-   * Whenever a commit is pushed to the feature branch, your testing workflow will automatically run the tests.
+1. GitHub フローごとにブランチで機能作業を行います。 詳細については、「[GitHub のフロー](/get-started/quickstart/github-flow)」を参照してください。
+   * コミットが機能ブランチにプッシュされるたびに、テスト ワークフローではテストが自動的に実行されます。
 
-2. Create pull requests to the `main` branch to initiate discussion and review, merging when ready.
+2. `main` ブランチへの pull request を作成してディスカッションとレビューを開始し、準備ができたらマージします。
 
-   * When a pull request is opened, either from a branch or a fork, your testing workflow will again run the tests, this time with the merge commit.
+   * ブランチまたはフォークから pull request が開かれると、テスト ワークフローでは今度はマージ コミットで再びテストが実行されます。
 
-   * **Note:** for security reasons, workflows triggered by `pull_request` from forks have restricted `GITHUB_TOKEN` permissions and do not have access to secrets. If your tests or other workflows triggered upon pull request require access to secrets, consider using a different event like a [manual trigger](/actions/reference/events-that-trigger-workflows#manual-events) or a [`pull_request_target`](/actions/reference/events-that-trigger-workflows#pull_request_target). Read more [here](/actions/reference/events-that-trigger-workflows#pull-request-events-for-forked-repositories).
+   * **注:** セキュリティ上の理由により、フォークから `pull_request` によってトリガーされるワークフローでは `GITHUB_TOKEN` アクセス許可が制限されており、シークレットにアクセスすることはできません。 pull request 時にトリガーされたテストまたはその他のワークフローでシークレットへのアクセスが必要な場合は、[手動トリガー](/actions/reference/events-that-trigger-workflows#manual-events)や [`pull_request_target`](/actions/reference/events-that-trigger-workflows#pull_request_target) などの別のイベントを使用することを検討してください。 詳細については、[こちら](/actions/reference/events-that-trigger-workflows#pull-request-events-for-forked-repositories)をご覧ください。
 
-3. Create a semantically tagged release. {% ifversion fpt or ghec %} You may also publish to {% data variables.product.prodname_marketplace %} with a simple checkbox. {% endif %} For more information, see "[Managing releases in a repository](/github/administering-a-repository/managing-releases-in-a-repository#creating-a-release)"{% ifversion fpt or ghec %} and "[Publishing actions in {% data variables.product.prodname_marketplace %}](/actions/creating-actions/publishing-actions-in-github-marketplace#publishing-an-action)"{% endif %}.
+3. セマンティックにタグ付けされたリリースを作成します。 {% ifversion fpt or ghec %} 単純なチェックボックスを使用して、{% data variables.product.prodname_marketplace %} に公開することもできます。 {% endif %} 詳細については、「[リポジトリのリリースを管理する](/github/administering-a-repository/managing-releases-in-a-repository#creating-a-release)」{% ifversion fpt or ghec %} および「[アクションを {% data variables.product.prodname_marketplace %} で公開する](/actions/creating-actions/publishing-actions-in-github-marketplace#publishing-an-action)」{% endif %} を参照してください。
 
-   * When a release is published or edited, your release workflow will automatically take care of compilation and adjusting tags.
+   * リリースが公開または編集されると、リリース ワークフローでコンパイルとタグの調整が自動的に行われます。
 
-   * We recommend creating releases using semantically versioned tags – for example, `v1.1.3` – and keeping major (`v1`) and minor (`v1.1`) tags current to the latest appropriate commit. For more information, see "[About custom actions](/actions/creating-actions/about-custom-actions#using-release-management-for-actions)" and "[About semantic versioning](https://docs.npmjs.com/about-semantic-versioning).
+   * セマンティックにバージョン管理されたタグ (たとえば、`v1.1.3`) を使用してリリースを作成し、最新の適切なコミットに合わせてメジャー (`v1`) およびマイナー (`v1.1`) タグを最新の状態に保つことをお勧めします。 詳細については、「[カスタム アクションについて](/actions/creating-actions/about-custom-actions#using-release-management-for-actions)」および「[セマンティック バージョン管理について](https://docs.npmjs.com/about-semantic-versioning)」を参照してください。
 
-### Results
+### 結果
 
-Unlike some other automated release management strategies, this process intentionally does not commit dependencies to the `main` branch, only to the tagged release commits. By doing so, you encourage users of your action to reference named tags or `sha`s, and you help ensure the security of third party pull requests by doing the build yourself during a release.
+他のいくつかの自動リリース管理戦略とは異なり、このプロセスでは意図的に `main` ブランチではなく、タグ付けされたリリース コミットへの依存関係のみをコミットします。 これにより、アクションのユーザーに名前付きタグまたは `sha` を参照するよう促し、リリース時にビルドを自分で行うことで、サード パーティの pull request のセキュリティを確保できるようにします。
 
-Using semantic releases means that the users of your actions can pin their workflows to a version and know that they might continue to receive the latest stable, non-breaking features, depending on their comfort level:
+セマンティック リリースを使用すると、アクションのユーザーがワークフローをバージョンにピン留めでき、快適レベルに応じて、最新の安定した非破壊的機能を引き続き受け取る可能性があることを認識できます。
 
-## Working with the community
+## コミュニティでの作業
 
-{% data variables.product.product_name %} provides tools and guides to help you work with the open source community. Here are a few tools we recommend setting up for healthy bidirectional communication. By providing the following signals to the community, you encourage others to use, modify, and contribute to your action:
+{% data variables.product.product_name %} には、オープンソース コミュニティでの作業に役立つツールとガイドが用意されています。 ここでは、正常な双方向通信用に設定することをお勧めするいくつかのツールを示します。 コミュニティに次のように伝えることで、他のユーザーにアクションの使用、変更、および貢献を促します。
 
-* Maintain a `README` with plenty of usage examples and guidance. For more information, see "[About READMEs](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes)."
-* Include a workflow status badge in your `README` file. For more information, see "[Adding a workflow status badge](/actions/managing-workflow-runs/adding-a-workflow-status-badge)." Also visit [shields.io](https://shields.io/) to learn about other badges that you can add.{% ifversion fpt or ghec %}
-* Add community health files like `CODE_OF_CONDUCT`, `CONTRIBUTING`, and `SECURITY`. For more information, see "[Creating a default community health file](/github/building-a-strong-community/creating-a-default-community-health-file#supported-file-types)."{% endif %}
-* Keep issues current by utilizing actions like [actions/stale](https://github.com/actions/stale).
+* 多くの使用例とガイダンスを含む `README` を維持する。 詳細については、「[README について](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes)」を参照してください。
+* `README` ファイルにワークフロー ステータス バッジを含める。 詳細については、「[ワークフロー ステータス バッジを追加する](/actions/managing-workflow-runs/adding-a-workflow-status-badge)」を参照してください。 また、追加できるその他のバッジについては、[shields.io](https://shields.io/) にアクセスしてください。{% ifversion fpt または ghec %}
+* `CODE_OF_CONDUCT`、`CONTRIBUTING`、`SECURITY` など、コミュニティの正常性ファイルを追加する。 詳細については、「[既定のコミュニティ正常性ファイルの作成](/github/building-a-strong-community/creating-a-default-community-health-file#supported-file-types)」を参照してください。{% endif %}
+* [actions/stale](https://github.com/actions/stale) などのアクションを利用して、issue を最新の状態に保つ。
 
-## Further reading
+## 参考資料
 
-Examples where similar patterns are employed include:
+同様のパターンを使用する例を以下に示します。
 
 * [github/super-linter](https://github.com/github/super-linter)
 * [octokit/request-action](https://github.com/octokit/request-action)

@@ -1,0 +1,18 @@
+date: '17.12.2020'
+sections:
+  security_fixes:
+    - '**НИЗКИЙ.** Уровень потребления ресурсов ЦП может повыситься из-за специально созданного запроса к мосту SVN, что приводит к отказу в обслуживании (DoS). {% comment %} https://github.com/github/slumlord/pull/1022, https://github.com/github/slumlord/pull/1017 {% endcomment %}'
+    - 'Пакеты обновлены до последних версий системы безопасности. {% comment %} https://github.com/github/enterprise2/pull/24353, https://github.com/github/enterprise2/pull/23866 {% endcomment %}'
+  bugs:
+    - 'Запросы для некоторых файловых ресурсов (например, ZIP-архив или RAW-файл) могут попасть в цикл переадресации. {% comment %} https://github.com/github/enterprise2/pull/24193, https://github.com/github/enterprise2/pull/24075 {% endcomment %}'
+    - 'Из-за таймаута результаты некоторых операций поиска проблем и запросов на вытягивания могут быть неполными. {% comment %} https://github.com/github/github/pull/164155, https://github.com/github/github/pull/163845 {% endcomment %}'
+    - 'Настраиваемые вкладки, которые содержат небуквенные символы отрисовываются некорректно на небольших экранах. {% comment %} https://github.com/github/github/pull/164310, https://github.com/github/github/pull/164159 {% endcomment %}'
+    - 'Базовое поведение вызывало сбои при передаче содержимого в репозиторий с поддержкой Git LFS. {% comment %} https://github.com/github/github/pull/164663, https://github.com/github/github/pull/150179 {% endcomment %}'
+    - 'В редких случаях проблемы могут вызвать ошибку 500 при доступе через веб-интерфейс. {% comment %} https://github.com/github/github/pull/165298, https://github.com/github/github/pull/159674 {% endcomment %}'
+  known_issues:
+    - 'После первой настройки версии GitHub Enterprise Server, в которой еще нет пользователей, злоумышленник мог создать первого пользователя с правами администратора. {% comment %} https://github.com/github/enterprise2/issues/1889 {% endcomment %}'
+    - 'Пользовательские правила брандмауэра не сохраняются в процессе обновления. {% comment %} https://github.com/github/enterprise2/issues/2823 {% endcomment %}'
+    - 'Отслеживаемые файлы Git LFS, [отправленные через веб-интерфейс](https://github.com/blog/2105-upload-files-to-your-repositories), ошибочно добавлялись напрямую в репозиторий. {% comment %} https://github.com/github/github/issues/54684 {% endcomment %}'
+    - 'Невозможно закрывать проблемы, если они содержат постоянную ссылку на BLOB-объект в том же репозитории с путем, длина которого превышает 255 символов. {% comment %} https://github.com/github/github/issues/107731 {% endcomment %}'
+    - 'Когда в GitHub Connect включен параметр "Пользователи могут выполнять поиск на GitHub.com", результаты поиска на GitHub.com не включают проблемы в частных и внутренних репозиториях. {% comment %} https://github.com/github/admin-experience/issues/571 {% endcomment %}'
+    - 'Если узел реплики находится в автономном режиме в конфигурации высокой доступности, {% data variables.product.product_name %} по-прежнему может маршрутизировать запросы {% data variables.product.prodname_pages %} на узел в автономном режиме, снижая доступность {% data variables.product.prodname_pages %} для пользователей.'

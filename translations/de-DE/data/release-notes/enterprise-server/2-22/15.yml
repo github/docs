@@ -1,0 +1,16 @@
+date: '10.6.2021'
+sections:
+  security_fixes:
+    - Die Pakete wurden auf die neuesten Sicherheitsversionen aktualisiert.
+  bugs:
+    - "Importfehler von Organisationen oder Repositorys aus Quellen, die nicht zu GitHub gehören, konnten den Fehler „nicht definierte Methode '[]' für nil:NilClass“ verursachen."
+    - "GitHub-Profilnamen wurden möglicherweise ungewollt geändert, wenn die SAML-Authentifizierung verwendet wurde und der GitHub-Profilname nicht mit dem Attribut übereinstimmte, das dem Feld „Vollständiger Name“ in der Verwaltungskonsole zugeordnet war."
+  changes:
+    - "Benutzer der GraphQL-API können das öffentliche Feld „closingIssuesReferences“ für das PullRequest-Objekt abfragen. Dieses Feld ruft Issues ab, die automatisch geschlossen werden, wenn der zugehörige Pull Request zusammengeführt wird. Diese Herangehensweise macht es auch möglich, diese Daten in Zukunft als Teil eines genaueren Migrationsprozesses zu migrieren."
+  known_issues:
+    - Auf einer neu eingerichteten GitHub Enterprise Server-Instanz ohne Benutzer konnten Angreifer den ersten Administratorbenutzer erstellen.
+    - Benutzerdefinierte Firewallregeln werden während des Upgrades entfernt.
+    - "Nachverfolgte Git-LFS-Dateien, [die über die Webbenutzeroberfläche hochgeladen wurden](https://github.com/blog/2105-upload-files-to-your-repositories), werden dem Repository fälschlicherweise direkt hinzugefügt."
+    - "Issues können nicht geschlossen werden, wenn sie einen Permalink zu einem Blob im selben Repository enthalten und der Dateipfad des Blobs mehr als 255 Zeichen lang ist."
+    - "Wenn die Option zum Durchsuchen von GitHub.com mit GitHub Connect aktiviert wird, sind Issues in privaten und internen Repositorys nicht in den GitHub.com-Suchergebnissen enthalten."
+    - "Wenn ein Replikatknoten in einer Hochverfügbarkeitskonfiguration offline ist, kann {% data variables.product.product_name %} eventuell noch immer Anforderungen von {% data variables.product.prodname_pages %} an den Offlineknoten weiterleiten. Dadurch ist {% data variables.product.prodname_pages %} für Benutzer weniger verfügbar."

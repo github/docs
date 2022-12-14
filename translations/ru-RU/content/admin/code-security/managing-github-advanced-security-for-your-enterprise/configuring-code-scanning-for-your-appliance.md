@@ -1,7 +1,7 @@
 ---
-title: Configuring code scanning for your appliance
+title: Настройка сканирования кода на устройстве
 shortTitle: Configuring code scanning
-intro: 'You can enable, configure and disable {% data variables.product.prodname_code_scanning %} for {% data variables.location.product_location %}. {% data variables.product.prodname_code_scanning_capc %} allows users to scan code for vulnerabilities and errors.'
+intro: 'Вы можете включить, настроить и отключить {% data variables.product.prodname_code_scanning %} для {% data variables.location.product_location %}. {% data variables.product.prodname_code_scanning_capc %} позволяет пользователям проверять код на наличие уязвимостей и ошибок.'
 product: '{% data reusables.gated-features.code-scanning %}'
 miniTocMaxHeadingLevel: 3
 redirect_from:
@@ -16,82 +16,84 @@ topics:
   - Code scanning
   - Enterprise
   - Security
+ms.openlocfilehash: 11ad9bfe108d339af3992277cab0918998eb54fb
+ms.sourcegitcommit: b617c4a7a1e4bf2de3987a86e0eb217d7031490f
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 11/11/2022
+ms.locfileid: '148161089'
 ---
-
 {% data reusables.code-scanning.beta %}
 
-## About {% data variables.product.prodname_code_scanning %}
+## Сведения о {% data variables.product.prodname_code_scanning %}
 
 {% data reusables.code-scanning.about-code-scanning %}
 
-You can configure {% data variables.product.prodname_code_scanning %} to run {% data variables.product.prodname_codeql %} analysis and third-party analysis. {% data variables.product.prodname_code_scanning_capc %} also supports running analysis natively using {% data variables.product.prodname_actions %} or externally using existing CI/CD infrastructure. The table below summarizes all the options available to users when you configure {% data variables.location.product_location %} to allow {% data variables.product.prodname_code_scanning %} using actions.
+Вы можете настроить {% data variables.product.prodname_code_scanning %} для выполнения анализа {% data variables.product.prodname_codeql %}, а также стороннего анализа. {% data variables.product.prodname_code_scanning_capc %} также поддерживает выполнение анализа в собственном коде с помощью {% data variables.product.prodname_actions %} или извне, используя существующую инфраструктуру CI/CD. В приведенной ниже таблице перечислены все параметры, доступные пользователям при настройке {% data variables.location.product_location %}, чтобы разрешить {% data variables.product.prodname_code_scanning %} использовать действия.
 
 {% data reusables.code-scanning.enabling-options %}
 
-## Checking whether your license includes {% data variables.product.prodname_GH_advanced_security %}
+## Проверка того, включает ли ваша лицензия {% data variables.product.prodname_GH_advanced_security %}
 
 {% data reusables.advanced-security.check-for-ghas-license %}
 
-## Prerequisites for {% data variables.product.prodname_code_scanning %}
+## Предварительные требования для {% data variables.product.prodname_code_scanning %}
 
-- A license for {% data variables.product.prodname_GH_advanced_security %}{% ifversion ghes %} (see "[About billing for {% data variables.product.prodname_GH_advanced_security %}](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)"){% endif %}
+- Лицензия {% data variables.product.prodname_GH_advanced_security %}{% ifversion ghes %} (см. раздел [Сведения о выставлении счетов {% data variables.product.prodname_GH_advanced_security %}](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)"){% endif %}
 
-- {% data variables.product.prodname_code_scanning_capc %} enabled in the management console (see "[Enabling {% data variables.product.prodname_GH_advanced_security %} for your enterprise](/admin/advanced-security/enabling-github-advanced-security-for-your-enterprise)")
+- {% data variables.product.prodname_code_scanning_capc %} на консоли управления (см. на странице [Включение {% data variables.product.prodname_GH_advanced_security %} для предприятия](/admin/advanced-security/enabling-github-advanced-security-for-your-enterprise))
 
-- A VM or container for {% data variables.product.prodname_code_scanning %} analysis to run in.
+- Виртуальная машина или контейнер для выполнения анализа {% data variables.product.prodname_code_scanning %}.
 
-## Running {% data variables.product.prodname_code_scanning %} using {% data variables.product.prodname_actions %}
+## Выполнение {% data variables.product.prodname_code_scanning %} с помощью {% data variables.product.prodname_actions %}
 
-### Setting up a self-hosted runner
+### Настройка локального средства выполнения
 
-{% data variables.product.prodname_ghe_server %} can run {% data variables.product.prodname_code_scanning %} using a {% data variables.product.prodname_actions %} workflow. First, you need to provision one or more self-hosted {% data variables.product.prodname_actions %} runners in your environment. You can provision self-hosted runners at the repository, organization, or enterprise account level. For more information, see "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners)" and "[Adding self-hosted runners](/actions/hosting-your-own-runners/adding-self-hosted-runners)."
+{% data variables.product.prodname_ghe_server %} может выполнять {% data variables.product.prodname_code_scanning %} с помощью рабочего процесса {% data variables.product.prodname_actions %}. Во-первых, необходимо подготовить одно или несколько локальных средств выполнения {% data variables.product.prodname_actions %} в вашей среде. Вы можете предоставить локальные средства выполнения на уровне репозитория, организации или корпоративной учетной записи. Дополнительные сведения см. в разделах [Сведения о локальных средствах выполнения](/actions/hosting-your-own-runners/about-self-hosted-runners) и [Добавление локальных средств выполнения](/actions/hosting-your-own-runners/adding-self-hosted-runners).
 
-You must ensure that Git is in the PATH variable on any self-hosted runners you use to run {% data variables.product.prodname_codeql %} actions.
+Необходимо убедиться, что GIT находится в переменной PATH для любых локальных средств выполнения, которые используются для выполнения действий {% data variables.product.prodname_codeql %}.
 
-{% ifversion ghes > 3.7 or ghae > 3.7 %}
-{% note %}
+{% ifversion ghes > 3.7 or ghae > 3.7 %} {% примечание %}
 
-If you use {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} to analyze code written in Python in your enterprise, you must make sure that your self-hosted runner has Python 3 installed.
+Если вы используете {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} для анализа кода, написанного на Python на предприятии, необходимо убедиться, что в локальном средстве выполнения тестов установлен Python 3.
 
-{% endnote %}
-{% endif %}
+{% endnote %} {% endif %}
 
-### Provisioning the actions for {% data variables.product.prodname_code_scanning %}
+### Подготовка действий для {% data variables.product.prodname_code_scanning %}
 
-{% ifversion ghes %}
-If you want to use actions to run {% data variables.product.prodname_code_scanning %} on {% data variables.product.prodname_ghe_server %}, the actions must be available on your appliance.
+{% ifversion ghes %} Если вы хотите использовать действия для выполнения {% data variables.product.prodname_code_scanning %} на {% data variables.product.prodname_ghe_server %}, эти действия должны быть доступны на устройстве.
 
-The {% data variables.product.prodname_codeql %} action is included in your installation of {% data variables.product.prodname_ghe_server %}. If both {% data variables.product.prodname_ghe_server %} {{ allVersions[currentVersion].currentRelease }} and your {% data variables.product.prodname_actions %} runner have access to the internet, the action will automatically download the {% data variables.product.prodname_codeql %} {% data variables.product.codeql_cli_ghes_recommended_version %} bundle required to perform analysis. Alternatively, you can use a synchronization tool to make the latest released version of the {% data variables.product.prodname_codeql %} analysis bundle available locally. For more information, see "[Configuring {% data variables.product.prodname_codeql %} analysis on a server without internet access](#configuring-codeql-analysis-on-a-server-without-internet-access)" below.
+Действие {% data variables.product.prodname_codeql %} включается в установку {% data variables.product.prodname_ghe_server %}. Если {% data variables.product.prodname_ghe_server %} {{ allVersions[currentVersion].currentRelease }} и {% data variables.product.prodname_actions %} имеют доступ к Интернету, действие автоматически скачает пакет {% data variables.product.prodname_codeql %} {% data variables.product.codeql_cli_ghes_recommended_version %}, необходимый для выполнения анализа. Кроме того, можно использовать средство синхронизации, чтобы сделать локально доступной последнюю версию пакета анализа {% data variables.product.prodname_codeql %}. Дополнительные сведения см. ниже в разделе [Настройка анализа данных {% data variables.product.prodname_codeql %} на сервере без доступа к Интернету](#configuring-codeql-analysis-on-a-server-without-internet-access).
 
-You can also make third-party actions available to users for {% data variables.product.prodname_code_scanning %}, by setting up {% data variables.product.prodname_github_connect %}. For more information, see "[Configuring {% data variables.product.prodname_github_connect %} to sync {% data variables.product.prodname_actions %}](/enterprise/admin/configuration/configuring-code-scanning-for-your-appliance#configuring-github-connect-to-sync-github-actions)" below.
+Вы также можете сделать сторонние действия доступными пользователям для {% data variables.product.prodname_code_scanning %}, настроив {% data variables.product.prodname_github_connect %}. Дополнительные сведения см. ниже в разделе [Настройка {% data variables.product.prodname_github_connect %} для синхронизации {% data variables.product.prodname_actions %}](/enterprise/admin/configuration/configuring-code-scanning-for-your-appliance#configuring-github-connect-to-sync-github-actions).
 
-### Configuring {% data variables.product.prodname_codeql %} analysis on a server without internet access
-If the server on which you are running {% data variables.product.prodname_ghe_server %} is not connected to the internet, and you want to allow users to enable {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} for their repositories, you must use the {% data variables.product.prodname_codeql %} action sync tool to copy the {% data variables.product.prodname_codeql %} analysis bundle from {% data variables.product.prodname_dotcom_the_website %} to your server. The tool, and details of how to use it, are available at [https://github.com/github/codeql-action-sync-tool](https://github.com/github/codeql-action-sync-tool/).
+### Настройка анализа {% data variables.product.prodname_codeql %} на сервере без доступа к Интернету
+Если сервер, на котором выполняется {% data variables.product.prodname_ghe_server %}, не подключен к Интернету и вы хотите разрешить пользователям включать {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} для своих репозиториев, необходимо использовать средство синхронизации действий {% data variables.product.prodname_codeql %} для копирования пакета анализа {% data variables.product.prodname_codeql %} из {% data variables.product.prodname_dotcom_the_website %} на ваш сервер. Средство и сведения о его использовании доступны по адресу [https://github.com/github/codeql-action-sync-tool](https://github.com/github/codeql-action-sync-tool/).
 
-If you set up the {% data variables.product.prodname_codeql %} action sync tool, you can use it to sync the latest releases of the {% data variables.product.prodname_codeql %} action and associated {% data variables.product.prodname_codeql %} analysis bundle. These are compatible with {% data variables.product.prodname_ghe_server %}.
+Если вы настроили средство синхронизации действий {% data variables.product.prodname_codeql %}, его можно использовать для синхронизации последних выпусков действия {% data variables.product.prodname_codeql %} и связанного пакета анализа {% data variables.product.prodname_codeql %}. Они совместимы с {% data variables.product.prodname_ghe_server %}.
 
 {% endif %}
 
-### Configuring {% data variables.product.prodname_github_connect %} to sync {% data variables.product.prodname_actions %}
-1. If you want to download action workflows on demand from {% data variables.product.prodname_dotcom_the_website %}, you need to enable {% data variables.product.prodname_github_connect %}. For more information, see "[Enabling {% data variables.product.prodname_github_connect %}](/admin/configuration/managing-connections-between-your-enterprise-accounts/connecting-your-enterprise-account-to-github-enterprise-cloud#enabling-github-connect)."
-2. You'll also need to enable {% data variables.product.prodname_actions %} for {% data variables.location.product_location %}. For more information, see "[Getting started with {% data variables.product.prodname_actions %} for {% data variables.product.prodname_ghe_server %}](/admin/github-actions/getting-started-with-github-actions-for-github-enterprise-server)."
-3. The next step is to configure access to actions on {% data variables.product.prodname_dotcom_the_website %} using {% data variables.product.prodname_github_connect %}. For more information, see "[Enabling automatic access to {% data variables.product.prodname_dotcom_the_website %} actions using {% data variables.product.prodname_github_connect %}](/enterprise/admin/github-actions/enabling-automatic-access-to-githubcom-actions-using-github-connect)."
-4. Add a self-hosted runner to your repository, organization, or enterprise account. For more information, see "[Adding self-hosted runners](/actions/hosting-your-own-runners/adding-self-hosted-runners)."
+### Настройка {% data variables.product.prodname_github_connect %} для синхронизации {% data variables.product.prodname_actions %}
+1. Если вы хотите скачать рабочие процессы действий по запросу из {% data variables.product.prodname_dotcom_the_website %}, необходимо включить {% data variables.product.prodname_github_connect %}. Дополнительные сведения см. в разделе [Включение {% data variables.product.prodname_github_connect %}](/admin/configuration/managing-connections-between-your-enterprise-accounts/connecting-your-enterprise-account-to-github-enterprise-cloud#enabling-github-connect).
+2. Также необходимо включить {% data variables.product.prodname_actions %} для {% data variables.location.product_location %}. Дополнительные сведения см. в разделе [Начало работы с {% data variables.product.prodname_actions %} для {% data variables.product.prodname_ghe_server %}](/admin/github-actions/getting-started-with-github-actions-for-github-enterprise-server).
+3. Следующим шагом является настройка доступа к действиям в {% data variables.product.prodname_dotcom_the_website %} с помощью {% data variables.product.prodname_github_connect %}. Дополнительные сведения см. в статье "[Включение автоматического доступа к действиям {% data variables.product.prodname_dotcom_the_website %} с помощью {% data variables.product.prodname_github_connect %}](/enterprise/admin/github-actions/enabling-automatic-access-to-githubcom-actions-using-github-connect)".
+4. Добавьте локальное средство выполнения в репозиторий, организацию или корпоративную учетную запись. Дополнительные сведения см. в разделе [Добавление локальных средств выполнения](/actions/hosting-your-own-runners/adding-self-hosted-runners).
 
-## Running code scanning using the {% data variables.product.prodname_codeql_cli %}
+## Выполнение сканирования кода с помощью {% data variables.product.prodname_codeql_cli %}
 
-If you don't want to use {% data variables.product.prodname_actions %}, you should run {% data variables.product.prodname_code_scanning %} using the {% data variables.product.prodname_codeql_cli %}. 
+Если вы не хотите использовать {% data variables.product.prodname_actions %}, необходимо запустить {% data variables.product.prodname_code_scanning %} с помощью {% data variables.product.prodname_codeql_cli %}. 
 
-The {% data variables.product.prodname_codeql_cli %} is a command-line tool that you use to analyze codebases on any machine, including a third-party CI/CD system. For more information, see "[Installing CodeQL CLI in your CI system](/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/installing-codeql-cli-in-your-ci-system)."
+{% data variables.product.prodname_codeql_cli %} — это инструмент командной строки, который используется для анализа баз кода на любом компьютере, включая стороннюю систему CI/CD. Дополнительные сведения см. на странице [Установка CodeQL CLI в системе непрерывной интеграции](/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/installing-codeql-cli-in-your-ci-system).
 
 {% ifversion codeql-runner-supported %}
 
-## Running {% data variables.product.prodname_code_scanning %} using the {% data variables.code-scanning.codeql_runner %}
+## Выполнение {% data variables.product.prodname_code_scanning %} с помощью {% data variables.code-scanning.codeql_runner %}
 
 {% data reusables.code-scanning.deprecation-codeql-runner %}
 
-If you don't want to use {% data variables.product.prodname_actions %}, you can run {% data variables.product.prodname_code_scanning %} using the {% data variables.code-scanning.codeql_runner %}. 
+Если вы не хотите использовать {% data variables.product.prodname_actions %}, можно запустить {% data variables.product.prodname_code_scanning %} с помощью {% data variables.code-scanning.codeql_runner %}. 
 
-The {% data variables.code-scanning.codeql_runner %} is a command-line tool that you can add to your third-party CI/CD system. The tool runs {% data variables.product.prodname_codeql %} analysis on a checkout of a {% data variables.product.prodname_dotcom %} repository. For more information, see "[Running {% data variables.product.prodname_code_scanning %} in your CI system](/github/finding-security-vulnerabilities-and-errors-in-your-code/running-codeql-code-scanning-in-your-ci-system)."
+{% data variables.code-scanning.codeql_runner %} — это программа командной строки, которую можно добавить в стороннюю систему CI/CD. Средство выполняет анализ данных {% data variables.product.prodname_codeql %} при извлечении из репозитория {% data variables.product.prodname_dotcom %}. Дополнительные сведения см. в разделе [Запуск {% data variables.product.prodname_code_scanning %} в системе непрерывной интеграции](/github/finding-security-vulnerabilities-and-errors-in-your-code/running-codeql-code-scanning-in-your-ci-system).
 
 {% endif %}

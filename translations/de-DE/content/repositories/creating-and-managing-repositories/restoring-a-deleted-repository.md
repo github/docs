@@ -1,6 +1,6 @@
 ---
-title: Restoring a deleted repository
-intro: '{% ifversion ghes or ghae %}An enterprise owner{% elsif fpt or ghec %}You{% endif %} can restore some deleted repositories to recover their contents.'
+title: Wiederherstellen eines gelöschten Repositorys
+intro: '{% ifversion ghes or ghae %}Ein*e Unternehmensinhaber*in{% elsif fpt or ghec %}Du{% endif %} kannst einige gelöschte Repositorys zum Wiederherstellen ihrer Inhalte wiederherstellen.'
 permissions: '{% ifversion ghes or ghae %}{% elsif fpt or ghec %}Anyone can restore deleted repositories that were owned by their own personal account. Organization owners can restore deleted repositories that were owned by the organization.{% endif %}'
 redirect_from:
   - /articles/restoring-a-deleted-repository
@@ -14,43 +14,40 @@ versions:
 topics:
   - Repositories
 shortTitle: Restore deleted repository
+ms.openlocfilehash: 233785cc42ac6dd97a35d042186ae198dd69502a
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '146200098'
 ---
-
 {% ifversion ghes or ghae %}
 
-Usually, deleted repositories can be restored within 90 days by an enterprise owner{% ifversion ghes %} on {% data variables.location.product_location %}{% endif %}. For more information, see "[Restoring a deleted repository](/admin/user-management/managing-repositories-in-your-enterprise/restoring-a-deleted-repository)." 
+In der Regel können gelöschte Repositorys innerhalb von 90 Tagen von einem Unternehmensinhaber bzw. einer Unternehmensinhaberin{% ifversion ghes %} auf {% data variables.product.product_location %}{% endif %} wiederhergestellt werden. Weitere Informationen findest du unter [Wiederherstellen eines gelöschten Repositorys](/admin/user-management/managing-repositories-in-your-enterprise/restoring-a-deleted-repository). 
 
 {% else %}
 
-## About repository restoration
+## Informationen zur Repository-Wiederherstellung
 
-A deleted repository can be restored within 90 days, unless the repository was part of a fork network that is not currently empty. A fork network consists of a parent repository, the repository's forks, and forks of the repository's forks. If your repository was part of a fork network, it cannot be restored unless every other repository in the network is deleted or has been detached from the network. For more information about forks, see "[About forks](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)."
+Ein gelöschtes Repository kann innerhalb von 90 Tagen wiederhergestellt werden. Dies gilt allerdings nicht, wenn das Repository Teil eines Forknetzwerks war, das derzeit nicht leer ist. Ein Fork-Netzwerk besteht aus einem übergeordneten Repository, den Forks des Repositorys und den Forks dieser Repository-Forks. Wenn dein Repository Teil eines Fork-Netzwerks war, kann es nur dann wiederhergestellt werden, wenn alle anderen Repositorys im Netzwerk gelöscht oder vom Netzwerk getrennt wurden. Weitere Informationen zu Forks findest du unter „[Informationen zu Forks](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)“.
 
-If you want to restore a repository that was part of a fork network that is not currently empty, you can contact {% data variables.contact.contact_support %}.
+Soll ein Repository wiederhergestellt werden, das Teil eines derzeit nicht leeren Fork-Netzwerks war, wende dich an {% data variables.contact.contact_support %}.
 
-It can take up to an hour after a repository is deleted before that repository is available for restoration.
+Wenn du ein Repository löschst, kann es bis zu einer Stunde dauern, bis dieses Repository wiederhergestellt werden kann.
 
-Restoring a repository will not restore release attachments or team permissions. Issues that are restored will not be labeled.
+Beim Wiederherstellen eines Repositorys werden etwaige Releaseanhänge oder Teamberechtigungen nicht wiederhergestellt. Wiederhergestellte Probleme werden nicht gekennzeichnet.
 
-## Restoring a deleted repository that was owned by a personal account
+## Wiederherstellen eines gelöschten Repositorys eines Benutzerkontos
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.repo-tab %}
-{% data reusables.user-settings.deleted-repos %}
-{% data reusables.user-settings.restore-repo %}
-{% data reusables.user-settings.restore-confirmation %}
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.repo-tab %} {% data reusables.user-settings.deleted-repos %} {% data reusables.user-settings.restore-repo %} {% data reusables.user-settings.restore-confirmation %}
 
-## Restoring a deleted repository that was owned by an organization
+## Gelöschtes Repository einer Organisation wiederherstellen
 
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.deleted-repos %}
-{% data reusables.user-settings.restore-repo %}
-{% data reusables.user-settings.restore-confirmation %}
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.organizations.deleted-repos %} {% data reusables.user-settings.restore-repo %} {% data reusables.user-settings.restore-confirmation %}
 
-## Further reading
+## Weiterführende Themen
 
-- "[Deleting a repository](/articles/deleting-a-repository)"
+- [Löschen eines Repositorys](/articles/deleting-a-repository)
 
 {% endif %}

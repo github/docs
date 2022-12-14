@@ -1,6 +1,6 @@
 ---
-title: About Dependabot security updates
-intro: '{% data variables.product.prodname_dependabot %} can fix vulnerable dependencies for you by raising pull requests with security updates.'
+title: Informationen zu Dependabot-Sicherheitsupdates
+intro: '{% data variables.product.prodname_dependabot %} kann anfällige Abhängigkeiten für dich beheben, indem Pull Requests mit Sicherheitsupdates ausgelöst werden.'
 shortTitle: Dependabot security updates
 redirect_from:
   - /github/managing-security-vulnerabilities/about-github-dependabot-security-updates
@@ -19,32 +19,36 @@ topics:
   - Repositories
   - Dependencies
   - Pull requests
+ms.openlocfilehash: 4ea3bd49a5d46376129afd2282fe043954a7d653
+ms.sourcegitcommit: cfe91073c844cb762131b2de9fb41f7f9db792fc
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 11/24/2022
+ms.locfileid: '148181295'
 ---
-
 <!--Marketing-LINK: From /features/security/software-supply-chain page "About Dependabot security updates".-->
 
-{% data reusables.dependabot.beta-security-and-version-updates %}
-{% data reusables.dependabot.enterprise-enable-dependabot %}
+{% data reusables.dependabot.beta-security-and-version-updates %} {% data reusables.dependabot.enterprise-enable-dependabot %}
 
-## About {% data variables.product.prodname_dependabot_security_updates %}
+## Informationen zu {% data variables.product.prodname_dependabot_security_updates %}
 
-{% data variables.product.prodname_dependabot_security_updates %} make it easier for you to fix vulnerable dependencies in your repository. If you enable this feature, when a {% data variables.product.prodname_dependabot %} alert is raised for a vulnerable dependency in the dependency graph of your repository, {% data variables.product.prodname_dependabot %} automatically tries to fix it. For more information, see "[About {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)" and "[Configuring {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/configuring-dependabot-security-updates)."
+Mit {% data variables.product.prodname_dependabot_security_updates %} kannst du anfällige Abhängigkeiten in deinem Repository leichter beheben. Wenn du dieses Feature aktivierst und eine {% data variables.product.prodname_dependabot %}-Warnung für eine anfällige Abhängigkeit im Abhängigkeitsdiagramm deines Repositorys ausgelöst wird, versucht {% data variables.product.prodname_dependabot %} automatisch, diese zu beheben. Weitere Informationen findest du unter [Informationen zu {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies) und unter [Konfigurieren von {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/configuring-dependabot-security-updates).
 
-{% data variables.product.prodname_dotcom %} may send  {% data variables.product.prodname_dependabot_alerts %} to repositories affected by a vulnerability disclosed by a recently published {% data variables.product.prodname_dotcom %} security advisory. {% data reusables.security-advisory.link-browsing-advisory-db %}
+{% data variables.product.prodname_dotcom %} können {% data variables.product.prodname_dependabot_alerts %} an Repositorys senden, die von einem Sicherheitsrisiko betroffen sind, das durch eine kürzlich veröffentlichte {% data variables.product.prodname_dotcom %}-Sicherheitsempfehlung aufgedeckt wurde. {% data reusables.security-advisory.link-browsing-advisory-db %}
 
-{% data variables.product.prodname_dependabot %} checks whether it's possible to upgrade the vulnerable dependency to a fixed version without disrupting the dependency graph for the repository. Then {% data variables.product.prodname_dependabot %} raises a pull request to update the dependency to the minimum version that includes the patch and links the pull request to the {% data variables.product.prodname_dependabot %} alert, or reports an error on the alert. For more information, see "[Troubleshooting {% data variables.product.prodname_dependabot %} errors](/github/managing-security-vulnerabilities/troubleshooting-dependabot-errors)."
+{% data variables.product.prodname_dependabot %} überprüft, ob es möglich ist, ein Upgrade der anfälligen Abhängigkeit auf eine feste Version durchzuführen, ohne das Abhängigkeitsdiagramm für das Repository zu beeinträchtigen. Anschließend löst {% data variables.product.prodname_dependabot %} einen Pull Request aus, um die Abhängigkeit auf die Mindestversion mit dem Patch zu aktualisieren, und verknüpft den Pull Request mit der {% data variables.product.prodname_dependabot %}-Warnung oder meldet einen Fehler für die Warnung. Weitere Informationen findest du unter [Problembehandlung bei {% data variables.product.prodname_dependabot %}-Fehlern](/github/managing-security-vulnerabilities/troubleshooting-dependabot-errors).
 
-The {% data variables.product.prodname_dependabot_security_updates %} feature is available for repositories where you have enabled the dependency graph and {% data variables.product.prodname_dependabot_alerts %}. You will see a {% data variables.product.prodname_dependabot %} alert for every vulnerable dependency identified in your full dependency graph. However, security updates are triggered only for dependencies that are specified in a manifest or lock file. For more information, see "[About the dependency graph](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph#dependencies-included)."
+Das Feature {% data variables.product.prodname_dependabot_security_updates %} ist für Repositorys verfügbar, in denen du das Abhängigkeitsdiagramm und {% data variables.product.prodname_dependabot_alerts %} aktiviert hast. Es wird eine {% data variables.product.prodname_dependabot %}-Warnung für jede anfällige Abhängigkeit angezeigt, die in deinem vollständigen Abhängigkeitsdiagramm identifiziert wird. Sicherheitsupdates werden jedoch nur für Abhängigkeiten ausgelöst, die in einer Manifest- oder Sperrdatei angegeben sind. Weitere Informationen findest du unter [Informationen zum Abhängigkeitsdiagramm](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph#dependencies-included).
 
 {% ifversion dependabot-security-updates-unlock-transitive-dependencies %} 
 
 {% note %}
 
-**Note**: For npm, {% data variables.product.prodname_dependabot %} will raise a pull request to update an explicitly defined dependency to a secure version, even if it means updating the parent dependency or dependencies{% ifversion dependabot-security-updates-npm %}, or even removing a sub-dependency that is no longer needed by the parent{% endif %}. For other ecosystems, {% data variables.product.prodname_dependabot %} is unable to update an indirect or transitive dependency if it would also require an update to the parent dependency. For more information, see "[Dependabot tries to update dependencies without an alert](/en/code-security/dependabot/working-with-dependabot/troubleshooting-dependabot-errors#dependabot-tries-to-update-dependencies-without-an-alert)."
+**Hinweis**: Für npm löst {% data variables.product.prodname_dependabot %} einen Pull Request aus, um eine explizit definierte Abhängigkeit auf eine sichere Version zu aktualisieren, auch wenn dies bedeutet, dass die übergeordnete Abhängigkeit aktualisiert wird bzw. Abhängigkeiten aktualisiert werden{% ifversion dependabot-security-updates-npm %}, oder sogar eine Unterabhängigkeit entfernt wird, die von der übergeordneten Abhängigkeit nicht mehr benötigt wird.{% endif %}. Bei anderen Ökosystemen kann {% data variables.product.prodname_dependabot %} keine indirekte oder transitive Abhängigkeit aktualisieren, wenn dazu auch eine Aktualisierung der übergeordneten Abhängigkeit erforderlich wäre. Weitere Informationen findest du unter [Dependabot versucht, Abhängigkeiten ohne Warnung zu aktualisieren](/en/code-security/dependabot/working-with-dependabot/troubleshooting-dependabot-errors#dependabot-tries-to-update-dependencies-without-an-alert).
 
 {% endnote %}{% endif %} 
 
-You can enable a related feature, {% data variables.product.prodname_dependabot_version_updates %}, so that {% data variables.product.prodname_dependabot %} raises pull requests to update the manifest to the latest version of the dependency, whenever it detects an outdated dependency. For more information, see "[About {% data variables.product.prodname_dependabot %} version updates](/github/administering-a-repository/about-dependabot-version-updates)."
+Du kannst ein zugehöriges Feature aktivieren, {% data variables.product.prodname_dependabot_version_updates %}, sodass {% data variables.product.prodname_dependabot %} Pull Requests auslöst, um das Manifest auf die neueste Version der Abhängigkeit zu aktualisieren, wenn eine veraltete Abhängigkeit erkannt wird. Weitere Informationen findest du unter [Informationen zu {% data variables.product.prodname_dependabot %}-Versionsupdates](/github/administering-a-repository/about-dependabot-version-updates).
 
 {% data reusables.dependabot.pull-request-security-vs-version-updates %}
 
@@ -52,22 +56,22 @@ You can enable a related feature, {% data variables.product.prodname_dependabot_
 
 {% data reusables.dependabot.dependabot-actions-support %}
 
-## About pull requests for security updates
+## Informationen zu Pull Requests für Sicherheitsupdates
 
-Each pull request contains everything you need to quickly and safely review and merge a proposed fix into your project. This includes information about the vulnerability like release notes, changelog entries, and commit details. Details of which vulnerability a pull request resolves are hidden from anyone who does not have access to {% data variables.product.prodname_dependabot_alerts %} for the repository.
+Jeder Pull Request enthält alles, was du brauchst, um einen vorgeschlagenen Fix schnell und sicher zu überprüfen und mit deinem Projekt zu mergen. Dazu gehören Informationen zum Sicherheitsrisiko wie Versionshinweise, Änderungsprotokolleinträge und Commitdetails. Details dazu, welches Sicherheitsrisiko durch einen Pull Request behoben wird, sind für alle Benutzer ausgeblendet, die nicht über Zugriff auf {% data variables.product.prodname_dependabot_alerts %}-Warnungen für das Repository verfügen.
 
-When you merge a pull request that contains a security update, the corresponding {% data variables.product.prodname_dependabot %} alert is marked as resolved for your repository. For more information about {% data variables.product.prodname_dependabot %} pull requests, see "[Managing pull requests for dependency updates](/github/administering-a-repository/managing-pull-requests-for-dependency-updates)."
+Wenn du einen Pull Request mergst, der ein Sicherheitsupdate enthält, wird die entsprechende {% data variables.product.prodname_dependabot %}-Warnung für dein Repository als aufgelöst markiert. Weitere Informationen zu {% data variables.product.prodname_dependabot %}-Pull Requests findest du unter [Verwalten von Pull Requests für Abhängigkeitsupdates](/github/administering-a-repository/managing-pull-requests-for-dependency-updates).
 
 {% data reusables.dependabot.automated-tests-note %}
 
 {% ifversion fpt or ghec %}
 
-## About compatibility scores
+## Informationen zu Kompatibilitätsbewertungen
 
-{% data variables.product.prodname_dependabot_security_updates %} may include compatibility scores to let you know whether updating a dependency could cause breaking changes to your project. These are calculated from CI tests in other public repositories where the same security update has been generated. An update's compatibility score is the percentage of CI runs that passed when updating between specific versions of the dependency.
+{% data variables.product.prodname_dependabot_security_updates %} können Kompatibilitätsbewertungen enthalten, die dich darüber informieren, ob das Aktualisieren einer Abhängigkeit zu Breaking Changes in deinem Projekt führen kann. Diese werden anhand von CI-Tests in anderen öffentlichen Repositorys berechnet, in denen dasselbe Sicherheitsupdate generiert wurde. Die Kompatibilitätsbewertung des Updates ist der Prozentwert der CI-Ausführungen, die beim Aktualisieren zwischen bestimmten Versionen der Abhängigkeit erfolgt sind.
 
 {% endif %}
 
-## About notifications for {% data variables.product.prodname_dependabot %} security updates
+## Informationen zum Konfigurieren von {% data variables.product.prodname_dependabot %}-Sicherheitsupdates
 
-You can filter your notifications on {% data variables.product.company_short %} to show {% data variables.product.prodname_dependabot %} security updates. For more information, see "[Managing notifications from your inbox](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox#dependabot-custom-filters)."
+Du kannst deine Benachrichtigungen nach {% data variables.product.company_short %} filtern, um {% data variables.product.prodname_dependabot %}-Sicherheitsupdates anzuzeigen. Weitere Informationen findest du unter [Verwalten von Benachrichtigungen aus deinem Posteingang](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox#dependabot-custom-filters).

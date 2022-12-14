@@ -1,0 +1,19 @@
+date: '03.12.2020'
+sections:
+  bugs:
+    - 'Служба авторизации определена как неработоспособная из-за состояния гонки при начальной загрузке, которая привела к перезапуску службы. {% comment %} https://github.com/github/authzd/pull/1278 {% endcomment %}'
+    - 'Базовое поведение вызывает недоступность службы в процессе обновления с использованием горячего исправления. {% comment %} https://github.com/github/enterprise2/pull/24054, https://github.com/github/enterprise2/issues/23947 {% endcomment %}'
+    - 'Вложенный набор сертификатов для переадресации по SSL применяется некорректно. {% comment %} https://github.com/github/enterprise2/pull/24113, https://github.com/github/enterprise2/pull/23981 {% endcomment %}'
+    - 'Пользователями, чьи права приостановлены, направляются уведомления по электронной почте, когда они удаляются из команды или организации. {% comment %} https://github.com/github/github/pull/162971, https://github.com/github/github/pull/162742 {% endcomment %}'
+    - 'Способ применения сертификатов SSH для различных организаций и бизнес-подразделений не является согласованным. {% comment %} https://github.com/github/github/pull/163426, https://github.com/github/github/pull/159538, https://github.com/github/authentication/issues/115 {% endcomment %}'
+    - 'Если для учетной записи настроено ограничение скорости из-за использования неверного пароля, она может быть заблокирована на период до 24 часов. {% comment %} https://github.com/github/github/pull/163436, https://github.com/github/github/pull/162938, https://github.com/github/github-ds/pull/51 {% endcomment %}'
+    - 'Синхронизация запросов на вытягивание в репозиториях с несколькими ссылками может вызвать запаздывание очередей рабочих ролей. {% comment %} https://github.com/github/github/pull/163575, https://github.com/github/github/pull/163142 {% endcomment %}'
+    - 'При подписывании после попытки перейти на конкретную страницу пользователи направляются на домашнюю страницу вместо выбранного назначения. {% comment %} https://github.com/github/github/pull/163784, https://github.com/github/github/pull/163579, https://github.com/github/github/pull/154117, https://github.com/github/ecosystem-apps/issues/1076 {% endcomment %}'
+  known_issues:
+    - 'После первой настройки версии GitHub Enterprise Server, в которой еще нет пользователей, злоумышленник мог создать первого пользователя с правами администратора. {% comment %} https://github.com/github/enterprise2/issues/1889 {% endcomment %}'
+    - 'Пользовательские правила брандмауэра не сохраняются в процессе обновления. {% comment %} https://github.com/github/enterprise2/issues/2823 {% endcomment %}'
+    - 'Отслеживаемые файлы Git LFS, [отправленные через веб-интерфейс](https://github.com/blog/2105-upload-files-to-your-repositories), ошибочно добавлялись напрямую в репозиторий. {% comment %} https://github.com/github/github/issues/54684 {% endcomment %}'
+    - 'Невозможно закрывать проблемы, если они содержат постоянную ссылку на BLOB-объект в том же репозитории с путем, длина которого превышает 255 символов. {% comment %} https://github.com/github/github/issues/107731 {% endcomment %}'
+    - 'Когда в GitHub Connect включен параметр "Пользователи могут выполнять поиск на GitHub.com", результаты поиска на GitHub.com не включают проблемы в частных и внутренних репозиториях. {% comment %} https://github.com/github/admin-experience/issues/571 {% endcomment %}'
+    - 'Оповещения безопасности не включаются в отчет при передаче в репозитории посредством командной строки. {% comment %} https://github.com/github/github/issues/143190 {% endcomment %}'
+    - 'Если узел реплики находится в автономном режиме в конфигурации высокой доступности, {% data variables.product.product_name %} по-прежнему может маршрутизировать запросы {% data variables.product.prodname_pages %} на узел в автономном режиме, снижая доступность {% data variables.product.prodname_pages %} для пользователей.'

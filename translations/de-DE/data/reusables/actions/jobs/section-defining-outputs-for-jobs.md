@@ -1,12 +1,20 @@
-You can use `jobs.<job_id>.outputs` to create a `map` of outputs for a job. Job outputs are available to all downstream jobs that depend on this job. For more information on defining job dependencies, see [`jobs.<job_id>.needs`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idneeds).
+---
+ms.openlocfilehash: 446bc8429d81d54d38eeaf2852a61d25db17da68
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "145186076"
+---
+Du kannst `jobs.<job_id>.outputs` verwenden, um eine `map` von Ausgaben für einen Auftrag zu erstellen. Ausgaben eines Jobs stehen allen nachgelagerten Jobs zur Verfügung, die von diesem Job abhängen. Weitere Informationen zum Definieren von Auftragsabhängigkeiten findest du unter [`jobs.<job_id>.needs`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idneeds).
 
 {% data reusables.actions.output-limitations %}
 
-Job outputs containing expressions are evaluated on the runner at the end of each job. Outputs containing secrets are redacted on the runner and not sent to {% data variables.product.prodname_actions %}.
+Ausgaben von Aufträgen, die Ausdrücke enthalten, werden am Ende jedes Auftrags auf dem Runner ausgewertet. Ausgaben, die Geheimnisse enthalten, werden auf dem Runnder zensiert und nicht an {% data variables.product.prodname_actions %} gesendet.
 
-To use job outputs in a dependent job, you can use the `needs` context. For more information, see "[Contexts](/actions/learn-github-actions/contexts#needs-context)."
+Um Auftragsausgaben in einem abhängigen Auftrag zu verwenden, kannst du den `needs`-Kontext verwenden. Weitere Informationen findest du unter [Kontexte](/actions/learn-github-actions/contexts#needs-context).
 
-### Example: Defining outputs for a job
+### Beispiel: Definieren von Ausgaben für einen Auftrag
 
 {% raw %}
 ```yaml
@@ -18,18 +26,10 @@ jobs:
       output1: ${{ steps.step1.outputs.test }}
       output2: ${{ steps.step2.outputs.test }}
     steps:
-      - id: step1{% endraw %}
-{%- ifversion actions-save-state-set-output-envs %}
-        run: echo "test=hello" >> $GITHUB_OUTPUT
-{%- else %}
+      - id: step1
         run: echo "::set-output name=test::hello"
-{%- endif %}{% raw %}
-      - id: step2{% endraw %}
-{%- ifversion actions-save-state-set-output-envs %}
-        run: echo "test=world" >> $GITHUB_OUTPUT
-{%- else %}
+      - id: step2
         run: echo "::set-output name=test::world"
-{%- endif %}{% raw %}
   job2:
     runs-on: ubuntu-latest
     needs: job1

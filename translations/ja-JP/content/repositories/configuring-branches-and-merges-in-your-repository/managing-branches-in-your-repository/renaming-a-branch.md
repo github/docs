@@ -1,6 +1,6 @@
 ---
-title: Renaming a branch
-intro: You can change the name of a branch in a repository.
+title: ブランチの名前を変更する
+intro: リポジトリにあるブランチの名前を変更できます。
 permissions: 'People with write permissions to a repository can rename a branch in the repository unless it is the [default branch](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches#about-the-default-branch){% ifversion fpt or ghec or ghes > 3.3 %} or a [protected branch](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches){% endif %}. People with admin permissions can rename the default branch{% ifversion fpt or ghec or ghes > 3.3 %} and protected branches{% endif %}.'
 versions:
   fpt: '*'
@@ -12,42 +12,47 @@ topics:
 redirect_from:
   - /github/administering-a-repository/renaming-a-branch
   - /github/administering-a-repository/managing-branches-in-your-repository/renaming-a-branch
+ms.openlocfilehash: 6e30c7c2615f8b3dc21075e24298796febbce314
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145132355'
 ---
-## About renaming branches
+## ブランチの名前変更について
 
-You can rename a branch in a repository on {% data variables.location.product_location %}. For more information about branches, see "[About branches](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches))."
+{% data variables.product.product_location %} にあるリポジトリのブランチの名前を変更できます。 ブランチの詳細については、「[ブランチについて](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches)」を参照してください。
 
-When you rename a branch on {% data variables.location.product_location %}, any URLs that contain the old branch name are automatically redirected to the equivalent URL for the renamed branch. Branch protection policies are also updated, as well as the base branch for open pull requests (including those for forks) and draft releases. After the rename is complete, {% data variables.product.prodname_dotcom %} provides instructions on the repository's home page directing contributors to update their local Git environments.
+{% data variables.product.product_location %} 上のブランチ名を変更すると、古いブランチ名を含む URL は、名前を変更したブランチの URL に自動的にリダイレクトされます。 ブランチ保護ポリシー、オープンなプルリクエストのベースブランチ (フォーク含む) およびドラフトリリースも更新されます。 名前の変更が完了すると、{% data variables.product.prodname_dotcom %} は、リポジトリのホームページに、コントリビューターにローカルの Git 環境を更新するよう指示を掲載します。
 
-Although file URLs are automatically redirected, raw file URLs are not redirected. Also, {% data variables.product.prodname_dotcom %} does not perform any redirects if users perform a `git pull` for the previous branch name.
+ファイル URL は自動的にリダイレクトされますが、生のファイル URL はリダイレクトされません。 また、ユーザーが以前のブランチ名に対して `git pull` を実行した場合も、{% data variables.product.prodname_dotcom %} ではリダイレクトされません。
 
-{% data variables.product.prodname_actions %} workflows do not follow renames, so if your repository publishes an action, anyone using that action with `@{old-branch-name}` will break. You should consider adding a new branch with the original content plus an additional commit reporting that the branch name is deprecated and suggesting that users migrate to the new branch name.
+{% data variables.product.prodname_actions %} ワークフローでは名前変更に従わないので、リポジトリでアクションが発行された場合に、`@{old-branch-name}` を伴うアクションを使用するユーザーは誰でも中断されます。 元のコンテンツを含む新しいブランチを追加するとともに、ブランチ名が非推奨であることを報告し、ユーザーに新しいブランチ名への移行を提案するコミットの追加を検討する必要があります。
 
-## Renaming a branch
+## ブランチの名前を変更する
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.navigate-to-branches %}
-1. In the list of branches, to the right of the branch you want to rename, click {% octicon "pencil" aria-label="The edit icon" %}.
-    ![Pencil icon to the right of branch you want to rename](/assets/images/help/branch/branch-rename-edit.png)
-1. Type a new name for the branch.
-    ![Text field for typing new branch name](/assets/images/help/branch/branch-rename-type.png)
-1. Review the information about local environments, then click **Rename branch**.
-    ![Local environment information and "Rename branch" button](/assets/images/help/branch/branch-rename-rename.png)
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.navigate-to-branches %}
+1. ブランチのリストで、名前を変更するブランチの右にある {% octicon "pencil" aria-label="The edit icon" %} をクリックします。
+    ![名前を変更するブランチの右にある鉛筆アイコン](/assets/images/help/branch/branch-rename-edit.png)
+1. ブランチの新しい名前を入力します。
+    ![新しいブランチ名を入力するためのテキスト フィールド](/assets/images/help/branch/branch-rename-type.png)
+1. ローカル環境についての情報を確認し、 **[ブランチの名前変更]** をクリックします。
+    ![ローカル環境情報と [ブランチの名前変更] ボタン](/assets/images/help/branch/branch-rename-rename.png)
 
-## Updating a local clone after a branch name changes
+## ブランチ名の変更後にローカルクローンを更新する
 
-After you rename a branch in a repository on {% data variables.product.product_name %}, any collaborator with a local clone of the repository will need to update the clone.
+{% data variables.product.product_name %} 上のリポジトリにあるブランチ名の変更後、そのリポジトリのローカルクローンのコラボレータは、クローンを更新する必要があります。
 
-From the local clone of the repository on a computer, run the following commands to update the name of the default branch.
+コンピュータ上にあるリポジトリのローカルクローンから、以下のコマンドを実行してデフォルトブランチ名を更新します。
 
 ```shell
-$ git branch -m OLD-BRANCH-NAME NEW-BRANCH-NAME
+$ git branch -m <em>OLD-BRANCH-NAME</em> <em>NEW-BRANCH-NAME</em>
 $ git fetch origin
-$ git branch -u origin/NEW-BRANCH-NAME NEW-BRANCH-NAME
+$ git branch -u origin/<em>NEW-BRANCH-NAME</em> <em>NEW-BRANCH-NAME</em>
 $ git remote set-head origin -a
 ```
 
-Optionally, run the following command to remove tracking references to the old branch name.
+必要に応じて次のコマンドを実行し、古いブランチ名への追跡参照を削除します。
 ```
 $ git remote prune origin
 ```

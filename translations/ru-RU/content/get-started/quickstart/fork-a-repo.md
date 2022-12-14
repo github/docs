@@ -1,12 +1,12 @@
 ---
-title: Fork a repo
+title: Ветвление репозитория
 redirect_from:
   - /fork-a-repo
   - /forking
   - /articles/fork-a-repo
   - /github/getting-started-with-github/fork-a-repo
   - /github/getting-started-with-github/quickstart/fork-a-repo
-intro: A fork is a new repository that shares code and visibility settings with the original “upstream” repository.
+intro: 'Вилка — это новый репозиторий, который совместно использует параметры кода и видимости с исходным "вышестоящим" репозиторием.'
 permissions: '{% data reusables.enterprise-accounts.emu-permission-fork %}'
 versions:
   fpt: '*'
@@ -18,61 +18,67 @@ topics:
   - Issues
   - Notifications
   - Accounts
+ms.openlocfilehash: 6756defd7567983cc7dbb1a9bfe36256e5b41a09
+ms.sourcegitcommit: 468a0323fa636517985a3e08e2772dbb0545cab8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 12/03/2022
+ms.locfileid: '148191341'
 ---
-## About forks
+## О вилках
 
-{% data reusables.repositories.fork-definition-long %}  For more information, see "[Working with forks](/github/collaborating-with-issues-and-pull-requests/working-with-forks)."
+{% data reusables.repositories.fork-definition-long %}  Дополнительные сведения см. в разделе [Работа с вилками](/github/collaborating-with-issues-and-pull-requests/working-with-forks).
 
-### Propose changes to someone else's project
+### Предложение изменений в проект другого пользователя
 
-For example, you can use forks to propose changes related to fixing a bug. Rather than logging an issue for a bug you have found, you can:
+Вилки можно использовать, например, для предложения изменений, призванных исправить ошибку. Вместо регистрации проблемы для обнаруженной ошибки можно выполнить указанные ниже действия.
 
-- Fork the repository.
-- Make the fix.
-- Submit a pull request to the project owner.
+- Создайте вилку репозитория.
+- Внесите исправление.
+- Отправьте запрос на вытягивание владельцу проекта.
 
-### Use someone else's project as a starting point for your own idea.
+### Использование чужого проекта в качестве отправной точки для реализации собственной идеи
 
-Open source software is based on the idea that by sharing code, we can make better, more reliable software. For more information, see the "[About the Open Source Initiative](https://opensource.org/about)" on the Open Source Initiative.
+Программное обеспечение с открытым кодом строится на той идее, что, предоставляя общий доступ к коду, мы можем создавать более надежное и эффективное ПО. Дополнительные сведения см. в [этом разделе](https://opensource.org/about) на сайте Open Source Initiative.
 
-For more information about applying open source principles to your organization's development work on {% data variables.location.product_location %}, see {% data variables.product.prodname_dotcom %}'s white paper "[An introduction to innersource](https://resources.github.com/whitepapers/introduction-to-innersource/)."
+Дополнительные сведения о применении принципов открытый код к работе по разработке в организации по {% data variables.location.product_location %} см. в техническом документе {% data variables.product.prodname_dotcom %} "[Введение в innersource](https://resources.github.com/whitepapers/introduction-to-innersource/)".
 
 {% ifversion fpt or ghes or ghec %}
 
-When creating your public repository from a fork of someone's project, make sure to include a license file that determines how you want your project to be shared with others. For more information, see "[Choose an open source license](https://choosealicense.com/)" at choosealicense.com.
+При создании общедоступного репозитория из вилки чужого проекта обязательно включите файл лицензии, определяющий способ совместного использования проекта с другими пользователями. Дополнительные сведения см. в разделе о [выборе лицензии для открытого кода](https://choosealicense.com/) на сайте choosealicense.com.
 
 {% data reusables.open-source.open-source-guide-repositories %} {% data reusables.open-source.open-source-learning %}
 
 {% endif %}
 
-## Prerequisites
+## Предварительные требования
 
-If you haven't yet, first set up Git and authentication with {% data variables.location.product_location %} from Git. For more information, see "[Set up Git](/articles/set-up-git)."
+Если вы еще этого не сделали, сначала настройте Git и проверку подлинности с помощью {% data variables.location.product_location %} из Git. Дополнительные сведения см. в статье [Настройка Git](/articles/set-up-git).
 
-## Forking a repository
+## Создание вилки репозитория
 
 {% webui %}
 
-You might fork a project to propose changes to the upstream repository. In this case, it's good practice to regularly sync your fork with the upstream repository. To do this, you'll need to use Git on the command line. You can practice setting the upstream repository using the same [octocat/Spoon-Knife](https://github.com/octocat/Spoon-Knife) repository you just forked.
+Вы можете создать вилку проекта, чтобы предложить изменения в вышестоящем репозитории. В этом случае рекомендуется регулярно синхронизировать вилку с вышестоящим репозиторием. Для этого необходимо использовать GIT в командной строке. Вы можете попрактиковаться в настройке вышестоящего репозитория, используя репозиторий [octocat/Spoon-Knife](https://github.com/octocat/Spoon-Knife), вилку которого вы только что создали.
 
-1. On {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom_the_website %}{% else %}{% data variables.location.product_location %}{% endif %}, navigate to the [octocat/Spoon-Knife](https://github.com/octocat/Spoon-Knife) repository.
-2. In the top-right corner of the page, click **Fork**.
-   ![Fork button](/assets/images/help/repository/fork_button.png){% ifversion fpt or ghec or ghes > 3.5 or ghae > 3.5 %}
-3. Select an owner for the forked repository.
-   ![Create a new fork page with owner dropdown emphasized](/assets/images/help/repository/fork-choose-owner.png)
-4. By default, forks are named the same as their upstream repositories. You can change the name of the fork to distinguish it further. 
-   ![Create a new fork page with repository name field emphasized](/assets/images/help/repository/fork-choose-repo-name.png)
-5. Optionally, add a description of your fork.
-   ![Create a new fork page with description field emphasized](/assets/images/help/repository/fork-description.png)
-6. Choose whether to copy only the default branch or all branches to the new fork. For many forking scenarios, such as contributing to open-source projects, you only need to copy the default branch. By default, only the default branch is copied.
-   ![Option to copy only the default branch](/assets/images/help/repository/copy-default-branch-only.png)
-7. Click **Create fork**.
-   ![Emphasized create fork button](/assets/images/help/repository/fork-create-button.png)
+1. На {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom_the_website %}{% else %}{% data variables.location.product_location %}{% endif %}перейдите в репозиторий [octocat/Spoon-Knife](https://github.com/octocat/Spoon-Knife) .
+2. В правом верхнем углу страницы щелкните **Вилка**.
+   ![Кнопка](/assets/images/help/repository/fork_button.png) fork{% ifversion fpt or ghec or ghes > 3.5 or ghae > 3.5 %}
+3. Выберите владельца для ответвленного репозитория.
+   ![Страница создания вилки с выделенным раскрывающимся списком владельца](/assets/images/help/repository/fork-choose-owner.png)
+4. По умолчанию вилки называются так же, как и их вышестоящие репозитории. Вы можете изменить имя вилки, чтобы избежать путаницы. 
+   ![Страница создания вилки с выделенным полем имени репозитория](/assets/images/help/repository/fork-choose-repo-name.png)
+5. При необходимости добавьте описание вилки.
+   ![Страница создания вилки с выделенным полем описания](/assets/images/help/repository/fork-description.png)
+6. Выберите, следует ли копировать в новую вилку только ветвь по умолчанию или все ветви. Для многих сценариев разветвления, таких как участие в проектах с открытым кодом, необходимо скопировать только ветвь по умолчанию. По умолчанию копируется только ветвь по умолчанию.
+   ![Вариант копирования только ветви по умолчанию](/assets/images/help/repository/copy-default-branch-only.png)
+7. Нажмите **Создать вилку**.
+   ![Выделенная кнопка создания вилки](/assets/images/help/repository/fork-create-button.png)
 
 
 {% note %}
 
-**Note:** If you want to copy additional branches from the upstream repository, you can do so from the **Branches** page. For more information, see "[Creating and deleting branches within your repository](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository)."{% endnote %}{% endif %}
+**Примечание:** Если вы хотите скопировать дополнительные ветви из вышестоящего репозитория, это можно сделать на странице **Ветви** . Дополнительные сведения см. в разделе [Создание и удаление ветвей в репозитории](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository). {% endnote %} {% endif %}
 
 {% endwebui %}
 
@@ -80,13 +86,13 @@ You might fork a project to propose changes to the upstream repository. In this 
 
 {% data reusables.cli.cli-learn-more %}
 
-To create a fork of a repository, use the `gh repo fork` subcommand.
+Чтобы создать вилку репозитория, используйте подкоманду `gh repo fork`.
 
 ```shell
 gh repo fork REPOSITORY
 ```
 
-To create the fork in an organization, use the `--org` flag.
+Чтобы создать вилку в организации, используйте флаг `--org`.
 
 ```shell
 gh repo fork REPOSITORY --org "octo-org"
@@ -94,25 +100,22 @@ gh repo fork REPOSITORY --org "octo-org"
 
 {% endcli %}
 
-{% desktop %}
-{% enddesktop %}
+{% desktop %} {% enddesktop %}
 
-## Cloning your forked repository
+## Клонирование вилки репозитория
 
-Right now, you have a fork of the Spoon-Knife repository, but you do not have the files in that repository locally on your computer.
+Теперь у вас есть вилка репозитория Spoon-Knife, но нет файлов в этом репозитории локально на компьютере.
 
 {% webui %}
 
-1. On {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom_the_website %}{% else %}{% data variables.location.product_location %}{% endif %}, navigate to **your fork** of the Spoon-Knife repository.
-{% data reusables.repositories.copy-clone-url %}
-{% data reusables.command_line.open_the_multi_os_terminal %}
-{% data reusables.command_line.change-current-directory-clone %}
-4. Type `git clone`, and then paste the URL you copied earlier. It will look like this, with your {% data variables.product.product_name %} username instead of `YOUR-USERNAME`:
+1. На {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom_the_website %}{% else %}{% data variables.location.product_location %}{% endif %} **перейдите к вилке** репозитория Spoon-Knife.
+{% data reusables.repositories.copy-clone-url %} {% data reusables.command_line.open_the_multi_os_terminal %} {% data reusables.command_line.change-current-directory-clone %}
+4. Введите `git clone` и вставьте URL-адрес, скопированный ранее. Он будет выглядеть следующим образом с вашим именем пользователя {% data variables.product.product_name %} вместо `YOUR-USERNAME`:
   ```shell
   $ git clone https://{% data variables.command_line.codeblock %}/YOUR-USERNAME/Spoon-Knife
   ```
 
-5. Press **Enter**. Your local clone will be created.
+5. Нажмите клавишу **ВВОД**. Будет создан локальный клон.
   ```shell
   $ git clone https://{% data variables.command_line.codeblock %}/YOUR-USERNAME/Spoon-Knife
   > Cloning into `Spoon-Knife`...
@@ -128,7 +131,7 @@ Right now, you have a fork of the Spoon-Knife repository, but you do not have th
 
 {% data reusables.cli.cli-learn-more %}
 
-To create a clone of your fork, use the `--clone` flag.
+Чтобы создать клон вилки, используйте флаг `--clone`.
 
 ```shell
 gh repo fork REPOSITORY --clone=true
@@ -138,41 +141,36 @@ gh repo fork REPOSITORY --clone=true
 
 {% desktop %}
 
-{% data reusables.desktop.choose-clone-repository %}
-{% data reusables.desktop.cloning-location-tab %}
-{% data reusables.desktop.cloning-repository-list %}
-{% data reusables.desktop.choose-local-path %}
-{% data reusables.desktop.click-clone %}
+{% data reusables.desktop.choose-clone-repository %} {% data reusables.desktop.cloning-location-tab %} {% data reusables.desktop.cloning-repository-list %} {% data reusables.desktop.choose-local-path %} {% data reusables.desktop.click-clone %}
 
 {% enddesktop %}
 
-## Configuring Git to sync your fork with the upstream repository
+## Настройка Git для синхронизации вилки с вышестоящим репозиторием
 
-When you fork a project in order to propose changes to the upstream repository, you can configure Git to pull changes from the upstream repository into the local clone of your fork.
+При создании вилки проекта для предложения изменений в вышестоящем репозитории можно настроить Git для извлечения изменений из вышестоящего репозитория в локальный клон вилки.
 
 {% webui %}
 
-1. On {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom_the_website %}{% else %}{% data variables.location.product_location %}{% endif %}, navigate to the [octocat/Spoon-Knife](https://github.com/octocat/Spoon-Knife) repository.
-{% data reusables.repositories.copy-clone-url %}
-{% data reusables.command_line.open_the_multi_os_terminal %}
-4. Change directories to the location of the fork you cloned.
-    - To go to your home directory, type just `cd` with no other text.
-    - To list the files and folders in your current directory, type `ls`.
-    - To go into one of your listed directories, type `cd your_listed_directory`.
-    - To go up one directory, type `cd ..`.
-5. Type `git remote -v` and press **Enter**. You will see the current configured remote repository for your fork.
+1. На {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom_the_website %}{% else %}{% data variables.location.product_location %}{% endif %}перейдите в репозиторий [octocat/Spoon-Knife](https://github.com/octocat/Spoon-Knife) .
+{% data reusables.repositories.copy-clone-url %} {% data reusables.command_line.open_the_multi_os_terminal %}
+4. Измените каталоги на расположение клонированной вилки.
+    - Чтобы перейти к домашнему каталогу, введите просто `cd` без дополнительного текста.
+    - Чтобы получить список файлов и папок в текущем каталоге, введите `ls`.
+    - Чтобы перейти в один из перечисленных каталогов, введите `cd your_listed_directory`.
+    - Чтобы перейти на один каталог выше, введите `cd ..`.
+5. Введите `git remote -v` и нажмите клавишу **ВВОД**. Вы увидите текущий настроенный удаленный репозиторий для вилки.
   ```shell
   $ git remote -v
   > origin  https://{% data variables.command_line.codeblock %}/YOUR_USERNAME/YOUR_FORK.git (fetch)
   > origin  https://{% data variables.command_line.codeblock %}/YOUR_USERNAME/YOUR_FORK.git (push)
   ```
 
-6. Type `git remote add upstream`, and then paste the URL you copied in Step 3 and press **Enter**. It will look like this:
+6. Введите `git remote add upstream`, вставьте URL-адрес, скопированный на шаге 3, и нажмите клавишу **Enter**. Он будет выглядеть следующим образом.
   ```shell
   $ git remote add upstream https://{% data variables.command_line.codeblock %}/ORIGINAL_OWNER/Spoon-Knife.git
   ```
 
-7. To verify the new upstream repository you have specified for your fork, type `git remote -v` again. You should see the URL for your fork as `origin`, and the URL for the upstream repository as `upstream`.
+7. Чтобы проверить новый вышестоящий репозиторий, указанный для вилки, введите `git remote -v` еще раз. Url-адрес вилки должен отображаться как `origin`, а URL-адрес вышестоящего репозитория — .`upstream`
   ```shell
   $ git remote -v
   > origin    https://{% data variables.command_line.codeblock %}/YOUR_USERNAME/YOUR_FORK.git (fetch)
@@ -181,7 +179,7 @@ When you fork a project in order to propose changes to the upstream repository, 
   > upstream  https://{% data variables.command_line.codeblock %}/ORIGINAL_OWNER/ORIGINAL_REPOSITORY.git (push)
   ```
 
-Now, you can keep your fork synced with the upstream repository with a few Git commands. For more information, see "[Syncing a fork](/pull-requests/collaborating-with-pull-requests/working-with-forks/syncing-a-fork)."
+Теперь можно синхронизировать вилку с вышестоящим репозиторием с помощью нескольких команд GIT. Дополнительные сведения см. в разделе [Синхронизация вилки](/pull-requests/collaborating-with-pull-requests/working-with-forks/syncing-a-fork).
 
 {% endwebui %}
 
@@ -189,13 +187,13 @@ Now, you can keep your fork synced with the upstream repository with a few Git c
 
 {% data reusables.cli.cli-learn-more %}
 
-To configure a remote repository for the forked repository, use the `--remote` flag.
+Чтобы настроить удаленный репозиторий для вилки репозитория, используйте флаг `--remote`.
 
 ```shell
 gh repo fork REPOSITORY --remote=true
 ```
 
-To specify the remote repository's name, use the `--remote-name` flag.
+Чтобы указать имя удаленного репозитория, используйте флаг `--remote-name`.
 
 ```shell
 gh repo fork REPOSITORY --remote-name "main-remote-repo"
@@ -203,27 +201,27 @@ gh repo fork REPOSITORY --remote-name "main-remote-repo"
 
 {% endcli %}
 
-### Editing a fork
+### Редактирование вилки
 
-You can make any changes to a fork, including:
+Вы можете вносить любые изменения в вилку, в том числе указанные ниже.
 
-- **Creating branches:** [*Branches*](/articles/creating-and-deleting-branches-within-your-repository/) allow you to build new features or test out ideas without putting your main project at risk.
-- **Opening pull requests:** If you want to contribute back to the upstream repository, you can send a request to the original author to pull your fork into their repository by submitting a [pull request](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests).
+- **Создание ветвей.** [*Ветви*](/articles/creating-and-deleting-branches-within-your-repository/) позволяют создавать новые функции или проверять идеи, не подвергая риску главный проект.
+- **Открытие запросов на вытягивание:** Если вы хотите вернуться к вышестоящему репозиторию, вы можете отправить запрос исходному автору, чтобы вытащить вилку в репозиторий, отправив [запрос на вытягивание](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests).
 
-## Find another repository to fork
-Fork a repository to start contributing to a project. {% data reusables.repositories.you-can-fork %}
+## Поиск репозитория для создания вилки
+Создайте вилку репозитория, чтобы приступить к участию в проекте. {% data reusables.repositories.you-can-fork %}
 
-{% ifversion fpt or ghec %}You can browse [Explore](https://github.com/explore) to find projects and start contributing to open source repositories. For more information, see "[Finding ways to contribute to open source on {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)."
+{% ifversion fpt or ghec %}На странице [Обзор](https://github.com/explore) можно найти проекты и приступить к участию в работе над репозиториями с открытым кодом. Дополнительные сведения см. в разделе [Способы участия в создании открытого кода в {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github).
 
 {% endif %}
 
 ## Next Steps
 
-You have now forked a repository, practiced cloning your fork, and configured an upstream repository.
+Вы создали вилку репозитория, клонировали ее и настроили вышестоящий репозиторий.
 
-* For more information about cloning the fork and syncing the changes in a forked repository from your computer, see "[Set up Git](/articles/set-up-git)."
+* Дополнительные сведения о клонировании вилки и синхронизации изменений в вилке репозитория с компьютера см. в разделе [Настройка Git](/articles/set-up-git).
 
-* You can also create a new repository where you can put all your projects and share the code on {% data variables.product.prodname_dotcom %}. {% data reusables.getting-started.create-a-repository %}"
+* Вы также можете создать новый репозиторий для размещения всех ваших проектов и общего доступа к коду на {% data variables.product.prodname_dotcom %}. {% data reusables.getting-started.create-a-repository %}"
 
 * {% data reusables.getting-started.being-social %}
 

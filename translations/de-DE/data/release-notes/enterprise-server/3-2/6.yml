@@ -1,0 +1,14 @@
+date: '2021-12-13'
+sections:
+  security_fixes:
+    - '{% octicon "alert" aria-label="The alert icon" %} **Kritisch:** Ein Sicherheitsrisiko bei der Remotecodeausführung in der Log4j-Bibliothek, die als [CVE-2021-44228](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-44228) identifiziert wurde, betraf alle Versionen von {% data variables.product.prodname_ghe_server %} vor 3.3.1. Die Log4j-Bibliothek wird in einem Open Source-Dienst verwendet, der auf der {% data variables.product.prodname_ghe_server %}-Instanz ausgeführt wird. Dieses Sicherheitsrisiko wurde in den {% data variables.product.prodname_ghe_server %}-Versionen 3.0.22, 3.1.14, 3.2.6 und 3.3.1 behoben.  Weitere Informationen findest du in [diesem Beitrag] (https://github.blog/2021-12-13-githubs-response-to-log4j-vulnerability-cve-2021-44228/) des GitHub-Blogs.'
+    - '**Aktualisierung vom 17. Dezember 2021**: Die Korrekturen in diesem Release minimieren auch [CVE-2021-45046](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-45046), das nach diesem Release veröffentlicht wurde. Es ist kein zusätzliches Upgrade für {% data variables.product.prodname_ghe_server %} erforderlich, um sowohl CVE-2021-44228 als auch CVE-2021-45046 zu minimieren.'
+  known_issues:
+    - "Auf einer neu eingerichteten {% data variables.product.prodname_ghe_server %}-Instanz ohne Benutzer könnte ein Angreifer den ersten Administratorbenutzer erstellen."
+    - Benutzerdefinierte Firewallregeln werden während des Upgrades entfernt.
+    - "Nachverfolgte Git-LFS-Dateien, [die über die Webbenutzeroberfläche hochgeladen wurden](https://github.com/blog/2105-upload-files-to-your-repositories), werden dem Repository fälschlicherweise direkt hinzugefügt."
+    - "Issues können nicht geschlossen werden, wenn sie einen Permalink zu einem Blob im selben Repository enthalten und der Dateipfad des Blobs mehr als 255 Zeichen lang ist."
+    - "Wenn die Option zum Durchsuchen von GitHub.com mit GitHub Connect aktiviert wird, sind Issues in privaten und internen Repositorys nicht in den GitHub.com-Suchergebnissen enthalten."
+    - "Die {% data variables.product.prodname_registry %}-npm-Registrierung gibt in Metadatenantworten keinen Zeitwert mehr zurück. So sind erhebliche Leistungssteigerungen möglich. Die erforderlichen Daten zum Zurückgeben eines Zeitwerts in einer Metadatenantwort sind weiterhin verfügbar, und dieser Wert wird in Zukunft wieder zurückgegeben, sobald die vorhandenen Leistungsprobleme behoben wurden."
+    - "Ressourcenbegrenzungen, die nur beim Verarbeiten von Pre-Receive-Hooks auftreten, können bei manchen Pre-Receive-Hooks Fehler auslösen."
+    - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'

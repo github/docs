@@ -1,0 +1,20 @@
+date: '05.19.2020'
+sections:
+  security_fixes:
+    - 'Пакеты обновлены до последних версий системы безопасности. {% comment %} https://github.com/github/enterprise2/pull/20108, https://github.com/github/enterprise2/pull/20086 {% endcomment %}'
+  bugs:
+    - 'После обновления файла лицензии службы не были надлежащим образом перезагружены, что стало причиной потери функциональности. {% comment %} https://github.com/github/enterprise2/pull/20072, https://github.com/github/enterprise2/pull/19989 {% endcomment %}'
+    - 'Внутренние запросы API, которые обновляют информацию о графе зависимостей, могут завершиться сбоем, если текстовая область отклика имеет слишком большой размер. {% comment %} https://github.com/github/enterprise2/pull/20231, https://github.com/github/enterprise2/pull/20208 {% endcomment %}'
+    - 'Аргумент `affiliations` GraphQL не учитывается для некоторых соединений репозитория. {% comment %} https://github.com/github/github/pull/142036, https://github.com/github/github/pull/140658 {% endcomment %}'
+    - 'Автоматическая отмена приостановки прав пользователя с помощью единого входа не завершается, если адрес электронной почты SAML указан в регистре, отличном от регистра адреса электронной почты пользователя GitHub. {% comment %} https://github.com/github/github/pull/143321, https://github.com/github/github/pull/142915 {% endcomment %}'
+    - 'Восстановление членства пользователя в организации не инструментировал субъекта в веб-перехватчике и полезных данных журнала аудита. {% comment %} https://github.com/github/github/pull/143231, https://github.com/github/github/pull/140849 {% endcomment %}'
+  known_issues:
+    - 'После первой настройки версии GitHub Enterprise Server, в которой еще нет пользователей, злоумышленник мог создать первого пользователя с правами администратора. {% comment %} https://github.com/github/enterprise2/issues/1889 {% endcomment %}'
+    - 'Пользовательские правила брандмауэра не сохраняются в процессе обновления. {% comment %} https://github.com/github/enterprise2/issues/2823 {% endcomment %}'
+    - 'Отслеживаемые файлы Git LFS, [отправленные через веб-интерфейс](https://github.com/blog/2105-upload-files-to-your-repositories), ошибочно добавлялись напрямую в репозиторий. {% comment %} https://github.com/github/github/issues/54684 {% endcomment %}'
+    - 'Невозможно закрывать проблемы, если они содержат постоянную ссылку на BLOB-объект в том же репозитории с путем, длина которого превышает 255 символов. {% comment %} https://github.com/github/github/issues/107731 {% endcomment %}'
+    - 'При передаче объекта gist выдается исключение во время работы перехватчика последующего получения. {% comment %} https://github.com/github/github/issues/129091 {% endcomment %}'
+    - 'Когда в GitHub Connect включен параметр "Пользователи могут выполнять поиск на GitHub.com", результаты поиска на GitHub.com не включают проблемы в частных и внутренних репозиториях. {% comment %} https://github.com/github/admin-experience/issues/571 {% endcomment %}'
+    - 'Оповещения безопасности не включаются в отчет при передаче в репозитории посредством командной строки. (updated 2020-06-23) {% comment %} https://github.com/github/github/issues/143190 {% endcomment %}'
+    - 'Граф зависимостей не обнаруживает зависимости при развертывании в конфигурации кластера с несколькими узлами Redis. (updated 2020-06-30) {% comment %} https://github.com/github/dependency-graph/issues/81 {% endcomment %}'
+    - 'Если узел реплики находится в автономном режиме в конфигурации высокой доступности, {% data variables.product.product_name %} по-прежнему может маршрутизировать запросы {% data variables.product.prodname_pages %} на узел в автономном режиме, снижая доступность {% data variables.product.prodname_pages %} для пользователей.'

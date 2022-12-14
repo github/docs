@@ -1,6 +1,6 @@
 ---
-title: 'Copying a {% data variables.product.prodname_project_v1 %}'
-intro: 'You can copy a {% data variables.projects.projects_v1_board %} to quickly create a new project. Copying frequently used or highly customized {% data variables.projects.projects_v1_boards %} helps standardize your workflow.'
+title: 'Kopieren eines {% data variables.product.prodname_project_v1 %}s'
+intro: 'Du kannst ein {% data variables.projects.projects_v1_board %} kopieren, um schnell ein neues Projekt zu erstellen. Das Kopieren häufig verwendeter oder hoch angepasster {% data variables.projects.projects_v1_boards %} unterstützt die Standardisierung deines Workflows.'
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards/copying-a-project-board
   - /articles/copying-a-project-board
@@ -11,29 +11,34 @@ versions:
 topics:
   - Pull requests
 allowTitleToDifferFromFilename: true
+ms.openlocfilehash: 33f2822f338a2210c87ec9baad986231f11fe310
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148108378'
 ---
 {% data reusables.projects.project_boards_old %}
 
-Copying a {% data variables.projects.projects_v1_board %} allows you to reuse a {% data variables.projects.projects_v1_board %}'s title, description, and automation configuration. You can copy {% data variables.projects.projects_v1_boards %} to eliminate the manual process of creating new {% data variables.projects.projects_v1_boards %} for similar workflows.
+Durch das Kopieren eines {% data variables.projects.projects_v1_board %} kannst du den Titel, die Beschreibung und die Automatisierungskonfiguration eines {% data variables.projects.projects_v1_board %}s wiederverwenden. Du kannst {% data variables.projects.projects_v1_boards %} kopieren. Dadurch entfällt der manuelle Prozess zum Erstellen neuer {% data variables.projects.projects_v1_boards %} für ähnliche Workflows.
 
-You must have read access to a {% data variables.projects.projects_v1_board %} to copy it to a repository or organization where you have write access.
+Du benötigst Lesezugriff für ein {% data variables.projects.projects_v1_board %}, um es in ein Repository oder eine Organisation zu kopieren, für das bzw. die du Schreibzugriff hast.
 
-When you copy a {% data variables.projects.projects_v1_board %} to an organization, the {% data variables.projects.projects_v1_board %}'s visibility will default to private, with an option to change the visibility. For more information, see "[Changing {% data variables.product.prodname_project_v1 %} visibility](/articles/changing-project-board-visibility/)."
+Wenn du ein {% data variables.projects.projects_v1_board %} in eine Organisation kopierst, wird die Sichtbarkeit des {% data variables.projects.projects_v1_board %}s standardmäßig auf privat festgelegt, kann jedoch über eine entsprechende Option geändert werden. Weitere Informationen findest du unter [Ändern der Sichtbarkeit des {% data variables.product.prodname_project_v1 %}s](/articles/changing-project-board-visibility/).
 
-A {% data variables.projects.projects_v1_board %}'s automation is also enabled by default. For more information, see "[About automation for {% data variables.product.prodname_projects_v1 %}](/articles/about-automation-for-project-boards/)."
+Die Automatisierung eines {% data variables.projects.projects_v1_board %} ist ebenfalls standardmäßig aktiviert. Weitere Informationen findest du unter [Informationen zur Automatisierung für {% data variables.product.prodname_projects_v1 %}](/articles/about-automation-for-project-boards/).
 
-1. Navigate to the {% data variables.projects.projects_v1_board %} you want to copy.
+1. Navigiere zu dem {% data variables.projects.projects_v1_board %}, das du kopieren möchtest.
 {% data reusables.project-management.click-menu %}
-3. Click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then click **Copy**.
-![Copy option in drop-down menu from project board sidebar](/assets/images/help/projects/project-board-copy-setting.png)
-4. Under "Owner", use the drop-down menu and click the repository or organization where you want to copy the project board.
-![Select owner of copied project board from drop-down menu](/assets/images/help/projects/copied-project-board-owner.png)
-5. Optionally, under "Project board name", type the name of the copied {% data variables.projects.projects_v1_board %}.
-![Field to type a name for the copied project board](/assets/images/help/projects/copied-project-board-name.png)
-6. Optionally, under "Description", type a description of the copied project board that other people will see.
-![Field to type a description for the copied project board](/assets/images/help/projects/copied-project-board-description.png)
-7. Optionally, under "Automation settings", select whether you want to copy the configured automatic workflows. This option is enabled by default. For more information, see "[About automation for project boards](/articles/about-automation-for-project-boards/)."
-![Select automation settings for copied project board](/assets/images/help/projects/copied-project-board-automation-settings.png)
-{% data reusables.project-management.choose-visibility %}
-9. Click **Copy project**.
-![Confirm Copy button](/assets/images/help/projects/confirm-copy-project-board.png)
+3. Klicke auf {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} und dann auf **Kopieren**.
+![Option „Kopieren“ im Dropdownmenü auf der Projektboard-Randleiste](/assets/images/help/projects/project-board-copy-setting.png)
+4. Klicke im Dropdownmenü unter „Besitzer“ auf das Repository oder die Organisation, in das bzw. die du das Projektboard kopieren möchtest.
+![Besitzer von kopiertem Projektboard aus Dropdownmenü auswählen](/assets/images/help/projects/copied-project-board-owner.png)
+5. Gib wahlweise unter „Projekt board name“ (Name des Projektboards) den Namen des kopierten {% data variables.projects.projects_v1_board %}s ein.
+![Feld zum Eingeben eines Namens für das kopierte Projektboard](/assets/images/help/projects/copied-project-board-name.png)
+6. Wahlweise kannst du unter „Beschreibung“ eine Beschreibung des kopierten Projektboards eingeben, die anderen Benutzern angezeigt wird.
+![Feld zum Eingeben einer Beschreibung für das kopierte Projektboard](/assets/images/help/projects/copied-project-board-description.png)
+7. Wahlweise kannst du unter „Automation settings“ (Automatisierungseinstellungen) auswählen, ob du die konfigurierten automatischen Workflows kopieren möchtest. Diese Option ist standardmäßig aktiviert. Weitere Informationen findest du unter [Informationen zur Automatisierung für Projektboards](/articles/about-automation-for-project-boards/).
+![Auswählen von Automatisierungseinstellungen für das kopierte Projektboard](/assets/images/help/projects/copied-project-board-automation-settings.png) {% data reusables.project-management.choose-visibility %}
+9. Klicke auf **Projekt kopieren**.
+![Schaltfläche zum Bestätigen des Kopiervorgangs](/assets/images/help/projects/confirm-copy-project-board.png)

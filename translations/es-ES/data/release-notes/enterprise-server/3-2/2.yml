@@ -1,0 +1,23 @@
+date: '28-10-2021'
+sections:
+  security_fixes:
+    - 'Era posible que las contraseñas de texto claro terminaran en algunos archivos de registro.'
+    - 'Se han añadido a la lista de denegaciones diversas claves públicas SSH que se sabe que son débiles y ya no se pueden registrar. Además, las versiones de GitKraken conocidas por generar claves de SSH débiles (7.6.x, 7.7.x y 8.0.0) tienen bloqueada la función de registro de nuevas claves públicas.'
+    - 'Los paquetes se han actualizado a las últimas versiones de seguridad.'
+  bugs:
+    - 'Se podían producir errores en la restauración para el servidor empresarial en modo de agrupación en clústeres si el orquestador no estaba en buen estado.'
+    - 'Los vínculos de los codespaces se mostraban en la configuración de la organización.'
+    - 'Los usuarios que eran propietarios de muchas organizaciones no podían utilizar varias partes de la aplicación.'
+    - 'Se corrigió un enlace a https://docs.github.com.'
+  changes:
+    - 'Optimizaciones de navegación y rendimiento de trabajos para los repositorios con muchas referencias.'
+  known_issues:
+    - "Después de guardar una nueva versión en un repositorio, la página \"/releases\" muestra un error 500. Se espera tener una corrección para este problema en la versión 3.2.3."
+    - "En una instalación nueva de {% data variables.product.prodname_ghe_server %} que no tenga ningún usuario, un atacante podría crear el primer usuario administrador."
+    - Las reglas de cortafuegos personalizadas se eliminan durante el proceso de actualización.
+    - "Los archivos supervisados de Git LFS [cargados desde la interfaz web](https://github.com/blog/2105-upload-files-to-your-repositories) se agregan de manera incorrecta y directa al repositorio."
+    - Las incidencias no se pueden cerrar si contienen un enlace permanente a un blob del mismo repositorio en el que la ruta es mayor de 255 caracteres.
+    - "Cuando se habilita \"Los usuarios pueden buscar en GitHub.com\" con GitHub Connect, las incidencias en los repositorios privados e internos no se incluyen en los resultados de la búsqueda de GitHub.com."
+    - "El registro npm de {% data variables.product.prodname_registry %} ya no devuelve un valor de hora en las respuestas de metadatos. Esto se hacía para permitir mejoras de rendimiento importantes. Seguimos teniendo todos los datos necesarios para devolver un valor de tiempo como parte de la respuesta de metadatos y reanudaremos la devolución de este valor en el futuro una vez que hayamos resuelto las incidencias de rendimiento existentes."
+    - Los límites de recursos que son específicos para procesar enlaces previos a la recepción podrían ocasionar errores en algunos de ellos.
+    - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'

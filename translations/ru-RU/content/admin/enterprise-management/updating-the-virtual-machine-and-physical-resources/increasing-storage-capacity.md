@@ -1,6 +1,6 @@
 ---
-title: Increasing storage capacity
-intro: 'You can increase or change the amount of storage available for Git repositories, databases, search indexes, and other persistent application data.'
+title: Увеличение емкости хранилища
+intro: 'Вы можете увеличить или изменить объем хранилища, доступного для репозиториев Git, баз данных, индексов поиска и других постоянных данных приложения.'
 redirect_from:
   - /enterprise/admin/installation/increasing-storage-capacity
   - /enterprise/admin/enterprise-management/increasing-storage-capacity
@@ -14,80 +14,86 @@ topics:
   - Performance
   - Storage
 shortTitle: Increase storage capacity
+ms.openlocfilehash: bdf8819d295dae4a93e03ca0381a1c0eed93943d
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148098764'
 ---
 {% data reusables.enterprise_installation.warning-on-upgrading-physical-resources %}
 
-As more users join {% data variables.location.product_location %}, you may need to resize your storage volume. Refer to the documentation for your virtualization platform for information on resizing storage.
+По мере присоединения пользователей к {% данных variables.location.product_location %}может потребоваться изменить размер тома хранилища. Сведения об изменении размера хранилища см. в документации по платформе виртуализации.
 
-## Requirements and recommendations
+## Требования и рекомендации
 
 {% note %}
 
-**Note:** Before resizing any storage volume, put your instance in maintenance mode.{% ifversion ip-exception-list %} You can validate changes by configuring an IP exception list to allow access from specified IP addresses. {% endif %} For more information, see "[Enabling and scheduling maintenance mode](/enterprise/admin/guides/installation/enabling-and-scheduling-maintenance-mode)."
+**Примечание.** Перед изменением объема хранилища переведите экземпляр в режим обслуживания.{% ifversion ip-exception-list %} Вы можете проверить изменения, настроив список исключений IP-адресов, чтобы разрешить доступ с указанных IP-адресов. {% endif %} Дополнительные сведения см. в разделе [Включение и планирование режима обслуживания](/enterprise/admin/guides/installation/enabling-and-scheduling-maintenance-mode).
 
 {% endnote %}
 
-### Minimum requirements
+### Минимальные требования
 
 {% data reusables.enterprise_installation.hardware-rec-table %}
 
-## Increasing the data partition size
+## Увеличение размера секции данных
 
-1. Resize the existing user volume disk using your virtualization platform's tools.
+1. Измените размер существующего диска для тома пользователя с помощью средств платформы виртуализации.
 {% data reusables.enterprise_installation.ssh-into-instance %}
-3. Put the appliance in maintenance mode. For more information, see "[Enabling and scheduling maintenance mode](/enterprise/admin/guides/installation/enabling-and-scheduling-maintenance-mode)."
-4. Reboot the appliance to detect the new storage allocation:
+3. Поместите устройство в режим обслуживания. Дополнительные сведения см. в разделе [Включение и планирование режима обслуживания](/enterprise/admin/guides/installation/enabling-and-scheduling-maintenance-mode).
+4. Перезагрузите устройство, чтобы обнаружить выделение нового хранилища:
   ```shell
   $ sudo reboot
   ```
-5. Run the `ghe-storage-extend` command to expand the `/data/user` filesystem:
+5. Выполните команду `ghe-storage-extend`, чтобы развернуть файловую систему `/data/user`:
   ```shell
   $ ghe-storage-extend
   ```
 
-## Increasing the root partition size using a new appliance
+## Увеличение размера корневой секции с помощью нового устройства
 
-1. Set up a new {% data variables.product.prodname_ghe_server %} instance with a larger root disk using the same version as your current appliance. For more information, see "[Setting up a {% data variables.product.prodname_ghe_server %} instance](/enterprise/admin/guides/installation/setting-up-a-github-enterprise-server-instance)."
-2. Shut down the current appliance:
+1. Настройте новый экземпляр данных {% data variables.product.prodname_ghe_server %} с корневым диском большего размера, используя ту же версию, что и текущее устройство. Дополнительные сведения см. в разделе [Настройка экземпляра {% data variables.product.prodname_ghe_server %}](/enterprise/admin/guides/installation/setting-up-a-github-enterprise-server-instance).
+2. Завершите работу текущего устройства:
   ```shell
   $ sudo poweroff
   ```
-3. Detach the data disk from the current appliance using your virtualization platform's tools.
-4. Attach the data disk to the new appliance with the larger root disk.
+3. Отключите диск данных от текущего устройства с помощью средств платформы виртуализации.
+4. Подключите диск данных к новому устройству с корневым диском большего объема.
 
-## Increasing the root partition size using an existing appliance
+## Увеличение размера корневой секции с помощью нового устройства
 
 {% warning %}
 
-**Warning:** Before increasing the root partition size, you must put your instance in maintenance mode. For more information, see "[Enabling and scheduling maintenance mode](/enterprise/admin/guides/installation/enabling-and-scheduling-maintenance-mode)."
+**Предупреждение.** Перед увеличением размера корневой секции необходимо перевести экземпляр в режим обслуживания. Дополнительные сведения см. в разделе [Включение и планирование режима обслуживания](/enterprise/admin/guides/installation/enabling-and-scheduling-maintenance-mode).
 
 {% endwarning %}
 
-1. Attach a new disk to your {% data variables.product.prodname_ghe_server %} appliance.
-1. Run the `lsblk` command to identify the new disk's device name.
-1. Run the `parted` command to format the disk, substituting your device name for `/dev/xvdg`:
+1. Подключите новый диск к устройству {% data variables.product.prodname_ghe_server %}.
+1. Выполните команду `lsblk`, чтобы определить имя устройства нового диска.
+1. Выполните команду `parted`, чтобы отформатировать диск, изменив имя устройства на `/dev/xvdg`.
   ```shell
   $ sudo parted /dev/xvdg mklabel msdos
   $ sudo parted /dev/xvdg mkpart primary ext4 0% 50%
   $ sudo parted /dev/xvdg mkpart primary ext4 50% 100%
   ```
-1. To stop replication, run the `ghe-repl-stop` command.
+1. Чтобы остановить репликацию, выполните команду `ghe-repl-stop`.
 
    ```shell
    $ ghe-repl-stop
    ```
    
-1. Run the `ghe-upgrade` command to install a full, platform specific package to the newly partitioned disk. A universal hotpatch upgrade package, such as `github-enterprise-2.11.9.hpkg`, will not work as expected. After the `ghe-upgrade` command completes, application services will automatically terminate.
+1. Выполните команду `ghe-upgrade`, чтобы установить полный пакет для конкретной платформы на секционированные диски. Универсальный пакет обновления с горячим исправлением, например `github-enterprise-2.11.9.hpkg`, не будет работать ожидаемым образом. После выполнения команды `ghe-upgrade` службы приложений будут автоматически завершены.
 
   ```shell
   $ ghe-upgrade PACKAGE-NAME.pkg -s -t /dev/xvdg1
   ```
-1. Shut down the appliance:
+1. Завершение работы приложения:
   ```shell
   $ sudo poweroff
   ```
-1. In the hypervisor, remove the old root disk and attach the new root disk at the same location as the old root disk.
-1. Start the appliance.
-1. Ensure system services are functioning correctly, then release maintenance mode. For more information, see "[Enabling and scheduling maintenance mode](/admin/guides/installation/enabling-and-scheduling-maintenance-mode)."
+1. В гипервизоре удалите старый корневой диск и подключите новый корневой диск в том же расположении, где был подключен старый.
+1. Запустите устройство.
+1. Убедитесь, что системные службы работают правильно, а затем выпустите режим обслуживания. Дополнительные сведения см. в разделе [Включение и планирование режима обслуживания](/admin/guides/installation/enabling-and-scheduling-maintenance-mode).
 
-If your appliance is configured for high-availability or geo-replication, remember to start replication on each replica node using `ghe-repl-start` after the storage on all nodes has been upgraded.
+Если устройство настроено для высокого уровня доступности или георепликации, не забудьте запустить репликацию на каждом узле реплики, используя `ghe-repl-start` после обновления хранилища на всех узлах.

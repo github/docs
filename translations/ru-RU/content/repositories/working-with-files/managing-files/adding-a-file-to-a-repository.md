@@ -1,6 +1,6 @@
 ---
-title: Adding a file to a repository
-intro: 'You can upload and commit an existing file to a repository on {% data variables.product.product_name %} or by using the command line.'
+title: Добавление файла в репозиторий
+intro: 'Можно отправить и зафиксировать существующий файл в репозиторий {% data variables.product.product_name %} или с помощью командной строки.'
 redirect_from:
   - /articles/adding-a-file-to-a-repository
   - /github/managing-files-in-a-repository/adding-a-file-to-a-repository
@@ -18,37 +18,40 @@ versions:
 topics:
   - Repositories
 shortTitle: Add a file
+ms.openlocfilehash: ae5a795f4e5faab662946d6b933224a5bc57ab99
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148098005'
 ---
+## Добавление файла в репозиторий {% data variables.product.product_name %}
 
-## Adding a file to a repository on {% data variables.product.product_name %}
-
-Files that you add to a repository via a browser are limited to {% data variables.large_files.max_github_browser_size %} per file. You can add larger files, up to {% data variables.large_files.max_github_size %} each, via the command line. For more information, see "[Adding a file to a repository using the command line](#adding-a-file-to-a-repository-using-the-command-line)." To add files larger than {% data variables.large_files.max_github_size %}, you must use {% data variables.large_files.product_name_long %}. For more information, see "[About large files on {% data variables.product.product_name %}](/repositories/working-with-files/managing-large-files/about-large-files-on-github)."
+Файлы, добавляемые в репозиторий через браузер, не могут превышать {% data variables.large_files.max_github_browser_size %}. Вы можете добавлять большие файлы (до {% data variables.large_files.max_github_size %}) через командную строку. Дополнительные сведения см. в разделе [Добавление файла в репозиторий с помощью командной строки](#adding-a-file-to-a-repository-using-the-command-line). Чтобы добавить файлы размером больше {% data variables.large_files.max_github_size %}, необходимо использовать {% data variables.large_files.product_name_long %}. Дополнительные сведения см. в разделе [Сведения о больших файлах на {% data variables.product.product_name %}](/repositories/working-with-files/managing-large-files/about-large-files-on-github).
 
 {% tip %}
 
-**Tips:**
-- You can upload multiple files to {% data variables.product.product_name %} at the same time.
+**Советы**
+- Одновременно можно отправить несколько файлов в {% data variables.product.product_name %}.
 - {% data reusables.repositories.protected-branches-block-web-edits-uploads %}
 
 {% endtip %}
 
 {% data reusables.repositories.navigate-to-repo %}
-2. Above the list of files, using the **Add file** drop-down, click **Upload files**.
-  !["Upload files" in the "Add file" dropdown](/assets/images/help/repository/upload-files-button.png)
-3. Drag and drop the file or folder you'd like to upload to your repository onto the file tree.
-![Drag and drop area](/assets/images/help/repository/upload-files-drag-and-drop.png)
-{% data reusables.files.write_commit_message %}
-{% data reusables.files.choose_commit_branch %}
-6. Click **Commit changes**.
-![Commit changes button](/assets/images/help/repository/commit-changes-button.png)
+2. Над списком файлов в раскрывающемся списке **Добавить файлы** щелкните **Отправить файлы**.
+  ![Пункт "Отправить файлы" в раскрывающемся списке "Добавить файлы"](/assets/images/help/repository/upload-files-button.png)
+3. Перетащите файл или папку, которую вы хотите отправить в репозиторий, в дерево файлов.
+![Область перетаскивания](/assets/images/help/repository/upload-files-drag-and-drop.png) {% data reusables.files.write_commit_message %} {% data reusables.files.choose_commit_branch %}
+6. Щелкните **Зафиксировать изменения**.
+![Кнопка "Зафиксировать изменения"](/assets/images/help/repository/commit-changes-button.png)
 
-## Adding a file to a repository using the command line
+## Добавление файла в репозиторий с помощью командной строки
 
-You can upload an existing file to a repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %} using the command line.
+Существующий файл можно отправить в репозиторий на {% ifversion ghae %}{% данных variables.product.product_name %}{% else %}{% данных variables.location.product_location %}{% endif %} с помощью командной строки.
 
 {% tip %}
 
-**Tip:** You can also [add an existing file to a repository from the {% data variables.product.product_name %} website](/articles/adding-a-file-to-a-repository).
+**Совет.** Вы также можете [добавить существующий файл в репозиторий с веб-сайта {% data variables.product.product_name %}](/articles/adding-a-file-to-a-repository).
 
 {% endtip %}
 
@@ -56,10 +59,8 @@ You can upload an existing file to a repository on {% ifversion ghae %}{% data v
 
 {% data reusables.repositories.sensitive-info-warning %}
 
-1. On your computer, move the file you'd like to upload to {% data variables.product.product_name %} into the local directory that was created when you cloned the repository.
-{% data reusables.command_line.open_the_multi_os_terminal %}
-{% data reusables.command_line.switching_directories_procedural %}
-{% data reusables.git.stage_for_commit %}
+1. На компьютере переместите файл, который вы хотите передать в {% data variables.product.product_name %} в локальный каталог, который был создан при клонировании репозитория.
+{% data reusables.command_line.open_the_multi_os_terminal %} {% data reusables.command_line.switching_directories_procedural %} {% data reusables.git.stage_for_commit %}
   ```shell
   $ git add .
   # Adds the file to your local repository and stages it for commit. {% data reusables.git.unstage-codeblock %}
@@ -71,6 +72,6 @@ You can upload an existing file to a repository on {% ifversion ghae %}{% data v
   ```
 {% data reusables.git.git-push %}
 
-## Further reading
+## Дополнительные материалы
 
-- "[Adding locally hosted code to {% data variables.product.product_name %}](/get-started/importing-your-projects-to-github/importing-source-code-to-github//adding-locally-hosted-code-to-github)"
+- [Добавление локально размещенного кода в {% data variables.product.product_name %}](/get-started/importing-your-projects-to-github/importing-source-code-to-github//adding-locally-hosted-code-to-github)

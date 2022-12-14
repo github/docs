@@ -1,0 +1,20 @@
+date: '13.05.2021'
+sections:
+  security_fixes:
+    - "**HOCH:** Ein Sicherheitsrisiko durch eine falsche Benutzeroberflächendarstellung wurde in GitHub Enterprise Server ermittelt. Dadurch wurden während des Benutzerautorisierungswebflows in einer GitHub-App mehr Berechtigungen erteilt, als dem Benutzer während der Genehmigung angezeigt wurden. Um dieses Sicherheitsrisiko auszunutzen, müssen Angreifer eine GitHub-App in der Instanz erstellen, und ein Benutzer muss die Anwendung über den Webauthentifizierungsflow autorisieren. Alle erteilten Genehmigungen würden bei der ersten Genehmigung ordnungsgemäß angezeigt werden. Doch unter gewissen Umständen werden diese zusätzlichen Berechtigungen eventuell nicht angezeigt, etwa wenn der Benutzer zum Autorisierungsflow zurückkehrt, nachdem die GitHub-App zusätzliche Berechtigungen auf Benutzerebene konfiguriert hat. Dies führt dazu, dass mehr Berechtigungen erteilt werden, als möglicherweise gewollt. Dieses Sicherheitsrisiko trat bei GitHub Enterprise Server 3.0.x vor 3.0.7 und bei 2.22.x vor 2.22.13 auf. Es wurde in den Versionen 3.0.7 und 2.22.13 behoben. Diesem Sicherheitsrisiko wurde CVE-2021-22866 zugewiesen. Es wurde über das Programm [GitHub Security Bug Bounty](https://bounty.github.com) gemeldet."
+    - Die Pakete wurden auf die neuesten Sicherheitsversionen aktualisiert.
+  bugs:
+    - Das automatische Failover für den Orchestrator konnte während der Konfigurationsanwendungsphase aktiviert werden.
+    - Benutzern mit Verwaltungsberechtigungen für ein Repository wurde eine E-Mail-Überprüfungswarnung angezeigt anstatt eines erfolgreichen Seitenbuilds auf der Repositoryeinstellungsseite in Pages.
+    - "Der Codebesitzer einer Platzhalterregel würde fälschlicherweise der Besitzerliste für den Codebesitzerbadge hinzugefügt, selbst wenn eine spätere Regel Vorrang gegenüber diesem Pfad hat."
+    - OpenAPI-Dokumentation mit Verweis auf einen ungültigen Header
+  changes:
+    - Protokollierung für Konfigurationsänderungen beim neuerlichen Laden von HAProxy wurde hinzugefügt.
+    - Protokollierung für das Erstellen von Repositorys wurde hinzugefügt.
+  known_issues:
+    - In einer neu eingerichteten GitHub Enterprise Server-Instanz ohne Benutzer konnte ein Angreifer den ersten Administratorbenutzer erstellen.
+    - Benutzerdefinierte Firewallregeln werden während eines Upgrades nicht aufrechterhalten.
+    - "Nachverfolgte Git-LFS-Dateien, [die über die Webbenutzeroberfläche hochgeladen wurden](https://github.com/blog/2105-upload-files-to-your-repositories), werden dem Repository fälschlicherweise direkt hinzugefügt."
+    - "Issues können nicht geschlossen werden, wenn sie einen Permalink zu einem Blob im selben Repository enthalten und der Dateipfad länger ist als 255 Zeichen."
+    - "Wenn die Option zum Durchsuchen von GitHub.com in GitHub Connect aktiviert ist, sind Issues in privaten und internen Repositorys nicht in den GitHub.com-Suchergebnissen enthalten."
+    - "Wenn ein Replikatknoten in einer Hochverfügbarkeitskonfiguration offline ist, kann {% data variables.product.product_name %} eventuell noch immer Anfragen von {% data variables.product.prodname_pages %} an den Offlineknoten weiterleiten, was die Verfügbarkeit von {% data variables.product.prodname_pages %} für Benutzer verringert."

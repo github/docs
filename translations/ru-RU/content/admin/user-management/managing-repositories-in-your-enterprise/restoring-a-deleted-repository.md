@@ -1,6 +1,6 @@
 ---
-title: Restoring a deleted repository
-intro: You can restore deleted repositories to recover their contents.
+title: Восстановление удаленного репозитория
+intro: 'Вы можете восстановить удаленные репозитории, чтобы восстановить их содержимое.'
 permissions: Enterprise owners can restore a deleted repository.
 versions:
   ghes: '*'
@@ -10,29 +10,32 @@ topics:
   - Privacy
   - Repositories
 shortTitle: Restore a deleted repository
+ms.openlocfilehash: 538521e865b6a59c1d143a9774d7a462f5e4ee42
+ms.sourcegitcommit: 76b840f45ba85fb79a7f0c1eb43bc663b3eadf2b
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/12/2022
+ms.locfileid: '146199790'
 ---
+## Сведения о восстановлении репозитория
 
-## About repository restoration
+Как правило, если репозиторий удаляется, он будет доступен на диске в течение 90 дней и может быть восстановлен с помощью панели мониторинга администратора сайта. Дополнительные сведения см. в разделе [Панель мониторинга администрирования сайта](/admin/configuration/configuring-your-enterprise/site-admin-dashboard).
 
-Usually, if someone deletes a repository, it will be available on disk for 90 days and can be restored via the site admin dashboard. For more information, see "[Site admin dashboard](/admin/configuration/configuring-your-enterprise/site-admin-dashboard)."
+Если юридическое удержание не распространяется на пользователя или организацию, через 90 дней репозиторий будет удален навсегда.
 
-Unless a legal hold is in effect on a user or organization, after 90 days the repository is purged and deleted forever.
+Если репозиторий на момент удаления был частью сети вилки, восстановленный репозиторий будет отключен от исходной вилки сети.
 
-If a repository was part of a fork network when it was deleted, the restored repository will be detached from the original fork network.
+После удаления репозитория может пройти до часа, прежде чем репозиторий станет доступен для восстановления.
 
-It can take up to an hour after a repository is deleted before that repository is available for restoration.
+Восстановление репозитория не приведет к восстановлению вложений выпуска или разрешений команды. Восстановленные проблемы не помечаются.
 
-Restoring a repository will not restore release attachments or team permissions. Issues that are restored will not be labeled.
+## Восстановление удаленного репозитория
 
-## Restoring a deleted repository
+{% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.enterprise_site_admin_settings.search-user-or-org %} {% data reusables.enterprise_site_admin_settings.click-user-or-org %}
+1. В разделе {% octicon "repo" aria-label="Значок репозитория" %} **Репозитории** % щелкните ссылку {% octicon "trash" aria-label="Значок корзины" %} Ссылка **Удаленные репозитории**.
+1. Найдите в списке удаленных репозиториев тот репозиторий, который нужно восстановить, а затем справа от имени репозитория нажмите кнопку **Восстановить**.
+1. Чтобы подтвердить восстановление именованного репозитория, нажмите кнопку **Восстановить**.
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.search-user-or-org %}
-{% data reusables.enterprise_site_admin_settings.click-user-or-org %}
-1. In the {% octicon "repo" aria-label="The repo icon" %} **Repositories** section, click the {% octicon "trash" aria-label="The trash icon" %} **Deleted repositories** link.
-1. Find the repository you want to restore in the deleted repositories list, then to the right of the repository name click **Restore**.
-1. To confirm you would like to restore the named repository, click **Restore**.
+## Дополнительные материалы
 
-## Further reading
-
-- "[Placing a legal hold on a user or organization](/admin/user-management/managing-users-in-your-enterprise/placing-a-legal-hold-on-a-user-or-organization)"
+- [Применение юридического удержания для пользователя или организации](/admin/user-management/managing-users-in-your-enterprise/placing-a-legal-hold-on-a-user-or-organization)

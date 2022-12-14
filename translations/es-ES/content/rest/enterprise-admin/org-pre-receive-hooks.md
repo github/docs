@@ -1,25 +1,28 @@
 ---
-title: Organization Pre-receive Hooks
-intro: The Organization Pre-receive Hooks API allows you to view and modify enforcement of the pre-receive hooks that are available to an organization.
+title: Enlaces de recepción previa de la organización
+intro: Organization Pre-receive Hooks API permite ver y modificar la aplicación de enlaces previos a la recepción que están disponibles para una organización.
 versions:
   ghes: '*'
 topics:
   - API
 miniTocMaxHeadingLevel: 3
 allowTitleToDifferFromFilename: true
+ms.openlocfilehash: 802ed40ac8e42c1f0a9ef3b6bab4a150dd68603c
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147063966'
 ---
+### Atributos de objeto
 
-{% data reusables.user-settings.enterprise-admin-api-classic-pat-only %}
-
-### Object attributes
-
-| Name                             | Type      | Description                                               |
+| Nombre                             | Tipo      | Descripción                                               |
 |----------------------------------|-----------|-----------------------------------------------------------|
-| `name`                           | `string`  | The name of the hook.                                     |
-| `enforcement`                    | `string`  | The state of enforcement for the hook on this repository. |
-| `allow_downstream_configuration` | `boolean` | Whether repositories can override enforcement.            |
-| `configuration_url`              | `string`  | URL for the endpoint where enforcement is set.            |
+| `name`                           | `string`  | El nombre del gancho.                                     |
+| `enforcement`                    | `string`  | El estado de imposición del gancho en este repositorio. |
+| `allow_downstream_configuration` | `boolean` | Si los repositorios pueden ignorar la imposición o no.            |
+| `configuration_url`              | `string`  | URL para la terminal en donde se configuró la imposición.            |
 
-Possible values for *enforcement* are `enabled`, `disabled` and`testing`. `disabled` indicates the pre-receive hook will not run. `enabled` indicates it will run and reject any pushes that result in a non-zero status. `testing` means the script will run but will not cause any pushes to be rejected.
+Los valores posibles para la *aplicación* son `enabled`, `disabled` y `testing`. `disabled` indica que no se ejecutará el enlace previo a la recepción. `enabled` indica que se ejecutará y rechazará cualquier inserción que dé como resultado un estado distinto a cero. `testing` indica que el script se ejecutará pero no rechazará ninguna inserción.
 
-`configuration_url` may be a link to this endpoint or this hook's global configuration. Only site admins are able to access the global configuration.
+`configuration_url` podría ser un enlace a este punto de conexión o ser la configuración global de este enlace. Solo los administradores de sistema pueden acceder a la configuración global.

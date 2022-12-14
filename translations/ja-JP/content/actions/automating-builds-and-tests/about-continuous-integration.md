@@ -1,6 +1,6 @@
 ---
-title: About continuous integration
-intro: 'You can create custom continuous integration (CI) workflows directly in your {% data variables.product.prodname_dotcom %} repository with {% data variables.product.prodname_actions %}.'
+title: 継続的インテグレーションについて
+intro: '{% data variables.product.prodname_actions %} で、{% data variables.product.prodname_dotcom %} リポジトリにカスタム継続的インテグレーション (CI) ワークフローを直接作成できます。'
 redirect_from:
   - /articles/about-continuous-integration
   - /github/automating-your-workflow-with-github-actions/about-continuous-integration
@@ -16,45 +16,48 @@ type: overview
 topics:
   - CI
 shortTitle: Continuous integration
+ms.openlocfilehash: 26b9088133ad561900d06a0c885d6b06b9b55861
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '147880662'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+## 継続的インテグレーションについて
 
-## About continuous integration
+継続的インテグレーション (CI) とは、ソフトウェアの開発においてコードを頻繁に共有リポジトリにコミットする手法のことです。 コードをコミットする頻度が高いほどエラーの検出が早くなり、開発者がエラーの原因を見つけるためにデバッグしなければならないコードの量も減ります。 コードの更新が頻繁であれば、ソフトウェア開発チームの他のメンバーによる変更をマージするのも、それだけ容易になります。 コードの記述により多くの時間をかけられるようになり、エラーのデバッグやマージコンフリクトの解決にかける時間が減るので、これは開発者にとって素晴らしいやり方です。
 
-Continuous integration (CI) is a software practice that requires frequently committing code to a shared repository. Committing code more often detects errors sooner and reduces the amount of code a developer needs to debug when finding the source of an error. Frequent code updates also make it easier to merge changes from different members of a software development team. This is great for developers, who can spend more time writing code and less time debugging errors or resolving merge conflicts.
+コードをリポジトリにコミットするとき、コミットによってエラーが発生しないように、コードのビルドとテストを継続的に行うことができます。 テストには、コードの文法チェッカー (スタイルフォーマットをチェックする)、セキュリティチェック、コードカバレッジ、機能テスト、その他のカスタムチェックを含めることができます。
 
-When you commit code to your repository, you can continuously build and test the code to make sure that the commit doesn't introduce errors. Your tests can include code linters (which check style formatting), security checks, code coverage, functional tests, and other custom checks.
+コードをビルドしてテストするには、サーバーが必要です。 ローカルでアップデートのビルドとテストを行ってからコードをリポジトリにプッシュする方法もありますし、リポジトリ での新しいコードのコミットをチェックするCIサーバーを使用する方法もあります。
 
-Building and testing your code requires a server. You can build and test updates locally before pushing code to a repository, or you can use a CI server that checks for new code commits in a repository.
+## {% data variables.product.prodname_actions %}を使用する継続的インテグレーションについて
 
-## About continuous integration using {% data variables.product.prodname_actions %}
-
-{% ifversion ghae %}CI using {% data variables.product.prodname_actions %} offers workflows that can build the code in your repository and run your tests. Workflows can run on runner systems that you host. For more information, see "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners)."
-{% else %} CI using {% data variables.product.prodname_actions %} offers workflows that can build the code in your repository and run your tests. Workflows can run on {% data variables.product.prodname_dotcom %}-hosted virtual machines, or on machines that you host yourself. For more information, see "[About {% data variables.product.prodname_dotcom %}-hosted runners](/actions/using-github-hosted-runners/about-github-hosted-runners)" and "[About self-hosted runners](/actions/automating-your-workflow-with-github-actions/about-self-hosted-runners)."
+{% ifversion ghae %}{% data variables.product.prodname_actions %} を利用した CI では、リポジトリ中のコードをビルドしてテストを実行できるワークフローが利用できます。 ワークフローは、ホストするランナー システムで実行できます。 詳細については、[セルフホステッド ランナー](/actions/hosting-your-own-runners/about-self-hosted-runners)に関する記述をご覧ください。
+{% else %}{% data variables.product.prodname_actions %} を利用した CI では、リポジトリ中のコードをビルドしてテストを実行できるワークフローが利用できます。 ワークフローは{% data variables.product.prodname_dotcom %}ホストの仮想マシン、もしくはあなたが自分でホストするマシン上で実行できます。 詳しくは、「[{% data variables.product.prodname_dotcom %} ホステッド ランナーについて](/actions/using-github-hosted-runners/about-github-hosted-runners)」と「[セルフホステッド ランナーについて](/actions/automating-your-workflow-with-github-actions/about-self-hosted-runners)」を参照してください。
 {% endif %}
 
-You can configure your CI workflow to run when a {% data variables.product.prodname_dotcom %} event occurs (for example, when new code is pushed to your repository), on a set schedule, or when an external event occurs using the repository dispatch webhook.
+CI ワークフローは、{% data variables.product.prodname_dotcom %} イベントが発生したとき (たとえば、新しいコードがリポジトリにプッシュされたとき) や、設定されたスケジュール、またはリポジトリディスパッチ webhook を使用して外部イベントが発生したときに実行するように設定できます。
 
-{% data variables.product.product_name %} runs your CI tests and provides the results of each test in the pull request, so you can see whether the change in your branch introduces an error. When all CI tests in a workflow pass, the changes you pushed are ready to be reviewed by a team member or merged. When a test fails, one of your changes may have caused the failure.
+{% data variables.product.product_name %} は CI テストを実行して、Pull Requestで各テストの結果を提供するため、ブランチの変更によってエラーが発生したかどうかを確認できます。 ワークフローのテストがすべて成功すると、プッシュした変更をチームメンバーがレビューできるように、またはマージできるようになります。 テストが失敗した場合は、いずれかの変更がその原因になっている可能性があります。
 
-When you set up CI in your repository, {% data variables.product.product_name %} analyzes the code in your repository and recommends CI workflows based on the language and framework in your repository. For example, if you use [Node.js](https://nodejs.org/en/), {% data variables.product.product_name %} will suggest a starter workflow that installs your Node.js packages and runs your tests. You can use the CI starter workflow suggested by {% data variables.product.product_name %}, customize the suggested starter workflow, or create your own custom workflow file to run your CI tests.
+リポジトリに CI を設定する際には、{% data variables.product.product_name %} がリポジトリ内のコードを分析し、リポジトリ内の言語とフレームワークに基づいて CI ワークフローを推奨します。 たとえば、[Node.js](https://nodejs.org/en/) を使用する場合、{% data variables.product.product_name %} によって、Node.js パッケージをインストールし、テストを実行するスターター ワークフローが提案されます。 {% data variables.product.product_name %} によって提案される CI スターター ワークフローを利用したり、提案されたスターター ワークフローをカスタマイズしたり、CI テストを実行する独自のカスタム ワークフロー ファイルを作成したりできます。
 
-![Screenshot of suggested continuous integration starter workflows](/assets/images/help/repository/ci-with-actions-template-picker.png)
+![提案された継続的インテグレーション スターター ワークフローのスクリーンショット](/assets/images/help/repository/ci-with-actions-template-picker.png)
 
-In addition to helping you set up CI workflows for your project, you can use {% data variables.product.prodname_actions %} to create workflows across the full software development life cycle. For example, you can use actions to deploy, package, or release your project. For more information, see "[About {% data variables.product.prodname_actions %}](/articles/about-github-actions)."
+プロジェクトの CI ワークフローの設定だけでなく、{% data variables.product.prodname_actions %} を使用してソフトウェア開発のライフサイクル全体に渡るワークフローを作成することもできます。 たとえば、Actionを使用してプロジェクトをデプロイ、パッケージ、またはリリースすることが可能です。 詳細については、「[{% data variables.product.prodname_actions %} について](/articles/about-github-actions)」を参照してください。
 
-For a definition of common terms, see "[Core concepts for {% data variables.product.prodname_actions %}](/github/automating-your-workflow-with-github-actions/core-concepts-for-github-actions)."
+一般的な用語の定義については、「[{% data variables.product.prodname_actions %} のコア概念](/github/automating-your-workflow-with-github-actions/core-concepts-for-github-actions)」を参照してください。
 
-## Starter workflow
+## スターター ワークフロー
 
-{% data variables.product.product_name %} offers CI starter workflow for a variety of languages and frameworks.
+{% data variables.product.product_name %} からは、さまざまな言語とフレームワークの CI スターター ワークフローが提供されます。
 
-Browse the complete list of CI starter workflow offered by {% data variables.product.company_short %} in the {% ifversion fpt or ghec %}[actions/starter-workflows](https://github.com/actions/starter-workflows/tree/main/ci) repository{% else %} `actions/starter-workflows` repository on {% data variables.location.product_location %}{% endif %}.
+{% data variables.product.product_location %}{% endif %} の {% ifversion fpt or ghec %}[actions/starter-workflows](https://github.com/actions/starter-workflows/tree/main/ci) リポジトリ {% else %} `actions/starter-workflows` リポジトリにある {% data variables.product.company_short %} によって提供される CI スターター ワークフローの完全一覧を参照します。
 
-## Further reading
+## 参考資料
 
 {% ifversion fpt or ghec %}
-- "[Managing billing for {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions)"
-{% endif %}
+- "[{% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions) の請求を管理する" {% endif %}

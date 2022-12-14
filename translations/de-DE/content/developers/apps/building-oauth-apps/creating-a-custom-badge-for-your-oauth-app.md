@@ -1,5 +1,5 @@
 ---
-title: Creating a custom badge for your OAuth App
+title: Erstellen eines benutzerdefinierten Badges für deine OAuth-App
 intro: '{% data reusables.shortdesc.creating_custom_badges_oauth_apps %}'
 redirect_from:
   - /apps/building-oauth-apps/creating-custom-badges-for-oauth-apps
@@ -12,40 +12,41 @@ versions:
 topics:
   - OAuth Apps
 shortTitle: Create custom badges
+ms.openlocfilehash: b9f5b8048b14c11e7eb0c43a88a18b3a63ca5f34
+ms.sourcegitcommit: ac00e2afa6160341c5b258d73539869720b395a4
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147876865'
 ---
-By default, a new OAuth App will have an automatically generated [identicon](https://github.com/blog/1586-identicons).
-An identicon badge looks something like this:
+Standardmäßig verfügt eine neue OAuth-App über ein automatisch generiertes [Identicon](https://github.com/blog/1586-identicons).
+Dies ist ein Beispiel für einen Identicon-Badge:
 
 ![Identicon](/assets/images/identicon.png)
 
-After you create an OAuth App, you can customize the app's badge by uploading a logo and selecting a background color. A badge is a square logo image inside of a circular badge. You can choose a background color for the badge, which can be used to visually distinguish your app.
+Nachdem du eine OAuth-App erstellt hast, kannst du den Badge deiner App anpassen, indem du ein Logo hochlädst und eine Hintergrundfarbe auswählst. Ein Badge ist ein quadratisches Logobild innerhalb eines kreisförmigen Badges. Du kannst eine Hintergrundfarbe für den Badge auswählen, mit der du deine App optisch hervorheben kannst.
 
-Your logo should be a PNG, JPG, or GIF file under 1 MB in size. For the best quality rendering, we recommend an image size of at least 200px x 200px. {% ifversion fpt or ghec %}See "[Tips for logo and badge images](/marketplace/listing-on-github-marketplace/writing-github-marketplace-listing-descriptions/#guidelines-for-logos)" for more guidance on customizing badges.{% endif %}
+Dein Logo sollte eine PNG-, JPG- oder GIF-Datei sein, die kleiner als 1 MB ist. Für optimale Qualität der Darstellung sollte die Bildgröße mindestens 200px x 200px betragen. {% ifversion fpt or ghec %}Unter [Tipps für Logo- und Badgebilder](/marketplace/listing-on-github-marketplace/writing-github-marketplace-listing-descriptions/#guidelines-for-logos) findest du weitere Anleitungen zur Anpassung von Badges.{% endif %}
 
 {% ifversion fpt or ghec %}
 
-You can change a custom badge for a GitHub App that already has an approved Marketplace listing by navigating to https://github.com/marketplace/manage.
+Du kannst einen benutzerdefinierten Badge für eine GitHub-App ändern, die bereits über einen genehmigten Marketplace-Eintrag verfügt, indem du zu https://github.com/marketplace/manage navigierst.
 
 {% endif %}
 
-To create a custom badge:
+So erstellst du einen benutzerdefinierten Badge:
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.developer_settings %}
-{% data reusables.user-settings.oauth_apps %}
-{% data reusables.user-settings.modify_oauth_app %}
-1. In "Application logo", drag-and-drop an image from a local folder or click **Upload new logo** to select an image from your computer.
-![Upload a logo](/assets/images/oauth-apps/oauth_apps_upload_logo.png)
-6. Crop your picture. When you're done, click **Set new application logo**.
-![Crop and set logo](/assets/images/oauth-apps/oauth_apps_crop_and_set_logo.png)
-7. In "Badge background color", type the [hexadecimal color code](http://www.color-hex.com/) of the background color for your badge. {% ifversion fpt or ghec %}**Note:** The "Badge background color" input field will be visible after an application logo has been uploaded.{% endif %}
-![Badge background color](/assets/images/oauth-apps/oauth_apps_badge_background_color.png)
-{% data reusables.user-settings.update_oauth_app %}
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.developer_settings %} {% data reusables.user-settings.oauth_apps %} {% data reusables.user-settings.modify_oauth_app %}
+1. Ziehe unter „Anwendungslogo“ mit Drag & Drop ein Bild aus einem lokalen Ordner, oder klicke auf **Logo hochladen**, um ein Bild von deinem Computer auszuwählen.
+![Hochladen eines Logos](/assets/images/oauth-apps/oauth_apps_upload_logo.png)
+6. Schneide das Bild zu. Wenn du fertig bist, klicke auf **Neues Anwendungslogo festlegen**.
+![Zuschneiden und Festlegen des Logos](/assets/images/oauth-apps/oauth_apps_crop_and_set_logo.png)
+7. Gib in „Hintergrundfarbe des Badges“ den [hexadezimalen Farbcode](http://www.color-hex.com/) der Hintergrundfarbe für deinen Badge ein. {% ifversion fpt or ghec %} **Hinweis:** Das Eingabefeld „Hintergrundfarbe des Badges“ wird erst nach dem Hochladen eines Anwendungslogos sichtbar.{% endif %} ![Hintergrundfarbe des Badges](/assets/images/oauth-apps/oauth_apps_badge_background_color.png) {% data reusables.user-settings.update_oauth_app %}
 
 {% ifversion fpt or ghec %}
 
-## Next steps
+## Nächste Schritte
 
-For more information about creating a Marketplace listing for this app, see "[Listing on GitHub Marketplace](/marketplace/listing-on-github-marketplace/)".
+Weitere Informationen zum Erstellen eines Marketplace-Eintrags für diese App findest du unter [Eintrag auf GitHub-Marketplace](/marketplace/listing-on-github-marketplace/).
 
 {% endif %}

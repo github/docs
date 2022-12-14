@@ -1,6 +1,6 @@
 ---
-title: Creating a pre-receive hook script
-intro: Use pre-receive hook scripts to create requirements for accepting or rejecting a push based on the contents.
+title: Создание скрипта перехватчика предварительного получения
+intro: 'Используйте скрипты перехватчика предварительного получения, чтобы создать требования для принятия или отклонения принудительной отправки на основе содержимого.'
 miniTocMaxHeadingLevel: 3
 redirect_from:
   - /enterprise/admin/developer-workflow/creating-a-pre-receive-hook-script
@@ -14,145 +14,138 @@ topics:
   - Policies
   - Pre-receive hooks
 shortTitle: Pre-receive hook scripts
+ms.openlocfilehash: ec0ccda77a2bb1a02ffcc3c53d22c3bff5ee3833
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148093532'
 ---
-You can see examples of pre-receive hooks for {% data variables.product.prodname_ghe_server %} in the [`github/platform-samples` repository](https://github.com/github/platform-samples/tree/master/pre-receive-hooks).
+Примеры перехватчиков предварительного получения для {% data variables.product.prodname_ghe_server %} можно просмотреть в [репозитории `github/platform-samples`](https://github.com/github/platform-samples/tree/master/pre-receive-hooks).
 
-## Writing a pre-receive hook script
-A pre-receive hook script executes in a pre-receive hook environment on {% data variables.location.product_location %}. When you create a pre-receive hook script, consider the available input, output, exit status, and environment variables.
+## Написание скрипта перехватчика предварительного получения
+Скрипт обработчика предварительного получения выполняется в среде обработчика предварительного получения на {% данных variables.location.product_location %}. При создании скрипта перехватчика предварительного получения учитывайте доступные входные и выходные данные, состояние выхода и переменные среды.
 
-### Input (`stdin`)
-After a push occurs and before any refs are updated for the remote repository, the `git-receive-pack` process on {% data variables.location.product_location %} invokes the pre-receive hook script. Standard input for the script, `stdin`, is a string containing a line for each ref to update. Each line contains the old object name for the ref, the new object name for the ref, and the full name of the ref.
+### Входные данные (`stdin`)
+После принудительной отправки и до обновления ссылок для удаленного репозитория `git-receive-pack` процесс на {% данных variables.location.product_location %} вызывает скрипт обработчика предварительного получения. Стандартные входные данные для скрипта `stdin` — это строка, содержащая строку для каждой обновляемой ссылки. Каждая строка содержит старое имя объекта для ссылки, новое имя объекта для ссылки и полное имя ссылки.
 
 ```
 <old-value> SP <new-value> SP <ref-name> LF
 ```
 
-This string represents the following arguments.
+Эта строка представляет следующие аргументы.
 
-| Argument | Description     |
+| Аргумент | Описание     |
 | :------------- | :------------- |
-| `<old-value>` | Old object name stored in the ref.<br> When you create a new ref, the value is 40 zeroes. |
-| `<new-value>` | New object name to be stored in the ref.<br> When you delete a ref, the value is 40 zeroes. |
-| `<ref-name>`  | The full name of the ref. |
+| `<old-value>` | Старое имя объекта, хранящееся в ссылке.<br> При создании новой ссылки это значение представляет собой 40 нулей. |
+| `<new-value>` | Новое имя объекта для сохранения в ссылке.<br> При удалении ссылки это значение представляет собой 40 нулей. |
+| `<ref-name>`  | Полное имя ссылки. |
 
-For more information about `git-receive-pack`, see "[git-receive-pack](https://git-scm.com/docs/git-receive-pack)" in the Git documentation. For more information about refs, see "[Git References](https://git-scm.com/book/en/v2/Git-Internals-Git-References)" in *Pro Git*.
+Дополнительные сведения о процессе `git-receive-pack` см. в разделе [git-receive-pack](https://git-scm.com/docs/git-receive-pack) в документации Git. Дополнительные сведения о ссылках см. в разделе [Ссылки Git](https://git-scm.com/book/en/v2/Git-Internals-Git-References) в *Pro Git*.
 
-### Output (`stdout`)
+### Выходные данные (`stdout`)
 
-The standard output for the script, `stdout`, is passed back to the client. Any `echo` statements will be visible to the user on the command line or in the user interface.
+Стандартные выходные данные для скрипта `stdout`передаются обратно в клиент. Все инструкции `echo` будут видны пользователю в командной строке или пользовательском интерфейсе.
 
-### Exit status
+### Состояние выхода
 
-The exit status of a pre-receive script determines if the push will be accepted.
+Состояние выхода скрипта предварительного получения определяет, будет ли принята отправка.
 
-| Exit-status value | Action |
+| Значение состояния выхода | Действие |
 | :- | :- |
-| 0 | The push will be accepted. |
-| non-zero | The push will be rejected. |
+| 0 | Отправка будет принята. |
+| ненулевое значение | Отправка будет отклонена. |
 
-### Environment variables
+### Переменные среды
 
-In addition to the standard input for your pre-receive hook script, `stdin`, {% data variables.product.prodname_ghe_server %} makes the following variables available in the Bash environment for your script's execution. For more information about `stdin` for your pre-receive hook script, see "[Input (`stdin`)](#input-stdin)."
+Помимо стандартных входных данных для скрипта перехватчика предварительного получения `stdin` {% data variables.product.prodname_ghe_server %} делает следующие переменные доступными в среде Bash для выполнения вашего скрипта. Дополнительные сведения о `stdin` для скрипта перехватчика предварительного получения см. в разделе [Входные данные (`stdin`)](#input-stdin).
 
-Different environment variables are available to your pre-receive hook script depending on what triggers the script to run.
+Для скрипта перехватчика предварительного получения доступны разные переменные, в зависимости от того, что запускает скрипт.
 
-- [Always available](#always-available)
-- [Available for pushes from the web interface or API](#available-for-pushes-from-the-web-interface-or-api)
-- [Available for pull request merges](#available-for-pull-request-merges)
-- [Available for pushes using SSH authentication](#available-for-pushes-using-ssh-authentication)
+- [Доступные всегда](#always-available)
+- [Доступные для отправок из веб-интерфейса или API](#available-for-pushes-from-the-web-interface-or-api)
+- [Доступные для слияний запросов на вытягивание](#available-for-pull-request-merges)
+- [Доступные для отправок с использованием проверки подлинности SSH](#available-for-pushes-using-ssh-authentication)
 
-#### Always available
+#### Доступна всегда
 
-The following variables are always available in the pre-receive hook environment.
+Следующие переменные всегда доступны в среде перехватчика предварительного получения.
 
-| Variable | Description | Example value |
+| Переменная | Описание | Пример значения |
 | :- | :- | :- |
-|  <pre>$GIT_DIR</pre> | Path to the remote repository on the instance | /data/user/repositories/a/ab/<br>a1/b2/34/100001234/1234.git |
-|  <pre>$GIT_PUSH_OPTION_COUNT</pre> | The number of push options that were sent by the client with `--push-option`. For more information, see "[git-push](https://git-scm.com/docs/git-push#Documentation/git-push.txt---push-optionltoptiongt)" in the Git documentation. | 1 |
-| <pre>$GIT\_PUSH\_OPTION\_N</pre> | Where _N_ is an integer starting at 0, this variable contains the push option string that was sent by the client. The first option that was sent is stored in `GIT_PUSH_OPTION_0`, the second option that was sent is stored in `GIT_PUSH_OPTION_1`, and so on. For more information about push options, see "[git-push](https://git-scm.com/docs/git-push#git-push---push-optionltoptiongt)" in the Git documentation. | abcd |{% ifversion ghes %}
-|  <pre>$GIT_USER_AGENT</pre> | User-agent string sent by the Git client that pushed the changes | git/2.0.0{% endif %}
-|  <pre>$GITHUB_REPO_NAME</pre> | Name of the repository being updated in _NAME_/_OWNER_ format | octo-org/hello-enterprise |
-|  <pre>$GITHUB_REPO_PUBLIC</pre> | Boolean representing whether the repository being updated is public | <ul><li>true: Repository's visibility is public</li><li>false: Repository's visibility is private or internal</li></ul>
-|  <pre>$GITHUB_USER_IP</pre> | IP address of client that initiated the push | 192.0.2.1 |
-|  <pre>$GITHUB_USER_LOGIN</pre> | Username for account that initiated the push | octocat |
+|  <pre>$GIT_DIR</pre> | Путь к удаленному репозиторию в экземпляре | /data/user/repositories/a/ab/<br>a1/b2/34/100001234/1234.git |
+|  <pre>$GIT_PUSH_OPTION_COUNT</pre> | Количество параметров отправки, отправленных клиентом с помощью `--push-option`. Дополнительные сведения см. в разделе [git-push](https://git-scm.com/docs/git-push#Documentation/git-push.txt---push-optionltoptiongt) документации Git. | 1 |
+| <pre>$GIT\_PUSH\_OPTION\_N</pre> | Если _N_ является целым числом от 0 и выше, эта переменная содержит строку параметра отправки, отправленную клиентом. Первый отправленный параметр сохраняется в `GIT_PUSH_OPTION_0`, второй отправленный параметр — в `GIT_PUSH_OPTION_1`и т. д. Дополнительные сведения о параметрах отправки см. в разделе ["git-push](https://git-scm.com/docs/git-push#git-push---push-optionltoptiongt) документации Git. | abcd |{% ifversion ghes %}
+|  <pre>$GIT_USER_AGENT</pre> | Строка агента пользователя, отправленная клиентом Git, которая отправляет изменения | git/2.0.0{% endif %}
+|  <pre>$GITHUB_REPO_NAME</pre> | Имя обновляемого репозитория в формате _NAME_/_OWNER_ | octo-org/hello-enterprise |
+|  <pre>$GITHUB_REPO_PUBLIC</pre> | Логическое значение, указывающее, является ли обновляемый репозиторий общедоступным | <ul><li>true: репозиторий видим всем</li><li>false: репозиторий является частным или внутренним</li></ul>
+|  <pre>$GITHUB_USER_IP</pre> | IP-адрес клиента, который инициировал отправку | 192.0.2.1 |
+|  <pre>$GITHUB_USER_LOGIN</pre> | Имя пользователя учетной записи, которая инициировала отправку | octocat |
 
-#### Available for pushes from the web interface or API
+#### Доступные для отправок из веб-интерфейса или API
 
-The `$GITHUB_VIA` variable is available in the pre-receive hook environment when the ref update that triggers the hook occurs via either the web interface or the API for {% data variables.product.prodname_ghe_server %}. The value describes the action that updated the ref.
+Переменная `$GITHUB_VIA` доступна в среде перехватчика предварительного получения, когда обновление ссылки, активирующее перехватчик, происходит через веб-интерфейс или API для {% data variables.product.prodname_ghe_server %}. Значение описывает действие, которое обновило ссылку.
 
-| Value | Action | More information |
+| Значение | Действие | Дополнительные сведения |
 | :- | :- | :- |
-| <pre>auto-merge deployment api</pre> | Automatic merge of the base branch via a deployment created with the API | "[Create a deployment](/rest/reference/deployments#create-a-deployment)" in the REST API documentation |
-| <pre>blob#save</pre> | Change to a file's contents in the web interface | "[Editing files](/repositories/working-with-files/managing-files/editing-files)" |
-| <pre>branch merge api</pre> | Merge of a branch via the API | "[Merge a branch](/rest/reference/branches#merge-a-branch)" in the REST API documentation |
-| <pre>branches page delete button</pre> | Deletion of a branch in the web interface | "[Creating and deleting branches within your repository](/github/collaborating-with-issues-and-pull-requests/creating-and-deleting-branches-within-your-repository#deleting-a-branch)" |
-| <pre>git refs create api</pre> | Creation of a ref via the API | "[Git database](/rest/reference/git#create-a-reference)" in the REST API documentation |
-| <pre>git refs delete api</pre> | Deletion of a ref via the API | "[Git database](/rest/reference/git#delete-a-reference)" in the REST API documentation |
-| <pre>git refs update api</pre> | Update of a ref via the API | "[Git database](/rest/reference/git#update-a-reference)" in the REST API documentation |
-| <pre>git repo contents api</pre> | Change to a file's contents via the API | "[Create or update file contents](/rest/reference/repos#create-or-update-file-contents)" in the REST API documentation |
-{%- ifversion ghes %}
-| `merge ` | Merge of a pull request using auto-merge | "[Automatically merging a pull request](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/automatically-merging-a-pull-request)" |
-{%- endif %}
-| <pre>merge base into head</pre> | Update of the topic branch from the base branch when the base branch requires strict status checks (via **Update branch** in a pull request, for example) | "[About protected branches](/github/administering-a-repository/about-protected-branches#require-status-checks-before-merging)" |
-| <pre>pull request branch delete button</pre> | Deletion of a topic branch from a pull request in the web interface | "[Deleting and restoring branches in a pull request](/github/administering-a-repository/deleting-and-restoring-branches-in-a-pull-request#deleting-a-branch-used-for-a-pull-request)" |
-| <pre>pull request branch undo button</pre> | Restoration of a topic branch from a pull request in the web interface | "[Deleting and restoring branches in a pull request](/github/administering-a-repository/deleting-and-restoring-branches-in-a-pull-request#restoring-a-deleted-branch)" |
-| <pre>pull request merge api</pre> | Merge of a pull request via the API | "[Pulls](/rest/reference/pulls#merge-a-pull-request)" in the REST API documentation |
-| <pre>pull request merge button</pre> | Merge of a pull request in the web interface | "[Merging a pull request](/github/collaborating-with-issues-and-pull-requests/merging-a-pull-request#merging-a-pull-request-on-github)" |
-| <pre>pull request revert button</pre> | Revert of a pull request | "[Reverting a pull request](/github/collaborating-with-issues-and-pull-requests/reverting-a-pull-request)" |
-| <pre>releases delete button</pre> | Deletion of a release | "[Managing releases in a repository](/github/administering-a-repository/managing-releases-in-a-repository#deleting-a-release)" |
-| <pre>stafftools branch restore</pre> | Restoration of a branch from the site admin dashboard | "[Site admin dashboard](/admin/configuration/site-admin-dashboard#repositories)" |
-| <pre>tag create api</pre> | Creation of a tag via the API | "[Git database](/rest/reference/git#create-a-tag-object)" in the REST API documentation |
-| <pre>slumlord (#SHA)</pre> | Commit via Subversion | "[Support for Subversion clients](/github/importing-your-projects-to-github/support-for-subversion-clients#making-commits-to-subversion)" |
-| <pre>web branch create</pre> | Creation of a branch via the web interface | "[Creating and deleting branches within your repository](/github/collaborating-with-issues-and-pull-requests/creating-and-deleting-branches-within-your-repository#creating-a-branch)" |
+| <pre>auto-merge deployment api</pre> | Автоматическое слияние базовой ветви через развертывание, созданное с помощью API | Раздел [Создание развертывания](/rest/reference/deployments#create-a-deployment) в документации по REST API |
+| <pre>blob#save</pre> | Изменение содержимого файла в веб-интерфейсе | Раздел [Изменение файлов](/repositories/working-with-files/managing-files/editing-files) |
+| <pre>branch merge api</pre> | Слияние ветви с помощью API | Раздел [Слияние ветви](/rest/reference/branches#merge-a-branch) в документации по REST API |
+| <pre>branches page delete button</pre> | Удаление ветви в веб-интерфейсе | Раздел [Создание и удаление ветвей в репозитории](/github/collaborating-with-issues-and-pull-requests/creating-and-deleting-branches-within-your-repository#deleting-a-branch) |
+| <pre>git refs create api</pre> | Создание ссылки с помощью API | Раздел [База данных Git](/rest/reference/git#create-a-reference) в документации по REST API |
+| <pre>git refs delete api</pre> | Удаление ссылки с помощью API | Раздел [База данных Git](/rest/reference/git#delete-a-reference) в документации по REST API |
+| <pre>git refs update api</pre> | Обновление ссылки с помощью API | Раздел [База данных Git](/rest/reference/git#update-a-reference) в документации по REST API |
+| <pre>git repo contents api</pre> | Изменение содержимого файла с помощью API | Раздел [Создание или обновление содержимого файла](/rest/reference/repos#create-or-update-file-contents) в документации по REST API |
+{%- ifversion ghes %} | `merge ` | Слияние запроса на вытягивание путем автоматического слияния | "[Автоматическое слияние запроса на вытягивание](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/automatically-merging-a-pull-request)" | {%- endif %} | <pre>merge base into head</pre> | Обновление тематической ветки из базовой ветви, когда базовая ветвь требует строгих проверок состояния (например, через **обновление ветви** в запросе на вытягивание) | [Сведения о защищенных ветвях](/github/administering-a-repository/about-protected-branches#require-status-checks-before-merging) | | <pre>pull request branch delete button</pre> | Удаление тематической ветки из запроса на вытягивание в веб-интерфейсе | [Удаление и восстановление ветвей в запросе на вытягивание](/github/administering-a-repository/deleting-and-restoring-branches-in-a-pull-request#deleting-a-branch-used-for-a-pull-request) | | <pre>pull request branch undo button</pre> | Восстановление тематической ветки из запроса на вытягивание в веб-интерфейсе | [Удаление и восстановление ветвей в запросе на вытягивание](/github/administering-a-repository/deleting-and-restoring-branches-in-a-pull-request#restoring-a-deleted-branch) | | <pre>pull request merge api</pre> | Слияние запроса на вытягивание с помощью API | [Запросы](/rest/reference/pulls#merge-a-pull-request) в документации по REST API | | <pre>pull request merge button</pre> | Слияние запроса на вытягивание в веб-интерфейсе | [Слияние запроса на вытягивание](/github/collaborating-with-issues-and-pull-requests/merging-a-pull-request#merging-a-pull-request-on-github) | | <pre>pull request revert button</pre> | Восстановление запроса на вытягивание | [Восстановление запроса на вытягивание](/github/collaborating-with-issues-and-pull-requests/reverting-a-pull-request) | | <pre>releases delete button</pre> | Удаление выпуска | [Управление выпусками в репозитории](/github/administering-a-repository/managing-releases-in-a-repository#deleting-a-release) | | <pre>stafftools branch restore</pre> | Восстановление ветви с панели мониторинга администратора сайта | [Панель мониторинга администратора сайта](/admin/configuration/site-admin-dashboard#repositories) | | <pre>tag create api</pre> | Создание тега с помощью API | [База данных Git](/rest/reference/git#create-a-tag-object) в документации по REST API | | <pre>slumlord (#SHA)</pre> | Фиксация с помощью Subversion | [Поддержка клиентов Subversion](/github/importing-your-projects-to-github/support-for-subversion-clients#making-commits-to-subversion) | | <pre>web branch create</pre> | Создание ветви с помощью веб-интерфейса | [Создание и удаление ветвей в репозитории](/github/collaborating-with-issues-and-pull-requests/creating-and-deleting-branches-within-your-repository#creating-a-branch) |
 
-#### Available for pull request merges
+#### Доступные для слияний запросов на вытягивание
 
-The following variables are available in the pre-receive hook environment when the push that triggers the hook is a push due to the merge of a pull request.
+Следующие переменные доступны в среде перехватчика предварительного получения, когда отправка, которая активирует перехватчик, является отправкой вследствие слияния запроса на вытягивание.
 
-| Variable | Description | Example value |
+| Переменная | Описание | Пример значения |
 | :- | :- | :- |
-|  <pre>$GITHUB_PULL_REQUEST_AUTHOR_LOGIN</pre> | Username of account that authored the pull request | octocat |
-|  <pre>$GITHUB_PULL_REQUEST_HEAD</pre> | The name of the pull request's topic branch, in the format `USERNAME:BRANCH` | <nobr>octocat:fix-bug</nobr> |
-|  <pre>$GITHUB_PULL_REQUEST_BASE</pre> | The name of the pull request's base branch, in the format `USERNAME:BRANCH` | octocat:main |
+|  <pre>$GITHUB_PULL_REQUEST_AUTHOR_LOGIN</pre> | Имя пользователя учетной записи, создающей запрос на вытягивание | octocat |
+|  <pre>$GITHUB_PULL_REQUEST_HEAD</pre> | Имя тематической ветки запроса на вытягивание в формате `USERNAME:BRANCH` | <nobr>octocat:fix-bug</nobr> |
+|  <pre>$GITHUB_PULL_REQUEST_BASE</pre> | Имя базовой ветви запроса на вытягивание в формате `USERNAME:BRANCH` | octocat:main |
 
-#### Available for pushes using SSH authentication
+#### Доступные для отправок с использованием проверки подлинности SSH
 
-| Variable | Description | Example value |
+| Переменная | Описание | Пример значения |
 | :- | :- | :- |
-|  <pre>$GITHUB_PUBLIC_KEY_FINGERPRINT</pre> | The public key fingerprint for the user who pushed the changes | a1:b2:c3:d4:e5:f6:g7:h8:i9:j0:k1:l2:m3:n4:o5:p6 |
+|  <pre>$GITHUB_PUBLIC_KEY_FINGERPRINT</pre> | Отпечаток открытого ключа для пользователя, который отправил изменения | a1:b2:c3:d4:e5:f6:g7:h8:i9:j0:k1:l2:m3:n4:o5:p6 |
 
-## Setting permissions and pushing a pre-receive hook to {% data variables.product.prodname_ghe_server %}
+## Задание разрешений и отправка перехватчика предварительного получения в {% data variables.product.prodname_ghe_server %}
 
-A pre-receive hook script is contained in a repository on {% data variables.location.product_location %}. A site administrator must take into consideration the repository permissions and ensure that only the appropriate users have access.
+Скрипт перехватчика предварительного получения содержится в репозитории на {% данных variables.location.product_location %}. Администратор сайта должен учитывать разрешения репозитория и обеспечить, чтобы доступ имелся только у соответствующих пользователей.
 
-We recommend consolidating hooks to a single repository. If the consolidated hook repository is public, the `README.md` can be used to explain policy enforcements. Also, contributions can be accepted via pull requests. However, pre-receive hooks can only be added from the default branch. For a testing workflow, forks of the repository with configuration should be used.
+Рекомендуется объединить перехватчики в один репозиторий. Если консолидированный репозиторий перехватчиков является общедоступным, можно использовать `README.md` для объяснения применения политик. Кроме того, вклады можно принимать с помощью запросов на вытягивание. Однако перехватчики предварительного получения можно добавлять только из ветви по умолчанию. Для рабочего процесса тестирования следует использовать вилки репозитория с конфигурацией.
 
-1. For Mac users, ensure the scripts have execute permissions:
+1. Для пользователей Mac убедитесь, что скрипты имеют разрешения на выполнение:
 
    ```shell
    $ sudo chmod +x SCRIPT_FILE.sh
    ```
-   For Windows users, ensure the scripts have execute permissions:
+   Для пользователей Windows убедитесь, что скрипты имеют разрешения на выполнение:
 
    ```shell
    git update-index --chmod=+x SCRIPT_FILE.sh
    ```
 
-2. Commit and push to the designated repository for pre-receive hooks on {% data variables.location.product_location %}.
+2. Фиксация и отправка в указанный репозиторий для перехватчиков предварительного получения данных на {% variables.location.product_location %}.
 
    ```shell
    $ git commit -m "YOUR COMMIT MESSAGE"
    $ git push
    ```
 
-3. [Create the pre-receive hook](/enterprise/admin/guides/developer-workflow/managing-pre-receive-hooks-on-the-github-enterprise-server-appliance/#creating-pre-receive-hooks) on the {% data variables.product.prodname_ghe_server %} instance.
+3. [Создайте перехватчик предварительного получения](/enterprise/admin/guides/developer-workflow/managing-pre-receive-hooks-on-the-github-enterprise-server-appliance/#creating-pre-receive-hooks) в экземпляре {% data variables.product.prodname_ghe_server %}.
 
-## Testing pre-receive scripts locally
-You can test a pre-receive hook script locally before you create or update it on {% data variables.location.product_location %}. One method is to create a local Docker environment to act as a remote repository that can execute the pre-receive hook.
+## Локальное тестирование скриптов предварительного получения
+Перед созданием или обновлением скрипта предварительного перехватчика можно протестировать на {% данных variables.location.product_location %}. Один из способов — создать локальную среду Docker для работы в качестве удаленного репозитория, который может выполнять перехватчик предварительного получения.
 
 {% data reusables.linux.ensure-docker %}
 
-2. Create a file called `Dockerfile.dev` containing:
+2. Создайте файл с именем `Dockerfile.dev` и следующим содержимым:
 
    ```dockerfile
    FROM gliderlabs/alpine:3.3
@@ -174,7 +167,7 @@ You can test a pre-receive hook script locally before you create or update it on
    CMD ["/usr/sbin/sshd", "-D"]
    ```
 
-3. Create a test pre-receive script called `always_reject.sh`. This example script will reject all pushes, which is useful for locking a repository:
+3. Создайте тестовый скрипт предварительного получения с именем `always_reject.sh`. В этом примере скрипт отклоняет все отправки, что полезно для блокировки репозитория:
 
    ```
    #!/usr/bin/env bash
@@ -183,13 +176,13 @@ You can test a pre-receive hook script locally before you create or update it on
    exit 1
    ```
 
-4. Ensure the `always_reject.sh` scripts has execute permissions:
+4. Убедитесь, что скрипты `always_reject.sh` имеют разрешения на выполнение:
 
    ```shell
    $ chmod +x always_reject.sh
    ```
 
-5. From the directory containing `Dockerfile.dev`, build an image:
+5. Из каталога, содержащего `Dockerfile.dev`, создайте образ:
 
    ```shell
    $ docker build -f Dockerfile.dev -t pre-receive.dev .
@@ -212,32 +205,32 @@ You can test a pre-receive hook script locally before you create or update it on
    > Successfully built dd8610c24f82
    ```
 
-6. Run a data container that contains a generated SSH key:
+6. Запустите контейнер данных, содержащий созданный ключ SSH:
 
    ```shell
    $ docker run --name data pre-receive.dev /bin/true
    ```
 
-7. Copy the test pre-receive hook `always_reject.sh` into the data container:
+7. Скопируйте тестовый перехватчик предварительного получения `always_reject.sh` в контейнер данных:
 
    ```shell
    $ docker cp always_reject.sh data:/home/git/test.git/hooks/pre-receive
    ```
 
-8. Run an application container that runs `sshd` and executes the hook. Take note of the container id that is returned:
+8. Запустите контейнер приложения, который запускает `sshd` и выполняет перехватчик. Запишите возвращенный идентификатор контейнера:
 
    ```shell
    $ docker run -d -p 52311:22 --volumes-from data pre-receive.dev
    > 7f888bc700b8d23405dbcaf039e6c71d486793cad7d8ae4dd184f4a47000bc58
    ```
 
-9. Copy the generated SSH key from the data container to the local machine:
+9. Скопируйте созданный ключ SSH из контейнера данных на локальный компьютер:
 
    ```shell
    $ docker cp data:/home/git/.ssh/id_ed25519 .
    ```
 
-10. Modify the remote of a test repository and push to the `test.git` repo within the Docker container. This example uses `git@github.com:octocat/Hello-World.git` but you can use any repository you want. This example assumes your local machine (127.0.0.1) is binding port 52311, but you can use a different IP address if docker is running on a remote machine.
+10. Измените удаленный репозиторий тестов и отправьте его в репозиторий `test.git` в контейнере Docker. В этом примере используется `git@github.com:octocat/Hello-World.git`, но вы можете использовать любой подходящий репозиторий. В этом примере предполагается, что локальный компьютер (127.0.0.1) является портом привязки 52311, но вы можете использовать другой IP-адрес, если Docker работает на удаленном компьютере.
 
    ```shell
    $ git clone git@github.com:octocat/Hello-World.git
@@ -256,7 +249,7 @@ You can test a pre-receive hook script locally before you create or update it on
    > error: failed to push some refs to 'git@192.168.99.100:test.git'
    ```
 
-   Notice that the push was rejected after executing the pre-receive hook and echoing the output from the script.
+   Обратите внимание, что отправка была отклонена после выполнения перехватчика предварительного получения и повторения выходных данных скрипта.
 
-## Further reading
- - "[Customizing Git - An Example Git-Enforced Policy](https://git-scm.com/book/en/v2/Customizing-Git-An-Example-Git-Enforced-Policy)" from the *Pro Git website*
+## Дополнительные материалы
+ - [Настройка Git — пример политики, применяемой Git](https://git-scm.com/book/en/v2/Customizing-Git-An-Example-Git-Enforced-Policy) на *веб-сайте Pro Git*

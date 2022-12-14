@@ -1,6 +1,6 @@
 ---
-title: Basic writing and formatting syntax
-intro: Create sophisticated formatting for your prose and code on GitHub with simple syntax.
+title: Базовый синтаксис записи и форматирования
+intro: Создавайте расширенное форматирование текста и кода в GitHub с помощью простого синтаксиса.
 redirect_from:
   - /articles/basic-writing-and-formatting-syntax
   - /github/writing-on-github/basic-writing-and-formatting-syntax
@@ -11,10 +11,16 @@ versions:
   ghae: '*'
   ghec: '*'
 shortTitle: Basic formatting syntax
+ms.openlocfilehash: e8df0930f675834c120bbe187924f9696142e09f
+ms.sourcegitcommit: e4069b5613c10d74954185995d0fb73224079463
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 11/17/2022
+ms.locfileid: '148169251'
 ---
-## Headings
+## Заголовки
 
-To create a heading, add one to six <kbd>#</kbd> symbols before your heading text. The number of <kbd>#</kbd> you use will determine the size of the heading.
+Чтобы создать заголовок, добавьте от одного до шести символов <kbd>#</kbd> перед его текстом. Количество символов <kbd>#</kbd> определяет размер заголовка.
 
 ```markdown
 # The largest heading
@@ -22,29 +28,29 @@ To create a heading, add one to six <kbd>#</kbd> symbols before your heading tex
 ###### The smallest heading
 ```
 
-![Rendered H1, H2, and H6 headings](/assets/images/help/writing/headings-rendered.png)
+![Отрисованные заголовки H1, H2 и H6](/assets/images/help/writing/headings-rendered.png)
 
-When you use two or more headings, GitHub automatically generates a table of contents which you can access by clicking {% octicon "list-unordered" aria-label="The unordered list icon" %} within the file header. Each heading title is listed in the table of contents and you can click a title to navigate to the selected section. 
+При использовании двух или более заголовков GitHub автоматически создает оглавление, к которому можно получить доступ, щелкнув значок {% octicon "list-unordered" aria-label="The unordered list icon" %} в заголовке файла. В оглавлении приводится каждый заголовок. Щелкнув по нему, можно перейти к соответствующему разделу. 
 
-![Screenshot highlighting the table of contents icon](/assets/images/help/repository/headings_toc.png)
+![Снимок экрана с выделенным значком оглавления](/assets/images/help/repository/headings_toc.png)
 
-## Styling text
+## Выделение текста
 
-You can indicate emphasis with bold, italic, strikethrough, subscript, or superscript text in comment fields and `.md` files.  
+Текст в полях комментариев и файлах `.md` можно выделять полужирным шрифтом, курсивом, зачеркиванием, а также подстрочным или надстрочным шрифтом.  
 
-| Style | Syntax | Keyboard shortcut | Example | Output |
+| Стиль | Синтаксис | Сочетания клавиш | Пример | Выходные данные |
 | --- | --- | --- | --- | --- |
-| Bold | `** **` or `__ __`| <kbd>Command</kbd>+<kbd>B</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>B</kbd> (Windows/Linux) | `**This is bold text**` | **This is bold text** |
-| Italic | `* *` or `_ _`     | <kbd>Command</kbd>+<kbd>I</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>I</kbd> (Windows/Linux) | `*This text is italicized*` | *This text is italicized* |
-| Strikethrough | `~~ ~~` | | `~~This was mistaken text~~` | ~~This was mistaken text~~ |
-| Bold and nested italic | `** **` and `_ _` | | `**This text is _extremely_ important**` | **This text is _extremely_ important** |
-| All bold and italic | `*** ***` | | `***All this text is important***` | ***All this text is important*** |
-| Subscript | `<sub> </sub>` | | `<sub>This is a subscript text</sub>` | <sub>This is a subscript text</sub> |
-| Superscript | `<sup> </sup>` | | `<sup>This is a superscript text</sup>` | <sup>This is a superscript text</sup> |
+| Полужирный шрифт | `** **` или `__ __`| <kbd>COMMAND</kbd>+<kbd>B</kbd> (Mac) или <kbd>CTRL</kbd>+<kbd>B</kbd> (Windows и Linux) | `**This is bold text**` | **Это полужирный текст** |
+| Курсив | `* *` или `_ _`     | <kbd>COMMAND</kbd>+<kbd>I</kbd> (Mac) или <kbd>CTRL</kbd>+<kbd>I</kbd> (Windows и Linux) | `*This text is italicized*` | *Этот курсивный текст* |
+| Зачеркнутый | `~~ ~~` | | `~~This was mistaken text~~` | ~~Это был неправильный текст~~ |
+| Полужирный и вложенный курсив | `** **` и `_ _` | | `**This text is _extremely_ important**` | **Этот текст _очень_ важен** |
+| Весь полужирный и курсивный | `*** **_` | | `_*_All this text is important_*_` | _ *_Весь этот текст важен_** |
+| Подстрочный | `<sub> </sub>` | | `<sub>This is a subscript text</sub>` | <sub>Это подстрочный текст</sub> |
+| Надстрочный | `<sup> </sup>` | | `<sup>This is a superscript text</sup>` | <sup>Это надстрочный текст</sup> |
 
-## Quoting text
+## Текст в кавычках
 
-You can quote text with a <kbd>></kbd>.
+Цитировать текст можно с помощью <kbd>></kbd>.
 
 ```markdown
 Text that is not a quote
@@ -52,25 +58,25 @@ Text that is not a quote
 > Text that is a quote
 ```
 
-![Rendered quoted text](/assets/images/help/writing/quoted-text-rendered.png)
+![Отрисованная текстовая цитата](/assets/images/help/writing/quoted-text-rendered.png)
 
 {% tip %}
 
-**Tip:** When viewing a conversation, you can automatically quote text in a comment by highlighting the text, then typing <kbd>R</kbd>. You can quote an entire comment by clicking {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then **Quote reply**. For more information about keyboard shortcuts, see "[Keyboard shortcuts](/articles/keyboard-shortcuts/)."
+**Совет**. Текст из беседы можно автоматически цитировать в комментарии. Для этого выделите текст и введите <kbd>R</kbd>. Чтобы процитировать весь комментарий, щелкните значок {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} и выберите пункт **Цитировать в ответе**. Дополнительные сведения о сочетаниях клавиш см. в разделе [Сочетания клавиш](/articles/keyboard-shortcuts/).
 
 {% endtip %}
 
-## Quoting code
+## Цитирование кода
 
-You can call out code or a command within a sentence with single backticks. The text within the backticks will not be formatted. You can also press the <kbd>Command</kbd>+<kbd>E</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>E</kbd> (Windows/Linux) keyboard shortcut to insert the backticks for a code block within a line of Markdown.
+Вы можете выделить код или команду в предложении с помощью одинарных грависов. Текст, заключенный в обратные кавычки, не форматируется. Кроме того, вы можете использовать сочетание клавиш <kbd>COMMAND</kbd>+<kbd>E</kbd> (Mac) или <kbd>CTRL</kbd>+<kbd>E</kbd> (Windows/Linux) для вставки обратных кавычек для блока кода в строке Markdown.
 
 ```markdown
 Use `git status` to list all new or modified files that haven't yet been committed.
 ```
 
-![Rendered inline code block](/assets/images/help/writing/inline-code-rendered.png)
+![Отрисованный блок кода в строке](/assets/images/help/writing/inline-code-rendered.png)
 
-To format code or text into its own distinct block, use triple backticks.
+Чтобы выделить код или текст в отдельный блок, используйте тройные грависы.
 
 <pre>
 Some basic Git commands are:
@@ -81,112 +87,112 @@ git commit
 ```
 </pre>
 
-![Rendered code block](/assets/images/help/writing/code-block-rendered.png)
+![Отрисованный блок кода](/assets/images/help/writing/code-block-rendered.png)
 
-For more information, see "[Creating and highlighting code blocks](/articles/creating-and-highlighting-code-blocks)."
+Дополнительные сведения см. в разделе [Создание и выделение блоков кода](/articles/creating-and-highlighting-code-blocks).
 
 {% data reusables.user-settings.enabling-fixed-width-fonts %}
 
-## Supported color models
+## Поддерживаемые цветовые модели
 
-In issues, pull requests, and discussions, you can call out colors within a sentence by using backticks. A supported color model within backticks will display a visualization of the color.
+В сообщениях о проблемах, запросах на вытягивание и обсуждениях можно вызывать цвета в предложении, используя обратные кавычки. Поддерживаемая цветовая модель, заключенная в обратные кавычки, будет отображать визуализацию цвета.
 
 ```markdown
 The background color should be `#ffffff` for light mode and `#0d1117` for dark mode.
 ```
 
-![Rendered supported color model.](/assets/images/help/writing/supported-color-models-rendered.png)
+![Отображение поддерживаемой цветовой модели.](/assets/images/help/writing/supported-color-models-rendered.png)
 
-Here are the currently supported color models.
+Ниже указаны поддерживаемые сейчас цветовые модели.
 
-| Color | Syntax | Example | Output |
+| Цвет | Синтаксис | Пример | Выходные данные |
 | --- | --- | --- | --- |
-| HEX | <code>\`#RRGGBB\`</code> | <code>\`#0969DA\`</code> | ![Rendered supported color model in HEX format.](/assets/images/help/writing/supported-color-models-hex-rendered.png) |
-| RGB | <code>\`rgb(R,G,B)\`</code> | <code>\`rgb(9, 105, 218)\`</code> | ![Rendered supported color model in RGB format.](/assets/images/help/writing/supported-color-models-rgb-rendered.png) |
-| HSL | <code>\`hsl(H,S,L)\`</code> | <code>\`hsl(212, 92%, 45%)\`</code> | ![Rendered supported color model in HSL format.](/assets/images/help/writing/supported-color-models-hsl-rendered.png) |
+| HEX | <code>\`#RRGGBB\`</code> | <code>\`#0969DA\`</code> | ![Отображение поддерживаемой цветовой модели в формате HEX.](/assets/images/help/writing/supported-color-models-hex-rendered.png) |
+| RGB | <code>\`rgb(R,G,B)\`</code> | <code>\`rgb(9, 105, 218)\`</code> | ![Отображение поддерживаемой цветовой модели в формате RGB.](/assets/images/help/writing/supported-color-models-rgb-rendered.png) |
+| HSL | <code>\`hsl(H,S,L)\`</code> | <code>\`hsl(212, 92%, 45%)\`</code> | ![Отображение поддерживаемой цветовой модели в формате HSL.](/assets/images/help/writing/supported-color-models-hsl-rendered.png) |
 
 {% note %}
 
-**Notes:**
+**Примечания.**
 
-- A supported color model cannot have any leading or trailing spaces within the backticks.
-- The visualization of the color is only supported in issues, pull requests, and discussions.
+- Поддерживаемая цветовая модель не может содержать начальные или конечные пробелы между обратными кавычками.
+- Визуализация цвета поддерживается только в сообщениях о проблемах, запросах на вытягивание и обсуждениях.
 
 {% endnote %}
 
-## Links
+## Ссылки
 
-You can create an inline link by wrapping link text in brackets `[ ]`, and then wrapping the URL in parentheses `( )`. You can also use the keyboard shortcut <kbd>Command</kbd>+<kbd>K</kbd> to create a link.{% ifversion fpt or ghae > 3.3 or ghes > 3.3 or ghec %} When you have text selected, you can paste a URL from your clipboard to automatically create a link from the selection.{% endif %}
+Чтобы создать встроенную ссылку, заключите ее текст в квадратные скобки `[ ]`, а затем заключите URL-адрес в обычные скобки `( )`. Чтобы создать ссылку, можно также использовать сочетание клавиш <kbd>K</kbd>+. {<kbd></kbd> % ifversion fpt or ghae > 3.3 or ghes > 3.3 or ghec %} Если выбран текст, вы можете вставить URL-адрес из буфера обмена, чтобы автоматически создать ссылку из выделенного фрагмента. {% endif %}
 
-{% ifversion fpt or ghae > 3.5 or ghes > 3.5 or ghec %} You can also create a Markdown hyperlink by highlighting the text and using the keyboard shortcut <kbd>Command</kbd>+<kbd>V</kbd>. If you'd like to replace the text with the link, use the keyboard shortcut <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>V</kbd>.{% endif %}
+{% ifversion fpt or ghae > 3.5 or ghes > 3.5 or ghec %} Вы также можете создать гиперссылку Markdown, выделив текст и используя сочетание клавиш <kbd>Command</kbd>+<kbd>V</kbd>. Если вы хотите заменить текст ссылкой, используйте сочетание клавиш <kbd>COMMAND</kbd>+<kbd>SHIFT</kbd>+<kbd>V</kbd>.{% endif %}
 
 `This site was built using [GitHub Pages](https://pages.github.com/).`
 
-![Rendered link](/assets/images/help/writing/link-rendered.png)
+![Отрисованная ссылка](/assets/images/help/writing/link-rendered.png)
 
 {% tip %}
 
-**Tip:** {% data variables.product.product_name %} automatically creates links when valid URLs are written in a comment. For more information, see "[Autolinked references and URLs](/articles/autolinked-references-and-urls)."
+**Совет**. {% data variables.product.product_name %} автоматически создает ссылки при вводе допустимых URL-адресов в комментариях. Дополнительные сведения см. в разделе [Автоссылки и URL-адреса](/articles/autolinked-references-and-urls).
 
 {% endtip %}
 
-## Section links
+## Ссылки на разделы
 
 {% data reusables.repositories.section-links %}
 
-## Relative links
+## Относительные ссылки
 
 {% data reusables.repositories.relative-links %}
 
-## Images
+## Изображения
 
-You can display an image by adding <kbd>!</kbd> and wrapping the alt text in `[ ]`. Then wrap the link for the image in parentheses `()`.
+Вы можете включить изображение, добавив <kbd>!</kbd> и заключив замещающий текст в `[ ]`. Затем заключите ссылку на изображение в круглые скобки `()`.
 
 `![This is an image](https://myoctocat.com/assets/images/base-octocat.svg)`
 
-![Rendered Image](/assets/images/help/writing/image-rendered.png)
+![Отрисованное изображение](/assets/images/help/writing/image-rendered.png)
 
-{% data variables.product.product_name %} supports embedding images into your issues, pull requests{% ifversion fpt or ghec %}, discussions{% endif %}, comments  and `.md` files. You can display an image from your repository, add a link to an online image, or upload an image. For more information, see "[Uploading assets](#uploading-assets)."
+{% data variables.product.product_name %} поддерживает внедрение изображений в проблемы, запросы на вытягивание{% ifversion fpt or ghec %}, обсуждения{% endif %}, комментарии и файлы `.md`. Вы можете отобразить изображение из репозитория, добавить ссылку на изображение в Интернете или отправить изображение. Дополнительные сведения см. в разделе [Отправка ресурсов](#uploading-assets).
 
 {% tip %}
 
-**Tip:** When you want to display an image which is in your repository, you should use relative links instead of absolute links.
+**Совет**. Чтобы отобразить изображение из репозитория, используйте относительную ссылку, а не абсолютную.
 
 {% endtip %}
 
-Here are some examples for using relative links to display an image.
+Ниже приведены некоторые примеры использования относительных ссылок для отображения изображений.
 
-| Context | Relative Link |
+| Контекст | Относительная ссылка |
 | ------ | -------- |
-| In a `.md` file on the same branch | `/assets/images/electrocat.png` |
-| In a `.md` file on another branch | `/../main/assets/images/electrocat.png` |
-| In issues, pull requests and comments of the repository | `../blob/main/assets/images/electrocat.png?raw=true` |
-| In a `.md` file in another repository | `/../../../../github/docs/blob/main/assets/images/electrocat.png` |
-| In issues, pull requests and comments of another repository | `../../../github/docs/blob/main/assets/images/electrocat.png?raw=true` |
+| В файле `.md` в той же ветви | `/assets/images/electrocat.png` |
+| В файле `.md` в другой ветви | `/../main/assets/images/electrocat.png` |
+| В проблемах, запросах на вытягивание и комментариях репозитория | `../blob/main/assets/images/electrocat.png?raw=true` |
+| В файле `.md` в другом репозитории | `/../../../../github/docs/blob/main/assets/images/electrocat.png` |
+| В проблемах, запросах на вытягивание и комментариях другого репозитория | `../../../github/docs/blob/main/assets/images/electrocat.png?raw=true` |
 
 {% note %}
 
-**Note**: The last two relative links in the table above will work for images in a private repository only if the viewer has at least read access to the private repository which contains these images.
+**Примечание**. Последние две относительные ссылки в приведенной выше таблице будут работать для изображений в частном репозитории, только если у читателя есть по крайней мере доступ на чтение к частному репозиторию, содержащему эти изображения.
 
 {% endnote %}
 
-For more information, see "[Relative Links](#relative-links)."
+Дополнительные сведения см. в разделе [Относительные ссылки](#relative-links).
 
 {% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
-### Specifying the theme an image is shown to
+### Указание темы, в которой отображается изображение
 
-You can specify the theme an image is displayed for in Markdown by using the HTML `<picture>` element in combination with the `prefers-color-scheme` media feature. We distinguish between light and dark color modes, so there are two options available. You can use these options to display images optimized for dark or light backgrounds. This is particularly helpful for transparent PNG images.
+Вы можете указать тему, для которой отображается изображение, в Markdown с помощью HTML-элемента `<picture>` в сочетании с функцией мультимедиа `prefers-color-scheme`. Имеется два цветовых режима: светлый и темный, поэтому доступны два варианта. Эти варианты можно использовать для отображения изображений, оптимизированных для темных или светлых фонов. Особенно полезно это в случае с прозрачными изображениями в формате PNG.
 
-For example, the following code displays a sun image for light themes and a moon for dark themes:
+Например, с помощью следующего кода отображается изображение солнца для светлых тем и луны для темных тем:
 
 {% data reusables.getting-started.picture-element-example %}
 
-The old method of specifying images based on the theme, by using a fragment appended to the URL (`#gh-dark-mode-only` or `#gh-light-mode-only`), is deprecated and will be removed in favor of the new method described above.
+Старый метод указания изображений на основе темы с помощью фрагмента, добавленного к URL-адресу (`#gh-dark-mode-only` или `#gh-light-mode-only`), объявлен нерекомендуемым и будет заменен новым методом, который описан выше.
 {% endif %}
 
-## Lists
+## Списки
 
-You can make an unordered list by preceding one or more lines of text with <kbd>-</kbd>, <kbd>*</kbd>, or <kbd>+</kbd>.
+Вы можете создать неупорядоченный список, предваряя одну или несколько строк текста с <kbd>-</kbd>помощью , <kbd>*</kbd>или <kbd>+</kbd>.
 
 ```markdown
 - George Washington
@@ -194,9 +200,9 @@ You can make an unordered list by preceding one or more lines of text with <kbd>
 + Thomas Jefferson
 ```
 
-![Rendered unordered list](/assets/images/help/writing/unordered-list-rendered.png)
+![Отрисованный неупорядоченный список](/assets/images/help/writing/unordered-list-rendered.png)
 
-To order your list, precede each line with a number.
+Чтобы упорядочить список, поставьте перед каждой строкой номер.
 
 ```markdown
 1. James Madison
@@ -204,13 +210,13 @@ To order your list, precede each line with a number.
 3. John Quincy Adams
 ```
 
-![Rendered ordered list](/assets/images/help/writing/ordered-list-rendered.png)
+![Отрисованный упорядоченный список](/assets/images/help/writing/ordered-list-rendered.png)
 
-### Nested Lists
+### Вложенные списки
 
-You can create a nested list by indenting one or more list items below another item.
+Чтобы создать вложенный список, добавьте отступы для одного или нескольких элементов списка под другим элементом.
 
-To create a nested list using the web editor on {% data variables.product.product_name %} or a text editor that uses a monospaced font, like [{% data variables.product.prodname_vscode %}](https://code.visualstudio.com/), you can align your list visually. Type space characters in front of your nested list item, until the list marker character (<kbd>-</kbd> or <kbd>*</kbd>) lies directly below the first character of the text in the item above it.
+Чтобы создать вложенный список с помощью веб-редактора {% data variables.product.product_name %} или текстового редактора, использующего однопространствовый шрифт, например [{% data variables.product.prodname_vscode %}](https://code.visualstudio.com/), можно визуально выровнять список. Вводите пробелы перед элементом вложенного списка, пока символ маркера списка (<kbd>-</kbd> или <kbd>*</kbd>) не окажется непосредственно под первым символом текста в элементе над ним.
 
 ```markdown
 1. First list item
@@ -220,26 +226,26 @@ To create a nested list using the web editor on {% data variables.product.produc
 
 {% tip %}
 
-**Note**: In the web-based editor, you can indent or dedent one or more lines of text by first highlighting the desired lines and then using <kbd>Tab</kbd> or <kbd>Shift</kbd>+<kbd>Tab</kbd> respectively.
+**Примечание**. В веб-редакторе можно добавить или убрать отступы для одной или нескольких строк текста, сначала выделив нужные строки, а затем нажав клавиши <kbd>TAB</kbd> или <kbd>SHIFT</kbd>+<kbd>TAB</kbd> соответственно.
 
 {% endtip %}
 
-![Nested list with alignment highlighted](/assets/images/help/writing/nested-list-alignment.png)
+![Вложенный список с выделенным выравниванием](/assets/images/help/writing/nested-list-alignment.png)
 
-![List with two levels of nested items](/assets/images/help/writing/nested-list-example-1.png)
+![Список с двумя уровнями вложения элементов](/assets/images/help/writing/nested-list-example-1.png)
 
-To create a nested list in the comment editor on {% data variables.product.product_name %}, which doesn't use a monospaced font, you can look at the list item immediately above the nested list and count the number of characters that appear before the content of the item. Then type that number of space characters in front of the nested list item.
+Чтобы создать вложенный список в редакторе комментариев на {% data variables.product.product_name %}, в котором не используется моноширинный шрифт, можно подсчитать количество символов перед содержимым элемента списка непосредственно над вложенным списком. Затем введите такое же число пробелов перед элементом вложенного списка.
 
-In this example, you could add a nested list item under the list item `100. First list item` by indenting the nested list item a minimum of five spaces, since there are five characters (`100. `) before `First list item`.
+В этом примере можно добавить элемент вложенного списка под элементом `100. First list item` списка, отступив от начала строки не менее чем на пять пробелов, так как перед текстом `First list item` пять символов (`100. `).
 
 ```markdown
 100. First list item
      - First nested list item
 ```
 
-![List with a nested list item](/assets/images/help/writing/nested-list-example-3.png)   
+![Список с элементом вложенного списка](/assets/images/help/writing/nested-list-example-3.png)   
 
-You can create multiple levels of nested lists using the same method. For example, because the first nested list item has seven characters (`␣␣␣␣␣-␣`) before the nested list content `First nested list item`, you would need to indent the second nested list item by seven spaces.
+Таким же образом можно создавать несколько уровней вложения списков. Например, так как в элементе первого вложенного списка перед содержимым `First nested list item` семь символов (`␣␣␣␣␣-␣`), в строке элемента второго вложенного списка необходимо отступить от начала на семь пробелов.
 
 ```markdown
 100. First list item
@@ -247,86 +253,86 @@ You can create multiple levels of nested lists using the same method. For exampl
        - Second nested list item
 ```
 
-![List with two levels of nested items](/assets/images/help/writing/nested-list-example-2.png)    
+![Список с двумя уровнями вложения элементов](/assets/images/help/writing/nested-list-example-2.png)    
 
-For more examples, see the [GitHub Flavored Markdown Spec](https://github.github.com/gfm/#example-265).
+Дополнительные примеры см. в [спецификации GitHub Flavored Markdown](https://github.github.com/gfm/#example-265).
 
-## Task lists
+## Списки задач
 
 {% data reusables.repositories.task-list-markdown %}
 
-If a task list item description begins with a parenthesis, you'll need to escape it with <kbd>\\</kbd>:
+Если описание элемента списка задач начинается с круглой скобки, необходимо экранировать ее с помощью символа <kbd>\\</kbd>:
 
 `- [ ] \(Optional) Open a followup issue`
 
-For more information, see "[About task lists](/articles/about-task-lists)."
+Дополнительные сведения см. в разделе [Сведения о списках задач](/articles/about-task-lists).
 
-## Mentioning people and teams
+## Упоминание людей и команд
 
-You can mention a person or [team](/articles/setting-up-teams/) on {% data variables.product.product_name %} by typing <kbd>@</kbd> plus their username or team name. This will trigger a notification and bring their attention to the conversation. People will also receive a notification if you edit a comment to mention their username or team name. For more information about notifications, see "[About notifications](/github/managing-subscriptions-and-notifications-on-github/about-notifications)."
+Вы можете упомянуть пользователя или [команду](/articles/setting-up-teams/) на {% data variables.product.product_name %}, введя <kbd>@</kbd> перед их именем. Пользователь или команда получит уведомление, которое привлечет их внимание к беседе. Пользователи также получают уведомления, когда вы изменяете комментарий, упоминая имя пользователя или команды. Дополнительные сведения об уведомлениях см. в статье "[Сведения об уведомлениях](/github/managing-subscriptions-and-notifications-on-github/about-notifications)".
 
 {% note %}
 
-**Note:** A person will only be notified about a mention if the person has read access to the repository and, if the repository is owned by an organization, the person is a member of the organization.
+**Примечание.** Пользователь будет получать уведомления об упоминании, только если он имеет доступ на чтение к репозиторию и, если репозиторий принадлежит организации, пользователь является членом организации.
 
 {% endnote %}
 
 `@github/support What do you think about these updates?`
 
-![Rendered @mention](/assets/images/help/writing/mention-rendered.png)
+![Отрисованное @mention](/assets/images/help/writing/mention-rendered.png)
 
-When you mention a parent team, members of its child teams also receive notifications, simplifying communication with multiple groups of people. For more information, see "[About teams](/articles/about-teams)."
+Когда вы упоминаете родительскую команду, члены дочерних команд также получают уведомления, что упрощает взаимодействие с несколькими группами людей. Дополнительные сведения см. в статье "[Сведения о командах](/articles/about-teams)".
 
-Typing an <kbd>@</kbd> symbol will bring up a list of people or teams on a project. The list filters as you type, so once you find the name of the person or team you are looking for, you can use the arrow keys to select it and press either tab or enter to complete the name. For teams, enter the @organization/team-name and all members of that team will get subscribed to the conversation.
+При вводе символа <kbd>@</kbd> отображается список людей или команд, участвующих в проекте. Список фильтруется по мере ввода, поэтому после того, как вы найдете имя нужного человека или команды, можно выбрать его с помощью клавиш со стрелками и нажать клавишу TAB или ВВОД, чтобы завершить имя. Для команд введите @organization/team-name, и все члены этой команды будут подписаны на беседу.
 
-The autocomplete results are restricted to repository collaborators and any other participants on the thread.
+Результаты автозавершения ограничены участниками репозитория и любыми другими участниками беседы.
 
-## Referencing issues and pull requests
+## Ссылка на проблемы и запросы на вытягивание
 
-You can bring up a list of suggested issues and pull requests within the repository by typing <kbd>#</kbd>. Type the issue or pull request number or title to filter the list, and then press either tab or enter to complete the highlighted result.
+Вы можете получить список предлагаемых проблем и запросов на вытягивание в репозитории, введя <kbd>#</kbd>. Введите номер или заголовок проблемы либо запроса на вытягивание, чтобы отфильтровать список, а затем нажмите клавишу TAB или ВВОД, чтобы завершить выделенный результат.
 
-For more information, see "[Autolinked references and URLs](/articles/autolinked-references-and-urls)."
+Дополнительные сведения см. в разделе [Автоссылки и URL-адреса](/articles/autolinked-references-and-urls).
 
-## Referencing external resources
+## Ссылка на внешние ресурсы
 
 {% data reusables.repositories.autolink-references %}
 
 {% ifversion ghes < 3.4 %}
-## Content attachments
+## Вложения содержимого
 
-Some {% data variables.product.prodname_github_apps %} provide information in {% data variables.product.product_name %} for URLs that link to their registered domains. {% data variables.product.product_name %} renders the information provided by the app under the URL in the body or comment of an issue or pull request.
+Некоторые {% data variables.product.prodname_github_apps %} предоставляют сведения в {% data variables.product.product_name %} для URL-адресов, которые ссылаются на зарегистрированные домены. {% data variables.product.product_name %} отображает сведения, предоставленные приложением по URL-адресу, в тексте проблемы или запроса на вытягивание либо в комментарии к ним.
 
-![Content attachment](/assets/images/github-apps/content_reference_attachment.png)
+![Вложение содержимого](/assets/images/github-apps/content_reference_attachment.png)
 
-To see content attachments, you must have a {% data variables.product.prodname_github_app %} that uses the Content Attachments API installed on the repository.{% ifversion fpt or ghec %} For more information, see "[Installing an app in your personal account](/articles/installing-an-app-in-your-personal-account)" and "[Installing an app in your organization](/articles/installing-an-app-in-your-organization)."{% endif %}
+Для просмотра вложений содержимого требуется {% data variables.product.prodname_github_app %}, которое использует интерфейс API вложений содержимого, установленный в репозитории.{% ifversion fpt or ghec %} Дополнительные сведения см. в разделах [Установка приложения в личной учетной записи](/articles/installing-an-app-in-your-personal-account) и [Установка приложения в организации](/articles/installing-an-app-in-your-organization).{% endif %}
 
-Content attachments will not be displayed for URLs that are part of a markdown link.
+Вложения содержимого не отображаются для URL-адресов, входящих в ссылку Markdown.
 
-For more information about building a {% data variables.product.prodname_github_app %} that uses content attachments, see "[Using Content Attachments](/apps/using-content-attachments)."{% endif %}
+Дополнительные сведения о создании {% data variables.product.prodname_github_app %}, использующего вложения содержимого, см. в разделе [Использование вложений содержимого](/apps/using-content-attachments).{% endif %}
 
-## Uploading assets
+## Отправка ресурсов
 
-You can upload assets like images by dragging and dropping, selecting from a file browser, or pasting. You can upload assets to issues, pull requests, comments, and `.md` files in your repository.
+Вы можете отправлять такие ресурсы, как изображения, путем перетаскивания, выбора в обозревателе файлов или вставки. Вы можете отправлять ресурсы в проблемы, запросы на вытягивание, комментарии и файлы `.md` в репозитории.
 
-## Using emoji
+## Использование эмодзи
 
-You can add emoji to your writing by typing `:EMOJICODE:`.
+Вы можете добавить эмодзи в текст, введя `:EMOJICODE:`.
 
 `@octocat :+1: This PR looks great - it's ready to merge! :shipit:`
 
-![Rendered emoji](/assets/images/help/writing/emoji-rendered.png)
+![Отрисованный эмодзи](/assets/images/help/writing/emoji-rendered.png)
 
-Typing <kbd>:</kbd> will bring up a list of suggested emoji. The list will filter as you type, so once you find the emoji you're looking for, press **Tab** or **Enter** to complete the highlighted result.
+При вводе <kbd>:</kbd> отображается список предлагаемых эмодзи. Список фильтруется по мере ввода, поэтому после того, как вы найдете нужный эмодзи, нажмите клавишу **TAB** или **ВВОД**, чтобы завершить выделенный результат.
 
-For a full list of available emoji and codes, check out [the Emoji-Cheat-Sheet](https://github.com/ikatyang/emoji-cheat-sheet/blob/master/README.md).
+Полный список доступных эмодзи и их кодов см. в [этой памятке](https://github.com/ikatyang/emoji-cheat-sheet/blob/master/README.md).
 
-## Paragraphs
+## Абзацы
 
-You can create a new paragraph by leaving a blank line between lines of text.
+Чтобы создать абзац, оставьте пустую строку между строками текста.
 
-## Footnotes
+## Примечания
 
-You can add footnotes to your content by using this bracket syntax:
+Вы можете добавлять в содержимое сноски с помощью квадратных скобок, используя следующий синтаксис:
 
 ```
 Here is a simple footnote[^1].
@@ -343,43 +349,43 @@ You can also use words, to fit your writing style more closely[^note].
     This footnote also has been made with a different syntax using 4 spaces for new lines.
 ```
 
-The footnote will render like this:
+Сноски отрисовываются следующим образом:
 
-![Rendered footnote](/assets/images/site/rendered-footnote.png)
+![Отрисованная сноска](/assets/images/site/rendered-footnote.png)
 
 {% tip %}
 
-**Note**: The position of a footnote in your Markdown does not influence where the footnote will be rendered. You can write a footnote right after your reference to the footnote, and the footnote will still render at the bottom of the Markdown.
+**Примечание**. Позиция сноски в Markdown не влияет на то, где сноска будет отрисовываться. Вы можете написать текст сноски сразу после ссылки на нее, и сноска по-прежнему будет отображаться в нижней части документа Markdown.
 
-Footnotes are not supported in wikis.
+Сноски на вики-сайтах не поддерживаются.
 
 {% endtip %}
 
-## Hiding content with comments
+## Скрытие содержимого с помощью комментариев
 
-You can tell {% data variables.product.product_name %} to hide content from the rendered Markdown by placing the content in an HTML comment.
+Вы можете сообщить {% data variables.product.product_name %}, что необходимо скрыть содержимое в отрисованном файле Markdown, поместив это содержимое в комментарий HTML.
 
 <pre>
 &lt;!-- This content will not appear in the rendered Markdown --&gt;
 </pre>
 
-## Ignoring Markdown formatting
+## Игнорирование форматирования Markdown
 
-You can tell {% data variables.product.product_name %} to ignore (or escape) Markdown formatting by using <kbd>\\</kbd> before the Markdown character.
+Вы можете сообщить {% data variables.product.product_name %}, что необходимо игнорировать (или экранировать) форматирование Markdown, используя символ <kbd>\\</kbd> перед символом Markdown.
 
 `Let's rename \*our-new-project\* to \*our-old-project\*.`
 
-![Rendered escaped character](/assets/images/help/writing/escaped-character-rendered.png)
+![Отрисованный экранированный символ](/assets/images/help/writing/escaped-character-rendered.png)
 
-For more information, see Daring Fireball's "[Markdown Syntax](https://daringfireball.net/projects/markdown/syntax#backslash)."
+Дополнительные сведения см. в статье [Синтаксис Markdown](https://daringfireball.net/projects/markdown/syntax#backslash) на сайте Daring Fireball.
 
-## Disabling Markdown rendering
+## Отключение отрисовки Markdown
 
 {% data reusables.repositories.disabling-markdown-rendering %}
 
-## Further reading
+## Дополнительные материалы
 
-- [{% data variables.product.prodname_dotcom %} Flavored Markdown Spec](https://github.github.com/gfm/)
-- "[About writing and formatting on GitHub](/articles/about-writing-and-formatting-on-github)"
-- "[Working with advanced formatting](/articles/working-with-advanced-formatting)"
-- "[Quickstart for writing on {% data variables.product.prodname_dotcom %}](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/quickstart-for-writing-on-github)"
+- [Спецификация {% data variables.product.prodname_dotcom %} Flavored Markdown](https://github.github.com/gfm/)
+- [Сведения о написании и форматировании текста на GitHub](/articles/about-writing-and-formatting-on-github)
+- [Работа с расширенным форматированием](/articles/working-with-advanced-formatting)
+- "[Краткое руководство по записи в {% data variables.product.prodname_dotcom %}](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/quickstart-for-writing-on-github)"

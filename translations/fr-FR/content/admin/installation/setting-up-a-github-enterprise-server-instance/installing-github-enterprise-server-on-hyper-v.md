@@ -1,6 +1,6 @@
 ---
-title: Installing GitHub Enterprise Server on Hyper-V
-intro: 'To install {% data variables.product.prodname_ghe_server %} on Hyper-V, you must deploy onto a machine running Windows Server 2008 through Windows Server 2019.'
+title: "Installation de GitHub Enterprise\_Server sur Hyper-V"
+intro: "Pour installer {% data variables.product.prodname_ghe_server %} sur Hyper-V, vous devez le déployer sur un ordinateur exécutant Windows Server (de la version\_2008 à la version 2019)."
 redirect_from:
   - /enterprise/admin/guides/installation/installing-github-enterprise-on-hyper-v
   - /enterprise/admin/installation/installing-github-enterprise-server-on-hyper-v
@@ -14,59 +14,61 @@ topics:
   - Infrastructure
   - Set up
 shortTitle: Install on Hyper-V
+ms.openlocfilehash: f5b465edc4ff84be00e2749766091cc5cfb1962a
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145106730'
 ---
-## Prerequisites
+## Prérequis
 
 - {% data reusables.enterprise_installation.software-license %}
-- You must have Windows Server 2008 through Windows Server 2019, which support Hyper-V.
-- Most actions needed to create your virtual machine (VM) may also be performed using the [Hyper-V Manager](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/remotely-manage-hyper-v-hosts). However, we recommend using the Windows PowerShell command-line shell for initial setup. Examples using PowerShell are included below. For more information, see the Microsoft guide "[Getting Started with Windows PowerShell](https://docs.microsoft.com/powershell/scripting/getting-started/getting-started-with-windows-powershell?view=powershell-5.1)."
+- Vous devez avoir Windows Server (versions 2008 à 2019) avec prise en charge d’Hyper-V.
+- La plupart des actions nécessaires pour créer votre machine virtuelle peuvent également être effectuées à l’aide du [Gestionnaire Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/remotely-manage-hyper-v-hosts). Toutefois, nous vous recommandons d’utiliser l’interpréteur de ligne de commande Windows PowerShell pour la configuration initiale. Vous trouverez ci-après des exemples avec PowerShell. Pour plus d’informations, consultez le guide Microsoft « [Prise en main de Windows PowerShell](https://docs.microsoft.com/powershell/scripting/getting-started/getting-started-with-windows-powershell?view=powershell-5.1) ».
 
-## Hardware considerations
+## Considérations matérielles
 
 {% data reusables.enterprise_installation.hardware-considerations-all-platforms %}
 
-## Downloading the {% data variables.product.prodname_ghe_server %} image
+## Téléchargement de l’image de {% data variables.product.prodname_ghe_server %}
 
-{% data reusables.enterprise_installation.download-license %}
-{% data reusables.enterprise_installation.download-appliance %}
-4. Under "{% data variables.product.prodname_dotcom %} On-premises", select the "Select your hypervisor" dropdown menu and click **Hyper-V (VHD)**.
-5. Click **Download for Hyper-V (VHD)**.
+{% data reusables.enterprise_installation.download-license %} {% data reusables.enterprise_installation.download-appliance %}
+4. Sous « {% data variables.product.prodname_dotcom %} local », sélectionnez le menu déroulant « Sélectionnez votre hyperviseur », puis cliquez sur **Hyper-V (VHD)** .
+5. Cliquez sur **Télécharger pour Hyper-V (VHD)** .
 
-## Creating the {% data variables.product.prodname_ghe_server %} instance
+## Création de l’instance {% data variables.product.prodname_ghe_server %}
 
 {% data reusables.enterprise_installation.create-ghe-instance %}
 
-1. In PowerShell, create a new Generation 1 virtual machine, configure the size based on your user license count, and attach the {% data variables.product.prodname_ghe_server %} image you downloaded. For more information, see "[New-VM](https://docs.microsoft.com/powershell/module/hyper-v/new-vm?view=win10-ps)" in the Microsoft documentation.
+1. Dans PowerShell, créez une machine virtuelle de génération 1, configurez la taille en fonction du nombre de licences utilisateur et attachez l’image de {% data variables.product.prodname_ghe_server %} que vous avez téléchargée. Pour plus d’informations, consultez « [New-VM](https://docs.microsoft.com/powershell/module/hyper-v/new-vm?view=win10-ps) » dans la documentation Microsoft.
   ```shell
-  PS C:\> New-VM -Generation 1 -Name VM_NAME -MemoryStartupBytes MEMORY_SIZE -BootDevice VHD -VHDPath PATH_TO_VHD  
+  PS C:\> New-VM -Generation 1 -Name <em>VM_NAME</em> -MemoryStartupBytes <em>MEMORY_SIZE</em> -BootDevice VHD -VHDPath <em>PATH_TO_VHD</em>  
   ```
-{% data reusables.enterprise_installation.create-attached-storage-volume %} Replace `PATH_TO_DATA_DISK` with the path to the location where you create the disk. For more information, see "[New-VHD](https://docs.microsoft.com/powershell/module/hyper-v/new-vhd?view=win10-ps)" in the Microsoft documentation.
+{% data reusables.enterprise_installation.create-attached-storage-volume %} Remplacez `PATH_TO_DATA_DISK` par l’emplacement de création du disque. Pour plus d’informations, consultez « [New-VHD](https://docs.microsoft.com/powershell/module/hyper-v/new-vhd?view=win10-ps) » dans la documentation Microsoft.
   ```shell
-  PS C:\> New-VHD -Path PATH_TO_DATA_DISK -SizeBytes DISK_SIZE
+  PS C:\> New-VHD -Path <em>PATH_TO_DATA_DISK</em> -SizeBytes <em>DISK_SIZE</em>
   ```
-3. Attach the data disk to your instance. For more information, see "[Add-VMHardDiskDrive](https://docs.microsoft.com/powershell/module/hyper-v/add-vmharddiskdrive?view=win10-ps)" in the Microsoft documentation.
+3. Attachez le disque de données à votre instance. Pour plus d’informations, consultez « [Add-VMHardDiskDrive](https://docs.microsoft.com/powershell/module/hyper-v/add-vmharddiskdrive?view=win10-ps) » dans la documentation Microsoft.
   ```shell
-  PS C:\> Add-VMHardDiskDrive -VMName VM_NAME -Path PATH_TO_DATA_DISK
+  PS C:\> Add-VMHardDiskDrive -VMName <em>VM_NAME</em> -Path <em>PATH_TO_DATA_DISK</em>
   ```
-4. Start the VM. For more information, see "[Start-VM](https://docs.microsoft.com/powershell/module/hyper-v/start-vm?view=win10-ps)" in the Microsoft documentation.
+4. Démarrez la machine virtuelle. Pour plus d’informations, consultez « [Start-VM](https://docs.microsoft.com/powershell/module/hyper-v/start-vm?view=win10-ps) » dans la documentation Microsoft.
   ```shell
-  PS C:\> Start-VM -Name VM_NAME
+  PS C:\> Start-VM -Name <em>VM_NAME</em>
   ```
-5. Get the IP address of your VM. For more information, see "[Get-VMNetworkAdapter](https://docs.microsoft.com/powershell/module/hyper-v/get-vmnetworkadapter?view=win10-ps)" in the Microsoft documentation.
+5. Récupérez l’adresse IP de votre machine virtuelle. Pour plus d’informations, consultez « [Get-VMNetworkAdapter](https://docs.microsoft.com/powershell/module/hyper-v/get-vmnetworkadapter?view=win10-ps) » dans la documentation Microsoft.
   ```shell
-  PS C:\> (Get-VMNetworkAdapter -VMName VM_NAME).IpAddresses
+  PS C:\> (Get-VMNetworkAdapter -VMName <em>VM_NAME</em>).IpAddresses
   ```
-6. Copy the VM's IP address and paste it into a web browser.
+6. Copiez l’adresse IP de la machine virtuelle et collez-la dans un navigateur web.
 
-## Configuring the {% data variables.product.prodname_ghe_server %} instance
+## Configuration de l’instance {% data variables.product.prodname_ghe_server %}
 
-{% data reusables.enterprise_installation.copy-the-vm-public-dns-name %}
-{% data reusables.enterprise_installation.upload-a-license-file %}
-{% data reusables.enterprise_installation.save-settings-in-web-based-mgmt-console %} For more information, see "[Configuring the {% data variables.product.prodname_ghe_server %} appliance](/enterprise/admin/guides/installation/configuring-the-github-enterprise-server-appliance)."
-{% data reusables.enterprise_installation.instance-will-restart-automatically %}
-{% data reusables.enterprise_installation.visit-your-instance %}
+{% data reusables.enterprise_installation.copy-the-vm-public-dns-name %} {% data reusables.enterprise_installation.upload-a-license-file %} {% data reusables.enterprise_installation.save-settings-in-web-based-mgmt-console %} Pour plus d’informations, consultez « [Configuration de l’appliance {% data variables.product.prodname_ghe_server %}](/enterprise/admin/guides/installation/configuring-the-github-enterprise-server-appliance) ».
+{% data reusables.enterprise_installation.instance-will-restart-automatically %} {% data reusables.enterprise_installation.visit-your-instance %}
 
-## Further reading
+## Pour aller plus loin
 
-- "[System overview](/enterprise/admin/guides/installation/system-overview)"{% ifversion ghes %}
-- "[About upgrades to new releases](/admin/overview/about-upgrades-to-new-releases)"{% endif %}
+- « [Vue d’ensemble du système](/enterprise/admin/guides/installation/system-overview) »{% ifversion ghes %}
+- « [À propos des mises à niveau vers de nouvelles mises en production](/admin/overview/about-upgrades-to-new-releases) »{% endif %}

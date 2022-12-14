@@ -1,73 +1,78 @@
 ---
-title: Changing a commit message
+title: Изменение сообщения о фиксации
 redirect_from:
   - /articles/can-i-delete-a-commit-message
   - /articles/changing-a-commit-message
   - /github/committing-changes-to-your-project/changing-a-commit-message
   - /github/committing-changes-to-your-project/creating-and-editing-commits/changing-a-commit-message
-intro: 'If a commit message contains unclear, incorrect, or sensitive information, you can amend it locally and push a new commit with a new message to {% data variables.product.product_name %}. You can also change a commit message to add missing information.'
+intro: 'Если сообщение о фиксации содержит нечеткую, неправильную или конфиденциальную информацию, вы можете изменить ее локально и отправить новую фиксацию с новым сообщением в {% data variables.product.product_name %}. Вы также можете изменить сообщение о фиксации, чтобы добавить недостающие сведения.'
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
   ghec: '*'
+ms.openlocfilehash: 70cd5386c6594081950364efe09969f97a153d43
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148094708'
 ---
-## Rewriting the most recent commit message
+## Изменение последнего сообщения о фиксации
 
-You can change the most recent commit message using the `git commit --amend` command.
+Последнее сообщение о фиксации можно изменить с помощью команды `git commit --amend`.
 
-In Git, the text of the commit message is part of the commit. Changing the commit message will change the commit ID--i.e., the SHA1 checksum that names the commit. Effectively, you are creating a new commit that replaces the old one.
+В GIT текст сообщения о фиксации является частью фиксации. Изменение сообщения о фиксации приведет к изменению идентификатора фиксации, т. е. контрольной суммы SHA1, служащей именем фиксации. Фактически создается новая фиксация вместо старой.
 
-## Commit has not been pushed online
+## Фиксация не отправлена на сайт
 
-If the commit only exists in your local repository and has not been pushed to {% data variables.location.product_location %}, you can amend the commit message with the `git commit --amend` command.
+Если фиксация существует только в локальном репозитории и не была отправлена в {% данных variables.location.product_location %}, можно изменить сообщение фиксации `git commit --amend` с помощью команды.
 
-1. On the command line, navigate to the repository that contains the commit you want to amend.
-2. Type `git commit --amend` and press **Enter**.
-3. In your text editor, edit the commit message, and save the commit.
-    - You can add a co-author by adding a trailer to the commit. For more information, see "[Creating a commit with multiple authors](/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/creating-a-commit-with-multiple-authors)."
+1. В командной строке перейдите к репозиторию, содержащему фиксацию, которую нужно изменить.
+2. Введите `git commit --amend` и нажмите клавишу **ВВОД**.
+3. В текстовом редакторе измените сообщение о фиксации и сохраните фиксацию.
+    - Вы можете добавить соавтора, добавив к фиксации заключительную часть. Дополнительные сведения см. в разделе [Создание фиксации с несколькими авторами](/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/creating-a-commit-with-multiple-authors).
 {% ifversion fpt or ghec %}
-    - You can create commits on behalf of your organization by adding a trailer to the commit. For more information, see "[Creating a commit on behalf of an organization](/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/creating-a-commit-on-behalf-of-an-organization)"
-{% endif %}
+    - Вы можете создавать фиксации от имени организации, добавляя к фиксации заключительную часть. Дополнительные сведения см. в разделе [Создание фиксации от имени организации](/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/creating-a-commit-on-behalf-of-an-organization). {% endif %}
 
-The new commit and message will appear on {% data variables.location.product_location %} the next time you push.
+Новая фиксация и сообщение появятся в {% данных variables.location.product_location %} при следующей отправке.
 
 {% tip %}
 
-You can change the default text editor for Git by changing the `core.editor` setting. For more information, see "[Basic Client Configuration](https://git-scm.com/book/en/Customizing-Git-Git-Configuration#_basic_client_configuration)" in the Git manual.
+Вы можете изменить текстовый редактор по умолчанию для GIT с помощью параметра `core.editor`. Дополнительные сведения см. в разделе [Базовая настройка клиента](https://git-scm.com/book/en/Customizing-Git-Git-Configuration#_basic_client_configuration) в руководстве по GIT.
 
 {% endtip %}
 
-## Amending older or multiple commit messages
+## Изменение более старых или нескольких сообщений о фиксациях
 
-If you have already pushed the commit to {% data variables.location.product_location %}, you will have to force push a commit with an amended message.
+Если вы уже перенаправили фиксацию в {% данных variables.location.product_location %}, вам придется принудительно отправить фиксацию с измененным сообщением.
 
 {% warning %}
 
-We strongly discourage force pushing, since this changes the history of your repository. If you force push, people who have already cloned your repository will have to manually fix their local history. For more information, see "[Recovering from upstream rebase](https://git-scm.com/docs/git-rebase#_recovering_from_upstream_rebase)" in the Git manual.
+Мы настоятельно не рекомендуем выполнять принудительную отправку, так как это изменяет журнал репозитория. При принудительной отправке пользователям, которые уже клонировали репозиторий, придется вручную исправить свой локальный журнал. Дополнительные сведения см. в разделе [Восстановление после вышестоящего перемещения изменения из одной ветви в другую](https://git-scm.com/docs/git-rebase#_recovering_from_upstream_rebase) в руководстве по GIT.
 
 {% endwarning %}
 
-**Changing the message of the most recently pushed commit**
+**Изменение сообщения для последней отправленной фиксации**
 
-1. Follow the [steps above](/articles/changing-a-commit-message#commit-has-not-been-pushed-online) to amend the commit message.
-2. Use the `push --force-with-lease` command to force push over the old commit.
+1. Выполните [описанные выше действия](/articles/changing-a-commit-message#commit-has-not-been-pushed-online), чтобы изменить сообщение о фиксации.
+2. Используйте команду `push --force-with-lease`, чтобы принудительно отправить фиксацию вместо старой.
   ```shell
   $ git push --force-with-lease origin EXAMPLE-BRANCH
   ```
 
-**Changing the message of older or multiple commit messages**
+**Изменение сообщения для старой фиксации или нескольких фиксаций**
 
-If you need to amend the message for multiple commits or an older commit, you can use interactive rebase, then force push to change the commit history.
+Если необходимо изменить сообщение для нескольких фиксаций или более старой фиксации, можно использовать интерактивное перемещение изменения из одной ветви в другую, а затем выполнить принудительную отправку, чтобы изменить журнал фиксаций.
 
-1. On the command line, navigate to the repository that contains the commit you want to amend.
-2. Use the `git rebase -i HEAD~n` command to display a list of the last `n` commits in your default text editor.
+1. В командной строке перейдите к репозиторию, содержащему фиксацию, которую нужно изменить.
+2. Используйте команду `git rebase -i HEAD~n`, чтобы отобразить список `n` последних фиксаций в текстовом редакторе по умолчанию.
 
     ```shell
     # Displays a list of the last 3 commits on the current branch
     $ git rebase -i HEAD~3
     ```
-    The list will look similar to the following:
+    Список будет выглядеть примерно так:
 
     ```shell
     pick e499d89 Delete CNAME
@@ -92,33 +97,33 @@ If you need to amend the message for multiple commits or an older commit, you ca
     #
     # Note that empty commits are commented out
     ```
-3. Replace `pick` with `reword` before each commit message you want to change.
+3. Замените `pick` на `reword` перед каждым сообщением о фиксации, которое нужно изменить.
   ```shell
   pick e499d89 Delete CNAME
   reword 0c39034 Better README
   reword f7fde4a Change the commit message but push the same commit.
   ```
-4. Save and close the commit list file.
-5. In each resulting commit file, type the new commit message, save the file, and close it.
-6. When you're ready to push your changes to GitHub, use the push --force command to force push over the old commit.
+4. Сохраните и закройте файл со списком фиксаций.
+5. В каждом полученном файле фиксации введите новое сообщение о фиксации, сохраните файл и закройте его.
+6. Когда вы будете готовы отправить изменения в GitHub, используйте команду push --force, чтобы принудительно отправить старую фиксацию.
 ```shell
 $ git push --force origin EXAMPLE-BRANCH
 ```
 
-For more information on interactive rebase, see "[Interactive mode](https://git-scm.com/docs/git-rebase#_interactive_mode)" in the Git manual.
+Дополнительные сведения об интерактивном перемещении изменения из одной ветви в другую см. в разделе [Интерактивный режим](https://git-scm.com/docs/git-rebase#_interactive_mode) в руководстве по GIT.
 
 {% tip %}
 
-As before, amending the commit message will result in a new commit with a new ID. However, in this case, every commit that follows the amended commit will also get a new ID because each commit also contains the id of its parent.
+Как и ранее, изменение сообщения о фиксации приведет к созданию новой фиксации с новым идентификатором. Однако в данном случае каждая фиксация после измененной также получит новый идентификатор, так как она содержит идентификатор родительской фиксации.
 
 {% endtip %}
 
 {% warning %}
 
-If you have included sensitive information in a commit message, force pushing a commit with an amended commit may not remove the original commit from {% data variables.product.product_name %}. The old commit will not be a part of a subsequent clone; however, it may still be cached on {% data variables.product.product_name %} and accessible via the commit ID. You must contact {% data variables.contact.contact_support %} with the old commit ID to have it purged from the remote repository.
+Если в сообщение о фиксации включены конфиденциальные сведения, при принудительной отправке измененной фиксации исходная фиксация может остаться на {% data variables.product.product_name %}. Старая фиксация не будет включаться в последующие клоны; однако она по-прежнему может быть кэширована на {% data variables.product.product_name %} и доступна по идентификатору фиксации. Чтобы удалить старую фиксацию из удаленного репозитория, необходимо обратиться в {% data variables.contact.contact_support %} и сообщить ее идентификатор.
 
 {% endwarning %}
 
-## Further reading
+## Дополнительные материалы
 
-* "[Signing commits](/articles/signing-commits)"
+* [Подписывание фиксаций](/articles/signing-commits)

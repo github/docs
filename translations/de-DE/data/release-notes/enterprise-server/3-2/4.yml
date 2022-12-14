@@ -1,0 +1,30 @@
+date: '2021-11-23'
+intro: "Downloads wurden aufgrund eines schwerwiegenden Fehlers deaktiviert, der mehrere Kunden betroffen hat. Ein Fix wird im nächsten Patch verfügbar sein."
+sections:
+  security_fixes:
+    - Die Pakete wurden auf die neuesten Sicherheitsversionen aktualisiert.
+  bugs:
+    - "Das Ausführen von `ghe-repl-start` oder `ghe-repl-status` gibt manchmal Fehler in Verbindung mit der Datenbank zurück, wenn GitHub Actions aktiviert war."
+    - "Bei Pre-Receive-Hooks treten Fehler auf, da `PATH` nicht definiert ist."
+    - 'Das Ausführen von `ghe-repl-setup` gibt den Fehler `Verzeichnis kann nicht erstellt werden /data/user/elasticsearch: Datei ist vorhanden` zurück, wenn die Instanz zuvor als Replikat konfiguriert wurde.'
+    - 'Die Ausführung von `ghe-support-bundle` gab einen Fehler zurück: `Ganzzahliger Ausdruck erwartet`.'
+    - 'Nach dem Einrichten eines Hochverfügbarkeitsreplikats, enthielt `ghe-repl-status` in der Ausgabe den Fehler `Unerwartete nicht geschlossene Aktion im Befehl`.'
+    - In großen Clusterumgebungen könnte das Authentifizierungs-Back-End auf einem Teil der Front-End-Knoten nicht verfügbar sein.
+    - Einige wichtige Dienste könnten auf Back-End-Knoten im GHES-Cluster nicht verfügbar gewesen sein.
+    - Die von der API `/repos` zurückgegebenen Repositoryberechtigungen für den Benutzer umfassen nicht die vollständige Liste.
+    - "Die `childTeams'-Verbindung auf dem `Team`-Objekt im GraphQL-Schema erzeugte unter bestimmten Umständen falsche Ergebnisse."
+    - "In einer Hochverfügbarkeitskonfiguration wurde die Repositorywartung in stafftools auch dann als fehlerhaft angezeigt, wenn sie erfolgreich war."
+    - Benutzerdefinierte Muster erkannten keine Geheimnisse in Dateien wie `package.json` oder `yarn.lock`.
+  changes:
+    - Eine zusätzliche äußere Schicht der `gzip`-Komprimierung beim Erstellen eines Clustersupportbundles mithilfe von `ghe-cluster-suport-bundle` ist jetzt standardmäßig deaktiviert. Diese äußere Komprimierung kann optional mithilfe der Befehlszeilenoption `ghe-cluster-suport-bundle -c` angewendet werden.
+    - "Der Verwaltungskonsole wurde zusätzlicher Text hinzugefügt, um Benutzer an die Datensammlung der mobilen Apps zu Verbesserungszwecken zu erinnern."
+    - "Der Datenverbindungsdatensatz von {% data variables.product.prodname_github_connect %} enthält jetzt eine Liste aktivierter {% data variables.product.prodname_github_connect %}-Features. [Aktualisiert am 09.12.2021]"
+  known_issues:
+    - "Auf einer neu eingerichteten {% data variables.product.prodname_ghe_server %}-Instanz ohne Benutzer könnte ein Angreifer den ersten Administratorbenutzer erstellen."
+    - Benutzerdefinierte Firewallregeln werden während des Upgrades entfernt.
+    - "Nachverfolgte Git-LFS-Dateien, [die über die Webbenutzeroberfläche hochgeladen wurden](https://github.com/blog/2105-upload-files-to-your-repositories), werden dem Repository fälschlicherweise direkt hinzugefügt."
+    - "Issues können nicht geschlossen werden, wenn sie einen Permalink zu einem Blob im selben Repository enthalten und der Dateipfad des Blobs mehr als 255 Zeichen lang ist."
+    - "Wenn die Option zum Durchsuchen von GitHub.com mit GitHub Connect aktiviert wird, sind Issues in privaten und internen Repositorys nicht in den GitHub.com-Suchergebnissen enthalten."
+    - "Die {% data variables.product.prodname_registry %}-npm-Registrierung gibt in Metadatenantworten keinen Zeitwert mehr zurück. So sind erhebliche Leistungssteigerungen möglich. Die erforderlichen Daten zum Zurückgeben eines Zeitwerts in einer Metadatenantwort sind weiterhin verfügbar, und dieser Wert wird in Zukunft wieder zurückgegeben, sobald die vorhandenen Leistungsprobleme behoben wurden."
+    - "Ressourcenbegrenzungen, die nur beim Verarbeiten von Pre-Receive-Hooks auftreten, können bei manchen Pre-Receive-Hooks Fehler auslösen."
+    - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'

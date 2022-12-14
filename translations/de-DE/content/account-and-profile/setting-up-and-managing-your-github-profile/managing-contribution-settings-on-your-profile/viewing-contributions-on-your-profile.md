@@ -1,6 +1,6 @@
 ---
-title: Viewing contributions on your profile
-intro: 'Your {% data variables.product.product_name %} profile shows off {% ifversion fpt or ghes or ghec %}your pinned repositories, Achievements, and{% endif %} a graph of your repository contributions over the past year.'
+title: Anzeigen von Beiträge auf deinem Profil
+intro: 'Dein {% data variables.product.product_name %}-Profil zeigt {% ifversion fpt or ghes or ghec %}deine angehefteten Repositorys, Erfolge und{% endif %} ein Diagramm deiner Repositorybeiträge im vergangenen Jahr.'
 redirect_from:
   - /articles/viewing-contributions
   - /articles/viewing-contributions-on-your-profile-page
@@ -15,83 +15,89 @@ versions:
 topics:
   - Profiles
 shortTitle: View contributions
+ms.openlocfilehash: 81b2242e0c7a07d8941375d044cacc65ca8dd56d
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147079919'
 ---
-{% ifversion fpt or ghes or ghec %}Your contribution graph and Achievements show activity from public repositories. {% endif %}You can choose to show activity from {% ifversion fpt or ghes or ghec %}both public and {% endif %}private repositories, with specific details of your activity in private repositories anonymized. For more information, see "[Publicizing or hiding your private contributions on your profile](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile)."
+{% ifversion fpt or ghes or ghec %}Dein Beitragsdiagramm und deine Erfolge bilden die Aktivität in öffentlichen Repositorys ab. {% endif %}Du kannst die Aktivität sowohl über {% ifversion fpt or ghes or ghec %}öffentliche als auch {% endif %}private Repositorys mit bestimmten Details deiner Aktivität in anonymisierten privaten Repositorys anzeigen. Weitere Informationen findest du unter [Veröffentlichen oder Ausblenden deiner privaten Beiträge in deinem Profil](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile).
 
 {% note %}
 
-**Note:** Commits will only appear on your contributions graph if the email address you used to author the commits is connected to your account on {% data variables.product.product_name %}. For more information, see "[Why are my contributions not showing up on my profile?](/articles/why-are-my-contributions-not-showing-up-on-my-profile#your-local-git-commit-email-isnt-connected-to-your-account)"
+**Hinweis:** Commits werden nur in deinem Beitragsdiagramm angezeigt, wenn die E-Mail-Adresse, die du zum Erstellen der Commits verwendet hast, mit deinem Konto auf {% data variables.product.product_name %} verbunden ist. Weitere Informationen findest du unter [Warum werden meine Beiträge nicht auf meinem Profil angezeigt?](/articles/why-are-my-contributions-not-showing-up-on-my-profile#your-local-git-commit-email-isnt-connected-to-your-account)
 
 {% endnote %}
 
-## What counts as a contribution
+## Was zählt als ein Beitrag?
 
-On your profile page, certain actions count as contributions:
+Bestimmte Aktionen zählen auf deiner Profilseite als Beiträge:
 
-- Committing to a repository's default branch or `gh-pages` branch
-- Opening an issue
-- Opening a discussion
-- Answering a discussion
-- Proposing a pull request
-- Submitting a pull request review{% ifversion ghes or ghae %}
-- Co-authoring commits in a repository's default branch or `gh-pages` branch{% endif %}
+- Durchführen von Commits für den Standardbranch oder den `gh-pages`-Branch eines Repositorys
+- Öffnen eines Issues
+- Öffnen einer Diskussion
+- Beantworten einer Diskussion
+- das Vorschlagen eines Pull Requests
+- Übermitteln einer Pull Request-Überprüfung{% ifversion ghes or ghae %}
+- Gemeinsame Dokumenterstellung im Standardbranch oder dem `gh-pages`-Branch des Repositorys{% endif %}
 
 {% data reusables.pull_requests.pull_request_merges_and_contributions %}
 
-## Popular repositories
+## Beliebte Repositorys
 
-This section displays your repositories with the most watchers. {% ifversion fpt or ghes or ghec %}Once you [pin repositories to your profile](/articles/pinning-repositories-to-your-profile), this section will change to "Pinned repositories."{% endif %}
+Dieser Abschnitt zeigt deine Repositorys mit den meisten Beobachtern (Watcher) an. {% ifversion fpt or ghes or ghec %}Sobald du [Repositorys an dein Profil anheftest](/articles/pinning-repositories-to-your-profile), ändert sich dieser Abschnitt in „Angeheftete Repositorys“.{% endif %}
 
-![Popular repositories](/assets/images/help/profile/profile_popular_repositories.png)
+![Beliebte Repositorys](/assets/images/help/profile/profile_popular_repositories.png)
 
 {% ifversion fpt or ghes or ghec %}
 
-## Pinned repositories
+## Angeheftete Repositorys
 
-This section displays up to six public repositories and can include your repositories as well as repositories you've contributed to. To easily see important details about the repositories you've chosen to feature, each repository in this section includes a summary of the work being done, the number of [stars](/articles/saving-repositories-with-stars/) the repository has received, and the main programming language used in the repository. For more information, see "[Pinning repositories to your profile](/articles/pinning-repositories-to-your-profile)."
+Dieser Abschnitt zeigt bis zu sechs öffentliche Repositorys an und kann sowohl deine Repositorys als auch die Repositorys enthalten, an denen du Dich beteiligt hast. Damit du ohne Weiteres Details zu den ausgewählten Repositorys anzeigen kannst, enthält jedes Repository in diesem Abschnitt eine Zusammenfassung der zu erledigenden Arbeit, die Anzahl der [Sterne](/articles/saving-repositories-with-stars/), die das Repository erhalten hat, sowie die Hauptprogrammiersprache, die im Repository verwendet wird. Weitere Informationen findest du unter [Anheften von Repositorys an dein Profil](/articles/pinning-repositories-to-your-profile).
 
-![Pinned repositories](/assets/images/help/profile/profile_pinned_repositories.png)
+![Angeheftete Repositorys](/assets/images/help/profile/profile_pinned_repositories.png)
 
 {% endif %}
 
-## Contributions calendar
+## Beitragskalender
 
-Your contributions calendar shows your contribution activity.
+Dein Beitragskalender zeigt deine Beitragsaktivität an.
 
-### Viewing contributions from specific times
+### Beiträge aus bestimmten Zeiten anzeigen
 
-- Click on a day's square to show the contributions made during that 24-hour period.
-- Press *Shift* and click on another day's square to show contributions made during that time span.
+- Klicke auf das Quadrat eines Tages, um die während diesem 24-Stunden-Zeitraum vorgenommenen Beiträge anzuzeigen.
+- Drücke die *UMSCHALTTASTE*, und klicke auf das Quadrat eines anderen Tages, um die Beiträge anzuzeigen, die während dieses Zeitraums vorgenommen wurden.
 
 {% note %}
 
-**Note:** You can select up to a one-month range on your contributions calendar. If you select a larger time span, we will only display one month of contributions.
+**Hinweis:** Du kannst einen Bereich von bis zu einem Monat in deinem Beitragskalender auswählen. Bei Auswahl eines größeren Zeitraums werden nur die Beiträge aus einem Monat angezeigt.
 
 {% endnote %}
 
-![Your contributions graph](/assets/images/help/profile/contributions_graph.png)
+![Dein Beteiligungsdiagramm](/assets/images/help/profile/contributions_graph.png)
 
-### How contribution event times are calculated
+### Funktionsweise der Berechnung von Ereigniszeiten für Beiträge
 
-Timestamps are calculated differently for commits and pull requests:
-- **Commits** use the time zone information in the commit timestamp. For more information, see "[Troubleshooting commits on your timeline](/articles/troubleshooting-commits-on-your-timeline)."
-- **Pull requests** and **issues** opened on {% data variables.product.product_name %} use your browser's time zone. Those opened via the API use the timestamp or time zone [specified in the API call](https://developer.github.com/changes/2014-03-04-timezone-handling-changes).
+Zeitstempel werden für Commits und Pull Requests unterschiedlich berechnet:
+- **Commits** verwenden die Zeitzoneninformationen im Commitzeitstempel. Weitere Informationen findest du unter [Problembehandlung bei Commits auf deiner Zeitachse](/articles/troubleshooting-commits-on-your-timeline).
+- **Pull Requests** und **Issues**, die auf {% data variables.product.product_name %} geöffnet wurden, verwenden die Zeitzone deines Browsers. Die Pull Requests und Issues, die über die API geöffnet wurden, verwenden den Zeitstempel oder die Zeitzone, der bzw. die [im API-Aufruf angegeben wurde](https://developer.github.com/changes/2014-03-04-timezone-handling-changes).
 
-## Activity overview
+## Überblick über Aktivitäten
 
-{% data reusables.profile.activity-overview-summary %} For more information, see "[Showing an overview of your activity on your profile](/articles/showing-an-overview-of-your-activity-on-your-profile)."
+{% data reusables.profile.activity-overview-summary %} Weitere Informationen findest du unter [Anzeigen einer Übersicht über deine Aktivitäten auf deinem Profil](/articles/showing-an-overview-of-your-activity-on-your-profile).
 
-![Activity overview section on profile](/assets/images/help/profile/activity-overview-section.png)
+![Aktivitätsübersicht im Profil](/assets/images/help/profile/activity-overview-section.png)
 
-The organizations featured in the activity overview are prioritized according to how active you are in the organization. If you @mention an organization in your profile bio, and you’re an organization member, then that organization is prioritized first in the activity overview. For more information, see "[Mentioning people and teams](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams)" or "[Adding a bio to your profile](/articles/adding-a-bio-to-your-profile/)."
+Die in der Aktivitätsübersicht angezeigten Organisationen werden dementsprechend priorisiert, wie aktiv du in der Organisation bist. Wenn du eine Organisation mit @mention in deiner Profilbio erwähnst und Organisationsmitglied bist, wird diese Organisation zunächst in der Aktivitätsübersicht priorisiert. Weitere Informationen findest du unter [Erwähnen von Personen und Teams](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams) oder [Hinzufügen einer Bio zu deinem Profil](/articles/adding-a-bio-to-your-profile/).
 
-## Contribution activity
+## Beitragsaktivität
 
-The contribution activity section includes a detailed timeline of your work, including commits you've made or co-authored, pull requests you've proposed, and issues you've opened. You can see your contributions over time by either clicking **Show more activity** at the bottom of your contribution activity or by clicking the year you're interested in viewing on the right side of the page. Important moments, like the date you joined an organization, proposed your first pull request, or opened a high-profile issue, are highlighted in your contribution activity. If you can't see certain events in your timeline, check to make sure you still have access to the organization or repository where the event happened.
+Der Abschnitt für die Beitragsaktivität enthält eine detaillierte Zeitleiste zu deiner Arbeit. Dazu zählen die von Dir erstellten oder mitverfassten Commits, die von Dir vorgeschlagenen Pull Requests und die von Dir geöffneten Issues. Du kannst die Beiträge anzeigen, die über einen Zeitraum erstellt wurden, indem du entweder ganz unten auf **Weitere Aktivitäten anzeigen** oder ganz rechts auf der Seite auf das Jahr klickst, das du anzeigen möchtest. Wichtige Momente werden in deiner Beitragsaktivität hervorgehoben. Dazu zählen dein Beitrittsdatum zu einer Organisation, dein erster vorgeschlagener Pull Request oder das Öffnen eines anspruchsvollen Issues. Wenn du bestimmte Ereignisse auf deiner Zeitleiste nicht siehst, solltest du sicherstellen, dass du weiterhin auf die Organisation oder das Repository zugreifen kannst, in der respektive in dem das Ereignis auftrat.
 
-![Contribution activity time filter](/assets/images/help/profile/contributions_activity_time_filter.png)
+![Zeitfilter für Beitragsaktivität](/assets/images/help/profile/contributions_activity_time_filter.png)
 
-## Viewing contributions from {% data variables.product.prodname_enterprise %} on {% data variables.product.prodname_dotcom_the_website %}
+## Anzeigen von Beiträgen aus {% data variables.product.prodname_enterprise %} auf {% data variables.product.prodname_dotcom_the_website %}
 
-If you use {% ifversion fpt or ghec %}{% data variables.product.prodname_ghe_server %}{% ifversion ghae %} or {% data variables.product.prodname_ghe_managed %}{% endif %}{% else %}{% data variables.product.product_name %}{% endif %} and your enterprise owner enables {% data variables.enterprise.prodname_unified_contributions %}, you can send enterprise contribution counts from to your {% data variables.product.prodname_dotcom_the_website %} profile. For more information, see "[Sending enterprise contributions to your {% data variables.product.prodname_dotcom_the_website %} profile](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-graphs-on-your-profile/sending-enterprise-contributions-to-your-githubcom-profile)."
+Wenn du {% ifversion fpt or ghec %}{% data variables.product.prodname_ghe_server %}{% ifversion ghae %} oder {% data variables.product.prodname_ghe_managed %}{% endif %}{% else %}{% data variables.product.product_name %}{% endif %} verwendest und dein Unternehmensinhaber {% data variables.product.prodname_unified_contributions %} ermöglicht, kannst du Unternehmensbeitragsanzahlen über dein {% data variables.product.prodname_dotcom_the_website %}-Profil anzeigen. Weitere Informationen findest du unter [Senden von Unternehmensbeiträgen an dein {% data variables.product.prodname_dotcom_the_website %}-Profil](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-graphs-on-your-profile/sending-enterprise-contributions-to-your-githubcom-profile).
 

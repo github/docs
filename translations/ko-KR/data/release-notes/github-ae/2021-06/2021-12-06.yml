@@ -1,0 +1,187 @@
+date: '2021-12-06'
+friendlyDate: '2021년 12월 6일'
+title: '2021년 12월 6일'
+currentWeek: false
+sections:
+  features:
+    - heading: '관리'
+      notes:
+        - |{% data variables.product.product_name %}에 대한 활성 또는 무료 평가판이 있는 고객은 이제 [Azure Portal](https://portal.azure.com/signin/index/)에서 {% data variables.product.product_name %} 리소스를 프로비저닝할 수 있습니다. 포털에서 {% data variables.product.product_name %} 리소스에 액세스하려면 Azure 구독에 기능 플래그가 지정되어야 합니다. Azure 구독의 자격을 확인하려면 계정 관리자 또는 {% data variables.contact.contact_enterprise_sales %}에 문의하세요. 자세한 내용은 “[{% data variables.product.prodname_ghe_managed %}의 평가판 설정](/get-started/signing-up-for-github/setting-up-a-trial-of-github-ae#deploying-github-ae-with-the-azure-portal)”을 참조하세요.
+
+|
+    - heading: 'GitHub 작업'
+      notes:
+        - |[GitHub Actions](https://github.com/features/actions)는 이제 {% data variables.product.product_name %}에 대해 일반 공급됩니다. GitHub Actions는 CI/CD 및 워크플로 자동화를 위한 강력하고 유연한 솔루션입니다. 자세한 내용은 “[GitHub Action 소개](/actions/learn-github-actions/introduction-to-github-actions)”를 참조하세요.
+
+|
+        - |자체 호스팅 실행기는 {% data variables.product.product_name %}에 대한 실행기 시스템의 기본 형식이며 이제 GitHub Actions에 대해 일반 공급됩니다. 자체 호스팅 실행기를 사용하면 GitHub Actions 작업 실행 시 컴퓨터 또는 컨테이너를 관리할 수 있습니다. 자세한 내용은 “[자체 호스팅 실행기 정보](https://docs.github.com/en/github-ae@latest/actions/hosting-your-own-runners/about-self-hosted-runners)” 및 “[자체 호스팅 실행기 추가](/actions/hosting-your-own-runners/adding-self-hosted-runners)”를 참조하세요.
+
+|
+        - |환경, 환경 보호 규칙, 환경 비밀은 이제 {% data variables.product.product_name %}의 {% data variables.product.product_name %}에 대해 일반 공급됩니다. 자세한 내용은 “[환경](/actions/reference/environments)”을 참조하세요.
+
+|
+        - |이제 GitHub Actions에서 실행할 때마다 워크플로의 시각적 그래프를 생성합니다. 워크플로 시각화를 통해 다음을 수행할 수 있습니다.
+
+
+
+- 복잡한 워크플로 보기 및 이해
+
+- 실시간으로 워크플로 진행률 추적
+
+- 로그 및 작업 메타데이터에 쉽게 액세스하여 신속하게 실행 문제 해결
+
+- 배포 작업의 진행률을 모니터링하고 배포 대상에 쉽게 액세스
+
+
+
+자세한 내용은 “[시각화 그래프 사용](/actions/managing-workflow-runs/using-the-visualization-graph)”을 참조하세요.
+
+|
+        - |이제 GitHub Actions를 사용하여 ‘GITHUB_TOKEN’ 비밀에 부여된 권한을 제어할 수 있습니다. ‘GITHUB_TOKEN’은 워크플로 실행에서 {% data variables.product.product_name %}에 대한 API에 대한 인증된 호출을 수행할 수 있도록 하는 자동으로 생성되는 비밀입니다. GitHub Actions는 각 작업에 대해 새 토큰을 생성하고 작업이 완료되면 토큰을 만료합니다. 토큰은 ‘읽기’인 포크의 끌어오기 요청의 경우를 제외하고 일반적으로 여러 [API 엔드포인트](/actions/reference/authentication-in-a-workflow#permissions-for-the-github_token)에 대한 ‘쓰기’ 권한을 가집니다. 이러한 새 설정을 사용하면 워크플로에서 최소 권한 원칙을 따를 수 있습니다. 자세한 내용은 “[워크플로의 인증](/actions/reference/authentication-in-a-workflow#modifying-the-permissions-for-the-github_token)”을 참조하세요.
+
+|
+        - |GitHub Actions는 이제 커밋 메시지에서 몇 가지 공통 키워드를 찾아 `push` 및 `pull_request` 워크플로 건너뛰기를 지원합니다.
+
+|
+        - |GitHub CLI 1.9 이상에서는 터미널에서 GitHub Actions 작업을 수행할 수 있습니다. 자세한 내용은 “[{% data variables.product.prodname_blog %}](https://github.blog/changelog/2021-04-15-github-cli-1-9-enables-you-to-work-with-github-actions-from-your-terminal/)”를 참조하세요.
+
+|
+    - heading: '코드 검사'
+      notes:
+        - |현재 코드 검사는 {% data variables.product.product_name %}에 대한 베타 버전입니다. 자세한 내용은 “[코드 검사 정보](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning)”를 참조하세요.
+
+|
+    - heading: '비밀 검사'
+      notes:
+        - |이제 {% data variables.product.product_name %}에서 사용자 지정 패턴 베타를 사용하여 고유한 비밀 검사 패턴을 지정할 수 있습니다. 리포지토리, 조직, 전체 엔터프라이즈에 대한 패턴을 지정할 수 있습니다. 새 패턴을 지정하면 비밀 검사는 새 커밋뿐만 아니라 패턴에 대한 리포지토리의 전체 Git 기록을 검색합니다. 자세한 내용은 “[비밀 검사에 대한 사용자 지정 패턴 정의](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)”를 참조하세요.
+
+|
+    - heading: 'GitHub Connect'
+      notes:
+        - |현재 GitHub Connect는 {% data variables.product.product_name %}에 대한 베타 버전으로 제공됩니다. GitHub Connect는 {% data variables.product.product_location %}에 세계에서 가장 큰 오픈 소스 커뮤니티의 강력한 기능을 제공합니다. 사용자는 {% data variables.product.prodname_dotcom_the_website %}에서 {% data variables.product.product_name %}에 대한 검색 결과를 보고, {% data variables.product.product_name %} 에서 {% data variables.product.prodname_dotcom_the_website %}에 대한 기여 횟수를 표시하고, {% data variables.product.prodname_dotcom_the_website %}에서 GitHub Actions를 사용할 수 있습니다. 자세한 내용은 “[엔터프라이즈 계정 간 연결 관리](/admin/configuration/managing-connections-between-your-enterprise-accounts)”를 참조하세요.
+
+|
+    - heading: 'GitHub Packages'
+      notes:
+        - |이제 GitHub Packages의 모든 패키지 또는 패키지 버전을 {% data variables.product.product_name %}의 웹 UI에서 삭제할 수 있습니다. 또한 30일 이내에 패키지 또는 패키지 버전 삭제를 취소할 수도 있습니다. 자세한 내용은 “[패키지 삭제 및 복원](/packages/learn-github-packages/deleting-and-restoring-a-package)”을 참조하세요.
+
+|
+        - |GitHub Packages 및 {% data variables.product.prodname_dotcom_the_website %}의 npm 레지스트리는 더 이상 시간 값을 응답으로 반환하지 않으며 성능이 대대적으로 개선되었습니다. {% data variables.product.company_short %}는 앞으로는 시간 값을 계속 반환합니다.
+
+|
+    - heading: '감사 로깅'
+      notes:
+        - |끌어오기 요청 및 끌어오기 요청 검토에 대한 이벤트는 이제 [엔터프라이즈](/admin/user-management/monitoring-activity-in-your-enterprise/audited-actions) 및 [조직](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization) 모두에 대한 감사 로그에 포함됩니다. 이러한 이벤트는 관리자가 끌어오기 요청 활동을 더 잘 모니터링하고 보안 및 규정 준수 요구 사항이 충족되고 있는지 확인합니다. 이벤트는 웹 UI에서 보거나, CSV 또는 JSON으로 내보내거나, REST API를 통해 액세스할 수 있습니다. 또한 특정 끌어오기 요청 이벤트에 대한 감사 로그를 검색할 수도 있습니다.
+
+|
+        - |GitHub Actions에 대한 추가에 대한 추가 이벤트는 이제 [엔터프라이즈](/admin/user-management/monitoring-activity-in-your-enterprise/audited-actions) 및 [조직](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization) 모두에 대한 감사 로그에 포함됩니다.
+
+
+
+- 워크플로가 삭제되거나 다시 실행됩니다.
+
+- 자체 호스팅 실행기 버전이 업데이트됩니다.
+
+|
+    - heading: '인증'
+      notes:
+        - |GitHub AE는 이제 SCIM을 사용하여 SAML SSO(Single Sign-On) 및 사용자 프로비저닝에 대해 Okta를 공식적으로 지원합니다. GitHub AE에서 Okta의 그룹을 팀으로 매핑할 수도 있습니다. 자세한 내용은 “[Okta를 사용하여 인증 구성 및 엔터프라이즈 프로비저닝](/admin/authentication/configuring-authentication-and-provisioning-with-your-identity-provider/configuring-authentication-and-provisioning-for-your-enterprise-using-okta)” 및 “[Okta 그룹을 팀으로 매핑](/admin/authentication/configuring-authentication-and-provisioning-with-your-identity-provider/mapping-okta-groups-to-teams)”을 참조하세요.
+
+|
+        - |{% data variables.product.product_name %}의 인증 토큰 형식이 변경되었습니다. 변경 사항은 OAuth 앱에 대한 개인 액세스 토큰 및 액세스 토큰의 형식뿐만 아니라 사용자-서버, 서버 간, 새로 고침 토큰의 형식에 영향을 줍니다. {% data variables.product.company_short %}에서는 기존 토큰을 최대한 빨리 업데이트하여 보안을 강화하고 비밀 검사를 통해 토큰을 검색할 수 있도록 할 것을 권장합니다. 자세한 내용은 “[{% data variables.product.prodname_dotcom %}에 대한 인증 정보](/github/authenticating-to-github/keeping-your-account-and-data-secure/about-authentication-to-github#githubs-token-formats)” 및 “[비밀 검사 정보](/code-security/secret-security/about-secret-scanning)”를 참조하세요.
+
+|
+        - |이제 FIDO2 보안 키를 사용하여 계정에 `sk-ecdsa-sha2-nistp256@openssh.com` SSH 키를 추가하면 {% data variables.product.product_name %}에 대한 SSH 연결을 인증할 수 있습니다. SSH 보안 키는 작동하기 위해 탭과 같은 확인이 필요한 별도의 하드웨어 디바이스에 비밀 키 자료를 저장합니다. 별도의 하드웨어에 키를 저장하고 SSH 키에 대해 물리적 상호 작용을 요구하면 보안이 강화됩니다. 키는 하드웨어에 저장되고 추출할 수 없기 때문에 컴퓨터에서 소프트웨어를 실행하여 해당 키를 읽거나 훔칠 수 없습니다. 물리적 상호 작용을 요구하면 물리적 상호 작용이 이루어질 때까지 보안 키가 작동하지 않기 때문에 키의 무단 사용을 방지할 수 있습니다. 자세한 내용은 “[새 SSH 키 생성 및 ssh-agent에 추가](/github/authenticating-to-github/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key-for-a-hardware-security-key)”를 참조하세요.
+
+|
+        - |GCM(Git Credential Manager) Core 버전 2.0.452 이상은 이제 {% data variables.product.product_name %}에 대한 보안 자격 증명 스토리지 및 다단계 인증 지원을 제공합니다. {% data variables.product.product_name %}을 지원하는 GCMCore는 [Windows용 Git](https://gitforwindows.org) 버전 2.32 이상에 포함되어 있습니다. GCM Core는 macOS 또는 Linux용 Git에 포함되어 있지 않지만 별도로 설치할 수 있습니다. 자세한 내용은 ‘microsoft/Git-Credential-Manager-Core’ 리포지토리에 있는 [최신 릴리스](https://github.com/microsoft/Git-Credential-Manager-Core/releases/) 및 [설치 지침](https://github.com/microsoft/Git-Credential-Manager-Core/releases/)을 참조하세요.
+
+|
+    - heading: '공지'
+      notes:
+        - |이제 {% data variables.product.product_name %}에 대해 알리려고 하는 이벤트를 구성할 수 있습니다. 리포지토리에서 {% octicon "file-code" aria-label="The code icon" %} **조사식** 드롭다운을 선택한 다음, **사용자 지정**을 클릭합니다. 자세한 내용은 “[알림 구성](/github/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications)”을 참조하세요.
+
+|
+    - heading: '문제 및 끌어오기 요청'
+      notes:
+        - |[Octicons 최신 버전](https://github.com/primer/octicons/releases)을 사용하여 이슈 및 끌어오기 요청의 상태가 이제 시각적으로 더 명확해져서 상태를 더 쉽게 검사할 수 있습니다. 자세한 내용은 [{% data variables.product.prodname_blog %}](https://github.blog/changelog/2021-06-08-new-issue-and-pull-request-state-icons/)를 참조하세요.
+
+|
+        - |**파일** 탭에서 끌어오기 요청에 대해 **대화** 드롭다운을 선택하여 모든 끌어오기 요청 검토 설명을 볼 수 있습니다. 다른 사용자가 끌어오기 요청을 병합하기 전에 모든 끌어오기 요청 검토 설명을 확인하도록 요구할 수도 있습니다. 자세한 내용은 “[끌어오기 요청 검토 정보](/github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews#discovering-and-navigating-conversations)” 및 “[보호된 분기 정보](/github/administering-a-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#require-conversation-resolution-before-merging)”를 참조하세요. API를 사용한 분기 보호 설정에 대한 자세한 내용은 “ REST API 문서의 [분기](/rest/reference/branches#get-branch-protection)” 및 GraphQL API 문서의 “[변형](/graphql/reference/mutations#createbranchprotectionrule)”을 참조하세요.
+
+|
+        - |이제 {% data variables.product.product_name %}에 Markdown을 작성하는 모든 곳에서 동영상 파일을 업로드할 수 있습니다. README와 같은 리포지토리 내의 Markdown 파일뿐만 아니라 이슈 및 끌어오기 요청 주석에서 데모, 재생산 단계 표시 등을 공유합니다. 자세한 내용은 “[파일 첨부](/github/writing-on-github/working-with-advanced-formatting/attaching-files)”를 참조하세요.
+
+|
+        - |이제 구성원이 100명 이상인 팀에서 검토를 요청하는 경우 {% data variables.product.product_name %}에 확인 대화 상자가 표시되기 때문에 대규모 팀에 대한 불필요한 알림을 방지할 수 있습니다.
+
+|
+        - |이슈 또는 끌어오기 요청의 담당자가 30명 미만인 경우 담당자 컨트롤에 일련의 제한된 제안이 아니라 전체 사용자 목록이 표시됩니다. 이 동작은 소규모 조직의 사람들이 적절한 사용자를 빨리 찾도록 도와줍니다. 사용자를 이슈 및 끌어오기 요청에 할당하는 것에 대한 자세한 내용은 “[다른 {% data variables.product.company_short %} 사용자에게 이슈 및 끌어오기 요청에 할당](/issues/tracking-your-work-with-issues/managing-issues/assigning-issues-and-pull-requests-to-other-github-users#assigning-an-individual-issue-or-pull-request)”을 참조하세요.
+
+|
+        - |이제 이슈 또는 끌어오기 요청에 대한 주석에서`#` 뒤에 여러 단어를 포함하여 검색 범위를 좁힐 수 있습니다. 제안 사항을 해제하려면 <kbd>Esc</kbd> 키를 누릅니다.
+
+|
+        - |끌어오기 요청에 대해 자동 병합을 사용하도록 설정한 후 예기치 않은 변경 사항의 병합을 방지하기 위해 리포지토리에 대한 쓰기 액세스 권한이 없는 사용자가 새 변경 사항을 푸시할 때 자동 병합은 자동으로 사용하지 않도록 설정됩니다. 쓰기 액세스 권한이 없는 사용자는 자동 병합을 사용하도록 설정한 경우 기본 분기의 변경 사항으로 끌어오기 요청을 계속 업데이트할 수 있습니다. 악의적인 사용자가 병합 충돌을 사용하여 끌어오기 요청에 예기치 않은 변경 사항을 도입하는 것을 방지하기 위해 {% data variables.product.product_name %}는 업데이트로 인해 병합 충돌이 발생하면 끌어오기 요청에 대한 자동 병합을 사용하지 않도록 설정합니다. 자동 병합에 대한 자세한 내용은 “[자동으로 끌어오기 요청 병합](/github/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/automatically-merging-a-pull-request)”을 참조하세요.
+
+|
+        - |유지 관리 액세스 권한이 있는 사용자는 이제 리포지토리 수준의 “자동 병합 허용” 설정을 관리할 수 있습니다. 기본적으로 꺼져 있는 이 설정은 리포지토리의 끌어오기 요청에서 자동 병합을 사용할 수 있는지 여부를 제어합니다. 이전에는 액세스 권한이 있는 사용자만 이 설정을 관리할 수 있었습니다. 또한 이 설정은 이제 “[리포지토리 만들기](/rest/reference/repos#create-an-organization-repository)” 및 “[리포지토리 업데이터](/rest/reference/repos#update-a-repository)” REST API를 사용하여 제어할 수 있습니다. 자세한 내용은 “[리포지토리의 끌어오기 요청에 대한 자동 병합 관리](/github/administering-a-repository/configuring-pull-request-merges/managing-auto-merge-for-pull-requests-in-your-repository)”를 참조하세요.
+
+|
+        - |이슈 및 끌어오기 요청에 대한 담당자 선택이 이제 자동 검색을 지원하므로 조직의 사용자를 더 빨리 찾을 수 있습니다. 또한 검색 결과 순위가 업데이트되어 사용자의 사용자 이름 또는 프로필 이름 시작 부분에 일치하는 항목을 선호합니다.
+
+|
+    - heading: '리포지토리'
+      notes:
+        - |파일의 커밋 기록을 볼 때 이제 {% octicon "file-code" aria-label="The code icon" %}을 클릭하여 리포지토리 기록의 지정된 시점에서 해당 파일을 볼 수 있습니다.
+
+|
+        - |이제 웹 UI를 사용하여 포크의 오래된 분기를 포크의 업스트림 분기와 동기화할 수 있습니다. 분기 간에 병합 충돌이 없는 경우 {% data variables.product.product_name %}는 빠른 전달 또는 업스트림에서 병합하여 분기를 업데이트합니다. 충돌이 발생하는 경우 {% data variables.product.product_name %}는 충돌을 해결하기 위한 끌어오기 요청을 시작하라는 메시지를 표시합니다. 자세한 내용은 “[포크 동기화](/github/collaborating-with-pull-requests/working-with-forks/syncing-a-fork#syncing-a-fork-from-the-web-ui)”를 참조하세요.
+
+|
+        - |이제 사용자 또는 조직 프로필에서 별 개수별로 리포지토리를 분류할 수 있습니다.
+
+|
+        - |Repositories REST API의 “두 커밋 비교” 엔드포인트는 한 커밋 또는 분기에서 연결할 수 있지만 다른 커밋 또는 분기에서는 연결할 수 없는 커밋 목록을 반환하며 이제 페이지 매김을 지원합니다. API는 이제 250개 이상의 커밋에 대한 비교 결과를 반환할 수도 있습니다. 자세한 내용은 “[커밋](/rest/reference/commits#compare-two-commits)” REST API 문서 및 “[페이지 매김으로 순회](/rest/guides/traversing-with-pagination)”를 참조하세요.
+
+|
+        - |하위 모듈이 {% data variables.product.product_location %}의 상대 경로로 정의되는 경우 이제 웹 UI에서 하위 모듈을 클릭할 수 있습니다. 웹 UI에서 하위 모듈을 클릭하면 연결된 리포지토리로 이동합니다. 이전에는 절대 URL이 있는 하위 모듈만 클릭할 수 있었습니다. <code>../<em>REPOSITORY</em></code> 패턴을 따르는 동일한 소유자를 가진 리포지토리의 상대 경로 또는 <code>../<em>OWNER</em>/<em>REPOSITORY</em></code> 패턴을 따르는 다른 소유자를 가진 리포지토리의 상대 경로가 지원됩니다. 하위 모듈 작업에 대한 자세한 내용은 {% data variables.product.prodname_blog %}의 [하위 모듈 작업](https://github.blog/2016-02-01-working-with-submodules/)을 참조하세요.
+
+|
+        - |체크섬을 미리 계산함으로써 리포지토리가 잠겨 있는 시간이 크게 줄어들어 더 많은 쓰기 작업이 즉시 성공하고 모노 리포지토리 성능이 향상됩니다.
+
+|
+    - heading: '릴리스'
+      notes:
+        - |이제 이모지를 사용하여 {% data variables.product.product_name %}에 대한 모든 릴리스에 반응할 수 있습니다. 자세한 내용은 “[릴리스 정보](/github/administering-a-repository/releasing-projects-on-github/about-releases)”를 참조하세요.
+
+|
+    - heading: '테마'
+      notes:
+        - |이제 웹 UI에서 어둡게 및 어둡고 흐리게 표시되는 테마를 사용할 수 있습니다. {% data variables.product.product_name %}은 {% data variables.product.product_name %}에서 테마 기본 설정을 지정하지 않은 경우 시스템 기본 설정과 일치합니다. 낮과 밤에 활성화되는 테마를 사용자 지정할 수도 있습니다. 자세한 내용은 “[테마 설정 관리](/github/setting-up-and-managing-your-github-user-account/managing-user-account-settings/managing-your-theme-settings)”를 참조하세요.
+
+|
+    - heading: 'Markdown'
+      notes:
+        - |리포지토리의 Markdown 파일은 이제 2개 이상의 제목이 있는 경우 제목에 목차를 자동으로 생성합니다. 목차는 대화형이며 해당 섹션에 대한 링크입니다. 6개의 모든 Markdown 제목 수준이 지원됩니다. 자세한 내용은 “[추가 정보](/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/about-readmes#auto-generated-table-of-contents-for-readme-files)”를 참조하세요.
+
+|
+        - |이슈 및 끌어오기 요청의 제목에서 이제 `code` 마크업이 지원됩니다. {% data variables.product.product_name %}에 대한 웹 UI에서 이슈 또는 끌어오기 요청 제목이 나타나는 모든 곳에서 역따옴표(`` ` ``) 내에 있는 텍스트가 고정 너비 글꼴로 렌더링되어 표시됩니다.
+
+|
+        - |파일, 이슈, 끌어오기 요청 또는 주석에 있는 Markdown 편집 시, 이제 바로 가기 키를 사용하여 코드 블록을 삽입합니다. 바로 가기 키는 Mac의 경우 <kbd>command</kbd> + <kbd>E</kbd> 키이고, 다른 디바이스의 경우 <kbd>Ctrl</kbd> + <kbd>E</kbd> 키입니다. 자세한 내용은 “[기본 구문 쓰기 및 서식 지정](/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#quoting-code)”을 참조하세요.
+
+|
+        - |이제 Markdown 파일의 URL에 ‘?plain=1’을 추가하여 파일을 렌더링 없이 줄 번호와 함께 표시할 수 있습니다. 일반 보기를 사용하여 다른 사용자를 특정 라인에 연결할 수 있습니다. 예를 들어 ‘?plain=1#L52’를 추가하면 일반 텍스트 Markdown 파일의 52행이 강조 표시됩니다. 자세한 내용은 “[코드 조각에 대한 영구 링크 만들기](/github/writing-on-github/working-with-advanced-formatting/creating-a-permanent-link-to-a-code-snippet#linking -to-markdown)”을 참조하세요.
+
+|
+    - heading: 'GitHub 앱'
+      notes:
+        - |설치 액세스 토큰을 만들기 위한 API 요청이 이제 엔터프라이즈 또는 조직의 IP 허용 목록을 존중합니다. 조직에 설치된 GitHub 앱의 설치 액세스 토큰에서 수행된 모든 API 요청은 이미 IP 허용 목록을 존중합니다. 이 기능은 현재 {% data variables.product.product_location %}에 대한 {% data variables.product.company_short %} 지원이 구성된 모든 Azure NSG(네트워크 보안 그룹) 규칙을 고려하지 않습니다. 자세한 내용은 REST API 문서의 “[엔터프라이즈에 대한 네트워크 트래픽 제한](/admin/configuration/configuring-your-enterprise/restricting-network-traffic-to-your-enterprise#about-ip-allow-lists),” “[조직에 허용되는 IP 주소 관리](/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization)”, “[앱](https://docs.github.com/en/rest/reference/apps#create-an-installation-access-token-for-an-app)”을 참조하세요.
+
+|
+    - heading: 'Webhook'
+      notes:
+        - |이제 REST API를 통해 프로그래밍 방식으로 웹후크의 상태를 재전송하거나 확인할 수 있습니다. 자세한 내용은 REST API 문서의 “[리포지토리](https://docs.github.com/en/rest/reference/repos#webhooks)”, “[조직](https://docs.github.com/en/rest/reference/orgs#webhooks)”, “[앱](https://docs.github.com/en/rest/reference/apps#webhooks)”을 참조하세요.
+
+|

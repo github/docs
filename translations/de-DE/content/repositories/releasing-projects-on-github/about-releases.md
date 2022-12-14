@@ -1,6 +1,6 @@
 ---
-title: About releases
-intro: 'You can create a release to package software, along with release notes and links to binary files, for other people to use.'
+title: Informationen zu Releases
+intro: 'Du kannst einen Release erstellen, um Software zusammen mit Release-Hinweisen und Links zu Binärdateien zu paketieren, damit sie von anderen Personen verwendet werden kann.'
 redirect_from:
   - /articles/downloading-files-from-the-command-line
   - /articles/downloading-files-with-curl
@@ -16,44 +16,43 @@ versions:
   ghec: '*'
 topics:
   - Repositories
+ms.openlocfilehash: f0435993e244d470fc5f58afe8b8b2f264d9f95c
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147881505'
 ---
-## About releases
+## Informationen zu Releases
 
-{% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
-![An overview of releases](/assets/images/help/releases/refreshed-releases-overview-with-contributors.png)
-{% else %}
-![An overview of releases](/assets/images/help/releases/releases-overview.png)
+{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-4974 %} ![ Eine Übersicht über Releases](/assets/images/help/releases/refreshed-releases-overview-with-contributors.png) {% elsif ghae-issue-4972 %} ![Eine Übersicht über Releases](/assets/images/help/releases/releases-overview-with-contributors.png) {% else %} ![Eine Übersicht über Releases](/assets/images/help/releases/releases-overview.png) {% endif %}
+
+Releases sind einsetzbare Software-Iterationen, die du paketieren und für ein breiteres Publikum zum Herunterladen und Nutzen zur Verfügung stellen kannst.
+
+Releases basieren auf [Git-Tags](https://git-scm.com/book/en/Git-Basics-Tagging), die einen bestimmten Punkt im Verlauf deines Repositorys markieren. Ein Tag kann ein anderes Datum haben als ein Release, da sie zu unterschiedlichen Zeiten erstellt wurden. Weitere Informationen zum Anzeigen deiner vorhandenen Tags findest du unter [Anzeigen der Releases und Tags deines Repositorys](/github/administering-a-repository/viewing-your-repositorys-releases-and-tags).
+
+Du kannst Benachrichtigungen erhalten, wenn neue Releases in einem Repository verfügbar sind, ohne Benachrichtigungen über andere Updates des gleichen Repositorys zu erhalten. Weitere Informationen findest du unter [Anzeigen deiner Abonnements](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions).
+
+Alle Personen mit Lesezugriff auf ein Repository können Releases anzeigen und vergleichen, aber nur Personen mit Schreibberechtigungen für ein Repository können Releases verwalten. Weitere Informationen findest du unter [Verwalten von Releases in einem Repository](/github/administering-a-repository/managing-releases-in-a-repository).
+
+{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-4974 %} Beim Verwalten eines Release kannst du Versionshinweise manuell erstellen. Alternativ dazu kannst du Versionshinweise automatisch aus einer Standardvorlage generieren oder deine eigene Vorlage für Versionshinweise anpassen. Weitere Informationen findest du unter [Automatisch generierte Versionshinweise](/repositories/releasing-projects-on-github/automatically-generated-release-notes).
 {% endif %}
 
-Releases are deployable software iterations you can package and make available for a wider audience to download and use.
-
-Releases are based on [Git tags](https://git-scm.com/book/en/Git-Basics-Tagging), which mark a specific point in your repository's history. A tag date may be different than a release date since they can be created at different times. For more information about viewing your existing tags, see "[Viewing your repository's releases and tags](/github/administering-a-repository/viewing-your-repositorys-releases-and-tags)."
-
-You can receive notifications when new releases are published in a repository without receiving notifications about other updates to the repository. For more information, see "[Viewing your subscriptions](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions)."
-
-Anyone with read access to a repository can view and compare releases, but only people with write permissions to a repository can manage releases. For more information, see "[Managing releases in a repository](/github/administering-a-repository/managing-releases-in-a-repository)."
-
-{% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
-You can manually create release notes while managing a release. Alternatively, you can automatically generate release notes from a default template, or customize your own release notes template. For more information, see "[Automatically generated release notes](/repositories/releasing-projects-on-github/automatically-generated-release-notes)."
+{% ifversion fpt or ghec or ghes > 3.5 or ghae-issue-7054 %} Wenn du die Details für ein Release anzeigst, wird das Erstellungsdatum für jede Releaseressource neben der Releaseressource angezeigt.
 {% endif %}
 
-{% ifversion fpt or ghec or ghes > 3.5 or ghae > 3.6 %}
-When viewing the details for a release, the creation date for each release asset is shown next to the release asset.
+{% ifversion fpt or ghec %} Personen mit Administratorberechtigungen für ein Repository können auswählen, ob {% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %})-Objekte in den ZIP-Dateien und Tarballs enthalten sein sollen, die {% data variables.product.product_name %} für jedes Release erstellt. Weitere Informationen findest du unter [Verwalten von {% data variables.large_files.product_name_short %}-Objekten in Archiven in deinem Repository](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-git-lfs-objects-in-archives-of-your-repository).
+
+Wenn durch ein Release ein Sicherheitsrisiko behoben wird, solltest du eine Sicherheitsempfehlung in deinem Repository veröffentlichen. {% data variables.product.prodname_dotcom %} überprüft jede veröffentlichte Sicherheitsempfehlung und verwendet sie, um {% data variables.product.prodname_dependabot_alerts %} an betroffene Repositorys zu senden. Weitere Informationen findest du unter [Informationen zu GitHub-Sicherheitsempfehlungen](/github/managing-security-vulnerabilities/about-github-security-advisories).
+
+Du kannst die Registerkarte **Abhängigkeiten** des Abhängigkeitsdiagramms anzeigen, um zu ermitteln, welche Repositorys und Pakete von Code in deinem Repository abhängig und daher von einem neuen Release betroffen sind. Weitere Informationen findest du unter [Informationen zum Abhängigkeitsdiagramm](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph).
 {% endif %}
+
+Du kannst auch das Release-API verwenden, um Informationen zu sammeln, wie zum Beispiel die Anzahl der Downloads eines Release-Objekts. Weitere Informationen findest du unter [Releases](/rest/reference/releases).
 
 {% ifversion fpt or ghec %}
-People with admin permissions to a repository can choose whether {% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %}) objects are included in the ZIP files and tarballs that {% data variables.product.product_name %} creates for each release. For more information, see "[Managing {% data variables.large_files.product_name_short %} objects in archives of your repository](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-git-lfs-objects-in-archives-of-your-repository)."
+## Speicher- und Bandbreiten-Kontingente
 
-If a release fixes a security vulnerability, you should publish a security advisory in your repository. {% data variables.product.prodname_dotcom %} reviews each published security advisory and may use it to send {% data variables.product.prodname_dependabot_alerts %} to affected repositories. For more information, see "[About GitHub Security Advisories](/github/managing-security-vulnerabilities/about-github-security-advisories)."
-
-You can view the **Dependents** tab of the dependency graph to see which repositories and packages depend on code in your repository, and may therefore be affected by a new release. For more information, see "[About the dependency graph](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)."
-{% endif %}
-
-You can also use the Releases API to gather information, such as the number of times people download a release asset. For more information, see "[Releases](/rest/reference/releases)."
-
-{% ifversion fpt or ghec %}
-## Storage and bandwidth quotas
-
- Each file included in a release must be under {% data variables.large_files.max_file_size %}. There is no limit on the total size of a release, nor bandwidth usage.
+ Jede Datei eines Release muss kleiner sein als {% data variables.large_files.max_file_size %}. Es gibt keine Begrenzung für die Gesamtgröße eines Release oder die Bandbreitennutzung.
 
 {% endif %}

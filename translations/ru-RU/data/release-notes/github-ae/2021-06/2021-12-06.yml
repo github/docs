@@ -1,0 +1,187 @@
+date: '2021-12-06'
+friendlyDate: '6 декабря 2021 г.'
+title: '6 декабря 2021 г.'
+currentWeek: false
+sections:
+  features:
+    - heading: 'Администрирование'
+      notes:
+        - |Клиенты с активной подпиской на {% data variables.product.product_name %} или действующей пробной версией теперь могут подготавливать ресурсы {% data variables.product.product_name %} на [портале Azure](https://portal.azure.com/signin/index/). Чтобы получить доступ к ресурсам {% data variables.product.product_name %} на портале, подписка Azure должна поддерживать флаги компонентов. Обратитесь к менеджеру своей учетной записи или к {% data variables.contact.contact_enterprise_sales %}, чтобы проверить правомочность подписки Azure. Дополнительные сведения см. в разделе "[Настройка пробной версии {% data variables.product.prodname_ghe_managed %}](/get-started/signing-up-for-github/setting-up-a-trial-of-github-ae#deploying-github-ae-with-the-azure-portal)".
+
+|
+    - heading: 'Действия GitHub'
+      notes:
+        - |Выпущена общедоступная версия [GitHub Actions](https://github.com/features/actions) для {% data variables.product.product_name %}. GitHub Actions — это мощное и гибкое решение для непрерывной поставки и непрерывной интеграции, а также автоматизации рабочих процессов. Дополнительные сведения см. в статье "[Общие сведения о GitHub Actions](/actions/learn-github-actions/introduction-to-github-actions)".
+
+|
+        - |Локальные средства выполнения являются типом системы средств выполнения по умолчанию в {% data variables.product.product_name %}, и теперь они поддерживаются в общедоступной версии для GitHub Actions. С помощью локальных средств выполнения можно управлять собственными компьютерами или контейнерами для выполнения заданий GitHub Actions. Дополнительные сведения см. в статьях "[Сведения о локальных средствах выполнения](https://docs.github.com/en/github-ae@latest/actions/hosting-your-own-runners/about-self-hosted-runners)" и "[Добавление локальных средств выполнения](/actions/hosting-your-own-runners/adding-self-hosted-runners)".
+
+|
+        - |Среды, правила защиты среды и секреты среды теперь поддерживаются в общедоступной версии для GitHub Actions в {% data variables.product.product_name %}. Дополнительные сведения см. в статье "[Среды](/actions/reference/environments)".
+
+|
+        - |Теперь GitHub Actions может создать визуальный граф каждого запуска вашего рабочего процесса. Визуализация рабочего процесса позволяет выполнять следующие действия:
+
+
+
+– просматривать и изучать сложные рабочие процессы;
+
+– отслеживать ход выполнения рабочих процессов в режиме реального времени;
+
+– быстро устранять неполадки с запусками за счет простого доступа к журналам и метаданным заданий;
+
+– отслеживать ход выполнения заданий развертывания и легко просматривать целевые объекты развертывания.
+
+
+
+Дополнительные сведения см. в статье "[Использование графа визуализации](/actions/managing-workflow-runs/using-the-visualization-graph)".
+
+|
+        - |Теперь в GitHub Actions можно управлять разрешениями, предоставленными секрету GITHUB_TOKEN. GITHUB_TOKEN — это автоматически создаваемый секрет, который позволяет совершать вызовы API с проверкой подлинности для {% data variables.product.product_name %} в запусках рабочих процессов. GitHub Actions создает новый маркер для каждого задания. После завершения задания срок действия маркера истекает. У маркера есть разрешения write на запись в некоторых [конечных точках API](/actions/reference/authentication-in-a-workflow#permissions-for-the-github_token), за исключением запросов на вытягивание из вилок, для которых установлено разрешение read на чтение. Эти новые параметры позволяют придерживаться принципа предоставления минимальных прав в рабочих процессах. Дополнительные сведения см. в статье "[Проверка подлинности в рабочем процессе](/actions/reference/authentication-in-a-workflow#modifying-the-permissions-for-the-github_token)".
+
+|
+        - |GitHub Actions теперь поддерживает пропуск рабочих процессов push и pull_request за счет поиска распространенных ключевых слов в сообщении о фиксации.
+
+|
+        - |GitHub CLI версии 1.9 и более поздних поддерживает работу с GitHub Actions в терминале. Дополнительные сведения см. в [{% data variables.product.prodname_blog %}](https://github.blog/changelog/2021-04-15-github-cli-1-9-enables-you-to-work-with-github-actions-from-your-terminal/).
+
+|
+    - heading: 'Проверка кода'
+      notes:
+        - |Проверка кода теперь доступна в бета-версии для {% data variables.product.product_name %}. Дополнительные сведения см. в статье "[Сведения о проверке кода](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning)".
+
+|
+    - heading: 'Сканирование секретов'
+      notes:
+        - |Теперь благодаря бета-версии пользовательских шаблонов проверки секретов вы можете задавать собственные шаблоны в {% data variables.product.product_name %}. Шаблоны можно задать для репозиториев, организаций и всего предприятия. Во время задания нового шаблона проверка секретов выполняет поиск шаблонов и новых фиксаций в журнале Git репозитория. Дополнительные сведения см. в статье "[Определение пользовательских шаблонов проверки секретов](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)".
+
+|
+    - heading: 'GitHub Connect'
+      notes:
+        - |GitHub Connect теперь доступен в бета-версии для {% data variables.product.product_name %}. Благодаря GitHub Connect {% data variables.product.product_location %} может воспользоваться возможностями крупнейшего в мире сообщества разработчиков программного обеспечения с открытым кодом. Вы можете разрешать пользователям просматривать результаты поиска из {% data variables.product.prodname_dotcom_the_website %} в {% data variables.product.product_name %}, отображать количество совместных проектов из {% data variables.product.product_name %} на {% data variables.product.prodname_dotcom_the_website %}, а также использовать GitHub Actions из {% data variables.product.prodname_dotcom_the_website %}. Дополнительные сведения см. в статье "[Управление подключениями между корпоративными учетными записями](/admin/configuration/managing-connections-between-your-enterprise-accounts)".
+
+|
+    - heading: 'GitHub Packages'
+      notes:
+        - |Теперь можно удалять любые пакеты или версии пакетов для GitHub Packages из пользовательского веб-интерфейса {% data variables.product.product_name %}. В течение 30 дней можно отменить удаление любого пакета или версии пакета. Дополнительные сведения см. в статье "[Удаление и восстановление пакета](/packages/learn-github-packages/deleting-and-restoring-a-package)".
+
+|
+        - |Реестр npm для GitHub Packages и {% data variables.product.prodname_dotcom_the_website %} больше не возвращает значение времени в ответах метаданных, что значительно повышает производительность. {% data variables.product.company_short %} продолжит возвращать значение времени в дальнейшем.
+
+|
+    - heading: 'Ведение журнала аудита'
+      notes:
+        - |Теперь в журнал аудита включаются события запросов на вытягивание и их проверок для [предприятий](/admin/user-management/monitoring-activity-in-your-enterprise/audited-actions) и [организаций](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization). Эти события позволяют администраторам лучше отслеживать действия запросов на вытягивание и обеспечивать соответствие нормативным требованиям и требованиям безопасности. События можно экспортировать в формате CSV или JSON, просмотреть из пользовательского веб-интерфейса либо открыть с помощью REST API. В журнале аудита также можно найти конкретные события запросов на вытягивание.
+
+|
+        - |Теперь в журнал аудита включаются дополнительные события для GitHub Actions для [предприятий](/admin/user-management/monitoring-activity-in-your-enterprise/audited-actions) и [организаций](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization):
+
+
+
+– удаление или повторный запуск рабочего процесса;
+
+– обновление версии локального средства выполнения.
+
+|
+    - heading: 'Аутентификация'
+      notes:
+        - |Теперь в GitHub AE официально поддерживается платформа Okta для обеспечения единого входа SAML и подготовки пользователей с помощью SCIM. Вы также можете сопоставлять группы в Okta с командами GitHub AE. Дополнительные сведения см. в статьях "[Настройка проверки подлинности и подготовки для предприятия с помощью Okta](/admin/authentication/configuring-authentication-and-provisioning-with-your-identity-provider/configuring-authentication-and-provisioning-for-your-enterprise-using-okta)" и "[Сопоставление групп Okta с командами](/admin/authentication/configuring-authentication-and-provisioning-with-your-identity-provider/mapping-okta-groups-to-teams)".
+
+|
+        - |Изменен формат маркеров проверки подлинности для {% data variables.product.product_name %}. Изменения коснулись формата личных маркеров доступа и маркеров доступа для приложений OAuth, а также маркеров типа "пользователь — сервер", "сервер — сервер" и маркеров обновления для приложений GitHub. {% data variables.product.company_short %} рекомендует по возможности обновлять существующие маркеры в кратчайшие сроки, чтобы повысить безопасность и находить маркеры с помощью проверки секретов. Дополнительные сведения см. в статьях "[Сведения о проверке подлинности на {% data variables.product.prodname_dotcom %}](/github/authenticating-to-github/keeping-your-account-and-data-secure/about-authentication-to-github#githubs-token-formats)" и "[Сведения о проверке секретов](/code-security/secret-security/about-secret-scanning)".
+
+|
+        - |Теперь вы можете проверить подлинность SSH-подключений к {% data variables.product.product_name %} с помощью ключа безопасности FIDO2, добавив в свою учетную запись ключ SSH "sk-ecdsa-sha2-nistp256@openssh.com". Ключи безопасности SSH хранят данные секретных ключей на отдельном физическом устройстве, для работы с которым требуется проверка, например касание. Хранение ключа на отдельном носителе и дополнительное физическое взаимодействие с ключом SSH обеспечивают повышенную безопасность. Поскольку ключ хранится на устройстве и его невозможно извлечь, программное обеспечение, установленное на компьютере, не сможет прочесть или украсть его. Физическое взаимодействие предотвращает несанкционированное использование ключа, так как ключ безопасности не будет работать, пока вы не совершите с ним определенное действие. Дополнительные сведения см. в статье "[Создание ключа SSH и добавление его в агент SSH](/github/authenticating-to-github/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key-for-a-hardware-security-key)".
+
+|
+        - |В диспетчере учетных данных Git (GCM) Core версии 2.0.452 и более поздних теперь предоставляется защищенное хранилище учетных данных и поддержка многофакторной проверки подлинности для {% data variables.product.product_name %}. GCM Core с поддержкой {% data variables.product.product_name %} включен в [Git для Windows](https://gitforwindows.org) версии 2.32 и более поздних. GCM Core не поставляется с Git для macOS или Linux, но его можно установить отдельно. Дополнительные сведения см. в [заметках о последнем выпуске](https://github.com/microsoft/Git-Credential-Manager-Core/releases/) и [инструкциях по установке](https://github.com/microsoft/Git-Credential-Manager-Core/releases/) в репозитории microsoft/Git-Credential-Manager-Core.
+
+|
+    - heading: 'Уведомления'
+      notes:
+        - |Теперь можно настроить события, о которых вы хотите получать уведомления в {% data variables.product.product_name %}. В любом репозитории выберите раскрывающийся список {% octicon "file-code" aria-label="The code icon" %} **Отслеживание**, а затем — **Пользовательское**. Дополнительные сведения см. в статье "[Настройка уведомлений](/github/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications)".
+
+|
+    - heading: 'Проблемы и запросы на вытягивание'
+      notes:
+        - |Благодаря [новым версиям значков Octicon](https://github.com/primer/octicons/releases) состояния проблем и запросов на вытягивание теперь визуально сильнее различаются, за счет чего стало удобнее проверять их состояние. Дополнительные сведения см. в [{% data variables.product.prodname_blog %}](https://github.blog/changelog/2021-06-08-new-issue-and-pull-request-state-icons/).
+
+|
+        - |Теперь все комментарии к проверкам запросов на вытягивание можно просмотреть на вкладке **Файлы** соответствующего запроса на вытягивание, для этого выберите раскрывающееся меню **Беседы**. Также можно сделать обязательным разрешение комментариев к проверкам запросов на вытягивание перед их слиянием. Дополнительные сведения см. в статьях "[Сведения о проверках запросов на вытягивание](/github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews#discovering-and-navigating-conversations)" и "[Сведения о защищенных ветвях](/github/administering-a-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#require-conversation-resolution-before-merging)". Дополнительные сведения о настройке параметров защиты ветвей с помощью API см. в разделе "[Ветви](/rest/reference/branches#get-branch-protection)" в документации по REST API и в статье "[Изменения](/graphql/reference/mutations#createbranchprotectionrule)" в документации по API GraphQL.
+
+|
+        - |Теперь можно отправлять видеофайлы при создании кода Markdown в {% data variables.product.product_name %}. Делитесь демоверсиями, показывайте этапы воспроизведения и многое другое в комментариях к проблемам и запросам на вытягивание, а также в файлах Markdown в репозиториях, например README. Дополнительные сведения см. в статье "[Вложение файлов](/github/writing-on-github/working-with-advanced-formatting/attaching-files)".
+
+|
+        - |{% data variables.product.product_name %} теперь отображает диалоговое окно подтверждения, когда вы запрашиваете проверку у команды, в которой более 100 участников. Это предотвратит создание ненужных уведомлений для больших команд.
+
+|
+        - |Если для проблемы или запроса на вытягивание назначено менее 30 возможных уполномоченных, в списке управления уполномоченными будут отображены все пользователи, а не ограниченный набор предложений. Такое поведение позволяет быстро находить нужного пользователя в небольших организациях. Дополнительные сведения о назначении пользователей в проблемах и запросах на вытягивание см. в статье "[Назначение проблем и запросов на вытягивание другим пользователям {% data variables.product.company_short %}](/issues/tracking-your-work-with-issues/managing-issues/assigning-issues-and-pull-requests-to-other-github-users#assigning-an-individual-issue-or-pull-request)".
+
+|
+        - |Теперь в комментарии к проблеме или запросу на вытягивание после символа "#" можно указать несколько слов, чтобы сузить область поиска. Чтобы отклонить предложения, нажмите клавишу <kbd>ESC</kbd>.
+
+|
+        - |Чтобы предотвратить слияние непредвиденных изменений после включения автослияния в запросе на вытягивание, эта возможность теперь автоматически отключается, когда новые изменения отправляются пользователем без разрешений на запись в репозитории. Пользователи без разрешений на запись по-прежнему могут обновлять запрос на вытягивание, внося изменения из основной ветви, если автослияние включено. Чтобы злоумышленники не вносили непредвиденные изменения в запрос на вытягивание с помощью конфликта слияния, {% data variables.product.product_name %} отключит автослияние в запросе на вытягивание, если при обновлении возникает конфликт слияния. Дополнительные сведения об автослиянии см. в статье "[Автоматическое слияние запроса на вытягивание](/github/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/automatically-merging-a-pull-request)".
+
+|
+        - |Пользователи с доступом на обслуживание теперь могут управлять параметром "Включить автослияние" на уровне репозитория. Этот параметр отключен по умолчанию. Он управляет доступностью автослияния в запросах на вытягивание в репозитории. Ранее настраивать его могли только пользователи с доступом администратора. Кроме того, этот параметр теперь можно настраивать с помощью REST API "[Создание репозитория](/rest/reference/repos#create-an-organization-repository)" и "[Обновление репозитория](/rest/reference/repos#update-a-repository)". Дополнительные сведения см. в статье "[Управление автослиянием для запросов на вытягивание в репозитории](/github/administering-a-repository/configuring-pull-request-merges/managing-auto-merge-for-pull-requests-in-your-repository)".
+
+|
+        - |Теперь при выборе уполномоченных для проблем и запросов на вытягивание поддерживается поиск с опережающим вводом, что позволяет быстрее находить пользователей в организации. Кроме того, было обновлено ранжирование результатов поиска, и теперь первыми отображаются пользователи с совпадающим именем пользователя или профиля.
+
+|
+    - heading: 'Репозитории'
+      notes:
+        - |Во время просмотра журнала фиксаций для файла теперь можно щелкнуть значок {% octicon "file-code" aria-label="The code icon" %}, чтобы просмотреть файл в журнале репозитория в определенный момент времени.
+
+|
+        - |Теперь с помощью пользовательского веб-интерфейса можно синхронизировать устаревшую ветвь с вышестоящей ветвью вилки. Если между ветвями отсутствуют конфликты слияния, {% data variables.product.product_name %} обновит ветвь путем ее переноса или слияния с вышестоящей ветвью. При наличии конфликтов {% data variables.product.product_name %} предложит создать запрос на вытягивание, чтобы устранить их. Дополнительные сведения см. в статье "[Синхронизация вилки](/github/collaborating-with-pull-requests/working-with-forks/syncing-a-fork#syncing-a-fork-from-the-web-ui)".
+
+|
+        - |Теперь можно сортировать репозитории в профиле пользователя или организации по количеству сохранений в избранное.
+
+|
+        - |Конечная точка "Сравнение двух фиксаций" REST API "Репозитории", которая возвращает список фиксаций, доступных из одной фиксации или ветви, но недоступных из другой, теперь поддерживает разбиение на страницы. Также API теперь может возвращать результаты сравнений более 250 фиксаций. Дополнительные сведения см. в разделе "[Фиксации](/rest/reference/commits#compare-two-commits)" и статье "[Обход с помощью разбиения на страницы](/rest/guides/traversing-with-pagination)" в документации по REST API.
+
+|
+        - |При определении подмодуля в {% data variables.product.product_location %} с помощью относительного пути он становится доступным для щелчка в пользовательском веб-интерфейсе. Если щелкнуть подмодуль в пользовательском веб-интерфейсе, вы перейдете в связанный репозиторий. Ранее для щелчка были доступны только подмодули с абсолютными URL-адресами. Поддерживаются относительные пути по шаблону <code>../<em>REPOSITORY</em></code> для репозиториев с одним владельцем и относительные пути по шаблону <code>../<em>OWNER</em>/<em>REPOSITORY</em></code> для репозиториев с разными владельцами. Дополнительные сведения о работе с подмодулями см. в записи блога [Работа с подмодулями](https://github.blog/2016-02-01-working-with-submodules/) в {% data variables.product.prodname_blog %}.
+
+|
+        - |Предварительное вычисление контрольных сумм позволило значительно снизить период блокировки репозитория, что обеспечивает выполнение большего количества операций записи и улучшение производительности единого репозитория.
+
+|
+    - heading: 'Выпуски'
+      notes:
+        - |Теперь эмодзи доступны во всех выпусках {% data variables.product.product_name %}. Дополнительные сведения см. в статье "[Сведения о выпусках](/github/administering-a-repository/releasing-projects-on-github/about-releases)".
+
+|
+    - heading: 'Темы'
+      notes:
+        - |Теперь в пользовательском веб-интерфейсе доступны темная и затемненная темы. Если вы не выберете предпочитаемую тему в {% data variables.product.product_name %}, {% data variables.product.product_name %} установит тему в соответствии с системными параметрами. Также можно настроить разные темы для работы днем и ночью. Дополнительные сведения см. в статье "[Управление параметрами тем](/github/setting-up-and-managing-your-github-user-account/managing-user-account-settings/managing-your-theme-settings)".
+
+|
+    - heading: 'Разметка Markdown'
+      notes:
+        - |Теперь файлы Markdown в ваших репозиториях автоматически создают оглавление, если в файле содержится более двух заголовков. Оглавление является интерактивным и содержит ссылки на соответствующие разделы. Поддерживаются все шесть уровней заголовков Markdown. Дополнительные сведения см. в статье "[Сведения о файлах README](/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/about-readmes#auto-generated-table-of-contents-for-readme-files)".
+
+|
+        - |Теперь в названиях проблем и запросов на вытягивание поддерживается разметка code. Текст, заключенный в обратные апострофы (`), будет отображаться в моноширинном шрифте везде, где появляется название проблемы или запроса на вытягивание в пользовательском веб-интерфейсе для {% data variables.product.product_name %}.
+
+|
+        - |Во время правки Markdown в файлах, проблемах, запросах на вытягивание или комментариях теперь можно использовать сочетание клавиш для вставки блока кода. Используйте клавиши <kbd>COMMAND</kbd>+<kbd>E</kbd> на Mac или <kbd>CTRL</kbd>+<kbd>E</kbd> на других устройствах. Дополнительные сведения см. в статье "[Основной синтаксис создания и форматирования кода](/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#quoting-code)".
+
+|
+        - |В URL-адрес любого файла Markdown можно добавить "?plain=1", чтобы отобразить файл без отрисовки с номерами строк. С помощью простого представления можно связывать других пользователей с определенными строками. Например, добавление "?plain=1#L52" выделит строку 52 текстового файла Markdown. Дополнительные сведения см. в статье "[Создание постоянной ссылки на фрагмент кода](/github/writing-on-github/working-with-advanced-formatting/creating-a-permanent-link-to-a-code-snippet#linking-to-markdown)".
+
+|
+    - heading: 'Приложения GitHub'
+      notes:
+        - |Запросы API на создание маркера доступа для установки теперь учитывают списки разрешенных IP-адресов для предприятия или организации. Все запросы API, созданные с помощью маркера доступа для установки приложения GitHub, установленного в вашей организации, уже учитывают списки разрешенных IP-адресов. В настоящий момент в этой возможности не учитываются правила группы безопасности сети Azure (NSG), которые были настроены службой поддержки {% data variables.product.company_short %} для {% data variables.product.product_location %}. Дополнительные сведения см. в статьях "[Ограничение трафика для предприятия](/admin/configuration/configuring-your-enterprise/restricting-network-traffic-to-your-enterprise#about-ip-allow-lists)", "[Управление разрешенными IP-адресами для организации](/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization)" и в разделе "[Приложения](https://docs.github.com/en/rest/reference/apps#create-an-installation-access-token-for-an-app)" в документации по REST API.
+
+|
+    - heading: 'Веб-перехватчики'
+      notes:
+        - |Теперь можно повторно отправить или проверить состояние веб-перехватчиков программным способом с помощью REST API. Дополнительные сведения см. в разделах "[Репозитории](https://docs.github.com/en/rest/reference/repos#webhooks)", "[Организации](https://docs.github.com/en/rest/reference/orgs#webhooks)" и "[Приложения](https://docs.github.com/en/rest/reference/apps#webhooks)" в документации по REST API.
+
+|

@@ -1,0 +1,19 @@
+date: '2020-07-09'
+sections:
+  security_fixes:
+    - '**Средний.** nginx обновлен до версии 1.16.1, исправлена проблема CVE-2019-20372 (обновлено 22.07.2020). {% comment %} https://github.com/github/enterprise2/pull/21251 {% endcomment %}'
+    - 'Пакеты обновлены до последних версий системы безопасности. {% comment %} https://github.com/github/enterprise2/pull/21088, https://github.com/github/enterprise2/pull/21036 {% endcomment %}'
+  bugs:
+    - 'Граф зависимостей не обнаруживал зависимости при развертывании в конфигурации кластера с несколькими узлами Redis. {% comment %} https://github.com/github/enterprise2/pull/21260, https://github.com/github/enterprise2/pull/21102 {% endcomment %}'
+    - 'Для некоторых файлов журнала не выполнялась ротация каждые 7 дней. {% comment %} https://github.com/github/enterprise2/pull/21278, https://github.com/github/enterprise2/pull/21264 {% endcomment %}'
+    - 'Частое повторное использование исходных портов веб-перехватчика привело к отклонению подключений. {% comment %} https://github.com/github/enterprise2/pull/21289 {% endcomment %}'
+    - 'На экземплярах, настроенных как пассивные реплики, предпринимались попытки выполнить недопустимые фоновые задания. {% comment %} https://github.com/github/enterprise2/pull/21318, https://github.com/github/enterprise2/pull/21212, https://github.com/github/enterprise2/issues/21167 {% endcomment %}'
+    - 'Внутренние репозитории неправильно включались в результаты поиска для организаций с поддержкой SAML. {% comment %} https://github.com/github/github/pull/147503, https://github.com/github/github/pull/145692 {% endcomment %}'
+  known_issues:
+    - 'После первой настройки версии GitHub Enterprise Server, в которой еще нет пользователей, злоумышленник мог создать первого пользователя с правами администратора. {% comment %} https://github.com/github/enterprise2/issues/1889 {% endcomment %}'
+    - 'Пользовательские правила брандмауэра не сохраняются в процессе обновления. {% comment %} https://github.com/github/enterprise2/issues/2823 {% endcomment %}'
+    - 'Отслеживаемые файлы Git LFS, [отправленные через веб-интерфейс](https://github.com/blog/2105-upload-files-to-your-repositories), ошибочно добавляются напрямую в репозиторий. {% comment %} https://github.com/github/github/issues/54684 {% endcomment %}'
+    - 'Невозможно закрыть проблемы, если они содержат постоянную ссылку на BLOB-объект в том же репозитории с путем, длина которого превышает 255 символов. {% comment %} https://github.com/github/github/issues/107731 {% endcomment %}'
+    - 'Когда в GitHub Connect включен параметр "Пользователи могут выполнять поиск на GitHub.com", результаты поиска на GitHub.com не включают проблемы в частных и внутренних репозиториях. {% comment %} https://github.com/github/admin-experience/issues/571 {% endcomment %}'
+    - 'Оповещения безопасности не включаются в отчет при отправке в репозиторий посредством командной строки. {% comment %} https://github.com/github/github/issues/143190 {% endcomment %}'
+    - 'Если узел реплики находится в автономном режиме в конфигурации высокой доступности, {% data variables.product.product_name %} по-прежнему может маршрутизировать запросы {% data variables.product.prodname_pages %} на узел в автономном режиме, снижая доступность {% data variables.product.prodname_pages %} для пользователей.'

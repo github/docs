@@ -1,5 +1,5 @@
 ---
-title: Converting a user into an organization
+title: Преобразование пользователя в организацию
 redirect_from:
   - /articles/what-is-the-difference-between-create-new-organization-and-turn-account-into-an-organization
   - /articles/explaining-the-account-transformation-warning
@@ -8,7 +8,7 @@ redirect_from:
   - /github/setting-up-and-managing-your-github-user-account/managing-user-account-settings/converting-a-user-into-an-organization
   - /account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/converting-a-user-into-an-organization
   - /account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/converting-a-user-into-an-organization
-intro: You can convert your personal account into an organization. This allows more granular permissions for repositories that belong to the organization.
+intro: 'Вы можете выполнить преобразование личной учетной записи в организацию Это позволяет предоставлять детализированные разрешения для репозиториев, принадлежащих организации.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -17,58 +17,61 @@ versions:
 topics:
   - Accounts
 shortTitle: User into an organization
+ms.openlocfilehash: 16680b332a521cd8de1a349bf52c9aac6294d4c3
+ms.sourcegitcommit: bafb4fe4c8c086a510eafee6e54a2d172fd3a01b
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/16/2022
+ms.locfileid: '148046582'
 ---
 {% warning %}
 
-**Warning**: Before converting a user into an organization, keep these points in mind.
+**Предупреждение.** Прежде чем выполнять преобразование пользователя в организацию, необходимо учесть следующее.
 
-* You will **no longer** be able to sign into the converted personal account.
-* You will **no longer** be able to create or modify gists owned by the converted personal account.
-* An organization **cannot** be converted back to a user.
-* The SSH keys, OAuth tokens, job profile, reactions, and associated user information, **will not** be transferred to the organization. This is only true for the personal account that's being converted, not any of the personal account's collaborators.
-* Any {% data variables.product.prodname_github_apps %} installed on the converted personal account will be uninstalled.
-* Any commits made with the converted personal account **will no longer be linked** to that account. The commits themselves **will** remain intact.
-* Any existing comments made by the converted personal account **will no longer be linked** to that account. The comments themselves **will** remain intact, but will be associated with the `ghost` user.
-* Any forks of private repositories made with the converted personal account will be deleted.
+* Вы **больше не сможете** войти в преобразованную личную учетную запись.
+* Вы **больше не сможете** создать или изменить gist, принадлежащие преобразованной личной учетной записи.
+* Организацию **невозможно** будет преобразовать обратно в пользователя.
+* Ключи SSH, маркеры OAuth, профиль задания, реакции, а также связанные сведения о пользователе **не будут** переданы в организацию. Это относится только к преобразуемой личной учетной записи, но не к участникам совместной работы для личной учетной записи.
+* Все данные {% variables.product.prodname_github_apps %}, установленные на преобразованной личной учетной записи, будут удалены.
+* Любые фиксации, сделанные с преобразованной личной учетной записью, **больше не будут связаны** с ней. Сами фиксации **останутся неизменными**.
+* Любые существующие комментарии, сделанные преобразованной личной учетной записью, **больше не будут связаны** с ней. Сами комментарии **останутся** неизменными, но будут связаны с пользователем `ghost`.
+* Все вилки частных репозиториев, сделанные с помощью преобразованной личной учетной записи, будут удалены.
 {% endwarning %}
 
 {% ifversion fpt or ghec or ghes %}
-## Keep your personal account and create a new organization manually
+## Сохранение личной учетной записи и создание новой организации вручную
 
-If you want your organization to have the same name that you are currently using for your personal account, or if you want to keep your personal account's information intact, then you must create a new organization and transfer your repositories to it instead of converting your personal account into an organization.
+Если необходимо, чтобы в вашей организации использовалось то же имя, что и для вашей личной учетной записи, или если нужно сохранить данные вашей личной учетной записи без изменений, вместо преобразования личной учетной записи в организацию создайте новую организацию и перенесите в нее репозитории.
 
-1. To retain your current personal account name for your personal use, [change the name of your personal account](/articles/changing-your-github-username) to something new and wonderful.
-2. [Create a new organization](/articles/creating-a-new-organization-from-scratch) with the original name of your personal account.
-3. [Transfer your repositories](/articles/transferring-a-repository) to your new organization account.{% endif %}
+1. Чтобы сохранить текущее имя своей личной учетной записи для личного использования, [измените имя этой учетной записи](/articles/changing-your-github-username), придумав новое и интересное название.
+2. [Создайте новую организацию](/articles/creating-a-new-organization-from-scratch) с исходным именем своей личной учетной записи.
+3. [Перенесите свои репозитории](/articles/transferring-a-repository) в новую учетную запись организации.{% endif %}
 
-## Convert your personal account into an organization automatically
+## Автоматическое преобразование личной учетной записи в организацию
 
-You can also convert your personal account directly into an organization. Converting your account:
- - Preserves the repositories as they are without the need to transfer them to another account manually
- - Automatically invites collaborators to teams with permissions equivalent to what they had before
- {% ifversion fpt or ghec %}- For personal accounts on {% data variables.product.prodname_pro %}, automatically transitions billing to [the paid {% data variables.product.prodname_team %}](/articles/about-billing-for-github-accounts) without the need to re-enter payment information, adjust your billing cycle, or double pay at any time{% endif %}
+Вы также можете преобразовать личную учетную запись непосредственно в организацию. Преобразование учетной записи:
+ - Сохраняет репозитории в неизменном виде, и их потом не нужно переносить вручную в другую учетную запись
+ - Автоматически приглашает участников совместной работы в команды с разрешениями, эквивалентными тем, что были до {% ifversion fpt or ghec %}. Для личных учетных записей в {% data variables.product.prodname_pro %} выставление счетов автоматически переводится на [оплаченные {% data variables.product.prodname_team %}](/articles/about-billing-for-github-accounts) без необходимости повторного ввода сведений об оплате, корректировки цикла выставления счетов или двойной оплаты в любое время{% endif %}
 
-1. Create a new personal account, which you'll use to sign into GitHub and access the organization and your repositories after you convert.
-2.  [Leave any organizations](/articles/removing-yourself-from-an-organization) the personal account you're converting has joined.
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.organizations %}
-5. Under "Transform account", click **Turn <username> into an organization**.
- 	![Organization conversion button](/assets/images/help/settings/convert-to-organization.png)
-6. In the Account Transformation Warning dialog box, review and confirm the conversion. Note that the information in this box is the same as the warning at the top of this article.
- 	![Conversion warning](/assets/images/help/organizations/organization-account-transformation-warning.png)
-7. On the "Transform your user into an organization" page, under "Choose an organization owner", choose either the secondary personal account you created in the previous section or another user you trust to manage the organization.
- 	![Add organization owner page](/assets/images/help/organizations/organization-add-owner.png)
-8. Choose your new organization's subscription and enter your billing information if prompted.
-9. Click **Create Organization**.
-10. Sign in to the new personal account you created in step one, then use the context switcher to access your new organization.
+1. Создайте новую личную учетную запись, которая будет использоваться для входа в GitHub, а также для доступа к организации и репозиториям после преобразования.
+2.  [Покиньте все организации](/articles/removing-yourself-from-an-organization), в которые входила преобразуемая личная учетная запись.
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.organizations %}
+5. В разделе "Преобразование учетной записи" щелкните **Преобразовать <username> в организацию**.
+    ![Кнопка преобразования организации](/assets/images/help/settings/convert-to-organization.png)
+6. Проверьте и подтвердите преобразование в диалоговом окне "Предупреждение о преобразовании учетной записи". Обратите внимание, что сведения в этом окне совпадают с предупреждением в начале этой статьи.
+    ![Предупреждение о преобразовании](/assets/images/help/organizations/organization-account-transformation-warning.png)
+7. На странице "Преобразование пользователя в организацию" в разделе "Выбор ответственного по организации" выберите вторичную личную учетную запись, созданную в предыдущем разделе, или другого пользователя, которому вы доверяете управление организацией.
+    ![Страница "Добавление ответственного по организации"](/assets/images/help/organizations/organization-add-owner.png)
+8. Выберите подписку для новой организации и при появлении запроса введите сведения о выставлении счетов.
+9. Щелкните **Создать организацию**.
+10. Войдите в новую личную учетную запись, созданную на шаге 1, а затем используйте переключатель контекста для получения доступа к новой организации.
 
 {% tip %}
 
-**Tip**: When you convert a personal account into an organization, we'll add collaborators on repositories that belong to the account to the new organization as *outside collaborators*. You can then invite *outside collaborators* to become members of your new organization if you wish. For more information, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization#outside-collaborators)."
+**Совет.** При преобразовании личной учетной записи в организацию мы добавим участников совместной работы в репозиториях, относящихся к учетной записи, в новую организацию в качестве *внешних участников совместной работы*. Затем при желании вы сможете пригласить *внешних участников совместной работы* стать членами новой организации. Дополнительные сведения см. в статье "[Роли в организации](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization#outside-collaborators)".
 
 {% endtip %}
 
-## Further reading
-- "[Setting up teams](/articles/setting-up-teams)"
-{% ifversion fpt or ghec %}- "[Inviting users to join your organization](/articles/inviting-users-to-join-your-organization)"{% endif %}
-- "[Accessing an organization](/articles/accessing-an-organization)"
+## Дополнительные материалы
+- [Настройка команд](/articles/setting-up-teams) {% ifversion fpt or ghec %}- [Приглашение пользователей присоединиться к организации](/articles/inviting-users-to-join-your-organization){% endif %}
+- "[Вступление в организацию](/articles/accessing-an-organization)"

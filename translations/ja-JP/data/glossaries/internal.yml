@@ -1,0 +1,541 @@
+- term: 2-up
+  description: GitHub 上の画像表示の既定モード。
+- term: 代替オブジェクト データベース
+  description: >-
+    この代替メカニズムを介して、リポジトリはそのオブジェクト データベースの一部を別のオブジェクト データベースから継承できます。これは、"代替" と呼ばれます。
+- term: AMI
+  description: >-
+    Amazon マシン イメージ。Amazon Elastic Compute Cloud で使う仮想アプライアンス。
+- term: 匿名化された画像の URL
+  description: >-
+    画像ごとに、ブラウザーの詳細と関連情報を他のユーザーに見えないようにする匿名 URL プロキシ。
+- term: Apex ドメイン
+  description: サブドメイン部分を含まないルート ドメイン。
+- term: API
+  description: >-
+    アプリケーション プログラミング インターフェイス。さまざまなソフトウェア コンポーネント間の通信方法が明確に定義されたセット。
+- term: API トークン
+  description: >-
+    スクリプトおよびコマンド ラインで、パスワードの代わりに使われるトークン。
+- term: app
+  description: >-
+    GitHub と統合されるサード パーティのサービス。これは通常、OAuth アプリケーションまたは GitHub Apps を指します。これはアプリとも呼ばれます。
+- term: application
+  description: >-
+    GitHub と統合されるサード パーティのサービス。これは通常、OAuth アプリケーションまたは GitHub Apps を指します。これはアプリとも呼ばれます。
+- term: 引数
+  description: 'GraphQL で、特定のフィールドに添付されるキーと値のペアのセット。'
+- term: AsciiDoc
+  description: >-
+    ノート、ドキュメント、記事、ブック、ebook、スライドショー、Web ページ、man ページ、ブログを記述するためのテキスト ドキュメント形式。
+- term: 資産
+  description: '画像、写真、動画、テキスト ファイルなどの個々のファイル。'
+- term: Atom フィード
+  description: Web コンテンツのシンジケーションがしやすくなる軽量な XML 形式。
+- term: 監査ログ
+  description: >-
+    Organization の監査ログには、だれがアクションを実行したか、何のアクションだったか、いつ実行されたかなど、Organization で実行されたアクティビティについての詳細が含まれます。
+- term: アバター
+  description: >-
+    ユーザーが自分のアクティビティを識別するために GitHub にアップロードするカスタム画像で、通常はユーザー名も付いています。これはプロフィール写真とも呼ばれます。
+- term: AWS
+  description: アマゾン ウェブ サービス。セキュリティで保護されたクラウド サービス プラットフォーム。
+- term: Azure
+  description: Microsoft のクラウドコンピューティング プラットフォーム。
+- term: Azure DevOps
+  description: >-
+    ソース コードのホスティング、issue、CI/CD パイプライン、その他の開発者サービスを提供する Microsoft 製品。オンプレミス バージョンの旧称は Team Foundation Server です。クラウドホスト バージョンの旧称は Visual Studio Team Services です。
+- term: ベア リポジトリ
+  description: >-
+    ベア リポジトリとは通常、リビジョン管理下のどのファイルもローカルにチェックアウトされたコピーがない、適切に命名されたディレクトリで、サフィックスは .git です。つまり、通常は非表示の .git サブディレクトリに存在する Git 管理ファイルと制御ファイルが、代わりに repository.git ディレクトリに直接存在し、他のファイルは存在せず、チェックアウトされません。通常は、パブリック リポジトリの公開者がベア リポジトリを使用可能にします。
+- term: BFG リポジトリ クリーナー
+  description: BFG。Git リポジトリ履歴のデータをクレンジングするサードパーティ ツール。
+- term: BLOB オブジェクト
+  description: '型指定されていないオブジェクト (ファイルの内容など)。'
+- term: ボット
+  description: 自動化されたタスクを実行するソフトウェア アプリケーション。
+- term: Bundler
+  description: アプリケーションが依存する Ruby gem を管理する方法。
+- term: camo
+  description: >-
+    GitHub から提供されるセキュアなページ上でコンテンツ混在の警告を防ぐための SSL 画像プロキシ。
+- term: チェーン
+  description: >-
+    オブジェクトのリストで、リスト内の各オブジェクトにその後続オブジェクトへの参照が含まれます (あるコミットの後続オブジェクトが、その親の 1 つである場合など)。
+- term: CIDR 表記
+  description: IP アドレスとそれに関連付けられているルーティング プレフィックスをコンパクトに表現したもの。
+- term: CLI
+  description: コマンド ライン インターフェイス。
+- term: CNAME レコード
+  description: >-
+    正規名レコード。ドメイン ネーム システム (DNS) のリソース レコードの一種で、ドメイン名が別のドメイン ('正規' ドメイン) の別名であることを指定するのに使われます。
+- term: 条件付きの要求
+  description: >-
+    REST API で、特定の状況でのみ応答される HTTP メソッド。
+- term: connection
+  description: 'GraphQL で、同じ呼び出しの一部として関連オブジェクトのクエリを実行する方法。'
+- term: コア Git
+  description: >-
+    Git の基本的なデータ構造とユーティリティ。限られたソース コード管理ツールのみを公開します。
+- term: CPU
+  description: 中央処理装置。
+- term: 認証情報ヘルパー
+  description: Git 資格情報を格納およびフェッチするプログラム。
+- term: creole
+  description: >-
+    wiki の共通マークアップ言語として、異なる wiki エンジン間のコンテンツの転送を可能にし、簡素化することを目的とした、軽量マークアップ言語。
+- term: CSV
+  description: コンマ区切りファイル。
+- term: DAG
+  description: >-
+    有向非巡回グラフ。コミット オブジェクトは、親はある (有向) が、コミット オブジェクトのグラフが非巡回である (同じオブジェクトで開始して終了するチェーンがない) ため、有向非巡回グラフを形成します。
+- term: ダングリング オブジェクト
+  description: >-
+    他の到達不能オブジェクトからも到達できない到達不能オブジェクト。ダングリング オブジェクトには、リポジトリにあるどの参照やオブジェクトからも参照できません。
+- term: データ パック
+  description: >-
+    ユーザーが購入できるストレージと帯域幅パッケージ。各データ パックから、50 GB の帯域幅と 50 GB のストレージが提供されます。
+- term: DELETE
+  description: REST API のメソッドの一種
+- term: "[DHCP]"
+  description: >-
+    動的ホスト構成プロトコル (DHCP)。インターネット プロトコル (IP) ホストに IP アドレスなどの関連構成情報 (サブネット マスクや既定のゲートウェイなど) を自動で提供するクライアント/サーバー プロトコル。
+- term: ディレクティブ
+  description: >-
+    GraphQL で、サーバーで望まれる何らかの方法でクエリの実行に影響を与える方法。
+- term: directory
+  description: "コマンド \"ls\" を使って取得するリスト。"
+- term: ディザスター リカバリー
+  description: >-
+    別名は DR。人災や天災の後に技術インフラストラクチャとシステムを復旧するツールおよびプロセス。
+- term: DNS プロバイダー
+  description: >-
+    ユーザーが一意のドメイン名を購入して登録し、ドメイン名を IP アドレスまたは別のドメイン名にポイントすることで、その名前を IP (インターネット プロトコル) アドレスに接続できるようにする企業。
+- term: DSA
+  description: デジタル署名アルゴリズム。デジタル署名の処理標準。
+- term: DSA キー
+  description: DSA で使われる公開キーと秘密キー。
+- term: Early Access Program
+  description: >-
+    個人と Organization がリリース前の機能を受け取るために加入する GitHub プログラム。
+- term: EBS
+  description: >-
+    Amazon Elastic Block Store。永続的なブロック ストレージ ボリュームを AWS Cloud の Amazon EC2 インスタンスで使えるように提供します。
+- term: EC2
+  description: >-
+    Amazon Elastic Compute Cloud。クラウドでセキュアでサイズ変更可能なコンピューティング容量を提供する Web サービス。
+- term: エッジ
+  description: 'GraphQL 内のノード間の接続。'
+- term: EIP
+  description: Elastic IP。動的なクラウド コンピューティング向けに設計された静的な IPv4 アドレス。
+- term: ElasticSearch
+  description: Lucene に基づいた検索エンジン。
+- term: 有害なマージ
+  description: >-
+    有害なマージとは、どの親にも出現しない変更を導入するマージのことです。
+- term: 除外
+  description: >-
+    あるパスが非除外 pathspec に一致すると、すべての除外 pathspec (マジック シグネチャ: ! またはその同意語 ^) から実行されます。一致する場合、パスは無視されます。非除外 pathspec がない場合、除外は、pathspec なしで呼び出されたかのように結果セットに適用されます。
+- term: FIDO U2F
+  description: >-
+    スマート カードで見られるのと同様のセキュリティ技術に基づいた特殊な USB または NFC デバイスを使って 2 要素認証を強化および簡素化するオープン認証規格。
+- term: フィールド
+  description: 'GraphQL で、オブジェクトから取得できるデータの単位。'
+- term: ファイル システム
+  description: >-
+    Linus Torvalds は当初、Git をユーザー空間のファイル システム、つまり、ファイルとディレクトリを保持するインフラストラクチャとして設計しました。それにより、Git の効率性と速度が確保されました。
+- term: 炎上合戦
+  description: オンライン上でユーザー同士が激しく罵倒し合うこと。
+- term: フラグメント
+  description: 'GraphQL で、一連のフィールドを構築できるようにする、再利用可能なユニット。'
+- term: GCE
+  description: Google Compute Engine。
+- term: gem
+  description: ライブラリをインストールして RubyGems を管理できるコマンド ライン ツール。
+- term: Gemfile
+  description: Ruby プログラムの gem の依存関係を記述するためのフォーマット。
+- term: GET
+  description: REST API のメソッドの一種
+- term: GeoJSON
+  description: さまざまな地理データ構造をエンコードするためのフォーマット。
+- term: GitHub Marketplace 開発者契約
+  description: ユーザーが GitHub Marketplace を利用するにあたって締結する契約。
+- term: GPG
+  description: >-
+    GNU Privacy Guard。機密データを含むファイルの暗号化 (および暗号化の解除) に使うことができる暗号化ソフトウェア
+- term: GPG キー
+  description: GPG で使う暗号化キー。
+- term: hash
+  description: オブジェクト名の同意語
+- term: head
+  description: >-
+    ブランチの先端にあるコミットへの名前付き参照。head は、パックされた refs を使用する場合を除き、$GIT_DIR/refs/heads/ ディレクトリ内のファイルに格納されます。
+- term: HEAD
+  description: REST API のメソッドの一種
+- term: headers
+  description: >-
+    REST API で、トランザクションのメタデータを定義するメッセージの必須コンポーネント。
+- term: 正常性チェック
+  description: >-
+    あるノードで事前構成済みのチェックが失敗した場合、ロード バランサーで、応答していないそのノードへのトラフィックの送信を停止できるようにする方法。
+- term: HTTP 動詞
+  description: HTTP メソッド。
+- term: Hyper-V
+  description: >-
+    Windows を実行している x86-64 システム上に仮想マシンを作成する Microsoft 製品。
+- term: ハイパーメディア
+  description: 'REST API で、あるリソース状態から別のリソース状態へのリンク。'
+- term: 大文字小文字を区別しない
+  description: 大文字小文字を区別しない一致。
+- term: implementation
+  description: 'GraphQL で、オブジェクトがインターフェイスから継承する方法。'
+- term: インデックス (index)
+  description: >-
+    統計情報を含むファイルのコレクションで、その内容がオブジェクトとして格納されます。インデックスは、ワーキング ツリーの格納バージョンです。実は、マージ時に使われる第 2、さらには第 3 のバージョンのワーキング ツリーを含めることもできます。
+- term: インデックス エントリ
+  description: >-
+    インデックスに格納されている、特定のファイルに関する情報。マージが開始されたが、まだ終了していない場合 (つまり、インデックスにそのファイルの複数のバージョンが含まれている場合)、インデックス エントリのマージを解除できます。
+- term: イントロスペクション
+  description: >-
+    "内省的" とも言います。 GraphQL スキーマに対して、サポートしているクエリに関する情報を問い合わせる方法。
+- term: iPython Notebook
+  description: >-
+    コンピューティング プロセス全体 (コードの開発、ドキュメント化、実行、および結果の伝達) をキャプチャする、Web ベースのアプリケーション。
+- term: JIRA
+  description: issue を追跡する Atlassian 製品。
+- term: Jupyter Notebook
+  description: コードとリッチ テキスト要素の両方を含む Notebook。
+- term: カーネル
+  description: コンピューターのオペレーティング システムの中核となるコンピューター プログラム。
+- term: kramdown
+  description: Jekyll の 3.0.0 の既定の Markdown プロセッサ。
+- term: LDAP
+  description: ライトウェイト ディレクトリ アクセス プロトコル。
+- term: リンター
+  description: コード品質を検証するプログラム。
+- term: Liquid
+  description: 動的コンテンツのロードに使われるテンプレート言語。
+- term: ロード バランサー
+  description: >-
+    リバース プロキシとして機能し、ネットワークまたはアプリケーションのトラフィックを複数のサーバーに分散させるデバイス。
+- term: メディア タイプ
+  description: ファイル形式と形式コンテンツの 2 つの部分から成る識別子。
+- term: MediaWiki
+  description: >-
+    プログラミング言語 PHP で記述された無料のオープンソース wiki ソフトウェアで、コンテンツはデータベースに格納されます。
+- term: Mercurial
+  description: '無料の分散型ソース コード管理ツール。'
+- term: metadata
+  description: 他のデータについての情報を記述し提供するデータのセット。
+- term: MIME タイプ
+  description: >-
+    Multipurpose Internet Mail Extensions。ファイルの性質と形式に従ってファイルを識別する方法。
+- term: ミューテーション
+  description: >-
+    GraphQL で、サーバー上のデータを変更する GraphQL 動作を定義する方法。
+- term: ネームサーバー
+  description: >-
+    インターネット上で、ドメイン名のさまざまなサービスの場所に関するクエリの処理に特化したサーバー。
+- term: NFC
+  description: >-
+    近距離無線通信。2 台の電子デバイス (通常、一方がスマートフォンなどの携帯機器) を相互に一定の範囲内に近づけることで通信を確立するための一連の通信プロトコルト。
+- term: node
+  description: >-
+    ネットワークに接続され、通信チャンネルを介して情報を作成、受信、送信できる、アクティブな電子デバイス。
+- term: node
+  description: 'GraphQL では、オブジェクトの総称。'
+- term: NTP
+  description: ネットワーク タイム プロトコル。
+- term: object
+  description: >-
+    Git のストレージの単位。そのコンテンツの SHA-1 で一意に識別されます。このため、オブジェクトを変更することはできません。
+- term: オブジェクト データベース
+  description: >-
+    "オブジェクト" のセットを格納し、個々のオブジェクトは、そのオブジェクト名で識別されます。通常、オブジェクトは $GIT_DIR/objects/ にあります。
+- term: オブジェクト ID (object identifier)
+  description: オブジェクト名の同意語
+- term: オブジェクト名
+  description: >-
+    オブジェクトの一意の識別子。通常、オブジェクト名は 40 文字の 16 進数文字列で表されます。通称は SHA-1 です。
+- term: オブジェクトの種類
+  description: >-
+    オブジェクトの種類を記述する "コミット"、"ツリー"、"タグ"、"BLOB" のいずれかの識別子。
+- term: タコ足マージ
+  description: 3 つ以上のブランチをマージすること。
+- term: オニオン スキン
+  description: >-
+    GitHub で画像を表示する際に、重ね合わされた置換画像の不透明度を下げて表示する方法。
+- term: OOM
+  description: メモリ不足。
+- term: Open Stack
+  description: クラウドコンピューティング用のソフトウェア プラットフォーム。
+- term: OpenSSH
+  description: >-
+    Secure Shell (SSH) プロトコルに基づいた、ネットワークレベルのセキュリティ関連ユーティリティのスイート。
+- term: 番号付きリスト
+  description: 番号が付けられたリスト。
+- term: Org
+  description: >-
+    メモを取る、TODO リストを管理する、プロジェクトを計画する、ドキュメントを作成するためのプレーン テキスト システム。
+- term: パック
+  description: >-
+    (スペースの節約または効率的な送信のため) 圧縮されて 1 つのファイルになっているオブジェクトのセット。
+- term: パック インデックス
+  description: >-
+    パックのコンテンツに効率的にアクセスするのに役立つ、パック内のオブジェクトの識別子とその他の情報のリスト。pathspec は、"git ls-files"、"git ls-tree"、"git add"、"git grep"、"git diff"、"git checkout" など、多くのコマンドのコマンド ラインで使われ、操作のスコープをツリーまたはワークツリーの一部のサブセットに制限します。
+- term: パラメーター (parameter)
+  description: >-
+    REST API で、入力または出力パラメーターの一部として、要求で送信されるか、応答で受信されるデータ。
+- term: parent
+  description: >-
+    コミット オブジェクトには、開発ラインにおいて論理的に前に来るもの (つまり、その親) のリスト (空の場合もある) が含まれます。
+- term: パスフレーズ
+  description: >-
+    コンピューター システム、プログラム、またはデータへのアクセスの制御に使われる一連の単語またはその他のテキスト。
+- term: PATCH
+  description: REST API のメソッドの一種
+- term: pathspec
+  description: Git コマンドでパスを制限するのに使われるパターン。
+- term: PEM
+  description: プライバシー強化メール
+- term: 永続的識別子
+  description: >-
+    別名はデジタル オブジェクト識別子 (DOI)。デジタル オブジェクトを参照するグローバルに一意の数字列および/または文字列。永続的識別子は、ユーザーが永続的なリンクを介してデジタル リソースにアクセスできるようにする点で利用できます。
+- term: pickaxe
+  description: >-
+    特定のテキスト文字列を追加または削除する変更を選ぶのに役立つ diffcore ルーチンのオプション。--pickaxe-all オプションを使うと、導入または削除された完全な変更セット (たとえば、特定のテキスト行) を表示できます。
+- term: plugin
+  description: 既存のプログラムに特定の機能を追加するソフトウェア コンポーネント。
+- term: Pod
+  description: Plain Old Documentation。perl 開発者が使うマークアップ言語。
+- term: ポインター ファイル
+  description: 実際のファイルをポイントする参照。
+- term: port
+  description: オペレーティング システムにおける通信のエンドポイント。
+- term: 優先質問
+  description: >-
+    Organaization が Business プランについて GitHub サポートに行う質問。優先質問として認定されるには、GitHub が定める基準を満たす必要があります。
+- term: 優先対応
+  description: >-
+    Organaization が Business プランについて行った優先質問に対する GitHub サポートからの回答。
+- term: ポーリング (polling)
+  description: >-
+    あるプログラムまたはデバイスによって、他のプログラムまたはデバイスがどの状態にあるかを確認する、定期的な自動チェック。
+- term: POST
+  description: REST API のメソッドの一種
+- term: プレリリース プログラム
+  description: >-
+    新機能が正式にローンチされる前にユーザーが利用できるようにする GitHub プログラム。
+- term: PUT
+  description: REST API のメソッドの一種
+- term: QCOW2
+  description: 画像形式。
+- term: QR コード
+  description: >-
+    クイック レスポンス コード。バーコードは、貼り付けられている対象に関する情報が含まれる機械可読な光学ラベルです。
+- term: Query
+  description: 'GraphQL で、オブジェクトの特定のフィールドを要求する方法。'
+- term: レート制限
+  description: API で要求が拒否されるプロセス。
+- term: RDoc
+  description: プログラミング言語 Ruby に組み込まれたドキュメント ジェネレーター。
+- term: 到達可能
+  description: >-
+    あるコミットのすべての親要素は、そのコミットから "到達可能" であると言います。より一般的には、あるオブジェクトがもう一方のオブジェクトから到達可能であるのは、チェーンによって一方から他方へ到達できる場合です。このとき、チェーンは、タグからそれらがタグ付けするものは何でも、コミットからその親またはツリーへ、そしてツリーからそれらに含まれるツリーまたは BLOB へとたどります。
+- term: ref
+  description: >-
+    refs/ で始まる名前 (refs/heads/master など) で、オブジェクト名または別の参照 (後者はシンボリック参照と呼ばれます) を指します。
+- term: reflog
+  description: "reflog は、参照のローカル \"履歴\" を示します。"
+- term: refspec
+  description: >-
+    "refspec" はフェッチとプッシュで使われ、リモート参照とローカル参照の間のマッピングを記述します。
+- term: 相対リンク
+  description: 現在のファイルからの相対のリンク。
+- term: リモート追跡ブランチ
+  description: 別のリポジトリからの変更をたどるのに使われる参照。
+- term: REST API
+  description: >-
+    開発者が HTTP 経由で要求を実行し、応答を受信できるように一連の機能を定義する API。
+- term: reStructuredText
+  description: WYSIWYG のプレーンテキストのマークアップ構文およびパーサー システム。
+- term: revision
+  description: コミットの同意語。
+- term: rewind
+  description: >-
+    開発の一部を破棄する、つまり head をこれより前のリビジョンに割り当てること。
+- term: ルート エンドポイント
+  description: 'REST API で、すべてのエンドポイントがその下にあるディレクトリ。'
+- term: RSA
+  description: 公開キーと秘密キーを使ってユーザー データを暗号化するのに使われるアルゴリズム。
+- term: RSA キー
+  description: RSA アルゴリズムに基づいた秘密キー。
+- term: SAML
+  description: >-
+    Security Assertion Markup Language。パーティ間 (特に ID プロバイダーとサービス プロバイダーの間) で認証および認可データを交換するための、XML ベースのオープン規格のデータ形式。
+- term: SAN
+  description: サブジェクトの別名
+- term: Sass
+  description: CSS 拡張言語。
+- term: schema
+  description: データがどのような構造になっているかを示すメタデータ。
+- term: SCIM
+  description: >-
+    クロスドメイン ID 管理のシステム。ID ドメイン間でユーザー ID 情報の交換を自動化するためのオープン規格。
+- term: SCM
+  description: ソース コード管理 (ツール)。
+- term: SCSS
+  description: CSS 拡張言語。
+- term: サービス アカウント
+  description: >-
+    アプリケーションまたはサーバーがオペレーティング システムとやりとりするために使う特別なユーザー アカウント。
+- term: SHA-1
+  description: >-
+    "セキュア ハッシュ アルゴリズム 1"。暗号化ハッシュ関数。Git のコンテキストでは、オブジェクト名の同意語として使われます。
+- term: シェル
+  description: オペレーティング システムのサービスにアクセスするためのユーザー インターフェイス。
+- term: shallow リポジトリ
+  description: >-
+    shallow リポジトリの履歴は不完全であり、そのコミットの一部は、親が焼灼されています (つまり、Git は、これらのコミットがコミット オブジェクトに記録されていても、親を持たないふりをするように指示されます)。これは、アップストリームに記録されている実際の履歴がはるかに大きいが、プロジェクトの最近の履歴にのみ関心がある場合に役立つことがあります。shallow リポジトリは、git-clone(1) に --depth オプションを指定して作成し、その履歴は、後で git-fetch(1) を使って深めることができます。
+- term: sms
+  description: テキスト メッセージ。
+- term: SMTP
+  description: 簡易メール転送プロトコル。電子メール送信の規格。
+- term: SNMP
+  description: 簡易ネットワーク管理プロトコル。ネットワーク管理用のプロトコル。
+- term: spam
+  description: 他のユーザーからの未承諾の通信。
+- term: SSD
+  description: ソリッドステート ドライブ。
+- term: SSH
+  description: >-
+    Secure Shell (SSH) は、セキュリティで保護されていないネットワーク経由でネットワーク サービスを安全に使用するための暗号化ネットワーク プロトコルです。
+- term: ssh-agent
+  description: 公開キーの認証に使われる秘密キーを保持するプログラム。
+- term: SSH キー
+  description: >-
+    SSH キーは、暗号化されたメッセージを使って、オンライン サーバーに自分を識別させる方法です。自分のコンピューターが、別のサービスに対する一意の専用パスワードを持っているようなものです。SSH キーは、GitHub によって、GitHub.com から自分のコンピューターに情報を安全に転送するのに使われます。
+- term: SSH キー フィンガープリント
+  description: >-
+    接続中のホストを識別して検証するものであり、ホストの公開キーに基づいています。
+- term: SSL
+  description: Secure Sockets Layer。
+- term: 静的サイト ジェネレーター
+  description: >-
+    生データ (Markdown ファイルなど) とテンプレートを使って、HTML のみの Web サイトを生成するプログラム。
+- term: String
+  description: プレーンテキストを示すオブジェクトの種類
+- term: STL ファイル
+  description: >-
+    STL (STereoLithography) は、3D Systems が作成した光造形法 CAD ソフトウェアにネイティブなファイル形式です。
+- term: subdomain
+  description: >-
+    ルートまたは Apex ドメインの前にあるドメイン名のカスタマイズ可能でオプションの一部で、ドメイン プレフィックスのように見える部分。
+- term: サブモジュール
+  description: >-
+    別のリポジトリ内の異なるプロジェクト (スーパープロジェクトと呼ばれる) の履歴を保持するリポジトリ。
+- term: サブプロジェクト
+  description: >-
+    メイン プロジェクト以外の場所で開発および管理されるプロジェクト。
+- term: Subversion
+  description: オープンソースのバージョン管理システム。
+- term: sudo モード
+  description: >-
+    ユーザーが別のユーザーのセキュリティ特権を使ってプログラムを実行する方法。ユーザーは引き続き自分のパスワードを指定し、認証されます。
+- term: スーパープロジェクト
+  description: >-
+    ワーキング ツリー内の他のプロジェクトのリポジトリをサブモジュールとして参照するリポジトリ。スーパープロジェクトは、含まれているサブモジュールのコミット オブジェクトの名前を認識します (ただし、コピーは保持しません)。
+- term: サポート バンドル
+  description: >-
+    GitHub Enterprise インスタンスの重要なログを含む、gzip 圧縮された tar アーカイブ。
+- term: スワイプ
+  description: GitHub 画像の部分を横並びに表示する方法。
+- term: シンボリックリンク
+  description: >-
+    絶対パスまたは相対パスの形式で他のファイルまたはディレクトリへの参照を含み、パス名の解決に影響するファイル。
+- term: シンボリック参照
+  description: >-
+    シンボリック参照：SHA-1 ID そのものを含む代わりに、ref: refs/some/thing の形式で、参照されると、この参照に対して再帰的に逆参照します。
+- term: tag
+  description: >-
+    任意の型のオブジェクトを指す (通常はタグまたはコミット オブジェクトを指す) refs/tags/ 名前空間の下の参照。タグは、最も一般的には、コミットの先祖チェーン内の特定のポイントをマークするために使われます。
+- term: タグ オブジェクト
+  description: >-
+    別のオブジェクトを指す参照を含むオブジェクト。コミット オブジェクトと同じようにメッセージを含めることができます。また、(PGP) 署名を含めることもできます。その場合は、"署名付きタグ オブジェクト" と呼ばれます。
+- term: Team Foundation Server
+  description: >-
+    ソース コード管理などのチーム サービスを提供する Microsoft 製品の旧称。現在の名前は Azure DevOps Server です。
+- term: Textile
+  description: >-
+    テキスト フォーマット構文を使ってプレーンテキストを構造化 HTML マークアップに変換する、軽量マークアップ言語。
+- term: TLS
+  description: トランスポート層セキュリティ。
+- term: token
+  description: >-
+    パスワードの代わりに使用できます。トークンには、個人用アクセス トークン、OAuth トークン、または API トークンがあります。
+- term: TopoJSON
+  description: GeoJSON の拡張機能で、トポロジをエンコードします。
+- term: TOTP アプリケーション
+  description: >-
+    時間ベースのワンタイム パスワード。このタイプのアプリケーションによって、一定の時間が経過すると変更される認証コードが自動生成されます。
+- term: ツリー
+  description: >-
+    ワーキング ツリー、または従属 BLOB とツリー オブジェクトを組み合わせたツリー オブジェクトのいずれか (つまり、ワーキング ツリーの格納された表現)。
+- term: ツリー オブジェクト
+  description: >-
+    ファイル名とモードのリストと、関連付けられた BLOB および/またはツリー オブジェクトへの参照を含むオブジェクト。ツリーはディレクトリに相当します。
+- term: TSV
+  description: タブ区切りファイル。
+- term: 2 要素認証
+  description: >-
+    別名は 2FA。ユーザー名とパスワードによる標準的なログイン手順だけでなく、ユーザーのスマートフォンのアプリケーションによって生成されるか、テキスト メッセージ (SMS) として送信される認証コードも必要とする、追加のセキュリティ レイヤー。
+- term: UFW
+  description: Ubuntu の既定のファイアウォール構成ツール。
+- term: マージされていないインデックス
+  description: マージされていないインデックス エントリを含むインデックス。
+- term: 記号付きリスト
+  description: 箇条書き。
+- term: 到達不能オブジェクト
+  description: 'ブランチやタグなどの参照から到達できないオブジェクト。'
+- term: URI
+  description: >-
+    Uniform Resource Identifier。リソースを識別するために使われる文字列。
+- term: UTF-8
+  description: 可能なすべての Unicode コード ポイントをエンコードできる文字エンコーディング。
+- term: 可変
+  description: 'GraphQL で、クエリをより動的で強力にする方法。'
+- term: VAT ID
+  description: EU 域内で課税目的で使われる付加価値税登録番号。
+- term: 検証済みメールアドレス
+  description: >-
+    セキュリティ確認プロセスで有効であることをユーザーが検証済みの個人アカウントに結び付けられたメールアドレス。
+- term: 仮想マシン
+  description: >-
+    ソフトウェア上にインストールされ、専用ハードウェアを模倣するアプリケーション環境。別名は VM。
+- term: VPC
+  description: 仮想プライベート クラウド。AWS アカウント専用の仮想ネットワーク。
+- term: VPN
+  description: 仮想プライベート ネットワーク。
+- term: VMware
+  description: >-
+    クラウド コンピューティングとプラットフォーム仮想化のソフトウェアおよびサービスを提供する Dell 製品。
+- term: 許可リスト
+  description: >-
+    特定の特権、サービス、モビリティ、アクセスまたは認識が提供されているエンティティのリストまたは登録。リスト上のエンティティは、受け入れ、承認、および/または認識されます。
+- term: 作業ディレクトリ
+  description: 現在作業しているファイルのディレクトリ。
+- term: ワーキング ツリー
+  description: >-
+    実際にチェックアウトされているファイルのツリー。ワーキング ツリーには通常、HEAD コミットのツリーのコンテンツに加え、ローカルで変更したがまだコミットしていない変更がすべて含まれます。
+- term: WYSIWYG
+  description: >-
+    What You See Is What You Get。画面上のテキストは、レンダリングされるときとまったく同じように表示されことを意味する頭字語。
+- term: XenServer
+  description: 仮想化プラットフォーム。
+- term: YAML
+  description: >-
+    構成ファイルによく使われ、人間が読めるデータ シリアライズ言語。
+- term: 継続的インテグレーション
+  description: 略称は CI
+- term: 継続的デリバリー
+  description: 略称は CD

@@ -1,7 +1,7 @@
 ---
-title: Updating a user's SAML NameID
+title: Обновление SAML NameID пользователя
 shortTitle: Update SAML NameID
-intro: 'When an account''s `NameID` changes on your identity provider (IdP) and the person can no longer {% ifversion ghes or ghae %}sign into {% data variables.location.product_location %}{% elsif ghec %}authenticate to access your enterprise''s resources{% endif %}, you must {% ifversion ghec %}either contact {% data variables.product.company_short %} Support or revoke the person''s linked identity{% elsif ghes %}update the `NameID` mapping on {% data variables.location.product_location %}{% elsif ghae %}contact {% data variables.product.company_short %} Support{% endif %}.'
+intro: 'Когда изменения учетной записи `NameID` в поставщике удостоверений (IdP) и пользователь больше не может {% ifversion ghes или ghae %}войти в {% данных variables.location.product_location %}{% elsif ghec %}пройти проверку подлинности для доступа к ресурсам вашего предприятия{% endif %}, Необходимо {% ifversion ghec %}либо связаться с {% данными variables.product.company_short %} Support, либо отозвать связанное удостоверение пользователя{% elsif ghes %}обновить `NameID`  сопоставление данных {% variables.location.product_location %}{% elsif ghae %}свяжитесь с {% данных variables.product.company_short %} Поддержка {% endif %}.'
 versions:
   ghes: '*'
 type: how_to
@@ -11,25 +11,29 @@ topics:
   - Enterprise
   - Identity
   - SSO
+ms.openlocfilehash: 7cb5754640793679bb80fe03a5bdd19164df4755
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148098831'
 ---
+## Сведения об обновлении SAML `NameID` пользователей
 
-## About updates to users' SAML `NameID`
+В некоторых ситуациях может потребоваться обновить значения, связанные с учетной записью пользователя в поставщике удостоверений SAML. Если этот идентификатор совпадает с `NameID`, используемым для проверки подлинности в {% data variables.product.product_name %}, необходимо обновить сопоставление `NameID` в экземпляре, чтобы пользователь смог успешно проходить проверку подлинности. Дополнительные сведения см. в разделе [Рекомендации по использованию имени пользователя для внешней проверки подлинности](/admin/identity-and-access-management/managing-iam-for-your-enterprise/username-considerations-for-external-authentication).
 
-In some situations, you may need to update values associated with a person's account on your SAML IdP. If that identifier is also the `NameID` that you use for authentication on {% data variables.product.product_name %}, you must update the `NameID` mapping on your instance so the person can continue to authenticate successfully. For more information, see "[Username considerations for external authentication](/admin/identity-and-access-management/managing-iam-for-your-enterprise/username-considerations-for-external-authentication)."
+## Обновление SAML `NameID` пользователя
 
-## Updating a user's SAML `NameID`
-
-Enterprise owners can update a user's SAML `NameID` on a {% data variables.product.product_name %} instance.
+Владельцы предприятия могут обновить SAML `NameID` пользователя в экземпляре {% data variables.product.product_name %}.
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
-2. In the left sidebar, click **All users**.
-  !["All users" sidebar item in site administrator settings](/assets/images/enterprise/site-admin-settings/all-users.png)
-3. In the list of users, click the username you'd like to update the `NameID` mapping for.
-  ![Username in list of instance user accounts](/assets/images/enterprise/site-admin-settings/all-users-click-username.png)
-{% data reusables.enterprise_site_admin_settings.security-tab %}
-5. To the right of "Update SAML NameID", click **Edit** .
-  !["Edit" button under "SAML authentication" and to the right of "Update SAML NameID"](/assets/images/enterprise/site-admin-settings/update-saml-nameid-edit.png)
-6. In the "NameID" field, type the new `NameID` for the user.
-  !["NameID" field in modal dialog with NameID typed](/assets/images/enterprise/site-admin-settings/update-saml-nameid-field-in-modal.png)
-7. Click **Update NameID**.
-  !["Update NameID" button under updated NameID value within modal](/assets/images/enterprise/site-admin-settings/update-saml-nameid-update.png)
+2. На левой боковой панели нажмите **Все пользователи**.
+  ![Элемент боковой панели "Все пользователи" в параметрах администратора сайта](/assets/images/enterprise/site-admin-settings/all-users.png)
+3. В списке пользователей щелкните имя пользователя, для которого нужно обновить сопоставление `NameID`.
+  ![Имя пользователя в списке учетных записей пользователей экземпляра](/assets/images/enterprise/site-admin-settings/all-users-click-username.png) {% data reusables.enterprise_site_admin_settings.security-tab %}
+5. Справа от параметра "Обновить SAML NameID" нажмите кнопку **Изменить**.
+  ![Кнопка "Изменить" в разделе "Проверка подлинности SAML" справа от параметра "Обновить SAML NameID"](/assets/images/enterprise/site-admin-settings/update-saml-nameid-edit.png)
+6. В поле NameID введите новый `NameID` пользователя.
+  ![Поле NameID в модальном диалоговом окне с введенным значением NameID](/assets/images/enterprise/site-admin-settings/update-saml-nameid-field-in-modal.png)
+7. Нажмите **Обновить NameID**.
+  ![Кнопка "Обновить NameID" под обновленным значением NameID в модальном окне](/assets/images/enterprise/site-admin-settings/update-saml-nameid-update.png)

@@ -1,6 +1,6 @@
 ---
-title: Security in GitHub Codespaces
-intro: 'Overview of the {% data variables.product.prodname_github_codespaces %} security architecture, with guidelines to help you maintain security and minimize the risk of attack.'
+title: GitHub Codespaces のセキュリティ
+intro: '{% data variables.product.prodname_github_codespaces %} セキュリティ アーキテクチャの概要と、セキュリティを維持し、攻撃のリスクを最小限に抑えるためのガイドラインを示します。'
 miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
@@ -12,107 +12,112 @@ type: reference
 shortTitle: Security in Codespaces
 redirect_from:
   - /codespaces/codespaces-reference/security-in-codespaces
+ms.openlocfilehash: 0e7fe9a7644f78fc0dfa6d5bb624c5d74f3d8713
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147111550'
 ---
+## codespace のセキュリティの概要
 
-## Overview of codespace security
+{% data variables.product.prodname_github_codespaces %} は、既定でセキュリティ強化されるように設計されています。 その結果、ソフトウェア開発のプラクティスによって、codespace のセキュリティ体制が低下するリスクがないことを確認する必要があります。 
 
-{% data variables.product.prodname_github_codespaces %} is designed to be security hardened by default. Consequently, you will need to ensure that your software development practices do not risk reducing the security posture of your codespace. 
+このガイドでは、Codespaces が開発環境をセキュリティで保護する方法について説明し、作業中にセキュリティを維持するのに役立ついくつかの優れたプラクティスを提供します。 開発ツールと同様に、開いて作業するのは、自分が知っていて信頼できるリポジトリ内にのみする必要があることを覚えておいてください。
 
-This guide describes the way {% data variables.product.prodname_github_codespaces %} keeps your development environment secure and provides some of the good practices that will help maintain your security as you work. As with any development tool, remember that you should only open and work within repositories you know and trust.
+### 環境の分離
 
-### Environment isolation
+{% data variables.product.prodname_github_codespaces %} は、独自の仮想マシンとネットワークを使用して、codespace を互いに分離するように設計されています。
 
-{% data variables.product.prodname_github_codespaces %} is designed to keep your codespaces separate from each other, with each using its own virtual machine and network.
+#### 分離された仮想マシン
 
-#### Isolated virtual machines
+各 codespace は、独自の新しく構築された仮想マシン (VM) でホストされます。 2 つの codespace が同じ VM に併置されることはありません。 
 
-Each codespace is hosted on its own newly-built virtual machine (VM). Two codespaces are never co-located on the same VM. 
+codespace は再起動するたびに、利用可能な最新のセキュリティ更新プログラムを使用して新しい VM に展開されます。
 
-Every time you restart a codespace, it's deployed to a new VM with the latest available security updates.
+#### 分離されたネットワーク
 
-#### Isolated networking
+各 codespace には、独自の分離された仮想ネットワークがあります。 ファイアウォールを使用して、インターネットからの着信接続をブロックし、内部ネットワーク上で codespace が相互に通信できないようにします。 既定では、codespace はインターネットへの送信接続を行うことが許可されます。
 
-Each codespace has its own isolated virtual network. We use firewalls to block incoming connections from the internet and to prevent codespaces from communicating with each other on internal networks. By default, codespaces are allowed to make outbound connections to the internet.
+### 認証
 
-### Authentication
+Web ブラウザーを使用するか、{% data variables.product.prodname_vscode %} から codespace に接続できます。 {% data variables.product.prodname_vscode_shortname %} から接続する場合は、{% data variables.product.product_name %} で認証するように求められます。 
 
-You can connect to a codespace using a web browser or from {% data variables.product.prodname_vscode %}. If you connect from {% data variables.product.prodname_vscode_shortname %}, you are prompted to authenticate with {% data variables.product.product_name %}. 
+codespace が作成または再起動されるたびに、自動有効期限が設定された新しい {% data variables.product.company_short %} トークンが割り当てられます。 この期間は、一般的な稼働日に再認証することなく codespace で作業できますが、codespace の使用を停止したときに接続が開いたままになる可能性は低くなります。
 
-Every time a codespace is created or restarted, it's assigned a new {% data variables.product.company_short %} token with an automatic expiry period. This period allows you to work in the codespace without needing to reauthenticate during a typical working day, but reduces the chance that you will leave a connection open when you stop using the codespace.
+トークンのスコープは、codespace が作成されたリポジトリへのアクセス権によって異なります。
 
-The token's scope will vary depending on the access you have to the repository where the codespace was created:
+- **リポジトリへの書き込みアクセス権がある場合**: トークンのスコープはリポジトリへの読み取りおよび書き込みアクセス権になります。
+- **リポジトリへの読み取りアクセス権しかない場合**: トークンは、ソース リポジトリからのコードの複製のみを許可します。 読み取りアクセス権しかないプライベート リポジトリにプッシュしようとすると、{% data variables.product.prodname_codespaces %} によってリポジトリの個人用フォークを作成するように求められます。 その後、トークンが更新され、新しい個人用フォークへの読み取りおよび書き込みアクセスが許可されます。 
+- **codespace による他のリポジトリへのアクセスを有効にした場合**: codespace に [他のリポジトリへのアクセス](/codespaces/managing-codespaces-for-your-organization/managing-access-and-security-for-your-organizations-codespaces)が許可されている場合、そのリポジトリから作成されたすべての codespace に、ソース リポジトリをスコープとする読み取りおよび書き込みトークンが含まれます。 さらに、トークンは、ユーザーまたは Organization によって示される他のリポジトリへの読み取りアクセス権も受け取ります。
 
-- **If you have write access to the repository**: The token will be scoped for read/write access to the repository.
-- **If you only have read access to the repository**: The token will only allow the code to be cloned from the source repository. If you attempt to push to a private repo where you only have read access, {% data variables.product.prodname_github_codespaces %} will prompt you to create a personal fork of the repository. The token will then be updated to have read/write access to the new personal fork. 
-- **If you've enabled your codespace to access other repositories**: When a codespace has been granted [access to other repositories](/codespaces/managing-codespaces-for-your-organization/managing-access-and-security-for-your-organizations-codespaces), any codespace created from that repository will have read/write tokens scoped to the source repository. In addition, the tokens will also receive read access to other repositories indicated by the user or organization.
+Organization の管理者が信頼済みと見なすリポジトリを指定します。 管理者は、なし、すべて、または Organization のリポジトリの一部を[信頼することを選択](/codespaces/managing-codespaces-for-your-organization/managing-access-and-security-for-your-organizations-codespaces)できます。 Organization の管理者がすべてのユーザーとすべてのリポジトリへのアクセスを許可している場合でも、codespace がリソースにアクセスするためのアクセス許可を、それを作成したユーザーよりも広くすることはできません。
 
-An organization's administrators specify which repositories should be considered trusted. An admin can [choose to trust](/codespaces/managing-codespaces-for-your-organization/managing-access-and-security-for-your-organizations-codespaces) none, all, or some of the organization's repositories. A codespace can't have greater permissions to access resources than the person who created it, even if the organization administrator has granted access to all users and all repositories.
+### codespace の接続
 
-### Codespace connections
+{% data variables.product.prodname_github_codespaces %} サービスによって提供される TLS 暗号化トンネルを使用して、codespace に接続できます。 codespace の作成者のみが codespace に接続できます。 接続は、{% data variables.product.product_name %} で認証されます。
 
-You can connect to your codespace using the TLS encrypted tunnel provided by the {% data variables.product.prodname_github_codespaces %} service. Only the creator of a codespace can connect to a codespace. Connections are authenticated with {% data variables.product.product_name %}.
+codespace で実行されているサービスへの外部アクセスを許可する必要がある場合は、プライベートまたはパブリック アクセスのポート フォワーディングを有効にすることができます。
 
-If you need to allow external access to services running on a codespace, you can enable port forwarding for private or public access.
+### ポート フォワーディング
 
-### Port forwarding
+codespace 内で実行されているサービス (開発用 Web サーバーなど) に接続する必要がある場合は、インターネット上でサービスを利用できるようにポート フォワーディングを構成できます。 
 
-If you need to connect to a service (such as a development web server) running within your codespace, you can configure port forwarding to make the service available on the internet. 
+Organization の所有者は、転送ポートを公開し Organization 内で使用できるようにする機能を制限できます。 詳細については、「[転送されるポートの可視性の制限](/codespaces/managing-codespaces-for-your-organization/restricting-the-visibility-of-forwarded-ports)」を参照してください。
 
-Organization owners can restrict the ability to make forward ports available publicly or within the organization. For more information, see "[Restricting the visibility of forwarded ports](/codespaces/managing-codespaces-for-your-organization/restricting-the-visibility-of-forwarded-ports)."
+**プライベート転送ポート**: インターネット上でアクセスできますが、{% data variables.product.product_name %} での認証後は、codespace の作成者のみがアクセスできます。
 
-**Privately forwarded ports**: Are accessible on the internet, but only the codespace creator can access them, after authenticating to {% data variables.product.product_name %}.
+**Organization 内のパブリック転送ポート**: インターネット上でアクセスできますが、{% data variables.product.product_name %} での認証後は、codespace と同じ Organization のメンバーのみがアクセスできます。
 
-**Publicly forwarded ports within your organization**: Are accessible on the internet, but only to members of the same organization as the codespace, after authenticating to {% data variables.product.product_name %}.
+**パブリック転送ポート**: インターネット上でアクセスでき、インターネット上のだれでもアクセスできます。 パブリック転送ポートにアクセスするための認証は必要ありません。
 
-**Publicly forwarded ports**: Are accessible on the internet, and anyone on the internet can access them. No authentication is needed to access public forwarded ports.
+既定では、転送されたすべてのポートがプライベートです。つまり、ポートにアクセスする前に認証する必要があります。 codespace のプライベート転送ポートへのアクセスは、3 時間の有効期限を持つ認証 Cookie によって制御されます。 Cookie の有効期限が切れた場合は、再認証する必要があります。
 
-All forwarded ports are private by default, which means that you will need to authenticate before you can access the port. Access to a codespace's private forwarded ports is controlled by authentication cookies with a 3-hour expiry period. When the cookie expires, you will need to reauthenticate.
+ポートを削除して再追加したとき、または codespace を再起動する場合、パブリック転送ポートは自動的にプライベートに戻ります。
 
-A public forwarded port will automatically revert back to private when you remove and re-add the port, or if you restart the codespace.
+[ポート] パネルを使用して、パブリックまたはプライベート アクセス用のポートを構成し、不要になったポート フォワーディングを停止できます。 詳細については、「[codespace でのポートの転送](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace)」を参照してください。
 
-You can use the "Ports" panel to configure a port for public or private access, and can stop port forwarding when it's no longer required. For more information, see "[Forwarding ports in your codespace](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace)."
+## codespace に適したセキュリティ プラクティス
 
-## Good security practices for your codespaces
+Codespaces は、既定でセキュリティ強化されるように設計されています。 この体制を維持するために、開発手順の間は適切なセキュリティ プラクティスに従うことをお勧めします。 
 
-Codespaces are designed to be security hardened by default. To help maintain this posture, we recommend that you follow good security practices during your development procedures: 
+- 開発ツールと同様に、開いて作業するのは、自分が知っていて信頼できるリポジトリ内にのみする必要があることを覚えておいてください。
+- codespace に新しい依存関係を追加する前に、それらが適切に管理されているかどうか、そしてコードに見つかったセキュリティの脆弱性を修正する更新プログラムがリリースされているかどうかを確認します。
 
-- As with any development tool, remember that you should only open and work within repositories you know and trust.
-- Before you add new dependencies to the codespace, check whether they are well-maintained, and if they release updates to fix any security vulnerabilities found in their code.
+### シークレットを使用した機密情報へのアクセス 
 
-### Using secrets to access sensitive information 
+codespace で機密情報 (アクセス トークンなど) を使用する場合は、常に暗号化されたシークレットを使用してください。 ターミナルからを含め、codespace 内の環境変数としてシークレットにアクセスできます。 たとえば、codespace 内でターミナルを起動し、`echo $SECRET_NAME ` を使用してシークレットの値を表示できます。
 
-Always use encrypted secrets when you want to use sensitive information (such as access tokens) in a codespace. You can access your secrets as environment variables in the codespace, including from the terminal. For example, you can launch a terminal within your codespace and use `echo $SECRET_NAME ` to see the value of a secret.
+シークレット値は、codespace が再開または作成されるたびに環境変数にコピーされます。また、変更されたとき、同期されます。
 
-The secret values are copied to environment variables whenever the codespace is resumed or created and are also synced when they are changed.
+codespace のリポジトリに書き込む権限がない場合、シークレットは環境にコピーされません。
 
-Secrets are not copied into the environment if you don't have write access to the codespace's repository.
+シークレットの詳細については、次を参照してください。
+- 「[codespace の暗号化されたシークレットを管理する](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)」
+- 「[リポジトリの暗号化されたシークレットと {% data variables.product.prodname_github_codespaces %} の Organization を管理する](/codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-github-codespaces)」
 
-For more information on secrets, see:
-- "[Managing encrypted secrets for your codespaces](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)"
-- "[Managing encrypted secrets for your repository and organization for {% data variables.product.prodname_github_codespaces %}](/codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-github-codespaces)"
+### 他のユーザーのコントリビューションとリポジトリの操作
 
-### Working with other people's contributions and repositories
+フォークの PR ブランチから codespace を作成する場合、codespace 内のトークンは、リポジトリがパブリックであるかプライベートであるかによって次のように異なります。
+- プライベート リポジトリの場合、codespace にはフォークと親の両方へのアクセスが許可されます。
+- パブリック リポジトリの場合、codespace は親のフォークとオープンの PR にのみアクセスできます。
 
-When you create a codespace from a PR branch from a fork, the token in the codespace will vary depending on whether the repository is public or private:
-- For a private repository, the codespace is granted access to both the fork and parent.
-- For a public repository, the codespace will only have access to the fork and opening PRs on the parent.
+また、これらのシナリオでは、[codespace シークレット](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)を環境に挿入しないことで、さらに保護します。
 
-We also further protect you in these scenarios by not injecting any of your [codespace secrets](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces) into the environment.
+### その他の優れたプラクティス
 
-### Additional good practices
+{% data variables.product.prodname_codespaces %} を使用する場合に注意する必要がある、優れたプラクティスとリスクは他にもあります。 
 
-There are some additional good practices and risks that you should be aware of when using {% data variables.product.prodname_github_codespaces %}. 
+#### リポジトリの devcontainer.json ファイルについて
 
-#### Understanding a repository's devcontainer.json file
+codespace を作成するときに、リポジトリ用に `devcontainer.json` ファイルが見つかった場合、そのファイルは解析され、codespace の構成に使用されます。 `devcontainer.json` ファイルには、サードパーティの拡張機能をインストールしたり、`postCreateCommand` で指定された任意のコードを実行したりするような、強力な機能が含まれています。
 
-When you create a codespace, if a `devcontainer.json` file is found for your repository, it is parsed and used to configure your codespace. The `devcontainer.json` file can contain powerful features, such as installing third-party extensions and running arbitrary code supplied in a `postCreateCommand`.
+詳細については、[開発コンテナーの概要](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers)に関するページをご覧ください。
 
-For more information, see "[Introduction to dev containers](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers)."
+#### 機能を使用したアクセスの許可
 
-#### Granting access through features
+特定の開発環境では、環境へのリスクが増加する可能性があります。 たとえば、コミットの署名、環境変数に挿入されたシークレット、認証済みレジストリ アクセス、パッケージ アクセスなどはすべて、セキュリティ上の問題が発生する可能性があります。 必要なユーザーにのみアクセスを許可し、可能な限り制限されたポリシーを採用することをお勧めします。 
 
-Certain development features can potentially add risk to your environment. For example, commit signing, secrets injected into environment variables, authenticated registry access, and packages access can all present potential security issues. We recommend that you only grant access to those who need it and adopt a policy of being as restrictive as possible. 
+#### 拡張機能の使用
 
-#### Using extensions
-
-Any additional {% data variables.product.prodname_vscode_shortname %} extensions that you've installed can potentially introduce more risk. To help mitigate this risk, ensure that the you only install trusted extensions, and that they are always kept up to date.
+追加の {% data variables.product.prodname_vscode_shortname %} 拡張機能をインストールすると、より多くのリスクが発生する可能性があります。 このリスクを軽減するには、信頼できる拡張機能のみをインストールし、常に最新の状態に保つようにします。

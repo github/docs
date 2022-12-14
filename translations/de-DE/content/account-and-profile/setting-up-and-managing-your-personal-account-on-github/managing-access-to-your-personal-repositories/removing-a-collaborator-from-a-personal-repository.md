@@ -1,6 +1,6 @@
 ---
-title: Removing a collaborator from a personal repository
-intro: 'When you remove a collaborator from your project, they lose read/write access to your repository. If the repository is private and the person has created a fork, then that fork is also deleted.'
+title: Mitarbeiter aus einem persönlichen Repository entfernen
+intro: 'Wenn Du einen Mitarbeiter aus Deinem Projekt entfernst, verliert er seinen Lese-/Schreibzugriff auf Dein Repository. Falls das Repository privat ist und die Person einen Fork erstellt hat, wird der Fork ebenfalls gelöscht.'
 redirect_from:
   - /articles/how-do-i-remove-a-collaborator
   - /articles/what-happens-when-i-remove-a-collaborator-from-my-private-repository
@@ -21,27 +21,28 @@ topics:
   - Accounts
   - Repositories
 shortTitle: Remove a collaborator
+ms.openlocfilehash: 24b128b5858c695b0e559302fac05812d3218b8c
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145164884'
 ---
-## Deleting forks of private repositories
+## Forks privater Repositorys löschen
 
-While forks of private repositories are deleted when a collaborator is removed, the person will still retain any local clones of your repository.
+Beim Entfernen eines Mitarbeiters werden zwar dessen Forks privater Repositorys gelöscht, seine lokalen Klone deiner Repositorys behält er aber.
 
-## Removing collaborator permissions from a person contributing to a repository
+## Mitarbeiterberechtigungen einer Person entfernen, die zu einem Repository beiträgt
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
-{% data reusables.repositories.click-collaborators-teams %}
-4. To the right of the collaborator you want to remove, click {% octicon "trash" aria-label="The trash icon" %}.
-  ![Button to remove collaborator](/assets/images/help/repository/collaborator-remove.png)
-{% else %}
-3. In the left sidebar, click **Collaborators & teams**.
-  ![Collaborators tab](/assets/images/help/repository/repo-settings-collaborators.png)
-4. Next to the collaborator you want to remove, click the **X** icon.
-  ![Remove link](/assets/images/help/organizations/Collaborator-Remove.png)
-{% endif %}
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %} {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5658 %} {% data reusables.repositories.click-collaborators-teams %}
+4. Klicke rechts neben dem Mitarbeiter, den du entfernen möchtest, auf {% octicon "trash" aria-label="The trash icon" %}.
+  ![Schaltfläche „Entfernen des Mitarbeiters“](/assets/images/help/repository/collaborator-remove.png) {% else %}
+3. Klicke auf der linken Randleiste auf **Mitarbeiter & Teams**.
+  ![Registerkarte „Mitarbeiter“](/assets/images/help/repository/repo-settings-collaborators.png)
+4. Klicke neben dem Mitarbeiter, den du entfernen möchtest, auf das **X**-Symbol .
+  ![Link „Entfernen“](/assets/images/help/organizations/Collaborator-Remove.png) {% endif %}
 
-## Further reading
+## Weiterführende Themen
 
-- "[Removing organization members from a team](/articles/removing-organization-members-from-a-team)"
-- "[Removing an outside collaborator from an organization repository](/articles/removing-an-outside-collaborator-from-an-organization-repository)"
+- [Organisationsmitglieder aus einem Team entfernen](/articles/removing-organization-members-from-a-team)
+- [Externen Mitarbeiter von einem Organisations-Repository entfernen](/articles/removing-an-outside-collaborator-from-an-organization-repository)

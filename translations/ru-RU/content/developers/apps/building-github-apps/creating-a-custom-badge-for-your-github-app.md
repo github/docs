@@ -1,5 +1,5 @@
 ---
-title: Creating a custom badge for your GitHub App
+title: Создание пользовательского индикатора событий для приложения GitHub
 intro: '{% data reusables.shortdesc.creating_custom_badges_github_apps %}'
 redirect_from:
   - /apps/building-github-apps/creating-custom-badges-for-github-apps
@@ -12,39 +12,41 @@ versions:
 topics:
   - GitHub Apps
 shortTitle: Custom badges
+ms.openlocfilehash: df691669b42b0448f9979dec4bf25ca6c1ebf070
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145117267'
 ---
-By default, a new GitHub App will have an automatically generated [identicon](https://github.com/blog/1586-identicons).
-An identicon badge looks something like this:
+По умолчанию новое приложение GitHub будет иметь автоматически созданный [Identicon](https://github.com/blog/1586-identicons).
+Значок Identicon выглядит примерно так:
 
 ![Identicon](/assets/images/identicon.png)
 
-After you create a GitHub App, you can customize your app's badge by uploading a logo and selecting a background color. A badge is a square logo image inside of a circular badge. You can choose a background color for the badge, which can visually distinguish your app.
+После создания приложения GitHub можно настроить индикатор событий приложения, отправив логотип и выбрав цвет фона. Индикатор событий — это квадратное изображение логотипа внутри круглого значка. Вы можете выбрать цвет фона для индикатора событий, который можно использовать для визуального выделения приложения.
 
-Your logo should be a PNG, JPG, or GIF file under 1 MB in size. For the best quality rendering, we recommend an image size of at least 200px x 200px. {% ifversion fpt or ghec %}See "[Tips for logo and badge images](/marketplace/listing-on-github-marketplace/writing-github-marketplace-listing-descriptions/#guidelines-for-logos)" for more guidance on customizing badges.{% endif %}
+Логотип должен быть PNG, JPG или GIF-файл размером менее 1 МБ. Для улучшенной отрисовки рекомендуется использовать размер изображения не менее 200 x 200 пикселей. {% ifversion fpt or ghec %} Дополнительные сведения о настройке индикаторов событий см. в разделе [Рекомендации для изображений индикаторов событий и логотипов](/marketplace/listing-on-github-marketplace/writing-github-marketplace-listing-descriptions/#guidelines-for-logos). {% endif %}
 
 {% ifversion fpt or ghec %}
 
-You can change a custom badge for a GitHub App that already has an approved Marketplace listing by navigating to https://github.com/marketplace/manage.
+Можно пользовательский индикатор событий для приложения GitHub, у которого уже есть утвержденный список Marketplace. Для этого перейдите к https://github.com/marketplace/manage.
 
 {% endif %}
 
-To create a custom badge:
+Чтобы создать настраиваемый индикатор событий, выполните приведенные далее действия.
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.developer_settings %}
-{% data reusables.user-settings.github_apps %}
-{% data reusables.user-settings.modify_github_app %}
-5. In "Display information", drag-and-drop an image from a local folder or click **Upload a logo** to select an image from your computer.
-![Upload a logo](/assets/images/github-apps/github_apps_upload_logo.png)
-6. Crop your picture. When you're done, click **Set new avatar**.
-![Crop and set logo ](/assets/images/github-apps/github_apps_crop_and_set_avatar.png)
-7. In "Badge background color", type the [hexadecimal color code](http://www.color-hex.com/) of the background color for your badge. {% ifversion fpt or ghec %}**Note:** The "Badge background color" input field will only appear after you upload an application logo.{% endif %}
-![Badge background color](/assets/images/github-apps/github_apps_badge_background_color.png)
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.developer_settings %} {% data reusables.user-settings.github_apps %} {% data reusables.user-settings.modify_github_app %}
+5. В разделе "Отображение информации" перетащите изображение из локальной папки или щелкните **Отправить логотип**, чтобы выбрать изображение с компьютера.
+![Отправка логотипа](/assets/images/github-apps/github_apps_upload_logo.png)
+6. Обрезка рисунка. По завершении нажмите кнопку **Установить новый аватар**.
+![Обрезка и установка логотипа](/assets/images/github-apps/github_apps_crop_and_set_avatar.png)
+7. В поле «Цвет фона для индикатора событий» введите [шестнадцатеричный код цвета](http://www.color-hex.com/) фона для индикатора событий. {% ifversion fpt or ghec %}**Примечание.** Поле ввода "Цвет фона индикатора событий" будет отображаться только после отправки логотипа приложения.{% endif %} ![Цвет фона индикатора событий](/assets/images/github-apps/github_apps_badge_background_color.png)
 
 {% ifversion fpt or ghec %}
 
-## Next steps
+## Дальнейшие действия
 
-For more information about creating a Marketplace listing for this app, see "[Listing on GitHub Marketplace](/marketplace/listing-on-github-marketplace/)".
+Дополнительные сведения о создании описания в Marketplace для этого приложения см. в разделе [Листинг на GitHub Marketplace](/marketplace/listing-on-github-marketplace/).
 
 {% endif %}

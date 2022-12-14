@@ -1,6 +1,6 @@
 ---
-title: About GitHub Pages
-intro: 'You can use {% data variables.product.prodname_pages %} to host a website about yourself, your organization, or your project directly from a repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}.'
+title: Informationen zu GitHub Pages
+intro: 'Du kannst {% data variables.product.prodname_pages %} verwenden, um eine Website über dich selbst, deine Organisation oder dein Projekt direkt über ein Repository auf {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} zu hosten.'
 redirect_from:
   - /articles/what-are-github-pages
   - /articles/what-is-github-pages
@@ -18,134 +18,129 @@ versions:
   ghec: '*'
 topics:
   - Pages
+ms.openlocfilehash: 1063adbe5396569110af1809a8619440e3bf106b
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147507989'
 ---
+## Informationen zu {% data variables.product.prodname_pages %}
 
-## About {% data variables.product.prodname_pages %}
+{% data variables.product.prodname_pages %} ist ein Hosting-Dienst für statische Websites, der HTML-, CSS- und JavaScript-Dateien direkt aus einem Repository auf {% data variables.product.product_name %} bezieht, diese Dateien optional einem Build-Prozess unterzieht und eine Website veröffentlicht. Beispiele für {% data variables.product.prodname_pages %}-Websites findest du in der [{% data variables.product.prodname_pages %}-Beispielsammlung](https://github.com/collections/github-pages-examples).
 
-{% data variables.product.prodname_pages %} is a static site hosting service that takes HTML, CSS, and JavaScript files straight from a repository on {% data variables.product.product_name %}, optionally runs the files through a build process, and publishes a website. You can see examples of {% data variables.product.prodname_pages %} sites in the [{% data variables.product.prodname_pages %} examples collection](https://github.com/collections/github-pages-examples).
-
-{% ifversion fpt or ghec %}
-You can host your site on {% data variables.product.prodname_dotcom %}'s `github.io` domain or your own custom domain. For more information, see "[Using a custom domain with {% data variables.product.prodname_pages %}](/articles/using-a-custom-domain-with-github-pages)."
+{% ifversion fpt or ghec %} Du kannst deine Website auf der `github.io`-Domäne von {% data variables.product.prodname_dotcom %} oder deiner eigenen benutzerdefinierten Domäne hosten. Weitere Informationen findest du unter [Verwenden einer benutzerdefinierte Domäne mit {% data variables.product.prodname_pages %}](/articles/using-a-custom-domain-with-github-pages).
 {% endif %}
 
-{% ifversion fpt or ghec %}
-{% data reusables.pages.about-private-publishing %} For more information, see "[Changing the visibility of your {% data variables.product.prodname_pages %} site]({% ifversion fpt %}/enterprise-cloud@latest{% endif %}/pages/getting-started-with-github-pages/changing-the-visibility-of-your-github-pages-site){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}
+{% ifversion fpt or ghec %} {% data reusables.pages.about-private-publishing %} Weitere Informationen findest du unter [Ändern der Sichtbarkeit deiner {% data variables.product.prodname_pages %}-Website]({% ifversion fpt %}/enterprise-cloud@latest{% endif %}/pages/getting-started-with-github-pages/changing-the-visibility-of-your-github-pages-site){% ifversion fpt %} in der {% data variables.product.prodname_ghe_cloud %}-Dokumentation.{% else %}.{% endif %} {% endif %}
+
+Die ersten Schritte findest du unter [Erstellen einer {% data variables.product.prodname_pages %}-Website](/articles/creating-a-github-pages-site).
+
+{% ifversion fpt or ghes or ghec %} Organisationsbesitzer können die Veröffentlichung von {% data variables.product.prodname_pages %}-Websites aus den Repositorys der Organisation deaktivieren. Weitere Informationen findest du unter [Verwalten der Veröffentlichung von {% data variables.product.prodname_pages %}-Websites für deine Organisation](/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization).
 {% endif %}
 
-To get started, see "[Creating a {% data variables.product.prodname_pages %} site](/articles/creating-a-github-pages-site)."
+## Arten von {% data variables.product.prodname_pages %}-Websites
 
-{% ifversion fpt or ghes or ghec %}
-Organization owners can disable the publication of {% data variables.product.prodname_pages %} sites from the organization's repositories. For more information, see "[Managing the publication of {% data variables.product.prodname_pages %} sites for your organization](/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization)."
+Es gibt drei Arten von {% data variables.product.prodname_pages %}-Websites: Projekt-, Benutzer- und Organisations-Websites. Projekt-Websites sind mit einem bestimmten Projekt verbunden, das auf {% data variables.product.product_name %} gehostet wird, z. B. einer JavaScript-Bibliothek oder einer Rezeptsammlung. Benutzer- und Organisationswebsites werden mit einem bestimmten Konto unter {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} verbunden.
+
+Um eine Benutzerwebsite zu veröffentlichen, musst du ein Repository erstellen, das deinem persönlichen Konto mit dem Namen {% ifversion fpt or ghec %}`<username>.github.io`{% else %}`<username>.<hostname>`{% endif %} gehört. Zum Veröffentlichen einer Organisationswebsite musst du ein Repository erstellen, das einer Organisation mit dem Namen {% ifversion fpt or ghec %}`<organization>.github.io`{% else %}`<organization>.<hostname>`{% endif %} gehört. {% ifversion fpt or ghec %} Sofern du keine benutzerdefinierte Domäne verwendest, sind Benutzer- und Organisationswebsites unter `http(s)://<username>.github.io` oder `http(s)://<organization>.github.io` verfügbar.{% elsif ghae %}Benutzer- und Organisationswebsites sind unter `http(s)://pages.<hostname>/<username>` oder `http(s)://pages.<hostname>/<organization>` verfügbar.{% endif %}
+
+Die Quelldateien für eine Projekt-Website werden im selben Repository gespeichert wie das zugehörige Projekt. {% ifversion fpt or ghec %}Sofern du keine benutzerdefinierte Domäne verwendest, sind Projektwebsites unter `http(s)://<username>.github.io/<repository>` oder `http(s)://<organization>.github.io/<repository>` verfügbar.{% elsif ghae %}Projektwebsites sind unter `http(s)://pages.<hostname>/<username>/<repository>/` oder `http(s)://pages.<hostname>/<organization>/<repository>/` verfügbar.{% endif %}
+
+{% ifversion ghec %} Wenn du deine Website privat veröffentlichst, lautet die URL für deine Website anders. Weitere Informationen findest du unter [Ändern der Sichtbarkeit deiner {% data variables.product.prodname_pages %}-Website](/pages/getting-started-with-github-pages/changing-the-visibility-of-your-github-pages-site).
 {% endif %}
 
-## Types of {% data variables.product.prodname_pages %} sites
-
-There are three types of {% data variables.product.prodname_pages %} sites: project, user, and organization. Project sites are connected to a specific project hosted on {% data variables.product.product_name %}, such as a JavaScript library or a recipe collection. User and organization sites are connected to a specific account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}.
-
-To publish a user site, you must create a repository owned by your personal account that's named {% ifversion fpt or ghec %}`<username>.github.io`{% else %}`<username>.<hostname>`{% endif %}. To publish an organization site, you must create a repository owned by an organization that's named {% ifversion fpt or ghec %}`<organization>.github.io`{% else %}`<organization>.<hostname>`{% endif %}. {% ifversion fpt or ghec %}Unless you're using a custom domain, user and organization sites are available at `http(s)://<username>.github.io` or `http(s)://<organization>.github.io`.{% elsif ghae %}User and organization sites are available at `http(s)://pages.<hostname>/<username>` or `http(s)://pages.<hostname>/<organization>`.{% endif %}
-
-The source files for a project site are stored in the same repository as their project. {% ifversion fpt or ghec %}Unless you're using a custom domain, project sites are available at `http(s)://<username>.github.io/<repository>` or `http(s)://<organization>.github.io/<repository>`.{% elsif ghae %}Project sites are available at `http(s)://pages.<hostname>/<username>/<repository>/` or `http(s)://pages.<hostname>/<organization>/<repository>/`.{% endif %}
-
-{% ifversion ghec %}
-If you publish your site privately, the URL for your site will be different. For more information, see "[Changing the visibility of your {% data variables.product.prodname_pages %} site](/pages/getting-started-with-github-pages/changing-the-visibility-of-your-github-pages-site)."
+{% ifversion fpt or ghec %} Weitere Informationen dazu, wie benutzerdefinierte Domänen die URL für deine Website beeinflussen, findest du unter [Informationen zu benutzerdefinierten Domänen und {% data variables.product.prodname_pages %}](/articles/about-custom-domains-and-github-pages).
 {% endif %}
 
-{% ifversion fpt or ghec %}
-For more information about how custom domains affect the URL for your site, see "[About custom domains and {% data variables.product.prodname_pages %}](/articles/about-custom-domains-and-github-pages)."
-{% endif %}
+Du kannst für jedes Konto auf {% data variables.product.product_name %} nur eine Benutzer- oder Organisationswebsite erstellen. Für Projektwebsites gibt es keine Beschränkung, ganz gleich, ob sie einer Organisation oder einem Benutzerkonto gehören.
 
-You can only create one user or organization site for each account on {% data variables.product.product_name %}. Project sites, whether owned by an organization or a personal account, are unlimited.
+{% ifversion ghes %} Unter welcher URL deine Website erreichbar ist, hängt davon ab, ob die Subdomain-Isolation für {% data variables.product.product_location %} aktiviert ist.
 
-{% ifversion ghes %}
-The URL where your site is available depends on whether subdomain isolation is enabled for {% data variables.location.product_location %}.
-
-| Type of site | Subdomain isolation enabled | Subdomain isolation disabled |
+| Standorttyp | Subdomänen-Isolation aktiviert | Subdomänen-Isolation deaktiviert |
 | ------------ | --------------------------- | ---------------------------- |
-User | `http(s)://pages.<hostname>/<username>` | `http(s)://<hostname>/pages/<username>` |
+Benutzer | `http(s)://pages.<hostname>/<username>` | `http(s)://<hostname>/pages/<username>` |
 Organization | `http(s)://pages.<hostname>/<organization>` | `http(s)://<hostname>/pages/<organization>` |
-Project site owned by personal account | `http(s)://pages.<hostname>/<username>/<repository>/` | `http(s)://<hostname>/pages/<username>/<repository>/`
-Project site owned by organization account | `http(s)://pages.<hostname>/<orgname>/<repository>/` | `http(s)://<hostname>/pages/<orgname>/<repository>/`
+Projektwebsite im Besitz eines persönlichen Kontos | `http(s)://pages.<hostname>/<username>/<repository>/` | `http(s)://<hostname>/pages/<username>/<repository>/`
+Project Website im Besitz eines Organisationskontos | `http(s)://pages.<hostname>/<orgname>/<repository>/` | `http(s)://<hostname>/pages/<orgname>/<repository>/`
 
-For more information, see "[Enabling subdomain isolation](/enterprise/admin/installation/enabling-subdomain-isolation)" or contact your site administrator.
+Weitere Informationen findest du unter [Aktivieren der Subdomain-Isolation](/enterprise/admin/installation/enabling-subdomain-isolation), oder wende dich an den bzw. die Websiteadministrator*in.
 {% endif %}
 
-## Publishing sources for {% data variables.product.prodname_pages %} sites
+## Veröffentlichungsquellen für {% data variables.product.prodname_pages %}-Websites
 
 {% data reusables.pages.private_pages_are_public_warning %}
 
 {% data reusables.pages.pages-about-publishing-source %}
 
-For more information, see "[Configuring a publishing source for your GitHub Pages site](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)."
+Weitere Informationen findest du unter [Konfigurieren einer Veröffentlichungsquelle für deine GitHub Pages-Website](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site).
 
 {% ifversion ghec %}
-## Limitations for {% data variables.product.prodname_emus %}
-If you're a {% data variables.enterprise.prodname_managed_user %}, your use of {% data variables.product.prodname_pages %} is limited.
+## Einschränkungen für {% data variables.product.prodname_emus %}
+Wenn du ein {% data variables.product.prodname_managed_user %} bist, ist die Verwendung von {% data variables.product.prodname_pages %} eingeschränkt.
 
-  - {% data variables.product.prodname_pages %} sites can only be published from repositories owned by organizations.
-  - {% data variables.product.prodname_pages %} sites are only visible to other members of the enterprise.
-  - You cannot create an organization site (a site published from a repository named `<organization>.github.io`)
+  - {% data variables.product.prodname_pages %}-Websites können nur aus Repositorys veröffentlicht werden, die im Besitz von Organisationen sind.
+  - {% data variables.product.prodname_pages %}-Websites sind nur für andere Mitglieder des Unternehmens sichtbar.
 
-For more information about {% data variables.product.prodname_emus %}, see "[About {% data variables.product.prodname_emus %}](/admin/identity-and-access-management/using-enterprise-managed-users-and-saml-for-iam/about-enterprise-managed-users)."
+Weitere Informationen zu {% data variables.product.prodname_emus %} findest du unter [Informationen zu {% data variables.product.prodname_emus %}](/admin/identity-and-access-management/using-enterprise-managed-users-and-saml-for-iam/about-enterprise-managed-users).
 {% endif %}
 
-## Static site generators
+## Generatoren für statische Websites
 
-{% data variables.product.prodname_pages %} publishes any static files that you push to your repository. You can create your own static files or use a static site generator to build your site for you. You can also customize your own build process locally or on another server.
+{% data variables.product.prodname_pages %} veröffentlicht alle statischen Dateien, die du an dein Repository pushst. Du kannst eigene statische Dateien erstellen oder einen Generator für statische Websites verwenden, der die Website für dich erstellt. Darüber hinaus kannst du deinen eigenen Buildprozess lokal oder auf einem anderen Server anpassen.
 
 {% ifversion pages-custom-workflow %}
 
-If you use a custom build process or a static site generator other than Jekyll, you can write a {% data variables.product.prodname_actions %} to build and publish your site. {% data variables.product.product_name %} provides starter workflows for several static site generators. For more information, see "[Configuring a publishing source for your GitHub Pages site](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)."
+Wenn du statt Jekyll einen benutzerdefinierten Buildprozess oder einen anderen Generator für statische Websites verwendest, kannst du {% data variables.product.prodname_actions %} schreiben, um deine Website zu erstellen und zu veröffentlichen. {% data variables.product.product_name %} bietet Startworkflows für mehrere Generatoren für statische Websites. Weitere Informationen findest du unter [Konfigurieren einer Veröffentlichungsquelle für deine GitHub Pages-Website](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site).
 
-If you publish your site from a source branch, {% data variables.product.prodname_pages %} will use Jekyll to build your site by default. If you want to use a static site generator other than Jekyll, we recommend that you write a {% data variables.product.prodname_actions %} to build and publish your site instead. Otherwise, disable the Jekyll build process by creating an empty file called `.nojekyll` in the root of your publishing source, then follow your static site generator's instructions to build your site locally.
+Wenn du deine Website von einem Quellbranch aus veröffentlichst, verwendet {% data variables.product.prodname_pages %} standardmäßig Jekyll zum Erstellen deiner Website. Wenn du statt Jekyll einen anderen Generator für statische Websites verwenden möchtest, empfehlen wir, stattdessen {% data variables.product.prodname_actions %} zu schreiben, um deine Website zu erstellen und zu veröffentlichen. Anderenfalls deaktiviere den Jekyll-Buildprozess, indem du im Stamm deiner Veröffentlichungsquelle eine leere Datei namens `.nojekyll` erstellst, und befolge dann die Anweisungen des gewünschten Generators für statische Websites, um deine Website lokal zu erstellen.
 
 {% else %}
 
-We recommend Jekyll, a static site generator with built-in support for {% data variables.product.prodname_pages %} and a simplified build process. For more information, see "[About {% data variables.product.prodname_pages %} and Jekyll](/articles/about-github-pages-and-jekyll)."
+Wir empfehlen Jekyll, einen Generator für statische Websites mit integrierter Unterstützung von {% data variables.product.prodname_pages %} und einem vereinfachten Build-Prozess. Weitere Informationen findest du unter [Informationen zu {% data variables.product.prodname_pages %} und Jekyll](/articles/about-github-pages-and-jekyll).
 
-{% data variables.product.prodname_pages %} will use Jekyll to build your site by default. If you want to use a static site generator other than Jekyll, disable the Jekyll build process by creating an empty file called `.nojekyll` in the root of your publishing source, then follow your static site generator's instructions to build your site locally.
+{% data variables.product.prodname_pages %} verwendet standardmäßig Jekyll für die Erstellung deiner Website. Wenn du anstelle von Jekyll einen anderen Generator für statische Websites verwenden möchtest, musst du den Jekyll-Buildprozess deaktivieren. Erstelle dazu im Stamm deiner Veröffentlichungsquelle eine leere Datei namens `.nojekyll` und befolge die Anweisungen des gewünschten Generators, um deine Website lokal zu erstellen.
 
 {% endif %}
 
-{% data variables.product.prodname_pages %} does not support server-side languages such as PHP, Ruby, or Python.
+{% data variables.product.prodname_pages %} unterstützt keine serverseitigen Sprachen wie PHP, Ruby oder Python.
 
-## Limits on use of {% data variables.product.prodname_pages %}
+## Grenzwerte für die Verwendung von {% data variables.product.prodname_pages %}
 
+{% ifversion fpt or ghec %} {% data variables.product.prodname_pages %}-Websites, die nach dem 15. Juni 2016 und mittels `github.io`-Domänen erstellt wurden, werden über HTTPS bereitgestellt. Wenn du deine Website vor dem 15. Juni 2016 erstellt hast, kannst du die HTTPS-Unterstützung für den Traffic zu deiner Website aktivieren. Weitere Informationen findest du unter [Sichern von {% data variables.product.prodname_pages %} mit HTTPS](/articles/securing-your-github-pages-site-with-https).
+
+### Verbotene Verwendungen
+{% endif %} {% data variables.product.prodname_pages %} soll oder darf nicht als kostenloser Webhostingdienst zum Betreiben deiner Onlinegeschäfts-, E-Commerce- oder sonstigen Website verwendet werden, die in erster Linie darauf ausgerichtet ist, gewerbliche Transaktionen zu vereinfachen oder kommerzielle Software-as-a-Service-Lösungen (SaaS) bereitzustellen. {% data reusables.pages.no_sensitive_data_pages %}
+
+Darüber hinaus unterliegt die Nutzung von {% data variables.product.prodname_pages %} den [GitHub-Nutzungsbedingungen](/free-pro-team@latest/github/site-policy/github-terms-of-service/), einschließlich der Beschränkungen für get-rich-quick-Schemas, sexuelle obszöne Inhalte und gewaltverherrlichende oder bedrohliche Inhalte oder Aktivitäten.
+
+### Usage limits (Nutzungseinschränkungen)
+{% data variables.product.prodname_pages %} unterliegen den folgenden Nutzungseinschränkungen:
+
+  - {% data variables.product.prodname_pages %}-Quellrepositorys haben einen empfohlenen Grenzwert von 1 GB.{% ifversion fpt or ghec %} Weitere Informationen findest du unter [Was ist mein Datenträgerkontingent?](/articles/what-is-my-disk-quota/#file-and-repository-size-limitations){% endif %}
+  - Veröffentlichte {% data variables.product.prodname_pages %}-Websites dürfen nicht größer als 1 GB sein.
 {% ifversion fpt or ghec %}
-{% data variables.product.prodname_pages %} sites created after June 15, 2016, and using `github.io` domains are served over HTTPS. If you created your site before June 15, 2016, you can enable HTTPS support for traffic to your site. For more information, see "[Securing your {% data variables.product.prodname_pages %} with HTTPS](/articles/securing-your-github-pages-site-with-https)."
+  - {% data variables.product.prodname_pages %}-Websites besitzen eine *weiche* Bandbreitenbegrenzung von 100 GB pro Monat.
+  - {% data variables.product.prodname_pages %}-Websites haben einen *weichen* Grenzwert von 10 Builds pro Stunde.{% ifversion pages-custom-workflow %} Dieser Grenzwert gilt nicht, wenn du deine Website mit einem benutzerdefinierten {% data variables.product.prodname_actions %}-Workflow veröffentlichst.{% endif %}
+  - Um eine konsistente Dienstqualität für alle {% data variables.product.prodname_pages %}-Websites bereitzustellen, können Ratenbegrenzungen gelten. Diese Ratenbegrenzungen sollen nicht die legitimen Verwendungen von {% data variables.product.prodname_pages %} beeinträchtigen. Wenn deine Anforderung die Ratenbegrenzung auslöst, erhältst du eine entsprechende Antwort mit dem HTTP-Statuscode `429` sowie einen informativen HTML-Text.
 
-### Prohibited uses
-{% endif %}
-{% data variables.product.prodname_pages %} is not intended for or allowed to be used as a free web-hosting service to run your online business, e-commerce site, or any other website that is primarily directed at either facilitating commercial transactions or providing commercial software as a service (SaaS). {% data reusables.pages.no_sensitive_data_pages %}
-
-In addition, your use of {% data variables.product.prodname_pages %} is subject to the [GitHub Terms of Service](/free-pro-team@latest/github/site-policy/github-terms-of-service/), including the restrictions on get-rich-quick schemes, sexually obscene content, and violent or threatening content or activity.
-
-### Usage limits
-{% data variables.product.prodname_pages %} sites are subject to the following usage limits:
-
-  - {% data variables.product.prodname_pages %} source repositories have a recommended limit of 1 GB.{% ifversion fpt or ghec %} For more information, see "[What is my disk quota?](/articles/what-is-my-disk-quota/#file-and-repository-size-limitations)"{% endif %}
-  - Published {% data variables.product.prodname_pages %} sites may be no larger than 1 GB.
-{% ifversion fpt or ghec %}
-  - {% data variables.product.prodname_pages %} sites have a *soft* bandwidth limit of 100 GB per month.
-  - {% data variables.product.prodname_pages %} sites have a *soft* limit of 10 builds per hour.{% ifversion pages-custom-workflow %} This limit does not apply if you build and publish your site with a custom {% data variables.product.prodname_actions %} workflow {% endif %}
-  - In order to provide consistent quality of service for all {% data variables.product.prodname_pages %} sites, rate limits may apply. These rate limits are not intended to interfere with legitimate uses of {% data variables.product.prodname_pages %}. If your request triggers rate limiting, you will receive an appropriate response with an HTTP status code of `429`, along with an informative HTML body.
-
-If your site exceeds these usage quotas, we may not be able to serve your site, or you may receive a polite email from {% data variables.contact.contact_support %} suggesting strategies for reducing your site's impact on our servers, including putting a third-party content distribution network (CDN) in front of your site, making use of other {% data variables.product.prodname_dotcom %} features such as releases, or moving to a different hosting service that might better fit your needs.
+Wenn deine Website diese Nutzungskontingente überschreitet, kann deine Website allenfalls nicht unterstützt werden oder du erhältst eine höfliche E-Mail von {% data variables.contact.contact_support %}, in der Strategien vorgeschlagen werden, um die Auswirkungen deiner Website auf unsere Server zu reduzieren. Dazu zählen das Einsetzen eines Drittanbieter-CDNs (Content Distribution Networks) vor deiner Website, die Nutzung anderer {% data variables.product.prodname_dotcom %}-Funktionen, beispielsweise Veröffentlichungen, oder der Wechsel zu einem anderen Hosting-Dienst, der möglicherweise besser zu deinen Anforderungen passt.
 
 {% endif %}
 
-## MIME types on {% data variables.product.prodname_pages %}
+## MIME-Typen auf {% data variables.product.prodname_pages %}
 
-A MIME type is a header that a server sends to a browser, providing information about the nature and format of the files the browser requested. {% data variables.product.prodname_pages %} supports more than 750 MIME types across thousands of file extensions. The list of supported MIME types is generated from the [mime-db project](https://github.com/jshttp/mime-db).
+Ein MIME-Typ ist ein Header, den ein Server an einen Browser übermittelt und der Informationen zur Art und zum Format der Dateien enthält, die der Browser angefordert hat. {% data variables.product.prodname_pages %} unterstützt mehr als 750 MIME-Typen bei Tausenden von Dateierweiterungen. Die Liste der unterstützten MIME-Typen wird aus dem [Mime-db-Projekt](https://github.com/jshttp/mime-db) generiert.
 
-While you can't specify custom MIME types on a per-file or per-repository basis, you can add or modify MIME types for use on {% data variables.product.prodname_pages %}. For more information, see [the mime-db contributing guidelines](https://github.com/jshttp/mime-db#adding-custom-media-types).
+Zwar kannst du keine benutzerdefinierten MIME-Typen für einzelne Dateien oder Repositorys festlegen, aber du kannst MIME-Typen für die Verwendung auf {% data variables.product.prodname_pages %} hinzufügen oder ändern. Weitere Informationen findest du in [den Mime-db-Richtlinien](https://github.com/jshttp/mime-db#adding-custom-media-types).
 
 {% ifversion fpt %}
-## Data collection
+## Datensammlung
 
-When a {% data variables.product.prodname_pages %} site is visited, the visitor's IP address is logged and stored for security purposes, regardless of whether the visitor has signed into {% data variables.product.prodname_dotcom %} or not. For more information about {% data variables.product.prodname_dotcom %}'s security practices, see <a href="/articles/github-privacy-statement/" class="dotcom-only">{% data variables.product.prodname_dotcom %} Privacy Statement</a>.
+Wenn eine {% data variables.product.prodname_pages %}-Website besucht wird, wird die IP-Adresse des Besuchers zu Sicherheitszwecken protokolliert und gespeichert, unabhängig davon, ob sich der Besucher bei {% data variables.product.prodname_dotcom %} angemeldet hat oder nicht. Weitere Informationen zu den Sicherheitspraktiken von {% data variables.product.prodname_dotcom %} findest du unter <a href="/articles/github-privacy-statement/" class="dotcom-only">{% data variables.product.prodname_dotcom %}-Datenschutzbestimmungen</a>.
 {% endif %}
 
-## Further reading
+## Weiterführende Themen
 
-- [{% data variables.product.prodname_pages %}](https://github.com/skills/github-pages) on {% data variables.product.prodname_learning %}
+- [{% data variables.product.prodname_pages %}](https://github.com/skills/github-pages) für {% data variables.product.prodname_learning %}
 - "[{% data variables.product.prodname_pages %}](/rest/reference/repos#pages)"

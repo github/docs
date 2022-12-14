@@ -1,115 +1,113 @@
 ---
-title: Using larger runners
+title: 使用较大运行器
 shortTitle: Larger runners
-intro: '{% data variables.product.prodname_dotcom %} offers larger runners with more RAM and CPU.'
+intro: '{% data variables.product.prodname_dotcom %} 提供具有更多 RAM 和 CPU 的较大运行器。'
 miniTocMaxHeadingLevel: 3
 product: '{% data reusables.gated-features.hosted-runners %}'
 versions:
   feature: actions-hosted-runners
+ms.openlocfilehash: eca33ee8b427f918a3db5d8b4ca05947b7662896
+ms.sourcegitcommit: d0cea547f6a5d991a28c310257cafd616235889f
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/01/2022
+ms.locfileid: '148120871'
 ---
+## {% data variables.actions.hosted_runner %} 概述
 
-## Overview of {% data variables.actions.hosted_runner %}s
+除了 [标准 {% data variables.product.prodname_dotcom %} 托管的运行器](/actions/using-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources)之外，{% data variables.product.prodname_dotcom %} 还在 {% data variables.product.prodname_team %} 和 {% data variables.product.prodname_ghe_cloud %} 计划中为客户提供一系列具有更多 RAM 和 CPU 的 {% data variables.actions.hosted_runner %}。 这些运行器由 {% data variables.product.prodname_dotcom %} 托管，并预安装了运行器应用程序和其他工具。
 
-In addition to the [standard {% data variables.product.prodname_dotcom %}-hosted runners](/actions/using-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources), {% data variables.product.prodname_dotcom %} also offers customers on {% data variables.product.prodname_team %} and {% data variables.product.prodname_ghe_cloud %} plans a range of {% data variables.actions.hosted_runner %}s with more RAM and CPU. These runners are hosted by {% data variables.product.prodname_dotcom %} and have the runner application and other tools preinstalled.
+为组织启用{% data variables.actions.hosted_runner %}时，将自动为你创建一个默认运行器组，其中包含四个预配置的{% data variables.actions.hosted_runner %}。
 
-When {% data variables.actions.hosted_runner %}s are enabled for your organization, a default runner group is automatically created for you with a set of four pre-configured {% data variables.actions.hosted_runner %}s.
+向组织添加 {% data variables.actions.hosted_runner %} 时，会通过精选的可用硬件规范和操作系统映像定义计算机类型。 {% data variables.product.prodname_dotcom %} 随后会创建此运行器的多个实例，这些实例可基于定义的自动缩放限制，纵向扩展和缩减以匹配组织的作业需求。
 
-When you add a {% data variables.actions.hosted_runner %} to an organization, you are defining a type of machine from a selection of available hardware specifications and operating system images. {% data variables.product.prodname_dotcom %} will then create multiple instances of this runner that scale up and down to match the job demands of your organization, based on the autoscaling limits you define.
+## {% data variables.actions.hosted_runner %} 的计算机规格 
 
-## Machine specs for {% data variables.actions.hosted_runner %}s 
-
-|Size (vcpu) | Memory (GB) | Storage (SSD) |
+|大小 (vcpu) | 内存 (GB) | 存储 (SSD) |
 | ------------- | ------------- | ------------- |
-|4 cores | 16  RAM  | 150 GB|
-| 8 cores | 32 RAM | 300 GB |
-|16 cores| 64 RAM | 600 GB |
-|32 cores| 128 RAM| 1200 GB|
-|64 cores| 256 RAM | 2040 GB|
+|4 核 | 16 RAM  | 150 GB|
+| 8 核 | 32 RAM | 300 GB |
+|16 核| 64 RAM | 600 GB |
+|32 个核心| 128 RAM| 1200 GB|
+|64 个核心| 256 RAM | 2040 GB|
 
-## Architectural overview of {% data variables.actions.hosted_runner %}s
+## {% data variables.actions.hosted_runner %} 体系结构概述
 
-The {% data variables.actions.hosted_runner %}s are managed at the organization level, where they are arranged into groups that can contain multiple instances of the runner. They can also be created at the enterprise level and shared with organizations in the hierarchy. Once you've created a group, you can then add a runner to the group and update your workflows to target either the group name or the label assigned to the {% data variables.actions.hosted_runner %}. You can also control which repositories are permitted to send jobs to the group for processing. For more information about groups, see "[Controlling access to {% data variables.actions.hosted_runner %}s](/actions/using-github-hosted-runners/controlling-access-to-larger-runners)."
+{% data variables.actions.hosted_runner %} 在组织级别进行管理，它们被安排为可以包含运行器的多个实例的各个组。 它们还可以在企业级别进行创建，并与层次结构中的组织共享。 创建组后，可向组添加运行器并更新工作流，将组名或分配给 {% data variables.actions.hosted_runner %} 的标签作为目标。 还可以控制允许哪些存储库将作业发送到组进行处理。 有关组的详细信息，请参阅“[控制对 {% data variables.actions.hosted_runner %} 的访问](/actions/using-github-hosted-runners/controlling-access-to-larger-runners)”。
 
-In the following diagram, a class of hosted runner named `ubuntu-20.04-16core` has been defined with customized hardware and operating system configuration.
+在下图中，使用自定义硬件和操作系统配置定义了名为 `ubuntu-20.04-16core` 的托管运行器类别。
 
-![Diagram explaining {% data variables.actions.hosted_runner %}](/assets/images/hosted-runner.png)
+![说明 {% data variables.actions.hosted_runner %} 的关系图](/assets/images/hosted-runner.png)
 
-1. Instances of this runner are automatically created and added to a group called `grp-ubuntu-20.04-16core`. 
-2. The runners have been assigned the label `ubuntu-20.04-16core`. 
-3. Workflow jobs use the `ubuntu-20.04-16core` label in their `runs-on` key to indicate the type of runner they need to execute the job.
-4. {% data variables.product.prodname_actions %} checks the runner group to see if your repository is authorized to send jobs to the runner.
-5. The job runs on the next available instance of the `ubuntu-20.04-16core` runner.
+1. 此运行器的实例会自动创建并添加到名为 `grp-ubuntu-20.04-16core` 的组。 
+2. 运行器已分配有标签 `ubuntu-20.04-16core`。 
+3. 工作流作业在其 `runs-on` 键中使用 `ubuntu-20.04-16core` 标签来指示执行作业所需的运行器类型。
+4. {% data variables.product.prodname_actions %} 会检查运行器组，以查看是否授权存储库将作业发送到运行器。
+5. 作业在 `ubuntu-20.04-16core` 运行器的下一个可用实例上运行。
 
-## Autoscaling {% data variables.actions.hosted_runner %}s
+## {% data variables.actions.hosted_runner %} 的自动缩放
 
-Your {% data variables.actions.hosted_runner %}s can be configured to automatically scale to suit your needs. When jobs are submitted for processing, more machines can be automatically provisioned to run the jobs, until reaching a pre-defined maximum limit. Each machine only handles one job at a time, so these settings effectively determine the number of jobs that can be run concurrently. 
+{% data variables.actions.hosted_runner %} 可以配置为自动缩放以满足需求。 提交作业进行处理时，可以自动预配更多计算机以运行作业，直到达到预定义的最大限制。 每台计算机一次只处理一个作业，因此这些设置实际上确定可以并发运行的作业数。 
 
-During the runner deployment process, you can configure the _Max_ option, which allows you to control your costs by setting the maximum parallel number of machines that are created in this set. A higher value here can help avoid workflows being blocked due to parallelism.
+在运行器部署过程中，可以配置“最大值”选项，这使你可以通过设置在此集中创建的最大并行计算机数来控制成本。 此处的较高值可帮助避免由于并行而阻止工作流。
 
-## Networking for {% data variables.actions.hosted_runner %}s
+## {% data variables.actions.hosted_runner %} 的网络
 
-By default, {% data variables.actions.hosted_runner %}s receive a dynamic IP address that changes for each job run. Optionally, {% data variables.product.prodname_ghe_cloud %} customers can configure their {% data variables.actions.hosted_runner %}s to receive a static IP address from {% data variables.product.prodname_dotcom %}'s IP address pool. When enabled, instances of the {% data variables.actions.hosted_runner %} will receive an address from a range that is unique to the runner, allowing you to use this range to configure a firewall allowlist. {% ifversion fpt %}You can use up to 10 static IP address ranges in total across all your {% data variables.actions.hosted_runner %}s{% endif %}{% ifversion ghec %}You can use up to 10 static IP address ranges for the {% data variables.actions.hosted_runner %}s created at the enterprise level. In addition, you can use up to 10 static IP address ranges for the {% data variables.actions.hosted_runner %}s created at the organization level, for each organization in your enterprise{% endif %}.
-
-{% note %}
-
-**Note**: If runners are unused for more than 30 days, their IP address ranges are automatically removed and cannot be recovered.
-
-{% endnote %}
-
-## Planning for {% data variables.actions.hosted_runner %}s
-
-### Create a runner group
-
-Runner groups are used to collect sets of virtual machines and create a security boundary around them. You can then decide which organizations or repositories are permitted to run jobs on those sets of machines. During the {% data variables.actions.hosted_runner %} deployment process, the runner can be added to an existing group, or otherwise it will join a default group. You can create a group by following the steps in "[Controlling access to {% data variables.actions.hosted_runner %}s](/actions/using-github-hosted-runners/controlling-access-to-larger-runners)."
-
-### Understanding billing
+默认情况下，{% data variables.actions.hosted_runner %} 会接收为每个作业运行而更改的动态 IP 地址。 （可选）{% data variables.product.prodname_ghe_cloud %} 客户可以将其 {% data variables.actions.hosted_runner %} 配置为从 {% data variables.product.prodname_dotcom %} 的 IP 地址池接收静态 IP 地址。 启用后，{% data variables.actions.hosted_runner %} 的实例会从对运行器唯一的范围接收地址，从而使你能够使用此范围配置防火墙允许列表。 {% ifversion fpt %}在你所有的{% data variables.actions.hosted_runner %}中，最多可以使用 10 个静态 IP 地址范围{% endif %}{% ifversion ghec %}对于在企业级别创建的{% data variables.actions.hosted_runner %}，最多可以使用 10 个静态 IP 地址范围。 此外，对于在组织级别为企业中的每个组织创建的{% data variables.actions.hosted_runner %}，最多可以使用 10 个静态 IP 地址范围{% endif %}。
 
 {% note %}
 
-**Note**: The {% data variables.actions.hosted_runner %}s do not use included entitlement minutes, and are not free for public repositories.
+注意：如果运行器未使用的时间超过 30 天，则其 IP 地址范围会自动移除，无法恢复。
 
 {% endnote %}
 
-Compared to standard {% data variables.product.prodname_dotcom %}-hosted runners, {% data variables.actions.hosted_runner %}s are billed differently. For more information, see "[Per-minute rates](/billing/managing-billing-for-github-actions/about-billing-for-github-actions#per-minute-rates)".
+## {% data variables.actions.hosted_runner %} 的规划
 
-## Adding a {% data variables.actions.hosted_runner %} to an enterprise
+### 创建运行器组
 
-You can add {% data variables.actions.hosted_runner %}s to an enterprise, where they can be assigned to multiple organizations. The organization admins can then control which repositories can use the runners. To add a {% data variables.actions.hosted_runner %} to an enterprise, you must be an enterprise owner.
+运行器组用于收集虚拟机集，并围绕它们创建安全边界。 随后可以确定允许哪些组织或存储库在这些计算机集上运行作业。 在 {% data variables.actions.hosted_runner %} 部署过程中，运行器可以添加到现有组，否则会加入默认组。 可以按照“[控制对 {% data variables.actions.hosted_runner %} 的访问](/actions/using-github-hosted-runners/controlling-access-to-larger-runners)”中的步骤创建组。
+
+### 了解计费
+
+{% note %}
+
+注意：{% data variables.actions.hosted_runner %}不使用包含的权利分钟数，并且针对公共存储库不是免费的。
+
+{% endnote %}
+
+与标准 {% data variables.product.prodname_dotcom %} 托管的运行器相比，{% data variables.actions.hosted_runner %} 的计费方式有所不同。 有关详细信息，请参阅“[每分钟费率](/billing/managing-billing-for-github-actions/about-billing-for-github-actions#per-minute-rates)”。
+
+## 将 {% data variables.actions.hosted_runner %} 添加到企业
+
+可以将 {% data variables.actions.hosted_runner %} 添加到企业，在该企业中可以将它们分配给多个组织。 组织管理员随后可以控制哪些存储库可以使用运行器。 若要将 {% data variables.actions.hosted_runner %} 添加到企业，你必须是组织所有者。
 
 {% data reusables.actions.add-hosted-runner-overview %}
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.policies-tab %}
-{% data reusables.enterprise-accounts.actions-tab %}
-{% data reusables.enterprise-accounts.actions-runners-tab %}
-{% data reusables.actions.add-hosted-runner %}
-1. To allow organizations to access your {% data variables.actions.hosted_runner %}s, you specify the list of organizations that can use it. For more information, see "[Managing access to your runners](#managing-access-to-your-runners)."
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.policies-tab %} {% data reusables.enterprise-accounts.actions-tab %} {% data reusables.enterprise-accounts.actions-runners-tab %} {% data reusables.actions.add-hosted-runner %}
+1. 若要允许组织访问 {% data variables.actions.hosted_runner %}，请指定可以使用它的组织列表。 有关详细信息，请参阅“[管理对运行器的访问](#managing-access-to-your-runners)”。
 
-## Adding a {% data variables.actions.hosted_runner %} to an organization
+## 将 {% data variables.actions.hosted_runner %} 添加到组织
 
-You can add a {% data variables.actions.hosted_runner %} to an organization, where the organization admins can control which repositories can use it. 
+可以将 {% data variables.actions.hosted_runner %} 添加到组织，其中的组织管理员可以控制哪些存储库可以使用它。 
 
 {% data reusables.actions.add-hosted-runner-overview %}
 
-{% data reusables.organizations.navigate-to-org %}
-{% data reusables.organizations.org_settings %}
-{% data reusables.organizations.settings-sidebar-actions-runners %}
-{% data reusables.actions.add-hosted-runner %}
-1. To allow repositories to access your {% data variables.actions.hosted_runner %}s, add them to the list of repositories that can use it. For more information, see "[Managing access to your runners](#managing-access-to-your-runners)."
+{% data reusables.organizations.navigate-to-org %} {% data reusables.organizations.org_settings %} {% data reusables.organizations.settings-sidebar-actions-runners %} {% data reusables.actions.add-hosted-runner %}
+1. 若要允许存储库访问 {% data variables.actions.hosted_runner %}，请将它们添加到可以使用它的存储库列表中。 有关详细信息，请参阅“[管理对运行器的访问](#managing-access-to-your-runners)”。
 
-## Running jobs on your runner
+## 在运行器上运行作业
 
-Once your runner type has been defined, you can update your workflow YAML files to send jobs to your newly created runner instances for processing. You can use runner groups or labels to define where your jobs run. 
+定义了运行器类型后，可以更新工作流 YAML 文件，以将作业发送到新创建的运行器实例进行处理。 可使用运行器组或标签来定义作业的运行位置。 
 
-Only owner or administrator accounts can see the runner settings. Non-administrative users can contact the organization administrator to find out which runners are enabled. Your organization administrator can create new runners and runner groups, as well as configure permissions to specify which repositories can access a runner group.
+只有所有者或管理员帐户可查看运行器设置。 非管理用户可联系组织管理员，了解启用了哪些运行器。 组织管理员可创建新的运行器和运行器组，并配置权限来指定哪些存储库可访问运行器组。
 
-### Using groups to control where jobs are run
+### 使用组来控制作业的运行位置
 
 {% data reusables.actions.jobs.example-runs-on-groups %}
 
-### Using labels to control where jobs are run
+### 使用标签来控制作业的运行位置
 
-In this example, a runner group is populated with Ubuntu 16-core runners, which have also been assigned the label `ubuntu-20.04-16core`. The `runs-on` key sends the job to any available runner with a matching label:
+在此示例中，使用 Ubuntu 16 核运行器填充运行器组，这些运行器也分配有标签 `ubuntu-20.04-16core`。 `runs-on` 键将作业发送至具有匹配标签的任何可用运行器：
 
 ```yaml
 name: learn-github-actions
@@ -127,15 +125,15 @@ jobs:
       - run: bats -v
 ```
 
-### Using labels and groups to control where jobs are run
+### 使用组和组来控制作业的运行位置
 
 {% data reusables.actions.jobs.example-runs-on-labels-and-groups %}
 
-### Using multiple labels
+### 使用多个标签
 
-You can specify multiple labels that need to be matched for a job to run on a runner. A runner will need to match all labels to be eligible to run the job.
+可指定要使作业在运行器上运行而需要匹配的多个标签。 运行器将需要匹配所有标签才能运行该作业。
 
-In this example, a runner will need to match all three of the labels to run the job:
+在此示例中，运行器将需要匹配全部三个标签才能运行作业：
 
 ```yaml
 name: learn-github-actions
@@ -155,38 +153,37 @@ jobs:
 
 {% data reusables.actions.section-using-unique-names-for-runner-groups %}
 
-## Managing access to your runners
+## 管理对运行器的访问
 
 {% note %}
 
-**Note**: Before your workflows can send jobs to {% data variables.actions.hosted_runner %}s, you must first configure permissions for the runner group. See the following sections for more information.
+注意：必须先为运行器组配置权限，然后工作流才能将作业发送到 {% data variables.actions.hosted_runner %}。 有关详细信息，请参阅下列各节。
 
 {% endnote %}
 
-Runner groups are used to control which repositories can run jobs on your {% data variables.actions.hosted_runner %}s. You must grant access to the group from each level of the management hierarchy, depending on where you've defined the {% data variables.actions.hosted_runner %}:
+运行器组用于控制哪些存储库可以在 {% data variables.actions.hosted_runner %} 上运行作业。 必须从管理层次结构的各个级别授予对组的访问权限，具体取决于定义 {% data variables.actions.hosted_runner %} 的位置：
 
-- **Runners at the enterprise level**: Configure the runner group to grant access to all the required organizations. In addition, for each organization, you must configure the group to specify which repositories are allowed access.
-- **Runners at the organization level**: Configure the runner group by specifying which repositories are allowed access.
+- 企业级别的运行器：配置运行器组以授予对所有所需组织的访问权限。 此外，对于每个组织，必须配置组以指定允许访问的存储库。
+- 组织级别的运行器：通过指定允许访问的存储库来配置运行器组。
 
-For example, the following diagram has a runner group named `grp-ubuntu-20.04-16core` at the enterprise level. Before the repository named `octo-repo` can use the runners in the group, you must first configure the group at the enterprise level to allow access from the `octo-org` organization; you must then configure the group at the organization level to allow access from `octo-repo`:
+例如，下图包含一个企业级别的名为 `grp-ubuntu-20.04-16core` 的运行器组。 在名为 `octo-repo` 的存储库可以使用该组中的运行器之前，必须先在企业级别配置该组以允许从 `octo-org` 组织进行访问；随后必须在组织级别配置该组以允许从 `octo-repo` 进行访问：
 
-![Diagram explaining {% data variables.actions.hosted_runner %} groups](/assets/images/hosted-runner-mgmt.png)
+![说明 {% data variables.actions.hosted_runner %} 组的关系图](/assets/images/hosted-runner-mgmt.png)
 
-### Allowing repositories to access a runner group
+### 允许存储库访问运行器组
 
-This procedure demonstrates how to configure group permissions at the enterprise and organization levels:
+此过程演示如何在企业和组织级别配置组权限：
 
-{% data reusables.actions.runner-groups-navigate-to-repo-org-enterprise %}
-{% data reusables.actions.settings-sidebar-actions-runner-groups-selection %}
-  - For runner groups in an enterprise: under **Organization access**, modify which organizations can access the runner group.
-  - For runner groups in an organization: under **Repository access**, modify which repositories can access the runner group.
+{% data reusables.actions.runner-groups-navigate-to-repo-org-enterprise %} {% data reusables.actions.settings-sidebar-actions-runner-groups-selection %}
+  - 对于企业中的运行器组：在“组织访问”下，修改可以访问运行器组的组织。
+  - 对于组织中的运行器组：在“存储库访问”下，修改可以访问运行器组的存储库。
 
 {% warning %}
 
-**Warning**:
+**警告**：
 
 {% data reusables.actions.hosted-runner-security %}
 
-For more information, see "[Controlling access to {% data variables.actions.hosted_runner %}s](/actions/using-github-hosted-runners/controlling-access-to-larger-runners)."
+有关详细信息，请参阅“[控制对 {% data variables.actions.hosted_runner %} 的访问](/actions/using-github-hosted-runners/controlling-access-to-larger-runners)”。
 
 {% endwarning %}

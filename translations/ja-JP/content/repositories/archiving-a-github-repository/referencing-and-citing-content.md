@@ -1,6 +1,6 @@
 ---
-title: Referencing and citing content
-intro: You can use third-party tools to cite and reference content on GitHub.
+title: コンテンツを参照して引用する
+intro: サードパーティツールを使用して GitHub のコンテンツを引用したり参照したりできます。
 redirect_from:
   - /articles/referencing-and-citing-content
   - /github/creating-cloning-and-archiving-repositories/referencing-and-citing-content
@@ -11,29 +11,35 @@ versions:
 topics:
   - Repositories
 shortTitle: Reference & cite content
+ms.openlocfilehash: e0bb3dabe5e9ebc8a4dff80797087c8adadfb710
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145132468'
 ---
-## Issuing a persistent identifier for your repository with Zenodo
+## Zenodo によってリポジトリの永続的識別子を発行する
 
-To make your repositories easier to reference in academic literature, you can create persistent identifiers, also known as Digital Object Identifiers (DOIs). You can use the data archiving tool [Zenodo](https://zenodo.org/about) to archive a repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %} and issue a DOI for the archive.
+学術文献でリポジトリを参照しやすくするため、永続的識別子 (デジタルオブジェクト識別子 (DOI) とも呼ばれます) を作成できます。 データ アーカイブ ツール [Zenodo](https://zenodo.org/about) を使うと、{% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} のリポジトリをアーカイブし、アーカイブの DOI を発行できます。
 
 {% tip %}
 
-**Tips:**
-- Zenodo can only access public repositories, so make sure the repository you want to archive is [public](/articles/making-a-private-repository-public).
-- If you want to archive a repository that belongs to an organization, the organization owner may need to [approve access](/articles/approving-oauth-apps-for-your-organization) for the Zenodo application.
-- Make sure to include a [license](/articles/open-source-licensing) in your repository so readers know how they can reuse your work.
+**ヒント:**
+- Zenodo からアクセスできるのはパブリック リポジトリだけなので、アーカイブするリポジトリが[パブリック](/articles/making-a-private-repository-public)であることを確認してください。
+- 組織に属するリポジトリをアーカイブする場合、組織の所有者は Zenodo アプリケーションの[アクセスの承認](/articles/approving-oauth-apps-for-your-organization)が必要になることがあります。
+- 作業を再利用する方法を読者が把握できるように、必ずリポジトリに[ライセンス](/articles/open-source-licensing)を含めてください。
 
 {% endtip %}
 
-1. Navigate to [Zenodo](http://zenodo.org/).
-2. In the upper-left corner of the screen, click **Log in**. ![Zenodo log in button](/assets/images/help/repository/zenodo_login.png)
-3. Click **Log in with GitHub**. ![Log into Zenodo with GitHub](/assets/images/help/repository/zenodo_login_with_github.png)
-4. Review the information about access permissions, then click **Authorize application**. ![Authorize Zenodo](/assets/images/help/repository/zenodo_authorize.png)
-5. Navigate to the [Zenodo GitHub page](https://zenodo.org/account/settings/github/). ![Zenodo GitHub page](/assets/images/help/repository/zenodo_github_page.png)
-6. To the right of the name of the repository you want to archive, toggle the button from **Off** to **On** to enable it for archiving. ![Enable Zenodo archiving on repository](/assets/images/help/repository/zenodo_toggle_on.png)
+1. [Zenodo](http://zenodo.org/) に移動します。
+2. 画面左上隅の **[ログイン]** をクリックします。 ![Zenodo のログイン ボタン](/assets/images/help/repository/zenodo_login.png)
+3. **[GitHub でログイン]** をクリックします。 ![GitHub によって Zenodo へログインする](/assets/images/help/repository/zenodo_login_with_github.png)
+4. アクセス許可についての情報をレビューしてから、 **[アプリケーションの認可]** をクリックします。 ![Zenodo の認可](/assets/images/help/repository/zenodo_authorize.png)
+5. [Zenodo GitHub ページ](https://zenodo.org/account/settings/github/)に移動します。 ![Zenodo GitHub ページ](/assets/images/help/repository/zenodo_github_page.png)
+6. アーカイブするリポジトリの名前の右にあるボタンを **[オフ]** から **[オン]** に切り替えて、アーカイブできるようにします。 ![リポジトリでの Zenodo のアーカイブの有効化](/assets/images/help/repository/zenodo_toggle_on.png)
 
-Zenodo archives your repository and issues a new DOI each time you create a new {% data variables.product.product_name %} [release](/articles/about-releases/). Follow the steps at "[Creating releases](/articles/creating-releases/)" to create a new one.
+Zenodo では、新しい {% data variables.product.product_name %} [リリース](/articles/about-releases/)を作成するたびに、リポジトリがアーカイブされて新しい DOI が発行されます。 「[リリースの作成](/articles/creating-releases/)」の手順に従って、新しく作成します。
 
-## Publicizing and citing research material with Figshare
+## Figshare による研究素材の公表と引用
 
-Academics can use the data management service [Figshare](http://figshare.com) to publicize and cite research material. For more information, see [Figshare's support site](https://knowledge.figshare.com/articles/item/how-to-connect-figshare-with-your-github-account).
+研究者はデータ管理サービス [Figshare](http://figshare.com) を使って、研究素材を公表したり引用したりできます。 詳細については、[Figshare のサポート サイト](https://knowledge.figshare.com/articles/item/how-to-connect-figshare-with-your-github-account)を参照してください。

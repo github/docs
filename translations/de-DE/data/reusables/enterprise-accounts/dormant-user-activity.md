@@ -1,28 +1,31 @@
-A user is considered active if the user has performed any of the following activities on {% ifversion fpt or ghec or ghes %}{% data variables.location.product_location %}{% elsif ghae %}{% data variables.product.product_name %}{% endif %}.
+---
+ms.openlocfilehash: f89c8ea56df60e14b5735d160104d332ff1e804b
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "146680981"
+---
+Ein Benutzer gilt als aktiv, wenn er eine der folgenden Aktivitäten auf {% ifversion fpt or ghec or ghes %}{% data variables.product.product_location %}{% elsif ghae %}{% data variables.product.product_name %}{% endif %} durchgeführt hat.
 
-- Signing into {% data variables.location.product_location %}
-- Creating a repository
-- Pushing to a repository
-- Being added to a repository
-- Changing the visibility of a repository
-- Creating an issue or pull request
-- Commenting on an issue or pull request
-- Closing or reopening an issue or pull request
-- Applying a label to an issue or pull request, or removing a label
-- Assigning or unassigning an issue or pull request
-- Requesting a review of a pull request, or removing a review request
-- Creating or editing a comment in a pull request review
-- Dismissing a comment in a pull request 
-- Synchronizing a pull request
-- Commenting on a commit
-- Publishing a release
-- Pushing to a wiki
-- Watching a repository
-- Starring a repository
-- Deleting a repository
-- Accessing resources by using a {% data variables.product.pat_generic %} or SSH key
-- Joining an organization
-
-{% ifversion ghes %}
-A user will also be considered active if their account has been updated by LDAP.
-{% endif %}
+- Bei {% data variables.product.product_location %} anmelden
+- Repository erstellen
+- In ein Repository pushen
+- Zu einem Repository hinzugefügt werden
+- Die Sichtbarkeit eines Repositorys ändern
+- Ein „Issue“ (Problem) oder einen Pull-Request erstellen
+- Ein Issue oder einen Pull Request kommentieren
+- Ein Issue oder einen Pull Request schließen oder erneut öffnen
+- Eine Bezeichnung einem Issue oder Pull Request zuweisen bzw. entfernen
+- Ein Issue oder einen Pull Request zuweisen oder die Zuweisung aufheben
+- Ein Review eines Pull Requests anfordern oder die Anforderung eines Reviews entfernen
+- Einen Kommentar in einem Review eines Pull Requests erstellen oder bearbeiten
+- Einen Kommentar in einem Pull Request ablehnen 
+- Einen Pull Request synchronisieren
+- Einen Commit kommentieren
+- Ein Release veröffentlichen
+- In ein Wiki pushen
+- Ein Repository beobachten
+- Versehen eines Repositorys mit einem Stern
+- Repository löschen
+- Auf Ressourcen mithilfe eines persönlichen Zugriffstokens oder SSH-Schlüssels zugreifen

@@ -1,0 +1,17 @@
+date: '02-06-2020'
+sections:
+  security_fixes:
+    - '**ALTA**: se identificó una vulnerabilidad de control de acceso inadecuado en la API del servidor de GitHub Enterprise que permitía a un miembro de la organización escalar permisos y obtener acceso a repositorios no autorizados dentro de una organización. Esta vulnerabilidad afectó a todas las versiones de GitHub Enterprise Server anteriores a la 2.21.  Hemos emitido [CVE-2020-10516](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-10516) en respuesta a esta incidencia. La vulnerabilidad se informó a través del [programa GitHub Bug Bounty](https://bounty.github.com). {% comment %} https://github.com/github/github/pull/144454, https://github.com/github/github/pull/143444 {% endcomment %}'
+    - 'Los paquetes se han actualizado a sus últimas versiones de seguridad. {% comment %} https://github.com/github/enterprise2/pull/20421, https://github.com/github/enterprise2/pull/20315 {% endcomment %}'
+  bugs:
+    - 'Los motores de búsqueda podían indizar las instancias de GitHub Enterprise Server de Internet. {% comment %} https://github.com/github/github/pull/145073, https://github.com/github/github/pull/144973 {% endcomment %}'
+  known_issues:
+    - 'En una instancia de GitHub Enterprise Server recién configurada sin ningún usuario, un atacante podría crear el primer usuario administrador. {% comment %} https://github.com/github/enterprise2/issues/1889 {% endcomment %}'
+    - 'Las reglas de cortafuegos personalizadas no se mantienen durante una actualización. {% comment %} https://github.com/github/enterprise2/issues/2823 {% endcomment %}'
+    - 'Los archivos supervisados de Git LFS [cargados desde la interfaz web](https://github.com/blog/2105-upload-files-to-your-repositories) se agregan de forma incorrecta y directa al repositorio. {% comment %} https://github.com/github/github/issues/54684 {% endcomment %}'
+    - 'Las incidencias no se pueden cerrar si contienen un enlace permanente a un blob del mismo repositorio en el que la ruta es mayor de 255 caracteres. {% comment %} https://github.com/github/github/issues/107731 {% endcomment %}'
+    - 'Al enviar cambios a un gist, se podía desencadenar una excepción durante el gancho posterior a la recepción. {% comment %} https://github.com/github/github/issues/129091 {% endcomment %}'
+    - 'Cuando se habilita "Los usuarios pueden buscar en GitHub.com" con GitHub Connect, las incidencias en los repositorios privados e internos no se incluyen en los resultados de la búsqueda de GitHub.com. {% comment %} https://github.com/github/admin-experience/issues/571 {% endcomment %}'
+    - 'Las alertas de seguridad no se notifican cuando se envían cambios a un repositorio en la línea de comandos. (Actualizado el 23-06-2020) {% comment %} https://github.com/github/github/issues/143190 {% endcomment %}'
+    - 'El gráfico de dependencias no detecta las dependencias cuando se implementan en una configuración de clúster con múltiples nodos de Redis. (Actualizado el 30-06-2020) {% comment %} https://github.com/github/dependency-graph/issues/81 {% endcomment %}'
+    - 'Cuando un nodo de réplica está sin conexión en una configuración de disponibilidad alta, es posible que {% data variables.product.product_name %} enrute las solicitudes a {% data variables.product.prodname_pages %} al nodo sin conexión, lo que reduce la disponibilidad de {% data variables.product.prodname_pages %} para los usuarios.'

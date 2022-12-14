@@ -1,7 +1,7 @@
 ---
-title: Configuring web commit signing
+title: Configuración de la firma de confirmación web
 shortTitle: Configure web commit signing
-intro: 'You can enable auto-signing of commits made in the web interface of {% data variables.product.product_name %}.'
+intro: 'Puedes habilitar la firma automática de confirmaciones realizadas en la interfaz web de {% data variables.product.product_name %}.'
 versions:
   ghes: '>=3.5'
 type: how_to
@@ -11,67 +11,62 @@ topics:
   - Fundamentals
   - Identity
   - Security
-permissions: 'Site administrators can configure web commit signing for {% data variables.location.product_location %}.'
+permissions: 'Site administrators can configure web commit signing for {% data variables.product.product_location %}.'
+ms.openlocfilehash: 759b158235e5727b474441d10b33016b58277c7f
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147068038'
 ---
+## Acerca de la firma de confirmación web
 
-## About web commit signing
+Si habilitas la firma de confirmación web, {% data variables.product.product_name %} usará automáticamente GPG para firmar confirmaciones que los usuarios realizan en la interfaz web de {% data variables.product.product_location %}. Las confirmaciones firmadas por {% data variables.product.product_name %} tendrán un estado comprobado. Para obtener más información, consulte "[Acerca de la comprobación de firmas de confirmación](/authentication/managing-commit-signature-verification/about-commit-signature-verification)".
 
-If you enable web commit signing, {% data variables.product.product_name %} will automatically use GPG to sign commits users make on the web interface of {% data variables.location.product_location %}. Commits signed by {% data variables.product.product_name %} will have a verified status. For more information, see "[About commit signature verification](/authentication/managing-commit-signature-verification/about-commit-signature-verification)."
+Puedes habilitar la firma de confirmación web, rotar la clave privada usada para la firma de confirmación web y deshabilitar la firma de confirmación web.
 
-You can enable web commit signing, rotate the private key used for web commit signing, and disable web commit signing.
-
-## Enabling web commit signing
+## Habilitación de la firma de confirmación web
 
 {% data reusables.enterprise_site_admin_settings.create-pgp-key-web-commit-signing %}
-    - Use `web-flow` as the username. If `web-flow` is unavailable or unusable, use any new unique username. Use this username throughout the following steps in this article.
-   - If you have a no-reply email address defined in the {% data variables.enterprise.management_console %}, use that email address. If not, use any email address, such as `web-flow@my-company.com`. The email address does not need to be valid.
-{% data reusables.enterprise_site_admin_settings.pgp-key-no-passphrase %}
-{% data reusables.enterprise_site_admin_settings.pgp-key-env-variable %}
-{% data reusables.enterprise_site_admin_settings.update-commit-signing-service %}
-1. Enable web commit signing.
+   - Si tienes una dirección de correo electrónico sin respuesta definida en {% data variables.enterprise.management_console %}, usa esa dirección de correo electrónico. Si no es así, usa cualquier dirección de correo electrónico, como `web-flow@my-company.com`. No es necesario que la dirección de correo electrónico sea válida.
+{% data reusables.enterprise_site_admin_settings.pgp-key-no-passphrase %} {% data reusables.enterprise_site_admin_settings.pgp-key-env-variable %} {% data reusables.enterprise_site_admin_settings.update-commit-signing-service %}
+1. Habilita la firma de confirmación web.
 
     ```bash{:copy}
     ghe-config app.github.web-commit-signing-enabled true
     ```
-1. Apply the configuration, then wait for the configuration run to complete.
+1. Aplica la configuración y espera a que se complete la ejecución de la configuración.
 
    ```bash{:copy}
    ghe-config-apply
    ```
-1. Create a new user on {% data variables.location.product_location %} via built-in authentication or external authentication. For more information, see "[About authentication for your enterprise](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise)."
-   - The user's username must be the same username you used when creating the PGP key in step 1 above, for example, `web-flow`. 
-   - The user's email address must be the same address you used when creating the PGP key. 
-{% data reusables.enterprise_site_admin_settings.add-key-to-web-flow-user %}
-{% data reusables.enterprise_site_admin_settings.email-settings %}
-1. Under "No-reply email address", type the same email address you used when creating the PGP key. 
+1. Crea un nuevo usuario en {% data variables.product.product_location %} a través de la autenticación integrada o la autenticación externa. Para obtener más información, consulta "[Acerca de la autenticación para tu empresa](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise)".
+   - El nombre de usuario del usuario debe ser `web-flow`.
+   - La dirección de correo electrónico del usuario debe ser la misma dirección que usaste para la clave PGP. {% data reusables.enterprise_site_admin_settings.add-key-to-web-flow-user %} {% data reusables.enterprise_site_admin_settings.email-settings %}
+1. En "Dirección de correo electrónico sin respuesta", escribe la misma dirección de correo electrónico que usaste para la clave PGP. 
 
    {% note %}
 
-   **Note:** The "No-reply email address" field will only be displayed if you've enabled email for {% data variables.location.product_location %}. For more information, see "[Configuring email for notifications](/admin/configuration/configuring-your-enterprise/configuring-email-for-notifications#configuring-smtp-for-your-enterprise)."
+   **Nota:** El campo "Dirección de correo electrónico sin respuesta" solo se mostrará si has habilitado el correo electrónico para {% data variables.product.product_location %}. Para más información, vea "[Configuración del correo electrónico para notificaciones](/admin/configuration/configuring-your-enterprise/configuring-email-for-notifications#configuring-smtp-for-your-enterprise)".
 
-   {% endnote %}
-{% data reusables.enterprise_management_console.save-settings %}
+   {% endnote %} {% data reusables.enterprise_management_console.save-settings %}
 
-## Rotating the private key used for web commit signing
+## Rotación de la clave privada usada para la firma de confirmación web
 
 {% data reusables.enterprise_site_admin_settings.create-pgp-key-web-commit-signing %}
-   - Use the web commit signing user's username, for example, `web-flow`.
-   - Use the no-reply email address defined in the {% data variables.enterprise.management_console %}, which should be the same as the email address of the web commit signing user, for example, `web-flow`.
-{% data reusables.enterprise_site_admin_settings.pgp-key-no-passphrase %}
-{% data reusables.enterprise_site_admin_settings.pgp-key-env-variable %}
-{% data reusables.enterprise_site_admin_settings.update-commit-signing-service %}
-{% data reusables.enterprise_site_admin_settings.add-key-to-web-flow-user %}
+   - Usa la dirección de correo electrónico sin respuesta definida en {% data variables.enterprise.management_console %}, que debe ser la misma que la dirección de correo electrónico del usuario `web-flow`.
+{% data reusables.enterprise_site_admin_settings.pgp-key-no-passphrase %} {% data reusables.enterprise_site_admin_settings.pgp-key-env-variable %} {% data reusables.enterprise_site_admin_settings.update-commit-signing-service %} {% data reusables.enterprise_site_admin_settings.add-key-to-web-flow-user %}
 
-## Disabling web commit signing
+## Deshabilitación de la firma de confirmación web
 
-You can disable web commit signing for {% data variables.location.product_location %}.
+Puedes deshabilitar la firma de confirmación web para {% data variables.product.product_location %}.
 
-1. In the administrative shell, run the following command.
+1. En el shell administrativo, ejecuta el siguiente comando.
 
    ```bash{:copy}
    ghe-config app.github.web-commit-signing-enabled false
    ```
-1. Apply the configuration.
+1. Aplique la configuración.
 
    ```bash{:copy}
    ghe-config-apply

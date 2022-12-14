@@ -1,6 +1,6 @@
 ---
-title: Configuring commit merging for pull requests
-intro: 'You can enforce, allow, or disable merging with a merge commit for all pull request merges on {% data variables.location.product_location %} in your repository.'
+title: pull request のコミット マージを構成する
+intro: 'リポジトリ内の {% data variables.product.product_location %} 上のすべての pull request マージについて、マージ コミットを使ったマージを強制、許可、または無効にすることができます。'
 versions:
   fpt: '*'
   ghes: '*'
@@ -9,24 +9,23 @@ versions:
 topics:
   - Repositories
 shortTitle: Configure commit merging
+ms.openlocfilehash: 322f74168935175a75f3a8f19cc4faca2cde174b
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147580762'
 ---
 {% data reusables.pull_requests.configure_pull_request_merges_intro %}
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-1. Under {% ifversion fpt or ghec or ghes > 3.5 or ghae > 3.4 %}"Pull Requests"{% else %}"Merge button"{% endif %}, select **Allow merge commits**. This allows contributors to merge a pull request with a full history of commits.{% ifversion default-merge-squash-commit-message %}
- ![Screenshot of Pull Request settings with allow merge commits checkbox emphasized](/assets/images/help/repository/allow-merge-commits.png){% endif %}{% ifversion ghes = 3.6 %}
- ![Screenshot of Pull Request settings with allow merge commits checkbox emphasized](/assets/images/help/repository/allow-merge-commits-no-dropdown.png){% endif %}
-{% ifversion ghes < 3.6  %}
- ![allow_standard_merge_commits](/assets/images/help/repository/pr-merge-full-commits.png){% endif %}
-{% ifversion default-merge-squash-commit-message %}
-1. Optionally, under **Allow merge commits**, use the dropdown to choose the format of the commit message presented to contributors when merging. The default message includes the pull request number and title. For example, `Merge pull request #123 from patch-1`. You can also choose to use just the pull request title, or the pull request title and description. 
-![Screenshot of emphasized default commit message dropdown](/assets/images/help/repository/default-commit-message-dropdown.png)
-{% endif %}
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %}
+1. {% ifversion fpt or ghec or ghes > 3.5 or ghae-issue-6069 %}[pull request]{% else %}[Merge button]\(マージ ボタン\){% endif %} の下にある **[Allow merge commits]\(マージ コミットを許可する\)** を選びます。 こうすることで、共同作成者は、pull request とコミットの完全な履歴をマージすることができます。{% ifversion default-merge-squash-commit-message %}![マージ コミットを許可するチェックボックスが強調表示された [pull request] 設定のスクリーンショット](/assets/images/help/repository/allow-merge-commits.png){% endif %}{% ifversion ghes = 3.6 %}![マージ コミットを許可するチェックボックスが強調表示された [pull request] 設定のスクリーンショット](/assets/images/help/repository/allow-merge-commits-no-dropdown.png){% endif %} {% ifversion ghes < 3.6  %} ![allow_standard_merge_commits](/assets/images/help/repository/pr-merge-full-commits.png){% endif %} {% ifversion default-merge-squash-commit-message %}
+1. 必要に応じて、 **[Allow merge commits]\(マージ コミットを許可する\)** の下にあるドロップダウンを使って、マージ時に共同作成者に表示するコミット メッセージの形式を選びます。 既定のメッセージには、pull request の番号とタイトルが含まれています。 たとえば、`Merge pull request #123 from patch-1` のようにします。 また、pull request のタイトルのみ、または pull request のタイトルと説明を使うこともできます。 
+![既定のコミット メッセージ ドロップダウンが強調表示されたスクリーンショット](/assets/images/help/repository/default-commit-message-dropdown.png) {% endif %}
 
-If you select more than one merge method, collaborators can choose which type of merge commit to use when they merge a pull request. {% data reusables.repositories.squash-and-rebase-linear-commit-history %}
+複数のマージ方法を選んだ場合、コラボレーターは pull request をマージするときに使用するマージコミットの種類を選べます。 {% data reusables.repositories.squash-and-rebase-linear-commit-history %}
 
-## Further reading
+## 参考資料
 
-- "[About pull request merges](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges)"
-- "[Merging a pull request](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request)"
+- "[pull request のマージについて](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges)"
+- 「[pull request のマージ](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request)」

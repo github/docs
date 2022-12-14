@@ -1,6 +1,6 @@
 ---
-title: Reinstating a former outside collaborator's access to your organization
-intro: 'You can reinstate a former outside collaborator''s access permissions for organization repositories, forks, and settings.'
+title: Восстановление доступа бывшего внешнего участника совместной работы к организации
+intro: 'Можно восстановить разрешения на доступ бывшего внешнего участника к репозиториям, вилкам и настройкам организации.'
 redirect_from:
   - /articles/reinstating-a-former-outside-collaborator-s-access-to-your-organization
   - /articles/reinstating-a-former-outside-collaborators-access-to-your-organization
@@ -15,68 +15,61 @@ topics:
   - Organizations
   - Teams
 shortTitle: Reinstate collaborator
+ms.openlocfilehash: 6010a9c5488cbd8d343b52c7c2c3987848b774d2
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148098511'
 ---
-
-When an outside collaborator's access to your organization's private repositories is removed, the user's access privileges and settings are saved for three months. You can restore the user's privileges if you {% ifversion fpt or ghec %}invite{% else %}add{% endif %} them back to the organization within that time frame.
+Когда доступ стороннего участника совместной работы к частным репозиториям вашей организации удаляется, права доступа и параметры пользователя будут сохраняться в течение трех месяцев. Вы можете восстановить привилегии пользователя, если {% ifversion fpt or ghec %}пригласите{% else %}добавите{% endif %} обратно в организацию в течение этого периода времени.
 
 {% data reusables.two_fa.send-invite-to-reinstate-user-before-2fa-is-enabled %}
 
-When you reinstate a former outside collaborator, you can restore:
- - The user's former access to organization repositories
- - Any private forks of repositories owned by the organization
- - Membership in the organization's teams
- - Previous access and permissions for the organization's repositories
- - Stars for organization repositories
- - Issue assignments in the organization
- - Repository subscriptions (notification settings for watching, not watching, or ignoring a repository's activity)
+При восстановлении бывшего стороннего участника совместной работы можно восстановить следующее:
+ - Прежние права доступа пользователя к репозиториям организации
+ - Все частные вилки репозиториев, принадлежащих организации
+ - Членство в командах организации
+ - Предыдущие права доступа и разрешения для репозиториев организации
+ - Звездочки для репозиториев организации
+ - Выдача назначений в организации
+ - Подписки репозитория (параметры уведомлений для наблюдения, отмены наблюдения или игнорирования действий репозитория)
 
 {% tip %}
 
-**Tips**:
+**Совет**.
 
- - Only organization owners can reinstate outside collaborators' access to an organization.{% ifversion prevent-org-admin-add-outside-collaborator %} Enterprise owners may further restrict the ability to reinstate outside collaborators' access to enterprise owners only.{% endif %} For more information, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)."
- - The reinstating a member flow on {% data variables.location.product_location %} may use the term "member" to describe reinstating an outside collaborator but if you reinstate this person and keep their previous privileges, they will only have their previous [outside collaborator permissions](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization#outside-collaborators).{% ifversion fpt or ghec %}
- - If your organization has a paid per-user subscription, an unused license must be available before you can invite a new member to join the organization or reinstate a former organization member. For more information, see "[About per-user pricing](/articles/about-per-user-pricing)."{% endif %}
+ - Только владельцы организаций могут восстановить доступ внешних сотрудников к организации.{% ifversion prevent-org-admin-add-outside-collaborator %} Владельцы предприятий могут дополнительно ограничить возможность восстановления доступа внешних сотрудников только владельцами предприятий. {% endif %} Дополнительные сведения см. в разделе [Роли в организации](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization).
+ - Восстановление потока элементов на {% данных variables.location.product_location %} может использовать термин "участник", чтобы описать восстановление внешнего участника совместной работы, но если вы восстановите этот человек и сохраните свои предыдущие привилегии, они будут иметь только свои предыдущие [разрешения за пределами совместной работы](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization#outside-collaborators). {% ifversion fpt или ghec %}
+ - Если у вашей организации есть платная подписка для каждого пользователя, неиспользуемая лицензия должна быть доступна, прежде чем вы сможете пригласить нового участника присоединиться к организации или восстановить бывшего участника организации. Дополнительные сведения см. в разделе [Сведения о стоимости подписки для каждого пользователя](/articles/about-per-user-pricing){% endif %}
 
 {% endtip %}
 
-{% data reusables.profile.access_org %}
-{% data reusables.user-settings.access_org %}
-{% data reusables.organizations.people %}
-{% data reusables.organizations.invite_member_from_people_tab %}
-{% data reusables.organizations.reinstate-user-type-username %}
-{% ifversion fpt or ghec %}
-1. Choose to restore the outside collaborator's previous privileges in the organization by clicking **Invite and reinstate** or choose to clear their previous privileges and set new access permissions by clicking **Invite and start fresh**.
+{% data reusables.profile.access_org %} {% data reusables.user-settings.access_org %} {% data reusables.organizations.people %} {% data reusables.organizations.invite_member_from_people_tab %} {% data reusables.organizations.reinstate-user-type-username %} {% ifversion fpt or ghec %}
+1. Выберите восстановление прежних привилегий стороннего участника совместной работы в организации, нажав кнопку **Пригласить и восстановить** или очистите их предыдущие привилегии и задайте новые разрешения для доступа, нажав кнопку **Пригласить и начать заново**.
 
   {% warning %}
 
-  **Warning:** If you want to upgrade the outside collaborator to a member of your organization, then choose **Invite and start fresh** and choose a new role for this person. Note, however, that this person's private forks of your organization's repositories will be lost if you choose to start fresh. To make the former outside collaborator a member of your organization *and* keep their private forks, choose **Invite and reinstate** instead. Once this person accepts the invitation, you can convert them to an organization member by [inviting them to join the organization as a member](/articles/converting-an-outside-collaborator-to-an-organization-member).
+  **Предупреждение.** Если вы хотите повысить уровень стороннего участника совместной работы до участника вашей организации, нажмите **Пригласить и начать заново** и выберите новую роль для этого пользователя. Однако обратите внимание, что частные вилки этого пользователя в репозиториях вашей организации будут потеряны, если вы решите начать заново. Чтобы сделать бывшего стороннего участника совместной работы участником вашей организации, *и* сохранить его частные вилки, выберите **Пригласить и восстановить**. После того как этот пользователь примет приглашение, вы можете сделать его участником организации, [пригласив его присоединиться к организации в качестве участника](/articles/converting-an-outside-collaborator-to-an-organization-member).
 
   {% endwarning %}
 
-  ![Choose to restore settings or not](/assets/images/help/organizations/choose_whether_to_restore_org_member_info.png)
-{% else %}
-6. Choose to restore the outside collaborator's previous privileges in the organization by clicking **Add and reinstate** or choose to clear their previous privileges and set new access permissions by clicking **Add and start fresh**.
+  ![Укажите, следует ли восстановить параметры](/assets/images/help/organizations/choose_whether_to_restore_org_member_info.png) {% else %}
+6. Выберите восстановление прежних привилегий стороннего участника совместной работы в организации, нажав кнопку **Добавить и восстановить** или очистите их предыдущие привилегии и задайте новые разрешения для доступа, нажав кнопку **Добавить и начать заново**.
 
   {% warning %}
 
-  **Warning:** If you want to upgrade the outside collaborator to a member of your organization, then choose **Add and start fresh** and choose a new role for this person. Note, however, that this person's private forks of your organization's repositories will be lost if you choose to start fresh. To make the former outside collaborator a member of your organization *and* keep their private forks, choose **Add and reinstate** instead. Then, you can convert them to an organization member by [adding them to the organization as a member](/articles/converting-an-outside-collaborator-to-an-organization-member).
+  **Предупреждение.** Если вы хотите повысить уровень стороннего участника совместной работы до участника вашей организации, нажмите **Добавить и начать заново** и выберите новую роль для этого пользователя. Однако обратите внимание, что частные вилки этого пользователя в репозиториях вашей организации будут потеряны, если вы решите начать заново. Чтобы сделать бывшего стороннего участника совместной работы участником вашей организации, *и* сохранить его частные вилки, выберите **Добавить и восстановить**. Затем можно сделать его участником организации, [добавив его в организацию в качестве участника](/articles/converting-an-outside-collaborator-to-an-organization-member).
 
   {% endwarning %}
 
-  ![Choose to restore settings or not](/assets/images/help/organizations/choose_whether_to_restore_org_member_info_ghe.png)
-{% endif %}
-{% ifversion fpt or ghec %}
-7. If you cleared the previous privileges for a former outside collaborator, choose a role for the user and optionally add them to some teams, then click **Send invitation**.
-  ![Role and team options and send invitation button](/assets/images/help/organizations/add-role-send-invitation.png)
-{% else %}
-7. If you cleared the previous privileges for a former outside collaborator, choose a role for the user and optionally add them to some teams, then click **Add member**.
-  ![Role and team options and add member button](/assets/images/help/organizations/add-role-add-member.png)
-{% endif %}
-{% ifversion fpt or ghec %}
-8. The invited person will receive an email inviting them to the organization. They will need to accept the invitation before becoming an outside collaborator in the organization. {% data reusables.organizations.cancel_org_invite %}
-{% endif %}
+  ![Укажите, следует ли восстановить параметры](/assets/images/help/organizations/choose_whether_to_restore_org_member_info_ghe.png) {% endif %} {% ifversion fpt or ghec %}
+7. Если вы удалили предыдущие привилегии для бывшего стороннего участника совместной работы, выберите роль для пользователя и при необходимости добавьте их в некоторые команды, а затем нажмите кнопку **Отправить приглашение**.
+  ![Параметры роли и команды и кнопка отправки приглашения](/assets/images/help/organizations/add-role-send-invitation.png){% else %}
+7. Если вы удалили предыдущие привилегии для бывшего стороннего участника совместной работы, выберите роль для пользователя и при необходимости добавьте их в некоторые команды, а затем нажмите кнопку **Добавить участника**.
+  ![Параметры роли и команды и кнопка "Добавить участника"](/assets/images/help/organizations/add-role-add-member.png) {% endif %} {% ifversion fpt or ghec %}
+8. Приглашенный человек получит электронное письмо с приглашением в организацию. Он должен принять приглашение, прежде чем стать сторонним участником совместной работы в организации. {% data reusables.organizations.cancel_org_invite %} {% endif %}
 
-## Further Reading
+## Дополнительные материалы
 
-- "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)"
+- [Роли репозитория для организации](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)

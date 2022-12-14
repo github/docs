@@ -1,6 +1,6 @@
 ---
-title: Configuring high availability replication for a cluster
-intro: 'You can configure a passive replica of your entire {% data variables.product.prodname_ghe_server %} cluster in a different location, allowing your cluster to fail over to redundant nodes.'
+title: Configurar la replicación con disponibilidad alta para un clúster
+intro: 'Puedes configurar una réplica pasiva de todo tu clúster de {% data variables.product.prodname_ghe_server %} en una ubicación diferentes, lo cual le permitirá tolerar fallos en nodos redundantes.'
 miniTocMaxHeadingLevel: 3
 redirect_from:
   - /enterprise/admin/enterprise-management/configuring-high-availability-replication-for-a-cluster
@@ -14,80 +14,86 @@ topics:
   - High availability
   - Infrastructure
 shortTitle: Configure HA replication
+ms.openlocfilehash: 3663fe290fab6644c5650c3f1ff435dfae87bcf4
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145120633'
 ---
-## About high availability replication for clusters
+## Acerca de la replicación de disponibilidad alta para clústers
 
-You can configure a cluster deployment of {% data variables.product.prodname_ghe_server %} for high availability, where an identical set of passive nodes sync with the nodes in your active cluster. If hardware or software failures affect the datacenter with your active cluster, you can manually fail over to the replica nodes and continue processing user requests, minimizing the impact of the outage.
+Puedes configurar el despliegue de un clúster de {% data variables.product.prodname_ghe_server %} para que tenga disponibilidad alta, mientras que un conjunto idéntico de nodos pasivos se sincroniza con los nodos en tu clúster activo. Si las características de hardware o software afectan el centro de datos que alberga tu clúster activo, puedes hacer una recuperación de fallos manual a los nodos de réplica y seguir procesando las solicitudes de los usuarios, minimizando así el impacto del servicio interrumpido.
 
-In high availability mode, each active node syncs regularly with a corresponding passive node. The passive node runs in standby and does not serve applications or process user requests.
+En el modo de alta disponibilidad, cada nodo activo se sincroniza regularmente con un nodo pasivo correspondiente. El nodo pasivo se ejecuta en espera y no sirve a las aplicaciones ni procesa solicitudes de usuarios.
 
-We recommend configuring high availability as a part of a comprehensive disaster recovery plan for {% data variables.product.prodname_ghe_server %}. We also recommend performing regular backups. For more information, see "[Configuring backups on your appliance](/enterprise/admin/configuration/configuring-backups-on-your-appliance)."
+Te recomendamos configurar la disponibilidad alta como parte de un plan integral de recuperación de desastres para {% data variables.product.prodname_ghe_server %}. También te recomendamos realizar respaldos constantemente. Para obtener más información, consulta "[Configuración de copias de seguridad en el dispositivo](/enterprise/admin/configuration/configuring-backups-on-your-appliance)".
 
-## Prerequisites
+## Prerrequisitos
 
-### Hardware and software
+### Hardware y software
 
-For each existing node in your active cluster, you'll need to provision a second virtual machine with identical hardware resources. For example, if your cluster has 11 nodes and each node has 12 vCPUs, 96 GB of RAM, and 750 GB of attached storage, you must provision 11 new virtual machines that each have 12 vCPUs, 96 GB of RAM, and 750 GB of attached storage.
+Para cada nodo existente en tu clúster activo, necesitarás aprovisionar una segunda máquina virtual con recursos de hardware idénticos. Por ejemplo, si tu clúster tiene 11 nodos y cada nodo tiene 12 vCPUs, 96 GB de RAM, y 750 GB de almacenamiento adjunto, deberás aprovisionar 11 máquinas virtuales en donde cada una tenga 12 vCPUs, 96 GB de RAM, y 750GB de almacenamiento adjunto.
 
-On each new virtual machine, install the same version of {% data variables.product.prodname_ghe_server %} that runs on the nodes in your active cluster. You don't need to upload a license or perform any additional configuration. For more information, see "[Setting up a {% data variables.product.prodname_ghe_server %} instance](/enterprise/admin/installation/setting-up-a-github-enterprise-server-instance)."
+En cada máquina virtual, instala la misma versión de {% data variables.product.prodname_ghe_server %} que se ejecuta en los nodos en tu clúster activo. No necesitas cargar una licencia ni realizar alguna configuración adicional. Para obtener más información, consulta "[Configuración de una instancia de {% data variables.product.prodname_ghe_server %}](/enterprise/admin/installation/setting-up-a-github-enterprise-server-instance)".
 
 {% note %}
 
-**Note**: The nodes that you intend to use for high availability replication should be standalone {% data variables.product.prodname_ghe_server %} instances. Don't initialize the passive nodes as a second cluster.
+**Nota**: Los nodos que pretendes utilizar para la replicación de alta disponibilidad deben ser instancias independientes de {% data variables.product.prodname_ghe_server %}. No inicialices los nodos pasivos como un segundo clúster.
 
 {% endnote %}
 
-### Network
+### Red
 
-You must assign a static IP address to each new node that you provision, and you must configure a load balancer to accept connections and direct them to the nodes in your cluster's front-end tier.
+Debes asignar una dirección IP estática a cada nodo nuevo que aprovisiones, y debes configurar un balanceador de carga para aceptar las conecciones y dirigirlas a los nodos que están a nivel del front-end de tu clúster.
 
-{% data reusables.enterprise_clustering.network-latency %} For more information about network connectivity between nodes in the passive cluster, see "[Cluster network configuration](/enterprise/admin/enterprise-management/cluster-network-configuration)."
+No te recomendamos configurar un firewall entre la red con con tu clúster activo y aquella con tu clúster pasivo. Lalatencia entre las redes con nodos activos y aquellas con nodos pasivos debe ser de menos de 70 milisegundos. Para obtener más información sobre la conectividad de red entre los nodos del clúster pasivo, consulta "[Configuración de red del clúster](/enterprise/admin/enterprise-management/cluster-network-configuration)".
 
-## Creating a high availability replica for a cluster
+## Crear una réplica de disponibilidad alta para un clúster
 
-- [Assigning active nodes to the primary datacenter](#assigning-active-nodes-to-the-primary-datacenter)
-- [Adding passive nodes to the cluster configuration file](#adding-passive-nodes-to-the-cluster-configuration-file)
-- [Example configuration](#example-configuration)
+- [Asignación de nodos activos al centro de datos primario](#assigning-active-nodes-to-the-primary-datacenter)
+- [Adición de nodos pasivos al archivo de configuración del clúster](#adding-passive-nodes-to-the-cluster-configuration-file)
+- [Configuración de ejemplo](#example-configuration)
 
-### Assigning active nodes to the primary datacenter
+### Asignar nodos activos al datacenter primario
 
-Before you define a secondary datacenter for your passive nodes, ensure that you assign your active nodes to the primary datacenter.
+Antes de que definas un datacenter secundario para tus nodos pasivos, asegúrate de que has asignado tus nodos activos al datacenter primario.
 
 {% data reusables.enterprise_clustering.ssh-to-a-node %}
 
 {% data reusables.enterprise_clustering.open-configuration-file %}
 
-3. Note the name of your cluster's primary datacenter. The `[cluster]` section at the top of the cluster configuration file defines the primary datacenter's name, using the `primary-datacenter` key-value pair. By default, the primary datacenter for your cluster is named `default`.
+3. Observa el nombre del datacenter primario de tus clústers. La sección `[cluster]` de la parte superior del archivo de configuración del clúster define el nombre del centro de datos principal, mediante el par clave-valor `primary-datacenter`. De manera predeterminada, el centro de datos principal del clúster se denomina `default`.
 
     ```shell
     [cluster]
-      mysql-master = HOSTNAME
-      redis-master = HOSTNAME
+      mysql-master = <em>HOSTNAME</em>
+      redis-master = <em>HOSTNAME</em>
       <strong>primary-datacenter = default</strong>
     ```
 
-    - Optionally, change the name of the primary datacenter to something more descriptive or accurate by editing the value of `primary-datacenter`.
+    - Opcionalmente, puedes cambiar el nombre del centro de datos principal por uno más descriptivo o preciso editando el valor de `primary-datacenter`.
 
-4. {% data reusables.enterprise_clustering.configuration-file-heading %} Under each node's heading, add a new key-value pair to assign the node to a datacenter. Use the same value as `primary-datacenter` from step 3 above. For example, if you want to use the default name (`default`), add the following key-value pair to the section for each node.
+4. {% data reusables.enterprise_clustering.configuration-file-heading %} Debajo del encabezado de cada nodo, agrega un par de clave-valor para asignar el nodo a un datacenter. Usa el mismo valor que `primary-datacenter` del paso 3 anterior. Por ejemplo, si quieres utilizar el nombre predeterminado (`default`), agrega el siguiente par clave-valor a la sección para cada nodo.
 
     ```
     datacenter = default
     ```
 
-    When you're done, the section for each node in the cluster configuration file should look like the following example. {% data reusables.enterprise_clustering.key-value-pair-order-irrelevant %}
+    Cuando hayas terminado, la sección para cada nodo en el archivo de configuración del clúster se debería ver como en el siguiente ejemplo. {% data reusables.enterprise_clustering.key-value-pair-order-irrelevant %}
 
     ```shell
-    [cluster "HOSTNAME"]
+    [cluster "<em>HOSTNAME</em>"]
       <strong>datacenter = default</strong>
-      hostname = HOSTNAME
-      ipv4 = IP-ADDRESS
+      hostname = <em>HOSTNAME</em>
+      ipv4 = <em>IP ADDRESS</em>
       ...
     ...
     ```
 
     {% note %}
 
-    **Note**: If you changed the name of the primary datacenter in step 3, find the `consul-datacenter` key-value pair in the section for each node and change the value to the renamed primary datacenter. For example, if you named the primary datacenter `primary`, use the following key-value pair for each node.
+    **Nota**: Si has cambiado el nombre del centro de datos principal en el paso 3, busca  el par clave-valor `consul-datacenter` en la sección de cada nodo y cambia el valor al centro de datos principal cuyo nombre ha cambiado. Por ejemplo, si has asignado el nombre `primary` al centro de datos principal, usa el siguiente par clave-valor para cada nodo.
 
     ```
     consul-datacenter = primary
@@ -99,123 +105,123 @@ Before you define a secondary datacenter for your passive nodes, ensure that you
 
 {% data reusables.enterprise_clustering.configuration-finished %}
 
-After {% data variables.product.prodname_ghe_server %} returns you to the prompt, you've finished assigning your nodes to the cluster's primary datacenter.
+Después de que {% data variables.product.prodname_ghe_server %} te regrese al prompt, habrás terminado de asignar tus nodos al datacenter primario del clúster.
 
-### Adding passive nodes to the cluster configuration file
+### Agregar nodos pasivos al archivo de configuración de clúster
 
-To configure high availability, you must define a corresponding passive node for every active node in your cluster. The following instructions create a new cluster configuration that defines both active and passive nodes. You will:
+Para configurar la disponibilidad alta, debes definir un nodo pasivo correspondiente para cada nodo activo en tu clúster. Con las siguientes instrucciones se crea una configuración de clúster nueva que define tanto los nodos activos como los pasivos. Podrá:
 
-- Create a copy of the active cluster configuration file.
-- Edit the copy to define passive nodes that correspond to the active nodes, adding the IP addresses of the new virtual machines that you provisioned.
-- Merge the modified copy of the cluster configuration back into your active configuration.
-- Apply the new configuration to start replication.
+- Crear una copia del archivo de configuración del clúster activo.
+- Editar la copia para definir los nodos pasivos que corresponden a los nodos activos, agregando las direcciones IP de las máquinas virtuales nuevas que aprovisionaste.
+- Fusionar la copia modificada de la configuración del clúster con tu configuración activa.
+- Aplicar la configuración nueva para comenzar la replicación.
 
-For an example configuration, see "[Example configuration](#example-configuration)."
+Para ver una configuración de ejemplo, consulta "[Configuración de ejemplo](#example-configuration)".
 
-1. For each node in your cluster, provision a matching virtual machine with identical specifications, running the same version of  {% data variables.product.prodname_ghe_server %}. Note the IPv4 address and hostname for each new cluster node. For more information, see "[Prerequisites](#prerequisites)."
+1. Para cada nodo en tu clúster, aprovisiona una máquina virtual coincidente con especificaciones idénticas que ejecute la misma versión de {% data variables.product.prodname_ghe_server %}. Anota la dirección IPv4 y el nombre de host para cada nodo de clúster nuevo. Para obtener más información, consulta "[Requisitos previos](#prerequisites)".
 
     {% note %}
 
-    **Note**: If you're reconfiguring high availability after a failover, you can use the old nodes from the primary datacenter instead.
+    **Nota**: Si estás reconfigurando la alta disponibilidad después de una conmutación por error, puedes utilizar los nodos antiguos del centro de datos principal en su lugar.
 
     {% endnote %}
 
 {% data reusables.enterprise_clustering.ssh-to-a-node %}
 
-3. Back up your existing cluster configuration.
+3. Respalda tu configuración de clúster existente.
 
     ```
     cp /data/user/common/cluster.conf ~/$(date +%Y-%m-%d)-cluster.conf.backup
     ```
 
-4. Create a copy of your existing cluster configuration file in a temporary location, like _/home/admin/cluster-passive.conf_. Delete unique key-value pairs for IP addresses (`ipv*`), UUIDs (`uuid`), and public keys for WireGuard (`wireguard-pubkey`).
+4. Crea una copia de tu archivo de configuración de clúster en una ubicación temporal, como _/home/admin/cluster-passive.conf_. Elimina pares clave-valor únicos para direcciones IP (`ipv*`), UUID (`uuid`) y claves públicas para WireGuard (`wireguard-pubkey`).
 
     ```
     grep -Ev "(?:|ipv|uuid|vpn|wireguard\-pubkey)" /data/user/common/cluster.conf > ~/cluster-passive.conf
     ```
 
-5. Remove the `[cluster]` section from the temporary cluster configuration file that you copied in the previous step.
+5. Quita la sección de `[cluster]` del archivo temporal de configuración de clúster temporal que copiaste en el paso anterior.
 
     ```
     git config -f ~/cluster-passive.conf --remove-section cluster
     ```
 
-6. Decide on a name for the secondary datacenter where you provisioned your passive nodes, then update the temporary cluster configuration file with the new datacenter name. Replace `SECONDARY` with the name you choose.
+6. Asigna un nombre para el datacenter secundario en donde aprovisionaste tus nodos pasivos, luego actualiza el archivo temporal de configuración de clúster con el nombre nuevo del datacenter. Reemplaza `SECONDARY` por el nombre elegido.
 
     ```shell
-    sed -i 's/datacenter = default/datacenter = SECONDARY/g' ~/cluster-passive.conf
+    sed -i 's/datacenter = default/datacenter = <em>SECONDARY</em>/g' ~/cluster-passive.conf
     ```
 
-7. Decide on a pattern for the passive nodes' hostnames.
+7. Asigna un patrón para los nombres de host del nodo pasivo.
 
     {% warning %}
 
-    **Warning**: Hostnames for passive nodes must be unique and differ from the hostname for the corresponding active node.
+    **Advertencia**: Los nombres de host para los nodos pasivos deben ser únicos y diferir del nombre de host para el nodo activo correspondiente.
 
     {% endwarning %}
 
-8. Open the temporary cluster configuration file from step 3 in a text editor. For example, you can use Vim.
+8. Abre el archivo temporal de configuración de clúster del paso 3 en un editor de texto. Por ejemplo, puedes utilizar Vim.
 
     ```shell
     sudo vim ~/cluster-passive.conf
     ```
 
-9. In each section within the temporary cluster configuration file, update the node's configuration. {% data reusables.enterprise_clustering.configuration-file-heading %}
+9. En cada sección dentro del archivo temporal de configuración del clúster, actualiza la configuración del nodo. {% data reusables.enterprise_clustering.configuration-file-heading %}
 
-    - Change the quoted hostname in the section heading and the value for `hostname` within the section to the passive node's hostname, per the pattern you chose in step 7 above.
-    - Add a new key named `ipv4`, and set the value to the passive node's static IPv4 address.
-    - Add a new key-value pair, `replica = enabled`.
+    - Cambia el nombre de host citado en el encabezado de la sección y el valor de `hostname` dentro de la sección al nombre de host del nodo pasivo, de acuerdo con el patrón que elegiste en el paso 7 anterior.
+    - Agrega una nueva clave denominada `ipv4` y establece el valor en la dirección IPv4 estática del nodo pasivo.
+    - Agrega un nuevo par clave-valor, `replica = enabled`.
 
     ```shell
-    [cluster "NEW PASSIVE NODE HOSTNAME"]
+    [cluster "<em>NEW PASSIVE NODE HOSTNAME</em>"]
       ...
-      hostname = NEW PASSIVE NODE HOSTNAME
-      ipv4 = NEW PASSIVE NODE IPV4 ADDRESS
+      hostname = <em>NEW PASSIVE NODE HOSTNAME</em>
+      ipv4 = <em>NEW PASSIVE NODE IPV4 ADDRESS</em>
       <strong>replica = enabled</strong>
       ...
     ...
     ```
 
-10. Append the contents of the temporary cluster configuration file that you created in step 4 to the active configuration file.
+10. Anexa el contenido del archivo temporal de configuración del clúster que creaste en el paso 4 al archivo de configuración activo.
 
     ```shell
     cat ~/cluster-passive.conf >> /data/user/common/cluster.conf
     ```
 
-11. Designate the primary MySQL and Redis nodes in the secondary datacenter. Replace `REPLICA MYSQL PRIMARY HOSTNAME` and `REPLICA REDIS PRIMARY HOSTNAME` with the hostnames of the passives node that you provisioned to match your existing MySQL and Redis primaries.
+11. Designa los nodos de Redis y de MySQL en el datacenter secundario. Reemplaza `REPLICA MYSQL PRIMARY HOSTNAME` y `REPLICA REDIS PRIMARY HOSTNAME` por los nombres de host de los nodos pasivos que has aprovisionado para que coincidan con los principales de MySQL y Redis existentes.
 
     ```shell
-    git config -f /data/user/common/cluster.conf cluster.mysql-master-replica REPLICA-MYSQL-PRIMARY-HOSTNAME
-    git config -f /data/user/common/cluster.conf cluster.redis-master-replica REPLICA-REDIS-PRIMARY-HOSTNAME
+    git config -f /data/user/common/cluster.conf cluster.mysql-master-replica <em>REPLICA MYSQL PRIMARY HOSTNAME</em>
+    git config -f /data/user/common/cluster.conf cluster.redis-master-replica <em>REPLICA REDIS PRIMARY HOSTNAME</em>
     ```
 
     {% warning %}
 
-    **Warning**: Review your cluster configuration file before proceeding.
+    **Advertencia**: Revisa el archivo de configuración del clúster antes de continuar.
 
-    - In the top-level `[cluster]` section, ensure that the values for `mysql-master-replica` and `redis-master-replica` are the correct hostnames for the passive nodes in the secondary datacenter that will serve as the MySQL and Redis primaries after a failover.
-    - In each section for an active node named <code>[cluster "ACTIVE NODE HOSTNAME"]</code>, double-check the following key-value pairs.
-      - `datacenter` should match the value of `primary-datacenter` in the top-level `[cluster]` section.
-      - `consul-datacenter` should match the value of `datacenter`, which should be the same as the value for `primary-datacenter` in the top-level `[cluster]` section.
-    - Ensure that for each active node, the configuration has **one** corresponding section for **one** passive node with the same roles. In each section for a passive node, double-check each key-value pair.
-      - `datacenter` should match all other passive nodes.
-      - `consul-datacenter` should match all other passive nodes.
-      - `hostname` should match the hostname in the section heading.
-      - `ipv4` should match the node's unique, static IPv4 address.
-      - `replica` should be configured as `enabled`.
-    - Take the opportunity to remove sections for offline nodes that are no longer in use.
+    - En la sección `[cluster]` de nivel superior, asegúrate de que los valores de `mysql-master-replica` y `redis-master-replica` son los nombres de host correctos para los nodos pasivos del centro de datos secundario que servirán como principales de MySQL y Redis después de una conmutación por error.
+    - En cada sección de un nodo activo denominado <code>[cluster "<em>ACTIVE NODE HOSTNAME</em>"]</code>, vuelve a comprobar los siguientes pares clave-valor.
+      - `datacenter` debe coincidir con el valor de `primary-datacenter` de la sección `[cluster]` de nivel superior.
+      - `consul-datacenter` debe coincidir con el valor de `datacenter`, que debe ser el mismo que el valor de `primary-datacenter` en la sección `[cluster]` de nivel superior.
+    - Asegúrate de que, para cada nodo activo, la configuración tiene **una** sección correspondiente para **un** nodo pasivo con los mismos roles. En cada sección para un nodo pasivo, verifica nuevamente cada par de clave-valor.
+      - `datacenter` debe coincidir con todos los demás nodos pasivos.
+      - `consul-datacenter` debe coincidir con todos los demás nodos pasivos.
+      - `hostname` debe coincidir con el nombre de host del encabezado de sección.
+      - `ipv4` debe coincidir con la dirección IPv4 estática única del nodo.
+      - `replica` debe configurarse como `enabled`.
+    - Aprovecha la oportunidad para eliminar las secciones para los nodos sin conexión que ya no se utilicen.
 
-    To review an example configuration, see "[Example configuration](#example-configuration)."
+    Para revisar una configuración de ejemplo, consulta "[Configuración de ejemplo](#example-configuration)".
 
     {% endwarning %}
 
-13. Initialize the new cluster configuration. {% data reusables.enterprise.use-a-multiplexer %}
+13. Inicializa la configuración del clúster nuevo. {% data reusables.enterprise.use-a-multiplexer %}
 
     ```shell
     ghe-cluster-config-init
     ```
 
-14. After the initialization finishes, {% data variables.product.prodname_ghe_server %} displays the following message.
+14. Después de que ésta termine, {% data variables.product.prodname_ghe_server %} mostrará el siguiente mensaje.
 
     ```shell
     Finished cluster initialization
@@ -225,33 +231,33 @@ For an example configuration, see "[Example configuration](#example-configuratio
 
 {% data reusables.enterprise_clustering.configuration-finished %}
 
-17. Configure a load balancer that will accept connections from users if you fail over to the passive nodes. For more information, see "[Cluster network configuration](/enterprise/admin/enterprise-management/cluster-network-configuration#configuring-a-load-balancer)."
+17. Configura un balanceador de carga que aceptará las conexiones de los usuarios si conmutas por error a los nodos pasivos. Para obtener más información, consulta "[Configuración de red del clúster](/enterprise/admin/enterprise-management/cluster-network-configuration#configuring-a-load-balancer)".
 
-You've finished configuring high availability replication for the nodes in your cluster. Each active node begins replicating configuration and data to its corresponding passive node, and you can direct traffic to the load balancer for the secondary datacenter in the event of a failure. For more information about failing over, see "[Initiating a failover to your replica cluster](/enterprise/admin/enterprise-management/initiating-a-failover-to-your-replica-cluster)."
+Has terminado de configurar la replicación de disponibilidad alta para los nodos en tu clúster. Cada nodo activo comienza a replicar la configuración y los datos a su nodo pasivo correspondiente, y puedes dirigir el tráfico al balanceador de carga para el datacenter secundario en caso de que exista un fallo. Para obtener más información sobre la conmutación por error, consulta "[Iniciar una conmutación por error en el clúster de réplica](/enterprise/admin/enterprise-management/initiating-a-failover-to-your-replica-cluster)".
 
-### Example configuration
+### Ejemplo de configuración
 
-The top-level `[cluster]` configuration should look like the following example.
+La configuración de `[cluster]` de nivel superior se debería ver como en el ejemplo siguiente.
 
 ```shell
 [cluster]
-  mysql-master = HOSTNAME-OF-ACTIVE-MYSQL-MASTER
-  redis-master = HOSTNAME-OF-ACTIVE-REDIS-MASTER
-  primary-datacenter = PRIMARY-DATACENTER-NAME
-  mysql-master-replica = HOSTNAME-OF-PASSIVE-MYSQL-MASTER
-  redis-master-replica = HOSTNAME-OF-PASSIVE-REDIS-MASTER
+  mysql-master = <em>HOSTNAME OF ACTIVE MYSQL MASTER</em>
+  redis-master = <em>HOSTNAME OF ACTIVE REDIS MASTER</em>
+  primary-datacenter = <em>PRIMARY DATACENTER NAME</em>
+  mysql-master-replica = <em>HOSTNAME OF PASSIVE MYSQL MASTER</em>
+  redis-master-replica = <em>HOSTNAME OF PASSIVE REDIS MASTER</em>
   mysql-auto-failover = false
 ...
 ```
 
-The configuration for an active node in your cluster's storage tier should look like the following example.
+La configuración para un nodo activo en el nivel de almacenamiento de tu clúster se debería ver como en el ejemplo siguiente.
 
 ```shell
 ...
-[cluster "UNIQUE ACTIVE NODE HOSTNAME"]
+[cluster "<em>UNIQUE ACTIVE NODE HOSTNAME</em>"]
   datacenter = default
-  hostname = UNIQUE-ACTIVE-NODE-HOSTNAME
-  ipv4 = IPV4-ADDRESS
+  hostname = <em>UNIQUE ACTIVE NODE HOSTNAME</em>
+  ipv4 = <em>IPV4 ADDRESS</em>
   consul-datacenter = default
   consul-server = true
   git-server = true
@@ -262,26 +268,26 @@ The configuration for an active node in your cluster's storage tier should look 
   memcache-server = true
   metrics-server = true
   storage-server = true
-  vpn = IPV4 ADDRESS SET AUTOMATICALLY
-  uuid = UUID SET AUTOMATICALLY
-  wireguard-pubkey = PUBLIC KEY SET AUTOMATICALLY
+  vpn = <em>IPV4 ADDRESS SET AUTOMATICALLY</em>
+  uuid = <em>UUID SET AUTOMATICALLY</em>
+  wireguard-pubkey = <em>PUBLIC KEY SET AUTOMATICALLY</em>
 ...
 ```
 
-The configuration for the corresponding passive node in the storage tier should look like the following example.
+La configuración para el nodo pasivo correspondiente en el nivel de almacenamiento se debería ver como en el ejemplo siguiente.
 
-- Important differences from the corresponding active node are **bold**.
-- {% data variables.product.prodname_ghe_server %} assigns values for `vpn`, `uuid`, and `wireguard-pubkey` automatically, so you shouldn't define the values for passive nodes that you will initialize.
-- The server roles, defined by `*-server` keys, match the corresponding active node.
+- Las diferencias importantes con respecto al nodo activo correspondiente se marcan en **negrita**.
+- {% data variables.product.prodname_ghe_server %} asigna valores para `vpn`, `uuid` y `wireguard-pubkey` automáticamente, por lo que no debes definir los valores para los nodos pasivos que inicializarás.
+- Los roles de servidor, definidos mediante claves `*-server`, coinciden con el nodo activo correspondiente.
 
 ```shell
 ...
-<strong>[cluster "UNIQUE PASSIVE NODE HOSTNAME"]</strong>
+<strong>[cluster "<em>UNIQUE PASSIVE NODE HOSTNAME</em>"]</strong>
   <strong>replica = enabled</strong>
-  <strong>ipv4 = IPV4 ADDRESS OF NEW VM WITH IDENTICAL RESOURCES</strong>
-  <strong>datacenter = SECONDARY DATACENTER NAME</strong>
-  <strong>hostname = UNIQUE PASSIVE NODE HOSTNAME</strong>
-  <strong>consul-datacenter = SECONDARY DATACENTER NAME</strong>
+  <strong>ipv4 = <em>IPV4 ADDRESS OF NEW VM WITH IDENTICAL RESOURCES</em></strong>
+  <strong>datacenter = <em>SECONDARY DATACENTER NAME</em></strong>
+  <strong>hostname = <em>UNIQUE PASSIVE NODE HOSTNAME</em></strong>
+  <strong>consul-datacenter = <em>SECONDARY DATACENTER NAME</em></strong>
   consul-server = true
   git-server = true
   pages-server = true
@@ -291,73 +297,73 @@ The configuration for the corresponding passive node in the storage tier should 
   memcache-server = true
   metrics-server = true
   storage-server = true
-  <strong>vpn = DO NOT DEFINE</strong>
-  <strong>uuid = DO NOT DEFINE</strong>
-  <strong>wireguard-pubkey = DO NOT DEFINE</strong>
+  <strong>vpn = <em>DO NOT DEFINE</em></strong>
+  <strong>uuid = <em>DO NOT DEFINE</em></strong>
+  <strong>wireguard-pubkey = <em>DO NOT DEFINE</em></strong>
 ...
 ```
 
-## Monitoring replication between active and passive cluster nodes
+## Monitorear la replicación entre los nodos de clúster pasivos y activos
 
-Initial replication between the active and passive nodes in your cluster takes time. The amount of time depends on the amount of data to replicate and the activity levels for {% data variables.product.prodname_ghe_server %}.
+La replicación inicial entre los nodos activos y pasivos en tu clúster toma su tiempo. La cantidad de tiempo dependerá de la cantidad de datos a replicar y de los niveles de actividad de {% data variables.product.prodname_ghe_server %}.
 
-You can monitor the progress on any node in the cluster, using command-line tools available via the {% data variables.product.prodname_ghe_server %} administrative shell. For more information about the administrative shell, see "[Accessing the administrative shell (SSH)](/enterprise/admin/configuration/accessing-the-administrative-shell-ssh)."
+Puedes monitorear el progreso de cualquier nodo en el clúster, utilizando las herramientas de línea de comandos que se encuentran disponibles a través del shell administrativo de {% data variables.product.prodname_ghe_server %}. Para obtener más información sobre el shell administrativo, consulta "[Acceso al shell administrativo (SSH)](/enterprise/admin/configuration/accessing-the-administrative-shell-ssh)".
 
-- Monitor replication of databases:
+- Monitorear la replicación de bases de datos:
 
   ```
   /usr/local/share/enterprise/ghe-cluster-status-mysql
   ```
 
-- Monitor replication of repository and Gist data:
+- Monitorear la replicación de los datos de los repositorios y los Gists:
 
   ```
   ghe-spokes status
   ```
 
-- Monitor replication of attachment and LFS data:
+- Monitorear la replicación de los adjuntos y los datos de LFS:
 
   ```
   ghe-storage replication-status
   ```
 
-- Monitor replication of Pages data:
+- Monitorear la replicación de los datos de las páginas:
 
   ```
   ghe-dpages replication-status
   ```
 
-You can use `ghe-cluster-status` to review the overall health of your cluster. For more information, see  "[Command-line utilities](/enterprise/admin/configuration/command-line-utilities#ghe-cluster-status)."
+Puedes usar `ghe-cluster-status` para revisar el estado general del clúster. Para obtener más información, consulta "[Utilidades de línea de comandos](/enterprise/admin/configuration/command-line-utilities#ghe-cluster-status)".
 
-## Reconfiguring high availability replication after a failover
+## Reconfigurar la replilcación de disponibilidad alta después de un fallo
 
-After you fail over from the cluster's active nodes to the cluster's passive nodes, you can reconfigure high availability replication in two ways.
+Después de que te recuperes de un fallo de los nodos activos del clúster hacia los nodos pasivos, puedes reconfigurar la replicación de disponibilidad alta en dos formas.
 
-### Provisioning and configuring new passive nodes
+### Aprovisionar y configurar los nodos pasivos nuevos
 
-After a failover, you can reconfigure high availability in two ways. The method you choose will depend on the reason that you failed over, and the state of the original active nodes.
+Después de recuperarte de un fallo, puedes reconfigurar la disponibilidad alta en dos formas. El método que elijas dependerá de la razón por la cual ocurrió el fallo y del estado de los nodos activos originales.
 
-1. Provision and configure a new set of passive nodes for each of the new active nodes in your secondary datacenter.
+1. Aprovisiona y configura un conjunto nuevo de nodos pasivos para cada uno de los nodos activos en tu datacenter secundario.
 
-2. Use the old active nodes as the new passive nodes.
+2. Utiliza los nodos activos antiguos como los nodos pasivos nuevos.
 
-The process for reconfiguring high availability is identical to the initial configuration of high availability. For more information, see "[Creating a high availability replica for a cluster](#creating-a-high-availability-replica-for-a-cluster)."
+El proceso para reconfigurar la disponibilidad alta es idéntico a la configuración inicial de la misma. Para obtener más información, consulta "[Creación de una réplica de alta disponibilidad para un clúster](#creating-a-high-availability-replica-for-a-cluster)".
 
 
-## Disabling high availability replication for a cluster
+## Inhabilitar la replicación de disponibilidad alta para un clúster
 
-You can stop replication to the passive nodes for your cluster deployment of {% data variables.product.prodname_ghe_server %}.
+Pudes parar la replicación hacia los nodos pasivos para el despliegue de {% data variables.product.prodname_ghe_server %} de tu clúster.
 
 {% data reusables.enterprise_clustering.ssh-to-a-node %}
 
 {% data reusables.enterprise_clustering.open-configuration-file %}
 
-3. In the top-level `[cluster]` section, delete the `redis-master-replica`, and `mysql-master-replica` key-value pairs.
+3. En la sección `[cluster]` de nivel superior, elimina los pares clave-valor `redis-master-replica` y `mysql-master-replica`.
 
-4. Delete each section for a passive node. For passive nodes, `replica` is configured as `enabled`.
+4. Borra cada sección para un nodo pasivo. En el caso de los nodos pasivos, `replica` se configura como `enabled`.
 
 {% data reusables.enterprise_clustering.apply-configuration %}
 
 {% data reusables.enterprise_clustering.configuration-finished %}
 
-After {% data variables.product.prodname_ghe_server %} returns you to the prompt, you've finished disabling high availability replication.
+Después de que {% data variables.product.prodname_ghe_server %} te regrese al prompt, habrás terminado de inhabilitar la replicación de disponibilidad alta.

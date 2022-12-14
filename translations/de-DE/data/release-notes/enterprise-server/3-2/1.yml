@@ -1,0 +1,28 @@
+date: '2021-10-12'
+sections:
+  security_fixes:
+    - 'Die Pakete wurden auf die neuesten Sicherheitsversionen aktualisiert. {% comment %} https://github.com/github/enterprise2/pull/27118, https://github.com/github/enterprise2/pull/27110 {% endcomment %}'
+  bugs:
+    - 'Bei benutzerdefinierten Pre-Receive-Hooks sind möglicherweise aufgrund eines zu restriktiven virtuellen Arbeitsspeichers oder aufgrund von CPU-Zeitlimits Fehler aufgetreten. {% comment %} https://github.com/github/enterprise2/pull/26973, https://github.com/github/enterprise2/pull/26955 {% endcomment %}'
+    - 'In einer GitHub Enterprise Server-Clusterkonfiguration wurden die Einstellungen für das Abhängigkeitsdiagramm möglicherweise nicht ordnungsgemäß angewendet. {% comment %} https://github.com/github/enterprise2/pull/26981, https://github.com/github/enterprise2/pull/26861 {% endcomment %}'
+    - 'Mit dem Versuch, alle vorhandenen Konfigurationseinstellungen mit „ghe-cleanup-settings“ zurückzusetzen, konnte Verwaltungskonsolendienst nicht neu gestartet werden. {% comment %} https://github.com/github/enterprise2/pull/26988, https://github.com/github/enterprise2/pull/26901 {% endcomment %}'
+    - 'Während der Replikationsnachbearbeitung über „ghe-repl-teardown“ konnte Memcached nicht neu gestartet werden. {% comment %} https://github.com/github/enterprise2/pull/26994, https://github.com/github/enterprise2/pull/26983 {% endcomment %}'
+    - 'Während Zeiten mit hoher Auslastung haben Benutzer HTTP 503-Statuscodes empfangen, wenn interne Integritätsprüfungen für Upstreamdienste fehlerhaft waren. {% comment %} https://github.com/github/enterprise2/pull/27083, https://github.com/github/enterprise2/pull/26999 {% endcomment %}'
+    - 'Umgebungen von Pre-Receive-Hooks durften den cat-Befehl über BusyBox auf Alpine nicht aufrufen. {% comment %} https://github.com/github/enterprise2/pull/27116, https://github.com/github/enterprise2/pull/27094 {% endcomment %}'
+    - 'Das Ausführen eines Failovers von einem primären Clusterrechenzentrum auf ein sekundäres Clusterrechenzentrum ist zwar erfolgreich, das Failback auf das ursprüngliche primäre Clusterrechenzentrum konnte jedoch keine Elasticsearch-Indizes höher stufen. {% comment %} https://github.com/github/github/pull/193182, https://github.com/github/github/pull/192447 {% endcomment %}'
+    - 'Durch Klicken auf die Schaltfläche „Teams importieren“ auf der Teams-Seite für eine Organisation wurde ein HTTP 404-Fehler zurückgegeben. {% comment %} https://github.com/github/github/pull/193303 {% endcomment %}'
+    - 'Die Verwendung der API zum Deaktivieren der Geheimnisüberprüfung hat die Eigenschaft ordnungsgemäß deaktiviert, aber fälschlicherweise HTTP 422 und eine Fehlermeldung zurückgegeben. {% comment %} https://github.com/github/github/pull/193455, https://github.com/github/github/pull/192907 {% endcomment %}'
+    - 'In einigen Fällen haben GitHub Enterprise-Administratoren, die versuchen, die „Inaktive Benutzer“-Seite anzuzeigen, die Antwort „502 Ungültiges Gateway“ oder „504 Gatewaytimeout“ erhalten. {% comment %} https://github.com/github/github/pull/194262, https://github.com/github/github/pull/193609 {% endcomment %}'
+    - 'Die Leistung wurde in einigen Situationen mit hoher Auslastung aufgrund der erhöhten Anzahl von „SynchronizePullRequestJob“-Aufträgen negativ beeinträchtigt. {% comment %} https://github.com/github/github/pull/195256, https://github.com/github/github/pull/194591 {% endcomment %}'
+    - 'Ein benutzerdefiniertes Muster, das für die Geheimnisüberprüfung erstellt wurde, würde auch nach dem Löschen weiterhin überprüft werden. {% comment %} https://github.com/github/token-scanning-service/pull/1039, https://github.com/github/token-scanning-service/pull/822 {% endcomment %}'
+  changes:
+    - 'GitHub Apps legen das Feature der Geheimnisüberprüfung für ein Repository jetzt konsistent mit der API fest. {% comment %} https://github.com/github/github/pull/193456, https://github.com/github/github/pull/193125 {% endcomment %}'
+  known_issues:
+    - "Auf einer neu eingerichteten {% data variables.product.prodname_ghe_server %}-Instanz ohne Benutzer könnte ein Angreifer den ersten Administratorbenutzer erstellen."
+    - Benutzerdefinierte Firewallregeln werden während des Upgrades entfernt.
+    - "Nachverfolgte Git-LFS-Dateien, [die über die Webbenutzeroberfläche hochgeladen wurden](https://github.com/blog/2105-upload-files-to-your-repositories), werden dem Repository fälschlicherweise direkt hinzugefügt."
+    - "Issues können nicht geschlossen werden, wenn sie einen Permalink zu einem Blob im selben Repository enthalten und der Dateipfad des Blobs mehr als 255 Zeichen lang ist."
+    - "Wenn die Option zum Durchsuchen von GitHub.com mit GitHub Connect aktiviert wird, sind Issues in privaten und internen Repositorys nicht in den GitHub.com-Suchergebnissen enthalten."
+    - "Die {% data variables.product.prodname_registry %}-npm-Registrierung gibt in Metadatenantworten keinen Zeitwert mehr zurück. So sind erhebliche Leistungssteigerungen möglich. Die erforderlichen Daten zum Zurückgeben eines Zeitwerts in einer Metadatenantwort sind weiterhin verfügbar, und dieser Wert wird in Zukunft wieder zurückgegeben, sobald die vorhandenen Leistungsprobleme behoben wurden."
+    - "Ressourcenbegrenzungen, die nur beim Verarbeiten von Pre-Receive-Hooks auftreten, können bei manchen Pre-Receive-Hooks Fehler auslösen."
+    - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'

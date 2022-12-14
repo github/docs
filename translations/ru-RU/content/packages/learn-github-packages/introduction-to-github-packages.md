@@ -1,6 +1,6 @@
 ---
-title: Introduction to GitHub Packages
-intro: '{% data variables.product.prodname_registry %} is a software package hosting service that allows you to host your software packages privately {% ifversion ghae %} for specified users or internally for your enterprise{% else %}or publicly{% endif %} and use packages as dependencies in your projects.'
+title: Введение в GitHub Packages
+intro: "{% data variables.product.prodname_registry %}\_— это служба размещения пакетов программного обеспечения, которая позволяет размещать пакеты программного обеспечения для частного{% ifversion ghae %} использования отдельными пользователями или всей организацией{% else %} или общедоступного использования{% endif %} в качестве зависимостей в проектах."
 product: '{% data reusables.gated-features.packages %}'
 redirect_from:
   - /articles/about-github-package-registry
@@ -16,108 +16,108 @@ versions:
   ghae: '*'
   ghec: '*'
 shortTitle: Introduction
+ms.openlocfilehash: 1ad319ead16f10186b330f876ccaa83bc44bdbcd
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148193028'
 ---
+{% data reusables.package_registry.packages-ghes-release-stage %} {% data reusables.package_registry.packages-ghae-release-stage %}
 
-{% data reusables.package_registry.packages-ghes-release-stage %}
-{% data reusables.package_registry.packages-ghae-release-stage %}
+## Сведения о {% data variables.product.prodname_registry %}
 
-## About {% data variables.product.prodname_registry %}
+{% data variables.product.prodname_registry %} — это платформа для размещения пакетов, включая контейнеры и другие зависимости, и управления ими. {% data variables.product.prodname_registry %} объединяет исходный код и пакеты в одном месте, чтобы предоставить возможность интегрированного управления разрешениями{% ifversion fpt or ghec %} и выставления счетов{% endif %}, что позволяет централизировать разработку программного обеспечения в {% data variables.product.product_name %}.
 
-{% data variables.product.prodname_registry %} is a platform for hosting and managing packages, including containers and other dependencies. {% data variables.product.prodname_registry %} combines your source code and packages in one place to provide integrated permissions management{% ifversion fpt or ghec %} and billing{% endif %}, so you can centralize your software development on {% data variables.product.product_name %}.
+Вы можете интегрировать {% data variables.product.prodname_registry %} с {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}API {% data variables.product.product_name %}{% endif %}, {% data variables.product.prodname_actions %} и веб-перехватчиками, чтобы создать комплексный рабочий процесс DevOps, включающий решения для разработки кода, непрерывной интеграции и развертывания.
 
-You can integrate {% data variables.product.prodname_registry %} with {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} APIs, {% data variables.product.prodname_actions %}, and webhooks to create an end-to-end DevOps workflow that includes your code, CI, and deployment solutions.
-
-{% data variables.product.prodname_registry %} offers different package registries for commonly used package managers, such as npm, RubyGems, Apache Maven, Gradle, Docker, and NuGet. {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}'s {% data variables.product.prodname_container_registry %} is optimized for containers and supports Docker and OCI images.{% endif %} For more information on the different package registries that {% data variables.product.prodname_registry %} supports, see "[Working with a {% data variables.product.prodname_registry %} registry](/packages/working-with-a-github-packages-registry)."
+{% data variables.product.prodname_registry %} предлагает различные реестры пакетов для часто используемых диспетчеров пакетов, таких как npm, RubyGems, Apache Maven, Gradle, Docker и NuGet. {% ifversion fpt or ghec %}Реестр {% data variables.product.prodname_container_registry %} приложения {% data variables.product.prodname_dotcom %} оптимизирован для контейнеров и поддерживает образы Docker и OCI.{% endif %} Дополнительные сведения о различных реестрах пакетов, поддерживаемых {% data variables.product.prodname_registry %}, см. в статье [Работа с реестром {% data variables.product.prodname_registry %}](/packages/working-with-a-github-packages-registry).
 
 {% ifversion fpt or ghec %}
 
-![Diagram showing packages support for the Container registry, RubyGems, npm, Apache Maven, NuGet, and Gradle](/assets/images/help/package-registry/packages-diagram-with-container-registry.png)
+![Схема, показывающая поддержку пакетов для реестра контейнеров, RubyGems, npm, Apache Maven, NuGet и Gradle](/assets/images/help/package-registry/packages-diagram-with-container-registry.png)
 
 {% else %}
 
-![Diagram showing packages support for the Docker registry, RubyGems, npm, Apache Maven, Gradle, NuGet, and Docker](/assets/images/help/package-registry/packages-diagram-without-container-registry.png)
+![Схема, показывающая поддержку пакетов для реестра Docker, RubyGems, npm, Apache Maven, Gradle, NuGet и Docker](/assets/images/help/package-registry/packages-diagram-without-container-registry.png)
 
 {% endif %}
 
-You can view a package's README, as well as metadata such as licensing, download statistics, version history, and more on {% data variables.product.product_name %}. For more information, see "[Viewing packages](/packages/manage-packages/viewing-packages)."
+Вы можете посмотреть файл сведений пакета, а также метаданные, такие как лицензирование, статистику скачиваний, журнал версий, и многое другое для {% data variables.product.product_name %}. Дополнительные сведения см. в статье "[Просмотр пакетов](/packages/manage-packages/viewing-packages)".
 
 {% ifversion ghes %}
 
-For more information about the configuration of {% data variables.product.prodname_registry %} on {% data variables.product.product_name %}, see "[Getting started with {% data variables.product.prodname_registry %} for your enterprise](/admin/packages/getting-started-with-github-packages-for-your-enterprise)."
+Дополнительные сведения о конфигурации {% data variables.product.prodname_registry %} для {% data variables.product.product_name %} см. в статье [Начало работы с {% data variables.product.prodname_registry %} для вашего предприятия](/admin/packages/getting-started-with-github-packages-for-your-enterprise).
 
 {% endif %}
 
-### Overview of package permissions and visibility
+### Обзор разрешений и видимости пакета
 
 |                    |        |
 |--------------------|--------------------|
-| Permissions        | {% ifversion packages-registries-v2 %}The permissions for a package are either inherited from the repository where the package is hosted, or can be defined for specific user or organization accounts. Some registries only support permissions inherited from a repository. For a list of these registries, see "[About permissions for {% data variables.product.prodname_registry %}](/packages/learn-github-packages/about-permissions-for-github-packages#permissions-for-repository-scoped-packages)." For more information on package access, see "[Configuring a package’s access control and visibility](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility)." {% else %}Each package inherits the permissions of the repository where the package is hosted. <br> <br> For example, anyone with read permissions for a repository can install a package as a dependency in a project, and anyone with write permissions can publish a new package version.{% endif %} |
-| Visibility         | {% data reusables.package_registry.public-or-private-packages %} |
+| Разрешения        | {% ifversion packages-registries-v2 %} Разрешения для пакета либо наследуются из репозитория, в котором размещен пакет, либо могут быть определены для определенных учетных записей пользователей или организаций. Некоторые реестры поддерживают только разрешения, унаследованные от репозитория. Список этих реестров см. в разделе [Сведения о разрешениях для {% data variables.product.prodname_registry %}](/packages/learn-github-packages/about-permissions-for-github-packages#permissions-for-repository-scoped-packages). Дополнительные сведения о доступе к пакету см. в разделе [Настройка управления доступом и видимости пакета](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility). {% else %}Каждый пакет наследует разрешения репозитория, в котором он размещен. <br> <br> Например, любой пользователь с разрешениями на чтение для репозитория может установить пакет в качестве зависимости в проекте, и любой пользователь с разрешениями на запись может опубликовать новую версию пакета.{% endif %} |
+| Видимость         | {% data reusables.package_registry.public-or-private-packages %} |
 
 {% ifversion fpt or ghec %}
-## About billing for {% data variables.product.prodname_registry %}
+## Сведения о выставлении счетов за {% data variables.product.prodname_registry %}
 
-{% data reusables.package_registry.packages-billing %} {% data reusables.package_registry.packages-spending-limit-brief %} For more information, see "[About billing for {% data variables.product.prodname_registry %}](/billing/managing-billing-for-github-packages/about-billing-for-github-packages)."
+{% data reusables.package_registry.packages-billing %} {% data reusables.package_registry.packages-spending-limit-brief %} Дополнительные сведения см. в статье [О выставлении счетов за {% data variables.product.prodname_registry %}](/billing/managing-billing-for-github-packages/about-billing-for-github-packages).
 
 {% endif %}
 
-## Supported clients and formats
+## Поддерживаемые клиенты и форматы
 <!-- If you make changes to this feature, check whether any of the changes affect languages listed in /get-started/learning-about-github/github-language-support. If so, please update the language support article accordingly. -->
 
-{% data variables.product.prodname_registry %} uses the native package tooling commands you're already familiar with to publish and install package versions.
-### Support for package registries
+{% data variables.product.prodname_registry %} использует собственные команды инструментов для работы пакетами, с которыми вы уже знакомы, для публикации и установки версий пакетов.
+### Поддержка реестров пакетов
 
-| Language | Description | Package format | Package client |
+| Язык | Описание | Формат пакета | Клиент пакета |
 | --- | --- | --- | --- |
-| JavaScript | Node package manager | `package.json`  | `npm` |
-| Ruby |  RubyGems package manager | `Gemfile` |  `gem` |
-| Java | Apache Maven project management and comprehension tool | `pom.xml` |  `mvn` |
-| Java | Gradle build automation tool for Java | `build.gradle` or `build.gradle.kts`  | `gradle`  |
-| .NET | NuGet package management for .NET | `nupkg`  |  `dotnet` CLI |
-| N/A | Docker container management | `Dockerfile` | `Docker` |
+| JavaScript | Диспетчер пакетов узла | `package.json`  | `npm` |
+| Ruby |  Диспетчер пакетов RubyGems | `Gemfile` |  `gem` |
+| Java | Средство управления и анализа проектов Apache Maven | `pom.xml` |  `mvn` |
+| Java | Средство автоматизации сборки Gradle для Java | `build.gradle` или `build.gradle.kts`  | `gradle`  |
+| .NET | Управление пакетами NuGet для .NET | `nupkg`  |  `dotnet` CLI |
+| Н/Д | Управление контейнерами Docker | `Dockerfile` | `Docker` |
 
-{% ifversion ghes %}
-{% note %}
+{% ifversion ghes %} {% note %}
 
-**Note:** When enabling the Docker registry, we highly recommend also enabling subdomain isolation. For more information, see "[Enabling subdomain isolation](/admin/configuration/configuring-network-settings/enabling-subdomain-isolation)."
+**Примечание:** При включении реестра Docker настоятельно рекомендуется также включить изоляцию поддомена. Дополнительные сведения см. в разделе [Включение изоляции поддомена](/admin/configuration/configuring-network-settings/enabling-subdomain-isolation).
 
 {% endnote %}
 
 {% endif %}
 
-For more information about configuring your package client for use with {% data variables.product.prodname_registry %}, see "[Working with a {% data variables.product.prodname_registry %} registry](/packages/working-with-a-github-packages-registry)."
+Дополнительные сведения о настройке клиента пакета для использования с {% data variables.product.prodname_registry %} приведены в статье [Работа с реестром {% data variables.product.prodname_registry %} registry](/packages/working-with-a-github-packages-registry).
 
-{% ifversion fpt or ghec %}
-For more information about Docker and the {% data variables.product.prodname_container_registry %}, see "[Working with the Container registry](/packages/working-with-a-github-packages-registry/working-with-the-container-registry)."
+{% ifversion fpt or ghec %} Дополнительные сведения о Docker и {% data variables.product.prodname_container_registry %} см. в статье [Работа с реестром контейнеров](/packages/working-with-a-github-packages-registry/working-with-the-container-registry).
 {% endif %}
-## Authenticating to {% data variables.product.prodname_registry %}
+## Проверка подлинности в {% data variables.product.prodname_registry %}
 
 {% data reusables.package_registry.authenticate-packages %}
 
 {% data reusables.package_registry.authenticate-packages-github-token %}
 
-## Managing packages
+## Управление пакетами
 
-You can delete a package in the {% data variables.product.product_name %} user interface{% ifversion fpt or ghec %} or using the REST API. For more information, see "[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package)" and the "[{% data variables.product.prodname_registry %} API](/rest/reference/packages)."{% else %}.{% endif %} {% data reusables.package_registry.about-graphql-support %}
+Пакет можно удалить в пользовательском интерфейсе {% data variables.product.product_name %} {% ifversion fpt or ghec %} или с помощью REST API. Дополнительные сведения см. в [разделах Удаление и восстановление пакета](/packages/learn-github-packages/deleting-and-restoring-a-package) и [API{% data variables.product.prodname_registry %}](/rest/reference/packages). {% else %}. {% endif %} {% data reusables.package_registry.about-graphql-support %}
 
-When you use the GraphQL API to query and delete private packages, you must use the same {% data variables.product.pat_v1 %} you use to authenticate to {% data variables.product.prodname_registry %}.
+При использовании API GraphQL для запроса и удаления частных пакетов необходимо использовать тот же {% data variables.product.pat_v1 %}, который используется для проверки подлинности в {% data variables.product.prodname_registry %}.
 
-For more information, see {% ifversion ghes or ghae %}"[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package)" and {% endif %}"[Forming calls with GraphQL](/graphql/guides/forming-calls-with-graphql)."
+Дополнительные сведения см. в статье {% ifversion ghes or ghae %}[Удаление и восстановление пакета](/packages/learn-github-packages/deleting-and-restoring-a-package) и {% endif %}[Создание вызовов с помощью GraphQL](/graphql/guides/forming-calls-with-graphql).
 
-You can configure webhooks to subscribe to package-related events, such as when a package is published or updated. For more information, see the "[`package` webhook event](/webhooks/event-payloads/#package)."
+Вы можете настроить веб-перехватчики, чтобы подписаться на события, связанные с пакетом, например на публикацию или обновление пакета. Дополнительные сведения см. в статье [Событие веб-перехватчика `package`](/webhooks/event-payloads/#package).
 
-## Contacting support
+## Обращение в службу поддержки
 
-{% ifversion fpt or ghec %}
-If you have feedback or feature requests for {% data variables.product.prodname_registry %}, use a [{% data variables.product.prodname_github_community %} discussion](https://github.com/orgs/community/discussions/categories/actions-and-packages).
+{% ifversion fpt or ghec %} Если у вас есть отзывы или запросы функций для {% data variables.product.prodname_registry %}, используйте [обсуждение {% data variables.product.prodname_github_community %}](https://github.com/orgs/community/discussions/categories/actions-and-packages).
 
-Contact {% data variables.contact.github_support %} about {% data variables.product.prodname_registry %} using [our contact form](https://support.github.com/contact?form%5Bsubject%5D=Re:%20GitHub%20Packages) if:
+Свяжитесь {% data variables.contact.github_support %} по поводу {% data variables.product.prodname_registry %}, используя [нашу форму обратной связи](https://support.github.com/contact?form%5Bsubject%5D=Re:%20GitHub%20Packages), если:
 
-* You experience anything that contradicts the documentation
-* You encounter vague or unclear errors
-* Your published package contains sensitive data, such as GDPR violations, API Keys, or personally identifying information
+* Вы наблюдаете что-либо, что противоречит документации.
+* Возникают непонятные ошибки.
+* Ваш опубликованный пакет содержит конфиденциальные данные, такие как нарушения GDPR, ключи API или личные сведения.
 
-{% else %}
-If you need support for {% data variables.product.prodname_registry %}, please contact your site administrators.
+{% else %} Если вам нужна поддержка для {% data variables.product.prodname_registry %}, обратитесь к своим администраторам.
 
 {% endif %}

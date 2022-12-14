@@ -1,6 +1,6 @@
 ---
-title: Creating a strong password
-intro: 'Secure your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %} with a strong and unique password using a password manager.'
+title: Создание надежного пароля
+intro: 'Защитите учетную запись на {% ifversion ghae %}{% данных variables.product.product_name %}{% else %}{% данных variables.location.product_location %}{% endif %} с помощью надежного и уникального пароля с помощью диспетчера паролей.'
 redirect_from:
   - /articles/what-is-a-strong-password
   - /articles/creating-a-strong-password
@@ -14,25 +14,31 @@ topics:
   - Identity
   - Access management
 shortTitle: Create a strong password
+ms.openlocfilehash: 3f9c7d7e265d91cec2fb7b00f9b65db83cd04bc1
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148098233'
 ---
-You must choose or generate a password for your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %} that is at least:
-- {% ifversion ghes %}Seven{% else %}Eight{% endif %} characters long, if it includes a number and a lowercase letter, or
-- 15 characters long with any combination of characters
+Необходимо выбрать или создать пароль для вашей учетной записи в {% ifversion ghae %}{% данных variables.product.product_name %}{% else %}{% данных variables.location.product_location %}{% endif %} как минимум:
+- содержит {% ifversion ghes %}семь{% else %}восемь{% endif %} символов при наличии цифры и строчной буквы, или
+- содержит 15 любых символов.
 
-To keep your account secure, we recommend you follow these best practices:
-- Use a password manager, such as [LastPass](https://lastpass.com/) or [1Password](https://1password.com/), to generate a password of at least 15 characters.
-- Generate a unique password for {% data variables.product.product_name %}. If you use your {% data variables.product.product_name %} password elsewhere and that service is compromised, then attackers or other malicious actors could use that information to access your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}.
+Чтобы обеспечить безопасность учетной записи, рекомендуется следовать приведенным ниже правилам.
+- Используйте диспетчер паролей, например [LastPass](https://lastpass.com/) или [1Password](https://1password.com/), для создания пароля длиной не менее 15 символов.
+- Создайте уникальный пароль для {% data variables.product.product_name %}. Если в другом месте используется пароль {% данных variables.product.product_name %} и эта служба скомпрометирована, злоумышленники или другие злоумышленники могут использовать эти сведения для доступа к вашей учетной записи на {% ifversion ghae %}{% данных variables.product.product_name %}{% в остальном %}{% данных variables.location.product_location %}{%endif %}.
 
-- Configure two-factor authentication for your personal account. For more information, see "[About two-factor authentication](/articles/about-two-factor-authentication)."
-- Never share your password, even with a potential collaborator. Each person should use their own personal account on {% data variables.product.product_name %}. For more information on ways to collaborate, see: "[Inviting collaborators to a personal repository](/articles/inviting-collaborators-to-a-personal-repository)," "[About collaborative development models](/articles/about-collaborative-development-models/)," or "[Collaborating with groups in organizations](/organizations/collaborating-with-groups-in-organizations/)."
+- Настройка двухфакторной проверки подлинности для личной учетной записи Подробнее см. в разделе "[Сведения о двухфакторной проверке подлинности](/articles/about-two-factor-authentication)".
+- Никогда не раскрывайте свой пароль, даже потенциальному участнику совместной работы. Каждый участник должен использовать собственную личную учетную запись на {% data variables.product.product_name %}. Дополнительные сведения о способах совместной работы см. в разделе [Приглашение участников совместной работы в личный репозиторий](/articles/inviting-collaborators-to-a-personal-repository), [Сведения о моделях совместной разработки](/articles/about-collaborative-development-models/) или [Совместная работа с группами в организациях](/organizations/collaborating-with-groups-in-organizations/).
 
 {% data reusables.repositories.blocked-passwords %}
 
-You can only use your password to log on to {% data variables.product.product_name %} using your browser. When you authenticate to {% data variables.product.product_name %} with other means, such as the command line or API, you should use other credentials. For more information, see "[About authentication to {% data variables.product.prodname_dotcom %}](/github/authenticating-to-github/about-authentication-to-github)." 
+Пароль можно использовать только для входа в {% data variables.product.product_name %} с помощью браузера. При проверке подлинности в {% data variables.product.product_name %} другими способами, такими как командная строка или API, следует использовать другие учетные данные. Дополнительные сведения см. в разделе [Сведения о проверке подлинности в {% data variables.product.prodname_dotcom %}](/github/authenticating-to-github/about-authentication-to-github). 
 
 {% ifversion fpt or ghec %}{% data reusables.user-settings.password-authentication-deprecation %}{% endif %}
 
-## Further reading
+## Дополнительные материалы
 
-- "[Caching your {% data variables.product.product_name %} credentials in Git](/github/getting-started-with-github/caching-your-github-credentials-in-git/)"
-- "[Keeping your account and data secure](/articles/keeping-your-account-and-data-secure/)"
+- [Кэширование учетных данных {% data variables.product.product_name %} в GIT](/github/getting-started-with-github/caching-your-github-credentials-in-git/)
+- [Обеспечение безопасности учетной записи и данных](/articles/keeping-your-account-and-data-secure/)

@@ -1,6 +1,6 @@
 ---
-title: About pre-receive hooks
-intro: '*Pre-receive hooks* are scripts that run on the {% data variables.product.prodname_ghe_server %} appliance that you can use to implement quality checks.'
+title: Sobre hooks pre-receive
+intro: '*Hooks pre-receive* são scripts executados no dispositivo do {% data variables.product.prodname_ghe_server %} que você pode usar para implementar verificações de qualidade.'
 redirect_from:
   - /enterprise/admin/developer-workflow/about-pre-receive-hooks
   - /enterprise/admin/policies/about-pre-receive-hooks
@@ -12,20 +12,26 @@ topics:
   - Enterprise
   - Policies
   - Pre-receive hooks
+ms.openlocfilehash: a62d5391f9733c4a79ea8ba5d5f8f0d821d47d5c
+ms.sourcegitcommit: 5b1461b419dbef60ae9dbdf8e905a4df30fc91b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145093928'
 ---
-When a push occurs, each script runs in an isolated environment and can perform checks on the content of the push. The scripts will cause the push to be accepted if the exit status is 0, or rejected if the exit status is non-zero.
+Quando ocorre um push, cada script é executado em um ambiente isolado e pode executar verificações no conteúdo do push. Os scripts farão o push ser aceito se o status de saída for 0, ou farão o push ser rejeitado se o status de saída for diferente de zero.
 
-## Usage scenarios
-Use pre-receive hooks to satisfy business rules, enforce regulatory compliance, and prevent certain common mistakes.
+## Cenários de uso
+Use os hooks pre-receive para cumprir com as regras corporativas, aplicar a conformidade regulamentar e evitar certos erros comuns.
 
-Examples of how you can use pre-receive hooks:
+Exemplos de uso dos hooks pre-receive:
 
-- Require commit messages to follow a specific pattern or format, such as including a valid ticket number or being over a certain length.
-- Lock a branch or repository by rejecting all pushes.
-- Prevent sensitive data from being added to the repository by blocking keywords, patterns or file types.
-- Prevent a PR author from merging their own changes.
+- Exigir que as mensagens de commit sigam determinado padrão ou formato, como incluir um número de ticket válido ou ter um tamanho especificado;
+- Bloquear um branch ou repositório rejeitando todos os pushes;
+- Evitar a inclusão de dados confidenciais no repositório bloqueando palavras-chave, padrões ou tipos de arquivos.
+- Evitar que o autor da pull request faça merge em suas próprias alterações.
 
-## Impact on performance and workflows
-Impact to developers and their workflows can be significant and must be considered carefully. Pre-receive hooks that are based on business needs and implemented thoughtfully will provide the most benefit to the organization as a whole.
+## Fluxos de trabalho e impacto no desempenho
+O impacto para os desenvolvedores e seus fluxos de trabalho pode ser significativo e deve ser considerado atentamente. Hooks pre-receive baseados nas demandas corporativas e implementados com cuidado trarão mais benefícios para a organização como um todo.
 
-Pre-receive hooks can have unintended effects on the performance of {% data variables.location.product_location %} and should be carefully implemented and reviewed.
+Os ganchos de pré-recebimento podem ter efeitos indesejados no desempenho do {% data variables.product.product_location %}, devendo ser implementados e analisados com atenção.

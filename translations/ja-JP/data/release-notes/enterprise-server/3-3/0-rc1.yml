@@ -3,240 +3,287 @@ release_candidate: true
 deprecated: true
 intro: |
   {% note %}
-
-  **Note:** If {% data variables.location.product_location %} is running a release candidate build, you can't upgrade with a hotpatch. We recommend only running release candidates on test environments.
-
+  
+  **注:** {% data variables.product.product_location %} でリリース候補ビルドが実行されている場合、ホットパッチでアップグレードすることはできません。リリース候補は、テスト環境でのみ実行することをお勧めします。
+  
   {% endnote %}
-
-  For upgrade instructions, see "[Upgrading {% data variables.product.prodname_ghe_server %}](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server)."
+  
+  詳しい情報については、「[{% data variables.product.prodname_ghe_server %} のアップグレード](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server)」を参照してください。
 sections:
   features:
-    - heading: Security Manager role
+    - heading: セキュリティ マネージャー ロール
       notes:
         # https://github.com/github/releases/issues/1610
-        - |
-          Organization owners can now grant teams the access to manage security alerts and settings on their repositories. The "security manager" role can be applied to any team and grants the team's members the following access:
+        - |Organization のオーナーは、リポジトリのセキュリティ アラートと設定を管理するためのアクセス権をチームに付与できるようになりました。"セキュリティ マネージャー" ロールは、どのチームにも適用でき、チームのメンバーに次のアクセス権を付与します。
 
-          - Read access on all repositories in the organization.
-          - Write access on all security alerts in the organization.
-          - Access to the organization-level security tab.
-          - Write access on security settings at the organization level.
-          - Write access on security settings at the repository level.
 
-          For more information, see "[Managing security managers in your organization](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization)."
 
-    - heading: 'Ephemeral self-hosted runners for GitHub Actions & new webhooks for auto-scaling'
+- Organization 内のすべてのリポジトリに対する読み取りアクセス。
+
+- Organization 内のすべてのセキュリティ アラートに対する書き込みアクセス。
+
+- Organization レベルのセキュリティ タブへのアクセス。
+
+- Organization レベルのセキュリティ設定に対する書き込みアクセス。
+
+- リポジトリ レベルのセキュリティ設定に対する書き込みアクセス。
+
+
+
+詳しい情報については、「[Organization でのセキュリティ マネージャーの管理](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization)」を参照してください。
+
+|
+    - heading: 'GitHub Actions 用のエフェメラル セルフホステッド ランナーと自動スケーリング用の新しい Webhook'
       notes:
         # https://github.com/github/releases/issues/1378
-        - |
-          {% data variables.product.prodname_actions %} now supports ephemeral (single job) self-hosted runners and a new [`workflow_job`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_job) webhook to make autoscaling runners easier.
+        - |{% data variables.product.prodname_actions %} は、エフェメラル (単一ジョブの) セルフホステッド ランナーと新しい [`workflow_job`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_job) Webhook をサポートし、ランナーの自動スケーリングが簡単になりました。
 
-          Ephemeral runners are good for self-managed environments where each job is required to run on a clean image. After a job is run, ephemeral runners are automatically unregistered from {% data variables.location.product_location %}, allowing you to perform any post-job management.
 
-          You can combine ephemeral runners with the new `workflow_job` webhook to automatically scale self-hosted runners in response to {% data variables.product.prodname_actions %} job requests.
 
-          For more information, see "[Autoscaling with self-hosted runners](/actions/hosting-your-own-runners/autoscaling-with-self-hosted-runners)" and "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_job)."
+エフェメラル ランナーは、各ジョブをクリーンなイメージで実行する必要がある自己管理環境に適しています。ジョブが実行されると、エフェメラル ランナーは {% data variables.product.product_location %} から登録が自動的に解除され、ジョブ後の管理を実行できます。
 
-    - heading: 'Dark high contrast theme'
+
+
+エフェメラル ランナーを新しい `workflow_job` Webhook と組み合わせて、{% data variables.product.prodname_actions %} ジョブの要求に応じてセルフホステッド ランナーを自動的にスケーリングできます。
+
+
+
+詳しい情報については、「[セルフホステッド ランナーでの自動スケーリング](/actions/hosting-your-own-runners/autoscaling-with-self-hosted-runners)」と「[Webhook イベントとペイロード](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_job)」を参照してください。
+
+|
+    - heading: 'ダーク ハイ コントラスト テーマ'
       notes:
         # https://github.com/github/releases/issues/1539
-        - |
-          A dark high contrast theme, with greater contrast between foreground and background elements, is now available on {% data variables.product.prodname_ghe_server %} 3.3. This release also includes improvements to the color system across all {% data variables.product.company_short %} themes.
+        - |{% data variables.product.prodname_ghe_server %} 3.3 で、前景と背景の要素の間のコントラストがより大きいダーク ハイ コントラスト テーマが利用可能になりました。このリリースでは、すべての {% data variables.product.company_short %} テーマでカラー システムの改善も行われています。
 
-          ![Animated image of switching between dark default theme and dark high contrast on the appearance settings page](https://user-images.githubusercontent.com/334891/123645834-ad096c00-d7f4-11eb-85c9-b2c92b00d70a.gif)
 
-          For more information about changing your theme, see "[Managing your theme settings](/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/managing-your-theme-settings)."
 
+![外観設定ページで既定のダーク テーマとダーク ハイ コントラストを切り替えるアニメーション イメージ](https://user-images.githubusercontent.com/334891/123645834-ad096c00-d7f4-11eb-85c9-b2c92b00d70a.gif)
+
+
+
+テーマの変更の詳しい情報については、「[テーマ設定を管理する](/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/managing-your-theme-settings)」を参照してください。
+
+|
   changes:
-    - heading: Administration Changes
+    - heading: 管理の変更
       notes:
         # https://github.com/github/releases/issues/1666
-        - '{% data variables.product.prodname_ghe_server %} 3.3 includes improvements to the maintenance of repositories, especially for repositories that contain many unreachable objects. Note that the first maintenance cycle after upgrading to {% data variables.product.prodname_ghe_server %} 3.3 may take longer than usual to complete.'
+        - '{% data variables.product.prodname_ghe_server %} 3.3 では、リポジトリのメンテナンス、特に到達不能なオブジェクトを多く含むリポジトリのメンテナンスが改善されました。{% data variables.product.prodname_ghe_server %} 3.3 にアップグレードした後の最初のメンテナンス サイクルは、完了するまでに通常よりも時間がかかる場合があることに注意してください。'
 
         # https://github.com/github/releases/issues/1533
-        - '{% data variables.product.prodname_ghe_server %} 3.3 includes the public beta of a repository cache for geographically-distributed teams and CI infrastructure. The repository cache keeps a read-only copy of your repositories available in additional geographies, which prevents clients from downloading duplicate Git content from your primary instance. For more information, see "[About repository caching](/admin/enterprise-management/caching-repositories/about-repository-caching)."'
+        - '{% data variables.product.prodname_ghe_server %} 3.3 には、地理的に分散したチームと CI インフラストラクチャ用のリポジトリ キャッシュのパブリック ベータ版が含まれています。リポジトリ キャッシュで、追加地域で利用できるリポジトリの読み取り専用コピーが保持され、クライアントがプライマリ インスタンスから重複した Git コンテンツをダウンロードするのを防ぎます。詳しい情報については、「[リポジトリのキャッシュについて](/admin/enterprise-management/caching-repositories/about-repository-caching)」を参照してください。'
 
         # https://github.com/github/releases/issues/1616
-        - '{% data variables.product.prodname_ghe_server %} 3.3 includes improvements to the user impersonation process. An impersonation session now requires a justification for the impersonation, actions are recorded in the audit log as being performed as an impersonated user, and the user who is impersonated will receive an email notification that they have been impersonated by an enterprise administrator. For more information, see "[Impersonating a user](/enterprise-server@3.3/admin/user-management/managing-users-in-your-enterprise/impersonating-a-user)."'
+        - '{% data variables.product.prodname_ghe_server %} 3.3 では、ユーザー偽装プロセスが改善されました。偽装セッションで偽装の正当な理由が必要となり、アクションは、偽装されたユーザーとして実行されたものとして監査ログに記録され、偽装されたユーザーは、エンタープライズ管理者から、偽装されているというメール通知を受け取るようになりました。詳しい情報については、「[ユーザーの偽装](/enterprise-server@3.3/admin/user-management/managing-users-in-your-enterprise/impersonating-a-user)」を参照してください。'
 
         # https://github.com/github/releases/issues/1609
-        - A new stream processing service has been added to facilitate the growing set of events that are published to the audit log, including events associated with Git and {% data variables.product.prodname_actions %} activity.
+        - "Git および {% data variables.product.prodname_actions %} アクティビティに関連するイベントなど、監査ログに公開される一連のイベントの増加を促進するために、新しいストリーム処理サービスが追加されました。"
 
-    - heading: Token Changes
+    - heading: トークンの変更
       notes:
         # https://github.com/github/releases/issues/1390
-        - |
-          An expiration date can now be set for new and existing personal access tokens. Setting an expiration date on personal access tokens is highly recommended to prevent older tokens from leaking and compromising security. Token owners will receive an email when it's time to renew a token that's about to expire. Tokens that have expired can be regenerated, giving users a duplicate token with the same properties as the original.
+        - |新規および既存の個人用アクセス トークンに有効期限を設定できるようになりました。古いトークンが漏洩してセキュリティが侵害されるのを防ぐために、個人用アクセス トークンに有効期限を設定することを強くお勧めします。トークンの所有者は、有効期限が近づいているトークンを更新する時期になるとメールを受け取ります。有効期限が切れたトークンを再生成して、元のトークンとプロパティが同じ複製トークンをユーザーに提供します。
 
-          When using a personal access token with the {% data variables.product.company_short %} API, a new `GitHub-Authentication-Token-Expiration` header is included in the response, which indicates the token's expiration date. For more information, see "[Creating a personal access token](/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
 
-    - heading: 'Notifications changes'
+
+{% data variables.product.company_short %} API で個人用アクセス トークンを使うと、新しい `GitHub-Authentication-Token-Expiration` ヘッダーが応答に含まれ、トークンの有効期限が示されます。詳しい情報については、「[個人用アクセス トークンの作成](/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token)」を参照してください。
+
+|
+    - heading: '通知の変更'
       notes:
         # https://github.com/github/releases/issues/1625
-        - 'Notification emails from discussions now include `(Discussion #xx)` in the subject, so you can recognize and filter emails that reference discussions.'
+        - 'ディスカッションからの通知メールの件名に `(ディスカッション #xx)` が含まれるようになり、ディスカッションを参照するメールを認識してフィルター処理できます。'
 
-    - heading: 'Repositories changes'
+    - heading: 'リポジトリの変更'
       notes:
         # https://github.com/github/releases/issues/1735
-        - Public repositories now have a `Public` label next to their names like private and internal repositories. This change makes it easier to identify public repositories and avoid accidentally committing private code.
+        - プライベート リポジトリやインターナル リポジトリと同様に、パブリック リポジトリの名前の横に `パブリック` ラベルが表示されるようになりました。この変更により、パブリック リポジトリの識別が容易になり、プライベート コードの誤ったコミットを防ぎます。
 
         # https://github.com/github/releases/issues/1733
-        - If you specify the exact name of a branch when using the branch selector menu, the result now appears at the top of the list of matching branches. Previously, exact branch name matches could appear at the bottom of the list.
+        - ブランチ セレクター メニューを使う際にブランチ名を正確に指定すると、一致したブランチのリストの一番上に結果が表示されるようになりました。従来は、正確なブランチ名の一致がリストの一番下に表示されることがありました。
 
         # https://github.com/github/releases/issues/1673
-        - When viewing a branch that has a corresponding open pull request, {% data variables.product.prodname_ghe_server %} now links directly to the pull request. Previously, there would be a prompt to contribute using branch comparison or to open a new pull request.
+        - "対応するオープン状態の pull request があるブランチを表示する場合、{% data variables.product.prodname_ghe_server %} から pull request に直接リンクするようになりました。従来は、ブランチ比較を使ってコントリビュートするか、新しい pull request を開くように求めるプロンプトが表示されました。"
 
         # https://github.com/github/releases/issues/1670
-        - You can now click a button to copy the full raw contents of a file to the clipboard. Previously, you would need to open the raw file, select all, and then copy. To copy the contents of a file, navigate to the file and click {% octicon "copy" aria-label="The copy icon" %} in the toolbar. Note that this feature is currently only available in some browsers.
+        - "ボタンをクリックして、ファイルの生の内容全体をクリップボードにコピーできるようになりました。従来は、生ファイルを開き、すべて選んでからコピーする必要がありました。ファイルの内容をコピーするには、ファイルに移動して、ツールバーの {% octicon \"copy\" aria-label=\"The copy icon\" %} をクリックします。この機能は現在、一部のブラウザーでのみ使用できることに注意してください。"
 
         # https://github.com/github/releases/issues/1571
-        - When creating a new release, you can now select or create the tag using a dropdown selector, rather than specifying the tag in a text field. For more information, see "[Managing releases in a repository](/repositories/releasing-projects-on-github/managing-releases-in-a-repository)."
+        - "新しいリリースを作成するときに、テキスト フィールドでタグを指定するのではなく、ドロップダウン セレクターを使ってタグを選択または作成できるようになりました。詳しい情報については、「[リポジトリのリリースを管理する](/repositories/releasing-projects-on-github/managing-releases-in-a-repository)」を参照してください。"
 
         # https://github.com/github/releases/issues/1752
-        - A warning is now displayed when viewing a file that contains bidirectional Unicode text. Bidirectional Unicode text can be interpreted or compiled differently than it appears in a user interface. For example, hidden bidirectional Unicode characters can be used to swap segments of text in a file. For more information about replacing these characters, see the [{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-10-31-warning-about-bidirectional-unicode-text/).
+        - "双方向の Unicode テキストが含まれるファイルを表示すると、警告が表示されるようになりました。双方向の Unicode テキストは、ユーザー インターフェイスの表示とは異なるように解釈またはコンパイルできます。たとえば、非表示で双方向の Unicode 文字列を使って、ファイル内のテキスト セグメントを入れ替えることができます。これらの文字列の置換の詳しい情報については、[{% data variables.product.prodname_dotcom %} 変更ログ](https://github.blog/changelog/2021-10-31-warning-about-bidirectional-unicode-text/) を参照してください。"
 
         # https://github.com/github/releases/issues/1416
-        - You can now use `CITATION.cff` files to let others know how you would like them to cite your work. `CITATION.cff` files are plain text files with human- and machine-readable citation information. {% data variables.product.prodname_ghe_server %} parses this information into common citation formats such as [APA](https://apastyle.apa.org) and [BibTeX](https://en.wikipedia.org/wiki/BibTeX). For more information, see "[About CITATION files](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-citation-files)."
+        - "`CITATION.cff` ファイルを使って、作業を引用する方法を他のユーザーに知らせることができるようになりました。`CITATION.cff` ファイルは、人間と機械が読み取り可能な引用情報を含むプレーンテキスト ファイルです。この情報は、{% data variables.product.prodname_ghe_server %} によって、[APA](https://apastyle.apa.org) や [BibTeX](https://ja.wikipedia.org/wiki/BibTeX) などの一般的な引用形式に解析されます。詳しい情報については、「[CITATION ファイルについて](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-citation-files)」を参照してください。"
 
-    - heading: 'Markdown changes'
+    - heading: 'Markdown の変更'
       notes:
         # https://github.com/github/releases/issues/1645
-        - |
-          You can use new keyboard shortcuts for quotes and lists in Markdown files, issues, pull requests, and comments.
+        - |Markdown ファイル、issue、pull request、コメントの引用とリストに新しいキーボード ショートカットを使うことができます。
 
-          * To add quotes, use <kbd>cmd shift .</kbd> on Mac, or <kbd>ctrl shift .</kbd> on Windows and Linux.
-          * To add an ordered list, use <kbd>cmd shift 7</kbd> on Mac, or <kbd>ctrl shift 7</kbd> on Windows and Linux.
-          * To add an unordered list, use <kbd>cmd shift 8</kbd> on Mac, or <kbd>ctrl shift 8</kbd> on Windows and Linux.
 
-          See "[Keyboard shortcuts](/get-started/using-github/keyboard-shortcuts)" for a full list of available shortcuts.
 
+* 引用符を追加するには、Mac では <kbd>cmd shift .</kbd>、Windows と Linux では <kbd>ctrl shift .</kbd> を使います。
+
+* 順序指定済みリストを追加するには、Mac では <kbd>cmd shift 7</kbd>、Windows と Linux では <kbd>ctrl shift 7</kbd> を使います。
+
+* 順序なしリストを追加するには、Mac では <kbd>cmd shift 8</kbd>、Windows と Linux では <kbd>ctrl shift 8</kbd> を使います。
+
+
+
+使用可能なショートカットの完全なリストについては、「[キーボード ショートカット](/get-started/using-github/keyboard-shortcuts)」を参照してください。
+
+|
         # https://github.com/github/releases/issues/1684
-        - You can now use footnote syntax in any Markdown field. Footnotes are displayed as superscript links that you can click to jump to the referenced information, which is displayed in a new section at the bottom of the document. For more information about the syntax, see "[Basic writing and formatting syntax](/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#footnotes)."
+        - "任意の Markdown フィールドで脚注構文を使えるようになりました。脚注は上付きリンクとして表示され、クリックすると、参照先の情報にジャンプします。これは、ドキュメントの下部にある新しいセクションに表示されます。構文の詳しい情報については、「[基本的な書き方と書式設定の構文](/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#footnotes)」を参照してください。"
 
         # https://github.com/github/releases/issues/1647
-        - When viewing Markdown files, you can now click {% octicon "code" aria-label="The code icon" %} in the toolbar to view the source of a Markdown file. Previously, you needed to use the blame view to link to specific line numbers in the source of a Markdown file.
+        - "Markdown ファイルを表示するときに、ツールバーの {% octicon \"code\" aria-label=\"The code icon\" %} をクリックして、Markdown ファイルのソースを表示できるようになりました。従来は、変更履歴ビューを使って、Markdown ファイルのソース内の特定の行番号にリンクする必要がありました。"
 
         # https://github.com/github/releases/issues/1600
-        - You can now add images and videos to Markdown files in gists by pasting them into the Markdown body or selecting them from the dialog at the bottom of the Markdown file. For information about supported file types, see "[Attaching files](https://docs.github.com/en/github/writing-on-github/working-with-advanced-formatting/attaching-files)."
+        - "画像や動画は、Markdown 本文に貼り付けるか、Markdown ファイルの下部にあるダイアログから選ぶことで、gist で Markdown ファイルに追加できるようになりました。サポート対象ファイルの種類の詳しい情報については、「[ファイルの添付](https://docs.github.com/en/github/writing-on-github/working-with-advanced-formatting/attaching-files)」を参照してください。"
 
         # https://github.com/github/releases/issues/1523
-        - '{% data variables.product.prodname_ghe_server %} now automatically generates a table of contents for Wikis, based on headings.'
+        - 'Wiki の目次は、{% data variables.product.prodname_ghe_server %} によって、見出しに基づいて自動的に生成されるようになりました。'
 
         # https://github.com/github/releases/issues/1626
-        - When dragging and dropping files into a Markdown editor, such as images and videos, {% data variables.product.prodname_ghe_server %} now uses the mouse pointer location instead of the cursor location when placing the file.
+        - "画像や動画などのファイルを Markdown エディターにドラッグ アンド ドロップした場合、ファイルの配置は、{% data variables.product.prodname_ghe_server %} によって、カーソルの位置ではなく、マウス ポインターの位置が使用されるようになりました。"
 
-    - heading: 'Issues and pull requests changes'
+    - heading: 'issue と pull request の変更'
       notes:
         # https://github.com/github/releases/issues/1504
-        - You can now search issues by label using a logical OR operator. To filter issues using logical OR, use the comma syntax. For example, `label:"good first issue","bug"` will list all issues with a label of `good first issue` or `bug`. For more information, see "[Filtering and searching issues and pull requests](/issues/tracking-your-work-with-issues/filtering-and-searching-issues-and-pull-requests#about-search-terms)."
+        - "論理 OR 演算子を使ってラベルで issue を検索できるようになりました。論理 OR を使って issue をフィルター処理するには、コンマ構文を使います。たとえば、`label:\"good first issue\",\"bug\"` と指定すると、ラベルが `good first issue` または`bug` のすべての issue がリストされます。詳しい情報については、「[issue と pull request のフィルター処理と検索](/issues/tracking-your-work-with-issues/filtering-and-searching-issues-and-pull-requests#about-search-terms)」を参照してください。"
 
         # https://github.com/github/releases/issues/1685
-        - |
-          Improvements have been made to help teams manage code review assignments. You can now:
+        - |コード レビューの割り当てをチームで管理しやすくする改善が行われました。次のことが可能になりました。
 
-          - Limit assignment to only direct members of the team.
-          - Continue with automatic assignment even if one or more members of the team are already requested.
-          - Keep a team assigned to review even if one or more members is newly assigned.
 
-          The timeline and reviewers sidebar on the pull request page now indicate if a review request was automatically assigned to one or more team members.
 
-          For more information, see the [{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-09-29-new-code-review-assignment-settings-and-team-filtering-improvements/).
-        - You can now filter pull request searches to only include pull requests you are directly requested to review.
+- 割り当てをチームの直接メンバーのみに制限します。
+
+- 1 人以上のチーム メンバーが既に要求されている場合でも、自動割り当てを続けます。
+
+- 1 人以上のメンバーが新たに割り当てられた場合でも、チームをレビューに割り当てたままにします。
+
+
+
+pull request ページのタイムラインとレビューアー サイドバーに、レビュー要求が 1 人以上のチーム メンバーに自動的に割り当てられたかどうかが示されるようになりました。
+
+
+
+詳しい情報については、[{% data variables.product.prodname_dotcom %} 変更ログ](https://github.blog/changelog/2021-09-29-new-code-review-assignment-settings-and-team-filtering-improvements/) を参照してください。
+
+|
+        - pull request 検索をフィルター処理して、レビューを直接要求された pull request のみを含めることができるようになりました。
         # https://github.com/github/releases/issues/1683
-        - Filtered files in pull requests are now completely hidden from view, and are no longer shown as collapsed in the "Files Changed" tab. The "File Filter" menu has also been simplified. For more information, see "[Filtering files in a pull request](/github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/filtering-files-in-a-pull-request)."
+        - "pull request でフィルタリングされたファイルは完全に非表示になり、[変更されたファイル] タブに折りたたまれた状態で表示されなくなりました。[ファイル フィルター] メニューも簡素化されました。詳しい情報については、「[pull request 内のファイルをフィルタリングする](/github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/filtering-files-in-a-pull-request)」を参照してください。"
 
-    - heading: 'GitHub Actions changes'
+    - heading: 'GitHub Actions の変更'
       notes:
         # https://github.com/github/releases/issues/1593
-        - You can now create "composite actions" which combine multiple workflow steps into one action, and includes the ability to reference other actions. This makes it easier to reduce duplication in workflows. Previously, an action could only use scripts in its YAML definition. For more information, see "[Creating a composite action](/actions/creating-actions/creating-a-composite-action)."
+        - "複数のワークフロー ステップを 1 つのアクションに結合し、他のアクションを参照する機能を含む \"複合アクション\" を作成できるようになりました。これにより、ワークフロー内の重複を減らしやすくなります。従来は、アクションはその YAML 定義内でのみスクリプトを使うことができました。詳しい情報については、「[複合アクションを作成する](/actions/creating-actions/creating-a-composite-action)」を参照してください。"
 
         # https://github.com/github/releases/issues/1694
-        - Managing self-hosted runners at the enterprise level no longer requires using personal access tokens with the `admin:enterprise` scope. You can instead use the new `manage_runners:enterprise` scope to restrict the permissions on your tokens. Tokens with this scope can authenticate to [many REST API endpoints](/rest/reference/enterprise-admin#list-self-hosted-runner-groups-for-an-enterprise) to manage your enterprise's self-hosted runners.
+        - "エンタープライ ズレベルでセルフホステッド ランナーを管理する場合、`admin:enterprise` スコープで個人用アクセス トークンを使う必要がなくなりました。代わりに、新しい `manage_runners:enterprise` スコープを使って、トークンのアクセス許可を制限できます。このスコープを持つトークンは、[多くの REST API エンドポイント](/rest/reference/enterprise-admin#list-self-hosted-runner-groups-for-an-enterprise) に対して認証を行い、企業のセルフホストテッド ランナーを管理できます。"
 
         # https://github.com/github/releases/issues/1157
-        - |
-          The audit log now includes additional events for {% data variables.product.prodname_actions %}. Audit log entries are now recorded for the following events:
+        - |監査ログに、{% data variables.product.prodname_actions %} の追加イベントが含まれるようになりました。次のイベントの監査ログ エントリが記録されるようになりました。
 
-          * A self-hosted runner is registered or removed.
-          * A self-hosted runner is added to a runner group, or removed from a runner group.
-          * A runner group is created or removed.
-          * A workflow run is created or completed.
-          * A workflow job is prepared. Importantly, this log includes the list of secrets that were provided to the runner.
 
-          For more information, see "[Security hardening for {% data variables.product.prodname_actions %}](/actions/security-guides/security-hardening-for-github-actions#auditing-github-actions-events)."
 
+* セルフホステッド ランナーが登録または削除された。
+
+* セルフホステッド ランナーがランナー グループに追加されたか、ランナー グループから削除された。
+
+* ランナー グループが作成または削除された。
+
+* ワークフローの実行が作成または完了した。
+
+* ワークフロー ジョブの準備が整った。重要なのは、このログに、ランナーに提供されたシークレットのリストが含まれていることです。
+
+
+
+詳しい情報については、「[{% data variables.product.prodname_actions %} のセキュリティ強化](/actions/security-guides/security-hardening-for-github-actions#auditing-github-actions-events)」を参照してください。
+
+|
         # https://github.com/github/releases/issues/1588
-        - Performance improvements have been made to {% data variables.product.prodname_actions %}, which may result in higher maximum job concurrency.
+        - "{% data variables.product.prodname_actions %} のパフォーマンスが向上しましました。これにより、最大ジョブ コンカレンシーが増加する可能性があります。"
 
-    - heading: 'GitHub Packages changes'
+    - heading: 'GitHub Packages の変更'
       notes:
         # https://github.com/github/docs-content/issues/5554
-        - When a repository is deleted, any associated package files are now immediately deleted from your {% data variables.product.prodname_registry %} external storage.
+        - "リポジトリが削除されると、関連するパッケージ ファイルが {% data variables.product.prodname_registry %} の外部ストレージから即座に削除されるようになりました。"
 
-    - heading: 'Dependabot and Dependency graph changes'
+    - heading: 'Dependabot と依存関係グラフの変更'
       notes:
         # https://github.com/github/releases/issues/1141
-        - Dependency review is out of beta and is now generally available for {% data variables.product.prodname_GH_advanced_security %} customers. Dependency review provides an easy-to-understand view of dependency changes and their security impact in the "Files changed" tab of pull requests. It informs you of which dependencies were added, removed, or updated, along with vulnerability information. For more information, see "[Reviewing dependency changes in a pull request](/github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-dependency-changes-in-a-pull-request)."
+        - "依存関係レビューはベータ版でなくなり、{% data variables.product.prodname_GH_advanced_security %} のお客様に一般提供されました。依存関係レビューでは、依存関係の変更と、そのセキュリティへの影響が、pull request の [変更されたファイル] タブにわかりやすく表示されます。どの依存関係が追加、削除、または更新されたか、および脆弱性情報を把握できます。詳しい情報については、「[pull request 内の依存関係の変更をレビューする](/github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-dependency-changes-in-a-pull-request)」を参照してください。"
 
         # https://github.com/github/releases/issues/1630
-        - '{% data variables.product.prodname_dependabot %} is now available as a private beta, offering both version updates and security updates for several popular ecosystems. {% data variables.product.prodname_dependabot %} on {% data variables.product.prodname_ghe_server %} requires {% data variables.product.prodname_actions %} and a pool of self-hosted runners configured for {% data variables.product.prodname_dependabot %} use. {% data variables.product.prodname_dependabot %} on {% data variables.product.prodname_ghe_server %} also requires {% data variables.product.prodname_github_connect %} to be enabled. To learn more and sign up for the beta, contact the GitHub Sales team.'
+        - '{% data variables.product.prodname_dependabot %} は現在、プライベート ベータ版として利用でき、いくつかの人気のあるエコシステムのバージョン更新プログラムとセキュリティ更新プログラムの両方が提供されています。{% data variables.product.prodname_ghe_server %} の {% data variables.product.prodname_dependabot %} は、{% data variables.product.prodname_actions %} と、{% data variables.product.prodname_dependabot %} の使用のために構成されたセルフホステッド ランナーのプールが必要です。また、{% data variables.product.prodname_ghe_server %} の {% data variables.product.prodname_dependabot %} は、{% data variables.product.prodname_github_connect %} を有効にする必要があります。ベータ版の詳細とサインアップについては、GitHub セールス チームにご連絡ください。'
 
-    - heading: 'Code scanning and secret scanning changes'
+    - heading: 'コード スキャンとシークレット スキャンの変更'
       notes:
         # https://github.com/github/releases/issues/1724
-        - The depth of {% data variables.product.prodname_codeql %}'s analysis has been improved by adding support for more [libraries and frameworks](https://codeql.github.com/docs/codeql-overview/supported-languages-and-frameworks/) and increasing the coverage of our existing library and framework models. [JavaScript](https://github.com/github/codeql/tree/main/javascript) analysis now supports most common templating languages, and [Java](https://github.com/github/codeql/tree/main/java) now covers more than three times the endpoints of previous {% data variables.product.prodname_codeql %} versions. As a result, {% data variables.product.prodname_codeql %} can now detect even more potential sources of untrusted user data, steps through which that data flows, and potentially dangerous sinks where the data could end up. This results in an overall improvement of the quality of {% data variables.product.prodname_code_scanning %} alerts.
+        - "より多くの [ライブラリとフレームワーク](https://codeql.github.com/docs/codeql-overview/supported-languages-and-frameworks/) のサポートを追加し、既存のライブラリとフレームワーク モデルの範囲を拡大することで、{% data variables.product.prodname_codeql %} の分析の深​​さが改善されました。[JavaScript](https://github.com/github/codeql/tree/main/javascript) 分析は、最も一般的なテンプレート言語をサポートするようになり、[Java](https://github.com/github/codeql/tree/main/java) は {% data variables.product.prodname_codeql %} の旧バージョンの 3 倍以上のエンドポイントをカバーするようになりました。結果として、{% data variables.product.prodname_codeql %} は信頼できないユーザー データの潜在的なソース、そのデータが流れるステップ、そしてデータが行き着く危険なシンクをさらに検出できるようになりました。この結果、{% data variables.product.prodname_code_scanning %} アラートの品質が全体的に向上しました。"
 
         # https://github.com/github/releases/issues/1639
-        - '{% data variables.product.prodname_codeql %} now supports scanning standard language features in Java 16, such as records and pattern matching. {% data variables.product.prodname_codeql %} is able to analyze code written in Java version 7 through 16. For more information about supported languages and frameworks, see the [{% data variables.product.prodname_codeql %} documentation](https://codeql.github.com/docs/codeql-overview/supported-languages-and-frameworks/#id5).'
+        - '{% data variables.product.prodname_codeql %} は、レコードやパターン マッチングなど、Java 16 の標準言語機能のスキャンをサポートするようになりました。{% data variables.product.prodname_codeql %} は、Java バージョン 7 から 16 で記述されたコードを分析できます。サポートされている言語とフレームワークの詳細については、[{% data variables.product.prodname_codeql %} ドキュメント](https://codeql.github.com/docs/codeql-overview/supported-languages-and-frameworks/#id5) を参照してください。'
 
         # https://github.com/github/releases/issues/1655
-        - |
-          Improvements have been made to the {% data variables.product.prodname_code_scanning %} `on:push` trigger when code is pushed to a pull request. If an `on:push` scan returns results that are associated with a pull request, {% data variables.product.prodname_code_scanning %} will now show these alerts on the pull request.
+        - |コードが pull request にプッシュされたときの {% data variables.product.prodname_code_scanning %} `on:push` トリガーが改善されました。`on:push` スキャンから pull request に関連付けられた結果が返されると、{% data variables.product.prodname_code_scanning %} によって、pull request でこれらのアラートが表示されるようになりました。
 
-          Some other CI/CD systems can be exclusively configured to trigger a pipeline when code is pushed to a branch, or even exclusively for every commit. Whenever such an analysis pipeline is triggered and results are uploaded to the SARIF API, {% data variables.product.prodname_code_scanning %} will also try to match the analysis results to an open pull request. If an open pull request is found, the results will be published as described above. For more information, see the [{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-09-27-showing-code-scanning-alerts-on-pull-requests/).
 
+
+他の一部の CI/CD システムは、コードがブランチにプッシュされたときにパイプラインをトリガーするように、またはコミットごとに排他的に構成することさえできます。このような分析パイプラインがトリガーされ、結果が SARIF API にアップロードされるたびに、{% data variables.product.prodname_code_scanning %} によって、分析結果とオープン状態の pull request の照合も試行されます。オープン状態の pull request が見つかった場合、結果が上記のように公開されます。詳しい情報については、[{% data variables.product.prodname_dotcom %} 変更ログ](https://github.blog/changelog/2021-09-27-showing-code-scanning-alerts-on-pull-requests/) を参照してください。
+
+|
         # https://github.com/github/releases/issues/1546
-        - You can now use the new pull request filter on the {% data variables.product.prodname_code_scanning %} alerts page to find all the {% data variables.product.prodname_code_scanning %} alerts associated with a pull request. A new "View all branch alerts" link on the pull request "Checks" tab allows you to directly view {% data variables.product.prodname_code_scanning %} alerts with the specific pull request filter already applied. For more information, see the [{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-08-23-pull-request-filter-for-code-scanning-alerts/).
+        - "{% data variables.product.prodname_code_scanning %} アラート ページで新しい pull request フィルターを使って、pull request に関連付けられたすべての {% data variables.product.prodname_code_scanning %} アラートを見つけることができるようになりました。pull request の [チェック] タブにある新しい [すべてのブランチ アラートを見る] リンクから、特定の pull request フィルターが既に適用されている {% data variables.product.prodname_code_scanning %} アラートを直接参照できます。詳しい情報については、[{% data variables.product.prodname_dotcom %} 変更ログ](https://github.blog/changelog/2021-08-23-pull-request-filter-for-code-scanning-alerts/) を参照してください。"
 
         # https://github.com/github/releases/issues/1562
-        - User defined patterns for {% data variables.product.prodname_secret_scanning %} is out of beta and is now generally available for {% data variables.product.prodname_GH_advanced_security %} customers. Also new in this release is the ability to edit custom patterns defined at the repository, organization, and enterprise levels. After editing and saving a pattern, {% data variables.product.prodname_secret_scanning %} searches for matches both in a repository's entire Git history and in any new commits. Editing a pattern will close alerts previously associated with the pattern if they no longer match the updated version. Other improvements, such as dry-runs, are planned in future releases. For more information, see "[Defining custom patterns for secret scanning](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)."
+        - "{% data variables.product.prodname_secret_scanning %} のユーザー定義パターンはベータ版でなくなり、{% data variables.product.prodname_GH_advanced_security %} のお客様に一般提供されました。また、このリリースでは、リポジトリ、Organization、およびエンタープライズ レベルで定義されたカスタム パターンを編集する機能も新たに追加されました。パターンを編集して保存した後、{% data variables.product.prodname_secret_scanning %} によって、リポジトリの Git 履歴すべてと新しいコミットの両方で一致するものが検索されます。パターンを編集することで、更新されたバージョンに一致しなくなると、そのパターンに以前関連付けられていたアラートが閉じられます。今後のリリースでは、ドライランなど、その他の改善が予定されています。詳しい情報については、「[シークレット スキャンのカスタム パターンの定義](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)」を参照してください。"
 
-    - heading: API and webhook changes
+    - heading: API と Webhook の変更
       notes:
         # https://github.com/github/releases/issues/1744
-        - Most REST API previews have graduated and are now an official part of the API. Preview headers are no longer required for most REST API endpoints, but will still function as expected if you specify a graduated preview in the `Accept` header of a request. For previews that still require specifying the preview in the `Accept` header of a request, see "[API previews](/rest/overview/api-previews)."
+        - "REST API のほとんどのプレビュー段階が終了して、正式に API に含まれるようになりました。プレビュー ヘッダーはほとんどの REST API エンドポイントで不要になりましたが、プレビュー段階の終了を要求の `Accept` ヘッダーに指定することで、引き続き期待どおりに動作します。要求の `Accept` ヘッダー内で引き続きプレビューを必要とするプレビューについては、「[API プレビュー](/rest/overview/api-previews)」を参照してください。"
 
         # https://github.com/github/releases/issues/1513
-        - You can now use the REST API to configure custom autolinks to external resources. The REST API now provides beta `GET`/`POST`/`DELETE` endpoints which you can use to view, add, or delete custom autolinks associated with a repository. For more information, see "[Autolinks](/rest/reference/repos#autolinks)."
+        - "REST API を使って、外部リソースへのカスタム自動リンクを構成できるようになりました。REST API で、ベータ版の `GET`/`POST`/`DELETE` エンドポイントが提供されるようになりました。これを使って、リポジトリに関連付けられたカスタム自動リンクを表示、追加、または削除できます。詳しい情報については、「[自動リンク](/rest/reference/repos#autolinks)」を参照してください。"
 
         # https://github.com/github/releases/issues/1578
-        - You can now use the REST API to sync a forked repository with its upstream repository. For more information, see "[Branches](/rest/reference/branches#sync-a-fork-branch-with-the-upstream-repository)" in the REST API documentation.
+        - "REST API を使って、フォークされたリポジトリをそのアップストリーム リポジトリと同期できるようになりました。詳しい情報については、REST API ドキュメントの「[ブランチ](/rest/reference/branches#sync-a-fork-branch-with-the-upstream-repository)」を参照してください。"
 
         # https://github.com/github/releases/issues/1527
-        - Enterprise administrators on GitHub Enterprise Server can now use the REST API to enable or disable Git LFS for a repository. For more information, see "[Repositories](/rest/reference/repos#git-lfs)."
+        - "GitHub Enterprise Server のエンタープライズ管理者は、REST API を使ってリポジトリの Git LFS を有効または無効にできるようになりました。詳しい情報については、「[リポジトリ](/rest/reference/repos#git-lfs)」を参照してください。"
 
         # https://github.com/github/releases/issues/1476
-        - You can now use the REST API to query the audit log for an enterprise. While audit log forwarding provides the ability to retain and analyze data with your own toolkit and determine patterns over time, the new endpoint can help you perform limited analysis on recent events. For more information, see "[{% data variables.product.prodname_enterprise %} administration](/rest/reference/enterprise-admin#get-the-audit-log-for-an-enterprise)" in the REST API documentation.
+        - "REST API を使って、エンタープライズの監査ログのクエリを実行できるようになりました。監査ログの転送には、独自のツールキットを使ってデータを保持および分析し、時間の経過に伴うパターンを特定する機能が用意されていますが、新しいエンドポイントは、最近のイベントに対して限定的な分析を実行するのに役立ちます。詳しい情報については、REST API ドキュメントの「[{% data variables.product.prodname_enterprise %} の管理](/rest/reference/enterprise-admin#get-the-audit-log-for-an-enterprise)」を参照してください。"
 
         # https://github.com/github/releases/issues/1485
-        - GitHub App user-to-server API requests can now read public resources using the REST API. This includes, for example, the ability to list a public repository's issues and pull requests, and to access a public repository's comments and content.
+        - GitHub App のユーザーからサーバーへの API 要求で、REST API を使ってパブリック リソースを読み取ることができるようになりました。これには、たとえば、パブリック リポジトリの issue や pull request のリストを表示する、パブリック リポジトリのコメントとコンテンツにアクセスする機能が含まれます。
 
         # https://github.com/github/releases/issues/1734
-        - When creating or updating a repository, you can now configure whether forking is allowed using the REST and GraphQL APIs. Previously, APIs for creating and updating repositories didn't include the fields `allow_forking` (REST) or `forkingAllowed` (GraphQL). For more information, see "[Repositories](/rest/reference/repos)" in the REST API documentation and "[Repositories](/graphql/reference/objects#repository)" in the GraphQL API documentation.
+        - "リポジトリを作成または更新するときに、REST および GraphQL API を使ってフォークを許可するかどうかを構成できるようになりました。従来は、リポジトリを作成および更新するための API に、フィールド `allow_forking` (REST) または `forkingAllowed` (GraphQL) が含まれていませんでした。詳しい情報については、REST API ドキュメントの「[リポジトリ](/rest/reference/repos)」と GraphQL API ドキュメントの「[リポジトリ](/graphql/reference/objects#repository)」を参照してください。"
 
         # https://github.com/github/releases/issues/1637
-        - |
-          A new GraphQL mutation [`createCommitOnBranch`](/graphql/reference/mutations#createcommitonbranch) makes it easier to add, update, and delete files in a branch of a repository. Compared to the REST API, you do not need to manually create blobs and trees before creating the commit. This allows you to add, update, or delete multiple files in a single API call.
+        - |新しい GraphQL ミューテーション [`createCommitOnBranch`](/graphql/reference/mutations#createcommitonbranch) により、リポジトリのブランチ内のファイルの追加、更新、削除が容易になります。REST API と比較して、コミットを作成する前に手動で BLOB とツリーを作成する必要がありません。これにより、1 回の API 呼び出しで複数のファイルを追加、更新、または削除できます。
 
-          Commits authored using the new API are automatically GPG signed and are [marked as verified](/github/authenticating-to-github/managing-commit-signature-verification/about-commit-signature-verification) in the {% data variables.product.prodname_ghe_server %} UI. GitHub Apps can use the mutation to author commits directly or [on behalf of users](/developers/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps#user-to-server-requests).
 
+
+新しい API を使って作成されたコミットは自動的に GPG 署名され、{% data variables.product.prodname_ghe_server %} UI で [検証済みとしてマーク](/github/authenticating-to-github/managing-commit-signature-verification/about-commit-signature-verification) されます。GitHub App では、ミューテーションを使って直接または [ユーザーに代わって](/developers/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps#user-to-server-requests) コミットを作成できます。
+
+|
         # https://github.com/github/releases/issues/1665
-        - When a new tag is created, the [push](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#push) webhook payload now always includes a `head_commit` object that contains the data of the commit that the new tag points to. As a result, the `head_commit` object will always contain the commit data of the payload's `after` commit.
+        - "新しいタグが作成されるとき、[プッシュ](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#push) Webhook ペイロードに `head_commit` オブジェクトが常に包含され、この中に、この新しいタグが指すコミットのデータが含まれるようになりました。その結果、`head_commit` オブジェクトには常にペイロードの `after` コミットのコミット データが含まれるようになります。"
 
-    - heading: 'Performance Changes'
+    - heading: 'パフォーマンスの変更'
       notes:
         # https://github.com/github/releases/issues/1823
-        - Page loads and jobs are now significantly faster for repositories with many Git refs.
+        - Git 参照が多いリポジトリに対するページ読み込みとジョブが大幅に高速化されました。
 
   # No security/bug fixes for the RC release
   # security_fixes:
@@ -246,54 +293,65 @@ sections:
   #   - PLACEHOLDER
 
   known_issues:
-    - On a freshly set up {% data variables.product.prodname_ghe_server %} instance without any users, an attacker could create the first admin user.
-    - Custom firewall rules are removed during the upgrade process.
-    - Git LFS tracked files [uploaded through the web interface](https://github.com/blog/2105-upload-files-to-your-repositories) are incorrectly added directly to the repository.
-    - Issues cannot be closed if they contain a permalink to a blob in the same repository, where the blob's file path is longer than 255 characters.
-    - When "Users can search GitHub.com" is enabled with GitHub Connect, issues in private and internal repositories are not included in GitHub.com search results.
-    - The {% data variables.product.prodname_registry %} npm registry no longer returns a time value in metadata responses. This was done to allow for substantial performance improvements. We continue to have all the data necessary to return a time value as part of the metadata response and will resume returning this value in the future once we have solved the existing performance issues.
-    - Resource limits that are specific to processing pre-receive hooks may cause some pre-receive hooks to fail.
+    - "{% data variables.product.prodname_ghe_server %} インスタンスを設定したばかりでユーザーがいない場合、攻撃者が最初の管理ユーザーを作成できました。"
+    - カスタムのファイアウォール規則は、アップグレード プロセス中に削除されます。
+    - "[Web インターフェイスからアップロードされた](https://github.com/blog/2105-upload-files-to-your-repositories) Git LFS 追跡ファイルが誤ってリポジトリに直接追加されます。"
+    - 同じリポジトリ内の BLOB へのパーマリンクが含まれ、その BLOB のファイル パスが 255 文字を超える場合、issue をクローズできません。
+    - "GitHub Connect で \"ユーザーが GitHub.com を検索できる\" が有効化されている場合、プライベートおよびインターナル リポジトリの issue が GitHub.com の検索結果に含まれません。"
+    - "{% data variables.product.prodname_registry %} npm レジストリから、メタデータ応答に時刻値が返されなくなりました。これは、パフォーマンスの大幅な向上を可能にするために行われました。メタデータ応答の一部として時刻値を返すために必要なすべてのデータを保持し続け、将来的に既存のパフォーマンスの問題を解決したら、再びこの値を返すようにします。"
+    - pre-receive フックの処理に固有のリソース制限により、一部の pre-receive フックが失敗する場合があります。
 
   deprecations:
-    - heading: Deprecation of GitHub Enterprise Server 2.22
+    - heading: GitHub Enterprise Server 2.22 の非推奨化
       notes:
-        - '**{% data variables.product.prodname_ghe_server %} 2.22 was discontinued on September 23, 2021**. This means that no patch releases will be made, even for critical security issues, after this date. For better performance, improved security, and new features, [upgrade to the newest version of {% data variables.product.prodname_ghe_server %}](/enterprise-server@3.3/admin/enterprise-management/upgrading-github-enterprise-server) as soon as possible.'
-    - heading: Deprecation of GitHub Enterprise Server 3.0
+        - '**{% data variables.product.prodname_ghe_server %} 2.22 は 2021 年 9 月 23 日に廃止されました**。これは、この日以降、重大なセキュリティの問題があってもパッチ リリースが作成されないことを意味します。より優れたパフォーマンス、改善されたセキュリティ、新機能のために、[{% data variables.product.prodname_ghe_server %} の最新バージョンへのアップグレード](/enterprise-server@3.3/admin/enterprise-management/upgrading-github-enterprise-server) をできるだけ早く行ってください。'
+    - heading: GitHub Enterprise Server 3.0 の非推奨化
       notes:
-        - '**{% data variables.product.prodname_ghe_server %} 3.0 will be discontinued on February 16, 2022**. This means that no patch releases will be made, even for critical security issues, after this date. For better performance, improved security, and new features, [upgrade to the newest version of {% data variables.product.prodname_ghe_server %}](/enterprise-server@3.3/admin/enterprise-management/upgrading-github-enterprise-server) as soon as possible.'
+        - '**{% data variables.product.prodname_ghe_server %} 3.0 は 2022 年 2 月 16 日に廃止されました**。これは、この日以降、重大なセキュリティの問題があってもパッチ リリースが作成されないことを意味します。より優れたパフォーマンス、改善されたセキュリティ、新機能のために、[{% data variables.product.prodname_ghe_server %} の最新バージョンへのアップグレード](/enterprise-server@3.3/admin/enterprise-management/upgrading-github-enterprise-server) をできるだけ早く行ってください。'
 
-    - heading: Deprecation of XenServer Hypervisor support
+    - heading: XenServer Hypervisor サポートの非推奨化
       notes:
         # https://github.com/github/docs-content/issues/4439
-        - Starting with {% data variables.product.prodname_ghe_server %} 3.3, {% data variables.product.prodname_ghe_server %} on XenServer is deprecated and is no longer supported. Please contact [GitHub Support](https://support.github.com) with questions or concerns.
+        - "{% data variables.product.prodname_ghe_server %} 3.3 以降、XenServer 上の {% data variables.product.prodname_ghe_server %} は非推奨になり、サポートされなくなりました。ご質問やご不明な点がございましたら、[GitHub サポート](https://support.github.com) にお問い合わせください。"
 
-    - heading: Deprecation of OAuth Application API endpoints and API authentication using query parameters
+    - heading: クエリ パラメーターを使った OAuth Application API エンドポイントと API 認証の非推奨化
       notes:
         # https://github.com/github/releases/issues/1316
-        - |
-          To prevent accidental logging or exposure of `access_tokens`, we discourage the use of OAuth Application API endpoints and the use of API authentication using query parameters. View the following posts to see the proposed replacements:
+        - |`access_tokens`の予期しないログまたは露出を防ぐため、OAuth Application API エンドポイントの使用やクエリ パラメーターを使った API 認証の使用はお勧めしません。次の投稿を参照して、置換案を確認してください。
 
-          * [Replacement OAuth Application API endpoints](https://developer.github.com/changes/2020-02-14-deprecating-oauth-app-endpoint/#changes-to-make)
-          * [Replacement authentication using headers instead of query param](https://developer.github.com/changes/2020-02-10-deprecating-auth-through-query-param/#changes-to-make)
 
-          These endpoints and authentication route are planned to be removed from {% data variables.product.prodname_ghe_server %} in {% data variables.product.prodname_ghe_server %} 3.4.
 
-    - heading: Deprecation of the CodeQL runner
+* [OAuth Application API エンドポイントの置換](https://developer.github.com/changes/2020-02-14-deprecating-oauth-app-endpoint/#changes-to-make)
+
+* [クエリ パラメーターの代わりにヘッダーを使った置換認証](https://developer.github.com/changes/2020-02-10-deprecating-auth-through-query-param/#changes-to-make)
+
+
+
+これらのエンドポイントと認証ルートは、{% data variables.product.prodname_ghe_server %} 3.4 で {% data variables.product.prodname_ghe_server %} から削除される予定です。
+
+|
+    - heading: CodeQL ランナーの非推奨化
       notes:
         # https://github.com/github/releases/issues/1632
-        - The {% data variables.product.prodname_codeql %} runner is being deprecated. {% data variables.product.prodname_ghe_server %} 3.3 will be the final release series that supports the {% data variables.product.prodname_codeql %} runner. Starting with {% data variables.product.prodname_ghe_server %} 3.4, the {% data variables.product.prodname_codeql %} runner will be removed and no longer supported. The {% data variables.product.prodname_codeql %} CLI version 2.6.2 or greater is a feature-complete replacement for the {% data variables.product.prodname_codeql %} runner. For more information, see the [{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-09-21-codeql-runner-deprecation/).
+        - "{% data variables.product.prodname_codeql %} ランナーは非推奨になります。{% data variables.product.prodname_ghe_server %} 3.3 は、{% data variables.product.prodname_codeql %} ランナーをサポートする最後のリリース シリーズになります。{% data variables.product.prodname_ghe_server %} 3.4 以降、{% data variables.product.prodname_codeql %} は削除され、サポートされなくなります。{% data variables.product.prodname_codeql %} CLI バージョン 2.6.2 以降は、{% data variables.product.prodname_codeql %} ランナーのフィーチャーコンプリート置換です。詳しい情報については、[{% data variables.product.prodname_dotcom %} 変更ログ](https://github.blog/changelog/2021-09-21-codeql-runner-deprecation/) を参照してください。"
 
-    - heading: Deprecation of custom bit-cache extensions
+    - heading: カスタム ビットキャッシュ拡張機能の非推奨化
       notes:
         # https://github.com/github/releases/issues/1415
-        - |
-          Starting in {% data variables.product.prodname_ghe_server %} 3.1, support for {% data variables.product.company_short %}'s proprietary bit-cache extensions began to be phased out. These extensions are now deprecated in {% data variables.product.prodname_ghe_server %} 3.3.
+        - |{% data variables.product.prodname_ghe_server %} 3.1 から、{% data variables.product.company_short %} の独自のビットキャッシュ拡張機能のサポートの段階的な廃止が始まりました。これらの拡張機能は、{% data variables.product.prodname_ghe_server %} 3.3 で非推奨になりました。
 
-          Any repositories that were already present and active on {% data variables.location.product_location %} running version 3.1 or 3.2 will have been automatically updated.
 
-          Repositories which were not present and active before upgrading to {% data variables.product.prodname_ghe_server %} 3.3 may not perform optimally until a repository maintenance task is run and has successfully completed.
 
-          To start a repository maintenance task manually, browse to `https://<hostname>/stafftools/repositories/<owner>/<repository>/network` for each affected repository and click the **Schedule** button.
+バージョン 3.1 または 3.2 を実行している {% data variables.product.product_location %} に既に存在し、アクティブであったリポジトリはすべて自動的に更新されるようになります。
 
+
+
+{% data variables.product.prodname_ghe_server %} 3.3 にアップグレードする前に存在せずアクティブでなかったリポジトリは、リポジトリのメンテナンス タスクが実行され正常に完了するまで、最適なパフォーマンスが得られない可能性があります。
+
+
+
+リポジトリのメンテナンス タスクを手動で開始するには、影響を受ける各リポジトリの `https://<hostname>/stafftools/repositories/<owner>/<repository>/network` を参照し、[スケジュール] ボタンをクリックします。
+
+|
   backups:
-    - '{% data variables.product.prodname_ghe_server %} 3.3 requires at least [GitHub Enterprise Backup Utilities 3.3.0](https://github.com/github/backup-utils) for [Backups and Disaster Recovery](/admin/configuration/configuring-your-enterprise/configuring-backups-on-your-appliance).'
+    - '{% data variables.product.prodname_ghe_server %} 3.3 は、[バックアップとディザスター リカバリー](/admin/configuration/configuring-your-enterprise/configuring-backups-on-your-appliance) のために、最低でも [GitHub Enterprise Backup Utilities 3.3.0](https://github.com/github/backup-utils) が必要です。'

@@ -1,6 +1,6 @@
 ---
-title: Configuring autolinks to reference external resources
-intro: You can add autolinks to external resources like JIRA issues and Zendesk tickets to help streamline your workflow.
+title: Configurar enlaces automáticos para referenciar recursos externos
+intro: 'Puedes agregar enlaces automáticos a recursos externos, como propuestas de JIRA y tickets de Zendesk, para ayudar a optimizar tu flujo de trabajo.'
 product: '{% data reusables.gated-features.autolinks %}'
 redirect_from:
   - /articles/configuring-autolinks-to-reference-external-resources
@@ -14,41 +14,38 @@ versions:
 topics:
   - Repositories
 shortTitle: Configure autolinks
+ms.openlocfilehash: ae6e10f55a880a4fa389149ad137300ef3a81514
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '146748593'
 ---
+## Acerca de los vínculos automáticos
 
-## About autolinks
+Cualquier usuario con permisos de administración en un repositorio puede configurar referencias de enlace automático para vincular propuestas, solicitudes de cambios, mensajes de confirmación y descripciones de lanzamientos con los servicios externos de terceros.
 
-Anyone with admin permissions to a repository can configure autolink references to link issues, pull requests, commit messages, and release descriptions to external third-party services.
+{% ifversion autolink-reference-alphanumeric %} Las referencias de vínculo automático ahora pueden aceptar caracteres alfanuméricos. Cuando se introdujeron originalmente, los vínculos automáticos personalizados se limitaban a los recursos externos que usaban identificadores numéricos. Actualmente, los vínculos automáticos personalizados funcionan con identificadores alfanuméricos. Las referencias de vínculo automático heredadas que reconocen solo identificadores numéricos están en desuso y se muestran con la etiqueta "heredado".
 
-{% ifversion autolink-reference-alphanumeric %}
-Autolink references can now accept alphanumeric characters. When originally introduced, custom autolinks were limited to external resources that used numeric identifiers. Custom autolinks now work with alphanumeric and numeric identifiers. 
-
-You define custom autolinks by specifying a reference prefix and a target URL.
-- Reference prefixes cannot have overlapping names. For example, a repository cannot have two custom autolinks with prefixes such as `TICKET` and `TICK`, since both prefixes would match the string `TICKET123a`.
-- Target URLs include a `<num>` variable which represents the reference identifier of the linked resource.
+Para definir vínculos automáticos personalizados, especifica un prefijo de referencia y una dirección URL de destino.
+- Los prefijos de referencia no pueden tener nombres superpuestos. Por ejemplo, un repositorio no puede tener dos vínculos automáticos personalizados con prefijos como `TICKET` y `TICK`, ya que ambos prefijos coincidirían con la cadena `TICKET123a`.
+- Las direcciones URL de destino incluyen una variable `<num>` que admite los caracteres siguientes: `a-z` (sin distinción entre mayúsculas y minúsculas), `0-9` y `-`.
 {% endif %}
 
-## Configuring autolinks to reference external resources
+## Configurar enlaces automáticos para referenciar recursos externos
 
-This procedure demonstrates how to configure autolinks to reference external resources. For example, if you use Zendesk to track user-reported tickets, you can reference a ticket number in the pull request you opened to fix the issue.
+En este procedimiento se muestra cómo configurar vínculos automáticos para hacer referencia a recursos externos. Por ejemplo, si usas Zendesk para hacer el seguimiento de incidencias notificadas por el usuario, puedes hacer referencia a un número de incidencia en la solicitud de incorporación de cambios que abriste para corregir el problema.
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
-1. In the "Integrations" section of the sidebar, click **{% octicon "cross-reference" aria-label="The cross-reference icon" %} Autolink references**.
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %} {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5658 %}
+1. En la sección "Integraciones" de la barra lateral, haga clic en **{% octicon "cross-reference" aria-label="The cross-reference icon" %} Referencias de enlace automático**.
 {% else %}
-1. In the left sidebar, click **Autolink references**.
-![Autolink references tab in the left sidebar.](/assets/images/help/repository/autolink-references-tab.png)
-{% endif %}
-1. Click **Add autolink reference**.
-![Button to fill out autolink reference information.](/assets/images/help/repository/add-autolink-reference-details.png)
-{% ifversion autolink-reference-alphanumeric %}
-1. Select the format of the reference identifier used in the external resource, either alphanumeric or numeric.
-![Autolink format setting, alphanumeric or numeric.](/assets/images/help/repository/autolink-format-setting.png)
-{% endif %}  
-1. Under "Reference prefix", type a short, meaningful prefix you want collaborators to use to generate autolinks for the external resource.
-{% ifversion autolink-reference-alphanumeric %}![Field to type abbreviation for external system.](/assets/images/help/repository/add-reference-prefix-field-alphanumeric.png){% else %}![Field to type abbreviation for external system.](/assets/images/help/repository/add-reference-prefix-field.png){% endif %}
-1. Under "Target URL", type the link to the external system you want to link to. Use the `<num>` variable as a placeholder for the reference identifier.
-{% ifversion autolink-reference-alphanumeric %}![Field to type URL to external system.](/assets/images/help/repository/add-target-url-field-alphanumeric.png){% else %}![Field to type URL to external system.](/assets/images/help/repository/add-target-url-field.png){% endif %}
-1. Click **Add autolink reference**.
-{% ifversion autolink-reference-alphanumeric %}{% else %}![Button to add autolink reference.](/assets/images/help/repository/add-autolink-reference.png){% endif %}
+1. En la barra lateral izquierda, haga clic en **Referencias de enlace automático**.
+![Pestaña Referencias de enlace automático en la barra lateral izquierda](/assets/images/help/repository/autolink-references-tab.png) {% endif %}
+1. Haga clic en **Agregar referencia de enlace automático**.
+![Botón para completar la información de la referencia de enlace automático](/assets/images/help/repository/add-autolink-reference-details.png)
+5. Debajo de "Reference prefix" (Prefijo de referencia), escribe un prefijo corto y significativo que quieras que los colaboradores utilicen para generar enlaces automáticos para el recurso externo.
+{% ifversion autolink-reference-alphanumeric %}![Campo para escribir la abreviatura para el sistema externo](/assets/images/help/repository/add-reference-prefix-field-alphanumeric.png){% else %}![Campo para escribir la abreviatura para el sistema externo](/assets/images/help/repository/add-reference-prefix-field.png){% endif %}
+6. Debajo de "Target URL" (URL de destino), escribe el enlace al sistema externo al que te quieras vinculr. Asegúrese de mantener `<num>` como una variable para el número de referencia.
+{% ifversion autolink-reference-alphanumeric %}![Campo para escribir la dirección URL del sistema externo](/assets/images/help/repository/add-target-url-field-alphanumeric.png){% else %}![Campo para escribir la dirección URL del sistema externo](/assets/images/help/repository/add-target-url-field.png){% endif %}
+7. Haga clic en **Agregar referencia de enlace automático**.
+{% ifversion autolink-reference-alphanumeric %}{% else %}![Botón para agregar una referencia de vínculo automático](/assets/images/help/repository/add-autolink-reference.png){% endif %}

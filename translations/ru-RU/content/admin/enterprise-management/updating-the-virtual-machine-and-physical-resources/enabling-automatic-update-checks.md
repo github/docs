@@ -1,6 +1,6 @@
 ---
-title: Enabling automatic update checks
-intro: 'You can enable automatic update checks so that {% data variables.location.product_location %} checks for and downloads the latest {% data variables.product.prodname_ghe_server %} release.'
+title: Включение автоматических проверок обновлений
+intro: 'Вы можете включить автоматические проверки обновлений, чтобы {% данных variables.location.product_location %} проверял и скачивает последнюю версию {% данных variables.product.prodname_ghe_server %}.'
 redirect_from:
   - /enterprise/admin/installation/enabling-automatic-update-checks
   - /enterprise/admin/enterprise-management/enabling-automatic-update-checks
@@ -12,28 +12,31 @@ topics:
   - Enterprise
   - Upgrades
 shortTitle: Enable automatic update checks
+ms.openlocfilehash: 0c9ab4230458b4158629a6590b45fa85661e7fe9
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148098772'
 ---
-When an upgrade package is automatically downloaded for {% data variables.location.product_location %}, you'll receive a message letting you know you can upgrade {% data variables.product.prodname_ghe_server %}. Packages download to the `/var/lib/ghe-updates` directory on {% data variables.location.product_location %}. For more information, see "[Upgrading {% data variables.product.prodname_ghe_server %}](/enterprise/admin/guides/installation/upgrading-github-enterprise-server)."
+При автоматическом скачивании пакета обновления для {% данных variables.location.product_location %}вы получите сообщение с сообщением об обновлении {% данных variables.product.prodname_ghe_server %}. Пакеты скачиваются в `/var/lib/ghe-updates` каталог на {% данных variables.location.product_location %}. Дополнительные сведения см. в разделе [Обновление {% data variables.product.prodname_ghe_server %}](/enterprise/admin/guides/installation/upgrading-github-enterprise-server).
 
-If a hotpatch is available for an upgrade, the `.hpkg` will download automatically. In the management console you can choose to install the hotpatch immediately or schedule installation for a later time. For more information, see "[Upgrading with a hotpatch](/enterprise/admin/guides/installation/upgrading-github-enterprise-server#upgrading-with-a-hotpatch)."
+Если для обновления доступно горячее исправление, загрузка `.hpkg` выполняется автоматически. В консоли управления можно установить исправление сразу или запланировать установку на более позднее время. Дополнительные сведения см. в разделе [Обновление с помощью горячего исправления](/enterprise/admin/guides/installation/upgrading-github-enterprise-server#upgrading-with-a-hotpatch).
 
 {% tip %}
 
-**Tip:** To enable automatic update checks, {% data variables.location.product_location %} must be able to connect to `https://github-enterprise.s3.amazonaws.com`.
+**Совет:** Чтобы включить автоматические проверки обновлений, {% данных variables.location.product_location %} должен иметь возможность подключиться к `https://github-enterprise.s3.amazonaws.com`.
 
 {% endtip %}
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.management-console %}
-{% data reusables.enterprise_management_console.updates-tab %}
-4. Click **Yes, automatically check for updates**.
-![Button for enabling automatic updates](/assets/images/enterprise/management-console/enable_updates_button.png)
-{% data reusables.enterprise_management_console.save-settings %}
+{% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.enterprise_site_admin_settings.management-console %} {% data reusables.enterprise_management_console.updates-tab %}
+4. Нажмите кнопку **«Да, автоматически проверять наличие обновлений»** .
+![Кнопка включения автоматических обновлений](/assets/images/enterprise/management-console/enable_updates_button.png) {% data reusables.enterprise_management_console.save-settings %}
 
-To see if your instance is up-to-date, check the banner on the Updates tab.
+Чтобы узнать, обновлен ли ваш экземпляр, выберите баннер на вкладке «Обновления».
 
-![Banner indicating your release of GitHub Enterprise Server](/assets/images/enterprise/management-console/up-to-date-banner.png)
+![Баннер, обозначающий выпуск сервера GitHub Enterprise](/assets/images/enterprise/management-console/up-to-date-banner.png)
 
-Under **Logs**, you can see the status of the most recent update check.
+В разделе **Журналы** отображается состояние последней проверки обновления.
 
-![Logs for update](/assets/images/enterprise/management-console/update-log.png)
+![Журналы для обновления](/assets/images/enterprise/management-console/update-log.png)

@@ -1,6 +1,6 @@
 ---
-title: Enabling and scheduling maintenance mode
-intro: 'Some standard maintenance procedures, such as upgrading {% data variables.location.product_location %} or restoring backups, require the instance to be taken offline for normal use.'
+title: メンテナンスモードの有効化とスケジューリング
+intro: '{% data variables.product.product_location %} のアップグレードやバックアップの復元など、一部の標準的なメンテナンス手順では、通常の使用のためにインスタンスをオフラインにする必要があります。'
 redirect_from:
   - /enterprise/admin/maintenance-mode
   - /enterprise/admin/categories/maintenance-mode
@@ -20,77 +20,80 @@ topics:
   - Maintenance
   - Upgrades
 shortTitle: Configure maintenance mode
+ms.openlocfilehash: 45ac412b1ae13e69d710c4dd93072143f6ffa502
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '146331769'
 ---
-## About maintenance mode
+## メンテナンスモードについて
 
-Some types of operations require that you take {% data variables.location.product_location %} offline and put it into maintenance mode:
-- Upgrading to a new version of {% data variables.product.prodname_ghe_server %}
-- Increasing CPU, memory, or storage resources allocated to the virtual machine
-- Migrating data from one virtual machine to another
-- Restoring data from a {% data variables.product.prodname_enterprise_backup_utilities %} snapshot
-- Troubleshooting certain types of critical application issues
+操作の種類によっては、{% data variables.product.product_location %} をオフラインにしてメンテナンス モードにする必要があります。
+- {% data variables.product.prodname_ghe_server %} の新規バージョンにアップグレードする
+- 仮想マシンに割り当てられている CPU、メモリ、またはストレージリソースを拡大する
+- ある仮想マシンから別の仮想マシンへデータを移行する
+- {% data variables.product.prodname_enterprise_backup_utilities %} スナップショットからデータを復元する
+- 特定の種類の重要なアプリケーション問題のトラブルシューティング
 
-We recommend that you schedule a maintenance window for at least 30 minutes in the future to give users time to prepare. When a maintenance window is scheduled, all users will see a banner when accessing the site.
+メンテナンスウィンドウのスケジュールは、ユーザに準備時間を与えるために少なくとも30分は先にすることをおすすめします。 メンテナンスウィンドウがスケジューリングされると、すべてのユーザにはサイトにアクセスしたときにバナーが表示されます。
 
 
 
-![End user banner about scheduled maintenance](/assets/images/enterprise/maintenance/maintenance-scheduled.png)
+![スケジューリングされたメンテナンスに関するエンドユーザ向けバナー](/assets/images/enterprise/maintenance/maintenance-scheduled.png)
 
-When the instance is in maintenance mode, all normal HTTP and Git access is refused. Git fetch, clone, and push operations are also rejected with an error message indicating that the site is temporarily unavailable. In high availability configurations, Git replication will be paused. GitHub Actions jobs will not be executed. Visiting the site in a browser results in a maintenance page.
+インスタンスがメンテナンスモードに入ると、通常のHTTP及びGitアクセスはすべて拒否されます。 Git fetch、clone、pushの操作も、サイトが一時的に利用できなくなっていることを示すエラーメッセージと共に拒否されます。 高可用性構成では、Git レプリケーションは一時停止されます。 GitHub Actions ジョブは実行されません。 サイトにブラウザーでアクセスすると、メンテナンスページが表示されます。
 
-![The maintenance mode splash screen](/assets/images/enterprise/maintenance/maintenance-mode-maintenance-page.png)
-
-{% ifversion ip-exception-list %}
-
-You can perform initial validation of your maintenance operation by configuring an IP exception list to allow access to {% data variables.location.product_location %} from only the IP addresses and ranges provided. Attempts to access {% data variables.location.product_location %} from IP addresses not specified on the IP exception list will receive a response consistent with those sent when the instance is in maintenance mode. 
-
-{% endif %}
-
-## Enabling maintenance mode immediately or scheduling a maintenance window for a later time
-
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.management-console %}
-2. At the top of the {% data variables.enterprise.management_console %}, click **Maintenance**.
-  ![Maintenance tab](/assets/images/enterprise/management-console/maintenance-tab.png)
-3. Under "Enable and schedule", decide whether to enable maintenance mode immediately or to schedule a maintenance window for a future time.
-    - To enable maintenance mode immediately, use the drop-down menu and click **now**.
-    ![Drop-down menu with the option to enable maintenance mode now selected](/assets/images/enterprise/maintenance/enable-maintenance-mode-now.png)
-    - To schedule a maintenance window for a future time, use the drop-down menu and click a start time.
-    ![Drop-down menu with the option to schedule a maintenance window in two hours selected](/assets/images/enterprise/maintenance/schedule-maintenance-mode-two-hours.png)
-4. Select **Enable maintenance mode**.
-  ![Checkbox for enabling or scheduling maintenance mode](/assets/images/enterprise/maintenance/enable-maintenance-mode-checkbox.png)
-{% data reusables.enterprise_management_console.save-settings %}
+![メンテナンスモードのスプラッシュスクリーン](/assets/images/enterprise/maintenance/maintenance-mode-maintenance-page.png)
 
 {% ifversion ip-exception-list %}
 
-## Validating changes in maintenance mode using the IP exception list
-
-The IP exception list provides controlled and restricted access to {% data variables.location.product_location %}, which is ideal for initial validation of server health following a maintenance operation. Once enabled, {% data variables.location.product_location %} will be taken out of maintenance mode and available only to the configured IP addresses. The maintenance mode checkbox will be updated to reflect the change in state.
-
-If you re-enable maintenance mode, the IP exception list will be disabled and {% data variables.location.product_location %} will return to maintenance mode. If you just disable the IP exception list, {% data variables.location.product_location %} will return to normal operation.
-
-You can also use a command-line utility to configure the IP exception list. For more information, see "[Command-line utilities](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-maintenance)" and "[Accessing the administrative shell (SSH)](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh)."
-
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.management-console %}
-1. At the top of the {% data variables.enterprise.management_console %}, click **Maintenance**, and confirm maintenance mode is already enabled.
-  ![Maintenance tab](/assets/images/enterprise/management-console/maintenance-tab.png)
-1. Select **Enable IP exception list**.
- ![Checkbox for enabling ip exception list](/assets/images/enterprise/maintenance/enable-ip-exception-list.png)
-1. In the text box, type a valid list of space-separated IP addresses or CIDR blocks that should be allowed to access {% data variables.location.product_location %}.
- ![completed field for IP addresses](/assets/images/enterprise/maintenance/ip-exception-list-ip-addresses.png)
-1. Click **Save**.
-![after IP excetpion list has saved](/assets/images/enterprise/maintenance/ip-exception-save.png)
+メンテナンス操作の初期検証を実行するには、指定された IP アドレスと範囲からのみ {% data variables.product.product_location %} へのアクセスを許可するように IP 例外リストを構成します。 IP 例外リストで指定されていない IP アドレスから {% data variables.product.product_location %} にアクセスしようとすると、インスタンスがメンテナンス モードのときに送信された応答と一致する応答を受け取ります。 
 
 {% endif %}
 
-## Scheduling maintenance mode with the {% data variables.product.prodname_enterprise_api %}
+## メンテナンスモードの即時有効化あるいは後のためのメンテナンスウィンドウのスケジューリング
 
-You can schedule maintenance for different times or dates with the {% data variables.product.prodname_enterprise_api %}. For more information, see "[Management Console](/enterprise/user/rest/reference/enterprise-admin#enable-or-disable-maintenance-mode)."
+{% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.enterprise_site_admin_settings.management-console %}
+2. {% data variables.enterprise.management_console %} の上部で **[メンテナンス]** をクリックしてください
+  ![メンテナンス タブ](/assets/images/enterprise/management-console/maintenance-tab.png)
+3. "Enable and schedule（有効化とスケジュール）"の下で、即時にメンテナンスモードを有効化するか、将来にメンテナンスウィンドウをスケジューリングするかを決めてください。
+    - メンテナンス モードを直ちに有効にするには、ドロップダウン メニューを使用して **[今すぐ]** をクリックします。
+    ![メンテナンス モードを有効にするオプションで [今すぐ] が選択されたドロップダウン メニュー](/assets/images/enterprise/maintenance/enable-maintenance-mode-now.png)
+    - 今後のメンテナンス時間枠をスケジュール設定するには、ドロップダウンメニューを使用して開始時間をクリックします。
+    ![メンテナンス期間をスケジュールするオプションで [2 時間] が選択されたドロップダウン メニュー](/assets/images/enterprise/maintenance/schedule-maintenance-mode-two-hours.png)
+4. **[メンテナンス モードを有効にする]** を選択します。
+  ![メンテナンス モードを有効またはスケジュールするためのチェックボックス](/assets/images/enterprise/maintenance/enable-maintenance-mode-checkbox.png) {% data reusables.enterprise_management_console.save-settings %}
 
-## Enabling or disabling maintenance mode for all nodes in a cluster
+{% ifversion ip-exception-list %}
 
-With the `ghe-cluster-maintenance` utility, you can set or unset maintenance mode for every node in a cluster.
+## IP 例外リストを使い、メンテナンス モードで変更を検証する
+
+IP 例外リストは、{% data variables.product.product_location %} への制御および制限付きアクセスを提供します。これは、メンテナンス操作後のサーバー正常性の初期検証に最適です。 有効にすると、{% data variables.product.product_location %} はメンテナンス モードから外され、構成済みの IP アドレスでのみ使用できるようになります。 メンテナンス モードのチェック ボックスは、状態の変化を反映するように更新されます。
+
+メンテナンス モードを再度有効にすると、IP 例外リストが無効になり、{% data variables.product.product_location %} がメンテナンス モードに戻ります。 IP 例外リストを無効にした場合、{% data variables.product.product_location %} は通常の操作に戻ります。
+
+コマンド ライン ユーティリティを使って IP 例外リストを構成することもできます。 詳細については、「[コマンド ライン ユーティリティ](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-maintenance)」と「[管理シェル (SSH) にアクセスする](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh)」を参照してください。
+
+{% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.enterprise_site_admin_settings.management-console %}
+1. {% data variables.enterprise.management_console %} の上部にある **[メンテナンス]** をクリックし、メンテナンス モードが既に有効になっていることを確認します。
+  ![メンテナンス タブ](/assets/images/enterprise/management-console/maintenance-tab.png)
+1. **[IP 例外リストの有効化]** を選択します。
+ ![IP 例外リストを有効にするためのチェックボックス](/assets/images/enterprise/maintenance/enable-ip-exception-list.png)
+1. テキスト ボックスに、{% data variables.product.product_location %} へのアクセスを許可する必要がある、空白で区切られた IP アドレスまたは CIDR ブロックの有効な一覧を入力します。
+ ![IP アドレスの完了フィールド](/assets/images/enterprise/maintenance/ip-exception-list-ip-addresses.png)
+1. **[保存]** をクリックします。
+![IP 例外リストが保存された後](/assets/images/enterprise/maintenance/ip-exception-save.png)
+
+{% endif %}
+
+## {% data variables.product.prodname_enterprise_api %}でのメンテナンスモードのスケジューリング
+
+{% data variables.product.prodname_enterprise_api %}では、様々な時間や日付にメンテナンスをスケジューリングできます。 詳細については、[管理コンソール](/enterprise/user/rest/reference/enterprise-admin#enable-or-disable-maintenance-mode)に関する記事を参照してください。
+
+## クラスタ内の全ノードでのメンテナンスモードの有効化もしくは無効化
+
+この `ghe-cluster-maintenance` ユーティリティを使用すると、クラスター内のすべてのノードのメンテナンス モードを設定または設定解除できます。
 
 ```shell
 $ ghe-cluster-maintenance -h

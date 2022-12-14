@@ -486,6 +486,12 @@ Always use "dev container" (or, where clarification is needed, its longer form "
 
 Use "development container configuration files" to refer to all of the files in the `.devcontainer` directory (plus the `.devcontainer.json` if that's being used rather than `devcontainer.json` in the `.devcontainer` directory). Don't refer to these as "development container files" or "devcontainer files" to avoid this being taken as referring to `devcontainer.json` files. "Development container configuration files" refers to all of the files that can be used to configure a dev container, including `Dockerfile` and `docker-compose.yml` files. Don't use "the development container configuration file" (singular) when referring specifically to a `devcontainer.json` file. Instead refer to this file by its name.
 
+### GitHub Advanced Security (GHAS)
+
+Use the terms `licenses` and `active committers` when you refer to GitHub Advanced Security billing.
+
+We used to use the term `seats` to describe the number of accounts that can use GitHub Advanced Security in an enterprise. People can be confused by the term `seats`, so we removed this term from GitHub.com in autumn 2022 and versions from GHES/GHAE 3.7 onward do not use it.
+
 ### Personal access tokens
 
 GitHub has two types of personal access tokens:

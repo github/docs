@@ -1,6 +1,6 @@
 ---
-title: Moving assigned issues on project boards
-intro: 'You can use {% data variables.product.prodname_actions %} to automatically move an issue to a specific column on a project board when the issue is assigned.'
+title: Перемещение назначенных проблем на досках проектов
+intro: 'Вы можете использовать {% data variables.product.prodname_actions %}, чтобы автоматически переместить проблемы в конкретный столбец на доске проекта при назначении проблемы.'
 redirect_from:
   - /actions/guides/moving-assigned-issues-on-project-boards
 versions:
@@ -13,23 +13,27 @@ topics:
   - Workflows
   - Project management
 shortTitle: Move assigned issues
+ms.openlocfilehash: 785614a4a55704179c84e5421cd465ff99747021
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148097819'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+## Введение
 
-## Introduction
+В этом учебнике показано, как использовать [действие `alex-page/github-project-automation-plus`](https://github.com/marketplace/actions/github-project-automation) для автоматического перемещения проблемы в определенный столбец на доске проекта при назначении проблемы. Например, если проблема назначена, ее можно переместить в столбец `In Progress` доски проекта.
 
-This tutorial demonstrates how to use the [`alex-page/github-project-automation-plus` action](https://github.com/marketplace/actions/github-project-automation) to automatically move an issue to a specific column on a project board when the issue is assigned. For example, when an issue is assigned, you can move it into the `In Progress` column your project board.
+В этом руководстве вы сначала создадите файл рабочего процесса, использующий [действие `alex-page/github-project-automation-plus`](https://github.com/marketplace/actions/github-project-automation). Затем вы настроите рабочий процесс в соответствии с вашими потребностями.
 
-In the tutorial, you will first make a workflow file that uses the [`alex-page/github-project-automation-plus` action](https://github.com/marketplace/actions/github-project-automation). Then, you will customize the workflow to suit your needs.
-
-## Creating the workflow
+## Создание рабочего процесса
 
 1. {% data reusables.actions.choose-repo %}
-2. In your repository, choose a project board. You can use an existing project, or you can create a new project. For more information about creating a project, see "[Creating a project board](/github/managing-your-work-on-github/creating-a-project-board)."
+2. В репозитории выберите доску проекта. Вы можете использовать существующий проект или создать его. Дополнительные сведения о создании проекта см. в статье [Создание доски проекта](/github/managing-your-work-on-github/creating-a-project-board).
 3. {% data reusables.actions.make-workflow-file %}
-4. Copy the following YAML contents into your workflow file.
+4. Скопируйте следующее содержимое YAML в файл рабочего процесса.
 
     ```yaml{:copy}
 {% indented_data_reference reusables.actions.actions-not-certified-by-github-comment spaces=4 %}
@@ -52,28 +56,28 @@ In the tutorial, you will first make a workflow file that uses the [`alex-page/g
               repo-token: {% raw %}${{ secrets.PERSONAL_ACCESS_TOKEN }}{% endraw %}
     ```
 
-5. Customize the parameters in your workflow file:
-   - Change the value for `project` to the name of your project board. If you have multiple project boards with the same name, the `alex-page/github-project-automation-plus` action will act on all projects with the specified name.
-   - Change the value for `column` to the name of the column where you want issues to move when they are assigned.
-   - Change the value for `repo-token`:
-     1. Create a {% data variables.product.pat_v1 %} with the `repo` scope. For more information, see "[Creating a {% data variables.product.pat_generic %}](/github/authenticating-to-github/creating-a-personal-access-token)."
-     1. Store this {% data variables.product.pat_generic %} as a secret in your repository. For more information about storing secrets, see "[Encrypted secrets](/actions/reference/encrypted-secrets)."
-     1. In your workflow file, replace `PERSONAL_ACCESS_TOKEN` with the name of your secret.
+5. Настройте параметры в файле рабочего процесса.
+   - Измените значение для `project` на имя доски проекта. При наличии нескольких досок проектов с одинаковым именем действие `alex-page/github-project-automation-plus` будет выполняться для всех проектов с указанным именем.
+   - Измените значение для `column` на имя столбца, в котором необходимо переместить проблемы при их назначении.
+   - Измените значение для `repo-token`:
+     1. Создайте {% данных variables.product.pat_v1 %} с областью `repo` действия. Дополнительные сведения см. в разделе "[Создание {% данных variables.product.pat_generic %}](/github/authenticating-to-github/creating-a-personal-access-token)".
+     1. Сохраните эти данные {% variables.product.pat_generic %} в качестве секрета в репозитории. Дополнительные сведения о сохранении секретов см. в статье [Зашифрованные секреты](/actions/reference/encrypted-secrets).
+     1. В файле рабочего процесса замените `PERSONAL_ACCESS_TOKEN` именем секрета.
 6. {% data reusables.actions.commit-workflow %}
 
-## Testing the workflow
+## Тестирование рабочего процесса
 
-Whenever an issue in your repository is assigned, the issue will be moved to the specified project board column. If the issue is not already on the project board, it will be added to the project board.
+При каждом назначении проблемы в репозитории она перемещается в указанный столбец доски проекта. Если проблема еще не находится на доске проекта, она туда добавится.
 
-If your repository is user-owned, the `alex-page/github-project-automation-plus` action will act on all projects in your repository or personal account that have the specified project name and column. Likewise, if your repository is organization-owned, the action will act on all projects in your repository or organization that have the specified project name and column.
+Если репозиторий принадлежит пользователю, действие `alex-page/github-project-automation-plus` будет выполняться для всех проектов в репозитории или личной учетной записи с указанным столбцом и именем проекта. Аналогичным образом, если репозиторий принадлежит организации, действие будет выполняться для всех проектов в репозитории или организации с указанным столбцом и именем проекта.
 
-Test your workflow by assigning an issue in your repository.
+Протестируйте рабочий процесс, назначив проблему в репозитории.
 
-1. Open an issue in your repository. For more information, see "[Creating an issue](/github/managing-your-work-on-github/creating-an-issue)."
-2. Assign the issue. For more information, see "[Assigning issues and pull requests to other GitHub users](/github/managing-your-work-on-github/assigning-issues-and-pull-requests-to-other-github-users)."
-3. To see the workflow run that assigning the issue triggered, view the history of your workflow runs. For more information, see "[Viewing workflow run history](/actions/managing-workflow-runs/viewing-workflow-run-history)."
-4. When the workflow completes, the issue that you assigned should be added to the specified project board column.
+1. Откройте проблему в репозитории. Дополнительные сведения см. в статье "[Создание проблемы](/github/managing-your-work-on-github/creating-an-issue)".
+2. Назначьте проблему. Дополнительные сведения см. в статье [Назначение проблем и запросов на вытягивание другим пользователям GitHub](/github/managing-your-work-on-github/assigning-issues-and-pull-requests-to-other-github-users).
+3. Чтобы увидеть выполнение рабочего процесса, которое было активировано путем назначения метки для проблемы, просмотрите журнал выполнений рабочего процесса. Дополнительные сведения см. в статье "[Просмотр журнала выполнения рабочего процесса](/actions/managing-workflow-runs/viewing-workflow-run-history)".
+4. Когда рабочий процесс завершится, проблема, которую вы назначили, должна появиться в указанном столбце доски проекта.
 
-## Next steps
+## Дальнейшие действия
 
-- To learn more about additional things you can do with the `alex-page/github-project-automation-plus` action, like deleting or archiving project cards, visit the [`alex-page/github-project-automation-plus` action documentation](https://github.com/marketplace/actions/github-project-automation).
+- Дополнительные сведения о задачах, которые можно выполнить с помощью действия `alex-page/github-project-automation-plus`, например удаление или архивация карт проекта, см. в [документации по действию `alex-page/github-project-automation-plus`](https://github.com/marketplace/actions/github-project-automation).

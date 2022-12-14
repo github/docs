@@ -1,7 +1,7 @@
 ---
-title: Triaging code scanning alerts in pull requests
+title: 끌어오기 요청에서 코드 검사 경고 심사
 shortTitle: Triage alerts in pull requests
-intro: 'When {% data variables.product.prodname_code_scanning %} identifies a problem in a pull request, you can review the highlighted code and resolve the alert.'
+intro: '{% data variables.product.prodname_code_scanning %}에서 끌어오기 요청의 문제를 식별하는 경우 강조 표시된 코드를 검토하고 경고를 해결할 수 있습니다.'
 product: '{% data reusables.gated-features.code-scanning %}'
 permissions: 'If you have read permission for a repository, you can see annotations on pull requests. With write permission, you can see detailed information and resolve {% data variables.product.prodname_code_scanning %} alerts for that repository.'
 redirect_from:
@@ -20,105 +20,95 @@ topics:
   - Pull requests
   - Alerts
   - Repositories
+ms.openlocfilehash: f73b0ef30b4512bc951fdbae4ae2f3c300e4c534
+ms.sourcegitcommit: b617c4a7a1e4bf2de3987a86e0eb217d7031490f
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/11/2022
+ms.locfileid: '148162744'
 ---
-
-
 {% data reusables.code-scanning.beta %}
 
-## About {% data variables.product.prodname_code_scanning %} results on pull requests
+## 끌어오기 요청에 대한 {% data variables.product.prodname_code_scanning %} 결과 정보
 
-In repositories where {% data variables.product.prodname_code_scanning %} is configured as a pull request check, {% data variables.product.prodname_code_scanning %} checks the code in the pull request. By default, this is limited to pull requests that target the default branch, but you can change this configuration within {% data variables.product.prodname_actions %} or in a third-party CI/CD system. If merging the changes would introduce new {% data variables.product.prodname_code_scanning %} alerts to the target branch, the alerts are reported in multiple places.
+{% data variables.product.prodname_code_scanning %}이 끌어오기 요청 확인으로 구성된 리포지토리에서 {% data variables.product.prodname_code_scanning %}은 끌어오기 요청의 코드를 확인합니다. 기본적으로 이는 기본 분기를 대상으로 하는 끌어오기 요청으로 제한되지만, 이 구성은 {% data variables.product.prodname_actions %} 내에서 또는 타사 CI/CD 시스템에서 변경할 수 있습니다. 변경 내용 병합으로 인해 대상 분기에 새 {% data variables.product.prodname_code_scanning %} 경고가 발생하면 경고가 여러 위치에서 보고됩니다.
 
-- Check results in the pull request {% ifversion code-scanning-pr-conversations-tab %}
-- The **Conversation** tab of the pull request, as part of a pull request review {% endif %} 
-- The **Files changed** tab of the pull request
+- 끌어오기 요청에서 결과 확인 {% ifversion code-scanning-pr-conversations-tab %}
+- 끌어오기 요청의 **대화** 탭(끌어오기 요청 검토의 일부) {% endif %} 
+- 끌어오기 요청의 **변경된 파일** 탭
 
-If you have write permission for the repository, you can see any existing {% data variables.product.prodname_code_scanning %} alerts on the **Security** tab. For information about repository alerts, see "[Managing {% data variables.product.prodname_code_scanning %} alerts for your repository](/code-security/secure-coding/managing-code-scanning-alerts-for-your-repository)."
+리포지토리에 대한 쓰기 권한이 있는 경우 **보안** 탭에서 기존 {% data variables.product.prodname_code_scanning %} 경고를 볼 수 있습니다. 리포지토리 경고에 대한 자세한 내용은 "[리포지토리에 대한 {% data variables.product.prodname_code_scanning %} 경고 관리](/code-security/secure-coding/managing-code-scanning-alerts-for-your-repository)"를 참조하세요.
 
-In repositories where {% data variables.product.prodname_code_scanning %} is configured to scan each time code is pushed, {% data variables.product.prodname_code_scanning %} will also map the results to any open pull requests and add the alerts as annotations in the same places as other pull request checks. For more information, see "[Scanning on push](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning#scanning-on-push)."
+{% data variables.product.prodname_code_scanning %}이(가) 코드가 푸시될 때마다 검사하도록 구성된 리포지토리에서 {% data variables.product.prodname_code_scanning %}는 열려 있는 끌어오기 요청에 결과를 매핑하고 경고를 다른 끌어오기 요청 검사와 동일한 위치에 주석으로 추가합니다. 자세한 내용은 "[푸시할 때 검사](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning#scanning-on-push)"를 참조하세요.
 
-If your pull request targets a protected branch that uses {% data variables.product.prodname_code_scanning %}, and the repository owner has configured required status checks, then the "{% data variables.product.prodname_code_scanning_capc %} results" check must pass before you can merge the pull request. For more information, see "[About protected branches](/github/administering-a-repository/about-protected-branches#require-status-checks-before-merging)."
+끌어오기 요청에서 {% data variables.product.prodname_code_scanning %}을 사용하는 보호된 분기를 대상으로 하고 리포지토리 소유자가 필요한 상태 확인을 구성한 경우 끌어오기 요청을 병합하기 전에 먼저 "{% data variables.product.prodname_code_scanning_capc %} 결과" 확인을 통과해야 합니다. 자세한 내용은 “[보호된 분기 정보](/github/administering-a-repository/about-protected-branches#require-status-checks-before-merging)”를 참조하세요.
 
-## About {% data variables.product.prodname_code_scanning %} as a pull request check
+## 끌어오기 요청 확인으로서의 {% data variables.product.prodname_code_scanning %} 정보
 
-There are many options for configuring {% data variables.product.prodname_code_scanning %} as a pull request check, so the exact setup of each repository will vary and some will have more than one check. 
+{% data variables.product.prodname_code_scanning %}을 끌어오기 요청 확인으로 구성하는 여러 옵션이 있으므로 각 리포지토리의 정확한 설정은 다양하며 일부는 둘 이상의 검사를 받습니다. 
 
-### {% data variables.product.prodname_code_scanning_capc %} results check
+### {% data variables.product.prodname_code_scanning_capc %} 결과 확인
 
-For all configurations of {% data variables.product.prodname_code_scanning %}, the check that contains the results of {% data variables.product.prodname_code_scanning %} is: **{% data variables.product.prodname_code_scanning_capc %} results**. The results for each analysis tool used are shown separately. Any new alerts caused by changes in the pull request are shown as annotations. 
+{% data variables.product.prodname_code_scanning %}의 모든 구성에 대해 {% data variables.product.prodname_code_scanning %}의 결과를 포함하는 확인은 **{% data variables.product.prodname_code_scanning_capc %} 결과** 입니다. 사용되는 각 분석 도구의 결과는 별도로 표시됩니다. 끌어오기 요청의 변경으로 인해 발생하는 모든 새 경고는 주석으로 표시됩니다. 
 
-To see the full set of alerts for the analyzed branch, click **View all branch alerts**. This opens the full alert view where you can filter all the alerts on the branch by type, severity, tag, etc. For more information, see "[Managing code scanning alerts for your repository](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository#filtering-and-searching-for-code-scanning-alerts)."
+분석된 분기에 대한 전체 경고 집합을 보려면 **모든 분기 경고 보기를** 클릭합니다. 그러면 형식, 심각도, 태그 등을 기준으로 분기의 모든 경고를 필터링할 수 있는 전체 경고 보기가 열립니다. 자세한 내용은 "[리포지토리에 대한 코드 검사 경고 관리](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository#filtering-and-searching-for-code-scanning-alerts)"를 참조하세요.
 
-![{% data variables.product.prodname_code_scanning_capc %} results check on a pull request](/assets/images/help/repository/code-scanning-results-check.png)
+![끌어오기 요청에 대한 {% data variables.product.prodname_code_scanning_capc %} 결과 확인](/assets/images/help/repository/code-scanning-results-check.png)
 
-### {% data variables.product.prodname_code_scanning_capc %} results check failures
+### {% data variables.product.prodname_code_scanning_capc %} 결과 확인 실패
 
-If the {% data variables.product.prodname_code_scanning %} results check finds any problems with a severity of `error`, `critical`, or `high`, the check fails and the error is reported in the check results. If all the results found by {% data variables.product.prodname_code_scanning %} have lower severities, the alerts are treated as warnings or notes and the check succeeds.
+{% data variables.product.prodname_code_scanning %} 결과 확인에서 심각도가 `error`, `critical` 또는 `high`인 문제가 있으면 확인이 실패하고 확인 결과에 오류가 보고됩니다. {% data variables.product.prodname_code_scanning %}에서 찾은 모든 결과의 심각도가 낮으면 경고가 경고 또는 참고로 처리되고 확인이 성공합니다.
 
-![Failed {% data variables.product.prodname_code_scanning %} check on a pull request](/assets/images/help/repository/code-scanning-check-failure.png)
+![끌어오기 요청에 대한 {% data variables.product.prodname_code_scanning %} 확인 실패](/assets/images/help/repository/code-scanning-check-failure.png)
 
-You can override the default behavior in your repository settings, by specifying the level of severities and security severities that will cause a pull request check failure. For more information, see "[Defining the severities causing pull request check failure](/code-security/secure-coding/configuring-code-scanning#defining-the-severities-causing-pull-request-check-failure)".
+끌어오기 요청 확인 실패를 유발하는 심각도 및 보안 심각도 수준을 지정하여 리포지토리 설정의 기본 동작을 재정의할 수 있습니다. 자세한 내용은 "[끌어오기 요청 확인이 실패하는 심각도 정의](/code-security/secure-coding/configuring-code-scanning#defining-the-severities-causing-pull-request-check-failure)"를 참조하세요.
 
-### Other {% data variables.product.prodname_code_scanning %} checks
+### 기타 {% data variables.product.prodname_code_scanning %} 확인
 
-Depending on your configuration, you may see additional checks running on pull requests with {% data variables.product.prodname_code_scanning %} configured. These are usually workflows that analyze the code or that upload {% data variables.product.prodname_code_scanning %} results. These checks are useful for troubleshooting when there are problems with the analysis. 
+구성에 따라 {% data variables.product.prodname_code_scanning %}이 구성된 끌어오기 요청에서 실행되는 추가 확인을 볼 수 있습니다. 이러한 확인은 일반적으로 코드를 분석하거나 {% data variables.product.prodname_code_scanning %} 결과를 업로드하는 워크플로입니다. 이러한 확인은 분석 관련 문제가 있을 때 해당 문제를 해결하는 데 유용합니다. 
 
-For example, if the repository uses the {% data variables.code-scanning.codeql_workflow %} a **{% data variables.product.prodname_codeql %} / Analyze (LANGUAGE)** check is run for each language before the results check runs. The analysis check may fail if there are configuration problems, or if the pull request breaks the build for a language that the analysis needs to compile (for example, C/C++, C#, or Java). 
+예를 들어 리포지토리에서 {% data variables.code-scanning.codeql_workflow %}를 사용하는 경우 결과 검사가 실행되기 전에 각 언어에 **대해 {% data variables.product.prodname_codeql %} / 분석(LANGUAGE)** 검사가 실행됩니다. 구성 문제가 있거나 끌어오기 요청에서 분석을 컴파일해야 하는 언어(예: C/C++, C# 또는 Java)에 대한 빌드를 중단하는 경우 분석 확인이 실패할 수 있습니다. 
 
-As with other pull request checks, you can see full details of the check failure on the **Checks** tab. For more information about configuring and troubleshooting, see "[Configuring {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/configuring-code-scanning)" or "[Troubleshooting the {% data variables.product.prodname_codeql %} workflow](/code-security/secure-coding/troubleshooting-the-codeql-workflow)."
+다른 끌어오기 요청 확인과 마찬가지로 **확인** 탭에서 확인 실패에 대한 전체 세부 정보를 볼 수 있습니다. 구성 및 문제 해결에 대한 자세한 내용은 "[{% data variables.product.prodname_code_scanning %} 구성](/code-security/secure-coding/configuring-code-scanning)" 또는 "[{% data variables.product.prodname_codeql %} 워크플로 문제 해결](/code-security/secure-coding/troubleshooting-the-codeql-workflow)"을 참조하세요.
 
-## Viewing an alert on your pull request
+## 끌어오기 요청에 대한 경고 보기
 
-{% ifversion code-scanning-pr-conversations-tab %}
-You can see any {% data variables.product.prodname_code_scanning %} alerts introduced in a pull request by viewing the **Conversation** tab. {% data variables.product.prodname_code_scanning_capc %} posts a pull request review that shows each alert as an annotation on the lines of code that triggered the alert. You can comment on the alerts, dismiss the alerts, and view paths for the alerts, directly from the annotations. You can view the full details of an alert by clicking the "Show more details" link, which will take you to the alert details page.
+{% ifversion code-scanning-pr-conversations-tab %} **대화** 탭을 보면 끌어오기 요청에 도입된 {% data variables.product.prodname_code_scanning %} 경고를 확인할 수 있습니다. {% data variables.product.prodname_code_scanning_capc %}은 각 경고를 경고가 트리거된 코드 줄에 주석으로 표시하는 끌어오기 요청 검토를 게시합니다. 주석에서 직접 경고에 대해 주석을 달고, 경고를 해제하고, 경고의 경로를 볼 수 있습니다. "자세한 정보 표시" 링크를 클릭하여 경고 세부 정보 페이지로 이동하면 경고의 전체 세부 정보를 볼 수 있습니다.
 
-![Alert annotation within a pull request Conversations tab](/assets/images/help/repository/code-scanning-pr-conversation-tab.png)
+![끌어오기 요청 대화 탭 내의 경고 주석](/assets/images/help/repository/code-scanning-pr-conversation-tab.png)
 
-You can also view all {% data variables.product.prodname_code_scanning %} alerts in the **Files changed** tab of the pull request. Existing {% data variables.product.prodname_code_scanning %} alerts on a file that are outside the diff of the changes introduced in the pull request will only appear in the **Files changed** tab.
+끌어오기 요청의 **변경된 파일** 탭에서 모든 {% data variables.product.prodname_code_scanning %} 경고를 볼 수도 있습니다. 끌어오기 요청에 도입된 변경 내용의 차이를 벗어나는 파일에 대한 기존 {% data variables.product.prodname_code_scanning %} 경고는 **변경된 파일** 탭에만 표시됩니다.
 
-{% else %} 
-You can see any {% data variables.product.prodname_code_scanning %} alerts introduced in a pull request by displaying the **Files changed** tab. Each alert is shown as an annotation on the lines of code that triggered the alert. The severity of the alert is displayed in the annotation. 
+{% else %} **변경된 파일** 탭을 표시하여 끌어오기 요청에 도입된 {% data variables.product.prodname_code_scanning %} 경고를 볼 수 있습니다. 각 경고는 해당 경고를 트리거한 코드 줄에 주석으로 표시됩니다. 경고의 심각도는 주석에 표시됩니다. 
 
-![Alert annotation within a pull request diff](/assets/images/help/repository/code-scanning-pr-annotation.png)
-{% endif %}
+![끌어오기 요청 차이 내의 경고 주석](/assets/images/help/repository/code-scanning-pr-annotation.png) {% endif %}
 
-If you have write permission for the repository, some annotations contain links with extra context for the alert. In the example above, from {% data variables.product.prodname_codeql %} analysis, you can click **user-provided value** to see where the untrusted data enters the data flow (this is referred to as the source). In this case you can also view the full path from the source to the code that uses the data (the sink) by clicking **Show paths**. This makes it easy to check whether the data is untrusted or if the analysis failed to recognize a data sanitization step between the source and the sink. For information about analyzing data flow using {% data variables.product.prodname_codeql %}, see "[About data flow analysis](https://codeql.github.com/docs/writing-codeql-queries/about-data-flow-analysis/)."
+리포지토리에 대한 쓰기 권한이 있는 경우 일부 주석에는 경고에 대한 추가 컨텍스트가 있는 링크가 포함됩니다. 위 예제의 {% data variables.product.prodname_codeql %} 분석에서 **user-provided value**(사용자 제공 값)를 클릭하여 신뢰할 수 없는 데이터가 데이터 흐름에 들어가는 위치(이를 원본이라고 함)를 확인할 수 있습니다. 이 경우 **경로 표시** 를 클릭하여 원본에서 데이터를 사용하는 코드(싱크)까지의 전체 경로를 볼 수도 있습니다. 이렇게 하면 데이터를 신뢰할 수 없는지 또는 분석에서 원본과 싱크 간의 데이터 삭제 단계를 인식하지 못했는지를 쉽게 확인할 수 있습니다. {% data variables.product.prodname_codeql %}을 사용하여 데이터 흐름을 분석하는 방법에 대한 자세한 내용은 "[데이터 흐름 분석 정보](https://codeql.github.com/docs/writing-codeql-queries/about-data-flow-analysis/)"를 참조하세요.
 
-To see more information about an alert, users with write permission can click the **Show more details** link shown in the annotation. This allows you to see all of the context and metadata provided by the tool in an alert view. In the example below, you can see tags showing the severity, type, and relevant common weakness enumerations (CWEs) for the problem. The view also shows which commit introduced the problem.
+경고에 대한 자세한 내용을 보려면 쓰기 권한이 있는 사용자가 주석에 표시된 **자세히** 링크를 클릭할 수 있습니다. 이렇게 하면 경고 보기에서 도구가 제공하는 모든 컨텍스트 및 메타데이터를 볼 수 있습니다. 아래 예제에서는 문제에 대한 심각도, 형식 및 관련 CWE(Common Weakness Enumeration)를 보여 주는 태그를 볼 수 있습니다. 또한 보기에서는 문제가 발생한 커밋을 보여 줍니다.
 
-{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
-{% data reusables.code-scanning.alert-default-branch %}
-{% endif %}
+{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %} {% data reusables.code-scanning.alert-default-branch %} {% endif %}
 
-In the detailed view for an alert, some {% data variables.product.prodname_code_scanning %} tools, like {% data variables.product.prodname_codeql %} analysis, also include a description of the problem and a **Show more** link for guidance on how to fix your code.
+경고에 대한 자세한 보기에서 {% data variables.product.prodname_codeql %} 분석과 같은 일부 {% data variables.product.prodname_code_scanning %} 도구에는 문제에 대한 설명 및 **자세히 표시** 코드를 수정하는 방법의 지침에 대한 링크도 포함되어 있습니다.
 
-{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
-![Alert description and link to show more information](/assets/images/help/repository/code-scanning-pr-alert.png)
-{% else %}
-![Alert description and link to show more information](/assets/images/enterprise/3.4/repository/code-scanning-pr-alert.png)
-{% endif %}
+{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %} ![ 경고 설명 및 링크 - 추가 정보](/assets/images/help/repository/code-scanning-pr-alert.png) 표시 {% else %} ![경고 설명 및 추가 정보](/assets/images/enterprise/3.4/repository/code-scanning-pr-alert.png) 표시 링크 {% endif %}
 
 {% ifversion code-scanning-pr-conversations-tab %}
-## Commenting on an alert in a pull request
+## 끌어오기 요청에서 경고에 대한 주석 처리
 
-You can comment on any {% data variables.product.prodname_code_scanning %} alert introduced by the changes in a pull request. Alerts appear as annotations in the **Conversation** tab of a pull request, as part of a  pull request review, and also are shown in the **Files changed** tab. You can only comment on alerts introduced by the changes in a pull request. Existing {% data variables.product.prodname_code_scanning %} alerts, on files that are outside the changes introduced in the pull request, will appear in the **Files changed** tab but cannot be commented on.
+끌어오기 요청의 변경 내용에 의해 도입된 {% data variables.product.prodname_code_scanning %} 경고에 대해 주석을 달 수 있습니다. 경고는 끌어오기 요청 검토의 일부로 끌어오기 요청의 **대화** 탭에 주석으로 표시되며 **변경된 파일** 탭에도 표시됩니다. 끌어오기 요청의 변경 내용에 의해 도입된 경고에 대해서만 주석을 달 수 있습니다. 끌어오기 요청에 도입된 변경 내용을 벗어나는 파일에 대한 기존 {% data variables.product.prodname_code_scanning %} 경고는 **변경된 파일** 탭에 표시되지만 주석을 달 수는 없습니다.
 
-You can choose to require all conversations in a pull request, including those on {% data variables.product.prodname_code_scanning %} alerts, to be resolved before a pull request can be merged. For more information, see "[About protected branches](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#require-conversation-resolution-before-merging)."
+끌어오기 요청을 병합하기 전에 {% data variables.product.prodname_code_scanning %} 경고에 대한 대화를 포함하여 끌어오기 요청의 모든 대화를 확인하도록 선택할 수 있습니다. 자세한 내용은 “[보호된 분기 정보](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#require-conversation-resolution-before-merging)”를 참조하세요.
 {% endif %}
-## Fixing an alert on your pull request
+## 끌어오기 요청에 대한 경고 수정
 
-Anyone with push access to a pull request can fix a {% data variables.product.prodname_code_scanning %} alert that's identified on that pull request. If you commit changes to the pull request this triggers a new run of the pull request checks. If your changes fix the problem, the alert is closed and the annotation removed.
+끌어오기 요청에 대한 푸시 액세스 권한이 있는 사용자는 해당 끌어오기 요청에서 식별된 {% data variables.product.prodname_code_scanning %} 경고를 수정할 수 있습니다. 끌어오기 요청에 대한 변경 내용을 커밋하면 끌어오기 요청 확인의 새 실행이 트리거됩니다. 변경 내용으로 문제가 해결되면 경고가 종료되고 주석이 제거됩니다.
 
-## Dismissing an alert on your pull request
+## 끌어오기 요청에 대한 경고 해제
 
-An alternative way of closing an alert is to dismiss it. You can dismiss an alert if you don't think it needs to be fixed. {% data reusables.code-scanning.close-alert-examples %} If you have write permission for the repository, the **Dismiss** button is available in code annotations and in the alerts summary. When you click **Dismiss** you will be prompted to choose a reason for closing the alert.
-{% ifversion comment-dismissed-code-scanning-alert %}
-![Screenshot of code scanning alert with dropdown to choose dismissal reason emphasized](/assets/images/help/repository/code-scanning-alert-dropdown-reason.png)
-{% else %}
-![Choosing a reason for dismissing an alert](/assets/images/help/repository/code-scanning-alert-close-drop-down.png)
-{% endif %}
-{% data reusables.code-scanning.choose-alert-dismissal-reason %}
+경고를 종료하는 다른 방법은 경고를 해제하는 것입니다. 수정할 필요가 없다고 생각되면 경고를 해제할 수 있습니다. {% data reusables.code-scanning.close-alert-examples %} 리포지토리에 대한 쓰기 권한이 있는 경우 코드 주석 및 경고 요약에서 **해제** 단추를 사용할 수 있습니다. **해제** 를 클릭하면 경고를 종료하는 이유를 선택하라는 메시지가 표시됩니다.
+{% ifversion comment-dismissed-code-scanning-alert %} ![해제 이유를 선택하기 위한 드롭다운이 강조 표시된 코드 검사 경고의 스크린샷](/assets/images/help/repository/code-scanning-alert-dropdown-reason.png) {% else %} ![경고를 해제하는 이유 선택](/assets/images/help/repository/code-scanning-alert-close-drop-down.png) {% endif %} {% data reusables.code-scanning.choose-alert-dismissal-reason %}
 
 {% data reusables.code-scanning.false-positive-fix-codeql %}
 
-For more information about dismissing alerts, see {% ifversion delete-code-scanning-alerts %}"[Managing {% data variables.product.prodname_code_scanning %} alerts for your repository](/code-security/secure-coding/managing-code-scanning-alerts-for-your-repository#dismissing-or-deleting-alerts)."{% else %} "[Managing {% data variables.product.prodname_code_scanning %} alerts for your repository](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository#dismissing--alerts)."{% endif %}
+경고를 해제하는 방법에 대한 자세한 내용은 {% ifversion delete-code-scanning-alerts %}"[리포지토리에 대한 {% data variables.product.prodname_code_scanning %} 경고 관리](/code-security/secure-coding/managing-code-scanning-alerts-for-your-repository#dismissing-or-deleting-alerts)"를 참조하세요.{% else %} " [리포지토리에 대한 {% data variables.product.prodname_code_scanning %} 경고 관리](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository#dismissing--alerts)"를 참조하세요.{% endif %}

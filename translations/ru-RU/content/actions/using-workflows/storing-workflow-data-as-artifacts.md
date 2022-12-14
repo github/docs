@@ -1,7 +1,7 @@
 ---
-title: Storing workflow data as artifacts
+title: Хранение данных рабочего процесса в виде артефактов
 shortTitle: Store artifacts
-intro: Artifacts allow you to share data between jobs in a workflow and store data once that workflow has completed.
+intro: С помощью артефактов можно обмениваться данными между заданиями в рабочем процессе и хранить данные после завершения рабочего процесса.
 redirect_from:
   - /articles/persisting-workflow-data-using-artifacts
   - /github/automating-your-workflow-with-github-actions/persisting-workflow-data-using-artifacts
@@ -17,64 +17,68 @@ versions:
 type: tutorial
 topics:
   - Workflows
+ms.openlocfilehash: 0dcd8230e0e387570110fb9c3a4d2ef659ef76d0
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148093580'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+## Сведения об артефактах рабочего процесса
 
-## About workflow artifacts
+Артефакты служат для сохранения данных после завершения задания и совместного использования этих данные в других заданиях в том же рабочем процессе. Артефакт представляет собой файл или коллекцию файлов, которые создаются во время выполнения рабочего процесса. Например, с помощью артефактов можно сохранить выходные данные сборки и тестирования после завершения выполнения рабочего процесса. {% data reusables.actions.reusable-workflow-artifacts %}
 
-Artifacts allow you to persist data after a job has completed, and share that data with another job in the same workflow. An artifact is a file or collection of files produced during a workflow run. For example, you can use artifacts to save your build and test output after a workflow run has ended. {% data reusables.actions.reusable-workflow-artifacts %}
+{% data reusables.actions.artifact-log-retention-statement %} Отсчет периода хранения запроса на вытягивание начинается заново каждый раз, когда в него отправляется новая фиксация.
 
-{% data reusables.actions.artifact-log-retention-statement %} The retention period for a pull request restarts each time someone pushes a new commit to the pull request.
+Ниже перечислены некоторые распространенные артефакты, которые можно отправлять:
 
-These are some of the common artifacts that you can upload:
-
-- Log files and core dumps
-- Test results, failures, and screenshots
-- Binary or compressed files
-- Stress test performance output and code coverage results
+- Файлы журналов и дампы ядра.
+- Результаты тестов, сведения о сбоях и снимки экрана.
+- Двоичные или сжатые файлы.
+- Выходные показатели нагрузочных тестов и объема протестированного кода.
 
 {% ifversion fpt or ghec %}
 
-Storing artifacts uses storage space on {% data variables.product.product_name %}. {% data reusables.actions.actions-billing %} For more information, see "[Managing billing for {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions)."
+Для хранения артефактов используется пространство хранилища {% data variables.product.product_name %}. {% data reusables.actions.actions-billing %} Дополнительные сведения см. в разделе [Управление выставлением счетов для {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions).
 
 {% else %}
 
-Artifacts consume storage space on the external blob storage that is configured for {% data variables.product.prodname_actions %} on {% data variables.location.product_location %}.
+Артефакты используют дисковое пространство во внешнем хранилище BLOB-объектов, настроенном для {% данных variables.product.prodname_actions %} на {% данных variables.location.product_location %}.
 
 {% endif %}
 
-Artifacts are uploaded during a workflow run, and you can view an artifact's name and size in the UI. When an artifact is downloaded using the {% data variables.product.product_name %} UI, all files that were individually uploaded as part of the artifact get zipped together into a single file. This means that billing is calculated based on the size of the uploaded artifact and not the size of the zip file.
+Артефакты отправляются во время выполнения рабочего процесса. При этом вы можете просмотреть имя и размер артефакта в пользовательском интерфейсе. При скачивании артефакта с помощью пользовательского интерфейса {% data variables.product.product_name %} все отдельные файлы, которые были отправлены в составе артефакта, упаковываются в один файл. Это означает, что счета выставляются на основе размера отправленного артефакта, а не ZIP-файла.
 
-{% data variables.product.product_name %} provides two actions that you can use to upload and download build artifacts. For more information, see the {% ifversion fpt or ghec %}[actions/upload-artifact](https://github.com/actions/upload-artifact) and [download-artifact](https://github.com/actions/download-artifact) actions{% else %} `actions/upload-artifact` and `download-artifact` actions on {% data variables.location.product_location %}{% endif %}.
+Для отправки и скачивания артефактов сборки {% data variables.product.product_name %} предоставляет два действия. Дополнительные сведения см. в разделе {% ifversion fpt или ghec %}[actions/upload-artifact и download-artifact actions](https://github.com/actions/upload-artifact){% else %} [](https://github.com/actions/download-artifact) `actions/upload-artifact` и `download-artifact` actions on {% data variables.location.product_location %}{% endif %}.
 
-To share data between jobs:
+Совместное использование данных между заданиями:
 
-* **Uploading files**: Give the uploaded file a name and upload the data before the job ends.
-* **Downloading files**: You can only download artifacts that were uploaded during the same workflow run. When you download a file, you can reference it by name.
+* **Отправка файлов**. Присвойте отправляемому файлу имя и отправьте данные до завершения задания.
+* **Скачивание файлов**. Скачивать можно только те артефакты, которые были отправлены во время выполнения того же рабочего процесса. При скачивании файла можно задавать ссылку на него по имени.
 
-The steps of a job share the same environment on the runner machine, but run in their own individual processes. To pass data between steps in a job, you can use inputs and outputs. For more information about inputs and outputs, see "[Metadata syntax for {% data variables.product.prodname_actions %}](/articles/metadata-syntax-for-github-actions)."
+Шаги задания размещаются в общей среде на компьютере средства выполнения, но выполняются в отдельных процессах. Для передачи данных между шагами задания можно использовать входные и выходные данные. Дополнительные сведения о входных и выходных данных см. в разделе [Синтаксис метаданных для {% data variables.product.prodname_actions %}](/articles/metadata-syntax-for-github-actions).
 
 {% ifversion actions-caching %}
 
 {% data reusables.actions.comparing-artifacts-caching %}
 
-For more information on dependency caching, see "[Caching dependencies to speed up workflows](/actions/using-workflows/caching-dependencies-to-speed-up-workflows#comparing-artifacts-and-dependency-caching)."
+Дополнительные сведения см. в разделе [Кэширование зависимостей для ускорения рабочих процессов](/actions/using-workflows/caching-dependencies-to-speed-up-workflows#comparing-artifacts-and-dependency-caching).
 
 {% endif %}
 
-## Uploading build and test artifacts
+## Отправка артефактов сборки и тестирования
 
-You can create a continuous integration (CI) workflow to build and test your code. For more information about using {% data variables.product.prodname_actions %} to perform CI, see "[About continuous integration](/articles/about-continuous-integration)."
+Вы можете создать рабочий процесс непрерывной интеграции для сборки и тестирования кода. Дополнительные сведения о выполнении непрерывной интеграции с помощью {% data variables.product.prodname_actions %} см. в разделе [Сведения о непрерывной интеграции](/articles/about-continuous-integration).
 
-The output of building and testing your code often produces files you can use to debug test failures and production code that you can deploy. You can configure a workflow to build and test the code pushed to your repository and report a success or failure status. You can upload the build and test output to use for deployments, debugging failed tests or crashes, and viewing test suite coverage.
+Выходные данные сборки и тестирования кода часто содержат файлы, которые можно использовать для отладки сбоев тестов и рабочего кода, который можно развернуть. Вы можете настроить рабочий процесс для сборки и тестирования отправляемого в репозиторий кода, а также получения отчетов об успешном или неудачном выполнении. Вы можете отправить выходные данные сборки и тестирования для развертывания, отладки неудачно завершенных тестов или сбоев, а также для просмотра охвата набора тестов.
 
-You can use the `upload-artifact` action to upload artifacts. When uploading an artifact, you can specify a single file or directory, or multiple files or directories. You can also exclude certain files or directories, and use wildcard patterns. We recommend that you provide a name for an artifact, but if no name is provided then `artifact` will be used as the default name. For more information on syntax, see the {% ifversion fpt or ghec %}[actions/upload-artifact](https://github.com/actions/upload-artifact) action{% else %} `actions/upload-artifact` action on {% data variables.location.product_location %}{% endif %}.
+Для отправки артефактов можно использовать действие `upload-artifact`. При отправке артефакта можно указать любое количество файлов или каталогов. Также можно исключить конкретные файлы или каталоги и использовать шаблоны с подстановочными знаками. Рекомендуется указать имя артефакта. Если это не сделать, по умолчанию будет использоваться имя `artifact`. Дополнительные сведения о синтаксисе см. в действии {% ifversion fpt или ghec %}[actions/upload-artifact](https://github.com/actions/upload-artifact) {% else %} `actions/upload-artifact` для {% данных variables.location.product_location %}{% endif %}.
 
-### Example
+### Пример
 
-For example, your repository or a web application might contain SASS and TypeScript files that you must convert to CSS and JavaScript. Assuming your build configuration outputs the compiled files in the `dist` directory, you would deploy the files in the `dist` directory to your web application server if all tests completed successfully.
+Например, репозиторий или веб-приложение может содержать файлы SASS и TypeScript, которые необходимо преобразовать в CSS и JavaScript. Если в соответствии с конфигурацией сборки скомпилированные файлы записываются в каталог `dist`, в случае успешного завершения всех тестов файлы будут развернуты в каталоге `dist` на сервере веб-приложений.
 
 ```
 |-- hello-world (repository)
@@ -88,9 +92,9 @@ For example, your repository or a web application might contain SASS and TypeScr
 |   
 ```
 
-This example shows you how to create a workflow for a Node.js project that builds the code in the `src` directory and runs the tests in the `tests` directory. You can assume that running `npm test` produces a code coverage report named `code-coverage.html` stored in the `output/test/` directory.
+В этом примере показано, как создать для проекта Node.js рабочий процесс, который создает код в каталоге `src` и выполняет тесты в каталоге `tests`. Можно предположить, что при выполнении `npm test` в каталоге `output/test/` будет создан отчет об объеме протестированного кода с именем `code-coverage.html`.
 
-The workflow uploads the production artifacts in the `dist` directory, but excludes any markdown files. It also uploads the `code-coverage.html` report as another artifact.
+Рабочий процесс отправляет рабочие артефакты в каталог `dist`, исключая при этом все файлы Markdown. Также в виде другого артефакта отправляется отчет `code-coverage.html`.
 
 ```yaml{:copy}
 name: Node CI
@@ -122,9 +126,9 @@ jobs:
           path: output/test/code-coverage.html
 ```
 
-## Configuring a custom artifact retention period
+## Настройка пользовательского периода хранения артефакта
 
-You can define a custom retention period for individual artifacts created by a workflow. When using a workflow to create a new artifact, you can use `retention-days` with the `upload-artifact` action. This example demonstrates how to set a custom retention period of 5 days for the artifact named `my-artifact`:
+Вы можете определить пользовательский период хранения для отдельных артефактов, создаваемых рабочим процессом. При создании нового артефакта в рамках рабочего процесса можно использовать значение `retention-days` с действием `upload-artifact`. В этом примере показано, как установить 5-дневный пользовательский период хранения для артефакта с именем `my-artifact`:
 
 ```yaml{:copy}
   - name: 'Upload Artifact'
@@ -135,25 +139,25 @@ You can define a custom retention period for individual artifacts created by a w
       retention-days: 5
 ```
 
-The `retention-days` value cannot exceed the retention limit set by the repository, organization, or enterprise.
+Значение `retention-days` не может превышать установленное для репозитория, организации или предприятия ограничение на продолжительность хранения.
 
-## Downloading or deleting artifacts
+## Скачивание или удаление артефактов
 
-During a workflow run, you can use the [`download-artifact`](https://github.com/actions/download-artifact) action to download artifacts that were previously uploaded in the same workflow run.
+С помощью действия [`download-artifact`](https://github.com/actions/download-artifact) во время выполнения рабочего процесса можно скачивать артефакты, которые ранее были отправлены в том же рабочем процессе.
 
-After a workflow run has been completed, you can download or delete artifacts on {% data variables.product.prodname_dotcom %} or using the REST API. For more information, see "[Downloading workflow artifacts](/actions/managing-workflow-runs/downloading-workflow-artifacts)," "[Removing workflow artifacts](/actions/managing-workflow-runs/removing-workflow-artifacts)," and the "[Artifacts REST API](/rest/reference/actions#artifacts)."
+После завершения выполнения рабочего процесса можно скачать или удалить артефакты на {% data variables.product.prodname_dotcom %} или с помощью REST API. Дополнительные сведения см. в разделах [Скачивание артефактов рабочего процесса](/actions/managing-workflow-runs/downloading-workflow-artifacts), [Удаление артефактов рабочего процесса](/actions/managing-workflow-runs/removing-workflow-artifacts) и [REST API артефактов](/rest/reference/actions#artifacts).
 
-### Downloading artifacts during a workflow run
+### Скачивание артефактов во время выполнения рабочего процесса
 
-The [`actions/download-artifact`](https://github.com/actions/download-artifact) action can be used to download previously uploaded artifacts during a workflow run.
+С помощью действия [`actions/download-artifact`](https://github.com/actions/download-artifact) во время выполнения рабочего процесса можно скачать ранее отправленные артефакты.
 
 {% note %}
 
-**Note:** You can only download artifacts in a workflow that were uploaded during the same workflow run.
+**Примечание**. Скачивать можно только те артефакты, которые были отправлены во время выполнения того же рабочего процесса.
 
 {% endnote %}
 
-Specify an artifact's name to download an individual artifact. If you uploaded an artifact without specifying a name, the default name is `artifact`.
+Чтобы скачать отдельный артефакт, укажите его имя. Если не указать имя артефакта при скачивании, по умолчанию будет использоваться имя `artifact`.
 
 ```yaml
 - name: Download a single artifact
@@ -162,37 +166,37 @@ Specify an artifact's name to download an individual artifact. If you uploaded a
     name: my-artifact
 ```
 
-You can also download all artifacts in a workflow run by not specifying a name. This can be useful if you are working with lots of artifacts.
+Также во время выполнения рабочего процесса можно скачать все артефакты, не указывая имя. Это удобно при работе с большим количеством артефактов.
 
 ```yaml
 - name: Download all workflow run artifacts
   uses: {% data reusables.actions.action-download-artifact %}
 ```
 
-If you download all workflow run's artifacts, a directory for each artifact is created using its name.
+При скачивании всех артефактов во время выполнения рабочего процесса для каждого артефакта создается каталог с его именем.
 
-For more information on syntax, see the {% ifversion fpt or ghec %}[actions/download-artifact](https://github.com/actions/download-artifact) action{% else %} `actions/download-artifact` action on {% data variables.location.product_location %}{% endif %}.
+Дополнительные сведения о синтаксисе см. в действии {% ifversion fpt или ghec %}[actions/download-artifact](https://github.com/actions/download-artifact) {% else %} `actions/download-artifact` для {% данных variables.location.product_location %}{% endif %}.
 
-## Passing data between jobs in a workflow
+## Передача данных между заданиями в рабочем процессе
 
-You can use the `upload-artifact` and `download-artifact` actions to share data between jobs in a workflow. This example workflow illustrates how to pass data between jobs in the same workflow. For more information, see the {% ifversion fpt or ghec %}[actions/upload-artifact](https://github.com/actions/upload-artifact) and [download-artifact](https://github.com/actions/download-artifact) actions{% else %} `actions/upload-artifact` and `download-artifact` actions on {% data variables.location.product_location %}{% endif %}.
+Действия `upload-artifact` и `download-artifact` позволяют совместно использовать данные между заданиями в рабочем процессе. В этом примере рабочего процесса показано, как передавать данные между заданиями в одном рабочем процессе. Дополнительные сведения см. в разделе {% ifversion fpt или ghec %}[actions/upload-artifact и download-artifact actions](https://github.com/actions/upload-artifact){% else %} [](https://github.com/actions/download-artifact) `actions/upload-artifact` и `download-artifact` actions on {% data variables.location.product_location %}{% endif %}.
 
-Jobs that are dependent on a previous job's artifacts must wait for the dependent job to complete successfully. This workflow uses the `needs` keyword to ensure that `job_1`, `job_2`, and `job_3` run sequentially. For example, `job_2` requires `job_1` using the `needs: job_1` syntax.
+Задания, зависящие от артефактов предыдущего задания, должны дожидаться его успешного завершения. В этом рабочем процессе используется ключевое слово `needs`, чтобы обеспечить последовательное выполнение заданий `job_1`, `job_2` и `job_3`. Например, требование использовать задание `job_1` в задании `job_2`, задается с помощью синтаксиса `needs: job_1`.
 
-Job 1 performs these steps:
-- Performs a math calculation and saves the result to a text file called `math-homework.txt`.
-- Uses the `upload-artifact` action to upload the `math-homework.txt` file with the artifact name `homework`.
+Задание 1 выполняет следующие действия:
+- Выполняет математические вычисления и сохраняет результат в текстовый файл с именем `math-homework.txt`.
+- С помощью действия `upload-artifact` отправляет файл `math-homework.txt` с именем артефакта `homework`.
 
-Job 2 uses the result in the previous job:
-- Downloads the `homework` artifact uploaded in the previous job. By default, the `download-artifact` action downloads artifacts to the workspace directory that the step is executing in. You can use the `path` input parameter to specify a different download directory.
-- Reads the value in the `math-homework.txt` file, performs a math calculation, and saves the result to `math-homework.txt` again, overwriting its contents.
-- Uploads the `math-homework.txt` file. This upload overwrites the previously uploaded artifact because they share the same name.
+Используя результаты предыдущего задания, задание 2 выполняет следующие действия:
+- Скачивает артефакт `homework`, отправленный в предыдущем задании. По умолчанию действие `download-artifact` скачивает артефакты в каталог рабочей области, где выполняется шаг. С помощью входного параметра `path` можно указать другой каталог для скачивания.
+- Считывает значение в файле `math-homework.txt`, выполняет математические вычисления и снова сохраняет результат в файл `math-homework.txt`, перезаписывая его содержимое.
+- Отправляет файл `math-homework.txt`. При этом ранее отправленный артефакт с тем же именем перезаписывается.
 
-Job 3 displays the result uploaded in the previous job:
-- Downloads the `homework` artifact.
-- Prints the result of the math equation to the log.
+Задание 3 отображает отправленный в предыдущем задании результат, выполняя следующие действия:
+- Скачивает артефакт `homework`.
+- Выводит результат вычисления в журнал.
 
-The full math operation performed in this workflow example is `(3 + 7) x 9 = 90`.
+В этом примере рабочего процесса вычисляется выражение `(3 + 7) x 9 = 90`.
 
 ```yaml{:copy}
 name: Share data between jobs
@@ -248,13 +252,13 @@ jobs:
           echo The result is $value
 ```
 
-The workflow run will archive any artifacts that it generated. For more information on downloading archived artifacts, see "[Downloading workflow artifacts](/actions/managing-workflow-runs/downloading-workflow-artifacts)."
-![Workflow that passes data between jobs to perform math](/assets/images/help/repository/passing-data-between-jobs-in-a-workflow-updated.png)
+При выполнении рабочего процесса архивируются все создаваемые им артефакты. Дополнительные сведения о скачивании архивных артефактов см. в разделе [Скачивание артефактов рабочего процесса](/actions/managing-workflow-runs/downloading-workflow-artifacts).
+![Рабочий процесс, в котором данные передаются между заданиями для выполнения математических вычислений](/assets/images/help/repository/passing-data-between-jobs-in-a-workflow-updated.png)
 
 {% ifversion fpt or ghec %}
 
-## Further reading
+## Дополнительные материалы
 
-- "[Managing billing for {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions)".
+- [Управление выставлением счетов для {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions).
 
 {% endif %}

@@ -1,6 +1,6 @@
 ---
-title: Notifications
-intro: 'The Notifications API lets you manage {% data variables.product.product_name %} notifications.'
+title: Уведомления
+intro: 'API уведомлений позволяет управлять уведомлениями {% data variables.product.product_name %}.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -9,19 +9,24 @@ versions:
 topics:
   - API
 miniTocMaxHeadingLevel: 3
+ms.openlocfilehash: 6459a2a2e5d26b0250d52688488eb4092939ab7b
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148098972'
 ---
+## Сведения об API уведомлений
 
-## About the Notifications API
+{% данных, многократно используемых.user-settings.notifications-api-classic-pat-only %}
 
-{% data reusables.user-settings.notifications-api-classic-pat-only %}
+API уведомлений позволяет управлять уведомлениями {% data variables.product.product_name %}. Дополнительные сведения об уведомлениях см. в статье [Сведения об уведомлениях](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/about-notifications).
 
-The Notifications API lets you manage {% data variables.product.product_name %} notifications. For more information about notifications, see "[About notifications](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/about-notifications)."
+Для всех вызовов API уведомлений требуется область API: `notifications` или `repo`.  Это позволит получить доступ только для чтения к некоторым проблемам и зафиксировать содержимое. Вам по-прежнему потребуется область `repo` для доступа к проблемам и фиксациям из соответствующих конечных точек.
 
-All Notification API calls require the `notifications` or `repo` API scopes.  Doing this will give read-only access to some issue and commit content. You will still need the `repo` scope to access issues and commits from their respective endpoints.
+Уведомления возвращаются как "потоки".  Поток содержит сведения о текущем обсуждении проблемы, запроса на вытягивание или фиксации.
 
-Notifications come back as "threads".  A thread contains information about the current discussion of an issue, pull request, or commit.
-
-Notifications are optimized for polling with the `Last-Modified` header.  If there are no new notifications, you will see a `304 Not Modified` response, leaving your current rate limit untouched.  There is an `X-Poll-Interval` header that specifies how often (in seconds) you are allowed to poll.  In times of high server load, the time may increase.  Please obey the header.
+Уведомления оптимизированы для опроса с заголовком `Last-Modified`.  Если новых уведомлений нет, вы увидите ответ `304 Not Modified`, а текущее ограничение скорости останется неизменным.  Заголовок `X-Poll-Interval` показывает, с какой частотой (в секундах) вы можете проводить опросы.  Во время высокой нагрузки на сервер время может увеличиться.  Заголовку следует подчиняться.
 
 ``` shell
 # Add authentication to your requests
@@ -37,27 +42,27 @@ $    -H "If-Modified-Since: Thu, 25 Oct 2012 15:16:27 GMT"
 > X-Poll-Interval: 60
 ```
 
-### About notification reasons
+### Сведения о причинах уведомлений
 
-When retrieving responses from the Notifications API, each payload has a key titled `reason`. These correspond to events that trigger a notification.
+При получении ответов из API уведомлений для всех полезных данных существует ключ с заголовком `reason`. Они соответствуют событиям, которые активируют уведомление.
 
-These are the potential `reason`s for receiving a notification:
+Это потенциальные `reason` для получения уведомления:
 
-Reason Name | Description
+Название причины | Описание
 ------------|------------
-`assign` | You were assigned to the issue.
-`author` | You created the thread.
-`comment` | You commented on the thread.
-`ci_activity` | A {% data variables.product.prodname_actions %} workflow run that you triggered was completed.
-`invitation` | You accepted an invitation to contribute to the repository.
-`manual` | You subscribed to the thread (via an issue or pull request).
-`mention` | You were specifically **@mentioned** in the content.
-`review_requested` | You, or a team you're a member of, were requested to review a pull request.{% ifversion fpt or ghec %}
-`security_alert` | {% data variables.product.prodname_dotcom %} discovered a [security vulnerability](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies) in your repository.{% endif %}
-`state_change` | You changed the thread state (for example, closing an issue or merging a pull request).
-`subscribed` | You're watching the repository.
-`team_mention` | You were on a team that was mentioned.
+`assign` | Вам назначена эта проблема.
+`author` | Вы создали поток.
+`comment` | Вы оставили комментарий для потока.
+`ci_activity` | Инициированный вами рабочий процесс {% data variables.product.prodname_actions %} завершен.
+`invitation` | Вы приняли приглашение поучаствовать в репозитории.
+`manual` | Вы подписались на поток (через проблему или запрос на вытягивание).
+`mention` | Вы были конкретно **@mentioned** в содержимом.
+`review_requested` | Вам или вашей команде было предложено проверить запрос на вытягивание.{% ifversion fpt or ghec %}
+`security_alert` | {% data variables.product.prodname_dotcom %} обнаружил [уязвимость системы безопасности](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies) в репозитории.{% endif %}
+`state_change` | Вы изменили состояние потока (например, закрытие проблемы или объединение запроса на вытягивание).
+`subscribed` | Вы просматриваете репозиторий.
+`team_mention` | Вы были в упомянутой команде.
 
-Note that the `reason` is modified on a per-thread basis, and can change, if the `reason` on a later notification is different.
+Обратите внимание, что `reason` изменяется для каждого потока и может измениться, если `reason` отличается в позднем уведомлении.
 
-For example, if you are the author of an issue, subsequent notifications on that issue will have a `reason` of `author`. If you're then  **@mentioned** on the same issue, the notifications you fetch thereafter will have a `reason` of `mention`. The `reason` remains as `mention`, regardless of whether you're ever mentioned again.
+Например, если вы являетесь автором проблемы, последующие уведомления по этой проблеме будут иметь `reason` для `author`. Если вы **@mentioned** в той же проблеме, уведомления, которые вы извлекаете после этого, будут иметь `reason` для `mention`. `reason` остается как `mention`, независимо от того, упоминаетесь ли вы снова.

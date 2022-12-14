@@ -1,7 +1,7 @@
 ---
-title: Configuring OIDC for Enterprise Managed Users
+title: Configuration d’OIDC pour les utilisateurs managés par l’entreprise
 shortTitle: OIDC for managed users
-intro: 'You can automatically manage access to your enterprise account on {% data variables.product.prodname_dotcom %} by configuring OpenID Connect (OIDC) single sign-on (SSO) and enable support for your IdP''s Conditional Access Policy (CAP).'
+intro: 'Vous pouvez gérer automatiquement l’accès à votre compte d’entreprise sur {% data variables.product.prodname_dotcom %} en configurant l’authentification unique OpenID Connect (OIDC) et en activant le support de la stratégie d’accès conditionnel (CAP) de votre fournisseur d’identité.'
 product: '{% data reusables.gated-features.emus %}'
 versions:
   feature: oidc-for-emu
@@ -10,40 +10,42 @@ topics:
   - Authentication
   - Enterprise
   - SSO
+ms.openlocfilehash: caa557cb976fb60a59572e1623db6be87efeee54
+ms.sourcegitcommit: c562c85cc75ffe1eb4e9595d8adc09ec71697ab1
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/22/2022
+ms.locfileid: '148179988'
 ---
-
 {% data reusables.enterprise-accounts.azure-emu-support-oidc %}
 
-## About OIDC for Enterprise Managed Users
+## À propos d’OIDC pour les utilisateurs managés par l’entreprise
 
-With {% data variables.product.prodname_emus %}, your enterprise uses your identity provider (IdP) to authenticate all members. You can use OpenID Connect (OIDC) to manage authentication for your {% data variables.enterprise.prodname_emu_enterprise %}. Enabling OIDC SSO is a one-click setup process with certificates managed by {% data variables.product.prodname_dotcom %} and your IdP.
+Avec {% data variables.product.prodname_emus %}, votre entreprise utilise votre fournisseur d'identité (IdP) pour authentifier tous les membres. Vous pouvez utiliser OpenID Connect (OIDC) pour gérer l’authentification de votre {% data variables.enterprise.prodname_emu_enterprise %}. L’activation de l’authentification unique OIDC est un processus d’installation en un clic avec des certificats managés par {% data variables.product.prodname_dotcom %} et votre fournisseur d’identité.
 
-{% data reusables.enterprise-accounts.emu-cap-validates %} For more information, see "[About support for your IdP's Conditional Access Policy](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-support-for-your-idps-conditional-access-policy)."
+{% data reusables.enterprise-accounts.emu-cap-validates %} Pour plus d’informations, consultez « [À propos du support de la stratégie d’accès conditionnel de votre fournisseur d’identité](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-support-for-your-idps-conditional-access-policy) ».
 
-You can adjust the lifetime of a session, and how often a {% data variables.enterprise.prodname_managed_user %} needs to reauthenticate with your IdP, by changing the lifetime policy property of the ID tokens issued for {% data variables.product.prodname_dotcom %} from  your IdP. The default lifetime is one hour. For more information, see "[Configurable token lifetimes in the Microsoft identity platform](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-configurable-token-lifetimes)" in the Azure AD documentation.
+Vous pouvez ajuster la durée de vie d’une session et la fréquence à laquelle un {% data variables.enterprise.prodname_managed_user %} doit se réauthentifier avec votre IdP, en modifiant la propriété de stratégie de durée de vie des jetons d’ID émis pour {% data variables.product.prodname_dotcom %} par votre IdP. La durée de vie par défaut est d’une heure. Pour plus d’informations, consultez « [Durées de vie des jetons configurables dans le plateforme d'identités Microsoft](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-configurable-token-lifetimes) » dans la documentation Azure AD.
 
 {% data reusables.enterprise_user_management.SAML-to-OIDC-migration-for-EMU %}
 
 {% data reusables.enterprise-accounts.oidc-gei-warning %}
 
-## Identity provider support
+## Prise en charge des fournisseurs d’identité
 
-Support for OIDC is available for customers using Azure Active Directory (Azure AD). 
+Le support d’OIDC est disponible pour les clients utilisant Azure Active Directory (Azure AD). 
 
-Each Azure AD tenant can support only one OIDC integration with {% data variables.product.prodname_emus %}. If you want to connect Azure AD to more than one enterprise on {% data variables.product.prodname_dotcom %}, use SAML instead. For more information, see "[Configuring SAML single sign-on for {% data variables.product.prodname_emus %}](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-saml-single-sign-on-for-enterprise-managed-users)."
+Chaque abonné Azure AD ne peut prendre en charge qu’une seule intégration OIDC avec {% data variables.product.prodname_emus %}. Si vous souhaitez connecter Azure AD à plusieurs entreprises sur {% data variables.product.prodname_dotcom %}, utilisez SAML à la place. Pour plus d’informations, consultez « [Configuration de l’authentification unique SAML pour {% data variables.product.prodname_emus %}](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-saml-single-sign-on-for-enterprise-managed-users) ».
 
-## Configuring OIDC for Enterprise Managed Users
+## Configuration d’OIDC pour les utilisateurs managés par l’entreprise
 
-1. Sign into {% data variables.product.prodname_dotcom_the_website %} as the setup user for your new enterprise with the username **@<em>SHORT-CODE</em>_admin**.
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.security-tab %}
-1. Select **Require OIDC single sign-on**.  
-   ![Screenshot showing the "Require OIDC single sign-on" checkbox](/assets/images/help/enterprises/require-oidc.png)
-1. To continue setup and be redirected to Azure AD, click **Save**.
-{% data reusables.enterprise-accounts.emu-azure-admin-consent %}
-{% data reusables.enterprise-accounts.download-recovery-codes %}
+1. Connectez-vous à {% data variables.product.prodname_dotcom_the_website %} comme utilisateur de configuration de votre nouvelle entreprise avec le nom d’utilisateur **@<em>CODE-COURT</em>_admin**.
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.settings-tab %} {% data reusables.enterprise-accounts.security-tab %}
+1. Sélectionnez **Exiger l’authentification unique OIDC**.  
+   ![Capture d’écran montrant la case à cocher « Exiger l’authentification unique OIDC »](/assets/images/help/enterprises/require-oidc.png)
+1. Pour continuer à configurer et être redirigé vers Azure AD, cliquez sur **Enregistrer**.
+{% data reusables.enterprise-accounts.emu-azure-admin-consent %} {% data reusables.enterprise-accounts.download-recovery-codes %}
 
-## Enabling provisioning
+## Activation de l'approvisionnement
 
-After you enable OIDC SSO, enable provisioning. For more information, see "[Configuring SCIM provisioning for enterprise managed users](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/configuring-scim-provisioning-for-enterprise-managed-users)."
+Après avoir activé l’authentification unique OIDC, activez l’approvisionnement. Pour plus d’informations, consultez « [Configuration du provisionnement SCIM pour Enterprise Managed Users](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/configuring-scim-provisioning-for-enterprise-managed-users) ».

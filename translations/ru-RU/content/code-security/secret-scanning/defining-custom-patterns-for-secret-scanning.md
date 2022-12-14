@@ -1,7 +1,7 @@
 ---
-title: Defining custom patterns for secret scanning
+title: Определение пользовательских шаблонов для проверки секретов
 shortTitle: Define custom patterns
-intro: 'You can extend {% data variables.product.prodname_secret_scanning_GHAS %} to detect secrets beyond the default patterns.'
+intro: 'Вы можете расширить {% data variables.product.prodname_secret_scanning_GHAS %}, чтобы обнаруживать секреты в других форматах, кроме стандартных вариантов.'
 product: '{% data reusables.gated-features.secret-scanning %}'
 redirect_from:
   - /code-security/secret-security/defining-custom-patterns-for-secret-scanning
@@ -13,59 +13,55 @@ type: how_to
 topics:
   - Advanced Security
   - Secret scanning
+ms.openlocfilehash: 1c7594329dfdc2843e38c1c2eb7b70e32b89f11b
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148106520'
 ---
+## Описание пользовательских шаблонов для {% data variables.product.prodname_secret_scanning %}
 
+Вы можете определять пользовательские шаблоны для идентификации секретов, которые не обнаружены шаблонами по умолчанию, поддерживаемыми {% data variables.product.prodname_secret_scanning %}. Например, у вас может быть внутренний шаблон секрета для вашей организации. Сведения о поддерживаемых секретах и поставщиках услуг см. в разделе [Шаблоны {% data variables.product.prodname_secret_scanning_caps %}](/code-security/secret-scanning/secret-scanning-patterns).
 
-## About custom patterns for {% data variables.product.prodname_secret_scanning %}
+Вы можете определять пользовательские шаблоны для предприятия, организации или репозитория. {% данных variables.product.prodname_secret_scanning_caps %} поддерживает до 500 пользовательских шаблонов для каждой организации или корпоративной учетной записи и до 100 пользовательских шаблонов на каждый репозиторий.
 
-You can define custom patterns to identify secrets that are not detected by the default patterns supported by {% data variables.product.prodname_secret_scanning %}. For example, you might have a secret pattern that is internal to your organization. For details of the supported secrets and service providers, see "[{% data variables.product.prodname_secret_scanning_caps %} patterns](/code-security/secret-scanning/secret-scanning-patterns)."
+## Синтаксис регулярных выражений для пользовательских шаблонов
 
-You can define custom patterns for your enterprise, organization, or repository. {% data variables.product.prodname_secret_scanning_caps %} supports up to 500 custom patterns for each organization or enterprise account, and up to 100 custom patterns per repository.
+Пользовательские шаблоны для {% data variables.product.prodname_secret_scanning_GHAS %} можно указывать как одно или несколько регулярных выражений.
 
-## Regular expression syntax for custom patterns
+- **Формат секрета:** выражение, описывающее формат самого секрета.
+- **Перед секретом:** выражение, описывающее символы перед секретом. По умолчанию задано значение `\A|[^0-9A-Za-z]`, которое означает, что секрет должен находиться в начале строки или перед ним должна быть буква или цифра.
+- **После секрета:** выражение, описывающее символы после секрета. По умолчанию задано значение `\z|[^0-9A-Za-z]`, которое означает, что за секретом должна следовать новая строка или символ, не являющийся буквой или цифрой.
+- **Дополнительные требования соответствия:** одно или несколько необязательных выражений, которым должен или не должен соответствовать сам секрет.
 
-You can specify custom patterns for {% data variables.product.prodname_secret_scanning_GHAS %} as one or more regular expressions.
+Для простых маркеров безопасности обычно достаточно указать только формат секрета. Другие поля обеспечивают гибкость, позволяющую задавать более сложные секреты без создания сложных регулярных выражений.  Пример пользовательского шаблона см. в разделе [Пример пользовательского шаблона, заданного с использованием дополнительных требований](#example-of-a-custom-pattern-specified-using-additional-requirements) ниже.
 
-- **Secret format:** an expression that describes the format of the secret itself.
-- **Before secret:** an expression that describes the characters that come before the secret. By default, this is set to `\A|[^0-9A-Za-z]` which means that the secret must be at the start of a line or be preceded by a non-alphanumeric character.
-- **After secret:** an expression that describes the characters that come after the secret. By default, this is set to `\z|[^0-9A-Za-z]` which means that the secret must be followed by a new line or a non-alphanumeric character.
-- **Additional match requirements:** one or more optional expressions that the secret itself must or must not match.
+{% data variables.product.prodname_secret_scanning_caps %} использует [библиотеку Hyperscan](https://github.com/intel/hyperscan) и поддерживает только конструкции регулярных выражений Hyperscan, которые являются подмножеством синтаксиса PCRE. Модификаторы параметров Hyperscan не поддерживаются.  Дополнительные сведения о конструкциях шаблонов Hyperscan см. в разделе [Поддержка шаблонов](http://intel.github.io/hyperscan/dev-reference/compilation.html#pattern-support) документации Hyperscan.
 
-For simple tokens you will usually only need to specify a secret format. The other fields provide flexibility so that you can specify more complex secrets without creating complex regular expressions.  For an example of a custom pattern, see "[Example of a custom pattern specified using additional requirements](#example-of-a-custom-pattern-specified-using-additional-requirements)" below.
+## Определение пользовательского шаблона для репозитория
 
-{% data variables.product.prodname_secret_scanning_caps %} uses the [Hyperscan library](https://github.com/intel/hyperscan) and only supports Hyperscan regex constructs, which are a subset of PCRE syntax. Hyperscan option modifiers are not supported.  For more information on Hyperscan pattern constructs, see "[Pattern support](http://intel.github.io/hyperscan/dev-reference/compilation.html#pattern-support)" in the Hyperscan documentation.
+Перед определением настраиваемого шаблона необходимо убедиться, что в вашем репозитории включено {% data variables.product.prodname_secret_scanning %}. Дополнительные сведения см. в разделе [Настройка {% data variables.product.prodname_secret_scanning %} для репозиториев](/code-security/secret-security/configuring-secret-scanning-for-your-repositories).
 
-## Defining a custom pattern for a repository
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %} {% data reusables.repositories.navigate-to-code-security-and-analysis %} {% data reusables.repositories.navigate-to-ghas-settings %} {% data reusables.advanced-security.secret-scanning-new-custom-pattern %} {% data reusables.advanced-security.secret-scanning-add-custom-pattern-details %}{% ifversion secret-scanning-custom-enterprise-35 or custom-pattern-dry-run-ga %}
+1. Когда вы будете готовы протестировать новый пользовательский шаблон, чтобы определить совпадения в репозитории без создания оповещений, нажмите кнопку **Сохранить и выполнить пробный прогон**.
+{% data reusables.advanced-security.secret-scanning-dry-run-results %} {%- ifversion secret-scanning-custom-enterprise-35 %}{% indented_data_reference reusables.secret-scanning.beta-dry-runs spaces=3 %}{% endif %} {% endif %} {% data reusables.advanced-security.secret-scanning-create-custom-pattern %}
 
-Before defining a custom pattern, you must ensure that {% data variables.product.prodname_secret_scanning %} is enabled on your repository. For more information, see "[Configuring {% data variables.product.prodname_secret_scanning %} for your repositories](/code-security/secret-security/configuring-secret-scanning-for-your-repositories)."
+После создания шаблона {% data reusables.secret-scanning.secret-scanning-process %} Дополнительные сведения о просмотре оповещений {% data variables.product.prodname_secret_scanning %} см. в разделе [Управление оповещениями из {% data variables.product.prodname_secret_scanning %}](/code-security/secret-security/managing-alerts-from-secret-scanning).
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-{% data reusables.repositories.navigate-to-code-security-and-analysis %}
-{% data reusables.repositories.navigate-to-ghas-settings %}
-{% data reusables.advanced-security.secret-scanning-new-custom-pattern %}
-{% data reusables.advanced-security.secret-scanning-add-custom-pattern-details %}{% ifversion secret-scanning-custom-enterprise-35 or custom-pattern-dry-run-ga %}
-1. When you're ready to test your new custom pattern, to identify matches in the repository without creating alerts, click **Save and dry run**.
-{% data reusables.advanced-security.secret-scanning-dry-run-results %}
-{%- ifversion secret-scanning-custom-enterprise-35 %}{% indented_data_reference reusables.secret-scanning.beta-dry-runs spaces=3 %}{% endif %}
-{% endif %}
-{% data reusables.advanced-security.secret-scanning-create-custom-pattern %}
+### Пример настраиваемого шаблона, заданного с использованием дополнительных требований
 
-After your pattern is created, {% data reusables.secret-scanning.secret-scanning-process %} For more information on viewing {% data variables.product.prodname_secret_scanning %} alerts, see "[Managing alerts from {% data variables.product.prodname_secret_scanning %}](/code-security/secret-security/managing-alerts-from-secret-scanning)."
+У компании есть внутренний маркер безопасности с пятью характеристиками. Они используют различные поля, чтобы указать, как идентифицировать маркеры, следующим образом.
 
-### Example of a custom pattern specified using additional requirements
-
-A company has an internal token with five characteristics. They use the different fields to specify how to identify tokens as follows:
-
-| **Characteristic** | **Field and regular expression** |
+| **Характеристика** | **Поле и регулярное выражение** |
 |----------------|------------------------------|
-| Length between 5 and 10 characters | Secret format: `[$#%@AA-Za-z0-9]{5,10}` |
-| Does not end in a `.` | After secret: `[^\.]` |
-| Contains numbers and uppercase letters | Additional requirements: secret must match `[A-Z]` and `[0-9]` |
-| Does not include more than one lowercase letter in a row | Additional requirements: secret must not match `[a-z]{2,}` |
-| Contains one of `$%@!` | Additional requirements: secret must match `[$%@!]` |
+| Длина от 5 до 10 символов | Формат секрета: `[$#%@AA-Za-z0-9]{5,10}` |
+| Не заканчивается на `.` | После секрета: `[^\.]` |
+| Содержит цифры и прописные буквы | Дополнительные требования: секрет должен соответствовать `[A-Z]` и `[0-9]` |
+| Не содержит более одной строчной буквы в строке | Дополнительные требования: секрет должен не соответствовать `[a-z]{2,}` |
+| Содержит один из символов `$%@!` | Дополнительные требования: секрет должен соответствовать `[$%@!]` |
 
-These tokens would match the custom pattern described above:
+Эти маркеры безопасности соответствуют пользовательскому шаблону, описанному выше:
 
 ```
 a9@AAfT!         # Secret string match: a9@AAfT
@@ -73,7 +69,7 @@ ee95GG@ZA942@aa  # Secret string match: @ZA942@a
 a9@AA!ee9        # Secret string match: a9@AA
 ```
 
-These strings would not match the custom pattern described above:
+Эти строки не соответствуют пользовательскому шаблону, описанному выше:
 
 ```
 a9@AA.!
@@ -82,93 +78,70 @@ aa9@AA!ee9
 aAAAe9
 ```
 
-## Defining a custom pattern for an organization
+## Определение пользовательского шаблона для организации
 
-Before defining a custom pattern, you must ensure that you enable {% data variables.product.prodname_secret_scanning %} for the repositories that you want to scan in your organization. To enable {% data variables.product.prodname_secret_scanning %} on all repositories in your organization, see "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)."
+Перед определением пользовательского шаблона необходимо включить {% data variables.product.prodname_secret_scanning %} для репозиториев, которые требуется сканировать в организации. Сведения о том, как включить {% data variables.product.prodname_secret_scanning %} во всех репозиториях в организации, см. в разделе [Управление параметрами безопасности и анализа для организации](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization).
 
-{% ifversion ghes < 3.5 or ghae %}
-{% note %}
+{% ifversion ghes < 3.5 or ghae %} {% note %}
 
-**Note:** As there is no dry-run functionality, we recommend that you test your custom patterns in a repository before defining them for your entire organization. That way, you can avoid creating excess false-positive {% data variables.product.prodname_secret_scanning %} alerts.
+**Примечание.** Так как функциональность пробного прогона отсутствует, рекомендуется протестировать пользовательские шаблоны в репозитории, прежде чем определять их для всей организации. Таким образом можно избежать создания лишних ложных срабатываний оповещений {% data variables.product.prodname_secret_scanning %}.
 
-{% endnote %}
-{% endif %}
+{% endnote %} {% endif %}
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.security-and-analysis %}
-{% data reusables.repositories.navigate-to-ghas-settings %}
-{% data reusables.advanced-security.secret-scanning-new-custom-pattern %}
-{% data reusables.advanced-security.secret-scanning-add-custom-pattern-details %}
-{%- ifversion secret-scanning-custom-enterprise-35 or custom-pattern-dry-run-ga %}
-1. When you're ready to test your new custom pattern, to identify matches in select repositories without creating alerts, click **Save and dry run**.
-{% data reusables.advanced-security.secret-scanning-dry-run-select-repos %}
-{% data reusables.advanced-security.secret-scanning-dry-run-results %}
-{%- ifversion secret-scanning-custom-enterprise-35 %}{% indented_data_reference reusables.secret-scanning.beta-dry-runs spaces=3 %}{% endif %}
-{%- endif %}
-{% data reusables.advanced-security.secret-scanning-create-custom-pattern %}
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.organizations.security-and-analysis %} {% data reusables.repositories.navigate-to-ghas-settings %} {% data reusables.advanced-security.secret-scanning-new-custom-pattern %} {% data reusables.advanced-security.secret-scanning-add-custom-pattern-details %} {%- ifversion secret-scanning-custom-enterprise-35 or custom-pattern-dry-run-ga %}
+1. Когда вы будете готовы протестировать новый пользовательский шаблон, чтобы определить совпадения в выбранных репозиториях без создания оповещений, нажмите кнопку **Сохранить и выполнить пробный прогон**.
+{% data reusables.advanced-security.secret-scanning-dry-run-select-repos %} {% data reusables.advanced-security.secret-scanning-dry-run-results %} {%- ifversion secret-scanning-custom-enterprise-35 %}{% indented_data_reference reusables.secret-scanning.beta-dry-runs spaces=3 %}{% endif %} {%- endif %} {% data reusables.advanced-security.secret-scanning-create-custom-pattern %}
 
-After your pattern is created, {% data variables.product.prodname_secret_scanning %} scans for any secrets in repositories in your organization, including their entire Git history on all branches. Organization owners and repository administrators will be alerted to any secrets found and can review the alert in the repository where the secret is found. For more information on viewing {% data variables.product.prodname_secret_scanning %} alerts, see "[Managing alerts from {% data variables.product.prodname_secret_scanning %}](/code-security/secret-security/managing-alerts-from-secret-scanning)."
+После создания шаблона {% data variables.product.prodname_secret_scanning %} проверяет все секреты в репозиториях организации, включая полный журнал Git во всех ветвях. Владельцы организации и администраторы репозитория будут оповещены обо всех обнаруженных секретах и смогут просмотреть оповещение в репозитории, где обнаружен секрет. Дополнительные сведения о просмотре оповещений {% data variables.product.prodname_secret_scanning %} см. в разделе [Управление оповещениями из {% data variables.product.prodname_secret_scanning %}](/code-security/secret-security/managing-alerts-from-secret-scanning).
 
-## Defining a custom pattern for an enterprise account
+## Определение пользовательского шаблона для учетной записи предприятия
 
 {% ifversion fpt or ghec or ghes %}
 
-Before defining a custom pattern, you must ensure that you enable secret scanning for your enterprise account. For more information, see "[Enabling {% data variables.product.prodname_GH_advanced_security %} for your enterprise]({% ifversion fpt or ghec %}/enterprise-server@latest/{% endif %}/admin/advanced-security/enabling-github-advanced-security-for-your-enterprise)."
+Перед определением пользовательского шаблона необходимо включить проверку секретов для учетной записи предприятия. Дополнительные сведения см. в разделе [Включение {% data variables.product.prodname_GH_advanced_security %} для предприятия]({% ifversion fpt or ghec %}/enterprise-server@latest/{% endif %}/admin/advanced-security/enabling-github-advanced-security-for-your-enterprise).
 
 {% endif %}
 
 {% note %}
 
-{% ifversion secret-scanning-custom-enterprise-36 or custom-pattern-dry-run-ga %}
-**Notes:**
-- At the enterprise level, only the creator of a custom pattern can edit the pattern, and use it in a dry run. 
-- Enterprise owners can only make use of dry runs on repositories that they have access to, and enterprise owners do not necessarily have access to all the organizations or repositories within the enterprise.
-{% else %}
-**Note:** As there is no dry-run functionality, we recommend that you test your custom patterns in a repository before defining them for your entire enterprise. That way, you can avoid creating excess false-positive {% data variables.product.prodname_secret_scanning %} alerts.
+{% ifversion secret-scanning-custom-enterprise-36 or custom-pattern-dry-run-ga %} **Примечания.**
+- На уровне предприятия только создатель пользовательского шаблона может изменять шаблон и использовать его в пробном прогоне. 
+- Владельцы предприятия могут использовать пробные прогоны только в репозиториях, к которым у них есть доступ. Владельцы предприятия могут не иметь доступа ко всем организациям или репозиториям предприятия.
+{% else %} **Примечание.** Так как функциональность пробного прогона отсутствует, рекомендуется протестировать пользовательские шаблоны в репозитории, прежде чем определять их для всего предприятия. Таким образом можно избежать создания лишних ложных срабатываний оповещений {% data variables.product.prodname_secret_scanning %}.
 
 {% endif %}
 
 {% endnote %}
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.policies-tab %}{% ifversion security-feature-enablement-policies %}
-{% data reusables.enterprise-accounts.code-security-and-analysis-policies %}
-1. Under "Code security and analysis", click **Security features**.{% else %}
-{% data reusables.enterprise-accounts.advanced-security-policies %}
-{% data reusables.enterprise-accounts.advanced-security-security-features %}{% endif %}
-1. Under "Secret scanning custom patterns", click **New pattern**.
-{% data reusables.advanced-security.secret-scanning-add-custom-pattern-details %}
-{%- ifversion secret-scanning-custom-enterprise-36 or custom-pattern-dry-run-ga %}
-1. When you're ready to test your new custom pattern, to identify matches in the enterprise without creating alerts, click **Save and dry run**.
-{% data reusables.advanced-security.secret-scanning-dry-run-select-enterprise-repos %}
-{% data reusables.advanced-security.secret-scanning-dry-run-results %}
-{%- ifversion secret-scanning-custom-enterprise-36 %}{% indented_data_reference reusables.secret-scanning.beta-dry-runs spaces=3 %}{% endif %}
-{%- endif %}
-{% data reusables.advanced-security.secret-scanning-create-custom-pattern %}
+{% данных для повторного использования.enterprise-accounts.access-enterprise %} {% данных для повторного использования.enterprise-accounts.policies-tab %} {% ifversion security-feature-enablement-policies %} {% данных для повторного использования.enterprise-accounts.code-security-and-analysis-policies %}
+1. В разделе "Безопасность и анализ кода" щелкните **"Функции безопасности**". {% else %} {% данных для повторного использования.enterprise-accounts.advanced-security-policies %} {% данных для повторного использования.enterprise-accounts.advanced-security-security-features %} {% endif %}
+1. В разделе "Проверка секретов пользовательских шаблонов" нажмите кнопку **"Создать шаблон**".
+{% data reusables.advanced-security.secret-scanning-add-custom-pattern-details %} {%- ifversion secret-scanning-custom-enterprise-36 or custom-pattern-dry-run-ga %}
+1. Когда вы будете готовы протестировать новый пользовательский шаблон, чтобы найти совпадения в вашей корпорации, но не создавать оповещения, нажмите кнопку **Сохранить и выполнить пробный запуск**.
+{% data reusables.advanced-security.secret-scanning-dry-run-select-enterprise-repos %} {% data reusables.advanced-security.secret-scanning-dry-run-results %} {%- ifversion secret-scanning-custom-enterprise-36 %}{% indented_data_reference reusables.secret-scanning.beta-dry-runs spaces=3 %}{% endif %} {%- endif %} {% data reusables.advanced-security.secret-scanning-create-custom-pattern %}
 
-After your pattern is created, {% data variables.product.prodname_secret_scanning %} scans for any secrets in repositories within your enterprise's organizations with {% data variables.product.prodname_GH_advanced_security %} enabled, including their entire Git history on all branches. Organization owners and repository administrators will be alerted to any secrets found, and can review the alert in the repository where the secret is found. For more information on viewing {% data variables.product.prodname_secret_scanning %} alerts, see "[Managing alerts from {% data variables.product.prodname_secret_scanning %}](/code-security/secret-security/managing-alerts-from-secret-scanning)."
+После создания шаблона {% data variables.product.prodname_secret_scanning %} проверяет все секреты в репозиториях организаций предприятия с включенной {% data variables.product.prodname_GH_advanced_security %}, включая полный журнал Git во всех ветвях. Владельцы организации и администраторы репозитория будут оповещены обо всех обнаруженных секретах и смогут просмотреть оповещение в репозитории, где обнаружен секрет. Дополнительные сведения о просмотре оповещений {% data variables.product.prodname_secret_scanning %} см. в разделе [Управление оповещениями из {% data variables.product.prodname_secret_scanning %}](/code-security/secret-security/managing-alerts-from-secret-scanning).
 
-## Editing a custom pattern
+## Изменение пользовательского шаблона
 
-When you save a change to a custom pattern, this closes all the {% data variables.product.prodname_secret_scanning %} alerts that were created using the previous version of the pattern.
-1. Navigate to where the custom pattern was created. A custom pattern can be created in a repository, organization, or enterprise account.
-   * For a repository or organization, display the "Security & analysis" settings for the repository or organization where the custom pattern was created. For more information, see "[Defining a custom pattern for a repository](#defining-a-custom-pattern-for-a-repository)" or "[Defining a custom pattern for an organization](#defining-a-custom-pattern-for-an-organization)" above.
-   * For an enterprise, under "Policies" display the "Advanced Security" area, and then click **Security features**. For more information, see "[Defining a custom pattern for an enterprise account](#defining-a-custom-pattern-for-an-enterprise-account)" above.
-2. Under "{% data variables.product.prodname_secret_scanning_caps %}", to the right of the custom pattern you want to edit, click {% octicon "pencil" aria-label="The edit icon" %}.
+При сохранении изменения в пользовательском шаблоне закрываются все оповещения {% data variables.product.prodname_secret_scanning %}, созданные с помощью предыдущей версии шаблона.
+1. Перейдите туда, где был создан пользовательский шаблон. Пользовательский шаблон можно создать в репозитории, организации или корпоративной учетной записи.
+   * Для репозитория или организации откройте параметры "Безопасность и анализ" для репозитория или организации, где был создан пользовательский шаблон. Дополнительные сведения см. в разделе [Определение пользовательского шаблона для репозитория](#defining-a-custom-pattern-for-a-repository) или [Определение пользовательского шаблона для организации](#defining-a-custom-pattern-for-an-organization) выше.
+   * Для предприятия в разделе "Политики" откройте область "Расширенная безопасность", а затем щелкните пункт **Функции безопасности**. Дополнительные сведения см. в разделе [Определение пользовательского шаблона для корпоративной учетной записи](#defining-a-custom-pattern-for-an-enterprise-account) выше.
+2. В разделе "{% data variables.product.prodname_secret_scanning_caps %}" справа от пользовательского шаблона, который требуется изменить, щелкните {% octicon "pencil" aria-label="The edit icon" %}.
 {%- ifversion secret-scanning-custom-enterprise-36 or custom-pattern-dry-run-ga  %}
-3. When you're ready to test your edited custom pattern, to identify matches without creating alerts, click **Save and dry run**.
+3. Когда вы будете готовы протестировать отредактированный пользовательский шаблон, чтобы найти совпадения в вашей корпорации, но не создавать оповещения, нажмите кнопку **Сохранить и выполнить пробный запуск**.
 {%- endif %}
-4. When you have reviewed and tested your changes, click **Save changes**.
+4. После проверки и тестирования изменений нажмите кнопку **Сохранить изменения**.
 
-## Removing a custom pattern
+## Удаление пользовательского шаблона
 
-1. Navigate to where the custom pattern was created. A custom pattern can be created in a repository, organization, or enterprise account.
+1. Перейдите туда, где был создан пользовательский шаблон. Пользовательский шаблон можно создать в репозитории, организации или корпоративной учетной записи.
 
-   * For a repository or organization, display the "Security & analysis" settings for the repository or organization where the custom pattern was created. For more information, see "[Defining a custom pattern for a repository](#defining-a-custom-pattern-for-a-repository)" or "[Defining a custom pattern for an organization](#defining-a-custom-pattern-for-an-organization)" above.
-   * For an enterprise, under "Policies" display the "Advanced Security" area, and then click **Security features**.  For more information, see "[Defining a custom pattern for an enterprise account](#defining-a-custom-pattern-for-an-enterprise-account)" above.
-1. To the right of the custom pattern you want to remove, click {% octicon "trash" aria-label="The trash icon" %}.
-1. Review the confirmation, and select a method for dealing with any open alerts relating to the custom pattern.
-1. Click **Yes, delete this pattern**.
+   * Для репозитория или организации откройте параметры "Безопасность и анализ" для репозитория или организации, где был создан пользовательский шаблон. Дополнительные сведения см. в разделе [Определение пользовательского шаблона для репозитория](#defining-a-custom-pattern-for-a-repository) или [Определение пользовательского шаблона для организации](#defining-a-custom-pattern-for-an-organization) выше.
+   * Для предприятия в разделе "Политики" откройте область "Расширенная безопасность", а затем щелкните пункт **Функции безопасности**.  Дополнительные сведения см. в разделе [Определение пользовательского шаблона для корпоративной учетной записи](#defining-a-custom-pattern-for-an-enterprise-account) выше.
+1. Справа от пользовательского шаблона, который вы хотите удалить, щелкните {% octicon "trash" aria-label="The trash icon" %}.
+1. Просмотрите подтверждение и выберите метод для работы с любыми открытыми оповещениями, связанными с пользовательским шаблоном.
+1. Нажмите **Да, удалить этот шаблон**.
 
-   ![Confirming deletion of a custom {% data variables.product.prodname_secret_scanning %} pattern ](/assets/images/help/repository/secret-scanning-confirm-deletion-custom-pattern.png)
+   ![Подтверждение удаления пользовательского шаблона {% data variables.product.prodname_secret_scanning %} ](/assets/images/help/repository/secret-scanning-confirm-deletion-custom-pattern.png)

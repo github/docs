@@ -1,7 +1,7 @@
 ---
-title: Enabling unified search for your enterprise
+title: 自社で統合検索を有効にする
 shortTitle: Unified search
-intro: 'You can allow users to include repositories on {% data variables.product.prodname_dotcom_the_website %} in their search results when searching from {% data variables.location.product_location %}.'
+intro: '{% data variables.product.product_location %} から検索するときに、ユーザーが検索結果に {% data variables.product.prodname_dotcom_the_website %} のリポジトリを含めることができるようにすることができます。'
 redirect_from:
   - /enterprise/admin/guides/developer-workflow/enabling-unified-search-between-github-enterprise-and-github-com
   - /enterprise/admin/guides/developer-workflow/enabling-unified-search-between-github-enterprise-server-and-github-com
@@ -20,34 +20,35 @@ topics:
   - Enterprise
   - GitHub Connect
   - GitHub search
+ms.openlocfilehash: 0270600113cb3b341b38e6f55d7108798d523ebb
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145112958'
 ---
-
-## About {% data variables.enterprise.prodname_unified_search %}
+## {% data variables.product.prodname_unified_search %}について
 
 {% data reusables.github-connect.beta %}
 
-When you enable unified search, users can view search results from content on {% data variables.product.prodname_dotcom_the_website %} when searching from {% data variables.location.product_location %}{% ifversion ghae %} on {% data variables.product.prodname_ghe_managed %}{% endif %}. 
+統合検索を有効化すると、ユーザーは{% data variables.product.product_location %}{% ifversion ghae %}から {% data variables.product.prodname_ghe_managed %} を検索をした際に、{% data variables.product.prodname_dotcom_the_website %} 上のコンテンツの検索結果を見ることができます{% endif %}。 
 
-You can choose to allow search results for public repositories on {% data variables.product.prodname_dotcom_the_website %}, and you can separately choose to allow search results for private repositories on {% data variables.product.prodname_ghe_cloud %}. If you enable unified search for private repositories, users can only search private repositories that they have access to and that are owned by the connected organization or enterprise account. For more information, see "[About searching on {% data variables.product.prodname_dotcom %}](/search-github/getting-started-with-searching-on-github/about-searching-on-github/#searching-across-github-enterprise-and-githubcom-simultaneously)."
+{% data variables.product.prodname_dotcom_the_website %} のパブリック リポジトリの検索結果の許可を選べます。また、別に {% data variables.product.prodname_ghe_cloud %} のプライベート リポジトリの検索結果の許可も選べます。 プライベート リポジトリで統合検索を有効にした場合、ユーザーはアクセス権がある、接続されている Organization またはエンタープライズ アカウントが所有するプライベート リポジトリのみを検索できます。 詳細については、「[{% data variables.product.prodname_dotcom %} での検索について](/search-github/getting-started-with-searching-on-github/about-searching-on-github/#searching-across-github-enterprise-and-githubcom-simultaneously)」を参照してください。
 
-Users will never be able to search {% data variables.location.product_location %} from {% data variables.product.prodname_dotcom_the_website %}, even if they have access to both environments.
+両方の環境にアクセスできる場合でも、ユーザーが {% data variables.product.prodname_dotcom_the_website %} から{% data variables.product.product_location %}}の検索はできません。
 
-After you enable unified search for {% data variables.location.product_location %}, before individual users can see search results from private repositories on {% data variables.product.prodname_dotcom_the_website %} in {% data variables.location.product_location %}, each user must also connect their user account on {% data variables.product.product_name %} with a user account on {% data variables.product.prodname_dotcom_the_website %}. For more information, see "[Enabling {% data variables.product.prodname_dotcom_the_website %} repository search in your private enterprise account](/search-github/getting-started-with-searching-on-github/enabling-githubcom-repository-search-from-your-private-enterprise-environment)."
+{% data variables.product.product_location %}で統合検索を有効にした場合、個々のユーザーが{% data variables.product.product_location %}で {% data variables.product.prodname_dotcom_the_website %} からプライベート リポジトリの検索結果を確認する前に、各ユーザーが {% data variables.product.product_name %} 上のユーザー アカウントを {% data variables.product.prodname_dotcom_the_website %} 上のユーザー アカウントと接続する必要があります。 詳しい情報については、「[プライベート エンタープライズ アカウントからの {% data variables.product.prodname_dotcom_the_website %} リポジトリ検索の有効化](/search-github/getting-started-with-searching-on-github/enabling-githubcom-repository-search-from-your-private-enterprise-environment)」を参照してください。
 
-Searching via the REST and GraphQL APIs does not include {% data variables.product.prodname_dotcom_the_website %} search results. Advanced search and searching for wikis in {% data variables.product.prodname_dotcom_the_website %} are not supported.
+REST及びGraphQL APIでの検索には、{% data variables.product.prodname_dotcom_the_website %}の検索結果は含まれません。 {% data variables.product.prodname_dotcom_the_website %}の高度な検索及びwikiの検索はサポートされていません。
 
-## Enabling {% data variables.enterprise.prodname_unified_search %}
+## {% data variables.product.prodname_unified_search %} の有効化
 
-Before you can enable {% data variables.enterprise.prodname_unified_search %}, you must enable {% data variables.product.prodname_github_connect %}. For more information, see "[Managing {% data variables.product.prodname_github_connect %}](/admin/configuration/configuring-github-connect/managing-github-connect)."
+{% data variables.product.prodname_unified_search %} を有効にする前に、{% data variables.product.prodname_github_connect %} を有効にする必要があります。 詳細については、「[{% data variables.product.prodname_github_connect %} の管理](/admin/configuration/configuring-github-connect/managing-github-connect)」を参照してください。
 
-{% ifversion ghes %}
-{% data reusables.github-connect.access-dotcom-and-enterprise %}
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
-{% data reusables.enterprise-accounts.github-connect-tab %}{% else %}
-1. Sign into {% data variables.location.product_location %} and {% data variables.product.prodname_dotcom_the_website %}.
+{% ifversion ghes %} {% data reusables.github-connect.access-dotcom-and-enterprise %} {% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.enterprise_site_admin_settings.business %} {% data reusables.enterprise-accounts.github-connect-tab %}{% else %}
+1. {% data variables.product.product_location %} と {% data variables.product.prodname_dotcom_the_website %} にサインインします。
 {% data reusables.enterprise-accounts.access-enterprise %}{% data reusables.enterprise-accounts.github-connect-tab %}{% endif %}
-1. Under "Users can search {% data variables.product.prodname_dotcom_the_website %}", use the drop-down menu and click **Enabled**.
-  ![Enable search option in the search GitHub.com drop-down menu](/assets/images/enterprise/site-admin-settings/github-dotcom-enable-search.png)
-1. Optionally, under "Users can search private repositories on {% data variables.product.prodname_dotcom_the_website %}", use the drop-down menu and click **Enabled**.
-    ![Enable private repositories search option in the search GitHub.com drop-down menu](/assets/images/enterprise/site-admin-settings/enable-private-search.png)
+1. [ユーザーは {% data variables.product.prodname_dotcom_the_website %} を検索可能] の下のドロップダウン メニューで **[有効]** をクリックします。
+  ![GitHub.com を検索するドロップダウン メニューの [有効] 検索オプション](/assets/images/enterprise/site-admin-settings/github-dotcom-enable-search.png)
+1. 必要に応じて [ユーザーは {% data variables.product.prodname_dotcom_the_website %} のプライベート リポジトリを検索可能] の下のドロップダウン メニューで **[有効]** をクリックします。
+    ![GitHub.com を検索するドロップダウンメニューのプライベート リポジトリを検索するオプションの有効化](/assets/images/enterprise/site-admin-settings/enable-private-search.png)

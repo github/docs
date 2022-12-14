@@ -1,6 +1,6 @@
 ---
-title: Unpublishing a GitHub Pages site
-intro: 'You can unpublish your {% data variables.product.prodname_pages %} site so that the site is no longer available.'
+title: GitHub Pages 사이트 게시 취소
+intro: '사이트를 더 이상 사용할 수 없도록 {% data variables.product.prodname_pages %} 사이트를 게시 취소할 수 있습니다.'
 redirect_from:
   - /articles/how-do-i-unpublish-a-project-page
   - /articles/unpublishing-a-project-page
@@ -18,35 +18,38 @@ versions:
 topics:
   - Pages
 shortTitle: Unpublish Pages site
+ms.openlocfilehash: bfb22638b51560cb0006cca49a55b9842d8b807d
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148109549'
 ---
-
 {% ifversion pages-custom-workflow %}
 
-When you unpublish your site, the site will no longer be available. Any existing repository settings or content will not be affected.
+사이트를 게시 취소하면 사이트를 더 이상 사용할 수 없습니다. 기존 리포지토리 설정 또는 콘텐츠는 영향을 받지 않습니다.
 
 {% data reusables.repositories.navigate-to-repo %}
-1. Under **{% data variables.product.prodname_pages %}**, next to the **Your site is live at** message, click {% octicon "kebab-horizontal" aria-label="the horizontal kebab icon" %}.
-1. In the menu that appears, select **Unpublish site**.
+1. **{% data variables.product.prodname_pages %}** 에서 **사이트 라이브** 메시지 옆에 있는 {% octicon "kebab-horizontal" aria-label="the horizontal kebab icon" %}을 클릭합니다.
+1. 표시되는 메뉴에서 **게시 취소 사이트** 를 선택합니다.
 
-   ![Drop down menu to unpublish site](/assets/images/help/pages/unpublish-site.png)
+   ![드롭다운 메뉴를 사용하여 사이트 게시 취소](/assets/images/help/pages/unpublish-site.png)
 
 {% else %}
 
-## Unpublishing a project site
+## 프로젝트 사이트 게시 취소
 
 {% data reusables.repositories.navigate-to-repo %}
-2. If a `gh-pages` branch exists in the repository, delete the `gh-pages` branch. For more information, see "[Creating and deleting branches within your repository](/articles/creating-and-deleting-branches-within-your-repository#deleting-a-branch)."
-3. If the `gh-pages` branch was your publishing source, {% ifversion fpt or ghec %}skip to step 6{% else %}your site is now unpublished and you can skip the remaining steps{% endif %}.
-{% data reusables.repositories.sidebar-settings %}
-{% data reusables.pages.sidebar-pages %}
-5. Under "{% data variables.product.prodname_pages %}", use the **Source** drop-down menu and select **None.**
-  ![Drop down menu to select a publishing source](/assets/images/help/pages/publishing-source-drop-down.png)
-{% data reusables.pages.update_your_dns_settings %}
+2. 리포지토리에 `gh-pages` 분기가 있는 경우 `gh-pages` 분기를 삭제합니다. 자세한 내용은 “[리포지토리 내에서 분기 만들기 및 삭제](/articles/creating-and-deleting-branches-within-your-repository#deleting-a-branch)”를 참조하세요.
+3. `gh-pages` 분기가 게시 원본인 경우 {% ifversion fpt or ghec %}6단계로 건너뜁니다.{% else %}사이트가 게시 취소되었으며 나머지 단계{% endif %}를 건너뛸 수 있습니다.
+{% data reusables.repositories.sidebar-settings %} {% data reusables.pages.sidebar-pages %}
+5. “{% data variables.product.prodname_pages %}”에서 **원본** 드롭다운 메뉴를 사용하고 **없음** 을 선택합니다.
+  ![드롭다운 메뉴를 사용하여 게시 원본 선택](/assets/images/help/pages/publishing-source-drop-down.png) {% data reusables.pages.update_your_dns_settings %}
 
-## Unpublishing a user or organization site
+## 사용자 또는 조직 사이트 게시 취소
 
 {% data reusables.repositories.navigate-to-repo %}
-2. Delete the branch that you're using as a publishing source, or delete the entire repository. For more information, see "[Creating and deleting branches within your repository](/articles/creating-and-deleting-branches-within-your-repository#deleting-a-branch)" and "[Deleting a repository](/articles/deleting-a-repository)."
+2. 게시 원본으로 사용 중인 분기를 삭제하거나 전체 리포지토리를 삭제합니다. 자세한 내용은 “[리포지토리 내에서 분기 만들기 및 삭제](/articles/creating-and-deleting-branches-within-your-repository#deleting-a-branch)” 및 “[리포지토리 삭제](/articles/deleting-a-repository)”를 참조하세요.
 {% data reusables.pages.update_your_dns_settings %}
 
 {% endif %}

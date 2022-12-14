@@ -1,6 +1,6 @@
 ---
-title: Keeping your pull request in sync with the base branch
-intro: 'After you open a pull request, you can update the head branch, which contains your changes, with any changes that have been made in the base branch.'
+title: Synchronisieren eines Pull Requests mit dem Basisbranch
+intro: 'Nachdem du ein Pull Request geöffnet hast, kannst du den Headbranch, der deine Änderungen enthält, mit allen Änderungen aktualisieren, die im Basisbranch vorgenommen wurden.'
 permissions: People with write permissions to the repository to which the head branch of the pull request belongs can update the head branch with changes that have been made in the base branch.
 versions:
   fpt: '*'
@@ -10,47 +10,48 @@ versions:
 topics:
   - Pull requests
 shortTitle: Update the head branch
+ms.openlocfilehash: d7819b45cf3290c09e3b231825e494fd1d82daea
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145133905'
 ---
+## Informationen zum Synchronisieren deines Pull Request
 
-## About keeping your pull request in sync
+Bevor du deine Pull Requests mergst, werden möglicherweise andere Änderungen in den Basisbranch gemergt, sodass der Hauptbranch des Pull Requests nicht synchronisiert ist. Wenn du deinen Pull Request mit den neuesten Änderungen am Hauptbranch aktualisierst, kannst du Probleme vor dem Mergen ermitteln.
 
-Before merging your pull requests, other changes may get merged into the base branch causing your pull request's head branch to be out of sync. Updating your pull request with the latest changes from the base branch can help catch problems prior to merging.
+Du kannst den Hauptbranch eines Pull Requests über die Befehlszeile oder die Seite für Pull Requests aktualisieren. Die Schaltfläche **Branch aktualisieren** wird angezeigt, wenn alle der folgenden Bedingungen erfüllt sind:
 
-You can update a pull request's head branch from the command line or the pull request page. The **Update branch** button is displayed when all of these are true:
+* Es bestehen keine Mergekonflikte zwischen dem Branch des Pull Requests und dem Basisbranch.
+* Der Branch des Pull Requests ist nicht auf dem gleichen Stand wie der Basisbranch.
+* Der Basisbranch erfordert, dass Branches vor dem Mergen auf dem neuesten Stand sind{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6069 %}, oder die Einstellung zum stetigen Vorschlagen der Aktualisierung von Branches ist aktiviert{% endif %}.
 
-* There are no merge conflicts between the pull request branch and the base branch.
-* The pull request branch is not up to date with the base branch.
-* The base branch requires branches to be up to date before merging{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %} or the setting to always suggest updating branches is enabled{% endif %}.
+Weitere Informationen findest du unter [Erfordern von Statusüberprüfungen vor dem Mergen](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches){% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6069 %} und [Verwalten von Vorschlägen zum Aktualisieren von Pull-Request-Branches](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/managing-suggestions-to-update-pull-request-branches){% endif %}.
 
-For more information, see "[Require status checks before merging](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches){% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}" and "[Managing suggestions to update pull request branches](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/managing-suggestions-to-update-pull-request-branches){% endif %}."
+Wenn Änderungen am Basisbranch vorgenommen wurden, die zu Mergekonflikten in deinem Pull-Request-Branch führen, kannst du den Branch erst aktualisieren, wenn alle Konflikte gelöst wurden. Weitere Informationen findest du unter [Informationen zu Mergekonflikten](/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/about-merge-conflicts).
 
-If there are changes to the base branch that cause merge conflicts in your pull request branch, you will not be able to update the branch until all conflicts are resolved. For more information, see "[About merge conflicts](/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/about-merge-conflicts)."
-
-{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
-From the pull request page you can update your pull request's branch using a traditional merge or by rebasing. A traditional merge results in a merge commit that merges the base branch into the head branch of the pull request. Rebasing applies the changes from _your_ branch onto the latest version of the base branch. The result is a branch with a linear history, since no merge commit is created.
-{% else %}
-Updating your branch from the pull request page performs a traditional merge. The resulting merge commit merges the base branch into the head branch of the pull request.
+{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6069 %} Auf der Pull-Request-Seite kannst du deinen Pull-Request-Branch mit einem herkömmlichen Mergevorgang oder einem Rebasing aktualisieren. Ein herkömmlicher Mergevorgang führt zu einem Mergecommit, der den Basisbranch in den Hauptbranch des Pull Requests mergt. Beim Rebasing werden die Änderungen aus _deinem_ Branch auf die neueste Version des Basisbranchs angewendet. Dies führt zu einem Branch mit einem linearen Verlauf, da kein Mergecommit erstellt wird.
+{% else %} Wenn du deinen Branch über die Pull-Request-Seite aktualisierst, wird ein herkömmlicher Mergevorgang ausgeführt. Der resultierende Mergecommit mergt den Basisbranch in den Hauptbranch des Pull Requests.
 {% endif %}
 
-## Updating your pull request branch
+## Aktualisieren des Pull-Request-Branchs
 
 {% data reusables.repositories.sidebar-pr %}
 
-1. In the "Pull requests" list, click the pull request you'd like to update.
+1. Klicke in der Liste „Pull Requests“ auf den Pull Request, den du aktualisieren möchtest.
 
-{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
-1. In the merge section near the bottom of the page, you can:
-   - Click **Update branch** to perform a traditional merge.
-   ![Button to update branch](/assets/images/help/pull_requests/pull-request-update-branch-with-dropdown.png)
-   - Click the update branch drop down menu, click **Update with rebase**, and then click **Rebase branch** to update by rebasing on the base branch.
-   ![Drop-down menu showing merge and rebase options](/assets/images/help/pull_requests/pull-request-update-branch-rebase-option.png)
-{% else %}
-1. In the merge section near the bottom of the page, click **Update branch** to perform a traditional merge.
-  ![Button to update branch](/assets/images/help/pull_requests/pull-request-update-branch.png)
-{% endif %}
+{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6069 %}
+1. Im Mergeabschnitt unten auf der Seite hast du folgende Möglichkeiten:
+   - Klicke auf **Branch aktualisieren**, um einen herkömmlichen Mergevorgang auszuführen.
+   ![Schaltfläche zum Aktualisieren des Branchs](/assets/images/help/pull_requests/pull-request-update-branch-with-dropdown.png)
+   - Klicke auf das Dropdownmenü „Branch aktualisieren“, wähle **Durch Rebase aktualisieren**, und klicke dann auf **Rebase für Branch ausführen**, um den Branch durch die Ausführung eines Rebasings für den Basisbranch zu aktualisieren.
+   ![Dropdownmenü mit den Optionen für Mergevorgang und Rebase](/assets/images/help/pull_requests/pull-request-update-branch-rebase-option.png) {% else %}
+1. Klicke im Mergeabschnitt unten auf der Seite auf **Branch aktualisieren**, um einen herkömmlichen Mergevorgang auszuführen.
+  ![Schaltfläche zum Aktualisieren des Branchs](/assets/images/help/pull_requests/pull-request-update-branch.png) {% endif %}
 
-## Further reading
+## Weitere Informationsquellen
 
-- "[About pull requests](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)"
-- "[Changing the stage of a pull request](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/changing-the-stage-of-a-pull-request)"
-- "[Committing changes to a pull request branch created from a fork](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/committing-changes-to-a-pull-request-branch-created-from-a-fork)"
+- [Informationen zu Pull Requests](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)
+- [Ändern der Phase eines Pull Requests](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/changing-the-stage-of-a-pull-request)
+- [Committen von Änderungen an einen Pull-Request-Branch, der aus einem Fork erstellt wurde](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/committing-changes-to-a-pull-request-branch-created-from-a-fork)

@@ -1,40 +1,38 @@
 ---
-title: Manually running a workflow
-intro: 'When a workflow is configured to run on the `workflow_dispatch` event, you can run the workflow using the Actions tab on {% data variables.product.prodname_dotcom %}, {% data variables.product.prodname_cli %}, or the REST API.'
+title: Ejecutar un flujo de trabajo manualmente
+intro: 'Cuando se configura un flujo de trabajo para ejecutarse en el evento `workflow_dispatch`, puedes ejecutar el flujo de trabajo mediante la pestaña Acciones de {% data variables.product.prodname_dotcom %}, {% data variables.product.prodname_cli %}, o la API REST.'
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
   ghec: '*'
 shortTitle: Manually run a workflow
+ms.openlocfilehash: 22717c31a6bc2599f066b0e870f0aa652c18cc6f
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145117178'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+## Configurar un flujo de trabajo para que se ejecute manualmente
 
-## Configuring a workflow to run manually
-
-To run a workflow manually, the workflow must be configured to run on the `workflow_dispatch` event. To trigger the `workflow_dispatch` event, your workflow must be in the default branch. For more information about configuring the `workflow_dispatch` event, see "[Events that trigger workflows](/actions/reference/events-that-trigger-workflows#workflow_dispatch)".
+Para ejecutar manualmente un flujo de trabajo, el flujo de trabajo debe configurarse para que se ejecute en el evento `workflow_dispatch`. Para desencadenar el evento `workflow_dispatch`, el flujo de trabajo debe estar en la rama predeterminada. Para obtener más información sobre cómo configurar el evento `workflow_dispatch`, consulta "[Eventos que desencadenan flujos de trabajo](/actions/reference/events-that-trigger-workflows#workflow_dispatch)".
 
 {% data reusables.repositories.permissions-statement-write %}
 
-## Running a workflow
+## Ejecutar un flujo de trabajo
 
 {% webui %}
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.actions-tab %}
-1. In the left sidebar, click the workflow you want to run.
-
-   {% ifversion workflow-nav-2022 -%}
-   ![Actions select workflow](/assets/images/help/repository/actions-select-workflow-2022.png)
-   {%- else -%}
-   ![Actions select workflow](/assets/images/help/repository/actions-select-workflow.png)
-   {%- endif %}
-1. Above the list of workflow runs, select **Run workflow**.
-![actions workflow dispatch](/assets/images/actions-workflow-dispatch.png)
-1. Use the **Branch** dropdown to select the workflow's branch, and type the input parameters. Click **Run workflow**.
-![actions manually run workflow](/assets/images/actions-manually-run-workflow.png)
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.actions-tab %}
+1. En la barra lateral izquierda, da clic ene l flujo de trabajo que quieras ejecutar.
+![flujo de trabajo de selección de acciones](/assets/images/actions-select-workflow.png)
+1. Encima de la lista de ejecuciones de flujo de trabajo, selecciona **Ejecutar flujo de trabajo**.
+![envío del flujo de trabajo de las acciones](/assets/images/actions-workflow-dispatch.png)
+1. Usa la lista desplegable **Rama** para seleccionar la rama del flujo de trabajo y escribe los parámetros de entrada. Haz clic en **Ejecutar flujo de trabajo**.
+![flujo de trabajo de la ejecución manual de las acciones](/assets/images/actions-manually-run-workflow.png)
 
 {% endwebui %}
 
@@ -42,31 +40,31 @@ To run a workflow manually, the workflow must be configured to run on the `workf
 
 {% data reusables.cli.cli-learn-more %}
 
-To run a workflow, use the `workflow run` subcommand. Replace the `workflow` parameter with either the name, ID, or file name of the workflow you want to run. For example, `"Link Checker"`, `1234567`, or `"link-check-test.yml"`. If you don't specify a workflow, {% data variables.product.prodname_cli %} returns an interactive menu for you to choose a workflow.
+Para ejecutar un flujo de trabajo, usa el subcomando `workflow run`. Reemplaza el parámetro `workflow` por el nombre, el id. o el nombre de archivo del flujo de trabajo que quieres ejecutar. Por ejemplo, `"Link Checker"`, `1234567` o `"link-check-test.yml"`. Si no especificas un flujo de trabajo, {% data variables.product.prodname_cli %} devolverá un menú interactivo para que elijas un flujo de trabajo.
 
 ```shell
-gh workflow run WORKFLOW
+gh workflow run <em>workflow</em>
 ```
 
-If your workflow accepts inputs, {% data variables.product.prodname_cli %} will prompt you to enter them. Alternatively, you can use `-f` or `-F` to add an input in `key=value` format. Use `-F` to read from a file.
+Si tu flujo de trabajo acepta entradas, {% data variables.product.prodname_cli %} te pedirá que las ingreses. Como alternativa, puedes usar `-f` o `-F` para agregar una entrada en formato `key=value`. Usa `-F` para leer desde un archivo.
 
 ```shell
 gh workflow run greet.yml -f name=mona -f greeting=hello -F data=@myfile.txt
 ```
 
-You can also pass inputs as JSON by using standard input.
+También puedes pasar las entradas como JSON utilizando una entrada estándar.
 
 ```shell
 echo '{"name":"mona", "greeting":"hello"}' | gh workflow run greet.yml --json
 ```
 
-To run a workflow on a branch other than the repository's default branch, use the `--ref` flag.
+Para ejecutar un flujo de trabajo en una rama diferente de la rama predeterminada del repositorio, usa la marca `--ref`.
 
 ```shell
-gh workflow run WORKFLOW --ref BRANCH
+gh workflow run <em>workflow</em> --ref <em>branch-name</em>
 ```
 
-To view the progress of the workflow run, use the `run watch` subcommand and select the run from the interactive list.
+Para ver el progreso de la ejecución del flujo de trabajo, usa el subcomando `run watch` y selecciona la ejecución en la lista interactiva.
 
 ```shell
 gh run watch
@@ -74,14 +72,14 @@ gh run watch
 
 {% endcli %}
 
-## Running a workflow using the REST API
+## Ejecutar un flujo de trabajo utilizando la API de REST
 
-When using the REST API, you configure the `inputs` and `ref` as request body parameters. If the inputs are omitted, the default values defined in the workflow file are used.
+Cuando se usa la API de REST, se configura `inputs` y `ref` como parámetros del cuerpo de la solicitud. Si omites las entradas, se utilizarán los valores predeterminados que se hayan definido en el flujo de trabajo.
 
 {% note %}
 
-**Note:** You can define up to 10 `inputs` for a `workflow_dispatch` event.
+**Nota**: Puedes definir hasta 10 `inputs` para un evento `workflow_dispatch`.
 
 {% endnote %}
 
-For more information about using the REST API, see the "[Create a workflow dispatch event](/rest/reference/actions/#create-a-workflow-dispatch-event)."
+Para obtener más información sobre el uso de la API de REST, consulta "[Creación de un evento de envío de flujo de trabajo](/rest/reference/actions/#create-a-workflow-dispatch-event)".

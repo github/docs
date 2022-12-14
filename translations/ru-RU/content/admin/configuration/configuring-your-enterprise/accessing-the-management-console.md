@@ -1,5 +1,5 @@
 ---
-title: Accessing the management console
+title: Доступ к консоли управления
 intro: '{% data reusables.enterprise_site_admin_settings.about-the-management-console %}'
 redirect_from:
   - /enterprise/admin/articles/about-the-management-console
@@ -18,49 +18,53 @@ topics:
   - Enterprise
   - Fundamentals
 shortTitle: Access the management console
+ms.openlocfilehash: 60cd45e9e33dfbd037c831b96bed806dddcf6a21
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148107128'
 ---
-## About the {% data variables.enterprise.management_console %}
+## Сведения о {% data variables.enterprise.management_console %}
 
-Use the {% data variables.enterprise.management_console %} for basic administrative activities:
-- **Initial setup**: Walk through the initial setup process when first launching {% data variables.location.product_location %} by visiting {% data variables.location.product_location %}'s IP address in your browser.
-- **Configuring authentication policies for the {% data variables.enterprise.management_console %}**: Set rate limits for login attempts, and the lockout duration if someone exceeds the rate limit. 
-- **Configuring basic settings for your instance**: Configure DNS, hostname, SSL, user authentication, email, monitoring services, and log forwarding on the Settings page.
-- **Scheduling maintenance windows**: Take {% data variables.location.product_location %} offline while performing maintenance using the {% data variables.enterprise.management_console %} or administrative shell.
-- **Troubleshooting**: Generate a support bundle or view high level diagnostic information.
-- **License management**: View or update your {% data variables.product.prodname_enterprise %} license.
+Используйте {% data variables.enterprise.management_console %} для основных административных действий.
+- **Начальная настройка**. Пошаговое руководство по начальной настройке при первом запуске {% данных variables.location.product_location %} путем посещения IP-адреса {% данных variables.location.product_location %}в браузере.
+- **Настройка политик проверки подлинности для {% данных variables.enterprise.management_console %}**: установите ограничения скорости для попыток входа и длительность блокировки, если кто-то превышает ограничение скорости. 
+- **Настройка базовых параметров для экземпляра**. Настройте DNS, имя узла, SSL, проверку подлинности пользователей, электронную почту, службы мониторинга и пересылку журналов на странице "Параметры".
+- **Планирование периодов обслуживания**: переключите {% данных variables.location.product_location %} в автономный режим при выполнении обслуживания с помощью {% данных variables.enterprise.management_console %} или административной оболочки.
+- **Устранение неполадок**. Создайте пакет поддержки или представление диагностических сведений высокого уровня.
+- **Управление лицензиями**.Просмотрите или обновите свою лицензию {% data variables.product.prodname_enterprise %}.
 
-You can always reach the {% data variables.enterprise.management_console %} using {% data variables.location.product_location %}'s IP address, even when the instance is in maintenance mode, or there is a critical application failure or hostname or SSL misconfiguration.
+Вы всегда можете получить доступ к данным {% variables.enterprise.management_console %} с помощью IP-адреса {% данных variables.location.product_location %}, даже если экземпляр находится в режиме обслуживания или имеется критический сбой приложения, имя узла или неправильное настройку SSL.
 
-To access the {% data variables.enterprise.management_console %}, you must use the administrator password established during initial setup of {% data variables.location.product_location %}. You must also be able to connect to the virtual machine host on port 8443. If you're having trouble reaching the {% data variables.enterprise.management_console %}, please check intermediate firewall and security group configurations. 
+Чтобы получить доступ к {% данных variables.enterprise.management_console %}, необходимо использовать пароль администратора, установленный во время начальной настройки {% данных variables.location.product_location %}. Также необходимо иметь возможность подключаться к узлу виртуальной машины через порт 8443. Если у вас возникли проблемы с открытием {% data variables.enterprise.management_console %}, проверьте конфигурации промежуточных брандмауэров и групп безопасности. 
 
-The {% data variables.enterprise.management_console %} password hash is stored in `/data/user/common/secrets.conf`, and that file is automatically synced from the primary appliance to any high-availability replicas. Any change to the primary's password will automatically be replicated to high-availability replicas. For more information about high availability, see "[About high availability configuration](/admin/enterprise-management/configuring-high-availability/about-high-availability-configuration)."
+Хэш паролей {% data variables.enterprise.management_console %} хранится в `/data/user/common/secrets.conf`, и этот файл с основного устройства автоматически синхронизируется с любыми репликами с высоким уровнем доступности. Любое изменение пароля основного экземпляра будет автоматически реплицировано на реплики с высоким уровнем доступности. Дополнительные сведения о высокой доступности см. в разделе [Сведения о конфигурации с высоким уровнем доступности](/admin/enterprise-management/configuring-high-availability/about-high-availability-configuration).
 
-## Accessing the {% data variables.enterprise.management_console %} as a site administrator
+## Доступ к {% data variables.enterprise.management_console %} в качестве администратора сайта
 
-The first time that you access the {% data variables.enterprise.management_console %} as a site administrator, you must upload your {% data variables.product.prodname_enterprise %} license file to authenticate into the app. For more information, see "[Managing your license for {% data variables.product.prodname_enterprise %}](/billing/managing-your-license-for-github-enterprise)."
+При первом доступе к {% data variables.enterprise.management_console %} в качестве администратора сайта необходимо отправить файл лицензии {% data variables.product.prodname_enterprise %} для проверки подлинности в приложении. Дополнительные сведения см. в разделе [Управление лицензией для {% data variables.product.prodname_enterprise %}](/billing/managing-your-license-for-github-enterprise).
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.management-console %}
-{% data reusables.enterprise_management_console.type-management-console-password %}
+{% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.enterprise_site_admin_settings.management-console %} {% data reusables.enterprise_management_console.type-management-console-password %}
 
-## Accessing the {% data variables.enterprise.management_console %} as an unauthenticated user
+## Доступ к {% data variables.enterprise.management_console %} в качестве пользователя, не прошедшего проверку подлинности
 
-1. Visit this URL in your browser, replacing `hostname` with your actual {% data variables.product.prodname_ghe_server %} hostname or IP address:
+1. Перейдите по этому URL-адресу в браузере, заменив `hostname` фактическим именем узла или IP-адресом {% data variables.product.prodname_ghe_server %}:
   ```shell
   http(s)://HOSTNAME/setup
   ```
 {% data reusables.enterprise_management_console.type-management-console-password %}
 
-## Unlocking the {% data variables.enterprise.management_console %} after failed login attempts
+## Разблокировка {% data variables.enterprise.management_console %} после неудачных попыток входа
 
-The {% data variables.enterprise.management_console %} locks after {% ifversion enterprise-authentication-rate-limits %}the number of failed login attempts configured by your authentication policies. For more information, see "[Configuring authentication policy rate limits](/admin/configuration/configuring-your-enterprise/configuring-rate-limits#configuring-authentication-policy-rate-limits)".{% else %}ten failed login attempts are made in the span of ten minutes. You must wait for the login screen to automatically unlock before attempting to log in again. The login screen automatically unlocks as soon as the previous ten minute period contains fewer than ten failed login attempts. The counter resets after a successful login occurs.{% endif %}
+{% данных variables.enterprise.management_console %} блокируется после {% ifversion enterprise-authentication-rate-limits %}количество неудачных попыток входа, настроенных политиками проверки подлинности. Дополнительные сведения см. в разделе "[Настройка ограничений скорости политики проверки подлинности](/admin/configuration/configuring-your-enterprise/configuring-rate-limits#configuring-authentication-policy-rate-limits)". {% else %}десять неудачных попыток входа выполняются в течение десяти минут. Прежде чем попытаться войти еще раз, необходимо дождаться автоматической разблокировки экрана входа. Экран входа автоматически разблокируется немедленно, если в предыдущем десятиминутном периоде было менее десяти неудачных попыток входа. Счетчик сбрасывается после успешного входа. {% endif %}
 
-{% data reusables.enterprise_management_console.unlocking-management-console-with-shell %}
+{% данных reusables.enterprise_management_console.unlocking-management-console-with-shell %}
 
-## Troubleshooting failed connections to the {% data variables.enterprise.management_console %}
+## Устранение неполадок с неудачными подключениями к {% data variables.enterprise.management_console %}
 
-If you cannot connect to the {% data variables.enterprise.management_console %} on {% data variables.location.product_location %}, you can review the following information to troubleshoot the problem.
+Если вы не можете подключиться к {% данных variables.enterprise.management_console %} на {% данных variables.location.product_location %}, ознакомьтесь со следующими сведениями, чтобы устранить проблему.
 
-### Error: "Your session has expired" for connections through a load balancer
+### Ошибка: "Срок действия сеанса истек" для подключений через подсистему балансировки нагрузки
 
-If you access {% data variables.location.product_location %} through a load balancer and connections to the {% data variables.enterprise.management_console %} fail with a message that your session has expired, you may need to reconfigure your load balancer. For more information, see "[Using {% data variables.product.product_name %} with a load balancer](/admin/configuration/configuring-network-settings/using-github-enterprise-server-with-a-load-balancer#error-your-session-has-expired-for-connections-to-the-management-console)."
+Если доступ к {% данных variables.location.product_location %} выполняется с помощью подсистемы балансировки нагрузки и подключений к {% данных variables.enterprise.management_console %} завершается ошибкой с сообщением об истечении срока действия сеанса, может потребоваться перенастроить подсистему балансировки нагрузки. Дополнительные сведения см. в статье [Использование {% data variables.product.product_name %} с подсистемой балансировки нагрузки](/admin/configuration/configuring-network-settings/using-github-enterprise-server-with-a-load-balancer#error-your-session-has-expired-for-connections-to-the-management-console).

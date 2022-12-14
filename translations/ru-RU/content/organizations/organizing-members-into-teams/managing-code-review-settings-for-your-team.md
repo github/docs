@@ -1,6 +1,6 @@
 ---
-title: Managing code review settings for your team
-intro: You can decrease noise for your team by limiting notifications when your team is requested to review a pull request.
+title: Управление параметрами проверки кода для вашей команды
+intro: 'Вы можете снизить шум для команды, ограничив уведомления, когда ваша команда получает запрос на проверку запроса на вытягивание.'
 redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/managing-code-review-assignment-for-your-team
   - /organizations/organizing-members-into-teams/managing-code-review-assignment-for-your-team
@@ -15,89 +15,78 @@ topics:
   - Teams
 shortTitle: Code review settings
 permissions: Team maintainers and organization owners can configure code review settings.
+ms.openlocfilehash: eb4711251f7bebc9088ae711ba8a36dc60acba56
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148108829'
 ---
+## Сведения о параметрах проверки кода
 
-## About code review settings
+{% ifversion only-notify-requested-members %} Чтобы снизить шум для вашей команды и уточнить индивидуальную ответственность за проверки запросов на вытягивание, можно настроить параметры проверки кода.
+
+- Уведомления для команды
+- Автоматические назначения
+
+## Сведения об уведомлениях для команды
+
+Если вы решили уведомлять только определенных участников команды, отключите отправку уведомлений всей команде, когда ей поступает запрос на проверку запроса на вытягивание, если конкретному участнику этой команды также отправляется соответствующий запрос на проверку. Это особенно полезно, если репозиторий настроен так, что команды выступают в качестве владельцев кода, но участники репозитория зачастую знают конкретного человека, который будет проверять запрос на вытягивание. Дополнительные сведения см. в разделе [Сведения о владельцах кода](/github/creating-cloning-and-archiving-repositories/about-code-owners).
+
+## Сведения об автоматическом назначении
+{% endif %}
+
+Если включено автоматическое назначение, каждый раз, когда команде поступает запрос на проверку запроса на вытягивание команда удаляется из списка рецензентов, а вместо всей команды рецензентами назначаются указанные участники команды. Задания проверки кода позволяют решить, отправляется ли уведомление всей команде или только определенным ее участникам, когда команде поступает запрос на проверку.
+
+Когда владельцам кода автоматически поступает запрос на проверку, команда по-прежнему удаляется из списка рецензентов и заменяется отдельными пользователями, если только не настроено правило защиты ветви, согласно которому проверку должны выполнять владельцы кода. Если используется такое правило защиты ветви, запрос команде не удастся удалить, поэтому в дополнение появятся индивидуальные запросы.
+
+### Алгоритмы маршрутизации
+
+При назначении проверки кода рецензенты автоматически выбираются и назначаются на основе одного из двух возможных алгоритмов. 
+
+При использовании алгоритма циклического перебора рецензенты выбираются на основе того, кто получил последний запрос на проверку, перебирая всех членов команды независимо от количества необработанных проверок, которое у них в настоящее время имеются. 
+
+При использовании алгоритма распределения нагрузки рецензенты выбираются на основе общего числа последних запросов на проверку каждого участника и учитывается количество необработанных проверок для каждого члена. Алгоритм распределения нагрузки пытается убедиться, что каждый участник команды проверяет одинаковое количество запросов на вытягивание в любой 30-дневный период.
+
+Для проверки не выбираются участники команды, статус которых "Занят". Если все участники команды заняты, запрос на вытягивание останется назначенным самой команде. Дополнительные сведения о статусах пользователей см. в разделе [Указание статуса](/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/personalizing-your-profile#setting-a-status).
 
 {% ifversion only-notify-requested-members %}
-To reduce noise for your team and clarify individual responsibility for pull request reviews, you can configure code review settings.
+## Настройка уведомлений для команды
 
-- Team notifications
-- Auto assignment
-
-## About team notifications
-
-When you choose to only notify requested team members, you disable sending notifications to the entire team when the team is requested to review a pull request if a specific member of that team is also requested for review. This is especially useful when a repository is configured with teams as code owners, but contributors to the repository often know a specific individual that would be the correct reviewer for their pull request. For more information, see "[About code owners](/github/creating-cloning-and-archiving-repositories/about-code-owners)."
-
-## About auto assignment
-{% endif %}
-
-When you enable auto assignment, any time your team has been requested to review a pull request, the team is removed as a reviewer and a specified subset of team members are assigned in the team's place. Code review assignments allow you to decide whether the whole team or just a subset of team members are notified when a team is requested for review.
-
-When code owners are automatically requested for review, the team is still removed and replaced with individuals unless a branch protection rule is configured to require review from code owners. If such a branch protection rule is in place, the team request cannot be removed and so the individual request will appear in addition.
-
-### Routing algorithms
-
-Code review assignments automatically choose and assign reviewers based on one of two possible algorithms. 
-
-The round robin algorithm chooses reviewers based on who's received the least recent review request, focusing on alternating between all members of the team regardless of the number of outstanding reviews they currently have. 
-
-The load balance algorithm chooses reviewers based on each member's total number of recent review requests and considers the number of outstanding reviews for each member. The load balance algorithm tries to ensure that each team member reviews an equal number of pull requests in any 30 day period.
-
-Any team members that have set their status to "Busy" will not be selected for review. If all team members are busy, the pull request will remain assigned to the team itself. For more information about user statuses, see "[Setting a status](/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/personalizing-your-profile#setting-a-status)."
-
-{% ifversion only-notify-requested-members %}
-## Configuring team notifications
-
-{% data reusables.profile.access_org %}
-{% data reusables.user-settings.access_org %}
-{% data reusables.organizations.specific_team %}
-{% data reusables.organizations.team_settings %}
-{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
-1. In the left sidebar, click **{% octicon "code-review" aria-label="The code-review icon" %} Code review**.
+{% данных reusables.profile.access_org %} {% данных для повторного использования.user-settings.access_org %} {% данных reusables.organizations.specific_team %} {% данных reusables.organizations.team_settings %} {% ifversion fpt или ghec или ghes > 3.4 или ghae > 3,4 %}
+1. На боковой панели слева нажмите **{% octicon "code-review" aria-label="The code-review icon" %} Проверка кода**.
 {% else %}
-1. In the left sidebar, click **Code review**
-![Code review button](/assets/images/help/teams/review-button.png)
-{% endif %}
-1. Select **Only notify requested team members.**
-![Code review team notifications](/assets/images/help/teams/review-assignment-notifications.png)
-1. Click **Save changes**.
+1. На боковой панели слева нажмите **Проверка кода**
+![Кнопка проверки кода](/assets/images/help/teams/review-button.png) {% endif %}
+1. Выберите **Уведомить только запрошенных участников команды.** 
+![Уведомления для команды проверки кода](/assets/images/help/teams/review-assignment-notifications.png)
+1. Нажмите кнопку **Сохранить изменения**.
 {% endif %}
 
-## Configuring auto assignment
-{% data reusables.profile.access_org %}
-{% data reusables.user-settings.access_org %}
-{% data reusables.organizations.specific_team %}
-{% data reusables.organizations.team_settings %}
-{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
-1. In the left sidebar, click **{% octicon "code-review" aria-label="The code-review icon" %} Code review**.
+## Настройка автоматического назначения
+{% данных reusables.profile.access_org %} {% данных для повторного использования.user-settings.access_org %} {% данных reusables.organizations.specific_team %} {% данных reusables.organizations.team_settings %} {% ifversion fpt или ghec или ghes > 3.4 или ghae > 3,4 %}
+1. На боковой панели слева нажмите **{% octicon "code-review" aria-label="The code-review icon" %} Проверка кода**.
 {% else %}
-1. In the left sidebar, click **Code review**
-![Code review button](/assets/images/help/teams/review-button.png)
-{% endif %}
-1. Select **Enable auto assignment**.
-![Auto-assignment button](/assets/images/help/teams/review-assignment-enable.png)
-1. Under "How many team members should be assigned to review?", use the drop-down menu and choose a number of reviewers to be assigned to each pull request.
-![Number of reviewers dropdown](/assets/images/help/teams/review-assignment-number.png)
-1. Under "Routing algorithm", use the drop-down menu and choose which algorithm you'd like to use. For more information, see "[Routing algorithms](#routing-algorithms)."
-![Routing algorithm dropdown](/assets/images/help/teams/review-assignment-algorithm.png)
-1. Optionally, to always skip certain members of the team, select **Never assign certain team members**. Then, select one or more team members you'd like to always skip.
-![Never assign certain team members checkbox and dropdown](/assets/images/help/teams/review-assignment-skip-members.png)
-{% ifversion ghes < 3.4 %}
-1. Optionally, to only notify the team members chosen by code review assignment for each pull review request, under "Notifications" select **If assigning team members, don't notify the entire team.**
+1. На боковой панели слева нажмите **Проверка кода**
+![Кнопка проверки кода](/assets/images/help/teams/review-button.png) {% endif %}
+1. Выберите **Включить автоматическое назначение**.
+![Кнопка автоматического назначения](/assets/images/help/teams/review-assignment-enable.png)
+1. В разделе "Сколько участников команды следует назначить для проверки?" используйте раскрывающееся меню и выберите рецензентов, которые будут назначены каждому запросу на вытягивание.
+![Раскрывающийся список для выбора количества рецензентов](/assets/images/help/teams/review-assignment-number.png)
+1. В разделе "Алгоритм маршрутизации" используйте раскрывающееся меню и выберите нужный алгоритм. Дополнительные сведения см. в разделе [Алгоритмы маршрутизации](#routing-algorithms)".
+![Раскрывающийся список для выбора алгоритма маршрутизации](/assets/images/help/teams/review-assignment-algorithm.png)
+1. При необходимости, чтобы всегда пропускать определенных участников команды, выберите **Никогда не назначать определенных участников команды**. Затем выберите одного или нескольких участников команды, которых необходимо всегда пропускать.
+![Флажок "Никогда не назначать определенных участников команды" и раскрывающееся меню](/assets/images/help/teams/review-assignment-skip-members.png) {% ifversion ghes < 3.4 %}
+1. При необходимости, чтобы уведомить только участников команды, выбранных путем назначения проверки кода для каждого запроса на проверку на вытягивание, в разделе "Уведомления" выберите **Если назначаются участники команды, не уведомлять всю команду**.
+{%- endif %} {% ifversion fpt или ghec или ghes или ghae > 3,3 %}
+1. При необходимости, чтобы включить участников дочерних команд в качестве потенциальных рецензентов при назначении запросов, выберите **Участники дочерней команды**.
+1. Кроме того, для подсчета всех участников, которые уже были запрошены, от общего числа назначенных участников, выберите **Подсчет существующих запросов**.
+1. При необходимости, чтобы удалить запрос на проверку для команды при назначении участников команды, выберите **Запрос на проверку для команды**.
 {%- endif %}
-{% ifversion fpt or ghec or ghes or ghae > 3.3 %}
-1. Optionally, to include members of child teams as potential reviewers when assigning requests, select **Child team members**.
-1. Optionally, to count any members whose review has already been requested against the total number of members to assign, select **Count existing requests**.
-1. Optionally, to remove the review request from the team when assigning team members, select **Team review request**.
-{%- endif %}
-1. Click **Save changes**.
+1. Нажмите кнопку **Сохранить изменения**.
 
-## Disabling auto assignment
-{% data reusables.profile.access_org %}
-{% data reusables.user-settings.access_org %}
-{% data reusables.organizations.specific_team %}
-{% data reusables.organizations.team_settings %}
-1. Select **Enable auto assignment** to remove the checkmark.
-![Code review assignment button](/assets/images/help/teams/review-assignment-enable.png)
-1. Click **Save changes**.
+## Отключение автоматического назначения
+{% data reusables.profile.access_org %} {% data reusables.user-settings.access_org %} {% data reusables.organizations.specific_team %} {% data reusables.organizations.team_settings %}
+1. Нажмите **Включить автоматическое назначение**, чтобы снять флажок.
+![Кнопка назначения проверки кода](/assets/images/help/teams/review-assignment-enable.png)
+1. Нажмите кнопку **Сохранить изменения**.

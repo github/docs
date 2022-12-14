@@ -1,6 +1,6 @@
 ---
-title: Testing your SSH connection
-intro: 'After you''ve set up your SSH key and added it to your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}, you can test your connection.'
+title: Тестирование подключения по протоколу SSH
+intro: 'После настройки ключа SSH и добавления его в учетную запись {% ifversion ghae %}{% данных variables.product.product_name %}{% остальных %}{% данных %}{% данных variables.location.product_location %}{% endif %}, можно проверить подключение.'
 redirect_from:
   - /articles/testing-your-ssh-connection
   - /github/authenticating-to-github/testing-your-ssh-connection
@@ -13,22 +13,28 @@ versions:
 topics:
   - SSH
 shortTitle: Test your SSH connection
+ms.openlocfilehash: 27a5d2b45ccad880ca94a1fffd3dd524ac867520
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148094036'
 ---
-Before testing your SSH connection, you should have:
-- [Checked for existing SSH keys](/articles/checking-for-existing-ssh-keys)
-- [Generated a new SSH key](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
-- [Added a new SSH key to your GitHub account](/articles/adding-a-new-ssh-key-to-your-github-account)
+Перед тестированием подключения по протоколу SSH необходимо выполнить следующие действия.
+- [Проверьте существующие ключи SSH](/articles/checking-for-existing-ssh-keys)
+- [Создайте новый ключ SSH](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
+- [Добавьте новый ключ SSH в учетную запись GitHub](/articles/adding-a-new-ssh-key-to-your-github-account)
 
-When you test your connection, you'll need to authenticate this action using your password, which is the SSH key passphrase you created earlier. For more information on working with SSH key passphrases, see ["Working with SSH key passphrases"](/articles/working-with-ssh-key-passphrases).
+При проверке подключения необходимо выполнить проверку подлинности этого действия с помощью пароля, который является парольной фразой ключа SSH, созданного ранее. Дополнительные сведения о работе с парольными фразами ключей SSH см. в разделе [Работа с парольными фразами ключа SSH](/articles/working-with-ssh-key-passphrases).
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
-2. Enter the following:
+2. Заполните следующие поля:
   ```shell
   $ ssh -T git@{% data variables.command_line.codeblock %}
   # Attempts to ssh to {% data variables.product.product_name %}
   ```
 
-  You may see a warning like this:
+  Может отобразиться следующее предупреждение:
 
   ```shell
   > The authenticity of host '{% data variables.command_line.codeblock %} (IP ADDRESS)' can't be established.
@@ -36,7 +42,7 @@ When you test your connection, you'll need to authenticate this action using you
   > Are you sure you want to continue connecting (yes/no)?
   ```
 
-3. Verify that the fingerprint in the message you see matches {% ifversion fpt or ghec %}[{% data variables.product.prodname_dotcom %}'s public key fingerprint](/github/authenticating-to-github/githubs-ssh-key-fingerprints){% else %} your enterprise's public key fingerprint{% endif %}. If it does, then type `yes`:
+3. Убедитесь, что отпечаток в сообщении соответствует {% ifversion fpt or ghec %}[отпечаток открытого ключа {% data variables.product.prodname_dotcom %}](/github/authenticating-to-github/githubs-ssh-key-fingerprints){% else %} отпечатку открытого ключа вашего предприятия{% endif %}. Если это так, введите `yes`:
   ```shell
   > Hi USERNAME! You've successfully authenticated, but GitHub does not
   > provide shell access.
@@ -44,7 +50,7 @@ When you test your connection, you'll need to authenticate this action using you
 
   {% linux %}
 
-  You may see this error message:
+  Может быть выдано следующее сообщение об ошибке:
   ```shell
   ...
   Agent admitted failure to sign using the key.
@@ -52,14 +58,14 @@ When you test your connection, you'll need to authenticate this action using you
   Permission denied (publickey).
   ```
 
-  This is a known problem with certain Linux distributions. For more information, see ["Error: Agent admitted failure to sign"](/articles/error-agent-admitted-failure-to-sign).
+  Это известная проблема, возникающая в определенных дистрибутивах Linux. Дополнительные сведения см. в разделе ["Ошибка: агент признал ошибку при подписании".](/articles/error-agent-admitted-failure-to-sign)
 
   {% endlinux %}
 
    {% note %}
 
-   **Note:** The remote command should exit with code 1.
+   **Примечание.** Удаленная команда должна выйти из кода 1.
 
    {% endnote %}
 
-4. Verify that the resulting message contains your username. If you receive a "permission denied" message, see ["Error: Permission denied (publickey)"](/articles/error-permission-denied-publickey).
+4. Убедитесь, что в полученном сообщении указано ваше имя пользователя. Если вы получили сообщение "Отказано в разрешении", см. раздел ["Ошибка: отказано в разрешении (publickey)".](/articles/error-permission-denied-publickey)

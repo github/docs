@@ -1,6 +1,6 @@
 ---
-title: Configuring notifications
-intro: 'Choose the type of activity on {% data variables.product.prodname_dotcom %} that you want to receive notifications for and how you want these updates delivered.'
+title: 알림 구성
+intro: '알림을 받을 {% data variables.product.prodname_dotcom %}의 작업 유형과 이러한 업데이트를 전달하는 방법을 선택합니다.'
 redirect_from:
   - /articles/about-web-notifications
   - /format-of-notification-emails
@@ -22,88 +22,90 @@ versions:
   ghec: '*'
 topics:
   - Notifications
+ms.openlocfilehash: f8e2185b316a360806a389af7203fd6f8c12dd15
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148094475'
 ---
+## 알림 배달 옵션
 
-## Notification delivery options
+다음 위치에서 {% 데이터 variables.location.product_location %}에 대한 활동에 대한 알림을 받을 수 있습니다.
 
-You can receive notifications for activity on {% data variables.location.product_location %} in the following locations.
+  - {% 데이터 variables.location.product_location %} 웹 인터페이스의 알림 받은 편지함{% ifversion fpt 또는 ghes 또는 ghec %}
+  - {% 데이터 variables.product.prodname_mobile %}의 알림 받은 편지함- {% 데이터 variables.location.product_location %}{% endif %}의 받은 편지함과 동기화됩니다.
+  - 확인된 전자 메일 주소를 사용하는 전자 메일 클라이언트로, {% 데이터 variables.location.product_location %}{% ifversion fpt 또는 ghec %} 및 {% 데이터 variables.product.prodname_mobile %}{% endif %}의 알림 받은 편지함과 동기화할 수도 있습니다.
 
-  - The notifications inbox in the {% data variables.location.product_location %} web interface{% ifversion fpt or ghes or ghec %}
-  - The notifications inbox on {% data variables.product.prodname_mobile %}, which syncs with the inbox on {% data variables.location.product_location %}{% endif %}
-  - An email client that uses a verified email address, which can also sync with the notifications inbox on {% data variables.location.product_location %}{% ifversion fpt or ghes or ghec %} and {% data variables.product.prodname_mobile %}{% endif %}
-
-{% ifversion fpt or ghes or ghec %}
-{% data reusables.notifications-v2.notifications-inbox-required-setting %} For more information, see "[Choosing your notification settings](#choosing-your-notification-settings)."
+{% ifversion fpt or ghes or ghec %} {% data reusables.notifications-v2.notifications-inbox-required-setting %} 자세한 내용은 “[알림 설정 선택](#choosing-your-notification-settings)”을 참조하세요.
 {% endif %}
 
 {% data reusables.notifications.shared_state %}
 
-### Benefits of the notifications inbox
+### 알림 받은 편지함의 이점
 
-The notifications inbox on {% data variables.location.product_location %}{% ifversion fpt or ghes or ghec %} and {% data variables.product.prodname_mobile %}{% endif %} includes triaging options designed specifically for your {% data variables.product.prodname_dotcom %} notifications flow, including options to:
-  - Triage multiple notifications at once.
-  - Mark completed notifications as **Done** and remove them from your inbox. To view all of your notifications marked as **Done**, use the `is:done` query.
-  - Save a notification to review later. Saved notifications are flagged in your inbox and kept indefinitely. To view all of your saved notifications, use the `is:saved` query.
-  - Unsubscribe and remove a notification from your inbox.
-  - Preview the issue, pull request, or team discussion where the notification originates on {% data variables.location.product_location %} from within the notifications inbox.
-  - See one of the latest reasons you're receiving a notification from your inbox with a `reasons` label.
-  - Create custom filters to focus on different notifications when you want.
-  - Group notifications in your inbox by repository or date to get a quick overview with less context switching
+{% 데이터 variables.location.product_location %}{% ifversion fpt 또는 ghec %} 및 {% 데이터 variables.product.prodname_mobile %}{% endif %}의 알림 받은 편지함에는 다음 옵션을 포함하여 {% 데이터 variables.product.prodname_dotcom %} 알림 흐름용으로 특별히 설계된 심사 옵션이 포함되어 있습니다.
+  - 한 번에 여러 알림을 심사합니다.
+  - 완료된 알림을 **완료** 로 표시하고 받은 편지함에서 제거합니다. **완료** 로 표시된 알림을 모두 보려면 `is:done` 쿼리를 사용합니다.
+  - 나중에 검토할 수 있도록 알림을 저장합니다. 저장된 알림은 받은 편지함에서 플래그가 지정되고 무기한 보관됩니다. 저장된 모든 알림을 보려면 `is:saved` 쿼리를 사용합니다.
+  - 구독을 취소하고 받은 편지함에서 알림을 제거합니다.
+  - 알림 받은 편지함 내의 {% 데이터 variables.location.product_location %}에서 알림이 시작되는 문제, 끌어오기 요청 또는 팀 토론을 미리 봅니다.
+  - 받은 편지함에서 `reasons` 레이블을 사용하여 알림이 수신되는 최신 이유 중 하나를 참조하세요.
+  - 원하는 경우 사용자 지정 필터를 만들어 다른 알림을 중점적으로 살펴봅니다.
+  - 받은 편지함의 알림을 리포지토리 또는 날짜별로 그룹화하여 컨텍스트를 덜 전환하면서 전반적인 내용을 빠르게 확인할 수 있습니다.
 
-{% ifversion fpt or ghes or ghec %}
-In addition, you can receive and triage notifications on your mobile device with {% data variables.product.prodname_mobile %}. For more information, see "[Managing your notification settings with GitHub Mobile](#managing-your-notification-settings-with-github-mobile)" or "[GitHub Mobile](/get-started/using-github/github-mobile)."
+{% ifversion fpt or ghes or ghec %} 또한 {% data variables.product.prodname_mobile %}을 사용하여 모바일 디바이스에서 알림을 받고 심사할 수 있습니다. 자세한 내용은 “[GitHub Mobile을 사용하여 알림 설정 관리](#managing-your-notification-settings-with-github-mobile)” 또는 “[GitHub Mobile](/get-started/using-github/github-mobile)”을 참조하세요.
 {% endif %}
 
-### Benefits of using an email client for notifications
+### 알림에 메일 클라이언트를 사용할 경우의 이점
 
-One benefit of using an email client is that all of your notifications can be kept indefinitely depending on your email client's storage capacity. Your inbox notifications are only kept for 5 months on {% data variables.product.prodname_dotcom %} unless you've marked them as **Saved**. **Saved** notifications are kept indefinitely. For more information about your inbox's retention policy, see "[About notifications](/github/managing-subscriptions-and-notifications-on-github/about-notifications#notification-retention-policy)."
+메일 클라이언트 사용의 한 가지 이점은 메일 클라이언트의 스토리지 용량에 따라 모든 알림을 무기한으로 보관할 수 있다는 것입니다. 받은 편지함 알림은 **저장됨** 으로 표시하지 않으면 {% data variables.product.prodname_dotcom %}에서 5개월 동안만 보관됩니다. **저장됨** 알림은 무기한 보관됩니다. 받은 편지함의 보존 정책에 대한 자세한 내용은 “[알림 정보](/github/managing-subscriptions-and-notifications-on-github/about-notifications#notification-retention-policy)”를 참조하세요.
 
-Sending notifications to your email client also allows you to customize your inbox according to your email client's settings, which can include custom or color-coded labels.
+메일 클라이언트에 알림을 보내면 사용자 지정 또는 색으로 구분된 레이블을 포함할 수 있는 메일 클라이언트의 설정에 따라 받은 편지함을 사용자 지정할 수도 있습니다.
 
-Email notifications also allow flexibility with the types of notifications you receive and allow you to choose different email addresses for updates. For example, you can send certain notifications for a repository to a  verified personal email address. For more information, about your email customization options, see "[Customizing your email notifications](#customizing-your-email-notifications)."
+또한 메일 알림을 통해 수신하는 알림 유형을 선택하고 업데이트에 대해 다른 메일 주소를 선택할 수 있습니다. 예를 들어 리포지토리에 대한 특정 알림을 확인된 개인 메일 주소로 보낼 수 있습니다. 메일 사용자 지정 옵션에 대한 자세한 내용은 “[메일 알림 사용자 지정](#customizing-your-email-notifications)”을 참조하세요.
 
-## About participating and watching notifications
+## 참여 및 시청 알림 정보
 
-When you watch a repository, you're subscribing to updates for activity in that repository. Similarly, when you watch a specific team's discussions, you're subscribing to all conversation updates on that team's page. For more information, see "[About team discussions](/organizations/collaborating-with-your-team/about-team-discussions)."
+리포지토리를 시청하면 해당 리포지토리의 작업에 대한 업데이트를 구독하게 됩니다. 마찬가지로 특정 팀의 토론을 시청하면 해당 팀 페이지의 모든 대화 업데이트를 구독하게 됩니다. 자세한 내용은 “[팀 토론 정보](/organizations/collaborating-with-your-team/about-team-discussions)”를 참조하세요.
 
-To see repositories that you're watching, go to your [watching page](https://github.com/watching). For more information, see "[Managing subscriptions and notifications on GitHub](/github/managing-subscriptions-and-notifications-on-github/managing-subscriptions-for-activity-on-github)."
+시청하는 리포지토리를 보려면 [시청 페이지](https://github.com/watching)로 이동합니다. 자세한 내용은 “[GitHub 구독 및 알림 관리](/github/managing-subscriptions-and-notifications-on-github/managing-subscriptions-for-activity-on-github)”를 참조하세요.
 
 {% ifversion ghae %}
-### Configuring notifications
-{% endif %}
-You can configure notifications for a repository on the repository page, or on your watching page.
+### 알림 구성
+{% endif %} 리포지토리 페이지 또는 시청 페이지에서 리포지토리에 대한 알림을 구성할 수 있습니다.
 
-### About custom notifications
-You can customize notifications for a repository. For example, you can choose to only be notified when updates to one or more types of events ({% data reusables.notifications-v2.custom-notification-types %}) happen within a repository, or ignore all notifications for a repository. For more information, see "[Configuring your watch settings for an individual repository](#configuring-your-watch-settings-for-an-individual-repository)" below.
+### 사용자 지정 알림 정보
+리포지토리에 대한 알림을 사용자 지정할 수 있습니다. 예를 들어 리포지토리 내에서 하나 이상의 이벤트 유형({% data reusables.notifications-v2.custom-notification-types %})에 대한 업데이트가 발생하는 경우에만 알림을 받거나 리포지토리에 대한 모든 알림을 무시하도록 선택할 수 있습니다. 자세한 내용은 아래의 “[개별 리포지토리에 대한 시청 설정 구성](#configuring-your-watch-settings-for-an-individual-repository)”을 참조하세요.
 
-### Participating in conversations
-Anytime you comment in a conversation or when someone @mentions your username, you are _participating_ in a conversation. By default, you are automatically subscribed to a conversation when you participate in it. You can unsubscribe from a conversation you've participated in manually by clicking **Unsubscribe** on the issue or pull request or through the **Unsubscribe** option in the notifications inbox.
+### 대화 참여
+대화에서 댓글을 달거나 다른 사람이 사용자 이름을 @mentions하면 대화에 참여하게 됩니다. 기본적으로 대화에 참여하면 대화가 자동으로 구독됩니다. 이슈 또는 끌어오기 요청에서 **구독 취소** 를 클릭하거나 알림 받은 편지함의 **구독 취소** 옵션을 통해 참여하는 대화에서 수동으로 구독을 취소할 수 있습니다.
 
-{% ifversion update-notification-settings-22 %}For conversations you're watching or participating in, you can choose whether you want to receive notifications on {% data variables.product.company_short %} or by email in your notification settings. For more information, see "[Choosing your notification settings](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#choosing-your-notification-settings)."
+{% ifversion update-notification-settings-22 %} 보고 있거나 참여하는 대화의 경우 {% 데이터 variables.product.company_short %}에서 알림을 받을지 또는 알림 설정의 전자 메일로 알림을 받을지 선택할 수 있습니다. 자세한 내용은 "[알림 설정 선택"을 참조하세요](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#choosing-your-notification-settings).
 
-![Animated GIF of participating and watching subscriptions options](/assets/images/help/notifications/selecting-participating-notifications.gif) 
-
-{% else %}
-
-For conversations you're watching or participating in, you can choose whether you want to receive notifications by email or through the notifications inbox on {% data variables.location.product_location %}{% ifversion ghes %} and {% data variables.product.prodname_mobile %}{% endif %}. For more information, see "[Choosing your notification settings](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#choosing-your-notification-settings)."
-
-![Screenshot of participating and watching notifications options](/assets/images/help/notifications-v2/participating-and-watching-options.png){% endif %}
-
-
-
-For example:
-  - If you don't want notifications to be sent to your email, unselect **email** for participating and watching notifications.
-  - If you want to receive notifications by email when you've participated in a conversation, then you can select **email** under "Participating".
-
-{% ifversion update-notification-settings-22 %}If you do not enable "Notify me: On GitHub" for watching or participating notifications, then your notifications inbox will not have any updates.
+![구독 참여 및 시청 옵션의 애니메이션 GIF](/assets/images/help/notifications/selecting-participating-notifications.gif) 
 
 {% else %}
 
-If you do not enable watching or participating notifications for web{% ifversion ghes %} and mobile{% endif %}, then your notifications inbox will not have any updates.{% endif %}
+보고 있거나 참여하는 대화의 경우 {% 데이터 variables.location.product_location %}{% ifversion ghes %} 및 {% 데이터 variables.product.prodname_mobile %}{% endif %}의 알림 받은 편지함을 통해 알림을 받을지 선택할 수 있습니다. 자세한 내용은 "[알림 설정 선택"을 참조하세요](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#choosing-your-notification-settings).
 
-## Customizing your email notifications
+![알림 옵션 참여 및 시청 스크린샷](/assets/images/help/notifications-v2/participating-and-watching-options.png){% endif %}
 
-After enabling email notifications, {% data variables.location.product_location %} will send notifications to you as multipart emails that contain both HTML and plain text copies of the content. Email notification content includes any Markdown, @mentions, emojis, hash-links, and more, that appear in the original content on {% data variables.location.product_location %}. If you only want to see the text in the email, you can configure your email client to display the plain text copy only.
+
+
+예를 들면 다음과 같습니다.
+  - 메일로 알림을 받지 않으려면 참여 및 시청 알림에 대한 **메일** 을 선택 취소합니다.
+  - 대화에 참여했을 때 메일로 알림을 받으려면 “참여” 아래에서 **메일** 을 선택할 수 있습니다.
+
+{% ifversion update-notification-settings-22 %} 알림을 보거나 참여시키는 데 "알림: GitHub"를 사용하도록 설정하지 않으면 알림 받은 편지함에 업데이트가 없습니다.
+
+{% else %}
+
+웹{% ifversion ghes %} 및 mobile{% endif %}에 대한 알림을 보거나 참여하도록 설정하지 않으면 알림 받은 편지함에 업데이트가 없습니다. {% endif %}
+
+## 메일 알림 사용자 지정
+
+전자 메일 알림을 사용하도록 설정한 후 {% 데이터 variables.location.product_location %}은(는) 콘텐츠의 HTML 및 일반 텍스트 복사본을 모두 포함하는 다중 파트 전자 메일로 알림을 보냅니다. Email 알림 콘텐츠에는 {% 데이터 variables.location.product_location %}의 원래 콘텐츠에 표시되는 Markdown@mentions, 이모지, 해시 링크 등이 포함됩니다. 메일에서 텍스트만 보려면 일반 텍스트 복사본만 표시하도록 메일 클라이언트를 구성할 수 있습니다.
 
 {% data reusables.notifications.outbound_email_tip %}
 
@@ -111,194 +113,181 @@ After enabling email notifications, {% data variables.location.product_location 
 
 {% ifversion fpt or ghec %}
 
-If you're using Gmail, you can click a button beside the notification email to visit the original issue or pull request that generated the notification.
+Gmail을 사용하는 경우 알림 메일 옆에 있는 단추를 클릭하여 알림을 생성한 원래 이슈 또는 끌어오기 요청을 방문할 수 있습니다.
 
-![Buttons in Gmail](/assets/images/help/notifications/gmail-buttons.png)
+![Gmail의 단추](/assets/images/help/notifications/gmail-buttons.png)
 
 {% endif %}
 
-Choose a default email address where you want to send updates for conversations you're participating in or watching. You can also specify which activity on {% data variables.location.product_location %} you want to receive updates for using your default email address. For example, choose whether you want updates to your default email from:
-  - Comments on issues and pull requests.
-  - Pull request reviews.
-  - Pull request pushes.
-  - Your own updates, such as when you open, comment on, or close an issue or pull request.
+참여하거나 시청하는 대화에 대한 업데이트를 보낼 기본 메일 주소를 선택합니다. 기본 전자 메일 주소를 사용하기 위한 업데이트를 받을 {% 데이터 variables.location.product_location %}에서 어떤 활동을 지정할 수도 있습니다. 예를 들어 다음에서 기본 메일로 업데이트를 원하는지 선택합니다.
+  - 이슈 및 끌어오기 요청에 대한 주석
+  - 끌어오기 요청 검토
+  - 끌어오기 요청 푸시
+  - 사용자의 업데이트(이슈 또는 끌어오기 요청 열기, 주석 달기 또는 이슈 또는 끌어오기 요청 닫기 등)
 
-Depending on the organization that owns the repository, you can also send notifications to different email addresses. Your organization may require the email address to be verified for a specific domain. For more information, see "[Choosing where your organization’s email notifications are sent](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#choosing-where-your-organizations-email-notifications-are-sent)."
+리포지토리를 소유하는 조직에 따라 다른 메일 주소로 알림을 보낼 수도 있습니다. 조직에서 특정 도메인에 대한 메일 주소를 확인하도록 요구할 수 있습니다. 자세한 내용은 “[조직의 메일 알림이 전송되는 위치 선택](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#choosing-where-your-organizations-email-notifications-are-sent)”을 참조하세요.
 
-You can also send notifications for a specific repository to an email address. For more information, see "[About email notifications for pushes to your repository](/github/administering-a-repository/about-email-notifications-for-pushes-to-your-repository)."
+특정 리포지토리에 대한 알림을 메일 주소로 보낼 수도 있습니다. 자세한 내용은 “[리포지토리에 푸시에 대한 메일 알림 정보](/github/administering-a-repository/about-email-notifications-for-pushes-to-your-repository)”를 참조하세요.
 
 {% data reusables.notifications-v2.email-notification-caveats %}
 
-## Filtering email notifications
+## 메일 알림 필터링
 
-Each email notification that {% data variables.location.product_location %} sends contains header information. The header information in every email is consistent, so you can use it in your email client to filter or forward all {% data variables.product.prodname_dotcom %} notifications, or certain types of {% data variables.product.prodname_dotcom %} notifications.
+{% 데이터 variables.location.product_location %}이(가) 보내는 각 전자 메일 알림에는 헤더 정보가 포함됩니다. 모든 메일의 헤더 정보는 일관되므로 메일 클라이언트에서 헤더 정보를 사용하여 모든 {% data variables.product.prodname_dotcom %} 알림 또는 특정 유형의 {% data variables.product.prodname_dotcom %} 알림을 필터링하거나 전달할 수 있습니다.
 
-If you believe you're receiving notifications that don't belong to you, examine the `X-GitHub-Recipient` and `X-GitHub-Recipient-Address` headers. These headers show who the intended recipient is. Depending on your email setup, you may receive notifications intended for another user.
+사용자에게 해당 없는 알림을 받고 있다고 생각되면 `X-GitHub-Recipient` 및 `X-GitHub-Recipient-Address` 헤더를 검사합니다. 헤더는 의도한 수신자가 누구인지 표시합니다. 메일 설정에 따라 다른 사용자를 위한 알림을 받을 수 있습니다.
 
-Email notifications from {% data variables.location.product_location %} contain the following header information:
+{% 데이터 variables.location.product_location %}의 Email 알림에는 다음 헤더 정보가 포함됩니다.
 
-| Header | Information |
+| 헤더 | 정보 |
 | --- | --- |
-| `From` address | This address will always be {% ifversion fpt or ghec %}'`notifications@github.com`'{% else %}'the no-reply email address configured by your site administrator'{% endif %}. |
-| `To` field | This field connects directly to the thread.{% ifversion not ghae %} If you reply to the email, you'll add a new comment to the conversation.{% endif %} |
-| `Cc` address | {% data variables.product.product_name %} will `Cc` you if you're subscribed to a conversation. The second `Cc` email address matches the notification reason. The suffix for these notification reasons is {% data variables.notifications.cc_address %}. The possible notification reasons are: <ul><li>`assign`: You were assigned to an issue or pull request.</li><li>`author`: You created an issue or pull request.</li><li>`ci_activity`: A {% data variables.product.prodname_actions %} workflow run that you triggered was completed.</li><li>`comment`: You commented on an issue or pull request.</li><li>`manual`: There was an update to an issue or pull request you manually subscribed to.</li><li>`mention`: You were mentioned on an issue or pull request.</li><li>`push`: Someone committed to a pull request you're subscribed to.</li><li>`review_requested`: You or a team you're a member of was requested to review a pull request.</li><li>`security_alert`: {% data variables.product.prodname_dotcom %} detected a vulnerability in a repository you receive alerts for.</li><li>`state_change`: An issue or pull request you're subscribed to was either closed or opened.</li><li>`subscribed`: There was an update in a repository you're watching.</li><li>`team_mention`: A team you belong to was mentioned on an issue or pull request.</li><li>`your_activity`: You opened, commented on, or closed an issue or pull request.</li></ul> |
-| `mailing list` field | This field identifies the name of the repository and its owner. The format of this address is always `<repository name>.<repository owner>.{% data variables.command_line.backticks %}`. |
-| `X-GitHub-Severity` field | {% data reusables.repositories.security-alerts-x-github-severity %} The possible severity levels are:<ul><li>`low`</li><li>`moderate`</li><li>`high`</li><li>`critical`</li></ul>For more information, see "[About {% data variables.product.prodname_dependabot_alerts %}](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)." |
+| `From` 주소 | 이 주소는 항상 {% ifversion fpt or ghec %}‘`notifications@github.com`’{% else %}‘사이트 관리자가 구성한 발신 전용 메일 주소’{% endif %}입니다. |
+| `To` 필드 | 이 필드는 스레드에 직접 연결됩니다.{% ifversion not ghae %} 메일에 회신하는 경우 대화에 새 주석을 추가합니다.{% endif %} |
+| `Cc` 주소 | 대화를 구독하는 경우 {% data variables.product.product_name %}는 사용자를 `Cc`합니다. 두 번째 `Cc` 메일 주소는 알림 이유와 일치합니다. 알림 이유의 접미사는 {% data variables.notifications.cc_address %}입니다. 가능한 알림 이유는 다음과 같습니다. <ul><li>`assign`: 이슈 또는 끌어오기 요청에 할당되었습니다.</li><li>`author`: 이슈 또는 끌어오기 요청을 만들었습니다.</li><li>`ci_activity`: 트리거한 {% data variables.product.prodname_actions %} 워크플로 실행이 완료되었습니다.</li><li>`comment`: 이슈 또는 끌어오기 요청에 대해 주석을 달았습니다.</li><li>`manual`: 수동으로 구독한 이슈 또는 끌어오기 요청에 대한 업데이트가 있습니다.</li><li>`mention`: 이슈 또는 끌어오기 요청에 언급되었습니다.</li><li>`push`: 다른 사람이 사용자가 구독하는 끌어오기 요청을 커밋했습니다.</li><li>`review_requested`: 사용자 또는 사용자가 속한 팀이 끌어오기 요청을 검토하도록 요청되었습니다.</li><li>`security_alert`: {% data variables.product.prodname_dotcom %}가 경고를 수신하는 리포지토리에서 취약성을 탐지했습니다.</li><li>`state_change`: 구독하는 이슈 또는 끌어오기 요청이 닫혔거나 열렸습니다.</li><li>`subscribed`: 시청하는 리포지토리에 업데이트가 있습니다.</li><li>`team_mention`: 사용자가 속한 팀이 이슈 또는 끌어오기 요청에 언급되었습니다.</li><li>`your_activity`: 이슈 또는 끌어오기 요청을 열었거나, 주석을 달았거나, 닫았습니다.</li></ul> |
+| `mailing list` 필드 | 이 필드는 리포지토리의 이름과 해당 소유자를 식별합니다. 이 주소의 형식은 항상 `<repository name>.<repository owner>.{% data variables.command_line.backticks %}`입니다. |
+| `X-GitHub-Severity` 필드 | {% data reusables.repositories.security-alerts-x-github-severity %} 가능한 심각도 수준은 다음과 같습니다.<ul><li>`low`</li><li>`moderate`</li><li>`high`</li><li>`critical`</li></ul>자세한 내용은 “[{% data variables.product.prodname_dependabot_alerts %} 정보](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)”를 참조하세요. |
 
-## Choosing your notification settings
+## 알림 설정 선택
 
-{% data reusables.notifications.access_notifications %}
-{% data reusables.notifications-v2.manage-notifications %}
-3. On the notifications settings page, choose how you receive notifications when:
-    - There are updates in repositories or team discussions you're watching or in a conversation you're participating in. For more information, see "[About participating and watching notifications](#about-participating-and-watching-notifications)."
-    - You gain access to a new repository or you've joined a new team. For more information, see "[Automatic watching](#automatic-watching)."
-    - There are new {% data variables.product.prodname_dependabot_alerts %} in your repository. For more information, see "[{% data variables.product.prodname_dependabot_alerts %} notification options](#dependabot-alerts-notification-options)."  {% ifversion fpt or ghec %}
-    - There are workflow runs updates on repositories set up with {% data variables.product.prodname_actions %}. For more information, see "[{% data variables.product.prodname_actions %} notification options](#github-actions-notification-options)."{% endif %}{% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
-    - There are new deploy keys added to repositories that belong to organizations that you're an owner of. For more information, see "[Organization alerts notification options](#organization-alerts-notification-options)."{% endif %}
+{% data reusables.notifications.access_notifications %} {% data reusables.notifications-v2.manage-notifications %}
+3. 알림 설정 페이지에서 다음과 같은 경우 알림을 받는 방법을 선택합니다.
+    - 시청하는 리포지토리나 팀 토론 또는 참여 중인 대화에 업데이트가 있습니다. 자세한 내용은 “[참여 및 시청 알림 정보](#about-participating-and-watching-notifications)”를 참조하세요.
+    - 새 리포지토리에 대한 액세스 권한을 얻거나 새 팀에 참가했습니다. 자세한 내용은 “[자동 시청](#automatic-watching)”을 참조하세요.
+    - 리포지토리에 새 {% data variables.product.prodname_dependabot_alerts %}가 있습니다. 자세한 내용은 “[{% data variables.product.prodname_dependabot_alerts %} 알림 옵션](#dependabot-alerts-notification-options)”을 참조하세요.  {% ifversion fpt or ghec %}
+    - {% data variables.product.prodname_actions %}로 설정된 리포지토리에 대한 워크플로 실행 업데이트가 있습니다. 자세한 내용은 "[{% 데이터 variables.product.prodname_actions %} 알림 옵션](#github-actions-notification-options)"을 참조하세요. {% endif %} {% ifversion fpt 또는 ghec 또는 ghes > 3.3 또는 ghae > 3.3 %}
+    - 사용자가 소유자인 조직에 속하는 리포지토리에 추가된 새 배포 키가 있습니다. 자세한 내용은 “[조직 경고 알림 옵션](#organization-alerts-notification-options)”을 참조하세요.{% endif %}
 
-## Automatic watching
+## 자동 시청
 
-By default, anytime you gain access to a new repository, you will automatically begin watching that repository. Anytime you join a new team, you will automatically be subscribed to updates and receive notifications when that team is @mentioned. If you don't want to automatically be subscribed, you can unselect the automatic watching options in your notification settings. 
+기본적으로 새 리포지토리에 대한 액세스 권한을 얻을 때마다 해당 리포지토리를 자동으로 시청하기 시작합니다. 새 팀에 참가할 때마다 자동으로 업데이트를 구독하게 되고 해당 팀이 @mentioned되면 알림을 받게 됩니다. 자동으로 구독하지 않으려면 알림 설정에서 자동 시청 옵션을 선택 취소할 수 있습니다. 
 
-{% ifversion update-notification-settings-22 %}
-![Automatic watching options for teams and repositories](/assets/images/automatically-watch-repos-and-teams.png)
-{% else %}
-![Automatic watching options](/assets/images/help/notifications-v2/automatic-watching-options.png){% endif %}
+{% ifversion update-notification-settings-22 %} ![ 팀 및 리포지](/assets/images/automatically-watch-repos-and-teams.png) 토리에 대한 자동 시청 옵션 {% else %} ![자동 시청 옵션](/assets/images/help/notifications-v2/automatic-watching-options.png){% endif %}
 
-If "Automatically watch repositories" is disabled, then you will not automatically watch your own repositories. You must navigate to your repository page and choose the watch option. 
+“리포지토리 자동 시청”을 사용하지 않도록 설정하면 사용자의 리포지토리를 자동으로 시청하지 않게 됩니다. 리포지토리 페이지로 이동하여 시청 옵션을 선택해야 합니다. 
 
-For more information, see "[Choosing your notification settings](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#choosing-your-notification-settings)."
+자세한 내용은 "[알림 설정 선택"을 참조하세요](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#choosing-your-notification-settings).
 
-## Configuring your watch settings for an individual repository
+## 개별 리포지토리에 대한 시청 설정 구성
 
-You can choose whether to watch or unwatch an individual repository. You can also choose to only be notified of certain event types such as {% data reusables.notifications-v2.custom-notification-types %} (if enabled for the repository) , or completely ignore an individual repository.
+개별 리포지토리를 시청할지 시청 해제할지 선택할 수 있습니다. {% data reusables.notifications-v2.custom-notification-types %}(리포지토리에 사용하도록 설정된 경우) 같은 특정 이벤트 유형에 대해서만 알림을 받거나 개별 리포지토리를 완전히 무시하도록 선택할 수도 있습니다.
 
 {% data reusables.repositories.navigate-to-repo %}
-2. In the upper-right corner, select the "Watch" drop-down menu to click a watch option.
-   ![Watch options in a drop-down menu for a repository](/assets/images/help/notifications-v2/watch-repository-options-custom.png)
+2. 오른쪽 위에서 “시청” 드롭다운 메뉴를 선택하여 시청 옵션을 클릭합니다.
+   ![리포지토리에 대한 드롭다운 메뉴의 보기 옵션](/assets/images/help/notifications-v2/watch-repository-options-custom.png)
 
-   The **Custom** option allows you to further customize notifications so that you're only notified when specific events happen in the repository, in addition to participating and @mentions.
-   ![Custom watch options in a drop-down menu for a repository](/assets/images/help/notifications-v2/watch-repository-options-custom2-dotcom.png)
-   If you select "Issues", you will be notified about, and subscribed to, updates on every issue (including those that existed prior to you selecting this option) in the repository. If you're @mentioned in a pull request in this repository, you'll receive notifications for that too, and you'll be subscribed to updates on that specific pull request, in addition to being notified about issues.
+   **사용자 지정** 옵션을 사용하면 참여 및 @mentions 외에도 리포지토리에서 특정 이벤트가 발생할 때만 알림을 받도록 알림을 추가로 사용자 지정할 수 있습니다.
+   ![리포지](/assets/images/help/notifications-v2/watch-repository-options-custom2-dotcom.png) 토리에 대한 드롭다운 메뉴의 사용자 지정 조사식 옵션 "문제"를 선택하면 리포지토리에서 모든 문제(이 옵션을 선택하기 전에 존재했던 문제 포함)에 대한 업데이트를 알리고 구독하게 됩니다. 이 리포지토리의 끌어오기 요청에 @mentioned되면 해당 알림도 받게 되며, 이슈에 대한 알림을 받는 것 외에도 해당 특정 끌어오기 요청에 대한 업데이트를 구독하게 됩니다.
 
-## Choosing where your organization’s email notifications are sent
+## 조직의 메일 알림이 전송되는 위치 선택
 
-If you belong to an organization, you can choose the email account you want notifications for organization activity sent to. For example, if you belong to an organization for work, you may want your notifications sent to your work email address, rather than your personal address.	
+조직에 속한 경우 조직 활동에 대한 알림을 보낼 메일 계정을 선택할 수 있습니다. 예를 들어 회사 조직에 속한 경우 개인 주소가 아닌 회사 메일 주소로 알림을 보내도록 할 수 있습니다.    
 
 {% data reusables.notifications-v2.email-notification-caveats %}
 
-{% data reusables.notifications.access_notifications %}
-{% data reusables.notifications-v2.manage-notifications %}
+{% data reusables.notifications.access_notifications %} {% data reusables.notifications-v2.manage-notifications %}
 
-3. Under "Default notification email", select the email address you'd like notifications sent to.	
+3. “기본 알림 메일”에서 알림을 보낼 메일 주소를 선택합니다.   
 {% ifversion update-notification-settings-22 %}
 
-   ![Screenshot of the default notification email address setting](/assets/images/help/notifications/default-email-address-emphasized.png)
+   ![기본 알림 이메일 주소 설정의 스크린샷](/assets/images/help/notifications/default-email-address-emphasized.png)
 
 {% else %}
 
-   ![Screenshot of the default notification email address dropdown](/assets/images/help/notifications/notifications_primary_email_for_orgs.png){% endif %}
-{% ifversion ghes or ghae %}
-4. Click **Save**.{% endif %}	
+   ![기본 알림 이메일 주소 드롭다운](/assets/images/help/notifications/notifications_primary_email_for_orgs.png){% endif %} {% ifversion ghes 또는 ghae %} 스크린샷
+4. **저장** 을 클릭합니다. {% endif %}   
 
-### Customizing email routes per organization	
+### 조직당 메일 라우팅 사용자 지정   
 
-If you are a member of more than one organization, you can configure each one to send notifications to any of{% ifversion fpt or ghec %} your verified email addresses{% else %} the email addresses for your account{% endif %}. {% ifversion fpt or ghec %} For more information, see "[Verifying your email address](/articles/verifying-your-email-address)."{% endif %} 
+둘 이상의 조직에 속한 경우{% ifversion fpt or ghec %} 확인된 메일 주소{% else %} 계정의 메일 주소{% endif %}로 알림을 보내도록 각각 구성할 수 있습니다. {% ifversion fpt or ghec %} 자세한 내용은 “[메일 주소 확인](/articles/verifying-your-email-address)”을 참조하세요.{% endif %} 
 
-{% data reusables.notifications.access_notifications %}
-{% data reusables.notifications-v2.manage-notifications %}
-{% ifversion update-notification-settings-22 %}
-3. Under "Default notifications email", click **Custom routing**.
+{% 데이터 reusables.notifications.access_notifications %} {% data reusables.notifications-v2.manage-notifications %} {% ifversion update-notification-settings-22 %}
+3. "기본 알림 전자 메일"에서 **사용자 지정 라우팅을** 클릭합니다.
 
-   ![Screenshot of default notifications email settings with custom routing button emphasised](/assets/images/help/notifications/custom-router-emphasized.png)
+   ![사용자 지정 라우팅 단추가 강조 표시된 기본 알림 전자 메일 설정의 스크린샷](/assets/images/help/notifications/custom-router-emphasized.png)
 
-4. Click **Add new route**.
+4. **새 경로 추가** 를 클릭합니다.
 
-   ![Screenshot of custom routing settings with add new route button emphasised](/assets/images/help/notifications/add-new-route-emphasized.png)
+   ![새 경로 추가 단추가 강조 표시된 사용자 지정 라우팅 설정의 스크린샷](/assets/images/help/notifications/add-new-route-emphasized.png)
 
-5. Click **Pick organization**, then select the organization you want to customize from the dropdown.
+5. **조직 선택을** 클릭한 다음 드롭다운에서 사용자 지정할 조직을 선택합니다.
 
-   ![Screenshot of dropdown to pick organization](/assets/images/help/notifications/organization-dropdown-custom-routing-emphasis.png)
+   ![조직 선택 드롭다운 스크린샷](/assets/images/help/notifications/organization-dropdown-custom-routing-emphasis.png)
 
-6. Select one of your verified email addresses, then click **Save**. 
+6. 확인된 메일 주소 중 하나를 선택한 다음 **저장** 을 클릭합니다. 
 
-   ![Screenshot of custom routing page with save button](/assets/images/help/notifications/select-email-address-custom-routing-and-save.png)
+   ![저장 단추가 있는 사용자 지정 라우팅 페이지의 스크린샷](/assets/images/help/notifications/select-email-address-custom-routing-and-save.png)
 
 {% else %}
-3. Under "Custom routing," find your organization's name in the list.
+3. “사용자 지정 라우팅” 아래의 목록에서 조직의 이름을 찾습니다.
 
-   ![List of organizations and email addresses](/assets/images/help/notifications/notifications_org_emails.png)	
+   ![조직 및 메일 주소 목록](/assets/images/help/notifications/notifications_org_emails.png) 
 
-4. Click **Edit** next to the email address you want to change.
+4. 변경할 메일 주소 옆에 있는 **편집** 을 클릭합니다.
 
-   ![Editing an organization's email addresses](/assets/images/help/notifications/notifications_edit_org_emails.png)	
+   ![조직의 메일 주소 편집](/assets/images/help/notifications/notifications_edit_org_emails.png)    
 
-5. Select one of your verified email addresses, then click **Save**.	
+5. 확인된 메일 주소 중 하나를 선택한 다음 **저장** 을 클릭합니다.    
 
-   ![Switching your per-org email address](/assets/images/help/notifications/notifications_switching_org_email.gif){% endif %}
+   ![조직별 메일 주소 전환](/assets/images/help/notifications/notifications_switching_org_email.gif){% endif %}
 
-## {% data variables.product.prodname_dependabot_alerts %} notification options 
+## {% data variables.product.prodname_dependabot_alerts %} 알림 옵션 
 
-{% data reusables.notifications.vulnerable-dependency-notification-enable %}
-{% data reusables.notifications.vulnerable-dependency-notification-delivery-method-customization2 %}
-{% data reusables.notifications.vulnerable-dependency-notification-options %}
+{% data reusables.notifications.vulnerable-dependency-notification-enable %} {% data reusables.notifications.vulnerable-dependency-notification-delivery-method-customization2 %} {% data reusables.notifications.vulnerable-dependency-notification-options %}
 
-For more information about the notification delivery methods available to you, and advice on optimizing your notifications for {% data variables.product.prodname_dependabot_alerts %}, see "[Configuring notifications for {% data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/configuring-notifications-for-dependabot-alerts)."
+사용할 수 있는 알림 배달 방법 및 {% data variables.product.prodname_dependabot_alerts %}의 알림을 최적화하는 방법에 대한 자세한 내용은 “[{% data variables.product.prodname_dependabot_alerts %}에 대한 알림 구성](/code-security/dependabot/dependabot-alerts/configuring-notifications-for-dependabot-alerts)”을 참조하세요.
 
-{% ifversion update-notification-settings-22 or ghes %}
-## {% data variables.product.prodname_actions %} notification options
+{% ifversion update-notification-settings-22 또는 ghes %}
+## {% data variables.product.prodname_actions %} 알림 옵션
 
-Choose how you want to receive workflow run updates for repositories that you are watching that are set up with {% data variables.product.prodname_actions %}. You can also choose to only receive notifications for failed workflow runs.{% endif %}
+{% data variables.product.prodname_actions %}로 설정된 시청 중인 리포지토리에 대한 워크플로 실행 업데이트를 받는 방법을 선택합니다. 실패한 워크플로 실행에 대한 알림만 수신하도록 선택할 수도 있습니다. {% endif %}
 
-{% ifversion update-notification-settings-22 %}
-![Animated GIF of notification options for {% data variables.product.prodname_actions %}](/assets/images/help/notifications/github-actions-customize-notifications.gif){% endif %}
+{% ifversion update-notification-settings-22 %} ![ {% 데이터 variables.product.prodname_actions %}](/assets/images/help/notifications/github-actions-customize-notifications.gif){% endif %}에 대한 알림 옵션의 애니메이션 GIF
 
-{% ifversion ghes %}
-  ![Screenshot of the notification options for {% data variables.product.prodname_actions %}](/assets/images/help/notifications-v2/github-actions-notification-options.png){% endif %}
+{% ifversion ghes %} ![ {% 데이터 variables.product.prodname_actions %}](/assets/images/help/notifications-v2/github-actions-notification-options.png){% endif %}에 대한 알림 옵션 스크린샷
 
 
-{% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
-## Organization alerts notification options 
+{% ifversion fpt 또는 ghec 또는 ghes > 3.3 또는 ghae > 3.3 %}
+## 조직 경고 알림 옵션 
 
-If you're an organization owner, you'll receive email notifications by default when organization members add new deploy keys to repositories within the organization. You can unsubscribe from these notifications. On the notification settings page, under "Organization alerts", unselect **Email**. 
+조직 소유자인 경우 조직 구성원이 조직 내 리포지토리에 새 배포 키를 추가하면 기본적으로 메일 알림을 받습니다. 해당 알림을 구독 취소할 수 있습니다. 알림 설정 페이지의 “조직 경고” 아래에서 **메일** 을 선택 취소합니다. 
 
 {% endif %}
 
 {% ifversion fpt or ghes or ghec %}
-## Managing your notification settings with {% data variables.product.prodname_mobile %}
+## {% data variables.product.prodname_mobile %}을 사용하여 알림 설정 관리
 
-When you install {% data variables.product.prodname_mobile %}, you will automatically be opted into web notifications. Within the app, you can enable push notifications for the following events.
-- Direct mentions
-- Assignments to issues or pull requests
-- Requests to review a pull request
-- Requests to approve a deployment
+{% data variables.product.prodname_mobile %}을 설치하면 웹 알림이 자동으로 옵트인됩니다. 앱 내에서 다음 이벤트에 대한 푸시 알림을 사용하도록 설정할 수 있습니다.
+- 직접 멘션
+- 이슈 또는 끌어오기 요청에 할당
+- 끌어오기 요청 검토 요청
+- 배포 승인 요청
 
-You can also schedule when {% data variables.product.prodname_mobile %} will send push notifications to your mobile device.
+{% data variables.product.prodname_mobile %}이 모바일 디바이스에 푸시 알림을 보내는 시기를 예약할 수도 있습니다.
 
 {% data reusables.mobile.push-notifications-on-ghes %}
 
-### Managing your notification settings with {% data variables.product.prodname_ios %}
+### {% data variables.product.prodname_ios %}를 사용하여 알림 설정 관리
 
-1. In the bottom menu, tap **Profile**.
-2. To view your settings, tap {% octicon "gear" aria-label="The Gear icon" %}.
-3. To update your notification settings, tap **Notifications** and then use the toggles to enable or disable your preferred types of push notifications.
-4. Optionally, to schedule when {% data variables.product.prodname_mobile %} will send push notifications to your mobile device, tap **Working Hours**, use the **Custom working hours** toggle, and then choose when you would like to receive push notifications.
+1. 하단 메뉴에서 **프로필** 을 탭합니다.
+2. 설정을 보려면 {% octicon "gear" aria-label="The Gear icon" %} 아이콘을 탭합니다.
+3. 알림 설정을 업데이트하려면 **알림** 을 탭한 다음 토글을 사용하여 원하는 유형의 푸시 알림을 사용하거나 사용하지 않도록 설정합니다.
+4. 필요에 따라 {% data variables.product.prodname_mobile %}이 모바일 디바이스에 푸시 알림을 보낼 시기를 예약하려면 **작업 시간** 을 탭하고 **사용자 지정 작업 시간** 토글을 사용한 다음 푸시 알림을 받을 시기를 선택합니다.
 
-### Managing your notification settings with {% data variables.product.prodname_android %}
+### {% data variables.product.prodname_android %}를 사용하여 알림 설정 관리
 
-1. In the bottom menu, tap **Profile**.
-2. To view your settings, tap {% octicon "gear" aria-label="The Gear icon" %}.
-3. To update your notification settings, tap **Configure Notifications** and then use the toggles to enable or disable your preferred types of push notifications.
-4. Optionally, to schedule when {% data variables.product.prodname_mobile %} will send push notifications to your mobile device, tap **Working Hours**, use the **Custom working hours** toggle, and then choose when you would like to receive push notifications.
+1. 하단 메뉴에서 **프로필** 을 탭합니다.
+2. 설정을 보려면 {% octicon "gear" aria-label="The Gear icon" %} 아이콘을 탭합니다.
+3. 알림 설정을 업데이트하려면 **알림 구성** 을 탭한 다음 토글을 사용하여 원하는 유형의 푸시 알림을 사용하거나 사용하지 않도록 설정합니다.
+4. 필요에 따라 {% data variables.product.prodname_mobile %}이 모바일 디바이스에 푸시 알림을 보낼 시기를 예약하려면 **작업 시간** 을 탭하고 **사용자 지정 작업 시간** 토글을 사용한 다음 푸시 알림을 받을 시기를 선택합니다.
 
-## Configuring your watch settings for an individual repository with {% data variables.product.prodname_mobile %} 
+## {% data variables.product.prodname_mobile %}을 사용하여 개별 리포지토리에 대한 시청 설정 구성 
 
-You can choose whether to watch or unwatch an individual repository. You can also choose to only be notified of {% ifversion fpt or ghec %}certain event types such as issues, pull requests, discussions (if enabled for the repository) and {% endif %}new releases, or completely ignore an individual repository.
+개별 리포지토리를 시청할지 시청 해제할지 선택할 수 있습니다. {% ifversion fpt or ghec %}이슈, 끌어오기 요청, 토론(리포지토리에 대해 사용하도록 설정된 경우) 및 {% endif %}새 릴리스와 같은 특정 이벤트 유형에 대해서만 알림을 받거나 개별 리포지토리를 완전히 무시하도록 선택할 수도 있습니다.
 
-1. On {% data variables.product.prodname_mobile %}, navigate to the main page of the repository.
-2. Tap **Watch**.
-   ![The watch button on {% data variables.product.prodname_mobile %}](/assets/images/help/notifications-v2/mobile-watch-button.png)
-3. To choose what activities you receive notifications for, tap your preferred watch settings.
-   ![Watch settings dropdown menu in {% data variables.product.prodname_mobile %}](/assets/images/help/notifications-v2/mobile-watch-settings.png)
+1. {% data variables.product.prodname_mobile %}에서 리포지토리의 기본 페이지로 이동합니다.
+2. **시청** 을 탭합니다.
+   ![{% data variables.product.prodname_mobile %}의 시청 단추](/assets/images/help/notifications-v2/mobile-watch-button.png)
+3. 알림을 받는 활동을 선택하려면 원하는 시청 설정을 탭합니다.
+   ![{% data variables.product.prodname_mobile %}의 시청 설정 드롭다운 메뉴](/assets/images/help/notifications-v2/mobile-watch-settings.png)
 
 {% endif %}

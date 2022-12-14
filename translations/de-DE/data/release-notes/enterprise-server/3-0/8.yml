@@ -1,0 +1,27 @@
+date: '25.05.2021'
+sections:
+  security_fixes:
+    - '**MITTEL:** Unter gewissen Umständen verfügen Benutzer*innen, die aus einem Team oder einer Organisation entfernt wurden, weiterhin über Schreibzugriff auf Branches, auf denen sie vorhandene Pull Requests geöffnet hatten.'
+    - Die Pakete wurden auf die neuesten Sicherheitsversionen aktualisiert.
+  bugs:
+    - "Wenn ein Administrator im ersten Installationsprozess auf die Schaltfläche „Domäneneinstellungen testen“ auf der Seite „Actions und Packages konfigurieren“ klickte, wurde der Test nicht abgeschlossen."
+    - Beim Ausführen von `ghe-btop` trat der Fehler `Es konnte kein „babeld“-Container gefunden werden` auf.
+    - Nach dem Upgrade war der Service für Benutzer*innen aufgrund von nicht übereinstimmenden internen und externen Laufzeitfehlerwerten nicht verfügbar.
+    - Gewöhnliche Replikationsverzögerungen in MSSQL generierten Warnungen.
+    - Der Link zum GitHub Enterprise-Clusteringleitfaden auf der Verwaltungskonsole war falsch.
+    - "Eine IP-Adresse, die von einem Administrator mithilfe der Schaltfläche „Whitelisteintrag erstellen“ hinzugefügt wurde, könnte immer noch ausgeschlossen sein."
+    - "Verweise auf die Features „Abhängigkeitsdiagramm“ und „Dependabotwarnungen“ wurden in Repositorys angezeigt, für die sie nicht aktiviert waren."
+    - Bei HTTP-POST-Anforderungen an den `/hooks`-Endpunkt könnte aufgrund einer falsch festgelegten `hookID` der Fehler 401 auftreten.
+    - "Der Prozess `build-server` konnte Prozesse nicht bereinigten, sodass sie im Status `defunct` verblieben."
+    - 'Von `spokesd` wurden übermäßig viele Protokolleinträge erstellt, darunter die Phrase „Fix der Platzierung übersprungen“.'
+  changes:
+    - "Überprüfungsanmerkungen, die älter als 4 Monate sind, werden archiviert."
+  known_issues:
+    - "Zugriff auf ein Repository über die Verwaltungsshell mit `ghe-repo <owner>/<reponame>` funktioniert nicht. Verwende `ghe-repo <owner>/<reponame> -c \"bash -i\"` als Problemumgehung, bis in der nächsten Version ein Fix verfügbar ist."
+    - Auf einem neu eingerichteten GitHub Enterprise-Server ohne Benutzer*innen könnten Angreifer*innen den ersten Administratorbenutzer erstellen.
+    - Benutzerdefinierte Firewallregeln werden während eines Upgrades nicht aufrechterhalten.
+    - "Nachverfolgte Git-LFS-Dateien, [die über die Webschnittstelle hochgeladen wurden,](https://github.com/blog/2105-upload-files-to-your-repositories) werden dem Repository fälschlicherweise direkt hinzugefügt."
+    - "Issues können nicht geschlossen werden, wenn sie einen Permalink zu einem Blob im selben Repository enthalten, wobei der Dateipfad länger ist als 255 Zeichen."
+    - "Wenn „Benutzer können GitHub.com durchsuchen“ bei GitHub Connect aktiviert ist, sind Issues in privaten und internen Repositorys nicht in den GitHub.com-Suchergebnissen enthalten."
+    - "Wenn ein Replikatknoten in einer Hochverfügbarkeitskonfiguration offline ist, kann {% data variables.product.product_name %} eventuell noch immer Anforderungen von {% data variables.product.prodname_pages %} an den Offlineknoten weiterleiten, was die Verfügbarkeit von {% data variables.product.prodname_pages %} für die Benutzer*innen verringert."
+    - "Ressourcenbegrenzungen, die nur beim Verarbeiten von Pre-Receive-Hooks auftreten, können bei manchen Pre-Receive-Hooks Fehler auslösen."

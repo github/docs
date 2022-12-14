@@ -1,6 +1,6 @@
 ---
-title: About code scanning alerts
-intro: Learn about the different types of code scanning alerts and the information that helps you understand the problem each alert highlights.
+title: Code scanningアラートについて
+intro: 様々な種類のCode scanningアラートと、それぞれのアラートが示す問題の理解に役立つ情報について学んでください。
 product: '{% data reusables.gated-features.code-scanning %}'
 versions:
   fpt: '*'
@@ -12,115 +12,113 @@ topics:
   - Advanced Security
   - Code scanning
   - CodeQL
+ms.openlocfilehash: 1e540aa8b061e0bbdd5b7be1a2563cd983cfb753
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147881228'
 ---
+{% data reusables.code-scanning.beta %} {% data reusables.code-scanning.enterprise-enable-code-scanning %}
 
-{% data reusables.code-scanning.beta %}
-{% data reusables.code-scanning.enterprise-enable-code-scanning %}
+## {% data variables.product.prodname_code_scanning %} からのアラートについて
 
-## About alerts from {% data variables.product.prodname_code_scanning %}
+デフォルトの {% data variables.product.prodname_codeql %} 解析、サードパーティーの解析、または複数のタイプの解析を使用して、リポジトリのコードをチェックするため、{% data variables.product.prodname_code_scanning %} をセットアップできます。 解析が完了すると、解析によるアラートがリポジトリのセキュリティビューに隣り合わせで表示されます。 サードパーティツールまたはカスタムクエリの結果には、{% data variables.product.company_short %} のデフォルト {% data variables.product.prodname_codeql %} 解析により検出されたアラートで表示されるプロパティの一部が含まれていない場合があります。 詳細については、「[リポジトリの {% data variables.product.prodname_code_scanning %} の設定](/code-security/secure-coding/setting-up-code-scanning-for-a-repository)」を参照してください。
 
-You can set up {% data variables.product.prodname_code_scanning %} to check the code in a repository using the default {% data variables.product.prodname_codeql %} analysis, a third-party analysis, or multiple types of analysis. When the analysis is complete, the resulting alerts are displayed alongside each other in the security view of the repository. Results from third-party tools or from custom queries may not include all of the properties that you see for alerts detected by {% data variables.product.company_short %}'s default {% data variables.product.prodname_codeql %} analysis. For more information, see "[Setting up {% data variables.product.prodname_code_scanning %} for a repository](/code-security/secure-coding/setting-up-code-scanning-for-a-repository)."
+デフォルトでは、{% data variables.product.prodname_code_scanning %} はプルリクエスト中にデフォルトブランチのコードを定期的に解析します。 pull request でのアラートの管理については、「[pull request で {% data variables.product.prodname_code_scanning %} アラートをトリアージする](/code-security/secure-coding/triaging-code-scanning-alerts-in-pull-requests)」を参照してください。
 
-By default, {% data variables.product.prodname_code_scanning %} analyzes your code periodically on the default branch and during pull requests. For information about managing alerts on a pull request, see "[Triaging {% data variables.product.prodname_code_scanning %} alerts in pull requests](/code-security/secure-coding/triaging-code-scanning-alerts-in-pull-requests)."
+## アラートの詳細について
 
-## About alert details
+各アラートはコードの問題と、それを特定したツールの名前を表示します。 アラートをトリガーしたコード行と、アラートのプロパティ (アラートの重要度、セキュリティの重要度、問題の性質など) を確認できます。 アラートは、問題が最初に発生したときにも通知します。 {% data variables.product.prodname_codeql %} 解析で特定されたアラートについては、問題を解説する方法についての情報も表示されます。
 
-Each alert highlights a problem with the code and the name of the tool that identified it. You can see the line of code that triggered the alert, as well as properties of the alert, such as the alert severity, security severity, and the nature of the problem. Alerts also tell you when the issue was first introduced. For alerts identified by {% data variables.product.prodname_codeql %} analysis, you will also see information on how to fix the problem.
+{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6249 %} {% data reusables.code-scanning.alert-default-branch %} {% endif %}
 
-{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
-{% data reusables.code-scanning.alert-default-branch %}
-{% endif %}
+{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6249 %} ![{% data variables.product.prodname_code_scanning %} からのアラートの例](/assets/images/help/repository/code-scanning-alert.png) {% else %} ![{% data variables.product.prodname_code_scanning %} からのアラートの例](/assets/images/enterprise/3.4/repository/code-scanning-alert.png) {% endif %}
 
-{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
-![Example alert from {% data variables.product.prodname_code_scanning %}](/assets/images/help/repository/code-scanning-alert.png)
-{% else %}
-![Example alert from {% data variables.product.prodname_code_scanning %}](/assets/images/enterprise/3.4/repository/code-scanning-alert.png)
-{% endif %}
+{% data variables.product.prodname_codeql %}を使って{% data variables.product.prodname_code_scanning %}をセットアップした場合、コード中のデータフローの問題も見つけることができます。 データフロー解析は、データを安全でない方法で利用する、関数に危険な引数を渡す、機密情報を漏洩するなど、コードにおける潜在的なセキュリティ問題を検出します。
 
-If you set up {% data variables.product.prodname_code_scanning %} using {% data variables.product.prodname_codeql %}, you can also find data-flow problems in your code. Data-flow analysis finds potential security issues in code, such as: using data insecurely, passing dangerous arguments to functions, and leaking sensitive information.
+{% data variables.product.prodname_code_scanning %} がデータフローアラートを報告すると、{% data variables.product.prodname_dotcom %} はデータがコードを通してどのように移動するかを示します。 {% data variables.product.prodname_code_scanning_capc %} を使用すると、機密情報を漏洩し、悪意のあるユーザによる攻撃の入り口になる可能性があるコードの領域を特定できます。
 
-When {% data variables.product.prodname_code_scanning %} reports data-flow alerts, {% data variables.product.prodname_dotcom %} shows you how data moves through the code. {% data variables.product.prodname_code_scanning_capc %} allows you to identify the areas of your code that leak sensitive information, and that could be the entry point for attacks by malicious users.
+### 重要度について
 
-### About severity levels
+アラートの重要度レベルは、`Error`、`Warning`、または `Note` です。
 
-Alert severity levels may be `Error`, `Warning`, or `Note`.
+pull request のチェックとして{% data variables.product.prodname_code_scanning %}が有効化されている場合、重要度が `error` の結果が検出されると、チェックは失敗します。 チェック エラーの原因となる code scanning アラートの重要度レベルを指定できます。 詳しくは、「[pull request のチェック エラーの原因になる重要度を定義する](/code-security/secure-coding/configuring-code-scanning#defining-the-severities-causing-pull-request-check-failure)」をご覧ください。
 
-If {% data variables.product.prodname_code_scanning %} is enabled as a pull request check, the check will fail if it detects any results with a severity of `error`. You can specify which severity level of code scanning alerts causes a check failure. For more information, see "[Defining the severities causing pull request check failure](/code-security/secure-coding/configuring-code-scanning#defining-the-severities-causing-pull-request-check-failure)."
+### セキュリティ重要度について
 
-### About security severity levels
+{% data variables.product.prodname_code_scanning_capc %}は、セキュリティクエリによって生成されたアラートのセキュリティ重要度を表示します。 セキュリティ重大度レベルは、`Critical`、`High`、`Medium`、`Low` のいずれかになります。
 
-{% data variables.product.prodname_code_scanning_capc %} displays security severity levels for alerts that are generated by security queries. Security severity levels can be `Critical`, `High`, `Medium`, or `Low`.
+アラートのセキュリティ重要度の計算には、共通脆弱性評価システム（CVSS）のデータを使用しています。 CVSSはソフトウェアの脆弱性の性格と重要度を伝えるためのオープンフレームワークで、アラートのスコアリングのために他のセキュリティ製品で広く使われています。 重要度レベルの計算方法の詳細については、[こちらのブログ記事](https://github.blog/changelog/2021-07-19-codeql-code-scanning-new-severity-levels-for-security-alerts/)を参照してください。
 
-To calculate the security severity of an alert, we use Common Vulnerability Scoring System (CVSS) data. CVSS is an open framework for communicating the characteristics and severity of software vulnerabilities, and is commonly used by other security products to score alerts. For more information about how severity levels are calculated, see [this blog post](https://github.blog/changelog/2021-07-19-codeql-code-scanning-new-severity-levels-for-security-alerts/).
+既定では、セキュリティ重要度が `Critical` または `High` の {% data variables.product.prodname_code_scanning %} の結果があれば、チェックは失敗します。 {% data variables.product.prodname_code_scanning %}の結果でチェックの失敗を引き起こすセキュリティ重要度は指定できます。 詳しくは、「[pull request のチェック エラーの原因になる重要度を定義する](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning#defining-the-severities-causing-pull-request-check-failure)」をご覧ください。
 
-By default, any {% data variables.product.prodname_code_scanning %} results with a security severity of `Critical` or `High` will cause a check failure. You can specify which security severity level for {% data variables.product.prodname_code_scanning %} results should cause a check failure. For more information, see "[Defining the severities causing pull request check failure](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning#defining-the-severities-causing-pull-request-check-failure)."
+{% ifversion fpt or ghes > 3.4 or ghae-issue-6251 or ghec %}
+### 分析元について
 
-{% ifversion fpt or ghes > 3.4 or ghae > 3.4 or ghec %}
-### About analysis origins
+リポジトリでコード分析の複数の構成を設定し、さまざまなツールを使用して、異なる複数の言語またはコード領域をターゲットにすることができます。 コード スキャンの各構成は、生成されるすべてのアラートの分析元です。 たとえば、GitHub Actions で既定の CodeQL 分析を使用して生成されたアラートと、外部で生成され、コード スキャン API を介してアップロードされたアラートは、分析元が異なります。
 
-You can set up multiple configurations of code analysis on a repository, using different tools and targeting different languages or areas of the code. Each configuration of code scanning is the analysis origin for all the alerts it generates. For example, an alert generated using the default CodeQL analysis with GitHub Actions will have a different analysis origin from an alert generated externally and uploaded via the code scanning API.
+複数の構成を使用してファイルを分析した場合、同じクエリによって検出された問題が、複数の分析元があるアラートとして報告されます。 アラートの分析元が複数ある場合、アラート ページの右側にある **[影響を受けるブランチ]** セクションで、該当するブランチの横に {% octicon "workflow" aria-label="The workflow icon" %} アイコンが表示されます。 {% octicon "workflow" aria-label="The workflow icon" %} アイコンの上にカーソルを合わせると、各分析元の名前とその分析元のアラートの状態を確認できます。 また、各分析元でいつアラートが発生したかの履歴を、アラート ページのタイムラインに表示することもできます。 アラートに分析元が 1 つしかない場合、アラート ページに分析の発生元に関する情報は表示されません。
 
-If you use multiple configurations to analyze a file, any problems detected by the same query are reported as alerts with multiple analysis origins. If an alert has more than one analysis origin, a {% octicon "workflow" aria-label="The workflow icon" %} icon will appear next to any relevant branch in the **Affected branches** section on the right-hand side of the alert page. You can hover over the {% octicon "workflow" aria-label="The workflow icon" %} icon to see the names of each analysis origin and the status of the alert for that analysis origin. You can also view the history of when alerts appeared in each analysis origin in the timeline on the alert page. If an alert only has one analysis origin, no information about analysis origins is displayed on the alert page.
-
-![Code scanning alert with multiple analysis origins](/assets/images/help/repository/code-scanning-analysis-origins.png)
+![複数の分析元があるコード スキャン アラート](/assets/images/help/repository/code-scanning-analysis-origins.png)
 
 {% note %}
 
-**Note:** Sometimes a code scanning alert displays as fixed for one analysis origin but is still open for a second analysis origin. You can resolve this by re-running the second code scanning configuration to update the alert status for that analysis origin.
+**メモ:** 場合によっては、コード スキャン アラートが 1 つの分析元について修正済みとして表示されていても、2 つ目の分析元についてはまだ未解決であることがあります。 これを解決するには、2 番目のコード スキャン構成を再実行して、その分析元のアラートの状態を更新します。
 
 {% endnote %}
 
 {% endif %}
-### About labels for alerts that are not found in application code
+### アプリケーションコード中には見つからないアラートのラベルについて
 
-{% data variables.product.product_name %} assigns a category label to alerts that are not found in application code. The label relates to the location of the alert.
+{% data variables.product.product_name %}は、アプリケーションコード中に見つからないアラートに対し、カテゴリラベルを割り当てます。 ラベルは、アラートの場所に関連づけられます。
 
-- **Generated**: Code generated by the build process
-- **Test**: Test code
-- **Library**: Library or third-party code
-- **Documentation**: Documentation
+- **[生成済み]** : ビルド プロセスによって生成されたコード
+- **[テスト]** : テスト コード
+- **[ライブラリ]** : ライブラリまたはサードパーティのコード
+- **[ドキュメント]** : ドキュメント
 
-{% data variables.product.prodname_code_scanning_capc %} categorizes files by file path. You cannot manually categorize source files.
+{% data variables.product.prodname_code_scanning_capc %}は、ファイルをファイルパスによって分類します。 手動でソースファイルを分類することはできません。
 
-Here is an example from the {% data variables.product.prodname_code_scanning %} alert list of an alert marked as occurring in library code.
+以下は、ライブラリコード内で生じているとマークされたアラートの{% data variables.product.prodname_code_scanning %}アラートリストの例です。
 
-![Code scanning library alert in list](/assets/images/help/repository/code-scanning-library-alert-index.png)
+![コード スキャンのライブラリ アラート リスト](/assets/images/help/repository/code-scanning-library-alert-index.png)
 
-On the alert page, you can see that the filepath is marked as library code (`Library` label).
+アラート ページでは、ファイルパスがライブラリ コードとしてマークされている (`Library` ラベル) ことがわかります。
 
-![Code scanning library alert details](/assets/images/help/repository/code-scanning-library-alert-show.png)
+![コード スキャンのライブラリ アラートの詳細](/assets/images/help/repository/code-scanning-library-alert-show.png)
 
 {% ifversion codeql-ml-queries %}
 
-## About experimental alerts
+## 実験的なアラートについて
 
 {% data reusables.code-scanning.beta-codeql-ml-queries %}
 
-In repositories that run {% data variables.product.prodname_code_scanning %} using the {% data variables.product.prodname_codeql %} action, you may see some alerts that are marked as experimental. These are alerts that were found using a machine learning model to extend the capabilities of an existing {% data variables.product.prodname_codeql %} query.
+{% data variables.product.prodname_codeql %}アクションを使って{% data variables.product.prodname_code_scanning %}を実行するリポジトリでは、実験的としてマークされたアラートを見ることがあるかもしれません。 それらは、既存の{% data variables.product.prodname_codeql %}クエリの機能を拡張するための機械学習モデルを使って見つけられたアラートです。
 
-![Code scanning experimental alert in list](/assets/images/help/repository/code-scanning-experimental-alert-list.png)
+![コード スキャンの実験的なアラート リスト](/assets/images/help/repository/code-scanning-experimental-alert-list.png)
 
-### Benefits of using machine learning models to extend queries
+### クエリを拡張するために機械学習モデルを使う利点
 
-Queries that use machine learning models are capable of finding vulnerabilities in code that was written using frameworks and libraries that the original query writer did not include.
+機械学習モデルを使うクエリは、オリジナルのクエリ作成者が含めなかったフレームワークやライブラリを使って書かれたコードの脆弱性を見つけることができます。
 
-Each of the security queries for {% data variables.product.prodname_codeql %} identifies code that's vulnerable to a specific type of attack. Security researchers write the queries and include the most common frameworks and libraries. So each existing query finds vulnerable uses of common frameworks and libraries. However, developers use many different frameworks and libraries, and a manually maintained query cannot include them all. Consequently, manually maintained queries do not provide coverage for all frameworks and libraries.
+{% data variables.product.prodname_codeql %}の各セキュリティクエリは、特定の種類の攻撃に対して脆弱なコードを特定します。 セキュリティの研究者はクエリを書き、最も一般的なフレームワークやライブラリを含めます。 そのため、既存のそれぞれのクエリは、一般的なフレームワークやライブラリの脆弱な使用を見つけます。 しかし、開発者は様々な多くのフレームワークやライブラリを使い、手作業でメンテナンスされるクエリにそれらをすべて含めることはできません。 したがって、手作業でメンテナンスされるクエリは、すべてのフレームワークやライブラリを網羅することはできません。
 
-{% data variables.product.prodname_codeql %} uses a machine learning model to extend an existing security query to cover a wider range of frameworks and libraries. The machine learning model is trained to detect problems in code it's never seen before. Queries that use the model will find results for frameworks and libraries that are not described in the original query.
+{% data variables.product.prodname_codeql %}は機械学習モデルを使い、幅広いフレームワークやライブラリをカバーするよう既存のセキュリティクエリを拡張します。 この機械学習モデルは、それまで見たことがないコードに潜む問題を検出するようトレーニングされています。 このモデルを使用するクエリは、元々のクエリには記述されていないフレームワークやライブラリの結果を見つけます。
 
-### Alerts identified using machine learning
+### 機械学習を使って特定されたアラート
 
-Alerts found using a machine learning model are tagged as "Experimental alerts" to show that the technology is under active development. These alerts have a higher rate of false positive results than the queries they are based on. The machine learning model will improve based on user actions such as marking a poor result as a false positive or fixing a good result.
+機械学習モデルを使用して検出されたアラートは、テクノロジが現在開発中であることを示す "試験的なアラート" としてタグ付けされます。 これらのアラートは、基になるクエリよりも誤検知の結果の割合が高くなります。 機械学習モデルは、不適切な結果を誤検知としてマークしたり、適切な結果を修正したりするなどのユーザー アクションに基づいて改善されます。
 
-![Code scanning experimental alert details](/assets/images/help/repository/code-scanning-experimental-alert-show.png)
+![コード スキャンの試験的なアラートの詳細](/assets/images/help/repository/code-scanning-experimental-alert-show.png)
 
-## Enabling experimental alerts
+## 試験的なアラートを有効にする
 
-The default {% data variables.product.prodname_codeql %} query suites do not include any queries that use machine learning to generate experimental alerts. To run machine learning queries during {% data variables.product.prodname_code_scanning %} you need to run the additional queries contained in one of the following query suites.
+既定の {% data variables.product.prodname_codeql %} クエリ スイートには、機械学習を使用して試験的なアラートを生成するクエリは含まれません。 {% data variables.product.prodname_code_scanning %} 中に機械学習クエリを実行するには、次のいずれかのクエリ スイートに含まれる追加のクエリを実行する必要があります。
 
 {% data reusables.code-scanning.codeql-query-suites %}
 
-When you update your workflow to run an additional query suite this will increase the analysis time.
+追加のクエリ スイートを実行するようにワークフローを更新すると、分析時間が長くなります。
 
 ``` yaml
 - uses: {% data reusables.actions.action-codeql-action-init %}
@@ -129,14 +127,14 @@ When you update your workflow to run an additional query suite this will increas
     queries: security-extended
 ```
 
-For more information, see "[Configuring code scanning](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning#using-queries-in-ql-packs)."
+詳細については、「[Code scanning を設定する](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning#using-queries-in-ql-packs)」を参照してください。
 
-## Disabling experimental alerts
+## 試験的なアラートを無効にする
 
-The simplest way to disable queries that use machine learning to generate experimental alerts is to stop running the `security-extended` or `security-and-quality` query suite. In the example above, you would comment out the `queries` line. If you need to continue to run the `security-extended` or `security-and-quality` suite and the machine learning queries are causing problems, then you can open a ticket with [{% data variables.product.company_short %} support](https://support.github.com/contact) with the following details.
+機械学習を使用して試験的なアラートを生成するクエリを無効にする最も簡単な方法は、`security-extended` または `security-and-quality` クエリ スイートの実行を停止することです。 上記の例では、`queries` 行をコメントアウトします。 `security-extended` または `security-and-quality` スイートを引き続き実行する必要があり、機械学習クエリで問題が発生している場合は、以下の詳細を使用して [{% data variables.product.company_short %} サポート](https://support.github.com/contact)にチケットを開くことができます。
 
-- Ticket title: "{% data variables.product.prodname_code_scanning %}: removal from experimental alerts beta"
-- Specify details of the repositories or organizations that are affected
-- Request an escalation to engineering
+- チケットのタイトル: "{% data variables.product.prodname_code_scanning %}: 実験的なアラート ベータからの削除"
+- 影響を受けているリポジトリまたは組織の詳細を明示する
+- エンジニアリングへのエスカレーションを依頼する
 
 {% endif %}

@@ -1,6 +1,6 @@
 ---
-title: Licensing a repository
-intro: 'Public repositories on GitHub are often used to share open source software. For your repository to truly be open source, you''ll need to license it so that others are free to use, change, and distribute the software.'
+title: Лицензирование репозитория
+intro: 'Общедоступные репозитории в GitHub часто применяются для совместного использования ПО с открытым кодом. Чтобы репозиторий действительно был репозиторием с открытым кодом, вам потребуется лицензировать его, чтобы другие пользователи могли использовать, изменять и распространять программное обеспечение.'
 redirect_from:
   - /articles/open-source-licensing
   - /articles/licensing-a-repository
@@ -12,32 +12,38 @@ versions:
   ghec: '*'
 topics:
   - Repositories
+ms.openlocfilehash: 98ccb37379d8d639e02e98afab5bd170cca581c7
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148098014'
 ---
-## Choosing the right license
+## Выбор подходящей лицензии
 
-We created [choosealicense.com](https://choosealicense.com), to help you understand how to license your code. A software license tells others what they can and can't do with your source code, so it's important to make an informed decision.
+Мы создали [choosealicense.com](https://choosealicense.com), чтобы помочь вам понять, как лицензировать код. Лицензия на программное обеспечение сообщает другим пользователям, что им можно делать с исходным кодом, а что делать нельзя, поэтому им важно принять обоснованное решение.
 
-You're under no obligation to choose a license. However, without a license, the default copyright laws apply, meaning that you retain all rights to your source code and no one may reproduce, distribute, or create derivative works from your work. If you're creating an open source project, we strongly encourage you to include an open source license. The [Open Source Guide](https://opensource.guide/legal/#which-open-source-license-is-appropriate-for-my-project) provides additional guidance on choosing the correct license for your project.
+Вы не обязаны выбирать лицензию. Однако без лицензии применяются законы об авторских правах по умолчанию, то есть вы сохраняете все права на исходный код, а остальным запрещено воспроизводить и распространять вашу работу и создавать производные от нее. Если вы создаете проект с открытым кодом, мы настоятельно рекомендуем включить лицензию с открытым кодом. [Руководство по открытому коду](https://opensource.guide/legal/#which-open-source-license-is-appropriate-for-my-project) предоставляет дополнительные рекомендации по выбору правильной лицензии для проекта.
 
 {% note %}
 
-**Note:** If you publish your source code in a public repository on {% data variables.product.product_name %}, {% ifversion fpt or ghec %}according to the [Terms of Service](/free-pro-team@latest/github/site-policy/github-terms-of-service), {% endif %}other users of {% data variables.location.product_location %} have the right to view and fork your repository. If you have already created a repository and no longer want users to have access to the repository, you can make the repository private. When you change the visibility of a repository to private, existing forks or local copies created by other users will still exist. For more information, see "[Setting repository visibility](/github/administering-a-repository/setting-repository-visibility)."
+**Примечание:** Если вы публикуете исходный код в общедоступном репозитории на {% данных variables.product.product_name %}, {% ifversion fpt или ghec %}согласно [условиям обслуживания](/free-pro-team@latest/github/site-policy/github-terms-of-service), {% endif %}другие пользователи {% данных variables.location.product_location %} имеют право просматривать и вилку репозитория. Если вы уже создали репозиторий и больше не хотите, чтобы пользователи имели доступ к нему, вы можете сделать репозиторий закрытым. При изменении видимости репозитория на частный, существующие вилки или локальные экземпляры, созданные другими пользователями, по-прежнему будут существовать. Дополнительные сведения см. в разделе [Настройка видимости репозитория](/github/administering-a-repository/setting-repository-visibility).
 
 {% endnote %}
 
-## Determining the location of your license
+## Определение расположения лицензии
 
-Most people place their license text in a file named `LICENSE.txt` (or `LICENSE.md` or `LICENSE.rst`) in the root of the repository; [here's an example from Hubot](https://github.com/github/hubot/blob/master/LICENSE.md).
+Большинство пользователей помещают текст лицензии в файл с именем `LICENSE.txt` (или `LICENSE.md`) `LICENSE.rst`в корень репозитория. [Вот пример от Hubot](https://github.com/github/hubot/blob/master/LICENSE.md).
 
-Some projects include information about their license in their README. For example, a project's README may include a note saying "This project is licensed under the terms of the MIT license."
+В некоторых проектах сведения о лицензии приводятся в файле README. Например, README проекта может включать примечание о том, что этот проект лицензирован в соответствии с условиями лицензии MIT.
 
-As a best practice, we encourage you to include the license file with your project.
+Рекомендуется включить в проект отдельные файл лицензии.
 
-## Searching GitHub by license type
+## Поиск в GitHub по типу лицензии
 
-You can filter repositories based on their license or license family using the `license` qualifier and the exact license keyword:
+Вы можете отфильтровать репозитории на основе их лицензии или семейства лицензий с помощью квалификатора `license` и точного ключевого слова лицензии:
 
-License | License keyword
+Лицензия | Ключевое слово лицензии
 ---  | ---
 | Academic Free License v3.0 | `afl-3.0` |
 | Apache license 2.0 | `apache-2.0` |
@@ -74,25 +80,25 @@ License | License keyword
 | The Unlicense | `unlicense` |
 | zLib License | `zlib` |
 
-When you search by a family license, your results will include all licenses in that family. For example, when you use the query `license:gpl`, your results will include repositories licensed under GNU General Public License v2.0 and GNU General Public License v3.0. For more information, see "[Searching for repositories](/search-github/searching-on-github/searching-for-repositories/#search-by-license)."
+При поиске по семейству лицензий результаты будут включать все лицензии в этом семействе. Например, при использовании запроса `license:gpl` результаты будут включать репозитории, лицензированные в соответствии с GNU General Public License v2.0 и GNU General Public License v3.0. Дополнительные сведения см. в статье "[Поиск репозиториев](/search-github/searching-on-github/searching-for-repositories/#search-by-license)".
 
-## Detecting a license
+## Обнаружение лицензии
 
-[The open source Ruby gem Licensee](https://github.com/licensee/licensee) compares the repository's *LICENSE* file to a short list of known licenses. Licensee also provides the [Licenses API](/rest/reference/licenses) and [gives us insight into how repositories on {% data variables.product.product_name %} are licensed](https://github.com/blog/1964-open-source-license-usage-on-github-com). If your repository is using a license that isn't listed on the [Choose a License website](https://choosealicense.com/appendix/), you can [request including the license](https://github.com/github/choosealicense.com/blob/gh-pages/CONTRIBUTING.md#adding-a-license).
+Gem Ruby с открытым кодом [Licensee](https://github.com/licensee/licensee) сравнивает файл *LICENSE* репозитория с коротким списком известных лицензий. Licensee также предоставляет [Licenses API](/rest/reference/licenses) и [дает нам представление о том, как лицензированы репозитории в {% data variables.product.product_name %}](https://github.com/blog/1964-open-source-license-usage-on-github-com). Если ваш репозиторий использует лицензию, которая не указана на [веб-сайте выбора лицензии](https://choosealicense.com/appendix/), вы можете [запросить лицензию](https://github.com/github/choosealicense.com/blob/gh-pages/CONTRIBUTING.md#adding-a-license).
 
-If your repository is using a license that is listed on the Choose a License website and it's not displaying clearly at the top of the repository page, it may contain multiple licenses or other complexity. To have your license detected, simplify your *LICENSE* file and note the complexity somewhere else, such as your repository's *README* file.
+Если репозиторий использует лицензию, указанную на веб-сайте выбора лицензии, и она не отображается в верхней части страницы репозитория, он может содержать несколько лицензий или другие сложности. Чтобы вашу лицензию было легко обнаружить, упростите файл *LICENSE* и укажите сложность в другом месте, например в файле *README* репозитория.
 
-## Applying a license to a repository with an existing license
+## Применение лицензии к репозиторию с существующей лицензией
 
-The license picker is only available when you create a new project on GitHub. You can manually add a license using the browser. For more information on adding a license to a repository, see "[Adding a license to a repository](/articles/adding-a-license-to-a-repository)."
+Средство выбора лицензии доступно только при создании нового проекта на GitHub. Вы можете вручную добавить лицензию с помощью браузера. Дополнительные сведения о добавлении лицензии в репозиторий см. в статье [Добавление лицензии в репозиторий](/articles/adding-a-license-to-a-repository).
 
-![Screenshot of license picker on GitHub.com](/assets/images/help/repository/repository-license-picker.png)
+![Снимок экрана: средство выбора лицензии на сайте GitHub.com](/assets/images/help/repository/repository-license-picker.png)
 
-## Disclaimer
+## Отказ от ответственности
 
-The goal of GitHub's open source licensing efforts is to provide a starting point to help you make an informed choice. GitHub displays license information to help users get information about open source licenses and the projects that use them. We hope it helps, but please keep in mind that we’re not lawyers and that we make mistakes like everyone else. For that reason, GitHub provides the information on an "as-is" basis and makes no warranties regarding any information or licenses provided on or through it, and disclaims liability for damages resulting from using the license information. If you have any questions regarding the right license for your code or any other legal issues relating to it, it’s always best to consult with a professional.
+Цель лицензирования открытого кода GitHub заключается в предоставлении отправной точки, чтобы помочь вам сделать обоснованный выбор. GitHub отображает сведения о лицензиях, чтобы помочь пользователям получать сведения о лицензиях с открытым кодом и проектах, которые их используют. Мы надеемся, что это поможет, но, пожалуйста, имейте в виду, что мы не юристы и можем ошибаться, как и все остальные. По этой причине GitHub предоставляет информацию на условиях "как есть" и не дает никаких гарантий в отношении какой-либо информации или лицензий, предоставленных в нем или им, а также отказывается от ответственности за ущерб, вызванный использованием информации о лицензиях. Если у вас возникли вопросы о выборе лицензии для вашего кода или любые другие юридические вопросы по этой теме, всегда лучше проконсультироваться с профессионалом.
 
-## Further reading
+## Дополнительные материалы
 
-- The Open Source Guides' section "[The Legal Side of Open Source](https://opensource.guide/legal/)"{% ifversion fpt or ghec %}
+- Раздел руководств по открытому коду [Юридическая сторона открытого кода](https://opensource.guide/legal/){% ifversion fpt or ghec %}
 - [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %}){% endif %}

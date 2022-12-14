@@ -1,6 +1,6 @@
 ---
-title: About the GitHub Advisory database
-intro: 'The {% data variables.product.prodname_advisory_database %} contains a list of known security vulnerabilities {% ifversion GH-advisory-db-supports-malware %}and malware, {% endif %}grouped in two categories: {% data variables.product.company_short %}-reviewed advisories and unreviewed advisories.'
+title: GitHub Advisory 데이터베이스 정보
+intro: '{% data variables.product.prodname_advisory_database %}에는 알려진 보안 취약성 {% ifversion GH-advisory-db-supports-malware %}및 맬웨어 {% endif %}목록이 {% data variables.product.company_short %}에서 검토한 권고 및 검토하지 않은 권고의 두 범주로 그룹화되어 표시됩니다.'
 miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
@@ -13,72 +13,76 @@ topics:
   - Alerts
   - Vulnerabilities
   - CVEs
+ms.openlocfilehash: 601fdd42050f112162898a255811c76aa23c6970
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148159079'
 ---
-
-## About the {% data variables.product.prodname_advisory_database %}
+## {% data variables.product.prodname_advisory_database %} 정보
 
 {% data reusables.repositories.tracks-vulnerabilities %}
 
-Security advisories are published as JSON files in the Open Source Vulnerability (OSV) format. For more information about the OSV format, see "[Open Source Vulnerability format](https://ossf.github.io/osv-schema/)."
+보안 권고는 OSV(오픈 소스 취약성) 형식의 JSON 파일로 게시됩니다. OSV 형식에 대한 자세한 내용은 "[오픈 소스 취약성 형식"을 참조하세요](https://ossf.github.io/osv-schema/).
 
-## About types of security advisories
+## 보안 권고 유형 정보
 
 {% data reusables.advisory-database.beta-malware-advisories %}
 
-Each advisory in the {% data variables.product.prodname_advisory_database %} is for a vulnerability in open source projects{% ifversion GH-advisory-db-supports-malware %} or for malicious open source software{% endif %}. 
+{% data variables.product.prodname_advisory_database %}의 각 권고는 오픈 소스 프로젝트의 취약성{% ifversion GH-advisory-db-supports-malware %} 또는 악의적인 오픈 소스 소프트웨어{% endif %}에 대한 것입니다. 
 
-{% data reusables.repositories.a-vulnerability-is %} Vulnerabilities in code are usually introduced by accident and fixed soon after they are discovered. You should update your code to use the fixed version of the dependency as soon as it is available.
+{% data reusables.repositories.a-vulnerability-is %} 코드의 취약성은 일반적으로 우연히 발생하며 발견된 직후에 수정됩니다. 사용 가능한 즉시 수정된 버전의 종속성을 사용하도록 코드를 업데이트해야 합니다.
 
 {% ifversion GH-advisory-db-supports-malware %}
 
-In contrast, malicious software, or malware, is code that is intentionally designed to perform unwanted or harmful functions. The malware may target hardware, software, confidential data, or users of any application that uses the malware. You need to remove the malware from your project and find an alternative, more secure replacement for the dependency.
+반면, 악성 소프트웨어 또는 맬웨어는 원치 않는 또는 유해한 기능을 수행하도록 의도적으로 설계된 코드입니다. 맬웨어는 맬웨어를 사용하는 애플리케이션의 하드웨어, 소프트웨어, 기밀 데이터 또는 사용자를 대상으로 할 수 있습니다. 프로젝트에서 맬웨어를 제거하고 종속성에 대한 보다 안전한 대체 방법을 찾아야 합니다.
 
 {% endif %}
 
-### {% data variables.product.company_short %}-reviewed advisories
+### {% data variables.product.company_short %}에서 검토한 권고
 
-{% data variables.product.company_short %}-reviewed advisories are security vulnerabilities{% ifversion GH-advisory-db-supports-malware %} or malware{% endif %} that have been mapped to packages in ecosystems we support. We carefully review each advisory for validity and ensure that they have a full description, and contain both ecosystem and package information.
+{% data variables.product.company_short %}에서 검토한 권고는 지원하는 에코시스템의 패키지에 매핑된 보안 취약성{% ifversion GH-advisory-db-supports-malware %} 또는 맬웨어{% endif %}입니다. 당사는 각 권고의 유효성을 신중하게 검토하며 각각 전체 설명을 제공하고 에코시스템 및 패키지 정보가 모두 포함되도록 하고 있습니다.
 
-Generally, we name our supported ecosystems after the software programming language's associated package registry. We review advisories if they are for a vulnerability in a package that comes from a supported registry.
+일반적으로 지원되는 에코시스템은 소프트웨어 프로그래밍 언어의 연결된 패키지 레지스트리를 따라 명명됩니다. 지원되는 레지스트리에서 제공되는 패키지의 취약성에 대한 권고인 경우 당사에서 검토합니다.
 
-- Composer (registry: https://packagist.org/){% ifversion GH-advisory-db-erlang-support %}
-- Erlang (registry: https://hex.pm/){% endif %}
-- Go (registry: https://pkg.go.dev/)
-{%- ifversion fpt or ghec or ghes > 3.6 or ghae > 3.6 %}
-- GitHub Actions (https://github.com/marketplace?type=actions/) {% endif %}
-- Maven (registry: https://repo.maven.apache.org/maven2)
-- npm (registry: https://www.npmjs.com/)
-- NuGet (registry: https://www.nuget.org/)
+- Composer(레지스트리: https://packagist.org/){% ifversion GH-advisory-db-erlang-support %}
+- Erlang(레지스트리: https://hex.pm/){% endif %}
+- Go (registry: https://pkg.go.dev/) {%- ifversion fpt or ghec or ghes > 3.6 or ghae > 3.6 %}
+- GitHub Actions(https://github.com/marketplace?type=actions/) {% endif %}
+- Maven(레지스트리: https://repo.maven.apache.org/maven2)
+- npm(레지스트리: https://www.npmjs.com/)
+- NuGet(레지스트리: https://www.nuget.org/)
 - pip (registry: https://pypi.org/){% ifversion dependency-graph-dart-support %}
-- pub (registry: https://pub.dev/packages/registry){% endif %}
-- RubyGems (registry: https://rubygems.org/)
-- Rust (registry: https://crates.io/)
+- pub(레지스트리: https://pub.dev/packages/registry){% endif %}
+- RubyGems(레지스트리: https://rubygems.org/)
+- Rust(레지스트리: https://crates.io/)
 
-If you have a suggestion for a new ecosystem we should support, please open an [issue](https://github.com/github/advisory-database/issues) for discussion.
+지원해야 하는 새로운 에코시스템에 대한 제안이 있는 경우 토론을 위해 [이슈](https://github.com/github/advisory-database/issues)를 개설해 주세요.
 
-If you enable {% data variables.product.prodname_dependabot_alerts %} for your repositories, you are automatically notified when a new {% data variables.product.company_short %}-reviewed advisory reports a vulnerability {% ifversion GH-advisory-db-supports-malware %}or malware{% endif %} for a package you depend on. For more information, see "[About {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)."
+리포지토리에 {% data variables.product.prodname_dependabot_alerts %}를 사용하도록 설정하면 새 {% data variables.product.company_short %}에서 검토한 권고가 사용하는 패키지에 대한 취약성 {% ifversion GH-advisory-db-supports-malware %}또는 맬웨어{% endif %}를 보고할 때 자동으로 알림을 받습니다. 자세한 내용은 “[{% data variables.product.prodname_dependabot_alerts %} 정보](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)”를 참조하세요.
 
-### Unreviewed advisories
+### 검토되지 않은 권고
 
-Unreviewed advisories are security vulnerabilites that we publish automatically into the {% data variables.product.prodname_advisory_database %}, directly from the National Vulnerability Database feed. 
+검토되지 않은 권고는 국가별 취약성 데이터베이스 피드에서 직접 {% data variables.product.prodname_advisory_database %}에 자동으로 게시하는 보안 취약성입니다. 
 
-{% data variables.product.prodname_dependabot %} doesn't create {% data variables.product.prodname_dependabot_alerts %} for unreviewed advisories as this type of advisory isn't checked for validity or completion.
+{% data variables.product.prodname_dependabot %}은 이 유형의 권고가 유효성 또는 완료 여부를 확인하지 않으므로 검토되지 않은 권고에 대해 {% data variables.product.prodname_dependabot_alerts %}를 만들지 않습니다.
 
-## About information in security advisories
+## 보안 권고 내 정보
 
-Each security advisory contains information about the vulnerability{% ifversion GH-advisory-db-supports-malware %} or malware,{% endif %} which may include the description, severity, affected package, package ecosystem, affected versions and patched versions, impact, and optional information such as references, workarounds, and credits. In addition, advisories from the National Vulnerability Database list contain a link to the CVE record, where you can read more details about the vulnerability, its CVSS scores, and its qualitative severity level. For more information, see the "[National Vulnerability Database](https://nvd.nist.gov/)" from the National Institute of Standards and Technology.
+각 보안 권고에는 취약성{% ifversion GH-advisory-db-supports-malware %} 또는 맬웨어{% endif %}에 대한 정보가 포함되어 있으며, 여기에는 설명, 심각도, 영향을 받는 패키지, 패키지 에코시스템, 영향을 받는 버전 및 패치된 버전, 영향 및 선택적 정보(예: 참조, 해결 방법 및 크레딧)가 포함될 수 있습니다. 또한 국가별 취약성 데이터베이스 목록의 권고에는 취약성, CVSS 점수 및 정성적 심각도 수준에 대한 자세한 내용을 읽을 수 있는 CVE 레코드에 대한 링크가 포함되어 있습니다. 자세한 내용은 NIST(미국 국립표준기술원)의 "[국가별 취약성 데이터베이스](https://nvd.nist.gov/)"를 참조하세요.
 
-The severity level is one of four possible levels defined in the "[Common Vulnerability Scoring System (CVSS), Section 5](https://www.first.org/cvss/specification-document)."
-- Low
-- Medium/Moderate
-- High
-- Critical
+심각도 수준은 "[CVSS(Common Vulnerability Scoring System), 섹션 5](https://www.first.org/cvss/specification-document)"에 정의된 4가지 가능한 수준 중 하나입니다.
+- 낮음
+- 중간/보통
+- 높음
+- 위험
 
-The {% data variables.product.prodname_advisory_database %} uses the CVSS levels described above. If {% data variables.product.company_short %} obtains a CVE, the {% data variables.product.prodname_advisory_database %} uses CVSS version 3.1. If the CVE is imported, the {% data variables.product.prodname_advisory_database %} supports both CVSS versions 3.0 and 3.1.
+{% data variables.product.prodname_advisory_database %}는 위에서 설명한 CVSS 수준을 사용합니다. {% data variables.product.company_short %}가 CVE를 가져오는 경우 {% data variables.product.prodname_advisory_database %}는 CVSS 버전 3.1을 사용합니다. CVE를 가져오는 경우 {% data variables.product.prodname_advisory_database %}는 CVSS 버전 3.0 및 3.1을 모두 지원합니다.
 
 {% data reusables.repositories.github-security-lab %}
 
-## Further reading
+## 추가 참고 자료
 
-- "[About {% data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)"
-- MITRE's [definition of "vulnerability"](https://www.cve.org/ResourcesSupport/Glossary#vulnerability)
+- “[{% data variables.product.prodname_dependabot_alerts %} 정보](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)”
+- MITRE의 ["취약성" 정의](https://www.cve.org/ResourcesSupport/Glossary#vulnerability)

@@ -1,7 +1,7 @@
 ---
-title: Reusing workflows
+title: 重新使用工作流
 shortTitle: Reuse workflows
-intro: Learn how to avoid duplication when creating a workflow by reusing existing workflows.
+intro: 了解如何通过重用现有工作流程来避免在创建工作流程时重复。
 redirect_from:
   - /actions/learn-github-actions/reusing-workflows
 miniTocMaxHeadingLevel: 3
@@ -13,93 +13,96 @@ versions:
 type: how_to
 topics:
   - Workflows
+ms.openlocfilehash: 2053b2bfd653a1f6633ab5d568e5b2fdb75d7335
+ms.sourcegitcommit: 9af8891fea10039b3374c76818634e05410e349d
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 12/06/2022
+ms.locfileid: '148191924'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.reusable-workflows-enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.reusable-workflows-enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+## 概述
 
-## Overview
+您可以使工作流程可重复使用，而不是从一个工作流程复制并粘贴到另一个工作流程。 然后，您和有权访问可重用工作流程的任何人都可以从另一个工作流程调用可重用工作流程。
 
-Rather than copying and pasting from one workflow to another, you can make workflows reusable. You and anyone with access to the reusable workflow can then call the reusable workflow from another workflow.
+重用工作流程可避免重复。 这使得工作流程更易于维护，并允许您通过构建他人的工作来更快地创建新工作流程，就像您对操作所做的那样。 工作流重用还通过帮助你使用设计良好、已经过测试且已证明有效的工作流来促进最佳做法。 您的组织可以构建可集中维护的可重用工作流程库。
 
-Reusing workflows avoids duplication. This makes workflows easier to maintain and allows you to create new workflows more quickly by building on the work of others, just as you do with actions. Workflow reuse also promotes best practice by helping you to use workflows that are well designed, have already been tested, and have been proven to be effective. Your organization can build up a library of reusable workflows that can be centrally maintained.
+下图显示了使用可重用工作流的正在进行的工作流运行。
 
-The diagram below shows an in-progress workflow run that uses a reusable workflow.
+* 在该图左侧的三个生成作业均成功完成后，将运行一个名为“部署”的依赖作业。
+* “部署”作业调用包含三个作业的可重用工作流：“暂存”、“审阅”和“生产”。
+* “生产”部署作业仅在“暂存”作业成功完成后运行。
+* 当作业以环境为目标时，工作流运行会显示一个进度条，其中显示作业中的步骤数。 在下图中，“生产”作业包含 8 个步骤，目前正在处理步骤 6。
+* 使用可重用工作流程运行部署作业，可以为每个构建运行这些作业，而无需在工作流程中重复代码。
 
-* After each of three build jobs on the left of the diagram completes successfully, a dependent job called "Deploy" is run.
-* The "Deploy" job calls a reusable workflow that contains three jobs: "Staging", "Review", and "Production."
-* The "Production" deployment job only runs after the "Staging" job has completed successfully.
-* When a job targets an environment, the workflow run displays a progress bar that shows the number of steps in the job. In the diagram below, the "Production" job contains 8 steps, with step 6 currently being processed.
-* Using a reusable workflow to run deployment jobs allows you to run those jobs for each build without duplicating code in workflows.
+![用于部署的可重用工作流程的图示](/assets/images/help/images/reusable-workflows-ci-cd.png)
 
-![Diagram of a reusable workflow for deployment](/assets/images/help/images/reusable-workflows-ci-cd.png)
+使用其他工作流程的工作流程称为“调用方”工作流程。 可重用工作流程是“被调用”工作流程。 一个调用方工作流程可以使用多个被调用的工作流程。 每个被调用的工作流程都在一行中引用。 结果是，调用方工作流程文件可能只包含几行 YAML，但在运行时可能会执行大量任务。 当您重用工作流程时，将使用整个被调用的工作流程，就像它是调用方工作流程的一部分一样。
 
-A workflow that uses another workflow is referred to as a "caller" workflow. The reusable workflow is a "called" workflow. One caller workflow can use multiple called workflows. Each called workflow is referenced in a single line. The result is that the caller workflow file may contain just a few lines of YAML, but may perform a large number of tasks when it's run. When you reuse a workflow, the entire called workflow is used, just as if it was part of the caller workflow.
+如果重用其他存储库中的工作流程，则被调用工作流程中的任何操作都将像调用方工作流程的一部分一样运行。 例如，如果被调用的工作流使用 `actions/checkout`，则该操作将签出托管调用方工作流（而不是被调用的工作流）的存储库的内容。
 
-If you reuse a workflow from a different repository, any actions in the called workflow run as if they were part of the caller workflow. For example, if the called workflow uses `actions/checkout`, the action checks out the contents of the repository that hosts the caller workflow, not the called workflow.
+当可重用工作流由调用方工作流触发时，`github` 上下文始终与调用方工作流关联。 调用的工作流会自动授予对 `github.token` 和 `secrets.GITHUB_TOKEN` 访问权限。 有关 `github` 上下文的详细信息，请参阅“[GitHub Actions 的上下文和表达式语法](/actions/reference/context-and-expression-syntax-for-github-actions#github-context)”。
 
-When a reusable workflow is triggered by a caller workflow, the `github` context is always associated with the caller workflow. The called workflow is automatically granted access to `github.token` and `secrets.GITHUB_TOKEN`. For more information about the `github` context, see "[Context and expression syntax for GitHub Actions](/actions/reference/context-and-expression-syntax-for-github-actions#github-context)."
+您可以将 {% data variables.product.prodname_actions %} 工作流程中引用的重用工作流程视为包含工作流程的仓库依赖图中的依赖项。 有关详细信息，请参阅“[关于依赖项关系图](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)”。
 
-You can view the reused workflows referenced in your {% data variables.product.prodname_actions %} workflows as dependencies in the dependency graph of the repository containing your workflows. For more information, see “[About the dependency graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph).”
+### 可重用工作流程和入门工作流程
 
-### Reusable workflows and starter workflows
+组织中所有有权创建工作流的人员都可利用入门工作流更快、更轻松地创建工作流。 当用户创建新工作流程时，他们可以选择入门工作流程，并且将为他们完成编写工作流程的部分或全部工作。 在入门工作流程中，您还可以引用可重用的工作流程，以便人们能够轻松地从重用集中管理的工作流程代码中受益。 如果在引用可重用工作流时使用提交 SHA，则可以确保重用该工作流的每个人都将始终使用相同的 YAML 代码。 但是，如果通过标记或分支引用可重用工作流程，请确保您可以信任该版本的工作流程。 有关详细信息，请参阅“[{% data variables.product.prodname_actions %} 的安全强化](/actions/security-guides/security-hardening-for-github-actions#reusing-third-party-workflows)”。
 
-Starter workflows allow everyone in your organization who has permission to create workflows to do so more quickly and easily. When people create a new workflow, they can choose a starter workflow and some or all of the work of writing the workflow will be done for them. Within a starter workflow, you can also reference reusable workflows to make it easy for people to benefit from reusing centrally managed workflow code. If you use a commit SHA when referencing the reusable workflow, you can ensure that everyone who reuses that workflow will always be using the same YAML code. However, if you reference a reusable workflow by a tag or branch, be sure that you can trust that version of the workflow. For more information, see "[Security hardening for {% data variables.product.prodname_actions %}](/actions/security-guides/security-hardening-for-github-actions#reusing-third-party-workflows)."
+有关详细信息，请参阅“[为组织创建入门工作流](/actions/learn-github-actions/creating-starter-workflows-for-your-organization)”。
 
-For more information, see "[Creating starter workflows for your organization](/actions/learn-github-actions/creating-starter-workflows-for-your-organization)."
+## 访问可重复使用的工作流程
 
-## Access to reusable workflows
+如果满足以下 {% ifversion ghes or ghec or ghae %}任一{% endif %} 任一{% else %}条件，则可重用工作流程可由另一个工作流程使用：
 
-A reusable workflow can be used by another workflow if {% ifversion ghes or ghec or ghae %}any{% else %}either{% endif %} of the following is true:
+* 这两个工作流程位于同一存储库中。
+* 调用的工作流存储在公共存储库中{% ifversion actions-workflow-policy %}，并且{% ifversion ghec %}企业{% else %}组织{% endif %}允许你使用公共可重用工作流{% endif %}。{% ifversion ghes or ghec or ghae %}
+* 被调用的工作流程存储在内部存储库中，该存储库的设置允许对其进行访问。 有关详细信息，请参阅{% ifversion internal-actions %}“[与企业共享操作和工作流](/actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise)”{% else %}“[管理存储库的 {% data variables.product.prodname_actions %} 设置](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#allowing-access-to-components-in-an-internal-repository){% endif %}”。{% endif %}
 
-* Both workflows are in the same repository.
-* The called workflow is stored in a public repository{% ifversion actions-workflow-policy %}, and your {% ifversion ghec %}enterprise{% else %}organization{% endif %} allows you to use public reusable workflows{% endif %}.{% ifversion ghes or ghec or ghae %}
-* The called workflow is stored in an internal repository and the settings for that repository allow it to be accessed. For more information, see {% ifversion internal-actions %}"[Sharing actions and workflows with your enterprise](/actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise){% else %}"[Managing {% data variables.product.prodname_actions %} settings for a repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#allowing-access-to-components-in-an-internal-repository){% endif %}."{% endif %}
-
-## Using runners
+## 使用运行器
 
 {% ifversion fpt or ghes or ghec %}
 
-### Using GitHub-hosted runners
+### 使用 GitHub 托管的运行器
 
-The assignment of {% data variables.product.prodname_dotcom %}-hosted runners is always evaluated using only the caller's context. Billing for {% data variables.product.prodname_dotcom %}-hosted runners is always associated with the caller. The caller workflow cannot use {% data variables.product.prodname_dotcom %}-hosted runners from the called repository. For more information, see "[About {% data variables.product.prodname_dotcom %}-hosted runners](/actions/using-github-hosted-runners/about-github-hosted-runners)."
+始终仅使用调用方的上下文来评估 {% data variables.product.prodname_dotcom %} 托管的运行器的分配。 {% data variables.product.prodname_dotcom %} 托管的运行器的计费始终与调用方相关联。 调用方工作流程不能使用被调用存储库中 {% data variables.product.prodname_dotcom %} 托管的运行器。 有关详细信息，请参阅“[关于 {% data variables.product.prodname_dotcom %} 托管的运行器](/actions/using-github-hosted-runners/about-github-hosted-runners)”。
 
-### Using self-hosted runners
+### 使用自托管的运行器
 
 {% endif %}
 
-Called workflows that are owned by the same user or organization{% ifversion ghes or ghec or ghae %} or enterprise{% endif %} as the caller workflow can access self-hosted runners from the caller's context. This means that a called workflow can access self-hosted runners that are:
-* In the caller repository
-* In the caller repository's organization{% ifversion ghes or ghec or ghae %} or enterprise{% endif %}, provided that the runner has been made available to the caller repository
+与调用方工作流程属于同一用户或组织{% ifversion ghes or ghec or ghae %} 或企业{% endif %} 的被调用工作流程可以从调用方的上下文中访问自托管运行器。 这意味着被调用的工作流程可以访问自托管运行器，这些运行器具有以下特点：
+* 在调用方存储库中
+* 在调用方存储库的组织{% ifversion ghes or ghec or ghae %} 或企业{% endif %} 中，前提是运行器已可供调用方存储库使用
 
-## Limitations
+## 限制
 
 {% ifversion nested-reusable-workflow %}
-* You can connect up to four levels of workflows. For more information, see "[Nesting reusable workflows](#nesting-reusable-workflows)."
+* 最多可以连接到四个级别的工作流。 有关详细信息，请参阅“[嵌套可重用工作流](#nesting-reusable-workflows)”。
 {% else %}
-* Reusable workflows can't call other reusable workflows.
+* 可重用工作流程无法调用其他可重用工作流程。
 {% endif %}
-* Reusable workflows stored within a private repository can only be used by workflows within the same repository.
-* Any environment variables set in an `env` context defined at the workflow level in the caller workflow are not propagated to the called workflow. For more information about the `env` context, see "[Context and expression syntax for GitHub Actions](/actions/reference/context-and-expression-syntax-for-github-actions#env-context)."{% ifversion actions-reusable-workflow-matrix %}{% else %}
-* The `strategy` property is not supported in any job that calls a reusable workflow.{% endif %}
+* 存储在私有存储库中的可重用工作流程只能由同一存储库中的工作流程使用。
+* 对于在调用方工作流中的工作流级别定义的 `env` 上下文，在其中设置的任何环境变量都不会传播到被调用的工作流。 有关 `env` 上下文的详细信息，请参阅“[GitHub Actions 的上下文和表达式语法](/actions/reference/context-and-expression-syntax-for-github-actions#env-context)”。{% ifversion actions-reusable-workflow-matrix %}{% else %}
+* 任何调用可重用工作流的作业都不支持 `strategy` 属性。{% endif %}
 
-## Creating a reusable workflow
+## 创建可重用的工作流程
 
-Reusable workflows are YAML-formatted files, very similar to any other workflow file. As with other workflow files, you locate reusable workflows in the `.github/workflows` directory of a repository. Subdirectories of the `workflows` directory are not supported.
+可重用工作流程是 YAML 格式的文件，与任何其他工作流程文件非常相似。 与其他工作流文件一样，可以在存储库的 `.github/workflows` 目录中找到可重用的工作流。 不支持 `workflows` 目录的子目录。
 
-For a workflow to be reusable, the values for `on` must include `workflow_call`:
+若要使工作流可重用，`on` 的值必须包括 `workflow_call`：
 
 ```yaml
 on:
   workflow_call:
 ```
 
-### Using inputs and secrets in a reusable workflow
+### 在可重用工作流程中使用输入和机密
 
-You can define inputs and secrets, which can be passed from the caller workflow and then used within the called workflow. There are three stages to using an input or a secret in a reusable workflow.
+您可以定义输入和机密，这些输入和机密可以从调用方工作流程传递，然后在被调用的工作流程中使用。 在可重用工作流程中使用输入或机密有三个阶段。
 
-1. In the reusable workflow, use the `inputs` and `secrets` keywords to define inputs or secrets that will be passed from a caller workflow.
+1. 在可重用工作流中，使用 `inputs` 和 `secrets` 关键字定义将从调用方工作流传递的输入或机密。
    {% raw %}
    ```yaml
    on:
@@ -112,18 +115,16 @@ You can define inputs and secrets, which can be passed from the caller workflow 
          envPAT:
            required: true
    ```
-   {% endraw %}
-   For details of the syntax for defining inputs and secrets, see [`on.workflow_call.inputs`](/actions/reference/workflow-syntax-for-github-actions#onworkflow_callinputs) and [`on.workflow_call.secrets`](/actions/reference/workflow-syntax-for-github-actions#onworkflow_callsecrets).
+   {% endraw %}有关定义输入和机密的语法的详细信息，请参阅 [`on.workflow_call.inputs`](/actions/reference/workflow-syntax-for-github-actions#onworkflow_callinputs) 和 [`on.workflow_call.secrets`](/actions/reference/workflow-syntax-for-github-actions#onworkflow_callsecrets)。
    {% ifversion actions-inherit-secrets-reusable-workflows %}
-1. In the reusable workflow, reference the input or secret that you defined in the `on` key in the previous step.
+1. 在可重用工作流中，引用在上一步的 `on` 键中定义的输入或机密。
 
    {% note %}
 
-   **Note**: If the secrets are inherited by using `secrets: inherit` in the calling workflow, you can reference them even if they are not explicitly defined in the `on` key. For more information, see "[Workflow syntax for GitHub Actions](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idsecretsinherit)."
+   注意：如果在调用工作流中使用 `secrets: inherit` 继承机密，那么即使未在 `on` 键中显式定义机密，也可以引用它们。 有关详细信息，请参阅“[GitHub Actions 的工作流语法](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idsecretsinherit)”。
 
-   {% endnote %}
-   {%- else %}
-1. In the reusable workflow, reference the input or secret that you defined in the `on` key in the previous step.
+   {% endnote %} {%- else %}
+1. 在可重用工作流中，引用在上一步的 `on` 键中定义的输入或机密。
    {%- endif %}
 
    {% raw %}
@@ -138,22 +139,21 @@ You can define inputs and secrets, which can be passed from the caller workflow 
            repo-token: ${{ secrets.envPAT }}
            configuration-path: ${{ inputs.config-path }}
    ```
-   {% endraw %}
-   In the example above, `envPAT` is an environment secret that's been added to the `production` environment. This environment is therefore referenced within the job.
+   {% endraw %} 在上面的示例中，`envPAT` 是已添加到 `production` 环境的环境机密。 因此，在作业中引用了此环境。
 
    {% note %}
 
-   **Note**: Environment secrets are encrypted strings that are stored in an environment that you've defined for a repository. Environment secrets are only available to workflow jobs that reference the appropriate environment. For more information, see "[Using environments for deployment](/actions/deployment/targeting-different-environments/using-environments-for-deployment#environment-secrets)."
+   注意：环境机密是存储在为存储库定义的环境中的加密字符串。 环境机密仅适用于引用相应环境的工作流程作业。 有关详细信息，请参阅“[使用环境进行部署](/actions/deployment/targeting-different-environments/using-environments-for-deployment#environment-secrets)”。
 
    {% endnote %}
 
-1. Pass the input or secret from the caller workflow.
+1. 传递来自调用方工作流程的输入或机密。
 
 {% indented_data_reference reusables.actions.pass-inputs-to-reusable-workflows spaces=3 %}
 
-### Example reusable workflow
+### 示例可重用工作流程
 
-This reusable workflow file named `workflow-B.yml` (we'll refer to this later in the [example caller workflow](#example-caller-workflow)) takes an input string and a secret from the caller workflow and uses them in an action.
+此名为 `workflow-B.yml` 的可重用工作流文件（稍后将在[调用方工作流示例](#example-caller-workflow)中引用此文件）从调用方工作流中获取输入字符串和机密，并在操作中使用它们。
 
 {% raw %}
 ```yaml{:copy}
@@ -180,32 +180,32 @@ jobs:
 ```
 {% endraw %}
 
-## Calling a reusable workflow
+## 调用可重用工作流程
 
-You call a reusable workflow by using the `uses` keyword. Unlike when you are using actions within a workflow, you call reusable workflows directly within a job, and not from within job steps.
+使用 `uses` 关键字调用可重用工作流。 与在工作流程中使用操作不同，您可以直接在作业中调用可重用工作流程，而不是从作业步骤中调用。
 
 [`jobs.<job_id>.uses`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_iduses)
 
-You reference reusable workflow files using {% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}one of the following syntaxes:{% else %}the syntax:{% endif %}
+可以使用{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}以下语法之一：{% else %}语法：{% endif %}
 
 {% data reusables.actions.reusable-workflow-calling-syntax %}
 
-You can call multiple workflows, referencing each in a separate job.
+您可以调用多个工作流程，在单独的作业中引用每个工作流程。
 
 {% data reusables.actions.uses-keyword-example %}
 
-### Passing inputs and secrets to a reusable workflow
+### 将输入和机密传递到可重用的工作流程
 
 {% data reusables.actions.pass-inputs-to-reusable-workflows%}
 
 {% ifversion actions-reusable-workflow-matrix %}
-### Using a matrix strategy with a reusable workflow
+### 将矩阵策略与可重用工作流配合使用
 
-Jobs using the matrix strategy can call a reusable workflow.
+使用矩阵策略的作业可以调用可重用工作流。
 
-A matrix strategy lets you use variables in a single job definition to automatically create multiple job runs that are based on the combinations of the variables. For example, you can use a matrix strategy to pass different inputs to a reusable workflow. For more information about matrices, see "[Using a matrix for your jobs](/actions/using-jobs/using-a-matrix-for-your-jobs)."
+使用矩阵策略，可以在单个作业定义中使用变量自动创建基于变量组合的多个作业运行。 例如，可以使用矩阵策略将不同输入传递给可重用工作流。 有关矩阵的详细信息，请参阅“[为作业使用矩阵](/actions/using-jobs/using-a-matrix-for-your-jobs)”。
 
-This example job below calls a reusable workflow and references the matrix context by defining the variable `target` with the values `[dev, stage, prod]`. It will run three jobs, one for each value in the variable.
+以下示例作业调用可重用工作流，并通过使用值 `[dev, stage, prod]` 定义变量 `target` 来引用矩阵上下文。 它将运行三个作业，变量中的每个值对应一个作业。
 
 {% raw %}
 ```yaml{:copy}
@@ -218,25 +218,20 @@ jobs:
     with:
       target: ${{ matrix.target }}
 ```
-{% endraw %}
-{% endif %}
+{% endraw %} {% endif %}
 
-### Supported keywords for jobs that call a reusable workflow
+### 调用可重用工作流程的作业支持的关键字
 
-When you call a reusable workflow, you can only use the following keywords in the job containing the call:
+调用可重用工作流程时，只能在包含调用的作业中使用以下关键字：
 
 * [`jobs.<job_id>.name`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idname)
 * [`jobs.<job_id>.uses`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_iduses)
 * [`jobs.<job_id>.with`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idwith)
 * [`jobs.<job_id>.with.<input_id>`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idwithinput_id)
 * [`jobs.<job_id>.secrets`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idsecrets)
-* [`jobs.<job_id>.secrets.<secret_id>`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idsecretssecret_id)
-{%- ifversion actions-inherit-secrets-reusable-workflows %}
-* [`jobs.<job_id>.secrets.inherit`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idsecretsinherit)
-{%- endif %}
-{%- ifversion actions-reusable-workflow-matrix %}
-* [`jobs.<job_id>.strategy`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstrategy)
-{%- endif %}
+* [`jobs.<job_id>.secrets.<secret_id>`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idsecretssecret_id) {%- ifversion actions-inherit-secrets-reusable-workflows %}
+* [`jobs.<job_id>.secrets.inherit`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idsecretsinherit) {%- endif %} {%- ifversion actions-reusable-workflow-matrix %}
+* [`jobs.<job_id>.strategy`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstrategy) {%- endif %}
 * [`jobs.<job_id>.needs`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idneeds)
 * [`jobs.<job_id>.if`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idif)
 * [`jobs.<job_id>.permissions`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idpermissions)
@@ -244,16 +239,16 @@ When you call a reusable workflow, you can only use the following keywords in th
 
    {% note %}
 
-   **Note:**
+   **注意：**
 
-   * If `jobs.<job_id>.permissions` is not specified in the calling job, the called workflow will have the default permissions for the `GITHUB_TOKEN`. For more information, see "[Authentication in a workflow](/actions/reference/authentication-in-a-workflow#permissions-for-the-github_token)."
-   * The `GITHUB_TOKEN` permissions passed from the caller workflow can be only downgraded (not elevated) by the called workflow.
+   * 如果调用作业中未指定 `jobs.<job_id>.permissions`，则调用的工作流将具有 `GITHUB_TOKEN` 的默认权限。 有关详细信息，请参阅“[工作流中的身份验证](/actions/reference/authentication-in-a-workflow#permissions-for-the-github_token)”。
+   * 从调用方工作流传递的 `GITHUB_TOKEN` 权限只能由被调用的工作流降级（不能升级）。
 
    {% endnote %}
 
-### Example caller workflow
+### 示例调用方工作流程
 
-This workflow file calls two workflow files. The second of these, `workflow-B.yml` (shown in the [example reusable workflow](#example-reusable-workflow)), is passed an input (`config-path`) and a secret (`token`).
+此工作流程文件调用两个工作流程文件。 向其中的第二个文件 `workflow-B.yml`（如[可重用工作流示例](#example-reusable-workflow)中所示）传递了一个输入 (`config-path`) 和一个机密 (`token`)。
 
 {% raw %}
 ```yaml{:copy}
@@ -281,11 +276,11 @@ jobs:
 {% endraw %}
 
 {% ifversion nested-reusable-workflow %}
-## Nesting reusable workflows
+## 嵌套可重用工作流
 
-You can connect a maximum of four levels of workflows - that is, the top-level caller workflow and up to three levels of reusable workflows. For example: _caller-workflow.yml_ → _called-workflow-1.yml_ → _called-workflow-2.yml_ → _called-workflow-3.yml_. Loops in the workflow tree are not permitted.
+最多可以连接四个级别的工作流 - 即顶级调用方工作流和最多三个级别的可重用工作流。 例如：caller-workflow.yml → called-workflow-1.yml → called-workflow-2.yml → called-workflow-3.yml   。 不允许工作流树中存在循环。
 
-From within a reusable workflow you can call another reusable workflow.
+在可重用工作流中，可以调用另一个可重用工作流。
 
 {% raw %}
 ```yaml{:copy}
@@ -300,11 +295,11 @@ jobs:
 ```
 {% endraw %}
 
-### Passing secrets to nested workflows
+### 将机密传递给嵌套工作流
 
-You can use `jobs.<job_id>.secrets` in a calling workflow to pass named secrets to a directly called workflow. Alternatively, you can use `jobs.<job_id>.secrets.inherit` to pass all of the calling workflow's secrets to a directly called workflow. For more information, see the section "[Passing inputs and secrets to a reusable workflow](/actions/using-workflows/reusing-workflows#passing-inputs-and-secrets-to-a-reusable-workflow)" above, and the reference article "[Workflow syntax for GitHub Actions](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idsecretsinherit)." Secrets are only passed to directly called workflow, so in the workflow chain A > B > C, workflow C will only receive secrets from A if they have been passed from A to B, and then from B to C.
+可以在调用工作流中使用 `jobs.<job_id>.secrets` 将命名机密传递给直接调用的工作流。 或者，可以使用 `jobs.<job_id>.secrets.inherit` 将调用工作流的所有机密传递给直接调用的工作流。 有关详细信息，请参阅上面的“[将输入和机密传递给可重用工作流](/actions/using-workflows/reusing-workflows#passing-inputs-and-secrets-to-a-reusable-workflow)”部分，以及参考文章“[GitHub Actions 的工作流语法](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idsecretsinherit)”。 机密仅传递给直接调用的工作流，因此在工作流链 A > B > C 中，工作流 C 仅从 A 接收从 A 传递给 B，然后从 B 传递给 C 的机密。
 
-In the following example, workflow A passes all of its secrets to workflow B, by using the `inherit` keyword, but workflow B only passes one secret to workflow C. Any of the other secrets passed to workflow B are not available to workflow C.
+在以下示例中，工作流 A 使用 `inherit` 关键字将其所有机密传递给工作流 B，但工作流 B 仅将一个机密传递给工作流 C。传递给工作流 B 的任何其他机密都不可供工作流 C 使用。
 
 {% raw %}
 ```yaml
@@ -323,23 +318,23 @@ jobs:
 ```
 {% endraw %}
 
-### Access and permissions
+### 访问和权限
 
-A workflow that contains nested reusable workflows will fail if any of the nested workflows is inaccessible to the initial caller workflow. For more information, see "[Access to reusable workflows](/actions/using-workflows/reusing-workflows#access-to-reusable-workflows)."
+如果初始调用方工作流无法访问任何嵌套工作流，则包含嵌套可重用工作流的工作流会失败。 有关详细信息，请参阅“[访问可重用工作流](/actions/using-workflows/reusing-workflows#access-to-reusable-workflows)”。
 
-`GITHUB_TOKEN` permissions can only be the same or more restrictive in nested workflows. For example, in the workflow chain A > B > C, if workflow A has `package: read` token permission, then B and C cannot have `package: write` permission. For more information, see "[Automatic token authentication](/actions/security-guides/automatic-token-authentication)."
+`GITHUB_TOKEN` 权限在嵌套工作流中只能相同或更严格。 例如，在工作流链 A > B > C 中，如果工作流 A 具有 `package: read` 令牌权限，则 B 和 C 不能具有 `package: write` 权限。 有关详细信息，请参阅“[自动令牌身份验证](/actions/security-guides/automatic-token-authentication)”。
 
-For information on how to use the API to determine which workflow files were involved in a particular workflow run, see "[Monitoring which workflows are being used](#monitoring-which-workflows-are-being-used)."
+有关如何使用 API 确定特定工作流运行中涉及哪些工作流文件的信息，请参阅“[监视正在使用哪些工作流](#monitoring-which-workflows-are-being-used)”。
 {% endif %}
 
-## Using outputs from a reusable workflow
+## 使用可重用工作流程的输出
 
-A reusable workflow may generate data that you want to use in the caller workflow. To use these outputs, you must specify them as the outputs of the reusable workflow.{% ifversion actions-reusable-workflow-matrix %}
+可重用工作流程可能会生成要在调用方工作流程中使用的数据。 若要使用这些输出，必须将它们指定为可重用工作流的输出。{% ifversion actions-reusable-workflow-matrix %}
 
-If a reusable workflow that sets an output is executed with a matrix strategy, the output will be the output set by the last successful completing reusable workflow of the matrix which actually sets a value.
-That means if the last successful completing reusable workflow sets an empty string for its output, and the second last successful completing reusable workflow sets an actual value for its output, the output will contain the value of the second last completing reusable workflow.{% endif %}
+如果设置输出的可重用工作流使用矩阵策略来执行，则输出会是由矩阵的最后一个成功完成且实际设置值的可重用工作流设置的输出。
+这意味着，如果最后一个成功完成可重用工作流为其输出设置空字符串，而倒数第二个成功完成可重用工作流为其输出设置实际值，则输出会包含倒数第二个完成可重用工作流的值。{% endif %}
 
-The following reusable workflow has a single job containing two steps. In each of these steps we set a single word as the output: "hello" and "world." In the `outputs` section of the job, we map these step outputs to job outputs called: `output1` and `output2`. In the `on.workflow_call.outputs` section we then define two outputs for the workflow itself, one called `firstword` which we map to `output1`, and one called `secondword` which we map to `output2`.
+以下可重用工作流程具有包含两个步骤的单个作业。 在每个步骤中，我们设置一个单词作为输出："hello" 和 "world"。 在作业的 `outputs` 部分，我们将这些步骤输出映射到名为 `output1` 和 `output2` 的作业输出。 然后，在 `on.workflow_call.outputs` 部分中，为工作流本身定义两个输出，一个称为 `firstword`，映射到 `output1`，另一个称为 `secondword`，映射到 `output2`。
 
 {% raw %}
 ```yaml{:copy}
@@ -380,7 +375,7 @@ jobs:
 ```
 {% endraw %}
 
-We can now use the outputs in the caller workflow, in the same way you would use the outputs from a job within the same workflow. We reference the outputs using the names defined at the workflow level in the reusable workflow: `firstword` and `secondword`. In this workflow, `job1` calls the reusable workflow and `job2` prints the outputs from the reusable workflow ("hello world") to standard output in the workflow log.
+现在，我们可以在调用方工作流程中使用输出，就像使用同一工作流程中作业的输出一样。 我们使用在可重用工作流中的工作流级别定义的名称引用输出：`firstword` 和 `secondword`。 在此工作流中，`job1` 调用可重用工作流，`job2` 将可重用工作流的输出（“hello world”）呈现在工作流日志的标准输出中。
 
 {% raw %}
 ```yaml{:copy}
@@ -401,37 +396,37 @@ jobs:
 ```
 {% endraw %}
 
-For more information on using job outputs, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idoutputs)."
+有关使用作业输出的详细信息，请参阅“[{% data variables.product.prodname_actions %} 的工作流语法](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idoutputs)”。
 
-## Monitoring which workflows are being used
+## 监控正在使用的工作流程
 
-You can use the {% data variables.product.prodname_dotcom %} REST API to monitor how reusable workflows are being used. The `prepared_workflow_job` audit log action is triggered when a workflow job is started. Included in the data recorded are:
-* `repo` - the organization/repository where the workflow job is located. For a job that calls another workflow, this is the organization/repository of the caller workflow.
-* `@timestamp` - the date and time that the job was started, in Unix epoch format.
-* `job_name` - the name of the job that was run.
+您可以使用 {% data variables.product.prodname_dotcom %} REST API 来监控可重用工作流程的使用过程。 `prepared_workflow_job` 审核日志操作会在工作流作业启动时触发。 记录的数据包括：
+* `repo` - 工作流作业所在的组织/存储库。 对于调用其他工作流程的作业，这是调用方工作流程的组织/存储库。
+* `@timestamp` - 启动作业的日期和时间，采用 Unix 纪元格式。
+* `job_name` - 运行的作业的名称。
 {% ifversion nested-reusable-workflow %}
-* `calling_workflow_refs` - an array of file paths for all the caller workflows involved in this workflow job. The items in the array are in the reverse order that they were called in. For example, in a chain of workflows A > B > C, when viewing the logs for a job in workflow C, the array would be `["octo-org/octo-repo/.github/workflows/B.yml", "octo-org/octo-repo/.github/workflows/A.yml"]`.
-* `calling_workflow_shas` - an array of SHAs for all the caller workflows involved in this workflow job. The array contains the same number of items, in the same order, as the `calling_workflow_refs` array. {% endif %}
-* `job_workflow_ref` - the workflow file that was used, in the form `{owner}/{repo}/{path}/{filename}@{ref}`. For a job that calls another workflow, this identifies the called workflow.
+* `calling_workflow_refs` - 此工作流作业中涉及的所有调用方工作流的文件路径数组。 数组中的项的顺序与它们被调用的顺序相反。 例如，在工作流 A > B > C 的链中，当查看工作流 C 中作业的日志时，数组为 `["octo-org/octo-repo/.github/workflows/B.yml", "octo-org/octo-repo/.github/workflows/A.yml"]`。
+* `calling_workflow_shas` - 此工作流作业中涉及的所有调用方工作流的 SHA 数组。 数组包含的项数与 `calling_workflow_refs` 数组的相同，并且这些项的顺序相同。 {% endif %}
+* `job_workflow_ref` - 使用的工作流文件，采用 `{owner}/{repo}/{path}/{filename}@{ref}` 格式。 对于调用其他工作流程的作业，这用于标识被调用的工作流程。
 
-For information about using the REST API to query the audit log for an organization, see "[Organizations](/rest/reference/orgs#get-the-audit-log-for-an-organization)."
+有关使用 REST API 查询组织的审核日志的信息，请参阅“[组织](/rest/reference/orgs#get-the-audit-log-for-an-organization)”。
 
 {% note %}
 
-**Note**: Audit data for `prepared_workflow_job` can only be viewed using the REST API. It is not visible in the {% data variables.product.prodname_dotcom %} web interface, or included in JSON/CSV exported audit data.
+注意：只能使用 REST API 查看 `prepared_workflow_job` 的审核数据。 它在 {% data variables.product.prodname_dotcom %} Web 界面中不可见，也不包含在 JSON/CSV 导出的审核数据中。
 
 {% endnote %}
 
 {% ifversion partial-reruns-with-reusable %}
 
-## Re-running workflows and jobs with reusable workflows
+## 使用可重用工作流重新运行工作流和作业
 
 {% data reusables.actions.partial-reruns-with-reusable %}
 
 {% endif %}
 
-## Next steps
+## 后续步骤
 
-To continue learning about {% data variables.product.prodname_actions %}, see "[Events that trigger workflows](/actions/learn-github-actions/events-that-trigger-workflows)."
+若要继续了解 {% data variables.product.prodname_actions %}，请参阅“[触发工作流的事件](/actions/learn-github-actions/events-that-trigger-workflows)”。
 
-{% ifversion restrict-groups-to-workflows %}You can standardize deployments by creating a self-hosted runner group that can only execute a specific reusable workflow. For more information, see "[Managing access to self-hosted runners using groups](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups)."{% endif %}
+{% ifversion restrict-groups-to-workflows %}你可以通过创建只能执行特定可重用工作流的自托管运行器组来标准化部署。 有关详细信息，请参阅“[使用组管理对自托管运行器的访问权限](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups)”。{% endif %}

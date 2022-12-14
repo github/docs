@@ -1,0 +1,20 @@
+date: '10.08.2021'
+sections:
+  bugs:
+    - 'Benutzerdefinierte Pre-Receive-Hooks, die eine Bash-Subshell verwendeten, gaben einen Fehler zurück: `Keine solche Datei oder kein solches Verzeichnis`.'
+    - "Wenn GitHub Actions aktiviert ist, ohne regelmäßige geplante Backups auszuführen, könnte das MSSQL-Transaktionsprotokoll unbegrenzt werden und den gesamten verfügbaren Speicherplatz auf dem Datenträger der Anwendung einnehmen, was zu einem Ausfall führen kann."
+    - Unnötige Datenbankprotokolle verbrauchten auf Instanzen mit starker LFS-Nutzung eine große Menge an Speicherplatz.
+    - Überwachungsprotokolleinträge für Änderungen an den Organisationseinstellungen für die „Repositoryerstellung“ waren ungenau.
+    - "Übermäßige Protokollierung von `ActionController::UnknownFormat'-Ausnahmen verursachte unnötige Festplattennutzung."
+    - "LDAP `group_dn`-Werte, die länger als 255 Zeichen sind, führten zur Protokollierung von Fehlern: `Daten wurden für die Spalte 'group_dn' in Zeile 1 abgeschnitten`."
+  changes:
+    - "Begrenzungen der Missbrauchsrate werden jetzt als „sekundäre“ Ratenbegrenzungen bezeichnet, da das Verhalten, das sie begrenzen, nicht immer missbräuchlich ist."
+  known_issues:
+    - "Die {% data variables.product.prodname_registry %}-npm-Registrierung gibt in Metadatenantworten keinen Zeitwert mehr zurück. So sind erhebliche Leistungssteigerungen möglich. Die erforderlichen Daten zum Zurückgeben eines Zeitwerts in einer Metadatenantwort sind weiterhin verfügbar, und dieser Wert wird in Zukunft wieder zurückgegeben, sobald die vorhandenen Leistungsprobleme behoben wurden."
+    - "Auf einer neu eingerichteten {% data variables.product.prodname_ghe_server %}-Instanz ohne Benutzer könnte ein Angreifer den ersten Administratorbenutzer erstellen."
+    - Benutzerdefinierte Firewallregeln werden während des Upgrades entfernt.
+    - "Nachverfolgte Git-LFS-Dateien, [die über die Webbenutzeroberfläche hochgeladen wurden](https://github.com/blog/2105-upload-files-to-your-repositories), werden dem Repository fälschlicherweise direkt hinzugefügt."
+    - "Issues können nicht geschlossen werden, wenn sie einen Permalink zu einem Blob im selben Repository enthalten und der Dateipfad des Blobs mehr als 255 Zeichen lang ist."
+    - "Wenn die Option zum Durchsuchen von GitHub.com mit GitHub Connect aktiviert wird, sind Issues in privaten und internen Repositorys nicht in den GitHub.com-Suchergebnissen enthalten."
+    - "Wenn {% data variables.product.prodname_actions %} für {% data variables.product.prodname_ghe_server %} aktiviert ist, ist die Nachbereitung eines Replikatknotens mit `ghe-repl-teardown` erfolgreich, kann jedoch den Fehler `ERROR:Running migrations` zurückgeben."
+    - "Ressourcenbegrenzungen, die nur beim Verarbeiten von Pre-Receive-Hooks auftreten, können bei manchen Pre-Receive-Hooks Fehler auslösen."
