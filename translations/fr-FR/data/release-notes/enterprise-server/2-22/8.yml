@@ -1,0 +1,58 @@
+date: '16/03/2021'
+sections:
+  security_fixes:
+    - Les packages ont été mis à jour vers les dernières versions de sécurité.
+  bugs:
+    - Des enregistrements de journal système étaient dupliqués à plusieurs endroits.
+    - Un administrateur de site pouvait obtenir une page d’erreur 500 lors d’une tentative d’affichage de problèmes référencés à partir de dépôts privés.
+    - L’importation d’archives de dépôt à partir de GitHub Enterprise Server dans lesquelles il manquait des fichiers de dépôt échouaient avec une erreur.
+  known_issues:
+    - "Sur une instance GitHub Enterprise Server fraîchement configurée et sans utilisateur, un attaquant pouvait créer le premier utilisateur administrateur."
+    - Les règles de pare-feu personnalisées ne sont pas conservées lors d’une mise à niveau.
+    - "Les fichiers suivis par Git LFS [chargés par le biais de l’interface web](https://github.com/blog/2105-upload-files-to-your-repositories) sont, à tort, ajoutés directement au dépôt."
+    - "Les problèmes ne peuvent pas être fermés s’ils contiennent un lien permanent vers un blob situé dans le même dépôt, dont le chemin de fichier dépasse les 255 caractères."
+    - "Quand l’option « Les utilisateurs peuvent effectuer des recherches sur GitHub.com » est activée avec GitHub Connect, les problèmes concernant des dépôts privés et internes ne sont pas inclus dans les résultats de recherche de GitHub.com."
+    - |Les utilisateurs peuvent rencontrer des ressources telles que des avatars qui ne se chargent pas ou des échecs de poussée (push) ou de tirage (pull) de code. Cela peut être dû à une non-correspondance de PID dans le service « haproxy-cluster-proxy ». Pour déterminer si vous avez une instance affectée :
+
+
+
+**Instance unique**
+
+
+
+1. Exécutez la commande suivante dans le [shell d’administration](https://docs.github.com/en/enterprise-server/admin/configuration/accessing-the-administrative-shell-ssh) (SSH) :
+
+
+
+  ```
+
+  if [ $(cat /var/run/haproxy-cluster-proxy.pid) -ne $(systemctl show --property MainPID --value haproxy-cluster-proxy) ]; then echo ''Main PID of haproxy-cluster-proxy does not match /var/run/haproxy-cluster-proxy.pid''; fi
+
+  ```
+
+
+
+2. Si la commande révèle une absence de correspondance, redémarrez l’instance.
+
+
+
+**Configuration de cluster ou de haute disponibilité**
+
+
+
+1. Exécutez la commande suivante dans le [shell d’administration](https://docs.github.com/en/enterprise-server/admin/configuration/accessing-the-administrative-shell-ssh) (SSH) :
+
+
+
+  ```
+
+  ghe-cluster-each -- ''if [ $(cat /var/run/haproxy-cluster-proxy.pid) -ne $(systemctl show --property MainPID --value haproxy-cluster-proxy) ]; then echo ''Main PID of haproxy-cluster-proxy does not match /var/run/haproxy-cluster-proxy.pid''; fi''
+
+  ```
+
+
+
+2. Si la commande révèle qu’un ou plusieurs nœuds sont affectés, redémarrez ces nœuds.
+
+|
+    - "Quand un nœud de réplica est hors connexion dans une configuration de haute disponibilité, {% data variables.product.product_name %} peut quand même router les requêtes de {% data variables.product.prodname_pages %} vers le nœud hors connexion, réduisant ainsi la disponibilité de {% data variables.product.prodname_pages %} pour les utilisateurs."

@@ -1,6 +1,6 @@
 ---
-title: Viewing license usage for GitHub Enterprise
-intro: 'You can view license usage for your enterprise on {% ifversion ghec %}{% data variables.product.prodname_dotcom_the_website %}{% elsif ghes %}{% data variables.location.product_location %}{% endif %}.'
+title: Affichage de l’utilisation des licences pour GitHub Enterprise
+intro: 'Vous pouvez afficher l’utilisation des licences pour votre entreprise sur {% ifversion ghec %}{% data variables.product.prodname_dotcom_the_website %}{% elsif ghes %}{% data variables.product.product_location %}{% endif %}.'
 permissions: 'Enterprise owners can view license usage for {% data variables.product.prodname_enterprise %}.'
 versions:
   ghec: '*'
@@ -10,59 +10,59 @@ topics:
   - Enterprise
   - Licensing
 shortTitle: View license usage
+ms.openlocfilehash: 7f3c3c6e65928601d01ac17139928af6ceedf354
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147572615'
 ---
+## À propos de l’utilisation des licences pour {% data variables.product.prodname_enterprise %}
 
-## About license usage for {% data variables.product.prodname_enterprise %}
+Vous pouvez voir l’utilisation des licences de {% data variables.product.product_name %} sur {% data variables.product.product_location %}.
 
-You can view license usage for {% data variables.product.product_name %} on {% data variables.location.product_location %}.
-
-If you use both {% data variables.product.prodname_ghe_cloud %} and {% data variables.product.prodname_ghe_server %} and sync license usage between the products, you can view license usage for both on {% data variables.product.prodname_dotcom_the_website %}. For more information about license sync, see "[Syncing license usage between {% data variables.product.prodname_ghe_server %} and {% data variables.product.prodname_ghe_cloud %}](/billing/managing-your-license-for-github-enterprise/syncing-license-usage-between-github-enterprise-server-and-github-enterprise-cloud)."
+Si vous utilisez à la fois {% data variables.product.prodname_ghe_cloud %} et {% data variables.product.prodname_ghe_server %}, et que vous synchronisez l’utilisation des licences entre les produits, vous pouvez voir l’utilisation des licences sur {% data variables.product.prodname_dotcom_the_website %}. Pour plus d’informations sur la synchronisation des licences, consultez « [Synchronisation de l’utilisation de licences entre {% data variables.product.prodname_ghe_server %} et {% data variables.product.prodname_ghe_cloud %}](/billing/managing-your-license-for-github-enterprise/syncing-license-usage-between-github-enterprise-server-and-github-enterprise-cloud) ».
 
 {% ifversion ghes %}
 
-For more information about viewing license usage on {% data variables.product.prodname_dotcom_the_website %} and identifying when the last license sync occurred, see "[Viewing license usage for {% data variables.product.prodname_enterprise %}](/enterprise-cloud@latest/billing/managing-your-license-for-github-enterprise/viewing-license-usage-for-github-enterprise)" in the {% data variables.product.prodname_ghe_cloud %} documentation.
+Pour plus d’informations sur l’affichage de l’utilisation des licences sur {% data variables.product.prodname_dotcom_the_website %} et identifier le moment de la dernière synchronisation des licences, consultez « [Affichage de l’utilisation des licences pour {% data variables.product.prodname_enterprise %}](/enterprise-cloud@latest/billing/managing-your-license-for-github-enterprise/viewing-license-usage-for-github-enterprise) » dans la documentation {% data variables.product.prodname_ghe_cloud %}.
 
 {% endif %}
 
-You can also use the REST API to return consumed licenses data and the status of the license sync job. For more information, see "[GitHub Enterprise administration](/enterprise-cloud@latest/rest/enterprise-admin/license)" in the REST API documentation.
+Vous pouvez également utiliser l’API REST pour retourner les données de licences consommées et l’état du travail de synchronisation des licences. Pour plus d’informations, consultez « [Administration de GitHub Enterprise](/enterprise-cloud@latest/rest/enterprise-admin/license) » dans la documentation de l’API REST.
 
-To learn more about the license data associated with your enterprise account and how the number of consumed user seats are calculated, see "[Troubleshooting license usage for GitHub Enterprise](/billing/managing-your-license-for-github-enterprise/troubleshooting-license-usage-for-github-enterprise)."
+Pour en savoir plus sur les données de licence associées à votre compte d’entreprise et sur le nombre de sièges utilisateur consommés, consultez « [Résolution des problèmes d’utilisation des licences pour GitHub Enterprise](/billing/managing-your-license-for-github-enterprise/troubleshooting-license-usage-for-github-enterprise) ».
 
 
-## Viewing license usage on {% ifversion ghec %}{% data variables.product.prodname_dotcom_the_website %}{% elsif ghes %}{% data variables.location.product_location %}{% endif %}
+## Affichage de l’utilisation des licences sur {% ifversion ghec %}{% data variables.product.prodname_dotcom_the_website %}{% elsif ghes %}{% data variables.product.product_location %}{% endif %}
 
-You can view the license usage for your enterprise and download a file with license details. If you're not seeing expected license counts in this report, it's possible that the subscriber’s assigned {% data variables.product.prodname_vs %} subscription email address and {% data variables.product.prodname_dotcom_the_website %} email address aren't exactly the same. For further information, see "[Troubleshooting license usage for GitHub Enterprise](/billing/managing-your-license-for-github-enterprise/troubleshooting-license-usage-for-github-enterprise)."
+Vous pouvez afficher l’utilisation des licences pour votre entreprise et télécharger un fichier avec des détails sur les licences. Si vous ne voyez pas les nombres de licences attendus dans ce rapport, il est possible que l’adresse e-mail de l’abonné attribuée {% data variables.product.prodname_vs %} et l’adresse e-mail {% data variables.product.prodname_dotcom_the_website %} ne soient pas exactement les mêmes. Pour plus d’informations, consultez « [Résolution des problèmes d’utilisation des licences pour GitHub Enterprise](/billing/managing-your-license-for-github-enterprise/troubleshooting-license-usage-for-github-enterprise) ».
 
 {% ifversion ghec %}
 
-{% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}
-{% data reusables.enterprise-accounts.settings-tab %}
-1. In the left sidebar, click **Enterprise licensing**.
-  !["Enterprise licensing" tab in the enterprise account settings sidebar](/assets/images/help/enterprises/enterprise-licensing-tab.png)
-1. Review your current {% data variables.product.prodname_enterprise %} license, as well as consumed and available user licenses.
-    - To download the consumed license report as a CSV file, in the top right, click {% octicon "download" aria-label="The download icon" %}. For more information about reviewing the data in this report, see "[Troubleshooting license usage for GitHub Enterprise](/billing/managing-your-license-for-github-enterprise/troubleshooting-license-usage-for-github-enterprise)."
-    - If your license includes {% data variables.product.prodname_GH_advanced_security %}, you can review your total seat use. For more information, see "[Viewing your {% data variables.product.prodname_GH_advanced_security %} usage](/billing/managing-billing-for-github-advanced-security/viewing-your-github-advanced-security-usage)."
+{% data reusables.enterprise-accounts.access-enterprise-on-dotcom %} {% data reusables.enterprise-accounts.settings-tab %}
+1. Dans la barre latérale gauche, cliquez sur **Gestion des licences Enterprise**.
+  ![Onglet « Gestion des licences Enterprise » dans la barre latérale des paramètres du compte d’entreprise](/assets/images/help/enterprises/enterprise-licensing-tab.png)
+1. Passez en revue votre licence {% data variables.product.prodname_enterprise %} actuelle ainsi que les licences utilisateur consommées et disponibles.
+    - Pour télécharger le rapport de licence consommé en tant que fichier CSV, en haut à droite, cliquez sur {% octicon "download" aria-label="The download icon" %}. Pour plus d’informations sur la révision des données de ce rapport, consultez « [Résolution des problèmes d’utilisation des licences pour GitHub Enterprise](/billing/managing-your-license-for-github-enterprise/troubleshooting-license-usage-for-github-enterprise) ».
+    - Si votre licence inclut {% data variables.product.prodname_GH_advanced_security %}, vous pouvez passer en revue votre utilisation totale des postes. Pour plus d’informations, consultez « [Affichage de votre utilisation de {% data variables.product.prodname_GH_advanced_security %}](/billing/managing-billing-for-github-advanced-security/viewing-your-github-advanced-security-usage) ».
 
 {% elsif ghes %}
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.license-tab %}
-1. Review your current {% data variables.product.prodname_enterprise %} license, as well as consumed and available user licenses.{% ifversion ghes %}
-    - To download the consumed license report as a JSON file, in the top right under "Quick links", choose **Export license usage**. For more information about reviewing the data in this report, see "[Troubleshooting license usage for GitHub Enterprise](/billing/managing-your-license-for-github-enterprise/troubleshooting-license-usage-for-github-enterprise)."
-    - If your license includes {% data variables.product.prodname_GH_advanced_security %}, you can review your total seat use as well as a per-organization breakdown of committers. For more information, see "[Managing {% data variables.product.prodname_GH_advanced_security %} for your enterprise](/admin/advanced-security)."{% endif %}
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.settings-tab %} {% data reusables.enterprise-accounts.license-tab %}
+1. Passez en revue votre licence {% data variables.product.prodname_enterprise %} actuelle ainsi que les licences utilisateur consommées et disponibles.{% ifversion ghes %}
+    - Pour télécharger le rapport de licence consommé en tant que fichier JSON, en haut à droite, sous « Liens rapides », choisissez **Exporter l’utilisation des licences**. Pour plus d’informations sur la révision des données de ce rapport, consultez « [Résolution des problèmes d’utilisation des licences pour GitHub Enterprise](/billing/managing-your-license-for-github-enterprise/troubleshooting-license-usage-for-github-enterprise) ».
+    - Si votre licence inclut {% data variables.product.prodname_GH_advanced_security %}, vous pouvez passer en revue l’utilisation totale de vos postes ainsi qu’une répartition par organisation des commiteurs. Pour plus d’informations, consultez « [Gestion de {% data variables.product.prodname_GH_advanced_security %} pour votre entreprise](/admin/advanced-security) ».{% endif %}
 
-{% endif %}
-{% ifversion ghec %}
-## Viewing the last license sync date
+{% endif %} {% ifversion ghec %}
+## Affichage de la dernière date de synchronisation de licence
 
-{% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}
-{% data reusables.enterprise-accounts.settings-tab %}
-1. In the left sidebar, click **Enterprise licensing**.
-  !["Enterprise licensing" tab in the enterprise account settings sidebar](/assets/images/help/enterprises/enterprise-licensing-tab.png)
-1. To identify when the last license sync occurred, under "Enterprise Server instances", look for timestamps next to usage uploaded or synced events.
-   - "Server usage uploaded" indicates license usage between environments was manually updated when a {% data variables.product.prodname_ghe_server %} license file was uploaded.
-   - "{% data variables.product.prodname_github_connect %} server usage synced" indicates license usage between environments was automatically updated.
-   - "{% data variables.product.prodname_github_connect %} server usage never synced" indicates that {% data variables.product.prodname_github_connect %} is configured, but license usage between environments has never updated successfully.
+{% data reusables.enterprise-accounts.access-enterprise-on-dotcom %} {% data reusables.enterprise-accounts.settings-tab %}
+1. Dans la barre latérale gauche, cliquez sur **Gestion des licences Enterprise**.
+  ![Onglet « Gestion des licences Enterprise » dans la barre latérale des paramètres du compte d’entreprise](/assets/images/help/enterprises/enterprise-licensing-tab.png)
+1. Pour identifier le moment où la dernière synchronisation de licence s’est produite, sous « Instances de serveur d’entreprise », observez les timestamps en regard de l’utilisation chargée ou des événements synchronisés.
+   - « Utilisation du serveur chargée » indique que l’utilisation des licences entre les environnements a été mise à jour manuellement lorsqu’un fichier de licence {% data variables.product.prodname_ghe_server %} a été chargé.
+   - « Utilisation du serveur {% data variables.product.prodname_github_connect %} synchronisée » indique que l’utilisation des licences entre les environnements a été automatiquement mise à jour.
+   - « Utilisation du serveur {% data variables.product.prodname_github_connect %} synchronisée » indique que {% data variables.product.prodname_github_connect %} est configuré, mais que l’utilisation des licences entre les environnements n’a jamais été mise à jour avec succès.
 
 {% endif %}

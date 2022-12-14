@@ -14,12 +14,12 @@ topics:
   - Enterprise
   - Logging
   - API
-ms.openlocfilehash: b3c0f2756873494effd0a7fa3e65d4c87e24c01a
-ms.sourcegitcommit: d2f0b59ed096b9e68ef8f6fa019cd925165762ec
+ms.openlocfilehash: f5dd0a3dcca1e7fd60361f0cb7c8ecf84296e036
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/29/2022
-ms.locfileid: '148184252'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148192656'
 ---
 ## Utilisation de l’API de journal d’audit
 
@@ -120,11 +120,11 @@ Pour plus d’informations sur l’API REST de journal d’audit, consultez « 
 
 ### Exemple 1 : Tous les événements d’une entreprise pour une date spécifique, avec pagination
 
-Vous pouvez utiliser la pagination basée sur les pages ou la pagination basée sur les curseurs. Pour plus d’informations, consultez « [Traversée avec pagination](/rest/guides/traversing-with-pagination) ».
+Vous pouvez utiliser la pagination basée sur les pages ou la pagination basée sur les curseurs. Pour plus d’informations sur la pagination, consultez « [Utilisation de la pagination dans l’API REST](/rest/guides/using-pagination-in-the-rest-api) ».
 
 #### Exemple de pagination basée sur les pages
 
-La requête ci-dessous recherche les événements de journal d’audit créés le 1er janvier 2022 dans l’entreprise `avocado-corp` et retourne la première page avec un maximum de 100 éléments par page à l’aide de [la pagination de l’API REST](/rest/overview/resources-in-the-rest-api#pagination) :
+La requête ci-dessous recherche les événements de journal d’audit créés le 1er janvier 2022 dans l’entreprise `avocado-corp` et retourne la première page avec un maximum de 100 éléments par page à l’aide de la pagination. Pour plus d’informations sur la pagination, consultez « [Utilisation de la pagination dans l’API REST](/rest/guides/using-pagination-in-the-rest-api) ».
 
 ```shell
 curl -H "Authorization: Bearer TOKEN" \
@@ -134,7 +134,7 @@ curl -H "Authorization: Bearer TOKEN" \
 
 #### Exemple de pagination basée sur les curseurs
 
-La requête ci-dessous recherche les événements de journal d’audit créés le 1er janvier 2022 dans l’entreprise `avocado-corp` et retourne la première page avec un maximum de 100 éléments par page à l’aide de la [pagination de l’API REST](/rest/overview/resources-in-the-rest-api#pagination). L’indicateur `--include` entraîne le retour des en-têtes avec la réponse.
+La requête ci-dessous recherche les événements de journal d’audit créés le 1er janvier 2022 dans l’entreprise `avocado-corp` et retourne la première page avec un maximum de 100 éléments par page à l’aide de la pagination. Pour plus d’informations sur la pagination, consultez « [Utilisation de la pagination dans l’API REST](/rest/guides/using-pagination-in-the-rest-api) ». L’indicateur `--include` entraîne le retour des en-têtes avec la réponse.
 
 ```
 curl --include -H "Authorization: Bearer TOKEN" \

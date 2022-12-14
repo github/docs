@@ -1,6 +1,6 @@
 ---
-title: About secret scanning
-intro: '{% data variables.product.product_name %} scans repositories for known types of secrets, to prevent fraudulent use of secrets that were committed accidentally.'
+title: À propos de l’analyse des secrets
+intro: '{% data variables.product.product_name %} analyse les types de secrets connus dans les dépôts pour éviter une utilisation frauduleuse des secrets validés accidentellement.'
 product: '{% data reusables.gated-features.secret-scanning-partner %}'
 redirect_from:
   - /github/administering-a-repository/about-token-scanning
@@ -17,107 +17,100 @@ type: overview
 topics:
   - Secret scanning
   - Advanced Security
+ms.openlocfilehash: 18c77c929bcbe770fd44bfe5bec7e32143a2e604
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148192944'
 ---
+{% data reusables.secret-scanning.beta %} {% data reusables.secret-scanning.enterprise-enable-secret-scanning %}
 
-{% data reusables.secret-scanning.beta %}
-{% data reusables.secret-scanning.enterprise-enable-secret-scanning %}
+## À propos de l’{% data variables.product.prodname_secret_scanning %}
 
-## About {% data variables.product.prodname_secret_scanning %}
+Si votre projet communique avec un service externe, vous pouvez utiliser un jeton ou une clé privée pour l’authentification. Les jetons et les clés privées sont des exemples de secrets qu’un fournisseur de services peut émettre. Si vous archivez un secret dans un dépôt, toute personne disposant d’un accès en lecture au dépôt peut l’utiliser pour accéder au service externe avec vos privilèges. Nous vous recommandons de stocker les secrets dans un emplacement dédié et sécurisé en dehors du dépôt de votre projet.
 
-If your project communicates with an external service, you might use a token or private key for authentication. Tokens and private keys are examples of secrets that a service provider can issue. If you check a secret into a repository, anyone who has read access to the repository can use the secret to access the external service with your privileges. We recommend that you store secrets in a dedicated, secure location outside of the repository for your project.
+L’{% data variables.product.prodname_secret_scanning_caps %} recherche les secrets dans l’ensemble de votre historique Git sur toutes les branches présentes dans votre dépôt {% data variables.product.prodname_dotcom %}{% ifversion ghec or ghes > 3.4 or ghae > 3.4 %}, même si le dépôt est archivé{% endif %}. {% ifversion secret-scanning-issue-body-comments %}{% data reusables.secret-scanning.scan-issue-description-and-comments %}{% endif %}
 
-{% data variables.product.prodname_secret_scanning_caps %} will scan your entire Git history on all branches present in your {% data variables.product.prodname_dotcom %} repository for secrets{% ifversion ghec or ghes > 3.4 or ghae > 3.4 %}, even if the repository is archived{% endif %}. {% ifversion secret-scanning-issue-body-comments %}{% data reusables.secret-scanning.scan-issue-description-and-comments %}{% endif %}
+{% ifversion fpt or ghec %} L’{% data variables.product.prodname_secret_scanning_caps %} est disponible sur {% data variables.product.prodname_dotcom_the_website %} sous deux formes :
 
-{% ifversion fpt or ghec %}
-{% data variables.product.prodname_secret_scanning_caps %} is available on {% data variables.product.prodname_dotcom_the_website %} in two forms:
+1. **{% data variables.product.prodname_secret_scanning_partner_caps %}.** S’exécute automatiquement sur tous les dépôts publics. Toutes les chaînes qui correspondent aux modèles fournis par les partenaires d’analyse des secrets sont signalées directement au partenaire approprié.
 
-1. **{% data variables.product.prodname_secret_scanning_partner_caps %}.** Runs automatically on all public repositories. Any strings that match patterns that were provided by secret scanning partners are reported directly to the relevant partner.
+2. **{% data variables.product.prodname_secret_scanning_GHAS_caps %}.** {% ifversion fpt %}Des organisations utilisant {% data variables.product.prodname_ghe_cloud %} avec une licence pour {% data variables.product.prodname_GH_advanced_security %} peuvent activer et configurer une analyse supplémentaire pour des dépôts appartenant à l’organisation.{% elsif ghec %}Vous pouvez activer et configurer une analyse supplémentaire pour des dépôts appartenant à des organisations qui utilisent {% data variables.product.prodname_ghe_cloud %} et disposent d’une licence pour {% data variables.product.prodname_GH_advanced_security %}.{% endif %} Toute chaîne correspondant à des modèles fournis par des partenaires d’analyse de secrets, par d’autres fournisseurs de services, ou définis par votre organisation, est signalée comme une alerte sous l’onglet « Sécurité » des dépôts. Si une chaîne dans un dépôt public correspond à un modèle de partenaire, elle est également signalée au partenaire.{% endif %}{% ifversion fpt %} Pour plus d’informations, consultez la [documentation {% data variables.product.prodname_ghe_cloud %}](/enterprise-cloud@latest/code-security/secret-security/about-secret-scanning#about-secret-scanning-for-advanced-security).{% endif %}
 
-2. **{% data variables.product.prodname_secret_scanning_GHAS_caps %}.** {% ifversion fpt %}Organizations using {% data variables.product.prodname_ghe_cloud %} with a license for {% data variables.product.prodname_GH_advanced_security %} can enable and configure additional scanning for repositories owned by the organization.{% elsif ghec %}You can enable and configure additional scanning for repositories owned by organizations that use {% data variables.product.prodname_ghe_cloud %} and have a license for {% data variables.product.prodname_GH_advanced_security %}.{% endif %} Any strings that match patterns provided by secret scanning partners, by other service providers, or defined by your organization, are reported as alerts in the "Security" tab of repositories. If a string in a public repository matches a partner pattern, it is also reported to the partner.{% endif %}{% ifversion fpt %} For more information, see the [{% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/code-security/secret-security/about-secret-scanning#about-secret-scanning-for-advanced-security).{% endif %}
-
-Service providers can partner with {% data variables.product.company_short %} to provide their secret formats for scanning. {% data reusables.secret-scanning.partner-program-link %}
+Les fournisseurs de services peuvent collaborer avec {% data variables.product.company_short %} afin de fournir leurs formats de secret pour l’analyse. {% data reusables.secret-scanning.partner-program-link %}
 
 {% ifversion secret-scanning-push-protection %}
 
-You can also enable {% data variables.product.prodname_secret_scanning %} as a push protection for a repository or an organization. When you enable this feature, {% data variables.product.prodname_secret_scanning %} prevents contributors from pushing code with a detected secret. To proceed, contributors must either remove the secret(s) from the push or, if needed, bypass the protection. {% ifversion push-protection-custom-link-orgs %}Admins can also specify a custom link that is displayed to the contributor when a push is blocked; the link can contain resources specific to the organization to aid contributors. {% endif %}For more information, see "[Protecting pushes with {% data variables.product.prodname_secret_scanning %}](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)."
+Vous pouvez également activer l’{% data variables.product.prodname_secret_scanning %} en tant que protection des poussées (push) pour un dépôt ou une organisation. Quand vous activez cette fonctionnalité, l’{% data variables.product.prodname_secret_scanning %} empêche les contributeurs de pousser du code comportant un secret détecté. Pour continuer, les contributeurs doivent supprimer le ou les secrets de la poussée ou, si nécessaire, contourner la protection. {% ifversion push-protection-custom-link-orgs %}Les administrateurs peuvent également spécifier un lien personnalisé qui s’affiche au contributeur lorsqu’un envoi (push) est bloqué. Ce lien peut contenir des ressources spécifiques à l’organisation destinées à aider les contributeurs. {% endif %}Pour plus d’informations, consultez « [Protection des envois (push) avec l’{% data variables.product.prodname_secret_scanning %}](/code-security/secret-scanning/protecting-pushes-with-secret-scanning) ».
 
 {% endif %}
 
 {% ifversion fpt or ghec %}
-## About {% data variables.product.prodname_secret_scanning_partner %}
+## À propos de l’{% data variables.product.prodname_secret_scanning_partner %}
 
-When you make a repository public, or push changes to a public repository, {% data variables.product.product_name %} always scans the code for secrets that match partner patterns. {% ifversion secret-scanning-issue-body-comments %}{% data reusables.secret-scanning.scan-issue-description-and-comments %}{% endif %} If {% data variables.product.prodname_secret_scanning %} detects a potential secret, we notify the service provider who issued the secret. The service provider validates the string and then decides whether they should revoke the secret, issue a new secret, or contact you directly. Their action will depend on the associated risks to you or them. For more information, see "[Supported secrets for partner patterns](/code-security/secret-scanning/secret-scanning-patterns#supported-secrets-for-partner-patterns)."
+Quand vous rendez un dépôt public ou que vous poussez des modifications vers un dépôt public, {% data variables.product.product_name %} analyse toujours le code à la recherche des secrets qui correspondent aux modèles de partenaires. {% ifversion secret-scanning-issue-body-comments %}{% data reusables.secret-scanning.scan-issue-description-and-comments %}{% endif %} Si l’{% data variables.product.prodname_secret_scanning %} détecte un secret potentiel, nous indiquons au fournisseur de services qui a émis le secret. Le fournisseur de services valide la chaîne, puis décide de révoquer ou non le secret, d’émettre un nouveau secret ou de vous contacter directement. Son action dépend des risques associés pour vous ou lui. Pour plus d’informations, consultez « [Secrets pris en charge pour les modèles de partenaires](/code-security/secret-scanning/secret-scanning-patterns#supported-secrets-for-partner-patterns) ».
 
-You cannot change the configuration of {% data variables.product.prodname_secret_scanning %} on public repositories.
+Vous ne pouvez pas changer la configuration de l’{% data variables.product.prodname_secret_scanning %} sur les dépôts publics.
 
-{% ifversion fpt %}
-{% note %}
+{% ifversion fpt %} {% note %}
 
 {% data reusables.secret-scanning.fpt-GHAS-scans %}
 
-{% endnote %}
-{% endif %}
+{% endnote %} {% endif %}
 
 {% endif %}
 
 {% ifversion not fpt %}
 
 {% ifversion ghec %}
-## About {% data variables.product.prodname_secret_scanning_GHAS %}
+## À propos de l’{% data variables.product.prodname_secret_scanning_GHAS %}
 {% elsif ghes or ghae %}
-## About {% data variables.product.prodname_secret_scanning %} on {% data variables.product.product_name %}
+## À propos de l’{% data variables.product.prodname_secret_scanning %} sur {% data variables.product.product_name %}
 {% endif %}
 
-{% data variables.product.prodname_secret_scanning_GHAS_caps %} is available on all organization-owned repositories as part of {% data variables.product.prodname_GH_advanced_security %}. It is not available on user-owned repositories. When you enable {% data variables.product.prodname_secret_scanning %} for a repository, {% data variables.product.prodname_dotcom %} scans the code for patterns that match secrets used by many service providers. {% ifversion secret-scanning-issue-body-comments %}{% data reusables.secret-scanning.scan-issue-description-and-comments %}{% endif %} {% ifversion secret-scanning-backfills %}{% data variables.product.prodname_dotcom %} will also periodically run a full git history scan of existing content in {% data variables.product.prodname_GH_advanced_security %} repositories where {% data variables.product.prodname_secret_scanning %} is enabled, and send alert notifications following the {% data variables.product.prodname_secret_scanning %} alert notification settings. {% endif %}For more information, see "{% ifversion ghec %}[Supported secrets for advanced security](/code-security/secret-scanning/secret-scanning-patterns#supported-secrets-for-advanced-security){% else %}[{% data variables.product.prodname_secret_scanning_caps %} patterns](/code-security/secret-scanning/secret-scanning-patterns){% endif %}."
+L’{% data variables.product.prodname_secret_scanning_GHAS_caps %} est disponible sur tous les dépôts appartenant à l’organisation dans le cadre de {% data variables.product.prodname_GH_advanced_security %}. Elle n’est pas disponible sur les dépôts appartenant à l’utilisateur. Quand vous activez l’{% data variables.product.prodname_secret_scanning %} pour un dépôt, {% data variables.product.prodname_dotcom %} analyse le code à la recherche des modèles qui correspondent aux secrets utilisés par de nombreux fournisseurs de services. {% ifversion secret-scanning-issue-body-comments %}{% data reusables.secret-scanning.scan-issue-description-and-comments %}{% endif %} {% ifversion secret-scanning-backfills %}{% data variables.product.prodname_dotcom %} exécute aussi régulièrement une analyse complète de l’historique Git du contenu existant dans les dépôts {% data variables.product.prodname_GH_advanced_security %} où l’{% data variables.product.prodname_secret_scanning %} est activée, et envoie des notifications d’alerte selon les paramètres de notification d’alerte de l’{% data variables.product.prodname_secret_scanning %}. {% endif %}Pour plus d’informations, consultez « {% ifversion ghec %}[Secrets pris en charge pour la sécurité avancée](/code-security/secret-scanning/secret-scanning-patterns#supported-secrets-for-advanced-security){% else %}[Modèles d’{% data variables.product.prodname_secret_scanning_caps %}](/code-security/secret-scanning/secret-scanning-patterns){% endif %} ».
 
-{% ifversion secret-scanning-issue-body-comments %}
-{% note %}
+{% ifversion secret-scanning-issue-body-comments %} {% note %}
 
-**Note:** {% data variables.product.prodname_secret_scanning_caps %} for issue descriptions and comments is in public beta and subject to change.
+**Remarque :** {% data variables.product.prodname_secret_scanning_caps %} pour les descriptions et les commentaires des problèmes est en version bêta publique et peut faire l’objet de modifications.
 
-{% endnote %}
+{% endnote %} {% endif %}
+
+Si vous êtes administrateur de dépôt, vous pouvez activer l’{% data variables.product.prodname_secret_scanning_GHAS %} pour n’importe quel dépôt{% ifversion ghec or ghes > 3.4 or ghae > 3.4 %}, y compris les dépôt archivés{% endif %}. Les propriétaires d’organisation peuvent également activer l’{% data variables.product.prodname_secret_scanning_GHAS %} pour tous les dépôts ou pour tous les nouveaux dépôts au sein d’une organisation. Pour plus d’informations, consultez « [Gestion des paramètres de sécurité et d’analyse pour votre dépôt](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository) » et« [Gestion des paramètres de sécurité et d’analyse pour votre organisation](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization) ».
+
+{% ifversion ghes or ghae or ghec %}Vous pouvez également définir des modèles d’{% data variables.product.prodname_secret_scanning %} pour un dépôt, une organisation ou une entreprise. Pour plus d’informations, consultez « [Définition de modèles personnalisés pour l’{% data variables.product.prodname_secret_scanning %}](/code-security/secret-security/defining-custom-patterns-for-secret-scanning) ».
 {% endif %}
 
-If you're a repository administrator you can enable {% data variables.product.prodname_secret_scanning_GHAS %} for any repository{% ifversion ghec or ghes > 3.4 or ghae > 3.4 %}, including archived repositories{% endif %}. Organization owners can also enable {% data variables.product.prodname_secret_scanning_GHAS %} for all repositories or for all new repositories within an organization. For more information, see "[Managing security and analysis settings for your repository](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)" and "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)."
+{% ifversion secret-scanning-ghas-store-tokens %} {% data variables.product.company_short %} stocke les secrets détectés en utilisant le chiffrement symétrique, à la fois en transit et au repos.{% endif %}{% ifversion ghes > 3.7 %} Pour permuter les clés de chiffrement utilisées pour le stockage des secrets détectés, vous pouvez contacter le {% data variables.contact.contact_ent_support %}.{% endif %}
 
-{% ifversion ghes or ghae or ghec %}You can also define custom {% data variables.product.prodname_secret_scanning %} patterns for a repository, organization, or enterprise. For more information, see "[Defining custom patterns for {% data variables.product.prodname_secret_scanning %}](/code-security/secret-security/defining-custom-patterns-for-secret-scanning)."
-{% endif %}
+### À propos des alertes d’{% data variables.product.prodname_secret_scanning %}
 
-{% ifversion secret-scanning-ghas-store-tokens %}
-{% data variables.product.company_short %} stores detected secrets using symmetric encryption, both in transit and at rest.{% endif %}{% ifversion ghes > 3.7 %} To rotate the encryption keys used for storing the detected secrets, you can contact {% data variables.contact.contact_ent_support %}.{% endif %}
+Quand vous activez l’{% data variables.product.prodname_secret_scanning %} pour un dépôt ou que vous poussez des commits sur un dépôt où l’{% data variables.product.prodname_secret_scanning %} est activée, {% data variables.product.prodname_dotcom %} recherche dans le contenu de ces commits des secrets qui correspondent aux modèles définis par les fournisseurs de services{% ifversion ghes or ghae or ghec %} et à tous les modèles personnalisés définis dans votre entreprise, organisation ou dépôt{% endif %}. {% ifversion secret-scanning-issue-body-comments %}{% data reusables.secret-scanning.scan-issue-description-and-comments %}{% endif %} {% ifversion secret-scanning-backfills %}{% data variables.product.prodname_dotcom %} exécute aussi régulièrement une analyse de tout le contenu historique dans les dépôts où l’{% data variables.product.prodname_secret_scanning %} est activée.{% endif%}
 
-### About {% data variables.product.prodname_secret_scanning %} alerts
+Si l’{% data variables.product.prodname_secret_scanning %} détecte un secret, {% data variables.product.prodname_dotcom %} génère une alerte.
 
-When you enable {% data variables.product.prodname_secret_scanning %} for a repository or push commits to a repository with {% data variables.product.prodname_secret_scanning %} enabled, {% data variables.product.prodname_dotcom %} scans the contents of those commits for secrets that match patterns defined by service providers{% ifversion ghes or ghae or ghec %} and any custom patterns defined in your enterprise, organization, or repository{% endif %}. {% ifversion secret-scanning-issue-body-comments %}{% data reusables.secret-scanning.scan-issue-description-and-comments %}{% endif %} {% ifversion secret-scanning-backfills %}{% data variables.product.prodname_dotcom %} also periodically runs a scan of all historical content in repositories with {% data variables.product.prodname_secret_scanning %} enabled.{% endif%}
-
-If {% data variables.product.prodname_secret_scanning %} detects a secret, {% data variables.product.prodname_dotcom %} generates an alert.
-
-- {% data variables.product.prodname_dotcom %} sends an email alert to the repository administrators and organization owners. You'll receive an alert if you are watching the repository, and if you have enabled notifications either for security alerts or for all the activity on the repository.
+- {% data variables.product.prodname_dotcom %} envoie une alerte par e-mail aux administrateurs du dépôt et aux propriétaires de l’organisation. Vous recevez une alerte si vous consultez le dépôt, et si vous avez activé les notifications pour les alertes de sécurité ou pour toutes les activités sur le dépôt.
 {% ifversion ghes or ghae or ghec %}
-- If the contributor who committed the secret isn't ignoring the repository, {% data variables.product.prodname_dotcom %} will also send an email alert to the contributor. The emails contains a link to the related {% data variables.product.prodname_secret_scanning %} alert. The commit author can then view the alert in the repository, and resolve the alert.
+- Si le contributeur qui a commité le secret n’ignore pas le dépôt, {% data variables.product.prodname_dotcom %} envoie également une alerte par e-mail au contributeur. Les e-mails contiennent un lien vers l’alerte d’{% data variables.product.prodname_secret_scanning %} associée. L’auteur du commit peut ensuite afficher l’alerte dans le dépôt et résoudre l’alerte.
 {% endif %}
-- {% data variables.product.prodname_dotcom %} displays an alert in the "Security" tab of the repository.
+- {% data variables.product.prodname_dotcom %} affiche une alerte dans l’onglet « Sécurité » du référentiel.
 
-{% ifversion ghes or ghae or ghec %}
-For more information about viewing and resolving {% data variables.product.prodname_secret_scanning %} alerts, see "[Managing alerts from {% data variables.product.prodname_secret_scanning %}](/github/administering-a-repository/managing-alerts-from-secret-scanning)."{% endif %}
+{% ifversion ghes or ghae or ghec %} Pour plus d’informations sur l’affichage et la résolution des alertes d’{% data variables.product.prodname_secret_scanning %}, consultez « [Gestion des alertes d’{% data variables.product.prodname_secret_scanning %}](/github/administering-a-repository/managing-alerts-from-secret-scanning) ».{% endif %}
 
-Repository administrators and organization owners can grant users and teams access to {% data variables.product.prodname_secret_scanning %} alerts. For more information, see "[Managing security and analysis settings for your repository](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-security-alerts)."
+Les administrateurs de dépôt et les propriétaires d’organisation peuvent accorder aux utilisateurs et aux équipes l’accès aux alertes d’{% data variables.product.prodname_secret_scanning %}. Pour plus d’informations, consultez « [Gestion des paramètres de sécurité et d’analyse pour votre dépôt](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-security-alerts) ».
 
-{% ifversion ghec or ghes or ghae > 3.4 %}
-You can use the security overview to see an organization-level view of which repositories have enabled {% data variables.product.prodname_secret_scanning %} and the alerts found. For more information, see "[Viewing the security overview](/code-security/security-overview/viewing-the-security-overview)."
+{% ifversion ghec or ghes or ghae > 3.4 %} Vous pouvez utiliser la vue d’ensemble de la sécurité pour voir au niveau de l’organisation les dépôts où l’{% data variables.product.prodname_secret_scanning %} est activée et les alertes trouvées. Pour plus d’informations, consultez « [Affichage de la vue d’ensemble de la sécurité](/code-security/security-overview/viewing-the-security-overview) ».
 {% endif %}
 
-{%- ifversion ghec or ghes or ghae %}You can also use the REST API to 
-monitor results from {% data variables.product.prodname_secret_scanning %} across your {% ifversion ghec %}private {% endif %}repositories{% ifversion ghes %} or your organization{% endif %}. For more information about API endpoints, see "[{% data variables.product.prodname_secret_scanning_caps %}](/rest/reference/secret-scanning)."{% endif %}
+{%- ifversion ghec or ghes or ghae %}Vous pouvez également utiliser l’API REST pour monitorer les résultats de l’{% data variables.product.prodname_secret_scanning %} sur vos dépôts {% ifversion ghec %}privés{% endif %}{% ifversion ghes %} ou votre organisation{% endif %}. Pour plus d’informations sur les points de terminaison d’API, consultez « [{% data variables.product.prodname_secret_scanning_caps %}](/rest/reference/secret-scanning) ».{% endif %}
 
 {% endif %}
 
-## Further reading
+## Pour aller plus loin
 
-- "[Securing your repository](/code-security/getting-started/securing-your-repository)"
-- "[Keeping your account and data secure](/github/authenticating-to-github/keeping-your-account-and-data-secure)"
-{%- ifversion fpt or ghec %}
-- "[Managing encrypted secrets for your codespaces](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)"{% endif %}
-{%- ifversion fpt or ghec or ghes %}
-- "[Managing encrypted secrets for Dependabot](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-encrypted-secrets-for-dependabot)"{% endif %}
-- "[Encrypted secrets](/actions/security-guides/encrypted-secrets)"
+- « [Sécurisation de votre dépôt](/code-security/getting-started/securing-your-repository) »
+- « [Maintenir votre compte et vos données sécurisés](/github/authenticating-to-github/keeping-your-account-and-data-secure) » {%- ifversion fpt or ghec %}
+- « [Gestion des secrets chiffrés pour vos codespaces](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces) »{% endif %} {%- ifversion fpt or ghec or ghes %}
+- « [Gestion des secrets chiffrés pour Dependabot](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-encrypted-secrets-for-dependabot) »{% endif %}
+- « [Secrets chiffrés](/actions/security-guides/encrypted-secrets) »

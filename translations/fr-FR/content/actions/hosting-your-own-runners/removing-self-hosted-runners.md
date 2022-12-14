@@ -1,6 +1,6 @@
 ---
-title: Removing self-hosted runners
-intro: 'You can permanently remove a self-hosted runner from a repository{% ifversion fpt %} or organization{% elsif ghec or ghes or gahe %}, an organization, or an enterprise{% endif %}.'
+title: Suppression d’exécuteurs auto-hébergés
+intro: 'Vous pouvez supprimer définitivement un exécuteur autohébergé d’un dépôt{% ifversion fpt %} ou d’une organisation{% elsif ghec or ghes or gahe %}, d’une organisation ou d’une entreprise{% endif %}.'
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/removing-self-hosted-runners
   - /actions/automating-your-workflow-with-github-actions/removing-self-hosted-runners
@@ -11,92 +11,54 @@ versions:
   ghec: '*'
 type: tutorial
 shortTitle: Remove self-hosted runners
+ms.openlocfilehash: d47a2e348f2d1a79342934e70115314d9e62f6f0
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145086685'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
-
-## Removing a runner from a repository
+## Suppression d’un exécuteur d’un dépôt
 
 {% note %}
 
-**Note:** {% data reusables.actions.self-hosted-runner-removal-impact %}
+**Remarque :** {% data reusables.actions.self-hosted-runner-removal-impact %}
 
 {% data reusables.actions.self-hosted-runner-auto-removal %}
 
 {% endnote %}
 
-To remove a self-hosted runner from a user repository you must be the repository owner. For an organization repository, you must be an organization owner or have admin access to the repository. We recommend that you also have access to the self-hosted runner machine. For information about how to remove a self-hosted runner with the REST API, see "[Self-hosted runners](/rest/reference/actions#self-hosted-runners)."
+Pour supprimer un exécuteur auto-hébergé d’un dépôt utilisateur, vous devez être propriétaire du dépôt. Pour un dépôt d’organisation, vous devez être propriétaire de l’organisation ou disposer d’un accès administrateur au dépôt. Nous vous recommandons également d’avoir accès à la machine de l’exécuteur auto-hébergé. Pour obtenir des informations sur la façon de supprimer un exécuteur auto-hébergé avec l’API REST, consultez « [Exécuteurs auto-hébergés](/rest/reference/actions#self-hosted-runners) ».
 
-{% data reusables.actions.self-hosted-runner-reusing %}
-{% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-{% data reusables.repositories.settings-sidebar-actions-runners %}
-{% data reusables.actions.settings-sidebar-actions-runner-selection %}
-{% data reusables.actions.self-hosted-runner-removing-a-runner-updated %}
-{% elsif ghae or ghes < 3.4 %}
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-{% data reusables.repositories.settings-sidebar-actions-runners %}
-{% data reusables.actions.self-hosted-runner-removing-a-runner %}
-{% endif %}
+{% data reusables.actions.self-hosted-runner-reusing %} {% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5091 %} {% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %} {% data reusables.repositories.settings-sidebar-actions-runners %} {% data reusables.actions.settings-sidebar-actions-runner-selection %} {% data reusables.actions.self-hosted-runner-removing-a-runner-updated %} {% elsif ghae or ghes < 3.4 %} {% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %} {% data reusables.repositories.settings-sidebar-actions-runners %} {% data reusables.actions.self-hosted-runner-removing-a-runner %} {% endif %}
 
-## Removing a runner from an organization
+## Suppression d’un exécuteur d’une organisation
 
 {% note %}
 
-**Note:** {% data reusables.actions.self-hosted-runner-removal-impact %}
+**Remarque :** {% data reusables.actions.self-hosted-runner-removal-impact %}
 
 {% data reusables.actions.self-hosted-runner-auto-removal %}
 
 {% endnote %}
 
-To remove a self-hosted runner from an organization, you must be an organization owner. We recommend that you also have access to the self-hosted runner machine. For information about how to remove a self-hosted runner with the REST API, see "[Self-hosted runners](/rest/reference/actions#self-hosted-runners)."
+Pour supprimer un exécuteur auto-hébergé d’une organisation, vous devez être propriétaire de l’organisation. Nous vous recommandons également d’avoir accès à la machine de l’exécuteur auto-hébergé. Pour obtenir des informations sur la façon de supprimer un exécuteur auto-hébergé avec l’API REST, consultez « [Exécuteurs auto-hébergés](/rest/reference/actions#self-hosted-runners) ».
 
-{% data reusables.actions.self-hosted-runner-reusing %}
-{% ifversion fpt or ghes > 3.3 or ghec %}
-{% data reusables.organizations.navigate-to-org %}
-{% data reusables.organizations.org_settings %}
-{% data reusables.organizations.settings-sidebar-actions-runners %}
-{% data reusables.actions.settings-sidebar-actions-runner-selection %}
-{% data reusables.actions.self-hosted-runner-removing-a-runner-updated %}
-{% elsif ghes < 3.4 or ghae %}
-{% data reusables.organizations.navigate-to-org %}
-{% data reusables.organizations.org_settings %}
-{% data reusables.organizations.settings-sidebar-actions-runners %}
-{% data reusables.actions.self-hosted-runner-removing-a-runner %}
-{% endif %}
+{% data reusables.actions.self-hosted-runner-reusing %} {% ifversion fpt or ghes > 3.3 or ghec %} {% data reusables.organizations.navigate-to-org %} {% data reusables.organizations.org_settings %} {% data reusables.organizations.settings-sidebar-actions-runners %} {% data reusables.actions.settings-sidebar-actions-runner-selection %} {% data reusables.actions.self-hosted-runner-removing-a-runner-updated %} {% elsif ghes < 3.4 or ghae %} {% data reusables.organizations.navigate-to-org %} {% data reusables.organizations.org_settings %} {% data reusables.organizations.settings-sidebar-actions-runners %} {% data reusables.actions.self-hosted-runner-removing-a-runner %} {% endif %}
 
-## Removing a runner from an enterprise
+## Suppression d’un exécuteur d’une entreprise
 
-{% ifversion fpt %}
-If you use {% data variables.product.prodname_ghe_cloud %}, you can also remove runners from an enterprise. For more information, see the [{% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/actions/hosting-your-own-runners/removing-self-hosted-runners#removing-a-runner-from-an-enterprise).
-{% endif %}
-{% ifversion ghec or ghes or ghae %}
-{% note %}
+{% ifversion fpt %} Si vous utilisez {% data variables.product.prodname_ghe_cloud %}, vous pouvez également supprimer des exécuteurs d’une entreprise. Pour plus d’informations, consultez la [documentation {% data variables.product.prodname_ghe_cloud %}](/enterprise-cloud@latest/actions/hosting-your-own-runners/removing-self-hosted-runners#removing-a-runner-from-an-enterprise).
+{% endif %} {% ifversion ghec or ghes or ghae %} {% note %}
 
-**Note:** {% data reusables.actions.self-hosted-runner-removal-impact %}
+**Remarque :** {% data reusables.actions.self-hosted-runner-removal-impact %}
 
 {% data reusables.actions.self-hosted-runner-auto-removal %}
 
 {% endnote %}
 
-To remove a self-hosted runner from an enterprise, you must be an enterprise owner. We recommend that you also have access to the self-hosted runner machine. For information about how to remove a self-hosted runner with the REST API, see the enterprise endpoints in the [{% data variables.product.prodname_actions %} REST API](/rest/reference/actions#self-hosted-runners).
+Pour supprimer un exécuteur auto-hébergé d’une entreprise, vous devez être propriétaire de l’entreprise. Nous vous recommandons également d’avoir accès à la machine de l’exécuteur auto-hébergé. Pour obtenir des informations sur la façon de supprimer un exécuteur auto-hébergé avec l’API REST, consultez les points de terminaison de l’entreprise dans l’[API REST {% data variables.product.prodname_actions %}](/rest/reference/actions#self-hosted-runners).
 
-{% data reusables.actions.self-hosted-runner-reusing %}
-{% ifversion ghec or ghes > 3.3 or ghae > 3.3 %}
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.policies-tab %}
-{% data reusables.enterprise-accounts.actions-tab %}
-{% data reusables.enterprise-accounts.actions-runners-tab %}
-{% data reusables.actions.settings-sidebar-actions-runner-selection %}
-{% data reusables.actions.self-hosted-runner-removing-a-runner-updated %}
-{% elsif ghae or ghes < 3.4 %}
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.policies-tab %}
-{% data reusables.enterprise-accounts.actions-tab %}
-{% data reusables.enterprise-accounts.actions-runners-tab %}
-{% data reusables.actions.self-hosted-runner-removing-a-runner %}
-{% endif %}
-{% endif %}
+{% data reusables.actions.self-hosted-runner-reusing %} {% ifversion ghec or ghes > 3.3 or ghae-issue-5091 %} {% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.policies-tab %} {% data reusables.enterprise-accounts.actions-tab %} {% data reusables.enterprise-accounts.actions-runners-tab %} {% data reusables.actions.settings-sidebar-actions-runner-selection %} {% data reusables.actions.self-hosted-runner-removing-a-runner-updated %} {% elsif ghae or ghes < 3.4 %} {% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.policies-tab %} {% data reusables.enterprise-accounts.actions-tab %} {% data reusables.enterprise-accounts.actions-runners-tab %} {% data reusables.actions.self-hosted-runner-removing-a-runner %} {% endif %} {% endif %}

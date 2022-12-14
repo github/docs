@@ -1,6 +1,6 @@
 ---
-title: Associating an email with your GPG key
-intro: 'Your GPG key must be associated with a {% data variables.product.product_name %} verified email that matches your committer identity.'
+title: Association d’un e-mail à votre clé GPG
+intro: 'Votre clé GPG doit être associée à une adresse e-mail vérifiée par {% data variables.product.product_name %} qui correspond à votre identité de commiteur.'
 redirect_from:
   - /articles/associating-an-email-with-your-gpg-key
   - /github/authenticating-to-github/associating-an-email-with-your-gpg-key
@@ -14,49 +14,53 @@ topics:
   - Identity
   - Access management
 shortTitle: Associate email with GPG key
+ms.openlocfilehash: d36c053e1df0c329fb8d4607b1338c49414e76de
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147369280'
 ---
 {% note %}
 
-If you're using a GPG key that matches your committer identity and your verified email address associated with your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}, then you can begin signing commits and signing tags.
+Si vous utilisez une clé GPG qui correspond à votre identité de commiteur et à votre adresse e-mail vérifiée associées à votre compte sur {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}, vous pouvez commencer à signer des commits et des étiquettes.
 
 {% endnote %}
 
-{% data reusables.command_line.open_the_multi_os_terminal %}
-{% data reusables.gpg.list-keys-with-note %}
-{% data reusables.gpg.copy-gpg-key-id %}
-4. Enter `gpg --edit-key GPG key ID`, substituting in the GPG key ID you'd like to use. In the following example, the GPG key ID is `3AA5C34371567BD2`:
+{% data reusables.command_line.open_the_multi_os_terminal %} {% data reusables.gpg.list-keys-with-note %} {% data reusables.gpg.copy-gpg-key-id %}
+4. Entrez `gpg --edit-key GPG key ID` en indiquant l’ID de clé GPG que vous souhaitez utiliser. Dans l’exemple suivant, l’ID de clé GPG est `3AA5C34371567BD2` :
   ```shell
-  $ gpg --edit-key 3AA5C34371567BD2
+  $ gpg --edit-key <em>3AA5C34371567BD2</em>
   ```
-5. Enter `gpg> adduid` to add the user ID details.
+5. Entrez `gpg> adduid` pour ajouter les détails de l’ID utilisateur.
   ```shell
   $ gpg> adduid
   ```
-6. Follow the prompts to supply your real name, email address, and any comments. You can modify your entries by choosing `N`, `C`, or `E`. {% data reusables.gpg.private-email %} {% ifversion fpt or ghec %} For more information, see "[Setting your commit email address](/articles/setting-your-commit-email-address)."{% endif %}
+6. Suivez les invites pour fournir votre nom réel, votre adresse e-mail et d’éventuels commentaires. Vous pouvez modifier vos entrées en choisissant `N`, `C` ou `E`. {% data reusables.gpg.private-email %} {% ifversion fpt or ghec %} Pour plus d’informations, consultez « [Définition de votre adresse e-mail de commit](/articles/setting-your-commit-email-address) ».{% endif %}
   ```shell
-  Real Name: OCTOCAT
-  Email address: "octocat@github.com"
-  Comment: GITHUB-KEY
+  Real Name: <em>Octocat</em>
+  Email address: <em>octocat@github.com</em>
+  Comment: <em>GitHub key</em>
   Change (N)ame, (C)omment, (E)mail or (O)kay/(Q)uit?
   ```
-7. Enter `O` to confirm your selections.
-8. Enter your key's passphrase.
-9. Enter `gpg> save` to save the changes
+7. Entrez `O` pour confirmer vos sélections.
+8. Entrez la phrase secrète de votre clé.
+9. Entrez `gpg> save` pour enregistrer les modifications.
   ```shell
   $ gpg> save
   ```
-10. Enter `gpg --armor --export GPG key ID`, substituting in the GPG key ID you'd like to use. In the following example, the GPG key ID is `3AA5C34371567BD2`:
+10. Entrez `gpg --armor --export GPG key ID` en indiquant l’ID de clé GPG que vous souhaitez utiliser. Dans l’exemple suivant, l’ID de clé GPG est `3AA5C34371567BD2` :
   ```shell
-  $ gpg --armor --export 3AA5C34371567BD2
+  $ gpg --armor --export <em>3AA5C34371567BD2</em>
   # Prints the GPG key, in ASCII armor format
   ```
-11. Upload the GPG key by [adding it to your GitHub account](/articles/adding-a-gpg-key-to-your-github-account).
+11. Chargez la clé GPG en [l’ajoutant à votre compte GitHub](/articles/adding-a-gpg-key-to-your-github-account).
 
-## Further reading
+## Pour aller plus loin
 
-- "[Checking for existing GPG keys](/articles/checking-for-existing-gpg-keys)"
-- "[Generating a new GPG key](/articles/generating-a-new-gpg-key)"
-- "[Using a verified email address in your GPG key](/articles/using-a-verified-email-address-in-your-gpg-key)"
-- "[Adding a GPG key to your GitHub account](/articles/adding-a-gpg-key-to-your-github-account)"
-- "[Signing commits](/articles/signing-commits)"
-- "[Signing tags](/articles/signing-tags)"
+- « [Vérification des clés GPG existantes](/articles/checking-for-existing-gpg-keys) »
+- « [Génération d’une nouvelle clé GPG](/articles/generating-a-new-gpg-key) »
+- « [Utilisation d’une adresse e-mail vérifiée dans votre clé GPG](/articles/using-a-verified-email-address-in-your-gpg-key) »
+- « [Ajout d’une clé GPG à votre compte GitHub](/articles/adding-a-gpg-key-to-your-github-account) »
+- « [Signature de commits](/articles/signing-commits) »
+- « [Signature d’étiquettes](/articles/signing-tags) »

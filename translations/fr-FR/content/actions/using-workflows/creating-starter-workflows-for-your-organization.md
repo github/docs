@@ -1,7 +1,7 @@
 ---
-title: Creating starter workflows for your organization
-shortTitle: Create starter workflows
-intro: Learn how you can create starter workflows to help people in your team add new workflows more easily.
+title: Création de workflows de démarrage pour votre organisation
+shortTitle: Creating starter workflows
+intro: Découvrez comment créer des workflows de démarrage pour aider les membres de votre équipe à ajouter plus facilement de nouveaux workflows.
 redirect_from:
   - /actions/configuring-and-managing-workflows/sharing-workflow-templates-within-your-organization
   - /actions/learn-github-actions/creating-workflow-templates
@@ -15,42 +15,43 @@ type: tutorial
 topics:
   - Workflows
   - CI
+ms.openlocfilehash: cbaecefc90f3593b8883c7ccad5256b4addf972c
+ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147884188'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
-
-## Overview
+## Vue d’ensemble
 
 {% data reusables.actions.workflow-organization-templates %}
 
 {% data reusables.actions.starter-workflow-categories %}
 
-## Creating a starter workflow
+## Création d’un workflow de démarrage
 
-Starter workflows can be created by users with write access to the organization's `.github` repository. These can then be used by organization members who have permission to create workflows.
+Les workflows de démarrage peuvent être créés par les utilisateurs disposant d’un accès en écriture au dépôt `.github` de l’organisation. Ils peuvent ensuite être utilisés par les membres de l’organisation qui disposent de l’autorisation de créer des workflows.
 
-{% ifversion fpt %}
-Starter workflows created by users can only be used to create workflows in public repositories. Organizations using {% data variables.product.prodname_ghe_cloud %} can also use starter workflows to create workflows in private repositories. For more information, see the [{% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/actions/learn-github-actions/creating-starter-workflows-for-your-organization).
+{% ifversion fpt %} Les workflows de démarrage créés par les utilisateurs ne peuvent être utilisés que pour créer des workflows dans des dépôts publics. Les organisations utilisant {% data variables.product.prodname_ghe_cloud %} peuvent également utiliser des workflows de démarrage pour créer des workflows dans des dépôts privés. Pour plus d’informations, consultez la [documentation {% data variables.product.prodname_ghe_cloud %}](/enterprise-cloud@latest/actions/learn-github-actions/creating-starter-workflows-for-your-organization).
 {% endif %}
 
-{% ifversion fpt or ghes > 3.3 or ghae > 3.3 or ghec %}
-{% note %}
+{% ifversion fpt or ghes > 3.3 or ghae-issue-4757 or ghec %} {% note %}
 
-**Note:** To avoid duplication among starter workflows you can call reusable workflows from within a workflow. This can help make your workflows easier to maintain. For more information, see "[Reusing workflows](/actions/learn-github-actions/reusing-workflows)."
+**Remarque :** Pour éviter la duplication entre les workflows de démarrage, vous pouvez appeler des workflows réutilisables à partir d’un workflows. La gestion de vos workflows peut s’en trouver simplifiée. Pour plus d’informations, consultez « [Réutilisation de workflows](/actions/learn-github-actions/reusing-workflows) ».
 
-{% endnote %}
-{% endif %}
+{% endnote %} {% endif %}
 
-This procedure demonstrates how to create a starter workflow and metadata file. The metadata file describes how the starter workflows will be presented to users when they are creating a new workflow.
+Cette procédure montre comment créer un workflow de démarrage et un fichier de métadonnées. Le fichier de métadonnées décrit la façon dont les workflows de démarrage sont présentés aux utilisateurs lors de la création d’un workflow.
 
-1. If it doesn't already exist, create a new public repository named `.github` in your organization.
-2. Create a directory named `workflow-templates`.
-3. Create your new workflow file inside the `workflow-templates` directory.
+1. S’il n’existe pas encore, créez un dépôt public nommé `.github` dans votre organisation.
+2. Créez un répertoire nommé `workflow-templates`.
+3. Créez votre nouveau fichier de workflow dans le répertoire `workflow-templates`.
 
-   If you need to refer to a repository's default branch, you can use the `$default-branch` placeholder. When a workflow is created the placeholder will be automatically replaced with the name of the repository's default branch.
+   Si vous devez faire référence à la branche par défaut d’un dépôt, vous pouvez utiliser l’espace réservé `$default-branch`. Lorsqu’un workflow est créé, l’espace réservé est automatiquement remplacé par le nom de la branche par défaut du dépôt.
 
-   For example, this file named `octo-organization-ci.yml` demonstrates a basic workflow.
+   Par exemple, ce fichier nommé `octo-organization-ci.yml` illustre un workflow de base.
 
    ```yaml
    name: Octo Organization CI
@@ -71,7 +72,7 @@ This procedure demonstrates how to create a starter workflow and metadata file. 
          - name: Run a one-line script
            run: echo Hello from Octo Organization
    ```
-4. Create a metadata file inside the `workflow-templates` directory. The metadata file must have the same name as the workflow file, but instead of the `.yml` extension, it must be appended with `.properties.json`. For example, this file named `octo-organization-ci.properties.json` contains the metadata for a workflow file named `octo-organization-ci.yml`:
+4. Créez un fichier de métadonnées dans le répertoire `workflow-templates`. Le fichier de métadonnées doit porter le même nom que le fichier de workflow, mais au lieu de l’extension `.yml`, l’extension `.properties.json` doit lui être ajoutée. Par exemple, ce fichier nommé `octo-organization-ci.properties.json` contient les métadonnées d’un fichier de workflow nommé `octo-organization-ci.yml` :
    ```yaml
    {
        "name": "Octo Organization Workflow",
@@ -87,16 +88,16 @@ This procedure demonstrates how to create a starter workflow and metadata file. 
        ]
    }
    ```
-   * `name` - **Required.** The name of the workflow. This is displayed in the list of available workflows.
-   * `description` - **Required.** The description of the workflow. This is displayed in the list of available workflows.
-   * `iconName` - **Optional.** Specifies an icon for the workflow that's displayed in the list of workflows. The `iconName` must be the name of an SVG file, without the file name extension, stored in the `workflow-templates` directory. For example, an SVG file named `example-icon.svg` is referenced as `example-icon`.
-   * `categories` - **Optional.** Defines the language category of the workflow. When a user views the available starter workflows for a repository, the workflows that match the identified language for the project are featured more prominently. For information on the available language categories, see https://github.com/github/linguist/blob/master/lib/linguist/languages.yml.
-   * `filePatterns` - **Optional.** Allows the workflow to be used if the user's repository has a file in its root directory that matches a defined regular expression.
+   * `name` - **Obligatoire.** Nom du workflow. Celui-ci s’affiche dans la liste des workflows disponibles.
+   * `description` - **Obligatoire.** Description du workflow. Celui-ci s’affiche dans la liste des workflows disponibles.
+   * `iconName` - **Facultatif.** Spécifie une icône pour le workflow affiché dans la liste des workflows. La valeur `iconName` doit être le nom d’un fichier SVG, sans l’extension de nom de fichier, stocké dans le répertoire `workflow-templates`. Par exemple, un fichier SVG nommé `example-icon.svg` est référencé comme `example-icon` .
+   * `categories` - **Facultatif.** Définit la catégorie de langage du workflow. Lorsqu’un utilisateur affiche les workflows de démarrage disponibles pour un dépôt, les workflows qui correspondent au langage identifié pour le projet sont davantage mis en évidence. Pour plus d’informations sur les catégories de langages disponibles, consultez https://github.com/github/linguist/blob/master/lib/linguist/languages.yml.
+   * `filePatterns` - **Facultatif.** Permet d’utiliser le workflow si le dépôt de l’utilisateur a dans son répertoire racine un fichier qui correspond à une expression régulière définie.
 
-To add another starter workflow, add your files to the same `workflow-templates` directory. For example:
+Pour ajouter un autre workflow de démarrage, ajoutez vos fichiers au même répertoire `workflow-templates`. Par exemple :
 
-![Workflow files](/assets/images/help/images/workflow-template-files.png)
+![Fichiers de workflow](/assets/images/help/images/workflow-template-files.png)
 
-## Next steps
+## Étapes suivantes
 
-To continue learning about {% data variables.product.prodname_actions %}, see "[Using starter workflows](/actions/using-workflows/using-starter-workflows)."
+Pour continuer à découvrir {% data variables.product.prodname_actions %}, consultez « [Utilisation de workflows de démarrage](/actions/using-workflows/using-starter-workflows) ».

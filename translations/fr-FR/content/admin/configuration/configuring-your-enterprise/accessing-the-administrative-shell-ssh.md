@@ -1,5 +1,5 @@
 ---
-title: Accessing the administrative shell (SSH)
+title: Accès à l’interpréteur de commandes d’administration (SSH)
 redirect_from:
   - /enterprise/admin/articles/ssh-access
   - /enterprise/admin/articles/adding-an-ssh-key-for-shell-access
@@ -20,30 +20,34 @@ topics:
   - Fundamentals
   - SSH
 shortTitle: Access the admin shell (SSH)
+ms.openlocfilehash: 8d8b9cd71a436c0874355b1bdd53ba2e400660a0
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145106965'
 ---
-## About administrative shell access
+## À propos de l’accès à l’interpréteur de commandes
 
-If you have SSH access to the administrative shell, you can run {% data variables.product.prodname_ghe_server %}'s command line utilities. SSH access is also useful for troubleshooting, running backups, and configuring replication. Administrative SSH access is managed separately from Git SSH access and is accessible only via port 122.
+Si vous disposez d’un accès SSH à l’interpréteur de commandes d’administration, vous pouvez exécuter les utilitaires en ligne de commande de {% data variables.product.prodname_ghe_server %}. L’accès SSH s’avère aussi utile pour la résolution des problèmes, l’exécution de sauvegardes et la configuration de la réplication. L’accès SSH administratif est géré séparément de l’accès SSH Git et est accessible uniquement via le port 122.
 
-## Enabling access to the administrative shell via SSH
+## Activation de l’accès à l’interpréteur de commandes d’administration via SSH
 
-To enable administrative SSH access, you must add your SSH public key to your instance's list of authorized keys. For more information, see "[Generating a new SSH key and adding it to the ssh-agent](/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#adding-your-ssh-key-to-the-ssh-agent)."
+Pour activer l’accès SSH administratif, vous devez ajouter votre clé publique SSH à la liste des clés autorisées de votre instance.
 
 {% tip %}
 
-**Tip:** Changes to authorized SSH keys take effect immediately.
+**Conseil :** Les modifications apportées aux clés SSH autorisées prennent effet immédiatement.
 
 {% endtip %}
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.management-console %}
-3. Under "SSH access", paste your key into the text box, then click **Add key**.
-  ![Text box and button for adding an SSH key](/assets/images/enterprise/settings/add-authorized-ssh-key-admin-shell.png)
-{% data reusables.enterprise_management_console.save-settings %}
+{% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.enterprise_site_admin_settings.management-console %}
+3. Sous « Accès SSH », collez votre clé dans la zone de texte, puis cliquez sur **Ajouter une clé**.
+  ![Zone de texte et bouton permettant d’ajouter une clé SSH](/assets/images/enterprise/settings/add-authorized-ssh-key-admin-shell.png) {% data reusables.enterprise_management_console.save-settings %}
 
-## Connecting to the administrative shell over SSH
+## Connexion à l’interpréteur de commandes d’administration via SSH
 
-After you've added your SSH key to the list, connect to the instance over SSH as the `admin` user on port 122.
+Après avoir ajouté votre clé SSH à la liste, connectez-vous à l’instance via SSH en tant qu’utilisateur `admin` sur le port 122.
 
 ```shell
 $ ssh -p 122 admin@github.example.com
@@ -51,29 +55,29 @@ Last login: Sun Nov 9 07:53:29 2014 from 169.254.1.1
 admin@github-example-com:~$ █
 ```
 
-### Troubleshooting SSH connection problems
+### Résolution des problèmes de connexion SSH
 
-If you encounter the `Permission denied (publickey)` error when you try to connect to {% data variables.location.product_location %} via SSH, confirm that you are connecting over port 122. You may need to explicitly specify which private SSH key to use.
+Si vous rencontrez l’erreur `Permission denied (publickey)` lors d’une tentative de connexion à {% data variables.product.product_location %} via SSH, vérifiez que vous vous connectez via le port 122. Vous devrez peut-être indiquer explicitement quelle clé SSH privée utiliser.
 
-To specify a private SSH key using the command line, run `ssh` with the `-i` argument.
+Pour spécifier une clé SSH privée en utilisant la ligne de commande, exécutez `ssh` avec l’argument `-i`.
 
 ```shell
-ssh -i /path/to/ghe_private_key -p 122 admin@HOSTNAME
+ssh -i /path/to/ghe_private_key -p 122 admin@<em>hostname</em>
 ```
 
-You can also specify a private SSH key using the SSH configuration file (`~/.ssh/config`).
+Vous pouvez aussi spécifier une clé SSH privée en utilisant le fichier de configuration SSH (`~/.ssh/config`).
 
 ```shell
-Host HOSTNAME
+Host <em>hostname</em>
   IdentityFile /path/to/ghe_private_key
   User admin
   Port 122
 ```
 
-## Accessing the administrative shell using the local console
+## Accès à l’interpréteur de commandes d’administration à l’aide de la console locale
 
-In an emergency situation, for example if SSH is unavailable, you can access the administrative shell locally. Sign in as the `admin` user and use the password established during initial setup of {% data variables.product.prodname_ghe_server %}.
+Dans une situation d’urgence, par exemple si SSH n’est pas disponible, vous pouvez accéder à l’interpréteur de commandes d’administration localement. Connectez-vous en tant qu’utilisateur `admin` et utilisez le mot de passe établi pendant la configuration initiale de {% data variables.product.prodname_ghe_server %}.
 
-## Access limitations for the administrative shell
+## Limitations d’accès pour l’interpréteur de commandes d’administration
 
-Administrative shell access is permitted for troubleshooting and performing documented operations procedures only. Modifying system and application files, running programs, or installing unsupported software packages may void your support contract. Please contact {% data variables.contact.contact_ent_support %} if you have a question about the activities allowed by your support contract.
+L’accès à l’interpréteur de commandes d’administration est réservé à la résolution de problèmes et à l’exécution des procédures relatives aux opérations documentées. La modification de fichiers système et d’application, l’exécution de programmes ou l’installation de packages logiciels non pris en charge peuvent annuler votre contrat de support. Si vous avez une question sur les activités autorisées dans le cadre de votre contrat de support, contactez le {% data variables.contact.contact_ent_support %}.

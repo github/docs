@@ -1,6 +1,6 @@
 ---
-title: Increasing CPU or memory resources
-intro: 'You can increase the CPU or memory resources for a {% data variables.product.prodname_ghe_server %} instance.'
+title: Augmentation des ressources processeur ou mémoire
+intro: 'Vous pouvez augmenter les ressources liées au processeur ou à la mémoire pour une instance de {% data variables.product.prodname_ghe_server %}.'
 redirect_from:
   - /enterprise/admin/installation/increasing-cpu-or-memory-resources
   - /enterprise/admin/enterprise-management/increasing-cpu-or-memory-resources
@@ -13,99 +13,104 @@ topics:
   - Infrastructure
   - Performance
 shortTitle: Increase CPU or memory
+ms.openlocfilehash: 1ac89694cf374cca1ba47f228f881dc4a5fd405f
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '146331863'
 ---
 {% data reusables.enterprise_installation.warning-on-upgrading-physical-resources %}
 
 {% note %}
 
-**Note:** Before increasing CPU or memory resources, put your instance in maintenance mode.{% ifversion ip-exception-list %} You can validate changes by configuring an IP exception list to allow access from specified IP addresses. {% endif %} For more information, see "[Enabling and scheduling maintenance mode](/enterprise/admin/guides/installation/enabling-and-scheduling-maintenance-mode)."
+**Remarque :** Avant d’augmenter les ressources liées au processeur ou à la mémoire, mettez votre instance en mode maintenance.{% ifversion ip-exception-list %} Vous pouvez valider les changements apportés en configurant une liste d’exceptions IP pour autoriser l’accès à partir des adresses IP spécifiées. {% endif %} Pour plus d’informations, consultez « [Activation et planification du mode maintenance](/enterprise/admin/guides/installation/enabling-and-scheduling-maintenance-mode) ».
 
 {% endnote %}
 
-## Adding CPU or memory resources for AWS
+## Ajout de ressources processeur ou mémoire pour AWS
 
 {% note %}
 
-**Note:** To add CPU or memory resources for AWS, you must be familiar with using either the AWS management console or the `aws ec2` command line interface to manage EC2 instances. For background and details on using the AWS tools of your choice to perform the resize, see the AWS documentation on [resizing an Amazon EBS-backed instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-resize.html).
+**Remarque :** Pour ajouter des ressources processeur ou mémoire pour AWS, vous devez savoir utiliser la console de gestion AWS ou l’interface de ligne de commande `aws ec2` pour gérer les instances EC2. Pour plus d’informations sur l’utilisation des outils AWS que vous choisirez pour effectuer le redimensionnement, consultez la documentation AWS sur le [redimensionnement d’une instance Amazon EBS.](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-resize.html)
 
 {% endnote %}
 
-### Resizing considerations
+### Considérations relatives au redimensionnement
 
-Before increasing CPU or memory resources for {% data variables.location.product_location %}, review the following recommendations.
+Avant d’augmenter les ressources processeur ou mémoire pour {% data variables.product.product_location %}, prenez connaissance des recommandations suivantes.
 
-- **Scale your memory with CPUs**. {% data reusables.enterprise_installation.increasing-cpus-req %}
-- **Assign an Elastic IP address to the instance**. If you haven't assigned an Elastic IP to your instance, you'll have to adjust the DNS A records for your {% data variables.product.prodname_ghe_server %} host after the restart to account for the change in public IP address. Once your instance restarts, the instance keeps the Elastic IP if you launched the instance in a virtual private cloud (VPC). If you create the instance in an EC2-Classic network, you must manually reassign the Elastic IP to the instance.
+- **Mettez à l’échelle votre mémoire avec des processeurs**. {% data reusables.enterprise_installation.increasing-cpus-req %}
+- **Attribuez une adresse IP élastique à l’instance**. Si vous n’avez pas affecté d’adresse IP élastique à votre instance, vous devrez ajuster les enregistrements A DNS de votre hôte {% data variables.product.prodname_ghe_server %} après le redémarrage pour prendre en compte la modification au niveau de l’adresse IP publique. Une fois que votre instance a redémarré, elle conserve l’adresse IP élastique si vous l’avez lancée dans un cloud privé virtuel (VPC). Si vous créez l’instance dans un réseau EC2-Classic, vous devez réattribuer manuellement l’adresse IP élastique à l’instance.
 
-### Supported AWS instance types
+### Types d’instances AWS pris en charge
 
-You need to determine the instance type you would like to upgrade to based on CPU/memory specifications.
+Vous devez déterminer le type d’instance que vous souhaitez mettre à niveau en fonction des spécifications de processeur/mémoire.
 
 {% data reusables.enterprise_installation.warning-on-scaling %}
 
 {% data reusables.enterprise_installation.aws-instance-recommendation %}
 
-### Resizing for AWS
+### Redimensionnement pour AWS
 
 {% note %}
 
-**Note:** For instances launched in EC2-Classic, write down both the Elastic IP address associated with the instance and the instance's ID. Once you restart the instance, re-associate the Elastic IP address.
+**Remarque :** Pour les instances lancées dans EC2-Classic, notez à la fois l’adresse IP élastique associée à l’instance et l’ID de l’instance. Une fois que vous avez redémarré l’instance, réassociez l’adresse IP élastique.
 
 {% endnote %}
 
-It's not possible to add CPU or memory resources to an existing AWS/EC2 instance. Instead, you must:
+Il n’est pas possible d’ajouter des ressources processeur ou mémoire à une instance AWS/EC2 existante. Vous devez à la place :
 
-1. Stop the instance.
-2. Change the instance type.
-3. Start the instance.
+1. Arrêter l’instance.
+2. Changer de type d’instance.
+3. Démarrer l'instance.
 {% data reusables.enterprise_installation.configuration-recognized %}
 
-## Adding CPU or memory resources on Microsoft Azure
+## Ajout de ressources processeur ou mémoire sur Microsoft Azure
 
 {% note %}
 
-**Note:** To add CPU or memory resources in Microsoft Azure, you must be familiar with using either the Azure Portal, Azure CLI or Azure PowerShell to manage VM instances. For background and details on using the Azure tools of your choice to perform the resize, please refer to the Azure documentation on [changing the size of a virtual machine](https://docs.microsoft.com/en-us/azure/virtual-machines/resize-vm).
+**Remarque :** Pour ajouter des ressources processeur ou mémoire dans Microsoft Azure, vous devez savoir gérer les instances de machine virtuelle à l’aide du portail Azure, d’Azure CLI ou d’Azure PowerShell. Pour plus d’informations sur l’utilisation des outils Azure que vous choisirez pour effectuer le redimensionnement, consultez la documentation Azure sur le [changement de taille d’une machine virtuelle](https://docs.microsoft.com/en-us/azure/virtual-machines/resize-vm).
 
 {% endnote %}
 
-### Resizing considerations
+### Considérations relatives au redimensionnement
 
-Before increasing CPU or memory resources for {% data variables.location.product_location %}, review the following recommendations.
+Avant d’augmenter les ressources processeur ou mémoire pour {% data variables.product.product_location %}, prenez connaissance des recommandations suivantes.
 
-- **Scale your memory with CPUs**. {% data reusables.enterprise_installation.increasing-cpus-req %}
-- **Assign a static IP address to the instance**. If you haven't assigned a static IP to your instance, you might have to adjust the DNS A records for your {% data variables.product.prodname_ghe_server %} host after the restart to account for the change in IP address.
+- **Mettez à l’échelle votre mémoire avec des processeurs**. {% data reusables.enterprise_installation.increasing-cpus-req %}
+- **Attribuez une adresse IP statique à l’instance**. Si vous n’avez pas affecté d’adresse IP statique à votre instance, vous devrez peut-être ajuster les enregistrements A DNS de votre hôte {% data variables.product.prodname_ghe_server %} après le redémarrage pour prendre en compte la modification au niveau de l’adresse IP publique.
 
-### Supported Microsoft Azure instance sizes
+### Tailles d’instance Microsoft Azure prises en charge
 
-You need to determine the instance size you would like to upgrade to based on CPU/memory specifications.
+Vous devez déterminer la taille d’instance que vous souhaitez mettre à niveau en fonction des spécifications de processeur/mémoire.
 
 {% data reusables.enterprise_installation.warning-on-scaling %}
 
 {% data reusables.enterprise_installation.azure-instance-recommendation %}
 
-### Resizing for Microsoft Azure
+### Redimensionnement pour Microsoft Azure
 
-You can scale the VM up by changing the VM size. Changing its size will cause it to be restarted. In some cases, you must deallocate the VM first. This can happen if the new size is not available on the hardware cluster that is currently hosting the VM. 
+Vous pouvez effectuer un scale-up de la machine virtuelle en changeant sa taille. Le changement de taille provoquera son redémarrage. Dans certains cas, vous devez commencer par libérer la machine virtuelle. Cela peut se produire si la nouvelle taille n’est pas disponible sur le cluster matériel qui héberge actuellement la machine virtuelle. 
 
-1. Refer to the Azure documentation on [changing the size of a virtual machine](https://docs.microsoft.com/en-us/azure/virtual-machines/resize-vm) for the required steps.
+1. Consultez la documentation Azure sur le [changement de taille d’une machine virtuelle](https://docs.microsoft.com/en-us/azure/virtual-machines/resize-vm) pour savoir comment procéder.
 {% data reusables.enterprise_installation.configuration-recognized %}
 
-## Adding CPU or memory resources for OpenStack KVM
+## Ajout de ressources processeur ou mémoire pour OpenStack KVM
 
-It's not possible to add CPU or memory resources to an existing OpenStack KVM instance. Instead, you must:
+Il n’est pas possible d’ajouter des ressources processeur ou mémoire à une instance OpenStack KVM existante. Vous devez à la place :
 
-1. Take a snapshot of the current instance.
-2. Stop the instance.
-3. Select a new instance flavor that has the desired CPU and/or memory resources.
+1. Capturer un instantané de l’instance active.
+2. Arrêter l’instance.
+3. Sélectionner une nouvelle version d’instance qui a les ressources processeur et/ou de mémoire souhaitées.
 
-## Adding CPU or memory resources for VMware
+## Ajout de ressources processeur ou mémoire pour VMware
 
 {% data reusables.enterprise_installation.increasing-cpus-req %}
 
-1. Use the vSphere Client to connect to the VMware ESXi host.
-2. Shut down {% data variables.location.product_location %}.
-3. Select the virtual machine and click **Edit Settings**.
-4. Under "Hardware", adjust the CPU and/or memory resources allocated to the virtual machine as needed:
-![VMware setup resources](/assets/images/enterprise/vmware/vsphere-hardware-tab.png)
-5. To start the virtual machine, click **OK**.
+1. Utilisez le client vSphere pour vous connecter à l’hôte VMware ESXi.
+2. Arrêtez {% data variables.product.product_location %}.
+3. Sélectionnez la machine virtuelle, puis cliquez sur **Modifier les paramètres**.
+4. Sous « Matériel », ajustez les ressources processeur et/ou mémoire allouées à la machine virtuelle en fonction des besoins : ![Ressources d’installation VMware](/assets/images/enterprise/vmware/vsphere-hardware-tab.png)
+5. Pour démarrer la machine virtuelle, cliquez sur **OK**.
 {% data reusables.enterprise_installation.configuration-recognized %}

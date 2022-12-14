@@ -1,0 +1,15 @@
+date: '2020-11-17'
+sections:
+  security_fixes:
+    - 'Les packages ont été mis à jour avec les dernières versions de sécurité. {% comment %} https://github.com/github/enterprise2/pull/23843, https://github.com/github/enterprise2/pull/23712 {% endcomment %}'
+  bugs:
+    - 'Il manquait un séparateur entre les secondes et les microsecondes dans les journaux babeld. {% comment %} https://github.com/github/babeld/pull/1004, https://github.com/github/babeld/pull/1002 {% endcomment %}'
+    - 'Lorsque la stratégie « Changement de visibilité du référentiel » du compte d’entreprise était définie sur « Activée », les propriétaires de l’organisation ne pouvaient pas modifier la visibilité des référentiels au sein de l’organisation. {% comment %} https://github.com/github/github/pull/160922, https://github.com/github/github/pull/160773 {% endcomment %}'
+  known_issues:
+    - 'Sur un serveur GitHub Enterprise fraîchement configuré et sans utilisateur, un attaquant pourrait créer le premier utilisateur administrateur. {% comment %} https://github.com/github/enterprise2/issues/1889 {% endcomment %}'
+    - 'Les règles de pare-feu personnalisées ne sont pas conservées lors d’une mise à niveau. {% comment %} https://github.com/github/enterprise2/issues/2823 {% endcomment %}'
+    - 'Les fichiers suivis par Git LFS [chargés via l’interface web](https://github.com/blog/2105-upload-files-to-your-repositories) sont incorrectement ajoutés directement au référentiel. {% comment %} https://github.com/github/github/issues/54684 {% endcomment %}'
+    - 'Les questions ne peuvent pas être fermées si elles contiennent un permalien vers un blob dans le même référentiel où le chemin d’accès au fichier est supérieur à 255 caractères. {% comment %} https://github.com/github/github/issues/107731 {% endcomment %}'
+    - 'Lorsque l’option « Les utilisateurs peuvent effectuer des recherches sur GitHub.com » est activée avec GitHub Connect, les problèmes des référentiels privés et internes ne sont pas inclus dans les résultats de recherche de GitHub.com. {% comment %} https://github.com/github/admin-experience/issues/571 {% endcomment %}'
+    - 'Les alertes de sécurité ne sont pas signalées lors de l’envoi vers un référentiel en ligne de commande. {% comment %} https://github.com/github/github/issues/143190 {% endcomment %}'
+    - 'Lorsqu’un nœud de réplica est hors ligne dans une configuration de haute disponibilité, {% data variables.product.product_name %} peut toujours acheminer les demandes de {% data variables.product.prodname_pages %} vers le nœud hors ligne, réduisant ainsi la disponibilité de {% data variables.product.prodname_pages %} pour les utilisateurs.'

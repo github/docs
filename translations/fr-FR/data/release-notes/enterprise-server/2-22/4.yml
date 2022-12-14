@@ -1,0 +1,18 @@
+date: '17/11/2020'
+sections:
+  security_fixes:
+    - "Les packages ont été mis à jour avec les dernières versions de sécurité. {% comment %} https://github.com/github/enterprise2/pull/23845, https://github.com/github/enterprise2/pull/23712 {% endcomment %}"
+
+  bugs:
+    - "Il manquait un séparateur entre les secondes et les microsecondes dans les journaux babeld. {% comment %} https://github.com/github/babeld/pull/1006, https://github.com/github/babeld/pull/1002 {% endcomment %}"
+    - "Après la mise à niveau de GHES avec un patch à chaud, les commandes `ghe-actions-precheck` et `ghe-packages-precheck` échouaient avec l’erreur `\"docker load\" accepts no arguments`. {% comment %} https://github.com/github/enterprise2/pull/23760, https://github.com/github/enterprise2/pull/23745 {% endcomment %}"
+    - "Lorsque la stratégie « Changement de visibilité du dépôt » du compte d’entreprise était définie sur « Activé », les propriétaires de l’organisation ne pouvaient pas modifier la visibilité des dépôts au sein de l’organisation. {% comment %} https://github.com/github/github/pull/160920, https://github.com/github/github/pull/160773 {% endcomment %}"
+    - "Les journaux d’audit pouvaient être attribués à 127.0.0.1 au lieu de l’adresse IP source réelle. {% comment %} https://github.com/github/github/pull/162438, https://github.com/github/github/pull/161215 {% endcomment %}"
+
+  known_issues:
+    - "Sur un serveur GitHub Enterprise fraîchement configuré et sans utilisateur, un attaquant pourrait créer le premier utilisateur administrateur. {% comment %} https://github.com/github/enterprise2/issues/1889 {% endcomment %}"
+    - "Les règles de pare-feu personnalisées ne sont pas conservées lors d’une mise à niveau. {% comment %} https://github.com/github/enterprise2/issues/2823 {% endcomment %}"
+    - "Les fichiers suivis par Git LFS [chargés via l’interface web](https://github.com/blog/2105-upload-files-to-your-repositories) sont incorrectement ajoutés directement au dépôt. {% comment %} https://github.com/github/github/issues/54684 {% endcomment %}"
+    - "Les problèmes ne peuvent pas être fermés s’ils contiennent un lien permanent vers un objet blob situé dans le dépôt où le chemin du fichier est supérieur à 255 caractères. {% comment %} https://github.com/github/github/issues/107731 {% endcomment %}"
+    - "Lorsque l’option « Les utilisateurs peuvent effectuer des recherches sur GitHub.com » est activée avec GitHub Connect, les problèmes des dépôts privés et internes ne sont pas inclus dans les résultats de recherche de GitHub.com. {% comment %} https://github.com/github/admin-experience/issues/571 {% endcomment %}"
+    - "Lorsqu’un nœud de réplica est hors ligne dans une configuration de haute disponibilité, {% data variables.product.product_name %} peut toujours acheminer les demandes de {% data variables.product.prodname_pages %} vers le nœud hors ligne, réduisant ainsi la disponibilité de {% data variables.product.prodname_pages %} pour les utilisateurs."

@@ -1,6 +1,6 @@
 ---
-title: Restoring a deleted organization
-intro: 'You can partially restore an organization that was previously deleted on {% data variables.location.product_location %}.'
+title: Restauration d’une organisation supprimée
+intro: 'Vous pouvez restaurer partiellement une organisation qui a été supprimée précédemment sur {% data variables.product.product_location %}.'
 versions:
   ghes: '*'
 type: how_to
@@ -10,44 +10,49 @@ topics:
   - Organizations
 shortTitle: Restore organization
 permissions: 'Site administers can restore an organization on {% data variables.product.product_name %}.'
+ms.openlocfilehash: 1963b1e55a9c8047c19bafd087162caa8d5085f2
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147063753'
 ---
+## À propos de la restauration d’organisation
 
-## About organization restoration
+Vous pouvez utiliser le tableau de bord d’administrateur de site pour restaurer une organisation précédemment supprimée sur {% data variables.product.product_location %} tant que les index Elasticsearch du journal d’audit contiennent les données de l’événement `org.delete`.
 
-You can use the site admin dashboard to restore an organization that was previously deleted on {% data variables.location.product_location %}, as long as the audit log Elasticsearch indices contain the data for the `org.delete` event.
+Quand vous restaurez une organisation, celle-ci ne retrouve par immédiatement le même état qu’avant sa suppression. Vous devez restaurer manuellement tous les dépôts qui lui appartenaient. Pour plus d’informations, consultez « [Restauration d’un dépôt supprimé](/admin/user-management/managing-repositories-in-your-enterprise/restoring-a-deleted-repository) ».
 
-Immediately after you restore an organization, the organization will not be exactly the same as it was prior to the deletion. You'll have to manually restore any repositories that were owned by the organization. For more information, see "[Restoring a deleted repository](/admin/user-management/managing-repositories-in-your-enterprise/restoring-a-deleted-repository)."
+Vous pouvez également utiliser le journal d’audit pour ajouter de nouveau des équipes et des membres de l’organisation manuellement. Pour plus d’informations, consultez « [Restauration de membres et d’équipes](#restoring-members-and-teams) ».
 
-You can also use the audit log to help you manually re-add teams and organization members. For more information, see "[Restoring members and teams](#restoring-members-and-teams)."
-
-## Restoring an organization
+## Restauration d’une organisation
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
-1. Under "Search users, organizations, enterprises, teams, repositories, gists, and applications", search for the organization.
+1. Sous « Rechercher des utilisateurs, des organisations, des entreprises, des équipes, des dépôts, des Gists et des applications », recherchez l’organisation.
 
-  ![Screenshot of the search field and Search button](/assets/images/enterprise/stafftools/search-field.png)
+  ![Capture d’écran du champ de recherche et du bouton Rechercher](/assets/images/enterprise/stafftools/search-field.png)
 
-1. Under "Deleted accounts", to the right of the organization you want to restore, select the {% octicon "kebab-horizontal" aria-label="The edit icon" %} dropdown menu, then click **Recreate**.
+1. Sous « Comptes supprimés », à droite de l’organisation que vous souhaitez restaurer, sélectionnez le menu déroulant {% octicon "kebab-horizontal" aria-label="The edit icon" %}, puis cliquez sur **Recréer**.
 
-   ![Screenshot of the dropdown menu for a deleted organization](/assets/images/enterprise/stafftools/recreate-organization.png)
+   ![Capture d’écran du menu déroulant pour une organisation supprimée](/assets/images/enterprise/stafftools/recreate-organization.png)
 
-## Restoring members and teams
+## Restauration de membres et d’équipes
 
-You can use the audit log to find a list of the previous members and teams of the organization, then recreate them manually. For more information about using the audit log, see "[Auditing users across your enterprise](/admin/user-management/managing-users-in-your-enterprise/auditing-users-across-your-enterprise)."
+Vous pouvez utiliser le journal d’audit pour trouver la liste des membres et équipes précédents de l’organisation, puis les recréer manuellement. Pour plus d’informations sur l’utilisation du journal d’audit, consultez « [Auditer tous les utilisateurs de votre entreprise](/admin/user-management/managing-users-in-your-enterprise/auditing-users-across-your-enterprise) ».
 
-In all the search phrases below, replace ORGANIZATION with the name of the organization and TEAM with the name of the team.
+Dans toutes les expressions de recherche ci-dessous, remplacez ORGANIZATION par le nom de l’organisation et TEAM par le nom de l’équipe.
 
-### Restoring organization members
+### Restauration des membres d’une organisation
 
-1. To find all users who were added to and removed from the organization, search the audit log for `action:org.add_member org:ORGANIZATION` and `action:org.remove_member org:ORGANIZATION`.
-1. Manually add to the organization each user that should still be a member. For more information, see "[Adding people to your organization](/organizations/managing-membership-in-your-organization/adding-people-to-your-organization)."
+1. Pour rechercher tous les utilisateurs qui ont été ajoutés à l’organisation ou qui en ont été supprimés, recherchez `action:org.add_member org:ORGANIZATION` et `action:org.remove_member org:ORGANIZATION` dans le journal d’audit.
+1. Ajoutez manuellement à l’organisation chaque utilisateur qui doit toujours en être membre. Pour plus d’informations, consultez « [Ajout de personnes à votre organisation](/organizations/managing-membership-in-your-organization/adding-people-to-your-organization) ».
 
-### Restoring teams
+### Restauration d’équipes
 
-1. To find each team name, search the audit log for `action:team.create org:ORGANIZATION`.
-1. Manually recreate the team. For more information, see "[Creating a team](/organizations/organizing-members-into-teams/creating-a-team)."
-1. To find the members that have been added to each team, search for `action:team.add_member team:"ORGANIZATION/TEAM"`.
-1. Manually re-add the team members. For more information, see "[Adding organization members to a team](/organizations/organizing-members-into-teams/adding-organization-members-to-a-team)."
-1. To find the repositories that the team was granted access to, search for `action:team.add_repository team:"ORGANIZATION/TEAM"`.
-1. To find the access level that the team was granted for each repository, search for `action:team.update_repository_permission team:"ORGANIZATION/TEAM"`.
-1. Manually give the team access again. For more information, see "[Managing team access to an organization repository](/organizations/managing-access-to-your-organizations-repositories/managing-team-access-to-an-organization-repository)."
+1. Pour trouver chaque nom d’équipe, recherchez `action:team.create org:ORGANIZATION` dans le journal d’audit.
+1. Recréez manuellement l’équipe. Pour plus d’informations, consultez « [Création d’une équipe](/organizations/organizing-members-into-teams/creating-a-team) ».
+1. Pour rechercher les membres qui ont été ajoutés à chaque équipe, recherchez `action:team.add_member team:"ORGANIZATION/TEAM"`.
+1. Ajoutez de nouveau les membres d’équipe manuellement. Pour plus d’informations, consultez « [Ajout de membres d’une organisation à une équipe](/organizations/organizing-members-into-teams/adding-organization-members-to-a-team) ».
+1. Pour rechercher les dépôts auxquels l’équipe avait accès, recherchez `action:team.add_repository team:"ORGANIZATION/TEAM"`.
+1. Pour rechercher le niveau d’accès dont bénéficiait l’équipe pour chaque dépôt, recherchez `action:team.update_repository_permission team:"ORGANIZATION/TEAM"`.
+1. Donnez de nouveau l’accès à l’équipe manuellement. Pour plus d’informations, consultez « [Gestion de l’accès d’une équipe au dépôt d’une organisation](/organizations/managing-access-to-your-organizations-repositories/managing-team-access-to-an-organization-repository) ».

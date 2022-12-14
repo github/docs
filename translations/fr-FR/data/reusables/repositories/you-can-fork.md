@@ -1,9 +1,14 @@
-{% ifversion ghae %}
-If the policies for your enterprise permit forking private and internal repositories, you can fork a repository to your personal account or an organization where you have repository creation permissions. For more information, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)."
+---
+ms.openlocfilehash: 7ab0c705855f1bd271c17eacc9a2533184d1b5f1
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "145105498"
+---
+{% ifversion ghae %} Si les stratégies pour votre entreprise autorisent la duplication de dépôts internes et privés, vous pouvez dupliquer un dépôt vers votre compte personnel ou une organisation où vous disposez d’autorisations de création de dépôts. Pour plus d’informations, consultez « [Rôles dans une organisation](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization) ».
 
-{% elsif ghes or ghec %}
-You can fork a private or internal repository to your personal account or an organization on {% data variables.location.product_location %} where you have repository creation permissions, if settings for the repository and your enterprise policies allow forking.
+{% elsif ghes or ghec %} Vous pouvez dupliquer un dépôt privé ou interne vers votre compte personnel ou une organisation sur {% data variables.product.product_location %} où vous disposez d’autorisations de création de dépôts, si les paramètres du dépôt et vos stratégies d’entreprise autorisent la duplication.
 
-{% elsif fpt %}
-If you have access to a private repository and the owner permits forking, you can fork the repository to your personal account, or an organization on {% data variables.product.prodname_team %} where you have repository creation permissions. You cannot fork a private repository to an organization using {% data variables.product.prodname_free_team %}. For more information, see "[GitHub's products](/articles/githubs-products)."
+{% elsif fpt %} Si vous avez accès à un dépôt privé dont le propriétaire autorise la duplication, vous pouvez dupliquer le dépôt vers votre compte personnel ou une organisation sur {% data variables.product.prodname_team %} où vous disposez d’autorisations de création de dépôts. Vous ne pouvez pas dupliquer un dépôt privé vers une organisation en utilisant {% data variables.product.prodname_free_team %}. Pour plus d’informations, consultez « [Produits de GitHub](/articles/githubs-products) ».
 {% endif %}

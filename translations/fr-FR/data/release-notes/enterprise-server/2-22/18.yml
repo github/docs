@@ -1,0 +1,16 @@
+date: '27/07/2021'
+sections:
+  security_fixes:
+    - Les packages ont été mis à jour avec les dernières versions de sécurité.
+  bugs:
+    - De nombreuses erreurs 503 étaient créées si le travail planifié pour synchroniser les vulnérabilités avec GitHub.com essayait de s’exécuter quand le graphe de dépendances n’était pas activé et que l’analyse de contenu était activée.
+    - Le proxy HTTP non authentifié pour la build de conteneurs de pages n’était pas pris en charge pour les utilisateurs recourant à des proxys HTTP.
+  changes:
+    - Les journaux pour « babeld » incluent désormais un champ « cmd » pour les requêtes de publication de référence HTTP au lieu de l’inclure uniquement pendant les demandes de négociation.
+  known_issues:
+    - "Sur un {% data variables.product.prodname_ghe_server %} fraîchement configuré sans aucun utilisateur, un attaquant pourrait créer le premier utilisateur administrateur."
+    - Les règles de pare-feu personnalisées sont supprimées pendant le processus de mise à niveau.
+    - "Les fichiers suivis par Git LFS [chargés via l’interface web](https://github.com/blog/2105-upload-files-to-your-repositories) sont incorrectement ajoutés directement au dépôt."
+    - Les problèmes ne peuvent pas être fermés s’ils contiennent un lien permanent vers un objet blob situé dans le dépôt où le chemin de l’objet du blob est supérieur à 255 caractères.
+    - "Lorsque l’option « Les utilisateurs peuvent effectuer des recherches sur GitHub.com » est activée avec GitHub Connect, les problèmes dans les dépôts privés et internes ne sont pas inclus dans les résultats de recherche de GitHub.com."
+    - "Lorsqu’un nœud de réplica est hors ligne dans une configuration de haute disponibilité, {% data variables.product.product_name %} peut toujours acheminer les demandes de {% data variables.product.prodname_pages %} vers le nœud hors ligne, réduisant ainsi la disponibilité de {% data variables.product.prodname_pages %} pour les utilisateurs."

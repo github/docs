@@ -1,6 +1,6 @@
 ---
-title: Troubleshooting cloning errors
-intro: 'If you''re having trouble cloning a repository, check these common errors.'
+title: Résolution des erreurs de clonage
+intro: 'Si vous rencontrez des problèmes de clonage d’un référentiel, vérifiez ces erreurs courantes.'
 redirect_from:
   - /articles/error-the-requested-url-returned-error-403
   - /articles/error-the-requested-url-returned-error-401
@@ -19,41 +19,45 @@ versions:
   ghec: '*'
 topics:
   - Repositories
+ms.openlocfilehash: 60a5ff0350fed34841099c18f495b185b75f9832
+ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147093141'
 ---
+## Erreurs de clonage HTTPS
 
-## HTTPS cloning errors
+Il existe quelques erreurs courantes lors de l’utilisation de HTTPS avec Git. Ces erreurs indiquent généralement que vous avez une ancienne version de Git ou que vous n’avez pas accès au dépôt.
 
-There are a few common errors when using HTTPS with Git. These errors usually indicate you have an old version of Git, or you don't have access to the repository.
-
-Here's an example of an HTTPS error you might receive:
+Voici un exemple d’erreur HTTPS que vous pouvez recevoir :
 
 ```shell
 > error: The requested URL returned error: 401 while accessing
-> https://{% data variables.command_line.codeblock %}/USER/REPO.git/info/refs?service=git-receive-pack
+> https://{% data variables.command_line.codeblock %}/<em>user</em>/<em>repo</em>.git/info/refs?service=git-receive-pack
 > fatal: HTTP request failed
 ```
 
 ```shell
 > Error: The requested URL returned error: 403 while accessing
-> https://{% data variables.command_line.codeblock %}/USER/REPO.git/info/refs
+> https://{% data variables.command_line.codeblock %}/<em>user</em>/<em>repo</em>.git/info/refs
 > fatal: HTTP request failed
 ```
 
 ```shell
-> Error: https://{% data variables.command_line.codeblock %}/USER/REPO.git/info/refs not found: did you run git
+> Error: https://{% data variables.command_line.codeblock %}/<em>user</em>/<em>repo</em>.git/info/refs not found: did you run git
 > update-server-info on the server?
 ```
 
-### Check your Git version
+### Vérifiez votre version de Git
 
-There's no minimum Git version necessary to interact with {% data variables.product.product_name %}, but we've found version 1.7.10 to be a comfortable stable version that's available on many platforms. You can always [download the latest version on the Git website](https://git-scm.com/downloads).
+Il n’existe aucune version minimale de Git nécessaire pour interagir avec {% data variables.product.product_name %}, mais nous avons constaté que la version 1.7.10 était une version stable et confortable disponible sur de nombreuses plateformes. Vous pouvez toujours [télécharger la dernière version sur le site web Git](https://git-scm.com/downloads).
 
-### Ensure the remote is correct
+### Vérifiez que le dépôt distant est correct
 
-The repository you're trying to fetch must exist on {% data variables.location.product_location %}, and the URL is case-sensitive.
+Le dépôt que vous essayez d’extraire doit exister sur {% data variables.product.product_location %}, et l’URL respecte la casse.
 
-You can find the URL of the local repository by opening the command line and
-typing `git remote -v`:
+Vous pouvez trouver l’URL du dépôt local en ouvrant la ligne de commande et en tapant `git remote -v` :
 
 ```shell
 $ git remote -v
@@ -70,89 +74,86 @@ $ git remote -v
 > origin  https://github.com/ghost/ReactiveCocoa.git (push)
 ```
 
-Alternatively, you can change the URL through our
-[{% data variables.product.prodname_desktop %}](https://desktop.github.com/) application.
+Vous pouvez également modifier l’URL via notre application [{% data variables.product.prodname_desktop %}](https://desktop.github.com/).
 
-### Provide an access token
+### Fournissez un jeton d’accès
 
-To access {% data variables.product.prodname_dotcom %}, you must authenticate with a {% data variables.product.pat_generic %} instead of your password. For more information, see "[Creating a {% data variables.product.pat_generic %}](/github/authenticating-to-github/creating-a-personal-access-token)."
+Pour accéder à {% data variables.product.prodname_dotcom %}, vous devez vous authentifier avec un jeton d’accès personnel au lieu de votre mot de passe. Pour plus d’informations, consultez « [Création d’un jeton d’accès personnel](/github/authenticating-to-github/creating-a-personal-access-token) ».
 
 {% data reusables.command_line.provide-an-access-token %}
 
-### Check your permissions
+### Vérifier vos autorisations
 
-When prompted for a username and password, make sure you use an account that has access to the repository.
+Lorsque vous êtes invité à entrer un nom d’utilisateur et un mot de passe, veillez à utiliser un compte ayant accès au dépôt.
 
 {% tip %}
 
-**Tip**: If you don't want to enter your credentials every time you interact with the remote repository, you can turn on [credential caching](/github/getting-started-with-github/caching-your-github-credentials-in-git). If you are already using credential caching, please make sure that your computer has the correct credentials cached. Incorrect or out of date credentials will cause authentication to fail.
+**Astuce** : Si vous ne souhaitez pas entrer vos informations d’identification chaque fois que vous interagissez avec le dépôt distant, vous pouvez activer la [mise en cache des informations d’identification](/github/getting-started-with-github/caching-your-github-credentials-in-git). Si vous utilisez déjà la mise en cache des informations d’identification, vérifiez que votre ordinateur dispose des informations d’identification correctes mises en cache. Des informations d’identification incorrectes ou obsolètes entraînent l’échec de l’authentification.
 
 {% endtip %}
 
-### Use SSH instead
+### Utilisez SSH à la place
 
-If you've previously set up SSH keys, you can use the SSH clone URL instead of HTTPS.  For more information, see "[About remote repositories](/github/getting-started-with-github/about-remote-repositories)."
+Si vous avez déjà configuré des clés SSH, vous pouvez utiliser l’URL de clone SSH au lieu de HTTPS.  Pour plus d’informations, consultez « [À propos des dépôts distants](/github/getting-started-with-github/about-remote-repositories) ».
 
-## Error: Repository not found
+## Erreur : Dépôt introuvable
 
-{% ifversion fpt or ghae or ghec %}If you see this error when cloning a repository, it means that the repository does not exist or you do not have permission to access it.{% else %}If you see this error when cloning a repository, it means that the repository does not exist, you do not have permission to access it, or {% data variables.location.product_location %} is in private mode.{% endif %} There are a few solutions to this error, depending on the cause.
+{% ifversion fpt or ghae or ghec %}Si vous voyez cette erreur lors du clonage d’un dépôt, cela signifie que le dépôt n’existe pas ou que vous n’êtes pas autorisé à y accéder.{% else %}Si vous voyez cette erreur lors du clonage d’un dépôt, cela signifie que le dépôt n’existe pas, que vous n’êtes pas autorisé à y accéder ou que {% data variables.product.product_location %} est en mode privé.{% endif %} Il existe quelques solutions à cette erreur, en fonction de la cause.
 
-### Check your spelling
+### Vérifiez l’orthographe.
 
-Typos happen, and repository names are case-sensitive.  If you try to clone `git@{% data variables.command_line.codeblock %}:user/repo.git`, but the repository is really named `User/Repo` you will receive this error.
+Les fautes de frappe peuvent arriver, et les noms des dépôts respectent la casse.  Si vous essayez de cloner `git@{% data variables.command_line.codeblock %}:user/repo.git`, mais que le dépôt se nomme en fait `User/Repo`, vous recevrez cette erreur.
 
-To avoid this error, when cloning, always copy and paste the clone URL from the repository's page. For more information, see "[Cloning a repository](/articles/cloning-a-repository)."
+Pour éviter cette erreur, lors du clonage, copiez et collez toujours l’URL de clone à partir de la page du dépôt. Pour plus d’informations, consultez « [Clonage d’un dépôt](/articles/cloning-a-repository) ».
 
-To update the remote on an existing repository, see "[Managing remote repositories](/github/getting-started-with-github/managing-remote-repositories)".
+Pour mettre à jour le dépôt distant sur un dépôt existant, consultez « [Gestion des dépôts distants](/github/getting-started-with-github/managing-remote-repositories) ».
 
-### Checking your permissions
+### Vérification de vos autorisations
 
-If you are trying to clone a private repository but do not have permission to view the repository, you will receive this error.
+Si vous essayez de cloner un dépôt privé mais que vous n’êtes pas autorisé à afficher le dépôt, vous recevrez cette erreur.
 
-Make sure that you have access to the repository in one of these ways:
+Vérifiez que vous avez accès au dépôt en vertu des autorisations suivantes :
 
-* The owner of the repository
-* A [collaborator](/articles/inviting-collaborators-to-a-personal-repository) on the repository
-* A [member of a team](/articles/adding-organization-members-to-a-team) that has access to the repository (if the repository belongs to an organization)
+* Propriétaire du dépôt
+* [Collaborateur](/articles/inviting-collaborators-to-a-personal-repository) sur le dépôt
+* [Membre d’une équipe](/articles/adding-organization-members-to-a-team) ayant accès au dépôt (si celui-ci appartient à une organisation)
 
-### Check your SSH access
+### Vérifiez votre accès SSH
 
-In rare circumstances, you may not have the proper SSH access to a repository.
+Dans de rares cas, il se peut que vous n’ayez pas l’accès SSH approprié à un dépôt.
 
-You should ensure that the SSH key you are using is attached to your personal account on {% data variables.product.product_name %}. You can check this by typing
-the following into the command line:
+Vous devez vérifier que la clé SSH que vous utilisez est attachée à votre compte personnel sur {% data variables.product.product_name %}. Vous pouvez le vérifier en tapant ce qui suit sur la ligne de commande :
 
 ```shell
 $ ssh -T git@{% data variables.command_line.codeblock %}
-> Hi USERNAME! You've successfully authenticated, but GitHub does not
+> Hi <em>username</em>! You've successfully authenticated, but GitHub does not
 > provide shell access.
 ```
 
-{% ifversion fpt or ghec %}
-If the repository belongs to an organization and you're using an SSH key generated by an OAuth App, OAuth App access may have been restricted by an organization owner. For more information, see "[About OAuth App access restrictions](/organizations/restricting-access-to-your-organizations-data/about-oauth-app-access-restrictions)."
+{% ifversion fpt or ghec %} Si le référentiel appartient à une organisation et que vous utilisez une clé SSH générée par une application OAuth, l’accès de l’application OAuth peut avoir été limité par un propriétaire de l’organisation. Pour plus d’informations, consultez « [À propos des restrictions d’accès des applications OAuth](/organizations/restricting-access-to-your-organizations-data/about-oauth-app-access-restrictions) ».
 {% endif %}
 
-For more information, see [Adding a new SSH key to your GitHub account](/articles/adding-a-new-ssh-key-to-your-github-account).
+Pour plus d’informations, consultez [Ajout d’une nouvelle clé SSH à votre compte GitHub](/articles/adding-a-new-ssh-key-to-your-github-account).
 
 {% ifversion ghes %}
-### Check if your instance is in private mode
+### Vérifiez si votre instance est en mode privé
 
-If your site administrator has enabled private mode on your GitHub Enterprise instance, anonymous clones over `git://` will be disabled. If you are unable to clone a repository, contact your site administrator.
+Si votre administrateur de site a activé le mode privé sur votre instance de GitHub Enterprise, les clones anonymes sur `git://` seront désactivés. Si vous ne parvenez pas à cloner un dépôt, contactez votre administrateur de site.
 {% endif %}
 
-### Check that the repository really exists
+### Vérifiez que le dépôt existe vraiment
 
-If all else fails, make sure that the repository really exists on {% data variables.location.product_location %}!
-If you're trying to push to a repository that doesn't exist, you'll get this error.
+Si tout le reste échoue, vérifiez que le dépôt existe réellement sur {% data variables.product.product_location %}.
+Si vous essayez de pousser vers un dépôt qui n’existe pas, vous recevrez cette erreur.
 
-## Error: Remote HEAD refers to nonexistent ref, unable to checkout
+## Erreur : Le dépôt distant principal fait référence à une référence inexistante. Impossible d’effectuer l’extraction
 
-This error occurs if the default branch of a repository has been deleted on {% data variables.location.product_location %}.
+Cette erreur se produit si la branche par défaut d’un dépôt a été supprimée sur {% data variables.product.product_location %}.
 
-Detecting this error is simple; Git will warn you when you try to clone the repository:
+La détection de cette erreur est simple ; Git vous avertit lorsque vous essayez de cloner le dépôt :
 
 ```shell
-$ git clone https://{% data variables.command_line.codeblock %}/USER/REPO.git
+$ git clone https://{% data variables.command_line.codeblock %}/<em>user</em>/<em>repo</em>.git
 # Clone a repo
 > Cloning into 'repo'...
 > remote: Counting objects: 66179, done.
@@ -163,10 +164,10 @@ $ git clone https://{% data variables.command_line.codeblock %}/USER/REPO.git
 > warning: remote HEAD refers to nonexistent ref, unable to checkout.
 ```
 
-To fix the error, you'll need to be an administrator of the repository on {% data variables.location.product_location %}.
-You'll want to [change the default branch](/github/administering-a-repository/changing-the-default-branch) of the repository.
+Pour corriger l’erreur, vous devez être administrateur du dépôt sur {% data variables.product.product_location %}.
+Vous devrez [changer la branche par défaut](/github/administering-a-repository/changing-the-default-branch) du dépôt.
 
-After that, you can get a list of all the available branches from the command line:
+Après cela, vous pourrez obtenir la liste de toutes les branches disponibles à partir de la ligne de commande :
 
 ```shell
 $ git branch -a
@@ -176,7 +177,7 @@ $ git branch -a
 >   remotes/origin/new-main
 ```
 
-Then, you can just switch to your new branch:
+Ensuite, il vous suffira de basculer vers votre nouvelle branche :
 
 ```shell
 $ git checkout new-main

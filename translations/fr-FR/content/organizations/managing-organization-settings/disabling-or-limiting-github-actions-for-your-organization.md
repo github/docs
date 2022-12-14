@@ -1,6 +1,6 @@
 ---
-title: Disabling or limiting GitHub Actions for your organization
-intro: 'Organization owners can disable, enable, and limit GitHub Actions for an organization.'
+title: Désactivation ou limitation de la fonctionnalité GitHub Actions pour votre organisation
+intro: 'Les propriétaires d’organisation peuvent désactiver, activer et limiter GitHub Actions pour une organisation.'
 redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/disabling-or-limiting-github-actions-for-your-organization
 versions:
@@ -13,178 +13,103 @@ topics:
   - Teams
 shortTitle: Disable or limit actions
 miniTocMaxHeadingLevel: 3
+ms.openlocfilehash: b72b1e412906b1a2ec7520a9c939d5adefee7dd7
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147064681'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+## À propos des autorisations {% data variables.product.prodname_actions %} de votre organisation
 
-## About {% data variables.product.prodname_actions %} permissions for your organization
+{% data reusables.actions.disabling-github-actions %} Pour plus d’informations sur {% data variables.product.prodname_actions %}, consultez « [À propos de {% data variables.product.prodname_actions %}](/actions/getting-started-with-github-actions/about-github-actions) ».
 
-{% data reusables.actions.disabling-github-actions %} For more information about {% data variables.product.prodname_actions %}, see "[About {% data variables.product.prodname_actions %}](/actions/getting-started-with-github-actions/about-github-actions)."
+Vous pouvez activer {% data variables.product.prodname_actions %} pour tous les référentiels de votre organisation. {% data reusables.actions.enabled-actions-description %} Vous pouvez désactiver {% data variables.product.prodname_actions %} pour tous les référentiels de votre organisation. {% data reusables.actions.disabled-actions-description %}
 
-You can enable {% data variables.product.prodname_actions %} for all repositories in your organization. {% data reusables.actions.enabled-actions-description %} You can disable {% data variables.product.prodname_actions %} for all repositories in your organization. {% data reusables.actions.disabled-actions-description %}
+Vous pouvez également activer {% data variables.product.prodname_actions %} pour tous les référentiels de votre organisation, mais limiter les actions {% ifversion actions-workflow-policy %}et les workflows réutilisables{% endif %} qu’un workflow peut exécuter.
 
-Alternatively, you can enable {% data variables.product.prodname_actions %} for all repositories in your organization but limit the actions {% ifversion actions-workflow-policy %}and reusable workflows{% endif %} a workflow can run.
+## Gestion des autorisations {% data variables.product.prodname_actions %} de votre organisation
 
-## Managing {% data variables.product.prodname_actions %} permissions for your organization
-
-You can choose to disable {% data variables.product.prodname_actions %} for all repositories in your organization, or only allow specific repositories. You can also limit the use of public actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %}, so that people can only use local actions {% ifversion actions-workflow-policy %}and reusable workflows{% endif %} that exist in your {% ifversion ghec or ghes or ghae %}enterprise{% else %}organization{% endif %}.
+Vous pouvez choisir de désactiver {% data variables.product.prodname_actions %} pour tous les référentiels de votre organisation, ou de n’autoriser que certains référentiels. Vous pouvez également limiter l’utilisation des actions publiques{% ifversion actions-workflow-policy %} et des workflows réutilisables{% endif %} afin que les utilisateurs ne puissent utiliser que les actions locales {% ifversion actions-workflow-policy %}et les workflows réutilisables{% endif %} disponibles dans votre {% ifversion ghec or ghes or ghae %}entreprise{% else %}organisation{% endif %}.
 
 {% note %}
 
-**Note:** You might not be able to manage these settings if your organization is managed by an enterprise that has overriding policy. For more information, see "[Enforcing policies for {% data variables.product.prodname_actions %} in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-github-actions-policies-for-your-enterprise)."
+**Remarque :** vous ne pourrez peut-être pas gérer ces paramètres si votre organisation est gérée par une entreprise qui dispose d’une stratégie de remplacement. Pour plus d’informations, consultez « [Application de stratégies pour {% data variables.product.prodname_actions %} dans votre entreprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-github-actions-policies-for-your-enterprise) ».
 
 {% endnote %}
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.settings-sidebar-actions-general %}
-1. Under "Policies", select an option.
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.organizations.settings-sidebar-actions-general %}
+1. Sous « Stratégies », sélectionnez une option.
 
    {% indented_data_reference reusables.actions.actions-use-policy-settings spaces=3 %}
 
-   {% ifversion actions-workflow-policy %}
-   ![Set actions policy for this organization](/assets/images/help/organizations/actions-policy-with-workflows.png)
-   {%- else %}
-   ![Set actions policy for this organization](/assets/images/help/organizations/actions-policy.png)
-   {%- endif %}
-1. Click **Save**.
+   {% ifversion actions-workflow-policy %} ![Définir la stratégie d’actions de cette organisation](/assets/images/help/organizations/actions-policy-with-workflows.png) {%- else %} ![Définir la stratégie d’actions de cette organisation](/assets/images/help/organizations/actions-policy.png) {%- endif %}
+1. Cliquez sur **Enregistrer**.
 
 {% data reusables.actions.allow-specific-actions-intro %}
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.settings-sidebar-actions-general %}
-1. Under "Policies", select {% data reusables.actions.policy-label-for-select-actions-workflows %} and add your required actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %} to the list.
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.organizations.settings-sidebar-actions-general %}
+1. Sous « Stratégies », sélectionnez {% data reusables.actions.policy-label-for-select-actions-workflows %} et ajoutez vos actions requises{% ifversion actions-workflow-policy %} et workflows réutilisables{% endif %} à la liste.
 
-   {% ifversion actions-workflow-policy %}
-   ![Add actions and reusable workflows to the allow list](/assets/images/help/organizations/actions-policy-allow-list-with-workflows.png)
-   {%- elsif ghes %}
-   ![Add actions to the allow list](/assets/images/help/organizations/actions-policy-allow-list.png)
-   {%- else %}
-   ![Add actions to the allow list](/assets/images/enterprise/github-ae/organizations/actions-policy-allow-list.png)
-   {%- endif %}
-1. Click **Save**.
+   {% ifversion actions-workflow-policy %} ![Ajouter des actions et des workflows réutilisables à la liste verte](/assets/images/help/organizations/actions-policy-allow-list-with-workflows.png) {%- elsif ghes %} ![Ajouter des actions à la liste verte](/assets/images/help/organizations/actions-policy-allow-list.png) {%- else %} ![Ajouter des actions à la liste verte](/assets/images/enterprise/github-ae/organizations/actions-policy-allow-list.png) {%- endif %}
+1. Cliquez sur **Enregistrer**.
 
 {% ifversion fpt or ghec %}
-## Configuring required approval for workflows from public forks
+## Configuration de l’approbation requise pour les workflows provenant de duplications (forks) publiques
 
 {% data reusables.actions.workflow-run-approve-public-fork %}
 
-You can configure this behavior for an organization using the procedure below. Modifying this setting overrides the configuration set at the enterprise level.
+Vous pouvez configurer ce comportement pour une organisation en suivant la procédure ci-dessous. La modification de ce paramètre remplace la configuration définie au niveau de l’entreprise.
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.settings-sidebar-actions-general %}
-{% data reusables.actions.workflows-from-public-fork-setting %}
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.organizations.settings-sidebar-actions-general %} {% data reusables.actions.workflows-from-public-fork-setting %}
 
-{% data reusables.actions.workflow-run-approve-link %}
-{% endif %}
+{% data reusables.actions.workflow-run-approve-link %} {% endif %}
 
 {% ifversion fpt or ghes or ghec %}
-## Enabling workflows for private repository forks
+## Activation des workflows pour les duplications de référentiel privé
 
 {% data reusables.actions.private-repository-forks-overview %}
 
-{% ifversion ghec or ghae or ghes %}If a policy is disabled for an enterprise, it cannot be enabled for organizations.{% endif %} If a policy is disabled for an organization, it cannot be enabled for repositories. If an organization enables a policy, the policy can be disabled for individual repositories.
+{% ifversion ghec or ghae or ghes %}Si une stratégie est désactivée pour une entreprise, elle ne peut pas être activée pour des organisations.{% endif %} Si une stratégie est désactivée pour une organisation, elle ne peut pas être activée pour des référentiels. Si une organisation active une stratégie, celle-ci peut être désactivée pour des référentiels individuels.
 
 {% data reusables.actions.private-repository-forks-options %}
 
-### Configuring the private fork policy for an organization
+### Configuration de la stratégie de duplication privée d’une organisation
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.settings-sidebar-actions-general %}
-{% data reusables.actions.private-repository-forks-configure %}
-{% endif %}
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.organizations.settings-sidebar-actions-general %} {% data reusables.actions.private-repository-forks-configure %} {% endif %}
 
-## Setting the permissions of the `GITHUB_TOKEN` for your organization
+## Définition des autorisations `GITHUB_TOKEN` de votre organisation
 
 {% data reusables.actions.workflow-permissions-intro %}
 
-You can set the default permissions for the `GITHUB_TOKEN` in the settings for your organization or your repositories. If you select a restrictive option as the default in your organization settings, the same option is selected in the settings for repositories within your organization, and the permissive option is disabled. If your organization belongs to a {% data variables.product.prodname_enterprise %} account and a more restrictive default has been selected in the enterprise settings, you won't be able to select the more permissive default in your organization settings.
+Vous pouvez définir les autorisations `GITHUB_TOKEN` par défaut dans les paramètres de votre organisation ou de vos référentiels. Si vous sélectionnez une option restrictive comme option par défaut dans les paramètres de votre organisation, la même option est sélectionnée dans les paramètres des référentiels de votre organisation, et l’option permissive est désactivée. Si votre organisation appartient à un compte {% data variables.product.prodname_enterprise %} et qu’une option par défaut plus restrictive a été sélectionnée dans les paramètres d’entreprise, vous ne pouvez pas sélectionner l’option par défaut plus permissive dans les paramètres de votre organisation.
 
 {% data reusables.actions.workflow-permissions-modifying %}
 
-### Configuring the default `GITHUB_TOKEN` permissions
+### Configuration des autorisations `GITHUB_TOKEN` par défaut
 
-{% ifversion allow-actions-to-approve-pr-with-ent-repo  %}
-By default, when you create a new organization, `GITHUB_TOKEN` only has read access for the `contents` scope.
+{% ifversion allow-actions-to-approve-pr-with-ent-repo  %} Par défaut, lorsque vous créez une organisation, `GITHUB_TOKEN` ne dispose que d’un accès en lecture pour l’étendue `contents`.
 {% endif %}
 
-{% data reusables.profile.access_profile %}
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.settings-sidebar-actions-general %}
-1. Under "Workflow permissions", choose whether you want the `GITHUB_TOKEN` to have read and write access for all scopes, or just read access for the `contents` scope.
+{% data reusables.profile.access_profile %} {% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.organizations.settings-sidebar-actions-general %}
+1. Sous « Autorisations liées aux workflows », spécifiez si vous souhaitez que `GITHUB_TOKEN` ait un accès en lecture et écriture pour toutes les étendues ou simplement un accès en lecture pour l’étendue `contents`.
 
-   {% ifversion allow-actions-to-approve-pr %}
-      {% ifversion allow-actions-to-approve-pr-with-ent-repo %}
-   ![Set GITHUB_TOKEN permissions for this organization](/assets/images/help/settings/actions-workflow-permissions-organization-with-pr-creation-approval.png)
-      {% else %}
-   ![Set GITHUB_TOKEN permissions for this organization](/assets/images/help/settings/actions-workflow-permissions-organization-with-pr-approval.png)
-      {% endif %}
-   {% else %}
-   ![Set GITHUB_TOKEN permissions for this organization](/assets/images/help/settings/actions-workflow-permissions-organization-with-pr-approval.png)
-   {% endif %}
-1. Click **Save** to apply the settings.
+   ![Définir les autorisations GITHUB_TOKEN de cette organisation](/assets/images/help/settings/actions-workflow-permissions-organization{% ifversion allow-actions-to-approve-pr %}-with-pr-{% ifversion allow-actions-to-approve-pr-with-ent-repo %}creation-{% endif %}approval{% endif %}.png)
+1. Cliquez sur **Enregistrer** pour appliquer les paramètres.
 
 {% ifversion allow-actions-to-approve-pr %}
-### Preventing {% data variables.product.prodname_actions %} from {% ifversion allow-actions-to-approve-pr-with-ent-repo %}creating or {% endif %}approving pull requests
+### Empêcher {% data variables.product.prodname_actions %} {% ifversion allow-actions-to-approve-pr-with-ent-repo %}de créer ou {% endif %}d’approuver des demandes de tirage
 
 {% data reusables.actions.workflow-pr-approval-permissions-intro %}
 
-By default, when you create a new organization, workflows are not allowed to {% ifversion allow-actions-to-approve-pr-with-ent-repo %}create or {% endif %}approve pull requests.
+Par défaut, lorsque vous créez une organisation, les workflows ne sont pas autorisés à {% ifversion allow-actions-to-approve-pr-with-ent-repo %}créer ou {% endif %}approuver des demandes de tirage.
 
-{% data reusables.profile.access_profile %}
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.settings-sidebar-actions-general %}
-1. Under "Workflow permissions", use the **Allow GitHub Actions to {% ifversion allow-actions-to-approve-pr-with-ent-repo %}create and {% endif %}approve pull requests** setting to configure whether `GITHUB_TOKEN` can {% ifversion allow-actions-to-approve-pr-with-ent-repo %}create and {% endif %}approve pull requests.
+{% data reusables.profile.access_profile %} {% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.organizations.settings-sidebar-actions-general %}
+1. Sous « Autorisations liées aux workflows », utilisez le paramètre **Autoriser GitHub Actions à {% ifversion allow-actions-to-approve-pr-with-ent-repo %}créer et {% endif %}approuver des demandes de tirage** pour déterminer si `GITHUB_TOKEN` peut {% ifversion allow-actions-to-approve-pr-with-ent-repo %}créer et {% endif %}approuver des demandes de tirage.
 
-   {% ifversion allow-actions-to-approve-pr %}
-      {% ifversion allow-actions-to-approve-pr-with-ent-repo %}
-   ![Set GITHUB_TOKEN pull request approval permission for this organization](/assets/images/help/settings/actions-workflow-permissions-organization-with-pr-creation-approval.png)
-      {% else %}
-   ![Set GITHUB_TOKEN pull request approval permission for this organization](/assets/images/help/settings/actions-workflow-permissions-organization-with-pr-approval.png)
-      {% endif %}
-   {% else %}
-   ![Set GITHUB_TOKEN pull request approval permission for this organization](/assets/images/help/settings/actions-workflow-permissions-organization.png)
-   {% endif %}
-1. Click **Save** to apply the settings.
-
-{% endif %}
-
-{% ifversion actions-cache-org-ui %}
-
-## Managing {% data variables.product.prodname_actions %} cache storage for your organization
-
-Organization administrators can view {% ifversion actions-cache-admin-ui %}and manage {% endif %}{% data variables.product.prodname_actions %} cache storage for all repositories in the organization. 
-
-### Viewing {% data variables.product.prodname_actions %} cache storage by repository
-
-For each repository in your organization, you can see how much cache storage a repository is using, the number of active caches, and if a repository is near the total cache size limit. For more information about the cache usage and eviction process, see "[Caching dependencies to speed up workflows](/actions/using-workflows/caching-dependencies-to-speed-up-workflows#usage-limits-and-eviction-policy)."
-
-{% data reusables.profile.access_profile %}
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-1. In the left sidebar, click {% octicon "play" aria-label="The {% data variables.product.prodname_actions %} icon" %} **Actions**, then click **Caches**.
-1. Review the list of repositories for information about their {% data variables.product.prodname_actions %} caches. You can click on a repository name to see more detail about the repository's caches.
-
-{% ifversion actions-cache-admin-ui %}
-
-### Configuring {% data variables.product.prodname_actions %} cache storage for your organization
-
-{% data reusables.actions.cache-default-size %}
-
-You can configure the size limit for {% data variables.product.prodname_actions %} caches that will apply to each repository in your organization. The cache size limit for an organization cannot exceed the cache size limit set in the enterprise policy. Repository admins will be able to set a smaller limit in their repositories.
-
-{% data reusables.profile.access_profile %}
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.settings-sidebar-actions-general %}
-{% data reusables.actions.change-cache-size-limit  %}
-
-{% endif %}
+   ![Définir l’autorisation d’approbation de demande de tirage GITHUB_TOKEN de cette organisation](/assets/images/help/settings/actions-workflow-permissions-organization{% ifversion allow-actions-to-approve-pr %}-with-pr-{% ifversion allow-actions-to-approve-pr-with-ent-repo %}creation-{% endif %}approval{% endif %}.png)
+1. Cliquez sur **Enregistrer** pour appliquer les paramètres.
 
 {% endif %}

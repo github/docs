@@ -1,37 +1,40 @@
 ---
-title: Reviewing and revoking personal access tokens in your organization
-intro: 'Organization owners can review the {% data variables.product.pat_v2 %}s that can access their organization. They can also revoke access of specific {% data variables.product.pat_v2 %}s.'
+title: Examen et révocation des jetons d’accès personnels dans votre organisation
+intro: 'Les propriétaires d’organisation peuvent passer en revue les {% data variables.product.pat_v2 %} qui peuvent accéder à leur organisation. Ils peuvent également révoquer l’accès de {% data variables.product.pat_v2 %} spécifiques.'
 versions:
   feature: pat-v2
 shortTitle: Review token access
+ms.openlocfilehash: 5503d5c0daaa506030ffc022e7251f9a016a8034
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148107388'
 ---
-
 {% data reusables.user-settings.pat-v2-org-opt-in %}
 
-## About reviewing and revoking  {% data variables.product.pat_v2 %}s
+## À propos de la révision et de la révocation de {% data variables.product.pat_v2 %}
 
-Organization owners can view all {% data variables.product.pat_v2 %}s that can access resources owned by the organization. Organization owners can also revoke access by {% data variables.product.pat_v2 %}s. When a {% data variables.product.pat_v2 %} is revoked, SSH keys created by the token will continue to work and the token will still be able to read public resources within the organization.
+Les propriétaires d’organisation peuvent voir tous les {% data variables.product.pat_v2 %} qui peuvent accéder aux ressources appartenant à l’organisation. Les propriétaires d’organisation peuvent également révoquer l’accès des {% data variables.product.pat_v2 %}. Quand un {% data variables.product.pat_v2 %} est révoqué, les clés SSH créées par le jeton continuent de fonctionner et le jeton peut toujours lire les ressources publiques au sein de l’organisation.
 
-When a token is revoked, the user who created the token will receive an email notification.
+Quand un jeton est révoqué, l’utilisateur qui a créé le jeton reçoit une notification par e-mail.
 
-Organization owners can only view and revoke {% data variables.product.pat_v2 %}s, not {% data variables.product.pat_v1_plural %}. Unless the organization {% ifversion ghec or ghes or ghae %}or enterprise {% endif %}has restricted access by {% data variables.product.pat_v1_plural %}, any {% data variables.product.pat_v1 %} can access organization resources until the token expires. For more information about restricting access by {% data variables.product.pat_v1_plural %}, see "[Setting a {% data variables.product.pat_generic %} policy for your organization](/organizations/managing-programmatic-access-to-your-organization/setting-a-personal-access-token-policy-for-your-organization)"{% ifversion ghec or ghes or ghae %} and "[Enforcing policies for {% data variables.product.pat_generic %}s in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-personal-access-tokens-in-your-enterprise)"{% endif %}.
+Les propriétaires d’organisation peuvent seulement voir et révoquer les {% data variables.product.pat_v2 %}, et non pas les {% data variables.product.pat_v1_plural %}. À moins que l’organisation {% ifversion ghec or ghes or ghae %}ou l’entreprise {% endif %}ait restreint l’accès par les {% data variables.product.pat_v1_plural %}, un {% data variables.product.pat_v1 %} peut accéder aux ressources de l’organisation jusqu’à l’expiration du jeton. Pour plus d’informations sur la restriction de l’accès par les {% data variables.product.pat_v1_plural %}, consultez « [Définition d’une stratégie de {% data variables.product.pat_generic %} pour votre organisation](/organizations/managing-programmatic-access-to-your-organization/setting-a-personal-access-token-policy-for-your-organization) »{% ifversion ghec or ghes or ghae %} et « [Application de stratégies pour les {% data variables.product.pat_generic %} dans votre entreprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-personal-access-tokens-in-your-enterprise) »{% endif %}.
 
-{% ifversion ghec %} Organization owners can also view and revoke {% data variables.product.pat_v1_plural %} if their organization requires SAML single-sign on. For more information, see "[Viewing and managing a user's SAML access to your enterprise](/admin/user-management/managing-users-in-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise#viewing-and-revoking-authorized-credentials)". For more information about using the REST API to do this, see "[List SAML SSO authorizations for an organization](/rest/orgs/orgs#list-saml-sso-authorizations-for-an-organization)" and "[Remove a SAML SSO authorization for an organization](/rest/orgs/orgs#remove-a-saml-sso-authorization-for-an-organization)."{% endif %}
+{% ifversion ghec %} Les propriétaires d’organisation peuvent également voir et révoquer des {% data variables.product.pat_v1_plural %} si leur organisation exige l’authentification unique SAML. Pour plus d’informations, consultez « [Affichage et gestion de l’accès SAML d’un utilisateur à votre organisation](/admin/user-management/managing-users-in-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise#viewing-and-revoking-authorized-credentials) ». Pour plus d’informations sur l’utilisation de l’API REST pour ce faire, consultez « [Lister les autorisations d’authentification unique SAML pour une organisation](/rest/orgs/orgs#list-saml-sso-authorizations-for-an-organization) » et « [Supprimer une autorisation d’authentification unique SAML pour une organisation](/rest/orgs/orgs#remove-a-saml-sso-authorization-for-an-organization) ».{% endif %}
 
-## Reviewing and revoking  {% data variables.product.pat_v2 %}s
+## Révision et révocation des {% data variables.product.pat_v2 %}
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-1. In the left sidebar, under **{% octicon "key" aria-label="The key icon" %} {% data variables.product.pat_generic_caps %}s**, click **Active tokens**. Any {% data variables.product.pat_v2 %}s that can access your organization will be displayed.
-1. Click the name of the token that you want review or revoke.
-1. Review the access and permissions that the token has.
-1. To revoke access by the token to the organization, click **Revoke**.
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %}
+1. Dans la barre latérale gauche, sous **{% octicon "key" aria-label="The key icon" %} {% data variables.product.pat_generic_caps %}** , cliquez sur **Jetons actifs**. Les {% data variables.product.pat_v2 %} qui peuvent accéder à votre organisation s’affichent.
+1. Cliquez sur le nom du jeton que vous voulez réviser ou révoquer.
+1. Passez en revue l’accès et les autorisations dont dispose le jeton.
+1. Pour révoquer l’accès à l’organisation par le jeton, cliquez sur **Révoquer**.
 
-Alternatively, you can revoke multiple tokens at once:
+Vous pouvez aussi révoquer plusieurs jetons à la fois :
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-1. In the left sidebar, under **{% octicon "key" aria-label="The key icon" %} {% data variables.product.pat_generic_caps %}s**, click **Active tokens**. Any {% data variables.product.pat_v2 %}s that can access your organization will be displayed.
-{% data reusables.user-settings.patv2-filters %}
-1. Select each token that you want to revoke.
-1. Select the **tokens selected...** dropdown menu and click **Revoke...**.
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %}
+1. Dans la barre latérale gauche, sous **{% octicon "key" aria-label="The key icon" %} {% data variables.product.pat_generic_caps %}** , cliquez sur **Jetons actifs**. Les {% data variables.product.pat_v2 %} qui peuvent accéder à votre organisation s’affichent.
+1. Si vous le souhaitez, utilisez la liste déroulante **Propriétaire** pour filtrer les jetons selon le membre qui a créé le jeton.
+1. Sélectionnez chaque jeton que vous voulez révoquer.
+1. Sélectionnez le menu déroulant **Jetons sélectionnés...** , puis cliquez sur **Révoquer...** .

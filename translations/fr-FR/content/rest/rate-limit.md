@@ -1,6 +1,6 @@
 ---
 title: Limite du taux
-intro: 'Avec l’API Limite de débit, vous pouvez vérifier l’état actuel de la limite de débit de différentes API REST.'
+intro: Utilisez l’API REST pour vérifier l’état actuel de votre limite de débit.
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,29 +11,25 @@ topics:
 miniTocMaxHeadingLevel: 3
 redirect_from:
   - /rest/reference/rate-limit
-ms.openlocfilehash: 282b7e7bbb947256ccad4950b6a17d8874044d8f
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: a609d339af2201bba5ec12044a8eebe733013cea
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147081047'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148193285'
 ---
-## À propos de l’API Limite de débit
+## À propos des limites de débit
 
-La documentation générale sur l’API REST décrit les [règles de limite de débit](/rest/overview/resources-in-the-rest-api#rate-limiting). Vous pouvez vérifier l’état actuel de votre limite de débit à tout moment à l’aide de l’API correspondante décrite ci-dessous.
+Vous pouvez vérifier l’état actuel de votre limite de débit à tout moment. Pour plus d’informations sur les règles des limites de débit, consultez « [Ressources dans l’API REST](/rest/overview/resources-in-the-rest-api#rate-limiting) ». 
 
-### Compréhension de l’état de votre limite de débit
-
-L’API Recherche a une [limite de débit personnalisée](/rest/reference/search#rate-limit), distincte de la limite de débit régissant le reste de l’API REST. L’API GraphQL a également une [limite de débit personnalisée](/graphql/overview/resource-limitations#rate-limit) distincte et calculée différemment des limites de débit dans l’API REST.
-
-Pour ces raisons, la réponse de l’API Limite de débit classe votre limite de débit. Sous `resources`, vous verrez quatre objets :
+L’API REST pour la recherche d’éléments a une limite de débit personnalisée qui est distincte de la limite de débit qui régit les autres points de terminaison d’API REST. Pour plus d’informations, consultez « [Rechercher](/rest/search) ». L’API GraphQL a également une limite de débit personnalisée distincte et calculée différemment des limites de débit dans l’API REST. Pour plus d’informations, consultez « [Limitations des ressources](/graphql/overview/resource-limitations#rate-limit) ». Pour ces raisons, la réponse de l’API catégorise votre limite de débit. Sous `resources`, vous voyez des objets relatifs à différentes catégories :
 
 * L’objet `core` fournit l’état de votre limite de débit pour toutes les ressources non liées à la recherche dans l’API REST.
 
-* L’objet `search` fournit l’état de votre limite de débit pour [l’API Recherche](/rest/reference/search).
+* L’objet `search` fournit l’état de votre limite de débit pour l’API REST pour la recherche.
 
-* L’objet `graphql` fournit l’état de votre limite de débit pour l’[API GraphQL](/graphql).
+* L’objet `graphql` fournit l’état de votre limite de débit pour l’API GraphQL.
 
-* L’objet `integration_manifest` fournit l’état de votre limite de débit pour le point de terminaison de [conversion du code du manifeste de l’application GitHub](/apps/building-github-apps/creating-github-apps-from-a-manifest/#3-you-exchange-the-temporary-code-to-retrieve-the-app-configuration).
+* L’objet `integration_manifest` fournit l’état de votre limite de débit pour l’opération `POST /app-manifests/{code}/conversions`. Pour plus d’informations, consultez « [Création d’une application GitHub à partir d’un manifeste](/apps/building-github-apps/creating-github-apps-from-a-manifest/#3-you-exchange-the-temporary-code-to-retrieve-the-app-configuration) ».
 
 Pour plus d’informations sur les en-têtes et les valeurs dans la réponse de limite de débit, consultez « [Ressources dans l’API REST](/rest/overview/resources-in-the-rest-api#rate-limit-http-headers) ».

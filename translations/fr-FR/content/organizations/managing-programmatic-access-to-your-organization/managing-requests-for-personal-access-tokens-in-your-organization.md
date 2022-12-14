@@ -1,40 +1,43 @@
 ---
-title: Managing requests for personal access tokens in your organization
-intro: 'Organization owners can approve or deny {% data variables.product.pat_v2 %}s that request access to their organization.'
+title: Gestion des demandes de jetons d’accès personnels dans votre organisation
+intro: 'Les propriétaires d’organisation peuvent approuver ou refuser les {% data variables.product.pat_v2 %} qui demandent l’accès à leur organisation.'
 versions:
   feature: pat-v2
 shortTitle: Manage token requests
+ms.openlocfilehash: ea2f01436ca4649cae5310b14070625c5947922e
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148107402'
 ---
-
 {% data reusables.user-settings.pat-v2-org-opt-in %}
 
-## About {% data variables.product.pat_v2 %} requests
+## À propos des demandes de {% data variables.product.pat_v2 %}
 
-When organization members create a {% data variables.product.pat_v2 %} to access resources owned by the organization, if the organization requires approval for {% data variables.product.pat_v2 %}s, then an organization owner must approve the token before it can be used to access any resources that are not public. For more information, see "[Setting a {% data variables.product.pat_generic %} policy for your organization](/organizations/managing-programmatic-access-to-your-organization/setting-a-personal-access-token-policy-for-your-organization)."
+Quand des membres d’organisation créent un {% data variables.product.pat_v2 %} pour accéder aux ressources appartenant à l’organisation, si l’organisation exige une approbation pour les {% data variables.product.pat_v2 %}, un propriétaire de l’organisation doit approuver le jeton avant qu’il puisse être utilisé pour accéder aux ressources qui ne sont pas publiques. Pour plus d’informations, consultez « [Définition d’une stratégie {% data variables.product.pat_generic %} pour votre organisation](/organizations/managing-programmatic-access-to-your-organization/setting-a-personal-access-token-policy-for-your-organization) ».
 
-{% data variables.product.company_short %} will notify organization owners with a daily email about all {% data variables.product.pat_v2 %}s that are awaiting approval. When a token is denied or approved, the user who created the token will receive an email notification.
+{% data variables.product.company_short %} informe les propriétaires d’organisation avec un e-mail quotidien de toutes les {% data variables.product.pat_v2 %} en attente d’approbation. Quand un jeton est refusé ou approuvé, l’utilisateur qui a créé le jeton reçoit une notification par e-mail.
 
 {% note %}
 
-**Note**: Only {% data variables.product.pat_v2 %}s, not {% data variables.product.pat_v1_plural %}, are subject to approval. Unless the organization has restricted access by {% data variables.product.pat_v1_plural %}, any {% data variables.product.pat_v1 %} can access organization resources without prior approval. For more information, see "[Setting a {% data variables.product.pat_generic %} policy for your organization](/organizations/managing-programmatic-access-to-your-organization/setting-a-personal-access-token-policy-for-your-organization)."
+**Remarque** : Seuls les {% data variables.product.pat_v2 %}, et non pas les {% data variables.product.pat_v1_plural %}, sont soumis à approbation. À moins que l’organisation ait restreint l’accès des {% data variables.product.pat_v1_plural %}, un {% data variables.product.pat_v1 %} peut accéder aux ressources de l’organisation sans approbation préalable. Pour plus d’informations, consultez « [Définition d’une stratégie {% data variables.product.pat_generic %} pour votre organisation](/organizations/managing-programmatic-access-to-your-organization/setting-a-personal-access-token-policy-for-your-organization) ».
 
 {% endnote %}
 
-## Managing {% data variables.product.pat_v2 %} requests
+## Gestion des demandes de {% data variables.product.pat_v2 %}
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-1. In the left sidebar, under **{% octicon "key" aria-label="The key icon" %} {% data variables.product.pat_generic_caps %}s**, click **Pending requests**. If any tokens are pending approval for your organization, they will be displayed.
-1. Click the name of the token that you want to approve or deny.
-1. Review the access and permissions that the token is requesting.
-1. To grant the token access to the organization, click **Approve**. To deny the token access to the organization, click **Deny**.
-1. If you denied the request, in the confirmation box, optionally enter the reason that you denied the token. This reason will be shared in the notification that is sent to the token owner. Then, click **Deny**.
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %}
+1. Dans la barre latérale gauche, sous **{% octicon "key" aria-label="The key icon" %} {% data variables.product.pat_generic_caps %}** , cliquez sur **Demandes en attente**. Si des jetons sont en attente d’approbation pour votre organisation, ils s’affichent.
+1. Cliquez sur le nom du jeton que vous voulez approuver ou refuser.
+1. Passez en revue l’accès et les autorisations demandés par le jeton.
+1. Pour accorder au jeton l’accès à l’organisation, cliquez sur **Approuver**. Pour refuser au jeton l’accès à l’organisation, cliquez sur **Refuser**.
+1. Si vous avez refusé la demande, dans la zone de confirmation, entrez si vous le souhaitez la raison pour laquelle vous avez refusé le jeton. Cette raison sera partagée dans la notification envoyée au propriétaire du jeton. Ensuite, cliquez sur **Refuser**.
 
-Alternatively, you can approve or deny multiple tokens at once:
+Vous pouvez aussi approuver ou refuser plusieurs jetons à la fois :
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-1. In the left sidebar, under **{% octicon "key" aria-label="The key icon" %} {% data variables.product.pat_generic_caps %}s**, click **Pending requests**. If any tokens are pending approval for your organization, they will be displayed.
-{% data reusables.user-settings.patv2-filters %}
-1. Select each token that you want to approve or reject.
-1. Select the **request selected...** dropdown menu and click **Approve...** or **Deny...**.
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %}
+1. Dans la barre latérale gauche, sous **{% octicon "key" aria-label="The key icon" %} {% data variables.product.pat_generic_caps %}** , cliquez sur **Demandes en attente**. Si des jetons sont en attente d’approbation pour votre organisation, ils s’affichent.
+1. Si vous le souhaitez, utilisez les menus déroulants **Propriétaire** et **Dépôt** pour filtrer les demandes selon le membre qui fait la demande.
+1. Sélectionnez chaque jeton que vous voulez approuver ou rejeter.
+1. Sélectionnez le menu déroulant **Demande sélectionnée...** , puis cliquez sur **Approuver...** ou sur **Refuser...** .

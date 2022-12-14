@@ -1,89 +1,60 @@
 ---
-title: Collaborating with maintainers using discussions
+title: Collaboration avec les chargés de maintenance à travers les discussions
 shortTitle: Collaborating with maintainers
-intro: 'You can contribute to the goals, plans, health, and community for a project on {% data variables.product.product_name %} by communicating with the maintainers of the project in a discussion.'
+intro: 'Vous pouvez contribuer aux objectifs, plans, santé et communauté d’un projet dans {% data variables.product.product_name %} en communiquant avec les chargés de maintenance du projet dans une discussion.'
 permissions: 'People with read access to a repository can start and participate in discussions and polls in the repository. People with read access to the source repository for organization discussions can start and participate in discussions and polls in the organization. {% data reusables.enterprise-accounts.emu-permission-interact %}'
 versions:
   feature: discussions
+ms.openlocfilehash: f090088d55e946e67c1f0b5d790deca9fd794a90
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147410250'
 ---
+## À propos de la collaboration avec les chargés de maintenance en utilisant {% data variables.product.prodname_discussions %}
 
-
-## About collaboration with maintainers using {% data variables.product.prodname_discussions %}
-
-{% data reusables.discussions.about-discussions %} If you use or contribute to a project, you can start a discussion to make suggestions and engage with maintainers and community members about your plans, questions, ideas, and feedback. For more information, see "[About discussions](/discussions/collaborating-with-your-community-using-discussions/about-discussions)."
+{% data reusables.discussions.about-discussions %} Si vous utilisez un projet ou contribuez à un projet, vous pouvez commencer une discussion pour formuler des suggestions, et entrer en contact avec les chargés de maintenance et les membres de la communauté au sujet de vos plans, questions, idées et commentaires. Pour plus d’informations, consultez « [À propos des discussions](/discussions/collaborating-with-your-community-using-discussions/about-discussions) ».
 
 {% data reusables.discussions.about-categories-and-formats %} {% data reusables.discussions.about-announcement-format %} 
 
-Repository administrators and project maintainers can delete a discussion in that repository. Similarly, administrators and maintainers of the source repository for an organization's discussions can delete a discussion in that organization. For more information, see "[Managing discussions](/discussions/managing-discussions-for-your-community/managing-discussions#deleting-a-discussion)."
+Les administrateurs de dépôt et les chargés de maintenance de projet peuvent supprimer une discussion dans ce dépôt. De même, les administrateurs et les chargés de maintenance du dépôt source des discussions d’une organisation peuvent supprimer une discussion dans cette organisation. Pour plus d’informations, consultez « [Gestion des discussions](/discussions/managing-discussions-for-your-community/managing-discussions#deleting-a-discussion) ».
 
-{% data reusables.discussions.github-recognizes-members %} These members appear in a list of the most helpful contributors to the project's discussions. As your project grows, you can grant higher access permissions to active members of your community. For more information, see "[Granting higher permissions to top contributors](/discussions/guides/granting-higher-permissions-to-top-contributors)"
+{% data reusables.discussions.github-recognizes-members %} Ces membres apparaissent dans une liste des contributeurs les plus utiles aux discussions du projet. Quand votre projet se développe, vous pouvez accorder des autorisations d’accès plus élevées aux membres actifs de votre communauté. Pour plus d’informations, consultez « [Octroi d’autorisations plus élevées aux principaux contributeurs](/discussions/guides/granting-higher-permissions-to-top-contributors) »
 
-![Most helpful contributors to discussions for a project](/assets/images/help/discussions/most-helpful.png)
+![Contributeurs les plus utiles aux discussions d’un projet](/assets/images/help/discussions/most-helpful.png)
 
-Community members can upvote discussions and top-level comments inside discussions to communicate with maintainers about ideas that matter to them. Project maintainers can then sort discussions and comments based on upvotes to gain insight into what community members value.
+Pour plus d’informations sur la participation à des discussions, consultez « [Participation à une discussion](/discussions/collaborating-with-your-community-using-discussions/participating-in-a-discussion) ».
 
-For more information about participation in discussions, see "[Participating in a discussion](/discussions/collaborating-with-your-community-using-discussions/participating-in-a-discussion)."
+## Prérequis
 
-## Prerequisites
+Pour collaborer avec des chargés de maintenance dans des discussions de dépôt, un administrateur de dépôt ou un chargé de maintenance de projet doit activer {% data variables.product.prodname_discussions %} pour le dépôt. Pour plus d’informations, consultez « [Activation ou désactivation de {% data variables.product.prodname_discussions %} pour un dépôt](/github/administering-a-repository/enabling-or-disabling-github-discussions-for-a-repository) ».
 
-To collaborate with maintainers in repository discussions, a repository administrator or project maintainer must enable {% data variables.product.prodname_discussions %} for the repository. For more information, see "[Enabling or disabling {% data variables.product.prodname_discussions %} for a repository](/github/administering-a-repository/enabling-or-disabling-github-discussions-for-a-repository)."
+Pour collaborer avec les chargés de maintenance dans les discussions de l’organisation, {% data variables.product.prodname_discussions %} doit être activé pour l’organisation. Pour plus d’informations, consultez « [Activation ou désactivation de {% data variables.product.prodname_discussions %} pour une organisation](/organizations/managing-organization-settings/enabling-or-disabling-github-discussions-for-an-organization) ».
 
-To collaborate with maintainers in organization discussions, {% data variables.product.prodname_discussions %} must be enabled for the organization. For more information, see "[Enabling or disabling {% data variables.product.prodname_discussions %} for an organization](/organizations/managing-organization-settings/enabling-or-disabling-github-discussions-for-an-organization)."
-
-## Starting a discussion
+## Démarrage d’une discussion
 
 {% data reusables.discussions.starting-a-discussion %}
 
-## Starting a poll
+## Démarrage d’un sondage
 
 {% data reusables.discussions.starting-a-poll %}
 
-## Filtering the list of discussions
+## Filtrage de la liste de discussions
 
-You can search for discussions and filter the list of discussions in a repository or organization. For more information, see "[Searching discussions](/search-github/searching-on-github/searching-discussions)."
+Vous pouvez rechercher des discussions et filtrer la liste des discussions dans un dépôt ou une organisation. Pour plus d’informations, consultez « [Recherche dans les discussions](/search-github/searching-on-github/searching-discussions) ».
 
-{% data reusables.discussions.navigate-to-repo-or-org %}
-{% data reusables.discussions.discussions-tab %}
-1. In the **Search all discussions** field, type a search query. Optionally, to the right of the search field, click a button to further filter the results.
-  ![Search bar and buttons for filtering discussions](/assets/images/help/discussions/search-and-filter-controls.png)
-1. In the list of discussions, click the discussion you want to view.
-  ![Discussion search results](/assets/images/help/discussions/search-result.png)
+{% data reusables.discussions.navigate-to-repo-or-org %} {% data reusables.discussions.discussions-tab %}
+1. Dans le champ **Rechercher dans toutes les discussions**, tapez une requête de recherche. À droite du champ de recherche, vous pouvez cliquer sur un bouton pour filtrer davantage les résultats.
+  ![Barre de recherche et boutons pour filtrer les discussions](/assets/images/help/discussions/search-and-filter-controls.png)
+1. Dans la liste des discussions, cliquez sur la discussion à afficher.
+  ![Résultats de la recherche de discussion](/assets/images/help/discussions/search-result.png)
 
-## Sorting the list of discussions
+## Conversion d’un problème en discussion
 
-You can choose how to sort the list of discussions.
+{% data reusables.discussions.you-can-convert-an-issue %} Pour plus d’informations, consultez « [Modération des discussions](/discussions/managing-discussions-for-your-community/moderating-discussions#converting-an-issue-to-a-discussion) ».
 
-{% data reusables.discussions.navigate-to-repo-or-org %}
-{% data reusables.discussions.discussions-tab %}
-1. To the right of the **Search all discussions** field, select **New**, or select **Top** and choose a time period from the drop down menu.
+## Pour aller plus loin
 
-   ![Buttons for sorting discussions](/assets/images/help/discussions/sort-discussions-buttons.png)
-
-    - Sort by **New** to display the discussions with the most recent activity at the top of the list.
-    - Sort by **Top** to display the discussions with the most upvotes at the top of the list. You can limit the list to only display discussions from a specific time period.
-
-## Sorting top-level comments in discussions
-
-You can choose how to sort top-level comments in discussions. Comment threads do not impact the order comments are sorted in.
-
-{% data reusables.discussions.navigate-to-repo-or-org %}
-{% data reusables.discussions.discussions-tab %}
-{% data reusables.discussions.click-discussion-in-list %}
-1. Under the main discussion post, select **Oldest**, **Newest**, or **Top**.
-
-   ![Buttons for sorting comments in discussions](/assets/images/help/discussions/sort-comments-buttons.png)
-
-    - Sort by **Oldest** to display the oldest top-level comments first.
-    - Sort by **Newest** to display the newest top-level comments first.
-    - Sort by **Top** to display the most upvoted top-level comments first.
-
-## Converting an issue to a discussion
-
-{% data reusables.discussions.you-can-convert-an-issue %} For more information, see "[Moderating discussions](/discussions/managing-discussions-for-your-community/moderating-discussions#converting-an-issue-to-a-discussion)."
-
-## Further reading
-
-- "[About writing and formatting on {% data variables.product.prodname_dotcom %}](/github/writing-on-github/about-writing-and-formatting-on-github)"
-{%- ifversion fpt or ghec %}
-- "[Maintaining your safety on {% data variables.product.prodname_dotcom %}](/communities/maintaining-your-safety-on-github)"
-{%- endif %}
+- « [À propos de l’écriture et de la mise en forme sur {% data variables.product.prodname_dotcom %}](/github/writing-on-github/about-writing-and-formatting-on-github) » {%- ifversion fpt or ghec %}
+- « [Gestion de votre sécurité sur {% data variables.product.prodname_dotcom %}](/communities/maintaining-your-safety-on-github) » {%- endif %}

@@ -1,6 +1,6 @@
 ---
-title: Verifying your email address
-intro: 'Verifying your primary email address ensures strengthened security, allows {% data variables.product.prodname_dotcom %} staff to better assist you if you forget your password, and gives you access to more features on {% data variables.product.prodname_dotcom %}.'
+title: Vérification de votre adresse e-mail
+intro: 'La vérification de votre adresse e-mail principale garantit une sécurité renforcée, permet au personnel {% data variables.product.prodname_dotcom %} de mieux vous aider si vous oubliez votre mot de passe et vous donne accès à d’autres fonctionnalités dans {% data variables.product.prodname_dotcom %}.'
 redirect_from:
   - /articles/troubleshooting-email-verification
   - /articles/setting-up-email-verification
@@ -13,59 +13,64 @@ versions:
 topics:
   - Accounts
 shortTitle: Verify your email address
+ms.openlocfilehash: 75c455907ab0cc89f1ba8b30d6fa1d37f2d9798f
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145109497'
 ---
-## About email verification
+## À propos de la vérification d’e-mail
 
-You can verify your email address after signing up for a new account, or when you add a new email address. If an email address is undeliverable or bouncing, it will be unverified.
+Vous pouvez vérifier votre adresse e-mail après vous être inscrit pour obtenir un nouveau compte ou quand vous ajoutez une nouvelle adresse e-mail. Si une adresse e-mail ne permet pas de remettre des messages ou rebondit, elle est non vérifiée.
 
-If you do not verify your email address, you will not be able to:
-  - Create or fork repositories
-  - Create issues or pull requests
-  - Comment on issues, pull requests, or commits
-  - Authorize {% data variables.product.prodname_oauth_app %} applications
-  - Generate {% data variables.product.pat_generic %}s
-  - Receive email notifications
-  - Star repositories
-  - Create or update project boards, including adding cards
-  - Create or update gists
-  - Create or use {% data variables.product.prodname_actions %}
-  - Sponsor developers with {% data variables.product.prodname_sponsors %}
+Si vous ne vérifiez pas votre adresse e-mail, vous ne pouvez pas :
+  - Créer ou dupliquer (fork) des dépôts
+  - Créer des problèmes ou des demandes de tirage
+  - Émettre des commentaires sur des problèmes, des demandes de tirage ou des commits
+  - Autoriser des applications {% data variables.product.prodname_oauth_app %}
+  - Générer des jetons d’accès personnels
+  - Recevoir des notifications par courrier électronique
+  - Donner des étoiles à des dépôts
+  - Créer ou mettre à jour des tableaux de projet, notamment en ajoutant des cartes
+  - Créer ou mettre à jour des gists
+  - Créer ou utiliser {% data variables.product.prodname_actions %}
+  - Parrainer des développeurs avec {% data variables.product.prodname_sponsors %}
 
 {% warning %}
 
-**Warnings**:
+**Avertissements** :
 
 - {% data reusables.user-settings.no-verification-disposable-emails %}
 - {% data reusables.user-settings.verify-org-approved-email-domain %}
 
 {% endwarning %}
 
-## Verifying your email address
+## Vérification de votre adresse e-mail
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.emails %}
-1. Under your email address, click **Resend verification email**.
-  ![Resend verification email link](/assets/images/help/settings/email-verify-button.png)
-4. {% data variables.product.prodname_dotcom %} will send you an email with a link in it. After you click that link, you'll be taken to your {% data variables.product.prodname_dotcom %} dashboard and see a confirmation banner.
-  ![Banner confirming that your email was verified](/assets/images/help/settings/email-verification-confirmation-banner.png)
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.emails %}
+1. Sous votre adresse e-mail, cliquez sur **Renvoyer un e-mail de vérification**.
+  ![Lien Renvoyer un e-mail de vérification](/assets/images/help/settings/email-verify-button.png)
+4. {% data variables.product.prodname_dotcom %} vous envoie un e-mail contenant un lien. Une fois que vous cliquez sur ce lien, vous êtes redirigé vers votre tableau de bord {% data variables.product.prodname_dotcom %} et une bannière de confirmation apparaît.
+  ![Bannière confirmant que votre adresse e-mail a été vérifiée](/assets/images/help/settings/email-verification-confirmation-banner.png)
 
-## Troubleshooting email verification
+## Résolution des problèmes de vérification d’adresse e-mail
 
-### Unable to send verification email
+### Impossible d’envoyer un e-mail de vérification
 
 {% data reusables.user-settings.no-verification-disposable-emails %}
 
-### Error page after clicking verification link
+### Page d’erreur après avoir cliqué sur le lien de vérification
 
-The verification link expires after 24 hours. If you don't verify your email within 24 hours, you can request another email verification link. For more information, see "[Verifying your email address](/articles/verifying-your-email-address)."
+Le lien de vérification expire au bout de 24 heures. Si vous ne vérifiez pas votre e-mail dans un délai de 24 heures, vous pouvez demander un autre lien de vérification d’adresse e-mail. Pour plus d’informations, consultez « [Vérification de votre adresse e-mail](/articles/verifying-your-email-address) ».
 
-If you click on the link in the confirmation email within 24 hours and you are directed to an error page, you should ensure that you're signed into the correct account on {% data variables.location.product_location %}.
+Si vous cliquez sur le lien contenu dans l’e-mail de confirmation dans un délai de 24 heures et que vous êtes dirigé vers une page d’erreur, vous devez vérifier que vous êtes connecté au compte adéquat sur {% data variables.product.product_location %}.
 
-1. {% data variables.product.signout_link %} of your personal account on {% data variables.location.product_location %}.
-2. Quit and restart your browser.
-3. {% data variables.product.signin_link %} to your personal account on {% data variables.location.product_location %}.
-4. Click on the verification link in the email we sent you.
+1. {% data variables.product.signout_link %} de votre compte personnel sur {% data variables.product.product_location %}.
+2. Quittez et redémarrez votre navigateur.
+3. {% data variables.product.signin_link %} à votre compte personnel sur {% data variables.product.product_location %}.
+4. Cliquez sur le lien de vérification dans l’e-mail que nous vous avons envoyé.
 
-## Further reading
+## Pour aller plus loin
 
-- "[Changing your primary email address](/articles/changing-your-primary-email-address)"
+- « [Modification de votre adresse e-mail principale](/articles/changing-your-primary-email-address) »

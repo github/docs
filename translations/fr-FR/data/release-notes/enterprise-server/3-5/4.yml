@@ -1,33 +1,32 @@
 date: '2022-08-11'
 sections:
   security_fixes:
-    - |
-      **CRITICAL**: GitHub Enterprise Server's Elasticsearch container used a version of OpenJDK 8 that was vulnerable to an integer truncation issue when processing malicious XSLT stylesheets. The vulnerability is tracked as [CVE-2022-34169](https://github.com/advisories/GHSA-9339-86wc-4qgf).
-    - |
-      **HIGH**: Previously installed apps on user accounts were automatically granted permission to access an organization on scoped access tokens after the user account was transformed into an organization account. This vulnerability was reported via the [GitHub Bug Bounty program](https://bounty.github.com).
+    - |**CRITIQUE** : Le conteneur Elasticsearch de GitHub Enterprise Server utilise une version d’OpenJDK 8 qui est vulnérable à un problème de troncature d’entier lors du traitement de feuilles de style XSLT malveillantes. La vulnérabilité est répertoriée sous le nom de [CVE-2022-34169](https://github.com/advisories/GHSA-9339-86wc-4qgf).
+
+|
+    - |**ÉLEVÉ** : Les applications installées précédemment sur des comptes d’utilisateur se voyaient automatiquement accorder l’autorisation d’accéder à une organisation sur des jetons d’accès avec étendue après la transformation du compte d’utilisateur en compte d’organisation. Cette vulnérabilité a été signalée via le [programme GitHub Bug Bounty](https://bounty.github.com).
+
+|
   bugs:
-    - In some cases, GitHub Enterprise Server instances on AWS that used the `r4.4xlarge` instance type would fail to boot.
-    - In some cases, UI elements within a pull request's **Files changed** tab could overlap. 
-    - When a custom dormancy threshold was set for the instance, suspending all dormant users did not reliably respect the threshold. For more information about dormancy, see "[Managing dormant users](/admin/user-management/managing-users-in-your-enterprise/managing-dormant-users)."
-    - When calculating committers for GitHub Advanced Security, it was not possible to specify individual repositories. For more information, see "[Site admin dashboard](/admin/configuration/configuring-your-enterprise/site-admin-dashboard#advanced-security-committers)."
-    - In some cases, Elasticsearch's post-upgrade `es:upgrade` process could crash before completion.
-    - The script for migration to internal repositories failed to convert the visibility for public repositories to internal or private. For more information about the migration, see "[Migrating to internal repositories](/admin/user-management/managing-repositories-in-your-enterprise/migrating-to-internal-repositories)."
-    - Detection of GitHub Actions workflow files for the dependency graph was unavailable in GitHub Enterprise Server 3.5.0, 3.5.1, 3.5.2, and 3.5.3, but is now available in 3.5.4. For more information, see "[About the dependency graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph#supported-package-ecosystems)."
-    - The ability to reopen dismissed Dependabot alerts was unavailable in GitHub Enterprise Server 3.5.0, 3.5.1, 3.5.2, and 3.5.3, but is now available in 3.5.4. For more information, see "[Viewing and updating Dependabot alerts](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts#viewing-and-updating-closed-alerts)."
-    - The ability to always suggest updates from the base branch to a pull request's HEAD was unavailable in GitHub Enterprise Server 3.5.0, 3.5.1, 3.5.2, and 3.5.3, but is now available in 3.5.4. For more information, see "[Managing suggestions to update pull request branches](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/managing-suggestions-to-update-pull-request-branches)."
-    - The light high contrast theme was unavailable in GitHub Enterprise Server 3.5.0, 3.5.1, 3.5.2, and 3.5.3, but is now available in 3.5.4. For more information, see "[Managing your theme settings](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/managing-your-theme-settings)."
+    - "Dans certains cas, les instances GitHub Enterprise Server sur AWS qui utilisaient le type d’instance `r4.4xlarge` ne démarraient pas."
+    - "Dans certains cas, les éléments de l’interface utilisateur dans l’onglet **Fichiers modifiés** d’une demande de tirage peuvent se chevaucher." 
+    - "Lorsqu’un seuil de dormance personnalisé était défini pour l’instance, la suspension de tous les utilisateurs dormants ne respectait pas le seuil de manière fiable. Pour plus d’informations sur la dormance, consultez « [Gestion des utilisateurs dormants](/admin/user-management/managing-users-in-your-enterprise/managing-dormant-users). »"
+    - "Lors du calcul des validateurs pour GitHub Advanced Security, il n’était pas possible de spécifier des référentiels individuels. Pour plus d’informations, consultez « [Tableau de bord de l’administrateur du site](/admin/configuration/configuring-your-enterprise/site-admin-dashboard#advanced-security-committers) »"
+    - "Dans certains cas, le processus de post-mise à niveau `es:upgrade` d’Elasticsearch pouvait se bloquer avant la fin."
+    - "Le script de migration vers les référentiels internes ne parvenait pas à convertir la visibilité des référentiels publics en référentiels internes ou privés. Pour plus d’informations sur la migration, consultez « [Migration vers des référentiels internes](/admin/user-management/managing-repositories-in-your-enterprise/migrating-to-internal-repositories) »"
+    - "La détection des fichiers de workflow GitHub Actions pour le graphe des dépendances n’était pas disponible dans GitHub Enterprise Server 3.5.0, 3.5.1, 3.5.2 et 3.5.3, mais l’est désormais dans la version 3.5.4. Pour plus d’informations, consultez « [À propos du graphe de dépendances](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph#supported-package-ecosystems) »"
+    - "La possibilité de rouvrir des alertes Dependabot rejetées n’était pas disponible dans GitHub Enterprise Server 3.5.0, 3.5.1, 3.5.2 et 3.5.3, mais l’est désormais dans la version 3.5.4. Pour plus d’informations, consultez « [Affichage et mise à jour des alertes Dependabot](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts#viewing-and-updating-closed-alerts) »"
+    - "La possibilité de toujours suggérer des mises à jour de la branche de base vers le HEAD d’une demande de tirage n’était pas disponible dans GitHub Enterprise Server 3.5.0, 3.5.1, 3.5.2 et 3.5.3, mais l’est désormais dans la version 3.5.4. Pour plus d’informations, consultez « [Gestion des suggestions de mise à jour des branches demande de tirage](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/managing-suggestions-to-update-pull-request-branches) »"
+    - "Le thème clair à fort contraste n’était pas disponible dans GitHub Enterprise Server 3.5.0, 3.5.1, 3.5.2 et 3.5.3, mais l’est désormais dans la version 3.5.4. Pour plus d’informations, consultez « [Gérer les paramètres de votre thème](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/managing-your-theme-settings). »"
   changes:
-    - '`pre_receive_hook.rejected_push` events were not displayed in the enterprise audit log.'
+    - 'les événements `pre_receive_hook.rejected_push` n’étaient pas affichés dans le journal d’audit de l’entreprise.'
   known_issues:
-    - On a freshly set up {% data variables.product.prodname_ghe_server %} instance without any users, an attacker could create the first admin user.
-    - Custom firewall rules are removed during the upgrade process.
-    - Git LFS tracked files [uploaded through the web interface](https://github.com/blog/2105-upload-files-to-your-repositories) are incorrectly added directly to the repository.
-    - Issues cannot be closed if they contain a permalink to a blob in the same repository, where the blob's file path is longer than 255 characters.
-    - When "Users can search GitHub.com" is enabled with GitHub Connect, issues in private and internal repositories are not included in GitHub.com search results.
-    - The {% data variables.product.prodname_registry %} npm registry no longer returns a time value in metadata responses. This was done to allow for substantial performance improvements. We continue to have all the data necessary to return a time value as part of the metadata response and will resume returning this value in the future once we have solved the existing performance issues.
-    - Resource limits that are specific to processing pre-receive hooks may cause some pre-receive hooks to fail.
-    - Actions services need to be restarted after restoring an appliance from a backup taken on a different host.
+    - "Sur une instance fraîchement configurée de {% data variables.product.prodname_ghe_server %} sans aucun utilisateur, un attaquant pourrait créer le premier utilisateur administrateur."
+    - Les règles de pare-feu personnalisées sont supprimées pendant le processus de mise à niveau.
+    - "Les fichiers suivis par Git LFS [chargés via l’interface web](https://github.com/blog/2105-upload-files-to-your-repositories) sont incorrectement ajoutés directement au référentiel."
+    - "Les questions ne peuvent pas être fermées si elles contiennent un permalien vers un blob dans le même référentiel, où le chemin de fichier du blob est supérieur à 255 caractères."
+    - "Lorsque l’option « Les utilisateurs peuvent effectuer des recherches sur GitHub.com » est activée avec GitHub Connect, les problèmes dans les référentiels privés et internes ne sont pas inclus dans les résultats de recherche de GitHub.com."
+    - "Le registre npm {% data variables.product.prodname_registry %} ne renvoie plus une valeur de temps dans les réponses de métadonnées. Cela a été fait pour permettre des améliorations substantielles des performances. Nous disposons toujours de toutes les données nécessaires pour renvoyer une valeur de temps dans le cadre de la réponse aux métadonnées et nous recommencerons à renvoyer cette valeur à l’avenir, une fois que nous aurons résolu les problèmes de performance existants."
+    - Les limites de ressources spécifiques au traitement des hooks de pré-réception peuvent entraîner l’échec de certains hooks de pré-réception.
+    - Les services Actions doivent être redémarrés après avoir restauré une appliance à partir d’une sauvegarde effectuée sur un hôte différent.
     - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'
-    - |
-      GitHub Pages builds may time out on instances in AWS that are configured for high availability. [Updated: 2022-11-28]
-    - '{% data reusables.release-notes.babeld-max-threads-performance-issue %}'

@@ -1,0 +1,20 @@
+date: '06/05/2021'
+release_candidate: true
+deprecated: true
+intro: "Si {% data variables.product.product_location %} exécute une build de version finale (RC), vous ne pouvez pas effectuer de mise à niveau avec un patch à chaud. Nous vous recommandons d’exécuter les versions Release Candidate uniquement sur des environnements de test."
+sections:
+  security_fixes:
+    - '**MOYENNE** Dans certaines circonstances, les utilisateurs qui ont été retirés d’une équipe ou d’une organisation pouvaient conserver l’accès en écriture aux branches pour lesquelles ils avaient des demandes de tirage ouvertes.'
+    - Les packages ont été mis à jour avec les dernières versions de sécurité.
+  bugs:
+    - 'Un travail de nettoyage planifié peut entraîner une dégradation des performances sur une instance avec une table « check_annotations » très grande.'
+  changes:
+    - Les annotations de contrôle datant de plus de 4 mois seront archivées.
+    - 'Le champ « firstPatchedVersion » est désormais disponible sur les objets « SecurityVulnerability » dans l’API GraphQL.'
+  known_issues:
+    - "Le registre npm GitHub Packages ne retourne plus une valeur de temps dans les réponses de métadonnées. Cela a été fait pour permettre des améliorations substantielles des performances. Nous disposons toujours de toutes les données nécessaires pour retourner une valeur de temps dans le cadre de la réponse aux métadonnées et nous recommencerons à retourner cette valeur à l’avenir, une fois que nous aurons résolu les problèmes de performance existants."
+    - "Sur un serveur GitHub Enterprise fraîchement configuré et sans utilisateur, un attaquant pourrait créer le premier utilisateur administrateur."
+    - Les règles de pare-feu personnalisées ne sont pas conservées lors d’une mise à niveau.
+    - "Les fichiers suivis par Git LFS [chargés via l’interface web](https://github.com/blog/2105-upload-files-to-your-repositories) sont incorrectement ajoutés directement au dépôt."
+    - "Les questions ne peuvent pas être fermées si elles contiennent un permalien vers un blob dans le même dépôt, où le chemin de fichier est supérieur à 255 caractères."
+    - "Quand l’option « Les utilisateurs peuvent effectuer des recherches sur GitHub.com » est activée avec GitHub Connect, les problèmes dans les dépôts privés et internes ne sont pas inclus dans les résultats de recherche de GitHub.com."

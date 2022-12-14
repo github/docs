@@ -1,30 +1,36 @@
 ---
-title: View autograding results
-intro: You can see results from autograding within the repository for your assignment.
+title: Voir les résultats de l’évaluation automatique
+intro: Vous pouvez voir les résultats de l’évaluation automatique de votre devoir dans le dépôt.
 versions:
   fpt: '*'
 redirect_from:
   - /education/manage-coursework-with-github-classroom/reviewing-auto-graded-work-students
   - /education/manage-coursework-with-github-classroom/view-autograding-results
+ms.openlocfilehash: ea4de9b0122e39f5ecb4d960d4f0ee8c94ba2ee5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145106370'
 ---
-## About autograding
+## À propos de l’évaluation automatique
 
-Your teacher can configure tests that automatically check your work when you push to an assignment repository on {% data variables.location.product_location %}.
+Votre enseignant peut configurer des tests qui vérifient automatiquement votre travail quand vous le poussez dans un dépôt de devoir sur {% data variables.product.product_location %}.
 
-If you're a student and your instructor has configured autograding for your assignment in {% data variables.product.prodname_classroom %}, you'll find autograding test results throughout your assignment repository. If all tests succeed for a commit, you'll see a green checkmark. If any tests fail for a commit, you'll see a red X. You can see detailed logs by clicking the green checkmark or red X.
+Si vous êtes étudiant et que votre instructeur a configuré l’évaluation automatique pour votre devoir dans {% data variables.product.prodname_classroom %}, vous obtenez les résultats de test d’évaluation automatique dans votre dépôt de devoir. Si tous les tests d’un commit réussissent, une coche verte s’affiche. Si des tests de commit échouent, un X rouge s’affiche. Vous pouvez voir les journaux détaillés en cliquant sur la coche verte ou le X rouge.
 
-## Viewing autograding results for an assignment repository
+## Consultation des résultats d’évaluation automatique pour un dépôt de devoir
 
-{% data variables.product.prodname_classroom %} uses {% data variables.product.prodname_actions %} to run autograding tests. For more information about viewing the logs for an autograding test, see "[Using workflow run logs](/actions/managing-workflow-runs/using-workflow-run-logs#viewing-logs-to-diagnose-failures)."
+{% data variables.product.prodname_classroom %} utilise {% data variables.product.prodname_actions %} pour exécuter des tests d’évaluation automatique. Pour plus d’informations sur la consultation des journaux d’un test d’évaluation automatique, consultez « [Utilisation des journaux d’exécution de workflow](/actions/managing-workflow-runs/using-workflow-run-logs#viewing-logs-to-diagnose-failures) ».
 
-The **Actions** tab shows the full history of test runs.
+L’onglet **Actions** affiche l’historique complet des séries de tests.
 
-!["Actions" tab with "All workflows" selected](/assets/images/help/classroom/autograding-actions-tab.png)
+![Onglet « Actions » avec « Tous les workflows » sélectionné](/assets/images/help/classroom/autograding-actions-tab.png)
 
-You can click a specific test run to review log output, like compilation errors and test failures.
+Vous pouvez cliquer sur une série de tests spécifique pour passer en revue la sortie du journal, comme les erreurs de compilation et les échecs de test.
 
-![The "{% data variables.product.prodname_classroom %} Autograding Workflow" test results logs in {% data variables.product.prodname_actions %} ](/assets/images/help/classroom/autograding-actions-logs.png)
+![Journaux de résultats de test « Workflow d’évaluation automatique {% data variables.product.prodname_classroom %} » dans {% data variables.product.prodname_actions %} ](/assets/images/help/classroom/autograding-actions-logs.png)
 
-## Further reading
+## Pour aller plus loin
 
-- "[About status checks](/github/collaborating-with-issues-and-pull-requests/about-status-checks)"
+- « [À propos des vérifications d’état](/github/collaborating-with-issues-and-pull-requests/about-status-checks) »

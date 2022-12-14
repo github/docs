@@ -1,0 +1,45 @@
+date: '27/07/2021'
+sections:
+  security_fixes:
+    - Les packages ont été mis à jour avec les dernières versions de sécurité.
+  bugs:
+    - Les décomptes dans les pages de packages n’étaient pas incrémentés quand un package était téléchargé.
+    - '« ghe-config-apply » atteignait le délais d’attente, appelait une invite ou échouait pour un client qui avait {% data variables.product.prodname_secret_scanning %} activé, et avait désactivé ou n’avait jamais activé {% data variables.product.prodname_actions %} sur son instance.'
+    - "Les fichiers journaux n’étaient pas rouverts après la rotation, pouvant parfois entraîner une forte utilisation de l’espace disque sur les instances ayant une durée de bon fonctionnement élevée."
+    - "Une mise à niveau pouvait échouer à partir d’une ancienne version de {% data variables.product.prodname_ghe_server %} en raison d’un travail manquant dans {% data variables.product.prodname_actions %}."
+    - 'Les hooks de pré-réception personnalisés pouvaient engendrer une erreur telle que « erreur : le répertoire d’objets /data/user/repositories/0/nw/12/34/56/7890/network.git/objects n’existe pas ; vérifiez .git/objects/info/alternates ».'
+    - Le proxy HTTP non authentifié pour la build de conteneurs de pages n’était pas pris en charge pour les utilisateurs recourant à des proxys HTTP.
+    - Un nombre significatif d’erreurs 503 était journalisé chaque fois qu’un utilisateur visitait la page « /settings » d’un dépôt si le graphe de dépendances n’était pas activé.
+    - Les dépôts internes n’étaient retournés que quand un utilisateur avait des affiliations avec le dépôt par le biais d’une équipe ou d’un statut de collaborateur ou interrogeait avec le paramètre « ?type=internal ».
+    - "Les échecs des travaux en arrière-plan donnaient lieu à des nouvelles tentatives illimitées, ce qui pouvait entraîner de grandes longueurs de file d’attente."
+    - Un nombre significatif d’erreurs 503 était créé si le travail planifié pour synchroniser les vulnérabilités avec GitHub.com essayait de s’exécuter quand le graphe de dépendances n’était pas activé et que l’analyse de contenu était activée.
+    - |Quand {% data variables.product.prodname_actions %} est activé sans que des sauvegardes régulières soient effectuées, le journal des transactions MSSQL pouvait croître sans limite et consommer tout l’espace disponible sur le disque de données de l’appareil, ce qui pouvait entraîner une panne.
+
+
+
+Si vous avez configuré des sauvegardes MSSQL régulièrement planifiées, aucune action supplémentaire n’est requise. Sinon, si {% data variables.product.prodname_actions %} était déjà activé, exécutez les commandes suivantes après avoir installé ce correctif.
+
+
+
+```
+
+ghe-actions-console -s Mps -c ''Update-Service -Force''
+
+ghe-actions-console -s Token -c ''Update-Service -Force''
+
+ghe-actions-console -s Actions -c ''Update-Service -Force''
+
+```
+
+|
+  changes:
+    - Les journaux pour « babeld » incluent désormais un champ « cmd » pour les demandes de publication de référence HTTP au lieu de l’inclure uniquement pendant les demandes de négociation.
+  known_issues:
+    - "Le registre npm {% data variables.product.prodname_registry %} ne retourne plus une valeur de temps dans les réponses de métadonnées. Cela a été fait pour permettre des améliorations substantielles des performances. Nous disposons toujours de toutes les données nécessaires pour retourner une valeur de temps dans le cadre de la réponse aux métadonnées et nous recommencerons à retourner cette valeur à l’avenir, une fois que nous aurons résolu les problèmes de performance existants."
+    - "Sur un {% data variables.product.prodname_ghe_server %} fraîchement configuré sans aucun utilisateur, un attaquant pourrait créer le premier utilisateur administrateur."
+    - Les règles de pare-feu personnalisées sont supprimées pendant le processus de mise à niveau.
+    - "Les fichiers suivis par Git LFS [chargés via l’interface web](https://github.com/blog/2105-upload-files-to-your-repositories) sont incorrectement ajoutés directement au dépôt."
+    - "Les questions ne peuvent pas être fermées si elles contiennent un permalien vers un blob dans le même dépôt, où le chemin de fichier du blob est supérieur à 255 caractères."
+    - "Quand l’option « Les utilisateurs peuvent effectuer des recherches sur GitHub.com » est activée avec GitHub Connect, les problèmes dans les dépôts privés et internes ne sont pas inclus dans les résultats de recherche de GitHub.com."
+    - "Si {% data variables.product.prodname_actions %} est activé pour {% data variables.product.prodname_ghe_server %}, le démontage d’un nœud de réplica avec « ghe-repl-teardown » réussit, mais peut retourner « ERREUR : migrations en cours d’exécution »."
+    - Les limites de ressources spécifiques au traitement des hooks de pré-réception peuvent entraîner l’échec de certains hooks de pré-réception.

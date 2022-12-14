@@ -1,7 +1,15 @@
-For questions, bug reports, and discussions about {% data variables.product.prodname_github_apps %},  {% data variables.product.prodname_oauth_apps %}, and API development, explore the  {% data reusables.support.prodname_support_forum_with_url %}. The discussions are moderated and maintained by {% data variables.product.company_short %} staff, but questions posted to the forum are not guaranteed to receive a reply from {% data variables.product.company_short %} staff.
+---
+ms.openlocfilehash: 01490f812c6a7b54293806a24023f25af2831d8e
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "147432079"
+---
+Pour des questions, des rapports de bogues et des discussions sur {% data variables.product.prodname_github_apps %},  {% data variables.product.prodname_oauth_apps %} et le développement d’API, explorez les données {% data variables.product.prodname_support_forum_with_url %}. Les discussions sont modérées et gérées par le personnel {% data variables.product.company_short %}. Toutefois, il n’est pas garanti que les questions publiées sur le forum reçoivent une réponse du personnel {% data variables.product.company_short %}.
 
-Consider reaching out to [GitHub Support](https://support.github.com/) directly using the contact form for:
-  - guaranteed response from {% data variables.product.product_name %} staff
-  - support requests involving sensitive data or private concerns
-  - feature requests
-  - feedback about {% data variables.product.product_name %} products
+Envisagez de contacter le [Support GitHub](https://support.github.com/) directement à l’aide du formulaire de contact pour :
+  - réponse garantie du personnel de {% data variables.product.product_name %}
+  - les demandes de soutien impliquant des données sensibles ou des préoccupations d’ordre privé
+  - demandes de fonctionnalités
+  - commentaires sur les produits {% data variables.product.product_name %}

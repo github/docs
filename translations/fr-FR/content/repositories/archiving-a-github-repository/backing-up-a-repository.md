@@ -1,6 +1,6 @@
 ---
-title: Backing up a repository
-intro: 'You can use{% ifversion ghes or ghae %} Git and{% endif %} the API {% ifversion fpt or ghec %}or a third-party tool {% endif %}to back up your repository.'
+title: Sauvegarde d’un référentiel
+intro: 'Vous pouvez utiliser{% ifversion ghes or ghae %} Git et{% endif %} l’API {% ifversion fpt or ghec %}ou un outil tiers {% endif %}pour sauvegarder votre dépôt.'
 redirect_from:
   - /articles/backing-up-a-repository
   - /github/creating-cloning-and-archiving-repositories/backing-up-a-repository
@@ -12,34 +12,39 @@ versions:
   ghec: '*'
 topics:
   - Repositories
+ms.openlocfilehash: 3c9a6b5569563858987e338584b3b42bededf716
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147883448'
 ---
 {% ifversion fpt or ghec %}
 
-To download an archive of your repository, you can use the API for user or organization migrations. For more information, see "[Migrations](/rest/reference/migrations)."
+Pour télécharger une archive de votre référentiel, vous pouvez utiliser l’API pour les migrations d’utilisateurs ou d’organisations. Pour plus d’informations, consultez « [Migrations](/rest/reference/migrations) ».
 {% else %}
 
-You can download and back up your repositories manually:
+Vous pouvez télécharger et sauvegarder manuellement vos référentiels :
 
-- To download a repository's Git data to your local machine, you'll need to clone the repository. For more information, see "[Cloning a repository](/articles/cloning-a-repository)."
-- You can also download your repository's wiki. For more information, see "[Adding or editing wiki pages](/communities/documenting-your-project-with-wikis/adding-or-editing-wiki-pages)."
+- Pour télécharger les données Git d’un référentiel sur votre ordinateur local, vous devez cloner ce référentiel. Pour plus d’informations, consultez « [Clonage d’un dépôt](/articles/cloning-a-repository) ».
+- Vous pouvez également télécharger le wiki de votre référentiel. Pour plus d’informations, consultez « [Ajout ou modification des pages wiki](/communities/documenting-your-project-with-wikis/adding-or-editing-wiki-pages) ».
 
-When you clone a repository or wiki, only Git data, such as project files and commit history, is downloaded. You can use our API to export other elements of your repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %} to your local machine:
+Lorsque vous clonez un référentiel ou un wiki, seules les données Git, telles que les fichiers projet et l’historique des validations, sont téléchargées. Vous pouvez utiliser notre API pour exporter d’autres éléments de votre référentiel sur {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} sur votre ordinateur local :
 
-- [Issues](/rest/reference/issues#list-issues-for-a-repository)
-- [Pull requests](/rest/reference/pulls#list-pull-requests)
-- [Forks](/rest/reference/repos#list-forks)
-- [Comments](/rest/reference/issues#list-issue-comments-for-a-repository)
-- [Milestones](/rest/reference/issues#list-milestones)
-- [Labels](/rest/reference/issues#list-labels-for-a-repository)
+- [Problèmes](/rest/reference/issues#list-issues-for-a-repository)
+- [Requêtes de tirage](/rest/reference/pulls#list-pull-requests)
+- [Fourches](/rest/reference/repos#list-forks)
+- [Commentaires](/rest/reference/issues#list-issue-comments-for-a-repository)
+- [Étapes majeures](/rest/reference/issues#list-milestones)
+- [Étiquettes](/rest/reference/issues#list-labels-for-a-repository)
 - [Watchers](/rest/reference/activity#list-watchers)
 - [Stargazers](/rest/reference/activity#list-stargazers)
-- [Projects](/rest/reference/projects#list-repository-projects)
-{% endif %}
+- [Projets](/rest/reference/projects#list-repository-projects) {% endif %}
 
-Once you have {% ifversion ghes or ghae %}a local version of all the content you want to back up, you can create a zip archive and {% else %}downloaded your archive, you can {% endif %}copy it to an external hard drive and/or upload it to a cloud-based backup or storage service such as [Azure Blob Storage](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blobs-overview/), [Google Drive](https://www.google.com/drive/) or [Dropbox](https://www.dropbox.com/).
+Lorsque vous disposez d’une {% ifversion ghes or ghae %}version locale de tout le contenu que vous souhaitez sauvegarder, vous pouvez créer une archive zip et {% else %}après avoir téléchargé votre archive, vous pouvez {% endif %}la copier sur un disque dur externe et/ou le charger dans un service de sauvegarde ou de stockage cloud tel que [Stockage Blob Azure](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blobs-overview/), [Google Drive](https://www.google.com/drive/) ou [Dropbox](https://www.dropbox.com/).
 
 {% ifversion fpt or ghec %}
-## Third-party backup tools
+## Outils de sauvegarde tiers
 
-A number of self-service tools exist that automate backups of repositories. Unlike archival projects, which archive _all_ public repositories on {% data variables.product.product_name %} that have not opted out and make the data accessible to anyone, backup tools will download data from _specific_ repositories and organize it within a new branch or directory. For more information about archival projects, see "[About archiving content and data on {% data variables.product.prodname_dotcom %}](/github/creating-cloning-and-archiving-repositories/about-archiving-content-and-data-on-github#about-the-github-archive-program)." For more information about self-service backup tools, see the [Backup Utilities category on {% data variables.product.prodname_marketplace %}](https://github.com/marketplace?category=backup-utilities).
+Différents outils en libre-service permettent d’automatiser les sauvegardes des référentiels. Contrairement aux projets d’archivage, qui archivent _tous_ les référentiels publics sur {% data variables.product.product_name %} qui n’ont pas refusé et rendent les données accessibles à tous, les outils de sauvegarde téléchargent les données à partir de référentiels _spécifiques_ et les organisent dans une nouvelle branche ou un nouveau répertoire. Pour plus d’informations sur les projets d’archivage, consultez « [À propos de l’archivage du contenu et des données sur {% data variables.product.prodname_dotcom %}](/github/creating-cloning-and-archiving-repositories/about-archiving-content-and-data-on-github#about-the-github-archive-program) ». Pour plus d’informations sur les outils de sauvegarde en libre-service, consultez la [catégorie Utilitaires de sauvegarde sur {% data variables.product.prodname_marketplace %}](https://github.com/marketplace?category=backup-utilities).
 {% endif %}

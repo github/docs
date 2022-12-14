@@ -1,0 +1,19 @@
+date: '24/06/2021'
+sections:
+  security_fixes:
+    - Les packages ont été mis à jour avec les dernières versions de sécurité.
+  bugs:
+    - Un grand nombre de métriques « gauge-dependency-graph-api-dispatch_dispatch » pouvaient s’accumuler dans la console de gestion.
+    - "Parfois, le démarrage du service sshd échouait sur les instances s’exécutant sur Google Cloud Platform."
+    - "Les anciens fichiers de mise à niveau persistaient sur le disque utilisateur, entraînant parfois des conditions d’espace insuffisant."
+    - La rotation des journaux pouvait parfois interrompre les travaux en arrière-plan.
+    - '« gh-migrator » affichait un chemin incorrect vers sa sortie de journal.'
+    - L’importation d’une archive d’exportation échouait si elle contenait des demandes de revue d’équipes non présentes dans l’archive.
+  known_issues:
+    - "Sur un serveur GitHub Enterprise fraîchement configuré et sans utilisateur, un attaquant pourrait créer le premier utilisateur administrateur."
+    - Les règles de pare-feu personnalisées sont supprimées pendant le processus de mise à niveau.
+    - "Les fichiers suivis par Git LFS [chargés via l’interface web](https://github.com/blog/2105-upload-files-to-your-repositories) sont incorrectement ajoutés directement au dépôt."
+    - "Les questions ne peuvent pas être fermées si elles contiennent un permalien vers un blob dans le même dépôt, où le chemin de fichier du blob est supérieur à 255 caractères."
+    - "Quand l’option « Les utilisateurs peuvent effectuer des recherches sur GitHub.com » est activée avec GitHub Connect, les problèmes dans les dépôts privés et internes ne sont pas inclus dans les résultats de recherche de GitHub.com."
+    - "Quand un nœud de réplica est hors ligne dans une configuration de haute disponibilité, {% data variables.product.product_name %} peut toujours acheminer les demandes de {% data variables.product.prodname_pages %} vers le nœud hors ligne, réduisant ainsi la disponibilité de {% data variables.product.prodname_pages %} pour les utilisateurs."
+    - Les limites de ressources spécifiques au traitement des hooks de pré-réception peuvent entraîner l’échec de certains hooks de pré-réception.

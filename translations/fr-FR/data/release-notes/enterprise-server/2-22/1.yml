@@ -1,0 +1,97 @@
+date: '09/10/2020'
+sections:
+  security_fixes:
+    - '**MOYENNE** : ImageMagick a été mis à jour pour corriger [DSA-4715-1](https://www.debian.org/security/2020/dsa-4715). {% comment %} https://github.com/github/enterprise2/pull/22623, https://github.com/github/enterprise2/pull/22610 {% endcomment %}'
+    - 'Les requêtes effectuées à partir d’une intégration d’application GitHub pour actualiser un jeton d’accès OAuth étaient acceptées si elles étaient envoyées avec une clé secrète client et un ID client OAuth valides différents de ceux utilisés pour créer le jeton d’actualisation. {% comment %} https://github.com/github/github/pull/154921, https://github.com/github/github/pull/154423, https://github.com/github/ecosystem-apps/issues/1066 {% endcomment %}'
+    - 'Un utilisateur dont le nom d’utilisateur dans l’annuaire LDAP correspondait au nom d’utilisateur d’un compte GHES existant pouvait s’authentifier dans le compte existant. {% comment %} https://github.com/github/github/pull/156513, https://github.com/github/github/pull/155512 {% endcomment %}'
+    - 'Les packages ont été mis à jour vers les dernières versions de sécurité. {% comment %} https://github.com/github/enterprise2/pull/22912, https://github.com/github/enterprise2/pull/22878 {% endcomment %}'
+
+  bugs:
+    - |La liste déroulante du format NameID dans la console de gestion était réinitialisée à « Non spécifié » après avoir été définie sur « Persistant ». {% comment %} https://github.com/github/enterprise2/pull/22376, https://github.com/github/enterprise2/pull/22331, https://github.com/github/enterprise2/issues/13446 {% endcomment %}
+
+|
+    - |Une mise à niveau avec un patch à chaud pouvait échouer avec une erreur : `''libdbi1'' introuvable` {% comment %} https://github.com/github/enterprise2/pull/22557, https://github.com/github/enterprise2/pull/22552 {% endcomment %}
+
+|
+    - |L’enregistrement des paramètres par le biais de la [console de gestion](/admin/configuration/accessing-the-management-console) ajoutait une nouvelle ligne aux fichiers de [certificat et clé TLS/SSL](/admin/configuration/configuring-tls), ce qui déclenchait le rechargement inutile de certains services. {% comment %} https://github.com/github/enterprise2/pull/22570, https://github.com/github/enterprise2/pull/22540 {% endcomment %}
+
+|
+    - |Les journaux système du graphe des dépendances n’alternaient pas, permettant une croissance illimitée du stockage. {% comment %} https://github.com/github/enterprise2/pull/22767, https://github.com/github/enterprise2/pull/22733 {% endcomment %}
+
+|
+    - |Le graphe de performance MS SQL Server présentait les statistiques de l’instance principale même quand un réplica était sélectionné. {% comment %} https://github.com/github/enterprise2/pull/22778, https://github.com/github/enterprise2/pull/22750 {% endcomment %}
+
+|
+    - |`ghe-actions-precheck` s’arrêtait silencieusement sans exécuter les vérifications de stockage si Actions n’était pas activé. {% comment %} https://github.com/github/enterprise2/pull/22787, https://github.com/github/enterprise2/pull/22742 {% endcomment %}
+
+|
+    - |Une mise à niveau pouvait échouer si le paramètre de remplacement des rôles de travail demandés était en cours d’utilisation. {% comment %} https://github.com/github/enterprise2/pull/22836, https://github.com/github/enterprise2/pull/22814 {% endcomment %}
+
+|
+    - |Certains services qui s’exécutaient dans des conteneurs n’envoyaient pas de journaux d’activité au journal. {% comment %} https://github.com/github/enterprise2/pull/22994, https://github.com/github/enterprise2/pull/22518 {% endcomment %}
+
+|
+    - |Les liens vers les avis de sécurité GitHub utilisaient une URL contenant le nom d’hôte de l’instance GitHub Enterprise Server au lieu de GitHub.com, dirigeant ainsi l’utilisateur vers une URL inexistante. {% comment %} https://github.com/github/github/pull/153316, https://github.com/github/github/pull/151301 {% endcomment %}
+
+|
+    - |Lors de l’importation d’un dépôt avec `ghe-migrator`, une exception inattendue pouvait se produire lorsque des données incohérentes étaient présentes. {% comment %} https://github.com/github/github/pull/153850, https://github.com/github/github/pull/151552 {% endcomment %}
+
+|
+    - |La page des paramètres de sécurité du compte d’entreprise affichait un lien « Voir les configurations actuelles de vos organisations » pour le paramètre « Authentification à 2 facteurs » quand le mode d’authentification en cours d’utilisation ne prenait pas en charge l’authentification à 2 facteurs intégrée. {% comment %} https://github.com/github/github/pull/153860 {% endcomment %}
+
+|
+    - |Les jetons d’actualisation OAuth étaient supprimés de manière prématurée. {% comment %} https://github.com/github/github/pull/154271, https://github.com/github/github/pull/153694 {% endcomment %}
+
+|
+    - |Les tâches de réparation de la recherche généraient des exceptions pendant la phase de migration de la configuration. {% comment %} https://github.com/github/github/pull/154573, https://github.com/github/github/pull/153392 {% endcomment %}
+
+|
+    - |Dans la page des paramètres de GitHub Apps, l’onglet « Fonctionnalités bêta » n’était pas visible dans certaines circonstances. {% comment %} https://github.com/github/github/pull/154612, https://github.com/github/github/pull/154417 {% endcomment %}
+
+|
+    - |Lors de l’utilisation de `ghe-migrator` pour importer des demandes de révision de demande de tirage, les enregistrements associés à des utilisateurs supprimés entraînaient des enregistrements de base de données superflus. {% comment %} https://github.com/github/github/pull/154960, https://github.com/github/github/pull/153169 {% endcomment %}
+
+|
+    - |Lors de l’importation d’utilisateurs avec `ghe-migrator`, une erreur de type « E-mail non valide » se produisait si l’adresse e-mail générée par le système comportait plus de 100 caractères. {% comment %} https://github.com/github/github/pull/155109, https://github.com/github/github/pull/152418 {% endcomment %}
+
+|
+    - |La journalisation de l’activité des webhooks pouvait utiliser de grandes quantités d’espace disque et entraîner le remplissage du disque racine. {% comment %} https://github.com/github/github/pull/155657, https://github.com/github/github/pull/154100 {% endcomment %}
+
+|
+    - |Les utilisateurs observaient des performances de clonage et récupération (fetch) Git moins rapides sur une instance avec des réplicas de haute disponibilité en raison de lectures transférées à un nœud différent. {% comment %} https://github.com/github/github/pull/156195, https://github.com/github/github/pull/156016, https://github.com/github/spokesd/issues/746 {% endcomment %}
+
+|
+    - |La page Paramètres du dépôt des sites GitHub Pages d’un utilisateur ou d’une organisation échouait avec un message « 500  Erreur interne du serveur ». {% comment %} https://github.com/github/github/pull/156439, https://github.com/github/github/issues/156183 {% endcomment %}
+
+|
+    - |Les opérations de maintenance réseau du dépôt pouvaient rester bloquées à l’état « en cours d’exécution ». {% comment %} https://github.com/github/github/pull/156669, https://github.com/github/github/pull/156036 {% endcomment %}
+
+|
+    - |La suppression d’un dépôt immédiatement après le chargement d’un résultat de l’analyse du code pouvait entraîner un blocage dans le traitement des résultats de l’analyse du code pour tous les dépôts. {% comment %} https://github.com/github/github/pull/157063, https://github.com/github/github/pull/156437 {% endcomment %}
+
+|
+    - |Quand un grand nombre de résultats de l’analyse du code étaient soumis en même temps, le traitement des lots pouvaient expirer, entraînant un blocage dans le traitement des résultats de l’analyse du code. {% comment %} https://github.com/github/github/pull/157065, https://github.com/github/github/pull/156462 {% endcomment %}
+
+|
+    - |La [création d’une application GitHub à partir d’un manifeste](https://docs.github.com/en/enterprise/2.22/user/developers/apps/creating-a-github-app-from-a-manifest) échouait. {% comment %} https://github.com/github/github/pull/157133, https://github.com/github/github/pull/156904, https://github.com/github/enterprise2/issues/22849 {% endcomment %}
+
+|
+    - |Des noms d’utilisateurs GitHub étaient involontairement changés lors de l’utilisation de l’authentification SAML, quand le nom d’utilisateur GitHub ne correspondait pas à la valeur de l’attribut mappé au champ « nom d’utilisateur » dans la console de gestion. {% comment %} https://github.com/github/github/pull/158131, https://github.com/github/github/pull/157936, https://github.com/github/external-identities/issues/335 {% endcomment %}
+
+|
+  changes:
+    - "La prise en charge est ajoutée pour le type d’instance AWS EC2 `m5.16xlarge`. {% comment %} https://github.com/github/enterprise2/pull/22502, https://github.com/github/enterprise2/pull/22473 {% endcomment %}"
+    - "Suppression de l’exigence d’empreintes digitales SSH dans les archives `ghe-migrator`, car elles peuvent toujours être calculées. {% comment %} https://github.com/github/github/pull/156946, https://github.com/github/github/pull/155387 {% endcomment %}"
+    - "Les manifestes d’application GitHub incluent désormais le champ `request_oauth_on_install`. {% comment %} https://github.com/github/github/pull/156991, https://github.com/github/github/pull/155010, https://github.com/github/ecosystem-apps/issues/1055 {% endcomment %}"
+
+  known_issues:
+    - "Sur une instance GitHub Enterprise Server fraîchement configurée et sans utilisateur, un attaquant pouvait créer le premier utilisateur administrateur. {% comment %} https://github.com/github/enterprise2/issues/1889 {% endcomment %}"
+    - "Les règles de pare-feu personnalisées ne sont pas conservées lors d’une mise à niveau. {% comment %} https://github.com/github/enterprise2/issues/2823 {% endcomment %}"
+    - "Les fichiers suivis par Git LFS [chargés par le biais de l’interface web](https://github.com/blog/2105-upload-files-to-your-repositories) sont, à tort, ajoutés directement au dépôt. {% comment %} https://github.com/github/github/issues/54684 {% endcomment %}"
+    - "Les problèmes ne peuvent pas être fermés s’ils contiennent un lien permanent vers un blob situé dans le même dépôt, dont le chemin de fichier dépasse les 255 caractères. {% comment %} https://github.com/github/github/issues/107731 {% endcomment %}"
+    - "Quand l’option « Les utilisateurs peuvent effectuer des recherches sur GitHub.com » est activée avec GitHub Connect, les problèmes concernant des dépôts privés et internes ne sont pas inclus dans les résultats de recherche de GitHub.com. {% comment %} https://github.com/github/admin-experience/issues/571 {% endcomment %}"
+    - "Les mises à jour de la configuration échouent lors de la restauration des données sur une instance avec GitHub Actions activé si la source de la sauvegarde d’origine n’avait pas la fonctionnalité activée. {% comment %} https://github.com/github/c2c-actions-runtime/issues/915 {% endcomment %}"
+    - "GitHub Actions peut ne pas réussir à démarrer s’il a été activé précédemment sur une instance exécutant la version 2.22.0 et que celle-ci est mise à niveau vers la version 2.22.1 (mise à jour : 23/10/2020). {% comment %} https://github.com/github/c2c-actions/issues/1680 {% endcomment %}"
+    - "Sur une instance 2.22.1 fraîchement configurée ou mise à niveau vers la version 2.22.1, le flux d’activités du tableau de bord d’une organisation ne pourra plus être mis à jour. (mise à jour : 27/10/2020) {% comment %}https://github.com/github/enterprise2/issues/23050{% endcomment %}"
+    - "Les journaux d’audit peuvent être attribués à 127.0.0.1 au lieu de l’adresse IP source réelle (mise à jour : 02/11/2020). {% comment %} https://github.com/github/enterprise2/issues/21514 {% endcomment %}"
+    - "Quand un nœud de réplica est hors connexion dans une configuration de haute disponibilité, {% data variables.product.product_name %} peut quand même router les requêtes de {% data variables.product.prodname_pages %} vers le nœud hors connexion, réduisant ainsi la disponibilité de {% data variables.product.prodname_pages %} pour les utilisateurs."

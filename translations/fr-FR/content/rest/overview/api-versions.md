@@ -4,12 +4,12 @@ shortTitle: API Versions
 intro: Vous devez spécifier la version d’API REST à utiliser chaque fois que vous effectuez une demande à l’API REST.
 versions:
   feature: api-date-versioning
-ms.openlocfilehash: c1209120fab4c4cc26962991ad48b76638627db5
-ms.sourcegitcommit: d2f0b59ed096b9e68ef8f6fa019cd925165762ec
+ms.openlocfilehash: 6689d8c342930a44c7d243c3872cdc431007eb1c
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/29/2022
-ms.locfileid: '148184390'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148192864'
 ---
 ## À propos du contrôle de version de l’API
 
