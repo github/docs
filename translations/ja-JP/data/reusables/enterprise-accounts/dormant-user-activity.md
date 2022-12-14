@@ -1,14 +1,14 @@
 ---
-ms.openlocfilehash: f89c8ea56df60e14b5735d160104d332ff1e804b
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.openlocfilehash: ae3a6c6743e497213f23230a4f78d98a1ab9a110
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/10/2022
-ms.locfileid: "146680982"
+ms.lasthandoff: 12/09/2022
+ms.locfileid: "148192930"
 ---
-ユーザーが {% ifversion fpt or ghec or ghes %}{% data variables.product.product_location %}{% elsif ghae %}{% data variables.product.product_name %}{% endif %} で次のいずれかのアクティビティを実行した場合、そのユーザーはアクティブと見なされます。
+ユーザーが {% ifversion fpt or ghec or ghes %}{% data variables.location.product_location %}{% elsif ghae %}{% data variables.product.product_name %}{% endif %} で次のいずれかのアクティビティを実行した場合、そのユーザーはアクティブと見なされます。
 
-- {% data variables.product.product_location %} にサインインする
+- {% data variables.location.product_location %} にサインインする
 - リポジトリを作成する
 - リポジトリにプッシュする
 - リポジトリに追加される
@@ -28,4 +28,8 @@ ms.locfileid: "146680982"
 - リポジトリを Watch する
 - リポジトリの Star 付け
 - リポジトリの削除
-- 個人用アクセス トークンまたは SSH キーを使ってリソースにアクセスする
+- {% data variables.product.pat_generic %} または SSH キーを使用してリソースにアクセスする
+- 組織に参加する
+
+{% ifversion ghes %} ユーザーはそのアカウントが LDAP によって更新されている場合もアクティブと見なされます。
+{% endif %}

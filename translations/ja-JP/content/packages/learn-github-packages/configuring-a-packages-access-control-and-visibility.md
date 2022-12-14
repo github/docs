@@ -10,24 +10,28 @@ versions:
   ghec: '*'
   ghes: '*'
 shortTitle: Access control & visibility
-ms.openlocfilehash: 0988c332a341d379e21e540b74f7ee4dd5a26749
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 8ef541f45fd6568db7c8510bc860d81d504494c5
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147704916'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148193058'
 ---
-{% data reusables.package_registry.container-registry-ghes-beta %}
+{% data reusables.package_registry.container-registry-ghes-beta %}{% ifversion packages-registries-v2 %}
 
 詳細な権限を持つパッケージは、個人ユーザもしくはOrganizationアカウントをスコープとします。 パッケージのアクセス制御と可視性は、パッケージに接続された（あるいはリンクされた）リポジトリは別個に変更できます。
 
-現在は、{% data variables.product.prodname_ghcr_and_npm_registry %}でのみ細かいアクセス許可を使うことができます。 細かいアクセス許可は、RubyGems レジストリなどの、他のパッケージ レジストリではサポートされていません。{% ifversion docker-ghcr-enterprise-migration %} {% data variables.product.prodname_container_registry %}への移行について詳しくは、「[Docker レジストリからの {% data variables.product.prodname_container_registry %}への移行](/packages/working-with-a-github-packages-registry/migrating-to-the-container-registry-from-the-docker-registry)」をご覧ください。{% endif %}
+一部のレジストリは、リポジトリがスコープ指定されたアクセス許可のみをサポートします。 そのようなレジストリの一覧については、「[{% data variables.product.prodname_registry %} のアクセス許可について](/packages/learn-github-packages/about-permissions-for-github-packages#permissions-for-repository-scoped-packages)」をご覧ください。
 
-リポジトリをスコープとするパッケージのアクセス許可、PAT のパッケージ関連のスコープ、アクション ワークフローのアクセス許可の管理の詳細については、「[GitHub パッケージのアクセス許可について](/packages/learn-github-packages/about-permissions-for-github-packages)」を参照してください。
+{% else %}パッケージは、パッケージを所有するリポジトリのアクセス許可と可視性を継承します。{% endif %}パッケージのアクセス許可、PAT のパッケージ関連のスコープ、またはアクション ワークフローのアクセス許可の管理について詳しくは、「[GitHub Packages のアクセス許可について](/packages/learn-github-packages/about-permissions-for-github-packages)」をご覧ください。
+
+{% ifversion packages-registries-v2 %}
 
 ## コンテナイメージの可視性とアクセス権限
 
 {% data reusables.package_registry.visibility-and-access-permissions %}
+
+{% endif %}
 
 ## 個人アカウントにコンテナイメージへのアクセス権限を設定する
 
@@ -106,9 +110,9 @@ Organization が所有するコンテナイメージに対する管理者権限�
 コンテナー イメージへのアクセスをさらにカスタマイズするには、「[組織のコンテナー イメージへのアクセス権を設定する](#configuring-access-to-container-images-for-an-organization)」を参照してください。
 
 {% ifversion fpt or ghec %}
-## パッケージへの{% data variables.product.prodname_codespaces %}アクセスの確保
+## パッケージへの {% data variables.product.prodname_github_codespaces %} アクセスの確保
 
-既定では、 **[アクセスの継承]** オプションが選択された同じリポジトリ内で公開されたパッケージなど、{% data variables.product.prodname_ghcr_and_npm_registry %}内の特定のパッケージに codespace からシームレスにアクセスできます。 自動的に構成されるアクセスについて詳しくは、「[codespace がプライベート イメージ レジストリにアクセスできるようにする](/codespaces/codespaces-reference/allowing-your-codespace-to-access-a-private-image-registry#accessing-images-stored-in-container-registry-and-npm-registry)」をご覧ください。
+既定では、 **[アクセスの継承]** オプションが選択された同じリポジトリ内で公開されたパッケージなど、詳細なアクセス許可をサポートするレジストリ内の特定のパッケージに codespace からシームレスにアクセスできます。 詳細なアクセス許可とシームレスな {% data variables.product.prodname_github_codespaces %} アクセスをサポートする {% data variables.product.prodname_registry %} レジストリの一覧については、「[{% data variables.product.prodname_registry %} のアクセス許可について](/packages/learn-github-packages/about-permissions-for-github-packages#granular-permissions-for-userorganization-scoped-packages)」をご覧ください。
 
 あるいは、codespaceがパッケージに確実にアクセスできるようにするには、codespaceが起動されたリポジトリへのアクセスを許可しなければなりません。
 
