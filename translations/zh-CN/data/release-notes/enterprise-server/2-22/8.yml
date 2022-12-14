@@ -1,0 +1,58 @@
+date: '2021-03-16'
+sections:
+  security_fixes:
+    - 包已更新到最新的安全版本。
+  bugs:
+    - 在多个地方复制了系统日志。
+    - 站点管理员在尝试查看从专用存储库引用的问题时，可能会出现 500 错误页面。
+    - 从 GitHub Enterprise Server 导入缺少存储库文件的存储库存档将失败并报告错误。
+  known_issues:
+    - 在新建的没有任何用户的 GitHub Enterprise Server 上，攻击者可能创建第一个管理员用户。
+    - 在升级期间不会维护自定义防火墙规则。
+    - "Git LFS 跟踪的[通过 Web 界面上传的](https://github.com/blog/2105-upload-files-to-your-repositories)文件被错误地直接添加到存储库。"
+    - 如果问题包含指向同一存储库中文件路径长于 255 个字符的 blob 的永久链接，则无法关闭。
+    - 在 GitHub Connect 中启用了“用户可以搜索 GitHub.com”时，专用和内部存储库中的问题不包括在 GitHub.com 搜索结果中。
+    - |用户可能会遇到资产问题，例如头像未加载，或推送/拉取代码失败。这可能是由于 `haproxy-cluster-proxy` 服务中的 PID 不匹配造成的。若要确定实例是否受到影响：
+
+
+
+**单实例**
+
+
+
+1.在[管理 shell](https://docs.github.com/en/enterprise-server/admin/configuration/accessing-the-administrative-shell-ssh) (SSH) 中运行以下内容：
+
+
+
+  ```
+
+  if [ $(cat /var/run/haproxy-cluster-proxy.pid) -ne $(systemctl show --property MainPID --value haproxy-cluster-proxy) ]; then echo ''Main PID of haproxy-cluster-proxy does not match /var/run/haproxy-cluster-proxy.pid''; fi
+
+  ```
+
+
+
+2.如果显示不匹配，请重启实例。
+
+
+
+**群集或高可用性配置**
+
+
+
+1.在[管理 shell](https://docs.github.com/en/enterprise-server/admin/configuration/accessing-the-administrative-shell-ssh) (SSH) 中运行以下内容：
+
+
+
+  ```
+
+  ghe-cluster-each -- ''if [ $(cat /var/run/haproxy-cluster-proxy.pid) -ne $(systemctl show --property MainPID --value haproxy-cluster-proxy) ]; then echo ''Main PID of haproxy-cluster-proxy does not match /var/run/haproxy-cluster-proxy.pid''; fi''
+
+  ```
+
+
+
+2.如果显示一个或多个节点受到影响，请重启受影响的节点。
+
+|
+    - "当副本节点在高可用性配置下脱机时，{% data variables.product.product_name %} 仍可能会将 {% data variables.product.prodname_pages %} 请求路由到脱机节点，从而减少用户的 {% data variables.product.prodname_pages %} 可用性。"

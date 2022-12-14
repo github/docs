@@ -1,6 +1,6 @@
 ---
-title: Migrating data to your enterprise
-intro: 'After generating a migration archive, you can import the data to your target {% data variables.product.prodname_ghe_server %} instance. You''ll be able to review changes for potential conflicts before permanently applying the changes to your target instance.'
+title: 将数据迁移到企业
+intro: '生成迁移存档后，您可以将数据导入目标 {% data variables.product.prodname_ghe_server %} 实例。 在将变更永久应用到目标实例之前，您需要检查变更，查看有无潜在的冲突。'
 redirect_from:
   - /enterprise/admin/guides/migrations/importing-migration-data-to-github-enterprise
   - /enterprise/admin/migrations/applying-the-imported-data-on-github-enterprise-server
@@ -19,21 +19,27 @@ topics:
   - Enterprise
   - Migration
 shortTitle: Import to your enterprise
+ms.openlocfilehash: 19bd9e1e8cee072e8a8f00861e2d8f876b5b8450
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147717667'
 ---
-## Applying the imported data on {% data variables.product.prodname_ghe_server %}
+## 在 {% data variables.product.prodname_ghe_server %} 上应用导入的数据
 
-Before you can migrate data to your enterprise, you must prepare the data and resolve any conflicts. For more information, see "[Preparing to migrate data to your enterprise](/admin/user-management/preparing-to-migrate-data-to-your-enterprise)."
+在将数据迁移到企业之前，您必须准备数据并解决任何冲突。 有关详细信息，请参阅“[准备将数据迁移到企业](/admin/user-management/preparing-to-migrate-data-to-your-enterprise)”。
 
-After you prepare the data and resolve conflicts, you can apply the imported data on {% data variables.product.product_name %}.
+在准备数据并解决冲突后，您可以将导入的数据应用于 {% data variables.product.product_name %}。
 
 {% data reusables.enterprise_installation.ssh-into-target-instance %}
 
-2. Using the `ghe-migrator import` command, start the import process. You'll need:
-    * Your Migration GUID. For more information, see "[Preparing to migrate data to your enterprise](/admin/user-management/preparing-to-migrate-data-to-your-enterprise)."
-    * Your {% data variables.product.pat_generic %} for authentication. The {% data variables.product.pat_generic %} that you use is only for authentication as a site administrator, and does not require any specific scope{% ifversion pat-v2 %} or permissions{% endif %}. For more information, see "[Creating a {% data variables.product.pat_generic %}](/github/authenticating-to-github/creating-a-personal-access-token)."
+2. 使用 `ghe-migrator import` 命令启动导入过程。 需要：
+    * 迁移 GUID。 有关详细信息，请参阅“[准备将数据迁移到企业](/admin/user-management/preparing-to-migrate-data-to-your-enterprise)”。
+    * 用于身份验证的个人访问令牌。 您使用的个人访问令牌仅用于站点管理员身份验证，不需要任何特定范围。 有关详细信息，请参阅“[创建个人访问令牌](/github/authenticating-to-github/creating-a-personal-access-token)”。
 
     ```shell
-    $ ghe-migrator import /home/admin/MIGRATION-GUID.tar.gz -g MIGRATION-GUID -u USERNAME -p TOKEN
+    $ ghe-migrator import /home/admin/<em>MIGRATION_GUID</em>.tar.gz -g <em>MIGRATION_GUID</em> -u <em>username</em> -p <em>TOKEN</em>
 
     > Starting GitHub::Migrator
     > Import 100% complete /
@@ -41,113 +47,110 @@ After you prepare the data and resolve conflicts, you can apply the imported dat
 
     * {% data reusables.enterprise_migrations.specify-staging-path %}
 
-## Reviewing migration data
+## 检查迁移数据
 
-By default, `ghe-migrator audit` returns every record. It also allows you to filter records by:
+默认情况下，`ghe-migrator audit` 返回每条记录。 它还可以让您按以下方式筛选记录：
 
-  * The types of records.
-  * The state of the records.
+  * 记录的类型。
+  * 记录的状态。
 
-The record types match those found in the [migrated data](/enterprise/admin/guides/migrations/about-migrations/#migrated-data).
+记录类型与[迁移数据](/enterprise/admin/guides/migrations/about-migrations/#migrated-data)中的记录类型相匹配。
 
-## Record type filters
+## 记录类型筛选器
 
-|      Record type      | Filter name  |
+|      记录类型      | 筛选器名称  |
 |-----------------------|--------|
-| Users           | `user`
-| Organizations   | `organization`
-| Repositories    | `repository`
+| 用户           | `user`
+| 组织   | `organization`
+| 存储库    | `repository`
 | Teams           | `team`
-| Milestones      | `milestone`
-| Project boards  | `project`
-| Issues          | `issue`
-| Issue comments  | `issue_comment`
-| Pull requests   | `pull_request`
-| Pull request reviews | `pull_request_review`
-| Commit comments | `commit_comment`
-| Pull request review comments | `pull_request_review_comment`
-| Releases | `release`
-| Actions taken on pull requests or issues | `issue_event`
-| Protected branches | `protected_branch`
+| 里程碑      | `milestone`
+| 项目板  | `project`
+| 问题          | `issue`
+| 问题评论  | `issue_comment`
+| 拉取请求   | `pull_request`
+| 拉取请求审查 | `pull_request_review`
+| 提交注释 | `commit_comment`
+| 拉取请求审查评论 | `pull_request_review_comment`
+| 版本 | `release`
+| 在拉取请求或问题上进行的操作 | `issue_event`
+| 受保护的分支 | `protected_branch`
 
-## Record state filters
+## 记录状态筛选器
 
-| Record state    | Description    |
+| 记录状态    | 说明    |
 |-----------------|----------------|
-| `export`        | The record will be exported. |
-| `import`        | The record will be imported. |
-| `map`           | The record will be mapped. |
-| `rename`        | The record will be renamed. |
-| `merge`         | The record will be merged. |
-| `exported`      | The record was successfully exported. |
-| `imported`      | The record was successfully imported. |
-| `mapped`        | The record was successfully mapped. |
-| `renamed`       | The record was successfully renamed. |
-| `merged`        | The record was successfully merged. |
-| `failed_export` | The record failed to export. |
-| `failed_import` | The record failed to be imported. |
-| `failed_map`    | The record failed to be mapped. |
-| `failed_rename` | The record failed to be renamed. |
-| `failed_merge`  | The record failed to be merged. |
+| `export`        | 将导出记录。 |
+| `import`        | 将导入记录。 |
+| `map`           | 将映射记录。 |
+| `rename`        | 将重命名记录。 |
+| `merge`         | 将合并记录。 |
+| `exported`      | 已成功导出记录。 |
+| `imported`      | 已成功导入记录。 |
+| `mapped`        | 已成功映射记录。 |
+| `renamed`       | 已成功重命名记录。 |
+| `merged`        | 已成功合并记录。 |
+| `failed_export` | 记录导出失败。 |
+| `failed_import` | 记录导入失败。 |
+| `failed_map`    | 记录映射失败。 |
+| `failed_rename` | 记录重命名失败。 |
+| `failed_merge`  | 记录合并失败。 |
 
-## Filtering audited records
+## 筛选审核的记录
 
-With the `ghe-migrator audit` command, you can filter based on the record type using the `-m` flag. Similarly, you can filter on the import state using the `-s` flag. The command looks like this:
+通过 `ghe-migrator audit` 命令，可以使用 `-m` 标志根据记录类型进行筛选。 同样，可以使用 `-s` 标志筛选导入状态。 命令如下所示：
 
 ```shell
-$ ghe-migrator audit -m RECORD_TYPE -s STATE -g MIGRATION-GUID
+$ ghe-migrator audit -m <em>RECORD_TYPE</em> -s <em>STATE</em> -g <em>MIGRATION_GUID</em>
 ```
 
-For example, to view every successfully imported organization and team, you would enter:
+例如，要查看每个成功导入的组织和团队，您可以输入：
 ```shell
-$ ghe-migrator audit -m organization,team -s mapped,renamed -g MIGRATION-GUID
+$ ghe-migrator audit -m organization,team -s mapped,renamed -g <em>MIGRATION_GUID</em>
 > model_name,source_url,target_url,state
 > organization,https://gh.source/octo-org/,https://ghe.target/octo-org/,renamed
 ```
 
-**We strongly recommend auditing every import that failed.** To do that, you will enter:
+**我们强烈建议审核每个失败的导入。** 为此，你将输入：
 ```shell
-$ ghe-migrator audit -s failed_import,failed_map,failed_rename,failed_merge -g MIGRATION-GUID
+$ ghe-migrator audit -s failed_import,failed_map,failed_rename,failed_merge -g <em>MIGRATION_GUID</em>
 > model_name,source_url,target_url,state
 > user,https://gh.source/octocat,https://gh.target/octocat,failed
 > repository,https://gh.source/octo-org/octo-project,https://ghe.target/octo-org/octo-project,failed
 ```
 
-If you have any concerns about failed imports, contact {% data variables.contact.contact_ent_support %}.
+如果您对失败的导入有任何疑问，请联系 {% data variables.contact.contact_ent_support %}。
 
-## Completing the import on {% data variables.product.prodname_ghe_server %}
+## 在 {% data variables.product.prodname_ghe_server %} 上完成导入
 
-After your migration is applied to your target instance and you have reviewed the migration, you''ll unlock the repositories and delete them off the source. Before deleting your source data we recommend waiting around two weeks to ensure that everything is functioning as expected.
+在迁移应用到目标实例并且您已审查迁移后，您需要解锁仓库并将其从源中删除。 我们建议等待两周再删除您的源数据，以便确保所有数据都能按预期运行。
 
-## Unlocking repositories on the target instance
+## 在目标实例上解锁仓库
 
-{% data reusables.enterprise_installation.ssh-into-instance %}
-{% data reusables.enterprise_migrations.unlocking-on-instances %}
+{% data reusables.enterprise_installation.ssh-into-instance %} {% data reusables.enterprise_migrations.unlocking-on-instances %}
 
-## Unlocking repositories on the source
+## 在源上解锁仓库
 
-### Unlocking repositories from an organization on {% data variables.product.prodname_dotcom_the_website %}
+### 从 {% data variables.product.prodname_dotcom_the_website %} 上的组织解锁仓库
 
-To unlock the repositories on a {% data variables.product.prodname_dotcom_the_website %} organization, you'll send a `DELETE` request to [the migration unlock endpoint](/free-pro-team@latest/rest/migrations#unlock-an-organization-repository). You'll need:
-  * Your access token for authentication
-  * The unique `id` of the migration
-  * The name of the repository to unlock
-
+若要解锁 {% data variables.product.prodname_dotcom_the_website %} 组织上的存储库，你需要向[迁移解锁终结点](/free-pro-team@latest/rest/migrations#unlock-an-organization-repository)发送 `DELETE` 请求。 需要：
+  * 身份验证的访问令牌
+  * 迁移的唯一 `id`
+  * 要解锁的仓库的名称
 ```shell
-curl -H "Authorization: Bearer GITHUB_ACCESS_TOKEN" -X DELETE \
+curl -H "Authorization: Bearer <em>GITHUB_ACCESS_TOKEN</em>" -X DELETE \
   -H "Accept: application/vnd.github.wyandotte-preview+json" \
-  https://api.github.com/orgs/ORG-NAME/migrations/ID/repos/REPO_NAME/lock
+  https://api.github.com/orgs/<em>orgname</em>/migrations/<em>id</em>/repos/<em>repo_name</em>/lock
 ```
 
-### Deleting repositories from an organization on {% data variables.product.prodname_dotcom_the_website %}
+### 从 {% data variables.product.prodname_dotcom_the_website %} 上的组织中删除仓库
 
-After unlocking the {% data variables.product.prodname_dotcom_the_website %} organization's repositories, you should delete every repository you previously migrated using [the repository delete endpoint](/rest/repos/#delete-a-repository). You'll need your access token for authentication:
+解锁 {% data variables.product.prodname_dotcom_the_website %} 组织的存储库后，应该删除之前使用[存储库删除终结点](/rest/repos/#delete-a-repository)迁移的每个存储库。 您需要身份验证的访问令牌：
 ```shell
-curl -H "Authorization: Bearer GITHUB_ACCESS_TOKEN" -X DELETE \
-  https://api.github.com/repos/ORG-NAME/REPO_NAME
+curl -H "Authorization: Bearer <em>GITHUB_ACCESS_TOKEN</em>" -X DELETE \
+  https://api.github.com/repos/<em>orgname</em>/<em>repo_name</em>
 ```
 
-### Unlocking repositories from a {% data variables.product.prodname_ghe_server %} instance
+### 从 {% data variables.product.prodname_ghe_server %} 实例解锁仓库
 
-{% data reusables.enterprise_installation.ssh-into-instance %}
-{% data reusables.enterprise_migrations.unlocking-on-instances %}
+{% data reusables.enterprise_installation.ssh-into-instance %} {% data reusables.enterprise_migrations.unlocking-on-instances %}

@@ -11,12 +11,12 @@ versions:
 miniTocMaxHeadingLevel: 3
 topics:
   - API
-ms.openlocfilehash: 4fd3e2aad72ee0ffc4778a86dc99cd5bb6f9d2c5
-ms.sourcegitcommit: 4daa156856e651cb3854ead40e35bd918e481ad6
+ms.openlocfilehash: c7928ce90b887d6fa3bd5342fc1633b3e30983f1
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/02/2022
-ms.locfileid: '148190400'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148192850'
 ---
 {% ifversion api-date-versioning %}
 ## API バージョン
@@ -273,50 +273,7 @@ REST API を使用して `node_id` を検索し、GraphQL 演算で使用する�
 
 ## 改ページ位置の自動修正
 
-複数の項目を返す要求は、既定では 30 項目ごとにページ分けされます。  `page` パラメーターを使用すると、さらにページを指定できます。 一部のリソースでは、`per_page` パラメーターを使用してカスタム ページ サイズを最大 100 に設定することもできます。
-技術的な理由から、すべてのエンドポイントで `per_page` パラメーターが考慮されるわけではないことに注意してください。たとえば、[イベント](/rest/reference/activity#events)を参照してください。
-
-```shell
-$ curl '{% data variables.product.api_url_pre %}/user/repos?page=2&per_page=100'
-```
-
-ページ番号は 1 から始まり、`page` パラメーターを省略すると最初のページが返されることに注意してください。
-
-カーソルベースのページネーションを使用するエンドポイントもあります。 カーソルとは、結果セットで場所を示す文字列です。
-カーソルベースのページネーションでは、結果セットで「ページ」という概念がなくなるため、特定のページに移動することはできません。
-代わりに、`before` パラメーターまたは `after` パラメーターを使用して結果を走査できます。
-
-改ページ位置の詳細については、「[改ページ位置を使用した走査][pagination-guide]」に関するガイドを参照してください。
-
-### リンクヘッダ
-
-{% note %}
-
-**注**: 独自の URL を作成するのではなく、Link ヘッダー値を使用して呼び出しを形成することが重要です。
-
-{% endnote %}
-
-[Link ヘッダー](https://datatracker.ietf.org/doc/html/rfc5988)には、改ページ位置の情報が含まれています。 次に例を示します。
-
-    Link: <{% data variables.product.api_url_code %}/user/repos?page=3&per_page=100>; rel="next",
-      <{% data variables.product.api_url_code %}/user/repos?page=50&per_page=100>; rel="last"
-
-_この例は、読みやすいように改行されています。_
-
-エンドポイントでカーソルベースのページネーションを使用する場合:
-
-    Link: <{% data variables.product.api_url_code %}/orgs/ORG/audit-log?after=MTYwMTkxOTU5NjQxM3xZbGI4VE5EZ1dvZTlla09uWjhoZFpR&before=>; rel="next",
-
-この `Link` 応答ヘッダーには 1 つ以上の [Hypermedia](/rest#hypermedia) リンク関係が含まれており、その一部は [URI テンプレート](https://datatracker.ietf.org/doc/html/rfc6570)として展開が必要な場合があります。
-
-取りうる可能性のある `rel` の値は次のようになります。
-
-名前 | 説明
------------|-----------|
-`next` |結果のすぐ次のページのリンク関係。
-`last` |結果の最後のページのリンク関係。
-`first` |結果の最初のページのリンク関係。
-`prev` |結果の直前のページのリンク関係。
+REST API からの応答にたくさんの結果が含まれるとき、{% data variables.product.company_short %} ではページが分割され、結果のサブセットが返されます。 応答のリンク ヘッダーを利用し、データの追加ページを要求できます。 `per_page` クエリ パラメーターがエンドポイントでサポートされる場合、1 ページで返される結果の数を制御できます。 ページネーションの詳細については、「[REST API でページネーションを使用する](/rest/guides/using-pagination-in-the-rest-api)」を参照してください。
 
 ## Timeouts
 
@@ -672,5 +629,3 @@ $ curl -H "Time-Zone: Europe/Amsterdam" -X POST {% data variables.product.api_ur
 ### 他のタイムゾーン情報を含まない UTC をデフォルトにする
 
 上記の手順で情報が得られない場合は、UTC をタイムゾーンとして使用して git コミットを作成します。
-
-[pagination-guide]: /guides/traversing-with-pagination

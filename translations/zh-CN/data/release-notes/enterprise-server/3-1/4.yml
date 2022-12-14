@@ -1,0 +1,45 @@
+date: '2021-07-27'
+sections:
+  security_fixes:
+    - 包已更新到最新的安全版本。
+  bugs:
+    - 下载包时，包页面上的计数没有增加。
+    - '如果客户已启用 {% data variables.product.prodname_secret_scanning %} 且在自己的实例上已禁用或从未启用 {% data variables.product.prodname_actions %}，则 `ghe-config-apply` 会超时，为客户显示提示或失败。'
+    - 在某些情况下，日志文件未在轮换后重新打开，导致运行时间高的实例占用大量磁盘空间。
+    - "从 {% data variables.product.prodname_ghe_server %} 较旧版本进行的升级可能会失败，因为 {% data variables.product.prodname_actions %} 缺少作业。"
+    - '自定义预接收挂钩可能会导致这样的错误：“错误：/data/user/repositories/0/nw/12/34/56/7890/network.git/objects 对象目录不存在，请查看 .git/objects/info/alternates”。'
+    - 对于使用 HTTP 代理的所有用户，不支持使用未经身份验证的 HTTP 代理来进行页面容器构建。
+    - 如果未启用依赖项关系图，则每当用户访问仓库的 `/settings` 页时，都会记录大量 503 错误。
+    - 只有当用户通过团队或合作者状态与仓库建立关系时，或使用 ?type=internal` 参数进行查询时，才会返回内部仓库。
+    - 失败的后台作业有无限制的重试，这可能会导致大的队列深度。
+    - 如果在未启用依赖项关系图但启用了内容分析的情况下尝试运行将漏洞与 GitHub.com 同步的计划作业，则会生成大量 503 错误。
+    - |如果在不运行定期计划备份的情况下启用 {% data variables.product.prodname_actions %}，则 MSSQL 事务日志可能会无限增长，并且会占用设备数据磁盘上的所有可用空间，从而可能导致中断。
+
+
+
+如果已配置定期 MSSQL 备份，则无需执行其他操作。否则，如果之前已启用 {% data variables.product.prodname_actions %}，请在安装补丁后运行以下命令。
+
+
+
+```
+
+ghe-actions-console -s Mps -c ''Update-Service -Force''
+
+ghe-actions-console -s Token -c ''Update-Service -Force''
+
+ghe-actions-console -s Actions -c ''Update-Service -Force''
+
+```
+
+|
+  changes:
+    - "`babeld` 日志现在包括用于 HTTP ref 播发请求的 `cmd` 字段，而不是仅在协商请求中包括它。"
+  known_issues:
+    - "{% data variables.product.prodname_registry %} npm 注册表不再返回元数据响应的时间值。这样做是为了大幅改善性能。作为元数据响应的一部分，我们继续拥有返回时间值所需的所有数据，并将在我们解决现有性能问题后恢复返回这个值。"
+    - "在新建的没有任何用户的 {% data variables.product.prodname_ghe_server %} 上，攻击者可以创建第一个管理员用户。"
+    - 自定义防火墙规则在升级过程中被删除。
+    - "Git LFS 跟踪的文件[通过 Web 界面上传](https://github.com/blog/2105-upload-files-to-your-repositories) 被错误地直接添加到仓库。"
+    - 如果议题包含文件路径长于 255 个字符的同一仓库中 blob 的永久链接，则议题无法关闭。
+    - 对 GitHub Connect 启用“用户可以搜索 GitHub.com”后，私有和内部仓库中的议题不包括在 GitHub.com 搜索结果中。
+    - "如果为 {% data variables.product.prodname_ghe_server %} 启用 {% data variables.product.prodname_actions %}，将能使用 `ghe-repl-teardown` 成功拆解副本节点，但是可能会返回 `ERROR:Running migrations`。"
+    - 特定于处理预接收挂钩的资源限制可能导致部分预接收挂钩失败。

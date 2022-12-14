@@ -14,12 +14,12 @@ topics:
   - Security
   - Secret store
 shortTitle: Encrypted secrets
-ms.openlocfilehash: f2ef60c9311a81ea59ec4f71cb7c1a432102b063
-ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.openlocfilehash: a1ea1c87581feccd737314db0d7bf237f983357a
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/09/2022
-ms.locfileid: '148160443'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148192810'
 ---
 ## {% data variables.product.prodname_github_codespaces %} の暗号化されたシークレットについて
 
@@ -28,7 +28,7 @@ ms.locfileid: '148160443'
 - クラウド サービスへのアクセス トークン
 - サービス プリンシパル
 - プラン識別子
-- [プライベート イメージ レジストリの資格情報](/codespaces/codespaces-reference/allowing-your-codespace-to-access-a-private-image-registry)
+- プライベート イメージ レジストリの資格情報 (詳しくは「[プライベート レジストリへのアクセスを codespace に許可する](/codespaces/codespaces-reference/allowing-your-codespace-to-access-a-private-registry)」を参照してください)
 
 各シークレットにアクセスできるリポジトリを選択できます。 そして、シークレットへのアクセス権があるリポジトリ用に作成した任意のコードスペースでそのシークレットを使用できます。 テンプレートから作成された codespace とシークレットを共有するには、{% data variables.product.prodname_dotcom %} 上のリポジトリに codespace を発行し、そのリポジトリにシークレットへのアクセス権を付与する必要があります。
 

@@ -1,5 +1,5 @@
 ---
-title: Accessing the administrative shell (SSH)
+title: 访问管理 shell (SSH)
 redirect_from:
   - /enterprise/admin/articles/ssh-access
   - /enterprise/admin/articles/adding-an-ssh-key-for-shell-access
@@ -20,30 +20,34 @@ topics:
   - Fundamentals
   - SSH
 shortTitle: Access the admin shell (SSH)
+ms.openlocfilehash: 8d8b9cd71a436c0874355b1bdd53ba2e400660a0
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145100077'
 ---
-## About administrative shell access
+## 关于管理 shell 访问
 
-If you have SSH access to the administrative shell, you can run {% data variables.product.prodname_ghe_server %}'s command line utilities. SSH access is also useful for troubleshooting, running backups, and configuring replication. Administrative SSH access is managed separately from Git SSH access and is accessible only via port 122.
+如果您有权限通过 SSH 访问管理 shell，可运行 {% data variables.product.prodname_ghe_server %} 的命令行实用程序。 SSH 访问也可用于故障排查、运行备份和配置复制。 管理 SSH 访问与 Git SSH 访问分开管理，仅可通过端口 122 访问。
 
-## Enabling access to the administrative shell via SSH
+## 允许通过 SSH 访问管理 shell
 
-To enable administrative SSH access, you must add your SSH public key to your instance's list of authorized keys. For more information, see "[Generating a new SSH key and adding it to the ssh-agent](/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#adding-your-ssh-key-to-the-ssh-agent)."
+要启用管理 SSH 访问，您必须向授权密钥的实例列表添加 SSH 公钥。
 
 {% tip %}
 
-**Tip:** Changes to authorized SSH keys take effect immediately.
+提示：对授权 SSH 密钥进行的变更会立即生效。
 
 {% endtip %}
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.management-console %}
-3. Under "SSH access", paste your key into the text box, then click **Add key**.
-  ![Text box and button for adding an SSH key](/assets/images/enterprise/settings/add-authorized-ssh-key-admin-shell.png)
-{% data reusables.enterprise_management_console.save-settings %}
+{% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.enterprise_site_admin_settings.management-console %}
+3. 在“SSH 访问”下，将密钥粘贴到文本框中，然后单击“添加密钥”。
+  ![添加 SSH 密钥的文本框和按钮](/assets/images/enterprise/settings/add-authorized-ssh-key-admin-shell.png) {% data reusables.enterprise_management_console.save-settings %}
 
-## Connecting to the administrative shell over SSH
+## 通过 SSH 连接到管理 shell
 
-After you've added your SSH key to the list, connect to the instance over SSH as the `admin` user on port 122.
+将 SSH 密钥添加到列表后，以 `admin` 用户的身份在端口 122 上通过 SSH 连接到实例。
 
 ```shell
 $ ssh -p 122 admin@github.example.com
@@ -51,29 +55,29 @@ Last login: Sun Nov 9 07:53:29 2014 from 169.254.1.1
 admin@github-example-com:~$ █
 ```
 
-### Troubleshooting SSH connection problems
+### 排查 SSH 连接问题
 
-If you encounter the `Permission denied (publickey)` error when you try to connect to {% data variables.location.product_location %} via SSH, confirm that you are connecting over port 122. You may need to explicitly specify which private SSH key to use.
+如果在尝试通过 SSH 连接到 {% data variables.product.product_location %} 时发生 `Permission denied (publickey)` 错误，请确认是否是通过端口 122 进行连接的。 您可能需要明确指定要使用的 SSH 私钥。
 
-To specify a private SSH key using the command line, run `ssh` with the `-i` argument.
+要使用命令行指定 SSH 私钥，请使用 `-i` 参数运行 `ssh`。
 
 ```shell
-ssh -i /path/to/ghe_private_key -p 122 admin@HOSTNAME
+ssh -i /path/to/ghe_private_key -p 122 admin@<em>hostname</em>
 ```
 
-You can also specify a private SSH key using the SSH configuration file (`~/.ssh/config`).
+还可以使用 SSH 配置文件 (`~/.ssh/config`) 指定 SSH 私钥。
 
 ```shell
-Host HOSTNAME
+Host <em>hostname</em>
   IdentityFile /path/to/ghe_private_key
   User admin
   Port 122
 ```
 
-## Accessing the administrative shell using the local console
+## 使用本地控制台访问管理 shell
 
-In an emergency situation, for example if SSH is unavailable, you can access the administrative shell locally. Sign in as the `admin` user and use the password established during initial setup of {% data variables.product.prodname_ghe_server %}.
+在 SSH 不可用等紧急情况下，您可以在本地访问管理 shell。 以 `admin` 用户身份登录，并使用在 {% data variables.product.prodname_ghe_server %} 初始设置期间确定的密码。
 
-## Access limitations for the administrative shell
+## 管理 shell 的访问限制
 
-Administrative shell access is permitted for troubleshooting and performing documented operations procedures only. Modifying system and application files, running programs, or installing unsupported software packages may void your support contract. Please contact {% data variables.contact.contact_ent_support %} if you have a question about the activities allowed by your support contract.
+管理 shell 访问仅可用于故障排查和执行记录的操作程序。 修改系统和应用程序文件、运行程序或安装不受支持的软件包可能导致支持合约失效。 如果您对支持合约允许的活动有任何疑问，请联系 {% data variables.contact.contact_ent_support %}。

@@ -2,7 +2,7 @@
 title: Git のコミット
 shortTitle: Commits
 allowTitleToDifferFromFilename: true
-intro: 'Git コミット API を使うと、{% data variables.product.product_name %} 上の Git データベースとの間でコミット オブジェクトの読み取りと書き込みを行うことができます。'
+intro: 'REST API を使用し、{% data variables.product.product_name %} で Git データベースのコミット オブジェクトを操作します。'
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,13 +11,13 @@ versions:
 topics:
   - API
 miniTocMaxHeadingLevel: 3
-ms.openlocfilehash: 2b0f1e07134b67be6c00f8bf1c65d9ccf0c2aac5
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 07813929bac1dc0ff6093b302449f1f7beb905c0
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147063483'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148192626'
 ---
-## Git コミット API について
+## Git コミットについて
 
-Git コミットは、階層 ([Git ツリー](/rest/reference/git#trees)) と Git リポジトリ内のファイル ([Git BLOB](/rest/reference/git#blobs)) の内容のスナップショットです。 これらのエンドポイントを使用すると、{% data variables.product.product_name %} 上の Git データベースに[コミット オブジェクト](https://git-scm.com/book/en/v1/Git-Internals-Git-Objects#Commit-Objects)を読み書きできます。
+Git コミットは、階層 ([Git ツリー](/rest/reference/git#trees)) と Git リポジトリ内のファイル ([Git BLOB](/rest/reference/git#blobs)) の内容のスナップショットです。 これらのエンドポイントを使用すると、{% data variables.product.product_name %} 上の Git データベースに[コミット オブジェクト](https://git-scm.com/book/en/v2/Git-Internals-Git-Objects#_git_commit_objects)を読み書きできます。

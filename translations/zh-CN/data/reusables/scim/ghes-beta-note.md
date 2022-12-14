@@ -1,16 +1,16 @@
 ---
-ms.openlocfilehash: 006bc6ea241b79ff5891db29591ce4a3e6f8976d
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.openlocfilehash: d45c0fa18ce8bcf70dcdd85e4fffa7300712f23f
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2022
-ms.locfileid: "148108203"
+ms.lasthandoff: 12/09/2022
+ms.locfileid: "148192703"
 ---
 {% ifversion scim-for-ghes %}
 
 {% note %}
 
-注意：{% data variables.product.product_name %} 的 SCIM 目前为专用 beta 版本，可能会随时更改。 要访问 beta 版本，请通过 {% data variables.contact.contact_enterprise_sales %} 联系帐户管理员。
+注意：{% data variables.product.product_name %} 的 SCIM 目前为专用 beta 版本，可能会随时更改。 要访问 beta 版本，请通过 {% data variables.contact.contact_enterprise_sales %} 联系帐户管理员。 请在 [GitHub 社区讨论](https://github.com/orgs/community/discussions/36825)中提供反馈。
 
 {% endnote %}
 

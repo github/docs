@@ -8,12 +8,12 @@ versions:
   ghes: '*'
 topics:
   - Support
-ms.openlocfilehash: 35c7b28232c0d11170ea9585480b2cfb1785ebd0
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: b735331d90c590ff6911fed44e181563b44bfc27
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147051981'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148193620'
 ---
 ## チケット管理について
 
@@ -27,7 +27,12 @@ ms.locfileid: '147051981'
 
 {% data reusables.support.view-open-tickets %}
 1. テキスト ボックスの下で、コメント履歴を読むことができます。 最新の応答は一番上にあります。
-![サポート チケットのコメント履歴のスクリーンショット。最新の応答が一番上にあります。](/assets/images/help/support/support-recent-response.png)
+
+   ![サポート チケットのコメント履歴のスクリーンショット。最新の応答が一番上にあります](/assets/images/help/support/support-recent-response.png)
+
+1. 必要に応じて、チケット コメントを翻訳するには、{% octicon "globe" aria-label="The globe icon" %} をクリックし、ドロップダウン メニューから任意の言語を選択します。 サポート チケットは、中国語 (簡体字)、フランス語、ドイツ語、日本語、ポルトガル語 (ブラジル)、またはスペイン語に翻訳できます。
+
+   ![サポート チケットのスクリーンショット。ドロップダウン メニューでは、翻訳のオプションが強調表示されています](/assets/images/help/support/support-ticket-translation-options.png)
 
 {% ifversion ghec or ghes or ghae %}
 

@@ -12,12 +12,12 @@ versions:
 topics:
   - API
 shortTitle: Discover resources for a user
-ms.openlocfilehash: 9650ff8dee220f0b32d74cacb0f86acd236df5b6
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 3b3fd627260ac03d0991db73fcb5492c1284b2c0
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145131365'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148193420'
 ---
 {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} APIに対して認証済みのリクエストを行う際には、アプリケーションがカレントユーザのリポジトリやOrganizationをフェッチしなければならないことがしばしばあります。 このガイドでは、これらのリソースを確実に調べる方法について説明します。
 
@@ -33,7 +33,7 @@ ms.locfileid: '145131365'
 
 [OAuth スコープ][scopes]と [Organization のアプリケーション ポリシー][oap]によって、アプリでユーザーに対してアクセスできるリポジトリが決まります。 以下のワークフローを使用して、これらのリポジトリを調べます。
 
-いつものように、まずは [GitHub の Octokit.rb][octokit.rb] Ruby ライブラリが必要です。 そして、[ページネーション][pagination]を自動的に処理するように Octokit.rb を構成します。
+いつものように、まずは [GitHub の Octokit.rb][octokit.rb] Ruby ライブラリが必要です。 そして、ページネーションを自動的に処理するように Octokit.rb を構成します。 ページネーションについて詳しくは、「[REST API でページネーションを使う](/rest/guides/using-pagination-in-the-rest-api)」をご覧ください。
 
 ``` ruby
 require 'octokit'
@@ -70,7 +70,7 @@ end
 
 アプリケーションは、ユーザに対してOrganizationに関するあらゆるタスクを実行できます。 これらのタスクを実行するには、アプリに十分な権限を持つ [OAuth 承認][scopes]が必要です。 たとえば、`read:org` スコープを使うと[チームの一覧を表示する][list-teams]ことができ、`user` スコープでは[ユーザーの Organization メンバーシップを公開する][publicize-membership]ことができます。 ユーザがこれらのスコープのうちの1つ以上をアプリケーションに付与すると、ユーザのOrganizationをフェッチする準備が整います。
 
-上でリポジトリを調べたときと同様に、まずは [GitHub の Octokit.rb][octokit.rb] Ruby ライブラリを要求し、[ページネーション][pagination]を自動的に処理するように構成します。
+上でリポジトリを調べたときと同様に、まずは [GitHub の Octokit.rb][octokit.rb] Ruby ライブラリを要求し、ページネーションを自動的に処理するように構成します。 ページネーションについて詳しくは、「[REST API でページネーションを使う](/rest/guides/using-pagination-in-the-rest-api)」をご覧ください。
 
 ``` ruby
 require 'octokit'
@@ -108,7 +108,6 @@ end
 [make-authenticated-request-for-user]: /rest/guides/basics-of-authentication#making-authenticated-requests
 [oap]: https://developer.github.com/changes/2015-01-19-an-integrators-guide-to-organization-application-policies/
 [octokit.rb]: https://github.com/octokit/octokit.rb
-[pagination]: /rest#pagination
 [platform samples]: https://github.com/github/platform-samples/tree/master/api/ruby/discovering-resources-for-a-user
 [publicize-membership]: /rest/reference/orgs#set-public-organization-membership-for-the-authenticated-user
 [register-oauth-app]: /rest/guides/basics-of-authentication#registering-your-app

@@ -1,239 +1,286 @@
 date: '2021-12-07'
-intro: For upgrade instructions, see "[Upgrading {% data variables.product.prodname_ghe_server %}](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server)."<br><br>**Note:** We are aware of an issue where {% data variables.product.prodname_actions %} may fail to start automatically following the upgrade to {% data variables.product.prodname_ghe_server %} 3.3. To resolve, connect to the appliance via SSH and run the `ghe-actions-start` command.
+intro: "有关升级说明，请参阅“[升级 {% data variables.product.prodname_ghe_server %}](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server)”。<br><br>**注意：**我们知道升级到 {% data variables.product.prodname_ghe_server %} 3.3 后 {% data variables.product.prodname_actions %} 可能无法自动启动的问题。若要解决此问题，请通过 SSH 连接到设备并运行 `ghe-actions-start` 命令。"
 sections:
   features:
-    - heading: Security Manager role
+    - heading: 安全管理员角色
       notes:
         # https://github.com/github/releases/issues/1610
-        - |
-          Organization owners can now grant teams the access to manage security alerts and settings on their repositories. The "security manager" role can be applied to any team and grants the team's members the following access:
+        - |组织所有者现在可以授予团队管理其存储库上的安全警报和设置的访问权限。“安全管理员”角色可以应用到任何团队，并授予团队成员以下访问权限：
 
-          - Read access on all repositories in the organization.
-          - Write access on all security alerts in the organization.
-          - Access to the organization-level security tab.
-          - Write access on security settings at the organization level.
-          - Write access on security settings at the repository level.
 
-          The security manager role is available as a public beta and subject to change. For more information, see "[Managing security managers in your organization](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization)." [Updated 2022-07-29]
 
-    - heading: 'Ephemeral self-hosted runners for GitHub Actions & new webhooks for auto-scaling'
+- 对组织中所有存储库的读取访问。
+
+- 对组织中所有安全警报的写入访问。
+
+- 对组织级“安全性”选项卡的访问。
+
+- 在组织级别对安全设置的写入访问。
+
+- 在存储库级别对安全设置的写入访问。
+
+
+
+安全管理员角色可作为公开测试版使用，可能会发生更改。有关详细信息，请参阅“[管理组织中的安全管理员](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization)”。[更新时间：2022-07-29]
+
+|
+    - heading: '用于 GitHub Actions 的临时自承载运行器和用于自动缩放的新 Webhook'
       notes:
         # https://github.com/github/releases/issues/1378
-        - |
-          {% data variables.product.prodname_actions %} now supports ephemeral (single job) self-hosted runners and a new [`workflow_job`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_job) webhook to make autoscaling runners easier.
+        - |{% data variables.product.prodname_actions %} 现在支持临时（单个作业）自承载运行器和一个新的 [`workflow_job`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_job) Webhook，以便更轻松地自动缩放运行器。
 
-          Ephemeral runners are good for self-managed environments where each job is required to run on a clean image. After a job is run, ephemeral runners are automatically unregistered from {% data variables.location.product_location %}, allowing you to perform any post-job management.
 
-          You can combine ephemeral runners with the new `workflow_job` webhook to automatically scale self-hosted runners in response to {% data variables.product.prodname_actions %} job requests.
 
-          For more information, see "[Autoscaling with self-hosted runners](/actions/hosting-your-own-runners/autoscaling-with-self-hosted-runners)" and "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_job)."
+临时运行器适合自托管环境，其中每个作业都需要在干净的映像上运行。作业运行后，临时运行器会自动从 {% data variables.product.product_location %} 注销，允许你执行任何作业后管理。
 
-    - heading: 'Dark high contrast theme'
+
+
+可以将临时运行器与新的 `workflow_job` Webhook 组合在一起来自动缩放自承载运行器，以响应 {% data variables.product.prodname_actions %} 作业请求。
+
+
+
+有关详细信息，请参阅“[使用自承载运行器自动缩放](/actions/hosting-your-own-runners/ Autoscaling -with-self- hosting- runners)”和“[Webhook 事件和有效负载](/developers/ Webhook -and-events/ Webhook -events-and-payloads#workflow_job)”。
+
+|
+    - heading: '深色高对比度主题'
       notes:
         # https://github.com/github/releases/issues/1539
-        - |
-          A dark high contrast theme, with greater contrast between foreground and background elements, is now available on {% data variables.product.prodname_ghe_server %} 3.3. This release also includes improvements to the color system across all {% data variables.product.company_short %} themes.
+        - |{% data variables.product.prodname_ghe_server %} 3.3 现已发布在前景和背景元素之间有更大对比度的深色高对比度主题。此版本还包括对所有 {% data variables.product.company_short %} 主题的颜色系统的改进。
 
-          ![Animated image of switching between dark default theme and dark high contrast on the appearance settings page](https://user-images.githubusercontent.com/334891/123645834-ad096c00-d7f4-11eb-85c9-b2c92b00d70a.gif)
 
-          For more information about changing your theme, see "[Managing your theme settings](/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/managing-your-theme-settings)."
 
+![在外观设置页面上在深色默认主题和深色高对比度之间切换的动画图像](https://user-images.githubusercontent.com/334891/123645834-ad096c00-d7f4-11eb-85c9-b2c92b00d70a.gif)
+
+
+
+有关更改主题的详细信息，请参阅“[管理主题设置](/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/managing-your-theme-settings)”。
+
+|
   changes:
-    - heading: Administration Changes
+    - heading: 管理更改
       notes:
         # https://github.com/github/releases/issues/1666
-        - '{% data variables.product.prodname_ghe_server %} 3.3 includes improvements to the maintenance of repositories, especially for repositories that contain many unreachable objects. Note that the first maintenance cycle after upgrading to {% data variables.product.prodname_ghe_server %} 3.3 may take longer than usual to complete.'
+        - '{% data variables.product.prodname_ghe_server %} 3.3 包括对存储库维护的改进，特别是对于包含许多无法访问的对象的存储库。请注意，升级到 {% data variables.product.prodname_ghe_server %} 3.3 后的第一个维护周期可能需要比平时更长的时间才能完成。'
 
         # https://github.com/github/releases/issues/1533
-        - '{% data variables.product.prodname_ghe_server %} 3.3 includes the public beta of a repository cache for geographically-distributed teams and CI infrastructure. The repository cache keeps a read-only copy of your repositories available in additional geographies, which prevents clients from downloading duplicate Git content from your primary instance. For more information, see "[About repository caching](/admin/enterprise-management/caching-repositories/about-repository-caching)."'
+        - '{% data variables.product.prodname_ghe_server %} 3.3 包括用于地理位置分散的团队和 CI 基础结构的存储库缓存的公开测试版。存储库缓存会保留在其他地理区域可用的存储库的只读副本，以防止客户端从主实例下载重复的 Git 内容。有关详细信息，请参阅“[关于存储库缓存](/admin/enterprise-management/caching-repositories/about-repository-caching)”。'
 
         # https://github.com/github/releases/issues/1616
-        - '{% data variables.product.prodname_ghe_server %} 3.3 includes improvements to the user impersonation process. An impersonation session now requires a justification for the impersonation, actions are recorded in the audit log as being performed as an impersonated user, and the user who is impersonated will receive an email notification that they have been impersonated by an enterprise administrator. For more information, see "[Impersonating a user](/enterprise-server@3.3/admin/user-management/managing-users-in-your-enterprise/impersonating-a-user)."'
+        - '{% data variables.product.prodname_ghe_server %} 3.3 包括对用户模拟过程的改进。现在，模拟会话需要模拟理由，操作将被记录到审核日志中，因为由模拟用户执行，被模拟的用户将收到一封电子邮件通知，说明他们已被企业管理员模拟。有关详细信息，请参阅“[模拟用户](/enterprise-server@3.3/admin/user-management/managing-users-in-your-enterprise/impersonating-a-user)”。'
 
         # https://github.com/github/releases/issues/1609
-        - A new stream processing service has been added to facilitate the growing set of events that are published to the audit log, including events associated with Git and {% data variables.product.prodname_actions %} activity.
+        - "添加了一项新的流处理服务，以促进发布到审核日志的不断增长的事件集，包括与 Git 和 {% data variables.product.prodname_actions %} 活动相关的事件。"
 
         # https://github.com/github/docs-content/issues/5801
-        - The {% data variables.product.prodname_github_connect %} data connection record now includes a list of enabled {% data variables.product.prodname_github_connect %} features. [Updated 2021-12-09]
+        - "{% data variables.product.prodname_github_connect %} 数据连接记录现在会列出已启用的 {% data variables.product.prodname_github_connect %} 功能。[更新时间：2021-12-09]"
 
-    - heading: Token Changes
+    - heading: 令牌更改
       notes:
         # https://github.com/github/releases/issues/1390
-        - |
-          An expiration date can now be set for new and existing personal access tokens. Setting an expiration date on personal access tokens is highly recommended to prevent older tokens from leaking and compromising security. Token owners will receive an email when it's time to renew a token that's about to expire. Tokens that have expired can be regenerated, giving users a duplicate token with the same properties as the original.
+        - |现在，可以为新的和现有的个人访问令牌设置到期日期。强烈建议为个人访问令牌设置到期日期，以防止旧令牌泄漏和损害安全性。当需要续订即将到期的令牌时，令牌所有者将收到一封电子邮件。可以重新生成已到期的令牌，为用户提供具有与原始令牌相同属性的副本令牌。
 
-          When using a personal access token with the {% data variables.product.company_short %} API, a new `GitHub-Authentication-Token-Expiration` header is included in the response, which indicates the token's expiration date. For more information, see "[Creating a personal access token](/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
 
-    - heading: 'Notifications changes'
+
+当使用带有 {% data variables.product.company_short %} API 的个人访问令牌时，响应中包含一个新的 `GitHub-Authentication-Token-Expiration` 标头，它指示令牌的到期日期。有关详细信息，请参阅“[创建个人访问令牌](/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token)”。
+
+|
+    - heading: '通知更改'
       notes:
         # https://github.com/github/releases/issues/1625
-        - 'Notification emails from discussions now include `(Discussion #xx)` in the subject, so you can recognize and filter emails that reference discussions.'
+        - '来自讨论的通知电子邮件现已在主题中包含“（讨论 #xx）”，因此你可以识别和筛选引用讨论的电子邮件。'
 
-    - heading: 'Repositories changes'
+    - heading: '存储库更改'
       notes:
         # https://github.com/github/releases/issues/1735
-        - Public repositories now have a `Public` label next to their names like private and internal repositories. This change makes it easier to identify public repositories and avoid accidentally committing private code.
+        - 公共存储库现已在其名称旁边有一个“公共”标签，例如专用和内部存储库。此更改可以更轻松地识别公共存储库并避免意外提交专用代码。
 
         # https://github.com/github/releases/issues/1733
-        - If you specify the exact name of a branch when using the branch selector menu, the result now appears at the top of the list of matching branches. Previously, exact branch name matches could appear at the bottom of the list.
+        - 如果在使用分支选择器菜单时指定了分支的确切名称，那么结果现在会显示在匹配分支列表顶部。以前，确切的分支名称匹配项可能显示在列表底部。
 
         # https://github.com/github/releases/issues/1673
-        - When viewing a branch that has a corresponding open pull request, {% data variables.product.prodname_ghe_server %} now links directly to the pull request. Previously, there would be a prompt to contribute using branch comparison or to open a new pull request.
+        - "当查看具有相应打开的拉取请求的分支时，{% data variables.product.prodname_ghe_server %} 现在会直接链接到该拉取请求。以前，会有一个提示促使使用分支比较或打开新的拉取请求。"
 
         # https://github.com/github/releases/issues/1670
-        - You can now click a button to copy the full raw contents of a file to the clipboard. Previously, you would need to open the raw file, select all, and then copy. To copy the contents of a file, navigate to the file and click {% octicon "copy" aria-label="The copy icon" %} in the toolbar. Note that this feature is currently only available in some browsers.
+        - "现在可以单击一个按钮将文件的全部原始内容复制到剪贴板。以前，你需要打开原始文件，选择所有，然后复制。若要复制文件内容，请导航到文件并单击工具栏中的 {% octicon \"copy\" aria-label=\"The copy icon\" %}。注意，此功能目前仅适用于某些浏览器。"
 
         # https://github.com/github/releases/issues/1571
-        - When creating a new release, you can now select or create the tag using a dropdown selector, rather than specifying the tag in a text field. For more information, see "[Managing releases in a repository](/repositories/releasing-projects-on-github/managing-releases-in-a-repository)."
+        - "创建新版本时，你现在可以使用下拉选择器选择或创建标记，而不是在文本字段中指定标记。有关详细信息，请参阅“[管理存储库中的发布](/repositories/releasing-projects-on-github/managing-releases-in-a-repository)”。"
 
         # https://github.com/github/releases/issues/1752
-        - A warning is now displayed when viewing a file that contains bidirectional Unicode text. Bidirectional Unicode text can be interpreted or compiled differently than it appears in a user interface. For example, hidden bidirectional Unicode characters can be used to swap segments of text in a file. For more information about replacing these characters, see the [{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-10-31-warning-about-bidirectional-unicode-text/).
+        - "现在，在查看包含双向 Unicode 文本的文件时，会显示警告。双向 Unicode 文本的解释或编译方式可以与它在用户界面中显示的方式不同。例如，可以使用隐藏的双向 Unicode 字符来交换文件中的文本段。有关替换这些字符的详细信息，请参阅 [{% data variables.product.prodname_dotcom %} 更改日志](https://github.blog/changelog/2021-10-31-warning-about-bidirectional-unicode-text/)。"
 
         # https://github.com/github/releases/issues/1416
-        - You can now use `CITATION.cff` files to let others know how you would like them to cite your work. `CITATION.cff` files are plain text files with human- and machine-readable citation information. {% data variables.product.prodname_ghe_server %} parses this information into common citation formats such as [APA](https://apastyle.apa.org) and [BibTeX](https://en.wikipedia.org/wiki/BibTeX). For more information, see "[About CITATION files](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-citation-files)."
+        - "现在，可以使用 `CITATION.cff` 文件让其他人知道你希望他们如何引用你的工作成果。`CITATION.cff` 文件是纯文本文件，具有人类和机器可读的引文信息。{% data variables.product.prodname_ghe_server %} 将此信息解析为常见的引文格式，例如 [APA](https://apastyle.apa.org) 和 [BibTeX](https://en.wikipedia.org/wiki/BibTeX)。有关详细信息，请参阅“[关于 CITATION 文件](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-citation-files)”。"
 
-    - heading: 'Markdown changes'
+    - heading: 'Markdown 更改'
       notes:
         # https://github.com/github/releases/issues/1645
-        - |
-          You can use new keyboard shortcuts for quotes and lists in Markdown files, issues, pull requests, and comments.
+        - |你可以对 Markdown 文件、问题、拉取请求和评论中的引号和列表使用新的键盘快捷方式。
 
-          * To add quotes, use <kbd>cmd shift .</kbd> on Mac, or <kbd>ctrl shift .</kbd> on Windows and Linux.
-          * To add an ordered list, use <kbd>cmd shift 7</kbd> on Mac, or <kbd>ctrl shift 7</kbd> on Windows and Linux.
-          * To add an unordered list, use <kbd>cmd shift 8</kbd> on Mac, or <kbd>ctrl shift 8</kbd> on Windows and Linux.
 
-          See "[Keyboard shortcuts](/get-started/using-github/keyboard-shortcuts)" for a full list of available shortcuts.
 
+* 若要添加引号，请在 Mac 上使用 <kbd>cmd shift .</kbd>，在 Windows 和 Linux 上使用 <kbd>ctrl shift .</kbd>。
+
+* 若要添加已排序列表，请在 Mac 上使用 <kbd>cmd shift 7</kbd>，在 Windows 和 Linux 上使用 <kbd>ctrl shift 7</kbd>。
+
+* 若要添加未排序列表，请在 Mac 上使用 <kbd>cmd shift 8</kbd>，在 Windows 和 Linux 上使用 <kbd>ctrl shift 8</kbd>。
+
+
+
+有关可用快捷方式的完整列表，请参阅“[键盘快捷方式](/get-started/using-github/keyboard-shortcuts)”。
+
+|
         # https://github.com/github/releases/issues/1684
-        - You can now use footnote syntax in any Markdown field. Footnotes are displayed as superscript links that you can click to jump to the referenced information, which is displayed in a new section at the bottom of the document. For more information about the syntax, see "[Basic writing and formatting syntax](/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#footnotes)."
+        - "现在，你可以在任何 Markdown 字段中使用脚注语法。脚注显示为上标链接，你可以单击这些链接跳转到引用的信息，这些信息显示在文档底部的新建部分中。有关语法的详细信息，请参阅“[基本写入和格式化语法](/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#footnotes)”。"
 
         # https://github.com/github/releases/issues/1647
-        - When viewing Markdown files, you can now click {% octicon "code" aria-label="The code icon" %} in the toolbar to view the source of a Markdown file. Previously, you needed to use the blame view to link to specific line numbers in the source of a Markdown file.
+        - "在查看 Markdown 文件时，现在可以单击工具栏中的 {% ocicon \"code\" aria-label=\"The code icon\" %} 来查看 Markdown 文件的源。以前，你需要使用意见视图链接到 Markdown 文件源中的特定行号。"
 
         # https://github.com/github/releases/issues/1600
-        - You can now add images and videos to Markdown files in gists by pasting them into the Markdown body or selecting them from the dialog at the bottom of the Markdown file. For information about supported file types, see "[Attaching files](https://docs.github.com/en/github/writing-on-github/working-with-advanced-formatting/attaching-files)."
+        - "现在，可以通过将图像和视频粘贴到 Markdown 正文中或从 Markdown 文件底部的对话框中选择它们来将图像和视频添加到 gists 中的 Markdown 文件。有关支持的文件类型的详细信息，请参阅“[附加文件](https://docs.github.com/en/github/writing-on-github/working-with-advanced-formatting/attaching-files)”。"
 
         # https://github.com/github/releases/issues/1523
-        - '{% data variables.product.prodname_ghe_server %} now automatically generates a table of contents for Wikis, based on headings.'
+        - '{% data variables.product.prodname_ghe_server %} 现在根据标题自动为 Wiki 生成一个目录。'
 
         # https://github.com/github/releases/issues/1626
-        - When dragging and dropping files into a Markdown editor, such as images and videos, {% data variables.product.prodname_ghe_server %} now uses the mouse pointer location instead of the cursor location when placing the file.
+        - "将图像和视频等文件拖放到 Markdown 编辑器中时，{% data variables.product.prodname_ghe_server %} 现在在放置文件时使用鼠标指针位置（而不是光标位置）。"
 
-    - heading: 'Issues and pull requests changes'
+    - heading: '问题和拉取请求更改'
       notes:
         # https://github.com/github/releases/issues/1504
-        - You can now search issues by label using a logical OR operator. To filter issues using logical OR, use the comma syntax. For example, `label:"good first issue","bug"` will list all issues with a label of `good first issue` or `bug`. For more information, see "[Filtering and searching issues and pull requests](/issues/tracking-your-work-with-issues/filtering-and-searching-issues-and-pull-requests#about-search-terms)."
+        - "现在可以使用逻辑 OR 运算符按标签搜索问题。若要使用逻辑 OR 筛选问题，请使用逗号语法。例如，`label:\"good first issue\",\"bug\"` 将列出标签为 `good first issue` 或 `bug` 的所有问题。有关详细信息，请参阅“[筛选和搜索问题以及拉取请求](/issues/tracking-your-work-with-issues/filtering-and-searching-issues-and-pull-requests#about-search-terms)”。"
 
         # https://github.com/github/releases/issues/1685
-        - |
-          Improvements have been made to help teams manage code review assignments. You can now:
+        - |已进行改进以帮助团队管理代码评审分配。你现在可以：
 
-          - Limit assignment to only direct members of the team.
-          - Continue with automatic assignment even if one or more members of the team are already requested.
-          - Keep a team assigned to review even if one or more members is newly assigned.
 
-          The timeline and reviewers sidebar on the pull request page now indicate if a review request was automatically assigned to one or more team members.
 
-          For more information, see the [{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-09-29-new-code-review-assignment-settings-and-team-filtering-improvements/).
-        - You can now filter pull request searches to only include pull requests you are directly requested to review.
+- 只分配给团队的直接成员。
+
+- 即使已请求一个或多个团队成员，也会继续自动分配。
+
+- 指定一个团队负责评审，即使新指定了一个或多个成员。
+
+
+
+现在，拉取请求页面上的时间线和审阅者边栏将指示评审请求是否自动分配给了一个或多个团队成员。
+
+
+
+有关详细信息，请参阅 [{% data variables.product.prodname_dotcom %} 更改日志](https://github.blog/changelog/2021-09-29-new-code-review-assignment-settings-and-team-filtering-improvements/)。
+
+|
+        - 现在，可以筛选拉取请求搜索，以只包含直接请求评审的拉取请求。
         # https://github.com/github/releases/issues/1683
-        - Filtered files in pull requests are now completely hidden from view, and are no longer shown as collapsed in the "Files Changed" tab. The "File Filter" menu has also been simplified. For more information, see "[Filtering files in a pull request](/github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/filtering-files-in-a-pull-request)."
+        - "拉取请求中的筛选文件现在完全隐藏在视图中，并且不再在“已更改的文件”选项卡中显示为折叠状态。“文件筛选器”菜单也得到了简化。有关详细信息，请参阅“[筛选拉取请求中的文件](/github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/filtering-files-in-a-pull-request)”。"
 
-    - heading: 'GitHub Actions changes'
+    - heading: 'GitHub Actions 更改'
       notes:
         # https://github.com/github/releases/issues/1593
-        - You can now create "composite actions" which combine multiple workflow steps into one action, and includes the ability to reference other actions. This makes it easier to reduce duplication in workflows. Previously, an action could only use scripts in its YAML definition. For more information, see "[Creating a composite action](/actions/creating-actions/creating-a-composite-action)."
+        - "现在可以创建“复合操作”，将多个工作流步骤组合成一个操作，并包括引用其他操作的能力。这样可以更轻松地减少工作流中的重复。以前，操作只能在其 YAML 定义中使用脚本。有关详细信息，请参阅“[创建复合操作](/actions/creating-actions/creating-a-composite-action)”。"
 
         # https://github.com/github/releases/issues/1694
-        - Managing self-hosted runners at the enterprise level no longer requires using personal access tokens with the `admin:enterprise` scope. You can instead use the new `manage_runners:enterprise` scope to restrict the permissions on your tokens. Tokens with this scope can authenticate to [many REST API endpoints](/rest/reference/enterprise-admin#list-self-hosted-runner-groups-for-an-enterprise) to manage your enterprise's self-hosted runners.
+        - "在企业级别管理自承载运行器不再需要使用具有“admin:enterprise”范围的个人访问令牌。可以改用新的 `manage_runners:enterprise` 范围来限制令牌上的权限。具有此范围的令牌可以向[许多 REST API 终结点](/rest/reference/enterprise-admin#list-self-hosted-runner-groups-for-an-enterprise)进行身份验证，以管理企业的自承载运行器。"
 
         # https://github.com/github/releases/issues/1157
-        - |
-          The audit log now includes additional events for {% data variables.product.prodname_actions %}. Audit log entries are now recorded for the following events:
+        - |审核日志现在包括 {% data variables.product.prodname_actions %} 的其他事件。现记录以下事件的审核日志条目：
 
-          * A self-hosted runner is registered or removed.
-          * A self-hosted runner is added to a runner group, or removed from a runner group.
-          * A runner group is created or removed.
-          * A workflow run is created or completed.
-          * A workflow job is prepared. Importantly, this log includes the list of secrets that were provided to the runner.
 
-          For more information, see "[Security hardening for {% data variables.product.prodname_actions %}](/actions/security-guides/security-hardening-for-github-actions#auditing-github-actions-events)."
 
+* 注册或移除自承载运行器。
+
+* 将自承载运行器添加到运行器组中或从运行器组中移除。
+
+* 创建或移除运行器组。
+
+* 创建或完成工作流运行。
+
+* 工作流作业准备就绪。重要的是，该日志包括提供给运行器的机密列表。
+
+
+
+有关详细信息，请参阅“[{% data variables.product.prodname_actions %} 的安全强化](/actions/security-guides/security-hardening-for-github-actions#auditing-github-actions-events)”。
+
+|
         # https://github.com/github/releases/issues/1588
-        - '{% data variables.product.prodname_ghe_server %} 3.3 contains performance improvements for job concurrency with {% data variables.product.prodname_actions %}. For more information about the new performance targets for a range of CPU and memory configurations, see "[Getting started with {% data variables.product.prodname_actions %} for {% data variables.product.prodname_ghe_server %}](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/getting-started-with-github-actions-for-github-enterprise-server#review-hardware-considerations)."'
+        - '{% data variables.product.prodname_ghe_server %} 3.3 包含对 {% data variables.product.prodname_actions %} 作业并发的性能改进。有关一系列 CPU 和内存配置的新性能目标的详细信息，请参阅“[{% data variables.product.prodname_ghe_server %} 的 {% data variables.product.prodname_actions %} 入门](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/getting-started-with-github-actions-for-github-enterprise-server#review-hardware-considerations)”。'
 
         # https://github.com/github/releases/issues/1556
-        - To mitigate insider man in the middle attacks when using actions resolved through {% data variables.product.prodname_github_connect %} to {% data variables.product.prodname_dotcom_the_website %} from {% data variables.product.prodname_ghe_server %}, the actions namespace (`owner/name`) is retired on use. Retiring the namespace prevents that namespace from being created on your {% data variables.product.prodname_ghe_server %} instance, and ensures all workflows referencing the action will download it from {% data variables.product.prodname_dotcom_the_website %}.
+        - "当使用通过 {% data variables.product.prodname_github_connect %} 从 {% data variables.product.prodname_ghe_server %} 解析到 {% data variables.product.prodname_dotcom_the_website %} 的操作时，为了缓解内部中间人攻击，在使用时停用操作命名空间 (`owner/name`)。停用命名空间可以防止在 {% data variables.product.prodname_ghe_server %} 实例上创建该命名空间，并确保所有引用该操作的工作流都将从 {% data variables.product.prodname_dotcom_the_website %} 下载它。"
 
-    - heading: 'GitHub Packages changes'
+    - heading: 'GitHub Packages 更改'
       notes:
         # https://github.com/github/docs-content/issues/5554
-        - When a repository is deleted, any associated package files are now immediately deleted from your {% data variables.product.prodname_registry %} external storage.
+        - "删除存储库后，现在会立即从 {% data variables.product.prodname_registry %} 外部存储中删除任何关联的包文件。"
 
-    - heading: 'Dependabot and Dependency graph changes'
+    - heading: 'Dependabot 和依赖项关系图更改'
       notes:
         # https://github.com/github/releases/issues/1141
-        - Dependency review is out of beta and is now generally available for {% data variables.product.prodname_GH_advanced_security %} customers. Dependency review provides an easy-to-understand view of dependency changes and their security impact in the "Files changed" tab of pull requests. It informs you of which dependencies were added, removed, or updated, along with vulnerability information. For more information, see "[Reviewing dependency changes in a pull request](/github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-dependency-changes-in-a-pull-request)."
+        - "依赖项审查已完成测试，现在通常可供 {% data variables.product.prodname_GH_advanced_security %} 客户使用。依赖项审查在拉取请求的“已更改的文件”选项卡中提供依赖项更改及其安全影响的易于理解的视图。视图中将显示已添加、移除或更新了哪些依赖项以及漏洞信息。有关详细信息，请参阅“[审查拉取请求中的依赖项更改](/github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-dependency-changes-in-a-pull-request)”。"
 
         # https://github.com/github/releases/issues/1630
-        - '{% data variables.product.prodname_dependabot %} is now available as a private beta, offering both version updates and security updates for several popular ecosystems. {% data variables.product.prodname_dependabot %} on {% data variables.product.prodname_ghe_server %} requires {% data variables.product.prodname_actions %} and a pool of self-hosted runners configured for {% data variables.product.prodname_dependabot %} use. {% data variables.product.prodname_dependabot %} on {% data variables.product.prodname_ghe_server %} also requires {% data variables.product.prodname_github_connect %} to be enabled. To learn more and sign up for the beta, contact the GitHub Sales team.'
+        - '{% data variables.product.prodname_dependabot %} 现在作为专用测试版提供，为多个常用生态系统提供版本更新和安全更新。{% data variables.product.prodname_ghe_server %} 上的 {% data variables.product.prodname_dependabot %} 需要 {% data variables.product.prodname_actions %} 和为 {% data variables.product.prodname_dependabot %} 使用而配置的自承载运行器池。{% data variables.product.prodname_ghe_server %} 上的 {% data variables.product.prodname_dependabot %} 还需要启用 {% data variables.product.prodname_github_connect %}。若要了解详细信息并注册测试版，请联系 GitHub 销售团队。'
 
-    - heading: 'Code scanning and secret scanning changes'
+    - heading: '代码扫描和机密扫描更改'
       notes:
         # https://github.com/github/releases/issues/1724
-        - The depth of {% data variables.product.prodname_codeql %}'s analysis has been improved by adding support for more [libraries and frameworks](https://codeql.github.com/docs/codeql-overview/supported-languages-and-frameworks/) and increasing the coverage of our existing library and framework models. [JavaScript](https://github.com/github/codeql/tree/main/javascript) analysis now supports most common templating languages, and [Java](https://github.com/github/codeql/tree/main/java) now covers more than three times the endpoints of previous {% data variables.product.prodname_codeql %} versions. As a result, {% data variables.product.prodname_codeql %} can now detect even more potential sources of untrusted user data, steps through which that data flows, and potentially dangerous sinks where the data could end up. This results in an overall improvement of the quality of {% data variables.product.prodname_code_scanning %} alerts.
+        - "{% data variables.product.prodname_codeql %} 的分析深度已通过添加对更多[库和框架](https://codeql.github.com/docs/codeql-overview/supported-languages-and-frameworks/)的支持得到改进，并增加我们现有库和框架模型的覆盖范围。[JavaScript](https://github.com/github/codeql/tree/main/javascript) 分析现在支持最常见的模板语言，[Java](https://github.com/github/codeql/tree/main /java) 现在覆盖的终结点超过以前 {% data variables.product.prodname_codeql %} 版本的三倍。因此，{% data variables.product.prodname_codeql %} 现在可以检测更多不受信任的用户数据的潜在来源、数据流经的步骤以及数据可能最终到达的潜在危险接收器。这使得 {% data variables.product.prodname_code_scanning %} 警报的质量得到了全面的提高。"
 
         # https://github.com/github/releases/issues/1639
-        - '{% data variables.product.prodname_codeql %} now supports scanning standard language features in Java 16, such as records and pattern matching. {% data variables.product.prodname_codeql %} is able to analyze code written in Java version 7 through 16. For more information about supported languages and frameworks, see the [{% data variables.product.prodname_codeql %} documentation](https://codeql.github.com/docs/codeql-overview/supported-languages-and-frameworks/#id5).'
+        - '{% data variables.product.prodname_codeql %} 现在支持扫描 Java 16 中的标准语言功能，例如记录和模式匹配。{% data variables.product.prodname_codeql %} 能够分析用 Java 版本 7 到 16 编写的代码。有关支持的语言和框架的详细信息，请参阅 [{% data variables.product.prodname_codeql %} 文档](https://codeql.github.com/docs/codeql-overview/supported-languages-and-frameworks/# id5)。'
 
         # https://github.com/github/releases/issues/1655
-        - |
-          Improvements have been made to the {% data variables.product.prodname_code_scanning %} `on:push` trigger when code is pushed to a pull request. If an `on:push` scan returns results that are associated with a pull request, {% data variables.product.prodname_code_scanning %} will now show these alerts on the pull request.
+        - |将代码推送到拉取请求时，对 {% data variables.product.prodname_code_scanning %} `on:push` 触发器进行了改进。如果 `on:push` 扫描返回与拉取请求关联的结果，{% data variables.product.prodname_code_scanning %} 现在将在拉取请求上显示这些警报。
 
-          Some other CI/CD systems can be exclusively configured to trigger a pipeline when code is pushed to a branch, or even exclusively for every commit. Whenever such an analysis pipeline is triggered and results are uploaded to the SARIF API, {% data variables.product.prodname_code_scanning %} will also try to match the analysis results to an open pull request. If an open pull request is found, the results will be published as described above. For more information, see the [{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-09-27-showing-code-scanning-alerts-on-pull-requests/).
 
+
+其他一些 CI/CD 系统可以专门配置为在代码被推送到分支时触发管道，甚至专门配置为在每次提交时触发管道。每当触发此类分析管道并将结果上传到 SARIF API 时，{% data variables.product.prodname_code_scanning %} 还将尝试将分析结果与一个打开的拉取请求相匹配。如果找到一个打开的拉取请求，结果发布将如上所述。有关详细信息，请参阅 [{% data variables.product.prodname_dotcom %} 更改日志](https://github.blog/changelog/2021-09-27-showing-code-scanning-alerts-on-pull-requests/)。
+
+|
         # https://github.com/github/releases/issues/1546
-        - You can now use the new pull request filter on the {% data variables.product.prodname_code_scanning %} alerts page to find all the {% data variables.product.prodname_code_scanning %} alerts associated with a pull request. A new "View all branch alerts" link on the pull request "Checks" tab allows you to directly view {% data variables.product.prodname_code_scanning %} alerts with the specific pull request filter already applied. For more information, see the [{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-08-23-pull-request-filter-for-code-scanning-alerts/).
+        - "你现在可以在 {% data variables.product.prodname_code_scanning %} 警报页面上使用新的拉取请求筛选器来查找与拉取请求关联的所有 {% data variables.product.prodname_code_scanning %} 警报。拉取请求“检查”选项卡上的新“查看所有分支警报”链接允许你直接查看已应用特定拉取请求筛选器的 {% data variables.product.prodname_code_scanning %} 警报。有关详细信息，请参阅 [{% data variables.product.prodname_dotcom %} 更改日志](https://github.blog/changelog/2021-08-23-pull-request-filter-for-code-scanning-alerts/)。"
 
         # https://github.com/github/releases/issues/1562
-        - User defined patterns for {% data variables.product.prodname_secret_scanning %} is out of beta and is now generally available for {% data variables.product.prodname_GH_advanced_security %} customers. Also new in this release is the ability to edit custom patterns defined at the repository, organization, and enterprise levels. After editing and saving a pattern, {% data variables.product.prodname_secret_scanning %} searches for matches both in a repository's entire Git history and in any new commits. Editing a pattern will close alerts previously associated with the pattern if they no longer match the updated version. Other improvements, such as dry-runs, are planned in future releases. For more information, see "[Defining custom patterns for secret scanning](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)."
+        - "{% data variables.product.prodname_secret_scanning %} 的用户定义模式已完成测试，现在通常可供 {% data variables.product.prodname_GH_advanced_security %} 客户使用。此版本中的另一个新功能是能够编辑在存储库、组织和企业级别定义的自定义模式。编辑并保存模式后，{% data variables.product.prodname_secret_scanning %} 在存储库的整个 Git 历史记录和任何新提交中搜索匹配项。对某个模式进行编辑会关闭以前与该模式关联的警报（如果它们不再匹配更新的版本）。计划在未来的版本中进行其他改进（例如试运行）。有关详细信息，请参阅“[定义机密扫描的自定义模式](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)”。"
 
-    - heading: API and webhook changes
+    - heading: API 和 Webhook 更改
       notes:
         # https://github.com/github/releases/issues/1744
-        - Most REST API previews have graduated and are now an official part of the API. Preview headers are no longer required for most REST API endpoints, but will still function as expected if you specify a graduated preview in the `Accept` header of a request. For previews that still require specifying the preview in the `Accept` header of a request, see "[API previews](/rest/overview/api-previews)."
+        - "大多数 REST API 预览现已完结，并成为 API 的正式组成部分。大多数 REST API 终结点不再需要预览标头，但如果你继续在请求的 `Accept` 标头中指定已完结预览，那么它仍将按预期发挥作用。对于仍需要在请求的 `Accept` 标头中指定预览的预览版，请参阅“[API 预览](/rest/overview/api-previews)”。"
 
         # https://github.com/github/releases/issues/1513
-        - You can now use the REST API to configure custom autolinks to external resources. The REST API now provides beta `GET`/`POST`/`DELETE` endpoints which you can use to view, add, or delete custom autolinks associated with a repository. For more information, see "[Autolinks](/rest/reference/repos#autolinks)."
+        - "现在可以使用 REST API 配置外部资源的自定义自动链接。REST API 现在提供测试版 `GET`/`POST`/`DELETE` 终结点，你可以使用这些终结点查看、添加或删除与存储库关联的自定义自动链接。有关详细信息，请参阅“[自动链接](/rest/reference/repos#autolinks)”。"
 
         # https://github.com/github/releases/issues/1578
-        - You can now use the REST API to sync a forked repository with its upstream repository. For more information, see "[Branches](/rest/reference/branches#sync-a-fork-branch-with-the-upstream-repository)" in the REST API documentation.
+        - "现在可以使用 REST API 将分支存储库与其上游存储库同步。有关详细信息，请参阅 REST API 文档中的“[分支](/rest/reference/branches#sync-a-fork-branch-with-the-upstream-repository)”。"
 
         # https://github.com/github/releases/issues/1527
-        - Enterprise administrators on GitHub Enterprise Server can now use the REST API to enable or disable Git LFS for a repository. For more information, see "[Repositories](/rest/reference/repos#git-lfs)."
+        - "GitHub Enterprise Server 上的企业管理员现在可以使用 REST API 为存储库启用或禁用 Git LFS。有关详细信息，请参阅“[存储库](/rest/reference/repos#git-lfs)”。"
 
         # https://github.com/github/releases/issues/1476
-        - You can now use the REST API to query the audit log for an enterprise. While audit log forwarding provides the ability to retain and analyze data with your own toolkit and determine patterns over time, the new endpoint can help you perform limited analysis on recent events. For more information, see "[{% data variables.product.prodname_enterprise %} administration](/rest/reference/enterprise-admin#get-the-audit-log-for-an-enterprise)" in the REST API documentation.
+        - "现在可以使用 REST API 查询企业的审核日志。虽然审核日志转发使你能够使用自己的工具包保留和分析数据并随时间的推移确定模式，但新的终结点将帮助你对最近发生的事件执行有限的分析。有关详细信息，请参阅 REST API 文档中的“[{% data variables.product.prodname_enterprise %} 管理](/rest/reference/enterprise-admin#get-the-audit-log-for-an-enterprise)”。"
 
         # https://github.com/github/releases/issues/1485
-        - GitHub App user-to-server API requests can now read public resources using the REST API. This includes, for example, the ability to list a public repository's issues and pull requests, and to access a public repository's comments and content.
+        - GitHub 应用用户到服务器 API 请求现在可以使用 REST API 读取公共资源。例如，这包括能够列出公共存储库的问题和拉取请求以及访问公共存储库的注释和内容。
 
         # https://github.com/github/releases/issues/1734
-        - When creating or updating a repository, you can now configure whether forking is allowed using the REST and GraphQL APIs. Previously, APIs for creating and updating repositories didn't include the fields `allow_forking` (REST) or `forkingAllowed` (GraphQL). For more information, see "[Repositories](/rest/reference/repos)" in the REST API documentation and "[Repositories](/graphql/reference/objects#repository)" in the GraphQL API documentation.
+        - "创建或更新存储库时，现在可以使用 REST 和 GraphQL API 配置是否允许创建分支。以前，用于创建和更新存储库的 API 不包括字段 `allow_forking` (REST) 或 `forkingAllowed` (GraphQL)。有关详细信息，请参阅 REST API 文档中的“[存储库](/rest/reference/repos)”和 GraphQL API 文档中的“[存储库](/graphql/reference/objects#repository)”。"
 
         # https://github.com/github/releases/issues/1637
-        - |
-          A new GraphQL mutation [`createCommitOnBranch`](/graphql/reference/mutations#createcommitonbranch) makes it easier to add, update, and delete files in a branch of a repository. Compared to the REST API, you do not need to manually create blobs and trees before creating the commit. This allows you to add, update, or delete multiple files in a single API call.
+        - |新的 GraphQL 突变 [`createCommitOnBranch`](/graphql/reference/mutations#createcommitonbranch) 使得更易于在存储库的分支中添加、更新和删除文件。与 REST API 相比，无需在创建提交之前手动创建 Blob 和树。这允许你在单个 API 调用中添加、更新或删除多个文件。
 
-          Commits authored using the new API are automatically GPG signed and are [marked as verified](/github/authenticating-to-github/managing-commit-signature-verification/about-commit-signature-verification) in the {% data variables.product.prodname_ghe_server %} UI. GitHub Apps can use the mutation to author commits directly or [on behalf of users](/developers/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps#user-to-server-requests).
 
+
+使用新 API 编写的提交会自动进行 GPG 签名，并在 {% data variables.product.prodname_ghe_server %} UI 中[标记为已验证](/github/authenticating-to-github/managing-commit-signature-verification/about-commit-signature-verification)。GitHub 应用可以使用突变直接或[代表用户](/developers/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps#user-to-server-requests)编写提交。
+
+|
         # https://github.com/github/releases/issues/1665
-        - When a new tag is created, the [push](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#push) webhook payload now always includes a `head_commit` object that contains the data of the commit that the new tag points to. As a result, the `head_commit` object will always contain the commit data of the payload's `after` commit.
+        - "创建新标记时，[推送](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#push) Webhook 有效负载现始终包括 `head_commit` 对象，其中包含新标记指向的提交数据。因此，`head_commit` 对象将始终包含有效负载 `after` 提交的提交数据。"
 
-    - heading: 'Performance Changes'
+    - heading: '性能更改'
       notes:
         # https://github.com/github/releases/issues/1823
-        - Page loads and jobs are now significantly faster for repositories with many Git refs.
+        - 对于有很多 Git 引用的存储库，页面加载和作业现在显著更快。
 
   # No security/bug fixes for the RC release
   # security_fixes:
@@ -243,63 +290,74 @@ sections:
   #   - PLACEHOLDER
 
   known_issues:
-    - After upgrading to {% data variables.product.prodname_ghe_server %} 3.3, {% data variables.product.prodname_actions %} may fail to start automatically. To resolve this issue, connect to the appliance via SSH and run the `ghe-actions-start` command.
-    - On a freshly set up {% data variables.product.prodname_ghe_server %} instance without any users, an attacker could create the first admin user.
-    - Custom firewall rules are removed during the upgrade process.
-    - Git LFS tracked files [uploaded through the web interface](https://github.com/blog/2105-upload-files-to-your-repositories) are incorrectly added directly to the repository.
-    - Issues cannot be closed if they contain a permalink to a blob in the same repository, where the blob's file path is longer than 255 characters.
-    - When "Users can search GitHub.com" is enabled with GitHub Connect, issues in private and internal repositories are not included in GitHub.com search results.
-    - The {% data variables.product.prodname_registry %} npm registry no longer returns a time value in metadata responses. This was done to allow for substantial performance improvements. We continue to have all the data necessary to return a time value as part of the metadata response and will resume returning this value in the future once we have solved the existing performance issues.
-    - Resource limits that are specific to processing pre-receive hooks may cause some pre-receive hooks to fail.
-    - '{% data variables.product.prodname_actions %} storage settings cannot be validated and saved in the {% data variables.enterprise.management_console %} when "Force Path Style" is selected, and must instead be configured with the `ghe-actions-precheck` command line utility.'
-    - '{% data variables.product.prodname_ghe_server %} 3.3 instances installed on Azure and provisioned with 32+ CPU cores would fail to launch, due to a bug present in the current Linux kernel. [Updated: 2022-04-08]'
+    - "升级到 {% data variables.product.prodname_ghe_server %} 3.3 后，{% data variables.product.prodname_actions %} 可能无法自动启动。若要解决此问题，请通过 SSH 连接到设备并运行 `ghe-actions-start` 命令。"
+    - "在新建的没有任何用户的 {% data variables.product.prodname_ghe_server %} 实例上，攻击者可以创建第一个管理员用户。"
+    - 自定义防火墙规则在升级过程中被删除。
+    - "[通过 Web 界面上传](https://github.com/blog/2105-upload-files-to-your-repositories)的 Git LFS 跟踪文件被错误地直接添加到存储库。"
+    - 如果问题包含文件路径长于 255 个字符的同一存储库中 blob 的永久链接，则问题无法关闭。
+    - 在 GitHub Connect 中启用了“用户可以搜索 GitHub.com”时，专用和内部存储库中的问题不包括在 GitHub.com 搜索结果中。
+    - "{% data variables.product.prodname_registry %} npm 注册表不再在元数据响应中返回时间值。这样可以大幅改善性能。我们继续拥有将时间值作为元数据响应的一部分返回所需的所有数据，并将在以后解决现有性能问题后恢复返回该值。"
+    - 特定于处理预接收挂钩的资源限制可能导致部分预接收挂钩失败。
+    - '选择“强制路径样式”时，无法验证 {% data variables.product.prodname_actions %} 存储设置并将其保存在 {% data variables.enterprise.management_console %} 中，而必须使用 `ghe-actions-precheck` 命令行实用程序进行配置。'
+    - '由于当前 Linux 内核中存在 bug，安装在 Azure 上并预配了 32 个以上 CPU 内核的 {% data variables.product.prodname_ghe_server %} 3.3 实例将无法启动。[更新时间：2022-04-08]'
     - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'
   deprecations:
-    - heading: Deprecation of GitHub Enterprise Server 2.22
+    - heading: 弃用 GitHub Enterprise Server 2.22
       notes:
-        - '**{% data variables.product.prodname_ghe_server %} 2.22 was discontinued on September 23, 2021**. This means that no patch releases will be made, even for critical security issues, after this date. For better performance, improved security, and new features, [upgrade to the newest version of {% data variables.product.prodname_ghe_server %}](/enterprise-server@3.3/admin/enterprise-management/upgrading-github-enterprise-server) as soon as possible.'
-    - heading: Deprecation of GitHub Enterprise Server 3.0
+        - '**{% data variables.product.prodname_ghe_server %} 2.22 已于 2021 年 9 月 23 日停用**。这意味着，在此日期之后，即使针对重大安全问题，也不会发布补丁。为了获得更好的性能、改进的安全性和新功能，请尽快[升级到 {% data variables.product.prodname_ghe_server %} 的最新版本](/enterprise-server@3.3/admin/enterprise-management/upgrading-github-enterprise-server)。'
+    - heading: 弃用 GitHub Enterprise Server 3.0
       notes:
-        - '**{% data variables.product.prodname_ghe_server %} 3.0 will be discontinued on February 16, 2022**. This means that no patch releases will be made, even for critical security issues, after this date. For better performance, improved security, and new features, [upgrade to the newest version of {% data variables.product.prodname_ghe_server %}](/enterprise-server@3.3/admin/enterprise-management/upgrading-github-enterprise-server) as soon as possible.'
+        - '**{% data variables.product.prodname_ghe_server %} 3.0 将于 2022 年 2 月 16 日停用**。这意味着，在此日期之后，即使针对重大安全问题，也不会发布补丁。为了获得更好的性能、改进的安全性和新功能，请尽快[升级到 {% data variables.product.prodname_ghe_server %} 的最新版本](/enterprise-server@3.3/admin/enterprise-management/upgrading-github-enterprise-server)。'
 
-    - heading: Deprecation of XenServer Hypervisor support
+    - heading: 弃用 XenServer Hypervisor 支持
       notes:
         # https://github.com/github/docs-content/issues/4439
-        - Starting with {% data variables.product.prodname_ghe_server %} 3.3, {% data variables.product.prodname_ghe_server %} on XenServer is deprecated and is no longer supported. Please contact [GitHub Support](https://support.github.com) with questions or concerns.
+        - "从 {% data variables.product.prodname_ghe_server %} 3.3 开始，XenServer 上的 {% data variables.product.prodname_ghe_server %} 已弃用且不再受支持。如有问题或疑虑，请联系 [GitHub 支持](https://support.github.com)。"
 
-    - heading: Deprecation of OAuth Application API endpoints and API authentication using query parameters
+    - heading: 弃用 OAuth 应用程序 API 终结点和使用查询参数的 API 身份验证
       notes:
         # https://github.com/github/releases/issues/1316
-        - |
-          To prevent accidental logging or exposure of `access_tokens`, we discourage the use of OAuth Application API endpoints and the use of API authentication using query parameters. View the following posts to see the proposed replacements:
+        - |为防止意外记录或公开 `access_tokens`，我们不鼓励使用 OAuth 应用程序 API 终结点和使用查询参数进行 API 身份验证。浏览以下帖子，查看建议的替换：
 
-          * [Replacement OAuth Application API endpoints](https://developer.github.com/changes/2020-02-14-deprecating-oauth-app-endpoint/#changes-to-make)
-          * [Replacement authentication using headers instead of query param](https://developer.github.com/changes/2020-02-10-deprecating-auth-through-query-param/#changes-to-make)
 
-          These endpoints and authentication route are planned to be removed from {% data variables.product.prodname_ghe_server %} in {% data variables.product.prodname_ghe_server %} 3.4.
 
-    - heading: Deprecation of the CodeQL runner
+* [替换 OAuth 应用程序 API 终结点](https://developer.github.com/changes/2020-02-14-deprecating-oauth-app-endpoint/#changes-to-make)
+
+* [使用标头而不是查询参数替换身份验证](https://developer.github.com/changes/2020-02-10-deprecating-auth-through-query-param/#changes-to-make)
+
+
+
+这些终结点和身份验证路由计划从 {% data variables.product.prodname_ghe_server %} 3.4 中的 {% data variables.product.prodname_ghe_server %} 中删除。
+
+|
+    - heading: 弃用 CodeQL 运行器
       notes:
         # https://github.com/github/releases/issues/1632
-        - The {% data variables.product.prodname_codeql %} runner is being deprecated. {% data variables.product.prodname_ghe_server %} 3.3 will be the final release series that supports the {% data variables.product.prodname_codeql %} runner. Starting with {% data variables.product.prodname_ghe_server %} 3.4, the {% data variables.product.prodname_codeql %} runner will be removed and no longer supported. The {% data variables.product.prodname_codeql %} CLI version 2.6.2 or greater is a feature-complete replacement for the {% data variables.product.prodname_codeql %} runner. For more information, see the [{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-09-21-codeql-runner-deprecation/).
+        - "{% data variables.product.prodname_codeql %} 运行器已弃用。{% data variables.product.prodname_ghe_server %} 3.3 将是支持 {% data variables.product.prodname_codeql %} 运行器的最终版本系列。从 {% data variables.product.prodname_ghe_server %} 3.4 开始，{% data variables.product.prodname_codeql %} 运行器将被删除并且不再受支持。{% data variables.product.prodname_codeql %} CLI 版本 2.6.2 或更高版本是 {% data variables.product.prodname_codeql %} 运行器的功能完整的替代项。有关详细信息，请参阅 [{% data variables.product.prodname_dotcom %} 更改日志](https://github.blog/changelog/2021-09-21-codeql-runner-deprecation/)。"
 
-    - heading: Deprecation of custom bit-cache extensions
+    - heading: 弃用自定义位缓存扩展
       notes:
         # https://github.com/github/releases/issues/1415
-        - |
-          Starting in {% data variables.product.prodname_ghe_server %} 3.1, support for {% data variables.product.company_short %}'s proprietary bit-cache extensions began to be phased out. These extensions are now deprecated in {% data variables.product.prodname_ghe_server %} 3.3.
+        - |从 {% data variables.product.prodname_ghe_server %} 3.1 开始，开始逐渐停用对 {% data variables.product.company_short %} 的专有位缓存扩展的支持。这些扩展在 {% data variables.product.prodname_ghe_server %} 3.3 中现已弃用。
 
-          Any repositories that were already present and active on {% data variables.location.product_location %} running version 3.1 or 3.2 will have been automatically updated.
 
-          Repositories which were not present and active before upgrading to {% data variables.product.prodname_ghe_server %} 3.3 may not perform optimally until a repository maintenance task is run and has successfully completed.
 
-          To start a repository maintenance task manually, browse to `https://<hostname>/stafftools/repositories/<owner>/<repository>/network` for each affected repository and click the **Schedule** button.
+运行版本 3.1 或 3.2 的 {% data variables.product.product_location %} 上已经存在并处于活动状态的任何存储库都将自动更新。
 
-    - heading: Change to the format of authentication tokens affects GitHub Connect
+
+
+在升级到 {% data variables.product.prodname_ghe_server %} 3.3 之前不存在且处于活动状态的存储库可能无法以最佳方式执行，直到运行存储库维护任务并成功完成。
+
+
+
+若要手动启动存储库维护任务，请浏览到 `https://<hostname>/stafftools/repositories/<owner>/<repository>/network` 查看每个受影响的存储库，然后单击**“计划”**按钮。
+
+|
+    - heading: 更改身份验证令牌的格式会影响 GitHub Connect
       notes:
         # https://github.com/github/releases/issues/1235
-        - |
-          GitHub Connect will no longer work after June 3rd for instances running GitHub Enterprise Server 3.1 or older, due to the format of GitHub authentication tokens changing. To continue using GitHub Connect, upgrade to GitHub Enterprise Server 3.2 or later. For more information, see the [GitHub Blog](https://github.blog/2022-05-20-action-needed-by-github-connect-customers-using-ghes-3-1-and-older-to-adopt-new-authentication-token-format-updates/). [Updated: 2022-06-14]
+        - |由于 GitHub 身份验证令牌的格式发生变化，6 月 3 日之后，运行 GitHub Enterprise Server 3.1 或更早版本的实例将不再使用 GitHub Connect。若要继续使用 GitHub Connect，请升级到 GitHub Enterprise Server 3.2 或更高版本。有关详细信息，请参阅 [GitHub 博客](https://github.blog/2022-05-20-action-needed-by-github-connect-customers-using-ghes-3-1-and-older-to-adopt-new-authentication-token-format-updates/)。[更新时间：2022-06-14]
 
+|
   backups:
-    - '{% data variables.product.prodname_ghe_server %} 3.3 requires at least [GitHub Enterprise Backup Utilities 3.3.0](https://github.com/github/backup-utils) for [Backups and Disaster Recovery](/admin/configuration/configuring-your-enterprise/configuring-backups-on-your-appliance).'
+    - '{% data variables.product.prodname_ghe_server %} 3.3 至少需要 [GitHub Enterprise Backup Utilities 3.3.0](https://github.com/github/backup-utils) 进行[备份和灾难恢复](/admin/configuration/configuring-your-enterprise/configuring-backups-on-your-appliance)。'

@@ -1,0 +1,26 @@
+date: '2022-07-21'
+sections:
+  security_fixes:
+    - "中****：防止服务器端请求伪造 (SSRF) 可能通过向 Memcached 注入任意数据来强制 Subversion (SVN) 桥执行远程代码的攻击。" 
+    - "将 Grafana 更新到版本 7.5.16，这样可以解决各种安全漏洞，包括 [CVE-2020-13379](https://github.com/advisories/GHSA-wc9w-wvq2-ffm9) 和 [CVE-2022-21702](https://github.com/grafana/grafana/security/advisories/GHSA-xc3p-28hw-q24g)。" 
+    - 包已更新到最新安全版本。 
+  bugs:
+    - 修复了使用解压缩工具解压缩时项目压缩存档中的文件权限为 000 的问题。现在这些文件的权限将设置为 644，就像在 GitHub.com 中那样。 
+    - 在某些情况下，collectd 守护进程可能会消耗过多内存。 
+    - 在某些情况下，旋转日志文件备份可能会累积并消耗过多存储。 
+    - 在升级到新功能版本并运行后续配置之后，Elasticsearch 可能在重新生成索引时记录过多异常。 
+    - 在某些情况下，受保护的分支需要多个批准的审查，一个拉取请求可以合并少于所需数量的批准审查。 
+    - 在使用 LDAP 身份验证的实例中，当用户名和密码的文本字段都可见时，sudo 模式的身份验证提示在默认情况下将光标错误地放置在密码字段中。 
+  changes:
+    - "`ghe-set-password` 命令行实用程序在以恢复模式启动实例时自动启动所需的服务。" 
+    - 将收集 `aqueduct` 后台进程指标进行 Collectd 转发并显示在管理控制台中。 
+    - 数据库迁移和配置运行日志 `/data/user/common/ghe-config.log` 的位置现在显示在详细描述正在进行的迁移的页面上。 
+  known_issues:
+    - "在新建的没有任何用户的 {% data variables.product.prodname_ghe_server %} 实例上，攻击者可以创建第一个管理员用户。"
+    - 自定义防火墙规则在升级过程中被删除。
+    - "[通过 Web 界面上传](https://github.com/blog/2105-upload-files-to-your-repositories)的 Git LFS 跟踪文件被错误地直接添加到存储库。"
+    - 如果问题包含文件路径长于 255 个字符的同一存储库中 blob 的永久链接，则问题无法关闭。
+    - "对 {% data variables.product.prodname_github_connect %} 启用“用户可以搜索 GitHub.com”后，专用和内部存储库中的问题不包括在 {% data variables.product.prodname_dotcom_the_website %} 搜索结果中。"
+    - "{% data variables.product.prodname_registry %} npm 注册表不再在元数据响应中返回时间值。这样可以大幅改善性能。作为元数据响应的一部分，我们继续拥有返回时间值所需的所有数据，并将在以后解决现有性能问题后恢复返回这个值。"
+    - 特定于处理预接收挂钩的资源限制可能导致部分预接收挂钩失败。
+    - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'

@@ -1,9 +1,11 @@
 ---
-ms.openlocfilehash: ed3544608134084a2a11c5db9e9c474b29c14e41
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.openlocfilehash: 12573a5fe996a8e2bb1cd66d4dbadb6b7a716b7e
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2022
-ms.locfileid: "148107935"
+ms.lasthandoff: 12/09/2022
+ms.locfileid: "148192854"
 ---
-A cobrança do {% data variables.product.prodname_copilot %} só pode ser gerenciada por meio de contas pessoais. As organizações não podem gerenciar a cobrança do {% data variables.product.prodname_copilot %} relacionada a membros da organização no momento. Se você quiser gerenciar a cobrança do {% data variables.product.prodname_copilot %} na organização, entre na [lista de espera](https://github.com/features/copilot/org_signup).
+O {% data variables.product.prodname_copilot %} pode ser gerenciados através de contas pessoais com {% data variables.product.prodname_copilot_for_individuals %} ou por meio de contas faturadas {% data variables.product.prodname_ghe_cloud %} com {% data variables.product.prodname_copilot_for_business %}.<br><br>
+
+Contas do {% data variables.product.prodname_ghe_cloud %} que são pagas com cartão de crédito ou PayPal e as organizações nos planos {% data variables.product.prodname_team %} ou {% data variables.product.prodname_free_team %} não podem gerenciar o {% data variables.product.prodname_copilot %} para seus membros no momento. Se você estiver interessado em gerenciar o {% data variables.product.prodname_copilot %} por meio de sua conta do {% data variables.product.prodname_ghe_cloud %} pagando por meio de cartão de crédito ou PayPal, ou sua organização no plano {% data variables.product.prodname_team %} ou {% data variables.product.prodname_free_team %}, entre em contato com Vendas e solicite o ingresso na [lista de espera](https://github.com/enterprise/contact?ref_page=/pricing?_features=site_copilot_biz_ga&ref_cta=Contact%20Sales&ref_loc=cards).

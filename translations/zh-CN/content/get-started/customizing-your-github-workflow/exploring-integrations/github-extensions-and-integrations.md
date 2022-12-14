@@ -1,6 +1,6 @@
 ---
-title: GitHub extensions and integrations
-intro: 'Use {% data variables.product.product_name %} extensions to work seamlessly in {% data variables.product.product_name %} repositories within third-party applications.'
+title: GitHub 扩展和集成
+intro: '通过 {% data variables.product.product_name %} 扩展可在第三方应用程序中无缝使用 {% data variables.product.product_name %} 仓库。'
 redirect_from:
   - /articles/about-github-extensions-for-third-party-applications
   - /articles/github-extensions-and-integrations
@@ -10,43 +10,53 @@ versions:
   fpt: '*'
   ghec: '*'
 shortTitle: Extensions & integrations
+ms.openlocfilehash: f33ce9b9ae55e523bedff1309f3f2f15202dcf82
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147884211'
 ---
-## Editor tools
+## 编辑器工具
 
-You can connect to {% data variables.product.product_name %} repositories within third-party editor tools such as Unity and {% data variables.product.prodname_vs %}.
+可以在第三方编辑器工具中连接到 {% data variables.product.product_name %} 存储库，例如 Atom、Unity 和 {% data variables.product.prodname_vs %} 等工具。
+
+### {% data variables.product.product_name %} for Atom
+
+使用 {% data variables.product.product_name %} for Atom 扩展，您可以从 Atom 编辑器中提交、推送、拉取和解决合并冲突等。 有关详细信息，请参阅官方 [{% data variables.product.product_name %} for Atom 站点](https://github.atom.io/)。
 
 ### {% data variables.product.product_name %} for Unity
 
-With the {% data variables.product.product_name %} for Unity editor extension, you can develop on Unity, the open source game development platform, and see your work on {% data variables.product.product_name %}. For more information, see the official Unity editor extension [site](https://unity.github.com/) or the [documentation](https://github.com/github-for-unity/Unity/tree/master/docs).
+使用 {% data variables.product.product_name %} for Unity 编辑器扩展，您可以在开源游戏开发平台 Unity 上进行开发，在 {% data variables.product.product_name %} 查看您的工作。 有关详细信息，请参阅官方 Unity 编辑器扩展[站点](https://unity.github.com/)或[文档](https://github.com/github-for-unity/Unity/tree/master/docs)。
 
-### {% data variables.product.product_name %} for {% data variables.product.prodname_vs %}
+### 适用于 {% data variables.product.prodname_vs %} 的 {% data variables.product.product_name %}
 
-With the {% data variables.product.product_name %} for {% data variables.product.prodname_vs %} extension, you can work in {% data variables.product.product_name %} repositories without leaving {% data variables.product.prodname_vs %}. For more information, see the official {% data variables.product.prodname_vs %} extension [site](https://visualstudio.github.com/) or [documentation](https://github.com/github/VisualStudio/tree/master/docs).
+通过适用于 {% data variables.product.prodname_vs %} 的 {% data variables.product.product_name %} 扩展，可以在 {% data variables.product.product_name %} 存储库中工作，而无需离开 {% data variables.product.prodname_vs %}。 有关详细信息，请参阅官方 {% data variables.product.prodname_vs %} 扩展[网站](https://visualstudio.github.com/)或[文档](https://github.com/github/VisualStudio/tree/master/docs)。
 
-### {% data variables.product.prodname_dotcom %} for {% data variables.product.prodname_vscode %}
+### 适用于 {% data variables.product.prodname_vscode %} 的 {% data variables.product.prodname_dotcom %}
 
-With the {% data variables.product.prodname_dotcom %} for {% data variables.product.prodname_vscode %} extension, you can review and manage {% data variables.product.product_name %} pull requests in {% data variables.product.prodname_vscode_shortname %}. For more information, see the official {% data variables.product.prodname_vscode_shortname %} extension [site](https://vscode.github.com/) or [documentation](https://github.com/Microsoft/vscode-pull-request-github).
+通过适用于 {% data variables.product.prodname_vscode %} 的 {% data variables.product.prodname_dotcom %} 扩展，可以在 {% data variables.product.prodname_vscode_shortname %} 中查看和管理 {% data variables.product.product_name %} 拉取请求。 有关详细信息，请参阅官方 {% data variables.product.prodname_vscode_shortname %} 扩展[网站](https://vscode.github.com/)或[文档](https://github.com/Microsoft/vscode-pull-request-github)。
 
-## Project management tools
+## 项目管理工具
 
-You can integrate your personal or organization account on {% data variables.location.product_location %} with third-party project management tools, such as Jira.
+您可以将 {% data variables.product.product_location %} 上的个人或组织帐户与第三方项目管理工具（如 Jira）集成。
 
-### Jira Cloud and {% data variables.product.product_name %}.com integration
+### Jira Cloud 与 {% data variables.product.product_name %}.com 集成
 
-You can integrate Jira Cloud with your personal or organization account to scan commits and pull requests, creating relevant metadata and hyperlinks in any mentioned Jira issues. For more information, visit the [Jira integration app](https://github.com/marketplace/jira-software-github) in the marketplace.
+您可以将 Jira Cloud 与个人或组织帐户集成，以扫描提交和拉取请求，在任何提及的 Jira 议题中创建相关的元数据和超链接。 有关详细信息，请访问市场中的 [Jira 集成应用](https://github.com/marketplace/jira-software-github)。
 
-## Team communication tools
+## 团队通信工具
 
-You can integrate your personal or organization account on {% data variables.location.product_location %} with third-party team communication tools, such as Slack or Microsoft Teams.
+您可以将 {% data variables.product.product_location %} 上的个人或组织帐户与第三方团队通信工具（如 Slack 或 Microsoft Teams）集成。
 
-### Slack and {% data variables.product.product_name %} integration
+### Slack 与 {% data variables.product.product_name %} 集成
 
-The Slack + {% data variables.product.prodname_dotcom %} app lets you subscribe to your repositories or organizations and get realtime updates about issues, pull requests, commits, discussions, releases, deployment reviews and deployment statuses. You can also perform activities like opening and closing issues, and you can see detailed references to issues and pull requests without leaving Slack. The app will also ping you personally in Slack if you are mentioned as part of any {% data variables.product.prodname_dotcom %} notifications that you receive in your channels or personal chats.
+利用 Slack + {% data variables.product.prodname_dotcom %} 应用，可订阅存储库或组织，并获取有关问题、拉取请求、提交、讨论、发布、部署评审和部署状态的实时更新。 还可以执行打开和关闭问题等活动，并且无需离开 Slack 就能查看对问题和拉取请求的详细引用。 如果频道或个人聊天中收到的任何 {% data variables.product.prodname_dotcom %} 通知中提及了你，该应用还将在 Slack 中单独 ping 你。
 
-The Slack + {% data variables.product.prodname_dotcom %} app is also compatible with [Slack Enterprise Grid](https://slack.com/intl/en-in/help/articles/360000281563-Manage-apps-on-Enterprise-Grid). For more information, visit the [Slack + {% data variables.product.prodname_dotcom %} app](https://github.com/marketplace/slack-github) in the marketplace.
+Slack + {% data variables.product.prodname_dotcom %} 应用也与 [Slack Enterprise Grid](https://slack.com/intl/en-in/help/articles/360000281563-Manage-apps-on-Enterprise-Grid) 兼容。 有关详细信息，请访问市场中的 [Slack + {% data variables.product.prodname_dotcom %} 应用](https://github.com/marketplace/slack-github)。
 
-### Microsoft Teams and {% data variables.product.product_name %} integration
+### Microsoft Teams 与 {% data variables.product.product_name %} 集成
 
-The {% data variables.product.prodname_dotcom %} for Teams app lets you subscribe to your repositories or organizations and get realtime updates about issues, pull requests, commits, discussions, releases, deployment reviews and deployment statuses. You can also perform activities like opening and closing issues, commenting on your issues and pull requests, and you can see detailed references to issues and pull requests without leaving Microsoft Teams. The app will also ping you personally in Teams if you are mentioned as part of any {% data variables.product.prodname_dotcom %} notifications that you receive in your channels or personal chats.
+利用适用于 Teams 应用的 {% data variables.product.prodname_dotcom %} 支持订阅存储库或组织，及获取有关问题、拉取请求、提交、讨论、发布、部署评审和部署状态的实时更新。 还可以执行打开和关闭问题、评论你的问题和拉取请求等活动，并且无需离开 Microsoft Teams 就能查看对问题和拉取请求的详细引用。 如果频道或个人聊天中收到的任何 {% data variables.product.prodname_dotcom %} 通知中提及了你，该应用还将在 Teams 中单独 ping 你。
 
-For more information, visit the [{% data variables.product.prodname_dotcom %} for Teams app](https://appsource.microsoft.com/en-us/product/office/WA200002077) in Microsoft AppSource.
+有关详细信息，请访问 Microsoft AppSource 中的[适用于 Teams 的 {% data variables.product.prodname_dotcom %} 应用](https://appsource.microsoft.com/en-us/product/office/WA200002077)。

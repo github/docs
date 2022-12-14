@@ -1,6 +1,6 @@
 ---
-title: Accessing the monitor dashboard
-intro: '{% data variables.product.prodname_ghe_server %} includes a web-based monitoring dashboard that displays historical data about your {% data variables.product.prodname_ghe_server %} appliance, such as CPU and storage usage, application and authentication response times, and general system health.'
+title: 访问监视仪表板
+intro: '{% data variables.product.prodname_ghe_server %} 中基于 Web 的监视仪表板可以显示关于 {% data variables.product.prodname_ghe_server %} 设备的历史数据，例如 CPU 和内存使用情况、应用程序和身份验证响应时间以及整体系统健康状况。'
 redirect_from:
   - /enterprise/admin/installation/accessing-the-monitor-dashboard
   - /enterprise/admin/enterprise-management/accessing-the-monitor-dashboard
@@ -15,28 +15,33 @@ topics:
   - Monitoring
   - Performance
 shortTitle: Access the monitor dashboard
+ms.openlocfilehash: b529369813635a8cafe5f7c7ac6fc04af39001f5
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '146332366'
 ---
-## Accessing the monitor dashboard
+## 访问监视仪表板
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.management-console %}
-2. At the top of the page, click **Monitor**.
-![The Monitor Dashboard link](/assets/images/enterprise/management-console/monitor-dash-link.png)
+{% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.enterprise_site_admin_settings.management-console %}
+2. 在页面顶部，单击“监视”。
+![监视仪表板链接](/assets/images/enterprise/management-console/monitor-dash-link.png)
 
-## Troubleshooting common resource allocation problems on your appliance
+## 排查设备上的常见资源分配问题
 
 {% note %}
 
-**Note**: Because regularly polling {% data variables.location.product_location %} with continuous integration (CI) or build servers can effectively cause a denial of service attack that results in problems, we recommend using webhooks to push updates. For more information, see "[About webhooks](/enterprise/user/articles/about-webhooks/)".
+注意：由于通过持续集成 (CI) 或构建服务器定期轮询 {% data variables.product.product_location %} 会引发拒绝服务攻击，从而导致问题的出现，因此，建议使用 Webhook 推送更新。 有关详细信息，请参阅“[关于 Webhook](/enterprise/user/articles/about-webhooks/)”。
 
 {% endnote %}
 
-Use the monitor dashboard to stay informed on your appliance's resource health and make decisions on how to fix high usage issues.  
+使用监视仪表板实时了解设备资源健康状况并确定如何解决高利用率问题。  
 
-| Problem | Possible cause(s) | Recommendations |
+| 问题 | 可能原因 | 建议 |
 | -------- | ----------------- | --------------- |
-| High CPU usage | VM contention from other services or programs running on the same host | If possible, reconfigure other services or programs to use fewer CPU resources. To increase total CPU resources for the VM, see "[Increasing CPU or memory resources](/enterprise/admin/guides/installation/increasing-cpu-or-memory-resources/)." |
-| High memory usage | VM contention from other services or programs running on the same host | If possible, reconfigure other services or programs to use less memory. To increase the total memory available on the VM, see "[Increasing CPU or memory resources](/enterprise/admin/guides/installation/increasing-cpu-or-memory-resources/)." |
-| Low disk space availability | Large binaries or log files consuming disk space | If possible, host large binaries on a separate server, and compress or archive log files. If necessary, increase disk space on the VM by following the steps for your platform in "[Increasing storage capacity](/enterprise/admin/guides/installation/increasing-storage-capacity/)." |
-| Higher than usual response times | Often caused by one of the above issues | Identify and fix the underlying issues. If response times remain high, contact {% data variables.contact.contact_ent_support %}. |
-| Elevated error rates | Software issues  | Contact {% data variables.contact.contact_ent_support %} and include your support bundle. For more information, see "[Providing data to {% data variables.product.prodname_enterprise %} Support](/enterprise/{{ currentVersion}}/admin/guides/enterprise-support/providing-data-to-github-support#creating-and-sharing-support-bundles)." |
+| 高 CPU 使用率 | 在同一主机上运行的其他服务或程序争用 VM | 如有可能，请将其他服务或程序重新配置为占用较少的 CPU 资源。 要增加 VM 的总 CPU 资源，请参阅“[增加 CPU 或内存资源](/enterprise/admin/guides/installation/increasing-cpu-or-memory-resources/)”。 |
+| 内存使用率较高 | 在同一主机上运行的其他服务或程序争用 VM | 如有可能，请将其他服务或程序重新配置为占用较少内存。 要增加 VM 上可用的总内存，请参阅“[增加 CPU 或内存资源](/enterprise/admin/guides/installation/increasing-cpu-or-memory-resources/)”。 |
+| 可用磁盘空间小 | 较大的二进制或日志文件占用磁盘空间 | 如有可能，请在独立服务器上托管较大的二进制文件，并压缩或存档日志文件。 如有必要，请按照“[增加存储容量](/enterprise/admin/guides/installation/increasing-storage-capacity/)”中的步骤操作，为你的平台增加 VM 的磁盘空间。 |
+| 响应时间较正常时间长 | 通常是上述问题之一造成的 | 确定并解决根本问题。 如果响应时间仍较长，请联系 {% data variables.contact.contact_ent_support %}。 |
+| 错误率提高 | 软件问题  | 联系 {% data variables.contact.contact_ent_support %} 并附上支持包。 有关详细信息，请参阅“[将数据提供给 {% data variables.product.prodname_enterprise %} 支持](/enterprise/{{ currentVersion}}/admin/guides/enterprise-support/providing-data-to-github-support#creating-and-sharing-support-bundles)”。 |

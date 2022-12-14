@@ -1,6 +1,6 @@
 ---
-title: Configuring commit squashing for pull requests
-intro: 'You can enforce, allow, or disable commit squashing for all pull request merges on {% data variables.location.product_location %} in your repository.'
+title: 为拉取请求配置提交压缩
+intro: '对于仓库中 {% data variables.product.product_location %} 上的所有拉取请求合并，您可以实施、允许或禁用提交压缩。'
 redirect_from:
   - /articles/configuring-commit-squashing-for-pull-requests
   - /github/administering-a-repository/configuring-commit-squashing-for-pull-requests
@@ -13,26 +13,25 @@ versions:
 topics:
   - Repositories
 shortTitle: Configure commit squashing
+ms.openlocfilehash: 8d53a558163b6a847fa4fb509399b1e7b7c6c05c
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147580709'
 ---
 {% data reusables.pull_requests.configure_pull_request_merges_intro %}
 
 {% data reusables.pull_requests.default-commit-message-squash-merge %}
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-1. Under {% ifversion fpt or ghec or ghes > 3.5 or ghae > 3.4 %}"Pull Requests"{% else %}"Merge button"{% endif %}, select **Allow squash merging**. This allows contributors to merge a pull request by squashing all commits into a single commit. The default commit message presented to contributors when merging is the commit title and message if the pull request contains only 1 commit, or the pull request title and list of commits if the pull request contains 2 or more commits. {% ifversion ghes = 3.6 %} To always use the title of the pull request regardless of the number of commits in the pull request select **Default to PR title for squash merge commits**.{% endif %}{% ifversion default-merge-squash-commit-message %} 
- ![Pull request squashed commits](/assets/images/help/repository/allow-squash-merging.png){% endif %}{% ifversion ghes = 3.6 %}
- ![Screenshot of Pull Request settings with allow merge commits checkbox emphasized](/assets/images/help/repository/allow-squash-merging-no-dropdown.png){% endif %}
-{% ifversion ghes < 3.6  %}
- ![Pull request squashed commits](/assets/images/enterprise/3.5/repository/pr-merge-squash.png){% endif %}
-{% ifversion default-merge-squash-commit-message %}
-1. Optionally, under **Allow squash merging**, use the dropdown to choose the format of the default squash commit message presented to contributors when merging. The default message uses the commit title and message if the pull request contains only 1 commit, or the pull request title and list of commits if the pull request contains 2 or more commits. You can also choose to use just the pull request title, the pull request title and commit details, or the pull request title and description.
-![Screenshot of emphasized default squash message dropdown](/assets/images/help/repository/default-squash-message-dropdown.png)
-{% endif %}
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %}
+1. 在{% ifversion fpt or ghec or ghes > 3.5 or ghae-issue-6069 %}“拉取请求”{% else %}“合并按钮”{% endif %}下，选择“允许压缩合并”。 这将允许贡献者通过将所有提交压缩到单个提交中来合并拉取请求。 合并时向参与者显示的默认提交消息是提交标题和消息（如果拉取请求仅包含 1 个提交），或拉取请求标题和提交列表（如果拉取请求包含 2 个或更多提交）。 {% ifversion ghes = 3.6 %} 若要始终使用拉取请求的标题，而不考虑拉取请求中的提交数，请选择“默认为压缩合并提交的拉取请求标题”。{% endif %}{% ifversion default-merge-squash-commit-message %} ![拉取请求压缩的提交](/assets/images/help/repository/allow-squash-merging.png){% endif %}{% ifversion ghes = 3.6 %} ![拉取请求设置的屏幕截图，其中突出显示了“允许合并提交”复选框](/assets/images/help/repository/allow-squash-merging-no-dropdown.png){% endif %} {% ifversion ghes < 3.6  %} ![拉取请求压缩的提交](/assets/images/enterprise/3.5/repository/pr-merge-squash.png){% endif %} {% ifversion default-merge-squash-commit-message %}
+1. （可选）在“允许压缩合并”下，使用下拉列表选择合并时向参与者显示的默认压缩提交消息的格式。 默认消息使用提交标题和消息（如果拉取请求仅包含 1 个提交），或拉取请求标题和提交列表（如果拉取请求包含 2 个或更多提交）。 还可以选择仅使用拉取请求标题、拉取请求标题和提交详细信息，或拉取请求标题和说明。
+![突出显示默认压缩消息下拉列表的屏幕截图](/assets/images/help/repository/default-squash-message-dropdown.png) {% endif %}
 
-If you select more than one merge method, collaborators can choose which type of merge commit to use when they merge a pull request. {% data reusables.repositories.squash-and-rebase-linear-commit-history %}
+如果选择多个合并方法，协作者可以选择合并拉取请求时要使用的合并提交类型。 {% data reusables.repositories.squash-and-rebase-linear-commit-history %}
 
-## Further reading
+## 延伸阅读
 
-- "[About pull request merges](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges)"
-- "[Merging a pull request](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request)"
+- [关于拉取请求合并](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges)
+- [合并拉取请求](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request)

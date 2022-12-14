@@ -1,7 +1,15 @@
-Before you can authorize a {% data variables.product.pat_generic %} or SSH key, you must have a linked SAML identity. If you're a member of an organization where SAML SSO is enabled, you can create a linked identity by authenticating to your organization with your IdP at least once. For more information, see "[About authentication with SAML single sign-on](/authentication/authenticating-with-saml-single-sign-on/about-authentication-with-saml-single-sign-on)."
+---
+ms.openlocfilehash: 4055717eec0cdd95951ec6fb5bdea20efaed1948
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "147573375"
+---
+在可以授权个人访问令牌或 SSH 密钥之前，必须拥有一个链接的 SAML 标识。 如果你是已启用 SAML SSO 的组织的成员，则可以至少通过使用 IdP 向组织进行一次身份验证来创建链接标识。 有关详细信息，请参阅“[关于通过 SAML 单一登录进行身份验证](/authentication/authenticating-with-saml-single-sign-on/about-authentication-with-saml-single-sign-on)”。
 
-After you authorize a {% data variables.product.pat_generic %} or SSH key, the token or key will stay authorized until revoked in one of the following ways.
-- An organization or enterprise owner revokes the authorization.
-- You are removed from the organization.
-- The scopes in a {% data variables.product.pat_generic %} are edited, or the token is regenerated.
-- The {% data variables.product.pat_generic %} expired as defined during creation.
+授予个人访问令牌或 SSH 密钥后，令牌或密钥将保持授权状态，直到以下列方式之一吊销。
+- 组织或企业所有者撤销授权。
+- 你已从组织中移除。
+- 已编辑个人访问令牌中的范围，或重新生成令牌。
+- 创建期间定义的个人访问令牌已过期。

@@ -1,36 +1,39 @@
 ---
-title: Pre-receive Environments
-intro: 'The Pre-receive Environments API allows you to create, list, update and delete environments for pre-receive hooks.'
+title: 预接收环境
+intro: 预接收环境 API 允许您创建、列出、更新和删除预接收挂钩的环境。
 versions:
   ghes: '*'
   ghae: '*'
 topics:
   - API
 miniTocMaxHeadingLevel: 3
+ms.openlocfilehash: 9db8635691ae2f8fcb8649b648948763168081ac
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147883260'
 ---
+它仅适用于[经过身份验证的](/rest/overview/resources-in-the-rest-api#authentication)网站管理员。 如果普通用户尝试访问它，他们将收到 `404` 响应。
 
-*It is only available to [authenticated](/rest/overview/resources-in-the-rest-api#authentication) site administrators.* Normal users will receive a `404` response if they try to access it.
+### 对象属性
 
-{% data reusables.user-settings.enterprise-admin-api-classic-pat-only %}
+#### 预接收环境
 
-### Object attributes
-
-#### Pre-receive Environment
-
-| Name                  | Type      | Description                                                                |
+| 名称                  | 类型      | 说明                                                                |
 |-----------------------|-----------|----------------------------------------------------------------------------|
-| `name`                | `string`  | The name of the environment as displayed in the UI.                        |
-| `image_url`           | `string`  | URL to the tarball that will be downloaded and extracted.                  |
-| `default_environment` | `boolean` | Whether this is the default environment that ships with {% data variables.product.product_name %}. |
-| `download`            | `object`  | This environment's download status.                                        |
-| `hooks_count`         | `integer` | The number of pre-receive hooks that use this environment.                 |
+| `name`                | `string`  | UI 中显示的环境名称。                        |
+| `image_url`           | `string`  | 将要下载并解压缩的 tarball 的 URL。                  |
+| `default_environment` | `boolean` | 这是否是 {% data variables.product.product_name %} 附带的默认环境。 |
+| `download`            | `object`  | 此环境的下载状态。                                        |
+| `hooks_count`         | `integer` | 使用此环境的预接收挂钩数量。                 |
 
-#### Pre-receive Environment Download
+#### 预接收环境下载
 
-| Name            | Type     | Description                                             |
+| 名称            | 类型     | 说明                                             |
 |-----------------|----------|---------------------------------------------------------|
-| `state`         | `string` | The state of the most recent download.                  |
-| `downloaded_at` | `string` | The time when the most recent download started.         |
-| `message`       | `string` | On failure, this will have any error messages produced. |
+| `state`         | `string` | 最近下载的状态。                  |
+| `downloaded_at` | `string` | 最近下载开始的时间。         |
+| `message`       | `string` | 在失败时生成任何错误消息。 |
 
-Possible values for `state` are `not_started`, `in_progress`, `success`, `failed`.
+`state` 的可能值为 `not_started`、`in_progress`、`success`、`failed`。

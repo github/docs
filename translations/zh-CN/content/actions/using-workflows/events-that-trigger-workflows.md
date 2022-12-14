@@ -1,6 +1,6 @@
 ---
-title: Events that trigger workflows
-intro: 'You can configure your workflows to run when specific activity on {% data variables.product.product_name %} happens, at a scheduled time, or when an event outside of {% data variables.product.product_name %} occurs.'
+title: 触发工作流的事件
+intro: '您可以配置工作流程在 {% data variables.product.product_name %} 上发生特定活动时运行、在预定的时间运行，或者在 {% data variables.product.product_name %} 外部的事件发生时运行。'
 miniTocMaxHeadingLevel: 3
 redirect_from:
   - /articles/events-that-trigger-workflows
@@ -14,34 +14,39 @@ versions:
   ghae: '*'
   ghec: '*'
 shortTitle: Events that trigger workflows
+ms.openlocfilehash: bef348caaccfdad85782811d4addd78cd7ad7460
+ms.sourcegitcommit: 8476dc3d513740e7cb84a91c45768cf44db5df4f
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 08/04/2022
+ms.locfileid: '147496562'
 ---
+## <a name="about-events-that-trigger-workflows"></a>关于触发工作流程的事件
 
-## About events that trigger workflows
+工作流程触发器是导致工作流程运行的事件。 有关如何使用工作流触发器的详细信息，请参阅“[触发工作流](/actions/using-workflows/triggering-a-workflow)”。
 
-Workflow triggers are events that cause a workflow to run. For more information about how to use workflow triggers, see "[Triggering a workflow](/actions/using-workflows/triggering-a-workflow)."
+## <a name="available-events"></a>可用事件
 
-## Available events
-
-Some events have multiple activity types. For these events, you can specify which activity types will trigger a workflow run. For more information about what each activity type means, see "[Webhook events and payloads](/developers/webhooks-and-events/webhook-events-and-payloads)." Note that not all webhook events trigger workflows.
+某些事件具有多种活动类型。 对于这些事件，您可以指定将触发工作流程运行的活动类型。 有关每个活动类型的含义的详细信息，请参阅“[Webhook 事件和有效负载](/developers/webhooks-and-events/webhook-events-and-payloads)”。 请注意，并非所有 web 挂钩事件都会触发工作流程。
 
 {% ifversion fpt or ghec or ghes > 3.3 or ghae  %}
 ### `branch_protection_rule`
 
-| Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
+| Web 挂钩事件有效负载 | 活动类型 | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
-| [`branch_protection_rule`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#branch_protection_rule) | - `created`<br/>- `edited`<br/>- `deleted` | Last commit on default branch | Default branch |
+| [`branch_protection_rule`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#branch_protection_rule) | - `created`<br/>- `edited`<br/>- `deleted` | 默认分支上的最新提交 | 默认分支 |
 
 {% note %}
 
-**Note**: {% data reusables.developer-site.multiple_activity_types %} For information about each activity type, see "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#branch_protection_rule)." {% data reusables.developer-site.limit_workflow_to_activity_types %}
+注意：{% data reusables.developer-site.multiple_activity_types %} 有关每个活动类型的信息，请参阅“[Webhook 事件和有效负载](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#branch_protection_rule)”。 {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 {% endnote %}
 
 {% data reusables.actions.branch-requirement %}
 
-Runs your workflow when branch protection rules in the workflow repository are changed. For more information about branch protection rules, see "[About protected branches](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches)." For information about the branch protection rule APIs, see "[BranchProtectionRule](/graphql/reference/objects#branchprotectionrule)" in the GraphQL API documentation or "[Branches](/rest/reference/branches)" in the REST API documentation.
+在工作流程存储库中的分支保护规则发生更改时运行工作流程。 有关分支保护规则的详细信息，请参阅“[关于受保护的分支](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches)”。 有关分支保护规则 API 的信息，请参阅 GraphQL API 文档中的“[BranchProtectionRule](/graphql/reference/objects#branchprotectionrule)”或 REST API 文档中的“[分支](/rest/reference/branches)”。
 
-For example, you can run a workflow when a branch protection rule has been `created` or `deleted`:
+例如，可以在分支保护规则状态为 `created` 或 `deleted` 时运行工作流：
 
 ```yaml
 on:
@@ -53,21 +58,21 @@ on:
 
 ### `check_run`
 
-| Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
+| Web 挂钩事件有效负载 | 活动类型 | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
-| [`check_run`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#check_run) | - `created`<br/>- `rerequested`<br/>- `completed`<br/>-`requested_action` | Last commit on default branch | Default branch |
+| [`check_run`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#check_run) | - `created`<br/>- `rerequested`<br/>- `completed`<br/>-`requested_action` | 默认分支上的最新提交 | 默认分支 |
 
 {% note %}
 
-**Note**: {% data reusables.developer-site.multiple_activity_types %} For information about each activity type, see "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#check_run)." {% data reusables.developer-site.limit_workflow_to_activity_types %}
+注意：{% data reusables.developer-site.multiple_activity_types %} 有关每个活动类型的信息，请参阅“[Webhook 事件和有效负载](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#check_run)”。 {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 {% endnote %}
 
 {% data reusables.actions.branch-requirement %}
 
-Runs your workflow when activity related to a check run occurs. A check run is an individual test that is part of a check suite. For information, see "[Getting started with the Checks API](/rest/guides/getting-started-with-the-checks-api)." For information about the check run APIs, see "[CheckRun](/graphql/reference/objects#checkrun)" in the GraphQL API documentation or "[Checks](/rest/reference/checks#runs)" in the REST API documentation.
+在发生与检查运行相关的活动时运行工作流程。 检查运行是检查套件中的单个测试。 有关详细信息，请参阅“[检查 API 入门](/rest/guides/getting-started-with-the-checks-api)”。 有关检查运行 API 的信息，请参阅 GraphQL API 文档中的“[CheckRun](/graphql/reference/objects#checkrun)”或 REST API 文档中的“[检查](/rest/reference/checks#runs)”。
 
-For example, you can run a workflow when a check run has been `rerequested` or `completed`.
+例如，可以在检查运行状态为 `rerequested` 或 `completed` 时运行工作流。
 
 ```yaml
 on:
@@ -77,13 +82,13 @@ on:
 
 ### `check_suite`
 
-| Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
+| Web 挂钩事件有效负载 | 活动类型 | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
-| [`check_suite`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#check_suite) | - `completed` | Last commit on default branch | Default branch |
+| [`check_suite`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#check_suite) | - `completed` | 默认分支上的最新提交 | 默认分支 |
 
 {% note %}
 
-**Note**: {% data reusables.developer-site.multiple_activity_types %} For information about each activity type, see "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#check_suite)." Although only the `started` activity type is supported, specifying the activity type will keep your workflow specific if more activity types are added in the future. {% data reusables.developer-site.limit_workflow_to_activity_types %}
+注意：{% data reusables.developer-site.multiple_activity_types %} 有关每个活动类型的信息，请参阅“[Webhook 事件和有效负载](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#check_suite)”。 尽管仅支持 `started` 活动类型，但如果将来添加更多活动类型，则指定活动类型将确保工作流保持特定。 {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 {% endnote %}
 
@@ -91,13 +96,13 @@ on:
 
 {% note %}
 
-**Note:** To prevent recursive workflows, this event does not trigger workflows if the check suite was created by {% data variables.product.prodname_actions %}.
+注意：为防止递归工作流，如果检查套件是由 {% data variables.product.prodname_actions %} 创建，则此事件不会触发工作流。
 
 {% endnote %}
 
-Runs your workflow when check suite activity occurs. A check suite is a collection of the check runs created for a specific commit. Check suites summarize the status and conclusion of the check runs that are in the suite. For information, see "[Getting started with the Checks API](/rest/guides/getting-started-with-the-checks-api)." For information about the check suite APIs, see "[CheckSuite](/graphql/reference/objects#checksuite)" in the GraphQL API documentation or "[Checks](/rest/reference/checks#suites)" in the REST API documentation.
+在发生检查套件活动时运行工作流程。 检查套件是为特定提交创建的检查运行的集合。 检查套件汇总了套件中检查运行的状态和结论。 有关详细信息，请参阅“[检查 API 入门](/rest/guides/getting-started-with-the-checks-api)”。 有关检查套件 API 的信息，请参阅 GraphQL API 文档中的“[CheckSuite](/graphql/reference/objects#checksuite)”或 REST API 文档中的“[检查](/rest/reference/checks#suites)”。
 
-For example, you can run a workflow when a check suite has been `completed`.
+例如，可以在检查运行状态为 `completed` 时运行工作流。
 
 ```yaml
 on:
@@ -107,19 +112,19 @@ on:
 
 ### `create`
 
-| Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
+| Web 挂钩事件有效负载 | 活动类型 | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
-| [`create`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#create) | n/a | Last commit on the created branch or tag | Branch or tag created |
+| [`create`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#create) | 不适用 | 创建的分支或标记上的最新提交 | 创建的分支或标记 |
 
 {% note %}
 
-**Note**: An event will not be created when you create more than three tags at once.
+注意：一次创建三个以上的标记时，不会创建事件。
 
 {% endnote %}
 
-Runs your workflow when someone creates a Git reference (Git branch or tag) in the workflow's repository. For information about the APIs to create a Git reference, see "[createRef](/graphql/reference/mutations#createref)" in the GraphQL API documentation or "[Create a reference](/rest/reference/git#create-a-reference)" in the REST API documentation.
+当有人在工作流程的存储库中创建 Git 引用（Git 分支或标记）时运行工作流程。 有关使用 API 创建 Git 引用的信息，请参阅 GraphQL API 文档中的“[createRef](/graphql/reference/mutations#createref)”或 REST API 文档中的“[创建引用](/rest/reference/git#create-a-reference)”。
 
-For example, you can run a workflow when the `create` event occurs.
+例如，可以在发生 `create` 事件时运行工作流。
 
 ```yaml
 on:
@@ -128,21 +133,21 @@ on:
 
 ### `delete`
 
-| Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
+| Web 挂钩事件有效负载 | 活动类型 | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
-| [`delete`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#delete) | n/a | Last commit on default branch | Default branch |
+| [`delete`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#delete) | 不适用 | 默认分支上的最新提交 | 默认分支 |
 
 {% data reusables.actions.branch-requirement %}
 
 {% note %}
 
-**Note**: An event will not be created when you delete more than three tags at once.
+注意：一次删除三个以上的标记时，不会创建事件。
 
 {% endnote %}
 
-Runs your workflow when someone deletes a Git reference (Git branch or tag) in the workflow's repository. For information about the APIs to delete a Git reference, see "[deleteRef](/graphql/reference/mutations#deleteref)" in the GraphQL API documentation or "[Delete a reference](/rest/reference/git#delete-a-reference)" in the REST API documentation.
+当有人删除工作流程存储库中的 Git 引用（Git 分支或标记）时运行工作流程。 有关使用 API 删除 Git 引用的信息，请参阅 GraphQL API 文档中的“[deleteRef](/graphql/reference/mutations#deleteref)”或 REST API 文档中的“[删除引用](/rest/reference/git#delete-a-reference)”。
 
-For example, you can run a workflow when the `delete` event occurs.
+例如，可以在发生 `delete` 事件时运行工作流。
 
 ```yaml
 on:
@@ -151,13 +156,13 @@ on:
 
 ### `deployment`
 
-| Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
+| Web 挂钩事件有效负载 | 活动类型 | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
-| [`deployment`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#deployment) | n/a | Commit to be deployed | Branch or tag to be deployed (empty if created with a commit SHA)|
+| [`deployment`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#deployment) | 不适用 | 要部署的提交 | 要部署的分支或标记（如果使用提交 SHA 创建，则为空）|
 
-Runs your workflow when someone creates a deployment in the workflow's repository. Deployments created with a commit SHA may not have a Git ref. For information about the APIs to create a deployment, see "[createDeployment](/graphql/reference/mutations#createdeployment)" in the GraphQL API documentation or "[Deployments](/rest/reference/repos#deployments)" in the REST API documentation.
+当有人在工作流程的存储库中创建部署时运行工作流程。 使用提交 SHA 创建的部署可能没有 Git 引用。有关用于创建部署的 API 的信息，请参阅 GraphQL API 文档中的“[createDeployment](/graphql/reference/mutations#createdeployment)”或 REST API 文档中的“[部署](/rest/reference/repos#deployments)”。
 
-For example, you can run a workflow when the `deployment` event occurs.
+例如，可以在发生 `deployment` 事件时运行工作流。
 
 ```yaml
 on:
@@ -166,19 +171,19 @@ on:
 
 ### `deployment_status`
 
-| Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
+| Web 挂钩事件有效负载 | 活动类型 | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
-| [`deployment_status`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#deployment_status) | n/a | Commit to be deployed | Branch or tag to be deployed (empty if commit)|
+| [`deployment_status`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#deployment_status) | 不适用 | 要部署的提交 | 要部署的分支或标记（提交时为空）|
 
 {% note %}
 
-**Note:** When a deployment status's state is set to `inactive`, a workflow run will not be triggered.
+注意：将部署状态设置为 `inactive` 时，不会触发工作流运行。
 
 {% endnote %}
 
-Runs your workflow when a third party provides a deployment status. Deployments created with a commit SHA may not have a Git ref. For information about the APIs to create a deployment status, see "[createDeploymentStatus](/graphql/reference/mutations#createdeploymentstatus)" in the GraphQL API documentation or "[Create a deployment status](/rest/reference/deployments#create-a-deployment-status)" in the REST API documentation.
+在第三方提供部署状态时运行工作流程。 使用提交 SHA 创建的部署可能没有 Git 引用。有关用于创建部署状态的 API 的信息，请参阅 GraphQL API 文档中的“[createDeploymentStatus](/graphql/reference/mutations#createdeploymentstatus)”或 REST API 文档中的“[创建部署状态](/rest/reference/deployments#create-a-deployment-status)”。
 
-For example, you can run a workflow when the `deployment_status` event occurs.
+例如，可以在发生 `deployment_status` 事件时运行工作流。
 
 ```yaml
 on:
@@ -188,13 +193,13 @@ on:
 {% ifversion discussions %}
 ### `discussion`
 
-| Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
+| Web 挂钩事件有效负载 | 活动类型 | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
-| [`discussion`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#discussion) | - `created`<br/>- `edited`<br/>- `deleted`<br/>- `transferred`<br/>- `pinned`<br/>- `unpinned`<br/>- `labeled`<br/>- `unlabeled`<br/>- `locked`<br/>- `unlocked`<br/>- `category_changed`<br/> - `answered`<br/> - `unanswered` | Last commit on default branch | Default branch |
+| [`discussion`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#discussion) | - `created`<br/>- `edited`<br/>- `deleted`<br/>- `transferred`<br/>- `pinned`<br/>- `unpinned`<br/>- `labeled`<br/>- `unlabeled`<br/>- `locked`<br/>- `unlocked`<br/>- `category_changed`<br/> - `answered`<br/> - `unanswered` | 默认分支上的最新提交 | 默认分支 |
 
 {% note %}
 
-**Note**: {% data reusables.developer-site.multiple_activity_types %} For information about each activity type, see "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#discussion)." {% data reusables.developer-site.limit_workflow_to_activity_types %}
+注意：{% data reusables.developer-site.multiple_activity_types %} 有关每个活动类型的信息，请参阅“[Webhook 事件和有效负载](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#discussion)”。 {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 {% endnote %}
 
@@ -202,9 +207,9 @@ on:
 
 {% data reusables.webhooks.discussions-webhooks-beta %}
 
-Runs your workflow when a discussion in the workflow's repository is created or modified. For activity related to comments on a discussion, use the [`discussion_comment`](#discussion_comment) event. For more information about discussions, see "[About discussions](/discussions/collaborating-with-your-community-using-discussions/about-discussions)." For information about the GraphQL API, see "[Discussion](/graphql/reference/objects#discussion)."
+在创建或修改工作流程存储库中的讨论时运行工作流程。 对于与讨论评论相关的活动，请使用 [`discussion_comment`](#discussion_comment) 事件。 有关讨论的详细信息，请参阅“[关于讨论](/discussions/collaborating-with-your-community-using-discussions/about-discussions)”。 有关 GraphQL API 的信息，请参阅“[讨论](/graphql/reference/objects#discussion)”。
 
-For example, you can run a workflow when a discussion has been `created`, `edited`, or `answered`.
+例如，可以在讨论状态为 `created`、`edited` 或 `answered` 时运行工作流。
 
 ```yaml
 on:
@@ -214,13 +219,13 @@ on:
 
 ### `discussion_comment`
 
-| Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
+| Web 挂钩事件有效负载 | 活动类型 | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
-| [`discussion_comment`](/developers/webhooks-and-events/webhook-events-and-payloads#discussion_comment) | - `created`<br/>- `edited`<br/>- `deleted`<br/> | Last commit on default branch | Default branch |
+| [`discussion_comment`](/developers/webhooks-and-events/webhook-events-and-payloads#discussion_comment) | - `created`<br/>- `edited`<br/>- `deleted`<br/> | 默认分支上的最新提交 | 默认分支 |
 
 {% note %}
 
-**Note**: {% data reusables.developer-site.multiple_activity_types %} For information about each activity type, see "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#discussion_comment)." {% data reusables.developer-site.limit_workflow_to_activity_types %}
+注意：{% data reusables.developer-site.multiple_activity_types %} 有关每个活动类型的信息，请参阅“[Webhook 事件和有效负载](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#discussion_comment)”。 {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 {% endnote %}
 
@@ -228,9 +233,9 @@ on:
 
 {% data reusables.webhooks.discussions-webhooks-beta %}
 
-Runs your workflow when a comment on a discussion in the workflow's repository is created or modified. For activity related to a discussion as opposed to comments on the discussion, use the [`discussion`](#discussion) event. For more information about discussions, see "[About discussions](/discussions/collaborating-with-your-community-using-discussions/about-discussions)." For information about the GraphQL API, see "[Discussion](/graphql/reference/objects#discussion)."
+在创建或修改工作流程存储库中讨论的评论时运行工作流程。 对于与讨论（而非讨论的评论）相关的活动，请使用 [`discussion`](#discussion) 事件。 有关讨论的详细信息，请参阅“[关于讨论](/discussions/collaborating-with-your-community-using-discussions/about-discussions)”。 有关 GraphQL API 的信息，请参阅“[讨论](/graphql/reference/objects#discussion)”。
 
-For example, you can run a workflow when a discussion comment has been `created` or `deleted`.
+例如，可以在讨论评论的状态为 `created` 或 `deleted` 时运行工作流。
 
 ```yaml
 on:
@@ -242,15 +247,15 @@ on:
 
 ### `fork`
 
-| Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
+| Web 挂钩事件有效负载 | 活动类型 | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
-| [`fork`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#fork) | n/a | Last commit on default branch |  Default branch |
+| [`fork`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#fork) | 不适用 | 默认分支上的最新提交 |  默认分支 |
 
 {% data reusables.actions.branch-requirement %}
 
-Runs your workflow when someone forks a repository. For information about the REST API, see "[Create a fork](/rest/reference/repos#create-a-fork)."
+当有人复刻存储库时运行工作流程。 有关 REST API 的信息，请参阅“[创建分支](/rest/reference/repos#create-a-fork)”。
 
-For example, you can run a workflow when the `fork` event occurs.
+例如，可以在发生 `fork` 事件时运行工作流。
 
 ```yaml
 on:
@@ -259,15 +264,15 @@ on:
 
 ### `gollum`
 
-| Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
+| Web 挂钩事件有效负载 | 活动类型 | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
-| [`gollum`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#gollum) | n/a | Last commit on default branch |  Default branch |
+| [`gollum`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#gollum) | 不适用 | 默认分支上的最新提交 |  默认分支 |
 
 {% data reusables.actions.branch-requirement %}
 
-Runs your workflow when someone creates or updates a Wiki page. For more information, see "[About wikis](/communities/documenting-your-project-with-wikis/about-wikis)."
+在有人创建或更新 Wiki 页面时运行工作流程。 有关详细信息，请参阅“[关于 Wikis](/communities/documenting-your-project-with-wikis/about-wikis)”。
 
-For example, you can run a workflow when the `gollum` event occurs.
+例如，可以在发生 `gollum` 事件时运行工作流。
 
 ```yaml
 on:
@@ -276,21 +281,21 @@ on:
 
 ### `issue_comment`
 
-| Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
+| Web 挂钩事件有效负载 | 活动类型 | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
-| [`issue_comment`](/developers/webhooks-and-events/webhook-events-and-payloads#issue_comment) | - `created`<br/>- `edited`<br/>- `deleted`<br/> | Last commit on default branch | Default branch |
+| [`issue_comment`](/developers/webhooks-and-events/webhook-events-and-payloads#issue_comment) | - `created`<br/>- `edited`<br/>- `deleted`<br/> | 默认分支上的最新提交 | 默认分支 |
 
 {% note %}
 
-**Note**: {% data reusables.developer-site.multiple_activity_types %} For information about each activity type, see "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#issue_comment)." {% data reusables.developer-site.limit_workflow_to_activity_types %}
+注意：{% data reusables.developer-site.multiple_activity_types %} 有关每个活动类型的信息，请参阅“[Webhook 事件和有效负载](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#issue_comment)”。 {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 {% endnote %}
 
 {% data reusables.actions.branch-requirement %}
 
-Runs your workflow when an issue or pull request comment is created, edited, or deleted. For information about the issue comment APIs, see "[IssueComment](/graphql/reference/objects#issuecomment)" in the GraphQL API documentation or "[Issue comments](/developers/webhooks-and-events/webhook-events-and-payloads#issue_comment)" in the REST API documentation.
+在创建、编辑或删除议题或拉取请求评论时运行工作流程。 有关问题注释 API 的信息，请参阅 GraphQL API 文档中的“[IssueComment](/graphql/reference/objects#issuecomment)”或 REST API 文档中的“[问题注释](/developers/webhooks-and-events/webhook-events-and-payloads#issue_comment)”。
 
-For example, you can run a workflow when an issue or pull request comment has been `created` or `deleted`.
+例如，可以在问题或拉取请求注释的状态为 `created` 或 `deleted` 时运行工作流。
 
 ```yaml
 on:
@@ -298,11 +303,11 @@ on:
     types: [created, deleted]
 ```
 
-#### `issue_comment` on issues only or pull requests only
+#### <a name="issue_comment-on-issues-only-or-pull-requests-only"></a>仅问题或仅拉取请求的 `issue_comment`
 
-The `issue_comment` event occurs for comments on both issues and pull requests. You can use the `github.event.issue.pull_request` property in a conditional to take different action depending on whether the triggering object was an issue or pull request.
+对于问题和拉取请求的注释，都会发生 `issue_comment` 事件。 可以在条件中使用 `github.event.issue.pull_request` 属性，根据触发对象是问题还是拉取请求来执行不同的操作。
 
-For example, this workflow will run the `pr_commented` job only if the `issue_comment` event originated from a pull request. It will run the `issue_commented` job only if the `issue_comment` event originated from an issue.
+例如，仅当 `issue_comment` 事件源自拉取请求时，此工作流才会运行 `pr_commented` 作业。 仅当 `issue_comment` 事件源自问题时，才会运行 `issue_commented` 作业。
 
 ```yaml
 on: issue_comment
@@ -333,21 +338,21 @@ jobs:
 
 ### `issues`
 
-| Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
+| Web 挂钩事件有效负载 | 活动类型 | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
-| [`issues`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#issues) | - `opened`<br/>- `edited`<br/>- `deleted`<br/>- `transferred`<br/>- `pinned`<br/>- `unpinned`<br/>- `closed`<br/>- `reopened`<br/>- `assigned`<br/>- `unassigned`<br/>- `labeled`<br/>- `unlabeled`<br/>- `locked`<br/>- `unlocked`<br/>- `milestoned`<br/> - `demilestoned` | Last commit on default branch | Default branch |
+| [`issues`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#issues) | - `opened`<br/>- `edited`<br/>- `deleted`<br/>- `transferred`<br/>- `pinned`<br/>- `unpinned`<br/>- `closed`<br/>- `reopened`<br/>- `assigned`<br/>- `unassigned`<br/>- `labeled`<br/>- `unlabeled`<br/>- `locked`<br/>- `unlocked`<br/>- `milestoned`<br/> - `demilestoned` | 默认分支上的最新提交 | 默认分支 |
 
 {% note %}
 
-**Note**: {% data reusables.developer-site.multiple_activity_types %} For information about each activity type, see "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#issues)." {% data reusables.developer-site.limit_workflow_to_activity_types %}
+注意：{% data reusables.developer-site.multiple_activity_types %} 有关每个活动类型的信息，请参阅“[Webhook 事件和有效负载](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#issues)”。 {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 {% endnote %}
 
 {% data reusables.actions.branch-requirement %}
 
-Runs your workflow when an issue in the workflow's repository is created or modified. For activity related to comments in an issue, use the [`issue_comment`](#issue_comment) event. For more information about issues, see "[About issues](/issues/tracking-your-work-with-issues/about-issues)." For information about the issue APIs, see "[Issue](/graphql/reference/objects#issue)" in the GraphQL API documentation or "[Issues](/rest/reference/issues)" in the REST API documentation.
+在创建或修改工作流程存储库中的议题时运行工作流程。 对于与问题中的注释相关的活动，请使用 [`issue_comment`](#issue_comment) 事件。 有关问题的详细信息，请参阅“[关于问题](/issues/tracking-your-work-with-issues/about-issues)”。 有关问题 API 的信息，请参阅 GraphQL API 文档中的“[问题](/graphql/reference/objects#issue)”或 REST API 文档中的“[问题](/rest/reference/issues)”。
 
-For example, you can run a workflow when an issue has been `opened`, `edited`, or `milestoned`.
+例如，可以在问题状态为 `opened`、`edited` 或 `milestoned` 时运行工作流。
 
 ```yaml
 on:
@@ -357,23 +362,23 @@ on:
 
 ### `label`
 
-| Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
+| Web 挂钩事件有效负载 | 活动类型 | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
-| [`label`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#label) | - `created`<br/>- `edited`<br/>- `deleted`<br/> | Last commit on default branch | Default branch |
+| [`label`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#label) | - `created`<br/>- `edited`<br/>- `deleted`<br/> | 默认分支上的最新提交 | 默认分支 |
 
 {% note %}
 
-**Note**: {% data reusables.developer-site.multiple_activity_types %} For information about each activity type, see "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#label)." {% data reusables.developer-site.limit_workflow_to_activity_types %}
+注意：{% data reusables.developer-site.multiple_activity_types %} 有关每个活动类型的信息，请参阅“[Webhook 事件和有效负载](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#label)”。 {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 {% endnote %}
 
 {% data reusables.actions.branch-requirement %}
 
-Runs your workflow when a label in your workflow's repository is created or modified. For more information about labels, see "[Managing labels](/issues/using-labels-and-milestones-to-track-work/managing-labels)." For information about the label APIs, see "[Label](/graphql/reference/objects#label)" in the GraphQL API documentation or "[Labels](/rest/reference/issues#labels)" in the REST API documentation.
+在创建或修改工作流程存储库中的标签时运行工作流程。 有关标签的详细信息，请参阅[管理标签](/issues/using-labels-and-milestones-to-track-work/managing-labels)。 有关标签 API 的信息，请参阅 GraphQL API 文档中的“[标签](/graphql/reference/objects#label)”或 REST API 文档中的“[标签](/rest/reference/issues#labels)”。
 
-If you want to run your workflow when a label is added to or removed from an issue, pull request, or discussion, use the `labeled` or `unlabeled` activity types for the [`issues`](#issues), [`pull_request`](#pull_request), [`pull_request_target`](#pull_request_target), or [`discussion`](#discussion) events instead.
+如果要在问题、拉取请求或讨论中添加或删除标签时运行工作流，请针对 [`issues`](#issues)、[`pull_request`](#pull_request)、[`pull_request_target`](#pull_request_target) 或 [`discussion`](#discussion) 事件改用 `labeled` 或 `unlabeled` 活动类型。
 
-For example, you can run a workflow when a label has been `created` or `deleted`.
+例如，可以在标签状态为 `created` 或 `deleted` 时运行工作流。
 
 ```yaml
 on:
@@ -385,21 +390,21 @@ on:
 
 ### `merge_group`
 
-| Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
+| Web 挂钩事件有效负载 | 活动类型 | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
-| [`merge_group`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#merge_group) | `checks_requested` | SHA of the merge group | Ref of the merge group |
+| [`merge_group`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#merge_group) | `checks_requested` | 合并组的 SHA | 合并组的引用 |
 
 {% data reusables.pull_requests.merge-queue-beta %}
 
 {% note %}
 
-**Note**: {% data reusables.developer-site.multiple_activity_types %} Although only the `checks_requested` activity type is supported, specifying the activity type will keep your workflow specific if more activity types are added in the future. For information about each activity type, see "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#merge_group)." {% data reusables.developer-site.limit_workflow_to_activity_types %}
+注意：{% data reusables.developer-site.multiple_activity_types %} 尽管仅支持 `checks_requested` 活动类型，但如果将来添加更多活动类型，则指定活动类型将使工作流保持特定。 有关每个活动类型的信息，请参阅“[Webhook 事件和有效负载](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#merge_group)”。 {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 {% endnote %}
 
-Runs your workflow when a pull request is added to a merge queue, which adds the pull request to a merge group. For more information see "[Merging a pull request with a merge queue](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request-with-a-merge-queue)".
+将拉取请求添加到合并队列时运行工作流，将拉取请求添加到合并组。 有关详细信息，请参阅“[将拉取请求与合并队列合并](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request-with-a-merge-queue)”。
 
-For example, you can run a workflow when the `checks_requested` activity has occurred.
+例如，可以在发生 `checks_requested` 活动时运行工作流。
 
 ```yaml
 on:
@@ -411,23 +416,23 @@ on:
 {% endif %}
 ### `milestone`
 
-| Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
+| Web 挂钩事件有效负载 | 活动类型 | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
-| [`milestone`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#milestone) | - `created`<br/>- `closed`<br/>- `opened`<br/>- `edited`<br/>- `deleted`<br/> | Last commit on default branch | Default branch |
+| [`milestone`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#milestone) | - `created`<br/>- `closed`<br/>- `opened`<br/>- `edited`<br/>- `deleted`<br/> | 默认分支上的最新提交 | 默认分支 |
 
 {% note %}
 
-**Note**: {% data reusables.developer-site.multiple_activity_types %} For information about each activity type, see "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#milestone)." {% data reusables.developer-site.limit_workflow_to_activity_types %}
+注意：{% data reusables.developer-site.multiple_activity_types %} 有关每个活动类型的信息，请参阅“[Webhook 事件和有效负载](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#milestone)”。 {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 {% endnote %}
 
 {% data reusables.actions.branch-requirement %}
 
-Runs your workflow when a milestone in the workflow's repository is created or modified. For more information about milestones, see "[About milestones](/issues/using-labels-and-milestones-to-track-work/about-milestones)." For information about the milestone APIs, see "[Milestone](/graphql/reference/objects#milestone)" in the GraphQL API documentation or "[Milestones](/rest/reference/issues#milestones)" in the REST API documentation.
+在创建或修改工作流程存储库中的里程碑时运行工作流程。 有关里程碑的详细信息，请参阅“[关于里程碑](/issues/using-labels-and-milestones-to-track-work/about-milestones)”。 有关里程碑 API 的信息，请参阅 GraphQL API 文档中的“[里程碑](/graphql/reference/objects#milestone)”或 REST API 文档中的“[里程碑](/rest/reference/issues#milestones)”。
 
-If you want to run your workflow when an issue is added to or removed from a milestone, use the `milestoned` or `demilestoned` activity types for the [`issues`](#issues) event instead.
+若想要在将问题添加到里程碑或从里程碑中删除问题时运行工作流，请针对 [`issues`](#issues) 事件改用 `milestoned` 或 `demilestoned` 活动类型。
 
-For example, you can run a workflow when a milestone has been `opened` or `deleted`.
+例如，可以在里程碑状态为 `opened` 或 `deleted` 时运行工作流。
 
 ```yaml
 on:
@@ -437,15 +442,15 @@ on:
 
 ### `page_build`
 
-| Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
+| Web 挂钩事件有效负载 | 活动类型 | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
-| [`page_build`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#page_build) | n/a | Last commit on default branch | n/a |
+| [`page_build`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#page_build) | 不适用 | 默认分支上的最新提交 | 不适用 |
 
 {% data reusables.actions.branch-requirement %}
 
-Runs your workflow when someone pushes to a branch that is the publishing source for {% data variables.product.prodname_pages %}, if {% data variables.product.prodname_pages %} is enabled for the repository. For more information about {% data variables.product.prodname_pages %} publishing sources, see "[Configuring a publishing source for your GitHub Pages site](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)." For information about the REST API, see "[Pages](/rest/reference/repos#pages)."
+当有人推送到作为 {% data variables.product.prodname_pages %} 的发布源的分支时，如果为存储库启用了 {% data variables.product.prodname_pages %} ，则运行工作流程。 有关 {% data variables.product.prodname_pages %} 发布源的详细信息，请参阅“[为 GitHub Pages 站点配置发布源](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)”。 有关 REST API 的信息，请参阅“[Pages](/rest/reference/repos#pages)”。
 
-For example, you can run a workflow when the `page_build` event occurs.
+例如，可以在发生 `page_build` 事件时运行工作流。
 
 ```yaml
 on:
@@ -454,13 +459,13 @@ on:
 
 ### `project`
 
-| Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
+| Web 挂钩事件有效负载 | 活动类型 | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
-| [`project`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#project) | - `created`<br/>- `closed`<br/>- `reopened`<br/>- `edited`<br/>- `deleted`<br/> | Last commit on default branch | Default branch |
+| [`project`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#project) | - `created`<br/>- `closed`<br/>- `reopened`<br/>- `edited`<br/>- `deleted`<br/> | 默认分支上的最新提交 | 默认分支 |
 
 {% note %}
 
-**Note**: {% data reusables.developer-site.multiple_activity_types %} The `edited` activity type refers to when a project board, not a column or card on the project board, is edited. For information about each activity type, see "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#project)." {% data reusables.developer-site.limit_workflow_to_activity_types %}
+注意：{% data reusables.developer-site.multiple_activity_types %} `edited` 活动类型是指编辑项目板（而不是项目板上的列或卡片）。 有关每个活动类型的信息，请参阅“[Webhook 事件和有效负载](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#project)”。 {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 {% endnote %}
 
@@ -468,21 +473,19 @@ on:
 
 {% note %}
 
-**Note**: This event only occurs for projects owned by the workflow's repository, not for organization-owned or user-owned projects or for projects owned by another repository.
+注意：此事件仅对工作流存储库拥有的项目发生，对于组织拥有或用户拥有的项目，或者对于其他存储库拥有的项目，不会发生此事件。
 
 {% endnote %}
 
-{% ifversion fpt or ghec %}
-{% note %}
+{% ifversion fpt or ghec %} {% note %}
 
-**Note**: This event only occurs for {% data variables.product.prodname_projects_v1 %}.
+注意：此事件仅适用于 {% data variables.product.prodname_projects_v1 %}。
 
-{% endnote %}
-{% endif %}
+{% endnote %} {% endif %}
 
-Runs your workflow when a project board is created or modified. For activity related to cards or columns in a project board, use the [`project_card`](#project_card) or [`project_column`](#project_column) events instead. For more information about project boards, see "[About project boards](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)." For information about the project board APIs, see "[Project](/graphql/reference/objects#project)" in the GraphQL API documentation or "[Projects](/rest/reference/projects)" in the REST API documentation.
+在创建或修改项目板时运行工作流程。 对于与项目板中的卡片或列相关的活动，请改用 [`project_card`](#project_card) 或 [`project_column`](#project_column) 事件。 有关项目板的详细信息，请参阅“[关于项目板](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)”。 有关项目板 API 的信息，请参阅 GraphQL API 文档中的“[项目](/graphql/reference/objects#project)”或 REST API 文档中的“[项目](/rest/reference/projects)”。
 
-For example, you can run a workflow when a project has been `created` or `deleted`.
+例如，可以在项目状态为 `created` 或 `deleted` 时运行工作流。
 
 ```yaml
 on:
@@ -492,13 +495,13 @@ on:
 
 ### `project_card`
 
-| Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
+| Web 挂钩事件有效负载 | 活动类型 | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
-| [`project_card`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#project_card) | - `created`<br/>- `moved`<br/>- `converted` to an issue<br/>- `edited`<br/>- `deleted` | Last commit on default branch | Default branch |
+| [`project_card`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#project_card) | - `created`<br/>- `moved`<br/>- `converted` 到问题<br/>- `edited`<br/>- `deleted` | 默认分支上的最新提交 | 默认分支 |
 
 {% note %}
 
-**Note**: {% data reusables.developer-site.multiple_activity_types %} For information about each activity type, see "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#project_card)." {% data reusables.developer-site.limit_workflow_to_activity_types %}
+注意：{% data reusables.developer-site.multiple_activity_types %} 有关每个活动类型的信息，请参阅“[Webhook 事件和有效负载](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#project_card)”。 {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 {% endnote %}
 
@@ -506,21 +509,19 @@ on:
 
 {% note %}
 
-**Note**: This event only occurs for projects owned by the workflow's repository, not for organization-owned or user-owned projects or for projects owned by another repository.
+注意：此事件仅对工作流存储库拥有的项目发生，对于组织拥有或用户拥有的项目，或者对于其他存储库拥有的项目，不会发生此事件。
 
 {% endnote %}
 
-{% ifversion fpt or ghec %}
-{% note %}
+{% ifversion fpt or ghec %} {% note %}
 
-**Note**: This event only occurs for {% data variables.product.prodname_projects_v1 %}.
+注意：此事件仅适用于 {% data variables.product.prodname_projects_v1 %}。
 
-{% endnote %}
-{% endif %}
+{% endnote %} {% endif %}
 
-Runs your workflow when a card on a project board is created or modified. For activity related to project boards or columns in a project board, use the [`project`](#project) or [`project_column`](#project_column) event instead. For more information about project boards, see "[About project boards](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)." For information about the project card APIs, see "[ProjectCard](/graphql/reference/objects#projectcard)" in the GraphQL API documentation or "[Project cards](/rest/reference/projects#cards)" in the REST API documentation.
+在创建或修改项目板上的卡片时运行工作流程。 对于与项目板或项目板中的列相关的活动，请改用 [`project`](#project) 或 [`project_column`](#project_column) 事件。 有关项目板的详细信息，请参阅“[关于项目板](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)”。 有关项目卡片 API 的信息，请参阅 GraphQL API 文档中的“[ProjectCard](/graphql/reference/objects#projectcard)”或 REST API 文档中的“[项目卡片](/rest/reference/projects#cards)”。
 
-For example, you can run a workflow when a project card has been `created` or `deleted`.
+例如，可以在项目卡片的状态为 `created` 或 `deleted` 时运行工作流。
 
 ```yaml
 on:
@@ -530,13 +531,13 @@ on:
 
 ### `project_column`
 
-| Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
+| Web 挂钩事件有效负载 | 活动类型 | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
-| [`project_column`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#project_column) | - `created`<br/>- `updated`<br/>- `moved`<br/>- `deleted` | Last commit on default branch | Default branch |
+| [`project_column`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#project_column) | - `created`<br/>- `updated`<br/>- `moved`<br/>- `deleted` | 默认分支上的最新提交 | 默认分支 |
 
 {% note %}
 
-**Note**: {% data reusables.developer-site.multiple_activity_types %} For information about each activity type, see "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#project_column)." {% data reusables.developer-site.limit_workflow_to_activity_types %}
+注意：{% data reusables.developer-site.multiple_activity_types %} 有关每个活动类型的信息，请参阅“[Webhook 事件和有效负载](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#project_column)”。 {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 {% endnote %}
 
@@ -544,21 +545,19 @@ on:
 
 {% note %}
 
-**Note**: This event only occurs for projects owned by the workflow's repository, not for organization-owned or user-owned projects or for projects owned by another repository.
+注意：此事件仅对工作流存储库拥有的项目发生，对于组织拥有或用户拥有的项目，或者对于其他存储库拥有的项目，不会发生此事件。
 
 {% endnote %}
 
-{% ifversion fpt or ghec %}
-{% note %}
+{% ifversion fpt or ghec %} {% note %}
 
-**Note**: This event only occurs for {% data variables.product.prodname_projects_v1 %}.
+注意：此事件仅适用于 {% data variables.product.prodname_projects_v1 %}。
 
-{% endnote %}
-{% endif %}
+{% endnote %} {% endif %}
 
-Runs your workflow when a column on a project board is created or modified. For activity related to project boards or cards in a project board, use the [`project`](#project) or [`project_card`](#project_card) event instead. For more information about project boards, see "[About project boards](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)." For information about the project column APIs, see "[Project Column](/graphql/reference/objects#projectcolumn)" in the GraphQL API documentation or "[Project columns](/rest/reference/projects#columns)" in the REST API documentation.
+在创建或修改项目板上的列时运行工作流程。 对于与项目板或项目板中的卡片相关的活动，请改用 [`project`](#project) 或 [`project_card`](#project_card) 事件。 有关项目板的详细信息，请参阅“[关于项目板](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)”。 有关项目列 API 的信息，请参阅 GraphQL API 文档中的“[项目列](/graphql/reference/objects#projectcolumn)”或 REST API 文档中的“[项目列](/rest/reference/projects#columns)”。
 
-For example, you can run a workflow when a project column has been `created` or `deleted`.
+例如，可以在项目列的状态为 `created` 或 `deleted` 时运行工作流。
 
 ```yaml
 on:
@@ -568,15 +567,15 @@ on:
 
 ### `public`
 
-| Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
+| Web 挂钩事件有效负载 | 活动类型 | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
-| [`public`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#public) | n/a | Last commit on default branch |  Default branch |
+| [`public`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#public) | 不适用 | 默认分支上的最新提交 |  默认分支 |
 
 {% data reusables.actions.branch-requirement %}
 
-Runs your workflow when your workflow's repository changes from private to public. For information about the REST API, see "[Edit repositories](/rest/reference/repos#edit)."
+当工作流程的存储库从私有变为公共时运行工作流程。 有关 REST API 的信息，请参阅“[编辑存储库](/rest/reference/repos#edit)”。
 
-For example, you can run a workflow when the `public` event occurs.
+例如，可以在发生 `public` 事件时运行工作流。
 
 ```yaml
 on:
@@ -585,29 +584,29 @@ on:
 
 ### `pull_request`
 
-| Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
+| Web 挂钩事件有效负载 | 活动类型 | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
-| [`pull_request`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#pull_request) | - `assigned`<br/>- `unassigned`<br/>- `labeled`<br/>- `unlabeled`<br/>- `opened`<br/>- `edited`<br/>- `closed`<br/>- `reopened`<br/>- `synchronize`<br/>- `converted_to_draft`<br/>- `ready_for_review`<br/>- `locked`<br/>- `unlocked` <br/>- `review_requested` <br/>- `review_request_removed` <br/>- `auto_merge_enabled` <br/>- `auto_merge_disabled` | Last merge commit on the `GITHUB_REF` branch | PR merge branch `refs/pull/:prNumber/merge` |
+| [`pull_request`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#pull_request) | - `assigned`<br/>- `unassigned`<br/>- `labeled`<br/>- `unlabeled`<br/>- `opened`<br/>- `edited`<br/>- `closed`<br/>- `reopened`<br/>- `synchronize`<br/>- `converted_to_draft`<br/>- `ready_for_review`<br/>- `locked`<br/>- `unlocked` <br/>- `review_requested` <br/>- `review_request_removed` <br/>- `auto_merge_enabled` <br/>- `auto_merge_disabled` | `GITHUB_REF` 分支上的最后一次合并提交 | PR 合并分支 `refs/pull/:prNumber/merge` |
 
 {% note %}
 
-**Note**: {% data reusables.developer-site.multiple_activity_types %} For information about each activity type, see "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#pull_request)." By default, a workflow only runs when a `pull_request` event's activity type is `opened`, `synchronize`, or `reopened`. To trigger workflows by different activity types, use the `types` keyword. For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions#onevent_nametypes)."
+注意：{% data reusables.developer-site.multiple_activity_types %} 有关每个活动类型的信息，请参阅“[Webhook 事件和有效负载](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#pull_request)”。 默认情况下，工作流仅在 `pull_request` 事件的活动类型为 `opened`、`synchronize` 或 `reopened` 时运行。 要按不同的活动类型触发工作流，请使用 `types` 关键字。 有关详细信息，请参阅“[{% data variables.product.prodname_actions %} 的工作流语法](/articles/workflow-syntax-for-github-actions#onevent_nametypes)”。
 
 {% endnote %}
 
 {% note %}
 
-**Note:** Workflows will not run on `pull_request` activity if the pull request has a merge conflict. The merge conflict must be resolved first.
+注意：如果拉取请求存在合并冲突，工作流将不会在 `pull_request` 活动上运行。 必须先解决合并冲突。
 
-Conversely, workflows with the `pull_request_target` event will run even if the pull request has a merge conflict. Before using the `pull_request_target` trigger, you should be aware of the security risks. For more information, see [`pull_request_target`](#pull_request_target).
+相反，具有 `pull_request_target` 事件的工作流将运行，即使拉取请求存在合并冲突也是如此。 在使用 `pull_request_target` 触发器之前，应注意安全风险。 有关详细信息，请参阅 [`pull_request_target`](#pull_request_target)。
 
 {% endnote %}
 
-Runs your workflow when activity on a pull request in the workflow's repository occurs. For example, if no activity types are specified, the workflow runs when a pull request is opened or reopened or when the head branch of the pull request is updated. For activity related to pull request reviews, pull request review comments, or pull request comments, use the [`pull_request_review`](#pull_request_review), [`pull_request_review_comment`](#pull_request_review_comment), or [`issue_comment`](#issue_comment) events instead. For information about the pull request APIs, see "[PullRequest](/graphql/reference/objects#pullrequest)" in the GraphQL API documentation or "[Pull requests](/rest/reference/pulls)" in the REST API documentation.
+在工作流程存储库中发生有关拉取请求的活动时运行工作流程。 例如，如果未指定任何活动类型，则工作流程将在打开或重新打开拉取请求时运行，或者在更新拉取请求的头部分支时运行。 对于与拉取请求审查、拉取请求审查注释或拉取请求注释相关的活动，请改用 [`pull_request_review`](#pull_request_review)、[`pull_request_review_comment`](#pull_request_review_comment) 或 [`issue_comment`](#issue_comment) 事件。 有关拉取请求 API 的信息，请参阅 GraphQL API 文档中的“[PullRequest](/graphql/reference/objects#pullrequest)”或 REST API 文档中的“[拉取请求](/rest/reference/pulls)”。
 
-Note that `GITHUB_SHA` for this event is the last merge commit of the pull request merge branch. If you want to get the commit ID for the last commit to the head branch of the pull request, use `github.event.pull_request.head.sha` instead.
+请注意，此事件的 `GITHUB_SHA` 是拉取请求合并分支的最后一个合并提交。 如果要获取最后一次提交到拉取请求的头部分支的提交 ID，请改用 `github.event.pull_request.head.sha`。
 
-For example, you can run a workflow when a pull request has been opened or reopened.
+例如，您可以在打开或重新打开拉取请求时运行工作流程。
 
 ```yaml
 on:
@@ -615,7 +614,7 @@ on:
     types: [opened, reopened]
 ```
 
-You can use the event context to further control when jobs in your workflow will run. For example, this workflow will run when a review is requested on a pull request, but the `specific_review_requested` job will only run when a review by `octo-team` is requested.
+您可以使用事件上下文进一步控制工作流程中作业的运行时间。 例如，当请求对拉取请求进行审查时，将运行此工作流，但 `specific_review_requested` 作业仅在请求 `octo-team` 审查时运行。
 
 ```yaml
 on:
@@ -629,11 +628,11 @@ jobs:
       - run: echo 'A review from octo-team was requested'
 ```
 
-#### Running your workflow based on the head or base branch of a pull request
+#### <a name="running-your-workflow-based-on-the-head-or-base-branch-of-a-pull-request"></a>基于拉取请求的头部分支或基本分支运行工作流程
 
-You can use the `branches` or `branches-ignore` filter to configure your workflow to only run on pull requests that target specific branches. For more information, see "[Workflow syntax for GitHub Actions](/actions/learn-github-actions/workflow-syntax-for-github-actions#onpull_requestpull_request_targetbranchesbranches-ignore)."
+可以使用 `branches` 或 `branches-ignore` 筛选器配置工作流，使其仅在面向特定分支的拉取请求上运行。 有关详细信息，请参阅“[GitHub Actions 的工作流语法](/actions/learn-github-actions/workflow-syntax-for-github-actions#onpull_requestpull_request_targetbranchesbranches-ignore)”。
 
-For example, this workflow will run when someone opens a pull request that targets a branch whose name starts with `releases/`:
+例如，当有人打开面向名称以 `releases/` 开头的分支的拉取请求时，此工作流将运行：
 
 ```yaml
 on:
@@ -646,7 +645,7 @@ on:
 
 {% note %}
 
-**Note:** {% data reusables.actions.branch-paths-filter %} For example, the following workflow will only run when a pull request that includes a change to a JavaScript (`.js`) file is opened on a branch whose name starts with `releases/`:
+注意：{% data reusables.actions.branch-paths-filter %} 例如，仅当在名称以 `releases/` 开头的分支上打开包含 JavaScript (`.js`) 文件更改的拉取请求时，才会运行以下工作流：
 
 ```yaml
 on:
@@ -661,7 +660,7 @@ on:
 
 {% endnote %}
 
-To run a job based on the pull request's head branch name (as opposed to the pull request's base branch name), use the `github.head_ref` context in a conditional. For example, this workflow will run whenever a pull request is opened, but the `run_if` job will only execute if the head of the pull request is a branch whose name starts with `releases/`:
+要基于拉取请求的头部分支名称（而不是拉取请求的基本分支名称）运行作业，请在条件中使用 `github.head_ref` 上下文。 例如，每当打开拉取请求时，此工作流都会运行，但仅当拉取请求的头部是名称以 `releases/` 开头的分支时，才会执行 `run_if` 作业：
 
 ```yaml
 on:
@@ -676,11 +675,11 @@ jobs:
       - run: echo "The head of this PR starts with 'releases/'"
 ```
 
-#### Running your workflow based on files changed in a pull request
+#### <a name="running-your-workflow-based-on-files-changed-in-a-pull-request"></a>根据拉取请求中更改的文件运行工作流程
 
-You can also configure your workflow to run when a pull request changes specific files. For more information, see "[Workflow syntax for GitHub Actions](/actions/learn-github-actions/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore)."
+您还可以将工作流程配置为在拉取请求更改特定文件时运行。 有关详细信息，请参阅“[GitHub Actions 的工作流语法](/actions/learn-github-actions/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore)”。
 
-For example, this workflow will run when a pull request includes a change to a JavaScript file (`.js`):
+例如，当拉取请求包含对 JavaScript 文件 (`.js`) 的更改时，此工作流将运行：
 
 ```yaml
 on:
@@ -691,7 +690,7 @@ on:
 
 {% note %}
 
-**Note:** {% data reusables.actions.branch-paths-filter %} For example, the following workflow will only run when a pull request that includes a change to a JavaScript (`.js`) file is opened on a branch whose name starts with `releases/`:
+注意：{% data reusables.actions.branch-paths-filter %} 例如，仅当在名称以 `releases/` 开头的分支上打开包含 JavaScript (`.js`) 文件更改的拉取请求时，才会运行以下工作流：
 
 ```yaml
 on:
@@ -706,9 +705,9 @@ on:
 
 {% endnote %}
 
-#### Running your workflow when a pull request merges
+#### <a name="running-your-workflow-when-a-pull-request-merges"></a>在拉取请求合并时运行工作流程
 
-When a pull request merges, the pull request is automatically closed. To run a workflow when a pull request merges, use the `pull_request` `closed` event type along with a conditional that checks the `merged` value of the event. For example, the following workflow will run whenever a pull request closes. The `if_merged` job will only run if the pull request was also merged.
+当拉取请求合并时，拉取请求将自动关闭。 要在拉取请求合并时运行工作流，请使用 `pull_request` `closed` 事件类型以及检查事件 `merged` 值的条件。 例如，每当拉取请求关闭时，将运行以下工作流程。 仅当拉取请求也合并时，`if_merged` 作业才会运行。
 
 ```yaml
 on:
@@ -727,25 +726,25 @@ jobs:
 
 {% data reusables.developer-site.pull_request_forked_repos_link %}
 
-### `pull_request_comment` (use `issue_comment`)
+### <a name="pull_request_comment-use-issue_comment"></a>`pull_request_comment`（使用 `issue_comment`）
 
-To run your workflow when a comment on a pull request (not on a pull request's diff) is created, edited, or deleted, use the [`issue_comment`](#issue_comment) event. For activity related to pull request reviews or pull request review comments, use the [`pull_request_review`](#pull_request_review) or [`pull_request_review_comment`](#pull_request_review_comment) events.
+要在创建、编辑或删除对拉取请求（而不是拉取请求的差异）的注释时运行工作流，请使用 [`issue_comment`](#issue_comment) 事件。 对于与拉取请求审查或拉取请求审查注释相关的活动，请使用 [`pull_request_review`](#pull_request_review) 或 [`pull_request_review_comment`](#pull_request_review_comment) 事件。
 
 ### `pull_request_review`
 
-| Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
+| Web 挂钩事件有效负载 | 活动类型 | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
-| [`pull_request_review`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#pull_request_review) | - `submitted`<br/>- `edited`<br/>- `dismissed` | Last merge commit on the `GITHUB_REF` branch | PR merge branch `refs/pull/:prNumber/merge` |
+| [`pull_request_review`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#pull_request_review) | - `submitted`<br/>- `edited`<br/>- `dismissed` | `GITHUB_REF` 分支上的最后一次合并提交 | PR 合并分支 `refs/pull/:prNumber/merge` |
 
 {% note %}
 
-**Note**: {% data reusables.developer-site.multiple_activity_types %} For information about each activity type, see "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#pull_request_review)." {% data reusables.developer-site.limit_workflow_to_activity_types %}
+注意：{% data reusables.developer-site.multiple_activity_types %} 有关每个活动类型的信息，请参阅“[Webhook 事件和有效负载](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#pull_request_review)”。 {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 {% endnote %}
 
-Runs your workflow when a pull request review is submitted, edited, or dismissed. A pull request review is a group of pull request review comments in addition to a body comment and a state. For activity related to pull request review comments or pull request comments, use the [`pull_request_review_comment`](#pull_request_review_comment) or [`issue_comment`](#issue_comment) events instead. For information about the pull request review APIs, see "[PullRequestReview](/graphql/reference/objects#pullrequest)" in the GraphQL API documentation or "[Pull request reviews](/rest/reference/pulls#reviews)" in the REST API documentation.
+在提交、编辑或关闭拉取请求审阅时运行工作流程。 拉取请求审查是除正文评论和状态之外的一组拉取请求审查评论。 对于与拉取请求审查注释或拉取请求注释相关的活动，请改用 [`pull_request_review_comment`](#pull_request_review_comment) 或 [`issue_comment`](#issue_comment) 事件。 有关拉取请求审查 API 的信息，请参阅 GraphQL API 文档中的“[PullRequestReview](/graphql/reference/objects#pullrequest)”或 REST API 文档中的“[拉取请求审查](/rest/reference/pulls#reviews)”。
 
-For example, you can run a workflow when a pull request review has been `edited` or `dismissed`.
+例如，可以在拉取请求审查的状态为 `edited` 或 `dismissed` 时运行工作流。
 
 ```yaml
 on:
@@ -753,9 +752,9 @@ on:
     types: [edited, dismissed]
 ```
 
-#### Running a workflow when a pull request is approved
+#### <a name="running-a-workflow-when-a-pull-request-is-approved"></a>在批准拉取请求时运行工作流程
 
-To run your workflow when a pull request has been approved, you can trigger your workflow with the `submitted` type of `pull_request_review` event, then check the review state with the `github.event.review.state` property. For example, this workflow will run whenever a pull request review is submitted, but the `approved` job will only run if the submitted review is an approving review:
+若要在拉取请求获得批准后运行工作流，可以使用 `submitted` 类型的 `pull_request_review` 事件触发工作流，然后使用 `github.event.review.state` 属性检查审查状态。 例如，每当提交拉取请求审查时，此工作流都将运行，但仅当提交的审查是批准审查时，`approved` 作业才会运行：
 
 ```yaml
 on:
@@ -774,19 +773,19 @@ jobs:
 
 ### `pull_request_review_comment`
 
-| Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
+| Web 挂钩事件有效负载 | 活动类型 | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
-| [`pull_request_review_comment`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#pull_request_review_comment) | - `created`<br/>- `edited`<br/>- `deleted`| Last merge commit on the `GITHUB_REF` branch | PR merge branch `refs/pull/:prNumber/merge` |
+| [`pull_request_review_comment`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#pull_request_review_comment) | - `created`<br/>- `edited`<br/>- `deleted`| `GITHUB_REF` 分支上的最后一次合并提交 | PR 合并分支 `refs/pull/:prNumber/merge` |
 
 {% note %}
 
-**Note**: {% data reusables.developer-site.multiple_activity_types %} For information about each activity type, see "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#pull_request_review_comment)." {% data reusables.developer-site.limit_workflow_to_activity_types %}
+注意：{% data reusables.developer-site.multiple_activity_types %} 有关每个活动类型的信息，请参阅“[Webhook 事件和有效负载](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#pull_request_review_comment)”。 {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 {% endnote %}
 
-Runs your workflow when a pull request review comment is modified. A pull request review comment is a comment on a pull request's diff. For activity related to pull request reviews or pull request comments, use the [`pull_request_review`](#pull_request_review) or [`issue_comment`](#issue_comment) events instead. For information about the pull request review comment APIs, see "[PullRequestReviewComment](/graphql/reference/objects#pullrequestreviewcomment)" in the GraphQL API documentation or "[Review comments](/rest/reference/pulls#comments)" in the REST API documentation.
+在修改拉取请求审查评论时运行工作流程。 拉取请求审查评论是对拉取请求差异的评论。 对于与拉取请求审查或拉取请求注释相关的活动，请改用 [`pull_request_review`](#pull_request_review) 或 [`issue_comment`](#issue_comment) 事件。 有关拉取请求审查注释 API 的信息，请参阅 GraphQL API 文档中的“[PullRequestReviewComment](/graphql/reference/objects#pullrequestreviewcomment)”或 REST API 文档中的“[审查注释](/rest/reference/pulls#comments)”。
 
-For example, you can run a workflow when a pull request review comment has been `created` or `deleted`.
+例如，可以在拉取请求审查注释的状态为 `created` 或 `deleted` 时运行工作流。
 
 ```yaml
 on:
@@ -798,29 +797,27 @@ on:
 
 ### `pull_request_target`
 
-| Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
+| Web 挂钩事件有效负载 | 活动类型 | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
-| [`pull_request`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#pull_request) | - `assigned`<br/>- `unassigned`<br/>- `labeled`<br/>- `unlabeled`<br/>- `opened`<br/>- `edited`<br/>- `closed`<br/>- `reopened`<br/>- `synchronize`<br/>- `converted_to_draft`<br/>- `ready_for_review`<br/>- `locked`<br/>- `unlocked` <br/>- `review_requested` <br/>- `review_request_removed` <br/>- `auto_merge_enabled` <br/>- `auto_merge_disabled` | Last commit on the PR base branch | PR base branch |
+| [`pull_request`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#pull_request) | - `assigned`<br/>- `unassigned`<br/>- `labeled`<br/>- `unlabeled`<br/>- `opened`<br/>- `edited`<br/>- `closed`<br/>- `reopened`<br/>- `synchronize`<br/>- `converted_to_draft`<br/>- `ready_for_review`<br/>- `locked`<br/>- `unlocked` <br/>- `review_requested` <br/>- `review_request_removed` <br/>- `auto_merge_enabled` <br/>- `auto_merge_disabled` | PR 基分支上的最后一次提交 | PR 基础分支 |
 
 {% note %}
 
-**Note**: {% data reusables.developer-site.multiple_activity_types %} For information about each activity type, see "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#pull_request_target)." By default, a workflow only runs when a `pull_request_target` event's activity type is `opened`, `synchronize`, or `reopened`. To trigger workflows by different activity types, use the `types` keyword. For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions#onevent_nametypes)."
+注意：{% data reusables.developer-site.multiple_activity_types %} 有关每个活动类型的信息，请参阅“[Webhook 事件和有效负载](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#pull_request_target)”。 默认情况下，工作流仅在 `pull_request_target` 事件的活动类型为 `opened`、`synchronize` 或 `reopened` 时运行。 要按不同的活动类型触发工作流，请使用 `types` 关键字。 有关详细信息，请参阅“[{% data variables.product.prodname_actions %} 的工作流语法](/articles/workflow-syntax-for-github-actions#onevent_nametypes)”。
 
 {% endnote %}
 
-Runs your workflow when activity on a pull request in the workflow's repository occurs. For example, if no activity types are specified, the workflow runs when a pull request is opened or reopened or when the head branch of the pull request is updated.
+在工作流程存储库中发生有关拉取请求的活动时运行工作流程。 例如，如果未指定任何活动类型，则工作流程将在打开或重新打开拉取请求时运行，或者在更新拉取请求的头部分支时运行。
 
-This event runs in the context of the base of the pull request, rather than in the context of the merge commit, as the `pull_request` event does. This prevents execution of unsafe code from the head of the pull request that could alter your repository or steal any secrets you use in your workflow. This event allows your workflow to do things like label or comment on pull requests from forks. Avoid using this event if you need to build or run code from the pull request.
-
-To ensure repository security, branches with names that match certain patterns (such as those which look similar to SHAs) may not trigger workflows with the `pull_request_target` event.
+此事件在拉取请求基础的上下文中运行，而不是像 `pull_request` 事件一样在合并提交上下文中运行。 这样可以防止从拉取请求的头部执行不安全的代码，以免更改您的仓库或窃取您在工作流程中使用的任何机密。 此事件允许您的工作流程对来自复刻的拉取请求执行标记或评论等操作。 如果需要从拉取请求构建或运行代码，请避免使用此事件。
 
 {% warning %}
 
-**Warning:** For workflows that are triggered by the `pull_request_target` event, the `GITHUB_TOKEN` is granted read/write repository permission unless the `permissions` key is specified and the workflow can access secrets, even when it is triggered from a fork. Although the workflow runs in the context of the base of the pull request, you should make sure that you do not check out, build, or run untrusted code from the pull request with this event. Additionally, any caches share the same scope as the base branch. To help prevent cache poisoning, you should not save the cache if there is a possibility that the cache contents were altered. For more information, see "[Keeping your GitHub Actions and workflows secure: Preventing pwn requests](https://securitylab.github.com/research/github-actions-preventing-pwn-requests)" on the GitHub Security Lab website.
+警告：对于由 `pull_request_target` 事件触发的工作流，将授予 `GITHUB_TOKEN` 读/写存储库权限，除非指定了 `permissions` 密钥并且工作流可以访问机密，即使从分支触发也是如此。 虽然工作流程在拉取请求的基础上下文中运行，但您应该确保不在此事件中检出、生成或运行来自拉取请求的不受信任代码。 此外，任何缓存都与基本分支共享相同的作用域。 为帮助防止缓存中毒，如果缓存内容可能已更改，则不应保存缓存。 有关详细信息，请参阅 GitHub Security Lab 网站上的“[确保 GitHub Actions 和工作流安全：阻止 pwn 请求](https://securitylab.github.com/research/github-actions-preventing-pwn-requests)”。
 
 {% endwarning %}
 
-For example, you can run a workflow when a pull request has been `assigned`, `opened`, `synchronize`, or `reopened`.
+例如，可以在拉取请求的状态为 `assigned`、`opened`、`synchronize` 或 `reopened` 时运行工作流。
 
 ```yaml
 on:
@@ -828,11 +825,11 @@ on:
     types: [assigned, opened, synchronize, reopened]
 ```
 
-#### Running your workflow based on the head or base branch of a pull request
+#### <a name="running-your-workflow-based-on-the-head-or-base-branch-of-a-pull-request"></a>基于拉取请求的头部分支或基本分支运行工作流程
 
-You can use the `branches` or `branches-ignore` filter to configure your workflow to only run on pull requests that target specific branches. For more information, see "[Workflow syntax for GitHub Actions](/actions/learn-github-actions/workflow-syntax-for-github-actions#onpull_requestpull_request_targetbranchesbranches-ignore)."
+可以使用 `branches` 或 `branches-ignore` 筛选器配置工作流，使其仅在面向特定分支的拉取请求上运行。 有关详细信息，请参阅“[GitHub Actions 的工作流语法](/actions/learn-github-actions/workflow-syntax-for-github-actions#onpull_requestpull_request_targetbranchesbranches-ignore)”。
 
-For example, this workflow will run when someone opens a pull request that targets a branch whose name starts with `releases/`:
+例如，当有人打开面向名称以 `releases/` 开头的分支的拉取请求时，此工作流将运行：
 
 ```yaml
 on:
@@ -845,7 +842,7 @@ on:
 
 {% note %}
 
-**Note:** {% data reusables.actions.branch-paths-filter %} For example, the following workflow will only run when a pull request that includes a change to a JavaScript (`.js`) file is opened on a branch whose name starts with `releases/`:
+注意：{% data reusables.actions.branch-paths-filter %} 例如，仅当在名称以 `releases/` 开头的分支上打开包含 JavaScript (`.js`) 文件更改的拉取请求时，才会运行以下工作流：
 
 ```yaml
 on:
@@ -860,7 +857,7 @@ on:
 
 {% endnote %}
 
-To run a job based on the pull request's head branch name (as opposed to the pull request's base branch name), use the `github.head_ref` context in a conditional. For example, this workflow will run whenever a pull request is opened, but the `run_if` job will only execute if the head of the pull request is a branch whose name starts with `releases/`:
+要基于拉取请求的头部分支名称（而不是拉取请求的基本分支名称）运行作业，请在条件中使用 `github.head_ref` 上下文。 例如，每当打开拉取请求时，此工作流都会运行，但仅当拉取请求的头部是名称以 `releases/` 开头的分支时，才会执行 `run_if` 作业：
 
 ```yaml
 on:
@@ -875,11 +872,11 @@ jobs:
       - run: echo "The head of this PR starts with 'releases/'"
 ```
 
-#### Running your workflow based on files changed in a pull request
+#### <a name="running-your-workflow-based-on-files-changed-in-a-pull-request"></a>根据拉取请求中更改的文件运行工作流程
 
-You can use the `paths` or `paths-ignore` filter to configure your workflow to run when a pull request changes specific files. For more information, see "[Workflow syntax for GitHub Actions](/actions/learn-github-actions/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore)."
+可以使用 `paths` 或 `paths-ignore` 筛选器配置工作流，使其在拉取请求更改特定文件时运行。 有关详细信息，请参阅“[GitHub Actions 的工作流语法](/actions/learn-github-actions/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore)”。
 
-For example, this workflow will run when a pull request includes a change to a JavaScript file (`.js`):
+例如，当拉取请求包含对 JavaScript 文件 (`.js`) 的更改时，此工作流将运行：
 
 ```yaml
 on:
@@ -890,7 +887,7 @@ on:
 
 {% note %}
 
-**Note:** {% data reusables.actions.branch-paths-filter %} For example, the following workflow will only run when a pull request that includes a change to a JavaScript (`.js`) file is opened on a branch whose name starts with `releases/`:
+注意：{% data reusables.actions.branch-paths-filter %} 例如，仅当在名称以 `releases/` 开头的分支上打开包含 JavaScript (`.js`) 文件更改的拉取请求时，才会运行以下工作流：
 
 ```yaml
 on:
@@ -905,9 +902,9 @@ on:
 
 {% endnote %}
 
-#### Running your workflow when a pull request merges
+#### <a name="running-your-workflow-when-a-pull-request-merges"></a>在拉取请求合并时运行工作流程
 
-When a pull request merges, the pull request is automatically closed. To run a workflow when a pull request merges, use the `pull_request_target` `closed` event type along with a conditional that checks the `merged` value of the event. For example, the following workflow will run whenever a pull request closes. The `if_merged` job will only run if the pull request was also merged.
+当拉取请求合并时，拉取请求将自动关闭。 要在拉取请求合并时运行工作流，请使用 `pull_request_target` `closed` 事件类型以及检查事件 `merged` 值的条件。 例如，每当拉取请求关闭时，将运行以下工作流程。 仅当拉取请求也合并时，`if_merged` 作业才会运行。
 
 ```yaml
 on:
@@ -926,25 +923,25 @@ jobs:
 
 ### `push`
 
-| Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
+| Web 挂钩事件有效负载 | 活动类型 | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
-| [`push`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#push) | n/a | When you delete a branch, the SHA in the workflow run (and its associated refs) reverts to the default branch of the repository. | Updated ref |
+| [`push`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#push) | 不适用 | 删除分支时，工作流运行中的 SHA（及其关联的 refs）将恢复为存储库的默认分支。 | 更新的引用 |
 
 {% note %}
 
-**Note:** The webhook payload available to GitHub Actions does not include the `added`, `removed`, and `modified` attributes in the `commit` object. You can retrieve the full commit object using the API. For information, see "[Commit](/graphql/reference/objects#commit)" in the GraphQL API documentation or "[Get a commit](/rest/reference/commits#get-a-commit)" in the REST API documentation.
+注意：可用于 GitHub Actions 的 Webhook 有效负载不包括 `commit` 对象中的 `added`、`removed` 和 `modified` 属性。 您可以使用 API 检索完整的提交对象。 有关信息，请参阅 GraphQL API 文档中的“[提交](/graphql/reference/objects#commit)”或 REST API 文档中的“[获取提交](/rest/reference/commits#get-a-commit)”。
 
 {% endnote %}
 
 {% note %}
 
-**Note**: An event will not be created when you push more than three tags at once.
+注意：一次推送三个以上的标记时，不会创建事件。
 
 {% endnote %}
 
-Runs your workflow when you push a commit or tag.
+在推送提交或标记时运行工作流程。
 
-For example, you can run a workflow when the `push` event occurs.
+例如，可以在发生 `push` 事件时运行工作流。
 
 ```yaml
 on:
@@ -953,15 +950,15 @@ on:
 
 {% note %}
 
-**Note**: When a `push` webhook event triggers a workflow run, the Actions UI's "pushed by" field shows the account of the pusher and not the author or committer. However, if the changes are pushed to a repository using SSH authentication with a deploy key, then the "pushed by" field will be the repository admin who verified the deploy key when it was added it to a repository.
+注意：当 `push` Webhook 事件触发工作流运行时，操作 UI 的“推送者”字段会显示推送者的帐户，而不是作者或提交者的帐户。 但是，如果使用带有部署密钥的 SSH 身份验证将更改推送到存储库，则“推送者”字段将是在将部署密钥添加到存储库时验证部署密钥的存储库管理员。
 
 {% endnote %}
 
-#### Running your workflow only when a push to specific branches occurs
+#### <a name="running-your-workflow-only-when-a-push-to-specific-branches-occurs"></a>仅在推送到特定分支时运行工作流程
 
-You can use the `branches` or `branches-ignore` filter to configure your workflow to only run when specific branches are pushed. For more information, see "[Workflow syntax for GitHub Actions](/actions/learn-github-actions/workflow-syntax-for-github-actions#onpushbranchestagsbranches-ignoretags-ignore)."
+可以使用 `branches` 或 `branches-ignore` 筛选器配置工作流，使其仅在推送特定分支时运行。 有关详细信息，请参阅“[GitHub Actions 的工作流语法](/actions/learn-github-actions/workflow-syntax-for-github-actions#onpushbranchestagsbranches-ignoretags-ignore)”。
 
-For example, this workflow will run when someone pushes to `main` or to a branch that starts with `releases/`.
+例如，当有人推送到 `main` 或推送到以 `releases/` 开头的分支时，此工作流将运行。
 
 ```yaml
 on:
@@ -973,7 +970,7 @@ on:
 
 {% note %}
 
-**Note:** {% data reusables.actions.branch-paths-filter %} For example, the following workflow will only run when a push that includes a change to a JavaScript (`.js`) file is made to a branch whose name starts with `releases/`:
+注意：{% data reusables.actions.branch-paths-filter %} 例如，仅在将包含 JavaScript (`.js`) 文件更改的推送发送到名称以 `releases/` 开头的分支时，以下工作流才会运行：
 
 ```yaml
 on:
@@ -986,11 +983,11 @@ on:
 
 {% endnote %}
 
-#### Running your workflow only when a push of specific tags occurs
+#### <a name="running-your-workflow-only-when-a-push-of-specific-tags-occurs"></a>仅在发生特定标记的推送时运行工作流程
 
-You can use the `tags` or `tags-ignore` filter to configure your workflow to only run when specific tags are pushed. For more information, see "[Workflow syntax for GitHub Actions](/actions/learn-github-actions/workflow-syntax-for-github-actions#onpushbranchestagsbranches-ignoretags-ignore)."
+可以使用 `tags` 或 `tags-ignore` 筛选器配置工作流，使其仅在推送特定标记时运行。 有关详细信息，请参阅“[GitHub Actions 的工作流语法](/actions/learn-github-actions/workflow-syntax-for-github-actions#onpushbranchestagsbranches-ignoretags-ignore)”。
 
-For example, this workflow will run when someone pushes a tag that starts with `v1.`.
+例如，当有人推送以 `v1.` 开头的标记时，此工作流将运行。
 
 ```yaml
 on:
@@ -999,11 +996,11 @@ on:
       - v1.**
 ```
 
-#### Running your workflow only when a push affects specific files
+#### <a name="running-your-workflow-only-when-a-push-affects-specific-files"></a>仅当推送影响特定文件时才运行工作流程
 
-You can use the `paths` or `paths-ignore` filter to configure your workflow to run when a push to specific files occurs. For more information, see "[Workflow syntax for GitHub Actions](/actions/learn-github-actions/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore)."
+可以使用 `paths` 或 `paths-ignore` 筛选器配置工作流，使其在推送到特定文件时运行。 有关详细信息，请参阅“[GitHub Actions 的工作流语法](/actions/learn-github-actions/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore)”。
 
-For example, this workflow will run when someone pushes a change to a JavaScript file (`.js`):
+例如，当有人将更改推送到 JavaScript 文件 (`.js`) 时，此工作流将运行：
 
 ```yaml
 on:
@@ -1014,7 +1011,7 @@ on:
 
 {% note %}
 
-**Note:** {% data reusables.actions.branch-paths-filter %} For example, the following workflow will only run when a push that includes a change to a JavaScript (`.js`) file is made to a branch whose name starts with `releases/`:
+注意：{% data reusables.actions.branch-paths-filter %} 例如，仅在将包含 JavaScript (`.js`) 文件更改的推送发送到名称以 `releases/` 开头的分支时，以下工作流才会运行：
 
 ```yaml
 on:
@@ -1029,21 +1026,21 @@ on:
 
 ### `registry_package`
 
-| Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
+| Web 挂钩事件有效负载 | 活动类型 | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
-| [`registry_package`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#package) | - `published`<br/>- `updated` | Commit of the published package | Branch or tag of the published package |
+| [`registry_package`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#package) | - `published`<br/>- `updated` | Commit of the published package | 已发布软件包的分支或标签 |
 
 {% note %}
 
-**Note**: {% data reusables.developer-site.multiple_activity_types %} For information about each activity type, see "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#registry_package)." {% data reusables.developer-site.limit_workflow_to_activity_types %}
+注意：{% data reusables.developer-site.multiple_activity_types %} 有关每个活动类型的信息，请参阅“[Webhook 事件和有效负载](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#registry_package)”。 {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 {% endnote %}
 
 {% data reusables.actions.branch-requirement %}
 
-Runs your workflow when activity related to {% data variables.product.prodname_registry %} occurs in your repository. For more information, see "[{% data variables.product.prodname_registry %} Documentation](/packages)."
+当存储库中发生与 {% data variables.product.prodname_registry %} 相关的活动时运行工作流程。 有关详细信息，请参阅“[{% data variables.product.prodname_registry %} 文档](/packages)”。
 
-For example, you can run a workflow when a new package version has been `published`.
+例如，可以在新包版本状态为 `published` 时运行工作流。
 
 ```yaml
 on:
@@ -1053,31 +1050,31 @@ on:
 
 ### `release`
 
-| Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
+| Web 挂钩事件有效负载 | 活动类型 | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
-| [`release`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#release) | - `published` <br/>- `unpublished` <br/>- `created` <br/>- `edited` <br/>- `deleted` <br/>- `prereleased`<br/> - `released` | Last commit in the tagged release | Tag ref of release `refs/tags/<tag_name>` |
+| [`release`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#release) | - `published` <br/>- `unpublished` <br/>- `created` <br/>- `edited` <br/>- `deleted` <br/>- `prereleased`<br/> - `released` | 标记的发行版中的最新提交 | 版本的标记参考 `refs/tags/<tag_name>` |
 
 {% note %}
 
-**Note**: {% data reusables.developer-site.multiple_activity_types %} For information about each activity type, see "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#release)." {% data reusables.developer-site.limit_workflow_to_activity_types %}
+注意：{% data reusables.developer-site.multiple_activity_types %} 有关每个活动类型的信息，请参阅“[Webhook 事件和有效负载](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#release)”。 {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 {% endnote %}
 
 {% note %}
 
-**Note:** Workflows are not triggered for the `created`, `edited`, or `deleted` activity types for draft releases. When you create your release through the {% data variables.product.product_name %} browser UI, your release may automatically be saved as a draft.
+注意：草稿版本的 `created`、`edited` 或 `deleted` 活动类型不会触发工作流。 当您通过 {% data variables.product.product_name %} 浏览器 UI 创建版本时，您的版本可能会自动另存为草稿。
 
 {% endnote %}
 
 {% note %}
 
-**Note:** The `prereleased` type will not trigger for pre-releases published from draft releases, but the `published` type will trigger. If you want a workflow to run when stable *and* pre-releases publish, subscribe to `published` instead of `released` and `prereleased`.
+注意：对于从草稿版本发布的预发行版本，`prereleased` 类型不会触发工作流，但 `published` 类型会触发。 如果想要在稳定版和预发行版发布时运行工作流，请订阅 `published` 而不是 `released` 和 `prereleased`。
 
 {% endnote %}
 
-Runs your workflow when release activity in your repository occurs. For information about the release APIs, see "[Release](/graphql/reference/objects#release)" in the GraphQL API documentation or "[Releases](/rest/reference/releases)" in the REST API documentation.
+在存储库中发生发布活动时运行工作流程。 有关版本 API 的信息，请参阅 GraphQL API 文档中的“[版本](/graphql/reference/objects#release)”或 REST API 文档中的“[版本](/rest/reference/releases)”。
 
-For example, you can run a workflow when a release has been `published`.
+例如，可以在版本状态为 `published` 时运行工作流。
 
 ```yaml
 on:
@@ -1087,15 +1084,15 @@ on:
 
 ### `repository_dispatch`
 
-| Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
+| Web 挂钩事件有效负载 | 活动类型 | `GITHUB_SHA` | `GITHUB_REF` |
 | ------------------ | ------------ | ------------ | ------------------|
-| [repository_dispatch](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#repository_dispatch) | Custom | Last commit on default branch | Default branch |
+| [repository_dispatch](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#repository_dispatch) | 自定义 | 默认分支上的最新提交 | 默认分支 |
 
 {% data reusables.actions.branch-requirement %}
 
-You can use the {% data variables.product.product_name %} API to trigger a webhook event called [`repository_dispatch`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#repository_dispatch) when you want to trigger a workflow for activity that happens outside of {% data variables.product.product_name %}. For more information, see "[Create a repository dispatch event](/rest/reference/repos#create-a-repository-dispatch-event)."
+若想要触发 {% data variables.product.product_name %} 外部发生的活动的工作流，可以使用 {% data variables.product.product_name %} API 触发名为 [`repository_dispatch`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#repository_dispatch) 的 Webhook 事件。 有关详细信息，请参阅“[创建存储库调度事件](/rest/reference/repos#create-a-repository-dispatch-event)”。
 
-When you make a request to create a `repository_dispatch` event, you must specify an `event_type` to describe the activity type. By default, all `repository_dispatch`  activity types trigger a workflow to run. You can use the `types` keyword to limit your workflow to run when a specific `event_type` value is sent in the `repository_dispatch` webhook payload.
+发出创建 `repository_dispatch` 事件的请求时，必须指定 `event_type` 来描述活动类型。 默认情况下，所有 `repository_dispatch` 活动类型都会触发一个工作流运行。 可以使用 `types` 关键字限制工作流，使其在 `repository_dispatch` Webhook 有效负载中发送特定 `event_type` 值时运行。
 
 ```yaml
 on:
@@ -1105,11 +1102,11 @@ on:
 
 {% note %}
 
-**Note:** The `event_type` value is limited to 100 characters.
+注意：`event_type` 值仅限 100 个字符。
 
 {% endnote %}
 
-Any data that you send through the `client_payload` parameter will be available in the `github.event` context in your workflow. For example, if you send this request body when you create a repository dispatch event:
+通过 `client_payload` 参数发送的任何数据都将在工作流的 `github.event` 上下文中可用。 例如，如果在创建存储库调度事件时发送此请求正文：
 
 ```json
 {
@@ -1121,7 +1118,7 @@ Any data that you send through the `client_payload` parameter will be available 
 }
 ```
 
-then you can access the payload in a workflow like this:
+则您可以在如下工作流程中访问有效负载：
 
 ```yaml
 on:
@@ -1140,17 +1137,17 @@ jobs:
 
 ### `schedule`
 
-| Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
+| Web 挂钩事件有效负载 | 活动类型 | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
-| n/a | n/a | Last commit on default branch | Default branch | When the scheduled workflow is set to run. A scheduled workflow uses [POSIX cron syntax](https://pubs.opengroup.org/onlinepubs/9699919799/utilities/crontab.html#tag_20_25_07). For more information, see "[Triggering a workflow with events](/articles/configuring-a-workflow/#triggering-a-workflow-with-events)." |
+| 不适用 | 不适用 | 默认分支上的最新提交 | 默认分支 | 当预定的工作流程设置为运行时。 计划工作流使用 [POSIX cron 语法](https://pubs.opengroup.org/onlinepubs/9699919799/utilities/crontab.html#tag_20_25_07)。 有关详细信息，请参阅“[使用事件触发工作流](/articles/configuring-a-workflow/#triggering-a-workflow-with-events)”。 |
 
 {% data reusables.actions.schedule-delay %}
 
-The `schedule` event allows you to trigger a workflow at a scheduled time.
+通过 `schedule` 事件，可以在计划的时间触发工作流。
 
 {% data reusables.repositories.actions-scheduled-workflow-example %}
 
-Cron syntax has five fields separated by a space, and each field represents a unit of time.
+计划任务语法有五个字段，中间用空格分隔，每个字段代表一个时间单位。
 
 ```
 ┌───────────── minute (0 - 59)
@@ -1164,43 +1161,43 @@ Cron syntax has five fields separated by a space, and each field represents a un
 * * * * *
 ```
 
-You can use these operators in any of the five fields:
+您可在这五个字段中使用以下运算符：
 
-| Operator | Description | Example |
+| 运算符 | 说明 | 示例 |
 | -------- | ----------- | ------- |
-| * | Any value | `15 * * * *` runs at every minute 15 of every hour of every day. |
-| , | Value list separator | `2,10 4,5 * * *` runs at minute 2 and 10 of the 4th and 5th hour of every day. |
-| - | Range of values | `30 4-6 * * *` runs at minute 30 of the 4th, 5th, and 6th hour. |
-| / | Step values | `20/15 * * * *` runs every 15 minutes starting from minute 20 through 59 (minutes 20, 35, and 50). |
+| * | 任何值 | `15 * * * *` 在每天每小时的每个第 15 分钟运行。 |
+| , | 值列表分隔符 | `2,10 4,5 * * *` 在每天第 4 和第 5 小时的第 2 和第 10 分钟运行。 |
+| - | 值的范围 | `30 4-6 * * *` 在第 4、5 和 6 小时的第 30 分钟运行。 |
+| / | 步骤值 | `20/15 * * * *` 在第 20 分钟到第 59 分钟每隔 15 分钟运行一次（第 20、35 和 50 分钟）。 |
 
 {% note %}
 
-**Note:** {% data variables.product.prodname_actions %} does not support the non-standard syntax `@yearly`, `@monthly`, `@weekly`, `@daily`, `@hourly`, and `@reboot`.
+注意：{% data variables.product.prodname_actions %} 不支持非标准语法 `@yearly`、`@monthly`、`@weekly`、`@daily`、`@hourly` 和 `@reboot`。
 
 {% endnote %}
 
-You can use [crontab guru](https://crontab.guru/) to help generate your cron syntax and confirm what time it will run. To help you get started, there is also a list of [crontab guru examples](https://crontab.guru/examples.html).
+可以使用 [crontab guru](https://crontab.guru/) 帮助生成 cron 语法并确认其运行时间。 为了帮助入门，我们还提供了 [crontab guru 示例](https://crontab.guru/examples.html)列表。
 
-Notifications for scheduled workflows are sent to the user who last modified the cron syntax in the workflow file. For more information, see "[Notifications for workflow runs](/actions/monitoring-and-troubleshooting-workflows/notifications-for-workflow-runs)."
+计划工作流程的通知将发送给最后修改工作流程文件中的 cron 语法的用户。 有关详细信息，请参阅“[工作流运行通知](/actions/monitoring-and-troubleshooting-workflows/notifications-for-workflow-runs)”。
 
 ### `status`
 
-| Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
+| Web 挂钩事件有效负载 | 活动类型 | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
-| [`status`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#status) | n/a | Last commit on default branch | n/a |
+| [`status`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#status) | 不适用 | 默认分支上的最新提交 | 不适用 |
 
 {% data reusables.actions.branch-requirement %}
 
-Runs your workflow when the status of a Git commit changes. For example, commits can be marked as `error`, `failure`, `pending`, or `success`. If you want to provide more details about the status change, you may want to use the [`check_run`](#check_run) event. For information about the commit status APIs, see "[Status](/graphql/reference/objects#status)" in the GraphQL API documentation or "[Statuses](/rest/reference/commits#commit-statuses)" in the REST API documentation.
+在 Git 提交状态更改时运行工作流程。 例如，可以将提交标记为 `error`、`failure`、`pending` 或 `success`。 如果要提供有关状态更改的更多详细信息，可能需要使用 [`check_run`](#check_run) 事件。 有关提交状态 API 的信息，请参阅 GraphQL API 文档中的“[状态](/graphql/reference/objects#statue)”或 REST API 文档中的“[状态](/rest/reference/commits#commit-statuses)”。
 
-For example, you can run a workflow when the `status` event occurs.
+例如，可以在发生 `status` 事件时运行工作流。
 
 ```yaml
 on:
   status
 ```
 
-If you want to run a job in your workflow based on the new commit state, you can use the `github.event.state` context. For example, the following workflow triggers when a commit status changes, but the `if_error_or_failure` job only runs if the new commit state is `error` or `failure`.
+如果要基于新的提交状态在工作流中运行作业，可以使用 `github.event.state` 上下文。 例如，以下工作流在提交状态发生更改时触发，但 `if_error_or_failure` 作业仅在新的提交状态为 `error` 或 `failure` 时才运行。
 
 ```yaml
 on:
@@ -1220,21 +1217,21 @@ jobs:
 
 ### `watch`
 
-| Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
+| Web 挂钩事件有效负载 | 活动类型 | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
-| [`watch`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#watch) | - `started` | Last commit on default branch | Default branch |
+| [`watch`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#watch) | - `started` | 默认分支上的最新提交 | 默认分支 |
 
 {% note %}
 
-**Note**: {% data reusables.developer-site.multiple_activity_types %} Although only the `started` activity type is supported, specifying the activity type will keep your workflow specific if more activity types are added in the future. For information about each activity type, see "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#watch)." {% data reusables.developer-site.limit_workflow_to_activity_types %}
+注意：{% data reusables.developer-site.multiple_activity_types %} 尽管仅支持 `started` 活动类型，但如果将来添加更多活动类型，则指定活动类型将使工作流保持特定。 有关每个活动类型的信息，请参阅“[Webhook 事件和有效负载](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#watch)”。 {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 {% endnote %}
 
 {% data reusables.actions.branch-requirement %}
 
-Runs your workflow when the workflow's repository is starred. For information about the pull request APIs, see "[addStar](/graphql/reference/mutations#addstar)" in the GraphQL API documentation or "[Starring](/rest/reference/activity#starring)" in the REST API documentation.
+在工作流程的存储库加星标时运行工作流程。 有关拉取请求 API 的信息，请参阅 GraphQL API 文档中的“[addStar](/graphql/reference/mutations#addstar)”或 REST API 文档中的“[标星](/rest/reference/activity#starring)”。
 
-For example, you can run a workflow when someone stars a repository, which is the `started` activity type for a watch event.
+例如，可以在某人为存储库加星标时（即监视事件的 `started` 活动类型）运行工作流。
 
 ```yaml
 on:
@@ -1242,17 +1239,17 @@ on:
     types: [started]
 ```
 
-{% ifversion fpt or ghes > 3.3 or ghae > 3.3 or ghec %}
+{% ifversion fpt or ghes > 3.3 or ghae-issue-4757 or ghec %}
 
 ### `workflow_call`
 
-| Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
+| Web 挂钩事件有效负载 | 活动类型 | `GITHUB_SHA` | `GITHUB_REF` |
 | ------------------ | ------------ | ------------ | ------------------|
-| Same as the caller workflow | n/a | Same as the caller workflow | Same as the caller workflow |
+| 与调用方工作流程相同 | 不适用 | 与调用方工作流程相同 | 与调用方工作流程相同 |
 
-`workflow_call` is used to indicate that a workflow can be called by another workflow. When a workflow is triggered with the `workflow_call` event, the event payload in the called workflow is the same event payload from the calling workflow. For more information see, "[Reusing workflows](/actions/learn-github-actions/reusing-workflows)."
+`workflow_call` 用于指示一个工作流可以由另一个工作流调用。 当使用 `workflow_call` 事件触发工作流时，被调用工作流中的事件负载与调用工作流中的事件负载相同。 有关详细信息，请参阅“[重用工作流](/actions/learn-github-actions/reusing-workflows)”。
 
-The example below only runs the workflow when it's called from another workflow:
+以下示例仅在从另一个工作流程调用时运行工作流程：
 
 ```yaml
 on: workflow_call
@@ -1262,24 +1259,23 @@ on: workflow_call
 
 ### `workflow_dispatch`
 
-| Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
+| Web 挂钩事件有效负载 | 活动类型 | `GITHUB_SHA` | `GITHUB_REF` |
 | ------------------ | ------------ | ------------ | ------------------|
-| [workflow_dispatch](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#workflow_dispatch) | n/a | Last commit on the `GITHUB_REF` branch or tag | Branch or tag that received dispatch |
+| [workflow_dispatch](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#workflow_dispatch) | 不适用 | `GITHUB_REF` 分支上的最后一次提交 | 收到了分发的分支 |
 
-To manually trigger a workflow, use the `workflow_dispatch` event. You can manually trigger a workflow run using the {% data variables.product.product_name %} API, {% data variables.product.prodname_cli %}, or {% data variables.product.product_name %} browser interface. For more information, see "[Manually running a workflow](/actions/managing-workflow-runs/manually-running-a-workflow)."
+若要手动触发工作流，请使用 `workflow_dispatch` 事件。 您可以使用 {% data variables.product.product_name %} API、{% data variables.product.prodname_cli %}或 {% data variables.product.product_name %} 浏览器界面手动触发工作流程运行。 有关详细信息，请参阅“[手动运行工作流](/actions/managing-workflow-runs/manually-running-a-workflow)”。
 
 ```yaml
 on: workflow_dispatch
 ```
 
-#### Providing inputs
+#### <a name="providing-inputs"></a>提供输入
 
-You can configure custom-defined input properties, default input values, and required inputs for the event directly in your workflow. When you trigger the event, you can provide the `ref` and any `inputs`. When the workflow runs, you can access the input values in the {% ifversion actions-unified-inputs %}`inputs`{% else %}`github.event.inputs`{% endif %} context. For more information, see "[Contexts](/actions/learn-github-actions/contexts)."
+您可以直接在工作流程中配置事件的自定义输入属性、默认输入值和必要输入。 触发事件时，可以提供 `ref` 和任何 `inputs`。 当工作流运行时，可以访问 {% ifversion actions-unified-inputs %}`inputs`{% else %}`github.event.inputs`{% endif %} 上下文中的输入值。 有关详细信息，请参阅“[上下文](/actions/learn-github-actions/contexts)。”
 
 {% data reusables.actions.inputs-vs-github-event-inputs %}
 
-{% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
-This example defines inputs called `logLevel`, `tags`, and `environment`. You pass values for these inputs to the workflow when you run it. This workflow then prints the values to the log, using the {% ifversion actions-unified-inputs %}`inputs.logLevel`, `inputs.tags`, and  `inputs.environment`{% else %}`github.event.inputs.logLevel`, `github.event.inputs.tags`, and  `github.event.inputs.environment`{% endif %} context properties.
+{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5511 %} 此示例定义名为 `logLevel`、`tags` 和 `environment` 的输入。 在运行工作流程时，可以将这些输入的值传递给工作流程。 然后，此工作流使用 {% ifversion actions-unified-inputs %}`inputs.logLevel`、`inputs.tags` 和 `inputs.environment`{% else %}`github.event.inputs.logLevel`、`github.event.inputs.tags` 和 `github.event.inputs.environment`{% endif %} 上下文属性。
 
 ```yaml
 on:
@@ -1317,20 +1313,19 @@ jobs:
           ENVIRONMENT: {% ifversion actions-unified-inputs %}{% raw %}${{ inputs.environment }}{% endraw %}{% else %}{% raw %}${{ github.event.inputs.environment }}{% endraw %}{% endif %}
 ```
 
-If you run this workflow from a browser you must enter values for the required inputs manually before the workflow will run.
+如果从浏览器运行此工作流程，则必须在工作流程运行之前手动输入所需输入的值。
 
-![Entering inputs for a workflow](/assets/images/help/images/workflow-dispatch-inputs.png)
+![输入工作流程的输入](/assets/images/help/images/workflow-dispatch-inputs.png)
 
-You can also pass inputs when you run a workflow from a script, or by using {% data variables.product.prodname_cli %}. For example:
+还可以在从脚本运行工作流程时传递输入，或者使用 {% data variables.product.prodname_cli %}。 例如：
 
 ```
 gh workflow run run-tests.yml -f logLevel=warning -f tags=false -f environment=staging
 ```
 
-For more information, see the {% data variables.product.prodname_cli %} information in "[Manually running a workflow](/actions/managing-workflow-runs/manually-running-a-workflow)."
+有关详细信息，请参阅“[手动运行工作流](/actions/managing-workflow-runs/manually-running-a-workflow)”中的 {% data variables.product.prodname_cli %} 信息。
 
-{% else %}
-This example defines the `name` and `home` inputs and prints them using the {% ifversion actions-unified-inputs %}`inputs.name` and `inputs.home`{% else %}`github.event.inputs.name` and `github.event.inputs.home`{% endif %} contexts. If a `home` isn't provided, the default value 'The Octoverse' is printed.
+{% else %} 此示例定义 `name` 和 `home` 输入并使用 {% ifversion actions-unified-inputs %}`inputs.name` 和 `inputs.home`{% else %}`github.event.inputs.name` 和 `github.event.inputs.home`{% endif %} 上下文。 如果未提供 `home`，则显示默认值“The Octoverse”。
 
 ```yaml
 name: Manually triggered workflow
@@ -1361,13 +1356,13 @@ jobs:
 
 ### `workflow_run`
 
-| Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
+| Web 挂钩事件有效负载 | 活动类型 | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
-| [`workflow_run`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#workflow_run) | - `completed`<br/>- `requested`{% ifversion actions-workflow-run-in-progress %}<br/>- `in_progress`{% endif %} | Last commit on default branch | Default branch |
+| [`workflow_run`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#workflow_run) | - `completed`<br/>- `requested` | 默认分支上的最新提交 | 默认分支 |
 
 {% note %}
 
-**Note**: {% data reusables.developer-site.multiple_activity_types %} The `requested` activity type does not occur when a workflow is re-run. For information about each activity type, see "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_run)." {% data reusables.developer-site.limit_workflow_to_activity_types %}
+注意：{% data reusables.developer-site.multiple_activity_types %} 重新运行工作流时不会出现 `requested` 活动类型。 有关每个活动类型的信息，请参阅“[Webhook 事件和有效负载](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_run)”。 {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 {% endnote %}
 
@@ -1375,13 +1370,13 @@ jobs:
 
 {% note %}
 
-**Note:** You can't use `workflow_run` to chain together more than three levels of workflows. For example, if you attempt to trigger five workflows (named `B` to `F`) to run sequentially after an initial workflow `A` has run (that is: `A` → `B` → `C` → `D` → `E` → `F`), workflows `E` and `F` will not be run.
+注意：不能使用 `workflow_run` 将超过三个工作流级别链接在一起。 例如，如果尝试触发五个工作流（名为 `B` 至 `F`）在初始工作流 `A` 运行后依次运行（即：`A` → `B` → `C` → `D` → `E` → `F`），工作流 `E` 和 `F` 将不会运行。
 
 {% endnote %}
 
-This event occurs when a workflow run is requested or completed. It allows you to execute a workflow based on execution or completion of another workflow. The workflow started by the `workflow_run` event is able to access secrets and write tokens, even if the previous workflow was not. This is useful in cases where the previous workflow is intentionally not privileged, but you need to take a privileged action in a later workflow.
+此事件在请求或完成工作流程运行时发生。 它允许您基于另一个工作流程的执行或完成来执行工作流程。 由 `workflow_run` 事件启动的工作流能够访问机密和写入令牌，即使以前的工作流不能访问也是如此。 这在以前的工作流程有意未获权限的情况下很有用，但您需要在以后的工作流程中采取特权行动。
 
-In this example, a workflow is configured to run after the separate "Run Tests" workflow completes.
+在此示例中，工作流程配置为在单独的“运行测试”工作流程完成后运行。
 
 ```yaml
 on:
@@ -1391,7 +1386,7 @@ on:
       - completed
 ```
 
-If you specify multiple `workflows` for the `workflow_run` event, only one of the workflows needs to run. For example, a workflow with the following trigger will run whenever the "Staging" workflow or the "Lab" workflow completes.
+如果为 `workflow_run` 事件指定多个 `workflows`，则只需要运行其中一个工作流。 例如，具有以下触发器的工作流程将在 "Staging" 工作流程或 "Lab" 工作流程完成时运行。
 
 ```yaml
 on:
@@ -1401,9 +1396,9 @@ on:
       - completed
 ```
 
-#### Running a workflow based on the conclusion of another workflow
+#### <a name="running-a-workflow-based-on-the-conclusion-of-another-workflow"></a>基于另一个工作流程的结果运行工作流程
 
-A workflow run is triggered regardless of the conclusion of the previous workflow. If you want to run a job or step based on the result of the triggering workflow, you can use a conditional with the `github.event.workflow_run.conclusion` property. For example, this workflow will run whenever a workflow named "Build" completes, but the `on-success` job will only run if the "Build" workflow succeeded, and the `on-failure` job will only run if the "Build" workflow failed:
+无论上一个工作流程的结果如何，工作流程运行都会被触发。 如果要基于触发工作流的结果运行作业或步骤，则可以使用带有 `github.event.workflow_run.conclusion` 属性的条件。 例如，每当名为“Build”的工作流完成时，此工作流就会运行，但 `on-success` 作业仅在“Build”工作流成功时才会运行，而 `on-failure` 作业仅在“Build”工作流失败时才会运行：
 
 ```yaml
 on:
@@ -1424,9 +1419,9 @@ jobs:
       - run: echo 'The triggering workflow failed'
 ```
 
-#### Limiting your workflow to run based on branches
+#### <a name="limiting-your-workflow-to-run-based-on-branches"></a>将工作流限于基于分支的运行
 
-You can use the `branches` or `branches-ignore` filter to specify what branches the triggering workflow must run on in order to trigger your workflow. For more information, see "[Workflow syntax for GitHub Actions](/actions/learn-github-actions/workflow-syntax-for-github-actions#onworkflow_runbranchesbranches-ignore)." For example, a workflow with the following trigger will only run when the workflow named `Build` runs on a branch named `canary`.
+可以使用 `branches` 或 `branches-ignore` 筛选器，指定触发工作流必须在哪些分支上运行才能触发工作流。 有关详细信息，请参阅“[GitHub Actions 的工作流语法](/actions/learn-github-actions/workflow-syntax-for-github-actions#onworkflow_runbranchesbranches-ignore)”。 例如，仅当名为 `Build` 的工作流在名为 `canary` 的分支上运行时，具有以下触发器的工作流才会运行。
 
 ```yaml
 on:
@@ -1436,11 +1431,11 @@ on:
     branches: [canary]
 ```
 
-#### Using data from the triggering workflow
+#### <a name="using-data-from-the-triggering-workflow"></a>使用触发工作流程中的数据
 
-You can access the [`workflow_run` event payload](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_run) that corresponds to the workflow that triggered your workflow. For example, if your triggering workflow generates artifacts, a workflow triggered with the `workflow_run` event can access these artifacts.
+可以访问与触发工作流的工作流对应的 [`workflow_run` 事件负载](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_run)。 例如，如果触发工作流生成工件，则使用 `workflow_run` 事件触发的工作流可以访问这些工件。
 
-The following workflow uploads data as an artifact. (In this simplified example, the data is the pull request number.)
+以下工作流程将数据作为构件上传。 （在此简化的示例中，数据是拉取请求编号。）
 
 ```yaml
 name: Upload data
@@ -1465,7 +1460,7 @@ jobs:
           path: pr/
 ```
 
-When a run of the above workflow completes, it triggers a run of the following workflow. The following workflow uses the `github.event.workflow_run` context and the {% data variables.product.product_name %} REST API to download the artifact that was uploaded by the above workflow, unzips the downloaded artifact, and comments on the pull request whose number was uploaded as an artifact.
+当上述工作流程的运行完成时，它将触发以下工作流程的运行。 以下工作流使用 `github.event.workflow_run` 上下文和 {% data variables.product.product_name %} REST API 下载由上述工作流上传的工件，解压缩下载的工件，并对其编号作为工件上传的拉取请求进行注释。
 
 ```yaml
 name: Use the data

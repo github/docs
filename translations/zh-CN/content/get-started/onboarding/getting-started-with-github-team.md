@@ -1,99 +1,104 @@
 ---
-title: Getting started with GitHub Team
-intro: 'With {% data variables.product.prodname_team %} groups of people can collaborate across many projects at the same time in an organization account.'
+title: 开始使用 GitHub Team
+intro: '通过 {% data variables.product.prodname_team %} 组人员可以在组织帐户中同时跨多个项目进行协作。'
 versions:
   fpt: '*'
+ms.openlocfilehash: 46b5376b72ce30f7c526f693f2adb9253853cf1d
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '146139158'
 ---
+本指南将引导您以组织所有者的身份设置、配置和管理您的 {% data variables.product.prodname_team %} 帐户。
 
-This guide will walk you through setting up, configuring and managing your {% data variables.product.prodname_team %} account as an organization owner.
+## 第 1 部分：在 {% data variables.product.product_location %}上配置您的帐户
+若要开始使用 {% data variables.product.prodname_team %}，首先需要创建个人帐户或登录到 {% data variables.product.prodname_dotcom %} 上的现有帐户，创建组织并设置账单。
 
-## Part 1: Configuring your account on {% data variables.location.product_location %}
-As the first steps in starting with {% data variables.product.prodname_team %}, you will need to create a personal account or log into your existing account on {% data variables.product.prodname_dotcom %}, create an organization, and set up billing.
+### 1. 关于组织
+组织是共享帐户，其中业务和开源项目可同时跨多个项目进行协作。 所有者和管理员可使用复杂的安全性和管理功能来管理成员对组织数据和项目的访问。 有关组织功能的详细信息，请参阅“[关于组织](/organizations/collaborating-with-groups-in-organizations/about-organizations#terms-of-service-and-data-protection-for-organizations)”。
 
-### 1. About organizations
-Organizations are shared accounts where businesses and open-source projects can collaborate across many projects at once. Owners and administrators can manage member access to the organization's data and projects with sophisticated security and administrative features. For more information on the features of organizations, see "[About organizations](/organizations/collaborating-with-groups-in-organizations/about-organizations#terms-of-service-and-data-protection-for-organizations)."
+### 2. 创建组织并注册 {% data variables.product.prodname_team %}
+在创建组织之前，你需要在 {% data variables.product.product_location %} 上创建个人帐户或登录到现有帐户。 有关详细信息，请参阅“[注册新 {% data variables.product.prodname_dotcom %} 帐户](/get-started/signing-up-for-github/signing-up-for-a-new-github-account)”。
 
-### 2. Creating an organization and signing up for {% data variables.product.prodname_team %}
-Before creating an organization, you will need to create a personal account or log in to your existing account on {% data variables.location.product_location %}. For more information, see "[Signing up for a new {% data variables.product.prodname_dotcom %} account](/get-started/signing-up-for-github/signing-up-for-a-new-github-account)."
+设置个人帐户后，你可以创建组织并选择计划。 您可以在此处为组织选择 {% data variables.product.prodname_team %} 订阅。 有关详细信息，请参阅“[从头开始创建新组织](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)”。
 
-Once your personal account is set up, you can create an organization and pick a plan. This is where you can choose a {% data variables.product.prodname_team %} subscription for your organization. For more information, see "[Creating a new organization from scratch](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)."
+### 3. 管理组织的账单
+您必须单独管理每个个人帐户和组织的结算设置、付款方式以及付费功能和产品。 您可以使用设置中的上下文切换器在不同帐户的设置之间切换。 有关详细信息，请参阅“[在不同帐户的设置之间切换](/billing/managing-your-github-billing-settings/about-billing-on-github#switching-between-settings-for-your-different-accounts)”。
 
-### 3. Managing billing for an organization
-You must manage billing settings, payment method, and paid features and products for each of your personal accounts and organizations separately. You can switch between settings for your different accounts using the context switcher in your settings. For more information, see "[Switching between settings for your different accounts](/billing/managing-your-github-billing-settings/about-billing-on-github#switching-between-settings-for-your-different-accounts)."
+通过组织的计费设置页面，您可以管理付款方式、结算周期和帐单邮箱等设置，或查看订阅、帐单日期和付款历史记录等信息。 您还可以查看和升级您的存储和 GitHub Actions 分钟数。 有关管理计费设置的详细信息，请参阅“[管理 {% data variables.product.prodname_dotcom %} 计费设置](/billing/managing-your-github-billing-settings)”。
 
-Your organization's billing settings page allows you to manage settings like your payment method, billing cycle and billing email, or view information such as your subscription, billing date and payment history. You can also view and upgrade your storage and GitHub Actions minutes. For more information on managing your billing settings, see "[Managing your {% data variables.product.prodname_dotcom %} billing settings](/billing/managing-your-github-billing-settings)."
-
-Only organization members with the *owner* or *billing manager* role can access or change billing settings for your organization. A billing manager is someone  who manages the billing settings for your organization and does not use a paid license in your organization's subscription. For more information on adding a billing manager to your organization, see "[Adding a billing manager to your organization](/organizations/managing-peoples-access-to-your-organization-with-roles/adding-a-billing-manager-to-your-organization)."
+只有具有所有者或账单管理员角色的组织成员才能访问或更改组织的计费设置 。 帐单管理员是管理组织的计费设置且不在组织的订阅中使用付费许可证的人员。 有关将账单管理员添加到组织的详细信息，请参阅“[为组织添加帐单管理员](/organizations/managing-peoples-access-to-your-organization-with-roles/adding-a-billing-manager-to-your-organization)”。
 
 
-## Part 2: Adding members and setting up teams
-After creating your organization, you can invite members and set permissions and roles. You can also create different levels of teams and set customized levels of permissions for your organization's repositories, project boards, and apps.
+## 第 2 部分：添加成员和设置团队
+创建组织后，您可以邀请成员并设置权限和角色。 您还可以创建不同级别的团队，并为组织的存储库、项目板和应用程序设置自定义权限级别。
 
-### 1. Managing members of your organization
+### 1. 管理组织成员
 {% data reusables.getting-started.managing-org-members %}
 
-### 2. Organization permissions and roles
+### 2. 组织权限和角色
 {% data reusables.getting-started.org-permissions-and-roles %}
 
-### 3. About and creating teams
+### 3. 关于和创建团队
 {% data reusables.getting-started.about-and-creating-teams %}
-### 4. Managing team settings
+### 4. 管理团队设置
 {% data reusables.getting-started.managing-team-settings %}
 
-### 5. Giving people and teams access to repositories, project boards and apps
+### 5. 为人员和团队提供对存储库、项目板和应用的访问权限
 {% data reusables.getting-started.giving-access-to-repositories-projects-apps %}
-## Part 3: Managing security for your organization
-You can help to make your organization more secure by recommending or requiring two-factor authentication for your organization members, configuring security features, and reviewing your organization's audit log and integrations.
+## 第 3 部分：管理组织的安全性
+通过建议或要求对组织成员进行双重身份验证、配置安全功能以及查看组织的审核日志和集成，可以帮助提高组织的安全性。
 
-### 1. Requiring two-factor authentication
+### 1. 需要双重身份验证
 {% data reusables.getting-started.requiring-2fa %}
 
-### 2. Configuring security features for your organization
+### 2. 为组织配置安全功能
 {% data reusables.getting-started.configuring-security-features %}
 
-### 3. Reviewing your organization's audit log and integrations
+### 3. 查看组织的审核日志和集成
 {% data reusables.getting-started.reviewing-org-audit-log-and-integrations %}
 
-## Part 4: Setting organization level policies
-### 1. Managing organization policies
+## 第 4 部分：设置组织级别策略
+### 1. 管理组织策略
 {% data reusables.getting-started.managing-org-policies %}
-### 2. Managing repository changes
+### 2. 管理存储库更改
 {% data reusables.getting-started.managing-repo-changes %}
-### 3. Using organization-level community health files and moderation tools
+### 3. 使用组织级别的社区运行状况文件和审查工具
 {% data reusables.getting-started.using-org-community-files-and-moderation-tools %}
-## Part 5: Customizing and automating your work on {% data variables.product.product_name %}
+## 第 5 部分：自定义和自动化 {% data variables.product.product_name %} 上的工作
 
 {% data reusables.getting-started.customizing-and-automating %}
-### 1. Using {% data variables.product.prodname_marketplace %}
+### 1. 使用 {% data variables.product.prodname_marketplace %}
 {% data reusables.getting-started.marketplace %}
-### 2. Using the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API
+### 2. 使用 {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API
 {% data reusables.getting-started.api %}
 
-### 3. Building {% data variables.product.prodname_actions %}
+### 3. 生成 {% data variables.product.prodname_actions %}
 {% data reusables.getting-started.actions %}
 
-### 4. Publishing and managing {% data variables.product.prodname_registry %} 
+### 4. 发布和管理 {% data variables.product.prodname_registry %} 
 {% data reusables.getting-started.packages %}
 
-## Part 6: Participating in {% data variables.product.prodname_dotcom %}'s community
+## 第 6 部分：参与 {% data variables.product.prodname_dotcom %} 的社区
 {% data reusables.getting-started.participating-in-community %}
-### 1. Contributing to open source projects
+### 1. 参与开源项目
 {% data reusables.getting-started.open-source-projects %}
 
-### 2. Interacting with the {% data variables.product.prodname_gcf %}
+### 2. 与 {% data variables.product.prodname_gcf %} 交互
 {% data reusables.support.ask-and-answer-forum %}
 
-### 3. Reading about {% data variables.product.prodname_team %} on {% data variables.product.prodname_docs %}
-You can read documentation that reflects the features available with {% data variables.product.prodname_team %}. For more information, see "[About versions of {% data variables.product.prodname_docs %}](/get-started/learning-about-github/about-versions-of-github-docs)."
+### 3. 了解 {% data variables.product.prodname_docs %} 上的 {% data variables.product.prodname_team %}
+您可以阅读反映 {% data variables.product.prodname_team %} 可用功能的文档。 有关详细信息，请参阅“[关于 {% data variables.product.prodname_docs %} 的版本](/get-started/learning-about-github/about-versions-of-github-docs)”。
 
-### 4. Learning with {% data variables.product.prodname_learning %}
+### 4. 通过 {% data variables.product.prodname_learning %} 学习
 {% data reusables.getting-started.learning %}
 
-### 5. Supporting the open source community
+### 5. 支持开源社区
 {% data reusables.getting-started.sponsors %}
 
-### 6. Contacting {% data variables.contact.github_support %}
+### 6. 联系 {% data variables.contact.github_support %}
 {% data reusables.getting-started.contact-support %}
-## Further reading
+## 延伸阅读
 
-- "[Getting started with your GitHub account](/get-started/onboarding/getting-started-with-your-github-account)"
+- [开始使用 GitHub 帐户](/get-started/onboarding/getting-started-with-your-github-account)

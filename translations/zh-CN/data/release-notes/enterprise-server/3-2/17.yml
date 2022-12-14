@@ -1,0 +1,20 @@
+date: '2022-08-11'
+sections:
+  security_fixes:
+    - |严重****：GitHub Enterprise Server 的 Elasticsearch 容器使用的 OpenJDK 8 版本在处理恶意 XSLT 样式表时容易出现整数截断问题。该漏洞的编号为 [CVE-2022-34169](https://github.com/advisories/GHSA-9339-86wc-4qgf)。
+
+|
+    - |高****：在用户帐户转换为组织帐户后，用户帐户上以前安装的应用程序会自动获得访问作用域内访问令牌上的组织的权限。此漏洞是通过 [GitHub Bug 赏金计划](https://bounty.github.com)报告的。
+
+|
+  bugs:
+    - "当为实例设置自定义休眠阈值时，暂停所有休眠用户并不能可靠地遵从阈值。有关休眠的详细信息，请参阅“[管理休眠用户](/admin/user-management/managing-users-in-your-enterprise/managing-dormant-users)”。"
+  known_issues:
+    - "在新建的没有任何用户的 {% data variables.product.prodname_ghe_server %} 实例上，攻击者可以创建第一个管理员用户。"
+    - 自定义防火墙规则在升级过程中被删除。
+    - "[通过 Web 界面上传](https://github.com/blog/2105-upload-files-to-your-repositories)的 Git LFS 跟踪文件被错误地直接添加到存储库。"
+    - 如果问题包含文件路径长于 255 个字符的同一存储库中 blob 的永久链接，则问题无法关闭。
+    - "对 {% data variables.product.prodname_github_connect %} 启用“用户可以搜索 GitHub.com”后，专用和内部存储库中的问题不包括在 {% data variables.product.prodname_dotcom_the_website %} 搜索结果中。"
+    - "{% data variables.product.prodname_registry %} npm 注册表不再在元数据响应中返回时间值。这样可以大幅改善性能。作为元数据响应的一部分，我们继续拥有返回时间值所需的所有数据，并将在以后解决现有性能问题后恢复返回这个值。"
+    - 特定于处理预接收挂钩的资源限制可能导致部分预接收挂钩失败。
+    - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'

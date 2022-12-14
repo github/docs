@@ -1,7 +1,7 @@
 ---
-title: Downloading your enterprise account's single sign-on recovery codes
+title: 下载企业帐户的单一登录恢复代码
 shortTitle: Download recovery codes
-intro: 'To ensure that you can access {% data variables.product.product_name %} if your identity provider (IdP) is unavailable, you should download your enterprise account''s single sign-on (SSO) recovery codes.'
+intro: '如果标识提供者 (IdP) 不可用，为了确保你可以访问 {% data variables.product.product_name %}，应下载企业帐户的单一登录 (SSO) 恢复代码。'
 versions:
   ghec: '*'
 type: how_to
@@ -13,25 +13,27 @@ topics:
 redirect_from:
   - /admin/identity-and-access-management/managing-recovery-codes-for-your-enterprise/downloading-your-enterprise-accounts-saml-single-sign-on-recovery-codes
 permissions: Enterprise owners can download the SSO recovery codes for the enterprise account.
+ms.openlocfilehash: 82f44654b18a36d2fb29797fe8b6e0426785522b
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147063592'
 ---
+如果 IdP 不可用，可以使用恢复代码在 {% data variables.product.product_location %} 上登录和访问企业。 有关详细信息，请参阅“[在标识提供者不可用时访问企业帐户](/admin/identity-and-access-management/managing-recovery-codes-for-your-enterprise/accessing-your-enterprise-account-if-your-identity-provider-is-unavailable)”。
 
-In the event that your IdP is unavailable, you can use a recovery code to sign in and access your enterprise on {% data variables.location.product_location %}. For more information, see "[Accessing your enterprise account if your identity provider is unavailable](/admin/identity-and-access-management/managing-recovery-codes-for-your-enterprise/accessing-your-enterprise-account-if-your-identity-provider-is-unavailable)."
-
-If you did not save your recovery codes when you configured SSO, you can still access the codes from your enterprise's settings.
-
+如果在配置 SSO 时未保存恢复代码，你仍可从企业的设置中访问代码。
 
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.security-tab %}
 
-1. Under{% ifversion oidc-for-emu %} either{% endif %} "Require SAML authentication"{% ifversion oidc-for-emu %} or "Require OIDC authentication"{% endif %}, click **Save your recovery codes**.{% ifversion oidc-for-emu %}
-  {% note %}
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.settings-tab %} {% data reusables.enterprise-accounts.security-tab %}
+
+1. 在{% ifversion oidc-for-emu %}{% endif %}“需要 SAML 身份验证”{% ifversion oidc-for-emu %}或“需要 OIDC 身份验证”{% endif %}下，单击“保存恢复代码”。{% ifversion oidc-for-emu %} {% note %}
   
-  **Note:** OIDC SSO is only available for {% data variables.product.prodname_emus %}. For more information, see "[About Enterprise Managed Users](/admin/identity-and-access-management/using-enterprise-managed-users-and-saml-for-iam/about-enterprise-managed-users)."
+  注意：OIDC SSO 仅适用于 {% data variables.product.prodname_emus %}。 有关详细信息，请参阅“[关于企业托管用户](/admin/identity-and-access-management/using-enterprise-managed-users-and-saml-for-iam/about-enterprise-managed-users)”。
   
   {% endnote %}{% endif %}
   
-  ![Screenshot of the button to test SAML configuration before enforcing](/assets/images/help/enterprises/saml-recovery-codes-link.png)
-1. To save your recovery codes, click **Download**, **Print**, or **Copy**.
-  ![Screenshot of the buttons to download, print, or copy your recovery codes](/assets/images/help/saml/saml_recovery_code_options.png)
+  ![实施前测试 SAML 配置的按钮的屏幕截图](/assets/images/help/enterprises/saml-recovery-codes-link.png)
+1. 要保存恢复代码，请单击“下载”、“打印”或“复制”  。
+  ![下载、打印或复制恢复代码的按钮的屏幕截图](/assets/images/help/saml/saml_recovery_code_options.png)

@@ -1,6 +1,6 @@
 ---
-title: Resolving a merge conflict using the command line
-intro: You can resolve merge conflicts using the command line and a text editor.
+title: 使用命令行解决合并冲突
+intro: 您可以使用命令行和文本编辑器解决合并冲突。
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-using-the-command-line
   - /articles/resolving-a-merge-conflict-from-the-command-line
@@ -15,27 +15,33 @@ versions:
 topics:
   - Pull requests
 shortTitle: Resolve merge conflicts in Git
+ms.openlocfilehash: 1d4ff97c2a93d3e5a7aebaa8752810e284203bc1
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147883455'
 ---
-Merge conflicts occur when competing changes are made to the same line of a file, or when one person edits a file and another person deletes the same file. For more information, see "[About merge conflicts](/articles/about-merge-conflicts/)."
+当对文件的同一行进行竞争更改时，或者当一个人编辑文件而另一个人删除同一文件时，会发生合并冲突。 有关详细信息，请参阅“[关于合并冲突](/articles/about-merge-conflicts/)”。
 
 {% tip %}
 
-**Tip:** You can use the conflict editor on {% data variables.product.product_name %} to resolve competing line change merge conflicts between branches that are part of a pull request. For more information, see "[Resolving a merge conflict on GitHub](/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-on-github)."
+**提示：** 可以使用冲突编辑器在 {% data variables.product.product_name %} 上解决作为拉取请求组成部分的各分支之间的竞争行更改合并冲突。 有关详细信息，请参阅“[在 GitHub 上解决合并冲突](/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-on-github)”。
 
 {% endtip %}
 
-## Competing line change merge conflicts
+## 竞争行更改合并冲突
 
-To resolve a merge conflict caused by competing line changes, you must choose which changes to incorporate from the different branches in a new commit.
+要解决由竞争行更改导致的合并冲突，您必须从新提交的不同分支中选择要合并的更改。
 
-For example, if you and another person both edited the file _styleguide.md_ on the same lines in different branches of the same Git repository, you'll get a merge conflict error when you try to merge these branches. You must resolve this merge conflict with a new commit before you can merge these branches.
+例如，如果你和另一个人都在同一 Git 存储库不同分支的同一行中编辑了 styleguide.md 文件，则在尝试合并这些分支时会发生合并冲突错误。 必须使用新提交解决这一合并冲突，然后才能合并这些分支。
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
-2. Navigate into the local Git repository that has the merge conflict.
+2. 导航到有合并冲突的本地 Git 仓库中。
   ```shell
-  cd REPOSITORY-NAME
+  cd <em>REPOSITORY-NAME</em>
   ```
-3. Generate a list of the files affected by the merge conflict. In this example, the file *styleguide.md* has a merge conflict.
+3. 生成受合并冲突影响的文件列表。 在此示例中，styleguide.md 文件存在合并冲突。
   ```shell
   $ git status
   > # On branch branch-b
@@ -49,8 +55,8 @@ For example, if you and another person both edited the file _styleguide.md_ on t
   > #
   > no changes added to commit (use "git add" and/or "git commit -a")
   ```
-4. Open your favorite text editor, such as [{% data variables.product.prodname_vscode %}](https://code.visualstudio.com/), and navigate to the file that has merge conflicts.
-5. To see the beginning of the merge conflict in your file, search the file for the conflict marker `<<<<<<<`. When you open the file in your text editor, you'll see the changes from the HEAD or base branch after the line `<<<<<<< HEAD`. Next, you'll see `=======`, which divides your changes from the changes in the other branch, followed by `>>>>>>> BRANCH-NAME`. In this example, one person wrote "open an issue" in the base or HEAD branch and another person wrote "ask your question in IRC" in the compare branch or `branch-a`.
+4. 打开你首选的文本编辑器，例如 [Atom](https://atom.io/)，然后导航到有合并冲突的文件。
+5. 要在文件中查看合并冲突的开头，请在文件中搜索冲突标记 `<<<<<<<`。 当你在文本编辑器中打开文件时，你将在行 `<<<<<<< HEAD` 后看到头部分支或基本分支。 接下来，你将看到 `=======`，它将你的更改与其他分支中的更改分开，后跟 `>>>>>>> BRANCH-NAME`。 在本例中，一个人在基本或头部分支中编写了“open an issue”，而另一个人在比较分支或 `branch-a` 中编写了“ask your question in IRC”。
 
     ```
     If you have questions, please
@@ -60,34 +66,34 @@ For example, if you and another person both edited the file _styleguide.md_ on t
     ask your question in IRC.
     >>>>>>> branch-a
     ```
-{% data reusables.pull_requests.decide-how-to-resolve-competing-line-change-merge-conflict %} In this example, both changes are incorporated into the final merge:
+{% data reusables.pull_requests.decide-how-to-resolve-competing-line-change-merge-conflict %} 在本例中，两个更改均整合到最终合并：
 
   ```shell
   If you have questions, please open an issue or ask in our IRC channel if it's more urgent.
   ```
-7. Add or stage your changes.
+7. 添加或暂存您的更改。
   ```shell
   $ git add .
   ```
-8. Commit your changes with a comment.
+8. 提交您的更改及注释。
   ```shell
   $ git commit -m "Resolved merge conflict by incorporating both suggestions."
   ```
 
-You can now merge the branches on the command line or [push your changes to your remote repository](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/) on {% data variables.product.product_name %} and [merge your changes](/articles/merging-a-pull-request/) in a pull request.
+现在，可以在命令行上合并分支，或者在 {% data variables.product.product_name %} 上[将更改推送到远程存储库](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/)，然后在拉取请求中[合并更改](/articles/merging-a-pull-request/)。
 
-## Removed file merge conflicts
+## 删除的文件合并冲突
 
-To resolve a merge conflict caused by competing changes to a file, where a person deletes a file in one branch and another person edits the same file, you must choose whether to delete or keep the removed file in a new commit.
+要解决由对文件进行竞争更改而导致的合并冲突，对于一个人删除分支中的文件而另一个人编辑同一文件的情况，您必须选择是删除还是将删除的文件保留在新提交中。
 
-For example, if you edited a file, such as *README.md*, and another person removed the same file in another branch in the same Git repository, you'll get a merge conflict error when you try to merge these branches. You must resolve this merge conflict with a new commit before you can merge these branches.
+例如，如果你编辑了一个文件（如 README.md），而另一个人在同一 Git 存储库的另一个分支中删除了同一文件，那么当你尝试合并这些分支时将发生合并冲突错误。 必须使用新提交解决这一合并冲突，然后才能合并这些分支。
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
-2. Navigate into the local Git repository that has the merge conflict.
+2. 导航到有合并冲突的本地 Git 仓库中。
   ```shell
-  cd REPOSITORY-NAME
+  cd <em>REPOSITORY-NAME</em>
   ```
-2. Generate a list of the files affected by the merge conflict. In this example, the file *README.md* has a merge conflict.
+2. 生成受合并冲突影响的文件列表。 在此示例中，文件 README.md 存在合并冲突。
   ```shell
   $ git status
   > # On branch main
@@ -100,32 +106,32 @@ For example, if you edited a file, such as *README.md*, and another person remov
   > # Unmerged paths:
   > #  (use "git add/rm <file>..." as appropriate to mark resolution)
   > #
-  > #	deleted by us:   README.md
+  > #   deleted by us:   README.md
   > #
   > # no changes added to commit (use "git add" and/or "git commit -a")
   ```
-3. Open your favorite text editor, such as [{% data variables.product.prodname_vscode %}](https://code.visualstudio.com/), and navigate to the file that has merge conflicts.
-6. Decide if you want keep the removed file. You may want to view the latest changes made to the removed file in your text editor.
+3. 打开你首选的文本编辑器，例如 [Atom](https://atom.io/)，然后导航到有合并冲突的文件。
+6. 决定是否要保留删除的文件。 您可能想要在文本编辑器中查看对删除的文件所做的最新更改。
 
- To add the removed file back to your repository:
+ 要将已删除的文件重新添加到仓库：
   ```shell
   $ git add README.md
   ```
- To remove this file from your repository:
+ 要从仓库中删除此文件：
   ```shell
   $ git rm README.md
   > README.md: needs merge
   > rm 'README.md'
   ```
-7. Commit your changes with a comment.
+7. 提交您的更改及注释。
   ```shell
   $ git commit -m "Resolved merge conflict by keeping README.md file."
   > [branch-d 6f89e49] Merge branch 'branch-c' into branch-d
   ```
 
-You can now merge the branches on the command line or [push your changes to your remote repository](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/) on {% data variables.product.product_name %} and [merge your changes](/articles/merging-a-pull-request/) in a pull request.
+现在，可以在命令行上合并分支，或者在 {% data variables.product.product_name %} 上[将更改推送到远程存储库](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/)，然后在拉取请求中[合并更改](/articles/merging-a-pull-request/)。
 
-## Further reading
+## 延伸阅读
 
-- "[About merge conflicts](/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/about-merge-conflicts)"
-- "[Checking out pull requests locally](/articles/checking-out-pull-requests-locally/)"
+- “[关于合并冲突](/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/about-merge-conflicts)”
+- “[在本地签出拉取请求](/articles/checking-out-pull-requests-locally/)”

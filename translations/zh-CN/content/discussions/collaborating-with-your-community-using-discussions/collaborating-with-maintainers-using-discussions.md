@@ -1,89 +1,60 @@
 ---
-title: Collaborating with maintainers using discussions
+title: 使用讨论与维护者协作
 shortTitle: Collaborating with maintainers
-intro: 'You can contribute to the goals, plans, health, and community for a project on {% data variables.product.product_name %} by communicating with the maintainers of the project in a discussion.'
+intro: '您可以通过在讨论中与项目的维护者沟通，为 {% data variables.product.product_name %} 项目的目标、计划、运行状况和社区做出贡献。'
 permissions: 'People with read access to a repository can start and participate in discussions and polls in the repository. People with read access to the source repository for organization discussions can start and participate in discussions and polls in the organization. {% data reusables.enterprise-accounts.emu-permission-interact %}'
 versions:
   feature: discussions
+ms.openlocfilehash: f090088d55e946e67c1f0b5d790deca9fd794a90
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147410249'
 ---
+## 关于使用 {% data variables.product.prodname_discussions %} 与维护者的协作
 
-
-## About collaboration with maintainers using {% data variables.product.prodname_discussions %}
-
-{% data reusables.discussions.about-discussions %} If you use or contribute to a project, you can start a discussion to make suggestions and engage with maintainers and community members about your plans, questions, ideas, and feedback. For more information, see "[About discussions](/discussions/collaborating-with-your-community-using-discussions/about-discussions)."
+{% data reusables.discussions.about-discussions %} 如果您使用或参与某个项目，可以发起讨论，以提出建议，并就您的计划、问题、想法和反馈与维护者及社区成员进行互动。 有关详细信息，请参阅“[关于讨论](/discussions/collaborating-with-your-community-using-discussions/about-discussions)”。
 
 {% data reusables.discussions.about-categories-and-formats %} {% data reusables.discussions.about-announcement-format %} 
 
-Repository administrators and project maintainers can delete a discussion in that repository. Similarly, administrators and maintainers of the source repository for an organization's discussions can delete a discussion in that organization. For more information, see "[Managing discussions](/discussions/managing-discussions-for-your-community/managing-discussions#deleting-a-discussion)."
+存储库管理员和项目维护者可以删除该存储库中的讨论。 同样，组织讨论的源存储库的管理员和维护者也可以删除该组织中的讨论。 有关详细信息，请参阅“[管理讨论](/discussions/managing-discussions-for-your-community/managing-discussions#deleting-a-discussion)”。
 
-{% data reusables.discussions.github-recognizes-members %} These members appear in a list of the most helpful contributors to the project's discussions. As your project grows, you can grant higher access permissions to active members of your community. For more information, see "[Granting higher permissions to top contributors](/discussions/guides/granting-higher-permissions-to-top-contributors)"
+{% data reusables.discussions.github-recognizes-members %} 这些成员出现在对项目讨论最有帮助的贡献者名单中。 随着项目的发展，您可以向社区的活动成员授予更高的访问权限。 有关详细信息，请参阅“[向顶级贡献者授予更高的权限](/discussions/guides/granting-higher-permissions-to-top-contributors)”。
 
-![Most helpful contributors to discussions for a project](/assets/images/help/discussions/most-helpful.png)
+![对项目讨论最有帮助的贡献者](/assets/images/help/discussions/most-helpful.png)
 
-Community members can upvote discussions and top-level comments inside discussions to communicate with maintainers about ideas that matter to them. Project maintainers can then sort discussions and comments based on upvotes to gain insight into what community members value.
+有关参与讨论的详细信息，请参阅“[参与讨论](/discussions/collaborating-with-your-community-using-discussions/participating-in-a-discussion)”。
 
-For more information about participation in discussions, see "[Participating in a discussion](/discussions/collaborating-with-your-community-using-discussions/participating-in-a-discussion)."
+## 先决条件
 
-## Prerequisites
+要在存储库讨论中与维护者合作，存储库管理员或项目维护者必须启用存储库的 {% data variables.product.prodname_discussions %}。 有关详细信息，请参阅“[启用或禁用存储库的 {% data variables.product.prodname_discussions %}](/github/administering-a-repository/enabling-or-disabling-github-discussions-for-a-repository)”。
 
-To collaborate with maintainers in repository discussions, a repository administrator or project maintainer must enable {% data variables.product.prodname_discussions %} for the repository. For more information, see "[Enabling or disabling {% data variables.product.prodname_discussions %} for a repository](/github/administering-a-repository/enabling-or-disabling-github-discussions-for-a-repository)."
+若要与组织讨论中的维护者开展协作，必须启用组织的 {% data variables.product.prodname_discussions %}。 有关详细信息，请参阅“[启用或禁用组织的 {% data variables.product.prodname_discussions %}](/organizations/managing-organization-settings/enabling-or-disabling-github-discussions-for-an-organization)”。
 
-To collaborate with maintainers in organization discussions, {% data variables.product.prodname_discussions %} must be enabled for the organization. For more information, see "[Enabling or disabling {% data variables.product.prodname_discussions %} for an organization](/organizations/managing-organization-settings/enabling-or-disabling-github-discussions-for-an-organization)."
-
-## Starting a discussion
+## 开始讨论
 
 {% data reusables.discussions.starting-a-discussion %}
 
-## Starting a poll
+## 启动投票
 
 {% data reusables.discussions.starting-a-poll %}
 
-## Filtering the list of discussions
+## 过滤讨论列表
 
-You can search for discussions and filter the list of discussions in a repository or organization. For more information, see "[Searching discussions](/search-github/searching-on-github/searching-discussions)."
+你可以在存储库或组织中搜索讨论并筛选讨论列表。 有关详细信息，请参阅“[搜索讨论](/search-github/searching-on-github/searching-discussions)”。
 
-{% data reusables.discussions.navigate-to-repo-or-org %}
-{% data reusables.discussions.discussions-tab %}
-1. In the **Search all discussions** field, type a search query. Optionally, to the right of the search field, click a button to further filter the results.
-  ![Search bar and buttons for filtering discussions](/assets/images/help/discussions/search-and-filter-controls.png)
-1. In the list of discussions, click the discussion you want to view.
-  ![Discussion search results](/assets/images/help/discussions/search-result.png)
+{% data reusables.discussions.navigate-to-repo-or-org %} {% data reusables.discussions.discussions-tab %}
+1. 在“搜索所有讨论”字段中，键入搜索查询。 （可选）在搜索字段右侧，单击按钮以进一步过滤结果。
+  ![用于筛选讨论的搜索栏和按钮](/assets/images/help/discussions/search-and-filter-controls.png)
+1. 在讨论列表中，单击要查看的讨论。
+  ![讨论搜索结果](/assets/images/help/discussions/search-result.png)
 
-## Sorting the list of discussions
+## 将议题转换为讨论
 
-You can choose how to sort the list of discussions.
+{% data reusables.discussions.you-can-convert-an-issue %} 有关详细信息，请参阅“[主持讨论](/discussions/managing-discussions-for-your-community/moderating-discussions#converting-an-issue-to-a-discussion)”。
 
-{% data reusables.discussions.navigate-to-repo-or-org %}
-{% data reusables.discussions.discussions-tab %}
-1. To the right of the **Search all discussions** field, select **New**, or select **Top** and choose a time period from the drop down menu.
+## 延伸阅读
 
-   ![Buttons for sorting discussions](/assets/images/help/discussions/sort-discussions-buttons.png)
-
-    - Sort by **New** to display the discussions with the most recent activity at the top of the list.
-    - Sort by **Top** to display the discussions with the most upvotes at the top of the list. You can limit the list to only display discussions from a specific time period.
-
-## Sorting top-level comments in discussions
-
-You can choose how to sort top-level comments in discussions. Comment threads do not impact the order comments are sorted in.
-
-{% data reusables.discussions.navigate-to-repo-or-org %}
-{% data reusables.discussions.discussions-tab %}
-{% data reusables.discussions.click-discussion-in-list %}
-1. Under the main discussion post, select **Oldest**, **Newest**, or **Top**.
-
-   ![Buttons for sorting comments in discussions](/assets/images/help/discussions/sort-comments-buttons.png)
-
-    - Sort by **Oldest** to display the oldest top-level comments first.
-    - Sort by **Newest** to display the newest top-level comments first.
-    - Sort by **Top** to display the most upvoted top-level comments first.
-
-## Converting an issue to a discussion
-
-{% data reusables.discussions.you-can-convert-an-issue %} For more information, see "[Moderating discussions](/discussions/managing-discussions-for-your-community/moderating-discussions#converting-an-issue-to-a-discussion)."
-
-## Further reading
-
-- "[About writing and formatting on {% data variables.product.prodname_dotcom %}](/github/writing-on-github/about-writing-and-formatting-on-github)"
-{%- ifversion fpt or ghec %}
-- "[Maintaining your safety on {% data variables.product.prodname_dotcom %}](/communities/maintaining-your-safety-on-github)"
-{%- endif %}
+- [关于在 {% data variables.product.prodname_dotcom %} 上编写和设置格式](/github/writing-on-github/about-writing-and-formatting-on-github){%- ifversion fpt or ghec %}
+- [维护 {% data variables.product.prodname_dotcom %} 上的安全](/communities/maintaining-your-safety-on-github){%- endif %}

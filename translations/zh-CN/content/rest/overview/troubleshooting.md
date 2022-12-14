@@ -10,12 +10,12 @@ versions:
   ghec: '*'
 topics:
   - API
-ms.openlocfilehash: ecfa3a360ef9b042d96a1f80a2f0cde49390727f
-ms.sourcegitcommit: d2f0b59ed096b9e68ef8f6fa019cd925165762ec
+ms.openlocfilehash: c696f18d89ffe7d9c9c7c13eda933285502132ae
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/29/2022
-ms.locfileid: '148184229'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148192831'
 ---
 如果你在 API 中遇到一些奇怪的问题，下面列出了你可能会遇到的一些问题的解决方案。
 
@@ -46,7 +46,7 @@ $ curl {% data reusables.rest-api.version-header %} https://api.github.com/zen
 
 大多数 API 调用访问资源列表（例如，用户、问题等）支持分页 。 如果你发出请求但收到的结果集不完整，你可能只会看到第一页。 为了获得更多结果，你需要请求剩余的页面。
 
-请务必不要尝试和猜测分页 URL 的格式。 并非每个 API 调用都使用相同的结构， 而是从[链接标头](/rest#pagination)中提取分页信息，该标头随每个请求一起发送。
+请务必不要尝试和猜测分页 URL 的格式。 并非每个 API 调用都使用相同的结构， 而是从链接标头中提取分页信息，该标头随每个请求一起返回。 有关分页的详细信息，请参阅“[在 REST API 中使用分页](/rest/guides/using-pagination-in-the-rest-api)”。
 
 [oap-guide]: https://developer.github.com/changes/2015-01-19-an-integrators-guide-to-organization-application-policies/
 

@@ -1,0 +1,187 @@
+date: '2021-12-06'
+friendlyDate: '2021 年 12 月 6 日'
+title: '2021 年 12 月 6 日'
+currentWeek: false
+sections:
+  features:
+    - heading: '管理'
+      notes:
+        - |拥有 {% data variables.product.product_name %} 的有效或试用订阅的客户现在可以从 [Azure 门户](https://portal.azure.com/signin/index/)预配 {% data variables.product.product_name %} 资源。Azure 订阅必须带有功能标记才能在门户中访问 {% data variables.product.product_name %} 资源。请联系帐户管理员或 {% data variables.contact.contact_enterprise_sales %} 验证你的 Azure 订阅资格。有关详细信息，请参阅“[设置 {% data variables.product.prodname_ghe_managed %} 试用版](/get-started/signing-up-for-github/setting-up-a-trial-of-github-ae#deploying-github-ae-with-the-azure-portal)”。
+
+|
+    - heading: 'GitHub 操作'
+      notes:
+        - |[GitHub Actions](https://github.com/features/actions) 现已正式可用于 {% data variables.product.product_name %}。GitHub Actions 是一种用于 CI/CD 和工作流程自动化的强大而灵活的解决方案。有关详细信息，请参阅“[GitHub Actions 简介](/actions/learn-github-actions/introduction-to-github-actions)”。
+
+|
+        - |自托管运行器是 {% data variables.product.product_name %} 上默认的运行器系统类型，现已正式可用于 GitHub Actions。使用自托管运行器，你可以管理自己的计算机或容器以执行 GitHub Actions 作业。有关详细信息，请参阅“[关于自托管运行器](https://docs.github.com/en/github-ae@latest/actions/hosting-your-own-runners/about-self-hosted-runners)”和“[添加自托管运行器](/actions/hosting-your-own-runners/adding-self-hosted-runners)”。
+
+|
+        - |环境、环境保护规则和环境机密现已正式可用于 {% data variables.product.product_name %} 上的 GitHub Actions。有关详细信息，请参阅“[环境](/actions/reference/environments)”。
+
+|
+        - |GitHub Actions 现在可以在每次运行时生成工作流的可视化图。通过工作流程可视化，可以实现以下操作。
+
+
+
+- 查看并了解复杂的工作流。
+
+- 实时跟踪工作流的进度。
+
+- 通过轻松访问日志和作业元数据快速运行故障排除。
+
+- 监视部署作业的进度，轻松访问部署目标。
+
+
+
+有关详细信息，请参阅“[使用可视化效果图](/actions/managing-workflow-runs/using-the-visualization-graph)”。
+
+|
+        - |现在利用 GitHub Actions 可以控制授予 `GITHUB_TOKEN` 机密的权限。`GITHUB_TOKEN` 是自动生成的机密，通过它可以在工作流运行中对 {% data variables.product.product_name %} 的 API 进行经过身份验证的调用。GitHub Actions 为每个作业生成一个新令牌，并使该令牌在作业完成时过期。令牌对许多 [API 终结点](/actions/reference/authentication-in-a-workflow#permissions-for-the-github_token)具有 `write` 权限，但来自分支的拉取请求除外，对这些拉取请求的权限始终为 `read`。通过这些新设置可在工作流中遵循最小特权原则。有关详细信息，请参阅“[工作流中的身份验证](/actions/reference/authentication-in-a-workflow#modifying-the-permissions-for-the-github_token)”。
+
+|
+        - |GitHub Actions 现在支持通过在提交消息中查找一些常见关键字来跳过 `push` 和 `pull_request` 工作流。
+
+|
+        - |GitHub CLI 1.9 及更高版本允许在终端中使用 GitHub Actions。有关详细信息，请参阅 [{% data variables.product.prodname_blog %}](https://github.blog/changelog/2021-04-15-github-cli-1-9-enables-you-to-work-with-github-actions-from-your-terminal/)。
+
+|
+    - heading: '代码扫描'
+      notes:
+        - |{% data variables.product.product_name %} 中的代码扫描目前为 beta 版本。有关详细信息，请参阅“[关于代码扫描](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning)”。
+
+|
+    - heading: '机密扫描'
+      notes:
+        - |现在可以使用 {% data variables.product.product_name %} 上的自定义模式的 beta 版本指定自己的机密扫描模式。你可以为存储库、组织和整个企业指定模式。指定新模式时，机密扫描会在存储库的整个 Git 历史记录中搜索该模式以及任何新提交。有关详细信息，请参阅“[定义机密扫描的自定义模式](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)”。
+
+|
+    - heading: 'GitHub Connect'
+      notes:
+        - |现提供适用于 {% data variables.product.product_name %} 的 beta 版 GitHub Connect。GitHub Connect 让 {% data variables.product.product_location %} 享有世界上最大的开源代码社区。可以允许用户在 {% data variables.product.product_name %} 上查看 {% data variables.product.prodname_dotcom_the_website %} 中的搜索结果，在 {% data variables.product.prodname_dotcom_the_website %} 上显示 {% data variables.product.product_name %} 中的贡献计数，并从 {% data variables.product.prodname_dotcom_the_website %} 使用 GitHub Actions。有关详细信息，请参阅“[管理企业帐户之间的连接](/admin/configuration/managing-connections-between-your-enterprise-accounts)”。
+
+|
+    - heading: 'GitHub Packages'
+      notes:
+        - |现在可以从 {% data variables.product.product_name %} 的 Web UI 中删除 GitHub Packages 的任何包或包版本。还可以在 30 天内撤消删除任何包或包版本。有关详细信息，请参阅“[删除和还原包](/packages/learn-github-packages/deleting-and-restoring-a-package)”。
+
+|
+        - |GitHub Packages 和 {% data variables.product.prodname_dotcom_the_website %} 的 npm 注册表不再返回元数据响应的时间值，从而可以大幅改善性能。{% data variables.product.company_short %} 未来将继续返回时间值。
+
+|
+    - heading: '审核日志记录'
+      notes:
+        - |拉取请求事件和拉取请求审查事件现在包含在[企业](/admin/user-management/monitoring-activity-in-your-enterprise/audited-actions)和[组织](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization)的审核日志中。这些事件可帮助管理员更好地监视拉取请求活动并确保满足安全性和合规性要求。事件可以从 Web UI 查看，以 CSV 或 JSON 格式导出，或通过 REST API 访问。还可以搜索特定拉取请求事件的审核日志。
+
+|
+        - |GitHub Actions 的其他事件现在包含在[企业](/admin/user-management/monitoring-activity-in-your-enterprise/audited-actions)和[组织](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization)的审核日志中。
+
+
+
+- 工作流已删除或重新运行。
+
+- 自托管运行器的版本已更新。
+
+|
+    - heading: '身份验证'
+      notes:
+        - |GitHub AE 现在正式支持通过 Okta 进行 SAML 单一登录 (SSO) 和使用 SCIM 进行用户预配。你还可以在 GitHub AE 中将 Okta 中的组映射到团队。有关详细信息，请参阅“[使用 Okta 为企业配置身份验证和预配](/admin/authentication/configuring-authentication-and-provisioning-with-your-identity-provider/configuring-authentication-and-provisioning-for-your-enterprise-using-okta)”和“[将 Okta 组映射到团队](/admin/authentication/configuring-authentication-and-provisioning-with-your-identity-provider/mapping-okta-groups-to-teams)”。
+
+|
+        - |{% data variables.product.product_name %} 的身份验证令牌的格式已更改。此更改将影响个人访问令牌的格式和 OAuth 应用的访问令牌，以及 GitHub 应用的用户到服务器令牌、服务器到服务器令牌和刷新令牌。{% data variables.product.company_short %} 建议尽快更新现有令牌，以提高安全性并允许机密扫描检测令牌。有关详细信息，请参阅“[关于向 {% data variables.product.prodname_dotcom %} 进行身份验证](/github/authenticating-to-github/keeping-your-account-and-data-secure/about-authentication-to-github#githubs-token-formats)”和“[关于机密扫描](/code-security/secret-security/about-secret-scanning)”。
+
+|
+        - |现在可通过向帐户添加 `sk-ecdsa-sha2-nistp256@openssh.com` SSH 密钥，使用 FIDO2 安全密钥对与 {% data variables.product.product_name %} 的 SSH 连接进行身份验证。SSH 安全密钥将密钥材料存储在需要验证（例如点击）才能操作的单独硬件设备上。将密钥存储在单独的硬件上并要求 SSH 密钥进行物理交互可提供额外的安全性。由于密钥存储在硬件上且不可提取，因此计算机上运行的软件无法读取或盗用密钥。由于安全密钥在你与它进行物理交互之前不会运行，因此物理交互可防止未经授权使用密钥。有关详细信息，请参阅“[生成新的 SSH 密钥并将其添加到 ssh-agent](/github/authenticating-to-github/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key-for-a-hardware-security-key)”。
+
+|
+        - |Git Credential Manager (GCM) Core 版本 2.0.452 及更高版本现在为 {% data variables.product.product_name %} 提供安全的凭据存储和多重身份验证支持。[Git for Windows](https://gitforwindows.org) 版本 2.32 及更高版本中提供具有 {% data variables.product.product_name %} 支持的 GCM Core。Git for macOS 或 Git for Linux 中不提供 GCM Core，但它可以单独安装。有关详细信息，请参阅 `microsoft/Git-Credential-Manager-Core` 存储库中的[最新发布](https://github.com/microsoft/Git-Credential-Manager-Core/releases/)和[安装说明](https://github.com/microsoft/Git-Credential-Manager-Core/releases/)。
+
+|
+    - heading: '通知'
+      notes:
+        - |现在可以配置需要在 {% data variables.product.product_name %} 上发出有关哪些事件的通知。在任何存储库中，选择 {% octicon "file-code" aria-label="The code icon" %}“关注”下拉列表，然后单击“自定义”********。有关详细信息，请参阅“[配置通知](/github/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications)”。
+
+|
+    - heading: '问题和拉取请求'
+      notes:
+        - |使用[最新版本的 Octicons](https://github.com/primer/octicons/releases) 时，问题和拉取请求的状态现在更加一目了然，因此你可以更轻松地扫描状态。有关详细信息，请参阅 [{% data variables.product.prodname_blog %}](https://github.blog/changelog/2021-06-08-new-issue-and-pull-request-state-icons/)。
+
+|
+        - |现在可通过选择“对话”下拉菜单在拉取请求的“文件”选项卡中查看所有拉取请求审查评论********。还可以要求在任何人合并拉取请求之前解决所有拉取请求审查评论。有关详细信息，请参阅“[关于拉取请求审查](/github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews#discovering-and-navigating-conversations)”和“[关于受保护分支](/github/administering-a-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#require-conversation-resolution-before-merging)”。 若要详细了解如何通过 API 管理分支保护设置，请参阅 REST API 文档中的“[分支](/rest/reference/branches#get-branch-protection)”和 GraphQL API 文档中的“[突变](/graphql/reference/mutations#createbranchprotectionrule)”。
+
+|
+        - |现在可在 {% data variables.product.product_name %} 上编写 Markdown 的任何位置上传视频文件。在问题和拉取请求评论以及存储库内的 Markdown 文件（例如 README）中共享演示，显示复制步骤等。有关详细信息，请参阅“[附加文件](/github/writing-on-github/working-with-advanced-formatting/attaching-files)”。
+
+|
+        - |现在，要求超过 100 名成员的团队进行审查时，{% data variables.product.product_name %} 会显示一个确认对话框，用于防止大型团队收到不必要的通知。
+
+|
+        - |当问题或拉取请求的潜在代理人少于 30 人时，代理人控件将列出所有潜在用户，而不是一组有限的建议。此行为有助于小型组织中的人员快速找到相应的用户。若要详细了解为用户分配问题和拉取请求，请参阅“[向其他 {% data variables.product.company_short %} 用户分配问题和拉取请求](/issues/tracking-your-work-with-issues/managing-issues/assigning-issues-and-pull-requests-to-other-github-users#assigning-an-individual-issue-or-pull-request)”。
+
+|
+        - |现在可以在问题或拉取请求评论的 `#` 后包括多个单词以进一步缩小搜索范围。若要关闭所有建议，请按 <kbd>Esc</kbd> 键。
+
+|
+        - |为了防止在为拉取请求启用自动合并后合并意外更改，现在当没有存储库写入权限的用户推送新更改时，系统将自动禁用自动合并。启用自动合并后，没有写入权限的用户仍然可以使用来自基本分支的更改更新拉取请求。为防止恶意用户使用合并冲突将意外更改引入拉取请求，在更新导致合并冲突时，{% data variables.product.product_name %} 将禁用拉取请求自动合并。有关自动合并的更多信息，请参阅“[自动合并拉取请求](/github/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/automatically-merging-a-pull-request)”。
+
+|
+        - |具有维护权限的用户可以管理存储库级别的“允许自动合并”设置。此设置（默认关闭）控制自动合并是否可用于存储库中的拉取请求。以前只有具有管理员权限的用户可以管理此设置。此外，现在可以使用“[创建存储库](/rest/reference/repos#create-an-organization-repository)”和“[更新存储库](/rest/reference/repos#update-a-repository)”REST API 控制此设置。有关详细信息，请参阅“[管理存储库中的拉取请求自动合并](/github/administering-a-repository/configuring-pull-request-merges/managing-auto-merge-for-pull-requests-in-your-repository)”。
+
+|
+        - |问题和拉取请求的代理人选择功能现在支持提前键入搜索，从而可以更快地找到组织中的用户。此外，搜索结果排名已经更新，以优先排列以用户的用户名或个人资料名称开头的匹配项。
+
+|
+    - heading: '存储库'
+      notes:
+        - |查看文件的提交历史记录时，现在可以单击 {% octicon "file-code" aria-label="The code icon" %} 以在存储库历史记录中查看指定时间的文件。
+
+|
+        - |现在可使用 Web UI 将分支的过期分支与分支的上游分支同步。如果分支之间没有合并冲突，则 {% data variables.product.product_name %} 通过快进或从上游合并来更新分支。如果存在冲突，{% data variables.product.product_name %} 将提示你打开拉取请求解决冲突。有关详细信息，请参阅“[同步分支](/github/collaborating-with-pull-requests/working-with-forks/syncing-a-fork#syncing-a-fork-from-the-web-ui)”。
+
+|
+        - |现在可以按星级排序用户或组织配置文件中的存储库。
+
+|
+        - |存储库 REST API 的“比较两个提交”终结点现在支持分页，该终结点返回从一个提交或分支可访问但从另一个提交或分支无法访问的提交列表。该 API 现在还可以返回超过 250 次提交的比较结果。有关详细信息，请参阅 REST API 文档“[提交](/rest/reference/commits#compare-two-commits)”和“[使用分页遍历](/rest/guides/traversing-with-pagination)”。
+
+|
+        - |如果在 {% data variables.product.product_location %} 中使用相对路径定义了子模块，现在可以在 Web UI 中单击该子模块。单击 Web UI 中的子模块会定向到链接的存储库。以前只能单击具有绝对 URL 的子模块。支持具有相同所有者且遵循模式 <code>../REPOSITORY</code> 的存储库的相对路径或具有不同所有者且遵循模式 <code>../OWNER/REPOSITORY</code> 的存储库的相对路径<em></em><em></em><em></em>。有关使用子模块的详细信息，请参阅 {% data variables.product.prodname_blog %} 上的[使用子模块](https://github.blog/2016-02-01-working-with-submodules/)。
+
+|
+        - |通过预先计算校验和，存储库处于锁定状态的时间大大减少，从而让更多的写入操作立即成功并改进单存储库性能。
+
+|
+    - heading: '发行版本'
+      notes:
+        - |现在可以在 {% data variables.product.product_name %} 中用表情符号对所有发行版本做出反应。有关详细信息，请参阅“[关于发行版本](/github/administering-a-repository/releasing-projects-on-github/about-releases)”。
+
+|
+    - heading: '主题'
+      notes:
+        - |深色和暗色主题现在可用于 Web UI。未在 {% data variables.product.product_name %} 中设置主题偏好时，{% data variables.product.product_name %} 将匹配你的系统偏好。还可自定义在白天和晚上处于活跃状态的主题。有关详细信息，请参阅“[管理主题设置](/github/setting-up-and-managing-your-github-user-account/managing-user-account-settings/managing-your-theme-settings)”。
+
+|
+    - heading: 'Markdown'
+      notes:
+        - |现在，当存储库中的 Markdown 文件有 2 个或更多标题时，该文件将在标题中自动生成目录。目录是交互式的并且链接到相应部分。支持所有 6 个 Markdown 标题级别。有关详细信息，请参阅“[关于 README](/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/about-readmes#auto-generated-table-of-contents-for-readme-files)”。
+
+|
+        - |问题和拉取请求的标题中现在支持 `code` 标记。问题或拉取请求标题出现在 {% data variables.product.product_name %} 的 Web UI 中时，反引号内的文本 (`` ` ``) 将以固定宽度字体呈现。
+
+|
+        - |在文件、问题、拉取请求或评论中编辑 Markdown 时，现在可以使用键盘快捷键插入代码块。键盘快捷键在 Mac 上为 <kbd>command</kbd> + <kbd>E</kbd>，在其他设备上为 <kbd>Ctrl</kbd> + <kbd>E</kbd>。有关详细信息，请参阅“[基本写入和格式化语法](/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#quoting-code)”。
+
+|
+        - |可以将 `?plain=1` 附加到任何 Markdown 文件的 URL 以显示该文件，而不进行渲染和显示行号。可使用普通视图将其他用户链接到特定行。例如，附加 `?plain=1#L52` 将突出显示纯文本 Markdown 文件的第 52 行。有关详细信息，请参阅“[创建指向代码片段的永久链接](/github/writing-on-github/working-with-advanced-formatting/creating-a-permanent-link-to-a-code-snippet#linking-to-markdown)”。
+
+|
+    - heading: 'GitHub 应用'
+      notes:
+        - |用于创建安装访问令牌的 API 请求现在遵循企业或组织的 IP 允许列表。使用安装访问令牌对组织中安装的 GitHub 应用发出的任何 API 请求都已遵循 IP 允许列表。此功能当前不涉及 {% data variables.product.company_short %} 支持为 {% data variables.product.product_location %} 配置的任何 Azure 网络安全组 (NSG) 规则。有关详细信息，请参阅 REST API 文档中的“[限制流入企业的网络流量](/admin/configuration/configuring-your-enterprise/restricting-network-traffic-to-your-enterprise#about-ip-allow-lists)”、“[管理组织允许的 IP 地址](/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization)”和“[应用](https://docs.github.com/en/rest/reference/apps#create-an-installation-access-token-for-an-app)”。
+
+|
+    - heading: 'Webhook'
+      notes:
+        - |现在可以通过 REST API 以编程方式重新发送或检查 Webhook 的状态。有关详细信息，请参阅 REST API 文档中的“[存储库](https://docs.github.com/en/rest/reference/repos#webhooks)”、“[组织](https://docs.github.com/en/rest/reference/orgs#webhooks)”和“[应用](https://docs.github.com/en/rest/reference/apps#webhooks)”。
+
+|

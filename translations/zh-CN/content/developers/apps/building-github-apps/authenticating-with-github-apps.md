@@ -1,5 +1,5 @@
 ---
-title: Authenticating with GitHub Apps
+title: 使用 GitHub 应用程序进行身份验证
 intro: '{% data reusables.shortdesc.authenticating_with_github_apps %}'
 redirect_from:
   - /apps/building-integrations/setting-up-and-registering-github-apps/about-authentication-options-for-github-apps
@@ -14,58 +14,59 @@ versions:
 topics:
   - GitHub Apps
 shortTitle: Authentication
+ms.openlocfilehash: 093988bd48aafc9f7551d305726409349d5b620e
+ms.sourcegitcommit: dc42bb4a4826b414751ffa9eed38962c3e3fea8e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 07/13/2022
+ms.locfileid: '146769195'
 ---
+## <a name="generating-a-private-key"></a>生成私钥
 
+创建 GitHub 应用程序 后，您需要生成一个或多个私钥。 私钥可用于签署访问令牌请求。
 
-## Generating a private key
+您可以创建多个私钥，然后轮流使用，以防某个私钥被盗或丢失造成停工。 要验证私钥是否与公钥匹配，请参阅[验证私钥](#verifying-private-keys)。
 
-After you create a GitHub App, you'll need to generate one or more private keys. You'll use the private key to sign access token requests.
+要生成私钥：
 
-You can create multiple private keys and rotate them to prevent downtime if a key is compromised or lost. To verify that a private key matches a public key, see [Verifying private keys](#verifying-private-keys).
-
-To generate a private key:
-
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.developer_settings %}
-{% data reusables.user-settings.github_apps %}
-{% data reusables.user-settings.modify_github_app %}
-5. In "Private keys", click **Generate a private key**.
-![Generate private key](/assets/images/github-apps/github_apps_generate_private_keys.png)
-6. You will see a private key in PEM format downloaded to your computer. Make sure to store this file because GitHub only stores the public portion of the key.
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.developer_settings %} {% data reusables.user-settings.github_apps %} {% data reusables.user-settings.modify_github_app %}
+5. 在“私钥”中，单击“生成私钥”。
+![生成私钥](/assets/images/github-apps/github_apps_generate_private_keys.png)
+6. 您将看到一个以 PEM 格式下载至您的计算机的私钥。 确保将此文件存储下来，因为 GitHub 仅存储密钥的公共部分。
 
 {% note %}
 
-**Note:** If you're using a library that requires a specific file format, the PEM file you download will be in `PKCS#1 RSAPrivateKey` format.
+注意：如果你使用的库需要特定文件格式，你下载的 PEM 文件将采用 `PKCS#1 RSAPrivateKey` 格式。
 
 {% endnote %}
 
-## Verifying private keys
-{% data variables.product.product_name %} generates a fingerprint for each private and public key pair using the SHA-256 hash function. You can verify that your private key matches the public key stored on {% data variables.product.product_name %} by generating the fingerprint of your private key and comparing it to the fingerprint shown on {% data variables.product.product_name %}.
+## <a name="verifying-private-keys"></a>验证私钥
+{% data variables.product.product_name %} 使用 SHA-256 哈希函数为每对私钥和公钥生成指纹。 您可以生成私钥指纹，然后与 {% data variables.product.product_name %} 显示的指纹相比较，以验证私钥是否与 {% data variables.product.product_name %} 上存储的公钥匹配。
 
-To verify a private key:
+要验证私钥：
 
-1. Find the fingerprint for the private and public key pair you want to verify in the "Private keys" section of your {% data variables.product.prodname_github_app %}'s developer settings page. For more information, see [Generating a private key](#generating-a-private-key).
-![Private key fingerprint](/assets/images/github-apps/github_apps_private_key_fingerprint.png)
-2. Generate the fingerprint of your private key (PEM) locally by using the following command:
+1. 在 {% data variables.product.prodname_github_app %} 开发者设置页面的“私钥”部分，查找要验证的私钥和公钥对的指纹。 有关详细信息，请参阅[生成私钥](#generating-a-private-key)。
+![私钥指纹](/assets/images/github-apps/github_apps_private_key_fingerprint.png)
+2. 使用以下命令在本地生成私钥指纹 (PEM)：
     ```shell
-    $ openssl rsa -in PATH_TO_PEM_FILE -pubout -outform DER | openssl sha256 -binary | openssl base64
+    $ openssl rsa -in <em>PATH_TO_PEM_FILE</em> -pubout -outform DER | openssl sha256 -binary | openssl base64
     ```
-3. Compare the results of the locally generated fingerprint to the fingerprint you see in {% data variables.product.product_name %}.
+3. 比较本地生成的指纹结果与 {% data variables.product.product_name %} 中显示的指纹。
 
-## Deleting private keys
-You can remove a lost or compromised private key by deleting it, but you must have at least one private key. When you only have one key, you will need to generate a new one before deleting the old one.
-![Deleting last private key](/assets/images/github-apps/github_apps_delete_key.png)
+## <a name="deleting-private-keys"></a>删除私钥
+您可以通过删除功能删除丢失或被盗的私钥，但至少必须有一个私钥。 如果只有一个密钥，需要生成一个新钥，然后才能删除旧钥。
+![删除最后一个私钥](/assets/images/github-apps/github_apps_delete_key.png)
 
-## Authenticating as a {% data variables.product.prodname_github_app %}
+## <a name="authenticating-as-a--data-variablesproductprodname_github_app-"></a>验证为 {% data variables.product.prodname_github_app %}
 
-Authenticating as a {% data variables.product.prodname_github_app %} lets you do a couple of things:
+通过验证为 {% data variables.product.prodname_github_app %}，您可以执行以下操作：
 
-* You can retrieve high-level management information about your {% data variables.product.prodname_github_app %}.
-* You can request access tokens for an installation of the app.
+* 检索关于您的 {% data variables.product.prodname_github_app %} 的高级管理信息。
+* 为应用程序安装申请访问令牌。
 
-To authenticate as a {% data variables.product.prodname_github_app %}, [generate a private key](#generating-a-private-key) in PEM format and download it to your local machine. You'll use this key to sign a [JSON Web Token (JWT)](https://jwt.io/introduction) and encode it using the `RS256` algorithm. {% data variables.product.product_name %} checks that the request is authenticated by verifying the token with the app's stored public key.
+要以 {% data variables.product.prodname_github_app %} 身份进行身份验证，请以 PEM 格式[生成私钥](#generating-a-private-key)并将其下载到本地计算机上。 你将使用此密钥对 [JSON Web 令牌 (JWT)](https://jwt.io/introduction) 进行签名，并使用 `RS256` 算法对其进行编码。 {% data variables.product.product_name %} 将使用应用程序存储的公钥验证令牌，以检查请求是否已通过身份验证。
 
-Here's a quick Ruby script you can use to generate a JWT. Note you'll have to run `gem install jwt` before using it.
+下面是一段快速 Ruby 脚本，可用于生成 JWT。 请注意，必须先运行 `gem install jwt`，然后才能使用。
 
 <a name="jwt-payload"></a>
 ```ruby
@@ -90,19 +91,19 @@ jwt = JWT.encode(payload, private_key, "RS256")
 puts jwt
 ```
 
-`YOUR_PATH_TO_PEM` and `YOUR_APP_ID` are the values you must replace. Make sure to enclose the values in double quotes.
+必须替换 `YOUR_PATH_TO_PEM` 和 `YOUR_APP_ID` 值。 请确保以双引号括住值。
 
-Use your {% data variables.product.prodname_github_app %}'s identifier (`YOUR_APP_ID`) as the value for the JWT [iss](https://tools.ietf.org/html/rfc7519#section-4.1.1) (issuer) claim. You can obtain the {% data variables.product.prodname_github_app %} identifier via the initial webhook ping after [creating the app](/apps/building-github-apps/creating-a-github-app/), or at any time from the app settings page in the GitHub.com UI.
+将 {% data variables.product.prodname_github_app %} 的标识符 (`YOUR_APP_ID`) 用作 JWT [iss](https://tools.ietf.org/html/rfc7519#section-4.1.1)（颁发者）声明的值。 可在[创建应用](/apps/building-github-apps/creating-a-github-app/)后通过初始 Webhook ping 获取 {% data variables.product.prodname_github_app %} 标识符，也可随时从 GitHub.com UI 的应用设置页面获取。
 
-After creating the JWT, set it in the `Header` of the API request:
+创建 JWT 后，在 API 请求的 `Header` 中设置它：
 
 ```shell
 $ curl -i -H "Authorization: Bearer YOUR_JWT" -H "Accept: application/vnd.github+json" {% data variables.product.api_url_pre %}/app
 ```
 
-`YOUR_JWT` is the value you must replace.
+`YOUR_JWT` 值必须替换。
 
-The example above uses the maximum expiration time of 10 minutes, after which the API will start returning a `401` error:
+上述示例使用的最长过期时间为 10 分钟，到期后，API 将开始返回 `401` 错误。
 
 ```json
 {
@@ -111,19 +112,19 @@ The example above uses the maximum expiration time of 10 minutes, after which th
 }
 ```
 
-You'll need to create a new JWT after the time expires.
+到期后，您需要创建新 JWT。
 
-## Accessing API endpoints as a {% data variables.product.prodname_github_app %}
+## <a name="accessing-api-endpoints-as-a--data-variablesproductprodname_github_app-"></a>作为 {% data variables.product.prodname_github_app %} 访问 API 端点
 
-For a list of REST API endpoints you can use to get high-level information about a {% data variables.product.prodname_github_app %}, see "[GitHub Apps](/rest/reference/apps)."
+有关可用于获取关于 {% data variables.product.prodname_github_app %} 的高级信息的 REST API 终结点列表，请参阅“[GitHub 应用](/rest/reference/apps)”。
 
-## Authenticating as an installation
+## <a name="authenticating-as-an-installation"></a>验证为安装
 
-Authenticating as an installation lets you perform actions in the API for that installation. Before authenticating as an installation, you must create an installation access token. Ensure that you have already installed your GitHub App to at least one repository; it is impossible to create an installation token without a single installation. These installation access tokens are used by {% data variables.product.prodname_github_apps %} to authenticate. For more information, see "[Installing GitHub Apps](/developers/apps/managing-github-apps/installing-github-apps)."
+通过验证为安装，您可以在 API 中为此安装执行操作。 验证为安装之前，必须创建安装访问令牌。 确保您已将 GitHub 应用安装到至少一个仓库；如果没有单个安装，就无法创建安装令牌。 这些安装访问令牌由 {% data variables.product.prodname_github_apps %} 用于进行身份验证。 有关详细信息，请参阅“[安装 GitHub Apps](/developers/apps/managing-github-apps/installing-github-apps)”。
 
-By default, installation access tokens are scoped to all the repositories that an installation can access. You can limit the scope of the installation access token to specific repositories by using the `repository_ids` parameter. See the [Create an installation access token for an app](/rest/reference/apps#create-an-installation-access-token-for-an-app) endpoint for more details. Installation access tokens have the permissions configured by the {% data variables.product.prodname_github_app %} and expire after one hour.
+默认情况下，安装访问令牌的作用域为安装可访问的所有仓库。 可使用 `repository_ids` 参数将安装访问令牌的范围限定于特定存储库。 有关更多详细信息，请参阅[为应用创建安装访问令牌](/rest/reference/apps#create-an-installation-access-token-for-an-app)终结点。 安装访问令牌具有由 {% data variables.product.prodname_github_app %} 配置的权限，一个小时后到期。
 
-To list the installations for an authenticated app, include the JWT [generated above](#jwt-payload) in the Authorization header in the API request:
+要列出经过身份验证的应用的安装，请在 API 请求的授权标头中包含[上面生成](#jwt-payload)的 JWT：
 
 ```shell
 $ curl -i -X GET \
@@ -132,9 +133,9 @@ $ curl -i -X GET \
 {% data variables.product.api_url_pre %}/app/installations
 ```
 
-The response will include a list of installations where each installation's `id` can be used for creating an installation access token. For more information about the response format, see "[List installations for the authenticated app](/rest/reference/apps#list-installations-for-the-authenticated-app)."
+响应将包括一个安装列表，其中每个安装的 `id` 可用来创建一个安装访问令牌。 有关响应格式的详细信息，请参阅“[列出经过身份验证的应用的安装](/rest/reference/apps#list-installations-for-the-authenticated-app)”。
 
-To create an installation access token, include the JWT [generated above](#jwt-payload) in the Authorization header in the API request and replace `:installation_id` with the installation's `id`:
+要创建安装访问令牌，请在 API 请求的授权标头中包含[上面生成](#jwt-payload)的 JWT，并将 `:installation_id` 替换为安装的 `id`：
 
 ```shell
 $ curl -i -X POST \
@@ -143,34 +144,28 @@ $ curl -i -X POST \
 {% data variables.product.api_url_pre %}/app/installations/:installation_id/access_tokens
 ```
 
-The response will include your installation access token, the expiration date, the token's permissions, and the repositories that the token can access. For more information about the response format, see the [Create an installation access token for an app](/rest/reference/apps#create-an-installation-access-token-for-an-app) endpoint.
+响应将包括您的安装访问令牌、到期日期、令牌权限及令牌可访问的仓库。 有关响应格式的详细信息，请参阅[为应用创建安装访问令牌](/rest/reference/apps#create-an-installation-access-token-for-an-app)。
 
-To authenticate with an installation access token, include it in the Authorization header in the API request:
+要使用安装访问令牌进行身份验证，请将其加入 API 请求的“授权”标头中。
 
 ```shell
 $ curl -i \
--H "Authorization: Bearer YOUR_INSTALLATION_ACCESS_TOKEN" \
+-H "Authorization: token YOUR_INSTALLATION_ACCESS_TOKEN" \
 -H "Accept: application/vnd.github+json" \
 {% data variables.product.api_url_pre %}/installation/repositories
 ```
 
-`YOUR_INSTALLATION_ACCESS_TOKEN` is the value you must replace.
+`YOUR_INSTALLATION_ACCESS_TOKEN` 值必须替换。
 
-{% note %}
+## <a name="accessing-api-endpoints-as-an-installation"></a>作为安装访问 API 端点
 
-**Note:** {% data reusables.getting-started.bearer-vs-token %}
+有关使用安装访问令牌的 {% data variables.product.prodname_github_apps %} 可用的 REST API 终结点列表，请参阅“[可用终结点](/rest/overview/endpoints-available-for-github-apps)”。
 
-{% endnote %}
+有关与安装相关的终结点的列表，请参阅“[安装](/rest/reference/apps#installations)”。
 
-## Accessing API endpoints as an installation
+## <a name="http-based-git-access-by-an-installation"></a>由安装验证基于 HTTP 的 Git 访问权限
 
-For a list of REST API endpoints that are available for use by {% data variables.product.prodname_github_apps %} using an installation access token, see "[Available Endpoints](/rest/overview/endpoints-available-for-github-apps)."
-
-For a list of endpoints related to installations, see "[Installations](/rest/reference/apps#installations)."
-
-## HTTP-based Git access by an installation
-
-Installations with [permissions](/apps/building-github-apps/setting-permissions-for-github-apps/) on `contents` of a repository, can use their installation access tokens to authenticate for Git access. Use the installation access token as the HTTP password:
+在存储库的 `contents` 上拥有[权限](/apps/building-github-apps/setting-permissions-for-github-apps/)的安装可以使用其安装访问令牌对 Git 访问进行身份验证。 使用安装访问令牌作为 HTTP 密码：
 
 ```shell
 git clone https://x-access-token:&lt;token&gt;@github.com/owner/repo.git

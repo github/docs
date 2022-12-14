@@ -7,12 +7,12 @@ versions:
   feature: copilot
 topics:
   - Copilot
-ms.openlocfilehash: 353095b0b0490cd12da8d853754b524431605819
-ms.sourcegitcommit: 7fb7ec2e665856fc5f7cd209b53bd0fb1c9bbc67
+ms.openlocfilehash: 65384a5cafae1c739b52847d1a826c0138e91fd9
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/29/2022
-ms.locfileid: '148185121'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148193014'
 ---
 {% data reusables.copilot.copilot-cta-button %}
 
@@ -24,7 +24,9 @@ Usando o {% data variables.product.prodname_vs %}, você pode ver e incorporar s
 
 ## Pré-requisitos
 
-Para usar o {% data variables.product.prodname_copilot %} no {% data variables.product.prodname_vs %}, você deverá ter o {% data variables.product.prodname_vs %} 2022 17.2 ou posterior instalado. Para obter mais informações, confira a documentação do [IDE do Visual Studio](https://visualstudio.microsoft.com/vs/).
+{% data reusables.copilot.subscription-prerequisite %}
+
+- Para usar o {% data variables.product.prodname_copilot %} no {% data variables.product.prodname_vs %}, você deverá ter o {% data variables.product.prodname_vs %} 2022 17.2 ou posterior instalado. Para obter mais informações, confira a documentação do [IDE do Visual Studio](https://visualstudio.microsoft.com/vs/).
 
 {% note %}
 
