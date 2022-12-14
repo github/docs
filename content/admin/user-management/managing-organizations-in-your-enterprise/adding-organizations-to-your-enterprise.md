@@ -27,6 +27,7 @@ You can add new organizations to your enterprise account. If you do not use {% d
 
 After you add an existing organization to your enterprise, the organization's resources remain accessible to members at the same URLs, and the following changes will apply.
 
+- Organization users who do NOT use 2 factor authentication will be removed if 2FA is required by the Enterprise
 - The organization's members will become members of the enterprise, and {% data variables.product.company_short %} will bill the enterprise account for the organization's usage. You must ensure that the enterprise account has enough licenses to accommodate any new members. For more information, see "[About billing for your enterprise](/billing/managing-billing-for-your-github-account/about-billing-for-your-enterprise)."
 - Enterprise owners can manage their role within the organization. For more information, see "[Managing your role in an organization owned by your enterprise](/admin/user-management/managing-organizations-in-your-enterprise/managing-your-role-in-an-organization-owned-by-your-enterprise)."
 - Any policies applied to the enterprise will apply to the organization. For more information, see "[About enterprise policies](/admin/policies/enforcing-policies-for-your-enterprise/about-enterprise-policies)."
@@ -82,8 +83,6 @@ Enterprise owners can transfer existing organizations between enterprise account
 
 {% endnote %}
 
-> **Warning**
-> If you are migrating to an enterprise that enforces 2FA requirements, non-2FA users will be removed during the migration. We recommend enabling 2FA for all accounts prior to transferring organizations. 
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 1. Next to the organization you want to transfer, select the {% octicon "gear" width="16" aria-label="Gear" %} dropdown, and then click **Transfer organization**. 
