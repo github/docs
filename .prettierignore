@@ -1,3 +1,7 @@
-dist/
-lib/
-node_modules/
+/translations/
+includes/
+data/release-notes/
+script/bookmarklets/
+/.next/
+/.coverage
+/coverage

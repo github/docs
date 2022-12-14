@@ -1,11 +1,19 @@
 {
-    "printWidth": 80,
-    "tabWidth": 2,
-    "useTabs": false,
-    "semi": false,
-    "singleQuote": true,
-    "trailingComma": "none",
-    "bracketSpacing": false,
-    "arrowParens": "avoid",
-    "parser": "typescript"
-  }
+  "overrides": [
+    {
+      "files": ["**/*.{yml,yaml}"],
+      "options": {
+        "singleQuote": true
+      }
+    },
+    {
+      "files": ["**/*.{ts,tsx,js,mjs}"],
+      "options": {
+        "semi": false,
+        "singleQuote": true,
+        "printWidth": 100,
+        "arrowParens": "always"
+      }
+    }
+  ]
+}
