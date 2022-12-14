@@ -62,10 +62,11 @@ The application security team at your company can use the different views for bo
 
 Organization owners and security managers for organizations have access to the security overview for their organizations. {% ifversion ghec or ghes > 3.6 or ghae > 3.6 %}Organization members can also access the organization-level security overview to view results for repositories where they have admin privileges or have been granted access to security alerts. For more information on managing security alert access, see "[Managing security and analysis settings for your repository](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)."{% endif %}
 
-{% ifversion security-overview-org-risk-coverage %}
+{% ifversion security-overview-single-repo-enablement or security-overview-org-risk-coverage %}
+
 ### Security Risk view
 
-This view shows data about the repositories affected by different types of security alert. 
+This view shows data about the repositories affected by different types of security alert.
 
 - Use the **Type** and **Teams** drop-downs to add repository type and team filters.
 - Click **Open alerts** or **Repositories affected** to show only repositories with a specific type of security alert.
@@ -74,18 +75,28 @@ In addition, when you click in the search box, a list of the full set of filters
 
 ![Screenshot of the Security Risk view for an organization](/assets/images/help/security-overview/security-risk-view.png)
 
+
 ### Security Coverage view
 
-This view shows data about which repositories are using security features. 
+This view shows data about which repositories are using security features.
 
 - Use the **Type** and **Teams** drop-downs to add repository type and team filters.
 - Click **Alerts enabled** and other features listed in the header to see only repositories with those features enabled.
 - Change any `FEATURE:enabled` filter to `FEATURE:not-enabled` in the search box to see repositories that haven't enabled a feature.
+{%- ifversion security-overview-single-repo-enablement %}
+- For any repository, click **Security Settings** to enable security features that have a one-click setup.
+
+In addition, when you click in the search box, a list of the full set of filters available is shown.
+
+![Screenshot of the Security Coverage view for an organization](/assets/images/help/security-overview/security-coverage-view-single-repo-enablement.png)
+
+{%- elsif security-overview-org-risk-coverage %}
 - For any repository, click the ellipsis (**...**) then **Security Settings** to enable additional features.
 
 In addition, when you click in the search box, a list of the full set of filters available is shown.
 
 ![Screenshot of the Security Coverage view for an organization](/assets/images/help/security-overview/security-coverage-view.png)
+{% endif %}
 
 {% else %}
 
