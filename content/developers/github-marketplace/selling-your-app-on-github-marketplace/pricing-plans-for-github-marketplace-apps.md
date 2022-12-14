@@ -54,6 +54,6 @@ For more information, see: "[Handling new purchases and free trials](/developers
 
 {% note %}
 
-**Note:** GitHub expects you to delete any private customer data within 30 days of a cancelled trial, beginning at the receipt of the cancellation event.
+**Note:** GitHub expects you to delete any private customer data within 30 days of a canceled trial, beginning at the receipt of the cancellation event.
 
 {% endnote %}
