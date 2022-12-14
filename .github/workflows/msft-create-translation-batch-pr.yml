@@ -41,7 +41,7 @@ jobs:
             language_dir: translations/pt-BR
             language_repo: github/docs-internal.pt-br
 
-          - language: cn
+          - language: zh
             language_dir: translations/zh-CN
             language_repo: github/docs-internal.zh-cn
 
