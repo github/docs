@@ -49,7 +49,7 @@ Define the private registry configuration in a `dependabot.yml` file without `re
      type: docker-registry
      url: firewallregistrydep.azurecr.io
      username: firewallregistrydep
-     password: ${{secrets.AZUREHUB_PASSWORD}}
+     password: {% raw %}${{ secrets.AZUREHUB_PASSWORD }}{% endraw %}
   ```
 
 In the `Dockerfile` file, add the image name in the format of `IMAGE[:TAG]`, where `IMAGE` consists of your username and the name of the repository.
