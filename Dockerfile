@@ -101,5 +101,9 @@ CMD ["node", "server.js"]
 # --------------------------------------------------------------------------------
 FROM preview as production
 
+# Override what was set for previews
+# Make this match the default of `Object.keys(languages)` in lib/languages.js
+ENV ENABLED_LANGUAGES "en,zh,ja,es,pt,de,fr,ru,ko"
+
 # Copy in all translations
 COPY --chown=node:node translations ./translations
