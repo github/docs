@@ -17,7 +17,7 @@ Você pode criar diagramas em Markdown usando três sintaxes diferentes: mermaid
 
 ## Criando diagramas do mermaid
 
-O Mermeid é uma ferramenta inspirada em Markdown que transforma texto em diagramas. Por exemplo, o Mermeid pode interpretar gráficos de fluxo, diagramas de sequência, gráficos de pizza e muito mais. Para obter mais informações, confira a [documentação do Mermaid](https://mermaid-js.github.io/mermaid/#/).
+O Mermaid é uma ferramenta inspirada em Markdown que transforma texto em diagramas. Por exemplo, o Mermeid pode interpretar gráficos de fluxo, diagramas de sequência, gráficos de pizza e muito mais. Para obter mais informações, confira a [documentação do Mermaid](https://mermaid-js.github.io/mermaid/#/).
 
 Para criar um diagrama do Mermaid, adicione a sintaxe do Mermaid dentro de um bloco de código isolado com o identificador de linguagem `mermaid`. Para obter mais informações sobre como criar blocos de código, confira "[Como criar e realçar blocos de código](/get-started/writing-on-github/working-with-advanced-formatting/creating-and-highlighting-code-blocks)".
 
