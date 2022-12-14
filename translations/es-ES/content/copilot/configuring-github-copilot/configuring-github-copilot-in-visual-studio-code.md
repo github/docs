@@ -7,12 +7,12 @@ versions:
 shortTitle: Visual Studio Code
 topics:
   - Copilot
-ms.openlocfilehash: 0c91f9c11f98669ba6bcbf84113a629ae6d53044
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: ab043d4eeca2003deaf77aa80be46fc79acf8649
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147080600'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148193570'
 ---
 ## Acerca de {% data variables.product.prodname_copilot %} en {% data variables.product.prodname_vscode %}
 
@@ -88,17 +88,16 @@ Si no quieres usar los métodos abreviados de teclado predeterminados en {% data
 
 Puedes optar por habilitar o deshabilitar sugerencias insertadas para {% data variables.product.prodname_copilot %} en {% data variables.product.prodname_vscode %}. 
 
-1. En el menú **Archivo**, ve a **Preferencias** y haz clic en **Configuración**.
-![Captura de pantalla de la configuración de {% data variables.product.prodname_vscode %}](/assets/images/help/copilot/vsc-settings.png)
-1. En el panel izquierdo de la pestaña configuración, haz clic en **Extensiones** y, después, selecciona **Copilot**.
-1. En "Inline Suggest:Enable", active o anule la selección de la casilla para habilitar o deshabilitar sugerencias insertadas.
+{% data reusables.copilot.vscode-settings %}
+1. En el panel izquierdo de la pestaña de configuración, haz clic en **Extensiones** y, después, selecciona **{% data variables.product.prodname_copilot_short %}** .
+1. En "Sugerencia insertada:Habilitar", activa o desactiva la casilla para habilitar o deshabilitar sugerencias insertadas.
 
 ## Habilitación o deshabilitación de {% data variables.product.prodname_copilot %} para lenguajes específicos
 
 Puedes especificar los lenguajes para los que quieres habilitar o deshabilitar {% data variables.product.prodname_copilot %}.
 
 1. En {% data variables.product.prodname_vscode %}, haz clic en la pestaña **Extensiones** y,después, ve a la sección **Copilot**. Para más información, ve "[Habilitación y deshabilitación de sugerencias insertadas](#enabling-and-disabling-inline-suggestions)".
-1. En "Habilitar o deshabilitar Copilot para lenguajes especificados", haz clic en **Editar en settings.json**.
+1. En "Habilitar o deshabilitar {% data variables.product.prodname_copilot_short %} en los idiomas especificados", haz clic en **Editar en settings.json**.
 1. En el archivo _settings.json_, agrega o quita los lenguajes para los que quieres habilitar o deshabilitar {% data variables.product.prodname_copilot %}. Por ejemplo, para habilitar Python en {% data variables.product.prodname_copilot %}, agrega `"python": true` a la lista, asegurándote de que hay una coma final después de todo menos del último elemento de lista.
 
     ```json
@@ -114,5 +113,23 @@ Puedes especificar los lenguajes para los que quieres habilitar o deshabilitar {
         }
     }
     ```
+
+## Establecimiento de la configuración de proxy de {% data variables.product.prodname_copilot %}
+
+{% data variables.product.prodname_copilot %} se puede configurar para conectarse a través de un servidor proxy HTTP en {% data variables.product.prodname_vscode %}. {% data variables.product.prodname_copilot %} admite configuraciones básicas de proxy HTTP, con o sin autenticación básica. 
+
+{% data reusables.copilot.vscode-settings %}
+1. En el panel izquierdo de la pestaña de configuración, haz clic en **Aplicaciones** y, después, selecciona **Proxy**.
+1. En el cuadro de texto de "Proxy", escribe la dirección del servidor proxy, por ejemplo, `http://localhost:3128`. Opcionalmente, {% data variables.product.prodname_copilot %} usará las variables `http_proxy` y `https_proxy` del entorno.
+
+   ![Captura de pantalla del cuadro de texto "Proxy" de Visual Studio Code](/assets/images/help/copilot/proxy-textbox.png)
+
+1. Opcionalmente, en "Http: Autorización de proxy", haz clic en **Editar en settings.json** y agrega el valor necesario que se va a enviar como encabezado de `Proxy-Authorization` en cada solicitud de red.
+
+   ![Captura de pantalla del cuadro de texto "Autorización de proxy" de Visual Studio Code](/assets/images/help/copilot/proxy-authorization.png)
+
+1. Opcionalmente, en "Http: SSL estricto de proxy", activa o desactiva la casilla para habilitar o deshabilitar el SSL estricto.
+
+   ![Captura de pantalla de la casilla "SSL estricto de proxy" Visual Studio Code](/assets/images/help/copilot/proxy-strict-ssl.png)
 
 {% data reusables.copilot.dotcom-settings %}

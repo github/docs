@@ -1,14 +1,23 @@
 ---
-ms.openlocfilehash: a43b7fac5396fcbdb1b7d9ec241af9879de7b2b8
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.openlocfilehash: bf7a1cdb9c8b1300ef8ba8ab2dd427a9b5d28128
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2022
-ms.locfileid: "145115018"
+ms.lasthandoff: 12/09/2022
+ms.locfileid: "148193465"
 ---
 # Notas de lanzamiento para GitHub Enterprise Server
 
 Representado aquí: https://docs.github.com/en/enterprise-server@latest/admin/release-notes
+
+## Adición de notas de la versión a una versión del servidor de GitHub Enterprise en desuso
+
+Cuando una versión del servidor de GitHub Enterprise se está poniendo en desuso según [esta plantilla de incidencias](/.github/actions-scripts/enterprise-server-issue-templates/deprecation-issue.md), el equipo de Docs Engineering quita de `github/docs-internal` los archivos YAML que contienen las notas de la versión de esa versión.
+
+Si una parte interesada solicita una actualización de una notas de la versión en desuso, puedes actualizar esas notas realizando los pasos siguientes.
+
+1. Consulta la rama de larga duración <code>enterprise-<em>VERSION</em>-release</code> y crea una solicitud de incorporación de cambios para actualizar las notas de la versión en desuso en esa rama.
+2. Ponte en contacto con #docs-engineering para solicitar una nueva extracción y una actualización del contenido almacenado en Azure. Consulta la sección sobre cómo volver a extraer contenido de la [lista de comprobación de puesta en desuso](/.github/actions-scripts/enterprise-server-issue-templates/deprecation-issue.md).
 
 ## Cómo funciona
 
@@ -30,7 +39,7 @@ Tenga en cuenta que los archivos de revisión pueden quedar en desuso individual
 
 ### Procesamiento de recursos intermedios
 
-Los datos de YAML se procesan y ordenan por `middleware/contextualizers/release-notes.js` y se agregan al objeto `context`.
+Los datos de YAML se procesan y ordenan por `middleware/contextualizers/ghes-release-notes.js` y se agregan al objeto `context`.
 
 ### Diseños
 
@@ -40,6 +49,6 @@ La página de notas de la versión tiene un diseño personalizado con CSS en `st
 
 ### Schema
 
-Esquema que valida los datos de YAML que residen en `tests/helpers/schemas/ghes-release-notes-schema.js`. Consulta el archivo de modelado para encontrar las propiedades requeridas y opcionales.
+Esquema que valida los datos de YAML que residen en `tests/helpers/schemas/release-notes-schema.js`. Consulta el archivo de modelado para encontrar las propiedades requeridas y opcionales.
 
 El esquema se ejecuta mediante una prueba en `tests/linting/lint-files.js`. La prueba fallará si los datos no pasan la validación.
