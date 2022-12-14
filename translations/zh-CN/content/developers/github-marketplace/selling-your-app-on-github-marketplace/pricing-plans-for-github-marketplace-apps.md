@@ -1,6 +1,6 @@
 ---
-title: Pricing plans for GitHub Marketplace apps
-intro: 'Pricing plans allow you to provide your app with different levels of service or resources. You can offer up to 10 pricing plans in your {% data variables.product.prodname_marketplace %} listing.'
+title: GitHub Marketplace 应用程序的定价计划
+intro: '定价计划允许您为应用程序提供不同级别的服务或资源。 您可以在 {% data variables.product.prodname_marketplace %} 上架信息中提供最多 10 个定价计划。'
 redirect_from:
   - /apps/marketplace/selling-your-app/github-marketplace-pricing-plans
   - /marketplace/selling-your-app/github-marketplace-pricing-plans
@@ -11,49 +11,55 @@ versions:
 topics:
   - Marketplace
 shortTitle: Pricing plans for apps
+ms.openlocfilehash: e1ab751c26e59ec42e16dc7d9e5c0118dedffbde
+ms.sourcegitcommit: 5b1461b419dbef60ae9dbdf8e905a4df30fc91b7
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147876069'
 ---
-{% data variables.product.prodname_marketplace %} pricing plans can be free, flat rate, or per-unit. Prices are set, displayed, and processed in US dollars. Paid plans are restricted to apps published by verified publishers. For more information about becoming a verified publisher, see "[Applying for publisher verification for your organization](/developers/github-marketplace/applying-for-publisher-verification-for-your-organization)."
+{% data variables.product.prodname_marketplace %} 定价计划可以是免费、统一定价或每单位定价。 价格以美元设置、显示和处理。 付费计划仅限验证的发布者发布的应用。 有关成为已验证发布者的详细信息，请参阅“[为组织申请发布者验证](/developers/github-marketplace/applying-for-publisher-verification-for-your-organization)”。
 
-Customers purchase your app using a payment method attached to their account on {% data variables.location.product_location %}, without having to leave {% data variables.product.prodname_dotcom_the_website %}. You don't have to write code to perform billing transactions, but you will have to handle events from the {% data variables.product.prodname_marketplace %} API. For more information, see "[Using the {% data variables.product.prodname_marketplace %} API in your app](/developers/github-marketplace/using-the-github-marketplace-api-in-your-app)."
+客户使用附加到其在 {% data variables.product.product_location %} 上帐户的付款方式购买您的应用程序，而不必离开 {% data variables.product.prodname_dotcom_the_website %}。 您不必编写代码来执行结算交易，但必须处理来自 {% data variables.product.prodname_marketplace %} API 的事件。 有关详细信息，请参阅“[在应用中使用 {% data variables.product.prodname_marketplace %} API](/developers/github-marketplace/using-the-github-marketplace-api-in-your-app)”。
 
-If the app you're listing on {% data variables.product.prodname_marketplace %} has multiple plan options, you can set up corresponding pricing plans. For example, if your app has two plan options, an open source plan and a pro plan, you can set up a free pricing plan for your open source plan and a flat pricing plan for your pro plan. Each {% data variables.product.prodname_marketplace %} listing must have an annual and a monthly price for every plan that's listed.
+如果您在 {% data variables.product.prodname_marketplace %} 中上架的应用程序有多个计划选项，您可以设置相应的定价计划。 例如，如果您的应用程序有两个计划选项：开源计划和专业计划，您可以为开源计划设置一个免费定价计划，为专业计划设置一个统一定价计划。 每个 {% data variables.product.prodname_marketplace %} 上架产品必须为列出的每个计划提供年度和月度价格。
 
-For more information on how to create a pricing plan, see "[Setting a {% data variables.product.prodname_marketplace %} listing's pricing plan](/marketplace/listing-on-github-marketplace/setting-a-github-marketplace-listing-s-pricing-plan/)."
+有关如何创建定价计划的详细信息，请参阅“[设置 {% data variables.product.prodname_marketplace %} 上架的定价计划](/marketplace/listing-on-github-marketplace/setting-a-github-marketplace-listing-s-pricing-plan/)”。
 
 {% data reusables.marketplace.free-plan-note %}
 
-## Types of pricing plans
+## 定价计划的类型
 
-### Free pricing plans
+### 免费定价计划
 
 {% data reusables.marketplace.free-apps-encouraged %}
 
-Free plans are completely free for users. If you set up a free pricing plan, you cannot charge users that choose the free pricing plan for the use of your app. You can create both free and paid plans for your listing.
+免费计划对用户完全免费。 如果您设置免费定价计划，则无法向选择免费定价计划的用户收取使用应用程序的费用。 您可以为上架产品同时创建免费和付费计划。
 
-All apps need to handle events for new purchases and cancellations. Apps that only have free plans do not need to handle events for free trials, upgrades, and downgrades. For more information, see: "[Using the {% data variables.product.prodname_marketplace %} API in your app](/developers/github-marketplace/using-the-github-marketplace-api-in-your-app)."
+所有应用程序都需要处理新购买和取消事件。 仅含免费计划的应用程序无需处理免费试用、升级和降级事件。 有关详细信息，请参阅“[在应用中使用 {% data variables.product.prodname_marketplace %} API](/developers/github-marketplace/using-the-github-marketplace-api-in-your-app)”。
 
-If you add a paid plan to an app that you've already listed in {% data variables.product.prodname_marketplace %} as a free service, you'll need to request verification for the app and go through financial onboarding.
+如果您向已作为免费服务在 {% data variables.product.prodname_marketplace %} 中上架的应用程序添加付费计划，则需要请求验证应用程序并完成财务手续。
 
-### Paid pricing plans
+### 付费定价计划
 
-There are two types of paid pricing plan:
+有两种类型的付费定价计划：
 
-- Flat rate pricing plans charge a set fee on a monthly and yearly basis.
+- 统一定价计划按月和按年收取固定费用。
 
-- Per-unit pricing plans charge a set fee on either a monthly or yearly basis for a unit that you specify. A "unit" can be anything you'd like (for example, a user, seat, or person).
+- 每单位定价计划按月或按年向您指定的单位收取固定费用。 “单位”可以是您愿意指定的任何对象（例如用户、席位或人员）。
 
-You may also want to offer free trials. These provide free, 14-day trials of OAuth or GitHub Apps to customers. When you set up a Marketplace pricing plan, you can select the option to provide a free trial for flat-rate or per-unit pricing plans.
+您可能还希望提供免费试用。 这些选项为客户提供为期 14 天免费试用 OAuth 或 GitHub 应用程序的机会。 设置 Marketplace 定价计划时，您可以选择为统一定价或每单位定价计划提供免费试用选项。
 
-## Free trials
+## 免费试用
 
-Customers can start a free trial for any paid plan on a Marketplace listing that includes free trials. However, customers cannot create more than one free trial per marketplace product.
+客户可以免费试用 Marketplace 上架产品中包含免费试用选项的任何付费计划。 但是，客户不能对一个 Marketplace 产品使用多次免费试用机会。
 
-Free trials have a fixed length of 14 days. Customers are notified 4 days before the end of their trial period (on day 11 of the free trial) that their plan will be upgraded. At the end of a free trial, customers will be auto-enrolled into the plan they are trialing if they do not cancel.
+免费试用的固定期限为 14 天。 客户在试用期结束前 4 天（免费试用期第 11 天）收到通知，他们的计划将升级。 在免费试用结束时，如果客户不取消，他们将自动注册到他们正在试用的计划中。
 
-For more information, see: "[Handling new purchases and free trials](/developers/github-marketplace/handling-new-purchases-and-free-trials/)."
+有关详细信息，请参阅“[处理新购买和免费试用](/developers/github-marketplace/handling-new-purchases-and-free-trials/)”。
 
 {% note %}
 
-**Note:** GitHub expects you to delete any private customer data within 30 days of a cancelled trial, beginning at the receipt of the cancellation event.
+注意：GitHub 希望你在取消试用后 30 天（从收到取消事件开始算起）内删除任何私人客户数据。
 
 {% endnote %}

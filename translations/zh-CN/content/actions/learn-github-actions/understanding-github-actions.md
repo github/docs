@@ -1,8 +1,7 @@
 ---
-title: Understanding GitHub Actions
-shortTitle: Understand GitHub Actions
-intro: 'Learn the basics of {% data variables.product.prodname_actions %}, including core concepts and essential terminology.'
-miniTocMaxHeadingLevel: 3
+title: 了解 GitHub Actions
+shortTitle: Understanding GitHub Actions
+intro: '学习 {% data variables.product.prodname_actions %} 的基础知识，包括核心概念和基本术语。'
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/core-concepts-for-github-actions
   - /actions/automating-your-workflow-with-github-actions/core-concepts-for-github-actions
@@ -16,87 +15,96 @@ versions:
 type: overview
 topics:
   - Fundamentals
+ms.openlocfilehash: 439aa7fb77fb68c5f66da00a0de666d809b82fde
+ms.sourcegitcommit: dc42bb4a4826b414751ffa9eed38962c3e3fea8e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 07/13/2022
+ms.locfileid: '146139447'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+## <a name="overview"></a>概述
 
-## Overview
+{% data reusables.actions.about-actions %}  您可以创建工作流程来构建和测试存储库的每个拉取请求，或将合并的拉取请求部署到生产环境。
 
-{% data reusables.actions.about-actions %}  You can create workflows that build and test every pull request to your repository, or deploy merged pull requests to production.
-
-{% data variables.product.prodname_actions %} goes beyond just DevOps and lets you run workflows when other events happen in your repository. For example, you can run a workflow to automatically add the appropriate labels whenever someone creates a new issue in your repository.
+{% data variables.product.prodname_actions %} 不仅仅是 DevOps，还允许您在存储库中发生其他事件时运行工作流程。 例如，您可以运行工作流程，以便在有人在您的存储库中创建新问题时自动添加相应的标签。
 
 {% ifversion fpt or ghec %}
 
-{% data variables.product.prodname_dotcom %} provides Linux, Windows, and macOS virtual machines to run your workflows, or you can host your own self-hosted runners in your own data center or cloud infrastructure.
+{% data variables.product.prodname_dotcom %} 提供 Linux、Windows 和 macOS 虚拟机来运行工作流程，或者您可以在自己的数据中心或云基础架构中托管自己的自托管运行器。
 
 {% elsif ghes or ghae %}
 
-You must host your own Linux, Windows, or macOS virtual machines to run workflows for {% data variables.location.product_location %}. {% data reusables.actions.self-hosted-runner-locations %}
+您必须托管自己的 Linux、Windows 或 macOS 虚拟机才能运行 {% data variables.product.product_location %} 工作流程。 {% data reusables.actions.self-hosted-runner-locations %}
 
 {% endif %}
 
 {% ifversion ghec or ghes or ghae %}
 
-For more information about introducing {% data variables.product.prodname_actions %} to your enterprise, see "[Introducing {% data variables.product.prodname_actions %} to your enterprise](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/introducing-github-actions-to-your-enterprise)."
+若要详细了解如何将 {% data variables.product.prodname_actions %} 引入企业，请参阅“[将 {% data variables.product.prodname_actions %} 引入企业](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/introducing-github-actions-to-your-enterprise)”。
 
 {% endif %}
 
-## The components of {% data variables.product.prodname_actions %}
+## <a name="the-components-of--data-variablesproductprodname_actions-"></a>{% data variables.product.prodname_actions %} 的组件
 
-You can configure a {% data variables.product.prodname_actions %} _workflow_ to be triggered when an _event_ occurs in your repository, such as a pull request being opened or an issue being created.  Your workflow contains one or more _jobs_ which can run in sequential order or in parallel.  Each job will run inside its own virtual machine _runner_, or inside a container, and has one or more _steps_ that either run a script that you define or run an _action_, which is a reusable extension that can simplify your workflow.
+可配置 {% data variables.product.prodname_actions %} 工作流，使其在存储库中发生事件（例如打开拉取请求或创建问题）时触发 。  工作流包含一个或多个可按顺序或并行运行的作业。  每个作业都将在其自己的虚拟机运行器中或在容器中运行，并具有一个或多个步骤，用于运行定义的脚本或运行动作。动作是一个可重用的扩展，可简化工作流  。
 
-![Workflow overview](/assets/images/help/images/overview-actions-simple.png)
+![工作流概述](/assets/images/help/images/overview-actions-simple.png)
 
-### Workflows
+### <a name="workflows"></a>工作流
 
 {% data reusables.actions.about-workflows-long %}
 
-{% ifversion fpt or ghes > 3.3 or ghae > 3.3 or ghec %}You can reference a workflow within another workflow, see "[Reusing workflows](/actions/learn-github-actions/reusing-workflows)."{% endif %}
+{% ifversion fpt or ghes > 3.3 or ghae-issue-4757 or ghec %}可在一个工作流中引用另一个工作流，详见“[重用工作流](/actions/learn-github-actions/reusing-workflows)”。{% endif %}
 
-For more information about workflows, see "[Using workflows](/actions/using-workflows)."
+有关工作流的详细信息，请参阅“[使用工作流](/actions/using-workflows)”。
 
-### Events
+### <a name="events"></a>事件
 
-An event is a specific activity in a repository that triggers a workflow run. For example, activity can originate from {% data variables.product.prodname_dotcom %} when someone creates a pull request, opens an issue, or pushes a commit to a repository.  You can also trigger a workflow run on a schedule, by [posting to a REST API](/rest/reference/repos#create-a-repository-dispatch-event), or manually.
+事件是存储库中触发工作流程运行的特定活动。 例如，当有人创建拉取请求、打开议题或将提交推送到存储库时，活动可能源自 {% data variables.product.prodname_dotcom %}。  还可通过[发布到 REST API](/rest/reference/repos#create-a-repository-dispatch-event) 触发按计划运行的工作流，或者手动触发。
 
-For a complete list of events that can be used to trigger workflows, see [Events that trigger workflows](/actions/reference/events-that-trigger-workflows).
+有关可用于触发工作流的事件的完整列表，请参阅[触发工作流的事件](/actions/reference/events-that-trigger-workflows)。
 
-### Jobs
+### <a name="jobs"></a>作业
 
-A job is a set of _steps_ in a workflow that execute on the same runner.  Each step is either a shell script that will be executed, or an _action_ that will be run.  Steps are executed in order and are dependent on each other.  Since each step is executed on the same runner, you can share data from one step to another.  For example, you can have a step that builds your application followed by a step that tests the application that was built.
+作业是工作流中在同一运行器上执行的一组步骤。  每个步骤要么是一个将要执行的 shell 脚本，要么是一个将要运行的动作。  步骤按顺序执行，并且相互依赖。  由于每个步骤都在同一运行器上执行，因此您可以将数据从一个步骤共享到另一个步骤。  例如，可以有一个生成应用程序的步骤，后跟一个测试已生成应用程序的步骤。
 
-You can configure a job's dependencies with other jobs; by default, jobs have no dependencies and run in parallel with each other.  When a job takes a dependency on another job, it will wait for the dependent job to complete before it can run.  For example, you may have multiple build jobs for different architectures that have no dependencies, and a packaging job that is dependent on those jobs.  The build jobs will run in parallel, and when they have all completed successfully, the packaging job will run.
+您可以配置作业与其他作业的依赖关系；默认情况下，作业没有依赖关系，并且彼此并行运行。  当一个作业依赖于另一个作业时，它将等待从属作业完成，然后才能运行。  例如，对于没有依赖关系的不同体系结构，您可能有多个生成作业，以及一个依赖于这些作业的打包作业。  生成作业将并行运行，当它们全部成功完成后，打包作业将运行。
 
-For more information about jobs, see "[Using jobs](/actions/using-jobs)."
+有关作业的详细信息，请参阅“[使用作业](/actions/using-jobs)”。
 
-### Actions
+### <a name="actions"></a>操作
 
-An _action_ is a custom application for the {% data variables.product.prodname_actions %} platform that performs a complex but frequently repeated task.  Use an action to help reduce the amount of repetitive code that you write in your workflow files.  An action can pull your git repository from {% data variables.product.prodname_dotcom %}, set up the correct toolchain for your build environment, or set up the authentication to your cloud provider.
+操作是用于 {% data variables.product.prodname_actions %} 平台的自定义应用程序，它执行复杂但经常重复的任务。  使用操作可帮助减少在工作流程文件中编写的重复代码量。  操作可以从 {% data variables.product.prodname_dotcom %} 拉取 git 存储库，为您的构建环境设置正确的工具链，或设置对云提供商的身份验证。
 
-You can write your own actions, or you can find actions to use in your workflows in the {% data variables.product.prodname_marketplace %}.
+您可以编写自己的操作，也可以在 {% data variables.product.prodname_marketplace %} 中找到要在工作流程中使用的操作。
 
 {% data reusables.actions.internal-actions-summary %}
 
-For more information, see "[Creating actions](/actions/creating-actions)."
+有关详细信息，请参阅“[创建操作](/actions/creating-actions)”。
 
-### Runners
+### <a name="runners"></a>运行程序
 
-{% data reusables.actions.about-runners %} Each runner can run a single job at a time. {% ifversion ghes or ghae %} You must host your own runners for {% data variables.product.product_name %}. {% elsif fpt or ghec %}{% data variables.product.company_short %} provides Ubuntu Linux, Microsoft Windows, and macOS runners to run your workflows; each workflow run executes in a fresh, newly-provisioned virtual machine. {% ifversion actions-hosted-runners %} {% data variables.product.prodname_dotcom %} also offers {% data variables.actions.hosted_runner %}s, which are available in larger configurations. For more information, see "[Using {% data variables.actions.hosted_runner %}s](/actions/using-github-hosted-runners/using-larger-runners)." {% endif %}If you need a different operating system or require a specific hardware configuration, you can host your own runners.{% endif %} For more information{% ifversion fpt or ghec %} about self-hosted runners{% endif %}, see "[Hosting your own runners](/actions/hosting-your-own-runners)."
+{% data reusables.actions.about-runners %} 每个运行器一次可以运行一个作业。 {% ifversion ghes or ghae %} 您必须为 {% data variables.product.product_name %} 托管自己的运行器。 {% elsif fpt or ghec %}{% data variables.product.company_short %} 提供 Ubuntu Linux、Microsoft Windows 和 macOS 运行器来运行您的工作流程；每个工作流程运行都在新预配的全新虚拟机中执行。 如果需要其他操作系统或特定硬件配置，可托管自己的运行器。{% endif %}有关{% ifversion fpt or ghec %}自托管运行器{% endif %}的详细信息，请参阅“[托管自己的运行器](/actions/hosting-your-own-runners)”。
 
 {% data reusables.actions.workflow-basic-example-and-explanation %}
 
-## Next steps
+## <a name="more-complex-examples"></a>更复杂的示例
+{% data reusables.actions.link-to-example-library %}
 
-{% data reusables.actions.onboarding-next-steps %}
+## <a name="next-steps"></a>后续步骤
 
-## Contacting support
+- 若要继续了解 {% data variables.product.prodname_actions %}，请参阅“[查找和自定义操作](/actions/learn-github-actions/finding-and-customizing-actions)”。
+{% ifversion fpt or ghec or ghes %}
+- 若要了解 {% data variables.product.prodname_actions %} 的计费工作原理，请参阅“[关于 {% data variables.product.prodname_actions %} 的计费](/actions/reference/usage-limits-billing-and-administration#about-billing-for-github-actions)”。
+{% endif %}
+
+## <a name="contacting-support"></a>联系支持部门
 
 {% data reusables.actions.contacting-support %}
 
 {% ifversion ghec or ghes or ghae %}
-## Further reading
+## <a name="further-reading"></a>延伸阅读
 
-- "[About {% data variables.product.prodname_actions %} for enterprises](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises)"
-{% endif %}
+- “[关于 {% data variables.product.prodname_actions %} 企业版](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises)”{% endif %}

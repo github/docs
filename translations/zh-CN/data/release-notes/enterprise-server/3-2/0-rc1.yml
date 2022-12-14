@@ -1,0 +1,359 @@
+date: '2021-09-09'
+release_candidate: true
+deprecated: true
+intro: "如果 {% data variables.product.product_location %} 正在运行发布候选版本，则无法使用热补丁升级。建议仅在测试环境中运行候选发布版本。"
+sections:
+  features:
+    - heading: 机密扫描的自定义模式
+      notes:
+        # https://github.com/github/releases/issues/1426
+        - |{% data variables.product.prodname_GH_advanced_security %} 客户现可指定机密扫描的自定义模式。指定新模式时，机密扫描会在存储库的整个 Git 历史记录中搜索该模式以及任何新提交。
+
+
+
+用于 {% data variables.product.prodname_ghe_server %} 3.2 的用户定义模式为 beta 版本。可在仓库、组织和企业级定义此类模式。有关详细信息，请参阅“[定义机密扫描的自定义模式](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)”。
+
+|
+    - heading: 高级安全的安全概述（beta 版本）
+      notes:
+        # https://github.com/github/releases/issues/1381
+        - |{% data variables.product.prodname_GH_advanced_security %} 客户现可查看 {% data variables.product.prodname_code_scanning %}、{% data variables.product.prodname_dependabot %} 和 {% data variables.product.prodname_secret_scanning %} 检测到的企业级应用程序安全风险。安全概述显示每个存储库上安全功能的启用状态以及检测到的警报数量。
+
+
+
+此外，安全概述将列出组织级别的所有 {% data variables.product.prodname_secret_scanning %} 警报。与 {% data variables.product.prodname_secret_scanning %} 警报相似的视图将在未来的版本中推出。有关详细信息，请参阅“[关于安全概述](/code-security/security-overview/about-the-security-overview)”。
+
+
+
+![安全概述的屏幕截图](/assets/images/enterprise/3.2/release-notes/security-overview-UI.png)
+
+|
+    - heading: 依赖项审查（beta 版本）
+      notes:
+        # https://github.com/github/releases/issues/1364
+        - |{% data variables.product.prodname_GH_advanced_security %} 客户现可查看拉取请求中已更改的依赖项的大量差异。依赖项审查在拉取请求的“更改的文件”选项卡中提供依赖项更改及其安全影响的易于理解的视图。视图中将显示已添加、删除或更新了哪些依赖项以及这些依赖项的漏洞信息。有关详细信息，请参阅“[审查拉取请求中的依赖项更改](/github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-dependency-changes-in-a-pull-request)”。
+
+|
+    - heading: GitHub Actions 环境
+      notes:
+        # https://github.com/github/releases/issues/1308
+        - |环境、环境保护规则和环境机密现已正式可用于 {% data variables.product.product_name %} 上的 {% data variables.product.prodname_actions %}。有关详细信息，请参阅“[环境](/actions/reference/environments)”。
+
+
+
+![安全保护规则](/assets/images/enterprise/3.2/release-notes/actions-environments.png)
+
+|
+    - heading: 使用安全密钥进行 SSH 身份验证
+      notes:
+        # https://github.com/github/releases/issues/1276
+        - |现在，将“sk-ecdsa-sha2-nistp256@openssh.com”或“sk-ssh-ed25519@openssh.com”SSH 密钥添加到帐户时，支持使用 FIDO2 安全密钥进行 SSH 身份验证。SSH 安全密钥将密钥材料存储在需要验证（例如点击）才能操作的单独硬件设备上。有关详细信息，请参阅“[生成新的 SSH 密钥并将其添加到 ssh-agent](/github/authenticating-to-github/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key-for-a-hardware-security-key)”。
+
+|
+    - heading: '深色和暗色主题'
+      notes:
+        # https://github.com/github/releases/issues/1260
+        - |深色和暗色主题现在可用于 Web UI。未在 {% data variables.product.product_name %} 中设置主题偏好设置时，{% data variables.product.product_name %} 将匹配你的系统偏好设置。还可以选择哪些主题在白天和晚上处于活跃状态。有关详细信息，请参阅“[管理主题设置](/github/setting-up-and-managing-your-github-user-account/managing-user-account-settings/managing-your-theme-settings)”。
+
+
+
+![深色和暗色主题](https://user-images.githubusercontent.com/33528647/114629560-d2231f80-9c86-11eb-9bde-cc301a97040d.gif)
+
+|
+    - heading: '批准电子邮件通知的未经验证域'
+      notes:
+        # https://github.com/github/releases/issues/1244
+        - "无法进行验证的域现在可获批使用电子邮件通知路由。企业和组织所有者将能够批准域并立即扩充其电子邮件通知限制政策，允许将通知发送给协作者、顾问、收购方或其他合作伙伴。有关详细信息，请参阅“[验证或批准企业的域](/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise#about-approval-of-domains)”和“[限制企业的电子邮件通知](/admin/policies/enforcing-policies-for-your-enterprise/restricting-email-notifications-for-your-enterprise#restricting-email-notifications-for-your-enterprise-account)”。"
+
+    - heading: 'Git Credential Manager (GCM) 安全凭据存储和多重身份验证支持'
+      notes:
+        # https://github.com/github/releases/issues/1406
+        - |Git Credential Manager (GCM) 版本 2.0.452 及更高版本现在为 {% data variables.product.product_name %} 提供安全强化的凭据存储和多重身份验证支持。
+
+
+
+[Git for Windows](https://gitforwindows.org) 版本 2.32 及更高版本中提供具有 {% data variables.product.product_name %} 支持的 GCM。Git for macOS 或 Linux 中不提供 GCM，但可以单独安装。有关详细信息，请参阅“GitCredentialManager/git-credential-manager”存储库中的[最新发布](https://github.com/GitCredentialManager/git-credential-manager/releases/)和[安装说明](https://github.com/GitCredentialManager/git-credential-manager/releases/)。
+
+|
+  changes:
+    - heading: 管理更改
+      notes:
+        # https://github.com/github/releases/issues/1309
+        - "“用户代理引荐者策略”设置已添加到企业设置中。这允许管理员设置更严格的“Referrer-Policy”以隐藏外部站点的 {% data variables.product.prodname_ghe_server %} 安装的主机名。此设置默认处于禁用状态，并在启用或禁用时由员工和企业所有者的审核日志事件进行跟踪。有关详细信息，请参阅“[为企业配置引荐者策略](/admin/configuration/configuring-your-enterprise/configuring-the-referrer-policy-for-your-enterprise)”。"
+
+        # https://github.com/github/releases/issues/1515
+        - MySQL 健康检查已更改为使用“mysqladmin ping”而不是 TCP 检查，这消除了 MySQL 错误日志中的一些不必要干扰。此外，Orchestrator 故障转移检查已进行改进，以防止在应用集群配置更改时发生不必要的 MySQL 故障转移。
+
+        # https://github.com/github/releases/issues/1287
+        - "Resque 服务（支持后台作业处理）已替换为 Aqueduct Lite。此更改使作业系统更易于管理，并且不应影响用户体验。有关 Aqueduct 的新管理和调试命令，请参阅“[命令行实用程序](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-aqueduct)”。"
+
+    - heading: 令牌更改
+      notes:
+        # https://github.com/github/releases/issues/1235
+        - |{% data variables.product.product_name %} 的身份验证令牌的格式已更改。此更改将影响 {% data variables.product.prodname_oauth_apps %} 的个人访问令牌和访问令牌的格式，以及 {% data variables.product.prodname_github_apps %} 的用户到服务器、服务器到服务器和刷新令牌的格式。
+
+
+
+不同的令牌类型现在具有唯一的可识别前缀，这允许通过机密扫描来检测令牌，以便可以减轻某人意外将令牌提交到存储库的影响。{% data variables.product.company_short %} 建议尽快更新现有令牌。有关详细信息，请参阅“[关于向 {% data variables.product.prodname_dotcom %}](/github/authenticating-to-github/keeping-your-account-and-data-secure/about-authentication-to-github#githubs-token-formats) 进行身份验证”和“[关于 {% data variables.product.prodname_secret_scanning %}](/code-security/secret-security/about-secret-scanning)”。
+
+|
+    - heading: '存储库更改'
+      notes:
+        # https://github.com/github/releases/issues/1295
+        - 用户配置文件和组织配置文件上的存储库限制支持按星级排序。
+
+        # https://github.com/github/releases/issues/1327
+        - "查看单个文件的提交历史记录时，现在可以单击 {% ocicon \"file-code\" aria-label=\"The code icon\" %} 以在历史记录中的选定点查看该文件。"
+
+        # https://github.com/github/releases/issues/1254
+        - "在 {% data variables.product.product_location %} 中使用相对路径定义子模块时，现在可以在 Web UI 中单击该子模块。单击 Web UI 中的子模块会定向到链接的存储库。以前只能单击具有绝对 URL 的子模块。具有相同所有者且遵循模式 <code>../<em>REPOSITORY</em></code> 的存储库的相对路径或具有不同所有者且遵循模式 <code>../<em>OWNER</em>/<em>REPOSITORY</em></code> 的存储库的相对路径支持此功能。有关使用子模块的详细信息，请参阅 {% data variables.product.prodname_blog %} 上的 [使用子模块](https://github.blog/2016-02-01-working-with-submodules/)。"
+
+        # https://github.com/github/releases/issues/1250
+        - "Web UI 现在可用于将分支的过期分支与分支的上游分支同步。如果分支之间没有合并冲突，则通过快进或从上游合并来更新分支。如果存在冲突，系统将提示创建拉取请求以解决冲突。有关详细信息，请参阅“[同步分支](/github/collaborating-with-pull-requests/working-with-forks/syncing-a-fork#syncing-a-fork-from-the-web-ui)”。"
+
+    - heading: 'Markdown 更改'
+      notes:
+        # https://github.com/github/releases/issues/1477
+        - "在存储库中创建或编辑版本时使用的 Markdown 编辑器现在具有文本编辑工具栏。有关详细信息，请参阅“[管理存储库中的发布](/github/administering-a-repository/releasing-projects-on-github/managing-releases-in-a-repository#creating-a-release)”。"
+
+        # https://github.com/github/releases/issues/1169
+        - "现在，在 {% data variables.product.product_name %} 上编写 Markdown 的任何位置都支持上传视频文件。在问题、拉取请求评论以及存储库内的 Markdown 文件（例如自述文件）中共享演示、复制步骤等。有关详细信息，请参阅“[附加文件](/github/writing-on-github/working-with-advanced-formatting/attaching-files)”。"
+
+        # https://github.com/github/releases/issues/1269
+        - 当有 2 个或更多标题时，Markdown 文件现在将在标题中自动生成目录。目录是交互式的并且链接到选定部分。支持所有 6 个 Markdown 标题级别。
+
+        # https://github.com/github/releases/issues/1294
+        - '有一个新的键盘快捷方式，macOS 上的“cmd+e”或 Windows 上的“ctrl+e”，用于在 Markdown 文件、问题、拉取请求和评论中插入代码块。'
+
+        # https://github.com/github/releases/issues/1474
+        - "将“?plain=1”附加到任何 Markdown 文件的 URL 时，现在将显示该文件而不进行渲染和显示行号。普通视图可用于将其他用户链接到特定行。例如，附加“?plain=1#L52”将突出显示纯文本 Markdown 文件的第 52 行。有关详细信息，请参阅“[创建指向代码片段的永久链接](/github/writing-on-github/working-with-advanced-formatting/creating-a-permanent-link-to-a-code-snippet#linking-to-markdown)”。"
+
+    - heading: '问题和拉取请求更改'
+      notes:
+        # https://github.com/github/releases/issues/1413
+        - "使用 [Octicons 的最新版本](https://github.com/primer/occticons/releases) 时，现在问题和拉取请求的状态在视觉上更加清晰，因此你可以更轻松地扫描其状态。有关详细信息，请参阅 [{% data variables.product.prodname_blog %}](https://github.blog/changelog/2021-06-08-new-issue-and-pull-request-state-icons/)。"
+
+        # https://github.com/github/releases/issues/1419
+        - "现已推出新的“在合并前需要对话解决”分支保护规则和“对话”菜单。从“更改的文件”选项卡中轻松发现你的拉取请求评论，并要求在合并之前解决所有拉取请求对话。有关详细信息，请参阅“[关于拉取请求评审](/github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews#discovering-and-navigating-conversations)”和“[关于受保护分支](/github/administering-a-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#require-conversation-resolution-before-merging)”。"
+
+        # https://github.com/github/releases/issues/1279
+        - "为了防止在为拉取请求启用自动合并后合并意外更改，现在当没有存储库写入权限的用户推送新更改时，系统将自动禁用自动合并。启用自动合并后，没有写入权限的用户仍然可以使用基本分支中的更改来更新拉取请求。为防止恶意用户使用合并冲突将意外更改引入拉取请求，在更新导致合并冲突时，将禁用自动合并拉取请求。有关自动合并的更多信息，请参阅“[自动合并拉取请求](/github/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/automatically-merging-a-pull-request)”。"
+
+        # https://github.com/github/releases/issues/1550
+        - "具有维护权限的用户可以管理存储库级别的“允许自动合并”设置。此设置（默认关闭）控制自动合并是否可用于存储库中的拉取请求。以前只有具有管理员权限的用户可以管理此设置。此外，现在可以使用“[创建存储库](/rest/reference/repos#create-an-organization-repository)”和“[更新存储库](/rest/reference/repos#update-a-repository)”REST API 控制此设置。有关详细信息，请参阅“[管理存储库中的拉取请求自动合并](/github/administering-a-repository/configuring-pull-request-merges/managing-auto-merge-for-pull-requests-in-your-repository)”。"
+
+        # https://github.com/github/releases/issues/1201
+        - 问题和拉取请求的代理人选择功能现在支持提前键入搜索，从而可以更快地找到组织中的用户。此外，搜索结果排名已经更新，优先匹配用户的用户名或个人资料名称开头。
+
+        # https://github.com/github/releases/issues/1430
+        - 现在，超过 100 名成员的团队要求进行审查时，开发人员将看到一个确认对话框，用于防止大型团队收到不必要的通知。
+
+        # https://github.com/github/releases/issues/1293
+        - "问题标题、拉取请求标题以及 {% data variables.product.prodname_ghe_server %} 内引用问题和拉取请求标题的任意位置中现在支持反引号“代码块”。"
+
+        # https://github.com/github/releases/issues/1300
+        - "拉取请求事件和拉取请求审查事件现在包含在[企业](/admin/user-management/managing-users-in-your-enterprise/auditing-users-across-your-enterprise)和[组织](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization)的审核日志中。这些事件可帮助管理员更好地监视拉取请求活动并帮助确保符合安全性和合规性要求。事件可以从 Web UI 查看，以 CSV 或 JSON 格式导出，或通过 REST API 访问。还可以搜索特定拉取请求事件的审核日志。有关详细信息，请参阅“[查看组织的审核日志](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization#pull_request-category-actions)”。"
+
+    - heading: '分支更改'
+      notes:
+        # https://github.com/github/releases/issues/885
+        - |新存储库的默认分支名称现在为“main”。现有存储库不受此更改的影响。如果用户、组织所有者或企业所有者之前为新存储库指定了默认分支，它们也不会受到影响。
+
+
+
+如果希望设置其他默认分支名称，可在[用户](/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/managing-the-default-branch-name-for-your-repositories)、[组织](/organizations/managing-organization-settings/managing-the-default-branch-name-for-repositories-in-your-organization)或[企业](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-on-the-default-branch-name) 设置中执行此操作。
+
+|
+        # https://github.com/github/releases/issues/981
+        - |现可使用 {% data variables.product.product_name %} Web UI 重命名分支（包括默认分支）。当重命名分支时，任何针对重命名分支的打开拉取请求和草稿发布都将被自动重定向，并将更新明确引用重命名分支的分支保护规则。
+
+
+
+重命名默认分支需要管理员权限，但重命名其他分支只需写入权限。
+
+
+
+为了帮助用户尽可能无缝地进行更改：
+
+
+
+* 存储库主页上将向参与者、维护者和管理员显示通知，说明如何更新其本地存储库。
+
+* 对旧分支的 Web 请求将被重定向。
+
+* REST API 调用将返回“已永久移动”HTTP 响应。
+
+* 推送到旧分支的 Git 命令行用户将看到一条信息性消息。
+
+
+
+有关详细信息，请参阅“[重命名分支](/github/administering-a-repository/managing-branches-in-your-repository/renaming-a-branch)”。
+
+|
+    - heading: 'GitHub Actions 更改'
+      notes:
+        # https://github.com/github/releases/issues/1227
+        - '现在可使用 {% data variables.product.prodname_actions %} 控制授予“GITHUB_TOKEN”机密的权限。“GITHUB_TOKEN”是自动生成的机密，可以借助它在工作流运行中对 {% data variables.product.product_name %} API 进行经身份验证的调用。{% data variables.product.prodname_actions %} 为每个作业生成一个新令牌，并在作业完成时使令牌过期。令牌通常对许多 [API 终结点](/actions/reference/authentication-in-a-workflow#permissions-for-the-github_token)具有“写入”权限，但来自分支的拉取请求除外，对这些拉取请求的权限始终为“读取”。通过这些新设置可在工作流中遵循最小特权原则。有关详细信息，请参阅“[工作流中的身份验证](/actions/reference/authentication-in-a-workflow#modifying-the-permissions-for-the-github_token)”。'
+
+        # https://github.com/github/releases/issues/1280
+        - '可以在 {% data variables.product.prodname_cli %} 1.9 及更高版本中在终端使用 {% data variables.product.prodname_actions %}。有关详细信息，请参阅 [{% data variables.product.prodname_dotcom %} 更改日志](https://github.blog/changelog/2021-04-15-github-cli-1-9-enables-you-to-work-with-github-actions-from-your-terminal/)。'
+
+        # https://github.com/github/releases/issues/1157
+        - "审核日志现在包括与 {% data variables.product.prodname_actions %} 工作流运行相关的事件。该数据为管理员提供了用于安全性和合规性审核的扩展数据集。有关详细信息，请参阅“[查看组织的审核日志](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization#workflows-category-actions)”。"
+
+        # https://github.com/github/releases/issues/1587
+        - "已对 {% data variables.product.prodname_actions %} 进行了性能改进，这可能会提高最大作业吞吐量。有关内部测试 CPU 和内存配置的作业吞吐量的详细信息，请参阅“[{% data variables.product.prodname_ghe_server %} 的 {% data variables.product.prodname_actions %} 入门](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/getting-started-with-github-actions-for-github-enterprise-server#review-hardware-considerations)”。"
+
+    - heading: 'GitHub 包更改'
+      notes:
+        # https://github.com/github/releases/issues/1088
+        - "{% data variables.product.prodname_registry %} 的任何包或包版本现在可以从 {% data variables.product.product_name %} 的 Web UI 中删除。还可以在 30 天内撤消删除任何包或包版本。有关详细信息，请参阅“[删除和还原包](/packages/learn-github-packages/deleting-and-restoring-a-package)”。"
+
+    - heading: 'Dependabot 和依赖项关系图更改'
+      notes:
+        # https://github.com/github/releases/issues/1537
+        - "现在可以使用管理控制台启用依赖关系图，而不需要在管理 shell 中运行命令。有关详细信息，请参阅“[为易受攻击的依赖项 {% data variables.product.prodname_ghe_server %} 启用警报](/admin/configuration/managing-connections-between-github-enterprise-server-and-github-enterprise-cloud/enabling-alerts-for-vulnerable-dependencies-on-github-enterprise-server#enabling-the-dependency-graph-and-dependabot-alerts-for-vulnerable-dependencies-on-github-enterprise-server)”。"
+
+        # https://github.com/github/releases/issues/1153
+        - "如果同时发现多个 {% data variables.product.prodname_dependabot_alerts %} 通知，则会将它们组合在一起。这大大减少了用户收到 {% data variables.product.prodname_dependabot %} 警告通知的数量。有关详细信息，请参阅 [{% data variables.product.prodname_dotcom %} 更改日志](https://github.blog/changelog/2021-03-18-grouped-dependabot-alert-notifications/)。"
+
+        # https://github.com/github/releases/issues/1371
+        - "依赖项关系图和 {% data variables.product.prodname_dependabot_alerts %} 现支持 Go 模块。{% data variables.product.prodname_ghe_server %} 分析存储库的“go.mod”文件以理解存储库的依赖项。除了安全建议外，依赖项关系图还提供了向开发人员发出易受攻击依赖项警报所需的信息。有关在专用存储库上启用依赖项关系图的详细信息，请参阅“[保护存储库](/code-security/getting-started/securing-your-repository#managing-the-dependency-graph)”。"
+
+        # https://github.com/github/releases/issues/1538
+        - "安全警报的默认通知设置已更改。以前，如果你有权限查看存储库中的安全警报，那么只要你的设置允许安全警报通知，就会收到该存储库通知。现在，必须通过监视存储库来选择加入安全警报通知。如果选择“所有活动”或将“自定义”配置为包含“安全警报”，则会收到通知。所有现有存储库都将自动迁移到这些新的设置，你将继续收到通知；但是，任何新的存储库都需要通过监视存储库来选择加入。有关详细信息，请参阅“[为 {% data variables.product.prodname_dependabot_alerts %} 配置通知](/code-security/dependabot/dependabot-alerts/configuring-notifications-for-dependabot-alerts)”和“[管理来自机密扫描的警报](/code-security/secret-security/managing-alerts-from-secret-scanning)”。"
+
+    - heading: '代码扫描和机密扫描更改'
+      notes:
+        # https://github.com/github/releases/issues/1352
+        - '具有 {% data variables.product.prodname_codeql %} 的 {% data variables.product.prodname_code_scanning_capc %} 现在为所有支持的语言生成诊断信息。这有助于检查所创建数据库的状态，以了解所执行分析的状态和质量。诊断信息从 [{% data variables.product.prodname_codeql_cli %}](https://codeql.github.com/docs/codeql-cli/) 的[版本 2.5.6](https://github.com/github/codeql-cli-binaries/releases) 开始提供。可以在 {% data variables.product.prodname_codeql %} 的 {% data variables.product.prodname_actions %} 日志中查看详细诊断信息。有关更多信息，请参阅“[查看代码扫描日志](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/viewing-code-scanning-logs)”。'
+
+        # https://github.com/github/releases/issues/1360
+        - '具有 {% data variables.product.prodname_codeql_cli %} 的 {% data variables.product.prodname_code_scanning_capc %} 现支持在单个生成过程中分析几种语言。这使得相比 {% data variables.product.prodname_actions %}，使用 CI/CD 系统来运行代码分析更加轻松。从 [{% data variables.product.prodname_codeql_cli %}](https://codeql.github.com/docs/codeql-cli/) 的[版本 2.5.6](https://github.com/github/codeql-cli-binaries/releases) 开始，“codeql database create”命令的新模式可用。有关此设置的更多信息，请参阅“[在 CI 系统中安装 {% data variables.product.prodname_codeql_cli %}](/code-security/secure-coding/using-codeql-code-scanning-with-your-existing-ci-system/running-codeql-cli-in-your-ci-system)”。'
+
+        # https://github.com/github/releases/issues/1160
+        - '来自所有支持工具的 {% data variables.product.prodname_code_scanning_capc %} 警报现在显示在一个合并列表中，以便你可以轻松地对所有警报进行优先级排序。可以使用“工具”筛选器查看来自特定工具的警报，“规则”和“标签”筛选器将根据你的“工具”选择进行动态更新。'
+
+        # https://github.com/github/releases/issues/1454
+        - '具有 {% data variables.product.prodname_codeql %} 的 {% data variables.product.prodname_code_scanning_capc %} 现包含对 C++20 代码分析的 beta 版本支持。这只在 Linux 上使用 GCC 生成代码库时可用。尚不支持 C++20 模块。'
+
+        # https://github.com/github/releases/issues/1375
+        - "{% data variables.product.prodname_codeql %} 的深度分析已通过添加对更多[库和框架](https://codeql.github.com/docs/codeql-overview/supported-languages-and-frameworks/)的支持并增加我们现有库和框架模型的覆盖范围，针对多种语言([C++](https://github.com/github/codeql/tree/main/cpp)、[JavaScript](https://github.com/github/codeql/tree/main/javascript)、[Python](https://github.com/github/codeql/tree/main/python) 和 [Java](https://github.com/github/codeql/tree/main/java))进行了改进。因此，{% data variables.product.prodname_codeql %} 现在可以检测更多不受信任的用户数据的潜在来源、审查数据流经的步骤，并识别数据可能最终到达的潜在危险接收器。这使得 {% data variables.product.prodname_code_scanning %} 警报质量得到了全面的提高。有关详细信息，请参阅 [{% data variables.product.prodname_dotcom %} 更改日志](https://github.blog/changelog/2021-07-01-codeql-code-scanning-now-recognizes-more-sources-and-uses-of-untrusted-user-data/)。"
+
+        # https://github.com/github/releases/issues/1335
+        # https://github.com/github/releases/issues/1314
+        - |{% data variables.product.prodname_code_scanning_capc %} 现在显示 CodeQL 安全警报的“安全严重性”级别。可以配置哪些“安全严重性”级别会导致拉取请求检查失败。安全警报的严重性级别可分为“严重”、“高”、“中”或“低”。默认情况下，“安全严重性”为“严重”或“高”的任何 {% data variables.product.prodname_code_scanning %} 警报都会导致拉取请求检查失败。
+
+
+
+此外，现在还可以配置哪些严重性级别会导致非安全警报的拉取请求检查失败。可以在存储库级别配置此行为，并定义具有“错误”、“警告”或“注意”级别的警报是否会导致拉取请求检查失败。默认情况下，严重性为“错误”的非安全 {% data variables.product.prodname_code_scanning %} 警报会导致拉取请求检查失败。
+
+
+
+有关详细信息，请参阅“[定义导致拉取请求检查失败的警报严重性级别]”(/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning#defining-the-severities-causing-pull-request-check-failure)”。
+
+
+
+![具有安全性级别的代码扫描警报列表](/assets/images/enterprise/3.2/release-notes/code-scanning-alerts.png)
+
+|
+        # https://github.com/github/releases/issues/1324
+        - |对 {% data variables.product.prodname_code_scanning %} 分支筛选器的改进使得哪些 {% data variables.product.prodname_code_scanning %} 警报将显示在警报页面上更加清晰明了。默认情况下，将筛选 {% data variables.product.prodname_code_scanning %} 警报以仅显示存储库默认分支的警报。可以使用分支筛选器来显示任何非默认分支上的警报。任何已应用的分支筛选器都将显示在搜索栏中。
+
+
+
+搜索语法也被简化为“branch:<分支名称>”。此语法可以在搜索栏中多次使用，以筛选多个分支。前面的语法“ref:refs/heads/<分支名称>”仍然受支持，因此任何保存的 URL 都将继续工作。
+
+|
+        # https://github.com/github/releases/issues/1313
+        - |自定义文本搜索现在可以用于代码扫描警报。可以搜索代码扫描结果，以快速找到特定警报，而不必知道确切的搜索词。搜索应用于警报名称、说明和帮助文本。语法为：
+
+
+
+- 单个词返回所有匹配项。
+
+- 多个搜索词返回与任意一个词匹配的结果。
+
+- 用双引号括起来的词返回完全匹配项。
+
+- 关键字“AND”返回多个词的匹配项。
+
+|
+        - '{% data variables.product.prodname_secret_scanning_caps %} 为 23 个新的服务提供商添加了模式。有关支持的机密的更新列表，请参阅“[关于机密扫描](/code-security/secret-scanning/about-secret-scanning)”。'
+
+    - heading: API 更改
+      notes:
+        # https://github.com/github/releases/issues/1253
+        - "向存储库 REST API 的“比较两个提交”终结点添加了分页支持，该终结点返回从一个提交或分支可访问但从另一个提交或分支无法访问的提交列表。该 API 现在还可以返回超过 250 次提交的比较结果。有关详细信息，请参阅 REST API 文档中的“[提交](/rest/reference/commits#compare-two-commits)”和“[使用分页遍历](/rest/guides/traversing-with-pagination)”。"
+
+        # https://github.com/github/releases/issues/969
+        - "现在可以使用 REST API 以编程方式重新发送或检查 Webhook 的状态。有关详细信息，请参阅 REST API 文档中的“[Webhook](/rest/reference/webhooks)”、“[组织](/rest/reference/orgs#webhooks)”和“[应用](/rest/reference/apps#webhooks)”。"
+
+        # https://github.com/github/releases/issues/1349
+        - |对代码扫描和 {% data variables.product.prodname_GH_advanced_security %} API 进行了改进：
+
+
+
+- 代码扫描 API 现在返回用于分析的 CodeQL 查询版本。这可以用于再现结果或确认分析使用了最新查询。有关更多信息，请参阅 REST API 文档中的“[代码扫描](/rest/reference/code-scanning#list-code-scanning-alerts-for-a-repository)”。
+
+- 管理员用户现在可以使用 REST API 来启用或禁用存储库的 {% data variables.product.prodname_GH_advanced_security %}，方法是使用“repos/{org}/{repo}”上的“security_and_analysis”对象。此外，管理员用户还可以通过“GET /repos/{owner}/{repo}”请求来检查当前是否为存储库启用了 {% data variables.product.prodname_advanced_security %}。这些更改将帮助你大规模管理 {% data variables.product.prodname_advanced_security %} 存储库访问。有关详细信息，请参阅 REST API 文档中的“[存储库](/rest/reference/repos#update-a-repository)”。
+
+|
+  # No security/bug fixes for the RC release
+  # security_fixes:
+  #   - PLACEHOLDER
+
+  # bugs:
+  #   - PLACEHOLDER
+
+  known_issues:
+    - "在新建的没有任何用户的 {% data variables.product.prodname_ghe_server %} 上，攻击者可以创建第一个管理员用户。"
+    - 自定义防火墙规则在升级过程中被删除。
+    - "[通过 Web 界面上传](https://github.com/blog/2105-upload-files-to-your-repositories)的 Git LFS 跟踪文件被错误地直接添加到存储库。"
+    - 如果问题包含同一存储库中 blob 的永久链接并且该 blob de 文件路径长于 255 个字符，则问题无法关闭。
+    - 在 GitHub Connect 中启用了“用户可以搜索 GitHub.com”时，专用和内部存储库中的问题不包括在 GitHub.com 搜索结果中。
+    - "{% data variables.product.prodname_registry %} npm 注册表不再在元数据响应中返回时间值。这样做是为了大幅改善性能。我们继续拥有将时间值作为元数据响应的一部分返回所需的所有数据，并将在以后解决现有性能问题后恢复返回该值。"
+    - 特定于处理预接收挂钩的资源限制可能导致部分预接收挂钩失败。
+
+  deprecations:
+    - heading: 弃用 GitHub Enterprise Server 2.21
+      notes:
+        - '**{% data variables.product.prodname_ghe_server %} 2.21 已于 2021 年 6 月 6 日停用**。这意味着在此日期之后不会发布任何补丁，即使是针对关键安全问题也是如此。为了获得更好的性能、改进的安全性和新功能，请尽快[升级到 {% data variables.product.prodname_ghe_server %} 的最新版本](/enterprise-server@3.2/admin/enterprise-management/upgrading-github-enterprise-server)。'
+    - heading: 弃用 GitHub Enterprise Server 2.22
+      notes:
+        - '**{% data variables.product.prodname_ghe_server %} 2.22 将于 2021 年 9 月 23 日停用**。这意味着在此日期之后不会发布任何补丁，即使是针对关键安全问题也是如此。为了获得更好的性能、改进的安全性和新功能，请尽快[升级到 {% data variables.product.prodname_ghe_server %} 的最新版本](/enterprise-server@3.2/admin/enterprise-management/upgrading-github-enterprise-server)。'
+    - heading: XenServer Hypervisor 支持终止
+      notes:
+        # https://github.com/github/docs-content/issues/4439
+        - "从 {% data variables.product.prodname_ghe_server %} 3.1 开始，我们将终止对 Xen Hypervisor 的支持。计划在标准一年期弃用窗口后在 {% data variables.product.prodname_ghe_server %} 3.3 中完全弃用。如有问题或疑虑，请联系 [GitHub 支持](https://support.github.com/contact)。"
+    - heading: 删除旧 GitHub 服务
+      notes:
+        # https://github.com/github/releases/issues/1506
+        - '{% data variables.product.prodname_ghe_server %} 3.2 删除未使用的 GitHub 服务数据库记录。有关详细信息，请参阅[弃用公告帖文](https://developer.github.com/changes/2018-04-25-github-services-deprecation/)。'
+    - heading: 弃用 OAuth 应用程序 API 终结点和通过查询参数的 API 身份验证
+      notes:
+        # https://github.com/github/releases/issues/1316
+        - |为防止意外记录或公开“access_tokens”，不建议使用 OAuth 应用程序 API 终结点和通过查询参数使用 API 身份验证。浏览以下帖文，查看建议的替换：
+
+
+
+* [替换 OAuth 应用程序 API 终结点](https://developer.github.com/changes/2020-02-14-deprecating-oauth-app-endpoint/#changes-to-make)
+
+* [通过标头而不是查询参数替换身份验证](https://developer.github.com/changes/2020-02-10-deprecating-auth-through-query-param/#changes-to-make)
+
+
+
+计划从 {% data variables.product.prodname_ghe_server %} 3.4 中的 {% data variables.product.prodname_ghe_server %} 中删除这些终结点和身份验证路由。
+
+|
+    - heading: 删除旧 GitHub 应用 Webhook 事件和终结点
+      notes:
+        # https://github.com/github/releases/issues/965
+        - |两个旧 GitHub 应用相关 Webhook 事件已删除：“integration_installation”和“integration_installation_repositories”。应改为侦听“installation”和“installation_repositories”事件。
+
+|
+        - |以下 REST API 终结点已删除“POST /installations/{installation_id}/access_tokens”。应使用等效命名空间“POST /app/installations/{installation_id}/access_tokens”。
+
+|
+  backups:
+    - '{% data variables.product.prodname_ghe_server %} 3.2 至少需要 [GitHub Enterprise Backup Utilities 3.2.0](https://github.com/github/backup-utils) 进行[备份和灾难恢复](/enterprise-server@3.2/admin/configuration/configuring-backups-on-your-appliance)。'

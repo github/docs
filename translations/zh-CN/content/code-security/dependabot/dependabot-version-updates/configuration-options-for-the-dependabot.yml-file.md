@@ -1,6 +1,6 @@
 ---
-title: Configuration options for the dependabot.yml file
-intro: 'Detailed information for all the options you can use to customize how {% data variables.product.prodname_dependabot %} maintains your repositories.'
+title: dependabot.yml 文件的配置选项
+intro: '可用于自定义 {% data variables.product.prodname_dependabot %} 如何维护仓库的所有选项的详细信息。'
 permissions: 'People with write permissions to a repository can configure {% data variables.product.prodname_dependabot %} for the repository.'
 allowTitleToDifferFromFilename: true
 redirect_from:
@@ -20,56 +20,54 @@ topics:
   - Dependencies
   - Pull requests
 shortTitle: Configure dependabot.yml
+ms.openlocfilehash: f7753a73f4a889b3c97ca1f47ad3dc1d41da5bc8
+ms.sourcegitcommit: 8544f120269257d01adfe4a27b62f08fc8691727
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 08/02/2022
+ms.locfileid: '147444651'
 ---
+{% data reusables.dependabot.beta-security-and-version-updates %} {% data reusables.dependabot.enterprise-enable-dependabot %}
 
-{% data reusables.dependabot.beta-security-and-version-updates %}
-{% data reusables.dependabot.enterprise-enable-dependabot %}
+## <a name="about-the-dependabotyml-file"></a>关于 dependabot.yml 文件
 
-## About the *dependabot.yml* file
+{% data variables.product.prodname_dependabot %} 配置文件 dependabot.yml 使用 YAML 语法。 如果你不熟悉 YAML 并且想要了解详细信息，请参阅“[在五分钟内了解 YAML](https://www.codeproject.com/Articles/1214409/Learn-YAML-in-five-minutes)”。
 
-The {% data variables.product.prodname_dependabot %} configuration file, *dependabot.yml*, uses YAML syntax. If you're new to YAML and want to learn more, see "[Learn YAML in five minutes](https://www.codeproject.com/Articles/1214409/Learn-YAML-in-five-minutes)."
+必须将此文件存储在存储库的 `.github` 目录中。 在添加或更新 dependabot.yml 文件时，这将立即触发版本更新检查。 有关详细信息和示例，请参阅“[配置 {% data variables.product.prodname_dependabot %} 版本更新](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/enabling-and-disabling-dependabot-version-updates#enabling-dependabot-version-updates)”。
 
-You must store this file in the `.github` directory of your repository. When you add or update the *dependabot.yml* file, this triggers an immediate check for version updates. For more information and an example, see "[Configuring {% data variables.product.prodname_dependabot %} version updates](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/enabling-and-disabling-dependabot-version-updates#enabling-dependabot-version-updates)."
+下次安全警报触发安全更新的拉取请求时将使用所有同时影响安全更新的选项。  有关详细信息，请参阅“[配置 {% data variables.product.prodname_dependabot_security_updates %}](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/configuring-dependabot-security-updates)”。
 
-Any options that also affect security updates are used the next time a security alert triggers a pull request for a security update.  For more information, see "[Configuring {% data variables.product.prodname_dependabot_security_updates %}](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/configuring-dependabot-security-updates)."
+dependabot.yml 文件有两个必需的顶级项：`version` 和 `updates`。 可以选择包括顶级 `registries` 项{% ifversion ghes = 3.5 %} 和/或 `enable-beta-ecosystems` 项{% endif %}。 该文件必须以 `version: 2` 开头。
 
-{% note %}
+## <a name="configuration-options-for-the-dependabotyml-file"></a>dependabot.yml 文件的配置选项
 
-**Note:** You cannot configure {% data variables.product.prodname_dependabot_alerts %} using the *dependabot.yml* file.
-
-{% endnote %}
-
-The *dependabot.yml* file has two mandatory top-level keys: `version`, and `updates`. You can, optionally, include a top-level `registries` key{% ifversion ghes = 3.5 %} and/or a `enable-beta-ecosystems` key{% endif %}. The file must start with `version: 2`.
-
-## Configuration options for the *dependabot.yml* file
-
-The top-level `updates` key is mandatory. You use it to configure how {% data variables.product.prodname_dependabot %} updates the versions or your project's dependencies. Each entry configures the update settings for a particular package manager. You can use the following options.
+顶级 `updates` 项是必需的。 您使用它来配置 {% data variables.product.prodname_dependabot %} 如何更新版本或项目的依赖项。 每个条目都为特定的包管理器配置更新设置。 您可以使用以下选项。
 
 {% data reusables.dependabot.configuration-options %}
 
-These options fit broadly into the following categories.
+这些选项大致分为以下类别。
 
-- Essential set up options that you must include in all configurations: [`package-ecosystem`](#package-ecosystem), [`directory`](#directory),[`schedule.interval`](#scheduleinterval).
-- Options to customize the update schedule: [`schedule.time`](#scheduletime), [`schedule.timezone`](#scheduletimezone), [`schedule.day`](#scheduleday).
-- Options to control which dependencies are updated: [`allow`](#allow), [`ignore`](#ignore), [`vendor`](#vendor).
-- Options to add metadata to pull requests: [`reviewers`](#reviewers), [`assignees`](#assignees), [`labels`](#labels), [`milestone`](#milestone).
-- Options to change the behavior of the pull requests: [`target-branch`](#target-branch), [`versioning-strategy`](#versioning-strategy), [`commit-message`](#commit-message), [`rebase-strategy`](#rebase-strategy), [`pull-request-branch-name.separator`](#pull-request-branch-nameseparator).
+- 必须在所有配置中包含的基本设置选项：[`package-ecosystem`](#package-ecosystem)、[`directory`](#directory)、[`schedule.interval`](#scheduleinterval)。
+- 用于自定义更新计划的选项：[`schedule.time`](#scheduletime)、[`schedule.timezone`](#scheduletimezone)、[`schedule.day`](#scheduleday)。
+- 用于控制要更新的依赖项的选项：[`allow`](#allow)、[`ignore`](#ignore)、[`vendor`](#vendor)。
+- 用于向拉取请求添加元数据的选项：[`reviewers`](#reviewers)、[`assignees`](#assignees)、[`labels`](#labels)、[`milestone`](#milestone)。
+- 用于更改拉取请求的行为的选项：[`target-branch`](#target-branch)、[`versioning-strategy`](#versioning-strategy)、[`commit-message`](#commit-message)、[`rebase-strategy`](#rebase-strategy)、[`pull-request-branch-name.separator`](#pull-request-branch-nameseparator)。
 
-In addition, the [`open-pull-requests-limit`](#open-pull-requests-limit) option changes the maximum number of pull requests for version updates that {% data variables.product.prodname_dependabot %} can open.
+此外，[`open-pull-requests-limit`](#open-pull-requests-limit) 选项会更改 {% data variables.product.prodname_dependabot %} 可以打开的版本更新的最大拉取请求数。
 
 {% note %}
 
-**Note:** Some of these configuration options may also affect pull requests raised for security updates of vulnerable package manifests.
+注意：其中一些配置选项还可能会影响针对易受攻击的程序包清单安全更新提出的拉取请求。
 
-Security updates are raised for vulnerable package manifests only on the default branch. When configuration options are set for the same branch (true unless you use `target-branch`), and specify a `package-ecosystem` and `directory` for the vulnerable manifest, then pull requests for security updates use relevant options.
+仅对默认分支上有漏洞的包清单提出安全更新。 如果为同一分支设置了配置选项（除非使用 `target-branch`，否则为 true），并为易受攻击的清单指定了 `package-ecosystem` 和 `directory`，则安全更新的拉取请求将使用相关选项。
 
-In general, security updates use any configuration options that affect pull requests, for example, adding metadata or changing their behavior. For more information about security updates, see "[Configuring {% data variables.product.prodname_dependabot_security_updates %}](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/configuring-dependabot-security-updates)."
+一般而言，安全更新会使用影响拉取请求的任何配置选项，例如添加元数据或改变其行为。 有关安全更新的详细信息，请参阅“[配置 {% data variables.product.prodname_dependabot_security_updates %}](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/configuring-dependabot-security-updates)”。
 
 {% endnote %}
 
 ### `package-ecosystem`
 
-**Required**. You add one `package-ecosystem` element for each package manager that you want {% data variables.product.prodname_dependabot %} to monitor for new versions. The repository must also contain a dependency manifest or lock file for each of these package managers. If you want to enable vendoring for a package manager that supports it, the vendored dependencies must be located in the required directory. For more information, see [`vendor`](#vendor) below.
+“必需”。 你为希望 {% data variables.product.prodname_dependabot %} 监视新版本的每个包管理器添加一个 `package-ecosystem` 元素。 仓库还必须包含其中每个包管理器的依赖项清单或锁定文件。 如果您想要为支持它的软件包管理器启用供应，则必须在所需的目录中找到供应的依赖项。 有关详细信息，请参阅下面的 [`vendor`](#vendor)。
 
 {% data reusables.dependabot.supported-package-managers %}
 
@@ -83,24 +81,24 @@ updates:
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
-      interval: "weekly"
+      interval: "daily"
 
   # Maintain dependencies for npm
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
-      interval: "weekly"
+      interval: "daily"
 
   # Maintain dependencies for Composer
   - package-ecosystem: "composer"
     directory: "/"
     schedule:
-      interval: "weekly"
+      interval: "daily"
 ```
 
 ### `directory`
 
-**Required**. You must define the location of the package manifests for each package manager (for example, the *package.json* or *Gemfile*). You define the directory relative to the root of the repository for all ecosystems except GitHub Actions. For GitHub Actions, set the directory to `/` to check for workflow files in `.github/workflows`.
+“必需”。 必须为每个包管理器定义程序包清单的位置（例如 package.json 或 Gemfile） 。 为所有生态系统（GitHub Actions 除外）定义相对于仓库根目录的目录。 对于 GitHub Actions，请将目录设置为 `/`，以检查 `.github/workflows` 中的工作流文件。
 
 ```yaml
 # Specify location of manifest files for each package manager
@@ -111,31 +109,29 @@ updates:
     # Files stored in repository root
     directory: "/"
     schedule:
-      interval: "weekly"
+      interval: "daily"
 
   - package-ecosystem: "npm"
     # Files stored in `app` directory
     directory: "/app"
     schedule:
-      interval: "weekly"
+      interval: "daily"
 
   - package-ecosystem: "github-actions"
     # Workflow files stored in the
     # default location of `.github/workflows`
     directory: "/"
     schedule:
-      interval: "weekly"
+      interval: "daily"
 ```
 
 ### `schedule.interval`
 
-**Required**. You must define how often to check for new versions for each package manager. By default, {% data variables.product.prodname_dependabot %} randomly assigns a time to apply all the updates in the configuration file. To set a specific time, you can use [`schedule.time`](#scheduletime) and [`schedule.timezone`](#scheduletimezone).
+“必需”。 必须为每个包管理器定义检查新版本的频率。 默认情况下， {% data variables.product.prodname_dependabot %} 随机分配一个时间来应用配置文件中的所有更新。 若要设置特定时间，可以使用 [`schedule.time`](#scheduletime) 和 [`schedule.timezone`](#scheduletimezone)。
 
-| Interval types | Frequency |
-|----------------|-----------|
-| `daily` | Runs on every weekday, Monday to Friday.|
-| `weekly`| Runs once each week. By default, this is on Monday. To modify this, use [`schedule.day`](#scheduleday).|
-| `monthly` | Runs once each month. This is on the first day of the month. |
+- `daily` - 在每个工作日（周一至周五）运行。
+- `weekly` - 每周运行一次。 默认情况下为星期一。 若要对此进行修改，请使用 [`schedule.day`](#scheduleday)。
+- `monthly` - 每月运行一次。 在每月的第一天运行。
 
 ```yaml
 # Set update schedule for each package manager
@@ -158,7 +154,7 @@ updates:
 
 {% note %}
 
-**Note**: `schedule` defines when {% data variables.product.prodname_dependabot %} attempts a new update. However, it's not the only time you may receive pull requests. Updates can be triggered based on changes to your `dependabot.yml` file, changes to your manifest file(s) after a failed update, or {% data variables.product.prodname_dependabot_security_updates %}. For more information, see "[Frequency of {% data variables.product.prodname_dependabot %} pull requests](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/about-dependabot-version-updates#frequency-of-dependabot-pull-requests)" and "[About {% data variables.product.prodname_dependabot_security_updates %}](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-dependabot-security-updates)."
+注意：`schedule` 定义 {% data variables.product.prodname_dependabot %} 尝试新更新的时间。 但是，这不是您可收到拉取请求的唯一时间。 可以基于对 `dependabot.yml` 文件所做的更改、在更新失败后对清单文件的更改或 {% data variables.product.prodname_dependabot_security_updates %} 触发更新。 有关详细信息，请参阅“[{% data variables.product.prodname_dependabot %} 拉取请求的频率](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/about-dependabot-version-updates#frequency-of-dependabot-pull-requests)”和“[关于 {% data variables.product.prodname_dependabot_security_updates %}](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-dependabot-security-updates)”。
 
 {% endnote %}
 
@@ -166,18 +162,18 @@ updates:
 
 {% data reusables.dependabot.default-dependencies-allow-ignore %}
 
-Use the `allow` option to customize which dependencies are updated. This applies to both version and security updates. You can use the following options:
+使用 `allow` 选项自定义更新的依赖项。 这适用于版本和安全更新。 您可以使用下列选项：
 
-- `dependency-name`—use to allow updates for dependencies with matching names, optionally using `*` to match zero or more characters. For Java dependencies, the format of the `dependency-name` attribute is: `groupId:artifactId`, for example: `org.kohsuke:github-api`.
-- `dependency-type`—use to allow updates for dependencies of specific types.
+- `dependency-name` - 用于允许具有匹配名称的依赖项的更新，可以选择使用 `*` 匹配零个或多个字符。 对于 Java 依赖项，`dependency-name` 属性的格式为 `groupId:artifactId`，例如：`org.kohsuke:github-api`。
+- `dependency-type` - 用于允许特定类型的依赖项的更新。
 
-  | Dependency types | Supported by package managers | Allow updates |
+  | 依赖项类型 | 支持的包管理器 | 允许更新 |
   |------------------|-------------------------------|--------|
-  | `direct` | All | All explicitly defined dependencies. |
-  | `indirect` | `bundler`, `pip`, `composer`, `cargo` | Dependencies of direct dependencies (also known as sub-dependencies, or transient dependencies).|
-  | `all` | All | All explicitly defined dependencies. For `bundler`, `pip`, `composer`, `cargo`, also the dependencies of direct dependencies.|
-  | `production` | `bundler`, `composer`, `mix`, `maven`, `npm`, `pip` | Only dependencies in the "Production dependency group". |
-  | `development`| `bundler`, `composer`, `mix`, `maven`, `npm`, `pip` | Only dependencies in the "Development dependency group". |
+  | `direct` | All | 所有明确定义的依赖项。 |
+  | `indirect` | `bundler`, `pip`, `composer`, `cargo` | 直接依赖关系的依赖项（也称为子依赖项或暂时依赖项）。|
+  | `all` | All | 所有明确定义的依赖项。 对于 `bundler`、`pip`、`composer`、`cargo`，还包括直接依赖项的依赖项。|
+  | `production` | `bundler`, `composer`, `mix`, `maven`, `npm`, `pip` | 仅“产品依赖项组”中的依赖项。 |
+  | `development`| `bundler`, `composer`, `mix`, `maven`, `npm`, `pip` | 仅“产品依赖项组”中的依赖项。 |
 
 ```yaml
 # Use `allow` to specify which dependencies to maintain
@@ -187,7 +183,7 @@ updates:
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
-      interval: "weekly"
+      interval: "daily"
     allow:
       # Allow updates for Lodash
       - dependency-name: "lodash"
@@ -197,7 +193,7 @@ updates:
   - package-ecosystem: "composer"
     directory: "/"
     schedule:
-      interval: "weekly"
+      interval: "daily"
     allow:
       # Allow both direct and indirect updates for all packages
       - dependency-type: "all"
@@ -205,7 +201,7 @@ updates:
   - package-ecosystem: "pip"
     directory: "/"
     schedule:
-      interval: "weekly"
+      interval: "daily"
     allow:
       # Allow only direct updates for
       # Django and any packages starting "django"
@@ -218,7 +214,7 @@ updates:
 
 ### `assignees`
 
-Use `assignees` to specify individual assignees for all pull requests raised for a package manager.
+使用 `assignees` 为针对包管理器提出的所有拉取请求指定单个代理人。
 
 {% data reusables.dependabot.option-affects-security-updates %}
 
@@ -230,7 +226,7 @@ updates:
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
-      interval: "weekly"
+      interval: "daily"
     # Add assignees
     assignees:
       - "octocat"
@@ -238,19 +234,19 @@ updates:
 
 ### `commit-message`
 
-By default, {% data variables.product.prodname_dependabot %} attempts to detect your commit message preferences and use similar patterns. Use the `commit-message` option to specify your preferences explicitly.
+默认情况下，{% data variables.product.prodname_dependabot %} 会尝试检测您的提交消息首选项并使用类似的模式。 使用 `commit-message` 选项可显式指定首选项。
 
-Supported options
+支持的选项
 
 {% note %}
 
-**Note:** The `prefix` and the `prefix-development` options have a {% ifversion fpt or ghec or ghes > 3.7 or ghae > 3.7 %}50{% elsif ghes < 3.8 or ghae < 3.8 %}15{% endif %} character limit.
+注意：`prefix` 和 `prefix-development` 选项具有 15 个字符的限制。
 
 {% endnote %}
 
-- `prefix` specifies a prefix for all commit messages.
-- `prefix-development` specifies a separate prefix for all commit messages that update dependencies in the Development dependency group. When you specify a value for this option, the `prefix` is used only for updates to dependencies in the Production dependency group. This is supported by: `bundler`, `composer`, `mix`, `maven`, `npm`, and `pip`.
-- `include: "scope"` specifies that any prefix is followed by a list of the dependencies updated in the commit.
+- `prefix` 指定所有提交消息的前缀。
+- `prefix-development` 为更新开发依赖项组中的依赖项的所有提交消息指定单独的前缀。 为该选项指定值时，`prefix` 仅用于更新生产依赖项组中的依赖项。 这由 `bundler`、`composer`、`mix`、`maven`、`npm` 和 `pip` 支持。
+- `include: "scope"` 指定任何前缀都后跟提交中更新的依赖项列表。
 
 {% data reusables.dependabot.option-affects-security-updates %}
 
@@ -262,7 +258,7 @@ updates:
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
-      interval: "weekly"
+      interval: "daily"
     commit-message:
       # Prefix all commit messages with "npm"
       prefix: "npm"
@@ -270,7 +266,7 @@ updates:
   - package-ecosystem: "composer"
     directory: "/"
     schedule:
-      interval: "weekly"
+      interval: "daily"
     # Prefix all commit messages with "Composer"
     # include a list of updated dependencies
     commit-message:
@@ -280,7 +276,7 @@ updates:
   - package-ecosystem: "pip"
     directory: "/"
     schedule:
-      interval: "weekly"
+      interval: "daily"
     # Include a list of updated dependencies
     # with a prefix determined by the dependency group
     commit-message:
@@ -288,33 +284,33 @@ updates:
       prefix-development: "pip dev"
       include: "scope"
 ```
-If you use the same configuration as in the example above, bumping the `requests` library in the `pip` development dependency group will generate a commit message of:
+如果使用与上述示例相同的配置，则升级 `pip` 开发依赖项组中的 `requests` 库将生成提交消息：
 
    `pip dev: bump requests from 1.0.0 to 1.0.1`
-
+   
 ### `ignore`
 
 {% data reusables.dependabot.default-dependencies-allow-ignore %}
 
-Dependencies can be ignored either by adding them to `ignore` or by using the `@dependabot ignore` command on a pull request opened by {% data variables.product.prodname_dependabot %}.
+通过将依赖项添加到 `ignore`，或者对由 {% data variables.product.prodname_dependabot %} 打开的拉取请求使用 `@dependabot ignore` 命令，可以忽略依赖项。
 
-#### Creating `ignore` conditions from `@dependabot ignore`
+#### <a name="creating-ignore-conditions-from-dependabot-ignore"></a>从 `@dependabot ignore` 创建 `ignore` 条件
 
-Dependencies ignored by using the `@dependabot ignore` command are stored centrally for each package manager. If you start ignoring dependencies in the `dependabot.yml` file, these existing preferences are considered alongside the `ignore` dependencies in the configuration.
+使用 `@dependabot ignore` 命令忽略的依赖项将针对每个包管理器集中存储。 如果开始忽略 `dependabot.yml` 文件中的依赖项，则这些现有首选项将与配置中的 `ignore` 依赖项一起考虑。
 
-You can check whether a repository has stored `ignore` preferences by searching the repository for `"@dependabot ignore" in:comments`. If you wish to un-ignore a dependency ignored this way, re-open the pull request.
+可以通过在存储库中搜索 `"@dependabot ignore" in:comments` 来检查该存储库是否存储了 `ignore` 首选项。 如果您希望取消忽略以这种方式忽略的依赖项，请重新打开拉取请求。
 
-For more information about the `@dependabot ignore` commands, see "[Managing pull requests for dependency updates](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-pull-requests-for-dependency-updates#managing-dependabot-pull-requests-with-comment-commands)."
+有关 `@dependabot ignore` 命令的详细信息，请参阅“[管理依赖项更新的拉取请求](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-pull-requests-for-dependency-updates#managing-dependabot-pull-requests-with-comment-commands)”。
 
-#### Specifying dependencies and versions to ignore
+#### <a name="specifying-dependencies-and-versions-to-ignore"></a>指定要忽略的依赖项和版本
 
-You can use the `ignore` option to customize which dependencies are updated. The `ignore` option supports the following options.
+可以使用 `ignore` 选项自定义更新的依赖项。 `ignore` 选项支持以下选项。
 
-- `dependency-name`—use to ignore updates for dependencies with matching names, optionally using `*` to match zero or more characters. For Java dependencies, the format of the `dependency-name` attribute is: `groupId:artifactId` (for example: `org.kohsuke:github-api`). {% ifversion dependabot-grouped-dependencies %} To prevent {% data variables.product.prodname_dependabot %} from automatically updating TypeScript type definitions from DefinitelyTyped, use `@types/*`.{% endif %}
-- `versions`—use to ignore specific versions or ranges of versions. If you want to define a range, use the standard pattern for the package manager (for example: `^1.0.0` for npm, or `~> 2.0` for Bundler).
-- `update-types`—use to ignore types of updates, such as semver `major`, `minor`, or `patch` updates on version updates (for example: `version-update:semver-patch` will ignore patch updates). You can combine this with `dependency-name: "*"` to ignore particular `update-types` for all dependencies. Currently, `version-update:semver-major`, `version-update:semver-minor`, and `version-update:semver-patch` are the only supported options. Security updates are unaffected by this setting.
+- `dependency-name` - 用于忽略具有匹配名称的依赖项的更新，可以选择使用 `*` 匹配零个或多个字符。 对于 Java 依赖项，`dependency-name` 属性的格式为 `groupId:artifactId`（例如：`org.kohsuke:github-api`）。 {% ifversion dependabot-grouped-dependencies %} 要防止 {% data variables.product.prodname_dependabot %} 从 DefinitelyTyped 自动更新 TypeScript 类型定义，请使用 `@types/*`。{% endif %}
+- `versions` - 用于忽略特定版本或版本范围。 如果要定义范围，请使用包管理器的标准模式（例如：对于 npm，请使用 `^1.0.0`；对于 Bundler，请使用 `~> 2.0`）。
+- `update-types` - 用于忽略更新类型，例如版本更新的 semver `major`、`minor` 或 `patch` 更新（例如：`version-update:semver-patch` 将忽略修补程序更新）。 可以将其与 `dependency-name: "*"` 相结合，以忽略所有依赖项的特定 `update-types`。 目前，仅支持 `version-update:semver-major`、`version-update:semver-minor` 和 `version-update:semver-patch` 选项。 安全更新不受此设置的影响。
 
-If `versions` and `update-types` are used together, {% data variables.product.prodname_dependabot %} will ignore any update in either set.
+如果结合使用 `versions` 和 `update-types`，{% data variables.product.prodname_dependabot %} 将忽略任一集中的任何更新。
 
 {% data reusables.dependabot.option-affects-security-updates %}
 
@@ -326,7 +322,7 @@ updates:
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
-      interval: "weekly"
+      interval: "daily"
     ignore:
       - dependency-name: "express"
         # For Express, ignore all updates for version 4 and 5
@@ -340,15 +336,14 @@ updates:
 
 {% note %}
 
-**Note**: {% data variables.product.prodname_dependabot %} can only run version updates on manifest or lock files if it can access all of the dependencies in the file, even if you add inaccessible dependencies to the `ignore` option of your configuration file. For more information, see "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization#allowing-dependabot-to-access-private-dependencies)" and "[Troubleshooting {% data variables.product.prodname_dependabot %} errors](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/troubleshooting-dependabot-errors#dependabot-cant-resolve-your-dependency-files)."
+注意：{% data variables.product.prodname_dependabot %} 在可以访问文件中的所有依赖项时，只能在清单或锁定文件上运行版本更新，即使你将不可访问的依赖项添加到配置文件的 `ignore` 选项也是如此。 有关详细信息，请参阅“[管理组织的安全和分析设置](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization#allowing-dependabot-to-access-private-dependencies)”和“[排查 {% data variables.product.prodname_dependabot %} 错误](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/troubleshooting-dependabot-errors#dependabot-cant-resolve-your-dependency-files)”。
 
 
 {% endnote %}
 
-{% ifversion fpt or ghec or ghes > 3.4 %}
-{% note %}
+{% ifversion fpt or ghec or ghes > 3.4 %} {% note %}
 
-**Note**: For the `pub` ecosystem, {% data variables.product.prodname_dependabot %} won't perform an update when the version that it tries to update to is ignored, even if an earlier version is available.
+注意：对于 `pub` 生态系统，{% data variables.product.prodname_dependabot %} 在其尝试更新到的版本被忽略时不会执行更新，即使有可用早期版本也是如此。
 
 {% endnote %}
 
@@ -356,9 +351,9 @@ updates:
 
 ### `insecure-external-code-execution`
 
-Package managers with the `package-ecosystem` values `bundler`, `mix`, and `pip` may execute external code in the manifest as part of the version update process. This might allow a compromised package to steal credentials or gain access to configured registries. When you add a [`registries`](#registries) setting within an `updates` configuration, {% data variables.product.prodname_dependabot %} automatically prevents external code execution, in which case the version update may fail. You can choose to override this behavior and allow external code execution for `bundler`, `mix`, and `pip` package managers by setting `insecure-external-code-execution` to `allow`.
+包含 `package-ecosystem` 值 `bundler`、`mix` 和 `pip` 的包管理器可能会在版本更新过程中在清单中执行外部代码。 这可能允许受损害的软件包窃取凭据或访问已配置的注册。 在 `updates` 配置中添加 [`registries`](#registries) 设置时，{% data variables.product.prodname_dependabot %} 会自动阻止外部代码执行，在此情况下，版本更新可能会失败。 可以选择通过将 `insecure-external-code-execution` 设置为 `allow` 来替代此行为，允许针对 `bundler`、`mix` 和 `pip` 包管理器的外部代码执行。
 
-You can explicitly deny external code execution, irrespective of whether there is a `registries` setting for this update configuration, by setting `insecure-external-code-execution` to `deny`.
+可以通过将 `insecure-external-code-execution` 设置为 `deny` 显式拒绝外部代码执行，而不考虑此更新配置是否有 `registries` 设置。
 
 {% raw %}
 ```yaml
@@ -384,8 +379,8 @@ updates:
 
 {% data reusables.dependabot.default-labels %}
 
-Use `labels` to override the default labels and specify alternative labels for all pull requests raised for a package manager. If any of these labels is not defined in the repository, it is ignored.
-To disable all labels, including the default labels, use `labels: [ ]`.
+使用 `labels` 替代默认标签，并为针对包管理器提出的所有拉取请求指定替代标签。 如果其中任何标签未在仓库中定义，将被忽略。
+若要禁用所有标签（包括默认标签），请使用 `labels: [ ]`。
 
 {% data reusables.dependabot.option-affects-security-updates %}
 
@@ -397,7 +392,7 @@ updates:
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
-      interval: "weekly"
+      interval: "daily"
     # Specify labels for npm pull requests
     labels:
       - "npm"
@@ -406,7 +401,7 @@ updates:
 
 ### `milestone`
 
-Use `milestone` to associate all pull requests raised for a package manager with a milestone. You need to specify the numeric identifier of the milestone and not its label. If you view a milestone, the final part of the page URL, after `milestone`, is the identifier. For example: `https://github.com/<org>/<repo>/milestone/3`.
+使用 `milestone` 将针对包管理器提出的所有拉取请求与里程碑相关联。 您需要指定里程碑的数字标识符，而不是其标签。 如果查看里程碑，则 `milestone` 之后的页面 URL 的最后一部分是标识符。 例如：`https://github.com/<org>/<repo>/milestone/3`。
 
 {% data reusables.dependabot.option-affects-security-updates %}
 
@@ -418,16 +413,16 @@ updates:
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
-      interval: "weekly"
+      interval: "daily"
     # Associate pull requests with milestone "4"
     milestone: 4
 ```
 
 ### `open-pull-requests-limit`
 
-By default, {% data variables.product.prodname_dependabot %} opens a maximum of five pull requests for version updates. Once there are five open pull requests from {% data variables.product.prodname_dependabot %}, {% data variables.product.prodname_dependabot %} will not open any new requests until some of those open requests are merged or closed. Use `open-pull-requests-limit` to change this limit. This also provides a simple way to temporarily disable version updates for a package manager.
+默认情况下， {% data variables.product.prodname_dependabot %} 最多打开五个版本更新的拉取请求。 一旦有五个打开的拉取请求，新的请求将被阻止，直到您合并或关闭一些打开的请求，之后可以在后续更新中打开新的拉取请求。 使用 `open-pull-requests-limit` 可以更改此限制。 这也提供了一个简单的方法来暂时禁用包管理器的版本更新。
 
-This option has no impact on security updates, which have a separate, internal limit of ten open pull requests.
+此选项对安全更新没有影响，因为安全更新具有单独的内部限制：10 个打开的拉取请求。
 
 ```yaml
 # Specify the number of open pull requests allowed
@@ -437,23 +432,23 @@ updates:
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
-      interval: "weekly"
+      interval: "daily"
     # Disable version updates for npm dependencies
     open-pull-requests-limit: 0
 
   - package-ecosystem: "pip"
     directory: "/"
     schedule:
-      interval: "weekly"
+      interval: "daily"
     # Allow up to 10 open pull requests for pip dependencies
     open-pull-requests-limit: 10
 ```
 
 ### `pull-request-branch-name.separator`
 
-{% data variables.product.prodname_dependabot %} generates a branch for each pull request. Each branch name includes `dependabot`, and the package manager and dependency that are updated. By default, these parts are separated by a `/` symbol, for example: `dependabot/npm_and_yarn/next_js/acorn-6.4.1`.
+{% data variables.product.prodname_dependabot %} 为每个拉取请求生成分支。 每个分支名称都包括 `dependabot`，以及更新的包管理器和依赖项。 默认情况下，这些部分由 `/` 符号分隔，例如：`dependabot/npm_and_yarn/next_js/acorn-6.4.1`。
 
-Use `pull-request-branch-name.separator` to specify a different separator. This can be one of: `"-"`, `_` or `/`. The hyphen symbol must be quoted because otherwise it's interpreted as starting an empty YAML list.
+使用 `pull-request-branch-name.separator` 指定不同的分隔符。 这可以是 `"-"`、`_` 或 `/` 之一。 连字符必须用引号括住，否则会解释为开始一个空的 YAML 列表。
 
 {% data reusables.dependabot.option-affects-security-updates %}
 
@@ -465,7 +460,7 @@ updates:
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
-      interval: "weekly"
+      interval: "daily"
     pull-request-branch-name:
       # Separate sections of the branch name with a hyphen
       # for example, `dependabot-npm_and_yarn-next_js-acorn-6.4.1`
@@ -474,32 +469,12 @@ updates:
 
 ### `rebase-strategy`
 
-By default, {% data variables.product.prodname_dependabot %} automatically rebases open pull requests when it detects any changes to the pull request. Use `rebase-strategy` to disable this behavior.
+默认情况下，{% data variables.product.prodname_dependabot %} 会在检测到拉取请求有任何更改时自动变基打开的拉取请求。 使用 `rebase-strategy` 可以禁用此行为。
 
-Available rebase strategies
+可用的变基策略
 
-- `auto` to use the default behavior and rebase open pull requests when changes are detected.
-- `disabled` to disable automatic rebasing.
-
-When `rebase-strategy` is set to `auto`, {% data variables.product.prodname_dependabot %} attempts to rebase pull requests in the following cases.
-- When you use {% data variables.product.prodname_dependabot_version_updates %}, for any open {% data variables.product.prodname_dependabot %} pull request when your schedule runs.
-- When you reopen a closed {% data variables.product.prodname_dependabot %} pull request.
-- When you change the value of `target-branch` in the {% data variables.product.prodname_dependabot %} configuration file. For more information about this field, see "[`target-branch`](#target-branch)."
-- When {% data variables.product.prodname_dependabot %} detects that a {% data variables.product.prodname_dependabot %} pull request is in conflict after a recent push to the target branch.
-
-{% note %}
-
-**Note:** {% data variables.product.prodname_dependabot %} will keep rebasing a pull request indefinitely until the pull request is closed, merged or you disable {% data variables.product.prodname_dependabot_updates %}.
-
-{% endnote %}
-
-When `rebase-strategy` is set to `disabled`, {% data variables.product.prodname_dependabot %} stops rebasing pull requests. 
-
-{% note %}
-
-**Note:** This behavior only applies to pull requests that go into conflict with the target branch. {% data variables.product.prodname_dependabot %} will keep rebasing pull requests opened prior to the `rebase-strategy` setting being changed, and pull requests that are part of a scheduled run.
-
-{% endnote %}
+- `disabled` 用于禁用自动变基。
+- `auto` 用于在检测到更改时使用默认行为并变基打开的拉取请求。
 
 {% data reusables.dependabot.option-affects-security-updates %}
 
@@ -511,16 +486,16 @@ updates:
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
-      interval: "weekly"
+      interval: "daily"
     # Disable rebasing for npm pull requests
     rebase-strategy: "disabled"
 ```
 
 ### `registries`
 
-To allow {% data variables.product.prodname_dependabot %} to access a private package registry when performing a version update, you must include a `registries` setting within the relevant `updates` configuration. You can allow all of the defined registries to be used by setting `registries` to `"*"`. Alternatively, you can list the registries that the update can use. To do this, use the name of the registry as defined in the top-level `registries` section of the _dependabot.yml_ file. For more information, see "[Configuration options for private registries](#configuration-options-for-private-registries)" below.
+若要在执行版本更新时允许 {% data variables.product.prodname_dependabot %} 访问专用包注册表，必须在相关 `updates` 配置中包含 `registries` 设置。 可以通过将 `registries` 设置为 `"*"` 来允许使用所有已定义的注册表。 或者，您可以列出更新可以使用的注册表。 为此，请使用 dependabot.yml 文件的顶级 `registries` 部分中定义的注册表名称。 有关详细信息，请参阅下面的“[专用注册表的配置选项](#configuration-options-for-private-registries)”。
 
-To allow {% data variables.product.prodname_dependabot %} to use `bundler`, `mix`, and `pip` package managers to update dependencies in private registries, you can choose to allow external code execution. For more information, see [`insecure-external-code-execution`](#insecure-external-code-execution) above.
+若要允许 {% data variables.product.prodname_dependabot %} 使用 `bundler`、`mix` 和 `pip` 包管理器更新专用注册表中的依赖项，可以选择允许外部代码执行。 有关详细信息，请参阅上面的 [`insecure-external-code-execution`](#insecure-external-code-execution)。
 
 ```yaml
 # Allow {% data variables.product.prodname_dependabot %} to use one of the two defined private registries
@@ -551,7 +526,7 @@ updates:
 
 ### `reviewers`
 
-Use `reviewers` to specify individual reviewers or teams of reviewers for all pull requests raised for a package manager. You must use the full team name, including the organization, as if you were @mentioning the team.
+使用 `reviewers` 为针对包管理器提出的所有拉取请求指定单个审阅者或审阅者团队。 必须使用完整的团队名称，包括组织，就像你是 @mentioning 团队一样。
 
 {% data reusables.dependabot.option-affects-security-updates %}
 
@@ -563,7 +538,7 @@ updates:
   - package-ecosystem: "pip"
     directory: "/"
     schedule:
-      interval: "weekly"
+      interval: "daily"
     # Add reviewers
     reviewers:
       - "octocat"
@@ -573,9 +548,9 @@ updates:
 
 ### `schedule.day`
 
-When you set a `weekly` update schedule, by default, {% data variables.product.prodname_dependabot %} checks for new versions on Monday at a random set time for the repository. Use `schedule.day` to specify an alternative day to check for updates.
+设置 `weekly` 更新计划时，默认情况下，{% data variables.product.prodname_dependabot %} 会在周一的随机设置时间检查存储库的新版本。 使用 `schedule.day` 可以指定检查更新的备用日期。
 
-Supported values
+支持的值
 
 - `monday`
 - `tuesday`
@@ -600,7 +575,7 @@ updates:
 
 ### `schedule.time`
 
-By default, {% data variables.product.prodname_dependabot %} checks for new versions at a random set time for the repository. Use `schedule.time` to specify an alternative time of day to check for updates (format: `hh:mm`).
+默认情况下，{% data variables.product.prodname_dependabot %} 在仓库的随机设置时间检查新版本。 使用 `schedule.time` 可以指定检查更新的备用时间（格式：`hh:mm`）。
 
 ```yaml
 # Set a time for checks
@@ -609,14 +584,14 @@ updates:
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
-      interval: "weekly"
+      interval: "daily"
       # Check for npm updates at 9am UTC
       time: "09:00"
 ```
 
 ### `schedule.timezone`
 
-By default, {% data variables.product.prodname_dependabot %} checks for new versions at a random set time for the repository. Use `schedule.timezone` to specify an alternative time zone. The time zone identifier must be from the Time Zone database maintained by [iana](https://www.iana.org/time-zones). For more information, see [List of tz database time zones](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
+默认情况下，{% data variables.product.prodname_dependabot %} 在仓库的随机设置时间检查新版本。 使用 `schedule.timezone` 可以指定备用时区。 时区标识符必须来自 [iana](https://www.iana.org/time-zones) 维护的时区数据库。 有关详细信息，请参阅 [tz 数据库时区列表](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)。
 
 ```yaml
 # Specify the timezone for checks
@@ -626,7 +601,7 @@ updates:
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
-      interval: "weekly"
+      interval: "daily"
       time: "09:00"
       # Use Japan Standard Time (UTC +09:00)
       timezone: "Asia/Tokyo"
@@ -634,7 +609,7 @@ updates:
 
 ### `target-branch`
 
-By default, {% data variables.product.prodname_dependabot %} checks for manifest files on the default branch and raises pull requests for version updates against this branch. Use `target-branch` to specify a different branch for manifest files and for pull requests. When you use this option, the settings for this package manager will no longer affect any pull requests raised for security updates.
+默认情况下，{% data variables.product.prodname_dependabot %} 会检查默认分支上的清单文件，并对此分支提出版本更新的拉取请求。 使用 `target-branch` 可以为清单文件和拉取请求指定不同的分支。 使用此选项时，此包管理器的设置将不再影响针对安全更新提出的任何拉取请求。
 
 ```yaml
 # Specify a non-default branch for pull requests for pip
@@ -644,7 +619,7 @@ updates:
   - package-ecosystem: "pip"
     directory: "/"
     schedule:
-      interval: "weekly"
+      interval: "daily"
     # Raise pull requests for version updates
     # to pip against the `develop` branch
     target-branch: "develop"
@@ -665,7 +640,7 @@ updates:
 
 ### `vendor`
 
-Use the `vendor` option to tell {% data variables.product.prodname_dependabot %} to vendor dependencies when updating them. Don't use this option if you're using `gomod` as {% data variables.product.prodname_dependabot %} automatically detects vendoring for this tool.
+使用 `vendor` 选项指示 {% data variables.product.prodname_dependabot %} 在更新依赖项时提供其供应商。 如果使用 `gomod`，请勿使用此选项，因为 {% data variables.product.prodname_dependabot %} 会自动检测此工具的供应。
 
 ```yaml
 # Configure version updates for both dependencies defined in manifests and vendored dependencies
@@ -680,34 +655,34 @@ updates:
       interval: "weekly"
 ```
 
-{% data variables.product.prodname_dependabot %} only updates the vendored dependencies located in specific directories in a repository.
+{% data variables.product.prodname_dependabot %} 仅更新位于仓库的特定目录中供应的依赖项。
 
-| Package manager | Required file path for vendored dependencies | More information |
+| 程序包管理器 | 供应的依赖项所需的文件路径 | 详细信息 |
   |------------------|-------------------------------|--------|
-  | `bundler` | The dependencies must be in the _vendor/cache_ directory.</br>Other file paths are not supported. | [`bundle cache` documentation](https://bundler.io/man/bundle-cache.1.html) |
-  | `gomod` | No path requirement (dependencies are usually located in the _vendor_ directory) | [`go mod vendor` documentation](https://golang.org/ref/mod#go-mod-vendor) |
+  | `bundler` | 依赖项必须位于 vendor/cache 目录中。</br>不支持其他文件路径。 | [`bundle cache` 文档](https://bundler.io/man/bundle-cache.1.html) |
+  | `gomod` | 无路径要求（依赖项通常位于 vendor 目录中） | [`go mod vendor` 文档](https://golang.org/ref/mod#go-mod-vendor) |
 
 
 ### `versioning-strategy`
 
-When {% data variables.product.prodname_dependabot %} edits a manifest file to update a version, it uses the following overall strategies:
+{% data variables.product.prodname_dependabot %} 在编辑清单文件来更新版本时，使用以下总体策略：
 
-- For apps, the version requirements are increased, for example: npm, pip and Composer.
-- For libraries, the range of versions is widened, for example: Bundler and Cargo.
+- 对于 app，版本要求会增加，例如：npm、pip 和 Composer。
+- 对于库，版本的范围会扩大，例如： Bundler 和 Cargo。
 
-Use the `versioning-strategy` option to change this behavior for supported package managers.
+使用 `versioning-strategy` 选项可以更改受支持的包管理器的此行为。
 
 {% data reusables.dependabot.option-affects-security-updates %}
 
-Available update strategies
+可用的更新策略
 
-| Option | Supported by | Action |
+| 选项 | 支持的服务 | 操作 |
 |--------|--------------|--------|
-| `lockfile-only` | `bundler`, `cargo`, `composer`, `mix`, `npm`, `pip` | Only create pull requests to update lockfiles. Ignore any new versions that would require package manifest changes. |
-| `auto` | `bundler`, `cargo`, `composer`, `mix`, `npm`, `pip` | Follow the default strategy described above.|
-| `widen`| `composer`, `npm` | Relax the version requirement to include both the new and old version, when possible. |
-| `increase`| `bundler`, `composer`, `npm`{% ifversion dependabot-increase-version-pip-support %}, `pip`{% endif %}  | Always increase the version requirement to match the new version. |
-| `increase-if-necessary` | `bundler`, `composer`, `npm`{% ifversion dependabot-increase-version-pip-support %}, `pip`{% endif %} | Increase the version requirement only when required by the new version. |
+| `lockfile-only` | `bundler`, `cargo`, `composer`, `mix`, `npm`, `pip` | 仅创建用于更新 lockfiles 的拉取请求。 忽略任何需要包清单更改的新版本。 |
+| `auto` | `bundler`, `cargo`, `composer`, `mix`, `npm`, `pip` | 遵循上述默认策略。|
+| `widen`| `composer`, `npm` | 尽可能放宽版本要求，以包括新旧版本。 |
+| `increase`| `bundler`, `composer`, `npm` | 始终增加版本要求以匹配新版本。 |
+| `increase-if-necessary` | `bundler`, `composer`, `npm` | 仅当新版本需要时才增加版本要求。 |
 
 ```yaml
 # Customize the manifest version strategy
@@ -717,7 +692,7 @@ updates:
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
-      interval: "weekly"
+      interval: "daily"
     # Update the npm manifest file to relax
     # the version requirements
     versioning-strategy: widen
@@ -725,7 +700,7 @@ updates:
   - package-ecosystem: "composer"
     directory: "/"
     schedule:
-      interval: "weekly"
+      interval: "daily"
     # Increase the version requirements for Composer
     # only when required
     versioning-strategy: increase-if-necessary
@@ -733,23 +708,23 @@ updates:
   - package-ecosystem: "pip"
     directory: "/"
     schedule:
-      interval: "weekly"
+      interval: "daily"
     # Only allow updates to the lockfile for pip and
     # ignore any version updates that affect the manifest
     versioning-strategy: lockfile-only
 ```
 
-## Configuration options for private registries
+## <a name="configuration-options-for-private-registries"></a>私人注册的配置选项
 
-The top-level `registries` key is optional. It allows you to specify authentication details that {% data variables.product.prodname_dependabot %} can use to access private package registries.
+顶级 `registries` 项是可选的。 它允许您指定 {% data variables.product.prodname_dependabot %} 可用于访问私人包注册表的身份验证详细信息。
 
 {% note %}
 
-**Note:** Private registries behind firewalls on private networks are not supported.
+注意：不支持专用网络上防火墙后面的专用注册表。
 
 {% endnote %}
 
-The value of the `registries` key is an associative array, each element of which consists of a key that identifies a particular registry and a value which is an associative array that specifies the settings required to access that registry. The following *dependabot.yml* file, configures a registry identified as `dockerhub` in the `registries` section of the file and then references this in the `updates` section of the file.
+`registries` 项的值是一个关联阵列，其中每个元素由一个标识特定注册表的键和一个为关联阵列的值组成，该值指定访问该注册表所需的设置。 以下 dependabot.yml 文件在文件的 `registries` 部分配置一个标识为 `dockerhub` 的注册表，然后在文件的 `updates` 部分中引用该注册表。
 
 {% raw %}
 ```yaml
@@ -772,24 +747,24 @@ updates:
 ```
 {% endraw %}
 
-You use the following options to specify access settings. Registry settings must contain a `type` and a `url`, and typically either a `username` and `password` combination or a `token`.
+您使用以下选项来指定访问设置。 注册表设置必须包含 `type` 和 `url`，并且通常包含 `username` 和 `password` 组合或 `token`。
 
-| Option&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Description |
+| 选项&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | 说明 |
 |:---|:---|
-| `type`                     | Identifies the type of registry. See the full list of types below. |
-| `url`                      | The URL to use to access the dependencies in this registry. The protocol is optional. If not specified, `https://` is assumed. {% data variables.product.prodname_dependabot %} adds or ignores trailing slashes as required. |
-| `username`                 | The username that {% data variables.product.prodname_dependabot %} uses to access the registry. |
-| `password`                 | A reference to a {% data variables.product.prodname_dependabot %} secret containing the password for the specified user. For more information, see "[Managing encrypted secrets for Dependabot](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-encrypted-secrets-for-dependabot)." |
-| `key`                    | A reference to a {% data variables.product.prodname_dependabot %} secret containing an access key for this registry. For more information, see "[Managing encrypted secrets for Dependabot](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-encrypted-secrets-for-dependabot)." |
-| `token`                    | A reference to a {% data variables.product.prodname_dependabot %} secret containing an access token for this registry. For more information, see "[Managing encrypted secrets for Dependabot](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-encrypted-secrets-for-dependabot)." |
-| `replaces-base`            | For registries with `type: python-index`, if the boolean value is `true`, pip resolves dependencies by using the specified URL rather than the base URL of the Python Package Index (by default `https://pypi.org/simple`). |
+| `type`                     | 识别注册表的类型。 请参阅下面的完整类型列表。 |
+| `url`                      | 用于访问此注册表中的依赖项的 URL。 协议是可选的。 如果未指定，则假定为 `https://`。 {% data variables.product.prodname_dependabot %} 根据需要添加或忽略尾随斜线。 |
+| `username`                 | {% data variables.product.prodname_dependabot %} 用于访问注册表的用户名。 |
+| `password`                 | 引用包含指定用户密码的 {% data variables.product.prodname_dependabot %} 机密。 有关详细信息，请参阅“[管理 Dependabot 的加密机密](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-encrypted-secrets-for-dependabot)”。 |
+| `key`                    | 引用包含此注册表访问密钥的 {% data variables.product.prodname_dependabot %} 机密。 有关详细信息，请参阅“[管理 Dependabot 的加密机密](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-encrypted-secrets-for-dependabot)”。 |
+| `token`                    | 引用包含此注册表访问令牌的 {% data variables.product.prodname_dependabot %} 机密。 有关详细信息，请参阅“[管理 Dependabot 的加密机密](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-encrypted-secrets-for-dependabot)”。 |
+| `replaces-base`            | 对于包含 `type: python-index` 的注册表，如果布尔值为 `true`，pip 会使用指定的 URL 而不是 Python 包索引的基 URL（默认为 `https://pypi.org/simple`）来解析依赖项。 |
 
 
-Each configuration `type` requires you to provide particular settings. Some types allow more than one way to connect. The following sections provide details of the settings you should use for each `type`.
+每个配置 `type` 都要求提供特定设置。 某些类型允许多种连接方式。 以下部分提供了每个 `type` 应该使用的设置的详细信息。
 
 ### `composer-repository`
 
-The `composer-repository` type supports username and password.
+`composer-repository` 类型支持用户名和密码。
 
 {% raw %}
 ```yaml
@@ -804,9 +779,13 @@ registries:
 
 ### `docker-registry`
 
-{% data variables.product.prodname_dependabot %}  works with any container registries that implement the OCI container registry spec. For more information, see [https://github.com/opencontainers/distribution-spec/blob/main/spec.md](https://github.com/opencontainers/distribution-spec/blob/main/spec.md).  {% data variables.product.prodname_dependabot %} supports authentication to private registries via a central token service or HTTP Basic Auth. For further details, see [Token Authentication Specification](https://docs.docker.com/registry/spec/auth/token/) in the Docker documentation and [Basic access authentication](https://en.wikipedia.org/wiki/Basic_access_authentication) on Wikipedia.
+{% note %}
 
-The `docker-registry` type supports username and password.
+注意：我们不支持 Azure 容器注册表 (ACR)。
+
+{% endnote %}
+
+`docker-registry` 类型支持用户名和密码。
 
 {% raw %}
 ```yaml
@@ -819,7 +798,7 @@ registries:
 ```
 {% endraw %}
 
-The `docker-registry` type can also be used to pull from private Amazon ECR using static AWS credentials.
+`docker-registry` 类型还可用于使用静态 AWS 凭据从 Amazon ECR 中拉取。
 
 {% raw %}
 ```yaml
@@ -834,7 +813,7 @@ registries:
 
 ### `git`
 
-The `git` type supports username and password.
+`git` 类型支持用户名和密码。
 
 {% raw %}
 ```yaml
@@ -849,7 +828,7 @@ registries:
 
 ### `hex-organization`
 
-The `hex-organization` type supports organization and key.
+`hex-organization` 类型支持组织和密钥。
 
 {% raw %}
 ```yaml
@@ -861,30 +840,9 @@ registries:
 ```
 {% endraw %}
 
-{% ifversion dependabot-hex-self-hosted-support %}
-### `hex-repository`
-
-The `hex-repository` type supports an authentication key.
-
-`repo` is a required field, which must match the name of the repository used in your dependency declaration.
-
-The `public-key-fingerprint` is an optional configuration field, representing the fingerprint of the public key for the Hex repository. `public-key-fingerprint` is used by Hex to establish trust with the private repository. The `public-key-fingerprint` field can be either listed in plaintext or stored as a {% data variables.product.prodname_dependabot %} secret.
-
-{% raw %}
-```yaml
-registries:
-   github-hex-repository:
-     type: hex-repository
-     repo: private-repo
-     url: https://private-repo.example.com
-     auth-key: ${{secrets.MY_AUTH_KEY}}
-     public-key-fingerprint: ${{secrets.MY_PUBLIC_KEY_FINGERPRINT}}
-```
-{% endraw %}{% endif %}
-
 ### `maven-repository`
 
-The `maven-repository` type supports username and password.
+`maven-repository` 类型支持用户名和密码。
 
 {% raw %}
 ```yaml
@@ -899,9 +857,9 @@ registries:
 
 ### `npm-registry`
 
-The `npm-registry` type supports username and password, or token.
+`npm-registry` 类型支持用户名和密码或者令牌。
 
-When using username and password, your `.npmrc`'s auth token may contain a `base64` encoded `_password`; however, the password referenced in your {% data variables.product.prodname_dependabot %} configuration file must be the original (unencoded) password. 
+使用用户名和密码时，`.npmrc` 的身份验证令牌可能包含 `base64` 编码的 `_password`；但是，{% data variables.product.prodname_dependabot %} 配置文件中引用的密码必须是原始（未编码）密码。
 
 {% raw %}
 ```yaml
@@ -923,12 +881,10 @@ registries:
     token: ${{secrets.MY_GITHUB_PERSONAL_TOKEN}}
 ```
 {% endraw %}
-{% ifversion dependabot-yarn-v3-update %}
-For security reasons, {% data variables.product.prodname_dependabot %} does not set environment variables. Yarn (v2 and later) requires that any accessed environment variables are set. When accessing environment variables in your `.yarnrc.yml` file, you should provide a fallback value such as {% raw %}`${ENV_VAR-fallback}`{% endraw %} or {% raw %}`${ENV_VAR:-fallback}`{% endraw %}. For more information, see [Yarnrc files](https://yarnpkg.com/configuration/yarnrc) in the Yarn documentation.{% endif %}
 
 ### `nuget-feed`
 
-The `nuget-feed` type supports username and password, or token.
+`nuget-feed` 类型支持用户名和密码或者令牌。
 
 {% raw %}
 ```yaml
@@ -947,14 +903,13 @@ registries:
   nuget-azure-devops:
     type: nuget-feed
     url: https://pkgs.dev.azure.com/.../_packaging/My_Feed/nuget/v3/index.json
-    username: octocat@example.com
-    password: ${{secrets.MY_AZURE_DEVOPS_TOKEN}}
+    token: ${{secrets.MY_AZURE_DEVOPS_TOKEN}}
 ```
 {% endraw %}
 
 ### `python-index`
 
-The `python-index` type supports username and password, or token.
+`python-index` 类型支持用户名和密码或者令牌。
 
 {% raw %}
 ```yaml
@@ -974,15 +929,14 @@ registries:
   python-azure:
     type: python-index
     url: https://pkgs.dev.azure.com/octocat/_packaging/my-feed/pypi/example
-    username: octocat@example.com
-    password: ${{secrets.MY_AZURE_DEVOPS_TOKEN}}
+    token: ${{secrets.MY_AZURE_DEVOPS_TOKEN}}
     replaces-base: true
 ```
 {% endraw %}
 
 ### `rubygems-server`
 
-The `rubygems-server` type supports username and password, or token.
+`rubygems-server` 类型支持用户名和密码或者令牌。
 
 {% raw %}
 ```yaml
@@ -1007,7 +961,7 @@ registries:
 
 ### `terraform-registry`
 
-The `terraform-registry` type supports a token.
+`terraform-registry` 类型支持令牌。
 
 {% raw %}
 ```yaml
@@ -1019,12 +973,12 @@ registries:
 ```
 {% endraw %}
 
-{% ifversion fpt or ghec or ghes > 3.4 %}
-## Enabling support for beta-level ecosystems
+{% ifversion fpt or ghec or ghes > 3.4 %} 
+## <a name="enabling-support-for-beta-level-ecosystems"></a>启用对 beta 级生态系统的支持
 
 ### `enable-beta-ecosystems`
 
-By default, {% data variables.product.prodname_dependabot %} updates the dependency manifests and lock files only for fully supported ecosystems. Use the `enable-beta-ecosystems` flag to opt in to updates for ecosystems that are not yet generally available.
+默认情况下，{% data variables.product.prodname_dependabot %} 仅针对完全支持的生态系统更新依赖项清单和锁定文件。 使用 `enable-beta-ecosystems` 标志选择加入尚未正式发布的生态系统更新。
 
 ```yaml
 # Configure beta ecosystem
@@ -1036,6 +990,6 @@ updates:{% ifversion fpt or ghec or ghes > 3.5 %}
   - package-ecosystem: "pub"{% endif %}
     directory: "/"
     schedule:
-      interval: "weekly"
+      interval: "daily"
 ```
 {% endif %}

@@ -1,6 +1,6 @@
 ---
-title: About SSH certificate authorities
-intro: 'With an SSH certificate authority, your organization or enterprise account can provide SSH certificates that members can use to access your resources with Git.'
+title: 关于 SSH 认证中心
+intro: 通过 SSH 认证中心，组织或企业帐户可提供 SSH 证书，供成员用来通过 Git 访问您的资源。
 redirect_from:
   - /articles/about-ssh-certificate-authorities
   - /github/setting-up-and-managing-organizations-and-teams/about-ssh-certificate-authorities
@@ -12,60 +12,64 @@ topics:
   - Organizations
   - Teams
 shortTitle: SSH certificate authorities
+ms.openlocfilehash: c4940399efa3c1e88c68224c421de7f43f7ea89b
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147061977'
 ---
+## 关于 SSH 认证中心
 
-## About SSH certificate authorities
-
-An SSH certificate is a mechanism for one SSH key to sign another SSH key. If you use an SSH certificate authority (CA) to provide your organization members with signed SSH certificates, you can add the CA to your enterprise account or organization to allow organization members to use their certificates to access organization resources. 
+SSH 证书是一种机制：一个 SSH 密钥对另一个 SSH 密钥签名。 如果使用 SSH 认证中心 (CA) 为组织成员提供已签名的 SSH 证书，您可以将 CA 添加到企业帐户或组织，以便组织成员使用其证书访问组织资源。 
 
 {% data reusables.organizations.ssh-ca-ghec-only %}
 
-After you add an SSH CA to your organization or enterprise account, you can use the CA to sign client SSH certificates for organization members. Organization members can use the signed certificates to access your organization's repositories (and only your organization's repositories) with Git. Optionally, you can require that members use SSH certificates to access organization resources. For more information, see "[Managing your organization's SSH certificate authorities](/articles/managing-your-organizations-ssh-certificate-authorities)" and "[Enforcing policies for security settings in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#managing-ssh-certificate-authorities-for-your-enterprise)."
+在将 SSH CA 添加到组织或企业帐户后，您可以使用 CA 为组织成员签名客户 SSH 证书。 组织成员可以使用已签名的证书通过 Git 访问组织的仓库（并且只访问您组织的仓库）。 （可选）您可以要求成员使用 SSH 证书访问组织资源。 有关详细信息，请参阅“[管理组织的 SSH 证书颁发机构](/articles/managing-your-organizations-ssh-certificate-authorities)”和“[在企业中强制实施安全设置策略](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#managing-ssh-certificate-authorities-for-your-enterprise)”。
 
-For example, you can build an internal system that issues a new certificate to your developers every morning. Each developer can use their daily certificate to work on your organization's repositories on {% data variables.product.product_name %}. At the end of the day, the certificate can automatically expire, protecting your repositories if the certificate is later compromised.
+例如，您可以构建内部系统，每天早上向开发者颁发新证书。 每个开发者可以使用其每日证书处理组织在 {% data variables.product.product_name %} 上的仓库。 在一天结束时，证书会自动到期，以保护仓库，避免证书以后被窃取。
 
-{% ifversion ghec %}
-Organization members can use their signed certificates for authentication even if you've enforced SAML single sign-on. Unless you make SSH certificates a requirement, organization members can continue to use other means of authentication to access your organization's resources with Git, including their username and password, {% data variables.product.pat_generic %}s, and their own SSH keys.
+{% ifversion ghec %} 即使实施了 SAML 单一登录，组织成员也可使用其签名的证书进行身份验证。 除非您将 SSH 证书设为要求，组织成员可继续使用其他验证方式通过 Git 访问组织的资源，包括他们的用户名和密码、个人访问令牌及其自己的 SSH 密钥。
 {% endif %}
 
-Members will not be able to use their certificates to access forks of your repositories that are owned by their personal accounts. 
+成员将无法使用其证书访问其个人帐户拥有的仓库的复刻。 
 
-## About SSH URLs with SSH certificates
+## 关于使用 SSH 证书的 SSH URL
 
-If your organization requires SSH certificates, to prevent authentication errors, organization members should use a special URL that includes the organization ID when performing Git operations over SSH. This special URL allows the client and server to more easily negotiate which key on the member's computer should be used for authentication. If a member uses the normal URL, which starts with `git@github.com`, the SSH client might offer the wrong key, causing the operation to fail.
+如果您的组织需要 SSH 证书，为了防止身份验证错误，组织成员在通过 SSH 执行 Git 操作时应使用包含组织 ID 的特殊 URL。 此特殊 URL 允许客户端和服务器更轻松地协商应使用成员计算机上的哪个密钥进行身份验证。 如果成员使用以 `git@github.com` 开头的正常 URL，则 SSH 客户端可能会提供错误的密钥，从而导致操作失败。
 
-Anyone with read access to the repository can find this URL by selecting the **Code** dropdown menu on the main page of the repository, then clicking **Use SSH**.
+对存储库具有读取访问权限的任何人都可以通过以下方式找到此 URL：选择存储库主页上的“代码”下拉菜单，然后单击“使用 SSH” 。
 
-If your organization doesn't require SSH certificates, members can continue to use their own SSH keys, or other means of authentication. In that case, either the special URL or the normal URL, which starts with `git@github.com`, will work.
+如果您的组织不需要 SSH 证书，则成员可以继续使用自己的 SSH 密钥或其他身份验证方式。 在这种情况下，特殊 URL 或以 `git@github.com` 开头的正常 URL 将起作用。
 
-## Issuing certificates
+## 颁发证书
 
-When you issue each certificate, you must include an extension that specifies which {% data variables.product.product_name %} user the certificate is for. For example, you can use OpenSSH's `ssh-keygen` command, replacing _KEY-IDENTITY_ with your key identity and _USERNAME_ with a {% data variables.product.product_name %} username. The certificate you generate will be authorized to act on behalf of that user for any of your organization's resources. Make sure you validate the user's identity before you issue the certificate.
+在颁发每个证书时，必须包含扩展，以指定证书用于哪个 {% data variables.product.product_name %} 用户。 例如，你可以使用 OpenSSH 的 `ssh-keygen` 命令，将 _KEY-IDENTITY_ 替换为密钥标识，_USERNAME_ 替换为 {% data variables.product.product_name %} 用户名。 您生成的证书将授权代表该用户使用您组织的任何资源。 在签发证书之前，请确保验证用户的身份。
 
 {% note %}
 
-**Note:** You must update to OpenSSH 7.6 or later to use these commands.
+注意：必须更新到 OpenSSH 7.6 或更高版本才能使用这些命令。
 
 {% endnote %}
 
 ```shell
-$ ssh-keygen -s ./ca-key -V '+1d' -I KEY-IDENTITY -O extension:login@{% data variables.product.product_url %}=USERNAME ./user-key.pub
+$ ssh-keygen -s ./ca-key -V '+1d' -I <em>KEY-IDENTITY</em> -O extension:login@{% data variables.product.product_url %}=<em>USERNAME</em> ./user-key.pub
 ```
 
 {% warning %}
 
-**Warning**: After a certificate has been signed and issued, the certificate cannot be revoked. Make sure to use the -`V` flag to configure a lifetime for the certificate, or the certificate can be used indefinitely.
+警告：证书签名并颁发后，无法吊销。 请确保使用 -`V` 标志来配置证书的生存期，否则证书可以无限期使用。
 
 {% endwarning %}
 
-To issue a certificate for someone who uses SSH to access multiple {% data variables.product.company_short %} products, you can include two login extensions to specify the username for each product. For example, the following command would issue a certificate for _USERNAME-1_ for the user's account for {% data variables.product.prodname_ghe_cloud %}, and _USERNAME-2_ for the user's account on {% data variables.product.prodname_ghe_managed %} or {% data variables.product.prodname_ghe_server %} at _HOSTNAME_.
+要为使用 SSH 访问多个 {% data variables.product.company_short %} 产品的人颁发证书，您可以包括两个登录扩展，以指定每个产品的用户名。 例如，以下命令将为 {% data variables.product.prodname_ghe_cloud %} 的用户帐户颁发 _USERNAME-1_ 的证书，为 _HOSTNAME_ 处的 {% data variables.product.prodname_ghe_managed %} 或 {% data variables.product.prodname_ghe_server %} 上的用户帐户颁发 _USERNAME-2_ 的证书。
 
 ```shell
-$ ssh-keygen -s ./ca-key -V '+1d' -I KEY-IDENTITY -O extension:login@github.com=USERNAME-1 extension:login@HOSTNAME=USERNAME-2 ./user-key.pub
+$ ssh-keygen -s ./ca-key -V '+1d' -I <em>KEY-IDENTITY</em> -O extension:login@github.com=<em>USERNAME-1</em> extension:login@<em>HOSTNAME</em>=<em>USERNAME-2</em> ./user-key.pub
 ```
 
-You can restrict the IP addresses from which an organization member can access your organization's resources by using a `source-address` extension. The extension accepts a specific IP address or a range of IP addresses using CIDR notation. You can specify multiple addresses or ranges by separating the values with commas. For more information, see "[Classless Inter-Domain Routing](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation)" on Wikipedia.
+可以使用 `source-address` 扩展来限制组织成员用来访问组织资源的 IP 地址。 扩展接受采用 CIDR 表示法的特定 IP 地址或一个 IP 地址范围。 您可以指定多个地址或范围，用逗号分隔值。 有关详细信息，请参阅 Wikipedia 上的“[无类别域际路由](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation)”。
 
 ```shell
-$ ssh-keygen -s ./ca-key -V '+1d' -I KEY-IDENTITY -O extension:login@{% data variables.product.product_url %}=USERNAME -O source-address=COMMA-SEPARATED-LIST-OF-IP-ADDRESSES-OR-RANGES ./user-key.pub
+$ ssh-keygen -s ./ca-key -V '+1d' -I <em>KEY-IDENTITY</em> -O extension:login@{% data variables.product.product_url %}=<em>USERNAME</em> -O source-address=<em>COMMA-SEPARATED-LIST-OF-IP-ADDRESSES-OR-RANGES</em> ./user-key.pub
 ```

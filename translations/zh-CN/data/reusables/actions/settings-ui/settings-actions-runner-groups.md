@@ -1,5 +1,13 @@
-{% comment %}This reusable is only to be used in other repo/org/enterprise setting reusables.{%- endcomment -%}
-1. In the left sidebar, click {% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}{% octicon "play" aria-label="The {% data variables.product.prodname_actions %} icon" %} **Actions**, then click **Runner groups**.{% else %}**Actions**.{% ifversion ghes > 3.3 or ghae > 3.3 %}
-1. In the left sidebar, under "Actions", click **Runner groups**.
+---
+ms.openlocfilehash: 8329f603d09f84f7167b53f88d9580733086fb42
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "147061288"
+---
+{% comment %}此可重用功能仅用于其他存储库/组织/企业设置可重用处理。{%- endcomment -%}
+1. 在左侧边栏中，单击 {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5658 %}{% octicon "play" aria-label="The {% data variables.product.prodname_actions %} icon" %}“操作”，然后单击“运行器组” 。{% else %}“操作”。{% ifversion ghes > 3.3 or ghae-issue-5091 %}
+1. 在左侧边栏的“操作”下，单击“运行器组”。
 {%- elsif ghes or ghae %}
-1. In the left sidebar, under "Actions", click **Runners**.{% endif %}{% endif %}
+1. 在左侧边栏的“操作”下，单击“运行器”。{% endif %}{% endif %}
