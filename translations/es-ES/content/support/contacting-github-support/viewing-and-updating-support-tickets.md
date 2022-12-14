@@ -8,12 +8,12 @@ versions:
   ghes: '*'
 topics:
   - Support
-ms.openlocfilehash: 35c7b28232c0d11170ea9585480b2cfb1785ebd0
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: b735331d90c590ff6911fed44e181563b44bfc27
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147051984'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148193618'
 ---
 ## Acerca de la administración de tickets
 
@@ -27,7 +27,12 @@ Puede usar el [Portal de soporte técnico de GitHub ](https://support.github.com
 
 {% data reusables.support.view-open-tickets %}
 1. En el cuadro de texto, puede leer el historial de comentarios. La respuesta más reciente está en la parte superior.
-![Captura de pantalla del historial de comentarios de incidencias de soporte técnico, con la respuesta más reciente en la parte superior.](/assets/images/help/support/support-recent-response.png)
+
+   ![Captura de pantalla del historial de comentarios de incidencias de soporte técnico, con la respuesta más reciente en la parte superior](/assets/images/help/support/support-recent-response.png)
+
+1. Opcionalmente, para traducir el comentario de la incidencia, haz clic en {% octicon "globe" aria-label="The globe icon" %} y elige el idioma de tu preferencia en el menú desplegable. Las incidencias de soporte técnico se pueden traducir a chino (simplificado), francés, alemán, japonés, portugués (Brasil) o español.
+
+   ![Captura de pantalla de una incidencia de soporte técnico con el menú desplegable en el que se muestran las opciones de traducción resaltadas](/assets/images/help/support/support-ticket-translation-options.png)
 
 {% ifversion ghec or ghes or ghae %}
 
