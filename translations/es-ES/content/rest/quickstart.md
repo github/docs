@@ -14,12 +14,12 @@ redirect_from:
   - /guides/getting-started
   - /v3/guides/getting-started
 miniTocMaxHeadingLevel: 3
-ms.openlocfilehash: 73b92aa20c38377f878bf9b6fffb7c1c6e2639b9
-ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.openlocfilehash: 001c4e3291e697be034579525d9f0bc6da8c0c88
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/09/2022
-ms.locfileid: '147718201'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148192885'
 ---
 En este artículo se describe cómo empezar a usar la API de REST de {% data variables.product.prodname_dotcom %} mediante {% data variables.product.prodname_cli %}, JavaScript o cURL. Para obtener más información, consulta "[Introducción a la API de REST](/rest/guides/getting-started-with-the-rest-api)".
 
@@ -67,7 +67,7 @@ jobs:
 
 Si está autenticando con un {% data variables.product.prodname_github_app %}, puedes crear un token de acceso de instalación en el flujo de trabajo:
 
-1. Almacena la ID de tu {% data variables.product.prodname_github_app %} como un secreto. En el flujo de trabajo siguiente, reemplaza `APP_ID` por el nombre del secreto. Puedes encontrar tu ID de app en la página de ajustes de tu app o mediante la API de la misma. Para obtener más información, consulte "[Aplicaciones](/rest/apps/apps#get-an-app)". Para más información sobre los secretos, vea "[Secretos cifrados](/actions/security-guides/encrypted-secrets)".
+1. Almacena la ID de tu {% data variables.product.prodname_github_app %} como un secreto. En el flujo de trabajo siguiente, reemplaza `APP_ID` por el nombre del secreto. Puedes encontrar tu ID de app en la página de ajustes de tu app o mediante la API. Para obtener más información, consulta "[Aplicaciones](/rest/apps/apps#get-an-app)" en la documentación de la API de REST. Para más información sobre los secretos, vea "[Secretos cifrados](/actions/security-guides/encrypted-secrets)".
 1. Generar una llave privada para tu app. Almacena el contenido del archivo resultante como un secreto. (Almacena todo el contenido del archivo, incluido el contenido de `-----BEGIN RSA PRIVATE KEY-----` y `-----END RSA PRIVATE KEY-----`). En el siguiente ejemplo, reemplaza `APP_PEM` por el nombre del secreto. Para más información, vea "[Autenticación con {% data variables.product.prodname_github_apps %}](/developers/apps/building-github-apps/authenticating-with-github-apps#generating-a-private-key)".
 1. Agrega un paso para generar un token y use ese token en lugar de `GITHUB_TOKEN`. Ten en cuenta que este token expirará después de 60 minutos. Por ejemplo:
 
@@ -104,7 +104,7 @@ Puedes usar Octokit.js para interactuar con la API de REST de {% data variables.
 
 ### Uso de Octokit.js
 
-1. Creación de un token de acceso. Por ejemplo, crea un token de acceso personal (PAT) o un token de acceso de usuario a servidor {% data variables.product.prodname_github_app %}. Para obtener más información, consulta "[Creación de un token de acceso personal](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)" o "[Identificación y autorización de usuarios para aplicaciones de GitHub](/developers/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps)".
+1. Creación de un token de acceso. Por ejemplo, crea un {% data variables.product.pat_generic %} o un token de acceso de usuario a servidor {% data variables.product.prodname_github_app %}. Para más información, consulta "[Creación de un {% data variables.product.pat_generic %}](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)" o "[Identificación y autorización de usuarios para aplicaciones de GitHub](/developers/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps)".
 
    {% warning %}
 
@@ -169,7 +169,7 @@ jobs:
       - name: Setup Node
         uses: {% data reusables.actions.action-setup-node %}
         with:
-          node-version: '16.15.0'
+          node-version: '16.17.0'
           cache: npm
 
       - name: Install dependencies
@@ -227,7 +227,7 @@ jobs:
       - name: Setup Node
         uses: {% data reusables.actions.action-setup-node %}
         with:
-          node-version: '16.15.0'
+          node-version: '16.17.0'
           cache: npm
 
       - name: Install dependencies
@@ -262,7 +262,7 @@ jobs:
 {% endnote %}
 
 1. Instala cURL si cURL aún no está instalado en el equipo. Para comprobar si cURL está instalado, ejecuta `curl --version` en la línea de comandos. Si la salida es información sobre la versión de cURL, se instala cURL. Si recibes un mensaje similar a `command not found: curl`, debes descargar e instalar cURL. Para obtener más información, consulta [la página de descarga del proyecto cURL](https://curl.se/download.html).
-1. Creación de un token de acceso. Por ejemplo, crea un token de acceso personal (PAT) o un token de acceso de usuario a servidor {% data variables.product.prodname_github_app %}. Para obtener más información, consulta "[Creación de un token de acceso personal](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)" o "[Identificación y autorización de usuarios para aplicaciones de GitHub](/developers/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps)".
+1. Creación de un token de acceso. Por ejemplo, crea un {% data variables.product.pat_generic %} o un token de acceso de usuario a servidor {% data variables.product.prodname_github_app %}. Para más información, consulta "[Creación de un {% data variables.product.pat_generic %}](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)" o "[Identificación y autorización de usuarios para aplicaciones de GitHub](/developers/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps)".
 
    {% warning %}
 
@@ -283,8 +283,8 @@ jobs:
    ```shell
    curl --request GET \
    --url "https://api.github.com/repos/octocat/Spoon-Knife/issues" \
-   --header "Accept: application/vnd.github.v3+json" \
-   --header "Authorization: Bearer <em>YOUR-TOKEN</em>"
+   --header "Accept: application/vnd.github+json" \
+   --header "Authorization: Bearer YOUR-TOKEN"
    ```
 
    {% note %}
@@ -313,7 +313,7 @@ jobs:
         run: |
           curl --request GET \
           --url "https://api.github.com/repos/octocat/Spoon-Knife/issues" \
-          --header "Accept: application/vnd.github.v3+json" \
+          --header "Accept: application/vnd.github+json" \
           --header "Authorization: Bearer $GH_TOKEN"
 ```
 
@@ -345,7 +345,7 @@ jobs:
         run: |
           curl --request GET \
           --url "https://api.github.com/repos/octocat/Spoon-Knife/issues" \
-          --header "Accept: application/vnd.github.v3+json" \
+          --header "Accept: application/vnd.github+json" \
           --header "Authorization: Bearer $GH_TOKEN"
 ```
 

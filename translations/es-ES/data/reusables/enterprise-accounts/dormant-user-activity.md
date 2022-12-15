@@ -1,14 +1,14 @@
 ---
-ms.openlocfilehash: f89c8ea56df60e14b5735d160104d332ff1e804b
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.openlocfilehash: ae3a6c6743e497213f23230a4f78d98a1ab9a110
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2022
-ms.locfileid: "146680985"
+ms.lasthandoff: 12/09/2022
+ms.locfileid: "148192933"
 ---
-Un usuario se considera activo si ha realizado alguna de las actividades siguientes en {% ifversion fpt or ghec or ghes %}{% data variables.product.product_location %}{% elsif ghae %}{% data variables.product.product_name %}{% endif %}.
+Un usuario se considera activo si ha realizado alguna de las actividades siguientes en {% ifversion fpt or ghec or ghes %}{% data variables.location.product_location %}{% elsif ghae %}{% data variables.product.product_name %}{% endif %}.
 
-- Iniciar sesión en {% data variables.product.product_location %}
+- Inicio de sesión en {% data variables.location.product_location %}
 - Crear un repositorio
 - Enviar cambios a un repositorio
 - Se le ha agregado a un repositorio
@@ -28,4 +28,8 @@ Un usuario se considera activo si ha realizado alguna de las actividades siguien
 - Ver un repositorio
 - Marcar un repositorio como favorito
 - Eliminar un repositorio
-- Acceder a los recursos utilizando un token de acceso personal o clave SSH.
+- Acceso a los recursos mediante un {% data variables.product.pat_generic %} o una clave SSH
+- Unirse a una organización
+
+{% ifversion ghes %} Un usuario también se considerará activo si LDAP ha actualizado su cuenta.
+{% endif %}
