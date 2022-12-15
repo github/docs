@@ -16,16 +16,16 @@ versions:
   ghae: '*'
   ghec: '*'
 shortTitle: Introduction
-ms.openlocfilehash: ae15c6358deb3363f81617a6604f2dbe2a654af1
-ms.sourcegitcommit: da73949b8f8bd71d40247f1f9c49f8f4c362ecd0
+ms.openlocfilehash: 1ad319ead16f10186b330f876ccaa83bc44bdbcd
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2022
-ms.locfileid: '147431932'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148193029'
 ---
 {% data reusables.package_registry.packages-ghes-release-stage %} {% data reusables.package_registry.packages-ghae-release-stage %}
 
-## <a name="about--data-variablesproductprodname_registry-"></a>Acerca de {% data variables.product.prodname_registry %}
+## Acerca de {% data variables.product.prodname_registry %}
 
 {% data variables.product.prodname_registry %} es una plataforma para hospedar y administrar paquetes, incluidos contenedores y otras dependencias. {% data variables.product.prodname_registry %} combina tu código fuente y paquetes en un solo lugar para proporcionar una administración de permisos{% ifversion fpt or ghec %} y facturación {% endif %} integradas, para que puedas centralizar tu desarrollo de software en {% data variables.product.product_name %}.
 
@@ -51,27 +51,25 @@ Para obtener más información sobre la configuración de {% data variables.prod
 
 {% endif %}
 
-### <a name="overview-of-package-permissions-and-visibility"></a>Resumen de los permisos y visibilidad de los paquetes
+### Resumen de los permisos y visibilidad de los paquetes
 
 |                    |        |
 |--------------------|--------------------|
-| Permisos        | {% ifversion fpt or ghec %}Los permisos de un paquete se heredan del repositorio donde se hospeda el paquete o, para los paquetes del {% data variables.product.prodname_container_registry %}, se pueden definir para cuentas de usuario u organización específicas. Para más información, vea "[Configuración del control de acceso y la visibilidad de un paquete](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility)". {% else %}Cada paquete hereda los permisos del repositorio en donde este mismo se hospeda. <br> <br> Por ejemplo, cualquier persona con permisos de lectura para un repositorio puede instalar un paquete como una dependencia en un proyecto, y cualquier persona con permisos de escritura puede publicar una nueva versión del paquete.{% endif %} |
+| Permisos        | {% ifversion packages-registries-v2 %}Los permisos de un paquete se heredan del repositorio en el que se hospeda o se pueden definir para cuentas de usuario u organización específicas. Algunos registros solo admiten permisos heredados de un repositorio. Para obtener una lista de estos registros, consulta "[Acerca de los permisos de {% data variables.product.prodname_registry %}](/packages/learn-github-packages/about-permissions-for-github-packages#permissions-for-repository-scoped-packages)". Para obtener más información sobre el acceso a paquetes, consulta "[Configuración del control de acceso y la visibilidad de un paquete](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility)". {% else %}Cada paquete hereda los permisos del repositorio en donde este mismo se hospeda. <br> <br> Por ejemplo, cualquier persona con permisos de lectura para un repositorio puede instalar un paquete como una dependencia en un proyecto, y cualquier persona con permisos de escritura puede publicar una nueva versión del paquete.{% endif %} |
 | Visibilidad         | {% data reusables.package_registry.public-or-private-packages %} |
 
-Para más información, vea "[Acerca de los permisos para {% data variables.product.prodname_registry %}](/packages/learn-github-packages/about-permissions-for-github-packages)".
-
 {% ifversion fpt or ghec %}
-## <a name="about-billing-for--data-variablesproductprodname_registry-"></a>Acerca de la facturación para {% data variables.product.prodname_registry %}
+## Acerca de la facturación para {% data variables.product.prodname_registry %}
 
 {% data reusables.package_registry.packages-billing %} {% data reusables.package_registry.packages-spending-limit-brief %} Para obtener más información, consulta "[Acerca de la facturación de {% data variables.product.prodname_registry %}](/billing/managing-billing-for-github-packages/about-billing-for-github-packages)."
 
 {% endif %}
 
-## <a name="supported-clients-and-formats"></a>Formatos y clientes admitidos
+## Formatos y clientes admitidos
 <!-- If you make changes to this feature, check whether any of the changes affect languages listed in /get-started/learning-about-github/github-language-support. If so, please update the language support article accordingly. -->
 
 {% data variables.product.prodname_registry %} usa los comandos de herramientas del paquete nativo con los que ya estás familiarizado para publicar e instalar versiones del paquete.
-### <a name="support-for-package-registries"></a>Soporte para los registros de paquetes
+### Soporte para los registros de paquetes
 
 | Idioma | Descripción | Formato del paquete | Cliente del paquete |
 | --- | --- | --- | --- |
@@ -94,28 +92,23 @@ Para obtener más información sobre cómo configurar tu cliente de paquete para
 
 {% ifversion fpt or ghec %} Para obtener más información sobre Docker y {% data variables.product.prodname_container_registry %}, consulta "[Uso del registro de contenedor](/packages/working-with-a-github-packages-registry/working-with-the-container-registry)".
 {% endif %}
-## <a name="authenticating-to--data-variablesproductprodname_registry-"></a>Autenticar a {% data variables.product.prodname_registry %}
+## Autenticar a {% data variables.product.prodname_registry %}
 
 {% data reusables.package_registry.authenticate-packages %}
 
 {% data reusables.package_registry.authenticate-packages-github-token %}
 
-## <a name="managing-packages"></a>Administración de paquetes
+## Administración de paquetes
 
-{% ifversion fpt or ghec %} Puedes eliminar un paquete en la interfaz de usuario de {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} o mediante la API REST. Para obtener más información, consulta "[API {% data variables.product.prodname_registry %}](/rest/reference/packages)".
-{% endif %}
+Puedes eliminar un paquete en la interfaz de usuario de {% data variables.product.product_name %}{% ifversion fpt or ghec %} o mediante la API de REST. Para obtener más información, consulta "[Eliminación y restauración de un paquete](/packages/learn-github-packages/deleting-and-restoring-a-package)" y la "[API de {% data variables.product.prodname_registry %}](/rest/reference/packages)".{% else %}.{% endif %} {% data reusables.package_registry.about-graphql-support %}
 
-{% ifversion ghes %} Puedes borrar un paquete público o privado en la interface de usuario de {% data variables.product.product_name %}. O, para los paquetes con alcance de repo, puedes borrar una versión de un paquete privado utilizando GraphQL.
-{% endif %}
+Cuando usas la API de GraphQL para consultar y eliminar paquetes privados, debes usar el mismo {% data variables.product.pat_v1 %} que usas para autenticarte en {% data variables.product.prodname_registry %}.
 
-{% ifversion ghae %} Puedes eliminar una versión de un paquete en la interfaz de usuario de {% data variables.product.product_name %} o mediante GraphQL API.
-{% endif %}
-
-Cuando usas la API de GraphQL para consultar y eliminar paquetes privados, debes usar el mismo token que usas para autenticarte en {% data variables.product.prodname_registry %}. Para obtener más información, consulta "[Eliminación y restauración de un paquete](/packages/learn-github-packages/deleting-and-restoring-a-package)" y "[Formación de llamadas con GraphQL](/graphql/guides/forming-calls-with-graphql)".
+Para obtener más información, consulta {% ifversion ghes or ghae %}«[Eliminación y restauración de un paquete](/packages/learn-github-packages/deleting-and-restoring-a-package)» y {% endif %}«[Formar llamadas con GraphQL](/graphql/guides/forming-calls-with-graphql)».
 
 Puedes configurar webhooks para suscribirte a eventos relacionados con paquetes, como cuando se publica o se actualiza un paquete. Para obtener más información, vea el "[evento de webhook `package`](/webhooks/event-payloads/#package)".
 
-## <a name="contacting-support"></a>Contactando con el soporte técnico
+## Contactando con el soporte técnico
 
 {% ifversion fpt or ghec %} Si tienes comentarios o solicitudes de características para {% data variables.product.prodname_registry %}, usa una [discusión de {% data variables.product.prodname_github_community %}](https://github.com/orgs/community/discussions/categories/actions-and-packages).
 
