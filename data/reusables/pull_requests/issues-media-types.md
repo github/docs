@@ -1,6 +1,6 @@
 ### Custom media types
 
-These are the supported media types for this API:
+These are the supported media types for this set of endpoints:
 
     application/vnd.github.raw+json
     application/vnd.github.text+json
