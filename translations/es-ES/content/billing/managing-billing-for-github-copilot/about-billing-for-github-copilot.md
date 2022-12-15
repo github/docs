@@ -1,39 +1,26 @@
 ---
-title: About billing for GitHub Copilot
-intro: 'If you want to use {% data variables.product.prodname_copilot %}, you either need a subscription for {% data variables.product.prodname_copilot_for_individuals %} in your personal account, or you need to be assigned a seat by an organization on {% data variables.product.prodname_ghe_cloud %} with a subscription for {% data variables.product.prodname_copilot_for_business %}.'
-product: '{% data reusables.gated-features.copilot-billing %}'
+title: Acerca de la facturación de GitHub Copilot
+intro: 'Si quieres usar {% data variables.product.prodname_copilot %}, necesitas una suscripción para la cuenta de {% data variables.product.prodname_dotcom %}.'
 versions:
   feature: copilot
 topics:
   - Copilot
 shortTitle: Billing for GitHub Copilot
+ms.openlocfilehash: 38bdf5dcef235faef0c04fa207e3dca8a4420105
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147573792'
 ---
-## About billing for {% data variables.product.prodname_copilot %}
+## Acerca de la facturación de {% data variables.product.prodname_copilot %}
 
-If you want to use {% data variables.product.prodname_copilot %}, you will need a subscription for your {% data variables.product.prodname_dotcom %} personal account, or if you are a member of a {% data variables.product.prodname_ghe_cloud %} organization with a {% data variables.product.prodname_copilot_business_short %} subscription, you will need to be assigned a seat by an organization admin. For more information about {% data variables.product.prodname_copilot %}, see "[About {% data variables.product.prodname_copilot %}](/en/copilot/overview-of-github-copilot/about-github-copilot)." 
+Si quieres usar {% data variables.product.prodname_copilot %}, necesitarás una suscripción para la cuenta personal de {% data variables.product.prodname_dotcom %}. Para obtener más información acerca de {% data variables.product.prodname_copilot %}, consulta "[Acerca de {% data variables.product.prodname_copilot %}](/en/copilot/overview-of-github-copilot/about-github-copilot)".
 
-For more information about managing {% data variables.product.prodname_copilot %} through {% data variables.product.prodname_ghe_cloud %}, see "[Enforcing policies for {% data variables.product.prodname_copilot %} in your enterprise](/enterprise-cloud@latest/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-copilot-in-your-enterprise){% ifversion ghec %}.{% endif %}"{% ifversion fpt %} in the {% data variables.product.prodname_ghe_cloud %} documentation.{% endif %}
+Antes de iniciar una suscripción de pago, puedes configurar una prueba de 60 días para evaluar {% data variables.product.prodname_copilot %}. Para empezar una prueba, deberás elegir un ciclo de facturación mensual o anual, y proporcionar un método de pago. Si no cancelas la prueba antes de que finalice el plazo de 60 días, esta se convertirá automáticamente en una suscripción de pago. Puedes cancelar la prueba de {% data variables.product.prodname_copilot %} en cualquier momento durante los 60 días y no se te cobrará. Si cancelas antes del final de la prueba, seguirás teniendo acceso a {% data variables.product.prodname_copilot %} hasta que finalice el periodo de prueba de 60 días. Para obtener más información, consulta "[Administración de la suscripción de GitHub Copilot](/en/billing/managing-billing-for-github-copilot/managing-your-github-copilot-subscription)".
 
-Before starting a paid subscription for a personal account, you can set up a one-time 60-day trial to evaluate {% data variables.product.prodname_copilot %}. To begin a trial, you will need to choose a monthly or yearly billing cycle, and provide a payment method. If you do not cancel the trial before the end of the 60 days, the trial will automatically convert to a paid subscription. You can cancel your {% data variables.product.prodname_copilot %} trial at any time during the 60 days and you won't be charged. If you cancel before the end of the trial, you will continue to have access to {% data variables.product.prodname_copilot %} until the 60-day trial period ends. For more information, see "[Managing your {% data variables.product.prodname_copilot_for_individuals %} subscription](/en/billing/managing-billing-for-github-copilot/managing-your-github-copilot-for-individuals-subscription)."
+## Precios de {% data variables.product.prodname_copilot %}
 
-## Pricing for {% data variables.product.prodname_copilot_for_individuals %}
+La suscripción de {% data variables.product.prodname_copilot %} está disponible en un ciclo mensual o anual. Si eliges un período de facturación mensual, se te facturarán 10 USD por mes natural. Si eliges un período de facturación anual, se te facturarán 100 USD al año. Puedes modificar el período de facturación en cualquier momento y la modificación se reflejará desde el inicio del siguiente período de facturación.
 
-
-The {% data variables.product.prodname_copilot %} subscription is available on a monthly or yearly cycle. If you choose a monthly billing cycle, you will be billed $10 per calendar month. If you choose a yearly billing cycle, you will be billed $100 per year. You can modify your billing cycle at any time, and the modification will be reflected from the start of your next billing cycle.
-
-If you have an active {% data variables.product.prodname_copilot %} subscription, and are then assigned a seat as part of a {% data variables.product.prodname_copilot_for_business %} subscription in {% data variables.product.prodname_ghe_cloud %}, your personal {% data variables.product.prodname_copilot %} subscription will be automatically canceled. You will receive a prorated refund for any remaining portion of your personal subscription's current billing cycle. You will then be able to continue using {% data variables.product.prodname_copilot %} according to the policies set at the enterprise or organization level.
-
-A free subscription for {% data variables.product.prodname_copilot %} is available to verified students, teachers, and maintainers of popular open-source repositories on {% data variables.product.company_short %}. If you meet the criteria as an open source maintainer, you will be automatically notified when you visit the {% data variables.product.prodname_copilot %} subscription page. As a student, if you currently receive the {% data variables.product.prodname_student_pack %}, you will also be offered a free subscription when you visit the {% data variables.product.prodname_copilot %} subscription page. For more information about the {% data variables.product.prodname_student_pack %}, see "[Apply to {% data variables.product.prodname_global_campus %} as a student](/free-pro-team@latest/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/apply-to-github-global-campus-as-a-student)."
-
-{% ifversion ghec %}
-## Pricing for {% data variables.product.prodname_copilot_for_business %}
-
-The {% data variables.product.prodname_copilot_for_business %} subscription is available on a monthly cycle, and is billed at $19 per user per month. Billing for {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_ghe_cloud %} is processed at the end of each billing cycle. 
-
-Billed users are calculated based on the number of {% data variables.product.prodname_copilot %} seats assigned at the beginning of a billing cycle, or assigned during the billing cycle. Any seat assigned part way through the billing cycle will be prorated based on the number of days remaining in the cycle. Any seat assignment removed during a billing cycle will take effect from the beginning of the next cycle.
-
-Seat assignment for {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_ghe_cloud %} is managed by admins of organizations which have been granted access to {% data variables.product.prodname_copilot %} at the enterprise level. If you are a member of multiple organizations under the same enterprise, you can be assigned {% data variables.product.prodname_copilot %} seats in more than one organization, but your enterprise will only be billed once. For more information, see "[Configuring {% data variables.product.prodname_copilot %} settings in your organization](/enterprise-cloud@latest/copilot/configuring-github-copilot/configuring-github-copilot-settings-in-your-organization)."
-
-Policy settings and the usage overview for {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_ghe_cloud %} are available at the enterprise level. For more information, see "[Enforcing policies for {% data variables.product.prodname_copilot %} in your enterprise](/enterprise-cloud@latest/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-copilot-in-your-enterprise)" and "[Viewing your {% data variables.product.prodname_copilot %} usage](/enterprise-cloud@latest/billing/managing-billing-for-github-copilot/viewing-your-github-copilot-usage)."
-
-{% endif %}
+Hay disponible una suscripción gratuita de {% data variables.product.prodname_copilot %} para alumnos verificados y responsables de mantener los repositorios populares de código abierto en {% data variables.product.company_short %}. Si cumples los criterios como responsable de mantener el código abierto, se te notificará automáticamente cuando visites la página de suscripción de {% data variables.product.prodname_copilot %}. Como alumno, si actualmente recibes el {% data variables.product.prodname_student_pack %}, también se te ofrecerá una suscripción gratuita cuando visites la página de suscripción de {% data variables.product.prodname_copilot %}. Para obtener más información sobre el {% data variables.product.prodname_student_pack %}, consulta «[Solicitar acceso al {% data variables.product.prodname_global_campus %} como alumno](/free-pro-team@latest/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/apply-to-github-global-campus-as-a-student)».

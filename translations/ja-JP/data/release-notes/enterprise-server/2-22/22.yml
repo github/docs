@@ -1,0 +1,14 @@
+date: '2021-09-24'
+sections:
+  security_fixes:
+    - '**高:** {% data variables.product.prodname_ghe_server %} で、{% data variables.product.prodname_pages %} サイトのビルド時に悪用される可能性があるパス トラバーサルの脆弱性が見つかりました。{% data variables.product.prodname_pages %} によって使用されるユーザー制御の構成オプションは十分に制限されておらず、{% data variables.product.prodname_ghe_server %} インスタンスでファイルを読み取ることが可能になっていました。攻撃者がこの脆弱性を悪用するには、{% data variables.product.prodname_ghe_server %} インスタンス上に {% data variables.product.prodname_pages %} サイトを作成してビルドするためのアクセス許可が必要です。この脆弱性により、3.1.8 より前の {% data variables.product.prodname_ghe_server %} のすべてのバージョンが影響を受けます。3.1.8、3.0.16、および 2.22.22 で修正されました。これは、CVE-2021-22867 の不完全な修正が原因です。この脆弱性は、GitHub Bug Bounty プログラムから報告され、CVE-2021-22868 が割り当てられました。{% comment %} https://github.com/github/pages/pull/3359, https://github.com/github/pages/pull/3357 {% endcomment %}'
+  bugs:
+    - 'ソース インスタンスの {% data variables.product.prodname_github_connect %} の構成で、"ghe-restore" の "--config" オプションが使用されていなかった場合でも常に新しいインスタンスに復元されていました。これにより、ソースと復元先の両方のインスタンスが同時にオンラインだった場合、{% data variables.product.prodname_github_connect %} の接続とライセンスの同期で競合が発生しました。{% comment %} https://github.com/github/github/pull/192247, https://github.com/github/github/pull/191951, https://github.com/github/enterprise2/pull/26870, https://github.com/github/backup-utils/pull/770, https://github.com/github/connected-enterprise/issues/208 {% endcomment %}'
+    - 'アプライアンスの NO_PROXY 設定を考慮に入れるように、{% data variables.product.prodname_pages %} ビルドが修正されました。これが関係するのは、HTTP プロキシが構成されたアプライアンスのみです。{% comment %} https://github.com/github/github/pull/192380 {% endcomment %}'
+  known_issues:
+    - "新しくセットアップされたユーザーのいない {% data variables.product.prodname_ghe_server %} で、攻撃者が最初の管理者ユーザーを作成できました。"
+    - カスタムのファイアウォール規則は、アップグレード プロセス中に削除されます。
+    - "[Web インターフェイスからアップロードされた](https://github.com/blog/2105-upload-files-to-your-repositories) Git LFS 追跡ファイルが誤ってリポジトリに直接追加されます。"
+    - 同じリポジトリ内の BLOB への固定リンクが含まれ、その BLOB のファイル パスが 255 文字を超える場合、issue をクローズできません。
+    - "{% data variables.product.prodname_github_connect %} で [ユーザーが GitHub.com を検索できる] が有効になっている場合、プライベートおよび内部リポジトリの issue は GitHub.com の検索結果に含まれません。"
+    - "高可用性構成でレプリカ ノードがオフラインの場合、{% data variables.product.product_name %} によって、{% data variables.product.prodname_pages %} 要求が引き続きオフライン ノードにルーティングされる可能性があり、ユーザーに対して {% data variables.product.prodname_pages %} の可用性が下がります。"

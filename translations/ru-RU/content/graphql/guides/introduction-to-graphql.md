@@ -1,6 +1,6 @@
 ---
-title: Introduction to GraphQL
-intro: Learn useful terminology and concepts for using the GitHub GraphQL API.
+title: Общие сведения о GraphQL
+intro: Изучите полезную терминологию и концепции использования API GitHub GraphQL.
 redirect_from:
   - /v4/guides/intro-to-graphql
   - /graphql/guides/intro-to-graphql
@@ -11,36 +11,40 @@ versions:
   ghae: '*'
 topics:
   - API
+ms.openlocfilehash: 459a9334f5c58d6181756117e18072f762a6e5b5
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148094564'
 ---
+## Терминология GraphQL
 
-## GraphQL terminology
+API GraphQL для GitHub представляет собой архитектурный и концептуальный сдвиг в сравнении с REST API GitHub. В [справочной документации](/graphql) по API GraphQL вам, скорее всего, встретится новая терминология.
 
-The GitHub GraphQL API represents an architectural and conceptual shift from the GitHub REST API. You will likely encounter some new terminology in the GraphQL API [reference docs](/graphql).
+## схема
 
-## Schema
+Схема определяет систему типов API GraphQL. Она описывает полный набор возможных данных (объектов, полей, связей и т. д.), доступных клиенту. Вызовы клиента [проверяются](https://graphql.github.io/learn/validation/) и [выполняются](https://graphql.github.io/learn/execution/) по схеме. Клиент может найти сведения о схеме путем [интроспекции](#discovering-the-graphql-api). Схема находится на сервере API GraphQL. Дополнительные сведения см. в разделе [Обнаружение API GraphQL](#discovering-the-graphql-api).
 
-A schema defines a GraphQL API's type system. It describes the complete set of possible data (objects, fields, relationships, everything) that a client can access. Calls from the client are [validated](https://graphql.github.io/learn/validation/) and [executed](https://graphql.github.io/learn/execution/) against the schema. A client can find information about the schema via [introspection](#discovering-the-graphql-api). A schema resides on the GraphQL API server. For more information, see "[Discovering the GraphQL API](#discovering-the-graphql-api)."
+## Поле
 
-## Field
+Поле — это единица данных, которую можно извлечь из объекта. Как сказано в [официальной документации по GraphQL](https://graphql.github.io/learn/schema/): "Язык запросов GraphQL в основном ориентирован на выбор полей объектов".
 
-A field is a unit of data you can retrieve from an object. As the [official GraphQL docs](https://graphql.github.io/learn/schema/) say:
-"The GraphQL query language is basically about selecting fields on objects."
+В [официальной спецификации](https://graphql.github.io/graphql-spec/June2018/#sec-Language.Fields) также говорится о полях следующее:
 
-The [official spec](https://graphql.github.io/graphql-spec/June2018/#sec-Language.Fields) also says about fields:
+> Во всех операциях GraphQL выбираемые данные должны указываться до уровня полей, возвращающих скалярные значения. Это необходимо для получения однозначно сформированного ответа.
 
-> All GraphQL operations must specify their selections down to fields which return scalar values to ensure an unambiguously shaped response.
+Таким образом, при попытке вернуть поле, которое не является скалярным, проверка схемы выдаст ошибку. Необходимо добавить вложенные поля, чтобы все поля возвращали скалярные значения.
 
-This means that if you try to return a field that is not a scalar, schema validation will throw an error. You must add nested subfields until all fields return scalars.
+## Аргумент
 
-## Argument
+Аргумент — это набор пар "ключ-значение", связанных с определенным полем. Для некоторых полей требуется аргумент. Для [изменений](/graphql/guides/forming-calls-with-graphql#about-mutations) в качестве аргумента требуется входной объект.
 
-An argument is a set of key-value pairs attached to a specific field. Some fields require an argument. [Mutations](/graphql/guides/forming-calls-with-graphql#about-mutations) require an input object as an argument.
+## Реализация
 
-## Implementation
+В схеме GraphQL может использоваться термин _реализация_ для определения того, как объект наследуется от [интерфейса](/graphql/reference/interfaces).
 
-A GraphQL schema may use the term _implements_ to define how an object inherits from an [interface](/graphql/reference/interfaces).
-
-Here's a contrived example of a schema that defines interface `X` and object `Y`:
+Вот вымышленный пример схемы, определяющей интерфейс `X` и объект `Y`:
 
 ```
 interface X {
@@ -55,33 +59,33 @@ type Y implements X {
 }
 ```
 
-This means object `Y` requires the same fields/arguments/return types that interface `X` does, while adding new fields specific to object `Y`. (The `!` means the field is required.)
+Это означает, что объекту `Y` требуются те же поля, аргументы и типы возвращаемых значений, что и интерфейсу `X`, но при этом добавляются и новые поля, характерные для объекта `Y`. (`!` означает, что поле является обязательным.)
 
-In the reference docs, you'll find that:
+В справочной документации указывается следующее:
 
-* Each [object](/graphql/reference/objects) lists the interface(s) _from which it inherits_ under **Implements**.
+* в каждом [объекте](/graphql/reference/objects) в разделе **Implements** перечислены интерфейсы, _от которых он наследуется_;
 
-* Each [interface](/graphql/reference/interfaces) lists the objects _that inherit from it_ under **Implementations**.
+* в каждом [интерфейсе](/graphql/reference/interfaces) в разделе **Implementations** перечислены объекты, _наследуемые от интерфейса_.
 
-## Connection
+## Соединение
 
-Connections let you query related objects as part of the same call. With connections, you can use a single GraphQL call where you would have to use multiple calls to a REST API. For more information, see "[Migrating from REST to GraphQL](/graphql/guides/migrating-from-rest-to-graphql)."
+Соединения позволяют запрашивать связанные объекты в рамках одного вызова. С помощью соединений можно использовать один вызов GraphQL вместо нескольких вызовов REST API. Дополнительные сведения см. в разделе [Переход с REST на GraphQL](/graphql/guides/migrating-from-rest-to-graphql).
 
-It's helpful to picture a graph: dots connected by lines. The dots are nodes, the lines are edges. A connection defines a relationship between nodes.
+Граф можно представить в виде точек, соединенных линиями. Точки — это узлы, а линии — ребра. Соединение определяет связь между узлами.
 
 ## Edge
 
-Edges represent connections between nodes. When you query a connection, you traverse its edges to get to its nodes. Every `edges` field has a `node` field and a `cursor` field. Cursors are used for [pagination](https://graphql.github.io/learn/pagination/).
+Ребра представляют соединения между узлами. При запросе соединения вы проходите по ребрам, чтобы достичь узлов. Каждое поле `edges` содержит поля `node` и `cursor`. Курсоры используются для [разбиения на страницы](https://graphql.github.io/learn/pagination/).
 
-## Node
+## Узел
 
-_Node_ is a generic term for an object. You can look up a node directly, or you can access related nodes via a connection. If you specify a `node` that does not return a [scalar](/graphql/reference/scalars), you must include subfields until all fields return scalars. For information on accessing node IDs via the REST API and using them in GraphQL queries, see "[Using Global Node IDs](/graphql/guides/using-global-node-ids)."
+_Узел_ — это универсальный термин для объекта. Обратиться к узлу можно напрямую или через соединение со связанными узлами. Если указан узел (`node`), не возвращающий [скаляр](/graphql/reference/scalars), необходимо включить вложенные поля, чтобы все поля возвращали скалярные значения. Сведения о доступе к идентификаторам узлов через REST API и их использовании в запросах GraphQL см. в разделе [Использование глобальных идентификаторов узлов](/graphql/guides/using-global-node-ids).
 
-## Discovering the GraphQL API
+## Обнаружение API GraphQL
 
-GraphQL is [introspective](https://graphql.github.io/learn/introspection/). This means you can query a GraphQL schema for details about itself.
+GraphQL является [интроспективным](https://graphql.github.io/learn/introspection/). Это означает, что вы можете запрашивать у схемы GraphQL сведения о ней самой.
 
-* Query `__schema` to list all types defined in the schema and get details about each:
+* Запросите `__schema`, чтобы получить список всех типов, определенных в схеме, и сведения о каждом из них:
 
   ```graphql
   query {
@@ -98,7 +102,7 @@ GraphQL is [introspective](https://graphql.github.io/learn/introspection/). This
   }
   ```
 
-* Query `__type` to get details about any type:
+* Запросите `__type`, чтобы получить сведения о любом типе:
 
   ```graphql
   query {
@@ -113,7 +117,7 @@ GraphQL is [introspective](https://graphql.github.io/learn/introspection/). This
   }
   ```
 
-* You can also run an _introspection query_ of the schema via a `GET` request:
+* Вы также можете выполнить _интроспективный запрос_ схемы с помощью запроса `GET`:
 
   ```shell
   $ curl -H "Authorization: bearer TOKEN" {% data variables.product.graphql_url_pre %}
@@ -121,13 +125,13 @@ GraphQL is [introspective](https://graphql.github.io/learn/introspection/). This
   
   {% note %}
 
-  **Note**: If you get the response `"message": "Bad credentials"` or `401 Unauthorized`, check that you are using a valid token. The GraphQL API only supports authentication using a {% data variables.product.pat_v1 %}. For more information, see "[Creating a {% data variables.product.pat_generic %}](/github/authenticating-to-github/creating-a-personal-access-token)." 
+  **Примечание**. Если получен ответ `"message": "Bad credentials"` или `401 Unauthorized`, убедитесь в том, что используется допустимый токен. API GraphQL поддерживает проверку подлинности только с помощью {% данных variables.product.pat_v1 %}. Дополнительные сведения см. в разделе "[Создание {% данных variables.product.pat_generic %}](/github/authenticating-to-github/creating-a-personal-access-token)". 
 
   {% endnote %}
   
-  The results are in JSON, so we recommend pretty-printing them for easier reading and searching. You can use a command-line tool like [jq](https://stedolan.github.io/jq/) or pipe the results into `python -m json.tool` for this purpose.
+  Результаты возвращаются в формате JSON, поэтому мы рекомендуем выполнить их структурную распечатку, чтобы упростить чтение и поиск. Для этой цели можно использовать такое средство командной строки, как [jq](https://stedolan.github.io/jq/), или передать результаты в `python -m json.tool`.
   
-  Alternatively, you can pass the `idl` media type to return the results in IDL format, which is a condensed version of the schema:
+  Кроме того, можно передать тип носителя `idl` для возврата результатов в формате IDL, который является сжатой версией схемы:
 
   ```shell
   $ curl -H "Authorization: bearer TOKEN" -H "Accept: application/vnd.github.v4.idl" \
@@ -136,8 +140,8 @@ GraphQL is [introspective](https://graphql.github.io/learn/introspection/). This
 
   {% note %}
 
-  **Note**: The introspection query is probably the only `GET` request you'll run in GraphQL. If you're passing a body, the GraphQL request method is `POST`, whether it's a query or a mutation.
+  **Примечание**. Интроспективный запрос, вероятно, будет единственным запросом `GET`, который вы будете выполнять в GraphQL. Если вы передаете текст, методом запроса GraphQL будет `POST`, будь то запрос или мутация.
 
   {% endnote %}
 
-  For more information about performing queries, see "[Forming calls with GraphQL](/graphql/guides/forming-calls-with-graphql)."
+  Дополнительные сведения о выполнении запросов см. в разделе [Формирование вызовов с помощью GraphQL](/graphql/guides/forming-calls-with-graphql).

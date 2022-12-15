@@ -1,6 +1,6 @@
 ---
-title: 'Usage limits, billing, and administration'
-intro: 'There are usage limits for {% data variables.product.prodname_actions %} workflows. Usage charges apply to repositories that go beyond the amount of free minutes and storage for a repository.'
+title: 'Ограничения использования, выставление счетов и администрирование'
+intro: 'Существуют ограничения на использование рабочих процессов {% data variables.product.prodname_actions %}. Плата за использование применяется к репозиториям, для которых превышено ограничение на объем бесплатных минут и хранилища.'
 redirect_from:
   - /actions/getting-started-with-github-actions/usage-and-billing-information-for-github-actions
   - /actions/reference/usage-limits-billing-and-administration
@@ -11,115 +11,113 @@ versions:
 topics:
   - Billing
 shortTitle: Workflow billing & limits
+ms.openlocfilehash: 5abd041d41ab2227aa87c383f39c94876544718c
+ms.sourcegitcommit: 9af8891fea10039b3374c76818634e05410e349d
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 12/06/2022
+ms.locfileid: '148191857'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+## Сведения о выставлении счетов за {% data variables.product.prodname_actions %}
 
-## About billing for {% data variables.product.prodname_actions %}
+{% data reusables.repositories.about-github-actions %} Дополнительные сведения см. в статьях "[Общие сведения о {% data variables.product.prodname_actions %}](/actions/learn-github-actions/understanding-github-actions){% ifversion fpt %}."{% elsif ghes or ghec %}" и "[Сведения о {% data variables.product.prodname_actions %} для предприятий](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises)."{% endif %}
 
-{% data reusables.repositories.about-github-actions %} For more information, see "[Understanding {% data variables.product.prodname_actions %}](/actions/learn-github-actions/understanding-github-actions){% ifversion fpt %}."{% elsif ghes or ghec %}" and "[About {% data variables.product.prodname_actions %} for enterprises](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises)."{% endif %}
-
-{% ifversion fpt or ghec %}
-{% data reusables.actions.actions-billing %} For more information, see "[About billing for {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)."
-{% else %}
-GitHub Actions usage is free for {% data variables.product.prodname_ghe_server %} instances that use self-hosted runners. For more information, see "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners)."
+{% ifversion fpt or ghec %} {% data reusables.actions.actions-billing %} Дополнительные сведения см. в статье "[Сведения о выставлении счетов за {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)".
+{% else %} Использование GitHub Actions бесплатно для экземпляров {% data variables.product.prodname_ghe_server %}, использующих локально размещенные средства выполнения. Дополнительные сведения см. в статье "[Сведения о локально размещенных средствах выполнения](/actions/hosting-your-own-runners/about-self-hosted-runners)."
 {% endif %}
 
 
 {% ifversion fpt or ghec %}
 
-## Availability
+## Доступность
 
-{% data variables.product.prodname_actions %} is available on all {% data variables.product.prodname_dotcom %} products, but {% data variables.product.prodname_actions %} is not available for private repositories owned by accounts using legacy per-repository plans. {% data reusables.gated-features.more-info %}
+{% data variables.product.prodname_actions %} доступен во всех продуктах {% data variables.product.prodname_dotcom %}, но {% data variables.product.prodname_actions %} недоступен для частных репозиториев, принадлежащих учетным записям, использующим устаревшие планы для каждого репозитория. {% data reusables.gated-features.more-info %}
 
 {% endif %}
 
-## Usage limits
+## Ограничения использования
 
-{% ifversion fpt or ghec %}
-There are some limits on {% data variables.product.prodname_actions %} usage when using {% data variables.product.prodname_dotcom %}-hosted runners. These limits are subject to change.
+{% data variables.product.prodname_actions %} Существуют некоторые ограничения на использование {% data variables.product.prodname_actions %}при использовании средств выполнения, размещенных в {% data variables.product.prodname_dotcom %}. Эти ограничения могут меняться.
 
 {% note %}
 
-**Note:** For self-hosted runners, different usage limits apply. For more information, see "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits)."
+**Примечание.** Для локально размещенных средств выполнения действуют различные ограничения использования. Дополнительные сведения см. в статье "[Сведения о локально размещенных средствах выполнения](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits)."
 
 {% endnote %}
 
-- **Job execution time** - Each job in a workflow can run for up to 6 hours of execution time. If a job reaches this limit, the job is terminated and fails to complete.
-{% data reusables.actions.usage-workflow-run-time %}
-{% data reusables.actions.usage-api-requests %}
-- **Concurrent jobs** - The number of concurrent jobs you can run in your account depends on your GitHub plan, as well as the type of runner used. If exceeded, any additional jobs are queued.
+- **Время выполнения задания.** Каждое задание в рабочем процессе может выполняться до 6 часов. При достижении этого передела выполнение задания прекращается и завершается сбоем.
+{% data reusables.actions.usage-workflow-run-time %} {% data reusables.actions.usage-api-requests %}
+- **Параллельные задания** . Количество одновременных заданий, которые можно выполнять в учетной записи, зависит от плана GitHub, а также от типа используемого средства выполнения. При превышении значения все дополнительные задания помещаются в очередь.
 
-  **Standard {% data variables.product.prodname_dotcom %}-hosted runners**
+  **Стандартные средства выполнения тестов, размещенные в {% data variables.product.prodname_dotcom %}**
 
-  | GitHub plan | Total concurrent jobs | Maximum concurrent macOS jobs |
+  | План GitHub | Общее количество одновременных заданий | Максимальное количество одновременных заданий macOS |
   |---|---|---|
-  | Free | 20 | 5 |
-  | Pro | 40 | 5 |
-  | Team | 60 | 5 |
-  | Enterprise | 180 | 50 |
+  | Бесплатный | 20 | 5 |
+  | Профессиональная | 40 | 5 |
+  | Группа | 60 | 5 |
+  | Предприятие | 180 | 50 |
 
-  **{% data variables.product.prodname_dotcom %}-hosted {% data variables.actions.hosted_runner %}s**
+  **{% data variables.product.prodname_dotcom %}, размещенные в {% data variables.actions.hosted_runner %}s**
 
-  | GitHub plan | Total concurrent jobs | Maximum concurrent macOS jobs |
+  | План GitHub | Общее количество одновременных заданий | Максимальное количество одновременных заданий macOS |
   |---|---|---|
-  | All | 500 | n/a |
+  | Все | 500 | Недоступно |
 
   {% note %}
 
-  **Note:** If required, customers on enterprise plans can request a higher limit for concurrent jobs. For more information, contact {% data variables.contact.contact_ent_support %} or your sales representative.
+  **Примечание.** При необходимости клиенты корпоративных планов могут запрашивать более высокие ограничения для параллельных заданий. Для получения дополнительной информации обратитесь к {% data variables.contact.contact_ent_support %} или своему представителю по продажам.
 
   {% endnote %}
   
-- **Job matrix** - {% data reusables.actions.usage-matrix-limits %}
-{% data reusables.actions.usage-workflow-queue-limits %}
+- **Матрица заданий.** {% data reusables.actions.usage-matrix-limits %} {% data reusables.actions.usage-workflow-queue-limits %}
 
-{% else %}
-Usage limits apply to self-hosted runners. For more information, see "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits)."
+{% else %} Ограничения использования применяются к локально размещенным средствам выполнения. Дополнительные сведения см. в статье "[Сведения о локально размещенных средствах выполнения](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits)."
 {% endif %}
 
 {% ifversion fpt or ghec %}
-## Usage policy
+## Политика использования
 
-In addition to the usage limits, you must ensure that you use {% data variables.product.prodname_actions %} within the [GitHub Terms of Service](/free-pro-team@latest/github/site-policy/github-terms-of-service/). For more information on {% data variables.product.prodname_actions %}-specific terms, see the [GitHub Additional Product Terms](/free-pro-team@latest/github/site-policy/github-additional-product-terms#a-actions-usage).
+Помимо ограничений использования, необходимо убедиться, что вы используете {% data variables.product.prodname_actions %} согласно [Условиям предоставления услуг GitHub](/free-pro-team@latest/github/site-policy/github-terms-of-service/). Дополнительные сведения об условиях для {% data variables.product.prodname_actions %} см. в документе о [дополнительных условиях для продукта GitHub](/free-pro-team@latest/github/site-policy/github-additional-product-terms#a-actions-usage).
 {% endif %}
 
 {% ifversion fpt or ghes > 3.3 or ghec %}
-## Billing for reusable workflows
+## Выставление счетов за многократно используемые рабочие процессы
 
 {% data reusables.actions.reusable-workflows-enterprise-beta %}
 
-If you reuse a workflow, billing is always associated with the caller workflow. Assignment of {% data variables.product.prodname_dotcom %}-hosted runners is always evaluated using only the caller's context. The caller cannot use {% data variables.product.prodname_dotcom %}-hosted runners from the called repository. 
+При повторном использовании рабочего процесса выставление счетов всегда связано с рабочим процессом вызывающей стороны. Назначение размещенных в {% data variables.product.prodname_dotcom %} средств выполнения всегда оценивается только с использованием контекста вызывающей стороны. Вызывающая сторона не может использовать размещенные в {% data variables.product.prodname_dotcom %} средства выполнения из вызываемого репозитория. 
 
-For more information see, "[Reusing workflows](/actions/learn-github-actions/reusing-workflows)."
+Дополнительные сведения см. в статье "[Многократное использование рабочих процессов](/actions/learn-github-actions/reusing-workflows)."
 {% endif %}
 
-## Artifact and log retention policy
+## Политика хранения артефактов и журналов
 
-You can configure the artifact and log retention period for your repository, organization, or enterprise account.
+Вы можете настроить значение артефакта по умолчанию и срок хранения журнала для учетной записи репозитория, организации или предприятия.
 
 {% data reusables.actions.about-artifact-log-retention %}
 
-For more information, see:
+Дополнительные сведения можно найти в разделе
 
-- "[Managing {% data variables.product.prodname_actions %} settings for a repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-repository)"
-- "[Configuring the retention period for {% data variables.product.prodname_actions %} for artifacts and logs in your organization](/organizations/managing-organization-settings/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-organization)"
-- "[Enforcing policies for {% data variables.product.prodname_actions %} in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#enforcing-a-policy-for-artifact-and-log-retention-in-your-enterprise)"
+- "[Управление параметрами {% data variables.product.prodname_actions %} для репозитория](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-repository)"
+- "[Настройка периода хранения для {% data variables.product.prodname_actions %} для артефактов и журналов в организации](/organizations/managing-organization-settings/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-organization)"
+- "[Применение политик для {% data variables.product.prodname_actions %} на предприятии](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#enforcing-a-policy-for-artifact-and-log-retention-in-your-enterprise)"
 
-## Disabling or limiting {% data variables.product.prodname_actions %} for your repository or organization
+## Отключение или ограничение использования {% data variables.product.prodname_actions %} для репозитория или организации
 
 {% data reusables.actions.disabling-github-actions %}
 
-For more information, see:
-- "[Managing {% data variables.product.prodname_actions %} settings for a repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository)"
-- "[Disabling or limiting {% data variables.product.prodname_actions %} for your organization](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization)"
-- "[Enforcing policies for {% data variables.product.prodname_actions %} in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-github-actions-policies-for-your-enterprise#enforcing-a-policy-for-artifact-and-log-retention-in-your-enterprise)"
+Дополнительные сведения см. в разделе:
+- "[Управление параметрами {% data variables.product.prodname_actions %} для репозитория](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository)"
+- "[Отключение или ограничение использования {% data variables.product.prodname_actions %} для репозитория или организации](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization)"
+- "[Применение политик для {% data variables.product.prodname_actions %} на предприятии](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-github-actions-policies-for-your-enterprise#enforcing-a-policy-for-artifact-and-log-retention-in-your-enterprise)"
 
-## Disabling and enabling workflows
+## Отключение и включение рабочих процессов
 
-You can enable and disable individual workflows in your repository on {% data variables.product.prodname_dotcom %}.
+Вы можете включать и отключать отдельные рабочие процессы в репозитории в {% data variables.product.prodname_dotcom %}.
 
 {% data reusables.actions.scheduled-workflows-disabled %}
 
-For more information, see "[Disabling and enabling a workflow](/actions/managing-workflow-runs/disabling-and-enabling-a-workflow)."
+Дополнительные сведения см. в статье "[Отключение и включение рабочего процесса](/actions/managing-workflow-runs/disabling-and-enabling-a-workflow)".

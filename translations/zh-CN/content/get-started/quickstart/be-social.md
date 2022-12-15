@@ -1,11 +1,11 @@
 ---
-title: Be social
+title: 社交化
 redirect_from:
   - /be-social
   - /articles/be-social
   - /github/getting-started-with-github/be-social
   - /github/getting-started-with-github/quickstart/be-social
-intro: 'You can interact with people, repositories, and organizations on {% data variables.product.prodname_dotcom %}. See what others are working on and who they are connecting with from your personal dashboard.'
+intro: '您可以在 {% data variables.product.prodname_dotcom %} 上与人员、仓库及组织进行互动。 从个人仪表板查看其他人正在做什么，在跟谁联系。'
 permissions: '{% data reusables.enterprise-accounts.emu-permission-interact %}'
 versions:
   fpt: '*'
@@ -18,71 +18,61 @@ topics:
   - Issues
   - Notifications
   - Accounts
+ms.openlocfilehash: 72cdc18a6db388a33eeeac03f7f86571691b1fcc
+ms.sourcegitcommit: 22d665055b1bee7a5df630385e734e3a149fc720
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 07/13/2022
+ms.locfileid: '145128844'
 ---
-To learn about accessing your personal dashboard, see "[About your personal dashboard](/articles/about-your-personal-dashboard)."
+若要了解如何访问个人仪表板，请参阅“[关于个人仪表板](/articles/about-your-personal-dashboard)”。
 
-## Following people
+## <a name="following-people"></a>关注他人
 
-When you follow someone on {% data variables.product.prodname_dotcom %}, you will get notifications on your personal dashboard about their public activity. If someone you follow creates a new repository, stars a repository, or follows another user, the activity will display in your dashboard. 
+当你在 {% data variables.product.prodname_dotcom %} 上关注某人时，你将在个人仪表板上收到关于其公共活动的通知。 如果你关注的某人创建新存储库、用星号标记存储库或关注其他用户，则活动将显示在仪表板中。 
 
-Click **Follow** on a person's profile page to follow them.
+单击某人个人资料页上的“关注”可关注他们。
 
-![Follow user button](/assets/images/help/profile/follow-user-button.png)
+![关注用户按钮](/assets/images/help/profile/follow-user-button.png)
 
-For more information, see "[Following people](/get-started/exploring-projects-on-github/following-people)."
+有关详细信息，请参阅“[关注他人](/get-started/exploring-projects-on-github/following-people)”。
 
-## Watching a repository
+## <a name="watching-a-repository"></a>关注仓库
 
-You can subscribe to a repository to watch it and receive notifications for activity in it. When the owner updates the repository, you will see the changes in your personal dashboard. For more information, see "[Viewing your subscriptions](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions)."
+可以订阅存储库来关注它并接收其中活动的通知。 当所有者更新存储库时，你将在个人仪表板中看到其更改。 有关详细信息，请参阅“[查看订阅](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions)”。
 
-Click **Watch** at the top of a repository to watch it.
+单击存储库顶部的“监视”可监视存储库。
 
-![Watch repository button](/assets/images/help/repository/repo-actions-watch.png)
+![关注仓库按钮](/assets/images/help/repository/repo-actions-watch.png)
 
-## Joining the conversation
+## <a name="joining-the-conversation"></a>加入对话
 
 {% data reusables.support.ask-and-answer-forum %}
 
-## Communicating on {% data variables.product.product_name %}
+## <a name="communicating-on--data-variablesproductproduct_name-"></a>{% data variables.product.product_name %} 上的通信
 
-{% data variables.product.product_name %} provides built-in collaborative communication tools, allowing you to interact closely with your community when building great software. For example, you can contribute to another user's project by creating a pull request, or use issues to track bugs or suggest ideas in a repository. You can also brainstorm new ideas with your team with discussions. 
+{% data variables.product.product_name %} 提供内置的协作通信工具，使你能够在构建出色的软件时与社区进行密切互动。 例如，可以通过创建拉取请求，或使用问题跟踪 bug 或建议存储库中的想法，从而为其他用户的项目做出贡献。 还可以通过与你的团队讨论来寻求新的想法。 
 
-For an overview of these tools, see "[Quickstart for communicating on {% data variables.product.prodname_dotcom %}](/github/collaborating-with-issues-and-pull-requests/quickstart-for-communicating-on-github)."
+有关这些工具的概述，请参阅“[在 {% data variables.product.prodname_dotcom %} 上进行通信的快速入门](/github/collaborating-with-issues-and-pull-requests/quickstart-for-communicating-on-github)”。
 
-## Participating in organizations
+## <a name="participating-in-organizations"></a>参与组织
 
-Organizations are shared accounts where businesses and open-source projects can collaborate across many projects at once. Owners and administrators can establish teams with special permissions, have a public organization profile, and keep track of activity within the organization. For more information, see "[About organizations](/articles/about-organizations/)."
+组织是共享帐户，其中业务和开源项目可同时跨多个项目进行协作。 所有者和管理员可建立具有特殊权限的团队、拥有公共组织资料以及跟踪组织内的活动。 有关详细信息，请参阅[关于组织](/articles/about-organizations/)。
 
-From your dashboard, click the drop down menu of your username on the left side of your dashboard. Here, you can view organizations that you are a part of and easily switch between them.
+在仪表板中，单击仪表板左侧的用户名的下拉菜单。 在此处，可以查看你作为成员的组织并轻松地在组织之间切换。
 
-![Switch account context dropdown](/assets/images/help/overview/dashboard-contextswitcher.png)
+![切换帐户上下文下拉列表](/assets/images/help/overview/dashboard-contextswitcher.png)
 
-{% ifversion for-you-feed %}
+### <a name="exploring-other-projects-on--data-variablesproductprodname_dotcom-"></a>在 {% data variables.product.prodname_dotcom %} 上探索其他项目
 
-## Following organizations
+可以在 {% data variables.product.prodname_dotcom %} 的“浏览”页上发现全新且有趣的项目。 可以用星号标记感兴趣的项目，以便今后轻松找到它们。 访问你的星标页面以查看所有加星标的项目。 有关星标的详细信息，请参阅“[使用星标保存存储库](/get-started/exploring-projects-on-github/saving-repositories-with-stars)”。
 
-{% data reusables.organizations.follow-organizations-beta %}
+仪表板源根据你的兴趣（包括你加星标的存储库、关注的人员以及为公共存储库做出的贡献）显示项目。 在仪表板中，可以查看热门项目、主题和收藏集锦。 
 
-{% data reusables.organizations.about-following-organizations %}
+若要浏览更多项目，请参阅“{% data variables.explore.explore_github %}”。
 
-To follow an organization, in the header of the organization's page, click **Follow**.
-
-![Screenshot of the organization header, with the follow button highlighted](/assets/images/help/profile/organization-profile-following.png)
-
-For more information, see "[Following organizations](/get-started/exploring-projects-on-github/following-organizations)."
-
-{% endif %}
-
-## Exploring other projects on {% data variables.product.prodname_dotcom %}
-
-You can discover new and interesting projects on {% data variables.product.prodname_dotcom %}'s Explore page. You can star interesting projects to make them easy to find again later. Visit your stars page to see all your starred projects. For more information about stars, see "[Saving repositories with stars](/get-started/exploring-projects-on-github/saving-repositories-with-stars)."
-
-Your dashboard feed displays projects based on your interests including repositories you star, people you follow, and your contributions to public repositories. From your dashboard, you can see trending projects, view topics, and check out collections. 
-
-To explore more projects, see "{% data variables.explore.explore_github %}".
-
-## Next steps
-You are now connected to the {% data variables.product.product_name %} community. There are other ways to interact and build within {% data variables.product.product_name %}.
+## <a name="next-steps"></a>后续步骤
+你现在已连接到 {% data variables.product.product_name %} 社区。 还有其他方法可以在 {% data variables.product.product_name %} 中进行交互和生成。
 
 * {% data reusables.getting-started.set-up-git %}
 

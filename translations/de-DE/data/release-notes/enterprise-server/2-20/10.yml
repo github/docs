@@ -1,0 +1,21 @@
+date: '23.06.2020'
+sections:
+  security_fixes:
+    - 'Die Pakete wurden auf die neuesten Sicherheitsversionen aktualisiert. {% comment %} https://github.com/github/enterprise2/pull/20746, https://github.com/github/enterprise2/pull/20727 {% endcomment %}'
+  bugs:
+    - 'Übermäßig große Protokollereignisse konnten zu Weiterleitungsinstabilität für Protokolle führen, wenn UDP als Transportmechanismus verwendet wird. {% comment %} https://github.com/github/enterprise2/pull/20457, https://github.com/github/enterprise2/pull/20445 {% endcomment %}'
+    - "Das automatische Aufheben der Sperre von Benutzern über SSO wurde nicht abgeschlossen, wenn das SSH-Schlüsselattribut über Schlüssel verfügte, die dem Benutzerkonto zugeordnet waren. {% comment %} https://github.com/github/github/pull/143474, https://github.com/github/github/pull/142927 {% endcomment %}"
+    - 'Der Repositoryberechtigungshash der REST-API zeigt keinen Zugriff für Unternehmensmitglieder an, die über Pullzugriff auf interne Repositorys verfügen. {% comment %} https://github.com/github/github/pull/144755, https://github.com/github/github/pull/144292 {% endcomment %}'
+    - 'Die Vorschau einer in Markdown geschriebenen GitHub-App-Beschreibung wurde nicht ordnungsgemäß gerendert. {% comment %} https://github.com/github/github/pull/145038, https://github.com/github/github/pull/133360 {% endcomment %}'
+    - 'Das Überwachungsprotokoll enthielt keine Änderungsereignisse zum Branchschutz. {% comment %} https://github.com/github/github/pull/145995, https://github.com/github/github/pull/145014 {% endcomment %}'
+    - "Der Versuch, einem Mitglied eines leeren Teams einen Code Review zuzuweisen, führte zu einem Fehler vom Typ „500 Interner Serverfehler“. {% comment %} https://github.com/github/github/pull/146328, https://github.com/github/github/pull/139330 {% endcomment %}"
+    - 'Bei der Code Review-Zuweisung mithilfe des Lastenausgleichsalgorithmus konnten wiederholt Zuweisungen zum gleichen Teammitglied durchgeführt werden. {% comment %} https://github.com/github/github/pull/146329, https://github.com/github/github/pull/136504 {% endcomment %}'
+  known_issues:
+    - 'In einer neu eingerichteten GitHub Enterprise Server-Instanz ohne Benutzer konnte ein Angreifer den ersten Administratorbenutzer erstellen. {% comment %} https://github.com/github/enterprise2/issues/1889 {% endcomment %}'
+    - 'Benutzerdefinierte Firewallregeln werden während eines Upgrades nicht aufrechterhalten. {% comment %} https://github.com/github/enterprise2/issues/2823 {% endcomment %}'
+    - 'Nachverfolgte Git-LFS-Dateien, [die über die Webschnittstelle hochgeladen wurden](https://github.com/blog/2105-upload-files-to-your-repositories), werden dem Repository fälschlicherweise direkt hinzugefügt. {% comment %} https://github.com/github/github/issues/54684 {% endcomment %}'
+    - 'Issues können nicht geschlossen werden, wenn sie einen Permalink zu einem Blob im selben Repository enthalten und der Dateipfad länger ist als 255 Zeichen. {% comment %} https://github.com/github/github/issues/107731 {% endcomment %}'
+    - 'Wenn die Option zum Durchsuchen von GitHub.com in GitHub Connect aktiviert ist, sind Issues in privaten und internen Repositorys nicht in den GitHub.com-Suchergebnissen enthalten. {% comment %} https://github.com/github/admin-experience/issues/571 {% endcomment %}'
+    - 'Sicherheitswarnungen werden nicht gemeldet, wenn etwas über die Befehlszeile an ein Repository gepusht wird. {% comment %} https://github.com/github/github/issues/143190 {% endcomment %}'
+    - 'Das Abhängigkeitsdiagramm erkennt keine Abhängigkeiten, wenn es in einer Clusterkonfiguration mit mehreren Redis-Knoten bereitgestellt wird. (Aktualisiert am 30.06.2020) {% comment %} https://github.com/github/dependency-graph/issues/81 {% endcomment %}'
+    - 'Wenn ein Replikatknoten in einer Hochverfügbarkeitskonfiguration offline ist, kann {% data variables.product.product_name %} eventuell noch immer Anfragen von {% data variables.product.prodname_pages %} an den Offlineknoten weiterleiten, was die Verfügbarkeit von {% data variables.product.prodname_pages %} für Benutzer verringert.'

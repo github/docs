@@ -12,12 +12,12 @@ versions:
 topics:
   - API
 shortTitle: Integrator best practices
-ms.openlocfilehash: 76e0a405394529bb8b40b0a0af10d5e19fbbf3a5
-ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
+ms.openlocfilehash: bdfc2449946e40b017dc028869deb7991d5a344a
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2022
-ms.locfileid: '147882270'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148193338'
 ---
 Vous souhaitez intégrer la plateforme GitHub ? [Vous êtes au bon endroit](https://github.com/integrations). Ce guide vous aidera à créer une application offrant une expérience optimale à vos utilisateurs *et* à vérifier qu’elle interagit de manière fiable avec l’API. 
 
@@ -65,7 +65,7 @@ Souvent, les réponses d’API contiennent des données sous la forme d’URL. P
 
 Pour la stabilité de votre application, vous ne devez pas essayer d’analyser ces données, ni de deviner et de construire le format des futures URL. Votre application sera susceptible de ne plus fonctionner si nous décidons de modifier l’URL.
 
-Par exemple, lors d’une utilisation de résultats paginés, il est souvent tentant de construire des URL avec `?page=<number>` à la fin. Ne cédez pas à cette tentation. [Notre guide sur la pagination](/guides/traversing-with-pagination) offre des conseils sécurisés pour un suivi fiable des résultats paginés.
+Par exemple, lors d’une utilisation de résultats paginés, il est souvent tentant de construire des URL avec `?page=<number>` à la fin. Ne cédez pas à cette tentation. Pour plus d’informations sur le suivi fiable des résultats paginés, consultez « [Utilisation de la pagination dans l’API REST](/rest/guides/using-pagination-in-the-rest-api) ».
 
 ## Vérifier le type d’événement et l’action avant de traiter l’événement
 

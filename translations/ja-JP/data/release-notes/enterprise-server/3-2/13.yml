@@ -1,0 +1,28 @@
+date: '2022-05-17'
+sections:
+  security_fixes:
+    - '**中:** nginx リゾルバーでセキュリティの問題が見つかりました。DNS サーバーからの UDP パケットを偽造できる攻撃者は、1 バイトのメモリを上書きして、ワーカー プロセスをクラッシュさせたり、損傷を与える可能性がある影響を及ぼすことができました。この脆弱性には、[CVE-2021-23017](https://nvd.nist.gov/vuln/detail/CVE-2021-23017) が割り当てられました。'
+    - "[Git セキュリティ適用ブログ記事](https://github.blog/2022-04-12-git-security-vulnerability-announced/)で発表された脆弱性に対処するため、`actions/checkout@v2` と `actions/checkout@v3` アクションを更新しました。"
+    - パッケージは最新のセキュリティ バージョンに更新されました。
+  bugs:
+    - 一部のクラスター トポロジでは、`ghe-cluster-status` コマンドで `/tmp` に空のディレクトリが残りました。
+    - SNMP により、多数の `Cannot statfs` (statfs を実行できません) エラー メッセージが syslog に誤って記録されました。
+    - "SAML 認証を使って構成され、組み込みのフォールバックが有効になっているインスタンスでは、組み込みのユーザーがログアウトした後で生成されたページからサインインしようとすると、\"ログイン\" ループでスタックしていました。"
+    - issue コメントにアップロードされたビデオが、適切にレンダリングされませんでした。
+    - SAML で暗号化されたアサーションを使うと、一部のアサーションが SSH キーを検証済みとして正しくマークしませんでした。
+    - "`ghe-migrator` を使うと、issue と pull request のビデオ添付ファイルが、移行でインポートされませんでした。"
+    - '非 ASCII 文字を含むタグがリポジトリにあると、[Releases]\(リリース\) ページで 500 エラーが返されました。[更新日: 2022-06-10]'
+  changes:
+    - 高可用性の構成では、管理コンソールのレプリケーション概要ページに、現在のレプリケーション構成だけが表示され、現在のレプリケーション状態は表示されないことが明確化されました。
+    - "{% data variables.product.prodname_registry %} を有効にした場合、接続文字列としての Shared Access Signature (SAS) トークンの使用は現在サポートされていないことに注意してください。"
+    - サポート バンドルに、MySQL に格納されているテーブルの行数が含まれるようになりました。
+    - "脆弱性データなしで依存関係グラフを有効にして、使われている依存関係とそのバージョンを確認できるようになりました。{% data variables.product.prodname_github_connect %} を有効にせずに依存関係グラフを有効にすると、脆弱性情報は提供され**なくなります**。"
+  known_issues:
+    - "{% data variables.product.prodname_ghe_server %} インスタンスをセットアップしたばかりでユーザーがいない場合、攻撃者が最初の管理者ユーザーを作成できました。"
+    - カスタムのファイアウォール規則は、アップグレード プロセス中に削除されます。
+    - "[Web インターフェイスからアップロードされた](https://github.com/blog/2105-upload-files-to-your-repositories) Git LFS 追跡ファイルが誤ってリポジトリに直接追加されます。"
+    - issue に同じリポジトリ内の BLOB への固定リンクが含まれ、その BLOB のファイル パスが 255 文字を超える場合、その issue をクローズできません。
+    - "{% data variables.product.prodname_github_connect %} で [Users can search GitHub.com]\\(ユーザーが GitHub.com を検索できる\\) が有効になっている場合、プライベートおよび内部リポジトリの issue は {% data variables.product.prodname_dotcom_the_website %} の検索結果に含まれません。"
+    - "{% data variables.product.prodname_registry %} npm レジストリが、メタデータ応答で時刻値を返さなくなります。これは、パフォーマンスの大幅な向上を可能にするために行われました。メタデータ応答の一部として時刻値を返すために必要なすべてのデータを保持し続け、既存のパフォーマンスの問題を解決したら、将来的にこの値を返すことを再開します。"
+    - pre-receive フックの処理に固有のリソース制限により、一部の pre-receive フックが失敗する場合があります。
+    - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'

@@ -1,3 +1,11 @@
-{% data variables.product.prodname_copilot %} can be managed through personal accounts with {% data variables.product.prodname_copilot_for_individuals %} or through invoiced {% data variables.product.prodname_ghe_cloud %} accounts with {% data variables.product.prodname_copilot_for_business %}.<br><br>
+---
+ms.openlocfilehash: 12573a5fe996a8e2bb1cd66d4dbadb6b7a716b7e
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 12/09/2022
+ms.locfileid: "148192858"
+---
+{% data variables.product.prodname_copilot %} は {% data variables.product.prodname_copilot_for_individuals %} のある個人アカウントで管理するか、{% data variables.product.prodname_copilot_for_business %} のある、請求先の {% data variables.product.prodname_ghe_cloud %} アカウントで管理できます。<br><br>
 
-{% data variables.product.prodname_ghe_cloud %} accounts paying through credit card or PayPal, and organizations on the {% data variables.product.prodname_team %} or {% data variables.product.prodname_free_team %} plans cannot manage {% data variables.product.prodname_copilot %} for their members at this time. If you are interested in managing {% data variables.product.prodname_copilot %} through your {% data variables.product.prodname_ghe_cloud %} account paying through credit card or PayPal, or your organization on the {% data variables.product.prodname_team %} or {% data variables.product.prodname_free_team %} plan, you can contact sales and request to join the [waitlist](https://github.com/enterprise/contact?ref_page=/pricing?_features=site_copilot_biz_ga&ref_cta=Contact%20Sales&ref_loc=cards).
+クレジット カードまたは PayPal で支払う {% data variables.product.prodname_ghe_cloud %} アカウント、および {% data variables.product.prodname_team %} または {% data variables.product.prodname_free_team %} プランの組織はこのとき、メンバーの {% data variables.product.prodname_copilot %} を管理できません。 クレジット カードまたは PayPal で支払う {% data variables.product.prodname_ghe_cloud %} アカウント、または {% data variables.product.prodname_team %} か {% data variables.product.prodname_free_team %} プランの組織で {% data variables.product.prodname_copilot %} を管理する場合、営業に問い合わせ、[待機リスト](https://github.com/enterprise/contact?ref_page=/pricing?_features=site_copilot_biz_ga&ref_cta=Contact%20Sales&ref_loc=cards)への参加を依頼できます。

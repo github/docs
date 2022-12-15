@@ -1,0 +1,23 @@
+date: '28/10/2021'
+sections:
+  security_fixes:
+    - 'Il était possible que des mots de passe en clair se retrouvent dans certains fichiers journaux.'
+    - 'Plusieurs clés publiques SSH faibles connues ont été ajoutées à la liste des refus et ne peuvent plus être enregistrées. En outre, les versions de GitKraken connues pour générer des clés SSH faibles (7.6.x, 7.7.x et 8.0.0) ont été empêchées d’enregistrer de nouvelles clés publiques.'
+    - 'Les packages ont été mis à jour avec les dernières versions de sécurité.'
+  bugs:
+    - 'La restauration peut échouer pour un serveur d’entreprise en mode clustering si l’orchestrateur n’est pas sain.'
+    - 'Les liens Codespaces étaient affichés dans les paramètres de l’organisation.'
+    - 'Plusieurs parties de l’application étaient inutilisables pour les utilisateurs qui sont propriétaires de plusieurs organisations.'
+    - 'Correction d’un lien vers https://docs.github.com.'
+  changes:
+    - 'Optimisation de la navigation et des performances des travaux pour les référentiels avec de nombreuses références.'
+  known_issues:
+    - "Après avoir enregistré une nouvelle version sur un référentiel, la page `/releases` affiche une erreur 500. Un correctif pour ce problème est attendu dans la version 3.2.3."
+    - "Sur un {% data variables.product.prodname_ghe_server %} fraîchement configuré sans aucun utilisateur, un attaquant pourrait créer le premier utilisateur administrateur."
+    - Les règles de pare-feu personnalisées sont supprimées pendant le processus de mise à niveau.
+    - "Les fichiers suivis par Git LFS [chargés via l’interface web](https://github.com/blog/2105-upload-files-to-your-repositories) sont incorrectement ajoutés directement au référentiel."
+    - "Les questions ne peuvent pas être fermées si elles contiennent un permalien vers un blob dans le même référentiel, où le chemin de fichier du blob est supérieur à 255 caractères."
+    - "Lorsque l’option « Les utilisateurs peuvent effectuer des recherches sur GitHub.com » est activée avec GitHub Connect, les problèmes dans les référentiels privés et internes ne sont pas inclus dans les résultats de recherche de GitHub.com."
+    - "Le registre npm {% data variables.product.prodname_registry %} ne renvoie plus une valeur de temps dans les réponses de métadonnées. Cela a été fait pour permettre des améliorations substantielles des performances. Nous disposons toujours de toutes les données nécessaires pour renvoyer une valeur de temps dans le cadre de la réponse aux métadonnées et nous recommencerons à renvoyer cette valeur à l’avenir, une fois que nous aurons résolu les problèmes de performance existants."
+    - Les limites de ressources spécifiques au traitement des hooks de pré-réception peuvent entraîner l’échec de certains hooks de pré-réception.
+    - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'

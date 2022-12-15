@@ -1,6 +1,6 @@
 ---
-title: Commit exists on GitHub but not in my local clone
-intro: 'Sometimes a commit will be viewable on {% data variables.product.product_name %}, but will not exist in your local clone of the repository.'
+title: コミットが GitHub にはありますが、ローカルにはありません
+intro: '特定のコミットが、{% data variables.product.product_name %}上では見えるにもかかわらず、リポジトリのローカルクローンの中には存在しない、という場合があります。'
 redirect_from:
   - /articles/commit-exists-on-github-but-not-in-my-local-clone
   - /github/committing-changes-to-your-project/commit-exists-on-github-but-not-in-my-local-clone
@@ -11,62 +11,57 @@ versions:
   ghae: '*'
   ghec: '*'
 shortTitle: Commit missing in local clone
+ms.openlocfilehash: 9374b17a111bc3f88bf81d60de97e354c0bcf8ac
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145132529'
 ---
-When you use `git show` to view a specific commit on the command line, you may get a fatal error.
+特定のコミットを表示するため、コマンド ラインで `git show` を使うと、致命的エラーが発生することがあります。
 
-For example, you may receive a `bad object` error locally:
+たとえば、ローカルで `bad object` エラーが発生する場合があります。
 
 ```shell
 $ git show 1095ff3d0153115e75b7bca2c09e5136845b5592
 > fatal: bad object 1095ff3d0153115e75b7bca2c09e5136845b5592
 ```
 
-However, when you view the commit on {% data variables.location.product_location %}, you'll be able to see it without any problems:
+しかし、以下のように {% data variables.product.product_location %}でコミットを表示すると、問題が発生しません。
 
 `github.com/$account/$repository/commit/1095ff3d0153115e75b7bca2c09e5136845b5592`
 
-There are several possible explanations:
+この場合、以下の原因が考えられます:
 
-* The local repository is out of date.
-* The branch that contains the commit was deleted, so the commit is no longer referenced.
-* Someone force pushed over the commit.
+* ローカルのリポジトリが古い。
+* そのコミットが属するブランチが削除されたため、コミットが参照できなくなっている。
+* 誰かがコミットをフォースプッシュで上書きした。
 
-## The local repository is out of date
+## ローカルのリポジトリが古い
 
-Your local repository may not have the commit yet. To get information from your remote repository to your local clone, use `git fetch`:
+ローカルのリポジトリがまだコミットを取得していないことも考えられます。 リモート リポジトリからローカル クローンに情報を取得するには、以下のように `git fetch` を使用します。
 
 ```shell
-$ git fetch REMOTE
+$ git fetch <em>remote</em>
 ```
 
-This safely copies information from the remote repository to your local clone without making any changes to the files you have checked out.
-You can use `git fetch upstream` to get information from a repository you've forked, or `git fetch origin` to get information from a repository you've only cloned.
+これにより、チェックアウトしたファイルに変更が加えられることなく、リモート リポジトリからローカル クローンに、情報が安全にコピーされます。フォーク元のリポジトリから情報を取得するには `git fetch upstream` を使用します。また、クローンのみを行ったリポジトリから情報を取得するには `git fetch origin` を使用します。
 
 {% tip %}
 
-**Tip**: For more information, read about [managing remotes and fetching data](https://git-scm.com/book/en/Git-Basics-Working-with-Remotes) in the [Pro Git](https://git-scm.com/book) book.
+**ヒント**: 詳細については、[Pro Git](https://git-scm.com/book) ブックの [リモートの管理とデータのフェッチ](https://git-scm.com/book/en/Git-Basics-Working-with-Remotes)に関するページを参照してください。
 
 {% endtip %}
 
-## The branch that contained the commit was deleted
+## コミットのあるブランチが削除された
 
-If a collaborator on the repository has deleted the branch containing the commit
-or has force pushed over the branch, the missing commit may have been orphaned
-(i.e. it cannot be reached from any reference) and therefore will not be fetched
-into your local clone.
+リポジトリのコラボレーターが、そのコミットを含むブランチを削除した、あるいはブランチにフォース プッシュした場合、見つからないコミットは孤立している (つまり、どの参照からもたどり着けなくなっている) ため、ローカル クローンにフェッチできません。
 
-Fortunately, if any collaborator has a local clone of the repository with the
-missing commit, they can push it back to {% data variables.product.product_name %}.  They need to make sure the commit
-is referenced by a local branch and then push it as a new branch to {% data variables.product.product_name %}.
+幸いコラボレーターの誰かが、見つからないコミットを含むリポジトリのローカル クローンを持っている場合は、それを {% data variables.product.product_name %} にプッシュして戻してもらうことができます。  コミットがローカル ブランチによって参照されていることを確認してから {% data variables.product.product_name %} に新しいブランチとしてプッシュする必要があります。
 
-Let's say that the person still has a local branch (call it `B`) that contains
-the commit.  This might be tracking the branch that was force pushed or deleted
-and they simply haven't updated yet.  To preserve the commit, they can push that
-local branch to a new branch (call it `recover-B`) on {% data variables.product.product_name %}.  For this example,
-let's assume they have a remote named `upstream` via which they have push access
-to `github.com/$account/$repository`.
+たとえば、コラボレーターの 1 人が、コミットを含むローカル ブランチ (`B` と呼ぶ) をまだ持っているとします。  これが、フォース プッシュまたは削除されたブランチをトラッキングしている可能性がありますが、まだ更新されていません。  そのコミットを保持するために、そのローカル ブランチを {% data variables.product.product_name %} の新しいブランチ (`recover-B` と呼ぶ) にプッシュすることができます。  この例では、`upstream` という名前のリモートがあり、それを介して `github.com/$account/$repository` へのプッシュ アクセスがあると仮定します。
 
-The other person runs:
+コミットを持つローカルブランチを持っている人が、以下のコマンドを実行します:
 
 ```shell
 $ git branch recover-B B
@@ -75,18 +70,18 @@ $ git push upstream B:recover-B
 # Push local B to new upstream branch, creating new reference to commit
 ```
 
-Now, *you* can run:
+これで、"*あなた*" が次を実行できます。
 
 ```shell
 $ git fetch upstream recover-B
 # Fetch commit into your local repository.
 ```
 
-## Avoid force pushes
+## フォースプッシュは避けましょう
 
-Avoid force pushing to a repository unless absolutely necessary. This is especially true if more than one person can push to the repository. If someone force pushes to a repository, the force push may overwrite commits that other people based their work on. Force pushing changes the repository history and can corrupt pull requests.
+絶対に必要でない限り、フォースプッシュは避けましょう。 特に、リポジトリにプッシュできる人が 2 人以上いる場合は避けるべきです。 誰かがリポジトリにフォース プッシュした場合、フォース プッシュによって、他のユーザーがそれに基づいて作業しているコミットを上書きする可能性があります。 フォース プッシュによってリポジトリの履歴が変更され、pull request が破損する可能性あります。
 
-## Further reading
+## 参考資料
 
-- ["Working with Remotes" from the _Pro Git_ book](https://git-scm.com/book/en/Git-Basics-Working-with-Remotes)
-- ["Data Recovery" from the _Pro Git_ book](https://git-scm.com/book/en/Git-Internals-Maintenance-and-Data-Recovery)
+- [_Pro Git_ ブックの「リモートでの作業」](https://git-scm.com/book/en/Git-Basics-Working-with-Remotes)
+- [_Pro Git_ ブックの「データの復旧」](https://git-scm.com/book/en/Git-Internals-Maintenance-and-Data-Recovery)

@@ -1,7 +1,7 @@
 ---
-title: About integration with code scanning
+title: Сведения об интеграции со сканированием кода
 shortTitle: About integration
-intro: 'You can perform {% data variables.product.prodname_code_scanning %} externally and then display the results in {% data variables.product.prodname_dotcom %}, or set up webhooks that listen to {% data variables.product.prodname_code_scanning %} activity in your repository.'
+intro: 'Вы можете выполнить {% data variables.product.prodname_code_scanning %}, а затем отобразить результаты в {% data variables.product.prodname_dotcom %} или настроить веб-перехватчики, которые прослушивают действие {% data variables.product.prodname_code_scanning %} в вашем репозитории.'
 product: '{% data reusables.gated-features.code-scanning %}'
 redirect_from:
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/about-integration-with-code-scanning
@@ -18,26 +18,27 @@ topics:
   - Code scanning
   - Webhooks
   - Integration
+ms.openlocfilehash: b12f5146a90cae0ed1bd38d452e43eb611232e72
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145116827'
 ---
+{% data reusables.code-scanning.beta %} {% data reusables.code-scanning.enterprise-enable-code-scanning %}
 
+Вместо выполнения {% data variables.product.prodname_code_scanning %} в {% data variables.product.prodname_dotcom %} можно проводить анализ в другом месте, а затем выгружать результаты. Оповещения о {% data variables.product.prodname_code_scanning %}, выполняемом во внешней среде, отображаются точно так же, как и при {% data variables.product.prodname_code_scanning %}, выполняемом в {% data variables.product.prodname_dotcom %}. Дополнительные сведения см. в разделе [Управление оповещениями {% data variables.product.prodname_code_scanning %} для репозитория](/code-security/secure-coding/managing-code-scanning-alerts-for-your-repository).
 
-{% data reusables.code-scanning.beta %}
-{% data reusables.code-scanning.enterprise-enable-code-scanning %}
+Если вы используете стороннее средство статического анализа, которое может создавать результаты в виде данных SARIF (Static Analysis Results Interchange Format) 2.1.0, это данные можно загружать в {% data variables.product.prodname_dotcom %}. Дополнительные сведения см. в разделе [Отправка SARIF-файла в GitHub](/code-security/secure-coding/uploading-a-sarif-file-to-github).
 
-As an alternative to running {% data variables.product.prodname_code_scanning %} within {% data variables.product.prodname_dotcom %}, you can perform analysis elsewhere and then upload the results. Alerts for {% data variables.product.prodname_code_scanning %} that you run externally are displayed in the same way as those for  {% data variables.product.prodname_code_scanning %} that you run within {% data variables.product.prodname_dotcom %}. For more information, see "[Managing {% data variables.product.prodname_code_scanning %} alerts for your repository](/code-security/secure-coding/managing-code-scanning-alerts-for-your-repository)."
+{% ifversion fpt or ghes > 3.4 or ghae-issue-6251 or ghec %} {% data reusables.code-scanning.about-analysis-origins-link %} {% endif %}
 
-If you use a third-party static analysis tool that can produce results as Static Analysis Results Interchange Format (SARIF) 2.1.0 data, you can upload this to {% data variables.product.prodname_dotcom %}. For more information, see "[Uploading a SARIF file to GitHub](/code-security/secure-coding/uploading-a-sarif-file-to-github)."
+## Интеграция с веб-перехватчиками
 
-{% ifversion fpt or ghes > 3.4 or ghae > 3.4 or ghec %}
-{% data reusables.code-scanning.about-analysis-origins-link %}
-{% endif %}
+Веб-перехватчики {% data variables.product.prodname_code_scanning %} можно использовать для создания или настройки интеграций, таких как [{% data variables.product.prodname_github_apps %}](/apps/building-github-apps/) или [{% data variables.product.prodname_oauth_apps %}](/apps/building-oauth-apps/), которые подписываются на события {% data variables.product.prodname_code_scanning %} в вашем репозитории. Например, можно создать интеграцию, которая создает проблему в {% data variables.product.product_name %} или отправляет уведомление в Slack при добавлении нового оповещения {% data variables.product.prodname_code_scanning %} в вашем репозитории. Дополнительные сведения см. в статьях [Создание веб-перехватчиков](/developers/webhooks-and-events/creating-webhooks) и [События и полезные данные веб-перехватчиков](/developers/webhooks-and-events/webhook-events-and-payloads#code_scanning_alert).
 
-## Integrations with webhooks
+## Дополнительные материалы
 
-You can use {% data variables.product.prodname_code_scanning %} webhooks to build or set up integrations, such as [{% data variables.product.prodname_github_apps %}](/apps/building-github-apps/) or [{% data variables.product.prodname_oauth_apps %}](/apps/building-oauth-apps/), that subscribe to {% data variables.product.prodname_code_scanning %} events in your repository. For example, you could build an integration that creates an issue on {% data variables.product.product_name %} or sends you a Slack notification when a new {% data variables.product.prodname_code_scanning %} alert is added in your repository. For more information, see "[Creating webhooks](/developers/webhooks-and-events/creating-webhooks)" and "[Webhook events and payloads](/developers/webhooks-and-events/webhook-events-and-payloads#code_scanning_alert)."
-
-## Further reading
-
-* "[About {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/about-code-scanning)"
-* "[Using {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} with your existing CI system](/code-security/secure-coding/using-codeql-code-scanning-with-your-existing-ci-system)"
-* "[SARIF support for {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/sarif-support-for-code-scanning)"
+* [Сведения о {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/about-code-scanning)
+* [Использование {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} с существующей системой CI](/code-security/secure-coding/using-codeql-code-scanning-with-your-existing-ci-system)
+* [Поддержка SARIF для {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/sarif-support-for-code-scanning)"

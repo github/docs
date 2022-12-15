@@ -1,7 +1,7 @@
 ---
-title: Tracking code scanning alerts in issues using task lists
+title: Rastrear alertas del escaneo de código en propuestas utilizando listas de tareas
 shortTitle: Track alerts in issues
-intro: You can add code scanning alerts to issues using task lists. This makes it easy to create a plan for development work that includes fixing alerts.
+intro: Puedes agregar alertas de escaneo de código a las propuestas utilizando listas de tareas. Esto facilita el crear un plan para trabajo de desarrollo que incluya la corrección de alertas.
 product: '{% data reusables.gated-features.code-scanning %}'
 permissions: 'If you have write permission to a repository you can track {% data variables.product.prodname_code_scanning %} alerts in issues using task lists.'
 versions:
@@ -13,76 +13,68 @@ topics:
   - Alerts
   - Repositories
   - Issues
+ms.openlocfilehash: a5112bc5982415865a47d752af4e980a2e3d12ea
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145116841'
 ---
-
 {% data reusables.code-scanning.beta-alert-tracking-in-issues %}
 
-## About tracking {% data variables.product.prodname_code_scanning %} alerts in issues
+## Acerca de rastrear alertas del {% data variables.product.prodname_code_scanning %} en las propuestas
 
 {% data reusables.code-scanning.github-issues-integration %}
 
-You can also create a new issue to track an alert:
-- From a {% data variables.product.prodname_code_scanning %} alert, which automatically adds the code scanning alert to a task list in the new issue. For more information, see "[Creating a tracking issue from a {% data variables.product.prodname_code_scanning %} alert](#creating-a-tracking-issue-from-a-code-scanning-alert)" below.
+También puedes crear una propuesta nueva para rastrear una alerta:
+- Desde una alerta del {% data variables.product.prodname_code_scanning %}, la cual agregue dicha alerta automáticamente a una lista de tareas en la propuesta nueva. Para más información, vea "[Creación de una incidencia de seguimiento a partir de una alerta de {% data variables.product.prodname_code_scanning %}](#creating-a-tracking-issue-from-a-code-scanning-alert)" a continuación.
 
-- Via the API as you normally would, and then provide the code scanning link within the body of the issue. You must use the task list syntax to create the tracked relationship: 
+- A través de la API, como normalmente lo harías y luego, proporciona el enlace del escaneo de código dentro del cuerpo de la propuesta. Debes utilizar la siguiente sintaxis de lista de tareas para crear la relación rastreada: 
    - `- [ ] <full-URL- to-the-code-scanning-alert>`
-   - For example, if you add `- [ ] https://github.com/octocat-org/octocat-repo/security/code-scanning/17` to an issue, the issue will track the code scanning alert that has an ID number of 17 in the "Security" tab of the `octocat-repo` repository in the `octocat-org` organization.
+   - Por ejemplo, si agrega `- [ ] https://github.com/octocat-org/octocat-repo/security/code-scanning/17` a una incidencia, la incidencia realizará el seguimiento de la alerta de análisis de código que tiene un número de identificador de 17 en la pestaña "Seguridad" del repositorio `octocat-repo` en la organización `octocat-org`.
 
-You can use more than one issue to track the same {% data variables.product.prodname_code_scanning %} alert, and issues can belong to different repositories from the repository where the {% data variables.product.prodname_code_scanning %} alert was found.
+Ahora puedes utilizar más de una propuesta para rastrear la misma alerta del {% data variables.product.prodname_code_scanning %} y las propuestas pueden pertenecer a repositorios diferentes de aquél en donde se encontró la alerta del {% data variables.product.prodname_code_scanning %}.
 
 
-{% data variables.product.product_name %} provides visual cues in different locations of the user interface to indicate when you are tracking {% data variables.product.prodname_code_scanning %} alerts in issues.
+{% data variables.product.product_name %} proporciona indicaciones visuales en diversas ubicaciones de la interfaz de usuario para indicar cuando estás rastreando alertas del {% data variables.product.prodname_code_scanning %} en las propuestas.
 
-- The code scanning alerts list page will show which alerts are tracked in issues so that you can view at a glance which alerts still require processing.
+- La página de lista de alertas del escaneo de código mostrará qué alertas se rastrean en las propuestas para que puedas ver rápidamente qué alertas aún requieren procesamiento.
 
-  ![Tracked in pill on code scanning alert page](/assets/images/help/repository/code-scanning-alert-list-tracked-issues.png)
+  ![Píldora rastreada en la página de alerta del escaneo de código](/assets/images/help/repository/code-scanning-alert-list-tracked-issues.png)
 
-- A "tracked in" section will also show in the corresponding alert page. 
+- También se mostrará una sección de "rastreados" en la página de la alerta correspondiente. 
 
-  {% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
-  ![Tracked in section on code scanning alert page](/assets/images/help/repository/code-scanning-alert-tracked-in-pill.png)
-  {% else %}
-  ![Tracked in section on code scanning alert page](/assets/images/enterprise/3.4/repository/code-scanning-alert-tracked-in-pill.png)
-  {% endif %}
+  {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6249 %} ![Sección de seguimiento en la página de alertas de análisis de código](/assets/images/help/repository/code-scanning-alert-tracked-in-pill.png) {% else %} ![Tracked in section on code scanning alert page](/assets/images/enterprise/3.4/repository/code-scanning-alert-tracked-in-pill.png) {% endif %}
 
-- On the tracking issue, {% data variables.product.prodname_dotcom %} displays a security badge icon in the task list and on the hovercard. 
+- En la propuesta rastreadora, {% data variables.product.prodname_dotcom %} mostrará un icono de insignia de seguridad en la lista de tareas y en la tarjeta de visita virtual. 
   
   {% note %}
 
-  Only users with write permissions to the repository will see the unfurled URL to the alert in the issue, as well as the hovercard. For users with read permissions to the repository, or no permissions at all, the alert will appear as a plain URL.
+  Únicamente los usuarios con permisos de escritura en el repositorio verán la URL completa para la alerta en la propuesta, así como en la tarjeta de visita virtual. Para los usuarios con permisos de lectura en el repositorio, o aquellos sin ningún permiso, la alerta aparecerá como una URL simple.
 
   {% endnote %}
   
-  The color of the icon is grey because an alert has a status of "open" or "closed" on every branch. The issue tracks an alert, so the alert cannot have a single open/closed state in the issue. If the alert is closed on one branch, the icon color will not change.
+  El color del icono es gris porque alguna alerta tiene el estado de "abierta" o "cerrada" en cada rama. Esta propuesta rastrea una alerta para que esta no pueda tener ningún estado de abierto/cerrado en la propuesta. Si la alerta se cierra en una de las ramas, el color del icono no cambiará.
 
-  ![Hovercard in tracking issue](/assets/images/help/repository/code-scanning-tracking-issue-hovercard.png)
+  ![Tarjeta de visita virtual en la propuesta rastreadora](/assets/images/help/repository/code-scanning-tracking-issue-hovercard.png)
 
-The status of the tracked alert won't change if you change the checkbox state of the corresponding task list item (checked/unchecked) in the issue.
+El estado de la alerta rastreada no cambiará si cambias el estado de la casilla de verificación del elemento de la lista de tareas correspondiente (marcado/sin marcar) en la propuesta.
 
-## Creating a tracking issue from a code scanning alert
+## Crear una propuesta rastreadora desde una alerta de escaneo de código
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-security %}
-{% data reusables.repositories.sidebar-code-scanning-alerts %}
-{% ifversion fpt or ghes or ghae %}
-{% data reusables.code-scanning.explore-alert %}
-1. Optionally, to find the alert to track, you can use the free-text search or the drop-down menus to filter and locate the alert. For more information, see "[Managing code scanning alerts for your repository](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository#filtering-code-scanning-alerts)."
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-security %} {% data reusables.repositories.sidebar-code-scanning-alerts %} {% ifversion fpt or ghes or ghae %} {% data reusables.code-scanning.explore-alert %}
+1. Opcionalmente, para encontrar la alerta a rastrear, puedes utilizar la búsqueda de texto libre o los menús desplegables para filtrar y ubicar la alerta. Para más información, vea "[Administración de alertas de análisis de código para el repositorio](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository#filtering-code-scanning-alerts)".
 {% endif %}
-1. Towards the top of the page, on the right side, click **Create issue**. 
-   {% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
-   ![Create a tracking issue for the code scanning alert](/assets/images/help/repository/code-scanning-create-issue-for-alert.png)
-   {% else %}
-   ![Create a tracking issue for the code scanning alert](/assets/images/enterprise/3.4/repository/code-scanning-create-issue-for-alert.png)
-   {% endif %}
-   {% data variables.product.prodname_dotcom %} automatically creates an issue to track the alert and adds the alert as a task list item.
-   {% data variables.product.prodname_dotcom %} prepopulates the issue:
-   - The title contains the name of the {% data variables.product.prodname_code_scanning %} alert.
-   - The body contains the task list item with the full URL to the {% data variables.product.prodname_code_scanning %} alert. 
-2. Optionally, edit the title and the body of the issue.
+1. En la parte superior de la página, en el lado derecho, haga clic en **Crear incidencia**. 
+   {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6249 %} ![Creación de una incidencia de seguimiento para la alerta de análisis de código](/assets/images/help/repository/code-scanning-create-issue-for-alert.png) {% else %} ![Create a tracking issue for the code scanning alert](/assets/images/enterprise/3.4/repository/code-scanning-create-issue-for-alert.png) {% endif %} {% data variables.product.prodname_dotcom %} crea de forma automática una incidencia y agrega la alerta como un elemento de la lista de tareas.
+   {% data variables.product.prodname_dotcom %} llena la propuesta previamente:
+   - El título contiene el nombre de la alerta del {% data variables.product.prodname_code_scanning %}.
+   - El cuerpo contiene el elemento de la lista de tareas con la URL completa para la alerta del {% data variables.product.prodname_code_scanning %}. 
+2. Opcionalmente, edita el título y el cuerpo de la propuesta.
    {% warning %}
 
-    **Warning:** You may want to edit the title of the issue as it may expose security information. You can also edit the body of the issue, but do not edit the task list item or the issue will no longer track the alert.
+    **Advertencia:** Es posible que quiera editar el título de la incidencia, ya que puede exponer información de seguridad. También puedes editar el cuerpo de la propuesta, pero no edites el elemento de la lista de tareas o la propuesta ya no podrá rastrear a la alerta.
    {% endwarning %}
 
-   ![New tracking issue for the code scanning alert](/assets/images/help/repository/code-scanning-new-tracking-issue.png)
-3. Click **Submit new issue**.
+   ![Propuesta de rastreo nueva para la alerta de escaneo de código](/assets/images/help/repository/code-scanning-new-tracking-issue.png)
+3. Haga clic en **Enviar nueva incidencia**.

@@ -1,6 +1,6 @@
 ---
-title: About billing for GitHub Advanced Security
-intro: 'If you want to use {% data variables.product.prodname_GH_advanced_security %} features{% ifversion fpt or ghec %} in a private or internal repository{% endif %}, you need a license{% ifversion fpt %} for your enterprise{% endif %}.{% ifversion fpt or ghec %} These features are available free of charge for public repositories on {% data variables.product.prodname_dotcom_the_website %}.{% endif %}'
+title: Informationen zur Abrechnung von GitHub Advanced Security
+intro: 'Wenn du {% data variables.product.prodname_GH_advanced_security %}-Features{% ifversion fpt or ghec %} in einem privaten oder internen Repository{% endif %} verwenden möchtest, benötigst du eine Lizenz{% ifversion fpt %} für dein Unternehmen{% endif %}.{% ifversion fpt or ghec %} Diese Features sind für öffentliche Repositorys auf {% data variables.product.prodname_dotcom_the_website %} kostenlos.{% endif %}'
 product: '{% data reusables.gated-features.ghas %}'
 redirect_from:
   - /admin/advanced-security/about-licensing-for-github-advanced-security
@@ -17,23 +17,28 @@ topics:
   - Enterprise
   - Licensing
 shortTitle: Advanced Security billing
+ms.openlocfilehash: 09e7634b5ab0ace00c847f9db9faf229fc8e840e
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147066930'
 ---
-
-## About billing for {% data variables.product.prodname_GH_advanced_security %}
+## Informationen zur Abrechnung von {% data variables.product.prodname_GH_advanced_security %}
 
 {% ifversion fpt %}
 
-If you want to use {% data variables.product.prodname_GH_advanced_security %} features on any repository apart from a public repository on {% data variables.product.prodname_dotcom_the_website %}, you will need a {% data variables.product.prodname_GH_advanced_security %} license, available with {% data variables.product.prodname_ghe_cloud %} or {% data variables.product.prodname_ghe_server %}. 
+Wenn du {% data variables.product.prodname_GH_advanced_security %}-Features für ein beliebiges Repository außer einem öffentlichen Repository für {% data variables.product.prodname_dotcom_the_website %} verwenden möchtest, benötigst du eine {% data variables.product.prodname_GH_advanced_security %}-Lizenz, die mit {% data variables.product.prodname_ghe_cloud %} oder {% data variables.product.prodname_ghe_server %} verfügbar ist. Weitere Informationen zu {% data variables.product.prodname_GH_advanced_security %} findest du unter [Informationen zu {% data variables.product.prodname_GH_advanced_security %}](/github/getting-started-with-github/about-github-advanced-security).
 
-For information about billing for {% data variables.product.prodname_GH_advanced_security %}, see the [{% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security).
+Weitere Informationen zur Abrechnung für {% data variables.product.prodname_GH_advanced_security %} findest du in der [Dokumentation zu {% data variables.product.prodname_ghe_cloud %}](/enterprise-cloud@latest/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security).
 
 {% elsif ghec %}
 
-If you want to use {% data variables.product.prodname_GH_advanced_security %} features on any repository apart from a public repository on {% data variables.product.prodname_dotcom_the_website %}, you will need a {% data variables.product.prodname_GH_advanced_security %} license. For more information about {% data variables.product.prodname_GH_advanced_security %}, see "[About {% data variables.product.prodname_GH_advanced_security %}](/github/getting-started-with-github/about-github-advanced-security)."
+Wenn du {% data variables.product.prodname_GH_advanced_security %}-Features für ein beliebiges Repository außer einem öffentlichen Repository für {% data variables.product.prodname_dotcom_the_website %} verwenden möchtest, benötigst du eine {% data variables.product.prodname_GH_advanced_security %}-Lizenz. Weitere Informationen zu {% data variables.product.prodname_GH_advanced_security %} findest du unter [Informationen zu {% data variables.product.prodname_GH_advanced_security %}](/github/getting-started-with-github/about-github-advanced-security).
 
 {% elsif ghes %}
 
-You can make extra features for code security available to users by buying and uploading a license for {% data variables.product.prodname_GH_advanced_security %}. For more information about {% data variables.product.prodname_GH_advanced_security %}, see "[About {% data variables.product.prodname_GH_advanced_security %}](/github/getting-started-with-github/about-github-advanced-security)."
+Du kannst zusätzliche Features für die Codesicherheit für Benutzer zur Verfügung stellen, indem du eine Lizenz für {% data variables.product.prodname_GH_advanced_security %} erwirbst und hochlädst. Weitere Informationen zu {% data variables.product.prodname_GH_advanced_security %} findest du unter [Informationen zu {% data variables.product.prodname_GH_advanced_security %}](/github/getting-started-with-github/about-github-advanced-security).
 
 {% endif %}
 
@@ -41,13 +46,9 @@ You can make extra features for code security available to users by buying and u
 
 {% data reusables.advanced-security.license-overview %}
 
-{% ifversion ghes %}
-You can determine how many licenses you'll need for {% data variables.product.prodname_GH_advanced_security %} by generating a count of your instance's active committers in the site admin dashboard. For more information, see "[Site admin dashboard](/admin/configuration/configuring-your-enterprise/site-admin-dashboard#advanced-security-committers)."
-{% endif %}
+Bei Fragen zur Lizenzierung von {% data variables.product.prodname_GH_advanced_security %} für dein Unternehmen wende dich an {% data variables.contact.contact_enterprise_sales %}.
 
-To discuss licensing {% data variables.product.prodname_GH_advanced_security %} for your enterprise, contact {% data variables.contact.contact_enterprise_sales %}.
-
-## About committer numbers for {% data variables.product.prodname_GH_advanced_security %}
+## Informationen zu Committernummern von {% data variables.product.prodname_GH_advanced_security %}
 
 {% data reusables.advanced-security.about-committer-numbers-ghec-ghes %}
 
@@ -57,33 +58,33 @@ To discuss licensing {% data variables.product.prodname_GH_advanced_security %} 
 
 {% endif %}
 
-You can enforce policies to allow or disallow the use of {% data variables.product.prodname_advanced_security %} by organizations owned by your enterprise account. For more information, see "[Enforcing policies for {% data variables.product.prodname_advanced_security %} in your enterprise]({% ifversion fpt %}/enterprise-cloud@latest/{% endif %}/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-advanced-security-in-your-enterprise){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}
+Du kannst Richtlinien erzwingen, um die Verwendung von {% data variables.product.prodname_advanced_security %} durch Organisationen, die ihrem Unternehmenskonto gehören, zu ermöglichen oder zu deaktivieren. Weitere Informationen findest du unter [Erzwingen von Richtlinien für {% data variables.product.prodname_advanced_security %} in deinem Unternehmen]({% ifversion fpt %}/enterprise-cloud@latest/{% endif %}/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-advanced-security-in-your-enterprise){% ifversion fpt %} in der Dokumentation zu {% data variables.product.prodname_ghe_cloud %}.{% else %}."{% endif %}
 
 {% ifversion fpt or ghes or ghec %}
 
-For more information on viewing license usage, see "[Viewing your {% data variables.product.prodname_GH_advanced_security %} usage](/billing/managing-billing-for-github-advanced-security/viewing-your-github-advanced-security-usage)."
+Weitere Informationen zur Anzeige der Lizenznutzung findest du unter [Anzeigen deiner {% data variables.product.prodname_GH_advanced_security %}-Nutzung](/billing/managing-billing-for-github-advanced-security/viewing-your-github-advanced-security-usage).
 
 {% endif %}
 
-## Understanding active committer usage
+## Grundlegendes zur aktiven Committernutzung
 
-The following example timeline demonstrates how active committer count for {% data variables.product.prodname_GH_advanced_security %} could change over time in an enterprise. For each month, you will find events, along with the resulting committer count.
+In der Zeitleiste des folgenden Beispiels wird veranschaulicht, wie sich die Anzahl der aktiven Committer für {% data variables.product.prodname_GH_advanced_security %} im Laufe der Zeit in einem Unternehmen ändern kann. Für jeden Monat werden Ereignisse zusammen mit der resultierenden Committerzahl aufgeführt.
 
-| Date | Events during the month | Total committers | 
+| Date | Ereignisse im Monat | Committer insgesamt | 
 | :- | :- | -: | 
-| <nobr>April 15</nobr> | A member of your enterprise enables {% data variables.product.prodname_GH_advanced_security %} for repository **X**. Repository **X** has 50 committers over the past 90 days. | **50** | 
-| <nobr>May 1</nobr> | Developer **A** leaves the team working on repository **X**. Developer **A**'s contributions continue to count for 90 days. | **50** | **50** |
-| <nobr>August 1</nobr> | Developer **A**'s contributions no longer count towards the licences required, because 90 days have passed. | <sub>_50 - 1_</sub></br>**49** | 
-| <nobr>August 15</nobr> | A member of your enterprise enables {% data variables.product.prodname_GH_advanced_security %} for a second repository, repository **Y**. In the last 90 days, a total of 20 developers contributed to that repository. Of those 20 developers, 10 also recently worked on repo **X** and do not require additional licenses. | <sub>_49 + 10_</sub><br/>**59** | 
-| <nobr>August 16</nobr> | A member of your enterprise disables {% data variables.product.prodname_GH_advanced_security %} for repository **X**. Of the 49 developers who were working on repository **X**, 10 still also work on repository **Y**, which has a total of 20 developers contributing in the last 90 days. | <sub>_49 - 29_</sub><br/>**20** |
+| <nobr>15. April</nobr> | Ein Mitglied deines Unternehmens aktiviert {% data variables.product.prodname_GH_advanced_security %} für Repository **X**. 50 Personen haben in den letzten 90 Tagen in Repository **X** Code committet. | **50** | 
+| <nobr>1\. Mai</nobr> | Entwickler **A** verlässt das Team, das an Repository **X** arbeitet. Die Beiträge von Entwickler **A** zählen weiterhin für 90 Tage. | **50** | **50** |
+| <nobr>1\. August</nobr> | Die Beiträge von Entwickler **A** zählen nicht mehr zu den erforderlichen Lizenzen, da 90 Tage abgelaufen sind. | <sub>_50 – 1_</sub></br>**49** | 
+| <nobr>15. August</nobr> | Ein Mitglied deines Unternehmens aktiviert {% data variables.product.prodname_GH_advanced_security %} für ein zweites Repository, Repository **Y**. In den letzten 90 Tagen leisteten insgesamt 20 Entwickler*innen einen Beitrag zu diesem Repository. Von diesen 20 Entwicklern arbeiteten 10 auch kürzlich an Repository **X** und benötigen keine zusätzlichen Lizenzen. | <sub>_49 + 10_</sub><br/>**59** | 
+| <nobr>16. August</nobr> | Ein Mitglied deines Unternehmens deaktiviert {% data variables.product.prodname_GH_advanced_security %} für Repository **X**. Von den 49 Entwickler*innen, die an Repository **X** arbeiten, arbeiten 10 ebenfalls an Repository **Y**, zu dem insgesamt 20 Entwickler*innen in den letzten 90 Tagen Beiträge geleistet haben. | <sub>_49 – 29_</sub><br/>**20** |
 
 {% note %}
 
-**Note:** A user will be flagged as active when their commits are pushed to any branch of a repository, even if the commits were authored more than 90 days ago.
+**Hinweis:** Ein Benutzer wird als aktiv gekennzeichnet, wenn seine Commits zu jedem Branch eines Repositorys gepusht werden, auch wenn die Commits vor mehr als 90 Tagen erstellt wurden.
 
 {% endnote %}
 
-## Getting the most out of {% data variables.product.prodname_GH_advanced_security %}
+## Optimale Nutzung von {% data variables.product.prodname_GH_advanced_security %}
 
 {% data reusables.advanced-security.getting-the-most-from-your-license %}
 

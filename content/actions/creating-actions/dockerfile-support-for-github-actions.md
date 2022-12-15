@@ -85,9 +85,8 @@ Using the example Dockerfile above, {% data variables.product.product_name %} wi
 
 # `$#` expands to the number of arguments and `$@` expands to the supplied `args`
 printf '%d args:' "$#"
-printf $' \'%s\'' "$@"
-printf ' <%s>' "$@"
-echo
+printf " '%s'" "$@"
+printf '\n'
 ```
 
 Your code must be executable. Make sure the `entrypoint.sh` file has `execute` permissions before using it in a workflow. You can modify the permission from your terminal using this command:

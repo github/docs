@@ -1,99 +1,104 @@
 ---
-title: About GitHub Enterprise Server
-intro: '{% data variables.product.product_name %} is a software development platform that you can host in a private environment.'
+title: Informationen zu GitHub Enterprise Server
+intro: '{% data variables.product.product_name %} ist eine Plattform zur Softwareentwicklung, die du in einer privaten Umgebung hosten kannst.'
 versions:
   ghes: '*'
 type: overview
 topics:
   - Enterprise
   - Fundamentals
+ms.openlocfilehash: 2622e3708cc31b24fe39929da68ba5dc8e864d88
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '147879123'
 ---
+## Informationen zu {% data variables.product.product_name %}
 
-## About {% data variables.product.product_name %}
-
-{% data reusables.enterprise.ghes-is-a-self-hosted-platform %} Your team can use {% data variables.product.product_name %} to build and ship software using Git version control, powerful APIs, productivity and collaboration tools, and integrations. Developers familiar with {% data variables.product.prodname_dotcom_the_website %} can onboard and contribute seamlessly using familiar features and workflows. {% data reusables.enterprise.about-github-for-enterprises %}
+{% data reusables.enterprise.ghes-is-a-self-hosted-platform %} Dein Team kann {% data variables.product.product_name %} nutzen, um Software mithilfe von Git-Versionskontrolle, leistungsstarken APIs, Tools für Produktivität und Zusammenarbeit sowie Integrationen zu erstellen und auszuliefern. Entwickler, die mit {% data variables.product.prodname_dotcom_the_website %} vertraut sind, können problemlos einsteigen und mit vertrauten Features und Workflows ihren Beitrag leisten. {% data reusables.enterprise.about-github-for-enterprises %}
 
 {% data reusables.enterprise.ghes-runs-on-your-infrastructure %}
 
-{% data reusables.enterprise.github-distributes-ghes %} For more information, see "[System overview](/admin/overview/system-overview)."
+{% data reusables.enterprise.github-distributes-ghes %} Weitere Informationen findest in der [Systemübersicht](/admin/overview/system-overview).
 
-You can choose to deploy {% data variables.product.product_name %} on premises, or to a supported cloud environment.
+Du kannst wählen, ob du {% data variables.product.product_name %} lokal oder in einer unterstützten Cloudumgebung bereitstellst.
 
-## Supported environments for deployment
+## Unterstützte Umgebungen für die Bereitstellung
 
-You can deploy {% data variables.product.product_name %} to a virtualization hypervisor within your on-premises datacenter, or to a public cloud service.
+Du kannst {% data variables.product.product_name %} auf einem Virtualisierungshypervisor in deinem lokalen Rechenzentrum oder einem öffentlichen Clouddienst bereitstellen.
 
-{% data variables.product.company_short %} supports the following virtualization hypervisors for on-premises deployment.
+{% data variables.product.company_short %} unterstützt die folgenden Virtualisierungshypervisoren für die lokale Bereitstellung.
 
 - Microsoft Hyper-V
 - OpenStack KVM
 - VMware ESXi
 
-{% data variables.product.company_short %} supports the following services for cloud deployment.
+{% data variables.product.company_short %} unterstützt die folgenden Dienste für die Cloudbereitstellung.
 
 - Amazon Web Services (AWS)
 - Google Cloud Platform (GCP)
 - Microsoft Azure
 
-For more information, see "[Setting up a {% data variables.product.prodname_ghe_server %} instance](/admin/installation/setting-up-a-github-enterprise-server-instance)."
+Weitere Informationen findest du unter [Einrichten einer {% data variables.product.prodname_ghe_server %}-Instanz](/admin/installation/setting-up-a-github-enterprise-server-instance).
 
-## About releases and upgrades
+## Informationen zu Releases und Upgrades
 
-{% data reusables.enterprise.constantly-improving %} You are responsible for upgrades to your instance. For more information, see "[{% data variables.product.product_name %} releases](/admin/all-releases)."
+{% data reusables.enterprise.constantly-improving %} Du bist für Upgrades deiner Instanz verantwortlich. Weitere Informationen findest du unter [{% data variables.product.product_name %} releases](/admin/all-releases).
 
-## About administration
+## Informationen zur Verwaltung
 
-You can configure and monitor {% data variables.product.product_name %} via browser, administrative SSH access, and REST or GraphQL APIs. {% data variables.product.company_short %} has found that people with Linux administration experience are more successful with the deployment and maintainance of {% data variables.product.product_name %}.
+Du kannst {% data variables.product.product_name %} über einen Browser, administrativen SSH-Zugriff und REST- oder GraphQL-APIs konfigurieren und überwachen. {% data variables.product.company_short %} hat festgestellt, dass Personen mit Erfahrung als Linux-Administrator bei der Bereitstellung und Wartung von {% data variables.product.product_name %} erfolgreicher sind.
 
-You can give certain employees administrative access to {% data variables.product.product_name %}, so they can set up external authentication, configure the instance to meet developer needs, and monitor the instance's activity and performance. To ensure compliance with business rules or regulatory restrictions, administrators can configure policies that control how people use {% data variables.location.product_location %}. For more information, see the following articles.
+Du kannst bestimmten Mitarbeitern administrativen Zugriff auf {% data variables.product.product_name %} gewähren, damit sie die externe Authentifizierung einrichten, die Instanz nach den Bedürfnissen der Entwickler konfigurieren und Aktivität und Leistung der Instanz überwachen können. Um die Einhaltung von Geschäftsregeln oder gesetzlichen Vorschriften zu gewährleisten, können Administratoren Richtlinien zur Steuerung der Nutzung von {% data variables.product.product_location %} konfigurieren. Weitere Informationen findest du in den folgenden Artikeln.
 
-- "[About authentication for your enterprise](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise)"
-- "[Configuring your enterprise](/admin/configuration/configuring-your-enterprise)"
-- "[About the {% data variables.product.prodname_enterprise %} API](/admin/overview/about-the-github-enterprise-api)"
-- "[Monitoring your appliance](/admin/enterprise-management/monitoring-your-appliance)"
-- "[Monitoring activity in your enterprise](/admin/monitoring-activity-in-your-enterprise)"
-- "[About enterprise policies](/admin/policies/enforcing-policies-for-your-enterprise/about-enterprise-policies)"
+- [Informationen zur Authentifizierung für dein Unternehmen](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise)
+- [Konfigurieren deines Unternehmens](/admin/configuration/configuring-your-enterprise)
+- [Informationen zur {% data variables.product.prodname_enterprise %}-API](/admin/overview/about-the-github-enterprise-api)"
+- [Überwachen deiner Appliance](/admin/enterprise-management/monitoring-your-appliance)
+- [Überwachen von Aktivitäten in deinem Unternehmen](/admin/monitoring-activity-in-your-enterprise)
+- [Informationen zu Unternehmensrichtlinien](/admin/policies/enforcing-policies-for-your-enterprise/about-enterprise-policies)
 
-## About optional features
+## Informationen zu optionalen Features
 
-You can configure optional features for {% data variables.product.product_name %} that improve the software development lifecycle for your enterprise.
+Du kannst optionale Features für {% data variables.product.product_name %} konfigurieren, die den Lebenszyklus der Softwareentwicklung in deinem Unternehmen verbessern.
 
-| Feature | Description | More information |
+| Funktion | BESCHREIBUNG | Weitere Informationen |
 | :- | :- | :- |
-| {% data variables.product.prodname_actions %} | Automate CI/CD and development workflows | "[About {% data variables.product.prodname_actions %} for enterprises](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises)" |
-| {% data variables.product.prodname_github_connect %} | Benefit from the power of {% data variables.product.prodname_dotcom_the_website %} in limited ways | "[About {% data variables.product.prodname_github_connect %}](/admin/configuration/configuring-github-connect/about-github-connect)" |
-| {% data variables.product.prodname_GH_advanced_security %} | Improve code security and quality | "[About {% data variables.product.prodname_GH_advanced_security %}](/get-started/learning-about-github/about-github-advanced-security)" |
-| {% data variables.product.prodname_registry %} | Host software packages for your enterprise | "[Introduction to {% data variables.product.prodname_registry %}](/packages/learn-github-packages/introduction-to-github-packages)" |
+| {% data variables.product.prodname_actions %} | Automatisieren von CI/CD- und Entwicklungsworkflows | [Informationen zu {% data variables.product.prodname_actions %} für Unternehmen](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises) |
+| {% data variables.product.prodname_github_connect %} | Profitieren von der Leistungsfähigkeit von {% data variables.product.prodname_dotcom_the_website %} auf begrenzte Weisen | [Informationen zu {% data variables.product.prodname_github_connect %}](/admin/configuration/configuring-github-connect/about-github-connect) |
+| {% data variables.product.prodname_GH_advanced_security %} | Verbessern von Codesicherheit und -qualität | [Informationen zu {% data variables.product.prodname_GH_advanced_security %}](/get-started/learning-about-github/about-github-advanced-security) |
+| {% data variables.product.prodname_registry %} | Hosten von Softwarepaketen für dein Unternehmen | [Einführung in {% data variables.product.prodname_registry %}](/packages/learn-github-packages/introduction-to-github-packages) |
 
-## About deployment topologies
+## Informationen zu Bereitstellungstopologien
 
-By default, {% data variables.product.product_name %} runs as a standalone instance. You can increase the reliability and performance of {% data variables.product.product_name %} by using a different topology for your deployment.
+Standardmäßig wird {% data variables.product.product_name %} als eigenständige Instanz ausgeführt. Du kannst die Zuverlässigkeit und Leistung von {% data variables.product.product_name %} erhöhen, indem du für deine Bereitstellung eine andere Topologie nutzt.
 
-- To mitigate the impact of system or network failures, you can deploy a passive replica instance. During an outage that affects your primary instance, you can manually fail over to the replica instance. For more information, see "[About high availability configuration](/admin/enterprise-management/configuring-high-availability/about-high-availability-configuration)."
-- You can configure multiple active replicas to improve performance for developers who are geographically distant from your primary instance. For more information, see "[About geo-replication](/admin/enterprise-management/configuring-high-availability/about-geo-replication)."
-- Some enterprises with tens of thousands of developers may benefit from a cluster configuration that scales horizontally instead of vertically. For more information, see "[About clustering](/admin/enterprise-management/configuring-clustering/about-clustering)."
+- Um die Auswirkungen von System- oder Netzwerkausfällen abzufedern, kannst du eine passive Replikatinstanz bereitstellen. Wenn deine primäre Instanz von einem Ausfall betroffen ist, kannst du manuell ein Failover auf die Replikatinstanz durchführen. Weitere Informationen findest du unter [Informationen zur Hochverfügbarkeitskonfiguration](/admin/enterprise-management/configuring-high-availability/about-high-availability-configuration).
+- Du kannst mehrere aktive Replikate konfigurieren, um die Leistung für Entwickler zu verbessern, die geografisch weit von deiner primären Instanz entfernt sind. Weitere Informationen findest du unter [Informationen zur Georeplikation](/admin/enterprise-management/configuring-high-availability/about-geo-replication).
+- Einige Unternehmen mit Zehntausenden von Entwicklern können von einer Clusterkonfiguration mit horizontaler statt vertikaler Skalierung profitieren. Weitere Informationen findest du unter [Informationen zum Clustering](/admin/enterprise-management/configuring-clustering/about-clustering).
 
-## About backups and disaster recovery
+## Informationen zu Sicherungen und Notfallwiederherstellung
 
-To safeguard against data loss or service disruptions for your developers, {% data variables.product.company_short %} strongly recommends that you establish a plan for disaster recovery. You can back up your instance's configuration and user data by deploying and configuring a Linux or Unix host system with {% data variables.product.prodname_enterprise_backup_utilities %}. For more information, see "[Configuring backups on your appliance](/admin/configuration/configuring-your-enterprise/configuring-backups-on-your-appliance)."
+Um deine Entwickler vor Datenverlust oder Dienstunterbrechungen zu schützen, empfiehlt {% data variables.product.company_short %} dir dringend einen Plan für die Notfallwiederherstellung. Du kannst die Konfiguration und Benutzerdaten deiner Instanz sichern, indem du mit {% data variables.product.prodname_enterprise_backup_utilities %} ein Linux- oder Unix-Hostsystem bereitstellst und konfigurierst. Weitere Informationen findest du unter [Konfigurieren von Sicherungen auf deiner Appliance](/admin/configuration/configuring-your-enterprise/configuring-backups-on-your-appliance).
 
-Additionally, you can configure a passive replica instance to fail over to in the event of a system or network failure. For more information, see "[About deployment topologies](#about-deployment-topologies)."
+Außerdem kannst du eine passive Replikatinstanz konfigurieren, auf die bei einem System- oder Netzwerkausfall ein Failover erfolgt. Weitere Informationen findest du unter [Informationen zu Bereitstellungstopologien](#about-deployment-topologies).
 
-## About documentation
+## Informationen zur Dokumentation
 
-Documentation for both administrators and users of {% data variables.product.product_name %} is available on this site, {% data variables.product.prodname_docs %}. 
+Dokumentation für Administratoren und Benutzer von {% data variables.product.product_name %} findest du auf dieser Website, {% data variables.product.prodname_docs %}. 
 
-- [Enterprise administrator documentation](/admin)
-- [User documentation](/)
+- [Dokumentation für Enterprise-Administratoren](/admin)
+- [Benutzerdokumentation](/)
 
-Different versions of {% data variables.product.product_name %} are reflected separately in the documentation on {% data variables.product.prodname_docs %}. For more information, see "[About versions of {% data variables.product.prodname_docs %}](/get-started/learning-about-github/about-versions-of-github-docs)."
+Unterschiedliche Versionen von {% data variables.product.product_name %} werden in der Dokumentation zu {% data variables.product.prodname_docs %} separat abgebildet. Weitere Informationen findest du unter [Informationen zu Versionen von {% data variables.product.prodname_docs %}](/get-started/learning-about-github/about-versions-of-github-docs).
 
-## Trying {% data variables.product.product_name %}
+## Testen von {% data variables.product.product_name %}
 
-You can sign up for a free, 45-day trial of {% data variables.product.product_name %}. For more information, see "[Setting up a trial of {% data variables.product.prodname_ghe_server %}](/get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-server)."
+Du kannst dich für eine kostenlose 45-tägige Testversion von {% data variables.product.product_name %} registrieren. Weitere Informationen findest du unter [Einrichten einer Testversion von {% data variables.product.prodname_ghe_server %}](/get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-server).
 
-## Further reading
+## Weitere Informationsquellen
 
-- "[Getting started with {% data variables.product.product_name %}](/get-started/onboarding/getting-started-with-github-enterprise-server)"
-- "[About {% data variables.contact.github_support %}](/support/learning-about-github-support/about-github-support)"
-- [ {% data variables.product.prodname_roadmap %} ]( {% data variables.product.prodname_roadmap_link %} ) in the  `github/roadmap` repository
+- [Erste Schritte mit {% data variables.product.product_name %}](/get-started/onboarding/getting-started-with-github-enterprise-server)
+- [Informationen zum {% data variables.contact.github_support %}](/support/learning-about-github-support/about-github-support)
+- [ {% data variables.product.prodname_roadmap %} ]( {% data variables.product.prodname_roadmap_link %} ) im `github/roadmap`-Repository

@@ -1,0 +1,45 @@
+date: '27.07.2021'
+sections:
+  security_fixes:
+    - Die Pakete wurden auf die neuesten Sicherheitsversionen aktualisiert.
+  bugs:
+    - Die Anzahlen auf den Paketseiten wurden beim Herunterladen eines Pakets nicht inkrementiert.
+    - 'Bei `ghe-config-apply` würde ein Laufzeitfehler auftreten, eine Eingabeaufforderung angezeigt werden oder ein Fehler für einen Kunden auftreten, der {% data variables.product.prodname_secret_scanning %} aktiviert und {% data variables.product.prodname_actions %} auf seiner Instanz entweder deaktiviert oder nie aktiviert hat.'
+    - "In einigen Fällen wurden Protokolldateien nach der Rotation nicht wieder geöffnet, was auf Instanzen mit hoher Uptime zu hohem Speicherplatzverbrauch führt."
+    - "Beim Upgrade von einer älteren Version von {% data variables.product.prodname_ghe_server %} könnte aufgrund eines fehlenden Auftrags in {% data variables.product.prodname_actions %} ein Fehler auftreten."
+    - 'Benutzerdefinierte Pre-Receive-Hooks können beispielsweise zu folgendem Fehler führen: `Fehler: Objektverzeichnis /data/user/repositories/0/nw/12/34/56/7890/network.git/objects existiert nicht; überprüfe .git/objects/info/alternates`.'
+    - "Ein nicht authentifizierter HTTP-Proxy für die den Seitencontainerbuild wurde für keine Benutzer*innen unterstütz, die HTTP-Proxys verwenden."
+    - "Eine große Anzahl des Fehlers 503 wurden immer dann protokolliert, wenn Benutzer*innen die `/settings`-Seite eines Repositorys besuchte und das Abhängigkeitsdiagramm nicht aktiviert war."
+    - "Interne Repositorys wurden nur dann zurückgegeben, wenn Benutzer*innen über ein Team oder den Projektmitarbeiterstatus zu dem Repository gehörten oder es mit dem Parameter `?type=internal` abfragten."
+    - "Hintergrundaufträge, bei denen Fehler auftraten, verfügten über unbegrenzte Wiederholungen, was lange Warteschlangen verursachen kann."
+    - "Wenn der geplante Auftrag zum Synchronisieren von Sicherheitsrisiken mit GitHub.com ausgeführt werden sollte, während das Abhängigkeitsdiagramm nicht aktiviert war und die Inhaltsanalyse aktiviert war, trat eine große Anzahl des Fehlers 503 auf."
+    - |Wenn {% data variables.product.prodname_actions %} aktiviert ist, ohne regelmäßige geplante Backups auszuführen, könnte das MSSQL-Transaktionsprotokoll unbegrenzt werden und den gesamten verfügbaren Speicherplatz auf dem Datenträger der Anwendung einnehmen, was zu einem Ausfall führen kann.
+
+
+
+Wenn du regelmäßige geplante MSSQL-Backups konfiguriert hast, musst du nichts weiter tun. Wenn du {% data variables.product.prodname_actions %} zuvor aktiviert hast, führe die folgenden Befehle nach Installieren dieses Patch aus.
+
+
+
+```
+
+ghe-actions-console -s Mps -c ''Update-Service -Force''
+
+ghe-actions-console -s Token -c ''Update-Service -Force''
+
+ghe-actions-console -s Actions -c ''Update-Service -Force''
+
+```
+
+|
+  changes:
+    - "Die Protokolle für `babeld` enthalten jetzt ein `cmd`-Feld für HTTP-Referenzankündigungsanforderungen, anstatt diese nur während der Verhandlungsanforderungen einzufügen."
+  known_issues:
+    - "Die npm-Registrierung von {% data variables.product.prodname_registry %} gibt in Metadatenantworten keine Zeitwerte mehr zurück. So sind erhebliche Leistungssteigerungen möglich. Die erforderlichen Daten zum Zurückgeben eines Zeitwerts in einer Metadatenantwort sind weiterhin verfügbar, und dieser Wert wird in Zukunft wieder zurückgegeben, sobald die vorhandenen Leistungsprobleme behoben sind."
+    - "Auf einem neu eingerichteten {% data variables.product.prodname_ghe_server %} ohne Benutzer*innen könnten Angreifer*innen den ersten Administratorbenutzer erstellen."
+    - Benutzerdefinierte Firewallregeln werden während des Upgrades entfernt.
+    - "Nachverfolgte Git-LFS-Dateien, [die über die Webschnittstelle hochgeladen wurden,](https://github.com/blog/2105-upload-files-to-your-repositories) werden dem Repository fälschlicherweise direkt hinzugefügt."
+    - "Issues können nicht geschlossen werden, wenn sie einen Permalink zu einem Blob im selben Repository enthalten, wobei der Dateipfad des Blobs länger ist als 255 Zeichen."
+    - "Wenn „Benutzer können GitHub.com durchsuchen“ bei GitHub Connect aktiviert ist, sind Issues in privaten und internen Repositorys nicht in den GitHub.com-Suchergebnissen enthalten."
+    - "Wenn {% data variables.product.prodname_actions %} für {% data variables.product.prodname_ghe_server %} aktiviert ist, ist die Nachbereitung eines Replikatknotens mit `ghe-repl-teardown` erfolgreich, kann jedoch den Fehler `ERROR:Running migrations` zurückgeben."
+    - "Ressourcenbegrenzungen, die nur beim Verarbeiten von Pre-Receive-Hooks auftreten, können bei manchen Pre-Receive-Hooks Fehler auslösen."

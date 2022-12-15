@@ -1,55 +1,49 @@
 ---
-title: Managing invoices for your enterprise
+title: 管理企业的发票
 shortTitle: Manage invoices
-intro: 'You can view, pay, or download a current invoice for your enterprise, and you can view your payment history.'
+intro: 您可以查看、支付或下载企业的当前发票，也可以查看付款历史记录。
 versions:
   ghec: '*'
 type: how_to
 topics:
   - Enterprise
   - Licensing
+ms.openlocfilehash: 030d91667630445f0811db6e51d5fe33ed863182
+ms.sourcegitcommit: 80842b4e4c500daa051eff0ccd7cde91c2d4bb36
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/12/2022
+ms.locfileid: '145084477'
 ---
+## 关于企业的发票
 
-## About invoices for your enterprise
+{% data reusables.billing.about-invoices-for-enterprises %} 有关详细信息，请参阅“[关于企业计费](/billing/managing-billing-for-your-github-account/about-billing-for-your-enterprise)”。
 
-For invoiced {% data variables.product.prodname_enterprise %} customers, {% data variables.product.company_short %} bills through an enterprise account on {% data variables.product.prodname_dotcom_the_website %}. Each invoice includes a single bill charge for all of your paid {% data variables.product.prodname_dotcom_the_website %} services and any {% data variables.product.prodname_ghe_server %} instances. For more information, see "[About billing for your enterprise](/billing/managing-billing-for-your-github-account/about-billing-for-your-enterprise)."
-
-Only invoiced customers can view invoices on {% data variables.product.prodname_dotcom %}. If you pay automatically via credit card or PayPal, you can view receipts and payment history instead. For more information, see "[Viewing your payment history and receipts](/billing/managing-your-github-billing-settings/viewing-your-payment-history-and-receipts)."
-
-For more information about viewing the subscription and usage for your enterprise account, see "[Viewing the subscription and usage for your enterprise account](/billing/managing-billing-for-your-github-account/viewing-the-subscription-and-usage-for-your-enterprise-account)."
+有关查看企业帐户的订阅和使用情况的详细信息，请参阅“[查看企业帐户的订阅和使用情况](/billing/managing-billing-for-your-github-account/viewing-the-subscription-and-usage-for-your-enterprise-account)”。
 
 {% data reusables.billing.ghes-with-no-enterprise-account %}
 
-## Viewing your current invoice
+## 查看当前发票
 
-{% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.billing-tab %}
-4. Under "Current Invoice", click **View invoice**.
-  ![View invoice link](/assets/images/help/business-accounts/view-invoice-link.png)
+{% data reusables.enterprise-accounts.access-enterprise-on-dotcom %} {% data reusables.enterprise-accounts.settings-tab %} {% data reusables.enterprise-accounts.billing-tab %}
+4. 在“当前发票”下，单击“查看发票”。
+  ![查看发票链接](/assets/images/help/business-accounts/view-invoice-link.png)
 
-## Paying your current invoice
+## 支付当前发票
 
-{% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.billing-tab %}
-4. Under "Payment Due", click **Pay invoice**.
-  ![Pay invoice link](/assets/images/help/business-accounts/pay-invoice-link.png)
-5. Under "Pay invoice", type your credit card information in the secure form, then click **Pay Invoice**.
-  ![Confirm and pay invoice](/assets/images/help/business-accounts/pay-invoice.png)
+{% data reusables.enterprise-accounts.access-enterprise-on-dotcom %} {% data reusables.enterprise-accounts.settings-tab %} {% data reusables.enterprise-accounts.billing-tab %}
+4. 在“付款到期”下，单击“支付发票”。
+  ![“支付发票”链接](/assets/images/help/business-accounts/pay-invoice-link.png)
+5. 在“支付发票”下，在安全表单中输入信用卡信息，然后单击“支付发票”。
+  ![确认并支付发票](/assets/images/help/business-accounts/pay-invoice.png)
 
-## Downloading your current invoice
+## 下载当前发票
 
-{% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.billing-tab %}
-4. Under "Quick Actions", click **Download current invoice**.
-  ![Download current invoice link](/assets/images/help/business-accounts/download-current-invoice.png)
+{% data reusables.enterprise-accounts.access-enterprise-on-dotcom %} {% data reusables.enterprise-accounts.settings-tab %} {% data reusables.enterprise-accounts.billing-tab %}
+4. 在“快速操作”下，单击“下载当前发票”。
+  ![“载当前发票”接](/assets/images/help/business-accounts/download-current-invoice.png)
 
-## Viewing your payment history
+## 查看付款历史记录
 
-{% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.billing-tab %}
-4. To see a summary of your past billing activity, under "Billing", click the **Past Invoices** tab.
-  ![View payment history tab](/assets/images/help/business-accounts/view-payment-history.png)
+{% data reusables.enterprise-accounts.access-enterprise-on-dotcom %} {% data reusables.enterprise-accounts.settings-tab %} {% data reusables.enterprise-accounts.billing-tab %}
+4. 要查看过去的结算活动摘要，请在“账单”下单击“历史发票”选项卡。![查看付款历史选项卡](/assets/images/help/business-accounts/view-payment-history.png)

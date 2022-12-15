@@ -1,0 +1,25 @@
+date: '2021-01-12'
+release_candidate: true
+deprecated: true
+intro: "Las versiones candidatas para lanzamiento deben probarse en entornos de no producción. Para obtener más información acerca del Programa de candidatos a lanzamiento, consulta el [Blog de GitHub](https://github.blog/2020-12-03-improving-the-ghes-release-process-release-candidates/) o la sección \"[Acerca de las mejoras a lanzamientos nuevos](/admin/overview/about-upgrades-to-new-releases)\"."
+sections:
+  bugs:
+    - "Ha cambiado el formato de varios archivos de registro, incluida la adición de un PID para diferentes tipos de registro. Esto no afecta a cómo el soporte técnico de GitHub Enterprise utiliza agrupaciones de soporte para solucionar problemas."
+    - "Al hacer una solicitud de PATCH a la API de configuración de webhook, ya no se borra el secreto del webhook."
+  known_issues:
+    - "En una instalación nueva de {% data variables.product.prodname_ghe_server %} que no tenga ningún usuario, cualquier atacante podría crear el primer usuario administrativo."
+    - El candidato de lanzamiento 1 no es compatible con el modo de agrupación de clústeres.
+    - Las reglas de firewall personalizadas no se mantienen durante una actualización.
+    - "Los archivos rastreados del LFS de Git que se [cargaron mediante la interfaz web](https://github.blog/2016-02-18-upload-files-to-your-repositories/) se agregaron incorrecta y directamente al repositorio."
+    - "Cuando se habilita \"Los usuarios pueden buscar en GitHub.com\" con GitHub Connect, las incidencias en los repositorios privados e internos no se incluyen en los resultados de la búsqueda de GitHub.com."
+    - "Tras un intento no exitoso de configurar las Acciones, si las inhabilitas después, no podrás crear el primer usuario ni utilizar el aplicativo."
+    - "El evento de registro de auditoría de \"Mensaje obligatorio visto\" no se está guardando."
+    - 'Se debe ejecutar a "ghe-config-apply" en una réplica durante la primera configuración antes de que se pueda ejecutar "ghe-repl-setup" para iniciar la replicación.'
+    - Las utilidades de copia de seguridad pueden activar correos electrónicos innecesarios para los administradores.
+    - La configuración incorrecta de los paquetes se muestra en la página de vista de miembros de la organización.
+    - "Después de eliminarte a ti mismo como propietario de la empresa, se te redireccionará a una página 404. La operación es exitosa."
+    - '"ghe-config-apply" ocasionalmente falla con "ERROR: Failure waiting for nomad jobs to apply" hasta que la cola de trabajos nómada se vacíe. Actualmente, esto requiere que un administrador elimine "/etc/nomad-jobs/queue".'
+    - "Cuando configuras un nodo de rélica múltiple, el estado de la réplica puede sincronizarse incorrectamente."
+    - "Los clientes que intentan restablecer un respaldo de 3.0 en una instancia nueva no deberán preconfigurarla, ya que esto podría conllevar a un estado malo para los inicios de sesión de usuario. Te recomendamos restablecerte a una instancia no configurada y nueva."
+    - "Las versiones candidatas para lanzamiento del servidor de GitHub Enterprise 3.0 aún no están disponibles en Azure Marketplace. Para probar las versiones candidatas para lanzamiento en los entornos de ensayo, inicia una instancia 2.21 o 2.22 y luego actualízala con el paquete de mejora de Azure en la página de descarga."
+    - Ha aumentado el tamaño de la descarga del paquete de imagen y actualización. Los clientes con conexiones a Internet lentas pueden tardar más tiempo en descargar los paquetes.

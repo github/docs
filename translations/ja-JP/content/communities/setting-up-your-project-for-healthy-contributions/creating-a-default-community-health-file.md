@@ -1,6 +1,6 @@
 ---
-title: Creating a default community health file
-intro: 'You can create default community health files, such as CONTRIBUTING and CODE_OF_CONDUCT. Default files will be used for any repository owned by the account that does not contain its own file of that type.'
+title: 既定のコミュニティ正常性ファイルの作成
+intro: CONTRIBUTING や CODE_OF_CONDUCT など、デフォルトのコミュニティ健全性ファイルを作成できます。 デフォルトのファイルは、そのような種類の独自ファイルを持たないアカウントが所有するすべてのリポジトリに使用されます。
 redirect_from:
   - /articles/creating-a-default-community-health-file-for-your-organization
   - /github/building-a-strong-community/creating-a-default-community-health-file-for-your-organization
@@ -12,46 +12,41 @@ versions:
 topics:
   - Community
 shortTitle: Community health file
+ms.openlocfilehash: 85a672d0cc0991a5325df8a107737da47c7b81d3
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148193631'
 ---
+## デフォルトのコミュニティ健全性ファイルについて
 
-## About default community health files
+既定のコミュニティ正常性ファイルは、`.github` という名前のパブリック リポジトリ、リポジトリのルート、または `docs` や `.github` フォルダーに追加できます。
 
-You can add default community health files to a public repository called `.github`, in the root of the repository or in the `docs` or `.github` folders.
+{% data variables.product.product_name %} は、次のいずれかの場所にその種類の独自ファイルを持たないアカウントが所有するリポジトリのデフォルトファイルを使用および表示します。
+- リポジトリのルート
+- `.github` フォルダー
+- `docs` フォルダー
 
-{% data variables.product.product_name %} will use and display default files for any repository owned by the account that does not have its own file of that type in any of the following places:
-- the root of the repository
-- the `.github` folder
-- the `docs` folder
+たとえば、独自の CONTRIBUTING ファイルを持たないリポジトリで Issue またはプルリクエストを作成すると、デフォルトの CONTRIBUTING ファイルへのリンクが表示されます。 リポジトリの独自の `.github/ISSUE_TEMPLATE` フォルダーにファイルがある場合{% ifversion fpt or ghes or ghec %} (Issue テンプレートや *config.yml* ファイルを含む){% endif %}、既定の `.github/ISSUE_TEMPLATE` フォルダーの内容は使われません。
 
-For example, anyone who creates an issue or pull request in a repository that does not have its own CONTRIBUTING file will see a link to the default CONTRIBUTING file. If a repository has any files in its own `.github/ISSUE_TEMPLATE` folder{% ifversion fpt or ghes or ghec %}, including issue templates or a *config.yml* file,{% endif %} none of the contents of the default `.github/ISSUE_TEMPLATE` folder will be used.
+既定のファイルは、`.github` リポジトリにのみ格納されるため、個別のリポジトリのクローン、パッケージ、ダウンロードには含まれません。
 
-Default files are not included in clones, packages, or downloads of individual repositories because they are stored only in the `.github` repository.
+## サポートされているファイルの種類
 
-## Supported file types
+次のコミュニティ正常性ファイルの既定のものを、Organization {% ifversion fpt or ghes or ghec %} または個人アカウント {% endif %} に作成できます。
 
-You can create defaults in your organization{% ifversion fpt or ghes or ghec %} or personal account{% endif %} for the following community health files:
+コミュニティ正常性ファイル | 説明 --- | ---{% ifversion fpt or ghec %} *CODE_OF_CONDUCT.md* | CODE_OF_CONDUCT ファイルでは、コミュニティに参加する方法の標準が定義されています。 詳細については、「[プロジェクトへの行動規範の追加](/articles/adding-a-code-of-conduct-to-your-project/)」を参照してください。{% endif %} *CONTRIBUTING.md* | CONTRIBUTING ファイルでは、プロジェクトに投稿する方法が示されています。 詳しくは、「[リポジトリ共同作成者向けガイドラインの設定](/articles/setting-guidelines-for-repository-contributors/)」をご覧ください。{% ifversion discussion-category-forms %} ディスカッション カテゴリ フォーム | ディスカッション カテゴリ フォームを使うと、コミュニティ メンバーがあなたのリポジトリを開くと使うことができるテンプレートをカスタマイズできます。 詳しくは、「[ディスカッション カテゴリ フォームの作成](/discussions/managing-discussions-for-your-community/creating-discussion-category-forms)」をご覧ください。{% endif %}{% ifversion fpt or ghec %} *FUNDING.yml* | FUNDING ファイルには、オープン ソース プロジェクトでの資金調達オプションをさらに多く表示するためのスポンサー ボタンが表示されます。 詳細については、「[リポジトリにスポンサー ボタンを表示する](/articles/displaying-a-sponsor-button-in-your-repository)」を参照してください。{% endif %} Issue と pull request のテンプレート{% ifversion fpt or ghes or ghec %}および *config.yml*{% endif %} | Issue と pull request のテンプレートでは、自分のリポジトリに共同作成者が Issue や pull request を開くときに含めてほしい情報をカスタマイズおよび標準化します。 詳細については、「[Issue とプル リクエストのテンプレートについて](/articles/about-issue-and-pull-request-templates/)」を参照してください。{% ifversion fpt or ghes or ghec %} *SECURITY.md* | SECURITY ファイルでは、プロジェクトでセキュリティ脆弱性を報告する方法の手順を示します。 詳細については、「[リポジトリにセキュリティ ポリシーを追加する](/code-security/getting-started/adding-a-security-policy-to-your-repository)」を参照してください。{% endif %} *SUPPORT.md* | SUPPORT ファイルでは、プロジェクトに関するヘルプを得る方法がわかるようにします。 詳細については、「[プロジェクトへのサポート リソースの追加](/articles/adding-support-resources-to-your-project/)」を参照してください。
 
-Community health file | Description
---- | ---{% ifversion fpt or ghec %}
-*CODE_OF_CONDUCT.md* | A CODE_OF_CONDUCT file defines standards for how to engage in a community. For more information, see "[Adding a code of conduct to your project](/articles/adding-a-code-of-conduct-to-your-project/)."{% endif %}
-*CONTRIBUTING.md* | A CONTRIBUTING file communicates how people should contribute to your project. For more information, see "[Setting guidelines for repository contributors](/articles/setting-guidelines-for-repository-contributors/)."{% ifversion discussion-category-forms %}
-Discussion category forms | Discussion category forms customize the templates that are available for community members to use when they open new discussions in your repository. For more information, see "[Creating discussion category forms](/discussions/managing-discussions-for-your-community/creating-discussion-category-forms)."{% endif %}{% ifversion fpt or ghec %}
-*FUNDING.yml* | A FUNDING file displays a sponsor button in your repository to increase the visibility of funding options for your open source project. For more information, see "[Displaying a sponsor button in your repository](/articles/displaying-a-sponsor-button-in-your-repository)."{% endif %}
-Issue and pull request templates{% ifversion fpt or ghes or ghec %} and *config.yml*{% endif %} | Issue and pull request templates customize and standardize the information you'd like contributors to include when they open issues and pull requests in your repository. For more information, see "[About issue and pull request templates](/articles/about-issue-and-pull-request-templates/)."{% ifversion fpt or ghes or ghec %}
-*SECURITY.md* | A SECURITY file gives instructions for how to report a security vulnerability in your project. For more information, see "[Adding a security policy to your repository](/code-security/getting-started/adding-a-security-policy-to-your-repository)."{% endif %}
-*SUPPORT.md* | A SUPPORT file lets people know about ways to get help with your project. For more information, see "[Adding support resources to your project](/articles/adding-support-resources-to-your-project/)."
+デフォルトのライセンスファイルを作成することはできません。 ライセンスファイルは、プロジェクトのクローン時、パッケージ時、またはダウンロード時に含められるよう、個々のリポジトリに追加する必要があります。
 
-You cannot create a default license file. License files must be added to individual repositories so the file will be included when a project is cloned, packaged, or downloaded.
-
-## Creating a repository for default files
+## デフォルトのファイル用にリポジトリを作成
 
 {% data reusables.repositories.create_new %}
-2. Use the **Owner** drop-down menu, and select the organization{% ifversion fpt or ghes or ghec %} or personal account{% endif %} you want to create default files for.
-  ![Owner drop-down menu](/assets/images/help/repository/create-repository-owner.png)
-3. Type **.github** as the name for your repository, and an optional description.
-  ![Create repository field](/assets/images/help/repository/default-file-repository-name.png)
-4. Make sure the repository status is set to **Public** (a repository for default files cannot be private).
-  ![Radio buttons to select private or public status](/assets/images/help/repository/create-repository-public-private.png)
-{% data reusables.repositories.initialize-with-readme %}
-{% data reusables.repositories.create-repo %}
-7. In the repository, create one of the supported community health files. Issue templates{% ifversion fpt or ghes or ghec %} and their configuration file{% endif %} must be in a folder called `.github/ISSUE_TEMPLATE`. All other supported files may be in the root of the repository, the `.github` folder, or the `docs` folder. For more information, see "[Creating new files](/articles/creating-new-files/)."
+2. **[所有者]** ドロップダウン メニューを使用し、既定のファイルを作成する Organization {% ifversion fpt or ghes or ghec %} または個人アカウント {% endif %} を選択します。
+  ![[所有者] ドロップダウン メニュー](/assets/images/help/repository/create-repository-owner.png)
+3. リポジトリの名前として「 **.github**」と入力し、必要に応じて説明を入力します。
+  ![リポジトリ作成フィールド](/assets/images/help/repository/default-file-repository-name.png)
+4. リポジトリの状態が **[パブリック]** に設定されていることを確認します (既定のファイルのリポジトリをプライベートにすることはできません)。
+  ![プライベートまたはパブリックの状態を選択するためのラジオ ボタン](/assets/images/help/repository/create-repository-public-private.png) {% data reusables.repositories.initialize-with-readme %} {% data reusables.repositories.create-repo %}
+7. リポジトリの中に、サポートされているコミュニティ健全性ファイルの 1 つを作成します。 Issue テンプレート{% ifversion fpt or ghes or ghec %}とその構成ファイル{% endif %}は、`.github/ISSUE_TEMPLATE` という名前のフォルダーに存在する必要があります。 他のすべてのサポートされるファイルは、リポジトリのルート、`.github` フォルダー、または `docs` フォルダーに置くことができます。 詳細については、「[新しいファイルの作成](/articles/creating-new-files/)」を参照してください。

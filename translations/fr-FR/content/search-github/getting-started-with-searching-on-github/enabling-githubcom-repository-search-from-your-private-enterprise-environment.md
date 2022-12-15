@@ -1,7 +1,7 @@
 ---
-title: Enabling GitHub.com repository search from your private enterprise environment
+title: Activation de la recherche de dépôts GitHub.com à partir de votre environnement d’entreprise privé
 shortTitle: Search GitHub.com from enterprise
-intro: 'You can connect your personal accounts on {% data variables.product.prodname_dotcom_the_website %} and your private {% data variables.product.prodname_enterprise %} environment to search for content in certain {% data variables.product.prodname_dotcom_the_website %} repositories{% ifversion fpt or ghec %} from your private environment{% else %} from {% data variables.product.product_name %}{% endif %}.'
+intro: 'Vous pouvez connecter vos comptes personnels sur {% data variables.product.prodname_dotcom_the_website %} et votre environnement privé {% data variables.product.prodname_enterprise %} pour rechercher du contenu dans certains référentiels {% data variables.product.prodname_dotcom_the_website %} {% ifversion fpt or ghec %} de votre environnement privé{% else %} de {% data variables.product.product_name %}{% endif %}.'
 redirect_from:
   - /articles/enabling-private-githubcom-repository-search-in-your-github-enterprise-account
   - /articles/enabling-private-github-com-repository-search-in-your-github-enterprise-server-account
@@ -14,20 +14,23 @@ versions:
   ghae: '*'
 topics:
   - GitHub search
+ms.openlocfilehash: 2c4ee57036ca2d0114e75a1acaeecec05be5ba3a
+ms.sourcegitcommit: 1309b46201604c190c63bfee47dce559003899bf
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '147062457'
 ---
+## À propos de la recherche de dépôts {% data variables.product.prodname_dotcom_the_website %} à partir de {% data variables.product.product_name %}
 
-## About search for {% data variables.product.prodname_dotcom_the_website %} repositories from {% data variables.product.product_name %}
+Vous pouvez rechercher des dépôts privés désignés sur {% data variables.product.prodname_ghe_cloud %} à partir de {% data variables.product.product_location %}{% ifversion ghae %} sur {% data variables.product.prodname_ghe_managed %}{% endif %}. Pour plus d’informations sur la recherche entre les environnements, consultez « [À propos de la recherche sur GitHub](/github/searching-for-information-on-github/getting-started-with-searching-on-github/about-searching-on-github#searching-repositories-on-githubcom-from-your-private-enterprise-environment) ».
 
-You can search for designated private repositories on {% data variables.product.prodname_ghe_cloud %} from {% data variables.location.product_location %}{% ifversion ghae %} on {% data variables.product.prodname_ghe_managed %}{% endif %}. For more information about searching across environments, see "[About searching on GitHub](/github/searching-for-information-on-github/getting-started-with-searching-on-github/about-searching-on-github#searching-repositories-on-githubcom-from-your-private-enterprise-environment)."
+## Prérequis
 
-## Prerequisites
+Un propriétaire d’entreprise pour {% data variables.product.product_name %} doit activer {% data variables.product.prodname_github_connect %} et {% data variables.product.prodname_unified_search %} pour les dépôts privés. Pour plus d’informations, consultez « [Activation de {% data variables.product.prodname_unified_search %} pour votre entreprise](/admin/configuration/configuring-github-connect/enabling-unified-search-for-your-enterprise) ».
 
-An enterprise owner for {% data variables.product.product_name %} must enable {% data variables.product.prodname_github_connect %} and {% data variables.enterprise.prodname_unified_search %} for private repositories. For more information, see "[Enabling {% data variables.enterprise.prodname_unified_search %} for your enterprise](/admin/configuration/configuring-github-connect/enabling-unified-search-for-your-enterprise)."
+## Activation de la recherche de dépôts {% data variables.product.prodname_dotcom_the_website %} à partir de {% data variables.product.product_name %}
 
-## Enabling {% data variables.product.prodname_dotcom_the_website %} repository search from {% data variables.product.product_name %}
-
-1. Sign into {% data variables.product.product_name %} and {% data variables.product.prodname_dotcom_the_website %}.
-1. On {% data variables.product.product_name %}, in the upper-right corner of any page, click your profile photo, then click **Settings**.
-![Settings icon in the user bar](/assets/images/help/settings/userbar-account-settings.png)
-{% data reusables.github-connect.github-connect-tab-user-settings %}
-{% data reusables.github-connect.connect-dotcom-and-enterprise %}
+1. Connectez-vous à {% data variables.product.product_name %} et {% data variables.product.prodname_dotcom_the_website %}.
+1. Sur {% data variables.product.product_name %}, dans l’angle supérieur droit d’une page, cliquez sur la photo de votre profil, puis sur **Paramètres**.
+![Icône de paramètres dans la barre d’utilisateurs](/assets/images/help/settings/userbar-account-settings.png) {% data reusables.github-connect.github-connect-tab-user-settings %} {% data reusables.github-connect.connect-dotcom-and-enterprise %}

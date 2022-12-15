@@ -1,6 +1,6 @@
 ---
-title: Reviewing your SSH keys
-intro: 'To keep your credentials secure, you should regularly audit your SSH keys, deploy keys, and review authorized applications that access your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}.'
+title: Проверка ключей SSH
+intro: 'Чтобы обеспечить безопасность учетных данных, следует регулярно проверять ключи SSH, развертывать ключи и просматривать авторизованные приложения, которые обращаются к вашей учетной записи на {% ifversion ghae %}{% данных variables.product.product_name %}{% else %}{% данных variables.location.product_location %}{% endif %}.'
 redirect_from:
   - /articles/keeping-your-application-access-tokens-safe
   - /articles/keeping-your-ssh-keys-and-application-access-tokens-safe
@@ -15,94 +15,97 @@ versions:
 topics:
   - Identity
   - Access management
+ms.openlocfilehash: 36c7ae3b6227e13f2afae1d50e71469d155ffca8
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148094132'
 ---
-You can delete unauthorized (or possibly compromised) SSH keys to ensure that an attacker no longer has access to your repositories. You can also approve existing SSH keys that are valid.
+Можно удалить несанкционированные (или, возможно, скомпрометированные) ключи SSH, чтобы убедиться, что злоумышленник больше не имеет доступа к репозиториям. Вы также можете утвердить существующие ключи SSH, которые являются действующими.
 
 {% mac %}
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.ssh %}
-3. On the SSH Settings page, take note of the SSH keys associated with your account. For those that you don't recognize, or that are out-of-date, click **Delete**. If there are valid SSH keys you'd like to keep, click **Approve**.
-	![SSH key list](/assets/images/help/settings/settings-ssh-key-review.png)
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.ssh %}
+3. На странице «Параметры SSH» запишите ключи SSH, связанные с вашей учетной записью. Для тех ключей, которые вы не распознали, или для устаревших ключей нажмите кнопку **Удалить**. Если вы хотите сохранить действующие ключи SSH, нажмите кнопку **Утвердить**.
+    ![Список ключей SSH](/assets/images/help/settings/settings-ssh-key-review.png)
 
   {% tip %}
 
-     **Note:** If you're auditing your SSH keys due to an unsuccessful Git operation, the unverified key that caused the [SSH key audit error](/articles/error-we-re-doing-an-ssh-key-audit) will be highlighted in the list of SSH keys.
+     **Примечание.** Если вы выполняете аудит ключей SSH из-за неудачной операции Git, непроверенный ключ, который вызвал [ошибку аудита ключа SSH](/articles/error-we-re-doing-an-ssh-key-audit), будет выделен в списке ключей SSH.
 
   {% endtip %}
 
-4. Open Terminal.
+4. Откройте терминал.
 
 {% data reusables.command_line.start_ssh_agent %}
 
-6. Find and take a note of your public key fingerprint. 
+6. Найдите и запишите отпечаток открытого ключа. 
   ```shell
   $ ssh-add -l -E sha256
   > 2048 SHA256:274ffWxgaxq/tSINAykStUL7XWyRNcRTlcST1Ei7gBQ /Users/USERNAME/.ssh/id_rsa (RSA)
   ```
 
-7. The SSH keys on {% data variables.product.product_name %} *should* match the same keys on your computer.
+7. Ключи SSH на {% data variables.product.product_name %} *должны* совпадать с теми же ключами на компьютере.
 
 {% endmac %}
 
 {% windows %}
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.ssh %}
-3. On the SSH Settings page, take note of the SSH keys associated with your account. For those that you don't recognize, or that are out-of-date, click **Delete**. If there are valid SSH keys you'd like to keep, click **Approve**.
-	![SSH key list](/assets/images/help/settings/settings-ssh-key-review.png)
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.ssh %}
+3. На странице «Параметры SSH» запишите ключи SSH, связанные с вашей учетной записью. Для тех ключей, которые вы не распознали, или для устаревших ключей нажмите кнопку **Удалить**. Если вы хотите сохранить действующие ключи SSH, нажмите кнопку **Утвердить**.
+    ![Список ключей SSH](/assets/images/help/settings/settings-ssh-key-review.png)
 
   {% tip %}
 
-     **Note:** If you're auditing your SSH keys due to an unsuccessful Git operation, the unverified key that caused the [SSH key audit error](/articles/error-we-re-doing-an-ssh-key-audit) will be highlighted in the list of SSH keys.
+     **Примечание.** Если вы выполняете аудит ключей SSH из-за неудачной операции Git, непроверенный ключ, который вызвал [ошибку аудита ключа SSH](/articles/error-we-re-doing-an-ssh-key-audit), будет выделен в списке ключей SSH.
 
   {% endtip %}
 
-4. Open Git Bash. 
+4. Откройте Git Bash. 
 
 5. {% data reusables.desktop.windows_git_bash_turn_on_ssh_agent %}
 
   {% data reusables.desktop.windows_git_for_windows_turn_on_ssh_agent %}
 
-6. Find and take a note of your public key fingerprint. 
+6. Найдите и запишите отпечаток открытого ключа. 
   ```shell
   $ ssh-add -l -E sha256
   > 2048 SHA256:274ffWxgaxq/tSINAykStUL7XWyRNcRTlcST1Ei7gBQ /Users/USERNAME/.ssh/id_rsa (RSA)
   ```
 
-7. The SSH keys on {% data variables.product.product_name %} *should* match the same keys on your computer.
+7. Ключи SSH на {% data variables.product.product_name %} *должны* совпадать с теми же ключами на компьютере.
 
 {% endwindows %}
 
 {% linux %}
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.ssh %}
-3. On the SSH Settings page, take note of the SSH keys associated with your account. For those that you don't recognize, or that are out-of-date, click **Delete**. If there are valid SSH keys you'd like to keep, click **Approve**.
-	![SSH key list](/assets/images/help/settings/settings-ssh-key-review.png)
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.ssh %}
+3. На странице «Параметры SSH» запишите ключи SSH, связанные с вашей учетной записью. Для тех ключей, которые вы не распознали, или для устаревших ключей нажмите кнопку **Удалить**. Если вы хотите сохранить действующие ключи SSH, нажмите кнопку **Утвердить**.
+    ![Список ключей SSH](/assets/images/help/settings/settings-ssh-key-review.png)
 
   {% tip %}
 
-     **Note:** If you're auditing your SSH keys due to an unsuccessful Git operation, the unverified key that caused the [SSH key audit error](/articles/error-we-re-doing-an-ssh-key-audit) will be highlighted in the list of SSH keys.
+     **Примечание.** Если вы выполняете аудит ключей SSH из-за неудачной операции Git, непроверенный ключ, который вызвал [ошибку аудита ключа SSH](/articles/error-we-re-doing-an-ssh-key-audit), будет выделен в списке ключей SSH.
 
   {% endtip %}
 
-4. Open Terminal.
+4. Откройте терминал.
 
 {% data reusables.command_line.start_ssh_agent %}
 
-6. Find and take a note of your public key fingerprint. 
+6. Найдите и запишите отпечаток открытого ключа. 
   ```shell
   $ ssh-add -l -E sha256
   > 2048 SHA256:274ffWxgaxq/tSINAykStUL7XWyRNcRTlcST1Ei7gBQ /Users/USERNAME/.ssh/id_rsa (RSA)
   ```
 
-7. The SSH keys on {% data variables.product.product_name %} *should* match the same keys on your computer.
+7. Ключи SSH на {% data variables.product.product_name %} *должны* совпадать с теми же ключами на компьютере.
 
 {% endlinux %}
 
 {% warning %}
 
-**Warning**: If you see an SSH key you're not familiar with on {% data variables.product.product_name %}, delete it immediately and contact {% data variables.contact.contact_support %} for further help. An unidentified public key may indicate a possible security concern.
+**Предупреждение.** Если вы видите ключ SSH, который вам неизвестен, в {% data variables.product.product_name %}, сразу удалите его и обратитесь к {% data variables.contact.contact_support %} для получения дополнительной помощи. Неопознанный открытый ключ может указывать на возможную проблему безопасности.
 
 {% endwarning %}

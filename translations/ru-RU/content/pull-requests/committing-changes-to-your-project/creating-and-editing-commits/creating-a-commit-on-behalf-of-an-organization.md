@@ -1,6 +1,6 @@
 ---
-title: Creating a commit on behalf of an organization
-intro: 'You can create commits on behalf of an organization by adding a  trailer to the commit''s message. Commits attributed to an organization include an `on-behalf-of` badge on {% data variables.product.product_name %}.'
+title: Создание фиксации от имени организации
+intro: 'Вы можете создавать фиксации от имени организации, добавляя к сообщению фиксации заключительную часть. Фиксации, отнесенные к организации, включают индикатор событий `on-behalf-of` в {% data variables.product.product_name %}.'
 redirect_from:
   - /articles/creating-a-commit-on-behalf-of-an-organization
   - /github/committing-changes-to-your-project/creating-a-commit-on-behalf-of-an-organization
@@ -9,27 +9,33 @@ versions:
   fpt: '*'
   ghec: '*'
 shortTitle: On behalf of an organization
+ms.openlocfilehash: 6769b78698e8a5c5a412c8f49324c8a30825206a
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148094428'
 ---
 {% note %}
 
-**Note:** The ability to create a commit on behalf of an organization is currently in public beta and is subject to change.
+**Примечание**. Возможность создания фиксации от имени организации в настоящее время находится в общедоступной бета-версии и может быть изменена.
 
 {% endnote %}
 
-To create commits on behalf of an organization:
+Чтобы создать фиксацию от имени организации:
 
-- you must be a member of the organization indicated in the trailer
-- you must sign the commit
-- your commit email and the organization email must be in a domain verified by the organization
-- your commit message must end with the commit trailer `on-behalf-of: @org <name@organization.com>`
-  - `org` is the organization's login
-  - `name@organization.com` is in the organization's domain
+- нужно быть членом организации, указанной в заключительном фрагменте
+- нужно подписать фиксацию
+- электронная почта фиксации и электронная почта организации должны находиться в домене, подтвержденном организацией
+- сообщение о фиксации должно заканчиваться заключительным фрагментом фиксации `on-behalf-of: @org <name@organization.com>`
+  - `org` — это имя организации для входа
+  - `name@organization.com` — это домен организации
 
-Organizations can use the `name@organization.com` email as a public point of contact for open source efforts.
+Организации могут использовать электронную почту `name@organization.com` в качестве общедоступной точки связи для действий с открытым кодом.
 
-## Creating commits with an `on-behalf-of` badge on the command line
+## Создание фиксаций с индикатором `on-behalf-of` в командной строке
 
-1. Type your commit message and a short, meaningful description of your changes. After your commit description, instead of a closing quotation, add two empty lines.
+1. Введите сообщение о фиксации и краткое, понятное описание изменений. После описания фиксации вместо закрывающей кавычки добавьте две пустые строки.
   ```shell
   $ git commit -m "Refactor usability tests.
   >
@@ -37,11 +43,11 @@ Organizations can use the `name@organization.com` email as a public point of con
   ```
   {% tip %}
 
-  **Tip:** If you're using a text editor on the command line to type your commit message, ensure there are two newlines between the end of your commit description and the `on-behalf-of:` commit trailer.
+  **Совет**. Если вы используете текстовый редактор в командной строке для ввода сообщения о фиксации, убедитесь в том, что между концом описания фиксации и заключительным фрагментом фиксации `on-behalf-of:` есть два символа новой строки.
 
   {% endtip %}
 
-2. On the next line of the commit message, type `on-behalf-of: @org <name@organization.com>`, then a closing quotation mark.
+2. В следующей строке сообщения о фиксации введите `on-behalf-of: @org <name@organization.com>`, а потом закрывающую кавычку.
 
   ```shell
   $ git commit -m "Refactor usability tests.
@@ -50,25 +56,25 @@ Organizations can use the `name@organization.com` email as a public point of con
   on-behalf-of: @ORG NAME@ORGANIZATION.COM"
   ```
 
-The new commit, message, and badge will appear on {% data variables.location.product_location %} the next time you push. For more information, see "[Pushing changes to a remote repository](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/)."
+Новая фиксация, сообщение и эмблема будут отображаться на {% данных variables.location.product_location %} при следующей отправке. Дополнительные сведения см. в разделе [Отправка изменений в удаленный репозиторий](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/).
 
-## Creating commits with an `on-behalf-of` badge on {% data variables.product.product_name %}
+## Создание фиксаций с индикатором `on-behalf-of` в {% data variables.product.product_name %}
 
-After you've made changes in a file using the web editor on {% data variables.product.product_name %}, you can create a commit on behalf of your organization by adding an `on-behalf-of:` trailer to the commit's message.
+После внесения изменений в файл с помощью веб-редактора в {% data variables.product.product_name %} можно создать фиксацию от имени организации, добавив заключительный фрагмент `on-behalf-of:` в сообщение о фиксации.
 
-1. After making your changes, at the bottom of the page, type a short, meaningful commit message that describes the changes you made.
-  ![Commit message for your change](/assets/images/help/repository/write-commit-message-quick-pull.png)
+1. После внесения изменений в нижней части страницы введите короткое, понятное сообщение о фиксации, описывающее внесенные изменения.
+  ![Сообщение о фиксации для изменения](/assets/images/help/repository/write-commit-message-quick-pull.png)
 
-2. In the text box below your commit message, add `on-behalf-of: @org <name@organization.com>`.
+2. Добавьте `on-behalf-of: @org <name@organization.com>` в текстовое поле под сообщением о фиксации.
 
-  ![Commit message on-behalf-of trailer example in second commit message text box](/assets/images/help/repository/write-commit-message-on-behalf-of-trailer.png)
-4. Click **Commit changes** or **Propose changes**.
+  ![Пример заключительного фрагмента on-behalf-of во втором текстовом поле сообщения о фиксации](/assets/images/help/repository/write-commit-message-on-behalf-of-trailer.png)
+4. Нажмите кнопку **Зафиксировать изменения** или **Предложить изменения**.
 
-The new commit, message, and badge will appear on {% data variables.location.product_location %}.
+Новая фиксация, сообщение и эмблема будут отображаться на {% данных variables.location.product_location %}.
 
-## Further reading
+## Дополнительные материалы
 
-- "[Viewing contributions on your profile](/articles/viewing-contributions-on-your-profile)"
-- "[Why are my contributions not showing up on my profile?](/articles/why-are-my-contributions-not-showing-up-on-my-profile)"
-- "[Viewing a project’s contributors](/articles/viewing-a-projects-contributors)"
-- "[Changing a commit message](/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/changing-a-commit-message)"
+- [Просмотр вкладов в профиле](/articles/viewing-contributions-on-your-profile)
+- [Почему мои вклады не отображаются в моем профиле](/articles/why-are-my-contributions-not-showing-up-on-my-profile)
+- [Просмотр участников проекта](/articles/viewing-a-projects-contributors)
+- [Изменение сообщения о фиксации](/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/changing-a-commit-message)

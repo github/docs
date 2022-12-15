@@ -1,6 +1,6 @@
 ---
-title: Managing security and analysis settings for your personal account
-intro: 'You can control features that secure and analyze the code in your projects on {% data variables.product.prodname_dotcom %}.'
+title: Управление параметрами безопасности и анализа для личной учетной записи
+intro: 'Вы можете управлять возможностями, которые защищают и анализируют код в проектах на {% data variables.product.prodname_dotcom %}.'
 versions:
   fpt: '*'
   ghec: '*'
@@ -12,43 +12,47 @@ redirect_from:
   - /github/setting-up-and-managing-your-github-user-account/managing-user-account-settings/managing-security-and-analysis-settings-for-your-user-account
   - /account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/managing-security-and-analysis-settings-for-your-user-account
 shortTitle: Manage security & analysis
+ms.openlocfilehash: 22ff867691f79360db54f0fe85f5e988c71536a3
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148108955'
 ---
-## About management of security and analysis settings
+## Сведения об управлении параметрами безопасности и анализа
 
-{% data variables.product.prodname_dotcom %} can help secure your repositories. This topic tells you how you can manage the security and analysis features for all your existing or new repositories.
+{% data variables.product.prodname_dotcom %} помогает защищать репозитории. В этом разделе рассказывается, как управлять функциями безопасности и анализа для всех существующих и новых репозиториев.
 
-You can still manage the security and analysis features for individual repositories. For more information, see "[Managing security and analysis settings for your repository](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)."
+Вы по-прежнему можете управлять функциями безопасности и анализа для отдельных репозиториев. Дополнительные сведения см. в статье [Управление параметрами безопасности и анализа для репозитория](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository).
 
-You can also review the security log for all activity on your personal account. For more information, see "[Reviewing your security log](/authentication/keeping-your-account-and-data-secure/reviewing-your-security-log)."
+Вы также можете просмотреть журнал безопасности для всех действий в личной учетной записи. Дополнительные сведения см. в статье [Просмотр журнала безопасности](/authentication/keeping-your-account-and-data-secure/reviewing-your-security-log).
 
 {% data reusables.security.some-security-and-analysis-features-are-enabled-by-default %}
 
 {% data reusables.security.security-and-analysis-features-enable-read-only %}
 
-For an overview of repository-level security, see "[Securing your repository](/code-security/getting-started/securing-your-repository)."
+Общие сведения о безопасности на уровне репозитория см. в разделе [Защита репозитория](/code-security/getting-started/securing-your-repository).
 
-## Enabling or disabling features for existing repositories
+## Включение и отключение функций для существующих репозиториев
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.security-analysis %}
-3. Under "Code security and analysis", to the right of the feature, click **Disable all** or **Enable all**.
-  {% ifversion ghes %}!["Enable all" or "Disable all" button for "Configure security and analysis" features](/assets/images/enterprise/3.3/settings/security-and-analysis-disable-or-enable-all.png){% else %}!["Enable all" or "Disable all" button for "Configure security and analysis" features](/assets/images/help/settings/security-and-analysis-disable-or-enable-all.png){% endif %}
-6. Optionally, enable the feature by default for new repositories that you own.
-  {% ifversion ghes %}!["Enable by default" option for new repositories](/assets/images/enterprise/3.3/settings/security-and-analysis-enable-by-default-in-modal.png){% else %}!["Enable by default" option for new repositories](/assets/images/help/settings/security-and-analysis-enable-by-default-in-modal.png){% endif %}
-7. Click **Disable FEATURE** or **Enable FEATURE** to disable or enable the feature for all the repositories you own.
-  {% ifversion ghes %}![Button to disable or enable feature](/assets/images/enterprise/3.3/settings/security-and-analysis-enable-dependency-graph.png){% else %}![Button to disable or enable feature](/assets/images/help/settings/security-and-analysis-enable-dependency-graph.png){% endif %}
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.security-analysis %}
+3. В разделе "Безопасность и анализ кода" справа от функции нажмите кнопку **Отключить все** или **Включить все**.
+  {% ifversion ghes %}![" Включить все" или "Отключить все" для функций](/assets/images/enterprise/3.3/settings/security-and-analysis-disable-or-enable-all.png) "Настройка функций безопасности и анализа" {% else %}!["Включить все" или "Отключить все" для функций "Настройка безопасности и анализа" {](/assets/images/help/settings/security-and-analysis-disable-or-enable-all.png)% endif %}
+6. При необходимости включите функцию по умолчанию для новых репозиториев, которыми вы владеете.
+  {% ifversion ghes %}![" Параметр "Включить по умолчанию" для новых репозиториев](/assets/images/enterprise/3.3/settings/security-and-analysis-enable-by-default-in-modal.png){% else %}!["Включить по умолчанию" для новых репозиториев](/assets/images/help/settings/security-and-analysis-enable-by-default-in-modal.png){% endif %}
+7. Щелкните **Отключить ИМЯ_ФУНКЦИИ** или **Включить ИМЯ_ФУНКЦИИ**, чтобы отключить или включить функцию для всех принадлежащих вам репозиториев.
+  {% ifversion ghes %}![ Кнопка для отключения или включения компонента](/assets/images/enterprise/3.3/settings/security-and-analysis-enable-dependency-graph.png) {% else %}![Кнопка для отключения или включения компонента](/assets/images/help/settings/security-and-analysis-enable-dependency-graph.png){% endif %}
 
 {% data reusables.security.displayed-information %}
 
-## Enabling or disabling features for new repositories
+## Включение и отключение функций для новых репозиториев
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.security-analysis %}
-3. Under "Code security and analysis", to the right of the feature, enable or disable the feature by default for new repositories that you own.
-  {% ifversion ghes %}![Checkbox for enabling or disabling a feature for new repositories](/assets/images/enterprise/3.3/settings/security-and-analysis-enable-or-disable-feature-checkbox.png){% else %}![Checkbox for enabling or disabling a feature for new repositories](/assets/images/help/settings/security-and-analysis-enable-or-disable-feature-checkbox.png){% endif %}
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.security-analysis %}
+3. В разделе "Безопасность и анализ кода" справа от функции включите или отключите функцию по умолчанию для новых репозиториев, которыми вы владеете.
+  {% ifversion ghes %}![ Флажок для включения или отключения функции для новых репозиториев](/assets/images/enterprise/3.3/settings/security-and-analysis-enable-or-disable-feature-checkbox.png){% else %}![Флажок для включения или отключения функции для новых репозиториев](/assets/images/help/settings/security-and-analysis-enable-or-disable-feature-checkbox.png){% endif %}
 
-## Further reading
+## Дополнительные материалы
 
-- "[About the dependency graph](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)"
-- "[About {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)"
-- "[Keeping your dependencies updated automatically](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically)"
+- [Сведения о графе зависимостей](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)
+- [Сведения о {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)
+- [Автоматическое обновление зависимостей](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically)

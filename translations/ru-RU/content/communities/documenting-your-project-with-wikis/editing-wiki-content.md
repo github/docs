@@ -1,6 +1,6 @@
 ---
-title: Editing wiki content
-intro: 'You can add images and links to content in your wiki, and use some supported MediaWiki formats.'
+title: Редактирование содержимого вики-сайта
+intro: Вы можете добавлять изображения и ссылки на содержимое в вики-сайте и использовать некоторые поддерживаемые форматы MediaWiki.
 redirect_from:
   - /articles/adding-links-to-wikis
   - /articles/how-do-i-add-links-to-my-wiki
@@ -19,47 +19,51 @@ versions:
   ghec: '*'
 topics:
   - Community
+ms.openlocfilehash: 0afae4335dbf6ff78c0b0e1a2bef4cebed637a5e
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147578943'
 ---
+## Добавление ссылок
 
-## Adding links
+Вы можете создавать ссылки на вики-сайтах с помощью стандартной разметки, поддерживаемой страницей, или с помощью синтаксиса MediaWiki. Пример:
 
-You can create links in wikis using the standard markup supported by your page, or using MediaWiki syntax. For example:
+- Если страницы отрисовываются с помощью Markdown, используется синтаксис ссылок `[Link Text](full-URL-of-wiki-page)`.
+- При использовании синтаксиса MediaWiki синтаксис ссылок следующий: `[[nameofwikipage|Link Text]]`.
 
-- If your pages are rendered with Markdown, the link syntax is `[Link Text](full-URL-of-wiki-page)`.
-- With MediaWiki syntax, the link syntax is `[[nameofwikipage|Link Text]]`.
+## Добавление изображений
 
-## Adding images
+На вики-сайтах могут отображаться изображения в форматах PNG, JPEG и GIF.
 
-Wikis can display PNG, JPEG, and GIF images.
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-wiki %}
+3. На боковой панели вики-сайта перейдите на страницу, которую нужно изменить, и нажмите кнопку **Изменить**.
+4. На панели инструментов вики-сайта нажмите кнопку **Изображение**.
+   ![Кнопка добавления изображения на вики-сайт](/assets/images/help/wiki/wiki_add_image.png)
+5. В диалоговом окне "Вставка изображения" введите URL-адрес изображения и замещающий текст (который используется поисковыми системами и средствами чтения с экрана).
+6. Нажмите кнопку **ОК**.
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-wiki %}
-3. Using the wiki sidebar, navigate to the page you want to change, and then click **Edit**.
-4. On the wiki toolbar, click **Image**.
-   ![Wiki Add image button](/assets/images/help/wiki/wiki_add_image.png)
-5. In the "Insert Image" dialog box, type the image URL and the alt text (which is used by search engines and screen readers).
-6. Click **OK**.
+### Ссылки на изображения в репозитории
 
-### Linking to images in a repository
-
-You can link to an image in a repository on {% data variables.product.product_name %} by copying the URL in your browser and using that as the path to the image. For example, embedding an image in your wiki using Markdown might look like this:
+Вы можете добавить ссылку на изображение в репозитории на {% data variables.product.product_name %}, скопировав URL-адрес в браузере и использовав его в качестве пути к изображению. Например, так можно внедрить изображение на вики-сайт с помощью Markdown:
 
     [[https://github.com/USERNAME/REPOSITORY/blob/main/img/octocat.png|alt=octocat]]
 
-{% ifversion fpt or ghec or ghes > 3.6 or ghae > 3.6 %}
-## Adding mathematical expressions and diagrams{% endif %}
+{% ifversion fpt or ghec or ghes > 3.6 or ghae-issue-7647 %}
+## Добавление математических выражений и диаграмм{% endif %}
 
 {% data reusables.getting-started.math-and-diagrams %}
 
-## Supported MediaWiki formats
+## Поддерживаемые форматы MediaWiki
 
-No matter which markup language your wiki page is written in, certain MediaWiki syntax will always be available to you.
-- Links ([except AsciiDoc](https://github.com/gollum/gollum/commit/d1cf698b456cd6a35a54c6a8e7b41d3068acec3b))
-- Horizontal rules via `---`
-- Shorthand symbol entities (such as `&delta;` or `&euro;`)
+Независимо от того, на каком языке разметки написана вики-страница, некоторые элементы синтаксиса MediaWiki будут доступны всегда.
+- Ссылки ([кроме AsciiDoc](https://github.com/gollum/gollum/commit/d1cf698b456cd6a35a54c6a8e7b41d3068acec3b))
+- Горизонтальные (разделительные) линии посредством `---`
+- Сокращенные символьные обозначения (например, `&delta;` или `&euro;`)
 
-For security and performance reasons, some syntaxes are unsupported.
-- [Transclusion](https://www.mediawiki.org/wiki/Transclusion)
-- Definition lists
-- Indentation
-- Table of contents
+По соображениям безопасности и производительности некоторые элементы синтаксиса не поддерживаются.
+- [Трансклюзия](https://www.mediawiki.org/wiki/Transclusion)
+- Списки определений
+- Indentation;
+- Оглавление

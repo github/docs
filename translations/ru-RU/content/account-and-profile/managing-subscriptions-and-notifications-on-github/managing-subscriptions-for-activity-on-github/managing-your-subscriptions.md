@@ -1,6 +1,6 @@
 ---
-title: Managing your subscriptions
-intro: 'To help you manage your notifications efficiently, there are several ways to unsubscribe.'
+title: Управление своими подписками
+intro: 'Чтобы эффективно управлять уведомлениями, можно отменить подписку одним из нескольких способов.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -12,73 +12,79 @@ redirect_from:
   - /github/managing-subscriptions-and-notifications-on-github/managing-your-subscriptions
   - /github/managing-subscriptions-and-notifications-on-github/managing-subscriptions-for-activity-on-github/managing-your-subscriptions
 shortTitle: Manage your subscriptions
+ms.openlocfilehash: 750a3a9ad87ff9aa709b84a98f548d85d53072ee
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145093189'
 ---
-To help you understand your subscriptions and decide whether to unsubscribe, see "[Viewing your subscriptions](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions)."
+Чтобы разобраться со своими подписками и решить, какую подписку стоит отменить, ознакомьтесь с разделом [Просмотр подписок](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions).
 
 {% note %}
 
-**Note:** Instead of unsubscribing, you have the option to ignore a repository. If you ignore a repository, you won't receive any notifications. We don't recommend ignoring repositories as you won't be notified if you're @mentioned. {% ifversion fpt or ghec %}If you're experiencing abuse and want to ignore a repository, please contact {% data variables.contact.contact_support %} so we can help. {% data reusables.policies.abuse %}{% endif %}
+**Примечание** Вместо отмены подписки вы можете игнорировать репозиторий. Если вы игнорируете репозиторий, вы не будете получать никакие уведомления. Игнорировать репозитории не рекомендуется, так как вы не будете получать уведомления, если вас упомянут (@mentioned). {% ifversion fpt or ghec %}Если вы столкнулись с нарушениями и хотите игнорировать репозиторий, обратитесь в {% data variables.contact.contact_support %}, чтобы мы могли помочь. {% data reusables.policies.abuse %}{% endif %}
 
 {% endnote %}
 
-## Choosing how to unsubscribe
+## Выбор способа отмены подписки
 
-To unwatch (or unsubscribe from) repositories quickly, navigate to [github.com/watching](https://github.com/watching) to see all the repositories you're following. For more information, see "[Unwatching repositories](#unwatching-repositories)."
+Чтобы быстро отказаться от отслеживания репозиториев (или отменить подписку на репозитории), перейдите по адресу [github.com/watching](https://github.com/watching), чтобы просмотреть все репозитории, которые вы используете. Дополнительные сведения см. в разделе [Отказ от отслеживания репозиториев](#unwatching-repositories).
 
-To unsubscribe from multiple notifications at the same time, you can unsubscribe using your inbox or on the subscriptions page. Both of these options offer more context about your subscriptions than the "Watched repositories" page.
+Отменить подписку на несколько уведомлений одновременно можно отменить с помощью папки "Входящие" или на странице подписок. Оба этих варианта предоставляют больше сведений о ваших подписках, чем страница "Отслеживаемые репозитории".
 
-### Benefits of unsubscribing from your inbox
+### Преимущества отмены подписки из папки "Входящие"
 
-When you unsubscribe from notifications in your inbox, you have several other triaging options and can filter your notifications by custom filters and discussion types. For more information, see "[Managing notifications from your inbox](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox)."
+При отмене подписки на уведомления в папке "Входящие", у вас есть несколько других вариантов сортировки, и вы можете фильтровать уведомления с помощью настраиваемых фильтров и типов обсуждений. Дополнительные сведения см. в разделе [Управление уведомлениями из папки «Входящие»](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox).
 
-### Benefits of unsubscribing from the subscriptions page
+### Преимущества отмены подписки на странице подписок
 
-When you unsubscribe from notifications on the subscriptions page, you can see more of the notifications you're subscribed to and sort them by "Most recently subscribed" or "Least recently subscribed".
+При отмене подписки на уведомления на странице подписок вы можете увидеть больше уведомлений, на которые вы подписаны, и отсортировать их по самым последним подпискам или по самым старым подпискам.
 
-The subscriptions page shows you all of the notifications that you're currently subscribed to, including notifications that you have marked as **Done** in your inbox.
+На странице подписок отображаются все уведомления, на которые вы подписаны, включая уведомления с меткой **Готово** в папке "Входящие".
 
-You can only filter your subscriptions by repository and the reason you're receiving the notification.
+Вы можете фильтровать подписки только по репозиторию и по причине получения уведомления.
 
-## Unsubscribing from notifications in your inbox
+## Отмена подписки на уведомления в папке "Входящие"
 
-When you unsubscribe from notifications in your inbox, they will automatically disappear from your inbox.
-
-{% data reusables.notifications.access_notifications %}
-1. From the notifications inbox, select the notifications you want to unsubscribe to.
-2. Click **Unsubscribe.**
-  ![Unsubscribe option from main inbox](/assets/images/help/notifications-v2/unsubscribe-from-main-inbox.png)
-
-## Unsubscribing from notifications on the subscriptions page
+При отмене подписки на уведомления в папке "Входящие" они автоматически исчезают из вашей папки "Входящие".
 
 {% data reusables.notifications.access_notifications %}
-1. In the left sidebar, under the list of repositories, use the "Manage notifications" drop-down to click **Subscriptions**.
-  ![Manage notifications drop down menu options](/assets/images/help/notifications-v2/manage-notifications-options.png)
+1. В папке "Входящие" выберите уведомления, на которые вы хотите отменить подписку.
+2. Нажмите кнопку **Отписаться.** 
+  ![Кнопка отмены подписки из основной папки "Входящие"](/assets/images/help/notifications-v2/unsubscribe-from-main-inbox.png)
 
-2. Select the notifications you want to unsubscribe to. In the top right, click **Unsubscribe.**
-  ![Subscriptions page](/assets/images/help/notifications-v2/unsubscribe-from-subscriptions-page.png)
-
-## Unwatching repositories
-
-When you unwatch a repository, you unsubscribe from future updates from that repository unless you participate in a conversation or are @mentioned.
+## Отмена подписки на уведомления на странице подписок
 
 {% data reusables.notifications.access_notifications %}
-1. In the left sidebar, under the list of repositories, use the "Manage notifications" drop-down to click **Watched repositories**.
+1. В левой боковой панели в списке репозиториев откройте раскрывающийся список "Управление уведомлениями" и выберите пункт **Подписки**.
+  ![Параметры раскрывающегося меню «Управление уведомлениями»](/assets/images/help/notifications-v2/manage-notifications-options.png)
 
-  ![Manage notifications drop down menu options](/assets/images/help/notifications-v2/manage-notifications-options.png)
+2. Выберите уведомления, подписку на которые вы хотите отменить. В правом верхнем углу нажмите кнопку **Отписаться.** 
+  ![Страница подписок](/assets/images/help/notifications-v2/unsubscribe-from-subscriptions-page.png)
 
-2. On the watched repositories page, after you've evaluated the repositories you're watching, choose whether to:
+## Отказ от отслеживания репозиториев
+
+При отказе от отслеживания репозитория вы отписываетесь от будущих обновлений из этого репозитория, если не участвуете в беседе или не были упомянуты (@mentioned).
+
+{% data reusables.notifications.access_notifications %}
+1. В левой боковой панели в списке репозиториев откройте раскрывающееся меню "Управление уведомлениями" и выберите пункт **Отслеживаемые репозитории**.
+
+  ![Параметры раскрывающегося меню «Управление уведомлениями»](/assets/images/help/notifications-v2/manage-notifications-options.png)
+
+2. На странице отслеживаемых репозиториев после оценки отслеживаемых репозиториев выберите, что вы хотите сделать.
    
-   - Unwatch a repository
-   - Ignore all notifications for a repository
-   - If enabled, customize the types of event you receive notifications for ({% data reusables.notifications-v2.custom-notification-types %})
+   - Отказаться от отслеживания репозитория
+   - Игнорировать все уведомления для репозитория
+   - Если этот параметр включен, настроить типы событий, для которых вы хотите получать уведомления ({% data reusables.notifications-v2.custom-notification-types %})
    
-{%- ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
-1. Optionally, to unsubscribe from all repositories owned by a given user or organization, select the **Unwatch all** dropdown and click the organization whose repositories you'd like to unsubscribe from. The button to unwatch all repositories is only available if you are watching all activity or custom notifications on over 10 repositories.
+{%- ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5819 %}
+1. Если вы хотите отменить подписку на все репозитории, принадлежащие определенному пользователю или организации, выберите раскрывающийся список **Отменить отслеживание всех** и щелкните организацию, на репозитории которой вы хотите отменить подписку. Кнопка для отмены отслеживания всех репозиториев доступна только в том случае, если вы просматриваете все действия или настраиваемые уведомления в более чем 10 репозиториях.
 
-   ![Screenshot of the Unwatch All button.](/assets/images/help/notifications-v2/unsubscribe-from-all-repos.png)
+   ![Снимок экрана: кнопка "Отменить отслеживание всех".](/assets/images/help/notifications-v2/unsubscribe-from-all-repos.png)
 
-   - Click **Unwatch** to confirm that you want to unwatch the repositories owned by the selected user or organization, or click **Cancel** to cancel.
+   - Нажмите кнопку **Отменить отслеживание**, чтобы подтвердить отмену отслеживания репозиториев, принадлежащих выбранному пользователю или организации, или кнопку **Отмена**, чтобы отказаться от отмены отслеживания.
 
-   ![Screenshot of the unwatch all confirmation dialogue.](/assets/images/help/notifications-v2/unwatch-repo-dialog.png)
+   ![Снимок экрана: диалоговое окно подтверждения отмены отслеживания всех репозиториев.](/assets/images/help/notifications-v2/unwatch-repo-dialog.png)
 
 {% endif %}

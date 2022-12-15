@@ -1,6 +1,6 @@
 ---
-title: Secret scanning partner program
-intro: 'As a service provider, you can partner with {% data variables.product.prodname_dotcom %} to have your secret token formats secured through secret scanning, which searches for accidental commits of your secret format and can be sent to a service provider''s verify endpoint.'
+title: Programa de verificação de segredo de parceiros
+intro: 'Como um provedor de serviço, você pode associar-se ao {% data variables.product.prodname_dotcom %} para proteger os seus formatos de token secretos por varredura de segredos, que pesquisa commits acidentais no seu formato secreto e que pode ser enviado para o ponto de extremidade de verificação de um provedor de serviços.'
 miniTocMaxHeadingLevel: 3
 redirect_from:
   - /partnerships/token-scanning
@@ -12,146 +12,113 @@ versions:
 topics:
   - API
 shortTitle: Secret scanning
+ms.openlocfilehash: f935b849bb43e99fd3959db3920fd4d632bf54f7
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145093903'
 ---
+O {% data variables.product.prodname_dotcom %} faz a varredura de repositórios de formatos secretos conhecidos para evitar uso fraudulento de credenciais confirmadas acidentalmente. {% data variables.product.prodname_secret_scanning_caps %} acontece por padrão em repositórios públicos e pode ser habilitado em repositórios privados por administradores de repositório ou proprietários da organização. Como provedor de serviço, você pode fazer parcerias com {% data variables.product.prodname_dotcom %} para que seus formatos de segredo estejam incluídos em nosso {% data variables.product.prodname_secret_scanning %}.
 
-{% data variables.product.prodname_dotcom %} scans repositories for known secret formats to prevent fraudulent use of credentials that were committed accidentally. {% data variables.product.prodname_secret_scanning_caps %} happens by default on public repositories, and can be enabled on private repositories by repository administrators or organization owners. As a service provider, you can partner with {% data variables.product.prodname_dotcom %} so that your secret formats are included in our {% data variables.product.prodname_secret_scanning %}.
+Quando uma correspondência do seu formato secreto é encontrada em um repositório público, uma carga é enviada para um ponto de extremidade HTTP de sua escolha.
 
-When a match of your secret format is found in a public repository, a payload is sent to an HTTP endpoint of your choice.
+Quando uma correspondência do formato secreto é encontrada em um repositório privado configurado para {% data variables.product.prodname_secret_scanning %}, os administradores do repositório e o committer são alertados e podem visualizar e gerenciar o resultado {% data variables.product.prodname_secret_scanning %} em {% data variables.product.prodname_dotcom %}. Para obter mais informações, confira "[Como gerenciar alertas da {% data variables.product.prodname_secret_scanning %}](/github/administering-a-repository/managing-alerts-from-secret-scanning)".
 
-When a match of your secret format is found in a private repository configured for {% data variables.product.prodname_secret_scanning %}, then repository admins and the committer are alerted and can view and manage the {% data variables.product.prodname_secret_scanning %} result on {% data variables.product.prodname_dotcom %}. For more information, see "[Managing alerts from {% data variables.product.prodname_secret_scanning %}](/github/administering-a-repository/managing-alerts-from-secret-scanning)."
+Este artigo descreve como você pode fazer parceria com {% data variables.product.prodname_dotcom %} como um provedor de serviço e juntar-se ao programa de parceiro de {% data variables.product.prodname_secret_scanning %}.
 
-This article describes how you can partner with {% data variables.product.prodname_dotcom %} as a service provider and join the {% data variables.product.prodname_secret_scanning %} partner program.
+## O processo de {% data variables.product.prodname_secret_scanning %}
 
-## The {% data variables.product.prodname_secret_scanning %} process
+#### Como {% data variables.product.prodname_secret_scanning %} funciona em um repositório público
 
-#### How {% data variables.product.prodname_secret_scanning %} works in a public repository
+O diagrama a seguir resume o processo de {% data variables.product.prodname_secret_scanning %} para repositórios públicos, com qualquer correspondência enviada para o ponto de extremidade de verificação de um provedor de serviços.
 
-The following diagram summarizes the {% data variables.product.prodname_secret_scanning %} process for public repositories, with any matches sent to a service provider's verify endpoint.
+![Fluxograma que mostra o processo de verificação de um segredo e o envio das correspondências para o ponto de extremidade de verificação de um provedor de serviços](/assets/images/secret-scanning-flow.png "Fluxo de {% data variables.product.prodname_secret_scanning_caps %}")
 
-![Flow diagram showing the process of scanning for a secret and sending matches to a service provider's verify endpoint](/assets/images/secret-scanning-flow.png "{% data variables.product.prodname_secret_scanning_caps %} flow")
+## Juntando-se ao programa de {% data variables.product.prodname_secret_scanning %} em {% data variables.product.prodname_dotcom %}
 
-## Joining the {% data variables.product.prodname_secret_scanning %} program on {% data variables.product.prodname_dotcom %}
+1. Entre em contato com {% data variables.product.prodname_dotcom %} para dar início ao processo.
+1. Identifique os segredos relevantes cuja varredura você deseja realizar e crie expressões regulares para capturá-los.
+1. Para correspondências de segredos encontradas em repositórios públicos, crie um serviço de alerta de segredo que aceite webhooks de {% data variables.product.prodname_dotcom %}  que contenham a carga da mensagem de {% data variables.product.prodname_secret_scanning %}.
+1. Implemente a verificação de assinatura em seu serviço de alerta secreto.
+1. Implemente revogação do segredo e notificação do usuário no seu serviço de alerta secreto.
+1. Fornece feedback sobre falsos positivos (opcional).
 
-1. Contact {% data variables.product.prodname_dotcom %} to get the process started.
-1. Identify the relevant secrets you want to scan for and create regular expressions to capture them.
-1. For secret matches found in public repositories, create a secret alert service which accepts webhooks from {% data variables.product.prodname_dotcom %}  that contain the {% data variables.product.prodname_secret_scanning %} message payload.
-1. Implement signature verification in your secret alert service.
-1. Implement secret revocation and user notification in your secret alert service.
-1. Provide feedback for false positives (optional).
+### Entre em contato com {% data variables.product.prodname_dotcom %} para dar início ao processo
 
-### Contact {% data variables.product.prodname_dotcom %} to get the process started
+Para iniciar o processo de registro, envie um email para <a href="mailto:secret-scanning@github.com">secret-scanning@github.com</a>.
 
-To get the enrollment process started, email <a href="mailto:secret-scanning@github.com">secret-scanning@github.com</a>.
+Você receberá detalhes do programa de {% data variables.product.prodname_secret_scanning %} e você precisará aceitar os termos de participação de {% data variables.product.prodname_dotcom %} antes de prosseguir.
 
-You will receive details on the {% data variables.product.prodname_secret_scanning %} program, and you will need to agree to {% data variables.product.prodname_dotcom %}'s terms of participation before proceeding.
+### Identifique seus segredos e crie expressões regulares
 
-### Identify your secrets and create regular expressions
+Para fazer a varredura dos seus segredos, {% data variables.product.prodname_dotcom %} precisa das informações a seguir para cada segredo que você deseja que seja incluído no programa {% data variables.product.prodname_secret_scanning %}:
 
-To scan for your secrets, {% data variables.product.prodname_dotcom %} needs the following pieces of information for each secret that you want included in the {% data variables.product.prodname_secret_scanning %} program:
+* Um nome único e legível para o tipo do segredo. Usaremos isso para gerar o valor `Type` no conteúdo da mensagem posteriormente.
+* Uma expressão regular que encontra o tipo do segredo. Seja o mais preciso possível, pois isso reduzirá o número de falsos positivos.
+* A URL do ponto de extremidade que recebe mensagens de {% data variables.product.prodname_dotcom %}. Isso não precisa ser único para cada tipo de segredo.
 
-* A unique, human readable name for the secret type. We'll use this to generate the `Type` value in the message payload later.
-* A regular expression which finds the secret type. Be as precise as possible, because this will reduce the number of false positives.
-* The URL of the endpoint that receives messages from {% data variables.product.prodname_dotcom %}. This does not have to be unique for each secret type.
+Envie essas informações para <a href="mailto:secret-scanning@github.com">secret-scanning@github.com</a>.
 
-Send this information to <a href="mailto:secret-scanning@github.com">secret-scanning@github.com</a>.
+### Crie um serviço de alerta secreto
 
-### Create a secret alert service
+Crie um ponto de extremidade HTTP público e acessível à internet na URL que você nos forneceu. Quando uma correspondência da expressão regular for encontrada em um repositório público, o {% data variables.product.prodname_dotcom %} enviará uma mensagem HTTP `POST` ao seu ponto de extremidade.
 
-Create a public, internet accessible HTTP endpoint at the URL you provided to us. When a match of your regular expression is found in a public repository, {% data variables.product.prodname_dotcom %} will send an HTTP `POST` message to your endpoint.
-
-#### Example request body
-
-```json
-[
-  {
-    "token":"NMIfyYncKcRALEXAMPLE",
-    "type":"mycompany_api_token",
-    "url":"https://github.com/octocat/Hello-World/blob/12345600b9cbe38a219f39a9941c9319b600c002/foo/bar.txt",
-    "source":"content"
-  }
-]
-```
-
-The message body is a JSON array that contains one or more objects, with each object representing a single secret match. Your endpoint should be able to handle requests with a large number of matches without timing out. The keys for each secret match are:
-
-* **token**: The value of the secret match.
-* **type**: The unique name you provided to identify your regular expression.
-* **url**: The public URL where the match was found (may be empty)
-* **source**: Where the token was found on {% data variables.product.prodname_dotcom %}.
-
-The list of valid values for `source` are:
-
-* content
-* commit
-* pull_request_description
-* pull_request_comment
-* issue_description
-* issue_comment
-* discussion_body
-* discussion_comment
-* commit_comment
-* gist_content
-* gist_comment
-* unknown
-
-### Implement signature verification in your secret alert service
-
-The HTTP request to your service will also contain headers that we strongly recommend using
-to validate the messages you receive are genuinely from {% data variables.product.prodname_dotcom %}, and are not malicious.
-
-The two HTTP headers to look for are:
-
-* `GITHUB-PUBLIC-KEY-IDENTIFIER`: Which `key_identifier` to use from our API
-* `GITHUB-PUBLIC-KEY-SIGNATURE`: Signature of the payload
-
-You can retrieve the {% data variables.product.prodname_dotcom %} secret scanning public key from https://api.github.com/meta/public_keys/secret_scanning and validate the message using the `ECDSA-NIST-P256V1-SHA256` algorithm. The endpoint
-will provide several `key_identifier` and public keys. You can determine which public
-key to use based on the value of `GITHUB-PUBLIC-KEY-IDENTIFIER`.
-
-{% note %}
-
-**Note**: When you send a request to the public key endpoint above, you may hit rate limits. To avoid hitting rate limits, you can use a {% data variables.product.pat_v1 %} (no scopes required){% ifversion pat-v2 %} or a {% data variables.product.pat_v2 %} (only the automatic public repositories read access required){% endif %} as suggested in the samples below, or use a conditional request. For more information, see "[Getting started with the REST API](/rest/guides/getting-started-with-the-rest-api#conditional-requests)."
-
-{% endnote %}
-
-{% note %}
-
-**Note**: The signature was generated using the raw message body. So it's important you also use the raw message body for signature validation, instead of parsing and stringifying the JSON, to avoid rearranging the message or changing spacing.
-
-{% endnote %}
-
-**Sample HTTP POST sent to verify endpoint**
+#### Exemplo de POST enviado para seu ponto de extremidade
 
 ```http
 POST / HTTP/2
 Host: HOST
 Accept: */*
-content-type: application/json
-GITHUB-PUBLIC-KEY-IDENTIFIER: f9525bf080f75b3506ca1ead061add62b8633a346606dc5fe544e29231c6ee0d
-GITHUB-PUBLIC-KEY-SIGNATURE: MEUCIFLZzeK++IhS+y276SRk2Pe5LfDrfvTXu6iwKKcFGCrvAiEAhHN2kDOhy2I6eGkOFmxNkOJ+L2y8oQ9A2T9GGJo6WJY=
-Content-Length: 83
+Content-Type: application/json
+GITHUB-PUBLIC-KEY-IDENTIFIER: 90a421169f0a406205f1563a953312f0be898d3c7b6c06b681aa86a874555f4a
+GITHUB-PUBLIC-KEY-SIGNATURE: MEQCIA6C6L8ZYvZnqgV0zwrrmRab10QmIFV396gsba/WYm9oAiAI6Q+/jNaWqkgG5YhaWshTXbRwIgqIK6Ru7LxVYDbV5Q==
+Content-Length: 0123
 
-[{"token":"some_token","type":"some_type","url":"some_url","source":"some_source"}]
+[{"token":"NMIfyYncKcRALEXAMPLE","type":"mycompany_api_token","url":"https://github.com/octocat/Hello-World/blob/12345600b9cbe38a219f39a9941c9319b600c002/foo/bar.txt"}]
 ```
+
+O corpo da mensagem é um array do JSON que contém um ou mais objetos com o seguinte conteúdo. Quando várias correspondências forem encontradas, o {% data variables.product.prodname_dotcom %} pode enviar uma única mensagem com mais de uma correspondência secreta. Seu ponto de extremidade deve ser capaz de lidar com solicitações com um grande número de correspondências sem exceder o tempo.
+
+* **Token**: o valor da correspondência de segredos.
+* **Tipo**: o nome exclusivo que você forneceu para identificar a expressão regular.
+* **URL**: a URL de commit pública em que a correspondência foi encontrada.
+
+### Implemente a verificação de assinatura em seu serviço de alerta secreto
+
+É altamente recomendável que você implemente a validação da assinatura no seu serviço de alerta de segredo para garantir que as mensagens que você recebe sejam genuinamente de {% data variables.product.prodname_dotcom %} e não sejam maliciosas.
+
+Recupere a chave pública da verificação de segredos do {% data variables.product.prodname_dotcom %} de https://api.github.com/meta/public_keys/secret_scanning e valide a mensagem usando o algoritmo `ECDSA-NIST-P256V1-SHA256`.
 
 {% note %}
 
-**Note**: The key id and signature from the example payload is derived from a test key.
-The public key for them is:
-
-```
------BEGIN PUBLIC KEY-----
-MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEsz9ugWDj5jK5ELBK42ynytbo38gP
-HzZFI03Exwz8Lh/tCfL3YxwMdLjB+bMznsanlhK0RwcGP3IDb34kQDIo3Q==
------END PUBLIC KEY-----
-```
+**Observação**: quando você enviar uma solicitação ao ponto de extremidade da chave pública acima, poderá atingir limites de taxa. Para evitar atingir os limites de velocidade, você pode usar um token de acesso pessoal (sem escopos obrigatórios) como sugerido nas amostras abaixo, ou usar uma solicitação condicional. Para obter mais informações, confira "[Introdução à API REST](/rest/guides/getting-started-with-the-rest-api#conditional-requests)".
 
 {% endnote %}
 
-The following code snippets demonstrate how you could perform signature validation.
-The code examples assume you've set an environment variable called `GITHUB_PRODUCTION_TOKEN` with a generated [{% data variables.product.pat_generic %}](https://github.com/settings/tokens) to avoid hitting rate limits. The {% data variables.product.pat_generic %} does not need any scopes/permissions.
+Supondo que você receba a mensagem a seguir, os trechos de código abaixo demonstram como você poderia efetuar a validação da assinatura.
+Os snippets de código pressupõem que você tenha definido uma variável de ambiente chamada `GITHUB_PRODUCTION_TOKEN` com um PAT gerado (https://github.com/settings/tokens) para evitar atingir os limites de taxa). O PAT não precisa de escopos/permissões.
 
-**Validation sample in Go**
+{% note %}
+
+**Observação**: a assinatura foi gerada usando o corpo da mensagem bruta. Portanto, é importante que você também use o texto da mensagem não processada para validação da assinatura, em vez de analisar e criar strings do JSON a fim de evitar reorganizar a mensagem ou mudar de espaçamento.
+
+{% endnote %}
+
+**Mensagem de exemplo enviada para verificar o ponto de extremidade**
+```http
+POST / HTTP/2
+Host: HOST
+Accept: */*
+content-type: application/json
+GITHUB-PUBLIC-KEY-IDENTIFIER: 90a421169f0a406205f1563a953312f0be898d3c7b6c06b681aa86a874555f4a
+GITHUB-PUBLIC-KEY-SIGNATURE: MEUCIQDKZokqnCjrRtw0tni+2Ltvl/uiMJ1EGumEsp1BsNr32AIgQY1YXD2nlj+XNfGK4rBfkMJ1JDOQcYXxa2sY8FNkrKc=
+Content-Length: 0000
+
+[{"token":"some_token","type":"some_type","url":"some_url"}]
+```
+
+**Exemplo de validação no Go**
 ```golang
 package main
 
@@ -171,11 +138,11 @@ import (
 )
 
 func main() {
-  payload := `[{"token":"some_token","type":"some_type","url":"some_url","source":"some_source"}]`
+  payload := `[{"token":"some_token","type":"some_type","url":"some_url"}]`
 
-  kID := "f9525bf080f75b3506ca1ead061add62b8633a346606dc5fe544e29231c6ee0d"
+  kID := "90a421169f0a406205f1563a953312f0be898d3c7b6c06b681aa86a874555f4a"
 
-  kSig := "MEUCIFLZzeK++IhS+y276SRk2Pe5LfDrfvTXu6iwKKcFGCrvAiEAhHN2kDOhy2I6eGkOFmxNkOJ+L2y8oQ9A2T9GGJo6WJY="
+  kSig := "MEUCIQDKZokqnCjrRtw0tni+2Ltvl/uiMJ1EGumEsp1BsNr32AIgQY1YXD2nlj+XNfGK4rBfkMJ1JDOQcYXxa2sY8FNkrKc="
 
   // Fetch the list of GitHub Public Keys
   req, err := http.NewRequest("GET", "https://api.github.com/meta/public_keys/secret_scanning", nil)
@@ -281,7 +248,7 @@ type asn1Signature struct {
 }
 ```
 
-**Validation sample in Ruby**
+**Exemplo de validação no Ruby**
 ```ruby
 require 'openssl'
 require 'net/http'
@@ -290,14 +257,14 @@ require 'json'
 require 'base64'
 
 payload = <<-EOL
-[{"token":"some_token","type":"some_type","url":"some_url","source":"some_source"}]
+[{"token":"some_token","type":"some_type","url":"some_url"}]
 EOL
 
 payload = payload
 
-signature = "MEUCIFLZzeK++IhS+y276SRk2Pe5LfDrfvTXu6iwKKcFGCrvAiEAhHN2kDOhy2I6eGkOFmxNkOJ+L2y8oQ9A2T9GGJo6WJY="
+signature = "MEUCIQDKZokqnCjrRtw0tni+2Ltvl/uiMJ1EGumEsp1BsNr32AIgQY1YXD2nlj+XNfGK4rBfkMJ1JDOQcYXxa2sY8FNkrKc="
 
-key_id = "f9525bf080f75b3506ca1ead061add62b8633a346606dc5fe544e29231c6ee0d"
+key_id = "90a421169f0a406205f1563a953312f0be898d3c7b6c06b681aa86a874555f4a"
 
 url = URI.parse('https://api.github.com/meta/public_keys/secret_scanning')
 
@@ -321,7 +288,7 @@ openssl_key = OpenSSL::PKey::EC.new(current_key)
 puts openssl_key.verify(OpenSSL::Digest::SHA256.new, Base64.decode64(signature), payload.chomp)
 ```
 
-**Validation sample in JavaScript**
+**Exemplo de validação no JavaScript**
 ```js
 const crypto = require("crypto");
 const axios = require("axios");
@@ -363,17 +330,17 @@ const verify_signature = async (payload, signature, keyID) => {
 };
 ```
 
-### Implement secret revocation and user notification in your secret alert service
+### Implemente revogação do segredo e notificação do usuário no seu serviço de alerta secreto
 
-For {% data variables.product.prodname_secret_scanning %} in public repositories, you can enhance your secret alert service to revoke the exposed secrets and notify the affected users. How you implement this in your secret alert service is up to you, but we recommend considering any secrets that {% data variables.product.prodname_dotcom %} sends you messages about as public and compromised.
+Para {% data variables.product.prodname_secret_scanning %} em repositórios públicos, você pode melhorar o seu serviço de alerta de segredo para revogar os segredos expostos e notificar os usuários afetados. Você define como implementa isso no seu serviço de alerta de segredo, mas recomendamos considerar qualquer segredo que {% data variables.product.prodname_dotcom %} envie mensagens de que é público e que está comprometido.
 
-### Provide feedback for false positives
+### Fornece feedback sobre falsos positivos
 
-We collect feedback on the validity of the detected individual secrets in partner responses. If you wish to take part, email us at <a href="mailto:secret-scanning@github.com">secret-scanning@github.com</a>.
+Coletamos feedback sobre a validade dos segredos individuais detectados nas respostas do parceiro. Caso deseje participar, envie-nos um email para <a href="mailto:secret-scanning@github.com">secret-scanning@github.com</a>.
 
-When we report secrets to you, we send a JSON array with each element containing the token, type identifier, and commit URL. When you send us feedback, you send us information about whether the detected token was a real or false credential. We accept feedback in the following formats.
+Quando relatamos segredos para você, enviamos uma matriz JSON com cada elemento que contém o token, o identificador de tipo e a URL dp commit. Quando você nos envia feedback, você nos envia informações sobre se o token detectado era uma credencial real ou falsa. Aceitamos comentários nos seguintes formatos.
 
-You can send us the raw token:
+Você pode nos enviar o token não processado:
 
 ```
 [
@@ -384,7 +351,7 @@ You can send us the raw token:
   }
 ]
 ```
-You may also provide the token in hashed form after performing a one way cryptographic hash of the raw token using SHA-256:
+Você também pode fornecer o token em forma de hash após executar uma única forma de hash criptográfico do token não processado usando SHA-256:
 
 ```
 [
@@ -395,13 +362,13 @@ You may also provide the token in hashed form after performing a one way cryptog
   }
 ]
 ```
-A few important points:
-- You should only send us either the raw form of the token ("token_raw"), or the hashed form ("token_hash"), but not both.
-- For the hashed form of the raw token, you can only use SHA-256 to hash the token, not any other hashing algorithm.
-- The label indicates whether the token is a true ("true_positive") or a false positive ("false_positive"). Only these two lowercased literal strings are allowed.
+Alguns pontos importantes:
+- Você deve enviar-nos apenas a forma não processada do token ("token_raw"), ou a forma em hash ("token_hash"), mas não ambos.
+- Para a forma de hash do token não processado, você só pode usar SHA-256 para armazenar o token, e não qualquer outro algoritmo de hashing.
+- A etiqueta indica se o token é verdadeiro ("true_positive") ou um falso positivo ("false_positive"). São permitidas apenas essas duas strings literais minúsculas.
 
 {% note %}
 
-**Note:** Our request timeout is set to be higher (that is, 30 seconds) for partners who provide data about false positives. If you require a timeout higher than 30 seconds, email us at <a href="mailto:secret-scanning@github.com">secret-scanning@github.com</a>.
+**Observação:** nosso tempo limite de solicitação está definido para ser maior (ou seja, 30 segundos) para os parceiros que fornecem dados sobre falsos positivos. Caso você precise de um tempo limite superior a 30 segundos, envie-nos um email para <a href="mailto:secret-scanning@github.com">secret-scanning@github.com</a>.
 
 {% endnote %}

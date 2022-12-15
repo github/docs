@@ -1,6 +1,6 @@
 ---
-title: Configuring pull request merges
-intro: 'You can configure pull request merges on {% data variables.location.product_location %} to match your workflow and preferences for managing Git history.'
+title: Configuration des fusions de demande de tirage
+intro: 'Vous pouvez configurer les fusions de demande de tirage (pull request) sur {% data variables.product.product_location %} en fonction de votre workflow et de vos préférences de gestion de l’historique Git.'
 redirect_from:
   - /articles/configuring-pull-request-merges
   - /github/administering-a-repository/configuring-pull-request-merges
@@ -21,5 +21,11 @@ children:
   - /managing-auto-merge-for-pull-requests-in-your-repository
   - /managing-the-automatic-deletion-of-branches
 shortTitle: Configure PR merges
+ms.openlocfilehash: 625392c72ae470fffea4f92288aa7c3124bc18ab
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147580606'
 ---
 

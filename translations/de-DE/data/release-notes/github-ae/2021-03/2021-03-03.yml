@@ -1,0 +1,93 @@
+date: '03.03.2021'
+friendlyDate: '3. März 2021'
+title: 'Woche des 3. März 2021'
+currentWeek: false
+sections:
+  features:
+    - heading: 'GitHub Actions (Betaversion)'
+      notes:
+        - |[{% data variables.product.prodname_actions %}](https://github.com/features/actions) ist eine leistungsstarke, flexible Lösung für CI/CD und die Workflowautomatisierung. Weitere Informationen findest du unter [Einführung in {% data variables.product.prodname_actions %}](/actions/learn-github-actions/introduction-to-github-actions).
+
+
+
+Beachte, dass in {% data variables.product.product_location %} zwei Organisationen namens „GitHub Actions“ (@**actions** und @**github**) angezeigt werden, wenn {% data variables.product.prodname_actions %} während dieses Updates aktiviert ist. Diese Organisationen werden von {% data variables.product.prodname_actions %} vorausgesetzt. Als Ersteller*innen dieser Organisationen werden im Überwachungsprotokoll die Benutzer*innen @**ghost** und @**actions** aufgeführt.
+
+|
+    - heading: 'GitHub Packages (Betaversion)'
+      notes:
+        - |[{% data variables.product.prodname_registry %}](https://github.com/features/packages) ist ein Pakethostingdienst, der nativ mit {% data variables.product.prodname_actions %}, APIs und Webhooks integriert ist. Erstelle einen [vollständigen DevOps-Workflow](/github-ae@latest/packages/quickstart), der deinen Code, Continuous Integration und Bereitstellungslösungen umfasst. Während dieser Betaphase ist {% data variables.product.prodname_registry %} für {% data variables.product.product_name %}-Kunden kostenlos verfügbar.
+
+|
+    - heading: 'GitHub Advanced Security (Betaversion)'
+      notes:
+        - |{% data variables.product.prodname_GH_advanced_security %} ist als Betaversion verfügbar und enthält die Features „Codeüberprüfung“ und „Geheimnisüberprüfung“. Während dieser Betaphase sind {% data variables.product.prodname_GH_advanced_security %}-Features für {% data variables.product.product_name %}-Kunden kostenlos verfügbar. Repository- und Organisationsadministrator*innen können {% data variables.product.prodname_GH_advanced_security %} in den Einstellungen auf der Registerkarte „Sicherheit und Analyse“ deaktivieren.
+
+
+
+Weitere Informationen zu {% data variables.product.prodname_GH_advanced_security %} [code scanning](/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning) und [secret scanning](/github/administering-a-repository/about-secret-scanning) findest du unter {% data variables.product.prodname_ghe_managed %}.
+
+|
+    - heading: Verwalten von Teams über Ihren Identitätsanbieter
+      notes:
+        - |SCIM-Kunden (System for Cross-domain Identity Management) können nun Sicherheitsgruppen in Azure Active Directory mit {% data variables.product.company_short %}-Teams synchronisieren.  Sobald ein Team mit einer Sicherheitsgruppe verknüpft wurde, wird die Mitgliedschaft in {% data variables.product.product_name %} automatisch aktualisiert, wenn Benutzer*innen zu ihrer zugewiesenen Sicherheitsgruppe hinzugefügt oder daraus entfernt werden.
+
+|
+    - heading: IP-Zulassungslisten (Betaversion)
+      notes:
+        - |Mit [IP-Zulassungslisten von {% data variables.product.company_short %}](/admin/configuration/restricting-network-traffic-to-your-enterprise) kann Datenverkehr aus von Administrator*innen per CIDR-Notation festgelegten IP-Bereichen gefiltert werden. Diese Zulassungsliste wird unter „Sicherheit“ > „Einstellungen“ für ein ganzes Unternehmen oder ein Organisationskonto definiert. Der gesamte Datenverkehr, der an Ressourcen innerhalb des Unternehmenskontos und der Organisationen zugestellt werden soll, wird von den Zulassungslisten gefiltert. Diese Funktionalität wird zusätzlich zu der Möglichkeit bereitgestellt, Änderungen an Netzwerksicherheitsgruppen zu beantragen, die Datenverkehr an gesamten GHAE-Mandanten filtern.
+
+|
+  changes:
+    - heading: Entwickleränderungen
+      notes:
+        - |[Organisationsinhaber*innen können nun die Veröffentlichung](/github/setting-up-and-managing-organizations-and-teams/managing-the-publication-of-github-pages-sites-for-your-organization) von {% data variables.product.prodname_pages %}-Websites aus Repositorys in der Organisation deaktivieren. Die Veröffentlichung bestehender Websites wird dadurch nicht aufgehoben.
+
+|
+        - "Repositorys, die {% data variables.product.prodname_pages %} verwenden, können nun [aus allen Branches kompilieren und bereitstellen](/github/working-with-github-pages/about-github-pages#publishing-sources-for-github-pages-sites)."
+        - "Beim Verfassen eines Issue oder Pull Request wird die Listensyntax für Aufzählungspunkte, Nummern und Aufgaben per Autovervollständigung beendet, wenn du `EINGABETASTE` drückst."
+        - Verzeichnisse in Repositorys können jetzt über die Repositoryseite gelöscht werden. Wenn du ein Verzeichnis öffnest. kannst du es über ein neues Hamburgermenü neben der Schaltfläche „Datei hinzufügen“ löschen.
+        - "Es ist jetzt einfacher und schneller, [auf Issues oder Pull Requests zu verweisen](/github/writing-on-github/basic-writing-and-formatting-syntax#referencing-issues-and-pull-requests), indem du nach # und mehreren Wörtern suchst."
+
+    - heading: Verwaltungsänderungen
+      notes:
+        - "Unternehmensinhaber*innen können jetzt Pflichtnachrichten veröffentlichen. Diese Nachrichten werden allen Benutzer*innen angezeigt, und sie müssen den Empfang bestätigen. In diesen Nachrichten können wichtige Informationen, Vertragsbedingungen oder Richtlinien kommuniziert werden."
+        - "Die Berechtigung für Einzeldateipfade von {% data variables.product.prodname_github_app%} kann jetzt [bis zu zehn Dateien unterstützen](/developers/apps/creating-a-github-app-using-url-parameters)."
+        - "Beim Konfigurieren einer {% data variables.product.prodname_github_app%} ist die Autorisierungsrückruf-URL ein Pflichtfeld. Dem Integrator ist es von nun an erlaubt, mehrere Rückruf-URLs anzugeben. {% data variables.product.product_name %} lehnt die Autorisierung ab, wenn die Rückruf-URL der Anforderung nicht aufgeführt ist."
+        - "Ein [neuer API-Endpunkt](/rest/reference/apps#create-a-scoped-access-token) ermöglicht den Austausch eines Benutzer-zu-Server-Token durch ein anderes Benutzer-zu-Server-Token, das nur für bestimmte Repositorys gilt."
+        - "Im Überwachungsprotokoll werden jetzt Ereignisse zur [Hochstufung von Teammitgliedern auf Teammaintainer*innen und Herabstufung von Teammaintainer*innen auf Teammitglieder](/admin/user-management/audited-actions#teams) protokolliert."
+        - "Der [OAuth-Flow zur Geräteautorisierung](/developers/apps/authorizing-oauth-apps#device-flow) wird jetzt unterstützt. Dies ermöglicht es allen CLI-Clients oder Entwicklungstools, sich mithilfe eines sekundären Systems zu authentifizieren."
+        - "Benutzer*innen können ihr Konto nicht mehr löschen, wenn die SCIM-Bereitstellung aktiviert ist."
+
+    - heading: Ändern des Standardnamens von Branches
+      notes:
+        - |Unternehmens- und Organisationsinhaber*innen können nun den Standardbranchnamen für neue Repositorys ändern. Unternehmensinhaber*innen können außerdem den Standardbranchnamen ihrer Wahl für alle Organisationen durchsetzen oder es einzelnen Organisationen erlauben, einen eigenen Standardbranchnamen zu wählen.
+
+
+
+Diese Einstellungen haben keine Auswirkungen auf bestehende Repositorys, und ihr Standardbranchname wird nicht geändert.
+
+
+
+Diese Änderung ist eine von vielen in {% data variables.product.company_short %}, um Projekte und Maintainer*innen zu unterstützen, die ihren Standardbranch umbenennen möchten. Weitere Informationen findest du unter [github/renaming](https://github.com/github/renaming).
+
+|
+  bugs:
+    - heading: Behebung von Programmfehlern
+      notes:
+        - Benutzer*innen können keine Sicherungs-E-Mail-Adresse in ihrem Profil angeben. Ihre E-Mail-Adresse wird nur vom Identitätsanbieter festgelegt.
+        - "Die zweistufige Authentifizierung kann nicht mehr aktiviert werden, nachdem die Authentifizierung über deinen Identitätsanbieter eingerichtet wurde."
+        - |{% data variables.product.product_name %} kann jetzt mit Azure Boards verbunden werden.
+
+|
+        - In den APIs fehlten Versionsheader. Diese wurden jetzt auf „GitHub AE“ festgelegt.
+        - Links zur Dokumentation wurden korrigiert.
+        - Die Konfiguration der Überwachungsprotokollweiterleitung innerhalb der Unternehmenseinstellungen schlug fehl.
+        - Die Navigation zu Gists konnte zu einem 500-Fehler führen.
+        - Die Support-E-Mail-Adresse oder -URL konnte nicht gespeichert werden. Nun wird sie nach wenigen Minuten gespeichert.
+        - Organisationsvorlagen für Pull Request wurden nicht auf alle Pull Requests in der Organisation angewendet.
+
+  known_issues:
+    - heading: Bekannte Probleme
+      notes:
+        - Geografische Standortdaten werden nicht im Überwachungsprotokoll angezeigt. Standortinformationen können anderweitig auf der IP-Adresse des jeweiligen Ereignisses herausgelesen werden.
+        - "Die Verknüpfung mit {% data variables.product.prodname_registry %} auf einer Repositoryseite führt zu einer falschen Suchseite, wenn das Repository keine Pakete enthält."

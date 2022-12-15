@@ -1,6 +1,6 @@
 ---
-title: Configuring collectd
-intro: '{% data variables.product.prodname_enterprise %} can gather data with `collectd` and send it to an external `collectd` server. Among other metrics, we gather a standard set of data such as CPU utilization, memory and disk consumption, network interface traffic and errors, and the VM''s overall load.'
+title: Настройка collectd
+intro: '{% data variables.product.prodname_enterprise %} может собирать данные с помощью `collectd` и отправлять их на внешний сервер `collectd`. Помимо прочих метрик, мы собираем стандартный набор данных, таких как данные о загрузке ЦП, потреблении ресурсов памяти и дискового пространства, об объеме трафика сетевого интерфейса и ошибок, а также об общей нагрузке на виртуальную машину.'
 redirect_from:
   - /enterprise/admin/installation/configuring-collectd
   - /enterprise/admin/articles/configuring-collectd
@@ -15,15 +15,21 @@ topics:
   - Infrastructure
   - Monitoring
   - Performance
+ms.openlocfilehash: ec2a175f9449f3d6d8d69993e3803e01be41d60c
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148097864'
 ---
-## Set up an external `collectd` server
+## Настройка внешнего сервера `collectd`
 
-If you haven't already set up an external `collectd` server, you will need to do so before enabling `collectd` forwarding on {% data variables.location.product_location %}. Your `collectd` server must be running `collectd` version 5.x or higher.
+Если вы еще не настроили внешний `collectd` сервер, необходимо сделать это перед включением `collectd` переадресации на {% данных variables.location.product_location %}. Сервер `collectd` должен работать под управлением `collectd` версии 5.x или более поздней.
 
-1. Log into your `collectd` server.
-2. Create or edit the `collectd` configuration file to load the network plugin and populate the server and port directives with the proper values. On most distributions, this is located at `/etc/collectd/collectd.conf`
+1. Войдите на сервер `collectd`.
+2. Создайте или измените файл конфигурации `collectd`, чтобы загрузить подключаемый модуль сети и заполнить директивы сервера и порта соответствующими значениями. В большинстве распределений он находится в `/etc/collectd/collectd.conf`
 
-An example *collectd.conf* to run a `collectd` server:
+Пример *collectd.conf* для запуска сервера `collectd`:
 
     LoadPlugin network
     ...
@@ -32,34 +38,32 @@ An example *collectd.conf* to run a `collectd` server:
         Listen "0.0.0.0" "25826"
     </Plugin>
 
-## Enable collectd forwarding on {% data variables.product.prodname_enterprise %}
+## Включение переадресации collectd в {% data variables.product.prodname_enterprise %}
 
-By default, `collectd` forwarding is disabled on {% data variables.product.prodname_enterprise %}. Follow the steps below to enable and configure `collectd` forwarding:
+По умолчанию переадресация `collectd` выключена в {% data variables.product.prodname_enterprise %}. Чтобы включить и настроить переадресацию `collectd`, выполните следующие действия:
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.management-console %}
-1. Below the log forwarding settings, select **Enable collectd forwarding**.
-1. In the **Server address** field, type the address of the `collectd` server to which you'd like to forward {% data variables.product.prodname_enterprise %} appliance statistics.
-1. In the **Port** field, type the port used to connect to the `collectd` server. (Defaults to 25826)
-1. In the **Cryptographic setup** dropdown menu, select the security level of communications with the `collectd` server. (None, signed packets, or encrypted packets.)
-{% data reusables.enterprise_management_console.save-settings %}
+{% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.enterprise_site_admin_settings.management-console %}
+1. Под параметрами переадресации журналов выберите **Включить переадресацию collectd**.
+1. В поле **Адрес сервера** введите адрес сервера `collectd`, на который вы хотите переадресовать статистику устройства {% data variables.product.prodname_enterprise %}.
+1. В поле **Порт** введите порт, используемый для подключения к серверу `collectd`. (Значение по умолчанию — 25826)
+1. В раскрывающемся меню **Настройки шифрования** выберите уровень безопасности взаимодействия с сервером `collectd`. (Нет, подписанные пакеты или зашифрованные пакеты.) {% data reusables.enterprise_management_console.save-settings %}
 
-## Exporting collectd data with `ghe-export-graphs`
+## Экспорт данных collectdс помощью `ghe-export-graphs`
 
-The command-line tool `ghe-export-graphs` will export the data that `collectd` stores in RRD databases. This command turns the data into XML and exports it into a single tarball (`.tgz`).
+Средство для командной строки `ghe-export-graphs` выполнит экспорт данных, которые `collectd` хранит в базах данных RRD. Эта команда преобразует данные в формат XML и экспортирует их в один tarball (`.tgz`).
 
-Its primary use is to provide the {% data variables.contact.contact_ent_support %} team with data about a VM's performance, without the need for downloading a full Support Bundle. It shouldn't be included in your regular backup exports and there is no import counterpart. If you contact {% data variables.contact.contact_ent_support %}, we may ask for this data to assist with troubleshooting.
+Его основное предназначение — предоставить команде {% data variables.contact.contact_ent_support %} данные о производительности виртуальной машины без необходимости скачивать полный Пакет поддержки. Он не должен быть включен в обычный экспорт резервных копий, а аналога импорта не существует. Если вы обращаетесь к {% data variables.contact.contact_ent_support %}, мы можем запросить эти данные, чтобы помочь в устранении неполадок.
 
-### Usage
+### Использование
 
 ```shell
 ssh -p 122 admin@[hostname] -- 'ghe-export-graphs' && scp -P 122 admin@[hostname]:~/graphs.tar.gz .
 ```
 
-## Troubleshooting
+## Устранение неполадок
 
-### Central collectd server receives no data
+### Центральный сервер collectd не получает данных
 
-{% data variables.product.prodname_enterprise %} ships with `collectd` version 5.x. `collectd` 5.x is not backwards compatible with the 4.x release series. Your central `collectd` server needs to be at least version 5.x to accept data sent from {% data variables.location.product_location %}.
+{% data variables.product.prodname_enterprise %} входит в комплект поставки с `collectd` версии 5.x. `collectd` 5.x не поддерживает обратную совместимость с серией выпусков 4.x. `collectd` Центральный сервер должен быть по крайней мере версии 5.x, чтобы принимать данные, отправленные с {% данных variables.location.product_location %}.
 
-For help with further questions or issues, contact {% data variables.contact.contact_ent_support %}.
+Для получения справки по дальнейшим вопросам или проблемам обратитесь к {% data variables.contact.contact_ent_support %}.

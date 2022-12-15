@@ -1,6 +1,6 @@
 ---
-title: Viewing and updating support tickets
-intro: 'You can view your support tickets{% ifversion ghes or ghec %}, collaborate with colleagues on tickets,{% endif %} and respond to {% data variables.contact.github_support %} using the {% data variables.contact.support_portal %}.'
+title: Visualizando e atualizando tíquetes de suporte
+intro: 'Você pode visualizar os seus tíquetes de suporte{% ifversion ghes or ghec %}, colaborar com colegas em tíquetes,{% endif %} e responder a {% data variables.contact.github_support %} usando o {% data variables.contact.support_portal %}.'
 shortTitle: Managing your tickets
 versions:
   fpt: '*'
@@ -8,64 +8,67 @@ versions:
   ghes: '*'
 topics:
   - Support
+ms.openlocfilehash: b735331d90c590ff6911fed44e181563b44bfc27
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148193199'
 ---
-
-## About ticket management
+## Sobre gestão de tíquetes
 
 {% data reusables.support.zendesk-old-tickets %}
 
-You can use the [GitHub Support Portal](https://support.github.com/) to view current and past support tickets and respond to {% data variables.contact.github_support %}. After 120 days, resolved tickets are archived{% ifversion ghec or ghes or ghae %}, and archived tickets can only be viewed for enterprise accounts{% endif %}.
+Use o [Portal de Suporte do GitHub](https://support.github.com/) para ver tíquetes de suporte atuais e anteriores e responder ao {% data variables.contact.github_support %}. Após 120 dias, os tíquetes resolvidos serão arquivados{% ifversion ghec or ghes or ghae %} e poderão ser exibidos apenas por contas corporativas{% endif %}.
 
-{% ifversion ghes or ghec %}
-{% data reusables.enterprise-accounts.support-entitlements %}
-{% endif %}
+{% ifversion ghes or ghec %} {% data reusables.enterprise-accounts.support-entitlements %} {% endif %}
 
-## Viewing your recent support tickets
+## Exibir seus tíquetes de suporte recentes
 
 {% data reusables.support.view-open-tickets %}
-1. Under the text box, you can read the comment history. The most recent response is at the top.
+1. Na caixa de texto, você pode ler o histórico de comentários. A resposta mais recente está na parte superior.
 
-   ![Screenshot of support ticket comment history, with the most recent response at the top](/assets/images/help/support/support-recent-response.png)
+   ![Captura de tela do histórico de comentários do tíquete de suporte com a resposta mais recente na parte superior](/assets/images/help/support/support-recent-response.png)
 
-1. Optionally, to translate the ticket comment, click {% octicon "globe" aria-label="The globe icon" %} and choose your preferred language from the dropdown menu. You can translate your support ticket into Chinese (Simplified), French, German, Japanese, Portuguese (Brazil), or Spanish.
+1. Opcionalmente, para traduzir o comentário do tíquete, clique em {% octicon "globe" aria-label="The globe icon" %} e escolha o idioma de sua preferência no menu suspenso. Você pode traduzir seu tíquete de suporte para chinês (simplificado), francês, alemão, japonês, português (Brasil) ou espanhol.
 
-   ![Screenshot of a support ticket with the dropdown menu showing the options for translation emphasized](/assets/images/help/support/support-ticket-translation-options.png)
+   ![Captura de tela de um tíquete de suporte com o menu suspenso mostrando as opções de tradução enfatizadas](/assets/images/help/support/support-ticket-translation-options.png)
 
 {% ifversion ghec or ghes or ghae %}
 
-## Viewing your archived support tickets
+## Exibir seus tíquetes de suporte arquivados
 
-You can only view archived tickets for an enterprise account.
+Você só pode exibir tíquetes arquivados para uma conta corporativa.
 
 {% data reusables.support.navigate-to-my-tickets %}
-1. Select the **My Tickets** drop-down menu and click the name of the enterprise account. 
+1. Selecione o menu suspenso **Meus Tíquetes** e clique no nome da conta corporativa. 
 
 {% indented_data_reference reusables.support.entitlements-note spaces=3 %}
 
-   ![Screenshot of the "My Tickets" dropdown menu.](/assets/images/help/support/ticket-context.png)
-1. Under the "My tickets" table, click **View archived tickets**.
+   ![Captura de tela do menu suspenso "Meus Ingressos".](/assets/images/help/support/ticket-context.png)
+1. Na tabela "Meus tíquetes", clique em **Exibir tíquetes arquivados**.
 
 {% endif %}
 
-## Updating support tickets
+## Atualizando suporte a tíquetes
 
 {% data reusables.support.view-open-tickets %}
-1. Optionally, if the issue is resolved, under the text box, click **Close ticket**.
-![Screenshot showing location of the "Close ticket" button.](/assets/images/help/support/close-ticket.png)
-1. To respond to GitHub Support and add a new comment to the ticket, type your response in the text box.
-![Screenshot of the "Add a comment" text field.](/assets/images/help/support/new-comment-field.png)
-1. To add your comment to the ticket, click **Comment**.
-![Screenshot of the "Comment" button.](/assets/images/help/support/add-comment.png)
+1. Opcionalmente, se o problema for resolvido, na caixa de texto, clique em **Fechar tíquete**.
+![Captura de tela que mostra o local do botão "Fechar tíquete".](/assets/images/help/support/close-ticket.png)
+1. Para responder ao suporte do GitHub e adicionar um novo comentário ao tíquete, digite sua resposta na caixa de texto.
+![Captura de tela do campo de texto "Adicionar um comentário".](/assets/images/help/support/new-comment-field.png)
+1. Para adicionar seu comentário ao tíquete, clique em **Comentário**.
+![Captura de tela do botão "Comentário".](/assets/images/help/support/add-comment.png)
 
 {% ifversion ghec or ghes %}
-## Collaborating on support tickets
+## Colaborando nos tíquetes de suporte
 
-You can collaborate with your colleagues on support tickets using the support portal. Owners, billing managers, and other enterprise members with support entitlements can view tickets associated with an enterprise account or an organization managed by an enterprise account. For more information, see "[Managing support entitlements for your enterprise](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/managing-support-entitlements-for-your-enterprise)."
+Você pode colaborar com seus colegas nos tíquetes de suporte usando o portal de suporte. Proprietários, gerentes de cobrança e outros integrantes da empresa com direitos de suporte podem ver tíquetes associados a uma conta corporativa ou a uma organização gerenciada por uma conta corporativa. Para obter mais informações, confira "[Como gerenciar os direitos de suporte para sua empresa](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/managing-support-entitlements-for-your-enterprise)".
 
-In addition to viewing tickets, you can also add comments to support tickets if your email address is copied on the ticket or if the person who opened the ticket used an email address with a domain that is verified for the enterprise account or organization managed by an enterprise account. For more information about verifying a domain, see "[Verifying or approving a domain for your enterprise](/enterprise-cloud@latest/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise)" and "[Verifying or approving a domain for your organization](/enterprise-cloud@latest/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)."
+Além de visualizar os tíquetes, você também pode adicionar comentários para apoiar os tíquetes se seu endereço de e-mail foi copiado no tíquete ou se a pessoa que abriu o tíquete usou um endereço de e-mail com um domínio verificado para a conta corporativa ou organização gerenciada por uma conta corporativa. Para obter mais informações sobre como verificar um domínio, confira "[Como verificar ou aprovar um domínio para sua empresa](/enterprise-cloud@latest/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise)" e "[Como verificar ou aprovar um domínio para sua organização](/enterprise-cloud@latest/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)".
 
 {% endif %}
 
-## Further reading
+## Leitura adicional
 
-- "[About GitHub Support](/support/learning-about-github-support/about-github-support)"
+- "[Sobre o Suporte do GitHub](/support/learning-about-github-support/about-github-support)"

@@ -1,6 +1,6 @@
 ---
-title: Configuration options for the dependabot.yml file
-intro: 'Detailed information for all the options you can use to customize how {% data variables.product.prodname_dependabot %} maintains your repositories.'
+title: Konfigurationsoptionen für die Datei dependabot.yml
+intro: 'Detaillierte Informationen über alle Optionen, mit denen du anpassen kannst, wie {% data variables.product.prodname_dependabot %} deine Repositorys wartet.'
 permissions: 'People with write permissions to a repository can configure {% data variables.product.prodname_dependabot %} for the repository.'
 allowTitleToDifferFromFilename: true
 redirect_from:
@@ -20,56 +20,54 @@ topics:
   - Dependencies
   - Pull requests
 shortTitle: Configure dependabot.yml
+ms.openlocfilehash: 3ec6cddf63b2e2d238baf96ea7d437fcb3c21d3a
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147691997'
 ---
+{% data reusables.dependabot.beta-security-and-version-updates %} {% data reusables.dependabot.enterprise-enable-dependabot %}
 
-{% data reusables.dependabot.beta-security-and-version-updates %}
-{% data reusables.dependabot.enterprise-enable-dependabot %}
+## Informationen zur Datei *dependabot.yml*
 
-## About the *dependabot.yml* file
+In der {% data variables.product.prodname_dependabot %}-Konfigurationsdatei *dependabot.yml* wird die YAML-Syntax verwendet. Wenn du noch nicht mit YAML arbeiten und mehr erfahren möchtest, lies den Artikel zum [Erlernen von YAML in fünf Minuten](https://www.codeproject.com/Articles/1214409/Learn-YAML-in-five-minutes).
 
-The {% data variables.product.prodname_dependabot %} configuration file, *dependabot.yml*, uses YAML syntax. If you're new to YAML and want to learn more, see "[Learn YAML in five minutes](https://www.codeproject.com/Articles/1214409/Learn-YAML-in-five-minutes)."
+Du musst diese Datei im `.github`-Verzeichnis deines Repositorys speichern. Wenn du die Datei *dependabot.yml* hinzufügst oder aktualisierst, wird dadurch eine sofortige Überprüfung auf Versionsupdates ausgelöst. Weitere Informationen und ein entsprechendes Beispiel findest du unter [Konfigurieren von {% data variables.product.prodname_dependabot %}-Versionsupdates](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/enabling-and-disabling-dependabot-version-updates#enabling-dependabot-version-updates).
 
-You must store this file in the `.github` directory of your repository. When you add or update the *dependabot.yml* file, this triggers an immediate check for version updates. For more information and an example, see "[Configuring {% data variables.product.prodname_dependabot %} version updates](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/enabling-and-disabling-dependabot-version-updates#enabling-dependabot-version-updates)."
+Alle Optionen, die sich auch auf Sicherheitsupdates auswirken, werden beim nächsten Mal verwendet, wenn eine Sicherheitswarnung einen Pull Request für ein Sicherheitsupdate auslöst.  Weitere Informationen findest du unter [Konfigurieren von {% data variables.product.prodname_dependabot_security_updates %}](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/configuring-dependabot-security-updates).
 
-Any options that also affect security updates are used the next time a security alert triggers a pull request for a security update.  For more information, see "[Configuring {% data variables.product.prodname_dependabot_security_updates %}](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/configuring-dependabot-security-updates)."
+Die Datei *dependabot.yml* verfügt über zwei obligatorische Schlüssel der obersten Ebene: `version` und `updates`. Du kannst optional einen `registries`-Schlüssel der obersten Ebene{% ifversion ghes = 3.5 %} und/oder einen `enable-beta-ecosystems`-Schlüssel{% endif %} in die Datei aufnehmen. Die Datei muss mit `version: 2` beginnen.
 
-{% note %}
+## Konfigurationsoptionen für die Datei *dependabot.yml*
 
-**Note:** You cannot configure {% data variables.product.prodname_dependabot_alerts %} using the *dependabot.yml* file.
-
-{% endnote %}
-
-The *dependabot.yml* file has two mandatory top-level keys: `version`, and `updates`. You can, optionally, include a top-level `registries` key{% ifversion ghes = 3.5 %} and/or a `enable-beta-ecosystems` key{% endif %}. The file must start with `version: 2`.
-
-## Configuration options for the *dependabot.yml* file
-
-The top-level `updates` key is mandatory. You use it to configure how {% data variables.product.prodname_dependabot %} updates the versions or your project's dependencies. Each entry configures the update settings for a particular package manager. You can use the following options.
+Der `updates`-Schlüssel der obersten Ebene ist erforderlich. Du verwendest ihn, um zu konfigurieren, wie die Versionen oder die Abhängigkeiten deines Projekts von {% data variables.product.prodname_dependabot %} aktualisiert werden. Von jedem Eintrag werden die Updateeinstellungen für einen bestimmten Paket-Manager konfiguriert. Du kannst die folgenden Optionen verwenden:
 
 {% data reusables.dependabot.configuration-options %}
 
-These options fit broadly into the following categories.
+Diese Optionen lassen sich grob in die folgenden Kategorien einteilen.
 
-- Essential set up options that you must include in all configurations: [`package-ecosystem`](#package-ecosystem), [`directory`](#directory),[`schedule.interval`](#scheduleinterval).
-- Options to customize the update schedule: [`schedule.time`](#scheduletime), [`schedule.timezone`](#scheduletimezone), [`schedule.day`](#scheduleday).
-- Options to control which dependencies are updated: [`allow`](#allow), [`ignore`](#ignore), [`vendor`](#vendor).
-- Options to add metadata to pull requests: [`reviewers`](#reviewers), [`assignees`](#assignees), [`labels`](#labels), [`milestone`](#milestone).
-- Options to change the behavior of the pull requests: [`target-branch`](#target-branch), [`versioning-strategy`](#versioning-strategy), [`commit-message`](#commit-message), [`rebase-strategy`](#rebase-strategy), [`pull-request-branch-name.separator`](#pull-request-branch-nameseparator).
+- Grundlegende Einrichtungsoptionen, die du in alle Konfigurationen aufnehmen musst: [`package-ecosystem`](#package-ecosystem), [`directory`](#directory), [`schedule.interval`](#scheduleinterval).
+- Optionen zum Anpassen des Updatezeitplans: [`schedule.time`](#scheduletime), [`schedule.timezone`](#scheduletimezone), [`schedule.day`](#scheduleday).
+- Optionen, mit denen gesteuert wird, welche Abhängigkeiten aktualisiert werden: [`allow`](#allow), [`ignore`](#ignore), [`vendor`](#vendor).
+- Optionen, mit denen Metadaten zu Pull Requests hinzugefügt werden: [`reviewers`](#reviewers), [`assignees`](#assignees), [`labels`](#labels), [`milestone`](#milestone).
+- Optionen zum Ändern des Verhaltens von Pull Requests: [`target-branch`](#target-branch), [`versioning-strategy`](#versioning-strategy), [`commit-message`](#commit-message), [`rebase-strategy`](#rebase-strategy), [`pull-request-branch-name.separator`](#pull-request-branch-nameseparator).
 
-In addition, the [`open-pull-requests-limit`](#open-pull-requests-limit) option changes the maximum number of pull requests for version updates that {% data variables.product.prodname_dependabot %} can open.
+Darüber hinaus wird mit der Option [`open-pull-requests-limit`](#open-pull-requests-limit) die maximale Anzahl von Pull Requests für Versionsupdates geändert, die von {% data variables.product.prodname_dependabot %} geöffnet werden können.
 
 {% note %}
 
-**Note:** Some of these configuration options may also affect pull requests raised for security updates of vulnerable package manifests.
+**Hinweis:** Einige dieser Konfigurationsoptionen wirken sich möglicherweise auch auf Pull Requests aus, die für Sicherheitsupdates angreifbarer Paketmanifeste ausgelöst werden.
 
-Security updates are raised for vulnerable package manifests only on the default branch. When configuration options are set for the same branch (true unless you use `target-branch`), and specify a `package-ecosystem` and `directory` for the vulnerable manifest, then pull requests for security updates use relevant options.
+Sicherheitsupdates werden nur für angreifbare Paketmanifeste im Standardbranch ausgelöst. Wenn Konfigurationsoptionen für denselben Branch festgelegt werden („true“, es sei denn, du verwendest `target-branch`) und `package-ecosystem` sowie `directory` für das angreifbare Manifest angegeben wird, dann werden von Pull Requests für Sicherheitsupdates relevante Optionen verwendet.
 
-In general, security updates use any configuration options that affect pull requests, for example, adding metadata or changing their behavior. For more information about security updates, see "[Configuring {% data variables.product.prodname_dependabot_security_updates %}](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/configuring-dependabot-security-updates)."
+Im Allgemeinen werden von Sicherheitsupdates alle Konfigurationsoptionen verwendet, die sich auf Pull Requests auswirken, z. B. das Hinzufügen von Metadaten oder das Ändern des Verhaltens. Weitere Informationen zu Sicherheitsupdates findest du unter [Konfigurieren von {% data variables.product.prodname_dependabot_security_updates %}](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/configuring-dependabot-security-updates).
 
 {% endnote %}
 
 ### `package-ecosystem`
 
-**Required**. You add one `package-ecosystem` element for each package manager that you want {% data variables.product.prodname_dependabot %} to monitor for new versions. The repository must also contain a dependency manifest or lock file for each of these package managers. If you want to enable vendoring for a package manager that supports it, the vendored dependencies must be located in the required directory. For more information, see [`vendor`](#vendor) below.
+**Erforderlich**. Du fügst ein `package-ecosystem`-Element für jeden Paket-Manager hinzu, der von {% data variables.product.prodname_dependabot %} auf neue Versionen hin überwacht werden soll. Das Repository muss auch ein Abhängigkeitsmanifest oder eine Sperrdatei für jeden dieser Paket-Manager enthalten. Wenn du Vendoring für einen Paket-Manager aktivieren möchtest, der dies unterstützt, müssen sich die anbieterbezogenen Abhängigkeiten im erforderlichen Verzeichnis befinden. Weitere Informationen findest du nachstehend unter [`vendor`](#vendor).
 
 {% data reusables.dependabot.supported-package-managers %}
 
@@ -83,24 +81,24 @@ updates:
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
-      interval: "weekly"
+      interval: "daily"
 
   # Maintain dependencies for npm
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
-      interval: "weekly"
+      interval: "daily"
 
   # Maintain dependencies for Composer
   - package-ecosystem: "composer"
     directory: "/"
     schedule:
-      interval: "weekly"
+      interval: "daily"
 ```
 
 ### `directory`
 
-**Required**. You must define the location of the package manifests for each package manager (for example, the *package.json* or *Gemfile*). You define the directory relative to the root of the repository for all ecosystems except GitHub Actions. For GitHub Actions, set the directory to `/` to check for workflow files in `.github/workflows`.
+**Erforderlich**. Du musst den Speicherort der Paketmanifeste für jeden Paket-Manager definieren (z. B. *package.json* oder *Gemfile*). Du definierst das Verzeichnis relativ zum Stamm des Repositorys für alle Ökosysteme mit Ausnahme von GitHub Actions. Lege für GitHub Actions das Verzeichnis auf `/` fest, um in `.github/workflows` nach Workflowdateien zu suchen.
 
 ```yaml
 # Specify location of manifest files for each package manager
@@ -111,31 +109,29 @@ updates:
     # Files stored in repository root
     directory: "/"
     schedule:
-      interval: "weekly"
+      interval: "daily"
 
   - package-ecosystem: "npm"
     # Files stored in `app` directory
     directory: "/app"
     schedule:
-      interval: "weekly"
+      interval: "daily"
 
   - package-ecosystem: "github-actions"
     # Workflow files stored in the
     # default location of `.github/workflows`
     directory: "/"
     schedule:
-      interval: "weekly"
+      interval: "daily"
 ```
 
 ### `schedule.interval`
 
-**Required**. You must define how often to check for new versions for each package manager. By default, {% data variables.product.prodname_dependabot %} randomly assigns a time to apply all the updates in the configuration file. To set a specific time, you can use [`schedule.time`](#scheduletime) and [`schedule.timezone`](#scheduletimezone).
+**Erforderlich**. Du musst definieren, wie oft nach neuen Versionen für jeden Paket-Manager gesucht werden soll. Standardmäßig wird von {% data variables.product.prodname_dependabot %} ein zufälliger Zeitpunkt zugewiesen, zu dem alle Updates in der Konfigurationsdatei angewendet werden. Zum Festlegen einer bestimmten Zeit kannst du [`schedule.time`](#scheduletime) und [`schedule.timezone`](#scheduletimezone) verwenden.
 
-| Interval types | Frequency |
-|----------------|-----------|
-| `daily` | Runs on every weekday, Monday to Friday.|
-| `weekly`| Runs once each week. By default, this is on Monday. To modify this, use [`schedule.day`](#scheduleday).|
-| `monthly` | Runs once each month. This is on the first day of the month. |
+- `daily` – wird an jedem Wochentag von Montag bis Freitag ausgeführt.
+- `weekly` – wird einmal jede Woche ausgeführt. Standardmäßig erfolgt die Ausführung am Montag. Verwende [`schedule.day`](#scheduleday), um die Standardeinstellung zu ändern.
+- `monthly` – wird einmal jeden Monat ausgeführt. Die Ausführung erfolgt am ersten Tag des Monats.
 
 ```yaml
 # Set update schedule for each package manager
@@ -158,7 +154,7 @@ updates:
 
 {% note %}
 
-**Note**: `schedule` defines when {% data variables.product.prodname_dependabot %} attempts a new update. However, it's not the only time you may receive pull requests. Updates can be triggered based on changes to your `dependabot.yml` file, changes to your manifest file(s) after a failed update, or {% data variables.product.prodname_dependabot_security_updates %}. For more information, see "[Frequency of {% data variables.product.prodname_dependabot %} pull requests](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/about-dependabot-version-updates#frequency-of-dependabot-pull-requests)" and "[About {% data variables.product.prodname_dependabot_security_updates %}](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-dependabot-security-updates)."
+**Hinweis**: Durch `schedule` wird definiert, wann von {% data variables.product.prodname_dependabot %} ein neues Update versucht wird. Dies ist jedoch nicht der einzige Zeitpunkt, zu dem du Pull Requests erhalten kannst. Updates können basierend auf Änderungen an der `dependabot.yml`-Datei, Änderungen an den Manifestdateien nach einem fehlgeschlagenen Update oder basierend auf {% data variables.product.prodname_dependabot_security_updates %} ausgelöst werden. Weitere Informationen findest du unter [Häufigkeit von {% data variables.product.prodname_dependabot %}-Pull Requests](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/about-dependabot-version-updates#frequency-of-dependabot-pull-requests) und [Informationen zu {% data variables.product.prodname_dependabot_security_updates %}](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-dependabot-security-updates).
 
 {% endnote %}
 
@@ -166,18 +162,18 @@ updates:
 
 {% data reusables.dependabot.default-dependencies-allow-ignore %}
 
-Use the `allow` option to customize which dependencies are updated. This applies to both version and security updates. You can use the following options:
+Verwende die Option `allow`, um anzupassen, welche Abhängigkeiten aktualisiert werden. Dies gilt sowohl für Versions- als auch für Sicherheitsupdates. Du kannst die folgenden Optionen verwenden:
 
-- `dependency-name`—use to allow updates for dependencies with matching names, optionally using `*` to match zero or more characters. For Java dependencies, the format of the `dependency-name` attribute is: `groupId:artifactId`, for example: `org.kohsuke:github-api`.
-- `dependency-type`—use to allow updates for dependencies of specific types.
+- `dependency-name`: Verwende diese Option, um Updates für Abhängigkeiten mit übereinstimmenden Namen zuzulassen. Verwende optional `*` für die Übereinstimmung mit null oder mehr Zeichen. Für Java-Abhängigkeiten lautet das Format des `dependency-name`-Attributs: `groupId:artifactId`, zum Beispiel: `org.kohsuke:github-api`.
+- `dependency-type`: Verwende diese Option, um Updates für Abhängigkeiten bestimmter Typen zuzulassen.
 
-  | Dependency types | Supported by package managers | Allow updates |
+  | Abhängigkeitstypen | Unterstützt von Paket-Managern | Zulassen von Updates |
   |------------------|-------------------------------|--------|
-  | `direct` | All | All explicitly defined dependencies. |
-  | `indirect` | `bundler`, `pip`, `composer`, `cargo` | Dependencies of direct dependencies (also known as sub-dependencies, or transient dependencies).|
-  | `all` | All | All explicitly defined dependencies. For `bundler`, `pip`, `composer`, `cargo`, also the dependencies of direct dependencies.|
-  | `production` | `bundler`, `composer`, `mix`, `maven`, `npm`, `pip` | Only dependencies in the "Production dependency group". |
-  | `development`| `bundler`, `composer`, `mix`, `maven`, `npm`, `pip` | Only dependencies in the "Development dependency group". |
+  | `direct` | All | Alle explizit definierten Abhängigkeiten. |
+  | `indirect` | `bundler`, `pip`, `composer`, `cargo` | Abhängigkeiten von direkten Abhängigkeiten (auch als Unterabhängigkeiten oder vorübergehende Abhängigkeiten bezeichnet).|
+  | `all` | All | Alle explizit definierten Abhängigkeiten. Für `bundler`, `pip`, `composer` und `cargo` auch die Abhängigkeiten von direkten Abhängigkeiten.|
+  | `production` | `bundler`, `composer`, `mix`, `maven`, `npm`, `pip` | Nur Abhängigkeiten in der „Produktionsabhängigkeitsgruppe“. |
+  | `development`| `bundler`, `composer`, `mix`, `maven`, `npm`, `pip` | Nur Abhängigkeiten in der „Entwicklungsabhängigkeitsgruppe“. |
 
 ```yaml
 # Use `allow` to specify which dependencies to maintain
@@ -187,7 +183,7 @@ updates:
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
-      interval: "weekly"
+      interval: "daily"
     allow:
       # Allow updates for Lodash
       - dependency-name: "lodash"
@@ -197,7 +193,7 @@ updates:
   - package-ecosystem: "composer"
     directory: "/"
     schedule:
-      interval: "weekly"
+      interval: "daily"
     allow:
       # Allow both direct and indirect updates for all packages
       - dependency-type: "all"
@@ -205,7 +201,7 @@ updates:
   - package-ecosystem: "pip"
     directory: "/"
     schedule:
-      interval: "weekly"
+      interval: "daily"
     allow:
       # Allow only direct updates for
       # Django and any packages starting "django"
@@ -218,7 +214,7 @@ updates:
 
 ### `assignees`
 
-Use `assignees` to specify individual assignees for all pull requests raised for a package manager.
+Verwende `assignees` zum Angeben einzelner zugewiesener Personen für alle Pull Requests, die für einen Paket-Manager ausgelöst wurden.
 
 {% data reusables.dependabot.option-affects-security-updates %}
 
@@ -230,7 +226,7 @@ updates:
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
-      interval: "weekly"
+      interval: "daily"
     # Add assignees
     assignees:
       - "octocat"
@@ -238,19 +234,19 @@ updates:
 
 ### `commit-message`
 
-By default, {% data variables.product.prodname_dependabot %} attempts to detect your commit message preferences and use similar patterns. Use the `commit-message` option to specify your preferences explicitly.
+Standardmäßig wird von {% data variables.product.prodname_dependabot %} versucht, deine Commitnachrichteneinstellungen zu erkennen und ähnliche Muster zu verwenden. Verwende die Option `commit-message`, um deine Einstellungen explizit anzugeben.
 
-Supported options
+Unterstützte Optionen
 
 {% note %}
 
-**Note:** The `prefix` and the `prefix-development` options have a {% ifversion fpt or ghec or ghes > 3.7 or ghae > 3.7 %}50{% elsif ghes < 3.8 or ghae < 3.8 %}15{% endif %} character limit.
+**Hinweis:** Die Optionen `prefix` und `prefix-development` verfügen über eine Begrenzung von 15 Zeichen.
 
 {% endnote %}
 
-- `prefix` specifies a prefix for all commit messages.
-- `prefix-development` specifies a separate prefix for all commit messages that update dependencies in the Development dependency group. When you specify a value for this option, the `prefix` is used only for updates to dependencies in the Production dependency group. This is supported by: `bundler`, `composer`, `mix`, `maven`, `npm`, and `pip`.
-- `include: "scope"` specifies that any prefix is followed by a list of the dependencies updated in the commit.
+- `prefix` gibt ein Präfix für alle Commitnachrichten an.
+- `prefix-development` gibt ein separates Präfix für alle Commitnachrichten an, durch die Abhängigkeiten in der Entwicklungsabhängigkeitsgruppe aktualisiert werden. Wenn du einen Wert für diese Option angibst, wird `prefix` nur für Updates von Abhängigkeiten in der Produktionsabhängigkeitsgruppe verwendet. Dies wird unterstützt von: `bundler`, `composer`, `mix`, `maven`, `npm` und `pip`.
+- `include: "scope"` gibt an, dass jedem Präfix eine Liste der Abhängigkeiten folgt, die im Commit aktualisiert wurden.
 
 {% data reusables.dependabot.option-affects-security-updates %}
 
@@ -262,7 +258,7 @@ updates:
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
-      interval: "weekly"
+      interval: "daily"
     commit-message:
       # Prefix all commit messages with "npm"
       prefix: "npm"
@@ -270,7 +266,7 @@ updates:
   - package-ecosystem: "composer"
     directory: "/"
     schedule:
-      interval: "weekly"
+      interval: "daily"
     # Prefix all commit messages with "Composer"
     # include a list of updated dependencies
     commit-message:
@@ -280,7 +276,7 @@ updates:
   - package-ecosystem: "pip"
     directory: "/"
     schedule:
-      interval: "weekly"
+      interval: "daily"
     # Include a list of updated dependencies
     # with a prefix determined by the dependency group
     commit-message:
@@ -288,33 +284,33 @@ updates:
       prefix-development: "pip dev"
       include: "scope"
 ```
-If you use the same configuration as in the example above, bumping the `requests` library in the `pip` development dependency group will generate a commit message of:
+Wenn du die gleiche Konfiguration wie im obigen Beispiel verwendest, generiert ein bump-Vorgang der `requests`-Bibliothek in der `pip`-Entwicklungsabhängigkeitsgruppe die folgende Commitnachricht:
 
    `pip dev: bump requests from 1.0.0 to 1.0.1`
-
+   
 ### `ignore`
 
 {% data reusables.dependabot.default-dependencies-allow-ignore %}
 
-Dependencies can be ignored either by adding them to `ignore` or by using the `@dependabot ignore` command on a pull request opened by {% data variables.product.prodname_dependabot %}.
+Abhängigkeiten können entweder ignoriert werden, indem sie zu `ignore` hinzugefügt werden oder indem der Befehl `@dependabot ignore` für einen Pull Request verwendet wird, der von {% data variables.product.prodname_dependabot %} geöffnet wurde.
 
-#### Creating `ignore` conditions from `@dependabot ignore`
+#### Erstellen von `ignore`-Bedingungen aus `@dependabot ignore`
 
-Dependencies ignored by using the `@dependabot ignore` command are stored centrally for each package manager. If you start ignoring dependencies in the `dependabot.yml` file, these existing preferences are considered alongside the `ignore` dependencies in the configuration.
+Abhängigkeiten, die mithilfe des Befehls `@dependabot ignore` ignoriert werden, werden für jeden Paket-Manager zentral gespeichert. Wenn du mit dem Ignorieren von Abhängigkeiten in der Datei `dependabot.yml` beginnst, werden diese vorhandenen Einstellungen neben den `ignore`-Abhängigkeiten in der Konfiguration berücksichtigt.
 
-You can check whether a repository has stored `ignore` preferences by searching the repository for `"@dependabot ignore" in:comments`. If you wish to un-ignore a dependency ignored this way, re-open the pull request.
+Du kannst überprüfen, ob `ignore`-Einstellungen von einem Repository gespeichert wurden, indem du das Repository nach `"@dependabot ignore" in:comments` durchsuchst. Wenn du eine auf diese Weise ignorierte Abhängigkeit nicht mehr ignorieren möchtest, öffne den Pull Request erneut.
 
-For more information about the `@dependabot ignore` commands, see "[Managing pull requests for dependency updates](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-pull-requests-for-dependency-updates#managing-dependabot-pull-requests-with-comment-commands)."
+Weitere Informationen zu den `@dependabot ignore`-Befehlen findest du unter [Verwalten von Pull Requests für Abhängigkeitsupdates](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-pull-requests-for-dependency-updates#managing-dependabot-pull-requests-with-comment-commands).
 
-#### Specifying dependencies and versions to ignore
+#### Angeben von zu ignorierenden Abhängigkeiten und Versionen
 
-You can use the `ignore` option to customize which dependencies are updated. The `ignore` option supports the following options.
+Du kannst die Option `ignore` verwenden, um anzupassen, welche Abhängigkeiten aktualisiert werden. Die Aktion `ignore` unterstützt die folgenden Optionen:
 
-- `dependency-name`—use to ignore updates for dependencies with matching names, optionally using `*` to match zero or more characters. For Java dependencies, the format of the `dependency-name` attribute is: `groupId:artifactId` (for example: `org.kohsuke:github-api`). {% ifversion dependabot-grouped-dependencies %} To prevent {% data variables.product.prodname_dependabot %} from automatically updating TypeScript type definitions from DefinitelyTyped, use `@types/*`.{% endif %}
-- `versions`—use to ignore specific versions or ranges of versions. If you want to define a range, use the standard pattern for the package manager (for example: `^1.0.0` for npm, or `~> 2.0` for Bundler).
-- `update-types`—use to ignore types of updates, such as semver `major`, `minor`, or `patch` updates on version updates (for example: `version-update:semver-patch` will ignore patch updates). You can combine this with `dependency-name: "*"` to ignore particular `update-types` for all dependencies. Currently, `version-update:semver-major`, `version-update:semver-minor`, and `version-update:semver-patch` are the only supported options. Security updates are unaffected by this setting.
+- `dependency-name`: Verwende diese Option, um Updates für Abhängigkeiten mit übereinstimmenden Namen zu ignorieren. Verwende optional `*` für die Übereinstimmung mit null oder mehr Zeichen. Für Java-Abhängigkeiten lautet das Format des `dependency-name`-Attributs: `groupId:artifactId` (zum Beispiel: `org.kohsuke:github-api`). {% ifversion dependabot-grouped-dependencies %} Um zu verhindern, dass {% data variables.product.prodname_dependabot %} die TypeScript-Typdefinitionen von DefinitelyTyped automatisch aktualisiert, verwende `@types/*`.{% endif %}
+- `versions`: Verwende diese Option, um bestimmte Versionen oder Bereiche von Versionen zu ignorieren. Wenn du einen Bereich definieren möchtest, verwende das Standardmuster für den Paket-Manager (z. B. `^1.0.0` für npm oder `~> 2.0` für Bundler).
+- `update-types`: Verwende diese Option zum Ignorieren von Arten von Updates, z. B. bei semantischer Versionierung (SemVer) `major`-, `minor`- oder `patch`-Updates für Versionsupdates (Beispiel: Mit `version-update:semver-patch` werden Patchupdates ignoriert). Du kannst diese Option mit `dependency-name: "*"` kombinieren, um bestimmte `update-types` für alle Abhängigkeiten zu ignorieren. Derzeit sind `version-update:semver-major`, `version-update:semver-minor` und `version-update:semver-patch` die einzigen unterstützten Optionen. Sicherheitsupdates sind von dieser Einstellung nicht betroffen.
 
-If `versions` and `update-types` are used together, {% data variables.product.prodname_dependabot %} will ignore any update in either set.
+Wenn `versions` und `update-types` zusammen verwendet werden, werden von {% data variables.product.prodname_dependabot %} Updates in jedem der Sätze ignoriert.
 
 {% data reusables.dependabot.option-affects-security-updates %}
 
@@ -326,7 +322,7 @@ updates:
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
-      interval: "weekly"
+      interval: "daily"
     ignore:
       - dependency-name: "express"
         # For Express, ignore all updates for version 4 and 5
@@ -340,15 +336,14 @@ updates:
 
 {% note %}
 
-**Note**: {% data variables.product.prodname_dependabot %} can only run version updates on manifest or lock files if it can access all of the dependencies in the file, even if you add inaccessible dependencies to the `ignore` option of your configuration file. For more information, see "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization#allowing-dependabot-to-access-private-dependencies)" and "[Troubleshooting {% data variables.product.prodname_dependabot %} errors](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/troubleshooting-dependabot-errors#dependabot-cant-resolve-your-dependency-files)."
+**Hinweis**: Von {% data variables.product.prodname_dependabot %} können nur Versionsupdates für Manifest- oder Sperrdateien ausgeführt werden, wenn Dependabot auf alle Abhängigkeiten in der Datei zugreifen kann. Dies gilt auch dann, wenn du der `ignore`-Option deiner Konfigurationsdatei nicht zugängliche Abhängigkeiten hinzufügst. Weitere Informationen findest du unter [Verwalten von Sicherheits- und Analyseeinstellungen für deine Organisation](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization#allowing-dependabot-to-access-private-dependencies) und [Problembehandlung bei {% data variables.product.prodname_dependabot %}-Fehlern](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/troubleshooting-dependabot-errors#dependabot-cant-resolve-your-dependency-files).
 
 
 {% endnote %}
 
-{% ifversion fpt or ghec or ghes > 3.4 %}
-{% note %}
+{% ifversion fpt or ghec or ghes > 3.4 %} {% note %}
 
-**Note**: For the `pub` ecosystem, {% data variables.product.prodname_dependabot %} won't perform an update when the version that it tries to update to is ignored, even if an earlier version is available.
+**Hinweis**: Für das `pub`-Ökosystem wird von {% data variables.product.prodname_dependabot %} kein Update ausgeführt, wenn die Version, für die Dependabot ein Update durchzuführen versucht, ignoriert wird. Dies gilt auch dann, wenn eine frühere Version verfügbar ist.
 
 {% endnote %}
 
@@ -356,9 +351,9 @@ updates:
 
 ### `insecure-external-code-execution`
 
-Package managers with the `package-ecosystem` values `bundler`, `mix`, and `pip` may execute external code in the manifest as part of the version update process. This might allow a compromised package to steal credentials or gain access to configured registries. When you add a [`registries`](#registries) setting within an `updates` configuration, {% data variables.product.prodname_dependabot %} automatically prevents external code execution, in which case the version update may fail. You can choose to override this behavior and allow external code execution for `bundler`, `mix`, and `pip` package managers by setting `insecure-external-code-execution` to `allow`.
+Paket-Manager mit den `package-ecosystem`-Werten `bundler`, `mix` und `pip` können externen Code im Manifest als Teil des Versionsupdateprozesses ausführen. Dadurch kann ein kompromittiertes Paket möglicherweise Anmeldeinformationen stehlen oder Zugriff auf konfigurierte Registrierungen erhalten. Wenn du eine [`registries`](#registries)-Einstellung in einer `updates`-Konfiguration hinzufügst, wird von {% data variables.product.prodname_dependabot %} die Ausführung von externem Code automatisch verhindert. In diesem Fall kann das Versionsupdate fehlschlagen. Du kannst dieses Verhalten außer Kraft setzen und die Ausführung von externem Code für `bundler`-, `mix`- und `pip`-Paket-Manager zulassen, indem du `insecure-external-code-execution` auf `allow` festlegst.
 
-You can explicitly deny external code execution, irrespective of whether there is a `registries` setting for this update configuration, by setting `insecure-external-code-execution` to `deny`.
+Du kannst die Ausführung von externem Code explizit ablehnen, unabhängig davon, ob es eine `registries`-Einstellung für diese Updatekonfiguration gibt, indem du `insecure-external-code-execution` auf `deny` festlegst.
 
 {% raw %}
 ```yaml
@@ -384,8 +379,8 @@ updates:
 
 {% data reusables.dependabot.default-labels %}
 
-Use `labels` to override the default labels and specify alternative labels for all pull requests raised for a package manager. If any of these labels is not defined in the repository, it is ignored.
-To disable all labels, including the default labels, use `labels: [ ]`.
+Verwende `labels` zum Außerkraftsetzen der Standardbezeichnungen, und gib alternative Bezeichnungen für alle Pull Requests an, die für einen Paket-Manager ausgelöst wurden. Wenn eine dieser Bezeichnungen im Repository nicht definiert ist, wird sie ignoriert.
+Verwende `labels: [ ]` zum Deaktivieren aller Bezeichnungen, einschließlich der Standardbezeichnungen.
 
 {% data reusables.dependabot.option-affects-security-updates %}
 
@@ -397,7 +392,7 @@ updates:
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
-      interval: "weekly"
+      interval: "daily"
     # Specify labels for npm pull requests
     labels:
       - "npm"
@@ -406,7 +401,7 @@ updates:
 
 ### `milestone`
 
-Use `milestone` to associate all pull requests raised for a package manager with a milestone. You need to specify the numeric identifier of the milestone and not its label. If you view a milestone, the final part of the page URL, after `milestone`, is the identifier. For example: `https://github.com/<org>/<repo>/milestone/3`.
+Verwende `milestone` zum Zuordnen aller Pull Requests, die für einen Paket-Manager mit einem Meilenstein ausgelöst wurden. Du musst den numerischen Bezeichner des Meilensteins und nicht seine Bezeichnung angeben. Wenn du einen Meilenstein anzeigst, ist der letzte Teil der Seiten-URL nach `milestone` der Bezeichner. Beispiel: `https://github.com/<org>/<repo>/milestone/3`.
 
 {% data reusables.dependabot.option-affects-security-updates %}
 
@@ -418,16 +413,16 @@ updates:
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
-      interval: "weekly"
+      interval: "daily"
     # Associate pull requests with milestone "4"
     milestone: 4
 ```
 
 ### `open-pull-requests-limit`
 
-By default, {% data variables.product.prodname_dependabot %} opens a maximum of five pull requests for version updates. Once there are five open pull requests from {% data variables.product.prodname_dependabot %}, {% data variables.product.prodname_dependabot %} will not open any new requests until some of those open requests are merged or closed. Use `open-pull-requests-limit` to change this limit. This also provides a simple way to temporarily disable version updates for a package manager.
+Standardmäßig werden von {% data variables.product.prodname_dependabot %} maximal fünf Pull Requests für Versionsupdates geöffnet. Sobald fünf offene Pull Requests von {% data variables.product.prodname_dependabot %} vorliegen, werden neue Anforderungen erst dann von {% data variables.product.prodname_dependabot %} geöffnet, wenn einige dieser geöffneten Anforderungen gemergt oder geschlossen werden. Verwende `open-pull-requests-limit`, um diesen Grenzwert zu ändern. Dies bietet auch eine einfache Möglichkeit, Versionsupdates für einen Paket-Manager vorübergehend zu deaktivieren.
 
-This option has no impact on security updates, which have a separate, internal limit of ten open pull requests.
+Diese Option hat keine Auswirkungen auf Sicherheitsupdates, die einen separaten, internen Grenzwert von zehn offenen Pull Requests aufweisen.
 
 ```yaml
 # Specify the number of open pull requests allowed
@@ -437,23 +432,23 @@ updates:
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
-      interval: "weekly"
+      interval: "daily"
     # Disable version updates for npm dependencies
     open-pull-requests-limit: 0
 
   - package-ecosystem: "pip"
     directory: "/"
     schedule:
-      interval: "weekly"
+      interval: "daily"
     # Allow up to 10 open pull requests for pip dependencies
     open-pull-requests-limit: 10
 ```
 
 ### `pull-request-branch-name.separator`
 
-{% data variables.product.prodname_dependabot %} generates a branch for each pull request. Each branch name includes `dependabot`, and the package manager and dependency that are updated. By default, these parts are separated by a `/` symbol, for example: `dependabot/npm_and_yarn/next_js/acorn-6.4.1`.
+Von {% data variables.product.prodname_dependabot %} wird ein Branch für jeden Pull Request generiert. Jeder Branchname enthält `dependabot` und den Paket-Manager und die Abhängigkeit, der/die aktualisiert wird. Standardmäßig werden diese Teile jeweils durch das Symbol `/` getrennt, z. B.: `dependabot/npm_and_yarn/next_js/acorn-6.4.1`.
 
-Use `pull-request-branch-name.separator` to specify a different separator. This can be one of: `"-"`, `_` or `/`. The hyphen symbol must be quoted because otherwise it's interpreted as starting an empty YAML list.
+Verwende `pull-request-branch-name.separator` zum Angeben eines anderen Trennzeichens. Möglich sind hier die Zeichen `"-"`, `_` oder `/`. Das Bindestrichsymbol muss zwischen Anführungszeichen gesetzt werden, da es andernfalls als Start einer leeren YAML-Liste interpretiert wird.
 
 {% data reusables.dependabot.option-affects-security-updates %}
 
@@ -465,7 +460,7 @@ updates:
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
-      interval: "weekly"
+      interval: "daily"
     pull-request-branch-name:
       # Separate sections of the branch name with a hyphen
       # for example, `dependabot-npm_and_yarn-next_js-acorn-6.4.1`
@@ -474,32 +469,12 @@ updates:
 
 ### `rebase-strategy`
 
-By default, {% data variables.product.prodname_dependabot %} automatically rebases open pull requests when it detects any changes to the pull request. Use `rebase-strategy` to disable this behavior.
+Standardmäßig wird von {% data variables.product.prodname_dependabot %} automatisch ein Rebase von offenen Pull Requests ausgeführt, wenn Änderungen an dem jeweiligen Pull Request erkannt werden. Verwende `rebase-strategy`, um dieses Verhalten zu deaktivieren.
 
-Available rebase strategies
+Verfügbare Rebase-Strategien
 
-- `auto` to use the default behavior and rebase open pull requests when changes are detected.
-- `disabled` to disable automatic rebasing.
-
-When `rebase-strategy` is set to `auto`, {% data variables.product.prodname_dependabot %} attempts to rebase pull requests in the following cases.
-- When you use {% data variables.product.prodname_dependabot_version_updates %}, for any open {% data variables.product.prodname_dependabot %} pull request when your schedule runs.
-- When you reopen a closed {% data variables.product.prodname_dependabot %} pull request.
-- When you change the value of `target-branch` in the {% data variables.product.prodname_dependabot %} configuration file. For more information about this field, see "[`target-branch`](#target-branch)."
-- When {% data variables.product.prodname_dependabot %} detects that a {% data variables.product.prodname_dependabot %} pull request is in conflict after a recent push to the target branch.
-
-{% note %}
-
-**Note:** {% data variables.product.prodname_dependabot %} will keep rebasing a pull request indefinitely until the pull request is closed, merged or you disable {% data variables.product.prodname_dependabot_updates %}.
-
-{% endnote %}
-
-When `rebase-strategy` is set to `disabled`, {% data variables.product.prodname_dependabot %} stops rebasing pull requests. 
-
-{% note %}
-
-**Note:** This behavior only applies to pull requests that go into conflict with the target branch. {% data variables.product.prodname_dependabot %} will keep rebasing pull requests opened prior to the `rebase-strategy` setting being changed, and pull requests that are part of a scheduled run.
-
-{% endnote %}
+- `disabled` zum Deaktivieren von automatischem Rebasing.
+- `auto` zum Verwenden des Standardverhaltens und zur Rebase-Ausführung, wenn Änderungen erkannt werden.
 
 {% data reusables.dependabot.option-affects-security-updates %}
 
@@ -511,16 +486,16 @@ updates:
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
-      interval: "weekly"
+      interval: "daily"
     # Disable rebasing for npm pull requests
     rebase-strategy: "disabled"
 ```
 
 ### `registries`
 
-To allow {% data variables.product.prodname_dependabot %} to access a private package registry when performing a version update, you must include a `registries` setting within the relevant `updates` configuration. You can allow all of the defined registries to be used by setting `registries` to `"*"`. Alternatively, you can list the registries that the update can use. To do this, use the name of the registry as defined in the top-level `registries` section of the _dependabot.yml_ file. For more information, see "[Configuration options for private registries](#configuration-options-for-private-registries)" below.
+Damit {% data variables.product.prodname_dependabot %} beim Ausführen eines Versionsupdates auf eine private Paketregistrierung zugreifen darf, musst du eine `registries`-Einstellung in die relevante `updates`-Konfiguration aufnehmen. Du kannst die Verwendung aller definierten Registrierungen zulassen, indem du `registries` auf `"*"` festlegst. Alternativ dazu kannst du die Registrierungen auflisten, die vom Update verwendet werden können. Verwende dazu den Namen der Registrierung, wie im `registries`-Abschnitt der obersten Ebene der Datei _dependabot.yml_ definiert. Weitere Informationen findest du nachstehend unter [Konfigurationsoptionen für private Registrierungen](#configuration-options-for-private-registries).
 
-To allow {% data variables.product.prodname_dependabot %} to use `bundler`, `mix`, and `pip` package managers to update dependencies in private registries, you can choose to allow external code execution. For more information, see [`insecure-external-code-execution`](#insecure-external-code-execution) above.
+Wenn du zulassen möchtest, dass von {% data variables.product.prodname_dependabot %} `bundler`-, `mix`- und `pip`-Paket-Manager zum Aktualisieren von Abhängigkeiten in privaten Registrierungen verwendet werden können, hast du die Möglichkeit, die Ausführung von externem Code zuzulassen. Weitere Informationen findest du im obigen Abschnitt [`insecure-external-code-execution`](#insecure-external-code-execution).
 
 ```yaml
 # Allow {% data variables.product.prodname_dependabot %} to use one of the two defined private registries
@@ -551,7 +526,7 @@ updates:
 
 ### `reviewers`
 
-Use `reviewers` to specify individual reviewers or teams of reviewers for all pull requests raised for a package manager. You must use the full team name, including the organization, as if you were @mentioning the team.
+Verwende `reviewers` zum Angeben von einzelnen Reviewern oder Teams von Reviewern für alle Pull Requests, die für einen Paket-Manager ausgelöst wurden. Du musst den vollständigen Teamnamen verwenden, einschließlich der Organisation, wie bei der Aktion „@mentioning“.
 
 {% data reusables.dependabot.option-affects-security-updates %}
 
@@ -563,7 +538,7 @@ updates:
   - package-ecosystem: "pip"
     directory: "/"
     schedule:
-      interval: "weekly"
+      interval: "daily"
     # Add reviewers
     reviewers:
       - "octocat"
@@ -573,9 +548,9 @@ updates:
 
 ### `schedule.day`
 
-When you set a `weekly` update schedule, by default, {% data variables.product.prodname_dependabot %} checks for new versions on Monday at a random set time for the repository. Use `schedule.day` to specify an alternative day to check for updates.
+Wenn du einen Updatezeitplan vom Typ `weekly` festlegst, wird von {% data variables.product.prodname_dependabot %} standardmäßig am Montag zu einem zufälligen Zeitpunkt eine Prüfung auf neue Versionen für das Repository durchgeführt. Verwende `schedule.day`, um einen alternativen Tag für die Prüfung auf Updates anzugeben.
 
-Supported values
+Unterstützte Werte
 
 - `monday`
 - `tuesday`
@@ -600,7 +575,7 @@ updates:
 
 ### `schedule.time`
 
-By default, {% data variables.product.prodname_dependabot %} checks for new versions at a random set time for the repository. Use `schedule.time` to specify an alternative time of day to check for updates (format: `hh:mm`).
+Standardmäßig wird von {% data variables.product.prodname_dependabot %} zu einem zufälligen Zeitpunkt eine Prüfung auf neue Versionen für das Repository durchgeführt. Verwende `schedule.time`, um eine alternative Tageszeit für die Prüfung auf Updates (Format: `hh:mm`) anzugeben.
 
 ```yaml
 # Set a time for checks
@@ -609,14 +584,14 @@ updates:
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
-      interval: "weekly"
+      interval: "daily"
       # Check for npm updates at 9am UTC
       time: "09:00"
 ```
 
 ### `schedule.timezone`
 
-By default, {% data variables.product.prodname_dependabot %} checks for new versions at a random set time for the repository. Use `schedule.timezone` to specify an alternative time zone. The time zone identifier must be from the Time Zone database maintained by [iana](https://www.iana.org/time-zones). For more information, see [List of tz database time zones](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
+Standardmäßig wird von {% data variables.product.prodname_dependabot %} zu einem zufälligen Zeitpunkt eine Prüfung auf neue Versionen für das Repository durchgeführt. Verwende `schedule.timezone`, um eine alternative Zeitzone anzugeben. Der Bezeichner der Zeitzone muss aus der von [iana](https://www.iana.org/time-zones) verwalteten Zeitzonendatenbank stammen. Weitere Informationen findest du in der [Liste der Zeitzonen aus der Zeitzonen-Datenbank (tz database)](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
 
 ```yaml
 # Specify the timezone for checks
@@ -626,7 +601,7 @@ updates:
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
-      interval: "weekly"
+      interval: "daily"
       time: "09:00"
       # Use Japan Standard Time (UTC +09:00)
       timezone: "Asia/Tokyo"
@@ -634,7 +609,7 @@ updates:
 
 ### `target-branch`
 
-By default, {% data variables.product.prodname_dependabot %} checks for manifest files on the default branch and raises pull requests for version updates against this branch. Use `target-branch` to specify a different branch for manifest files and for pull requests. When you use this option, the settings for this package manager will no longer affect any pull requests raised for security updates.
+Standardmäßig wird von {% data variables.product.prodname_dependabot %} eine Prüfung auf Manifestdateien im Standardbranch durchgeführt. Zudem werden Pull Requests für Versionsupdates für diesen Branch ausgelöst. Verwende `target-branch`, um einen anderen Branch für Manifestdateien und für Pull Requests anzugeben. Wenn du diese Option verwendest, wirken sich die Einstellungen für diesen Paket-Manager nicht mehr auf Pull Requests aus, die für Sicherheitsupdates ausgelöst werden.
 
 ```yaml
 # Specify a non-default branch for pull requests for pip
@@ -644,7 +619,7 @@ updates:
   - package-ecosystem: "pip"
     directory: "/"
     schedule:
-      interval: "weekly"
+      interval: "daily"
     # Raise pull requests for version updates
     # to pip against the `develop` branch
     target-branch: "develop"
@@ -665,7 +640,7 @@ updates:
 
 ### `vendor`
 
-Use the `vendor` option to tell {% data variables.product.prodname_dependabot %} to vendor dependencies when updating them. Don't use this option if you're using `gomod` as {% data variables.product.prodname_dependabot %} automatically detects vendoring for this tool.
+Verwende die Option `vendor`, um {% data variables.product.prodname_dependabot %} anzuweisen, ein Vendoring der Abhängigkeiten durchzuführen, wenn die Abhängigkeiten aktualisiert werden. Verwende diese Option nicht, wenn du `gomod` verwendest, da {% data variables.product.prodname_dependabot %} Vendoring für dieses Tool automatisch erkennt.
 
 ```yaml
 # Configure version updates for both dependencies defined in manifests and vendored dependencies
@@ -680,34 +655,34 @@ updates:
       interval: "weekly"
 ```
 
-{% data variables.product.prodname_dependabot %} only updates the vendored dependencies located in specific directories in a repository.
+Von {% data variables.product.prodname_dependabot %} werden nur die anbieterbezogenen Abhängigkeiten aktualisiert, die sich in bestimmten Verzeichnissen in einem Repository befinden.
 
-| Package manager | Required file path for vendored dependencies | More information |
+| Paket-Manager | Erforderlicher Dateipfad für anbieterbezogene Abhängigkeiten | Weitere Informationen |
   |------------------|-------------------------------|--------|
-  | `bundler` | The dependencies must be in the _vendor/cache_ directory.</br>Other file paths are not supported. | [`bundle cache` documentation](https://bundler.io/man/bundle-cache.1.html) |
-  | `gomod` | No path requirement (dependencies are usually located in the _vendor_ directory) | [`go mod vendor` documentation](https://golang.org/ref/mod#go-mod-vendor) |
+  | `bundler` | Die Abhängigkeiten müssen sich im _vendor/cache_-Verzeichnis befinden.</br>Andere Dateipfade werden nicht unterstützt. | [Dokumentation zu `bundle cache`](https://bundler.io/man/bundle-cache.1.html) |
+  | `gomod` | Keine Pfadanforderung (Abhängigkeiten befinden sich in der Regel im _vendor_-Verzeichnis) | [Dokumentation zu `go mod vendor`](https://golang.org/ref/mod#go-mod-vendor) |
 
 
 ### `versioning-strategy`
 
-When {% data variables.product.prodname_dependabot %} edits a manifest file to update a version, it uses the following overall strategies:
+Wenn von {% data variables.product.prodname_dependabot %} für ein Versionsupdate eine Manifestdatei bearbeitet wird, werden die folgenden allgemeinen Strategien eingesetzt:
 
-- For apps, the version requirements are increased, for example: npm, pip and Composer.
-- For libraries, the range of versions is widened, for example: Bundler and Cargo.
+- Für Apps werden die Versionsanforderungen erhöht, z. B. npm, pip und Composer.
+- Für Bibliotheken wird der Bereich der Versionen erweitert, z. B. Bundler und Cargo.
 
-Use the `versioning-strategy` option to change this behavior for supported package managers.
+Verwende die Option `versioning-strategy`, um dieses Verhalten für unterstützte Paket-Manager zu ändern.
 
 {% data reusables.dependabot.option-affects-security-updates %}
 
-Available update strategies
+Verfügbare Updatestrategien
 
-| Option | Supported by | Action |
+| Option | Unterstützt von | Aktion |
 |--------|--------------|--------|
-| `lockfile-only` | `bundler`, `cargo`, `composer`, `mix`, `npm`, `pip` | Only create pull requests to update lockfiles. Ignore any new versions that would require package manifest changes. |
-| `auto` | `bundler`, `cargo`, `composer`, `mix`, `npm`, `pip` | Follow the default strategy described above.|
-| `widen`| `composer`, `npm` | Relax the version requirement to include both the new and old version, when possible. |
-| `increase`| `bundler`, `composer`, `npm`{% ifversion dependabot-increase-version-pip-support %}, `pip`{% endif %}  | Always increase the version requirement to match the new version. |
-| `increase-if-necessary` | `bundler`, `composer`, `npm`{% ifversion dependabot-increase-version-pip-support %}, `pip`{% endif %} | Increase the version requirement only when required by the new version. |
+| `lockfile-only` | `bundler`, `cargo`, `composer`, `mix`, `npm`, `pip` | Erstelle nur Pull Requests zum Aktualisieren von Sperrdateien. Ignoriere alle neuen Versionen, die Paketmanifeständerungen erfordern würden. |
+| `auto` | `bundler`, `cargo`, `composer`, `mix`, `npm`, `pip` | Folge der oben beschriebenen Standardstrategie.|
+| `widen`| `composer`, `npm` | Lockere, wenn möglich, die Versionsanforderungen so, dass sowohl die neue als auch die alte Version einbezogen wird. |
+| `increase`| `bundler`, `composer`, `npm` | Erhöhe die Versionsanforderung immer so, dass sie der neuen Version entspricht. |
+| `increase-if-necessary` | `bundler`, `composer`, `npm` | Erhöhe die Versionsanforderung nur, wenn dies für die neue Version erforderlich ist. |
 
 ```yaml
 # Customize the manifest version strategy
@@ -717,7 +692,7 @@ updates:
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
-      interval: "weekly"
+      interval: "daily"
     # Update the npm manifest file to relax
     # the version requirements
     versioning-strategy: widen
@@ -725,7 +700,7 @@ updates:
   - package-ecosystem: "composer"
     directory: "/"
     schedule:
-      interval: "weekly"
+      interval: "daily"
     # Increase the version requirements for Composer
     # only when required
     versioning-strategy: increase-if-necessary
@@ -733,23 +708,23 @@ updates:
   - package-ecosystem: "pip"
     directory: "/"
     schedule:
-      interval: "weekly"
+      interval: "daily"
     # Only allow updates to the lockfile for pip and
     # ignore any version updates that affect the manifest
     versioning-strategy: lockfile-only
 ```
 
-## Configuration options for private registries
+## Konfigurationsoptionen für private Registrierungen
 
-The top-level `registries` key is optional. It allows you to specify authentication details that {% data variables.product.prodname_dependabot %} can use to access private package registries.
+Der `registries`-Schlüssel der obersten Ebene ist optional. Damit kannst du Authentifizierungsdetails angeben, die von {% data variables.product.prodname_dependabot %} dazu verwendet werden können, auf private Paketregistrierungen zuzugreifen.
 
 {% note %}
 
-**Note:** Private registries behind firewalls on private networks are not supported.
+**Hinweis:** Private Registrierungen hinter Firewalls in privaten Netzwerken werden nicht unterstützt.
 
 {% endnote %}
 
-The value of the `registries` key is an associative array, each element of which consists of a key that identifies a particular registry and a value which is an associative array that specifies the settings required to access that registry. The following *dependabot.yml* file, configures a registry identified as `dockerhub` in the `registries` section of the file and then references this in the `updates` section of the file.
+Der Wert des `registries`-Schlüssels ist ein assoziatives Array. Jedes Element dieses Arrays besteht aus einem Schlüssel, der eine bestimmte Registrierung und einen Wert identifiziert, der ein assoziatives Array darstellt, das die Einstellungen angibt, die für den Zugriff auf diese Registrierung erforderlich sind. Durch die folgende *dependabot.yml*-Datei wird eine Registrierung konfiguriert, die im Abschnitt `registries` der Datei als `dockerhub` identifiziert wird. Anschließend wird im Abschnitt `updates` der Datei darauf verwiesen.
 
 {% raw %}
 ```yaml
@@ -772,24 +747,24 @@ updates:
 ```
 {% endraw %}
 
-You use the following options to specify access settings. Registry settings must contain a `type` and a `url`, and typically either a `username` and `password` combination or a `token`.
+Du verwendest die folgenden Optionen, um Zugriffseinstellungen anzugeben. Registrierungseinstellungen müssen einen `type` und eine `url` enthalten, sowie in der Regel eine Kombination aus `username` und `password` oder ein `token`.
 
-| Option&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Description |
+| Option&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | BESCHREIBUNG |
 |:---|:---|
-| `type`                     | Identifies the type of registry. See the full list of types below. |
-| `url`                      | The URL to use to access the dependencies in this registry. The protocol is optional. If not specified, `https://` is assumed. {% data variables.product.prodname_dependabot %} adds or ignores trailing slashes as required. |
-| `username`                 | The username that {% data variables.product.prodname_dependabot %} uses to access the registry. |
-| `password`                 | A reference to a {% data variables.product.prodname_dependabot %} secret containing the password for the specified user. For more information, see "[Managing encrypted secrets for Dependabot](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-encrypted-secrets-for-dependabot)." |
-| `key`                    | A reference to a {% data variables.product.prodname_dependabot %} secret containing an access key for this registry. For more information, see "[Managing encrypted secrets for Dependabot](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-encrypted-secrets-for-dependabot)." |
-| `token`                    | A reference to a {% data variables.product.prodname_dependabot %} secret containing an access token for this registry. For more information, see "[Managing encrypted secrets for Dependabot](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-encrypted-secrets-for-dependabot)." |
-| `replaces-base`            | For registries with `type: python-index`, if the boolean value is `true`, pip resolves dependencies by using the specified URL rather than the base URL of the Python Package Index (by default `https://pypi.org/simple`). |
+| `type`                     | Identifiziert den Typ der Registrierung. Nachstehend findest du die vollständige Liste der Typen. |
+| `url`                      | Die URL, die für den Zugriff auf die Abhängigkeiten in dieser Registrierung verwendet werden soll. Das Protokoll ist optional. Falls nicht angegeben, `https://` wird angenommen. Nachstehende Schrägstriche werden von {% data variables.product.prodname_dependabot %} nach Bedarf hinzugefügt oder ignoriert. |
+| `username`                 | Der Benutzername, der von {% data variables.product.prodname_dependabot %} für den Zugriff auf die Registrierung verwendet wird. |
+| `password`                 | Ein Verweis auf einen geheimen {% data variables.product.prodname_dependabot %}-Schlüssel, der das Kennwort für den angegebenen Benutzer enthält. Weitere Informationen findest du unter [Verwalten verschlüsselter Geheimnisse für Dependabot](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-encrypted-secrets-for-dependabot). |
+| `key`                    | Ein Verweis auf einen geheimen {% data variables.product.prodname_dependabot %}-Schlüssel, der einen Zugriffsschlüssel für diese Registrierung enthält. Weitere Informationen findest du unter [Verwalten verschlüsselter Geheimnisse für Dependabot](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-encrypted-secrets-for-dependabot). |
+| `token`                    | Ein Verweis auf einen geheimen {% data variables.product.prodname_dependabot %}-Schlüssel, der ein Zugriffstoken für diese Registrierung enthält. Weitere Informationen findest du unter [Verwalten verschlüsselter Geheimnisse für Dependabot](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-encrypted-secrets-for-dependabot). |
+| `replaces-base`            | Bei Registrierungen mit der Festlegung `type: python-index` werden Abhängigkeiten in Fällen, in denen der boolesche Wert `true` lautet, von pip mithilfe der angegebenen URL anstelle der Basis-URL des Python-Paketindex aufgelöst (Standardwert: `https://pypi.org/simple`). |
 
 
-Each configuration `type` requires you to provide particular settings. Some types allow more than one way to connect. The following sections provide details of the settings you should use for each `type`.
+Jeder Konfigurations-`type` erfordert, dass du bestimmte Einstellungen bereitstellst. Einige Typen lassen mehr als eine Möglichkeit zum Herstellen einer Verbindung zu. Die folgenden Abschnitte enthalten Details zu den Einstellungen, die für den jeweiligen `type` zu verwenden sind.
 
 ### `composer-repository`
 
-The `composer-repository` type supports username and password.
+Vom Typ `composer-repository` werden Benutzername und Kennwort unterstützt.
 
 {% raw %}
 ```yaml
@@ -804,9 +779,13 @@ registries:
 
 ### `docker-registry`
 
-{% data variables.product.prodname_dependabot %}  works with any container registries that implement the OCI container registry spec. For more information, see [https://github.com/opencontainers/distribution-spec/blob/main/spec.md](https://github.com/opencontainers/distribution-spec/blob/main/spec.md).  {% data variables.product.prodname_dependabot %} supports authentication to private registries via a central token service or HTTP Basic Auth. For further details, see [Token Authentication Specification](https://docs.docker.com/registry/spec/auth/token/) in the Docker documentation and [Basic access authentication](https://en.wikipedia.org/wiki/Basic_access_authentication) on Wikipedia.
+{% note %}
 
-The `docker-registry` type supports username and password.
+**Hinweis:** Azure Container Registry (ACR) wird von uns nicht unterstützt.
+
+{% endnote %}
+
+Vom Typ `docker-registry` werden Benutzername und Kennwort unterstützt.
 
 {% raw %}
 ```yaml
@@ -819,7 +798,7 @@ registries:
 ```
 {% endraw %}
 
-The `docker-registry` type can also be used to pull from private Amazon ECR using static AWS credentials.
+Der Typ `docker-registry` kann auch zur Pullausführung von Amazon ECR mithilfe statischer AWS-Anmeldeinformationen verwendet werden.
 
 {% raw %}
 ```yaml
@@ -834,7 +813,7 @@ registries:
 
 ### `git`
 
-The `git` type supports username and password.
+Vom Typ `git` werden Benutzername und Kennwort unterstützt.
 
 {% raw %}
 ```yaml
@@ -849,7 +828,7 @@ registries:
 
 ### `hex-organization`
 
-The `hex-organization` type supports organization and key.
+Vom Typ `hex-organization` werden Organisation und Schlüssel unterstützt.
 
 {% raw %}
 ```yaml
@@ -861,30 +840,9 @@ registries:
 ```
 {% endraw %}
 
-{% ifversion dependabot-hex-self-hosted-support %}
-### `hex-repository`
-
-The `hex-repository` type supports an authentication key.
-
-`repo` is a required field, which must match the name of the repository used in your dependency declaration.
-
-The `public-key-fingerprint` is an optional configuration field, representing the fingerprint of the public key for the Hex repository. `public-key-fingerprint` is used by Hex to establish trust with the private repository. The `public-key-fingerprint` field can be either listed in plaintext or stored as a {% data variables.product.prodname_dependabot %} secret.
-
-{% raw %}
-```yaml
-registries:
-   github-hex-repository:
-     type: hex-repository
-     repo: private-repo
-     url: https://private-repo.example.com
-     auth-key: ${{secrets.MY_AUTH_KEY}}
-     public-key-fingerprint: ${{secrets.MY_PUBLIC_KEY_FINGERPRINT}}
-```
-{% endraw %}{% endif %}
-
 ### `maven-repository`
 
-The `maven-repository` type supports username and password.
+Vom Typ `maven-repository` werden Benutzername und Kennwort unterstützt.
 
 {% raw %}
 ```yaml
@@ -899,9 +857,9 @@ registries:
 
 ### `npm-registry`
 
-The `npm-registry` type supports username and password, or token.
+Vom Typ `npm-registry` werden Benutzername und Kennwort oder Token unterstützt.
 
-When using username and password, your `.npmrc`'s auth token may contain a `base64` encoded `_password`; however, the password referenced in your {% data variables.product.prodname_dependabot %} configuration file must be the original (unencoded) password. 
+Wenn du Benutzername und Kennwort verwendest, kann das Authentifizierungstoken von `.npmrc` ein `base64`-codiertes `_password` enthalten. Das Kennwort, auf das in der {% data variables.product.prodname_dependabot %}-Konfigurationsdatei verwiesen wird, muss jedoch das ursprüngliche (nicht codierte) Kennwort sein.
 
 {% raw %}
 ```yaml
@@ -923,12 +881,10 @@ registries:
     token: ${{secrets.MY_GITHUB_PERSONAL_TOKEN}}
 ```
 {% endraw %}
-{% ifversion dependabot-yarn-v3-update %}
-For security reasons, {% data variables.product.prodname_dependabot %} does not set environment variables. Yarn (v2 and later) requires that any accessed environment variables are set. When accessing environment variables in your `.yarnrc.yml` file, you should provide a fallback value such as {% raw %}`${ENV_VAR-fallback}`{% endraw %} or {% raw %}`${ENV_VAR:-fallback}`{% endraw %}. For more information, see [Yarnrc files](https://yarnpkg.com/configuration/yarnrc) in the Yarn documentation.{% endif %}
 
 ### `nuget-feed`
 
-The `nuget-feed` type supports username and password, or token.
+Vom Typ `nuget-feed` werden Benutzername und Kennwort oder Token unterstützt.
 
 {% raw %}
 ```yaml
@@ -947,14 +903,13 @@ registries:
   nuget-azure-devops:
     type: nuget-feed
     url: https://pkgs.dev.azure.com/.../_packaging/My_Feed/nuget/v3/index.json
-    username: octocat@example.com
-    password: ${{secrets.MY_AZURE_DEVOPS_TOKEN}}
+    token: ${{secrets.MY_AZURE_DEVOPS_TOKEN}}
 ```
 {% endraw %}
 
 ### `python-index`
 
-The `python-index` type supports username and password, or token.
+Vom Typ `python-index` werden Benutzername und Kennwort oder Token unterstützt.
 
 {% raw %}
 ```yaml
@@ -974,15 +929,14 @@ registries:
   python-azure:
     type: python-index
     url: https://pkgs.dev.azure.com/octocat/_packaging/my-feed/pypi/example
-    username: octocat@example.com
-    password: ${{secrets.MY_AZURE_DEVOPS_TOKEN}}
+    token: ${{secrets.MY_AZURE_DEVOPS_TOKEN}}
     replaces-base: true
 ```
 {% endraw %}
 
 ### `rubygems-server`
 
-The `rubygems-server` type supports username and password, or token.
+Vom Typ `rubygems-server` werden Benutzername und Kennwort oder Token unterstützt.
 
 {% raw %}
 ```yaml
@@ -1007,7 +961,7 @@ registries:
 
 ### `terraform-registry`
 
-The `terraform-registry` type supports a token.
+Vom Typ `terraform-registry` wird ein Token unterstützt.
 
 {% raw %}
 ```yaml
@@ -1019,12 +973,12 @@ registries:
 ```
 {% endraw %}
 
-{% ifversion fpt or ghec or ghes > 3.4 %}
-## Enabling support for beta-level ecosystems
+{% ifversion fpt or ghec or ghes > 3.4 %} 
+## Aktivieren der Unterstützung für Ökosysteme auf Betaebene
 
 ### `enable-beta-ecosystems`
 
-By default, {% data variables.product.prodname_dependabot %} updates the dependency manifests and lock files only for fully supported ecosystems. Use the `enable-beta-ecosystems` flag to opt in to updates for ecosystems that are not yet generally available.
+Standardmäßig werden von {% data variables.product.prodname_dependabot %} die Abhängigkeitsmanifeste und Sperrdateien nur für vollständig unterstützte Ökosysteme aktualisiert. Verwende das Flag `enable-beta-ecosystems`, um Updates für Ökosysteme zu abonnieren, die noch nicht allgemein verfügbar sind.
 
 ```yaml
 # Configure beta ecosystem
@@ -1036,6 +990,6 @@ updates:{% ifversion fpt or ghec or ghes > 3.5 %}
   - package-ecosystem: "pub"{% endif %}
     directory: "/"
     schedule:
-      interval: "weekly"
+      interval: "daily"
 ```
 {% endif %}

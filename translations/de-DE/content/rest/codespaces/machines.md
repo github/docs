@@ -1,18 +1,23 @@
 ---
-title: Codespaces machines
+title: Codespaces-Computer
 allowTitleToDifferFromFilename: true
 shortTitle: Machines
-intro: 'Use the REST API to manage availability of machine types for a codespace.'
+intro: 'Mit der Codespaces-Computer-API können Benutzer*innen ermitteln, welche Computertypen verfügbar sind, um einen Codespace entweder in einem bestimmten Repository oder als authentifizierte*r Benutzer*in zu erstellen.'
 versions:
   fpt: '*'
   ghec: '*'
 topics:
   - API
 miniTocMaxHeadingLevel: 3
+ms.openlocfilehash: 4ef510cd054696025d885bec854f5360cae17e96
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147067978'
 ---
+## Informationen zur Codespaces-Computer-API
 
-## About {% data variables.product.prodname_codespaces %} machines
+Mit der Codespaces-Computer-API können Benutzer*innen ermitteln, welche Computertypen verfügbar sind, um einen Codespace entweder in einem bestimmten Repository oder als authentifizierte*r Benutzer*in zu erstellen. Weitere Informationen findest du unter [Informationen zu Computertypen](/codespaces/developing-in-codespaces/changing-the-machine-type-for-your-codespace#about-machine-types).
 
-You can determine which machine types are available to create a codespace, either on a given repository or as an authenticated user. For more information, see "[About machine types](/codespaces/developing-in-codespaces/changing-the-machine-type-for-your-codespace#about-machine-types)."
-
-You can also use this information when changing the machine of an existing codespace by updating its `machine` property. The machine update will take place the next time the codespace is restarted. For more information, see "[Changing the machine type for your codespace](/codespaces/developing-in-codespaces/changing-the-machine-type-for-your-codespace)."
+Du kannst diese Informationen auch verwenden, wenn du den Computer eines bestehenden Codespace änderst, indem du seine `machine`-Eigenschaft aktualisieren. Das Computerupdate erfolgt beim nächsten Neustart des Codespace. Weitere Informationen zu Computertypen findest du unter [Ändern des Computertyps für deinen Codespace](/codespaces/developing-in-codespaces/changing-the-machine-type-for-your-codespace).

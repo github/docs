@@ -1,35 +1,38 @@
 ---
-title: Expressions
+title: Expressões
 shortTitle: Expressions
-intro: You can evaluate expressions in workflows and actions.
+intro: Você pode avaliar expressões em fluxos de trabalho e ações.
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
   ghec: '*'
 miniTocMaxHeadingLevel: 3
+ms.openlocfilehash: 94bd9f7a43d4325e497a776357711adf64c0d7ba
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147614220'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+## Sobre as expressões
 
-## About expressions
+Você pode usar expressões para definir variáveis de ambiente programaticamente em arquivos de fluxo de trabalho e contextos de acesso. Uma expressão pode ser qualquer combinação de valores literais, referências a um contexto ou funções. É possível combinar literais, referências de contexto e funções usando operadores. Para obter mais informações sobre contextos, confira "[Contextos](/actions/learn-github-actions/contexts)".
 
-You can use expressions to programmatically set environment variables in workflow files and access contexts. An expression can be any combination of literal values, references to a context, or functions. You can combine literals, context references, and functions using operators. For more information about contexts, see "[Contexts](/actions/learn-github-actions/contexts)."
+As expressões são normalmente usadas com a palavra-chave `if` condicional em um arquivo de fluxo de trabalho para determinar se uma etapa deve ser executada. Quando um condicional `if` for `true`, a etapa será executada.
 
-Expressions are commonly used with the conditional `if` keyword in a workflow file to determine whether a step should run. When an `if` conditional is `true`, the step will run.
+É necessário usar uma sintaxe específica para avisar o {% data variables.product.prodname_dotcom %} para avaliar a expressão e não tratá-la como uma string.
 
-You need to use specific syntax to tell {% data variables.product.prodname_dotcom %} to evaluate an expression rather than treat it as a string.
-
-{% raw %}
-`${{ <expression> }}`
+{% raw %} `${{ <expression> }}`
 {% endraw %}
 
-{% data reusables.actions.expression-syntax-if %} For more information about `if` conditionals, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions/#jobsjob_idif)."
+{% data reusables.actions.expression-syntax-if %} Para obter mais informações sobre condicionais `if`, confira "[Sintaxe de fluxo de trabalho para {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions/#jobsjob_idif)".
 
 {% data reusables.actions.context-injection-warning %}
 
-#### Example expression in an `if` conditional
+#### Expressão de exemplo em um condicional `if`
 
 ```yaml
 steps:
@@ -37,7 +40,7 @@ steps:
     if: {% raw %}${{ <expression> }}{% endraw %}
 ```
 
-#### Example setting an environment variable
+#### Exemplo de configuração de variável de ambiente
 
 {% raw %}
 ```yaml
@@ -46,18 +49,18 @@ env:
 ```
 {% endraw %}
 
-## Literals
+## Literais
 
-As part of an expression, you can use `boolean`, `null`, `number`, or `string` data types.
+Como parte de uma expressão, você pode usar os tipos de dados `boolean`, `null`, `number` ou `string`.
 
-| Data type | Literal value |
+| Tipo de dados | Valor literal |
 |-----------|---------------|
-| `boolean` | `true` or `false` |
+| `boolean` | `true` ou `false` |
 | `null`    | `null` |
-| `number`  | Any number format supported by JSON. |
-| `string`  | You don't need to enclose strings in `{% raw %}${{{% endraw %}` and `{% raw %}}}{% endraw %}`. However, if you do, you must use single quotes (`'`) around the string. To use a literal single quote, escape the literal single quote using an additional single quote (`''`). Wrapping with double quotes (`"`) will throw an error. |
+| `number`  | Qualquer formato de número aceito por JSON. |
+| `string`  | Você não precisa colocar cadeias de caracteres em `{% raw %}${{{% endraw %}` e `{% raw %}}}{% endraw %}`. No entanto, se você fizer isso, deverá usar aspas simples (`'`) ao redor da cadeia de caracteres. Para usar uma aspa simples literal, não use as aspas simples literais e use as aspas simples adicionais (`''`). Encapsular com aspas duplas (`"`) gerará um erro. |
 
-#### Example
+#### Exemplo
 
 {% raw %}
 
@@ -75,105 +78,105 @@ env:
 
 {% endraw %}
 
-## Operators
+## Operadores
 
-| Operator    | Description |
+| Operador    | Descrição |
 | ---         | ---         |
-| `( )`       | Logical grouping |
-| `[ ]`       | Index
+| `( )`       | Agrupamento lógico |
+| `[ ]`       | Índice
 | `.`         | Property de-reference |
 | `!`         | Not |
-| `<`         | Less than |
-| `<=`        | Less than or equal |
-| `>`         | Greater than |
-| `>=`        | Greater than or equal |
-| `==`        | Equal |
-| `!=`        | Not equal |
+| `<`         | Menor que |
+| `<=`        | Inferior ou igual |
+| `>`         | Maior que |
+| `>=`        | Maior ou igual |
+| `==`        | Igual |
+| `!=`        | Diferente |
 | `&&`        | And |
-|  <code>\|\|</code> | Or |
+|  <code>\|\|</code> | Ou |
 
-{% data variables.product.prodname_dotcom %} performs loose equality comparisons.
+O {% data variables.product.prodname_dotcom %} faz comparações livres de igualdade.
 
-* If the types do not match, {% data variables.product.prodname_dotcom %} coerces the type to a number. {% data variables.product.prodname_dotcom %} casts data types to a number using these conversions:
+* Se os tipos não correspondem, o {% data variables.product.prodname_dotcom %} força o tipo para um número. O {% data variables.product.prodname_dotcom %} converte tipos de dados em um número usando estes esquemas:
 
-  | Type    | Result |
+  | Tipo    | Result |
   | ---     | ---    |
-  | Null    | `0` |
-  | Boolean | `true` returns `1` <br /> `false` returns `0` |
-  | String  | Parsed from any legal JSON number format, otherwise `NaN`. <br /> Note: empty string returns `0`. |
+  | Nulo    | `0` |
+  | Booliano | `true` retorna `1` <br /> `false` retorna `0` |
+  | String  | Analisado de qualquer formato de número JSON legal, caso contrário, `NaN`. <br /> Observação: a cadeia de caracteres vazia retorna `0`. |
   | Array   | `NaN` |
-  | Object  | `NaN` |
-* A comparison of one `NaN` to another `NaN` does not result in `true`. For more information, see the "[NaN Mozilla docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/NaN)."
-* {% data variables.product.prodname_dotcom %} ignores case when comparing strings.
-* Objects and arrays are only considered equal when they are the same instance.
+  | Objeto  | `NaN` |
+* Uma comparação entre um `NaN` e outro `NaN` não resulta em `true`. Para obter mais informações, confira os "[documentos do NaN Mozilla](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/NaN)".
+* O {% data variables.product.prodname_dotcom %} ignora as maiúsculas e minúsculas ao comparar strings.
+* Objetos e arrays só são considerados iguais quando forem a mesma instância.
 
-## Functions
+## Funções
 
-{% data variables.product.prodname_dotcom %} offers a set of built-in functions that you can use in expressions. Some functions cast values to a string to perform comparisons. {% data variables.product.prodname_dotcom %} casts data types to a string using these conversions:
+O {% data variables.product.prodname_dotcom %} oferece um conjunto de funções integradas que podem ser usadas em expressões. Algumas funções convertem valores em uma string para realizar comparações. O {% data variables.product.prodname_dotcom %} converte tipos de dados em uma string usando estes esquemas:
 
-| Type    | Result |
+| Tipo    | Result |
 | ---     | ---    |
-| Null    | `''` |
-| Boolean | `'true'` or `'false'` |
-| Number  | Decimal format, exponential for large numbers |
-| Array   | Arrays are not converted to a string |
-| Object  | Objects are not converted to a string |
+| Nulo    | `''` |
+| Booliano | `'true'` ou `'false'` |
+| Número  | Formato decimal, exponencial para números altos |
+| Array   | Arrays não são convertidos em uma string |
+| Objeto  | Objetos não são convertidos em uma string |
 
-### contains
+### contém
 
 `contains( search, item )`
 
-Returns `true` if `search` contains `item`. If `search` is an array, this function returns `true` if the `item` is an element in the array. If `search` is a string, this function returns `true` if the `item` is a substring of `search`. This function is not case sensitive. Casts values to a string.
+Retorna `true` se `search` contém `item`. Se `search` for uma matriz, essa função retornará `true` se o `item` for um elemento na matriz. Se `search` for uma cadeia de caracteres, essa função retornará `true` se `item` uma substring de `search`. Essa função não diferencia maiúsculas de minúsculas. Lança valores em uma string.
 
-#### Example using a string
+#### Exemplo de uso de string
 
-`contains('Hello world', 'llo')` returns `true`.
+`contains('Hello world', 'llo')` retorna `true`.
 
-#### Example using an object filter
+#### Exemplo de como usar um filtro de objeto
 
-`contains(github.event.issue.labels.*.name, 'bug')` returns `true` if the issue related to the event has a label "bug".
+`contains(github.event.issue.labels.*.name, 'bug')` retornará `true` se o problema relacionado ao evento tiver um rótulo "bug".
 
-For more information, see "[Object filters](#object-filters)."
+Para obter mais informações, confira "[Filtros de objeto](#object-filters)".
 
-#### Example matching an array of strings
+#### Exemplo que corresponde a uma matriz de cadeias de caracteres
 
-Instead of writing `github.event_name == "push" || github.event_name == "pull_request"`, you can use `contains()` with `fromJson()` to check if an array of strings contains an `item`.
+Em vez de escrever `github.event_name == "push" || github.event_name == "pull_request"`, você pode usar `contains()` com `fromJson()` para verificar se uma matriz de cadeias de caracteres contém um `item`.
 
-For example, `contains(fromJson('["push", "pull_request"]'), github.event_name)` returns `true` if `github.event_name` is "push" or "pull_request".
+Por exemplo, `contains(fromJson('["push", "pull_request"]'), github.event_name)` retornará `true` se `github.event_name` for "push" ou "pull_request".
 
 ### startsWith
 
 `startsWith( searchString, searchValue )`
 
-Returns `true` when `searchString` starts with `searchValue`. This function is not case sensitive. Casts values to a string.
+Retorna `true` quando`searchString` começa com `searchValue`. Essa função não diferencia maiúsculas de minúsculas. Lança valores em uma string.
 
-#### Example
+#### Exemplo
 
-`startsWith('Hello world', 'He')` returns `true`.
+`startsWith('Hello world', 'He')` retorna `true`.
 
 ### endsWith
 
 `endsWith( searchString, searchValue )`
 
-Returns `true` if `searchString` ends with `searchValue`. This function is not case sensitive. Casts values to a string.
+Retorna `true` se `searchString` termina com `searchValue`. Essa função não diferencia maiúsculas de minúsculas. Lança valores em uma string.
 
-#### Example
+#### Exemplo
 
-`endsWith('Hello world', 'ld')` returns `true`.
+`endsWith('Hello world', 'ld')` retorna `true`.
 
 ### format
 
 `format( string, replaceValue0, replaceValue1, ..., replaceValueN)`
 
-Replaces values in the `string`, with the variable `replaceValueN`. Variables in the `string` are specified using the `{N}` syntax, where `N` is an integer. You must specify at least one `replaceValue` and `string`. There is no maximum for the number of variables (`replaceValueN`) you can use. Escape curly braces using double braces.
+Substitui os valores na `string`, com a variável `replaceValueN`. As variáveis na `string` são especificadas usando a sintaxe `{N}`, em que `N` é um inteiro. É necessário especificar pelo menos um `replaceValue` e uma `string`. Não há um máximo para o número de variáveis (`replaceValueN`) que você pode usar. Escape de chaves usando chaves duplas.
 
-#### Example
+#### Exemplo
 
 `format('Hello {0} {1} {2}', 'Mona', 'the', 'Octocat')`
 
-Returns 'Hello Mona the Octocat'.
+Retorna "Hello Mona the Octocat".
 
-#### Example escaping braces
+#### Exemplo de escape de chaves
 
 {% raw %}
 ```js
@@ -181,37 +184,37 @@ format('{{Hello {0} {1} {2}!}}', 'Mona', 'the', 'Octocat')
 ```
 {% endraw %}
 
-Returns '{Hello Mona the Octocat!}'.
+Retorna '{Hello Mona the Octocat!}'.
 
 ### join
 
 `join( array, optionalSeparator )`
 
-The value for `array` can be an array or a string. All values in `array` are concatenated into a string. If you provide `optionalSeparator`, it is inserted between the concatenated values. Otherwise, the default separator `,` is used. Casts values to a string.
+O valor para `array` pode ser uma matriz ou uma cadeia de caracteres. Todos os valores em `array` são concatenados em uma cadeia de caracteres. Se você fornecer `optionalSeparator`, ele será inserido entre os valores concatenados. Caso contrário, o separador padrão `,` será usado. Lança valores em uma string.
 
-#### Example
+#### Exemplo
 
-`join(github.event.issue.labels.*.name, ', ')` may return 'bug, help wanted'
+`join(github.event.issue.labels.*.name, ', ')` pode retornar "bug, preciso de ajuda"
 
 ### toJSON
 
 `toJSON(value)`
 
-Returns a pretty-print JSON representation of `value`. You can use this function to debug the information provided in contexts.
+Retorna uma representação JSON recém-impressa de `value`. Você pode usar essa função para depurar as informações fornecidas em contextos.
 
-#### Example
+#### Exemplo
 
-`toJSON(job)` might return `{ "status": "Success" }`
+`toJSON(job)` pode retornar `{ "status": "Success" }`
 
 ### fromJSON
 
 `fromJSON(value)`
 
-Returns a JSON object or JSON data type for `value`. You can use this function to provide a JSON object as an evaluated expression or to convert environment variables from a string.
+Retorna um objeto JSON ou um tipo de dados JSON para `value`. Você pode usar esta função para fornecer um objeto do JSON como uma expressão avaliada ou para converter variáveis de ambiente de uma string.
 
-#### Example returning a JSON object
+#### Exemplo que retorna um objeto do JSON
 
-This workflow sets a JSON matrix in one job, and passes it to the next job using an output and `fromJSON`.
+Esse fluxo de trabalho define uma matriz JSON em um trabalho e a passa para o próximo trabalho usando uma saída e `fromJSON`.
 
 {% raw %}
 ```yaml
@@ -223,12 +226,8 @@ jobs:
     outputs:
       matrix: ${{ steps.set-matrix.outputs.matrix }}
     steps:
-      - id: set-matrix{% endraw %}
-{%- ifversion actions-save-state-set-output-envs %}
-        run: echo "matrix={\"include\":[{\"project\":\"foo\",\"config\":\"Debug\"},{\"project\":\"bar\",\"config\":\"Release\"}]}" >> $GITHUB_OUTPUT
-{%- else %}
+      - id: set-matrix
         run: echo "::set-output name=matrix::{\"include\":[{\"project\":\"foo\",\"config\":\"Debug\"},{\"project\":\"bar\",\"config\":\"Release\"}]}"
-{%- endif %}{% raw %}
   job2:
     needs: job1
     runs-on: ubuntu-latest
@@ -239,9 +238,9 @@ jobs:
 ```
 {% endraw %}
 
-#### Example returning a JSON data type
+#### Exemplo que retorna um tipo de dado do JSON
 
-This workflow uses `fromJSON` to convert environment variables from a string to a Boolean or integer.
+Esse fluxo de trabalho usa `fromJSON` para converter variáveis de ambiente de uma cadeia de caracteres em um booliano ou inteiro.
 
 {% raw %}
 ```yaml
@@ -264,37 +263,37 @@ jobs:
 
 `hashFiles(path)`
 
-Returns a single hash for the set of files that matches the `path` pattern. You can provide a single `path` pattern or multiple `path` patterns separated by commas. The `path` is relative to the `GITHUB_WORKSPACE` directory and can only include files inside of the `GITHUB_WORKSPACE`. This function calculates an individual SHA-256 hash for each matched file, and then uses those hashes to calculate a final SHA-256 hash for the set of files. If the `path` pattern does not match any files, this returns an empty string. For more information about SHA-256, see "[SHA-2](https://en.wikipedia.org/wiki/SHA-2)."
+Retorna um único hash para o conjunto de arquivos que corresponde ao padrão `path`. Você pode fornecer um único padrão `path` ou vários padrões `path` separados por vírgulas. O `path` é relativo ao diretório `GITHUB_WORKSPACE` e só pode incluir arquivos dentro do `GITHUB_WORKSPACE`. Essa função calcula uma hash SHA-256 individual para cada arquivo correspondente e, em seguida, usa esses hashes para calcular um hash SHA-256 final para o conjunto de arquivos. Se o padrão `path` não corresponder a nenhum arquivo, isso retornará uma cadeia de caracteres vazia. Para obter mais informações sobre SHA-256, confira "[SHA-2](https://en.wikipedia.org/wiki/SHA-2)".
 
-You can use pattern matching characters to match file names. Pattern matching is case-insensitive on Windows. For more information about supported pattern matching characters, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/using-workflows/workflow-syntax-for-github-actions/#filter-pattern-cheat-sheet)."
+Você pode usar a correspondência de padrão de caracteres para corresponder os nomes dos arquivos. No Windows, a correspondência do padrão diferencia maiúsculas e minúsculas. Para obter mais informações sobre caracteres de padrões correspondentes com suporte, confira "[Sintaxe de fluxo de trabalho do {% data variables.product.prodname_actions %}](/actions/using-workflows/workflow-syntax-for-github-actions/#filter-pattern-cheat-sheet)".
 
-#### Example with a single pattern
+#### Exemplo com um padrão único
 
-Matches any `package-lock.json` file in the repository.
+Corresponde a qualquer arquivo `package-lock.json` no repositório.
 
 `hashFiles('**/package-lock.json')`
 
-#### Example with multiple patterns
+#### Exemplo com vários padrões
 
-Creates a hash for any `package-lock.json` and `Gemfile.lock` files in the repository.
+Cria um hash para qualquer `package-lock.json` e arquivos `Gemfile.lock` no repositório.
 
 `hashFiles('**/package-lock.json', '**/Gemfile.lock')`
 
 
-{% ifversion fpt or ghes > 3.3 or ghae > 3.3 or ghec %}
-## Status check functions
+{% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %}
+## Funções de verificação de status
 
-You can use the following status check functions as expressions in `if` conditionals. A default status check of `success()` is applied unless you include one of these functions. For more information about `if` conditionals, see "[Workflow syntax for GitHub Actions](/articles/workflow-syntax-for-github-actions/#jobsjob_idif)" and "[Metadata syntax for GitHub Composite Actions](/actions/creating-actions/metadata-syntax-for-github-actions/#runsstepsif)".
+Você pode usar as funções de verificação de status a seguir como expressões em condicionais `if`. Uma verificação de status `success()` padrão é aplicada, a menos que você inclua uma dessas funções. Para obter mais informações sobre condicionais `if`, confira "[Sintaxe de fluxo de trabalho para GitHub Actions](/articles/workflow-syntax-for-github-actions/#jobsjob_idif)" e "[Sintaxe de metadados para ações compostas GitHub](/actions/creating-actions/metadata-syntax-for-github-actions/#runsstepsif)".
 {% else %}
-## Check Functions
-You can use the following status check functions as expressions in `if` conditionals. A default status check of `success()` is applied unless you include one of these functions. For more information about `if` conditionals, see "[Workflow syntax for GitHub Actions](/articles/workflow-syntax-for-github-actions/#jobsjob_idif)".
+## Funções de verificação
+Você pode usar as funções de verificação de status a seguir como expressões em condicionais `if`. Uma verificação de status `success()` padrão é aplicada, a menos que você inclua uma dessas funções. Para obter mais informações sobre condicionais `if`, confira "[Sintaxe de fluxo de trabalho para GitHub Actions](/articles/workflow-syntax-for-github-actions/#jobsjob_idif)".
 {% endif %}
 
-### success
+### sucesso
 
-Returns `true` when none of the previous steps have failed or been canceled.
+Retorna `true` quando nenhuma das etapas anteriores falhou ou foi cancelada.
 
-#### Example
+#### Exemplo
 
 ```yaml
 steps:
@@ -305,9 +304,9 @@ steps:
 
 ### always
 
-Causes the step to always execute, and returns `true`, even when canceled. A job or step will not run when a critical failure prevents the task from running. For example, if getting sources failed.
+Faz com que a etapa sempre seja executada e retorna `true`, mesmo quando cancelada. Um trabalho ou uma etapa não será executado(a) quando uma falha crítica impedir a tarefa de ser executada. Por exemplo, se houver falha ao obter as fontes.
 
-#### Example
+#### Exemplo
 
 ```yaml
 if: {% raw %}${{ always() }}{% endraw %}
@@ -315,19 +314,19 @@ if: {% raw %}${{ always() }}{% endraw %}
 
 ### cancelled
 
-Returns `true` if the workflow was canceled.
+Retorna `true` se o fluxo de trabalho foi cancelado.
 
-#### Example
+#### Exemplo
 
 ```yaml
 if: {% raw %}${{ cancelled() }}{% endraw %}
 ```
 
-### failure
+### falha
 
-Returns `true` when any previous step of a job fails. If you have a chain of dependent jobs, `failure()` returns `true` if any ancestor job fails.
+Retorna `true` quando qualquer etapa anterior de um trabalho falha. Se você tiver uma cadeia de trabalhos dependentes, `failure()` retornará `true` se algum trabalho ancestral falhar.
 
-#### Example
+#### Exemplo
 
 ```yaml
 steps:
@@ -336,11 +335,11 @@ steps:
     if: {% raw %}${{ failure() }}{% endraw %}
 ```
 
-#### failure with conditions
+#### falha com condições
 
-You can include extra conditions for a step to run after a failure, but you must still include `failure()` to override the default status check of `success()` that is automatically applied to `if` conditions that don't contain a status check function.
+Você pode incluir condições extras para uma etapa a ser executada após uma falha, mas ainda precisa incluir `failure()` para substituir a verificação de status padrão de `success()` que é aplicada automaticamente a condições `if` que não contêm uma função de verificação de status.
 
-##### Example
+##### Exemplo
 
 ```yaml
 steps:
@@ -352,11 +351,11 @@ steps:
     if: {% raw %}${{ failure() && steps.demo.conclusion == 'failure' }}{% endraw %}
 ```
 
-## Object filters
+## Filtros de objeto
 
-You can use the `*` syntax to apply a filter and select matching items in a collection.
+Você pode usar a sintaxe `*` para aplicar um filtro e selecionar itens de uma coleção correspondente.
 
-For example, consider an array of objects named `fruits`.
+Por exemplo, considere uma matriz de objetos chamados `fruits`.
 
 ```json
 [
@@ -366,9 +365,9 @@ For example, consider an array of objects named `fruits`.
 ]
 ```
 
-The filter `fruits.*.name` returns the array `[ "apple", "orange", "pear" ]`.
+O filtro `fruits.*.name` retorna a matriz `[ "apple", "orange", "pear" ]`.
 
-You may also use the `*` syntax on an object. For example, suppose you have an object named `vegetables`.
+Você também pode usar a sintaxe `*` em um objeto. Por exemplo, suponha que você tenha um objeto chamado `vegetables`.
 
 ```json
 
@@ -391,7 +390,7 @@ You may also use the `*` syntax on an object. For example, suppose you have an o
 }
 ```
 
-The filter `vegetables.*.ediblePortions` could evaluate to:
+O filtro `vegetables.*.ediblePortions` pode ser avaliado como:
 
 ```json
 
@@ -402,4 +401,4 @@ The filter `vegetables.*.ediblePortions` could evaluate to:
 ]
 ```
 
-Since objects don't preserve order, the order of the output can not be guaranteed.
+Como os objetos não preservam a ordem, a ordem da saída não pode ser garantida.

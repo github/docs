@@ -39,6 +39,9 @@ For you to use {% data variables.product.prodname_secret_scanning %} as a push p
 
 Organization owners, security managers, and repository administrators can enable push protection for {% data variables.product.prodname_secret_scanning %} via the UI and API. For more information, see "[Repositories](/rest/reference/repos#update-a-repository)" and expand the "Properties of the `security_and_analysis` object" section in the REST API documentation.
 
+{% ifversion secret-scanning-enterprise-level-api %}
+Enterprise administrators can also enable or disable {% data variables.product.prodname_secret_scanning %} as a push protection for the enterprise via the API. For more information, see "[Enable or disable security features for an enterprise](/rest/enterprise-admin/code-security-and-analysis)" in the REST API documentation.{% endif %}
+
 {% ifversion secret-scanning-enterprise-level %}
 ### Enabling {% data variables.product.prodname_secret_scanning %} as a push protection for your enterprise
 {% data reusables.enterprise-accounts.access-enterprise %}

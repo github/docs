@@ -1,7 +1,7 @@
 ---
-title: Managing code scanning alerts for your repository
+title: Verwalten von Codescanwarnungen für dein Repository
 shortTitle: Manage alerts
-intro: 'From the security view, {% ifversion delete-code-scanning-alerts %}you can view, fix, dismiss, or delete alerts {% else %}you can view, fix, or dismiss alerts{% endif %} for potential vulnerabilities or errors in your project''s code.'
+intro: 'Über die Sicherheitsansicht {% ifversion delete-code-scanning-alerts %}kannst du Warnungen anzeigen, korrigieren, schließen oder löschen {% else %}kannst du Warnungen{% endif %} für mögliche Sicherheitsrisiken oder Fehler im Code deines Projekts anzeigen, beheben oder schließen.'
 product: '{% data reusables.gated-features.code-scanning %}'
 permissions: 'If you have write permission to a repository you can manage {% data variables.product.prodname_code_scanning %} alerts for that repository.'
 versions:
@@ -22,206 +22,175 @@ topics:
   - Code scanning
   - Alerts
   - Repositories
+ms.openlocfilehash: b672af79096c1f52a0670cd747ef159f071a3d07
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147693327'
 ---
-
 {% data reusables.code-scanning.beta %}
 
-## Viewing the alerts for a repository
+## Anzeigen der Warnungen für ein Repository
 
-Anyone with read permission for a repository can see {% data variables.product.prodname_code_scanning %} annotations on pull requests. For more information, see "[Triaging {% data variables.product.prodname_code_scanning %} alerts in pull requests](/code-security/secure-coding/triaging-code-scanning-alerts-in-pull-requests)."
+Jeder mit Leseberechtigung für ein Repository kann {% data variables.product.prodname_code_scanning %}-Anmerkungen zu Pull Requests anzeigen. Weitere Informationen findest du unter [Selektieren von {% data variables.product.prodname_code_scanning %}-Warnungen in Pull Requests](/code-security/secure-coding/triaging-code-scanning-alerts-in-pull-requests).
 
-You need write permission to view a summary of all the alerts for a repository on the **Security** tab.
+du benötigst Schreibberechtigungen, um eine Zusammenfassung aller Warnungen für ein Repository auf der Registerkarte **Sicherheit** anzuzeigen.
 
-By default, the code scanning alerts page is filtered to show alerts for the default branch of the repository only.
+Standardmäßig wird die Seite für Codeüberprüfungswarnungen so gefiltert, dass Warnungen ausschließlich für den Standardbranch des Repositorys angezeigt werden.
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-security %}
-{% data reusables.repositories.sidebar-code-scanning-alerts %}
-1. Optionally, use the free text search box or the drop-down menus to filter alerts. For example, you can filter by the tool that was used to identify alerts.
-   ![Filter by tool](/assets/images/help/repository/code-scanning-filter-by-tool.png)
-{% data reusables.code-scanning.explore-alert %}
-![Summary of alerts](/assets/images/help/repository/code-scanning-click-alert.png)
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-security %} {% data reusables.repositories.sidebar-code-scanning-alerts %}
+1. Verwende optional das Feld für die Freitextsuche oder die Dropdownmenüs, um Warnungen zu filtern. Du kannst beispielsweise nach dem Tool filtern, das zum Identifizieren von Warnungen verwendet wurde.
+   ![Nach Tool filtern](/assets/images/help/repository/code-scanning-filter-by-tool.png) {% data reusables.code-scanning.explore-alert %} ![Zusammenfassung der Warnungen](/assets/images/help/repository/code-scanning-click-alert.png)
 
-{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
-   {% data reusables.code-scanning.alert-default-branch %}
-   ![The "Affected branches" section in an alert](/assets/images/help/repository/code-scanning-affected-branches.png){% endif %}
-1. Optionally, if the alert highlights a problem with data flow, click **Show paths** to display the path from the data source to the sink where it's used.
-  {% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
-   ![The "Show paths" link on an alert](/assets/images/help/repository/code-scanning-show-paths.png)
-   {% else %}
-   ![The "Show paths" link on an alert](/assets/images/enterprise/3.4/repository/code-scanning-show-paths.png)
-   {% endif %}
-2. Alerts from {% data variables.product.prodname_codeql %} analysis include a description of the problem. Click **Show more** for guidance on how to fix your code.
-   ![Details for an alert](/assets/images/help/repository/code-scanning-alert-details.png)
+{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6249 %} {% data reusables.code-scanning.alert-default-branch %} ![Der Abschnitt „Betroffene Branches“ in einer Warnung](/assets/images/help/repository/code-scanning-affected-branches.png){% endif %}
+1. Wenn die Warnung auf ein Problem mit dem Datenfluss hinweist, klicke optional auf **Show paths** (Pfade anzeigen), um den Pfad von der Datenquelle zur Senke anzuzeigen, in der sie verwendet wird.
+  {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6249 %} ![Der Link „Show paths“ (Pfade anzeigen) für eine Warnung](/assets/images/help/repository/code-scanning-show-paths.png) {% else %} ![Der Link „Show paths“ (Pfade anzeigen) für eine Warnung](/assets/images/enterprise/3.4/repository/code-scanning-show-paths.png) {% endif %}
+2. Warnungen aus der {% data variables.product.prodname_codeql %}-Analyse beinhalten eine Beschreibung des Problems. Klicke auf **Mehr anzeigen**, um weitere Informationen dazu anzuzeigen, wie du den Code korrigierst.
+   ![Details einer Warnung](/assets/images/help/repository/code-scanning-alert-details.png)
 
-For more information, see "[About {% data variables.product.prodname_code_scanning %} alerts](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts)."
+Weitere Informationen findest du unter [Informationen zu {% data variables.product.prodname_code_scanning %}-Warnungen](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts).
 
 {% note %}
 
-**Note:** For {% data variables.product.prodname_code_scanning %} analysis with {% data variables.product.prodname_codeql %}, you can see information about the latest run in a header at the top of the list of {% data variables.product.prodname_code_scanning %} alerts for the repository. 
+**Hinweis:** Für die {% data variables.product.prodname_code_scanning %}-Analyse mit {% data variables.product.prodname_codeql %} kannst du Informationen zu der neuesten Ausführung in einer Kopfzeile oben in der Liste der {% data variables.product.prodname_code_scanning %}-Warnungen für das Repository anzeigen. 
 
-For example, you can see when the last scan ran, the number of lines of code analyzed compared to the total number of lines of code in your repository, and the total number of alerts that were generated.
-  ![UI banner](/assets/images/help/repository/code-scanning-ui-banner.png)
+Einsehen kannst du hier beispielsweise den Zeitpunkt, zu dem der letzte Scan ausgeführt wurde, die Anzahl der Codezeilen, die im Vergleich zur Gesamtzahl der Codezeilen im Repository analysiert wurden, und die Gesamtzahl der Warnungen, die generiert wurden.
+  ![UI-Banner](/assets/images/help/repository/code-scanning-ui-banner.png)
 
 {% endnote %}
 
-## Filtering {% data variables.product.prodname_code_scanning %} alerts
+## Filtern von {% data variables.product.prodname_code_scanning %}-Warnungen
 
-You can filter the alerts shown in the {% data variables.product.prodname_code_scanning %} alerts view. This is useful if there are many alerts as you can focus on a particular type of alert. There are some predefined filters and a range of keywords that you can use to refine the list of alerts displayed. 
+Du kannst die Warnungen filtern, die in der Ansicht für {% data variables.product.prodname_code_scanning %}-Warnungen angezeigt werden. Dies ist nützlich, wenn viele Warnungen vorhanden sind, da du dich auf einen bestimmten Warnungstyp konzentrieren kannst. Es gibt einige vordefinierte Filter und einen Bereich von Schlüsselwörtern, mit denen du die Liste der angezeigten Warnungen verfeinern kannst. 
 
-- To use a predefined filter, click **Filters**, or a filter shown in the header of the list of alerts, and choose a filter from the drop-down list.
-  {% ifversion fpt or ghes or ghec %}![Predefined filters](/assets/images/help/repository/code-scanning-predefined-filters.png)
-  {% else %}![Predefined filters](/assets/images/enterprise/3.0/code-scanning-predefined-filters.png){% endif %}
-- To use a keyword, either type directly in the filters text box, or:
-  1. Click in the filters text box to show a list of all available filter keywords.
-  2. Click the keyword you want to use and then choose a value from the drop-down list.
-  ![Keyword filters list](/assets/images/help/repository/code-scanning-filter-keywords.png)
+- Klicke zum Verwenden eines vordefinierten Filters auf **Filter** oder einen Filter, der in der Kopfzeile der Liste der Warnungen angezeigt wird, und wähle einen Filter aus der Dropdownliste aus.
+  {% ifversion fpt or ghes or ghec %}![Vordefinierte Filter](/assets/images/help/repository/code-scanning-predefined-filters.png) {% else %}![Vordefinierte Filter](/assets/images/enterprise/3.0/code-scanning-predefined-filters.png){% endif %}
+- Wenn du ein Schlüsselwort verwenden möchtest, tätige eine Eingabe entweder direkt im Textfeld „Filter“, oder:
+  1. Klicke in das Textfeld „Filter“, um eine Liste aller verfügbaren Filterschlüsselwörter anzuzeigen.
+  2. Klicke auf das Schlüsselwort, das du verwenden möchtest, und wähle dann einen Wert aus der Dropdownliste aus.
+  ![Filterliste für Schlüsselwörter](/assets/images/help/repository/code-scanning-filter-keywords.png)
 
-The benefit of using keyword filters is that only values with results are shown in the drop-down lists. This makes it easy to avoid setting filters that find no results.
+Der Vorteil der Verwendung von Schlüsselwortfiltern besteht darin, dass nur Werte mit Ergebnissen in den Dropdownlisten angezeigt werden. So lässt es sich erleichtern, die Festlegung von Filtern zu verhindern, mit denen keine Ergebnisse gefunden werden.
 
-If you enter multiple filters, the view will show alerts matching _all_ these filters. For example, `is:closed severity:high branch:main` will only display closed high-severity alerts that are present on the `main` branch. The exception is filters relating to refs (`ref`, `branch` and `pr`): `is:open branch:main branch:next` will show you open alerts from both the `main` branch and the `next` branch.
+Wenn du mehrere Filter eingibst, werden in der Ansicht Warnungen angezeigt, die mit _allen_ festgelegten Filtern übereinstimmen. Beispielsweise werden mit `is:closed severity:high branch:main` nur geschlossene Warnungen mit hohem Schweregrad angezeigt, die im `main`-Branch vorhanden sind. Die Ausnahme sind Filter im Zusammenhang mit Referenzen (`ref`, `branch` und `pr`): Mit `is:open branch:main branch:next` werden geöffnete Warnungen aus dem `main`-Branch und dem `next`-Branch angezeigt.
 
-{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
-{% data reusables.code-scanning.filter-non-default-branches %}
-{% endif %}
+{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6249 %} {% data reusables.code-scanning.filter-non-default-branches %} {% endif %}
 
 {% ifversion fpt or ghes > 3.3 or ghec %}
 
-You can prefix the `tag` filter with `-` to exclude results with that tag. For example, `-tag:style` only shows alerts that do not have the `style` tag{% ifversion codeql-ml-queries %} and `-tag:experimental` will omit all experimental alerts. For more information, see "[About {% data variables.product.prodname_code_scanning %} alerts](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts#about-experimental-alerts)."{% else %}.{% endif %}
+Du kannst dem `tag` Filter `-` voranstellen, um Ergebnisse mit diesem Tag auszuschließen. Beispielsweise werden mit `-tag:style` nur Warnungen angezeigt, die nicht über das `style`-Tag verfügen{% ifversion codeql-ml-queries %}, und mit `-tag:experimental` werden alle experimentellen Warnungen ausgelassen. Weitere Informationen findest du unter [Informationen zu {% data variables.product.prodname_code_scanning %}-Warnungen](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts#about-experimental-alerts).{% else %}.{% endif %}
 
 {% endif %}
 
-### Restricting results to application code only
+### Beschränken von Ergebnissen nur auf Anwendungscode
 
-You can use the "Only alerts in application code" filter or `autofilter:true` keyword and value to restrict results to alerts in application code. See "[About labels for alerts not in application code](#about-labels-for-alerts-that-are-not-found-in-application-code)" above for more information about the types of code that are not application code.
+Du kannst den Filter „Nur Warnungen im Anwendungscode“ oder `autofilter:true`-Schlüsselwort und -Wert verwenden, um Ergebnisse auf Warnungen im Anwendungscode einzuschränken. Weitere Informationen zu Codetypen, bei denen es sich nicht um Anwendungscode handelt, findest du im obigen Abschnitt unter [Informationen zu nicht Teil des Anwendungscodes darstellenden Bezeichnungen für Warnungen](#about-labels-for-alerts-that-are-not-found-in-application-code).
 
 {% ifversion fpt or ghes or ghec %}
 
-## Searching {% data variables.product.prodname_code_scanning %} alerts
+## Durchsuchen von {% data variables.product.prodname_code_scanning %}-Warnungen
 
-You can search the list of alerts. This is useful if there is a large number of alerts in your repository, or if you don't know the exact name for an alert for example. {% data variables.product.product_name %} performs the free text search across:
-- The name of the alert
-- The alert details (this also includes the information hidden from view by default in the **Show more** collapsible section)
- {% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
- ![The alert information used in searches](/assets/images/help/repository/code-scanning-free-text-search-areas.png)
- {% else %}
- ![The alert information used in searches](/assets/images/enterprise/3.4/repository/code-scanning-free-text-search-areas.png)
- {% endif %}
+Du kannst die Liste der Warnungen durchsuchen. Dies ist zum Beispiel nützlich, wenn es eine große Anzahl von Warnungen im Repository gibt oder wenn du den genauen Namen für eine Warnung nicht kennst. Die Freitextsuche wird von {% data variables.product.product_name %} anhand folgender Parameter durchgeführt:
+- Der Name der Warnung
+- Die Warnungsdetails (dies umfasst auch die Informationen, die standardmäßig im reduzierbaren Abschnitt **Mehr anzeigen** ausgeblendet sind) {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6249 %} ![Die in Suchvorgängen verwendeten Warnungsinformationen](/assets/images/help/repository/code-scanning-free-text-search-areas.png) {% else %} ![Die in Suchvorgängen verwendeten Warnungsinformationen](/assets/images/enterprise/3.4/repository/code-scanning-free-text-search-areas.png) {% endif %}
 
-| Supported search | Syntax example | Results |
+| Unterstützte Suche | Syntaxbeispiel | Ergebnisse |
 | ---- | ---- | ---- |
-| Single word search | `injection` | Returns all the alerts containing the word `injection` |
-| Multiple word search | `sql injection` | Returns all the alerts containing `sql` or `injection` |
-| Exact match search</br>(use double quotes) |  `"sql injection"` | Returns all the alerts containing the exact phrase `sql injection` |
-| OR search | `sql OR injection` | Returns all the alerts containing `sql` or `injection` |
-| AND search | `sql AND injection` | Returns all the alerts containing both words `sql` and `injection` | 
+| Einzelwortsuche | `injection` | Gibt alle Warnungen zurück, die das Wort `injection` enthalten |
+| Suche nach mehreren Wörtern | `sql injection` | Gibt alle Warnungen zurück, die das Wort `sql` oder `injection` enthalten |
+| Suchen nach genauen Übereinstimmungen</br>(doppelte Anführungszeichen verwenden) |  `"sql injection"` | Gibt alle Warnungen zurück, die die genaue Wortgruppe `sql injection` enthalten |
+| OR-Suche | `sql OR injection` | Gibt alle Warnungen zurück, die das Wort `sql` oder `injection` enthalten |
+| AND-Suche | `sql AND injection` | Gibt alle Warnungen zurück, die sowohl das Wort `sql` als auch das Wort `injection` enthalten | 
 
 {% tip %}
 
-**Tips:** 
-- The multiple word search is equivalent to an OR search.
-- The AND search will return results where the search terms are found _anywhere_, in any order in the alert name or details.
+**Tipps:** 
+- Die Suche nach mehreren Wörtern entspricht einer OR-Suche.
+- Bei der AND-Suche werden Ergebnisse zurückgegeben, in denen die Suchbegriffe _an beliebiger Stelle_ ungeachtet der Reihenfolge im Warnungsnamen oder in den Warnungsdetails gefunden werden.
 
 {% endtip %}
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-security %}
-{% data reusables.repositories.sidebar-code-scanning-alerts %}
-1. To the right of the **Filters** drop-down menus, type the keywords to search for in the free text search box.
-  ![The free text search box](/assets/images/help/repository/code-scanning-search-alerts.png)
-2. Press <kbd>return</kbd>. The alert listing will contain the open {% data variables.product.prodname_code_scanning %} alerts matching your search criteria.
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-security %} {% data reusables.repositories.sidebar-code-scanning-alerts %}
+1. Gib rechts neben dem Dropdownmenü **Filter** im Feld für die Freitextsuche die Schlüsselwörter ein, nach denen gesucht werden soll.
+  ![Das Feld für die Freitextsuche](/assets/images/help/repository/code-scanning-search-alerts.png)
+2. Drücke die <kbd>EINGABETASTE</kbd>. Die Liste der Warnungen enthält die geöffneten {% data variables.product.prodname_code_scanning %}-Warnungen, die den Suchkriterien entsprechen.
 
 {% endif %}
 
 {% ifversion code-scanning-task-lists %}
-## Tracking {% data variables.product.prodname_code_scanning %} alerts in issues
+## Nachverfolgen von {% data variables.product.prodname_code_scanning %}-Warnungen in Issues
 
-{% data reusables.code-scanning.beta-alert-tracking-in-issues %}
-{% data reusables.code-scanning.github-issues-integration %}
-{% data reusables.code-scanning.alert-tracking-link %}
+{% data reusables.code-scanning.beta-alert-tracking-in-issues %} {% data reusables.code-scanning.github-issues-integration %} {% data reusables.code-scanning.alert-tracking-link %}
 
 {% endif %}
 
-## Fixing an alert
+## Beheben einer Warnung
 
-Anyone with write permission for a repository can fix an alert by committing a correction to the code. If the repository has {% data variables.product.prodname_code_scanning %} scheduled to run on pull requests, it's best to raise a pull request with your correction. This will trigger {% data variables.product.prodname_code_scanning %} analysis of the changes and test that your fix doesn't introduce any new problems. For more information, see "[Configuring {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/configuring-code-scanning)" and "[Triaging {% data variables.product.prodname_code_scanning %} alerts in pull requests](/code-security/secure-coding/triaging-code-scanning-alerts-in-pull-requests)."
+Alle Benutzer mit Schreibberechtigung für ein Repository können eine Warnung beheben, indem sie eine Korrektur am Code committen. Wenn im Repository die Ausführung von {% data variables.product.prodname_code_scanning %} für Pull Requests geplant ist, ist es am besten, einen Pull Request mit der Korrektur auszulösen. Dadurch wird eine {% data variables.product.prodname_code_scanning %}-Analyse der Änderungen ausgelöst und getestet, ob durch die Korrektur neue Probleme entstehen. Weitere Informationen findest du unter [Konfigurieren von {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/configuring-code-scanning) und [Selektieren von {% data variables.product.prodname_code_scanning %}-Warnungen in Pull Requests](/code-security/secure-coding/triaging-code-scanning-alerts-in-pull-requests).
 
-If you have write permission for a repository, you can view fixed alerts by viewing the summary of alerts and clicking **Closed**. For more information, see "[Viewing the alerts for a repository](#viewing-the-alerts-for-a-repository)." The "Closed" list shows fixed alerts and alerts that users have dismissed.
+Wenn du über Schreibberechtigungen für ein Repository verfügst, kannst du behobene Warnungen anzeigen, indem du die Zusammenfassung von Warnungen anzeigen und auf **Geschlossen** klickst. Weitere Informationen findest du unter [Anzeigen der Warnungen für ein Repository](#viewing-the-alerts-for-a-repository). In der Liste „Geschlossen“ werden behobene Warnungen und solche Warnungen angezeigt, die Benutzer verworfen haben.
 
-You can use the free text search or the filters to display a subset of alerts and then in turn mark all matching alerts as closed. 
+Du kannst die Freitextsuche oder die Filter nutzen, um eine Teilmenge der Warnungen anzuzeigen und dann alle übereinstimmenden Warnungen als geschlossen markieren. 
 
-Alerts may be fixed in one branch but not in another. You can use the "Branch" filter, on the summary of alerts, to check whether an alert is fixed in a particular branch.
+Warnungen können in einem Branch behoben werden, aber nicht in einem anderen. Du kannst den Filter „Branch“ in der Zusammenfassung der Warnungen verwenden, um zu überprüfen, ob eine Warnung in einem bestimmten Branch behoben ist.
 
-![Filtering alerts by branch](/assets/images/help/repository/code-scanning-branch-filter.png)
+![Filtern von Warnungen nach Branch](/assets/images/help/repository/code-scanning-branch-filter.png)
 
-{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
-{% data reusables.code-scanning.filter-non-default-branches %}
-{% endif %}
+{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6249 %} {% data reusables.code-scanning.filter-non-default-branches %} {% endif %}
 
-{% ifversion fpt or ghes > 3.4 or ghae > 3.4 or ghec %}
-{% note %}
+{% ifversion fpt or ghes > 3.4 or ghae-issue-6251 or ghec %} {% note %}
 
-**Note:** If you run code scanning using multiple configurations, then sometimes an alert will have multiple analysis origins. Unless you run all configurations regularly, you may see alerts that are fixed in one analysis origin but not in another. For more information, see "[About analysis origins](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts#about-analysis-origins)."
+**Hinweis:** Wenn du die Codeüberprüfung mit mehreren Konfigurationen ausführst, kann es passieren, dass eine Warnung mehrere Analyse-Ursprünge aufweist. Wenn du nicht alle Konfigurationen regelmäßig ausführst, werden möglicherweise Warnungen angezeigt, die in einem Analyse-Ursprung behoben sind, aber nicht in einem anderen. Weitere Informationen findest du unter [Informationen zu Analyse-Ursprüngen](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts#about-analysis-origins).
 
-{% endnote %}
-{% endif %}
-## Dismissing {% ifversion delete-code-scanning-alerts %}or deleting{% endif %} alerts
+{% endnote %} {% endif %}
+## Schließen {% ifversion delete-code-scanning-alerts %}oder Löschen{% endif %} von Warnungen
 
-There are two ways of closing an alert. You can fix the problem in the code, or you can dismiss the alert. {% ifversion delete-code-scanning-alerts %}Alternatively, if you have admin permissions for the repository, you can delete alerts. Deleting alerts is useful in situations where you have set up a {% data variables.product.prodname_code_scanning %} tool and then decided to remove it, or where you have configured {% data variables.product.prodname_codeql %} analysis with a larger set of queries than you want to continue using, and you've then removed some queries from the tool. In both cases, deleting alerts allows you to clean up your {% data variables.product.prodname_code_scanning %} results. You can delete alerts from the summary list within the **Security** tab.{% endif %}
+Es gibt zwei Möglichkeiten zum Schließen einer Warnung. Du kannst das Problem im Code beheben oder die Warnung verwerfen. {% ifversion delete-code-scanning-alerts %}Wenn über du Administratorberechtigungen für das Repository verfügst, kannst du Warnungen auch löschen. Das Löschen von Warnungen ist in Situationen nützlich, in denen du ein {% data variables.product.prodname_code_scanning %}-Tool eingerichtet und dann beschlossen hast, dieses zu entfernen, oder in denen du eine {% data variables.product.prodname_codeql %}-Analyse mit einer größeren Gruppe von Abfragen konfiguriert hast, als du weiterhin verwenden möchtest, und dann einige Abfragen aus dem Tool entfernt haben. In beiden Fällen kannst du durch das Löschen von Warnungen die {% data variables.product.prodname_code_scanning %}-Ergebnisse bereinigen. Du kannst Warnungen in der Zusammenfassungsliste auf der Registerkarte **Sicherheit** löschen.{% endif %}
 
-Dismissing an alert is a way of closing an alert that you don't think needs to be fixed. {% data reusables.code-scanning.close-alert-examples %} You can dismiss alerts from {% data variables.product.prodname_code_scanning %} annotations in code, or from the summary list within the **Security** tab.
+Das Verwerfen einer Warnung ist eine Möglichkeit, eine Warnung zu schließen, die deiner Meinung nach nicht behandelt werden muss. {% data reusables.code-scanning.close-alert-examples %} Du kannst Warnungen aus {% data variables.product.prodname_code_scanning %}-Anmerkungen im Code oder auf der Registerkarte **Sicherheit** in der Zusammenfassungsliste schließen.
 
-When you dismiss an alert:
+Wenn du eine Warnung verwirfst, passiert Folgendes:
 
-- It's dismissed in all branches.
-- The alert is removed from the number of current alerts for your project.
-- The alert is moved to the "Closed" list in the summary of alerts, from where you can reopen it, if required.
-- The reason why you closed the alert is recorded.{% ifversion comment-dismissed-code-scanning-alert %} 
-- Optionally, you can comment on a dismissal to record the context of an alert dismissal.{% endif %}
-- Next time {% data variables.product.prodname_code_scanning %} runs, the same code won't generate an alert.
+- Sie wird in allen Branches geschlossen.
+- Die Warnung wird aus den aktuellen Warnungen für dein Projekt entfernt.
+- Die Warnung wird in der Zusammenfassung der Warnungen in die Liste „Geschlossen“ verschoben, aus der du die Warnung bei Bedarf erneut öffnen kannst.
+- Der Grund für das Schließen der Warnung wird aufgezeichnet.{% ifversion comment-dismissed-code-scanning-alert %} 
+- Optional kannst du eine Schließung kommentieren, um den Kontext des Schließens einer Warnung aufzuzeichnen.{% endif %}
+- Wenn {% data variables.product.prodname_code_scanning %} das nächste Mal ausgeführt wird, wird durch denselben Code keine Warnung mehr generiert.
 
-{% ifversion delete-code-scanning-alerts %}When you delete an alert:
+{% ifversion delete-code-scanning-alerts %}Wenn du eine Warnung löschst, gilt Folgendes:
 
-- It's deleted in all branches.
-- The alert is removed from the number of current alerts for your project.
-- It is _not_ added to the "Closed" list in the summary of alerts.
-- If the code that generated the alert stays the same, and the same {% data variables.product.prodname_code_scanning %} tool runs again without any configuration changes, the alert will be shown again in your analysis results.{% endif %}
+- Sie wird in allen Branches gelöscht.
+- Die Warnung wird aus den aktuellen Warnungen für dein Projekt entfernt.
+- Sie wird in der Zusammenfassung der Warnungen _nicht_ der Liste „Geschlossen“ hinzugefügt.
+- Wenn der Code, durch den die Warnung generiert wurde, gleich bleibt und dasselbe {% data variables.product.prodname_code_scanning %}-Tool ohne Konfigurationsänderungen noch einmal ausgeführt wird, wird die Warnung wieder in den Analyseergebnissen angezeigt.{% endif %}
 
-To dismiss {% ifversion delete-code-scanning-alerts %}or delete{% endif %} alerts:
+So schließt {% ifversion delete-code-scanning-alerts %}oder löschst{% endif %} du Warnungen:
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-security %}
-{% data reusables.repositories.sidebar-code-scanning-alerts %}{% ifversion delete-code-scanning-alerts %}
-1. If you have admin permissions for the repository, and you want to delete alerts for this {% data variables.product.prodname_code_scanning %} tool, select some or all of the check boxes and click **Delete**.
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-security %} {% data reusables.repositories.sidebar-code-scanning-alerts %}{% ifversion delete-code-scanning-alerts %}
+1. Wenn du über Administratorberechtigungen für das Repository verfügst und Warnungen für dieses {% data variables.product.prodname_code_scanning %}-Tool löschen möchtest, wähle einige oder alle Kontrollkästchen aus, und klicke auf **Löschen**.
 
-   ![Deleting alerts](/assets/images/help/repository/code-scanning-delete-alerts.png)
+   ![Löschen von Warnungen](/assets/images/help/repository/code-scanning-delete-alerts.png)
 
-   Optionally, you can use the free text search or the filters to display a subset of alerts and then delete all matching alerts at once. For example, if you have removed a query from {% data variables.product.prodname_codeql %} analysis, you can use the "Rule" filter to list just the alerts for that query and then select and delete all of those alerts.
+   Du kannst optional die Freitextsuche oder die Filter nutzen, um eine Teilmenge der Warnungen anzuzeigen und dann alle übereinstimmenden Warnungen als geschlossen markieren. Wenn du beispielsweise eine Abfrage aus der {% data variables.product.prodname_codeql %}-Analyse entfernt hast, kannst du den Filter „Regel“ verwenden, um nur die Warnungen für diese Abfrage aufzulisten und dann all diese Warnungen auszuwählen und zu löschen.
 
-{% ifversion ghes or ghae %}
-  ![Filter alerts by rule](/assets/images/help/repository/code-scanning-filter-by-rule.png)
-{% else %}
-  ![Filter alerts by rule](/assets/images/enterprise/3.1/help/repository/code-scanning-filter-by-rule.png)
-{% endif %}{% endif %}
-1. If you want to dismiss an alert, it's important to explore the alert first, so that you can choose the correct dismissal reason. Click the alert you'd like to explore.
-![Open an alert from the summary list](/assets/images/help/repository/code-scanning-click-alert.png)
-{%- ifversion comment-dismissed-code-scanning-alert %}
-1. Review the alert, then click **Dismiss alert** and choose, or type, a reason for closing the alert. 
-  ![Screenshot of code scanning alert with dropdown to choose dismissal reason emphasized](/assets/images/help/repository/code-scanning-alert-dropdown-reason.png)
-{%- else %}
-1. Review the alert, then click **Dismiss** and choose a reason for closing the alert.
-  ![Choosing a reason for dismissing an alert](/assets/images/help/repository/code-scanning-alert-close-drop-down.png)
-{%- endif %}
-   {% data reusables.code-scanning.choose-alert-dismissal-reason %}
+{% ifversion ghes or ghae %} ![Filtern von Warnungen nach Regel](/assets/images/help/repository/code-scanning-filter-by-rule.png) {% else %} ![Filtern von Warnungen nach Regel](/assets/images/enterprise/3.1/help/repository/code-scanning-filter-by-rule.png) {% endif %}{% endif %}
+1. Wenn du eine Warnung verwerfen möchtest, ist es wichtig, die Warnung zunächst zu begutachten, damit du den richtigen Grund zum Verwerfen auswählen kannst. Klicke auf die Warnung, die du begutachten möchtest.
+![Warnung über die Zusammenfassungsliste öffnen](/assets/images/help/repository/code-scanning-click-alert.png) {%- ifversion comment-dismissed-code-scanning-alert %}
+1. Überprüfe die Warnung. Klicke dann auf **Warnung schließen**, und wähle einen Grund für das Schließen der Warnung aus, oder gib einen Grund ein. 
+  ![Screenshot: Warnung für Codescan mit hervorgehobenem Dropdownmenü zur Auswahl des Schließungsgrunds](/assets/images/help/repository/code-scanning-alert-dropdown-reason.png) {%- else %}
+1. Überprüfe die Warnung. Klicke dann auf **Verwerfen**, und wähle einen Grund für das Schließen der Warnung aus.
+  ![Schließungsgrund für eine Warnung auswählen](/assets/images/help/repository/code-scanning-alert-close-drop-down.png) {%- endif %} {% data reusables.code-scanning.choose-alert-dismissal-reason %}
 
    {% data reusables.code-scanning.false-positive-fix-codeql %}
 
-### Dismissing multiple alerts at once
+### Gleichzeitiges Verwerfen mehrerer Warnungen
 
-If a project has multiple alerts that you want to dismiss for the same reason, you can bulk dismiss them from the summary of alerts. Typically, you'll want to filter the list and then dismiss all of the matching alerts. For example, you might want to dismiss all of the current alerts in the project that have been tagged for a particular Common Weakness Enumeration (CWE) vulnerability.
+Wenn ein Projekt mehrere Warnungen aufweist, die du aus demselben Grund verwerfen möchtest, kannst du die Warnungen in der Zusammenfassung der Warnungen mithilfe einer Massenaktion verwerfen. Normalerweise musst du die Liste filtern und dann alle übereinstimmenden Warnungen verwerfen. Beispiel: Du musst alle aktuellen Warnungen im Projekt schließen, die mit einem Tag für ein bestimmtes CWE-Sicherheitsrisiko (Common Weakness Enumeration) versehen wurden.
 
-## Further reading
+## Weitere Informationsquellen
 
-- "[Triaging {% data variables.product.prodname_code_scanning %} alerts in pull requests](/code-security/secure-coding/triaging-code-scanning-alerts-in-pull-requests)"
-- "[Setting up {% data variables.product.prodname_code_scanning %} for a repository](/code-security/secure-coding/setting-up-code-scanning-for-a-repository)"
-- "[About integration with {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/about-integration-with-code-scanning)"
+- [Selektieren von {% data variables.product.prodname_code_scanning %}-Warnungen in Pull Requests](/code-security/secure-coding/triaging-code-scanning-alerts-in-pull-requests)
+- [Einrichten von {% data variables.product.prodname_code_scanning %} für ein Repository](/code-security/secure-coding/setting-up-code-scanning-for-a-repository)
+- [Informationen zur Integration mit {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/about-integration-with-code-scanning)

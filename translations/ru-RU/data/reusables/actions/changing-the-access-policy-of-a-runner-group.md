@@ -1,38 +1,39 @@
+---
+ms.openlocfilehash: 19ffef89b0f09653fc396f4cfc99e47e2162548b
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/25/2022
+ms.locfileid: "148109070"
+---
 {% comment %} 
 
-Always include a security admonition above this procedure. This is either one of the following, depending on whether the context is self-hosted runners or larger runners.
+Всегда включайте объявление о безопасности над этой процедурой. Это одно из следующих действий, в зависимости от того, является ли контекст локальным средством выполнения или более крупными средством выполнения.
 
-{% data reusables.actions.self-hosted-runner-security-admonition %}
-{% data reusables.actions.hosted-runner-security-admonition %}
+{% data reusables.actions.self-hosted-runner-security-admonition %} {% data reusables.actions.hosted-runner-security-admonition %}
  
 {% endcomment %}
 
-For runner groups in an enterprise, you can change what organizations in the enterprise can access a runner group{% ifversion restrict-groups-to-workflows %} or restrict what workflows a runner group can run{% endif %}. For runner groups in an organization, you can change what repositories in the organization can access a runner group{% ifversion restrict-groups-to-workflows %} or restrict what workflows a runner group can run{% endif %}.
+Для корпоративных групп средств выполнения вы можете изменять список организаций предприятия, которые могут получать доступ к группе средств выполнения{% ifversion restrict-groups-to-workflows %}, или ограничивать рабочие процессы, которые может запускать группа средств выполнения{% endif %}. Для групп средств выполнения в организации вы можете изменять список репозиториев в организации, которые могут получать доступ к группе средств выполнения{% ifversion restrict-groups-to-workflows %}, или ограничивать рабочие процессы, которые может запускать группа средств выполнения{% endif %}.
 
-### Changing what organizations or repositories can access a runner group
+### Изменение списка организаций или репозиториев, которые могут получить доступ к группе средств выполнения
 
-{% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
-{% data reusables.actions.runner-groups-navigate-to-repo-org-enterprise %}
-{% data reusables.actions.settings-sidebar-actions-runner-groups-selection %}
-1. For runner groups in an enterprise, under **Organization access**, modify what organizations can access the runner group. For runner groups in an organization, under **Repository access**, modify what repositories can access the runner group.
+{% ifversion fpt или ghec или ghes > 3.3 или ghae > 3,3 %} {% данных reusables.actions.runner-groups-navigate-to-repo-org-enterprise %} {% данных reusables.actions.settings-sidebar-actions-runner-groups-selection %}
+1. Для корпоративных групп средств выполнения перейдите в раздел **Доступ организаций** и измените, какие организации могут получать доступ к группе средств выполнения. Для групп средств выполнения в организации перейдите в раздел **Доступ репозиториев** и измените, какие репозитории могут получать доступ к группе средств выполнения.
 
-{% elsif ghae < 3.4 or ghes < 3.4 %}
-{% data reusables.actions.configure-runner-group-access %}
-{% endif %}
+{% elsif ghae < 3,4 или ghes < 3,4 %} {% данных reusables.actions.configure-runner-group-access %} {% endif %}
 
 {% ifversion restrict-groups-to-workflows %}
-### Changing what workflows can access a runner group
-You can configure a runner group to run either selected workflows or all workflows. For example, you might use this setting to protect secrets that are stored on runners or to standardize deployment workflows by restricting a runner group to run only a specific reusable workflow. This setting cannot be overridden if you are configuring an organization's runner group that was shared by an enterprise. 
-{% data reusables.actions.runner-groups-navigate-to-repo-org-enterprise %}
-{% data reusables.actions.settings-sidebar-actions-runner-groups-selection %}
-1. Under **Workflow access**, select the dropdown menu and click **Selected workflows**.
-1. Click {% octicon "gear" aria-label="the gear icon" %}.
-1. Enter a comma separated list of the workflows that can access the runner group. Use the full path, including the repository name and owner. Pin the workflow to a branch, tag, or full SHA. For example: `octo-org/octo-repo/.github/workflows/build.yml@v2, octo-org/octo-repo/.github/workflows/deploy.yml@d6dc6c96df4f32fa27b039f2084f576ed2c5c2a5, monalisa/octo-test/.github/workflows/test.yml@main`.
+### Изменение списка рабочих процессов, которые могут получать доступ к группе средств выполнения
+Вы можете настроить группу средств выполнения для запуска только выбранных рабочих процессов или всех рабочих процессов. Например, этот параметр можно использовать для защиты секретов, хранящихся в средствах выполнения, или для стандартизации рабочих процессов развертывания путем разрешения группе средств выполнения запускать только определенный повторно используемый рабочий процесс. Этот параметр нельзя переопределить, если вы настраиваете группу средств выполнения организации, которая совместно используется в предприятии. {% data reusables.actions.runner-groups-navigate-to-repo-org-enterprise %} {% data reusables.actions.settings-sidebar-actions-runner-groups-selection %}
+1. В разделе **Доступ к рабочему процессу** щелкните раскрывающееся меню и нажмите пункт **Выбранные рабочие процессы**.
+1. Щелкните {% octicon "gear" aria-label="the gear icon" %}.
+1. Введите разделенный запятыми список рабочих процессов, которые могут получить доступ к группе средств выполнения. Используйте полный путь, включающий имя и владельца репозитория. Закрепите рабочий процесс в ветви, теге или полном SHA. Например: `octo-org/octo-repo/.github/workflows/build.yml@v2, octo-org/octo-repo/.github/workflows/deploy.yml@d6dc6c96df4f32fa27b039f2084f576ed2c5c2a5, monalisa/octo-test/.github/workflows/test.yml@main`.
 
-   Only jobs directly defined within the selected workflows will have access to the runner group.
+   Доступ к этой группе средств выполнения будут иметь только задания, непосредственно определенные в выбранных рабочих процессах.
    
-   Organization-owned runner groups cannot access workflows from a different organization in the enterprise; instead, you must create an enterprise-owned runner group.
+   Группы средств выполнения, принадлежащие организации, не могут получать доступ к рабочим процессам из другой организации в предприятии; вместо этого необходимо создать группу средств выполнения, принадлежащую предприятию.
 
-1. Click **Save**.
+1. Выберите команду **Сохранить**.
 
 {% endif %}

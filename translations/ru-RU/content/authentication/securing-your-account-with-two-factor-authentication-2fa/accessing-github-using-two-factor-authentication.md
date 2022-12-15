@@ -1,6 +1,6 @@
 ---
-title: Accessing GitHub using two-factor authentication
-intro: 'With 2FA enabled, you''ll be asked to provide your 2FA authentication code, as well as your password, when you sign in to {% data variables.product.product_name %}.'
+title: Доступ к GitHub с помощью двухфакторной проверки подлинности
+intro: 'После включения двухфакторной проверки подлинности при входе в {% data variables.product.product_name %} вам будет предложено указать код двухфакторной проверки подлинности, а также пароль.'
 redirect_from:
   - /articles/providing-your-2fa-security-code
   - /articles/providing-your-2fa-authentication-code
@@ -15,83 +15,89 @@ versions:
 topics:
   - 2FA
 shortTitle: Access GitHub with 2FA
+ms.openlocfilehash: 727e2ce5a1e0292b7f571aa29349e967cb8cd3f3
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148098463'
 ---
-With two-factor authentication enabled, you'll need to provide an authentication code when accessing {% data variables.product.product_name %} through your browser. If you access {% data variables.product.product_name %} using other methods, such as the API or the command line, you'll need to use an alternative form of authentication. For more information, see "[About authentication to {% data variables.product.prodname_dotcom %}](/github/authenticating-to-github/about-authentication-to-github)."
+Если включена двухфакторная проверка подлинности, вам потребуется предоставить код проверки подлинности при доступе к {% data variables.product.product_name %} через браузер. При доступе к {% data variables.product.product_name %} с помощью других методов, таких как API или командная строка, необходимо использовать другую форму проверки подлинности. Дополнительные сведения см. в разделе [Сведения о проверке подлинности в {% data variables.product.prodname_dotcom %}](/github/authenticating-to-github/about-authentication-to-github).
 
-## Providing a 2FA code when signing in to the website
+## Предоставление кода двухфакторной проверки подлинности при входе на веб-сайт
 
-After you sign in to {% data variables.product.product_name %} using your password, you'll be prompted to provide an authentication code from {% ifversion fpt or ghec %}a text message or{% endif %} your TOTP app.
+После входа в {% data variables.product.product_name %} с помощью пароля вам будет предложено предоставить код проверки подлинности из {% ifversion fpt or ghec %}текстового сообщения или{% endif %} вашего приложения TOTP.
 
-{% data variables.product.product_name %} will only ask you to provide your 2FA authentication code again if you've logged out, are using a new device, or your session expires.
+{% data variables.product.product_name %} попросит вас снова предоставить код двухфакторной проверки подлинности, только если вы вышли из системы, используете новое устройство или истек срок действия сеанса.
 
-### Generating a code through a TOTP application
+### Создание кода с помощью приложения TOTP
 
-If you chose to set up two-factor authentication using a TOTP application on your smartphone, you can generate an authentication code for {% data variables.product.product_name %} at any time. In most cases, just launching the application will generate a new code. You should refer to your application's documentation for specific instructions.
+Если вы решили настроить двухфакторную проверку подлинности с помощью приложения TOTP на смартфоне, то можете создать код проверки подлинности для {% data variables.product.product_name %} в любое время. В большинстве случаев для создания нового кода достаточно просто запустить это приложение. Конкретные инструкции см. в документации приложения.
 
-If you delete the mobile application after configuring two-factor authentication, you'll need to provide your recovery code to get access to your account. For more information, see "[Recovering your account if you lose your two-factor authentication credentials](/articles/recovering-your-account-if-you-lose-your-2fa-credentials)"
+Если вы удалите мобильное приложение после настройки двухфакторной проверки подлинности, то для получения доступа к учетной записи вам будет нужно предоставить код восстановления. Дополнительные сведения см. в разделе [Восстановление учетной записи при потере учетных данных двухфакторной проверки подлинности](/articles/recovering-your-account-if-you-lose-your-2fa-credentials).
 
 {% ifversion fpt or ghec %}
 
-### Receiving a text message
+### Получение текстового сообщения
 
-If you set up two-factor authentication via text messages, {% data variables.product.product_name %} will send you a text message with your authentication code.
+Если вы настроили двухфакторную проверку подлинности с помощью текстовых сообщений, {% data variables.product.product_name %} будет отправлять вам текстовое сообщение с кодом проверки подлинности.
 
-### Verifying with {% data variables.product.prodname_mobile %}
+### Проверка с помощью {% data variables.product.prodname_mobile %}
 
-If you have installed and signed in to {% data variables.product.prodname_mobile %}, you may choose to authenticate with {% data variables.product.prodname_mobile %} for two-factor authentication.
+Если вы установили {% data variables.product.prodname_mobile %} и вошли в него, вы можете выбрать проверку подлинности с помощью {% data variables.product.prodname_mobile %} для двухфакторной проверки подлинности.
 
-1. Sign in to {% data variables.product.product_name %} with your browser, using your username and password.
-2. If you have added a security key to your account, you'll first be prompted to insert and use a security key. To skip using a security key, click **Authenticate with {% data variables.product.prodname_mobile %}**.
-  ![Two-factor authentication challenge on {% data variables.product.product_name %} with "Authenticate with {% data variables.product.prodname_mobile %}" highlighted](/assets/images/help/2fa/2fa-select-mobile.png)
-3. {% data variables.product.product_name %} will send you a push notification to verify your sign in attempt. Opening the push notification or opening the {% data variables.product.prodname_mobile %} app will display a prompt, asking you to approve or reject this sign in attempt.
+1. Войдите в {% data variables.product.product_name %} в браузере, используя свое имя пользователя и пароль.
+2. Если вы добавили в свою учетную запись ключ безопасности, сначала будет предложено вставить и использовать ключ безопасности. Чтобы пропустить использование ключа безопасности, нажмите **Проверка подлинности с помощью {% data variables.product.prodname_mobile %}** .
+  ![Запрос двухфакторной проверки подлинности в {% data variables.product.product_name %} с выделенным параметром "Проверка подлинности с помощью {% data variables.product.prodname_mobile %}"](/assets/images/help/2fa/2fa-select-mobile.png)
+3. {% data variables.product.product_name %} отправит push-уведомление для проверки вашей попытки входа. При открытии push-уведомления или открытии приложения {% data variables.product.prodname_mobile %} появится подсказка, предлагающая утвердить или отклонить попытку входа.
   {% note %}
 
-  **Note**: This prompt may require you to enter a two-digit number displayed within the browser you are signing in to.
+  **Примечание.** Эта подсказка может потребовать ввести двузначное число, отображаемое в браузере, в котором выполняется вход.
 
   {% endnote %}
 
-  ![Two-factor authentication challenge with {% data variables.product.prodname_mobile %} requiring a two-digit input](/assets/images/help/2fa/2fa-mobile-number-challenge.png)
+  ![Запрос двухфакторной проверки подлинности в {% data variables.product.prodname_mobile %}, требующий ввести двузначное число](/assets/images/help/2fa/2fa-mobile-number-challenge.png)
 
-    - Upon approving the login attempt using {% data variables.product.prodname_mobile %}, your browser will complete the sign in attempt automatically.
-    - Rejecting the sign in attempt will prevent the authentication from finishing. For more information, see "[Keeping your account and data secure](/authentication/keeping-your-account-and-data-secure)."
+    - После утверждения попытки входа с помощью {% data variables.product.prodname_mobile %} браузер автоматически выполнит попытку входа.
+    - Отклонение попытки входа не позволит завершить проверку подлинности. Дополнительные сведения см. в разделе [Обеспечение безопасности учетной записи и данных](/authentication/keeping-your-account-and-data-secure).
 
 {% endif %}
 
-## Using two-factor authentication with the command line
+## Использование двухфакторной проверки подлинности с командной строкой
 
-After you've enabled 2FA, you will no longer use your password to access {% data variables.product.product_name %} on the command line. Instead, use Git Credential Manager, a {% data variables.product.pat_generic %}, or an SSH key.
+После включения 2FA вы больше не будете использовать пароль для доступа к {% data variables.product.product_name %} в командной строке. Вместо этого используйте диспетчер учетных данных Git, {% данных variables.product.pat_generic %}или ключ SSH.
 
-### Authenticating on the command line using Git Credential Manager
+### Проверка подлинности в командной строке с помощью диспетчера учетных данных Git
 
-[Git Credential Manager](https://github.com/GitCredentialManager/git-credential-manager/blob/main/README.md) is a secure Git credential helper that runs on Windows, macOS, and Linux. For more information about Git credential helpers, see [Avoiding repetition](https://git-scm.com/docs/gitcredentials#_avoiding_repetition) in the Pro Git book.
+[Диспетчер учетных данных Git](https://github.com/GitCredentialManager/git-credential-manager/blob/main/README.md) является вспомогательным компонентом учетных данных Git, который работает в Windows, macOS и Linux. Дополнительные сведения о вспомогательных функциях диспетчеров учетных данных Git см. в разделе [Избегание повторения](https://git-scm.com/docs/gitcredentials#_avoiding_repetition) в книге Pro Git.
 
-Setup instructions vary based on your computer's operating system. For more information, see [Download and install](https://github.com/GitCredentialManager/git-credential-manager/blob/main/README.md#download-and-install) in the GitCredentialManager/git-credential-manager repository.
+Инструкции по настройке зависят от операционной системы компьютера. Дополнительные сведения см. в разделе [Скачивание и установка](https://github.com/GitCredentialManager/git-credential-manager/blob/main/README.md#download-and-install) в репозитории GitCredentialManager/git-credential-manager.
 
-### Authenticating on the command line using HTTPS
+### Проверка подлинности в командной строке с помощью HTTPS
 
-After you've enabled 2FA, you must create a {% data variables.product.pat_generic %} to use as a password when authenticating to {% data variables.product.product_name %} on the command line using HTTPS URLs.
+После включения 2FA необходимо создать {% данных variables.product.pat_generic %} для использования в качестве пароля при проверке подлинности в {% данных variables.product.product_name %} в командной строке с помощью URL-адресов HTTPS.
 
-When prompted for a username and password on the command line, use your {% data variables.product.product_name %} username and {% data variables.product.pat_generic %}. The command line prompt won't specify that you should enter your {% data variables.product.pat_generic %} when it asks for your password.
+При появлении запроса на ввод имени пользователя и пароля в командной строке используйте имя пользователя {% данных variables.product.product_name %} и {% данных variables.product.pat_generic %}. Командная строка не будет указывать, что при запросе пароля введите {% данных variables.product.pat_generic %}.
 
-For more information, see "[Creating a {% data variables.product.pat_generic %}](/github/authenticating-to-github/creating-a-personal-access-token)."
+Дополнительные сведения см. в разделе "[Создание {% данных variables.product.pat_generic %}](/github/authenticating-to-github/creating-a-personal-access-token)".
 
-### Authenticating on the command line using SSH
+### Проверка подлинности в командной строке с помощью SSH
 
-Enabling 2FA doesn't change how you authenticate to {% data variables.product.product_name %} on the command line using SSH URLs. For more information about setting up and using an SSH key, see "[Connecting to {% data variables.product.prodname_dotcom %} with SSH](/articles/connecting-to-github-with-ssh/)."
+Включение двухфакторной проверки подлинности не изменяет способ проверки подлинности в {% data variables.product.product_name %} в командной строке с помощью URL-адресов SSH. Дополнительные сведения о настройке и использовании ключа SSH см. в разделе [Подключение к {% data variables.product.prodname_dotcom %} с помощью SSH](/articles/connecting-to-github-with-ssh/).
 
-## Using two-factor authentication to access a repository using Subversion
+## Использование двухфакторной проверки подлинности для доступа к репозиторию с помощью Subversion
 
-When you access a repository via Subversion, you must provide a {% data variables.product.pat_generic %} instead of entering your password. For more information, see "[Creating a {% data variables.product.pat_generic %}](/github/authenticating-to-github/creating-a-personal-access-token)."
+При доступе к репозиторию через Subversion необходимо предоставить {% данных variables.product.pat_generic %} вместо ввода пароля. Дополнительные сведения см. в разделе "[Создание {% данных variables.product.pat_generic %}](/github/authenticating-to-github/creating-a-personal-access-token)".
 
-## Troubleshooting
+## Устранение неполадок
 
-If you lose access to your two-factor authentication credentials, you can use your recovery codes or another recovery method (if you've set one up) to regain access to your account. For more information, see "[Recovering your account if you lose your 2FA credentials](/articles/recovering-your-account-if-you-lose-your-2fa-credentials)."
+Если вы потеряете доступ к своим учетным данным двухфакторной проверки подлинности, то для восстановления доступа к учетной записи сможете использовать коды восстановления или другой метод восстановления (если он настроен). Дополнительные сведения см. в разделе [Восстановление учетной записи при потере учетных данных двухфакторной проверки подлинности](/articles/recovering-your-account-if-you-lose-your-2fa-credentials).
 
-If your authentication fails several times, you may wish to synchronize your phone's clock with your mobile provider. Often, this involves checking the "Set automatically" option on your phone's clock, rather than providing your own time zone.
+Если проверка подлинности завершается неудачно несколько раз, может потребоваться синхронизировать часы телефона с вашим мобильным оператором. Обычно для этого нужно проверить параметр "Установить автоматически" на часах телефона, а иногда — предоставить собственный часовой пояс.
 
-## Further reading
+## Дополнительные материалы
 
-- "[About two-factor authentication](/articles/about-two-factor-authentication)"
-- "[Configuring two-factor authentication](/articles/configuring-two-factor-authentication)"
-- "[Configuring two-factor authentication recovery methods](/articles/configuring-two-factor-authentication-recovery-methods)"
-- "[Recovering your account if you lose your two-factor authentication credentials](/articles/recovering-your-account-if-you-lose-your-2fa-credentials)"
+- [Двухфакторная проверка подлинности](/articles/about-two-factor-authentication)
+- [Настройка двухфакторной проверки подлинности](/articles/configuring-two-factor-authentication)
+- [Настройка методов восстановления для двухфакторной проверки подлинности](/articles/configuring-two-factor-authentication-recovery-methods)
+- [Восстановление учетной записи при потере учетных данных двухфакторной проверки подлинности](/articles/recovering-your-account-if-you-lose-your-2fa-credentials)

@@ -1,7 +1,7 @@
 ---
-title: About authentication for your enterprise
+title: Informationen zur Authentifizierung für dein Unternehmen
 shortTitle: About authentication
-intro: 'You {% ifversion ghae %}must configure SAML single sign-on (SSO) so people can{% else %}can choose how people{% endif %} authenticate to access {% ifversion ghec %}your enterprise''s resources on {% data variables.product.product_name %}{% elsif ghes %}{% data variables.location.product_location %}{% elsif ghae %}your enterprise on {% data variables.product.product_name %}{% endif %}.'
+intro: 'Du {% ifversion ghae %}musst SAML-SSO (Single Sign-On) konfigurieren, damit die Benutzer{% else %}kannst auswählen, wie Personen{% endif %} sich für den Zugriff auf {% ifversion ghec %}die Ressourcen deines Unternehmens auf {% data variables.product.product_name %}{% elsif ghes %}{% data variables.location.product_location %}{% elsif ghae %}dein Unternehmen auf {% data variables.product.product_name %}{% endif %} authentifizieren.'
 versions:
   ghec: '*'
   ghes: '*'
@@ -13,145 +13,140 @@ topics:
   - Enterprise
   - Identity
   - SSO
+ms.openlocfilehash: 16b5bdd98e37db2eef6fe7e4e02da1a4ce8fd406
+ms.sourcegitcommit: 34d500fe45b362043b4b4685d6705a7bfb484d11
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 11/15/2022
+ms.locfileid: '148164372'
 ---
-
-## About authentication for your enterprise
+## Informationen zur Authentifizierung für dein Unternehmen
 
 {% ifversion ghec %}
 
-Enterprise owners on {% data variables.product.product_name %} can control the requirements for authentication and access to the enterprise's resources. 
+Unternehmensbesitzer*innen mit {% data variables.product.product_name %} können die Anforderungen für die Authentifizierung für und den Zugriff auf die Ressourcen eines Unternehmens steuern. 
 
 {% data reusables.enterprise.ghec-authentication-options %}
 
-After learning more about these options, to determine which method is best for your enterprise, see "[Identifying the best authentication method for your enterprise](#identifying-the-best-authentication-method-for-your-enterprise)."
+Weitere Informationen zu diesen Optionen, um zu ermitteln, welche Methode für dein Unternehmen am besten geeignet ist, findest du unter [Identifizieren der besten Authentifizierungsmethode für dein Unternehmen](#identifying-the-best-authentication-method-for-your-enterprise).
 
-## Authentication methods for {% data variables.product.product_name %}
+## Authentifizierungsmethoden für {% data variables.product.product_name %}
 
-The following options are available for account management and authentication on {% data variables.product.product_name %}.
+Für die Kontenverwaltung und -authentifizierung bei {% data variables.product.product_name %} sind die folgenden Optionen verfügbar.
 
-- [Authentication through {% data variables.location.product_location %}](#authentication-through-githubcom)
-- [Authentication through {% data variables.location.product_location %} with additional SAML access restriction](#authentication-through-githubcom-with-additional-saml-access-restriction)
-- [Authentication with {% data variables.product.prodname_emus %} and federation](#authentication-with-enterprise-managed-users-and-federation)
+- [Authentifizierung über {% data variables.location.product_location %}](#authentication-through-githubcom)
+- [Authentifizierung über {% data variables.location.product_location %} mit zusätzlicher SAML-Zugriffsbeschränkung](#authentication-through-githubcom-with-additional-saml-access-restriction)
+- [Authentifizierung mithilfe von {% data variables.product.prodname_emus %} und Verbund](#authentication-with-enterprise-managed-users-and-federation)
 
-### Authentication through {% data variables.location.product_location %}
+### Authentifizierung über {% data variables.location.product_location %}
 
-By default, each member must create a personal account on {% data variables.location.product_location %}. You grant access to your enterprise, and the member can access your enterprise's resources after signing into the account on {% data variables.location.product_location %}. The member manages the account, and can contribute to other enterprises, organizations, and repositories on {% data variables.location.product_location %}.
+Standardmäßig muss jedes Mitglied ein persönliches Konto auf {% data variables.location.product_location %} erstellen. Du erteilst Zugriff auf dein Unternehmen, und die Mitglieder können auf die Ressourcen des Unternehmens zugreifen, nachdem sie sich bei ihrem Konto auf {% data variables.location.product_location %} angemeldet haben. Das Mitglied verwaltet das Konto und kann zu anderen Unternehmen, Organisationen und Repositorys auf {% data variables.location.product_location %} beitragen.
 
-### Authentication through {% data variables.location.product_location %} with additional SAML access restriction
+### Authentifizierung über {% data variables.location.product_location %} mit zusätzlicher SAML-Zugriffsbeschränkung
 
-If you configure additional SAML access restriction, each member must create and manage a personal account on {% data variables.location.product_location %}. You grant access to your enterprise, and the member can access your enterprise's resources after both signing into the account on {% data variables.location.product_location %} and successfully authenticating with your SAML identity provider (IdP). The member can contribute to other enterprises, organizations, and repositories on {% data variables.location.product_location %} using their personal account. For more information about requiring SAML authentication for all access your enterprise's resources, see "[About SAML for enterprise IAM](/admin/identity-and-access-management/using-saml-for-enterprise-iam/about-saml-for-enterprise-iam)."
+Wenn du eine zusätzliche SAML-Zugriffsbeschränkung konfigurierst, muss jedes Mitglied ein persönliches Konto auf {% data variables.location.product_location %} erstellen und verwalten. Du erteilst Zugriff auf dein Unternehmen, und das Mitglied kann auf die Ressourcen deines Unternehmens zugreifen, nachdem es sich bei seinem Konto auf {% data variables.location.product_location %} angemeldet und sich erfolgreich bei deinem SAML-Identitätsanbieter (IdP) authentifiziert hat. Das Mitglied kann mit seinem persönlichen Konto zu anderen Unternehmen, Organisationen und Repositorys auf {% data variables.location.product_location %} beitragen. Weitere Informationen zum Anfordern der SAML-Authentifizierung für Zugriff auf die Ressourcen deines Unternehmens findest du unter [Informationen zu SAML for Enterprise IAM](/admin/identity-and-access-management/using-saml-for-enterprise-iam/about-saml-for-enterprise-iam).
 
-#### Considerations for enabling SAML for an enterprise or organization
+Wenn du eine eigenständige Organisation mit {% data variables.product.product_name %} verwendest oder die SAML-Authentifizierung nicht für jede Organisation in deinem Unternehmen nutzen möchtest, kannst du SAML für eine einzelne Organisation konfigurieren. Weitere Informationen findest du unter [Informationen zur Identitäts- und Zugriffsverwaltung mit der einmaligen SAML-Anmeldung](/organizations/managing-saml-single-sign-on-for-your-organization/about-identity-and-access-management-with-saml-single-sign-on).
 
-You can configure SAML authentication for every organization in your enterprise, or for individual organizations. If you use a standalone organization with {% data variables.product.product_name %}, or if you don't want to use SAML authentication for every organization in your enterprise, you may want to configure SAML for an individual organization instead of your enterprise. For more information, see "[About identity and access management with SAML single sign-on](/organizations/managing-saml-single-sign-on-for-your-organization/about-identity-and-access-management-with-saml-single-sign-on)."
+### Authentifizierung mithilfe von {% data variables.product.prodname_emus %} und Verbund
 
-If some groups within your enterprise must use different SAML authentication providers to grant access to your resources on {% data variables.location.product_location %}, you can configure SAML for individual organizations. You can implement SAML for your organizations over time by allowing users to gradually authenticate using SAML. Alternatively, you can require SAML authentication by a certain date. Organization members who do not authenticate using SAML by this date will be removed.
+Wenn du mehr Kontrolle über die Konten deiner Unternehmensmitglieder auf {% data variables.location.product_location %} benötigst, kannst du {% data variables.product.prodname_emus %} verwenden. Mit {% data variables.product.prodname_emus %} stellst du Konten für deine Unternehmensmitglieder auf {% data variables.location.product_location %} bereit und verwaltest sie mit deinem Identitätsanbieter. Jedes Mitglied meldet sich bei einem Konto an, das du erstellt hast, und dein Unternehmen verwaltet das Konto. Beiträge zum Rest von {% data variables.product.prodname_dotcom_the_website %} sind beschränkt. Weitere Informationen findest du unter [Informationen zu {% data variables.product.prodname_emus %}](/admin/identity-and-access-management/using-enterprise-managed-users-and-saml-for-iam/about-enterprise-managed-users).
 
-If you need to enforce a consistent authentication experience for every organization in your enterprise, you can configure SAML authentication for your enterprise account. The SAML configuration for your enterprise overrides any SAML configuration for individual organizations, and organizations cannot override the enterprise configuration. After you configure SAML for your enterprise, organization members must authenticate with SAML before accessing organization resources. SCIM is not available for enterprise accounts. Team synchronization is only available for SAML at the enterprise level if you use Azure AD as an IdP. For more information, see "[Managing team synchronization for organizations in your enterprise](/admin/identity-and-access-management/using-saml-for-enterprise-iam/managing-team-synchronization-for-organizations-in-your-enterprise)."
+## Identifizieren der besten Authentifizierungsmethode für dein Unternehmen
 
-Regardless of the SAML implementation you choose, you cannot add external collaborators to organizations or teams. You can only add external collaborators to individual repositories.
+Sowohl SAML SSO als auch {% data variables.product.prodname_emus %} erhöht die Sicherheit für die Ressourcen deines Unternehmens. {% data variables.product.prodname_emus %} ermöglicht dir darüber hinaus, die Benutzerkonten für deine Unternehmensmitglieder zu steuern und einzuschränken, was die Konten tun können. Diese Einschränkungen können jedoch für dein Unternehmen inakzeptabel sein, wenn sie die Workflows deiner Entwickler behindern.
 
-### Authentication with {% data variables.product.prodname_emus %} and federation
+Um festzustellen, ob dein Unternehmen mehr von SAML SSO oder {% data variables.product.prodname_emus %} profitieren würde, stelle dir diese Fragen.
 
-If you need more control of the accounts for your enterprise members on {% data variables.location.product_location %}, you can use {% data variables.product.prodname_emus %}. With {% data variables.product.prodname_emus %}, you provision and manage accounts for your enterprise members on {% data variables.location.product_location %} using your IdP. Each member signs into an account that you create, and your enterprise manages the account. Contributions to the rest of {% data variables.product.prodname_dotcom_the_website %} are restricted. For more information, see "[About {% data variables.product.prodname_emus %}](/admin/identity-and-access-management/using-enterprise-managed-users-and-saml-for-iam/about-enterprise-managed-users)."
+- [Möchtest du die Benutzerkonten für deine Benutzer steuern?](#do-you-want-to-control-the-user-accounts-for-your-users)
+- [Welchen Identitätsanbieter verwendet dein Unternehmen?](#which-identity-provider-does-your-enterprise-use)
+- [Arbeiten deine Entwickler in öffentlichen Repositorys, Gists oder {% data variables.product.prodname_pages %}-Sites?](#do-your-developers-work-in-public-repositories-gists-or-github-pages-sites)
+- [Sind deine Entwickler von Zusammenarbeit außerhalb deines Unternehmens abhängig?](#do-your-developers-rely-on-collaboration-outside-of-your-enterprise)
+- [Ist dein Unternehmen von externen Mitarbeitern abhängig?](#does-your-enterprise-rely-on-outside-collaborators)
+- [Kann dein Unternehmen Migrationskosten tolerieren?](#can-your-enterprise-tolerate-migration-costs)
 
-## Identifying the best authentication method for your enterprise
+### Möchtest du die Benutzerkonten für deine Benutzer steuern?
 
-Both SAML SSO and {% data variables.product.prodname_emus %} increase security for your enterprise's resources. {% data variables.product.prodname_emus %} additionally allows you to control the user accounts for your enterprise members and restricts what the accounts are able to do. However, those restrictions may be unacceptable for your enterprise if they obstruct your developers' workflows.
+{% data variables.product.prodname_emus %} kann für dein Unternehmen geeignet sein, wenn du nicht möchtest, dass Unternehmensmitglieder ihre eigenen persönlichen Konten auf {% data variables.product.prodname_dotcom_the_website %} verwenden, um auf die Ressourcen deines Unternehmens zuzugreifen. 
 
-To determine whether your enterprise would benefit more from SAML SSO or {% data variables.product.prodname_emus %}, ask yourself these questions.
+Mit SAML SSO erstellen und verwalten Entwickler ihre eigenen persönlichen Konten, und jedes Konto ist mit einer SAML-Identität in deinem IdP verknüpft. {% data variables.product.prodname_emus %} funktioniert eher wie andere vertraute SSO-Lösungen, da du die Konten für deine Benutzer bereitstellst. Du kannst auch sicherstellen, dass Benutzerkonten deiner Unternehmensidentität entsprechen, indem du Benutzernamen und E-Mail-Adressen steuerst, die mit den Konten verknüpft sind. 
 
-- [Do you want to control the user accounts for your users?](#do-you-want-to-control-the-user-accounts-for-your-users)
-- [Which identity provider does your enterprise use?](#which-identity-provider-does-your-enterprise-use)
-- [Do your developers work in public repositories, gists, or {% data variables.product.prodname_pages %} sites?](#do-your-developers-work-in-public-repositories-gists-or-github-pages-sites)
-- [Do your developers rely on collaboration outside of your enterprise?](#do-your-developers-rely-on-collaboration-outside-of-your-enterprise)
-- [Does your enterprise rely on outside collaborators?](#does-your-enterprise-rely-on-outside-collaborators)
-- [Can your enterprise tolerate migration costs?](#can-your-enterprise-tolerate-migration-costs)
+Wenn du derzeit verlangst, dass deine Nutzer ein neues Konto auf {% data variables.product.prodname_dotcom_the_website %} erstellen, das nur für dein Unternehmen verwendet werden darf, könnte {% data variables.product.prodname_emus %} für dich das Richtige sein. SAML SSO kann jedoch eine bessere Option sein, wenn die Verwendung deines IdP als Quelle der Wahrheit für deine Benutzer- und Zugriffsverwaltung zu viel Komplexität bedeuten würde. Beispielsweise verfügt dein Unternehmen möglicherweise nicht über einen etablierten Prozess zum Onboarding neuer Benutzer in deinem IdP.
 
-### Do you want to control the user accounts for your users?
+### Welchen Identitätsanbieter verwendet dein Unternehmen?
 
-{% data variables.product.prodname_emus %} may be right for your enterprise if you don't want enterprise members to use their own personal accounts on {% data variables.product.prodname_dotcom_the_website %} to access your enterprise's resources. 
+{% data variables.product.prodname_emus %} wird für eine begrenzte Anzahl von IdPs unterstützt, während SAML SSO vollständige Unterstützung für eine größere Anzahl von IdPs bietet, sowie eingeschränkte Unterstützung für alle IdPs, die den SAML 2.0-Standard implementieren. Die Liste der unterstützten IDPs für jede Option findest du unter [Informationen zu {% data variables.product.prodname_emus %}](/admin/identity-and-access-management/using-enterprise-managed-users-and-saml-for-iam/about-enterprise-managed-users#identity-provider-support) und [Informationen zu SAML for Enterprise IAM](/admin/identity-and-access-management/using-saml-for-enterprise-iam/about-saml-for-enterprise-iam#supported-idps).
 
-With SAML SSO, developers create and manage their own personal accounts, and each account is linked to a SAML identity in your IdP. {% data variables.product.prodname_emus %} functions more like other familiar SSO solutions, as you will provision the accounts for your users. You can also ensure user accounts conform with your company identity, by controlling usernames and the email addresses associated with the accounts. 
+Du kannst {% data variables.product.prodname_emus %} nur mit einem nicht unterstützten IdP verwenden, wenn du den nicht unterstützten IdP mit einem unterstützten IdP als Integrationspunkt verbindest. Wenn du diese zusätzliche Komplexität vermeiden möchtest, ist SAML SSO möglicherweise eine bessere Lösung für dich.
 
-If you currently require your users to create a new account on {% data variables.product.prodname_dotcom_the_website %} to use with your enterprise only, {% data variables.product.prodname_emus %} might be right for you. However, SAML SSO may be a better option if using your IdP as the source of truth for your user and access management would add too much complexity. For example, perhaps your enterprise does not have an established process for onboarding new users in your IdP.
+### Arbeiten deine Entwickler in öffentlichen Repositorys, Gists oder {% data variables.product.prodname_pages %}-Sites?
 
-### Which identity provider does your enterprise use?
+Um zu verhindern, dass Unternehmensmitglieder versehentlich unternehmenseigene Inhalte über {% data variables.product.prodname_dotcom_the_website %} an die Öffentlichkeit bringen, legt {% data variables.product.prodname_emus %} starke Einschränkungen für die Aktionen der Benutzer fest. {% data variables.enterprise.prodname_managed_users %} können z. B. keine öffentlichen Repositorys, Gists jeglicher Sichtbarkeit oder {% data variables.product.prodname_pages %}-Websites erstellen, die außerhalb des Unternehmens sichtbar sind. Eine vollständige Liste der Einschränkungen findest du unter [Fähigkeiten und Einschränkungen in Bezug auf {% data variables.enterprise.prodname_managed_users %}](/admin/identity-and-access-management/using-enterprise-managed-users-and-saml-for-iam/about-enterprise-managed-users#abilities-and-restrictions-of-managed-users).
 
-{% data variables.product.prodname_emus %} is supported for a limited number of IdPs, while SAML SSO offers full support for a larger number of IdPs, plus limited support for all IdPs that implement the SAML 2.0 standard. For the list of supported IdPs for each option, see "[About {% data variables.product.prodname_emus %}](/admin/identity-and-access-management/using-enterprise-managed-users-and-saml-for-iam/about-enterprise-managed-users#identity-provider-support)" and "[About SAML for enterprise IAM](/admin/identity-and-access-management/using-saml-for-enterprise-iam/about-saml-for-enterprise-iam#supported-idps)."
+Diese Einschränkungen sind für einige Unternehmen inakzeptabel. Um zu ermitteln, ob {% data variables.product.prodname_emus %} für dich geeignet ist, überprüfe die Einschränkungen mit deinen Entwicklern, und bestätige, ob eine der Einschränkungen deine vorhandenen Workflows behindert. Wenn ja, ist SAML SSO möglicherweise eine bessere Wahl für dein Unternehmen.
 
-You can use {% data variables.product.prodname_emus %} with an unsupported IdP only if you federate the unsupported IdP to a supported IdP to use as an integration point. If you wish to avoid this extra complexity, SAML SSO may be a better solution for you.
+### Sind deine Entwickler von Zusammenarbeit außerhalb deines Unternehmens abhängig?
 
-### Do your developers work in public repositories, gists, or {% data variables.product.prodname_pages %} sites?
+{% data variables.enterprise.prodname_managed_users_caps %} können nur zu Repositorys innerhalb deines Unternehmens beitragen. Wenn deine Entwickler sowohl zu Repositorys innerhalb als auch außerhalb deines Unternehmens beitragen müssen (private Repositorys eingeschlossen), ist {% data variables.product.prodname_emus %} vielleicht nicht das Richtige für dein Unternehmen. In diesem Fall könnte SAML-SSO eine bessere Lösung sein.
 
-To prevent enterprise members from accidentally leaking corporate-owned content to the public on {% data variables.product.prodname_dotcom_the_website %}, {% data variables.product.prodname_emus %} imposes strong restrictions on what users can do. For example, {% data variables.enterprise.prodname_managed_users %} cannot create public repositories, gists of any visibility, or {% data variables.product.prodname_pages %} sites that are visible outside the enterprise. For a full list of restrictions, see "[Abilities and restrictions of {% data variables.enterprise.prodname_managed_users %}](/admin/identity-and-access-management/using-enterprise-managed-users-and-saml-for-iam/about-enterprise-managed-users#abilities-and-restrictions-of-managed-users)."
+Einige Unternehmen unterhalten Repositorys innerhalb eines bestehenden Unternehmens unter Verwendung von SAML-SSO auf {% data variables.location.product_location %} und erstellen außerdem ein {% data variables.enterprise.prodname_emu_enterprise %}. Entwickler, die von einer einzigen Arbeitsstation aus zu Repositorys beider Unternehmen beitragen, müssen in einem einzigen Browser zwischen den Konten auf {% data variables.location.product_location %} wechseln oder für jedes Konto einen anderen Browser verwenden. Möglicherweise muss der Entwickler auch die Git-Konfiguration des Arbeitsplatzes anpassen, um die beiden Konten zu unterstützen. Die Komplexität dieses Arbeitsablaufs kann das Risiko erhöhen, dass interner Code unbeabsichtigt an die Öffentlichkeit dringt.
 
-These restrictions are unacceptable for some enterprises. To determine whether {% data variables.product.prodname_emus %} will work for you, review the restrictions with your developers, and confirm whether any of the restrictions will hinder your existing workflows. If so, SAML SSO may be a better choice for your enterprise.
+Wenn du dich für ein {% data variables.enterprise.prodname_emu_enterprise %} entscheidest, aber möchtest, dass Entwickler von einer einzigen Arbeitsstation aus zu Ressourcen außerhalb des Unternehmens beitragen, kannst du in der lokalen Git-Konfiguration eines Entwicklers Unterstützung für den Wechsel zwischen den Konten bereitstellen. Weitere Informationen findest du unter [Informationen zu {% data variables.product.prodname_emus %}](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users#supporting-developers-with-multiple-user-accounts-on-githubcom).
 
-### Do your developers rely on collaboration outside of your enterprise?
+### Ist dein Unternehmen von externen Mitarbeitern abhängig?
 
-{% data variables.enterprise.prodname_managed_users_caps %} can only contribute to repositories within your enterprise. If your developers must contribute to both repositories within and outside of your enterprise, including private repositories, {% data variables.product.prodname_emus %} may not be right for your enterprise. SAML SSO may be a better solution.
+Mit SAML SSO kannst du Personen, die nicht Mitglied deines IdP-Verzeichnisses sind, mit der Rolle des externen Mitarbeiters Zugriff auf bestimmte Repositorys gewähren. Dies kann besonders nützlich für Mitarbeiter sein, die sich außerhalb deines Unternehmens befinden, z. B. Auftragnehmer. Weitere Informationen findest du unter [Hinzufügen externer Mitarbeiter zu Repositorys in deiner Organisation](/organizations/managing-access-to-your-organizations-repositories/adding-outside-collaborators-to-repositories-in-your-organization).
 
-Some companies maintain repositories within an existing enterprise using SAML SSO on {% data variables.location.product_location %}, and also create an {% data variables.enterprise.prodname_emu_enterprise %}. Developers who contribute to repositories owned by both enterprises from a single workstation must switch between the accounts on {% data variables.location.product_location %} within a single browser, or use a different browser for each account. The developer may also need to customize the workstation's Git configuration to accommodate the two accounts. The complexity of this workflow can increase the risk of mistakenly leaking internal code to the public.
+Bei {% data variables.product.prodname_emus %} ist die Rolle des externen Mitarbeiters nicht vorhanden. Auf die Ressourcen deines Unternehmens können nur {% data variables.enterprise.prodname_managed_users %} zugreifen, die immer durch deinen IdP bereitgestellt werden. Um externen Mitarbeitern Zugriff auf dein Unternehmen zu gewähren, musst du Gastkonten in deinem IdP verwenden. Wenn du an {% data variables.product.prodname_emus %} interessiert bist, kläre mit deinen Entwicklern, ob dies einen ihrer vorhandenen Workflows behindert. Falls ja, ist SAML SSO möglicherweise eine bessere Lösung.
 
-If you decide to create an {% data variables.enterprise.prodname_emu_enterprise %} but require that developers contribute to resources outside of the enterprise from a single workstation, you can provide support for switching between the accounts in a developer's local Git configuration. For more information, see "[About {% data variables.product.prodname_emus %}](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users#supporting-developers-with-multiple-user-accounts-on-githubcom)."
+### Kann dein Unternehmen Migrationskosten tolerieren?
 
-### Does your enterprise rely on outside collaborators?
+Wenn {% data variables.product.prodname_dotcom_the_website %} für dein Unternehmen neu ist, können SAML SSO und {% data variables.product.prodname_emus %} gleichermaßen einfach eingeführt werden.
 
-With SAML SSO, you can give access to specific repositories to people who are not members of your IdP's directory, by using the outside collaborator role. This can be especially useful for collaborators that are external to your business, such as contractors. For more information, see "[Adding outside collaborators to repositories in your organization](/organizations/managing-access-to-your-organizations-repositories/adding-outside-collaborators-to-repositories-in-your-organization)."
+Wenn du bereits {% data variables.product.prodname_dotcom_the_website %} verwendest, wobei Entwickler ihre eigenen Benutzerkonten verwalten, erfordert die Einführung von {% data variables.product.prodname_emus %} die Migration zu einem neuen Unternehmenskonto. Weitere Informationen findest du unter [Informationen zu Unternehmen mit {% data variables.enterprise.prodname_managed_users %}](/admin/identity-and-access-management/using-enterprise-managed-users-and-saml-for-iam/about-enterprise-managed-users#about-enterprises-with-managed-users).
 
-With {% data variables.product.prodname_emus %}, the outside collaborator role does not exist. Your enterprise's resources can only be accessed by {% data variables.enterprise.prodname_managed_users %}, which are always provisioned by your IdP. To give external collaborators access to your enterprise, you would have to use guest accounts in your IdP. If you're interested in {% data variables.product.prodname_emus %}, confirm with your developers whether this will hinder any of their existing workflows. If so, SAML SSO may be a better solution.
-
-### Can your enterprise tolerate migration costs?
-
-If your enterprise is new to {% data variables.product.prodname_dotcom_the_website %}, SAML SSO and {% data variables.product.prodname_emus %} are equally easy to adopt.
-
-If you're already using {% data variables.product.prodname_dotcom_the_website %} with developers managing their own user accounts, adopting {% data variables.product.prodname_emus %} requires migrating to a new enterprise account. For more information, see "[About enterprises with {% data variables.enterprise.prodname_managed_users %}](/admin/identity-and-access-management/using-enterprise-managed-users-and-saml-for-iam/about-enterprise-managed-users#about-enterprises-with-managed-users)."
-
-Although {% data variables.product.prodname_emus %} is free, the migration process may require time or cost from your team. Confirm that this migration process is acceptable to your business and your developers. If not, SAML SSO may be the better choice for you.
+Obwohl {% data variables.product.prodname_emus %} kostenlos ist, erfordert der Migrationsprozess möglicherweise Zeit oder Kosten von deinem Team. Vergewissere dich, dass dieser Migrationsprozess für dein Unternehmen und deine Entwickler akzeptabel ist. Wenn nicht, ist SAML SSO möglicherweise die bessere Wahl für dich.
 
 {% elsif ghes %}
 
-Site administrators can decide how people authenticate to access a {% data variables.product.product_name %} instance. You can use {% data variables.product.product_name %}'s built-in authentication, or, if you want to centralize identity and access management for the web applications that your team uses, you can configure an external authentication method.
+Websiteadministratoren können entscheiden, mit welcher Authentifizierungsmethode Personen auf eine Instanz von {% data variables.product.product_name %} zugreifen können. Du kannst die integrierte Authentifizierung von {% data variables.product.product_name %} verwenden, oder du kannst eine externe Authentifizierungsmethode konfigurieren, wenn du Identitäts- und Zugriffsverwaltung für die von deinem Team genutzten Webanwendungen zentralisieren möchtest.
 
-## Authentication methods for {% data variables.product.product_name %}
+## Authentifizierungsmethoden für {% data variables.product.product_name %}
 
-The following authentication methods are available for {% data variables.product.product_name %}.
+Für {% data variables.product.product_name %} sind die folgenden Authentifizierungsmethoden verfügbar.
 
-- [Built-in authentication](#built-in-authentication)
-- [External authentication](#external-authentication)
+- [Integrierte Authentifizierung](#built-in-authentication)
+- [Externe Authentifizierung](#external-authentication)
 
-### Built-in authentication
+### Integrierte Authentifizierung
 
-{% data reusables.enterprise_user_management.built-in-authentication-new-accounts %} To access your instance, people authenticate with the credentials for the account. For more information, see "[Configuring built-in authentication](/admin/identity-and-access-management/using-built-in-authentication/configuring-built-in-authentication)."
+{% data reusables.enterprise_user_management.built-in-authentication-new-accounts %} Um auf deine Instanz zuzugreifen, authentifizieren sich Personen mit den Anmeldeinformationen für das Konto. Weitere Informationen findest du unter [Konfigurieren der integrierten Authentifizierung](/admin/identity-and-access-management/using-built-in-authentication/configuring-built-in-authentication).
 
-### External authentication
+### Externe Authentifizierung
 
-If you use an external directory or identity provider (IdP) to centralize access to multiple web applications, you may be able to configure external authentication for {% data variables.location.product_location %}. For more information, see the following articles.
+Wenn du ein externes Verzeichnis oder einen Identitätsanbieter (IdP) verwendest, um den Zugriff auf mehrere Webanwendungen zu zentralisieren, kannst du eventuell eine externe Authentifizierung für {% data variables.location.product_location %} konfigurieren. Weitere Informationen findest du in den folgenden Artikeln.
 
-- "[Using CAS for enterprise IAM](/admin/identity-and-access-management/using-cas-for-enterprise-iam)"
-- "[Using LDAP for enterprise IAM](/admin/identity-and-access-management/using-ldap-for-enterprise-iam)"
-- "[Using SAML for enterprise IAM](/admin/identity-and-access-management/using-saml-for-enterprise-iam)"
+- [Verwenden von CAS for Enterprise IAM](/admin/identity-and-access-management/using-cas-for-enterprise-iam)
+- [Verwenden von LDAP for Enterprise IAM](/admin/identity-and-access-management/using-ldap-for-enterprise-iam)
+- [Verwenden von SAML for Enterprise IAM](/admin/identity-and-access-management/using-saml-for-enterprise-iam)
 
-If you choose to use external authentication, you can also configure fallback authentication for people who don't have an account on your external authentication provider. For example, you may want to grant access to a contractor or machine user. For more information, see "[Allowing built-in authentication for users outside your provider](/admin/identity-and-access-management/managing-iam-for-your-enterprise/allowing-built-in-authentication-for-users-outside-your-provider)."
+Wenn du die externe Authentifizierung verwenden möchtest, kannst du auch eine Fallbackauthentifizierung für Personen konfigurieren, die kein Konto bei deinem externen Authentifizierungsanbieter haben. Zum Beispiel könntest du Dienstleistern oder Computerbenutzer*innen Zugriff gewähren. Weitere Informationen findest du unter [Zulassen der integrierten Authentifizierung für Benutzer*innen außerhalb deines Anbieters](/admin/identity-and-access-management/managing-iam-for-your-enterprise/allowing-built-in-authentication-for-users-outside-your-provider).
 
 {% ifversion scim-for-ghes %}
 
-If you use SAML SSO for authentication, you can also provision users and map IdP groups to teams using SCIM. For more information, see "[Configuring user provisioning with SCIM for your enterprise](/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-user-provisioning-with-scim-for-your-enterprise)."
+Wenn du SAML-SSO für die Authentifizierung verwendest, kannst du mithilfe von SCIM auch Benutzer bereitstellen und IdP-Gruppen zu Teams zuordnen. Weitere Informationen findest du unter [Konfigurieren der Benutzerbereitstellung mit SCIM für dein Unternehmen](/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-user-provisioning-with-scim-for-your-enterprise).
 
 {% endif %}
 
 {% elsif ghae %}
 
-{% data variables.product.product_name %} uses SAML SSO for authentication. Enterprise owners must configure SAML SSO with a SAML identity provider (IdP) during initialization. For more information, see "[About SAML for enterprise IAM](/admin/identity-and-access-management/using-saml-for-enterprise-iam/about-saml-for-enterprise-iam)."
+{% data variables.product.product_name %} verwendet SAML-SSO für die Authentifizierung. Unternehmensbesitzer*innen müssen SAML-SSO während der Initialisierung mit einem SAML-Identitätsanbieter (IdP) konfigurieren. Weitere Informationen findest du unter [Informationen zu SAML for Enterprise IAM](/admin/identity-and-access-management/using-saml-for-enterprise-iam/about-saml-for-enterprise-iam).
 
 {% endif %}
 
-## Further reading
+## Weiterführende Themen
 
-- "[Types of {% data variables.product.company_short %} accounts](/get-started/learning-about-github/types-of-github-accounts)"
-- "[About enterprise accounts](/admin/overview/about-enterprise-accounts)"
-{%- ifversion ghec %}
-- "[Can I create accounts for people in my organization?](/organizations/managing-membership-in-your-organization/can-i-create-accounts-for-people-in-my-organization)"
-- "[Switching your SAML configuration from an organization to an enterprise account](/admin/identity-and-access-management/using-saml-for-enterprise-iam/switching-your-saml-configuration-from-an-organization-to-an-enterprise-account)"
-{%- endif %}
+- [Typen von {% data variables.product.company_short %}-Konten](/get-started/learning-about-github/types-of-github-accounts)
+- [Informationen zu Unternehmenskonten](/admin/overview/about-enterprise-accounts) {%- ifversion ghec %}
+- [Kann ich Konten für Personen in meiner Organisation erstellen?](/organizations/managing-membership-in-your-organization/can-i-create-accounts-for-people-in-my-organization)
+{% endif %}

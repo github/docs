@@ -1,6 +1,6 @@
 ---
-title: Removing a collaborator from a personal repository
-intro: 'When you remove a collaborator from your project, they lose read/write access to your repository. If the repository is private and the person has created a fork, then that fork is also deleted.'
+title: Suppression d’un collaborateur d’un dépôt personnel
+intro: 'Quand vous supprimez un collaborateur de votre projet, il perd l’accès en lecture/écriture à votre dépôt. Si le dépôt est privé et si la personne a créé une duplication (fork), ce fork est également supprimé.'
 redirect_from:
   - /articles/how-do-i-remove-a-collaborator
   - /articles/what-happens-when-i-remove-a-collaborator-from-my-private-repository
@@ -21,27 +21,28 @@ topics:
   - Accounts
   - Repositories
 shortTitle: Remove a collaborator
+ms.openlocfilehash: 24b128b5858c695b0e559302fac05812d3218b8c
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145164883'
 ---
-## Deleting forks of private repositories
+## Suppression de duplications (forks) de dépôts privés
 
-While forks of private repositories are deleted when a collaborator is removed, the person will still retain any local clones of your repository.
+Bien que les duplications de dépôts privés soient supprimées lorsqu’un collaborateur est supprimé, la personne conserve toujours tous les clones locaux de votre dépôt.
 
-## Removing collaborator permissions from a person contributing to a repository
+## Suppression des autorisations de collaborateur d’une personne contribuant à un dépôt
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
-{% data reusables.repositories.click-collaborators-teams %}
-4. To the right of the collaborator you want to remove, click {% octicon "trash" aria-label="The trash icon" %}.
-  ![Button to remove collaborator](/assets/images/help/repository/collaborator-remove.png)
-{% else %}
-3. In the left sidebar, click **Collaborators & teams**.
-  ![Collaborators tab](/assets/images/help/repository/repo-settings-collaborators.png)
-4. Next to the collaborator you want to remove, click the **X** icon.
-  ![Remove link](/assets/images/help/organizations/Collaborator-Remove.png)
-{% endif %}
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %} {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5658 %} {% data reusables.repositories.click-collaborators-teams %}
+4. À droite du collaborateur que vous souhaitez supprimer, cliquez sur {% octicon "trash" aria-label="The trash icon" %}.
+  ![Bouton permettant de supprimer le collaborateur](/assets/images/help/repository/collaborator-remove.png) {% else %}
+3. Dans la barre latérale gauche, cliquez sur **Collaborateurs & équipes**.
+  ![Onglet Collaborateurs](/assets/images/help/repository/repo-settings-collaborators.png)
+4. En regard du collaborateur que vous souhaitez supprimer, cliquez sur l’icône **X**.
+  ![Lien de suppression](/assets/images/help/organizations/Collaborator-Remove.png) {% endif %}
 
-## Further reading
+## Pour aller plus loin
 
-- "[Removing organization members from a team](/articles/removing-organization-members-from-a-team)"
-- "[Removing an outside collaborator from an organization repository](/articles/removing-an-outside-collaborator-from-an-organization-repository)"
+- « [Suppression de membres d’organisation d’une équipe](/articles/removing-organization-members-from-a-team) »
+- « [Suppression d’un collaborateur externe d’un dépôt d’organisation](/articles/removing-an-outside-collaborator-from-an-organization-repository) »

@@ -1,9 +1,14 @@
-{% ifversion ghae %}
-If the policies for your enterprise permit forking private and internal repositories, you can fork a repository to your personal account or an organization where you have repository creation permissions. For more information, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)."
+---
+ms.openlocfilehash: 62cc59d41cc165e0767c5ef9a79b2ff9145d4e67
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/20/2022
+ms.locfileid: "148098254"
+---
+{% ifversion ghae %} Если политики для вашего предприятия разрешают создавать вилки во внутренних и частных репозиториях, вы можете создать в любом репозитории вилку к своей личной учетной записи или к любой организации, где у вас есть разрешения на создание репозиториев. Дополнительные сведения см. в статье "[Роли в организации](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)".
 
-{% elsif ghes or ghec %}
-You can fork a private or internal repository to your personal account or an organization on {% data variables.location.product_location %} where you have repository creation permissions, if settings for the repository and your enterprise policies allow forking.
+{% elsif ghes или ghec %} Вы можете разветвить частный или внутренний репозиторий для личной учетной записи или организации на {% данных variables.location.product_location %}, где у вас есть разрешения на создание репозитория, если параметры репозитория и корпоративные политики разрешают разветвления.
 
-{% elsif fpt %}
-If you have access to a private repository and the owner permits forking, you can fork the repository to your personal account, or an organization on {% data variables.product.prodname_team %} where you have repository creation permissions. You cannot fork a private repository to an organization using {% data variables.product.prodname_free_team %}. For more information, see "[GitHub's products](/articles/githubs-products)."
+{% elsif fpt %} Если у вас есть доступ к частному репозиторию и владелец разрешает создавать вилки, вы можете создать в таком репозитории вилку к своей личной учетной записи или к любой организации в {% data variables.product.prodname_team %}, где у вас есть разрешения на создание репозиториев. Создать вилку из частного репозитория к организации с помощью {% data variables.product.prodname_free_team %} невозможно. Дополнительные сведения см. в разделе [Продукты GitHub](/articles/githubs-products).
 {% endif %}

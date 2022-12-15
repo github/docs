@@ -1,9 +1,14 @@
-{% ifversion ghae %}
-If the policies for your enterprise permit forking private and internal repositories, you can fork a repository to your personal account or an organization where you have repository creation permissions. For more information, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)."
+---
+ms.openlocfilehash: 7ab0c705855f1bd271c17eacc9a2533184d1b5f1
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "145099344"
+---
+{% ifversion ghae %} 如果企业的策略允许为专用和内部存储库创建分支，可以将存储库分支创建到个人帐户或你拥有存储库创建权限的组织。 有关详细信息，请参阅“[组织中的角色](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)”。
 
-{% elsif ghes or ghec %}
-You can fork a private or internal repository to your personal account or an organization on {% data variables.location.product_location %} where you have repository creation permissions, if settings for the repository and your enterprise policies allow forking.
+{% elsif ghes or ghec %} 如果存储库和企业策略设置允许创建分支，可以将专用或内部存储库分支创建到个人帐户或 {% data variables.product.product_location %} 上你拥有存储库创建权限的组织。
 
-{% elsif fpt %}
-If you have access to a private repository and the owner permits forking, you can fork the repository to your personal account, or an organization on {% data variables.product.prodname_team %} where you have repository creation permissions. You cannot fork a private repository to an organization using {% data variables.product.prodname_free_team %}. For more information, see "[GitHub's products](/articles/githubs-products)."
+{% elsif fpt %} 如果有权访问专用存储库并且所有者允许创建分支，可以将存储库分支创建到个人帐户，或 {% data variables.product.prodname_team %} 上你拥有存储库创建权限的组织。 不能使用 {% data variables.product.prodname_free_team %} 将专用存储库分支创建到组织。 有关详细信息，请参阅“[GitHub 的产品](/articles/githubs-products)”。
 {% endif %}

@@ -1,21 +1,30 @@
-### Resolving conversations
+---
+ms.openlocfilehash: 1447b6a0f63bcfd6e54954545541808debcb3091
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "147062370"
+---
+### Unterhaltungen auflösen
 
-You can resolve a conversation in a pull request if you opened the pull request or if you have write access to the repository where the pull request was opened.
+Du kannst eine Unterhaltung in einem Pull Request auflösen, wenn du den Pull Request geöffnet hast oder du über Schreibzugriff auf das Repository verfügst, in dem der Pull Request geöffnet wurde.
 
-To indicate that a conversation on the **Files changed** tab is complete, click **Resolve conversation**.
+Um anzugeben, dass eine Konversation auf der Registerkarte **Dateien geändert** abgeschlossen ist, klicke auf **Unterhaltung auflösen**.
 
-![Pull request conversation with Resolve conversation button](/assets/images/help/pull_requests/conversation-with-resolve-button.png)
+![Pull-Request-Unterhaltung mit Schaltfläche „Resolve conversation“ (Unterhaltung auflösen)](/assets/images/help/pull_requests/conversation-with-resolve-button.png)
 
-The entire conversation will be collapsed and marked as resolved, making it easier to find conversations that still need to be addressed.
+Die gesamte Unterhaltung wird reduziert und als aufgelöst markiert. Dadurch lassen sich Unterhaltungen einfacher auffinden, die noch angegangen werden müssen.
 
-![Resolved conversation](/assets/images/help/pull_requests/resolved-conversation.png)
+![Aufgelöste Unterhaltung](/assets/images/help/pull_requests/resolved-conversation.png)
 
-If the suggestion in a comment is out of your pull request's scope, you can open a new issue that tracks the feedback and links back to the original comment. For more information, see "[Opening an issue from a comment](/github/managing-your-work-on-github/opening-an-issue-from-a-comment)."
+Wenn der Vorschlag in einem Kommentar nicht in den Geltungsbereich deines Pull Requests fällt, kannst du einen neuen Issue öffnen, das das Feedback nachverfolgt und zum ursprünglichen Kommentar zurück verknüpft. Weitere Informationen findest du unter [Einen Issue aus einem Kommentar öffnen](/github/managing-your-work-on-github/opening-an-issue-from-a-comment).
 
-#### Discovering and navigating conversations
+{% ifversion fpt or ghes or ghae-issue-4382 or ghec %}
+#### Entdecken von Konversationen und Navigieren darin
 
-You can discover and navigate to all the conversations in your pull request using the **Conversations** menu that's shown at the top of the **Files Changed** tab.
+Mithilfe des Menüs **Konversationen**, das oben auf der Registerkarte **Dateien geändert** angezeigt wird, kannst du alle Konversationen in deinem Pull Request erkunden und darin navigieren.
 
-From this view, you can see which conversations are unresolved, resolved, and outdated. This makes it easy to discover and resolve conversations.
+In dieser Ansicht kannst du sehen, welche Konversationen nicht aufgelöst, aufgelöst und veraltet sind. Dadurch kannst du Konversationen leicht entdecken und auflösen.
 
-![Showing the conversations menu](/assets/images/help/pull_requests/conversations-menu.png)
+![Anzeigen des Konversationsmenüs](/assets/images/help/pull_requests/conversations-menu.png) {% endif %}

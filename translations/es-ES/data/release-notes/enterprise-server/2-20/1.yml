@@ -1,0 +1,21 @@
+date: '27-02-2020'
+sections:
+  security_fixes:
+    - 'Los paquetes se actualizaron a las últimas versiones de seguridad. {% comment %} https://github.com/github/enterprise2/pull/19116, https://github.com/github/enterprise2/pull/19110, https://github.com/github/enterprise2/pull/19154, https://github.com/github/enterprise2/pull/19142 {% endcomment %}'
+  bugs:
+    - 'La restauración de copias de seguridad producía un error de tipo "Invalid RDB version number". {% comment %} https://github.com/github/enterprise2/pull/19117, https://github.com/github/enterprise2/pull/19109 {% endcomment %}'
+    - 'La actualización de una réplica de alta disponibilidad estancaba indefinidamente la espera para que iniciara MySQL. {% comment %} https://github.com/github/enterprise2/pull/19168, https://github.com/github/enterprise2/pull/19101 {% endcomment %}'
+    - 'Los comentarios de revisión de las solicitudes de incorporación de cambios con valores inesperados para "position" o "original_position" causaba que fallaran las importaciones. {% comment %} https://github.com/github/github/pull/135439, https://github.com/github/github/pull/135374 {% endcomment %}'
+    - 'Las entradas de webhook duplicadas en la base de datos podrían causar que las mejoras de las versiones previas fallaran. {% comment %} https://github.com/github/hookshot/pull/1541, https://github.com/github/hookshot/pull/1426, https://github.com/github/hookshot/pull/1540 {% endcomment %}'
+  known_issues:
+    - 'En una instancia del servidor de GitHub Enterprise recién configurada sin ningún usuario, un atacante puede crear el primer usuario administrador. {% comment %} https://github.com/github/enterprise2/issues/1889 {% endcomment %}'
+    - 'Las reglas de firewall personalizadas no se mantienen durante una actualización. {% comment %} https://github.com/github/enterprise2/issues/2823 {% endcomment %}'
+    - 'Los archivos supervisados de Git LFS [cargados desde la interfaz web](https://github.com/blog/2105-upload-files-to-your-repositories) se agregan de forma incorrecta y directa al repositorio. {% comment %} https://github.com/github/github/issues/54684 {% endcomment %}'
+    - 'Las incidencias no se pueden cerrar si contienen un enlace permanente a un blob del mismo repositorio en el que la ruta es mayor de 255 caracteres. {% comment %} https://github.com/github/github/issues/107731 {% endcomment %}'
+    - 'Al enviar cambios a un gist, se puede desencadenar una excepción durante el enlace posterior a la recepción. {% comment %} https://github.com/github/github/issues/129091 {% endcomment %}'
+    - 'Las mejoras y actualizaciones de configuración producen errores si se personalizan las configuraciones en segundo plano de los trabajadores. {% comment %} https://github.com/github/enterprise2/issues/19119, {% endcomment %}'
+    - 'Cuando se habilita "Los usuarios pueden buscar en GitHub.com" con GitHub Connect, las incidencias en los repositorios privados e internos no se incluyen en los resultados de la búsqueda de GitHub.com. {% comment %} https://github.com/github/admin-experience/issues/571 {% endcomment %}'
+    - 'Al actualizar desde versiones anteriores, es posible que no se generen roles de trabajo en segundo plano, lo que impide características esenciales como la combinación de solicitudes de incorporación de cambios. (Actualizado el 07-04-2020) {% comment %} https://github.com/github/enterprise2/issues/19232 {% endcomment %}'
+    - 'Las alertas de seguridad no se notifican cuando se envían cambios a un repositorio en la línea de comandos. (Actualizado el 23-06-2020) {% comment %} https://github.com/github/github/issues/143190 {% endcomment %}'
+    - 'El gráfico de dependencias no detectaba las dependencias cuando se implementaban en una configuración de clúster con múltiples nodos de Redis. (Actualizado el 30-06-2020) {% comment %} https://github.com/github/dependency-graph/issues/81 {% endcomment %}'
+    - 'Cuando un nodo de réplica está sin conexión en una configuración de disponibilidad alta, es posible que {% data variables.product.product_name %} todavía enrute las solicitudes a {% data variables.product.prodname_pages %} al nodo sin conexión, lo que reduce la disponibilidad de {% data variables.product.prodname_pages %} para los usuarios.'

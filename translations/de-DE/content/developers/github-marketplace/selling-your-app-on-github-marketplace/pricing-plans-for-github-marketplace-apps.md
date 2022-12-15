@@ -1,6 +1,6 @@
 ---
-title: Pricing plans for GitHub Marketplace apps
-intro: 'Pricing plans allow you to provide your app with different levels of service or resources. You can offer up to 10 pricing plans in your {% data variables.product.prodname_marketplace %} listing.'
+title: Tarife für GitHub Marketplace-Apps
+intro: 'Preispläne ermöglichen dir, deine App mit unterschiedlichen Dienstebenen oder Ressourcen bereitzustellen. Du kannst bis zu 10 Preispläne in deiner {% data variables.product.prodname_marketplace %}-Liste anbieten.'
 redirect_from:
   - /apps/marketplace/selling-your-app/github-marketplace-pricing-plans
   - /marketplace/selling-your-app/github-marketplace-pricing-plans
@@ -11,49 +11,55 @@ versions:
 topics:
   - Marketplace
 shortTitle: Pricing plans for apps
+ms.openlocfilehash: e1ab751c26e59ec42e16dc7d9e5c0118dedffbde
+ms.sourcegitcommit: 5b1461b419dbef60ae9dbdf8e905a4df30fc91b7
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147876946'
 ---
-{% data variables.product.prodname_marketplace %} pricing plans can be free, flat rate, or per-unit. Prices are set, displayed, and processed in US dollars. Paid plans are restricted to apps published by verified publishers. For more information about becoming a verified publisher, see "[Applying for publisher verification for your organization](/developers/github-marketplace/applying-for-publisher-verification-for-your-organization)."
+Es gibt kostenlose, pauschale oder einheitsbasierte {% data variables.product.prodname_marketplace %}-Tarife. Die Preise werden in US-Dollar festgelegt, angezeigt und abgerechnet. Kostenpflichtige Tarife sind für Apps verfügbar, die von überprüften Herausgebern veröffentlicht wurden. Weitere Informationen darüber, wie du ein überprüfter Herausgeber wirst, findest du unter [Beantragen der Herausgeberüberprüfung für deine Organisation](/developers/github-marketplace/applying-for-publisher-verification-for-your-organization).
 
-Customers purchase your app using a payment method attached to their account on {% data variables.location.product_location %}, without having to leave {% data variables.product.prodname_dotcom_the_website %}. You don't have to write code to perform billing transactions, but you will have to handle events from the {% data variables.product.prodname_marketplace %} API. For more information, see "[Using the {% data variables.product.prodname_marketplace %} API in your app](/developers/github-marketplace/using-the-github-marketplace-api-in-your-app)."
+Kunden kaufen deine App über eine Zahlungsmethode, die mit ihrem Konto auf {% data variables.product.product_location %} verknüpft ist, ohne dabei {% data variables.product.prodname_dotcom_the_website %} verlassen zu müssen. Du musst keinen Code schreiben, um Abrechnungstransaktionen durchzuführen, aber du musst Ereignisse aus der {% data variables.product.prodname_marketplace %}-API verarbeiten. Weitere Informationen findest du unter [Verwenden der {% data variables.product.prodname_marketplace %}-API in deiner App](/developers/github-marketplace/using-the-github-marketplace-api-in-your-app).
 
-If the app you're listing on {% data variables.product.prodname_marketplace %} has multiple plan options, you can set up corresponding pricing plans. For example, if your app has two plan options, an open source plan and a pro plan, you can set up a free pricing plan for your open source plan and a flat pricing plan for your pro plan. Each {% data variables.product.prodname_marketplace %} listing must have an annual and a monthly price for every plan that's listed.
+Wenn für die App, die du im {% data variables.product.prodname_marketplace %} anbietest, mehrere Planoptionen verfügbar sind, kannst du die entsprechenden Tarife einrichten. Wenn für deine App beispielsweise zwei Planoptionen verfügbar sind (ein Open-Source-Plan und ein Pro-Plan), dann kannst du einen kostenlosen Tarif für den Open-Source-Plan und einen Pauschaltarif für den Pro-Plan einrichten. Bei jeder {% data variables.product.prodname_marketplace %}-Listing muss ein jährlicher und monatlicher Preis für jeden aufgeführten Plan angegeben werden.
 
-For more information on how to create a pricing plan, see "[Setting a {% data variables.product.prodname_marketplace %} listing's pricing plan](/marketplace/listing-on-github-marketplace/setting-a-github-marketplace-listing-s-pricing-plan/)."
+Weitere Informationen zum Erstellen eines Tarifs findest du unter [Einrichten des Tarifs einer {% data variables.product.prodname_marketplace %}-Listing](/marketplace/listing-on-github-marketplace/setting-a-github-marketplace-listing-s-pricing-plan/).
 
 {% data reusables.marketplace.free-plan-note %}
 
-## Types of pricing plans
+## Arten von Tarifen
 
-### Free pricing plans
+### Kostenlose Tarife
 
 {% data reusables.marketplace.free-apps-encouraged %}
 
-Free plans are completely free for users. If you set up a free pricing plan, you cannot charge users that choose the free pricing plan for the use of your app. You can create both free and paid plans for your listing.
+Kostenlose Tarife sind für Benutzer*innen völlig kostenlos. Wenn du einen kostenlosen Tarif einrichtest, kannst du den Benutzer*innen, die den kostenlosen Tarif verwenden, keine Gebühren für die Verwendung deiner App in Rechnung stellen. Du kannst sowohl kostenlose als auch kostenpflichtige Tarife für deine Listing erstellen.
 
-All apps need to handle events for new purchases and cancellations. Apps that only have free plans do not need to handle events for free trials, upgrades, and downgrades. For more information, see: "[Using the {% data variables.product.prodname_marketplace %} API in your app](/developers/github-marketplace/using-the-github-marketplace-api-in-your-app)."
+Alle Apps müssen Ereignisse für neue Käufe und Stornierungen verarbeiten. Apps, die nur mit kostenlosen Tarifen angeboten werden, müssen keine Ereignisse für kostenlose Testversionen, Upgrades oder Downgrades verarbeiten. Weitere Informationen findest du unter [Verwenden der {% data variables.product.prodname_marketplace %}-API in deiner App](/developers/github-marketplace/using-the-github-marketplace-api-in-your-app).
 
-If you add a paid plan to an app that you've already listed in {% data variables.product.prodname_marketplace %} as a free service, you'll need to request verification for the app and go through financial onboarding.
+Wenn du einen kostenpflichtigen Tarif zu einer App hinzufügst, die im {% data variables.product.prodname_marketplace %} bereits als kostenloser Dienst verfügbar ist, musst du die Überprüfung der App beantragen und das finanzielle Onboarding durchführen.
 
-### Paid pricing plans
+### Kostenpflichtige Tarife
 
-There are two types of paid pricing plan:
+Es gibt zwei Arten von kostenpflichtigen Tarifen:
 
-- Flat rate pricing plans charge a set fee on a monthly and yearly basis.
+- Bei Pauschaltarifen wird monatlich oder jährlich eine feste Gebühr berechnet.
 
-- Per-unit pricing plans charge a set fee on either a monthly or yearly basis for a unit that you specify. A "unit" can be anything you'd like (for example, a user, seat, or person).
+- Bei einheitsbasierten Tarifen wird monatlich oder jährlich eine feste Gebühr für eine von dir angegebene Einheit berechnet. Eine „Einheit“ kann eine beliebige Instanz sein (z. B. ein Benutzer, ein Arbeitsplatz oder eine Person).
 
-You may also want to offer free trials. These provide free, 14-day trials of OAuth or GitHub Apps to customers. When you set up a Marketplace pricing plan, you can select the option to provide a free trial for flat-rate or per-unit pricing plans.
+Du kannst auch kostenlose Testversionen anbieten. Dadurch können Kunden kostenlose, vierzehntägige Testversionen von OAuth oder GitHub-Apps ausprobieren. Wenn du einen Marketplace-Tarif einrichtest, kannst du für Pauschaltarife oder einheitsbasierte Tarife eine kostenlose Testversion anbieten.
 
-## Free trials
+## Kostenlose Testversionen
 
-Customers can start a free trial for any paid plan on a Marketplace listing that includes free trials. However, customers cannot create more than one free trial per marketplace product.
+Kunden können eine kostenlose Testversion für alle kostenpflichtigen Tarife einer Marketplace-Listing verwenden, für die kostenlose Testversionen verfügbar sind. Kunden können jedoch nicht mehr als eine kostenlose Testversion pro Marketplace-Produkt in Anspruch nehmen.
 
-Free trials have a fixed length of 14 days. Customers are notified 4 days before the end of their trial period (on day 11 of the free trial) that their plan will be upgraded. At the end of a free trial, customers will be auto-enrolled into the plan they are trialing if they do not cancel.
+Kostenlose Testversionen können immer 14 Tage lang verwendet werden. Kunden werden vier Tage vor Ende des Zeitraums (am 11. Tag des kostenlosen Testzeitraums) darüber benachrichtigt, dass der Tarif upgegradet wird. Nach dem Ende der kostenlosen Testversion werden die Kunden automatisch für den Tarif registriert, den sie testen, wenn sie nicht kündigen.
 
-For more information, see: "[Handling new purchases and free trials](/developers/github-marketplace/handling-new-purchases-and-free-trials/)."
+Weitere Informationen findest du unter [Verarbeiten neuer Einkäufe und kostenloser Testversionen](/developers/github-marketplace/handling-new-purchases-and-free-trials/).
 
 {% note %}
 
-**Note:** GitHub expects you to delete any private customer data within 30 days of a cancelled trial, beginning at the receipt of the cancellation event.
+**Hinweis:** GitHub erwartet, dass du alle privaten Kundendaten innerhalb von 30 Tagen nach einer gekündigten Testversion löschst, beginnend mit dem Eingang des Stornierungsereignisses.
 
 {% endnote %}
