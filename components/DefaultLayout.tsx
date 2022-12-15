@@ -44,7 +44,9 @@ export const DefaultLayout = (props: Props) => {
         </Head>
 
         {/* For local site search indexing */}
-        <Breadcrumbs />
+        <div data-search="breadcrumbs">
+          <Breadcrumbs />
+        </div>
 
         <main id="main-content" style={{ scrollMarginTop: '5rem' }}>
           {props.children}
