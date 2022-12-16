@@ -1,18 +1,18 @@
 ---
 title: codespace がプライベートイメージレジストリにアクセスできるようにする
-intro: 'シークレットを使用して、{% data variables.product.prodname_github_codespaces %} がプライベート イメージ レジストリにアクセスできるようにすることができます'
+intro: シークレットを使用して、{% data variables.product.prodname_github_codespaces %} がプライベート イメージ レジストリにアクセスできるようにすることができます
 versions:
   fpt: '*'
   ghec: '*'
 topics:
-  - Codespaces
+- Codespaces
 shortTitle: Private image registry
 ms.openlocfilehash: c11cfe0179856caf17f30ac32830ee1485defa3c
 ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
 ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/09/2022
-ms.locfileid: '148159206'
+ms.locfileid: "148159206"
 ---
 ## プライベート イメージ レジストリと {% data variables.product.prodname_github_codespaces %} について
 

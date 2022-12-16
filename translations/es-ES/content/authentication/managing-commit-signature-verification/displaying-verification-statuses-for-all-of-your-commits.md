@@ -1,7 +1,7 @@
 ---
-title: Displaying verification statuses for all of your commits
+title: Mostrar los estados de verificación para todas tus confirmaciones
 shortTitle: Displaying verification for all commits
-intro: You can enable vigilant mode for commit signature verification to mark all of your commits and tags with a signature verification status.
+intro: Puedes habilitar el modo vigilante para verificar la firma de las confirmaciones y así marcar todas tus etiquetas y confirmaciones con un estado de verificación de firma.
 versions:
   fpt: '*'
   ghec: '*'
@@ -12,30 +12,34 @@ topics:
 redirect_from:
   - /github/authenticating-to-github/displaying-verification-statuses-for-all-of-your-commits
   - /github/authenticating-to-github/managing-commit-signature-verification/displaying-verification-statuses-for-all-of-your-commits
+ms.openlocfilehash: 13e88fd3e6daf3ab185c3a90b69f3fc33a8bb0f1
+ms.sourcegitcommit: 22d665055b1bee7a5df630385e734e3a149fc720
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/13/2022
+ms.locfileid: '145091788'
 ---
-
 {% data reusables.identity-and-permissions.vigilant-mode-beta-note %}
 
-## About vigilant mode
+## <a name="about-vigilant-mode"></a>Acerca del modo vigilante
 
-When you work locally on your computer, Git allows you to set the author of your changes and the identity of the committer. This, potentially, makes it difficult for other people to be confident that commits and tags you create were actually created by you. To help solve this problem you can sign your commits and tags. For more information, see "[Signing commits](/github/authenticating-to-github/signing-commits)" and "[Signing tags](/github/authenticating-to-github/signing-tags)." {% data variables.product.prodname_dotcom %} marks signed commits and tags with a verification status. 
+Cuando trabajas localmente en tu computadora, Git te permite configurar el autor de tus cambios y la identidad del confirmante. Esto, potencialmente, dificulta que otras personas tengan la confimansa de que realmente hayas creado tus etiquetas y confirmaciones. Para ayudarte a resolver este problema, puedes firmar tus confirmaciones y etiquetas. Para obtener más información, vea "[Firma de confirmaciones](/github/authenticating-to-github/signing-commits)" y "[Firma de etiquetas](/github/authenticating-to-github/signing-tags)". {% data variables.product.prodname_dotcom %} marca las etiquetas y confirmaciones firmadas con un estado de verificación. 
 
-By default commits and tags are marked "Verified" if they are signed with a GPG{% ifversion ssh-commit-verification %}, SSH,{% endif %} or S/MIME key that was successfully verified. If a commit or tag has a signature that can't be verified by {% data variables.product.prodname_dotcom %}, we mark the commit or tag "Unverified." In all other cases no verification status is displayed.
+Predeterminadamente, las confirmaciones y etiquetas se marcan como "Verificadas" si se firman con una llave GPG o S/MIME que se verificó con éxito. Si una confirmación o etiqueta tiene una firma que no puede verificar {% data variables.product.prodname_dotcom %}, la marcaremos como "No verificada". En el resto de los casos, no se muestra un estado de verificación.
 
-However, you can give other users increased confidence in the identity attributed to your commits and tags by enabling vigilant mode in your {% data variables.product.prodname_dotcom %} settings. With vigilant mode enabled, all of your commits and tags are marked with one of three verification statuses.
+Sin embargo, puedes proporcionar aún más confianza a otros usuarios sobre la identidad que se atribuye a tus confirmaciones y etiquetas si habilitas el modo vigilanten en tu configuración de {% data variables.product.prodname_dotcom %}. Cuando tienes habilitado el modo vigilante, todas tus confirmaciones y etiquetas se marcan con uno de tres estados de verificación.
 
-![Signature verification statuses](/assets/images/help/commits/signature-verification-statuses.png)
+![Estados de verificación de firma](/assets/images/help/commits/signature-verification-statuses.png)
 
 {% data reusables.identity-and-permissions.vigilant-mode-verification-statuses %}
 
-You should only enable vigilant mode if you sign all of your commits and tags and use an email address that is verified for your account on {% data variables.product.product_name %} as your committer email address. After enabling this mode, any unsigned commits or tags that you generate locally and push to {% data variables.product.prodname_dotcom %} will be marked "Unverified."
+Deberías habilitar el modo vigilante únicamente si firmas todas tus confirmaciones y etiqueta y utilizas una dirección de correo electrónico que esté verificada para tu cuenta en {% data variables.product.product_name %} como tu dirección de correo electrónico de confirmante. Después de habilitar este modo, cualquier confirmación o etiqueta sin firmar que generes localmente y subas a {% data variables.product.prodname_dotcom %} se marcará como "Sin verificar".
 
 {% data reusables.identity-and-permissions.verification-status-check %}
 
-## Enabling vigilant mode
+## <a name="enabling-vigilant-mode"></a>Habilitar el modo vigilante
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.ssh %}
-3. On the SSH Settings page, under "Vigilant mode," select **Flag unsigned commits as unverified**.
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.ssh %}
+3. En la página SSH Settings (Configuración SSH), en "Vigilant mode" (Modo vigilante), seleccione **Flag unsigned commits as unverified** (Marcar las confirmaciones sin firmar como no verificadas).
 
-   ![Flag unsigned commits as unverified checkbox](/assets/images/help/commits/vigilant-mode-checkbox.png)
+   ![Casilla de verificación para marcar las confirmaciones no firmadas como sin verificar](/assets/images/help/commits/vigilant-mode-checkbox.png)

@@ -58,6 +58,8 @@ To rebuild your container, [access the {% data variables.product.prodname_vscode
 
 ![Command to rebuild a codespace](/assets/images/help/codespaces/codespaces-rebuild.png)
 
+{% data reusables.codespaces.full-rebuild-tip %}
+
 ### Codespaces logs
 
 You can use the {% data variables.product.prodname_vscode_command_palette_shortname %} to access the codespace creation logs, or you can use it export all logs. 

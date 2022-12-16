@@ -1,0 +1,32 @@
+date: '2022-01-18'
+sections:
+  security_fixes:
+    - 'Die Pakete wurden auf die neuesten Sicherheitsversionen aktualisiert. Mit diesen Updates wurde Log4j auf die Version 2.17.1 aktualisiert. Hinweis: Vorherige Risikominderungen, die in 3.3.1, 3.2.6, 3.1.14 und 3.0.22 veröffentlicht wurden, reichen aus, um die Auswirkungen von CVE-2021-44228, CVE-2021-45046, CVE-2021-45105 und CVE-2021-44832 in diesen Versionen von GitHub Enterprise Server zu behandeln.'
+    - Bereinigen von mehr Geheimnissen in den generierten Supportbundles
+    - "Benutzer in Teams mit der Rolle des Sicherheitsmanagers werden jetzt über Sicherheitswarnungen für Repositorys, die sie überwachen, benachrichtigt."
+    - "Die Sicherheits-Manager-Komponente zeigt eine weniger aggressive Warnung an, sobald die maximale Anzahl von Teams erreicht ist."
+    - "Die Seite zur Verwaltung des Repositoryzugriffs sollte 403 zurückgeben, wenn versucht wird, ein Sicherheits-Manager-Team aus dem Repository zu entfernen."
+    - Die Pakete wurden auf die neuesten Sicherheitsversionen aktualisiert.
+  bugs:
+    - Selbstgehostete Actions-Runner konnten nach einem Upgrade von einer älteren GHES-Installation keine Selbstaktualisierung oder neue Aufträge ausführen.
+    - Speichereinstellungen konnten bei der Konfiguration von MinIO als Blobspeicher für GitHub-Pakete nicht validiert werden.
+    - "Die Speichereinstellungen für GitHub Actions konnten nicht in der Verwaltungskonsole validiert und gespeichert werden, wenn „Pfadformat erzwingen“ ausgewählt war."
+    - Actions wäre nach einer Aktualisierung mit eingestelltem Wartungsmodus in einem gestoppten Zustand verblieben.
+    - Beim Ausführen von `ghe-config-apply` können manchmal Fehler aufgrund von Berechtigungsproblemen in `/data/user/tmp/pages` auftreten.
+    - Die Schaltfläche zum Speichern in der Verwaltungskonsole konnte durch Scrollen in Browsern mit niedrigerer Auflösung nicht erreicht werden.
+    - IOPS- und Speicherdatenverkehr-Überwachungsdiagramme wurden nach dem Collectd-Versionsupgrade nicht aktualisiert.
+    - Einige Aufträge in Verbindung mit Webhooks konnten große Mengen an Protokollen generieren.
+    - Auf den Websiteadministratorseiten war ein Navigationselement für die Abrechnung sichtbar.
+    - "Verschiedene Dokumentationslinks führten zum Fehler „404: Nicht gefunden“."
+  known_issues:
+    - "Nach einem Upgrade auf {% data variables.product.prodname_ghe_server %} 3.3 wird {% data variables.product.prodname_actions %} möglicherweise nicht automatisch gestartet. Zur Behandlung dieses Problems stellst du die Verbindung mit der Appliance über SSH her und führst den Befehl `ghe-actions-start` aus."
+    - "Bei einer neu eingerichteten {% data variables.product.prodname_ghe_server %}-Instanz ohne Benutzer könnte ein Angreifer den ersten Administratorbenutzer erstellen."
+    - Benutzerdefinierte Firewallregeln werden während des Upgrades entfernt.
+    - "Nachverfolgte Git-LFS-Dateien, [die über die Webbenutzeroberfläche hochgeladen wurden](https://github.com/blog/2105-upload-files-to-your-repositories), werden dem Repository fälschlicherweise direkt hinzugefügt."
+    - "Issues können nicht geschlossen werden, wenn sie einen Permalink zu einem Blob im selben Repository enthalten und der Dateipfad des Blobs mehr als 255 Zeichen lang ist."
+    - "Wenn die Option zum Durchsuchen von GitHub.com mit GitHub Connect aktiviert wird, sind Issues in privaten und internen Repositorys nicht in den GitHub.com-Suchergebnissen enthalten."
+    - "Die {% data variables.product.prodname_registry %}-npm-Registrierung gibt in Metadatenantworten keinen Zeitwert mehr zurück. So sind erhebliche Leistungssteigerungen möglich. Die erforderlichen Daten zum Zurückgeben eines Zeitwerts in einer Metadatenantwort sind weiterhin verfügbar, und dieser Wert wird in Zukunft wieder zurückgegeben, sobald die vorhandenen Leistungsprobleme behoben wurden."
+    - "Ressourcenbegrenzungen, die nur beim Verarbeiten von Pre-Receive-Hooks auftreten, können bei manchen Pre-Receive-Hooks Fehler auslösen."
+    - '{% data variables.product.prodname_actions %}-Speichereinstellungen können nicht in der {% data variables.enterprise.management_console %} validiert und gespeichert werden, wenn die Option zum Erzwingen des Pfadformats ausgewählt ist. Sie müssen stattdessen mit dem Befehlszeilen-Hilfsprogramm `ghe-actions-precheck` konfiguriert werden.'
+    - '{% data variables.product.prodname_ghe_server %} 3.3-Instanzen, die in Azure installiert und mit mehr als 32 CPU-Kernen bereitgestellt wurden, werden aufgrund eines Fehlers im aktuellen Linux-Kernel nicht gestartet. [Aktualisiert: 08.04.2022]'
+    - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'

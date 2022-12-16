@@ -1,6 +1,6 @@
 ---
-title: Deploying to Azure Kubernetes Service
-intro: You can deploy your project to Azure Kubernetes Service (AKS) as part of your continuous deployment (CD) workflows.
+title: Azure Kubernetes Service へのデプロイ
+intro: 継続的デプロイ (CD) ワークフローの一部として、プロジェクトを Azure Kubernetes Service (AKS) にデプロイできます。
 versions:
   fpt: '*'
   ghes: '*'
@@ -10,47 +10,51 @@ type: tutorial
 topics:
   - CD
   - Azure Kubernetes Service
+ms.openlocfilehash: 5c3052f1f432663a38be6aa15376c186c96193ca
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147410124'
 ---
-
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
 
-## Introduction
+## はじめに
 
-This guide explains how to use {% data variables.product.prodname_actions %} to build and deploy a project to [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/).
+このガイドでは、{% data variables.product.prodname_actions %} を使用して、プロジェクトを作成し、[Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/) にデプロイする方法について説明します。
 
-{% ifversion fpt or ghec or ghes > 3.4 %}
+{% ifversion fpt or ghec or ghae-issue-4856 or ghes > 3.4 %}
 
 {% note %}
 
-**Note**: {% data reusables.actions.about-oidc-short-overview %} and "[Configuring OpenID Connect in Azure](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure)."
+**注**: {% data reusables.actions.about-oidc-short-overview %} と「[Configuring OpenID Connect in Azure](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure)」 (Azure での OpenID Connect の構成)。
 
 {% endnote %}
 
 {% endif %}
 
-## Prerequisites
+## 前提条件
 
-Before creating your {% data variables.product.prodname_actions %} workflow, you will first need to complete the following setup steps:
+{% data variables.product.prodname_actions %}ワークフローを作成する前に、まず以下のセットアップのステップを完了しておかなければなりません。
 
-1. Create a target AKS cluster and an Azure Container Registry (ACR). For more information, see "[Quickstart: Deploy an AKS cluster by using the Azure portal - Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/kubernetes-walkthrough-portal)" and "[Quickstart - Create registry in portal - Azure Container Registry](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-portal)" in the Azure documentation.
+1. ターゲット AKS クラスターと Azure Container Registry (ACR) を作成します。 詳細については、Azure ドキュメントの「[クイック スタート:Azure portal を使用して AKS クラスターをデプロイする - Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/kubernetes-walkthrough-portal)」、および[ポータルでのレジストリの作成に関するクイックスタート (Azure Container Registry)](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-portal) を参照してください。
 
-1. Create a secret called `AZURE_CREDENTIALS` to store your Azure credentials. For more information about how to find this information and structure the secret, see [the `Azure/login` action documentation](https://github.com/Azure/login#configure-a-service-principal-with-a-secret).
+1. Azure 資格情報を格納するための `AZURE_CREDENTIALS` という名前のシークレットを作成します。 この情報の検索方法とシークレットの構成方法に関する詳細については、[`Azure/login` アクションのドキュメント](https://github.com/Azure/login#configure-a-service-principal-with-a-secret)を参照してください。
 
-## Creating the workflow
+## ワークフローの作成
 
-Once you've completed the prerequisites, you can proceed with creating the workflow.
+必要な環境を整えたら、ワークフローの作成に進むことができます。
 
-The following example workflow demonstrates how to build and deploy a project to Azure Kubernetes Service when code is pushed to your repository.
+次のワークフローの例では、コードがリポジトリにプッシュされる場合に、プロジェクトを作成し、Azure Kubernetes Service にデプロイする方法のデモを行います。
 
-Under the workflow `env` key, change the following values:
-- `AZURE_CONTAINER_REGISTRY` to the name of your container registry
-- `PROJECT_NAME` to the name of your project
-- `RESOURCE_GROUP` to the resource group containing your AKS cluster
-- `CLUSTER_NAME` to the name of your AKS cluster
+ワークフロー `env` キーで、次の値を変更します。
+- `AZURE_CONTAINER_REGISTRY` をコンテナー レジストリの名前に
+- `PROJECT_NAME` をプロジェクトの名前に
+- `RESOURCE_GROUP` を AKS クラスターを含むリソース グループに
+- `CLUSTER_NAME` を AKS クラスターの名前に
 
-This workflow uses the `helm` render engine for the [`azure/k8s-bake` action](https://github.com/Azure/k8s-bake). If you will use the `helm` render engine, change the value of `CHART_PATH` to the path to your helm file. Change `CHART_OVERRIDE_PATH` to an array of override file paths. If you use a different render engine, update the input parameters sent to the `azure/k8s-bake` action.
+このワークフローでは、[`azure/k8s-bake` アクション](https://github.com/Azure/k8s-bake)に、`helm` レンダリング エンジンを使用します。 `helm` レンダリング エンジンを使用する場合は、`CHART_PATH` の値を helm ファイルへのパスに変更します。 `CHART_OVERRIDE_PATH` をオーバーライド ファイル パスの配列に変更します。 別のレンダリング エンジンを使用する場合は、`azure/k8s-bake` アクションに送信される入力パラメーターを更新します。
 
 ```yaml{:copy}
 {% data reusables.actions.actions-not-certified-by-github-comment %}
@@ -119,10 +123,10 @@ jobs:
           {% raw %}${{ env.PROJECT_NAME }}{% endraw %}
 ```
 
-## Additional resources
+## その他のリソース
 
-The following resources may also be useful:
+以下のリソースも役に立つでしょう。
 
-* For the original starter workflow, see [`azure-kubernetes-service.yml `](https://github.com/actions/starter-workflows/blob/main/deployments/azure-kubernetes-service.yml) in the {% data variables.product.prodname_actions %} `starter-workflows` repository.
-* The actions used to in this workflow are the official Azure [`Azure/login`](https://github.com/Azure/login),[`Azure/aks-set-context`](https://github.com/Azure/aks-set-context), [`Azure/CLI`](https://github.com/Azure/CLI), [`Azure/k8s-bake`](https://github.com/Azure/k8s-bake), and [`Azure/k8s-deploy`](https://github.com/Azure/k8s-deploy)actions.
-* For more examples of GitHub Action workflows that deploy to Azure, see the [actions-workflow-samples](https://github.com/Azure/actions-workflow-samples) repository.
+* 元のスターター ワークフローについては、{% data variables.product.prodname_actions %} `starter-workflows` リポジトリの [`azure-kubernetes-service.yml `](https://github.com/actions/starter-workflows/blob/main/deployments/azure-kubernetes-service.yml) を参照してください。
+* このワークフローで使用されるアクションは、Azure の公式な [`Azure/login`](https://github.com/Azure/login)、[`Azure/aks-set-context`](https://github.com/Azure/aks-set-context)、[`Azure/CLI`](https://github.com/Azure/CLI)、[`Azure/k8s-bake`](https://github.com/Azure/k8s-bake)、および [`Azure/k8s-deploy`](https://github.com/Azure/k8s-deploy) アクションです。
+* Azure にデプロイする GitHub アクション ワークフローの例が他にも必要であれば、[actions-workflow-samples](https://github.com/Azure/actions-workflow-samples) リポジトリを参照してください。

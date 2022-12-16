@@ -1,6 +1,6 @@
 ---
 title: '{% data variables.product.prodname_projects_v1_caps %}'
-intro: 'API-интерфейс "{% data variables.product.prodname_projects_v1 %}" позволяет вам создавать, перечислять, обновлять, удалять и настраивать {% data variables.projects.projects_v1_boards %} в репозитории.'
+intro: 'Используйте REST API для создания, перечисления, обновления, удаления и настройки {% data variables.projects.projects_v1_boards %}.'
 redirect_from:
   - /v3/projects
   - /rest/reference/projects
@@ -18,11 +18,11 @@ children:
   - /cards
   - /collaborators
   - /columns
-ms.openlocfilehash: 815c82656605773c4bda0750f331f819ca39551e
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
+ms.openlocfilehash: fa8677c2bb88d39a1ebb2dff546718a3f8524972
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147423046'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148193491'
 ---
 

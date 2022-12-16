@@ -1,0 +1,11 @@
+---
+ms.openlocfilehash: 031bb9421eb23fd469fdaf85fa7d9a7a4d570424
+ms.sourcegitcommit: 9a7b3a9ccb983af5df2cd94da7fecf7a8237529b
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/09/2022
+ms.locfileid: "147876830"
+---
+Schlüssel | type | BESCHREIBUNG
+----|------|-------------
+`action`|`string` | Die durchgeführte Aktion. Derzeit ist nur `started` möglich.

@@ -1,5 +1,5 @@
 ---
-title: Setting your default editor for GitHub Codespaces
+title: 设置 GitHub Codespaces 的默认编辑器
 shortTitle: Set the default editor
 intro: '{% data reusables.codespaces.about-changing-default-editor %}'
 versions:
@@ -11,40 +11,44 @@ redirect_from:
 topics:
   - Codespaces
 type: how_to
+ms.openlocfilehash: 5c286ffe8f96d275dc0b20949a87b7ced411c9af
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148159443'
 ---
-
-On the settings page, you can set your editor preference so that when you create a codespace, or open an existing codespace, it is opened in your choice of:
-* {% data variables.product.prodname_vscode %} (desktop application)
-* {% data variables.product.prodname_vscode %} (web client application)
-* JetBrains Gateway - for opening codespaces in a JetBrains IDE
-* JupyterLab - the web interface for Project Jupyter 
+在“设置”页上，可以设置编辑器首选项，以便在创建 codespace 或打开现有 codespace 时，它会在所选的以下选项中打开：
+* {% data variables.product.prodname_vscode %}（桌面应用程序）
+* {% data variables.product.prodname_vscode %}（Web 客户端应用程序）
+* JetBrains 网关 - 用于在 JetBrains IDE 中打开 codespace
+* JupyterLab - Project Jupyter 的 Web 接口 
 
 {% data reusables.codespaces.template-codespaces-default-editor %}
 
-If you want to use {% data variables.product.prodname_vscode %} as your default editor for {% data variables.product.prodname_github_codespaces %}, you need to install {% data variables.product.prodname_vscode %} and the {% data variables.product.prodname_github_codespaces %} extension for {% data variables.product.prodname_vscode %}. For more information, see the [download page for {% data variables.product.prodname_vscode %}](https://code.visualstudio.com/download/) and the [{% data variables.product.prodname_github_codespaces %} extension on the {% data variables.product.prodname_vscode %} marketplace](https://marketplace.visualstudio.com/items?itemName=GitHub.codespaces).
+如果要将 {% data variables.product.prodname_vscode %} 用作 {% data variables.product.prodname_github_codespaces %} 的默认编辑器，则需要安装 {% data variables.product.prodname_vscode %} 和 {% data variables.product.prodname_vscode %} 的 {% data variables.product.prodname_github_codespaces %} 扩展。 有关详细信息，请参阅 [{% data variables.product.prodname_vscode %} 的下载页](https://code.visualstudio.com/download/)和 [{% data variables.product.prodname_vscode %} 市场中的 {% data variables.product.prodname_github_codespaces %} 扩展](https://marketplace.visualstudio.com/items?itemName=GitHub.codespaces)。
 
-If you want to work on a codespace in a JetBrains IDE you must install the JetBrains Gateway. For more information, see "[Using {% data variables.product.prodname_github_codespaces %} in your JetBrains IDE](/codespaces/developing-in-codespaces/using-github-codespaces-in-your-jetbrains-ide)."
+如果要在 JetBrains IDE 中使用 codespace，则必须安装 JetBrains 网关。 有关详细信息，请参阅“[在 JetBrains IDE 中使用 {% data variables.product.prodname_github_codespaces %}](/codespaces/developing-in-codespaces/using-github-codespaces-in-your-jetbrains-ide)”。
 
-## Setting your default editor
+## 设置默认编辑器
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.codespaces-tab %}
-1. Under "Editor preference", select the option you want.
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.codespaces-tab %}
+1. 在“Editor preference（编辑器首选项）”下，选择所需的选项。
 
-   ![Setting your editor](/assets/images/help/codespaces/select-default-editor.png)
+   ![设置编辑器](/assets/images/help/codespaces/select-default-editor.png)
 
    * {% data reusables.codespaces.application-installed-locally %}<br><br>
 
-   * If you choose **{% data variables.product.prodname_vscode %}**, {% data variables.product.prodname_github_codespaces %} will automatically open in the desktop application when you next create or open a codespace. 
+   * 如果选择“{% data variables.product.prodname_vscode %}”，在下次创建或打开 codespace 时，{% data variables.product.prodname_github_codespaces %} 将自动在桌面应用程序中打开。 
 
-     You may need to allow access to both your browser and {% data variables.product.prodname_vscode %} for it to open successfully.<br><br>
+     您可能需要同时允许访问浏览器和 {% data variables.product.prodname_vscode %} 才能成功打开。<br><br>
      
-   * If you choose **JetBrains Gateway**, the Gateway application will automatically open when you next create or open a codespace. 
+   * 如果选择“JetBrains 网关”，则下次创建或打开 codespace 时，网关应用程序将自动打开。 
 
-     The first time you open a codespace this way you must give permission to open the application. 
+     首次以这种方式打开 codespace 时，必须授予打开该应用程序的权限。 
 
-     The Gateway application will open and the codespace will then be automatically selected. You can then choose a JetBrains IDE, if you have not previously done so, and click **Connect** to open the codespace in the JetBrains client. For more information, see "[Using {% data variables.product.prodname_github_codespaces %} in your JetBrains IDE](/codespaces/developing-in-codespaces/using-github-codespaces-in-your-jetbrains-ide)."
+     网关应用程序将打开，然后会自动选择 codespace。 然后，可以选择 JetBrains IDE（如果之前没有选择），然后单击“连接”在 JetBrains 客户端中打开 codespace。 有关详细信息，请参阅“[在 JetBrains IDE 中使用 {% data variables.product.prodname_github_codespaces %}](/codespaces/developing-in-codespaces/using-github-codespaces-in-your-jetbrains-ide)”。
      
-     To connect to a codespace from the Gateway application, you must have an SSH server running on the codespace. {% indented_data_reference reusables.codespaces.ssh-server-installed spaces=5 %}
+     若要从网关应用程序连接到 codespace，必须在 codespace 上运行 SSH 服务器。 {% indented_data_reference reusables.codespaces.ssh-server-installed spaces=5 %}
 
-   * If you choose **JupyterLab**, the JupyterLab application must be installed in the codespaces you open. {% data reusables.codespaces.jupyterlab-in-default-image %}
+   * 如果选择“JupyterLab”，则必须在打开的 codespace 中安装 JupyterLab 应用程序。 {% data reusables.codespaces.jupyterlab-in-default-image %}

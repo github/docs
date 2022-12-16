@@ -1,7 +1,7 @@
 ---
-title: Restricting the idle timeout period
+title: 限制空闲超时期限
 shortTitle: Restrict timeout periods
-intro: You can set a maximum timeout period for any codespaces owned by your organization.
+intro: 你可以为组织拥有的任何 codespace 设置最大超时时间。
 permissions: 'To manage timeout constraints for an organization''s codespaces, you must be an owner of the organization.'
 versions:
   fpt: '*'
@@ -9,77 +9,80 @@ versions:
 type: how_to
 topics:
   - Codespaces
+ms.openlocfilehash: b07d1834078b065eee89acdb84e0e80a2db1e8a6
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148158987'
 ---
+## 概述
 
-## Overview
+默认情况下，codespace 会在处于非活动状态 30 分钟后超时。 当 codespace 超时时，它会停止，并且不会再产生计算使用费用。 
 
-By default, codespaces time out after 30 minutes of inactivity. When a codespace times out it is stopped and will no longer incur charges for compute usage. 
+{% data variables.product.prodname_dotcom %} 用户的个人设置允许他们为创建的 codespace 定义自己的超时期限。 这可能比默认的 30 分钟期限长。 有关详细信息，请参阅“[设置 {% data variables.product.prodname_github_codespaces %} 的超时时间](/codespaces/customizing-your-codespace/setting-your-timeout-period-for-github-codespaces)”。
 
-The personal settings of a {% data variables.product.prodname_dotcom %} user allow them to define their own timeout period for codespaces they create. This may be longer than the default 30-minute period. For more information, see "[Setting your timeout period for {% data variables.product.prodname_github_codespaces %}](/codespaces/customizing-your-codespace/setting-your-timeout-period-for-github-codespaces)."
-
-As an organization owner, you may want to configure constraints on the maximum idle timeout period for codespaces created for repositories owned by your organization. This can help you to limit costs associated with codespaces that are left to timeout after long periods of inactivity. You can set a maximum timeout for the codespaces for all repositories owned by your organization, or for the codespaces of specific repositories. 
+作为组织所有者，你可能希望为针对组织拥有的存储库创建的 codespace 的最大空闲超时时间配置约束。 这有助于限制与长时间处于非活动状态后超时的 codespace 相关的成本。 你可以为组织拥有的所有存储库的 codespace 或特定存储库的 codespace 设置最大超时。 
 
 {% note %}
 
-**Note**: Maximum idle timeout constraints only apply to codespaces that are owned by your organization.
+注意：最大空闲超时约束仅应用于组织拥有的 codespace。
 
 {% endnote %}
 
-For more information about pricing for {% data variables.product.prodname_github_codespaces %} compute usage, see "[About billing for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#codespaces-pricing)."
+有关 {% data variables.product.prodname_github_codespaces %} 计算使用量的定价的详细信息，请参阅“[关于 {% data variables.product.prodname_github_codespaces %} 的计费](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#codespaces-pricing)”。
 
-### Behavior when you set a maximum idle timeout constraint
+### 设置最大空闲超时约束时的行为
 
-If someone sets the default idle timeout to 90 minutes in their personal settings and they then start a codespace for a repository with a maximum idle timeout constraint of 60 minutes, the codespace will time out after 60 minutes of inactivity. When codespace creation completes, a message explaining this will be displayed:
+如果某人在其个人设置中将默认空闲超时设置为 90 分钟，然后为具有最大空闲超时约束的存储库启动 codespace 60 分钟，则该 codespace 将在处于非活动状态 60 分钟后超时。 codespace 创建完成后，将显示一条消息，指出这一点：
 
-> Idle timeout for this codespace is set to 60 minutes in compliance with your organization’s policy.
+> 根据组织的策略，此 codespace 的空闲超时设置为 60 分钟。
 
-### Setting organization-wide and repository-specific policies
+### 设置组织范围和存储库特定的策略
 
-When you create a policy, you choose whether it applies to all repositories in your organization, or only to specified repositories. If you create an organization-wide policy with a timeout constraint, then the timeout constraints in any policies that are targeted at specific repositories must fall within the restriction configured for the entire organization. The shortest timeout period - in an organization-wide policy, a policy targeted at specified repositories, or in someone's personal settings - is applied.
+创建策略时，你可以选择是将其应用于组织中的所有存储库，还是仅应用于指定的存储库。 如果创建具有超时约束的组织范围的策略，则针对特定存储库的任何策略中的超时约束必须属于为整个组织配置的限制。 在组织范围的策略、针对指定存储库的策略或某人的个人设置中的策略中，将应用最短的超时期限。
 
-If you add an organization-wide policy with a timeout constraint, you should set the timeout to the longest acceptable period. You can then add separate policies that set the maximum timeout to a shorter period for specific repositories in your organization.
+如果添加具有超时约束的组织范围的策略，则应将超时设置为最长可接受的期限。 然后，可以添加单独的策略，将组织内特定存储库的最大超时设置为较短的期限。
 
 {% data reusables.codespaces.codespaces-org-policies-note %}
 
-## Adding a policy to set a maximum idle timeout period
+## 添加策略以设置最大空闲超时期限
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.codespaces.codespaces-org-policies %}
-1. Click **Add constraint** and choose **Maximum idle timeout**.
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.codespaces.codespaces-org-policies %}
+1. 单击“添加约束”，然后选择“最大空闲超时”。 
 
-   ![Screenshot of the 'Add constraint' dropdown menu](/assets/images/help/codespaces/add-constraint-dropdown-timeout.png)
+   ![“添加约束”下拉菜单的屏幕截图](/assets/images/help/codespaces/add-constraint-dropdown-timeout.png)
 
-1. Click {% octicon "pencil" aria-label="The edit icon" %} to edit the constraint.
+1. 单击 {% octicon "pencil" aria-label="The edit icon" %} 编辑约束。
 
-   ![Screenshot of the pencil icon for editing the constraint](/assets/images/help/codespaces/edit-timeout-constraint.png)
+   ![用于编辑约束的铅笔图标的屏幕截图](/assets/images/help/codespaces/edit-timeout-constraint.png)
 
-1. Enter the maximum number of minutes codespaces can remain inactive before they time out, then click **Save**.
+1. 输入 codespace 的最大分钟数可以在超时之前保持非活动状态，然后单击“保存”。
 
-   ![Screenshot of setting the maximum timeout in minutes](/assets/images/help/codespaces/maximum-minutes-timeout.png)
+   ![设置最大超时（以分钟为单位）的屏幕截图](/assets/images/help/codespaces/maximum-minutes-timeout.png)
 
 {% data reusables.codespaces.codespaces-policy-targets %}
-1. If you want to add another constraint to the policy, click **Add constraint** and choose another constraint. For information about other constraints, see:
-   * "[Restricting access to machine types](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)"
-   * "[Restricting the base image for codespaces](/codespaces/managing-codespaces-for-your-organization/restricting-the-base-image-for-codespaces)"
-   * "[Restricting the visibility of forwarded ports](/codespaces/managing-codespaces-for-your-organization/restricting-the-visibility-of-forwarded-ports)"
-   * "[Restricting the retention period for codespaces](/codespaces/managing-codespaces-for-your-organization/restricting-the-retention-period-for-codespaces)"
-1. After you've finished adding constraints to your policy, click **Save**.
+1. 如果要向策略添加另一个约束，请单击“添加约束”并选择另一个约束。 有关其他约束的信息，请参阅：
+   * “[限制对计算机类型的访问](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)”
+   * [限制 codespace 的基础映像](/codespaces/managing-codespaces-for-your-organization/restricting-the-base-image-for-codespaces)
+   * [限制转发端口的可见性](/codespaces/managing-codespaces-for-your-organization/restricting-the-visibility-of-forwarded-ports)
+   * [限制 codespace 的保持期](/codespaces/managing-codespaces-for-your-organization/restricting-the-retention-period-for-codespaces)
+1. 向策略添加完约束后，单击“保存”。
 
-The policy will be applied to all new codespaces that are billable to your organization. The timeout constraint is also applied to existing codespaces the next time they are started.
+策略将应用于对组织计费的所有新 codespace。 下次启动现有 codespace 时，超时约束也会对其应用。
 
-## Editing a policy
+## 编辑策略
 
-You can edit an existing policy. For example, you may want to add or remove constraints to or from a policy.
+可以编辑现有策略。 例如，你可能想要在策略中添加或移除约束。
 
-1. Display the "Codespace policies" page. For more information, see "[Adding a policy to set a maximum idle timeout period](#adding-a-policy-to-set-a-maximum-idle-timeout-period)."
-1. Click the name of the policy you want to edit.
-1. Click the pencil icon ({% octicon "pencil" aria-label="The edit icon" %}) beside the "Maximum idle timeout" constraint.
-1. Make the required changes then click **Save**.
+1. 显示“Codespace policies（代码空间策略）”页。 有关详细信息，请参阅“[添加策略以设置最大空闲超时期限](#adding-a-policy-to-set-a-maximum-idle-timeout-period)”。
+1. 单击要编辑的策略的名称。
+1. 单击“最大空闲超时”约束旁边的铅笔图标 ({% octicon "pencil" aria-label="The edit icon" %})。
+1. 执行所需更改，然后单击“保存”。
 
-## Deleting a policy 
+## 删除策略 
 
-1. Display the "Codespace policies" page. For more information, see "[Adding a policy to set a maximum idle timeout period](#adding-a-policy-to-set-a-maximum-idle-timeout-period)."
-1. Click the delete button to the right of the policy you want to delete.
+1. 显示“Codespace policies（代码空间策略）”页。 有关详细信息，请参阅“[添加策略以设置最大空闲超时期限](#adding-a-policy-to-set-a-maximum-idle-timeout-period)”。
+1. 单击要删除的策略右侧的删除按钮。
 
-   ![Screenshot of the delete button for a policy](/assets/images/help/codespaces/policy-delete.png)
+   ![策略的“删除”按钮的屏幕截图](/assets/images/help/codespaces/policy-delete.png)

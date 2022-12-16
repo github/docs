@@ -1,0 +1,31 @@
+date: '2022-06-28'
+sections:
+  security_fixes:
+    - "**MOYENNE** : Empêche une attaque où un paramètre de chaîne de requête `org` peut être spécifié pour une URL GitHub Enterprise Server, qui donne ensuite accès aux validateurs actifs d’une autre organisation."
+    - "**MOYENNE** : S’assure que `github.company.com` et `github-company.com` ne sont pas évalués par les services internes comme des noms d’hôte identiques, empêchant ainsi une attaque potentielle de type Server Side Request Forgery (SSRF)."
+    - "**FAIBLE** : Un attaquant pouvait accéder à la console de gestion par une attaque de traversée de chemin via HTTP, même si les règles du pare-feu externe bloquaient l’accès HTTP."
+    - Les packages ont été mis à jour avec les dernières versions de sécurité.
+  bugs:
+    - Les fichiers à l’intérieur d’une archive d’artefact ne pouvaient pas être ouverts après décompression en raison d’autorisations restrictives.
+    - Les expirations de Redis n’interrompent plus les migrations de bases de données lors de l’exécution de `ghe-config-apply`.
+    - "Les processeurs de travaux d’arrière-plan restaient bloqués dans un état d’arrêt partiel, ce qui avait pour conséquence de bloquer certains types de travaux d’arrière-plan (comme l’analyse du code)."
+    - "Dans certains cas, les administrateurs de site n’étaient pas automatiquement ajoutés en tant que propriétaires d’entreprise."
+    - Un problème de rendu pouvait affecter la liste déroulante permettant de filtrer les alertes d’analyse des secrets dans un référentiel.
+  changes:
+    - Amélioration des performances des mises à jour des versions de Dependabot après leur première activation.
+    - Les délais de génération et de synchronisation de GitHub Pages sont désormais configurables dans la console de gestion.
+    - "La création ou la mise à jour d’exécutions ou de suites de contrôles pouvait renvoyer `500 Internal Server Error` si la valeur de certains champs, comme le nom, était trop longue."
+    - "Lors du [déploiement de nœuds de serveur de cache](/admin/enterprise-management/caching-repositories/configuring-a-repository-cache#configuring-a-repository-cache), il est désormais obligatoire de décrire la topologie du centre de données (en utilisant l’argument `--datacenter`) pour chaque nœud du système. Cette exigence permet d’éviter les situations où le fait de laisser l’appartenance à un centre de données définie sur « par défaut » entraîne une répartition inappropriée des charges de travail entre plusieurs centres de données."
+  known_issues:
+    - "Sur une instance fraîchement configurée de {% data variables.product.prodname_ghe_server %} sans aucun utilisateur, un attaquant pourrait créer le premier utilisateur administrateur."
+    - Les règles de pare-feu personnalisées sont supprimées pendant le processus de mise à niveau.
+    - "Les fichiers suivis par Git LFS [chargés via l’interface web](https://github.com/blog/2105-upload-files-to-your-repositories) sont incorrectement ajoutés directement au référentiel."
+    - "Les questions ne peuvent pas être fermées si elles contiennent un permalien vers un blob dans le même référentiel, où le chemin de fichier du blob est supérieur à 255 caractères."
+    - "Lorsque l’option « Les utilisateurs peuvent effectuer des recherches sur GitHub.com » est activée avec {% data variables.product.prodname_github_connect %}, les problèmes des référentiels privés et internes ne sont pas inclus dans les résultats de recherche de {% data variables.product.prodname_dotcom_the_website %}."
+    - "Le registre npm {% data variables.product.prodname_registry %} ne renvoie plus une valeur de temps dans les réponses de métadonnées. Cela a été fait pour permettre des améliorations substantielles des performances. Nous disposons toujours de toutes les données nécessaires pour renvoyer une valeur de temps dans le cadre de la réponse aux métadonnées et nous recommencerons à renvoyer cette valeur à l’avenir, une fois que nous aurons résolu les problèmes de performance existants."
+    - Les limites de ressources spécifiques au traitement des hooks de pré-réception peuvent entraîner l’échec de certains hooks de pré-réception.
+    - |Après avoir enregistré un exécuteur auto-hébergé avec le paramètre `--ephemeral` à plus d’un niveau (par exemple, entreprise et organisation), l’exécuteur peut rester bloqué dans un état d’inactivité et nécessiter un nouvel enregistrement.
+
+|
+    - "Après la mise à niveau vers {% data variables.product.prodname_ghe_server %} 3.4, des versions peuvent sembler manquer dans les référentiels. Cela peut se produire lorsque les migrations d’index Elasticsearch requises n’ont pas été effectuées avec succès."
+    - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'

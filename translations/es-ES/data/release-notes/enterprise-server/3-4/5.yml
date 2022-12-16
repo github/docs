@@ -1,30 +1,31 @@
 date: '2022-06-28'
 sections:
   security_fixes:
-    - "**MEDIUM**: Prevents an attack where an `org` query string parameter can be specified for a GitHub Enterprise Server URL that then gives access to another organization's active committers."
-    - "**MEDIUM**: Ensures that `github.company.com` and `github-company.com` are not evaluated by internal services as identical hostnames, preventing a potential server-side security forgery (SSRF) attack."
-    - "**LOW**: An attacker could access the Management Console with a path traversal attack via HTTP even if external firewall rules blocked HTTP access."
-    - Packages have been updated to the latest security versions.
+    - "**MEDIA**: Evita un ataque en el que un parámetro de cadena de consulta \"org\" se puede especificar para una dirección URL de GitHub Enterprise Server que después concede acceso a los confirmadores activos de otra organización."
+    - "**MEDIA**: Garantiza que servicios internos no evalúen \"github.company.com\" ni \"github-company.com\" como nombres de host idénticos, evitando así un posible ataque de falsificación de la seguridad del lado servidor (SSRF)."
+    - "*BAJA**: Un atacante podría acceder a la consola de administración con un ataque punto punto barra a través de HTTP incluso si las reglas de firewall externas bloquearon el acceso HTTP."
+    - Los paquetes se actualizaron a las últimas versiones de seguridad.
   bugs:
-    - Files inside an artifact archive were unable to be opened after decompression due to restrictive permissions.
-    - Redis timeouts no longer halt database migrations while running `ghe-config-apply`.
-    - Background job processors would get stuck in a partially shut-down state, resulting in certain kinds of background jobs (like code scanning) appearing stuck.
-    - In some cases, site administrators were not automatically added as enterprise owners.
-    - A rendering issue could affect the dropdown list for filtering secret scanning alerts in a repository.
+    - Los archivos incluidos en un archivo de artefacto no pudieron abrirse tras la descompresión debido a permisos restrictivos.
+    - "Los tiempos de espera en Redis ya no detienen migraciones de base de datos durante la ejecución de \"ghe-config-apply\"."
+    - "Los procesadores de trabajo en segundo plano se quedarían bloqueados en un estado de apagado parcial, dando lugar al bloqueo de determinados tipos de trabajos en segundo plano (como el escaneo de código)."
+    - "En algunos casos, los administradores de sitios no se agregaron automáticamente como propietarios empresariales."
+    - Una incidencia de representación podría afectar a la lista desplegable para filtrar alertas de examen de secretos en un repositorio.
   changes:
-    - Improved the performance of Dependabot version updates after first enabled.
-    - The GitHub Pages build and synchronization timeouts are now configurable in the Management Console.
-    - Creating or updating check runs or check suites could return `500 Internal Server Error` if the value for certain fields, like the name, was too long.
-    - When [deploying cache-server nodes](/admin/enterprise-management/caching-repositories/configuring-a-repository-cache#configuring-a-repository-cache), it is now mandatory to describe the datacenter topology (using the `--datacenter` argument) for every node in the system. This requirement prevents situations where leaving datacenter membership set to "default" leads to workloads being inappropriately balanced across multiple datacenters.
+    - Se ha mejorado el rendimiento de las actualizaciones de versión del dependabot tras su primera habilitación.
+    - La compilación de GitHub Pages y los tiempos de espera de sincronización ahora se pueden configurar en la consola de administración.
+    - "La creación o actualización de ejecuciones de comprobación o conjuntos de comprobaciones podría devolver \"500 Internal Server Error\" si el valor de determinados campos, como el nombre, fuera demasiado largo."
+    - "Ahora, al [implementar nodos de servidor de caché](/admin/enterprise-management/caching-repositories/configuring-a-repository-cache#configuring-a-repository-cache), es obligatorio describir la topología de los centros de datos (mediante el argumento \"--datacenter\") para todos los nodos del sistema. Este requisito evita situaciones en las que dejar la pertenencia al centro de datos establecida en \"predeterminada\" da lugar a un equilibrio inadecuado de las cargas de trabajo entre varios centros de datos."
   known_issues:
-    - On a freshly set up {% data variables.product.prodname_ghe_server %} instance without any users, an attacker could create the first admin user.
-    - Custom firewall rules are removed during the upgrade process.
-    - Git LFS tracked files [uploaded through the web interface](https://github.com/blog/2105-upload-files-to-your-repositories) are incorrectly added directly to the repository.
-    - Issues cannot be closed if they contain a permalink to a blob in the same repository, where the blob's file path is longer than 255 characters.
-    - When "Users can search GitHub.com" is enabled with {% data variables.product.prodname_github_connect %}, issues in private and internal repositories are not included in {% data variables.product.prodname_dotcom_the_website %} search results.
-    - The {% data variables.product.prodname_registry %} npm registry no longer returns a time value in metadata responses. This was done to allow for substantial performance improvements. We continue to have all the data necessary to return a time value as part of the metadata response and will resume returning this value in the future once we have solved the existing performance issues.
-    - Resource limits that are specific to processing pre-receive hooks may cause some pre-receive hooks to fail.
-    - |
-      After registering a self-hosted runner with the `--ephemeral` parameter on more than one level (for example, both enterprise and organization), the runner may get stuck in an idle state and require re-registration.
-    - After upgrading to {% data variables.product.prodname_ghe_server %} 3.4, releases may appear to be missing from repositories. This can occur when the required Elasticsearch index migrations have not successfully completed.
+    - "En una instancia recién configurada de {% data variables.product.prodname_ghe_server %} sin ningún usuario, un atacante podría crear el primer usuario administrador."
+    - Las reglas de firewall personalizadas se eliminan durante el proceso de actualización.
+    - "Los archivos supervisados de Git LFS [cargados desde la interfaz web](https://github.com/blog/2105-upload-files-to-your-repositories) se han agregado de manera incorrecta y directa al repositorio."
+    - Las incidencias no se pueden cerrar si contienen un vínculo permanente a un blob en el mismo repositorio en el que la ruta de acceso de archivo del blob tiene más de 255 caracteres.
+    - "Cuando se habilita \"Los usuarios pueden buscar en GitHub.com\" con {% data variables.product.prodname_github_connect %}, las incidencias en los repositorios privados e internos no se incluyen en los resultados de búsqueda de {% data variables.product.prodname_dotcom_the_website %}."
+    - "El registro npm de {% data variables.product.prodname_registry %} ya no devuelve un valor de tiempo en las respuestas de metadatos. Esto se hacía para permitir mejoras de rendimiento importantes. Seguimos teniendo todos los datos necesarios para devolver un valor de tiempo como parte de la respuesta de metadatos y reanudaremos la devolución de este valor en el futuro una vez que hayamos resuelto las incidencias de rendimiento existentes."
+    - Los límites de recursos que son específicos para procesar enlaces de recepción previa podrían ocasionar que errores en algunos de ellos.
+    - |Después de registrar un ejecutor autohospedado con el parámetro "--ephemeral" en más de un nivel (por ejemplo, de empresa y de organización), el ejecutor puede quedarse bloqueado en un estado de inactividad y requerir un nuevo registro.
+
+|
+    - "Tras actualizar a {% data variables.product.prodname_ghe_server %} 3.4, puede parecer que faltan versiones en los repositorios. Esto puede ocurrir si las migraciones de índices de Elasticsearch no se han completado correctamente."
     - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'

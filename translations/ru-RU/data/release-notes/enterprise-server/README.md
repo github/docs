@@ -1,14 +1,23 @@
 ---
-ms.openlocfilehash: a43b7fac5396fcbdb1b7d9ec241af9879de7b2b8
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
+ms.openlocfilehash: bf7a1cdb9c8b1300ef8ba8ab2dd427a9b5d28128
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "145115019"
+ms.lasthandoff: 12/09/2022
+ms.locfileid: "148193464"
 ---
 # Заметки о выпуске сервера GitHub Enterprise
 
 Отрисовывается здесь: https://docs.github.com/en/enterprise-server@latest/admin/release-notes
+
+## Добавление заметок о выпуске в нерекомендуемый выпуск GitHub Enterprise Server
+
+Во время устаревания выпуска GitHub Enterprise Server в рамках [этого шаблона проблемы](/.github/actions-scripts/enterprise-server-issue-templates/deprecation-issue.md) документация по проектированию удаляет yaml-файлы с заметками о выпуске версии из `github/docs-internal`.
+
+Если заинтересованные лица запрашивают обновление устаревших заметок о выпуске, вы можете обновить заметки, выполнив следующие действия.
+
+1. Просмотрите долго выполняющуюся ветвь <code>enterprise-<em>VERSION</em>-release</code> и создайте запрос на вытягивание, чтобы обновить заметки о выпуске для устаревшей версии в этой ветви.
+2. Обратитесь к #docs инженерии, чтобы запросить повторное извлечение и обновление содержимого, хранящегося в Azure. См. раздел о повторном извлечении содержимого в [контрольном списке для нерекомендуемого использования](/.github/actions-scripts/enterprise-server-issue-templates/deprecation-issue.md).
 
 ## Принцип работы
 
@@ -30,7 +39,7 @@ ms.locfileid: "145115019"
 
 ### Обработка ПО промежуточного слоя
 
-Данные YAML обрабатываются и сортируются по `middleware/contextualizers/release-notes.js` и добавляются в объект `context`.
+Данные YAML обрабатываются и сортируются по `middleware/contextualizers/ghes-release-notes.js` и добавляются в объект `context`.
 
 ### Макеты
 
@@ -40,6 +49,6 @@ ms.locfileid: "145115019"
 
 ### схема
 
-Схема, проверяющая, находятся ли данные YAML в `tests/helpers/schemas/ghes-release-notes-schema.js`. Просмотрите файл схемы, чтобы найти обязательные и необязательные свойства.
+Схема, проверяющая, находятся ли данные YAML в `tests/helpers/schemas/release-notes-schema.js`. Просмотрите файл схемы, чтобы найти обязательные и необязательные свойства.
 
 Схема выполняется тестом в `tests/linting/lint-files.js`. Если данные не проходят проверку, тест завершится ошибкой.

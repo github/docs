@@ -1,6 +1,6 @@
 ---
-title: Customizing your organization's profile
-intro: You can share information about your organization by customizing your organization's profile.
+title: Настройка профиля вашей организации
+intro: 'Можно предоставить общий доступ к сведениям о своей организации, настроив профиль организации.'
 versions:
   fpt: '*'
   ghec: '*'
@@ -8,83 +8,86 @@ versions:
 topics:
   - Organizations
 shortTitle: Customize organization profile
+ms.openlocfilehash: 66f234427f6e47213578e8f906e123d98c07a092
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147447933'
 ---
+## Сведения о странице профиля вашей организации
 
+{% ifversion org-profile-pin-private %} Можно настроить страницу обзора вашей организации, чтобы отображать файл сведений и закрепленные репозитории, предназначенные для обычных пользователей либо членов организации.
 
-## About your organization's profile page
+![Изображение страницы общедоступного профиля организации](/assets/images/help/organizations/public_profile.png)
 
-{% ifversion org-profile-pin-private %}
-You can customize your organization's Overview page to show a README and pinned repositories dedicated to public users or members of the organization.
+Члены вашей организации, выполнившие вход в {% data variables.product.prodname_dotcom %}, при посещении страницы профиля вашей организации могут выбрать представление `member` или `public` файла сведений и закрепленных репозиториев. 
 
-![Image of a public organization profile page](/assets/images/help/organizations/public_profile.png)
+![Изображение переключателя контекста представления страницы общедоступного профиля организации](/assets/images/help/organizations/profile_view_switcher_public.png)
 
-Members of your organization who are signed into {% data variables.product.prodname_dotcom %}, can select a `member` or `public` view of the README and pinned repositories when they visit your organization's profile page. 
+Если файл сведений или закрепленные репозитории доступны только для членов, по умолчанию используется представление `member`; в противном случае — представление `public`.
 
-![Image of a public organization profile page view context switcher](/assets/images/help/organizations/profile_view_switcher_public.png)
+![Изображение страницы профиля только для членов организации](/assets/images/help/organizations/member_only_profile.png)
 
-The view defaults to `member` if either a members-only README or members-only pinned repositories are present, and `public` otherwise.
+Для пользователей, которые не являются членами вашей организации, будет отображаться представление `public`.
 
-![Image of a members only organization profile page](/assets/images/help/organizations/member_only_profile.png)
+### Закрепленные репозитории
 
-Users who are not members of your organization will be shown a `public` view.
+Вы можете предоставить пользователям простой доступ к важным или часто используемым репозиториям, выбрав до шести репозиториев для публичных пользователей и шесть репозиториев для членов организации. После закрепления репозиториев в профиле вашей организации раздел "Закрепленные" будет отображаться над разделом "Репозитории" на странице профиля.
 
-### Pinned repositories
+Только владельцы организации могут закреплять репозитории. Дополнительные сведения см. в разделе [Закрепление репозиториев в профиле организации](#pinning-repositories-to-your-organizations-profile).
 
-You can give users easy access to important or frequently used repositories, by choosing up to six repositories for public users and six repositories for members of the organization. Once you pin repositories to your organization profile, the "Pinned" section is shown above the "Repositories" section of the profile page.
-
-Only organization owners can pin repositories. For more information, see "[Pinning repositories to your organization's profile](#pinning-repositories-to-your-organizations-profile)."
-
-### Organization profile READMEs
+### Файлы README о профиле организации
 
 {% endif %}
 
-You can share information about how to engage with your organization by creating an organization profile README for both public users and members of the organization. {% data variables.product.prodname_dotcom %} shows your organization profile README in the "Overview" tab of your organization.
+Вы можете предоставить информацию о том, как взаимодействовать с организацией, создав файл сведений о профиле организации README для публичных пользователей и членов организации. {% data variables.product.prodname_dotcom %} отображает файл сведений о профиле организации на вкладке «Обзор».
 
-You can choose what information to include in your organization profile README. Here are some examples of information that may be helpful.
+Вы можете выбрать информацию, которую нужно включить в файл README о профиле организации. Ниже приведены некоторые примеры информации, которая может быть полезной.
 
-- An "About" section that describes your organization
-- Guidance for getting help in the organization
+- Раздел «Сведения», в котором описывается ваша организация
+- Руководство по получению справки в организации
 
-You can format text and include emoji, images, and GIFs in your organization profile README by using {% data variables.product.company_short %} Flavored Markdown. For more information, see "[Getting started with writing and formatting on {% data variables.product.prodname_dotcom %}](/github/writing-on-github/getting-started-with-writing-and-formatting-on-github)."
+Вы можете форматировать текст и включать эмодзи, изображения и GIF-файлы в профилю организации с помощью Flavored Markdown {% data variables.product.company_short %}. Дополнительные сведения см. в разделе [Начало работы с написанием и форматированием в {% vdata ariables.product.prodname_dotcom %}](/github/writing-on-github/getting-started-with-writing-and-formatting-on-github).
 
-## Adding a public organization profile README
+## Добавление общедоступного файла README о профиле организации
 
-1. If your organization does not already have a public `.github` repository, create a public `.github` repository.
-2. In your organization's `.github` repository, create a `README.md` file in the `profile` folder.
-3. Commit the changes to the `README.md` file. The content of the `README.md` will appear on your organization's public profile.
+1. Если в вашей организации еще нет общедоступного репозитория`.github`, создайте общедоступный репозиторий `.github`.
+2. В репозитории организации `.github` создайте файл `README.md` в папке `profile`.
+3. Зафиксируйте изменения в файле `README.md`. Содержимое файла `README.md` отобразится в общедоступном профиле вашей организации.
 
-   ![Image of an organization's public README](/assets/images/help/organizations/org_public_readme.png)
+   ![Изображение общедоступного файла README организации](/assets/images/help/organizations/org_public_readme.png)
 
 {% ifversion org-profile-pin-private %}
 
-## Adding a member-only organization profile README
+## Добавление файла README о профиле организации только для членов организации
 
-1. If your organization does not already have a `.github-private` repository, create a private repository called `.github-private`. 
-2. In your organization's `.github-private` repository, create a `README.md` file in the `profile` folder.
-3. Commit the changes to the `README.md` file. The content of the `README.md` will be displayed in the member view of your organization's profile.
+1. Если в вашей организации еще нет репозитория `.github-private`, создайте частный репозиторий с именем `.github-private`. 
+2. В репозитории организации `.github-private` создайте файл `README.md` в папке `profile`.
+3. Зафиксируйте изменения в файле `README.md`. Содержимое файла `README.md` будет отображаться в представлении для членов в профиле вашей организации.
 
-   ![Image of an organization's member-only README](/assets/images/help/organizations/org_member_readme.png)
+   ![Изображение файла сведений только для членов](/assets/images/help/organizations/org_member_readme.png)
 
-## Pinning repositories to your organization's profile
+## Закрепление репозиториев в профиле организации
 
-You can pin repositories that you want to feature, such as those that are frequently used, to your organization's profile page. To choose which repositories to pin to your organization's profile, you must be an organization owner.
+Можно закрепить репозитории, которые вы хотите выделить, например часто используемые, на странице профиля вашей организации. Чтобы выбрать репозитории для закрепления в профиле вашей организации, необходимо быть владельцем организации.
 
-1. Navigate to your organization's profile page.
-2. In the right sidebar of the page in the {% octicon "eye" aria-label="The eye octicon" %} "View as" link, choose the **Public** or **Member** profile view from the dropdown menu.
+1. Перейдите на страницу профиля вашей организации.
+2. На правой боковой панели страницы в ссылке "Просмотреть как" {% octicon "eye" aria-label="The eye octicon" %} выберите представление для **Общедоступный** или **Член** из раскрывающегося меню.
 
-   ![Image of the organization profile view dropdown](/assets/images/help/organizations/org_profile_view.png)
+   ![Изображение раскрывающегося меню представления профиля организации](/assets/images/help/organizations/org_profile_view.png)
 
-3. In the pinned repositories section, select **Customize pins**.
+3. В разделе закрепленных репозиториев выберите **Настроить закрепления**.
 
-   ![Image of the customize pins link](/assets/images/help/organizations/customize_pins_link.png)
+   ![Изображение ссылки на настройку закреплений](/assets/images/help/organizations/customize_pins_link.png)
 
-   - If you haven't yet pinned any repositories to your organization's profile, you'll need to instead click **pin repositories** in the right sidebar of the profile page.
-   ![Image of pin repositories link in right sidebar](/assets/images/help/organizations/pin_repositories_link.png)
+   - Если вы еще не закрепили репозитории в профиле вашей организации, необходимо щелкнуть **закрепить репозитории** на правой боковой панели страницы профиля.
+   ![Изображение ссылки на закрепленные репозитории на правой боковой панели](/assets/images/help/organizations/pin_repositories_link.png)
 
-4. In the "Edit pinned repositories" dialog box, select a combination of up to six public, {% ifversion not fpt %}private, or internal{% else %}or private{% endif %} repositories to display.
+4. В диалоговом окне "Изменение закрепленных репозиториев" выберите сочетание до шести общедоступных, {% ifversion not fpt %}частных или внутренних{% else %}либо частных{% endif %} репозиториев для отображения.
 
-   ![Image of pinned repo dialog](/assets/images/help/organizations/pinned_repo_dialog.png)
+   ![Изображение диалогового окна закрепленных репозиториев](/assets/images/help/organizations/pinned_repo_dialog.png)
 
-5. Click **Save pins**.
+5. Щелкните **Сохранить закрепления**.
 
 {% endif %}

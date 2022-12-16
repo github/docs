@@ -8,12 +8,12 @@ versions:
   ghae: '*'
   ghec: '*'
 shortTitle: Quickstart
-ms.openlocfilehash: 207b91e821037a6eb61ae7bc9b18c98d8b14fdd2
-ms.sourcegitcommit: 505b84dc7227e8a5d518a71eb5c7eaa65b38ce0e
+ms.openlocfilehash: 887c4ee6c5e6b3e2c391c2d5754cfcb2787e4b86
+ms.sourcegitcommit: cfe91073c844cb762131b2de9fb41f7f9db792fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2022
-ms.locfileid: '147875644'
+ms.lasthandoff: 11/24/2022
+ms.locfileid: '148181250'
 ---
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
@@ -26,8 +26,8 @@ Neste guia, você criará um fluxo de trabalho de {% data variables.product.prod
 1. Crie um repositório no {% data variables.product.prodname_dotcom %} adicionando o `.gitignore` ao Node. Para obter mais informações, confira "[Como criar um repositório](/github/creating-cloning-and-archiving-repositories/creating-a-new-repository)".
 2. Clone o repositório em seu computador local.
     ```shell
-    $ git clone https://{% ifversion ghes or ghae %}<em>YOUR-HOSTNAME</em>{% else %}github.com{% endif %}/<em>YOUR-USERNAME</em>/<em>YOUR-REPOSITORY</em>.git
-    $ cd <em>YOUR-REPOSITORY</em>
+    $ git clone https://{% ifversion ghes or ghae %}YOUR-HOSTNAME{% else %}github.com{% endif %}/YOUR-USERNAME/YOUR-REPOSITORY.git
+    $ cd YOUR-REPOSITORY
     ```
 3. Crie um arquivo `index.js` e adicione um alerta básico para dizer "Olá, mundo!"
     {% raw %}
@@ -40,9 +40,9 @@ Neste guia, você criará um fluxo de trabalho de {% data variables.product.prod
     ```shell
     $ npm init
       ...
-      package name: <em>@YOUR-USERNAME/YOUR-REPOSITORY</em>
+      package name: @YOUR-USERNAME/YOUR-REPOSITORY
       ...
-      test command: <em>exit 0</em>
+      test command: exit 0
       ...    
     ```
     {% endraw %}
@@ -69,7 +69,7 @@ Neste guia, você criará um fluxo de trabalho de {% data variables.product.prod
           - uses: {% data reusables.actions.action-checkout %}
           - uses: {% data reusables.actions.action-setup-node %}
             with:
-              node-version: 12
+              node-version: 16
           - run: npm ci
           - run: npm test
 
@@ -83,7 +83,7 @@ Neste guia, você criará um fluxo de trabalho de {% data variables.product.prod
           - uses: {% data reusables.actions.action-checkout %}
           - uses: {% data reusables.actions.action-setup-node %}
             with:
-              node-version: 12
+              node-version: 16
               registry-url: {% ifversion ghes or ghae %}https://npm.YOUR-HOSTNAME.com/{% else %}https://npm.pkg.github.com/{% endif %}
           - run: npm ci
           - run: npm publish
@@ -93,7 +93,7 @@ Neste guia, você criará um fluxo de trabalho de {% data variables.product.prod
 8. Diga ao NPM quais escopos e registros publicam pacotes usando um dos seguintes métodos:
    - Adicione um arquivo de configuração do npm ao repositório, criando um arquivo `.npmrc` no diretório raiz com o conteúdo: {% raw %}
       ```shell
-      <em>@YOUR-USERNAME</em>:registry=https://npm.pkg.github.com
+      @YOUR-USERNAME:registry=https://npm.pkg.github.com
       ```
       {% endraw %}
    - Edite o arquivo `package.json` e especifique a chave `publishConfig`: {% raw %}
@@ -107,7 +107,7 @@ Neste guia, você criará um fluxo de trabalho de {% data variables.product.prod
     ```shell
     $ git add .github/workflows/release-package.yml
     # Also add the file you created or edited in the previous step.
-    $ git add <em>.npmrc or package.json</em>
+    $ git add .npmrc or package.json
     $ git commit -m "workflow to publish package"
     $ git push
     ```

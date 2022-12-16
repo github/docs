@@ -1,20 +1,20 @@
 get_started_with_github_ae:
-  title: 'Get started with {% data variables.product.prodname_ghe_managed %}'
-  description: 'Learn about {% data variables.product.prodname_ghe_managed %} and complete the initial configuration of a new enterprise.'
+  title: 'Начало работы с {% data variables.product.prodname_ghe_managed %}'
+  description: 'Узнайте больше о {% данных variables.product.prodname_ghe_managed %}, а также о том, как завершить начальную настройку нового предприятия.'
   featured_track: true
   versions:
     ghae: '*'
   guides:
     - /admin/overview/about-github-ae
-    - /admin/overview/about-data-residency
+    - /admin/overview/about-data-residenc
     - /admin/configuration/configuring-your-enterprise/deploying-github-ae
     - /admin/configuration/initializing-github-ae
     - /admin/configuration/restricting-network-traffic-to-your-enterprise
     - /admin/github-actions/getting-started-with-github-actions-for-github-ae
 
 deploy_an_instance:
-  title: 'Deploy an instance'
-  description: 'Install {% data variables.product.prodname_ghe_server %} on your platform of choice and configure SAML authentication.'
+  title: 'Развертывание экземпляра'
+  description: 'Установите {% данных variables.product.prodname_ghe_server %} на желательной платформе и настройте проверку подлинности SAML.'
   featured_track: true
   versions:
     ghes: '*'
@@ -27,8 +27,8 @@ deploy_an_instance:
     - /admin/configuration/site-admin-dashboard
 
 upgrade_your_instance:
-  title: 'Upgrade your instance'
-  description: 'Test upgrades in staging, notify users of maintenance, and upgrade your instance for the latest features and security updates.'
+  title: 'Обновление экземпляра'
+  description: 'Тестируйте обновления на промежуточном этапе, уведомляйте пользователей об обслуживании и обновляйте свой экземпляр, чтобы получить новейшие возможности и обновления системы безопасности.'
   versions:
     ghes: '*'
   guides:
@@ -40,8 +40,8 @@ upgrade_your_instance:
     - /admin/enterprise-management/upgrading-github-enterprise-server
 
 adopting_github_actions_for_your_enterprise_ghec:
-  title: 'Adopt GitHub Actions for your enterprise'
-  description: 'Learn how to plan and implement a rollout of {% data variables.product.prodname_actions %} in your enterprise.'
+  title: 'Внедрение GitHub Actions для предприятия'
+  description: 'Узнайте, как спланировать и реализовать выпуск {% data variables.product.prodname_actions %} на вашем предприятии.'
   versions:
     ghec: '*'
   guides:
@@ -54,8 +54,8 @@ adopting_github_actions_for_your_enterprise_ghec:
     - /billing/managing-billing-for-github-actions/about-billing-for-github-actions
 
 adopting_github_actions_for_your_enterprise_ghes_and_ghae:
-  title: 'Adopt GitHub Actions for your enterprise'
-  description: 'Learn how to plan and implement a rollout of {% data variables.product.prodname_actions %} in your enterprise.'
+  title: 'Внедрение GitHub Actions для предприятия'
+  description: 'Узнайте, как спланировать и реализовать выпуск {% data variables.product.prodname_actions %} на вашем предприятии.'
   versions:
     ghes: '*'
     ghae: '*'
@@ -71,8 +71,8 @@ adopting_github_actions_for_your_enterprise_ghes_and_ghae:
     - /billing/managing-billing-for-github-actions/about-billing-for-github-actions
 
 increase_fault_tolerance:
-  title: 'Increase the fault tolerance of your instance'
-  description: "Back up your developers' code and configure high availability (HA) to ensure the reliability of {% data variables.product.prodname_ghe_server %} in your environment."
+  title: 'Повышение отказоустойчивости экземпляра'
+  description: "Создайте резервную копию кода разработчика и настройте высокий уровень доступности (HA), чтобы гарантировать надежность {% data variables.product.prodname_ghe_server %} в вашем окружении."
   versions:
     ghes: '*'
   guides:
@@ -83,8 +83,8 @@ increase_fault_tolerance:
     - /admin/configuration/using-github-enterprise-server-with-a-load-balancer
 
 improve_security_of_your_instance:
-  title: 'Improve the security of your instance'
-  description: "Review network configuration and security features, and harden the instance running {% data variables.product.prodname_ghe_server %} to protect your enterprise's data."
+  title: 'Повышение безопасности экземпляра'
+  description: "Проверьте конфигурацию сети и возможности системы безопасности, и усилите безопасность экземпляра, на котором выполняется {% data variables.product.prodname_ghe_server %}, чтобы защитить данные предприятия."
   versions:
     ghes: '*'
   guides:
@@ -99,8 +99,8 @@ improve_security_of_your_instance:
     - /admin/user-management/promoting-or-demoting-a-site-administrator
 
 configure_github_actions:
-  title: 'Configure {% data variables.product.prodname_actions %}'
-  description: 'Allow your developers to create, automate, customize, and execute powerful software development workflows for {% data variables.location.product_location %} with {% data variables.product.prodname_actions %}.'
+  title: 'Настройка {% data variables.product.prodname_actions %}'
+  description: 'Используйте {% data variables.product.prodname_actions %}, чтобы позволить разработчикам создавать, автоматизировать, настраивать и выполнять мощные рабочие процессы разработки программного обеспечения для {% data variables.product.product_location %}.'
   versions:
     ghes: '*'
   guides:
@@ -112,8 +112,8 @@ configure_github_actions:
     - /admin/github-actions/using-a-staging-environment
 
 configure_github_advanced_security:
-  title: 'Configure {% data variables.product.prodname_GH_advanced_security %}'
-  description: "Improve the quality and security of your developers' code with {% data variables.product.prodname_GH_advanced_security %}."
+  title: 'Настройка {% data variables.product.prodname_GH_advanced_security %}'
+  description: "Улучшайте качество и безопасность кода разработчика с помощью {% data variables.product.prodname_GH_advanced_security %}."
   versions:
     ghes: '*'
   guides:
@@ -125,8 +125,8 @@ configure_github_advanced_security:
     - /admin/policies/enforcing-policies-for-advanced-security-in-your-enterprise
 
 get_started_with_your_enterprise_account:
-  title: 'Get started with your enterprise account'
-  description: 'Get started with your enterprise account to centrally manage multiple organizations on {% data variables.product.product_name %}.'
+  title: 'Начало работы с корпоративной учетной записью'
+  description: 'Начните работу с корпоративной учетной записью, чтобы централизовано управлять несколькими организациями в {% data variables.product.product_name %}.'
   versions:
     ghes: '*'
     ghec: '*'

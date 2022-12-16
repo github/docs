@@ -12,12 +12,12 @@ topics:
   - Teams
 shortTitle: Manage allowed IP addresses
 permissions: Organization owners can manage allowed IP addresses for an organization.
-ms.openlocfilehash: 5d0a9bbc9b2207e088e2051025a8844e7cf0dbec
-ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.openlocfilehash: f0484aae26b5acb8bac07c7b002af2d623d7dfef
+ms.sourcegitcommit: 7a74d5796695bb21c30e4031679253cbc16ceaea
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2022
-ms.locfileid: '147707297'
+ms.lasthandoff: 11/28/2022
+ms.locfileid: '148184026'
 ---
 ## 关于允许的 IP 地址
 
@@ -35,7 +35,7 @@ ms.locfileid: '147707297'
 
 如果您设置了允许列表，您还可以选择将为组织中安装的 {% data variables.product.prodname_github_apps %} 配置的任何 IP 地址自动添加到允许列表中。 {% data variables.product.prodname_github_app %} 的创建者可以为其应用程序配置允许列表，指定应用程序运行的 IP 地址。 通过将允许列表继承到您的列表中，您可以避免申请中的连接请求被拒绝。 有关详细信息，请参阅“[允许 {% data variables.product.prodname_github_apps %} 进行访问](#allowing-access-by-github-apps)”。
 
-您还可以为企业帐户中的组织配置允许的 IP 地址。 有关详细信息，请参阅“[为企业中的安全设置强制实施策略](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#managing-allowed-ip-addresses-for-organizations-in-your-enterprise)”。
+还可以在企业帐户级别配置允许的 IP 地址，企业帐户允许列表中的条目由企业拥有的所有组织继承。 {% data reusables.identity-and-permissions.org-enterprise-allow-list-interaction %}有关详细信息，请参阅“[为企业中的安全设置实施策略](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#managing-allowed-ip-addresses-for-organizations-in-your-enterprise)”。
 
 ## 添加允许的 IP 地址
 
@@ -77,12 +77,11 @@ ms.locfileid: '147707297'
 1. 单击“更新”。
 {% data reusables.identity-and-permissions.check-ip-address %}
 
-{% ifversion ip-allow-list-address-check %}
 ## 检查是否允许使用 IP 地址
 
 {% data reusables.identity-and-permissions.about-checking-ip-address %}
 
-{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.organizations.security %} {% data reusables.identity-and-permissions.check-ip-address-step %} {% endif %}
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.organizations.security %} {% data reusables.identity-and-permissions.check-ip-address-step %}
 
 ## 删除允许的 IP 地址
 

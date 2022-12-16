@@ -1,6 +1,6 @@
 ---
-title: Enabling and testing SAML single sign-on for your organization
-intro: Organization owners and admins can enable SAML single sign-on to add an extra layer of security to their organization.
+title: Включение и тестирование единого входа SAML для вашей организации
+intro: Владельцы и администраторы организации могут включить единый вход SAML для добавления дополнительного уровня безопасности в свою организацию.
 redirect_from:
   - /articles/enabling-and-testing-saml-single-sign-on-for-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/enabling-and-testing-saml-single-sign-on-for-your-organization
@@ -10,59 +10,64 @@ topics:
   - Organizations
   - Teams
 shortTitle: Enable & test SAML SSO
+ms.openlocfilehash: cbdf8c92ca61f9836876c34ae9dd3b9be0cd7ee4
+ms.sourcegitcommit: 7a74d5796695bb21c30e4031679253cbc16ceaea
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 11/28/2022
+ms.locfileid: '148184084'
 ---
+## Сведения о едином входе SAML
 
-## About SAML single sign-on
-
-You can enable SAML SSO in your organization without requiring all members to use it. Enabling but not enforcing SAML SSO in your organization can help smooth your organization's SAML SSO adoption. Once a majority of your organization's members use SAML SSO, you can enforce it within your organization.
+Можно включить единый вход SAML в организации, не требуя, чтобы все участники использовали его. Включение, но не принудительное применение единого входа SAML в организации, помогает упростить процесс внедрения единого входа SAML. Как только большинство участников вашей организации будут использовать единый вход SAML, вы можете настроить его принудительное применение.
 
 {% data reusables.saml.ghec-only %}
 
-If you enable but don't enforce SAML SSO, organization members who choose not to use SAML SSO can still be members of the organization. For more information on enforcing SAML SSO, see "[Enforcing SAML single sign-on for your organization](/articles/enforcing-saml-single-sign-on-for-your-organization)."
+Если включить, но не применять принудительно единый вход SAML, участники организации, которые решили не использовать единый вход SAML, по-прежнему могут быть участниками организации. Дополнительные сведения см. в разделе [Принудительное применение единого входа SAML для организации](/articles/enforcing-saml-single-sign-on-for-your-organization).
 
 {% data reusables.saml.outside-collaborators-exemption %}
 
 {% data reusables.saml.saml-disabled-linked-identities-removed %}
 
-## Enabling and testing SAML single sign-on for your organization
+{% data reusables.apps.reauthorize-apps-saml %}
 
-Before your enforce SAML SSO in your organization, ensure that you've prepared the organization. For more information, see "[Preparing to enforce SAML single sign-on in your organization](/articles/preparing-to-enforce-saml-single-sign-on-in-your-organization)."
+## Включение и тестирование единого входа SAML для вашей организации
 
-For more information about the identity providers (IdPs) that {% data variables.product.company_short %} supports for SAML SSO, see "[Connecting your identity provider to your organization](/organizations/managing-saml-single-sign-on-for-your-organization/connecting-your-identity-provider-to-your-organization)."
+Перед применением единого входа SAML в организации убедитесь, что вы подготовили организацию. Дополнительные сведения см. в разделе [Подготовка к принудительному применению единого входа SAML в организации](/articles/preparing-to-enforce-saml-single-sign-on-in-your-organization).
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.security %}
-5. Under "SAML single sign-on", select **Enable SAML authentication**.
-![Checkbox for enabling SAML SSO](/assets/images/help/saml/saml_enable.png)
+Дополнительные сведения о поставщиках удостоверений (IdP), для которых {% data variables.product.company_short %} поддерживает единый вход SAML, см. в разделе [Подключение поставщика удостоверений к организации](/organizations/managing-saml-single-sign-on-for-your-organization/connecting-your-identity-provider-to-your-organization).
+
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.organizations.security %}
+5. В разделе "Единый вход SAML" выберите **Включить проверку подлинности SAML**.
+![Флажок для включения единого входа SAML](/assets/images/help/saml/saml_enable.png)
 
   {% note %}
 
-  **Note:** After enabling SAML SSO, you can download your single sign-on recovery codes so that you can access your organization even if your IdP is unavailable. For more information, see "[Downloading your organization's SAML single sign-on recovery codes](/articles/downloading-your-organization-s-saml-single-sign-on-recovery-codes)."
+  **Примечание.** После включения единого входа SAML можно скачать коды восстановления единого входа, чтобы иметь доступ к организации, даже если поставщик удостоверений недоступен. Дополнительные сведения см. в разделе [Скачивание кодов восстановления единого входа SAML для организации](/articles/downloading-your-organization-s-saml-single-sign-on-recovery-codes).
 
   {% endnote %}
 
-6. In the "Sign on URL" field, type the HTTPS endpoint of your IdP for single sign-on requests. This value is available in your IdP configuration.
-![Field for the URL that members will be forwarded to when signing in](/assets/images/help/saml/saml_sign_on_url.png)
-7. Optionally, in the "Issuer" field, type your SAML issuer's name. This verifies the authenticity of sent messages.
-![Field for the SAML issuer's name](/assets/images/help/saml/saml_issuer.png)
-8. Under "Public Certificate," paste a certificate to verify SAML responses.
-![Field for the public certificate from your identity provider](/assets/images/help/saml/saml_public_certificate.png)
-9. Click {% octicon "pencil" aria-label="The edit icon" %} and then in the Signature Method and Digest Method drop-downs, choose the hashing algorithm used by your SAML issuer to verify the integrity of the requests.
-![Drop-downs for the Signature Method and Digest method hashing algorithms used by your SAML issuer](/assets/images/help/saml/saml_hashing_method.png)
-10. Before enabling SAML SSO for your organization, click **Test SAML configuration** to ensure that the information you've entered is correct. ![Button to test SAML configuration before enforcing](/assets/images/help/saml/saml_test.png)
+6. В поле "URL-адрес входа" введите конечную точку HTTPS поставщика удостоверений для запросов единого входа. Это значение доступно в конфигурации поставщика удостоверений.
+![Поле для URL-адреса, на который участники будут переадресованы при входе](/assets/images/help/saml/saml_sign_on_url.png)
+7. При необходимости в поле "Издатель" введите имя издателя SAML. Это позволяет проверить подлинность отправленных сообщений.
+![Поле для имени издателя SAML](/assets/images/help/saml/saml_issuer.png)
+8. В поле "Открытый сертификат" вставьте сертификат для проверки ответов SAML.
+![Поле для открытого сертификата поставщика удостоверений](/assets/images/help/saml/saml_public_certificate.png)
+9. Щелкните {% octicon "pencil" aria-label="The edit icon" %}, а затем в раскрывающихся списках "Метод подписи" и "Метод дайджеста" выберите алгоритм хэширования, используемый издателем SAML для проверки целостности запросов.
+![Раскрывающиеся списки алгоритмов хэширования для метода подписи и метода дайджеста, используемых издателем SAML](/assets/images/help/saml/saml_hashing_method.png)
+10. Перед включением единого входа SAML для вашей организации щелкните **Проверить конфигурацию SAML**, чтобы убедиться, что введены правильные сведения. ![Кнопка для проверки конфигурации SAML перед применением](/assets/images/help/saml/saml_test.png)
 
   {% tip %}
 
-  **Tip:** {% data reusables.saml.testing-saml-sso %}
+  **Совет.** {% data reusables.saml.testing-saml-sso %}
 
   {% endtip %}
-11. To enforce SAML SSO and remove all organization members who haven't authenticated via your IdP, select **Require SAML SSO authentication for all members of the _organization name_ organization**. For more information on enforcing SAML SSO, see "[Enforcing SAML single sign-on for your organization](/articles/enforcing-saml-single-sign-on-for-your-organization)."
-![Checkbox to require SAML SSO for your organization ](/assets/images/help/saml/saml_require_saml_sso.png)
-12. Click **Save**.
-![Button to save SAML SSO settings](/assets/images/help/saml/saml_save.png)
+11. Чтобы включить принудительное применение единого входа SAML и удалить всех участников организации, которые не прошли проверку подлинности с помощью поставщика удостоверений, установите флажок **Требовать проверку подлинности единого входа SAML для всех участников организации _имя_организации_**. Дополнительные сведения см. в разделе [Принудительное применение единого входа SAML для организации](/articles/enforcing-saml-single-sign-on-for-your-organization).
+![Флажок для обязательного единого входа SAML для организации ](/assets/images/help/saml/saml_require_saml_sso.png)
+12. Выберите команду **Сохранить**.
+![Кнопка для сохранения параметров единого входа SAML](/assets/images/help/saml/saml_save.png)
 
-## Further reading
+## Дополнительные материалы
 
-- "[About identity and access management with SAML single sign-on](/articles/about-identity-and-access-management-with-saml-single-sign-on)"
-- "[SAML configuration reference](/admin/identity-and-access-management/using-saml-for-enterprise-iam/saml-configuration-reference)"
+- [Сведения об управлении удостоверениями и доступом с помощью единого входа SAML](/articles/about-identity-and-access-management-with-saml-single-sign-on)
+- [Справочник по конфигурации SAML](/admin/identity-and-access-management/using-saml-for-enterprise-iam/saml-configuration-reference)

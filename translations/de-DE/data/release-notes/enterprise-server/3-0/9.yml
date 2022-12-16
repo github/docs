@@ -1,0 +1,24 @@
+date: '10.6.2021'
+sections:
+  security_fixes:
+    - Die Pakete wurden auf die neuesten Sicherheitsversionen aktualisiert.
+  bugs:
+    - "Beim Upgrade von Actions konnte ein Fehler auftreten, wenn die Instanz keine Selbstanforderungen über ihren konfigurierten Hostnamen stellen konnte."
+    - "SVN 1.7 und frühere Clients zeigten einen Fehler an, wenn die Befehle „svn co“ und „svn export“ verwendet wurden."
+    - Der Zugriff auf ein Repository über die administrative Shell mit „ghe-repo <Besitzer>/<Repositoryname>“ funktionierte nicht.
+    - "Nach dem Upgrade war die Verfügbarkeit bei starker Nutzung reduziert, da die Dienste zu oft neu starteten. Dies war darauf zurückzuführen, dass die Timeouts zwischen der Nomad-Konfiguration und der Konfiguration der internen Dienste nicht übereinstimmten."
+    - "Manchmal generierte das Ausführen von „ghe-repl-status“ nach dem Einrichten von GitHub Actions einen Fehler, und bei „ghe-actions-teardown“ trat ein Fehler auf."
+    - 'Unter bestimmten Umständen gab „ghe-dbconsole“ Fehler zurück.'
+    - "Importfehler von Organisationen oder Repositorys aus Quellen, die nicht zu GitHub gehören, konnten den Fehler „nicht definierte Methode '[]' für nil:NilClass“ verursachen."
+    - "GitHub-Profilnamen wurden möglicherweise ungewollt geändert, wenn die SAML-Authentifizierung verwendet wurde und der GitHub-Profilname nicht mit dem Attribut übereinstimmte, das dem Feld „Vollständiger Name“ in der Verwaltungskonsole zugeordnet war."
+  changes:
+    - Das Feld „firstPatchedVersion“ ist jetzt in SecurityVulnerability-Objekten in der GraphQL-API verfügbar.
+    - "Benutzer der GraphQL-API können das öffentliche Feld „closingIssuesReferences“ für das PullRequest-Objekt abfragen. Dieses Feld ruft Issues ab, die automatisch geschlossen werden, wenn der zugehörige Pull Request zusammengeführt wird. Diese Herangehensweise macht es auch möglich, diese Daten in Zukunft als Teil eines genaueren Migrationsprozesses zu migrieren."
+  known_issues:
+    - In einer neu eingerichteten GitHub Enterprise Server-Instanz ohne Benutzer konnte ein Angreifer den ersten Administratorbenutzer erstellen.
+    - Benutzerdefinierte Firewallregeln werden während des Upgrades entfernt.
+    - "Nachverfolgte Git-LFS-Dateien, [die über die Webbenutzeroberfläche hochgeladen wurden](https://github.com/blog/2105-upload-files-to-your-repositories), werden dem Repository fälschlicherweise direkt hinzugefügt."
+    - "Issues können nicht geschlossen werden, wenn sie einen Permalink zu einem Blob im selben Repository enthalten und der Dateipfad des Blobs länger ist als 255 Zeichen."
+    - "Wenn die Option zum Durchsuchen von GitHub.com in GitHub Connect aktiviert ist, sind Issues in privaten und internen Repositorys nicht in den GitHub.com-Suchergebnissen enthalten."
+    - "Wenn ein Replikatknoten in einer Hochverfügbarkeitskonfiguration offline ist, kann {% data variables.product.product_name %} eventuell noch immer Anfragen von {% data variables.product.prodname_pages %} an den Offlineknoten weiterleiten, was die Verfügbarkeit von {% data variables.product.prodname_pages %} für Benutzer verringert."
+    - "Ressourcengrenzwerte, die nur beim Verarbeiten von Pre-Receive-Hooks gelten, können bei manchen Pre-Receive-Hooks Fehler auslösen."

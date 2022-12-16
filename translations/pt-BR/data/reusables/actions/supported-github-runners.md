@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: c30f6000486156f1995f0f05ff27fc173b893de5
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: b40c432907d00f7bf7cf33a1f379ea3318ae8aa2
+ms.sourcegitcommit: cb39c15ab6ccfacf49f4b114b77e3b920fdddf70
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "147529269"
+ms.lasthandoff: 11/22/2022
+ms.locfileid: "148180666"
 ---
 <table style="width:100%">
 <thead>
@@ -53,6 +53,9 @@ Ubuntu 20.04
 <td>
 <code>ubuntu-latest</code> ou <code>ubuntu-20.04</code>
 </td>
+<td>
+Neste momento, o rótulo <code>ubuntu-latest</code> está fazendo a transição para a imagem do executor do Ubuntu 22.04. Durante a transição, o rótulo pode se referir à imagem do executor para Ubuntu 20.04 ou 22.04. Para obter mais informações, confira <a href="https://github.blog/changelog/2022-11-09-github-actions-ubuntu-latest-workflows-will-use-ubuntu-22-04/">esta postagem no blog {% data variables.product.prodname_dotcom %}</a>.
+</rd>
 </tr>
 <tr>
 <td>
@@ -81,7 +84,7 @@ macOS Big Sur 11
 <code>macos-latest</code> ou <code>macos-11</code>
 </td>
 <td>
-Atualmente, o rótulo <code>macos-latest</code> usa a imagem do executor do macOS 11.
+Neste momento, o rótulo <code>macos-latest</code> está fazendo a transição para a imagem do executor de Monterey 12 no macOS. Durante a transição, o rótulo pode se referir à imagem do executor para macOS 11 ou 12. Para obter mais informações, confira <a href="https://github.blog/changelog/2022-10-03-github-actions-jobs-running-on-macos-latest-are-now-running-on-macos-12/">esta postagem no blog {% data variables.product.prodname_dotcom %}</a>.
 </td>
 </tr>
 <tr>
@@ -106,6 +109,6 @@ Migre para <code>macOS-11</code> ou <code>macOS-12</code>. Para saber mais, conf
 
 {% warning %}
 
-<b>Observação:</b> as imagens beta e preteridas são fornecidas "no estado em que se encontram", "com todas as falhas" e "conforme disponível" e são excluídas do contrato de nível de serviço e da garantia. As imagens beta podem não ser cobertas pelo atendimento ao cliente.
+**Aviso:** as imagens beta e preteridas são fornecidas "no estado em que se encontram", "com todas as falhas" e "conforme disponível" e são excluídas do contrato de nível de serviço e da garantia. As imagens beta podem não ser cobertas pelo atendimento ao cliente.
 
 {% endwarning %}

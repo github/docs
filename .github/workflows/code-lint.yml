@@ -18,6 +18,8 @@ on:
       - .eslintrc.cjs
       # In case something like eslint or tsc or prettier upgrades
       - 'package-lock.json'
+      # In case one of the script definitions changed
+      - 'package.json'
       # Ultimately, for debugging this workflow itself
       - .github/workflows/code-lint.yml
 
@@ -35,16 +37,22 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repo
-        uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
+
+      - name: Cache node_modules
+        uses: actions/cache@9b0c1fce7a93df8e3bb8926b0d6e9d89e92f20a7
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node_modules-${{ hashFiles('package*.json') }}
 
       - name: Setup node
-        uses: actions/setup-node@17f8bd926464a1afa4c6a11669539e9c1ba77048
+        uses: actions/setup-node@8c91899e586c5b171469028077307d293428b516
         with:
           node-version: '16.17.0'
           cache: npm
 
       - name: Install dependencies
-        run: npm ci
+        run: npm install --prefer-offline --no-audit --ignore-scripts
 
       - name: Run linter
         run: npm run lint

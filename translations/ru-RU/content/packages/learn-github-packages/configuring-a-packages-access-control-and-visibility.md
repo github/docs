@@ -1,6 +1,6 @@
 ---
-title: Configuring a package's access control and visibility
-intro: 'Choose who has read, write, or admin access to your container image and the visibility of your container images on {% data variables.product.prodname_dotcom %}.'
+title: Настройка управления доступом и видимости пакета
+intro: 'Выберите пользователей, имеющих доступ на чтение, запись или права доступа администратора к образу контейнера, а также настройте видимость образов контейнеров в {% data variables.product.prodname_dotcom %}.'
 product: '{% data reusables.gated-features.packages %}'
 redirect_from:
   - /packages/managing-container-images-with-github-container-registry/configuring-access-control-and-visibility-for-container-images
@@ -10,172 +10,177 @@ versions:
   ghec: '*'
   ghes: '*'
 shortTitle: Access control & visibility
+ms.openlocfilehash: 8ef541f45fd6568db7c8510bc860d81d504494c5
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148193060'
 ---
-{% data reusables.package_registry.container-registry-ghes-beta %}
+{% data reusables.package_registry.container-registry-ghes-beta %} {% ifversion packages-registries-v2 %}
 
-Packages with granular permissions are scoped to a personal user or organization account. You can change the access control and visibility of a package separately from the repository that it is connected (or linked) to.
+Пакеты с настроенными разрешениями относятся к личной учетной записи пользователя или организации. Вы можете изменять управление доступом и видимость пакета отдельно от репозитория, к которому он подключен (или связан).
 
-Currently, you can only use granular permissions with the {% data variables.packages.prodname_ghcr_and_npm_registry %}. Granular permissions are not supported in our other package registries, such as the RubyGems registry.{% ifversion docker-ghcr-enterprise-migration %} For more information about migration to the {% data variables.product.prodname_container_registry %}, see "[Migrating to the {% data variables.product.prodname_container_registry %} from the Docker registry](/packages/working-with-a-github-packages-registry/migrating-to-the-container-registry-from-the-docker-registry)."{% endif %}
+Некоторые реестры поддерживают только разрешения на уровне репозитория. Список этих реестров см. в разделе [Сведения о разрешениях для {% data variables.product.prodname_registry %}](/packages/learn-github-packages/about-permissions-for-github-packages#permissions-for-repository-scoped-packages).
 
-For more information about permissions for repository-scoped packages, packages-related scopes for PATs, or managing permissions for your actions workflows, see "[About permissions for GitHub Packages](/packages/learn-github-packages/about-permissions-for-github-packages)."
+{% else %} Пакет наследует разрешения и видимость репозитория, которому принадлежит пакет. {% endif %} Дополнительные сведения о разрешениях для пакетов, связанных с пакетами областях для PAT и управлении разрешениями для рабочих процессов действий, см. в разделе [Сведения о разрешениях для GitHub Packages](/packages/learn-github-packages/about-permissions-for-github-packages).
 
-## Visibility and access permissions for container images
+{% ifversion packages-registries-v2 %}
+
+## Видимость и права доступа для образов контейнеров
 
 {% data reusables.package_registry.visibility-and-access-permissions %}
 
-## Configuring access to container images for your personal account
+{% endif %}
 
-If you have admin permissions to a container image that's owned by a personal account, you can assign read, write, or admin roles to other users. For more information about these permission roles, see "[Visibility and access permissions for container images](#visibility-and-access-permissions-for-container-images)."
+## Настройка доступа к образам контейнеров для личной учетной записи
 
-If your package is private or internal and owned by an organization, then you can only give access to other organization members or teams.
+Если у вас есть разрешения администратора на образ контейнера, принадлежащий личной учетной записи, вы можете назначать другим пользователям роли для чтения, записи или администрирования. Дополнительные сведения об этих ролях разрешений см. в разделе [Видимость и права доступа для образов контейнеров](#visibility-and-access-permissions-for-container-images).
+
+Если пакет является частным или внутренним и принадлежит организации, вы можете предоставлять доступ только другим членам или командам организации.
 
 {% data reusables.package_registry.package-settings-option %}
-1. On the package settings page, click **Invite teams or people** and enter the name, username, or email of the person you want to give access. Teams cannot be given access to a container image owned by a personal account.
-  ![Container access invite button](/assets/images/help/package-registry/container-access-invite.png)
-1. Next to the username or team name, use the "Role" drop-down menu to select a desired permission level.
-  ![Container access options](/assets/images/help/package-registry/container-access-control-options.png)
+1. На странице параметров пакета щелкните **Пригласить команды или людей** и введите имя, имя пользователя или адрес электронной почты пользователя, которому вы хотите предоставить доступ. Командам нельзя предоставлять доступ к образу контейнера, что принадлежит личной учетной записи.
+  ![Кнопка приглашения на получение доступа к контейнеру](/assets/images/help/package-registry/container-access-invite.png)
+1. Используйте раскрывающееся меню "Роль" рядом с именем пользователя или команды, чтобы выбрать нужный уровень разрешений.
+  ![Параметры доступа к контейнеру](/assets/images/help/package-registry/container-access-control-options.png)
 
-The selected users will automatically be given access and don't need to accept an invitation first.
+Выбранные пользователи автоматически получают доступ, и им не нужно сначала принимать приглашение.
 
-## Configuring access to container images for an organization
+## Настройка доступа к образам контейнеров для организации
 
-If you have admin permissions to an organization-owned container image, you can assign read, write, or admin roles to other users and teams. For more information about these permission roles, see "[Visibility and access permissions for container images](#visibility-and-access-permissions-for-container-images)."
+Если у вас есть разрешения администратора на образ контейнера, принадлежащий организации, вы можете назначать другим пользователям и командам роли для чтения, записи или администрирования. Дополнительные сведения об этих ролях разрешений см. в разделе [Видимость и права доступа для образов контейнеров](#visibility-and-access-permissions-for-container-images).
 
-If your package is private or internal and owned by an organization, then you can only give access to other organization members or teams.
+Если пакет является частным или внутренним и принадлежит организации, вы можете предоставлять доступ только другим членам или командам организации.
 
-{% data reusables.package_registry.package-settings-from-org-level %}
-{% data reusables.package_registry.package-settings-option %}
-1. On the package settings page, click **Invite teams or people** and enter the name, username, or email of the person you want to give access. You can also enter a team name from the organization to give all team members access.
-  ![Container access invite button](/assets/images/help/package-registry/container-access-invite.png)
-1. Next to the username or team name, use the "Role" drop-down menu to select a desired permission level.
-  ![Container access options](/assets/images/help/package-registry/container-access-control-options.png)
+{% data reusables.package_registry.package-settings-from-org-level %} {% data reusables.package_registry.package-settings-option %}
+1. На странице параметров пакета щелкните **Пригласить команды или людей** и введите имя, имя пользователя или адрес электронной почты пользователя, которому вы хотите предоставить доступ. Вы также можете ввести имя команды из организации, чтобы предоставить доступ всем участникам команды.
+  ![Кнопка приглашения на получение доступа к контейнеру](/assets/images/help/package-registry/container-access-invite.png)
+1. Используйте раскрывающееся меню "Роль" рядом с именем пользователя или команды, чтобы выбрать нужный уровень разрешений.
+  ![Параметры доступа к контейнеру](/assets/images/help/package-registry/container-access-control-options.png)
 
-The selected users or teams will automatically be given access and don't need to accept an invitation first.
+Выбранные пользователи или команды автоматически получают доступ, и им не нужно сначала принимать приглашение.
 
-## Inheriting access for a container image from a repository
+## Наследование доступа к образу контейнера из репозитория
 
-To simplify package management through {% data variables.product.prodname_actions %} workflows, you can enable a container image to inherit the access permissions of a repository by default.
+Чтобы упростить управление пакетами с помощью рабочих процессов {% data variables.product.prodname_actions %}, можно включить наследование образом контейнера разрешений доступа репозитория по умолчанию.
 
-If you inherit the access permissions of the repository where your package's workflows are stored, then you can adjust access to your package through the repository's permissions.
+Если вы наследуете разрешения доступа репозитория, в котором хранятся рабочие процессы пакета, то можете настроить доступ к пакету с помощью разрешений репозитория.
 
-Once a repository is synced, you can't access the package's granular access settings. To customize the package's permissions through the granular package access settings, you must remove the synced repository first.
+После синхронизации репозитория вы не сможете получить доступ к детализированным параметрам доступа пакета. Чтобы настроить разрешения пакета с помощью детализированных параметров доступа пакета, сначала необходимо удалить синхронизированный репозиторий.
 
-{% data reusables.package_registry.package-settings-from-org-level %}
-{% data reusables.package_registry.package-settings-option %}
-2. Under "Repository source", select **Inherit access from repository (recommended)**.
-  ![Inherit repo access checkbox](/assets/images/help/package-registry/inherit-repo-access-for-package.png)
+{% data reusables.package_registry.package-settings-from-org-level %} {% data reusables.package_registry.package-settings-option %}
+2. В разделе "Источник репозитория" выберите **Наследовать доступ из репозитория (рекомендуется)** .
+  ![Флажок "Наследовать доступ репозитория](/assets/images/help/package-registry/inherit-repo-access-for-package.png)
 
-## Ensuring workflow access to your package
+## Обеспечение доступа рабочего процесса к пакету
 
-To ensure that a {% data variables.product.prodname_actions %} workflow has access to your package, you must give explicit access to the repository where the workflow is stored.
+Чтобы рабочий процесс {% data variables.product.prodname_actions %} имел доступ к пакету, необходимо предоставить явный доступ к репозиторию, в котором хранится этот рабочий процесс.
 
-The specified repository does not need to be the repository where the source code for the package is kept. You can give multiple repositories workflow access to a package.
+Указанный репозиторий не обязательно должен быть репозиторием, в котором хранится исходный код пакета. Вы можете предоставить нескольким репозиториям доступ рабочего процесса к пакету.
 
 {% note %}
 
-**Note:** Syncing your container image with a repository through the **Actions access** menu option is different than connecting your container to a repository. For more information about linking a repository to your container, see "[Connecting a repository to a package](/packages/learn-github-packages/connecting-a-repository-to-a-package)."
+**Примечание.** Синхронизация образа контейнера с репозиторием с помощью пункта меню **Доступ к действиям** отличается от подключения контейнера к репозиторию. Дополнительные сведения о связывании репозитория с контейнером см. в разделе [Подключение репозитория к пакету](/packages/learn-github-packages/connecting-a-repository-to-a-package).
 
 {% endnote %}
 
-### {% data variables.product.prodname_actions %} access for user-account-owned container images 
+### Доступ {% data variables.product.prodname_actions %} для образов контейнера, принадлежащих учетной записи пользователя 
 
 {% data reusables.package_registry.package-settings-option %}
-1. In the left sidebar, click **Actions access**.
-  !["Actions access" option in left menu](/assets/images/help/package-registry/organization-repo-access-for-a-package.png)
-2. To ensure your workflow has access to your container package, you must add the repository where the workflow is stored. Click **Add repository** and search for the repository you want to add.
-   !["Add repository" button](/assets/images/help/package-registry/add-repository-button.png)
-3. Using the "role" drop-down menu, select the default access level that you'd like the repository to have to your container image.
-  ![Permission access levels to give to repositories](/assets/images/help/package-registry/repository-permission-options-for-package-access-through-actions.png)
+1. В левой боковой панели выберите **Управление доступом**.
+  ![Параметр "Доступ к действиям" в меню слева](/assets/images/help/package-registry/organization-repo-access-for-a-package.png)
+2. Чтобы обеспечить вашему рабочему процессу доступ к пакету контейнера, необходимо добавить репозиторий, в котором хранится рабочий процесс. Нажмите **Добавить репозиторий** и найдите репозиторий, который вы хотите добавить.
+   ![Кнопка добавления репозитория](/assets/images/help/package-registry/add-repository-button.png)
+3. Используя раскрывающееся меню "Роль", выберите уровень доступа по умолчанию, который хотите предоставить репозиторию для вашего образа контейнера.
+  ![Уровни доступа разрешений для предоставления репозиториям](/assets/images/help/package-registry/repository-permission-options-for-package-access-through-actions.png)
 
-To further customize access to your container image, see "[Configuring access to container images for your personal account](#configuring-access-to-container-images-for-your-personal-account)."
+Дополнительные сведения о настройке доступа к образу контейнера см. в разделе [Настройка доступа к образам контейнера для личной учетной записи](#configuring-access-to-container-images-for-your-personal-account).
 
-### {% data variables.product.prodname_actions %} access for organization-owned container images 
+### Доступ {% data variables.product.prodname_actions %} для образов контейнера, принадлежащих организации 
 
-{% data reusables.package_registry.package-settings-from-org-level %}
-{% data reusables.package_registry.package-settings-option %}
-1. In the left sidebar, click **Actions access**.
-  !["Actions access" option in left menu](/assets/images/help/package-registry/organization-repo-access-for-a-package.png)
-2. Click **Add repository** and search for the repository you want to add.
-   !["Add repository" button](/assets/images/help/package-registry/add-repository-button.png)
-3. Using the "role" drop-down menu, select the default access level that you'd like repository members to have to your container image. Outside collaborators will not be included.
-  ![Permission access levels to give to repositories](/assets/images/help/package-registry/repository-permission-options-for-package-access-through-actions.png)
+{% data reusables.package_registry.package-settings-from-org-level %} {% data reusables.package_registry.package-settings-option %}
+1. В левой боковой панели выберите **Управление доступом**.
+  ![Параметр "Доступ к действиям" в меню слева](/assets/images/help/package-registry/organization-repo-access-for-a-package.png)
+2. Нажмите **Добавить репозиторий** и найдите репозиторий, который вы хотите добавить.
+   ![Кнопка добавления репозитория](/assets/images/help/package-registry/add-repository-button.png)
+3. Используя раскрывающееся меню "Роль", выберите уровень доступа по умолчанию, который хотите предоставить членам репозитория для вашего образа контейнера. Внешние участники совместной работы не будут включены.
+  ![Уровни доступа разрешений для предоставления репозиториям](/assets/images/help/package-registry/repository-permission-options-for-package-access-through-actions.png)
 
-To further customize access to your container image, see "[Configuring access to container images for an organization](#configuring-access-to-container-images-for-an-organization)."
+Дополнительные сведения о настройке доступа к образу контейнера см. в разделе [Настройка доступа к образам контейнера для организации](#configuring-access-to-container-images-for-an-organization).
 
 {% ifversion fpt or ghec %}
-## Ensuring {% data variables.product.prodname_github_codespaces %} access to your package
+## Обеспечение доступа {% data variables.product.prodname_github_codespaces %} к пакету
 
-By default, a codespace can seamlessly access certain packages in the {% data variables.packages.prodname_ghcr_and_npm_registry %}, such as those published in the same repository with the **Inherit access** option selected. For more information on which access is automatically configured, see "[Allowing your codespace to access a private image registry](/codespaces/codespaces-reference/allowing-your-codespace-to-access-a-private-image-registry#accessing-images-stored-in-container-registry-and-npm-registry)."
+По умолчанию codespace может легко получить доступ к определенным пакетам в реестрах, которые поддерживают детализированные разрешения, например к пакетам, опубликованным в том же репозитории с выбранным параметром **Наследовать доступ** . Список реестров {% data variables.product.prodname_registry %}, поддерживающих детализированные разрешения и простой доступ к {% data variables.product.prodname_github_codespaces %}, см. в разделе [Сведения о разрешениях для {% data variables.product.prodname_registry %}](/packages/learn-github-packages/about-permissions-for-github-packages#granular-permissions-for-userorganization-scoped-packages).
 
-Otherwise, to ensure that a codespace has access to your package, you must grant access to the repository where the codespace is being launched.
+В противном случае, чтобы обеспечить codespace доступ к пакету, необходимо предоставить доступ репозиторию, в котором запускается codespace.
 
-The specified repository does not need to be the repository where the source code for the package is kept. You can give codespaces in multiple repositories access to a package.
+Указанный репозиторий не обязательно должен быть репозиторием, в котором хранится исходный код пакета. Вы можете предоставлять доступ к пакету кодовым пространствам codespace в нескольких репозиториях.
 
-Once you've selected the package you're interested in sharing with codespaces in a repository, you can grant that repo access.
+Выбрав пакет, к которому вы хотите предоставить общий доступ кодовым пространствам codespace в репозитории, вы можете предоставить доступ этому репозиторию.
 
-1. In the right sidebar, click **Package settings**.
+1. В правой боковой панели щелкните **Параметры пакета**.
 
-   !["Package settings" option in right menu](/assets/images/help/package-registry/package-settings.png)
+   ![Пункт "Параметры пакета" в меню справа](/assets/images/help/package-registry/package-settings.png)
    
-2. Under "Manage Codespaces access", click **Add repository**.
+2. В разделе "Управление доступом Codespaces"выберите **Добавить репозиторий**.
 
-   !["Add repository" button](/assets/images/help/package-registry/manage-codespaces-access-blank.png)
+   ![Кнопка добавления репозитория](/assets/images/help/package-registry/manage-codespaces-access-blank.png)
 
-3. Search for the repository you want to add.
+3. Найдите репозиторий, который вы хотите добавить.
 
-   !["Add repository" button](/assets/images/help/package-registry/manage-codespaces-access-search.png)
+   ![Кнопка добавления репозитория](/assets/images/help/package-registry/manage-codespaces-access-search.png)
    
-4. Repeat for any additional repositories you would like to allow access.
+4. Повторите эти действия для всех дополнительных репозиториев, которым вы хотите разрешить доступ.
 
-5. If the codespaces for a repository no longer need access to an image, you can remove access.
+5. Если кодовым пространствам codespace для репозитория больше не требуется доступ к образу, можно удалить доступ.
 
-   !["Remove repository" button](/assets/images/help/package-registry/manage-codespaces-access-item.png)
+   ![Кнопка удаления репозитория](/assets/images/help/package-registry/manage-codespaces-access-item.png)
 
 {% endif %}
-## Configuring visibility of container images for your personal account
+## Настройка видимости образов контейнеров для личной учетной записи
 
-When you first publish a package, the default visibility is private and only you can see the package. You can modify a private or public container image's access by changing the access settings.
+При первой публикации пакета видимость по умолчанию является закрытой, и только вы можете видеть этот пакет. Доступ к частному или общедоступному образу контейнера можно изменить, изменив параметры доступа.
 
-A public package can be accessed anonymously without authentication. Once you make your package public, you cannot make your package private again.
+Доступ к общедоступному пакету можно получить анонимно без проверки подлинности. Сделав пакет общедоступным, вы не сможете снова сделать его частным.
 
 {% data reusables.package_registry.package-settings-option %}
-5. Under "Danger Zone", choose a visibility setting:
-    - To make the container image visible to anyone, click **Make public**.
+5. В разделе "Зона опасности" выберите параметр видимости:
+    - Чтобы сделать образ контейнера видимым для всех, нажмите **Сделать общедоступным**.
     {% warning %}
 
-    **Warning:** Once you make a package public, you cannot make it private again.
+    **Предупреждение.** Сделав пакет общедоступным, вы не сможете снова сделать его частным.
 
     {% endwarning %}
-    - To make the container image visible to a custom selection of people, click **Make private**.
-  ![Container visibility options](/assets/images/help/package-registry/container-visibility-option.png)
+    - Чтобы сделать образ контейнера видимым для выбранных вами пользователей, нажмите **Сделать частным**.
+  ![Параметры видимости контейнера](/assets/images/help/package-registry/container-visibility-option.png)
 
-## Container creation visibility for organization members
+## Видимость создания контейнера для членов организации
 
-You can choose the visibility of containers that organization members can publish by default.
+Вы можете выбирать видимость по умолчанию для контейнеров, которые члены организации могут публиковать.
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-4. On the left, click **Packages**.
-6. Under "Container creation", choose whether you want to enable the creation of public, private, or internal container images.
-    - To enable organization members to create public container images, click **Public**.
-    - To enable organization members to create private container images that are only visible to other organization members, click **Private**. You can further customize the visibility of private container images.
-    - To enable organization members to create internal container images that are visible to all organization members, click **Internal**. If the organization belongs to an enterprise, the container images will be visible to all enterprise members.
-    ![Visibility options for container images published by organization members](/assets/images/help/package-registry/container-creation-org-settings.png)
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %}
+4. В левой части окна щелкните **Пакеты**.
+6. В разделе "Создание контейнера" выберите, создание каких образов контейнеров вы хотите включить — общедоступных, частных или внутренних.
+    - Чтобы разрешить членам организации создавать общедоступные образы контейнеров, выберите **Общедоступный**.
+    - Чтобы разрешить членам организации создавать частные образы контейнеров, видимые только другим членам организации, выберите **Частный**. Вы можете дополнительно настроить видимость частных образов контейнеров.
+    - Чтобы разрешить членам организации создавать внутренние образы контейнеров, видимые для всех членов организации, выберите **Внутренний**. Если организация принадлежит предприятию, образы контейнеров будут видны всем членам предприятия.
+    ![Параметры видимости образов контейнеров, опубликованных членами организации](/assets/images/help/package-registry/container-creation-org-settings.png)
 
-## Configuring visibility of container images for an organization
+## Настройка видимости образов контейнеров для организации
 
-When you first publish a package, the default visibility is private and only you can see the package. You can grant users or teams different access roles for your container image through the access settings.
+При первой публикации пакета видимость по умолчанию является закрытой, и только вы можете видеть этот пакет. Вы можете предоставлять пользователям или командам разные роли доступа для образа контейнера с помощью параметров доступа.
 
-A public package can be accessed anonymously without authentication. Once you make your package public, you cannot make your package private again.
+Доступ к общедоступному пакету можно получить анонимно без проверки подлинности. Сделав пакет общедоступным, вы не сможете снова сделать его частным.
 
-{% data reusables.package_registry.package-settings-from-org-level %}
-{% data reusables.package_registry.package-settings-option %}
-5. Under "Danger Zone", choose a visibility setting:
-    - To make the container image visible to anyone, click **Make public**.
+{% data reusables.package_registry.package-settings-from-org-level %} {% data reusables.package_registry.package-settings-option %}
+5. В разделе "Зона опасности" выберите параметр видимости:
+    - Чтобы сделать образ контейнера видимым для всех, нажмите **Сделать общедоступным**.
     {% warning %}
 
-    **Warning:** Once you make a package public, you cannot make it private again.
+    **Предупреждение.** Сделав пакет общедоступным, вы не сможете снова сделать его частным.
 
     {% endwarning %}
-    - To make the container image visible to a custom selection of people, click **Make private**.
-  ![Container visibility options](/assets/images/help/package-registry/container-visibility-option.png)
+    - Чтобы сделать образ контейнера видимым для выбранных вами пользователей, нажмите **Сделать частным**.
+  ![Параметры видимости контейнера](/assets/images/help/package-registry/container-visibility-option.png)

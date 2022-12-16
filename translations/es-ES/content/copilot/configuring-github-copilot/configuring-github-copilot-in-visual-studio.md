@@ -7,12 +7,12 @@ versions:
 shortTitle: Visual Studio
 topics:
   - Copilot
-ms.openlocfilehash: cb24557b15eafd4a5be8ef1a991ae3c43f376c67
-ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.openlocfilehash: 05ac86405caadf3085b15a2aed9b54acb84f91f1
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/09/2022
-ms.locfileid: '147786033'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148193473'
 ---
 ## Sobre {% data variables.product.prodname_copilot %} en {% data variables.product.prodname_vs %}
 
@@ -37,13 +37,20 @@ Puedes usar los métodos abreviados de teclado predeterminados en {% data variab
 Si no quieres usar los métodos abreviados de teclado predeterminados en {% data variables.product.prodname_vs %} al usar datos {% data variables.product.prodname_copilot %}, puedes volver a enlazar los métodos abreviados de teclado en el editor de Teclado y usar tus preferidos para cada comando específico.
 
 1. En la barra de herramientas de {% data variables.product.prodname_vs %}, en **Herramientas**, haz clic en **Opciones**.
+   
    ![Captura de pantalla de la opción Opciones en la barra de herramientas de {% data variables.product.prodname_vs %}](/assets/images/help/copilot/vs-toolbar-options.png)
+
 1. En el cuadro de diálogo "Opciones", en **Entorno**, haz clic en **Teclado**.
+   
    ![Captura de pantalla de la opción Teclado en el cuadro de diálogo "Opciones"](/assets/images/help/copilot/vs-options-dialogue.png)
+
 1. En "Mostrar los comandos que contengan:", busca el comando que quieres volver a enlazar.
-   ![Captura de pantalla de la barra de búsqueda Mostrar los comandos que contengan](/assets/images/help/copilot/vs-show-commands-containing.png)
-1. En "Presionar las teclas de método abreviado", escribe el método abreviado que quieres asignar al comando y, después, haz clic en **Asignar**.
-   ![Captura de pantalla de la asignación de método abreviado de teclado](/assets/images/help/copilot/vs-rebind-shortcut.png)
+   
+   ![Captura de pantalla de la barra de búsqueda de "Mostrar los comandos que contengan"](/assets/images/help/copilot/vs-show-commands-containing.png)
+
+1. En "Presionar las teclas de método abreviado", escribe el método abreviado que quieras asignar al comando y, después, haz clic en **Asignar**.
+
+   ![Captura de pantalla de la asignación de método abreviado de teclado](/assets/images/help/copilot/vs-rebind-shortcut.png)```
 
 {% data reusables.copilot.enabling-or-disabling-vs %}
 

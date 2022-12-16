@@ -11,12 +11,12 @@ type: tutorial
 topics:
   - Projects
 allowTitleToDifferFromFilename: true
-ms.openlocfilehash: 6b4deff4ee518bfdafcd3886577a1c9b12ea7b2e
-ms.sourcegitcommit: bf11c3e08cbb5eab6320e0de35b32ade6d863c03
+ms.openlocfilehash: ab041e8473e310913eb1b794302415e9b6323e76
+ms.sourcegitcommit: e4069b5613c10d74954185995d0fb73224079463
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2022
-ms.locfileid: '148111598'
+ms.lasthandoff: 11/17/2022
+ms.locfileid: '148169229'
 ---
 Este artigo demonstra como usar a API do GraphQL para gerenciar um projeto. Para obter mais informações sobre como usar a API em um fluxo de trabalho do {% data variables.product.prodname_actions %}, confira "[Automatizar {% data variables.product.prodname_projects_v2 %} usando o Actions](/issues/planning-and-tracking-with-projects/automating-your-project/automating-projects-using-actions)". Para ver uma lista completa dos tipos de dados disponíveis, confira "[Referência](/graphql/reference)".
 
@@ -665,7 +665,7 @@ O exemplo a seguir atualizará o valor de um campo de iteração para um item.
 curl --request POST \
   --url https://api.github.com/graphql \
   --header 'Authorization: Bearer TOKEN' \
-  --data '{"query":"mutation {updateProjectV2ItemFieldValue( input: { projectId: \"PROJECT_ID\" itemId: \"ITEM_ID\" fieldId: \"FIELD_ID\" value: { singleSelectOptionId: \"OPTION_ID\" }}) { projectV2Item { id }}}"}'
+  --data '{"query":"mutation {updateProjectV2ItemFieldValue( input: { projectId: \"PROJECT_ID\" itemId: \"ITEM_ID\" fieldId: \"FIELD_ID\" value: { iterationId: \"ITERATION_ID\" }}) { projectV2Item { id }}}"}'
 ```
 {% endcurl %}
 

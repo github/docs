@@ -2,6 +2,14 @@
   "dotcom": {
     "2023-04-01": [
       {
+        "location": "RepositoryVulnerabilityAlert.fixReason",
+        "description": "<p><code>fixReason</code> will be removed.</p>",
+        "reason": "<p>The <code>fixReason</code> field is being removed. You can still use <code>fixedAt</code> and <code>dismissReason</code>.</p>",
+        "date": "2023-04-01",
+        "criticality": "breaking",
+        "owner": "jamestran201"
+      },
+      {
         "location": "Repository.squashPrTitleUsedAsDefault",
         "description": "<p><code>squashPrTitleUsedAsDefault</code> will be removed. Use <code>Repository.squashMergeCommitTitle</code> instead.</p>",
         "reason": "<p><code>squashPrTitleUsedAsDefault</code> will be removed.</p>",
@@ -1316,6 +1324,24 @@
         "owner": "lukewar"
       }
     ],
+    "2022-11-21": [
+      {
+        "location": "PackageType.NUGET",
+        "description": "<p><code>NUGET</code> will be removed.</p>",
+        "reason": "<p>NUGET will be removed from this enum as this type will be migrated to only be used by the Packages REST API.</p>",
+        "date": "2022-11-21",
+        "criticality": "breaking",
+        "owner": "s-anupam"
+      },
+      {
+        "location": "PackageType.NPM",
+        "description": "<p><code>NPM</code> will be removed.</p>",
+        "reason": "<p>NPM will be removed from this enum as this type will be migrated to only be used by the Packages REST API.</p>",
+        "date": "2022-11-21",
+        "criticality": "breaking",
+        "owner": "s-anupam"
+      }
+    ],
     "2022-10-01": [
       {
         "location": "UpdateProjectNextItemFieldInput.fieldWithSettingId",
@@ -1324,14 +1350,6 @@
         "date": "2022-10-01",
         "criticality": "breaking",
         "owner": "memex"
-      },
-      {
-        "location": "RepositoryVulnerabilityAlert.fixReason",
-        "description": "<p><code>fixReason</code> will be removed.</p>",
-        "reason": "<p>The <code>fixReason</code> field is being removed. You can still use <code>fixedAt</code> and <code>dismissReason</code>.</p>",
-        "date": "2022-10-01",
-        "criticality": "breaking",
-        "owner": "jamestran201"
       },
       {
         "location": "RemovePullRequestFromMergeQueueInput.branch",
@@ -1366,16 +1384,6 @@
         "date": "2022-07-01",
         "criticality": "breaking",
         "owner": "jhunschejones"
-      }
-    ],
-    "2022-04-01": [
-      {
-        "location": "Repository.defaultMergeQueue",
-        "description": "<p><code>defaultMergeQueue</code> will be removed. Use <code>Repository.mergeQueue</code> instead.</p>",
-        "reason": "<p><code>defaultMergeQueue</code> will be removed.</p>",
-        "date": "2022-04-01",
-        "criticality": "breaking",
-        "owner": "colinshum"
       }
     ],
     "2021-10-01": [
@@ -1476,6 +1484,14 @@
   "ghec": {
     "2023-04-01": [
       {
+        "location": "RepositoryVulnerabilityAlert.fixReason",
+        "description": "<p><code>fixReason</code> will be removed.</p>",
+        "reason": "<p>The <code>fixReason</code> field is being removed. You can still use <code>fixedAt</code> and <code>dismissReason</code>.</p>",
+        "date": "2023-04-01",
+        "criticality": "breaking",
+        "owner": "jamestran201"
+      },
+      {
         "location": "Repository.squashPrTitleUsedAsDefault",
         "description": "<p><code>squashPrTitleUsedAsDefault</code> will be removed. Use <code>Repository.squashMergeCommitTitle</code> instead.</p>",
         "reason": "<p><code>squashPrTitleUsedAsDefault</code> will be removed.</p>",
@@ -2790,6 +2806,24 @@
         "owner": "lukewar"
       }
     ],
+    "2022-11-21": [
+      {
+        "location": "PackageType.NUGET",
+        "description": "<p><code>NUGET</code> will be removed.</p>",
+        "reason": "<p>NUGET will be removed from this enum as this type will be migrated to only be used by the Packages REST API.</p>",
+        "date": "2022-11-21",
+        "criticality": "breaking",
+        "owner": "s-anupam"
+      },
+      {
+        "location": "PackageType.NPM",
+        "description": "<p><code>NPM</code> will be removed.</p>",
+        "reason": "<p>NPM will be removed from this enum as this type will be migrated to only be used by the Packages REST API.</p>",
+        "date": "2022-11-21",
+        "criticality": "breaking",
+        "owner": "s-anupam"
+      }
+    ],
     "2022-10-01": [
       {
         "location": "UpdateProjectNextItemFieldInput.fieldWithSettingId",
@@ -2798,14 +2832,6 @@
         "date": "2022-10-01",
         "criticality": "breaking",
         "owner": "memex"
-      },
-      {
-        "location": "RepositoryVulnerabilityAlert.fixReason",
-        "description": "<p><code>fixReason</code> will be removed.</p>",
-        "reason": "<p>The <code>fixReason</code> field is being removed. You can still use <code>fixedAt</code> and <code>dismissReason</code>.</p>",
-        "date": "2022-10-01",
-        "criticality": "breaking",
-        "owner": "jamestran201"
       },
       {
         "location": "RemovePullRequestFromMergeQueueInput.branch",
@@ -2840,16 +2866,6 @@
         "date": "2022-07-01",
         "criticality": "breaking",
         "owner": "jhunschejones"
-      }
-    ],
-    "2022-04-01": [
-      {
-        "location": "Repository.defaultMergeQueue",
-        "description": "<p><code>defaultMergeQueue</code> will be removed. Use <code>Repository.mergeQueue</code> instead.</p>",
-        "reason": "<p><code>defaultMergeQueue</code> will be removed.</p>",
-        "date": "2022-04-01",
-        "criticality": "breaking",
-        "owner": "colinshum"
       }
     ],
     "2021-10-01": [
@@ -3746,6 +3762,14 @@
   "ghae": {
     "2023-04-01": [
       {
+        "location": "RepositoryVulnerabilityAlert.fixReason",
+        "description": "<p><code>fixReason</code> will be removed.</p>",
+        "reason": "<p>The <code>fixReason</code> field is being removed. You can still use <code>fixedAt</code> and <code>dismissReason</code>.</p>",
+        "date": "2023-04-01",
+        "criticality": "breaking",
+        "owner": "jamestran201"
+      },
+      {
         "location": "Repository.squashPrTitleUsedAsDefault",
         "description": "<p><code>squashPrTitleUsedAsDefault</code> will be removed. Use <code>Repository.squashMergeCommitTitle</code> instead.</p>",
         "reason": "<p><code>squashPrTitleUsedAsDefault</code> will be removed.</p>",
@@ -3908,15 +3932,25 @@
         "owner": "adamshwert"
       }
     ],
-    "2022-10-01": [
+    "2022-11-21": [
       {
-        "location": "RepositoryVulnerabilityAlert.fixReason",
-        "description": "<p><code>fixReason</code> will be removed.</p>",
-        "reason": "<p>The <code>fixReason</code> field is being removed. You can still use <code>fixedAt</code> and <code>dismissReason</code>.</p>",
-        "date": "2022-10-01",
+        "location": "PackageType.NUGET",
+        "description": "<p><code>NUGET</code> will be removed.</p>",
+        "reason": "<p>NUGET will be removed from this enum as this type will be migrated to only be used by the Packages REST API.</p>",
+        "date": "2022-11-21",
         "criticality": "breaking",
-        "owner": "jamestran201"
+        "owner": "s-anupam"
       },
+      {
+        "location": "PackageType.NPM",
+        "description": "<p><code>NPM</code> will be removed.</p>",
+        "reason": "<p>NPM will be removed from this enum as this type will be migrated to only be used by the Packages REST API.</p>",
+        "date": "2022-11-21",
+        "criticality": "breaking",
+        "owner": "s-anupam"
+      }
+    ],
+    "2022-10-01": [
       {
         "location": "RemovePullRequestFromMergeQueueInput.branch",
         "description": "<p><code>branch</code> will be removed.</p>",
@@ -3934,16 +3968,6 @@
         "date": "2022-07-01",
         "criticality": "breaking",
         "owner": "jhunschejones"
-      }
-    ],
-    "2022-04-01": [
-      {
-        "location": "Repository.defaultMergeQueue",
-        "description": "<p><code>defaultMergeQueue</code> will be removed. Use <code>Repository.mergeQueue</code> instead.</p>",
-        "reason": "<p><code>defaultMergeQueue</code> will be removed.</p>",
-        "date": "2022-04-01",
-        "criticality": "breaking",
-        "owner": "colinshum"
       }
     ],
     "2021-10-01": [

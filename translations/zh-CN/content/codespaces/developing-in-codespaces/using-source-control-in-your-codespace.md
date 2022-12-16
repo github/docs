@@ -1,6 +1,6 @@
 ---
-title: Using source control in your codespace
-intro: After making changes to a file in your codespace you can quickly commit the changes and push your update to the remote repository.
+title: 在代码空间中使用源控制
+intro: 在对代码空间中的文件进行更改后，您可以快速提交更改并将更新推送到远程仓库。
 versions:
   fpt: '*'
   ghec: '*'
@@ -10,37 +10,42 @@ topics:
   - Fundamentals
   - Developer
 shortTitle: Source control
+ms.openlocfilehash: 513bf0729e1f04bf93f45999b2fa9e45231add5c
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148159460'
 ---
-
 {% jetbrains %}
 
 {% data reusables.codespaces.codespaces-jetbrains-beta-note %}
 
 {% endjetbrains %}
 
-## About source control in {% data variables.product.prodname_github_codespaces %}
+## 关于 {% data variables.product.prodname_github_codespaces %} 中的源代码管理
 
-You can perform all the Git actions you need directly within your codespace. For example, you can fetch changes from a remote repository, switch branches, create a new branch, commit and push changes, and create a pull request. You can use the integrated terminal within your codespace to enter Git commands, or you can click icons and menu options to complete all the most common Git tasks. This guide explains how to use the graphical user interface for source control.
+您可以直接在代码空间内执行所需的所有 Git 操作。 例如，可以从远程存储库获取更改、切换分支、创建新分支、提交和推送更改以及创建拉取请求。 您可以使用代码空间内的集成终端输入 Git 命令，也可以单击图标和菜单选项以完成所有最常见的 Git 任务。 本指南解释如何使用图形用户界面来控制源代码。
 
 {% vscode %}
 
-For more information about Git support in {% data variables.product.prodname_vscode %}, see "[Using Version Control in VS Code](https://code.visualstudio.com/docs/editor/versioncontrol#_git-support)" in the {% data variables.product.prodname_vscode %} documentation.
+有关 {% data variables.product.prodname_vscode %} 中的 Git 支持的详细信息，请参阅 {% data variables.product.prodname_vscode %} 文档中的“[在 VS Code 中使用版本控制](https://code.visualstudio.com/docs/editor/versioncontrol#_git-support)”。
 
 {% endvscode %}
 
 {% webui %}
 
-Source control in the {% data variables.product.prodname_vscode %} web client uses the same workflow as the {% data variables.product.prodname_vscode %} desktop application. For more information, see "[Using Version Control in VS Code](https://code.visualstudio.com/docs/editor/versioncontrol#_git-support)" in the {% data variables.product.prodname_vscode %} documentation.
+{% data variables.product.prodname_vscode %} Web 客户端中的源代码管理使用与 {% data variables.product.prodname_vscode %} 桌面应用程序相同的工作流。 有关详细信息，请参阅 {% data variables.product.prodname_vscode %} 文档中的“[在 VS Code 中使用版本控制](https://code.visualstudio.com/docs/editor/versioncontrol#_git-support)”。
 
 {% endwebui %}
 
-A typical workflow for updating a file using {% data variables.product.prodname_github_codespaces %} would be:
+使用 {% data variables.product.prodname_github_codespaces %} 更新文件的典型工作流程将是：
 
-* From the default branch of your repository on {% data variables.product.prodname_dotcom %}, create a codespace. See "[Creating a codespace for a repository](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository)."
-* In your codespace, create a new branch to work on.
-* Make your changes and save them.
-* Commit the change.
-* Raise a pull request.
+* 从 {% data variables.product.prodname_dotcom %} 上仓库的默认分支，创建代码空间。 请参阅“[为存储库创建 codespace](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository)”。
+* 在代码空间中，创建一个新的分支来操作。
+* 进行更改并保存。
+* 提交更改。
+* 提出拉取请求。
 
 {% webui %}
 
@@ -56,67 +61,67 @@ A typical workflow for updating a file using {% data variables.product.prodname_
 
 {% jetbrains %}
 
-## Creating or switching branches
+## 创建或切换分支
 
-1. Click the branch name at the right side of the status bar.
+1. 单击状态栏右侧的分支名称。
 
-   ![Screenshot of the branch name in the status bar](/assets/images/help/codespaces/jetbrains-branch-button.png)
+   ![状态栏中的分支名称的屏幕截图](/assets/images/help/codespaces/jetbrains-branch-button.png)
 
-1. In the pop-up menu, do one of the following:
-   * To create a new branch based on the current branch, click the name of the current branch, then choose **New Branch**. 
+1. 在弹出菜单中，执行以下操作之一：
+   * 要基于当前分支创建新分支，请单击当前分支的名称，然后选择“新建分支”。 
 
-     ![Screenshot of the new branch option](/assets/images/help/codespaces/jetbrains-new-branch-option.png)
+     ![“新建分支”选项的屏幕截图](/assets/images/help/codespaces/jetbrains-new-branch-option.png)
 
-     Enter a name for the new branch and click **Create**.
+     输入新建分支的名称并单击“创建”。
 
-     ![Screenshot of the create branch dialog box](/assets/images/help/codespaces/jetbrains-create-branch-dialog.png)
+     ![“创建分支”对话框的屏幕截图](/assets/images/help/codespaces/jetbrains-create-branch-dialog.png)
 
-   * To check out an existing branch, start typing the name of the branch you want to check out. Click the branch from the list, then click **Checkout**.
+   * 要签出现有分支，请开始键入要签出的分支的名称。单击列表中的分支，然后单击“签出”。
 
-     ![Screenshot of the checkout option](/assets/images/help/codespaces/jetbrains-checkout-submenu.png)
+     ![签出页面的屏幕截图](/assets/images/help/codespaces/jetbrains-checkout-submenu.png)
 
      {% tip %}
 
-     **Tip**: If someone has recently changed a file on the remote repository, in the branch you switched to, you may not see those changes until you pull the changes into your codespace. 
+     提示：如果有人最近在远程存储库上更改了文件，则在你切换到的分支中，只有将更改拉取到 codespace 中之后，你才能看到这些更改。 
 
      {% endtip %}
 
 
-## Committing your changes 
+## 提交更改 
 
-1. At the right side of the navigation bar, click the check mark.
+1. 在导航栏的右侧，单击复选标记。
 
-   ![Screenshot of the commit check mark](/assets/images/help/codespaces/jetbrains-commit-button.png)
+   ![“提交”复选标记的屏幕截图](/assets/images/help/codespaces/jetbrains-commit-button.png)
 
-1. In the Commit Changes dialog box, enter a commit message.
-1. Click **Commit**.
+1. 在“提交更改”对话框中，输入提交消息。
+1. 单击“提交”。
 
-   Alternatively, click the down arrow beside **Commit** and click **Commit and Push**.
+   此外，也可以单击“提交”旁边的向下箭头，然后单击“提交并推送” 。
 
-   ![Screenshot of the commit and push button](/assets/images/help/codespaces/jetbrains-commit-and-push.png)
+   ![“提交并推送”按钮的屏幕截图](/assets/images/help/codespaces/jetbrains-commit-and-push.png)
 
-## Pulling changes from the remote repository
+## 从远程仓库拉取更改
 
-You can pull changes from the same branch on the remote repository and apply those changes to the copy of the repository you are working on in your codespace.
+可以从远程存储库的同一分支中拉取更改，并将这些更改应用到你在 codespace 中处理的存储库副本。
 
-1. At the right side of the navigation bar, click the downward pointing arrow.
+1. 在导航栏的右侧，单击向下箭头。
 
-   ![Screenshot of the update project downward arrow button](/assets/images/help/codespaces/jetbrains-update-project-button.png)
+   ![更新项目向下箭头按钮的屏幕截图](/assets/images/help/codespaces/jetbrains-update-project-button.png)
 
-1. In the Update Project dialog box, choose whether you want to merge or rebase the incoming changes.
+1. 在“更新项目”对话框中，选择是要合并还是变基传入的更改。
 
-   ![Screenshot of the Update Project dialog box](/assets/images/help/codespaces/jetbrains-update-options.png)
+   ![“更新项目”对话框的屏幕截图](/assets/images/help/codespaces/jetbrains-update-options.png)
 
-1. Click **OK**.
+1. 单击 **“确定”** 。
 
-## Pushing changes to your remote repository
+## 将更改推送到远程仓库
 
-You can push changes you've saved and committed. This applies those changes to the upstream branch on the remote repository. You might want to do this if you're not yet ready to create a pull request, or if you prefer to create a pull request on {% data variables.product.prodname_dotcom %}.
+可以推送保存并提交的更改。 这将应用这些更改到远程仓库上的上游分支。 如果您尚未准备好创建拉取请求，或者希望在 {% data variables.product.prodname_dotcom %} 上创建拉取请求，则可能需要这样做。
 
-1. At the right side of the navigation bar, click the upward pointing arrow.
+1. 在导航栏的右侧，单击向上箭头。
 
-   ![Screenshot of the push commits upward arrow](/assets/images/help/codespaces/jetbrains-push-button.png)
+   ![“推送提交”向上箭头的屏幕截图](/assets/images/help/codespaces/jetbrains-push-button.png)
 
-1. In the Push Commits dialog box, click **Push**.
+1. 在“推送提交”对话框中，单击“推送”。
 
 {% endjetbrains %}

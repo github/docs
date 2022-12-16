@@ -1,18 +1,24 @@
 ---
-title: About connections to GitHub
-intro: '{% data variables.product.prodname_desktop %} uses HTTPS to securely exchange data with {% data variables.product.prodname_dotcom %}.'
+title: Сведения о подключениях к GitHub
+intro: '{% data variables.product.prodname_desktop %} использует протокол HTTPS для безопасного обмена данными с {% data variables.product.prodname_dotcom %}.'
 redirect_from:
   - /desktop/getting-started-with-github-desktop/about-connections-to-github
   - /desktop/installing-and-configuring-github-desktop/about-connections-to-github
 versions:
   fpt: '*'
 shortTitle: About connections
+ms.openlocfilehash: 4b5458cd036c106beafdc63a9727aed859022f7f
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148098639'
 ---
-{% data variables.product.prodname_desktop %} connects to {% data variables.product.prodname_dotcom %} when you pull from, push to, clone, and fork remote repositories. To connect to {% data variables.product.prodname_dotcom %} from {% data variables.product.prodname_desktop %}, you must authenticate your account. For more information, see "[Authenticating to {% data variables.product.prodname_dotcom %}](/desktop/getting-started-with-github-desktop/authenticating-to-github)."
+{% data variables.product.prodname_desktop %} подключается к {% data variables.product.prodname_dotcom %} при вытягивании, отправке, клонировании и создании вилки для удаленных репозиториев. Чтобы подключиться к {% data variables.product.prodname_dotcom %} с помощью {% data variables.product.prodname_desktop %}, необходимо выполнить проверку подлинности учетной записи. Дополнительные сведения см. в разделе [Проверка подлинности в {% data variables.product.prodname_dotcom %}](/desktop/getting-started-with-github-desktop/authenticating-to-github).
 
-After you authenticate to {% data variables.product.prodname_dotcom %}, you can connect to remote repositories with {% data variables.product.prodname_desktop %}. {% data variables.product.prodname_desktop %} caches your credentials (username and password or {% data variables.product.pat_generic %}) and uses the credentials to authenticate for each connection to the remote repository.
+После проверки подлинности в {% data variables.product.prodname_dotcom %} можно подключиться к удаленным репозиториям с помощью {% data variables.product.prodname_desktop %}. {% данных variables.product.prodname_desktop %} кэширует учетные данные (имя пользователя и пароль или {% данных variables.product.pat_generic %}) и использует учетные данные для проверки подлинности для каждого подключения к удаленному репозиторию.
 
-{% data variables.product.prodname_desktop %} connects to {% data variables.product.prodname_dotcom %} using HTTPS. If you use {% data variables.product.prodname_desktop %} to access repositories that were cloned using SSH, you may encounter errors. To connect to a repository that was cloned using SSH, change the remote's URLs. For more information, see "[Managing remote repositories](/github/getting-started-with-github/managing-remote-repositories)."
+{% data variables.product.prodname_desktop %} подключается к {% data variables.product.prodname_dotcom %} с помощью протокола HTTPS. При использовании {% data variables.product.prodname_desktop %} для доступа к репозиториям, клонированным с помощью SSH, могут возникнуть ошибки. Чтобы подключиться к репозиторию, клонированному с помощью SSH, измените URL-адреса удаленного репозитория. Дополнительные сведения см. в разделе [Управление удаленными репозиториями](/github/getting-started-with-github/managing-remote-repositories).
 
-## Further reading
-- "[Cloning and forking repositories from GitHub Desktop](/desktop/contributing-and-collaborating-using-github-desktop/cloning-and-forking-repositories-from-github-desktop)"
+## Дополнительные материалы
+- [Клонирование и создание вилки для репозиториев из GitHub Desktop](/desktop/contributing-and-collaborating-using-github-desktop/cloning-and-forking-repositories-from-github-desktop)

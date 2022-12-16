@@ -9,12 +9,12 @@ versions:
 type: quick_start
 topics:
   - Codespaces
-ms.openlocfilehash: 5f97a137ec09191d5cbaa9c10aa280e10f11bbc0
-ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.openlocfilehash: 01e4f3990cc47f61678811f7c4a77b86626fd8a5
+ms.sourcegitcommit: 1f3bd126ca000982c538f1621d47722737740943
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/09/2022
-ms.locfileid: '148158648'
+ms.lasthandoff: 12/01/2022
+ms.locfileid: '148188267'
 ---
 {% data variables.product.prodname_github_codespaces %} — это современная облачная среда разработки, которая использует контейнер для предоставления популярных языков, инструментов и служебных программ для разработки. {% data variables.product.prodname_github_codespaces %} также можно настроить, что позволяет создать настраиваемую среду разработки для проекта. Настроив пользовательскую среду разработки для проекта, вы получите воспроизводимую конфигурацию кодового пространства для всех пользователей проекта.
 
@@ -161,4 +161,4 @@ Git устанавливается по умолчанию в codespace, поэ�
 - [Включение {% data variables.product.prodname_github_codespaces %} для вашей организации](/codespaces/managing-codespaces-for-your-organization/enabling-github-codespaces-for-your-organization)
 - [Управление затратами на {% data variables.product.prodname_github_codespaces %} в организации](/codespaces/managing-codespaces-for-your-organization/managing-the-cost-of-github-codespaces-in-your-organization)
 - [Добавление конфигурации контейнера разработки в репозиторий](/codespaces/setting-up-your-project-for-codespaces/setting-up-your-project-for-codespaces)
-- [Жизненный цикл codespace](/codespaces/developing-in-codespaces/the-codespace-lifecycle)
+- [Жизненный цикл codespace](/codespaces/getting-started/the-codespace-lifecycle)

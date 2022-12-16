@@ -12,12 +12,12 @@ versions:
 topics:
   - Community
 shortTitle: Create a PR template
-ms.openlocfilehash: 2a85c88944f1d46209429846bba1e7a3c930968e
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
-ms.translationtype: HT
+ms.openlocfilehash: fa4d3cf78b63af147c85b8f6d77d7cca74e3853a
+ms.sourcegitcommit: 4daa156856e651cb3854ead40e35bd918e481ad6
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 09/11/2022
-ms.locfileid: '145092341'
+ms.lasthandoff: 12/02/2022
+ms.locfileid: '148190411'
 ---
 Дополнительные сведения см. в статье "[Сведения о шаблонах проблем и запросов на вытягивание](/articles/about-issue-and-pull-request-templates).
 
@@ -39,7 +39,7 @@ ms.locfileid: '145092341'
   ![Шаблон нового запроса на вытягивание в каталоге документации](/assets/images/help/repository/pr-template-file-name-docs.png)
     - Чтобы сохранить файл в скрытом каталоге, присвойте шаблону запроса на вытягивание имя `.github/pull_request_template.md`.
   ![Шаблон нового запроса на вытягивание в скрытом каталоге](/assets/images/help/repository/pr-template-hidden-directory.png)
-    - Чтобы создать шаблоны для нескольких запросов на вытягивание и использовать параметр запроса `template`, чтобы указать шаблон для заполнения текста проблемы, введите *.github/PULL_REQUEST_TEMPLATE/* , а затем имя шаблона запроса на вытягивание. Например, `.github/PULL_REQUEST_TEMPLATE/pull_request_template.md`. Можно также хранить шаблоны для нескольких запросов на вытягивание в подкаталоге `PULL_REQUEST_TEMPLATE`, в корне или каталогах `docs/`. Дополнительную информацию см. в разделе [Сведения об автоматизации проблем и запросов на вытягивание с параметрами запроса](/articles/about-automation-for-issues-and-pull-requests-with-query-parameters).
+    - Чтобы создать шаблоны для нескольких запросов на вытягивание и использовать параметр запроса `template`, чтобы указать шаблон для заполнения текста проблемы, введите *.github/PULL_REQUEST_TEMPLATE/* , а затем имя шаблона запроса на вытягивание. Например, `.github/PULL_REQUEST_TEMPLATE/pull_request_template.md`. Можно также хранить шаблоны для нескольких запросов на вытягивание в подкаталоге `PULL_REQUEST_TEMPLATE`, в корне или каталогах `docs/`. Дополнительные сведения см. в разделе [Использование параметров запроса для создания запроса на вытягивание](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/using-query-parameters-to-create-a-pull-request).
   ![Шаблон для нескольких новых запросов на вытягивание в скрытом каталоге](/assets/images/help/repository/pr-template-multiple-hidden-directory.png)
 4. Добавьте шаблон запроса на вытягивание в текст нового файла. Это может быть:
     - [ссылка на связанную проблему](/articles/basic-writing-and-formatting-syntax/#referencing-issues-and-pull-requests) в репозитории;

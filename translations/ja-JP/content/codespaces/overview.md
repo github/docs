@@ -15,12 +15,12 @@ versions:
 type: overview
 topics:
   - Codespaces
-ms.openlocfilehash: a1618c86671bc5b06474c41803c6b34576a897aa
-ms.sourcegitcommit: 2e1852bcdd690cb66b9b5d69cb056a2bb2b9a6b4
+ms.openlocfilehash: 9d01df3f8dae7ceb788e2dd57b02fb3cc977400d
+ms.sourcegitcommit: 1529de77bfcbe45519131b5f5fb3ab319758c2d2
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2022
-ms.locfileid: '148160801'
+ms.lasthandoff: 11/14/2022
+ms.locfileid: '148164324'
 ---
 ## codespace とは
 
@@ -50,7 +50,7 @@ codespace への接続には、ブラウザー、{% data variables.product.prodn
 
 Organization の所有者は、{% data variables.product.prodname_github_codespaces %} の使用を有効にすることができ、Organization または Enterprise アカウントに対して課金できます。 これは、Organization が所有するリポジトリから作成された codespace に適用されます。 詳しくは、「[Organization での {% data variables.product.prodname_github_codespaces %} の有効化](/codespaces/managing-codespaces-for-your-organization/enabling-github-codespaces-for-your-organization)」をご覧ください。 Organization または Enterprise アカウントで {% data variables.product.prodname_github_codespaces %} を使用するための使用制限を設定できます。 詳しくは、「[{% data variables.product.prodname_github_codespaces %} の利用上限の管理](/billing/managing-billing-for-github-codespaces/managing-the-spending-limit-for-github-codespaces)」をご覧ください。
 
-codespace の使用が Organization または Enterprise に課金される場合は、codespace の作成時に表示されます。 詳しくは、「[リポジトリの codespace を作成する](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository#creating-a-codespace-for-a-repository)」を参照してください。 Organization またはその親 Enterprise に課金される codespace は、Organization が所有しており Organization の所有者を削除できます。 詳細については、「[codespace の削除](/codespaces/developing-in-codespaces/deleting-a-codespace#deleting-codespaces-in-your-organization)」を参照してください。 
+codespace の使用が Organization または Enterprise に課金される場合は、codespace の作成時に表示されます。 詳しくは、「[リポジトリの codespace を作成する](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository#creating-a-codespace-for-a-repository)」を参照してください。 組織、またはその親エンタープライズに課金される codespace は、組織によって所有され、組織の所有者が削除できます。 詳細については、「[codespace の削除](/codespaces/developing-in-codespaces/deleting-a-codespace#deleting-codespaces-in-your-organization)」を参照してください。 
 
 ### {% data variables.product.prodname_github_codespaces %} のカスタマイズ
 

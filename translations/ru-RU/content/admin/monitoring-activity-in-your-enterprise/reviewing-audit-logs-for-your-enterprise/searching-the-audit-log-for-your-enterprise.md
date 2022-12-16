@@ -1,6 +1,6 @@
 ---
-title: Searching the audit log for your enterprise
-intro: You can search an extensive list of audited actions in your enterprise.
+title: Доступ к журналу аудита для предприятия
+intro: Вы можете найти обширный список проверенных действий на предприятии.
 shortTitle: Search audit logs
 permissions: 'Enterprise owners {% ifversion ghes %}and site administrators {% endif %}can search the audit log.'
 redirect_from:
@@ -19,76 +19,79 @@ topics:
   - Enterprise
   - Logging
 miniTocMaxHeadingLevel: 3
+ms.openlocfilehash: 12bc44b7d81df55366f8b839261cf8899a53729d
+ms.sourcegitcommit: 7a74d5796695bb21c30e4031679253cbc16ceaea
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 11/28/2022
+ms.locfileid: '148183999'
 ---
+## Сведения о поиске журнала аудита предприятия
 
-## About search for the enterprise audit log
+Поиск в журнале аудита предприятия можно выполнить непосредственно в пользовательском интерфейсе с помощью раскрывающегося списка **Фильтры** или ввести поисковый запрос.
 
-You can search your enterprise audit log directly from the user interface by using the **Filters** dropdown, or by typing a search query.
+  ![Поисковый запрос](/assets/images/enterprise/site-admin-settings/search-query.png)
 
-  ![Search query](/assets/images/enterprise/site-admin-settings/search-query.png)
-
-For more information about viewing your enterprise audit log, see "[Accessing the audit log for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/accessing-the-audit-log-for-your-enterprise)." 
+Дополнительные сведения о просмотре журнала аудита предприятия см. в разделе [Доступ к журналу аудита для вашей организации](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/accessing-the-audit-log-for-your-enterprise). 
 
 {% data reusables.audit_log.git-events-not-in-search-results %}
 
-You can also use the API to retrieve audit log events. For more information, see "[Using the audit log API for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/using-the-audit-log-api-for-your-enterprise)."
+Кроме того, для получения событий журнала аудита можно использовать API. Дополнительные сведения см. в разделе [Использование API журнала аудита для предприятия](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/using-the-audit-log-api-for-your-enterprise).
 
-You cannot search for entries using text. You can, however, construct search queries using a variety of filters. Many operators used when querying the log, such as `-`, `>`, or `<`, match the same format as searching across {% data variables.product.product_name %}. For more information, see "[Searching on {% data variables.product.prodname_dotcom %}](/search-github/getting-started-with-searching-on-github/about-searching-on-github)."
+Поиск записей по тексту невозможен. При этом можно составлять поисковые запросы, используя различные фильтры. Многие операторы, используемые в запросах к журналу, например `-`, `>` и `<`, используются в том же формате, что и при поиске в {% data variables.product.product_name %}. Дополнительные сведения см. в разделе [Поиск в {% data variables.product.prodname_dotcom %}](/search-github/getting-started-with-searching-on-github/about-searching-on-github).
 
 {% note %}
 
-**Note**: {% data reusables.audit_log.retention-periods %}
+**Примечание**: {% data reusables.audit_log.retention-periods %}
 
 {% endnote %}
 
-## Search query filters
+## Фильтры поисковых запросов
 
-Filter| Description
+Filter| Описание
 --------------:| -----------
-`Yesterday's activity` | All actions created in the past day.
-`Enterprise account management` | All actions in the `business` category.
-`Organization membership` | All actions for when a new user was invited to join an organization.
-`Team management` | All actions related to team management.<br/>- When a user account or repository was added or removed from a team<br/>- When a team maintainer was promoted or demoted<br/>-  When a team was deleted
-`Repository management` | All actions for repository management.<br/>- When a repository was created or deleted<br/>- When the repository visibility was changed<br/>- When a team was added or removed from a repository{% ifversion ghec %}
-`Billing updates` | All actions concerning how your enterprise pays for {% data variables.product.prodname_dotcom %} and for when your billing email address was changed.{% endif %}
-`Hook activity` | All actions for webhooks and pre-receive hooks.
-`Security management` | All actions concerning SSH keys, deploy keys, security keys, 2FA, and SAML single sign-on credential authorization, and vulnerability alerts for repositories.
+`Yesterday's activity` | Все действия, созданные за последний день.
+`Enterprise account management` | Все действия в категории `business`.
+`Organization membership` | Все действия, выполняемые в процессе приглашения нового пользователя на присоединение к организации.
+`Team management` | Все действия, связанные с управлением командой.<br/>— При добавлении или удалении учетной записи пользователя или репозитория из команды<br/>— При повышении или понижении уровня поддержки команды<br/>— При удалении команды
+`Repository management` | Все действия для управления репозиториями.<br/>— При создании или удалении репозитория<br/>— При изменении видимости репозитория<br/>— При добавлении или удалении команды из репозитория {% ifversion ghec %}
+`Billing updates` | Все действия, касающиеся оплаты вашему предприятию для {% data variables.product.prodname_dotcom %}, и связанные с изменением вашего адреса электронной почты выставления счетов.{% endif %}
+`Hook activity` | Все действия для веб-перехватчиков и перехватчиков предварительного получения.
+`Security management` | Все действия, касающиеся ключей SSH, ключей развертывания, ключей безопасности, двухфакторной проверки подлинности, проверки подлинности учетных данных единого входа SAML и оповещений об уязвимостях для репозиториев.
 
-## Search query syntax
+## Синтаксис поискового запроса
 
-You can compose a search query from one or more `key:value` pairs, separated by AND/OR logical operators. For example, to see all actions that have affected the repository `octocat/Spoon-Knife` since the beginning of 2017:
+Поисковый запрос можно создать из одной или нескольких пар `key:value`, разделенных логическими операторами «И»/»ИЛИ». Например, чтобы просмотреть все действия, которые повлияли на репозиторий `octocat/Spoon-Knife` с начала 2017 г.:
 
   `repo:"octocat/Spoon-Knife" AND created:>=2017-01-01`
 
-The `key:value` pairs that can be used in a search query are:
+Пары `key:value`, которые можно использовать в поисковом запросе:
 
-Key            | Value
+Ключ            | Значение
 --------------:| --------------------------------------------------------
-`actor_id`     | ID of the user account that initiated the action
-`actor`        | Name of the user account that initiated the action
-`oauth_app_id` | ID of the OAuth application associated with the action
-`action`       | Name of the audited action
-`user_id`      | ID of the user affected by the action
-`user`         | Name of the user affected by the action
-`repo_id`      | ID of the repository affected by the action (if applicable)
-`repo`         | Name of the repository affected by the action (if applicable)
-`actor_ip`     | IP address from which the action was initiated
-`created`      | Time at which the action occurred{% ifversion ghes %}. If querying the audit log from the site admin dashboard, use `created_at` instead{% endif %}
-`from`         | View from which the action was initiated
-`note`         | Miscellaneous event-specific information (in either plain text or JSON format)
-`org`          | Name of the organization affected by the action (if applicable)
-`org_id`       | ID of the organization affected by the action (if applicable)
-`business` | Name of the enterprise affected by the action (if applicable)
-`business_id` | ID of the enterprise affected by the action (if applicable)
-{%- ifversion token-audit-log %}
-`hashed_token` | The token used to authenticate for the action (if applicable, see "[Identifying audit log events performed by an access token](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/identifying-audit-log-events-performed-by-an-access-token)")
-{%- endif %}
+`actor_id`     | Идентификатор учетной записи пользователя, которая инициировала действие
+`actor`        | Имя учетной записи пользователя, которая инициировала действие
+`oauth_app_id` | Идентификатор приложения OAuth, связанного с действием
+`action`       | Имя проверяемого действия
+`user_id`      | Идентификатор пользователя, на которого повлияло действие
+`user`         | Имя пользователя, на которого повлияло действие
+`repo_id`      | Идентификатор репозитория, на который повлияло действие (если применимо)
+`repo`         | Имя репозитория, на который повлияло действие (если применимо)
+`actor_ip`     | IP-адрес, с которого было инициировано действие
+`created`      | Время, при котором произошло действие{% ifversion ghes %}. При запросе журнала аудита с панели мониторинга администратора сайта используйте `created_at` вместо{% endif %}
+`from`         | Представление, с которого было инициировано действие
+`note`         | Прочие сведения о событиях (в формате обычного текста или JSON)
+`org`          | Имя организации, на которое повлияло действие (если применимо)
+`org_id`       | Идентификатор организации, на которое повлияло действие (если применимо)
+`business` | Имя предприятия, на которое повлияло действие (если применимо)
+`business_id` | Идентификатор предприятия, на которое повлияло действие (если применимо)
+{%- ifversion token-audit-log %} `hashed_token` | Маркер, используемый для проверки подлинности действия (если применимо, см. [раздел Определение событий журнала аудита, выполняемых маркером доступа](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/identifying-audit-log-events-performed-by-an-access-token)) {%- endif %}
 
-To see actions grouped by category, you can also use the action qualifier as a `key:value` pair. For more information, see "[Search based on the action performed](#search-based-on-the-action-performed)."
+Чтобы просмотреть действия, сгруппированные по категориям, также можно использовать квалификатор действия в качестве пары `key:value`. Дополнительные сведения см. в разделе [Поиск на основе выполненного действия](#search-based-on-the-action-performed).
 
-For a full list of actions in your enterprise audit log, see "[Audit log actions for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise)."
+Полный список действий журнала аудита предприятия см. в разделе [Действия журнала аудита для корпорации](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise).
 
-## Searching the audit log
+## Поиск в журнале аудита
 
 {% data reusables.audit_log.audit-log-search-by-operation %}
 
@@ -96,46 +99,47 @@ For a full list of actions in your enterprise audit log, see "[Audit log actions
 
 {% data reusables.audit_log.audit-log-search-by-user %}
 
-### Search based on the action performed
+### Поиск с учетом выполненного действия
 
-To search for specific events, use the `action` qualifier in your query. For example:
+Для поиска определенных событий используйте квалификатор `action` в запросе. Пример:
 
-  * `action:team` finds all events grouped within the team category.
-  * `-action:hook` excludes all events in the webhook category.
+  * `action:team` находит все события, сгруппированные в категории команды.
+  * `-action:hook` исключает все события в категории веб-перехватчика.
 
-Each category has a set of associated actions that you can filter on. For example:
+Каждая категория содержит набор связанных действий, для которых можно выполнить фильтрацию. Пример:
 
-  * `action:team.create` finds all events where a team was created.
-  * `-action:hook.events_changed` excludes all events where the events on a webhook have been altered.
+  * `action:team.create` находит все события, в которых создавалась команда.
+  * `-action:hook.events_changed` исключает все события, в рамках которых изменялись события в веб-перехватчике.
 
-Actions that can be found in your enterprise audit log are grouped within the following categories:
+Действия, которые можно найти в журнале аудита предприятия, группируются по следующим категориям:
 
 {% data reusables.audit_log.audit-log-action-categories %}
-### Search based on time of action
 
-Use the `created` qualifier to filter events in the audit log based on when they occurred.
+### Поиск с учетом времени действия
+
+Используйте квалификатор `created` для фильтрации событий в журнале аудита с учетом времени их возникновения.
 
 {% data reusables.time_date.date_format %} {% data reusables.time_date.time_format %}
 
 {% data reusables.search.date_gt_lt %}
 
-For example:
+Пример:
 
-  * `created:2014-07-08` finds all events that occurred on July 8th, 2014.
-  * `created:>=2014-07-08` finds all events that occurred on or after July 8th, 2014.
-  * `created:<=2014-07-08` finds all events that occurred on or before July 8th, 2014.
-  * `created:2014-07-01..2014-07-31` finds all events that occurred in the month of July 2014.
+  * `created:2014-07-08` находит все события, произошедшие 8 июля 2014 г.
+  * `created:>=2014-07-08` находит все события, произошедшие после 8 июля 2014 г.
+  * `created:<=2014-07-08` находит все события, произошедшие до 8 июля 2014 г.
+  * `created:2014-07-01..2014-07-31` находит все события, произошедшие в июле 2014 г.
 
-### Search based on location
+### Поиск по расположению
 
-Using the qualifier `country`, you can filter events in the audit log based on the originating country. You can use a country's two-letter short code or full name. Countries with spaces in their name will need to be wrapped in quotation marks. For example:
+С помощью квалификатора `country` можно выполнить фильтрацию событий в журнале аудита с учетом страны-происхождения. Можно использовать короткий двухбуквенный код страны или ее полное название. Имейте в виду, что страны, в названиях которых есть пробелы, необходимо заключать в кавычки. Пример:
 
-  * `country:de` finds all events that occurred in Germany.
-  * `country:Mexico` finds all events that occurred in Mexico.
-  * `country:"United States"` all finds events that occurred in the United States.
+  * `country:de` находит все события, произошедшие в Германии.
+  * `country:Mexico` находит все события, произошедшие в Мексике.
+  * `country:"United States"` находит события, произошедшие в США.
 
 {% ifversion token-audit-log %}
-### Search based on the token that performed the action
+### Поиск на основе токена, который выполнил действие
 
-Use the `hashed_token` qualifier to search based on the token that performed the action. Before you can search for a token, you must generate a SHA-256 hash. For more information, see "[Identifying audit log events performed by an access token](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/identifying-audit-log-events-performed-by-an-access-token)."
+`hashed_token` Используйте квалификатор для поиска на основе токена, который выполнил действие. Перед поиском маркера необходимо создать хэш SHA-256. Дополнительные сведения см. в разделе [Определение событий журнала аудита, выполняемых маркером доступа](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/identifying-audit-log-events-performed-by-an-access-token).
 {% endif %}

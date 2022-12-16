@@ -1,6 +1,6 @@
 ---
-title: Finding ways to contribute to open source on GitHub
-intro: 'You can find ways to contribute to open source projects on {% data variables.location.product_location %} that are relevant to you.'
+title: Поиск способов для участия в разработке программного обеспечения с открытым кодом в GitHub
+intro: 'Вы можете найти способы участия в открытый код проектах на {% данных variables.location.product_location %}, которые относятся к вам.'
 permissions: '{% data reusables.enterprise-accounts.emu-permission-interact %}'
 redirect_from:
   - /articles/where-can-i-find-open-source-projects-to-work-on
@@ -17,40 +17,46 @@ versions:
 topics:
   - Open Source
 shortTitle: Contribute to open source
+ms.openlocfilehash: f67d3ead2acc2163b395485b973c5406bff484df
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148098575'
 ---
-## Discovering relevant projects
+## Обнаружение соответствующих проектов
 
-If there's a particular topic that interests you, visit `github.com/topics/<topic>`. For example, if you are interested in machine learning, you can find relevant projects and good first issues by visiting https://github.com/topics/machine-learning. You can browse popular topics by visiting [Topics](https://github.com/topics). You can also search for repositories that match a topic you're interested in. For more information, see "[Searching for repositories](/search-github/searching-on-github/searching-for-repositories#search-by-topic)."
+Если вас интересует определенная тема, перейдите на страницу `github.com/topics/<topic>`. Например, если вас интересует машинное обучение, вы можете найти соответствующие проекты и описание основных проблем, возникающих впервые, перейдя на страницу https://github.com/topics/machine-learning. Для просмотра популярных тем перейдите на страницу [Темы](https://github.com/topics). Вы также можете выполнять поиск в репозиториях, соответствующих интересующей вас теме. Дополнительные сведения см. в статье "[Поиск репозиториев](/search-github/searching-on-github/searching-for-repositories#search-by-topic)".
 
-If you've been active on {% data variables.location.product_location %}, you can find personalized recommendations for projects and good first issues based on your past contributions, stars, and other activities in [Explore](https://github.com/explore). You can also sign up for the Explore newsletter to receive emails about opportunities to contribute to {% data variables.product.product_name %} based on your interests. To sign up, see [Explore email newsletter](https://github.com/explore/subscribe).
+Если вы активно работаете на {% данных variables.location.product_location %}, вы можете найти персонализированные рекомендации для проектов и хорошие первые проблемы на основе прошлых вкладов, звезд и других действий в [Обзоре](https://github.com/explore). Вы также можете подписаться на рассылку "Обзор", чтобы получать электронные письма о возможностях для внесения вклада в {% data variables.product.product_name %} на основе ваших интересов. Чтобы это сделать, обратитесь к разделу [Подписка на рассылку "Обзор" по электронной почте](https://github.com/explore/subscribe).
 
-Keep up with recent activity from repositories you watch, as well as people and organizations you follow, with your personal dashboard. For more information, see "[About your personal dashboard](/articles/about-your-personal-dashboard)."
+Просматривайте последние действия в репозиториях, которые вы отслеживаете, а также действия пользователей и организаций, на которых вы подписаны, на личной панели мониторинга. Дополнительные сведения см. в разделе [Сведения о личной панели мониторинга](/articles/about-your-personal-dashboard).
 
 {% data reusables.support.ask-and-answer-forum %}
 
-## Finding good first issues
+## Поиск основных проблем, возникающих впервые
 
-If you already know what project you want to work on, you can find beginner-friendly issues in that repository by visiting `github.com/<owner>/<repository>/contribute`. For an example, you can find ways to make your first contribution to `electron/electron` at https://github.com/electron/electron/contribute.
+Если вы уже знаете, над каким проектом хотите работать, вы сможете найти описание проблем, подходящих для начинающих пользователей, перейдя на страницу `github.com/<owner>/<repository>/contribute`. Например, сведения о том, как внести свой первый вклад в проект `electron/electron`, можно найти на странице https://github.com/electron/electron/contribute.
 
-## Opening an issue
+## Открытие проблемы
 
-If you encounter a bug in an open source project, check if the bug has already been reported. If the bug has not been reported, you can open an issue to report the bug according to the project's contribution guidelines.
+Если вы столкнулись с ошибкой в проекте с открытым кодом, проверьте, сообщалось ли ранее об этой ошибке. Если о ней не сообщалось, можно открыть проблему, чтобы сообщить об ошибке, в соответствии с рекомендациями по внесению вклада в проект.
 
-## Validating an issue or pull request
+## Проверка проблемы или запроса на вытягивание
 
-There are a variety of ways that you can contribute to open source projects.
+Существует множество способов участия в проектах с открытым кодом.
 
-### Reproducing a reported bug
-You can contribute to an open source project by validating an issue or adding additional context to an existing issue. 
+### Воспроизведение ошибки, о которой было сообщено ранее
+Вы можете внести свой вклад в проект с открытым кодом, проверив проблему или добавив дополнительный контекст к существующей проблеме. 
 
-### Testing a pull request
-You can contribute to an open source project by merging a pull request into your local copy of the project and testing the changes. Add the outcome of your testing in a comment on the pull request.
+### Проверка запроса на вытягивание
+Вы можете внести свой вклад в проект с открытым кодом, объединив запрос на вытягивание с локальной копией проекта и проверив изменения. Добавьте результат тестирования в комментарий к запросу на вытягивание.
 
-### Updating issues
-You can contribute to an open source project by adding additional information to existing issues.
+### Обновление проблем
+Вы можете внести свой вклад в проект с открытым кодом, добавив дополнительные сведения для существующих проблем.
 
 
-## Further reading
+## Дополнительные материалы
 
-- "[Classifying your repository with topics](/articles/classifying-your-repository-with-topics)"
-- "[About your organization dashboard](/articles/about-your-organization-dashboard)"
+- [Классификация репозитория с помощью тем](/articles/classifying-your-repository-with-topics)
+- [Сведения о панели мониторинга вашей организации](/articles/about-your-organization-dashboard)

@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 4081194451ae681e3a8208cb0462bd7f7574c3ef
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
+ms.openlocfilehash: e36f9c75564f0cb539740d9d8235feae76309c93
+ms.sourcegitcommit: bddda0c0814770ee64e378692891931c618247ec
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "145140710"
+ms.lasthandoff: 11/24/2022
+ms.locfileid: "148181783"
 ---
 Если ваш запрос на поддержку не входит в сферу компетенции нашей команды, рекомендуем выполнить следующие действия по устранению проблемы за пределами {% data variables.contact.github_support %}. Ваш запрос на поддержку может не входить в сферу компетенции команды {% data variables.contact.github_support %}, если он в основном касается следующего:
 - Сторонние интеграции, такие как Jira{% ifversion ghes %}
@@ -12,8 +12,7 @@ ms.locfileid: "145140710"
 - CI/CD, например Jenkins.
 - Написание скриптов.
 - Настройка внешних систем проверки подлинности, таких как поставщики удостоверений SAML.
-- Проекты с открытым кодом{% ifversion ghes %}
-- Проектирование кластера LGTM{% endif %}
+- Проекты с открытым исходным кодом
 - Написание или отладка новых запросов для {% data variables.product.prodname_codeql %}
 
 Если вы не знаете, входит ли ваша проблема в сферу компетенции нашей команды, создайте запрос в службу поддержки, и мы поможем вам определить оптимальный путь решения.

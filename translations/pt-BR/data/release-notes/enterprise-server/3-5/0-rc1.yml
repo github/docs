@@ -3,419 +3,495 @@ release_candidate: true
 deprecated: true
 intro: |
   {% note %}
-
-  **Note:** If {% data variables.location.product_location %} is running a release candidate build, you can't upgrade with a hotpatch. We recommend only running release candidates on test environments.
-
+  
+  **Observação:** Se {% data variables.product.product_location %} estiver executando a compilação de um candidato à versão, você não poderá atualizar com um patch dinâmico. Recomendamos somente executar versões Release Candidate em ambientes de teste.
+  
   {% endnote %}
-
-  For upgrade instructions, see "[Upgrading {% data variables.product.prodname_ghe_server %}](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server)."
+  
+  Para obter instruções de atualização, consulte "[Atualizar {% data variables.product.prodname_ghe_server %}](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server)."
 sections:
   features:
-    - heading: IP exception list for validation testing after maintenance
+    - heading: Lista de exceção de IP para testagem de validação após manutenção
       notes:
         # https://github.com/github/releases/issues/2109
-        - |
-          You can now configure an allow list of IP addresses that can access application services on your GitHub Enterprise Server instance while maintenance mode is enabled. Administrators who visit the instance's web interface from an allowed IP address can validate the instance's functionality post-maintenance and before disabling maintenance mode. For more information, see "[Enabling and scheduling maintenance mode](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode#validating-changes-in-maintenance-mode-using-the-ip-exception-list)."
+        - |Você agora pode configurar uma lista de permissão de endereços IP que podem acessar serviços de aplicativo em sua instância do servidor GitHub Enterprise enquanto o modo de manutenção está habilitado. Os administradores que visitam a interface Web da instância de um endereço IP permitido podem validar a funcionalidade da instância após a manutenção e antes de desabilitar o modo de manutenção. Para obter mais informações, consulte "[Habilitando e agendando o modo de manutenção](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode#validating-changes-in-maintenance-mode-using-the-ip-exception-list)."
 
-    - heading: Custom repository roles are generally available
+|
+    - heading: As funções de repositórios personalizados estão em disponibilidade geral
       notes:
         # https://github.com/github/releases/issues/1945
-        - |
-          With custom repository roles, organizations now have more granular control over the repository access permissions they can grant to users. For more information, see "[Managing custom repository roles for an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)."
+        - |Com funções de repositórios personalizados, as organizações agora têm um controle mais granular sobre as permissões de acesso do repositório que podem conceder aos usuários. Para obter mais informações, consulte "[Gerenciando as funções de repositórios personalizados para uma organização](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)."
 
-          A custom repository role is created by an organization owner, and is available across all repositories in that organization. Each role can be given a custom name, and a description. It can be configured from a set of over 40 fine grained permissions. Once created, repository admins can assign a custom role to any user, team or outside collaborator in their repository.
 
-          Custom repository roles can be created, viewed, edited and deleted via the new **Repository roles** tab in an organization's settings. A maximum of 3 custom roles can be created within an organization. 
 
-          Custom repository roles are also fully supported in the GitHub Enterprise Server REST APIs. The Organizations API can be used to list all custom repository roles in an organization, and the existing APIs for granting repository access to individuals and teams have been extended to support custom repository roles. For more information, see "[Organizations](/rest/reference/orgs#list-custom-repository-roles-in-an-organization)" in the REST API documentation.
+Uma função de repositórios personalizados é criada por um proprietário da organização e está disponível em todos os repositórios nessa organização. Cada função pode receber um nome personalizado e uma descrição. Pode ser configurado de um conjunto de mais de 40 permissões refinadas. Quando elas são criadas, os administradores de repositório podem atribuir uma função personalizada a qualquer usuário, equipe ou colaborador externo no repositório.
 
-    - heading: GitHub Container registry in public beta 
+
+
+As funções de repositórios personalizados podem ser criadas, exibidas, editadas e excluídas por meio da nova guia **Funções de repositório** nas configurações de uma organização. No máximo 3 funções personalizadas podem ser criadas dentro de uma organização. 
+
+
+
+As funções de repositórios personalizados também têm suporte nas APIs REST do servidor GitHub Enterprise. A API das organizações podem ser usadas para listar todas as funções de repositórios personalizados em uma organização, e as APIs existentes para conceder acesso ao repositório para indivíduos e equipes foram estendidas para dar suporte a funções de repositórios personalizados. Para obter mais informações, consulte "[Organizações](/rest/reference/orgs#list-custom-repository-roles-in-an-organization)" na documentação da API REST.
+
+|
+    - heading: Registro de Contêiner do GitHub em beta público 
       notes: 
         # https://github.com/github/releases/issues/2005
-         - |
-           The GitHub Container registry (GHCR) is now available in GitHub Enterprise Server 3.5 as a public beta, offering developers the ability to publish, download, and manage containers. GitHub Packages container support implements the OCI standards for hosting Docker images. For more information, see "[GitHub Container registry](/packages/working-with-a-github-packages-registry/working-with-the-container-registry)."
-    
-    - heading: Dependabot updates are generally available
+         - |O registro do Contêiner do GitHub (GHCR) agora está disponível no GitHub Enterprise Server 3.5 como beta público, oferecendo aos desenvolvedores a capacidade de publicar, baixar e gerenciar contêineres. O suporte ao contêiner dos pacotes do GitHub implementa os padrões de OCI para hospedar imagens do Docker. Para obter mais informações, consulte "[Registro de contêiner do GitHub](/packages/working-with-a-github-packages-registry/working-with-the-container-registry)."
+
+|
+    - heading: As atualizações do Dependabot estão em disponibilidade geral
       notes:
        # https://github.com/github/releases/issues/2089
-        - |
-          Dependabot version and security updates are now generally available in GitHub Enterprise Server 3.5. All the popular ecosystems and features that work on GitHub.com repositories now can be set up on your GitHub Enterprise Server instance. Dependabot on GitHub Enterprise Server requires GitHub Actions and a pool of self-hosted Dependabot runners, GitHub Connect enabled, and Dependabot enabled by an admin. For more information, see "[Setting up Dependabot updates](https://docs.github.com/en/enterprise-server@3.5/admin/github-actions/enabling-github-actions-for-github-enterprise-server/setting-up-dependabot-updates)."
+        - |A versão do Dependabot e as atualizações de segurança agora estão em disponibilidade geral no GitHub Enterprise Server 3.5. Todos os ecossistemas populares e os recursos que funcionam nos repositórios do GitHub.comagora podem ser configurados na sua instância do GitHub Enterprise Server. O Dependabot no GitHub Enterprise Server exige o GitHub Actions e um conjunto de executores de Dependabot auto-hospedados, o GitHub Connect habilitado e o Dependabot habilitado por um administrador. Para obter mais informações, consulte "[Configurando atualizações do Dependabot](https://docs.github.com/en/enterprise-server@3.5/admin/github-actions/enabling-github-actions-for-github-enterprise-server/setting-up-dependabot-updates)."
 
-
-
-    - heading: Server Statistics in public beta
+|
+    - heading: Estatísticas do servidor em beta público
       notes:
         # https://github.com/github/releases/issues/2183
-        - |
-          You can now analyze how your team works, understand the value you get from GitHub Enterprise Server, and help us improve our products by reviewing your instance's usage data and sharing this aggregate data with GitHub. You can use your own tools to analyze your usage over time by downloading your data in a CSV or JSON file or by accessing it using the REST API. To see the list of aggregate metrics collected, see "[About Server Statistics](/admin/monitoring-activity-in-your-enterprise/analyzing-how-your-team-works-with-server-statistics/about-server-statistics#server-statistics-data-collected)." Server Statistics data includes no personal data nor GitHub content, such as code, issues, comments, or pull requests content.  For a better understanding of how we store and secure Server Statistics data, see "[GitHub Security](https://github.com/security)."  For more information about Server Statistics, see "[Analyzing how your team works with Server Statistics](/admin/monitoring-activity-in-your-enterprise/analyzing-how-your-team-works-with-server-statistics)." This feature is available in public beta.
+        - |Agora você pode analisar como sua equipe funciona, entender o valor que você obtém com o GitHub Enterprise Server e nos ajudar a aprimorar nossos produtos revisando os dados de uso de sua instância e compartilhando esses dados agregados com o GitHub. Você pode usar suas próprias ferramentas para analisar seu uso ao longo do tempo baixando seus dados em um CSV ou arquivo JSON ou acessando-o usando a API REST. Para ver a lista de métricas agregadas coletadas, confira "[Sobre Estatísticas do Servidor](/admin/monitoring-activity-in-your-enterprise/analyzing-how-your-team-works-with-server-statistics/about-server-statistics#server-statistics-data-collected)." Os dados das estatísticas do servidor não incluem dados pessoais ou conteúdo do GitHub, como código, problemas, comentários ou conteúdo de solicitações de pull.  Para uma melhor compreensão de como armazenamos e protegemos dados de estatísticas de servidor, consulte "[Segurança do GitHub](https://github.com/security)."  Para obter mais informações sobre as estatísticas do servidor, consulte "[Analisando como sua equipe funciona com as estatísticas do servidor](/admin/monitoring-activity-in-your-enterprise/analyzing-how-your-team-works-with-server-statistics)." Esse recurso está disponível na versão beta pública.
 
-    - heading: GitHub Actions rate limiting is now configurable
+|
+    - heading: A limitação de taxa do GitHub Actions agora é configurável
       notes:
         # https://github.com/github/releases/issues/2123
-        - |
-          Site administrators can now enable and configure a rate limit for GitHub Actions. By default, the rate limit is disabled. When workflow jobs cannot immediately be assigned to an available runner, they will wait in a queue until a runner is available. However, if GitHub Actions experiences a sustained high load, the queue can back up faster than it can drain and the performance of the GitHub Enterprise Server instance may degrade. To avoid this, an administrator can configure a rate limit. When the rate limit is exceeded, additional workflow runs will fail immediately rather than being put in the queue. Once the rate has stabilized below the threshold, new runs can be queued again. For more information, see "[Configuring rate limits](/admin/configuration/configuring-your-enterprise/configuring-rate-limits#configuring-rate-limits-for-github-actions)."
+        - |Os administradores do site agora podem habilitar e configurar um limite de taxa para o GitHub Actions. Por padrão, o limite de taxa está desabilitado. Quando os trabalhos do fluxo de trabalho não puderem ser atribuídos a um executor disponível, eles aguardarão em uma fila até que um executor esteja disponível. No entanto, se o GitHub Actions experimentar uma alta carga sustentada, a fila pode acumular mais rápido do que esvaziar e o desempenho da instância do GitHub Enterprise Server pode degradar. Para evitar isso, um administrador pode configura um limite de taxa. Quando o limite de taxa é excedido, podem ocorrer falhas imediatas em execuções adicionais de fluxo de trabalho em vez de serem colocadas na fila. Assim que a taxa tiver se estabilizado abaixo do limite, novas execuções podem ser enfileiradas novamente. Para obter mais informações, consulte "[Configurando limites de taxa](/admin/configuration/configuring-your-enterprise/configuring-rate-limits#configuring-rate-limits-for-github-actions)."
 
-    - heading: OpenID Connect (OIDC) for secure deployments with GitHub Actions
+|
+    - heading: OpenID Connect (OIDC) para implantações seguras com o GitHub Actions
       notes:
         # https://github.com/github/releases/issues/2066
-        - |
-          GitHub Actions on GitHub Enterprise Server now supports OIDC for secure deployments to cloud providers, which uses short-lived tokens that are automatically rotated for each deployment. OIDC enables the following functionality.
+        - |O GitHub Actions no GitHub Enterprise Server agora dá suporte a OIDC para implantações seguras nos provedores de nuvem, que usa tokens de curta duração que são automaticamente rotacionados para cada implantação. O OIDC habilita as seguintes funcionalidades.
 
-          - Seamless authentication between cloud providers and GitHub Enterprise Server without the need for storing any long-lived cloud secrets on your instance
-          - Cloud administrators can rely on the security mechanisms of a particular cloud provider to ensure that GitHub Actions workflows have minimal access to cloud resources. There is no duplication of secret management between GitHub Enterprise Server and the cloud.
-          
-          For more information, see "[Security hardening your deployments](/actions/deployment/security-hardening-your-deployments)."
 
-    - heading: Sharing GitHub Actions within your enterprise is generally available
+
+- Autenticação simplificada entre provedores de nuvem e o GitHub Enterprise Server sem a necessidade de armazenar segredos de nuvem de longa duração em sua instância
+
+- Os administradores de nuvem podem confiar nos mecanismos de segurança de um provedor de nuvem específico para garantir que os fluxos de trabalho do GitHub Actions tenham acesso mínimo a recursos de nuvem. Não há duplicação de gerenciamento de segredos entre o GitHub Enterprise Server e a nuvem.
+
+
+
+Para obter mais informações, consulte "[Segurança que enrijece as suas implantações](/actions/deployment/security-hardening-your-deployments)."
+
+|
+    - heading: Compartilhar o GitHub Actions dentro da sua empresa está em disponibilidade geral
       notes:
         # https://github.com/github/releases/issues/2085
-        - |
-          Support for GitHub Actions in internal repositories is now generally available for organizations on your GitHub Enterprise Server instance. You can innersource automation by sharing actions in internal repositories. You can manage a repository's settings or use the REST API to allow access to workflows in other repositories within the organization or in any organization on the instance. For more information, see "[Sharing actions and workflows with your enterprise](/actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise)," "[Managing GitHub Actions settings for a repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#allowing-access-to-components-in-an-internal-repository)," and "[Actions Permissions](/rest/actions/permissions#get-the-level-of-access-for-workflows-outside-of-the-repository)" in the REST API documentation.
-    
-    - heading: Cache support for GitHub Actions on GitHub Enterprise Server is now generally available
+        - |O suporte para o GitHub Actions em repositórios internos está em disponibilidade geral para organizações em sua instância do GitHub Enterprise Server. Você pode utilizar a automação do Innersource compartilhando ações em repositórios internos. Você pode gerenciar as configurações de um repositório ou usar a API REST para permitir o acesso a fluxos de trabalho em outros repositórios dentro da organização ou em qualquer organização na instância. Para obter mais informações, consulte "[Compartilhando ações e fluxos de trabalho com sua empresa](/actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise)," "[Gerenciando as configurações do GitHub Actions para um repositório](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#allowing-access-to-components-in-an-internal-repository)" e "[Permissões de ações](/rest/actions/permissions#get-the-level-of-access-for-workflows-outside-of-the-repository)" na documentação da API REST.
+
+|
+    - heading: O suporte de cache para o GitHub Actions no GitHub Enterprise agora está em disponibilidade geral
       notes:
         # https://github.com/github/releases/issues/2110
-        - |
-          You can now use dependency caching to speed up your GitHub Actions workflows. To cache dependencies for a job, you can include the [actions/cache](https://github.com/actions/cache) action to create a cache with a unique key. You can share caches across all workflows in the same repository. These workflows can then restore the cache and run faster.
-
-          Actions users can also use our cache APIs to:
-
-          - Define the enterprise policy for cache size range allowed per repository.
-          - Query the cache usage within each repository and monitor if the total size of all caches is reaching the upper limit.
-          - Increase the maximum cache size for a repository within the allowed enterprise limits, based on the cache requirements of the repository.
-          - Monitor aggregate cache usage at organization level or at enterprise level.
-
-          The external blob storage that is configured within your enterprise account will now be shared across workflow artifacts, logs, and also the caches. For more information, see "[Caching dependencies to speed up workflows](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)."
+        - |Você agora pode usar o armazenamento em cache de dependência para acelerar seus fluxo de trabalho do GitHub Actions. Para armazenar em cache dependências para um trabalho, você pode incluir a ação [ações/cache](https://github.com/actions/cache) para criar um cache com uma chave exclusiva. Você pode compartilhar caches em todos os fluxos de trabalho no mesmo repositório. Esses fluxos de trabalho podem em seguida restaurar o cache e executar mais rapidamente.
 
 
-    - heading: Automatically sign commits made in the web UI
+
+Os usuários do Actions também podem usar nossas APIs de cache para:
+
+
+
+- Definir a política da empresa para tamanho do cache permitido por repositório.
+
+- Consultar o uso do cache dentro de cada repositório e monitorar se o tamanho total de todos os caches está atingindo o limite superior.
+
+- Aumentar o tamanho máximo do cache para um repositório dentro dos limites empresariais permitidos, com base nos requisitos de cache do repositório.
+
+- Monitorar o uso do cache agregado no nível da organização ou no nível empresarial.
+
+
+
+O armazenamento de blob externo que está configurado dentro da conta da sua empresa agora será compartilhado em todos os artefatos de fluxo de trabalho, logs e também os caches. Para obter mais informações, consulte "[Armazenando em cache dependências para acelerar os fluxos de trabalho](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)."
+
+|
+    - heading: Assinar confirmações automaticamente na interface do usuário da Web
       notes:
         # https://github.com/github/releases/issues/1963
-        - |
-          You can now configure GitHub Enterprise Server to automatically sign commits made in the web interface, such as from editing a file or merging a pull request. Signed commits increase confidence that changes come from trusted sources. This feature allows the [Require signed commits](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#require-signed-commits) branch protection setting to block unsigned commits from entering a repository, while allowing entry of signed commits – even those made in the web interface. For more information, see "[Configuring web commit signing](/admin/configuration/configuring-your-enterprise/configuring-web-commit-signing)."
+        - |Agora você pode configurar o GitHub Enterprise Server para assinar confirmações automaticamente na interface da Web, como ao editar um arquivo o mesclar uma solicitação de pull. Confirmações assinadas aumentam a confiança de que as alterações vêm de fontes confiáveis. Este recurso permite que as configurações de proteção de ramificação [Exigir confirmações assinadas](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#require-signed-commits) bloqueie as confirmações não assinadas de entrar em um repositório, enquanto permite a entrada de confirmações assinadas, mesmo as feitas na interface da Web. Para obter mais informações, consulte "[Como configurar assinatura de confirmação da Web] (/admin/configuration/configuring-your-enterprise/configuring-web-commit-signing)."
 
-    - heading: Sync license usage any time
+|
+    - heading: Sincronizar uso da licença a qualquer momento
       notes:
         # https://github.com/github/releases/issues/2201
-        - |
-          For customers that sync license usage between GitHub Enterprise Server and GitHub Enterprise Cloud automatically using GitHub Connect, you now have the ability to sync your license usage independently of the automatic weekly sync. This feature also reports the status of sync job. For more information, see "[Syncing license usage between GitHub Enterprise Server and GitHub Enterprise Cloud](/billing/managing-your-license-for-github-enterprise/syncing-license-usage-between-github-enterprise-server-and-github-enterprise-cloud#manually-syncing-license-usage)."
+        - |Para clientes que sincronizam o uso de licença entre o GitHub Enterprise Server e o GitHub Enterprise Cloud automaticamente usando o GitHub Connect, você agora tem a capacidade de sincronizar o uso de suas licenças de maneira independente da sincronização semanal automática. Esse recurso agora reporta o status do trabalho de sincronização. Para obter mais informações, consulte "[Sincronizando o uso de licença entre o GitHub Enterprise Server e o GitHub Enterprise Cloud](/billing/managing-your-license-for-github-enterprise/syncing-license-usage-between-github-enterprise-server-and-github-enterprise-cloud#manually-syncing-license-usage)."
 
-    - heading: Reusable workflows for GitHub Actions are generally available
+|
+    - heading: Os fluxos de trabalho reutilizáveis para GitHub Actions estão em disponibilidade geral
       notes:
         # https://github.com/github/releases/issues/1767
         # https://github.com/github/releases/issues/1950
         # https://github.com/github/releases/issues/2114
-          - |
-            Reusable workflows are now generally available. Reusable workflows help you reduce duplication by enabling you to reuse an entire workflow as if it were an action. With the general availability release, a number of improvements are now available for GitHub Enterprise Server. For more information, see "[Reusing workflows](/actions/using-workflows/reusing-workflows)."
-            
-            - You can utilize outputs to pass data from reusable workflows to other jobs in the caller workflow.
-            - You can pass environment secrets to reusable workflows.
-            - The audit log includes information about which reusable workflows are used.
-            - Reusable workflows in the same repository as the calling repository can be referenced with just the path and filename (`PATH/FILENAME`). The called workflow will be from the same commit as the caller workflow.
-          
-    - heading: Self-hosted runners for GitHub Actions can now disable automatic updates
+          - |Os fluxos de trabalho reutilizáveis estão agora em disponibilidade geral. O fluxos de trabalho reutilizáveis ajudam a reduzir a duplicação permitindo que você reutilize um fluxo de trabalho inteiro como se ele fosse uma ação. Com o lançamento da disponibilidade geral, um número de melhorias agora estão disponíveis para o GitHub Enterprise Server. Para obter mais informações, consulte "[Reutilizando fluxos de trabalho](/actions/using-workflows/reusing-workflows)."
+
+
+
+- Você pode utilizar saídas para passar dados de fluxos de trabalho reutilizáveis para outros trabalhos no fluxo de trabalho do chamador.
+
+- Você pode passar segredos de ambiente para fluxos de trabalho reutilizáveis.
+
+- O log de auditoria inclui informações sobre quais fluxos de trabalho reutilizáveis são usados.
+
+- Os fluxos de trabalho reutilizáveis no mesmo repositório que o repositório que está chamando podem ser referenciados com apenas o caminho e o nome de arquivo ("PATH/FILENAME"). O fluxo de trabalho chamaod será da mesma confirmação que o fluxo de trabalho do chamador.
+
+|
+    - heading: Executores auto-hospedados para o GitHub Actions agora podem desabilitar atualizações automáticas
       notes:
         # https://github.com/github/releases/issues/2014
-        - |
-          You now have more control over when your self-hosted runners perform software updates. If you specify the `--disableupdate` flag to the runner then it will not try to perform an automatic software update if a newer version of the runner is available. This allows you to update the self-hosted runner on your own schedule, and is especially convenient if your self-hosted runner is in a container.
+        - |Agora você tem mais controle sobre quando seus executores auto-hospedados realizam atualização de software. Se você especificar o sinalizador "--disableupdate" para o executor, ele não tentará realizar uma atualização de software automática se uma versão mais nova do executor estiver disponível. Isso permite que você atualize o executor auto-hospedado quando desejar, e é especialmente conveniente se ele estiver em um contêiner.
 
-           For compatibility with the GitHub Actions service, you will need to manually update your runner within 30 days of a new runner version being available.  For instructions on how to install the latest runner version, please see the installation instructions for [the latest release in the runner repo](https://github.com/actions/runner/releases).
 
-    - heading: Secure self-hosted runners for GitHub Actions by limiting workflows
+
+ Para garantir a compatibilidade com o serviço do GitHub Actions, você precisará atualizar manualmente o executor dentro de 30 dias em que uma nova versão estiver disponível.  Para obter instruções sobre como instalar a versão mais recente do executor, consulte as instruções de instalação para [a versão mais recente no repositório do executor](https://github.com/actions/runner/releases).
+
+|
+    - heading: Proteja os executores auto-hospedados para GitHub Actions limitando fluxos de trabalho
       notes:
         # https://github.com/github/releases/issues/2013
-        - |
-          Organization owners can now increase the security of CI/CD workflows on self-hosted runners by choosing which workflows can access a runner group. Previously, any workflow in a repository, such as an issue labeler, could access the self-hosted runners available to an organization. For more information, see "[Managing access to self-hosted runners using groups](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#changing-what-workflows-can-access-a-runner-group)" and the [GitHub Blog](https://github.blog/2022-03-23-github-actions-secure-self-hosted-runners-specific-workflows/).
+        - |Os proprietários da organização agora podem aumentar a segurança de fluxos de trabalho de CI/CD em executores auto-hospedados escolhendo quais fluxos de trabalho podem acessar um grupo de executor. Anteriormente, qualquer fluxo de trabalho em um repositório, como um rotulador de problema, poderia acessar os executores auto-hospedados disponíveis para uma organização. Para obter mais informações, consulte "[Gerenciando o acesso a executores auto-hospedados usando grupos](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#changing-what-workflows-can-access-a-runner-group)" e o [Blog do GitHub](https://github.blog/2022-03-23-github-actions-secure-self-hosted-runners-specific-workflows/).
 
-    - heading: Prevent GitHub Actions from approving pull requests
+|
+    - heading: Impedir o GitHub Actions de aprovar solicitações de pull
       notes:
         # https://github.com/github/releases/issues/1959
-        - |
-          You can now control whether GitHub Actions can approve pull requests. This feature protects against a user using GitHub Actions to satisfy the "Required approvals" branch protection requirement and merging a change that was not reviewed by another user. To prevent breaking existing workflows, **Allow GitHub Actions reviews to count towards required approval** is enabled by default. Organization owners can disable the feature in the organization's GitHub Actions settings. For more information, see "[Disabling or limiting GitHub Actions for your organization](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization#preventing-github-actions-from-approving-pull-requests)."
+        - |Você agora pode controlar se o GitHub Actions pode aprovar solicitações de pull. Esse recurso impede que um usuário do GitHub Actions atenda ao requisito de proteção de ramificação "Aprovações obrigatórias" e mescle uma alteração que não foi revisada por outro usuário. Para não afetar fluxos de trabalho existentes, a opção **Permitir que as revisões do GitHub Actions contem com aprovações obrigatórias** está habilitada por padrão. Os proprietários da organização podem desabilitar o recurso nas configurações do GitHub Actions da organização. Para obter mais informações, consulte "[Desabilitar ou limitar o GitHub Actions na sua organização](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization#preventing-github-actions-from-approving-pull-requests)."
 
-    - heading: Re-run failed or individual GitHub Actions jobs
+|
+    - heading: Executar novamente trabalhos com falha ou trabalhos individuais do GitHub Actions
       notes:
         # https://github.com/github/releases/issues/1503
-        - |
-          You can now re-run only failed jobs or an individual job in a GitHub Actions workflow run. For more information, see "[Re-running workflows and jobs](/actions/managing-workflow-runs/re-running-workflows-and-jobs)."
+        - |Você agora pode executar novamente apenas trabalhos com falha ou um trabalho individual em uma execução de fluxo de trabalho do GitHub Actions. Para obter mais informações, consulte "[Executar novamente um fluxo de trabalho](/actions/managing-workflow-runs/re-running-workflows-and-jobs)."
 
-    - heading: Dependency graph supports GitHub Actions
+|
+    - heading: O grafo de dependência dá suporte ao GitHub Actions
       notes:
         # https://github.com/github/releases/issues/1913
-        - |
-          The dependency graph now detects YAML files for GitHub Actions workflows. GitHub Enterprise Server will display the workflow files within the **Insights** tab's dependency graph section. Repositories that publish actions will also be able to see the number of repositories that depend on that action from the "Used By" control on the repository homepage. For more information, see "[About the dependency graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)."
+        - |O grafo de dependência agora detecta arquivos YAML para fluxos de trabalho do GitHub Actions. O GitHub Enterprise Server exibirá os arquivos do fluxo de trabalho dentro da seção do grafo de dependência da guia **Insights**. Os repositórios que publicam ações também poderão ver o número de repositórios que dependem dessa ação pelo controle "Usado por" na página inicial do repositório. Para obter mais informações, consulte "[Sobre o grafo de dependência](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)."
 
-    - heading: Security overview for enterprises in public beta
+|
+    - heading: Visão geral de segurança para empresas em beta público
       notes:
         # https://github.com/github/releases/issues/2040
-        - |
-          GitHub Advanced Security customers can now view an overview of security alerts at the enterprise level. The new **Security** tab at the enterprise level provides a repository-centric view of application security risks, as well as an alert-centric view of all secret scanning alerts. For more information, see "[About the security overview](/code-security/security-overview/about-the-security-overview)."
+        - |Os clientes da Segurança Avançada do GitHub agora podem exibir uma visão geral de alertas de segurança no nível empresarial. A nova guia **Segurança** no nível empresarial oferece uma visão centrada no repositório dos riscos de segurança do aplicativo, além de uma visão centrada em alertas de todos os alertas de verificação de segredos. Para obter mais informações, consulte "[Sobre a visão geral de segurança](/code-security/security-overview/about-the-security-overview)."
 
-    - heading: Security view for organizations is generally available
+|
+    - heading: A visão de segurança para organizações está em disponibilidade geral
       notes:
         # https://github.com/github/releases/issues/2096
-        - |
-          The overview of security alerts at the organization level is now generally available. GitHub Advanced Security customers can use the security overview to view a repository-centric view of application security risks, or an alert-centric view of all code scanning, Dependabot, and secret scanning alerts for all repositories in an organization. For more information, see "[About the security overview](/code-security/security-overview/about-the-security-overview)."
+        - |A visão geral dos alertas de segurança no nível da organização agora está em disponibilidade geral. Os clientes da Segurança Avançada do GitHub podem usar a visão geral de segurança para exibir uma visão centrada no repositório dos de segurança do aplicativos, ou uma visão centrada em alertas de toda a verificação de código, o Dependabot e os alertas de verificação de segredos para todos os repositórios em uma organização. Para obter mais informações, consulte "[Sobre a visão geral de segurança](/code-security/security-overview/about-the-security-overview)."
 
-    - heading: Code scanning detects more security issues, supports new language versions
+|
+    - heading: "A verificação de código detecta mais problemas de segurança, dá suporte a novas versões de linguagem"
       notes:
         # https://github.com/github/releases/issues/2097
-        - |
-          Code scanning now detects a larger number of CWEs, and CodeQL code scanning fully supports the standard language features in the following language releases.
+        - |A verificação de código agora detecta um número maior de CWEs e a verificação de código do CodeQL dá suporte completo aos recursos de linguagem padrão nas seguintes versões de linguagem.
 
-          - C# 10 / .NET 6
-          - Python 3.10
-          - Java 17
-          - TypeScript 4.5
 
-          For more information, see the [GitHub Blog](https://github.blog/changelog/2022-02-25-code-scanning-detects-more-security-issues-supports-new-language-versions/).
 
-    - heading: View code scanning alerts across an organization
+- C# 10 / .NET 6
+
+- Python 3.10
+
+- Java 17
+
+- TypeScript 4.5
+
+
+
+Para obter mais informações, consulte o [Blog do GitHub](https://github.blog/changelog/2022-02-25-code-scanning-detects-more-security-issues-supports-new-language-versions/).
+
+|
+    - heading: Exibir alertas de verificação de código em toda a organização
       notes:
         # https://github.com/github/releases/issues/1792
-        - |
-          GitHub Advanced Security customers can now view code scanning alerts in an organization's **Security** tab. This view is available to organization owners and members of teams with the [security manager role](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization). For more information, see "[About the security overview](/code-security/security-overview/about-the-security-overview)."
+        - |Os clientes de Segurança Avançada do GitHub agora podem exibir alertas de verificação de código na guia **Segurança** de uma organização. Esta exibição está disponível para proprietários de organizações e membros de equipes com a [função de gerente de segurança](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization). Para obter mais informações, consulte "[Sobre a visão geral de segurança](/code-security/security-overview/about-the-security-overview)."
 
+|
         # https://github.com/github/releases/issues/1763
-        - |
-          Users can now retrieve code scanning alerts for an organization on your GitHub Enterprise Server instance via the REST API. This new API endpoint supplements the existing [endpoint for repositories](/rest/reference/code-scanning#list-code-scanning-alerts-for-a-repository). For more information, see [Code Scanning](/rest/code-scanning) in the REST API documentation.
+        - |Os usuários agora podem recuperar alertas de verificação de código para uma organização na sua instância do GitHub Enterprise Server pela API REST. Este novo ponto de extremidade de API suplementa o [ponto de extremidade para repositórios] existente(/rest/reference/code-scanning#list-code-scanning-alerts-for-a-repository). Para obter mais informações, consulte "[Verificação do código](/rest/code-scanning)" na documentação da API REST.
 
-    - heading: Secret scanning available as a push protection
+|
+    - heading: Verificação de segredos disponível como uma proteção de push
       notes:
         # 
-        - |
-          GitHub Enterprise Server can now block any pushes where a token is detected with high confidence. Developers can bypass the block by providing details of why the secret needs to be committed via a web UI. For more information, see "[Protecting pushes with secret scanning](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)."
+        - |O GitHub Enterprise Server agora pode bloquear os pushes em que um token é detectado com alta confiança. Os desenvolvedores podem ignorar o bloqueio fornecendo detalhes de por que o segredo precisa ser confirmado por uma interface do usuário da Web. Para obter mais informações, consulte "[Protegendo pushes com verificação de segredos](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)."
 
-    - heading: Dry runs for custom patterns with secret scanning
+|
+    - heading: Simulações para padrões personalizados com verificação de segredos
       notes:
         # https://github.com/github/releases/issues/1703
         # https://github.com/github/releases/issues/2084
-        - |
-          GitHub Advanced Security customers can now dry run custom secret scanning patterns at the organization or repository level. Dry runs allow people with owner or admin access to review and hone their patterns before publishing them and generating alerts. You can compose a pattern, then use **Save and dry run** to retrieve results. The scans typically take just a few seconds, but GitHub Enterprise Server will also notify organization owners or repository admins via email when dry run results are ready. For more information, see "[About secret scanning](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-for-private-repositories)" and "[Defining custom patterns for secret scanning](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)."
+        - |Os clientes de Segurança Avançada do GitHub agora podem realizar simulações personalizadas de padrões de verificação de segredos na organização ou no nível do repositório. Simulações permitem que pessoas com acesso de proprietário ou administrador revisem e ajustem os padrões antes de publicá-los e gerar alertas. Você pode compor um padrão e, em seguida, usar **Salvar e realizar simulação** para recuperar resultados. As verificações normalmente levam apenas alguns segundos, mas o GitHub Enterprise Server também notificará os proprietários da organização ou administradores do repositório por email quando os resultados da simulação estiverem prontos. Para obter mais informações, consulte "[Sobre a verificação de segredos](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-for-private-repositories)" e "[Definindo padrões personalizados para verificação de segredos](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)."
 
-    - heading: Secret scanning custom pattern events now in the audit log
+|
+    - heading: Os eventos de padrão personalizado de verificação de segredos agora no log de auditoria
       notes:
         # https://github.com/github/releases/issues/2154
-        - |
-          The audit log now includes events associated with secret scanning custom patterns. This data helps GitHub Advanced Security customers understand actions taken on their [repository](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization#repository_secret_scanning_custom_pattern-category-actions)-, [organization](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization#org_secret_scanning_custom_pattern-category-actions)-, or [enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#business_secret_scanning_custom_pattern-category-actions)-level custom patterns for security and compliance audits. For more information, see "[Reviewing the audit log for your organization](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization)" or "[Reviewing audit logs for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise)."
+        - |O log de auditoria agora inclui eventos associados aos padrões personalizados de verificação de segredos. Esses dados ajudam os clientes da Segurança Avançada do GitHub a entenderem as ações realizadas nos padrões personalizados do nível do seu [repositório](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization#repository_secret_scanning_custom_pattern-category-actions)-, [organização](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization#org_secret_scanning_custom_pattern-category-actions)- ou [empresa](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#business_secret_scanning_custom_pattern-category-actions) para auditorias de segurança e conformidade. Para ver mais informações, confira "[Como examinar o log de auditoria da sua organização](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization)" ou "[Examinando logs de auditoria para sua empresa](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise)."
 
-    - heading: Configure permissions for secret scanning with custom repository roles
+|
+    - heading: Configurar permissões para verificação de segredos com funções de repositório personalizado
       notes:
         # https://github.com/github/releases/issues/1909
-        - |
-          You can now configure two new permissions for secret scanning when managing custom repository roles.
+        - |Você agora pode configurar duas novas permissões para verificação de segredos ao gerenciar funções de repositório personalizadas.
 
-          - View secret scanning results
-          - Dismiss or reopen secret scanning results
 
-          For more information, see  "[Managing custom repository roles for an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)."
 
-    - heading: Secret scanning now supports archived repositories
+- Exibir resultados de verificação de segredos
+
+- Ignorar ou reabrir resultados de verificação de segredos
+
+
+
+Para obter mais informações, consulte "[Gerenciando as funções de repositórios personalizados para uma organização](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)."
+
+|
+    - heading: A verificação de segredos agora dá suporte a repositórios arquivados
       notes:
         # https://github.com/github/releases/issues/2076
-        - |
-          GitHub Advanced Security customers can now enable secret scanning for archived repositories via the UI and API. For more information, see "[About secret scanning](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-for-private-repositories)," "[About archived repositories](/repositories/archiving-a-github-repository/archiving-repositories)," and "[Repositories](/rest/repos/repos#update-a-repository)" in the REST API documentation.
+        - |Os clientes da Segurança Avançada do GitHub agora podem habilitar a verificação de segredos para repositórios arquivados por meio da interface do usuário e da API. Para obter mais informação, consulte "[Sobre verificação de segredos](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-for-private-repositories)," "[Sobre repositórios arquivados](/repositories/archiving-a-github-repository/archiving-repositories)" e "[Repositórios](/rest/repos/repos#update-a-repository)" na documentação da API REST.
 
-    - heading: Secret scanning webhooks for alert locations
+|
+    - heading: Webhooks de verificação de segredos para localização de alertas
       notes:
         # https://github.com/github/releases/issues/2149
-        - |
-          GitHub Advanced Security customers using secret scanning can now opt to receive a webhook each time a secret is detected in a new location. The `secret_scanning_alert_location` webhook event includes location details, like the commit SHA, and the associated alert for the detection. A location is created for every new file path containing the detected secret. For more information, see "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#secret_scanning_alert_location)."
+        - |Os clientes da Segurança Avançada do GitHub que usam verificação de segredos agora podem optar por receber um webhook cada vez que um segredo for detectado em uma nova localização. O evento de webhook "secret_scanning_alert_location" inclui detalhes de localização, como SHA de confirmação e o alerta associado para a detecção. Uma localização é criada para cada novo caminho de arquivo que contém o segredo detectado. Para obter mais informações, consulte "[Eventos de e cargas Webhooks](/developers/Webhooks-and-events/Webhooks/Webhook-events-and-payloads#code_scanning_alert)."
 
-    - heading: View Dependabot alerts across an organization
+|
+    - heading: Exibir alertas do Dependabot em toda a organização
       notes:
         # https://github.com/github/releases/issues/1992
-        - |
-          GitHub Advanced Security customers can now view Dependabot alerts in in an organization's **Security** tab. This view is available to organization owners and members of teams with the [security manager role](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization). For more information, see "[About the security overview](/code-security/security-overview/about-the-security-overview)."
+        - |Os clientes de Segurança Avançada do GitHub agora podem exibir alertas do Dependabot na guia **Segurança** de uma organização. Esta exibição está disponível para proprietários de organizações e membros de equipes com a [função de gerente de segurança](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization). Para obter mais informações, consulte "[Sobre a visão geral de segurança](/code-security/security-overview/about-the-security-overview)."
 
-    - heading: Configure permissions for Dependabot alerts with custom repository roles
+|
+    - heading: Configurar permissões para alertas do Dependabot com funções de repositório personalizado
       notes:
         # https://github.com/github/releases/issues/1958
-        - |
-          You can now configure two new permissions for Dependabot alerts when managing custom repository roles.
-          
-          - View Dependabot alerts
-          - Dismiss or reopen Dependabot alerts
+        - |Você agora pode configurar duas novas permissões para alertas do Dependabot ao gerenciar funções de repositório personalizadas.
 
-          For more information, see  "[Managing custom repository roles for an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)."
 
-    - heading: Reopen dismissed Dependabot alerts
+
+- Exibir alertas do Dependabot
+
+- Ignorar ou reabrir alertas do Dependabot
+
+
+
+Para obter mais informações, consulte "[Gerenciando as funções de repositórios personalizados para uma organização](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)."
+
+|
+    - heading: Reabrir alertas ignorados do Dependabot
       notes:
         # https://github.com/github/releases/issues/1923
-        - |
-          You can now reopen dismissed Dependabot alerts through the UI page for a closed alert. This does not affect Dependabot pull requests or the GraphQL API. For more information, see "[About Dependabot alerts](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)."
+        - |Você agora pode reabrir alertas ignorados do Dependabot por meio da página da interface do usuário para um alerta fechado. Isso não afeta solicitações de pull do Dependabot ou a API do GraphQL. Para ver mais informações, confira "[Sobre os alertas do Dependabot](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)."
 
-    - heading: Pub support for Dependabot version updates is in public beta
+|
+    - heading: O suporte ao Pub para as atualizações de versão do Dependabot está em beta público
       notes:
         # https://github.com/github/releases/issues/2086
-        - |
-          Users of Dependabot version updates can now proactively update dependencies for Flutter or Dart projects that use the Pub package manager.  
+        - |Os usuários de atualizações de versão do Dependabot agora podem atualizar de maneira proativa dependências para projetos do Flutter ou Dart que usam o gerenciador de pacotes do Pub.  
 
-          To test [version updates](/code-security/dependabot/dependabot-version-updates/about-dependabot-version-updates) on your own Dart or Flutter repository, add the following configuration file in <code>[.github/dependabot.yaml](/code-security/dependabot/dependabot-version-updates/configuring-dependabot-version-updates#enabling-dependabot-version-updates)</code>. Note the `package-ecosystem: "pub"` and `enable-beta-ecosystems: true` flags.
-          ```yaml
-          version: 2
-          enable-beta-ecosystems: true
-          updates:
-            - package-ecosystem: "pub"
-              directory: "/"
-              schedule:
-                interval: "weekly"
-          ```
 
-    - heading: See pull request associated with a repository's Dependabot alerts via GraphQL API
+
+Para testar [atualizações de versão](/code-security/dependabot/dependabot-version-updates/about-dependabot-version-updates) e seu próprio repositório do Dart ou Flutter, adicione o seguinte arquivo de configuração no <código>[.github/dependabot.yaml](/code-security/dependabot/dependabot-version-updates/configuring-dependabot-version-updates#enabling-dependabot-version-updates)</code>. Observe os sinalizadores `package-ecosystem: "pub"` e `enable-beta-ecosystems: true`.
+
+```yaml
+
+version: 2
+
+enable-beta-ecosystems: true
+
+updates:
+
+  - package-ecosystem: "pub"
+
+    directory: "/"
+
+    schedule:
+
+      interval: "weekly"
+
+```
+
+|
+    - heading: Consulte a solicitação de pull associada a alertas do Dependabot de um repositório via API do GraphQL
       notes:
         # https://github.com/github/releases/issues/2088
-        - |
-          The new `DependabotUpdate` GraphQL object lets you view information about what happens to your repository's security updates. When GitHub Enterprise Server detects that a dependency in your repository is vulnerable, Dependabot will attempt to open a pull request to update that dependency to a non-vulnerable version. You can now see the pull request that fixes the vulnerability. In some cases, Dependabot fails to open a pull request. Previously, the error message that Dependabot generated was only visible in the "Dependabot Alerts" section of the **Security** tab. Now, if Dependabot runs into an error when trying to open a pull request for a security alert, you can determine the reason using the GraphQL API. For more information, see "[Objects](/graphql/reference/objects#dependabotupdate)" in the GraphQL API documentation.
+        - |O novo objeto GraphQL "DependabotUpdate" permite exibir informações sobre o que acontece as atualizações de segurança de seu repositório. Quando o GitHub Enterprise Server detecta que uma dependência em seu repositório está vulnerável, o Dependabot tentará abrir uma solicitação de pull para atualizar essa dependência para uma versão não-vulnerável. Você agora pode ver a solicitação de pull que corrige a vulnerabilidade. Em alguns casos, o Dependabot não consegue abrir uma solicitação de pull. Anteriormente, a mensagem de erro que o Dependabot gerava estava visível apenas na seção "Alertas do Dependabot" da guia **Segurança**. Agora, se o Dependabot recebe um erro ao tentar abrir uma solicitação de pull para um alerta de segurança, você pode determinar a razão usando a API do GraphQL. Para obter mais informações, consulte "[Objetos](/graphql/reference/objects#dependabotupdate)" na documentação da API do GraphQL.
 
-    - heading: Access more information about Dependabot alerts via GraphQL API
+|
+    - heading: Acesse mais informações sobre os alertas do Dependabot via API do GraphQL
       notes:
         # https://github.com/github/releases/issues/1922
-        - |
-          You can now view fixed alerts from Dependabot with the GraphQL API. You can also access and filter by state, as well as by unique numeric identifier, and you can filter by state on the vulnerability alert object. The following fields now exist for a `RepositoryVulnerabilityAlert`.
+        - |Você agora pode exibir alertas corrigidos do Dependabot com a API do GraphQL. Você também pode acessar e filtrar por estado, além de por um identificador numérico exclusivo, e pode filtrar por estado no objeto de alerta de vulnerabilidade. Os campos a seguir agora existem para um "RepositoryVulnerabilityAlert".
 
-          - `number`
-          - `fixed_at`
-          - `fix_reason`
-          - `state`
 
-          For more information, see "[Objects](/graphql/reference/objects#repositoryvulnerabilityalert)" in the GraphQL API documentation.
 
-    - heading: Git events in the enterprise audit log
+- `number`
+
+- `fixed_at`
+
+- `fix_reason`
+
+- `state`
+
+
+
+Para obter mais informações, consulte "[Objetos](/graphql/reference/objects#repositoryvulnerabilityalert)" na documentação da API do GraphQL.
+
+|
+    - heading: Eventos Git no log de auditoria da empresa
       notes:
         # https://github.com/github/releases/issues/2205
-        - |
-          The following Git-related events can now appear in the enterprise audit log. If you enable the feature and set an audit log retention period, the new events will be available for search via the UI and API, or export via JSON or CSV.
-          
-          - `git.clone`
-          - `git.fetch`
-          - `git.push`
-          
-          Due to the large number of Git events logged, we recommend you monitor your instance's file storage and review your related alert configurations. For more information, see "[Configuring the audit log for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/configuring-the-audit-log-for-your-enterprise#managing-git-events-in-the-audit-log)."
+        - |Os eventos relacionados ao Git a seguir agora podem aparecer no log de auditoria da empresa. Se você habilitar o recurso e definir um período de retenção do log de auditoria, os novos eventos estarão disponíveis para pesquisa por meio da interface de usuário e da API, ou exportação via JSON ou CSV.
 
-    - heading: Improvements to CODEOWNERS
+
+
+- `git.clone`
+
+- `git.fetch`
+
+- `git.push`
+
+
+
+Devido ao grande número de eventos Git registrados, recomendamos monitorar o armazenamento de arquivos da sua instância e examinar suas configurações de alerta relacionadas. Para obter mais informações, consulte "[Configurando o log de auditoria da sua empresa](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/configuring-the-audit-log-for-your-enterprise#managing-git-events-in-the-audit-log)."
+
+|
+    - heading: Melhorias no CODEOWNERS
       notes:
         # https://github.com/github/releases/issues/1994
-        - |
-          This release includes improvements to CODEOWNERS.
-          
-          - Syntax errors are now surfaced when viewing a CODEOWNERS file from the web. Previously, when a line in a CODEOWNERS file had a syntax error, the error would be ignored or in some cases cause the entire CODEOWNERS file to not load. GitHub Apps and Actions can access the same list of errors using new REST and GraphQL APIs. For more information, see "[Repositories](/rest/repos/repos#list-codeowners-errors)" in the REST API documentation or "[Objects](/graphql/reference/objects#repositorycodeowners)" in the GraphQL API documentation.
-          - After someone creates a new pull request or pushes new changes to a draft pull request, any code owners that will be requested for review are now listed in the pull request under "Reviewers". This feature gives you an early look at who will be requested to review once the pull request is marked ready for review.
-          - Comments in CODEOWNERS files can now appear at the end of a line, not just on dedicated lines.
-          
-          For more information, see "[About code owners](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners)."
+        - |Essa versão inclui melhorias ao CODEOWNERS.
 
-    - heading: More ways to keep a pull request's topic branch up to date
+
+
+- Erros de sintaxe agora aparecem ao exibir um arquivo do CODEOWNERS pela Web. Anteriormente, quando uma linha em um arquivo do CODEOWNERS tinha um erro de sintaxe, o erro seria ignorado ou, em alguns casos, determinar a falha de carregamento do arquivo do CODEOWNERS inteiro. Os aplicativos do GitHub e o Actions podem acessar a mesma lista de erros usando novas APIs REST e GraphQL. Para obter mais informações, consulte "[Repositórios](/rest/repos/repos#list-codeowners-errors)" na documentação da API REST ou "[Objetos](/graphql/reference/objects#repositorycodeowners)" na documentação da API do GraphQL.
+
+- Depois que alguém cria uma nova solicitação de pull ou envia novas alterações para uma solicitação de pull de rascunho, qualquer proprietário de código que for chamado a fazer revisão será listado na solicitação de pull em "Revisores". Esse recurso dá a você uma visão prévia de quem será solicitado a revisar assim que a solicitação de pull for marcada como pronta para revisão.
+
+- Os comentários nos arquivos CODEOWNERS agora podem aparecer no final de uma linha, não apenas em linhas dedicadas.
+
+
+
+Para obter mais informações, consulte "[Sobre proprietários de código](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners)."
+
+|
+    - heading: Mais maneiras de manter uma ramificação de tópido de uma solicitação de pull atualizada
       notes:
         # https://github.com/github/releases/issues/1566
-        - |
-          The **Update branch** button on the pull request page lets you update your pull request's branch with the latest changes from the base branch. This is useful for verifying your changes are compatible with the current version of the base branch before you merge. Two enhancements now give you more ways to keep your branch up-to-date.
+        - |O botão **Atualizar ramificação** na página de solicitação de pull permite atualizar a ramificação da sua solicitação de pull com as alterações mais recentes da ramificação de base. Isso é útil para verificar se suas alterações estão compatíveis com a versão atual da ramificação de base antes de mesclar. Duas melhorias agora dão a você mais maneiras de manter sua ramificação atualizada.
 
-          - When your pull request's topic branch is out of date with the base branch, you now have the option to update it by rebasing on the latest version of the base branch. Rebasing applies the changes from your branch onto the latest version of the base branch, resulting in a branch with a linear history since no merge commit is created. To update by rebasing, click the drop down menu next to the **Update Branch** button, click **Update with rebase**, and then click **Rebase branch**. Previously, **Update branch** performed a traditional merge that always resulted in a merge commit in your pull request branch. This option is still available, but now you have the choice. For more information, see "[Keeping your pull request in sync with the base branch](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/keeping-your-pull-request-in-sync-with-the-base-branch)."
 
-          - A new repository setting allows the **Update branch** button to always be available when a pull request's topic branch is not up to date with the base branch. Previously, this button was only available when the **Require branches to be up to date before merging** branch protection setting was enabled. People with admin or maintainer access can manage the **Always suggest updating pull request branches** setting from the **Pull Requests** section in repository settings. For more information, see "[Managing suggestions to update pull request branches](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/managing-suggestions-to-update-pull-request-branches)."
 
-    - heading: Configure custom HTTP headers for GitHub Pages sites
+- Quando a ramificação de tópico da sua solicitação de pull estiver desatualizada com a ramificação de base, você agora tem a opção de atualizá-la trocando a base na versão mais recente da ramificação de base. Trocar a base aplica as alterações da sua ramificação na versão mais recente da ramificação de base, resultando em uma ramificação com um histórico linear já que nenhuma confirmação de mesclagem foi criada. Para atualizar trocando a base, clique no menu suspenso ao lado do botão **Atualizar ramificação**, clique em **Atualizar com troca de base** e clique em **Trocar base da ramificação**. Anteriormente, **Atualizar ramificação** realizava uma mesclagem tradicional que sempre resultava em uma confirmação de mesclagem em sua ramificação de solicitação de pull. Essa opção ainda está disponível, mas agora você tem a escolha. Para obter mais informações, consulte "[Mantendo a sua solicitação de pull em sincronia com a ramificação de base](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/keeping-your-pull-request-in-sync-with-the-base-branch)."
+
+
+
+- Uma nova configuração de repositório permite que o botão **Atualizar ramificação** esteja sempre disponível quando uma ramificação de tópico de uma solicitação de pull não estiver atualizada com a ramificação de base. Anteriormente, este botão só estava disponível quando a configuração de proteção de ramificação **Exigir que as ramificações estejam atualizadas antes de mesclar** estava habilitada. As pessoas com acesso de administrador ou função de manutenção podem gerenciar a configuração **Sempre sugerir atualizar ramificações de solicitação de pull** da seção **Solicitações de pull** nas configurações de repositório. Para obter mais informações, consulte "[Gerenciando sugestões para atualizar ramificações de solicitação de pull](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/managing-suggestions-to-update-pull-request-branches)."
+
+|
+    - heading: Configurar cabeçalhos de HTTP personalizados para sites de páginas do GitHub
       notes: 
         # https://github.com/github/releases/issues/2124
-        - |
-          You can now configure custom HTTP headers that apply to all GitHub Pages sites served from your GitHub Enterprise Server instance. For more information, see "[Configuring GitHub Pages for your enterprise](/admin/configuration/configuring-your-enterprise/configuring-github-pages-for-your-enterprise#configuring-github-pages-response-headers-for-your-enterprise)."
+        - |Você agora pode configurar cabeçalhos de HTTP personalizados que se aplicam a todos os sites de páginas do GitHub servidas de sua instância do GitHub Enterprise Server. Para obter mais informações, consulte "[Configurando páginas do GitHub para sua empresa](/admin/configuration/configuring-your-enterprise/configuring-github-pages-for-your-enterprise#configuring-github-pages-response-headers-for-your-enterprise)."
 
-    - heading: Ignore commits in blame view
+|
+    - heading: Ignorar as confirmações na exibição de blame
       notes:
         # https://github.com/github/releases/issues/2090
-        - |
-          It's now possible to ignore revisions in the blame view by creating a _.git-blame-ignore-revs_ file in the root of your repository. For more information, see "[Viewing a file](/repositories/working-with-files/using-files/viewing-a-file#ignore-commits-in-the-blame-view)."
+        - |Agora é possível ignorar revisões na exibição de blame criando um arquivo _.git-blame-ignore-revs_ na raiz do seu repositório. Para obter mais informações, consulte "[Exibindo um arquivo](/repositories/working-with-files/using-files/viewing-a-file#ignore-commits-in-the-blame-view)."
 
-    - heading: Light high contrast theme is generally available
+|
+    - heading: O tema claro de alto contraste está em disponibilidade geral
       notes:
         # https://github.com/github/releases/issues/2011
-        - |
-          A light high contrast theme, with greater contrast between foreground and background elements, is now generally available. For more information, see "[Managing your theme settings](/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/managing-your-theme-settings)."
+        - |Um tema claro de alto contraste, com maior contraste entre os elementos de primeiro plano e de fundo, agora está em disponibilidade geral. Para ver mais informações, confira "[Como gerenciar suas configurações de tema](/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/managing-your-theme-settings)."
 
-    - heading: Tag protection rules
+|
+    - heading: Regras de proteção para tags
       notes:
         # https://github.com/github/releases/issues/1793
-        - |
-          Repository owners can now configure tag protection rules to protect a repository's tags. Once protected by a tag protection rule, tags matching a specified name pattern can only be created and deleted by users with the Maintain or Admin role in the repository. For more information, see "[Configuring tag protection rules](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/configuring-tag-protection-rules)."
+        - |Os proprietários de repositório agora podem configurar regras de proteção de marcação para proteger as marcações de um repositório. Assim que estiverem protegidas por uma regra de proteção de marcação, as marcações correspondentes a um padrão de nome especificado podem somente ser criadas e excluídas por usuários com a função de manutenção ou administrador no repositório. Para obter mais informações, consulte "[Configurando as regras de proteção de tags](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/configuring-tag-protection-rules)."
 
+|
   bugs:
     # https://github.com/github/releases/issues/1934
-    - |
-      It is now possible for GitHub Apps to upload release assets.
+    - |Agora é possível para os aplicativos do GitHub carregarem ativos de versão.
 
+|
   changes:
     # https://github.com/github/releases/issues/2063
-    - |
-      To use the device authorization flow for OAuth and GitHub Apps, you must manually enable the feature. This change reduces the likelihood of apps being used in phishing attacks against GitHub Enterprise Server users by ensuring integrators are aware of the risks and make a conscious choice to support this form of authentication. If you own or manage an OAuth App or GitHub App and you want to use the device flow, you can enable it for your app via the app's settings page. The device flow API endpoints will respond with status code `400` to apps that have not enabled this feature. For more information, see "[Authorizing OAuth Apps](/developers/apps/building-oauth-apps/authorizing-oauth-apps#device-flow)."
+    - |Para usar o fluxo de autorização de dispositivo para OAuth e aplicativos do GitHub, você deverá habilitar manualmente o recurso. Essa alteração reduz a probabilidade de aplicativos serem usados em ataques de phishing contra usuários do GitHub Enterprise Server garantindo que os integradores estejam cientes dos riscos e façam uma escolha consciente de dar suporte a essa forma de autenticação. Se você for proprietário de ou gerenciar um aplicativo OAuth ou GitHub e quiser usar o fluxo de dispositivo, você poderá habilitá-lo para seu aplicativo por meio da página de configurações do aplicativo. Os pontos de extremidade da API do fluxo de dispositivo responderão com o código de status "400" para aplicativos que não habilitaram este recurso. Para obter mais informações, consulte "[Autorizando aplicativos OAuth](/developers/apps/building-oauth-apps/authorizing-oauth-apps#device-flow)."
 
+|
     # https://github.com/github/releases/issues/2049
-    - |
-      The code scanning alert page now always shows the alert status and information for the default branch. There is a new "Affected branches" panel in the sidebar where you can see the status of the alert in other branches. If the alert does not exist in your default branch, the alert page will show the status as "In branch" or "In pull request" for the location where the alert was last seen. This improvement makes it easier to understand the status of alerts which have been introduced into your code base. For more information, see "[About code scanning alerts](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts#about-alert-details)."
+    - |A página de alerta da verificação de código agora sempre mostra o status de alerta e as informações para a ramificação padrão. Há um novo painel "Ramificações afetadas" na barra lateral onde se pode ver o status do alerta em outras ramificações. Se o alerta não existir em sua ramificação padrão, a página de alerta mostrará o status como "Em ramificação" ou "Em solicitação de pull" para a localização em que o alerta foi visto pela última vez. Essa melhoria facilita o entendimento do status de alertas que foram introduzidos em sua base de código. Para obter mais informações, consulte "[Sobre aletas de verificação de código](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts#about-alert-details)."
 
-      The alert list page is not changed and can be filtered by `branch`. You can use the code scanning API to retrieve more detailed branch information for alerts. For more information, see "[Code Scanning](/rest/code-scanning)" in the REST API documentation.
 
+
+A página da lista de alertas não foi alterada e pode ser filtrada por "branch". Você pode usar a API de verificação de código para recuperar mais informações detalhadas de ramificação para alertas. Para obter mais informações, consulte "[Verificação do código](/rest/code-scanning)" na documentação da API REST.
+
+|
     # https://github.com/github/releases/issues/2050
-    - |
-      Code scanning now shows the details of the analysis origin of an alert. If an alert has more than one analysis origin, it is shown in the "Affected branches" sidebar and in the alert timeline. You can hover over the analysis origin icon in the "Affected branches" sidebar to see the alert status in each analysis origin. If an alert only has a single analysis origin, no information about analysis origins is displayed on the alert page. These improvements will make it easier to understand your alerts. In particular, it will help you understand those that have multiple analysis origins. This is especially useful for setups with multiple analysis configurations, such as monorepos. For more information, see "[About code scanning alerts](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts#about-analysis-origins)."
+    - |A verificação de código agora mostra os detalhes da origem da análise de um alerta. Se um alerta tiver masi de uma origem da análise, ele será mostrado na barra lateral "Ramificações afetadas" e na linha do tempo de alertas. Você pode passar o mouse sobre o ícone de origem da análise na barra lateral "Ramificações afetadas" para ver o status de alerta em cada origem da análise. Se um alerta tiver apenas uma única origem de análise, nenhuma informação sobre as origens de análise será exibida na página de alertas. Essas melhorias facilitarão o entendimento de seus alertas. Em específico, elas ajudarão a compreender os que têm várias origens de análise. Isso é especialmente útil para instalações com várias configurações de análise, como monorepos. Para obter mais informações, consulte "[Sobre alertas de verificação de código](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts#about-analysis-origins)."
 
+|
     # https://github.com/github/releases/issues/2071
-    - |
-      Lists of repositories owned by a user or organization now have an additional filter option, "Templates", making it easier to find template repositories.
+    - |Listas de repositórios de propriedade de um usuário ou organização agora têm uma opção adicional de filtro, "Modelos", facilitando o encontro de repositórios de modelos.
 
+|
     # https://github.com/github/releases/issues/1947
-    - |
-      GitHub Enterprise Server can display several common image formats, including PNG, JPG, GIF, PSD, and SVG, and provides several ways to compare differences between versions. Now when reviewing added or changed images in a pull request, previews of those images are shown by default. Previously, you would see a message indicating that binary files could not be shown and you would need to toggle the "Display rich diff" option. For more information, see  "[Working with non-code files](/repositories/working-with-files/using-files/working-with-non-code-files)."
+    - |O GitHub Enterprise Server pode exibir vários formatos de imagens comuns, incluindo PNG, JPG, GIF, PSD e SVG, e fornece várias maneiras de comparar diferenças entre versões. Agora, ao analisar imagens adicionadas ou alteradas em uma solicitação de pull, as visualizações dessas imagens são mostradas por padrão. Anteriormente, você via uma mensagem indicando que os arquivos binários não poderiam ser mostrados e você precisaria alternar a opção "Exibir diff avançado". Para obter mais informações, consulte "[Trabalhando com arquivos sem código](/repositories/working-with-files/using-files/working-with-non-code-files)."
 
+|
     # https://github.com/github/releases/issues/2054
-    - |
-      New gists are now created with a default branch name of either `main` or the alternative default branch name defined in your user settings. This matches how other repositories are created on GitHub Enterprise Server. For more information, see "[About branches](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches#about-the-default-branch)" and "[Managing the default branch name for your repositories](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/managing-the-default-branch-name-for-your-repositories)."
+    - |Novos gists agora são criados com um nome de ramificação padrão de "main" ou o nome alternativo da ramificação padrão definido nas suas configurações de usuário. Isso corresponde ao modo como outros repositórios são criados no GitHub Enterprise Server. Para obter mais informações, consulte "[Sobre ramificações](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches#about-the-default-branch)" e "[Gerenciando o nome da ramificação padrão para seus repositórios](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/managing-the-default-branch-name-for-your-repositories)."
 
+|
     # https://github.com/github/releases/issues/2028
-    - |
-      Gists now only show the 30 most recent comments when first displayed. You can click **Load earlier comments...** to view more. This allows gists that have many comments to appear more quickly. For more information, see "[Editing and sharing content with gists](/get-started/writing-on-github/editing-and-sharing-content-with-gists)."
+    - |Gists agora somente mostram os 30 comentários mais recentes quando são exibidos primeiro. Você pode clicar em **Carregar comentários anteriores...** para exibir mais. Isso permite que os gists tenham muitos comentários que apareçam mais rapidamente. Para obter mais informações, consulte "[Editando e compartilhando conteúdo com gists](/get-started/writing-on-github/editing-and-sharing-content-with-gists)."
 
+|
     # https://github.com/github/releases/issues/2036
-    - |
-      Settings pages for users, organizations, repositories, and teams have been redesigned, grouping similar settings pages into sections for improved information architecture and discoverability. For more information, see the [GitHub changelog](https://github.blog/changelog/2022-02-02-redesign-of-githubs-settings-pages/). 
+    - |As páginas de configuração para usuários, organizações, repositórios e equipes foram reformuladas, agrupando páginas de configurações semelhantes em seções para melhorar a arquitetura de informações e a descoberta. Para obter mais informações, consulte o [log de alterações do GitHub](https://github.blog/changelog/2022-02-02-redesign-of-githubs-settings-pages/). 
 
+|
     # https://github.com/github/releases/issues/2129
-    - |
-        Focusing or hovering over a label now displays the label description in a tooltip.
+    - |Aumentar o foco ou passar o mouse sobre um rótulo agora exibe a descrição do rótulo em uma dica de ferramenta.
 
+|
     # https://github.com/github/releases/issues/1983
-    - |
-        Creating and removing repository invitations, whether done through the API or web interface, are now subject to rate limits that may be enabled on your GitHub Enterprise Server instance. For more information about rate limits, see "[Configuring rate limits](/admin/configuration/configuring-your-enterprise/configuring-rate-limits)."
+    - |Criar e remover convites de repositório, seja por meio da API ou interface da Web, agora estão sujeitos a limites de taxa que podem ser habilitados em sua instância do GitHub Enterprise Server. Para ter mais informações sobre limites de taxa, consulte "[Configurando limites de taxa](/admin/configuration/configuring-your-enterprise/configuring-rate-limits)."
 
+|
     # https://github.com/github/releases/issues/2291
-    - |
-        MinIO has announced the removal of the MinIO Gateways starting June 1st, 2022. While MinIO Gateway for NAS continues to be one of the supported storage providers for Github Actions and Github Packages, we recommend moving to MinIO LTS support to avail support and bug fixes from MinIO. For more information about rate limits, see "[Scheduled removal of MinIO Gateway for GCS, Azure, HDFS in the minio/minio repository](https://github.com/minio/minio/issues/14331)."
+    - |O MinIO anunciou a remoção dos Gateways do MinIO a partir de primeiro de junho de 2022. Embora o Gateway do MinIO para NAS continue a ser um dos provedores de armazenamento com suporte para Github Actions e Github Packages, recomendamos passar para o suporte do MinIO LTS para garantir o suporte e correções de bugs do MinIO. Para saber mais sobre limites de taxa, confira a [Remoção agendada do Gateway do MinIO para GCS, Azure, HDFS no repositório minio/minio] (https://github.com/minio/minio/issues/14331)."
 
-
+|
   deprecations:
-    - heading: Change to the format of authentication tokens
+    - heading: A alteração para o formato de tokens de autenticação
       notes:
         # https://github.com/github/releases/issues/1235
-        - |
-          GitHub Connect will no longer work after June 3rd for instances running GitHub Enterprise Server 3.1 or older, due to the format of GitHub authentication tokens changing. For more information, see the [GitHub changelog](https://github.blog/changelog/2021-03-31-authentication-token-format-updates-are-generally-available/).
+        - |Após 3 de junho, o GitHub Connect não funcionará mais nas instâncias que executam o GitHub Enterprise Server 3.1 ou versões anteriores devido à alteração no formato dos tokens de autenticação do GitHub. Para obter mais informações, consulte o [log de alterações do GitHub](https://github.blog/changelog/2021-03-31-authentication-token-format-updates-are-generally-available/).
 
-    - heading: CodeQL runner deprecated in favor of CodeQL CLI
+|
+    - heading: O executor do CodeQL foi preterido em favor do CLI do CodeQL
       notes:
         # https://github.com/github/releases/issues/1632
-        - |
-          The CodeQL runner is deprecated in favor of the CodeQL CLI. GitHub Enterprise Server 3.4 and later no longer include the CodeQL runner. This deprecation only affects users who use CodeQL code scanning in 3rd party CI/CD systems. GitHub Actions users are not affected. GitHub strongly recommends that customers migrate to the CodeQL CLI, which is a feature-complete replacement for the CodeQL runner and has many additional features. For more information, see "[Migrating from the CodeQL runner to CodeQL CLI](/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/migrating-from-the-codeql-runner-to-codeql-cli)."
-    
-    - heading: Theme picker for GitHub Pages has been removed
+        - |O executor do CodeQL foi preterido em favor do CLI do CodeQL. O GitHub Enterprise Server 3.4 e posterior não incluem mais o executor do CodeQL. Essa modificação apenas afeta quem usa a verificação de código do CodeQL em sistemas de CI/CD de terceiros. Os usuários do GitHub Actions não são afetados. O GitHub recomenda que os clientes migrem para o CLI do CodeQL, que é uma substituição de recursos completos para o executor do CodeQL e tem muitos recursos adicionais. Para obter mais informações, consulte "[Migrando do executor do CodeQL para a CLI do CodeQL](/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/migrating-from-the-codeql-runner-to-codeql-cli)."
+
+|
+    - heading: O seletor de temas para o GitHub Pages foi removido
       notes:
-        - |
-          The theme picker for GitHub Pages has been removed from the Pages settings. For more information about configuration of themes for GitHub Pages, see "[Adding a theme to your GitHub Pages site using Jekyll](/pages/setting-up-a-github-pages-site-with-jekyll/adding-a-theme-to-your-github-pages-site-using-jekyll)."
-        
+        - |O seletor de temas para o GitHub Pages foi removido das Configurações de páginas. Para obter mais informações sobre a configuração de temas para GitHub Pages, consulte "[Como adicionar um tempo ao seu site do GitHub Pages usando Jekyll](/pages/setting-up-a-github-pages-site-with-jekyll/adding-a-theme-to-your-github-pages-site-using-jekyll)."
+
+|
   known_issues:
-      - On a freshly set up {% data variables.product.prodname_ghe_server %} instance without any users, an attacker could create the first admin user.
-      - Custom firewall rules are removed during the upgrade process.
-      - Git LFS tracked files [uploaded through the web interface](https://github.com/blog/2105-upload-files-to-your-repositories) are incorrectly added directly to the repository.
-      - Issues cannot be closed if they contain a permalink to a blob in the same repository, where the blob's file path is longer than 255 characters.
-      - When "Users can search GitHub.com" is enabled with GitHub Connect, issues in private and internal repositories are not included in GitHub.com search results.
-      - The {% data variables.product.prodname_registry %} npm registry no longer returns a time value in metadata responses. This was done to allow for substantial performance improvements. We continue to have all the data necessary to return a time value as part of the metadata response and will resume returning this value in the future once we have solved the existing performance issues.
-      - Resource limits that are specific to processing pre-receive hooks may cause some pre-receive hooks to fail.
-      - Actions services need to be restarted after restoring an appliance from a backup taken on a different host.
+      - "Em uma instância de {% data variables.product.prodname_ghe_server %} recém-configurada sem usuários, um invasor pode criar o primeiro usuário administrador."
+      - As regras de firewall personalizadas são removidas durante o processo de atualização.
+      - "Arquivos LFS do Git [enviados através da interface Web](https://github.com/blog/2105-upload-files-to-your-repositories) são adicionados diretamente ao repositório e de maneira incorreta."
+      - "Os problemas não podem ser fechados se contiverem um permalink para um blob no mesmo repositório, em que o caminho do arquivo blob's é maior que 255 caracteres."
+      - "Quando \"Usuários podem pesquisar pelo GitHub.com\" está habilitado com o GitHub Connect, os problemas em repositórios privados e internos não estão incluídos nos resultados de pesquisa do GitHub.com."
+      - "O registro npm {% data variables.product.prodname_registry %} não retorna mais um valor temporal em respostas de metadados. Isso foi feito para permitir melhorias substanciais de desempenho. Continuamos a ter todos os dados necessários para retornar um valor temporal como parte da resposta de metadados e continuaremos a retornar este valor no futuro quando tivermos resolvido os problemas de desempenho existentes."
+      - Os limites de recursos que são específicos para processamento de hooks pre-receive podem causar falha em alguns hooks pre-receive.
+      - Os serviços de ação devem ser reiniciados após a restauração de um dispositivo a partir do backup tomado em um host diferente.

@@ -1,6 +1,6 @@
 ---
-title: Enabling GitHub Packages with Azure Blob Storage
-intro: 'Set up {% data variables.product.prodname_registry %} with Azure Blob Storage as your external storage.'
+title: Включение GitHub Packages с использованием Хранилища BLOB-объектов Azure
+intro: 'Настройте {% data variables.product.prodname_registry %}, указав Хранилище BLOB-объектов Azure в качестве внешнего хранилища.'
 versions:
   ghes: '*'
 type: tutorial
@@ -9,39 +9,44 @@ topics:
   - Packages
   - Storage
 shortTitle: Enable Packages with Azure
+ms.openlocfilehash: b851f698baba60323cbaaa69122cacdc92ec83c2
+ms.sourcegitcommit: 3ece72cf2d90987575d369c44101d19d3bb06f76
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 12/02/2022
+ms.locfileid: '148190390'
 ---
-
 {% warning %}
 
-**Warnings:**
-- It is critical that you set the restrictive access policies you need for your storage bucket, because {% data variables.product.company_short %} does not apply specific object permissions or additional access control lists (ACLs) to your storage bucket configuration. For example, if you make your bucket public, data in the bucket will be accessible on the public internet.
-- We recommend using a dedicated bucket for {% data variables.product.prodname_registry %}, separate from the bucket you use for {% data variables.product.prodname_actions %} storage.
-- Make sure to configure the bucket you'll want to use in the future. We do not recommend changing your storage after you start using {% data variables.product.prodname_registry %}.
+**Предупреждения.**
+- Крайне важно задать ограничительные политики доступа, необходимые для контейнера хранилища, так как {% data variables.product.company_short %} не применяет к конфигурации контейнера хранилища конкретные разрешения объекта или дополнительные списки управления доступом (ACL). Например, если сделать контейнер общедоступным, данные в контейнере нем доступны в общедоступном Интернете.
+- Мы рекомендуем использовать для {% data variables.product.prodname_registry %} выделенный контейнер, который отделен от контейнера, используемого для хранилища {% data variables.product.prodname_actions %}.
+- Обязательно настройте контейнер, который хотите использовать в будущем. Не рекомендуется изменять хранилище после начала использования {% data variables.product.prodname_registry %}.
 
 {% endwarning %}
 
-## Prerequisites
+## Предварительные требования
 
-Before you can enable and configure {% data variables.product.prodname_registry %} on {% data variables.location.product_location_enterprise %}, you need to prepare your Azure Blob storage bucket. To prepare your Azure Blob storage bucket, we recommend consulting the official Azure Blob storage docs at the official [Azure Blob Storage documentation site](https://docs.microsoft.com/en-us/azure/storage/blobs/).
+Прежде чем включить и настроить {% data variables.product.prodname_registry %} в {% data variables.location.product_location_enterprise %}, необходимо подготовить контейнер хранилища BLOB-объектов Azure. Чтобы подготовить контейнер хранилища BLOB-объектов Azure, рекомендуется ознакомиться с официальной документацией по Хранилищу BLOB-объектов Azure на [официальном сайте](https://docs.microsoft.com/en-us/azure/storage/blobs/).
 
-## Enabling {% data variables.product.prodname_registry %} with Azure Blob Storage
+## Включение {% data variables.product.prodname_registry %} с использованием Хранилища BLOB-объектов Azure
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.management-console %}
-{% data reusables.enterprise_site_admin_settings.packages-tab %}
-{% data reusables.package_registry.enable-enterprise-github-packages %}
-1. Under "Packages Storage", select **Azure Blob Storage** and enter your Azure container name for your packages storage bucket and connection string.
-  ![Azure Blob storage container name and connection string boxes](/assets/images/help/package-registry/azure-blob-storage-settings.png)
+{% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.enterprise_site_admin_settings.management-console %} {% data reusables.enterprise_site_admin_settings.packages-tab %} {% data reusables.package_registry.enable-enterprise-github-packages %}
+1. В разделе "Packages Storage" (Хранилище пакетов) выберите **Хранилище BLOB-объектов Azure** и введите имя контейнера Azure для контейнера хранилища пакетов и строку подключения.
+
+    - Перед настройкой имени контейнера и строки подключения необходимо создать контейнер хранилища.
+
+  ![Поля для имени контейнера хранилища BLOB-объектов Azure и строки подключения](/assets/images/help/package-registry/azure-blob-storage-settings.png)
 
   {% note %}
 
-  **Note:** You can find your Azure Connection String by navigating to the Access Key menu in your Azure storage account. 
-  Usage of a SAS Token or SAS URL as connection string is not currently supported.
+  **Примечание.** Строку подключения Azure можно найти, перейдя в меню "Ключ доступа" в учетной записи хранения Azure. 
+  Использование маркера SAS или URL-адреса SAS в качестве строки подключения в настоящее время не поддерживается.
   
   {% endnote %}
 
 {% data reusables.enterprise_management_console.save-settings %}
 
-## Next steps
+## Дальнейшие действия
 
 {% data reusables.package_registry.next-steps-for-packages-enterprise-setup %}

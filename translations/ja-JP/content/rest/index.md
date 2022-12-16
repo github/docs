@@ -10,8 +10,10 @@ featuredLinks:
     - /rest/guides/getting-started-with-the-rest-api
     - /rest/guides/basics-of-authentication
     - /rest/guides/best-practices-for-integrators
+    - /rest/guides/using-pagination-in-the-rest-api
   popular:
     - /rest/overview/resources-in-the-rest-api
+    - /rest/overview/api-versions
     - /rest/overview/other-authentication-methods
     - /rest/overview/troubleshooting
     - /rest/overview/endpoints-available-for-github-apps
@@ -78,11 +80,11 @@ children:
   - /teams
   - /users
   - /webhooks
-ms.openlocfilehash: d4d7e93d5bc22833168a932e047525c85e3f8768
-ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.openlocfilehash: 763b299cce94dda5bcb7e36577dc4f33aee1ffb3
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/09/2022
-ms.locfileid: '147673639'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148193002'
 ---
 

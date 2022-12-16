@@ -1,6 +1,6 @@
 ---
-title: About Dependabot security updates
-intro: '{% data variables.product.prodname_dependabot %} can fix vulnerable dependencies for you by raising pull requests with security updates.'
+title: Сведения об обновлениях для системы безопасности Dependabot
+intro: '{% data variables.product.prodname_dependabot %} может исправить уязвимые зависимости, создавая запросы на вытягивание с помощью обновлений системы безопасности.'
 shortTitle: Dependabot security updates
 redirect_from:
   - /github/managing-security-vulnerabilities/about-github-dependabot-security-updates
@@ -19,53 +19,59 @@ topics:
   - Repositories
   - Dependencies
   - Pull requests
+ms.openlocfilehash: 4ea3bd49a5d46376129afd2282fe043954a7d653
+ms.sourcegitcommit: cfe91073c844cb762131b2de9fb41f7f9db792fc
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 11/24/2022
+ms.locfileid: '148181314'
 ---
-
 <!--Marketing-LINK: From /features/security/software-supply-chain page "About Dependabot security updates".-->
 
-{% data reusables.dependabot.beta-security-and-version-updates %}
-{% data reusables.dependabot.enterprise-enable-dependabot %}
+{% data reusables.dependabot.beta-security-and-version-updates %} {% data reusables.dependabot.enterprise-enable-dependabot %}
 
-## About {% data variables.product.prodname_dependabot_security_updates %}
+## Сведения о {% data variables.product.prodname_dependabot_security_updates %}
 
-{% data variables.product.prodname_dependabot_security_updates %} make it easier for you to fix vulnerable dependencies in your repository. If you enable this feature, when a {% data variables.product.prodname_dependabot %} alert is raised for a vulnerable dependency in the dependency graph of your repository, {% data variables.product.prodname_dependabot %} automatically tries to fix it. For more information, see "[About {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)" and "[Configuring {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/configuring-dependabot-security-updates)."
+{% data variables.product.prodname_dependabot_security_updates %} упрощает исправление уязвимых зависимостей в репозитории. Если включить эту функцию, при возникновении оповещения {% data variables.product.prodname_dependabot %} для уязвимой зависимости в графе зависимостей репозитория {% data variables.product.prodname_dependabot %} автоматически пытается исправить проблему. Дополнительные сведения см. в разделах [Сведения о {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies) и [Настройка {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/configuring-dependabot-security-updates).
 
-{% data variables.product.prodname_dotcom %} may send  {% data variables.product.prodname_dependabot_alerts %} to repositories affected by a vulnerability disclosed by a recently published {% data variables.product.prodname_dotcom %} security advisory. {% data reusables.security-advisory.link-browsing-advisory-db %}
+{% data variables.product.prodname_dotcom %} может отправлять {% data variables.product.prodname_dependabot_alerts %} в репозитории, затронутые уязвимостью, раскрытой недавно опубликованной рекомендацией по безопасности {% data variables.product.prodname_dotcom %}. {% data reusables.security-advisory.link-browsing-advisory-db %}
 
-{% data variables.product.prodname_dependabot %} checks whether it's possible to upgrade the vulnerable dependency to a fixed version without disrupting the dependency graph for the repository. Then {% data variables.product.prodname_dependabot %} raises a pull request to update the dependency to the minimum version that includes the patch and links the pull request to the {% data variables.product.prodname_dependabot %} alert, or reports an error on the alert. For more information, see "[Troubleshooting {% data variables.product.prodname_dependabot %} errors](/github/managing-security-vulnerabilities/troubleshooting-dependabot-errors)."
+{% data variables.product.prodname_dependabot %} проверяет возможность обновления уязвимой зависимости до исправленной версии без нарушения графа зависимостей для репозитория. Затем {% data variables.product.prodname_dependabot %} создает запрос на вытягивание, чтобы обновить зависимость до минимальной версии, которая включает исправление, и связывает запрос на вытягивание с оповещением {% data variables.product.prodname_dependabot %} или сообщает об ошибке в оповещении. Дополнительные сведения см. в разделе [Устранение ошибок {% data variables.product.prodname_dependabot %}](/github/managing-security-vulnerabilities/troubleshooting-dependabot-errors).
 
-The {% data variables.product.prodname_dependabot_security_updates %} feature is available for repositories where you have enabled the dependency graph and {% data variables.product.prodname_dependabot_alerts %}. You will see a {% data variables.product.prodname_dependabot %} alert for every vulnerable dependency identified in your full dependency graph. However, security updates are triggered only for dependencies that are specified in a manifest or lock file. For more information, see "[About the dependency graph](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph#dependencies-included)."
+Функция {% data variables.product.prodname_dependabot_security_updates %} доступна для репозиториев, в которых включен граф зависимостей и {% data variables.product.prodname_dependabot_alerts %}. Вы увидите оповещение {% data variables.product.prodname_dependabot %} для каждой уязвимой зависимости, определенной в полном графе зависимостей. Однако обновления системы безопасности активируются только для зависимостей, указанных в файле манифеста или блокировки. Дополнительные сведения см. в разделе [Сведения о графе зависимостей](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph#dependencies-included).
 
 {% ifversion dependabot-security-updates-unlock-transitive-dependencies %} 
 
 {% note %}
 
-**Note**: For npm, {% data variables.product.prodname_dependabot %} will raise a pull request to update an explicitly defined dependency to a secure version, even if it means updating the parent dependency or dependencies{% ifversion dependabot-security-updates-npm %}, or even removing a sub-dependency that is no longer needed by the parent{% endif %}. For other ecosystems, {% data variables.product.prodname_dependabot %} is unable to update an indirect or transitive dependency if it would also require an update to the parent dependency. For more information, see "[Dependabot tries to update dependencies without an alert](/en/code-security/dependabot/working-with-dependabot/troubleshooting-dependabot-errors#dependabot-tries-to-update-dependencies-without-an-alert)."
+**Примечание**. Для npm {% data variables.product.prodname_dependabot %} вызовет запрос на вытягивание для обновления явно определенной зависимости до безопасной версии, даже если это означает обновление родительской зависимости или зависимостей{% ifversion dependabot-security-updates-npm %} или даже удаление подзависимости, которая больше не нужна родительскому{% endif %}. Для других экосистем {% data variables.product.prodname_dependabot %} не сможет обновить непрямую или транзитивную зависимость, если также требуется обновление родительской. Дополнительные сведения см. в разделе [Dependabot пытается обновить зависимости без оповещения](/en/code-security/dependabot/working-with-dependabot/troubleshooting-dependabot-errors#dependabot-tries-to-update-dependencies-without-an-alert).
 
 {% endnote %}{% endif %} 
 
-You can enable a related feature, {% data variables.product.prodname_dependabot_version_updates %}, so that {% data variables.product.prodname_dependabot %} raises pull requests to update the manifest to the latest version of the dependency, whenever it detects an outdated dependency. For more information, see "[About {% data variables.product.prodname_dependabot %} version updates](/github/administering-a-repository/about-dependabot-version-updates)."
+Вы можете включить связанную функцию, {% data variables.product.prodname_dependabot_version_updates %}, чтобы {% data variables.product.prodname_dependabot %} вызывал запросы на вытягивание для обновления манифеста до последней версии зависимости при обнаружении устаревшей зависимости. Дополнительные сведения см. в разделе [Сведения об {% data variables.product.prodname_dependabot %}](/github/administering-a-repository/about-dependabot-version-updates).
 
 {% data reusables.dependabot.pull-request-security-vs-version-updates %}
 
 {% data reusables.dependabot.dependabot-updates-and-actions %}
 
-## About pull requests for security updates
+{% data reusables.dependabot.dependabot-actions-support %}
 
-Each pull request contains everything you need to quickly and safely review and merge a proposed fix into your project. This includes information about the vulnerability like release notes, changelog entries, and commit details. Details of which vulnerability a pull request resolves are hidden from anyone who does not have access to {% data variables.product.prodname_dependabot_alerts %} for the repository.
+## Сведения о запросах на вытягивание для обновлений системы безопасности
 
-When you merge a pull request that contains a security update, the corresponding {% data variables.product.prodname_dependabot %} alert is marked as resolved for your repository. For more information about {% data variables.product.prodname_dependabot %} pull requests, see "[Managing pull requests for dependency updates](/github/administering-a-repository/managing-pull-requests-for-dependency-updates)."
+Каждый запрос на вытягивание содержит все необходимое для быстрого и безопасного просмотра и слияния предлагаемого исправления в проект. Сюда входят сведения об уязвимости, такие как заметки о выпуске, записи журнала изменений и сведения о фиксации. Сведения от том, какую уязвимость устраняет запрос на вытягивание, скрыты от всех, кто не имеет доступа к {% data variables.product.prodname_dependabot_alerts %} для репозитория.
+
+При слиянии запроса на вытягивание, содержащего обновление системы безопасности, соответствующее оповещение {% data variables.product.prodname_dependabot %} помечается как разрешенное для репозитория. Дополнительные сведения о запросах на вытягивание {% data variables.product.prodname_dependabot %} см. в разделе [Управление запросами на вытягивание для обновлений зависимостей](/github/administering-a-repository/managing-pull-requests-for-dependency-updates).
 
 {% data reusables.dependabot.automated-tests-note %}
 
 {% ifversion fpt or ghec %}
 
-## About compatibility scores
+## Об оценке совместимости
 
-{% data variables.product.prodname_dependabot_security_updates %} may include compatibility scores to let you know whether updating a dependency could cause breaking changes to your project. These are calculated from CI tests in other public repositories where the same security update has been generated. An update's compatibility score is the percentage of CI runs that passed when updating between specific versions of the dependency.
+{% data variables.product.prodname_dependabot_security_updates %} могут включать оценки совместимости, которые позволяют узнать, может ли обновление зависимости привести к критическим изменениям в проекте. Они вычисляются на основе тестов непрерывной интеграции (CI) в других общедоступных репозиториях, где было создано такое же обновление для системы безопасности. Оценка совместимости обновления — это процент успешно выполненных тестов CI при обновлении конкретных версии зависимости.
 
 {% endif %}
 
-## About notifications for {% data variables.product.prodname_dependabot %} security updates
+## Сведения об уведомлениях для обновлений системы безопасности {% data variables.product.prodname_dependabot %}
 
-You can filter your notifications on {% data variables.product.company_short %} to show {% data variables.product.prodname_dependabot %} security updates. For more information, see "[Managing notifications from your inbox](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox#dependabot-custom-filters)."
+Вы можете отфильтровать уведомления по {% data variables.product.company_short %} для отображения обновлений системы безопасности {% data variables.product.prodname_dependabot %}. Дополнительные сведения см. в разделе [Управление уведомлениями из папки «Входящие»](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox#dependabot-custom-filters).

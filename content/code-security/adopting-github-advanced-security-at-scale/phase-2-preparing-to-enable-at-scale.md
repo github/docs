@@ -118,6 +118,14 @@ Before you can proceed with pilot programs and rolling out {% data variables.pro
 
 ## Preparing to enable {% data variables.product.prodname_secret_scanning %}
 
+{% note %}
+
+**Note:** When {% data variables.product.prodname_secret_scanning %} detects a secret in repositories owned by organizations that use {% data variables.product.prodname_ghe_cloud %} and have a license for {% data variables.product.prodname_GH_advanced_security %}, {% data variables.product.prodname_dotcom %} alerts all users with access to security alerts for the repository. {% ifversion ghec %}
+
+Secrets found in public repositories using {% data variables.secret-scanning.partner_alerts %} are reported directly to the partner, without creating an alert on {% data variables.product.product_name %}. For details about the supported partner patterns, see "[Supported secrets for partner alerts](/code-security/secret-scanning/secret-scanning-patterns#supported-secrets-for-partner-alerts)."{% endif %}
+
+{% endnote %}
+
 If a project communicates with an external service, it might use a token or private key for authentication. If you check a secret into a repository, anyone who has read access to the repository can use the secret to access the external service with your privileges. {% data variables.product.prodname_secret_scanning_caps %} will scan your entire Git history on all branches present in your {% data variables.product.prodname_dotcom %} repositories for secrets and alert you{% ifversion secret-scanning-push-protection %} or block the push containing the secret{% endif %}. For more information, see "[About secret scanning](/code-security/secret-scanning/about-secret-scanning)."
 
 ### Considerations when enabling {% data variables.product.prodname_secret_scanning %}

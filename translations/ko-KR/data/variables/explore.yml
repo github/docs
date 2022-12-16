@@ -1,0 +1,6 @@
+explore_github: >-
+  {% ifversion fpt or ghec %}[GitHub 살펴보기](https://github.com/explore){% else %}GitHub 살펴보기 (`https://[호스트 이름]/explore`){% endif %}
+your_stars_page: >-
+  {% ifversion fpt or ghec %}[별 페이지](https://github.com/stars){% else %}별 페이지 (`https://[호스트 이름]/stars`){% endif %}
+trending_page: >-
+  {% ifversion fpt or ghec %}[인기 앱 페이지](https://github.com/trending){% else %}인기 앱 페이지 (`https://[호스트 이름]/trending`){% endif %}

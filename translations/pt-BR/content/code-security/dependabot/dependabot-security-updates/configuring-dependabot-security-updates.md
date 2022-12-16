@@ -1,6 +1,6 @@
 ---
-title: Configuring Dependabot security updates
-intro: 'You can use {% data variables.product.prodname_dependabot_security_updates %} or manual pull requests to easily update vulnerable dependencies.'
+title: Configurando as atualizações de segurança do Dependabot
+intro: 'Você pode usar {% data variables.product.prodname_dependabot_security_updates %} ou pull requests manuais para atualizar facilmente dependências vulneráveis.'
 shortTitle: Configure security updates
 redirect_from:
   - /articles/configuring-automated-security-fixes
@@ -22,47 +22,49 @@ topics:
   - Dependencies
   - Pull requests
   - Repositories
+ms.openlocfilehash: 49db730fb0830dc59a5cead63068eb1fb5add14d
+ms.sourcegitcommit: f5ec7f52d2945ba8b7c14f8f604e4784a8feda19
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 11/22/2022
+ms.locfileid: '148180766'
 ---
 <!--Marketing-LINK: From home page "Learn more about Dependabot".-->
 
-{% data reusables.dependabot.beta-security-and-version-updates %}
-{% data reusables.dependabot.enterprise-enable-dependabot %}
+{% data reusables.dependabot.beta-security-and-version-updates %} {% data reusables.dependabot.enterprise-enable-dependabot %}
 
-## About configuring {% data variables.product.prodname_dependabot_security_updates %}
+## Sobre a configuração de {% data variables.product.prodname_dependabot_security_updates %}
 
-You can enable {% data variables.product.prodname_dependabot_security_updates %} at the repository level or for all repositories owned by your personal account or organization. You can enable {% data variables.product.prodname_dependabot_security_updates %} for any repository that uses {% data variables.product.prodname_dependabot_alerts %} and the dependency graph. For more information, see "[About {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/about-dependabot-security-updates)."
+Você pode habilitar as {% data variables.product.prodname_dependabot_security_updates %} no nível do repositório ou para todos os repositórios que pertencem à sua conta pessoal ou à organização. É possível habilitar o {% data variables.product.prodname_dependabot_security_updates %} para qualquer repositório que use {% data variables.product.prodname_dependabot_alerts %} e o gráfico de dependências. Para obter mais informações, confira "[Sobre as {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/about-dependabot-security-updates)".
 
-You can disable {% data variables.product.prodname_dependabot_security_updates %} for an individual repository or for all repositories owned by your personal account or organization.
+Você pode desativar as {% data variables.product.prodname_dependabot_security_updates %} em um repositório individual ou para todos os repositórios que pertencem à sua conta pessoal ou organização.
 
 {% ifversion fpt or ghec %}{% data reusables.dependabot.dependabot-tos %}{% endif %}
 
-## Supported repositories
+## Repositórios com suporte
 
-{% data variables.product.prodname_dotcom %} automatically enables {% data variables.product.prodname_dependabot_security_updates %} for newly created repositories if your personal account or organization has enabled **Automatically enable for new repositories** for {% data variables.product.prodname_dependabot_security_updates %}. For more information, see "[Managing {% data variables.product.prodname_dependabot_security_updates %} for your repositories](#managing-dependabot-security-updates-for-your-repositories)." 
+O {% data variables.product.prodname_dotcom %} habilita automaticamente as {% data variables.product.prodname_dependabot_security_updates %} para repositórios recém-criados quando na conta pessoal na ou organização estiver habilitada a opção **Habilitar automaticamente para novos repositórios** de {% data variables.product.prodname_dependabot_security_updates %}. Para obter mais informações, confira "[Como gerenciar as {% data variables.product.prodname_dependabot_security_updates %} dos repositórios](#managing-dependabot-security-updates-for-your-repositories)" abaixo. 
 
-If you create a fork of a repository that has security updates enabled, {% data variables.product.prodname_dotcom %} will automatically disable {% data variables.product.prodname_dependabot_security_updates %} for the fork. You can then decide whether to enable {% data variables.product.prodname_dependabot_security_updates %} on the specific fork.
+Se você criar um fork de um repositório com atualizações de segurança habilitadas, o {% data variables.product.prodname_dotcom %} desabilitará automaticamente as {% data variables.product.prodname_dependabot_security_updates %} do fork. Depois, você poderá decidir se deseja habilitar as {% data variables.product.prodname_dependabot_security_updates %} no fork específico.
 
-If security updates are not enabled for your repository and you don't know why, first try enabling them using the instructions given in the procedural sections below. If security updates are still not working, you can contact {% data variables.contact.contact_support %}.
+Se as atualizações de segurança não estiverem habilitadas para o seu repositório e você não souber o motivo, primeiro tente habilitá-las utilizando as instruções fornecidas nas seções de procedimento abaixo. Se atualizações de segurança ainda não funcionarem, você pode entrar em contato com {% data variables.contact.contact_support %}.
 
-## Managing {% data variables.product.prodname_dependabot_security_updates %} for your repositories
+## Gerenciar {% data variables.product.prodname_dependabot_security_updates %} para seus repositórios
 
-You can enable or disable {% data variables.product.prodname_dependabot_security_updates %} for all qualifying repositories owned by your personal account or organization. For more information, see "[Managing security and analysis settings for your personal account](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/managing-security-and-analysis-settings-for-your-personal-account)" or "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)." 
+Você pode habilitar ou desabilitar as {% data variables.product.prodname_dependabot_security_updates %} para todos os repositórios qualificados pertencentes à sua conta pessoal ou à organização. Para obter mais informações, confira "[Como gerenciar as configurações de segurança e análise da sua conta pessoal](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/managing-security-and-analysis-settings-for-your-personal-account)" ou "[Como gerenciar as configurações de segurança e análise da sua organização](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)". 
 
-You can also enable or disable {% data variables.product.prodname_dependabot_security_updates %} for an individual repository.
+Você pode habilitar ou desabilitar as {% data variables.product.prodname_dependabot_security_updates %} em um repositório individual.
 
-### Enabling or disabling {% data variables.product.prodname_dependabot_security_updates %} for an individual repository
+### Habilitar ou desabilitar {% data variables.product.prodname_dependabot_security_updates %} para um repositório individual
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-{% data reusables.repositories.navigate-to-code-security-and-analysis %}
-1. Under "Code security and analysis", to the right of "{% data variables.product.prodname_dependabot %} security updates", click **Enable** to enable the feature or **Disable** to disable it. {% ifversion fpt or ghec %}For public repositories, the button is disabled if the feature is always enabled.{% endif %}
-  {% ifversion fpt or ghec %}![Screenshot of "Code security and analysis" section with button to enable {% data variables.product.prodname_dependabot_security_updates %}](/assets/images/help/repository/security-and-analysis-disable-or-enable-fpt-private.png){% elsif ghes > 3.6 or ghae > 3.6 %}<!--Insert screenshot for GHES 3.7 when available--> {% else %}![Screenshot of "Code security and analysis" section with button to enable {% data variables.product.prodname_dependabot_security_updates %}](/assets/images/enterprise/3.3/repository/security-and-analysis-disable-or-enable-ghes.png){% endif %}
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %} {% data reusables.repositories.navigate-to-code-security-and-analysis %}
+1. Em "Segurança e análise de código", à direita de "Atualizações de segurança do {% data variables.product.prodname_dependabot %}", clique em **Habilitar** para habilitar o recurso ou **Desabilitar** para desabilitá-lo. {% ifversion fpt or ghec %}Para repositórios públicos, o botão será desabilitado se o recurso estiver sempre habilitado.{% endif %} {% ifversion fpt or ghec %}![Captura de tela da seção "Segurança e análise de código" com o botão para habilitar as {% data variables.product.prodname_dependabot_security_updates %}](/assets/images/help/repository/security-and-analysis-disable-or-enable-fpt-private.png){% elsif ghes > 3.6 or ghae > 3.6 %}<!--Insert screenshot for GHES 3.7 when available--> {% else %}![Captura de tela da seção "Segurança e análise de código" com o botão para habilitar {% data variables.product.prodname_dependabot_security_updates %}](/assets/images/enterprise/3.3/repository/security-and-analysis-disable-or-enable-ghes.png){% endif %}
 
-## Overriding the default behavior with a configuration file
+## Como substituir o comportamento padrão com um arquivo de configuração
 
-You can override the default behavior of {% data variables.product.prodname_dependabot_security_updates %} by adding a dependabot.yml file to your repository. For more information, see "[Configuration options for the dependabot.yml file](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file)." 
+Você pode substituir o comportamento padrão de {% data variables.product.prodname_dependabot_security_updates %} adicionando um arquivo dependabot.yml ao repositório. Para obter mais informações, confira "[Opções de configuração para o arquivo dependabot.yml](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file)". 
 
-If you only require security updates and want to exclude version updates, you can set `open-pull-request-limit` to `0` in order to prevent version updates for a given `package-ecosystem`. For more information, see "[`open-pull-request-limit`](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#open-pull-requests-limit)."
+Se você precisar apenas das atualizações de segurança e quiser excluir as atualizações de versão, defina `open-pull-requests-limit` como `0` para evitar atualizações de versão de um determinado `package-ecosystem`. Para obter mais informações, confira "[`open-pull-requests-limit`](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#open-pull-requests-limit)".
 
 ```
 # Example configuration file that:
@@ -82,11 +84,11 @@ updates:
     open-pull-requests-limit: 0
 ```
 
-For more information about the configuration options available for security updates, see the table in "[Configuration options for the dependabot.yml file](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#configuration-options-for-the-dependabotyml-file)."
+Para obter mais informações sobre as opções de configuração disponíveis para atualizações de segurança, confira a tabela em "[Opções de configuração do arquivo dependabot.yml](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#configuration-options-for-the-dependabotyml-file)".
 
-## Further reading
+## Leitura adicional
 
-- "[About {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)"
-- "[Configuring {% data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/configuring-dependabot-alerts)"{% ifversion fpt or ghec %}
-- "[Managing data use settings for your private repository](/get-started/privacy-on-github/managing-data-use-settings-for-your-private-repository)"{% endif %}
-- "[Supported package ecosystems](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph#supported-package-ecosystems)"
+- "[Sobre os {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)"
+- "[Configurando {% data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/configuring-dependabot-alerts)"{% ifversion fpt or ghec %}
+- "[Como gerenciar configurações de uso de dados para seu repositório privado](/get-started/privacy-on-github/managing-data-use-settings-for-your-private-repository)"{% endif %}
+- "[Ecossistemas de pacotes compatíveis](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph#supported-package-ecosystems)"

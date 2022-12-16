@@ -1,0 +1,15 @@
+date: '2021-06-24'
+sections:
+  security_fixes:
+    - パッケージは最新のセキュリティ バージョンに更新されました。
+  bugs:
+    - Google Cloud Plafform 上で動作するインスタンスで、sshd サービスが起動に失敗することがあります。
+    - 古いアップグレード ファイルがユーザー ディスクに残り、空き領域がない状態になることがあります。
+    - アーカイブに存在しないチームからのレビュー要求が含まれている場合、エクスポート アーカイブでは pull request のインポートに通知なく失敗します。
+  known_issues:
+    - 新たにセットアップされ、ユーザーがいない GitHub Enterprise Server では、攻撃者が最初の管理者ユーザーを作成することができました。
+    - カスタムのファイアウォール規則は、アップグレード プロセス中に削除されます。
+    - "[Web インターフェイスからアップロードされた](https://github.com/blog/2105-upload-files-to-your-repositories) Git LFS 追跡ファイルが誤ってリポジトリに直接追加されます。"
+    - 同じリポジトリ内の BLOB への固定リンクが含まれ、その BLOB のファイル パスが 255 文字を超える場合、issue はクローズできません。
+    - "GitHub Connect で [ユーザーが GitHub.com を検索できる] が有効になっている場合、プライベートと内部リポジトリの issue は GitHub.com の検索結果に含まれません。"
+    - "高可用性構成でレプリカ ノードがオフラインの場合でも、{% data variables.product.product_name %} によって、{% data variables.product.prodname_pages %} 要求がオフライン ノードにルーティングされ、ユーザーの {% data variables.product.prodname_pages %} の可用性が低減される可能性があります。"

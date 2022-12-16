@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: c30f6000486156f1995f0f05ff27fc173b893de5
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: b40c432907d00f7bf7cf33a1f379ea3318ae8aa2
+ms.sourcegitcommit: cb39c15ab6ccfacf49f4b114b77e3b920fdddf70
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "147529276"
+ms.lasthandoff: 11/22/2022
+ms.locfileid: "148180673"
 ---
 <table style="width:100%">
 <thead>
@@ -53,6 +53,9 @@ Ubuntu 20.04
 <td>
 <code>ubuntu-latest</code> o <code>ubuntu-20.04</code>
 </td>
+<td>
+Se está realizando la transición de la etiqueta <code>ubuntu-latest</code> actualmente a la imagen del ejecutor de Ubuntu 22.04. Durante la transición, la etiqueta puede hacer referencia a la imagen del ejecutor para Ubuntu 20.04 o 22.04. Para obtener más información, consulta <a href="https://github.blog/changelog/2022-11-09-github-actions-ubuntu-latest-workflows-will-use-ubuntu-22-04/">esta entrada de blog {% data variables.product.prodname_dotcom %}</a>.
+</rd>
 </tr>
 <tr>
 <td>
@@ -81,7 +84,7 @@ macOS Big Sur 11
 <code>macos-latest</code> o <code>macos-11</code>
 </td>
 <td>
-La etiqueta <code>macos-latest</code> usa actualmente la imagen del ejecutor de macOS 11.
+Se está realizando la transición de la etiqueta <code>macos-latest</code> actualmente a la imagen del ejecutor de macOS Monterey 12. Durante la transición, la etiqueta puede hacer referencia a la imagen del ejecutor para macOS 11 o 12. Para obtener más información, consulta <a href="https://github.blog/changelog/2022-10-03-github-actions-jobs-running-on-macos-latest-are-now-running-on-macos-12/">esta entrada de blog {% data variables.product.prodname_dotcom %}</a>.
 </td>
 </tr>
 <tr>
@@ -106,6 +109,6 @@ Realiza la migración a <code>macOS-11</code> o <code>macOS-12</code>. Para obte
 
 {% warning %}
 
-<b>Nota</b>: Las imágenes beta y en desuso se proporcionan "tal cual", "con todos sus fallos" y "conforme estén disponibles" y están excluidas del acuerdo de nivel de servicio y de la garantía. El soporte al cliente podría no cubrir las imágenes beta.
+**Advertencia:** Las imágenes beta y en desuso se proporcionan "tal cual", "con todos sus fallos" y "conforme estén disponibles" y están excluidas del acuerdo de nivel de servicio y de la garantía. El soporte al cliente podría no cubrir las imágenes beta.
 
 {% endwarning %}

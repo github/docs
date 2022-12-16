@@ -1,0 +1,20 @@
+date: '2020-05-19'
+sections:
+  security_fixes:
+    - '패키지가 최신 보안 버전으로 업데이트되었습니다. {% comment %} https://github.com/github/enterprise2/pull/20108, https://github.com/github/enterprise2/pull/20086 {% endcomment %}'
+  bugs:
+    - '라이선스 파일이 업데이트된 후 서비스가 제대로 다시 로드되지 않아 기능이 손실되었습니다. {% comment %} https://github.com/github/enterprise2/pull/20072, https://github.com/github/enterprise2/pull/19989 {% endcomment %}'
+    - '응답 본문이 너무 크면 종속성 그래프 정보를 업데이트하는 내부 API 요청이 실패할 수 있습니다. {% comment %} https://github.com/github/enterprise2/pull/20231, https://github.com/github/enterprise2/pull/20208 {% endcomment %}'
+    - '일부 GraphQL 리포지토리 연결에 대한 ‘affiliations’ 인수가 존중되지 않았습니다. {% comment %} https://github.com/github/github/pull/142036, https://github.com/github/github/pull/140658 {% endcomment %}'
+    - 'SAML 메일 속성의 대/소문자가 GitHub 사용자 메일과 다른 경우 SSO를 통한 사용자의 자동 정지 해제가 완료되지 않았습니다. {% comment %} https://github.com/github/github/pull/143321, https://github.com/github/github/pull/142915 {% endcomment %}'
+    - '사용자의 멤버 자격을 조직에 복원해도 웹후크 및 감사 로그 페이로드에서 작업자를 계측하지 않습니다. {% comment %} https://github.com/github/github/pull/143231, https://github.com/github/github/pull/140849 {% endcomment %}'
+  known_issues:
+    - '사용자 없이 새로 설정된 GitHub Enterprise Server에서 공격자는 첫 번째 관리 사용자를 생성할 수 있습니다. {% comment %} https://github.com/github/enterprise2/issues/1889 {% endcomment %}'
+    - '업그레이드 중에는 사용자 지정 방화벽 규칙이 관리되지 않습니다. {% comment %} https://github.com/github/enterprise2/issues/2823 {% endcomment %}'
+    - 'Git LFS 추적 파일[웹 인터페이스를 통해 업로드됨](https://github.com/blog/2105-upload-files-to-your-repositories)이 리포지토리에 직접 잘못 추가됩니다. {% comment %} https://github.com/github/github/issues/54684 {% endcomment %}'
+    - '파일 경로가 255자보다 긴 동일한 리포지토리의 Blob에 대한 고정 링크가 포함된 경우 이슈를 닫을 수 없습니다. {% comment %} https://github.com/github/github/issues/107731 {% endcomment %}'
+    - 'gist로 푸시하는 경우 수신 후 후크 중에 예외가 트리거될 수 있습니다. {% comment %} https://github.com/github/github/issues/129091 {% endcomment %}'
+    - 'GitHub Connect에서 “사용자가 GitHub.com을 검색할 수 있음”이 사용 설정되면 프라이빗 및 내부 리포지토리의 이슈가 GitHub.com 검색 결과에 포함되지 않습니다. {% comment %} https://github.com/github/admin-experience/issues/571 {% endcomment %}'
+    - '명령줄에서 리포지토리에 푸시할 때 보안 경고가 보고되지 않습니다. (2020-06-23 업데이트됨) {% comment %} https://github.com/github/github/issues/143190 {% endcomment %}'
+    - '종속성 그래프는 여러 Redis 노드가 있는 클러스터 구성에 배포될 때 종속성을 감지하지 않습니다. (2020-06-30 업데이트됨) {% comment %} https://github.com/github/dependency-graph/issues/81 {% endcomment %}'
+    - '고가용성 구성에서 복제본 노드가 오프라인일 때 {% data variables.product.product_name %}은 여전히 {% data variables.product.prodname_pages %} 요청을 오프라인 노드로 라우팅할 수 있으며 사용자의 {% data variables.product.prodname_pages %} 가용성이 감소합니다.'

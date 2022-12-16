@@ -1,6 +1,6 @@
 ---
-title: About notifications
-intro: 'Notifications provide updates about the activity on {% data variables.location.product_location %} that you''ve subscribed to. You can use the notifications inbox to customize, triage, and manage your updates.'
+title: 通知について
+intro: '通知では、サブスクライブしている {% data variables.product.product_location %} のアクティビティに関する最新情報をお知らせします。 通知受信トレイを使用して、更新情報のカスタマイズ、トリアージ、管理を行うことができます。'
 redirect_from:
   - /articles/notifications
   - /articles/about-notifications
@@ -14,86 +14,90 @@ versions:
   ghec: '*'
 topics:
   - Notifications
+ms.openlocfilehash: 87034df88eb94c1d880806f01cb8748ed555a284
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147432025'
 ---
+## 通知とサブスクリプション
 
-## Notifications and subscriptions
+サブスクリプションを通じて、{% data variables.product.product_location %} の特定のアクティビティに関する継続的な更新を受信することを選択できます。 通知では、サブスクライブしている特定のアクティビティについての更新を受信します。
 
-You can choose to receive ongoing updates about specific activity on {% data variables.location.product_location %} through a subscription. Notifications are updates that you receive for specific activity that you are subscribed to.
+### サブスクリプション オプション
 
-### Subscription options
+サブスクライブできる通知は次のとおりです。
+- 特定の Issue、プルリクエスト、または Gist の会話。
+- リポジトリまたは Team ディスカッション内のすべてのアクティビティ。
+- {% data variables.product.prodname_actions %} で設定されたリポジトリ内のワークフローのステータスなどの CI アクティビティ。 
+- リポジトリ {% data reusables.notifications-v2.custom-notification-types %} (有効な場合)。
 
-You can choose to subscribe to notifications for:
-- A conversation in a specific issue, pull request, or gist.
-- All activity in a repository or team discussion.
-- CI activity, such as the status of workflows in repositories set up with {% data variables.product.prodname_actions %}. 
-- Repository {% data reusables.notifications-v2.custom-notification-types %} (if enabled).
+フォークを除き、あなたがプッシュアクセスを持つすべてのリポジトリを自動的にWatchすることもできます。 **[ウォッチ]** をクリックすると、手動でアクセスできる他のリポジトリをウォッチできます。
 
-You can also choose to automatically watch all repositories that you have push access to, except forks. You can watch any other repository you have access to manually by clicking **Watch**.
+会話に関心がなくなった場合は、今後受信する通知の種類を、サブスクライブ解除、Watch 解除、またはカスタマイズできます。 たとえば、特定のリポジトリからの通知を受信しない場合は、 **[登録を解除]** をクリックします。 詳しくは、「[サブスクリプションを管理する](/github/managing-subscriptions-and-notifications-on-github/managing-your-subscriptions)」をご覧ください。
 
-If you're no longer interested in a conversation, you can unsubscribe, unwatch, or customize the types of notifications you'll receive in the future. For example, if you no longer want to receive notifications from a particular repository, you can click **Unsubscribe**. For more information, see "[Managing your subscriptions](/github/managing-subscriptions-and-notifications-on-github/managing-your-subscriptions)."
+### デフォルトのサブスクリプション
 
-### Default subscriptions
+一般に、次の場合、デフォルトで会話に自動的にサブスクライブされます。
+- 通知設定で、参加しているリポジトリまたは Team の自動 Watch を無効にしていない場合。 既定では、この設定は有効になっています。
+- Issue あるいはプルリクエストが割り当てられている場合。
+- プルリクエストや Issue をオープンしたり、Team ディスカッションの投稿を作成したりした場合。
+- スレッドにコメントした場合。
+- **[ウォッチ]** または **[サブスクライブ]** をクリックして、手動でスレッドにサブスクライブした場合。
+- ユーザー名が @mentioned された場合。
+- Issue のクローズやプルリクエストのマージなどにより、スレッドの状態を変更した場合。
+- メンバーになっているチームが @mentioned された場合。
 
-In general, you are automatically subscribed to conversations by default when you have:
-- Not disabled automatic watching for repositories or teams you've joined in your notification settings. This setting is enabled by default.
-- Been assigned to an issue or pull request.
-- Opened a pull request, issue, or created a team discussion post.
-- Commented on a thread.
-- Subscribed to a thread manually by clicking **Watch** or **Subscribe**.
-- Had your username @mentioned.
-- Changed the state of a thread, such as by closing an issue or merging a pull request.
-- Had a team you're a member of @mentioned.
+既定では、作成したすべてのリポジトリと、パーソナル アカウントが所有するすべてのリポジトリは、自動的にウォッチされます。
 
-By default, you also automatically watch all repositories that you create and are owned by your personal account.
+自動的にサブスクライブしている会話からサブスクライブ解除するには、通知設定を変更するか、{% data variables.product.product_location %} のアクティビティを直接登録解除するか、またはウォッチを解除します。 詳しくは、「[サブスクリプションを管理する](/github/managing-subscriptions-and-notifications-on-github/managing-your-subscriptions)」をご覧ください。
 
-To unsubscribe from conversations you're automatically subscribed to, you can change your notification settings or directly unsubscribe or unwatch activity on {% data variables.location.product_location %}. For more information, see "[Managing your subscriptions](/github/managing-subscriptions-and-notifications-on-github/managing-your-subscriptions)."
+## 通知とサブスクリプションをカスタマイズする
 
-## Customizing notifications and subscriptions
+通知は、[https://github.com/notifications](https://github.com/notifications) {% ifversion fpt or ghes or ghec %}と {% data variables.product.prodname_mobile %} アプリ内{% endif %}の通知受信トレイと、電子メール、またはこれらのオプションの組み合わせを使用して表示するように選択できます。
 
-You can choose to view your notifications through the notifications inbox at [https://github.com/notifications](https://github.com/notifications){% ifversion fpt or ghes or ghec %} and in the {% data variables.product.prodname_mobile %} app{% endif %}, through your email, or some combination of these options.
+通知設定で、受信する更新の種類と更新の送信先をカスタマイズできます。 詳細については、「[通知の設定](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications)」を参照してください。
 
-To customize the types of updates you'd like to receive and where to send those updates, configure your notification settings. For more information, see "[Configuring notifications](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications)."
+サブスクリプションを管理しやすい状態に保つには、サブスクリプションと Watch したリポジトリを確認し、必要に応じてサブスクライブ解除します。 詳細については、「[GitHub におけるアクティビティのサブスクリプションを管理する](/github/managing-subscriptions-and-notifications-on-github/managing-subscriptions-for-activity-on-github)」を参照してください。
 
-To keep your subscriptions manageable, review your subscriptions and watched repositories and unsubscribe as needed. For more information, see "[Managing subscriptions for activity on GitHub](/github/managing-subscriptions-and-notifications-on-github/managing-subscriptions-for-activity-on-github)."
+特定のプルリクエストやプルリクエストの更新の受信方法をカスタマイズするには、Issue またはプルリクエスト内で設定できます。 詳細については、「[単一の通知をトリアージする](/github/managing-subscriptions-and-notifications-on-github/triaging-a-single-notification#customizing-when-to-receive-future-updates-for-an-issue-or-pull-request)」を参照してください。
 
-To customize how you'd like to receive updates for specific pull requests or issues, you can configure your preferences within the issue or pull request. For more information, see "[Triaging a single notification](/github/managing-subscriptions-and-notifications-on-github/triaging-a-single-notification#customizing-when-to-receive-future-updates-for-an-issue-or-pull-request)."
-
-{% ifversion fpt or ghes or ghec %}
-You can customize and schedule push notifications in the {% data variables.product.prodname_mobile %} app. For more information, see "[Configuring notifications](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#managing-your-notification-settings-with-github-mobile)."
+{% ifversion fpt or ghes or ghec %}プッシュ通知は、{% data variables.product.prodname_mobile %} アプリでカスタマイズしてスケジュールできます。 詳細については、「[通知の設定](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#managing-your-notification-settings-with-github-mobile)」を参照してください。
 {% endif %}
 
-## Reasons for receiving notifications
+## 通知の受信理由
 
-Your inbox is configured with default filters, which represent the most common reasons that people need to follow-up on their notifications. For more information about inbox filters, see "[Managing notifications from your inbox](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox#default-notification-filters)."
+インボックスにはデフォルトのフィルタが設定されています。これは、通知をフォローアップする必要がある最も一般的な理由です。 インボックス フィルターの詳細については、「[インボックスからの通知を管理する](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox#default-notification-filters)」を参照してください。
 
-Your inbox shows the `reasons` you're receiving notifications as a label.
+インボックスには、通知を受信する `reasons` がラベルとして表示されます。
 
-![Reasons labels in inbox](/assets/images/help/notifications-v2/reasons-as-labels-in-inbox.png)
+![インボックスの理由ラベル](/assets/images/help/notifications-v2/reasons-as-labels-in-inbox.png)
 
-You can filter your inbox by the reason you're subscribed to notifications. For example, to only see pull requests where someone requested your review, you can use the `review-requested` query filter.
+通知をサブスクライブしている理由でインボックスをフィルタできます。 たとえば、レビューを要求された pull request のみを表示するには、`review-requested` クエリ フィルタを使用できます。
 
-![Filter notifications by review requested reason](/assets/images/help/notifications-v2/review-requested-reason.png)
+![レビューをリクエストした理由で通知をフィルタ](/assets/images/help/notifications-v2/review-requested-reason.png)
 
-If you've configured notifications to be sent by email and believe you're receiving notifications that don't belong to you, consider troubleshooting with email headers, which show the intended recipient. For more information, see "[Configuring notifications](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#filtering-email-notifications)."
+通知をメール送信するように設定していて、自分宛ではない通知を受信していると思われる場合は、正しい受信者を示すメールヘッダを使用したトラブルシューティングを検討してください。 詳細については、「[通知の設定](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#filtering-email-notifications)」を参照してください。
 
-## Triaging notifications from your inbox
+## インボックスからの通知をトリアージする
 
-To effectively manage your notifications, you can triage your inbox with options to:
-- Remove a notification from the inbox with **Done**. You can review **Done** notifications all in one place by clicking **Done** in the sidebar or by using the query `is:done`.
-- Mark a notification as read or unread.
-- **Save** a notification for later review. **Saved** notifications are flagged in your inbox. You can review **Saved** notifications all in one place in the sidebar by clicking **Saved** or by using the query `is:saved`.
-- Automatically unsubscribe from this notification and future updates from this conversation. Unsubscribing also removes the notification from your inbox. If you unsubscribe from a conversation and someone mentions your username or a team you're on that you're receiving updates for, then you will start to receive notifications from this conversation again.
+通知を効率よく管理するために、次のオプションを使用してインボックスをトリアージできます。
+- **[完了]** でインボックスから通知を削除します。 サイドバーで **[完了]** をクリックするか、`is:done` クエリを使用して、**完了** 通知をすべて 1 か所で確認できます。
+- 通知を既読または未読としてマークします。
+- 後で確認するために、通知を **保存** します。 **保存した** 通知にはインボックスでフラグが付けられます。 **[保存済み]** をクリックするか、`is:saved` クエリを使用して、**保存済み** の通知をすべてサイドバーで 1 か所で確認できます。
+- 指定した通知と会話からの今後の更新を、自動的にサブスクライブ解除します。 サブスクライブ解除すると、インボックスから通知も削除されます。 会話をサブスクライブ解除しても、誰かがユーザ名または更新を受信している Team にメンションした場合、この会話からの通知をまた受信するようになります。
 
-From your inbox you can also triage multiple notifications at once. For more information, see "[Managing notifications from your inbox](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox#triaging-multiple-notifications-at-the-same-time)."
+インボックスから複数の通知を一括でトリアージすることもできます。 詳細については、「[受信トレイからの通知の管理](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox#triaging-multiple-notifications-at-the-same-time)」を参照してください。
 
-## Customizing your notifications inbox
+## 通知のインボックスをカスタマイズする
 
-To focus on a group of notifications in your inbox on {% data variables.location.product_location %}{% ifversion fpt or ghes or ghec %} or {% data variables.product.prodname_mobile %}{% endif %}, you can create custom filters. For example, you can create a custom filter for an open source project you contribute to and only see notifications for that repository in which you are mentioned. For more information, see "[Managing notifications from your inbox](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox)." For more examples of how to customize your triaging workflow, see "[Customizing a workflow for triaging your notifications](/github/managing-subscriptions-and-notifications-on-github/customizing-a-workflow-for-triaging-your-notifications)."
+{% data variables.product.product_location %}{% ifversion fpt or ghes or ghec %} または {% data variables.product.prodname_mobile %}{% endif %} のインボックスの通知のグループにフォーカスするために、カスタム フィルターを作成できます。 たとえば、自分がコントリビュートしているオープンソースプロジェクトのカスタムフィルタを作成し、自分がメンションされているリポジトリの通知のみを表示することができます。 詳細については、「[受信トレイからの通知の管理](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox)」を参照してください。 トリアージ ワークフローをカスタマイズする方法のその他の例については、「[通知をトリアージするためのワークフローをカスタマイズする](/github/managing-subscriptions-and-notifications-on-github/customizing-a-workflow-for-triaging-your-notifications)」を参照してください。
 
-## Notification retention policy
+## 通知の保持ポリシー
 
-Notifications that are not marked as **Saved** are kept for 5 months. Notifications marked as **Saved** are kept indefinitely. If your saved notification is older than 5 months and you unsave it, the notification will disappear from your inbox within a day.
+**[保存済み]** としてマークされていない通知は、5 か月間保持されます。 **[保存済み]** としてマークされた通知は無期限に保持されます。 5か月以上前に保存した通知の保存を解除すると、通知は1日以内にインボックスから消えます。
 
-## Feedback and support
+## フィードバックとサポート
 
-If you have feedback or feature requests for notifications, use a [{% data variables.product.prodname_github_community %} discussion](https://github.com/orgs/community/discussions/categories/general).
+通知に対するフィードバックや機能の要求がある場合は、[{% data variables.product.prodname_github_community %} ディスカッション](https://github.com/orgs/community/discussions/categories/general)を使用してください。

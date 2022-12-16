@@ -26,7 +26,7 @@ You can add encrypted secrets to your personal account that you want to use in y
 - Access tokens to cloud services
 - Service principals
 - Subscription identifiers
-- [Credentials for a private image registry](/codespaces/codespaces-reference/allowing-your-codespace-to-access-a-private-image-registry)
+- Credentials for a private image registry (for more information, see "[Allowing your codespace to access a private registry](/codespaces/codespaces-reference/allowing-your-codespace-to-access-a-private-registry)")
 
 You can choose which repositories should have access to each secret. Then, you can use the secret in any codespace you create for a repository that has access to the secret. To share a secret with a codespace created from a template, you will need to publish the codespace to a repository on {% data variables.product.prodname_dotcom %}, then give that repository access to the secret.
 

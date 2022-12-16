@@ -1,0 +1,359 @@
+date: '09-09-2021'
+release_candidate: true
+deprecated: true
+intro: "Si {% data variables.product.product_location %} exécute une build de version finale (RC), vous ne pouvez pas effectuer de mise à niveau avec un patch à chaud. Nous vous recommandons d’exécuter les versions Release Candidate uniquement dans des environnements de test."
+sections:
+  features:
+    - heading: Modèles personnalisés pour l’analyse des secrets
+      notes:
+        # https://github.com/github/releases/issues/1426
+        - |Les clients {% data variables.product.prodname_GH_advanced_security %} peuvent désormais spécifier des modèles personnalisés pour l’analyse des secrets. Quand un nouveau modèle est spécifié, l’analyse des secrets recherche le modèle dans l’historique Git complet d’un dépôt, mais aussi dans les nouveaux commits.
+
+
+
+Les modèles définis par l’utilisateur sont en version bêta pour {% data variables.product.prodname_ghe_server %} 3.2. Ils peuvent être définis au niveau du dépôt, de l’organisation et de l’entreprise. Pour plus d’informations, consultez « [Définition de modèles personnalisés pour l’analyse des secrets](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning) ».
+
+|
+    - heading: Vue d’ensemble de la sécurité pour Advanced Security (bêta)
+      notes:
+        # https://github.com/github/releases/issues/1381
+        - |Les clients {% data variables.product.prodname_GH_advanced_security %} disposent désormais d’une vue au niveau de l’organisation des risques de sécurité d’application détectés par {% data variables.product.prodname_code_scanning %}, {% data variables.product.prodname_dependabot %} et {% data variables.product.prodname_secret_scanning %}. La vue d’ensemble de la sécurité présente l’état d’activation des fonctionnalités de sécurité pour chaque dépôt ainsi que le nombre d’alertes détectées.
+
+
+
+Par ailleurs, elle liste toutes les alertes {% data variables.product.prodname_secret_scanning %} au niveau de l’organisation. Des vues similaires pour les alertes {% data variables.product.prodname_dependabot %} et d’{% data variables.product.prodname_code_scanning %} sont attendues dans les versions à venir. Pour plus d’informations, consultez « [À propos de la vue d’ensemble de la sécurité](/code-security/security-overview/about-the-security-overview)."
+
+
+
+![Capture d’écran de la vue d’ensemble de la sécurité](/assets/images/enterprise/3.2/release-notes/security-overview-UI.png)
+
+|
+    - heading: Révision des dépendances (bêta)
+      notes:
+        # https://github.com/github/releases/issues/1364
+        - |Les clients {% data variables.product.prodname_GH_advanced_security %} peuvent à présent identifier les dépendances qui ont été modifiées dans une demande de tirage (pull request) à l’aide de la fonctionnalité « rich diff ». La révision des dépendances offre une vue facile à comprendre des modifications de dépendances et de leur impact sur la sécurité sous l’onglet « Fichiers modifiés » des demandes de tirage. Elle vous indique les dépendances qui ont été ajoutées, supprimées ou mises à jour et fournit des informations de vulnérabilité pour ces dépendances. Pour plus d’informations, consultez « [Révision des modifications de dépendances dans une demande de tirage (pull request)](/github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-dependency-changes-in-a-pull-request)."
+
+|
+    - heading: Environnements GitHub Actions
+      notes:
+        # https://github.com/github/releases/issues/1308
+        - |Les environnements, les règles de protection d’environnement et les secrets d’environnement sont désormais en disponibilité générale pour {% data variables.product.prodname_actions %} sur {% data variables.product.product_name %}. Pour plus d’informations, consultez « [Environnements](/actions/reference/environments) ».
+
+
+
+![Règles de protection d’environnement](/assets/images/enterprise/3.2/release-notes/actions-environments.png)
+
+|
+    - heading: Authentification SSH avec clés de sécurité
+      notes:
+        # https://github.com/github/releases/issues/1276
+        - |L’authentification SSH à l’aide d’une clé de sécurité FIDO2 est désormais prise en charge quand vous ajoutez une clé SSH `sk-ecdsa-sha2-nistp256@openssh.com` ou `sk-ssh-ed25519@openssh.com` à votre compte. Les clés de sécurité SSH stockent les informations de clé secrète sur un appareil matériel qui nécessitent une vérification, par exemple un appui, pour fonctionner. Pour plus d’information, consultez « [Génération d’une clé SSH et ajout de celle-ci à ssh-agent](/github/authenticating-to-github/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key-for-a-hardware-security-key) ».
+
+|
+    - heading: 'Thèmes sombre et grisé sombre'
+      notes:
+        # https://github.com/github/releases/issues/1260
+        - |Les thèmes sombre et grisé sombre sont maintenant disponibles pour l’interface utilisateur web. {% data variables.product.product_name %} s’aligne sur vos préférences système si vous n’avez pas de préférences de thème dans {% data variables.product.product_name %}. Vous pouvez aussi sélectionner les thèmes qui seront actifs pendant le jour et la nuit. Pour plus d’informations, consultez « [Gestion de vos paramètres de thème](/github/setting-up-and-managing-your-github-user-account/managing-user-account-settings/managing-your-theme-settings)."
+
+
+
+![Thèmes sombre et grisé sombre](https://user-images.githubusercontent.com/33528647/114629560-d2231f80-9c86-11eb-9bde-cc301a97040d.gif)
+
+|
+    - heading: 'Approbation de domaines non vérifiés pour les notifications par e-mail'
+      notes:
+        # https://github.com/github/releases/issues/1244
+        - "Les domaines qui ne peuvent pas être vérifiés peuvent désormais être approuvés pour le routage des notifications par e-mail. Les propriétaires d’entreprise et d’organisation peuvent approuver des domaines et compléter leur stratégie de restriction sur les notifications par e-mail, autorisant ainsi l’envoi de notifications aux collaborateurs, consultants, acquisitions et autres partenaires. Pour plus d’informations, consultez « [Vérification ou approbation d’un domaine pour votre entreprise](/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise#about-approval-of-domains) » et « [Restriction des notifications par e-mail pour votre entreprise](/admin/policies/enforcing-policies-for-your-enterprise/restricting-email-notifications-for-your-enterprise#restricting-email-notifications-for-your-enterprise-account) »."
+
+    - heading: 'Prise en charge de l’authentification multifacteur et du stockage d’informations d’identification sécurisé du Gestionnaire d’informations d’identification Git (GCM)'
+      notes:
+        # https://github.com/github/releases/issues/1406
+        - |Les versions 2.0.452 et ultérieures du Gestionnaire d’informations d’identification Git (GCM) offrent désormais une prise en charge de l’authentification multifacteur et du stockage d’informations d’identification à sécurité renforcée pour {% data variables.product.product_name %}.
+
+
+
+GCM avec prise en charge de {% data variables.product.product_name %} est fourni avec [Git pour Windows](https://gitforwindows.org) versions 2.32 et ultérieures. GCM n’est pas fourni avec Git pour macOS ou Linux, mais peut-être installé séparément. Pour plus d’informations, découvrez la [dernière version](https://github.com/GitCredentialManager/git-credential-manager/releases/) et les [instructions d’installation](https://github.com/GitCredentialManager/git-credential-manager/releases/) dans le dépôt `GitCredentialManager/git-credential-manager`.
+
+|
+  changes:
+    - heading: Changements au niveau de l’administration
+      notes:
+        # https://github.com/github/releases/issues/1309
+        - "Un paramètre « Stratégie de référent de l’agent utilisateur » a été ajouté aux paramètres d’entreprise. Cela permet à l’administrateur de définir une stratégie de référent (`Referrer-Policy`) plus stricte pour masquer le nom d’hôte d’une installation {% data variables.product.prodname_ghe_server %} à partir de sites extérieurs. Le paramètre est désactivé par défaut et est suivi par les événements du journal d’audit pour le personnel et les propriétaires d’entreprise, qu’il soit activé ou désactivé. Pour plus d’informations, consultez « [Configuration de la stratégie de référent pour votre entreprise](/admin/configuration/configuring-your-enterprise/configuring-the-referrer-policy-for-your-enterprise) »."
+
+        # https://github.com/github/releases/issues/1515
+        - "Le contrôle d’intégrité MySQL a été modifié pour utiliser `mysqladmin ping` à la place des contrôles TCP, ce qui a pour effet d’ôter du bruit inutile dans le journal d’erreurs MySQL. Par ailleurs, les contrôles de basculement Orchestrator ont été améliorés pour éviter des basculements MySQL inutiles lors de l’application de changements de configuration de cluster."
+
+        # https://github.com/github/releases/issues/1287
+        - "Le service Resque, qui prend en charge le traitement des travaux en arrière-plan, a été remplacé par Aqueduct Lite. Ce changement simplifie la gestion du système de travaux sans porter atteinte à l’expérience utilisateur. Pour les commandes d’administration et de débogage pour Aqueduct, consultez « [Utilitaires en ligne de commande](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-aqueduct) »."
+
+    - heading: Changements au niveau des jetons
+      notes:
+        # https://github.com/github/releases/issues/1235
+        - |Le format des jetons d’authentification de {% data variables.product.product_name %} a changé. Cette évolution a une incidence sur le format des jetons d’accès personnels et des jetons d’accès pour {% data variables.product.prodname_oauth_apps %}, mais des jetons utilisateur à serveur, serveur à serveur et d’actualisation pour {% data variables.product.prodname_github_apps %}.
+
+
+
+Les différents types de jeton disposent désormais de préfixes identifiables uniques, ce qui permet d’analyser les secrets pour détecter les jetons et ainsi atténuer l’impact d’un commit de jeton accidentel dans un dépôt. {% data variables.product.company_short %} recommande de mettre à jour les jetons existants dès que possible. Pour plus d’informations, consultez « [À propos de l’authentification auprès de {% data variables.product.prodname_dotcom %}](/github/authenticating-to-github/keeping-your-account-and-data-secure/about-authentication-to-github#githubs-token-formats) » et « [À propos de l’{% data variables.product.prodname_secret_scanning %}](/code-security/secret-security/about-secret-scanning) ».
+
+|
+    - heading: 'Changements au niveau des dépôts'
+      notes:
+        # https://github.com/github/releases/issues/1295
+        - Les dépôts au niveau des profils utilisateur et des profils d’organisation prennent désormais en charge le tri par nombre d’étoiles.
+
+        # https://github.com/github/releases/issues/1327
+        - "Lors de la consultation de l’historique des commits d’un fichier déterminé, vous pouvez désormais cliquer sur {% octicon \"file-code\" aria-label=\"The code icon\" %} pour afficher ce fichier au point sélectionné dans l’historique."
+
+        # https://github.com/github/releases/issues/1254
+        - "Quand un sous-module est défini avec un chemin relatif dans {% data variables.product.product_location %}, vous pouvez désormais cliquer sur ce sous-module dans l’interface utilisateur web. Le fait de cliquer sur le sous-module dans l’interface utilisateur web vous dirigera vers le dépôt lié. Auparavant, seuls les sous-modules assortis d’URL absolues étaient cliquables. Cette prise en charge vaut pour les chemins relatifs des dépôts d’un même propriétaire conformes au modèle <code>../<em>REPOSITORY</em></code> ou pour les chemins relatifs de dépôts ayant un propriétaire différent conformes modèle <code>../<em>OWNER</em>/<em>REPOSITORY</em></code>. Pour plus d’informations sur l’utilisation de sous-modules, consultez [Utilisation de sous-modules](https://github.blog/2016-02-01-working-with-submodules/) sur {% data variables.product.prodname_blog %}."
+
+        # https://github.com/github/releases/issues/1250
+        - "L’interface utilisateur web permet désormais de synchroniser une branche obsolète d’une duplication (fork) avec la branche en amont de la duplication. En l’absence de conflits de fusion entre les branches, la branche est mise à jour soit par transfert rapide (« fast-forwarding »), soit par fusion depuis la branche en amont. En présence de conflits, vous serez invité à créer une demande de tirage afin de résoudre les conflits. Pour plus d’informations, consultez « [Synchronisation d’une duplication (fork)](/github/collaborating-with-pull-requests/working-with-forks/syncing-a-fork#syncing-a-fork-from-the-web-ui).\""
+
+    - heading: 'Changements au niveau du Markdown'
+      notes:
+        # https://github.com/github/releases/issues/1477
+        - "L’éditeur de Markdown utilisé lors de la création ou de la modification d’une version dans un dépôt présente désormais une barre d’outils de modification de texte. Pour plus d’informations, consultez « [Gestion des versions dans un dépôt](/github/administering-a-repository/releasing-projects-on-github/managing-releases-in-a-repository#creating-a-release) »."
+
+        # https://github.com/github/releases/issues/1169
+        - "Le chargement de fichiers vidéo est désormais pris en charge partout où vous écrivez du Markdown sur {% data variables.product.product_name %}. Partagez des versions de démonstration, des étapes de reproduction et bien plus encore dans vos commentaires sur les problèmes et les demandes de tirage, mais aussi dans les fichiers Markdown au niveau des dépôts, comme les fichiers README. Pour plus d’informations, consultez « [Attachement de fichiers](/github/writing-on-github/working-with-advanced-formatting/attaching-files) »."
+
+        # https://github.com/github/releases/issues/1269
+        - "Désormais, les fichiers Markdown génèrent automatiquement un sommaire dans l’en-tête quand il existe plusieurs en-têtes. Le sommaire est interactif et est lié à la section sélectionnée. Les six niveaux d’en-tête Markdown sont tous pris en charge."
+
+        # https://github.com/github/releases/issues/1294
+        - 'Un nouveau raccourci clavier (`cmd+e` sur macOS et `cmd+e` sur Windows) permet d’insérer des blocs de code dans les fichiers Markdown, les problèmes, les demandes de tirage et les commentaires.'
+
+        # https://github.com/github/releases/issues/1474
+        - "L’ajout de `?plain=1` à l’URL d’un fichier Markdown affiche désormais le fichier sans rendu et avec des numéros de ligne. La vue brute permet de lier d’autres utilisateurs à des lignes spécifiques. Par exemple, l’ajout de `?plain=1#L52` met en surbrillance la ligne 52 d’un fichier Markdown à texte brut. Pour plus d’informations, consultez « [Création d’un lien permanent vers un extrait de code](/github/writing-on-github/working-with-advanced-formatting/creating-a-permanent-link-to-a-code-snippet#linking-to-markdown) »."
+
+    - heading: 'Changements au niveau des problèmes et des demandes de tirage (pull requests)'
+      notes:
+        # https://github.com/github/releases/issues/1413
+        - "Dans la [dernière version d’Octicons](https://github.com/primer/octicons/releases), l’état des problèmes et des demandes de tirage est maintenant mieux défini visuellement, ce qui en facilite l’analyse. Pour plus d’informations, consultez [{% data variables.product.prodname_blog %}](https://github.blog/changelog/2021-06-08-new-issue-and-pull-request-state-icons/)."
+
+        # https://github.com/github/releases/issues/1419
+        - "Une nouvelle règle de protection de branche « Exiger la résolution de la conversation avant de fusionner » et un menu « Conversations » sont désormais disponibles. Découvrez facilement les commentaires sur vos demandes de tirage sous l’onglet « Fichiers modifiés », puis demandez à ce que toutes les conversations sur vos demandes de tirage soient résolues avant de fusionner. Pour plus d’informations, consultez « [À propos des révisions de demande de tirage](/github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews#discovering-and-navigating-conversations) » et « [À propos des branches protégées](/github/administering-a-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#require-conversation-resolution-before-merging) »."
+
+        # https://github.com/github/releases/issues/1279
+        - "Pour empêcher la fusion de modifications inattendues après l’activation de la fusion automatique pour une demande de tirage, la fusion automatique est désormais désactivée automatiquement quand de nouvelles modifications sont envoyées (push) par un utilisateur dépourvu d’un accès en écriture au dépôt. Les utilisateurs sans accès en écriture peuvent toujours mettre à jour la demande de tirage avec les modifications de la branche de base quand la fusion automatique est activée. Pour empêcher un utilisateur malveillant de se servir d’un conflit de fusion pour introduire des modifications inattendues à la demande de tirage, la fusion automatique est désactivée pour la demande de tirage si la mise à jour entraîne un conflit de fusion. Pour plus d’informations sur la fusion automatique, consultez « [Fusion automatique d’une demande de tirage (pull request)](/github/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/automatically-merging-a-pull-request) »."
+
+        # https://github.com/github/releases/issues/1550
+        - "Les personnes disposant d’autorisations de maintenance peuvent désormais gérer le paramètre « Autoriser la fusion automatique » au niveau du dépôt. Désactivé par défaut, ce paramètre détermine si la fusion automatique est disponible pour les demandes de tirage présentes dans le dépôt. Auparavant, seules les personnes dotées d’autorisations d’administration pouvaient gérer ce paramètre. Par ailleurs, ce paramètre peut maintenant être contrôlé à l’aide des API REST « [Créer un dépôt](/rest/reference/repos#create-an-organization-repository) » et « [Mettre à jour un dépôt](/rest/reference/repos#update-a-repository) ». Pour plus d’informations, consultez « [Gestion de la fusion automatique pour les demandes de tirage (pull requests) dans votre dépôt](/github/administering-a-repository/configuring-pull-request-merges/managing-auto-merge-for-pull-requests-in-your-repository) »."
+
+        # https://github.com/github/releases/issues/1201
+        - "La sélection de destinataires pour les problèmes et les demandes de tirage prend désormais en charge la recherche avec autocomplétion, ce qui vous permet de trouver plus rapidement les utilisateurs de votre organisation. De plus, les classements des résultats de recherche ont été mise à jour pour préférer les correspondances en début de nom d’utilisateur ou de nom de profil d’une personne."
+
+        # https://github.com/github/releases/issues/1430
+        - "Quand une révision est demandée par une équipe de plus de 100 personnes, une boîte de dialogue de confirmation est maintenant présentée aux développeurs de façon à éviter l’envoi de notifications inutiles dans le cas des équipes étoffées."
+
+        # https://github.com/github/releases/issues/1293
+        - "Les blocs de code (`code blocks`) placés entre accents graves (ou « backtick ») sont désormais pris en charge dans les titres de problèmes, de demandes de tirage et dans partout où les titres de problèmes et de demandes de tirage sont référencés dans {% data variables.product.prodname_ghe_server %}."
+
+        # https://github.com/github/releases/issues/1300
+        - "Les événements relatifs aux demandes de tirage et aux révisions de demandes de tirage sont désormais inclus dans le journal d’audit pour les [entreprises](/admin/user-management/managing-users-in-your-enterprise/auditing-users-across-your-enterprise) et les [organisations](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization). Ces événements permettent aux administrateurs de mieux superviser l’activité des demandes de tirage et de veiller à ce que les exigences de sécurité et de conformité soient satisfaites. Les événements peuvent être examinés à partir de l’interface utilisateur web, exportés au format CSV ou JSON et son accessibles via l’API REST. Vous pouvez aussi rechercher des événements de demande de tirage spécifiques dans le journal d’audit. Pour plus d’informations, consultez « [Révision du journal d’audit pour votre organisation](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization#pull_request-category-actions) »."
+
+    - heading: 'Changements au niveau des branches'
+      notes:
+        # https://github.com/github/releases/issues/885
+        - |Le nom de branche par défaut des nouveaux dépôts est désormais `main`. Les dépôts existants ne sont pas concernés par ce changement. Si des utilisateurs, des propriétaires d’organisation ou des propriétaires d’entreprise ont auparavant spécifié une branche par défaut pour de nouveaux dépôts, ceux-ci ne sont pas non plus concernés.
+
+
+
+Si vous voulez définir un autre nom de branche par défaut, vous pouvez le faire dans les paramètres d’[utilisateur](/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/managing-the-default-branch-name-for-your-repositories), d’[organisation](/organizations/managing-organization-settings/managing-the-default-branch-name-for-repositories-in-your-organization) ou d’[entreprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-on-the-default-branch-name) settings.
+
+|
+        # https://github.com/github/releases/issues/981
+        - |Il est maintenant possible de renommer les branches, y compris la branche par défaut, à partir de l’interface utilisateur web {% data variables.product.product_name %}. Dès lors qu’une branche est renommée, les versions brouillon et les demandes de tirage ouvertes ciblant la branche renommée sont reciblées automatiquement, et les règles de protection de branche qui font explicitement référence à la branche renommée sont mises à jour.
+
+
+
+Des autorisations d’administrateur sont nécessaires pour renommer la branche par défaut, alors que des autorisations d’accès en lecture sont suffisantes pour renommer les autres branches.
+
+
+
+Pour faire en sorte que le changement soit le plus harmonieux possible pour les utilisateurs :
+
+
+
+* Un avis est présenté aux contributeurs, aux personnes chargées de la maintenance et aux administrateurs sur la page d’accueil du dépôt avec des instructions pour mettre à jour leur dépôt local.
+
+* Les requêtes web destinées à l’ancienne branche sont redirigées.
+
+* Une réponse HTTP de type « Déplacé définitivement » est retournée aux appels d’API REST.
+
+* Un message d’information est affiché pour les utilisateurs de la ligne de commande Git qui envoient (push) vers l’ancienne branche.
+
+
+
+Pour plus d’informations, consultez « [Renommage d’une branche](/github/administering-a-repository/managing-branches-in-your-repository/renaming-a-branch) ».
+
+|
+    - heading: 'Changements au niveau de GitHub Actions'
+      notes:
+        # https://github.com/github/releases/issues/1227
+        - '{% data variables.product.prodname_actions %} vous permet désormais de contrôler les autorisations accordées au secret `GITHUB_TOKEN`. `GITHUB_TOKEN` est un secret généré automatiquement qui vous permet de passer des appels authentifiés à l’API pour {% data variables.product.product_name %} dans vos exécutions de workflow. {% data variables.product.prodname_actions %} génère un nouveau jeton pour chaque travail et fait expirer le jeton une fois le travail terminé. Le jeton dispose généralement d’autorisations d’accès en écriture (`write`) sur plusieurs [points de terminaison d’API](/actions/reference/authentication-in-a-workflow#permissions-for-the-github_token), sauf dans le cas des demandes de tirage émanant de duplications (forks), qui sont toujours en lecture (`read`). Ces nouveaux paramètres vous permettent de suivre un principe de privilège minimum dans vos workflows. Pour plus d’informations, consultez « [Authentification dans un workflow](/actions/reference/authentication-in-a-workflow#modifying-the-permissions-for-the-github_token) ».'
+
+        # https://github.com/github/releases/issues/1280
+        - '{% data variables.product.prodname_cli %}version 1.9 et ultérieures vous permet d’utiliser {% data variables.product.prodname_actions %} dans votre terminal. Pour plus d’informations, consultez le [journal des modifications de {% data variables.product.prodname_dotcom %}](https://github.blog/changelog/2021-04-15-github-cli-1-9-enables-you-to-work-with-github-actions-from-your-terminal/).'
+
+        # https://github.com/github/releases/issues/1157
+        - "Le journal d’audit inclut désormais les événements associés aux exécutions de workflow {% data variables.product.prodname_actions %}. Ces données procurent aux administrateurs un jeu de données bien plus complet pour les audits de sécurité et de conformité. Pour plus d’informations, consultez « [Révision du journal d’audit pour votre organisation](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization#workflows-category-actions) »."
+
+        # https://github.com/github/releases/issues/1587
+        - "Des améliorations sur le plan des performances ont été apportées à {% data variables.product.prodname_actions %}, ce qui peut se traduire par un débit de travail maximal supérieur. Pour plus d’informations sur le débit de travail avec les configurations de processeur et de mémoire testées en interne, consultez « [Bien démarrer avec {% data variables.product.prodname_actions %} pour {% data variables.product.prodname_ghe_server %}](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/getting-started-with-github-actions-for-github-enterprise-server#review-hardware-considerations) »."
+
+    - heading: 'Changements au niveau de GitHub Packages'
+      notes:
+        # https://github.com/github/releases/issues/1088
+        - "Un package ou une version de package pour {% data variables.product.prodname_registry %} peuvent désormais être supprimés à partir de l’interface utilisateur web de {% data variables.product.product_name %}. Vous pouvez aussi annuler la suppression d’un package ou d’une version de package dans un délai de 30 jours. Pour plus d’informations, consultez « [Suppression et restauration d’un package](/packages/learn-github-packages/deleting-and-restoring-a-package) »."
+
+    - heading: 'Changements au niveau de Dependabot et du graphe des dépendances'
+      notes:
+        # https://github.com/github/releases/issues/1537
+        - "Le graphe des dépendances peut désormais être activé à partir de la console de gestion. Il n’est donc plus nécessaire d’exécuter une commande dans l’interpréteur de commandes d’administration. Pour plus d’informations, consultez « [Activation d’alertes pour les dépendances vulnérables {% data variables.product.prodname_ghe_server %}](/admin/configuration/managing-connections-between-github-enterprise-server-and-github-enterprise-cloud/enabling-alerts-for-vulnerable-dependencies-on-github-enterprise-server#enabling-the-dependency-graph-and-dependabot-alerts-for-vulnerable-dependencies-on-github-enterprise-server) »."
+
+        # https://github.com/github/releases/issues/1153
+        - "Les notifications concernant plusieurs {% data variables.product.prodname_dependabot_alerts %} sont maintenant regroupées quand elles sont découvertes en même temps. Cela permet de réduire nettement la quantité de notifications d’alerte {% data variables.product.prodname_dependabot %} que reçoivent les utilisateurs. Pour plus d’informations, consultez le [journal des modifications de {% data variables.product.prodname_dotcom %}](https://github.blog/changelog/2021-03-18-grouped-dependabot-alert-notifications/)."
+
+        # https://github.com/github/releases/issues/1371
+        - "Le graphe des dépendances et {% data variables.product.prodname_dependabot_alerts %} prennent désormais en charge les modules Go. {% data variables.product.prodname_ghe_server %} analyse les fichiers `go.mod` d’un dépôt pour comprendre les dépendances du dépôt. Avec les avis de sécurité, le graphe des dépendances fournit les informations nécessaires pour alerter les développeurs à propos des dépendances vulnérables. Pour plus d’informations sur l’activation du graphe des dépendances au niveau des dépôts privés, consultez « [Sécurisation de votre dépôt](/code-security/getting-started/securing-your-repository#managing-the-dependency-graph) »."
+
+        # https://github.com/github/releases/issues/1538
+        - "Les paramètres de notification par défaut des alertes de sécurité ont changé. Auparavant, si vous étiez autorisé à voir les alertes de sécurité dans un dépôt, vous receviez les notifications pour ce dépôt dans la mesure où vos paramètres autorisaient les notifications d’alerte de sécurité. À présent, vous devez accepter les notifications d’alerte de sécurité en consultant le dépôt. Vous recevrez des notifications si vous avez sélectionné `All Activity` (Toute l’activité) ou configuré `Custom` (Personnalisé) pour inclure les alertes de sécurité (`Security alerts`). Tous les dépôts existants seront automatiquement migrés vers ces nouveaux paramètres et vous continuerez de recevoir les notifications ; en revanche, pour les nouveaux dépôts, vous devrez les accepter en consultant le dépôt. Pour plus d’informations, consultez « [Configuration des notifications pour {% data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/configuring-notifications-for-dependabot-alerts) » et « [Gestion des alertes de l’analyse des secrets](/code-security/secret-security/managing-alerts-from-secret-scanning) »."
+
+    - heading: 'Changements au niveau de l’analyse du code et de l’analyse des secrets'
+      notes:
+        # https://github.com/github/releases/issues/1352
+        - '{% data variables.product.prodname_code_scanning_capc %} avec {% data variables.product.prodname_codeql %} génère désormais des informations de diagnostic pour tous les langages pris en charge. Cela permet de contrôler l’état de la base de données créée afin de comprendre le statut et la qualité de l’analyse effectuée. Les informations de diagnostic sont disponibles à partir de la [version 2.5.6](https://github.com/github/codeql-cli-binaries/releases) de [{% data variables.product.prodname_codeql_cli %}](https://codeql.github.com/docs/codeql-cli/). Vous pouvez consulter les informations de diagnostic détaillées dans les journaux {% data variables.product.prodname_actions %} pour {% data variables.product.prodname_codeql %}. Pour plus d’informations, consultez « [Consultation des journaux d’analyse du code](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/viewing-code-scanning-logs) ».'
+
+        # https://github.com/github/releases/issues/1360
+        - '{% data variables.product.prodname_code_scanning_capc %} avec {% data variables.product.prodname_codeql_cli %} prend à présent en charge l’analyse de plusieurs langages pendant la génération d’une même build. Cela facilite l’analyse du code pour utiliser des systèmes CI/CD autres que {% data variables.product.prodname_actions %}. Le nouveau mode de la commande `codeql database create` est disponible à partir de la [version 2.5.6](https://github.com/github/codeql-cli-binaries/releases) de [{% data variables.product.prodname_codeql_cli %}](https://codeql.github.com/docs/codeql-cli/). Pour plus d’information sur son installation, consultez « [Installation de {% data variables.product.prodname_codeql_cli %} dans votre système CI](/code-security/secure-coding/using-codeql-code-scanning-with-your-existing-ci-system/running-codeql-cli-in-your-ci-system) ».'
+
+        # https://github.com/github/releases/issues/1160
+        - 'Les alertes d’{% data variables.product.prodname_code_scanning_capc %} de tous les outils activés sont désormais présentées dans une même liste regroupée de façon à faciliter le classement de toutes les alertes par ordre de priorité. Vous pouvez afficher les alertes d’un outil spécifique en utilisant le filtre « Outil » ; les filtres « Règle » et « Étiquette » se mettent alors à jour dynamiquement en fonction de l’« Outil » que vous avez sélectionné.'
+
+        # https://github.com/github/releases/issues/1454
+        - '{% data variables.product.prodname_code_scanning_capc %} avec {% data variables.product.prodname_codeql %} intègre à présent une prise en charge bêta de l’analyse du code C++20. Cela vaut uniquement lors de la création de codebases avec GCC sur Linux. Les modules C++20 ne sont pas encore pris en charge.'
+
+        # https://github.com/github/releases/issues/1375
+        - "La profondeur de l’analyse de {% data variables.product.prodname_codeql %} a été améliorée en ajoutant la prise en charge de plusieurs autres [bibliothèques et frameworks](https://codeql.github.com/docs/codeql-overview/supported-languages-and-frameworks/) et en augmentant la couverture de nos modèles existants de bibliothèque et de framework existants pour plusieurs langages ([C++](https://github.com/github/codeql/tree/main/cpp), [JavaScript](https://github.com/github/codeql/tree/main/javascript), [Python](https://github.com/github/codeql/tree/main/python), and [Java](https://github.com/github/codeql/tree/main/java)). Par conséquent, {% data variables.product.prodname_codeql %} peut maintenant détecter encore plus de sources potentielles de données utilisateur non approuvées, passer en revue les étapes de ce flux de données et identifier les récepteurs potentiellement dangereux où les données peuvent aboutir. Il en découle une amélioration générale de la qualité des alertes d’{% data variables.product.prodname_code_scanning %}. Pour plus d’informations, consultez le [journal des modifications {% data variables.product.prodname_dotcom %}](https://github.blog/changelog/2021-07-01-codeql-code-scanning-now-recognizes-more-sources-and-uses-of-untrusted-user-data/)."
+
+        # https://github.com/github/releases/issues/1335
+        # https://github.com/github/releases/issues/1314
+        - |L’{% data variables.product.prodname_code_scanning_capc %} affiche désormais les niveaux de gravité de sécurité (`security-severity`) pour les alertes de sécurité CodeQL. Vous pouvez configurer les niveaux de gravité de sécurité (`security-severity`) qui entraîneront un échec de vérification pour une demande de tirage (pull request). Le niveau de gravité des alertes de sécurité peut être `critical` (critique), `high` (élevé), `medium` (moyen) ou `low` (faible). Par défaut, toutes les alertes d’{% data variables.product.prodname_code_scanning %} dont le niveau de gravité de sécurité (`security-severity`) est `critical` ou `high` entraînent un échec de vérification de demande de tirage. 
+
+
+
+Par ailleurs, vous pouvez aussi désormais configurer les niveaux de gravité appelés à entraîner un échec de vérification de demande de tirage pour les alertes non liées à la sécurité. Vous pouvez configurer ce comportement au niveau du dépôt et définir si les alertes dont le niveau de gravité est `error` (erreur), `warning` (avertissement) ou `note` (remarque) entraîneront un échec de vérification de demande de tirage. Par défaut, les alertes d’{% data variables.product.prodname_code_scanning %} non liées à la sécurité dont le niveau de gravité est `error` entraînent un échec de vérification de demande de tirage.
+
+
+
+Pour plus d’informations, consultez « [Définition des niveaux de gravité d’alerte qui entraînent un échec de vérification de demande de tirage (pull request)](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning#defining-the-severities-causing-pull-request-check-failure) ».
+
+
+
+![Liste des alertes d’analyse du code avec les niveaux de sécurité](/assets/images/enterprise/3.2/release-notes/code-scanning-alerts.png)
+
+|
+        # https://github.com/github/releases/issues/1324
+        - |Les améliorations apportées au filtre de branche pour les alertes d’{% data variables.product.prodname_code_scanning %} permettent de mieux déterminer les alertes d’{% data variables.product.prodname_code_scanning %} qui s’affichent dans la page des alertes. Par défaut, les alertes d’{% data variables.product.prodname_code_scanning %} sont filtrées pour montrer uniquement les alertes portant sur la branche par défaut du dépôt. Vous pouvez utiliser le filtre de branche pour afficher les alertes relatives aux branches autres que la branche par défaut. Tout filtre de branche appliqué est visible dans la barre de recherche.
+
+
+
+La syntaxe de recherche a également été simplifiée en `branch:<branch name>`. Cette syntaxe peut être utilisée plusieurs fois dans la barre de recherche pour filtrer plusieurs branches. La syntaxe précédente, `ref:refs/heads/<branch name>`, est toujours prise en charge : les URL enregistrées continueront de fonctionner.
+
+|
+        # https://github.com/github/releases/issues/1313
+        - |La recherche en texte libre est maintenant disponible pour les alertes d’analyse du code. Vous pouvez effectuer une recherche dans les résultats d’analyse du code pour trouver rapidement des alertes déterminées sans connaître les termes de recherche exacts. La recherche s’applique au nom de l’alerte, à sa description et au texte de l’aide. La syntaxe est :
+
+
+
+- Un seul mot retourne toutes les correspondances.
+
+- Plusieurs mots de recherche retournent les correspondances de chaque mot.
+
+- Les mots entre guillemets doubles retournent les correspondances exactes.
+
+- Le mot clé « AND » retourne les correspondances de plusieurs mots.
+
+|
+        - 'L’{% data variables.product.prodname_secret_scanning_caps %} a ajouté des modèles pour 23 nouveaux fournisseurs de services. Pour obtenir la liste mise à jour des secrets pris en charge, consultez « [À propos de l’analyse des secrets](/code-security/secret-scanning/about-secret-scanning) ».'
+
+    - heading: Changements au niveau des API
+      notes:
+        # https://github.com/github/releases/issues/1253
+        - "La prise en charge de la pagination a été ajoutée au point de terminaison « comparer deux commits » de l’API REST Dépôts, qui retourne une liste des commits accessibles depuis un commit ou une branche, mais non accessibles depuis d’autres. L’API peut aussi retourner à présent les résultats de comparaisons de 250 commits. Pour plus d’informations, consultez la documentation de l’API REST « [Dépôts](/rest/reference/commits#compare-two-commits) » et « [Découverte de la pagination](/rest/guides/traversing-with-pagination) »."
+
+        # https://github.com/github/releases/issues/969
+        - "L’API REST permet désormais de renvoyer ou de vérifier par programmation l’état des webhooks. Pour plus d’informations, consultez « [Webhooks](/rest/reference/webhooks) », « [Organizations](/rest/reference/orgs#webhooks) » et « [Applications](/rest/reference/apps#webhooks) » dans la documentation de l’API REST."
+
+        # https://github.com/github/releases/issues/1349
+        - |Des améliorations ont été apportées aux API d’analyse du code et {% data variables.product.prodname_code_scanning %} :
+
+
+
+- L’API d’analyse du code retourne à présent la version de la requête CodeQL utilisée pour une analyse. Cela peut servir à reproduire des résultats ou à vérifier qu’une analyse a utilisé la requête la plus récente. Pour plus d’informations, consultez « [Analyse du code](/rest/reference/code-scanning#list-code-scanning-alerts-for-a-repository) » dans la documentation de l’API REST.
+
+- Les utilisateurs administrateurs peuvent à présent utiliser l’API REST pour activer ou désactiver {% data variables.product.prodname_GH_advanced_security %} pour les dépôts, à l’aide de l’objet `security_and_analysis` au niveau de `repos/{org}/{repo}`. De plus, les utilisateurs administrateurs peuvent vérifier si {% data variables.product.prodname_advanced_security %} est actuellement activé pour un dépôt à l’aide d’une requête `GET /repos/{owner}/{repo}`. Ces modifications vous aident à gérer l’accès au dépôt {% data variables.product.prodname_advanced_security %} à grande échelle. Pour plus d’informations, consultez « [Dépôts](/rest/reference/repos#update-a-repository) » dans la documentation de l’API REST.
+
+|
+  # No security/bug fixes for the RC release
+  # security_fixes:
+  #   - PLACEHOLDER
+
+  # bugs:
+  #   - PLACEHOLDER
+
+  known_issues:
+    - "Sur un {% data variables.product.prodname_ghe_server %} fraîchement configuré sans aucun utilisateur, un attaquant pourrait créer le premier utilisateur administrateur."
+    - Les règles de pare-feu personnalisées sont supprimées pendant le processus de mise à niveau.
+    - "Les fichiers suivis par Git LFS [chargés via l’interface web](https://github.com/blog/2105-upload-files-to-your-repositories) sont ajoutés à tort directement au dépôt."
+    - Les problèmes ne peuvent pas être clos s’ils contiennent un lien permanent vers un objet blob du même dépôt et si le chemin de fichier de l’objet blob comporte plus de 255 caractères.
+    - "Quand l’option « Les utilisateurs peuvent effectuer des recherches sur GitHub.com » est activée avec GitHub Connect, les problèmes présents dans les dépôts privés et internes ne sont pas inclus dans les résultats de recherche de GitHub.com."
+    - "Le registre npm {% data variables.product.prodname_registry %} ne retourne plus de valeur de temps dans les réponses de métadonnées. Cela a été fait dans l’optique d’améliorer de façon sensible les performances. Nous disposons toujours de l’ensemble des données nécessaires au retour d’une valeur de temps dans la réponse de métadonnées, et nous recommencerons à la retourner dans l’avenir dès que nous aurons résolu les problèmes de performance existants."
+    - Les limites de ressources spécifiques au traitement des hooks de préréception peuvent entraîner l’échec de certains hooks de préréception.
+
+  deprecations:
+    - heading: Dépréciation de GitHub Enterprise Server 2.21
+      notes:
+        - '**{% data variables.product.prodname_ghe_server %} 2.21 a été interrompu le 6 juin 2021**. Cela signifie qu’aucun correctif ne sera publié, même pour les problèmes de sécurité critiques, après cette date. Pour bénéficier de meilleures performances, d’une sécurité accrue et de nouvelles fonctionnalités, [effectuez une mise à niveau vers la dernière version de {% data variables.product.prodname_ghe_server %}](/enterprise-server@3.2/admin/enterprise-management/upgrading-github-enterprise-server) dès que possible.'
+    - heading: Dépréciation de GitHub Enterprise Server 2.22
+      notes:
+        - '**{% data variables.product.prodname_ghe_server %} 2.22 sera interrompu le 23 septembre 2021**. Cela signifie qu’aucun correctif ne sera publié, même pour les problèmes de sécurité critiques, après cette date. Pour bénéficier de meilleures performances, d’une sécurité accrue et de nouvelles fonctionnalités, [effectuez une mise à niveau vers la dernière version de {% data variables.product.prodname_ghe_server %}](/enterprise-server@3.2/admin/enterprise-management/upgrading-github-enterprise-server) dès que possible.'
+    - heading: Dépréciation de la prise en charge de l’hyperviseur XenServer
+      notes:
+        # https://github.com/github/docs-content/issues/4439
+        - "À partir de {% data variables.product.prodname_ghe_server %} 3.1, nous commencerons à cesser la prise en charge de l’hyperviseur Xen. La dépréciation complète est prévue pour {% data variables.product.prodname_ghe_server %} 3.3, selon la période de dépréciation standard d’un an. Contactez le [Support GitHub](https://support.github.com) pour toute question ou préoccupation."
+    - heading: Suppression des services GitHub hérités
+      notes:
+        # https://github.com/github/releases/issues/1506
+        - '{% data variables.product.prodname_ghe_server %} 3.2 supprime les enregistrements de base de données des services GitHub non utilisés. Vous trouverez des informations complémentaires dans le [billet annonçant la dépréciation](https://developer.github.com/changes/2018-04-25-github-services-deprecation/).'
+    - heading: Dépréciation des points de terminaison de l’API d’application OAuth et de l’authentification d’API via les paramètres de requête
+      notes:
+        # https://github.com/github/releases/issues/1316
+        - |Pour éviter la journalisation ou l’exposition accidentelle des jetons d’accès (`access_tokens`), nous vous déconseillons d’utiliser les points de terminaison de l’API d’application OAuth ainsi que l’authentification d’API via les paramètres de requête. Consultez les billets suivants pour prendre connaissance des solutions de remplacement :
+
+
+
+* [Points de terminaison de remplacement de l’API d’application OAuth](https://developer.github.com/changes/2020-02-14-deprecating-oauth-app-endpoint/#changes-to-make)
+
+* [Authentification de remplacement via les en-têtes plutôt que les paramètres de requête](https://developer.github.com/changes/2020-02-10-deprecating-auth-through-query-param/#changes-to-make)
+
+
+
+Ces points de terminaison et la route d’authentification sont appelés à être supprimés de {% data variables.product.prodname_ghe_server %} dans {% data variables.product.prodname_ghe_server %} 3.4.
+
+|
+    - heading: Suppression des points de terminaison et des événements de webook hérités de l’application GitHub
+      notes:
+        # https://github.com/github/releases/issues/965
+        - |Deux événements de webhook hérités en rapport avec les applications GitHub ont été supprimés : `integration_installation` et `integration_installation_repositories`. Vous devez à la place écouter les événements `installation` et `installation_repositories`.
+
+|
+        - |Le point de terminaison d’API REST suivant a été supprimé : `POST /installations/{installation_id}/access_tokens`. Vous devez à la place utiliser l’équivalent à espace de noms `POST /app/installations/{installation_id}/access_tokens`.
+
+|
+  backups:
+    - '{% data variables.product.prodname_ghe_server %} 3.2 nécessite au moins [GitHub Enterprise Backup Utilities 3.2.0](https://github.com/github/backup-utils) pour [les sauvegardes et la reprise d’activité après sinistre](/enterprise-server@3.2/admin/configuration/configuring-backups-on-your-appliance).'

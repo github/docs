@@ -1,6 +1,6 @@
 ---
-title: Reviewing your authorized applications (OAuth)
-intro: 'You should review your authorized applications to verify that no new applications with expansive permissions are authorized, such as those that have access to your private repositories.'
+title: Проверка авторизованных приложений (OAuth)
+intro: 'Необходимо проверить авторизованные приложения, чтобы убедиться в отсутствии авторизованных новых приложений с расширенными разрешениями, например, приложения, у которых есть доступ к частным репозиториям.'
 redirect_from:
   - /articles/reviewing-your-authorized-applications-oauth
   - /github/authenticating-to-github/reviewing-your-authorized-applications-oauth
@@ -14,13 +14,16 @@ topics:
   - Identity
   - Access management
 shortTitle: Review OAuth apps
+ms.openlocfilehash: fbc35fdca9ab64bf97224911d9adff560ba62eab
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145088425'
 ---
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.access_applications %}
-{% data reusables.user-settings.access_authorized_oauth_apps %}
-{% data reusables.user-settings.review-oauth-apps %}
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.access_applications %} {% data reusables.user-settings.access_authorized_oauth_apps %} {% data reusables.user-settings.review-oauth-apps %}
 
-## Further reading
+## Дополнительные материалы
 {% ifversion fpt or ghec %}
-- "[About integrations](/articles/about-integrations)"{% endif %}
-- "[Reviewing your authorized integrations](/articles/reviewing-your-authorized-integrations)"
+- [Сведения об интеграциях](/articles/about-integrations){% endif %}
+- [Просмотр авторизованных интеграций](/articles/reviewing-your-authorized-integrations)

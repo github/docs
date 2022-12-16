@@ -7,9 +7,6 @@ name: 'Link Checker: On PR'
 on:
   workflow_dispatch:
   merge_group:
-  push:
-    branches:
-      - main
   pull_request:
 
 permissions:
@@ -29,16 +26,22 @@ jobs:
     if: github.repository == 'github/docs-internal' || github.repository == 'github/docs'
     steps:
       - name: Checkout
-        uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
+
+      - name: Cache node_modules
+        uses: actions/cache@9b0c1fce7a93df8e3bb8926b0d6e9d89e92f20a7
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node_modules-${{ hashFiles('package*.json') }}
 
       - name: Setup node
-        uses: actions/setup-node@17f8bd926464a1afa4c6a11669539e9c1ba77048
+        uses: actions/setup-node@8c91899e586c5b171469028077307d293428b516
         with:
-          node-version: '16.15.0'
+          node-version: '16.17.0'
           cache: npm
 
-      - name: Install
-        run: npm ci
+      - name: Install dependencies
+        run: npm install --prefer-offline --no-audit --ignore-scripts
 
       - name: Figure out which docs-early-access branch to checkout, if internal repo
         if: ${{ github.repository == 'github/docs-internal' }}
@@ -50,7 +53,7 @@ jobs:
 
       - name: Check out docs-early-access too, if internal repo
         if: ${{ github.repository == 'github/docs-internal' }}
-        uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
         with:
           repository: github/docs-early-access
           token: ${{ secrets.DOCUBOT_REPO_PAT }}
@@ -85,7 +88,7 @@ jobs:
       #     GITHUB_TOKEN: ${{ secrets.DOCS_BOT_FR }}
       #     SHOULD_COMMENT: true
       #     CREATE_REPORT: false
-      #   run: node .github/actions/rendered-content-link-checker.js
+      #   run: node .github/actions-scripts/rendered-content-link-checker.js
 
       - name: Link check all pages (internal links only)
         id: all_links
@@ -96,7 +99,12 @@ jobs:
           SHOULD_COMMENT: ${{ secrets.DOCS_BOT_FR != '' }}
           CHECK_EXTERNAL_LINKS: false
           CREATE_REPORT: false
-        run: node .github/actions/rendered-content-link-checker.js
+          # Not strictly necessary bit it makes warmServer() a bit faster
+          # because it only bothers with English to begin with, which
+          # we're filtering on anyway once the list of all pages has
+          # been loaded.
+          ENABLED_LANGUAGES: en
+        run: node .github/actions-scripts/rendered-content-link-checker.js
 
       - name: Upload artifact(s)
         uses: actions/upload-artifact@3cea5372237819ed00197afe530f5a7ea3e805c8

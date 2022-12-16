@@ -15,12 +15,12 @@ topics:
   - Security advisories
   - Vulnerabilities
 shortTitle: Create repository advisories
-ms.openlocfilehash: de22432173f6bf909d001a3f780b0f9943769ec0
-ms.sourcegitcommit: 27882d9b3f19979c817c25952a2fb4dc4c6f0a65
+ms.openlocfilehash: 5c78a8b0c0a2d5085a876de2b0788ef093c4c6b1
+ms.sourcegitcommit: 74c60a4564bcc17e47b5a67941ac6d9fe13b6a5c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2022
-ms.locfileid: '148114110'
+ms.lasthandoff: 11/30/2022
+ms.locfileid: '148186159'
 ---
 Cualquier usuario con permisos de administrador puede crear un aviso de seguridad.
 
@@ -29,11 +29,11 @@ Cualquier usuario con permisos de administrador puede crear un aviso de segurida
 ## Creación de un aviso de seguridad
 
 {% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-security %} {% data reusables.repositories.sidebar-advisories %}
-4. Haz clic en **Nuevo borrador de asesoría de seguridad** para abrir el borrador del formulario de asesoría.
+1. Haz clic en **Nuevo borrador de asesoría de seguridad** para abrir el borrador del formulario de asesoría. Los campos marcados con un asterisco son obligatorios.
   ![Botón Open draft advisory](/assets/images/help/security/security-advisory-new-draft-security-advisory-button.png)
-5. Escribe un título para tu aviso de seguridad.
+1. Escribe un título para tu aviso de seguridad.
 {% data reusables.repositories.security-advisory-edit-details %} {% data reusables.repositories.security-advisory-edit-severity %} {% data reusables.repositories.security-advisory-edit-cwe-cve %} {% data reusables.repositories.security-advisory-edit-description %}
-11. Haga clic en **Create draft security advisory**.
+1. Haga clic en **Create draft security advisory**.
   ![Botón Create security advisory](/assets/images/help/security/security-advisory-create-security-advisory-button.png)
 
 ## Pasos siguientes

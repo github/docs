@@ -1,9 +1,9 @@
 ---
-ms.openlocfilehash: 7b782aa3d23143a62b07aedf0a07df3734173d44
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.openlocfilehash: f58fb9410d93c9e50d33de5f1b12b9d6441ea561
+ms.sourcegitcommit: 4d6d3735d32540cb6de3b95ea9a75b8b247c580d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2022
-ms.locfileid: "145137941"
+ms.lasthandoff: 11/30/2022
+ms.locfileid: "148185624"
 ---
-Cada repositorio u organización puede tener hasta 10 categorías.
+Cada repositorio u organización puede tener hasta 25 categorías.

@@ -23,6 +23,8 @@ type VersionItem = {
   openApiVersionName: string
   // api.github.com, ghec, ghes-, github.ae
   openApiBaseName: string
+  apiVersions: string[]
+  latestApiVersion: string
 }
 
 export type ProductTreeNode = {
@@ -40,7 +42,7 @@ type DataT = {
       version_was_deprecated: string
       version_will_be_deprecated: string
       deprecation_details: string
-      isOldestReleaseDeprecated: boolean
+      isOldestReleaseDeprecated?: boolean
     }
     policies: {
       translation: string
@@ -130,12 +132,27 @@ export const getMainContext = async (req: any, res: any): Promise<MainContextT> 
     error: req.context.error ? req.context.error.toString() : '',
     data: {
       ui: req.context.site.data.ui,
+
       reusables: {
-        enterprise_deprecation: req.context.site.data.reusables.enterprise_deprecation,
-        policies: req.context.site.data.reusables.policies,
+        enterprise_deprecation: {
+          version_was_deprecated: req.context.getDottedData(
+            'reusables.enterprise_deprecation.version_was_deprecated'
+          ),
+          version_will_be_deprecated: req.context.getDottedData(
+            'reusables.enterprise_deprecation.version_will_be_deprecated'
+          ),
+          deprecation_details: req.context.getDottedData(
+            'reusables.enterprise_deprecation.deprecation_details'
+          ),
+        },
+        policies: {
+          translation: req.context.getDottedData('reusables.policies.translation'),
+        },
       },
       variables: {
-        release_candidate: req.context.site.data.variables.release_candidate,
+        release_candidate: {
+          version: req.context.getDottedData('variables.release_candidate.version') || null,
+        },
       },
     },
     currentCategory: req.context.currentCategory || '',

@@ -811,7 +811,7 @@ The `inputs` context contains input properties passed to an action{% ifversion a
 
 There are no standard properties in the `inputs` context, only those which are defined in the workflow file.
 
-{% data reusables.actions.reusable-workflows-ghes-beta %}
+{% data reusables.actions.reusable-workflows-enterprise-beta %}
 
 | Property name | Type | Description |
 |---------------|------|-------------|

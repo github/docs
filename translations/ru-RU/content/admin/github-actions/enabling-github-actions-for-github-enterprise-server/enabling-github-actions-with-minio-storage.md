@@ -1,6 +1,6 @@
 ---
 title: Включение GitHub Actions с хранилищем MinIO
-intro: 'Вы можете включить {% data variables.product.prodname_actions %} в {% data variables.product.prodname_ghe_server %} и использовать хранилище MinIO для хранения данных, созданных при выполнении рабочих процессов.'
+intro: 'Вы можете включить {% data variables.product.prodname_actions %} в {% data variables.product.prodname_ghe_server %} и использовать хранилище MinIO для хранения данных, созданных при выполнении рабочего процесса.'
 permissions: 'Site administrators can enable {% data variables.product.prodname_actions %} and configure enterprise settings.'
 versions:
   ghes: '*'
@@ -14,20 +14,22 @@ redirect_from:
   - /admin/github-actions/enabling-github-actions-with-minio-gateway-for-nas-storage
   - /admin/github-actions/enabling-github-actions-for-github-enterprise-server/enabling-github-actions-with-minio-gateway-for-nas-storage
 shortTitle: MinIO storage
-ms.openlocfilehash: 3d9c6cfca6b81a66185515c8757cef22290ead30
-ms.sourcegitcommit: 8f1801040a84ca9353899a2d1e6782c702aaed0d
+ms.openlocfilehash: fec0720c8779ba643735156e6413005ae35f5d85
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/16/2022
-ms.locfileid: '148166572'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148192965'
 ---
+{% data reusables.actions.enterprise-storage-about %}
+
 ## Предварительные требования
 
 Перед включением {% data variables.product.prodname_actions %} выполните следующие действия:
 
-* Создайте контейнер MinIO для хранения данных, созданных при выполнении рабочих процессов. Дополнительные сведения об установке и настройке MinIO см. в разделе [Хранилище высокопроизводительных объектов MinIO](https://min.io/docs/minio/container/index.html) и [mc mb](https://min.io/docs/minio/linux/reference/minio-mc/mc-mb.html) документации По MinIO.
+* Создайте контейнер MinIO для хранения данных, созданных при выполнении рабочих процессов. Дополнительные сведения об установке и настройке MinIO см. в разделах [Хранилище высокопроизводительных объектов MinIO](https://min.io/docs/minio/container/index.html) и [mc mb](https://min.io/docs/minio/linux/reference/minio-mc/mc-mb.html) документации по MinIO.
 
-  Чтобы избежать конфликтов за ресурсы на устройстве, рекомендуется размещать MinIO отдельно от {% data variables.location.product_location %}.
+  Чтобы избежать конфликтов ресурсов на устройстве, рекомендуется размещать MinIO отдельно от {% data variables.location.product_location %}.
 
   {% indented_data_reference reusables.actions.enterprise-s3-permission spaces=2 %} {% data reusables.actions.enterprise-common-prereqs %}
 
@@ -43,6 +45,6 @@ ms.locfileid: '148166572'
    ![Переключатель для выбора хранилища Amazon S3 и поля для конфигурации MinIO](/assets/images/enterprise/management-console/actions-minio-s3-storage.png)
 1. В разделе "Артефакт и журнал хранилища" выберите **Задать стиль пути**.
 
-   ![Флажок для принудительного стиля](/assets/images/enterprise/management-console/actions-minio-force-path-style.png) пути {% data reusables.enterprise_management_console.test-storage-button %} {% data reusables.enterprise_management_console.save-settings %}
+   ![Установите флажок Force path style](/assets/images/enterprise/management-console/actions-minio-force-path-style.png) {% data reusables.enterprise_management_console.test-storage-button %} {% data reusables.enterprise_management_console.save-settings %}
 
 {% data reusables.actions.enterprise-postinstall-nextsteps %}

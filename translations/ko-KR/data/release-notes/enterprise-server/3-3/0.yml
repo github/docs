@@ -1,0 +1,363 @@
+date: '2021-12-07'
+intro: "업그레이드 지침은 \"[{% data variables.product.prodname_ghe_server %} 업그레이드](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server)\"를 참조하세요.<br><br>**참고:** {% data variables.product.prodname_ghe_server %} 3.3으로 업그레이드한 후 {% data variables.product.prodname_actions %}가 자동으로 시작되지 못하는 문제가 있을 수 있습니다. 이 문제를 해결하려면 SSH를 통해 어플라이언스에 연결하고 `ghe-actions-start` 명령을 실행하세요."
+sections:
+  features:
+    - heading: 보안 관리자 역할
+      notes:
+        # https://github.com/github/releases/issues/1610
+        - |이제 리포지토리의 보안 경고 및 설정을 관리할 수 있는 권한을 조직 소유자가 팀에 부여할 수 있습니다. "보안 관리자" 역할은 어느 팀에나 적용할 수 있으며 해당 팀의 멤버에게 다음과 같은 권한을 부여합니다.
+
+
+
+- 조직의 모든 리포지토리에 대한 읽기 권한
+
+- 조직의 모든 보안 경고에 대한 쓰기 권한
+
+- 조직 수준 보안 탭에 대한 액세스 권한
+
+- 조직 수준의 보안 설정에 대한 쓰기 권한
+
+- 리포지토리 수준의 보안 설정에 대한 쓰기 권한
+
+
+
+보안 관리자 역할은 공개 베타 버전으로 제공되며 변경될 수 있습니다. 자세한 내용은 "[조직의 보안 관리자 관리](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization)"를 참조하세요. [업데이트: 2022-07-29]
+
+|
+    - heading: 'GitHub Actions의 사용 후 삭제 자체 호스팅 실행기 및 자동 크기 조정을 위한 새로운 웹후크'
+      notes:
+        # https://github.com/github/releases/issues/1378
+        - |{% data variables.product.prodname_actions %}에서 이제 사용 후 삭제(단일 작업) 자체 호스팅 실행기와 새로운 [`workflow_job`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_job) 웹후크가 지원되어 자동 크기 조정 실행기가 더 간편해졌습니다.
+
+
+
+사용 후 삭제 실행기는 각 작업을 클린 이미지에서 실행해야 하는 자체 관리형 환경에 적합합니다. 사용 후 삭제 실행기는 작업이 실행된 후 {% data variables.product.product_location %}에서 자동으로 등록 취소되므로 원하는 사후 작업 관리를 수행할 수 있습니다.
+
+
+
+사용 후 삭제 실행기를 새로운 `workflow_job` 웹후크와 결합하면 {% data variables.product.prodname_actions %} 작업 요청에 대한 응답으로 자체 호스팅 실행기를 자동으로 스케일링할 수 있습니다.
+
+
+
+자세한 내용은 "[자체 호스팅 실행기를 사용한 자동 크기 조정](/actions/hosting-your-own-runners/autoscaling-with-self-hosted-runners)" 및 "[웹후크 이벤트 및 페이로드](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_job)"를 참조하세요.
+
+|
+    - heading: '어두운 고대비 테마'
+      notes:
+        # https://github.com/github/releases/issues/1539
+        - |전경과 배경 요소 간의 대비가 더 뚜렷한 어두운 고대비 테마를 이제 {% data variables.product.prodname_ghe_server %} 3.3에서 사용할 수 있습니다. 또한 이번 릴리스에서는 모든 {% data variables.product.company_short %} 테마의 색 시스템이 개선되었습니다.
+
+
+
+![모양 설정 페이지에서 어두운 기본 테마와 어두운 고대비 사이를 전환하는 애니메이션 이미지](https://user-images.githubusercontent.com/334891/123645834-ad096c00-d7f4-11eb-85c9-b2c92b00d70a.gif)
+
+
+
+테마 변경에 대한 자세한 내용은 "[테마 설정 관리](/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/managing-your-theme-settings)"를 참조하세요.
+
+|
+  changes:
+    - heading: 관리 변경 내용
+      notes:
+        # https://github.com/github/releases/issues/1666
+        - '{% data variables.product.prodname_ghe_server %} 3.3에는 리포지토리(특히 접근할 수 없는 개체가 많이 포함된 리포지토리) 유지 관리에 대한 개선 사항이 포함되어 있습니다. {% data variables.product.prodname_ghe_server %} 3.3으로 업그레이드한 후 첫 번째 유지 관리 주기를 완료하는 데 평소보다 시간이 더 걸릴 수 있습니다.'
+
+        # https://github.com/github/releases/issues/1533
+        - '{% data variables.product.prodname_ghe_server %} 3.3에는 지리적으로 분산된 팀 및 CI 인프라를 위한 리포지토리 캐시의 공개 베타 버전이 포함되어 있습니다. 리포지토리 캐시는 추가 지역에서 사용할 수 있는 리포지토리의 읽기 전용 복사본을 유지하므로 클라이언트가 주 인스턴스에서 중복 Git 콘텐츠를 다운로드하는 것을 방지합니다. 자세한 내용은 "[리포지토리 캐싱 정보](/admin/enterprise-management/caching-repositories/about-repository-caching)"를 참조하세요.'
+
+        # https://github.com/github/releases/issues/1616
+        - '{% data variables.product.prodname_ghe_server %} 3.3에는 사용자 가장 프로세스에 대한 개선 사항이 포함되어 있습니다. 이제 가장 세션을 사용하려면 가장에 대한 근거가 필요하며, 가장된 사용자로 작업이 수행되는 동안 해당 작업이 감사 로그에 기록되고, 가장된 사용자는 엔터프라이즈 관리자가 자신을 가장했다는 이메일 알림을 받게 됩니다. 자세한 내용은 "[사용자 가장](/enterprise-server@3.3/admin/user-management/managing-users-in-your-enterprise/impersonating-a-user)"을 참조하세요.'
+
+        # https://github.com/github/releases/issues/1609
+        - "감사 로그에 게시되는 Git 및 {% data variables.product.prodname_actions %} 활동과 관련된 이벤트를 비롯한 증가하는 이벤트 세트를 지원하기 위해 새로운 스트림 처리 서비스가 추가되었습니다."
+
+        # https://github.com/github/docs-content/issues/5801
+        - "{% data variables.product.prodname_github_connect %} 데이터 연결 레코드에 이제 사용하도록 설정된 {% data variables.product.prodname_github_connect %} 기능 목록이 포함됩니다. [2021-12-09 업데이트됨]"
+
+    - heading: 토큰 변경 내용
+      notes:
+        # https://github.com/github/releases/issues/1390
+        - |이제 새 개인용 액세스 토큰과 기존 개인용 액세스 토큰에 만료 날짜를 설정할 수 있습니다. 오래된 토큰이 유출되어 보안이 손상되는 것을 방지하기 위해 개인용 액세스 토큰에 만료 날짜를 설정하는 것이 적극 권장됩니다. 곧 만료되는 토큰을 갱신할 때가 되면 토큰 소유자에게 이메일이 전송됩니다. 만료된 토큰은 다시 생성하여 원래 토큰과 동일한 속성을 가진 중복 토큰을 사용자에게 제공할 수 있습니다.
+
+
+
+{% data variables.product.company_short %} API에서 개인용 액세스 토큰을 사용할 경우 토큰의 만료 날짜를 나타내는 새로운 ''GitHub-Authentication-Token-Expiration'' 헤더가 응답에 포함됩니다. 자세한 내용은 "[개인용 액세스 토큰 만들기](/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token)"를 참조하세요.
+
+|
+    - heading: '알림 변경 사항'
+      notes:
+        # https://github.com/github/releases/issues/1625
+        - '이제 토론의 알림 이메일 제목에 `(토론 #xx)''이 포함되어 토론을 참조하는 이메일을 인지하고 필터링할 수 있습니다.'
+
+    - heading: '리포지토리 변경 사항'
+      notes:
+        # https://github.com/github/releases/issues/1735
+        - 이제 퍼블릭 리포지토리 이름 옆에 프라이빗 및 내부 리포지토리처럼 `퍼블릭` 레이블이 붙습니다. 이러한 변화 덕분에 퍼블릭 리포지토리를 보다 쉽게 식별하여 프라이빗 코드를 실수로 커밋하는 것을 방지할 수 있습니다.
+
+        # https://github.com/github/releases/issues/1733
+        - 분기 선택기 메뉴를 사용할 때 정확한 분기 이름을 지정하면 일치하는 분기 목록의 위쪽에 결과가 표시됩니다. 이전에는 정확한 분기 이름 일치 항목이 목록의 아래쪽에 표시될 수 있었습니다.
+
+        # https://github.com/github/releases/issues/1673
+        - "해당하는 열린 끌어오기 요청이 있는 분기를 볼 때 {% data variables.product.prodname_ghe_server %}가 이제는 끌어오기 요청에 직접 연결됩니다. 이전에는 분기 비교를 사용하여 기여하거나 새 끌어오기 요청을 열라는 메시지가 표시되었습니다."
+
+        # https://github.com/github/releases/issues/1670
+        - "이제 단추를 클릭하여 파일의 원시 콘텐츠 전체를 클립보드에 복사할 수 있습니다. 이전에는 원시 파일을 열고 모두 선택한 다음, 복사해야 했습니다. 파일의 콘텐츠를 복사하려면 파일로 이동하여 도구 모음에서 {% octicon \"copy\" aria-label=\"The copy icon\" %}을 클릭합니다. 이 기능은 현재 일부 브라우저에서만 사용할 수 있습니다."
+
+        # https://github.com/github/releases/issues/1571
+        - "새 릴리스를 만들 때 이제는 텍스트 필드에 태그를 지정하는 대신 드롭다운 선택기를 사용하여 태그를 선택하거나 만들 수 있습니다. 자세한 내용은 \"[리포지토리에서 릴리스 관리](/repositories/releasing-projects-on-github/managing-releases-in-a-repository)\"를 참조하세요."
+
+        # https://github.com/github/releases/issues/1752
+        - "양방향 유니코드 텍스트가 포함된 파일을 볼 때 경고가 표시됩니다. 양방향 유니코드 텍스트는 사용자 인터페이스에 표시되는 것과 다르게 해석되거나 컴파일될 수 있습니다. 예를 들어 숨겨진 양방향 유니코드 문자를 사용하여 파일의 텍스트 세그먼트를 바꿀 수 있습니다. 이러한 문자 교체에 대한 자세한 내용은 [{% data variables.product.prodname_dotcom %} 변경 로그](https://github.blog/changelog/2021-10-31-warning-about-bidirectional-unicode-text/)를 참조하세요."
+
+        # https://github.com/github/releases/issues/1416
+        - "이제 'CITATION.cff' 파일을 사용하여 다른 사람에게 자신의 작품을 인용하는 방법을 알릴 수 있습니다. 'CITATION.cff' 파일은 사람과 기계가 읽을 수 있는 인용 정보가 포함된 일반 텍스트 파일입니다. {% data variables.product.prodname_ghe_server %}는 이런 정보를 [APA](https://apastyle.apa.org) 및 [BibTeX](https://en.wikipedia.org/wiki/BibTeX)와 같은 일반적인 인용 형식으로 구문 분석합니다. 자세한 내용은 \"[CITATION 파일 정보](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-citation-files)\"를 참조하세요."
+
+    - heading: 'Markdown 변경 사항'
+      notes:
+        # https://github.com/github/releases/issues/1645
+        - |markdown 파일, 이슈, 끌어오기 요청, 주석의 목록과 따옴표에 새로운 바로 가기 키를 사용할 수 있습니다.
+
+
+
+* 따옴표를 추가하려면 Mac에서는 <kbd>cmd shift .</kbd>을 사용하고 Windows 및 Linux에서는 <kbd>ctrl shift .</kbd>을 사용하세요.
+
+* 순서가 지정된 목록을 추가하려면 Mac에서는 <kbd>cmd shift 7</kbd>을 사용하고 Windows 및 Linux에서는 <kbd>ctrl shift 7</kbd>을 사용하세요.
+
+* 순서가 지정되지 않은 목록을 추가하려면 Mac에서는 <kbd>cmd shift 8</kbd>을 사용하고 Windows 및 Linux에서는 <kbd>ctrl shift 8</kbd>을 사용하세요.
+
+
+
+사용 가능한 바로 가기 키의 전체 목록은 "[바로 가기 키](/get-started/using-github/keyboard-shortcuts)"를 참조하세요.
+
+|
+        # https://github.com/github/releases/issues/1684
+        - "이제 Markdown 필드에 각주 구문을 사용할 수 있습니다. 각주는 위 첨자 링크로 표시되며 클릭하면 문서 맨 아래 새 섹션에 표시되는 참조 정보로 이동할 수 있습니다. 구문에 대한 자세한 내용은 \"[기본 쓰기 및 서식 지정 구문](/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#footnotes)\"을 참조하세요."
+
+        # https://github.com/github/releases/issues/1647
+        - "Markdown 파일을 볼 때 도구 모음에서 {% octicon \"code\" aria-label=\"The code icon\" %}을 클릭하면 Markdown 파일의 소스를 볼 수 있습니다. 이전에는 Markdown 파일 원본의 특정 줄 번호에 연결하는 원인 보기를 사용해야 했습니다."
+
+        # https://github.com/github/releases/issues/1600
+        - "이제는 이미지와 비디오를 Markdown 본문에 붙여넣거나 Markdown 파일의 맨 아래 대화 상자에서 선택하여 이미지와 비디오를 Markdown 파일에 추가할 수 있습니다. 지원되는 파일 형식에 대한 자세한 내용은 \"[파일 첨부](https://docs.github.com/en/github/writing-on-github/working-with-advanced-formatting/attaching-files)\"를 참조하세요."
+
+        # https://github.com/github/releases/issues/1523
+        - '이제 {% data variables.product.prodname_ghe_server %}에서 제목을 기반으로 Wiki의 목차가 자동으로 생성됩니다.'
+
+        # https://github.com/github/releases/issues/1626
+        - "이미지 및 비디오와 같은 파일을 Markdown 편집기로 끌어다 놓을 경우 {% data variables.product.prodname_ghe_server %}에서 파일을 배치할 때 커서 위치 대신 마우스 포인터 위치가 사용됩니다."
+
+    - heading: '이슈 및 끌어오기 요청 변경 사항'
+      notes:
+        # https://github.com/github/releases/issues/1504
+        - "이제 논리적 OR 연산자를 사용하여 레이블별로 이슈를 검색할 수 있습니다. 논리적 OR을 사용하여 이슈를 필터링하려면 쉼표 구문을 사용합니다. 예를 들어 `label:\"good first issue\",\"bug\"`는 레이블이 `good first issue` 또는 `bug`인 모든 이슈를 나열합니다. 자세한 내용은 \"[이슈 및 끌어오기 요청 필터링 및 검색](/issues/tracking-your-work-with-issues/filtering-and-searching-issues-and-pull-requests#about-search-terms)\"을 참조하세요."
+
+        # https://github.com/github/releases/issues/1685
+        - |팀이 코드 검토 할당을 관리하는 데 도움이 되도록 기능이 향상되었습니다. 이제 다음과 같은 작업을 수행할 수 있습니다.
+
+
+
+- 할당을 팀의 직속 멤버로만 제한합니다.
+
+- 한 명 이상의 팀 멤버가 이미 요청된 경우에도 자동 할당을 계속합니다.
+
+- 한 명 이상의 멤버가 새로 할당된 경우에도 검토에 할당된 팀을 유지합니다.
+
+
+
+끌어오기 요청 페이지의 타임라인 및 검토자 사이드바에 검토 요청이 한 명 이상의 팀 멤버에게 자동으로 할당되었는지 여부가 표시됩니다.
+
+
+
+자세한 내용은 [{% data variables.product.prodname_dotcom %} 변경 로그](https://github.blog/changelog/2021-09-29-new-code-review-assignment-settings-and-team-filtering-improvements/)를 참조하세요.
+
+|
+        - 이제 검토를 직접 요청받은 끌어오기 요청만 포함하도록 끌어오기 요청 검색을 필터링할 수 있습니다.
+        # https://github.com/github/releases/issues/1683
+        - "끌어오기 요청에서 필터링된 파일이 이제 보기에서 완전히 숨겨지고 더 이상 \"변경된 파일\" 탭에서 축소된 것으로 표시되지 않습니다. \"파일 필터\" 메뉴도 간소화되었습니다. 자세한 내용은 \"[끌어오기 요청에서 파일 필터링](/github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/filtering-files-in-a-pull-request)\"을 참조하세요."
+
+    - heading: 'GitHub Actions 변경 사항'
+      notes:
+        # https://github.com/github/releases/issues/1593
+        - "이제 여러 워크플로 단계를 하나의 작업으로 결합하고 다른 작업을 참조하는 기능을 포함하는 \"복합 작업\"을 만들 수 있습니다. 이렇게 하면 워크플로의 중복을 쉽게 줄일 수 있습니다. 이전에는 작업이 자체 YAML 정의의 스크립트만 사용할 수 있었습니다. 자세한 내용은 \"[복합 작업 만들기](/actions/creating-actions/creating-a-composite-action)\"를 참조하세요."
+
+        # https://github.com/github/releases/issues/1694
+        - "엔터프라이즈 수준에서 자체 호스팅 실행기를 관리하는 경우 더 이상 'admin:enterprise' 범위의 개인용 액세스 토큰을 사용할 필요가 없습니다. 대신 `manage_runners:enterprise` 범위를 사용하여 토큰에 대한 권한을 제한할 수 있습니다. 이 범위의 토큰은 엔터프라이즈의 자체 호스팅 실행기를 관리하기 위해 [많은 REST API 엔드포인트](/rest/reference/enterprise-admin#list-self-hosted-runner-groups-for-an-enterprise)에 인증할 수 있습니다."
+
+        # https://github.com/github/releases/issues/1157
+        - |이제 감사 로그에 {% data variables.product.prodname_actions %}에 대한 추가 이벤트가 포함됩니다. 이제 다음 이벤트에 대한 감사 로그 항목이 기록됩니다.
+
+
+
+* 자체 호스팅 실행기가 등록되거나 제거되었습니다.
+
+* 자체 호스팅 실행기가 실행기 그룹에 추가되거나 실행기 그룹에서 제거되었습니다.
+
+* 실행기 그룹이 생성되거나 제거되었습니다.
+
+* 워크플로 실행이 생성되거나 완료되었습니다.
+
+* 워크플로 작업이 준비되었습니다. 중요한 사항으로 이 로그에는 실행기에 제공된 비밀 목록이 포함되어 있습니다.
+
+
+
+자세한 내용은 "[{% data variables.product.prodname_actions %}에 대한 보안 강화](/actions/security-guides/security-hardening-for-github-actions#auditing-github-actions-events)"를 참조하세요.
+
+|
+        # https://github.com/github/releases/issues/1588
+        - '{% data variables.product.prodname_ghe_server %} 3.3에는 {% data variables.product.prodname_actions %}와의 작업 동시성에 대한 성능 개선 사항이 포함되어 있습니다. 다양한 CPU 및 메모리 구성에 대한 새로운 성능 목표에 대한 자세한 내용은 "[{% data variables.product.prodname_ghe_server %}용 {% data variables.product.prodname_actions %} 시작하기](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/getting-started-with-github-actions-for-github-enterprise-server#review-hardware-considerations)"를 참조하세요.'
+
+        # https://github.com/github/releases/issues/1556
+        - "{% data variables.product.prodname_github_connect %}를 통해 {% data variables.product.prodname_ghe_server %}에서 {% data variables.product.prodname_dotcom_the_website %}로 확인된 작업을 사용할 때 내부자 중간자(man-in-the-middle) 공격을 완화하기 위해 작업 네임스페이스(`owner/name`)는 사용 시 폐기됩니다. 네임스페이스가 폐기되면 해당 네임스페이스가 {% data variables.product.prodname_ghe_server %} 인스턴스에 생성되지 않고 작업을 참조하는 모든 워크플로가 {% data variables.product.prodname_dotcom_the_website %}에서 다운로드됩니다."
+
+    - heading: 'GitHub 패키지 변경 내용'
+      notes:
+        # https://github.com/github/docs-content/issues/5554
+        - "리포지토리가 삭제되면 연결된 패키지 파일이 {% data variables.product.prodname_registry %} 외부 스토리지에서 즉시 삭제됩니다."
+
+    - heading: 'Dependabot 및 종속성 그래프 변경 사항'
+      notes:
+        # https://github.com/github/releases/issues/1141
+        - "종속성 검토가 베타에서 벗어나 이제 {% data variables.product.prodname_GH_advanced_security %} 고객에게 일반 공급됩니다. 종속성 검토는 끌어오기 요청의 “변경된 파일” 탭에서 종속성 변경 내용 및 보안 영향을 이해하기 쉬운 보기를 제공합니다. 추가, 제거 또는 업데이트된 종속성을 취약성 정보와 함께 알려줍니다. 자세한 내용은 \"[끌어오기 요청에서 종속성 변경 검토](/github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-dependency-changes-in-a-pull-request)\"를 참조하세요."
+
+        # https://github.com/github/releases/issues/1630
+        - '{% data variables.product.prodname_dependabot %}이 이제 프라이빗 베타로 제공되며 널리 사용되는 여러 에코시스템에 대한 버전 업데이트와 보안 업데이트를 모두 제공합니다. {% data variables.product.prodname_ghe_server %}의 {% data variables.product.prodname_dependabot %}에는 {% data variables.product.prodname_actions %} 및 {% data variables.product.prodname_dependabot %} 사용을 위해 구성된 자체 호스팅 실행기 풀이 필요합니다. {% data variables.product.prodname_ghe_server %}의 {% data variables.product.prodname_dependabot %} 역시 {% data variables.product.prodname_github_connect %}가 있어야 사용하도록 설정할 수 있습니다. 자세히 알아보고 베타에 등록하려면 GitHub 영업 팀에 문의하세요.'
+
+    - heading: '코드 검사 및 비밀 검사 변경 사항'
+      notes:
+        # https://github.com/github/releases/issues/1724
+        - "[라이브러리 및 프레임워크](https://codeql.github.com/docs/codeql-overview/supported-languages-and-frameworks/)에 대한 지원이 더 많이 추가되고 기존 라이브러리 및 프레임워크 모델의 적용 범위가 확대되어 {% data variables.product.prodname_codeql %} 분석의 깊이가 향상되었습니다. [JavaScript](https://github.com/github/codeql/tree/main/javascript) 분석은 이제 가장 일반적인 템플릿 언어를 지원하며 [Java](https://github.com/github/codeql/tree/main/java)는 이전 {% data variables.product.prodname_codeql %} 버전의 엔드포인트보다 3배 넘게 처리합니다. 그 결과 {% data variables.product.prodname_codeql %}은 이제 신뢰할 수 없는 사용자 데이터의 잠재적인 출처, 해당 데이터가 흐르는 단계, 데이터가 끝날 수 있는 잠재적으로 위험한 싱크를 감지할 수 있습니다. 따라서 {% data variables.product.prodname_code_scanning %} 경고의 품질이 전반적으로 향상됩니다."
+
+        # https://github.com/github/releases/issues/1639
+        - '{% data variables.product.prodname_codeql %}은 이제 레코드 및 패턴 일치와 같은 Java 16의 표준 언어 기능 스캔을 지원합니다. {% data variables.product.prodname_codeql %}은 Java 버전 7~16으로 작성된 코드를 분석할 수 있습니다. 지원되는 언어 및 프레임워크에 대한 자세한 내용은 [{% data variables.product.prodname_codeql %} 설명서](https://codeql.github.com/docs/codeql-overview/supported-languages-and-frameworks/#id5)를 참조하세요.'
+
+        # https://github.com/github/releases/issues/1655
+        - |코드가 끌어오기 요청으로 푸시되는 경우 {% data variables.product.prodname_code_scanning %} `on:push` 트리거가 향상되었습니다. ''on:push'' 스캔이 끌어오기 요청과 관련된 결과를 반환하면 {% data variables.product.prodname_code_scanning %}은 이제 끌어오기 요청에서 이러한 경고를 표시합니다.
+
+
+
+일부 다른 CI/CD 시스템은 코드가 분기에 푸시될 때 또는 모든 커밋에 대해 독점적으로 파이프라인을 트리거하도록 독점적으로 구성할 수 있습니다. 이러한 분석 파이프라인이 트리거되고 결과가 SARIF API에 업로드될 때마다 {% data variables.product.prodname_code_scanning %}은 분석 결과를 열린 끌어오기 요청과 일치시키려고 시도합니다. 진행 중인 끌어오기 요청이 있으면 결과가 위와 같이 게시됩니다. 자세한 내용은 [{% data variables.product.prodname_dotcom %} 변경 로그](https://github.blog/changelog/2021-09-27-showing-code-scanning-alerts-on-pull-requests/)를 참조하세요.
+
+|
+        # https://github.com/github/releases/issues/1546
+        - "이제 {% data variables.product.prodname_code_scanning %} 경고 페이지에서 새로운 끌어오기 요청 필터를 사용하여 끌어오기 요청과 관련된 모든 {% data variables.product.prodname_code_scanning %} 경고를 찾을 수 있습니다. 끌어오기 요청 \"검사\" 탭의 새로운 \"모든 분기 경고 보기\" 링크를 사용하면 특정 끌어오기 요청 필터가 이미 적용된 {% data variables.product.prodname_code_scanning %} 경고를 직접 볼 수 있습니다. 자세한 내용은 [{% data variables.product.prodname_dotcom %} 변경 로그](https://github.blog/changelog/2021-08-23-pull-request-filter-for-code-scanning-alerts/)를 참조하세요."
+
+        # https://github.com/github/releases/issues/1562
+        - "{% data variables.product.prodname_secret_scanning %}에 대한 사용자 정의 패턴이 베타에서 벗어나 이제 {% data variables.product.prodname_GH_advanced_security %} 고객에게 일반 공급됩니다. 또한 이 릴리스의 새로운 기능은 리포지토리, 조직 및 엔터프라이즈 수준에서 정의된 사용자 지정 패턴을 편집할 수 있는 기능입니다. 패턴을 편집하고 저장한 후 {% data variables.product.prodname_secret_scanning %}은 리포지토리의 전체 Git 기록과 새 커밋에서 일치하는 항목을 검색합니다. 패턴을 편집하면 업데이트된 버전과 더 이상 일치하지 않는 경우 이전에 패턴과 연결된 경고가 닫힙니다. 시험 실행과 같은 기타 개선 사항은 향후 릴리스에 계획되어 있습니다. 자세한 내용은 \"[비밀 검사에 대한 사용자 지정 패턴 정의](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)\"를 참조하세요."
+
+    - heading: API 및 웹후크 변경 사항
+      notes:
+        # https://github.com/github/releases/issues/1744
+        - "대부분의 REST API 미리 보기가 전환되어 이제는 API의 공식적인 부분입니다. 대부분의 REST API 엔드포인트에는 미리 보기 헤더가 더 이상 필요하지 않지만, 요청의 `Accept` 헤더에 전환된 미리 보기를 지정하면 예상대로 작동합니다. 요청의 `Accept` 헤더에 아직 미리 보기를 지정해야 하는 미리 보기는 \"[API 미리 보기](/rest/overview/api-previews)\"를 참조하세요."
+
+        # https://github.com/github/releases/issues/1513
+        - "이제 REST API를 사용하여 외부 리소스에 대한 사용자 지정 자동 링크를 구성할 수 있습니다. REST API는 리포지토리와 연결된 사용자 지정 자동 링크를 보거나 추가하거나 삭제하는 데 사용할 수 있는 베타 `GET`/`POST`/`DELETE` 엔드포인트를 제공합니다. 자세한 내용은 \"[자동 링크](/rest/reference/repos#autolinks)\"를 참조하세요."
+
+        # https://github.com/github/releases/issues/1578
+        - "이제 REST API를 사용하여 분기된 리포지토리를 업스트림 리포지토리와 동기화할 수 있습니다. 자세한 내용은 REST API 설명서의 \"[분기](/rest/reference/branches#sync-a-fork-branch-with-the-upstream-repository)\"를 참조하세요."
+
+        # https://github.com/github/releases/issues/1527
+        - "이제 GitHub Enterprise Server의 엔터프라이즈 관리자가 REST API를 사용하여 리포지토리에 대해 Git LFS를 사용하거나 사용하지 않도록 설정할 수 있습니다. 자세한 내용은 \"[리포지토리](/rest/reference/repos#git-lfs)\"를 참조하세요."
+
+        # https://github.com/github/releases/issues/1476
+        - "이제 REST API를 사용하여 엔터프라이즈에 대한 감사 로그를 쿼리할 수 있습니다. 감사 로그 전달은 자체 도구 키트로 데이터를 유지 및 분석하고 시간 경과에 따른 패턴을 확인할 수 있는 기능을 제공하는 반면, 새로운 엔드포인트는 최근 이벤트에 대해 제한된 분석을 수행하는 데 유용할 수 있습니다. 자세한 내용은 REST API 설명서의 \"[{% data variables.product.prodname_enterprise %} 관리](/rest/reference/enterprise-admin#get-the-audit-log-for-an-enterprise)\"를 참조하세요."
+
+        # https://github.com/github/releases/issues/1485
+        - GitHub 앱 사용자-서버 API 요청이 이제 REST API를 사용하여 공용 리소스를 읽을 수 있습니다. 여기에는 예를 들어 공용 리포지토리의 이슈 및 끌어오기 요청을 나열하고 공용 리포지토리의 주석 및 콘텐츠에 액세스하는 기능이 포함됩니다.
+
+        # https://github.com/github/releases/issues/1734
+        - "리포지토리를 생성하거나 업데이트할 때 이제 REST 및 GraphQL API를 사용하여 분기를 허용할지 여부를 구성할 수 있습니다. 이전에는 리포지토리 생성 및 업데이트를 위한 API에 `allow_forking`(REST) 또는 `forkingAllowed`(GraphQL) 필드가 포함되지 않았습니다. 자세한 내용은 REST API 설명서의 \"[리포지토리](/rest/reference/repos)\" 및 GraphQL API 설명서의 \"[리포지토리](/graphql/reference/objects#repository)\"를 참조하세요."
+
+        # https://github.com/github/releases/issues/1637
+        - |새로운 GraphQL 변형 [`createCommitOnBranch`](/graphql/reference/mutations#createcommitonbranch)을 사용하면 리포지토리의 분기에 파일을 더 쉽게 추가, 업데이트 및 삭제할 수 있습니다. REST API와 비교할 때 커밋을 작성하기 전에 Blob과 트리를 수동으로 생성할 필요가 없습니다. 그래서 단일 API 호출에서 여러 파일을 추가, 업데이트 또는 삭제할 수 있습니다.
+
+
+
+새 API를 사용하여 작성된 커밋은 자동으로 GPG 서명되고 {% data variables.product.prodname_ghe_server %} UI에서 [확인된 것으로 표시](/github/authenticating-to-github/managing-commit-signature-verification/about-commit-signature-verification)됩니다. GitHub 앱은 변형을 사용하여 직접 또는 [사용자를 대신하여](/developers/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps#user-to-server-requests) 커밋을 작성할 수 있습니다.
+
+|
+        # https://github.com/github/releases/issues/1665
+        - "새 태그가 생성되면 [푸시](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#push) 웹후크 페이로드에 새 태그가 가리키는 커밋 데이터를 포함하는 `head_commit` 개체가 항상 포함됩니다. 따라서, `head_commit` 개체에는 항상 페이로드의 `after` 커밋에 대한 커밋 데이터가 포함됩니다."
+
+    - heading: '성능 변경 사항'
+      notes:
+        # https://github.com/github/releases/issues/1823
+        - 페이지 로드 및 작업은 이제 많은 Git 참조가 있는 리포지토리에 대해 훨씬 더 빠릅니다.
+
+  # No security/bug fixes for the RC release
+  # security_fixes:
+  #   - PLACEHOLDER
+
+  # bugs:
+  #   - PLACEHOLDER
+
+  known_issues:
+    - "{% data variables.product.prodname_ghe_server %} 3.3으로 업그레이드한 후 {% data variables.product.prodname_actions %}가 자동으로 시작되지 않을 수도 있습니다. 이 이슈를 해결하려면 SSH를 통해 어플라이언스에 연결하고 `ghe-actions-start` 명령을 실행하세요."
+    - "사용자 없이 새로 설정된 {% data variables.product.prodname_ghe_server %} 인스턴스에서 공격자는 첫 번째 관리 사용자를 만들 수 있습니다."
+    - 사용자 지정 방화벽 규칙은 업그레이드 프로세스 중에 제거됩니다.
+    - "Git LFS 추적 파일[웹 인터페이스를 통해 업로드됨](https://github.com/blog/2105-upload-files-to-your-repositories)이 리포지토리에 직접 잘못 추가되었습니다."
+    - 이슈에 동일한 리포지토리의 Blob에 대한 고정 링크가 포함되었지만 Blob의 파일 경로가 255자보다 긴 경우 해당 이슈를 종료할 수 없습니다.
+    - GitHub Connect에서 “사용자가 GitHub.com을 검색할 수 있음”이 사용하도록 설정되면 프라이빗 및 내부 리포지토리의 이슈가 GitHub.com 검색 결과에 포함되지 않습니다.
+    - "{% data variables.product.prodname_registry %} npm 레지스트리는 더 이상 메타데이터 응답에서 시간 값을 반환하지 않습니다. 이 작업은 성능을 크게 향상시키기 위해 수행되었습니다. 메타데이터 응답의 일부로 시간 값을 반환하는 데 필요한 모든 데이터를 계속 보유하고 있으며, 기존 성능 이슈가 해결되면 이 값의 반환을 다시 시작할 예정입니다."
+    - 사전 수신 후크 처리에만 해당되는 리소스 한도로 인해 일부 사전 수신 후크가 실패할 수 있습니다.
+    - '"경로 스타일 강제 적용"이 선택되는 경우 {% data variables.product.prodname_actions %} 스토리지 설정은 {% data variables.enterprise.management_console %}에서 유효성 검사 및 저장될 수 없으며 대신 `ghe-actions-precheck` 명령줄 유틸리티로 구성되어야 합니다.'
+    - '현재 Linux 커널에 있는 버그로 인해 Azure에 설치되고 32개 이상의 CPU 코어로 프로비전된 {% data variables.product.prodname_ghe_server %} 3.3 인스턴스가 시작되지 않습니다. [업데이트 날짜: 2022-04-08]'
+    - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'
+  deprecations:
+    - heading: GitHub Enterprise Server 2.22 지원 중단
+      notes:
+        - '**{% data variables.product.prodname_ghe_server %} 2.22는 2021년 9월 23일부로 지원이 중단되었습니다.** 즉, 이 날짜 이후에는 중요한 보안 문제에 대해서도 패치 릴리스가 이루어지지 않습니다. 성능 향상, 보안 향상 및 새로운 기능을 위해 최대한 빨리 [최신 버전의 {% data variables.product.prodname_ghe_server %}](/enterprise-server@3.3/admin/enterprise-management/upgrading-github-enterprise-server)로 업그레이드합니다.'
+    - heading: GitHub Enterprise Server 3.0 지원 중단
+      notes:
+        - '**{% data variables.product.prodname_ghe_server %} 3.0은 2022년 2월 16일부로 지원이 중단됩니다.** 즉, 이 날짜 이후에는 중요한 보안 문제에 대해서도 패치 릴리스가 이루어지지 않습니다. 성능 향상, 보안 향상 및 새로운 기능을 위해 최대한 빨리 [최신 버전의 {% data variables.product.prodname_ghe_server %}](/enterprise-server@3.3/admin/enterprise-management/upgrading-github-enterprise-server)로 업그레이드합니다.'
+
+    - heading: XenServer Hypervisor 지원 중단
+      notes:
+        # https://github.com/github/docs-content/issues/4439
+        - "{% data variables.product.prodname_ghe_server %} 3.3부터 XenServer의 {% data variables.product.prodname_ghe_server %}의 지원이 중단되었고 더 이상 지원되지 않습니다. 질문이나 우려가 있으면 [GitHub 지원](https://support.github.com)에 문의하세요."
+
+    - heading: 쿼리 매개 변수를 사용한 OAuth 애플리케이션 API 엔드포인트 및 API 인증 지원 중단
+      notes:
+        # https://github.com/github/releases/issues/1316
+        - |‘access_tokens’의 우발적인 로깅 또는 노출을 방지하기 위해 OAuth 애플리케이션 API 엔드포인트 사용 및 쿼리 매개 변수를 이용한 API 인증 사용은 권장되지 않습니다. 제안된 대체품을 보려면 다음 게시물을 확인하세요.
+
+
+
+* [대체 OAuth 애플리케이션 API 엔드포인트](https://developer.github.com/changes/2020-02-14-deprecating-oauth-app-endpoint/#changes-to-make)
+
+* [쿼리 매개 변수 대신 헤더를 사용하여 대체 인증](https://developer.github.com/changes/2020-02-10-deprecating-auth-through-query-param/#changes-to-make)
+
+
+
+이러한 엔드포인트 및 인증 경로는 {% data variables.product.prodname_ghe_server %} 3.4의 {% data variables.product.prodname_ghe_server %}에서 제거될 예정입니다.
+
+|
+    - heading: CodeQL 실행기 지원 중단
+      notes:
+        # https://github.com/github/releases/issues/1632
+        - "{% data variables.product.prodname_codeql %} 실행기는 지원이 중단됩니다. {% data variables.product.prodname_ghe_server %} 3.3이 {% data variables.product.prodname_codeql %} 실행기를 지원하는 최종 릴리스 시리즈가 될 것입니다. {% data variables.product.prodname_ghe_server %} 3.4부터 {% data variables.product.prodname_codeql %} 실행기가 제거되고 더 이상 지원되지 않습니다. {% data variables.product.prodname_codeql %} CLI 버전 2.6.2 이상은 {% data variables.product.prodname_codeql %} 실행기의 기능적으로 완전한 교체입니다. 자세한 내용은 [{% data variables.product.prodname_dotcom %} 변경 로그](https://github.blog/changelog/2021-09-21-codeql-runner-deprecation/)를 참조하세요."
+
+    - heading: 사용자 지정 비트-캐시 확장 지원 중단
+      notes:
+        # https://github.com/github/releases/issues/1415
+        - |{% data variables.product.prodname_ghe_server %} 3.1부터 {% data variables.product.company_short %}의 독점적인 비트-캐시 확장에 대한 지원이 단계적으로 폐지되기 시작합니다. 이러한 확장은 이제 {% data variables.product.prodname_ghe_server %} 3.3에서 지원이 중단됩니다.
+
+
+
+3.1 또는 3.2 버전을 실행하는 {% data variables.product.product_location %}에 이미 존재하거나 활성인 모든 리포지토리는 자동으로 업데이트됩니다.
+
+
+
+{% data variables.product.prodname_ghe_server %} 3.3으로 업데이트되기 전에 존재하지 않았거나 활성이 아니었던 리포지토리는 리포지토리 유지 관리 태스크가 실행되어 성공적으로 완료될 때까지 최적 성능이 아닐 수 있습니다.
+
+
+
+수동으로 리포지토리 유지 관리 태스크를 시작하려면 각 영향 받는 리포지토리에 대해 `https://<hostname>/stafftools/repositories/<owner>/<repository>/network`로 이동하여 **일정** 단추를 클릭하세요.
+
+|
+    - heading: 인증 토큰 형식 변경은 GitHub Connect에 영향을 줍니다.
+      notes:
+        # https://github.com/github/releases/issues/1235
+        - |GitHub 인증 토큰 형식 변경으로 인해 GitHub Enterprise Server 3.1 이하 버전을 실행하는 인스턴스에 대해 6월 3일 이후에는 GitHub Connect가 더 이상 작동하지 않습니다. GitHub Connect를 계속 사용하려면 GitHub Enterprise Server 3.2 이상으로 업그레이드하세요. 자세한 내용은 [GitHub 블로그](https://github.blog/2022-05-20-action-needed-by-github-connect-customers-using-ghes-3-1-and-older-to-adopt-new-authentication-token-format-updates/)를 참조하세요. [업데이트 날짜: 2022-06-14]
+
+|
+  backups:
+    - '{% data variables.product.prodname_ghe_server %} 3.3에는 [백업 및 재해 복구](/admin/configuration/configuring-your-enterprise/configuring-backups-on-your-appliance)에 대한 [GitHub Enterprise 백업 유틸리티 3.3.0](https://github.com/github/backup-utils) 이상이 필요합니다.'

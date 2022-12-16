@@ -4,6 +4,7 @@ shortTitle: Configure compiled languages
 intro: 'You can configure how {% data variables.product.prodname_dotcom %} uses the {% data variables.code-scanning.codeql_workflow %} to scan code written in compiled languages for vulnerabilities and errors.'
 product: '{% data reusables.gated-features.code-scanning %}'
 permissions: 'If you have write permissions to a repository, you can configure {% data variables.product.prodname_code_scanning %} for that repository.'
+miniTocMaxHeadingLevel: 3
 redirect_from:
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning-for-compiled-languages
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-the-codeql-action-for-compiled-languages
@@ -25,6 +26,7 @@ topics:
   - C/C++
   - C#
   - Java
+  - Kotlin
 ---
 
 
@@ -41,7 +43,7 @@ For general information about configuring {% data variables.product.prodname_cod
 ##  About autobuild for {% data variables.product.prodname_codeql %}
 
 {% data variables.product.prodname_code_scanning_capc %} works by running queries against one or more databases. Each database contains a representation of all of the code in a single language in your repository.   
-For the compiled languages C/C++, C#,{% ifversion codeql-go-autobuild %} Go,{% endif %} and Java, the process of populating this database involves building the code and extracting data. {% data reusables.code-scanning.analyze-go %}
+For the compiled languages C/C++, C#,{% ifversion codeql-go-autobuild %} Go,{% endif %}{% ifversion codeql-kotlin-beta %} Kotlin, {% endif %} and Java, the process of populating this database involves building the code and extracting data. {% data reusables.code-scanning.analyze-go %}
 
 {% data reusables.code-scanning.autobuild-compiled-languages %}
 
@@ -108,7 +110,7 @@ The `autobuild` process attempts to autodetect a suitable way to install the dep
 
 {% endif %}
 
-### Java
+### Java {% ifversion codeql-kotlin-beta %} and Kotlin {% endif %}
 
 | Supported system type | System name |
 |----|----|

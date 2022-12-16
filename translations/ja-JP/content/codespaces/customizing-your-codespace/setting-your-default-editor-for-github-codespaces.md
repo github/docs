@@ -1,5 +1,5 @@
 ---
-title: Setting your default editor for GitHub Codespaces
+title: GitHub Codespaces の既定のエディターを設定する
 shortTitle: Set the default editor
 intro: '{% data reusables.codespaces.about-changing-default-editor %}'
 versions:
@@ -11,40 +11,44 @@ redirect_from:
 topics:
   - Codespaces
 type: how_to
+ms.openlocfilehash: 5c286ffe8f96d275dc0b20949a87b7ced411c9af
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148159935'
 ---
-
-On the settings page, you can set your editor preference so that when you create a codespace, or open an existing codespace, it is opened in your choice of:
+[設定] ページでは、codespace を作成したり既存の codespace を開いたりするときに、次のいずれかの方法で開くように、エディターの基本設定を設定できます。
 * {% data variables.product.prodname_vscode %} (desktop application)
 * {% data variables.product.prodname_vscode %} (web client application)
-* JetBrains Gateway - for opening codespaces in a JetBrains IDE
-* JupyterLab - the web interface for Project Jupyter 
+* JetBrains Gateway - JetBrains IDE で codespace を開く場合
+* JupyterLab - Project Jupyter の Web インターフェイス 
 
 {% data reusables.codespaces.template-codespaces-default-editor %}
 
-If you want to use {% data variables.product.prodname_vscode %} as your default editor for {% data variables.product.prodname_github_codespaces %}, you need to install {% data variables.product.prodname_vscode %} and the {% data variables.product.prodname_github_codespaces %} extension for {% data variables.product.prodname_vscode %}. For more information, see the [download page for {% data variables.product.prodname_vscode %}](https://code.visualstudio.com/download/) and the [{% data variables.product.prodname_github_codespaces %} extension on the {% data variables.product.prodname_vscode %} marketplace](https://marketplace.visualstudio.com/items?itemName=GitHub.codespaces).
+{% data variables.product.prodname_github_codespaces %} の既定のエディターとして {% data variables.product.prodname_vscode %} を使う場合は、{% data variables.product.prodname_vscode %} と、{% data variables.product.prodname_vscode %} 用の {% data variables.product.prodname_github_codespaces %} 拡張機能をインストールする必要があります。 詳しくは、[{% data variables.product.prodname_vscode %} のダウンロード ページ](https://code.visualstudio.com/download/)と、[{% data variables.product.prodname_vscode %} マーケットプレースの {% data variables.product.prodname_github_codespaces %} 拡張機能](https://marketplace.visualstudio.com/items?itemName=GitHub.codespaces)をご覧ください。
 
-If you want to work on a codespace in a JetBrains IDE you must install the JetBrains Gateway. For more information, see "[Using {% data variables.product.prodname_github_codespaces %} in your JetBrains IDE](/codespaces/developing-in-codespaces/using-github-codespaces-in-your-jetbrains-ide)."
+JetBrains IDE の codespace で作業する場合は、JetBrains Gateway をインストールする必要があります。 詳しくは、「[JetBrains IDE で {% data variables.product.prodname_github_codespaces %} を使う](/codespaces/developing-in-codespaces/using-github-codespaces-in-your-jetbrains-ide)」をご覧ください。
 
-## Setting your default editor
+## 既定のエディターを設定する
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.codespaces-tab %}
-1. Under "Editor preference", select the option you want.
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.codespaces-tab %}
+1. [Editor preference]\(エディターの基本設定\) で、必要なオプションを選びます。
 
-   ![Setting your editor](/assets/images/help/codespaces/select-default-editor.png)
+   ![エディターの設定](/assets/images/help/codespaces/select-default-editor.png)
 
    * {% data reusables.codespaces.application-installed-locally %}<br><br>
 
-   * If you choose **{% data variables.product.prodname_vscode %}**, {% data variables.product.prodname_github_codespaces %} will automatically open in the desktop application when you next create or open a codespace. 
+   * **{% data variables.product.prodname_vscode %}** を選ぶ場合、codespace を次回作成するか開いたときに、デスクトップ アプリケーションで {% data variables.product.prodname_github_codespaces %} が自動的に開きます。 
 
-     You may need to allow access to both your browser and {% data variables.product.prodname_vscode %} for it to open successfully.<br><br>
+     正常に開かれるには、ブラウザーと {% data variables.product.prodname_vscode %} の両方へのアクセスを許可することが必要な場合があります。<br><br>
      
-   * If you choose **JetBrains Gateway**, the Gateway application will automatically open when you next create or open a codespace. 
+   * **JetBrains Gateway** を選ぶ場合、codespace を次回作成するか開いたときに、Gateway アプリケーションが自動的に開きます。 
 
-     The first time you open a codespace this way you must give permission to open the application. 
+     この方法で初めて codespace を開いたときは、アプリケーションを開く権限を付与する必要があります。 
 
-     The Gateway application will open and the codespace will then be automatically selected. You can then choose a JetBrains IDE, if you have not previously done so, and click **Connect** to open the codespace in the JetBrains client. For more information, see "[Using {% data variables.product.prodname_github_codespaces %} in your JetBrains IDE](/codespaces/developing-in-codespaces/using-github-codespaces-in-your-jetbrains-ide)."
+     Gateway が自動的に開いてから、codespace が自動的に選択されます。 その後、JetBrains IDE をこれまでに選んでいなければ、これを選び、 **[接続]** をクリックして、JetBrains クライアント内にある codespace を開きます。 詳しくは、「[JetBrains IDE で {% data variables.product.prodname_github_codespaces %} を使う](/codespaces/developing-in-codespaces/using-github-codespaces-in-your-jetbrains-ide)」をご覧ください。
      
-     To connect to a codespace from the Gateway application, you must have an SSH server running on the codespace. {% indented_data_reference reusables.codespaces.ssh-server-installed spaces=5 %}
+     Gateway アプリケーションから codespace に接続するには、codespace で実行されている SSH サーバーが必要です。 {% indented_data_reference reusables.codespaces.ssh-server-installed spaces=5 %}
 
-   * If you choose **JupyterLab**, the JupyterLab application must be installed in the codespaces you open. {% data reusables.codespaces.jupyterlab-in-default-image %}
+   * **JupyterLab** を選ぶ場合は、開いている codespace に JupyterLab をインストールする必要があります。 {% data reusables.codespaces.jupyterlab-in-default-image %}

@@ -15,12 +15,12 @@ topics:
   - CI
   - CD
 shortTitle: Migrate from Jenkins
-ms.openlocfilehash: 177ec8c5e7355b87bdd82dd7cff88d4ae89557e4
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.openlocfilehash: a0b54ede4d19d97bf750122b72e245b7c6033ad9
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2022
-ms.locfileid: '145100215'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148193230'
 ---
 {% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
@@ -100,9 +100,9 @@ Jenkins 可以并行运行 `stages` 和 `steps`，而 {% data variables.product.
 
 Jenkins 按 `stages` 将 `steps` 分组在一起。 每个步骤都可以是脚本、函数或命令等。 同样，{% data variables.product.prodname_actions %} 使用 `jobs` 来执行特定的 `steps` 组。
 
-| Jenkins 步骤 | {% data variables.product.prodname_actions %} |
+| Jenkins       | {% data variables.product.prodname_actions %} |
 | ------------- | ------------- |
-| [`script`](https://jenkins.io/doc/book/pipeline/syntax/#script) | [`jobs.<job_id>.steps`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idsteps) |
+| [`steps`](https://jenkins.io/doc/book/pipeline/syntax/#steps) | [`jobs.<job_id>.steps`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idsteps) |
 
 ## 常见任务示例
 

@@ -1,0 +1,34 @@
+date: '2021-06-10'
+sections:
+  security_fixes:
+    - Les packages ont été mis à jour avec les dernières versions de sécurité.
+  bugs:
+    - SVN 1.7 et les clients plus anciens affichaient une erreur lors de l’utilisation des commandes « svn co » et « svn export ».
+    - L’accès à un dépôt par le shell d’administration en utilisant « ghe-repo <propriétaire>/<nom-dépôt> » se bloque.
+    - "Après une mise à niveau, les utilisateurs faisaient face à une diminution de la disponibilité pendant les usages intensifs, car les services redémarraient trop fréquemment. Cela était dû à une non-concordance de délais entre la configuration de nomad et celle des services internes."
+    - "Dans certains cas, l’exécution de  ghe-repl-status » après la configuration de GitHub Actions engendrait une erreur et  ghe-actions-teardown » échouait."
+    - 'Dans certaines circonstances, « ghe-dbconsole » retournait des erreurs.'
+    - "Les échecs d’importation d’organisations ou de dépôts provenant de sources non-GitHub pouvaient produire une erreur « méthode non définie ’[]’ pour nil:NilClass »."
+    - "Les noms de profil GitHub pouvaient être changés involontairement lors de l’utilisation de l’authentification SAML, si le nom du profil GitHub ne correspondait pas à la valeur de l’attribut mappé au champ « Nom complet » dans la console de gestion."
+    - "La mise à niveau d’une instance qui avait exécuté une version 2.13, mais pas une version 2.14, entraînait une erreur de migration de base de données relative à la transition de données « AddRepositoryIdToCheckRuns »."
+  changes:
+    - "Les utilisateurs de l’API GraphQL peuvent interroger le champ public « closingIssuesReferences » sur l’objet « PullRequest ». Ce champ permet de récupérer les problèmes qui seront automatiquement fermés quand la demande de tirage associée sera fusionnée. Cette approche permettra également de migrer ces données à l’avenir, dans le cadre d’un processus de migration de plus haute fidélité."
+  known_issues:
+    - "Le registre npm {% data variables.product.prodname_registry %} ne retourne plus une valeur de temps dans les réponses de métadonnées. Cela a été fait pour permettre des améliorations substantielles des performances. Nous disposons toujours de toutes les données nécessaires pour retourner une valeur de temps dans le cadre de la réponse aux métadonnées et nous recommencerons à retourner cette valeur à l’avenir, une fois que nous aurons résolu les problèmes de performance existants."
+    - "Sur un {% data variables.product.prodname_ghe_server %} fraîchement configuré sans aucun utilisateur, un attaquant pourrait créer le premier utilisateur administrateur."
+    - Les règles de pare-feu personnalisées sont supprimées pendant le processus de mise à niveau.
+    - "Les fichiers suivis par Git LFS [chargés via l’interface web](https://github.com/blog/2105-upload-files-to-your-repositories) sont incorrectement ajoutés directement au dépôt."
+    - "Les questions ne peuvent pas être fermées si elles contiennent un permalien vers un blob dans le même dépôt, où le chemin de fichier du blob est supérieur à 255 caractères."
+    - "Quand l’option « Les utilisateurs peuvent effectuer des recherches sur GitHub.com » est activée avec GitHub Connect, les problèmes dans les dépôts privés et internes ne sont pas inclus dans les résultats de recherche de GitHub.com."
+    - |Après la mise à niveau de 3.0.x à 3.1.x, dans certains cas, GitHub Actions pouvait échouer avec une erreur : « Une erreur inattendue s’est produite lors de l’exécution de ce workflow ». Pour contourner ce problème, connectez-vous au shell d’administration (ssh) et exécutez :
+
+```
+
+ghe-actions-console -s actions -c "Queue-ServiceJob -JobId 4DB1F4CF-19FD-40E0-A253-91288813DE8B"
+
+```
+
+|
+    - "Quand un nœud de réplica est hors ligne dans une configuration de haute disponibilité, {% data variables.product.product_name %} peut toujours acheminer les demandes de {% data variables.product.prodname_pages %} vers le nœud hors ligne, réduisant ainsi la disponibilité de {% data variables.product.prodname_pages %} pour les utilisateurs."
+    - "Si {% data variables.product.prodname_actions %} est activé pour {% data variables.product.prodname_ghe_server %}, le démontage d’un nœud de réplica avec « ghe-repl-teardown » réussit, mais peut retourner « ERREUR : migrations en cours d’exécution »."
+    - Les limites de ressources spécifiques au traitement des hooks de pré-réception peuvent entraîner l’échec de certains hooks de pré-réception.

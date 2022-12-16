@@ -18,12 +18,12 @@ versions:
   ghec: '*'
 topics:
   - Repositories
-ms.openlocfilehash: af0b8eb9f8bd7a98c246a0806a8bc60f59ba147f
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.openlocfilehash: 95e4033aa41f7920b5447554773dc61a181f5861
+ms.sourcegitcommit: 0a6e3eee6eea9b1e445aea1e4461d64cf6b63218
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2022
-ms.locfileid: '148107282'
+ms.lasthandoff: 11/14/2022
+ms.locfileid: '148163502'
 ---
 ## Sobre repositórios
 
@@ -43,6 +43,8 @@ Você pode usar repositórios para gerenciar seu trabalho e colaborar com outras
 - Você pode usar quadros de projeto para organizar e priorizar seus problemas e pull requests. Para obter mais informações, confira "[Sobre os quadros de projetos](/github/managing-your-work-on-github/about-project-boards)".
 
 {% data reusables.repositories.repo-size-limit %}
+
+Para saber como usar repositórios com mais eficiência, confira "[Melhores práticas para repositórios](/repositories/creating-and-managing-repositories/best-practices-for-repositories)".
 
 ## Sobre a visibilidade do repositório
 
@@ -132,7 +134,6 @@ As páginas de solicitações de pull e de exibição de comparação mostram um
 
 ## Leitura adicional
 
-- "[Como criar um repositório](/articles/creating-a-new-repository)"
 - "[Sobre os forks](/github/collaborating-with-pull-requests/working-with-forks/about-forks)"
 - "[Colaboração com problemas e solicitações de pull](/categories/collaborating-with-issues-and-pull-requests)"
 - "[Como gerenciar seu trabalho no {% data variables.product.prodname_dotcom %}](/categories/managing-your-work-on-github/)"

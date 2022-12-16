@@ -1,0 +1,19 @@
+date: '24-06-2021'
+sections:
+  security_fixes:
+    - Los paquetes se han actualizado a las últimas versiones de seguridad.
+  bugs:
+    - "Una cantidad más grande de métricas \"gauge-dependency-graph-api-dispatch_dispatch\" pudo acumularse en la consola de administración."
+    - El servicio de sshd algunas veces falló en iniciar en instancias que se estaban ejecutando en Google Cloud Platform.
+    - "Los archivos de actualización antiguos persistieron en el disco del usuario, lo cual algunas veces dio como resultado tener condiciones de falta de espacio."
+    - La rotación de registros algunas veces interrumpía los trabajos en segundo plano.
+    - '"gh-migrator" mostró una ruta incorrecta a su registro de salida.'
+    - Un archivo de exportación fallaba al importarse si las solicitudes de revisión contenidas venían de equipos que no estaban presentes en el archivo.
+  known_issues:
+    - "En un servidor de GitHub Enterprise recién configurado sin usuarios, un atacante podría crear el primer usuario administrador."
+    - Las reglas de cortafuegos personalizadas se eliminan durante el proceso de actualización.
+    - "Los archivos supervisados de Git LFS [cargados desde la interface web](https://github.com/blog/2105-upload-files-to-your-repositories) se han agregado de manera incorrecta y directa al repositorio."
+    - Las incidencias no se pueden cerrar si contienen un enlace permanente a un blob del mismo repositorio en el que la ruta es mayor de 255 caracteres.
+    - "Cuando se habilita \"Los usuarios pueden buscar en GitHub.com\" con GitHub Connect, las incidencias en los repositorios privados e internos no se incluyen en los resultados de la búsqueda de GitHub.com."
+    - "Cuando un nodo de réplica está sin conexión en una configuración de disponibilidad alta, es posible que {% data variables.product.product_name %} todavía enrute las solicitudes a {% data variables.product.prodname_pages %} al nodo sin conexión, lo que reduce la disponibilidad de {% data variables.product.prodname_pages %} para los usuarios."
+    - Los límites de recursos que son específicos para procesar enlaces previos a la recepción podrían ocasionar errores en algunos de ellos.

@@ -1,6 +1,6 @@
 ---
-title: Stopping and starting a codespace
-intro: 'You can stop and start your codespace to save resources and to pause work.'
+title: codespace の停止と開始
+intro: codespace を停止して開始すると、リソースを保存し、作業を一時停止することができます。
 versions:
   fpt: '*'
   ghec: '*'
@@ -10,28 +10,33 @@ topics:
   - Fundamentals
   - Developer
 shortTitle: Stop a codespace
+ms.openlocfilehash: 5c34fd5b7d72f52e203cd8f8fdc1871ff6a2f014
+ms.sourcegitcommit: 1f3bd126ca000982c538f1621d47722737740943
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 12/01/2022
+ms.locfileid: '148188249'
 ---
-
 {% jetbrains %}
 
 {% data reusables.codespaces.codespaces-jetbrains-beta-note %}
 
 {% endjetbrains %}
 
-## About stopping and starting a codespace
+## codespace の停止と開始について
 
 {% data reusables.codespaces.stopping-a-codespace %}
 
-Regardless of where you created or access your codespaces, you can view and manage them in your browser at https://github.com/codespaces. 
+codespaces は、作成またはアクセスした場所に関係なく、 https://github.com/codespaces で表示および管理できます。 
 
-## Stopping a codespace
+## codespace を停止する
 
 {% webui %}
 
 {% data reusables.codespaces.navigate-to-codespaces-page %}
- 1. To the right of the codespace you want to stop, click the elipsis (**...**).
- 1. Click **Stop codespace**.
-   ![Screenshot of option to stop a codespace](/assets/images/help/codespaces/stop-codespace-webui.png)
+ 1. 停止する codespace の右側にある省略記号 ( **...** ) をクリックします。
+ 1. **[codespace の停止]** をクリックします。
+   ![codespace を停止するオプションのスクリーンショット](/assets/images/help/codespaces/stop-codespace-webui.png)
 
 {% endwebui %}
 
@@ -39,7 +44,7 @@ Regardless of where you created or access your codespaces, you can view and mana
 
 {% data reusables.cli.cli-learn-more %}
 
- To stop a codespace use the `gh codespace stop` subcommand and then choose the codespace you want to stop from the list that's displayed.
+ codespace を停止するには、`gh codespace stop` サブコマンドを使用し、表示される一覧から停止する codespace を選びます。
 
  ```shell{:copy}
  gh codespace stop
@@ -50,41 +55,38 @@ Regardless of where you created or access your codespaces, you can view and mana
 {% vscode %}
 
 {% data reusables.vs-code.open-command-palette %}
-1. Type `stop` and select **Codespaces: Stop Codespace** from the list of options.
-1. In the list of codespaces, select the codespace you want to stop.
+1. 「`stop`」と入力し、オプションの一覧から **[codespace: codespace の停止]** を選びます。
+1. codespace の一覧で、停止する codespace を選びます。
 
 {% endvscode %}
 
 {% jetbrains %}
 
-{% data reusables.codespaces.jetbrains-open-codespace-plugin %}
-1. In the {% data variables.product.prodname_github_codespaces %} tool window, click the stop icon.
-
-   ![Screenshot of the log button](/assets/images/help/codespaces/jetbrains-plugin-icon-stop.png)
+codespace は、[Your codespaces] ページから ([Web ブラウザーの手順](/codespaces/developing-in-codespaces/stopping-and-starting-a-codespace?tool=webui#stopping-a-codespace)を参照)、または {% data variables.product.prodname_cli %} を使って ([CLI の手順](/codespaces/developing-in-codespaces/stopping-and-starting-a-codespace?tool=cli#stopping-a-codespace)を参照) 停止できます。
 
 {% endjetbrains %}
 
-## Restarting a codespace
+## codespace の再起動
 
 {% webui %}
 
 {% data reusables.codespaces.navigate-to-codespaces-page %}
-1. Click the name of the codespace you want to restart.
-![Screenshot of stopped codespaces](/assets/images/help/codespaces/restart-codespace-webui.png)
+1. 再起動する codespace の名前をクリックします。
+![停止した codespace のスクリーンショット](/assets/images/help/codespaces/restart-codespace-webui.png)
 
 {% endwebui %}
 
 {% cli %}
 
-When you restart a codespace you can choose to open it in {% data variables.product.prodname_vscode %} or in your browser. 
+codespace を再起動するとき、{% data variables.product.prodname_vscode %} で開くか、ブラウザーで開くかを選ぶことができます。 
 
- - To restart a codespace and open it in {% data variables.product.prodname_vscode %}, use the `gh codespace code` subcommand and then choose the codespace you want to restart from the list that's displayed.
+ - codespace を再起動し、{% data variables.product.prodname_vscode %} で開くには、`gh codespace code` サブコマンドを使用し、表示される一覧から再起動する codespace を選びます。
 
  ```shell{:copy} 
  gh codespace code
  ```
 
- - To restart a codespace and open it in your browser, use the `gh codespace open --web` subcommand and then choose the codespace you want to restart from the list that's displayed.
+ - codespace を再起動してブラウザーで開くには、`gh codespace open --web` サブコマンドを使用し、表示される一覧から再起動する codespace を選びます。
 
  ```shell{:copy}
  gh codespace open --web
@@ -95,8 +97,8 @@ When you restart a codespace you can choose to open it in {% data variables.prod
 {% vscode %}
 
 {% data reusables.vs-code.open-command-palette %}
-1. Type `connect` and select **Codespaces: Connect to Codespace** from the list of options.
-1. In the list of codespaces, select the codespace you want to restart.
+1. 「`connect`」と入力し、オプションの一覧から **[codespaces: codespace に接続]** を選びます。
+1. codespace の一覧で、再起動する codespace を選びます。
 
 {% endvscode %}
 
@@ -106,6 +108,6 @@ When you restart a codespace you can choose to open it in {% data variables.prod
 
 {% endjetbrains %}
 
-## Further reading
+## 参考資料
 
-- "[The codespace lifecycle](/codespaces/developing-in-codespaces/the-codespace-lifecycle)"
+- 「[codespace のライフサイクル](/codespaces/getting-started/the-codespace-lifecycle)」

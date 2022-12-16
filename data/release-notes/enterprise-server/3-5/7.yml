@@ -12,6 +12,8 @@ sections:
     - |
       **MEDIUM**: Updated GitHub Actions runners to fix a bug that allowed environment variables in GitHub Actions jobs to escape the context of the variable and modify the invocation of `docker` commands directly. For more information, see the [Actions Runner security advisory](https://github.com/actions/runner/security/advisories/GHSA-2c6m-6gqh-6qg3).
     - |
+      **MEDIUM**: An improper privilege management vulnerability was identified in GitHub Enterprise Server that allowed users with improper privileges to create or delete pages via the API. To exploit this vulnerability, an attacker would need to be added to an organization's repo with write permissions. This vulnerability was reported via the GitHub Bug Bounty program and has been assigned [CVE-2022-23737](https://www.cve.org/CVERecord?id=CVE-2022-23737).
+    - |  
       **LOW**: Due to a CSRF vulnerability, a `GET` request to the instance's `site/toggle_site_admin_and_employee_status` endpoint could toggle a user's site administrator status unknowingly.
     - Packages have been updated to the latest security versions. 
   bugs:
@@ -44,3 +46,6 @@ sections:
     - Resource limits that are specific to processing pre-receive hooks may cause some pre-receive hooks to fail.
     - Actions services need to be restarted after restoring an appliance from a backup taken on a different host.
     - '{% data reusables.release-notes.2022-09-hotpatch-issue %}'
+    - |
+      GitHub Pages builds may time out on instances in AWS that are configured for high availability. [Updated: 2022-11-28]
+    - '{% data reusables.release-notes.babeld-max-threads-performance-issue %}'

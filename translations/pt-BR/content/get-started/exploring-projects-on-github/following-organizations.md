@@ -1,46 +1,54 @@
 ---
-title: Following organizations
-intro: 'You can follow organizations on {% data variables.product.product_name %} to receive notifications about their activity.'
+title: Como seguir organizações
+intro: 'Você pode seguir organizações no {% data variables.product.product_name %} para receber notificações sobre as respectivas atividades.'
 versions:
   feature: for-you-feed
 topics:
   - Profile
+ms.openlocfilehash: 8e7dff12137f167fa11718d966a204a2772cc554
+ms.sourcegitcommit: dc42bb4a4826b414751ffa9eed38962c3e3fea8e
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/13/2022
+ms.locfileid: '145149433'
 ---
+{% note %}
 
-{% data reusables.organizations.follow-organizations-beta %}
+**Observação:** atualmente, a capacidade de seguir organizações está em versão beta pública e sujeita a alterações.
 
-## About followers on {% data variables.product.product_name %}
+{% endnote %}
 
-{% data reusables.organizations.about-following-organizations %} For more information, see "[About your personal dashboard](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/about-your-personal-dashboard#staying-updated-with-activity-from-the-community)."
+## <a name="about-followers-on--data-variablesproductproduct_name-"></a>Sobre seguidores em {% data variables.product.product_name %}
 
-You can unfollow an organization if you do not wish to see their {% ifversion fpt or ghec %}public{% endif %} activity on {% data variables.product.product_name %}.
+Ao seguir as organizações, você verá as atividades públicas delas no seu painel pessoal. Para obter mais informações, confira "[Sobre seu painel pessoal](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/about-your-personal-dashboard#staying-updated-with-activity-from-the-community)".
 
-## Following an organization on {% data variables.product.product_name %}
+Você poderá deixar de seguir uma organização se não quiser ver as atividades {% ifversion fpt or ghec %}públicas{% endif %} dela no {% data variables.product.product_name %}.
 
-1. Go to the organization page you want to follow
-2. Click **Follow** in the top-right corner of the header
+## <a name="following-an-organization-on--data-variablesproductproduct_name-"></a>Como seguir uma organização no {% data variables.product.product_name %}
 
-  ![Screenshot of the organization header, with the follow button highlighted](/assets/images/help/profile/organization-profile-following.png)
+1. Acesse a página da organização que deseja seguir
+2. Clique em **Seguir** no canto superior direito do cabeçalho
 
-## Unfollowing an organization on {% data variables.product.product_name %}
+  ![Captura de tela do cabeçalho da organização, com o botão Seguir realçado](/assets/images/help/profile/organization-profile-following.png)
 
-1. Go to the organization page you want to unfollow
-2. Click **Unfollow** in the top-right corner of the header.
+## <a name="unfollowing-an-organization-on--data-variablesproductproduct_name-"></a>Como deixar de seguir uma organização no {% data variables.product.product_name %}
 
-  ![Screenshot of the organization header, with the unfollow button highlighted](/assets/images/help/profile/organization-profile-unfollowing.png)
+1. Acesse a página da organização que deseja deixar de seguir
+2. Clique em **Deixar de seguir** no canto superior direito do cabeçalho.
 
-## Viewing people and organizations a user follows on {% data variables.product.product_name %}
+  ![Captura de tela do cabeçalho da organização, com o botão Deixar de seguir realçado](/assets/images/help/profile/organization-profile-unfollowing.png)
 
-1. Click a user image to display that user's profile.
+## <a name="viewing-people-and-organizations-a-user-follows-on--data-variablesproductproduct_name-"></a>Como ver as pessoas e as organizações que um usuário segue no {% data variables.product.product_name %}
 
-  ![User image](/assets/images/help/profile/user-profile-image.png)
+1. Clique em uma imagem de usuário para exibir o perfil do usuário.
 
-2. Click **following** under their profile image.
+  ![Imagem do usuário](/assets/images/help/profile/user-profile-image.png)
 
-  ![User following](/assets/images/help/profile/user-profile-following.png)
+2. Clique em **seguindo** na sua imagem de perfil.
+
+  ![Seguindo usuário](/assets/images/help/profile/user-profile-following.png)
 
 {% ifversion fpt or ghec %}
-## Further reading
+## <a name="further-reading"></a>Leitura adicional
 
-- "[Following people](/get-started/exploring-projects-on-github/following-people)"
-{% endif %}
+- "[Como seguir pessoas](/get-started/exploring-projects-on-github/following-people)" {% endif %}

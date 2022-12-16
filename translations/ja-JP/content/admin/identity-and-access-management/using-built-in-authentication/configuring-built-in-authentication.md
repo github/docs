@@ -1,6 +1,6 @@
 ---
-title: Configuring built-in authentication
-intro: 'When you use the default authentication method, all authentication details are stored on {% data variables.location.product_location %}.'
+title: ビルトイン認証の設定
+intro: '既定の認証方式を使用する場合、すべての認証の詳細は {% data variables.product.product_location %} に格納されます。'
 permissions: 'Site administrators can configure authentication for a {% data variables.product.product_name %} instance.'
 redirect_from:
   - /enterprise/admin/user-management/using-built-in-authentication
@@ -17,41 +17,42 @@ topics:
   - Enterprise
   - Identity
 shortTitle: Configure built-in authentication
+ms.openlocfilehash: 6fbcd68efc953b5a32139a6907975e6918976860
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147717814'
 ---
+## ビルトイン認証について
 
-## About built-in authentication
+既定では、{% data variables.product.product_name %} によって組み込みの認証が使用されます。 各ユーザーは、招待から、またはサインアップして {% data variables.product.product_location %} のユーザー アカウントを作成し、そのアカウントの資格情報を使って認証し、インスタンスにアクセスします。 {% data variables.product.product_name %} インスタンスによって、アカウントの認証情報が格納されます。
 
-By default, {% data variables.product.product_name %} uses built-in authentication. Each person creates a user account on {% data variables.location.product_location %} from an invitation or by signing up, and then authenticates with the credentials for the account to access your instance. Your {% data variables.product.product_name %} instance stores the authentication information for the account.
-
-You can prevent unauthenticated people from creating new user accounts on your instance. For more information, see "[Disabling unauthenticated sign-ups](/admin/identity-and-access-management/using-built-in-authentication/disabling-unauthenticated-sign-ups)."
+認証されていないユーザーがご利用のインスタンスに新しいユーザー アカウントを作成できないようにすることができます。 詳しくは、「[認証のないサインアップの無効化](/admin/identity-and-access-management/using-built-in-authentication/disabling-unauthenticated-sign-ups)」をご覧ください。
 
 {% data reusables.enterprise_user_management.alternatively-enable-external-authentication %}
 
-## Configuring built-in authentication
+## ビルトイン認証の設定
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.management-console %}
-{% data reusables.enterprise_management_console.authentication %}
-4. Select **Built in authentication**.
-![Select built-in authentication option](/assets/images/enterprise/management-console/built-in-auth-select.png)
+{% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.enterprise_site_admin_settings.management-console %} {% data reusables.enterprise_management_console.authentication %}
+4. **[ビルトイン認証]** を選びます。
+![ビルトイン認証のオプションの選択](/assets/images/enterprise/management-console/built-in-auth-select.png)
 
-{% data reusables.enterprise_user_management.two_factor_auth_header %}
-{% data reusables.enterprise_user_management.2fa_is_available %}
+{% data reusables.enterprise_user_management.two_factor_auth_header %} {% data reusables.enterprise_user_management.2fa_is_available %}
 
-## Creating your account
+## アカウントの作成
 
-Once your instance has been created, you'll need to create your own admin account.
+インスタンスが作成されたら、自分の管理者アカウントを作成する必要があります。
 
-1. On the "Create Admin Account" page at `http(s)://[hostname]/join`, choose your username, password, and email address, then click **Create an account**.
-![Create Admin Account](/assets/images/enterprise/site-admin-settings/create-first-admin-acct.png)
-{% data reusables.enterprise_site_admin_settings.sign-in %}
+1. `http(s)://[hostname]/join` の [管理者アカウントの作成] ページで、ユーザー名、パスワード、メールアドレスを選び、 **[アカウントの作成]** をクリックします。
+![[管理者アカウントの作成]](/assets/images/enterprise/site-admin-settings/create-first-admin-acct.png) {% data reusables.enterprise_site_admin_settings.sign-in %}
 
-## Next steps
+## 次の手順
 
 <a name="inviting-users"></a>
 
-After you configure built-in authentication and create your administrative account, you can invite people to create accounts and use your instance. For more information, see "[Inviting people to use your instance](/admin/identity-and-access-management/using-built-in-authentication/inviting-people-to-use-your-instance)."
+組み込み認証を構成し、管理アカウントを作成したら、アカウントを作成してインスタンスを使用するようにユーザーを招待できます。 詳しくは、「[インスタンスを使用するようにユーザーを招待する](/admin/identity-and-access-management/using-built-in-authentication/inviting-people-to-use-your-instance)」をご覧ください。
 
-## Further reading
+## 参考資料
 
-- "[Configuring email for notifications](/admin/configuration/configuring-your-enterprise/configuring-email-for-notifications)"
+- 「[通知のためのメール設定](/admin/configuration/configuring-your-enterprise/configuring-email-for-notifications)」

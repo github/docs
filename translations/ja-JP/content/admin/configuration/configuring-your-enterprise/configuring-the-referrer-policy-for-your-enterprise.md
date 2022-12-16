@@ -1,7 +1,7 @@
 ---
-title: Configuring the referrer policy for your enterprise
+title: エンタープライズの参照元ポリシーの構成
 shortTitle: Configure referrer policy
-intro: 'You can increase the privacy of {% data variables.location.product_location %} by configuring the policy for cross-origin requests.'
+intro: 'クロスオリジン要求のポリシーを構成することで、{% data variables.product.product_location %} のプライバシーを向上させることができます。'
 versions:
   ghes: '*'
 type: how_to
@@ -10,29 +10,33 @@ topics:
   - Networking
   - Privacy
   - Security
+ms.openlocfilehash: 4824e938e044a89e9d0e534564214c6a46ba44da
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147066492'
 ---
+## エンタープライズの参照元ポリシーについて
 
-## About the referrer policy for your enterprise
+参照元ポリシーは、他のユーザーが {% data variables.product.product_location %} から外部サイトへのリンクにアクセスしたときに、{% data variables.product.product_name %} が HTTP ヘッダーで送信する情報を制御します。
 
-The referrer policy controls the information that {% data variables.product.product_name %} transmits in HTTP headers when someone visits a link from {% data variables.location.product_location %} to an external site.
+既定では、{% data variables.product.product_location %} のユーザーが、インスタンスのファイルまたはコメントから別のサイトへのリンクにアクセスすると、要求にはインスタンスのホスト名が `Referer` ヘッダー内のプレーン テキストで含まれます。 リンクが外部 Web サイトにつながる場合、Web サイトの所有者は、要求またはログ ファイル内のインスタンスのホスト名を読み取る可能性があります。
 
-By default, when a user on {% data variables.location.product_location %} visits a link to another site from a file or comment on your instance, the request includes the hostname for your instance in plain text within the `Referer` header. If the link leads to an external website, the owner of the website could read the hostname for your instance in requests or log files.
+ユーザーがインスタンスからリンクにアクセスしたときに、{% data variables.product.product_name %} が送信する情報を制御できます。
 
-You can control the information that {% data variables.product.product_name %} sends when a user visits a link from your instance.
+## `same-origin` 参照元ポリシーの有効化
 
-## Enabling the `same-origin` referrer policy
-
-You can enable the `same-origin` referrer policy to instruct modern browsers to exclude the hostname for {% data variables.location.product_location %} from requests to external websites. The setting applies to all links from the web interface on your instance. By default, {% data variables.product.product_name %} uses the `origin-when-cross-origin` and `strict-origin-when-cross-origin` referrer policies, which means your instance's hostname will appear in HTTP and HTTPS requests to external websites.
+`same-origin` 参照元ポリシーを有効にして、外部 Web サイトへの要求から {% data variables.product.product_location %} のホスト名を除外するように最新のブラウザーに指示できます。 この設定は、インスタンス上の Web インターフェイスからのすべてのリンクに適用されます。 既定では、{% data variables.product.product_name %} では、`origin-when-cross-origin` 参照元ポリシーと `strict-origin-when-cross-origin` 参照元ポリシーが使用されます。つまり、インスタンスのホスト名は外部 Web サイトへの HTTP 要求と HTTPS 要求に表示されます。
 
 {% note %}
 
-**Note**: Changing the referrer policy to `same-origin` can affect external sites that expect a hostname in the HTTP headers for a request.
+**注意**: 参照元ポリシーを `same-origin` に変更すると、要求の HTTP ヘッダーにホスト名が必要な外部サイトに影響する可能性があります。
 
 {% endnote %}
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-1. Under "User Agent Referrer Policy", select **Enable same origin referrer policy for all organizations**.
-  ![Checkbox for enabling same origin referrer policy](/assets/images/enterprise/settings/referrer-policy-checkbox.png)
-1. Click **Save**.
-  ![Save button for enabling same origin referrer policy](/assets/images/enterprise/settings/referrer-policy-save-button.png)
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.settings-tab %}
+1. [ユーザー エージェント参照元ポリシー] で、 **[すべての組織で同じ配信元参照元ポリシーを有効にする]** を選択します。
+  ![同じ配信元参照元ポリシーを有効にするチェック ボックス](/assets/images/enterprise/settings/referrer-policy-checkbox.png)
+1. **[保存]** をクリックします。
+  ![同じ配信元参照元ポリシーを有効にするための [保存] ボタン](/assets/images/enterprise/settings/referrer-policy-save-button.png)

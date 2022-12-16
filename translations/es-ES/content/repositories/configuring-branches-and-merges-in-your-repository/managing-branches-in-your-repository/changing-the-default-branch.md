@@ -1,7 +1,7 @@
 ---
 title: Cambiar la rama predeterminada
 intro: 'Si tienes màs de una rama en tu repositorio, puedes configurar cualquiera de ellas como la predeterminada.'
-permissions: People with admin access for a repository can change the default branch for the repository.
+permissions: People with admin permissions to a repository can change the default branch for the repository.
 versions:
   fpt: '*'
   ghes: '*'

@@ -4,12 +4,12 @@ intro: '{% data variables.product.pat_v2 %} 可以向以下 REST 终结点发出
 versions:
   feature: pat-v2
 shortTitle: '{% data variables.product.pat_v2_caps %}-enabled endpoints'
-ms.openlocfilehash: 7e6b4506a1af51a3c8da5aa8ee905936025aa952
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.openlocfilehash: e631edb7b723f516ed50eba6df19ba2f94862e7e
+ms.sourcegitcommit: d2f0b59ed096b9e68ef8f6fa019cd925165762ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2022
-ms.locfileid: '148107235'
+ms.lasthandoff: 11/29/2022
+ms.locfileid: '148184219'
 ---
 ## actions
 
@@ -37,28 +37,6 @@ ms.locfileid: '148107235'
 - [`PUT /enterprises/{enterprise}/actions/permissions/selected-actions`](/rest/reference/actions#set-allowed-actions-for-an-enterprise)
 - [`GET /enterprises/{enterprise}/actions/permissions/workflow`](/rest/reference/actions#get-default-workflow-permissions-for-an-enterprise)
 - [`PUT /enterprises/{enterprise}/actions/permissions/workflow`](/rest/reference/actions#set-default-workflow-permissions-for-an-enterprise)
-- [`GET /enterprises/{enterprise}/actions/runner-groups`](/rest/reference/actions#list-self-hosted-runner-groups-for-an-enterprise)
-- [`POST /enterprises/{enterprise}/actions/runner-groups`](/rest/reference/actions#create-self-hosted-runner-group-for-an-enterprise)
-- [`GET /enterprises/{enterprise}/actions/runner-groups/{runner_group_id}`](/rest/reference/actions#get-a-self-hosted-runner-group-for-an-enterprise)
-- [`PATCH /enterprises/{enterprise}/actions/runner-groups/{runner_group_id}`](/rest/reference/actions#update-a-self-hosted-runner-group-for-an-enterprise)
-- [`DELETE /enterprises/{enterprise}/actions/runner-groups/{runner_group_id}`](/rest/reference/actions#delete-a-self-hosted-runner-group-from-an-enterprise)
-- [`GET /enterprises/{enterprise}/actions/runner-groups/{runner_group_id}/organizations`](/rest/reference/actions#list-organization-access-to-a-self-hosted-runner-group-in-a-enterprise)
-- [`PUT /enterprises/{enterprise}/actions/runner-groups/{runner_group_id}/organizations`](/rest/reference/actions#set-organization-access-to-a-self-hosted-runner-group-in-an-enterprise)
-- [`GET /enterprises/{enterprise}/actions/runner-groups/{runner_group_id}/runners`](/rest/reference/actions#list-self-hosted-runners-in-a-group-for-an-enterprise)
-- [`PUT /enterprises/{enterprise}/actions/runner-groups/{runner_group_id}/runners`](/rest/reference/actions#set-self-hosted-runners-in-a-group-for-an-enterprise)
-- [`PUT /enterprises/{enterprise}/actions/runner-groups/{runner_group_id}/runners/{runner_id}`](/rest/reference/actions#add-a-self-hosted-runner-to-a-group-for-an-enterprise)
-- [`DELETE /enterprises/{enterprise}/actions/runner-groups/{runner_group_id}/runners/{runner_id}`](/rest/reference/actions#remove-a-self-hosted-runner-from-a-group-for-an-enterprise)
-- [`GET /enterprises/{enterprise}/actions/runners`](/rest/reference/actions#list-self-hosted-runners-for-an-enterprise)
-- [`GET /enterprises/{enterprise}/actions/runners/{runner_id}`](/rest/reference/actions#get-a-self-hosted-runner-for-an-enterprise)
-- [`DELETE /enterprises/{enterprise}/actions/runners/{runner_id}`](/rest/reference/actions#delete-self-hosted-runner-from-an-enterprise)
-- [`GET /enterprises/{enterprise}/actions/runners/{runner_id}/labels`](/rest/reference/actions#list-labels-for-a-self-hosted-runner-for-an-enterprise)
-- [`POST /enterprises/{enterprise}/actions/runners/{runner_id}/labels`](/rest/reference/actions#add-custom-labels-to-a-self-hosted-runner-for-an-enterprise)
-- [`PUT /enterprises/{enterprise}/actions/runners/{runner_id}/labels`](/rest/reference/actions#set-custom-labels-for-a-self-hosted-runner-for-an-enterprise)
-- [`DELETE /enterprises/{enterprise}/actions/runners/{runner_id}/labels`](/rest/reference/actions#remove-all-custom-labels-from-a-self-hosted-runner-for-an-enterprise)
-- [`DELETE /enterprises/{enterprise}/actions/runners/{runner_id}/labels/{name}`](/rest/reference/actions#remove-a-custom-label-from-a-self-hosted-runner-for-an-enterprise)
-- [`GET /enterprises/{enterprise}/actions/runners/downloads`](/rest/reference/actions#list-runner-applications-for-an-enterprise)
-- [`POST /enterprises/{enterprise}/actions/runners/registration-token`](/rest/reference/actions#create-a-registration-token-for-an-enterprise)
-- [`POST /enterprises/{enterprise}/actions/runners/remove-token`](/rest/reference/actions#create-a-remove-token-for-an-enterprise)
 - [`GET /repos/{owner}/{repo}/actions/jobs/{job_id}`](/rest/reference/actions#get-a-job-for-a-workflow-run)
 - [`GET /repos/{owner}/{repo}/actions/jobs/{job_id}/logs`](/rest/reference/actions#download-job-logs-for-a-workflow-run)
 - [`POST /repos/{owner}/{repo}/actions/jobs/{job_id}/rerun`](/rest/reference/actions#re-run-job-for-workflow-run)
@@ -155,18 +133,6 @@ ms.locfileid: '148107235'
 - [`GET /users/{username}/received_events`](/rest/reference/activity#list-events-received-by-the-authenticated-user)
 - [`GET /users/{username}/received_events/public`](/rest/reference/activity#list-public-events-received-by-a-user)
 - [`GET /feeds`](/rest/reference/activity#get-feeds)
-- [`GET /notifications`](/rest/reference/activity#list-notifications-for-the-authenticated-user)
-- [`PUT /notifications`](/rest/reference/activity#mark-notifications-as-read)
-- [`GET /notifications/threads/{thread_id}`](/rest/reference/activity#get-a-thread)
-- [`PATCH /notifications/threads/{thread_id}`](/rest/reference/activity#mark-a-thread-as-read)
-- [`GET /notifications/threads/{thread_id}/subscription`](/rest/reference/activity#get-a-thread-subscription-for-the-authenticated-user)
-- [`PUT /notifications/threads/{thread_id}/subscription`](/rest/reference/activity#set-a-thread-subscription)
-- [`DELETE /notifications/threads/{thread_id}/subscription`](/rest/reference/activity#delete-a-thread-subscription)
-- [`GET /repos/{owner}/{repo}/notifications`](/rest/reference/activity#list-repository-notifications-for-the-authenticated-user)
-- [`PUT /repos/{owner}/{repo}/notifications`](/rest/reference/activity#mark-repository-notifications-as-read)
-- [`GET /repos/{owner}/{repo}/subscription`](/rest/reference/activity#get-a-repository-subscription)
-- [`PUT /repos/{owner}/{repo}/subscription`](/rest/reference/activity#set-a-repository-subscription)
-- [`DELETE /repos/{owner}/{repo}/subscription`](/rest/reference/activity#delete-a-repository-subscription)
 - [`GET /repos/{owner}/{repo}/stargazers`](/rest/reference/activity#list-stargazers)
 - [`GET /repos/{owner}/{repo}/subscribers`](/rest/reference/activity#list-watchers)
 - [`GET /users/{username}/starred`](/rest/reference/activity#list-repositories-starred-by-a-user)
@@ -179,39 +145,7 @@ ms.locfileid: '148107235'
 
 ## 应用
 
-- [`DELETE /applications/{client_id}/grant`](/rest/reference/apps#delete-an-app-authorization)
-- [`POST /applications/{client_id}/token`](/rest/reference/apps#check-a-token)
-- [`PATCH /applications/{client_id}/token`](/rest/reference/apps#reset-a-token)
-- [`DELETE /applications/{client_id}/token`](/rest/reference/apps#delete-an-app-token)
-- [`POST /applications/{client_id}/token/scoped`](/rest/reference/apps#create-a-scoped-access-token)
-- [`GET /installation/repositories`](/rest/reference/apps#list-repositories-accessible-to-the-app-installation)
-- [`DELETE /installation/token`](/rest/reference/apps#revoke-an-installation-access-token)
 - [`GET /user/installations/{installation_id}/repositories`](/rest/reference/apps#list-repositories-accessible-to-the-user-access-token)
-- [`PUT /user/installations/{installation_id}/repositories/{repository_id}`](/rest/reference/apps#add-a-repository-to-an-app-installation)
-- [`DELETE /user/installations/{installation_id}/repositories/{repository_id}`](/rest/reference/apps#remove-a-repository-from-an-app-installation)
-- [`POST /app-manifests/{code}/conversions`](/rest/reference/apps#create-a-github-app-from-a-manifest)
-- [`GET /app`](/rest/reference/apps#get-the-authenticated-app)
-- [`GET /app/hook/config`](/rest/reference/apps#get-a-webhook-configuration-for-an-app)
-- [`PATCH /app/hook/config`](/rest/reference/apps#update-a-webhook-configuration-for-an-app)
-- [`GET /app/hook/deliveries`](/rest/reference/apps#list-deliveries-for-an-app-webhook)
-- [`GET /app/hook/deliveries/{delivery_id}`](/rest/reference/apps#get-a-delivery-for-an-app-webhook)
-- [`POST /app/hook/deliveries/{delivery_id}/attempts`](/rest/reference/apps#redeliver-a-delivery-for-an-app-webhook)
-- [`GET /app/installations`](/rest/reference/apps#list-installations-for-the-authenticated-app)
-- [`GET /app/installations/{installation_id}`](/rest/reference/apps#get-an-installation-for-the-authenticated-app)
-- [`DELETE /app/installations/{installation_id}`](/rest/reference/apps#delete-an-installation-for-the-authenticated-app)
-- [`POST /app/installations/{installation_id}/access_tokens`](/rest/reference/apps/#create-an-installation-access-token-for-an-app)
-- [`PUT /app/installations/{installation_id}/suspended`](/rest/reference/apps#suspend-an-app-installation)
-- [`DELETE /app/installations/{installation_id}/suspended`](/rest/reference/apps#unsuspend-an-app-installation)
-- [`GET /orgs/{org}/installation`](/rest/reference/apps#get-an-organization-installation-for-the-authenticated-app)
-- [`GET /repos/{owner}/{repo}/installation`](/rest/reference/apps#get-a-repository-installation-for-the-authenticated-app)
-- [`GET /users/{username}/installation`](/rest/reference/apps#get-a-user-installation-for-the-authenticated-app)
-- [`GET /marketplace_listing/accounts/{account_id}`](/rest/reference/apps#get-a-subscription-plan-for-an-account)
-- [`GET /marketplace_listing/plans`](/rest/reference/apps#list-plans)
-- [`GET /marketplace_listing/plans/{plan_id}/accounts`](/rest/reference/apps#list-accounts-for-a-plan)
-- [`GET /marketplace_listing/stubbed/accounts/{account_id}`](/rest/reference/apps#get-a-subscription-plan-for-an-account-stubbed)
-- [`GET /marketplace_listing/stubbed/plans`](/rest/reference/apps#list-plans-stubbed)
-- [`GET /marketplace_listing/stubbed/plans/{plan_id}/accounts`](/rest/reference/apps#list-accounts-for-a-plan-stubbed)
-- [`GET /user/installations`](/rest/reference/apps#list-app-installations-accessible-to-the-user-access-token)
 - [`GET /user/marketplace_purchases`](/rest/reference/apps#list-subscriptions-for-the-authenticated-user)
 - [`GET /user/marketplace_purchases/stubbed`](/rest/reference/apps#list-subscriptions-for-the-authenticated-user-stubbed)
 
@@ -225,22 +159,14 @@ ms.locfileid: '148107235'
 - [`GET /users/{username}/settings/billing/packages`](/rest/reference/billing#get-github-packages-billing-for-a-user)
 - [`GET /users/{username}/settings/billing/shared-storage`](/rest/reference/billing#get-shared-storage-billing-for-a-user)
 
-## 检查
+## 分享
 
-- [`POST /repos/{owner}/{repo}/check-runs`](/rest/reference/checks#create-a-check-run)
-- [`GET /repos/{owner}/{repo}/check-runs/{check_run_id}`](/rest/reference/checks#get-a-check-run)
-- [`PATCH /repos/{owner}/{repo}/check-runs/{check_run_id}`](/rest/reference/checks#update-a-check-run)
-- [`GET /repos/{owner}/{repo}/check-runs/{check_run_id}/annotations`](/rest/reference/checks#list-check-run-annotations)
-- [`POST /repos/{owner}/{repo}/check-runs/{check_run_id}/rerequest`](/rest/reference/checks#rerequest-a-check-run)
-- [`GET /repos/{owner}/{repo}/check-suites/{check_suite_id}/check-runs`](/rest/reference/checks#list-check-runs-in-a-check-suite)
-- [`POST /repos/{owner}/{repo}/check-suites`](/rest/reference/checks#create-a-check-suite)
-- [`GET /repos/{owner}/{repo}/check-suites/{check_suite_id}`](/rest/reference/checks#get-a-check-suite)
-- [`POST /repos/{owner}/{repo}/check-suites/{check_suite_id}/rerequest`](/rest/reference/checks#rerequest-a-check-suite)
-- [`PATCH /repos/{owner}/{repo}/check-suites/preferences`](/rest/reference/checks#update-repository-preferences-for-check-suites)
+- [`GET /repos/{owner}/{repo}/branches`](/rest/branches/branches#list-branches)
+- [`POST /repos/{owner}/{repo}/merge-upstream`](/rest/branches/branches#sync-a-fork-branch-with-the-upstream-repository)
+- [`POST /repos/{owner}/{repo}/merges`](/rest/branches/branches#merge-a-branch)
 
 ## code-scanning
 
-- [`GET /enterprises/{enterprise}/code-scanning/alerts`](/rest/reference/code-scanning#list-code-scanning-alerts-for-an-enterprise)
 - [`GET /orgs/{org}/code-scanning/alerts`](/rest/reference/code-scanning#list-code-scanning-alerts-by-organization)
 - [`GET /repos/{owner}/{repo}/code-scanning/alerts`](/rest/reference/code-scanning#list-code-scanning-alerts-for-a-repository)
 - [`GET /repos/{owner}/{repo}/code-scanning/alerts/{alert_number}`](/rest/reference/code-scanning#get-a-code-scanning-alert)
@@ -331,6 +257,7 @@ ms.locfileid: '148107235'
 - [`PUT /repos/{owner}/{repo}/dependabot/secrets/{secret_name}`](/rest/reference/dependabot#create-or-update-a-repository-secret)
 - [`DELETE /repos/{owner}/{repo}/dependabot/secrets/{secret_name}`](/rest/reference/dependabot#delete-a-repository-secret)
 - [`GET /repos/{owner}/{repo}/dependabot/secrets/public-key`](/rest/reference/dependabot#get-a-repository-public-key)
+- [`GET /orgs/{org}/dependabot/alerts`](/rest/dependabot/alerts#list-dependabot-alerts-for-an-organization)
 - [`GET /orgs/{org}/dependabot/secrets`](/rest/reference/dependabot#list-organization-secrets)
 - [`GET /orgs/{org}/dependabot/secrets/{secret_name}`](/rest/reference/dependabot#get-an-organization-secret)
 - [`PUT /orgs/{org}/dependabot/secrets/{secret_name}`](/rest/reference/dependabot#create-or-update-an-organization-secret)
@@ -427,7 +354,7 @@ ms.locfileid: '148107235'
 - [`GET /repos/{owner}/{repo}/issues`](/rest/reference/issues#list-repository-issues)
 - [`POST /repos/{owner}/{repo}/issues`](/rest/reference/issues#create-an-issue)
 - [`GET /repos/{owner}/{repo}/issues/{issue_number}`](/rest/reference/issues#get-an-issue)
-- [`PATCH /repos/{owner}/{repo}/issues/{issue_number}`](/rest/reference/issues/#update-an-issue)
+- [`PATCH /repos/{owner}/{repo}/issues/{issue_number}`](/rest/reference/issues#update-an-issue)
 - [`PUT /repos/{owner}/{repo}/issues/{issue_number}/lock`](/rest/reference/issues#lock-an-issue)
 - [`DELETE /repos/{owner}/{repo}/issues/{issue_number}/lock`](/rest/reference/issues#unlock-an-issue)
 - [`GET /user/issues`](/rest/reference/issues#list-user-account-issues-assigned-to-the-authenticated-user)
@@ -474,34 +401,12 @@ ms.locfileid: '148107235'
 - [`GET /repos/{owner}/{repo}/traffic/popular/referrers`](/rest/metrics/traffic#get-top-referral-sources)
 - [`GET /repos/{owner}/{repo}/traffic/views`](/rest/metrics/traffic#get-page-views)
 
-## 迁移
-
-- [`GET /orgs/{org}/migrations`](/rest/reference/migrations#list-organization-migrations)
-- [`POST /orgs/{org}/migrations`](/rest/reference/migrations#start-an-organization-migration)
-- [`GET /orgs/{org}/migrations/{migration_id}`](/rest/reference/migrations#get-an-organization-migration-status)
-- [`GET /orgs/{org}/migrations/{migration_id}/archive`](/rest/reference/migrations#download-an-organization-migration-archive)
-- [`DELETE /orgs/{org}/migrations/{migration_id}/archive`](/rest/reference/migrations#delete-an-organization-migration-archive)
-- [`GET /orgs/{org}/migrations/{migration_id}/repositories`](/rest/reference/migrations#list-repositories-in-an-organization-migration)
-- [`GET /user/migrations`](/rest/reference/migrations#list-user-migrations)
-- [`POST /user/migrations`](/rest/reference/migrations#start-a-user-migration)
-- [`GET /user/migrations/{migration_id}`](/rest/reference/migrations#get-a-user-migration-status)
-- [`GET /user/migrations/{migration_id}/archive`](/rest/reference/migrations#download-a-user-migration-archive)
-- [`DELETE /user/migrations/{migration_id}/archive`](/rest/reference/migrations#delete-a-user-migration-archive)
-- [`GET /user/migrations/{migration_id}/repositories`](/rest/reference/migrations#list-repositories-for-a-user-migration)
-- [`GET /repos/{owner}/{repo}/import`](/rest/reference/migrations#get-an-import-status)
-- [`PUT /repos/{owner}/{repo}/import`](/rest/reference/migrations#start-an-import)
-- [`PATCH /repos/{owner}/{repo}/import`](/rest/reference/migrations#update-an-import)
-- [`DELETE /repos/{owner}/{repo}/import`](/rest/reference/migrations#cancel-an-import)
-- [`GET /repos/{owner}/{repo}/import/authors`](/rest/reference/migrations#get-commit-authors)
-- [`PATCH /repos/{owner}/{repo}/import/authors/{author_id}`](/rest/reference/migrations#map-a-commit-author)
-- [`GET /repos/{owner}/{repo}/import/large_files`](/rest/reference/migrations#get-large-files)
-- [`PATCH /repos/{owner}/{repo}/import/lfs`](/rest/reference/migrations#update-git-lfs-preference)
-
 ## orgs
 
 {% ifversion ghec %}
 - [`GET /orgs/{org}/audit-log`](/rest/reference/orgs#get-audit-log){% endif %}
 - [`GET /organizations/{organization_id}/custom_roles`](/rest/reference/orgs#list-custom-repository-roles-in-an-organization)
+- [`GET /orgs/{org}/custom_roles/{role_id}`](/rest/reference/orgs/#get-a-custom-role)
 - [`PATCH /orgs/{org}/custom_roles/{role_id}`](/rest/reference/orgs#update-a-custom-role)
 - [`DELETE /orgs/{org}/custom_roles/{role_id}`](/rest/reference/orgs#delete-a-custom-role)
 - [`GET /orgs/{org}/fine_grained_permissions`](/rest/reference/orgs#list-fine-grained-permissions-for-an-organization)
@@ -539,7 +444,7 @@ ms.locfileid: '148107235'
 - [`DELETE /orgs/{org}/security-managers/teams/{team_slug}`](/rest/reference/orgs#remove-a-security-manager-team)
 - [`GET /organizations`](/rest/reference/orgs#list-organizations)
 - [`GET /orgs/{org}`](/rest/reference/orgs#get-an-organization)
-- [`PATCH /orgs/{org}`](/rest/reference/orgs/#update-an-organization)
+- [`PATCH /orgs/{org}`](/rest/reference/orgs#update-an-organization)
 - [`GET /orgs/{org}/installations`](/rest/reference/orgs#list-app-installations-for-an-organization)
 - [`GET /users/{username}/orgs`](/rest/reference/orgs#list-organizations-for-a-user)
 - [`GET /user/memberships/orgs/{org}`](/rest/reference/orgs#get-an-organization-membership-for-the-authenticated-user)
@@ -551,52 +456,16 @@ ms.locfileid: '148107235'
 - [`PUT /orgs/{org}/blocks/{username}`](/rest/reference/orgs#block-a-user-from-an-organization)
 - [`DELETE /orgs/{org}/blocks/{username}`](/rest/reference/orgs#unblock-a-user-from-an-organization)
 
-## packages
-
-- [`GET /orgs/{org}/packages`](/rest/reference/packages#list-packages-for-an-organization)
-- [`GET /users/{username}/packages`](/rest/reference/packages#list-packages-for-user)
-- [`GET /user/packages`](/rest/reference/packages#list-packages-for-the-authenticated-user)
-
 ## 页
 
 - [`GET /repos/{owner}/{repo}/pages`](/rest/pages#get-a-github-pages-site)
-- [`POST /repos/{owner}/{repo}/pages`](/rest/pages#create-a-github-pages-site)
 - [`PUT /repos/{owner}/{repo}/pages`](/rest/pages#update-information-about-a-github-pages-site)
-- [`DELETE /repos/{owner}/{repo}/pages`](/rest/pages#delete-a-github-pages-site)
 - [`GET /repos/{owner}/{repo}/pages/builds`](/rest/pages#list-github-pages-builds)
 - [`POST /repos/{owner}/{repo}/pages/builds`](/rest/pages#request-a-github-pages-build)
 - [`GET /repos/{owner}/{repo}/pages/builds/{build_id}`](/rest/pages#get-github-pages-build)
 - [`GET /repos/{owner}/{repo}/pages/builds/latest`](/rest/pages#get-latest-pages-build)
 - [`POST /repos/{owner}/{repo}/pages/deployment`](/rest/pages#create-a-github-pages-deployment)
 - [`GET /repos/{owner}/{repo}/pages/health`](/rest/pages#get-a-dns-health-check-for-github-pages)
-
-## projects
-
-- [`GET /projects/{project_id}/collaborators`](/rest/reference/projects#list-project-collaborators)
-- [`PUT /projects/{project_id}/collaborators/{username}`](/rest/reference/projects#add-project-collaborator)
-- [`DELETE /projects/{project_id}/collaborators/{username}`](/rest/reference/projects#remove-project-collaborator)
-- [`GET /projects/{project_id}/collaborators/{username}/permission`](/rest/reference/projects#get-project-permission-for-a-user)
-- [`GET /orgs/{org}/projects`](/rest/reference/projects#list-organization-projects)
-- [`POST /orgs/{org}/projects`](/rest/reference/projects#create-an-organization-project)
-- [`GET /projects/{project_id}`](/rest/reference/projects#get-a-project)
-- [`PATCH /projects/{project_id}`](/rest/reference/projects#update-a-project)
-- [`DELETE /projects/{project_id}`](/rest/reference/projects#delete-a-project)
-- [`GET /projects/{project_id}/columns`](/rest/reference/projects#list-project-columns)
-- [`POST /projects/{project_id}/columns`](/rest/reference/projects#create-a-project-column)
-- [`GET /projects/columns/{column_id}`](/rest/reference/projects#get-a-project-column)
-- [`PATCH /projects/columns/{column_id}`](/rest/reference/projects#update-a-project-column)
-- [`DELETE /projects/columns/{column_id}`](/rest/reference/projects#delete-a-project-column)
-- [`GET /projects/columns/{column_id}/cards`](/rest/reference/projects#list-project-cards)
-- [`POST /projects/columns/{column_id}/cards`](/rest/reference/projects#create-a-project-card)
-- [`POST /projects/columns/{column_id}/moves`](/rest/reference/projects#move-a-project-column)
-- [`GET /projects/columns/cards/{card_id}`](/rest/reference/projects#get-a-project-card)
-- [`PATCH /projects/columns/cards/{card_id}`](/rest/reference/projects#update-a-project-card)
-- [`DELETE /projects/columns/cards/{card_id}`](/rest/reference/projects#delete-a-project-card)
-- [`POST /projects/columns/cards/{card_id}/moves`](/rest/reference/projects#move-a-project-card)
-- [`GET /repos/{owner}/{repo}/projects`](/rest/reference/projects#list-repository-projects)
-- [`POST /repos/{owner}/{repo}/projects`](/rest/reference/projects#create-a-repository-project)
-- [`GET /users/{username}/projects`](/rest/reference/projects#list-user-projects)
-- [`POST /user/projects`](/rest/reference/projects#create-a-user-project)
 
 ## pulls
 
@@ -669,7 +538,7 @@ ms.locfileid: '148107235'
 - [`POST /orgs/{org}/repos`](/rest/reference/repos#create-an-organization-repository)
 - [`GET /repositories`](/rest/reference/repos#list-public-repositories)
 - [`GET /repos/{owner}/{repo}`](/rest/reference/repos#get-a-repository)
-- [`PATCH /repos/{owner}/{repo}`](/rest/reference/repos/#update-a-repository)
+- [`PATCH /repos/{owner}/{repo}`](/rest/repos/repos#update-a-repository)
 - [`DELETE /repos/{owner}/{repo}`](/rest/reference/repos#delete-a-repository)
 - [`GET /repos/{owner}/{repo}/contributors`](/rest/reference/repos#list-repository-contributors)
 - [`GET /repos/{owner}/{repo}/forks`](/rest/reference/repos#list-forks)
@@ -677,7 +546,6 @@ ms.locfileid: '148107235'
 - [`GET /repos/{owner}/{repo}/languages`](/rest/reference/repos#list-repository-languages)
 - [`GET /repos/{owner}/{repo}/tags`](/rest/reference/repos#list-repository-tags)
 - [`GET /repos/{owner}/{repo}/teams`](/rest/reference/repos#list-repository-teams)
-- [`POST /repos/{owner}/{repo}/transfer`](/rest/reference/repos#transfer-a-repository)
 - [`GET /users/{username}/repos`](/rest/reference/repos#list-repositories-for-a-user)
 - [`GET /user/repos`](/rest/reference/repos#list-repositories-for-the-authenticated-user)
 - [`POST /user/repos`](/rest/reference/repos#create-a-repository-for-the-authenticated-user)
@@ -687,16 +555,11 @@ ms.locfileid: '148107235'
 - [`DELETE /repos/{owner}/{repo}/autolinks/{autolink_id}`](/v3/repos#delete-autolink)
 - [`PUT /repos/{owner}/{repo}/automated-security-fixes`](/rest/reference/repos#enable-automated-security-fixes)
 - [`DELETE /repos/{owner}/{repo}/automated-security-fixes`](/rest/reference/repos#disable-automated-security-fixes)
-- [`GET /repos/{owner}/{repo}/branches`](/rest/reference/repos#list-branches)
-- [`POST /repos/{owner}/{repo}/merge-upstream`](/rest/reference/repos#sync-a-fork-branch-with-the-upstream-repository)
-- [`POST /repos/{owner}/{repo}/merges`](/rest/reference/repos#merge-a-branch)
 - [`POST /repos/{owner}/{repo}/dispatches`](/rest/reference/repos#create-a-repository-dispatch-event)
 - [`GET /repos/{owner}/{repo}/keys`](/rest/reference/repos#list-deploy-keys)
 - [`POST /repos/{owner}/{repo}/keys`](/rest/reference/repos#create-a-deploy-key)
 - [`GET /repos/{owner}/{repo}/keys/{key_id}`](/rest/reference/repos#get-a-deploy-key)
 - [`DELETE /repos/{owner}/{repo}/keys/{key_id}`](/rest/reference/repos#delete-a-deploy-key)
-- [`PUT /repos/{owner}/{repo}/lfs`](/rest/reference/repos#enable-git-lfs-for-a-repository)
-- [`DELETE /repos/{owner}/{repo}/lfs`](/rest/reference/repos#disable-git-lfs-for-a-repository)
 - [`GET /repos/{owner}/{repo}/releases`](/rest/reference/repos#list-releases)
 - [`POST /repos/{owner}/{repo}/releases`](/rest/reference/repos#create-a-release)
 - [`GET /repos/{owner}/{repo}/releases/{release_id}`](/rest/reference/repos#get-a-release)
@@ -729,7 +592,6 @@ ms.locfileid: '148107235'
 
 ## secret-scanning
 
-- [`GET /enterprises/{enterprise}/secret-scanning/alerts`](/rest/reference/secret-scanning#list-secret-scanning-alerts-for-an-enterprise)
 - [`GET /orgs/{org}/secret-scanning/alerts`](/rest/reference/secret-scanning#list-secret-scanning-alerts-for-an-organization)
 - [`GET /repos/{owner}/{repo}/secret-scanning/alerts`](/rest/reference/secret-scanning#list-secret-scanning-alerts-for-a-repository)
 - [`GET /repos/{owner}/{repo}/secret-scanning/alerts/{alert_number}`](/rest/reference/secret-scanning#get-a-secret-scanning-alert)
@@ -797,7 +659,6 @@ ms.locfileid: '148107235'
 - [`POST /user/gpg_keys`](/rest/reference/users#create-a-gpg-key-for-the-authenticated-user)
 - [`GET /user/gpg_keys/{gpg_key_id}`](/rest/reference/users#get-a-gpg-key-for-the-authenticated-user)
 - [`DELETE /user/gpg_keys/{gpg_key_id}`](/rest/reference/users#delete-a-gpg-key-for-the-authenticated-user)
-- [`GET /users/{username}/hovercard`](/rest/reference/users#get-contextual-information-for-a-user)
 - [`GET /users/{username}/keys`](/rest/reference/users#list-public-keys-for-a-user)
 - [`GET /user/keys`](/rest/reference/users#list-public-ssh-keys-for-the-authenticated-user)
 - [`POST /user/keys`](/rest/reference/users#create-a-public-ssh-key-for-the-authenticated-user)

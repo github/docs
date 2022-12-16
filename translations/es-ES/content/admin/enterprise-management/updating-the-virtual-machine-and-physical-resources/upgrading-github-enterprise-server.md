@@ -1,6 +1,6 @@
 ---
-title: Upgrading GitHub Enterprise Server
-intro: 'Upgrade {% data variables.product.prodname_ghe_server %} to get the latest features and security updates.'
+title: Actualizar el servidor de GitHub Enterprise
+intro: 'Actualizar el {% data variables.product.prodname_ghe_server %} para obtener las funciones y las actualizaciones de seguridad más recientes.'
 redirect_from:
   - /enterprise/admin/installation/upgrading-github-enterprise-server
   - /enterprise/admin/articles/upgrading-to-the-latest-release
@@ -21,157 +21,158 @@ topics:
   - Enterprise
   - Upgrades
 shortTitle: Upgrading GHES
+ms.openlocfilehash: cbbeff601bfbbdf828ed4c5fc019c5e3bf849614
+ms.sourcegitcommit: 30b0931723b704e219c736e0de7afe0fa799da29
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 11/30/2022
+ms.locfileid: '148186431'
 ---
+## Preparar para una actualización
 
-
-## Preparing to upgrade
-
-1. Determine an upgrade strategy and choose a version to upgrade to. For more information, see "[Upgrade requirements](/enterprise/{{ currentVersion }}/admin/guides/installation/upgrade-requirements/)" and refer to the [{% data variables.enterprise.upgrade_assistant %}](https://support.github.com/enterprise/server-upgrade) to find the upgrade path from your current release version.
-1. Create a fresh backup of your primary instance with the {% data variables.product.prodname_enterprise_backup_utilities %}. For more information, see the [README.md file](https://github.com/github/backup-utils#readme) in the {% data variables.product.prodname_enterprise_backup_utilities %} project documentation.
+1. Determina una estrategia de actualización y elige una versión a la que actualizar. Para más información, vea "[Requisitos de actualización](/enterprise/{{ currentVersion }}/admin/guides/installation/upgrade-requirements/)" y consulte [{% data variables.enterprise.upgrade_assistant %}](https://support.github.com/enterprise/server-upgrade) para encontrar la ruta de actualización de la versión actual.
+1. Crea una copia de seguridad nueva de tu instancia principal con las {% data variables.product.prodname_enterprise_backup_utilities %}. Para más información, consulta el [archivo README.md](https://github.com/github/backup-utils#readme) de la documentación del proyecto de {% data variables.product.prodname_enterprise_backup_utilities %}.
 
   {% note %}
 
-  **Note:** Your {% data variables.product.prodname_enterprise_backup_utilities %} version needs to be the same version as, or at most two versions ahead of, {% data variables.location.product_location %}. For more information, see "[Upgrading GitHub Enterprise Server Backup Utilities](/admin/configuration/configuring-your-enterprise/configuring-backups-on-your-appliance#upgrading-github-enterprise-server-backup-utilities)."
+  **Nota**: La versión de {% data variables.product.prodname_enterprise_backup_utilities %} debe ser la misma que la de{% data variables.location.product_location %} o, como máximo, dos versiones posteriores. Para obtener más información, consulta "[Actualizar GitHub Enterprise Server Backup Utilities](/admin/configuration/configuring-your-enterprise/configuring-backups-on-your-appliance#upgrading-github-enterprise-server-backup-utilities)".
 
   {% endnote %}
 
-1. If {% data variables.location.product_location %} uses ephemeral self-hosted runners for {% data variables.product.prodname_actions %} and you've disabled automatic updates, upgrade your runners to the version of the runner application that your upgraded instance will run.
-1. If you are upgrading using an upgrade package, schedule a maintenance window for {% data variables.product.prodname_ghe_server %} end users. If you are using a hotpatch, maintenance mode is not required.
+1. Si {% data variables.location.product_location %} usa ejecutores autohospedados efímeros para {% data variables.product.prodname_actions %} y has deshabilitado las actualizaciones automáticas, actualiza los ejecutores a la versión de la aplicación de ejecutor que la instancia actualizada ejecutará.
+1. Si estás actualizando con un paquete de actualización, programa una ventana de mantenimiento para los usuarios finales del {% data variables.product.prodname_ghe_server %}. Si estás usando un hotpatch, no se necesita el modo mantenimiento.
 
   {% note %}
 
-  **Note:** The maintenance window depends on the type of upgrade you perform. Upgrades using a hotpatch usually don't require a maintenance window. Sometimes a reboot is required, which you can perform at a later time. Following the versioning scheme of MAJOR.FEATURE.PATCH, patch releases using an upgrade package typically require less than five minutes of downtime. Feature releases that include data migrations take longer depending on storage performance and the amount of data that's migrated. For more information, see "[Enabling and scheduling maintenance mode](/enterprise/admin/guides/installation/enabling-and-scheduling-maintenance-mode)."
+  **Nota:** La ventana de mantenimiento depende del tipo de actualización que realice. Las actualizaciones que utilizan un hotpatch por lo general no necesitan una ventana de mantenimiento. A veces se necesita reiniciar; puedes hacerlo más tarde. Siguiendo el esquema de control de versiones de MAJOR.FEATURE.PATCH, los lanzamientos de patch que utilizan un paquete de actualización normalmente necesitan menos de cinco minutos de tiempo de inactividad. Los lanzamientos de funciones que incluyen migraciones de datos toman más tiempo dependiendo del desempeño del almacenamiento y de la cantidad de datos que se migran. Para más información, vea "[Habilitación y programación del modo de mantenimiento](/enterprise/admin/guides/installation/enabling-and-scheduling-maintenance-mode)".
 
   {% endnote %}
 
-## Taking a snapshot
+## Tomar una instantánea
 
-A snapshot is a checkpoint of a virtual machine (VM) at a point in time. We highly recommend taking a snapshot before upgrading your virtual machine so that if an upgrade fails, you can revert your VM back to the snapshot. We only recommend taking a VM snapshot when the appliance is powered down or in maintenance mode and all background jobs have finished.
+Una instantánea es un punto de verificación de una máquina virtual (VM) en un momento en el tiempo. Recomendamos firmemente tomar una instantánea antes de actualizar tu máquina virtual para que si falla una actualización, puedas revertir tu VM nuevamente a la instantánea. Solo recomendamos tomar una captura de pantalla de la MV cuando el aplicativo esté apagado o en modo de mantenimiento y todos los jobs en segundo plano hayan terminado.
 
-If you're upgrading to a new feature release, you must take a VM snapshot. If you're upgrading to a patch release, you can attach the existing data disk. 
+Si no estás actualizando a un nuevo lanzamiento de característica, debes tomar una instantánea de VM. Si estás actualizando a un nuevo lanzamiento de patch, puedes adjuntar el disco de datos existente. 
 
-There are two types of snapshots:
+Hay dos tipos de instantáneas:
 
-- **VM snapshots** save your entire VM state, including user data and configuration data. This snapshot method requires a large amount of disk space and is time consuming.
-- **Data disk snapshots** only save your user data.
+- Las **instantáneas de VM** guardan el estado completo de la VM, incluidos los datos del usuario y de configuración. Este método de instantáneas requiere una gran cantidad de espacio de disco e insume mucho tiempo.
+- Las **instantáneas de disco de datos** solo guardan los datos de usuario.
 
   {% note %}
 
-  **Notes:**
-  - Some platforms don't allow you to take a snapshot of just your data disk. For these platforms, you'll need to take a snapshot of the entire VM.
-  - If your hypervisor does not support full VM snapshots, you should take a snapshot of the root disk and data disk in quick succession.
+  **Notas:**
+  - Algunas plataformas no permiten que tomes una instantánea solo de tu disco de datos. Para estas plataformas, necesitarás tomar una instantánea de tu VM completa.
+  - Si tu hipervisor no admite instantáneas de VM completas, debes tomar una instantánea de tu disco raíz y de tu disco de datos en rápida sucesión.
 
   {% endnote %}
 
-| Platform | Snapshot method | Snapshot documentation URL |
+| Plataforma | Snapshot (método) | URL de documentación de instantánea |
 |---|---|---|
-| Amazon AWS | Disk | <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-creating-snapshot.html>
-| Azure | VM | <https://docs.microsoft.com/azure/backup/backup-azure-vms-first-look-arm>
-| Hyper-V | VM | <https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/enable-or-disable-checkpoints-in-hyper-v>
-| Google Compute Engine | Disk | <https://cloud.google.com/compute/docs/disks/create-snapshots>
-| VMware | VM | <https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.hostclient.doc/GUID-64B866EF-7636-401C-A8FF-2B4584D9CA72.html>
+| Amazon AWS | Disco | <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-creating-snapshot.html>
+| Azure | máquina virtual | <https://docs.microsoft.com/azure/backup/backup-azure-vms-first-look-arm>
+| Hyper-V | máquina virtual | <https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/enable-or-disable-checkpoints-in-hyper-v>
+| Google Compute Engine | Disco | <https://cloud.google.com/compute/docs/disks/create-snapshots>
+| VMware | máquina virtual | <https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.hostclient.doc/GUID-64B866EF-7636-401C-A8FF-2B4584D9CA72.html>
 
-## Upgrading with a hotpatch
+## Actualizar con un hotpatch
 
 {% data reusables.enterprise_installation.hotpatching-explanation %} 
 
-Using the {% data variables.enterprise.management_console %}, you can install a hotpatch immediately or schedule it for later installation. You can use the administrative shell to install a hotpatch with the `ghe-upgrade` utility. For more information, see "[Upgrade requirements](/enterprise/admin/guides/installation/upgrade-requirements/)."
+Si utilizas la {% data variables.enterprise.management_console %}, puedes instalar un hotpatch de inmediato o programarlo para que se instale posteriormente. Puede usar el shell administrativo para instalar una revisión en caliente con la utilidad `ghe-upgrade`. Para más información, vea "[Requisitos de actualización](/enterprise/admin/guides/installation/upgrade-requirements/)".
 
 {% note %}
 
-**{% ifversion ghes %}Notes{% else %}Note{% endif %}**:
+**{% ifversion ghes %}Notas{% else %}Nota{% endif %}** :
 
 {% ifversion ghes %}
-- If {% data variables.location.product_location %} is running a release candidate build, you can't upgrade with a hotpatch.
+- Si {% data variables.location.product_location %} ejecuta una compilación de versión candidata para lanzamiento, no la puedes actualizar con una revisión en caliente.
 
-- {% endif %}Installing a hotpatch using the {% data variables.enterprise.management_console %} is not available in clustered environments. To install a hotpatch in a clustered environment, see "[Upgrading a cluster](/enterprise/admin/clustering/upgrading-a-cluster#upgrading-with-a-hotpatch)."
+- {% endif %}No hay disponibilidad para instalar un parche utilizando la {% data variables.enterprise.management_console %} en los ambientes de clúster. Para instalar una revisión en caliente en un entorno en clúster, vea "[Actualización de un clúster](/enterprise/admin/clustering/upgrading-a-cluster#upgrading-with-a-hotpatch)".
 
 {% endnote %}
 
-### Upgrading a single appliance with a hotpatch
+### Actualizar un aparato único con un hotpatch
 
-#### Installing a hotpatch using the {% data variables.enterprise.management_console %}
+#### Instalar un hotpatch utilizando la {% data variables.enterprise.management_console %}
 
-You can use the {% data variables.enterprise.management_console %} to upgrade with a hotpatch by enabling automatic updates. You will then be presented with the latest available version of {% data variables.product.prodname_ghe_server %} that you can upgrade to.
+Puedes utilziar la {% data variables.enterprise.management_console %} para hacer una mejora con un hotpatch si habilitas las actualizaciones automáticas. Entonces se te presentará la última versión disponible de {% data variables.product.prodname_ghe_server %} a la cual puedes mejorar.
 
-If the upgrade target you're presented with is a feature release instead of a patch release, you cannot use the {% data variables.enterprise.management_console %} to install a hotpatch. You must install the hotpatch using the administrative shell instead. For more information, see "[Installing a hotpatch using the administrative shell](#installing-a-hotpatch-using-the-administrative-shell)."
+Si el objetivo de actualización que se te presentó es un lanzamiento de una característica en vez de un lanzamiento de parche, no podrás utilizar la {% data variables.enterprise.management_console %} para instalar un hotpatch. En vez de eso, deberás instalar el hotpatch utilizando el shell administrativo. Para más información, vea "[Instalación de una revisión en caliente mediante el shell administrativo](#installing-a-hotpatch-using-the-administrative-shell)".
 
-1. Enable automatic updates. For more information, see "[Enabling automatic updates](/enterprise/admin/guides/installation/enabling-automatic-update-checks/)."
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.management-console %}
-{% data reusables.enterprise_management_console.updates-tab %}
-4. When a new hotpatch has been downloaded, use the Install package drop-down menu:
-    - To install immediately, select **Now**:
-    - To install later, select a later date.
-  ![Hotpatch installation date dropdown](/assets/images/enterprise/management-console/hotpatch-installation-date-dropdown.png)
-5. Click **Install**.
-  ![Hotpatch install button](/assets/images/enterprise/management-console/hotpatch-installation-install-button.png)
+1. Habilitar las actualizaciones automáticas. Para más información, vea "[Habilitación de actualizaciones automáticas](/enterprise/admin/guides/installation/enabling-automatic-update-checks/)".
+{% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.enterprise_site_admin_settings.management-console %} {% data reusables.enterprise_management_console.updates-tab %}
+4. Cuando se ha descargado un nuevo hotpatch, utiliza el menú desplegable del paquete de instalación:
+    - Para realizar la instalación inmediatamente, seleccione **Ahora**:
+    - Para instalarlo más tarde, selecciona una fecha posterior.
+  ![Menú desplegable de fecha de instalación de la revisión en caliente](/assets/images/enterprise/management-console/hotpatch-installation-date-dropdown.png)
+5. Haga clic en **Instalar**.
+  ![Botón de instalación de la revisión en caliente](/assets/images/enterprise/management-console/hotpatch-installation-install-button.png)
 
-#### Installing a hotpatch using the administrative shell
+#### Instalar un hotpatch utilizando un shell administrativo
 
 {% data reusables.enterprise_installation.download-note %}
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
-2. {% data reusables.enterprise_installation.enterprise-download-upgrade-pkg %} Copy the URL for the upgrade hotpackage (*.hpkg* file).
+2. {% data reusables.enterprise_installation.enterprise-download-upgrade-pkg %} Copie la URL para obtener el paquete de actualización (archivo *.hpkg*).
 {% data reusables.enterprise_installation.download-package %}
-4. Run the `ghe-upgrade` command using the package file name:
+4. Ejecute el comando `ghe-upgrade` con el nombre del archivo de paquete:
   ```shell
   admin@HOSTNAME:~$ ghe-upgrade GITHUB-UPGRADE.hpkg
   *** verifying upgrade package signature...
   ```
-5. If a reboot is required for updates for kernel, MySQL, Elasticsearch or other programs, the hotpatch upgrade script notifies you.
+5. Si se requiere un reinicio para las actualizaciones de kernel, MySQL, Elasticsearch u otros programas, el script de actualización de hotpatch te avisa.
 
-### Upgrading an appliance that has replica instances using a hotpatch
-
-{% note %}
-
-**Note**: If you are installing a hotpatch, you do not need to enter maintenance mode or stop replication.
-
-{% endnote %}
-
-Appliances configured for high-availability and geo-replication use replica instances in addition to primary instances. To upgrade these appliances, you'll need to upgrade both the primary instance and all replica instances, one at a time.
-
-#### Upgrading the primary instance
-
-1. Upgrade the primary instance by following the instructions in "[Installing a hotpatch using the administrative shell](#installing-a-hotpatch-using-the-administrative-shell)."
-
-#### Upgrading a replica instance
+### Actualizar un aparato que tiene instancias de réplica utilizando un hotpatch
 
 {% note %}
 
-**Note:** If you're running multiple replica instances as part of geo-replication, repeat this procedure for each replica instance, one at a time.
+**Nota**: Si va a instalar una revisión en caliente, no es necesario entrar en modo de mantenimiento ni detener la replicación.
 
 {% endnote %}
 
-1. Upgrade the replica instance by following the instructions in "[Installing a hotpatch using the administrative shell](#installing-a-hotpatch-using-the-administrative-shell)." If you are using multiple replicas for Geo-replication, you must repeat this procedure to upgrade each replica one at a time.
-{% data reusables.enterprise_installation.replica-ssh %}
-{% data reusables.enterprise_installation.replica-verify %}
+Los aparatos configurados para alta disponibilidad y de replicación geográfica utilizan instancias de réplica además de las instancias principales. Para actualizar estos aparatos, necesitarás actualizar tanto la instancia principal y todas las instancias de réplica, una a la vez.
 
-## Upgrading with an upgrade package
+#### Actualizar la instancia principal
 
-While you can use a hotpatch to upgrade to the latest patch release within a feature series, you must use an upgrade package to upgrade to a newer feature release. For example to upgrade from `2.11.10` to `2.12.4` you must use an upgrade package since these are in different feature series. For more information, see "[Upgrade requirements](/enterprise/admin/guides/installation/upgrade-requirements/)."
+1. Actualice la instancia principal con las instrucciones de "[Instalación de una revisión en caliente mediante el shell administrativo](#installing-a-hotpatch-using-the-administrative-shell)".
 
-### Upgrading a single appliance with an upgrade package
+#### Actualizar una instancia de réplica
+
+{% note %}
+
+**Nota:** Si va a ejecutar varias instancias de réplica como parte de la replicación geográfica, repita este procedimiento para cada instancia de réplica, de forma individual.
+
+{% endnote %}
+
+1. Actualice la instancia de réplica con las instrucciones de "[Instalación de una revisión en caliente mediante el shell administrativo](#installing-a-hotpatch-using-the-administrative-shell)". Si estás utilizando varias replicas para la replicación geográfica, deberás repetir este procedimiento para actualizar cada réplica una a la vez.
+{% data reusables.enterprise_installation.replica-ssh %} {% data reusables.enterprise_installation.replica-verify %}
+
+## Actualizar con un paquete de actualización
+
+Al mismo tiempo que puedes utilizar un hotpatch para actualizar al lanzamiento de patch más reciente dentro de una serie de características, debes utilizar un paquete de actualización para actualizar a un lanzamiento de característica más nuevo. Por ejemplo, para actualizar de `2.11.10` a `2.12.4` debe usar un paquete de actualización, ya que se encuentran en diferentes series de características. Para más información, vea "[Requisitos de actualización](/enterprise/admin/guides/installation/upgrade-requirements/)".
+
+### Actualizar un aparato único con un paquete de actualización
 
 {% data reusables.enterprise_installation.download-note %}
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
-2. {% data reusables.enterprise_installation.enterprise-download-upgrade-pkg %} Select the appropriate platform and copy the URL for the upgrade package (*.pkg* file).
+2. {% data reusables.enterprise_installation.enterprise-download-upgrade-pkg %} Seleccione la plataforma adecuada y copia la URL para obtener el paquete de actualización (archivo *.pkg*).
 {% data reusables.enterprise_installation.download-package %}
-4. Enable maintenance mode and wait for all active processes to complete on the {% data variables.product.prodname_ghe_server %} instance. For more information, see "[Enabling and scheduling maintenance mode](/enterprise/admin/guides/installation/enabling-and-scheduling-maintenance-mode)."
+4. Habilita el modo mantenimiento y espera que se completen todos los procesos activos en la instancia del {% data variables.product.prodname_ghe_server %}. Para más información, vea "[Habilitación y programación del modo de mantenimiento](/enterprise/admin/guides/installation/enabling-and-scheduling-maintenance-mode)".
 
   {% note %}
 
-  **Note**: When upgrading the primary appliance in a High Availability configuration, the appliance should already be in maintenance mode if you are following the instructions in "[Upgrading the primary instance](#upgrading-the-primary-instance)."
+  **Nota**: Al actualizar el dispositivo principal en una configuración de alta disponibilidad, el dispositivo ya debería estar en modo de mantenimiento si sigue las instrucciones de "[Actualización de la instancia principal](#upgrading-the-primary-instance)".
 
   {% endnote %}
 
-5. Run the `ghe-upgrade` command using the package file name:
+5. Ejecute el comando `ghe-upgrade` con el nombre del archivo de paquete:
   ```shell
   admin@HOSTNAME:~$ ghe-upgrade GITHUB-UPGRADE.pkg
   *** verifying upgrade package signature...
   ```
-6. Confirm that you'd like to continue with the upgrade and restart after the package signature verifies. The new root filesystem writes to the secondary partition and the instance automatically restarts in maintenance mode:
+6. Confirma que te gustaría continuar con la actualización y reinicia después de que se verifique la firma del paquete. El nuevo sistema de archivos raíz escribe en la segunda partición y la instancia de forma automática se reinicia en modo mantenimiento:
   ```shell
   *** applying update...
   This package will upgrade your installation to version VERSION-NUMBER
@@ -180,52 +181,51 @@ While you can use a hotpatch to upgrade to the latest patch release within a fea
   Proceed with installation? [y/N]
   ```
 {% ifversion ip-exception-list %}
-1. Optionally, to validate the upgrade, configure an IP exception list to allow access to a specified list of IP addresses. For more information, see "[Validating changes in maintenance mode using the IP exception list](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode#validating-changes-in-maintenance-mode-using-the-ip-exception-list)."
+1. Opcionalmente, para validar la actualización, configura una lista de excepciones IP para permitir el acceso a una lista especificada de direcciones IP. Para obtener más información, consulta «[Validación de cambios en el modo de mantenimiento mediante la lista de excepciones de IP](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode#validating-changes-in-maintenance-mode-using-the-ip-exception-list)».
 {% endif %}
-7. For single appliance upgrades, disable maintenance mode so users can use {% data variables.location.product_location %}.
+7. Para las actualizaciones de un solo dispositivo, deshabilita el modo mantenimiento para que los usuarios puedan usar {% data variables.location.product_location %}.
 
   {% note %}
 
-  **Note**: When upgrading appliances in a High Availability configuration you should remain in maintenance mode until you have upgraded all of the replicas and replication is current. For more information, see "[Upgrading a replica instance](#upgrading-a-replica-instance)."
+  **Nota**: Cuando se actualizan dispositivos en una configuración de alta disponibilidad, debe mantenerse en modo de mantenimiento hasta que haya actualizado todas las réplicas y la replicación sea actual. Para más información, vea "[Actualización de una instancia de réplica](#upgrading-a-replica-instance)".
 
   {% endnote %}
 
-### Upgrading an appliance that has replica instances using an upgrade package
+### Actualizar un aparato que tiene instancias de réplica utilizando un paquete de actualización
 
-Appliances configured for high-availability and geo-replication use replica instances in addition to primary instances. To upgrade these appliances, you'll need to upgrade both the primary instance and all replica instances, one at a time.
+Los aparatos configurados para alta disponibilidad y de replicación geográfica utilizan instancias de réplica además de las instancias principales. Para actualizar estos aparatos, necesitarás actualizar tanto la instancia principal y todas las instancias de réplica, una a la vez.
 
-#### Upgrading the primary instance
+#### Actualizar la instancia principal
 
 {% warning %}
 
-**Warning:** When replication is stopped, if the primary fails, any work that is done before the replica is upgraded and the replication begins again will be lost.
+**Advertencia:** Cuando se detiene la replicación, si se produce un error en la instancia primaria, se perderá cualquier trabajo que se realice antes de que la réplica esté actualizada y vuelva a comenzar la replicación.
 
 {% endwarning %}
 
-1. On the primary instance, enable maintenance mode and wait for all active processes to complete. For more information, see "[Enabling maintenance mode](/enterprise/admin/guides/installation/enabling-and-scheduling-maintenance-mode/)."
+1. En la instancia primaria, habilita el modo mantenimiento y espera a que se completen todos los procesos activos. Para más información, vea "[Habilitación del modo de mantenimiento](/enterprise/admin/guides/installation/enabling-and-scheduling-maintenance-mode/)".
 {% data reusables.enterprise_installation.replica-ssh %}
-3. On the replica instance, or on all replica instances if you're running multiple replica instances as part of geo-replication, run `ghe-repl-stop` to stop replication.
-4. Upgrade the primary instance by following the instructions in "[Upgrading a single appliance with an upgrade package](#upgrading-a-single-appliance-with-an-upgrade-package)."
+3. En la instancia de réplica, o en todas las instancias de réplica si ejecuta varias como parte de una replicación geográfica, ejecute `ghe-repl-stop` para detener la replicación.
+4. Actualice la instancia principal mediante las instrucciones de "[Actualización de un único dispositivo con un paquete de actualización](#upgrading-a-single-appliance-with-an-upgrade-package)".
 
-#### Upgrading a replica instance
+#### Actualizar una instancia de réplica
 
 {% note %}
 
-**Note:** If you're running multiple replica instances as part of geo-replication, repeat this procedure for each replica instance, one at a time.
+**Nota:** Si va a ejecutar varias instancias de réplica como parte de la replicación geográfica, repita este procedimiento para cada instancia de réplica, de forma individual.
 
 {% endnote %}
 
-1. Upgrade the replica instance by following the instructions in "[Upgrading a single appliance with an upgrade package](#upgrading-a-single-appliance-with-an-upgrade-package)." If you are using multiple replicas for Geo-replication, you must repeat this procedure to upgrade each replica one at a time.
-{% data reusables.enterprise_installation.replica-ssh %}
-{% data reusables.enterprise_installation.replica-verify %}
+1. Actualice la instancia de réplica mediante las instrucciones de "[Actualización de un único dispositivo con un paquete de actualización](#upgrading-a-single-appliance-with-an-upgrade-package)". Si estás utilizando varias replicas para la replicación geográfica, deberás repetir este procedimiento para actualizar cada réplica una a la vez.
+{% data reusables.enterprise_installation.replica-ssh %} {% data reusables.enterprise_installation.replica-verify %}
 
 {% data reusables.enterprise_installation.start-replication %}
 
-{% data reusables.enterprise_installation.replication-status %} If the command returns `Replication is not running`, the replication may still be starting. Wait about one minute before running `ghe-repl-status` again.
+{% data reusables.enterprise_installation.replication-status %} Si el comando devuelve `Replication is not running`, es posible que la replicación todavía se esté iniciando. Espere aproximadamente un minuto antes de volver a ejecutar `ghe-repl-status`.
 
    {% note %}
 
-   **Note:** While the resync is in progress `ghe-repl-status` may indicate that replication is behind. For example, you may see the following message.
+   **Nota**: Aunque la resincronización esté en curso, `ghe-repl-status` podría indicar que la replicación va por detrás. Por ejemplo, podría aparecer el siguiente mensaje de error.
    
    ```
    CRITICAL: git replication is behind the primary by more than 1007 repositories and/or gists
@@ -234,29 +234,29 @@ Appliances configured for high-availability and geo-replication use replica inst
 
    {%- ifversion ghes = 3.4 or ghes = 3.5 or ghes = 3.6 %}
 
-   - If you have upgraded each node to {% data variables.product.product_name %} 3.6.0 or later and started replication, but `git replication is behind the primary` continues to appear after 45 minutes, contact {% data variables.contact.enterprise_support %}. For more information, see "[Receiving help from {% data variables.contact.github_support %}](/admin/enterprise-support/receiving-help-from-github-support)."
+   - Si has actualizado cada nodo a {% data variables.product.product_name %} 3.6.0 o una versión posterior y has iniciado la replicación, pero sigue apareciendo `git replication is behind the primary` al cabo de 45 minutos, ponte en contacto con {% data variables.contact.enterprise_support %}. Para más información, vea "[Recepción de ayuda de {% data variables.contact.github_support %}](/admin/enterprise-support/receiving-help-from-github-support)".
    {%- endif %}
-   - {% ifversion ghes = 3.4 or ghes = 3.5 or ghes = 3.6 %}Otherwise, if{% else %}If{% endif %} `ghe-repl-status` did not return `OK`, contact {% data variables.contact.enterprise_support %}. For more information, see "[Receiving help from {% data variables.contact.github_support %}](/admin/enterprise-support/receiving-help-from-github-support)."
-6. When you have completed upgrading the last replica, and the resync is complete, disable maintenance mode so users can use {% data variables.location.product_location %}.
 
-## Restoring from a failed upgrade
+   - {% ifversion ghes = 3.4 or ghes = 3.5 or ghes = 3.6 %}En caso contrario, si{% else %}Si{% endif %} `ghe-repl-status` no devolvió `OK`, ponte en contacto con {% data variables.contact.enterprise_support %}. Para más información, vea "[Recepción de ayuda de {% data variables.contact.github_support %}](/admin/enterprise-support/receiving-help-from-github-support)".
+6. Cuando hayas finalizado la actualización de la última réplica y se haya completado la resincronización, deshabilita el modo mantenimiento para que los usuarios puedan usar {% data variables.location.product_location %}.
 
-If an upgrade fails or is interrupted, you should revert your instance back to its previous state. The process for completing this depends on the type of upgrade.
+## Restaurar desde una actualización fallida
 
-### Rolling back a patch release
+Si una actualización falla o se interrumpe, deberías revertir tu instancia a su estado anterior. El proceso para completar esto depende del tipo de actualización.
 
-To roll back a patch release, use the `ghe-upgrade` command with the `--allow-patch-rollback` switch. Before rolling back, replication must be temporarily stopped by running `ghe-repl-stop` on all replica instances. {% data reusables.enterprise_installation.command-line-utilities-ghe-upgrade-rollback %}
+### Revertir un lanzamiento de patch
 
-Once the rollback is complete, restart replication by running `ghe-repl-start` on all replicas. 
+Para revertir una versión de revisión, use el comando `ghe-upgrade` con el modificador `--allow-patch-rollback`. Antes de la reversión, la replicación se debe detener temporalmente mediante la ejecución de `ghe-repl-stop` en todas las instancias de réplica. {% data reusables.enterprise_installation.command-line-utilities-ghe-upgrade-rollback %}
 
-For more information, see "[Command-line utilities](/enterprise/admin/guides/installation/command-line-utilities/#ghe-upgrade)."
+Una vez que se complete la reversión, reinicie la replicación mediante la ejecución de `ghe-repl-start` en todas las réplicas. 
 
-### Rolling back a feature release
+Para más información, vea "[Utilidades de línea de comandos](/enterprise/admin/guides/installation/command-line-utilities/#ghe-upgrade)".
 
-To roll back from a feature release, restore from a VM snapshot to ensure that root and data partitions are in a consistent state. For more information, see "[Taking a snapshot](#taking-a-snapshot)."
+### Revertir un lanzamiento de característica
+
+Para revertir un lanzamiento de característica, restaura desde una instantánea de VM para garantizar que las particiones raíz y de datos estén en un estado consistente. Para más información, vea "[Realización de una instantánea](#taking-a-snapshot)".
 
 {% ifversion ghes %}
-## Further reading
+## Información adicional
 
-- "[About upgrades to new releases](/admin/overview/about-upgrades-to-new-releases)"
-{% endif %}
+- "[Acerca de las actualizaciones a nuevas versiones](/admin/overview/about-upgrades-to-new-releases)" {% endif %}

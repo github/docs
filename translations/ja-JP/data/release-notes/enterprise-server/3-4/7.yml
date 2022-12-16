@@ -1,26 +1,29 @@
 date: '2022-08-11'
 sections:
   security_fixes:
-    - |
-      **CRITICAL**: GitHub Enterprise Server's Elasticsearch container used a version of OpenJDK 8 that was vulnerable to an integer truncation issue when processing malicious XSLT stylesheets. The vulnerability is tracked as [CVE-2022-34169](https://github.com/advisories/GHSA-9339-86wc-4qgf).
-    - |
-      **HIGH**: Previously installed apps on user accounts were automatically granted permission to access an organization on scoped access tokens after the user account was transformed into an organization account. This vulnerability was reported via the [GitHub Bug Bounty program](https://bounty.github.com).
+    - |**重大**: GitHub Enterprise Server の Elasticsearch コンテナーで使われていたバージョンの OpenJDK 8 は、悪意のある XSLT スタイルシートを処理するときの整数切り捨ての問題に脆弱でした。この脆弱性は、[CVE-2022-34169](https://github.com/advisories/GHSA-9339-86wc-4qgf) として追跡されています。
+
+|
+    - |**高**: ユーザー アカウントが Organization アカウントに変換された後、ユーザー アカウントに前にインストールされていたアプリに、スコープ付きのアクセス トークンで Organization にアクセスするためのアクセス許可が自動的に付与されました。この脆弱性は、[GitHub Bug Bounty プログラム](https://bounty.github.com)を通じて報告されました。
+
+|
   bugs:
-    - In some cases, GitHub Enterprise Server instances on AWS that used the `r4.4xlarge` instance type would fail to boot.
-    - When calculating committers for GitHub Advanced Security, it was not possible to specify individual repositories. For more information, see "[Site admin dashboard](/admin/configuration/configuring-your-enterprise/site-admin-dashboard#advanced-security-committers)." 
-    - When a custom dormancy threshold was set for the instance, suspending all dormant users did not reliably respect the threshold. For more information about dormancy, see "[Managing dormant users](/admin/user-management/managing-users-in-your-enterprise/managing-dormant-users)."
+    - "`r4.4xlarge` インスタンスの種類を使用する AWS 上の GitHub Enterprise Server インスタンスが、起動に失敗することがありました。"
+    - "GitHub Advanced Security のコミッター数を計算するとき、個別のリポジトリを指定できませんでした。詳しくは、「[サイトアドミンのダッシュボード](/admin/configuration/configuring-your-enterprise/site-admin-dashboard#advanced-security-committers)」をご覧ください。" 
+    - "カスタム休眠しきい値がインスタンスに設定されている場合、すべての休眠ユーザーの一時停止で、しきい値が確実に適用されませんでした。休眠について詳しくは、「[休眠ユーザの管理](/admin/user-management/managing-users-in-your-enterprise/managing-dormant-users)」をご覧ください。"
   changes:
-    - '`pre_receive_hook.rejected_push` events were not displayed in the enterprise audit log.'
-    - Both migration archives for repositories and archive exports for user accounts include release reactions.
+    - '`pre_receive_hook.rejected_push` イベントが、Enterprise の監査ログに表示されませんでした。'
+    - リポジトリの移行アーカイブと、ユーザー アカウントのアーカイブ エクスポートの両方に、リリースの反応が含まれます。
   known_issues:
-    - On a freshly set up {% data variables.product.prodname_ghe_server %} instance without any users, an attacker could create the first admin user.
-    - Custom firewall rules are removed during the upgrade process.
-    - Git LFS tracked files [uploaded through the web interface](https://github.com/blog/2105-upload-files-to-your-repositories) are incorrectly added directly to the repository.
-    - Issues cannot be closed if they contain a permalink to a blob in the same repository, where the blob's file path is longer than 255 characters.
-    - When "Users can search GitHub.com" is enabled with {% data variables.product.prodname_github_connect %}, issues in private and internal repositories are not included in {% data variables.product.prodname_dotcom_the_website %} search results.
-    - The {% data variables.product.prodname_registry %} npm registry no longer returns a time value in metadata responses. This was done to allow for substantial performance improvements. We continue to have all the data necessary to return a time value as part of the metadata response and will resume returning this value in the future once we have solved the existing performance issues.
-    - Resource limits that are specific to processing pre-receive hooks may cause some pre-receive hooks to fail.
-    - |
-      After registering a self-hosted runner with the `--ephemeral` parameter on more than one level (for example, both enterprise and organization), the runner may get stuck in an idle state and require re-registration. [Updated: 2022-06-17]
-    - After upgrading to {% data variables.product.prodname_ghe_server %} 3.4, releases may appear to be missing from repositories. This can occur when the required Elasticsearch index migrations have not successfully completed.
+    - "{% data variables.product.prodname_ghe_server %} インスタンスを設定したばかりでユーザーがいない場合、攻撃者が最初の管理者ユーザーを作成できました。"
+    - カスタムのファイアウォール規則は、アップグレード プロセス中に削除されます。
+    - "[Web インターフェイスからアップロードされた](https://github.com/blog/2105-upload-files-to-your-repositories) Git LFS 追跡ファイルが誤ってリポジトリに直接追加されます。"
+    - 同じリポジトリ内の BLOB への固定リンクが含まれ、その BLOB のファイル パスが 255 文字を超える場合、issue をクローズできません。
+    - "{% data variables.product.prodname_github_connect %} で [Users can search GitHub.com]\\(ユーザーが GitHub.com を検索できる\\) が有効になっている場合、プライベートおよび内部リポジトリの issue は {% data variables.product.prodname_dotcom_the_website %} の検索結果に含まれません。"
+    - "{% data variables.product.prodname_registry %} npm レジストリが、メタデータ応答で時刻値を返さなくなります。これは、パフォーマンスの大幅な向上を見込んで行われました。メタデータ応答の一部として時刻値を返すために必要なすべてのデータを引き続き保持します。また、既存のパフォーマンスの問題を解決したら、将来的にはこの値を再び返す予定です。"
+    - pre-receive フックの処理に固有のリソース制限が、一部の pre-receive フックのエラーを引き起こす場合があります。
+    - |`--ephemeral` パラメーターを指定し、複数のレベル (たとえば、Enterprise と Organization の両方) でセルフホステッド ランナーを登録した後、ランナーがアイドル状態で停止し、再登録が必要になる場合があります。 [更新日: 2022-06-17]
+
+|
+    - "{% data variables.product.prodname_ghe_server %} 3.4 にアップグレードした後、リリースがリポジトリに表示されない場合があります。これは、必要な Elasticsearch インデックスの移行が正常に完了していない場合に発生する可能性があります。"
     - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'

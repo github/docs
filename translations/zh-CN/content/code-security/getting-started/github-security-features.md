@@ -1,6 +1,6 @@
 ---
-title: GitHub security features
-intro: 'An overview of {% data variables.product.prodname_dotcom %} security features.'
+title: GitHub 安全功能
+intro: '{% data variables.product.prodname_dotcom %} 安全功能概述。'
 versions:
   fpt: '*'
   ghes: '*'
@@ -12,31 +12,34 @@ topics:
   - Dependencies
   - Vulnerabilities
   - Advanced Security
+ms.openlocfilehash: ccd17816c0e5f62666520a677862c2a9f108c742
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148158731'
 ---
+## 关于 {% data variables.product.prodname_dotcom %} 安全功能
 
-## About {% data variables.product.prodname_dotcom %}'s security features
+{% data variables.product.prodname_dotcom %} 具有安全功能，有助于在仓库和组织间保持代码和秘密安全。 {% data reusables.advanced-security.security-feature-availability %}
 
-{% data variables.product.prodname_dotcom %} has security features that help keep code and secrets secure in repositories and across organizations. {% data reusables.advanced-security.security-feature-availability %}
+{% data variables.product.prodname_advisory_database %} 包含您可以查看、搜索和过滤的安全漏洞列表。 {% data reusables.security-advisory.link-browsing-advisory-db %}
 
-The {% data variables.product.prodname_advisory_database %} contains a curated list of security vulnerabilities that you can view, search, and filter. {% data reusables.security-advisory.link-browsing-advisory-db %}
+## 适用于所有仓库
+### 安全策略
 
-## Available for all repositories
-### Security policy
-
-Make it easy for your users to confidentially report security vulnerabilities they've found in your repository. For more information, see "[Adding a security policy to your repository](/code-security/getting-started/adding-a-security-policy-to-your-repository)."
+让您的用户能够轻松地秘密报告他们在仓库中发现的安全漏洞。 有关详细信息，请参阅“[向存储库添加安全策略](/code-security/getting-started/adding-a-security-policy-to-your-repository)”。
 
 {% ifversion fpt or ghec %}
-### Security advisories
+### 安全通知
 
-Privately discuss and fix security vulnerabilities in your repository's code. You can then publish a security advisory to alert your community to the vulnerability and encourage community members to upgrade. For more information, see "[About repository security advisories](/github/managing-security-vulnerabilities/about-github-security-advisories)."
+私下讨论并修复仓库代码中的安全漏洞。 然后，您可以发布安全通告，提醒您的社区注意漏洞并鼓励社区成员升级。 有关详细信息，请参阅“[关于存储库安全公告](/github/managing-security-vulnerabilities/about-github-security-advisories)”。
 
-{% endif %}
-{% ifversion fpt or ghec or ghes %}
+{% endif %} {% ifversion fpt or ghec or ghes %}
 
-### {% data variables.product.prodname_dependabot_alerts %} and security updates
+### {% data variables.product.prodname_dependabot_alerts %} 和安全更新
 
-View alerts about dependencies that are known to contain security vulnerabilities, and choose whether to have pull requests generated automatically to update these dependencies. For more information, see "[About {% data variables.product.prodname_dependabot_alerts %}](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)"
-and "[About {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/about-dependabot-security-updates)."
+查看有关已知包含安全漏洞的依赖项的警报，并选择是否自动生成拉取请求以更新这些依赖项。 有关详细信息，请参阅“[关于 {% data variables.product.prodname_dependabot_alerts %}](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)”和“[关于 {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/about-dependabot-security-updates)”。
 {% endif %}
 
 {% ifversion ghae %}
@@ -44,79 +47,73 @@ and "[About {% data variables.product.prodname_dependabot_security_updates %}](/
 
 {% data reusables.dependabot.dependabot-alerts-beta %}
 
-View alerts about dependencies that are known to contain security vulnerabilities, and manage these alerts. For more information, see "[About {% data variables.product.prodname_dependabot_alerts %}](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)."
+查看有关已知包含安全漏洞的依赖项的警报，并管理这些警报。 有关详细信息，请参阅“[关于 {% data variables.product.prodname_dependabot_alerts %}](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)”。
 {% endif %}
 
 {% ifversion fpt or ghec or ghes %}
 ### {% data variables.product.prodname_dependabot %} version updates
 
-Use {% data variables.product.prodname_dependabot %} to automatically raise pull requests to keep your dependencies up-to-date. This helps reduce your exposure to older versions of dependencies. Using newer versions makes it easier to apply patches if security vulnerabilities are discovered, and also makes it easier for {% data variables.product.prodname_dependabot_security_updates %} to successfully raise pull requests to upgrade vulnerable dependencies. For more information, see "[About {% data variables.product.prodname_dependabot_version_updates %}](/github/administering-a-repository/about-dependabot-version-updates)."
+使用 {% data variables.product.prodname_dependabot %} 自动提出拉取请求以保持依赖项的更新。 这有助于减少您暴露于旧版本依赖项。 如果发现安全漏洞，使用更新后的版本就更容易打补丁，{% data variables.product.prodname_dependabot_security_updates %} 也更容易成功地提出拉取请求以升级有漏洞的依赖项。 有关详细信息，请参阅“[关于 {% data variables.product.prodname_dependabot_version_updates %}](/github/administering-a-repository/about-dependabot-version-updates)”。
 {% endif %}
 
-### Dependency graph
-The dependency graph allows you to explore the ecosystems and packages that your repository depends on and the repositories and packages that depend on your repository.
+### 依赖关系图
+依赖关系图允许您探索仓库所依赖的生态系统和包，以及依赖于您的仓库的仓库和包。
 
-You can find the dependency graph on the **Insights** tab for your repository. For more information, see "[About the dependency graph](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)."
+你可以在存储库的“见解”选项卡上找到依赖项关系图。 有关详细信息，请参阅[关于依赖项关系图](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)。
 
 {% ifversion security-overview-displayed-alerts %}
-### Security overview
+### 安全概述
 
-The security overview allows you to review security configurations and alerts, making it easy to identify the repositories and organizations at greatest risk. For more information, see "[About the security overview](/code-security/security-overview/about-the-security-overview)."
+通过安全概览，可以查看安全配置和警报，从而轻松识别面临最大风险的存储库和组织。 有关详细信息，请参阅“[关于安全概述](/code-security/security-overview/about-the-security-overview)”。
 
 {% else %}
-### Security overview for repositories
-The security overview shows which security features are enabled for the repository, and offers you the option of configuring any available security features that are not already enabled.
+### 存储库的安全概述
+安全概览显示为存储库启用了哪些安全功能，并提供用于配置尚未启用的任何可用安全功能的选项。
 {% endif %}
 
-## Available with {% data variables.product.prodname_GH_advanced_security %}
+## 通过 {% data variables.product.prodname_GH_advanced_security %} 可用
 
-{% ifversion fpt %}
-The following {% data variables.product.prodname_GH_advanced_security %} features are available and free of charge for public repositories on {% data variables.product.prodname_dotcom_the_website %}. Organizations that use {% data variables.product.prodname_ghe_cloud %} with a license for {% data variables.product.prodname_GH_advanced_security %} can use the full set of features in any of their repositories. For a list of the features available with {% data variables.product.prodname_ghe_cloud %}, see the [{% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/code-security/getting-started/github-security-features#available-with-github-advanced-security).
+{% ifversion fpt %} {% data variables.product.prodname_dotcom_the_website %} 上的公共存储库免费提供以下 {% data variables.product.prodname_GH_advanced_security %} 功能。 使用具有 {% data variables.product.prodname_GH_advanced_security %} 许可证的 {% data variables.product.prodname_ghe_cloud %} 的组织可以在其任何存储库中使用完整的功能集。 有关 {% data variables.product.prodname_ghe_cloud %} 可用功能的列表，请参阅 [{% data variables.product.prodname_ghe_cloud %} 文档](/enterprise-cloud@latest/code-security/getting-started/github-security-features#available-with-github-advanced-security)。
 
-{% elsif ghec %}
-Many {% data variables.product.prodname_GH_advanced_security %} features are available and free of charge for public repositories on {% data variables.product.prodname_dotcom_the_website %}. Organizations within an enterprise that have a {% data variables.product.prodname_GH_advanced_security %} license can use the following features on all their repositories. {% data reusables.advanced-security.more-info-ghas %}
+{% elsif ghec %} {% data variables.product.prodname_dotcom_the_website %} 上的公共存储库免费提供了许多 {% data variables.product.prodname_GH_advanced_security %} 功能。 企业中具有 {% data variables.product.prodname_GH_advanced_security %} 许可证的组织可以在其所有存储库上使用以下功能。 {% data reusables.advanced-security.more-info-ghas %}
 
-{% elsif ghes %}
-{% data variables.product.prodname_GH_advanced_security %} features are available for enterprises with a license for {% data variables.product.prodname_GH_advanced_security %}. The features are restricted to repositories owned by an organization. {% data reusables.advanced-security.more-info-ghas %}
+{% elsif ghes %} {% data variables.product.prodname_GH_advanced_security %} 功能适用于具有 {% data variables.product.prodname_GH_advanced_security %} 许可证的企业。 这些功能仅限于组织拥有的存储库。 {% data reusables.advanced-security.more-info-ghas %}
 
-{% elsif ghae %}
-{% data variables.product.prodname_GH_advanced_security %} features are available for repositories owned by an organization. {% data reusables.advanced-security.more-info-ghas %}
-{% endif %}
+{% elsif ghae %} {% data variables.product.prodname_GH_advanced_security %} 功能可用于组织拥有的存储库。 {% data reusables.advanced-security.more-info-ghas %} {% endif %}
 
 ### {% data variables.product.prodname_code_scanning_capc %}
 
-Automatically detect security vulnerabilities and coding errors in new or modified code. Potential problems are highlighted, with detailed information, allowing you to fix the code before it's merged into your default branch. For more information, see "[About code scanning](/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning)."
+自动检测新代码或修改代码中的安全漏洞和编码错误。 潜在的问题被高亮显示，并附有详细信息，允许您在将代码合并到默认分支之前修复它。 有关详细信息，请参阅“[关于代码扫描](/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning)”。
 
 {% ifversion fpt or ghec %}
 ### {% data variables.product.prodname_secret_scanning_partner_caps %}
 
-Automatically detect leaked secrets across all public repositories. {% data variables.product.company_short %} informs the relevant service provider that the secret may be compromised. For details of the supported secrets and service providers, see "[{% data variables.product.prodname_secret_scanning_caps %} patterns](/code-security/secret-scanning/secret-scanning-patterns)."
+自动检测所有公共存储库中泄露的机密。 {% data variables.product.company_short %} 通知相关服务提供商机密可能已泄露。 有关支持的机密和服务提供商的详细信息，请参阅 “[{% data variables.product.prodname_secret_scanning_caps %} 模式](/code-security/secret-scanning/secret-scanning-patterns)”。
 {% endif %}
 
 {% ifversion ghec or ghes or ghae %}
 ### {% data variables.product.prodname_secret_scanning_GHAS_caps %}
 
-{% ifversion ghec %}
-Available only with a license for {% data variables.product.prodname_GH_advanced_security %}.
+{% ifversion ghec %} 仅通过 {% data variables.product.prodname_GH_advanced_security %} 的许可证提供。
 {% endif %}
 
-Automatically detect tokens or credentials that have been checked into a repository. You can view alerts for any secrets that {% data variables.product.company_short %} finds in your code, so that you know which tokens or credentials to treat as compromised. For more information, see "[About secret scanning](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-for-advanced-security)."
+自动检测已签入存储库的令牌或凭据。 您可以查看 {% data variables.product.company_short %} 代码中找到的任何机密的警报，以便知道哪些令牌或凭据被视为已泄露。 有关详细信息，请参阅“[关于机密扫描](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-for-advanced-security)”。
 {% endif %}
 
-### Dependency review
+### 依赖项检查
 
-Show the full impact of changes to dependencies and see details of any vulnerable versions before you merge a pull request. For more information, see "[About dependency review](/code-security/supply-chain-security/about-dependency-review)."
+在合并拉取请求之前显示依赖项更改的全部影响以及任何有漏洞版本的详情。 有关详细信息，请参阅“[关于依赖项审查](/code-security/supply-chain-security/about-dependency-review)”。
 
 {% ifversion security-overview-displayed-alerts %}<!--Section appears in non-GHAS features above-->
 
 {% elsif fpt %}<!--Feature requires enterprise product-->
 
 {% else %}
-### Security overview for organizations{% ifversion ghes > 3.4 or ghae > 3.4 %}, enterprises,{% endif %} and teams
+### 组织{% ifversion ghes > 3.4 or ghae > 3.4 %}、企业{% endif %}和团队的安全性概述
 
-Review the security configuration and alerts for your organization and identify the repositories at greatest risk. For more information, see "[About the security overview](/code-security/security-overview/about-the-security-overview)."
+检查组织的安全配置和警报，并确定风险最大的存储库。 有关详细信息，请参阅“[关于安全概述](/code-security/security-overview/about-the-security-overview)”。
 {% endif %}
 
-## Further reading
-- "[{% data variables.product.prodname_dotcom %}'s products](/github/getting-started-with-github/githubs-products)"
-- "[{% data variables.product.prodname_dotcom %} language support](/github/getting-started-with-github/github-language-support)"
+## 延伸阅读
+- [{% data variables.product.prodname_dotcom %} 的产品](/github/getting-started-with-github/githubs-products)
+- [{% data variables.product.prodname_dotcom %} 语言支持](/github/getting-started-with-github/github-language-support)

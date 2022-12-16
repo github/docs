@@ -10,12 +10,12 @@ type: tutorial
 topics:
   - Projects
 allowTitleToDifferFromFilename: true
-ms.openlocfilehash: b1c04738a3c03d892b360c3b23def694d202ee0c
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.openlocfilehash: 680d6cff10dfc063ebaef0ebc9f8f7d0c15ba2e7
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2022
-ms.locfileid: '148107843'
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148158938'
 ---
 Você pode personalizar as visualizações usando filtros para os metadados do item, como os responsáveis e as etiquetas aplicadas aos problemas e pelos campos no seu projeto. Você pode combinar filtros e salvá-los como visualizações. Para obter mais informações, confira "[Como personalizar as exibições do projeto](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/customizing-a-view)".
 
@@ -24,6 +24,8 @@ Para filtrar um projeto, clique em {% octicon "filter" aria-label="The Filter ic
 O uso de vários filtros funcionará como um filtro AND lógico. Por exemplo, `label:bug status:"In progress"` retornará itens com a etiqueta `bug`, com o status "Em andamento". Os {% data variables.product.prodname_projects_v2 %} atualmente não dão suporte a filtros OR lógicos em vários campos.
 
 Os mesmos filtros estão disponíveis para gráficos criados usando insights para {% data variables.product.prodname_projects_v2 %}, permitindo que você filtre os dados usados para criar seus gráficos. Para obter mais informações, confira "[Como usar insights com projetos](/issues/planning-and-tracking-with-projects/viewing-insights-from-your-project/about-insights-for-projects)".
+
+Quando você filtrar uma exibição e adicionar um item, os metadados filtrados serão aplicados ao item adicionado. Por exemplo, se você estiver filtrando por `status:"In progress"` e adicionar um item, o novo item terá o status definido como "Em andamento".
 
 ## Filtrando itens
 

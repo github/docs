@@ -1,0 +1,20 @@
+date: '14-07-2021'
+sections:
+  security_fixes:
+    - '**ÉLEVÉE :** Une vulnérabilité de traversée de chemin a été identifiée dans GitHub Enterprise Server ; elle pouvait être exploitée lors de la génération d’un site GitHub Pages. Les options de configuration contrôlée par l’utilisateur utilisées par GitHub Pages n’étaient pas suffisamment restreintes et permettaient de lire des fichiers sur l’instance GitHub Enterprise Server. Pour exploiter cette vulnérabilité, un attaquant devait avoir l’autorisation de créer et générer un site GitHub Pages sur l’instance GitHub Enterprise Server. Cette vulnérabilité affectait toutes les versions de GitHub Enterprise Server antérieures à 3.1.3 et s’est vu attribuer le numéro CVE-2021-22867. Cette vulnérabilité a été signalée via le programme GitHub Bug Bounty.'
+    - Les packages ont été mis à jour avec les dernières versions de sécurité.
+  bugs:
+    - '« ghe-cluster-config-node-init » échouait pendant la configuration du cluster si le proxy HTTP était activé.'
+    - Collectd ne pouvait pas résoudre le nom d’hôte de la destination de transfert après la configuration initiale.
+    - Le travail qui vidait les dépôts supprimés périmés pouvait être entravé si certains de ces dépôts étaient protégés contre la suppression par des conservations légales.
+    - Les poussées Git pouvaient engendrer une erreur de serveur interne 500 pendant le processus de rapprochement des utilisateurs sur les instances utilisant le mode d’authentification LDAP.
+    - Un nombre significatif d’erreurs 503 était journalisé chaque fois qu’un utilisateur visitait la page « /settings » d’un dépôt si le graphe de dépendances n’était pas activé.
+  changes:
+    - "Amélioration de l’efficacité de l’application de la configuration en ignorant les règles de pare-feu d’autorisation IP inchangées, ce qui a permis de gagner beaucoup de temps sur les grands clusters."
+  known_issues:
+    - "Sur un serveur GitHub Enterprise fraîchement configuré et sans utilisateur, un attaquant pourrait créer le premier utilisateur administrateur."
+    - Les règles de pare-feu personnalisées sont supprimées pendant le processus de mise à niveau.
+    - "Les fichiers suivis par Git LFS [chargés via l’interface web](https://github.com/blog/2105-upload-files-to-your-repositories) sont incorrectement ajoutés directement au dépôt."
+    - Les problèmes ne peuvent pas être fermés s’ils contiennent un lien permanent vers un objet blob situé dans le dépôt où le chemin de l’objet du blob est supérieur à 255 caractères.
+    - "Lorsque l’option « Les utilisateurs peuvent effectuer des recherches sur GitHub.com » est activée avec GitHub Connect, les problèmes dans les dépôts privés et internes ne sont pas inclus dans les résultats de recherche de GitHub.com."
+    - "Lorsqu’un nœud de réplica est hors ligne dans une configuration de haute disponibilité, {% data variables.product.product_name %} peut toujours acheminer les demandes de {% data variables.product.prodname_pages %} vers le nœud hors ligne, réduisant ainsi la disponibilité de {% data variables.product.prodname_pages %} pour les utilisateurs."

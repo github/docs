@@ -12,12 +12,12 @@ versions:
 topics:
   - Community
 shortTitle: Create a PR template
-ms.openlocfilehash: 2a85c88944f1d46209429846bba1e7a3c930968e
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.openlocfilehash: fa4d3cf78b63af147c85b8f6d77d7cca74e3853a
+ms.sourcegitcommit: 4daa156856e651cb3854ead40e35bd918e481ad6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2022
-ms.locfileid: '145092340'
+ms.lasthandoff: 12/02/2022
+ms.locfileid: '148190412'
 ---
 Para más información, vea "[Acerca de las plantillas de incidencias y solicitudes de incorporación de cambios](/articles/about-issue-and-pull-request-templates)".
 
@@ -39,7 +39,7 @@ Puedes crear plantillas de solicitudes de incorporación de cambios predetermina
   ![Nueva plantilla de solicitud de incorporación de cambios en un directorio de documentos](/assets/images/help/repository/pr-template-file-name-docs.png)
     - Para almacenar el archivo en un directorio oculto, asigna el nombre `.github/pull_request_template.md` a la plantilla de solicitud de incorporación de cambios.
   ![Nueva plantilla de solicitud de incorporación de cambios en un directorio oculto](/assets/images/help/repository/pr-template-hidden-directory.png)
-    - Para crear varias plantillas de solicitud de incorporación de cambios y usar el parámetro de consulta `template` para especificar una plantilla para rellenar el cuerpo de la solicitud de este tipo, escribe *.github/PULL_REQUEST_TEMPLATE/* y, después, el nombre de la plantilla de solicitud de incorporación de cambios. Por ejemplo, `.github/PULL_REQUEST_TEMPLATE/pull_request_template.md`. También puedes almacenar varias plantillas de solicitud de incorporación de cambios en un subdirectorio `PULL_REQUEST_TEMPLATE` dentro del directorio raíz o `docs/`. Para más información, vea "[Acerca de la automatización para incidencias y solicitudes de incorporación de cambios con parámetros de consulta](/articles/about-automation-for-issues-and-pull-requests-with-query-parameters)".
+    - Para crear varias plantillas de solicitud de incorporación de cambios y usar el parámetro de consulta `template` para especificar una plantilla para rellenar el cuerpo de la solicitud de este tipo, escribe *.github/PULL_REQUEST_TEMPLATE/* y, después, el nombre de la plantilla de solicitud de incorporación de cambios. Por ejemplo, `.github/PULL_REQUEST_TEMPLATE/pull_request_template.md`. También puedes almacenar varias plantillas de solicitud de incorporación de cambios en un subdirectorio `PULL_REQUEST_TEMPLATE` dentro del directorio raíz o `docs/`. Para obtener más información, consulta "[Utilizar parámetros de consulta para crear una solicitud de incorporación de cambios](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/using-query-parameters-to-create-a-pull-request)".
   ![Nueva plantilla de solicitud de incorporación de cambios múltiple en un directorio oculto](/assets/images/help/repository/pr-template-multiple-hidden-directory.png)
 4. En el cuerpo del nuevo archivo, agrega tu plantilla de solicitud de extracción. Puede incluir:
     - Una [referencia a un problema relacionado](/articles/basic-writing-and-formatting-syntax/#referencing-issues-and-pull-requests) en el repositorio.

@@ -1,0 +1,16 @@
+date: '2021-05-25'
+sections:
+  security_fixes:
+    - '**MOYENNE :** Dans certaines circonstances, les utilisateurs qui avaient été retirés d’une équipe ou d’une organisation pouvaient conserver un accès en écriture aux branches pour lesquelles ils avaient des demandes de tirage (pull requests) ouvertes.'
+    - Les packages ont été mis à jour vers les dernières versions de sécurité.
+  bugs:
+    - Une adresse IP ajoutée par un administrateur à l’aide du bouton « Créer une entrée de liste verte » pouvait quand même être bloquée.
+    - "Dans un environnement de cluster ou haute disponibilité, les builds GitHub Pages pouvaient être déclenchées sur des nœuds secondaires où elles échouaient."
+  known_issues:
+    - "Sur une instance GitHub Enterprise Server fraîchement configurée et sans utilisateur, un attaquant pouvait créer le premier utilisateur administrateur."
+    - Les règles de pare-feu personnalisées ne sont pas conservées lors d’une mise à niveau.
+    - "Les fichiers suivis par Git LFS [chargés par le biais de l’interface web](https://github.com/blog/2105-upload-files-to-your-repositories) sont, à tort, ajoutés directement au dépôt."
+    - "Les problèmes ne peuvent pas être fermés s’ils contiennent un lien permanent vers un blob situé dans le même dépôt, dont le chemin de fichier dépasse les 255 caractères."
+    - "Quand l’option « Les utilisateurs peuvent effectuer des recherches sur GitHub.com » est activée avec GitHub Connect, les problèmes concernant des dépôts privés et internes ne sont pas inclus dans les résultats de recherche de GitHub.com."
+    - Les alertes de sécurité ne sont pas signalées lors de l’envoi (push) à un dépôt sur la ligne de commande.
+    - 'Quand un nœud de réplica est hors connexion dans une configuration de haute disponibilité, {% data variables.product.product_name %} peut quand même router les requêtes de {% data variables.product.prodname_pages %} vers le nœud hors connexion, réduisant ainsi la disponibilité de {% data variables.product.prodname_pages %} pour les utilisateurs.'

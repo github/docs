@@ -16,12 +16,12 @@ versions:
 topics:
   - Repositories
 shortTitle: View files and track file changes
-ms.openlocfilehash: bc27fc67cfd18eb20f8c612b81f4d6dd5da20913
-ms.sourcegitcommit: 1309b46201604c190c63bfee47dce559003899bf
+ms.openlocfilehash: 7d34e776cb1747ee749531e49abf6f0e3d052b3b
+ms.sourcegitcommit: 82b1242de02ecc4bdec02a5b6d11568fb2deb1aa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2022
-ms.locfileid: '146680987'
+ms.lasthandoff: 11/21/2022
+ms.locfileid: '148179847'
 ---
 ## 查看或复制原始文件内容
 
@@ -92,3 +92,7 @@ git config blame.ignoreRevsFile .git-blame-ignore-revs
 ```
 
 {% endif %}
+
+## 绕过追溯视图中的 `.git-blame-ignore-revs`
+
+如果文件的追溯视图显示“忽略 .git-blame-ignore-revs 中的修订”，仍可以绕过 `.git-blame-ignore-revs` 并查看正常的追溯视图。 在 URL 中，将 `~` 追加到 SHA，“忽略 .git-blame-ignore-revs 中的修订”将消失。

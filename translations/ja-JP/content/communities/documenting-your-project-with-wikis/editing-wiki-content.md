@@ -1,6 +1,6 @@
 ---
-title: Editing wiki content
-intro: 'You can add images and links to content in your wiki, and use some supported MediaWiki formats.'
+title: ウィキのコンテンツを編集する
+intro: ウィキ内のコンテンツに画像やリンクを追加したり、一部のサポートされている MediaWiki 形式を使用したりできます。
 redirect_from:
   - /articles/adding-links-to-wikis
   - /articles/how-do-i-add-links-to-my-wiki
@@ -19,47 +19,51 @@ versions:
   ghec: '*'
 topics:
   - Community
+ms.openlocfilehash: 0afae4335dbf6ff78c0b0e1a2bef4cebed637a5e
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147578941'
 ---
+## リンクの追加
 
-## Adding links
+ページでサポートされている標準的なマークアップや MediaWiki の構文を使ってウィキにリンクを作成できます。 次に例を示します。
 
-You can create links in wikis using the standard markup supported by your page, or using MediaWiki syntax. For example:
+- ページが Markdown でレンダリングされる場合、リンク構文は `[Link Text](full-URL-of-wiki-page)` です。
+- MediaWiki 構文では、リンク構文は `[[nameofwikipage|Link Text]]` です。
 
-- If your pages are rendered with Markdown, the link syntax is `[Link Text](full-URL-of-wiki-page)`.
-- With MediaWiki syntax, the link syntax is `[[nameofwikipage|Link Text]]`.
+## イメージの追加
 
-## Adding images
+ウィキでは PNG、JPEG、および GIF 画像を表示できます。
 
-Wikis can display PNG, JPEG, and GIF images.
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-wiki %}
+3. Wiki サイドバーを使用して、変更するページに移動し、 **[編集]** をクリックします。
+4. Wiki ツール バーの **[画像]** をクリックします。
+   ![Wiki の画像追加ボタン](/assets/images/help/wiki/wiki_add_image.png)
+5. [Insert Image] ダイアログボックスで、画像の URL と代替テキスト (これは検索エンジンや画像リーダーで使われます) を入力します。
+6. **[OK]** をクリックします。
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-wiki %}
-3. Using the wiki sidebar, navigate to the page you want to change, and then click **Edit**.
-4. On the wiki toolbar, click **Image**.
-   ![Wiki Add image button](/assets/images/help/wiki/wiki_add_image.png)
-5. In the "Insert Image" dialog box, type the image URL and the alt text (which is used by search engines and screen readers).
-6. Click **OK**.
+### リポジトリでの画像へのリンク
 
-### Linking to images in a repository
-
-You can link to an image in a repository on {% data variables.product.product_name %} by copying the URL in your browser and using that as the path to the image. For example, embedding an image in your wiki using Markdown might look like this:
+{% data variables.product.product_name %}上のリポジトリにある画像は、ブラウザで URL をコピーし、それを画像へのパスとして利用することでリンクできます。 たとえば、Markdown を使ってウィキに画像を埋め込むと、以下のようになります:
 
     [[https://github.com/USERNAME/REPOSITORY/blob/main/img/octocat.png|alt=octocat]]
 
-{% ifversion fpt or ghec or ghes > 3.6 or ghae > 3.6 %}
-## Adding mathematical expressions and diagrams{% endif %}
+{% ifversion fpt or ghec or ghes > 3.6 or ghae-issue-7647 %}
+## 数式とダイアグラムの追加{% endif %}
 
 {% data reusables.getting-started.math-and-diagrams %}
 
-## Supported MediaWiki formats
+## サポートされる MediaWiki 形式
 
-No matter which markup language your wiki page is written in, certain MediaWiki syntax will always be available to you.
-- Links ([except AsciiDoc](https://github.com/gollum/gollum/commit/d1cf698b456cd6a35a54c6a8e7b41d3068acec3b))
-- Horizontal rules via `---`
-- Shorthand symbol entities (such as `&delta;` or `&euro;`)
+ウィキがどのマークアップ言語で書かれたかにかかわらず、特定の MediaWiki 構文を常に使用できます。
+- リンク ([AsciiDoc を除く](https://github.com/gollum/gollum/commit/d1cf698b456cd6a35a54c6a8e7b41d3068acec3b))
+- `---` を介した水平ルール
+- 短縮記号エンティティ (`&delta;` または `&euro;` など)
 
-For security and performance reasons, some syntaxes are unsupported.
-- [Transclusion](https://www.mediawiki.org/wiki/Transclusion)
-- Definition lists
-- Indentation
-- Table of contents
+セキュリティとパフォーマンス上の理由により、一部の構文はサポートされていません。
+- [トランスクルージョン](https://www.mediawiki.org/wiki/Transclusion)
+- 定義リスト
+- [インデント幅]
+- 目次

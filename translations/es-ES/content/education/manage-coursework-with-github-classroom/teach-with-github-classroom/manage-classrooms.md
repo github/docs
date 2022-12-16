@@ -1,137 +1,120 @@
 ---
-title: Manage classrooms
-intro: 'You can create and manage a classroom for each course that you teach using {% data variables.product.prodname_classroom %}.'
+title: Administrar aulas
+intro: 'Puedes crear y administrar un aula para cada curso que impartes utilizando {% data variables.product.prodname_classroom %}.'
 permissions: 'Organization owners who are admins for a classroom can manage the classroom for an organization. {% data reusables.classroom.classroom-admins-link %}'
 versions:
   fpt: '*'
 redirect_from:
   - /education/manage-coursework-with-github-classroom/archive-a-classroom
   - /education/manage-coursework-with-github-classroom/manage-classrooms
+ms.openlocfilehash: 0c492f26092e7e9ad47c6237a55de1cf1c90e65f
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145112154'
 ---
-
-## About classrooms
+## Acerca de las aulas
 
 {% data reusables.classroom.about-classrooms %}
 
-![Classroom](/assets/images/help/classroom/classroom-hero.png)
+![Clase](/assets/images/help/classroom/classroom-hero.png)
 
-## About management of classrooms
+## Acerca de la administración de aulas
 
-{% data variables.product.prodname_classroom %} uses organization accounts on {% data variables.product.product_name %} to manage permissions, administration, and security for each classroom that you create. Each organization can have multiple classrooms.
+{% data variables.product.prodname_classroom %} utiliza cuentas de organización en {% data variables.product.product_name %} para administrar los permisos, la administración y la seguridad de cada aula que crees. Cada organización puede tener varias aulas.
 
-After you create a classroom, {% data variables.product.prodname_classroom %} will prompt you to invite teaching assistants (TAs) and admins to the classroom. Each classroom can have one or more admins. Admins can be teachers, TAs, or any other course administrator who you'd like to have control over your classrooms on {% data variables.product.prodname_classroom %}.
+Después de crear un aula, {% data variables.product.prodname_classroom %} te pedirá que invites a los asistentes del maestro (TA) y a los administradores a formar parte de ella. Cada aula puede tener uno o más administradores. Los administradores pueden ser maestros, TA o cualquier otro administrador de curso que quieras tenga control sobre las aulas de {% data variables.product.prodname_classroom %}.
 
-Invite TAs and admins to your classroom by inviting the personal accounts on {% data variables.product.product_name %} to your organization as organization owners and sharing the URL for your classroom. Organization owners can administer any classroom for the organization. For more information, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)" and "[Inviting users to join your organization](/organizations/managing-membership-in-your-organization/inviting-users-to-join-your-organization)."
+Invita a los TA y administradores a tu aula mediante una invitación a sus cuentas personales en {% data variables.product.product_name %} para que formen parte de tu organización como propietarios de la misma y comparte la dirección URL de tu aula. Los propietarios de la organización pueden administrar cualquier aula en ésta. Para obtener más información, consulte "[Roles en una organización](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)" e "[Invitar a usuarios para unirse a su organización](/organizations/managing-membership-in-your-organization/inviting-users-to-join-your-organization)".
 
-When you're done using a classroom, you can archive the classroom and refer to the classroom, roster, and assignments later, or you can delete the classroom if you no longer need the classroom. 
+Cuando termines de utilizar un aula, puedes archivarla y referirte a ella, a su registro de alumnos o a sus tareas posteriormente, o puedes borrarla si ya no la necesitas. 
 
 {% data reusables.classroom.reuse-assignment-link %}
 
-## About classroom rosters
+## Acerca de los registros de alumnos de las aulas
 
-Each classroom has a roster. A roster is a list of identifiers for the students who participate in your course.
+Cada aula tiene un registro de alumnos. Un registro de alumnos es una lista de identificadores para los alumnos que participan en tu curso.
 
-When you first share the URL for an assignment with a student, the student must sign into {% data variables.product.product_name %} with a personal account to link the personal account to an identifier for the classroom. After the student links a personal account, you can see the associated personal account in the roster. You can also see when the student accepts or submits an assignment.
+Cuando compartes la dirección URL de una tarea con un alumno por primera vez, dicho alumno debe iniciar sesión en {% data variables.product.product_name %} con una cuenta personal para vincularla con un identificador para el aula. Después de que el alumno vincule una cuenta personal, puedes ver la cuenta personal asociada en el registro de alumnos. También puedes ver cuando el alumno acepta o emite una tarea.
 
-![Classroom roster](/assets/images/help/classroom/roster-hero.png)
+![Registro de alumnos de un aula](/assets/images/help/classroom/roster-hero.png)
 
-## Prerequisites
+## Prerrequisitos
 
-You must have an organization account on {% data variables.product.product_name %} to manage classrooms on {% data variables.product.prodname_classroom %}. For more information, see "[Types of {% data variables.product.company_short %} accounts](/github/getting-started-with-github/types-of-github-accounts#organization-accounts)" and "[Creating a new organization from scratch](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)."
+Debes tener una cuenta de organización en {% data variables.product.product_name %} para administrar las aulas en {% data variables.product.prodname_classroom %}. Para obtener más información, consulte "[Tipos de cuentas de {% data variables.product.company_short %}](/github/getting-started-with-github/types-of-github-accounts#organization-accounts)" y "[Creación de una nueva organización desde cero](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)".
 
-You must authorize the OAuth app for {% data variables.product.prodname_classroom %} for your organization to manage classrooms for your organization account. For more information, see "[Authorizing OAuth Apps](/github/authenticating-to-github/authorizing-oauth-apps)."
+Debes autorizar a la app de OAuth de {% data variables.product.prodname_classroom %} para que tu organización administre aulas para tu cuenta organizacional. Para obtener más información, consulte "[Autorización de aplicaciones de OAuth](/github/authenticating-to-github/authorizing-oauth-apps)".
 
-## Creating a classroom
-
-{% data reusables.classroom.sign-into-github-classroom %}
-1. Click **New classroom**.
-  !["New classroom" button](/assets/images/help/classroom/click-new-classroom-button.png)
-{% data reusables.classroom.guide-create-new-classroom %}
-
-After you create a classroom, you can begin creating assignments for students. For more information, see "[Use the Git and {% data variables.product.company_short %} starter assignment](/education/manage-coursework-with-github-classroom/use-the-git-and-github-starter-assignment)," "[Create an individual assignment](/education/manage-coursework-with-github-classroom/create-an-individual-assignment)," "[Create a group assignment](/education/manage-coursework-with-github-classroom/create-a-group-assignment)," or "[Reuse an assignment](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/reuse-an-assignment)."
-
-## Creating a roster for your classroom
-
-You can create a roster of the students who participate in your course.
-
-If your course already has a roster, you can update the students on the roster or delete the roster. For more information, see "[Adding a student to the roster for your classroom](#adding-students-to-the-roster-for-your-classroom)" or "[Deleting a roster for a classroom](#deleting-a-roster-for-a-classroom)."
+## Crear un aula
 
 {% data reusables.classroom.sign-into-github-classroom %}
-{% data reusables.classroom.click-classroom-in-list %}
-{% data reusables.classroom.click-students %}
-1. To connect {% data variables.product.prodname_classroom %} to your LMS and import a roster, your LMS administrator will first need to register your LMS instance and then you will need to connect your LMS course to your classroom. Once connected, you can click the **Import from...** button to import a roster from your LMS course. For more information, see "[Connect a learning management system course to a classroom](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/connect-a-learning-management-system-course-to-a-classroom)."
-   
-   {% note %}
+1. Haga clic en **New classroom**.
+  ![Botón "New classroom"](/assets/images/help/classroom/click-new-classroom-button.png) {% data reusables.classroom.guide-create-new-classroom %}
 
-  **Note:** {% data reusables.classroom.google-classroom-note %}
+Después de que crees un aula, puedes comenzar a crear tareas para los alumnos. Para obtener más información, consulta "[Usar la asignación de inicio de Git y {% data variables.product.company_short %}](/education/manage-coursework-with-github-classroom/use-the-git-and-github-starter-assignment)", "[Crear una asignación individual](/education/manage-coursework-with-github-classroom/create-an-individual-assignment)", "[Crear una asignación de grupo](/education/manage-coursework-with-github-classroom/create-a-group-assignment)" o "[Reutilizar una asignación](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/reuse-an-assignment)".
 
-  {% endnote %}
+## Crear un registro de alumnos para tu aula
 
-2. Provide the student identifiers for your roster.
-     - To import a roster by uploading a file containing student identifiers, click **Upload a CSV or text file**.
-     - To create a roster manually, type your student identifiers.
-       ![Text field for typing student identifiers and "Upload a CSV or text file" button](/assets/images/help/classroom/type-or-upload-student-identifiers.png)
-3. Click **Create roster**.
-  !["Create roster" button](/assets/images/help/classroom/click-create-roster-button.png)
+Puedes crear un registro de alumnos de aquellos que participen en tu curso.
 
-## Adding students to the roster for your classroom
+Si tu curso ya tiene un registro de alumnos, puedes actualizar a los alumnos en el registro o borrarlos de éste. Para obtener más información, consulte "[Agregar un alumno a la lista de su clase](#adding-students-to-the-roster-for-your-classroom)" o "[Eliminar una lista de un aula](#deleting-a-roster-for-a-classroom)".
 
-Your classroom must have an existing roster to add students to the roster. For more information about creating a roster, see "[Creating a roster for your classroom](#creating-a-roster-for-your-classroom)."
+{% data reusables.classroom.sign-into-github-classroom %} {% data reusables.classroom.click-classroom-in-list %} {% data reusables.classroom.click-students %}
+1. Para conectar {% data variables.product.prodname_classroom %} a su LMS e importar una lista de alumnos, haga clic en {% octicon "mortar-board" aria-label="The mortar board icon" %} **Import from a learning management system** y siga las instrucciones. Para obtener más información, consulte "[Conexión de un sistema de administración de aprendizaje a {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/connect-a-learning-management-system-to-github-classroom)".
+    ![Botón "Import from a learning management system"](/assets/images/help/classroom/click-import-from-a-learning-management-system-button.png)
+1. Proporciona los identificadores de estudiante para tu registro de alumnos.
+     - Para importar una lista mediante un archivo que contiene identificadores de alumnos, haga clic en **Upload a CSV or text file**.
+     - Para crear un registro de alumnos manualmente, teclea tus identificadores de alumno.
+       ![Campo de texto para escribir identificadores de alumnos y botón "Upload a CSV or text file"](/assets/images/help/classroom/type-or-upload-student-identifiers.png)
+1. Haga clic en **Create roster**.
+  ![Botón "Create roster"](/assets/images/help/classroom/click-create-roster-button.png)
 
-{% data reusables.classroom.sign-into-github-classroom %}
-{% data reusables.classroom.click-classroom-in-list %}
-{% data reusables.classroom.click-students %}
-1. To the right of "Classroom roster", click **Update students**. If you have already linked your classroom to an LMS course, then you will see a **Sync from...** button instead. 
-  !["Update students" button to the right of "Classroom roster" heading above list of students](/assets/images/help/classroom/click-update-students-button.png)
-1. Follow the instructions to add students to the roster.
-    - To import students from an LMS, your LMS administrator will first need to register your LMS instance and then you will need to connect your LMS course to your classroom. Once connected, you can click the **Sync from...** button. For more information, see "[Connect a learning management system course to a classroom](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/connect-a-learning-management-system-course-to-a-classroom)."
-        {% note %}
+## Agregar a los alumnos al registro de alumnos de tu aula
 
-        **Note:** {% data reusables.classroom.google-classroom-note %}
+Tu aula debe tener un registro de alumnos existente para agregar alumnos a éste. Para obtener más información sobre cómo crear una lista, consulte "[Crear una lista de su clase](#creating-a-roster-for-your-classroom)".
 
-        {% endnote %}
-    - To manually add students, under "Manually add students", click **Upload a CSV or text file** or type the identifiers for the students, then click **Add roster entries**.
-      ![Modal for choosing method of adding students to classroom](/assets/images/help/classroom/classroom-add-students-to-your-roster.png)
+{% data reusables.classroom.sign-into-github-classroom %} {% data reusables.classroom.click-classroom-in-list %} {% data reusables.classroom.click-students %}
+1. A la derecha de "Classroom roster", haga clic en **Update students**.
+  ![Botón "Update students" a la derecha del encabezado "Classroom roster" encima de la lista de alumnos](/assets/images/help/classroom/click-update-students-button.png)
+1. Sigue las instrucciones para agregar a los alumnos al registro de alumnos.
+    - Para importar alumnos desde un LMS, haga clic en **Sync from a learning management system**. Para obtener más información sobre cómo importar una lista desde un LMS, consulte "[Conectar un sistema de administración de aprendizaje a {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/connect-a-learning-management-system-to-github-classroom)".
+    - Para agregar manualmente alumnos, en "Manually add students", haga clic en **Upload a CSV or text file** o escriba los identificadores de los alumnos y, a continuación, haga clic en **Add roster entries**.
+      ![Modal para elegir un método para agregar alumnos a una clase](/assets/images/help/classroom/classroom-add-students-to-your-roster.png)
 
-## Renaming a classroom
+## Renombrar un aula
 
-{% data reusables.classroom.sign-into-github-classroom %}
-{% data reusables.classroom.click-classroom-in-list %}
-{% data reusables.classroom.click-settings %}
-1. Under "Classroom name", type a new name for the classroom.
-  ![Text field under "Classroom name" for typing classroom name](/assets/images/help/classroom/settings-type-classroom-name.png)
-1. Click **Rename classroom**.
-  !["Rename classroom" button](/assets/images/help/classroom/settings-click-rename-classroom-button.png)
+{% data reusables.classroom.sign-into-github-classroom %} {% data reusables.classroom.click-classroom-in-list %} {% data reusables.classroom.click-settings %}
+1. Debajo de "nombre del aula", teclea un nombre nuevo para ésta.
+  ![Campo de texto en "Classroom name" para escribir el nombre de la clase](/assets/images/help/classroom/settings-type-classroom-name.png)
+1. Haga clic en **Rename classroom**.
+  ![Botón "Rename classroom"](/assets/images/help/classroom/settings-click-rename-classroom-button.png)
 
-## Archiving or unarchiving a classroom
+## Archivar o dejar de archivar un aula
 
-You can archive a classroom that you no longer use on {% data variables.product.prodname_classroom %}. When you archive a classroom, you can't create new assignments or edit existing assignments for the classroom. Students can't accept invitations to assignments in archived classrooms.
+Puedes archuivar un aula que ya no utilices en {% data variables.product.prodname_classroom %}. Cuando archivas un aula, no puedes crear tareas nuevas ni editar aquellas existentes en ella. Los alumnos no pueden aceptar invitaciones a las tareas de las aulas archivadas.
 
 {% data reusables.classroom.sign-into-github-classroom %}
-1. To the right of a classroom's name, select the {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} drop-down menu, then click **Archive**.
-  ![Drop-down menu from horizontal kebab icon and "Archive" menu item](/assets/images/help/classroom/use-drop-down-then-click-archive.png)
-1. To unarchive a classroom, to the right of a classroom's name, select the {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} drop-down menu, then click **Unarchive**.
-  ![Drop-down menu from horizontal kebab icon and "Unarchive" menu item](/assets/images/help/classroom/use-drop-down-then-click-unarchive.png)
+1. A la derecha del nombre de la clase, seleccione el menú desplegable {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} y haga clic en **Archive**.
+  ![Menú desplegable del icono de kebab horizontal y elemento de menú "Archive"](/assets/images/help/classroom/use-drop-down-then-click-archive.png)
+1. Para anular el archivado de la clase, a la derecha del nombre de la clase, seleccione el menú desplegable {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} y haga clic en **Unarchive**.
+  ![Menú desplegable del icono de kebab horizontal y elemento de menú "Unarchive"](/assets/images/help/classroom/use-drop-down-then-click-unarchive.png)
 
-## Deleting a roster for a classroom
+## Borrar el registro de alumnos de un aula
 
-{% data reusables.classroom.sign-into-github-classroom %}
-{% data reusables.classroom.click-classroom-in-list %}
-{% data reusables.classroom.click-students %}
-1. Under "Delete this roster", click **Delete roster**.
-  !["Delete roster" button under "Delete this roster" in "Students" tab for a classroom](/assets/images/help/classroom/students-click-delete-roster-button.png)
-1. Read the warnings, then click **Delete roster**.
-  !["Delete roster" button under "Delete this roster" in "Students" tab for a classroom](/assets/images/help/classroom/students-click-delete-roster-button-in-modal.png)
+{% data reusables.classroom.sign-into-github-classroom %} {% data reusables.classroom.click-classroom-in-list %} {% data reusables.classroom.click-students %}
+1. En "Delete this roster", haga clic en **Delete roster**.
+  ![Botón "Delete roster" en "Delete this roster" en la pestaña "Alumnos" de una clase](/assets/images/help/classroom/students-click-delete-roster-button.png)
+1. Lea las advertencias y haga clic en **Delete roster**.
+  ![Botón "Delete roster" en "Delete this roster" en la pestaña "Alumnos" de una clase](/assets/images/help/classroom/students-click-delete-roster-button-in-modal.png)
 
-## Deleting a classroom
+## Borrar un aula
 
-{% data reusables.classroom.sign-into-github-classroom %}
-{% data reusables.classroom.click-classroom-in-list %}
-{% data reusables.classroom.click-settings %}
-1. To the right of "Delete this classroom", click **Delete classroom**.
-  !["Delete repository" button](/assets/images/help/classroom/click-delete-classroom-button.png)
-1. **Read the warnings**.
-1. To verify that you're deleting the correct classroom, type the name of the classroom you want to delete.
-  ![Modal for deleting a classroom with warnings and text field for classroom name](/assets/images/help/classroom/delete-classroom-modal-with-warning.png)
-1. Click **Delete classroom**.
-  !["Delete classroom" button](/assets/images/help/classroom/delete-classroom-click-delete-classroom-button.png)
+{% data reusables.classroom.sign-into-github-classroom %} {% data reusables.classroom.click-classroom-in-list %} {% data reusables.classroom.click-settings %}
+1. A la derecha de "Delete this classroom", haga clic en **Delete classroom**.
+  ![Botón "Delete repository"](/assets/images/help/classroom/click-delete-classroom-button.png)
+1. **Lea las advertencias**.
+1. Para verificar que estás borrando el aula correcta, teclea el nombre del aula que quieres borrar.
+  ![Modal para borrar una clase con advertencias y campo de texto para el nombre de la clase](/assets/images/help/classroom/delete-classroom-modal-with-warning.png)
+1. Haga clic en **Delete classroom**.
+  ![Botón "Delete classroom"](/assets/images/help/classroom/delete-classroom-click-delete-classroom-button.png)

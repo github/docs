@@ -1,0 +1,18 @@
+projects_v2: 'projects'
+projects_v2_caps: 'Projets'
+project_v2: 'project'
+project_v2_caps: 'Projet'
+
+projects_v1_board: >-
+  {% ifversion ghes or ghae %}Tableau de projet{% else %}Projet classique{% endif %}
+projects_v1_board_caps: >-
+  {% ifversion ghes or ghae %}Tableau de projet{% else %}Projet classique{% endif %}
+projects_v1_boards: >-
+  {% ifversion ghes or ghae %}Tableaux de projet{% else %}Projets classiques{% endif %}
+projects_v1_boards_caps: >-
+  {% ifversion ghes or ghae %}Tableaux de projet{% else %}Projets classiques{% endif %}
+command-palette-shortcut: '<kbd>Commande</kbd>+<kbd>K</kbd> (Mac) ou <kbd>Ctrl</kbd>+<kbd>K</kbd> (Windows/Linux)'
+
+# Use feature flags to return which projects versions are available.
+projects_v2_and_v1: '{% ifversion projects-v2 %}{% data variables.projects.projects_v2 %}{% ifversion projects-v1 %} et {% data variables.projects.projects_v1_boards %}{% endif %}{% else %}{% data variables.projects.projects_v1_boards %}{% endif %}'
+project_v2_and_v1: '{% ifversion projects-v2 %}{% data variables.projects.project_v2 %}{% ifversion projects-v1 %} et {% data variables.projects.projects_v1_board %}{% endif %}{% else %}{% data variables.projects.projects_v1_board %}{% endif %}'

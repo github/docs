@@ -1,0 +1,23 @@
+date: '2022-08-30'
+sections:
+  bugs:
+    - Nach dem Freigeben eines Repositorys für den temporären Zugriff konnte ein Siteadministrator die Einstellungen für Sicherheitsprodukte im Repository nicht mehr verwalten. 
+    - Doppelte administrative SSH-Schlüssel konnten sowohl in der Verwaltungskonsole als auch in der Datei `/home/admin/.ssh/authorized_keys` vorkommen.
+    - In einigen Fällen konnte die Ausführung von `ghe-cluster-config-apply` eine leere Konfiguration zu bestehenden Knoten in einem Cluster replizieren. 
+    - "In einigen Fällen wurden Konfigurationsläufe, die mit `ghe-config-apply` gestartet wurden, nicht abgeschlossen oder gaben den Fehler `Nicht übereinstimmende Containerzahl` zurück." 
+    - Nach dem Aktualisieren eines selbstsignierten TLS-Zertifikats auf einer GitHub Enterprise Server-Instanz wurden Benutzeroberflächenelemente auf einigen Seiten der Weboberfläche nicht angezeigt. 
+    - "In einigen Fällen konnten Hintergrundaufgaben aufgrund einer Bibliothek, die gleichzeitig verwendet wurde, obwohl sie nicht threadsicher war, zum Stillstand kommen."
+  changes:
+    - "Die Generierung von Supportbundles wird durch die parallelisierte Protokollbereinigung beschleunigt. Weitere Informationen zu Supportbundles findest du unter [Daten für den GitHub-Support bereitstellen](/support/contacting-github-support/providing-data-to-github-support)."
+    - "Das Unternehmensüberwachungsprotokoll enthält jetzt mehr benutzergenerierte Ereignisse, wie z. B. `project.create`. Die REST-API liefert auch zusätzliche benutzergenerierte Ereignisse, wie z. B. `repo.create`. Weitere Informationen findest du unter [Zugreifen auf das Überwachungsprotokoll für dein Unternehmen](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/accessing-the-audit-log-for-your-enterprise) und [Verwenden der Überwachungsprotokoll-API für dein Unternehmen](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/using-the-audit-log-api-for-your-enterprise#querying-the-audit-log-rest-api)."
+  known_issues:
+    - "Nach einem Upgrade auf {% data variables.product.prodname_ghe_server %} 3.3 wird {% data variables.product.prodname_actions %} möglicherweise nicht automatisch gestartet. Zur Behandlung dieses Problems stellst du die Verbindung mit der Appliance über SSH her und führst den Befehl `ghe-actions-start` aus."
+    - "Bei einer neu eingerichteten {% data variables.product.prodname_ghe_server %}-Instanz ohne Benutzer könnte ein Angreifer den ersten Administratorbenutzer erstellen."
+    - Benutzerdefinierte Firewallregeln werden während des Upgrades entfernt.
+    - "Nachverfolgte Git-LFS-Dateien, [die über die Webbenutzeroberfläche hochgeladen wurden](https://github.com/blog/2105-upload-files-to-your-repositories), werden dem Repository fälschlicherweise direkt hinzugefügt."
+    - "Issues können nicht geschlossen werden, wenn sie einen Permalink zu einem Blob im selben Repository enthalten und der Dateipfad des Blobs mehr als 255 Zeichen lang ist."
+    - "Wenn die Option zum Durchsuchen von GitHub.com mit {% data variables.product.prodname_github_connect %} aktiviert wird, sind Issues in privaten und internen Repositorys nicht in den {% data variables.product.prodname_dotcom_the_website %}-Suchergebnissen enthalten."
+    - "Die {% data variables.product.prodname_registry %}-npm-Registrierung gibt in Metadatenantworten keinen Zeitwert mehr zurück. So sind erhebliche Leistungssteigerungen möglich. Die erforderlichen Daten zum Zurückgeben eines Zeitwerts in einer Metadatenantwort sind weiterhin verfügbar, und dieser Wert wird in Zukunft wieder zurückgegeben, sobald die vorhandenen Leistungsprobleme behoben wurden."
+    - "Ressourcenbegrenzungen, die nur beim Verarbeiten von Pre-Receive-Hooks auftreten, können bei manchen Pre-Receive-Hooks Fehler auslösen."
+    - '{% data variables.product.prodname_actions %}-Speichereinstellungen können nicht in der {% data variables.enterprise.management_console %} validiert und gespeichert werden, wenn die Option zum Erzwingen des Pfadformats ausgewählt ist. Sie müssen stattdessen mit dem Befehlszeilen-Hilfsprogramm `ghe-actions-precheck` konfiguriert werden.'
+    - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'

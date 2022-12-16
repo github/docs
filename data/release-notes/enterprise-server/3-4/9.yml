@@ -40,3 +40,5 @@ sections:
     - After upgrading to {% data variables.product.prodname_ghe_server %} 3.4, releases may appear to be missing from repositories. This can occur when the required Elasticsearch index migrations have not successfully completed.
     - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'
     - '{% data reusables.release-notes.2022-09-hotpatch-issue %}'
+    - |
+      GitHub Pages builds may time out on instances in AWS that are configured for high availability. [Updated: 2022-11-28]

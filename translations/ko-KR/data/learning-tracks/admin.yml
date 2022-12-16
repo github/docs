@@ -1,0 +1,139 @@
+get_started_with_github_ae:
+  title: '{% data variables.product.prodname_ghe_managed %}로 시작'
+  description: '{% data variables.product.prodname_ghe_managed %}에 대해 알아보고 새 엔터프라이즈의 초기 구성을 완료합니다.'
+  featured_track: true
+  versions:
+    ghae: '*'
+  guides:
+    - /admin/overview/about-github-ae
+    - /admin/overview/about-data-residency
+    - /admin/configuration/configuring-your-enterprise/deploying-github-ae
+    - /admin/configuration/initializing-github-ae
+    - /admin/configuration/restricting-network-traffic-to-your-enterprise
+    - /admin/github-actions/getting-started-with-github-actions-for-github-ae
+
+deploy_an_instance:
+  title: '인스턴스 배포'
+  description: '선택한 플랫폼에 {% data variables.product.prodname_ghe_server %}를 설치하고 SAML 인증을 구성합니다.'
+  featured_track: true
+  versions:
+    ghes: '*'
+  guides:
+    - /admin/overview/system-overview
+    - /admin/installation
+    - /admin/configuration/accessing-the-management-console
+    - /admin/configuration/configuring-a-hostname
+    - /admin/authentication/using-saml
+    - /admin/configuration/site-admin-dashboard
+
+upgrade_your_instance:
+  title: '인스턴스 업그레이드'
+  description: '스테이징에서 업그레이드를 테스트하고, 사용자에게 유지 관리를 알리며, 최신 기능 및 보안 업데이트를 위해 인스턴스를 업그레이드합니다.'
+  versions:
+    ghes: '*'
+  guides:
+    - /admin/enterprise-management/enabling-automatic-update-checks
+    - /admin/installation/setting-up-a-staging-instance
+    - /admin/enterprise-management/upgrade-requirements
+    - /admin/user-management/customizing-user-messages-for-your-enterprise
+    - /admin/configuration/enabling-and-scheduling-maintenance-mode
+    - /admin/enterprise-management/upgrading-github-enterprise-server
+
+adopting_github_actions_for_your_enterprise_ghec:
+  title: '엔터프라이즈용 GitHub Actions 도입'
+  description: '엔터프라이즈에서 {% data variables.product.prodname_actions %}의 롤아웃을 계획하고 구현하는 방법을 알아봅니다.'
+  versions:
+    ghec: '*'
+  guides:
+    - /admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises
+    - /actions/learn-github-actions/understanding-github-actions
+    - /admin/github-actions/getting-started-with-github-actions-for-your-enterprise/introducing-github-actions-to-your-enterprise
+    - /admin/github-actions/getting-started-with-github-actions-for-your-enterprise/migrating-your-enterprise-to-github-actions
+    - /admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-cloud
+    - /actions/security-guides/security-hardening-for-github-actions
+    - /billing/managing-billing-for-github-actions/about-billing-for-github-actions
+
+adopting_github_actions_for_your_enterprise_ghes_and_ghae:
+  title: '엔터프라이즈용 GitHub Actions 도입'
+  description: '엔터프라이즈에서 {% data variables.product.prodname_actions %}의 롤아웃을 계획하고 구현하는 방법을 알아봅니다.'
+  versions:
+    ghes: '*'
+    ghae: '*'
+  guides:
+    - /admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises
+    - /actions/learn-github-actions/understanding-github-actions
+    - /admin/github-actions/getting-started-with-github-actions-for-your-enterprise/introducing-github-actions-to-your-enterprise
+    - /admin/github-actions/getting-started-with-github-actions-for-your-enterprise/migrating-your-enterprise-to-github-actions
+    - /admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-cloud
+    - /admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server
+    - /admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-self-hosted-runners-for-your-enterprise
+    - /actions/security-guides/security-hardening-for-github-actions
+    - /billing/managing-billing-for-github-actions/about-billing-for-github-actions
+
+increase_fault_tolerance:
+  title: '인스턴스의 내결함성 증가'
+  description: "개발자 코드를 백업하고 HA(고가용성)를 구성하여 사용자 환경에서 {% data variables.product.prodname_ghe_server %}의 안정성을 보장합니다."
+  versions:
+    ghes: '*'
+  guides:
+    - /admin/configuration/accessing-the-administrative-shell-ssh
+    - /admin/configuration/configuring-backups-on-your-appliance
+    - /admin/enterprise-management/about-high-availability-configuration
+    - /admin/enterprise-management/creating-a-high-availability-replica
+    - /admin/configuration/using-github-enterprise-server-with-a-load-balancer
+
+improve_security_of_your_instance:
+  title: '인스턴스의 보안 향상'
+  description: "네트워크 구성 및 보안 기능을 검토하고 {% data variables.product.prodname_ghe_server %}를 실행하는 인스턴스를 강화하여 엔터프라이즈 데이터를 보호합니다."
+  versions:
+    ghes: '*'
+  guides:
+    - /admin/configuration/enabling-private-mode
+    - /admin/guides/installation/configuring-tls
+    - /admin/configuration/troubleshooting-ssl-errors
+    - /admin/configuration/enabling-subdomain-isolation
+    - /admin/configuration/accessing-the-administrative-shell-ssh
+    - /admin/configuration/network-ports
+    - /admin/configuration/configuring-built-in-firewall-rules
+    - /admin/user-management/best-practices-for-user-security
+    - /admin/user-management/promoting-or-demoting-a-site-administrator
+
+configure_github_actions:
+  title: '{% data variables.product.prodname_actions %} 구성'
+  description: '개발자가 {% data variables.product.prodname_actions %}를 사용하여 {% data variables.product.product_location %}에 대해 강력한 소프트웨어 개발 워크플로를 만들고, 자동화하며, 사용자 지정하고, 실행할 수 있습니다.'
+  versions:
+    ghes: '*'
+  guides:
+    - /admin/github-actions/getting-started-with-github-actions-for-github-enterprise-server
+    - /admin/github-actions/enforcing-github-actions-policies-for-your-enterprise
+    - /admin/github-actions/enabling-automatic-access-to-githubcom-actions-using-github-connect
+    - /admin/github-actions/high-availability-for-github-actions
+    - /admin/github-actions/backing-up-and-restoring-github-enterprise-server-with-github-actions-enabled
+    - /admin/github-actions/using-a-staging-environment
+
+configure_github_advanced_security:
+  title: '{% data variables.product.prodname_GH_advanced_security %} 구성'
+  description: "{% data variables.product.prodname_GH_advanced_security %}를 사용하여 개발자 코드의 품질과 보안을 개선합니다."
+  versions:
+    ghes: '*'
+  guides:
+    - /admin/advanced-security/about-licensing-for-github-advanced-security
+    - /admin/advanced-security/enabling-github-advanced-security-for-your-enterprise
+    - /admin/advanced-security/configuring-code-scanning-for-your-appliance
+    - /admin/code-security/managing-github-advanced-security-for-your-enterprise/configuring-dependency-review-for-your-appliance
+    - /admin/advanced-security/configuring-secret-scanning-for-your-appliance
+    - /admin/policies/enforcing-policies-for-advanced-security-in-your-enterprise
+
+get_started_with_your_enterprise_account:
+  title: '엔터프라이즈 계정으로 시작'
+  description: '{% data variables.product.product_name %}에서 여러 조직을 중앙에서 관리하려면 엔터프라이즈 계정으로 시작합니다.'
+  versions:
+    ghes: '*'
+    ghec: '*'
+  guides:
+    - /admin/overview/about-enterprise-accounts
+    - /billing/managing-billing-for-your-github-account/about-billing-for-your-enterprise
+    - /admin/user-management/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise
+    - /admin/user-management/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise
+    - /admin/authentication/managing-identity-and-access-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise
+    - /admin/policies/enforcing-policies-for-your-enterprise/about-enterprise-policies

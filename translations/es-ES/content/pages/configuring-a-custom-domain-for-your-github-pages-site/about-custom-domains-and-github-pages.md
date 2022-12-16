@@ -1,6 +1,6 @@
 ---
-title: About custom domains and GitHub Pages
-intro: '{% data variables.product.prodname_pages %} supports using custom domains, or changing the root of your site''s URL from the default, like `octocat.github.io`, to any domain you own.'
+title: Acerca de los dominios personalizados y las Páginas de GitHub
+intro: '{% data variables.product.prodname_pages %} respalda el uso de dominios personalizados o el cambio la raíz de la URL del sitio desde el valor predeterminado, como `octocat.github.io`, para cualquier dominio que poseas.'
 redirect_from:
   - /articles/about-custom-domains-for-github-pages-sites
   - /articles/about-supported-custom-domains
@@ -14,58 +14,62 @@ versions:
 topics:
   - Pages
 shortTitle: Custom domains in GitHub Pages
+ms.openlocfilehash: a2c5ae3df0e2dd6248db6e03fd7c64e973b14f3d
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145140373'
 ---
+## Dominios personalizados compatibles
 
-## Supported custom domains
+{% data variables.product.prodname_pages %} trabaja con dos tipos de dominios: subdominios y dominios apex. Para obtener una lista de dominios personalizados no admitidos, vea "[Solución de problemas de dominios personalizados y {% data variables.product.prodname_pages %}](/articles/troubleshooting-custom-domains-and-github-pages/#custom-domain-names-that-are-unsupported)".
 
-{% data variables.product.prodname_pages %} works with two types of domains: subdomains and apex domains. For a list of unsupported custom domains, see "[Troubleshooting custom domains and {% data variables.product.prodname_pages %}](/articles/troubleshooting-custom-domains-and-github-pages/#custom-domain-names-that-are-unsupported)."
-
-| Supported custom domain type | Example |
+| Tipo de dominio personalizado compatible | Ejemplo |
 |---|---|
-| `www` subdomain | `www.example.com` |
-| Custom subdomain | `blog.example.com` |
-| Apex domain        | `example.com` |
+| Subdominio `www` | `www.example.com` |
+| Subdominio personalizado | `blog.example.com` |
+| Dominio de Apex        | `example.com` |
 
-You can set up either or both of apex and `www` subdomain configurations for your site. For more information on apex domains, see "[Using an apex domain for your {% data variables.product.prodname_pages %} site](#using-an-apex-domain-for-your-github-pages-site)."
+Puede establecer una de las configuraciones de subdominio de vértice y `www`, o las dos, para el sitio. Para más información sobre los dominios de vértice, vea "[Uso de un dominio de vértice para el sitio de {% data variables.product.prodname_pages %}](#using-an-apex-domain-for-your-github-pages-site)".
 
-We recommend always using a `www` subdomain, even if you also use an apex domain. When you create a new site with an apex domain, we automatically attempt to secure the `www` subdomain for use when serving your site's content, but you need to make the DNS changes to use the `www` subdomain. If you configure a `www` subdomain, we automatically attempt to secure the associated apex domain. For more information, see "[Managing a custom domain for your {% data variables.product.prodname_pages %} site](/articles/managing-a-custom-domain-for-your-github-pages-site)."
+Se recomienda usar siempre un subdominio `www`, incluso si también se utiliza un dominio de vértice. Al crear un sitio con un dominio de vértice, intentaremos asegurar el subdominio `www` de forma automática para que lo use al entregar el contenido del sitio, pero tendrá que realizar los cambios de DNS para usar el subdominio `www`. Si configura un subdominio de `www`, intentamos proteger de forma automática el dominio de vértice asociado. Para más información, vea "[Administración de un dominio personalizado para el sitio de {% data variables.product.prodname_pages %}](/articles/managing-a-custom-domain-for-your-github-pages-site)".
 
-After you configure a custom domain for a user or organization site, the custom domain will replace the `<user>.github.io` or `<organization>.github.io` portion of the URL for any project sites owned by the account that do not have a custom domain configured. For example, if the custom domain for your user site is `www.octocat.com`, and you have a project site with no custom domain configured that is published from a repository called `octo-project`, the {% data variables.product.prodname_pages %} site for that repository will be available at `www.octocat.com/octo-project`.
-For more information about each type of site and handling custom domains, see "[Types of {% data variables.product.prodname_pages %} sites](/pages/getting-started-with-github-pages/about-github-pages#types-of-github-pages-sites)."
+Después de configurar un dominio personalizado para un sitio de usuario u organización, el dominio personalizado reemplazará la parte `<user>.github.io` o `<organization>.github.io` de la dirección URL de los sitios de proyecto propiedad de la cuenta que no tengan configurado un dominio personalizado. Por ejemplo, si el dominio personalizado para el sitio de usuario es `www.octocat.com` y tiene un sitio de proyecto sin ningún dominio personalizado configurado que se publique desde un repositorio denominado `octo-project`, el sitio de {% data variables.product.prodname_pages %} para ese repositorio estará disponible en `www.octocat.com/octo-project`.
 
-## Using a subdomain for your {% data variables.product.prodname_pages %} site
+## Uso de un subdominio para tu sitio {% data variables.product.prodname_pages %}
 
-A subdomain is the part of a URL before the root domain. You can configure your subdomain as `www` or as a distinct section of your site, like `blog.example.com`.
+Un subdominio es la parte de una URL antes del dominio raíz. Puede configurar el subdominio como `www` o como una sección distintiva del sitio, como `blog.example.com`.
 
-Subdomains are configured with a `CNAME` record through your DNS provider. For more information, see "[Managing a custom domain for your {% data variables.product.prodname_pages %} site](/articles/managing-a-custom-domain-for-your-github-pages-site#configuring-a-subdomain)."
+Los subdominios se configuran con un registro `CNAME` por medio del proveedor DNS. Para más información, vea "[Administración de un dominio personalizado para el sitio de {% data variables.product.prodname_pages %}](/articles/managing-a-custom-domain-for-your-github-pages-site#configuring-a-subdomain)".
 
-### `www` subdomains
+### Subdominios `www`
 
-A `www` subdomain is the most commonly used type of subdomain. For example, `www.example.com` includes a `www` subdomain.
+`www` es el tipo de subdominio más usado. Por ejemplo, `www.example.com` incluye un subdominio `www`.
 
-`www` subdomains are the most stable type of custom domain because `www` subdomains are not affected by changes to the IP addresses of {% data variables.product.product_name %}'s servers.
+Los subdominios `www` son el tipo de dominio personalizado más estable porque los subdominios `www` no se ven afectados por los cambios en las direcciones IP de los servidores de {% data variables.product.product_name %}.
 
-### Custom subdomains
+### Subdominios personalizados
 
-A custom subdomain is a type of subdomain that doesn't use the standard `www` variant. Custom subdomains are mostly used when you want two distinct sections of your site. For example, you can create a site called `blog.example.com` and customize that section independently from `www.example.com`.
+Un subdominio personalizado es un tipo de subdominio que no usa la variante `www` estándar. Los subdominios personalizados se utilizan principalmente cuando se necesitan dos secciones distintas de su sitio. Por ejemplo, puede crear un sitio denominado `blog.example.com` y personalizar esa sección de manera independiente a `www.example.com`.
 
-## Using an apex domain for your {% data variables.product.prodname_pages %} site
+## Uso de un dominio apex para tu sitio {% data variables.product.prodname_pages %}
 
-An apex domain is a custom domain that does not contain a subdomain, such as `example.com`. Apex domains are also known as base, bare, naked, root apex, or zone apex domains.
+Un dominio de vértice es un dominio personalizado que no contiene un subdominio, como `example.com`. Los dominios apex también son conocidos como dominios apex base, vacíos, desnudos, o de zona.
 
-An apex domain is configured with an `A`, `ALIAS`, or `ANAME` record through your DNS provider. For more information, see "[Managing a custom domain for your {% data variables.product.prodname_pages %} site](/articles/managing-a-custom-domain-for-your-github-pages-site#configuring-an-apex-domain)."
+Un dominio de vértice se configura con un registro `A`, `ALIAS`o `ANAME` desde el proveedor DNS. Para más información, vea "[Administración de un dominio personalizado para el sitio de {% data variables.product.prodname_pages %}](/articles/managing-a-custom-domain-for-your-github-pages-site#configuring-an-apex-domain)".
 
-{% data reusables.pages.www-and-apex-domain-recommendation %} For more information, see "[Managing a custom domain for your {% data variables.product.prodname_pages %} site](/github/working-with-github-pages/managing-a-custom-domain-for-your-github-pages-site/#configuring-a-subdomain)."
+{% data reusables.pages.www-and-apex-domain-recommendation %} Para más información, vea "[Administración de un dominio personalizado para el sitio {% data variables.product.prodname_pages %}](/github/working-with-github-pages/managing-a-custom-domain-for-your-github-pages-site/#configuring-a-subdomain)".
 
-## Securing the custom domain for your {% data variables.product.prodname_pages %} site
+## Asegurar el dominio personalizado para tu sitio de {% data variables.product.prodname_pages %}
 
-{% data reusables.pages.secure-your-domain %} For more information, see "[Verifying your custom domain for {% data variables.product.prodname_pages %}](/pages/configuring-a-custom-domain-for-your-github-pages-site/verifying-your-custom-domain-for-github-pages)" and "[Managing a custom domain for your {% data variables.product.prodname_pages %} site](/articles/managing-a-custom-domain-for-your-github-pages-site)."
+{% data reusables.pages.secure-your-domain %} Para más información, vea "[Comprobación del dominio personalizado para {% data variables.product.prodname_pages %}](/pages/configuring-a-custom-domain-for-your-github-pages-site/verifying-your-custom-domain-for-github-pages)" y "[Administración de un dominio personalizado para el sitio de {% data variables.product.prodname_pages %}](/articles/managing-a-custom-domain-for-your-github-pages-site)".
 
-There are a couple of reasons your site might be automatically disabled.
+Existen algunos motivos por los que tu sitio pueda estar inhabilitado automáticamente.
 
-- If you downgrade from {% data variables.product.prodname_pro %} to {% data variables.product.prodname_free_user %}, any {% data variables.product.prodname_pages %} sites that are currently published from private repositories in your account will be unpublished. For more information, see "[Downgrading your {% data variables.product.prodname_dotcom %} billing plan](/articles/downgrading-your-github-billing-plan)."
-- If you transfer a private repository to a personal account that is using {% data variables.product.prodname_free_user %}, the repository will lose access to the {% data variables.product.prodname_pages %} feature, and the currently published {% data variables.product.prodname_pages %} site will be unpublished. For more information, see "[Transferring a repository](/articles/transferring-a-repository)."
+- Si bajaste de categoría de {% data variables.product.prodname_pro %} a {% data variables.product.prodname_free_user %}, todos los sitios de {% data variables.product.prodname_pages %} que se publicaron actualmente desde repositorios privados en tu cuenta quedarán sin publicar. Para más información, vea "[Cambio del plan de facturación de {% data variables.product.prodname_dotcom %} a una versión anterior](/articles/downgrading-your-github-billing-plan)".
+- Si transfieres a un repositorio privado a una cuenta personal que está usando {% data variables.product.prodname_free_user %}, el repositorio perderá acceso a la función de {% data variables.product.prodname_pages %}, y el sitio de {% data variables.product.prodname_pages %} actualmente publicado, quedará sin publicar. Para más información, vea "[Transferencia de un repositorio](/articles/transferring-a-repository)".
 
-## Further reading
+## Información adicional
 
-- "[Troubleshooting custom domains and {% data variables.product.prodname_pages %}](/articles/troubleshooting-custom-domains-and-github-pages)"
+- "[Solución de problemas de dominios personalizados y {% data variables.product.prodname_pages %}](/articles/troubleshooting-custom-domains-and-github-pages)".

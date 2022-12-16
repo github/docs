@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: cd91a98e6cb0da73a24f7f6e682b67ec25b406d4
-ms.sourcegitcommit: 24427fe609677b2c58137b1d9d63869d0872daf4
+ms.openlocfilehash: 59e78cbf492110a8949c27e867bf195ae5605307
+ms.sourcegitcommit: bddda0c0814770ee64e378692891931c618247ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2022
-ms.locfileid: "148134796"
+ms.lasthandoff: 11/24/2022
+ms.locfileid: "148181767"
 ---
 Asociado | Secreto compatible
 --- | ---
@@ -23,6 +23,8 @@ Azure | Objeto de identificación de clave de Azure CosmosDB
 Azure | Azure DevOps {% data variables.product.pat_generic_title_case %}
 Azure | Clave de servicio web de Azure ML Studio (clásico)
 Azure | Token de Azure SAS
+Azure | Clave de administrador de Azure Search
+Azure | Clave de consulta de Azure Search
 Azure | Certificado de Administración de Servicios de Azure
 Azure | Cadena de conexión de Azure SQL
 Azure | Clave de la cuenta de Azure Storage
@@ -50,6 +52,7 @@ Dropbox | Token de Acceso de Dropbox
 Dropbox | Token de Acceso de Vida Corta de Dropbox
 Dynatrace | Token de Acceso de Dynatrace
 Dynatrace | Token Interno de Dynatrace
+Figma | Figma {% data variables.product.pat_generic_title_case %}
 Finicity | Clave de App de Finicity
 Frame.io | Token Web de JSON de Frame.io
 Frame.io| Token de Desarrollador de Frame.io
@@ -65,6 +68,7 @@ Google Cloud | Clave de API de Google
 Google Cloud | ID de Clave Privada de Google Cloud
 Hashicorp Terraform | Token de API de Terraform Cloud / Enterprise
 Hubspot | Clave de API de Hubspot
+Hubspot | Clave de acceso personal de API de Hubspot
 Ionic | Ionic {% data variables.product.pat_generic_title_case %}
 Ionic | Token de Actualización de Ionic
 JD Cloud | Clave de acceso de JD Cloud
@@ -116,6 +120,7 @@ Stripe | Clave Restringida de API de Stripe Live
 Stripe | Clave Restringida de API de Pruebas de Stripe
 Supabase | Clave de servicio de Supabase
 Tencent Cloud | ID de Secreto de Tencent Cloud
+Tencent WeChat | Id. de aplicación de API de Tencent WeChat
 Twilio | Identificador de Secuencia de Cuenta de Twilio
 Twilio | Clave de API de Twilio
 Typeform | Typeform {% data variables.product.pat_generic_title_case %}

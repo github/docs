@@ -1,0 +1,17 @@
+date: '07-09-2021'
+sections:
+  security_fixes:
+    - Los paquetes se han actualizado a las últimas versiones de seguridad.
+  bugs:
+    - "Intentar anular un nodo de réplica recién agregado especificando su UUID con \"ghe-repl-teardown\" falló sin reportar un error en caso de que la replicación no se hubiera iniciado."
+    - Las compilaciones de GitHub Pages se estaban pasando por un proxy externo si es que había alguno configurado.
+    - "Los enlaces previos a la recepción que crearon subprocesos no tenían una variable de \"PATH\" en su entorno, lo cual dio como resultado un error de tipo \"No such file or directory\"."
+    - "MySQL pudo haberse recuperado de un desastre durante una actualización si se hubiera habilitado \"mysql-auto-failover\"."
+  known_issues:
+    - "En una instalación nueva de {% data variables.product.prodname_ghe_server %} que no tenga ningún usuario, cualquier atacante podría crear el primer usuario administrativo."
+    - Las reglas de cortafuegos personalizadas se eliminan durante el proceso de actualización.
+    - "Los archivos supervisados de Git LFS [cargados desde la interface web](https://github.com/blog/2105-upload-files-to-your-repositories) se agregan de manera incorrecta y directa al repositorio."
+    - Las incidencias no se pueden cerrar si contienen un enlace permanente a un blob del mismo repositorio en el que la ruta es mayor de 255 caracteres.
+    - "Cuando se habilita \"Los usuarios pueden buscar en GitHub.com\" con GitHub Connect, las incidencias en los repositorios privados e internos no se incluyen en los resultados de la búsqueda de GitHub.com."
+    - "Cuando un nodo de réplica está sin conexión en una configuración de disponibilidad alta, es posible que {% data variables.product.product_name %} todavía enrute las solicitudes a {% data variables.product.prodname_pages %} al nodo sin conexión, lo que reduce la disponibilidad de {% data variables.product.prodname_pages %} para los usuarios."
+    - Los límites de recursos que son específicos para procesar enlaces previos a la recepción podrían ocasionar errores en algunos de ellos.

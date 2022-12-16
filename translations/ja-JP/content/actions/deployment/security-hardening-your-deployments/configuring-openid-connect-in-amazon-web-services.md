@@ -1,6 +1,6 @@
 ---
 title: アマゾン ウェブ サービスでの OpenID Connect の構成
-shortTitle: Configuring OpenID Connect in Amazon Web Services
+shortTitle: OpenID Connect in AWS
 intro: ワークフロー内で OpenID Connect を使用して、アマゾン ウェブ サービスで認証を行います。
 miniTocMaxHeadingLevel: 3
 versions:
@@ -10,12 +10,12 @@ versions:
 type: tutorial
 topics:
   - Security
-ms.openlocfilehash: 6b57dc216c3f2ebc1edb73a8d588edb1967aebcb
-ms.sourcegitcommit: ac00e2afa6160341c5b258d73539869720b395a4
+ms.openlocfilehash: 597ea408c2f0172eb0eacf07fc2d1ad320872f09
+ms.sourcegitcommit: 94ba3891ebcc3c05812f468e4adafdd15b99e390
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/09/2022
-ms.locfileid: '147878431'
+ms.lasthandoff: 11/25/2022
+ms.locfileid: '148182258'
 ---
 {% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
@@ -53,7 +53,7 @@ IAM でロールと信頼を構成するには、AWS のドキュメントの「
 }
 ```
 
-次の例では、複数の条件キーでの一致に `ForAllValues` が使用され、指定したリポジトリ内の任意の ref との一致に `StringLike` が使用されています。 `ForAllValues` は[過度に制限が少なく](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_multi-value-conditions.html)、`Allow` Effect で単独で使用すべきでないことに注意してください。 この例の場合、`StringLike` を含めることは `ForAllValues` の空のセットが条件に合格しないことを意味します。
+次の例では、`StringLike` をワイルドカード演算子 (`*`) と共に使用して、任意のブランチ、pull request マージ ブランチ、または `octo-org/octo-repo` organization とリポジトリの環境が AWS でロールを引き受けることを許可します。
 
 ```json{:copy}
 {
@@ -69,8 +69,7 @@ IAM でロールと信頼を構成するには、AWS のドキュメントの「
                 "StringLike": {
                     "token.actions.githubusercontent.com:sub": "repo:octo-org/octo-repo:*"
                 },
-                "ForAllValues:StringEquals": {
-                    "token.actions.githubusercontent.com:iss": "https://token.actions.githubusercontent.com",
+                "StringEquals": {
                     "token.actions.githubusercontent.com:aud": "sts.amazonaws.com"
                 }
             }

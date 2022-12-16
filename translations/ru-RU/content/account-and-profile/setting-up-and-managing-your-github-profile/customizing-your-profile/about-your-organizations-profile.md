@@ -1,6 +1,6 @@
 ---
-title: About your organization's profile
-intro: Your organization's profile page shows basic information about your organization.
+title: Сведения о профиле вашей организации
+intro: На странице профиля вашей организации отображаются основные сведения о вашей организации.
 redirect_from:
   - /articles/about-your-organization-s-profile
   - /articles/about-your-organizations-profile
@@ -14,22 +14,21 @@ versions:
 topics:
   - Profiles
 shortTitle: Organization's profile
+ms.openlocfilehash: a42d5393de00e57f0b642c89a349da86b4ad55f1
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148108956'
 ---
+При необходимости можно добавить описание, расположение, веб-сайт и адрес электронной почты для своей организации, а также закрепить важные репозитории. {% ifversion fpt or ghec or ghes > 3.3 %} Вы можете настроить общедоступный профиль организации, добавив файл README.md. Дополнительные сведения см. в разделе [Настройка профиля организации](/organizations/collaborating-with-groups-in-organizations/customizing-your-organizations-profile). {% endif %}
 
-You can optionally choose to add a description, location, website, and email address for your organization, and pin important repositories.{% ifversion fpt or ghec or ghes > 3.3 %} You can customize your organization's public profile by adding a README.md file. For more information, see "[Customizing your organization's profile](/organizations/collaborating-with-groups-in-organizations/customizing-your-organizations-profile)."{% endif %}
-
-{% ifversion fpt %}
-Organizations that use {% data variables.product.prodname_ghe_cloud %} can confirm their organization's identity and display a "Verified" badge on their organization's profile page by verifying the organization's domains with {% data variables.product.product_name %}. For more information, see "[Verifying or approving a domain for your organization](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)" in the {% data variables.product.prodname_ghe_cloud %} documenatation.
-{% elsif ghec or ghes %}
-To confirm your organization's identity and display a "Verified" badge on your organization profile page, you can verify your organization's domains with {% data variables.product.prodname_dotcom %}. For more information, see "[Verifying or approving a domain for your organization](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)."
+{% ifversion fpt %} Организации, использующие {% data variables.product.prodname_ghe_cloud %}, могут подтвердить удостоверение своей организации и отобразить значок "Проверено" на странице профиля организации, проверив домены организации с помощью {% data variables.product.product_name %}. Дополнительные сведения см. в разделе [Проверка и утверждение домена для организации](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization) в документации по {% data variables.product.prodname_ghe_cloud %}.
+{% elsif ghec or ghes %} Чтобы подтвердить удостоверение вашей организации и отобразить индикатор событий "Проверено" на странице профиля организации, необходимо проверить домены организации с помощью {% data variables.product.prodname_dotcom %}. Дополнительные сведения см. в разделе [Проверка или утверждение домена для вашей организации](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization).
 {% endif %}
 
-{% ifversion fpt or ghes or ghec %}
-![Sample organization profile page](/assets/images/help/organizations/org_profile_with_overview.png)
-{% else %}
-![Sample organization profile page](/assets/images/help/profile/org_profile.png)
-{% endif %}
+{% ifversion fpt or ghes or ghec %} ![ Пример страницы](/assets/images/help/organizations/org_profile_with_overview.png) профиля организации {% else %} ![Пример страницы](/assets/images/help/profile/org_profile.png) профиля организации {% endif %}
 
-## Further reading
+## Дополнительные материалы
 
-- "[About organizations](/organizations/collaborating-with-groups-in-organizations/about-organizations)"
+- [Сведения об организациях](/organizations/collaborating-with-groups-in-organizations/about-organizations)

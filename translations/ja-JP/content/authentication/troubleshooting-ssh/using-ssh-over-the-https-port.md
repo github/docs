@@ -1,6 +1,6 @@
 ---
-title: Using SSH over the HTTPS port
-intro: 'Sometimes, firewalls refuse to allow SSH connections entirely.  If using [HTTPS cloning with credential caching](/github/getting-started-with-github/caching-your-github-credentials-in-git) is not an option, you can attempt to clone using an SSH connection made over the HTTPS port.  Most firewall rules should allow this, but proxy servers may interfere.'
+title: HTTPS ポートを介して SSH を使用する
+intro: '時々、ファイアウォールは SSH 接続を完全に許可することを拒否します。  [認証情報キャッシュを使用した HTTPS クローニング](/github/getting-started-with-github/caching-your-github-credentials-in-git) を使用することが選べない場合は、HTTPS ポート経由の SSH 接続を使用してクローンの作成を試みることができます。  ほとんどのファイアウォールルールでこれを許可する必要がありますが、プロキシサーバーが干渉する可能性があります。'
 redirect_from:
   - /articles/using-ssh-over-the-https-port
   - /github/authenticating-to-github/using-ssh-over-the-https-port
@@ -11,14 +11,20 @@ versions:
 topics:
   - SSH
 shortTitle: Use SSH over HTTPS port
+ms.openlocfilehash: 24a56147129e68c674eaf8dc733a203e2b03348a
+ms.sourcegitcommit: 8c8d8598beeaa4f83b3f30cb160a5288fdb4ef9a
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 12/02/2022
+ms.locfileid: '148190323'
 ---
 {% tip %}
 
-**{% data variables.product.prodname_ghe_server %} users**: Accessing {% data variables.product.prodname_ghe_server %} via SSH over the HTTPS port is currently not supported.
+**{% data variables.product.prodname_ghe_server %} ユーザー**: HTTPS ポートを介した SSH 経由での {% data variables.product.prodname_ghe_server %} へのアクセスは現在サポートされていません。
 
 {% endtip %}
 
-To test if SSH over the HTTPS port is possible, run this SSH command:
+HTTPS ポート経由の SSH が可能かどうかをテストするには、次の SSH コマンドを実行します:
 
 ```shell
 $ ssh -T -p 443 git@ssh.github.com
@@ -28,23 +34,23 @@ $ ssh -T -p 443 git@ssh.github.com
 
 {% note %}
 
-**Note**: The hostname for port 443 is `ssh.{% data variables.command_line.backticks %}`, not `{% data variables.command_line.backticks %}`.
+**注**: ポート 443 のホスト名は、`{% data variables.command_line.backticks %}` ではなく `ssh.{% data variables.command_line.backticks %}` です。
 
-{% endnote %} 
+{% endnote %}
 
-If that worked, great! If not, you may need to [follow our troubleshooting guide](/articles/error-permission-denied-publickey).
+うまく機能すれば、素晴らしいことです。 そうでない場合は、[トラブルシューティング ガイドに従って](/articles/error-permission-denied-publickey)ください。
 
-Now, to clone the repository, you can run the following command:
+ここで、リポジトリをクローンするには、次のコマンドを実行できます。
 
 ```
 $ git clone ssh://git@ssh.{% data variables.command_line.codeblock %}:443/YOUR-USERNAME/YOUR-REPOSITORY.git
 ```
 
-## Enabling SSH connections over HTTPS
+## HTTPS を介した SSH 接続を有効化する
 
-If you are able to SSH into `git@ssh.{% data variables.command_line.backticks %}` over port 443, you can override your SSH settings to force any connection to {% data variables.location.product_location %} to run through that server and port.
+ポート 443 経由で `git@ssh.{% data variables.command_line.backticks %}` に SSH 接続できる場合は、SSH の設定をオーバーライドして、{% data variables.location.product_location %} への接続をそのサーバーとポートを通して実行するように強制できます。
 
-To set this in your SSH configuration file, edit the file at `~/.ssh/config`, and add this section:
+SSH 構成ファイルでこれを設定するには、`~/.ssh/config` でファイルを編集し、次のセクションを追加します。
 
 ```
 Host {% data variables.command_line.codeblock %}
@@ -53,7 +59,7 @@ Port 443
 User git
 ```
 
-You can test that this works by connecting once more to {% data variables.location.product_location %}:
+{% data variables.location.product_location %} にもう一度接続することで、これが機能することをテストできます。
 
 ```shell
 $ ssh -T git@{% data variables.command_line.codeblock %}
@@ -61,18 +67,16 @@ $ ssh -T git@{% data variables.command_line.codeblock %}
 > provide shell access.
 ```
 
-## Updating known hosts
+## 既知のホストを更新する
 
-The first time you interact with GitHub after switching to port 443, you may get a warning message
-that the host wasn't found in `known_hosts`, or that it was found by another name.
+ポート 443 に切り替えた後で GitHub を初めて使うときに、`known_hosts` でホストが見つからなかったか、別の名前で見つかったことを示す警告メッセージが、表示されることがあります。
 
 ```ShellSession
 > The authenticity of host '[ssh.github.com]:443 ([140.82.112.36]:443)' can't be established.
 > ED25519 key fingerprint is SHA256:+DiY3wvvV6TuJJhbpZisF/zLDA0zPMSvHdkr4UvCOqU.
 > This host key is known by the following other names/addresses:
 >     ~/.ssh/known_hosts:32: github.com
-> Are you sure you want to continue connecting (yes/no/[fingerprint])? 
+> Are you sure you want to continue connecting (yes/no/[fingerprint])?
 ```
 
-It is safe to answer `yes` to this question, assuming that the SSH fingerprint matches
-one of GitHub's published fingerprints. For more information, see "[Github's SSH key fingerprints](/authentication/keeping-your-account-and-data-secure/githubs-ssh-key-fingerprints)."
+SSH のフィンガープリントが公開されている GitHub のフィンガープリントのいずれかと一致するなら、この質問に "はい" と答えても安全です。 フィンガープリントの一覧については、「[GitHub の SSH キーフィンガープリント](/authentication/keeping-your-account-and-data-secure/githubs-ssh-key-fingerprints)」をご覧ください。

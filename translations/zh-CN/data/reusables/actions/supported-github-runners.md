@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: c30f6000486156f1995f0f05ff27fc173b893de5
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: b40c432907d00f7bf7cf33a1f379ea3318ae8aa2
+ms.sourcegitcommit: cb39c15ab6ccfacf49f4b114b77e3b920fdddf70
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "147529270"
+ms.lasthandoff: 11/22/2022
+ms.locfileid: "148180667"
 ---
 <table style="width:100%">
 <thead>
@@ -53,6 +53,9 @@ Ubuntu 20.04
 <td>
 <code>ubuntu-latest</code> 或 <code>ubuntu-20.04</code>
 </td>
+<td>
+<code>ubuntu-latest</code> 标签目前正在转换为 Ubuntu 22.04 运行器映像。 在转换期间，标签可能引用 Ubuntu 20.04 或 22.04 的运行器映像。 有关详细信息，请参阅<a href="https://github.blog/changelog/2022-11-09-github-actions-ubuntu-latest-workflows-will-use-ubuntu-22-04/">此 {% data variables.product.prodname_dotcom %} 博客文章</a>。
+</rd>
 </tr>
 <tr>
 <td>
@@ -81,7 +84,7 @@ macOS Big Sur 11
 <code>macos-latest</code> 或 <code>macos-11</code>
 </td>
 <td>
-<code>macos-latest</code> 标签当前使用 macOS 11 运行器映像。
+<code>macos-latest</code> 标签目前正在转换为 macOS Monterey 12 运行器映像。 在转换期间，标签可能引用 macOS 11 或 12 的运行器映像。 有关详细信息，请参阅<a href="https://github.blog/changelog/2022-10-03-github-actions-jobs-running-on-macos-latest-are-now-running-on-macos-12/">此 {% data variables.product.prodname_dotcom %} 博客文章</a>。
 </td>
 </tr>
 <tr>
@@ -106,6 +109,6 @@ macOS Catalina 10.15 <sup>[已弃用]</sup>
 
 {% warning %}
 
-注意：Beta 版映像和已弃用的映像“按原样提供”、“包含全部错误”且“视可用性情况”提供，不包含在服务级别协议和保证之内<b></b>。 客户支持可能不会涵盖 Beta 版映像。
+警告：beta 版映像和已弃用的映像“按原样提供”、“包含全部错误”且“视可用性情况”提供，不在服务级别协议和保证的涵盖范围之内。 客户支持可能不会涵盖 Beta 版映像。
 
 {% endwarning %}

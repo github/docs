@@ -31,8 +31,13 @@ After you enable SCIM, the following provisioning features are available for any
 
 Alternatively, you can configure SAML SSO for an enterprise using Okta. SCIM for enterprise accounts is only available with Enterprise Managed Users. For more information, see "[Configuring SAML single sign-on for your enterprise using Okta](/admin/identity-and-access-management/managing-iam-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise-using-okta)" and "[Configuring SCIM provisioning for Enterprise Managed Users with Okta](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/configuring-scim-provisioning-for-enterprise-managed-users-with-okta)."
 
-## Adding the {% data variables.product.prodname_ghe_cloud %} application in Okta
+## Configuring SAML in Okta
 
+{% data reusables.saml.okta-ae-applications-menu %}
+{% data reusables.saml.okta-browse-app-catalog %}
+{% data reusables.saml.okta-add-ghec-org-integration %}
+1. Fill out the form, providing the name of your organization on {% data variables.product.prodname_dotcom %} and a unique name in the "Application Label" field.
+{% data reusables.saml.assign-yourself-to-okta %}
 {% data reusables.saml.okta-sign-on-tab %}
 {% data reusables.saml.okta-view-setup-instructions %}
 1. Enable and test SAML SSO on {% data variables.product.prodname_dotcom %} using the sign on URL, issuer URL, and public certificates from the "How to Configure SAML 2.0" guide. For more information, see "[Enabling and testing SAML single sign-on for your organization](/organizations/managing-saml-single-sign-on-for-your-organization/enabling-and-testing-saml-single-sign-on-for-your-organization#enabling-and-testing-saml-single-sign-on-for-your-organization)."

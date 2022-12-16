@@ -10,18 +10,18 @@ type: tutorial
 topics:
   - Projects
 allowTitleToDifferFromFilename: true
-ms.openlocfilehash: 2efe16be4b865e4315bce1fee633c313a3d7e512
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.openlocfilehash: e6db4fd8c6587f413ee0e6832dbae93bbf281573
+ms.sourcegitcommit: 9bf175b190674416ad4e11b5c567409f74c00ad2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2022
-ms.locfileid: '148108232'
+ms.lasthandoff: 11/23/2022
+ms.locfileid: '148181218'
 ---
 {% note %}
 
 **Observações:**
 
-- Se o projeto que você está migrando contiver mais de 1.200 itens, os problemas abertos serão priorizados seguidos por solicitações de pull abertas e, em seguida, anotações. O espaço restante será usado para problemas fechados, solicitações de pull mescladas e solicitações de pull fechadas. Os itens que não podem ser migrados devido a esse limite serão movidos para a camada de armazenamento de arquivos. Se o limite de arquivamento de 10.000 itens for atingido, os itens adicionais não serão migrados.
+- Se o projeto que você está migrando contiver mais de {% data variables.projects.item_limit %} itens, os problemas em aberto serão priorizados, seguidos pelas solicitações de pull abertas e, depois, pelas notas. O espaço restante será usado para problemas fechados, solicitações de pull mescladas e solicitações de pull fechadas. Os itens que não podem ser migrados devido a esse limite serão movidos para a camada de armazenamento de arquivos. Se o limite de arquivamento de {% data variables.projects.archived_item_limit %} itens for atingido, os itens adicionais não serão migrados.
 - Os cartões de observação são convertidos em problemas de rascunho e o conteúdo é salvo no corpo do problema do rascunho. Se informações parecerem ausentes, torne os campos ocultos visíveis. Para ver mais informações, confira "[Como mostrar e ocultar campos](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/customizing-a-view#showing-and-hiding-fields)".
 - A automação não será migrada.
 - A triagem, arquivação e a atividade não serão migrados.
@@ -42,8 +42,8 @@ Você pode migrar seus quadros de projetos para a nova experiência de {% data v
 ## Como migrar um painel de projetos de usuário
 
 {% data reusables.projects.enable-migration %} {% data reusables.profile.access_profile %}
-1. Na parte superior da página de perfil, no menu de navegação principal, clique em {% octicon "project" aria-label="The project board icon" %} **Projetos**.
-![Guia do Projeto](/assets/images/help/projects/user-projects-tab.png)
+1. Na parte superior da página de perfil, na navegação principal, clique em {% octicon "table" aria-label="The project board icon" %} **Projetos**.
+  ![Captura de tela mostrando a guia 'Projetos'](/assets/images/help/projects-v2/tab-projects.png)
 1. Acima da lista de projetos, clique em **Projetos (clássico)** .
   ![Captura de tela mostrando a opção de menu Projetos (clássico) }](/assets/images/help/issues/projects-classic-user.png){% data reusables.projects.migrate-project-steps %}
 
@@ -56,7 +56,7 @@ Você pode migrar seus quadros de projetos para a nova experiência de {% data v
 {% endnote %}
 
 {% data reusables.projects.enable-migration %} {% data reusables.repositories.navigate-to-repo %}
-1. Abaixo do nome do repositório, clique em {% octicon "project" aria-label="The project board icon" %} **Projetos**.
-![Guia do Projeto](/assets/images/help/projects/repo-tabs-projects.png)
+1. Abaixo do nome do repositório, clique em {% octicon "table" aria-label="The project board icon" %} **Projetos**.
+![Guia do Projeto](/assets/images/help/projects-v2/repo-tabs-projects.png)
 1. Clique **em Projetos (clássico)** .
   ![Captura de tela mostrando a opção de menu Projetos (clássico) }](/assets/images/help/issues/projects-classic-org.png){% data reusables.projects.migrate-project-steps %}

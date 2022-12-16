@@ -1,6 +1,6 @@
 ---
-title: Configuring commit squashing for pull requests
-intro: 'You can enforce, allow, or disable commit squashing for all pull request merges on {% data variables.location.product_location %} in your repository.'
+title: プルリクエストにコミットの squash を設定する
+intro: 'リポジトリで、{% data variables.product.product_location %} でのすべてのプルリクエストマージについて、コミットの squash を強制、許可、または無効にできます。'
 redirect_from:
   - /articles/configuring-commit-squashing-for-pull-requests
   - /github/administering-a-repository/configuring-commit-squashing-for-pull-requests
@@ -13,26 +13,25 @@ versions:
 topics:
   - Repositories
 shortTitle: Configure commit squashing
+ms.openlocfilehash: 8d53a558163b6a847fa4fb509399b1e7b7c6c05c
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147580712'
 ---
 {% data reusables.pull_requests.configure_pull_request_merges_intro %}
 
 {% data reusables.pull_requests.default-commit-message-squash-merge %}
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-1. Under {% ifversion fpt or ghec or ghes > 3.5 or ghae > 3.4 %}"Pull Requests"{% else %}"Merge button"{% endif %}, select **Allow squash merging**. This allows contributors to merge a pull request by squashing all commits into a single commit. The default commit message presented to contributors when merging is the commit title and message if the pull request contains only 1 commit, or the pull request title and list of commits if the pull request contains 2 or more commits. {% ifversion ghes = 3.6 %} To always use the title of the pull request regardless of the number of commits in the pull request select **Default to PR title for squash merge commits**.{% endif %}{% ifversion default-merge-squash-commit-message %} 
- ![Pull request squashed commits](/assets/images/help/repository/allow-squash-merging.png){% endif %}{% ifversion ghes = 3.6 %}
- ![Screenshot of Pull Request settings with allow merge commits checkbox emphasized](/assets/images/help/repository/allow-squash-merging-no-dropdown.png){% endif %}
-{% ifversion ghes < 3.6  %}
- ![Pull request squashed commits](/assets/images/enterprise/3.5/repository/pr-merge-squash.png){% endif %}
-{% ifversion default-merge-squash-commit-message %}
-1. Optionally, under **Allow squash merging**, use the dropdown to choose the format of the default squash commit message presented to contributors when merging. The default message uses the commit title and message if the pull request contains only 1 commit, or the pull request title and list of commits if the pull request contains 2 or more commits. You can also choose to use just the pull request title, the pull request title and commit details, or the pull request title and description.
-![Screenshot of emphasized default squash message dropdown](/assets/images/help/repository/default-squash-message-dropdown.png)
-{% endif %}
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %}
+1. {% ifversion fpt or ghec or ghes > 3.5 or ghae-issue-6069 %}[pull request]{% else %}[Merge button]\(マージ ボタン\){% endif %} の下にある **[Allow squash merging]\(スカッシュ マージを許可する\)** を選びます。 これにより、コントリビューターが全てのコミットを 1 つのコミットに squash してプルリクエストをマージできるようになります。 マージ時に共同作成者に表示される既定のコミット メッセージは、pull request に含まれるコミットが 1 つのみの場合はコミットのタイトルとメッセージ、pull request に含まれるコミットが 2 つ以上の場合は pull request のタイトルとコミットの一覧です。 {% ifversion ghes = 3.6 %}pull request 内のコミット数に関係なく常に pull request のタイトルを使うには、 **[Default to PR title for squash merge commits]\(スカッシュ マージ コミットの既定値を PR のタイトルにする\)** を選びます。{% endif %}{% ifversion default-merge-squash-commit-message %}![pull request のスカッシュされたコミット](/assets/images/help/repository/allow-squash-merging.png){% endif %}{% ifversion ghes = 3.6 %}![マージ コミットを許可するチェックボックスが強調された [pull request] 設定のスクリーンショット](/assets/images/help/repository/allow-squash-merging-no-dropdown.png){% endif %} {% ifversion ghes < 3.6  %}![pull request のスカッシュされたコミット](/assets/images/enterprise/3.5/repository/pr-merge-squash.png){% endif %} {% ifversion default-merge-squash-commit-message %}
+1. 必要に応じて、 **[Allow squash merging]\(スカッシュ マージを許可する\)** の下にあるドロップダウンを使って、マージ時に共同作成者に表示する既定のスカッシュ コミット メッセージの形式を選びます。 既定のメッセージには、pull request に含まれるコミットが 1 つのみの場合はコミットのタイトルとメッセージ、pull request に含まれるコミットが 2 つ以上の場合は pull request のタイトルとコミットの一覧が使われます。 また、pull request のタイトルのみ、pull request のタイトルとコミットの詳細、pull request のタイトルと説明を使うこともできます。
+![強調表示された既定のスカッシュ メッセージ ドロップダウンのスクリーンショット](/assets/images/help/repository/default-squash-message-dropdown.png) {% endif %}
 
-If you select more than one merge method, collaborators can choose which type of merge commit to use when they merge a pull request. {% data reusables.repositories.squash-and-rebase-linear-commit-history %}
+複数のマージ方法を選んだ場合、コラボレーターは pull request をマージするときに使用するマージコミットの種類を選べます。 {% data reusables.repositories.squash-and-rebase-linear-commit-history %}
 
-## Further reading
+## 参考資料
 
-- "[About pull request merges](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges)"
-- "[Merging a pull request](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request)"
+- "[pull request のマージについて](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges)"
+- 「[pull request のマージ](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request)」

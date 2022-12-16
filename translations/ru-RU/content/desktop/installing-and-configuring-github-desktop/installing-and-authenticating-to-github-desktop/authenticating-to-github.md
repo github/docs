@@ -1,126 +1,120 @@
 ---
-title: Authenticating to GitHub
+title: Проверка подлинности в GitHub
 shortTitle: Authentication
-intro: 'You can securely access your account''s resources on {% data variables.product.prodname_desktop %} by authenticating to {% data variables.product.prodname_dotcom %}.'
+intro: 'Вы можете безопасно осуществлять доступ к ресурсам учетной записи в {% data variables.product.prodname_desktop %} путем проверки подлинности в {% data variables.product.prodname_dotcom %}.'
 redirect_from:
   - /desktop/getting-started-with-github-desktop/authenticating-to-github-using-the-browser
   - /desktop/getting-started-with-github-desktop/authenticating-to-github
   - /desktop/installing-and-configuring-github-desktop/authenticating-to-github
 versions:
   fpt: '*'
+ms.openlocfilehash: 96a0277b6a921e103a73dd35e14495b51e9aaede
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148094460'
 ---
-## About authentication
+## Об аутентификации
 
-To keep your account secure, you must authenticate before you can use {% data variables.product.prodname_desktop %} to access resources on {% data variables.product.prodname_dotcom %}.
+Чтобы обеспечить безопасность учетной записи, необходимо пройти проверку подлинности, прежде чем использовать {% data variables.product.prodname_desktop %} для доступа к ресурсам в {% data variables.product.prodname_dotcom %}.
 
-Before you authenticate, {% data reusables.desktop.get-an-account %}
+Перед проверкой подлинности выполните {% data reusables.desktop.get-an-account %}
 
 {% mac %}
 
-## Authenticating an account on {% data variables.product.prodname_dotcom %}
+## Проверка подлинности учетной записи на {% data variables.product.prodname_dotcom %}
 
-{% data reusables.desktop.mac-select-desktop-menu %}
-{% data reusables.desktop.mac-select-accounts %}
-3. To the right of "{% data variables.product.prodname_dotcom_the_website %}," click **Sign In**.
-  ![The Sign In button for GitHub](/assets/images/help/desktop/mac-sign-in-github.png)
-{% data reusables.desktop.sign-in-browser %}
+{% data reusables.desktop.mac-select-desktop-menu %} {% data reusables.desktop.mac-select-accounts %}
+3. Нажмите кнопку **Войти** справа от элемента "Сервер {% data variables.product.prodname_dotcom_the_website %}".
+  ![Кнопка входа для GitHub](/assets/images/help/desktop/mac-sign-in-github.png) {% data reusables.desktop.sign-in-browser %}
 
 
-{% data reusables.desktop.authenticate-in-browser %}
-{% data reusables.desktop.2fa-in-browser %}
-7. After {% data variables.product.prodname_dotcom %} authenticates your account, follow the prompts to return to {% data variables.product.prodname_desktop %}.
+{% data reusables.desktop.authenticate-in-browser %} {% data reusables.desktop.2fa-in-browser %}
+7. Когда {% data variables.product.prodname_dotcom %} выполнит проверку подлинности для учетной записи, следуйте подсказкам для возвращения к {% data variables.product.prodname_desktop %}.
 
-## Authenticating an account on {% data variables.product.prodname_ghe_server %}
+## Проверка подлинности учетной записи на {% data variables.product.prodname_ghe_server %}
 
 
-{% data reusables.desktop.mac-select-desktop-menu %}
-{% data reusables.desktop.mac-select-accounts %}
-{% data reusables.desktop.choose-product-authenticate %}
-4. To add an account on {% data variables.location.product_location_enterprise %}, type the URL for your instance under "Enterprise address," then click **Continue**.
-  ![The Sign In button for GitHub Enterprise](/assets/images/help/desktop/mac-sign-in-button-enterprise.png)
-{% data reusables.desktop.sign-in-browser %}
-1. To authenticate to {% data variables.location.product_location_enterprise %} account, type your account credentials and click **Sign in**.
-  ![The Sign In button for {% data variables.product.prodname_ghe_server %} in browser](/assets/images/help/desktop/enterprise-sign-in-button-browser.png)
+{% data reusables.desktop.mac-select-desktop-menu %} {% data reusables.desktop.mac-select-accounts %} {% data reusables.desktop.choose-product-authenticate %}
+4. Чтобы добавить учетную запись для {% данных variables.location.product_location_enterprise %}, введите URL-адрес экземпляра в поле "Корпоративный адрес", а затем нажмите кнопку **"Продолжить**".
+  ![Кнопка входа для GitHub Enterprise](/assets/images/help/desktop/mac-sign-in-button-enterprise.png) {% data reusables.desktop.sign-in-browser %}
+1. Чтобы пройти проверку подлинности в учетной записи {% данных variables.location.product_location_enterprise %}, введите учетные данные учетной записи и нажмите кнопку **"Войти".**
+  ![Кнопка входа в {% data variables.product.prodname_ghe_server %} в браузере](/assets/images/help/desktop/enterprise-sign-in-button-browser.png)
 
-  Alternatively, if you were already signed in to {% data variables.location.product_location_enterprise %} account, follow the prompts to return to {% data variables.product.prodname_desktop %} to finish authenticating. 
+  Кроме того, если вы уже вошли в учетную запись {% данных variables.location.product_location_enterprise %}, следуйте инструкциям, чтобы вернуться к {% данных variables.product.prodname_desktop %} для завершения проверки подлинности. 
 
 {% endmac %}
 
 {% windows %}
 
-## Authenticating an account on {% data variables.product.prodname_dotcom %}
+## Проверка подлинности учетной записи на {% data variables.product.prodname_dotcom %}
 
-{% data reusables.desktop.windows-choose-options %}
-{% data reusables.desktop.windows-select-accounts %}
-3. To the right of "GitHub.com," click **Sign in**.
-  ![The Sign In button for GitHub](/assets/images/help/desktop/windows-sign-in-github.png)
-{% data reusables.desktop.sign-in-browser %}
+{% data reusables.desktop.windows-choose-options %} {% data reusables.desktop.windows-select-accounts %}
+3. Щелкните **Войти** справа от элемента "GitHub.com".
+  ![Кнопка входа для GitHub](/assets/images/help/desktop/windows-sign-in-github.png) {% data reusables.desktop.sign-in-browser %}
 
   {% data reusables.user-settings.password-authentication-deprecation-desktop %}
 
-{% data reusables.desktop.authenticate-in-browser %}
-{% data reusables.desktop.2fa-in-browser %}
-7. After {% data variables.product.prodname_dotcom %} authenticates your account, follow the prompts to return to {% data variables.product.prodname_desktop %}.
+{% data reusables.desktop.authenticate-in-browser %} {% data reusables.desktop.2fa-in-browser %}
+7. Когда {% data variables.product.prodname_dotcom %} выполнит проверку подлинности для учетной записи, следуйте подсказкам для возвращения к {% data variables.product.prodname_desktop %}.
 
-## Authenticating an account on {% data variables.product.prodname_enterprise %}
+## Проверка подлинности учетной записи на {% data variables.product.prodname_enterprise %}
 
 
-{% data reusables.desktop.windows-choose-options %}
-{% data reusables.desktop.windows-select-accounts %}
-{% data reusables.desktop.choose-product-authenticate %}
-4. To add a {% data variables.product.prodname_enterprise %} account, type your credentials under "Enterprise address," then click **Continue**.
-  ![The Sign In button for GitHub Enterprise](/assets/images/help/desktop/windows-sign-in-button-enterprise.png)
-{% data reusables.desktop.retrieve-2fa %}
+{% data reusables.desktop.windows-choose-options %} {% data reusables.desktop.windows-select-accounts %} {% data reusables.desktop.choose-product-authenticate %}
+4. Чтобы добавить учетную запись {% data variables.product.prodname_enterprise %}, введите ее учетные данные в поле "Адрес Enterprise", а затем щелкните **Продолжить**.
+  ![Кнопка входа для GitHub Enterprise](/assets/images/help/desktop/windows-sign-in-button-enterprise.png) {% data reusables.desktop.retrieve-2fa %}
 
 {% endwindows %}
 
-## Troubleshooting authentication issues
+## Диагностика проблем с проверкой подлинности
 
-If {% data variables.product.prodname_desktop %} encounters an authentication error, you can use error messages to troubleshoot.
+Если {% data variables.product.prodname_desktop %} столкнется с ошибкой проверки подлинности, для устранения неполадок можно использовать сообщения об ошибках.
 
-If you encounter an authentication error, first try signing out and signing back in to your account on {% data variables.product.prodname_desktop %}.
+При возникновении ошибки проверки подлинности сначала попробуйте выйти из учетной записи и снова войти в нее в {% data variables.product.prodname_desktop %}.
 
-For some errors, {% data variables.product.prodname_desktop %} will prompt you with an error message. If you are not prompted, or to find more information about any error, view the {% data variables.product.prodname_desktop %} log files by using the following steps.
+Для некоторых ошибок {% data variables.product.prodname_desktop %} отображает сообщение об ошибке. Если такого сообщения нет или вам нужны дополнительные сведения об ошибке, проверьте файлы журнала {% data variables.product.prodname_desktop %}, выполнив следующие действия.
 
 {% mac %}
 
-1. Use the **Help** drop-down menu and click **Show Logs in Finder**.
-  ![The Show Logs in Finder button](/assets/images/help/desktop/mac-show-logs.png)
-2. Select the log file from the date when you encountered the authentication error.
+1. Откройте раскрывающееся меню **Справка** и щелкните **Показать журналы в средстве поиска**.
+  ![Кнопка "Показать журналы в средстве поиска"](/assets/images/help/desktop/mac-show-logs.png)
+2. Выберите файл журнала за тот день, когда возникала ошибка проверки подлинности.
 
 {% endmac %}
 
 {% windows %}
 
-1. Use the **Help** drop-down menu and click **Show Logs in Explorer**.
-  ![The Show Logs in Explorer button](/assets/images/help/desktop/windows-show-logs.png)
-2. Select the log file from the date when you encountered the authentication error.
+1. В раскрывающемся меню **Справка** щелкните **Показать журналы в обозревателе**.
+  ![Кнопка "Показать журналы в обозревателе"](/assets/images/help/desktop/windows-show-logs.png)
+2. Выберите файл журнала за тот день, когда возникала ошибка проверки подлинности.
 
 {% endwindows %}
 
-Review the troubleshooting information below for the error message that you encounter.
+Просмотрите описанные ниже сведения об устранении неполадок в том сообщении об ошибке, которое вы найдете.
 
-### Bad credentials
+### Недопустимые учетные данные
 
 ```shell
 Error: Bad credentials
 ```
 
-This error means that there is an issue with your stored account credentials.
+Эта ошибка означает, что возникла проблема с сохраненными учетными данными для учетной записи.
 
-To troubleshoot, sign out of your account on {% data variables.product.prodname_desktop %} and then sign back in.
+Чтобы устранить неполадки, выйдите из учетной записи в {% data variables.product.prodname_desktop %}, а затем снова войдите в нее.
 
-### Empty token
+### Пустой маркер
 
 ```shell
 info: [ui] [AppStore.withAuthenticatingUser] account found for repository: node - USERNAME (empty token)
 ```
 
-This error means that {% data variables.product.prodname_desktop %} is unable to find the access token that it created in the system keychain.
+Эта ошибка означает, что {% data variables.product.prodname_desktop %} не может найти маркер доступа, созданный в системной цепочке ключей.
 
-To troubleshoot, sign out of your account on {% data variables.product.prodname_desktop %} and then sign back in.
+Чтобы устранить неполадки, выйдите из учетной записи в {% data variables.product.prodname_desktop %}, а затем снова войдите в нее.
 
-### Repository not found
+### Репозиторий не найден
 
 ```shell
 fatal: repository 'https://github.com/<user>/<repo>.git' not found
@@ -128,11 +122,11 @@ fatal: repository 'https://github.com/<user>/<repo>.git' not found
 (The error was parsed as 8: The repository does not seem to exist anymore. You may not have access, or it may have been deleted or renamed.)
 ```
 
-This error means that you do not have permission to access the repository that you are trying to clone.
+Эта ошибка означает, что у вас нет разрешений на доступ к репозиторию, который вы пытаетесь клонировать.
 
-To troubleshoot, contact the person in your organization who administers permissions.
+Чтобы устранить неполадки, обратитесь к сотруднику организации, который управляет разрешениями.
 
-### Could not read from remote repository
+### Не удалось выполнить чтение из удаленного репозитория
 
 ```shell
 git@github.com: Permission denied (publickey).
@@ -141,11 +135,11 @@ fatal: Could not read from remote repository.
 Please make sure you have the correct access rights and the repository exists.
 ```
 
-This error means that you do not have a valid SSH key set up.
+Эта ошибка означает, что у вас не настроен допустимый ключ SSH.
 
-To troubleshoot, see "[Generating a new SSH key and adding it to the SSH agent](/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)."
+Сведения об устранении неполадок см. в статье [Создание нового ключа SSH и его добавление в агент SSH](/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent).
 
-### Failed to clone
+### Не удалось клонировать
 
 ```shell
 fatal: clone of 'git@github.com:<user>/<repo>' into submodule path '<path>' failed
@@ -157,34 +151,34 @@ Please make sure you have the correct access rights
 and the repository exists.
 ```
 
-This error means that either the repository that you are trying to clone has submodules that you do not have access to or you do not have a valid SSH key set up.
+Эта ошибка означает, что репозиторий, который вы пытаетесь клонировать, имеет вложенные модули, к которым у вас нет доступа, или у вас не настроен допустимый ключ SSH.
 
-If you do not have access to the submodules, troubleshoot by contacting the person who administers permissions for the repository.
+Если у вас нет доступа к вложенным модулям, для устранения неполадок свяжитесь с ответственным за управления разрешениями для репозитория.
 
-If you do not have a valid SSH key set up, see "[Generating a new SSH key and adding it to the SSH agent](/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)."
+Если у вас не настроен допустимый ключ SSH, воспользуйтесь статьей [Создание нового ключа SSH и его добавление в агент SSH](/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent).
 
 {% windows %}
 
-### Unable to read AskPass response
+### Не удается прочитать ответ AskPass
 
 ```shell
 error: unable to read askpass response from '/Users/<path>/GitHub Desktop.app/Contents/Resources/app/static/ask-pass-trampoline.sh'
 fatal: could not read Username for 'https://github.com': terminal prompts disabled
 ```
 
-This error can be caused by multiple events.
+Эта ошибка может быть вызвана несколькими событиями.
 
-If the `Command Processor` registry entries are modified, {% data variables.product.prodname_desktop %} will respond with an `Authentication failed` error. To check if these registry entries have been modified, follow these steps.
+Если записи реестра `Command Processor` были изменены, {% data variables.product.prodname_desktop %} возвратит ошибку `Authentication failed`. Чтобы проверить, были ли изменены эти записи реестра, выполните следующие действия.
 
-1. Open the Registry Editor (`regedit.exe`) and navigate to the following locations.
+1. Откройте редактор реестра (`regedit.exe`) и поочередно перейдите к следующим разделам:
   `HKEY_CURRENT_USER\Software\Microsoft\Command Processor\`
   `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Command Processor\`
-2. Check to see if there is an `Autorun` value in either location.
-3. If there is an `Autorun` value, delete it.
+2. Проверьте наличие значения `Autorun` в любом из этих расположений.
+3. Если значение `Autorun` присутствует, удалите его.
 
-If your Windows username has extended Unicode characters, it may cause an AskPass response error. To troubleshoot, create a new Windows user account and migrate your files to that account. For more information, see "[Create a user account in Windows](https://support.microsoft.com/en-us/help/13951/windows-create-user-account)" in the Microsoft documentation.
+Если имя пользователя Windows содержит расширенные символы Юникода, это может привести к ошибке ответа AskPass. Чтобы устранить неполадки, создайте новую учетную запись пользователя Windows и перенесите в нее файлы. Дополнительные сведения см. в статье документации Майкрософт [Создание учетной записи пользователя в Windows](https://support.microsoft.com/en-us/help/13951/windows-create-user-account).
 
 {% endwindows %}
 
-## Further reading
-- "[About authentication to GitHub](/github/authenticating-to-github/about-authentication-to-github)"
+## Дополнительные материалы
+- [Сведения о проверке подлинности в GitHub](/github/authenticating-to-github/about-authentication-to-github)

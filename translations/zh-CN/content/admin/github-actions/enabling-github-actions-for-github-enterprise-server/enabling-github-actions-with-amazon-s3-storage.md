@@ -13,13 +13,15 @@ topics:
 redirect_from:
   - /admin/github-actions/enabling-github-actions-with-amazon-s3-storage
 shortTitle: Amazon S3 storage
-ms.openlocfilehash: 23fd8eabe502a6a29610de451cae72542ceca53f
-ms.sourcegitcommit: 8f7c8d52755cc3af0f366cc74c6db9e9be4d2ecd
+ms.openlocfilehash: dd0f4c7135def456212de3355d6f6af17076c40c
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2022
-ms.locfileid: '148132646'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148192983'
 ---
+{% data reusables.actions.enterprise-storage-about %}
+
 ## 先决条件
 
 {% note %}

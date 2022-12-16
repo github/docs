@@ -1,0 +1,36 @@
+- title: Node.js 샘플 프로젝트
+  description: 사용자 지정 개발 컨테이너를 사용하여 Node.js 프로젝트 사용해 보기
+  languages: Javascript
+  href: microsoft/vscode-remote-try-node
+  tags:
+    - 개발 컨테이너
+- title: Python 샘플 프로젝트
+  description: 사용자 지정 개발 컨테이너를 사용하여 Python 프로젝트 사용해 보기
+  languages: Python
+  href: microsoft/vscode-remote-try-python
+  tags:
+    - 개발 컨테이너
+- title: Java 샘플 프로젝트
+  description: 사용자 지정 개발 컨테이너를 사용하여 Java 프로젝트 사용해 보기
+  languages: Java
+  href: microsoft/vscode-remote-try-java
+  tags:
+    - 개발 컨테이너
+- title: Go 샘플 프로젝트
+  description: 사용자 지정 개발 컨테이너를 사용하여 Go 프로젝트 사용해 보기
+  languages: Go
+  href: microsoft/vscode-remote-try-go
+  tags:
+    - 개발 컨테이너
+- title: Rust 샘플 프로젝트
+  description: 사용자 지정 개발 컨테이너를 사용하여 Rust 프로젝트 사용해 보기
+  languages: Rust
+  href: microsoft/vscode-remote-try-rust
+  tags:
+    - 개발 컨테이너
+- title: PHP 샘플 프로젝트
+  description: 사용자 지정 개발 컨테이너를 사용하여 PHP 프로젝트 사용해 보기
+  languages: PHP
+  href: microsoft/vscode-remote-try-php
+  tags:
+    - 개발 컨테이너

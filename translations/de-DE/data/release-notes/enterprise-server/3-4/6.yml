@@ -1,0 +1,34 @@
+date: '21.07.2022'
+sections:
+  security_fixes:
+    - "**MITTEL**: Verhindert einen Angriff, bei dem eine serverseitige Anforderungsfälschung (Server-Side Request Forgery, SSRF) die Subversion-Brücke (SVN) potenziell zwingen könnte, Remotecode auszuführen, indem beliebige Daten in Memcached eingeschleust werden." 
+    - "**MITTEL**: Verhindert, dass ein Angreifer Javascript-Code ausführt, indem er ein Sicherheitsrisiko in Cross-Site Scripting (XSS) in Dropdown-Benutzeroberflächenelementen innerhalb der Webschnittstelle von GitHub Enterprise Server ausnutzt." 
+    - "Aktualisiert Grafana auf Version 7.5.16, die verschiedene Sicherheitsrisiken behebt, darunter [CVE-2020-13379](https://github.com/advisories/GHSA-wc9w-wvq2-ffm9) und [CVE-2022-21702](https://github.com/grafana/grafana/security/advisories/GHSA-xc3p-28hw-q24g)." 
+    - Die Pakete wurden auf die neuesten Sicherheitsversionen aktualisiert.
+    - "**MITTEL**: Ein gespeichertes XSS-Sicherheitsrisiko wurde in GitHub Enterprise Server identifiziert, das die Einschleusung beliebiger Attribute ermöglichte. Diese Einschleusung wurde durch die Inhaltssicherheitsrichtlinie (Content Security Policy, CSP) von Github blockiert. Dieses Sicherheitsrisiko wurde über das GitHub Bug Bounty Program gemeldet, und ihm wurde [CVE-2022-23733](https://www.cve.org/CVERecord?id=CVE-2022-23733) zugeordnet. [Aktualisiert: 31.07.2022]"
+  bugs:
+    - In einigen Fällen konnte der Collectd-Daemon zu viel Arbeitsspeicher verbrauchen. 
+    - In einigen Fällen konnten sich Backups von rotierten Protokolldateien ansammeln und übermäßigen Speicherplatz verbrauchen. 
+    - Nach einem Upgrade auf ein neues Featurerelease und einer anschließenden Konfigurationsausführung konnte Elasticsearch beim Neuerstellen von Indizes übermäßige Ausnahmen protokollieren. 
+    - "In einigen Fällen, in denen ein geschützter Branch mehr als eine zustimmende Überprüfung erforderte, konnte ein Pull Request mit weniger als der erforderlichen Anzahl von zustimmenden Überprüfungen gemergt werden." 
+    - "Auf Instanzen, die LDAP-Authentifizierung verwenden, platzierte die Authentifizierungsaufforderung für den Sudo-Modus den Cursor standardmäßig fälschlicherweise im Kennwortfeld, wenn sowohl Textfelder für einen Benutzernamen als auch ein Kennwort sichtbar waren." 
+    - In einigen Fällen konnten geplante GitHub Actions-Workflows deaktiviert werden.
+    - "Der Endpunkt [Aktive GitHub Advanced Security-Committer für eine Organisation abrufen](/rest/billing#get-github-advanced-security-active-committers-for-an-organization) der Abrechnungs-API gibt jetzt `Link`-Header zurück, um Informationen zur Paginierung bereitzustellen." 
+    - "Der Endpunkt [Aktive GitHub Advanced Security-Committer für eine Organisation abrufen](/rest/billing#get-github-advanced-security-active-committers-for-an-organization) der Abrechnungs-API gibt jetzt die korrekte Anzahl der gesamten Committer zurück." 
+  changes:
+    - "Das Befehlszeilenhilfsprogramm `ghe-set-password` startet die erforderlichen Dienste automatisch, wenn die Instanz im Wiederherstellungsmodus gebootet wird." 
+    - Metriken für `aqueduct`-Hintergrundprozesse werden für die Collectd-Weiterleitung gesammelt und in der Verwaltungskonsole angezeigt. 
+    - "Der Speicherort des Datenbankmigrations- und Konfigurationsausführungsprotokolls, `/data/user/common/ghe-config.log`, wird jetzt auf der Seite angezeigt, die eine laufende Migration beschreibt." 
+  known_issues:
+    - "Bei einer neu eingerichteten {% data variables.product.prodname_ghe_server %}-Instanz ohne Benutzer könnte ein Angreifer den ersten Administratorbenutzer erstellen."
+    - Benutzerdefinierte Firewallregeln werden während des Upgrades entfernt.
+    - "Nachverfolgte Git-LFS-Dateien, [die über die Webbenutzeroberfläche hochgeladen wurden](https://github.com/blog/2105-upload-files-to-your-repositories), werden dem Repository fälschlicherweise direkt hinzugefügt."
+    - "Issues können nicht geschlossen werden, wenn sie einen Permalink zu einem Blob im selben Repository enthalten und der Dateipfad des Blobs mehr als 255 Zeichen lang ist."
+    - "Wenn die Option zum Durchsuchen von GitHub.com mit {% data variables.product.prodname_github_connect %} aktiviert wird, sind Issues in privaten und internen Repositorys nicht in den {% data variables.product.prodname_dotcom_the_website %}-Suchergebnissen enthalten."
+    - "Die {% data variables.product.prodname_registry %}-npm-Registrierung gibt in Metadatenantworten keinen Zeitwert mehr zurück. So sind erhebliche Leistungssteigerungen möglich. Die erforderlichen Daten zum Zurückgeben eines Zeitwerts in einer Metadatenantwort sind weiterhin verfügbar, und dieser Wert wird in Zukunft wieder zurückgegeben, sobald die vorhandenen Leistungsprobleme behoben wurden."
+    - "Ressourcenbegrenzungen, die nur beim Verarbeiten von Pre-Receive-Hooks auftreten, können bei manchen Pre-Receive-Hooks Fehler auslösen."
+    - |Nach der Registrierung eines selbstgehosteten Runners mit dem Parameter `--ephemeral` auf mehreren Ebenen (z. B. auf Unternehmens- und Organisationsebene) befindet sich der Runner möglicherweise im Leerlauf und muss erneut registriert werden. [Aktualisiert: 17.06.2022]
+
+|
+    - "Nach dem Upgrade auf {% data variables.product.prodname_ghe_server %} 3.4 kann es vorkommen, dass Releases in den Repositorys fehlen. Dieses Problem kann auftreten, wenn die erforderlichen Elasticsearch-Indexmigrationen nicht erfolgreich abgeschlossen wurden."
+    - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'

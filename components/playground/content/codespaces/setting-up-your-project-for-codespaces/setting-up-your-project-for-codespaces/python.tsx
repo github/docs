@@ -215,6 +215,8 @@ const article: PlaygroundArticleT = {
           
              Rebuilding inside your codespace ensures your changes work as expected before you commit the changes to the repository. If something does result in a failure, you’ll be placed in a codespace with a recovery container that you can rebuild from to keep adjusting your container.
 
+             You may occasionally want to perform a full rebuild to clear your cache and rebuild your container with fresh images. For more information, see "[Performing a full rebuild of a container](/codespaces/codespaces-reference/performing-a-full-rebuild-of-a-container)."
+
         5. Check your changes were successfully applied by verifying the Code Spell Checker and Flask Snippet extensions were installed.
 
            ![Extensions list](/assets/images/help/codespaces/python-extensions.png)

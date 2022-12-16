@@ -1,6 +1,6 @@
 ---
-title: Switching your SAML configuration from an organization to an enterprise account
-intro: Learn special considerations and best practices for replacing an organization-level SAML configuration with an enterprise-level SAML configuration.
+title: 組織からエンタープライズ アカウントへの SAML 構成の切り替え
+intro: Organization レベルの SAML 構成を Enterprise レベルの SAML 構成に置き換える場合の特別な考慮事項とベスト プラクティスについて学びます。
 permissions: Enterprise owners can configure SAML single sign-on for an enterprise account.
 versions:
   ghec: '*'
@@ -14,32 +14,37 @@ redirect_from:
   - /github/setting-up-and-managing-your-enterprise/configuring-identity-and-access-management-for-your-enterprise-account/switching-your-saml-configuration-from-an-organization-to-an-enterprise-account
   - /admin/authentication/managing-identity-and-access-for-your-enterprise/switching-your-saml-configuration-from-an-organization-to-an-enterprise-account
   - /admin/identity-and-access-management/managing-iam-for-your-enterprise/switching-your-saml-configuration-from-an-organization-to-an-enterprise-account
+ms.openlocfilehash: 0fa75185767984db574fc12a9e84404d5da9e002
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145112614'
 ---
-
-## About SAML single sign-on for enterprise accounts
+## Enterprise アカウントの SAML シングルサインオンについて
 
 {% data reusables.saml.dotcom-saml-explanation %} {% data reusables.saml.about-saml-enterprise-accounts %}
 
 {% data reusables.saml.switching-from-org-to-enterprise %} 
 
-When you configure SAML SSO at the organization level, each organization must be configured with a unique SSO tenant in your IdP, which means that your members will be associated with a unique SAML identity record for each organization they have successfully authenticated with. If you configure SAML SSO for your enterprise account instead, each enterprise member will have one SAML identity that is used for all organizations owned by the enterprise account.
+組織レベルで SAML SSO を構成する場合は、IdP で一意の SSO テナントを使用して各組織を構成する必要があります。つまり、メンバーは、正常に認証が行われた組織ごとに、一意の SAML ID レコードに関連付けられます。 代わりにエンタープライズ アカウントに SAML SSO を構成した場合、各エンタープライズ メンバーは、エンタープライズ アカウントが所有するすべての組織に使用される 1 つの SAML ID を持ちます。
 
-After you configure SAML SSO for your enterprise account, the new configuration will override any existing SAML SSO configurations for organizations owned by the enterprise account.
+エンタープライズ アカウントの SAML SSO を構成すると、新しい構成によって、エンタープライズ アカウントが所有する組織の既存の SAML SSO 構成がオーバーライドされます。
 
-Enterprise members will not be notified when an enterprise owner enables SAML for the enterprise account. If SAML SSO was previously enforced at the organization level, members should not see a major difference when navigating directly to organization resources. The members will continue to be prompted to authenticate via SAML. If members navigate to organization resources via their IdP dashboard, they will need to click the new tile for the enterprise-level app, instead of the old tile for the organization-level app. The members will then be able to choose the organization to navigate to. 
+エンタープライズ所有者がエンタープライズ アカウントに対して SAML を有効にした場合、エンタープライズ メンバーには通知されません。 SAML SSO が組織レベルで以前に適用されていた場合、組織のリソースに直接移動するときにメンバーに大きな違いを見せないようにする必要があります。 メンバーは引き続き SAML 経由で認証するように求められます。 メンバーが IdP ダッシュボードを使用して組織のリソースに移動する場合は、組織レベルのアプリの古いタイルではなく、エンタープライズ レベルのアプリの新しいタイルをクリックする必要があります。 その後、メンバーは移動先の組織を選択できるようになります。 
 
-Any {% data variables.product.pat_generic %}s, SSH keys, {% data variables.product.prodname_oauth_apps %}, and {% data variables.product.prodname_github_apps %} that were previously authorized for the organization will continue to be authorized for the organization. However, members will need to authorize any PATs, SSH keys, {% data variables.product.prodname_oauth_apps %}, and {% data variables.product.prodname_github_apps %} that were never authorized for use with SAML SSO for the organization.
+組織に対して以前に承認された個人用アクセス トークン (PAT)、SSH キー、{% data variables.product.prodname_oauth_apps %}、および {% data variables.product.prodname_github_apps %} は、組織に対して引き続き承認されます。 ただし、メンバーは、組織の SAML SSO で使用する権限が与えられていないすべての PAT、SSH キー、{% data variables.product.prodname_oauth_apps %}、{% data variables.product.prodname_github_apps %} を承認する必要があります。
 
-SCIM provisioning is not currently supported when SAML SSO is configured for an enterprise account. If you are currently using SCIM for an organization owned by your enterprise account, you will lose this functionality when switching to an enterprise-level configuration.
+エンタープライズ アカウントに対して SAML SSO が構成されている場合、SCIM プロビジョニングは現在サポートされていません。 現在、エンタープライズ アカウントが所有する組織に SCIM を使用している場合、エンタープライズ レベルの構成に切り替えると、この機能が失われます。
 
-You are not required to remove any organization-level SAML configurations before configuring SAML SSO for your enterprise account, but you may want to consider doing so. If SAML is ever disabled for the enterprise account in the future, any remaining organization-level SAML configurations will take effect. Removing the organization-level configurations can prevent unexpected issues in the future.
+エンタープライズ アカウントに対して SAML SSO を構成する前に、組織レベルの SAML 構成を削除する必要はありませんが、これを検討することもできます。 今後、エンタープライズ アカウントに対して SAML が無効になった場合は、残りの組織レベルの SAML 構成が有効になります。 組織レベルの構成を削除すると、今後予期しない問題が発生するのを防ぐことができます。
 
-## Switching your SAML configuration from an organization to an enterprise account
+## 組織からエンタープライズ アカウントへの SAML 構成の切り替え
 
-1. Enforce SAML SSO for your enterprise account, making sure all organization members are assigned or given access to the IdP app being used for the enterprise account. For more information, see "[Configuring SAML single sign-on for your enterprise](/admin/authentication/managing-identity-and-access-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise)."
-1. Optionally, remove any existing SAML configuration for organizations owned by the enterprise account. To help you decide whether to remove the configurations, see "[About SAML single sign-on for enterprise accounts](#about-saml-single-sign-on-for-enterprise-accounts)."
-1. If you kept any organization-level SAML configurations in place, to prevent confusion, consider hiding the tile for the organization-level apps in your IdP.
-1. Advise your enterprise members about the change.
-   -  Members will no longer be able to access their organizations by clicking the SAML app for the organization in the IdP dashboard. They will need to use the new app configured for the enterprise account.
-   - Members will need to authorize any PATs or SSH keys that were not previously authorized for use with SAML SSO for their organization. For more information, see "[Authorizing a {% data variables.product.pat_generic %} for use with SAML single sign-on](/github/authenticating-to-github/authenticating-with-saml-single-sign-on/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on)" and "[Authorizing an SSH key for use with SAML single sign-on](/github/authenticating-to-github/authenticating-with-saml-single-sign-on/authorizing-an-ssh-key-for-use-with-saml-single-sign-on)."
-   - Members may need to reauthorize {% data variables.product.prodname_oauth_apps %} that were previously authorized for the organization. For more information, see "[About authentication with SAML single sign-on](/github/authenticating-to-github/authenticating-with-saml-single-sign-on/about-authentication-with-saml-single-sign-on#about-oauth-apps-github-apps-and-saml-sso)."
+1. エンタープライズ アカウントに SAML SSO を適用し、すべての組織メンバーがエンタープライズ アカウントで使用されている IdP アプリに割り当てられている、またはアクセス権が付与されていることを確認します。 詳細については、「[エンタープライズ向けの SAML シングル サインオンの構成](/admin/authentication/managing-identity-and-access-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise)」を参照してください。
+1. 必要に応じて、エンタープライズ アカウントが所有する組織の既存の SAML 構成をすべて削除します。 構成を削除するかどうかを判断するには、「[エンタープライズ アカウントの SAML シングル サインオンについて](#about-saml-single-sign-on-for-enterprise-accounts)」を参照してください。
+1. 混乱を防ぐために組織レベルの SAML 構成を保持している場合は、IdP で組織レベルのアプリのタイルを非表示にすることを検討してください。
+1. 変更についてエンタープライズ メンバーにアドバイスします。
+   -  IdP ダッシュボードで組織の SAML アプリをクリックすると、メンバーは組織にアクセスできなくなります。 エンタープライズ アカウント用に構成された新しいアプリを使用する必要があります。
+   - メンバーは、組織で SAML SSO での使用が以前に承認されていない、すべての PAT または SSH キーを承認する必要があります。 詳細については、「[SAML シングル サインオンで利用するために個人アクセス トークンを承認する](/github/authenticating-to-github/authenticating-with-saml-single-sign-on/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on)」および「[SAML シングル サインオンで利用するために SSH キーを承認する](/github/authenticating-to-github/authenticating-with-saml-single-sign-on/authorizing-an-ssh-key-for-use-with-saml-single-sign-on)」を参照してください。
+   - メンバーは、組織に対して以前に承認された {% data variables.product.prodname_oauth_apps %} を再承認する必要がある場合があります。 詳細については、「[SAML のシングル サインオンでの認証について](/github/authenticating-to-github/authenticating-with-saml-single-sign-on/about-authentication-with-saml-single-sign-on#about-oauth-apps-github-apps-and-saml-sso)」を参照してください。

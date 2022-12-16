@@ -21,30 +21,47 @@ export const SupportSection = () => {
 
   const showSurvey = !isDeprecated && !isSitePolicyDocs
   const showContribution = !isDeprecated && !isEarlyAccess && isEnglish
+  const showSupport = true
+  const totalCols = Number(showSurvey) + Number(showContribution) + Number(showSupport)
 
   return (
     <section className="container-xl mt-lg-8 mt-6 px-3 px-md-6 no-print mx-auto">
       <div className="container-xl mx-auto py-6 py-lg-6 clearfix border-top border-color-secondary">
         {showSurvey && (
-          <div className="col-12 col-lg-6 col-xl-3 mb-6 mb-xl-0 float-left pr-4">
+          <div
+            className={cx(
+              'float-left pr-4 mb-6 mb-xl-0 col-12',
+              totalCols > 1 && 'col-lg-6',
+              totalCols > 2 && 'col-xl-3'
+            )}
+          >
             <Survey />
           </div>
         )}
         {showContribution && (
           <div
             className={cx(
-              'col-12 col-lg-6 col-xl-4 mb-6 mb-xl-0 float-left pr-4',
-              showSurvey && 'offset-xl-1'
+              'float-left pr-4 mb-6 mb-xl-0 col-12',
+              totalCols > 1 && 'col-lg-6',
+              totalCols > 2 && 'col-xl-4',
+              totalCols > 2 && showSurvey && 'offset-xl-1'
             )}
           >
             <Contribution />
           </div>
         )}
-        <div
-          className={cx('col-12 col-lg-12 col-xl-3 float-left pr-4', showSurvey && 'offset-xl-1')}
-        >
-          <Support />
-        </div>
+        {showSupport && (
+          <div
+            className={cx(
+              'float-left pr-4 mb-6 mb-xl-0 col-12',
+              totalCols > 1 && 'col-lg-6',
+              totalCols > 2 && 'col-xl-3',
+              totalCols > 2 && (showSurvey || showContribution) && 'offset-xl-1'
+            )}
+          >
+            <Support />
+          </div>
+        )}
       </div>
     </section>
   )

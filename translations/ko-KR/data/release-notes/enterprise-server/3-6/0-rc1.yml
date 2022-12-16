@@ -1,0 +1,339 @@
+date: '2022-07-26'
+release_candidate: true
+deprecated: true
+intro: |
+  {% note %}
+  
+  **참고:** {% data variables.product.product_location %}이 릴리스 후보 빌드를 실행하는 경우 핫패치를 사용하여 업그레이드할 수 없습니다. 릴리스 후보는 테스트 환경에서만 실행하는 것이 좋습니다.
+  
+  {% endnote %}
+  
+  업그레이드 지침은 “[{% data variables.product.prodname_ghe_server %} 업그레이드](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server)”를 참조하세요.
+sections:
+  features:
+    - heading: 인프라
+      notes:
+        # https://github.com/github/releases/issues/2002
+        - |리포지토리 캐싱은 일반 공급됩니다. 리포지토리 캐싱은 분산 개발자의 Git 읽기 성능을 향상시켜 푸시 워크플로에 영향을 주지 않으면서 데이터 지역성 및 편리한 지역 복제를 제공합니다. 일반 공급 릴리스를 사용하는 경우 GitHub Enterprise Server는 Git 및 Git LFS 데이터를 모두 캐시합니다. 자세한 내용은 "[리포지토리 캐싱 정보](/admin/enterprise-management/caching-repositories/about-repository-caching)"를 참조하세요.
+
+|
+    - heading: 인스턴스 보안
+      notes:
+        # https://github.com/github/releases/issues/1569
+        - |GitHub는 GitHub Enterprise Server에 대한 모든 SSH 연결에 지원되는 알고리즘 및 해시 함수를 변경하고. 인증되지 않은 Git 프로토콜을 사용하지 않도록 설정하며, 필요에 따라 Ed25519 호스트 키의 보급을 허용했습니다. 자세한 내용은 [GitHub 블로그](https://github.blog/2022-06-28-improving-git-protocol-security-on-github-enterprise-server/) 및 다음 문서를 참조하세요.
+
+
+
+- "[인스턴스에 대한 SSH 연결 구성](/admin/configuration/configuring-your-enterprise/configuring-ssh-connections-to-your-instance)"
+
+- "[엔터프라이즈에서 리포지토리 관리 정책 적용](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#configuring-anonymous-git-read-access)"
+
+- "[인스턴스에 대한 호스트 키 구성](/admin/configuration/configuring-your-enterprise/configuring-host-keys-for-your-instance)"
+
+|
+        # https://github.com/github/releases/issues/2341
+        - |인스턴스로 들어오는 SMTP 연결에 대해 TLS 암호화를 요구할 수 있습니다. 자세한 내용은 "[알림에 대한 이메일 구성](/admin/configuration/configuring-your-enterprise/configuring-email-for-notifications)"을 참조하세요.
+
+|
+    - heading: 감사 로그
+      notes:
+        # https://github.com/github/releases/issues/1438
+        - |인스턴스에 대한 감사 로그 및 Git 이벤트를 Amazon S3, Azure Blob Storage, Azure Event Hubs, Google Cloud Storage 또는 Splunk로 스트림할 수 있습니다. 감사 로그 스트리밍은 공개 베타 버전 상태이며 변경될 수 있습니다. 자세한 내용은 "[엔터프라이즈에 대한 감사 로그 스트리밍](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise)"을 참조하세요.
+
+|
+    - heading: GitHub Connect
+      notes:
+        # https://github.com/github/releases/issues/2306
+        - |Server Statistics는 이제 일반 공급됩니다. Server Statistics는 GitHub Enterprise Server 인스턴스에서 집계 사용 현황 데이터를 수집하여 조직의 요구 사항을 더 효율적으로 예측하고, 팀이 작동하는 방식을 이해하며, GitHub Enterprise Server에서 가져오는 값을 표시하는 데 사용할 수 있습니다. 자세한 내용은 "[Server Statistics 정보](/admin/monitoring-activity-in-your-enterprise/analyzing-how-your-team-works-with-server-statistics/about-server-statistics)"를 참조하세요.
+
+|
+    - heading: 관리자 환경
+      notes:
+        # https://github.com/github/releases/issues/2351
+        - |엔터프라이즈 소유자는 엔터프라이즈 계정의 **조직** ​​페이지에서 인스턴스의 조직에 멤버 또는 소유자로 조인할 수 있습니다. 자세한 내용은 "[엔터프라이즈에서 소유한 조직의 역할 관리](/admin/user-management/managing-organizations-in-your-enterprise/managing-your-role-in-an-organization-owned-by-your-enterprise)"를 참조하세요.
+
+|
+        # https://github.com/github/releases/issues/2221
+        - |엔터프라이즈 소유자는 사용자가 구성된 전체 공지 사항 배너를 해제하도록 허용할 수 있습니다. 자세한 내용은 "[엔터프라이즈에 대한 사용자 메시지 사용자 지정](/admin/user-management/managing-users-in-your-enterprise/customizing-user-messages-for-your-enterprise#creating-a-global-announcement-banner)"을 참조하세요.
+
+|
+    - heading: GitHub Advanced Security
+      notes:
+        # https://github.com/github/releases/issues/2321
+        - |GitHub Advanced Security 라이선스가 있는 인스턴스의 사용자는 조직 소유자 또는 리포지토리 관리자가 코드 보안 또는 분석 기능을 사용하거나 사용하지 않도록 설정할 때 트리거되는 웹후크 이벤트를 받도록 선택할 수 있습니다. 자세한 내용은 다음 설명서를 참조하세요.
+
+
+
+- 웹후크 설명서의 "[웹후크 이벤트 및 페이로드](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#security_and_analysis)"
+
+- "[조직에 대한 보안 및 분석 설정 관리](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization)"
+
+- "[리포지토리에 대한 보안 및 분석 기능 관리](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository)"
+
+|
+        # https://github.com/github/releases/issues/2191
+        - |GitHub Advanced Security 라이선스가 있는 인스턴스의 사용자는 웹 UI에서 또는 REST API를 통해 코드 검사 경고를 해제할 때 필요에 따라 댓글을 추가할 수 있습니다. 해제 댓글은 이벤트 타임라인에 표시됩니다. 또한 사용자는 REST API를 통해 해제 댓글을 추가하거나 검색할 수 있습니다. 자세한 내용은 "[끌어오기 요청에서 코드 검사 경고 심사](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/triaging-code-scanning-alerts-in-pull-requests#dismissing-an-alert-on-your-pull-request)" 및 REST API 설명서의 "[코드 검사](/rest/code-scanning#update-a-code-scanning-alert)"를 참조하세요.
+
+|
+        # https://github.com/github/releases/issues/2228
+        - |GitHub Advanced Security 라이선스가 있는 인스턴스에서 비밀 검사는 웹 편집기에서 비밀이 누출되지 않도록 방지합니다. 자세한 내용은 "[비밀 검사를 사용하여 푸시 보호](/code-security/secret-scanning/protecting-pushes-with-secret-scanning#using-secret-scanning-as-a-push-protection-from-the-web-ui)"를 참조하세요.
+
+|
+        # https://github.com/github/releases/issues/2318
+        # https://github.com/github/releases/issues/2277
+        - |GitHub Advanced Security 라이선스가 있는 인스턴스의 엔터프라이즈 소유자 및 사용자는 엔터프라이즈 및 조직 감사 로그와 REST API를 통해 비밀 검사 경고 및 비밀 검사의 푸시 보호 우회를 확인할 수 있습니다. 자세한 내용은 다음 설명서를 참조하세요.
+
+
+
+- "[비밀 검사를 사용하여 푸시 보호](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)"
+
+- "[엔터프라이즈에 대한 감사 로그 이벤트](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#secret_scanning_push_protection-category-actions)"
+
+- "[조직에 대한 감사 로그 검토](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization#secret_scanning_push_protection-category-actions)"
+
+- REST API 설명서의 "[비밀 검사](/rest/secret-scanning#list-secret-scanning-alerts-for-an-enterprise)"
+
+|
+        # https://github.com/github/releases/issues/2230
+        # https://github.com/github/releases/issues/2317
+        - |GitHub Advanced Security 라이선스가 있는 인스턴스의 엔터프라이즈 소유자는 엔터프라이즈에 대한 사용자 지정 비밀 검사 패턴의 시험 실행을 수행할 수 있으며, 모든 사용자는 패턴을 편집할 때 시험 실행을 수행할 수 있습니다. 시험 실행을 사용하면 전체 인스턴스에 대한 패턴의 영향을 이해하고 경고를 게시하고 생성하기 전에 패턴을 정교하게 만들 수 있습니다. 자세한 내용은 "[비밀 검사에 대한 사용자 지정 패턴 정의](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)"를 참조하세요.
+
+|
+        # https://github.com/github/releases/issues/2236
+        - |GitHub Advanced Security 라이선스가 있는 인스턴스의 사용자는 비밀 검사 경고를 검색할 때 REST API에서 ''sort'' 및 ''direction'' 매개 변수를 사용하고 경고의 ''created'' 또는 ''updated'' 필드를 기준으로 정렬할 수 있습니다. 새 매개 변수는 전체 인스턴스 또는 개별 조직 또는 리포지토리에 사용할 수 있습니다. 자세한 내용은 다음 설명서를 참조하세요.
+
+
+
+- "[엔터프라이즈에 대한 비밀 검사 경고 나열](/rest/secret-scanning#list-secret-scanning-alerts-for-an-enterprise)"
+
+- "[조직에 대한 비밀 검사 경고 나열](/rest/secret-scanning#list-secret-scanning-alerts-for-an-organization)"
+
+- "[리포지토리에 대한 비밀 검사 경고 나열](/rest/secret-scanning#list-secret-scanning-alerts-for-a-repository)"
+
+- REST API 설명서의 "[비밀 검사](/rest/secret-scanning)"
+
+|
+        # https://github.com/github/releases/issues/2263
+        - |''github/codeql-go'' 리포지토리의 콘텐츠는 ''github/codeql'' 리포지토리로 이동하여 CodeQL에서 지원하는 다른 모든 프로그래밍 언어에 대한 비슷한 라이브러리와 함께 사용할 수 있습니다. GitHub의 CodeQL 코드 분석 도구를 사용하여 Go 프로그래밍 언어로 작성된 코드베이스를 분석하기 위한 오픈 소스 CodeQL 쿼리, 라이브러리 및 추출기는 이제 새 위치에서 찾을 수 있습니다. 기존 워크플로 마이그레이션에 대한 지침을 포함한 자세한 내용은 [github/codeql-go#741](https://github.com/github/codeql-go/issues/741)을 참조하세요.
+
+|
+    - heading: Dependabot
+      notes:
+        # https://github.com/github/releases/issues/2256
+        - |GitHub Advanced Security 라이선스가 있는 인스턴스의 엔터프라이즈 소유자는 애플리케이션 보안 위험에 대한 리포지토리 중심 보기와 모든 비밀 검사 및 Dependabot 경고에 대한 경고 중심 보기를 포함하여 전체 인스턴스에 대한 Dependabot 경고에 대한 개요를 볼 수 있습니다. 보기는 베타 상태이고 변경될 수 있으며, 코드 검사에 대한 경고 중심 보기는 GitHub Enterprise Server의 향후 릴리스에서 계획되어 있습니다. 자세한 내용은 "[보안 개요 보기](/code-security/security-overview/viewing-the-security-overview#viewing-the-security-overview-for-an-enterprise)"를 참조하세요.
+
+|
+        # https://github.com/github/releases/issues/2160
+        - |사용자는 여러 Dependabot 경고를 선택한 다음, 해당 경고를 해제하거나 다시 열거나 해제할 수 있습니다. 예를 들어 **종료된 경고** 탭에서 여러 개의 이전에 해제한 경고를 선택한 다음, 모두를 한 번에 다시 열 수 있습니다. 자세한 내용은 "[Dependabot 경고 정보](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-alerts-for-vulnerable-dependencies)"를 참조하세요.
+
+|
+        # https://github.com/github/releases/issues/2232
+        - |Dependabot은 TypeScript 프로젝트의 해당 패키지와 함께 ''@types'' 종속성을 업데이트합니다. 이 변경 이전에는 패키지와 해당 ''@types'' 패키지에 대한 별도의 끌어오기 요청이 사용자에게 표시되었습니다. 이 기능은 자동으로 _package.json_ 파일 내 프로젝트의 ''devDependencies''에 있는 ''@types'' 패키지가 포함된 리포지토리에 사용하도록 설정됩니다. 이 동작은 ''dependabot.yml'' 파일의 [''ignore''](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#ignore) 필드를 ''@types/*''로 설정하여 사용하지 않도록 설정할 수 있습니다. 자세한 내용은 "[Dependabot 버전 업데이트 정보](/code-security/dependabot/dependabot-version-updates/about-dependabot-version-updates)" 및 "[_dependabot.yml_ 파일에 대한 구성 옵션](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file)"을 참조하세요.
+
+|
+    - heading: 코드 보안
+      notes:
+        # https://github.com/github/releases/issues/2098
+        # https://github.com/github/releases/issues/2282
+        - |GitHub Actions는 종속성을 검사하여 사용자의 끌어오기 요청에 대한 종속성 검토를 적용할 수 있으며 연결된 보안 취약성에 대해 사용자에게 경고합니다. ''dependency-review-action'' 작업은 두 버전 간의 종속성을 구분하는 새 API 엔드포인트에서 지원됩니다. 자세한 내용은 "[종속성 검토 정보](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review#dependency-review-enforcement)"를 참조하세요.
+
+|
+        # https://github.com/github/releases/issues/2243
+        - |종속성 그래프는 Rust에 대한 _Cargo.toml_ 및 _Cargo.lock_ 파일을 검색합니다. 이러한 파일은 **인사이트** 탭의 **종속성 그래프** 섹션에 표시됩니다. 사용자는 Rust 종속성과 연결된 취약성에 대한 Dependabot 경고 및 업데이트를 받게 됩니다. 패키지를 리포지토리에 매핑하는 것을 포함한 패키지 메타데이터는 나중에 추가됩니다. 자세한 내용은 "[종속성 그래프 정보](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)"를 참조하세요.
+
+|
+        # https://github.com/github/releases/issues/1766
+        - |GitHub Connect가 인스턴스에 사용하도록 설정된 경우 사용자는 [GitHub Advisory Database](https://github.com/advisories)에서 보안 권고 개선에 기여할 수 있습니다. 기여하려면 권고의 세부 정보를 보는 동안 **이 취약성에 대한 개선 사항 제안**을 클릭합니다. 자세한 내용은 다음 문서를 참조하세요.
+
+
+
+- "[GitHub Connect 관리](/admin/configuration/configuring-github-connect/managing-github-connect)"
+
+- GitHub Enterprise Cloud 설명서의 "[GitHub Advisory Database에서 보안 취약성 찾아보기](/enterprise-cloud@latest/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/browsing-security-vulnerabilities-in-the-github-advisory-database)"
+
+- GitHub Enterprise Cloud 설명서의 "[리포지토리에 대한 GitHub 보안 권고 정보](enterprise-cloud@latest/code-security/repository-security-advisories/about-github-security-advisories-for-repositories)"
+
+- GitHub Enterprise Cloud 설명서의 "[GitHub Advisory Database에서 보안 권고 편집](/enterprise-cloud@latest/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/editing-security-advisories-in-the-github-advisory-database)"
+
+|
+    - heading: GitHub 작업
+      notes:
+        # https://github.com/github/releases/issues/2159
+        - |재사용 가능한 워크플로를 호출하는 워크플로 내에서 사용자는 ''secrets: inherit''를 사용하여 비밀을 재사용 가능한 워크플로에 전달할 수 있습니다. 자세한 내용은 "[워크플로 재사용](/actions/using-workflows/reusing-workflows#using-inputs-and-secrets-in-a-reusable-workflow)"을 참조하세요.
+
+|
+        # https://github.com/github/releases/issues/2102
+        - |GitHub Actions를 사용하는 경우 다른 사용자가 검토하지 않은 변경 내용을 보호된 분기에 병합하는 위험을 줄이기 위해 엔터프라이즈 소유자 및 리포지토리 관리자는 Actions에서 끌어오기 요청을 만들지 못하도록 방지할 수 있습니다. 이전에는 조직 소유자가 이 제한을 사용하도록 설정할 수 있었습니다. 자세한 내용은 다음 문서를 참조하세요.
+
+
+
+- "[엔터프라이즈에서 GitHub Actions에 대한 정책 적용](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#preventing-github-actions-from-creating-or-approving-pull-requests)"
+
+- "[조직에 대한 GitHub Actions 사용 안 함 또는 제한](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization#preventing-github-actions-from-creating-or-approving-pull-requests)"
+
+- "[리포지토리에 대한 GitHub Actions 설정 관리](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#preventing-github-actions-from-creating-or-approving-pull-requests)"
+
+|
+        # https://github.com/github/releases/issues/2155
+        - |사용자는 ''workflow_dispatch'' 및 ''workflow_call''로 트리거되는 단일 워크플로를 작성하고, ''inputs'' 컨텍스트를 사용하여 입력 값에 액세스할 수 있습니다. 이전에는 ''workflow_dispatch'' 입력이 이벤트 페이로드에 있었습니다. 이로 인해 재사용 가능하고 수동으로 트리거되는 하나의 워크플로를 작성하려는 워크플로 작성자의 어려움이 증가했습니다. ''workflow_dispatch''로 트리거되는 워크플로의 경우 호환성을 유지하기 위해 ''github.event.inputs'' 컨텍스트에서 입력을 계속 사용할 수 있습니다.  자세한 내용은 "[컨텍스트](/actions/learn-github-actions/contexts#inputs-context)"를 참조하세요.
+
+|
+        # https://github.com/github/releases/issues/2103
+        - |작업 결과를 요약하기 위해 사용자는 Markdown을 생성하고 콘텐츠를 작업 요약으로 게시할 수 있습니다. 예를 들어 GitHub Actions를 사용하여 테스트가 실행되면 요약에서 통과하거나 실패하거나 건너뛴 테스트에 대한 개요를 제공하여 잠재적으로 전체 로그 출력을 검토해야 하는 요구 사항을 줄일 수 있습니다. 자세한 내용은 "[GitHub Actions에 대한 워크플로 명령](/actions/using-workflows/workflow-commands-for-github-actions#adding-a-job-summary)"을 참조하세요.
+
+|
+        # https://github.com/github/releases/issues/2161
+        - |워크플로를 다시 실행하는 동안 작업 실행 실패를 더 쉽게 ​​진단하기 위해 사용자는 작업의 실행 및 환경에 대한 정보를 출력하는 디버그 로깅을 사용하도록 설정할 수 있습니다. 자세한 내용은 "[워크플로 및 작업 다시 실행](/actions/managing-workflow-runs/re-running-workflows-and-jobs)" 및 "[워크플로 실행 로그 사용](/actions/monitoring-and-troubleshooting-workflows/using-workflow-run-logs#viewing-logs-to-diagnose-failures)"을 참조하세요.
+
+|
+        # https://github.com/github/releases/issues/2140
+        - |GitHub Actions에 대한 자체 호스팅 실행기를 관리하는 경우 실행할 스크립트를 정의하여 워크플로 실행 전후에 실행기 자체에 대한 일관된 상태를 보장할 수 있습니다. 스크립트를 사용하면 사용자가 더 이상 이러한 단계를 워크플로에 수동으로 통합하도록 요구할 필요가 없습니다. 작업 전 및 후 스크립트는 베타 상태이며 변경될 수 있습니다. 자세한 내용은 "[작업 전후에 스크립트 실행](/actions/hosting-your-own-runners/running-scripts-before-or-after-a-job)"을 참조하세요.
+
+|
+    - heading: GitHub 패키지
+      notes:
+        # https://github.com/github/releases/issues/2334
+        - |엔터프라이즈 소유자는 컨테이너 이미지를 GitHub Docker 레지스트리에서 GitHub 컨테이너 레지스트리로 마이그레이션할 수 있습니다. 컨테이너 레지스트리에서 제공하는 이점은 다음과 같습니다.
+
+
+
+- 조직 내 컨테이너 공유 향상
+
+- 세분화된 액세스 권한 적용 허용
+
+- 퍼블릭 컨테이너 이미지의 익명 공유 허용
+
+- Docker 이미지 호스팅에 대한 OCI 표준 구현
+
+
+
+컨테이너 레지스트리는 베타 상태이며 변경될 수 있습니다. 자세한 내용은 "[엔터프라이즈를 Docker 레지스트리에서 컨테이너 레지스트리로 마이그레이션](/admin/packages/migrating-your-enterprise-to-the-container-registry-from-the-docker-registry)"을 참조하세요.
+
+|
+    - heading: 커뮤니티 환경
+      notes:
+        # https://github.com/github/releases/issues/2113
+        - |GitHub Discussions는 GitHub Enterprise Server에서 사용할 수 있습니다. GitHub Discussions는 질문을 하고, 아이디어를 공유하고, 연결을 구축할 수 있는 중앙 모임 공간을 제공합니다. 자세한 내용은 "[GitHub Discussions](/discussion)"를 참조하세요.
+
+|
+        # https://github.com/github/releases/issues/2259
+        - |엔터프라이즈 소유자는 사용자의 사용자 이름 또는 전체 이름을 내부 리포지토리 또는 퍼블릭 리포지토리에 표시하는지 여부를 제어하는 ​​정책을 구성할 수 있습니다. 자세한 내용은 "[엔터프라이즈에서 리포지토리 관리 정책 적용](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-the-display-of-member-names-in-your-repositories)"을 참조하세요.
+
+|
+    - heading: 조직
+      notes:
+        # https://github.com/github/releases/issues/2019
+        - |사용자는 조직에 대한 멤버 전용 README를 만들 수 있습니다. 자세한 내용은 "[조직 프로필 사용자 지정](/organizations/collaborating-with-groups-in-organizations/customizing-your-organizations-profile)"을 참조하세요.
+
+|
+        # https://github.com/github/releases/issues/2234
+        - |조직 소유자는 새 **리포지토리 고정** 드롭다운을 통해 리포지토리에서 직접 리포지토리를 조직의 프로필에 고정할 수 있습니다. 고정된 퍼블릭 리포지토리는 인스턴스의 모든 사용자에게 표시되지만, 퍼블릭, 프라이빗 및 내부 리포지토리는 조직 멤버에게만 표시될 수 있습니다.
+
+|
+    - heading: 리포지토리
+      notes:
+        # https://github.com/github/releases/issues/2214
+        - |포크를 만드는 동안 사용자는 포크의 이름을 사용자 지정할 수 있습니다. 자세한 내용은 "[리포지토리 포크](/get-started/quickstart/fork-a-repo)"를 참조하세요.
+
+|
+        # https://github.com/github/releases/issues/1973
+        - |사용자는 **일치하는 분기를 만드는 푸시 제한** 분기 보호 규칙을 사용하여 구성된 이름 패턴과 일치하는 분기를 만들지 못하도록 차단할 수 있습니다. 예를 들어 리포지토리의 기본 분기가 ''master''에서 ''main''으로 변경되면 리포지토리 관리자는 ''master'' 분기의 후속 만들기 또는 푸시를 방지할 수 있습니다. 자세한 내용은 다음을 참조하세요. 
+
+"[보호된 분기 정보](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#restrict-who-can-push-to-matching-branches)" 및 "[분기 보호 규칙 관리](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/managing-a-branch-protection-rule#creating-a-branch-protection-rule)"
+
+|
+        # https://github.com/github/releases/issues/2179
+        - |사용자는 **새 분기**를 클릭하여 리포지토리의 **분기** 페이지에서 직접 분기를 만들 수 있습니다. 자세한 내용은 "[리포지토리 내에서 분기 만들기 및 삭제](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository)"를 참조하세요.
+
+|
+        # https://github.com/github/releases/issues/2220
+        - |사용자는 진행 중인 끌어오기 요청과 연결된 분기를 삭제할 수 있습니다. 자세한 내용은 "[리포지토리 내에서 분기 만들기 및 삭제](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository)"를 참조하세요.
+
+|
+        # https://github.com/github/releases/issues/2118
+        - |여러 라이선스가 있는 리포지토리는 {% octicon "code" aria-label="The code icon" %} **코드** 탭의 "정보" 사이드바에 모든 라이선스를 표시합니다. 자세한 내용은 "[리포지토리 라이선스](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository)"를 참조하세요.
+
+|
+        # https://github.com/github/releases/issues/2233
+        - "사용자가 파일의 이름을 바꾸거나 새 디렉터리로 이동할 때 파일 콘텐츠의 절반 이상이 동일하면 'git log --follow'와 비슷하게 커밋 기록에서 파일 이름이 변경되었음을 나타냅니다. 자세한 내용은 [GitHub 블로그](https://github.blog/changelog/2022-06-06-view-commit-history-across-file-renames-and-moves/)를 참조하세요."
+
+        # https://github.com/github/releases/issues/2093
+        - |사용자는 분기와 연결된 끌어오기 요청을 병합하기 전에 분기의 성공적인 배포를 요구할 수 있습니다. 자세한 내용은 "[보호된 분기 정보](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#require-deployments-to-succeed-before-merging)" 및 "[분기 보호 규칙 관리](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/managing-a-branch-protection-rule)"를 참조하세요.
+
+|
+        # https://github.com/github/releases/issues/2073
+        - |엔터프라이즈 소유자는 조직 소유자가 협력자를 인스턴스의 리포지토리에 초대하지 않도록 방지할 수 있습니다. 자세한 내용은 "[협력자를 리포지토리에 초대하는 정책 적용](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-inviting-collaborators-to-repositories)"을 참조하세요.
+
+|
+        # https://github.com/github/releases/issues/2173
+        - |사용자는 예외를 지원하는 분기 보호 규칙에 대해 예외를 GitHub Apps에 부여할 수 있습니다. 자세한 내용은 "[앱 정보](/developers/apps/getting-started-with-apps/about-apps)" 및 "[분기 보호 규칙 관리](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/managing-a-branch-protection-rule)"를 참조하세요.
+
+|
+    - heading: 커밋
+      notes:
+        # https://github.com/github/releases/issues/2306
+        - |만료되거나 철회된 퍼블릭 GPG 서명 키의 경우 GitHub Enterprise Server에서 Git 커밋 서명을 확인하고, 키가 유효한 동안 사용자가 커밋을 수행한 경우 해당 커밋을 ''확인됨'' 상태로 표시합니다. 또한 사용자는 만료되거나 철회된 GPG 키를 업로드할 수 있습니다. 자세한 내용은 "[커밋 서명 확인 정보](/authentication/managing-commit-signature-verification/about-commit-signature-verification)"를 참조하세요.
+
+|
+        # https://github.com/github/releases/issues/1977
+        - |커밋이 리포지토리를 관리하는 규칙 및 라이선스를 준수하는지 확인하기 위해 조직 소유자와 리포지토리 관리자는 이제 개발자에게 웹 인터페이스를 통해 수행한 커밋에서 로그오프하도록 요구할 수 있습니다. 자세한 내용은 "[조직에 대한 커밋 로그오프 정책 관리](/organizations/managing-organization-settings/managing-the-commit-signoff-policy-for-your-organization)" 및 "[리포지토리에 대한 커밋 로그오프 정책 관리](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository)"를 참조하세요.
+
+|
+    - heading: 끌어오기 요청
+      notes:
+        # https://github.com/github/releases/issues/2261
+        - |끌어오기 요청의 **변경된 파일** 탭에 있는 파일 트리를 사용하면 사용자는 수정된 파일을 검색하고, 변경의 크기와 범위를 파악하고, 검토에 집중할 수 있습니다. 끌어오기 요청에서 둘 이상의 파일을 수정하고 브라우저 창이 충분히 넓은 경우 파일 트리가 표시됩니다. 자세한 내용은 "[끌어오기 요청에서 제안된 변경 내용 검토](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request)" 및 "[끌어오기 요청에서 파일 필터링](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/filtering-files-in-a-pull-request)"을 참조하세요.
+
+|
+        # https://github.com/github/releases/issues/2167
+        - |사용자는 기본적으로 끌어오기 요청 제목을 모든 Squash 병합에 대한 커밋 메시지로 사용하도록 설정할 수 있습니다. 자세한 내용은 "[끌어오기 요청에 대한 커밋 Squash 구성](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/configuring-commit-squashing-for-pull-requests)"을 참조하세요.
+
+|
+    - heading: 릴리스
+      notes:
+        # https://github.com/github/releases/issues/2281
+        - |특정 릴리스에 대한 자세한 정보가 표시되면 사용자는 각 릴리스 자산에 대한 만든 날짜를 확인할 수 있습니다. 자세한 내용은 "[리포지토리의 릴리스 및 태그 보기](/repositories/releasing-projects-on-github/viewing-your-repositorys-releases-and-tags)"를 참조하세요.
+
+|
+        # https://github.com/github/releases/issues/2279
+        - "자동으로 생성된 릴리스 정보를 사용하여 릴리스를 만드는 동안 사용자는 이전 릴리스로 식별된 태그를 확인한 다음, 다른 태그를 선택하여 이전 릴리스로 지정하도록 선택할 수 있습니다. 자세한 내용은 \"[자동으로 생성된 릴리스 정보](/repositories/releasing-projects-on-github/automatically-generated-release-notes)\"를 참조하세요."
+
+    - heading: Markdown
+      notes:
+        # https://github.com/github/releases/issues/2260
+        - |웹 인터페이스의 Markdown 편집 기능이 향상되었습니다.
+
+
+
+- 사용자가 텍스트를 선택하고 URL을 붙여넣으면 선택한 텍스트가 붙여넣은 URL에 대한 Markdown 링크가 됩니다.
+
+- 사용자가 스프레드시트 셀 또는 HTML 테이블을 붙여넣으면 결과 텍스트가 테이블로 렌더링됩니다.
+
+- 사용자가 링크가 포함된 텍스트를 복사하면 붙여넣은 텍스트에 링크가 Markdown 링크로 포함됩니다.
+
+
+
+자세한 내용은 "[기본 구문 쓰기 및 서식 지정](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#links)"을 참조하세요.
+
+|
+        # https://github.com/github/releases/issues/2258
+        - |웹 인터페이스에서 Markdown 파일을 편집하는 경우 **미리 보기** 탭을 클릭하면 자동으로 편집하고 있던 미리 보기의 위치로 스크롤됩니다. 스크롤 위치는 **미리 보기** 탭을 클릭하기 전의 커서 위치를 기준으로 합니다.
+
+|
+  changes:
+    - 사용자가 페이지에서 현재 위치를 찾는 데 도움이 되도록 링크 및 단추와 같은 웹 인터페이스의 대화형 요소에서 키보드를 사용하여 포커스를 맞추면 가시적인 윤곽선을 표시합니다. 또한 포커스를 맞추면 양식 필드의 윤곽선에 대한 대비가 더 높아집니다.
+    - "사용자가 새 이슈 또는 끌어오기 요청을 만드는 동안 페이지를 새로 고치는 경우에도 담당자, 검토자, 레이블 및 프로젝트는 모두 유지됩니다."
+
+  known_issues:
+    - "사용자 없이 새로 설정된 {% data variables.product.prodname_ghe_server %} 인스턴스에서 공격자는 첫 번째 관리 사용자를 만들 수 있습니다."
+    - 사용자 지정 방화벽 규칙은 업그레이드 프로세스 중에 제거됩니다.
+    - "Git LFS 추적 파일[웹 인터페이스를 통해 업로드됨](https://github.com/blog/2105-upload-files-to-your-repositories)이 리포지토리에 직접 잘못 추가되었습니다."
+    - 이슈에 동일한 리포지토리의 Blob에 대한 고정 링크가 포함되었지만 Blob의 파일 경로가 255자보다 긴 경우 해당 이슈를 종료할 수 없습니다.
+    - GitHub Connect에서 “사용자가 GitHub.com을 검색할 수 있음”이 사용하도록 설정되면 프라이빗 및 내부 리포지토리의 이슈가 GitHub.com 검색 결과에 포함되지 않습니다.
+    - "{% data variables.product.prodname_registry %} npm 레지스트리는 더 이상 메타데이터 응답에서 시간 값을 반환하지 않습니다. 이 작업은 성능을 크게 향상시키기 위해 수행되었습니다. 메타데이터 응답의 일부로 시간 값을 반환하는 데 필요한 모든 데이터를 계속 보유하고 있으며, 기존 성능 이슈가 해결되면 이 값의 반환을 다시 시작할 예정입니다."
+    - 사전 수신 후크 처리에만 해당되는 리소스 한도로 인해 일부 사전 수신 후크가 실패할 수 있습니다.
+    - 다른 호스트에서 수행한 백업에서 인스턴스가 복원되면 Actions 서비스를 다시 시작해야 합니다.
+    - 리포지토리 설정에서 읽기 권한을 가진 사용자가 토론을 만들 수 있도록 허용하는 옵션을 활성화해도 이 기능을 활성화하지 않습니다.
+    - 경우에 따라 사용자는 기존 이슈를 토론으로 변환할 수 없습니다.
+    - "비밀 검사에 대한 사용자 지정 패턴에는 특히 \"비밀 이후\" 필드에서 종료 구분 기호로 `.*`가 있습니다. 이 구분 기호로 인해 리포지토리 전체의 비밀 검사에서 불일치가 발생하며, 검사가 완료되지 않은 리포지토리의 기록에서 차이를 확인할 수 있습니다. 증분 검사도 영향을 받을 수 있습니다. 검사와 관련된 이슈를 방지하려면 '.*' 구분 기호를 제거하도록 패턴 끝을 수정합니다."
+    - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'

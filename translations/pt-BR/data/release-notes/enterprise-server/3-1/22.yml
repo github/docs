@@ -1,0 +1,20 @@
+date: '09-06-2022'
+sections:
+  security_fixes:
+    - Os pacotes foram atualizados para as versões de segurança mais recentes. 
+  bugs:
+    - "Um script interno para validar nomes do host no arquivo de configuração do {% data variables.product.prodname_ghe_server %} retornaria um erro se a cadeia de caracteres do nome do host começasse com \".\" (caractere de ponto)." 
+    - "Nas configurações de HA em que o nome do host primário tiver mais que 60 caracteres, a configuração do MySQL falhará."
+    - "O cálculo de \"máximo de committers na instância inteira\" relatado no painel do administrador do site estava incorreto."
+    - "Uma entrada incorreta no banco de dados de réplicas de repositórios corrompeu o banco de dados ao executar uma restauração usando {% data variables.product.prodname_enterprise_backup_utilities %}."
+  changes:
+    - "Em configurações de HA em que o Elasticsearch reportou um status amarelo válido, as alterações introduzidas em correções anteriores bloqueariam o comando `ghe-repl-stop` e não permitiriam a interrupção da replicação. O uso do comando `ghe-repo-stop --force` agora forçará a parada do Elasticsearch quando o serviço estiver nos status normal ou amarelo válido."
+  known_issues:
+    - "O registro npm do {% data variables.product.prodname_registry %} não retorna mais um valor temporal em respostas de metadados. Isso foi feito para permitir melhorias substanciais de desempenho. Continuamos a ter todos os dados necessários para retornar um valor temporal como parte da resposta de metadados e ainda retornaremos esse valor no futuro depois que tivermos resolvido os problemas de desempenho existentes."
+    - "Em uma instância de {% data variables.product.prodname_ghe_server %} recém-configurada e sem usuários, um invasor poderia criar o primeiro usuário administrador."
+    - As regras de firewall personalizadas são removidas durante o processo de atualização.
+    - "Arquivos de rastreamento LFS do Git [enviados por meio da interface da Web](https://github.com/blog/2105-upload-files-to-your-repositories) são adicionados diretamente ao repositório de forma incorreta."
+    - Os problemas não podem ser fechados se contiverem um permalink para um blob no mesmo repositório com um caminho do arquivo de blobs maior que 255 caracteres.
+    - "Quando a opção \"Usuários podem pesquisar GitHub.com\" estiver habilitada com o {% data variables.product.prodname_github_connect %}, os problemas em repositórios privados e internos não serão incluídos nos resultados de pesquisa do {% data variables.product.prodname_dotcom_the_website %}."
+    - "Se {% data variables.product.prodname_actions %} estiver habilitado para {% data variables.product.prodname_ghe_server %}, a desmontagem de um nó de réplica com o comando `ghe-repl-teardown` será bem-sucedida, mas poderá retornar `ERROR:Running migrations`."
+    - Os limites de recursos específicos para processamento de ganchos de pré-recebimento podem causar falhas nesses ganchos.

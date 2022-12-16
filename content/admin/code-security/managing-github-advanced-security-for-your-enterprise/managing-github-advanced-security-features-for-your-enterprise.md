@@ -16,7 +16,9 @@ shortTitle: Manage GitHub Advanced Security
 
 ## About management of {% data variables.product.prodname_advanced_security %} features
 
-You can use {% data variables.product.prodname_advanced_security %} features to harden security for the organizations in your enterprise. To streamline management of {% data variables.product.prodname_advanced_security %}, you can enable or disable each feature for all existing and/or new repositories within the organizations owned by your enterprise.
+You can use {% data variables.product.prodname_advanced_security %} features to harden security for the organizations in your enterprise. To streamline management of {% data variables.product.prodname_advanced_security %}, you can enable or disable each feature for all existing and/or new repositories within the organizations owned by your enterprise. 
+
+{% ifversion secret-scanning-enterprise-level-api %}{% data reusables.secret-scanning.secret-scanning-enterprise-level-api %}{% endif %}
 
 {% ifversion ghes or ghec %}For information about buying a license for {% data variables.product.prodname_GH_advanced_security %}, see "[About billing for {% data variables.product.prodname_GH_advanced_security %}](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)."{% elsif ghae %}There is no charge for {% data variables.product.prodname_GH_advanced_security %} on {% data variables.product.prodname_ghe_managed %} during the beta release.{% endif %}
 
@@ -35,7 +37,7 @@ When you enable one or more security and analysis features for existing reposito
 1. In the left sidebar, click **Code security & analysis**. 
 1. Optionally, enable or disable a feature for all existing repositories.
 
-   - To the right of the feature, click **Disable all** or **Enable all**. {% ifversion ghes or ghec %}If the control for "{% data variables.product.prodname_GH_advanced_security %}" is disabled, you have no available seats in your {% data variables.product.prodname_GH_advanced_security %} license.{% endif %}
+   - To the right of the feature, click **Disable all** or **Enable all**. {% ifversion ghes or ghec %}If the control for "{% data variables.product.prodname_GH_advanced_security %}" is disabled, you have no available {% ifversion ghas-billing-UI-update %}licenses{% else %}seats{% endif %} for {% data variables.product.prodname_GH_advanced_security %}.{% endif %}
    
    ![Screenshot of "Enable all" or "Disable all" buttons for "Configure security and analysis" features](/assets/images/enterprise/security/enterprise-security-and-analysis-disable-or-enable-all.png)
 

@@ -51,7 +51,7 @@ Dependency review is available when dependency graph is enabled for {% data vari
 {% endif %}
 
 {% ifversion dependency-review-action-configuration %}
-## About configuring the {% data variables.product.prodname_dependency_review_action %}
+## About configuring the {% data variables.dependency-review.action_name %}
 
 {% data reusables.dependency-review.dependency-review-action-overview %}
 
@@ -77,14 +77,14 @@ The following configuration options are available.
 {% endtip %}
 {% endif %}
 
-## Configuring the {% data variables.product.prodname_dependency_review_action %}
+## Configuring the {% data variables.dependency-review.action_name %}
 
-There are two methods of configuring the {% data variables.product.prodname_dependency_review_action %}: 
+There are two methods of configuring the {% data variables.dependency-review.action_name %}: 
 - Inlining the configuration options in your workflow file. 
 - Referencing a configuration file in your workflow file.
 
 Notice that all of the examples use a short version number for the action (`v3`) instead of a semver release number (for example, `v3.0.8`). This ensures that you use the most recent minor version of the action.
-### Using inline configuration to set up the {% data variables.product.prodname_dependency_review_action %}
+### Using inline configuration to set up the {% data variables.dependency-review.action_name %}
 
 1. Add a new YAML workflow to your `.github/workflows` folder.   
    
@@ -108,7 +108,7 @@ Notice that all of the examples use a short version number for the action (`v3`)
    ```
 1. Specify your settings.   
 
-   This {% data variables.product.prodname_dependency_review_action %} example file illustrates how you can use the available configuration options.
+   This {% data variables.dependency-review.action_name %} example file illustrates how you can use the available configuration options.
    ```yaml{:copy}
    name: 'Dependency Review'
    on: [pull_request]
@@ -146,7 +146,7 @@ Notice that all of the examples use a short version number for the action (`v3`)
            fail-on-scopes: development, runtime
   {% endif %}
    ```
-### Using a configuration file to set up {% data variables.product.prodname_dependency_review_action %}
+### Using a configuration file to set up {% data variables.dependency-review.action_name %}
 
 1. Add a new YAML workflow to your `.github/workflows` folder and use `config-file` to specify that you are using a configuration file.
 

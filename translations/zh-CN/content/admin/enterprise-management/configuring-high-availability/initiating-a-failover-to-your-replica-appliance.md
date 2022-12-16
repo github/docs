@@ -13,14 +13,14 @@ topics:
   - High availability
   - Infrastructure
 shortTitle: Initiate failover to appliance
-ms.openlocfilehash: 65e522d2a7b466c4f75cea087760ecb3001317a7
-ms.sourcegitcommit: 3ea3ccb5af64bd7d9e4699757db38fdd8f98cde7
+ms.openlocfilehash: e2c15dab0a812fe6031f78e7edbccaff6a2503c0
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2022
-ms.locfileid: '147076701'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148192991'
 ---
-故障转移所需的时间取决于手动升级副本和重定向流量所需的时长。 平均时间范围为 2-10 分钟。
+故障转移所需的时间取决于手动升级副本和重定向流量所需的时长。 平均时间范围为 20-30 分钟。
 
 {% data reusables.enterprise_installation.promoting-a-replica %}
 
@@ -53,6 +53,13 @@ ms.locfileid: '147076701'
   ```shell
   $ ghe-repl-promote
   ```
+
+   {% note %}
+
+   注意：如果主节点不可用，则可能会出现警告和超时，但可以忽略。
+
+  {% endnote %}
+
 5. 将 DNS 记录更新为指向副本的 IP 地址。 流量会在经过 TTL 周期后定向到副本。 如果您要使用负载均衡器，请务必将其配置为向副本发送流量。
 6. 通知用户他们可以恢复正常操作。
 7. 如有需要，请设置从新的主设备复制到现有设备和之前的主设备。 有关详细信息，请参阅“[关于高可用性配置](/enterprise/admin/guides/installation/about-high-availability-configuration/#utilities-for-replication-management)”。
@@ -63,9 +70,9 @@ ms.locfileid: '147076701'
       ```
     - 在新的主设备上，使用 `ghe-repl-teardown` 删除 UUID。 请将 `UUID` 替换为你在上一步中检索到的 UUID。
       ```shell
-      $ ghe-repl-teardown -u <em>UUID</em>
+      $ ghe-repl-teardown -u  UUID
       ```
 
-## <a name="further-reading"></a>延伸阅读
+## 延伸阅读
 
 - “[用于复制管理的实用程序](/enterprise/admin/guides/installation/about-high-availability-configuration/#utilities-for-replication-management)”

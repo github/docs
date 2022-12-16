@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: e0bf1f4b7bbd5fcb145a6e869dd442fd8e53108a
-ms.sourcegitcommit: b4996daba2e75b3368f39316e6929602f13b961b
+ms.openlocfilehash: 1dd9305ca2b7cb3e8d25d697de8ae3a83e0c46bb
+ms.sourcegitcommit: 7a74d5796695bb21c30e4031679253cbc16ceaea
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/31/2022
-ms.locfileid: "148120535"
+ms.lasthandoff: 11/28/2022
+ms.locfileid: "148183981"
 ---
 | カテゴリ名 | 説明
 |------------------|-------------------
@@ -106,7 +106,7 @@ ms.locfileid: "148120535"
 {%- endif %} {%- ifversion fpt or ghec %} | `sponsors`  | スポンサー ボタンに関連するイベントが含まれます (「[リポジトリにスポンサー ボタンを表示する](/articles/displaying-a-sponsor-button-in-your-repository)」を参照)。
 {%- endif %} {%- ifversion ghec or ghes or ghae %} | `ssh_certificate_authority` | Organaization または Enterprise の SSH 証明機関に関連するアクティビティが含まれます。
 | `ssh_certificate_requirement` | メンバーが SSH 証明書を使用して Organaization リソースにアクセスすることを要求することに関連するアクティビティが含まれます。
-{%- endif %} | `staff` | アクションを実行しているサイト管理者に関連するアクティビティが含まれます。
+{%- endif %}{% ifversion sso-redirect %} | `sso_redirect` | サインインへのユーザーの自動リダイレクトに関連するアクティビティが含まれます (「[エンタープライズでセキュリティ設定のポリシーを適用する](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#managing-sso-for-unauthenticated-users)」を参照)。{% endif %} | `staff` | アクションを実行するサイト管理者に関連するアクティビティが含まれます。
 | `team` | Organization 内のチームに関連するアクティビティが含まれます。
 | `team_discussions` | Organization のチーム ディスカッション管理に関連するアクティビティが含まれます。
 {%- ifversion ghec %} | `team_sync_tenant` | Enterprise または Organaization の IdP とのチーム同期に関連するアクティビティが含まれます。

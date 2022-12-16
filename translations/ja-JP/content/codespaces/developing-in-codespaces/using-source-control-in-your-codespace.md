@@ -1,6 +1,6 @@
 ---
-title: Using source control in your codespace
-intro: After making changes to a file in your codespace you can quickly commit the changes and push your update to the remote repository.
+title: Codespace でソースコントロールを使用する
+intro: Codespace 内のファイルに変更を加えた後、変更をすばやくコミットして、更新をリモートリポジトリにプッシュできます。
 versions:
   fpt: '*'
   ghec: '*'
@@ -10,37 +10,42 @@ topics:
   - Fundamentals
   - Developer
 shortTitle: Source control
+ms.openlocfilehash: 513bf0729e1f04bf93f45999b2fa9e45231add5c
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148160000'
 ---
-
 {% jetbrains %}
 
 {% data reusables.codespaces.codespaces-jetbrains-beta-note %}
 
 {% endjetbrains %}
 
-## About source control in {% data variables.product.prodname_github_codespaces %}
+## {% data variables.product.prodname_github_codespaces %} でのソース管理について
 
-You can perform all the Git actions you need directly within your codespace. For example, you can fetch changes from a remote repository, switch branches, create a new branch, commit and push changes, and create a pull request. You can use the integrated terminal within your codespace to enter Git commands, or you can click icons and menu options to complete all the most common Git tasks. This guide explains how to use the graphical user interface for source control.
+必要なすべての Git アクションを codespace 内で直接実行できます。 たとえば、リモート リポジトリからの変更のフェッチ、ブランチの切り替え、新しいブランチの作成、変更のコミットとプッシュ、pull request の作成を行うことができます。 Codespace 内の統合ターミナルを使用して Git コマンドを入力するか、アイコンとメニューオプションをクリックして最も一般的な Git タスクをすべて完了することができます。 このガイドでは、ソースコントロールにグラフィカルユーザインターフェースを使用する方法について説明します。
 
 {% vscode %}
 
-For more information about Git support in {% data variables.product.prodname_vscode %}, see "[Using Version Control in VS Code](https://code.visualstudio.com/docs/editor/versioncontrol#_git-support)" in the {% data variables.product.prodname_vscode %} documentation.
+{% data variables.product.prodname_vscode %} の Git サポートについて詳しくは、{% data variables.product.prodname_vscode %} ドキュメントの「[VS Code でのバージョン コントロールの使用](https://code.visualstudio.com/docs/editor/versioncontrol#_git-support)」をご覧ください。
 
 {% endvscode %}
 
 {% webui %}
 
-Source control in the {% data variables.product.prodname_vscode %} web client uses the same workflow as the {% data variables.product.prodname_vscode %} desktop application. For more information, see "[Using Version Control in VS Code](https://code.visualstudio.com/docs/editor/versioncontrol#_git-support)" in the {% data variables.product.prodname_vscode %} documentation.
+{% data variables.product.prodname_vscode %} Web クライアントのソース管理では、{% data variables.product.prodname_vscode %} デスクトップ アプリケーションと同じワークフローが使用されます。 詳細については、{% data variables.product.prodname_vscode %} ドキュメントの「[VS Code でのバージョン管理の使用](https://code.visualstudio.com/docs/editor/versioncontrol#_git-support)」を参照してください。
 
 {% endwebui %}
 
-A typical workflow for updating a file using {% data variables.product.prodname_github_codespaces %} would be:
+{% data variables.product.prodname_github_codespaces %} を使用してファイルを更新するための一般的なワークフローは次のとおりです。
 
-* From the default branch of your repository on {% data variables.product.prodname_dotcom %}, create a codespace. See "[Creating a codespace for a repository](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository)."
-* In your codespace, create a new branch to work on.
-* Make your changes and save them.
-* Commit the change.
-* Raise a pull request.
+* {% data variables.product.prodname_dotcom %} のリポジトリのデフォルトブランチから、codespace を作成します。 「[リポジトリの codespace を作成する](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository)」を参照してください。
+* Codespace で、作業する新しいブランチを作成します。
+* 変更を加えて保存します。
+* 変更をコミットします。
+* プルリクエストを発行します。
 
 {% webui %}
 
@@ -56,67 +61,67 @@ A typical workflow for updating a file using {% data variables.product.prodname_
 
 {% jetbrains %}
 
-## Creating or switching branches
+## ブランチの作成または切り替え
 
-1. Click the branch name at the right side of the status bar.
+1. ステータス バーの右側にあるブランチ名をクリックします。
 
-   ![Screenshot of the branch name in the status bar](/assets/images/help/codespaces/jetbrains-branch-button.png)
+   ![ステータス バーのブランチ名のスクリーンショット](/assets/images/help/codespaces/jetbrains-branch-button.png)
 
-1. In the pop-up menu, do one of the following:
-   * To create a new branch based on the current branch, click the name of the current branch, then choose **New Branch**. 
+1. ポップアップ メニューで、次のいずれかを行います。
+   * 現在のブランチに基づいて新しいブランチを作成するには、現在のブランチの名前をクリックし、 **[新しいブランチ]** を選びます。 
 
-     ![Screenshot of the new branch option](/assets/images/help/codespaces/jetbrains-new-branch-option.png)
+     ![新しいブランチ オプションのスクリーンショット](/assets/images/help/codespaces/jetbrains-new-branch-option.png)
 
-     Enter a name for the new branch and click **Create**.
+     新しいブランチの名前を入力し、 **[作成]** をクリックします。
 
-     ![Screenshot of the create branch dialog box](/assets/images/help/codespaces/jetbrains-create-branch-dialog.png)
+     ![ブランチの作成ダイアログ ボックスのスクリーンショット](/assets/images/help/codespaces/jetbrains-create-branch-dialog.png)
 
-   * To check out an existing branch, start typing the name of the branch you want to check out. Click the branch from the list, then click **Checkout**.
+   * 既存のブランチをチェックアウトするには、チェックアウトするブランチの名前の入力を始めます。一覧からブランチをクリックし、 **[チェックアウト]** をクリックします。
 
-     ![Screenshot of the checkout option](/assets/images/help/codespaces/jetbrains-checkout-submenu.png)
+     ![チェックアウト オプションのスクリーンショット](/assets/images/help/codespaces/jetbrains-checkout-submenu.png)
 
      {% tip %}
 
-     **Tip**: If someone has recently changed a file on the remote repository, in the branch you switched to, you may not see those changes until you pull the changes into your codespace. 
+     **ヒント**: 他のユーザーが最近、リモート リポジトリのファイルを変更した場合、切り替え後のブランチでは、変更を自分の codespace にプルするまで、それらの変更が表示されません。 
 
      {% endtip %}
 
 
-## Committing your changes 
+## 変更をコミットする 
 
-1. At the right side of the navigation bar, click the check mark.
+1. ナビゲーション バーの右側にあるチェック マークをクリックします。
 
-   ![Screenshot of the commit check mark](/assets/images/help/codespaces/jetbrains-commit-button.png)
+   ![[コミット] チェック マークのスクリーンショット](/assets/images/help/codespaces/jetbrains-commit-button.png)
 
-1. In the Commit Changes dialog box, enter a commit message.
-1. Click **Commit**.
+1. [変更のコミット] ダイアログ ボックスで、コミット メッセージを入力します。
+1. **[コミット]** をクリックします。
 
-   Alternatively, click the down arrow beside **Commit** and click **Commit and Push**.
+   または、 **[コミット]** の横にある下向き矢印をクリックし、 **[コミットしてプッシュ]** をクリックします。
 
-   ![Screenshot of the commit and push button](/assets/images/help/codespaces/jetbrains-commit-and-push.png)
+   ![[コミットしてプッシュ] ボタンのスクリーンショット](/assets/images/help/codespaces/jetbrains-commit-and-push.png)
 
-## Pulling changes from the remote repository
+## リモートリポジトリから変更をプルする
 
-You can pull changes from the same branch on the remote repository and apply those changes to the copy of the repository you are working on in your codespace.
+リモート リポジトリ上の同じブランチから変更をプルし、codespace で作業しているリポジトリのコピーにそれらの変更を適用できます。
 
-1. At the right side of the navigation bar, click the downward pointing arrow.
+1. ナビゲーション バーの右側で、下向きの矢印をクリックします。
 
-   ![Screenshot of the update project downward arrow button](/assets/images/help/codespaces/jetbrains-update-project-button.png)
+   ![プロジェクトの更新の下向き矢印ボタンのスクリーンショット](/assets/images/help/codespaces/jetbrains-update-project-button.png)
 
-1. In the Update Project dialog box, choose whether you want to merge or rebase the incoming changes.
+1. [プロジェクトの更新] ダイアログ ボックスで、受信した変更をマージまたはリベースするかどうかを選びます。
 
-   ![Screenshot of the Update Project dialog box](/assets/images/help/codespaces/jetbrains-update-options.png)
+   ![[プロジェクトの更新] ダイアログ ボックスのスクリーン ショット](/assets/images/help/codespaces/jetbrains-update-options.png)
 
-1. Click **OK**.
+1. **[OK]** をクリックします。
 
-## Pushing changes to your remote repository
+## リモートリポジトリに変更をプッシュする
 
-You can push changes you've saved and committed. This applies those changes to the upstream branch on the remote repository. You might want to do this if you're not yet ready to create a pull request, or if you prefer to create a pull request on {% data variables.product.prodname_dotcom %}.
+保存してコミットした変更をプッシュできます。 それにより、変更がリモートリポジトリの上流ブランチに適用されます。 プルリクエストの作成準備が整っていない場合、または {% data variables.product.prodname_dotcom %} でプルリクエストを作成する場合は、この操作を行うことをお勧めします。
 
-1. At the right side of the navigation bar, click the upward pointing arrow.
+1. ナビゲーション バーの右側で、上向きの矢印をクリックします。
 
-   ![Screenshot of the push commits upward arrow](/assets/images/help/codespaces/jetbrains-push-button.png)
+   ![コミットのプッシュの上向き矢印のスクリーンショット](/assets/images/help/codespaces/jetbrains-push-button.png)
 
-1. In the Push Commits dialog box, click **Push**.
+1. [コミットのプッシュ] ダイアログ ボックスで、 **[プッシュ]** をクリックします。
 
 {% endjetbrains %}

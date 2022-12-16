@@ -13,18 +13,18 @@ topics:
   - Fundamentals
   - Developer
 shortTitle: Delete a codespace
-ms.openlocfilehash: c9f1f6eb407c985d8981504de28e39a4bf742f7a
-ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.openlocfilehash: 24b53cc0cead2b6b15894ada4c799abc8e1c6e7a
+ms.sourcegitcommit: 1f3bd126ca000982c538f1621d47722737740943
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/09/2022
-ms.locfileid: '148158664'
+ms.lasthandoff: 12/01/2022
+ms.locfileid: '148188259'
 ---
-Пространство кода можно удалить различными способами: в терминале с помощью {% data variables.product.prodname_cli %}, в {% data variables.product.prodname_vscode %} или в веб-браузере. Используйте вкладки в этой статье, чтобы отобразить инструкции по каждому из этих способов удаления codespace.
+Кодовое пространство можно удалить различными способами: в терминале с помощью {% data variables.product.prodname_cli %}, в {% data variables.product.prodname_vscode %} или в веб-браузере. Используйте вкладки в этой статье, чтобы отобразить инструкции для каждого из этих способов удаления codespace.
 
 {% note %}
 
-**Примечание**. Вы не можете удалить пространство кода из шлюза JetBrains, клиентского приложения JetBrains или из JupyterLab.
+**Примечание**. Вы не можете удалить codespace из шлюза JetBrains, клиентского приложения JetBrains или из JupyterLab.
 
 {% endnote %}
 
@@ -135,5 +135,5 @@ gh codespace delete --repo octo-org/octo-repo --days 7
 Вы также можете удалить среды codespace вашей организации с помощью REST API. Дополнительные сведения см. в статье [Организации Codespaces](/rest/codespaces/organizations#delete-a-codespace-from-the-organization).
 
 ## Дополнительные материалы
-- [Жизненный цикл codespace](/codespaces/developing-in-codespaces/the-codespace-lifecycle)
-- Настройка [автоматического удаления codespaces](/codespaces/customizing-your-codespace/configuring-automatic-deletion-of-your-codespaces)
+- [Жизненный цикл codespace](/codespaces/getting-started/the-codespace-lifecycle)
+- [Настройка автоматического удаления codespaces](/codespaces/customizing-your-codespace/configuring-automatic-deletion-of-your-codespaces)

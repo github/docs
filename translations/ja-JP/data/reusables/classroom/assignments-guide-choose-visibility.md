@@ -1,15 +1,11 @@
 ---
-ms.openlocfilehash: 66fdbca75762848fce18a18321fd082a844cfa3f
-ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.openlocfilehash: ec67345b92fb3aba571c6932ccc3b67d77473726
+ms.sourcegitcommit: 82b1242de02ecc4bdec02a5b6d11568fb2deb1aa
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/10/2022
-ms.locfileid: "145115806"
+ms.lasthandoff: 11/21/2022
+ms.locfileid: "148179729"
 ---
-課題のためのリポジトリは、パブリックにもプライベートにもできます。 プライベートリポジトリを使うと、学生あるいはTeamだけが提供されたフィードバックを見ることができます。
-
-また、課題のためのリポジトリに対する管理権限を学生に与えるかを決定することもできます。 学生が課題のリポジトリに対して管理タスクを行えなければならないのであれば、管理権限を与えてください。 詳細については、「[リポジトリについて](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)」と「[Organization のリポジトリ ロール](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)」を参照してください。
-
 "Repository visibility（リポジトリの可視性）"の下で、可視性を選択してください。 必要に応じて、 **[リポジトリに対する管理者アクセスを学生に付与する]** を選んでください。
 
 <div class="procedural-image-wrapper">

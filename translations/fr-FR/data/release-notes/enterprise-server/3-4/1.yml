@@ -1,0 +1,117 @@
+date: '04/04/2022'
+sections:
+  security_fixes:
+    - 'MOYENNE : Une vulnérabilité de traversée de chemin qui permettait de contourner les protections CSRF a été identifiée dans {% data variables.product.prodname_ghe_server %} Management Console. Cette vulnérabilité affectait toutes les versions de {% data variables.product.prodname_ghe_server %} avant la version 3.5, et a été corrigée dans les versions 3.1.19, 3.2.11, 3.3.6 et 3.4.1. Cette vulnérabilité a été signalée via le programme {% data variables.product.prodname_dotcom %} dans le cadre du programme Bug Bounty et a été affectée au numéro CVE-2022-23732.'
+    - 'MOYENNE : Une vulnérabilité de débordement d’entier a été identifiée dans la branche 1.x et la branche 2.x de `yajil` ; elle conduisait à une altération de la mémoire de tas lors du traitement d’entrées importantes (~2 Go). Cette vulnérabilité a été signalée en interne et a été affectée au numéro CVE-2022-24795. '
+    - "Les packs de support pouvaient inclure des fichiers sensibles si {% data variables.product.prodname_actions %} était activé." 
+    - Les packages ont été mis à jour avec les dernières versions de sécurité.
+  bugs:
+    - L’exécution d’un workflow peut ne pas se terminer s’il utilise des actions composites.
+    - "Lors de l’activation de {% data variables.product.prodname_dependabot %}, une erreur faisait que certains avis de sécurité étaient temporairement lus comme n’étant plus applicables."
+    - "Les processus Minio avaient une utilisation élevée de l’UC si une ancienne option de configuration était présente après la mise à niveau de {% data variables.product.prodname_ghe_server %}."
+    - "Les options permettant d’activer `TLS 1.0` et `TLS 1.1` dans les paramètres de confidentialité de la console de gestion étaient affichées, bien que la suppression de ces versions de protocole ait eu lieu dans une version antérieure."
+    - "Dans un environnement HA, la configuration de la réplication MSSQL pouvait nécessiter des étapes manuelles supplémentaires après avoir activé {% data variables.product.prodname_actions %} pour la première fois."
+    - Un sous-ensemble de fichiers de configuration internes est mis à jour de manière plus fiable après un correctif. 
+    - Le script `ghe-run-migrations` ne parvenait pas toujours à générer correctement les noms des certificats temporaires. 
+    - Les hooks de pré-réception qui utilisaient `gpg --import` s’arrêtaient à cause de privilèges `syscall` insuffisants.
+    - "Dans certaines topologies de clusters, les informations de livraison des webhooks n’étaient pas disponibles." 
+    - "Le graphique de déploiement {% data variables.product.prodname_actions %} affichait une erreur lors du rendu d’un travail en attente." 
+    - Les contrôles d’intégrité d’Elasticsearch n’autorisaient pas un état de cluster jaune lors de l’exécution de migrations. 
+    - "Lors de l’utilisation de l’[API Migrations](/rest/reference/migrations), les travaux d’exportation en file d’attente n’étaient pas traités."
+    - Les référentiels affichaient un onglet Discussions non fonctionnel dans l’interface web. 
+    - Les organisations créées à la suite de la transformation par un utilisateur de son compte d’utilisateur en un compte d’organisation n’étaient pas été ajoutées au compte d’entreprise global. 
+    - Les tâches de synchronisation des utilisateurs LDAP échouaient lorsqu’elles tentaient de synchroniser des clés GPG qui avaient été synchronisées précédemment. 
+    - Les liens vers les pages inaccessibles ont été supprimés. 
+    - Certaines instances subissaient une utilisation élevée de l’UC en raison de la mise en file d’attente d’un grand nombre de travaux d’arrière-plan inutiles. 
+    - Les référentiels vides ne se synchronisaient pas correctement avec les serveurs de cache. 
+    - L’ajout d’une équipe en tant que réviseur d’une demande de tirage pouvait parfois indiquer le nombre incorrect de membres de cette équipe. 
+    - Le point de terminaison d’API de suppression d’un membre d’équipe répondait par une erreur lors de la tentative de suppression d’un membre géré en externe via un groupe SCIM. 
+    - "Un grand nombre d’utilisateurs dormants pouvait faire échouer une configuration {% data variables.product.prodname_github_connect %}." 
+    - La page « Feature & beta enrollments » dans l’interface web d’administration du site était incorrectement disponible. 
+    - Le lien « Site admin mode » dans le pied de page du site ne changeait pas d’état lorsqu’on cliquait dessus. 
+  changes:
+    - Les limites de connexion de Memcached ont été augmentées pour mieux s’adapter aux topologies des grands clusters. 
+    - L’API du graphe des dépendances fonctionnait auparavant avec un port défini de manière statique. 
+    - Le nombre de partitions par défaut pour les paramètres de partitionnement d’Elasticsearch liés aux clusters a été mis à jour. 
+    - "L’API [Migrations](/rest/reference/migrations) génère désormais les exportations de référentiels." 
+    - "Lors du filtrage des membres d’entreprise par rôle d’organisation sur la page « Personnes », le texte des éléments du menu déroulant a été amélioré." 
+    - Les rôles des équipes « Triage » et « Maintain » sont préservés lors des migrations de référentiels. 
+    - "En utilisant ghe-migrator ou en exportant depuis GitHub.com, une exportation n’incluait pas les pièces jointes des demandes de tirage." 
+    - Les performances ont été améliorées pour les requêtes web effectuées par les propriétaires d’entreprise. 
+  known_issues:
+    - "Sur une instance fraîchement configurée de {% data variables.product.prodname_ghe_server %} sans aucun utilisateur, un attaquant pourrait créer le premier utilisateur administrateur."
+    - Les règles de pare-feu personnalisées sont supprimées pendant le processus de mise à niveau.
+    - "Les fichiers suivis par Git LFS [chargés via l’interface web](https://github.com/blog/2105-upload-files-to-your-repositories) sont incorrectement ajoutés directement au référentiel."
+    - "Les questions ne peuvent pas être fermées si elles contiennent un permalien vers un blob dans le même référentiel, où le chemin de fichier du blob est supérieur à 255 caractères."
+    - "Lorsque l’option « Les utilisateurs peuvent effectuer des recherches sur GitHub.com » est activée avec {% data variables.product.prodname_github_connect %}, les problèmes des référentiels privés et internes ne sont pas inclus dans les résultats de recherche de {% data variables.product.prodname_dotcom_the_website %}."
+    - "Le registre npm {% data variables.product.prodname_registry %} ne renvoie plus une valeur de temps dans les réponses de métadonnées. Cela a été fait pour permettre des améliorations substantielles des performances. Nous disposons toujours de toutes les données nécessaires pour renvoyer une valeur de temps dans le cadre de la réponse aux métadonnées et nous recommencerons à renvoyer cette valeur à l’avenir, une fois que nous aurons résolu les problèmes de performance existants."
+    - Les limites de ressources spécifiques au traitement des hooks de pré-réception peuvent entraîner l’échec de certains hooks de pré-réception.
+    - |Après avoir enregistré un exécuteur auto-hébergé avec le paramètre `--ephemeral` à plus d’un niveau (par exemple, entreprise et organisation), l’exécuteur peut rester bloqué dans un état d’inactivité et nécessiter un nouvel enregistrement. [Mise à jour : 2022-06-17]
+
+|
+    - |Lors de l’utilisation d’assertions chiffrées SAML avec {% data variables.product.prodname_ghe_server %} 3.4.0 et 3.4.1, un nouvel attribut XML `WantAssertionsEncrypted` dans le `SPSSODescriptor` contenait un attribut non valide pour les métadonnées SAML. Les IdP qui utilisent ce point de terminaison de métadonnées SAML peuvent rencontrer des erreurs lors de la validation du schéma XML des métadonnées SAML. Un correctif sera disponible dans la prochaine version corrective. [Mise à jour : 2022-04-11]
+
+
+
+Pour contourner ce problème, vous pouvez prendre l’une des deux mesures suivantes.
+
+- Reconfigurez l’IdP en chargeant une copie statique des métadonnées SAML sans l’attribut `WantAssertionsEncrypted`.
+
+- Copiez les métadonnées SAML, supprimez l’attribut `WantAssertionsEncrypted`, hébergez-les sur un serveur web et reconfigurez l’IdP pour qu’il pointe vers cette URL.
+
+|
+    - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'
+  deprecations:
+    - heading: Dépréciation de GitHub Enterprise Server 3.0
+      notes:
+        - '**{% data variables.product.prodname_ghe_server %} 3.0 a été mis hors service le 16 février 2022**. Cela signifie qu’aucun correctif ne sera publié, même pour les problèmes de sécurité critiques, après cette date. Pour de meilleures performances, une sécurité accrue et de nouvelles fonctionnalités, [mettez à niveau vers la dernière version de {% data variables.product.prodname_ghe_server %}](/enterprise-server@3.4/admin/enterprise-management/upgrading-github-enterprise-server) dès que possible.'
+    - heading: Dépréciation de GitHub Enterprise Server 3.1
+      notes:
+        - '**{% data variables.product.prodname_ghe_server %} 3.1 sera mis hors service le 3 juin 2022**. Cela signifie qu’aucun correctif ne sera publié, même pour les problèmes de sécurité critiques, après cette date. Pour de meilleures performances, une sécurité accrue et de nouvelles fonctionnalités, [mettez à niveau vers la dernière version de {% data variables.product.prodname_ghe_server %}](/enterprise-server@3.4/admin/enterprise-management/upgrading-github-enterprise-server) dès que possible.'
+
+    - heading: Dépréciation de la prise en charge de l’hyperviseur XenServer
+      notes:
+        # https://github.com/github/docs-content/issues/4439
+        - "À partir de {% data variables.product.prodname_ghe_server %} 3.3, {% data variables.product.prodname_ghe_server %} sur XenServer est déprécié et n’est plus pris en charge. Veuillez contacter le [Support GitHub](https://support.github.com) pour toute question ou préoccupation."
+
+    - heading: Dépréciation de l’API Pièces jointes de contenu en préversion
+      notes:
+        #
+        - "En raison d’une faible utilisation, nous avons déprécié la préversion de l’API Références de contenu dans {% data variables.product.prodname_ghe_server %} 3.4. L’API était auparavant accessible avec l’en-tête `corsair-preview`. Les utilisateurs peuvent continuer à accéder à des URL externes sans cette API. Toutes les utilisations enregistrées de l’API Références de contenu ne recevront plus de notification par webhook pour les URL de votre ou vos domaines enregistrés, et nous ne renvoyons plus de codes de réponse valides pour les tentatives de mise à jour des pièces jointes de contenu existantes."
+
+    - heading: Dépréciation de la préversion de l’API Codes de conduite
+      notes:
+        # https://github.com/github/releases/issues/1708
+        - 'La préversion de l’API Codes de conduite, qui était accessible avec l’en-tête `scarlet-witch-preview`, est déprécié et n’est plus accessible dans {% data variables.product.prodname_ghe_server %} 3.4. Nous recommandons plutôt d’utiliser le point de terminaison « [Obtenir les métriques du profil de la communauté](/rest/reference/repos#get-community-profile-metrics) » pour récupérer des informations sur le code de conduite d’un référentiel. Pour plus d’informations, consultez l’« [Avis de dépréciation : API Codes de conduite en préversion](https://github.blog/changelog/2021-10-06-deprecation-notice-codes-of-conduct-api-preview/) » dans le journal des modifications de {% data variables.product.prodname_dotcom %}.'
+
+    - heading: Dépréciation des points de terminaison de l’API d’application OAuth et de l’authentification de l’API à l’aide de paramètres de requête
+      notes:
+        # https://github.com/github/releases/issues/1316
+        - |À partir de {% data variables.product.prodname_ghe_server %} 3.4, les [versions obsolètes des points de terminaison de l’API d’application OAuth](https://developer.github.com/changes/2020-02-14-deprecating-oauth-app-endpoint/#endpoints-affected) ont été supprimées. Si vous rencontrez des messages d’erreur 404 sur ces points de terminaison, convertissez votre code vers des versions de l’API d’application OAuth qui n’ont pas `access_tokens` dans l’URL. Nous avons également désactivé l’utilisation de l’authentification d’API avec des paramètres de requête. Nous recommandons plutôt d’utiliser [l’authentification API dans l’en-tête de la demande](https://developer.github.com/changes/2020-02-10-deprecating-auth-through-query-param/#changes-to-make).
+
+|
+    - heading: Dépréciation de l’exécuteur CodeQL
+      notes:
+        # https://github.com/github/releases/issues/1632
+        - "L’exécuteur {% data variables.product.prodname_codeql %} est déprécié dans {% data variables.product.prodname_ghe_server %} 3.4 et n’est plus pris en charge. Cette dépréciation ne concerne que les utilisateurs qui utilisent l’analyse du code {% data variables.product.prodname_codeql %} dans des systèmes CI/CD tiers ; les utilisateurs de {% data variables.product.prodname_actions %} ne sont pas concernés. Nous recommandons vivement aux clients de migrer vers l’interface CLI de {% data variables.product.prodname_codeql %} CLI, qui est un remplacement complet de l’exécuteur {% data variables.product.prodname_codeql %}. Pour plus d’informations, consultez le [journal des modifications de {% data variables.product.prodname_dotcom %}](https://github.blog/changelog/2021-09-21-codeql-runner-deprecation/)."
+
+    - heading: Dépréciation des extensions bit-cache personnalisées
+      notes:
+        # https://github.com/github/releases/issues/1415
+        - |À partir de {% data variables.product.prodname_ghe_server %} 3.1, la prise en charge des extensions de cache binaire propriétaires de {% data variables.product.company_short %} a commencé à être éliminée progressivement. Ces extensions sont obsolètes dans {% data variables.product.prodname_ghe_server %} 3.3 et versions ultérieures.
+
+
+
+Tous les référentiels qui étaient déjà présents et actifs sur {% data variables.product.product_location %} version 3.1 ou 3.2 auront été automatiquement mis à jour.
+
+
+
+Les référentiels qui n’étaient pas présents et actifs avant la mise à niveau vers {% data variables.product.prodname_ghe_server %} 3.3 peuvent ne pas fonctionner de manière optimale jusqu’à ce qu’une tâche de maintenance du référentiel soit exécutée et se termine avec succès.
+
+
+
+Pour lancer manuellement une tâche de maintenance de référentiel, accédez à `https://<nom-hôte>/stafftools/repositories/<propriétaire>/<référentiel>/network` pour chaque référentiel affecté et cliquez sur le bouton Schedule.
+
+|
+  backups:
+    - '{% data variables.product.prodname_ghe_server %} 3.4 requiert au moins [GitHub Enterprise Backup Utilities 3.4.0](https://github.com/github/backup-utils) pour [les sauvegardes et la récupération d’urgence](/admin/configuration/configuring-your-enterprise/configuring-backups-on-your-appliance).'

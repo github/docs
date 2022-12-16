@@ -1,6 +1,6 @@
 ---
-title: About READMEs
-intro: 'You can add a README file to your repository to tell other people why your project is useful, what they can do with your project, and how they can use it.'
+title: Sobre LEIAMEs
+intro: 'Você pode adicionar um arquivo README ao seu repositório para informar outras pessoas por que seu projeto é útil, o que elas podem fazer com o projeto e como elas podem usá-lo.'
 redirect_from:
   - /articles/section-links-on-readmes-and-blob-pages
   - /articles/relative-links-in-readmes
@@ -14,25 +14,31 @@ versions:
   ghec: '*'
 topics:
   - Repositories
+ms.openlocfilehash: 146f1a33eb4de224625b9603b27d2f383e55c54d
+ms.sourcegitcommit: c2aa10a61db44ee111c09565b6114dd5c97b6e2e
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 11/14/2022
+ms.locfileid: '148163333'
 ---
-## About READMEs
+## Sobre LEIAMEs
 
 {% data reusables.repositories.about-READMEs %}
 
-For more information about providing guidelines for your project, see {% ifversion fpt or ghec %}"[Adding a code of conduct to your project](/communities/setting-up-your-project-for-healthy-contributions/adding-a-code-of-conduct-to-your-project)" and {% endif %}"[Setting up your project for healthy contributions](/communities/setting-up-your-project-for-healthy-contributions)."
+Para obter mais informações sobre como fornecer diretrizes para seu projeto, confira {% ifversion fpt or ghec %}"[Como adicionar um código de conduta ao seu projeto](/communities/setting-up-your-project-for-healthy-contributions/adding-a-code-of-conduct-to-your-project)" e {% endif %}"[Como configurar seu projeto para contribuições benéficas](/communities/setting-up-your-project-for-healthy-contributions)".
 
-A README is often the first item a visitor will see when visiting your repository. README files typically include information on:
-- What the project does
-- Why the project is useful
-- How users can get started with the project
-- Where users can get help with your project
-- Who maintains and contributes to the project
+Um README, muitas vezes, é o primeiro item que um visitante verá ao visitar seu repositório. Os arquivos README geralmente incluem informações sobre:
+- O que o projeto faz
+- Por que o projeto é útil
+- Como os usuários podem começar a usar o projeto
+- Onde os usuários podem obter ajuda com seu projeto
+- Quem mantém e contribui com o projeto
 
-If you put your README file in your repository's hidden `.github`, root, or `docs` directory, {% data variables.product.product_name %} will recognize and automatically surface your README to repository visitors.
+Se você colocar o arquivo LEIAME no `.github` oculto do seu repositório, na raiz ou no diretório `docs`, o {% data variables.product.product_name %} reconhecerá e exibirá automaticamente o LEIAME para os visitantes do repositório.
 
-If a repository contains more than one README file, then the file shown is chosen from locations in the following order: the `.github` directory, then the repository's root directory, and finally the `docs` directory.
+Se um repositório contiver mais de um arquivo README, o arquivo mostrado nos links será escolhido nos locais na seguinte ordem: o diretório `.github`, o diretório raiz do repositório e, por fim, o diretório `docs`.
 
-![Main page of the github/scientist repository and its README file](/assets/images/help/repository/repo-with-readme.png)
+![Página principal do repositório github/scientist e seu arquivo README](/assets/images/help/repository/repo-with-readme.png)
 
 {% ifversion fpt or ghes or ghec %}
 
@@ -40,30 +46,28 @@ If a repository contains more than one README file, then the file shown is chose
 
 {% endif %}
 
-![README file on your username/username repository](/assets/images/help/repository/username-repo-with-readme.png)
+![Arquivo README no nome de usuário/repositório do nome de usuário](/assets/images/help/repository/username-repo-with-readme.png)
 
-## Auto-generated table of contents for README files
+## Índice gerado automaticamente para arquivos README
 
-For the rendered view of any Markdown file in a repository, including README files, {% data variables.product.product_name %} will automatically generate a table of contents based on section headings. You can view the table of contents for a README file by clicking the {% octicon "list-unordered" aria-label="The unordered list icon" %}  menu icon at the top left of the rendered page.
+Para a visualização interpretada de qualquer arquivo Markdown em um repositório, incluindo arquivos README {% data variables.product.product_name %} irá gerar automaticamente um índice com base nos títulos da seção. Você pode visualizar o índice para um arquivo LEIAME, clicando no ícone de menu {% octicon "list-unordered" aria-label="The unordered list icon" %} no canto superior esquerdo da página interpretada.
 
-![README with automatically generated TOC](/assets/images/help/repository/readme-automatic-toc.png)
+![README com TOC gerado automaticamente](/assets/images/help/repository/readme-automatic-toc.png)
 
-## Section links in README files and blob pages
+## Links de seção nos arquivos README e páginas blob
 
 {% data reusables.repositories.section-links %}
 
-## Relative links and image paths in README files
+## Links relativos e caminhos de imagem em arquivos README
 
 {% data reusables.repositories.relative-links %}
 
 ## Wikis
 
-A README should contain only the necessary information for developers to get started using and contributing to your project. Longer documentation is best suited for wikis. For more information, see "[About wikis](/communities/documenting-your-project-with-wikis/about-wikis)."
+Um README deve conter apenas as informações necessárias para desenvolvedores começarem a usar e a contribuir para o seu projeto. A documentação mais longa é mais adequada para wikis. Para obter mais informações, confira "[Sobre os wikis](/communities/documenting-your-project-with-wikis/about-wikis)".
 
-## Further reading
+## Leitura adicional
 
-- "[Adding a file to a repository](/articles/adding-a-file-to-a-repository)"
-- 18F's "[Making READMEs readable](https://github.com/18F/open-source-guide/blob/18f-pages/pages/making-readmes-readable.md)"
-{%- ifversion fpt or ghec %} 
-- "[Adding an 'Open in GitHub Codespaces' badge](/codespaces/setting-up-your-project-for-codespaces/adding-a-codespaces-badge)"
-{%- endif %}   
+- "[Como adicionar um arquivo a um repositório](/articles/adding-a-file-to-a-repository)"
+- "[Como tornar os READMEs legíveis](https://github.com/18F/open-source-guide/blob/18f-pages/pages/making-readmes-readable.md)" {%- ifversion fpt or ghec %} da 18F 
+- "[Como adicionar uma notificação 'Abrir no GitHub Codespaces'](/codespaces/setting-up-your-project-for-codespaces/adding-a-codespaces-badge)" {%- endif %}   

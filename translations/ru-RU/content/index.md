@@ -142,7 +142,7 @@ externalProducts:
   electron:
     id: electron
     name: Electron
-    href: 'https://electronjs.org/docs'
+    href: 'https://electronjs.org/docs/latest'
     external: true
   codeql:
     id: codeql
@@ -154,11 +154,11 @@ externalProducts:
     name: npm
     href: 'https://docs.npmjs.com/'
     external: true
-ms.openlocfilehash: c76f5cd822d9b7bed7129626283552892366b57a
-ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.openlocfilehash: e72ace58cb674661cbde635f97cf7ff0ab70433a
+ms.sourcegitcommit: 7a74d5796695bb21c30e4031679253cbc16ceaea
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/09/2022
-ms.locfileid: '148158872'
+ms.lasthandoff: 11/28/2022
+ms.locfileid: '148183975'
 ---
 

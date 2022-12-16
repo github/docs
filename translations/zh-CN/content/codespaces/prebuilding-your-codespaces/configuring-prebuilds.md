@@ -1,7 +1,7 @@
 ---
-title: Configuring prebuilds
+title: 配置预生成
 shortTitle: Configure prebuilds
-intro: You can configure your project to prebuild a codespace automatically each time you push a change to your repository.
+intro: 可以配置项目，使其在你每次将更改推送到存储库时自动预生成 codespace。
 versions:
   fpt: '*'
   ghec: '*'
@@ -10,106 +10,111 @@ topics:
   - Codespaces
   - Set up
 permissions: People with admin access to a repository can configure prebuilds for the repository.
+ms.openlocfilehash: dbb355e150695f27d1d6a7fa51eccc33a0ebde4f
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148159115'
 ---
+可以为存储库的特定分支与特定开发容器配置文件的组合设置预生成配置。
 
-You can set up a prebuild configuration for the combination of a specific branch of your repository with a specific dev container configuration file.
+从启用预生成的父分支创建的所有分支通常也会获得同一开发容器配置的预生成。 这是因为使用父分支所用开发容器配置的子分支的预生成在大多数情况下是相同的，因此可以帮助开发人员从这些分支更快地创建 codespace。 有关详细信息，请参阅“[开发容器简介](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers)”。
 
-Any branches created from a prebuild-enabled parent branch will typically also get prebuilds for the same dev container configuration. This is because prebuilds for child branches that use the same dev container configuration as the parent branch are, for the most part, identical, so developers can benefit from faster codespace creation times on those branches also. For more information, see "[Introduction to dev containers](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers)."
+通常，如果为分支配置预生成，预生成可用于多种计算机类型。 但是，如果存储库大于 32 GB，预生成就不适用于 2 核和 4 核计算机类型，因为这些计算机类型提供的存储限制为 32 GB。
 
-Typically, when you configure prebuilds for a branch, prebuilds will be available for multiple machine types. However, if your repository is greater than 32 GB, prebuilds won't be available for 2-core and 4-core machine types, since the storage these provide is limited to 32 GB.
+## 先决条件 
 
-## Prerequisites 
+预生成是使用 {% data variables.product.prodname_actions %} 创建的。 因此，必须在要为其配置预生成的存储库中启用 {% data variables.product.prodname_actions %}。 有关详细信息，请参阅“[管理存储库的 {% data variables.product.prodname_actions %} 设置](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository)”。
 
-Prebuilds are created using {% data variables.product.prodname_actions %}. As a result, {% data variables.product.prodname_actions %} must be enabled for the repository for which you are configuring prebuilds. For more information, see "[Managing {% data variables.product.prodname_actions %} settings for a repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository)."
-
-## Configuring prebuilds
+## 配置预生成
 
 {% data reusables.codespaces.accessing-prebuild-configuration %}
-1. In the "Prebuild configuration" section of the page, click **Set up prebuild**.
+1. 在页面的“预生成配置”部分，单击“设置预生成”。
 
-   ![The 'Set up prebuilds' button](/assets/images/help/codespaces/prebuilds-set-up.png)
+   ![“设置预生成”按钮](/assets/images/help/codespaces/prebuilds-set-up.png)
 
-1. Choose the branch for which you want to set up prebuilds.
+1. 选择要为其设置预生成的分支。
 
-   ![The branch dropdown menu](/assets/images/help/codespaces/prebuilds-choose-branch.png)
+   ![分支下拉菜单](/assets/images/help/codespaces/prebuilds-choose-branch.png)
 
    {% note %} 
 
-   **Note**: Any branches created from a prebuild-enabled base branch will typically also get prebuilds for the same dev container configuration. For example, if you enable prebuilds for a dev container configuration file on the default branch of the repository, branches based on the default branch will, in most cases, also get prebuilds for the same dev container configuration.
+   **注意**：从启用预生成的基础映像分支创建的所有分支通常也会获得同一开发容器配置的预生成。 例如，如果在存储库的默认分支上为开发容器配置文件启用预生成，则大多数情况下，基于默认分支的分支也会获得同一开发容器配置的预生成。
 
    {% endnote %}
 
-1. Optionally, in the **Configuration file** dropdown menu that's displayed, choose the `devcontainer.json` configuration file that you want to use for your prebuilds. For more information, see "[Introduction to dev containers](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers#devcontainerjson)."
+1. 根据需要，可以在显示的“配置文件”下拉菜单中选择要用于预生成的 `devcontainer.json` 配置文件。 有关详细信息，请参阅“[开发容器简介](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers#devcontainerjson)”。
 
-   ![The configuration file dropdown menu](/assets/images/help/codespaces/prebuilds-choose-configfile.png)
+   ![配置文件下拉菜单](/assets/images/help/codespaces/prebuilds-choose-configfile.png)
 
-1. Choose how you want to automatically trigger prebuild updates.
+1. 选择要如何自动触发预生成更新。
 
-   * **Every push** (the default setting) - With this setting, prebuilds will be updated on every push made to the given branch. This will ensure that codespaces generated from a prebuild always contain the latest codespace configuration, including any recently added or updated dependencies.
-   * **On configuration change** - With this setting, prebuilds will be updated every time associated configuration files for a given repo and branch are updated. This ensures that changes to the dev container configuration files for the repository are used when a codespace is generated from a prebuild. The {% data variables.product.prodname_actions %} workflow that updates the prebuilds will run less often, so this option will use fewer {% data variables.product.prodname_actions %} minutes. However, this option will not guarantee that codespaces always include recently added or updated dependencies, so these may have to be added or updated manually after a codespace has been created.
-   * **Scheduled** - With this setting, you can have your prebuilds updated on a custom schedule that's defined by you. This can reduce consumption of {% data variables.product.prodname_actions %} minutes, however, with this option, codespaces may be created that do not use the latest dev container configuration changes.
+   * 每次推送（默认设置）- 通过此设置，预生成将在每次对给定分支进行推送时更新。 这可确保从预生成生成的 codespace 始终包含最新的 codespace 配置，包括任何最近添加或更新的依赖项。
+   * 配置更改时 - 使用此设置时，每次更新给定存储库和分支的相关配置文件时，都会更新预生成。 这可确保在从预生成生成 codespace 时使用对存储库的开发容器配置文件进行的更改。 更新预生成的 {% data variables.product.prodname_actions %} 工作流的运行频率较低，因此此选项使用的 {% data variables.product.prodname_actions %} 分钟数较少。 但是，此选项不保证 codespace 始终包含最近添加或更新的依赖项，因此在创建 codespace 后可能需要手动添加或更新这些依赖项。
+   * 计划 - 使用此设置，可以根据你定义的自定义计划更新预生成。 这可以减少 {% data variables.product.prodname_actions %} 分钟数消耗，但是，使用此选项，可以创建 codespace，而不使用最新的开发容器配置更改。
 
-   ![The prebuild trigger options](/assets/images/help/codespaces/prebuilds-triggers.png)
+   ![预生成触发器选项](/assets/images/help/codespaces/prebuilds-triggers.png)
 
-1. Optionally, select **Reduce prebuild available to only specific regions** to create prebuilds only in specified regions. Select the regions in which you want prebuilds to be available.
+1. 根据需要，可以选择“减少仅对特定区域可用的预生成”，以便仅在指定区域中创建预生成。 选择要在其中提供预生成的区域。
 
-   By default, prebuilds are created in all of the available regions, incurring storage charges per prebuild.
+   默认情况下，预生成在所有可用区域中创建，每个预生成都会产生存储费用。
 
-   ![The region selection options](/assets/images/help/codespaces/prebuilds-regions.png)
+   ![区域选择选项](/assets/images/help/codespaces/prebuilds-regions.png)
 
    {% note %}
 
-   **Notes**: 
-   * The prebuild in each region incurs individual storage charges. You should, therefore, only enable prebuilds for regions in which you know they'll be used. For more information, see "[About billing for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#billing-for-codespaces-prebuilds)."
-   * Developers can set their default region for {% data variables.product.prodname_github_codespaces %}, which can allow you to enable prebuilds for fewer regions. For more information, see "[Setting your default region for {% data variables.product.prodname_github_codespaces %}](/codespaces/customizing-your-codespace/setting-your-default-region-for-github-codespaces)."
+   **注释**： 
+   * 每个区域的预生成会产生单独的存储费用。 因此，应只为已知将使用的区域启用预生成。 有关详细信息，请参阅“[关于 {% data variables.product.prodname_github_codespaces %} 的计费](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#billing-for-codespaces-prebuilds)”。
+   * 开发人员可以为 {% data variables.product.prodname_github_codespaces %} 设置其默认区域，这样就可以减少要启用预生成的区域。 有关详细信息，请参阅“[为 {% data variables.product.prodname_github_codespaces %} 设置默认区域](/codespaces/customizing-your-codespace/setting-your-default-region-for-github-codespaces)”。
 
    {% endnote %}
 
-1. Optionally, under **Template history**, set the number of prebuild versions to be retained. You can input any number between 1 and 5. The default number of saved versions is 2, which means that only the latest prebuild and the previous version are saved.
+1. 根据需要，可以在“模板历史记录”下设置要保留的预生成模板版本数。 可以输入介于 1 和 5 之间的任意数字。 默认保存的版本数为 2，这意味着只保存最新版本的和上一个版本的预生成。
 
-   ![The prebuild history setting](/assets/images/help/codespaces/prebuilds-template-history-setting.png)
+   ![预生成历史记录设置](/assets/images/help/codespaces/prebuilds-template-history-setting.png)
 
-   Depending on your prebuild trigger settings, your prebuild could change with each push or on each dev container configuration change. Retaining older versions of prebuilds enables you to create a prebuild from an older commit with a different dev container configuration than the current prebuild. This setting allows you to set the number of retained versions to a level that is appropriate for your needs. 
+   根据预生成触发器设置，预生成可能会随每个推送或每个开发容器配置的更改而更改。 保留较旧版本的预生成使你能够使用与当前预生成不同的开发容器配置从较旧的提交创建预生成。 通过此设置可将保留的版本数设置为所需的级别。 
 
-   If you set the number of prebuild versions to save to 1, {% data variables.product.prodname_github_codespaces %} will only save the latest version of the prebuild and will delete the older version each time the template is updated. This means you will not get a prebuilt codespace if you go back to an older dev container configuration.
+   如果将保存的预生成版本数设置为 1，{% data variables.product.prodname_github_codespaces %} 将仅保存最新版本的预生成，并在每次模板更新时删除旧版本。 这意味着，如果返回到较旧的开发容器配置，则不会获取预生成的 codespace。
    
-   There is a storage cost associated with each prebuild version that's retained. For example, if you are generating prebuilds in 4 regions and retaining 2 versions, you will be charged for storage of up to 8 prebuilds. For more information on billing, see "[About billing for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#codespaces-pricing)."
+   保留的每个预生成版本都需支付存储费用。 例如，如果要在 4 个区域中生成预生成并保留 2 个版本，则最多需要支付 8 个预生成的存储费用。 有关计费的详细信息，请参阅“[关于 {% data variables.product.prodname_github_codespaces %} 的计费](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#codespaces-pricing)”。
 
-1. Optionally, add users or teams to notify when the prebuild workflow run fails for this configuration. You can begin typing a username, team name, or full name, then click the name once it appears to add them to the list. The users or teams you add will receive an email when prebuild failures occur, containing a link to the workflow run logs to help with further investigation.
+1. 根据需要，可以添加用户或团队，以便在此配置的预生成工作流运行失败时发出通知。 可以开始键入用户名、团队名称或全名，然后在显示名称后单击该名称以将其添加到列表中。 发生预生成失败时，添加的用户或团队将收到电子邮件，其中包含工作流运行日志链接，以帮助进一步调查。
 
-   ![The prebuild failure notification setting](/assets/images/help/codespaces/prebuilds-failure-notification-setting.png)
+   ![预生成失败通知设置](/assets/images/help/codespaces/prebuilds-failure-notification-setting.png)
 
-1. Optionally, at the bottom of the page, click **Show advanced options**.
+1. 根据需要，单击页面底部的“显示高级选项”。
 
-   ![Screenshot of the prebuild configuration page, with "Show advanced options" highlighted](/assets/images/help/codespaces/show-advanced-options.png)
+   ![预生成配置页的屏幕截图，其中突出显示了“显示高级选项”](/assets/images/help/codespaces/show-advanced-options.png)
 
-   In the "Advanced options" section, if you select **Disable prebuild optimization**, codespaces will be created without a prebuild if the latest prebuild workflow has failed or is currently running. For more information, see "[Troubleshooting prebuilds](/codespaces/troubleshooting/troubleshooting-prebuilds#preventing-out-of-date-prebuilds-being-used)."
+   在“高级选项”部分中，如果选择“禁用预生成优化”，则当最新的预生成工作流失败或当前正在运行时，将在没有预生成的情况下创建 codespace。 有关详细信息，请参阅“[预生成故障排除](/codespaces/troubleshooting/troubleshooting-prebuilds#preventing-out-of-date-prebuilds-being-used)”。
 
-1. Click **Create**.
+1. 单击“创建”。
 
    {% data reusables.codespaces.prebuilds-permission-authorization %}
 
-After you create a prebuild configuration it is listed on the {% data variables.product.prodname_github_codespaces %} page of your repository settings. A {% data variables.product.prodname_actions %} workflow is queued and then run to create prebuilds in the regions you specified, based on the branch and dev container configuration file you selected. 
+创建预生成配置后，它会列在存储库设置的 {% data variables.product.prodname_github_codespaces %} 页面中。 {% data variables.product.prodname_actions %} 工作流已排队，然后会运行，从而根据所选分支和开发容器配置文件在指定的区域中创建预生成。 
 
-![Screenshot of the list of prebuild configurations](/assets/images/help/codespaces/prebuild-configs-list.png)
+![预生成配置列表的屏幕截图](/assets/images/help/codespaces/prebuild-configs-list.png)
 
-For information about editing and deleting prebuild configurations, see "[Managing prebuilds](/codespaces/prebuilding-your-codespaces/managing-prebuilds)."
+有关编辑和删除预生成配置的信息，请参阅“[管理预生成](/codespaces/prebuilding-your-codespaces/managing-prebuilds)”。
 
-## Configuring environment variables
+## 配置环境变量
 
-To allow the prebuild process to access environment variables required to create your development environment, you can set these either as {% data variables.product.prodname_codespaces %} repository secrets or as {% data variables.product.prodname_codespaces %} organization secrets. For more information, see "[Adding secrets for a repository](/codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-github-codespaces#adding-secrets-for-a-repository)" and "[Adding secrets for an organization](/codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-github-codespaces#adding-secrets-for-an-organization)." 
+若要让预生成过程能够访问创建开发环境所需的环境变量，可将这些变量设置为 {% data variables.product.prodname_codespaces %} 存储库机密或为 {% data variables.product.prodname_codespaces %} 组织机密。 有关详细信息，请参阅“[为存储库添加机密](/codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-github-codespaces#adding-secrets-for-a-repository)”和“[为组织添加机密](/codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-github-codespaces#adding-secrets-for-an-organization)”。 
 
-Secrets that you create in this way will be accessible by anyone who creates a codespace from this repository. If you do not want this, you can alternatively set the `CODESPACES_PREBUILD_TOKEN` secret. The `CODESPACES_PREBUILD_TOKEN` secret is only used for prebuilding and its value is not accessible in users' codespaces. 
+以这种方式创建的机密将由从该存储库创建 codespace 的任何人访问。 如果不希望这样，也可以设置 `CODESPACES_PREBUILD_TOKEN` 机密。 `CODESPACES_PREBUILD_TOKEN` 机密仅用于预生成，并且无法在用户的 codespace 中访问其值。 
 
-Prebuilds cannot use any user-level secrets while building your environment, because these are not available until after the codespace has been created.
+预生成在生成环境时不会使用任何用户级机密，因为这些机密在创建 codespace 后才会可用。
 
-## Configuring time-consuming tasks to be included in the prebuild
+## 配置预生成中包含的耗时任务
 
-You can use the `onCreateCommand` and `updateContentCommand` commands in your `devcontainer.json` to include time-consuming processes as part of the prebuild creation. For more information, see the {% data variables.product.prodname_vscode %} documentation, "[devcontainer.json reference](https://code.visualstudio.com/docs/remote/devcontainerjson-reference#_lifecycle-scripts)."
+可以在 `devcontainer.json` 中使用 `onCreateCommand` 和 `updateContentCommand` 命令，以将耗时过程作为预生成创建的一部分。 有关详细信息，请参阅 {% data variables.product.prodname_vscode %} 文档“[devcontainer.json 参考](https://code.visualstudio.com/docs/remote/devcontainerjson-reference#_lifecycle-scripts)”。
 
-`onCreateCommand` is run only once, when the prebuild is created, whereas `updateContentCommand` is run at creation of the prebuild and at subsequent updates to it. Incremental builds should be included in `updateContentCommand` since they represent the source of your project and need to be included for every prebuild update.
+`onCreateCommand` 只在创建预生成时运行一次，而 `updateContentCommand` 在预生成创建和预生成后续更新时运行。 增量生成应包含在 `updateContentCommand` 中，因为它们代表项目的源，并且需要包含在每次预生成更新中。
 
-## Further reading
+## 延伸阅读
 
-- "[Allowing a prebuild to access other repositories](/codespaces/prebuilding-your-codespaces/allowing-a-prebuild-to-access-other-repositories)"
-- "[Troubleshooting prebuilds](/codespaces/troubleshooting/troubleshooting-prebuilds)"
+- “[允许预生成访问其他存储库](/codespaces/prebuilding-your-codespaces/allowing-a-prebuild-to-access-other-repositories)”
+- [对预生成进行故障排除](/codespaces/troubleshooting/troubleshooting-prebuilds)

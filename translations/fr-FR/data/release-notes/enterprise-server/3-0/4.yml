@@ -1,0 +1,27 @@
+date: '01-04-2021'
+intro: "Les exigences minimales d’infrastructure ont augmenté pour {% data variables.product.prodname_ghe_server %} 3.0+. Pour plus d’informations, consultez « [À propos des exigences minimales pour GitHub Enterprise Server 3.0 et versions ultérieures](/admin/enterprise-management/upgrading-github-enterprise-server#about-minimum-requirements-for-github-enterprise-server-30-and-later) »."
+sections:
+  security_fixes:
+    - "**ÉLEVÉE :** Une vulnérabilité de contrôle d’accès inapproprié a été identifiée dans GitHub Enterprise Server. Elle permettait à des jetons d’accès générés à partir d’un [flux d’authentification web] de GitHub App(https://docs.github.com/en/developers/apps/identifying-and-authorizing-users-for-github-apps#web-application-flow) de lire des métadonnées de dépôt privé via l’API REST sans que les autorisations appropriées aient été accordées. Pour exploiter cette vulnérabilité, un attaquant doit créer une application GitHub sur l’instance et faire en sorte qu’un utilisateur autorise l’application par le biais du flux d’authentification web. Les métadonnées de dépôt privé retournées seraient limitées aux dépôts privés appartenant à l’utilisateur que le jeton identifie. Cette vulnérabilité affectait toutes les versions de GitHub Enterprise Server antérieures à la version 3.0.4 et a été corrigée dans les versions 3.0.4, 2.22.10 et 2.21.18. Cette vulnérabilité s’est vu affecter le numéro CVE-2021-22865 et a été signalée via le [programme GitHub Bug Bounty](https://bounty.github.com)."
+    - Les packages ont été mis à jour avec les dernières versions de sécurité.
+  bugs:
+    - "Quand le mode maintenance était activé, certains services continuaient d’être listés en tant que « processus actifs », bien qu’ils étaient censés être en cours d’exécution et qu’ils n’auraient pas dû être listés."
+    - "Après une mise à niveau de la version 2.22.x vers la version 3.0.x avec GitHub Actions activé, la version de l’exécuteur auto-hébergé n’était pas mise à jour et aucune mise à jour auto-hébergée n’était effectuée."
+    - "L’ancienne version de GitHub Pages n’était pas nettoyée, ce qui entraîne une utilisation accrue du disque."
+    - '« memcached » n’était pas en cours d’exécution sur les réplicas actifs.'
+    - La mise à niveau échouait lors de la mise à jour d’autorisations de fichier quand GitHub Actions était activé.
+    - Un fuseau horaire défini sur GitHub Enterprise 11.10.x ou une version antérieure n’était pas utilisé par certains services qui utilisaient par défaut l’heure UTC.
+    - "Les services n’effectuaient pas la transition vers de nouveaux fichiers journaux dans le cadre de la rotation des journaux, ce qui entraînait une utilisation accrue du disque."
+    - L’utilitaire en ligne de commande « ghe-saml-mapping-csv » générait un message d’avertissement.
+    - L’étiquette des résultats de la recherche pour les dépôts internes indiquait « Privé » au lieu de « Interne ».
+  known_issues:
+    - "Sur une instance GitHub Enterprise Server fraîchement configurée et sans utilisateur, un attaquant peut créer le premier utilisateur administrateur."
+    - Les règles de pare-feu personnalisées ne sont pas conservées lors d’une mise à niveau.
+    - "Les fichiers suivis par Git LFS [chargés via l’interface web](https://github.com/blog/2105-upload-files-to-your-repositories) sont, à tort, ajoutés directement au dépôt."
+    - "Les problèmes ne peuvent pas être fermés s’ils contiennent un lien permanent vers un objet blob se trouvant dans le même dépôt, où le chemin de fichier dépasse 255 caractères."
+    - "Quand l’option « Les utilisateurs peuvent effectuer des recherches sur GitHub.com » est activée avec GitHub Connect, les problèmes dans les dépôts privés et internes ne sont pas inclus dans les résultats de recherche de GitHub.com."
+    - Le rendu de Jupyter Notebook dans l’interface utilisateur web peut échouer si le notebook comprend des caractères UTF-8 non-ASCII.
+    - Le rendu de reStructuredText (RST) dans l’interface utilisateur web peut échouer et afficher du texte de balisage RST brut à la place.
+    - "Lors de la suppression d’une branche après la fusion d’une demande de tirage (pull request), un message d’erreur s’affiche même en cas de réussite de la suppression."
+    - "Quand un nœud de réplica est hors connexion dans une configuration de haute disponibilité, {% data variables.product.product_name %} peut toujours router les requêtes de {% data variables.product.prodname_pages %} vers le nœud hors connexion, réduisant ainsi la disponibilité de {% data variables.product.prodname_pages %} pour les utilisateurs."
+    - Les limites de ressources propres au traitement des hooks de pré-réception peuvent entraîner l’échec de certains d’entre eux.

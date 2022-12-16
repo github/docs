@@ -1,7 +1,7 @@
 ---
-title: Migrating from SAML to OIDC
+title: Миграция с SAML на OIDC
 shortTitle: Migrating from SAML to OIDC
-intro: 'If you''re using SAML to authenticate members in your {% data variables.enterprise.prodname_emu_enterprise %}, you can migrate to OpenID Connect (OIDC) and benefit from support for your IdP''s Conditional Access Policy.'
+intro: 'Если вы используете SAML для проверки подлинности участников в {% data variables.enterprise.prodname_emu_enterprise %}, вы можете перейти на OpenID Connect (OIDC) и воспользоваться поддержкой политики условного доступа поставщика удостоверений.'
 product: '{% data reusables.gated-features.emus %}'
 versions:
   feature: oidc-for-emu
@@ -10,50 +10,53 @@ topics:
   - Authentication
   - Enterprise
   - SSO
+ms.openlocfilehash: 36c93c94bfda1d0ebc951b0a8325691afa0199bb
+ms.sourcegitcommit: c562c85cc75ffe1eb4e9595d8adc09ec71697ab1
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 11/22/2022
+ms.locfileid: '148180048'
 ---
+{% data reusables.enterprise-accounts.azure-emu-support-oidc %}
 
-{% data reusables.enterprise-accounts.oidc-beta-notice %}
+## Сведения о переносе {% data variables.enterprise.prodname_emu_enterprise %} с SAML на OIDC
 
-## About migrating your {% data variables.enterprise.prodname_emu_enterprise %} from SAML to OIDC
+Если {% data variables.enterprise.prodname_emu_enterprise %} использует единый вход SAML для проверки подлинности в Azure Active Directory (Azure AD), вы можете перейти на OIDC. {% data reusables.enterprise-accounts.emu-cap-validates %}
 
-If your {% data variables.enterprise.prodname_emu_enterprise %} uses SAML SSO to authenticate with Azure Active Directory (Azure AD), you can migrate to OIDC. {% data reusables.enterprise-accounts.emu-cap-validates %}
+При миграции с SAML на OIDC к отображаемым именам к {% data variables.enterprise.prodname_managed_users %} и группам, которые ранее были подготовлены для SAML, но не подготовлены приложением {% data variables.product.prodname_emu_idp_oidc_application %}, будут добавлены "(SAML)".
 
-When you migrate from SAML to OIDC, {% data variables.enterprise.prodname_managed_users %} and groups that were previously provisioned for SAML but are not provisioned by the {% data variables.product.prodname_emu_idp_oidc_application %} application will have "(SAML)" appended to their display names.
+Если вы не знакомы с {% data variables.product.prodname_emus %} и еще не настроили проверку подлинности для вашего предприятия, вам не нужно немедленно выполнять миграцию и настраивать единый вход OIDC. Дополнительные сведения см. в статье [Настройка OIDC для управляемых пользователей GitHub Enterprise](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-oidc-for-enterprise-managed-users).
 
-If you're new to {% data variables.product.prodname_emus %} and haven't yet configured authentication for your enterprise, you do not need to migrate and can set up OIDC single sign-on immediately. For more information, see "[Configuring OIDC for Enterprise Managed Users](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-oidc-for-enterprise-managed-users)."
-
-## Migrating your enterprise
+## Миграция предприятия
 
 {% note %}
 
-**Note:** To sign in as the setup user, you will need a recovery code. If you do not already have your recovery codes, you can access the codes while signed in as an enterprise owner. For more information, see "[Downloading your enterprise account's single sign-on recovery codes](/admin/identity-and-access-management/managing-recovery-codes-for-your-enterprise/downloading-your-enterprise-accounts-single-sign-on-recovery-codes)."
+**Примечание.** Чтобы войти в систему от имени пользователя программы установки, вам потребуется код восстановления. Если у вас еще нет кодов восстановления, вы можете получить доступ к ним при входе в качестве владельца предприятия. Дополнительные сведения см. в статье [Скачивание кодов восстановления единого входа для корпоративной учетной записи](/admin/identity-and-access-management/managing-recovery-codes-for-your-enterprise/downloading-your-enterprise-accounts-single-sign-on-recovery-codes).
 
 {% endnote %}
 
-1. Before you begin the migration, sign in to Azure and disable provisioning in the existing {% data variables.product.prodname_emu_idp_application %} application.
-1. If you use [Conditional Access (CA) network location policies](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/location-condition) in Azure AD, and you're currently using an IP allow list with your enterprise account or any of the organizations owned by the enterprise account on {% data variables.product.prodname_dotcom_the_website %}, disable the IP allow lists. For more information, see "[Enforcing security settings in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#managing-allowed-ip-addresses-for-organizations-in-your-enterprise)" and "[Managing allowed IP addresses for your organization](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-allowed-ip-addresses-for-your-organization)."
-1.  Sign into {% data variables.product.prodname_dotcom_the_website %} as the setup user for your enterprise with the username **@<em>SHORT-CODE</em>_admin**. 
-1. When prompted to continue to your identity provider, click **Use a recovery code** and sign in using one of your enterprise's recovery codes.
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.security-tab %}
-1. At the bottom of the page, next to "Migrate to OpenID Connect single sign-on", click **Configure with Azure**.  
+1. Перед началом миграции войдите в Azure и отключите подготовку в существующем приложении {% data variables.product.prodname_emu_idp_application %}.
+1. Если в клиенте Azure AD применяются [политики условного доступа для расположений в сети](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/location-condition) и вы сейчас используете список разрешенных IP-адресов на {% data variables.product.prodname_dotcom_the_website %} со своей учетной записью предприятия или какими-либо принадлежащими ей организациями, отключите список разрешенных IP-адресов. Дополнительные сведения см. в разделах [Применение параметров безопасности на предприятии](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#managing-allowed-ip-addresses-for-organizations-in-your-enterprise) и [Управление разрешенными IP-адресами для организации](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-allowed-ip-addresses-for-your-organization).
+1.  Войдите в {% data variables.product.prodname_dotcom_the_website %} в качестве пользователя программы установки для предприятия с именем пользователя **@<em>SHORT-CODE</em>_admin**. 
+1. Когда появится запрос на переход к поставщику удостоверений, нажмите **Использовать код восстановления** и войдите с помощью одного из кодов восстановления предприятия.
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.settings-tab %} {% data reusables.enterprise-accounts.security-tab %}
+1. В нижней части страницы рядом с пунктом "Миграция на единый вход OpenID Connect" нажмите **Настроить с помощью Azure**.  
    {% warning %} 
 
-   **Warning:** The migration can take up to an hour, and it is important that no users are provisioned during the migration. You can confirm if the migration is still in progress by returning to your enterprise's security settings page; if "Require SAML authentication" is still checked, the migration is still in progress.
+   **Предупреждение.** Миграция может занять до часа, и важно не выполнять подготовку пользователей во время миграции. Вы можете убедиться, что миграция все еще выполняется, вернувшись на страницу параметров безопасности предприятия. Если флажок "Требовать проверку подлинности SAML" по-прежнему установлен, миграция еще выполняется.
 
    {% endwarning %}
 
-   ![Screenshot showing the "Configure with Azure" button](/assets/images/help/enterprises/saml-to-oidc-button.png)
-1. Read both warnings and click to continue.
+   ![Снимок экрана: кнопка "Настроить с помощью Azure"](/assets/images/help/enterprises/saml-to-oidc-button.png)
+1. Прочтите оба предупреждения и щелкните, чтобы продолжить.
 {% data reusables.enterprise-accounts.emu-azure-admin-consent %}
-1. In a new tab or window, while signed in as the setup user on {% data variables.product.prodname_dotcom_the_website %}, create a {% data variables.product.pat_v1 %} with the **admin:enterprise** scope and **no expiration** and copy it to your clipboard. For more information about creating a new token, see "[Creating a {% data variables.product.pat_generic %}](/github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/configuring-scim-provisioning-for-enterprise-managed-users#creating-a-personal-access-token)."
-1. In the settings for the {% data variables.product.prodname_emu_idp_oidc_application %} application in Azure Portal, under "Tenant URL", type `https://api.github.com/scim/v2/enterprises/YOUR_ENTERPRISE`, replacing YOUR_ENTERPRISE with the name of your enterprise account.  
+1. В новой вкладке или окне, выполнив вход в качестве пользователя установки в {% data variables.product.prodname_dotcom_the_website %}, создайте {% data variables.product.pat_v1 %} с областью **admin:enterprise** и **не используйте срок действия** и скопируйте его в буфер обмена. Дополнительные сведения о создании маркера см. в разделе [Создание {% data variables.product.pat_generic %}](/github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/configuring-scim-provisioning-for-enterprise-managed-users#creating-a-personal-access-token).
+1. В параметрах приложения {% data variables.product.prodname_emu_idp_oidc_application %} на портале Azure в разделе "URL-адрес клиента" введите `https://api.github.com/scim/v2/enterprises/YOUR_ENTERPRISE`, заменив ВАШЕ_ПРЕДПРИЯТИЕ именем вашей корпоративной учетной записи.  
    
-   For example, if your enterprise account's URL is `https://github.com/enterprises/octo-corp`, the name of the enterprise account is `octo-corp`.
-1. Under "Secret token", paste the {% data variables.product.pat_v1 %} with the **admin:enterprise** scope that you created earlier.
-1. To test the configuration, click **Test Connection**.
-1. To save your changes, at the top of the form, click **Save**.
-1. In Azure Portal, copy the users and groups from the old {% data variables.product.prodname_emu_idp_application %} application to the new {% data variables.product.prodname_emu_idp_oidc_application %} application.
-1. Test your configuration by provisioning a single new user.
-1. If your test is successful, start provisioning for all users by clicking **Start provisioning**.
+   Например, если URL-адрес вашей корпоративной учетной записи — `https://github.com/enterprises/octo-corp`, имя корпоративной учетной записи — `octo-corp`.
+1. В разделе "Секретный токен" вставьте {% data variables.product.pat_v1 %} с областью **admin:enterprise** , созданной ранее.
+1. Чтобы проверить конфигурацию, нажмите **Проверить подключение**.
+1. Чтобы сохранить изменения, в верхней части формы нажмите **Сохранить**.
+1. На портале Azure скопируйте пользователей и группы из старого приложения {% data variables.product.prodname_emu_idp_application %} в новое приложение {% data variables.product.prodname_emu_idp_oidc_application %}.
+1. Проверьте конфигурацию, подготовив одного нового пользователя.
+1. Если тест выполнен успешно, начните подготовку для всех пользователей, нажав **Начать подготовку**.

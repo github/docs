@@ -1,66 +1,40 @@
 ---
-title: Participating in a discussion
-intro: 'You can converse with the community and maintainers in a forum within the repository for a project on {% data variables.product.product_name %}.'
+title: ディスカッションに参加する
+intro: '{% data variables.product.product_name %} のプロジェクトのリポジトリ内のフォーラムで、コミュニティやメンテナと会話することができます。'
 permissions: 'People with read access to a repository can participate in discussions and polls in the repository. People with read access to the source repository for organization discussions can participate in discussions and polls in that organization. {% data reusables.enterprise-accounts.emu-permission-interact %}'
 versions:
   feature: discussions
 shortTitle: Participate in discussion
+ms.openlocfilehash: 07db8d3583c218e592ca1b68171292e52fcfc12f
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147410236'
 ---
+## ディスカッションへの参加について
 
+{% data reusables.discussions.about-discussions %} 詳細については、「[ディスカッションについて](/discussions/collaborating-with-your-community-using-discussions/about-discussions)」を参照してください。
 
-## About participation in a discussion
+ディスカッションおよびポーリングの開始または表示に加えて、ディスカッションの作者のコメントに対してコメントすることができます。 また、ディスカッション内で別のコミュニティメンバーが行った個々のコメントに返信してコメントスレッドを作成し、絵文字でコメントにリアクションすることもできます。
 
-{% data reusables.discussions.about-discussions %} For more information, see "[About discussions](/discussions/collaborating-with-your-community-using-discussions/about-discussions)."
+{% ifversion fpt or ghec %}{% data variables.product.product_name %} で、ユーザーをブロックし、破壊的なコンテンツを報告して、安全で快適な環境を維持できます。 詳しくは、「[{% data variables.product.prodname_dotcom %} での安全性を維持する](/communities/maintaining-your-safety-on-github)」をご覧ください。{% endif %}
 
-In addition to starting or viewing discussions and polls, you can:
+## 前提条件
 
-- Comment in response to the original comment from the author of the discussion
-- Create a comment thread by replying to an individual comment that another community member made within the discussion
-- React to comments with emoji
-- Upvote discussions and top-level comments to give them more visibility
+リポジトリまたは組織のディスカッションに参加するには、そのリポジトリまたは組織に対して {% data variables.product.prodname_discussions %} を有効にする必要があります。 詳細については、「[リポジトリの {% data variables.product.prodname_discussions %} の有効化または無効化](/github/administering-a-repository/enabling-or-disabling-github-discussions-for-a-repository)」および「[組織の GitHub ディスカッションの有効化または無効化](/organizations/managing-organization-settings/enabling-or-disabling-github-discussions-for-an-organization)」を参照してください。
 
-{% ifversion fpt or ghec %}You can block users and report disruptive content to maintain a safe and pleasant environment for yourself on {% data variables.product.product_name %}. For more information, see "[Maintaining your safety on {% data variables.product.prodname_dotcom %}](/communities/maintaining-your-safety-on-github)."{% endif %}
-
-## Prerequisites
-
-{% data variables.product.prodname_discussions %} must be enabled for the repository or organization for you to participate in a discussion in the repository or organization. For more information, see "[Enabling or disabling {% data variables.product.prodname_discussions %} for a repository](/github/administering-a-repository/enabling-or-disabling-github-discussions-for-a-repository)" and "[Enabling or disabling GitHub Discussions for an organization](/organizations/managing-organization-settings/enabling-or-disabling-github-discussions-for-an-organization)."
-
-## Creating a discussion
+## ディスカッションを作成する
 
 {% data reusables.discussions.starting-a-discussion %}
 
-## Creating a poll
+## ポーリングの作成
 
 {% data reusables.discussions.starting-a-poll %}
 
-## Marking a comment as an answer
+## コメントを回答としてマークする
 
-Discussion authors and users with the triage role or greater for a repository can mark a comment as the answer to a discussion in the repository.
-Similarly, discussion authors and users with the triage role or greater for the source repository for organization discussions can mark a comment as the answer to a discussion in the organization.
+リポジトリのトリアージロール以上のディスカッション作者およびユーザは、コメントをリポジトリ内のディスカッションへの回答としてマークできます。
+同様に、ディスカッション作成者と、組織のディスカッションのソース リポジトリのトリアージ ロール以上のユーザーは、コメントを組織内のディスカッションへの回答としてマークできます。
 
 {% data reusables.discussions.marking-a-comment-as-an-answer %}
-
-## Upvoting a discussion
-
-You can upvote discussions to give more visibility to the topics that matter to you, and sort discussions to see which have been upvoted the most. For more information on sorting discussions, see "[Sorting the list of discussions](/discussions/collaborating-with-your-community-using-discussions/collaborating-with-maintainers-using-discussions#sorting-the-list-of-discussions)."
-
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.discussions.discussions-tab %}
-1. In the list of discussions, find the discussion you want to upvote.
-1. To the left of the discussion, click the upvote arrow.
-
-   ![Discussion list and upvote button for upvoting discussions](/assets/images/help/discussions/upvote-discussion-button.png)
-1. Optionally, click the upvote arrow again to remove your upvote.
-
-## Upvoting a comment
-
-You can upvote top-level comments in discussions, and sort top-level comments to see which comments have been upvoted the most. For more information on sorting comments, see "[Sorting top-level comments in discussions](/discussions/collaborating-with-your-community-using-discussions/collaborating-with-maintainers-using-discussions#sorting-top-level-comments-in-discussions)."
-
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.discussions.discussions-tab %}
-{% data reusables.discussions.click-discussion-in-list %}
-1. In the discussion, find a top-level comment you want to upvote. 
-1. Click on the upvote arrow at the bottom left of the comment.
-
-   ![Top-level comment and upvote button for upvoting comments](/assets/images/help/discussions/upvote-comment-button.png)
-1. Optionally, click the upvote arrow again to remove your upvote.

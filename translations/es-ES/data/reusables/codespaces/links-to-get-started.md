@@ -1,9 +1,9 @@
 ---
-ms.openlocfilehash: 6d1607f3c2d1c775f5328d13ff4cb458d82037a0
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.openlocfilehash: b942594848833f5ccdeba0f4f6388e463591eac6
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2022
-ms.locfileid: "148109945"
+ms.lasthandoff: 11/09/2022
+ms.locfileid: "148158953"
 ---
-Para empezar a trabajar con {% data variables.product.prodname_github_codespaces %}, consulta "[Inicio rápido de {% data variables.product.prodname_github_codespaces %}](/codespaces/getting-started/quickstart)". Para obtener más información sobre cómo crear o volver a abrir un codespace, consulta "[Creación de un codespace](/codespaces/developing-in-codespaces/creating-a-codespace)" y "[Apertura de un codespace existente](/codespaces/developing-in-codespaces/opening-an-existing-codespace)". Para obtener más información sobre cómo funciona {% data variables.product.prodname_github_codespaces %}, consulta "[Profundización en {% data variables.product.prodname_github_codespaces %}](/codespaces/getting-started/deep-dive)".
+Para empezar a trabajar con {% data variables.product.prodname_github_codespaces %}, consulta "[Inicio rápido de {% data variables.product.prodname_github_codespaces %}](/codespaces/getting-started/quickstart)". Para obtener más información sobre cómo crear un codespace, consulta "[Creación de un codespace para un repositorio](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository)" o "[Creación de un codespace a partir de una plantilla](/codespaces/developing-in-codespaces/creating-a-codespace-from-a-template)". Si quieres volver a un codespace que has creado, consulta "[Apertura de un codespace existente](/codespaces/developing-in-codespaces/opening-an-existing-codespace)". Para obtener más información sobre cómo funciona {% data variables.product.prodname_github_codespaces %}, consulta "[Profundización en {% data variables.product.prodname_github_codespaces %}](/codespaces/getting-started/deep-dive)".

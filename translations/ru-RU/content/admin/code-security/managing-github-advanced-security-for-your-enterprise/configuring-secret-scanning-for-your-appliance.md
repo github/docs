@@ -1,7 +1,7 @@
 ---
-title: Configuring secret scanning for your appliance
+title: Настройка проверки секретов на ваших устройствах
 shortTitle: Configuring secret scanning
-intro: 'You can enable, configure, and disable {% data variables.product.prodname_secret_scanning %} for {% data variables.location.product_location %}. {% data variables.product.prodname_secret_scanning_caps %} allows users to scan code for accidentally committed secrets.'
+intro: 'Вы можете включить, настроить и отключить {% данных variables.product.prodname_secret_scanning %} для {% данных variables.location.product_location %}. {% data variables.product.prodname_secret_scanning_caps %} позволяет пользователям проверять код на наличие случайно зафиксированных секретов.'
 product: '{% data reusables.gated-features.secret-scanning %}'
 miniTocMaxHeadingLevel: 3
 redirect_from:
@@ -15,59 +15,58 @@ topics:
   - Enterprise
   - Secret scanning
   - Security
+ms.openlocfilehash: 2ab9c158fe3f6724f8a90b490d1359d8bfb4e48d
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148098089'
 ---
-
 {% data reusables.secret-scanning.beta %}
 
-## About {% data variables.product.prodname_secret_scanning %}
+## Сведения о {% data variables.product.prodname_secret_scanning %}
 
-If someone checks a secret with a known pattern into a repository, {% data variables.product.prodname_secret_scanning %} catches the secret as it's checked in, and helps you mitigate the impact of the leak. Repository administrators are notified about any commit that contains a secret, and they can quickly view all detected secrets in the Security tab for the repository. For more information, see "[About {% data variables.product.prodname_secret_scanning %}](/code-security/secret-scanning/about-secret-scanning)."
+Если кто-то возвращает в репозиторий секрет, используя известный шаблон, {% data variables.product.prodname_secret_scanning %} перехватывает секрет в момент возврата и помогает устранить последствия утечки. Администраторы репозитория получают уведомления о любой фиксации, которая содержит секрет. Кроме того, они могут быстро просмотреть все обнаруженные секреты на вкладке "Безопасность" для репозитория. Дополнительные сведения см. в разделе [Сведения о {% data variables.product.prodname_secret_scanning %}](/code-security/secret-scanning/about-secret-scanning).
 
-## Checking whether your license includes {% data variables.product.prodname_GH_advanced_security %}
+## Проверка того, включает ли ваша лицензия {% data variables.product.prodname_GH_advanced_security %}
 
 {% data reusables.advanced-security.check-for-ghas-license %}
 
-## Prerequisites for {% data variables.product.prodname_secret_scanning %}
+## Предварительные требования для {% data variables.product.prodname_secret_scanning %}
 
-- The [SSSE3](https://www.intel.com/content/dam/www/public/us/en/documents/manuals/64-ia-32-architectures-optimization-manual.pdf#G3.1106470) (Supplemental Streaming SIMD Extensions 3) CPU flag needs to be enabled on the VM/KVM that runs {% data variables.location.product_location %}.
+- Флаг ЦП [SSSE3](https://www.intel.com/content/dam/www/public/us/en/documents/manuals/64-ia-32-architectures-optimization-manual.pdf#G3.1106470) (дополнительные расширения SIMD для потоковой передачи 3) должен быть включен на виртуальной машине или KVM, которая выполняет {% данных variables.location.product_location %}.
 
-- A license for {% data variables.product.prodname_GH_advanced_security %}{% ifversion ghes %} (see "[About billing for {% data variables.product.prodname_GH_advanced_security %}](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)"){% endif %}
+- Лицензия {% data variables.product.prodname_GH_advanced_security %}{% ifversion ghes %} (см. раздел [Сведения о выставлении счетов {% data variables.product.prodname_GH_advanced_security %}](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)"){% endif %}
 
-- {% data variables.product.prodname_secret_scanning_caps %} enabled in the management console (see "[Enabling {% data variables.product.prodname_GH_advanced_security %} for your enterprise](/admin/advanced-security/enabling-github-advanced-security-for-your-enterprise)")
+- {% data variables.product.prodname_secret_scanning_caps %}, включенный на консоли управления (см. раздел [Включение {% data variables.product.prodname_GH_advanced_security %} для предприятия](/admin/advanced-security/enabling-github-advanced-security-for-your-enterprise))
 
-### Checking support for the SSSE3 flag on your vCPUs
+### Проверка поддержки флага SSSE3 на виртуальных ЦП
 
-The SSSE3 set of instructions is required because {% data variables.product.prodname_secret_scanning %} leverages hardware accelerated pattern matching to find potential credentials committed to your {% data variables.product.prodname_dotcom %} repositories. SSSE3 is enabled for most modern CPUs. You can check whether SSSE3 is enabled for the vCPUs available to your {% data variables.product.prodname_ghe_server %} instance.
+Набор инструкций SSSE3 является обязательным, поскольку {% data variables.product.prodname_secret_scanning %} использует сопоставление шаблонов аппаратного ускорения для поиска учетных данных, которые могли быть зафиксированы в репозитории {% data variables.product.prodname_dotcom %}. SSSE3 включен для большинства современных ЦП. Вы можете проверить, включен ли флаг SSSE3 для виртуальных ЦП, доступных вашему экземпляру {% data variables.product.prodname_ghe_server %}.
 
-1. Connect to the administrative shell for your {% data variables.product.prodname_ghe_server %} instance. For more information, see "[Accessing the administrative shell (SSH)](/admin/configuration/accessing-the-administrative-shell-ssh)."
-2. Enter the following command:
+1. Подключение к административной оболочке для экземпляра {% data variables.product.prodname_ghe_server %}. Дополнительные сведения см. в разделе [Доступ к административной оболочке (SSH)](/admin/configuration/accessing-the-administrative-shell-ssh).
+2. Введите следующую команду:
 
    ```shell
    grep -iE '^flags.*ssse3' /proc/cpuinfo >/dev/null | echo $?
    ```
 
-   If this returns the value `0`, it means that the SSSE3 flag is available and enabled. You can now enable {% data variables.product.prodname_secret_scanning %} for {% data variables.location.product_location %}. For more information, see "[Enabling {% data variables.product.prodname_secret_scanning %}](#enabling-secret-scanning)" below.
+   Если возвращается значение `0`, это означает, что флаг SSSE3 доступен и активен. Теперь можно включить {% данных variables.product.prodname_secret_scanning %} для {% данных variables.location.product_location %}. Дополнительные сведения см. в разделе [Включение {% data variables.product.prodname_secret_scanning %}](#enabling-secret-scanning) ниже.
 
-   If this doesn't return `0`, SSSE3 is not enabled on your VM/KVM. You need to refer to the documentation of the hardware/hypervisor on how to enable the flag, or make it available to guest VMs.
+   Если при этом не возвращается `0`, SSSE3 не включается на виртуальной машине или KVM. Инструкции по установке флага или предоставлению доступа к нему для гостевых виртуальных машин доступны в документации по оборудованию или гипервизору.
 
-## Enabling {% data variables.product.prodname_secret_scanning %}
-
-{% data reusables.enterprise_management_console.enable-disable-security-features %}
-
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.management-console %}
-{% data reusables.enterprise_management_console.advanced-security-tab %}
-1. Under "Security," click **{% data variables.product.prodname_secret_scanning_caps %}**.
-![Checkbox to enable or disable {% data variables.product.prodname_secret_scanning %}](/assets/images/enterprise/management-console/enable-secret-scanning-checkbox.png)
-{% data reusables.enterprise_management_console.save-settings %}
-
-## Disabling {% data variables.product.prodname_secret_scanning %}
+## Включение {% data variables.product.prodname_secret_scanning %}
 
 {% data reusables.enterprise_management_console.enable-disable-security-features %}
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.management-console %}
-{% data reusables.enterprise_management_console.advanced-security-tab %}
-1. Under "Security," unselect **{% data variables.product.prodname_secret_scanning_caps %}**.
-![Checkbox to enable or disable {% data variables.product.prodname_secret_scanning %}](/assets/images/enterprise/management-console/secret-scanning-disable.png)
-{% data reusables.enterprise_management_console.save-settings %}
+{% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.enterprise_site_admin_settings.management-console %} {% data reusables.enterprise_management_console.advanced-security-tab %}
+1. В разделе "Безопасность" нажмите **{% data variables.product.prodname_secret_scanning_caps %}** .
+![Флажок, который позволяет включить или отключить {% data variables.product.prodname_secret_scanning %}](/assets/images/enterprise/management-console/enable-secret-scanning-checkbox.png) {% data reusables.enterprise_management_console.save-settings %}
+
+## Отключение {% data variables.product.prodname_secret_scanning %}
+
+{% data reusables.enterprise_management_console.enable-disable-security-features %}
+
+{% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.enterprise_site_admin_settings.management-console %} {% data reusables.enterprise_management_console.advanced-security-tab %}
+1. В разделе "Безопасность" снимите флажок **{% data variables.product.prodname_secret_scanning_caps %}** .
+![Флажок, который позволяет включить или отключить {% data variables.product.prodname_secret_scanning %}](/assets/images/enterprise/management-console/secret-scanning-disable.png) {% data reusables.enterprise_management_console.save-settings %}

@@ -1,0 +1,9 @@
+---
+ms.openlocfilehash: 3da3b9e0e302813d685012175153af099c051d8b
+ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "147881731"
+---
+1. Pour accepter une suggestion à partir du nouvel onglet, au-dessus de la suggestion souhaitée, cliquez sur **Accepter la solution**.

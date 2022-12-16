@@ -10,12 +10,12 @@ topics:
   - Organizations
   - Teams
 shortTitle: Enable & test SAML SSO
-ms.openlocfilehash: f9b60931978f80de33c0e6a2d5268287e208040a
-ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.openlocfilehash: cbdf8c92ca61f9836876c34ae9dd3b9be0cd7ee4
+ms.sourcegitcommit: 7a74d5796695bb21c30e4031679253cbc16ceaea
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2022
-ms.locfileid: '145126206'
+ms.lasthandoff: 11/28/2022
+ms.locfileid: '148184083'
 ---
 ## Acerca del inicio de sesión único de SAML
 
@@ -28,6 +28,8 @@ Si habilitas pero no exiges SAML SSO, los miembros de la organización que elija
 {% data reusables.saml.outside-collaborators-exemption %}
 
 {% data reusables.saml.saml-disabled-linked-identities-removed %}
+
+{% data reusables.apps.reauthorize-apps-saml %}
 
 ## Habilitar y probar el inicio de sesión único SAML para tu organización
 

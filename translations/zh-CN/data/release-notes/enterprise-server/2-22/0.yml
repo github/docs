@@ -1,0 +1,165 @@
+intro: GitHub 很高兴能提供 GitHub Enterprise Server 2.22.0。
+date: '2020-09-23'
+sections:
+  features:
+    - heading: GitHub Actions Beta 版本
+      notes:
+        - |[GitHub Actions](https://github.com/features/actions) 是一种用于 CI/CD 和工作流程自动化的强大而灵活的解决方案。Enterprise Server 上的 GitHub Actions 提供的工具有助于管理服务，包括管理控制台中的关键指标、审核日志和访问控制，以帮助你控制推出。
+
+
+
+你需要为 GitHub Actions 提供自己的[存储](https://docs.github.com/en/enterprise/2.22/admin/github-actions/enabling-github-actions-and-configuring-storage)和运行器。支持 AWS S3、Azure Blob 存储和 MinIO。请在打开 GitHub Actions 前查看[更新后的平台最低要求](https://docs.github.com/en/enterprise/2.22/admin/installation/setting-up-a-github-enterprise-server-instance)。如需了解更多信息，请联系 GitHub 销售团队或[注册 beta 版本](https://resources.github.com/beta-signup/)。{% comment %} https://github.com/github/releases/issues/775 {% endcomment %}
+
+|
+    - heading: GitHub Packages Beta 版本
+      notes:
+        - |[GitHub Packages](https://github.com/features/packages) 是一种与 GitHub API、Actions 和 Webhook 本机集成的包托管服务。创建一个[端到端 DevOps 工作流](https://docs.github.com/en/enterprise/2.22/admin/packages/configuring-packages-support-for-your-enterprise)并包括代码、持续集成和部署解决方案。
+
+
+
+支持的存储后端包括 AWS S3 和 MinIO，未来版本将支持 Azure blob。请注意，当前的 Docker 支持将在下一个版本中被新的 GitHub Container Registry 的 beta 版本所取代。请在打开 GitHub Packages 前查看[更新后的平台最低要求](https://docs.github.com/en/enterprise/2.22/admin/installation/setting-up-a-github-enterprise-server-instance)。如需了解更多信息，请联系 GitHub 销售团队或[注册 beta 版本](https://resources.github.com/beta-signup/)。{% comment %} https://github.com/github/releases/issues/773 {% endcomment %}
+
+|
+    - heading: Advanced Security 代码扫描 Beta 版本
+      notes:
+        - |[GitHub Advanced Security 代码扫描](https://github.com/features/security)是一种开发者优先的 GitHub 本机静态应用程序安全测试 (SAST)。在安全漏洞潜入生产之前轻松发现它们，而这一切都由世界上最强大的代码分析引擎 (CodeQL) 提供支持。
+
+
+
+使用 GitHub Advanced Security 的管理员可以[注册](https://resources.github.com/beta-signup/)和[启用](https://docs.github.com/en/enterprise/2.22/admin/configuration/configuring-code-scanning-for-your-appliance) GitHub Advanced Security 代码扫描 beta 版本。请在打开 GitHub Advanced Security 代码扫描前查看[更新后的平台最低要求](https://docs.github.com/en/enterprise/2.22/admin/installation/setting-up-a-github-enterprise-server-instance)。{% comment %} https://github.com/github/releases/issues/768 {% endcomment %}
+
+|
+    - heading: 拉取请求重新定位
+      notes:
+        - |合并和删除[拉取请求的主分支](https://docs.github.com/en/enterprise/2.22/user/github/collaborating-with-issues-and-pull-requests/about-branches#working-with-branches)时，同一存储库中定向到此分支的所有其他打开的拉取请求现在将被重新定向到合并的拉取请求的基础分支。以前这些拉取请求是关闭的。{% comment %} https://github.com/github/releases/issues/801 {% endcomment %}
+
+|
+    - heading: 暂停和取消暂停应用安装
+      notes:
+        - |管理员和用户可以根据需要[暂停任何 GitHub 应用的访问](https://docs.github.com/enterprise/2.22/user/rest/reference/apps#suspend-an-app-installation)，并通过设置和 API 在命令上[取消暂停应用](https://docs.github.com/enterprise/2.22/user/rest/reference/apps#unsuspend-an-app-installation)。暂停的应用无法访问 GitHub API 或 Webhook 事件。你可以利用这一点来代替卸载应用程序，因为卸载会取消对每个用户的授权。{% comment %} https://github.com/github/github/pull/138316 https://github.com/github/github/pull/150869 {% endcomment %}''''
+
+|
+    - heading: 改进了大型缩放性能
+      notes:
+        - |我们已经修改了为存储库安排网络维护的方法，确保大型 Monorepos 能够避免故障状态。{% comment %} https://github.com/github/github/pull/146789, https://github.com/github/github/pull/147931, https://github.com/github/github/pull/146724, https://github.com/github/git-protocols/issues/94 {% endcomment %}''''
+
+
+
+被动副本现在[在 GitHub Enterprise Server 群集部署中受支持且可配置](https://docs.github.com/en/enterprise/2.22/admin/enterprise-management/configuring-high-availability-replication-for-a-cluster)。这些更改有助于缩短故障转移时间，并减少 RTO 和 RPO。{% comment %} https://github.com/github/releases/issues/905 {% endcomment %}
+
+|
+    - heading: 查看所有用户
+      notes:
+        - |对于超大型团队，管理员可以[调整用户列表的默认最大值 1,500](https://docs.github.com/en/enterprise/2.22/admin/configuration/command-line-utilities#ghe-config)。{% comment %} https://github.com/github/github/pull/146508 {% endcomment %}''''
+
+|
+  changes:
+    - heading: 管理更改
+      notes:
+        - "允许共享员工通过跨选项卡共享连接，使实时更新更具灵活性。{% comment %} https://github.com/github/releases/issues/914 {% endcomment %}"
+        - "`50x` 错误页面上的“联系支持”链接现在链接到管理控制台中配置的支持电子邮件或链接。{% comment %} https://github.com/github/github/pull/142123 {% endcomment %}"
+        - "现在可以[通过企业帐户设置管理全局公告和到期日期](https://docs.github.com/en/enterprise/2.22/admin/installation/command-line-utilities#ghe-announce)。{% comment %} https://github.com/github/releases/issues/945, https://github.com/github/github/pull/148475, https://github.com/github/github/pull/148494 {% endcomment %}"
+        - "如有必要，现在可以[免除用户不受管理控制台中配置的默认 API 费率限制](https://docs.github.com/en/enterprise/2.22/admin/configuration/configuring-rate-limits)。{% comment %} https://github.com/github/github/pull/148673 {% endcomment %}"
+        - "存储库管理员现在可以从存储库设置中的单个对话框中[将其存储库设置为任何可用的可见性选项](https://docs.github.com/en/enterprise/2.22/user/github/administering-a-repository/setting-repository-visibility)。以前，必须导航单独的部分、按钮和对话框才能在公共和专用之间以及在专用和内部之间进行更改。{% comment %} https://github.com/github/releases/issues/882 {% endcomment %}"
+        - "用户下拉菜单上的新企业设置链接可以更容易地导航到企业帐户设置。{% comment %} https://github.com/github/releases/issues/946, https://github.com/github/github/pull/150595, https://github.com/github/github/pull/150520, https://github.com/github/github/pull/151121, https://github.com/github/hydro-schemas/pull/1244 {% endcomment %}"
+        - "已删除 /stafter 页面上旧的“管理中心”链接。“企业”链接现在是从 /stafftools 页面导航到企业帐户的最佳途径。{% comment %} https://github.com/github/github/pull/147633 {% endcomment %}"
+        - "“企业帐户”设置中的“选项”子菜单项已经从“设置”部分移到“策略”部分。{% comment %} https://github.com/github/releases/issues/944, https://github.com/github/github/pull/148477 {% endcomment %}"
+        - '[使用个人访问令牌或 SSH 密钥访问资源现在算作用户活动](https://docs.github.com/en/enterprise/2.22/admin/user-management/managing-dormant-users)。这样可以减轻管理员从用户休眠报告中筛选掉某些用户的负担，并让使用“全部暂停”按钮更加安全，不会意外地暂停仅使用个人访问令牌 (PAT) 或 SSH 密钥通过 API 以只读方式访问 GitHub 的用户。{% comment %} https://github.com/github/github/pull/140433, https://github.com/github/help-docs/pull/14853, https://github.com/github/customer-feedback/issues/174, https://github.com/github/supportability/issues/14 {% endcomment %}'
+
+    - heading: 安全性更改
+      notes:
+        - "在双因素登录过程中不能再使用双因素恢复代码。只接受一次性密码。{% comment %} https://github.com/github/github/pull/145016, https://github.com/github/github/pull/140208 {% endcomment %}"
+        - "当用户以单一登录方式登录到 GitHub Enterprise Server 时，[默认存储库可见性选择是专用的](https://docs.github.com/en/enterprise/2.22/user/github/administering-a-repository/setting-repository-visibility). {% comment %} https://github.com/github/releases/issues/872 {% endcomment %}"
+        - "GitHub 应用的所有者现在可以选择他们的[用户到服务器访问令牌在 8 小时后过期](https://developer.github.com/changes/2020-04-30-expiring-user-to-server-access-tokens-for-github-apps/)，以帮助强制执行常规令牌轮换并减小令牌泄露的影响。{% comment %} https://github.com/github/releases/issues/966 {% endcomment %}"
+
+    - heading: 开发者更改
+      notes:
+        - '[GitHub 用户界面经历了设计更新](https://github.blog/changelog/2020-06-23-design-updates-to-repositories-and-github-ui/)，存储库主页已重新设计，包括响应式布局和改进的移动 Web 体验。{% comment %} https://github.com/github/releases/issues/886 {% endcomment %}'
+        - "在“使用 SSH 克隆”存储库下拉菜单中，如果用户没有任何密钥设置，现在将收到通知。{% comment %} https://github.com/github/github/pull/149098 {% endcomment %}"
+        - "在拉取请求时间线和提交选项卡，提交现在是按时间顺序排序的。这个新顺序也反映在[“在拉取请求中列出提交”](https://docs.github.com/en/enterprise/2.22/user/rest/reference/pulls#list-commits-on-a-pull-request) REST API 和 GraphQL [“PullRequest 对象”](https://docs.github.com/en/enterprise/2.22/user/graphql/reference/objects#pullrequest) 时间线连接中。{% comment %} https://github.com/github/releases/issues/867 {% endcomment %}"
+        - "用户现在可以在评论文本区域中[设置表情符号自动完成结果的默认皮肤](https://github.blog/changelog/2020-07-17-customizable-skin-tones-in-emoji-autocomplete/)。{% comment %} https://github.com/github/releases/issues/916 {% endcomment %}"
+        - '[Tree-sitter](https://github.com/tree-sitter/tree-sitter) 改进了语法突出显示，现在是用于语言解析的默认库。{% comment %} https://github.com/github/releases/issues/918, https://github.com/github/windrose/issues/44 {% endcomment %}'
+
+    - heading: 用户和组织可以将 Twitter 用户名添加到他们的 GitHub 配置文件
+      notes:
+        - '[开发者和组织现在可以将他们的 Twitter 用户名添加到他们的个人资料中](https://github.blog/changelog/2020-07-22-users-and-organizations-can-now-add-twitter-usernames-to-their-github-profiles/) {% comment %}  https://github.com/github/github/pull/145127 {% endcomment %}'
+
+    - heading: API 更改
+      notes:
+        - |#### 分级预览
+
+
+
+以下预览现在是 API 的官方部分：
+
+* 返回 `performed_via_github_app` 属性的 GitHub Apps API 和终结点不再需要 [`machine-man`](https://developer.github.com/changes/2020-08-20-graduate-machine-man-and-sailor-v-previews/)预览标题。{% comment %} https://github.com/github/releases/issues/965 {% endcomment %}
+
+* 要添加和查看问题的锁定原因，你不再需要使用 [`sailor-v`](https://developer.github.com/changes/2020-08-20-graduate-machine-man-and-sailor-v-previews/) 预览标题。{% comment %} https://github.com/github/github/pull/143676 {% endcomment %}
+
+|
+        - |#### GraphQL 架构更改
+
+
+
+* [GraphQL 架构更改](https://docs.github.com/enterprise/2.22/user/graphql/overview/changelog)包括后向兼容的更改、架构预览和即将发生的中断性变更。
+
+|
+    - heading: VMware 网络驱动程序更改
+      notes:
+        - |从 2.22.0 版开始，适用于 VMware 客户的 GitHub Enterprise Server 默认网络适配器类型已从 E1000 更改为 VMXNET3。从早期版本升级到 2.22.0 或更高版本时，如果在升级前检查过程中检测到 E1000 网络适配器，将在命令行中显示以下消息：
+
+
+
+```
+
+警告：你的虚拟设备当前正在使用模拟的 Intel E1000 网络适配器。
+
+为获得最佳性能，请更新 VMware 主机上的虚拟机配置以使用 VMXNET3 驱动程序。
+
+是否继续安装？[是/否]
+
+```
+
+
+
+管理员可以选择在 GitHub Enterprise Server 升级之前或之后将网络适配器类型更新为 VMXNET3。需要关闭虚拟设备才能进行此更改。客户应按照 VMware 推荐的步骤[更改虚拟机网络适配器配置](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.vm_admin.doc/GUID-3719A0BE-4B4A-44FF-8A21-290950918FBD.html)，将其更改为 VMXNET3。请注意，如果虚拟设备的 OS 版本设置为“其他 Linux（64 位）”，则不会选择“VMXNET3”。在这种情况下，首先需要将 OS 版本从“其他 Linux（64 位）”更改为“其他 2.6.x Linux（64 位）”或 Debian GNU/Linux 9（如果提供）。建议在[临时实例](https://docs.github.com/en/enterprise-server@2.22/admin/installation/setting-up-a-staging-instance)上测试这些更改，然后再在生产 GitHub Enterprise Server 上进行更改。{% comment %} https://github.com/github/ghes-infrastructure/issues/781 {% endcomment %}
+
+|
+  bugs:
+    - "如果有待处理的电子邮件邀请，用于查看待定协作者的 stafftools 页面会显示“500 内部服务器错误”。{% comment %} https://github.com/github/github/pull/150836 {% endcomment %}"
+    - "Stafftools 中的存储库运行状态检查可能会在繁忙的存储库上产生不正确的结果。{% comment %} https://github.com/github/github/pull/151160 {% endcomment %}"
+    - "尝试接受电子邮件邀请的登录用户可能会收到“404 找不到”错误。{% comment %} https://github.com/github/github/pull/150848 {% endcomment %}"
+    - "如果用户导航到名称以“repositories.”开头的存储库，则会被重定向到所有者的“存储库”选项卡，而不是登录到存储库概述页面。{% comment %} https://github.com/github/github/pull/149704 {% endcomment %}"
+    - "仪表板时间线中的标签没有足够的对比度。{% comment %} https://github.com/github/github/pull/146749 {% endcomment %}"
+
+  deprecations:
+    - heading: GitHub Enterprise Server 2.19 即将弃用
+      notes:
+        - '**自 2020 年 11 月 12 日起，GitHub Enterprise Server 2.19 将被弃用**这意味着在此日期之后将不会发布任何补丁，即使是针对关键安全问题也是如此。为了获得更好的性能、改进的安全性和新功能，请尽快[升级到最新的 GitHub Enterprise Server 版本](https://help.github.com/enterprise/admin/guides/installation/upgrading-github-enterprise/)。'
+    - heading: 弃用旧版的 GitHub App Webhook 事件
+      notes:
+        - "从 GitHub Enterprise Server 2.21.0 开始，两个与旧版 GitHub 应用相关的 Webhook 事件已被弃用，并将在 GitHub Enterprise Server 2.25.0 中删除。已弃用的事件 `integration_installation` 和 `integration_installation_repositories` 具有将受支持的等效事件。有关详细信息，请参阅[弃用公告博客文章](https://developer.github.com/changes/2020-04-15-replacing-the-installation-and-installation-repositories-events/)。{% comment %} https://github.com/github/enterprise-web/pull/6419#issuecomment-668303461 {% endcomment %}"
+    - heading: 弃用旧版 GitHub 应用终结点
+      notes:
+        - "从 GitHub Enterprise Server 2.21.0 开始，用于创建安装访问令牌的旧版 GitHub 应用终结点已被弃用，并将在 GitHub Enterprise Server 2.25.0 中删除。 有关详细信息，请参阅[弃用公告博客文章](https://developer.github.com/changes/2020-04-15-replacing-create-installation-access-token-endpoint/)。{% comment %} https://github.com/github/enterprise-web/pull/6419#issuecomment-668303461 {% endcomment %}"
+    - heading: 弃用 OAuth 应用程序 API
+      notes:
+        - "GitHub 不再支持包含 `access_token` 作为路径参数的 OAuth 应用程序终结点。我们引入了新的终结点，可通过将“access_token”移动到请求正文来安全地管理 OAuth 应用的令牌。这些终结点虽然已弃用，但在此版本中仍可访问。我们打算在 GitHub Enterprise Server 3.4 中删除这些终结点。有关详细信息，请参阅[弃用公告博客文章](https://developer.github.com/changes/2020-02-14-deprecating-oauth-app-endpoint/)。"
+
+  backups:
+    - "GitHub Enterprise Server 2.22 至少需要 [GitHub Enterprise 备份实用工具](https://github.com/github/backup-utils) 2.22.0 才可进行[备份和灾难恢复](https://help.github.com/enterprise/2.22/admin/guides/installation/backups-and-disaster-recovery/)。"
+
+  known_issues:
+    - "在新建的没有任何用户的 GitHub Enterprise Server 上，攻击者可以创建第一个管理员用户。{% comment %} https://github.com/github/enterprise2/issues/1889 {% endcomment %}"
+    - "在升级期间不会维护自定义防火墙规则。{% comment %} https://github.com/github/enterprise2/issues/2823 {% endcomment %}"
+    - "[通过 Web 界面上传](https://github.com/blog/2105-upload-files-to-your-repositories)的 Git LFS 跟踪文件被错误地直接添加到存储库。{% comment %} https://github.com/github/github/issues/54684 {% endcomment %}"
+    - "如果问题包含同一存储库中文件路径长于 255 个字符的 blob 的永久链接，则问题无法关闭。{% comment %} https://github.com/github/github/issues/107731 {% endcomment %}"
+    - "在 GitHub Connect 中启用了“用户可以搜索 GitHub.com”时，专用和内部存储库中的问题不包括在 GitHub.com 搜索结果中。{% comment %} https://github.com/github/admin-experience/issues/571 {% endcomment %}"
+    - "管理控制台中的“名称 ID 格式”下拉列表将在实例设置为“持久”之后重置为“未指定”。{% comment %} https://github.com/github/enterprise2/issues/13446 {% endcomment %}"
+    - "用户或组织 GitHub Pages 站点的存储库设置页面将会失败，并出现“500 服务器内部错误”。{% comment %} https://github.com/github/github/issues/156183 {% endcomment %}"
+    - "用户在具有高可用性复制的实例中可能会遇到较慢的 Git 克隆和获取性能，因为读取被转到另一个节点。{% comment %} https://github.com/github/spokesd/issues/746 {% endcomment %}"
+    - '[从清单创建 GitHub 应用](https://docs.github.com/en/enterprise/2.22/user/developers/apps/creating-a-github-app-from-a-manifest)失败。要解决这个问题，用户可以遵循[创建 GitHub 应用]的手动说明(https://docs.github.com/en/enterprise/2.22/user/developers/apps/creating-a-github-app)。{% comment %} https://github.com/github/enterprise2/issues/22849 {% endcomment %}'
+    - "如果 GitHub 用户名与管理控制台中映射到 `username` 字段的属性值不匹配，GitHub 用户名可能在使用 SAML 身份验证时无意中被更改。（更新于 2020-10-08）{% comment %} https://github.com/github/external-identities/issues/335 {% endcomment %}"
+    - "在新建的 2.22.0 实例上或在升级到 2.22.0 后，组织仪表板上的活动源将不再更新。（更新于 2020-10-27）{% comment %}https://github.com/github/enterprise2/issues/23050{% endcomment %}"
+    - "审核日志可归因于 127.0.0.1，而不是实际源 IP 地址。（更新于 2020-11-02）{% comment %} https://github.com/github/enterprise2/issues/21514 {% endcomment %}"
+    - "当副本节点在高可用性配置下脱机时，{% data variables.product.product_name %} 仍可能会将 {% data variables.product.prodname_pages %} 请求路由到脱机节点，从而减少用户的 {% data variables.product.prodname_pages %} 可用性。"

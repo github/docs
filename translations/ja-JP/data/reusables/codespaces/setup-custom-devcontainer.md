@@ -1,9 +1,9 @@
 ---
-ms.openlocfilehash: 8fce179b1aa62f79737c46329d11f3e375dc375c
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 7c8d446316e97bed4e63b3eb5ae7b8f9b1e4da40
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "147060298"
+ms.lasthandoff: 11/09/2022
+ms.locfileid: "148159864"
 ---
-カスタム開発コンテナーを使用するようにリポジトリを設定するには、`devcontainer.json` ファイルを 1 つ以上作成する必要があります。 これらは、テンプレートからか {% data variables.product.prodname_vscode %} 内に追加したり、独自のものを記述したりすることができます。 開発コンテナーの詳しい情報については、「[開発コンテナーの概要](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project)」を参照してください。
+カスタム開発コンテナーを使用するようにリポジトリを設定するには、`devcontainer.json` ファイルを 1 つ以上作成する必要があります。 これは、定義済みの構成テンプレートから追加するか、{% data variables.product.prodname_vscode %} 内に追加するか、または独自に記述することができます。 開発コンテナーの詳しい情報については、「[開発コンテナーの概要](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers)」を参照してください。

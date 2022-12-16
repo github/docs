@@ -202,11 +202,11 @@ These instructions are pertinent to GitHub Enterprise Importer CLI users.
 ```
 
 ```
-{% graphql %}
+{% api %}
 
-These instructions are pertinent to GraphQL API users.
+These instructions are pertinent to API users.
 
-{% endgraphql %}
+{% endapi %}
 ```
 
 ```

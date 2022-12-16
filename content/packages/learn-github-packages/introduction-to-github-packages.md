@@ -51,10 +51,8 @@ For more information about the configuration of {% data variables.product.prodna
 
 |                    |        |
 |--------------------|--------------------|
-| Permissions        | {% ifversion fpt or ghec %}The permissions for a package are either inherited from the repository where the package is hosted or, for packages in the {% data variables.packages.prodname_ghcr_and_npm_registry %}, they can be defined for specific user or organization accounts. For more information, see "[Configuring a package’s access control and visibility](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility)." {% else %}Each package inherits the permissions of the repository where the package is hosted. <br> <br> For example, anyone with read permissions for a repository can install a package as a dependency in a project, and anyone with write permissions can publish a new package version.{% endif %} |
+| Permissions        | {% ifversion packages-registries-v2 %}The permissions for a package are either inherited from the repository where the package is hosted, or can be defined for specific user or organization accounts. Some registries only support permissions inherited from a repository. For a list of these registries, see "[About permissions for {% data variables.product.prodname_registry %}](/packages/learn-github-packages/about-permissions-for-github-packages#permissions-for-repository-scoped-packages)." For more information on package access, see "[Configuring a package’s access control and visibility](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility)." {% else %}Each package inherits the permissions of the repository where the package is hosted. <br> <br> For example, anyone with read permissions for a repository can install a package as a dependency in a project, and anyone with write permissions can publish a new package version.{% endif %} |
 | Visibility         | {% data reusables.package_registry.public-or-private-packages %} |
-
-For more information, see "[About permissions for {% data variables.product.prodname_registry %}](/packages/learn-github-packages/about-permissions-for-github-packages)."
 
 {% ifversion fpt or ghec %}
 ## About billing for {% data variables.product.prodname_registry %}
@@ -100,19 +98,7 @@ For more information about Docker and the {% data variables.product.prodname_con
 
 ## Managing packages
 
-{% ifversion fpt or ghec %}
-You can delete a package in the {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %} user interface or using the REST API. For more information, see "[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package)" and the "[{% data variables.product.prodname_registry %} API](/rest/reference/packages)."
-
-{% data reusables.package_registry.no-graphql-to-delete-packages %}
-{% endif %}
-
-{% ifversion ghes %}
-You can delete a private or public package in the {% data variables.product.product_name %} user interface. Or for repo-scoped packages, you can delete a version of a private package using GraphQL.
-{% endif %}
-
-{% ifversion ghae %}
-You can delete a version of a package in the {% data variables.product.product_name %} user interface or using the GraphQL API.
-{% endif %}
+You can delete a package in the {% data variables.product.product_name %} user interface{% ifversion fpt or ghec %} or using the REST API. For more information, see "[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package)" and the "[{% data variables.product.prodname_registry %} API](/rest/reference/packages)."{% else %}.{% endif %} {% data reusables.package_registry.about-graphql-support %}
 
 When you use the GraphQL API to query and delete private packages, you must use the same {% data variables.product.pat_v1 %} you use to authenticate to {% data variables.product.prodname_registry %}.
 

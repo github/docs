@@ -1,6 +1,6 @@
 get_started_with_github_ae:
-  title: 'Get started with {% data variables.product.prodname_ghe_managed %}'
-  description: 'Learn about {% data variables.product.prodname_ghe_managed %} and complete the initial configuration of a new enterprise.'
+  title: 'Introdução ao {% data variables.product.prodname_ghe_managed %}'
+  description: 'Saiba mais sobre {% data variables.product.prodname_ghe_managed %} e realize a configuração inicial de uma nova empresa.'
   featured_track: true
   versions:
     ghae: '*'
@@ -13,8 +13,8 @@ get_started_with_github_ae:
     - /admin/github-actions/getting-started-with-github-actions-for-github-ae
 
 deploy_an_instance:
-  title: 'Deploy an instance'
-  description: 'Install {% data variables.product.prodname_ghe_server %} on your platform of choice and configure SAML authentication.'
+  title: 'Implante uma instância'
+  description: 'Instale {% data variables.product.prodname_ghe_server %} na sua plataforma de escolha e configure a autenticação SAML.'
   featured_track: true
   versions:
     ghes: '*'
@@ -27,8 +27,8 @@ deploy_an_instance:
     - /admin/configuration/site-admin-dashboard
 
 upgrade_your_instance:
-  title: 'Upgrade your instance'
-  description: 'Test upgrades in staging, notify users of maintenance, and upgrade your instance for the latest features and security updates.'
+  title: 'Atualize sua instância'
+  description: 'Teste as atualizações no treinamento, notifique os usuários de manutenção e atualize sua instância para os recursos e atualizações de segurança mais recentes.'
   versions:
     ghes: '*'
   guides:
@@ -40,8 +40,8 @@ upgrade_your_instance:
     - /admin/enterprise-management/upgrading-github-enterprise-server
 
 adopting_github_actions_for_your_enterprise_ghec:
-  title: 'Adopt GitHub Actions for your enterprise'
-  description: 'Learn how to plan and implement a rollout of {% data variables.product.prodname_actions %} in your enterprise.'
+  title: 'Adote o GitHub Actions na sua empresa'
+  description: 'Saiba como planejar e implementar uma implantação de {% data variables.product.prodname_actions %} na sua empresa.'
   versions:
     ghec: '*'
   guides:
@@ -54,8 +54,8 @@ adopting_github_actions_for_your_enterprise_ghec:
     - /billing/managing-billing-for-github-actions/about-billing-for-github-actions
 
 adopting_github_actions_for_your_enterprise_ghes_and_ghae:
-  title: 'Adopt GitHub Actions for your enterprise'
-  description: 'Learn how to plan and implement a rollout of {% data variables.product.prodname_actions %} in your enterprise.'
+  title: 'Adote o GitHub Actions na sua empresa'
+  description: 'Saiba como planejar e implementar uma implantação de {% data variables.product.prodname_actions %} na sua empresa.'
   versions:
     ghes: '*'
     ghae: '*'
@@ -71,8 +71,8 @@ adopting_github_actions_for_your_enterprise_ghes_and_ghae:
     - /billing/managing-billing-for-github-actions/about-billing-for-github-actions
 
 increase_fault_tolerance:
-  title: 'Increase the fault tolerance of your instance'
-  description: "Back up your developers' code and configure high availability (HA) to ensure the reliability of {% data variables.product.prodname_ghe_server %} in your environment."
+  title: 'Aumente a tolerância de falha da instância'
+  description: "Faça backup do código de seus desenvolvedores e configure HA (alta disponibilidade) para garantir a confiabilidade do {% data variables.product.prodname_ghe_server %} em seu ambiente."
   versions:
     ghes: '*'
   guides:
@@ -83,8 +83,8 @@ increase_fault_tolerance:
     - /admin/configuration/using-github-enterprise-server-with-a-load-balancer
 
 improve_security_of_your_instance:
-  title: 'Improve the security of your instance'
-  description: "Review network configuration and security features, and harden the instance running {% data variables.product.prodname_ghe_server %} to protect your enterprise's data."
+  title: 'Melhore a segurança da sua instância'
+  description: "Revise a configuração de rede e as funcionalidades de segurança e reforce a instância do {% data variables.product.prodname_ghe_server %} em execução para proteger os dados da sua empresa."
   versions:
     ghes: '*'
   guides:
@@ -99,8 +99,8 @@ improve_security_of_your_instance:
     - /admin/user-management/promoting-or-demoting-a-site-administrator
 
 configure_github_actions:
-  title: 'Configure {% data variables.product.prodname_actions %}'
-  description: 'Allow your developers to create, automate, customize, and execute powerful software development workflows for {% data variables.location.product_location %} with {% data variables.product.prodname_actions %}.'
+  title: 'Configure o {% data variables.product.prodname_actions %}'
+  description: 'Permita que seus desenvolvedores criem, automatizem, personalizem e executem fluxos de trabalho de desenvolvimento avançados de software em {% data variables.product.product_location %} com {% data variables.product.prodname_actions %}.'
   versions:
     ghes: '*'
   guides:
@@ -113,7 +113,7 @@ configure_github_actions:
 
 configure_github_advanced_security:
   title: 'Configure {% data variables.product.prodname_GH_advanced_security %}'
-  description: "Improve the quality and security of your developers' code with {% data variables.product.prodname_GH_advanced_security %}."
+  description: "Melhore a qualidade e a segurança do código do seu desenvolvedor com {% data variables.product.prodname_GH_advanced_security %}."
   versions:
     ghes: '*'
   guides:
@@ -125,8 +125,8 @@ configure_github_advanced_security:
     - /admin/policies/enforcing-policies-for-advanced-security-in-your-enterprise
 
 get_started_with_your_enterprise_account:
-  title: 'Get started with your enterprise account'
-  description: 'Get started with your enterprise account to centrally manage multiple organizations on {% data variables.product.product_name %}.'
+  title: 'Comece a usar a sua conta corporativa'
+  description: 'Comece com sua conta corporativa para gerenciar centralmente várias organizações em {% data variables.product.product_name %}.'
   versions:
     ghes: '*'
     ghec: '*'

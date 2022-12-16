@@ -38,7 +38,7 @@ async function main() {
   }
 
   const changedFilesRelPaths = execSync(
-    'git -c diff.renameLimit=10000 diff --name-only origin/main | egrep "^translations/.*/.+.md$"',
+    'git -c diff.renameLimit=10000 diff --name-only origin/main | egrep "^translations/.*/.+(.md|.yml)$"',
     { maxBuffer: 1024 * 1024 * 100 }
   )
     .toString()
@@ -59,6 +59,20 @@ async function main() {
       }),
       redirects: {},
     }
+
+    // specifically test rendering data/variables files for broken liquid
+    if (relPath.includes('data/variables')) {
+      const fileContents = await fs.promises.readFile(relPath, 'utf8')
+      const { content } = frontmatter(fileContents)
+
+      try {
+        await renderContent.liquid.parseAndRender(content, context)
+      } catch (err) {
+        console.log(chalk.bold(relPath))
+        console.log(chalk.red(`  error message: ${err.message}`))
+      }
+    }
+
     if (!context.page && !relPath.includes('data/reusables')) continue
     const fileContents = await fs.promises.readFile(relPath, 'utf8')
     const { data, content } = frontmatter(fileContents)

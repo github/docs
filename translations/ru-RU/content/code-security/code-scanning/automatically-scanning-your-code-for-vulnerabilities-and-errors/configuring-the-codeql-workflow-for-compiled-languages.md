@@ -4,6 +4,7 @@ shortTitle: Configure compiled languages
 intro: 'Вы можете настроить, как {% data variables.product.prodname_dotcom %} использует {% data variables.code-scanning.codeql_workflow %} для сканирования кода, написанного на скомпилированных языках, на наличие уязвимостей и ошибок.'
 product: '{% data reusables.gated-features.code-scanning %}'
 permissions: 'If you have write permissions to a repository, you can configure {% data variables.product.prodname_code_scanning %} for that repository.'
+miniTocMaxHeadingLevel: 3
 redirect_from:
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning-for-compiled-languages
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-the-codeql-action-for-compiled-languages
@@ -25,12 +26,13 @@ topics:
   - C/C++
   - C#
   - Java
-ms.openlocfilehash: 91983e79a6381b4a38cbb1de4f6d7f228637b192
-ms.sourcegitcommit: b617c4a7a1e4bf2de3987a86e0eb217d7031490f
+  - Kotlin
+ms.openlocfilehash: 4c594a9ca19064da6c017155fad27b37b083e7e3
+ms.sourcegitcommit: dac72908e8660cb4a347fbf73beab61034eed8c5
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/11/2022
-ms.locfileid: '148161202'
+ms.lasthandoff: 11/25/2022
+ms.locfileid: '148182269'
 ---
 {% data reusables.code-scanning.beta %} {% data reusables.code-scanning.enterprise-enable-code-scanning-actions %}
 
@@ -43,7 +45,7 @@ ms.locfileid: '148161202'
 ##  Сведения об автоматической сборке для {% data variables.product.prodname_codeql %}
 
 {% data variables.product.prodname_code_scanning_capc %} выполняет запросы к одной или нескольким базам данных. Каждая база данных содержит представление всего кода на одном языке в репозитории.   
-Для скомпилированных языков C/C++, C#,{% ifversion codeql-go-autobuild %} Go,{% endif %} и Java процесс заполнения этой базы данных включает сборку кода и извлечение данных. {% data reusables.code-scanning.analyze-go %}
+Для скомпилированных языков C/C++, C#,{% ifversion codeql-go-autobuild %} Go,{% endif %}{% ifversion codeql-kotlin-beta %} Kotlin, {% endif %} и Java процесс заполнения этой базы данных включает сборку кода и извлечение данных. {% data reusables.code-scanning.analyze-go %}
 
 {% data reusables.code-scanning.autobuild-compiled-languages %}
 
@@ -107,7 +109,7 @@ ms.locfileid: '148161202'
 
 {% endif %}
 
-### Java
+### Java {% ifversion codeql-kotlin-beta %} и Kotlin {% endif %}
 
 | Поддерживаемый тип системы | Имя системы |
 |----|----|

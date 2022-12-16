@@ -1,28 +1,32 @@
 ---
-title: API previews
-intro: You can use API previews to try out new features and provide feedback before these features become official.
+title: Pré-visualizações da API
+intro: Você pode usar pré-visualizações da API para testar novos recursos e fornecer feedback antes que estes recursos se tornem oficiais.
 redirect_from:
   - /v3/previews
 versions:
   ghes: <3.4
 topics:
   - API
+ms.openlocfilehash: d637b59fc72332ee142cec78653907c2bfeebdc0
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148108261'
 ---
+Pré-visualizações da API permitem que você experimente novas APIs e alterações nos métodos de API existentes antes de se tornarem parte da API oficial do GitHub.
 
+Durante o período de pré-visualização, poderemos alterar alguns recursos com base no feedback do desenvolvedor. Se fizermos alterações, nós as anunciaremos no [blog do desenvolvedor](https://developer.github.com/changes/) sem aviso prévio.
 
-API previews let you try out new APIs and changes to existing API methods before they become part of the official GitHub API.
-
-During the preview period, we may change some features based on developer feedback. If we do make changes, we'll announce them on the [developer blog](https://developer.github.com/changes/) without advance notice.
-
-To access an API preview, you'll need to provide a custom [media type](/rest/overview/media-types) in the `Accept` header for your requests. Feature documentation for each preview specifies which custom media type to provide.
+Para acessar uma versão prévia de API, você precisará fornecer um [tipo de mídia](/rest/overview/media-types) personalizado no cabeçalho `Accept` das solicitações. A documentação dos recursos para cada pré-visualização especifica qual tipo de mídia personalizado deve ser fornecido.
 
 {% ifversion ghes < 3.4 %}
-## Content attachments
+## Anexos de conteúdo
 
-You can now provide more information in GitHub for URLs that link to registered domains by using the {% data variables.product.prodname_unfurls %} API. See "[Using content attachments](/apps/using-content-attachments/)" for more details.
+Agora você pode fornecer mais informações no GitHub para URLs vinculadas a domínios registrados usando a API de {% data variables.product.prodname_unfurls %}. Confira "[Usar anexos de conteúdo](/apps/using-content-attachments/)" para obter mais detalhes.
 
-**Custom media types:** `corsair-preview`
-**Announced:** [2018-12-10](https://developer.github.com/changes/2018-12-10-content-attachments-api/)
+**Tipos de mídia personalizados:** `corsair-preview`
+**Anúncio:** [2018-12-10](https://developer.github.com/changes/2018-12-10-content-attachments-api/)
 
 {% endif %}
 

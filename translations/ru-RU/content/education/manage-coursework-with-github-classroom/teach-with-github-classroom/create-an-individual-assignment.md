@@ -8,12 +8,12 @@ redirect_from:
   - /education/manage-coursework-with-github-classroom/creating-an-individual-assignment
   - /education/manage-coursework-with-github-classroom/create-an-individual-assignment
 shortTitle: Individual assignment
-ms.openlocfilehash: c6e0d5dd39181545e1bb913360b1f46cb2b19d6e
-ms.sourcegitcommit: 04329ee7464efbb558d77d06664e8578cd154d87
+ms.openlocfilehash: 1ffa725be4e42695b297545f65c998b14ed8e000
+ms.sourcegitcommit: 82b1242de02ecc4bdec02a5b6d11568fb2deb1aa
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/15/2022
-ms.locfileid: '148046485'
+ms.lasthandoff: 11/21/2022
+ms.locfileid: '148179755'
 ---
 ## Сведения об отдельных заданиях
 
@@ -59,6 +59,8 @@ ms.locfileid: '148046485'
 В разделе "Отдельное или групповое задание" щелкните раскрывающееся меню и выберите **Отдельное задание**. Вы не можете изменить тип задания после создания задания. Если вы хотите создать групповое задание, обратитесь к разделу [Создание группового задания](/education/manage-coursework-with-github-classroom/create-a-group-assignment).
 
 ### Выбор видимости для репозиториев задания
+
+{% data reusables.classroom.assignments-repository-visibility-and-permissions %}
 
 {% data reusables.classroom.assignments-guide-choose-visibility %}
 

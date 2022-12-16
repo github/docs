@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: e0bf1f4b7bbd5fcb145a6e869dd442fd8e53108a
-ms.sourcegitcommit: b4996daba2e75b3368f39316e6929602f13b961b
+ms.openlocfilehash: 1dd9305ca2b7cb3e8d25d697de8ae3a83e0c46bb
+ms.sourcegitcommit: 7a74d5796695bb21c30e4031679253cbc16ceaea
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2022
-ms.locfileid: "148120538"
+ms.lasthandoff: 11/28/2022
+ms.locfileid: "148183984"
 ---
 | Nombre de la categoría | Descripción
 |------------------|-------------------
@@ -106,7 +106,7 @@ ms.locfileid: "148120538"
 {%- endif %} {%- ifversion fpt or ghec %} | `sponsors`  | Contiene los eventos relacionados con los botones de patrocinio (consulta "[Mostrar un botón de patrocinio en el repositorio](/articles/displaying-a-sponsor-button-in-your-repository)").
 {%- endif %} {%- ifversion ghec or ghes or ghae %} | `ssh_certificate_authority` | Contiene las actividades relacionadas con una autoridad de certificación SSH en una organización o empresa.
 | `ssh_certificate_requirement` | Contiene las actividades relacionadas con la necesidad de que los miembros usen certificados SSH para acceder a los recursos de la organización.
-{%- endif %} | `staff` | Contiene las actividades relacionadas con la realización de una acción por parte de un administrador de sitio.
+{%- endif %}{% ifversion sso-redirect %} | `sso_redirect` | Contiene actividades relacionadas con el redireccionamiento automático de los usuarios para iniciar sesión (consulta "[Aplicación de directivas para la configuración de seguridad de tu empresa](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#managing-sso-for-unauthenticated-users)"). {% endif %} | `staff` | Contiene actividades relacionadas con un administrador de sitio que realiza una acción.
 | `team` | Contiene las actividades relacionadas con los equipos de una organización.
 | `team_discussions` | Contiene las actividades relacionadas con la administración de debates de equipo para una organización.
 {%- ifversion ghec %} | `team_sync_tenant` | Contiene las actividades relacionadas con la sincronización de equipos con un IdP para una empresa u organización.

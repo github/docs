@@ -1,6 +1,6 @@
 ---
-title: Using GitHub Copilot in GitHub Codespaces
-intro: 'You can use {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_github_codespaces %} by adding the extension.'
+title: GitHub Codespaces での GitHub Copilot の使用
+intro: '拡張機能を追加することで、{% data variables.product.prodname_github_codespaces %} で {% data variables.product.prodname_copilot %} を使用できます。'
 versions:
   fpt: '*'
   ghec: '*'
@@ -13,8 +13,13 @@ shortTitle: Copilot in Codespaces
 redirect_from:
   - /codespaces/codespaces-reference/using-copilot-in-codespaces
   - /codespaces/codespaces-reference/using-github-copilot-in-codespaces
+ms.openlocfilehash: 6615df6930fa8f27dd8f50c4588d8182b8602549
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148158726'
 ---
-
 {% jetbrains %}
 
 {% data reusables.codespaces.codespaces-jetbrains-beta-note %}
@@ -23,7 +28,7 @@ redirect_from:
 
 {% webui %}
 
-## Using {% data variables.product.prodname_copilot %} in the {% data variables.product.prodname_vscode_shortname %} web client
+## {% data variables.product.prodname_vscode_shortname %} Web クライアントでの {% data variables.product.prodname_copilot %} の使用
 
 {% data reusables.codespaces.copilot-in-vscode %}
 
@@ -31,7 +36,7 @@ redirect_from:
 
 {% vscode %}
 
-## Using {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode %}
+## {% data variables.product.prodname_vscode %} での {% data variables.product.prodname_copilot %} の使用
 
 {% data reusables.codespaces.copilot-in-vscode %}
 
@@ -39,57 +44,57 @@ redirect_from:
 
 {% jetbrains %}
 
-## Installing {% data variables.product.prodname_copilot %} in your JetBrains IDE
+## JetBrains IDE での {% data variables.product.prodname_copilot %} のインストール
 
-[{% data variables.product.prodname_copilot %}](https://copilot.github.com/), an AI pair programmer, can be used in any codespace. For more information, see "[About GitHub Copilot](/copilot/overview-of-github-copilot/about-github-copilot)."
+[{% data variables.product.prodname_copilot %}](https://copilot.github.com/) (AI ペア プログラマー) は、任意の codespace で使用できます。 詳細については、「[GitHub Copilot について](/copilot/overview-of-github-copilot/about-github-copilot)」をご覧ください。
 
-To use {% data variables.product.prodname_copilot %} in a codespace in your JetBrains IDE, install the [{% data variables.product.prodname_copilot %} plugin](https://plugins.jetbrains.com/plugin/17718-github-copilot) from within your codespace.
+JetBrains IDE の codespace で {% data variables.product.prodname_copilot %} を使用するには、codespace 内から [{% data variables.product.prodname_copilot %} プラグイン](https://plugins.jetbrains.com/plugin/17718-github-copilot)をインストールします。
 
 {% note %}
 
-**Note**: You must install the {% data variables.product.prodname_copilot %} plugin each time you create a new codespace.
+**注**: 新しい codespace を作成するたびに、{% data variables.product.prodname_copilot %} プラグインをインストールする必要があります。
 
 {% endnote %}
 
-1. In the JetBrains client application, open the Settings (Windows/Linux) or Preferences (Mac) dialog box:
+1. JetBrains クライアント アプリケーションで、[設定] (Windows/Linux) または [環境設定] (Mac) ダイアログ ボックスを開きます。
 
-   - **Windows/Linux**: Click **File** and then **Settings** (or press <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>S</kbd>)
-   - **Mac**: Click **JetBrains Client** in the MacOS menu bar, then click **Preferences** (or press <kbd>command</kbd>+<kbd>,</kbd>)
+   - **Windows/Linux**: **[ファイル]** をクリックし、 **[設定]** をクリックします (または <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>S</kbd> キーを押します)
+   - **Mac**: MacOS メニュー バーの **[JetBrains クライアント]** をクリックし、 **[環境設定]** をクリックします (または <kbd>command</kbd>+<kbd>,</kbd> キーを押します)
 
-1. In the left-side menu of the Settings/Preferences dialog box, click **Plugins On Host**. Then click the **Marketplace** tab.
+1. [設定] または [環境設定] ダイアログ ボックスの左側のメニューで、 **[プラグイン ホスト上]** をクリックします。 次に、 **[Marketplace]** タブをクリックします。
 
-   ![Screenshot of the Marketplace tab for 'Plugins On Host'](/assets/images/help/codespaces/jetbrains-preferences-plugins.png)
+   ![[プラグイン ホスト上] の [Marketplace] タブのスクリーンショット](/assets/images/help/codespaces/jetbrains-preferences-plugins.png)
 
-1. In the search box, type "copilot" then click the **Install** button for the {% data variables.product.prodname_copilot %} plugin.
+1. 検索ボックスに「copilot」と入力し、{% data variables.product.prodname_copilot %} プラグインの **[インストール]** ボタンをクリックします。
 
-   ![Screenshot of the {% data variables.product.prodname_copilot %} plugin](/assets/images/help/codespaces/jetbrains-copilot-plugin.png)
+   ![{% data variables.product.prodname_copilot %} プラグインのスクリーンショット](/assets/images/help/codespaces/jetbrains-copilot-plugin.png)
 
-1. Click **Accept** on the "Third-Party Plugins Privacy Note" dialog box.
-1. Click **Restart IDE**.
+1. [サード パーティ製プラグインのプライバシーに関するメモ] ダイアログ ボックスの **[承諾]** をクリックします。
+1. **[Restart IDE]\(IDE を再起動する\)** をクリックします。
 
-   ![Screenshot of the {% data variables.product.prodname_copilot %} plugin](/assets/images/help/codespaces/jetbrains-copilot-restart.png)
+   ![{% data variables.product.prodname_copilot %} プラグインのスクリーンショット](/assets/images/help/codespaces/jetbrains-copilot-restart.png)
  
-1. Click **Restart** when prompted to confirm that you want to restart the backend IDE that's running remotely. The JetBrains client application will close when you do this.
-1. Open the codespace again from the JetBrains Gateway application. For more information, see "[Using {% data variables.product.prodname_github_codespaces %} in your JetBrains IDE](/codespaces/developing-in-codespaces/using-github-codespaces-in-your-jetbrains-ide#opening-a-codespace-in-your-jetbrains-ide)."
-1. After your JetBrains IDE has restarted, click the **Tools** menu. Click **{% data variables.product.prodname_copilot %}**, then click **Login to {% data variables.product.prodname_dotcom %}**. 
+1. リモートで実行されているバックエンド IDE を再起動するかどうかを確認するメッセージが表示されたら、 **[再起動]** をクリックします。 これを行うと、JetBrains クライアント アプリケーションが閉じます。
+1. JetBrains Gateway アプリケーションから codespace をもう一度開きます。 詳細については、「[JetBrains IDE での {% data variables.product.prodname_github_codespaces %} の使用](/codespaces/developing-in-codespaces/using-github-codespaces-in-your-jetbrains-ide#opening-a-codespace-in-your-jetbrains-ide)」を参照してください。
+1. JetBrains IDE が再起動したら、 **[ツール]** メニューをクリックします。 **[{% data variables.product.prodname_copilot %}]** 、 **[{% data variables.product.prodname_dotcom %} にログイン]** の順にクリックします。 
 
-    ![Screenshot of the JetBrains Tools menu](/assets/images/help/codespaces/jetbrains-tools-menu.png)
+    ![JetBrains の [ツール] メニューのスクリーンショット](/assets/images/help/codespaces/jetbrains-tools-menu.png)
 
-1. In the "Sign in to {% data variables.product.prodname_dotcom %}" dialog box, to copy the device code and open the device activation window, click **Copy and Open**.
+1. デバイス コードをコピーしてデバイスの有効化ウィンドウを開くには、[{% data variables.product.prodname_dotcom %} にサインイン] ダイアログ ボックスで、 **[コピーして開く]** をクリックします。
 
-    ![Screenshot of the device code copy and open](/assets/images/help/copilot/device-code-copy-and-open.png)
+    ![デバイス コードの [コピーして開く] のスクリーンショット](/assets/images/help/copilot/device-code-copy-and-open.png)
 
-1. A device activation window will open in your browser. Paste the device code, then click **Continue**.
+1. ブラウザーにデバイスのアクティブ化ウィンドウが表示されます。 デバイス コードを貼り付け、 **[続行]** をクリックします。
 
-   - To paste the code in Windows or Linux, press <kbd>Ctrl</kbd>+<kbd>v</kbd>.
-   - To paste the code in macOS, press <kbd>command</kbd>+<kbd>v</kbd>.
-1. {% data variables.product.prodname_dotcom %} will request the necessary permissions for {% data variables.product.prodname_copilot %}. To approve these permissions, click **Authorize {% data variables.product.prodname_copilot %} Plugin**.
-1. After the permissions have been approved, your JetBrains IDE will show a confirmation. To begin using {% data variables.product.prodname_copilot %}, click **OK**.
+   - Windows または Linux でコードを貼り付けるには、<kbd>Ctrl</kbd> + <kbd>v</kbd> キーを押します。
+   - macOS でコードを貼り付けるには、<kbd>command</kbd> + <kbd>v</kbd> キーを押します。
+1. {% data variables.product.prodname_dotcom %} から、{% data variables.product.prodname_copilot %} に必要なアクセス許可が要求されます。 これらのアクセス許可を承認するには、 **[{% data variables.product.prodname_copilot %} プラグインの承認]** をクリックします。
+1. アクセス許可が承認されたら、JetBrains IDE によって確認が表示されます。 {% data variables.product.prodname_copilot %} の使用を開始するには、 **[OK]** をクリックします。
 
-   ![Screenshot of the JetBrains IDE permissions confirmation](/assets/images/help/copilot/jetbrains-ide-confirmation.png)
+   ![JetBrains IDE によるアクセス許可の確認のスクリーンショット](/assets/images/help/copilot/jetbrains-ide-confirmation.png)
 
-## Further reading
+## 参考資料
 
-- "[Getting started with GitHub Copilot in a JetBrains IDE](/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-a-jetbrains-ide)"
+- 「[JetBrains IDE で GitHub Copilot の使用を開始する](/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-a-jetbrains-ide)」
 
 {% endjetbrains %}

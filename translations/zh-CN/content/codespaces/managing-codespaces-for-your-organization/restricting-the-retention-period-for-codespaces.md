@@ -1,7 +1,7 @@
 ---
-title: Restricting the retention period for codespaces
+title: 限制 codespace 的保持期
 shortTitle: Restrict the retention period
-intro: You can set a maximum retention period for any codespaces owned by your organization.
+intro: 可以为组织拥有的任何 codespace 设置最大保持期。
 permissions: 'To manage retention constraints for an organization''s codespaces, you must be an owner of the organization.'
 versions:
   fpt: '*'
@@ -9,76 +9,79 @@ versions:
 type: how_to
 topics:
   - Codespaces
+ms.openlocfilehash: 3c114fe41b06176899f9dd11a6dcd51c038c88e5
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148158979'
 ---
+## 概述
 
-## Overview
+{% data variables.product.prodname_github_codespaces %} 在停止后自动删除，并在定义的天数内保持非活动状态。 创建 codespace 时，将设置每个 codespace 的保持期且不会更改。 
 
-{% data variables.product.prodname_github_codespaces %} are automatically deleted after they have been stopped and have remained inactive for a defined number of days. The retention period for each codespace is set when the codespace is created and does not change. 
+有权访问 {% data variables.product.prodname_github_codespaces %} 的每个人都可以为其创建的 codespace 配置保持期。 此默认保持期的初始设置为 30 天。 个人用户可以在 0-30 天内设置此期限。 有关详细信息，请参阅“[配置 codespace 的自动删除](/codespaces/customizing-your-codespace/configuring-automatic-deletion-of-your-codespaces)”。 
 
-Everyone who has access to {% data variables.product.prodname_github_codespaces %} can configure a retention period for the codespaces they create. The initial setting for this default retention period is 30 days. Individual users can set this period within the range 0-30 days. For more information, see "[Configuring automatic deletion of your codespaces](/codespaces/customizing-your-codespace/configuring-automatic-deletion-of-your-codespaces)." 
+作为组织所有者，你可能希望为针对组织拥有的存储库创建的 codespace 的最大保持期配置约束。 这有助于限制与停止的 codespace 相关联的存储成本，然后在它们自动删除之前保持未使用状态。 有关存储费用的详细信息，请参阅“[关于 {% data variables.product.prodname_github_codespaces %} 的计费](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#codespaces-pricing)”。 可以为组织拥有的所有或特定存储库设置最大保持期。 
 
-As an organization owner, you may want to configure constraints on the maximum retention period for codespaces created for the repositories owned by your organization. This can help you to limit the storage costs associated with codespaces that are stopped and then left unused until they are automatically deleted. For more information about storage charges, see "[About billing for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#codespaces-pricing)." You can set a maximum retention period for all, or for specific, repositories owned by your organization. 
+### 设置组织范围和存储库特定的策略
 
-### Setting organization-wide and repository-specific policies
+创建策略时，你可以选择是将其应用于组织中的所有存储库，还是仅应用于指定的存储库。 如果使用 codespace 保留约束创建组织范围的策略，则针对特定存储库的任何策略中的保留约束应小于为整个组织配置的限制，否则它们将不起作用。 在组织范围的策略、针对指定存储库的策略或某人个人设置中默认保持期中，将应用最短保持期。
 
-When you create a policy, you choose whether it applies to all repositories in your organization, or only to specified repositories. If you create an organization-wide policy with a codespace retention constraint, then the retention constraints in any policies that are targeted at specific repositories should be shorter than the restriction configured for the entire organization, or they will have no effect. The shortest retention period - in an organization-wide policy, a policy targeted at specified repositories, or the default retention period in someone's personal settings - is applied.
-
-If you add an organization-wide policy with a retention constraint, you should set the retention period to the longest acceptable period. You can then add separate policies that set the maximum retention to a shorter period for specific repositories in your organization.
+如果添加具有保留约束的组织范围的策略，则应将保持期设置为最长可接受的期限。 然后，可以添加单独的策略，将组织内特定存储库的最大保持期设置为较短的期限。
 
 {% data reusables.codespaces.codespaces-org-policies-note %}
 
-## Adding a policy to set a maximum codespace retention period
+## 添加策略来设置最大 codespace 保持期
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.codespaces.codespaces-org-policies %}
-1. Click **Add constraint** and choose **Retention period**.
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.codespaces.codespaces-org-policies %}
+1. 单击“添加约束”并选择“保持期”。
 
-   ![Screenshot of the 'Add constraint' dropdown menu](/assets/images/help/codespaces/add-constraint-dropdown-retention.png)
+   ![“添加约束”下拉菜单的屏幕截图](/assets/images/help/codespaces/add-constraint-dropdown-retention.png)
 
-1. Click {% octicon "pencil" aria-label="The edit icon" %} to edit the constraint.
+1. 单击 {% octicon "pencil" aria-label="The edit icon" %} 编辑约束。
 
-   ![Screenshot of the pencil icon for editing the constraint](/assets/images/help/codespaces/edit-timeout-constraint.png)
+   ![用于编辑约束的铅笔图标的屏幕截图](/assets/images/help/codespaces/edit-timeout-constraint.png)
 
-1. Enter the maximum number of days codespaces can remain stopped before they are automatically deleted, then click **Save**.
+1. 输入在自动删除 codespace 之前可以保持停止的最大天数，然后单击“保存”。
 
-   ![Screenshot of setting the retention period in days](/assets/images/help/codespaces/maximum-days-retention.png)
+   ![设置屏幕截图（以天为单位）的屏幕截图](/assets/images/help/codespaces/maximum-days-retention.png)
 
    {% note %}
 
-   **Notes**: 
-   * A day, in this context, is a 24-hour period, beginning at the time of day when the codespace was stopped.
-   * The valid range is 0-30 days.
-   * Setting the period to `0` will result in codespaces being immediately deleted when they are stopped, or when they timeout due to inactivity.
+   **注释**： 
+   * 在此上下文中，一天指的是 24 小时时段，从 codespace 当天停止的时间开始。
+   * 有效范围是 0 到 30 天。
+   * 将期限设置为 `0` 将导致 codespace 在停止时或由于不活动而超时时被立即删除。
 
    {% endnote %}
 
 {% data reusables.codespaces.codespaces-policy-targets %}
-1. If you want to add another constraint to the policy, click **Add constraint** and choose another constraint. For information about other constraints, see:
-   * "[Restricting access to machine types](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)"
-   * "[Restricting the base image for codespaces](/codespaces/managing-codespaces-for-your-organization/restricting-the-base-image-for-codespaces)"
-   * "[Restricting the visibility of forwarded ports](/codespaces/managing-codespaces-for-your-organization/restricting-the-visibility-of-forwarded-ports)"
-   * "[Restricting the idle timeout period](/codespaces/managing-codespaces-for-your-organization/restricting-the-idle-timeout-period)"
-1. After you've finished adding constraints to your policy, click **Save**.
+1. 如果要向策略添加另一个约束，请单击“添加约束”并选择另一个约束。 有关其他约束的信息，请参阅：
+   * “[限制对计算机类型的访问](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)”
+   * [限制 codespace 的基础映像](/codespaces/managing-codespaces-for-your-organization/restricting-the-base-image-for-codespaces)
+   * [限制转发端口的可见性](/codespaces/managing-codespaces-for-your-organization/restricting-the-visibility-of-forwarded-ports)
+   * [限制空闲超时期限](/codespaces/managing-codespaces-for-your-organization/restricting-the-idle-timeout-period)
+1. 向策略添加完约束后，单击“保存”。
 
-The policy will be applied to all new codespaces that are billable to your organization. The retention period constraint is only applied on codespace creation.
+策略将应用于对组织计费的所有新 codespace。 保持期约束仅在创建 codespace 时应用。
 
-## Editing a policy
+## 编辑策略
 
-You can edit an existing policy. For example, you may want to add or remove constraints to or from a policy.
+可以编辑现有策略。 例如，你可能想要在策略中添加或移除约束。
 
-The retention period constraint is only applied to codespaces when they are created. Editing a policy has no effect on existing codespaces.
+保持期约束仅在创建 codespace 时应用于它们。 编辑策略不会影响现有 codespace。
 
-1. Display the "Codespace policies" page. For more information, see "[Adding a policy to set a maximum codespace retention period](#adding-a-policy-to-set-a-maximum-codespace-retention-period)."
-1. Click the name of the policy you want to edit.
-1. Click the pencil icon ({% octicon "pencil" aria-label="The edit icon" %}) beside the "Retention period" constraint.
-1. Make the required changes then click **Save**.
+1. 显示“Codespace policies（代码空间策略）”页。 有关详细信息，请参阅“[添加策略以设置最大 codespace 保持期](#adding-a-policy-to-set-a-maximum-codespace-retention-period)”。
+1. 单击要编辑的策略的名称。
+1. 单击“保持期”约束旁边的铅笔图标 ({% octicon "pencil" aria-label="The edit icon" %})。
+1. 执行所需更改，然后单击“保存”。
 
-## Deleting a policy 
+## 删除策略 
 
-You can delete a policy at any time. Deleting a policy has no effect on existing codespaces.
+可以随时删除策略。 删除策略不会影响现有 codespace。
 
-1. Display the "Codespace policies" page. For more information, see "[Adding a policy to set a maximum codespace retention period](#adding-a-policy-to-set-a-maximum-codespace-retention-period)."
-1. Click the delete button to the right of the policy you want to delete.
+1. 显示“Codespace policies（代码空间策略）”页。 有关详细信息，请参阅“[添加策略以设置最大 codespace 保持期](#adding-a-policy-to-set-a-maximum-codespace-retention-period)”。
+1. 单击要删除的策略右侧的删除按钮。
 
-   ![Screenshot of the delete button for a policy](/assets/images/help/codespaces/policy-delete.png)
+   ![策略的“删除”按钮的屏幕截图](/assets/images/help/codespaces/policy-delete.png)

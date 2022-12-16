@@ -15,12 +15,12 @@ versions:
 type: overview
 topics:
   - Codespaces
-ms.openlocfilehash: a1618c86671bc5b06474c41803c6b34576a897aa
-ms.sourcegitcommit: 2e1852bcdd690cb66b9b5d69cb056a2bb2b9a6b4
+ms.openlocfilehash: 9d01df3f8dae7ceb788e2dd57b02fb3cc977400d
+ms.sourcegitcommit: 1529de77bfcbe45519131b5f5fb3ab319758c2d2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2022
-ms.locfileid: '148160798'
+ms.lasthandoff: 11/14/2022
+ms.locfileid: '148164321'
 ---
 ## 什么是代码空间？
 
@@ -50,7 +50,7 @@ ms.locfileid: '148160798'
 
 组织所有者可以启用 {% data variables.product.prodname_github_codespaces %}，后者可按照组织或企业帐户计费。 这适用于通过组织拥有的存储库创建的 codespaces。 有关详细信息，请参阅“[为组织启用 {% data variables.product.prodname_github_codespaces %}](/codespaces/managing-codespaces-for-your-organization/enabling-github-codespaces-for-your-organization)”。 可以对组织或企业帐户上的 {% data variables.product.prodname_github_codespaces %} 使用设置支出限制。 有关详细信息，请参阅“[管理 {% data variables.product.prodname_github_codespaces %} 的支出限制](/billing/managing-billing-for-github-codespaces/managing-the-spending-limit-for-github-codespaces)”。
 
-如果按照组织或企业对 codespace 的使用进行计费，则会在创建 codespace 时显示。 有关详细信息，请参阅“[为存储库创建 codespace](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository#creating-a-codespace-for-a-repository)”。 按照组织或其父企业计费的 codespaces 归组织所有，且可被组织所有者删除。 有关详细信息，请参阅“[删除 codespace](/codespaces/developing-in-codespaces/deleting-a-codespace#deleting-codespaces-in-your-organization)”。 
+如果按照组织或企业对 codespace 的使用进行计费，则会在创建 codespace 时显示。 有关详细信息，请参阅“[为存储库创建 codespace](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository#creating-a-codespace-for-a-repository)”。 按照组织或其父企业计费的 codespace 归组织所有，且可被组织所有者删除。 有关详细信息，请参阅“[删除 codespace](/codespaces/developing-in-codespaces/deleting-a-codespace#deleting-codespaces-in-your-organization)”。 
 
 ### 自定义 {% data variables.product.prodname_github_codespaces %}
 

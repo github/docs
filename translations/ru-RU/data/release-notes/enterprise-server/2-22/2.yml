@@ -1,0 +1,37 @@
+date: '20.10.2020'
+sections:
+  security_fixes:
+    - "Пакеты обновлены до последних версий системы безопасности. {% comment %} https://github.com/github/enterprise2/pull/23097, https://github.com/github/enterprise2/pull/23081 {% endcomment %}"
+
+  bugs:
+    - |Если параметры учетной записи хранения не удалось проверить в процессе настройки GitHub Actions, потребуется `ghe-actions-teardown` перед новой попыткой. {% comment %} https://github.com/github/enterprise2/pull/23057, https://github.com/github/enterprise2/pull/22981 {% endcomment %}
+
+|
+    - |Настраиваемая конфигурация прокси-сервера может отрицательно сказаться на среде GitHub Actions. {% comment %} https://github.com/github/enterprise2/pull/23121, https://github.com/github/enterprise2/pull/23092, https://github.com/github/c2c-actions-platform/issues/2254 {% endcomment %}
+
+|
+    - |При изменении адреса в eth0, Nomad и Consul могут перестать реагировать на обращения. {% comment %} https://github.com/github/enterprise2/pull/23227, https://github.com/github/enterprise2/pull/23153 {% endcomment %}
+
+|
+    - |При использовании самозаверяющих сертификатов GHES может получать исключения проверки SSL после настройки GitHub Actions. {% comment %} https://github.com/github/enterprise2/pull/23381 {% endcomment %}
+
+|
+    - |Из-за использования GitHub Action в имени ветви с символом `+` или `/` произошла ошибка `Не удалось разрешить действие`. {% comment %} https://github.com/github/github/pull/157942, https://github.com/github/github/pull/157819, https://github.com/github/launch/pull/3463 {% endcomment %}
+
+|
+    - |Сообщение "Подтверждение политики двухфакторного требования" в корпоративной учетной записи было некорректным. {% comment %} https://github.com/github/github/pull/158735 {% endcomment %}
+
+|
+    - |Для некоторых запросов размером свыше 100 МБ, возможно избыточное выделение буфера Kafka. {% comment %} https://github.com/github/kafka-lite/pull/286, https://github.com/github/kafka-lite/pull/285 {% endcomment %}
+
+|
+  known_issues:
+    - "После первой настройки версии GitHub Enterprise Server, в которой еще нет пользователей, злоумышленник мог создать первого пользователя с правами администратора. {% comment %} https://github.com/github/enterprise2/issues/1889 {% endcomment %}"
+    - "Пользовательские правила брандмауэра не сохраняются в процессе обновления. {% comment %} https://github.com/github/enterprise2/issues/2823 {% endcomment %}"
+    - "Отслеживаемые файлы Git LFS, [отправленные через веб-интерфейс](https://github.com/blog/2105-upload-files-to-your-repositories), ошибочно добавлялись напрямую в репозиторий. {% comment %} https://github.com/github/github/issues/54684 {% endcomment %}"
+    - "Невозможно закрывать проблемы, если они содержат постоянную ссылку на BLOB-объект в том же репозитории с путем, длина которого превышает 255 символов. {% comment %} https://github.com/github/github/issues/107731 {% endcomment %}"
+    - "Когда в GitHub Connect включен параметр \"Пользователи могут выполнять поиск на GitHub.com\", результаты поиска на GitHub.com не включают проблемы в частных и внутренних репозиториях. {% comment %} https://github.com/github/admin-experience/issues/571 {% endcomment %}"
+    - "GitHub Actions может не запускаться, если ранее он был включен в экземпляре, где запущена версия 2.22.0, которая обновляется до версии 2.22.2. (обновлено 23.10.2020) {% comment %} https://github.com/github/c2c-actions/issues/1680 {% endcomment %}"
+    - "После первой настройки экземпляра версии 2.22.2 или после обновления до версии 2.22.2, канал активности на информационной панели организации больше обновляться не будет (обновлено 27.10.2020 г.) {% comment %}https://github.com/github/enterprise2/issues/23050{% endcomment %}"
+    - "Журналы аудита можно отнести к адресу 127.0.0.1 вместо фактического IP-адреса источника. (updated 2020-11-02) {% comment %} https://github.com/github/enterprise2/issues/21514 {% endcomment %}"
+    - "Если узел реплики находится в автономном режиме в конфигурации высокой доступности, {% data variables.product.product_name %} по-прежнему может маршрутизировать запросы {% data variables.product.prodname_pages %} на узел в автономном режиме, снижая доступность {% data variables.product.prodname_pages %} для пользователей."

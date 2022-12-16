@@ -1,6 +1,6 @@
 ---
-title: Syncing a fork
-intro: Sync a fork of a repository to keep it up-to-date with the upstream repository.
+title: Синхронизация вилки
+intro: 'Синхронизируйте вилку репозитория, чтобы гарантировать его актуальность в вышестоящем репозитории.'
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/working-with-forks/syncing-a-fork
   - /articles/syncing-a-fork
@@ -19,44 +19,48 @@ versions:
 topics:
   - Pull requests
 permissions: People with write access for a forked repository can sync the fork to the upstream repository.
+ms.openlocfilehash: 85b149e26cb65a428d7e9b66aea99d6b62430ae0
+ms.sourcegitcommit: 1f3bd126ca000982c538f1621d47722737740943
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 12/01/2022
+ms.locfileid: '148188331'
 ---
-
-## Syncing a fork branch from the web UI
+## Синхронизация ветви вилки из пользовательского веб-интерфейса
 
 {% ifversion syncing-fork-web-ui %}
-1. On {% data variables.product.product_name %}, navigate to the main page of the forked repository that you want to sync with the upstream repository.
-2. Select the **Sync fork** dropdown.
-    !["Sync fork" dropdown emphasized](/assets/images/help/repository/sync-fork-dropdown.png)
-3. Review the details about the commits from the upstream repository, then click **Update branch**.
-    ![Sync fork modal with "Update branch" button emphasized](/assets/images/help/repository/update-branch-button.png)
-{% else %}
-1. On {% data variables.product.product_name %}, navigate to the main page of the forked repository that you want to sync with the upstream repository.
-2. Select the **Fetch upstream** dropdown.
-    !["Fetch upstream" drop-down](/assets/images/help/repository/fetch-upstream-drop-down.png)
-3. Review the details about the commits from the upstream repository, then click **Fetch and merge**.
-    !["Fetch and merge" button](/assets/images/help/repository/fetch-and-merge-button.png){% endif %}
+1. На {% data variables.product.product_name %} перейдите на главную страницу разветвленного репозитория, который требуется синхронизировать с вышестоящим репозиторием.
+2. Выберите раскрывающийся список **Синхронизировать вилку**.
+    ![Выделенный раскрывающийся список "Синхронизировать вилку"](/assets/images/help/repository/sync-fork-dropdown.png)
+3. Просмотрите сведения о фиксациях из вышестоящего репозитория, а затем щелкните **Обновить ветвь**.
+    ![Модальное окно "Синхронизация вилки" с выделенной кнопкой "Обновить ветвь"](/assets/images/help/repository/update-branch-button.png) {% else %}
+1. На {% data variables.product.product_name %} перейдите на главную страницу разветвленного репозитория, который требуется синхронизировать с вышестоящим репозиторием.
+2. Выберите раскрывающийся список **Получить вышестоящий репозиторий**.
+    ![Раскрывающийся список "Получить вышестоящий репозиторий"](/assets/images/help/repository/fetch-upstream-drop-down.png)
+3. Просмотрите сведения о фиксациях из вышестоящего репозитория, а затем щелкните **Получить и объединить**.
+    ![Кнопка "Получить и объединить"](/assets/images/help/repository/fetch-and-merge-button.png){% endif %}
 
-If the changes from the upstream repository cause conflicts, {% data variables.product.company_short %} will prompt you to create a pull request to resolve the conflicts.
+Если изменения из вышестоящего репозитория вызывают конфликты, {% data variables.product.company_short %} предложит создать запрос на вытягивание для разрешения конфликтов.
 
-## Syncing a fork branch with the {% data variables.product.prodname_cli %}
+## Синхронизация ветви вилки с помощью {% data variables.product.prodname_cli %}
 
-{% data reusables.cli.about-cli %} To learn more about {% data variables.product.prodname_cli %}, see "[About {% data variables.product.prodname_cli %}](/github-cli/github-cli/about-github-cli)."
+{% data reusables.cli.about-cli %} Дополнительные сведения о {% data variables.product.prodname_cli %} см. в статье ["Общие сведения о {% data variables.product.prodname_cli %}"](/github-cli/github-cli/about-github-cli).
 
-To update the remote fork from its parent, use the `gh repo sync -b BRANCHNAME` subcommand and supply your fork and branch name as arguments.
+Чтобы обновить удаленную вилку из родительского элемента, используйте подкоманду `gh repo sync -b BRANCHNAME` и укажите имена вилки и ветви в качестве аргументов.
 
 ```shell
 $ gh repo sync owner/cli-fork -b BRANCH_NAME
 ```
 
-If the changes from the upstream repository cause conflict then the {% data variables.product.prodname_cli %} can't sync. You can set the `-force` flag to overwrite the destination branch.
+Если изменения из вышестоящего репозитория вызывают конфликт, то {% data variables.product.prodname_cli %} не сможет синхронизироваться. Вы можете задать флаг `-force` для перезаписи целевой ветви.
 
-## Syncing a fork branch from the command line
+## Синхронизация ветви вилки из командной строки
 
-Before you can sync your fork with an upstream repository, you must [configure a remote that points to the upstream repository](/pull-requests/collaborating-with-pull-requests/working-with-forks/configuring-a-remote-for-a-fork) in Git.
+Прежде чем синхронизировать вилку с вышестоящим репозиторием, необходимо настроить удаленный репозиторий, указывающий на вышестоящий репозиторий в Git. Дополнительные сведения см. в разделе [Настройка удаленного репозитория для вилки](/pull-requests/collaborating-with-pull-requests/working-with-forks/configuring-a-remote-repository-for-a-fork).
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
-2. Change the current working directory to your local project.
-3. Fetch the branches and their respective commits from the upstream repository. Commits to `BRANCHNAME` will be stored in the local branch `upstream/BRANCHNAME`.
+2. Измените текущий рабочий каталог на локальный проект.
+3. Получение ветвей и их соответствующих фиксаций из вышестоящего репозитория. Фиксации в `BRANCHNAME` будут храниться в локальной ветви `upstream/BRANCHNAME`.
 
   ```shell
   $ git fetch upstream
@@ -68,14 +72,14 @@ Before you can sync your fork with an upstream repository, you must [configure a
   >  * [new branch]      main     -> upstream/main
   ```
 
-4. Check out your fork's local default branch - in this case, we use `main`.
+4. Извлеките локальную ветвь вилки по умолчанию — в этом примере мы используем `main`.
 
   ```shell
   $ git checkout main
   > Switched to branch 'main'
   ```
 
-5. Merge the changes from the upstream default branch - in this case, `upstream/main` - into your local default branch. This brings your fork's default branch into sync with the upstream repository, without losing your local changes.
+5. Объедините изменения из вышестоящей ветви по умолчанию ( в данном случае `upstream/main`) с локальной ветвью по умолчанию. Это приведет к синхронизации ветви вилки по умолчанию с вышестоящим репозиторием без потери локальных изменений.
 
   ```shell
   $ git merge upstream/main
@@ -88,7 +92,7 @@ Before you can sync your fork with an upstream repository, you must [configure a
   >  create mode 100644 README.md
   ```
   
-  If your local branch didn't have any unique commits, Git will perform a fast-forward. For more information, see [Basic Branching and Merging](https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging) in the Git documentation.
+  Если локальная ветвь не имеет уникальных фиксаций, Git выполнит быстрое перемещение вперед. Дополнительные сведения см. в статье [Базовое ветвление и слияние](https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging) в документации по Git.
   ```shell
   $ git merge upstream/main
   > Updating 34e91da..16c56ad
@@ -96,10 +100,10 @@ Before you can sync your fork with an upstream repository, you must [configure a
   >  README.md                 |    5 +++--
   >  1 file changed, 3 insertions(+), 2 deletions(-)
   ``` 
-  If your local branch had unique commits, you may need to resolve conflicts. For more information, see "[Addressing merge conflicts](/github/collaborating-with-pull-requests/addressing-merge-conflicts)."
+  Если локальная ветвь имела уникальные фиксации, возможно, потребуется устранить конфликты. Дополнительные сведения см. в разделе [Устранение конфликтов слияния](/github/collaborating-with-pull-requests/addressing-merge-conflicts).
 
 {% tip %}
 
-**Tip**: Syncing your fork only updates your local copy of the repository. To update your fork on {% data variables.location.product_location %}, you must [push your changes](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/).
+**Совет.** При синхронизации вилки обновляется только локальная копия репозитория. Чтобы обновить вилку на {% data variables.location.product_location %}, необходимо [отправить изменения](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/).
 
 {% endtip %}

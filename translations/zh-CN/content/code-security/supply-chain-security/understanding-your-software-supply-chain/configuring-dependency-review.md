@@ -1,6 +1,6 @@
 ---
-title: Configuring dependency review
-intro: You can use dependency review to catch vulnerabilities before they are added to your project.
+title: 配置依赖项审查
+intro: 可以使用依赖项评审来捕获漏洞，以避免将其添加到项目中。
 miniTocMaxHeadingLevel: 3
 shortTitle: Configure dependency review
 versions:
@@ -15,80 +15,71 @@ topics:
   - Vulnerabilities
   - Dependencies
   - Pull requests
+ms.openlocfilehash: b5e5ccb5107cd96d1a88f896fd46d5b948a365cd
+ms.sourcegitcommit: c2aa10a61db44ee111c09565b6114dd5c97b6e2e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/14/2022
+ms.locfileid: '148163350'
 ---
-
-## About dependency review
+## 关于依赖项评审
 
 {% data reusables.dependency-review.feature-overview %}   
 
-For more information, see "[About dependency review](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review)" and "[Reviewing dependency changes in a pull request](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-dependency-changes-in-a-pull-request)."
+有关详细信息，请参阅“[关于依赖项审查](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review)”和“[审查拉取请求中的依赖项更改](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-dependency-changes-in-a-pull-request)”。
 
-## About configuring dependency review
+## 关于配置依赖项审查
 
-{% ifversion fpt %}
-Dependency review is available in all public repositories in all products and cannot be disabled. Dependency review is available in private repositories owned by organizations that use GitHub Enterprise Cloud and have a license for [{% data variables.product.prodname_GH_advanced_security %}](/get-started/learning-about-github/about-github-advanced-security). For more information, see the [{% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-dependency-review).
+{% ifversion fpt %} 依赖项审查在所有产品的所有公共存储库中都可用，并且无法禁用。 依赖项审查在使用 GitHub Enterprise Cloud 并拥有 [{% data variables.product.prodname_GH_advanced_security %}](/get-started/learning-about-github/about-github-advanced-security) 许可证的组织拥有的专用存储库中可用。 有关详细信息，请参阅 [{% data variables.product.prodname_ghe_cloud %} 文档](/enterprise-cloud@latest/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-dependency-review)。
 
-{% elsif ghec %}
-Dependency review is included in {% data variables.product.product_name %} for public repositories. To use dependency review in private repositories owned by organizations, you must have a license for [{% data variables.product.prodname_GH_advanced_security %}](/get-started/learning-about-github/about-github-advanced-security) and have the dependency graph enabled.
+{% elsif ghec %} 依赖项审查包含在公共存储库的 {% data variables.product.product_name %} 中。 若要在组织拥有的专用存储库中使用依赖项审查，必须具有 [{% data variables.product.prodname_GH_advanced_security %}](/get-started/learning-about-github/about-github-advanced-security) 许可证并启用依赖项关系图。
 
 {% data reusables.dependabot.enabling-disabling-dependency-graph-private-repo %}
-1. If "{% data variables.product.prodname_GH_advanced_security %}" is not enabled, click **Enable** next to the feature.
-   ![Screenshot of GitHub Advanced Security feature with "Enable" button emphasized](/assets/images/help/security/enable-ghas-private-repo.png)
+1. 如果尚未启用“{% data variables.product.prodname_GH_advanced_security %}”，请单击此功能旁边的“启用”。
+   ![GitHub 高级安全功能的屏幕截图，其中突出显示了“启用”按钮](/assets/images/help/security/enable-ghas-private-repo.png)
 
 {% elsif ghes or ghae %}
 
-Dependency review is available when dependency graph is enabled for {% data variables.location.product_location %} and {% data variables.product.prodname_advanced_security %} is enabled for the organization or repository.{% ifversion ghes %} For more information, see "[Enabling {% data variables.product.prodname_GH_advanced_security %} for your enterprise](/admin/code-security/managing-github-advanced-security-for-your-enterprise/enabling-github-advanced-security-for-your-enterprise)."{% endif %}
+为 {% data variables.location.product_location %} 启用依赖项关系图并且为组织或存储库启用 {% data variables.product.prodname_advanced_security %} 时，依赖项审查可用。{% ifversion ghes %} 有关详细信息，请参阅“[为企业启用 {% data variables.product.prodname_GH_advanced_security %}](/admin/code-security/managing-github-advanced-security-for-your-enterprise/enabling-github-advanced-security-for-your-enterprise)”。{% endif %}
 
-### Checking if the dependency graph is enabled
+### 检查是否已启用依赖项关系图
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-{% data reusables.repositories.navigate-to-code-security-and-analysis %}
-1. Under "Configure security and analysis features", check if the dependency graph is enabled. 
-1. If dependency graph is enabled, click **Enable** next to "{% data variables.product.prodname_GH_advanced_security %}" to enable {% data variables.product.prodname_advanced_security %}, including dependency review. The enable button is disabled if your enterprise has no available licenses for {% data variables.product.prodname_advanced_security %}.{% ifversion ghes %}
-    ![Screenshot of "Code security and analysis" features"](/assets/images/enterprise/3.4/repository/code-security-and-analysis-enable-ghas-3.4.png){% endif %}
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %} {% data reusables.repositories.navigate-to-code-security-and-analysis %}
+1. 在“配置安全性和分析功能”下，检查是否启用了依赖项关系图。 
+1. 如果已启用依赖项关系图，请单击“{% data variables.product.prodname_GH_advanced_security %}”旁边的“启用”以启用 {% data variables.product.prodname_advanced_security %}，其中包含了依赖项审查。 如果企业没有可用的 {% data variables.product.prodname_advanced_security %} 许可证，“启用”按钮会禁用。{% ifversion ghes %} ![“代码安全性和分析”功能的屏幕截图](/assets/images/enterprise/3.4/repository/code-security-and-analysis-enable-ghas-3.4.png){% endif %}
 
 {% endif %}
 
 {% ifversion dependency-review-action-configuration %}
-## About configuring the {% data variables.product.prodname_dependency_review_action %}
+## 关于配置 {% data variables.product.prodname_dependency_review_action %}
 
 {% data reusables.dependency-review.dependency-review-action-overview %}
 
-The following configuration options are available.
+可用配置选项如下。
 
-| Option | Required | Usage |
+| 选项 | 必选 | 使用情况 |
 |------------------|-------------------------------|--------|
-| `fail-on-severity` | Optional | Defines the threshold for level of severity (`low`, `moderate`, `high`, `critical`).</br>The action will fail on any pull requests that introduce vulnerabilities of the specified severity level or higher. |
-{%- ifversion dependency-review-action-licenses %}
-| `allow-licenses` | Optional | Contains a list of allowed licenses. You can find the possible values for this parameter in the [Licenses](/rest/licenses) page of the API documentation.</br>The action will fail on pull requests that introduce dependencies with licenses that do not match the list.|{% endif %}
-{%- ifversion dependency-review-action-licenses %}
-| `deny-licenses` | Optional | Contains a list of prohibited licenses. You can find the possible values for this parameter in the [Licenses](/rest/licenses) page of the API documentation.</br>The action will fail on pull requests that introduce dependencies with licenses that match the list.|{% endif %}{% ifversion dependency-review-action-fail-on-scopes %}
-| `fail-on-scopes` | Optional | Contains a list of strings representing the build environments you want to support (`development`, `runtime`, `unknown`). </br>The action will fail on pull requests that introduce vulnerabilites in the scopes that match the list.|{% endif %}
-| `allow-ghsas` | Optional | Contains a list of {% data variables.product.prodname_advisory_database %} IDs that can be skipped during detection. You can find the possible values for this parameter in the [{% data variables.product.prodname_advisory_database %}](https://github.com/advisories). |
-| `config-file` | Optional | Specifies a path to a configuration file. The configuration file can be local to the repository or a file located in an external repository.|
-| `external-repo-token` | Optional | Specifies a token for fetching the configuration file, if the file resides in a private external repository. The token must have read access to the repository.|
+| `fail-on-severity` | 可选 | 定义严重性级别（`low`、`moderate`、`high`、`critical`）的阈值。</br>对于引入指定严重性级别或更高级别的漏洞的任何拉取请求，该操作都将失败。 |
+{%- ifversion dependency-review-action-licenses %} | `allow-licenses` | 可选 | 包含允许的许可证列表。 可以在 API 文档的[许可证](/rest/licenses)页中找到此参数可能的值。</br>如果拉取请求引入许可证与列表不匹配的依赖项，该操作将失败。|{% endif %} {%- ifversion dependency-review-action-licenses %} | `deny-licenses` | 可选 | 包含禁止的许可证列表。 可以在 API 文档的[许可证](/rest/licenses)页中找到此参数可能的值。</br>如果拉取请求引入了具有与列表匹配的许可证的依赖项，该操作将失败。|{% endif %}{% ifversion dependency-review-action-fail-on-scopes %} | `fail-on-scopes` | 可选 | 包含表示要支持的生成环境的字符串列表（`development`、`runtime`、`unknown`）。 </br>对于在与列表匹配的范围内引入漏洞的拉取请求，该操作将失败。|{% endif %} | `allow-ghsas` | 可选 | 包含检测过程中可以跳过的 {% data variables.product.prodname_advisory_database %} ID 列表。 可以在 [{% data variables.product.prodname_advisory_database %}](https://github.com/advisories) 中找到此参数的可能值。 | | `config-file` | 可选 | 指定配置文件的路径。 配置文件可以是存储库的本地文件，也可以是位于外部存储库的文件。| | `external-repo-token` | 可选 | 如果文件驻留在专用外部存储库中，则指定用于提取配置文件的令牌。 令牌必须具有该存储库的读取权限。|
 
-{% ifversion dependency-review-action-licenses %}
-{% tip %}
+{% ifversion dependency-review-action-licenses %} {% tip %}
 
-**Tip:** The  `allow-licenses` and  `deny-licenses` options are mutually exclusive.
+提示：`allow-licenses` 和 `deny-licenses` 选项互斥。
 
-{% endtip %}
-{% endif %}
+{% endtip %} {% endif %}
 
-## Configuring the {% data variables.product.prodname_dependency_review_action %}
+## 配置 {% data variables.product.prodname_dependency_review_action %}
 
-There are two methods of configuring the {% data variables.product.prodname_dependency_review_action %}: 
-- Inlining the configuration options in your workflow file. 
-- Referencing a configuration file in your workflow file.
+可以通过两种方法配置 {% data variables.product.prodname_dependency_review_action %}： 
+- 在工作流文件中内联配置选项。 
+- 在工作流文件中引用配置文件。
 
-Notice that all of the examples use a short version number for the action (`v3`) instead of a semver release number (for example, `v3.0.8`). This ensures that you use the most recent minor version of the action.
-### Using inline configuration to set up the {% data variables.product.prodname_dependency_review_action %}
+请注意，所有示例使用操作 (`v3`) 的短版本号，而不是 semver 版本号（例如，`v3.0.8`）。 这可确保使用操作的最新次要版本。
+### 使用内联配置设置 {% data variables.product.prodname_dependency_review_action %}
 
-1. Add a new YAML workflow to your `.github/workflows` folder.   
+1. 将新的 YAML 工作流添加到 `.github/workflows` 文件夹。   
    
-   {% ifversion ghes %}For `runs-on`, the default label is `self-hosted`. You can replace the default label with the label of any of your runners.{% endif %}
+   {% ifversion ghes %}对于 `runs-on`，默认标签为 `self-hosted`。 可以将默认标签替换为任何运行器的标签。{% endif %}
   ```yaml{:copy}
   name: 'Dependency Review'
   on: [pull_request]
@@ -106,9 +97,9 @@ Notice that all of the examples use a short version number for the action (`v3`)
          - name: Dependency Review
            uses: actions/dependency-review-action@v3
    ```
-1. Specify your settings.   
+1. 指定您的设置。   
 
-   This {% data variables.product.prodname_dependency_review_action %} example file illustrates how you can use the available configuration options.
+   此 {% data variables.product.prodname_dependency_review_action %} 示例文件说明了如何使用可用的配置选项。
    ```yaml{:copy}
    name: 'Dependency Review'
    on: [pull_request]
@@ -146,11 +137,11 @@ Notice that all of the examples use a short version number for the action (`v3`)
            fail-on-scopes: development, runtime
   {% endif %}
    ```
-### Using a configuration file to set up {% data variables.product.prodname_dependency_review_action %}
+### 使用配置文件设置 {% data variables.product.prodname_dependency_review_action %}
 
-1. Add a new YAML workflow to your `.github/workflows` folder and use `config-file` to specify that you are using a configuration file.
+1. 将新的 YAML 工作流添加到 `.github/workflows` 文件夹，并使用 `config-file` 指定正在使用配置文件。
 
-   {% ifversion ghes %}For `runs-on`, the default label is `self-hosted`. You can replace the default label with the label of any of your runners.{% endif %}
+   {% ifversion ghes %}对于 `runs-on`，默认标签为 `self-hosted`。 可以将默认标签替换为任何运行器的标签。{% endif %}
    ```yaml{:copy}
    name: 'Dependency Review'
    on: [pull_request]
@@ -178,9 +169,9 @@ Notice that all of the examples use a short version number for the action (`v3`)
             # Possible values: Any GitHub token with read access to the private external repository.  
             external-repo-token: 'ghp_123456789abcde'
    ```
-1. Create the configuration file in the path you have specified.   
+1. 在指定路径中创建配置文件。   
 
-   This YAML example file illustrates how you can use the available configuration options. 
+   此 YAML 示例文件说明了如何使用可用的配置选项。 
    ```yaml{:copy}
      # Possible values: "critical", "high", "moderate", "low" 
      fail-on-severity: critical
@@ -211,5 +202,5 @@ Notice that all of the examples use a short version number for the action (`v3`)
        - runtime
   {% endif %}
   ```
-For further details about the configuration options, see [`dependency-review-action`](https://github.com/actions/dependency-review-action#readme).
+有关配置选项的更多详细信息，请参阅 [`dependency-review-action`](https://github.com/actions/dependency-review-action#readme)。
 {% endif %}

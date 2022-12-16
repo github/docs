@@ -1,6 +1,6 @@
 ---
-title: Working with the NuGet registry
-intro: 'You can configure the `dotnet` command-line interface (CLI) to publish NuGet packages to {% data variables.product.prodname_registry %} and to use packages stored on {% data variables.product.prodname_registry %} as dependencies in a .NET project.'
+title: Работа с реестром NuGet
+intro: 'В интерфейсе командной строки (CLI) `dotnet` можно настроить публикацию пакетов NuGet в {% data variables.product.prodname_registry %} и использование пакетов, хранящихся в {% data variables.product.prodname_registry %}, в качестве зависимостей в проекте .NET.'
 product: '{% data reusables.gated-features.packages %}'
 redirect_from:
   - /articles/configuring-nuget-for-use-with-github-package-registry
@@ -15,20 +15,27 @@ versions:
   ghae: '*'
   ghec: '*'
 shortTitle: NuGet registry
+ms.openlocfilehash: cb9e190bb6cfa86ce1bdb31581de6e7d14e9dac8
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148192924'
 ---
-
-{% data reusables.package_registry.packages-ghes-release-stage %}
-{% data reusables.package_registry.packages-ghae-release-stage %}
+{% data reusables.package_registry.packages-ghes-release-stage %} {% data reusables.package_registry.packages-ghae-release-stage %}
 
 {% data reusables.package_registry.admins-can-configure-package-types %}
 
-## Authenticating to {% data variables.product.prodname_registry %}
+## Проверка подлинности в {% data variables.product.prodname_registry %}
 
 {% data reusables.package_registry.authenticate-packages %}
 
-### Authenticating with `GITHUB_TOKEN` in {% data variables.product.prodname_actions %}
+{% ifversion packages-nuget-v2 %} Вы можете предоставить пакеты независимо друг от друга разрешения на доступ для {% data variables.product.prodname_github_codespaces %} и {% data variables.product.prodname_actions %}. Дополнительные сведения см. в [разделах Обеспечение доступа Codespaces к пакету](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility#ensuring-codespaces-access-to-your-package) и [Обеспечение доступа рабочего процесса к пакету](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility#ensuring-workflow-access-to-your-package).
+{% endif %}
 
-Use the following command to authenticate to {% data variables.product.prodname_registry %} in a {% data variables.product.prodname_actions %} workflow using the `GITHUB_TOKEN` instead of hardcoding a {% data variables.product.pat_generic %} in a nuget.config file in the repository:
+### Проверка подлинности с помощью `GITHUB_TOKEN` в {% data variables.product.prodname_actions %}
+
+Используйте следующую команду для проверки подлинности в {% data variables.product.prodname_registry %} в рабочем процессе {% data variables.product.prodname_actions %}, используя `GITHUB_TOKEN` вместо жесткого кодирования {% data variables.product.pat_generic %} в nuget.config файле в репозитории:
 
 ```shell
 dotnet nuget add source --username USERNAME --password {%raw%}${{ secrets.GITHUB_TOKEN }}{% endraw %} --store-password-in-clear-text --name github "https://{% ifversion fpt or ghec %}nuget.pkg.github.com{% else %}nuget.HOSTNAME{% endif %}/OWNER/index.json"
@@ -36,20 +43,19 @@ dotnet nuget add source --username USERNAME --password {%raw%}${{ secrets.GITHUB
 
 {% data reusables.package_registry.authenticate-packages-github-token %}
 
-### Authenticating with a {% data variables.product.pat_generic %}
+### Проверка подлинности с помощью {% data variables.product.pat_generic %}
 
 {% data reusables.package_registry.required-scopes %}
 
-To authenticate to {% data variables.product.prodname_registry %} with the `dotnet` command-line interface (CLI), create a *nuget.config* file in your project directory specifying {% data variables.product.prodname_registry %} as a source under `packageSources` for the `dotnet` CLI client.
+Для проверки подлинности в {% data variables.product.prodname_registry %} с помощью интерфейса командной строки (CLI) `dotnet` создайте файл *nuget.config* в каталоге проекта, указав {% data variables.product.prodname_registry %} в качестве источника в разделе `packageSources` для клиента CLI `dotnet`.
 
-You must replace:
-- `USERNAME` with the name of your personal account on {% data variables.product.prodname_dotcom %}.
-- `TOKEN` with your {% data variables.product.pat_v1 %}.
-- `OWNER` with the name of the user or organization account that owns the repository containing your project.{% ifversion ghes or ghae %}
-- `HOSTNAME` with the host name for {% data variables.location.product_location %}.{% endif %}
+Необходимо заменить:
+- `USERNAME` на имя вашей личной учетной записи в {% data variables.product.prodname_dotcom %}
+- `TOKEN` с {% data variables.product.pat_v1 %}.
+- `OWNER` на имя учетной записи пользователя или организации, которой принадлежит {% ifversion packages-nuget-v2 %}пакет, который требуется установить, или для которого требуется опубликовать пакет{% else %}репозиторий, содержащий ваш проект{% endif %}. {% ifversion ghes or ghae %}
+- `HOSTNAME` с именем узла для {% data variables.location.product_location %}. {% endif %}
 
-{% ifversion ghes %}If your instance has subdomain isolation enabled:
-{% endif %}
+{% ifversion ghes %}Если в вашем экземпляре включена изоляция поддоменов: {% endif %}
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -67,8 +73,7 @@ You must replace:
 </configuration>
 ```
 
-{% ifversion ghes %}
-If your instance has subdomain isolation disabled:
+{% ifversion ghes %} Если в вашем экземпляре выключена изоляция поддоменов:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -87,44 +92,54 @@ If your instance has subdomain isolation disabled:
 ```
 {% endif %}
 
-## Publishing a package
+## Публикация пакета
 
-You can publish a package to {% data variables.product.prodname_registry %} by authenticating with a *nuget.config* file, or by using the `--api-key` command line option with your {% data variables.product.prodname_dotcom %} {% data variables.product.pat_v1 %}.
+Вы можете опубликовать пакет в {% data variables.product.prodname_registry %} путем проверки подлинности с помощью *файлаnuget.config* или с помощью `--api-key` параметра командной строки с {% data variables.product.prodname_dotcom %} {% data variables.product.pat_v1 %}.
 
-### Publishing a package using a GitHub {% data variables.product.pat_generic %} as your API key
+{% ifversion packages-nuget-v2 %}
 
-If you don't already have a PAT to use for your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}, see "[Creating a {% data variables.product.pat_generic %}](/github/authenticating-to-github/creating-a-personal-access-token)."
+Реестр NuGet хранит пакеты в вашей организации или личной учетной записи и позволяет связывать пакеты с репозиторием. Можно указать, нужно ли наследовать разрешения из репозитория или задавать детализированные разрешения независимо от репозитория.
 
-1. Create a new project.
+{% data reusables.package_registry.publishing-user-scoped-packages %}
+
+Если указать в `nuget.config` файле , опубликованный `RepositoryURL` пакет будет автоматически подключен к указанному репозиторию. Дополнительные сведения см. в разделе [Публикация пакета с помощью `nuget.config` файла](/packages/working-with-a-github-packages-registry/working-with-the-nuget-registry#publishing-a-package-using-a-nugetconfig-file). Сведения о связывании уже опубликованного пакета с репозиторием см. в разделе [Подключение репозитория к пакету](/packages/learn-github-packages/connecting-a-repository-to-a-package).
+
+{% endif %}
+
+### Публикация пакета с помощью {% data variables.product.pat_generic %} GitHub в качестве ключа API
+
+Если у вас еще нет pat для вашей учетной записи в {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}, см. раздел Создание [{% data variables.product.pat_generic %}](/github/authenticating-to-github/creating-a-personal-access-token).
+
+1. Создайте новый проект.
   ```shell
   dotnet new console --name OctocatApp
   ```
-2. Package the project.
+2. Упакуйте проект.
   ```shell
   dotnet pack --configuration Release
   ```
 
-3. Publish the package using your {% data variables.product.pat_generic %} as the API key.
+3. Опубликуйте пакет, используя {% data variables.product.pat_generic %} в качестве ключа API.
   ```shell
   dotnet nuget push "bin/Release/OctocatApp.1.0.0.nupkg"  --api-key YOUR_GITHUB_PAT --source "github"
   ```
 
 {% data reusables.package_registry.viewing-packages %}
 
-### Publishing a package using a *nuget.config* file
+### Публикация пакета с помощью файла *nuget.config*
 
-When publishing, you need to use the same value for `OWNER` in your *csproj* file that you use in your *nuget.config* authentication file. Specify or increment the version number in your *.csproj* file, then use the `dotnet pack` command to create a *.nuspec* file for that version. For more information on creating your package, see "[Create and publish a package](https://docs.microsoft.com/nuget/quickstart/create-and-publish-a-package-using-the-dotnet-cli)" in the Microsoft documentation.
+При публикации необходимо использовать в *CSPROJ-файле* то же значение `OWNER`, что и в файле проверки подлинности *nuget.config*. Укажите или увеличьте номер версии в *CSPROJ-файле*, а затем используйте команду `dotnet pack`, чтобы создать *NUSPEC-файл* для этой версии. Дополнительные сведения о создании пакета см. в разделе [Создание и публикация пакета](https://docs.microsoft.com/nuget/quickstart/create-and-publish-a-package-using-the-dotnet-cli) в документации Майкрософт.
 
 {% data reusables.package_registry.authenticate-step %}
-2. Create a new project.
+2. Создайте новый проект.
   ```shell
   dotnet new console --name OctocatApp
   ```
-3. Add your project's specific information to your project's file, which ends in *.csproj*.  You must replace:
-    - `OWNER` with the name of the user or organization account that owns the repository containing your project.
-    - `REPOSITORY` with the name of the repository containing the package you want to publish.                      
-    - `1.0.0` with the version number of the package.{% ifversion ghes or ghae %}
-    - `HOSTNAME` with the host name for {% data variables.location.product_location %}.{% endif %}
+3. Добавьте сведения о вашем проекте в файл проекта, который имеет расширение *CSPROJ*.  Необходимо заменить:
+    - `OWNER` — имя учетной записи пользователя или организации, которой принадлежит репозиторий, к которому требуется подключить пакет.
+    - `REPOSITORY` — имя репозитория, к которому требуется подключить пакет.                      
+    - `1.0.0` на номер версии пакета{% ifversion ghes or ghae %}
+    - `HOSTNAME` с именем узла для {% data variables.location.product_location %}. {% endif %}
   ``` xml
   <Project Sdk="Microsoft.NET.Sdk">
 
@@ -141,23 +156,23 @@ When publishing, you need to use the same value for `OWNER` in your *csproj* fil
 
   </Project>
   ```
-4. Package the project.
+4. Упакуйте проект.
   ```shell
   dotnet pack --configuration Release
   ```
 
-5. Publish the package using the `key` you specified in the *nuget.config* file.
+5. Опубликуйте пакет, используя `key`, указанный в файле *nuget.config*.
   ```shell
   dotnet nuget push "bin/Release/OctocatApp.1.0.0.nupkg" --source "github"
   ```
 
 {% data reusables.package_registry.viewing-packages %}
 
-## Publishing multiple packages to the same repository
+## Публикация нескольких пакетов в одном репозитории
 
-To publish multiple packages to the same repository, you can include the same {% data variables.product.prodname_dotcom %} repository URL in the `RepositoryURL` fields in all *.csproj* project files. {% data variables.product.prodname_dotcom %} matches the repository based on that field.
+Чтобы подключить несколько пакетов к одному репозиторию, можно включить один и тот же URL-адрес репозитория {% data variables.product.prodname_dotcom %} в `RepositoryURL` поля во всех *CSPROJ-файлах* проекта. {% data variables.product.prodname_dotcom %} сопоставляет репозиторий на основе этого поля.
 
-For example, the *OctodogApp* and *OctocatApp* projects will publish to the same repository:
+Например, проекты *OctodogApp* и *OctocatApp* будут опубликованы в одном репозитории:
 
 ``` xml
 <Project Sdk="Microsoft.NET.Sdk">
@@ -193,13 +208,13 @@ For example, the *OctodogApp* and *OctocatApp* projects will publish to the same
 </Project>
 ```
 
-## Installing a package
+## Установка пакета
 
-Using packages from {% data variables.product.prodname_dotcom %} in your project is similar to using packages from *nuget.org*. Add your package dependencies to your *.csproj* file, specifying the package name and version. For more information on using a *.csproj* file in your project, see "[Working with NuGet packages](https://docs.microsoft.com/nuget/consume-packages/overview-and-workflow)" in the Microsoft documentation.
+Использование в вашем проекте пакетов из {% data variables.product.prodname_dotcom %} аналогично использованию пакетов из *nuget.org*. Добавьте зависимости пакета в *CSPROJ-файл*, указав имя пакета и версию. Дополнительные сведения об использовании *CSPROJ-файла* в проекте см. в разделе [Работа с пакетами NuGet](https://docs.microsoft.com/nuget/consume-packages/overview-and-workflow) в документации Майкрософт.
 
 {% data reusables.package_registry.authenticate-step %}
 
-2. To use a package, add `ItemGroup` and configure the `PackageReference` field in the *.csproj* project file. Replace the `OctokittenApp` value in `Include="OctokittenApp"` with your package dependency, and replace the `12.0.2` value in `Version="12.0.2"` with the version you want to use:
+2. Чтобы использовать пакет, добавьте `ItemGroup` и настройте поле `PackageReference` в файле проекта *.csproj*. Замените значение `OctokittenApp` в `Include="OctokittenApp"` на свою зависимость пакета, а также замените значение `12.0.2` в `Version="12.0.2"` на необходимую версию:
   ``` xml
   <Project Sdk="Microsoft.NET.Sdk">
 
@@ -221,19 +236,19 @@ Using packages from {% data variables.product.prodname_dotcom %} in your project
   </Project>
   ```
 
-3. Install the packages with the `restore` command.
+3. Установите пакеты с помощью команды `restore`.
   ```shell
   dotnet restore
   ```
 
-## Troubleshooting
+## Устранение неполадок
 
-Your NuGet package may fail to push if the `RepositoryUrl` in *.csproj* is not set to the expected repository .
+Отправка пакета NuGet может завершиться неудачно, если в `RepositoryUrl` в *CSPROJ-файле* не задан ожидаемый репозиторий.
 
-If you're using a nuspec file, ensure that it has a `repository` element with the required `type` and `url` attributes.
+Если вы используете NUSPEC-файл, убедитесь, что в нем присутствует элемент `repository` с обязательными атрибутами `type` и `url`.
 
-If you're using a `GITHUB_TOKEN` to authenticate to a {% data variables.product.prodname_registry %} registry within a {% data variables.product.prodname_actions %} workflow, the token cannot access private repository-based packages in a different repository other than where the workflow is running in. To access packages associated with other repositories, instead generate a {% data variables.product.pat_v1 %} with the `read:packages` scope and pass this token in as a secret.
+Если вы используете `GITHUB_TOKEN` для аутентификации в реестре {% data variables.product.prodname_registry %} в рабочем процессе {% data variables.product.prodname_actions %}, токен не сможет получить доступ к пакетам на основе частного репозитория в другом репозитории, отличном от того, где выполняется рабочий процесс. Чтобы получить доступ к пакетам, связанным с другими репозиториями, создайте {% data variables.product.pat_v1 %} с областью `read:packages` и передайте этот маркер в качестве секрета.
  
-## Further reading
+## Дополнительные материалы
 
-- "[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package)"
+- "[Удаление и восстановление пакета](/packages/learn-github-packages/deleting-and-restoring-a-package)"

@@ -1,92 +1,63 @@
 ---
-title: Restricting network traffic to your enterprise
+title: Restringir o tráfego de rede para a sua empresa
 shortTitle: Restricting network traffic
-intro: You can use an IP allow list to restrict access to your enterprise to connections from specified IP addresses.
+intro: Você pode usar um IP permitir que a lista restrinja o acesso ao seu negócio a conexões a partir de endereços IP especificados.
 versions:
   ghae: '*'
 type: how_to
 topics:
-  - Access management
-  - Enterprise
-  - Fundamentals
-  - Networking
-  - Security
+- Access management
+- Enterprise
+- Fundamentals
+- Networking
+- Security
 redirect_from:
-  - /admin/configuration/restricting-network-traffic-to-your-enterprise
+- /admin/configuration/restricting-network-traffic-to-your-enterprise
+ms.openlocfilehash: 4172596d7907cd7aab809d34cf5953eec3956329
+ms.sourcegitcommit: 22d665055b1bee7a5df630385e734e3a149fc720
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/13/2022
+ms.locfileid: "145095969"
 ---
-## About IP allow lists
+## <a name="about-ip-allow-lists"></a>Sobre listas de permissões de IP
 
-By default, authorized users can access your enterprise from any IP address. Enterprise owners can restrict access to assets owned by organizations in an enterprise account by configuring an allow list for specific IP addresses. {% data reusables.identity-and-permissions.ip-allow-lists-example-and-restrictions %}
+Por padrão, os usuários autorizados podem acessar sua empresa a partir de qualquer endereço IP. Os proprietários de empresas podem restringir o acesso a ativos pertencentes a organizações na conta corporativa, configurando uma lista de permissão de endereços IP específicos. {% data reusables.identity-and-permissions.ip-allow-lists-example-and-restrictions %}
 
 {% data reusables.identity-and-permissions.ip-allow-lists-cidr-notation %}
 
 {% data reusables.identity-and-permissions.ip-allow-lists-enable %} {% data reusables.identity-and-permissions.ip-allow-lists-enterprise %} 
 
-You can also configure allowed IP addresses for an individual organization. For more information, see "[Managing allowed IP addresses for your organization](/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization)."
+Você também pode configurar endereços IP permitidos para uma organização individual. Para obter mais informações, confira "[Como gerenciar os endereços IP permitidos para sua organização](/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization)".
 
-By default, Azure network security group (NSG) rules leave all inbound traffic open on ports 22, 80, 443, and 25. Enterprise owners can contact {% data variables.contact.github_support %} to configure access restrictions for your instance.
+Por padrão, as regras do grupo de segurança de rede do Azure (NSG) deixam todo o tráfego de entrada aberto nas portas 22, 80, 443 e 25. Proprietários de empresa podem entrar em contato com {% data variables.contact.github_support %} para configurar as restrições de acesso para sua instância.
 
-For instance-level restrictions using Azure NSGs, contact {% data variables.contact.github_support %} with the IP addresses that should be allowed to access your enterprise instance. Specify address ranges using the standard CIDR (Classless Inter-Domain Routing) format. {% data variables.contact.github_support %} will configure the appropriate firewall rules for your enterprise to restrict network access over HTTP, SSH, HTTPS, and SMTP. For more information, see "[Receiving help from {% data variables.contact.github_support %}](/admin/enterprise-support/receiving-help-from-github-support)."
+Para restrições no nível da instância que usam o Azure NSGs, entre em contato com {% data variables.contact.github_support %} com os endereços IP que devem ter permissão para acessar a sua instância corporativa. Especifica os intervalos de endereços usando o formato CIDR padrão (Encaminhamento sem Classe entre Domínios). {% data variables.contact.github_support %} irá configurar as regras de firewall apropriadas para sua empresa para restringir o acesso à rede por meio de HTTP, SSH, HTTPS e SMTP. Para obter mais informações, confira "[Como receber ajuda do {% data variables.contact.github_support %}](/admin/enterprise-support/receiving-help-from-github-support)".
 
-## Adding an allowed IP address
+## <a name="adding-an-allowed-ip-address"></a>Adicionar endereços IP permitidos
 
-{% data reusables.identity-and-permissions.about-adding-ip-allow-list-entries %}
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.settings-tab %} {% data reusables.enterprise-accounts.security-tab %} {% data reusables.identity-and-permissions.ip-allow-lists-add-ip %} {% data reusables.identity-and-permissions.ip-allow-lists-add-description %} {% data reusables.identity-and-permissions.ip-allow-lists-add-entry %}
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.security-tab %}
-{% data reusables.identity-and-permissions.ip-allow-lists-add-ip %}
-{% data reusables.identity-and-permissions.ip-allow-lists-add-description %}
-{% data reusables.identity-and-permissions.ip-allow-lists-add-entry %}
-{% data reusables.identity-and-permissions.check-ip-address %}
-
-## Allowing access by {% data variables.product.prodname_github_apps %}
+## <a name="allowing-access-by--data-variablesproductprodname_github_apps-"></a>Permitindo acesso de {% data variables.product.prodname_github_apps %}
 
 {% data reusables.identity-and-permissions.ip-allow-lists-githubapps-enterprise %}
 
-## Enabling allowed IP addresses
+## <a name="enabling-allowed-ip-addresses"></a>Habilitar endereços IP permitidos
 
-{% data reusables.identity-and-permissions.about-enabling-allowed-ip-addresses %}
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.settings-tab %} {% data reusables.enterprise-accounts.security-tab %}
+1. Em "Lista de IPs permitidos", selecione **Habilitar a lista de IPs permitidos**.
+  ![Caixa de seleção usada para permitir endereços IP](/assets/images/help/security/enable-ip-allowlist-enterprise-checkbox.png)
+4. Clique em **Salvar**.
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.security-tab %}
-1. Under "IP allow list", select **Enable IP allow list**.
-  ![Checkbox to allow IP addresses](/assets/images/help/security/enable-ip-allowlist-enterprise-checkbox.png)
-4. Click **Save**.
+## <a name="editing-an-allowed-ip-address"></a>Editar endereços IP permitidos
 
-## Editing an allowed IP address
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.settings-tab %} {% data reusables.enterprise-accounts.security-tab %} {% data reusables.identity-and-permissions.ip-allow-lists-edit-entry %} {% data reusables.identity-and-permissions.ip-allow-lists-edit-ip %} {% data reusables.identity-and-permissions.ip-allow-lists-edit-description %}
+8. Clique em **Atualizar**.
 
-{% data reusables.identity-and-permissions.about-editing-ip-allow-list-entries %}
+## <a name="deleting-an-allowed-ip-address"></a>Excluir endereços IP permitidos
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.security-tab %}
-{% data reusables.identity-and-permissions.ip-allow-lists-edit-entry %}
-{% data reusables.identity-and-permissions.ip-allow-lists-edit-ip %}
-{% data reusables.identity-and-permissions.ip-allow-lists-edit-description %}
-8. Click **Update**.
-{% data reusables.identity-and-permissions.check-ip-address %}
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.settings-tab %} {% data reusables.enterprise-accounts.security-tab %} {% data reusables.identity-and-permissions.ip-allow-lists-delete-entry %} {% data reusables.identity-and-permissions.ip-allow-lists-confirm-deletion %}
 
-{% ifversion ip-allow-list-address-check %}
-## Checking if an IP address is permitted
-
-{% data reusables.identity-and-permissions.about-checking-ip-address %}
-
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.security-tab %}
-{% data reusables.identity-and-permissions.check-ip-address-step %}
-{% endif %}
-
-## Deleting an allowed IP address
-
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.security-tab %}
-{% data reusables.identity-and-permissions.ip-allow-lists-delete-entry %}
-{% data reusables.identity-and-permissions.ip-allow-lists-confirm-deletion %}
-
-## Using {% data variables.product.prodname_actions %} with an IP allow list
+## <a name="using--data-variablesproductprodname_actions--with-an-ip-allow-list"></a>Usar {% data variables.product.prodname_actions %} com uma lista endereços IP permitidos
 
 {% data reusables.actions.ip-allow-list-self-hosted-runners %}

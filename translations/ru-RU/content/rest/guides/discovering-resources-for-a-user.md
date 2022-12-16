@@ -12,12 +12,12 @@ versions:
 topics:
   - API
 shortTitle: Discover resources for a user
-ms.openlocfilehash: 9650ff8dee220f0b32d74cacb0f86acd236df5b6
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
+ms.openlocfilehash: 3b3fd627260ac03d0991db73fcb5492c1284b2c0
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145135944'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148193419'
 ---
 При выполнении запросов с проверкой подлинности к API {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} приложениям часто требуется получить репозитории и организации текущего пользователя. В этом руководстве мы объясним, как уверенно находить эти ресурсы.
 
@@ -33,7 +33,7 @@ ms.locfileid: '145135944'
 
 [Области OAuth][scopes] и [политики в отношении приложений организации][oap] определяют то, к каким из этих репозиториев приложение может получать доступ для пользователя. Для нахождения этих репозиториев используйте описанный ниже рабочий процесс.
 
-Как всегда, сначала нам понадобится библиотека Ruby [Octokit.rb для GitHub][octokit.rb]. Затем мы настроим Octokit.rb для автоматической обработки [разбиения на страницы][pagination].
+Как всегда, сначала нам понадобится библиотека Ruby [Octokit.rb для GitHub][octokit.rb]. Затем мы настроим Octokit.rb для автоматической обработки разбиения на страницы. Дополнительные сведения о разбиении на страницы см. [в разделе Использование разбиения на страницы в REST API](/rest/guides/using-pagination-in-the-rest-api).
 
 ``` ruby
 require 'octokit'
@@ -70,7 +70,7 @@ end
 
 Приложения могут выполнять для пользователя самые разные задачи, связанные с организациями. Для их выполнения приложению требуется [авторизация OAuth][scopes] с достаточными разрешениями. Например, область `read:org` позволяет [получать список команд][list-teams], а область `user` — [публиковать сведения о членстве пользователя в организациях][publicize-membership]. После того как пользователь предоставит приложению одну или несколько этих областей, вы можете получить сведения о его организациях.
 
-Так же, как и при обнаружении репозиториев выше, мы начнем с того, что настроим обработку [разбиения на страницы][pagination] с помощью библиотеки Ruby [Octokit.rb для GitHub][octokit.rb]:
+Как и при обнаружении репозиториев выше, мы начнем с требования библиотеки [GitHub Octokit.rb][octokit.rb] Ruby и настроим ее, чтобы позаботиться о разбиении на страницы. Дополнительные сведения о разбиении на страницы см. [в разделе Использование разбиения на страницы в REST API](/rest/guides/using-pagination-in-the-rest-api).
 
 ``` ruby
 require 'octokit'
@@ -108,7 +108,6 @@ end
 [make-authenticated-request-for-user]: /rest/guides/basics-of-authentication#making-authenticated-requests
 [oap]: https://developer.github.com/changes/2015-01-19-an-integrators-guide-to-organization-application-policies/
 [octokit.rb]: https://github.com/octokit/octokit.rb
-[pagination]: /rest#pagination
 [platform samples]: https://github.com/github/platform-samples/tree/master/api/ruby/discovering-resources-for-a-user
 [publicize-membership]: /rest/reference/orgs#set-public-organization-membership-for-the-authenticated-user
 [register-oauth-app]: /rest/guides/basics-of-authentication#registering-your-app

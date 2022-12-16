@@ -1,7 +1,7 @@
 ---
-title: About security hardening with OpenID Connect
+title: Сведения об усилении защиты с помощью OpenID Connect
 shortTitle: Security hardening with OpenID Connect
-intro: OpenID Connect allows your workflows to exchange short-lived tokens directly from your cloud provider.
+intro: OpenID Connect позволяет рабочим процессам обмениваться маркерами краткосрочного действия непосредственно из поставщика облачных служб.
 miniTocMaxHeadingLevel: 4
 versions:
   fpt: '*'
@@ -10,50 +10,54 @@ versions:
 type: tutorial
 topics:
   - Security
+ms.openlocfilehash: 90a2f8c6cb2114f060bfbd0f422cb1ef6dbca604
+ms.sourcegitcommit: 4f08a208a0d2e13dc109678750a962ea2f67e1ba
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 12/06/2022
+ms.locfileid: '148192034'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+## Обзор OpenID Connect
 
-## Overview of OpenID Connect
+Рабочие процессы {% data variables.product.prodname_actions %} часто применяются для доступа к поставщику облачных служб (например, AWS, Azure, GCP или HashiCorp Vault) с целью развертывания программного обеспечения или использования предоставляемых поставщиком служб. Прежде чем рабочий процесс сможет получить доступ к ресурсам, он должен предоставить поставщику облачных служб учетные данные, например пароль или токен. Эти учетные данные обычно хранятся на {% data variables.product.prodname_dotcom %} в виде секрета, который предоставляется поставщику облачных служб при каждом запуске рабочего процесса. 
 
-{% data variables.product.prodname_actions %} workflows are often designed to access a cloud provider (such as AWS, Azure, GCP, or HashiCorp Vault) in order to deploy software or use the cloud's services. Before the workflow can access these resources, it will supply credentials, such as a password or token, to the cloud provider. These credentials are usually stored as a secret in {% data variables.product.prodname_dotcom %}, and the workflow presents this secret to the cloud provider every time it runs. 
+Однако для использования жестко заданных секретов необходимо создать учетные данные в поставщике облачных служб, а затем дублировать их на {% data variables.product.prodname_dotcom %} в качестве секрета. 
 
-However, using hardcoded secrets requires you to create credentials in the cloud provider and then duplicate them in {% data variables.product.prodname_dotcom %} as a secret. 
+OpenID Connect (OIDC) предлагает иной подход: вы можете настроить рабочий процесс для запроса кратковременного маркера доступа непосредственно у поставщика облачных служб. Поставщик облачных служб также должен поддерживать OIDC со своей стороны, и необходимо настроить отношение доверия, определяющее, какие рабочие процессы могут запрашивать маркеры доступа. К поставщикам, которые в настоящее время поддерживают OIDC, относятся Amazon Web Services, Azure, Google Cloud Platform, HashiCorp Vault и другие.
 
-With OpenID Connect (OIDC), you can take a different approach by configuring your workflow to request a short-lived access token directly from the cloud provider. Your cloud provider also needs to support OIDC on their end, and you must configure a trust relationship that controls which workflows are able to request the access tokens. Providers that currently support OIDC include Amazon Web Services, Azure, Google Cloud Platform, and HashiCorp Vault, among others.
+### Преимущества использования OIDC
 
-### Benefits of using OIDC
+Изменив рабочие процессы для использования токенов OIDC, можно реализовать указанные ниже рекомендации по обеспечению безопасности.
 
-By updating your workflows to use OIDC tokens, you can adopt the following good security practices:
+- **Отсутствие облачных секретов**. Вам не нужно дублировать облачные учетные данные в качестве долгосрочных секретов на {% data variables.product.prodname_dotcom %}. Вместо этого можно настроить отношение доверия к OIDC в системе поставщика облачных служб, а затем изменить рабочие процессы для запроса кратковременного маркера доступа у поставщика облачных служб через OIDC. 
+- **Управление проверкой подлинности и авторизацией**. Вы получаете более детальный контроль над использованием учетных данных рабочими процессами и можете применять средства проверки подлинности и авторизации поставщика облачных служб для управления доступом к облачным ресурсам.
+- **Смена учетных данных**. При использовании OIDC поставщик облачных служб выдает кратковременный маркер доступа, который действителен только для одного задания, после чего его действие автоматически истекает.
 
-- **No cloud secrets**: You won't need to duplicate your cloud credentials as long-lived {% data variables.product.prodname_dotcom %} secrets. Instead, you can configure the OIDC trust on your cloud provider, and then update your workflows to request a short-lived access token from the cloud provider through OIDC. 
-- **Authentication and authorization management**: You have more granular control over how workflows can use credentials, using your cloud provider's authentication (authN) and authorization (authZ) tools to control access to cloud resources.
-- **Rotating credentials**: With OIDC, your cloud provider issues a short-lived access token that is only valid for a single job, and then automatically expires.
+### Начало работы с OIDC
 
-### Getting started with OIDC
+На схеме ниже в общем виде представлена интеграция поставщика OIDC {% data variables.product.prodname_dotcom %} с рабочими процессами и поставщиком облачных служб.
 
-The following diagram gives an overview of how {% data variables.product.prodname_dotcom %}'s OIDC provider integrates with your workflows and cloud provider:
+![Схема OIDC](/assets/images/help/images/oidc-architecture.png)
 
-![OIDC diagram](/assets/images/help/images/oidc-architecture.png)
+1. В системе поставщика облачных служб создайте отношение доверия OIDC между облачной ролью и рабочими процессами {% data variables.product.prodname_dotcom %}, которым требуется доступ к облаку.
+2. При каждом выполнении задания поставщик OIDC {% data variables.product.prodname_dotcom %} автоматически создает токен OIDC. Этот токен содержит несколько утверждений для надежной и проверяемой идентификации рабочего процесса, который пытается пройти проверку подлинности.
+3. Вы можете включить в задание шаг или действие для запроса этого токена у поставщика OIDC {% data variables.product.prodname_dotcom %} и его представления поставщику облачных служб.
+4. После того как поставщик облачных служб успешно проверит утверждения, представленные в токене, он предоставит кратковременный маркер доступа к облаку, который действует только в течение выполнения задания.
 
-1. In your cloud provider, create an OIDC trust between your cloud role and your {% data variables.product.prodname_dotcom %} workflow(s) that need access to the cloud.
-2. Every time your job runs, {% data variables.product.prodname_dotcom %}'s OIDC Provider auto-generates an OIDC token. This token contains multiple claims to establish a security-hardened and verifiable identity about the specific workflow that is trying to authenticate.
-3. You could include a step or action in your job to request this token from {% data variables.product.prodname_dotcom %}'s OIDC provider, and present it to the cloud provider.
-4. Once the cloud provider successfully validates the claims presented in the token, it then provides a short-lived cloud access token that is available only for the duration of the job.
+## Настройка отношения доверия OIDC с облаком
 
-## Configuring the OIDC trust with the cloud
+При настройке доверия облака к поставщику OIDC {% data variables.product.prodname_dotcom %} **необходимо** добавить условия для фильтрации входящих запросов, чтобы ненадежные репозитории или рабочие процессы не могли запрашивать маркеры доступа к облачным ресурсам.
 
-When you configure your cloud to trust {% data variables.product.prodname_dotcom %}'s OIDC provider, you **must** add conditions that filter incoming requests, so that untrusted repositories or workflows can’t request access tokens for your cloud resources:
-
-- Before granting an access token, your cloud provider checks that the [`subject`](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) and other claims used to set conditions in its trust settings match those in the request's JSON Web Token (JWT). As a result, you must take care to correctly define the _subject_ and other conditions in your cloud provider.
-- The OIDC trust configuration steps and the syntax to set conditions for cloud roles (using _Subject_ and other claims) will vary depending on which cloud provider you're using. For some examples, see "[Example subject claims](#example-subject-claims)."
+- Перед предоставлением маркера доступа поставщик облачных служб проверяет, соответствуют ли [`subject`](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) (субъект) и другие утверждения, используемые для задания условий, в параметрах доверия и в JSON Web Token (JWT) запроса. Поэтому необходимо правильно определять _субъект_ и другие условия в поставщике облачных служб.
+- Инструкции по настройке доверия OIDC и синтаксис для задания условий для облачных ролей (с использованием _субъекта_ и других утверждений) зависят от поставщика облачных служб. Некоторые примеры см. в разделе [Примеры утверждений о субъекте](#example-subject-claims).
  
-### Understanding the OIDC token
+### Основные сведения о токене OIDC
 
-Each job requests an OIDC token from {% data variables.product.prodname_dotcom %}'s OIDC provider, which responds with an automatically generated JSON web token (JWT) that is unique for each workflow job where it is generated. When the job runs, the OIDC token is presented to the cloud provider. To validate the token, the cloud provider checks if the OIDC token's subject and other claims are a match for the conditions that were preconfigured on the cloud role's OIDC trust definition.
+Каждое задание запрашивает токен OIDC у поставщика OIDC {% data variables.product.prodname_dotcom %}, который предоставляет в ответ автоматически созданный токен JSON Web Token (JWT), уникальный для задания рабочего процесса. При выполнении задания токен OIDC предоставляется поставщику облачных служб. Чтобы проверить токен, поставщик облачных служб проверяет, соответствуют ли субъект и другие утверждения токена OIDC условиям, предварительно заданным в определении доверия OIDC облачной роли.
 
-The following example OIDC token uses a subject (`sub`) that references a job environment named `prod` in the `octo-org/octo-repo` repository.
+В приведенном ниже примере в токене OIDC используется субъект (`sub`), который ссылается на среду задания с именем `prod` в репозитории `octo-org/octo-repo`.
 
 ```yaml
 {
@@ -92,177 +96,176 @@ The following example OIDC token uses a subject (`sub`) that references a job en
 }
 ```
 
-To see all the claims supported by {% data variables.product.prodname_dotcom %}'s OIDC provider, review the `claims_supported` entries at 
-{% ifversion ghes %}`https://HOSTNAME/_services/token/.well-known/openid-configuration`{% else %}https://token.actions.githubusercontent.com/.well-known/openid-configuration{% endif %}.
+Просмотреть все утверждения, поддерживаемые поставщиком OIDC {% data variables.product.prodname_dotcom %}, можно в записях `claims_supported` на странице {% ifversion ghes %}`https://HOSTNAME/_services/token/.well-known/openid-configuration`{% else %} https://token.actions.githubusercontent.com/.well-known/openid-configuration{% endif %}.
 
-The token includes the standard audience, issuer, and subject claims:
+Токен включает в себя стандартные утверждения об аудитории, издателе и субъекте.
 
-|    Claim    | Description            |
+|    Утверждение    | Описание            |
 | ----------- | ---------------------- |
-| `aud`| _(Audience)_ By default, this is the URL of the repository owner, such as the organization that owns the repository. This is the only claim that can be customized. You can set a custom audience with a toolkit command: [`core.getIDToken(audience)`](https://www.npmjs.com/package/@actions/core/v/1.6.0)          | 
-| `iss`| _(Issuer)_ The issuer of the OIDC token: {% ifversion ghes %}`https://HOSTNAME/_services/token`{% else %}`https://token.actions.githubusercontent.com`{% endif %}                   | 
-| `sub`| _(Subject)_ Defines the subject claim that is to be validated by the cloud provider. This setting is essential for making sure that access tokens are only allocated in a predictable way.|
+| `aud`| _(Аудитория)_ По умолчанию это URL-адрес владельца репозитория, например организации, которой он принадлежит. Это единственное утверждение, которое можно настроить. Пользовательскую аудиторию можно задать с помощью следующей команды из набора средств: [`core.getIDToken(audience)`](https://www.npmjs.com/package/@actions/core/v/1.6.0)          | 
+| `iss`| _(Издатель)_ Издатель токена OIDC: {% ifversion ghes %}`https://HOSTNAME/_services/token`{% else %}`https://token.actions.githubusercontent.com`{% endif %}                   | 
+| `sub`| _(Субъект)_ Определяет утверждение о субъекте, которое должно проверяться поставщиком облачных служб. Этот параметр необходим для выделения маркеров доступа предсказуемым образом.|
 
-The OIDC token also includes additional standard claims:
+Токен OIDC также включает в себя дополнительные стандартные утверждения:
 
-|    Claim    | Description            |
+|    Утверждение    | Описание            |
 | ----------- | ---------------------- |
-| `alg`| _(Algorithm)_ The algorithm used by the OIDC provider.                    | 
-| `exp`| _(Expires at)_ Identifies the expiry time of the JWT.                    | 
-| `iat`| _(Issued at)_ The time when the JWT was issued.                   | 
-| `jti`| _(JWT token identifier)_ Unique identifier for the OIDC token.                   | 
-| `kid`| _(Key identifier)_ Unique key for the OIDC token.                   | 
-| `nbf`| _(Not before)_ JWT is not valid for use before this time.                   | 
-| `typ`| _(Type)_ Describes the type of token. This is a JSON Web Token (JWT).                   | 
+| `alg`| _(Алгоритм)_ Алгоритм, используемый поставщиком OIDC.                    | 
+| `exp`| _(Срок действия)_ Определяет время истечения срока действия токена JWT.                    | 
+| `iat`| _(Выдан в)_ Время выдачи токена JWT.                   | 
+| `jti`| _(Идентификатор токена JWT)_ Уникальный идентификатор токена OIDC.                   | 
+| `kid`| _(Идентификатор ключа)_ Уникальный ключ токена OIDC.                   | 
+| `nbf`| _(Не ранее)_ Токен JWT недействителен до этого времени.                   | 
+| `typ`| _(Тип)_ Описывает тип токена. Это токен JSON Web Token (JWT).                   | 
 
-The token also includes custom claims provided by {% data variables.product.prodname_dotcom %}:
+Токен также включает в себя пользовательские утверждения, предоставляемые {% data variables.product.prodname_dotcom %}.
 
-|    Claim    | Description            |
+|    Утверждение    | Описание            |
 | ----------- | ---------------------- |
-| `actor`| The personal account that initiated the workflow run.                   | 
-| `actor_id`| The ID of personal account that initiated the workflow run.             |
-| `base_ref`| The target branch of the pull request in a workflow run.                   | 
-| `environment`| The name of the environment used by the job.                    | 
-| `event_name`| The name of the event that triggered the workflow run.                    | 
-| `head_ref`| The source branch of the pull request in a workflow run.                   | 
-| `job_workflow_ref`| This is the ref path to the reusable workflow used by this job. For more information, see "["Using OpenID Connect with reusable workflows"](/actions/deployment/security-hardening-your-deployments/using-openid-connect-with-reusable-workflows)."                  | 
-| `ref`| _(Reference)_ The git ref that triggered the workflow run.                   | 
-| `ref_type`| The type of `ref`, for example: "branch".                  | 
-| `repository_visibility` | The visibility of the repository where the workflow is running. Accepts the following values: `internal`, `private`, or `public`.                   | 
-| `repository`| The repository from where the workflow is running.                   | 
-| `repository_id`| The ID of the repository from where the workflow is running.  |
-| `repository_owner`| The name of the organization in which the `repository` is stored.                   | 
-| `repository_owner_id`| The ID of the organization in which the `repository` is stored.            |
-| `run_id`| The ID of the workflow run that triggered the workflow.                   | 
-| `run_number`| The number of times this workflow has been run.                   | 
-| `run_attempt`| The number of times this workflow run has been retried.                    | 
-| `workflow`| The name of the workflow.                   | 
+| `actor`| Личная учетная запись, которая инициировала запуск рабочего процесса.                   | 
+| `actor_id`| Идентификатор личной учетной записи, которая инициировала запуск рабочего процесса.             |
+| `base_ref`| Целевая ветвь запроса на вытягивание в рамках запуска рабочего процесса.                   | 
+| `environment`| Имя среды, используемой заданием.                    | 
+| `event_name`| Имя события, вызвавшего запуск рабочего процесса.                    | 
+| `head_ref`| Исходная ветвь запроса на вытягивание в рамках запуска рабочего процесса.                   | 
+| `job_workflow_ref`| Это путь ссылки к многоразовому рабочему процессу, используемому этим заданием. Дополнительные сведения см. в разделе [Использование OpenID Connect с повторно используемыми рабочими процессами](/actions/deployment/security-hardening-your-deployments/using-openid-connect-with-reusable-workflows).                  | 
+| `ref`| _(Ссылка)_ Ссылка GIT, активировавшая запуск рабочего процесса.                   | 
+| `ref_type`| Тип `ref`, например branch (ветвь).                  | 
+| `repository_visibility` | Видимость репозитория, в котором выполняется рабочий процесс. Принимает следующие значения: `internal`, `private`или `public`.                   | 
+| `repository`| Репозиторий, из которого запускается рабочий процесс.                   | 
+| `repository_id`| Идентификатор репозитория, из которого запускается рабочий процесс.  |
+| `repository_owner`| Имя организации, в которой хранится `repository`.                   | 
+| `repository_owner_id`| Идентификатор организации, в которой хранится `repository`.            |
+| `run_id`| Идентификатор запуска рабочего процесса, активировавшего рабочий процесс.                   | 
+| `run_number`| Количество запусков этого рабочего процесса.                   | 
+| `run_attempt`| Количество повторных попыток этого запуска рабочего процесса.                    | 
+| `workflow`| Имя рабочего процесса.                   | 
 
-### Defining trust conditions on cloud roles using OIDC claims
+### Определение условий доверия для облачных ролей с помощью утверждений OIDC
 
-With OIDC, a {% data variables.product.prodname_actions %} workflow requires a token in order to access resources in your cloud provider. The workflow requests an access token from your cloud provider, which checks the details presented by the JWT. If the trust configuration in the JWT is a match, your cloud provider responds by issuing a temporary token to the workflow, which can then be used to access resources in your cloud provider. You can configure your cloud provider to only respond to requests that originate from a specific organization's repository; you can also specify additional conditions, described below.
+При использовании OIDC рабочему процессу {% data variables.product.prodname_actions %} требуется токен для доступа к ресурсам поставщика облачных служб. Рабочий процесс запрашивает маркер доступа у поставщика облачных служб, который проверяет сведения в токене JWT. Если конфигурация доверия в JWT соответствует условиям, поставщик облачных служб выдает в ответ рабочему процессу временный маркер, который можно использовать для доступа к ресурсам поставщика облачных служб. Поставщик облачных служб можно настроить так, чтобы он отвечал только на запросы из репозитория определенной организации. Кроме того, можно указать дополнительные условия, как описано ниже.
 
-Audience and Subject claims are typically used in combination while setting conditions on the cloud role/resources to scope its access to the GitHub workflows.
-- **Audience**: By default, this value uses the URL of the organization or repository owner. This can be used to set a condition that only the workflows in the specific organization can access the cloud role.
-- **Subject**: By default, has a predefined format and is a concatenation of some of the key metadata about the workflow, such as the {% data variables.product.prodname_dotcom %} organization, repository, branch, or associated [`job`](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idenvironment) environment. See "[Example subject claims](#example-subject-claims)" to see how the subject claim is assembled from concatenated metadata.
+Утверждения об аудитории и субъекте обычно используются в сочетании друг с другом при задании условий для облачной роли и ресурсов, чтобы ограничить доступ к рабочим процессам GitHub.
+- **Аудитория**: по умолчанию используется URL-адрес организации или владельца репозитория. С помощью этого утверждения можно задать условие, согласно которому доступ к облачной роли могут иметь только рабочие процессы определенной организации.
+- **Тема**. По умолчанию имеет предопределенный формат и представляет собой объединение некоторых ключевых метаданных рабочего процесса, таких как {% data variables.product.prodname_dotcom %} организации, репозитория, ветви или связанной [`job`](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idenvironment) среды. Чтобы узнать, как утверждение о субъекте составляется путем сцепления метаданных, см. в разделе [Примеры утверждений о субъекте](#example-subject-claims).
 
-If you need more granular trust conditions, you can customize the issuer (`iss`) and subject (`sub`) claims that are included with the JWT. For more information, see "[Customizing the token claims](#customizing-the-token-claims)".
+Если требуются более детализированные условия доверия, можно настроить утверждения издателя (`iss`) и субъекта (`sub`), включенные в JWT. Дополнительные сведения см. в разделе [Настройка утверждений маркеров безопасности HTTP](#customizing-the-token-claims).
 
-There are also many additional claims supported in the OIDC token that can be used for setting these conditions. In addition, your cloud provider could allow you to assign a role to the access tokens, letting you specify even more granular permissions.
+Кроме того, в маркере OIDC поддерживается множество дополнительных утверждений, которые можно использовать для установки этих условий. Кроме того, поставщик облачных служб может предусматривать возможность назначения роли маркерам доступа, что позволяет настраивать еще более детализированные разрешения.
 
 {% note %}
 
-**Note**: To control how your cloud provider issues access tokens, you **must** define at least one condition, so that untrusted repositories can’t request access tokens for your cloud resources.
+**Примечание**. Чтобы управлять тем, как поставщик облачных служб выдает маркеры доступа, **необходимо** определить по крайней мере одно условие, запретив ненадежным репозиториям запрашивать маркеры доступа к облачным ресурсам.
 
 {% endnote %}
 
-### Example subject claims
+### Примеры утверждений о субъекте
 
-The following examples demonstrate how to use "Subject" as a condition, and explain how the "Subject" is assembled from concatenated metadata. The [subject](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) uses information from the [`job` context](/actions/learn-github-actions/contexts#job-context), and instructs your cloud provider that access token requests may only be granted for requests from workflows running in specific branches, environments. The following sections describe some common subjects you can use.
+В приведенных ниже примерах показано, как использовать субъект в качестве условия и как он составляется путем сцепления метаданных. [Субъект](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) использует сведения из [контекста `job`](/actions/learn-github-actions/contexts#job-context) и сообщает поставщику облачных служб, что выполняться могут запросы маркеров доступа только из рабочих процессов, выполняющихся в определенных ветвях и средах. В следующих разделах описаны некоторые распространенные субъекты.
 
-#### Filtering for a specific environment
+#### Фильтрация определенной среды
 
-The subject claim includes the environment name when the job references an environment.
+Если задание ссылается на среду, утверждение о субъекте включает ее имя.
 
-You can configure a subject that filters for a specific [environment](/actions/deployment/using-environments-for-deployment) name. In this example, the workflow run must have originated from a job that has an environment named `Production`, in a repository named `octo-repo` that is owned by the `octo-org` organization:
-
-|        |             |
-| ------ | ----------- |
-| Syntax: | `repo:<orgName/repoName>:environment:<environmentName>`      | 
-| Example:| `repo:octo-org/octo-repo:environment:Production`       |
-
-#### Filtering for `pull_request` events
-
-The subject claim includes the `pull_request` string when the workflow is triggered by a pull request event, but only if the job doesn't reference an environment.
-
-You can configure a subject that filters for the [`pull_request`](/actions/learn-github-actions/events-that-trigger-workflows#pull_request) event. In this example, the workflow run must have been triggered by a `pull_request` event in a repository named `octo-repo` that is owned by the `octo-org` organization:
+Вы можете настроить субъект, который отфильтровывает определенное имя [среды](/actions/deployment/using-environments-for-deployment). В этом примере источником запуска рабочего процесса должно быть задание со средой `Production` в репозитории `octo-repo`, принадлежащем организации `octo-org`:
 
 |        |             |
 | ------ | ----------- |
-| Syntax: | `repo:<orgName/repoName>:pull_request`      | 
-| Example:| `repo:octo-org/octo-repo:pull_request`      |
+| Синтаксис: | `repo:<orgName/repoName>:environment:<environmentName>`      | 
+| Пример.| `repo:octo-org/octo-repo:environment:Production`       |
 
-#### Filtering for a specific branch
+#### Фильтрация событий `pull_request`
 
-The subject claim includes the branch name of the workflow, but only if the job doesn't reference an environment, and if the workflow is not triggered by a pull request event.
+Когда рабочий процесс активируется событием запроса на вытягивание, утверждение о субъекте включает строку `pull_request`, но только если задание не ссылается на среду.
 
-You can configure a subject that filters for a specific branch name. In this example, the workflow run must have originated from a branch named `demo-branch`, in a repository named `octo-repo` that is owned by the `octo-org` organization:
-
-|        |             |
-| ------ | ----------- |
-| Syntax: | `repo:<orgName/repoName>:ref:refs/heads/branchName`      | 
-| Example:| `repo:octo-org/octo-repo:ref:refs/heads/demo-branch`      |
-
-#### Filtering for a specific tag
-
-The subject claim includes the tag name of the workflow, but only if the job doesn't reference an environment, and if the workflow is not triggered by a pull request event.
-
-You can create a subject that filters for specific tag. In this example, the workflow run must have originated with a tag named `demo-tag`, in a repository named `octo-repo` that is owned by the `octo-org` organization:
+Вы можете настроить субъект, который отфильтровывает событие [`pull_request`](/actions/learn-github-actions/events-that-trigger-workflows#pull_request). В этом примере запуск рабочего процесса должен был быть активирован событием `pull_request` в репозитории `octo-repo`, принадлежащем организации `octo-org`:
 
 |        |             |
 | ------ | ----------- |
-| Syntax: | `repo:<orgName/repoName>:ref:refs/tags/<tagName>`      | 
-| Example:| `repo:octo-org/octo-repo:ref:refs/tags/demo-tag`      |
+| Синтаксис: | `repo:<orgName/repoName>:pull_request`      | 
+| Пример.| `repo:octo-org/octo-repo:pull_request`      |
 
-### Configuring the subject in your cloud provider
+#### Фильтрация определенной ветви
 
-To configure the subject in your cloud provider's trust relationship, you must add the subject string to its trust configuration. The following examples demonstrate how various cloud providers can accept the same `repo:octo-org/octo-repo:ref:refs/heads/demo-branch` subject in different ways:
+Утверждение о субъекте содержит имя ветви рабочего процесса, но только если задание не ссылается на среду и если рабочий процесс не активируется событием запроса на вытягивание.
+
+Вы можете настроить субъект, который отфильтровывает определенное имя ветви. В этом примере источником запуска рабочего процесса должна быть ветвь `demo-branch` в репозитории `octo-repo`, принадлежащем организации `octo-org`:
+
+|        |             |
+| ------ | ----------- |
+| Синтаксис: | `repo:<orgName/repoName>:ref:refs/heads/branchName`      | 
+| Пример.| `repo:octo-org/octo-repo:ref:refs/heads/demo-branch`      |
+
+#### Фильтрация определенного тега
+
+Утверждение о субъекте содержит имя тега рабочего процесса, но только если задание не ссылается на среду и если рабочий процесс не активируется событием запроса на вытягивание.
+
+Вы можете создать субъект, который отфильтровывает определенный тег. В этом примере запуск рабочего процесса должен был быть произведен с тегом `demo-tag` в репозитории `octo-repo`, принадлежащем организации `octo-org`:
+
+|        |             |
+| ------ | ----------- |
+| Синтаксис: | `repo:<orgName/repoName>:ref:refs/tags/<tagName>`      | 
+| Пример.| `repo:octo-org/octo-repo:ref:refs/tags/demo-tag`      |
+
+### Настройка субъекта в системе поставщика облачных служб
+
+Чтобы настроить субъект в отношении доверия поставщика облачных служб, необходимо добавить строку субъекта в конфигурацию доверия. В следующих примерах показано, как различные поставщики облачных служб могут принимать один и тот же субъект `repo:octo-org/octo-repo:ref:refs/heads/demo-branch` различными способами:
 
 |        |             |
 | ------ | ----------- |
 | Amazon Web Services | `"{% ifversion ghes %}HOSTNAME/_services/token{% else %}token.actions.githubusercontent.com{% endif %}:sub": "repo:octo-org/octo-repo:ref:refs/heads/demo-branch"`      | 
 | Azure| `repo:octo-org/octo-repo:ref:refs/heads/demo-branch`      |
 | Google Cloud Platform| `(assertion.sub=='repo:octo-org/octo-repo:ref:refs/heads/demo-branch')`      |
-| HashiCorp Vault| `bound_subject="repo:octo-org/octo-repo:ref:refs/heads/demo-branch" `      |
+| Хранилище HashiCorp| `bound_subject="repo:octo-org/octo-repo:ref:refs/heads/demo-branch" `      |
 
-For more information, see the guides listed in "[Enabling OpenID Connect for your cloud provider](#enabling-openid-connect-for-your-cloud-provider)."
+Дополнительные сведения см. в руководствах, перечисленных в разделе [Включение OpenID Connect для поставщика облачных служб](#enabling-openid-connect-for-your-cloud-provider).
 
-## Updating your actions for OIDC
+## Изменение действий для использования OIDC
 
-To update your custom actions to authenticate using OIDC, you can use `getIDToken()` from the Actions toolkit to request a JWT from {% data variables.product.prodname_dotcom %}'s OIDC provider. For more information, see "OIDC Token" in the [npm package documentation](https://www.npmjs.com/package/@actions/core/v/1.6.0).
+Чтобы изменить пользовательские действия для проверки подлинности с помощью OIDC, можно воспользоваться командой `getIDToken()` из набора средств Actions для запроса токена JWT у поставщика OIDC {% data variables.product.prodname_dotcom %}. Дополнительные сведения см. в разделе "Токен OIDC" в [документации по пакету npm](https://www.npmjs.com/package/@actions/core/v/1.6.0).
 
-You could also use a `curl` command to request the JWT, using the following environment variables:
+Для запроса токена JWT можно также использовать команду `curl` и следующие переменные среды:
 
 |        |             |
 | ------ | ----------- |
-| `ACTIONS_ID_TOKEN_REQUEST_URL` | The URL for {% data variables.product.prodname_dotcom %}'s OIDC provider.      | 
-| `ACTIONS_ID_TOKEN_REQUEST_TOKEN` | Bearer token for the request to the OIDC provider.      |
+| `ACTIONS_ID_TOKEN_REQUEST_URL` | URL-адрес поставщика OIDC {% data variables.product.prodname_dotcom %}.      | 
+| `ACTIONS_ID_TOKEN_REQUEST_TOKEN` | Токен носителя для запроса к поставщику OIDC.      |
 
 
-For example:
+Пример:
 
 ```shell{:copy}
 curl -H "Authorization: bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN" "$ACTIONS_ID_TOKEN_REQUEST_URL&audience=api://AzureADTokenExchange"
 ```
 
-### Adding permissions settings
+### Добавление параметров разрешений
 
 {% data reusables.actions.oidc-permissions-token %}
 
 {% ifversion actions-oidc-hardening-config %}
-## Customizing the token claims
+## Настройка утверждений маркера
 
-You can security harden your OIDC configuration by customizing the claims that are included with the JWT. These customisations allow you to define more granular trust conditions on your cloud roles when allowing your workflows to access resources hosted in the cloud:
+Вы можете повысить безопасность конфигурации OIDC, настроив утверждения, входящие в состав JWT. Эти настройки позволяют определить более детализированные условия доверия для облачных ролей при предоставлении рабочим процессам доступа к ресурсам, размещенным в облаке:
 
-{% ifversion ghec %} - For an additional layer of security, you can append the `issuer` url with your enterprise slug. This lets you set conditions on the issuer (`iss`) claim, configuring it to only accept JWT tokens from a unique `issuer` URL that must include your enterprise slug.{% endif %}
-- You can standardize your OIDC configuration by setting conditions on the subject (`sub`) claim that require JWT tokens to originate from a specific repository, reusable workflow, or other source.
-- You can define granular OIDC policies by using additional OIDC token claims, such as `repository_id` and `repository_visibility`. For more information, see "[Understanding the OIDC token](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#understanding-the-oidc-token)".
+{% ifversion ghec %} — для дополнительного уровня безопасности можно добавить `issuer` URL-адрес с помощью корпоративного slug. Это позволяет задать условия для утверждения издателя (`iss`), настроив его так, чтобы оно принимало только маркеры JWT из уникального `issuer` URL-адреса, который должен включать ваш корпоративный slug.{ % endif %}
+- Вы можете стандартизировать конфигурацию OIDC, задав условия для утверждения темы (`sub`), которые требуют, чтобы маркеры JWT были получены из определенного репозитория, повторного рабочего процесса или другого источника.
+- Вы можете определить детализированные политики OIDC с помощью дополнительных утверждений токена OIDC, таких как `repository_id` и `repository_visibility`. Дополнительные сведения см. в разделе [Общие сведения о токене OIDC](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#understanding-the-oidc-token).
 
-To customize these claim formats, organization and repository admins can use the REST API endpoints described in the following sections.
+Чтобы настроить эти форматы утверждений, администраторы организации и репозитория могут использовать конечные точки REST API, описанные в следующих разделах.
 
 {% ifversion ghec %}
 
-### Switching to a unique token URL
+### Переключение на уникальный URL-адрес маркера
 
-By default, the JWT is issued by {% data variables.product.prodname_dotcom %}'s OIDC provider at `https://token.actions.githubusercontent.com`. This path is presented to your cloud provider using the `iss` value in the JWT.
+По умолчанию JWT выдается поставщиком OIDC {% data variables.product.prodname_dotcom %}по адресу `https://token.actions.githubusercontent.com`. Этот путь представляется поставщику облачных служб с использованием `iss` значения в JWT.
 
-Enterprise admins can security harden their OIDC configuration by configuring their enterprise to receive tokens from a unique URL at `https://token.actions.githubusercontent.com/<enterpriseSlug>`. Replace `<enterpriseSlug>` with the slug value of your enterprise. 
+Администраторы предприятия могут повысить безопасность своей конфигурации OIDC, настроив корпоративный для получения маркеров с уникального URL-адреса по адресу `https://token.actions.githubusercontent.com/<enterpriseSlug>`. Замените `<enterpriseSlug>` значением slug вашего предприятия. 
 
-This configuration means that your enterprise will receive the OIDC token from a unique URL, and you can then configure your cloud provider to only accept tokens from that URL. This helps ensure that only the enterprise's repositories can access your cloud resources using OIDC.
+Такая конфигурация означает, что ваше предприятие получит маркер OIDC по уникальному URL-адресу, а затем вы можете настроить поставщика облачных служб так, чтобы он принимал только маркеры из этого URL-адреса. Это гарантирует, что только репозитории предприятия могут получить доступ к облачным ресурсам с помощью OIDC.
 
-To activate this setting for your enterprise, an enterprise admin must use the `/enterprises/{enterprise}/actions/oidc/customization/issuer` endpoint and specify `"include_enterprise_slug": true` in the request body. For more information, see "[Set the {% data variables.product.prodname_actions %} OIDC custom issuer policy for an enterprise](/rest/actions/oidc#set-the-github-actions-oidc-custom-issuer-policy-for-an-enterprise)."
+Чтобы активировать этот параметр для предприятия, администратор предприятия должен использовать конечную точку `/enterprises/{enterprise}/actions/oidc/customization/issuer` и указать `"include_enterprise_slug": true` в тексте запроса. Дополнительные сведения см. в разделе [Настройка настраиваемой политики издателя {% data variables.product.prodname_actions %} OIDC для предприятия](/rest/actions/oidc#set-the-github-actions-oidc-custom-issuer-policy-for-an-enterprise).
 
-After this setting is applied, the JWT will contain the updated `iss` value. In the following example, the `iss` key uses `octocat-inc` as its `enterpriseSlug` value:
+После применения этого параметра JWT будет содержать обновленное `iss` значение. В следующем примере ключ использует `octocat-inc` в `iss` качестве значения`enterpriseSlug`:
 
 ```json
 {
@@ -279,27 +282,27 @@ After this setting is applied, the JWT will contain the updated `iss` value. In 
 
 {% endif %}
 
-### Customizing the subject claims for an organization or repository
+### Настройка утверждений субъекта для организации или репозитория
 
-To help improve security, compliance, and standardization, you can customize the standard claims to suit your required access conditions. If your cloud provider supports conditions on subject claims, you can create a condition that checks whether the `sub` value matches the path of the reusable workflow, such as `"job_workflow_ref: "octo-org/octo-automation/.github/workflows/oidc.yml@refs/heads/main""`. The exact format will vary depending on your cloud provider's OIDC configuration. To configure the matching condition on {% data variables.product.prodname_dotcom %}, you can can use the REST API to require that the `sub` claim must always include a specific custom claim, such as `job_workflow_ref`. You can use the [OIDC REST API](/rest/actions/oidc) to apply a customization template for the OIDC subject claim; for example, you can require that the `sub` claim within the OIDC token must always include a specific custom claim, such as `job_workflow_ref`.
-
-Customizing the claims results in a new format for the entire `sub` claim, which replaces the default predefined `sub` format in the token described in "[Example subject claims](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#example-subject-claims)."
-
-The following example templates demonstrate various ways to customize the subject claim. To configure these settings on {% data variables.product.prodname_dotcom %}, admins use the REST API to specify a list of claims that must be included in the subject (`sub`) claim. 
-
-{% data reusables.actions.use-request-body-api %}
-
-To customize your subject claims, you should first create a matching condition in your cloud provider's OIDC configuration, before customizing the configuration using the REST API. Once the configuration is completed, each time a new job runs, the OIDC token generated during that job will follow the new customization template. If the matching condition doesn't exist in the cloud provider's OIDC configuration before the job runs, the generated token might not be accepted by the cloud provider, since the cloud conditions may not be synchronized.
+Чтобы повысить безопасность, соответствие требованиям и стандартизацию, можно настроить стандартные утверждения в соответствии с требуемыми условиями доступа. Если поставщик облачных служб поддерживает условия для утверждений субъекта, можно создать условие, которое проверяет, соответствует ли `sub` значение пути повторно используемого рабочего процесса, например `"job_workflow_ref: "octo-org/octo-automation/.github/workflows/oidc.yml@refs/heads/main""`. Точный формат зависит от конфигурации OIDC поставщика облачных служб. Чтобы настроить условие сопоставления в {% data variables.product.prodname_dotcom %}, можно использовать REST API, чтобы требовать, `sub` чтобы утверждение всегда включало определенное пользовательское утверждение, например `job_workflow_ref`. Для применения шаблона настройки для утверждения субъекта [OIDC можно использовать REST API OIDC](/rest/actions/oidc) . Например, можно требовать, чтобы `sub` утверждение в токене OIDC всегда включало определенное пользовательское утверждение, например `job_workflow_ref`.
 
 {% note %}
 
-**Note**: When the organization template is applied, it will not affect any action workflows in existing repositories that already use OIDC. For existing repositories, as well as any new repositories that are created after the template has been applied, the repository owner will need to opt-in to receive this configuration, or alternatively could apply a different configuration specific to the repo. For more information, see "[Set the customization template for an OIDC subject claim for a repository](/rest/actions/oidc#set-the-customization-template-for-an-oidc-subject-claim-for-a-repository)."
+**Примечание**. Применение шаблона организации не повлияет на рабочие процессы в существующих репозиториях, которые уже используют OIDC. Для существующих репозиториев, а также любых новых репозиториев, созданных после применения шаблона, владелец репозитория должен будет согласиться на получение этой конфигурации или применить другую конфигурацию, специфичную для репозитория. Дополнительные сведения см. в разделе [Настройка шаблона настройки для утверждения субъекта OIDC для репозитория](/rest/actions/oidc#set-the-customization-template-for-an-oidc-subject-claim-for-a-repository).
 
 {% endnote %}
 
-#### Example: Allowing repository based on visibility and owner
+Настройка утверждений приводит к новому формату для всего `sub` утверждения, который заменяет предопределенный `sub` формат по умолчанию в маркере, описанном в разделе "[Примеры утверждений субъекта](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#example-subject-claims)".
 
-This example template allows the `sub` claim to have a new format, using `repository_owner` and `repository_visibility`:
+В следующих примерах шаблонов демонстрируются различные способы настройки утверждения субъекта. Чтобы настроить эти параметры в {% data variables.product.prodname_dotcom %}, администраторы используют REST API для указания списка утверждений, которые должны быть включены в утверждение субъекта (`sub`). 
+
+{% data reusables.actions.use-request-body-api %}
+
+Чтобы настроить утверждения субъекта, необходимо сначала создать условие соответствия в конфигурации OIDC поставщика облачных служб, прежде чем настраивать конфигурацию с помощью REST API. После завершения настройки при каждом запуске нового задания маркер OIDC, созданный во время этого задания, будет следовать новому шаблону настройки. Если условие соответствия не существует в конфигурации OIDC поставщика облачных служб перед выполнением задания, созданный маркер может быть не принят поставщиком облачных служб, так как условия облака могут не быть синхронизированы.
+
+#### Пример. Разрешение репозитория на основе видимости и владельца
+
+Этот пример шаблона позволяет утверждению `sub` иметь новый формат с помощью `repository_owner` и `repository_visibility`:
 
 ```json
 {
@@ -310,11 +313,11 @@ This example template allows the `sub` claim to have a new format, using `reposi
 }
 ```
 
-In your cloud provider's OIDC configuration, configure the `sub` condition to require that claims must include specific values for `repository_owner` and `repository_visibility`. For example: `"repository_owner: "monalisa":repository_visibility:private"`. The approach lets you restrict cloud role access to only private repositories within an organization or enterprise.
+В конфигурации OIDC поставщика облачных служб настройте `sub` условие, требующее, чтобы утверждения включали определенные значения для `repository_owner` и `repository_visibility`. Например: `"repository_owner: "monalisa":repository_visibility:private"`. Этот подход позволяет ограничить доступ к облачным роли только частным репозиториям в организации или на предприятии.
 
-#### Example: Allowing access to all repositories with a specific owner
+#### Пример: разрешение доступа ко всем репозиториям с определенным владельцем
 
-This example template enables the `sub` claim to have a new format with only the value of `repository_owner`. 
+Этот пример шаблона позволяет утверждению `sub` иметь новый формат только со значением `repository_owner`. 
 
 {% data reusables.actions.use-request-body-api %}
 
@@ -327,11 +330,11 @@ This example template enables the `sub` claim to have a new format with only the
 
 ```
 
-In your cloud provider's OIDC configuration, configure the `sub` condition to require that claims must include a specific value for `repository_owner`. For example: `"repository_owner: "monalisa""`
+В конфигурации OIDC поставщика облачных служб настройте `sub` условие, требующее, чтобы утверждения включали определенное значение для `repository_owner`. Например: `"repository_owner: "monalisa""`
 
-#### Example: Requiring a reusable workflow
+#### Пример. Требуется повторно используемый рабочий процесс
 
-This example template allows the `sub` claim to have a new format that contains the value of the `job_workflow_ref` claim. This enables an enterprise to use [reusable workflows](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#example-subject-claims) to enforce consistent deployments across its organizations and repositories.
+Этот пример шаблона позволяет утверждению `sub` иметь новый формат, содержащий значение `job_workflow_ref` утверждения. Это позволяет предприятиям использовать [повторно используемые рабочие процессы](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#example-subject-claims) для обеспечения согласованного развертывания в своих организациях и репозиториях.
 
 {% data reusables.actions.use-request-body-api %}
 
@@ -343,15 +346,15 @@ This example template allows the `sub` claim to have a new format that contains 
   }
 ```
 
-In your cloud provider's OIDC configuration, configure the `sub` condition to require that claims must include a specific value for `job_workflow_ref`. For example: `"job_workflow_ref: "octo-org/octo-automation/.github/workflows/oidc.yml@refs/heads/main""`.
+В конфигурации OIDC поставщика облачных служб настройте `sub` условие, требующее, чтобы утверждения включали определенное значение для `job_workflow_ref`. Например: `"job_workflow_ref: "octo-org/octo-automation/.github/workflows/oidc.yml@refs/heads/main""`.
 
-#### Example: Requiring a reusable workflow and other claims
+#### Пример. Требование повторного рабочего процесса и других утверждений
 
-The following example template combines the requirement of a specific reusable workflow with additional claims.
+В следующем примере шаблона комбинируются требования конкретного повторно используемых рабочих процессов с дополнительными утверждениями.
 
 {% data reusables.actions.use-request-body-api %}
 
-This example also demonstrates how to use `"context"` to define your conditions. This is the part that follows the repository in the [default `sub` format](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#example-subject-claims). For example, when the job references an environment, the context contains: `environment:<environmentName>`.
+В этом примере также показано, как использовать `"context"` для определения условий. Это часть, которая следует за репозиторием в [формате по умолчанию`sub`](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#example-subject-claims). Например, если задание ссылается на среду, контекст содержит: `environment:<environmentName>`.
 
 ```json
 {
@@ -363,14 +366,13 @@ This example also demonstrates how to use `"context"` to define your conditions.
 }
 ```
 
-In your cloud provider's OIDC configuration, configure the `sub` condition to require that claims must include specific values for `repo`, `context`, and `job_workflow_ref`.
+В конфигурации OIDC поставщика облачных служб настройте `sub` условие, которое требует, чтобы утверждения включали определенные значения для `repo`, `context`и `job_workflow_ref`.
 
-This customization template requires that the `sub` uses the following format: `repo:<orgName/repoName>:environment:<environmentName>:job_workflow_ref:<reusableWorkflowPath>`. 
-For example: `"sub": "repo:octo-org/octo-repo:environment:prod:job_workflow_ref:octo-org/octo-automation/.github/workflows/oidc.yml@refs/heads/main"`
+Для этого шаблона настройки требуется, чтобы в параметре `sub` использовался следующий формат: `repo:<orgName/repoName>:environment:<environmentName>:job_workflow_ref:<reusableWorkflowPath>`. Например: `"sub": "repo:octo-org/octo-repo:environment:prod:job_workflow_ref:octo-org/octo-automation/.github/workflows/oidc.yml@refs/heads/main"`
 
-#### Example: Granting access to a specific repository
+#### Пример. Предоставление доступа к определенному репозиторию
 
-This example template lets you grant cloud access to all the workflows in a specific repository, across all branches/tags and environments. To help improve security, combine this template with the custom issuer URL described in "[Customizing the token URL for an enterprise](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#customizing-the-token-url-for-an-enterprise)." 
+Этот пример шаблона позволяет предоставить облачный доступ ко всем рабочим процессам в определенном репозитории во всех ветвях, тегах и средах. Чтобы повысить безопасность, объедините этот шаблон с настраиваемым URL-адресом издателя, описанным в разделе [Настройка URL-адреса маркера для предприятия](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#customizing-the-token-url-for-an-enterprise). 
 
 {% data reusables.actions.use-request-body-api %}
 
@@ -382,11 +384,11 @@ This example template lets you grant cloud access to all the workflows in a spec
 }
 ```
 
-In your cloud provider's OIDC configuration, configure the `sub` condition to require a `repo` claim that matches the required value.
+В конфигурации OIDC поставщика облачных служб настройте `sub` условие, чтобы требовать `repo` утверждение, соответствующее требуемому значению.
 
-#### Example: Using system-generated GUIDs
+#### Пример. Использование системных идентификаторов GUID
 
-This example template enables predictable OIDC claims with system-generated GUIDs that do not change between renames of entities (such as renaming a repository). 
+Этот пример шаблона позволяет прогнозировать утверждения OIDC с созданными системой идентификаторами GUID, которые не меняются между переименованиями сущностей (например, переименованием репозитория). 
 
 {% data reusables.actions.use-request-body-api %}
 
@@ -398,9 +400,9 @@ This example template enables predictable OIDC claims with system-generated GUID
   }
 ```
 
-In your cloud provider's OIDC configuration, configure the `sub` condition to require a `repository_id` claim that matches the required value.
+В конфигурации OIDC поставщика облачных служб настройте `sub` условие, чтобы требовать `repository_id` утверждение, соответствующее требуемому значению.
 
-or:
+или:
 
 ```json
 {
@@ -410,11 +412,11 @@ or:
 }
 ```
 
-In your cloud provider's OIDC configuration, configure the `sub` condition to require a `repository_owner_id` claim that matches the required value.
+В конфигурации OIDC поставщика облачных служб настройте `sub` условие, чтобы требовать `repository_owner_id` утверждение, соответствующее требуемому значению.
 
-#### Resetting your customizations
+#### Сброс настроек
 
-This example template resets the subject claims to the default format. This template effectively opts out of any organization-level customization policy.
+В этом примере шаблона утверждения субъекта сбрасываются в формат по умолчанию. Этот шаблон фактически откловает любую политику настройки на уровне организации.
 
 {% data reusables.actions.use-request-body-api %}
 
@@ -427,11 +429,13 @@ This example template resets the subject claims to the default format. This temp
 }
 ```
 
-In your cloud provider's OIDC configuration, configure the `sub` condition to require that claims must include specific values for `repo` and `context`.
+В конфигурации OIDC поставщика облачных служб настройте `sub` условие, требующее, чтобы утверждения включали определенные значения для `repo` и `context`.
 
-#### Using the default subject claims
+#### Использование утверждений субъекта по умолчанию
 
-For repositories that can receive a subject claim policy from their organization, the repository owner can later choose to opt-out and instead use the default `sub` claim format. To configure this, the repository admin must use the REST API endpoint at "[Set the customization template for an OIDC subject claim for a repository](/rest/actions/oidc#set-the-customization-template-for-an-oidc-subject-claim-for-a-repository)" with the following request body:
+Для репозиториев, которые могут получать политику утверждения субъекта от своей организации, владелец репозитория может позже отказаться от него и вместо этого использовать формат утверждения по умолчанию `sub` . Это означает, что репозиторий не будет использовать настраиваемый шаблон организации. 
+
+Чтобы настроить репозиторий для использования формата утверждений по умолчанию `sub` , администратор репозитория должен использовать конечную точку REST API в разделе "[Настройка шаблона настройки для утверждения субъекта OIDC для репозитория](/rest/actions/oidc#set-the-customization-template-for-an-oidc-subject-claim-for-a-repository)" со следующим текстом запроса:
 
 ```json
 {
@@ -439,22 +443,34 @@ For repositories that can receive a subject claim policy from their organization
 }
 ```
 
+#### Пример. Настройка репозитория для использования шаблона организации
+
+Администратор репозитория может настроить свой репозиторий для использования шаблона, созданного администратором организации.
+
+Чтобы настроить репозиторий для использования шаблона организации, администратор репозитория должен использовать конечную точку REST API в разделе "[Настройка шаблона настройки для утверждения субъекта OIDC для репозитория](/rest/actions/oidc#set-the-customization-template-for-an-oidc-subject-claim-for-a-repository)" со следующим текстом запроса:
+
+```json
+{
+   "use_default": false
+}
+```
+
 {% endif %}
 
-## Updating your workflows for OIDC
+## Изменение рабочих процессов для использования OIDC
 
-You can now update your YAML workflows to use OIDC access tokens instead of secrets. Popular cloud providers have published their official login actions that make it easy for you to get started with OIDC. For more information about updating your workflows, see the cloud-specific guides listed below in "[Enabling OpenID Connect for your cloud provider](#enabling-openid-connect-for-your-cloud-provider)."
+Теперь можно изменить рабочие процессы YAML так, чтобы вместо секретов использовались маркеры доступа OIDC. Популярные поставщики облачных служб опубликовали официальные действия входа, что упрощает начало работы с OIDC. Дополнительные сведения об изменении рабочих процессов см. в руководстве для конкретного облака по ссылке ниже в разделе [Включение OpenID Connect для поставщика облачных служб](#enabling-openid-connect-for-your-cloud-provider).
 
 
-## Enabling OpenID Connect for your cloud provider
+## Включение OpenID Connect для поставщика облачных служб
 
-To enable and configure OIDC for your specific cloud provider, see the following guides:
+Инструкции по включению и настройке OIDC для конкретного поставщика облачных служб см. в одном из следующих руководств:
 
-- ["Configuring OpenID Connect in Amazon Web Services"](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-amazon-web-services)
-- ["Configuring OpenID Connect in Azure"](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure)
-- ["Configuring OpenID Connect in Google Cloud Platform"](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-google-cloud-platform)
-- ["Configuring OpenID Connect in Hashicorp Vault"](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-hashicorp-vault)
+- [Настройка OpenID Connect в Amazon Web Services](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-amazon-web-services)
+- [Настройка OpenID Connect в Azure](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure)
+- [Настройка OpenID Connect в Google Cloud Platform](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-google-cloud-platform)
+- [Настройка OpenID Connect в HashiCorp Vault](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-hashicorp-vault)
 
-To enable and configure OIDC for another cloud provider, see the following guide:
+Инструкции по включению и настройке OIDC для другого поставщика облачных служб см. в следующем руководстве:
 
-- ["Configuring OpenID Connect in cloud providers"](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-cloud-providers)
+- [Настройка OpenID Connect в поставщиках облачных служб](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-cloud-providers)

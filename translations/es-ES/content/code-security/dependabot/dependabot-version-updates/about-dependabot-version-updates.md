@@ -1,6 +1,6 @@
 ---
-title: About Dependabot version updates
-intro: 'You can use {% data variables.product.prodname_dependabot %} to keep the packages you use updated to the latest versions.'
+title: Acerca de las actualizaciones a la versión del Dependabot
+intro: 'Puede utilizar el {% data variables.product.prodname_dependabot %} para mantener los paquetes que utilizas actualizados a su versión más reciente.'
 redirect_from:
   - /github/administering-a-repository/about-dependabot
   - /github/administering-a-repository/about-github-dependabot
@@ -21,51 +21,53 @@ topics:
   - Dependencies
   - Pull requests
 shortTitle: Dependabot version updates
+ms.openlocfilehash: 56bac2fbf2fb42a418cffbd478aa526803b124d9
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145186088'
 ---
+{% data reusables.dependabot.beta-security-and-version-updates %} {% data reusables.dependabot.enterprise-enable-dependabot %}
 
-{% data reusables.dependabot.beta-security-and-version-updates %}
-{% data reusables.dependabot.enterprise-enable-dependabot %}
+## Acerca de {% data variables.product.prodname_dependabot_version_updates %}
 
-## About {% data variables.product.prodname_dependabot_version_updates %}
+El {% data variables.product.prodname_dependabot %} hace el esfuerzo de mantener tus dependencias. Puedes utilizarlo para garantizar que tu repositorio se mantenga automáticamente con los últimos lanzamientos de los paquetes y aplicaciones de los que depende.
 
-{% data variables.product.prodname_dependabot %} takes the effort out of maintaining your dependencies. You can use it to ensure that your repository automatically keeps up with the latest releases of the packages and applications it depends on.
+Para habilitar {% data variables.product.prodname_dependabot_version_updates %}, comprueba un archivo de configuración `dependabot.yml` en el repositorio. Este archivo de configuración especifica la ubicación del manifiesto o de otros archivos de definición de paquetes almacenados en tu repositorio. {% data variables.product.prodname_dependabot %} usa esta información para comprobar si hay aplicaciones y paquetes obsoletos. {% data variables.product.prodname_dependabot %} determina si hay una versión nueva de una dependencia buscando el control de versiones semántico ([SemVer](https://semver.org/)) de la dependencia para decidir si debería actualizarla a esa versión. Para ciertos administradores de paquetes, {% data variables.product.prodname_dependabot_version_updates %} también es compatible con su delegación a proveedores. Las dependencias delegadas (o almacenadas en caché) son aquellas que se registran en un directorio específico en un repositorio en vez de que se referencien en un manifiesto. Las dependencias delegadas a proveedores están disponibles desde el momento de su creación, incluso si los servidores de paquetes no se encuentran disponibles. Las {% data variables.product.prodname_dependabot_version_updates %} pueden configurarse para verificar las dependencias delegadas a proveedores para las nuevas versiones y también pueden actualizarse de ser necesario. 
 
-You enable {% data variables.product.prodname_dependabot_version_updates %} by checking a `dependabot.yml` configuration file into your repository. The configuration file specifies the location of the manifest, or of other package definition files, stored in your repository. {% data variables.product.prodname_dependabot %} uses this information to check for outdated packages and applications. {% data variables.product.prodname_dependabot %} determines if there is a new version of a dependency by looking at the semantic versioning ([semver](https://semver.org/)) of the dependency to decide whether it should update to that version. For certain package managers, {% data variables.product.prodname_dependabot_version_updates %} also supports vendoring. Vendored (or cached) dependencies are dependencies that are checked in to a specific directory in a repository rather than referenced in a manifest. Vendored dependencies are available at build time even if package servers are unavailable. {% data variables.product.prodname_dependabot_version_updates %} can be configured to check vendored dependencies for new versions and update them if necessary. 
+Cuando {% data variables.product.prodname_dependabot %} identifica una dependencia obsoleta, genera una solicitud de incorporación de cambios para actualizar el manifiesto a la versión más reciente de la dependencia. Lara las dependencias delegadas a proveedores, el {% data variables.product.prodname_dependabot %} levanta una solicitud de cambios para reemplazar la dependencia desactualizada directamente con la versión nueva. Verificas que tu prueba pase, revisas el registro de cambios y notas de lanzamiento que se incluyan en el resumen de la solicitud de extracción y, posteriormente, lo fusionas. Para más información, vea "[Configuración de las actualizaciones de la versión de {% data variables.product.prodname_dependabot %}](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/enabling-and-disabling-dependabot-version-updates)".
 
-When {% data variables.product.prodname_dependabot %} identifies an outdated dependency, it raises a pull request to update the manifest to the latest version of the dependency. For vendored dependencies, {% data variables.product.prodname_dependabot %} raises a pull request to replace the outdated dependency with the new version directly. You check that your tests pass, review the changelog and release notes included in the pull request summary, and then merge it. For more information, see "[Configuring {% data variables.product.prodname_dependabot %} version updates](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/enabling-and-disabling-dependabot-version-updates)."
-
-If you enable _security updates_, {% data variables.product.prodname_dependabot %} also raises pull requests to update vulnerable dependencies. For more information, see "[About {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/about-dependabot-security-updates)."
+Si habilita las _actualizaciones de seguridad_, {% data variables.product.prodname_dependabot %} también generará solicitudes de incorporación de cambios para actualizar las dependencias vulnerables. Para más información, vea "[Acerca de {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/about-dependabot-security-updates)".
 
 {% data reusables.dependabot.pull-request-security-vs-version-updates %}
 
-{% data reusables.dependabot.dependabot-updates-and-actions %}
-
 {% data reusables.dependabot.dependabot-tos %}
 
-## Frequency of {% data variables.product.prodname_dependabot %} pull requests
+## Frecuencia de las solicitudes de extracción del {% data variables.product.prodname_dependabot %}
 
-You specify how often to check each ecosystem for new versions in the configuration file: daily, weekly, or monthly.
+Tú eres quien especifica qué tan a menudo se revisa cada ecosistema para encontrar nuevas versiones en el archivo de configuración: diario, semanalmente, o mensualmente.
 
 {% data reusables.dependabot.initial-updates %}
 
-If you've enabled security updates, you'll sometimes see extra pull requests for security updates. These are triggered by a {% data variables.product.prodname_dependabot %} alert for a dependency on your default branch. {% data variables.product.prodname_dependabot %} automatically raises a pull request to update the vulnerable dependency.
+Si habilitaste las actualizaciones de seguridad, algunas veces verás solicitudes de extracción adicionales para actualizaciones de seguridad. Estas se desencadenan mediante una alerta {% data variables.product.prodname_dependabot %} para una dependencia de la rama predeterminada. El {% data variables.product.prodname_dependabot %} levanta automáticamente una solicitud de extracción para actualizar la dependencia vulnerable.
 
-## Supported repositories and ecosystems
+## Repositorios y ecosistemas compatibles
 <!-- If you make changes to this feature, check whether any of the changes affect languages listed in /get-started/learning-about-github/github-language-support. If so, please update the language support article accordingly. -->
 
-You can configure version updates for repositories that contain a dependency manifest or lock file for one of the supported package managers. For some package managers, you can also configure vendoring for dependencies. For more information, see "[Configuration options for the dependabot.yml file](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/configuration-options-for-dependency-updates#vendor)."
+Puedes configurar las actualizaciones de versión para los repositorios que contengan un manifiesto de dependencias o un archivo fijado para alguno de los administradores de paquetes compatibles. Para algunos administradores de paquetes, también puedes configurar la delegación a proveedores para las dependencias. Para más información, vea "[Opciones de configuración para el archivo dependabot.yml](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/configuration-options-for-dependency-updates#vendor)".
 {% note %}
 
 {% data reusables.dependabot.private-dependencies-note %} 
 
-{% data variables.product.prodname_dependabot %} doesn't support private {% data variables.product.prodname_dotcom %} dependencies for all package managers. See the details in the table below.
+El {% data variables.product.prodname_dependabot %} no es compatible con dependencias privadas de {% data variables.product.prodname_dotcom %} para todos los administradores de paquetes. Consulta los detalles en la tabla a continuación.
 
 {% endnote %}
 
 {% data reusables.dependabot.supported-package-managers %}
 
-If your repository already uses an integration for dependency management, you will need to disable this before enabling {% data variables.product.prodname_dependabot %}. {% ifversion fpt or ghec %}For more information, see "[About integrations](/github/customizing-your-github-workflow/about-integrations)."{% endif %}
+Si tu repositorio ya utiliza una integración para la administración de dependencias, necesitarás inhabilitarlo antes de habilitar el {% data variables.product.prodname_dependabot %}. {% ifversion fpt or ghec %}Para obtener más información, vea "[Acerca de las integraciones](/github/customizing-your-github-workflow/about-integrations)".{% endif %}
 
-## About notifications for {% data variables.product.prodname_dependabot %} version updates
+## Acerca de las notificaciones para las actualizaciones de versión del {% data variables.product.prodname_dependabot %}
 
-You can filter your notifications on {% data variables.product.company_short %} to show notifications for pull requests created by {% data variables.product.prodname_dependabot %}. For more information, see "[Managing notifications from your inbox](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox)."
+Puedes filtrar tus notificaciones en {% data variables.product.company_short %} para mostrar notificaciones para las solicitudes de cambios que creó el {% data variables.product.prodname_dependabot %}. Para obtener más información, consulte "[Administración de notificaciones de la bandeja de entrada](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox)".

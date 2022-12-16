@@ -9,12 +9,12 @@ versions:
 topics:
   - API
 miniTocMaxHeadingLevel: 3
-ms.openlocfilehash: 80e4a5a5257a8f2615b402567f91daa9e68a0077
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: b140c41062e4fea4c1cb1299b23de774963913af
+ms.sourcegitcommit: cfe91073c844cb762131b2de9fb41f7f9db792fc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145101145'
+ms.lasthandoff: 11/24/2022
+ms.locfileid: '148181284'
 ---
 ## 关于拉取 API
 
@@ -26,12 +26,12 @@ ms.locfileid: '145101145'
 
 以下是拉取请求支持的媒体类型。
 
-    application/vnd.github.VERSION.raw+json
-    application/vnd.github.VERSION.text+json
-    application/vnd.github.VERSION.html+json
-    application/vnd.github.VERSION.full+json
-    application/vnd.github.VERSION.diff
-    application/vnd.github.VERSION.patch
+    application/vnd.github.raw+json
+    application/vnd.github.text+json
+    application/vnd.github.html+json
+    application/vnd.github.full+json
+    application/vnd.github.diff
+    application/vnd.github.patch
 
 有关详细信息，请参阅“[自定义媒体类型](/rest/overview/media-types)”。
 

@@ -10,7 +10,7 @@ children:
   - /viewing-a-pull-request-in-github-desktop
   - /viewing-and-re-running-checks-in-github-desktop
   - /configuring-notifications-in-github-desktop
-  - /changing-a-remotes-url-from-github-desktop
+  - /changing-the-remote-url-for-a-repository-from-github-desktop
 shortTitle: Work with your remote repo
 ---
 

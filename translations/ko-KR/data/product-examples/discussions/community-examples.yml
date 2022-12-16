@@ -1,0 +1,37 @@
+# Images and descriptions are pulled directly from the repo
+
+- repo: vercel/next.js
+  description: React 프레임워크
+
+- repo: gatsbyjs/gatsby
+  description: React를 사용하여 최신 앱 및 웹 사이트를 빠르게 빌드
+
+- repo: nodejs/node
+  description: Node.js JavaScript 런타임 ✨🐢🚀✨
+
+- repo: tailwindlabs/tailwindcss
+  description: 신속한 UI 개발을 위한 유틸리티 우선 CSS 프레임워크입니다.
+
+- repo: laravel/framework
+  description: Laravel은 표현력이 있는 우아한 구문을 사용하는 웹 애플리케이션 프레임워크입니다.
+
+- repo: prisma/prisma
+  description: "Node.js 및 TypeScript용 최신 데이터베이스 액세스(ORM 대체) | PostgreSQL, MySQL, MariaDB 및 SQLite"
+
+- repo: dotnet/csharplang
+  description: "C# 프로그래밍 언어 디자인을 위한 공식 리포지토리"
+
+- repo: home-assistant/frontend
+  description: 🍭 Home Assistant 프런트 엔드
+
+- repo: jspsych/jsPsych
+  description: 웹 브라우저에서 동작 실험을 만들고 실행하기 위한 JavaScript 라이브러리
+
+- repo: adonisjs/core
+  description: "🚀 Node.js 프레임워크는 개발자 인체 공학, 안정성 및 신뢰도에 중점을 둡니다."
+
+- repo: ImageMagick/ImageMagick
+  description: 🧙‍♂️ ImageMagick 7
+
+- repo: react-hook-form/react-hook-form
+  description: 📋 양식 유효성 검사용 React 후크(웹 + React Native)

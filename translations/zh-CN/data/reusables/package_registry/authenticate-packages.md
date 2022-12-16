@@ -1,9 +1,15 @@
-{% data reusables.package_registry.packages-classic-pat-only %}
+---
+ms.openlocfilehash: fd3590bb212b7c9521cb447ca012b19270469a8c
+ms.sourcegitcommit: 22d665055b1bee7a5df630385e734e3a149fc720
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 07/13/2022
+ms.locfileid: "145100405"
+---
+需要访问令牌才能发布、安装和删除包。
 
-You need an access token to publish, install, and delete private, internal, and public packages.
+可使用个人访问令牌 (PAT) 向 {% data variables.product.prodname_registry %} 或 {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API 进行身份验证。 创建个人访问令牌时，可根据需要为令牌分配不同的作用域。 有关 PAT 的包相关范围的详细信息，请参阅“[关于 GitHub Packages 的权限](/packages/learn-github-packages/about-permissions-for-github-packages#about-scopes-and-permissions-for-package-registries)”。
 
-You can use a {% data variables.product.pat_v1 %} to authenticate to {% data variables.product.prodname_registry %} or the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API. When you create a {% data variables.product.pat_v1 %}, you can assign the token different scopes depending on your needs. For more information about packages-related scopes for a {% data variables.product.pat_v1 %}, see "[About permissions for GitHub Packages](/packages/learn-github-packages/about-permissions-for-github-packages#about-scopes-and-permissions-for-package-registries)."
-
-To authenticate to a {% data variables.product.prodname_registry %} registry within a {% data variables.product.prodname_actions %} workflow, you can use:
-- `GITHUB_TOKEN` to publish packages associated with the workflow repository.
-- a {% data variables.product.pat_v1 %} with at least `packages:read` scope to install packages associated with other private repositories (which `GITHUB_TOKEN` can't access).
+要在 {% data variables.product.prodname_actions %} 工作流程内向 {% data variables.product.prodname_registry %} 注册表验证，您可以使用：
+- `GITHUB_TOKEN` 发布与工作流存储库相关联的包。
+- PAT 来安装与其他专用存储库（`GITHUB_TOKEN` 无法访问）相关联的包。

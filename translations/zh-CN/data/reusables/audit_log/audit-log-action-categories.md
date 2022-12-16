@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: e0bf1f4b7bbd5fcb145a6e869dd442fd8e53108a
-ms.sourcegitcommit: b4996daba2e75b3368f39316e6929602f13b961b
+ms.openlocfilehash: 1dd9305ca2b7cb3e8d25d697de8ae3a83e0c46bb
+ms.sourcegitcommit: 7a74d5796695bb21c30e4031679253cbc16ceaea
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2022
-ms.locfileid: "148120532"
+ms.lasthandoff: 11/28/2022
+ms.locfileid: "148183978"
 ---
 | 类别名称 | 说明
 |------------------|-------------------
@@ -106,7 +106,7 @@ ms.locfileid: "148120532"
 {%- endif %} {%- ifversion fpt or ghec %} | `sponsors`  | 包含与赞助按钮相关的事件（请参阅“[在存储库中显示赞助按钮](/articles/displaying-a-sponsor-button-in-your-repository)”）。
 {%- endif %} {%- ifversion ghec or ghes or ghae %} | `ssh_certificate_authority` | 包含与组织或企业中的 SSH 证书颁发机构相关的活动。
 | `ssh_certificate_requirement` | 包含与要求成员使用 SSH 证书访问组织资源相关的活动。
-{%- endif %} | `staff` | 包含与执行操作的站点管理员相关的活动。
+{%- endif %}{% ifversion sso-redirect %} | `sso_redirect` | 包含与自动重定向用户以进行登录相关的活动（请参阅“[为企业中的安全设置实施策略](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#managing-sso-for-unauthenticated-users)”）。{% endif %} | `staff` | 包含与执行操作的站点管理员相关的活动。
 | `team` | 包含与组织中的团队相关的活动。
 | `team_discussions` | 包含与管理组织的团队讨论相关的活动。
 {%- ifversion ghec %} | `team_sync_tenant` | 包含与企业或组织的 IdP 进行团队同步相关的活动。

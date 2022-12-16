@@ -13,7 +13,7 @@ import isArchivedVersion from '../lib/is-archived-version.js'
 import { setFastlySurrogateKey, SURROGATE_ENUMS } from './set-fastly-surrogate-key.js'
 import got from 'got'
 import { readCompressedJsonFileFallbackLazily } from '../lib/read-json-file.js'
-import { cacheControlFactory } from './cache-control.js'
+import { archivedCacheControl, languageCacheControl } from './cache-control.js'
 import { pathLanguagePrefixed, languagePrefixPathRegex } from '../lib/languages.js'
 import getRedirect, { splitPathByLanguage } from '../lib/get-redirect.js'
 
@@ -39,13 +39,10 @@ const archivedFrontmatterValidURLS = readCompressedJsonFileFallbackLazily(
   './lib/redirects/static/archived-frontmatter-valid-urls.json'
 )
 
-const cacheControl = cacheControlFactory(60 * 60 * 24 * 365)
-const noCacheControl = cacheControlFactory(0)
-
 // Combine all the things you need to make sure the response is
 // aggresively cached.
 const cacheAggressively = (res) => {
-  cacheControl(res)
+  archivedCacheControl(res)
 
   // This sets a custom Fastly surrogate key so that this response
   // won't get updated in every deployment.
@@ -103,11 +100,10 @@ export default async function archivedEnterpriseVersions(req, res, next) {
   if (deprecatedWithFunctionalRedirects.includes(requestedVersion)) {
     const redirectTo = getRedirect(req.path, req.context)
     if (redirectTo) {
-      if (redirectCode === 301) {
-        cacheControl(res)
-      } else {
-        noCacheControl(res)
+      if (redirectCode === 302) {
+        languageCacheControl(res) // call first to get `vary`
       }
+      archivedCacheControl(res) // call second to extend duration
       return res.redirect(redirectCode, redirectTo)
     }
 
@@ -123,11 +119,10 @@ export default async function archivedEnterpriseVersions(req, res, next) {
     const [language, withoutLanguage] = splitPathByLanguage(req.path, req.context.userLanguage)
     const newRedirectTo = redirectJson[withoutLanguage]
     if (newRedirectTo) {
-      if (redirectCode === 301) {
-        cacheControl(res)
-      } else {
-        noCacheControl(res)
+      if (redirectCode === 302) {
+        languageCacheControl(res) // call first to get `vary`
       }
+      archivedCacheControl(res) // call second to extend duration
       return res.redirect(redirectCode, `/${language}${newRedirectTo}`)
     }
   }
@@ -137,7 +132,7 @@ export default async function archivedEnterpriseVersions(req, res, next) {
     req.path.startsWith('/en/') &&
     versionSatisfiesRange(requestedVersion, `<${firstVersionDeprecatedOnNewSite}`)
   ) {
-    cacheControl(res)
+    archivedCacheControl(res)
     return res.redirect(redirectCode, req.baseUrl + req.path.replace(/^\/en/, ''))
   }
 

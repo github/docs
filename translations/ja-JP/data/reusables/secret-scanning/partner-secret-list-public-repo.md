@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: cd91a98e6cb0da73a24f7f6e682b67ec25b406d4
-ms.sourcegitcommit: 24427fe609677b2c58137b1d9d63869d0872daf4
+ms.openlocfilehash: 59e78cbf492110a8949c27e867bf195ae5605307
+ms.sourcegitcommit: bddda0c0814770ee64e378692891931c618247ec
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/04/2022
-ms.locfileid: "148134793"
+ms.lasthandoff: 11/24/2022
+ms.locfileid: "148181764"
 ---
 Partner | サポートされているシークレット
 --- | ---
@@ -23,6 +23,8 @@ Azure | Azure CosmosDB キー識別可能
 Azure | Azure DevOps {% data variables.product.pat_generic_title_case %}
 Azure | Azure ML Studio (クラシック) Web サービス キー
 Azure | Azure SAS Token
+Azure | Azure Search 管理者キー
+Azure | Azure Search クエリ キー
 Azure | Azure Service Management Certificate
 Azure | Azure SQL 接続文字列
 Azure | Azure Storage アカウント キー
@@ -50,6 +52,7 @@ Doppler | Doppler 監査トークン
 Dropbox | Dropbox Short Lived Access Token
 Dynatrace | Dynatrace Access Token
 Dynatrace | Dynatrace Internal Token
+Figma | Figma {% data variables.product.pat_generic_title_case %}
 Finicity | Finicity App Key
 Frame.io | Frame.io JSON Web Token
 Frame.io| Frame.io Developer Token
@@ -65,6 +68,7 @@ Google Cloud | Google API Key
 Google Cloud | Google Cloud Private Key ID
 Hashicorp Terraform | Terraform Cloud / Enterprise API Token
 Hubspot | Hubspot API Key
+Hubspot | Hubspot API の個人用アクセス キー
 Ionic | Ionic {% data variables.product.pat_generic_title_case %}
 Ionic | Ionic Refresh Token
 JD Cloud | JD Cloud アクセスキー
@@ -116,6 +120,7 @@ Stripe | Stripe Live API Restricted Key
 Stripe | Stripe Test API Restricted Key
 Supabase | Supabase サービス キー
 Tencent Cloud | Tencent Cloud Secret ID
+Tencent WeChat | Tencent WeChat API アプリ ID
 Twilio | Twilio Account String Identifier
 Twilio | Twilio API Key
 Typeform | Typeform {% data variables.product.pat_generic_title_case %}

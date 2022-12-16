@@ -1,6 +1,6 @@
 ---
-title: Blocking a user from your organization
-intro: Organization owners and moderators can block anyone who is not a member of the organization from collaborating on the organization's repositories.
+title: 阻止用户访问组织
+intro: 组织所有者和版主可以阻止非组织成员的任何人在组织的存储库上进行协作。
 redirect_from:
   - /articles/blocking-a-user-from-your-organization
   - /github/building-a-strong-community/blocking-a-user-from-your-organization
@@ -10,68 +10,71 @@ versions:
 topics:
   - Community
 shortTitle: Block from your org
+ms.openlocfilehash: 527ce4fcf92946836f7a3d93e5caf07193561d4b
+ms.sourcegitcommit: 1529de77bfcbe45519131b5f5fb3ab319758c2d2
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/14/2022
+ms.locfileid: '148164353'
 ---
-
-You can block non-members from within your organization's settings or from a specific comment made by a user. When you block a user in a comment, you can choose to send the user a notification explaining that they were blocked and why. Otherwise, the user is not directly notified that you've blocked them. Blocked users can still delete their existing content.
+可以从组织的设置中或从用户发表的特定评论中阻止非成员用户。 在评论中阻止用户时，您可以选择向该用户发送通知，以告知他们已被阻止并说明原因。 否则，用户不会直接收到您已阻止他们的通知。 被阻止的用户仍然可以删除其现有内容。
 
 {% data reusables.organizations.blocking-a-user %}
 
 {% tip %}
 
-**Tip:** If you're blocking a user because of a heated conversation, consider locking the conversation so only collaborators can comment. For more information, see "[Locking conversations](/communities/moderating-comments-and-conversations/locking-conversations)."
+**提示：** 如果你因为言辞激烈的对话而阻止用户，请考虑锁定对话，以限制为只有协作者才能评论。 有关详细信息，请参阅“[锁定对话](/communities/moderating-comments-and-conversations/locking-conversations)”。
 
 {% endtip %}
 
-At the time that you block a user from your organization:
-- The user stops watching your organization's repositories
-- The user's stars and issue assignments are removed from your repositories
-- The user's votes on discussions or comments in your organization's repositories are deleted
-- The user is removed as a collaborator on your organization's repositories
-- The user's contributions to your organization's repositories are no longer counted as contributions for them
-- Any pending repository or organization invitations to the blocked user are cancelled
+阻止用户访问组织时：
+- 该用户停止关注您组织的仓库。
+- 该用户的星标和议题分配从您的仓库中删除
+- 该用户对您组织仓库中的讨论或评论的投票将被删除
+- 该用户在您组织仓库中的协作者身份被删除
+- 该用户对您组织的仓库的贡献不再计为他们的贡献
+- 任何对被阻止用户的待处理仓库或组织邀请都被取消
 
-After you've blocked a user from your organization, they cannot:
-- Cross-reference your organization's repositories in comments
-- Fork, watch, pin, or star your organization's repositories
+阻止用户访问组织后，他们无法：
+- 在评论中交叉引用您组织的仓库
+- 复刻、关注、固定您组织的仓库或对其标星
 
-In your organization's repositories, blocked users also cannot:
-- Open issues
-- Send, close, or merge pull requests
-- Comment on issues, pull requests, or commits
-- Add or edit wiki pages
+在您组织的仓库中，被阻止的用户也不能：
+- 打开议题
+- 发送、关闭或合并拉取请求
+- 对议题、拉取请求或提交发表评论
+- 添加或编辑 wiki 页面
 
-## Blocking a user in a comment
+## 在评论中阻止用户
 
-1. Navigate to the comment whose author you would like to block.
-2. In the upper-right corner of the comment, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then click **Block user**.
-![The horizontal kebab icon and comment moderation menu showing the block user option](/assets/images/help/repository/comment-menu-block-user.png)
-3. If you'd like to set a time limit for the block, use the Block user drop-down menu, and select the amount of time you'd like to block the user.
-![Block time limit in the block user drop-down menu](/assets/images/help/organizations/org-block-options-menu-from-comment.png)
-4. If you'd like to hide all of the comments the user has made in the organization, select **Hide this user's comments** and choose a reason.
-![Send a notification in the block user drop-down menu](/assets/images/help/organizations/org-block-options-menu-hide-user-comments.png)
-5. If you'd like to notify the user why they're being blocked, select **Send a notification to this user**.
-![Send a notification in the block user drop-down menu](/assets/images/help/organizations/org-block-options-menu-send-notification.png)
-6. To block the user, click **Block user from organization** or **Block user from organization and send message**.
-![Block user button](/assets/images/help/organizations/org-block-user-button-in-comment.png)
+1. 导航到您要阻止其作者的评论。
+2. 在评论的右上角，单击 {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}，然后单击“阻止用户”。
+![显示阻止用户选项的水平烤肉串图标和评论审核菜单](/assets/images/help/repository/comment-menu-block-user.png)
+3. 如果要设置阻止的时限，请使用 Block user（阻止用户）下拉菜单，选择要阻止该用户的时间段。
+![阻止用户下拉菜单中的阻止时限](/assets/images/help/organizations/org-block-options-menu-from-comment.png)
+4. 如果要隐藏该用户在组织中发表的所有评论，请选择“隐藏此用户的评论”并选择原因。
+![在阻止用户下拉菜单中发送通知](/assets/images/help/organizations/org-block-options-menu-hide-user-comments.png)
+5. 如果要将阻止的原因告知用户，请选择“向此用户发送通知”。
+![在阻止用户下拉菜单中发送通知](/assets/images/help/organizations/org-block-options-menu-send-notification.png)
+6. 若要阻止用户，请单击“阻止用户访问组织”或“阻止用户访问组织并发送消息” 。
+![阻止用户按钮](/assets/images/help/organizations/org-block-user-button-in-comment.png)
 
-## Blocking a user in the organization settings
+## 在组织设置中阻止用户
 
-1. To block an organization member, first [remove the user](/articles/removing-a-member-from-your-organization) from the organization.
+1. 若要阻止组织成员，请首先从组织中[删除用户](/articles/removing-a-member-from-your-organization)。
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.block_users %}
-6. Under "Block a user", type the username of the user you'd like to block.
-![Username field](/assets/images/help/organizations/org-block-username-field.png)
-7. If you'd like to set a time limit for the block, use the Block options drop-down menu, and select the amount of time you'd like to block the user.
-![Block options drop-down menu](/assets/images/help/organizations/org-block-options-menu.png)
-8. Click **Block user**.
-![Block button](/assets/images/help/organizations/org-block-user-button.png)
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.organizations.block_users %}
+6. 在“Block a user（阻止用户）”下，键入要阻止的用户的用户名。
+![用户名字段](/assets/images/help/organizations/org-block-username-field.png)
+7. 如果要设置阻止的时限，请使用 Block options（阻止选项）下拉菜单，选择要阻止该用户的时间段。
+![阻止选项下拉菜单](/assets/images/help/organizations/org-block-options-menu.png)
+8. 单击“阻止用户”。
+![阻止按钮](/assets/images/help/organizations/org-block-user-button.png)
 
-## Further reading
+## 延伸阅读
 
-- "[Viewing users who are blocked from your organization](/communities/maintaining-your-safety-on-github/viewing-users-who-are-blocked-from-your-organization)"
-- "[Unblocking a user from your organization](/communities/maintaining-your-safety-on-github/unblocking-a-user-from-your-organization)"
-- "[Blocking a user from your personal account](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-personal-account)"
-- "[Unblocking a user from your personal account](/communities/maintaining-your-safety-on-github/unblocking-a-user-from-your-personal-account)"
-- "[Reporting abuse or spam](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)"
+- “[查看被阻止访问组织的用户](/communities/maintaining-your-safety-on-github/viewing-users-who-are-blocked-from-your-organization)”
+- “[取消阻止用户对组织的访问](/communities/maintaining-your-safety-on-github/unblocking-a-user-from-your-organization)”
+- “[阻止用户访问你的个人帐户](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-personal-account)”
+- “[取消阻止用户对个人帐户的访问](/communities/maintaining-your-safety-on-github/unblocking-a-user-from-your-personal-account)”
+- “[举报滥用或垃圾邮件](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)”

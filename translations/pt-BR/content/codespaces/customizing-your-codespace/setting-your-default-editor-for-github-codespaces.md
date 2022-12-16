@@ -1,5 +1,5 @@
 ---
-title: Setting your default editor for GitHub Codespaces
+title: Como definir seu editor padrão para o GitHub Codespaces
 shortTitle: Set the default editor
 intro: '{% data reusables.codespaces.about-changing-default-editor %}'
 versions:
@@ -11,40 +11,44 @@ redirect_from:
 topics:
   - Codespaces
 type: how_to
+ms.openlocfilehash: 5c286ffe8f96d275dc0b20949a87b7ced411c9af
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148159317'
 ---
-
-On the settings page, you can set your editor preference so that when you create a codespace, or open an existing codespace, it is opened in your choice of:
-* {% data variables.product.prodname_vscode %} (desktop application)
-* {% data variables.product.prodname_vscode %} (web client application)
-* JetBrains Gateway - for opening codespaces in a JetBrains IDE
-* JupyterLab - the web interface for Project Jupyter 
+Na página de configurações, você pode definir sua preferência de editor para que, ao criar um codespace ou abrir um codespace existente, ele seja aberto na sua escolha de:
+* {% data variables.product.prodname_vscode %} (aplicativo da área de trabalho)
+* {% data variables.product.prodname_vscode %} (aplicativo Web cliente)
+* JetBrains Gateway – Para abrir codespaces em um IDE do JetBrains
+* JupyterLab – A interface Web do Project Jupyter 
 
 {% data reusables.codespaces.template-codespaces-default-editor %}
 
-If you want to use {% data variables.product.prodname_vscode %} as your default editor for {% data variables.product.prodname_github_codespaces %}, you need to install {% data variables.product.prodname_vscode %} and the {% data variables.product.prodname_github_codespaces %} extension for {% data variables.product.prodname_vscode %}. For more information, see the [download page for {% data variables.product.prodname_vscode %}](https://code.visualstudio.com/download/) and the [{% data variables.product.prodname_github_codespaces %} extension on the {% data variables.product.prodname_vscode %} marketplace](https://marketplace.visualstudio.com/items?itemName=GitHub.codespaces).
+Se você quiser usar o {% data variables.product.prodname_vscode %} como editor padrão dos {% data variables.product.prodname_github_codespaces %}, instale o {% data variables.product.prodname_vscode %} e a extensão {% data variables.product.prodname_github_codespaces %} para {% data variables.product.prodname_vscode %}. Para obter mais informações, confira a [página de download do {% data variables.product.prodname_vscode %}](https://code.visualstudio.com/download/) e a [extensão do {% data variables.product.prodname_github_codespaces %} no marketplace do {% data variables.product.prodname_vscode %}](https://marketplace.visualstudio.com/items?itemName=GitHub.codespaces).
 
-If you want to work on a codespace in a JetBrains IDE you must install the JetBrains Gateway. For more information, see "[Using {% data variables.product.prodname_github_codespaces %} in your JetBrains IDE](/codespaces/developing-in-codespaces/using-github-codespaces-in-your-jetbrains-ide)."
+Se você quiser trabalhar em um codespace em um IDE do JetBrains, instale o JetBrains Gateway. Para obter mais informações, confira "[Como usar {% data variables.product.prodname_github_codespaces %} no IDE do JetBrains](/codespaces/developing-in-codespaces/using-github-codespaces-in-your-jetbrains-ide)".
 
-## Setting your default editor
+## Configurando o seu editor padrão
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.codespaces-tab %}
-1. Under "Editor preference", select the option you want.
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.codespaces-tab %}
+1. Em "Editor de preferência", selecione a opção que você desejar.
 
-   ![Setting your editor](/assets/images/help/codespaces/select-default-editor.png)
+   ![Como configurar seu editor](/assets/images/help/codespaces/select-default-editor.png)
 
    * {% data reusables.codespaces.application-installed-locally %}<br><br>
 
-   * If you choose **{% data variables.product.prodname_vscode %}**, {% data variables.product.prodname_github_codespaces %} will automatically open in the desktop application when you next create or open a codespace. 
+   * Se você escolher o **{% data variables.product.prodname_vscode %}** , o {% data variables.product.prodname_github_codespaces %} será aberto automaticamente no aplicativo da área de trabalho quando o próximo codespace for criado ou aberto. 
 
-     You may need to allow access to both your browser and {% data variables.product.prodname_vscode %} for it to open successfully.<br><br>
+     Talvez seja necessário permitir o acesso ao seu navegador e ao {% data variables.product.prodname_vscode %} para que seja aberto com sucesso.<br><br>
      
-   * If you choose **JetBrains Gateway**, the Gateway application will automatically open when you next create or open a codespace. 
+   * Se você escolher **JetBrains Gateway**, o aplicativo Gateway será aberto automaticamente quando o próximo codespace for aberto ou criado. 
 
-     The first time you open a codespace this way you must give permission to open the application. 
+     Na primeira vez que você abrir um codespace dessa forma, precisará conceder permissão para abrir o aplicativo. 
 
-     The Gateway application will open and the codespace will then be automatically selected. You can then choose a JetBrains IDE, if you have not previously done so, and click **Connect** to open the codespace in the JetBrains client. For more information, see "[Using {% data variables.product.prodname_github_codespaces %} in your JetBrains IDE](/codespaces/developing-in-codespaces/using-github-codespaces-in-your-jetbrains-ide)."
+     O aplicativo Gateway será aberto e o codespace será selecionado automaticamente. Depois, você poderá escolher um IDE do JetBrains, se ainda não tiver feito isso, e clicar em **Conectar** para abrir o codespace no cliente JetBrains. Para obter mais informações, confira "[Como usar {% data variables.product.prodname_github_codespaces %} no IDE do JetBrains](/codespaces/developing-in-codespaces/using-github-codespaces-in-your-jetbrains-ide)".
      
-     To connect to a codespace from the Gateway application, you must have an SSH server running on the codespace. {% indented_data_reference reusables.codespaces.ssh-server-installed spaces=5 %}
+     Para se conectar a um codespace do aplicativo Gateway, você precisa ter um servidor SSH em execução no codespace. {% indented_data_reference reusables.codespaces.ssh-server-installed spaces=5 %}
 
-   * If you choose **JupyterLab**, the JupyterLab application must be installed in the codespaces you open. {% data reusables.codespaces.jupyterlab-in-default-image %}
+   * Se você escolher **JupyterLab**, o aplicativo JupyterLab deverá ser instalado nos codespaces abertos. {% data reusables.codespaces.jupyterlab-in-default-image %}
