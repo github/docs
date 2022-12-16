@@ -1,20 +1,20 @@
 ---
 title: グローバル プライバシー規定
 redirect_from:
-  - /eu-safe-harbor
-  - /articles/global-privacy-practices
-  - /github/site-policy/global-privacy-practices
+- /eu-safe-harbor
+- /articles/global-privacy-practices
+- /github/site-policy/global-privacy-practices
 versions:
   fpt: '*'
 topics:
-  - Policy
-  - Legal
+- Policy
+- Legal
 ms.openlocfilehash: ae61cf1fe48e925cbb1b691b44fcdf277aaa7b1b
 ms.sourcegitcommit: 93b306112b5cd5ce482d468a25c9961ad02f87ac
 ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 08/29/2022
-ms.locfileid: '147099158'
+ms.locfileid: "147099158"
 ---
 発効日: 2020 年 7 月 22 日
 
