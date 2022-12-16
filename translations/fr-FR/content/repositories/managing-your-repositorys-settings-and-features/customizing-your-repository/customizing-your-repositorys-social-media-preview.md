@@ -1,6 +1,6 @@
 ---
-title: Customizing your repository's social media preview
-intro: You can customize the image displayed on social media platforms when someone links to your repository.
+title: Personnalisation de l’aperçu d’un référentiel sur les réseaux sociaux
+intro: Vous pouvez personnaliser l’image affichée sur les plateformes de réseaux sociaux quand quelqu’un établit un lien vers votre dépôt.
 redirect_from:
   - /articles/customizing-your-repositorys-social-media-preview
   - /github/administering-a-repository/customizing-your-repositorys-social-media-preview
@@ -13,36 +13,41 @@ versions:
 topics:
   - Repositories
 shortTitle: Social media preview
+ms.openlocfilehash: a778b0fd95533a15806cc0034769fbf0feb3b217
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145132233'
 ---
-Until you add an image, repository links expand to show basic information about the repository and the owner's avatar. Adding an image to your repository can help identify your project across various social platforms.
+Tant que vous n’ajoutez pas d’image, les liens du référentiel se développent pour afficher des informations de base sur le référentiel et l’avatar du propriétaire. Le fait d’ajouter une image à votre référentiel peut vous aider à identifier votre projet sur différentes plateformes sociales.
 
-## Adding an image to customize the social media preview of your repository
+## Ajout d’une image pour personnaliser l’aperçu d’un référentiel sur les réseaux sociaux
 
-{% ifversion not ghae %}You can upload an image to a private repository, but your image can only be shared from a public repository.{% endif %}
-
-{% tip %}
-
-**Tip:** Your image should be a PNG, JPG, or GIF file under 1 MB in size. For the best quality rendering, we recommend keeping the image at 640 by 320 pixels.
-
-{% endtip %}
-
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-3. Under "Social preview," click **Edit**
-    - To add a new image, click **Upload an image...**.
-    - To remove an image, click **Remove image**
-
-    ![Social preview dropdown](/assets/images/help/repository/social-preview.png)
-
-## About transparency
-
-We support PNG images with transparency. Many communication platforms support a dark mode, so using a transparent social preview may be beneficial. The transparent image below is acceptable on a dark background; however, this may not always be the case. 
-
-When using an image with transparency, keep in mind how it may look on different color backgrounds or platforms that don't support transparency.
+{% ifversion not ghae %}Vous pouvez charger une image dans un référentiel privé, mais elle ne peut être partagée qu’à partir d’un référentiel public.{% endif %}
 
 {% tip %}
 
-**Tip:** If you aren't sure, we recommend using an image with a solid background.
+**Conseil :** Votre image doit être un fichier PNG, JPG ou GIF d’une taille inférieure à 1 Mo. Pour un rendu de qualité optimale, nous vous recommandons de choisir une image d’environ 640 × 320 pixels.
+
 {% endtip %}
 
-![Social preview transparency](/assets/images/help/repository/social-preview-transparency.png)
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %}
+3. Sous « Aperçu sur les réseaux sociaux », cliquez sur **Modifier**.
+    - Pour ajouter une nouvelle image, cliquez sur **Charger une image…** .
+    - Pour supprimer une image, cliquez sur **Supprimer l’image**.
+
+    ![Liste déroulante Aperçu sur les réseaux sociaux](/assets/images/help/repository/social-preview.png)
+
+## À propos de la transparence
+
+Nous prenons en charge les images PNG avec transparence. De nombreuses plateformes de communication proposent un mode sombre. Un aperçu sur les réseaux sociaux transparent peut donc être bénéfique. L’image transparente ci-dessous est acceptable sur un arrière-plan foncé, mais ce n’est pas toujours le cas. 
+
+Lorsque vous utilisez une image avec transparence, gardez à l’esprit son rendu sur des arrière-plans de différentes couleurs et sur des plateformes qui ne prennent pas en charge la transparence.
+
+{% tip %}
+
+**Conseil :** En cas de doute, nous vous recommandons d’utiliser une image avec un arrière-plan uni.
+{% endtip %}
+
+![Transparence de l’aperçu sur les réseaux sociaux](/assets/images/help/repository/social-preview-transparency.png)

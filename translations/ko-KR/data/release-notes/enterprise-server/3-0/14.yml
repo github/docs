@@ -1,0 +1,21 @@
+date: '2021-08-24'
+sections:
+  security_fixes:
+    - 패키지가 최신 보안 버전으로 업데이트되었습니다.
+  bugs:
+    - 매우 큰 이미지 또는 애니메이션 GIF는 이미지 또는 끌어오기 요청에 첨부하지 못합니다.
+    - 자동 업데이트 관련 Journald 메시지(`h/m/s 임의 시간을 추가 중입니다.`)가 syslog로 로그되었습니다.
+    - 'Bash 하위 셸을 사용한 사용자 지정 사전 수신 후크가 오류를 반환합니다. `No such file or directory`.'
+    - 명명된 파이프(FIFO)를 만든 사용자 지정 사전 수신 후크가 충돌하거나 멈추고 시간 제한 오류가 발생합니다.
+    - 감사 로그 고급 검색 페이지에 필터를 추가하는 작업이 실시간으로 쿼리 텍스트 상자를 올바른 패싯 접두사와 값으로 채우지 않았습니다.
+    - "요청 실패를 초래하는 내부 API에 대한 Git 후크가 명시적 `nil`을 반환하는 대신 `\"success\":String에 대한 정의되지 않은 메서드 본문(NoMethodError)` 예외를 반환했습니다."
+    - 통합이 제거된 경우 관련이 없는 OAuth 애플리케이션 또는 통합도 제거할 수 있었습니다.
+    - 이모지 문자가 포함된 필수 메시지가 추가되었을 때 메시지를 보거나 변경하려고 하면 500 내부 서버 오류가 반환됩니다.
+  known_issues:
+    - "사용자 없이 새로 설정된 {% data variables.product.prodname_ghe_server %}에서 공격자는 첫 번째 관리 사용자를 만들 수 있습니다."
+    - 업그레이드 프로세스 중에 사용자 지정 방화벽 규칙이 제거됩니다.
+    - "Git LFS 추적 파일[웹 인터페이스를 통해 업로드됨](https://github.com/blog/2105-upload-files-to-your-repositories)이 리포지토리에 직접 잘못 추가되었습니다."
+    - Blob의 파일 경로가 255자보다 긴 동일한 리포지토리의 Blob에 대한 고정 링크가 포함된 경우 이슈를 닫을 수 없습니다.
+    - GitHub Connect에서 “사용자가 GitHub.com을 검색할 수 있음”이 사용하도록 설정되면 프라이빗 및 내부 리포지토리의 이슈가 GitHub.com 검색 결과에 포함되지 않습니다.
+    - "고가용성 구성에서 복제본 노드가 오프라인일 때 {% data variables.product.product_name %}는 여전히 {% data variables.product.prodname_pages %} 요청을 오프라인 노드로 라우팅할 수 있으므로 사용자의 {% data variables.product.prodname_pages %} 가용성이 감소합니다."
+    - 사전 수신 후크 처리와 관련된 리소스 제한으로 인해 일부 사전 수신 후크가 실패할 수 있습니다.

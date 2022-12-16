@@ -1,6 +1,6 @@
 ---
-title: About task lists
-intro: 'You can use task lists to break the work for an issue or pull request into smaller tasks, then track the full set of work to completion.'
+title: À propos des listes de tâches
+intro: 'Vous pouvez utiliser des listes de tâches pour interrompre le travail d’un problème ou d’une demande de tirage (pull request) dans des tâches plus petites, puis suivre l’ensemble complet du travail jusqu’à la fin.'
 redirect_from:
   - /github/managing-your-work-on-github/managing-your-work-with-issues-and-pull-requests/about-task-lists
   - /articles/about-task-lists
@@ -15,67 +15,68 @@ versions:
 topics:
   - Pull requests
   - Issues
+ms.openlocfilehash: dcb8d7972e83d8d35ed2425d57e2950d64ef1352
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148159636'
 ---
+{% ifversion projects-v2-tasklists %} {% note %}
 
-{% ifversion projects-v2-tasklists %}
-{% note %}
+**Remarque :** Pour plus d’informations sur la nouvelle itération des listes de tâches, actuellement en version bêta privée, consultez « [À propos des listes de tâches](/issues/tracking-your-work-with-issues/about-tasklists) ».
 
-**Note:** For more information about the new iteration of Tasklists, which is currently in a private beta, see "[About Tasklists](/issues/tracking-your-work-with-issues/about-tasklists)."
+{% endnote %} {% endif %}
 
-{% endnote %}
-{% endif %}
+## À propos des listes de tâches
 
-## About task lists
+Une liste de tâches est un ensemble de tâches qui s’affichent sur une ligne distincte avec une case à cocher cliquable. Vous pouvez sélectionner ou désélectionner les cases à cocher pour marquer les tâches comme terminées ou non terminées. 
 
-A task list is a set of tasks that each render on a separate line with a clickable checkbox. You can select or deselect the checkboxes to mark the tasks as complete or incomplete. 
+Vous pouvez utiliser Markdown pour créer une liste de tâches dans n’importe quel commentaire sur {% data variables.product.product_name %}. {% ifversion fpt or ghec %}Si vous référencez un problème, une demande de tirage ou une discussion dans une liste de tâches, la référence se déploie pour en afficher le titre et l’état.{% endif %} 
 
-You can use Markdown to create a task list in any comment on {% data variables.product.product_name %}. {% ifversion fpt or ghec %}If you reference an issue, pull request, or discussion in a task list, the reference will unfurl to show the title and state.{% endif %} 
-
-{% ifversion not fpt or ghec %} 
-You can view task list summary information in issue and pull request lists, when the task list is in the initial comment.
+{% ifversion not fpt or ghec %} Vous pouvez afficher les informations récapitulatives de la liste de tâches dans les listes de problèmes et de demandes de tirage, lorsque cette liste des tâches se trouve dans le commentaire initial.
 {% else %}
 
-## About issue task lists
+## À propos des listes de tâches ayant trait à un problème
 
-If you add a task list to the body of an issue, the list has added functionality.
+Si vous ajoutez une liste de tâches au corps d’un problème, cette liste dispose de plus de fonctionnalités.
 
-- To help you track your team's work on an issue, the progress of an issue's task list appears in various places on {% data variables.product.product_name %}, such as a repository's list of issues.
-- If a task references another issue and someone closes that issue, the task's checkbox will automatically be marked as complete. 
-- If a task requires further tracking or discussion, you can convert the task to an issue by hovering over the task and clicking {% octicon "issue-opened" aria-label="The issue opened icon" %} in the upper-right corner of the task. To add more details before creating the issue, you can use keyboard shortcuts to open the new issue form. For more information, see "[Keyboard shortcuts](/github/getting-started-with-github/using-github/keyboard-shortcuts#issues-and-pull-requests)."
-- Any issues referenced in the task list will specify that they are tracked in the referencing issue.
+- Pour vous aider à suivre le travail de votre équipe sur un problème, la progression de la liste des tâches correspondante apparaît à différents endroits sur {% data variables.product.product_name %}, comme la liste des problèmes d’un référentiel.
+- Si une tâche fait référence à un autre problème et qu’une personne ferme ce problème, la case à cocher de cette tâche est automatiquement marquée comme terminée. 
+- Si une tâche nécessite une discussion ou un suivi plus approfondi, vous pouvez la convertir en problème en la survolant et en cliquant sur {% octicon "issue-opened" aria-label="The issue opened icon" %} dans le coin supérieur droit de cette tâche. Pour ajouter plus de détails avant de créer le problème, vous pouvez utiliser des raccourcis clavier afin d’ouvrir le nouveau formulaire de problème. Pour plus d’informations, consultez « [Raccourcis clavier](/github/getting-started-with-github/using-github/keyboard-shortcuts#issues-and-pull-requests) ».
+- Tous les problèmes référencés dans la liste de tâches indiquent qu’ils sont suivis dans le problème de référence.
 
-![Rendered task list](/assets/images/help/writing/task-list-rendered.png)
+![Liste de tâches affichée](/assets/images/help/writing/task-list-rendered.png)
 
 {% endif %}
 
-## Creating task lists
+## Création de listes de tâches
 
 {% data reusables.repositories.task-list-markdown %}
 
 {% tip %}
 
-**Tip:** You cannot create task list items within closed issues or issues with linked pull requests.
+**Conseil :** vous ne pouvez pas créer d’éléments de liste de tâches pour des problèmes fermés ou des problèmes associés à des demandes de tirage.
 
 {% endtip %}
 
-## Reordering tasks
+## Réorganisation des tâches
 
-You can reorder the items in a task list by clicking to the left of a task's checkbox, dragging the task to a new location, and dropping the task. You can reorder tasks across different lists in the same comment, but you can not reorder tasks across different comments.
+Vous pouvez réorganiser les éléments d’une liste de tâches en cliquant à gauche de la case à cocher d’une tâche, en faisant glisser cette tâche vers un nouvel emplacement et en la supprimant. Vous pouvez réorganiser les tâches de différentes listes dans le même commentaire, mais vous ne pouvez pas réorganiser les tâches entre différents commentaires.
 
-{% ifversion fpt %} ![Reordered task list](/assets/images/help/writing/task-list-reordered.gif)
-{% else %} ![Reordered task list](/assets/images/enterprise/writing/task-lists-reorder.gif) {% endif %}
+{% ifversion fpt %} ![Liste de tâches réorganisées](/assets/images/help/writing/task-list-reordered.gif) {% else %} ![Liste de tâches réorganisées](/assets/images/enterprise/writing/task-lists-reorder.gif) {% endif %}
 
 {% ifversion fpt %}
 
-## Navigating tracked issues
+## Navigation dans les problèmes suivis
 
-Any issues that are referenced in a task list specify that they are tracked by the issue that contains the task list. To navigate to the tracking issue from the tracked issue, click on the tracking issue number in the **Tracked in** section next to the issue status.
+Tous les problèmes référencés dans une liste de tâches indiquent qu’ils sont suivis par le problème qui contient la liste des tâches. Pour accéder au problème de suivi depuis le problème suivi, cliquez sur le numéro du problème de suivi dans la section **Suivi dans** en regard de l’état du problème.
 
-![Tracked in example](/assets/images/help/writing/task_list_tracked.png)
+![Exemple de suivi](/assets/images/help/writing/task_list_tracked.png)
 
 {% endif %}
 
-## Further reading
+## Pour aller plus loin
 
 {% ifversion code-scanning-task-lists %}
-* "[Tracking {% data variables.product.prodname_code_scanning %} alerts in issues using task lists](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/tracking-code-scanning-alerts-in-issues-using-task-lists)"{% endif %}
+* « [Suivi des alertes d’{% data variables.product.prodname_code_scanning %} dans les problèmes à l’aide des listes de tâches](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/tracking-code-scanning-alerts-in-issues-using-task-lists) »{% endif %}

@@ -1,6 +1,6 @@
 ---
-title: Accessing the monitor dashboard
-intro: '{% data variables.product.prodname_ghe_server %} includes a web-based monitoring dashboard that displays historical data about your {% data variables.product.prodname_ghe_server %} appliance, such as CPU and storage usage, application and authentication response times, and general system health.'
+title: Auf das Überwachungs-Dashboard zugreifen
+intro: '{% data variables.product.prodname_ghe_server %} enthält ein webbasiertes Überwachungsdashboard, das Verlaufsdaten zu deiner {% data variables.product.prodname_ghe_server %}-Appliance anzeigt. Dazu zählen beispielsweise die CPU-Auslastung, die Speichernutzung, Anwendungs- und Authentifizierungsantwortzeiten und der allgemeine Systemzustand.'
 redirect_from:
   - /enterprise/admin/installation/accessing-the-monitor-dashboard
   - /enterprise/admin/enterprise-management/accessing-the-monitor-dashboard
@@ -15,28 +15,33 @@ topics:
   - Monitoring
   - Performance
 shortTitle: Access the monitor dashboard
+ms.openlocfilehash: b529369813635a8cafe5f7c7ac6fc04af39001f5
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '146332368'
 ---
-## Accessing the monitor dashboard
+## Auf das Überwachungs-Dashboard zugreifen
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.management-console %}
-2. At the top of the page, click **Monitor**.
-![The Monitor Dashboard link](/assets/images/enterprise/management-console/monitor-dash-link.png)
+{% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.enterprise_site_admin_settings.management-console %}
+2. Klicke oben auf der Seite auf **Überwachen**.
+![Link zum Überwachungs-Dashboard](/assets/images/enterprise/management-console/monitor-dash-link.png)
 
-## Troubleshooting common resource allocation problems on your appliance
+## Problembehandlung bei gängigen Ressourcenzuordnungsproblemen auf deiner Appliance
 
 {% note %}
 
-**Note**: Because regularly polling {% data variables.location.product_location %} with continuous integration (CI) or build servers can effectively cause a denial of service attack that results in problems, we recommend using webhooks to push updates. For more information, see "[About webhooks](/enterprise/user/articles/about-webhooks/)".
+**Hinweis:** Da das regelmäßige automatische Abrufen von {% data variables.product.product_location %} mittels Continuous Integration (CI) oder Buildservern effektiv zu Denial-of-Service-Angriffen führen kann, die zu Problemen führen, solltest du Webhooks verwenden, um Updates per Pushvorgang zu übertragen. Weitere Informationen findest du unter [Informationen zu Webhooks](/enterprise/user/articles/about-webhooks/).
 
 {% endnote %}
 
-Use the monitor dashboard to stay informed on your appliance's resource health and make decisions on how to fix high usage issues.  
+Mit dem Überwachungs-Dashboard kannst du in Bezug auf den Ressourcenzustand deiner Appliance auf dem Laufenden bleiben und Entscheidungen treffen, wie du Probleme hinsichtlich hoher Nutzungen beheben kannst.  
 
-| Problem | Possible cause(s) | Recommendations |
+| Problem | Mögliche Ursache(n) | Empfehlungen |
 | -------- | ----------------- | --------------- |
-| High CPU usage | VM contention from other services or programs running on the same host | If possible, reconfigure other services or programs to use fewer CPU resources. To increase total CPU resources for the VM, see "[Increasing CPU or memory resources](/enterprise/admin/guides/installation/increasing-cpu-or-memory-resources/)." |
-| High memory usage | VM contention from other services or programs running on the same host | If possible, reconfigure other services or programs to use less memory. To increase the total memory available on the VM, see "[Increasing CPU or memory resources](/enterprise/admin/guides/installation/increasing-cpu-or-memory-resources/)." |
-| Low disk space availability | Large binaries or log files consuming disk space | If possible, host large binaries on a separate server, and compress or archive log files. If necessary, increase disk space on the VM by following the steps for your platform in "[Increasing storage capacity](/enterprise/admin/guides/installation/increasing-storage-capacity/)." |
-| Higher than usual response times | Often caused by one of the above issues | Identify and fix the underlying issues. If response times remain high, contact {% data variables.contact.contact_ent_support %}. |
-| Elevated error rates | Software issues  | Contact {% data variables.contact.contact_ent_support %} and include your support bundle. For more information, see "[Providing data to {% data variables.product.prodname_enterprise %} Support](/enterprise/{{ currentVersion}}/admin/guides/enterprise-support/providing-data-to-github-support#creating-and-sharing-support-bundles)." |
+| Hohe CPU-Auslastung | VM-Konflikte von anderen auf demselben Host ausgeführten Diensten oder Programmen | Konfiguriere nach Möglichkeit andere Dienste oder Programme so neu, dass sie weniger CPU-Ressourcen beanspruchen. Informationen zum Erhöhen der gesamten CPU-Ressourcen für den virtuellen Computer findest du unter [CPU- und Arbeitsspeicherressourcen erhöhen](/enterprise/admin/guides/installation/increasing-cpu-or-memory-resources/). |
+| Hohe Speicherauslastung | VM-Konflikte von anderen auf demselben Host ausgeführten Diensten oder Programmen | Konfiguriere nach Möglichkeit andere Dienste oder Programme so, dass sie weniger Arbeitsspeicher beanspruchen. Informationen zum Erhöhen des gesamten Arbeitsspeichers, der auf dem virtuellen Computer verfügbar ist, findest du unter [CPU- und Arbeitsspeicherressourcen erhöhen](/enterprise/admin/guides/installation/increasing-cpu-or-memory-resources/). |
+| Niedrige Festplattenspeicherverfügbarkeit | Große Binärdateien oder Protokolldateien, die Festplattenspeicher nutzen | Hoste große Binärdateien nach Möglichkeit auf einem separaten Server, und komprimiere oder archiviere Protokolldateien. Erhöhe bei Bedarf den Speicherplatz auf dem virtuellen Computer, indem du die Schritte für deine Plattform unter [Speicherkapazität erhöhen](/enterprise/admin/guides/installation/increasing-storage-capacity/) ausführst. |
+| Ungewöhnlich hohe Antwortzeiten | Wird oft durch einen der obigen Issues verursacht | Identifiziere und behebe die zugrunde liegenden Issues. Kontaktiere {% data variables.contact.contact_ent_support %}, falls die Antwortzeiten hoch bleiben. |
+| Erhöhte Fehlerraten | Software-Issues  | Kontaktiere {% data variables.contact.contact_ent_support %}, und füge dein Support-Bundle hinzu. Weitere Informationen findest du unter [Daten für den {% data variables.product.prodname_enterprise %}-Support bereitstellen](/enterprise/{{ currentVersion}}/admin/guides/enterprise-support/providing-data-to-github-support#creating-and-sharing-support-bundles). |

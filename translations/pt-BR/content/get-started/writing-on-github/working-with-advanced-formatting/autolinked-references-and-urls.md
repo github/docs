@@ -1,6 +1,6 @@
 ---
-title: Autolinked references and URLs
-intro: 'References to URLs, issues, pull requests, and commits are automatically shortened and converted into links.'
+title: URLs e referências autovinculadas
+intro: 'As referências a URLs, problemas, pull requests e commits são automaticamente reduzidas e convertidas em links.'
 redirect_from:
   - /articles/autolinked-references-and-urls
   - /github/writing-on-github/autolinked-references-and-urls
@@ -11,68 +11,68 @@ versions:
   ghae: '*'
   ghec: '*'
 shortTitle: Auto linked references
+ms.openlocfilehash: 6f6548dbe931a7a6adb809aa4e5616db4358c242
+ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147419686'
 ---
 ## URLs
 
-{% data variables.product.product_name %} automatically creates links from standard URLs.
+O {% data variables.product.product_name %} cria links automaticamente de URLs padrão.
 
 `Visit https://github.com`
 
-![Rendered autolinked URL](/assets/images/help/writing/url-autolink-rendered.png)
+![URL vinculado automaticamente renderizado](/assets/images/help/writing/url-autolink-rendered.png)
 
-For more information on creating links, see "[Basic writing and formatting syntax](/articles/basic-writing-and-formatting-syntax/#links)."
+Para obter mais informações sobre a criação de links, confira "[Sintaxe básica de escrita e formatação](/articles/basic-writing-and-formatting-syntax/#links)".
 
-## Issues and pull requests
+## Problemas e pull requests
 
-Within conversations on {% data variables.product.product_name %}, references to issues and pull requests are automatically converted to shortened links.
+Nas conversas do {% data variables.product.product_name %}, as referências a problemas e pull request são convertidas automaticamente em links curtos.
 
 {% note %}
 
-**Note:** Autolinked references are not created in wikis or files in a repository.
+**Observação:** as referências vinculadas automaticamente não são criadas em wikis nem arquivos em um repositório.
 
 {% endnote %}
 
-| Reference type | Raw reference | Short link |
+| Tipo de referência | Referência bruta | Link curto |
 | --- | --- | --- |
-| Issue or pull request URL | https://github.com/jlord/sheetsee.js/issues/26 | [#26](https://github.com/jlord/sheetsee.js/issues/26)
-| `#` and issue or pull request number | #26 | [#26](https://github.com/jlord/sheetsee.js/issues/26) |
-| `GH-` and issue or pull request number | GH-26 | [GH-26](https://github.com/jlord/sheetsee.js/issues/26) |
-| `Username/Repository#` and issue or pull request number | jlord/sheetsee.js#26 | [jlord/sheetsee.js#26](https://github.com/jlord/sheetsee.js/issues/26)
-| `Organization_name/Repository#` and issue or pull request number | github/linguist#4039 | [github/linguist#4039](https://github.com/github/linguist/pull/4039)
+| URL do problema ou da solicitação de pull | https://github.com/jlord/sheetsee.js/issues/26 | [#26](https://github.com/jlord/sheetsee.js/issues/26)
+| `#` e o número do problema ou da solicitação de pull | #26 | [#26](https://github.com/jlord/sheetsee.js/issues/26) |
+| `GH-` e o número do problema ou da solicitação de pull | GH-26 | [GH-26](https://github.com/jlord/sheetsee.js/issues/26) |
+| `Username/Repository#` e o número do problema ou da solicitação de pull | jlord/sheetsee.js#26 | [jlord/sheetsee.js#26](https://github.com/jlord/sheetsee.js/issues/26)
+| `Organization_name/Repository#` e o número do problema ou da solicitação de pull | github/linguist#4039 | [github/linguist#4039](https://github.com/github/linguist/pull/4039)
 
-{% ifversion fpt or ghec %}
-If you reference an issue, pull request, or discussion in a list, the reference will unfurl to show the title and state instead. For more information about task lists, see "[About task lists](/issues/tracking-your-work-with-issues/creating-issues/about-task-lists)."
+{% ifversion fpt or ghec %} Se você fizer referência a um problema, pull request ou discussão em uma lista, a referência irá desenrolar-se para mostrar o título e o estado. Para obter mais informações sobre listas de tarefas, confira "[Sobre as listas de tarefas](/issues/tracking-your-work-with-issues/creating-issues/about-task-lists)".
 {% endif %}
 
-## Labels
-When referencing the URL of a label in Markdown, the label is automatically rendered. Only labels of the same repository are rendered, URLs pointing to a label from a different repository are rendered as any [URL](/get-started/writing-on-github/working-with-advanced-formatting/autolinked-references-and-urls#urls).
+## Rótulos
+Ao referenciar a URL de uma etiqueta em Markdown, a etiqueta é renderizada automaticamente. Somente as etiquetas do mesmo repositório são renderizadas, as URLs que apontam para uma etiqueta de um repositório diferente são renderizadas como qualquer [URL](/get-started/writing-on-github/working-with-advanced-formatting/autolinked-references-and-urls#urls).
 
-The URL of a label can be found by navigating to the labels page and clicking on a label. For example, the URL of the label "enhancement" in our public [docs repository](https://github.com/github/docs/) is
+Para encontrar a URL de uma etiqueta, navegue até a página de etiquetas e clique em uma etiqueta. Por exemplo, a URL da etiqueta "melhoria" em nosso [repositório de documentos](https://github.com/github/docs/) públicos é
 
 ```md
 https://github.com/github/docs/labels/enhancement
 ```
-{% note %}
 
-**Note:** If the label name contains a period (`.`), the label will not automatically render from the label URL.
+## SHAs de commit
 
-{% endnote %}
+As referências em um hash SHA de commit são convertidas automaticamente em links curtos para o commit no {% data variables.product.product_name %}.
 
-## Commit SHAs
-
-References to a commit's SHA hash are automatically converted into shortened links to the commit on {% data variables.product.product_name %}.
-
-| Reference type | Raw reference | Short link |
+| Tipo de referência | Referência bruta | Link curto |
 | --- | --- | --- |
-| Commit URL | [`https://github.com/jlord/sheetsee.js/commit/a5c3785ed8d6a35868bc169f07e40e889087fd2e`](https://github.com/jlord/sheetsee.js/commit/a5c3785ed8d6a35868bc169f07e40e889087fd2e) | [a5c3785](https://github.com/jlord/sheetsee.js/commit/a5c3785ed8d6a35868bc169f07e40e889087fd2e) |
+| URL da confirmação | [`https://github.com/jlord/sheetsee.js/commit/a5c3785ed8d6a35868bc169f07e40e889087fd2e`](https://github.com/jlord/sheetsee.js/commit/a5c3785ed8d6a35868bc169f07e40e889087fd2e) | [a5c3785](https://github.com/jlord/sheetsee.js/commit/a5c3785ed8d6a35868bc169f07e40e889087fd2e) |
 | SHA | a5c3785ed8d6a35868bc169f07e40e889087fd2e | [a5c3785](https://github.com/jlord/sheetsee.js/commit/a5c3785ed8d6a35868bc169f07e40e889087fd2e) |
 | User@SHA | jlord@a5c3785ed8d6a35868bc169f07e40e889087fd2e | [jlord@a5c3785](https://github.com/jlord/sheetsee.js/commit/a5c3785ed8d6a35868bc169f07e40e889087fd2e)
 | `Username/Repository@SHA` | `jlord/sheetsee.js@a5c3785ed8d6a35868bc169f07e40e889087fd2e` | [`jlord/sheetsee.js@a5c3785`](https://github.com/jlord/sheetsee.js/commit/a5c3785ed8d6a35868bc169f07e40e889087fd2e) |
 
-## Custom autolinks to external resources
+## Links automáticos personalizados para recursos externos
 
 {% data reusables.repositories.autolink-references %}
 
-## Further reading
+## Leitura adicional
 
-- "[Basic writing and formatting syntax](/articles/basic-writing-and-formatting-syntax)"
+- "[Sintaxe básica de escrita e formatação](/articles/basic-writing-and-formatting-syntax)"

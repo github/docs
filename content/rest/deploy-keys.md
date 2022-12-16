@@ -1,6 +1,6 @@
 ---
 title: Deploy keys
-intro: The Deploy keys API lets you create and manage deploy keys.
+intro: Use the REST API to create and manage deploy keys.
 versions:
   fpt: '*'
   ghes: '*'
@@ -14,7 +14,7 @@ redirect_from:
   - /rest/reference/deploy_keys
 ---
 
-## About the Deploy keys API
+## About deploy keys
 
 {% data reusables.repositories.deploy-keys %}
 

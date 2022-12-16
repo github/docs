@@ -1,0 +1,22 @@
+date: '20/04/2022'
+sections:
+  security_fixes:
+    - Les packages ont été mis à jour avec les dernières versions de sécurité. 
+  bugs:
+    - La mise à niveau des nœuds d’une paire à haute disponibilité avec un package de mise à niveau pouvait faire entrer Elasticsearch dans un état incohérent dans certains cas. 
+    - "Dans certaines topologies de cluster, les utilitaires de ligne de commande « ghe-spokesctl » et « ghe-btop » ne fonctionnaient pas."
+    - "Les indices d’Elasticsearch pouvaient être dupliqués lors d’une mise à niveau de package, en raison d’un service « elasticsearch-upgrade » s’exécutant plusieurs fois en parallèle." 
+    - "Les files d’attente de travaux « maint_host_low » n’étaient pas traitées, entraînant dans certains cas l’échec de l’exécution des tâches."
+    - "Lors de la conversion d’un compte d’utilisateur en compte d’organisation, si le compte d’utilisateur était propriétaire du compte d’entreprise {% data variables.product.prodname_ghe_server %}, l’organisation convertie apparaissait de manière incorrecte dans la liste des propriétaires d’entreprise." 
+    - La création d’un jeton OAuth d’emprunt d’identité à l’aide de l’API REST Administration d’entreprise entraînait une erreur quand une intégration correspondant à l’ID d’application OAuth existait déjà. 
+  changes:
+    - "Lors d’une tentative de mise en cache d’une valeur supérieure au maximum autorisé dans Memcached, une erreur était levée, mais la clé n’était pas signalée." 
+  known_issues:
+    - "Le registre npm {% data variables.product.prodname_registry %} ne retourne plus une valeur de temps dans les réponses de métadonnées. Cela a été fait pour permettre des améliorations substantielles des performances. Nous disposons toujours de toutes les données nécessaires pour retourner une valeur de temps dans le cadre de la réponse aux métadonnées et nous recommencerons à retourner cette valeur à l’avenir, une fois que nous aurons résolu les problèmes de performance existants."
+    - "Sur une instance fraîchement configurée de {% data variables.product.prodname_ghe_server %} sans aucun utilisateur, un attaquant pourrait créer le premier utilisateur administrateur."
+    - Les règles de pare-feu personnalisées sont supprimées pendant le processus de mise à niveau.
+    - "Les fichiers suivis par Git LFS [chargés via l’interface web](https://github.com/blog/2105-upload-files-to-your-repositories) sont incorrectement ajoutés directement au dépôt."
+    - "Les questions ne peuvent pas être fermées si elles contiennent un permalien vers un blob dans le même dépôt, où le chemin de fichier du blob est supérieur à 255 caractères."
+    - "Quand l’option « Les utilisateurs peuvent effectuer des recherches sur GitHub.com » est activée avec {% data variables.product.prodname_github_connect %}, les problèmes des dépôts privés et internes ne sont pas inclus dans les résultats de recherche de {% data variables.product.prodname_dotcom_the_website %}."
+    - "Si {% data variables.product.prodname_actions %} est activé pour {% data variables.product.prodname_ghe_server %}, le démontage d’un nœud de réplica avec « ghe-repl-teardown » réussit, mais peut retourner « ERREUR : migrations en cours d’exécution »."
+    - Les limites de ressources spécifiques au traitement des hooks de pré-réception peuvent entraîner l’échec de certains hooks de pré-réception.

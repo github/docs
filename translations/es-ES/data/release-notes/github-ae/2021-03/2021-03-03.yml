@@ -1,0 +1,93 @@
+date: '03-03-2021'
+friendlyDate: '3 de mazo de 2021'
+title: 'Semana del 3 de marzo de 2021'
+currentWeek: false
+sections:
+  features:
+    - heading: 'Versión beta de Acciones de GitHub'
+      notes:
+        - |[{% data variables.product.prodname_actions %}](https://github.com/features/actions) es una solución potente y flexible para IC/DC y la automatización de flujos de trabajo. Para obtener más información, consulta "[Introducción a {% data variables.product.prodname_actions %}](/actions/learn-github-actions/introduction-to-github-actions)."
+
+
+
+Ten en cuenta que cuando se habilitan las {% data variables.product.prodname_actions %} durante esta actualización, se mostrarán dos organizaciones denominadas "GitHub Actions" (@**actions** y @**github**) en {% data variables.product.product_location %}. {% data variables.product.prodname_actions %} necesita de ambas organizaciones. Los usuarios denominados @**ghost** y @**actions** aparecen como actores para la creación de estas organizaciones en el registro de auditoría.
+
+|
+    - heading: 'Versión beta de GitHub Packages'
+      notes:
+        - |[{% data variables.product.prodname_registry %}](https://github.com/features/packages) es un servicio de hospedaje de paquetes que se integra nativamente con {% data variables.product.prodname_actions %}, API y webhooks. Crea un [flujo de trabajo de Azure DevOps de un extremo a otro](/github-ae@latest/packages/quickstart) que incluye tu código, integración continua y soluciones de implementación. Durante esta versión beta, se ofrece gratis {% data variables.product.prodname_registry %} a los clientes de {% data variables.product.product_name %}.
+
+|
+    - heading: 'Versión beta de GitHub Advanced Security'
+      notes:
+        - |{% data variables.product.prodname_GH_advanced_security %} está disponible en versión beta e incluye el análisis de código y el análisis de secretos. Durante este beta, las características de {% data variables.product.prodname_GH_advanced_security %} serán gratuitas para los clientes de {% data variables.product.product_name %}. Los administradores de repositorios y empresas pueden optar por usar {% data variables.product.prodname_GH_advanced_security %} en la pestaña Seguridad y Análisis en la configuración.
+
+
+
+Obtén más información sobre {% data variables.product.prodname_GH_advanced_security %} [análisis de código](/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning) y [análisis de secretos](/github/administering-a-repository/about-secret-scanning) en {% data variables.product.prodname_ghe_managed %}.
+
+|
+    - heading: Administración de equipos desde tu proveedor de identidad (IdP)
+      notes:
+        - |Los clientes que utilizan SCIM (System for Cross-domain Identity Management) ahora pueden sincronizar los grupos de seguridad en Azure Active Directory con los equipos de {% data variables.product.company_short %}.  Una vez que un equipo se haya enlazado con un grupo de seguridad, la membresía se actualizará automáticamente en {% data variables.product.product_name %} cuando se agregue o elimine a un usuario de su grupo de seguridad asignado.
+
+|
+    - heading: Versión beta de listas de IP permitidas
+      notes:
+        - |[Listas de IP permitidas de {% data variables.product.company_short %}](/admin/configuration/restricting-network-traffic-to-your-enterprise) proporciona la capacidad de filtrar tráfico en rangos de IP especificados de administrador definidos por la anotación de CIDR. La lista de admisión se define en el nivel de cuenta de empresa u organización en Seguridad > Configuración. Todo el tráfico que intenta alcanzar recursos en la cuenta de empresa y las organizaciones se filtran en las listas de admisión de IP. Esta funcionalidad se proporciona adicionalmente a la capacidad de solicitar cambios en los grupos de seguridad en redes que filtren el tráfico del inquilino de GHAE integralmente.
+
+|
+  changes:
+    - heading: Cambios de desarrollador
+      notes:
+        - |[Los propietarios de organización ahora pueden inhabilitar publicaciones](/github/setting-up-and-managing-organizations-and-teams/managing-the-publication-of-github-pages-sites-for-your-organization) de los sitios de {% data variables.product.prodname_pages %} desde los repositorios en la organización. Esto no dejará de publicar los sitios existentes.
+
+|
+        - "Los repositorios que utilizan {% data variables.product.prodname_pages %} ahora pueden [crear y desplegar desde cualquier rama](/github/working-with-github-pages/about-github-pages#publishing-sources-for-github-pages-sites)."
+        - "Cuando se escribe una propuesta o solicitud de cambios, la sintaxis de lista para las viñetas, números y tareas ahora se auto-completará después de que presiones \"return\" o \"enter\"."
+        - "Ahora puedes borrar un directorio de un repositorio desde la página de repositorio. Cuando navegues a un directorio, un botón de kebab nuevo junto al botón \"Agregar archivo\" te da la opción de borrar el directorio."
+        - "Ahora es más fácil y rápido [referenciar las propuestas o solicitudes de cambios](/github/writing-on-github/basic-writing-and-formatting-syntax#referencing-issues-and-pull-requests) con búsquedas a lo largo de palabras múltiples después del \"#\"."
+
+    - heading: Cambios en la administración
+      notes:
+        - "Los propietarios de empresas ahora pueden publicar un mensaje obligatorio. El mensaje se muestra a todos los usuarios y deben reconocerlo. Esto se puede utilizar para mostrar información importante, condiciones de servicio o políticas."
+        - "El permiso de ruta de archivo sencilla de una {% data variables.product.prodname_github_app%} ahora puede [ser compatible con hasta diez archivos](/developers/apps/creating-a-github-app-using-url-parameters)."
+        - "Cuando configuras una {% data variables.product.prodname_github_app%}, la URL de devolución de llamada de la autorización es un campo obligatorio. Ahora permitiremos que el integrador especifique múltiples URL de devolución de llamada.{% data variables.product.product_name %} negará la autorización si la URL de devolución de llamada de la solicitud no se encuentra en la lista."
+        - "Una [terminal de API nueva](/rest/reference/apps#create-a-scoped-access-token) permite el intercambio de un token de usuario a servidor por otro de este tipo que tenga alcance para repositorios específicos."
+        - "Ahora los eventos se registrarán en el registro de auditoría en [promover a un miembro del equipo para que sea un mantenedor del mismo y en bajar de categoría a un mantenedor de equipo para que sea un miembro de equipo](/admin/user-management/audited-actions#teams)."
+        - "Ahora, el [flujo de autorización de dispositivos de OAuth](/developers/apps/authorizing-oauth-apps#device-flow) es compatible. Esto permite que cualquier cliente de CLI o herramienta de desarrollador se autentique utilizando un sistema secundario."
+        - Los usuarios ya no pueden borrar sus cuentas si se habilita el aprovisionamiento de SCIM.
+
+    - heading: Renombrado de la rama predeterminada
+      notes:
+        - |Los propietarios de empresas y organizaciones ahora pueden configurar el nombre de la rama predeterminada para los repositorios nuevos. Los propietarios de empresas también pueden requerir su elección de nombre para las ramas predeterminadas en todas las organizaciones o permitir que cada organización escoja el suyo propio.
+
+
+
+Estas configuraciones no afectarán a los repositorios existentes y los nombres de sus ramas predeterminadas no cambiarán.
+
+
+
+Este cambio es uno de los muchos que está haciendo {% data variables.product.company_short %} para apoyar a los proyectos y mantenedores que quieran renombrar su rama predeterminada. Para aprender más, consulta [github/renaming](https://github.com/github/renaming).
+
+|
+  bugs:
+    - heading: Corrección de errores
+      notes:
+        - Los usuarios ya no pueden configurar una dirección de correo electrónico de respaldo en su perfil. Su dirección de correo electrónico se configura únicamente mediante el IdP.
+        - Ya no puedes habilitar la autenticación en dos fases después de configurar la autenticación mediante tu IdP.
+        - |{% data variables.product.product_name %} ahora puede conectarse a Azure Boards.
+
+|
+        - "Los encabezados de versión no estaban en las API y ahora se configuraron en \"GitHub AE\"."
+        - Se arreglaron los enlaces a la documentación.
+        - Se producía un error en la configuración para reenviar registros de auditoría dentro de los ajustes de empresa.
+        - La navegación hacia los gists podría resultar en un error 500.
+        - La URL o correo electrónico de soporte no se guardaban correctamente. Ahora se guarda después de que transcurran algunos minutos.
+        - Las plantillas de solicitudes de cambio a nivel organizacional no se estaban aplicando a todas las solicitudes de cambio en la organización.
+
+  known_issues:
+    - heading: Problemas conocidos
+      notes:
+        - Los datos de la ubicación geográfica no se muestran en el registro de auditoría. La información de ubicación se puede discernir de otra forma desde la dirección IP asociada con cada evento.
+        - "El enlace al {% data variables.product.prodname_registry %} desde una página de repositorio muestra una página de búsqueda incorrecta cuando dicho repositorio no tiene paquetes."

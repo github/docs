@@ -1,6 +1,6 @@
 ---
-title: About pull request merges
-intro: 'You can [merge pull requests](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request) by retaining all the commits in a feature branch, squashing all commits into a single commit, or by rebasing individual commits from the `head` branch onto the `base` branch.'
+title: À propos des fusions de demande de tirage
+intro: 'Vous pouvez [fusionner des demandes de tirage (pull request)](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request) en conservant tous les commits dans une branche de fonctionnalité, en effectuant un squash de tous les commits en un seul commit ou en rebasant des commits individuels de la branche `head` sur la branche `base`.'
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges
   - /articles/about-pull-request-merge-squashing
@@ -14,77 +14,67 @@ versions:
   ghec: '*'
 topics:
   - Pull requests
+ms.openlocfilehash: 512a32eb3f918653eab1127aecb70a2fbc220571
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147580438'
 ---
-## Merge your commits
+## Fusionner vos validations
 
 {% data reusables.pull_requests.default_merge_option %}
 
-## Squash and merge your commits
+## Effectuer un squash et une fusion de vos validations
 
 {% data reusables.pull_requests.squash_and_merge_summary %}
 
-### Merge message for a squash merge
+### Message de fusion pour une fusion de Squash
 
-{% ifversion default-merge-squash-commit-message %}
-When you squash and merge, {% data variables.product.prodname_dotcom %} generates a default commit message, which you can edit. Depending on how the repository is configured and the number of commits in the pull request, not including merge commits, this message may include the pull request title, pull request description, or information about the commits.
-{% else %}
-When you squash and merge, {% data variables.product.prodname_dotcom %} generates a default commit message, which you can edit. The default message depends on the number of commits in the pull request, not including merge commits.
+{% ifversion default-merge-squash-commit-message %} Lorsque vous effectuez un squash et une fusion, {% data variables.product.prodname_dotcom %} génère un message de validation par défaut que vous pouvez modifier. Selon la façon dont le référentiel est configuré et le nombre de validations dans la demande de tirage, sans inclure les validations de fusion, ce message peut inclure le titre de la demande de tirage, la description de la demande de tirage ou des informations sur les validations.
+{% else %} Lorsque vous effectuez un squash et une fusion, {% data variables.product.prodname_dotcom %} génère un message de validation par défaut que vous pouvez modifier. Le message par défaut dépend du nombre de validations de la demande de tirage, sans inclure les validations de fusion.
 
-Number of commits | Summary | Description |
------------------ | ------- | ----------- |	
-One commit | The title of the commit message for the single commit, followed by the pull request number | The body text of the commit message for the single commit
-More than one commit | The pull request title, followed by the pull request number | A list of the commit messages for all of the squashed commits, in date order
+Nombre de validations | Résumé | Description |
+----------------- | ------- | ----------- | 
+Une validation | Titre du message de validation pour la validation unique, suivi du numéro de la demande de tirage | Texte du corps du message de validation pour la validation unique
+Plusieurs validations | Titre de la demande de tirage, suivi du numéro de la demande de tirage | Liste des messages de validation pour toutes les validations ayant fait l’objet d’un squash, par ordre de date
 {% endif %}
 
-Number of commits | Summary | Description |
+Nombre de validations | Résumé | Description |
 ----------------- | ------- | ----------- |
-One commit | The title of the commit message for the single commit, followed by the pull request number | The body text of the commit message for the single commit
-More than one commit | The pull request title, followed by the pull request number | A list of the commit messages for all of the squashed commits, in date order
+Une validation | Titre du message de validation pour la validation unique, suivi du numéro de la demande de tirage | Texte du corps du message de validation pour la validation unique
+Plusieurs validations | Titre de la demande de tirage, suivi du numéro de la demande de tirage | Liste des messages de validation pour toutes les validations ayant fait l’objet d’un squash, par ordre de date
 
-{% ifversion default-merge-squash-commit-message %}
-People with maintainer or admin access to a repository can configure their repository's default merge message for all squashed commits to use the pull request title, the pull request title and commit details, or the pull request title and description. For more information, see "[Configure commit squashing](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/configuring-commit-squashing-for-pull-requests)".{% endif %}
+{% ifversion default-merge-squash-commit-message %} Les personnes avec un accès gestionnaire ou administrateur à un référentiel peuvent configurer le message de fusion par défaut du référentiel pour que toutes les validations écrasées utilisent le titre de la demande de tirage, le titre de la demande de tirage et les détails de validation, ou le titre et la description de la demande de tirage. Pour plus d’informations, consultez « [Configurer le squashing de validation](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/configuring-commit-squashing-for-pull-requests) ».{% endif %}
 
-{% ifversion ghes = 3.6 %}
-People with admin access to a repository can configure the repository to use the title of the pull request as the default merge message for all squashed commits. For more information, see "[Configure commit squashing](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/configuring-commit-squashing-for-pull-requests)".
+{% ifversion ghes = 3.6 %} Les personnes disposant d’un accès administrateur à un référentiel peuvent configurer ce dernier pour qu’il utilise le titre de la demande de tirage comme message de fusion par défaut pour toutes les validations ayant fait l’objet d’un squash. Pour plus d’informations, consultez « [Configurer le squashing de validation](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/configuring-commit-squashing-for-pull-requests) ».
 {% endif %}
 
-### Squashing and merging a long-running branch
+### Squashing et fusion d’une branche longue
 
-If you plan to continue work on the [head branch](/github/getting-started-with-github/github-glossary#head-branch) of a pull request after the pull request is merged, we recommend you don't squash and merge the pull request.
+Si vous prévoyez de continuer à travailler sur la [branche principale](/github/getting-started-with-github/github-glossary#head-branch) d’une demande de tirage une fois cette dernière fusionnée, nous vous recommandons de ne pas soumettre la demande de tirage à un squash ou une fusion.
 
-When you create a pull request, {% data variables.product.prodname_dotcom %} identifies the most recent commit that is on both the head branch and the [base branch](/github/getting-started-with-github/github-glossary#base-branch): the common ancestor commit. When you squash and merge the pull request, {% data variables.product.prodname_dotcom %} creates a commit on the base branch that contains all of the changes you made on the head branch since the common ancestor commit.
+Lorsque vous créez une demande de tirage, {% data variables.product.prodname_dotcom %} identifie la validation la plus récente située sur la branche principale et la [branche de base](/github/getting-started-with-github/github-glossary#base-branch) : la validation ancêtre commune. Lorsque soumettez la demande de tirage à un squash et une fusion, {% data variables.product.prodname_dotcom %} crée une validation sur la branche de base qui contient toutes les modifications que vous avez apportées à la branche principale depuis la validation ancêtre commune.
 
-Because this commit is only on the base branch and not the head branch, the common ancestor of the two branches remains unchanged. If you continue to work on the head branch, then create a new pull request between the two branches, the pull request will include all of the commits since the common ancestor, including commits that you squashed and merged in the previous pull request. If there are no conflicts, you can safely merge these commits. However, this workflow makes merge conflicts more likely. If you continue to squash and merge pull requests for a long-running head branch, you will have to resolve the same conflicts repeatedly.
+Cette validation se trouvant uniquement sur la branche de base et non sur la branche principale, l’ancêtre commun des deux branches ne change pas. Si vous continuez à travailler sur la branche principale, créez une nouvelle demande de tirage entre les deux branches. La demande de tirage inclura toutes les validations depuis l’ancêtre commun, y compris les validations ayant fait l’objet d’un squash et d’une fusion dans la demande de tirage précédente. En l’absence de conflits, vous pouvez fusionner ces validations en toute sécurité. Cela étant, ce workflow peut créer des conflits. Si vous continuez à soumettre les demandes de tirage d’une branche principale longue à un squash et une fusion, vous devrez résoudre les mêmes conflits à plusieurs reprises.
 
-## Rebase and merge your commits
+## Rebaser et fusionner vos validations
 
 {% data reusables.pull_requests.rebase_and_merge_summary %}
 
-You aren't able to automatically rebase and merge on {% data variables.location.product_location %} when:
-- The pull request has merge conflicts.
-- Rebasing the commits from the base branch into the head branch runs into conflicts.
-- Rebasing the commits is considered "unsafe," such as when a rebase is possible without merge conflicts but would produce a different result than a merge would.
+Vous ne pouvez pas rebaser et fusionner automatiquement sur {% data variables.product.product_location %} lorsque :
+- La demande de tirage présente des conflits de fusion.
+- La rebasage des validations de la branche de base vers la branche principale entraîne des conflits.
+- Le rebasage des validations est considéré comme « dangereux », par exemple lorsqu’une rebase est possible sans conflits de fusion, mais produit un résultat différent de celui d’une fusion.
 
-If you still want to rebase the commits but can't rebase and merge automatically on {% data variables.location.product_location %} you must:
-- Rebase the topic branch (or head branch) onto the base branch locally on the command line
-- [Resolve any merge conflicts on the command line](/articles/resolving-a-merge-conflict-using-the-command-line/).
-- Force-push the rebased commits to the pull request's topic branch (or remote head branch).
+Si vous souhaitez toujours rebaser les validations, mais que vous ne pouvez pas rebaser et fusionner automatiquement sur {% data variables.product.product_location %}, vous devez :
+- Rebaser la branche de rubrique (ou branche principale) sur la branche de base localement sur la ligne de commande
+- [Résoudre les conflits de fusion sur la ligne de commande](/articles/resolving-a-merge-conflict-using-the-command-line/).
+- Forcer l’envoi (push) des validations rebasées vers la branche de rubrique de la demande de tirage (ou la branche principale distante).
 
-Anyone with write permissions in the repository, can then [merge the changes](/articles/merging-a-pull-request/) using the rebase and merge button on {% data variables.location.product_location %}.
+Toute personne disposant d’autorisations d’écriture dans le référentiel peut alors [fusionner les modifications](/articles/merging-a-pull-request/) à l’aide du bouton rebaser et fusionner sur {% data variables.product.product_location %}.
 
-## Indirect merges
+## Pour aller plus loin
 
-A pull request can be merged automatically if its head branch is directly or indirectly merged into the base branch externally. In other words, if the head branch's tip commit becomes reachable from the tip of the target branch. For example:
-
-* Branch `main` is at commit **C**.
-* Branch `feature` has been branched off of `main` and is currently at commit **D**. This branch has a pull request targeting `main`.
-* Branch `feature_2` is branched off of `feature` and is now at commit **E**. This branch also has a pull request targeting `main`.
-
-If pull request **E** --> `main` is merged first, pull request **D** --> `main` will be marked as merged *automatically* because all of the commits from `feature` are now reachable from `main`. Merging `feature_2` into `main` and pushing `main` to the server from the command line will mark *both* pull requests as merged.
-
-Pull requests in this situation will be marked as `merged` even if [branch protection rules](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#about-branch-protection-rules) have not been satisfied.
-
-## Further reading
-
-- "[About pull requests](/articles/about-pull-requests/)"
-- "[Addressing merge conflicts](/github/collaborating-with-pull-requests/addressing-merge-conflicts)"
+- « [À propos des demandes de tirage (pull requests)](/articles/about-pull-requests/) »
+- « [Traitement des conflits de fusion](/github/collaborating-with-pull-requests/addressing-merge-conflicts) »

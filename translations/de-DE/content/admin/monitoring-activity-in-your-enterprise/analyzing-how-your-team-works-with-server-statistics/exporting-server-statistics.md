@@ -1,47 +1,52 @@
 ---
-title: Exporting Server Statistics
+title: Exportieren von Serverstatistiken
 shortTitle: Export Server Statistics
-intro: 'You can use your own tools to analyze your {% data variables.product.prodname_ghe_server %} usage over time by downloading your {% data variables.product.prodname_server_statistics %} metrics in a CSV or JSON file.'
+intro: 'Du kannst deine eigenen Tools verwenden, um deine {% data variables.product.prodname_ghe_server %}-Nutzung im Zeitverlauf zu analysieren, indem du deine {% data variables.product.prodname_server_statistics %}-Metriken in einer CSV- oder JSON-Datei herunterlädst.'
 versions:
   feature: server-statistics
 redirect_from:
   - /early-access/github/analyze-how-your-team-works-with-server-statistics/exploring-server-statistics
+ms.openlocfilehash: 4e8fa1d040303ec569d11a8a41708ede10b3e76e
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147718165'
 ---
+Du kannst die {% data variables.product.prodname_server_statistics %}-Daten der letzten 365 Tage als CSV- oder JSON-Datei herunterladen. Diese Daten enthalten aggregierte Metriken zu Repositorys, Issues und Pull Requests, die dazu beitragen können, die Bedürfnisse deiner Organisation zu antizipieren, zu verstehen, die Arbeit deines Teams nachzuvollziehen und den Nutzen darzustellen, den du aus {% data variables.product.prodname_ghe_server %} ziehst. 
 
-You can download up to the last 365 days of {% data variables.product.prodname_server_statistics %} data in a CSV or JSON file. This data, which includes aggregate metrics on repositories, issues, and pull requests, can help you anticipate the needs of your organization, understand how your team works, and show the value you get from {% data variables.product.prodname_ghe_server %}. 
+Du musst {% data variables.product.prodname_server_statistics %} aktivieren, bevor du diese Daten herunterladen kannst. Weitere Informationen findest du unter [Aktivieren von {% data variables.product.prodname_server_statistics %} für dein Unternehmen](/admin/configuration/configuring-github-connect/enabling-server-statistics-for-your-enterprise). 
 
-Before you can download this data, you must enable {% data variables.product.prodname_server_statistics %}. For more information, see "[Enabling {% data variables.product.prodname_server_statistics %} for your enterprise](/admin/configuration/configuring-github-connect/enabling-server-statistics-for-your-enterprise)." 
+Weitere Informationen zum Anzeigen einer Vorschau für die herunterladbaren Metriken findest du unter [Informationen zu {% data variables.product.prodname_server_statistics %}](/admin/monitoring-activity-in-your-enterprise/analyzing-how-your-team-works-with-server-statistics/about-server-statistics).
 
-To preview the metrics available to download, see "[About {% data variables.product.prodname_server_statistics %}](/admin/monitoring-activity-in-your-enterprise/analyzing-how-your-team-works-with-server-statistics/about-server-statistics)."
+Du musst Unternehmensbesitzer oder Organisationsbesitzer in {% data variables.product.prodname_ghe_cloud %} sein, um diese Metriken herunterladen zu können.
+  - Wenn {% data variables.product.product_location %} mit einem Unternehmenskonto in {% data variables.product.prodname_ghe_cloud %} verknüpft ist, findest du weitere Informationen unter [Herunterladen von Metriken aus deinem Unternehmenskonto](#downloading-metrics-from-your-enterprise-account).
+  - Wenn {% data variables.product.product_location %} mit einer Organisation in {% data variables.product.prodname_ghe_cloud %} verknüpft ist, findest du weitere Informationen unter [Herunterladen von Metriken aus deiner Organisation](#downloading-metrics-from-your-organization).
 
-To download these metrics, you must be an enterprise owner or organization owner on {% data variables.product.prodname_ghe_cloud %}.
-  - If {% data variables.location.product_location %} is connected to an enterprise account on {% data variables.product.prodname_ghe_cloud %}, see "[Downloading metrics from your enterprise account](#downloading-metrics-from-your-enterprise-account)."
-  - If {% data variables.location.product_location %} is connected to an organization on {% data variables.product.prodname_ghe_cloud %}, see "[Downloading metrics from your organization](#downloading-metrics-from-your-organization)."
+Weitere Informationen zu {% data variables.product.prodname_github_connect %} findest du unter [Informationen zu {% data variables.product.prodname_github_connect %}](/admin/configuration/configuring-github-connect/about-github-connect).
 
-To learn more about {% data variables.product.prodname_github_connect %}, see "[About {% data variables.product.prodname_github_connect %}](/admin/configuration/configuring-github-connect/about-github-connect)."
+## Herunterladen von Metriken aus deinem Unternehmenskonto
 
-## Downloading metrics from your enterprise account
+1. Klicke in der oberen rechten Ecke von {% data variables.product.prodname_ghe_cloud %} auf dein Profilfoto und dann auf **Deine Unternehmen**.
+  ![Dropdownmenü mit Option „Deine Unternehmen“](/assets/images/help/enterprises/enterprise-admin-account-settings.png)
 
-1. In the top-right corner of {% data variables.product.prodname_ghe_cloud %}, click your profile photo, then click **Your enterprises**.
-  ![Drop down menu with "Your enterprises" option](/assets/images/help/enterprises/enterprise-admin-account-settings.png)
+2. Klicke neben dem gewünschten Unternehmenskonto auf **Einstellungen**.
+  ![Schaltfläche „Einstellungen“ neben dem Enterprise-Administratorkonto](/assets/images/help/enterprises/enterprise-admin-account-settings-button.png)
 
-2. Next to your desired enterprise account, click **Settings**.
-  ![Settings button next to Enterprise admin account](/assets/images/help/enterprises/enterprise-admin-account-settings-button.png)
-
-3. On the left, click **GitHub Connect**.
-  ![GitHub Connect option under enterprise admin account](/assets/images//help/enterprises/enterprise-admin-github-connect.png)
+3. Klicke auf der linken Seite auf **GitHub Connect**.
+  ![Option „GitHub Connect“ im Enterprise-Administratorkonto](/assets/images//help/enterprises/enterprise-admin-github-connect.png)
 
 {% data reusables.server-statistics.csv-download %}
 
-## Downloading metrics from your organization
+## Herunterladen von Metriken aus deiner Organisation
 
-1. In the top-right corner of {% data variables.product.prodname_ghe_cloud %}, click your profile photo, then click **Your organizations**.
-  ![Drop down menu with "Your organizations" option](/assets/images/help/enterprises/github-enterprise-cloud-organizations.png)
+1. Klicke in der oberen rechten Ecke von {% data variables.product.prodname_ghe_cloud %} auf dein Profilfoto und dann auf **Deine Organisationen**.
+  ![Dropdownmenü mit Option „Deine Organisationen“](/assets/images/help/enterprises/github-enterprise-cloud-organizations.png)
 
-2. In the list of organizations, next to the organization that's connected to {% data variables.location.product_location %}, click **Settings**.
-  ![Settings button next to {% data variables.product.prodname_ghe_cloud %} organization](/assets/images/help/enterprises/settings-for-ghec-org.png)
+2. Klicke in der Liste der Organisationen neben der Organisation, die mit {% data variables.product.product_location %} verknüpft ist, auf **Einstellungen**.
+  ![Schaltfläche „Einstellungen“ neben der {% data variables.product.prodname_ghe_cloud %}-Organisation](/assets/images/help/enterprises/settings-for-ghec-org.png)
 
-3. On the left, click **GitHub Connect**.
-  ![GitHub Connect option in an organization account settings left sidebar](/assets/images/help/enterprises/github-connect-option-for-ghec-org.png)
+3. Klicke auf der linken Seite auf **GitHub Connect**.
+  ![Option „GitHub Connect“ auf der linken Seitenleiste der Einstellungen eines Organisationskontos](/assets/images/help/enterprises/github-connect-option-for-ghec-org.png)
 
 {% data reusables.server-statistics.csv-download %}

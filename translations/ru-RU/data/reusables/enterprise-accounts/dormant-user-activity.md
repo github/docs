@@ -1,23 +1,35 @@
-A user is considered active if the user has performed any of the following activities on {% ifversion fpt or ghec or ghes %}{% data variables.location.product_location %}{% elsif ghae %}{% data variables.product.product_name %}{% endif %}.
+---
+ms.openlocfilehash: ae3a6c6743e497213f23230a4f78d98a1ab9a110
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 12/09/2022
+ms.locfileid: "148192932"
+---
+Пользователь считается активным, если пользователь выполнил какое-либо из следующих действий в {% ifversion fpt or ghec or ghes %}{% data variables.location.product_location %}{% elsif ghae %}{% data variables.product.product_name %}{% endif %}.
 
-- Signing into {% data variables.location.product_location %}
-- Creating a repository
-- Pushing to a repository
-- Being added to a repository
-- Changing the visibility of a repository
-- Creating an issue or pull request
-- Commenting on an issue or pull request
-- Closing or reopening an issue or pull request
-- Applying a label to an issue or pull request, or removing a label
-- Assigning or unassigning an issue or pull request
-- Requesting a review of a pull request, or removing a review request
-- Creating or editing a comment in a pull request review
-- Dismissing a comment in a pull request 
-- Synchronizing a pull request
-- Commenting on a commit
-- Publishing a release
-- Pushing to a wiki
-- Watching a repository
-- Starring a repository
-- Deleting a repository
-- Accessing resources by using a {% data variables.product.pat_generic %} or SSH key
+- Вход в {% data variables.location.product_location %}
+- Создание репозитория
+- Отправка в репозитория
+- Добавление в репозиторий
+- Изменение видимости репозитория
+- Создание проблемы или запроса на вытягивание
+- Добавление комментария к проблеме или запросу на вытягивание
+- Закрытие или повторное открытие проблемы или запроса на вытягивание
+- Применение метки к проблеме или запросу на вытягивание или удаление метки
+- Назначение или отмена назначения проблемы или запроса на вытягивание
+- Запрос проверки запроса на вытягивание или удаление запроса проверки
+- Создание или изменение комментария в проверке запроса на вытягивание
+- Закрытие комментария в запросе на вытягивание 
+- Синхронизация запроса на вытягивание
+- Добавление комментария к фиксации
+- Публикация выпуска
+- Отправка на вики-сайт
+- Просмотр репозитория
+- Установка звезды для репозитория
+- Удаление репозитория
+- Доступ к ресурсам с помощью ключа {% data variables.product.pat_generic %} или SSH
+- Присоединение к организации
+
+{% ifversion ghes %} Пользователь также будет считаться активным, если его учетная запись была обновлена ldap.
+{% endif %}

@@ -1,267 +1,235 @@
 meta:
-  default_description: Get started, troubleshoot, and make the most of GitHub. Documentation for new users, developers, administrators, and all of GitHub's products.
+  default_description: 开始使用、排除故障和充分利用 GitHub。新用户、开发人员、管理员和所有 GitHub 产品的文档。
 header:
   github_docs: GitHub Docs
-  contact: Contact
+  contact: 联系人
   notices:
-    ghae_silent_launch: GitHub AE is currently under limited release.
+    ghae_silent_launch: GitHub AE 目前处于受限版。
     release_candidate:
       # The version name is rendered before the below text via includes/header-notification.html
-      ' is currently available as a release candidate. For more information, see "<a href="/admin/overview/about-upgrades-to-new-releases">About upgrades to new releases</a>."'
+      ' 目前可作为候选发布。有关详细信息，请参阅“<a href="/admin/overview/about-upgrades-to-new-releases">关于升级到新版本</a>”。'
     localization_complete:
-      We publish frequent updates to our documentation, and translation of this page may still be in progress.
-      For the most current information, please visit the
-      <a id="to-english-doc" href="/en">English documentation</a>.
-    early_access: 📣 Please <b>do not share</b> this URL publicly. This page contains content about an early access feature.
-    release_notes_use_latest: Please use the latest release for the latest security, performance, and bug fixes.
+      "我们经常发布文档更新，此页面的翻译可能仍在进行中。有关最新信息，请访问<a id=\"to-english-doc\" href=\"/en\">英语文档</a>。"
+    early_access: 📣 请<b>不要公开分享</b>此 URL。此页面包含有关早期访问功能的内容。
+    release_notes_use_latest: 请使用最新版本获取最新的安全性、性能和 bug 修复程序。
     # GHES release notes
-    ghes_release_notes_upgrade_patch_only: 📣 This is not the <a href="#{{ latestPatch }}">latest patch release</a> of Enterprise Server.
-    ghes_release_notes_upgrade_release_only: 📣 This is not the <a href="/enterprise-server@{{ latestRelease }}/admin/release-notes">latest release</a> of Enterprise Server.
-    ghes_release_notes_upgrade_patch_and_release: 📣 This is not the <a href="#{{ latestPatch }}">latest patch release</a> of this release series, and this is not the <a href="/enterprise-server@{{ latestRelease }}/admin/release-notes">latest release</a> of Enterprise Server.
-  sign_up_cta: Sign up
+    ghes_release_notes_upgrade_patch_only: "📣 这不是 Enterprise Server 的<a href=\"#{{ latestPatch }}\">最新补丁版本</a>。"
+    ghes_release_notes_upgrade_release_only: "📣 这不是 Enterprise Server 的<a href=\"/enterprise-server@{{ latestRelease }}/admin/release-notes\">最新版本</a>。"
+    ghes_release_notes_upgrade_patch_and_release: "📣 这不是此版本系列的<a href=\"#{{ latestPatch }}\">最新补丁版本</a>，也不是 Enterprise Server 的<a href=\"/enterprise-server@{{ latestRelease }}/admin/release-notes\">最新版本</a>。"
+  sign_up_cta: 注册
 picker:
-  language_picker_default_text: Choose a language
-  product_picker_default_text: All products
-  version_picker_default_text: Choose a version
+  language_picker_default_text: 选择语言
+  product_picker_default_text: 所有产品
+  version_picker_default_text: 选择版本
 release_notes:
-  banner_text: GitHub began rolling these changes out to enterprises on
+  banner_text: GitHub 开始向企业推出这些更改
 search:
-  need_help: Need help?
-  placeholder: Search GitHub Docs
-  loading: Loading
-  no_results: No results found
-  search_results_for: Search results for
-  no_content: No content
-  matches_found: Results found
-  matches_displayed: Matches displayed
-  search_error: An error occurred trying to perform the search.
-  description: Enter a search term to find it in the GitHub Documentation.
-  label: Search GitHub Docs
-  results_found: Found {n} results in {s}ms
-  results_page: This is page {page} of {pages}.
-  nothing_found: Nothing found 😿
+  need_help: 需要帮助？
+  placeholder: 搜索 GitHub Docs
+  loading: 加载
+  no_results: 未找到结果
+  search_results_for: 搜索以下项的结果
+  no_content: 无内容
+  matches_displayed: 显示的匹配项
+  search_error: 尝试执行搜索时发生错误。
+  description: 输入搜索词以在 GitHub 文档中找到它。
+  label: 搜索 GitHub Docs
+  results_found: "在 {s} 毫秒内找到了 {n} 个结果"
+  results_page: "这是第 {page} 页，共 {pages} 页。"
+  nothing_found: 未找到任何内容 😿
 homepage:
-  explore_by_product: Explore by product
-  version_picker: Version
-  description: Help for wherever you are on your GitHub journey.
+  explore_by_product: 按产品浏览
+  version_picker: 版本
+  description: 在 GitHub 旅程中随时为你提供帮助。
 toc:
-  getting_started: Getting started
-  popular: Popular
-  guides: Guides
-  whats_new: What's new
-  videos: Videos
-  all_changelogs: All changelog posts
+  getting_started: 入门
+  popular: 热门
+  guides: 指南
+  whats_new: 新增功能
+  videos: 视频
+  all_changelogs: 所有更改日志帖子
 pages:
-  article_version: 'Article version'
-  miniToc: In this article
-  contributor_callout: This article is contributed and maintained by
-  all_enterprise_releases: All Enterprise Server releases
-  about_versions: About versions
-  permissions_statement: Who can use this feature
+  article_version: '文章版本'
+  miniToc: 本文内容
+  contributor_callout: 这篇文章的参与者和维护者是
+  all_enterprise_releases: 所有 Enterprise Server 发行版
+  about_versions: 关于版本
 errors:
-  oops: Ooops!
-  something_went_wrong: It looks like something went wrong.
-  we_track_errors: We track these errors automatically, but if the problem persists please feel free to contact us.
-  page_doesnt_exist: It looks like this page doesn't exist.
+  oops: 哎呀！
+  something_went_wrong: 似乎出现了问题。
+  we_track_errors: 我们会自动跟踪这些错误，但如果问题仍然存在，请随时联系我们。
+  page_doesnt_exist: 看来此页面不存在。
 support:
-  still_need_help: Still need help?
-  contact_support: Contact support
-  ask_community: Ask the GitHub community
+  still_need_help: 还需要帮助？
+  contact_support: 联系支持人员
+  ask_community: 询问 GitHub 社区
 survey:
-  able_to_find: Did this doc help you?
+  able_to_find: 此文档对你有帮助吗？
   yes: Yes
   no: No
-  comment_yes_label: Let us know what we do well
-  comment_no_label: Let us know what we can do better
-  optional: Optional
-  required: Required
+  comment_yes_label: 让我们知道哪方面做得好
+  comment_no_label: 告诉我们如何改进
+  optional: 可选
+  required: 必选
   email_placeholder: email@example.com
-  email_label: If we can contact you with more questions, please enter your email address
-  email_validation: Please enter a valid email address
+  email_label: 如果我们可以就更多问题与你联系，请输入电子邮件地址
+  email_validation: 请输入有效的电子邮件地址
   send: Send
-  feedback: Thank you! We received your feedback.
-  not_support: If you need a reply, please contact support instead.
-  privacy_policy: Privacy policy
+  feedback: 谢谢！我们收到了你的反馈。
+  not_support: 如果你需要回复，请联系客户支持。
+  privacy_policy: 隐私政策
 contribution_cta:
-  title: Help us make these docs great!
-  body: All GitHub docs are open source. See something that's wrong or unclear? Submit a pull request.
-  button: Make a contribution
-  or: Or,
-  to_guidelines: learn how to contribute.
-parameter_table:
-  body: Body parameters
-  default: Default
-  description: Description
-  enum_description_title: Can be one of
-  headers: Headers
-  name: Name
-  path: Path parameters
-  query: Query parameters
-  required: Required
-  see_preview_notice: See preview notice
-  see_preview_notices: See preview notices
-  type: Type
-  single_enum_description: Value
+  title: 帮助我们创建出色的文档！
+  body: 所有 GitHub 文档都是开源的。看到错误或不清楚的内容了吗？提交拉取请求。
+  button: 做出贡献
+  or: 或者，
+  to_guidelines: 了解如何参与。
 products:
   graphql:
     reference:
-      implements: Implements
-      fields: Fields
-      arguments: Arguments
-      name: Name
-      type: Type
-      description: Description
-      input_fields: Input fields
-      return_fields: Return fields
-      implemented_by: Implemented by
-      values: Values
-      possible_types: Possible types
-      preview_notice: Preview notice
-      deprecation_notice: Deprecation notice
-      preview_period: During the preview period, the API may change without notice.
+      implements: 实现
+      fields: 字段
+      arguments: 参数
+      name: 名称
+      type: 类型
+      description: 说明
+      input_fields: 输入字段
+      return_fields: 返回字段
+      implemented_by: 实施者
+      values: 值
+      possible_types: 可能的类型
+      preview_notice: 预览通知
+      deprecation_notice: 启用通知
+      preview_period: 在预览期间，API 可能会更改，恕不通知。
     overview:
-      preview_header: 'To toggle this preview and access the following schema members, you must provide a custom media type in the `Accept` header:'
-      preview_schema_members: 'Previewed schema members'
-      announced: Announced
-      updates: Updates
+      preview_header: '若要切换此预览并访问以下架构成员，必须在 `Accept` 标头中提供自定义媒体类型：'
+      preview_schema_members: '预览的架构成员'
+      announced: 已公布
+      updates: 更新
   rest:
-    banner:
-      api_versioned: The REST API is now versioned.
-      api_version_info: For more information, see "<a href="{{ versionWithApiVersion }}/rest/overview/api-versions">About API versioning</a>".
-      ghes_api_versioned: After a site administrator upgrades your Enterprise Server instance to {{ firstGhesReleaseWithApiVersions.versionTitle }} or later, the REST API will be versioned. To learn how to find your instance's version, see "<a href="/{{ currentVersion }}/get-started/learning-about-github/about-versions-of-github-docs#github-enterprise-server">About versions of GitHub Docs</a>".
-    versioning:
-      about_versions: About REST API versions
     reference:
+      default: 默认
+      name: 名称
       in: In
-      description: Description
-      notes: Notes
-      parameters: Parameters
-      response: Response
-      example_response: Example response
-      status_code: Status code
-      http_status_code: HTTP response status codes
-      code_sample: Code sample
-      code_samples: Code samples
-      preview_notice: Preview notice
-      preview_notices: Preview notices
-      preview_header_is_required: This header is <strong>required</strong>
-      preview_notice_to_change: This API is under preview and subject to change
-      works_with: Works with
-      api_reference: REST API reference
-      enum_description_title: Can be one of
-      required: Required
-      headers: Headers
-      query: Query parameters
-      path: Path parameters
-      body: Body parameters
-  webhooks:
-    action_type_switch_error: There was an error switching webhook action types.
-    action_type: Action type
-    availability: Availability
-    webhook_payload_object: Webhook payload object
-    webhook_payload_example: Webhook payload example
-    rephrase_availability:
-      repository: Repositories
-      organization: Organizations
-      app: GitHub Apps
-      business: Enterprises
-      marketplace: GitHub Marketplace
-      sponsors_listing: Sponsored accounts
+      type: 类型
+      description: 说明
+      notes: 说明
+      parameters: 参数
+      response: 响应
+      example_response: 示例响应
+      status_code: 状态代码
+      http_status_code: HTTP 响应状态代码
+      code_sample: 代码示例
+      code_samples: 代码示例
+      preview_notice: 预览通知
+      preview_notices: 预览通知
+      see_preview_notice: 查看预览通知
+      see_preview_notices: 查看预览通知
+      preview_header_is_required: 此标头<strong>必填</strong>
+      preview_notice_to_change: 此 API 处于预览阶段，可能会更改
+      works_with: 使用
+      api_reference: REST API 参考
+      enum_description_title: 可以是以下选项之一
+      required: 必选
+      headers: 头文件
+      query: 查询参数
+      path: 路径参数
+      body: 正文参数
 footer:
-  all_rights_reserved: All rights reserved
-  terms: Terms
-  privacy: Privacy
-  security: Security
+  all_rights_reserved: 保留所有权利
+  terms: 术语
+  privacy: 隐私
+  security: 安全性
   product:
-    heading: Product
+    heading: Products
     links:
-      features: Features
-      security: Security
+      features: 功能
+      security: 安全性
       enterprise: Enterprise
-      case_studies: Case Studies
-      pricing: Pricing
-      resources: Resources
+      case_studies: 案例研究
+      pricing: 定价
+      resources: 资源
   platform:
-    heading: Platform
+    heading: 平台
     links:
-      developer_api: Developer API
-      partners: Partners
+      developer_api: 开发人员 API
+      partners: 合作伙伴
       atom: Atom
       electron: Electron
       github_desktop: GitHub Desktop
   support:
-    heading: Support
+    heading: 支持
     links:
-      help: Help
-      community_forum: Community Forum
-      training: Training
-      status: Status
-      contact_github: Contact GitHub
+      help: 帮助
+      community_forum: 社区论坛
+      training: 培训
+      status: 状态
+      contact_github: 联系 GitHub
   company:
     heading: Company
     links:
-      about: About
-      blog: Blog
-      careers: Careers
-      press: Press
+      about: 关于
+      blog: 博客
+      careers: 招聘
+      press: 请按
       shop: Shop
 product_landing:
-  quickstart: Quickstart
-  reference: Reference
-  overview: Overview
-  guides: Guides
-  code_examples: Code examples
-  search_code_examples: Search code examples
-  search_results_for: Search results for
-  matches_displayed: Matches displayed
-  show_more: Show more
-  explore_people_and_projects: Explore people and projects
-  sorry: Sorry, there is no result for
-  no_example: It looks like we don't have an example that fits your filter.
-  try_another: Try another filter or add your code example.
-  no_result: Sorry, there are no guides that match your filter.
-  learn: Learn how to add a code example
-  communities_using_discussions: Communities on GitHub.com using discussions
-  add_your_community: Add your community
-  sponsor_community: GitHub Sponsors community
-  supported_releases: Supported releases
-  release_notes_for: Release notes for
-  upgrade_from: Upgrade from
-  browse_all_docs: Browse all docs
-  browse_all: Browse all
-  docs: docs
-  explore_release_notes: Explore release notes
-  view: View all
+  quickstart: 快速入门
+  reference: 参考
+  overview: 概述
+  guides: 指南
+  code_examples: 代码示例
+  search_code_examples: 搜索代码示例
+  search_results_for: 搜索以下项的结果
+  matches_displayed: 显示的匹配项
+  show_more: 显示更多
+  explore_people_and_projects: 探索人员和项目
+  sorry: 抱歉，找不到以下项的结果
+  no_example: 看起来我们没有适合你的筛选条件的示例。
+  try_another: 请尝试另一个筛选条件或添加你的代码示例。
+  no_result: 抱歉，没有与你的筛选条件匹配的指南。
+  learn: 了解如何添加代码示例
+  communities_using_discussions: GitHub.com 上使用讨论的社区
+  add_your_community: 添加社区
+  sponsor_community: GitHub Sponsors 社区
+  supported_releases: 支持的版本
+  release_notes_for: 发行说明
+  upgrade_from: 升级前的版本
+  browse_all_docs: 浏览所有文档
+  browse_all: 浏览全部
+  docs: 文档
+  explore_release_notes: 浏览发行说明
+  view: 查看全部
 product_guides:
-  start_path: Start learning path
-  learning_paths: '{{ productMap[currentProduct].name }} learning paths'
-  learning_paths_desc: Learning paths are a collection of guides that help you master a particular subject.
-  guides: '{{ productMap[currentProduct].name }} guides'
-  more_guides: more guides
-  load_more: Load more guides
-  all_guides: 'All {{ productMap[currentProduct].name }} guides'
-  filter_instructions: Filter the guide list using these controls
+  start_path: 启动学习路径
+  learning_paths: '{{ productMap[currentProduct].name }} 学习路径'
+  learning_paths_desc: 学习路径是一系列帮助你掌握特定主题的指南。
+  guides: '{{ productMap[currentProduct].name }} 指南'
+  more_guides: 更多指南
+  load_more: 加载更多指南
+  all_guides: '所有 {{ productMap[currentProduct].name }} 指南'
+  filter_instructions: 使用这些控件筛选指南列表
   filters:
-    type: Type
-    topic: Topic
+    type: 类型
+    topic: 主题
     all: All
   guides_found:
-    multiple: '{n} guides found'
-    one: 1 guide found
-    none: No guides found
+    multiple: '找到了 {n} 个指南'
+    one: 找到了 1 个指南
+    none: 找不到指南
   guide_types:
-    overview: Overview
-    quick_start: Quickstart
-    tutorial: Tutorial
-    how_to: How-to guide
-    reference: Reference
+    overview: 概述
+    quick_start: 快速入门
+    tutorial: 教程
+    how_to: 操作指南
+    reference: 参考
 learning_track_nav:
-  prevGuide: Previous guide
-  nextGuide: Next guide
+  prevGuide: 上一个指南
+  nextGuide: 下一个指南
 toggle_images:
-  off: Images are off, click to show
-  on: Images are on, click to hide
-  hide_single: Hide image
-  show_single: Show image
+  off: 图像已关闭，点击显示
+  on: 图像已打开，点击隐藏
+  hide_single: 隐藏图像
+  show_single: 显示图像
 scroll_button:
-  scroll_to_top: Scroll to top
+  scroll_to_top: 滚动到顶部

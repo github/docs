@@ -1,0 +1,21 @@
+date: '2021-11-23'
+sections:
+  security_fixes:
+    - パッケージは最新のセキュリティ バージョンに更新されました。
+  bugs:
+    - "\"PATH\" が定義されていないため、pre-receive フックが失敗しました。"
+    - 'インスタンスが以前にレプリカとして構成されていた場合、"ghe-repl-setup" を実行すると、"ディレクトリ /data/user/elasticsearch を作成できません: ファイルが存在します" というエラーが返されました。'
+    - 大規模なクラスター環境では、フロントエンド ノードのサブセットで、認証バックエンドを利用できませんでした。
+    - 一部の重要なサービスが、GHES クラスターのバックエンド ノードで利用できない可能性があります。
+  changes:
+    - "\"ghe-cluster-suport-bundle\" でクラスター サポート バンドルを作成するときの、\"gzip\" 圧縮の追加外部レイヤーが、既定でオフにされるようになりました。この外側の圧縮は、必要に応じて、\"ghe-cluster-suport-bundle -c\" コマンド ライン オプションで適用できます。"
+    - エクスペリエンス向上のためのモバイル アプリのデータ収集についてユーザーに注意を促す追加のテキストを、管理者コンソールに追加しました。
+    - "{% data variables.product.prodname_github_connect %} のデータ接続レコードに、有効になっている {% data variables.product.prodname_github_connect %} 機能のリストが含まれるようになりました。[2021-12-09 に更新]"
+  known_issues:
+    - "新しくセットアップされたユーザーのいない {% data variables.product.prodname_ghe_server %} で、攻撃者が最初の管理者ユーザーを作成できました。"
+    - カスタムのファイアウォール規則は、アップグレード プロセス中に削除されます。
+    - "[Web インターフェイスからアップロードされた](https://github.com/blog/2105-upload-files-to-your-repositories) Git LFS 追跡ファイルが誤ってリポジトリに直接追加されます。"
+    - 同じリポジトリ内の BLOB への固定リンクが含まれ、その BLOB のファイル パスが 255 文字を超える場合、issue をクローズできません。
+    - "GitHub Connect で [ユーザーが GitHub.com を検索できる] が有効になっている場合、プライベートと内部リポジトリの issue は GitHub.com の検索結果に含まれません。"
+    - "高可用性構成でレプリカ ノードがオフラインの場合、{% data variables.product.product_name %} によって、{% data variables.product.prodname_pages %} 要求が引き続きオフライン ノードにルーティングされる可能性があり、ユーザーに対して {% data variables.product.prodname_pages %} の可用性が下がります。"
+    - pre-receive フックの処理に固有のリソース制限が、一部の pre-receive フックのエラーの原因となる場合があります。

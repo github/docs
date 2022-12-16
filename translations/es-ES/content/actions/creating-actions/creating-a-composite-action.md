@@ -1,7 +1,7 @@
 ---
-title: Creating a composite action
+title: Crear una acción compuesta
 shortTitle: Create a composite action
-intro: 'In this guide, you''ll learn how to build a composite action.'
+intro: 'En esta guía, aprenderás cómo crear una acción compuesta.'
 redirect_from:
   - /actions/creating-actions/creating-a-composite-run-steps-action
 versions:
@@ -12,58 +12,61 @@ versions:
 type: tutorial
 topics:
   - Action development
+ms.openlocfilehash: 5c7d332d2b3626a5628e85b09c35ffa6a0ca5f33
+ms.sourcegitcommit: 4f08a208a0d2e13dc109678750a962ea2f67e1ba
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 12/06/2022
+ms.locfileid: '148192043'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+## Introducción
 
-## Introduction
+En esta guía, aprenderás acerca de los componentes básicos necesarios para crear y usar una acción compuesta empaquetada. Para centrar esta guía en los componentes necesarios para empaquetar la acción, la funcionalidad del código de la acción es mínima. La acción imprime "Hello World" y después "Goodbye", o si proporcionas un nombre personalizado, imprime "Hello [who-to-greet]" y luego "Goodbye". La acción también asigna un número aleatorio a la variable de salida `random-number` y ejecuta un script denominado `goodbye.sh`.
 
-In this guide, you'll learn about the basic components needed to create and use a packaged composite action. To focus this guide on the components needed to package the action, the functionality of the action's code is minimal. The action prints "Hello World" and then "Goodbye",  or if you provide a custom name, it prints "Hello [who-to-greet]" and then "Goodbye". The action also maps a random number to the `random-number` output variable, and runs a script named `goodbye.sh`.
-
-Once you complete this project, you should understand how to build your own composite action and test it in a workflow.
+Una vez que completes este proyecto, deberías comprender cómo crear tu propia acción compuesta y probarla en un flujo de trabajo.
 
 {% data reusables.actions.context-injection-warning %}
 
-## Prerequisites
+## Prerrequisitos
 
-Before you begin, you'll create a repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}.
+Antes de comenzar, deberás crear un repositorio en {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}.
 
-1. Create a new public repository on {% data variables.location.product_location %}. You can choose any repository name, or use the following `hello-world-composite-action` example. You can add these files after your project has been pushed to {% data variables.product.product_name %}. For more information, see "[Create a new repository](/articles/creating-a-new-repository)."
+1. Crea un repositorio público nuevo en {% data variables.location.product_location %}. Puede elegir cualquier nombre de repositorio o usar el ejemplo `hello-world-composite-action` siguiente. Puedes agregar estos archivos después de que tu proyecto se haya subido a {% data variables.product.product_name %}. Para más información, vea "[Creación de un repositorio](/articles/creating-a-new-repository)".
 
-1. Clone your repository to your computer. For more information, see "[Cloning a repository](/articles/cloning-a-repository)."
+1. Clona tu repositorio en tu computadora. Para más información, vea "[Clonación de un repositorio](/articles/cloning-a-repository)".
 
-1. From your terminal, change directories into your new repository.
+1. Desde tu terminal, cambia los directorios en tu repositorio nuevo.
 
   ```shell
   cd hello-world-composite-action
   ```
 
-2. In the `hello-world-composite-action` repository, create a new file called `goodbye.sh`, and add the following example code:
+2. En el repositorio `hello-world-composite-action`, cree un archivo denominado `goodbye.sh`y agregue el código de ejemplo siguiente:
 
   ```bash
   echo "Goodbye"
   ```
 
-3. From your terminal, make `goodbye.sh` executable.
+3. Desde el terminal, convierta `goodbye.sh` en ejecutable.
 
   ```shell
   chmod +x goodbye.sh
   ```
 
-1. From your terminal, check in your `goodbye.sh` file.
+1. Desde el terminal, registre el archivo `goodbye.sh`.
   ```shell
   git add goodbye.sh
   git commit -m "Add goodbye script"
   git push
   ```
 
-## Creating an action metadata file
+## Crear un archivo de metadatos de una acción
 
-1. In the `hello-world-composite-action` repository, create a new file called `action.yml` and add the following example code. For more information about this syntax, see "[`runs` for a composite actions](/actions/creating-actions/metadata-syntax-for-github-actions#runs-for-composite-actions)".
+1. En el repositorio `hello-world-composite-action`, cree un archivo denominado `action.yml` y agregue el código de ejemplo siguiente. Para más información sobre esta sintaxis, vea "[`runs` para obtener una acción compuesta](/actions/creating-actions/metadata-syntax-for-github-actions#runs-for-composite-actions)".
 
-    {% raw %}
-    **action.yml**
+    {% raw %}  **action.yml**
     ```yaml
     name: 'Hello World'
     description: 'Greet someone'
@@ -93,14 +96,13 @@ Before you begin, you'll create a repository on {% ifversion ghae %}{% data vari
         - run: goodbye.sh
           shell: bash
     ```
-    {% endraw %}
-  This file defines the `who-to-greet` input, maps the random generated number to the `random-number` output variable, and runs the `goodbye.sh` script. It also tells the runner how to execute the composite action.
+    {% endraw %} Este archivo define la entrada `who-to-greet`, asigna el número generado aleatoriamente a la variable de salida `random-number`, agrega la ruta de acceso de la acción a la ruta del sistema del ejecutor (para buscar el script `goodbye.sh` durante la ejecución) y ejecuta el script `goodbye.sh`.
 
-  For more information about managing outputs, see "[`outputs` for a composite action](/actions/creating-actions/metadata-syntax-for-github-actions#outputs-for-composite-actions)".
+  Para más información sobre cómo administrar salidas, vea "[`outputs` para obtener una acción compuesta](/actions/creating-actions/metadata-syntax-for-github-actions#outputs-for-composite-actions)".
 
-  For more information about how to use `github.action_path`, see "[`github context`](/actions/reference/context-and-expression-syntax-for-github-actions#github-context)".
+  Para más información sobre cómo usar `github.action_path`, vea "[`github context`](/actions/reference/context-and-expression-syntax-for-github-actions#github-context)".
 
-1. From your terminal, check in your `action.yml` file.
+1. Desde el terminal, registre el archivo `action.yml`.
 
   ```shell
   git add action.yml
@@ -108,18 +110,18 @@ Before you begin, you'll create a repository on {% ifversion ghae %}{% data vari
   git push
   ```
 
-1. From your terminal, add a tag. This example uses a tag called `v1`. For more information, see "[About actions](/actions/creating-actions/about-actions#using-release-management-for-actions)."
+1. Desde tu terminal, agrega una etiqueta. En este ejemplo se usa una etiqueta denominada `v1`. Para más información, vea "[Acerca de las acciones](/actions/creating-actions/about-actions#using-release-management-for-actions)".
 
   ```shell
   git tag -a -m "Description of this release" v1
   git push --follow-tags
   ```
 
-## Testing out your action in a workflow
+## Probar tu acción en un flujo de trabajo
 
-The following workflow code uses the completed hello world action that you made in "[Creating an action metadata file](/actions/creating-actions/creating-a-composite-action#creating-an-action-metadata-file)".
+En el siguiente código de flujo de trabajo se usa la acción "Hola mundo" completada que ha creado en "[Creación de un archivo de metadatos de acción](/actions/creating-actions/creating-a-composite-action#creating-an-action-metadata-file)".
 
-Copy the workflow code into a `.github/workflows/main.yml` file in another repository, but replace `actions/hello-world-composite-action@v1` with the repository and tag you created. You can also replace the `who-to-greet` input with your name.
+Copie el código de flujo de trabajo en un archivo `.github/workflows/main.yml` de otro repositorio, pero reemplace `actions/hello-world-composite-action@v1` por el repositorio y la etiqueta que ha creado. También puede reemplazar la entrada `who-to-greet` por su nombre.
 
 **.github/workflows/main.yml**
 ```yaml
@@ -139,4 +141,4 @@ jobs:
         shell: bash
 ```
 
-From your repository, click the **Actions** tab, and select the latest workflow run. The output should include: "Hello Mona the Octocat", the result of the "Goodbye" script, and a random number.
+En el repositorio, haga clic en la pestaña **Actions** y seleccione la última ejecución de flujo de trabajo. La salida deberá incluir "Hello Mona the Octocat", el resultado del script de "Goodbye" y un número aleatorio.

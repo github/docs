@@ -1,6 +1,6 @@
 ---
-title: About supply chain security for your enterprise
-intro: You can enable features that help your developers understand and update the dependencies their code relies on.
+title: Informationen zur Lieferkettensicherheit für dein Unternehmen
+intro: 'Du kannst Features aktivieren, die deinen Entwicklern helfen, die Abhängigkeiten, auf denen ihr Code basiert, zu verstehen und zu aktualisieren.'
 shortTitle: About supply chain security
 permissions: ''
 versions:
@@ -11,12 +11,15 @@ topics:
   - Enterprise
   - Security
   - Dependency graph
+ms.openlocfilehash: 7f1c658285e88065ad1a232fc13c9186be143119
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148107197'
 ---
+Du kannst Benutzern die Möglichkeit geben, die Abhängigkeiten ihrer Projekte zu identifizieren, indem du das Abhängigkeitsdiagramm für {% data variables.location.product_location %}{% ifversion ghes %}aktivierst{% elsif ghae %}verwendest{% endif %}. Weitere Informationen findest du unter {% ifversion ghes %}[Aktivieren des Abhängigkeitsdiagramms für dein Unternehmen](/admin/code-security/managing-supply-chain-security-for-your-enterprise/enabling-the-dependency-graph-for-your-enterprise){% elsif ghae %}[Informationen zum Abhängigkeitsdiagramm](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph){% endif %}.
 
-You can allow users to identify their projects' dependencies by {% ifversion ghes %}enabling{% elsif ghae %}using{% endif %} the dependency graph for {% data variables.location.product_location %}. For more information, see "{% ifversion ghes %}[Enabling the dependency graph for your enterprise](/admin/code-security/managing-supply-chain-security-for-your-enterprise/enabling-the-dependency-graph-for-your-enterprise){% elsif ghae %}[About the dependency graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph){% endif %}."
+Du kannst Benutzern {% data variables.location.product_location %} außerdem erlauben, Sicherheitsrisiken in Codeabhängigkeiten zu ermitteln und zu beheben, indem du {% data variables.product.prodname_dependabot_alerts %}{% ifversion ghes %} und {% data variables.product.prodname_dependabot_updates %} {% endif %}aktivierst. Weitere Informationen findest du unter [Aktivieren von {% data variables.product.prodname_dependabot %} für dein Unternehmen](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise).
 
-{% data reusables.dependency-review.dependency-review-enabled-ghes %}
-
-You can also allow users on {% data variables.location.product_location %} to find and fix vulnerabilities in their code dependencies by enabling {% data variables.product.prodname_dependabot_alerts %}{% ifversion ghes %} and {% data variables.product.prodname_dependabot_updates %}{% endif %}. For more information, see "[Enabling {% data variables.product.prodname_dependabot %} for your enterprise](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)."
-
-After you enable {% data variables.product.prodname_dependabot_alerts %}, you can view vulnerability data from the {% data variables.product.prodname_advisory_database %} on {% data variables.location.product_location %} and manually sync the data. For more information, see "[Viewing the vulnerability data for your enterprise](/admin/code-security/managing-supply-chain-security-for-your-enterprise/viewing-the-vulnerability-data-for-your-enterprise)."
+Nachdem du {% data variables.product.prodname_dependabot_alerts %} aktiviert hast, kannst du Sicherheitsrisikodaten aus der {% data variables.product.prodname_advisory_database %} auf {% data variables.location.product_location %} ansehen und die Daten manuell synchronisieren. Weitere Informationen findest du unter [Anzeigen der Sicherheitsrisikodaten für dein Unternehmen](/admin/code-security/managing-supply-chain-security-for-your-enterprise/viewing-the-vulnerability-data-for-your-enterprise).

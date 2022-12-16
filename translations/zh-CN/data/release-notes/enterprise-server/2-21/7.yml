@@ -1,0 +1,15 @@
+date: '2020-09-08'
+sections:
+  bugs:
+    - '服务运行状况检查会造成会话增加，从而耗尽文件系统 Inode。{% comment %} https://github.com/github/enterprise2/pull/22481, https://github.com/github/enterprise2/pull/22475 {% endcomment %}'
+    - "使用热补丁的升级可能会失败，并显示错误：“未找到 'libdbi1'”{% comment %} https://github.com/github/enterprise2/pull/22556, https://github.com/github/enterprise2/pull/22552 {% endcomment %}"
+    - "将存储库的权限配置为“会审”或“维护”不再失败。"
+  known_issues:
+    - '在新建的没有任何用户的 GitHub Enterprise Server 上，攻击者可以创建第一个管理员用户。{% comment %} https://github.com/github/enterprise2/issues/1889 {% endcomment %}'
+    - '在升级期间不会维护自定义防火墙规则。{% comment %} https://github.com/github/enterprise2/issues/2823 {% endcomment %}'
+    - '[通过 Web 界面上传](https://github.com/blog/2105-upload-files-to-your-repositories)的 Git LFS 跟踪的文件被错误地直接添加到存储库。{% comment %} https://github.com/github/github/issues/54684 {% endcomment %}'
+    - '问题若是包含同一存储库中文件路径长于 255 个字符的 blob 的永久链接，则无法关闭。{% comment %} https://github.com/github/github/issues/107731 {% endcomment %}'
+    - '对 GitHub Connect 启用“用户可以搜索 GitHub.com”后，专用和内部存储库中的问题不包括在 GitHub.com 搜索结果中。{% comment %} https://github.com/github/admin-experience/issues/571 {% endcomment %}'
+    - '推送到命令行上的仓库时，不会报告安全警报。{% comment %} https://github.com/github/github/issues/143190 {% endcomment %}'
+    - '审核日志可归因于 127.0.0.1，而不是实际源 IP 地址。（更新时间：2020-11-02）{% comment %} https://github.com/github/enterprise2/issues/21514 {% endcomment %}'
+    - '当副本节点在高可用性配置下离线时，{% data variables.product.product_name %} 仍可能将 {% data variables.product.prodname_pages %} 请求路由到离线节点，从而减少用户的 {% data variables.product.prodname_pages %} 可用性。'

@@ -1,9 +1,17 @@
-A self-hosted runner can be located in either your repository, organization, or {% ifversion fpt or ghec %}enterprise account settings on {% data variables.product.prodname_dotcom %}{% elsif ghes or ghae %} enterprise settings on {% data variables.location.product_location %}{% endif %}. To manage a self-hosted runner, you must have the following permissions, depending on where the self-hosted runner was added:
-- **User repository**: You must be the repository owner.
-- **Organization**: You must be an organization owner. 
-- **Organization repository**: You must be an organization owner, or have admin access to the repository.
+---
+ms.openlocfilehash: 324332325762999d6daaf4241ec0f9e291ce98a8
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "145067980"
+---
+Ein selbstgehosteter Runner kann entweder in deinen Repository-, Organisations- oder {% ifversion fpt or ghec %}Unternehmenskontoeinstellungen auf {% data variables.product.prodname_dotcom %}{% elsif ghes or ghae %}Unternehmenseinstellungen auf {% data variables.product.product_location %}{% endif %} gefunden werden. Um einen selbst-gehosteten Läufer zu verwalten, musst Du über die folgenden Berechtigungen verfügen, abhängig davon, wo der selbst-gehostete Läufer hinzugefügt wurde:
+- **Benutzer-Repository**: Du musst der Repositorybesitzer sein.
+- **Organisation**: Du musst ein Organisationsbesitzer sein. 
+- **Organisationsrepository**: Du musst du ein Organisationsbesitzer sein oder über Administratorzugriff auf das Repository verfügen.
 {% ifversion ghec %}
-- **Enterprise account**: You must be an enterprise owner.
+- **Unternehmenskonto**: Du musst ein Unternehmensbesitzer sein.
 {% elsif ghes or ghae %}
-- **Enterprise**: You must be a {% data variables.product.prodname_enterprise %} site administrator.
+- **Unternehmen**: Du musst ein {% data variables.product.prodname_enterprise %}-Websiteadministrator sein.
 {% endif %}

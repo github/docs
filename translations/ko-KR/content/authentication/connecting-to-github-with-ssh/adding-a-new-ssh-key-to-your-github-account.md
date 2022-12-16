@@ -1,6 +1,6 @@
 ---
-title: Adding a new SSH key to your GitHub account
-intro: 'To configure your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %} to use your new (or existing) SSH key, you''ll also need to add the key to your account.'
+title: GitHub 계정에 새 SSH 키 추가
+intro: '{% ifversion ghae %}{% 데이터 variables.product.product_name %}{% else %}{% 데이터 variables.location.product_location %}{% endif %}에서 새(또는 기존) SSH 키를 사용하도록 계정을 구성하려면 계정에 키를 추가해야 합니다.'
 redirect_from:
   - /articles/adding-a-new-ssh-key-to-your-github-account
   - /github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account
@@ -13,53 +13,47 @@ versions:
 topics:
   - SSH
 shortTitle: Add a new SSH key
+ms.openlocfilehash: 184abcd90c659f2154291f79d212dbafe11d0ed9
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148093755'
 ---
+## 계정에 GPG 키 추가 정보
 
-## About addition of SSH keys to your account
+{% data reusables.ssh.about-ssh %} 자세한 내용은 “[SSH 정보](/authentication/connecting-to-github-with-ssh/about-ssh)”를 참조하세요.
 
-{% data reusables.ssh.about-ssh %} For more information, see "[About SSH](/authentication/connecting-to-github-with-ssh/about-ssh)."
+{% ifversion ssh-commit-verification %} SSH를 사용하여 커밋 및 태그에 서명할 수도 있습니다. 커밋 서명에 대한 자세한 내용은 “[커밋 서명 확인 정보](/articles/about-commit-signature-verification)”를 참조하세요.{% endif %}
 
-{% ifversion ssh-commit-verification %}You can also use SSH to sign commits and tags. For more information about commit signing, see "[About commit signature verification](/articles/about-commit-signature-verification)."{% endif %}
+SSH 키 쌍을 생성한 후 계정에 대한 SSH 액세스를 사용하도록 설정하려면 {% ifversion fpt 또는 ghec 또는 ghes %}{% 데이터 variables.location.product_location %}{% elsif ghae %}{% 데이터 variables.product.product_name %}{% endif %}에 공개 키를 추가해야 합니다.
 
-After you generate an SSH key pair, you must add the public key to {% ifversion fpt or ghec or ghes %}{% data variables.location.product_location %}{% elsif ghae %}{% data variables.product.product_name %}{% endif %} to enable SSH access for your account.
+## 필수 구성 요소
 
-## Prerequisites
+{% ifversion ghae %}{% 데이터 variables.product.product_name %}{% else %}{% 데이터 variables.location.product_location %}{% endif %}의 계정에 새 SSH 키를 추가하기 전에 다음 단계를 완료합니다.
 
-Before adding a new SSH key to your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}, complete the following steps.
+1. 기존 SSH 키를 확인합니다. 자세한 내용은 “[기존 SSH 키 확인](/authentication/connecting-to-github-with-ssh/checking-for-existing-ssh-keys)”을 참조하세요.
+1. 새 SSH 키를 생성하고 컴퓨터의 SSH 에이전트에 추가합니다. 자세한 내용은 “[새 SSH 키 생성 및 ssh-agent에 추가](/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)”를 참조하세요.
 
-1. Check for existing SSH keys. For more information, see "[Checking for existing SSH keys](/authentication/connecting-to-github-with-ssh/checking-for-existing-ssh-keys)."
-1. Generate a new SSH key and add it to your machine's SSH agent. For more information, see "[Generating a new SSH key and adding it to the ssh-agent](/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)."
+## 계정에 새 SSH 키 추가
 
-## Adding a new SSH key to your account
-
-After adding a new SSH authentication key to your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}, you can reconfigure any local repositories to use SSH. For more information, see "[Switching remote URLs from HTTPS to SSH](/github/getting-started-with-github/managing-remote-repositories/#switching-remote-urls-from-https-to-ssh)."
+{% ifversion ghae %}{% 데이터 variables.product.product_name %}{% else %}{% 데이터 variables.location.product_location %}{% endif %}의 계정에 새 SSH 인증 키를 추가한 후 SSH를 사용하도록 로컬 리포지토리를 다시 구성할 수 있습니다. 자세한 내용은 "[원격 URL을 HTTPS에서 SSH로 전환](/github/getting-started-with-github/managing-remote-repositories/#switching-remote-urls-from-https-to-ssh)"을 참조하세요.
 
 {% data reusables.ssh.key-type-support %}
 
 {% webui %}
 
-{% data reusables.gpg.copy-ssh-public-key %}
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.ssh %}
-4. Click **New SSH key** or **Add SSH key**.
+{% data reusables.gpg.copy-ssh-public-key %} {% data reusables.user-settings.access_settings %} {% data reusables.user-settings.ssh %}
+4. **새 SSH 키** 또는 **SSH 키 추가** 를 클릭합니다.
+{% ifversion ssh-commit-verification %} ![SSH 키 단추](/assets/images/help/settings/ssh-add-ssh-key-with-auth.png) {% else %} ![SSH 키 단추](/assets/images/help/settings/ssh-add-ssh-key.png) {% endif %}
+5. "제목" 필드에 새 키에 대한 설명이 포함된 레이블을 추가합니다. 예를 들어 개인용 노트북을 사용하는 경우 이 키를 “Personal laptop”이라고 부를 수 있습니다.
 {% ifversion ssh-commit-verification %}
-  ![SSH Key button](/assets/images/help/settings/ssh-add-ssh-key-with-auth.png)
-{% else %}
-  ![SSH Key button](/assets/images/help/settings/ssh-add-ssh-key.png)
+6. 인증 또는 서명 중 키 유형 하나를 선택합니다. 커밋 서명에 대한 자세한 내용은 “[커밋 서명 확인 정보](/articles/about-commit-signature-verification)”를 참조하세요.
 {% endif %}
-5. In the "Title" field, add a descriptive label for the new key. For example, if you're using a personal laptop, you might call this key "Personal laptop".
-{% ifversion ssh-commit-verification %}
-6. Select the type of key, either authentication or signing. For more information about commit signing, see "[About commit signature verification](/articles/about-commit-signature-verification)."
-{% endif %}
-7. Paste your key into the "Key" field.
-{% ifversion ssh-commit-verification %}
-  ![The key field](/assets/images/help/settings/ssh-key-paste-with-type.png)
-{% else %}
-  ![The key field](/assets/images/help/settings/ssh-key-paste.png)
-{% endif %}
-8. Click **Add SSH key**.
-  ![The Add key button](/assets/images/help/settings/ssh-add-key.png)
-{% data reusables.user-settings.sudo-mode-popup %}
+7. 키를 "키" 필드에 붙여넣습니다.
+{% ifversion ssh-commit-verification %} ![키 필드](/assets/images/help/settings/ssh-key-paste-with-type.png) {% else %} ![키 필드](/assets/images/help/settings/ssh-key-paste.png) {% endif %}
+8. **SSH 키 추가** 를 클릭합니다.
+  ![키 추가 단추](/assets/images/help/settings/ssh-add-key.png){% data reusables.user-settings.sudo-mode-popup %}
 
 {% endwebui %}
 
@@ -67,23 +61,23 @@ After adding a new SSH authentication key to your account on {% ifversion ghae %
 
 {% data reusables.cli.cli-learn-more %}
 
-Before you can use the {% data variables.product.prodname_cli %} to add an SSH key to your account, you must authenticate to the {% data variables.product.prodname_cli %}. For more information, see [`gh auth login`](https://cli.github.com/manual/gh_auth_login) in the {% data variables.product.prodname_cli %} documentation.
+{% data variables.product.prodname_cli %}를 사용하여 계정에 SSH 키를 추가하려면 먼저 {% data variables.product.prodname_cli %}에서 인증을 받아야 합니다. 자세한 내용은 {% data variables.product.prodname_cli %} 설명서의 “[`gh auth login`](https://cli.github.com/manual/gh_auth_login)”을 참조하세요.
 
-{% ifversion ssh-commit-verification %}At present, you can only use {% data variables.product.prodname_cli %} to add SSH authentication keys, you cannot add SSH signing keys.{% endif %}
+{% ifversion ssh-commit-verification %}현재, {% data variables.product.prodname_cli %}는 SSH 인증 키를 추가하는 데에만 사용할 수 있습니다. SSH 서명 키는 추가할 수 없습니다.{% endif %}
 
-To add an SSH authentication key to your GitHub account, use the `ssh-key add` subcommand, specifying your public key.
+GitHub 계정에 SSH 인증 키를 추가하려면 공개 키를 지정하는 `ssh-key add` 하위 명령을 사용합니다.
 
 ```shell
 gh ssh-key add KEY-FILE
 ```
 
-To include a title for the new key, use the `-t` or `--title` flag.
+새 키의 제목을 포함하려면 `-t` 또는 `--title` 플래그를 사용합니다.
 
 ```shell
 gh ssh-key add KEY-FILE --title "personal laptop"
 ```
 
-If you generated your SSH key by following the instructions in "[Generating a new SSH key](/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)", you can add the key to your account with this command.
+"[새 SSH 키 생성](/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)"의 지침에 따라 SSH 키를 생성한 경우 이 명령을 사용하여 계정에 키를 추가할 수 있습니다.
 
 ```shell
 gh ssh-key add ~/.ssh/id_ed25519.pub
@@ -92,7 +86,6 @@ gh ssh-key add ~/.ssh/id_ed25519.pub
 {% endcli %}
 
 {% ifversion fpt or ghec %}
-## Further reading
+## 추가 참고 자료
 
-- "[Authorizing an SSH key for use with SAML single sign-on](/articles/authorizing-an-ssh-key-for-use-with-saml-single-sign-on)"
-{% endif %}
+- "[SAML Single Sign-On에 사용할 SSH 키 권한 부여](/articles/authorizing-an-ssh-key-for-use-with-saml-single-sign-on)" {% endif %}

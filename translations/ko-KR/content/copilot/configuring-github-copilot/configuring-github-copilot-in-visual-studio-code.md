@@ -7,12 +7,12 @@ versions:
 shortTitle: Visual Studio Code
 topics:
   - Copilot
-ms.openlocfilehash: 0c91f9c11f98669ba6bcbf84113a629ae6d53044
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
+ms.openlocfilehash: ab043d4eeca2003deaf77aa80be46fc79acf8649
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147080181'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148193573'
 ---
 ## {% data variables.product.prodname_vscode %}의 {% data variables.product.prodname_copilot %} 정보
 
@@ -88,17 +88,16 @@ ms.locfileid: '147080181'
 
 {% data variables.product.prodname_vscode %}에서 {% data variables.product.prodname_copilot %}의 인라인 제안을 사용하거나 사용하지 않도록 선택할 수 있습니다. 
 
-1. **파일** 메뉴에서 **기본 설정** 으로 이동하고 **설정** 을 클릭합니다.
-![{% data variables.product.prodname_vscode %} 설정의 스크린샷](/assets/images/help/copilot/vsc-settings.png)
-1. 설정 탭의 왼쪽 패널에서 **확장** 을 클릭한 다음 **Copilot** 을 선택합니다.
-1. "인라인 제안:사용" 아래에서 확인란을 선택하거나 선택 취소하여 인라인 제안을 사용하거나 사용하지 않도록 설정합니다.
+{% data reusables.copilot.vscode-settings %}
+1. 설정 탭의 왼쪽 패널에서 **확장을** 클릭한 다음 **{% data variables.product.prodname_copilot_short %}** 을 선택합니다.
+1. "인라인 제안:사용"에서 확인란을 선택하거나 선택 취소하여 인라인 제안을 사용하거나 사용하지 않도록 설정합니다.
 
 ## 특정 언어에 대해 {% data variables.product.prodname_copilot %} 사용 또는 사용 안 함
 
 {% data variables.product.prodname_copilot %}을 사용하거나 사용하지 않도록 설정할 언어를 지정할 수 있습니다.
 
 1. {% data variables.product.prodname_vscode %}에서 **확장** 탭을 클릭한 다음 **, Copilot** 섹션으로 이동합니다. 자세한 내용은 "[인라인 제안 사용 및 사용 안 함](#enabling-and-disabling-inline-suggestions)"을 참조하세요.
-1. "지정된 언어에 대해 Copilot 사용 또는 사용 안 함" 아래에서 **settings.json에서 편집** 을 클릭합니다.
+1. "지정된 언어에 대해 {% data variables.product.prodname_copilot_short %}를 사용하거나 사용하지 않도록 설정" **에서 settings.json에서 편집** 을 클릭합니다.
 1. _settings.json_ 파일에서 {% data variables.product.prodname_copilot %}을 사용하거나 사용하지 않도록 설정할 언어를 추가하거나 제거합니다. 예를 들어 {% data variables.product.prodname_copilot %}에서 Python을 사용하도록 설정하려면 `"python": true` 목록에 추가합니다. 마지막 목록 항목을 제외한 모든 항목에 후행 쉼표가 있어야 합니다.
 
     ```json
@@ -114,5 +113,23 @@ ms.locfileid: '147080181'
         }
     }
     ```
+
+## {% data variables.product.prodname_copilot %}에 대한 프록시 설정 구성
+
+{% data variables.product.prodname_copilot %}의 HTTP 프록시 서버를 통해 연결하도록 {% data variables.product.prodname_vscode %}을(를) 구성할 수 있습니다. {% data variables.product.prodname_copilot %}은(는) 기본 인증을 사용하거나 사용하지 않고 기본 HTTP 프록시 설정을 지원합니다. 
+
+{% data reusables.copilot.vscode-settings %}
+1. 설정 탭의 왼쪽 패널에서 **애플리케이션** 을 클릭한 다음 **프록시** 를 선택합니다.
+1. "프록시" 아래의 텍스트 상자에 프록시 서버의 주소(예 `http://localhost:3128`: )를 입력합니다. 또는 {% data variables.product.prodname_copilot %}는 사용자 환경의 `http_proxy` 및 `https_proxy` 변수를 사용합니다.
+
+   ![Visual Studio Code 프록시 텍스트 상자의 스크린샷](/assets/images/help/copilot/proxy-textbox.png)
+
+1. 필요에 따라 "Http: 프록시 권한 부여" **에서 settings.json에서 편집을** 클릭하고 필요한 값을 추가하여 모든 네트워크 요청에 대한 헤더로 `Proxy-Authorization` 보냅니다.
+
+   ![Visual Studio Code 프록시 권한 부여 텍스트 상자의 스크린샷](/assets/images/help/copilot/proxy-authorization.png)
+
+1. 필요에 따라 "Http: Proxy Strict SSL"에서 확인란을 선택하거나 선택 취소하여 strict SSL을 사용하거나 사용하지 않도록 설정합니다.
+
+   ![Visual Studio Code 프록시 엄격한 SSL 확인란의 스크린샷](/assets/images/help/copilot/proxy-strict-ssl.png)
 
 {% data reusables.copilot.dotcom-settings %}

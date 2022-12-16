@@ -5,7 +5,6 @@ intro: 'Puedes usar Okta como proveedor de identidades (IdP) para administrar ce
 permissions: 'Enterprise owners can configure authentication and provisioning for {% data variables.product.product_name %}.'
 versions:
   ghae: '*'
-  feature: scim-for-ghes
 redirect_from:
   - /admin/authentication/configuring-authentication-and-provisioning-with-your-identity-provider/configuring-authentication-and-provisioning-for-your-enterprise-using-okta
   - /admin/identity-and-access-management/configuring-authentication-and-provisioning-with-your-identity-provider/configuring-authentication-and-provisioning-for-your-enterprise-using-okta
@@ -17,12 +16,12 @@ topics:
   - Identity
   - SSO
 miniTocMaxHeadingLevel: 3
-ms.openlocfilehash: 1655ca7f800b94c150455a077b867e7e08fa924b
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.openlocfilehash: 62a1436fcedc4d90f767d0c612e70810132aff58
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2022
-ms.locfileid: '148107521'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148192677'
 ---
 {% data reusables.saml.okta-ae-sso-beta %}
 
@@ -31,6 +30,11 @@ ms.locfileid: '148107521'
 Puedes usar Okta como proveedor de identidades (IdP) para {% data variables.product.product_name %}, lo cual permite que tus usuarios de Okta inicien sesión en {% data variables.product.product_name %} con sus credenciales de Okta.
 
 Para usar Okta como IdP para {% data variables.product.product_name %}, puedes agregar la aplicación de {% data variables.product.product_name %} a Okta, configurar Okta como IdP en {% data variables.product.product_name %} y aprovisionar el acceso para tus usuarios y grupos de Okta.
+
+{% data reusables.saml.idp-saml-and-scim-explanation %}
+- "[Asignación de grupos de Okta a equipos](/admin/identity-and-access-management/using-saml-for-enterprise-iam/mapping-okta-groups-to-teams)"
+
+Después de que habilites SCIM, las siguientes características de aprovisionamiento estarán disponibles para cualquier usuario al que asignes tu aplicación de {% data variables.product.product_name %} en Okta.
 
 {% data reusables.scim.ghes-beta-note %}
 
@@ -42,6 +46,8 @@ Las siguientes características de aprovisionamiento están disponibles para tod
 | Subir Desactivaciones de Usuarios | Cuando desactives a un usuario en Okta, este suspenderá al usuario en tu empresa en {% data variables.product.product_name %}. |
 | Subir Actualizaciones de Perfil | Cuando actualices el perfil de un usuario en Okta, este actualizará los metadatos de la pertenencia del usuario en tu empresa en {% data variables.product.product_name %}. |
 | Reactivar Usuarios | Cuando reactives a un usuario en Okta, este anulará la suspensión del usuario en tu empresa en {% data variables.product.product_name %}. |
+
+Para obtener más información sobre cómo administrar la identidad y el acceso de la empresa en{% data variables.location.product_location %}, consulta "[Administración de la identidad y el acceso para la empresa](/admin/authentication/managing-identity-and-access-for-your-enterprise)".
 
 ## Requisitos previos
 

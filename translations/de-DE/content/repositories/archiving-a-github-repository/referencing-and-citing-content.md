@@ -1,6 +1,6 @@
 ---
-title: Referencing and citing content
-intro: You can use third-party tools to cite and reference content on GitHub.
+title: Inhalte referenzieren und zitieren
+intro: Inhalte auf GitHub kannst du mit Drittanbieter-Werkzeugen referenzieren und zitieren.
 redirect_from:
   - /articles/referencing-and-citing-content
   - /github/creating-cloning-and-archiving-repositories/referencing-and-citing-content
@@ -11,29 +11,35 @@ versions:
 topics:
   - Repositories
 shortTitle: Reference & cite content
+ms.openlocfilehash: e0bb3dabe5e9ebc8a4dff80797087c8adadfb710
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145132466'
 ---
-## Issuing a persistent identifier for your repository with Zenodo
+## Permanente Identifizierung für Dein Repository mit Zenodo ausgeben
 
-To make your repositories easier to reference in academic literature, you can create persistent identifiers, also known as Digital Object Identifiers (DOIs). You can use the data archiving tool [Zenodo](https://zenodo.org/about) to archive a repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %} and issue a DOI for the archive.
+Mit permanenten Identifizierungen, auch als Digital Object Identifiers (DOIs; deutsch digitale Objektkennungen) bezeichnet, lassen sich Deine Repositorys in akademischer Literatur leichter referenzieren. Du kannst [Zenodo](https://zenodo.org/about), das Datenarchivierungstool, zum Archivieren eines Repository in {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} verwenden und eine DOI für das Archiv ausstellen.
 
 {% tip %}
 
-**Tips:**
-- Zenodo can only access public repositories, so make sure the repository you want to archive is [public](/articles/making-a-private-repository-public).
-- If you want to archive a repository that belongs to an organization, the organization owner may need to [approve access](/articles/approving-oauth-apps-for-your-organization) for the Zenodo application.
-- Make sure to include a [license](/articles/open-source-licensing) in your repository so readers know how they can reuse your work.
+**Tipps:**
+- Zenodo kann nur auf öffentliche Repositorys zugreifen. Daher musst du sicherstellen, dass das Repository, das du archivieren möchtest, [öffentlich](/articles/making-a-private-repository-public) ist.
+- Wenn du ein Repository archivieren möchtest, das zu einer Organisation gehört, muss der Organisationsbesitzer möglicherweise [den Zugriff für die Zenodo-Anwendung genehmigen](/articles/approving-oauth-apps-for-your-organization).
+- Du musst unbedingt eine [Lizenz](/articles/open-source-licensing) in dein Repository aufnehmen, damit Leser wissen, wie sie deine Arbeit wiederverwenden können.
 
 {% endtip %}
 
-1. Navigate to [Zenodo](http://zenodo.org/).
-2. In the upper-left corner of the screen, click **Log in**. ![Zenodo log in button](/assets/images/help/repository/zenodo_login.png)
-3. Click **Log in with GitHub**. ![Log into Zenodo with GitHub](/assets/images/help/repository/zenodo_login_with_github.png)
-4. Review the information about access permissions, then click **Authorize application**. ![Authorize Zenodo](/assets/images/help/repository/zenodo_authorize.png)
-5. Navigate to the [Zenodo GitHub page](https://zenodo.org/account/settings/github/). ![Zenodo GitHub page](/assets/images/help/repository/zenodo_github_page.png)
-6. To the right of the name of the repository you want to archive, toggle the button from **Off** to **On** to enable it for archiving. ![Enable Zenodo archiving on repository](/assets/images/help/repository/zenodo_toggle_on.png)
+1. Navigiere zu [Zenodo](http://zenodo.org/).
+2. Klicke oben links im Bildschirm auf **Anmelden**. ![Anmeldeschaltfläche für Zenodo](/assets/images/help/repository/zenodo_login.png)
+3. Klicke auf **Anmelden mit GitHub**. ![Mit GitHub bei Zenodo anmelden](/assets/images/help/repository/zenodo_login_with_github.png)
+4. Lese die Informationen zu den Zugriffsberechtigungen, und klicke dann auf **Anwendung autorisieren**. ![Zenodo autorisieren](/assets/images/help/repository/zenodo_authorize.png)
+5. Navigiere zur [Zenando-Seite für die Anmeldung mit GitHub](https://zenodo.org/account/settings/github/). ![Zenando-Seite für die Anmeldung mit GitHub](/assets/images/help/repository/zenodo_github_page.png)
+6. Drücke auf die Schaltfläche rechts neben dem Namen des zu archivierenden Repositorys, um von **Aus** auf **Ein** zu wechseln und die Archivierung des Repositorys zu aktivieren. ![Aktivieren der Zenando-Archivierung für ein Repository](/assets/images/help/repository/zenodo_toggle_on.png)
 
-Zenodo archives your repository and issues a new DOI each time you create a new {% data variables.product.product_name %} [release](/articles/about-releases/). Follow the steps at "[Creating releases](/articles/creating-releases/)" to create a new one.
+Zenodo archiviert dein Repository und gibt bei jeder Erstellung eines neuen {% data variables.product.product_name %}-[Releases](/articles/about-releases/) eine DOI aus. Führe die Schritte unter [Release erstellen](/articles/creating-releases/) aus, um ein neues Release zu erstellen.
 
-## Publicizing and citing research material with Figshare
+## Forschungsarbeiten mit Figshare veröffentlichen und zitieren
 
-Academics can use the data management service [Figshare](http://figshare.com) to publicize and cite research material. For more information, see [Figshare's support site](https://knowledge.figshare.com/articles/item/how-to-connect-figshare-with-your-github-account).
+Akademiker können den Datenverwaltungsdienst [Figshare](http://figshare.com) zum Veröffentlichen und Zitieren von Forschungsarbeiten verwenden. Weitere Informationen findest du auf der [Supportwebsite von Figshare](https://knowledge.figshare.com/articles/item/how-to-connect-figshare-with-your-github-account).

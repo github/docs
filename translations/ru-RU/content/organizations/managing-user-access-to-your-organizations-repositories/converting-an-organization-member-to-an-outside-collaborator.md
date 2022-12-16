@@ -1,6 +1,6 @@
 ---
-title: Converting an organization member to an outside collaborator
-intro: 'If a current member of your organization only needs access to certain repositories, such as consultants or temporary employees, you can convert them to an outside collaborator.'
+title: Преобразование участника организации во стороннего участника совместной работы
+intro: 'Если текущему участнику вашей организации нужен доступ только к определенным репозиториям, таким как консультанты или временные сотрудники, их можно преобразовать во внешнего участника совместной работы.'
 permissions: Organization owners can convert an organization member to an outside collaborator.
 redirect_from:
   - /articles/converting-an-organization-member-to-an-outside-collaborator
@@ -15,49 +15,52 @@ topics:
   - Organizations
   - Teams
 shortTitle: Convert member to collaborator
+ms.openlocfilehash: 0b4683615b525fed757b8832b83b8ac09df8a361
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148098519'
 ---
+## Сведения о преобразовании участников организации во внешних участников совместной работы
 
-## About conversion of organization members to outside collaborators
+Вы можете преобразовать участника организации во внешнего участника совместной работы. Дополнительные сведения о внешних участниках совместной работы см. в статье [Добавление внешних участников совместной работы в репозитории организации](/organizations/managing-access-to-your-organizations-repositories/adding-outside-collaborators-to-repositories-in-your-organization).
 
-You can convert a member of an organization to an outside collaborator. For more information about outside collaborators, see "[Adding outside collaborators to repositories in your organization](/organizations/managing-access-to-your-organizations-repositories/adding-outside-collaborators-to-repositories-in-your-organization)."
-
-{% ifversion fpt or ghec %}If the organization is owned by an enterprise, converting{% elsif ghes or ghae %}Converting{% endif %} an organization member to an outside collaborator may be restricted. For more information, see "[Enforcing repository management policies in your enterprise]({% ifversion fpt %}/enterprise-cloud@latest{% endif %}/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-inviting-{% ifversion fpt or ghec %}outside-{% endif %}collaborators-to-repositories){% ifversion ghec or ghes or ghae %}."{% elsif fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% endif %}
+{% ifversion fpt or ghec %}Если организация принадлежит предприятию, преобразование{% elsif ghes or ghae %}Преобразование{% endif %} участника организации во внешнего участника совместной работы может ограничиваться. Дополнительные сведения см. в статье [Применение политик управления репозиторием в предприятии]({% ifversion fpt %}/enterprise-cloud@latest{% endif %}/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-inviting-{% ifversion fpt or ghec %}outside-{% endif %}collaborators-to-repositories){% ifversion ghec or ghes or ghae %}."{% elsif fpt %}" в документации по {% data variables.product.prodname_ghe_cloud %}.{% endif %}
 
 {% data reusables.organizations.outside-collaborators-use-seats %} {% data reusables.organizations.outside_collaborator_forks %}
 
-After converting an organization member to an outside collaborator, they'll only have access to the repositories that their current team membership allows. The person will no longer be an explicit member of the organization, and will no longer be able to:
+После преобразования участника организации в стороннего участника совместной работы у него будет доступ только к репозиториям, которые разрешены для его текущего членства команде. Пользователь больше не будет явным участником организации и больше не сможет выполнять следующие действия:
 
-- Create teams
-- See all organization members and teams
-- @mention any visible team
-- Be a team maintainer
+- Создание команд
+- Просмотр всех участников и команд организации
+- @mention любой видимой команды
+- Быть координатором команды
 
-For more information, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)."
+Дополнительные сведения см. в статье "[Роли в организации](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)".
 
-We recommend reviewing the organization member's access to repositories to ensure their access is as you expect. For more information, see "[Managing an individual's access to an organization repository](/articles/managing-an-individual-s-access-to-an-organization-repository)."
+Мы рекомендуем проверить доступ участника организации к репозиториям, чтобы убедиться, что они имеют ожидаемые права доступа. Дополнительные сведения см. в статье [Управление доступом отдельных пользователей к репозиторию организации](/articles/managing-an-individual-s-access-to-an-organization-repository).
 
-When you convert an organization member to an outside collaborator, their privileges as organization members are saved for three months so that you can restore their membership privileges if you{% ifversion fpt or ghec %} invite them to rejoin{% else %} add them back to{% endif %} your organization within that time frame. For more information, see "[Reinstating a former member of your organization](/articles/reinstating-a-former-member-of-your-organization)."
+При преобразовании участника организации в стороннего участника совместной работы его привилегии участника организации сохраняются в течение трех месяцев, чтобы можно было восстановить разрешения участников, если вы{% ifversion fpt or ghec %} пригласите их на повторное присоединение{% else %} добавьте их обратно в {% endif %} вашу организацию в течение этого периода. Дополнительные сведения см. в разделе [Восстановление бывшего участника вашей организации](/articles/reinstating-a-former-member-of-your-organization).
 
-## Converting an organization member to an outside collaborator
+## Преобразование участника организации во стороннего участника совместной работы
 
 {% note %}
 
-**Note:** You may not be able to convert an organization member to an outside collaborator, if an organization owner{% ifversion not fpt %} or enterprise owner{% endif %} has restricted your ability to add outside collaborators.
+**Примечание.** Вы не сможете преобразовать участника организации во внешнего участника совместной работы, если владелец организации{% ifversion not fpt %} или предприятия {% endif %} не предоставил вам возможность добавлять внешних участников совместной работы.
 
 {% endnote %}
 
-{% data reusables.profile.access_org %}
-{% data reusables.user-settings.access_org %}
-{% data reusables.organizations.people %}
-4. Select the person or people you'd like to convert to outside collaborators.
-  ![List of members with two members selected](/assets/images/help/teams/list-of-members-selected-bulk.png)
-5. Above the list of members, use the drop-down menu and click **Convert to outside collaborator**.
-  ![Drop-down menu with option to convert members to outside collaborators](/assets/images/help/teams/user-bulk-management-options.png)
-6. Read the information about converting members to outside collaborators, then click **Convert to outside collaborator**.
-  ![Information on outside collaborators permissions and Convert to outside collaborators button](/assets/images/help/teams/confirm-outside-collaborator-bulk.png)
+{% data reusables.profile.access_org %} {% data reusables.user-settings.access_org %} {% data reusables.organizations.people %}
+4. Выберите одного или нескольких пользователей, которые требуется преобразовать в сторонних участников совместной работы.
+  ![Список участников с двумя выбранными участниками](/assets/images/help/teams/list-of-members-selected-bulk.png)
+5. Над списком участников используйте раскрывающееся меню и нажмите кнопку **Преобразовать в стороннего участника совместной работы**.
+  ![Раскрывающееся меню с параметром преобразования участников в сторонних участников совместной работы](/assets/images/help/teams/user-bulk-management-options.png)
+6. Прочитайте сведения о преобразовании участников в сторонних участников совместной работы, а затем нажмите кнопку **Преобразовать в стороннего участника совместной работы**.
+  ![Сведения о разрешениях внешних участников совместной работы и кнопка "Преобразовать в сторонних участников совместной работы"](/assets/images/help/teams/confirm-outside-collaborator-bulk.png)
 
-## Further reading
+## Дополнительные материалы
 
-- "[Adding outside collaborators to repositories in your organization](/articles/adding-outside-collaborators-to-repositories-in-your-organization)"
-- "[Removing an outside collaborator from an organization repository](/articles/removing-an-outside-collaborator-from-an-organization-repository)"
-- "[Converting an outside collaborator to an organization member](/articles/converting-an-outside-collaborator-to-an-organization-member)"
+- [Добавление сторонних участников совместной работы в репозитории в вашей организации](/articles/adding-outside-collaborators-to-repositories-in-your-organization)
+- "[Удаление внешнего участника совместной работы из репозитория организации](/articles/removing-an-outside-collaborator-from-an-organization-repository)"
+- [Преобразование стороннего участника совместной работы в участника организатора](/articles/converting-an-outside-collaborator-to-an-organization-member)

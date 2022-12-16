@@ -1,6 +1,6 @@
 ---
-title: Working with non-code files
-intro: '{% data variables.product.product_name %} supports rendering and diffing in a number of non-code file formats.'
+title: 비 코드 파일 사용
+intro: '{% data variables.product.product_name %}은(는) 다양한 비 코드 파일 형식의 렌더링 및 확산을 지원합니다.'
 redirect_from:
   - /articles/rendering-and-diffing-images
   - /github/managing-files-in-a-repository/rendering-and-diffing-images
@@ -33,323 +33,319 @@ versions:
 topics:
   - Repositories
 shortTitle: Working with non-code files
+ms.openlocfilehash: c770235d94d6191d60505ba60b0f4f81ae49b6bd
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148107607'
 ---
+## 이미지 렌더링 및 확산
 
-## Rendering and diffing images
-
-{% data variables.product.product_name %} can display several common image formats, including PNG, JPG, GIF, PSD, and SVG. In addition to simply displaying them, there are several ways to compare differences between versions of those image formats.
+{% data variables.product.product_name %}은(는) PNG, JPG, GIF, PSD 및 SVG를 비롯한 몇 가지 일반적인 이미지 형식을 표시할 수 있습니다. 단순히 표시하는 것 외에도 이러한 이미지 형식의 버전 간에 차이점을 비교하는 여러 가지 방법이 있습니다.
 
 {% note %}
 
-**Note:** 
-- {% data variables.product.prodname_dotcom %} does not support comparing the differences between PSD files. 
-- If you are using the Firefox browser, SVGs on {% data variables.product.prodname_dotcom %} may not render.
+**참고:** 
+- {% data variables.product.prodname_dotcom %}은(는) PSD 파일 간의 차이점 비교를 지원하지 않습니다. 
+- Firefox 브라우저를 사용하는 경우 {% data variables.product.prodname_dotcom %}의 SVG가 렌더링되지 않을 수 있습니다.
 
 {% endnote %}
 
-### Viewing images
+### 이미지 보기
 
-You can directly browse and view images in your repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}:
+{% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}의 리포지토리에서 이미지를 직접 찾아 볼 수 있습니다.
 
-![inline image](/assets/images/help/images/view.png)
+![인라인 이미지](/assets/images/help/images/view.png)
 
-SVGs don't currently support inline scripting or animation.
+SVG는 현재 인라인 스크립팅 또는 애니메이션을 지원하지 않습니다.
 
-### Viewing differences
+### 차이점 보기
 
-You can visually compare images in three different modes: [2-up](#2-up), [swipe](#swipe), and [onion skin](#onion-skin).
+[2-up](#2-up), [살짝 밀기](#swipe) 및 [어니언 스킨](#onion-skin)의 세 가지 모드로 이미지를 시각적으로 비교할 수 있습니다.
 
 #### 2-up
 
-**2-up** is the default mode; it gives you a quick glimpse of both images. In addition, if the image has changed size between versions, the actual dimension change is displayed. This should make it very apparent when things are resized, such as when assets are upgraded to higher resolutions.
+**2-up** 은 기본 모드입니다. 두 이미지를 빠르게 엿볼 수 있습니다. 또한 이미지의 크기가 버전 간에 변경된 경우 실제 차원 변경 내용이 표시됩니다. 이렇게 하면 자산이 더 높은 해상도로 업그레이드되는 경우와 같이 크기가 조정될 때 매우 분명합니다.
 
 ![2-up](/assets/images/help/repository/images-2up-view.png)
 
-#### Swipe
+#### 살짝 밀기
 
-**Swipe** lets you view portions of your image side by side. Not sure if colors shifted between different versions? Drag the swipe slider over the area in question and compare the pixels for yourself.
+**살짝 밀면** 이미지의 일부를 나란히 볼 수 있습니다. 색이 다른 버전 간에 이동되었는지 확실하지 않나요? 살짝 밀기 슬라이더를 해당 영역 위로 끌어서 직접 픽셀을 비교합니다.
 
-![Swipe](/assets/images/help/repository/images-swipe-view.png)
+![살짝 밀기](/assets/images/help/repository/images-swipe-view.png)
 
-#### Onion skin
+#### 어니언 스킨
 
-**Onion Skin** really comes in handy when elements move around by small, hard to notice amounts. Did an icon shift two pixels to the left? Drag the opacity slider back a bit and notice if things move around.
+**어니언 스킨** 은 요소가 작고 눈에 띄기 어려운 양으로 이동할 때 정말 편리합니다. 아이콘이 2픽셀 왼쪽으로 이동했나요? 불투명도 슬라이더를 조금 뒤로 끌어서 주위로 이동하는지 확인합니다.
 
-![Onion skin](/assets/images/help/repository/images-onion-view.gif)
+![어니언 스킨](/assets/images/help/repository/images-onion-view.gif)
 
-## 3D File Viewer
+## 3D 파일 뷰어
 
-{% data variables.product.product_name %} can host and render 3D files with the *.stl* extension.
+{% data variables.product.product_name %}은(는) *.stl* 확장명을 사용하여 3D 파일을 호스트하고 렌더링할 수 있습니다.
 
-When looking directly at an STL file on {% data variables.product.product_name %} you can:
+{% data variables.product.product_name %}에서 STL 파일을 직접 볼 때 다음을 수행할 수 있습니다.
 
-* Click and drag to spin the model.
-* Right click and drag to translate the view.
-* Scroll to zoom in and out.
-* Click the different view modes to change the view.
+* 모델을 클릭하여 끌어서 회전합니다.
+* 마우스 오른쪽 단추를 클릭하고 끌어서 보기를 변환합니다.
+* 스크롤하여 확대 및 축소합니다.
+* 다른 보기 모드를 클릭하여 보기를 변경합니다.
 
-### Diffs
+### diff
 
-When looking at a commit or set of changes which includes an STL file, you'll be able to see a before and after diff of the file.
+STL 파일을 포함하는 커밋 또는 변경 집합을 볼 때 파일의 전후 diff를 볼 수 있습니다.
 
-By default, you'll get a view where everything unchanged is in wireframe. Additions are colored in green, and removed parts are colored in red.
+기본적으로 와이어프레임에 변경되지 않은 모든 항목이 표시됩니다. 더하기는 녹색으로 색이 지정되고 제거된 부분은 빨간색으로 색이 지정됩니다.
 
-![wireframe](/assets/images/help/repository/stl_wireframe.png)
+![와이어 프레임](/assets/images/help/repository/stl_wireframe.png)
 
-You can also select the **Revision Slider** option, which lets you use a slider at the top of the file to transition between the current and previous revisions.
+파일 맨 위에 있는 슬라이더를 사용하여 현재 및 이전 수정 버전 간에 전환할 수 있는 **수정 슬라이더** 옵션을 선택할 수도 있습니다.
 
-### Fixing slow performance
+### 느린 성능 수정
 
-If you see this icon in the corner of the viewer, then the WebGL technology is not available on your browser:
+뷰어 모서리에 이 아이콘이 표시되면 브라우저에서 WebGL 기술을 사용할 수 없습니다.
 
-![WebGL pop error](/assets/images/help/repository/render_webgl_error.png)
+![WebGL pop 오류](/assets/images/help/repository/render_webgl_error.png)
 
-WebGL is necessary to take advantage of your computer's hardware to its fullest. We recommend you try browsers like [Chrome](https://www.google.com/intl/en/chrome/browser/) or [Firefox](https://www.mozilla.org/en-US/firefox/new/), which ship with WebGL enabled.
+WebGL은 컴퓨터의 하드웨어를 최대한 활용하는 데 필요합니다. WebGL을 사용하도록 설정된 상태로 제공되는 [Chrome](https://www.google.com/intl/en/chrome/browser/) 또는 [Firefox](https://www.mozilla.org/en-US/firefox/new/)와 같은 브라우저를 사용하는 것이 좋습니다.
 
-### Error: "Unable to display"
+### 오류: “표시할 수 없음”
 
-If your model is invalid, GitHub may not be able to display the file. In addition, files that are larger than 10 MB are too big for GitHub to display.
+모델이 잘못된 경우 GitHub 파일을 표시하지 못할 수 있습니다. 또한 10MB 이상의 대용량 파일은 너무 커서 GitHub 표시할 수 없습니다.
 
-### Embedding your model elsewhere
+### 다른 곳에 모델 포함
 
-To display your 3D file elsewhere on the internet, modify this template and place it on any HTML page that supports JavaScript:
+인터넷의 다른 곳에 3D 파일을 표시하려면 이 템플릿을 수정하고 JavaScript를 지원하는 HTML 페이지에 배치합니다.
 
 ```html
 <script src="https://embed.github.com/view/3d/<username>/<repo>/<ref>/<path_to_file>"></script>
 ```
 
-For example, if your model's URL is [`github.com/skalnik/secret-bear-clip/blob/master/stl/clip.stl`](https://github.com/skalnik/secret-bear-clip/blob/master/stl/clip.stl), your embed code would be:
+예를 들어 모델의 URL이 [`github.com/skalnik/secret-bear-clip/blob/master/stl/clip.stl`](https://github.com/skalnik/secret-bear-clip/blob/master/stl/clip.stl)인 경우 포함 코드는 다음과 같습니다.
 
 ```html
 <script src="https://embed.github.com/view/3d/skalnik/secret-bear-clip/master/stl/clip.stl"></script>
 ```
 
-By default, the embedded renderer is 420 pixels wide by 620 pixels high, but you can customize the output by passing height and width variables as parameters at the end of the URL, such as `?height=300&width=500`.
+기본적으로 포함된 렌더러는 너비가 420픽셀, 높이가 620픽셀이지만 높이 및 너비 변수를 URL 끝에 매개 변수로 전달하여 출력을 사용자 지정할 수 있습니다(예: `?height=300&width=500`).
 
 {% tip %}
 
-**Note**: `ref` can be a branch or the hash to an individual commit (like `2391ae`).
+**참고**: `ref` 개별 커밋에 대한 분기 또는 해시일 수 있습니다(예: `2391ae`).
 
 {% endtip %}
 
 {% ifversion mermaid %}
-### Rendering in Markdown
+### Markdown의 렌더링
 
-You can embed ASCII STL syntax directly in Markdown. For more information, see "[Creating diagrams](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams#creating-stl-3d-models)."
+Markdown에 ASCII STL 구문을 직접 포함할 수 있습니다. 자세한 내용은 “[다이어그램 만들기](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams#creating-stl-3d-models)”를 참조하세요.
 {% endif %}
 
-## Rendering CSV and TSV data
+## CSV 및 TSV 데이터 렌더링
 
-GitHub supports rendering tabular data in the form of *.csv* (comma-separated) and .*tsv* (tab-separated) files.
+GitHub는 *.csv*(쉼표로 구분) 및 *tsv*(탭으로 구분된) 파일 형식의 테이블 형식 데이터 렌더링을 지원합니다.
 
-![Rendered CSV sample](/assets/images/help/repository/rendered_csv.png)
+![렌더링된 CSV 샘플](/assets/images/help/repository/rendered_csv.png)
 
-When viewed, any _.csv_ or _.tsv_ file committed to a repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %} automatically renders as an interactive table, complete with headers and row numbering. By default, we'll always assume the first row is your header row.
+볼 때 {% ifversion ghae %}{% data _variables.product.product_name_ %}{% else %}{% data variables.location.product_location %}{% endif %}의 리포지토리에 커밋된 모든.csv또는 _.tsv_ 파일이 자동으로 대화형 테이블로 렌더링되고 헤더 및 행 번호 매기기가 완료됩니다. 기본적으로 첫 번째 행은 항상 헤더 행이라고 가정합니다.
 
-You can link to a particular row by clicking the row number, or select multiple rows by holding down the shift key. Just copy the URL and send it to a friend.
+행 번호를 클릭하여 특정 행에 연결하거나 Shift 키를 누른 상태로 여러 행을 선택할 수 있습니다. URL을 복사하여 친구에게 보내기만 하면 됩니다.
 
-### Searching data
+### 데이터 검색
 
-If you want to find a certain value in your dataset, you can start typing in the search bar directly above the file. The rows will filter automatically:
+데이터 세트에서 특정 값을 찾으려면 파일 바로 위에 있는 검색 창에 입력하기 시작하면 됩니다. 행은 자동으로 필터링됩니다.
 
-![Searching for values](/assets/images/help/repository/searching_csvs.gif)
+![값 검색](/assets/images/help/repository/searching_csvs.gif)
 
-### Handling errors
+### 오류 처리
 
-Occasionally, you may discover that your CSV or TSV file isn't rendering. In those instances, an error box appears at the bottom of your raw text, suggesting what the error may be.
+경우에 따라 CSV 또는 TSV 파일이 렌더링되지 않는 것을 발견할 수 있습니다. 이러한 경우 오류 상자가 원시 텍스트의 맨 아래에 표시되며 오류가 무엇인지 알 수 있습니다.
 
-![CSV render error message](/assets/images/help/repository/csv_render_error.png)
+![CSV 렌더링 오류 메시지](/assets/images/help/repository/csv_render_error.png)
 
-Common errors include:
+일반적인 오류는 다음과 같습니다.
 
-* Mismatched column counts. You must have the same number of separators in each row, even if the cell is blank
-* Exceeding the file size. Our rendering only works for files up to 512KB. Anything bigger than that slows down the browser.
+* 일치하지 않는 열 개수입니다. 셀이 비어 있더라도 각 행에 동일한 수의 구분 기호가 있어야 합니다.
+* 파일 크기를 초과합니다. 렌더링은 최대 512KB의 파일에 대해서만 작동합니다. 그보다 더 큰 파일을 사용하면 브라우저가 느려집니다.
 
-## Rendering PDF documents
+## PDF 문서 렌더링
 
-GitHub supports rendering of PDF documents.
+GitHub는 PDF 문서 렌더링을 지원합니다.
 
-![Rendered PDF Document](/assets/images/help/repository/rendered-pdf.png)
+![렌더링된 PDF 문서](/assets/images/help/repository/rendered-pdf.png)
 
-Currently, links within PDFs are ignored.
+현재 PDF 내의 링크는 무시됩니다.
 
-## Rendering differences in prose documents
+## 산문 문서의 렌더링 차이점
 
-Commits and pull requests that include prose documents have the ability to represent those documents with *source* and *rendered* views.
+산문 문서를 포함하는 커밋 및 끌어오기 요청은 원본 및 렌더링된 뷰를 사용하여 해당 문서를 나타낼 수 있습니다. 
 
-The source view shows the raw text that has been typed, while the rendered
-view shows how that text would look once it's rendered on {% data variables.product.product_name %}. For example,
-this might be the difference between showing `**bold**` in Markdown, and **bold** in the rendered view.
+원본 뷰에는 입력된 원시 텍스트가 표시되고 렌더링된 보기는 {% data variables.product.product_name %}에 렌더링되면 해당 텍스트가 어떻게 표시되는지 보여줍니다. 예를 들어 Markdown에서 `**bold**` 표시와 렌더링된 보기의 **굵게** 표시 간에 차이가 있을 수 있습니다.
 
-Prose rendering is supported for rendered documents supported by [github/markup](https://github.com/github/markup):
+산문 렌더링은 [github/markup](https://github.com/github/markup)에서 지원하는 렌더링된 문서에 대해 지원됩니다.
 
 * Markdown
 * AsciiDoc
 * Textile
 * ReStructuredText
 * Rdoc
-* Org
-* Creole
+* 조직
+* 크리올
 * MediaWiki
 * Pod
 
-![Paper icon to view rendered prose document](/assets/images/help/repository/rendered_prose_diff.png)
+![렌더링된 산문 문서를 볼 수 있는 용지 아이콘](/assets/images/help/repository/rendered_prose_diff.png)
 
-You can click {% octicon "file" aria-label="The paper icon" %} to see the changes made to the document as part of a commit.
+{% octicon "file" aria-label="The paper icon" %}을(를) 클릭하여 커밋의 일부로 문서의 변경 내용을 확인할 수 있습니다.
 
-![Rendered Prose changes](/assets/images/help/repository/rendered_prose_changes.png)
+![렌더링된 산문 변경 내용](/assets/images/help/repository/rendered_prose_changes.png)
 
-### Disabling Markdown rendering
+### Markdown 렌더링 사용 안 함
 
 {% data reusables.repositories.disabling-markdown-rendering %}
 
-### Visualizing attribute changes
+### 특성 변경 시각화
 
-We provide a tooltip
-describing changes to attributes that, unlike words, would not otherwise be visible in the rendered document. For example, if a link URL changes from one website to
-another, we'd show a tooltip like this:
+단어와 달리 렌더링된 문서에 표시되지 않는 특성의 변경 내용을 설명하는 도구 설명을 제공합니다. 예를 들어 링크 URL이 한 웹 사이트에서 다른 웹 사이트로 변경되면 다음과 같은 도구 설명이 표시됩니다.
 
-![Rendered Prose attribute changes](/assets/images/help/repository/prose_diff_attributes.png)
+![렌더링된 산문 특성 변경 내용](/assets/images/help/repository/prose_diff_attributes.png)
 
-### Commenting on changes
+### 변경 내용에 대한 주석 달기
 
-[Commit comments](/articles/commenting-on-differences-between-files) can only
-be added to files within the *source* view, on a line-by-line basis.
+[커밋 주석](/articles/commenting-on-differences-between-files)은 한 줄 단위로 원본 뷰 내의 파일에만 추가할 수 있습니다.
 
-### Linking to headers
+### 헤더에 연결
 
-As with [other rendered prose documents](/articles/about-readmes),
-hovering over a header in your document creates a link icon. You can link readers
-of your rendered prose diff to specific sections.
+[렌더링된 다른 산문 문서](/articles/about-readmes)와 마찬가지로 문서의 헤더 위로 마우스를 가져가면 링크 아이콘이 만들어집니다. 렌더링된 산문 diff의 판독기를 특정 섹션에 연결할 수 있습니다.
 
-### Viewing complex diffs
+### 복잡한 diff 보기
 
-Some pull requests involve a large number of changes with large, complex documents. When the changes take too long to analyze, {% data variables.product.product_name %} can't always produce a rendered view of the changes. If this happens, you'll see an error message when you click the rendered button.
+일부 끌어오기 요청에는 크고 복잡한 문서가 있는 많은 변경 내용이 포함됩니다. 변경 내용을 분석하는 데 시간이 너무 오래 걸리면 {% data variables.product.product_name %}에서 렌더링된 변경 내용 보기를 항상 생성할 수 없습니다. 이 경우 렌더링된 단추를 클릭하면 오류 메시지가 표시됩니다.
 
-![Message when view can't be rendered](/assets/images/help/repository/prose_diff_rendering.png)
+![보기를 렌더링할 수 없는 경우 메시지](/assets/images/help/repository/prose_diff_rendering.png)
 
-You can still use the source view to analyze and comment on changes.
+원본 뷰를 사용하여 변경 내용을 분석하고 주석을 달 수 있습니다.
 
-### Viewing HTML elements
+### HTML 요소 보기
 
-We don't directly support rendered views of commits to HTML documents. Some formats, such as Markdown, let you embed arbitrary HTML in a document. When these documents are shown on {% data variables.product.product_name %}, some of that embedded HTML can be shown in a preview, while some (like an embedded YouTube video) cannot.
+HTML 문서에 대한 커밋의 렌더링된 보기를 직접 지원하지 않습니다. Markdown과 같은 일부 형식을 사용하여 문서에 임의의 HTML을 포함할 수 있습니다. 이러한 문서가 {% data variables.product.product_name %}에 표시되면 포함된 HTML 중 일부는 미리 보기에 표시될 수 있지만 일부(예: 포함된 YouTube 동영상)는 표시할 수 없습니다.
 
-In general, rendered views of changes to a document containing embedded HTML will show changes to the elements that are supported in {% data variables.product.product_name %}'s view of the document. Changes to documents containing embedded HTML should always be reviewed in both the rendered and source views for completeness.
+일반적으로 포함된 HTML이 포함된 문서의 변경 내용을 렌더링하면 {% data variables.product.product_name %}의 문서 보기에서 지원되는 요소의 변경 내용이 표시됩니다. 완성도를 위해 포함된 HTML이 있는 문서의 변경 내용을 렌더링된 뷰와 원본 뷰 모두에서 항상 검토해야 합니다.
 
-## Mapping GeoJSON/TopoJSON files on {% data variables.product.prodname_dotcom %}
+## {% data variables.product.prodname_dotcom %}에서 GeoJSON/TopoJSON 파일 매핑
 
-{% data variables.product.product_name %} supports rendering GeoJSON and TopoJSON map files within {% data variables.product.product_name %} repositories. Simply commit the file as you would normally using a `.geojson` or `.topojson` extension. Files with a `.json` extension are also supported, but only if `type` is set to `FeatureCollection`, `GeometryCollection`, or `topology`. Then, navigate to the path of the GeoJSON/TopoJSON file on GitHub.com.
+{% data variables.product.product_name %}은 {% data variables.product.product_name %} 리포지토리 내에서 GeoJSON 및 TopoJSON 맵 파일 렌더링을 지원합니다. 일반적으로 `.geojson` 또는 `.topojson` 확장명을 사용하는 것처럼 파일을 커밋하기만 하면 됩니다. 확장명이 `.json`인 파일도 지원되지만, `type`이 `FeatureCollection`, `GeometryCollection` 또는 `topology`로 설정된 경우에만 지원됩니다. 그런 다음, GitHub.com에서 GeoJSON/TopoJSON 파일의 경로로 이동합니다.
 
-When you click the paper icon on the right, you'll also see the changes made to that file as part of a commit.
+오른쪽에 있는 용지 아이콘을 클릭하면 커밋의 일부로 해당 파일의 변경 내용도 표시됩니다.
 
-![Source Render toggle screenshot](/assets/images/help/repository/source-render-toggle-geojson.png)
+![원본 렌더링 토글 스크린샷](/assets/images/help/repository/source-render-toggle-geojson.png)
 
-### Geometry types
+### 기하 도형 유형
 
-Maps on {% data variables.product.product_name %} use [Leaflet.js](http://leafletjs.com) and support all the geometry types outlined in [the geoJSON spec](http://www.geojson.org/geojson-spec.html) (Point, LineString, Polygon, MultiPoint, MultiLineString, MultiPolygon, and GeometryCollection). TopoJSON files should be type "Topology" and adhere to the [TopoJSON spec](https://github.com/mbostock/topojson/wiki/Specification).
+{% data variables.product.product_name %}의 맵은 [Leaflet.js](http://leafletjs.com)를 사용하고 [geoJSON 사양](http://www.geojson.org/geojson-spec.html)(Point, LineString, Polygon, MultiPoint, MultiLineString, MultiPolygon 및 GeometryCollection)에 설명된 모든 기하 도형 유형을 지원합니다. TopoJSON 파일은 “토폴로지” 형식이어야 하며 [TopoJSON 사양](https://github.com/mbostock/topojson/wiki/Specification)을 준수해야 합니다.
 
 {% ifversion geoJSON-with-MapBox %}
-### Styling features
+### 스타일 지정 기능
 
-You can customize the way features are displayed, such as specifying a particular color or adding a descriptive icon, by passing additional metadata within the GeoJSON object's properties. The options are:
+GeoJSON 개체의 속성 내에서 추가 메타데이터를 전달하여 특정 색을 지정하거나 설명 아이콘을 추가하는 등 기능이 표시되는 방식을 사용자 지정할 수 있습니다. 옵션은 다음과 같습니다.
 
-* `marker-size` - `small`, `medium`, or `large`
-* `marker-color` - valid RGB hex color
-* `marker-symbol` - an icon ID from [the Maki project](http://mapbox.com/maki/) or a single alphanumeric character (a-z or 0-9).
-* `stroke` - color of a polygon edge or line (RGB)
-* `stroke-opacity` - opacity of a polygon edge or line (0.0 - 1.0)
-* `stroke-width` - width of a polygon edge or line
-* `fill` - the color of the interior of a polygon (GRB)
-* `fill-opacity` - the opacity of the interior of a polygon (0.0-1.0)
+* `marker-size` - `small`, `medium` 또는 `large`
+* `marker-color` - 유효한 RGB 16진수 색
+* `marker-symbol` - [Maki 프로젝트](http://mapbox.com/maki/)의 아이콘 ID 또는 단일 영숫자 문자(a-z 또는 0-9)
+* `stroke` - 다각형 가장자리 또는 선 색(RGB)
+* `stroke-opacity` - 다각형 가장자리 또는 선의 불투명도(0.0 - 1.0)
+* `stroke-width` - 다각형 가장자리 또는 선의 너비
+* `fill` - 다각형 내부 색(GRB)
+* `fill-opacity` - 다각형 내부 불투명도(0.0-1.0)
 
-See [version 1.1.0 of the open simplestyle spec](https://github.com/mapbox/simplestyle-spec/tree/master/1.1.0) for more information.
+자세한 내용은 [개방형 단순 스타일 사양 버전 1.1.0](https://github.com/mapbox/simplestyle-spec/tree/master/1.1.0)을 참조하세요.
 {% endif %}
 
-### Embedding your map elsewhere
+### 다른 곳에 맵 포함
 
-Want to make your GeoJSON map available someplace other than {% data variables.product.product_name %}? Simply modify this template, and place it in any HTML page that supports JavaScript (e.g., [{% data variables.product.prodname_pages %}](http://pages.github.com)):
+{% data variables.product.product_name %}이 아닌 다른 곳에서 GeoJSON 맵을 사용할 수 있도록 하고 싶으신가요? 이 템플릿을 수정하고 JavaScript(예: [{% data variables.product.prodname_pages %}](http://pages.github.com))를 지원하는 HTML 페이지에 배치하기만 하면 됩니다.
 
 ```html
 <script src="https://embed.github.com/view/geojson/<username>/<repo>/<ref>/<path_to_file>"></script>
 ```
 
-For example, if your map's URL is [github.com/benbalter/dc-wifi-social/blob/master/bars.geojson](https://github.com/benbalter/dc-wifi-social/blob/master/bars.geojson), your embed code would be:
+예를 들어 맵의 URL이 [github.com/benbalter/dc-wifi-social/blob/master/bars.geojson](https://github.com/benbalter/dc-wifi-social/blob/master/bars.geojson)인 경우 포함 코드는 다음과 같습니다.
 
 ```html
 <script src="https://embed.github.com/view/geojson/benbalter/dc-wifi-social/master/bars.geojson"></script>
 ```
 
-By default, the embedded map 420px x 620px, but you can customize the output by passing height and width variables as parameters at the end, such as `?height=300&width=500`.
+기본적으로 포함된 맵은 420px x 620px이지만 끝에 높이 및 너비 변수를 매개 변수(예: `?height=300&width=500`)로 전달하여 출력을 사용자 지정할 수 있습니다.
 
 {% tip %}
 
-**Note**: `ref` can be a branch or the hash to an individual commit (like `2391ae`).
+**참고**: `ref` 개별 커밋에 대한 분기 또는 해시일 수 있습니다(예: `2391ae`).
 
 {% endtip %}
 
 {% ifversion mermaid %}
-### Mapping in Markdown
+### Markdown의 매핑
 
-You can embed GeoJSON and TopoJSON directly in Markdown. For more information, see "[Creating diagrams](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams#creating-geojson-and-topojson-maps)."
+Markdown에서 GeoJSON 및 TopoJSON을 직접 포함할 수 있습니다. 자세한 내용은 “[다이어그램 만들기](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams#creating-geojson-and-topojson-maps)”를 참조하세요.
 {% endif %}
 
 ### Clustering
 
-If your map contains a large number of markers (roughly over 750), GitHub will automatically cluster nearby markers at higher zoom levels. Simply click the cluster or zoom in to see individual markers.
+맵에 많은 수의 표식(약 750개 이상)이 포함된 경우 GitHub는 더 높은 확대/축소 수준에서 주변 표식을 자동으로 클러스터합니다. 클러스터를 클릭하거나 확대하면 개별 표식이 표시됩니다.
 
-### Something's up with the underlying map
+### 기본 맵과 관련이 있음
 
-The underlying map data (street names, roads, etc.) are driven by [OpenStreetMap](http://www.openstreetmap.org/), a collaborative project to create a free editable map of the world. If you notice something's not quite right, since it's open source, simply [sign up](https://www.openstreetmap.org/user/new) and submit a fix.
+기본 맵 데이터(거리 이름, 도로 등)는 세계의 편집 가능한 무료 맵을 만드는 공동 프로젝트인 [OpenStreetMap](http://www.openstreetmap.org/)에 의해 구동됩니다. 오픈 소스 때문에 뭔가 옳지 않다는 것을 알게 되면 [등록](https://www.openstreetmap.org/user/new)하고 수정 사항을 제출하기만 하면 됩니다.
 
-### Troubleshooting
+### 문제 해결
 
-If you're having trouble rendering GeoJSON files, ensure you have a valid GeoJSON file by running it through a [GeoJSON linter](http://geojsonlint.com/). If your points aren't appearing where you'd expect (<em>e.g.</em>, in the middle of the ocean), it's likely that the data is in a projection which is currently unsupported. Currently, {% data variables.product.product_name %} only supports the `urn:ogc:def:crs:OGC:1.3:CRS84` projection.
+GeoJSON 파일을 렌더링하는 데 문제가 있는 경우 [GeoJSON Linter](http://geojsonlint.com/)를 통해 실행하여 유효한 GeoJSON 파일이 있는지 확인합니다. 포인트가 예상대로 표시되지 않는 경우(예: 바다 한가운데) 데이터가 현재 지원되지 않는 프로젝션에 있을 수 있습니다. 현재 {% data variables.product.product_name %}은(는) `urn:ogc:def:crs:OGC:1.3:CRS84` 프로젝션만 지원합니다.
 
-Additionally, if your `.geojson` file is especially large (over 10 MB), it is not possible to render within the browser. If that's the case, you'll generally see a message that looks something like this:
+또한 `.geojson` 파일이 특히 큰 경우(10MB 이상) 브라우저 내에서 렌더링할 수 없습니다. 이 경우 일반적으로 다음과 같은 메시지가 표시됩니다.
 
-![Large file](/assets/images/help/repository/view_raw.png)
+![대용량 파일](/assets/images/help/repository/view_raw.png)
 
-It may still be possible to render the data by converting the `.geojson` file to [TopoJSON](https://github.com/mbostock/topojson), a compression format that, in some cases, can reduce filesize by up to 80%. Of course, you can always break the file into smaller chunks (such as by state or by year), and store the data as multiple files within the repository.
+`.geojson`파일을 [TopoJSON](https://github.com/mbostock/topojson)으로 변환하여 데이터를 렌더링할 수 있으며, 경우에 따라 파일 크기를 최대 80%까지 줄일 수 있는 압축 형식입니다. 물론 항상 파일을 더 작은 청크(예: 상태 또는 연도별)로 분할하고 리포지토리 내에 여러 파일로 데이터를 저장할 수 있습니다.
 
-### Further reading
+### 추가 참고 자료
 
 {% ifversion geoJSON-with-MapBox %}
-* [Leaflet.js documentation](https://leafletjs.com/)
-* [MapBox marker-styling documentation](http://www.mapbox.com/developers/simplestyle/)
-{%- else %}
-* [Azure Maps documentation](https://docs.microsoft.com/en-us/azure/azure-maps/)
-{%- endif %}
+* [Leaflet.js 설명서](https://leafletjs.com/)
+* [MapBox 표식 스타일 지정 설명서](http://www.mapbox.com/developers/simplestyle/) {%- else %}
+* [Azure Maps 설명서](https://docs.microsoft.com/en-us/azure/azure-maps/) {%- endif %}
 * [TopoJSON Wiki](https://github.com/mbostock/topojson/wiki)
 
-## Working with Jupyter Notebook files on {% data variables.product.prodname_dotcom %}
+## {% data variables.product.prodname_dotcom %}에서 Jupyter Notebook 파일 작업
 
-When you add Jupyter Notebook or IPython Notebook files with a *.ipynb* extension on {% data variables.location.product_location %}, they will render as static HTML files in your repository.
+{% data variables.location.product_location %}에 *.ipynb* 확장자를 사용하여 Jupyter Notebook 또는 IPython Notebook 파일을 추가하면 리포지토리에서 정적 HTML 파일로 렌더링됩니다.
 
-The interactive features of the notebook, such as custom JavaScript plots, will not work in your repository on {% data variables.location.product_location %}. For an example, see [*Linking and Interactions.ipynb*](https://github.com/bokeh/bokeh-notebooks/blob/main/tutorial/06%20-%20Linking%20and%20Interactions.ipynb).
+사용자 지정 JavaScript 플롯과 같은 Notebook의 대화형 기능은 {% data variables.location.product_location %}의 리포지토리에서 작동하지 않습니다. 예를 들어 [링크 및 Interactions.ipynb](https://github.com/bokeh/bokeh-notebooks/blob/main/tutorial/06%20-%20Linking%20and%20Interactions.ipynb)를 참조하세요.
 
-To view your Jupyter notebook with JavaScript content rendered or to share your notebook files with others you can use [nbviewer](https://nbviewer.jupyter.org/). For an example, see [*Linking and Interactions.ipynb*](https://nbviewer.jupyter.org/github/bokeh/bokeh-notebooks/blob/main/tutorial/06%20-%20Linking%20and%20Interactions.ipynb) rendered on nbviewer.
+JavaScript 콘텐츠가 렌더링된 Jupyter Notebook을 보거나 Notebook 파일을 다른 사용자와 공유하려면 [nbviewer](https://nbviewer.jupyter.org/)를 사용하면 됩니다. 예를 들어 nbviewer에서 렌더링된 [*링크 및 Interactions.ipynb*](https://nbviewer.jupyter.org/github/bokeh/bokeh-notebooks/blob/main/tutorial/06%20-%20Linking%20and%20Interactions.ipynb)를 참조하세요.
 
-To view a fully interactive version of your Jupyter Notebook, you can set up a notebook server locally. For more information, see [Jupyter's official documentation](http://jupyter.readthedocs.io/en/latest/index.html).
+Jupyter Notebook의 완전 대화형 버전을 보려면 Notebook 서버를 로컬로 설정하면 됩니다. 자세한 내용은 [Jupyter 공식 설명서](http://jupyter.readthedocs.io/en/latest/index.html)를 참조하세요.
 
-### Troubleshooting
+### 문제 해결
 
-If you're having trouble rendering Jupyter Notebook files in static HTML, you can convert the file locally on the command line by using the [`nbconvert` command](https://github.com/jupyter/nbconvert):
+정적 HTML에서 Jupyter Notebook 파일을 렌더링하는 데 문제가 있는 경우 [다음 명령`nbconvert`](https://github.com/jupyter/nbconvert)을 사용하여 명령줄에서 파일을 로컬로 변환할 수 있습니다.
 
 ```shell
 $ jupyter nbconvert --to html NOTEBOOK-NAME.ipynb
 ```
 
-### Further reading
+### 추가 참고 자료
 
-- [Jupyter Notebook's GitHub repository](https://github.com/jupyter/jupyter_notebook)
-- [Gallery of Jupyter Notebooks](https://github.com/jupyter/jupyter/wiki)
+- [Jupyter Notebook의 GitHub 리포지토리](https://github.com/jupyter/jupyter_notebook)
+- [Jupyter Notebooks 갤러리](https://github.com/jupyter/jupyter/wiki)
 
 {% ifversion mermaid %}
-## Displaying Mermaid files on {% data variables.product.prodname_dotcom %}
+## {% data variables.product.prodname_dotcom %}에 Mermaid 파일 표시
 
-{% data variables.product.product_name %} supports rendering Mermaid files within repositories. Commit the file as you would normally using a `.mermaid` or `.mmd` extension. Then, navigate to the path of the Mermaid file on {% data variables.product.prodname_dotcom %}.
+{% data variables.product.product_name %}은(는) 리포지토리 내에서 Mermaid 파일 렌더링을 지원합니다. 일반적으로 `.mermaid` 또는 `.mmd` 확장명을 사용하는 것처럼 파일을 커밋하기만 하면 됩니다. 그런 다음 {% data variables.product.prodname_dotcom %}에서 Mermaid 파일의 경로로 이동합니다.
 
-For example, if you add a `.mmd` file with the following content to your repository:
+예를 들어 다음 콘텐츠가 포함된 `.mmd` 파일을 리포지토리에 추가하는 경우:
 
 ```
 graph TD
@@ -360,28 +356,27 @@ graph TD
     C -->|Three| F[fa:fa-car Car]
 ```
 
-When you view the file in the repository, it is rendered as a flow chart.
-![Rendered mermaid file diagram](/assets/images/help/repository/mermaid-file-diagram.png)
+리포지토리에서 파일을 보면 흐름 차트로 렌더링됩니다.
+![렌더링된 Mermaid 파일 다이어그램](/assets/images/help/repository/mermaid-file-diagram.png)
 
-### Troubleshooting
+### 문제 해결
 
-If your chart does not render at all, verify that it contains valid Mermaid Markdown syntax by checking your chart with the [Mermaid live editor](https://mermaid.live/edit).
+차트가 전혀 렌더링되지 않으면 [Mermaid 라이브 편집기](https://mermaid.live/edit)를 사용하여 차트를 확인한 후 유효한 Mermaid Markdown 구문이 포함되어 있는지 확인합니다.
 
-If the chart displays, but does not appear as you'd expect, you can create a new [{% data variables.product.prodname_github_community %} discussion](https://github.com/orgs/community/discussions/categories/general), and add the `Mermaid` label. 
+차트가 표시되지만 예상대로 표시되지 않는 경우 새 [{% data variables.product.prodname_github_community %} 토론](https://github.com/orgs/community/discussions/categories/general)을 만들고 `Mermaid` 레이블을 추가할 수 있습니다. 
 
-#### Known issues
+#### 알려진 문제
 
-* Sequence diagram charts frequently render with additional padding below the chart, with more padding added as the chart size increases. This is a known issue with the Mermaid library.
-* Actor nodes with popover menus do not work as expected within sequence diagram charts. This is due to a discrepancy in how JavaScript events are added to a chart when the Mermaid library's API is used to render a chart.
-* Not all charts are a11y compliant. This may affect users who rely on a screen reader.
+* 시퀀스 다이어그램 차트는 차트 아래에 추가 패딩을 사용하여 렌더링되는 경우가 많으며 차트 크기가 증가함에 따라 더 많은 안쪽 여백이 추가됩니다. Mermaid 라이브러리의 알려진 문제입니다.
+* 팝오버 메뉴가 있는 행위자 노드는 시퀀스 다이어그램 차트 내에서 예상대로 작동하지 않습니다. Mermaid 라이브러리의 API를 사용하여 차트를 렌더링할 때 JavaScript 이벤트가 차트에 추가되는 방식이 불일치하기 때문입니다.
+* 모든 차트가 a11y 규격인 것은 아닙니다. 이는 화면 읽기 프로그램을 사용하는 사용자에게 영향을 줄 수 있습니다.
 
-### Mermaid in Markdown
+### Markdown의 Mermaid
 
-You can embed Mermaid syntax directly in Markdown. For more information, see "[Creating diagrams](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams#creating-mermaid-diagrams)."
+Markdown에서 직접 Mermaid 구문을 포함할 수 있습니다. 자세한 내용은 “[다이어그램 만들기](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams#creating-mermaid-diagrams)”를 참조하세요.
 
-### Further reading
+### 추가 참고 자료
 
-* [Mermaid.js documentation](https://mermaid-js.github.io/mermaid/#/)
-* [Mermaid.js live editor](https://mermaid.live/edit)
-{% endif %}
+* [Mermaid.js 설명서](https://mermaid-js.github.io/mermaid/#/)
+* [Mermaid.js 라이브 편집기](https://mermaid.live/edit) {% endif %}
 

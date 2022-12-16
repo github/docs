@@ -11,12 +11,12 @@ versions:
 miniTocMaxHeadingLevel: 3
 topics:
   - API
-ms.openlocfilehash: 4fd3e2aad72ee0ffc4778a86dc99cd5bb6f9d2c5
-ms.sourcegitcommit: 4daa156856e651cb3854ead40e35bd918e481ad6
+ms.openlocfilehash: c7928ce90b887d6fa3bd5342fc1633b3e30983f1
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2022
-ms.locfileid: '148190403'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148192853'
 ---
 {% ifversion api-date-versioning %}
 ## Versión de API
@@ -273,50 +273,7 @@ Después, puede expandir estas plantillas con algo parecido a la gema [uri_templ
 
 ## Paginación
 
-Las solicitudes que devuelven varios elementos se paginarán a 30 elementos de manera predeterminada.  Puede especificar más páginas con el parámetro `page`. Para algunos recursos, también puede establecer un tamaño de página personalizado de hasta 100 con el parámetro `per_page`.
-Tenga en cuenta que, por motivos técnicos, no todos los puntos de conexión respetan el parámetro `per_page`, vea los [eventos](/rest/reference/activity#events) por ejemplo.
-
-```shell
-$ curl '{% data variables.product.api_url_pre %}/user/repos?page=2&per_page=100'
-```
-
-Tenga en cuenta que la numeración comienza en 1 y que si se omite el parámetro `page` se devolverá la primera página.
-
-Algunas terminales utilizan una paginación basada en el cursor. Un cursor es una cadena que apunta a una ubicación en el conjunto de resultados.
-Con la paginación basada en un cursor, no existe un concepto fijo de "páginas" en el conjunto de resultados, así que no puedes navegar a alguna página específica.
-En su lugar, puede recorrer los resultados mediante los parámetros `before` o `after`.
-
-Para más información sobre la paginación, vea nuestra guía sobre [recorrido con paginación][pagination-guide].
-
-### Encabezado de enlace
-
-{% note %}
-
-**Nota:** Es importante formar llamadas con valores de encabezado Link en lugar de construir direcciones URL propias.
-
-{% endnote %}
-
-El [encabezado Link](https://datatracker.ietf.org/doc/html/rfc5988) incluye información de paginación. Por ejemplo:
-
-    Link: <{% data variables.product.api_url_code %}/user/repos?page=3&per_page=100>; rel="next",
-      <{% data variables.product.api_url_code %}/user/repos?page=50&per_page=100>; rel="last"
-
-_Este ejemplo incluye un salto de línea para legibilidad._
-
-O, si la terminal utiliza una paginación basada en un cursor:
-
-    Link: <{% data variables.product.api_url_code %}/orgs/ORG/audit-log?after=MTYwMTkxOTU5NjQxM3xZbGI4VE5EZ1dvZTlla09uWjhoZFpR&before=>; rel="next",
-
-Este encabezado de respuesta `Link` contiene una o varias relaciones de vínculo [Hypermedia](/rest#hypermedia) y en algunas puede ser necesario expandirlas como [plantillas de URI](https://datatracker.ietf.org/doc/html/rfc6570).
-
-Los valores `rel` posibles son los siguientes:
-
-Nombre | Descripción
------------|-----------|
-`next` |La relación del enlace para la página subsecuente inmediata de resultados.
-`last` |La relación del enlace para la última página de resultados.
-`first` |La relación del enlace para la primera parte de los resultados.
-`prev` |La relación del enlace para la página previa inmediata de resultados.
+Si una respuesta de la API de REST fuera a incluir muchos resultados, {% data variables.product.company_short %} paginaría los resultados y devolvería un subconjunto de los resultados. Puedes usar el encabezado de vínculo de la respuesta para solicitar páginas de datos adicionales. Si un punto de conexión admite el parámetro de consulta `per_page`, puedes controlar cuántos resultados se devuelven en una página. Para obtener más información sobre la paginación, consulta "[Uso de la paginación en la API de REST](/rest/guides/using-pagination-in-the-rest-api)".
 
 ## Tiempos de espera
 
@@ -672,5 +629,3 @@ Si no se especifica ningún encabezado `Time-Zone` y realiza una llamada autenti
 ### Predeterminarse en UTC cuando no existe otra información sobre la zona horaria
 
 Si los pasos anteriores no dan como resultado ninguna información, utilizaremos UTC como la zona horaria para crear la confirmación de git.
-
-[pagination-guide]: /guides/traversing-with-pagination

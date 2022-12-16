@@ -1,5 +1,5 @@
 ---
-title: Authorizing OAuth Apps
+title: OAuth 앱 권한 부여
 intro: '{% data reusables.shortdesc.authorizing_oauth_apps %}'
 redirect_from:
   - /apps/building-integrations/setting-up-and-registering-oauth-apps/about-authorization-options-for-oauth-apps
@@ -16,67 +16,73 @@ versions:
   ghec: '*'
 topics:
   - OAuth Apps
+ms.openlocfilehash: d35b65add4259df72d9ae8b179829a148abd7174
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148106711'
 ---
-{% data variables.product.product_name %}'s OAuth implementation supports the standard [authorization code grant type](https://tools.ietf.org/html/rfc6749#section-4.1) and the OAuth 2.0 [Device Authorization Grant](https://tools.ietf.org/html/rfc8628) for apps that don't have access to a web browser.
+{% data variables.product.product_name %}의 OAuth 구현은 웹 브라우저에 액세스할 수 없는 앱의 표준 [권한 부여 코드 부여 유형](https://tools.ietf.org/html/rfc6749#section-4.1) 및 OAuth 2.0 [디바이스 권한 부여](https://tools.ietf.org/html/rfc8628)를 지원합니다.
 
-If you want to skip authorizing your app in the standard way, such as when testing your app, you can use the [non-web application flow](#non-web-application-flow).
+앱을 테스트할 때와 같이 표준 방식으로 앱에 대한 권한을 건너뛰려면 [비 웹 애플리케이션 흐름](#non-web-application-flow)을 사용할 수 있습니다.
 
-To authorize your OAuth app, consider which authorization flow best fits your app.
+OAuth 앱에 권한을 부여하려면 앱에 가장 적합한 권한 부여 흐름을 고려하세요.
 
-- [web application flow](#web-application-flow): Used to authorize users for standard OAuth apps that run in the browser. (The [implicit grant type](https://tools.ietf.org/html/rfc6749#section-4.2) is not supported.)
-- [device flow](#device-flow):  Used for headless apps, such as CLI tools.
+- [웹 애플리케이션 흐름](#web-application-flow): 브라우저에서 실행되는 표준 OAuth 앱에 대해 사용자에게 권한을 부여하는 데 사용됩니다. ([암시적 허용 유형](https://tools.ietf.org/html/rfc6749#section-4.2)은 지원되지 않습니다.)
+- [디바이스 흐름](#device-flow): CLI 도구와 같은 헤드리스 앱에 사용됩니다.
 
-## Web application flow
+## 웹 애플리케이션 흐름
 
 {% note %}
 
-**Note:** If you are building a GitHub App, you can still use the OAuth web application flow, but the setup has some important differences. See "[Identifying and authorizing users for GitHub Apps](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/)" for more information.
+**참고:** GitHub 앱을 빌드하는 경우 OAuth 웹 애플리케이션 흐름을 계속 사용할 수 있지만 설정에는 몇 가지 중요한 차이점이 있습니다. 자세한 내용은 “[GitHub 앱의 사용자 식별 및 권한 부여](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/)”를 참조하세요.
 
 {% endnote %}
 
-The web application flow to authorize users for your app is:
+앱 사용자에게 권한을 부여하는 웹 애플리케이션 흐름은 다음과 같습니다.
 
-1. Users are redirected to request their GitHub identity
-2. Users are redirected back to your site by GitHub
-3. Your app accesses the API with the user's access token
+1. 사용자는 GitHub ID를 요청하도록 리디렉션됩니다.
+2. GitHub가 사용자를 사이트로 다시 리디렉션합니다.
+3. 앱이 사용자의 액세스 토큰을 사용하여 API에 액세스합니다.
 
-### 1. Request a user's GitHub identity
+### 1. 사용자의 GitHub ID 요청
 
     GET {% data variables.product.oauth_host_code %}/login/oauth/authorize
 
-When your GitHub App specifies a `login` parameter, it prompts users with a specific account they can use for signing in and authorizing your app.
+GitHub 앱이 `login` 매개 변수를 지정하면 앱에 로그인하고 권한을 부여하는 데 사용할 수 있는 특정 계정을 사용자에게 표시합니다.
 
-#### Parameters
+#### 매개 변수
 
-Name | Type | Description
+이름 | Type | 설명
 -----|------|--------------
-`client_id`|`string` | **Required**. The client ID you received from GitHub when you {% ifversion fpt or ghec %}[registered](https://github.com/settings/applications/new){% else %}registered{% endif %}.
-`redirect_uri`|`string` | The URL in your application where users will be sent after authorization. See details below about [redirect urls](#redirect-urls).
-`login` | `string` | Suggests a specific account to use for signing in and authorizing the app.
-`scope`|`string` | A space-delimited list of [scopes](/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/). If not provided, `scope` defaults to an empty list for users that have not authorized any scopes for the application. For users who have authorized scopes for the application, the user won't be shown the OAuth authorization page with the list of scopes. Instead, this step of the flow will automatically complete with the set of scopes the user has authorized for the application. For example, if a user has already performed the web flow twice and has authorized one token with `user` scope and another token with `repo` scope, a third web flow that does not provide a `scope` will receive a token with `user` and `repo` scope.
+`client_id`|`string` | **필수**. {% ifversion fpt or ghec %}[등록](https://github.com/settings/applications/new){% else %}registered{% endif %} 시 GitHub에서 받은 클라이언트 ID입니다.
+`redirect_uri`|`string` | 권한 부여 후에 사용자를 보낼 애플리케이션의 URL입니다. [url 리디렉션](#redirect-urls)에 대한 자세한 내용은 아래를 참조하세요.
+`login` | `string` | 앱에 로그인하고 권한을 부여하는 데 사용할 특정 계정을 제안합니다.
+`scope`|`string` | 공백으로 구분되는 [범위](/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/) 목록입니다. 제공되지 않은 경우 `scope`는 애플리케이션의 범위에 권한을 부여하지 않은 사용자의 빈 목록으로 기본 설정됩니다. 애플리케이션의 범위에 권한을 부여하지 않은 사용자의 경우 사용자에게 범위 목록이 포함된 OAuth 권한 부여 페이지가 표시되지 않습니다. 대신, 이 흐름 단계는 사용자가 애플리케이션에 대해 권한을 부여한 범위 집합으로 자동으로 완료됩니다. 예를 들어 사용자가 이미 웹 흐름을 두 번 수행하고 `user` 범위의 토큰 하나와 `repo` 범위의 다른 토큰에 권한을 부여한 경우, `scope`를 제공하지 않는 세 번째 웹 흐름은 `user` 및 `repo` 범위의 토큰을 수신합니다.
 `state` | `string` | {% data reusables.apps.state_description %}
-`allow_signup`|`string` | Whether or not unauthenticated users will be offered an option to sign up for GitHub during the OAuth flow. The default is `true`. Use `false` when a policy prohibits signups.
+`allow_signup`|`string` | 인증되지 않은 사용자에게 OAuth 흐름 중에 GitHub에 등록하는 옵션이 제공되는지 여부입니다. 기본값은 `true`입니다. 정책에서 등록을 금지할 때 `false`를 사용합니다.
 
-### 2. Users are redirected back to your site by GitHub
+### 2. GitHub가 사용자를 사이트로 다시 리디렉션
 
-If the user accepts your request, {% data variables.product.product_name %} redirects back to your site with a temporary `code` in a code parameter as well as the state you provided in the previous step in a `state` parameter. The temporary code will expire after 10 minutes. If the states don't match, then a third party created the request, and you should abort the process.
+사용자가 요청을 수락하면 {% data variables.product.product_name %}는 `state` 매개 변수의 이전 단계에서 제공한 상태뿐만 아니라 코드 매개 변수의 임시 `code`와 함께 사이트로 다시 리디렉션합니다. 임시 코드는 10분 후에 만료됩니다. 상태가 일치하지 않으면 타사에서 요청을 만들었으므로 프로세스를 중단해야 합니다.
 
-Exchange this `code` for an access token:
+이 `code`를 액세스 토큰으로 교환합니다.
 
     POST {% data variables.product.oauth_host_code %}/login/oauth/access_token
 
-#### Parameters
+#### 매개 변수
 
-Name | Type | Description
+이름 | Type | 설명
 -----|------|--------------
-`client_id` | `string` | **Required.** The client ID you received from {% data variables.product.product_name %} for your {% data variables.product.prodname_oauth_app %}.
-`client_secret` | `string` | **Required.** The client secret you received from {% data variables.product.product_name %} for your {% data variables.product.prodname_oauth_app %}.
-`code` | `string` | **Required.** The code you received as a response to Step 1.
-`redirect_uri` | `string` | The URL in your application where users are sent after authorization.
+`client_id` | `string` | **필수 사항입니다.** {% data variables.product.prodname_oauth_app %}에 사용하기 위해 {% data variables.product.product_name %}에서 받은 클라이언트 ID입니다.
+`client_secret` | `string` | **필수 사항입니다.** {% data variables.product.prodname_oauth_app %}에 사용하기 위해 {% data variables.product.product_name %}에서 받은 클라이언트 암호입니다.
+`code` | `string` | **필수 사항입니다.** 1단계에 대한 응답으로 받은 코드입니다.
+`redirect_uri` | `string` | 권한 부여 후 사용자가 전송되는 애플리케이션의 URL입니다.
 
-#### Response
+#### 응답
 
-By default, the response takes the following form:
+기본적으로 응답의 형식은 다음과 같습니다.
 
 ```
 access_token=gho_16C7e42F292c6912E7710c838347Ae178B4a&scope=repo%2Cgist&token_type=bearer
@@ -102,57 +108,57 @@ Accept: application/xml
 </OAuth>
 ```
 
-### 3. Use the access token to access the API
+### 3. 액세스 토큰을 사용하여 API에 액세스
 
-The access token allows you to make requests to the API on a behalf of a user.
+액세스 토큰을 사용하면 사용자를 대신하여 API에 요청할 수 있습니다.
 
     Authorization: Bearer OAUTH-TOKEN
     GET {% data variables.product.api_url_code %}/user
 
-For example, in curl you can set the Authorization header like this:
+예를 들어 curl에서 다음과 같이 인증 헤더를 설정할 수 있습니다.
 
 ```shell
 curl -H "Authorization: Bearer OAUTH-TOKEN" {% data variables.product.api_url_pre %}/user
 ```
 
-## Device flow
+## 디바이스 흐름
 
 {% note %}
 
-**Note:** The device flow is in public beta and subject to change.
+**참고:** 디바이스 흐름은 퍼블릭 베타 상태이며 변경될 수 있습니다.
 
 {% endnote %}
 
-The device flow allows you to authorize users for a headless app, such as a CLI tool or Git credential manager.
+디바이스 흐름을 사용하면 CLI 도구 또는 Git 자격 증명 관리자와 같은 헤드리스 앱의 사용자에게 권한을 부여할 수 있습니다.
 
 {% ifversion device-flow-is-opt-in %}
 
-Before you can use the device flow to authorize and identify users, you must first enable it in your app's settings. For more information about enabling the device flow in your app, see "[Modifying an OAuth App](/developers/apps/managing-oauth-apps/modifying-an-oauth-app)" for OAuth Apps and "[Modifying a GitHub App](/developers/apps/managing-github-apps/modifying-a-github-app)" for GitHub Apps.
+디바이스 흐름을 사용하여 사용자에게 권한을 부여하고 식별하려면 먼저 앱 설정에서 사용하도록 설정해야 합니다. 앱에서 디바이스 흐름을 사용하도록 설정하는 방법에 대한 자세한 내용은 OAuth 앱의 경우 “[OAuth 앱 수정](/developers/apps/managing-oauth-apps/modifying-an-oauth-app)”과 GitHub 앱의 경우 “[GitHub 앱 수정](/developers/apps/managing-github-apps/modifying-a-github-app)”을 참조하세요.
 
 {% endif %}
 
-### Overview of the device flow
+### 디바이스 흐름 개요
 
-1. Your app requests device and user verification codes and gets the authorization URL where the user will enter the user verification code.
-2. The app prompts the user to enter a user verification code at {% data variables.product.device_authorization_url %}.
-3.  The app polls for the user authentication status. Once the user has authorized the device, the app will be able to make API calls with a new access token.
+1. 앱은 디바이스 및 사용자 확인 코드를 요청하고 사용자가 사용자 확인 코드를 입력할 권한 부여 URL을 가져옵니다.
+2. 앱은 사용자에게 {% data variables.product.device_authorization_url %}에 사용자 확인 코드를 입력하라는 메시지를 표시합니다.
+3.  앱은 사용자 인증 상태를 폴링합니다. 사용자가 디바이스에 권한을 부여하면 앱은 새 액세스 토큰으로 API 호출을 수행할 수 있습니다.
 
-### Step 1: App requests the device and user verification codes from GitHub
+### 1단계: 앱이 GitHub에서 디바이스 및 사용자 확인 코드를 요청합니다.
 
     POST {% data variables.product.oauth_host_code %}/login/device/code
 
-Your app must request a user verification code and verification URL that the app will use to prompt the user to authenticate in the next step. This request also returns a device verification code that the app must use to receive an access token and check the status of user authentication.
+앱은 사용자에게 다음 단계에서 인증하라는 메시지를 표시하는 데 사용할 사용자 확인 코드 및 확인 URL을 요청해야 합니다. 또한 이 요청은 앱이 액세스 토큰을 수신하고 사용자 인증 상태를 확인하는 데 사용해야 하는 디바이스 확인 코드를 반환합니다.
 
-#### Input Parameters
+#### 입력 매개 변수
 
-Name | Type | Description
+이름 | Type | 설명
 -----|------|--------------
-`client_id` | `string` | **Required.** The client ID you received from {% data variables.product.product_name %} for your app.
-`scope` | `string` | The scope that your app is requesting access to.
+`client_id` | `string` | **필수 사항입니다.** 앱에 사용하기 위해 {% data variables.product.product_name %}에서 받은 클라이언트 ID입니다.
+`scope` | `string` | 앱이 액세스를 요청하는 범위입니다.
 
-#### Response
+#### 응답
 
-By default, the response takes the following form:
+기본적으로 응답의 형식은 다음과 같습니다.
 
 ```
 device_code=3584d83530557fdd1f46af8289938c8ef79f9dc5&expires_in=900&interval=5&user_code=WDJB-MJHT&verification_uri=https%3A%2F%{% data variables.product.product_url %}%2Flogin%2Fdevice
@@ -182,43 +188,43 @@ Accept: application/xml
 </OAuth>
 ```
 
-#### Response parameters
+#### 응답 매개 변수
 
-Name | Type | Description
+Name | Type | 설명
 -----|------|--------------
-`device_code` | `string` | The device verification code is 40 characters and used to verify the device.
-`user_code` | `string` | The user verification code is displayed on the device so the user can enter the code in a browser. This code is 8 characters with a hyphen in the middle.
-`verification_uri` | `string` | The verification URL where users need to enter the `user_code`: {% data variables.product.device_authorization_url %}.
-`expires_in` | `integer`| The number of seconds before the `device_code` and `user_code` expire. The default is 900 seconds or 15 minutes.
-`interval` | `integer` | The minimum number of seconds that must pass before you can make a new access token request (`POST {% data variables.product.oauth_host_code %}/login/oauth/access_token`) to complete the device authorization. For example, if the interval is 5, then you cannot make a new request until 5 seconds pass. If you make more than one request over 5 seconds, then you will hit the rate limit and receive a `slow_down` error.
+`device_code` | `string` | 디바이스 확인 코드는 40자이며 디바이스를 확인하는 데 사용됩니다.
+`user_code` | `string` | 사용자가 브라우저에서 코드를 입력할 수 있도록 사용자 확인 코드가 디바이스에 표시됩니다. 이 코드는 8자이며 중간에 하이픈이 있습니다.
+`verification_uri` | `string` | 사용자가 `user_code`를 입력해야 하는 확인 URL({% data variables.product.device_authorization_url %})입니다.
+`expires_in` | `integer`| `device_code` 및 `user_code`의 만료 전 시간(초)입니다. 기본값은 900초(또는 15분)입니다.
+`interval` | `integer` | 디바이스 권한 부여를 완료하려면 새 액세스 토큰을 요청하기 전에 경과해야 하는 최소 시간(초)입니다(`POST {% data variables.product.oauth_host_code %}/login/oauth/access_token`). 예를 들어 간격이 5이면 5초가 지나야 새로 요청할 수 있습니다. 5초 동안 두 번 이상 요청하면 속도 제한에 도달하면서 `slow_down` 오류를 수신합니다.
 
-### Step 2: Prompt the user to enter the user code in a browser
+### 2단계: 사용자에게 브라우저에서 사용자 코드를 입력하라는 메시지를 표시합니다.
 
-Your device will show the user verification code and prompt the user to enter the code at {% data variables.product.device_authorization_url %}.
+디바이스에 사용자 확인 코드가 표시되고 {% data variables.product.device_authorization_url %}에 코드를 입력하라는 메시지가 표시됩니다.
 
-  ![Field to enter the user verification code displayed on your device](/assets/images/github-apps/device_authorization_page_for_user_code.png)
+  ![디바이스에 표시되는 사용자 확인 코드를 입력할 필드](/assets/images/github-apps/device_authorization_page_for_user_code.png)
 
-### Step 3: App polls GitHub to check if the user authorized the device
+### 3단계: 앱이 GitHub를 폴링하여 사용자가 디바이스에 권한을 부여했는지 확인합니다.
 
     POST {% data variables.product.oauth_host_code %}/login/oauth/access_token
 
-Your app will make device authorization requests that poll `POST {% data variables.product.oauth_host_code %}/login/oauth/access_token`, until the device and user codes expire or the user has successfully authorized the app with a valid user code. The app must use the minimum polling `interval` retrieved in step 1 to avoid rate limit errors. For more information, see "[Rate limits for the device flow](#rate-limits-for-the-device-flow)."
+디바이스 및 사용자 코드가 만료되거나 사용자가 유효한 사용자 코드로 앱에 권한을 성공적으로 부여할 때까지 앱은 `POST {% data variables.product.oauth_host_code %}/login/oauth/access_token`을 폴링하는 디바이스 권한 부여 요청을 합니다. 앱이 속도 제한 오류를 방지하려면 1단계에서 검색된 최소 폴링 `interval`을 사용해야 합니다. 자세한 내용은 “[디바이스 흐름의 속도 제한](#rate-limits-for-the-device-flow)”을 참조하세요.
 
-The user must enter a valid code within 15 minutes (or 900 seconds). After 15 minutes, you will need to request a new device authorization code with `POST {% data variables.product.oauth_host_code %}/login/device/code`.
+사용자는 15분(또는 900초) 이내에 유효한 코드를 입력해야 합니다. 15분이 지나면 `POST {% data variables.product.oauth_host_code %}/login/device/code`를 사용하여 새 디바이스 권한 부여 코드를 요청해야 합니다.
 
-Once the user has authorized, the app will receive an access token that can be used to make requests to the API on behalf of a user.
+사용자가 권한을 부여하면 앱은 사용자를 대신하여 API에 요청하는 데 사용할 수 있는 액세스 토큰을 받게 됩니다.
 
-#### Input parameters
+#### 입력 매개 변수
 
-Name | Type | Description
+Name | Type | 설명
 -----|------|--------------
-`client_id` | `string` | **Required.** The client ID you received from {% data variables.product.product_name %} for your {% data variables.product.prodname_oauth_app %}.
-`device_code` | `string` | **Required.** The device verification code you received from the `POST {% data variables.product.oauth_host_code %}/login/device/code` request.
-`grant_type` | `string` | **Required.** The grant type must be `urn:ietf:params:oauth:grant-type:device_code`.
+`client_id` | `string` | **필수 사항입니다.** {% data variables.product.prodname_oauth_app %}에 사용하기 위해 {% data variables.product.product_name %}에서 받은 클라이언트 ID입니다.
+`device_code` | `string` | **필수 사항입니다.** `POST {% data variables.product.oauth_host_code %}/login/device/code` 요청에서 받은 디바이스 확인 코드입니다.
+`grant_type` | `string` | **필수 사항입니다.** 권한 부여 유형은 `urn:ietf:params:oauth:grant-type:device_code`이어야 합니다.
 
-#### Response
+#### 응답
 
-By default, the response takes the following form:
+기본적으로 응답의 형식은 다음과 같습니다.
 
 ```
 access_token=gho_16C7e42F292c6912E7710c838347Ae178B4a&token_type=bearer&scope=repo%2Cgist
@@ -244,48 +250,40 @@ Accept: application/xml
 </OAuth>
 ```
 
-### Rate limits for the device flow
+### 디바이스 흐름의 속도 제한
 
-When a user submits the verification code on the browser, there is a rate limit of 50 submissions in an hour per application.
+사용자가 브라우저에서 확인 코드를 제출하는 경우 애플리케이션당 1시간에 50개의 제출 속도 제한이 있습니다.
 
-If you make more than one access token request (`POST {% data variables.product.oauth_host_code %}/login/oauth/access_token`) within the required minimum timeframe between requests (or `interval`), you'll hit the rate limit and receive a `slow_down` error response. The `slow_down` error response adds 5 seconds to the last `interval`. For more information, see the [Errors for the device flow](#errors-for-the-device-flow).
+요청 간에 필요한 최소 기간 내(또는 `interval`)에 둘 이상의 액세스 토큰 요청(`POST {% data variables.product.oauth_host_code %}/login/oauth/access_token`)을 하는 경우 속도 제한에 도달하고 `slow_down` 오류 응답을 수신하게 됩니다. `slow_down` 오류 응답은 마지막 `interval`에 5초를 추가합니다. 자세한 내용은 [디바이스 흐름의 오류](#errors-for-the-device-flow)를 참조하세요.
 
-### Error codes for the device flow
+### 디바이스 흐름의 오류 코드
 
-| Error code | Description |
+| 오류 코드 | Description |
 |----|----|
-| `authorization_pending`| This error occurs when the authorization request is pending and the user hasn't entered the user code yet. The app is expected to keep polling the `POST {% data variables.product.oauth_host_code %}/login/oauth/access_token` request without exceeding the [`interval`](#response-parameters), which requires a minimum number of seconds between each request. |
-| `slow_down` | When you receive the `slow_down` error, 5 extra seconds are added to the minimum `interval` or timeframe required between your requests using `POST {% data variables.product.oauth_host_code %}/login/oauth/access_token`. For example, if the starting interval required at least 5 seconds between requests and you get a `slow_down` error response, you must now wait a minimum of 10 seconds before making a new request for an OAuth access token. The error response includes the new `interval` that you must use.
-| `expired_token` | If the device code expired, then you will see the `token_expired` error. You must make a new request for a device code.
-| `unsupported_grant_type` | The grant type must be `urn:ietf:params:oauth:grant-type:device_code` and included as an input parameter when you poll the OAuth token request `POST {% data variables.product.oauth_host_code %}/login/oauth/access_token`.
-| `incorrect_client_credentials` | For the device flow, you must pass your app's client ID, which you can find on your app settings page. The `client_secret` is not needed for the device flow.
-| `incorrect_device_code` | The device_code provided is not valid.
-| `access_denied` | When a user clicks cancel during the authorization process, you'll receive a `access_denied` error and the user won't be able to use the verification code again.{% ifversion device-flow-is-opt-in %}
-| `device_flow_disabled` | Device flow has not been enabled in the app's settings. For more information, see "[Device flow](#device-flow)."{% endif %}
+| `authorization_pending`| 이 오류는 권한 부여 요청이 보류 중이고 사용자가 사용자 코드를 아직 입력하지 않은 경우에 발생합니다. 앱은 각 요청 사이에 최소 시간(초)이 필요한 [`interval`](#response-parameters)을 초과하지 않고 `POST {% data variables.product.oauth_host_code %}/login/oauth/access_token` 요청을 계속 폴링할 것으로 예상됩니다. |
+| `slow_down` | `slow_down` 오류를 수신하는 경우 `POST {% data variables.product.oauth_host_code %}/login/oauth/access_token`을 사용하여 요청 간 필요한 최소 `interval` 또는 기간에 5초가 더 추가됩니다. 예를 들어 시작 간격이 요청 사이에 5초 이상 필요하고 `slow_down` 오류 응답을 수신하는 경우 OAuth 액세스 토큰을 새로 요청하기 전에 최소 10초 동안 기다려야 합니다. 오류 응답에는 사용해야 하는 새 `interval`이 포함됩니다.
+| `expired_token` | 디바이스 코드가 만료되면 `token_expired` 오류가 표시됩니다. 이 경우 디바이스 코드를 새로 요청해야 합니다.
+| `unsupported_grant_type` | OAuth 토큰 요청 `POST {% data variables.product.oauth_host_code %}/login/oauth/access_token`을 폴링할 때 권한 부여 형식은 `urn:ietf:params:oauth:grant-type:device_code`이며 입력 매개 변수로 포함되어야 합니다.
+| `incorrect_client_credentials` | 디바이스 흐름의 경우 앱 설정 페이지에서 찾을 수 있는 앱의 클라이언트 ID를 전달해야 합니다. `client_secret`은 디바이스 흐름에 필요하지 않습니다.
+| `incorrect_device_code` | 제공된 device_code는 잘못되었습니다.
+| `access_denied` | 권한 부여 프로세스 중에 사용자가 취소를 클릭하면 `access_denied` 오류를 수신하게 되고 사용자는 확인 코드를 다시 사용할 수 없습니다.{% ifversion device-flow-is-opt-in %}
+| `device_flow_disabled` | 앱 설정에서 디바이스 흐름을 사용하도록 설정하지 않았습니다. 자세한 내용은 “[디바이스 흐름](#device-flow)”을 참조하세요.{% endif %}
 
-For more information, see the "[OAuth 2.0 Device Authorization Grant](https://tools.ietf.org/html/rfc8628#section-3.5)."
+자세한 내용은 “[OAuth 2.0 디바이스 권한 부여](https://tools.ietf.org/html/rfc8628#section-3.5)”를 참조하세요.
 
-## Non-Web application flow
+## 비 웹 애플리케이션 흐름
 
-Non-web authentication is available for limited situations like testing. If you need to, you can use [Basic Authentication](/rest/overview/other-authentication-methods#basic-authentication) to create a {% data variables.product.pat_generic %} using your [{% data variables.product.pat_generic %}s settings page](/articles/creating-an-access-token-for-command-line-use). This technique enables the user to revoke access at any time.
+비 웹 인증은 테스트와 같은 제한된 상황에서 사용할 수 있습니다. 필요한 경우 [기본 인증](/rest/overview/other-authentication-methods#basic-authentication) 을 사용하여 {% data variables.product.pat_generic % [}의 설정 페이지를 사용하여 {% data variables.product.pat_generic %}](/articles/creating-an-access-token-for-command-line-use)을(를) 만들 수 있습니다. 이 방법으로 사용자는 언제든지 액세스를 철회할 수 있습니다.
 
-{% ifversion fpt or ghes or ghec %}
-{% note %}
+{% ifversion fpt or ghes or ghec %} {% note %}
 
-**Note:** When using the non-web application flow to create an OAuth2 token, make sure to understand how to [work with
-two-factor authentication](/rest/overview/other-authentication-methods#working-with-two-factor-authentication) if
-you or your users have two-factor authentication enabled.
+**참고:** 비 웹 애플리케이션 흐름을 사용하여 OAuth2 토큰을 만들 때 사용자가 2단계 인증을 사용하도록 설정한 경우 [2단계 인증을 사용하는](/rest/overview/other-authentication-methods#working-with-two-factor-authentication) 방법을 이해해야 합니다.
 
-{% endnote %}
-{% endif %}
+{% endnote %} {% endif %}
 
-## Redirect URLs
+## 리디렉션 URL
 
-The `redirect_uri` parameter is optional. If left out, GitHub will
-redirect users to the callback URL configured in the OAuth Application
-settings. If provided, the redirect URL's host (excluding sub-domains) and port must exactly
-match the callback URL. The redirect URL's path must reference a
-subdirectory of the callback URL.
+`redirect_uri` 매개 변수는 선택 사항입니다. 매개 변수가 제외되는 경우 GitHub는 OAuth 애플리케이션 설정에 구성된 콜백 URL로 사용자를 리디렉션합니다. 제공된 경우 리디렉션 URL의 호스트(하위 도메인 제외) 및 포트는 콜백 URL과 정확히 일치해야 합니다. 리디렉션 URL의 경로는 콜백 URL의 하위 디렉터리를 참조해야 합니다.
 
     CALLBACK: http://example.com/path
 
@@ -299,33 +297,33 @@ subdirectory of the callback URL.
     BAD:  http://oauth.example.com:8080/path
     BAD:  http://example.org
 
-### Loopback redirect urls
+### 루프백 리디렉션 URL
 
-The optional `redirect_uri` parameter can also be used for loopback URLs. If the application specifies a loopback URL and a port, then after authorizing the application users will be redirected to the provided URL and port. The `redirect_uri` does not need to match the port specified in the callback URL for the app.
+선택적 `redirect_uri` 매개 변수는 루프백 URL에도 사용할 수 있습니다. 애플리케이션이 루프백 URL 및 포트를 지정하는 경우 애플리케이션 사용자에게 권한을 부여한 후 제공된 URL 및 포트로 리디렉션됩니다. 는 `redirect_uri` 앱의 콜백 URL에 지정된 포트와 일치할 필요가 없습니다.
 
-For the `http://127.0.0.1/path` callback URL, you can use this `redirect_uri`:
+`http://127.0.0.1/path` 콜백 URL의 경우 다음 `redirect_uri`를 사용할 수 있습니다.
 
 ```
 http://127.0.0.1:1234/path
 ```
 
-Note that OAuth RFC [recommends not to use `localhost`](https://datatracker.ietf.org/doc/html/rfc8252#section-7.3), but instead to use loopback literal `127.0.0.1` or IPv6 `::1`.
+OAuth RFC는 를 [사용하지 `localhost`말고](https://datatracker.ietf.org/doc/html/rfc8252#section-7.3) 루프백 리터럴 `127.0.0.1` 또는 IPv6 `::1`를 사용하는 것이 좋습니다.
 
-## Creating multiple tokens for OAuth Apps
+## OAuth 앱에 여러 토큰 만들기
 
-You can create multiple tokens for a user/application/scope combination to create tokens for specific use cases.
+사용자/애플리케이션/범위 조합에 여러 토큰을 만들어 특정 사용 사례를 위한 토큰을 만들 수 있습니다.
 
-This is useful if your OAuth App supports one workflow that uses GitHub for sign-in and only requires basic user information. Another workflow may require access to a user's private repositories. Using multiple tokens, your OAuth App can perform the web flow for each use case, requesting only the scopes needed. If a user only uses your application to sign in, they are never required to grant your OAuth App access to their private repositories.
+이는 OAuth 앱이 로그인에 GitHub를 사용하고 기본 사용자 정보만 필요한 단일 워크플로를 지원하는 경우에 유용합니다. 다른 워크플로에서는 사용자의 프라이빗 리포지토리에 액세스해야 할 수 있습니다. OAuth 앱은 여러 토큰을 사용해 필요한 범위만 요청하여 사용 사례마다 웹 흐름을 수행할 수 있습니다. 사용자가 애플리케이션을 사용하여 로그인하는 경우 OAuth 앱에 프라이빗 리포지토리에 대한 액세스 권한을 부여할 필요가 없습니다.
 
 {% data reusables.apps.oauth-token-limit %}
 
 {% data reusables.apps.deletes_ssh_keys %}
 
-## Directing users to review their access
+## 사용자에게 액세스 권한을 검토하도록 지시
 
-You can link to authorization information for an OAuth App so that users can review and revoke their application authorizations.
+OAuth 앱에 대한 권한 부여 정보에 연결하면 사용자가 애플리케이션 권한 부여를 검토하고 철회할 수 있습니다.
 
-To build this link, you'll need your OAuth Apps `client_id` that you received from GitHub when you registered the application.
+연결 링크를 빌드하려면 애플리케이션을 등록할 때 GitHub에서 받은 OAuth 앱 `client_id`가 필요합니다.
 
 ```
 {% data variables.product.oauth_host_code %}/settings/connections/applications/:client_id
@@ -333,17 +331,17 @@ To build this link, you'll need your OAuth Apps `client_id` that you received fr
 
 {% tip %}
 
-**Tip:** To learn more about the resources that your OAuth App can access for a user, see "[Discovering resources for a user](/rest/guides/discovering-resources-for-a-user)."
+**팁:** 사용자를 위해 OAuth 앱에서 액세스할 수 있는 리소스에 대한 자세한 내용은 “[사용자용 리소스 알아보기](/rest/guides/discovering-resources-for-a-user)”를 참조하세요.
 
 {% endtip %}
 
-## Troubleshooting
+## 문제 해결
 
-* "[Troubleshooting authorization request errors](/apps/managing-oauth-apps/troubleshooting-authorization-request-errors)"
-* "[Troubleshooting OAuth App access token request errors](/apps/managing-oauth-apps/troubleshooting-oauth-app-access-token-request-errors)"
-* "[Device flow errors](#error-codes-for-the-device-flow)"
-* "[Token expiration and revocation](/github/authenticating-to-github/keeping-your-account-and-data-secure/token-expiration-and-revocation)"
+* “[권한 부여 요청 오류 문제 해결](/apps/managing-oauth-apps/troubleshooting-authorization-request-errors)”
+* “[OAuth 앱 액세스 토큰 요청 오류 문제 해결](/apps/managing-oauth-apps/troubleshooting-oauth-app-access-token-request-errors)”
+* "[디바이스 흐름 오류](#error-codes-for-the-device-flow)"
+* "[토큰 만료 및 해지](/github/authenticating-to-github/keeping-your-account-and-data-secure/token-expiration-and-revocation)"
 
-## Further reading
+## 추가 참고 자료
 
-- "[About authentication to {% data variables.product.prodname_dotcom %}](/github/authenticating-to-github/about-authentication-to-github)"
+- “[{% data variables.product.prodname_dotcom %}에 대한 인증 정보](/github/authenticating-to-github/about-authentication-to-github)”

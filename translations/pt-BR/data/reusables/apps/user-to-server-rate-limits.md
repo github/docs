@@ -1,1 +1,9 @@
-{% ifversion ghes %}By default, user-to-server{% else %}User-to-server{% endif %} requests are limited to {% ifversion ghae %}15,000{% elsif fpt or ghec or ghes %}5,000{% endif %} requests per hour and per authenticated user. All requests from OAuth applications authorized by a user or a {% data variables.product.pat_generic %} owned by the user, and requests authenticated with any of the user's authentication credentials, share the same quota of {% ifversion ghae %}15,000{% elsif fpt or ghec or ghes %}5,000{% endif %} requests per hour for that user.
+---
+ms.openlocfilehash: 3bc47303cbc18b4d40a76fd12e6f692990f66c54
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "145094245"
+---
+{% ifversion ghes %}Por padrão, as solicitações de usuário para servidor{% else %}Usuário para servidor{% endif %} são limitadas a {% ifversion ghae %}15 mil{% elsif fpt or ghec or ghes %}cinco mil{% endif %} solicitações por hora e por usuário autenticado. Todas as solicitações de aplicativos OAuth autorizadas por um usuário ou um token de acesso pessoal pertencentes ao usuário e as solicitações autenticadas com uma das credenciais de autenticação do usuário compartilham a cota de {% ifversion ghae %}15 mil{% elsif fpt or ghec or ghes %}cinco mil{% endif %} solicitações por hora para esse usuário.

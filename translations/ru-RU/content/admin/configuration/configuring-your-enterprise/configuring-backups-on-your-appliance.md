@@ -1,5 +1,5 @@
 ---
-title: Configuring backups on your appliance
+title: Настройка резервных копий на устройстве
 shortTitle: Configuring backups
 redirect_from:
   - /enterprise/admin/categories/backups-and-restores
@@ -14,7 +14,7 @@ redirect_from:
   - /enterprise/admin/installation/configuring-backups-on-your-appliance
   - /enterprise/admin/configuration/configuring-backups-on-your-appliance
   - /admin/configuration/configuring-backups-on-your-appliance
-intro: 'As part of a disaster recovery plan, you can protect production data on {% data variables.location.product_location %} by configuring automated backups.'
+intro: 'В рамках плана аварийного восстановления можно защитить рабочие данные на {% данных variables.location.product_location %}, настроив автоматические резервные копии.'
 versions:
   ghes: '*'
 type: how_to
@@ -23,158 +23,162 @@ topics:
   - Enterprise
   - Fundamentals
   - Infrastructure
+ms.openlocfilehash: f9b8f97f6a322884f52df7787f13a0c4ac0d6e53
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148094332'
 ---
-## About {% data variables.product.prodname_enterprise_backup_utilities %}
+## Сведения о {% data variables.product.prodname_enterprise_backup_utilities %}
 
-{% data variables.product.prodname_enterprise_backup_utilities %} is a backup system you install on a separate host, which takes backup snapshots of {% data variables.location.product_location %} at regular intervals over a secure SSH network connection. You can use a snapshot to restore an existing {% data variables.product.prodname_ghe_server %} instance to a previous state from the backup host.
+{% данных variables.product.prodname_enterprise_backup_utilities %} — это система резервного копирования, устанавливаемая на отдельном узле, которая создает моментальные снимки резервных копий {% данных variables.location.product_location %} через регулярные интервалы через безопасное сетевое подключение SSH. Моментальный снимок можно использовать для восстановления существующего экземпляра {% data variables.product.prodname_ghe_server %} до предыдущего состояния с узла резервного копирования.
 
-Only data added since the last snapshot will transfer over the network and occupy additional physical storage space. To minimize performance impact, backups are performed online under the lowest CPU/IO priority. You do not need to schedule a maintenance window to perform a backup.
+Передаваться по сети и занимать дополнительное физическое пространство на диске будут только данные, добавленные с момента последнего моментального снимка. Чтобы свести к минимуму влияние на производительность, резервное копирование выполняется в режиме онлайн с минимальным приоритетом ЦП и ввода-вывода. Для выполнения резервного копирования не нужно планировать период обслуживания.
 
-Major releases and version numbers for {% data variables.product.prodname_enterprise_backup_utilities %} align with feature releases of {% data variables.product.product_name %}. We support the four most recent versions of both products. For more information, see "[{% data variables.product.product_name %} releases](/admin/all-releases)."
+{% data variables.product.prodname_enterprise_backup_utilities %} имеют основные номера выпусков и версий, которые соответствуют выпускам с новыми функциями для {% data variables.product.product_name %}. Мы поддерживаем четыре последние версии обоих продуктов. Дополнительные сведения см. в разделе [Выпуски {% data variables.product.product_name %}](/admin/all-releases).
 
-For more detailed information on features, requirements, and advanced usage, see the [{% data variables.product.prodname_enterprise_backup_utilities %} README](https://github.com/github/backup-utils#readme) in the {% data variables.product.prodname_enterprise_backup_utilities %} project documentation.
+Подробнее о возможностях, требованиях и расширенном использовании см. в [файле сведений проекта "{% data variables.product.prodname_enterprise_backup_utilities %}"](https://github.com/github/backup-utils#readme) в документации проекта "{% data variables.product.prodname_enterprise_backup_utilities %}".
 
-## Prerequisites
+## Предварительные требования
 
-To use {% data variables.product.prodname_enterprise_backup_utilities %}, you must have a Linux or Unix host system separate from {% data variables.location.product_location %}.
+Чтобы использовать {% данных variables.product.prodname_enterprise_backup_utilities %}, необходимо иметь систему узла Linux или Unix, отделяемую от {% данных variables.location.product_location %}.
 
-You can also integrate {% data variables.product.prodname_enterprise_backup_utilities %} into an existing environment for long-term permanent storage of critical data.
+Вы также можете интегрировать {% data variables.product.prodname_enterprise_backup_utilities %} в существующую среду для долгосрочного постоянного хранения критически важных данных.
 
-We recommend that the backup host and {% data variables.location.product_location %} be geographically distant from each other. This ensures that backups are available for recovery in the event of a major disaster or network outage at the primary site.
+Рекомендуется, чтобы узел резервной копии и {% данных variables.location.product_location %} были географически удалены друг от друга. Это гарантирует, что резервные копии будут доступны для восстановления в случае крупной аварии или сбоя сети на первичном сайте.
 
-Physical storage requirements will vary based on Git repository disk usage and expected growth patterns:
+Требования к физическому хранилищу зависят от использования диска репозитория Git и ожидаемых шаблонов роста.
 
-| Hardware | Recommendation |
+| Оборудование | Рекомендация |
 | -------- | --------- |
-| **vCPUs**  | 2 |
-| **Memory** | 2 GB |
-| **Storage** | Five times the primary instance's allocated storage |
+| **Число виртуальных ЦП**  | 2 |
+| **Память** | 2 ГБ |
+| **Память** | В пять раз больше выделенного хранилище основного экземпляра |
 
-More resources may be required depending on your usage, such as user activity and selected integrations.
+В зависимости от шаблона использования может потребоваться больше ресурсов, таких как активность пользователей и выбранные интеграции.
 
-For more information, see [{% data variables.product.prodname_enterprise_backup_utilities %} requirements](https://github.com/github/backup-utils/blob/master/docs/requirements.md) in the {% data variables.product.prodname_enterprise_backup_utilities %} project documentation.
+Дополнительные сведения см. в [Требованиях проекта "{% data variables.product.prodname_enterprise_backup_utilities %}"](https://github.com/github/backup-utils/blob/master/docs/requirements.md) в документации проекта "{% data variables.product.prodname_enterprise_backup_utilities %}".
 
-## Installing {% data variables.product.prodname_enterprise_backup_utilities %}
+## Установка {% data variables.product.prodname_enterprise_backup_utilities %}
 
-To install {% data variables.product.prodname_enterprise_backup_utilities %} on your backup host, we recommend cloning the project's Git repository. This approach allows you to fetch new releases directly using Git, and your existing backup configuration file, `backup.config`, will be preserved when installing a new version.
+Чтобы установить {% data variables.product.prodname_enterprise_backup_utilities %} на узле резервного копирования, рекомендуем клонировать Git-репозиторий проекта. Этот подход позволит получать новые выпуски напрямую через Git, а существующий файл конфигурации резервного копирования `backup.config` будет сохранен при установке новой версии.
 
-Alternatively, if the host machine can't access the internet, you can download each {% data variables.product.prodname_enterprise_backup_utilities %} release as a compressed archive, then extract and install the contents. For more information, see [Getting started](https://github.com/github/backup-utils/blob/master/docs/getting-started.md) in the {% data variables.product.prodname_enterprise_backup_utilities %} project documentation.
+Если же хост-компьютер не имеет доступа к Интернету, {% data variables.product.prodname_enterprise_backup_utilities %} можно скачивать в виде сжатого архива для каждого выпуска, чтобы затем извлечь и установить его содержимое. Дополнительные сведения см. в разделе [Начало работы](https://github.com/github/backup-utils/blob/master/docs/getting-started.md) в документации проекта "{% data variables.product.prodname_enterprise_backup_utilities %}".
 
-Backup snapshots are written to the disk path set by the `GHE_DATA_DIR` data directory variable in your `backup.config` file. Snapshots need to be stored on a filesystem which supports symbolic and hard links.
+Моментальные снимки резервных копий записываются на диск по пути, заданному в переменной каталога данных `GHE_DATA_DIR` в файле `backup.config`. Снимки должны храниться в файловой системе, поддерживающей символьные ссылки и жесткие связи.
 
 {% note %}
 
-**Note:** We recommend ensuring your snapshots are not kept in a subdirectory of the {% data variables.product.prodname_enterprise_backup_utilities %} installation directory, to avoid inadvertently overwriting your data directory when upgrading {% data variables.product.prodname_enterprise_backup_utilities %} versions.
+**Примечание.** Рекомендуем убедиться, что ваши моментальные снимки не хранятся в подпапке каталога, где установлены {% data variables.product.prodname_enterprise_backup_utilities %}, иначе возможна непреднамеренная перезапись каталога данных, когда {% data variables.product.prodname_enterprise_backup_utilities %} обновляют версию.
 
 {% endnote %}
 
-1. To clone the [{% data variables.product.prodname_enterprise_backup_utilities %} project repository](https://github.com/github/backup-utils/) to a local directory on your backup host, run the following command.
+1. Чтобы клонировать [репозиторий проекта "{% data variables.product.prodname_enterprise_backup_utilities %}"](https://github.com/github/backup-utils/) в локальный каталог на узле резервного копирования, выполните следующую команду.
 
   ```
   $ git clone https://github.com/github/backup-utils.git /path/to/target/directory/backup-utils
   ```
-1. To change into the local repository directory, run the following command.
+1. Чтобы перейти в локальный каталог репозитория, выполните следующую команду.
 
   ```
   cd backup-utils
   ```
 {% data reusables.enterprise_backup_utilities.enterprise-backup-utils-update-repo %}
-1. To copy the included `backup.config-example` file to `backup.config`, run the following command.
+1. Чтобы скопировать включенный файл `backup.config-example` в `backup.config`, выполните следующую команду.
 
    ```shell
    cp backup.config-example backup.config
    ```
-1. To customize your configuration, edit `backup.config` in a text editor.
-   1. Set the `GHE_HOSTNAME` value to your primary {% data variables.product.prodname_ghe_server %} instance's hostname or IP address.
+1. Для изменения конфигурации отредактируйте файл `backup.config` в текстовом редакторе.
+   1. Задайте значение `GHE_HOSTNAME` для имени узла или IP-адреса основного экземпляра {% data variables.product.prodname_ghe_server %}.
 
      {% note %}
 
-     **Note:** If {% data variables.location.product_location %} is deployed as a cluster or in a high availability configuration using a load balancer, the `GHE_HOSTNAME` can be the load balancer hostname, as long as it allows SSH access (on port 122) to {% data variables.location.product_location %}.
+     **Примечание:** Если {% данных variables.location.product_location %} развертывается как кластер или в конфигурации высокой доступности с помощью подсистемы балансировки нагрузки, `GHE_HOSTNAME` это может быть имя узла подсистемы балансировки нагрузки, если он разрешает доступ по протоколу SSH (через порт 122) к {% данных variables.location.product_location %}.
 
-     To ensure a recovered appliance is immediately available, perform backups targeting the primary instance even in a geo-replication configuration.
+     Чтобы обеспечить немедленную доступность восстановленного устройства, создавайте резервные копии, предназначенные для основного экземпляра, даже в конфигурации георепликации.
 
      {% endnote %}
-   1. Set the `GHE_DATA_DIR` value to the filesystem location where you want to store backup snapshots. We recommend choosing a location on the same filesystem as your backup host, but outside of where you cloned the Git repository in step 1.
-1. To grant your backup host access to your instance, open your primary instance's settings page at `http(s)://HOSTNAME/setup/settings` and add the backup host's SSH key to the list of authorized SSH keys. For more information, see "[Accessing the administrative shell (SSH)](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh#enabling-access-to-the-administrative-shell-via-ssh)."
-1. On your backup host, verify SSH connectivity with {% data variables.location.product_location %} with the `ghe-host-check` command.
+   1. Задайте для расположения файловой системы, в котором вы хотите хранить моментальные снимки резервных копий, значение `GHE_DATA_DIR`. Рекомендуется выбрать расположение в той же файловой системе, что и у узла резервного копирования, но не там, где вы клонировали Git-репозиторий на шаге 1.
+1. Чтобы предоставить узлу резервного копирования доступ к экземпляру, откройте страницу параметров основного экземпляра `http(s)://HOSTNAME/setup/settings` и добавьте ключ SSH узла в список авторизованных ключей SSH. Дополнительные сведения см. в разделе [Доступ к административной оболочке (SSH)](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh#enabling-access-to-the-administrative-shell-via-ssh).
+1. На узле резервного копирования проверьте подключение по протоколу `ghe-host-check` SSH с помощью команды {% данных variables.location.product_location %}.
 
   ```shell
   ./bin/ghe-host-check
-  ```		  
-1. To create an initial full backup, run the following command.
+  ```         
+1. Чтобы создать начальную полную резервную копию, выполните следующую команду.
 
   ```shell
   ./bin/ghe-backup
   ```
 
-For more information on advanced usage, see the [{% data variables.product.prodname_enterprise_backup_utilities %} README](https://github.com/github/backup-utils#readme) in the {% data variables.product.prodname_enterprise_backup_utilities %} project documentation.
+Подробнее о расширенном использовании см. в [файле сведений проекта "{% data variables.product.prodname_enterprise_backup_utilities %}"](https://github.com/github/backup-utils#readme) в документации проекта "{% data variables.product.prodname_enterprise_backup_utilities %}".
 
-## Upgrading {% data variables.product.prodname_enterprise_backup_utilities %}
+## {% data variables.product.prodname_enterprise_backup_utilities %}: обновление
 
-When upgrading {% data variables.product.prodname_enterprise_backup_utilities %}, you must choose a release that will work with your current version of {% data variables.product.product_name %}. Your installation of {% data variables.product.prodname_enterprise_backup_utilities %} must be at least the same version as {% data variables.location.product_location %}, and cannot be more than two versions ahead. For more information, see [{% data variables.product.prodname_ghe_server %} version requirements](https://github.com/github/backup-utils/blob/master/docs/requirements.md#github-enterprise-server-version-requirements) in the {% data variables.product.prodname_enterprise_backup_utilities %} project documentation.
-You can upgrade {% data variables.product.prodname_enterprise_backup_utilities %} in a Git repository by fetching and checking out the latest changes.
+Когда {% data variables.product.prodname_enterprise_backup_utilities %}, обновляются, необходимо выбрать выпуск, совместимый с текущей версией {% data variables.product.product_name %}. Установка {% данных variables.product.prodname_enterprise_backup_utilities %} должна быть по крайней мере той же версией, что и {% данных variables.location.product_location %}, и не может быть более двух версий. Дополнительные сведения см. в [Требованиях к версии {% data variables.product.prodname_ghe_server %}](https://github.com/github/backup-utils/blob/master/docs/requirements.md#github-enterprise-server-version-requirements) в документации проекта "{% data variables.product.prodname_enterprise_backup_utilities %}".
+{% data variables.product.prodname_enterprise_backup_utilities %} можно обновить в репозитории Git, получив последние изменения.
 
-Alternatively, if you don't use a Git repository for your installation, you can extract a new archive into place, or you can change your approach to use a Git repository instead.
+Если же вы не используете для своей установки Git-репозиторий, вы можете извлечь на ее место новый архив либо изменить свой подход и начать использовать Git.
 
-### Verifying the installation type
+### Проверка типа установки
 
-You can verify the installation method for {% data variables.product.prodname_enterprise_backup_utilities %} and determine the best way to upgrade your installation.
+{% data variables.product.prodname_enterprise_backup_utilities %} могут быть установлены разными способами. Вы можете проверить свой метод установки и определить оптимальный способ обновления.
 
 {% data reusables.enterprise_backup_utilities.enterprise-backup-utils-directory %}
-1. To check if a valid working directory exists inside a Git repository, run the following command.
+1. Чтобы проверить, существует ли действительный рабочий каталог в Git-репозитории, выполните следующую команду.
 
    ```
    git rev-parse --is-inside-work-tree
    ```
 
-   If the output is `true`, {% data variables.product.prodname_enterprise_backup_utilities %} was installed by cloning the project's Git repository. If the output includes `fatal: not a git repository (or any of the parent directories)`, {% data variables.product.prodname_enterprise_backup_utilities %} was likely installed by extracting a compressed archive file.
-If your installation is in a Git repository, you can install the latest version using Git. If the installation is from a compressed archive file, you can either download and extract the latest version, or you can reinstall {% data variables.product.prodname_enterprise_backup_utilities %} using Git to simplify future upgrades.
+   Если выводится значение `true`, то {% data variables.product.prodname_enterprise_backup_utilities %} были установлены путем клонирования Git-репозитория проекта. Если выводится значение `fatal: not a git repository (or any of the parent directories)`, то {% data variables.product.prodname_enterprise_backup_utilities %}, скорее всего, были установлены путем извлечения сжатого файла архива.
+Если установка находится в репозитории Git, вы можете установить последнюю версию с помощью Git. Если установка выполнялась из сжатого архивного файла, вы можете скачать и извлечь последнюю версию либо переустановить {% data variables.product.prodname_enterprise_backup_utilities %} с помощью Git для упрощения будущих обновлений.
 
-- [Upgrading an installation in a Git repository](#upgrading-an-installation-in-a-git-repository)
-- [Using Git instead of compressed archives for upgrades](#using-git-instead-of-compressed-archives-for-upgrades)
+- [Обновление установки в репозитории Git](#upgrading-an-installation-in-a-git-repository)
+- [Использование Git для обновлений вместо сжатых архивов](#using-git-instead-of-compressed-archives-for-upgrades)
 
-### Upgrading an installation in a Git repository
+### Обновление установки в репозитории Git
 
-{% data reusables.enterprise_backup_utilities.enterprise-backup-utils-directory %}
-  {% note %}
+{% data reusables.enterprise_backup_utilities.enterprise-backup-utils-directory %} {% note %}
 
-  **Note:** We recommend creating a copy of your existing `backup.config` file in a temporary location, like `$HOME/backup.config`, before upgrading {% data variables.product.prodname_enterprise_backup_utilities %}.
+  **Примечание.** Рекомендуется скопировать существующий файл `backup.config` во временное расположение, например `$HOME/backup.config`, прежде чем обновлять {% data variables.product.prodname_enterprise_backup_utilities %}.
 
   {% endnote %}
 
-1. Download the latest project updates by running the `git fetch` command.
+1. Скачайте последние обновления проекта, выполнив команду `git fetch`.
 
   ```shell
   git fetch
   ```
 
-{% data reusables.enterprise_backup_utilities.enterprise-backup-utils-update-repo %}
-{% data reusables.enterprise_backup_utilities.enterprise-backup-utils-verify-upgrade %}
+{% data reusables.enterprise_backup_utilities.enterprise-backup-utils-update-repo %} {% data reusables.enterprise_backup_utilities.enterprise-backup-utils-verify-upgrade %}
 
-### Using Git instead of compressed archives for upgrades
+### Использование Git для обновлений вместо сжатых архивов
 
-If your backup host has internet connectivity and you previously used a compressed archive (`.tar.gz`) to install or upgrade {% data variables.product.prodname_enterprise_backup_utilities %}, we recommend using a Git repository for your installation instead. Upgrading using Git requires less work and preserves your backup configuration.
+Если узел резервного копирования подключен к Интернету и ранее вы использовали сжатый архив (`.tar.gz`), чтобы установить или обновить {% data variables.product.prodname_enterprise_backup_utilities %}, рекомендуется вместо него использовать для установки репозиторий Git. Обновление с помощью Git выполняется проще и сохраняет текущую конфигурацию резервного копирования.
 
 {% data reusables.enterprise_backup_utilities.enterprise-backup-utils-directory %}
-1. To back up your existing {% data variables.product.prodname_enterprise_backup_utilities %} configuration, copy your current `backup.config` file to a safe location, such as your home directory.
+1. {% data variables.product.prodname_enterprise_backup_utilities %} имеют существующую конфигурацию, для создания резервной копии которой скопируйте текущий файл `backup.config` в безопасное расположение, например в домашний каталог.
 
   ```
   $ cp backup.config $HOME/backup.config.saved-$(date +%Y%m%d-%H%M%S)
   ```
 
-1. Change to the local directory on your backup host where you want to install the {% data variables.product.prodname_enterprise_backup_utilities %} Git repository.
-1. To clone the [project repository](https://github.com/github/backup-utils/) to the directory on your backup host, run the following command.
+1. Перейдите в локальный каталог на узле резервного копирования, где требуется установить {% data variables.product.prodname_enterprise_backup_utilities %} в виде Git-репозитория.
+1. Чтобы клонировать [репозиторий проекта](https://github.com/github/backup-utils/) в каталог на узле резервного копирования, выполните следующую команду.
 
   ```
   git clone https://github.com/github/backup-utils.git
   ```
-1. To change into the cloned repository, run the following command.
+1. Чтобы перейти в клонированный репозиторий, выполните следующую команду.
 
   ```
   cd backup-utils
   ```
 {% data reusables.enterprise_backup_utilities.enterprise-backup-utils-update-repo %}
-1. To restore your backup configuration from earlier, copy your existing backup configuration file to the local repository directory. Replace the path in the command with the location of the file saved in step 2.
+1. Чтобы восстановить конфигурацию резервного копирования из более ранней версии, скопируйте существующий файл конфигурации в локальный каталог репозитория. Замените путь в команде на расположение файла, сохраненного в шаге 2.
 
   ```
   $ cp PATH/TO/BACKUP/FROM/STEP/2 backup.config
@@ -182,44 +186,44 @@ If your backup host has internet connectivity and you previously used a compress
   
   {% note %}
 
-  **Note:** You can choose where to restore your backup configuration file to after cloning. For more information about where configuration files can be located, see [Getting started](https://github.com/github/backup-utils/blob/master/docs/getting-started.md) in the {% data variables.product.prodname_enterprise_backup_utilities %} project documentation.
+  **Примечание.** Вы можете выбрать, куда восстановить файл конфигурации резервного копирования после клонирования. Дополнительные сведения о возможном расположении файлов конфигурации см. в разделе [Начало работы](https://github.com/github/backup-utils/blob/master/docs/getting-started.md) в документации проекта "{% data variables.product.prodname_enterprise_backup_utilities %}".
 
   {% endnote %}
 
-1. To confirm that the paths to directories or scripts in your backup configuration file are correct, review the file in a text editor.
+1. Чтобы проверить правильность путей к каталогам или скриптам в файле конфигурации резервного копирования, просмотрите файл в текстовом редакторе.
 {% data reusables.enterprise_backup_utilities.enterprise-backup-utils-verify-upgrade %}
-1. Delete your old GitHub Enterprise Server Backup Utilities directory from step 1 (where the compressed archive installation was located).
+1. Удалите старый каталог служебных программ резервного копирования GitHub Enterprise Server из шага 1 (где находилась установка из сжатого архива).
 
-## Scheduling a backup
+## Планирование резервного копирования
 
-You can schedule regular backups on the backup host using the `cron(8)` command or a similar command scheduling service. The configured backup frequency will dictate the worst case recovery point objective (RPO) in your recovery plan. For example, if you have scheduled the backup to run every day at midnight, you could lose up to 24 hours of data in a disaster scenario. We recommend starting with an hourly backup schedule, guaranteeing a worst case maximum of one hour of data loss if the primary site data is destroyed.
+Вы можете запланировать регулярное резервное копирование на узле резервного копирования с помощью команды `cron(8)` или аналогичной службы планирования команд. Настроенная частота резервного копирования будет определять целевую точку восстановления (RPO) для наихудшего случая в вашем плане восстановления. Например, если вы запланировали выполнение резервного копирования каждый день в полночь, то в случае аварии можете потерять до 24 часов данных. Рекомендуется начать с почасового расписания резервного копирования, что в худшем случае обеспечивает потерю не более одного часа данных при уничтожении данных первичного сайта.
 
-If backup attempts overlap, the `ghe-backup` command will abort with an error message, indicating the existence of a simultaneous backup. If this occurs, we recommended decreasing the frequency of your scheduled backups. For more information, see the "Scheduling backups" section of the [{% data variables.product.prodname_enterprise_backup_utilities %} README](https://github.com/github/backup-utils#scheduling-backups) in the {% data variables.product.prodname_enterprise_backup_utilities %} project documentation.
+Если попытки резервного копирования перекрываются, команда `ghe-backup` прерывается с сообщением об ошибке, указывающим на существование одновременного резервного копирования. В этом случае рекомендуется уменьшить частоту запланированных резервных копирований. Дополнительные сведения см. в разделе "Планирование резервных копий" в [файле сведений проекта "{% data variables.product.prodname_enterprise_backup_utilities %}"](https://github.com/github/backup-utils#scheduling-backups) из документации проекта "{% data variables.product.prodname_enterprise_backup_utilities %}".
 
-## Restoring a backup
+## Восстановление резервной копии.
 
-In the event of prolonged outage or catastrophic event at the primary site, you can restore {% data variables.location.product_location %} by provisioning another {% data variables.product.prodname_enterprise %} appliance and performing a restore from the backup host. You must add the backup host's SSH key to the target {% data variables.product.prodname_enterprise %} appliance as an authorized SSH key before restoring an appliance.
-
-{% note %}
-
-**Note:** When performing backup restores to {% data variables.location.product_location %}, the same version supportability rules apply. You can only restore data from at most two feature releases behind.
-
-For example, if you take a backup from {% data variables.product.product_name %} 3.0.x, you can restore the backup to a {% data variables.product.product_name %} 3.2.x instance. You cannot restore data from a backup of {% data variables.product.product_name %} 2.22.x to an instance running 3.2.x, because that would be three jumps between versions (2.22 to 3.0 to 3.1 to 3.2). You would first need to restore to an instance running 3.1.x, and then upgrade to 3.2.x.
-
-{% endnote %}
-
-To restore {% data variables.location.product_location %} from the last successful snapshot, use the `ghe-restore` command.
+В случае длительного сбоя или катастрофического события на первичном сайте можно восстановить {% данных variables.location.product_location %} путем подготовки другого устройства {% данных variables.product.prodname_enterprise %} и выполнения восстановления с узла резервной копии. Перед восстановлением устройства необходимо добавить ключ SSH узла резервного копирования в целевое устройство {% data variables.product.prodname_enterprise %} в качестве авторизованного ключа SSH.
 
 {% note %}
 
-**Note:** Prior to restoring a backup, ensure:
-- Maintenance mode is enabled on the primary instance and all active processes have completed. For more information, see "[Enabling maintenance mode](/enterprise/admin/guides/installation/enabling-and-scheduling-maintenance-mode/)."
-- Replication is stopped on all replicas in high availability configurations. For more information, see the `ghe-repl-stop` command in "[About high availability configuration](/admin/enterprise-management/configuring-high-availability/about-high-availability-configuration#ghe-repl-stop)."
-- If {% data variables.location.product_location %} has {% data variables.product.prodname_actions %} enabled, you must first configure the {% data variables.product.prodname_actions %} external storage provider on the replacement appliance. For more information, see "[Backing up and restoring {% data variables.product.prodname_ghe_server %} with {% data variables.product.prodname_actions %} enabled](/admin/github-actions/backing-up-and-restoring-github-enterprise-server-with-github-actions-enabled)."
+**Примечание:** При восстановлении резервных копий до {% данных variables.location.product_location %}применяются те же правила поддержки версий. Вы можете восстановить данные не более чем из двух выпусков с новыми функциями.
+
+Например, при использовании резервной копии из {% data variables.product.product_name %} 3.0.x вы можете восстановить резервную копию в экземпляр {% data variables.product.product_name %} 3.2.x. Восстановить данные из резервной копии {% data variables.product.product_name %} 2.22.x в экземпляр с версией 3.2.x будет невозможно, так как потребовалось бы три перехода между версиями (от 2.22 до 3.0, 3.1 и 3.2). Необходимо было бы сначала выполнить восстановление в экземпляр с версией 3.1.x, а затем обновление до версии 3.2.x.
 
 {% endnote %}
 
-When running the `ghe-restore` command, you should see output similar to this:
+Чтобы восстановить {% данных variables.location.product_location %} из последнего успешного моментального снимка, используйте `ghe-restore` команду.
+
+{% note %}
+
+**Примечание.** Перед восстановлением из резервной копии убедитесь в следующем:
+- На основном экземпляре включен режим обслуживания и завершены все активные процессы. Дополнительные сведения см. в разделе [Включение режима обслуживания](/enterprise/admin/guides/installation/enabling-and-scheduling-maintenance-mode/).
+- На всех репликах в конфигурациях с высоким уровнем доступности остановлена репликация. Подробнее см. команду `ghe-repl-stop` в разделе [Сведения о конфигурации с высоким уровнем доступности](/admin/enterprise-management/configuring-high-availability/about-high-availability-configuration#ghe-repl-stop).
+- Если {% данных variables.location.product_location %} включен {% данных variables.product.prodname_actions %}, необходимо сначала настроить внешний поставщик хранилища {% данных variables.product.prodname_actions %} на устройстве замены. Дополнительные сведения см. в разделе [Резервное копирование и восстановление {% data variables.product.prodname_ghe_server %} с помощью включенных {% data variables.product.prodname_actions %}](/admin/github-actions/backing-up-and-restoring-github-enterprise-server-with-github-actions-enabled).
+
+{% endnote %}
+
+При выполнении команды `ghe-restore` должны отобразиться примерно такие выходные данные:
 
 ```shell
 $ ghe-restore -c 169.154.1.1
@@ -238,20 +242,19 @@ $ ghe-restore -c 169.154.1.1
 > Visit https://169.154.1.1/setup/settings to review appliance configuration.
 ```
 
-{% ifversion ip-exception-list %}
-Optionally, to validate the restore, configure an IP exception list to allow access to a specified list of IP addresses. For more information, see "[Validating changes in maintenance mode using the IP exception list](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode#validating-changes-in-maintenance-mode-using-the-ip-exception-list)."
+{% ifversion ip-exception-list %} Чтобы проверить восстановление, настройте список исключений IP-адресов, разрешив доступ к указанному списку IP-адресов. Дополнительные сведения см. в разделе [Проверка изменений в режиме обслуживания с использованием списка исключений IP-адресов](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode#validating-changes-in-maintenance-mode-using-the-ip-exception-list).
 {% endif %}
 
 {% note %}
 
-**Note:** 
+**Примечание**. 
 
-- The network settings are excluded from the backup snapshot. You must manually configure the network on the target {% data variables.product.prodname_ghe_server %} appliance as required for your environment.
+- Параметры сети исключаются из моментального снимка резервного копирования. Вы должны вручную настроить сеть на целевом устройстве {% data variables.product.prodname_ghe_server %} в соответствии с требованиями для вашей среды.
 
-- When restoring to new disks on an existing or empty {% data variables.product.prodname_ghe_server %} instance, stale UUIDs may be present, resulting in Git and/or Alambic replication reporting as out of sync. Stale server entry IDs can be the result of a retired node in a high availability configuration still being present in the application database, but not in the restored replication configuration. To remediate, stale UUIDs can be torn down using `ghe-repl-teardown` once the restore has completed and prior to starting replication. In this scenario, contact {% data variables.contact.contact_ent_support %} for further assistance.
+- При восстановлении на новые диски в существующем или пустом экземпляре {% данных variables.product.prodname_ghe_server %} могут присутствовать устаревшие идентификаторы UUID, что приведет к тому, что репликация Git и (или) Alambic сообщает об истечении синхронизации. Устаревшие идентификаторы входа сервера могут быть результатом прекращения работы узла в конфигурации высокой доступности, которые по-прежнему присутствуют в базе данных приложения, но не в восстановленной конфигурации репликации. Чтобы устранить проблему, устаревшие идентификаторы UUID могут быть удалены с помощью `ghe-repl-teardown` после завершения восстановления и до начала репликации. В этом сценарии обратитесь к {% данных variables.contact.contact_ent_support %}, чтобы получить дополнительную помощь.
 
 {% endnote %}
 
-You can use these additional options with `ghe-restore` command:
-- The `-c` flag overwrites the settings, certificate, and license data on the target host even if it is already configured. Omit this flag if you are setting up a staging instance for testing purposes and you wish to retain the existing configuration on the target. For more information, see the "Using backup and restore commands" section of the [{% data variables.product.prodname_enterprise_backup_utilities %} README](https://github.com/github/backup-utils#using-the-backup-and-restore-commands) in the {% data variables.product.prodname_enterprise_backup_utilities %} project documentation.
-- The `-s` flag allows you to select a different backup snapshot.
+С командой `ghe-restore` можно использовать следующие дополнительные параметры.
+- Флаг `-c` перезаписывает параметры, сертификаты и данные лицензии на целевом узле, даже если он уже настроен. Не указывайте этот флаг, если вы настраиваете промежуточный экземпляр в целях тестирования и хотите сохранить существующую конфигурацию на целевом объекте. Дополнительные сведения см. в разделе "Использование команд резервного копирования и восстановления" в [файле сведений проекта "{% data variables.product.prodname_enterprise_backup_utilities %}"](https://github.com/github/backup-utils#using-the-backup-and-restore-commands) из документации проекта "{% data variables.product.prodname_enterprise_backup_utilities %}".
+- Флаг `-s` позволяет выбрать другой моментальный снимок резервной копии.

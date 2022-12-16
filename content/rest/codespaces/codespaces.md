@@ -1,6 +1,6 @@
 ---
 title: Codespaces
-intro: The Codespaces API enables you to manage your codespaces using the REST API.
+intro: 'Use the REST API to manage {% data variables.product.prodname_github_codespaces %}.'
 versions:
   fpt: '*'
   ghec: '*'
@@ -9,6 +9,6 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-## About the Codespaces API
+## About {% data variables.product.prodname_github_codespaces %}
 
-The {% data variables.product.prodname_github_codespaces %} API enables you to manage {% data variables.product.prodname_codespaces %} using the REST API. This API is available for authenticated users, {% data variables.product.prodname_oauth_apps %}, and {% data variables.product.prodname_github_apps %}. For more information, see "[{% data variables.product.prodname_codespaces %}](/codespaces)."
+You can manage {% data variables.product.prodname_codespaces %} using the REST API. These endpoints are available for authenticated users, {% data variables.product.prodname_oauth_apps %}, and {% data variables.product.prodname_github_apps %}. For more information, see "[{% data variables.product.prodname_codespaces %}](/codespaces)."

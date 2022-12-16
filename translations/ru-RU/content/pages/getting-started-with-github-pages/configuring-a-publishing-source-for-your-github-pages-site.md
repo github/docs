@@ -1,6 +1,6 @@
 ---
-title: Configuring a publishing source for your GitHub Pages site
-intro: '{% ifversion pages-custom-workflow %}You can configure your {% data variables.product.prodname_pages %} site to publish when changes are pushed to a specific branch, or you can write a {% data variables.product.prodname_actions %} workflow to publish your site.{% else%}If you use the default publishing source for your {% data variables.product.prodname_pages %} site, your site will publish automatically. You can also choose to publish your site from a different branch or folder.{% endif %}'
+title: Настройка источника публикации для сайта GitHub Pages
+intro: '{% ifversion pages-custom-workflow %}Можно настроить публикацию сайта {% data variables.product.prodname_pages %} при отправке изменений в определенную ветвь, а также для этого можно создать рабочий процесс {% data variables.product.prodname_actions %}.{% else%}Если для сайта {% data variables.product.prodname_pages %} используется источник публикации по умолчанию, сайт будет публиковаться автоматически. Также можно публиковать сайт из другой ветви или папки.{% endif %}'
 redirect_from:
   - /articles/configuring-a-publishing-source-for-github-pages
   - /articles/configuring-a-publishing-source-for-your-github-pages-site
@@ -15,86 +15,84 @@ versions:
 topics:
   - Pages
 shortTitle: Configure publishing source
+ms.openlocfilehash: d08b5c150da5be18700312237c374059228c563d
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147529642'
 ---
-
-## About publishing sources
+## Сведения об источниках публикаций
 
 {% data reusables.pages.pages-about-publishing-source %}
 
 {% data reusables.pages.private_pages_are_public_warning %}
 
-## Publishing from a branch
+## Публикация из ветви
 
-1. Make sure the branch you want to use as your publishing source already exists in your repository.
-{% data reusables.pages.navigate-site-repo %}
-{% data reusables.repositories.sidebar-settings %}
-{% data reusables.pages.sidebar-pages %}
-{% ifversion pages-custom-workflow %}
-1. Under "Build and deployment", under "Source", select **Deploy from a branch**.
-1. Under "Build and deployment", under "Branch", use the **None** or **Branch** drop-down menu and select a publishing source.
+1. Убедитесь, что в вашем репозитории уже содержится ветвь, которую необходимо использовать в качестве источника публикации.
+{% data reusables.pages.navigate-site-repo %} {% data reusables.repositories.sidebar-settings %} {% data reusables.pages.sidebar-pages %} {% ifversion pages-custom-workflow %}
+1. В разделе "Сборка и развертывание" в пункте "Источник" выберите **Развернуть из ветви**.
+1. В разделе "Сборка и развертывание" в пункте "Ветвь" откройте раскрывающееся меню **Нет** или **Ветвь** и выберите источник публикации.
 
-   ![Drop-down menu to select a publishing source](/assets/images/help/pages/publishing-source-drop-down.png)
-{% else %}
-3. Under "{% data variables.product.prodname_pages %}", use the **None** or **Branch** drop-down menu and select a publishing source.
-  ![Drop-down menu to select a publishing source](/assets/images/help/pages/publishing-source-drop-down.png)
-{% endif %}
-4. Optionally, use the drop-down menu to select a folder for your publishing source.
-  ![Drop-down menu to select a folder for publishing source](/assets/images/help/pages/publishing-source-folder-drop-down.png)
-5. Click **Save**.
-  ![Button to save changes to publishing source settings](/assets/images/help/pages/publishing-source-save.png)
+   ![Раскрывающееся меню для выбора источника публикации](/assets/images/help/pages/publishing-source-drop-down.png) {% else %}
+3. В разделе {% data variables.product.prodname_pages %} используйте раскрывающееся меню **Нет** или **Ветвь** и выберите источник публикации.
+  ![Раскрывающееся меню для выбора источника публикации](/assets/images/help/pages/publishing-source-drop-down.png) {% endif %}
+4. При необходимости используйте раскрывающееся меню, чтобы выбрать папку для источника публикации.
+  ![Раскрывающееся меню для выбора папки для источника публикации](/assets/images/help/pages/publishing-source-folder-drop-down.png)
+5. Выберите команду **Сохранить**.
+  ![Кнопка для сохранения изменений в параметрах источника публикации](/assets/images/help/pages/publishing-source-save.png)
 
-### Troubleshooting publishing from a branch
+### Устранение неполадок при публикации из ветви
 
 {% data reusables.pages.admin-must-push %}
 
-If you choose the `docs` folder on any branch as your publishing source, then later remove the `/docs` folder from that branch in your repository, your site won't build and you'll get a page build error message for a missing `/docs` folder. For more information, see "[Troubleshooting Jekyll build errors for {% data variables.product.prodname_pages %} sites](/articles/troubleshooting-jekyll-build-errors-for-github-pages-sites#missing-docs-folder)."
+Если вы выберете папку `docs` в любой ветви в качестве источника публикации, а затем удалите папку `/docs` из этой ветви в репозитории, сайт не будет собран и вы получите сообщение об ошибке сборки страницы для отсутствующей папки `/docs`. Дополнительные сведения см. в разделе [Устранение неполадок сборки Jekyll для сайтов {% data variables.product.prodname_pages %}](/articles/troubleshooting-jekyll-build-errors-for-github-pages-sites#missing-docs-folder).
 
 {% ifversion build-pages-with-actions %}
 
-Your {% data variables.product.prodname_pages %} site will always be deployed with a {% data variables.product.prodname_actions %} workflow run, even if you've configured your {% data variables.product.prodname_pages %} site to be built using a different CI tool. Most external CI workflows "deploy" to GitHub Pages by committing the build output to the `gh-pages` branch of the repository, and typically include a `.nojekyll` file. When this happens, the {% data variables.product.prodname_actions %} workflow will detect the state that the branch does not need a build step, and will execute only the steps necessary to deploy the site to {% data variables.product.prodname_pages %} servers.
+Сайт {% data variables.product.prodname_pages %} всегда будет развертываться с помощью выполнения рабочего процесса {% data variables.product.prodname_actions %}, даже если вы настроили сайт {% data variables.product.prodname_pages %} для сборки с использованием другого средства CI. Большинство внешних рабочих процессов CI "развертываются" на GitHub Pages, фиксируя выходные данные сборки в ветви `gh-pages` репозитория и обычно включают файл `.nojekyll`. В этом случае рабочий процесс {% data variables.product.prodname_actions %} обнаружит состояние, что ветвь не нуждается в шаге сборки, и выполнит только шаги, необходимые для развертывания сайта на серверах {% data variables.product.prodname_pages %}.
 
-To find potential errors with either the build or deployment, you can check the workflow run for your {% data variables.product.prodname_pages %} site by reviewing your repository's workflow runs. For more information, see "[Viewing workflow run history](/actions/monitoring-and-troubleshooting-workflows/viewing-workflow-run-history)." For more information about how to re-run the workflow in case of an error, see "[Re-running workflows and jobs](/actions/managing-workflow-runs/re-running-workflows-and-jobs)."
+Чтобы найти потенциальные ошибки со сборкой или развертыванием, можно проверить выполнение рабочего процесса для сайта {% data variables.product.prodname_pages %}, просмотрев выполнение рабочего процесса репозитория. Дополнительные сведения см. в статье "[Просмотр журнала выполнения рабочего процесса](/actions/monitoring-and-troubleshooting-workflows/viewing-workflow-run-history)". Дополнительные сведения о повторном запуске рабочего процесса в случае ошибки см. в разделе [Повторное выполнение рабочих процессов и заданий](/actions/managing-workflow-runs/re-running-workflows-and-jobs).
 
 {% endif %}
 
 {% ifversion pages-custom-workflow %}
 
-## Publishing with a custom {% data variables.product.prodname_actions %} workflow
+## Публикация с помощью пользовательского рабочего процесса {% data variables.product.prodname_actions %}
 
 {% data reusables.pages.pages-custom-workflow-beta %}
 
-To configure your site to publish with {% data variables.product.prodname_actions %}:
+Чтобы настроить публикацию сайта с помощью {% data variables.product.prodname_actions %}, выполните следующие действия:
 
-{% data reusables.pages.navigate-site-repo %}
-{% data reusables.repositories.sidebar-settings %}
-{% data reusables.pages.sidebar-pages %}
-1. Under "Build and deployment", under "Source", select **GitHub Actions**.
-1. {% data variables.product.product_name %} will suggest several starter workflows. If you already have a workflow to publish your site, you can skip this step. Otherwise, choose one of the options to create a {% data variables.product.prodname_actions %} workflow. For more information about creating your custom workflow, see "[Creating a custom {% data variables.product.prodname_actions %} workflow to publish your site](#creating-a-custom-github-actions-workflow-to-publish-your-site)."
+{% data reusables.pages.navigate-site-repo %} {% data reusables.repositories.sidebar-settings %} {% data reusables.pages.sidebar-pages %}
+1. В разделе "Сборка и развертывание" в пункте "Источник" выберите **GitHub Actions**.
+1. {% data variables.product.product_name %} предложит несколько начальных рабочих процессов. Если у вас уже есть рабочий процесс для публикации сайта, этот шаг можно пропустить. В противном случае выберите один из вариантов, чтобы создать рабочий процесс {% data variables.product.prodname_actions %}. Дополнительные сведения о создании пользовательских рабочих процессов см. в разделе "[Создание пользовательского рабочего процесса {% data variables.product.prodname_actions %} для публикации сайта](#creating-a-custom-github-actions-workflow-to-publish-your-site)".
 
-   {% data variables.product.prodname_pages %} does not associate a specific workflow to the {% data variables.product.prodname_pages %} settings. However, the {% data variables.product.prodname_pages %} settings will link to the workflow run that most recently deployed your site.
+   {% data variables.product.prodname_pages %} не связывает определенный рабочий процесс с параметрами {% data variables.product.prodname_pages %}. Однако параметры {% data variables.product.prodname_pages %} будут ссылаться на тот запуск рабочего процесса, который выполнял последнее развертывание вашего сайта.
 
-### Creating a custom {% data variables.product.prodname_actions %} workflow to publish your site
+### Создание пользовательского рабочего процесса {% data variables.product.prodname_actions %} для публикации сайта
 
-For more information about {% data variables.product.prodname_actions %}, see "[Actions](/actions)."
+Дополнительные сведения о {% data variables.product.prodname_actions %} см. в разделе "[Actions](/actions)".
 
-When you configure your site to publish with {% data variables.product.prodname_actions %}, {% data variables.product.product_name %} will suggest starter workflows for common publishing scenarios. The general flow of a workflow is to:
+Во время настройки публикации сайта с помощью {% data variables.product.prodname_actions %} {% data variables.product.product_name %} предложит начальные рабочие процессы, подходящие для распространенных сценариев публикации. Обычно рабочий процесс состоит из следующих действий:
 
-1. Trigger whenever there is a push to the default branch of the repository or whenever the workflow is run manually from the Actions tab.
-1. Use the [`actions/checkout`](https://github.com/actions/checkout) action to check out the repository contents.
-1. If required by your site, build any static site files.
-1. Use the [`actions/upload-pages-artifact`](https://github.com/actions/upload-pages-artifact) action to upload the static files as an artifact.
-1. If the workflow was triggered by a push to the default branch, use the [`actions/deploy-pages`](https://github.com/actions/deploy-pages) action to deploy the artifact. This step is skipped if the workflow was triggered by a pull request.
+1. Активация при каждой отправке в ветвь репозитория по умолчанию или при каждом открытии, повторном открытии и обновлении запроса на вытягивание, нацеленного на ветвь по умолчанию.
+1. Извлечение содержимого репозитория с помощью действия [`actions/checkout`](https://github.com/actions/checkout).
+1. Создание статических файлов сайта, если это требуется для вашего сайта.
+1. Отправка статических файлов в качестве артефакта с помощью действия [`actions/upload-pages-artifact`](https://github.com/actions/upload-pages-artifact).
+1. Развертывание артефакта с помощью действия [`actions/deploy-pages`](https://github.com/actions/deploy-pages), если рабочий процесс был активирован отправкой в ветвь по умолчанию. Этот шаг пропускается, если рабочий процесс был активирован запросом на вытягивание.
 
-The starter workflows use a deployment environment called `github-pages`. If your repository does not already include an environment called `github-pages`, the environment will be created automatically. We recommend that you add an environment protection rule so that only the default branch can deploy to this environment. For more information, see "[Using environments for deployment](/actions/deployment/targeting-different-environments/using-environments-for-deployment)."
+В начальных рабочих процессах используется среда развертывания под названием `github-pages`. Если в вашем репозитории не содержится среда `github-pages`, она будет создана автоматически. Рекомендуется добавить правило защиты среды, чтобы развертывание в ней могла выполнять только ветвь по умолчанию. Дополнительные сведения см. в разделе [Использование сред для развертывания](/actions/deployment/targeting-different-environments/using-environments-for-deployment).
 
 {% note %}
 
-**Note**: A `CNAME` file in your repository file does not automatically add or remove a custom domain. Instead, you must configure the custom domain through your repository settings or through the API. For more information, see "[Managing a custom domain for your GitHub Pages site](/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site#configuring-a-subdomain)" and the [Pages API reference documentation](/rest/pages#update-information-about-a-github-pages-site).
+**Примечание.** Файл `CNAME` в репозитории не добавляет и не удаляет личный домен автоматически. Вместо этого личный домен необходимо настроить в параметрах репозитория или с помощью API. Дополнительные сведения см. в разделе "[Управление личным доменом для сайта GitHub Pages](/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site#configuring-a-subdomain)" и в [справочной документации по API Pages](/rest/pages#update-information-about-a-github-pages-site).
 
 {% endnote %}
 
-### Troubleshooting publishing with a custom {% data variables.product.prodname_actions %} workflow
+### Устранение неполадок при публикации с помощью пользовательского рабочего процесса {% data variables.product.prodname_actions %}
 
-For information about how to troubleshoot your {% data variables.product.prodname_actions %} workflow, see "[About monitoring and troubleshooting](/actions/monitoring-and-troubleshooting-workflows/about-monitoring-and-troubleshooting)."
+Сведения об устранении неполадок в рабочем процессе {% data variables.product.prodname_actions %} см. в статье "[Сведения о мониторинге и устранении неполадок](/actions/monitoring-and-troubleshooting-workflows/about-monitoring-and-troubleshooting)".
 
 {% endif %}

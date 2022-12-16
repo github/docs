@@ -1,6 +1,6 @@
 ---
-title: Enabling the dependency graph for your enterprise
-intro: You can allow users to identify their projects' dependencies by enabling the dependency graph.
+title: Aktivieren des Abhängigkeitsdiagramms für dein Unternehmen
+intro: 'Du kannst Benutzer*innen ermöglichen, die Abhängigkeiten ihrer Projekte zu identifizieren, indem du das Abhängigkeitsdiagramm aktivierst.'
 shortTitle: Enable dependency graph
 permissions: Site administrators can enable the dependency graph.
 versions:
@@ -10,39 +10,34 @@ topics:
   - Enterprise
   - Security
   - Dependency graph
+ms.openlocfilehash: d0ef8c345039047a01b6b88a4b9d3f8300ef11c1
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148107189'
 ---
+## Informationen zum Abhängigkeitsdiagramm
 
-## About the dependency graph
+{% data reusables.dependabot.about-the-dependency-graph %} Weitere Informationen findest du unter [Informationen zum Abhängigkeitsdiagramm](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph).
 
-{% data reusables.dependabot.about-the-dependency-graph %} For more information, see "[About the dependency graph](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)"
+Nachdem du das Abhängigkeitsdiagramm für dein Unternehmen aktiviert hast, kannst du {% data variables.product.prodname_dependabot %} aktivieren, um unsichere Abhängigkeiten in deinem Repository zu ermitteln{% ifversion ghes %} und die Sicherheitsrisiken automatisch zu beheben{% endif %}. Weitere Informationen findest du unter [Aktivieren von {% data variables.product.prodname_dependabot %} für dein Unternehmen](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise).
 
-{% data reusables.dependency-review.dependency-review-enabled-ghes %}
+{% ifversion ghes %} Du kannst das Abhängigkeitsdiagramm über die {% data variables.enterprise.management_console %} oder die Verwaltungsshell aktivieren. Wir empfehlen, die {% data variables.enterprise.management_console %} zu verwenden, es sei denn, {% data variables.location.product_location %} verwendet Clustering.
 
-After you enable the dependency graph for your enterprise, you can enable {% data variables.product.prodname_dependabot %} to detect insecure dependencies in your repository{% ifversion ghes %} and automatically fix the vulnerabilities{% endif %}. For more information, see "[Enabling {% data variables.product.prodname_dependabot %} for your enterprise](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)."
+## Aktivieren des Abhängigkeitsdiagramms über die {% data variables.enterprise.management_console %}
 
-{% ifversion ghes %}
-You can enable the dependency graph via the {% data variables.enterprise.management_console %} or the administrative shell. We recommend using the {% data variables.enterprise.management_console %} unless {% data variables.location.product_location %} uses clustering.
+Wenn {% data variables.location.product_location %} Clustering verwendet, kannst du das Abhängigkeitsdiagramm nicht über die {% data variables.enterprise.management_console %} aktivieren und musst stattdessen die Verwaltungsshell verwenden. Weitere Informationen findest du unter [Aktivieren des Abhängigkeitsdiagramms über die Verwaltungsshell](#enabling-the-dependency-graph-via-the-administrative-shell).
 
-## Enabling the dependency graph via the {% data variables.enterprise.management_console %}
+{% data reusables.enterprise_site_admin_settings.sign-in %} {% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.enterprise_site_admin_settings.management-console %} {% data reusables.enterprise_management_console.advanced-security-tab %}
+1. Klicke unter „Sicherheit“ auf **Abhängigkeitsdiagramm**.
+![Kontrollkästchen zum Aktivieren oder Deaktivieren des Abhängigkeitsdiagramms](/assets/images/enterprise/3.2/management-console/enable-dependency-graph-checkbox.png) {% data reusables.enterprise_management_console.save-settings %}
+1. Klicke auf **Instanz aufrufen**.
 
-If {% data variables.location.product_location %} uses clustering, you cannot enable the dependency graph with the {% data variables.enterprise.management_console %} and must use the administrative shell instead. For more information, see "[Enabling the dependency graph via the administrative shell](#enabling-the-dependency-graph-via-the-administrative-shell)."
+## Aktivieren des Abhängigkeitsdiagramms über die Verwaltungsshell
 
-{% data reusables.enterprise_site_admin_settings.sign-in %}
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.management-console %}
-{% data reusables.enterprise_management_console.advanced-security-tab %}
-1. Under "Security," click **Dependency graph**.
-![Checkbox to enable or disable the dependency graph](/assets/images/enterprise/3.2/management-console/enable-dependency-graph-checkbox.png)
-{% data reusables.enterprise_management_console.save-settings %}
-1. Click **Visit your instance**.
-
-## Enabling the dependency graph via the administrative shell
-
-{% endif %}
-{% data reusables.enterprise_site_admin_settings.sign-in %}
-1. In the administrative shell, enable the dependency graph on {% data variables.location.product_location %}:
-    {% ifversion ghes %}```shell
-    ghe-config app.dependency-graph.enabled true
+{% endif %} {% data reusables.enterprise_site_admin_settings.sign-in %}
+1. Aktiviere in der Verwaltungsshell das Abhängigkeitsdiagramm für {% data variables.location.product_location %}: {% ifversion ghes %}```shell  ghe-config app.dependency-graph.enabled true
     ```
     {% else %}```shell
     ghe-config app.github.dependency-graph-enabled true
@@ -57,4 +52,4 @@ If {% data variables.location.product_location %} uses clustering, you cannot en
     ```shell
     $ ghe-config-apply
     ```
-3. Return to {% data variables.product.prodname_ghe_server %}.
+3. Kehre zu {% data variables.product.prodname_ghe_server %} zurück.

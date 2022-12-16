@@ -1,37 +1,40 @@
 ---
-title: Management Console
-intro: 'The Management Console API helps you manage your {% data variables.product.product_name %} installation.'
+title: Consola de administración
+intro: 'La API de la Consola de Administración te ayuda a administrar tu instalación de {% data variables.product.product_name %}.'
 versions:
   ghes: '*'
 topics:
   - API
 miniTocMaxHeadingLevel: 3
+ms.openlocfilehash: da38513a04525b858e041188eec6f691db9be1d9
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147065542'
 ---
-
 {% tip %}
 
-You must explicitly set the port number when making API calls to the Management Console. If TLS is enabled on your enterprise, the port number is `8443`; otherwise, the port number is `8080`.
+Debes configurar el número de puerto explícitamente cuando haces llamadas de la API hacia la Consola de Administración. Si TLS está habilitado en la empresa, el número de puerto es `8443`; de lo contrario, es `8080`.
 
-If you don't want to provide a port number, you'll need to configure your tool to automatically follow redirects.
+Si no quieres proporcionar un número de puerto, necesitarás configurar tu herramienta para seguir automáticamente las redirecciones.
 
-You may also need to add the [`-k` flag](http://curl.haxx.se/docs/manpage.html#-k) when using `curl`, since {% data variables.product.product_name %} uses a self-signed certificate before you [add your own TLS certificate](/enterprise/admin/guides/installation/configuring-tls/).
+Es posible que también tenga que agregar la [marca `-k`](http://curl.haxx.se/docs/manpage.html#-k) al usar `curl`, ya que {% data variables.product.product_name %} usa un certificado autofirmado antes de que [agregue un certificado TLS propio ](/enterprise/admin/guides/installation/configuring-tls/).
 
 {% endtip %}
 
 ### Authentication
 
-You need to pass your [Management Console password](/enterprise/admin/articles/accessing-the-management-console/) as an authentication token to every Management Console API endpoint except [`/setup/api/start`](#create-a-github-enterprise-server-license).
+Debe pasar la [contraseña de la Consola de administración](/enterprise/admin/articles/accessing-the-management-console/) como un token de autenticación a todos los puntos de conexión de la API de la consola de administración, excepto [`/setup/api/start`](#create-a-github-enterprise-server-license).
 
-Use the `api_key` parameter to send this token with each request. For example:
-
-```shell
-$ curl -L 'https://HOSTNAME:ADMIN-PORT/setup/api?api_key=YOUR_PASSWORD'
-```
-
-You can also use standard HTTP authentication to send this token. For example:
+Usa el parámetro `api_key` para enviar este token con cada solicitud. Por ejemplo:
 
 ```shell
-$ curl -L -u "api_key:YOUR_PASSWORD" 'https://HOSTNAME:ADMIN-PORT/setup/api'
+$ curl -L 'https://<em>hostname</em>:<em>admin_port</em>/setup/api?api_key=<em>your-amazing-password</em>'
 ```
 
-{% data reusables.user-settings.enterprise-admin-api-classic-pat-only %}
+También puedes utilizar la autenticación HTTP estándar para enviar este token. Por ejemplo:
+
+```shell
+$ curl -L -u "api_key:<em>your-amazing-password</em>" 'https://<em>hostname</em>:<em>admin_port</em>/setup/api'
+```

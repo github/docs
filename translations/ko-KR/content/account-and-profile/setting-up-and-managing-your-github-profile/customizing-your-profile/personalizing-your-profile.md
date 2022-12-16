@@ -1,6 +1,6 @@
 ---
-title: Personalizing your profile
-intro: 'You can share information about yourself with other {% data variables.product.product_name %} users by setting a profile picture and adding a bio to your profile.'
+title: 프로필 개인 설정
+intro: '프로필 사진을 설정하고 프로필에 바이오를 추가하여 다른 {% data variables.product.product_name %} 사용자와 자신에 대한 정보를 공유할 수 있습니다.'
 redirect_from:
   - /articles/adding-a-bio-to-your-profile
   - /articles/setting-your-profile-picture
@@ -18,80 +18,82 @@ versions:
 topics:
   - Profiles
 shortTitle: Personalize
+ms.openlocfilehash: d77b1cee9da0ba9eeba55f7b16c73cc9b934f1e1
+ms.sourcegitcommit: 3ce69524dc95bb450204ba2b8e82ee69af3af833
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148101632'
 ---
-## Changing your profile picture
+## 프로필 사진 변경
 
-Your profile picture helps identify you across {% data variables.product.product_name %} in pull requests, comments, contributions pages, and graphs.
+프로필 사진을 사용하면 끌어오기 요청, 메모, 기여 페이지 및 그래프의 {% data variables.product.product_name %}에서 사용자를 확인할 수 있습니다.
 
-When you sign up for an account, {% data variables.product.product_name %} provides you with a randomly generated "identicon". [Your identicon](https://github.com/blog/1586-identicons) generates from a hash of your user ID, so there's no way to control its color or pattern. You can replace your identicon with an image that represents you.
+계정에 등록하면 {% data variables.product.product_name %}에서 임의로 생성된 “아이덴티콘”을 제공합니다. [아이덴티콘](https://github.com/blog/1586-identicons)은 사용자 ID의 해시에서 생성되므로 색이나 패턴을 제어할 수 없습니다. 사용자를 나타내는 이미지로 아이덴티콘을 바꿀 수 있습니다.
 
 {% note %}
 
-**Note{% ifversion ghec %}s{% endif %}**: {% ifversion ghec %}
+**참고{% ifversion ghec %}{% endif %}** : {% ifversion ghec %}
 
-* {% endif %}Your profile picture should be a PNG, JPG, or GIF file, and it must be less than 1 MB in size and smaller than 3000 by 3000 pixels. For the best quality rendering, we recommend keeping the image at about 500 by 500 pixels.
-{% ifversion ghec %}* Gravatar profile pictures are not supported with {% data variables.product.prodname_emus %}.{% endif %}
-
-{% endnote %}
-
-### Setting a profile picture
-
-{% data reusables.user-settings.access_settings %}
-2. Under **Profile Picture**, click {% octicon "pencil" aria-label="The edit icon" %} **Edit**.
-![Edit profile picture](/assets/images/help/profile/edit-profile-photo.png)
-3. Click **Upload a photo...**.{% ifversion not ghae %}
-![Update profile picture](/assets/images/help/profile/edit-profile-picture-options.png){% endif %}
-3. Crop your picture. When you're done, click **Set new profile picture**.
-	![Crop uploaded photo](/assets/images/help/profile/avatar_crop_and_save.png)
-
-### Resetting your profile picture to the identicon
-
-{% data reusables.user-settings.access_settings %}
-2. Under **Profile Picture**, click {% octicon "pencil" aria-label="The edit icon" %} **Edit**.
-![Edit profile picture](/assets/images/help/profile/edit-profile-photo.png)
-3. To revert to your identicon, click **Remove photo**. {% ifversion not ghae %}If your email address is associated with a [Gravatar](https://en.gravatar.com/), you cannot revert to your identicon. Click **Revert to Gravatar** instead.
-![Update profile picture](/assets/images/help/profile/edit-profile-picture-options.png){% endif %}
-
-## Changing your profile name
-
-You can change the name that is displayed on your profile. This name may also be displayed next to comments you make on private repositories owned by an organization. For more information, see "[Managing the display of member names in your organization](/articles/managing-the-display-of-member-names-in-your-organization)."
-
-{% ifversion fpt or ghec %}
-{% note %}
-
-**Note:** If you're a member of an {% data variables.enterprise.prodname_emu_enterprise %}, any changes to your profile name must be made through your identity provider instead of {% data variables.product.prodname_dotcom_the_website %}. {% data reusables.enterprise-accounts.emu-more-info-account %}
+* {% endif %}프로필 사진은 PNG, JPG 또는 GIF 파일이어야 하며 크기가 1MB 미만이고 3000 x 3000픽셀보다 작아야 합니다. 최상의 품질 렌더링을 위해 이미지를 약 500 x 500픽셀로 유지하는 것이 좋습니다.
+{% ifversion ghec %}* {% data variables.product.prodname_emus %}에서는 Gravatar 프로필 사진이 지원되지 않습니다.{% endif %}
 
 {% endnote %}
-{% endif %}
+
+### 프로필 사진 설정
 
 {% data reusables.user-settings.access_settings %}
-2. Under "Name", type the name you want to be displayed on your profile.
-  ![Name field in profile settings](/assets/images/help/profile/name-field.png)
+2. **프로필 사진** 에서 {% octicon "pencil" aria-label="The edit icon" %} **편집** 을 클릭합니다.
+![프로필 사진 편집](/assets/images/help/profile/edit-profile-photo.png)
+3. **사진 업로드...** 를 클릭합니다. {% ifversion not ghae %} ![프로필 사진 업데이트](/assets/images/help/profile/edit-profile-picture-options.png){% endif %}
+3. 그림을 자릅니다. 완료되면 **새 프로필 사진 설정** 을 클릭합니다.
+    ![업로드된 사진 자르기](/assets/images/help/profile/avatar_crop_and_save.png)
 
-## Adding a bio to your profile
+### 프로필 사진을 아이덴티콘으로 다시 설정
 
-Add a bio to your profile to share information about yourself with other {% data variables.product.product_name %} users. With the help of [@mentions](/articles/basic-writing-and-formatting-syntax) and emoji, you can include information about where you currently or have previously worked, what type of work you do, or even what kind of coffee you drink.
+{% data reusables.user-settings.access_settings %}
+2. **프로필 사진** 에서 {% octicon "pencil" aria-label="The edit icon" %} **편집** 을 클릭합니다.
+![프로필 사진 편집](/assets/images/help/profile/edit-profile-photo.png)
+3. 아이덴티콘으로 되돌리려면 **사진 제거** 를 클릭합니다. {% ifversion not ghae %}이메일 주소가 [Gravatar](https://en.gravatar.com/)와 연결된 경우 아이덴티콘으로 되돌릴 수 없습니다. 대신 **Gravatar로 되돌리기** 를 클릭합니다.
+![프로필 사진 업데이트](/assets/images/help/profile/edit-profile-picture-options.png){% endif %}
+
+## 프로필 이름 변경
+
+프로필에 표시되는 이름을 변경할 수 있습니다. 이 이름은 조직이 소유한 프라이빗 리포지토리에 대한 주석 옆에 표시될 수도 있습니다. 자세한 내용은 “[조직에서 구성원 이름 표시 관리](/articles/managing-the-display-of-member-names-in-your-organization)”를 참조하세요.
+
+{% ifversion fpt or ghec %} {% note %}
+
+**참고:** {% 데이터 variables.enterprise.prodname_emu_enterprise %}의 구성원인 경우 {% 데이터 variables.product.prodname_dotcom_the_website %}이(가) 아닌 ID 공급자를 통해 프로필 이름을 변경해야 합니다. {% data reusables.enterprise-accounts.emu-more-info-account %}
+
+{% endnote %} {% endif %}
+
+{% data reusables.user-settings.access_settings %}
+2. “이름”에서 프로필에 표시할 이름을 입력합니다.
+  ![프로필 설정의 이름 필드](/assets/images/help/profile/name-field.png)
+
+## 프로필에 바이오 추가
+
+프로필에 바이오를 추가하여 다른 {% data variables.product.product_name %} 사용자와 자신에 대한 정보를 공유합니다. [@mentions](/articles/basic-writing-and-formatting-syntax)와 이모지를 사용하면 현재 또는 이전의 근무지, 어떤 일을 하는지, 심지어 어떤 종류의 커피를 마시는지에 대한 정보를 포함할 수 있습니다.
 
 {% ifversion fpt or ghes or ghec %}
 
-For a longer-form and more prominent way of displaying customized information about yourself, you can also use a profile README. For more information, see "[Managing your profile README](/github/setting-up-and-managing-your-github-profile/managing-your-profile-readme)."
+프로필 추가 정보를 사용하면 더 길고 눈에 띄는 방법으로 자신에 대한 사용자 지정 정보를 표시할 수 있습니다. 자세한 내용은 “[프로필 README 관리](/github/setting-up-and-managing-your-github-profile/managing-your-profile-readme)”를 참조하세요.
 
 {% endif %}
 
 {% note %}
 
-**Note:**
-  If you have the activity overview section enabled for your profile and you @mention an organization you're a member of in your profile bio, then that organization will be featured first in your activity overview. For more information, see "[Showing an overview of your activity on your profile](/articles/showing-an-overview-of-your-activity-on-your-profile)."
+**참고:** 프로필에 대해 활동 개요 섹션을 사용하도록 설정되어 있고 프로필 바이오의 구성원인 조직을 @mention하는 경우 해당 조직이 활동 개요에서 먼저 소개됩니다. 자세한 내용은 “[프로필에서 활동 개요 표시](/articles/showing-an-overview-of-your-activity-on-your-profile)”를 참조하세요.
 
 {% endnote %}
 
 {% data reusables.user-settings.access_settings %}
-2. Under **Bio**, add the content that you want displayed on your profile. The bio field is limited to 160 characters.
-	![Update bio on profile](/assets/images/help/profile/bio-field.png)
+2. **바이오** 에서 프로필에 표시할 콘텐츠를 추가합니다. 바이오 필드는 160자로 제한됩니다.
+    ![프로필에서 bio 업데이트](/assets/images/help/profile/bio-field.png)
 
   {% tip %}
 
-  **Tip:** When you @mention an organization, only those that you're a member of will autocomplete. You can still @mention organizations that you're not a member of, like a previous employer, but the organization name won't autocomplete for you.
+  **팁:** 조직을 @mention할 경우 구성원인 사용자만 자동으로 완성됩니다. 이전 고용주처럼 구성원이 아닌 조직을 여전히 @mention할 수 있지만 조직 이름은 자동으로 완성되지 않습니다.
 
   {% endtip %}
 
@@ -99,105 +101,105 @@ For a longer-form and more prominent way of displaying customized information ab
 
 {% ifversion profile-time-zone %}
 
-## Setting your location and time zone
+## 위치 및 표준 시간대 설정
 
-You can set a location and time zone on your profile to show other people your local time. Your location and time zone will be visible:
-- on your {% data variables.product.product_name %} profile page.
-- when people hover over your username or avatar on {% data variables.product.product_name %}.
+프로필에서 위치 및 표준 시간대를 설정하여 현지 시간을 다른 사용자에게 표시할 수 있습니다. 위치 및 표준 시간대가 표시됩니다.
+- {% data variables.product.product_name %} 프로필 페이지에 있습니다.
+- 사용자가 {% data variables.product.product_name %}에서 사용자 이름 또는 아바타 위로 마우스를 가져가면
 
-When you view your profile, you will see your location, local time, and your time zone in relation to Universal Time Coordinated.
+프로필을 보면 유니버설 타임 조정과 관련하여 위치, 현지 시간 및 표준 시간대가 표시됩니다.
 
-  ![Screenshot of the Octocat profile page emphasizing the location, local time, and time zone fields.](/assets/images/help/profile/profile-location-and-time.png)
+  ![위치, 현지 시간 및 표준 시간대 필드를 강조하는 Octocat 프로필 페이지의 스크린샷](/assets/images/help/profile/profile-location-and-time.png)
 
-When others view your profile, they will see your location, local time, and the time difference in hours from their own local time.
+다른 사용자가 프로필을 볼 때 사용자의 위치, 현지 시간 및 시간 차이(현지 시간)가 표시됩니다.
 
-  ![Screenshot of the Octocat profile page emphasizing the location, local time, and relative time fields.](/assets/images/help/profile/profile-relative-time.png)
+  ![위치, 현지 시간 및 상대 시간 필드를 강조하는 Octocat 프로필 페이지의 스크린샷](/assets/images/help/profile/profile-relative-time.png)
 
 {% data reusables.user-settings.access_settings %}
-1. Under **Location**, type the location you want to be displayed on your profile.
+1. **위치** 아래에 프로필에 표시할 위치를 입력합니다.
 
-  ![Screenshot of the location and local time settings emphasizing the location field.](/assets/images/help/profile/location-field.png)
+  ![위치 필드를 강조하는 위치 및 현지 시간 설정의 스크린샷](/assets/images/help/profile/location-field.png)
 
-1. Optionally, to display the current local time on your profile, select **Display current local time**.
+1. 필요에 따라 프로필에 현재 현지 시간을 표시하려면 **현재 현지 시간 표시** 를 선택합니다.
 
-  ![Screenshot of the location and local time settings emphasizing the display current local time checkbox.](/assets/images/help/profile/display-local-time-checkbox.png)
+  ![현재 현지 시간 표시 확인란을 강조하는 위치 및 현지 시간 설정의 스크린샷](/assets/images/help/profile/display-local-time-checkbox.png)
 
-   - Select the **Time zone** dropdown menu, then click your local time zone.
+   - **표준 시간대** 드롭다운 메뉴를 선택한 다음, 현지 표준 시간대를 클릭합니다.
 
-     ![Screenshot of the location and local time settings emphasizing the time zone dropdown menu.](/assets/images/help/profile/time-zone-dropdown.png)
+     ![표준 시간대 드롭다운 메뉴를 강조하는 위치 및 현지 시간 설정의 스크린샷](/assets/images/help/profile/time-zone-dropdown.png)
    
 {% data reusables.profile.update-profile %}
 
 {% endif %}
 
-## Setting a status
+## 상태 설정
 
-You can set a status to display information about your current availability on {% data variables.product.product_name %}. Your status will show:
-- on your {% data variables.product.product_name %} profile page.
-- when people hover over your username or avatar on {% data variables.product.product_name %}.
-- on a team page for a team where you're a team member. For more information, see "[About teams](/articles/about-teams/#team-pages)."
-- on the organization dashboard in an organization where you're a member. For more information, see "[About your organization dashboard](/articles/about-your-organization-dashboard/)."
+{% data variables.product.product_name %}에서 현재 가용성에 대한 정보를 표시하도록 상태를 설정할 수 있습니다. 표시되는 상태
+- {% data variables.product.product_name %} 프로필 페이지에 있습니다.
+- 사용자가 {% data variables.product.product_name %}에서 사용자 이름 또는 아바타 위로 마우스를 가져가면
+- 구성원인 팀의 팀 페이지에 있습니다. 자세한 내용은 “[팀 정보](/articles/about-teams/#team-pages)”를 참조하세요.
+- 구성원인 조직의 조직 대시보드에 있습니다. 자세한 내용은 “[조직 대시보드 정보](/articles/about-your-organization-dashboard/)”를 참조하세요.
 
-When you set your status, you can also let people know that you have limited availability on {% data variables.product.product_name %}.
+상태를 설정할 때 {% data variables.product.product_name %}에 대한 가용성이 제한되어 있음을 사용자에게 알릴 수도 있습니다.
 
-![At-mentioned username shows "busy" note next to username](/assets/images/help/profile/username-with-limited-availability-text.png)
+![언급된 사용자 이름에는 사용자 이름 옆에 “사용 중” 메모가 표시됩니다.](/assets/images/help/profile/username-with-limited-availability-text.png)
 
-![Requested reviewer shows "busy" note next to username](/assets/images/help/profile/request-a-review-limited-availability-status.png)
+![요청된 검토자가 사용자 이름 옆에 “사용 중” 메모를 표시합니다.](/assets/images/help/profile/request-a-review-limited-availability-status.png)
 
-If you select the "Busy" option, when people @mention your username, assign you an issue or pull request, or request a pull request review from you, a note next to your username will show that you're busy. You will also be excluded from automatic review assignment for pull requests assigned to any teams you belong to. For more information, see "[Managing code review settings for your team](/organizations/organizing-members-into-teams/managing-code-review-settings-for-your-team)."
+“사용 중” 옵션을 선택하면 사용자 이름을 @mention하거나, 할당하거나, 요청을 끌어오거나, 끌어오기 요청 검토를 요청하는 경우 사용자 이름 옆에 있는 메모가 사용 중임을 표시합니다. 또한 사용자가 속한 모든 팀에 할당된 끌어오기 요청에 대한 자동 검토 할당에서 제외됩니다. 자세한 내용은 “[팀의 코드 검토 설정 관리](/organizations/organizing-members-into-teams/managing-code-review-settings-for-your-team)”를 참조하세요.
 
-1. In the top right corner of {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom_the_website %}{% else %}{% data variables.product.product_name %}{% endif %}, click your profile photo, then click **Set status** or, if you already have a status set, click your current status.
-  ![Button on profile to set your status](/assets/images/help/profile/set-status-on-profile.png)
-2. To add custom text to your status, click in the text field and type a status message.
-  ![Field to type a status message](/assets/images/help/profile/type-a-status-message.png)
-3. Optionally, to set an emoji status, click the smiley icon and select an emoji from the list.
-  ![Button to select an emoji status](/assets/images/help/profile/select-emoji-status.png)
-4. Optionally, if you'd like to share that you have limited availability, select "Busy."
-  ![Busy option selected in Edit status options](/assets/images/help/profile/limited-availability-status.png)
-5. Use the **Clear status** drop-down menu, and select when you want your status to expire. If you don't select a status expiration, you will keep your status until you clear or edit your status.
-  ![Drop down menu to choose when your status expires](/assets/images/help/profile/status-expiration.png)
-6. Use the drop-down menu and click the organization you want your status visible to. If you don't select an organization, your status will be public.
-  ![Drop down menu to choose who your status is visible to](/assets/images/help/profile/status-visibility.png)
-7. Click **Set status**.
-  ![Button to set status](/assets/images/help/profile/set-status-button.png)
+1. {% ifversion fpt 또는 ghec %}{% data variables.product.prodname_dotcom_the_website %}{% else %}{% data variables.product.product_name %}{% endif %}의 오른쪽 위 모서리에서 프로필 사진을 클릭한 다음 **상태 설정을** 클릭하거나 상태 집합이 이미 있는 경우 현재 상태를 클릭합니다.
+  ![프로필의 단추로 상태 설정](/assets/images/help/profile/set-status-on-profile.png)
+2. 사용자 지정 텍스트를 상태에 추가하려면 텍스트 필드를 클릭하고 상태 메시지를 입력합니다.
+  ![상태 메시지를 입력할 필드](/assets/images/help/profile/type-a-status-message.png)
+3. 필요에 따라 이모지 상태를 설정하려면 웃는 아이콘을 클릭하고 목록에서 이모지를 선택합니다.
+  ![이모지 상태를 선택하는 단추](/assets/images/help/profile/select-emoji-status.png)
+4. 또는, 가용성이 제한적임을 공유하려면 “사용 중”을 선택합니다.
+  ![상태 편집 옵션에서 사용 중 옵션 선택](/assets/images/help/profile/limited-availability-status.png)
+5. **상태 지우기** 드롭다운 메뉴를 사용하고 상태를 만료할 시기를 선택합니다. 상태 만료를 선택하지 않으면 상태를 지우거나 편집할 때까지 상태를 유지합니다.
+  ![상태가 만료되는 시기를 선택하는 드롭다운 메뉴](/assets/images/help/profile/status-expiration.png)
+6. 드롭다운 메뉴를 사용하고 상태를 표시할 조직을 클릭합니다. 조직을 선택하지 않으면 퍼블릭 상태가 됩니다.
+  ![상태가 표시될 조직을 선택하는 드롭다운 메뉴](/assets/images/help/profile/status-visibility.png)
+7. **상태 설정** 을 클릭합니다.
+  ![상태를 설정하는 단추](/assets/images/help/profile/set-status-button.png)
 
 {% ifversion fpt or ghec %}
-## Displaying badges on your profile
+## 프로필에 배지 표시
 
-When you participate in certain programs, {% data variables.product.prodname_dotcom %} automatically displays a badge on your profile.
+특정 프로그램에 참여하면 {% data variables.product.prodname_dotcom %}가 프로필에 배지를 자동으로 표시합니다.
 
-| Badge | Program | Description |
+| 배지 | 프로그램 | 설명 |
 | --- | --- | --- |
-| {% octicon "cpu" aria-label="The Developer Program icon" %} | **Developer Program Member** | If you're a registered member of the {% data variables.product.prodname_dotcom %} Developer Program, building an app with the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API, you'll get a Developer Program Member badge on your profile. For more information on the {% data variables.product.prodname_dotcom %} Developer Program, see [GitHub Developer](/program/). |
-| {% octicon "star-fill" aria-label="The star icon" %} | **Pro** | If you use {% data variables.product.prodname_pro %} you'll get a PRO badge on your profile. For more information about {% data variables.product.prodname_pro %}, see "[{% data variables.product.prodname_dotcom %}'s products](/github/getting-started-with-github/githubs-products#github-pro)." |
-| {% octicon "lock" aria-label="The lock icon" %} | **Security Bug Bounty Hunter** | If you helped out hunting down security vulnerabilities, you'll get a Security Bug Bounty Hunter badge on your profile. For more information about the {% data variables.product.prodname_dotcom %} Security program, see [{% data variables.product.prodname_dotcom %} Security](https://bounty.github.com/). |
-| {% octicon "mortar-board" aria-label="The mortar-board icon" %} | **{% data variables.product.prodname_dotcom %} Campus Expert** | If you participate in the {% data variables.product.prodname_campus_program %}, you will get a {% data variables.product.prodname_dotcom %} Campus Expert badge on your profile. For more information about the Campus Experts program, see [Campus Experts](https://education.github.com/experts). |
-| {% octicon "shield" aria-label="The shield icon" %} | **Security advisory credit** | If a security advisory you submit to the [{% data variables.product.prodname_dotcom %} Advisory Database](https://github.com/advisories) is accepted, you'll get a Security advisory credit badge on your profile. For more information about {% data variables.product.prodname_dotcom %} Security Advisories, see [{% data variables.product.prodname_dotcom %} Security Advisories](/code-security/repository-security-advisories/about-github-security-advisories-for-repositories). |
-| {% octicon "check" aria-label="The check icon" %} | **Discussion answered** | If your reply to a discussion is marked as the answer, you'll get a Discussion answered badge on your profile. For more information about {% data variables.product.prodname_dotcom %} Discussions, see [About discussions](/discussions/collaborating-with-your-community-using-discussions/about-discussions). |
+| {% octicon "cpu" aria-label="The Developer Program icon" %} | **개발자 프로그램 멤버** | {% data variables.product.prodname_dotcom %} 개발자 프로그램의 등록된 구성원인 경우 {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API를 사용하여 앱을 빌드하면 프로필에 개발자 프로그램 멤버 배지가 표시됩니다. {% data variables.product.prodname_dotcom %} 개발자 프로그램에 대한 자세한 내용은 [GitHub 개발자](/program/)를 참조하세요. |
+| {% octicon "star-fill" aria-label="The star icon" %} | **Pro** | {% data variables.product.prodname_pro %}를 사용하는 경우 프로필에 PRO 배지가 표시됩니다. {% data variables.product.prodname_pro %}에 대한 자세한 내용은 “[{% data variables.product.prodname_dotcom %}의 제품](/github/getting-started-with-github/githubs-products#github-pro)”을 참조하세요. |
+| {% octicon "lock" aria-label="The lock icon" %} | **보안 버그 장려금 헌터** | 보안 취약성을 헌팅하는 데 도움을 준 경우 프로필에 보안 버그 장려금 헌터 배지가 표시됩니다. {% data variables.product.prodname_dotcom %} 보안 프로그램에 대한 자세한 내용은 [{% data variables.product.prodname_dotcom %} 보안](https://bounty.github.com/)을 참조하세요. |
+| {% octicon "mortar-board" aria-label="The mortar-board icon" %} | **{% data variables.product.prodname_dotcom %} 캠퍼스 전문가** | {% data variables.product.prodname_campus_program %}에 참여하는 경우 프로필에 {% data variables.product.prodname_dotcom %} 캠퍼스 전문가 배지가 표시됩니다. 캠퍼스 전문가 프로그램에 대한 자세한 내용은 [캠퍼스 전문가](https://education.github.com/experts)를 참조하세요. |
+| {% octicon "shield" aria-label="The shield icon" %} | **보안 권고 크레딧** | [{% data variables.product.prodname_dotcom %} 권고 데이터베이스](https://github.com/advisories)에 제출하는 보안 권고가 수락되면 프로필에 보안 권고 크레딧 배지가 표시됩니다. {% data variables.product.prodname_dotcom %} 보안 권고에 대한 자세한 내용은 [{% data variables.product.prodname_dotcom %} 보안 권고](/code-security/repository-security-advisories/about-github-security-advisories-for-repositories)를 참조하세요. |
+| {% octicon "check" aria-label="The check icon" %} | **토론 답변** | 토론에 대한 회신이 답변으로 표시되면 프로필에 토론 답변 배지가 표시됩니다. {% data variables.product.prodname_dotcom %} 토론에 대한 자세한 내용은 “[토론 정보](/discussions/collaborating-with-your-community-using-discussions/about-discussions)”를 참조하세요. |
 
 {% endif %}
 
 {% ifversion fpt or ghec %}
 
-## Earning Achievements
+## 업적 획득
 
-Achievements celebrate specific events and actions that happen on {% data variables.product.prodname_dotcom %}. They will appear as small badges listed in the sidebar of your profile. Clicking or hovering on an achievement will show a detailed view that hints at how the achievement was earned, with a short description and links to the contributing events. The event links will only be visible to users that have access to the repository or organization that the event took place in. Event links will appear inaccessible to all users without access.
+업적은 {% data variables.product.prodname_dotcom %}에서 발생하는 특정 이벤트 및 작업을 기념합니다. 프로필의 사이드바에 나열된 작은 배지로 표시됩니다. 업적을 클릭하거나 마우스로 가리키면 간단한 설명 및 기여 이벤트에 대한 링크와 함께 업적을 획득한 방법을 설명하는 자세한 보기가 표시됩니다. 이벤트 링크는 이벤트가 발생한 리포지토리 또는 조직에 액세스할 수 있는 사용자에게만 표시됩니다. 이벤트 링크는 액세스 권한 없이 모든 사용자에게 액세스할 수 없는 상태로 표시됩니다.
 
-To stop private contributions from counting toward your Achievements, or to turn off Achievements entirely, see "[Showing your private contributions and Achievements on your profile](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile)."
+개인 기여가 업적에 계산되는 것을 방지하거나 업적을 완전히 비활성화하려면 "[프로필에 개인 기여 및 업적 표시](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile)"를 참조하세요.
 
 {% note %}
 
-**Note:** This feature is currently in beta and subject to change.
+**참고**: 이 기능은 현재 베타로 제공되며 변경될 수 있습니다.
 
 {% endnote %}
 
 {% endif %}
 
-## List of qualifying repositories for Mars 2020 Helicopter Contributor achievement
+## Mars 2020 Helicopter 기여자 업적을 받을 수 있는 리포지토리 목록
 
-If you authored any commit(s) present in the commit history for the listed tag of one or more of the repositories below, you'll receive the Mars 2020 Helicopter Contributor achievement on your profile. The authored commit must be with a verified email address, associated with your account at the time {% data variables.product.prodname_dotcom %} determined the eligible contributions, in order to be attributed to you. You can be the original author or [one of the co-authors](/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/creating-a-commit-with-multiple-authors) of the commit. Future changes to verified emails will not have an effect on the badge. We built the list based on information received from NASA's Jet Propulsion Laboratory.
+아래 리포지토리 중 하나 이상의 나열된 태그에 대한 커밋 기록에 있는 커밋을 작성한 경우 프로필에 Mars 2020 Helicopter 기여자 업적이 표시됩니다. 작성된 커밋이 귀속되기 위해서는 {% data variables.product.prodname_dotcom %}가 적격 기여를 결정할 때 계정과 연결된 인증된 메일 주소가 있어야 합니다. 원본 작성자이거나 커밋의 [공동 작성자 중 한 명](/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/creating-a-commit-with-multiple-authors)일 수 있습니다. 확인된 메일에 대한 향후 변경 내용은 배지에 영향을 미치지 않습니다. NASA의 Jet Propulsion Laboratory에서 받은 정보를 기반으로 목록을 구축했습니다.
 
-| {% data variables.product.prodname_dotcom %} Repository | Version | Tag |
+| {% data variables.product.prodname_dotcom %} 리포지토리 | 버전 | 태그 |
 |---|---|---|
 | [torvalds/linux](https://github.com/torvalds/linux) | 3.4 | [v3.4](https://github.com/torvalds/linux/releases/tag/v3.4) |
 | [python/cpython](https://github.com/python/cpython) | 3.9.2 | [v3.9.2](https://github.com/python/cpython/releases/tag/v3.9.2) |
@@ -268,6 +270,6 @@ If you authored any commit(s) present in the commit history for the listed tag o
 | [locationtech/jts](https://github.com/locationtech/jts) | 1.15.0 | [jts-1.15.0](https://github.com/locationtech/jts/releases/tag/jts-1.15.0) |
 | [apache/logging-log4j2](https://github.com/apache/logging-log4j2) | 2.11 | [log4j-2.11.0](https://github.com/apache/logging-log4j2/releases/tag/log4j-2.11.0) |
 
-## Further reading
+## 추가 참고 자료
 
-- "[About your profile](/articles/about-your-profile)"
+- “[프로필 정보](/articles/about-your-profile)”

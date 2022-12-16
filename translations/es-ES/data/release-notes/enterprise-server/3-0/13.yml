@@ -1,0 +1,17 @@
+date: '2021-08-10'
+sections:
+  bugs:
+    - "Cuando se habilitaron las Acciones de GitHub sin ejecutar los respaldos con programación frecuente, el registro de transacción de MSSQL pudo haber crecido más allá de los límites y consumido todo el espacio disponible en el disco de datos del aplicativo, causando una posible interrupción del servicio."
+    - "Las entradas de registro de auditoría para los cambios realizados a los ajustes de la organización de \"Creación de repositorios\" eran inexactas."
+    - "El registro excesivo de las excepciones de \"ActionController::UnknownFormat\" causa un uso innecesario de disco."
+    - "Los valores de \"group_dn\"de LDAP de más de 255 caracteres dieron como resultado que los errores se registraran: \"Datos truncados para la columna 'group_dn' en la fila 1\"."
+  changes:
+    - "Los límites de frecuencia abusiva ahora se llaman límites de frecuencia secundarios, ya que el comportamiento que limitan no siempre es abusivo."
+  known_issues:
+    - "En una instalación nueva de {% data variables.product.prodname_ghe_server %} que no tenga ningún usuario, cualquier atacante podría crear el primer usuario administrativo."
+    - Las reglas de cortafuegos personalizadas se eliminan durante el proceso de actualización.
+    - "Los archivos supervisados de Git LFS [cargados desde la interface web](https://github.com/blog/2105-upload-files-to-your-repositories) se han agregado de manera incorrecta y directa al repositorio."
+    - Las incidencias no se pueden cerrar si contienen un enlace permanente a un blob del mismo repositorio en el que la ruta es mayor de 255 caracteres.
+    - "Cuando se habilita \"Los usuarios pueden buscar en GitHub.com\" con GitHub Connect, las incidencias en los repositorios privados e internos no se incluyen en los resultados de la búsqueda de GitHub.com."
+    - "Cuando un nodo de réplica está sin conexión en una configuración de disponibilidad alta, es posible que {% data variables.product.product_name %} todavía enrute las solicitudes a {% data variables.product.prodname_pages %} al nodo sin conexión, lo que reduce la disponibilidad de {% data variables.product.prodname_pages %} para los usuarios."
+    - Los límites de recursos que son específicos para procesar enlaces previos a la recepción podrían ocasionar errores en algunos de ellos.

@@ -1,32 +1,37 @@
 ---
-title: Writing mathematical expressions
-intro: 'Use Markdown to display mathematical expressions on {% data variables.product.company_short %}.'
+title: 数式の記述
+intro: 'Markdown を使って、{% data variables.product.company_short %} で数式を表示します。'
 versions:
   feature: math
 shortTitle: Mathematical expressions
+ms.openlocfilehash: b50cdde16f5496e65faf89f0692dc6201cccf15a
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147529752'
 ---
+## 数式の記述について
 
-## About writing mathematical expressions
+数式をわかりやすくやり取りできるように、{% data variables.product.product_name %} では Markdown 内の LaTeX 形式の数式がサポートされています。 詳細については、Wikibooks の「[LaTeX/Mathematics](http://en.wikibooks.org/wiki/LaTeX/Mathematics)」を参照してください。
 
-To enable clear communication of mathematical expressions, {% data variables.product.product_name %} supports LaTeX formatted math within Markdown. For more information, see [LaTeX/Mathematics](http://en.wikibooks.org/wiki/LaTeX/Mathematics) in Wikibooks.
+{% data variables.product.company_short %} の数式レンダリング機能では、オープンソースの JavaScript ベースの表示エンジンである MathJax が使用されます。 MathJax では、幅広い LaTeX マクロと、いくつかの便利なアクセシビリティ拡張機能がサポートされています。 詳細については、[MathJax のドキュメント](http://docs.mathjax.org/en/latest/input/tex/index.html#tex-and-latex-support)と [MathJax アクセシビリティ拡張機能のドキュメント](https://mathjax.github.io/MathJax-a11y/docs/#reader-guide)を参照してください。
 
-{% data variables.product.company_short %}'s math rendering capability uses MathJax; an open source, JavaScript-based display engine. MathJax supports a wide range of LaTeX macros, and several useful accessibility extensions. For more information, see [the MathJax documentation](http://docs.mathjax.org/en/latest/input/tex/index.html#tex-and-latex-support) and [the MathJax Accessibility Extensions Documentation](https://mathjax.github.io/MathJax-a11y/docs/#reader-guide).
+数式のレンダリングは、{% data variables.product.prodname_github_issues %}、{% data variables.product.prodname_discussions %}、pull request、{% ifversion fpt or ghec or ghes > 3.6 or ghae-issue-7647 %}Wiki、{% endif %}、Markdown ファイルで利用できます。
 
-Mathematical expressions rendering is available in {% data variables.product.prodname_github_issues %}, {% data variables.product.prodname_discussions %}, pull requests, {% ifversion fpt or ghec or ghes > 3.6 or ghae > 3.6 %}wikis, {% endif %}and Markdown files.
+## インライン式の記述
 
-## Writing inline expressions
-
-To include a math expression inline with your text, delimit the expression with a dollar symbol `$`.
+数式をテキストにインラインで含めるには、式をドル記号 `$` で区切ります。
 
 ```
 This sentence uses `$` delimiters to show math inline:  $\sqrt{3x-1}+(1+x)^2$
 ```
 
-![Inline math markdown rendering](/assets/images/help/writing/inline-math-markdown-rendering.png)
+![インラインで数式マークダウンをレンダリングする](/assets/images/help/writing/inline-math-markdown-rendering.png)
 
-## Writing expressions as blocks
+## ブロックとして式を記述する
 
-To add a math expression as a block, start a new line and delimit the expression with two dollar symbols `$$`.
+数式をブロックとして追加するには、新しい行を開始し、式を 2 つのドル記号 `$$` で区切ります。
 
 ```
 **The Cauchy-Schwarz Inequality**
@@ -34,11 +39,11 @@ To add a math expression as a block, start a new line and delimit the expression
 $$\left( \sum_{k=1}^n a_k b_k \right)^2 \leq \left( \sum_{k=1}^n a_k^2 \right) \left( \sum_{k=1}^n b_k^2 \right)$$
 ```
 
-![Math expression as a block rendering](/assets/images/help/writing/math-expression-as-a-block-rendering.png)
+![数式をブロックとしてレンダリングする](/assets/images/help/writing/math-expression-as-a-block-rendering.png)
 
 {% ifversion math-fenced-blocks %}
 
-Alternatively, you can use the <code>\`\`\`math</code> code block syntax to display a math expression as a block. With this syntax, you don't need to use `$$` delimiters.
+または、<code>\`\`\`math</code> コード ブロック構文を使って、数式をブロックとして表示することもできます。 この構文では、`$$` 区切り記号を使う必要はありません。
 
 ````
 **Here is some math!**
@@ -48,32 +53,32 @@ Alternatively, you can use the <code>\`\`\`math</code> code block syntax to disp
 ```
 ````
 
-![Math expression in a fenced code block](/assets/images/help/writing/math-expression-as-a-fenced-code-block.png)
+![フェンスされたコード ブロック内の数式](/assets/images/help/writing/math-expression-as-a-fenced-code-block.png)
 
 {% endif %}
 
-## Writing dollar signs in line with and within mathematical expressions
+## インラインで数式の内外にドル記号を記述する
 
-To display a dollar sign as a character in the same line as a mathematical expression, you need to escape the non-delimiter `$` to ensure the line renders correctly.
+数式と同じ行にドル記号を文字として表示するには、区切り記号でない `$` をエスケープして、行が正しくレンダリングされるようにする必要があります。
   
-  - Within a math expression, add a `\` symbol before the explicit `$`.
+  - 数式内では、明示する `$` の前に `\` 記号を追加します。
 
   ```
   This expression uses `\$` to display a dollar sign: $\sqrt{\$4}$
   ```
 
-  ![Dollar sign within math expression](/assets/images/help/writing/dollar-sign-within-math-expression.png)
+  ![数式内のドル記号](/assets/images/help/writing/dollar-sign-within-math-expression.png)
 
-  - Outside a math expression, but on the same line, use span tags around the explicit `$`.
+  - 数式外の同じ行では、明示する `$` の周りに span タグを使用します。
 
   ```
   To split <span>$</span>100 in half, we calculate $100/2$
   ```
 
-  ![Dollar sign inline math expression](/assets/images/help/writing/dollar-sign-inline-math-expression.png)
+  ![数式と同じ行内のドル記号](/assets/images/help/writing/dollar-sign-inline-math-expression.png)
 
-## Further reading
+## 参考資料
 
-* [The MathJax website](http://mathjax.org)
-* [Getting started with writing and formatting on GitHub](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github)
-* [GitHub Flavored Markdown Spec](https://github.github.com/gfm/)
+* [MathJax の Web サイト](http://mathjax.org)
+* [GitHub での記述と書式設定の開始](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github)
+* [GitHub Flavored Markdown 仕様](https://github.github.com/gfm/)

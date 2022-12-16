@@ -7,12 +7,12 @@ versions:
   feature: copilot
 topics:
   - Copilot
-ms.openlocfilehash: 63c670a7cd5263057f79b7761a960854ecac2dd6
-ms.sourcegitcommit: 7fb7ec2e665856fc5f7cd209b53bd0fb1c9bbc67
+ms.openlocfilehash: ec117cce02fab8917aef958c69077c521d9c1974
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/29/2022
-ms.locfileid: '148185125'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148192766'
 ---
 {% data reusables.copilot.copilot-cta-button %}
 
@@ -24,7 +24,9 @@ Usando o {% data variables.product.prodname_vscode %}, você pode ver e incorpor
 
 ## Pré-requisitos
 
-Para usar o {% data variables.product.prodname_copilot %} no {% data variables.product.prodname_vscode %}, o {% data variables.product.prodname_vscode %} precisa estar instalado. Para obter mais informações, confira a [página de download do {% data variables.product.prodname_vscode %}](https://code.visualstudio.com/Download).
+{% data reusables.copilot.subscription-prerequisite %}
+
+- Para usar o {% data variables.product.prodname_copilot %} no {% data variables.product.prodname_vscode %}, o {% data variables.product.prodname_vscode %} precisa estar instalado. Para obter mais informações, confira a [página de download do {% data variables.product.prodname_vscode %}](https://code.visualstudio.com/Download).
 
 ## Como instalar a extensão {% data variables.product.prodname_vscode %}
 

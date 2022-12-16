@@ -10,12 +10,12 @@ redirect_from:
 versions:
   fpt: '*'
 shortTitle: For students
-ms.openlocfilehash: 198f0354e63721a4763e8fa32f832a19b2dac9d9
-ms.sourcegitcommit: 3abdbdbb47a9319f20e11845e9c2d8a7fce63422
+ms.openlocfilehash: b5d1d75e8c93bc147bc5185106ecef8c00a67c05
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2022
-ms.locfileid: '148165095'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148193135'
 ---
 将 {% data variables.product.prodname_dotcom %} 用于学校项目是一种与别人协作的实用方式，可创建展示真实世界的作品集。
 
@@ -40,7 +40,7 @@ ms.locfileid: '148165095'
 - 从 GitHub Community Exchange 发现学生创建的存储库。 有关详细信息，请参阅“[关于 GitHub Community Exchange](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/about-github-community-exchange)”。
 
 {% data variables.product.prodname_global_campus %} 学生还可获得以下 {% data variables.product.prodname_dotcom %} 权益。
-- **{% data variables.product.prodname_copilot %}** ：通过验证的学生可免费订阅 {% data variables.product.prodname_copilot %}。 在帐户设置中访问 {% data variables.product.prodname_copilot %} 订阅页时，将自动收到有关免费订阅的通知。 有关订阅和使用 {% data variables.product.prodname_copilot %} 的详细信息，请参阅“[管理 {% data variables.product.prodname_copilot %} 订阅](/billing/managing-billing-for-github-copilot/managing-your-github-copilot-subscription#setting-up-a-trial-of-github-copilot)”和“[关于 {% data variables.product.prodname_copilot %}](/copilot/overview-of-github-copilot/about-github-copilot)”。
+- **{% data variables.product.prodname_copilot %}** ：通过验证的学生可免费订阅 {% data variables.product.prodname_copilot %}。 在帐户设置中访问 {% data variables.product.prodname_copilot %} 订阅页时，将自动收到有关免费订阅的通知。 有关订阅和使用 {% data variables.product.prodname_copilot %} 的详细信息，请参阅“[管理 {% data variables.product.prodname_copilot_for_individuals %} 订阅](/billing/managing-billing-for-github-copilot/managing-your-github-copilot-for-individuals-subscription#setting-up-a-trial-of-github-copilot)”和“[关于 {% data variables.product.prodname_copilot %}](/copilot/overview-of-github-copilot/about-github-copilot)”。
 - **{% data variables.product.prodname_github_codespaces %}** ：{% data reusables.education.student-codespaces-benefit %} 有关 {% data variables.product.prodname_github_codespaces %} 入门信息，请参阅“[{% data variables.product.prodname_github_codespaces %} 概述](/codespaces/overview)”。
 
 {% note %}

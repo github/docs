@@ -1,1 +1,9 @@
-{% ifversion not fpt %}Organization owners and security managers can access the organization-level security overview{% ifversion ghec or ghes > 3.4 or ghae > 3.4 %} and view alerts across multiple organizations via the enterprise-level security overview. Enterprise owners can only view repositories and alerts for organizations where they are added as an organization owner or security manager{% endif %}. {% ifversion ghec or ghes > 3.6 or ghae > 3.6 %}Organization members can access the organization-level security overview to view results for repositories where they have admin privileges or have been granted access to security alerts.{% else %}Members of a team can see the security overview for repositories that the team has admin privileges for.{% endif %}{% endif %}
+---
+ms.openlocfilehash: f7065b89a94ee3b76a4956a0cf06ea53c03187e2
+ms.sourcegitcommit: 27882d9b3f19979c817c25952a2fb4dc4c6f0a65
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/27/2022
+ms.locfileid: "148114072"
+---
+{% ifversion not fpt %} Владельцы организации и менеджеры по безопасности могут получить доступ к обзору безопасности на уровне организации{% ifversion ghec or ghes > 3.4 or ghae > 3,4 %} и просматривать оповещения в нескольких организациях с помощью обзора безопасности корпоративного уровня. Владельцы предприятия могут просматривать репозитории и оповещения только для организаций, в которых они добавлены в качестве владельца организации или менеджера по безопасности{% endif %}. {% ifversion ghec or ghes > 3.6 or ghae > 3.6 %} Участники организации могут получить доступ к обзору безопасности на уровне организации, чтобы просмотреть результаты для репозиториев, у которых есть права администратора или которым предоставлен доступ к оповещениям системы безопасности. {% else %} Участники команды могут просматривать общие сведения о безопасности репозиториев, для которого у команды есть права администратора. {% endif %} {% endif %}

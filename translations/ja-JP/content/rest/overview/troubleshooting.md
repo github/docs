@@ -10,12 +10,12 @@ versions:
   ghec: '*'
 topics:
   - API
-ms.openlocfilehash: ecfa3a360ef9b042d96a1f80a2f0cde49390727f
-ms.sourcegitcommit: d2f0b59ed096b9e68ef8f6fa019cd925165762ec
+ms.openlocfilehash: c696f18d89ffe7d9c9c7c13eda933285502132ae
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/29/2022
-ms.locfileid: '148184234'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148192834'
 ---
 API で不可解な問題が発生した場合、発生したと思われる問題の解決策をこちらの一覧から確認できます。
 
@@ -46,7 +46,7 @@ $ curl {% data reusables.rest-api.version-header %} https://api.github.com/zen
 
 リソースの一 _覧 (ユーザー_、問題 _など_) にアクセスするほとんどの API 呼び出しでは、改ページ処理がサポートされます。 要求したがすべての結果を受け取っていない場合は、おそらく最初のページしか表示されていません。 より多くの結果を受け取るには、残りのページを要求する必要があります。
 
-改ページ URL の形式を推測 *しないように* することが重要です。 すべての API 呼び出しで同じ構造が使用されるわけではありません。 代わりに、すべての要求で送信される [Link Header](/rest#pagination) からページネーション情報を抽出します。
+改ページ URL の形式を推測 *しないように* することが重要です。 すべての API 呼び出しで同じ構造が使用されるわけではありません。 代わりに、すべての要求で返されるリンク ヘッダーからページネーション情報を抽出します。 ページネーションの詳細については、「[REST API でページネーションを使用する](/rest/guides/using-pagination-in-the-rest-api)」を参照してください。
 
 [oap-guide]: https://developer.github.com/changes/2015-01-19-an-integrators-guide-to-organization-application-policies/
 

@@ -1,6 +1,6 @@
 ---
-title: Introduction to GitHub Packages
-intro: '{% data variables.product.prodname_registry %} is a software package hosting service that allows you to host your software packages privately {% ifversion ghae %} for specified users or internally for your enterprise{% else %}or publicly{% endif %} and use packages as dependencies in your projects.'
+title: GitHub 패키지 소개
+intro: '{% data variables.product.prodname_registry %}는 지정된 사용자에 대해 비공개로{% ifversion ghae %} 또는 엔터프라이즈에 대해 내부적으로{% else %}또는 공개적으로{% endif %} 소프트웨어 패키지를 호스트하고 패키지를 프로젝트에 종속성으로 사용할 수 있도록 하는 소프트웨어 패키지 호스팅 서비스입니다.'
 product: '{% data reusables.gated-features.packages %}'
 redirect_from:
   - /articles/about-github-package-registry
@@ -16,122 +16,108 @@ versions:
   ghae: '*'
   ghec: '*'
 shortTitle: Introduction
+ms.openlocfilehash: 1ad319ead16f10186b330f876ccaa83bc44bdbcd
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148193027'
 ---
+{% data reusables.package_registry.packages-ghes-release-stage %} {% data reusables.package_registry.packages-ghae-release-stage %}
 
-{% data reusables.package_registry.packages-ghes-release-stage %}
-{% data reusables.package_registry.packages-ghae-release-stage %}
+## {% data variables.product.prodname_registry %} 정보
 
-## About {% data variables.product.prodname_registry %}
+{% data variables.product.prodname_registry %}는 컨테이너, 기타 종속성 등을 포함하여 패키지를 호스트하고 관리하기 위한 플랫폼입니다. {% data variables.product.prodname_registry %}는 원본 코드와 패키지를 한 곳에 결합하여 통합 권한 관리{% ifversion fpt or ghec %} 및 청구{% endif %}를 제공하므로 {% data variables.product.product_name %}에서 소프트웨어 개발을 중앙 집중화할 수 있습니다.
 
-{% data variables.product.prodname_registry %} is a platform for hosting and managing packages, including containers and other dependencies. {% data variables.product.prodname_registry %} combines your source code and packages in one place to provide integrated permissions management{% ifversion fpt or ghec %} and billing{% endif %}, so you can centralize your software development on {% data variables.product.product_name %}.
+{% data variables.product.prodname_registry %}를 {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API, {% data variables.product.prodname_actions %}, 웹후크와 통합하여 코드, CI 및 배포 솔루션을 포함하는 엔드투엔드 DevOps 워크플로를 만들 수 있습니다.
 
-You can integrate {% data variables.product.prodname_registry %} with {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} APIs, {% data variables.product.prodname_actions %}, and webhooks to create an end-to-end DevOps workflow that includes your code, CI, and deployment solutions.
-
-{% data variables.product.prodname_registry %} offers different package registries for commonly used package managers, such as npm, RubyGems, Apache Maven, Gradle, Docker, and NuGet. {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}'s {% data variables.product.prodname_container_registry %} is optimized for containers and supports Docker and OCI images.{% endif %} For more information on the different package registries that {% data variables.product.prodname_registry %} supports, see "[Working with a {% data variables.product.prodname_registry %} registry](/packages/working-with-a-github-packages-registry)."
+{% data variables.product.prodname_registry %}는 npm, RubyGems, Apache Maven, Gradle, Docker, NuGet 등 일반적으로 사용되는 패키지 관리자를 위한 다양한 패키지 레지스트리를 제공합니다. {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}의 {% data variables.product.prodname_container_registry %}는 컨테이너에 최적화되며 Docker 및 OCI 이미지를 지원합니다.{% endif %} {% data variables.product.prodname_registry %}가 지원하는 다양한 패키지 레지스트리에 관한 자세한 내용은 “[{% data variables.product.prodname_registry %} 레지스트리 작업](/packages/working-with-a-github-packages-registry)”을 참조하세요.
 
 {% ifversion fpt or ghec %}
 
-![Diagram showing packages support for the Container registry, RubyGems, npm, Apache Maven, NuGet, and Gradle](/assets/images/help/package-registry/packages-diagram-with-container-registry.png)
+![컨테이너 레지스트리, RubyGems, npm, Apache Maven, NuGet, Gradle 등에 대한 패키지 지원을 보여 주는 다이어그램](/assets/images/help/package-registry/packages-diagram-with-container-registry.png)
 
 {% else %}
 
-![Diagram showing packages support for the Docker registry, RubyGems, npm, Apache Maven, Gradle, NuGet, and Docker](/assets/images/help/package-registry/packages-diagram-without-container-registry.png)
+![Docker 레지스트리, RubyGems, npm, Apache Maven, Gradle, NuGet, Docker 등에 대한 패키지 지원을 보여 주는 다이어그램](/assets/images/help/package-registry/packages-diagram-without-container-registry.png)
 
 {% endif %}
 
-You can view a package's README, as well as metadata such as licensing, download statistics, version history, and more on {% data variables.product.product_name %}. For more information, see "[Viewing packages](/packages/manage-packages/viewing-packages)."
+{% data variables.product.product_name %}에서 라이선스, 다운로드 통계, 버전 기록 등의 메타데이터뿐만 아니라 패키지의 추가 정보도 볼 수 있습니다. 자세한 내용은 “[패키지 보기](/packages/manage-packages/viewing-packages)”를 참조하세요.
 
 {% ifversion ghes %}
 
-For more information about the configuration of {% data variables.product.prodname_registry %} on {% data variables.product.product_name %}, see "[Getting started with {% data variables.product.prodname_registry %} for your enterprise](/admin/packages/getting-started-with-github-packages-for-your-enterprise)."
+{% data variables.product.product_name %}의 {% data variables.product.prodname_registry %} 구성에 대한 자세한 내용은 “[엔터프라이즈용 {% data variables.product.prodname_registry %} 시작](/admin/packages/getting-started-with-github-packages-for-your-enterprise)”을 참조하세요.
 
 {% endif %}
 
-### Overview of package permissions and visibility
+### 패키지 권한 및 표시 여부 개요
 
 |                    |        |
 |--------------------|--------------------|
-| Permissions        | {% ifversion fpt or ghec %}The permissions for a package are either inherited from the repository where the package is hosted or, for packages in the {% data variables.packages.prodname_ghcr_and_npm_registry %}, they can be defined for specific user or organization accounts. For more information, see "[Configuring a package’s access control and visibility](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility)." {% else %}Each package inherits the permissions of the repository where the package is hosted. <br> <br> For example, anyone with read permissions for a repository can install a package as a dependency in a project, and anyone with write permissions can publish a new package version.{% endif %} |
-| Visibility         | {% data reusables.package_registry.public-or-private-packages %} |
-
-For more information, see "[About permissions for {% data variables.product.prodname_registry %}](/packages/learn-github-packages/about-permissions-for-github-packages)."
+| 사용 권한        | {% ifversion packages-registries-v2 %} 패키지에 대한 권한은 패키지가 호스트되는 리포지토리에서 상속되거나 특정 사용자 또는 조직 계정에 대해 정의될 수 있습니다. 일부 레지스트리는 리포지토리에서 상속된 권한만 지원합니다. 이러한 레지스트리 목록은 "[{% data variables.product.prodname_registry %}에 대한 권한 정보"를 참조하세요](/packages/learn-github-packages/about-permissions-for-github-packages#permissions-for-repository-scoped-packages). 패키지 액세스에 대한 자세한 내용은 "[패키지의 액세스 제어 및 표시 유형 구성"을 참조하세요](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility). {% else %}각 패키지는 패키지가 호스트되는 리포지토리의 권한을 상속합니다. <br> <br> 예를 들어, 리포지토리의 읽기 권한이 있는 사용자는 프로젝트에서 패키지를 종속성으로 설치할 수 있으며, 쓰기 권한이 있는 사용자는 누구나 새 패키지 버전을 게시할 수 있습니다.{% endif %} |
+| 가시 거리         | {% data reusables.package_registry.public-or-private-packages %} |
 
 {% ifversion fpt or ghec %}
-## About billing for {% data variables.product.prodname_registry %}
+## {% data variables.product.prodname_registry %} 요금 청구 정보
 
-{% data reusables.package_registry.packages-billing %} {% data reusables.package_registry.packages-spending-limit-brief %} For more information, see "[About billing for {% data variables.product.prodname_registry %}](/billing/managing-billing-for-github-packages/about-billing-for-github-packages)."
+{% data reusables.package_registry.packages-billing %} {% data reusables.package_registry.packages-spending-limit-brief %} 자세한 내용은 “[{% data variables.product.prodname_registry %}에 대한 청구 정보](/billing/managing-billing-for-github-packages/about-billing-for-github-packages)”를 참조하세요.
 
 {% endif %}
 
-## Supported clients and formats
+## 지원되는 클라이언트 및 형식
 <!-- If you make changes to this feature, check whether any of the changes affect languages listed in /get-started/learning-about-github/github-language-support. If so, please update the language support article accordingly. -->
 
-{% data variables.product.prodname_registry %} uses the native package tooling commands you're already familiar with to publish and install package versions.
-### Support for package registries
+{% data variables.product.prodname_registry %}는 이미 친숙한 네이티브 패키지 도구 명령을 사용하여 패키지 버전을 게시하고 설치합니다.
+### 패키지 레지스트리 지원
 
-| Language | Description | Package format | Package client |
+| 언어 | Description | 패키지 형식 | 패키지 클라이언트 |
 | --- | --- | --- | --- |
-| JavaScript | Node package manager | `package.json`  | `npm` |
-| Ruby |  RubyGems package manager | `Gemfile` |  `gem` |
-| Java | Apache Maven project management and comprehension tool | `pom.xml` |  `mvn` |
-| Java | Gradle build automation tool for Java | `build.gradle` or `build.gradle.kts`  | `gradle`  |
-| .NET | NuGet package management for .NET | `nupkg`  |  `dotnet` CLI |
-| N/A | Docker container management | `Dockerfile` | `Docker` |
+| JavaScript | Node 패키지 관리자 | `package.json`  | `npm` |
+| Ruby |  RubyGems 패키지 관리자 | `Gemfile` |  `gem` |
+| Java | Apache Maven 프로젝트 관리 및 종합 도구 | `pom.xml` |  `mvn` |
+| Java | Java에 대한 Gradle 빌드 자동화 도구 | `build.gradle` 또는 `build.gradle.kts`  | `gradle`  |
+| .NET | .NET에 대한 NuGet 패키지 관리 | `nupkg`  |  `dotnet` CLI |
+| 해당 없음 | Docker 컨테이너 관리 | `Dockerfile` | `Docker` |
 
-{% ifversion ghes %}
-{% note %}
+{% ifversion ghes %} {% note %}
 
-**Note:** When enabling the Docker registry, we highly recommend also enabling subdomain isolation. For more information, see "[Enabling subdomain isolation](/admin/configuration/configuring-network-settings/enabling-subdomain-isolation)."
+**참고:** Docker 레지스트리를 사용하도록 설정하는 경우 하위 도메인 격리를 사용하도록 설정하는 것이 좋습니다. 자세한 내용은 “[하위 도메인 격리 사용](/admin/configuration/configuring-network-settings/enabling-subdomain-isolation)”을 참조하세요.
 
 {% endnote %}
 
 {% endif %}
 
-For more information about configuring your package client for use with {% data variables.product.prodname_registry %}, see "[Working with a {% data variables.product.prodname_registry %} registry](/packages/working-with-a-github-packages-registry)."
+{% data variables.product.prodname_registry %}에서 사용할 패키지 클라이언트를 구성하는 방법에 관한 자세한 내용은 “[{% data variables.product.prodname_registry %} 레지스트리 작업](/packages/working-with-a-github-packages-registry)”을 참조하세요.
 
-{% ifversion fpt or ghec %}
-For more information about Docker and the {% data variables.product.prodname_container_registry %}, see "[Working with the Container registry](/packages/working-with-a-github-packages-registry/working-with-the-container-registry)."
+{% ifversion fpt or ghec %} Docker 및 {% data variables.product.prodname_container_registry %}에 관한 자세한 내용은 “[컨테이너 레지스트리 작업](/packages/working-with-a-github-packages-registry/working-with-the-container-registry)”을 참조하세요.
 {% endif %}
-## Authenticating to {% data variables.product.prodname_registry %}
+## {% data variables.product.prodname_registry %} 인증
 
 {% data reusables.package_registry.authenticate-packages %}
 
 {% data reusables.package_registry.authenticate-packages-github-token %}
 
-## Managing packages
+## 패키지 관리
 
-{% ifversion fpt or ghec %}
-You can delete a package in the {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %} user interface or using the REST API. For more information, see "[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package)" and the "[{% data variables.product.prodname_registry %} API](/rest/reference/packages)."
+{% data variables.product.product_name %} 사용자 인터페이스{% ifversion fpt or ghec %} 또는 REST API를 사용하여 패키지를 삭제할 수 있습니다. 자세한 내용은 "[패키지 삭제 및 복원" 및](/packages/learn-github-packages/deleting-and-restoring-a-package) "[{% data variables.product.prodname_registry %} API](/rest/reference/packages)"를 참조하세요. {% else %}. {% endif %} {% data reusables.package_registry.about-graphql-support %}
 
-{% data reusables.package_registry.no-graphql-to-delete-packages %}
-{% endif %}
+GraphQL API를 사용하여 프라이빗 패키지를 쿼리하고 삭제하는 경우 {% data variables.product.pat_v1 %}에 인증하는 데 사용하는 것과 동일한 {% data variables.product.prodname_registry %}을(를) 사용해야 합니다.
 
-{% ifversion ghes %}
-You can delete a private or public package in the {% data variables.product.product_name %} user interface. Or for repo-scoped packages, you can delete a version of a private package using GraphQL.
-{% endif %}
+자세한 내용은 {% ifversion ghes or ghae %}“[패키지 삭제 및 복원](/packages/learn-github-packages/deleting-and-restoring-a-package)” 및 {% endif %}“[GraphQL을 사용하여 호출 형성](/graphql/guides/forming-calls-with-graphql)”을 참조하세요.
 
-{% ifversion ghae %}
-You can delete a version of a package in the {% data variables.product.product_name %} user interface or using the GraphQL API.
-{% endif %}
+패키지가 게시되거나 업데이트되는 경우와 같은 패키지 관련 이벤트를 구독하도록 웹후크를 구성할 수 있습니다. 자세한 내용은 “[`package` 웹후크 이벤트](/webhooks/event-payloads/#package)”를 참조하세요.
 
-When you use the GraphQL API to query and delete private packages, you must use the same {% data variables.product.pat_v1 %} you use to authenticate to {% data variables.product.prodname_registry %}.
+## 고객 지원팀에 연락
 
-For more information, see {% ifversion ghes or ghae %}"[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package)" and {% endif %}"[Forming calls with GraphQL](/graphql/guides/forming-calls-with-graphql)."
+{% ifversion fpt or ghec %} {% data variables.product.prodname_registry %}에 대한 피드백 또는 기능 요청이 있는 경우 [{% data variables.product.prodname_github_community %} 토론](https://github.com/orgs/community/discussions/categories/actions-and-packages)을 사용합니다.
 
-You can configure webhooks to subscribe to package-related events, such as when a package is published or updated. For more information, see the "[`package` webhook event](/webhooks/event-payloads/#package)."
+다음 경우에는 [연락처 양식](https://support.github.com/contact?form%5Bsubject%5D=Re:%20GitHub%20Packages)을 사용하여 {% data variables.contact.github_support %}에 {% data variables.product.prodname_registry %}에 관해 문의하세요.
 
-## Contacting support
+* 설명서와 상반되는 것이 나타납니다.
+* 모호하거나 명확하지 않은 오류가 발생합니다.
+* 게시된 패키지에는 GDPR 위반, API 키 또는 개인 식별 정보와 같은 중요한 데이터가 포함됩니다.
 
-{% ifversion fpt or ghec %}
-If you have feedback or feature requests for {% data variables.product.prodname_registry %}, use a [{% data variables.product.prodname_github_community %} discussion](https://github.com/orgs/community/discussions/categories/actions-and-packages).
-
-Contact {% data variables.contact.github_support %} about {% data variables.product.prodname_registry %} using [our contact form](https://support.github.com/contact?form%5Bsubject%5D=Re:%20GitHub%20Packages) if:
-
-* You experience anything that contradicts the documentation
-* You encounter vague or unclear errors
-* Your published package contains sensitive data, such as GDPR violations, API Keys, or personally identifying information
-
-{% else %}
-If you need support for {% data variables.product.prodname_registry %}, please contact your site administrators.
+{% else %} {% data variables.product.prodname_registry %}에 대한 지원이 필요한 경우 사이트 관리자에게 문의하세요.
 
 {% endif %}

@@ -1,0 +1,41 @@
+date: '2022-04-04'
+sections:
+  security_fixes:
+    - '中: {% data variables.product.prodname_ghe_server %} 管理コンソールでパス走査の脆弱性が確認されました。これにより、CSRF 保護のバイパスが可能になりました。この脆弱性により、3.5 より前の {% data variables.product.prodname_ghe_server %} のすべてのバージョンが影響を受けます。バージョン 3.1.19、3.2.11、3.3.6、3.4.1 で修正されました。この脆弱性は、{% data variables.product.prodname_dotcom %} Bug Bounty プログラムから報告され、CVE-2022-23732 が割り当てられました。'
+    - '中: `yajil` の 1.x ブランチと 2.x ブランチで整数オーバーフローの脆弱性が確認されました。これは、大規模入力 (~2GB) の処理時に後続のヒープ メモリが破損する原因になります。この脆弱性は内部的に報告され、CVE-2022-24795 が割り当てられました。'
+    - "{% data variables.product.prodname_actions %} が有効にされた場合、サポート バンドルには機密ファイルが含まれている可能性があります。" 
+    - パッケージは最新のセキュリティ バージョンに更新されました。 
+  bugs:
+    - "以前のリリースでこれらのプロトコル バージョンの削除が行われたにもかかわらず、管理コンソールの [プライバシー] 設定の `TLS 1.0` と `TLS 1.1` を有効にするオプションが表示されていました。" 
+    - "HA 環境では、MSSQL レプリケーションを構成するには、{% data variables.product.prodname_actions %} を初めて有効にした後で追加の手動手順が必要な場合がありました。" 
+    - ホットパッチの後、内部構成ファイルのサブセットの更新がより確実に行われます。 
+    - "`ghe-run-migrations` スクリプトでは、一時証明書名の生成が正しく行われない場合があります。" 
+    - クラスター環境では、複数の Web ノードにわたる内部 API 呼び出しの失敗とともに、Git LFS 操作が失敗する可能性があります。 
+    - "`syscall` 権限が不十分なため、`gpg --import` を使用する pre-receive フックがタイムアウトしました。" 
+    - 一部のクラスター トポロジでは、webhook デリバリー情報が利用できませんでした。 
+    - "HA 構成では、{% data variables.product.prodname_actions %} が以前に有効にされていた場合、レプリカの破棄は失敗します。" 
+    - Elasticsearch 正常性チェックでは、移行の実行時に黄色のクラスター状態は許可されません。 
+    - ユーザーがそのユーザー アカウントを組織に変換した結果として作成された組織は、グローバル Enterprise アカウントに追加されませんでした。 
+    - "`ghe-migrator` の使用または {% data variables.product.prodname_dotcom_the_website %} からのエクスポート時、長時間実行されているエクスポートは、エクスポートの途中でデータが削除されると失敗します。" 
+    - アクセスできないページへのリンクは削除されていました。 
+    - チームをレビュー担当者として pull request に追加すると、そのチームのメンバー数が誤って表示されることがありました。 
+    - "休眠ユーザーの数が多いと、{% data variables.product.prodname_github_connect %} 構成の失敗の原因になることがありました。" 
+    - "サイト管理者の Web UI の \"機能とベータの登録\" ページが誤って利用可能になっていました。" 
+    - "サイト フッターの [サイト管理者モード] リンクをクリックしたとき、状態が変わりませんでした。" 
+  changes:
+    - 大規模なクラスター トポロジに対応するために、Memcached 接続制限値が増やされました。 
+    - webhook のログ保持期間を超えた webhook ログをより効果的に特定して削除します。 
+    - 依存関係グラフ API が、以前は静的に定義されたポートを使用して実行されていました。 
+    - クラスター関連の Elasticsearch シャード設定の既定のシャード数が更新されました。 
+    - “Triage” と “Maintain” チームのロールは、リポジトリ移行時に保持されます。 
+    - '`NotProcessedError` 例外が不必要に発生していました。'
+    - Enterprise 所有者によって行われる Web 要求のパフォーマンスが向上しました。 
+  known_issues:
+    - "{% data variables.product.prodname_registry %} npm レジストリで、メタデータ応答で時刻値が返されなくなりました。これは、パフォーマンスの大幅な向上を可能にするために行われました。メタデータ応答の一部として時刻値を返すために必要なすべてのデータを保持し続け、既存のパフォーマンスの問題を解決したら、将来的にこの値を返すことを再開します。"
+    - "{% data variables.product.prodname_ghe_server %} インスタンスを設定したばかりでユーザーがいない場合、攻撃者が最初の管理ユーザーを作成できました。"
+    - カスタムのファイアウォール規則は、アップグレード プロセス中に削除されます。
+    - "[Web インターフェイスからアップロードされた](https://github.com/blog/2105-upload-files-to-your-repositories) Git LFS 追跡ファイルが誤ってリポジトリに直接追加されます。"
+    - 同じリポジトリ内の BLOB への固定リンクが含まれ、その BLOB のファイル パスが 255 文字を超える場合、issue をクローズできません。
+    - "[ユーザーは GitHub.com を検索できます] が {% data variables.product.prodname_github_connect %} で有効にされている場合、プライベートおよび内部リポジトリの Issue は {% data variables.product.prodname_dotcom_the_website %} の検索結果に含まれません。"
+    - "{% data variables.product.prodname_ghe_server %} で {% data variables.product.prodname_actions %} が有効にされていると、`ghe-repl-teardown` でのレプリカ ノードの破棄は成功しますが、`ERROR:Running migrations` が返されることがあります。"
+    - pre-receive フックの処理に固有のリソース制限により、一部の pre-receive フックが失敗する場合があります。

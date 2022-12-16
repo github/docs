@@ -1,6 +1,6 @@
 ---
-title: Configuring built-in firewall rules
-intro: 'You can view default firewall rules and customize rules for {% data variables.location.product_location %}.'
+title: Настройка встроенных правил брандмауэра
+intro: 'Вы можете просматривать правила брандмауэра по умолчанию и настраивать правила для {% данных variables.location.product_location %}.'
 redirect_from:
   - /enterprise/admin/guides/installation/configuring-firewall-settings
   - /enterprise/admin/installation/configuring-built-in-firewall-rules
@@ -15,19 +15,25 @@ topics:
   - Infrastructure
   - Networking
 shortTitle: Configure firewall rules
+ms.openlocfilehash: d91ca39c379454bf4cdebedf7085af38faf756f2
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148098326'
 ---
-## About {% data variables.location.product_location %}'s firewall
+## Сведения о брандмауэре {% данных variables.location.product_location %}
 
-{% data variables.product.prodname_ghe_server %} uses Ubuntu's Uncomplicated Firewall (UFW) on the virtual appliance. For more information see "[UFW](https://help.ubuntu.com/community/UFW)" in the Ubuntu documentation. {% data variables.product.prodname_ghe_server %} automatically updates the firewall allowlist of allowed services with each release.
+{% data variables.product.prodname_ghe_server %} использует несложный брандмауэр Ubuntu (UFW) на виртуальном модуле. Дополнительные сведения см. в разделе [UFW](https://help.ubuntu.com/community/UFW) документации по Ubuntu. {% data variables.product.prodname_ghe_server %} автоматически обновляет список разрешенных служб брандмауэра с каждым выпуском.
 
-After you install {% data variables.product.prodname_ghe_server %}, all required network ports are automatically opened to accept connections. Every non-required port is automatically configured as `deny`, and the default outgoing policy is configured as `allow`. Stateful tracking is enabled for any new connections; these are typically network packets with the `SYN` bit set. For more information, see "[Network ports](/enterprise/admin/guides/installation/network-ports)."
+После установки {% data variables.product.prodname_ghe_server %} все необходимые сетевые порты автоматически открываются для приема подключений. Каждый необязательный порт автоматически настроен как `deny`, а исходящая политика по умолчанию настроена как `allow`. Отслеживание состояния включено для всех новых подключений; обычно это сетевые пакеты с набором битов `SYN`. Дополнительную информацию см. в разделе [Сетевые порты](/enterprise/admin/guides/installation/network-ports).
 
-The UFW firewall also opens several other ports that are required for {% data variables.product.prodname_ghe_server %} to operate properly. For more information on the UFW rule set, see [the UFW README](https://bazaar.launchpad.net/~jdstrand/ufw/0.30-oneiric/view/head:/README#L213).
+Брандмауэр UFW также открывает несколько других портов, необходимых для правильной работы {% data variables.product.prodname_ghe_server %}. Дополнительные сведения о наборе правил UFW см. в статье о [UFW README](https://bazaar.launchpad.net/~jdstrand/ufw/0.30-oneiric/view/head:/README#L213).
 
-## Viewing the default firewall rules
+## Просмотр правил брандмауэра по умолчанию
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
-2. To view the default firewall rules, use the `sudo ufw status` command. You should see output similar to this:
+2. Чтобы просмотреть правила брандмауэра по умолчанию, выполните команду `sudo ufw status`. Должен отобразиться примерно такой результат:
   ```shell
   $ sudo ufw status
   > Status: active
@@ -55,46 +61,46 @@ The UFW firewall also opens several other ports that are required for {% data va
   > ghe-9418 (v6)              ALLOW       Anywhere (v6)
   ```
 
-## Adding custom firewall rules
+## Добавление настраиваемых правил брандмауэра
 
 {% warning %}
 
-**Warning:** Before you add custom firewall rules, back up your current rules in case you need to reset to a known working state. If you're locked out of your server, contact {% data variables.contact.contact_ent_support %} to reconfigure the original firewall rules. Restoring the original firewall rules involves downtime for your server.
+**Предупреждение.** Перед добавлением настраиваемых правил брандмауэра создайте резервную копию текущих правил на случай необходимости сброса к известному рабочему состоянию. Если сервер заблокирован, обратитесь к {% data variables.contact.contact_ent_support %}, чтобы перенастроить исходные правила брандмауэра. Восстановление исходных правил брандмауэра включает простой вашего сервера.
 
 {% endwarning %}
 
-1. Configure a custom firewall rule.
-2. Check the status of each new rule with the `status numbered` command.
+1. Настройте настраиваемое правило брандмауэра.
+2. Проверьте состояние каждого нового правила с помощью команды `status numbered`.
   ```shell
   $ sudo ufw status numbered
   ```
-3. To back up your custom firewall rules, use the `cp`command to move the rules to a new file.
+3. Чтобы создать резервную копию настраиваемых правил брандмауэра, выполните команду `cp` для перемещения правил в новый файл.
   ```shell
   $ sudo cp -r /etc/ufw ~/ufw.backup
   ```
 
-After you upgrade {% data variables.location.product_location %}, you must reapply your custom firewall rules. We recommend that you create a script to reapply your firewall custom rules.
+После обновления {% данных variables.location.product_location %}необходимо повторно применить пользовательские правила брандмауэра. Рекомендуется создать сценарий для повторного применения настраиваемых правил брандмауэра.
 
-## Restoring the default firewall rules
+## Восстановление правил брандмауэра по умолчанию
 
-If something goes wrong after you change the firewall rules, you can reset the rules from your original backup.
+Если после изменения правил брандмауэра произошла ошибка, можно сбросить правила из исходной резервной копии.
 
 {% warning %}
 
-**Warning:** If you didn't back up the original rules before making changes to the firewall, contact {% data variables.contact.contact_ent_support %} for further assistance.
+**Предупреждение.** Если вы не создали резервную копию исходных правил, прежде чем внести изменения в брандмауэр, обратитесь к {% data variables.contact.contact_ent_support %}, чтобы получить дополнительную помощь.
 
 {% endwarning %}
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
-2. To restore the previous backup rules, copy them back to the firewall with the `cp` command.
+2. Чтобы восстановить предыдущие правила резервного копирования, скопируйте их обратно в брандмауэр с помощью команды `cp`.
   ```shell
   $ sudo cp -f ~/ufw.backup/*rules /etc/ufw
   ```
-3. Restart the firewall with the `systemctl` command.
+3. Перезапустите брандмауэр, выполнив команду `systemctl`.
   ```shell
   $ sudo systemctl restart ufw
   ```
-4. Confirm that the rules are back to their defaults with the `ufw status` command.
+4. С помощью команды `ufw status` убедитесь, что правила возвратились к своим значениям по умолчанию.
   ```shell
   $ sudo ufw status
   > Status: active

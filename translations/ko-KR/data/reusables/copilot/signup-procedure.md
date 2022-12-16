@@ -1,15 +1,13 @@
 ---
-ms.openlocfilehash: 8fd599404931b2ec2334e0ad0200bbf8734f962e
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
+ms.openlocfilehash: 495034c23fd83bd0d70bd080c03bbe0cfe455608
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "147080295"
+ms.lasthandoff: 12/09/2022
+ms.locfileid: "148193510"
 ---
-{% data variables.product.prodname_copilot %}을 사용하기 전에 평가판 또는 구독을 설정해야 합니다.
-
 {% data reusables.user-settings.access_settings %}
-1. 사이드바의 “코드, 계획 및 자동화” 섹션에서 **{% octicon "copilot" aria-label="The copilot icon" %} GitHub Copilot** 을 클릭합니다.
+1. 사이드바의 "코드, 계획 및 자동화" 섹션에서 **{% octicon "copilot" aria-label="The copilot icon" %} {% data variables.product.prodname_copilot %}** 을 클릭합니다.
 1. {% data variables.product.prodname_copilot %} 설정 페이지에서 **{% data variables.product.prodname_copilot %} 사용** 을 클릭합니다.
 
    ![{% data variables.product.prodname_copilot %} 사용 단추가 강조 표시된 GitHub Copilot 설정의 스크린샷](/assets/images/help/copilot/copilot-settings-enable-button.png)

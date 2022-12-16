@@ -1,5 +1,13 @@
-You can customize your codespace by adjusting the amount of vCPUs and RAM, adding dotfiles to personalize your environment, or by modifying the tools and scripts installed. For more information, see "[Customizing your codespace](/codespaces/customizing-your-codespace)."
+---
+ms.openlocfilehash: 5f6285fe19915c3962b43cb45a26e65144607788
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "147062405"
+---
+Вы можете настроить свое codespace, настроив количество виртуальных ЦП и ОЗУ, [добавив файлы с точкой для персонализации вашей среды](/codespaces/setting-up-your-codespace/personalizing-codespaces-for-your-account) или изменив установленные инструменты и скрипты.
 
-{% data variables.product.prodname_github_codespaces %} uses a file called `devcontainer.json` to configure the development container that you use when you work in a codespace. Each repository can contain one or more  `devcontainer.json` files, to give you exactly the development environment you need to work on your code in a codespace. 
+В {% data variables.product.prodname_codespaces %} используется файл `devcontainer.json` для настройки контейнера разработки, используемого при работе в codespace. Каждый репозиторий может содержать один или несколько файлов `devcontainer.json`, чтобы предоставить вам именно среду разработки, необходимую для работы с вашим кодом в codespace. 
 
-On launch, {% data variables.product.prodname_github_codespaces %} uses a `devcontainer.json` file, and any dependent files that make up the dev container configuration, to install tools and runtimes, and perform other setup tasks that the project requires. For more information, see "[Introduction to dev containers](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers)."
+При запуске в {% data variables.product.prodname_codespaces %} используется файл `devcontainer.json` и все зависимые файлы, составляющие конфигурацию контейнера разработки, для установки инструментов и сред выполнения и выполнения других задач установки, необходимых по проекту. Дополнительные сведения см. в статье [Общие сведения о контейнерах разработки](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project).

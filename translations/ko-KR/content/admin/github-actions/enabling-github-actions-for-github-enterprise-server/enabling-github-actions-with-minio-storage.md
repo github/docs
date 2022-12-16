@@ -1,6 +1,6 @@
 ---
 title: MinIO 스토리지를 사용하여 GitHub Actions 사용
-intro: '{% data variables.product.prodname_ghe_server %}에서 {% data variables.product.prodname_actions %}을(를) 사용하도록 설정하고 MinIO Storage를 사용하여 워크플로 실행에 의해 생성된 데이터를 저장할 수 있습니다.'
+intro: '{% data variables.product.prodname_ghe_server %}에서 {% data variables.product.prodname_actions %}을(를) 사용하도록 설정하고 MinIO 스토리지를 사용하여 워크플로 실행에 의해 생성된 데이터를 저장할 수 있습니다.'
 permissions: 'Site administrators can enable {% data variables.product.prodname_actions %} and configure enterprise settings.'
 versions:
   ghes: '*'
@@ -14,13 +14,15 @@ redirect_from:
   - /admin/github-actions/enabling-github-actions-with-minio-gateway-for-nas-storage
   - /admin/github-actions/enabling-github-actions-for-github-enterprise-server/enabling-github-actions-with-minio-gateway-for-nas-storage
 shortTitle: MinIO storage
-ms.openlocfilehash: 3d9c6cfca6b81a66185515c8757cef22290ead30
-ms.sourcegitcommit: 8f1801040a84ca9353899a2d1e6782c702aaed0d
+ms.openlocfilehash: fec0720c8779ba643735156e6413005ae35f5d85
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2022
-ms.locfileid: '148166571'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148192964'
 ---
+{% data reusables.actions.enterprise-storage-about %}
+
 ## 필수 조건
 
 {% data variables.product.prodname_actions %}를 사용하도록 설정하기 전에 다음 단계를 완료했는지 확인합니다.
@@ -31,7 +33,7 @@ ms.locfileid: '148166571'
 
   {% indented_data_reference reusables.actions.enterprise-s3-permission spaces=2 %} {% data reusables.actions.enterprise-common-prereqs %}
 
-## MinIO 스토리지에서 {% data variables.product.prodname_actions %}을(를) 사용하도록 설정
+## MinIO 스토리지에서 {% data variables.product.prodname_actions %} 사용
 
 {% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.enterprise_site_admin_settings.management-console %} {% data reusables.enterprise_management_console.actions %} {% data reusables.actions.enterprise-enable-checkbox %}
 1. “아티팩트 및 로그 스토리지”에서 **Amazon S3** 를 선택하고 스토리지 버킷의 세부 정보를 입력합니다.
@@ -43,6 +45,6 @@ ms.locfileid: '148166571'
    ![MinIO 구성을 위한 Amazon S3 Storage 및 필드를 선택하기 위한 라디오 단추](/assets/images/enterprise/management-console/actions-minio-s3-storage.png)
 1. “아티팩트 및 로그 스토리지”에서 **경로 스타일 강제** 를 선택합니다.
 
-   ![경로 스타일](/assets/images/enterprise/management-console/actions-minio-force-path-style.png) 강제 적용 확인란 {% data reusables.enterprise_management_console.test-storage-button %} {% data reusables.enterprise_management_console.save-settings %}
+   ![경로 스타일](/assets/images/enterprise/management-console/actions-minio-force-path-style.png) {% data reusables.enterprise_management_console.test-storage-button %} {% data reusables.enterprise_management_console.save-settings %}에 대한 확인란
 
 {% data reusables.actions.enterprise-postinstall-nextsteps %}

@@ -1,0 +1,19 @@
+date: '2021-04-14'
+sections:
+  security_fixes:
+    - Die Pakete wurden auf die neuesten Sicherheitsversionen aktualisiert.
+  bugs:
+    - 'Die Warnmeldung „jq: Fehler (bei <stdin>:0): Die Nummer kann nicht mit der Zeichenfolge "settings" indiziert werden“ konnte bei der Höherstufung des Replikats auftreten.'
+    - "Die kontinuierliche Wiederherstellung von Sicherungen in einem Cluster konnte fehlschlagen, weil MySQL-Replikate keine Verbindung mit dem primären Server herstellen konnten."
+    - "Bei der Syntaxhervorhebung könnte ein Fehler auftreten, wenn der Treelights-Container nicht über genügend Arbeitsspeicher verfügt."
+    - "Beim Besuch der Seite `/settings/emails` wurde ein Zustand gespeichert, der beim Abmelden und erneuten Anmelden unerwünschte Weiterleitungen verursachen konnte."
+    - "Abhängigkeitsdiagrammwarnungen wurden für manche Komponenten nicht angezeigt, deren Empfehlungen Paketnamen in Großbuchstaben in „vulnerable_version_ranges“ besitzen."
+    - "Teams konnten über GitHub-Integrations-Apps nicht benachrichtigt werden, wenn sie direkt über @ in einem Issuekommentar erwähnt wurden."
+    - "Wenn „ghe-migrator“ auf Importfehler stieß, wurde manchmal der gesamte Prozess beendet, und die Protokolle enthielten nicht genügend Kontext."
+  known_issues:
+    - Auf einer neu eingerichteten GitHub Enterprise Server-Instanz ohne Benutzer konnten Angreifer den ersten Administratorbenutzer erstellen.
+    - Benutzerdefinierte Firewallregeln werden während eines Upgrades nicht aufrechterhalten.
+    - "Nachverfolgte Git-LFS-Dateien, [die über die Webbenutzeroberfläche hochgeladen wurden](https://github.com/blog/2105-upload-files-to-your-repositories), werden dem Repository fälschlicherweise direkt hinzugefügt."
+    - "Issues können nicht geschlossen werden, wenn sie einen Permalink zu einem Blob im selben Repository enthalten und der Dateipfad länger ist als 255 Zeichen."
+    - "Wenn die Option zum Durchsuchen von GitHub.com mit GitHub Connect aktiviert wird, sind Issues in privaten und internen Repositorys nicht in den GitHub.com-Suchergebnissen enthalten."
+    - "Wenn ein Replikatknoten in einer Hochverfügbarkeitskonfiguration offline ist, kann {% data variables.product.product_name %} eventuell noch immer Anforderungen von {% data variables.product.prodname_pages %} an den Offlineknoten weiterleiten. Dadurch ist {% data variables.product.prodname_pages %} für Benutzer weniger verfügbar."

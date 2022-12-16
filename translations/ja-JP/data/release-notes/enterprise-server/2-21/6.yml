@@ -1,0 +1,26 @@
+date: '2020-08-26'
+sections:
+  security_fixes:
+    - >{% octicon "alert" aria-label="The alert icon" %} **重大:** GitHub Pages サイトの構築時に悪用される可能性があるリモート コード実行の脆弱性が、GitHub Pages で見つかりました。GitHub Pages によって使用される、基になるパーサーのユーザー制御の構成が十分に制限されておらず、GitHub Enterprise Server インスタンスでコマンドを実行することができていました。この脆弱性を悪用するために、攻撃者は GitHub Enterprise Server インスタンス上に GitHub Pages サイトを作成してビルドするアクセス許可が必要です。GitHub Enterprise Server のすべてのバージョンが、この脆弱性の影響を受けました。この脆弱性に寄与する基になる issue は内部的に、また GitHub Security Bug Bounty プログラムを通じて報告されました。CVE-2020-10518 を発行しました。 {% comment %} https://github.com/github/pages/pull/2882, https://github.com/github/pages/pull/2902, https://github.com/github/pages/pull/2894, https://github.com/github/pages/pull/2877, https://github.com/github/pages-gem/pull/700, https://github.com/github/pages/pull/2889, https://github.com/github/pages/pull/2899, https://github.com/github/pages/pull/2903, https://github.com/github/pages/pull/2890, https://github.com/github/pages/pull/2891, https://github.com/github/pages/pull/2884 {% endcomment %}>
+    - '**中:** 不適切なアクセス制御の脆弱性が確認されました。この脆弱性により、インスタンスの認証されたユーザーが、数値 ID を指定して承認されていないプライベート リポジトリの名前を確認できていました。この脆弱性では、名前のほかにリポジトリの内容に不正アクセスすることはできませんでした。この脆弱性により、2.22 より前の GitHub Enterprise Server のすべてのバージョンが影響を受け、[CVE-2020-10517](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-10517) が割り当てられました。この脆弱性は、[GitHub Bug Bounty プログラム](https://bounty.github.com)から報告されました。 {% comment %} https://github.com/github/github/pull/151986, https://github.com/github/github/pull/151713 {% endcomment %}'
+    - 'パッケージが最新のセキュリティ バージョンに更新されました。 {% comment %} https://github.com/github/enterprise2/pull/21853, https://github.com/github/enterprise2/pull/21828, https://github.com/github/enterprise2/pull/22154, https://github.com/github/enterprise2/pull/21920, https://github.com/github/enterprise2/pull/22216, https://github.com/github/enterprise2/pull/22190 {% endcomment %}'
+  bugs:
+    - 'ghe-config-apply プロセスが ghe-es-auto-expand の実行を終了した際に、メッセージがログされませんでした。 {% comment %} https://github.com/github/enterprise2/pull/22178, https://github.com/github/enterprise2/pull/22171 {% endcomment %}'
+    - '高可用性レプリカで、プライマリ アプライアンスが利用できない場合に、過剰なログが `syslog` ファイルに記録されました。 {% comment %} https://github.com/github/enterprise2/pull/22268, https://github.com/github/enterprise2/pull/22124 {% endcomment %}'
+    - "レプリカ上でのデータベースの再シードが `'max_allowed_packet' より大きいパケットを受け取りました` のエラーで失敗することがありました。 {% comment %} https://github.com/github/enterprise2/pull/22322, https://github.com/github/enterprise2/pull/20063 {% endcomment %}"
+    - 'ghe-license-usage スクリプトを実行した際に、複製されたユーザー データにより 500 エラーが発生することがありました。 {% comment %} https://github.com/github/github/pull/152637 {% endcomment %}'
+    - '`ghe-migrator` を使うと、`add` コマンド` で `--lock` フラグを利用したときにリポジトリのロックに失敗します。 {% comment %} https://github.com/github/github/pull/152780, https://github.com/github/github/pull/152588 {% endcomment %}'
+  changes:
+    - '高可用性または geo レプリケーション構成で、ghe-config-apply が実行されるとレプリカ インスタンスでメンテナンス モードが終了します。 {% comment %} https://github.com/github/enterprise2/pull/21777, https://github.com/github/enterprise2/pull/21440 {% endcomment %}'
+    - "AWS のインスタンスの種類として R5a と R5n のサポートを追加しました。 {% comment %} https://github.com/github/enterprise2/pull/21903, https://github.com/github/enterprise2/pull/21173 {% endcomment %}"
+    - 'GitHub Enterprise Server クラスターに影響するパフォーマンスの問題により、管理 SSH MOTD 上のライセンス シート カウント情報を削除しました。{% comment %} https://github.com/github/enterprise2/pull/21994, https://github.com/github/enterprise2/pull/21870 {% endcomment %}'
+  known_issues:
+    - '新たにセットアップされ、ユーザーがいない GitHub Enterprise Server では、攻撃者が最初の管理者ユーザーを作成することができました。 {% comment %} https://github.com/github/enterprise2/issues/1889 {% endcomment %}'
+    - 'カスタム ファイアウォール規則は、アップグレード中維持されません。 {% comment %} https://github.com/github/enterprise2/issues/2823 {% endcomment %}'
+    - 'Git LFS 追跡ファイル [Web インターフェイスからアップロードされたファイル](https://github.com/blog/2105-upload-files-to-your-repositories)が誤ってリポジトリに直接追加されます。 {% comment %} https://github.com/github/github/issues/54684 {% endcomment %}'
+    - '同じリポジトリ内の BLOB への固定リンクが含まれ、ファイル パスが 255 文字を超える場合、issue をクローズできません。 {% comment %} https://github.com/github/github/issues/107731 {% endcomment %}'
+    - 'GitHub Connect で [ユーザーが GitHub.com を検索できる] が有効になっている場合、プライベートと内部リポジトリの issue は GitHub.com の検索結果に含まれません。 {% comment %} https://github.com/github/admin-experience/issues/571 {% endcomment %}'
+    - 'コマンド ラインでリポジトリにプッシュするとき、セキュリティ アラートが報告されません。 {% comment %} https://github.com/github/github/issues/143190 {% endcomment %}'
+    - '監査ログが、実際のソース IP アドレスではなく、127.0.0.1 に起因する場合があります。(2020-11-02 更新) {% comment %} https://github.com/github/enterprise2/issues/21514 {% endcomment %}'
+    - "リポジトリのアクセス許可を \"Triage\" または \"Maintain\" に構成すると、失敗してエラー メッセージが表示されます。"
+    - '高可用性構成でレプリカ ノードがオフラインの場合でも、{% data variables.product.product_name %} によって、{% data variables.product.prodname_pages %} 要求がオフライン ノードにルーティングされ、ユーザーの {% data variables.product.prodname_pages %} の可用性が低減される可能性があります。'

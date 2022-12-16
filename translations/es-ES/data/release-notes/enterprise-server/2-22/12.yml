@@ -1,0 +1,22 @@
+date: '28-04-2021'
+sections:
+  security_fixes:
+    - Los paquetes se han actualizado a las últimas versiones de seguridad.
+  bugs:
+    - "Durante las mejoras, el proceso se pausaba de forma indefinida después de un `cleanup nomad job`."
+    - 'Fallo de `ghe-cluster-failover` con el mensaje de error `Trilogy::Error: trilogy_connect`.'
+    - '`ghe-cluster-status-mysql` mostraba advertencias sobre conmutaciones por error como errores.'
+    - El script de configuración que se ejecuta en la replica de MySQL puede haber causado una reinicialización innecesaria de la base de datos durante la recuperación de fallos de la base de datos.
+    - '`config-apply` podía tardar más de lo necesario debido a que se llamaba a `rake db:migrate` innecesariamente.'
+    - El orquestador podía no conmutarse por error a una réplica de MySQL que no se estaba replicando desde la principal durante la fase de inicialización cuando la principal no se podía conectar.
+    - Las organizaciones o los proyectos con errores bloqueaban la migración y no podían excluirse.
+    - Los clientes con más de tres hosts de almacenamiento no podían restablecer su clúster de recuperación de desastres debido a que se seleccionaban los discos más llenos en vez de los nodos vacíos.
+  changes:
+    - Las comprobaciones preparatorias permiten tipos de instancia de AWS de manera predeterminada.
+  known_issues:
+    - "En un servidor de GitHub Enterprise recién configurado sin usuarios, un atacante podría crear el primer usuario administrador."
+    - Las reglas de firewall personalizadas no se mantienen durante una actualización.
+    - "Los archivos rastreados de Git LFS [cargados a través de la interfaz web](https://github.com/blog/2105-upload-files-to-your-repositories) se agregan de forma incorrecta y directa al repositorio."
+    - Las incidencias no se pueden cerrar si contienen un vínculo permanente a un blob en el mismo repositorio en el que la ruta de acceso de archivo del blob tiene más de 255 caracteres.
+    - "Cuando se habilita \"Los usuarios pueden buscar en GitHub.com\" con GitHub Connect, las incidencias en los repositorios privados e internos no se incluyen en los resultados de la búsqueda de GitHub.com."
+    - "Cuando un nodo de réplica está sin conexión en una configuración de disponibilidad alta, es posible que {% data variables.product.product_name %} enrute las solicitudes a {% data variables.product.prodname_pages %} al nodo sin conexión, lo que reduce la disponibilidad de {% data variables.product.prodname_pages %} para los usuarios."

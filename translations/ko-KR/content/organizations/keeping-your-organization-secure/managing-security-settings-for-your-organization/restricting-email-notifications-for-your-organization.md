@@ -1,6 +1,6 @@
 ---
-title: Restricting email notifications for your organization
-intro: 'To prevent organization information from leaking into personal email accounts, you can restrict the domains where members can receive email notifications about organization activity.'
+title: 조직에 대한 메일 알림 제한
+intro: 조직 정보가 개인 메일 계정으로 유출되지 않도록 하려면 멤버가 조직 활동에 대한 메일 알림을 받을 수 있는 도메인을 제한할 수 있습니다.
 permissions: Organization owners can restrict email notifications for an organization.
 redirect_from:
   - /articles/restricting-email-notifications-about-organization-activity-to-an-approved-email-domain
@@ -18,34 +18,34 @@ topics:
   - Organizations
   - Policy
 shortTitle: Restrict email notifications
+ms.openlocfilehash: 480f587862e0618c0624eec581520343c54afa35
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147060100'
 ---
+## 메일 제한 정보
 
-## About email restrictions
+조직에서 제한된 메일 알림을 사용하도록 설정하면 구성원은 확인되거나 승인된 도메인과 연결된 메일 주소만 사용하여 조직 활동에 대한 메일 알림을 받을 수 있습니다. 자세한 내용은 “[조직의 도메인 확인 또는 승인](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)”을 참조하세요.
 
-When restricted email notifications are enabled in an organization, members can only use an email address associated with a verified or approved domain to receive email notifications about organization activity. For more information, see "[Verifying or approving a domain for your organization](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)."
+{% ifversion ghec %} {% note %}
 
-{% ifversion ghec %}
-{% note %}
+**참고:** 메일 알림을 제한하려면 조직에서 {% data variables.product.prodname_ghe_cloud %}을(를) 사용해야 합니다. {% data reusables.enterprise.link-to-ghec-trial %}
 
-**Note:** To restrict email notifications, your organization must use {% data variables.product.prodname_ghe_cloud %}. {% data reusables.enterprise.link-to-ghec-trial %}
-
-{% endnote %}
-{% endif %}
+{% endnote %} {% endif %}
 
 {% data reusables.notifications.email-restrictions-verification %}
 
-Outside collaborators are not subject to restrictions on email notifications for verified or approved domains. For more information about outside collaborators, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization#outside-collaborators)."
+외부 협력자는 확인되거나 승인된 도메인에 대한 메일 알림에 대한 제한이 적용되지 않습니다. 외부 협력자에 대한 자세한 내용은 “[조직의 역할](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization#outside-collaborators)”을 참조하세요.
 
-If your organization is owned by an enterprise account, organization members will be able to receive notifications from any domains verified or approved for the enterprise account, in addition to any domains verified or approved for the organization. For more information, see "[Verifying or approving a domain for your enterprise](/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise)."
+조직이 엔터프라이즈 계정의 소유인 경우 조직 구성원은 조직에 대해 확인되거나 승인된 도메인 외에도 엔터프라이즈 계정에 대해 확인되거나 승인된 모든 도메인에서 알림을 받을 수 있습니다. 자세한 내용은 “[엔터프라이즈의 도메인 확인 또는 승인](/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise)”을 참조하세요.
 
-## Restricting email notifications
+## 메일 알림 제한
 
-Before you can restrict email notifications for your organization, you must verify or approve at least one domain for the organization, or an enterprise owner must have verified or approved at least one domain for the enterprise account.
+조직에 대한 메일 알림을 제한하려면 먼저 조직의 도메인을 하나 이상 확인하거나 승인해야 합니다. 또는 엔터프라이즈 소유자가 엔터프라이즈 계정에 대해 하나 이상의 도메인을 확인하거나 승인해야 합니다.
 
-For more information about verifying and approving domains for an organization, see "[Verifying or approving a domain for your organization](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)."
+조직의 도메인 확인 및 승인에 대한 자세한 내용은 “[조직의 도메인 확인 또는 승인](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)”을 참조하세요.
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.verified-domains %}
-{% data reusables.organizations.restrict-email-notifications %}
-6. Click **Save**.
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.organizations.verified-domains %} {% data reusables.organizations.restrict-email-notifications %}
+6. **저장** 을 클릭합니다.

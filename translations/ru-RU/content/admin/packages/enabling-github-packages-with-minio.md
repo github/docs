@@ -1,6 +1,6 @@
 ---
-title: Enabling GitHub Packages with MinIO
-intro: 'Set up {% data variables.product.prodname_registry %} with MinIO as your external storage.'
+title: Включение пакетов GitHub с использованием MinIO
+intro: 'Настройка {% data variables.product.prodname_registry %} с использованием MiniO в качестве внешнего хранилища.'
 versions:
   ghes: '*'
 type: tutorial
@@ -9,22 +9,27 @@ topics:
   - Packages
   - Storage
 shortTitle: Enable Packages with MinIO
+ms.openlocfilehash: 9a6ee2cdc40a9487fac21de915084795e6a9b5bf
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148097837'
 ---
-
 {% warning %}
 
-**Warnings:**
-- It is critical that you set the restrictive access policies you need for your storage bucket, because {% data variables.product.company_short %} does not apply specific object permissions or additional access control lists (ACLs) to your storage bucket configuration. For example, if you make your bucket public, data in the bucket will be accessible on the public internet.
-- We recommend using a dedicated bucket for {% data variables.product.prodname_registry %}, separate from the bucket you use for {% data variables.product.prodname_actions %} storage.
-- Make sure to configure the bucket you'll want to use in the future. We do not recommend changing your storage after you start using {% data variables.product.prodname_registry %}.
+**Предупреждения.**
+- Крайне важно задать ограничительные политики доступа, необходимые для контейнера хранилища, так как {% data variables.product.company_short %} не применяет к конфигурации контейнера хранилища конкретные разрешения объекта или дополнительные списки управления доступом (ACL). Например, если сделать контейнер общедоступным, данные в контейнере нем доступны в общедоступном Интернете.
+- Мы рекомендуем использовать для {% data variables.product.prodname_registry %} выделенный контейнер, который отделен от контейнера, используемого для хранилища {% data variables.product.prodname_actions %}.
+- Обязательно настройте контейнер, который хотите использовать в будущем. Не рекомендуется изменять хранилище после начала использования {% data variables.product.prodname_registry %}.
 
 {% endwarning %}
 
-## Prerequisites
+## Предварительные требования
 
-Before you can enable and configure {% data variables.product.prodname_registry %} on {% data variables.location.product_location_enterprise %}, you need to prepare your MinIO storage bucket. To help you quickly set up a MinIO bucket and navigate MinIO's customization options, see the "[Quickstart for configuring your MinIO storage bucket for {% data variables.product.prodname_registry %}](/admin/packages/quickstart-for-configuring-your-minio-storage-bucket-for-github-packages)."
+Прежде чем включить и настроить {% данных variables.product.prodname_registry %} на {% данных variables.location.product_location_enterprise %}, необходимо подготовить контейнер хранилища MinIO. Чтобы быстро настроить контейнер MinIO и перейти к параметрам настройки MinIO, см. [Краткое руководство по настройке контейнера хранилища MinIO для {% data variables.product.prodname_registry %}](/admin/packages/quickstart-for-configuring-your-minio-storage-bucket-for-github-packages).
 
-Ensure your MinIO external storage access key ID and secret have these permissions:
+Убедитесь, что идентификатор ключа доступа к внешнему хранилищу MinIO и секрет имеют следующие разрешения:
   - `s3:PutObject`
   - `s3:GetObject`
   - `s3:ListBucketMultipartUploads`
@@ -33,26 +38,21 @@ Ensure your MinIO external storage access key ID and secret have these permissio
   - `s3:DeleteObject`
   - `s3:ListBucket`
 
-## Enabling {% data variables.product.prodname_registry %} with MinIO external storage
+## Включение {% data variables.product.prodname_registry %} с внешним хранилищем MinIO
 
-Although MinIO does not currently appear in the user interface under "Package Storage", MinIO is still  supported by {% data variables.product.prodname_registry %} on {% data variables.product.prodname_enterprise %}. Also, note that MinIO's object storage is compatible with the S3 API and you can enter MinIO's bucket details in place of AWS S3 details.
+Хотя MinIO в настоящее время не отображается в пользовательском интерфейсе в разделе "Служба хранилища пакета", MinIO по-прежнему поддерживается {% data variables.product.prodname_registry %} на {% data variables.product.prodname_enterprise %}. Кроме того, обратите внимание, что хранилище объектов MinIO совместимо с API S3, и можно ввести сведения о контейнере MinIO вместо сведений AWS S3.
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.management-console %}
-{% data reusables.enterprise_site_admin_settings.packages-tab %}
-{% data reusables.package_registry.enable-enterprise-github-packages %}
+{% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.enterprise_site_admin_settings.management-console %} {% data reusables.enterprise_site_admin_settings.packages-tab %} {% data reusables.package_registry.enable-enterprise-github-packages %}
 
 {% ifversion ghes %}
-1. Under "Packages Storage", select **Amazon S3**.
-1. Enter your MinIO storage bucket's details in the AWS storage settings.
-    - **AWS Service URL:** The hosting URL for your MinIO bucket.
-    - **AWS S3 Bucket:** The name of your S3-compatible MinIO bucket dedicated to {% data variables.product.prodname_registry %}.
-    - **AWS S3 Access Key** and **AWS S3 Secret Key**: Enter the MinIO access key ID and secret key to access your bucket.
+1. В разделе "Служба хранилища пакета" выберите **Amazon S3**.
+1. Введите сведения о контейнере хранилища MinIO в параметрах хранилища AWS.
+    - **URL-адрес службы AWS.** URL-адрес размещения для контейнера MinIO.
+    - **Контейнер AWS S3.** Имя контейнера MinIO, совместимого с S3, выделенного для {% data variables.product.prodname_registry %}.
+    - **Ключ доступа AWS S3** и **секретный ключ AWS S3**. Введите идентификатор ключа доступа MinIO и секретный ключ для доступа к контейнеру.
 
-    ![Entry boxes for your S3 AWS bucket's details](/assets/images/help/package-registry/s3-aws-storage-bucket-details.png)
-{% endif %}
-{% data reusables.enterprise_management_console.save-settings %}
+    ![Поля записи для сведений о контейнере S3 AWS](/assets/images/help/package-registry/s3-aws-storage-bucket-details.png) {% endif %} {% data reusables.enterprise_management_console.save-settings %}
 
-## Next steps
+## Дальнейшие действия
 
 {% data reusables.package_registry.next-steps-for-packages-enterprise-setup %}

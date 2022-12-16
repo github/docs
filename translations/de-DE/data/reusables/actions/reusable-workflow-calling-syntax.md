@@ -1,4 +1,12 @@
-* `{owner}/{repo}/.github/workflows/{filename}@{ref}`{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %} for reusable workflows in public {% ifversion ghes or ghec or ghae %}or internal{% endif %} repositories.
-* `./.github/workflows/{filename}` for reusable workflows in the same repository.{% endif %}
+---
+ms.openlocfilehash: 9b1f61261d2e59fe30703a3bebfdaed7a25667e6
+ms.sourcegitcommit: 5b1461b419dbef60ae9dbdf8e905a4df30fc91b7
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "145089275"
+---
+* `{owner}/{repo}/.github/workflows/{filename}@{ref}`{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6000 %} für wiederverwendbare Workflows in öffentlichen {% ifversion ghes or ghec or ghae %}oder internen{% endif %} Repositorys.
+* `./.github/workflows/{filename}` für wiederverwendbare Workflows im gleichen Repository.{% endif %}
 
-`{ref}` can be a SHA, a release tag, or a branch name. Using the commit SHA is the safest for stability and security. For more information, see "[Security hardening for GitHub Actions](/actions/learn-github-actions/security-hardening-for-github-actions#reusing-third-party-workflows)." {% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}If you use the second syntax option (without `{owner}/{repo}` and `@{ref}`) the called workflow is from the same commit as the caller workflow.{% endif %}
+`{ref}` kann ein SHA-Wert, ein Releasetag oder ein Branchname sein. Die Verwendung des Commit-SHA-Werts ist in Bezug auf Stabilität und Sicherheit am sichersten. Weitere Informationen findest du unter [Sicherheitshärtung für GitHub Actions](/actions/learn-github-actions/security-hardening-for-github-actions#reusing-third-party-workflows). {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6000 %}Wenn du die zweite Syntaxoption verwendest (ohne `{owner}/{repo}` und `@{ref}`), stammt der aufgerufene Workflow aus demselben Commit wieder aufrufende Workflow.{% endif %}

@@ -1,20 +1,20 @@
 ---
 title: Personalizar uma exibição
-intro: 'Exiba as informações de que você precisa no seu projeto com alterações de layout, agrupamento e classificação.'
+intro: Exiba as informações de que você precisa no seu projeto com alterações de layout, agrupamento e classificação.
 miniTocMaxHeadingLevel: 3
 versions:
   feature: projects-v2
 redirect_from:
-  - /issues/trying-out-the-new-projects-experience/customizing-your-project-views
+- /issues/trying-out-the-new-projects-experience/customizing-your-project-views
 type: tutorial
 topics:
-  - Projects
+- Projects
 ms.openlocfilehash: 0a7d1076fcf1a9d7f20b65a5e0a75b7d8029f834
 ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/25/2022
-ms.locfileid: '148106770'
+ms.locfileid: "148106770"
 ---
 ## Alterando o layout do projeto
 

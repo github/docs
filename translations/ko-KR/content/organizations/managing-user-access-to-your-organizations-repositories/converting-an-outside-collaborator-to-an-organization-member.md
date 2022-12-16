@@ -1,6 +1,6 @@
 ---
-title: Converting an outside collaborator to an organization member
-intro: 'If you would like to give an outside collaborator on your organization''s repositories broader permissions within your organization, you can {% ifversion fpt or ghec %}invite them to become a member of{% else %}make them a member of{% endif %} the organization.'
+title: 외부 협력자를 조직 구성원으로 변환
+intro: '외부 협력자에게 조직 내에서 조직의 리포지토리에 대한 더 광범위한 권한을 부여하려면 {% ifversion fpt or ghec %}조직 구성원이 되도록 초대{% else %}조직 구성원이 되도록{% endif %}할 수 있습니다.'
 redirect_from:
   - /articles/converting-an-outside-collaborator-to-an-organization-member
   - /github/setting-up-and-managing-organizations-and-teams/converting-an-outside-collaborator-to-an-organization-member
@@ -15,29 +15,21 @@ topics:
   - Organizations
   - Teams
 shortTitle: Convert collaborator to member
+ms.openlocfilehash: cbaea93cf94d40a67e6650c65dc680edbec104c7
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148098974'
 ---
-{% ifversion fpt or ghec %}
-If your organization is on a paid per-user subscription, an unused license must be available before you can invite a new member to join the organization or reinstate a former organization member. For more information, see "[About per-user pricing](/articles/about-per-user-pricing)." {% data reusables.organizations.org-invite-expiration %}{% endif %}
+{% ifversion fpt or ghec %} 조직에서 유료 사용자별 구독을 사용하는 경우, 새 구성원을 조직에 초대하거나 이전 조직 구성원을 복구하려면 먼저 미사용 라이선스를 사용할 수 있어야 합니다. 자세한 내용은 "[사용자별 가격 책정 정보](/articles/about-per-user-pricing)"를 참조하세요. {% data reusables.organizations.org-invite-expiration %}{% endif %}
 
-{% ifversion not ghae %}
-If your organization [requires members to use two-factor authentication](/articles/requiring-two-factor-authentication-in-your-organization), users {% ifversion fpt or ghec %}you invite must [enable two-factor authentication](/articles/securing-your-account-with-two-factor-authentication-2fa) before they can accept the invitation.{% else %}must [enable two-factor authentication](/articles/securing-your-account-with-two-factor-authentication-2fa) before you can add them to the organization.{% endif %}
-{% endif %}
+{% ifversion not ghae %} 조직에서 [구성원이 2단계 인증을 사용하도록 요구하는 경우](/articles/requiring-two-factor-authentication-in-your-organization), 초대하는 사용자는 {% ifversion fpt or ghec %}[2단계 인증을 사용하도록 설정해야](/articles/securing-your-account-with-two-factor-authentication-2fa) 초대를 수락할 수 있습니다.{% else %}[2단계 인증을 사용하도록 설정해야](/articles/securing-your-account-with-two-factor-authentication-2fa) 조직에 추가할 수 있습니다.{% endif %} {% endif %}
 
-{% data reusables.profile.access_org %}
-{% data reusables.user-settings.access_org %}
-{% data reusables.organizations.people %}
-{% data reusables.organizations.people_tab_outside_collaborators %}
-{% ifversion fpt or ghec %}
-5. To the right of the name of the outside collaborator you want to become a member, use the {% octicon "gear" aria-label="The gear icon" %} drop-down menu and click **Invite to organization**.![Invite outside collaborators to organization](/assets/images/help/organizations/invite_outside_collaborator_to_organization.png)
-{% else %}
-5. To the right of the name of the outside collaborator you want to become a member, click **Invite to organization**.![Invite outside collaborators to organization](/assets/images/enterprise/orgs-and-teams/invite_outside_collabs_to_org.png)
-{% endif %}
-{% data reusables.organizations.choose-to-restore-privileges %}
-{% data reusables.organizations.choose-user-role-send-invitation %}
-{% ifversion fpt or ghec %}
-{% data reusables.organizations.user_must_accept_invite_email %} {% data reusables.organizations.cancel_org_invite %}
-{% endif %}
+{% data reusables.profile.access_org %} {% data reusables.user-settings.access_org %} {% data reusables.organizations.people %} {% data reusables.organizations.people_tab_outside_collaborators %} {% ifversion fpt or ghec %}
+5. 구성원이 되게 할 외부 협력자 이름 오른쪽에서 {% octicon "gear" aria-label="The gear icon" %} 드롭다운 메뉴를 사용하여 **조직에 초대** 를 클릭합니다.![외부 협력자를 조직에 초대](/assets/images/help/organizations/invite_outside_collaborator_to_organization.png) {% else %}
+5. 구성원이 되게 할 외부 협력자 이름 오른쪽에서 **조직에 초대** 를 클릭합니다.![외부 협력자를 조직에 초대](/assets/images/enterprise/orgs-and-teams/invite_outside_collabs_to_org.png) {% endif %} {% data reusables.organizations.choose-to-restore-privileges %} {% data reusables.organizations.choose-user-role-send-invitation %} {% ifversion fpt or ghec %} {% data reusables.organizations.user_must_accept_invite_email %} {% data reusables.organizations.cancel_org_invite %} {% endif %}
 
-## Further reading
+## 추가 참고 자료
 
-- "[Converting an organization member to an outside collaborator](/articles/converting-an-organization-member-to-an-outside-collaborator)"
+- “[조직 멤버를 외부 협력자로 변환](/articles/converting-an-organization-member-to-an-outside-collaborator)”

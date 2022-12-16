@@ -1,7 +1,7 @@
 ---
-title: Creating a JavaScript action
+title: JavaScript 작업 만들기
 shortTitle: Create a JavaScript action
-intro: 'In this guide, you''ll learn how to build a JavaScript action using the actions toolkit.'
+intro: 이 가이드에서는 작업 도구 키트를 사용하여 JavaScript 작업을 빌드하는 방법을 알아봅니다.
 redirect_from:
   - /articles/creating-a-javascript-action
   - /github/automating-your-workflow-with-github-actions/creating-a-javascript-action
@@ -16,50 +16,54 @@ type: tutorial
 topics:
   - Action development
   - JavaScript
+ms.openlocfilehash: 60fd562df55756afd081c395d9cffee89c2c04d6
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148192747'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+## 소개
 
-## Introduction
+이 가이드에서는 패키지된 JavaScript 작업을 만들고 사용하는 데 필요한 기본 구성 요소에 대해 알아봅니다. 작업을 패키지하는 데 필요한 구성 요소에 가이드의 초점을 맞추기 위해 작업 코드의 기능은 최소화됩니다. 사용자 지정 이름을 제공하면 로그에 “Hello World” 또는 “Hello [인사할 사람]”이 출력됩니다.
 
-In this guide, you'll learn about the basic components needed to create and use a packaged JavaScript action. To focus this guide on the components needed to package the action, the functionality of the action's code is minimal. The action prints "Hello World" in the logs or "Hello [who-to-greet]" if you provide a custom name.
+이 가이드에서는 {% data variables.product.prodname_actions %} 도구 키트 Node.js 모듈을 사용하여 개발 속도를 향상합니다. 자세한 내용은 [actions/toolkit](https://github.com/actions/toolkit) 리포지토리를 참조하세요.
 
-This guide uses the {% data variables.product.prodname_actions %} Toolkit Node.js module to speed up development. For more information, see the [actions/toolkit](https://github.com/actions/toolkit) repository.
-
-Once you complete this project, you should understand how to build your own JavaScript action and test it in a workflow.
+이 프로젝트를 완료하면 사용자 고유의 JavaScript 작업을 빌드하고 워크플로에서 테스트하는 방법을 이해하게 됩니다.
 
 {% data reusables.actions.pure-javascript %}
 
 {% data reusables.actions.context-injection-warning %}
 
-## Prerequisites
+## 필수 조건
 
-Before you begin, you'll need to download Node.js and create a public {% data variables.product.prodname_dotcom %} repository.
+시작하기 전에 Node.js를 다운로드하고 퍼블릭 {% data variables.product.prodname_dotcom %} 리포지토리를 만들어야 합니다.
 
-1. Download and install Node.js {% ifversion fpt or ghes > 3.3 or ghae > 3.3 or ghec %}16.x{% else %}12.x{% endif %}, which includes npm.
+1. npm을 포함하는 {% ifversion fpt or ghes > 3.3 또는 ghae > ghec %}16.x{% else %}12.x{% endif %}에 Node.js 다운로드하고 설치합니다.
 
   {% ifversion fpt or ghes > 3.3 or ghae > 3.3 or ghec %}https://nodejs.org/en/download/{% else %}https://nodejs.org/en/download/releases/{% endif %}
 
-1. Create a new public repository on {% data variables.location.product_location %} and call it "hello-world-javascript-action". For more information, see "[Create a new repository](/articles/creating-a-new-repository)."
+1. {% data variables.location.product_location %}에 새 퍼블릭 리포지토리를 만들고 이를 "hello-world-javascript-action"이라고 부릅니다. 자세한 내용은 “[새 리포지토리 만들기](/articles/creating-a-new-repository)”를 참조하세요.
 
-1. Clone your repository to your computer. For more information, see "[Cloning a repository](/articles/cloning-a-repository)."
+1. 컴퓨터에 리포지토리를 복제합니다. 자세한 내용은 “[리포지토리 복제](/articles/cloning-a-repository)”를 참조하세요.
 
-1. From your terminal, change directories into your new repository.
+1. 터미널에서 디렉터리를 새 리포지토리로 변경합니다.
 
   ```shell{:copy}
   cd hello-world-javascript-action
   ```
 
-1. From your terminal, initialize the directory with npm to generate a `package.json` file.
+1. 터미널에서 npm으로 디렉터리를 초기화하여 `package.json` 파일을 생성합니다.
 
   ```shell{:copy}
   npm init -y
   ```
 
-## Creating an action metadata file
+## 작업 메타데이터 파일 만들기
 
-Create a new file named `action.yml` in the `hello-world-javascript-action` directory with the following example code. For more information, see "[Metadata syntax for {% data variables.product.prodname_actions %}](/actions/creating-actions/metadata-syntax-for-github-actions)."
+다음 예제 코드를 사용하여 `hello-world-javascript-action` 디렉터리에 `action.yml`이라는 새 파일을 만듭니다. 자세한 내용은 “[{% data variables.product.prodname_actions %}에 대한 메타데이터 구문](/actions/creating-actions/metadata-syntax-for-github-actions)”을 참조하세요.
 
 ```yaml{:copy}
 name: 'Hello World'
@@ -77,34 +81,34 @@ runs:
   main: 'index.js'
 ```
 
-This file defines the `who-to-greet` input and `time` output. It also tells the action runner how to start running this JavaScript action.
+이 파일은 `who-to-greet` 입력 및 `time` 출력을 정의합니다. 또한 작업 실행기에서 JavaScript 작업 실행을 시작하는 방법을 알려줍니다.
 
-## Adding actions toolkit packages
+## 작업 도구 키트 패키지 추가
 
-The actions toolkit is a collection of Node.js packages that allow you to quickly build JavaScript actions with more consistency.
+작업 도구 키트는 더 일관적으로 JavaScript 작업을 빠르게 빌드할 수 있는 Node.js 패키지의 컬렉션입니다.
 
-The toolkit [`@actions/core`](https://github.com/actions/toolkit/tree/main/packages/core) package provides an interface to the workflow commands, input and output variables, exit statuses, and debug messages.
+도구 키트 [`@actions/core`](https://github.com/actions/toolkit/tree/main/packages/core) 패키지는 워크플로 명령, 입력 및 출력 변수, 종료 상태, 디버그 메시지에 대한 인터페이스를 제공합니다.
 
-The toolkit also offers a [`@actions/github`](https://github.com/actions/toolkit/tree/main/packages/github) package that returns an authenticated Octokit REST client and access to GitHub Actions contexts.
+도구 키트는 또한 인증된 Octokit REST 클라이언트와 GitHub Actions 컨텍스트에 대한 액세스를 반환하는 [`@actions/github`](https://github.com/actions/toolkit/tree/main/packages/github) 패키지도 제공합니다.
 
-The toolkit offers more than the `core` and `github` packages. For more information, see the [actions/toolkit](https://github.com/actions/toolkit) repository.
+도구 키트는 `core` 및 `github` 패키지 이상을 제공합니다. 자세한 내용은 [actions/toolkit](https://github.com/actions/toolkit) 리포지토리를 참조하세요.
 
-At your terminal, install the actions toolkit `core` and `github` packages.
+터미널에서 작업 도구 키트 `core` 및 `github` 패키지를 설치합니다.
 
 ```shell{:copy}
 npm install @actions/core
 npm install @actions/github
 ```
 
-Now you should see a `node_modules` directory with the modules you just installed and a `package-lock.json` file with the installed module dependencies and the versions of each installed module.
+이제 방금 설치한 모듈이 있는 `node_modules` 디렉터리와 설치된 모듈 종속성과 설치된 각 모듈의 버전이 있는 `package-lock.json` 파일이 표시되어야 합니다.
 
-## Writing the action code
+## 작업 코드 작성
 
-This action uses the toolkit to get the `who-to-greet` input variable required in the action's metadata file and prints "Hello [who-to-greet]" in a debug message in the log. Next, the script gets the current time and sets it as an output variable that actions running later in a job can use.
+이 작업은 도구 키트를 사용하여 작업의 메타데이터 파일에 필요한 `who-to-greet` 입력 변수를 가져오고 로그의 디버그 메시지에 “Hello [who-to-greet]”를 출력합니다. 다음으로 스크립트는 현재 시간을 가져오고 나중에 작업에서 실행되는 작업에서 사용할 수 있는 출력 변수로 설정합니다.
 
-GitHub Actions provide context information about the webhook event, Git refs, workflow, action, and the person who triggered the workflow. To access the context information, you can use the `github` package. The action you'll write will print the webhook event payload to the log.
+GitHub Actions는 웹후크 이벤트, Git ReFS, 워크플로, 작업, 워크플로를 트리거한 사람에 대한 컨텍스트 정보를 제공합니다. 컨텍스트 정보에 액세스하려면 `github` 패키지를 사용할 수 있습니다. 작성할 작업은 웹후크 이벤트 페이로드를 로그에 출력합니다.
 
-Add a new file called `index.js`, with the following code.
+다음 코드를 사용하여 `index.js`라는 새 파일을 추가합니다.
 
 {% raw %}
 ```javascript{:copy}
@@ -126,20 +130,20 @@ try {
 ```
 {% endraw %}
 
-If an error is thrown in the above `index.js` example, `core.setFailed(error.message);` uses the actions toolkit [`@actions/core`](https://github.com/actions/toolkit/tree/main/packages/core) package to log a message and set a failing exit code. For more information, see "[Setting exit codes for actions](/actions/creating-actions/setting-exit-codes-for-actions)."
+위 `index.js` 예제에서 오류가 throw되면 `core.setFailed(error.message);`는 작업 도구 키트 [`@actions/core`](https://github.com/actions/toolkit/tree/main/packages/core) 패키지를 사용하여 메시지를 기록하고 실패한 종료 코드를 설정합니다. 자세한 내용은 “[작업에 대한 종료 코드 설정](/actions/creating-actions/setting-exit-codes-for-actions)”을 참조하세요.
 
-## Creating a README
+## 추가 정보 만들기
 
-To let people know how to use your action, you can create a README file. A README is most helpful when you plan to share your action publicly, but is also a great way to remind you or your team how to use the action.
+사람들에게 작업을 사용하는 방법을 알리기 위해 추가 정보 파일을 만들 수 있습니다. 추가 정보는 작업을 공개적으로 공유하려는 경우에 가장 유용하지만 사용자 또는 팀에게 작업 사용 방법을 알려주는 좋은 방법이기도 합니다.
 
-In your `hello-world-javascript-action` directory, create a `README.md` file that specifies the following information:
+`hello-world-javascript-action` 디렉터리에서 다음 정보를 지정하는 `README.md` 파일을 만듭니다.
 
-- A detailed description of what the action does.
-- Required input and output arguments.
-- Optional input and output arguments.
-- Secrets the action uses.
-- Environment variables the action uses.
-- An example of how to use your action in a workflow.
+- 작업이 수행하는 작업에 대한 자세한 설명입니다.
+- 필수 입력 및 출력 인수입니다.
+- 선택적 입력 및 출력 인수입니다.
+- 작업에서 사용하는 비밀입니다.
+- 작업에서 사용하는 환경 변수입니다.
+- 워크플로에서 작업을 사용하는 방법의 예입니다.
 
 ````markdown{:copy}
 # Hello world javascript action
@@ -167,13 +171,13 @@ with:
 ```
 ````
 
-## Commit, tag, and push your action to GitHub
+## 커밋, 태그 지정, GitHub에 작업 푸시
 
-{% data variables.product.product_name %} downloads each action run in a workflow during runtime and executes it as a complete package of code before you can use workflow commands like `run` to interact with the runner machine. This means you must include any package dependencies required to run the JavaScript code. You'll need to check in the toolkit `core` and `github` packages to your action's repository.
+{% data variables.product.product_name %}는 런타임 중에 워크플로에서 실행되는 각 작업을 다운로드하고 전체 코드 패키지로 실행한 후 `run`과 같은 워크플로 명령을 사용하여 실행기 머신과 상호 작용할 수 있습니다. 즉, JavaScript 코드를 실행하는 데 필요한 패키지 종속성을 포함해야 합니다. 작업 리포지토리에 대한 도구 키트 `core` 및 `github` 패키지를 체크 인해야 합니다.
 
-From your terminal, commit your `action.yml`, `index.js`, `node_modules`, `package.json`, `package-lock.json`, and `README.md` files. If you added a `.gitignore` file that lists `node_modules`, you'll need to remove that line to commit the `node_modules` directory.
+터미널에서 `action.yml`, `index.js`, `node_modules`, `package.json`, `package-lock.json`, `README.md` 파일을 커밋합니다. `node_modules`를 나열하는 `.gitignore` 파일을 추가한 경우 `node_modules` 디렉터리를 커밋하려면 해당 행을 제거해야 합니다.
 
-It's best practice to also add a version tag for releases of your action. For more information on versioning your action, see "[About actions](/actions/automating-your-workflow-with-github-actions/about-actions#using-release-management-for-actions)."
+또한 작업 릴리스에 대한 버전 태그를 추가하는 것이 가장 좋습니다. 작업의 버전 관리 방법에 대한 자세한 내용은 “[작업 정보](/actions/automating-your-workflow-with-github-actions/about-actions#using-release-management-for-actions)”를 참조하세요.
 
 ```shell{:copy}
 git add action.yml index.js node_modules/* package.json package-lock.json README.md
@@ -182,24 +186,24 @@ git tag -a -m "My first action release" v1.1
 git push --follow-tags
 ```
 
-Checking in your `node_modules` directory can cause problems. As an alternative, you can use a tool called [`@vercel/ncc`](https://github.com/vercel/ncc) to compile your code and modules into one file used for distribution.
+`node_modules` 디렉터리를 체크 인하면 문제가 발생할 수 있습니다. 또는 [`@vercel/ncc`](https://github.com/vercel/ncc)이라는 도구를 사용하여 코드와 모듈을 배포에 사용되는 하나의 파일로 컴파일할 수 있습니다.
 
-1. Install `vercel/ncc` by running this command in your terminal.
+1. 터미널에서 이 명령을 실행하여 `vercel/ncc`를 설치합니다.
   `npm i -g @vercel/ncc`
 
-1. Compile your `index.js` file.
+1. `index.js` 파일을 컴파일합니다.
   `ncc build index.js --license licenses.txt`
 
-  You'll see a new `dist/index.js` file with your code and the compiled modules.
-  You will also see an accompanying `dist/licenses.txt` file containing all the licenses of the `node_modules` you are using.
+  코드와 컴파일된 모듈이 포함된 새 `dist/index.js` 파일이 표시됩니다.
+  사용 중인 `node_modules`의 모든 라이선스가 포함된 `dist/licenses.txt` 파일도 함께 제공됩니다.
 
-1. Change the `main` keyword in your `action.yml` file to use the new `dist/index.js` file.
+1. 새 `dist/index.js` 파일을 사용하려면 `action.yml` 파일의 `main` 키워드를 변경하세요.
  `main: 'dist/index.js'`
 
-1. If you already checked in your `node_modules` directory, remove it.
+1. `node_modules` 디렉터리에 이미 체크 인한 경우 이를 제거합니다.
   `rm -rf node_modules/*`
 
-1. From your terminal, commit the updates to your `action.yml`, `dist/index.js`, and `node_modules` files.
+1. 터미널에서 `action.yml`, `dist/index.js`, `node_modules` 파일에 대한 업데이트를 커밋합니다.
 ```shell{:copy}
 git add action.yml dist/index.js node_modules/*
 git commit -m "Use vercel/ncc"
@@ -207,17 +211,17 @@ git tag -a -m "My first action release" v1.1
 git push --follow-tags
 ```
 
-## Testing out your action in a workflow
+## 워크플로에서 작업 테스트
 
-Now you're ready to test your action out in a workflow. When an action is in a private repository, the action can only be used in workflows in the same repository. Public actions can be used by workflows in any repository.
+이제 워크플로에서 작업을 테스트할 준비가 되었습니다. 프라이빗 리포지토리에 있는 작업은 동일한 리포지토리의 워크플로에서만 사용할 수 있습니다. 퍼블릭 작업은 모든 리포지토리의 워크플로에서 사용할 수 있습니다.
 
 {% data reusables.actions.enterprise-marketplace-actions %}
 
-### Example using a public action
+### 퍼블릭 작업을 사용하는 예제
 
-This example demonstrates how your new public action can be run from within an external repository.
+이 예제에서는 외부 리포지토리 내에서 새 퍼블릭 작업을 실행할 수 있는 방법을 보여 줍니다.
 
-Copy the following YAML into a new file at `.github/workflows/main.yml`, and update the `uses: octocat/hello-world-javascript-action@v1.1` line with your username and the name of the public repository you created above. You can also replace the `who-to-greet` input with your name.
+다음 YAML을 `.github/workflows/main.yml`의 새 파일에 복사하고 위에서 만든 퍼블릭 리포지토리의 이름과 사용자 이름으로 `uses: octocat/hello-world-javascript-action@v1.1` 줄을 업데이트합니다. `who-to-greet` 입력을 자신의 이름으로 바꿀 수도 있습니다.
 
 {% raw %}
 ```yaml{:copy}
@@ -239,11 +243,11 @@ jobs:
 ```
 {% endraw %}
 
-When this workflow is triggered, the runner will download the `hello-world-javascript-action` action from your public repository and then execute it.
+이 워크플로가 트리거되면 실행기는 퍼블릭 리포지토리에서 `hello-world-javascript-action` 작업을 다운로드한 다음 실행합니다.
 
-### Example using a private action
+### 프라이빗 작업을 사용하는 예제
 
-Copy the workflow code into a `.github/workflows/main.yml` file in your action's repository. You can also replace the `who-to-greet` input with your name.
+작업 리포지토리의 `.github/workflows/main.yml` 파일에 워크플로 코드를 복사합니다. `who-to-greet` 입력을 자신의 이름으로 바꿀 수도 있습니다.
 
 **.github/workflows/main.yml**
 ```yaml{:copy}
@@ -268,6 +272,13 @@ jobs:
         run: echo "The time was {% raw %}${{ steps.hello.outputs.time }}{% endraw %}"
 ```
 
-From your repository, click the **Actions** tab, and select the latest workflow run. Under **Jobs** or in the visualization graph, click **A job to say hello**. You should see "Hello Mona the Octocat" or the name you used for the `who-to-greet` input and the timestamp printed in the log.
+리포지토리에서 **작업** 탭을 클릭하고 최신 워크플로 실행을 선택합니다. **작업** 아래 또는 시각화 그래프에서 **인사할 작업** 을 클릭합니다. “Hello Mona Octocat” 또는 `who-to-greet` 입력에 사용한 이름과 로그에 출력된 타임스탬프가 표시되어야 합니다.
 
-![A screenshot of using your action in a workflow](/assets/images/help/repository/javascript-action-workflow-run-updated-2.png)
+![워크플로의 작업 사용 스크린샷](/assets/images/help/repository/javascript-action-workflow-run-updated-2.png)
+
+## JavaScript 작업을 만들기 위한 템플릿 리포지토리
+
+{% data variables.product.prodname_dotcom %}는 JavaScript 및 TypeScript 작업을 만들기 위한 템플릿 리포지토리를 제공합니다. 이러한 템플릿을 사용하여 테스트, 린팅 및 기타 권장 사례를 포함하는 새 작업 만들기를 빠르게 시작할 수 있습니다.
+
+* [`javascript-action` 템플릿 리포지토리](https://github.com/actions/javascript-action)
+* [`typescript-action` 템플릿 리포지토리](https://github.com/actions/typescript-action)

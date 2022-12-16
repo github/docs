@@ -1,0 +1,25 @@
+date: '2021-01-12'
+release_candidate: true
+deprecated: true
+intro: "Release Candidate-Versionen sollten in Umgebungen getestet werden, in denen keine Produktion stattfindet. Weitere Informationen zum Release Candidate-Programm findest du im [GitHub-Blog](https://github.blog/2020-12-03-improving-the-ghes-release-process-release-candidates/) oder unter „[Informationen zu Upgrades auf neue Releases](/admin/overview/about-upgrades-to-new-releases)“."
+sections:
+  bugs:
+    - "Das Format mehrerer Protokolldateien wurde geändert, und es wurde eine PID für verschiedene Protokolltypen hinzugefügt. Dies hat keine Auswirkungen darauf, wie der GitHub Enterprise-Support Supportbundles zum Behandeln von Problemen verwendet."
+    - Durch eine PATCH-Anforderung an die Webhook-Konfigurations-API wird das Webhookgeheimnis nicht mehr gelöscht.
+  known_issues:
+    - "Auf einer neu eingerichteten {% data variables.product.prodname_ghe_server %}-Instanz ohne Benutzer*innen könnten Angreifer*innen den ersten Administratorbenutzer erstellen."
+    - Release Candidate 1 unterstützt den Clustermodus nicht.
+    - Benutzerdefinierte Firewallregeln werden während eines Upgrades nicht aufrechterhalten.
+    - "Nachverfolgte Git LFS-Dateien, [die über die Webschnittstelle hochgeladen wurden,](https://github.blog/2016-02-18-upload-files-to-your-repositories/) werden dem Repository fälschlicherweise direkt hinzugefügt."
+    - "Wenn die Option zum Durchsuchen von GitHub.com bei GitHub Connect aktiviert ist, sind Issues in privaten und internen Repositorys nicht in den GitHub.com-Suchergebnissen enthalten."
+    - "Wenn du GitHub Actions nach einem gescheiterten Einrichtungsversuch deaktiviert hast, kannst du den ersten Benutzer nicht erstellen und die Appliance nicht verwenden."
+    - Das Überwachungsprotokollereignis „Obligatorische Nachricht wurde angezeigt“ wurde nicht gespeichert.
+    - '`ghe-config-apply` muss während des ersten Setups auf einem Replikat ausgeführt werden, bevor `ghe-repl-setup` ausgeführt werden kann, um die Replikation zu starten.'
+    - Backup-utils kann das Senden nicht notwendiger E-Mails an Administrator*innen auslösen.
+    - Auf der Ansichtsseite für Mitglieder der Organisation werden falsche Einstellungen für Packages angezeigt.
+    - "Nachdem du dich als Unternehmensbesitzer gelöscht hast, wirst du zu einer 404-Seite weitergeleitet. Der Vorgang wird erfolgreich ausgeführt."
+    - '`ghe-config-apply` schlägt gelegentlich mit „FEHLER: Fehler beim Warten auf die Anwendung von Nomad-Aufträgen“ fehl, bis die Nomad-Jobwarteschläge geleert wird. Derzeit werden Administratorberechtigungen benötigt, um `/etc/nomad-jobs/queue` zu löschen.'
+    - Beim Konfigurieren eines Knotens mit mehreren Replikaten kann der Status der Replikats falsch synchronisiert werden.
+    - "Kunden, die eine 3.0-Sicherung auf einer neuen Instanz wiederherstellen möchten, sollten die Instanz nicht vorher konfigurieren, da dies für Benutzeranmeldungen zu einem ungültigen Zustand führen kann. Es wird empfohlen, eine neue, nicht konfigurierte Instanz wiederherzustellen."
+    - "Release Candidates von GitHub Enterprise Server 3.0 sind noch nicht im Azure-Marketplace verfügbar. Um diese Release Candidates in Stagingumgebungen zu testen, starte eine 2.21- oder 2.22-Instanz, und führe dann ein Upgrade mit dem Azure-Upgradepaket auf der Downloadseite durch."
+    - Die Größe des Images und des Uploadpakets hat sich erhöht. Der Download der Pakete kann bei Kunden mit langsamer Internetverbindung länger dauern.

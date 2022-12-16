@@ -1,0 +1,78 @@
+date: '16.03.2021'
+intro: "Die Mindestanforderungen an die Infrastruktur haben sich für {% data variables.product.prodname_ghe_server %} 3.0 und höhere Versionen erhöht. Weitere Informationen findest du unter [Informationen zu Mindestanforderungen für GitHub Enterprise Server 3.0 und höher](/admin/enterprise-management/upgrading-github-enterprise-server#about-minimum-requirements-for-github-enterprise-server-30-and-later)."
+sections:
+  security_fixes:
+    - Die Pakete wurden auf die neuesten Sicherheitsversionen aktualisiert.
+  bugs:
+    - "Während einer Sicherung trat der Fehler „Warnung&#58; Mindestens ein Speicherobjekt wurde in der Quellappliance nicht gefunden.“ auf, wenn versucht wurde, löschbare Objekte zu bereinigen."
+    - "Das Abhängigkeitsdiagramm konnte JavaScript-Manifestdateien vom Typ „yarn.lock“ nicht parsen, was zu HTTP 500-Fehlern in Protokollen führte."
+    - GitHub Actions konnte nicht immer erfolgreich deaktiviert werden.
+    - "Benutzerdefinierte Pre-Receive-Hooks konnten nicht in „/tmp“ schreiben, was zur Folge hatte, dass einige Skripts nicht ordnungsgemäß ausgeführt werden konnten."
+    - Systemd-Journalprotokolle wurden an mehreren Orten dupliziert.
+    - "Eine in GitHub Enterprise 11.10.x oder älteren Versionen festgelegte Zeitzone wurde nach dem Upgrade auf 3.0 auf UTC-Zeit zurückgesetzt, was manchmal zur Veränderung von Zeitstempeln führte."
+    - "Wenn in einem Repository auf der Paketseitenleiste auf „Erstes Paket veröffentlichen\" geklickt wurde, wurde eine leere Seite angezeigt."
+    - "Einem Websiteadministrator wurde ggf. eine Seite mit dem Fehler 500 angezeigt, wenn versucht wurde, von privaten Repositorys referenzierte Issues anzuzeigen."
+    - Nach dem Deaktivieren von GitHub Packages wurde von einigen Organisationsseiten ein HTTP 500-Fehler zurückgegeben.
+    - "Beim Importieren von Repositoryarchiven von GitHub Enterprise Server, bei denen Repositorydateien fehlen, trat ein Fehler auf."
+    - "[Bereitstellungsschlüssel](/developers/overview/managing-deploy-keys) für ein Repository konnten nicht mit Repositorys verwendet werden, die LFS-Objekte enthalten."
+    - "Auf der Paketseitenleiste eines Repositorys wurde das Docker-Symbol grau dargestellt und eine QuickInfo mit dem Hinweis angezeigt, dass dieser Dienst veraltet ist."
+    - Mit dem Inhaltstyp „application/x-www-form-urlencoded“ konfigurierte Webhooks haben im Text der POST-Anforderung keine Abfrageparameter erhalten.
+    - "Benutzer konnten eine obligatorische Meldung schließen, ohne alle Kontrollkästchen zu aktivieren."
+    - "In bestimmten Fällen fehlten nach einem Upgrade von einer 2.22.X-Instanz die Webschnittstellenressourcen, und die Seite wurde nicht korrekt gerendert."
+    - Beim Ausführen von „ghe-config-apply“ konnte aufgrund von „Abschnitt ‚job‘ nicht gefunden“ der Timeoutfehler „Fehler beim Warten auf die Anwendung von Nomad-Aufträgen“ auftreten.
+  known_issues:
+    - In einer neu eingerichteten GitHub Enterprise Server-Instanz ohne Benutzer konnte ein Angreifer den ersten Administratorbenutzer erstellen.
+    - Benutzerdefinierte Firewallregeln werden während eines Upgrades nicht aufrechterhalten.
+    - "Nachverfolgte Git LFS-Dateien, [die über die Webschnittstelle hochgeladen wurden](https://github.com/blog/2105-upload-files-to-your-repositories), werden dem Repository fälschlicherweise direkt hinzugefügt."
+    - "Issues können nicht geschlossen werden, wenn sie einen Permalink zu einem Blob im selben Repository enthalten und der Dateipfad länger ist als 255 Zeichen."
+    - "Wenn die Option zum Durchsuchen von GitHub.com bei GitHub Connect aktiviert ist, sind Issues in privaten und internen Repositorys nicht in den GitHub.com-Suchergebnissen enthalten."
+    - "Wenn der Wartungsmodus aktiviert ist, werden einige Dienste weiterhin als aktive Prozesse angezeigt. Von den angegebenen Diensten wird erwartet, dass sie während des Wartungsmodus ausgeführt werden. Falls dieses Issue bei dir auftritt und du nicht sicher bist, wende dich an den [GitHub Enterprise-Support](https://support.github.com/contact)."
+    - "Das Jupyter Notebook-Rendering auf der Webbenutzeroberfläche ist möglicherweise nicht erfolgreich, wenn das Notebook ASCII-fremde UTF-8-Zeichen enthält."
+    - "Das RST-Rendering (reStructuredText) auf der Webbenutzeroberfläche ist möglicherweise nicht erfolgreich, und es wird stattdessen unformatierter RST-Markuptext angezeigt."
+    - "Alte Builds von Pages werden nicht bereinigt, was dazu führen kann, dass sich der Benutzerdatenträger (/data/user/) füllt."
+    - "Beim Löschen eines Branchs nach dem Mergen eines Pull Requests wird eine Fehlermeldung angezeigt, obwohl der Branch erfolgreich gelöscht wird."
+    - |Eventuell werden Objekte wie Avatare nicht geladen, oder Code kann nicht gepusht oder gepullt werden. Dies kann durch einen PID-Konflikt im Dienst „haproxy-cluster-proxy“ hervorgerufen werden. So ermittelst du, ob du über eine betroffene Instanz verfügst:
+
+
+
+**Einzelne Instanz**
+
+
+
+1. Führe den folgenden Code in der [Verwaltungsshell](https://docs.github.com/en/enterprise-server/admin/configuration/accessing-the-administrative-shell-ssh) (SSH) aus:
+
+
+
+  ```
+
+  if [ $(cat /var/run/haproxy-cluster-proxy.pid) -ne $(systemctl show --property MainPID --value haproxy-cluster-proxy) ]; then echo ''Main PID of haproxy-cluster-proxy does not match /var/run/haproxy-cluster-proxy.pid''; fi
+
+  ```
+
+
+
+2. Wenn ein Konflikt angezeigt wird, starte die Instanz neu.
+
+
+
+**Cluster- oder Hochverfügbarkeitskonfiguration**
+
+
+
+1. Führe den folgenden Code in der [Verwaltungsshell](https://docs.github.com/en/enterprise-server/admin/configuration/accessing-the-administrative-shell-ssh) (SSH) aus:
+
+
+
+  ```
+
+  ghe-cluster-each -- ''if [ $(cat /var/run/haproxy-cluster-proxy.pid) -ne $(systemctl show --property MainPID --value haproxy-cluster-proxy) ]; then echo ''Main PID of haproxy-cluster-proxy does not match /var/run/haproxy-cluster-proxy.pid''; fi''
+
+  ```
+
+
+
+2. Wenn angezeigt wird, dass mindestens ein Knoten betroffen ist, starte die betroffenen Knoten neu.
+
+|
+    - "Wenn ein Replikatknoten in einer Hochverfügbarkeitskonfiguration offline ist, kann {% data variables.product.product_name %} eventuell noch immer Anforderungen von {% data variables.product.prodname_pages %} an den Offlineknoten weiterleiten, was die Verfügbarkeit von {% data variables.product.prodname_pages %} für die Benutzer verringert."
+    - "Ressourcenbegrenzungen, die nur beim Verarbeiten von Pre-Receive-Hooks auftreten, können bei manchen Pre-Receive-Hooks Fehler auslösen."

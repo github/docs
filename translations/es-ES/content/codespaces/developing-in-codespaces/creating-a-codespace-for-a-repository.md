@@ -1,6 +1,6 @@
 ---
-title: Creating a codespace for a repository
-intro: You can create a codespace for a branch in a repository to develop online.
+title: Creación de un codespace para un repositorio
+intro: Puedes crear un codespace para una rama en un repositorio para desarrollar en línea.
 redirect_from:
   - /github/developing-online-with-github-codespaces/creating-a-codespace
   - /github/developing-online-with-codespaces/creating-a-codespace
@@ -14,95 +14,100 @@ topics:
   - Fundamentals
   - Developer
 shortTitle: Create a codespace for a repo
+ms.openlocfilehash: 409c946feda4ffbd3d9ab615b6ea07fabee3f530
+ms.sourcegitcommit: 1f3bd126ca000982c538f1621d47722737740943
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 12/01/2022
+ms.locfileid: '148188324'
 ---
+## Acerca de la creación de un codespace para un repositorio
 
-## About creating a codespace for a repository
+{% data reusables.codespaces.ways-to-create-a-codespace %} Usa las pestañas de este artículo a fin de mostrar instrucciones para cada una de estas formas de crear un codespace.
 
-{% data reusables.codespaces.ways-to-create-a-codespace %} Use the tabs in this article to display instructions for each of these ways of creating a codespace.
-
-{% data reusables.codespaces.starting-new-project-template %} For more information, see "[Creating a codespace from a template](/codespaces/developing-in-codespaces/creating-a-codespace-from-a-template)."
+{% data reusables.codespaces.starting-new-project-template %} Para obtener más información, consulta "[Creación de un codespace a partir de una plantilla](/codespaces/developing-in-codespaces/creating-a-codespace-from-a-template)".
 
 {% note %}
 
-**Note**: If you use a JetBrains IDE, you can use {% data variables.product.prodname_cli %} to create a codespace. You can then use the JetBrains Gateway application to open the codespace in a JetBrains IDE. For more information, see "[Using Codespaces in your JetBrains IDE](/codespaces/developing-in-codespaces/using-github-codespaces-in-your-jetbrains-ide)."
+**Nota**: Si usas un IDE de JetBrains, puedes usar la {% data variables.product.prodname_cli %} para crear un codespace. Después, puedes usar la aplicación de Puerta de enlace de JetBrains para abrir el codespace en un IDE de JetBrains. Para obtener más información, consulta "[Uso de codespaces en el IDE de JetBrains](/codespaces/developing-in-codespaces/using-github-codespaces-in-your-jetbrains-ide)".
 
 {% endnote %}
 
-You can use {% data variables.product.prodname_github_codespaces %} on your personal {% data variables.product.prodname_dotcom_the_website %} account, with the quota of free use included each month for accounts on the Free and Pro plans. {% data reusables.codespaces.codespaces-continue-by-paying %}
+Puedes usar {% data variables.product.prodname_github_codespaces %} en tu cuenta personal del {% data variables.product.prodname_dotcom_the_website %}, con la cuota de uso gratuito incluido cada mes para las cuentas de los planes Gratis y Pro. {% data reusables.codespaces.codespaces-continue-by-paying %}
 
-Organizations can enable members and outside collaborators to create and use codespaces at the organization's expense. For more information, see "[Enabling {% data variables.product.prodname_github_codespaces %} for your organization](/codespaces/managing-codespaces-for-your-organization/enabling-github-codespaces-for-your-organization)."
+Las organizaciones pueden permitir que los miembros y colaboradores externos creen y usen codespaces a costa de la organización. Para más información, consulta ["Habilitación de {% data variables.product.prodname_github_codespaces %} para la organización](/codespaces/managing-codespaces-for-your-organization/enabling-github-codespaces-for-your-organization)".
 
 {% data reusables.codespaces.codespaces-are-personal %}
 
-If you create a codespace from a repository, the codespace will be associated with a specific branch, which cannot be empty. You can create more than one codespace per repository or even per branch.
+Si creas un codespace desde un repositorio, este se asociará a una rama específica, que no puede estar vacía. Puedes crear más de un codespace por repositorio o incluso por rama.
 
 {% data reusables.codespaces.you-can-see-all-your-codespaces %}
 
-### The codespace creation process
+### Proceso de creación de codespace
 
-When you create a codespace, a number of steps happen to create and connect you to your development environment:
+Cuando creas un codespace, se suscitan varios pasos para crear y conectarte a tu ambiente de desarrollo:
 
-- Step 1: VM and storage are assigned to your codespace.
-- Step 2: Container is created and your repository is cloned.
-- Step 3: You can connect to the codespace.
-- Step 4: Codespace continues with post-creation setup.
+- Paso 1: se le asignan una MV y almacenamiento a tu codespace.
+- Paso 2: Se crea el contenedor y se clona tu repositorio.
+- Paso 3: Puedes conectarte al codespace.
+- Paso 4: El codespace sigue con la configuración post-creación.
 
-For more information on what happens when you create a codespace, see "[Deep Dive](/codespaces/getting-started/deep-dive)."
+Para más información sobre lo que sucede al crear un codespace, vea "[Análisis en profundidad](/codespaces/getting-started/deep-dive)".
 
-For more information on the lifecycle of a codespace, see "[The codespace lifecycle](/codespaces/getting-started/the-codespace-lifecycle)."
+Para obtener más información sobre el ciclo de vida de un codespace, consulta "[Ciclo de vida del codespaces](/codespaces/getting-started/the-codespace-lifecycle)".
 
-If you want to use Git hooks for your codespace, then you should set up hooks using the [`devcontainer.json` lifecycle scripts](https://code.visualstudio.com/docs/remote/devcontainerjson-reference#_lifecycle-scripts), such as `postCreateCommand`, during step 4. Since your codespace container is created after the repository is cloned, any [git template directory](https://git-scm.com/docs/git-init#_template_directory) configured in the container image will not apply to your codespace. Hooks must instead be installed after the codespace is created. For more information on using `postCreateCommand`, see the [`devcontainer.json` reference](https://code.visualstudio.com/docs/remote/devcontainerjson-reference#_devcontainerjson-properties) in the {% data variables.product.prodname_vscode_shortname %} documentation.
+Si quiere usar enlaces de Git para el codespace, debe configurarlos mediante los [scripts de ciclo de vida `devcontainer.json`](https://code.visualstudio.com/docs/remote/devcontainerjson-reference#_lifecycle-scripts), como `postCreateCommand`, durante el paso 4. Como el contenedor de codespace se crea después de clonar el repositorio, cualquier [directorio de plantilla de Git](https://git-scm.com/docs/git-init#_template_directory) configurado en la imagen de contenedor no se aplicará al codespace. En su lugar, deben instalarse los ganchos después de que se crea el codespace. Para obtener más información sobre cómo usar `postCreateCommand`, consulta la referencia [`devcontainer.json`](https://code.visualstudio.com/docs/remote/devcontainerjson-reference#_devcontainerjson-properties) en la documentación de {% data variables.product.prodname_vscode_shortname %}.
 
 {% data reusables.codespaces.use-visual-studio-features %}
 
 {% data reusables.codespaces.prebuilds-crossreference %}
 
-## Creating a codespace for a repository
+## Creación de un codespace para un repositorio
 
 {% webui %}
 
 {% data reusables.repositories.navigate-to-repo %}
-1. Under the repository name, use the "Branch" dropdown menu, and select the branch you want to create a codespace for.
+1. Debajo del nombre de repositorio, utiliza el menú desplegable "Rama" y selecciona aquella en la que quieras crear un codespace.
 
-   ![Branch dropdown menu](/assets/images/help/codespaces/branch-drop-down.png)
+   ![Menú desplegable Rama](/assets/images/help/codespaces/branch-drop-down.png)
 
-1. Click the **{% octicon "code" aria-label="The code icon" %} Code** button, then click the **Codespaces** tab.
+1. Haz clic en el botón **{% octicon "code" aria-label="The code icon" %} Código** y , a continuación, haz clic en la pestaña **Codespaces**.
 
-   ![New codespace button](/assets/images/help/codespaces/new-codespace-button.png)
+   ![Botón de codespace nuevo](/assets/images/help/codespaces/new-codespace-button.png)
 
-   If codespaces for this repository are billable to an organization, or its parent enterprise, a message is displayed below the **Create codespace on BRANCH** button telling you who will pay for the codespace.
+   Si los codespaces de este repositorio son facturables a una organización o a su empresa matriz, debajo del botón **Crear codespace en RAMA** verás un mensaje que indica quién pagará el codespace.
 
-1. Create your codespace, either using the default options, or after configuring advanced options:
+1. Crea el codespace, ya sea con las opciones predeterminadas o después de configurar las opciones avanzadas:
  
-   * **Use the default options**
+   * **Uso de las opciones predeterminadas**
 
-      To create a codespace using the default options, click the plus sign ({% octicon "plus" aria-label="The plus icon" %}). Alternatively, if you don't currently have any codespaces for this repository, you can click **Create codespace on BRANCH**.
+      Para crear un codespace con las opciones predeterminadas, haz clic en el signo más ({% octicon "plus" aria-label="The plus icon" %}). Como alternativa, si actualmente no tienes ningún codespace para este repositorio, puedes hacer clic en **Crear codespace en RAMA**.
 
-   * **Configure options**
+   * **Configurar opciones**
 
-      To configure advanced options for your codespace, such as a different machine type or a particular `devcontainer.json` file:
+      Para configurar opciones avanzadas para el codespace, como un tipo de máquina diferente o un archivo determinado `devcontainer.json`:
 
-      1. Click the ellipsis (**...**) at the top right of the **Codespaces** tab and select **New with options**.
+      1. Haz clic en los puntos suspensivos ( **...** ) de la parte superior derecha de la pestaña **Codespaces** y selecciona **Nuevo con opciones**.
 
-      ![View the default machine type](/assets/images/help/codespaces/default-machine-type.png)
+      ![Visualización del tipo de máquina predeterminado](/assets/images/help/codespaces/default-machine-type.png)
 
-      1. On the options page for your codespace, choose your preferred options from the dropdown menus.
+      1. En la página de opciones del codespace, elige tus opciones preferidas en los menús desplegables.
 
-         ![The codespace options page](/assets/images/help/codespaces/advanced-options.png)
+         ![Página de opciones de codespaces](/assets/images/help/codespaces/advanced-options.png)
 
          {% note %}
       
-         **Notes**
+         **Notas**
       
-         * You can bookmark the options page to give you a quick way to create a codespace for this repository and branch.
-         * The [https://github.com/codespaces/new](https://github.com/codespaces/new) page provides a quick way to create a codespace for any repository and branch. You can get to this page quickly by typing `codespace.new` into your browser's address bar.
-         * For more information about the `devcontainer.json` file, see "[Introduction to dev containers](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers#devcontainerjson)."
-         * For more information about machine types, see "[Changing the machine type for your codespace](/codespaces/customizing-your-codespace/changing-the-machine-type-for-your-codespace#about-machine-types)."
+         * Puedes marcar la página de opciones para poder crear rápidamente un codespace para este repositorio y esta rama.
+         * La página [https://github.com/codespaces/new](https://github.com/codespaces/new) proporciona una manera rápida de crear un codespace para cualquier repositorio y rama. Puedes acceder a esta página rápidamente escribiendo `codespace.new` en la barra de direcciones del explorador.
+         * Para obtener más información sobre el archivo `devcontainer.json`, consulta "[Introducción a los contenedores de desarrollo](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers#devcontainerjson)".
+         * Para obtener más información, consulta "[Cambio del tipo de máquina para el codespace](/codespaces/customizing-your-codespace/changing-the-machine-type-for-your-codespace#about-machine-types)".
          * {% data reusables.codespaces.codespaces-machine-type-availability %}
       
          {% endnote %}
 
-      1. Click **Create codespace**.
+      1. Haga clic en **Crear codespace**.
 
 {% endwebui %}
    
@@ -116,30 +121,30 @@ If you want to use Git hooks for your codespace, then you should set up hooks us
 
 {% data reusables.cli.cli-learn-more %}
 
-To create a new codespace, use the `gh codespace create` subcommand. 
+Para crear un codespace, use el subcomando `gh codespace create`. 
 
 ```shell
 gh codespace create 
 ```
 
-You are prompted to choose a repository. If codespaces for this repository are billable to an organization, or its parent enterprise, a message is displayed telling you who will pay for the codespace. You are then prompted to choose a branch, a dev container configuration file (if more than one is available), and a machine type (if more than one is available).
+Se te pedirá que elijas un repositorio. Si los codespaces de este repositorio son facturables a una organización o a su empresa matriz, se muestra un mensaje que indica quién pagará el codespace. Luego, se te pedirá que elijas una rama, un archivo de configuración de contenedor de desarrollo (si hay más de uno disponible) y un tipo de máquina (si hay más de uno disponible).
 
-Alternatively, you can use flags to specify some or all of the options:
+Como alternativa, puedes utilizar marcadores para especificar algunas o todas las opciones:
 
 ```shell
 gh codespace create -r OWNER/REPO -b BRANCH --devcontainer-path PATH -m MACHINE-TYPE
 ```
 
-In this example, replace `owner/repo` with the repository identifier. Replace `branch` with the name of the branch, or the full SHA hash of the commit, that you want to be initially checked out in the codespace. If you use the `-r` flag without the `b` flag, the codespace is created from the default branch.
+En este ejemplo, reemplaza `owner/repo` por el identificador del repositorio. Reemplace a `branch` por el nombre de la rama o el hash SHA completo de la confirmación que quiera que se extraiga inicialmente en el codespace. Si usa la marca `-r` sin la marca `b`, el codespace se crea a partir de la rama predeterminada.
 
-Replace `path` with the path to the dev container configuration file you want to use for the new codespace. If you omit this flag and more than one dev container file is available you will be prompted to choose one from a list. For more information about the dev container configuration file, see "[Introduction to dev containers](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers)."
+Reemplaza `path` por la ruta de acceso al archivo de configuración de contenedor de desarrollo que desees usar para el nuevo codespace. Si omites este marcador y hay más de un tipo de archivo de contenedor de desarrollo disponible, se te pedirá que lo elijas en una lista. Para obtener más información sobre el archivo de configuración de contenedor de desarrollo, consulta "[Introducción a los contenedores de desarrollo](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers)".
 
-Replace `machine-type` with a valid identifier for an available machine type. Identifiers are strings such as: `basicLinux32gb` and `standardLinux32gb`. The type of machines that are available depends on the repository, your personal account, and your location. If you enter an invalid or unavailable machine type, the available types are shown in the error message. If you omit this flag and more than one machine type is available you will be prompted to choose one from a list.
+Reemplace `machine-type` por un identificador válido para un tipo de máquina disponible. Los identificadores son cadenas como: `basicLinux32gb` y `standardLinux32gb`. El tipo de máquinas que están disponibles depende del repositorio, la cuenta personal y la ubicación. Si ingresas un tipo de máquina no disponible o inválido, los tipos disponibles se mostrarán en el mensaje de error. Si omites este marcador y hay más de un tipo de máquina disponible, se te pedirá elegirlo de una lista.
 
-For full details of the options for this command, see [the {% data variables.product.prodname_cli %} manual](https://cli.github.com/manual/gh_codespace_create).
+Para obtener los detalles completos de las opciones de este comando, consulta [el manual de {% data variables.product.prodname_cli %}](https://cli.github.com/manual/gh_codespace_create).
 
 {% endcli %}
 
-## Further reading
-- "[Opening an existing codespace](/codespaces/developing-in-codespaces/opening-an-existing-codespace)"
-- "[Adding an 'Open in {% data variables.product.prodname_github_codespaces %}' badge](/codespaces/setting-up-your-project-for-codespaces/adding-a-codespaces-badge)"
+## Información adicional
+- "[Apertura de un codespace existente](/codespaces/developing-in-codespaces/opening-an-existing-codespace)"
+- "[Incorporación de un distintivo 'Abrir en {% data variables.product.prodname_github_codespaces %}'](/codespaces/setting-up-your-project-for-codespaces/adding-a-codespaces-badge)"

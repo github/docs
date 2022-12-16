@@ -10,13 +10,18 @@ versions:
   ghae: '*'
 topics:
   - API
+ms.openlocfilehash: 976789de9da21b81c0af12e1113d32f0d8608a63
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148108380'
 ---
+## À propos des mutations
 
-## About mutations
+Chaque schéma GraphQL a un type racine pour les requêtes et les mutations. Le [type de mutation](https://graphql.github.io/graphql-spec/June2018/#sec-Type-System) définit les opérations GraphQL qui modifient les données sur le serveur. Il est analogue à l’exécution de verbes HTTP tels que `POST`, `PATCH` et `DELETE`.
 
-Every GraphQL schema has a root type for both queries and mutations. The [mutation type](https://graphql.github.io/graphql-spec/June2018/#sec-Type-System) defines GraphQL operations that change data on the server. It is analogous to performing HTTP verbs such as `POST`, `PATCH`, and `DELETE`.
-
-For more information, see "[About mutations](/graphql/guides/forming-calls-with-graphql#about-mutations)."
+Pour plus d’informations, consultez « [À propos des mutations](/graphql/guides/forming-calls-with-graphql#about-mutations) ».
 
 {% data reusables.projects.graphql-ghes %}
 

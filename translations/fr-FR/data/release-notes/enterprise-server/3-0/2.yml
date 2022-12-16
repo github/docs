@@ -1,0 +1,78 @@
+date: '16-03-2021'
+intro: "Les exigences minimales d’infrastructure ont augmenté pour {% data variables.product.prodname_ghe_server %} 3.0+. Pour plus d’informations, consultez « [À propos des exigences minimales pour GitHub Enterprise Server 3.0 et versions ultérieures](/admin/enterprise-management/upgrading-github-enterprise-server#about-minimum-requirements-for-github-enterprise-server-30-and-later) »."
+sections:
+  security_fixes:
+    - Les packages ont été mis à jour avec les dernières versions de sécurité.
+  bugs:
+    - "Pendant une sauvegarde, une erreur « Avertissement : Un ou plusieurs objets de stockage sont introuvables sur l’appliance source. » se produisait lors de la tentative de nettoyage d’objets de stockage purgeables."
+    - "Le graphe des dépendances ne parvenait pas à analyser les fichiers manifestes JavaScript « yarn.lock», engendrant des erreurs HTTP 500 dans les journaux."
+    - La désactivation de GitHub Actions échouait parfois.
+    - "Les hooks de pré-réception personnalisés n’étaient pas autorisés à écrire dans « /tmp », empêchant certains scripts de s’exécuter correctement."
+    - Des journaux système ont été dupliqués à plusieurs endroits.
+    - "Un fuseau horaire défini sur GitHub Enterprise 11.10.x ou une version antérieure était réinitialisé sur l’heure UTC après la mise à niveau vers la version 3.0, ce qui provoquait un changement des horodatages dans certaines instances."
+    - Le fait de cliquer sur « Publier votre premier package » dans la barre latérale des packages sur un dépôt conduisait à une page vide.
+    - Un administrateur de site pouvait obtenir une page d’erreur 500 lors d’une tentative d’affichage des problèmes issus de dépôts privés.
+    - "Après la désactivation de GitHub Packages, certaines pages d’organisation retournaient une réponse d’erreur HTTP 500."
+    - L’importation d’archives de dépôt à partir de GitHub Enterprise Server dans lesquelles il manquait des fichiers de dépôt échouaient avec une erreur.
+    - "Il était impossible d’utiliser des [clés de déploiement](/developers/overview/managing-deploy-keys) de dépôt avec des dépôts contenant des objets LFS."
+    - "Dans la barre latérale des packages d’un dépôt, l’icône Docker était grisée et une info-bulle affichait « Ce service est déprécié »."
+    - Les webhooks configurés avec le type de contenu « application/x-www-form-urlencoded » n’ont pas reçu de paramètres de requête dans le corps de la requête POST.
+    - Les utilisateurs pouvaient ignorer un message obligatoire sans cocher toutes les cases.
+    - "Dans certains cas, après une mise à niveau à partir d’une instance 2.22.x, les ressources de l’interface web étaient manquantes et la page ne s’affichait pas correctement."
+    - L’exécution de « ghe-config-apply » peut expirer avec le message « Impossible d’attendre l’application des travaux Nomad car la strophe « job » est introuvable.
+  known_issues:
+    - "Sur une instance GitHub Enterprise Server fraîchement configurée et sans utilisateur, un attaquant peut créer le premier utilisateur administrateur."
+    - Les règles de pare-feu personnalisées ne sont pas conservées lors d’une mise à niveau.
+    - "Les fichiers suivis par Git LFS [chargés via l’interface web](https://github.com/blog/2105-upload-files-to-your-repositories) sont, à tort, ajoutés directement au dépôt."
+    - "Les problèmes ne peuvent pas être fermés s’ils contiennent un lien permanent vers un objet blob se trouvant dans le même dépôt, où le chemin de fichier dépasse 255 caractères."
+    - "Quand l’option « Les utilisateurs peuvent effectuer des recherches sur GitHub.com » est activée avec GitHub Connect, les problèmes dans les dépôts privés et internes ne sont pas inclus dans les résultats de recherche de GitHub.com."
+    - "Quand le mode maintenance est activé, certains services continuent d’être listés en tant que « processus actifs ». Les services identifiés sont censés s’exécuter en mode maintenance. Si vous rencontrez ce problème et que vous avez des doutes, contactez le [support GitHub Enterprise](https://support.github.com/contact)."
+    - Le rendu de Jupyter Notebook dans l’interface utilisateur web peut échouer si le notebook comprend des caractères UTF-8 non-ASCII.
+    - Le rendu de reStructuredText (RST) dans l’interface utilisateur web peut échouer et afficher du texte de balisage RST brut à la place.
+    - "Les anciennes builds de Pages ne sont pas nettoyées, ce qui pourrait entraîner la saturation du disque utilisateur (« /data/user/ »)."
+    - "Lors de la suppression d’une branche après la fusion d’une demande de tirage (pull request), un message d’erreur s’affiche même en cas de réussite de la suppression."
+    - |Les utilisateurs peuvent rencontrer des ressources telles que des avatars qui ne se chargent pas ou des échecs de poussée (push) ou de tirage (pull) de code. Cela peut être dû à une non-correspondance de PID dans le service « haproxy-cluster-proxy ». Pour déterminer si vous avez une instance affectée :
+
+
+
+**Instance unique**
+
+
+
+1. Exécutez la commande suivante dans le [shell d’administration](https://docs.github.com/en/enterprise-server/admin/configuration/accessing-the-administrative-shell-ssh) (SSH) :
+
+
+
+  ```
+
+  if [ $(cat /var/run/haproxy-cluster-proxy.pid) -ne $(systemctl show --property MainPID --value haproxy-cluster-proxy) ]; then echo ''Main PID of haproxy-cluster-proxy does not match /var/run/haproxy-cluster-proxy.pid''; fi
+
+  ```
+
+
+
+2. Si la commande révèle une absence de correspondance, redémarrez l’instance.
+
+
+
+**Configuration de cluster ou de haute disponibilité**
+
+
+
+1. Exécutez la commande suivante dans le [shell d’administration](https://docs.github.com/en/enterprise-server/admin/configuration/accessing-the-administrative-shell-ssh) (SSH) :
+
+
+
+  ```
+
+  ghe-cluster-each -- ''if [ $(cat /var/run/haproxy-cluster-proxy.pid) -ne $(systemctl show --property MainPID --value haproxy-cluster-proxy) ]; then echo ''Main PID of haproxy-cluster-proxy does not match /var/run/haproxy-cluster-proxy.pid''; fi''
+
+  ```
+
+
+
+2. Si la commande révèle qu’un ou plusieurs nœuds sont affectés, redémarrez les nœuds affectés.
+
+|
+    - "Quand un nœud de réplica est hors connexion dans une configuration de haute disponibilité, {% data variables.product.product_name %} peut toujours router les requêtes de {% data variables.product.prodname_pages %} vers le nœud hors connexion, réduisant ainsi la disponibilité de {% data variables.product.prodname_pages %} pour les utilisateurs."
+    - Les limites de ressources propres au traitement des hooks de pré-réception peuvent entraîner l’échec de certains d’entre eux.

@@ -1,6 +1,6 @@
 ---
 title: À propos du renforcement de la sécurité avec OpenID Connect
-shortTitle: About security hardening with OpenID Connect
+shortTitle: Security hardening with OpenID Connect
 intro: OpenID Connect permet à vos workflows d’échanger des jetons de courte durée directement à partir de votre fournisseur de cloud.
 miniTocMaxHeadingLevel: 4
 versions:
@@ -10,12 +10,12 @@ versions:
 type: tutorial
 topics:
   - Security
-ms.openlocfilehash: 23c541fa3c99b706877fc29c52174c404d5fca3d
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 90a2f8c6cb2114f060bfbd0f422cb1ef6dbca604
+ms.sourcegitcommit: 4f08a208a0d2e13dc109678750a962ea2f67e1ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147710266'
+ms.lasthandoff: 12/06/2022
+ms.locfileid: '148192030'
 ---
 {% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
@@ -76,7 +76,7 @@ L’exemple de jeton OIDC suivant utilise un sujet (`sub`) qui référence un en
   "repository": "octo-org/octo-repo",
   "repository_owner": "octo-org",
   "actor_id": "12",
-  "repo_visibility": private,
+  "repository_visibility": private,
   "repository_id": "74",
   "repository_owner_id": "65",
   "run_id": "example-run-id",
@@ -131,7 +131,7 @@ Le jeton inclut également des revendications personnalisées fournies par {% da
 | `job_workflow_ref`| Il s’agit du chemin de référence jusqu’au workflow réutilisable utilisé par ce travail. Pour plus d’informations, consultez « [Utilisation d’OpenID Connect avec des workflows réutilisables](/actions/deployment/security-hardening-your-deployments/using-openid-connect-with-reusable-workflows) ».                  | 
 | `ref`| _(Référence)_ Référence git qui a déclenché l’exécution du workflow.                   | 
 | `ref_type`| Type de `ref`, par exemple : « branche ».                  | 
-| `repo_visibility` | Visibilité du dépôt dans lequel le workflow s’exécute. Accepte les valeurs suivantes : `internal`, `private` et`public`.                   | 
+| `repository_visibility` | Visibilité du dépôt dans lequel le workflow s’exécute. Accepte les valeurs suivantes : `internal`, `private` et`public`.                   | 
 | `repository`| Dépôt à partir duquel le workflow s’exécute.                   | 
 | `repository_id`| ID du dépôt à partir duquel le workflow s’exécute.  |
 | `repository_owner`| Nom de l’organisation dans laquelle `repository` est stocké.                   | 
@@ -249,7 +249,7 @@ Vous pouvez durcir la sécurité de votre configuration OIDC en personnalisant 
 
 {% ifversion ghec %} : pour une couche de sécurité supplémentaire, vous pouvez ajouter l’URL `issuer` au slug de votre entreprise. Cela vous permet de définir des conditions pour la revendication de l’émetteur (`iss`), en la configurant pour accepter uniquement les jetons JWT provenant d’une URL unique `issuer` qui doit inclure le slug de votre entreprise.{% endif %}
 - Vous pouvez normaliser votre configuration OIDC en définissant des conditions pour la revendication de l’objet (`sub`) qui exigent des jetons JWT provenant d’un dépôt spécifique, d’un workflow réutilisable ou d’une autre source.
-- Vous pouvez définir des stratégies OIDC précises à l’aide de revendications de jeton OIDC supplémentaires, comme `repository_id` et `repo_visibility`. Pour plus d’informations, consultez « [Présentation du jeton OIDC](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#understanding-the-oidc-token) ».
+- Vous pouvez définir des stratégies OIDC précises à l’aide de revendications de jeton OIDC supplémentaires, comme `repository_id` et `repository_visibility`. Pour plus d’informations, consultez « [Présentation du jeton OIDC](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#understanding-the-oidc-token) ».
 
 Pour personnaliser ces formats de revendication, les administrateurs d’organisation et de dépôt peuvent utiliser les points de terminaison de l’API REST qui sont décrits dans les sections suivantes.
 
@@ -259,7 +259,7 @@ Pour personnaliser ces formats de revendication, les administrateurs d’organis
 
 Par défaut, le jeton JWT est émis par le fournisseur OIDC de {% data variables.product.prodname_dotcom %} sur `https://token.actions.githubusercontent.com`. Ce chemin est présenté à votre fournisseur de cloud à l’aide de la valeur `iss` du jeton JWT.
 
-Les administrateurs d’entreprise peuvent renforcer leur configuration OIDC en configurant leur entreprise de manière à recevoir des jetons provenant d’une URL unique à l’adresse `https://api.github.com/enterprises/<enterpriseSlug>/actions/oidc/customization/issuer`. Remplacez `<enterpriseSlug>` par la valeur slug de votre entreprise. 
+Les administrateurs d’entreprise peuvent renforcer leur configuration OIDC en configurant leur entreprise de manière à recevoir des jetons provenant d’une URL unique à l’adresse `https://token.actions.githubusercontent.com/<enterpriseSlug>`. Remplacez `<enterpriseSlug>` par la valeur slug de votre entreprise. 
 
 Cette configuration signifie que votre entreprise recevra le jeton OIDC provenant d’une URL unique. Vous pourrez ensuite configurer votre fournisseur de cloud pour qu’il accepte uniquement les jetons provenant de cette URL. Cela garantit que seuls les dépôts de l’entreprise pourront accéder à vos ressources cloud à l’aide d’OIDC.
 
@@ -273,7 +273,7 @@ Une fois ce paramètre appliqué, le jeton JWT contient la valeur `iss` mise à
   "sub": "repo:octocat-inc/private-server:ref:refs/heads/main"
   "aud": "http://octocat-inc.example/octocat-inc"
   "enterprise": "octocat-inc"
-  "iss": "https://api.github.com/enterprises/octocat-inc/actions/oidc/customization/issuer",
+  "iss": "https://token.actions.githubusercontent.com/octocat-inc",
   "bf": 1755350653,
   "exp": 1755351553,
   "iat": 1755351253
@@ -282,21 +282,23 @@ Une fois ce paramètre appliqué, le jeton JWT contient la valeur `iss` mise à
 
 {% endif %}
 
-### Personnalisation des revendications d’objet pour une organisation
+### Personnalisation des revendications d’objet pour une organisation ou un référentiel
 
-Pour configurer la sécurité, la conformité et la normalisation à l’échelle de l’organisation, vous pouvez personnaliser les revendications standard en fonction des conditions d’accès exigées. Si votre fournisseur de cloud prend en charge l’application de conditions aux revendications d’objet, vous pouvez créer une condition qui vérifie si la valeur `sub` correspond au chemin du workflow réutilisable, par exemple `"job_workflow_ref: "octo-org/octo-automation/.github/workflows/oidc.yml@refs/heads/main""`. Le format exact varie en fonction de la configuration OIDC de votre fournisseur de cloud. Pour configurer la condition de correspondance de {% data variables.product.prodname_dotcom %}, vous pouvez utiliser l’API REST pour exiger que la revendication `sub` comprenne toujours une revendication personnalisée spécifique, telle que `job_workflow_ref`. Pour plus d’informations, consultez « [Définir le modèle de personnalisation d’une revendication d’objet OIDC dans une organisation](/rest/actions/oidc#set-the-customization-template-for-an-oidc-subject-claim-for-an-organization) ».
-
-La personnalisation des revendications applique un nouveau format pour l’intégralité de la revendication `sub`, qui remplace le format prédéfini `sub` par défaut dans le jeton décrit dans « [Exemples de revendications d’objet](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#example-subject-claims) ».
-
-Les exemples de modèles suivants illustrent différentes façons de personnaliser la revendication d’objet. Pour configurer ces paramètres dans {% data variables.product.prodname_dotcom %}, les administrateurs de l’organisation utilisent l’API REST pour spécifier la liste des revendications qui doivent être incluses dans la revendication d’objet (`sub`). {% data reusables.actions.use-request-body-api %}
-
-Pour personnaliser vos revendications d’objet, vous devez d’abord créer une condition correspondante dans la configuration OIDC de votre fournisseur de cloud, avant de personnaliser la configuration à l’aide de l’API REST. Une fois la configuration terminée, chaque fois qu’un nouveau travail s’exécute, le jeton OIDC généré pendant ce travail suit le nouveau modèle de personnalisation. Si la condition de correspondance n’existe pas dans la configuration OIDC du fournisseur de cloud avant l’exécution du travail, le jeton généré risque de ne pas être accepté par le fournisseur de cloud, car les conditions cloud peuvent ne pas être synchronisées.
+Pour aider à améliorer la sécurité, la conformité et la normalisation, vous pouvez personnaliser les revendications standard en fonction des conditions d’accès exigées. Si votre fournisseur de cloud prend en charge l’application de conditions aux revendications d’objet, vous pouvez créer une condition qui vérifie si la valeur `sub` correspond au chemin du workflow réutilisable, par exemple `"job_workflow_ref: "octo-org/octo-automation/.github/workflows/oidc.yml@refs/heads/main""`. Le format exact varie en fonction de la configuration OIDC de votre fournisseur de cloud. Pour configurer la condition de correspondance de {% data variables.product.prodname_dotcom %}, vous pouvez utiliser l’API REST pour exiger que la revendication `sub` comprenne toujours une revendication personnalisée spécifique, telle que `job_workflow_ref`. Vous pouvez utiliser [API REST OIDC](/rest/actions/oidc) pour appliquer un modèle de personnalisation à la revendication d’objet OIDC ; par exemple, vous pouvez exiger que la revendication `sub` dans le jeton OIDC inclue toujours une revendication personnalisée spécifique, telle que `job_workflow_ref`.
 
 {% note %}
 
-**Remarque** : Lorsque le modèle d’organisation est appliqué, il n’affecte pas les dépôts existants qui utilisent déjà OIDC. Pour les dépôts existants, ainsi que pour les nouveaux dépôts créés après l’application du modèle, les propriétaires des dépôts devront accepter de recevoir cette configuration. Pour plus d’informations, consultez « [Définir l’indicateur d’acceptation d’une personnalisation de revendication d’objet OIDC pour un dépôt](/rest/actions/oidc#set-the-opt-in-flag-of-an-oidc-subject-claim-customization-for-a-repository) ».
+**Remarque** : lorsque le modèle d’organisation est appliqué, il n’affecte pas les référentiels existants qui utilisent déjà OIDC. Pour les référentiels existants, ainsi que pour les nouveaux référentiels créés après l’application du modèle, les propriétaires des référentiels devront accepter de recevoir cette configuration ou ils peuvent demander une configuration différente spécifique au référentiel. Pour plus d’informations, consultez « [Définir le modèle de personnalisation d’une revendication d’objet OIDC dans un référentiel](/rest/actions/oidc#set-the-customization-template-for-an-oidc-subject-claim-for-a-repository) ».
 
 {% endnote %}
+
+La personnalisation des revendications applique un nouveau format pour l’intégralité de la revendication `sub`, qui remplace le format prédéfini `sub` par défaut dans le jeton décrit dans « [Exemples de revendications d’objet](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#example-subject-claims) ».
+
+Les exemples de modèles suivants illustrent différentes façons de personnaliser la revendication d’objet. Pour configurer ces paramètres dans {% data variables.product.prodname_dotcom %}, les administrateurs utilisent l’API REST pour spécifier la liste des revendications qui doivent être incluses dans la revendication d’objet (`sub`). 
+
+{% data reusables.actions.use-request-body-api %}
+
+Pour personnaliser vos revendications d’objet, vous devez d’abord créer une condition correspondante dans la configuration OIDC de votre fournisseur de cloud, avant de personnaliser la configuration à l’aide de l’API REST. Une fois la configuration terminée, chaque fois qu’un nouveau travail s’exécute, le jeton OIDC généré pendant ce travail suit le nouveau modèle de personnalisation. Si la condition de correspondance n’existe pas dans la configuration OIDC du fournisseur de cloud avant l’exécution du travail, le jeton généré risque de ne pas être accepté par le fournisseur de cloud, car les conditions cloud peuvent ne pas être synchronisées.
 
 #### Exemple : Autorisation d’un dépôt en fonction de la visibilité et du propriétaire
 
@@ -315,7 +317,9 @@ Dans la configuration OIDC de votre fournisseur de cloud, configurez la conditi
 
 #### Exemple : Autorisation de l’accès à tous les dépôts d’un propriétaire donné
 
-Cet exemple de modèle permet à la revendication `sub` d’avoir un nouveau format avec uniquement la valeur `repository_owner`. {% data reusables.actions.use-request-body-api %}
+Cet exemple de modèle permet à la revendication `sub` d’avoir un nouveau format avec uniquement la valeur `repository_owner`. 
+
+{% data reusables.actions.use-request-body-api %}
 
 ```json
 {
@@ -346,7 +350,9 @@ Dans la configuration OIDC de votre fournisseur de cloud, configurez la conditi
 
 #### Exemple : Exiger un workflow réutilisable et d’autres revendications
 
-L’exemple de modèle suivant combine l’exigence d’un workflow réutilisable spécifique avec des revendications supplémentaires. {% data reusables.actions.use-request-body-api %}
+L’exemple de modèle suivant combine l’exigence d’un workflow réutilisable spécifique avec des revendications supplémentaires.
+
+{% data reusables.actions.use-request-body-api %}
 
 Cet exemple montre également comment utiliser `"context"` pour définir vos conditions. Il s’agit de la partie qui suit le dépôt au [format `sub` par défaut](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#example-subject-claims). Par exemple, lorsque le travail fait référence à un environnement, le contexte contient : `environment:<environmentName>`.
 
@@ -382,7 +388,9 @@ Dans la configuration OIDC de votre fournisseur de cloud, configurez la conditi
 
 #### Exemple : Utilisation de GUID générés par le système
 
-Cet exemple de modèle autorise les revendications OIDC prévisibles avec des GUID générés par le système qui ne changent pas entre les renommages d’entités (par exemple, le renommage d’un dépôt). {% data reusables.actions.use-request-body-api %}
+Cet exemple de modèle autorise les revendications OIDC prévisibles avec des GUID générés par le système qui ne changent pas entre les renommages d’entités (par exemple, le renommage d’un dépôt). 
+
+{% data reusables.actions.use-request-body-api %}
 
 ```json
   {
@@ -408,7 +416,9 @@ Dans la configuration OIDC de votre fournisseur de cloud, configurez la conditi
 
 #### Réinitialisation de vos personnalisations
 
-Cet exemple de modèle réinitialise le format des revendications d’objet vers celui par défaut. {% data reusables.actions.use-request-body-api %} Ce modèle désactive toute stratégie de personnalisation appliquée au niveau de l’organisation.
+Cet exemple de modèle réinitialise le format des revendications d’objet vers celui par défaut. Ce modèle refuse toute stratégie de personnalisation appliquée au niveau de l’organisation.
+
+{% data reusables.actions.use-request-body-api %}
 
 ```json
 {
@@ -423,11 +433,25 @@ Dans la configuration OIDC de votre fournisseur de cloud, configurez la conditi
 
 #### Utilisation des revendications d’objet par défaut
 
-Pour les dépôts qui peuvent recevoir une stratégie de revendication d’objet de la part de leur organisation, le propriétaire des dépôts peut choisir plus tard d’utiliser plutôt le format de revendication par défaut `sub`. Pour configurer cela, l’administrateur du dépôt doit utiliser le point de terminaison de l’API REST mentionné dans « [Définir l’indicateur de refus d’une personnalisation de revendication d’objet OIDC pour un dépôt](/rest/actions/oidc#set-the-opt-out-flag-of-an-oidc-subject-claim-customization-for-a-repository) », avec le corps de demande suivant :
+Pour les dépôts qui peuvent recevoir une stratégie de revendication d’objet de la part de leur organisation, le propriétaire des dépôts peut choisir plus tard d’utiliser plutôt le format de revendication par défaut `sub`. Cela signifie que le référentiel n’utilisera pas le modèle personnalisé de l’organisation. 
+
+Pour configurer le référentiel afin qu’il utilise le format de revendication par défaut `sub`, un administrateur de référentiel doit utiliser le point de terminaison de l’API REST sur « [Définir le modèle de personnalisation d’une revendication d’objet OIDC pour un référentiel](/rest/actions/oidc#set-the-customization-template-for-an-oidc-subject-claim-for-a-repository) » avec le corps de la requête suivant :
 
 ```json
 {
    "use_default": true
+}
+```
+
+#### Exemple : Configuration d’un référentiel pour utiliser un modèle d’organisation
+
+Un administrateur de référentiel peut configurer son référentiel pour utiliser le modèle créé par l’administrateur de son organisation.
+
+Pour configurer le référentiel afin qu’il utilise le modèle de l’organisation, un administrateur de référentiel doit utiliser le point de terminaison de l’API REST sur « [Définir le modèle de personnalisation d’une revendication d’objet OIDC pour un référentiel](/rest/actions/oidc#set-the-customization-template-for-an-oidc-subject-claim-for-a-repository) » avec le corps de la requête suivant :
+
+```json
+{
+   "use_default": false
 }
 ```
 

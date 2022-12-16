@@ -1,6 +1,6 @@
 ---
-title: Working with the Container registry
-intro: 'You can store and manage Docker and OCI images in the {% data variables.product.prodname_container_registry %}, which uses the package namespace `https://{% data reusables.package_registry.container-registry-hostname %}`.'
+title: Работа с реестром контейнеров
+intro: 'Вы можете хранить образы Docker и OCI и управлять ими в {% data variables.product.prodname_container_registry %}, в котором используется пространство имен `https://{% data reusables.package_registry.container-registry-hostname %}` для пакета.'
 product: '{% data reusables.gated-features.packages %}'
 redirect_from:
   - /packages/managing-container-images-with-github-container-registry/pushing-and-pulling-docker-images
@@ -17,82 +17,85 @@ versions:
   ghec: '*'
   ghes: '>= 3.5'
 shortTitle: Container registry
+ms.openlocfilehash: e22f7f660b76e41888bb8ae272ecb336fc273ff4
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148099060'
 ---
-
 {% data reusables.package_registry.container-registry-ghes-beta %}
 
-## About the {% data variables.product.prodname_container_registry %}
+## Сведения о {% data variables.product.prodname_container_registry %}
 
 {% data reusables.package_registry.container-registry-benefits %}
 
 {% ifversion ghes > 3.4 %}
 
-To use the {% data variables.product.prodname_container_registry %} on {% data variables.product.product_name %}, your site administrator must first configure {% data variables.product.prodname_registry %} for your instance **and** enable subdomain isolation. For more information, see "[Getting started with GitHub Packages for your enterprise](/admin/packages/getting-started-with-github-packages-for-your-enterprise)" and "[Enabling subdomain isolation](/admin/configuration/configuring-network-settings/enabling-subdomain-isolation)."
+Чтобы использовать {% data variables.product.prodname_container_registry %} ы {% data variables.product.product_name %}, администратор сайта должен сначала настроить {% data variables.product.prodname_registry %} для вашего экземпляра **и** включить изоляцию поддомена. Дополнительные сведения см. в разделах [Начало работы с пакетами GitHub для вашего предприятия](/admin/packages/getting-started-with-github-packages-for-your-enterprise) и [Включение изоляции поддомена](/admin/configuration/configuring-network-settings/enabling-subdomain-isolation).
 
 {% endif %}
 
-## About {% data variables.product.prodname_container_registry %} support
+## Сведения о поддержке {% data variables.product.prodname_container_registry %}
 
-The {% data variables.product.prodname_container_registry %} currently supports the following container image formats:
+В настоящее время {% data variables.product.prodname_container_registry %} поддерживает следующие форматы образов контейнеров:
 
-* [Docker Image Manifest V2, Schema 2](https://docs.docker.com/registry/spec/manifest-v2-2/)
-* [Open Container Initiative (OCI) Specifications](https://github.com/opencontainers/image-spec)
+* [Манифест версии 2 образа Docker, схема 2](https://docs.docker.com/registry/spec/manifest-v2-2/)
+* [Спецификации Open Container Initiative (OCI)](https://github.com/opencontainers/image-spec)
 
-When installing or publishing a Docker image, the {% data variables.product.prodname_container_registry %} supports foreign layers, such as Windows images.
+При установке или публикации образа Docker {% data variables.product.prodname_container_registry %} поддерживает внешние слои, такие как образы Windows.
 
-## Authenticating to the {% data variables.product.prodname_container_registry %}
+## Проверка подлинности {% data variables.product.prodname_container_registry %}
 
-{% ifversion fpt or ghec or ghes > 3.4 %}
-To authenticate to the {% data variables.product.prodname_container_registry %} (`ghcr.io`) within a {% data variables.product.prodname_actions %} workflow, use the `GITHUB_TOKEN` for the best security and experience. {% data reusables.package_registry.authenticate_with_pat_for_v2_registry %}
-{% endif %}
+{% ifversion fpt or ghec or ghes > 3.4 %} Чтобы пройти проверку подлинности в {% data variables.product.prodname_container_registry %} (`ghcr.io`) в рабочем процессе {% data variables.product.prodname_actions %}, используйте `GITHUB_TOKEN` для обеспечения оптимальной безопасности и удобства работы. {% data reusables.package_registry.authenticate_with_pat_for_v2_registry %} {% endif %}
 
-{% ifversion ghes %}Ensure that you replace `HOSTNAME` with {% data variables.location.product_location_enterprise %} hostname or IP address in the examples below.{% endif %}
+{% ghes ifversion %} Убедитесь, что вы замените `HOSTNAME` {% данных variables.location.product_location_enterprise %} имя узла или IP-адрес в примерах ниже.{ % endif %}
 
 {% data reusables.package_registry.authenticate-to-container-registry-steps %}
 
-## Pushing container images
+## Отправка образов контейнеров
 
-This example pushes the latest version of `IMAGE_NAME`.
+В этом примере отправляется последняя версия `IMAGE_NAME`.
   ```shell
   $ docker push {% data reusables.package_registry.container-registry-hostname %}/OWNER/IMAGE_NAME:latest
   ```
 
-This example pushes the `2.5` version of the image.
+В этом примере отправляется версия `2.5` образа.
   ```shell
   $ docker push {% data reusables.package_registry.container-registry-hostname %}/OWNER/IMAGE_NAME:2.5
   ```
 
-When you first publish a package, the default visibility is private. To change the visibility or set access permissions, see "[Configuring a package's access control and visibility](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility)."
+При первой публикации пакета для параметра видимости по умолчанию выбирается закрытый доступ. Сведения об изменении видимости или настройке разрешений доступа см. в разделе [Настройка контроля доступа и видимости пакета](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility).
 
-## Pulling container images
+## Вытягивание образов контейнеров
 
-### Pull by digest
+### Вытягивание по хэшу
 
-To ensure you're always using the same image, you can specify the exact container image version you want to pull by the `digest` SHA value.
+Чтобы всегда использовать один и тот же образ, можно указать точную версию образа контейнера для вытягивания, задав значение SHA `digest`.
 
-1. To find the digest SHA value, use `docker inspect` or `docker pull` and copy the SHA value after `Digest:`
+1. Чтобы найти значение хэша SHA, используйте `docker inspect` или `docker pull`, а затем скопируйте значение SHA после `Digest:`
   ```shell
   $ docker inspect {% data reusables.package_registry.container-registry-hostname %}/OWNER/IMAGE_NAME
   ```
-2. Remove image locally as needed.
+2. При необходимости удалите образ локально.
   ```shell
   $ docker rmi  {% data reusables.package_registry.container-registry-hostname %}/OWNER/IMAGE_NAME:latest
   ```
 
-3. Pull the container image with `@YOUR_SHA_VALUE` after the image name.
+3. Вытяните образ контейнера с `@YOUR_SHA_VALUE` после имени образа.
   ```shell
   $ docker pull {% data reusables.package_registry.container-registry-hostname %}/OWNER/IMAGE_NAME@sha256:82jf9a84u29hiasldj289498uhois8498hjs29hkuhs
   ```
 
-### Pull by name
+### Вытягивание по имени
 
   ```shell
   $ docker pull {% data reusables.package_registry.container-registry-hostname %}/OWNER/IMAGE_NAME
   ```
 
-### Pull by name and version
+### Вытягивание по имени и версии
 
-Docker CLI example showing an image pulled by its name and the `1.14.1` version tag:
+Пример интерфейса командной строки Docker с образом, извлеченным по имени и тегу версии `1.14.1`:
   ```shell
   $ docker pull {% data reusables.package_registry.container-registry-hostname %}/OWNER/IMAGE_NAME:1.14.1
   > 5e35bd43cf78: Pull complete
@@ -104,7 +107,7 @@ Docker CLI example showing an image pulled by its name and the `1.14.1` version 
   > {% data reusables.package_registry.container-registry-hostname %}/orgname/image-name/release:1.14.1
   ```
 
-### Pull by name and latest version
+### Вытягивание по имени и последней версии
 
   ```shell
   $ docker pull {% data reusables.package_registry.container-registry-hostname %}/OWNER/IMAGE_NAME:latest
@@ -114,16 +117,16 @@ Docker CLI example showing an image pulled by its name and the `1.14.1` version 
   > {% data reusables.package_registry.container-registry-hostname %}/user/image-name:latest
   ```
 
-## Building container images
+## Сборка образов контейнеров
 
-This example builds the `hello_docker` image:
+В этом примере собирается образ `hello_docker`:
   ```shell
   $ docker build -t hello_docker .
   ```
 
-## Tagging container images
+## Добавление тегов в образы контейнеров
 
-1. Find the ID for the Docker image you want to tag.
+1. Найдите идентификатор образа Docker, к которому вы хотите добавить тег.
   ```shell
   $ docker images
   > REPOSITORY                                            TAG                 IMAGE ID            CREATED             SIZE
@@ -132,24 +135,24 @@ This example builds the `hello_docker` image:
   > hello-world                                           latest              fce289e99eb9        16 months ago       1.84kB
   ```
 
-2. Tag your Docker image using the image ID and your desired image name and hosting destination.
+2. Добавьте тег к образу Docker, указав идентификатор образа, желаемое имя образа и место размещения.
   ```shell
   $ docker tag 38f737a91f39 {% data reusables.package_registry.container-registry-hostname %}/OWNER/NEW_IMAGE_NAME:latest
   ```
 
-## Labelling container images
+## Маркировка образов контейнеров
 
-{% data reusables.package_registry.about-docker-labels %} For more information on Docker labels, see [LABEL](https://docs.docker.com/engine/reference/builder/#label) in the official Docker documentation and [Pre-Defined Annotation Keys](https://github.com/opencontainers/image-spec/blob/master/annotations.md#pre-defined-annotation-keys) in the `opencontainers/image-spec` repository.
+{% данных reusables.package_registry.about-docker-labels %} Дополнительные сведения о метках Docker [см.](https://docs.docker.com/engine/reference/builder/#label) в официальной документации Docker и [предварительно определенных ключах заметок](https://github.com/opencontainers/image-spec/blob/master/annotations.md#pre-defined-annotation-keys) в репозитории `opencontainers/image-spec` .
 
-The following labels are supported in the {% data variables.product.prodname_container_registry %}. Supported labels will appear on the package page for the image.
+Следующие метки поддерживаются в {% данных variables.product.prodname_container_registry %}. Поддерживаемые метки будут отображаться на странице пакета для изображения.
 
-Label | Description
+Метка | Описание
 ------|------------
-| `org.opencontainers.image.source` | The URL of the repository associated with the package. For more information, see "[Connecting a repository to a package](/packages/learn-github-packages/connecting-a-repository-to-a-package#connecting-a-repository-to-a-container-image-using-the-command-line)."
-| `org.opencontainers.image.description` | A text-only description limited to 512 characters. This description will appear on the package page, below the name of the package.
-| `org.opencontainers.image.licenses` | An SPDX license identifier such as "MIT," limited to 256 characters. The license will appear on the package page, in the "Details" sidebar. For more information, see [SPDX License List](https://spdx.org/licenses/).
+| `org.opencontainers.image.source` | URL-адрес репозитория, связанного с пакетом. Дополнительные сведения см. в разделе [Подключение репозитория к пакету](/packages/learn-github-packages/connecting-a-repository-to-a-package#connecting-a-repository-to-a-container-image-using-the-command-line).
+| `org.opencontainers.image.description` | Текстовое описание ограничено 512 символами. Это описание появится на странице пакета под именем пакета.
+| `org.opencontainers.image.licenses` | Идентификатор лицензии SPDX, например MIT, ограничен 256 символами. Лицензия появится на странице пакета на боковой панели "Сведения". Дополнительные сведения см. в [списке лицензий SPDX](https://spdx.org/licenses/).
 
-To add labels to an image, we recommend using the `LABEL` instruction in your `Dockerfile`. For example, if you're the user `monalisa` and you own `my-repo`, and your image is distributed under the terms of the MIT license, you would add the following lines to your `Dockerfile`:
+Чтобы добавить метки к изображению, рекомендуется использовать инструкцию`LABEL`.`Dockerfile` Например, если вы являетесь пользователем `monalisa` и являетесь владельцем `my-repo`, а образ распространяется согласно условиям лицензии MIT, вы добавите в свои `Dockerfile`строки следующие строки:
 
 ```dockerfile
 LABEL org.opencontainers.image.source=https://{% ifversion fpt or ghec %}github.com{% else %}HOSTNAME{% endif %}/monalisa/my-repo
@@ -157,7 +160,7 @@ LABEL org.opencontainers.image.description="My container image"
 LABEL org.opencontainers.image.licenses=MIT
 ```
 
-Alternatively, you can add labels to an image at buildtime with the `docker build` command.
+Кроме того, можно добавить метки в образ во время сборки `docker build` с помощью команды.
 
 ```shell
 $ docker build \

@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 65ef5b7ddead68864d8890f47e1ec5e8163a368b
-ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
-ms.translationtype: HT
+ms.openlocfilehash: 69fce359695e2b23342e04a73397ac717d580b7b
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 09/11/2022
-ms.locfileid: "147881951"
+ms.lasthandoff: 12/09/2022
+ms.locfileid: "148193456"
 ---
-- {% data variables.product.prodname_copilot %} предоставляется бесплатно для проверенных учащихся и пользователей, обслуживающих программное обеспечение с открытым кодом. 
-- Если вы не являетесь учащимся и не обслуживаете программное обеспечение с открытым кодом, вам доступна бесплатная пробная версия {% data variables.product.prodname_copilot %} на 60 дней. После пробного периода вы сможете приобрести платную подписку. Чтобы запустить бесплатную пробную версию, необходимо указать данные для выставления счетов. Дополнительные сведения см. в статье [Сведения о выставлении счетов за {% data variables.product.prodname_copilot %}](/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot).
+- {% data variables.product.prodname_copilot %} можно бесплатно использовать для проверенных учащихся, преподавателей и открытый код обслуживающих. 
+- Если вы не являетесь студентом, преподавателем или открытый код, вам потребуется активная пробная версия или подписка. Дополнительные сведения см. в статье [Сведения о выставлении счетов за {% data variables.product.prodname_copilot %}](/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot).

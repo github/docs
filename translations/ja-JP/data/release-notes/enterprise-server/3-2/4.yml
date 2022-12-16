@@ -1,0 +1,30 @@
+date: '2021-11-23'
+intro: 複数のお客様に影響する重大なバグのため、ダウンロードは無効になりました。修正プログラムは次回のパッチで利用可能になります。
+sections:
+  security_fixes:
+    - パッケージは最新のセキュリティ バージョンに更新されました。
+  bugs:
+    - GitHub Actions が有効になっているとき、`ghe-repl-start` または `ghe-repl-status` を実行すると、データベースへの接続に関するエラーが返されることがありました。
+    - "`PATH` が定義されていないため、pre-receive フックが失敗しました。"
+    - 'インスタンスが以前にレプリカとして構成されていた場合、`ghe-repl-setup` を実行すると、`cannot create directory /data/user/elasticsearch: File exists` (ディレクトリ /data/user/elasticsearch を作成できません: ファイルが存在します) というエラーが返されました。'
+    - '`ghe-support-bundle` を実行すると、`integer expression expected` (整数式が必要です) というエラーが返されていました。'
+    - '高可用性レプリカを設定した後は、`ghe-repl-status` の出力に `unexpected unclosed action in command` (コマンドで予期せずクローズされなかったアクション) というエラーが含まれていました。'
+    - 大規模なクラスター環境では、フロントエンド ノードのサブセットで、認証バックエンドを利用できませんでした。
+    - 一部の重要なサービスが、GHES クラスターのバックエンド ノードで利用できない可能性があります。
+    - ユーザーに対して `/repos` API で返されるリポジトリ アクセス許可で、完全なリストが返されませんでした。
+    - 一部の状況では、GraphQL スキーマの `Team` オブジェクトの `childTeams` 接続により、正しくない結果が生成されていました。
+    - 高可用性構成で、リポジトリのメンテナンスが成功した場合でも、stafftools で常に失敗と表示されていました。
+    - ユーザー定義パターンにより、`package.json` や `yarn.lock` のようなファイル内のシークレットが検出されませんでした。
+  changes:
+    - "`ghe-cluster-suport-bundle` でクラスター サポート バンドルを作成するときの、`gzip` 圧縮の追加外部レイヤーが、既定でオフにされるようになりました。この外側の圧縮は、必要に応じて、`ghe-cluster-suport-bundle -c` コマンド ライン オプションで適用できます。"
+    - エクスペリエンス向上のためのモバイル アプリのデータ収集についてユーザーに注意を促す追加のテキストを、管理者コンソールに追加しました。
+    - "{% data variables.product.prodname_github_connect %} のデータ接続レコードに、有効になっている {% data variables.product.prodname_github_connect %} 機能のリストが含まれるようになりました。[2021-12-09 更新]"
+  known_issues:
+    - "{% data variables.product.prodname_ghe_server %} をセットアップしたばかりでユーザーがいない場合、攻撃者が最初の管理者ユーザーを作成できました。"
+    - カスタムのファイアウォール規則は、アップグレード プロセス中に削除されます。
+    - "[Web インターフェイスからアップロードされた](https://github.com/blog/2105-upload-files-to-your-repositories) Git LFS 追跡ファイルが誤ってリポジトリに直接追加されます。"
+    - issue に同じリポジトリ内の BLOB への固定リンクが含まれ、その BLOB のファイル パスが 255 文字を超える場合、その issue をクローズできません。
+    - "GitHub Connect で [Users can search GitHub.com]\\(ユーザーが GitHub.com を検索できる\\) が有効になっている場合、プライベートと内部リポジトリの issue は GitHub.com の検索結果に含まれません。"
+    - "{% data variables.product.prodname_registry %} npm レジストリが、メタデータ応答で時刻値を返さなくなります。これは、パフォーマンスの大幅な向上を可能にするために行われました。メタデータ応答の一部として時刻値を返すために必要なすべてのデータを保持し続け、既存のパフォーマンスの問題を解決したら、将来的にこの値を返すことを再開します。"
+    - pre-receive フックの処理に固有のリソース制限により、一部の pre-receive フックが失敗する場合があります。
+    - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'

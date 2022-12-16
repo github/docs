@@ -7,12 +7,12 @@ versions:
 shortTitle: Visual Studio Code
 topics:
   - Copilot
-ms.openlocfilehash: 0c91f9c11f98669ba6bcbf84113a629ae6d53044
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: ab043d4eeca2003deaf77aa80be46fc79acf8649
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147079750'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148193251'
 ---
 ## 关于 {% data variables.product.prodname_vscode %} 中的 {% data variables.product.prodname_copilot %}
 
@@ -88,9 +88,8 @@ ms.locfileid: '147079750'
 
 可以选择在 {% data variables.product.prodname_vscode %} 中启用或禁用 {% data variables.product.prodname_copilot %} 的内联建议。 
 
-1. 在“文件”菜单中，导航到“首选项”，然后单击“设置”  。
-![{% data variables.product.prodname_vscode %} 设置的屏幕截图](/assets/images/help/copilot/vsc-settings.png)
-1. 在“设置”选项卡的左侧面板中，单击“扩展”，然后选择“Copilot” 。
+{% data reusables.copilot.vscode-settings %}
+1. 在“设置”选项卡的左侧面板中，单击“扩展”，然后选择“{% data variables.product.prodname_copilot_short %}” 。
 1. 在“内联建议: 启用”下，选中或取消选中该复选框以启用或禁用内联建议。
 
 ## 启用或禁用特定语言的 {% data variables.product.prodname_copilot %}
@@ -98,7 +97,7 @@ ms.locfileid: '147079750'
 可以指定要为其启用或禁用 {% data variables.product.prodname_copilot %} 的语言。
 
 1. 在 {% data variables.product.prodname_vscode %} 中，单击“扩展”选项卡，然后导航到“Copilot”部分 。 有关详细信息，请参阅“[启用和禁用内联建议](#enabling-and-disabling-inline-suggestions)”。
-1. 在“启用或禁用指定语言的 Copilot”下，单击“在 settings.json 中进行编辑”。
+1. 在“启用或禁用指定语言的 {% data variables.product.prodname_copilot_short %}”下，单击“在 settings.json 中进行编辑”。
 1. 在 settings.json 文件中，添加或删除要为其启用或禁用 {% data variables.product.prodname_copilot %} 的语言。 例如，要在 {% data variables.product.prodname_copilot %} 中启用 Python，请将 `"python": true` 添加到列表中，确保除了最后一个列表项之外还有一个尾随逗号。
 
     ```json
@@ -114,5 +113,23 @@ ms.locfileid: '147079750'
         }
     }
     ```
+
+## 配置 {% data variables.product.prodname_copilot %} 的代理设置
+
+可以将 {% data variables.product.prodname_copilot %} 配置为通过 {% data variables.product.prodname_vscode %} 中的 HTTP 代理服务器进行连接。 {% data variables.product.prodname_copilot %} 支持基本 HTTP 代理设置，无论是否使用基本身份验证。 
+
+{% data reusables.copilot.vscode-settings %}
+1. 在“设置”选项卡的左侧面板中，单击“应用程序”，然后选择“代理” 。
+1. 在“代理”下的文本框中，键入代理服务器的地址，例如 `http://localhost:3128`。 或者，{% data variables.product.prodname_copilot %} 将使用环境中的 `http_proxy` 和 `https_proxy` 变量。
+
+   ![Visual Studio Code 代理文本框的屏幕截图](/assets/images/help/copilot/proxy-textbox.png)
+
+1. （可选）在“Http: 代理授权”下，选择“在 settings.json 中进行编辑”，然后添加所需的值作为每个网络请求的 `Proxy-Authorization` 标头发送。
+
+   ![Visual Studio Code 代理授权文本框的屏幕截图](/assets/images/help/copilot/proxy-authorization.png)
+
+1. （可选）在“Http：代理严格 SSL”下，选中或取消选中用于启用或禁用严格 SSL 的复选框。
+
+   ![Visual Studio Code 代理严格 SSL 复选框的屏幕截图](/assets/images/help/copilot/proxy-strict-ssl.png)
 
 {% data reusables.copilot.dotcom-settings %}

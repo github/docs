@@ -1,72 +1,73 @@
 ---
-title: Controlling access to larger runners
+title: 더 큰 실행기 액세스 제어
 shortTitle: 'Control access to {% data variables.actions.hosted_runner %}s'
-intro: 'You can use policies to limit access to {% data variables.actions.hosted_runner %}s that have been added to an organization or enterprise.'
+intro: '정책을 사용하여 조직 또는 엔터프라이즈에 추가된 {% data variables.actions.hosted_runner %}에 대한 액세스를 제한하는 정책을 사용할 수 있습니다.'
 product: '{% data reusables.gated-features.hosted-runners %}'
 miniTocMaxHeadingLevel: 3
 versions:
   feature: actions-hosted-runners
 type: tutorial
+ms.openlocfilehash: d19e875ae8ee4556e635540f47625fa5a9874918
+ms.sourcegitcommit: a35d85531445980b5f04d3fc70180a29dad37f89
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 12/01/2022
+ms.locfileid: '148189907'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+## 실행기 그룹 정보
 
-## About runner groups
+{% data reusables.actions.about-runner-groups %} {% ifversion fpt %}자세한 내용은 [{% data variables.product.prodname_ghe_cloud %} 설명서](/enterprise-cloud@latest/actions/using-github-hosted-runners/controlling-access-to-larger-runners)를 참조하세요.{% endif %}
 
-{% data reusables.actions.about-runner-groups %} {% ifversion fpt %}For more information, see the [{% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/actions/using-github-hosted-runners/controlling-access-to-larger-runners).{% endif %}
+### {% data variables.actions.hosted_runner %}s에 대한 기본 그룹
 
-### Default group for {% data variables.actions.hosted_runner %}s
-
-Organizations and enterprises with access to {% data variables.actions.hosted_runner %}s will automatically receive a default runner group called "Default Larger Runners" that includes 4 runners of varying sizes. The runners in this group are pre-configured and ready for immediate use. In order to use the runners in this group, you will need to add the label corresponding to the runner of your choice to your workflow file. See the table below for labels. For more information on how to use labels, see "[Running jobs on your runner](/actions/using-github-hosted-runners/using-larger-runners#running-jobs-on-your-runner)."
+{% data variables.actions.hosted_runner %}s에 액세스할 수 있는 조직과 기업은 다양한 크기의 4명의 실행기를 포함하는 "기본 큰 실행기"라는 기본 실행기 그룹을 자동으로 받습니다. 이 그룹의 실행기는 미리 구성되어 즉시 사용할 준비가 되어 있습니다. 이 그룹의 실행기를 사용하려면 선택한 실행기에 해당하는 레이블을 워크플로 파일에 추가해야 합니다. 레이블은 아래 표를 참조하세요. 레이블을 사용하는 방법에 대한 자세한 내용은 "[실행기에서 작업 실행"을 참조하세요](/actions/using-github-hosted-runners/using-larger-runners#running-jobs-on-your-runner).
 
 
-#### Default Runners
+#### 기본 실행기
 
-|Description | Label | Image |
+|설명 | 레이블 | 이미지 |
 | ------- | ------- | ------ |
-| 4-cores Ubuntu Runner | `ubuntu-latest-4-cores` | Ubuntu - Latest |
-| 8-cores Ubuntu Runner | `ubuntu-latest-8-cores` | Ubuntu - Latest |
-| 16-cores Ubuntu Runner | `ubuntu-latest-16-cores` | Ubuntu - Latest |
-| 8-cores Windows Runner | `windows-latest-8-cores` | Windows Server - Latest |
+| 4코어 Ubuntu Runner | `ubuntu-latest-4-cores` | Ubuntu - 최신 |
+| 8코어 Ubuntu Runner | `ubuntu-latest-8-cores` | Ubuntu - 최신 |
+| 16코어 Ubuntu Runner | `ubuntu-latest-16-cores` | Ubuntu - 최신 |
+| 8코어 Windows Runner | `windows-latest-8-cores` | Windows Server - 최신 |
 
-The default {% data variables.actions.hosted_runner %} group is created at the billing entity level. If your organization is part of an enterprise account, the group will be managed on the enterprise level. If your organization does not fall under an enterprise, the group is managed on the organization level. 
+기본 {% data variables.actions.hosted_runner %} 그룹은 청구 엔터티 수준에서 만들어집니다. 조직이 엔터프라이즈 계정의 일부인 경우 그룹은 엔터프라이즈 수준에서 관리됩니다. 조직이 엔터프라이즈에 속하지 않는 경우 그룹은 조직 수준에서 관리됩니다. 
 
-You will not be billed for these runners until you use them in your workflows. Once these runners are used, billing works as it normally does. For more information on billing, see "[Using {% data variables.actions.hosted_runner %}s](/actions/using-github-hosted-runners/using-larger-runners#understanding-billing)."
+워크플로에서 사용할 때까지 이러한 실행기에 대한 요금이 청구되지 않습니다. 이러한 실행기를 사용하면 청구가 정상적으로 작동합니다. 청구에 대한 자세한 내용은 "[{% data variables.actions.hosted_runner %}s 사용](/actions/using-github-hosted-runners/using-larger-runners#understanding-billing)"을 참조하세요.
 
-The default access for a {% data variables.actions.hosted_runner %} group at the enterprise level is set to automatically share with all organizations in the enterprise, but not all repositories. Organization admins will need to share the default {% data variables.actions.hosted_runner %} group with each repository separately. For {% data variables.actions.hosted_runner %} groups at the organization level, the default access is set to automatically share the group with all repositories. For more information on how to change access policies, and where to view the default {% data variables.actions.hosted_runner %} group, see "[Changing the access policy of a runner group](#changing-the-access-policy-of-a-runner-group)."
+엔터프라이즈 수준의 {% data variables.actions.hosted_runner %} 그룹에 대한 기본 액세스는 엔터프라이즈의 모든 조직과 자동으로 공유되도록 설정되지만 모든 리포지토리는 공유하지 않습니다. 조직 관리자는 기본 {% data variables.actions.hosted_runner %} 그룹을 각 리포지토리와 별도로 공유해야 합니다. 조직 수준에서 {% data variables.actions.hosted_runner %} 그룹의 경우 모든 리포지토리와 그룹을 자동으로 공유하도록 기본 액세스가 설정됩니다. 액세스 정책을 변경하는 방법 및 기본 {% data variables.actions.hosted_runner %} 그룹을 볼 수 있는 위치에 대한 자세한 내용은 "[실행기 그룹의 액세스 정책 변경"을 참조하세요](#changing-the-access-policy-of-a-runner-group).
 
 {% ifversion ghec or ghes or ghae %}
 
-## Creating a runner group for an organization
+## 조직에 대한 실행기 그룹 만들기
 
-{% data reusables.actions.hosted-runner-security-admonition %}
-{% data reusables.actions.creating-a-runner-group-for-an-organization %}
+{% data reusables.actions.hosted-runner-security-admonition %} {% data reusables.actions.creating-a-runner-group-for-an-organization %}
 
-## Creating a runner group for an enterprise
+## 엔터프라이즈에 대한 실행기 그룹 만들기
 
-{% data reusables.actions.hosted-runner-security-admonition %}
-{% data reusables.actions.creating-a-runner-group-for-an-enterprise %}
+{% data reusables.actions.hosted-runner-security-admonition %} {% data reusables.actions.creating-a-runner-group-for-an-enterprise %}
 
 {% endif %}
 
 {% data reusables.actions.section-using-unique-names-for-runner-groups %}
 
-## Changing the access policy of a runner group
+## 실행기 그룹의 액세스 정책 변경
 
-{% data reusables.actions.hosted-runner-security-admonition %}
-{% data reusables.actions.changing-the-access-policy-of-a-runner-group %}
+{% data reusables.actions.hosted-runner-security-admonition %} {% data reusables.actions.changing-the-access-policy-of-a-runner-group %}
 
-## Changing the name of a runner group
+## 실행기 그룹의 이름 변경
 
 {% data reusables.actions.changing-the-name-of-a-runner-group %}
 
 {% ifversion ghec or ghes or ghae %}
-## Moving a runner to a group
+## 실행기를 그룹으로 이동
 
 {% data reusables.actions.moving-a-runner-to-a-group %}
 
-## Removing a runner group
+## 실행기 그룹 제거
 
 {% data reusables.actions.removing-a-runner-group %}
 

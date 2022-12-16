@@ -1,6 +1,6 @@
 ---
-title: About billing for GitHub Actions
-intro: 'If you want to use {% data variables.product.prodname_actions %} beyond the storage or minutes included in your account, you will be billed for additional usage.'
+title: GitHub Actions 요금 청구 정보
+intro: '계정에 포함된 스토리지 또는 시간(분)을 벗어나 {% data variables.product.prodname_actions %}를 사용하면 추가 사용량에 대한 요금이 청구됩니다.'
 miniTocMaxHeadingLevel: 3
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-actions
@@ -13,103 +13,104 @@ topics:
   - Actions
   - Spending limits
 shortTitle: Billing for GitHub Actions
+ms.openlocfilehash: fcc8f84b8a11b214ca66e8a3851a1afc9df6213a
+ms.sourcegitcommit: 9af8891fea10039b3374c76818634e05410e349d
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 12/06/2022
+ms.locfileid: '148191888'
 ---
-## About billing for {% data variables.product.prodname_actions %}
+## {% data variables.product.prodname_actions %} 요금 청구 정보
 
 {% data reusables.actions.actions-billing %}
 
-{% data reusables.actions.actions-spending-limit-brief %} For more information, see "[About spending limits](#about-spending-limits)."
+{% data reusables.actions.actions-spending-limit-brief %} 자세한 내용은 “[지출 한도 정보](#about-spending-limits)”를 참조하세요.
 
-{% ifversion ghec %}
-If you purchased {% data variables.product.prodname_enterprise %} through a Microsoft Enterprise Agreement, you can connect your Azure Subscription ID to your enterprise account to enable and pay for {% data variables.product.prodname_actions %} usage beyond the amounts including with your account. For more information, see "[Connecting an Azure subscription to your enterprise](/billing/managing-billing-for-your-github-account/connecting-an-azure-subscription-to-your-enterprise)."
+{% ifversion ghec %} Microsoft 기업계약을 통해 {% data variables.product.prodname_enterprise %}를 구매한 경우 Azure 구독 ID를 엔터프라이즈 계정에 연결하여 계정에 포함된 양을 초과하는 {% data variables.product.prodname_actions %} 사용량을 가능하게 하고 비용을 지불할 수 있습니다. 자세한 내용은 “[엔터프라이즈에 Azure 구독 연결](/billing/managing-billing-for-your-github-account/connecting-an-azure-subscription-to-your-enterprise)”을 참조하세요.
 {% endif %}
 
-Minutes reset every month, while storage usage does not.
+시간(분)은 매월 재설정되지만 스토리지 사용량은 재설정되지 않습니다.
 
-### Included storage and minutes
+### 포함된 스토리지 및 시간(분)
 
-{% ifversion actions-hosted-runners %} 
-{% note %}
+{% ifversion actions-hosted-runners %} {% note %}
 
-**Note**: Entitlement minutes cannot be used for Windows and Ubuntu runners over 2-cores. These runners will always be charged for, including in public repos. For more information, see "[Per-minute rates for runners](/billing/managing-billing-for-github-actions/about-billing-for-github-actions#per-minute-rates)."
+**참고**: 2코어 이상의 Windows 및 Ubuntu 실행기에는 시간(분) 권한을 사용할 수 없습니다. 이러한 실행기에는 공용 리포지토리를 포함하여 항상 요금이 청구됩니다. 자세한 내용은 “[실행기에 대한 분당 요금](/billing/managing-billing-for-github-actions/about-billing-for-github-actions#per-minute-rates)”을 참조하세요.
 
-{% endnote %}
-{% endif %}
+{% endnote %} {% endif %}
 
-|Product | Storage | Minutes (per month)|
+|제품 | Storage | 분(월별)|
 |------- | ------- | ---------|
-| {% data variables.product.prodname_free_user %} | 500 MB | 2,000 |
-| {% data variables.product.prodname_pro %} | 1 GB | 3,000 |
-| {% data variables.product.prodname_free_team %} for organizations | 500 MB | 2,000 |
-| {% data variables.product.prodname_team %} | 2 GB | 3,000 |
-| {% data variables.product.prodname_ghe_cloud %} | 50 GB | 50,000 |
+| {% data variables.product.prodname_free_user %} | 500MB | 2,000 |
+| {% data variables.product.prodname_pro %} | 1GB | 3,000 |
+| 조직용 {% data variables.product.prodname_free_team %} | 500MB | 2,000 |
+| {% data variables.product.prodname_team %} | 2GB | 3,000 |
+| {% data variables.product.prodname_ghe_cloud %} | 50GB | 50,000 |
 
-Jobs that run on Windows and macOS runners that {% data variables.product.prodname_dotcom %} hosts consume minutes at 2 and 10 times the rate that jobs on Linux runners consume. For example, using 1,000 Windows minutes would consume 2,000 of the minutes included in your account. Using 1,000 macOS minutes, would consume 10,000 minutes included in your account.
+{% data variables.product.prodname_dotcom %} 호스트에서 Windows 및 macOS 실행기를 실행하는 작업은 Linux 실행기의 작업이 사용하는 속도의 2~10배에 이르는 시간(분)을 사용합니다. 예를 들어 1,000개의 Windows 시간(분)을 사용하면 계정에 포함된 2,000개의 시간(분)을 사용하게 됩니다. 1,000개의 macOS 시간(분)을 사용하면 계정에 포함된 10,000개 시간(분)을 사용하게 됩니다.
 
-### Minute multipliers
+### 시간(분) 승수
 
-| Operating system | Minute multiplier |
+| 운영 체제 | 시간(분) 승수 |
 |------- | ---------|
 | Linux | 1 |
 | macOS| 10 |
 | Windows | 2 |
 
-The storage used by a repository is the total storage used by {% data variables.product.prodname_actions %} artifacts and {% data variables.product.prodname_registry %}. Your storage cost is the total usage for all repositories owned by your account. For more information about pricing for  {% data variables.product.prodname_registry %}, see "[About billing for {% data variables.product.prodname_registry %}](/billing/managing-billing-for-github-packages/about-billing-for-github-packages)."
+리포지토리에서 사용하는 스토리지는 {% data variables.product.prodname_actions %} 아티팩트와 {% data variables.product.prodname_registry %}에서 사용하는 총 스토리지입니다. 스토리지 비용은 계정에서 소유한 모든 리포지토리의 총사용량입니다. {% data variables.product.prodname_registry %}의 가격에 대한 자세한 내용은 “[{% data variables.product.prodname_registry %} 요금 청구 정보](/billing/managing-billing-for-github-packages/about-billing-for-github-packages)”를 참조하세요.
 
- If your account's usage surpasses these limits and you have set a spending limit above $0 USD, you will pay $0.008 USD per GB of storage per day and per-minute usage depending on the operating system used by the {% data variables.product.prodname_dotcom %}-hosted runner. {% data variables.product.prodname_dotcom %} rounds the minutes and partial minutes each job uses up to the nearest whole minute.
+ 계정의 사용량이 한도를 초과하고 지출 한도를 $0 USD보다 높게 설정한 경우 {% data variables.product.prodname_dotcom %} 호스팅 실행기에서 사용하는 운영 체제에 따라 매일 GB당 스토리지 및 분당 사용량 비용으로 $$0.008 USD를 지불하게 됩니다. {% data variables.product.prodname_dotcom %}는 각 작업에서 사용하는 분 및 부분 분을 가장 가까운 전체 분까지 반올림합니다.
 
 {% note %}
 
-**Note:** Minute multipliers do not apply to the per-minute rates shown below.
+**참고:** 아래 표시된 분당 요금에는 분 승수가 적용되지 않습니다.
 
 {% endnote %}
 
-### Per-minute rates
+### 분당 요금
 
-{% data reusables.billing.billing-standard-runners %}
-{%- ifversion actions-hosted-runners %}{% data reusables.billing.billing-hosted-runners %}{%- endif %}
+{% data reusables.billing.billing-standard-runners %} {%- ifversion actions-hosted-runners %} {% data reusables.billing.billing-hosted-runners %} {%- endif %}
 
-- The number of jobs you can run concurrently across all repositories in your user or organization account depends on your GitHub plan. For more information, see "[Usage limits and billing](/actions/reference/usage-limits-billing-and-administration)" for {% data variables.product.prodname_dotcom %}-hosted runners and "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits)" for self-hosted runner usage limits.
-- {% data reusables.user-settings.context_switcher %}
-{% ifversion actions-hosted-runners %} 
-- For {% data variables.actions.hosted_runner %}s, there is no additional cost for configurations that assign public static IP addresses to a {% data variables.actions.hosted_runner %}. For more information on {% data variables.actions.hosted_runner %}s, see "[Using {% data variables.actions.hosted_runner %}s](/actions/using-github-hosted-runners/using-larger-runners)."
-- Entitlement minutes cannot be used for {% data variables.actions.hosted_runner %}s.
-- The {% data variables.actions.hosted_runner %}s are not free for public repositories.
+- 사용자 또는 조직 계정의 모든 리포지토리에서 동시에 실행할 수 있는 작업 수는 GitHub 플랜에 따라 다릅니다. 자세한 내용은 {% data variables.product.prodname_dotcom %} 호스팅 실행기의 경우 “[사용량 한도 및 청구](/actions/reference/usage-limits-billing-and-administration)”, 자체 호스팅 실행기 사용량 한도의 경우 “[자체 호스팅 실행기 정보](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits)”를 참조하세요.
+- {% data reusables.user-settings.context_switcher %} {% ifversion actions-hosted-runners %} 
+- {% data variables.actions.hosted_runner %}의 경우 {% data variables.actions.hosted_runner %}에 고정 공용 IP 주소를 할당하는 구성에 대한 추가 비용이 없습니다. {% data variables.actions.hosted_runner %}에 대한 자세한 내용은 “[{% data variables.actions.hosted_runner %} 사용](/actions/using-github-hosted-runners/using-larger-runners)”을 참조하세요.
+- {% data variables.actions.hosted_runner %}에는 시간(분) 권한을 사용할 수 없습니다.
+- {% data variables.actions.hosted_runner %}s는 퍼블릭 리포지토리에 대해 무료가 아닙니다.
 {% endif %}
 
-## Calculating minute and storage spending
+## 시간(분) 및 스토리지 지출 계산
 
 {% data reusables.dotcom_billing.pricing_calculator.pricing_cal_actions %}
 
-At the end of the month, {% data variables.product.prodname_dotcom %} calculates the cost of minutes and storage used over the amount included in your account.
+월말에 {% data variables.product.prodname_dotcom %}는 계정에 포함된 양을 초과하여 사용된 스토리지 및 시간(분)의 비용을 계산합니다.
 
-### Sample minutes cost calculation
+### 샘플 시간(분) 비용 계산
 
-For example, if your organization uses {% data variables.product.prodname_team %} and allows unlimited spending, using 5,000 minutes could have a total storage and minute overage cost of $56 USD, depending on the operating systems used to run jobs.
+예를 들어 조직에서 {% data variables.product.prodname_team %}을 사용하고 무제한 지출을 허용하는 경우 5,000분을 사용하면 총 스토리지 및 시간(분) 초과 비용은 작업을 실행하는 데 사용된 운영 체제에 따라 $56 USD가 될 수 있습니다.
 
-- 5,000 (3,000 Linux and 2,000 Windows) minutes = $56 USD ($24 USD + $32 USD).
-  - 3,000 Linux minutes at $0.008 USD per minute = $24 USD.
-  - 2,000 Windows minutes at $0.016 USD per minute = $32 USD.
+- 5,000(3,000 Linux 및 2,000 Windows)분 = $56 USD($24 USD + $32 USD)
+  - 3,000 Linux 분 x 분당 $0.008 USD = $24 USD
+  - 2,000 Windows 분 x 분당 $0.016 USD = $32 USD
 
-{% data variables.product.prodname_dotcom %} calculates your storage usage for each month based on hourly usage during that month.
+{% data variables.product.prodname_dotcom %}는 해당 월의 시간별 사용량을 기준으로 월별 스토리지 사용량을 계산합니다.
 
-### Sample storage cost calculation
+### 샘플 스토리지 비용 계산
 
-For example, if you use 3 GB of storage for 10 days of March and 12 GB for 21 days of March, your storage usage would be:
+예를 들어 3월 중 10일 동안은 3GB의 스토리지를 사용하고 3월 중 21일 동안은 12GB를 사용하는 경우 스토리지 사용량은 다음과 같이 계산됩니다.
 
-- 3 GB x 10 days x (24 hours per day) = 720 GB-Hours
-- 12 GB x 21 days x (24 hours per day) = 6,048 GB-Hours
-- 720 GB-Hours + 6,048 GB-Hours = 6,768 GB-Hours
-- 6,768 GB-Hours / (744 hours per month) = 9.0967 GB-Months
+- 3GB x 10일 x (하루 24시간) = 720GB/시간
+- 12GB x 21일 x (하루 24시간) = 6,048GB/시간
+- 720GB/시간 + 6,048GB/시간 = 6,768GB/시간
+- 6,768GB/시간 / (월별 744시간) = 9.0967GB/월
 
-At the end of the month, {% data variables.product.prodname_dotcom %} rounds your storage to the nearest MB. Therefore, your storage usage for March would be 9.097 GB.
+월말에 {% data variables.product.prodname_dotcom %}는 스토리지를 가장 가까운 MB로 올림합니다. 따라서 3월의 스토리지 사용량은 9.097GB가 됩니다.
 
-Your {% data variables.product.prodname_actions %} usage shares your account's existing billing date, payment method, and receipt. {% data reusables.dotcom_billing.view-all-subscriptions %}
+{% data variables.product.prodname_actions %} 사용량은 계정의 기존 청구 날짜, 결제 방법, 영수증을 공유합니다. {% data reusables.dotcom_billing.view-all-subscriptions %}
 
-## About spending limits
+## 지출 한도 정보
 
 {% data reusables.actions.actions-spending-limit-detailed %}
 
-For information on managing and changing your account's spending limit, see "[Managing your spending limit for {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions/managing-your-spending-limit-for-github-actions)."
+계정의 지출 한도를 관리하고 변경하는 방법에 대한 자세한 내용은 “[{% data variables.product.prodname_actions %}에 대한 지출 한도 관리](/billing/managing-billing-for-github-actions/managing-your-spending-limit-for-github-actions)”를 참조하세요.
 
 {% data reusables.dotcom_billing.actions-packages-unpaid-account %}

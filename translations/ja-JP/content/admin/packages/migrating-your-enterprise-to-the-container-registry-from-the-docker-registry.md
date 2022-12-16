@@ -1,6 +1,6 @@
 ---
-title: Migrating your enterprise to the Container registry from the Docker registry
-intro: 'You can migrate Docker images previously stored in the Docker registry on {% data variables.location.product_location %} to the {% data variables.product.prodname_container_registry %}.'
+title: Docker レジストリからコンテナー レジストリへの Enterprise の移行
+intro: '以前に {% data variables.location.product_location %} の Docker レジストリに保存されていた Docker イメージを、{% data variables.product.prodname_container_registry %} に移行できます。'
 product: '{% data reusables.gated-features.packages %}'
 permissions: 'Enterprise owners can migrate Docker images to the {% data variables.product.prodname_container_registry %}.'
 versions:
@@ -10,68 +10,69 @@ topics:
   - Containers
   - Docker
   - Migration
+ms.openlocfilehash: 459039d5c3a059c961ac1126e37929906d7b0325
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148106382'
 ---
-
 {% data reusables.package_registry.container-registry-ghes-beta %}
 
-## About the {% data variables.product.prodname_container_registry %}
+## {% data variables.product.prodname_container_registry %} について
 
-{% data reusables.package_registry.container-registry-benefits %} For more information, see "[Working with the {% data variables.product.prodname_container_registry %}](/packages/working-with-a-github-packages-registry/working-with-the-container-registry)."
+{% data reusables.package_registry.container-registry-benefits %}詳しくは、「[{% data variables.product.prodname_container_registry %}の操作](/packages/working-with-a-github-packages-registry/working-with-the-container-registry)」を参照してください。
 
-For more information about configuring {% data variables.product.prodname_registry %} for {% data variables.location.product_location %}, see "[Getting started with {% data variables.product.prodname_registry %} for your enterprise](/admin/packages/getting-started-with-github-packages-for-your-enterprise)."
+{% data variables.location.product_location %} の {% data variables.product.prodname_registry %} を構成する方法について詳しくは、「[Enterprise の {% data variables.product.prodname_registry %} を使い始める](/admin/packages/getting-started-with-github-packages-for-your-enterprise)」をご覧ください。
 
-## About migration from the Docker registry
+## Docker レジストリからの移行について
 
-{% data reusables.package_registry.container-registry-replaces-docker-registry %} If the Docker registry on {% data variables.location.product_location %} contains images, you must manually migrate the images to the {% data variables.product.prodname_container_registry %}.
+{% data reusables.package_registry.container-registry-replaces-docker-registry %}{% data variables.location.product_location %} の Docker レジストリにイメージが含まれている場合は、イメージを手動で {% data variables.product.prodname_container_registry %} に移行する必要があります。
 
 {% ifversion ghes %}
 
 {% note %}
 
-**Note**: {% data reusables.package_registry.container-registry-ghes-migration-availability %}
+**注**: {% data reusables.package_registry.container-registry-ghes-migration-availability %}
 
 {% endnote %}
 
 {% endif %}
 
-{% data reusables.package_registry.container-registry-migration-namespaces %} For more information about the impact of migration to the {% data variables.product.prodname_container_registry %}, see "[Migrating to the  {% data variables.product.prodname_container_registry %} from the Docker registry](/packages/working-with-a-github-packages-registry/migrating-to-the-container-registry-from-the-docker-registry#about-migration-from-the-docker-registry)."
+{% data reusables.package_registry.container-registry-migration-namespaces %}{% data variables.product.prodname_container_registry %}への移行の影響について詳しくは、「[Docker レジストリから{% data variables.product.prodname_container_registry %}への移行](/packages/working-with-a-github-packages-registry/migrating-to-the-container-registry-from-the-docker-registry#about-migration-from-the-docker-registry)」を参照してください。
 
-## Migrating organizations to the {% data variables.product.prodname_container_registry %}
+## {% data variables.product.prodname_container_registry %}への Organization の移行
 
-You can start a migration of all your organizations' Docker images to the {% data variables.product.prodname_container_registry %}. The duration of the migration operation depends on the total number of images to migrate, and the overall load on {% ifversion ghes %}your instance{% elsif ghae %}{% data variables.product.product_name %}{% endif %}. After a successful migration, {% data variables.product.product_name %} will display a summary, and all future uploads of Docker images will use the {% data variables.product.prodname_container_registry %}.
+Organization の Docker イメージすべての{% data variables.product.prodname_container_registry %}への移行を開始できます。 移行操作の期間は、移行するイメージの合計数と、{% ifversion ghes %}お使いのインスタンス{% elsif ghae %}{% data variables.product.product_name %} {% endif %}での全体的な負荷によって異なります。 移行が成功すると、{% data variables.product.product_name %} に概要が表示され、今後の Docker イメージのすべてのアップロードに{% data variables.product.prodname_container_registry %}が使用されます。
 
-If {% ifversion ghes %}a site administrator{% elsif ghae %}an enterprise owner{% endif %} has configured email notifications for {% data variables.location.product_location %}, you will receive an email after the migration is complete. For more information, see "[Configuring email for notifications](/admin/configuration/configuring-your-enterprise/configuring-email-for-notifications)."
+{% ifversion ghes %}サイト管理者{% elsif ghae %}Enterprise 所有者{% endif %}が {% data variables.location.product_location %} にメール通知を構成している場合は、移行が完了するとメールが届きます。 詳しくは、「[通知のためのメール設定](/admin/configuration/configuring-your-enterprise/configuring-email-for-notifications)」をご覧ください。
 
 {% note %}
 
-**{% ifversion ghes %}Notes{% elsif ghae %}Note{% endif %}**:
+**{% ifversion ghes %}注{% elsif ghae %}注{% endif %}** :
 
 {%- ifversion ghes %}
-- During the migration, the CPU and memory usage for your instance will increase. To ensure the performance of the instance for your users, {% data variables.product.company_short %} recommends that you begin a migration during a period of reduced activity.
-{%- endif %}
-{% ifversion ghes %}- {% endif %}During the migration, do not modify settings for your enterprise{% ifversion ghes %} or run `ghe-config-apply` from an administrative SSH session{% endif %}. {% ifversion ghes %}These actions will trigger a configuration run, which can restart services and {% elsif ghae %}Modifying these settings {% endif %} may interrupt the migration.
+- 移行中は、お使いのインスタンスの CPU とメモリの使用量が増加します。 ユーザーのためにインスタンスのパフォーマンスを確保するために、{% data variables.product.company_short %} では、アクティビティが減少する期間に移行を開始することをお勧めします。
+{%- endif %} {% ifversion ghes %}- {% endif %}移行中は、Enterprise の設定を変更{% ifversion ghes %}したり、管理 SSH セッションから `ghe-config-apply` を実行したり{% endif %}しないでください。 {% ifversion ghes %}これらのアクションによって構成の実行がトリガーされます。そのためにサービスが再起動される場合があり、{% elsif ghae %}これらの設定を変更すると、{% endif %}移行が中断される可能性があります。
 {%- ifversion ghes %}
-- After the migration, storage pressure on your instance will increase due to the duplication of image files in the Docker registry and the {% data variables.product.prodname_container_registry %}. A future release of {% data variables.product.product_name %} will remove the duplicated files when all migrations are complete.
+- 移行後、Docker レジストリと{% data variables.product.prodname_container_registry %}のイメージ ファイルが重複するため、インスタンスのストレージ負荷が増加します。 {% data variables.product.product_name %} の今後のリリースでは、すべての移行が完了すると、重複したファイルが削除されます。
 
-For more information about monitoring the performance and storage of {% data variables.location.product_location %}, see "[Accessing the monitor dashboard](/admin/enterprise-management/monitoring-your-appliance/accessing-the-monitor-dashboard)."
+{% data variables.location.product_location %} のパフォーマンスとストレージの監視について詳しくは、「[モニター ダッシュボードへのアクセス](/admin/enterprise-management/monitoring-your-appliance/accessing-the-monitor-dashboard)」をご覧ください。
 {% endif %}
 
 {% endnote %}
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-1. In the left sidebar, click **Packages**.
-1. To the right of the number of packages to migrate, click **Start migration**. During the migration, {% data variables.product.product_name %} will display progress on this page.
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.settings-tab %}
+1. 左側のサイドバーで、 **[パッケージ]** をクリックします。
+1. 移行するパッケージ数の右側にある **[移行の開始]** をクリックします。 移行中は、{% data variables.product.product_name %} によってこのページに進行状況が表示されます。
 
-After the migration completes, the page will display the results. If a migration fails, the page will show the organizations that own the package that caused the failure.
+移行が完了すると、このページに結果が表示されます。 移行が失敗した場合、このページには、エラーの原因となったパッケージを所有している Organization が表示されます。
 
-## Re-running a failed organization migration
+## 失敗した Organization 移行の再実行
 
-Prior to migration, if a user has created a package in the {% data variables.product.prodname_container_registry %} that has an identical name to an existing package in the Docker registry, the migration will fail.
+移行前に、ユーザーが Docker レジストリの既存パッケージと同じ名前のパッケージを{% data variables.product.prodname_container_registry %}に作成していた場合、移行は失敗します。
 
-1. Delete the affected container in the {% data variables.product.prodname_container_registry %}. For more information, see "[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package#deleting-a-version-of-an-organization-scoped-package-on-github)."
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.packages-tab %}
-1. To the right of the number of packages to migrate, click **Re-run migration**. During the migration, {% data variables.product.product_name %} will display progress on this page.
-1. If the migration fails again, start from step 1 and re-run the migration.
+1. {% data variables.product.prodname_container_registry %}内の影響を受けたコンテナーを削除します。 詳しくは、「[パッケージを削除および復元する](/packages/learn-github-packages/deleting-and-restoring-a-package#deleting-a-version-of-an-organization-scoped-package-on-github)」をご覧ください。
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.settings-tab %} {% data reusables.enterprise-accounts.packages-tab %}
+1. 移行するパッケージ数の右側にある **[移行の再実行]** をクリックします。 移行中は、{% data variables.product.product_name %} によってこのページに進行状況が表示されます。
+1. 移行が再び失敗した場合は、手順 1 から開始して移行をもう一度実行します。

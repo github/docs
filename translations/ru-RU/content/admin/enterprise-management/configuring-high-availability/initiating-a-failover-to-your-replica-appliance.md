@@ -13,12 +13,12 @@ topics:
   - High availability
   - Infrastructure
 shortTitle: Initiate failover to appliance
-ms.openlocfilehash: b27d925f5b9ecf35da9ba55633e312e8c9fb94e4
-ms.sourcegitcommit: 5f40f9341dd1e953f4be8d1642f219e628e00cc8
+ms.openlocfilehash: e2c15dab0a812fe6031f78e7edbccaff6a2503c0
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/04/2022
-ms.locfileid: '148008888'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148192996'
 ---
 Время, необходимое для отработки отказа, зависит от того, сколько времени требуется для повышения уровня реплики и перенаправления трафика вручную. В среднем на это требуется от 20 до 30 минут.
 
@@ -53,6 +53,13 @@ ms.locfileid: '148008888'
   ```shell
   $ ghe-repl-promote
   ```
+
+   {% note %}
+
+   **Примечание:** Если основной узел недоступен, могут возникать предупреждения и превышение времени ожидания, но их можно игнорировать.
+
+  {% endnote %}
+
 5. Обновите запись DNS, чтобы она указывала IP-адрес реплики. Трафик направляется в реплику после истечения срока жизни. Если вы используете подсистему балансировки нагрузки, убедитесь, что она настроена для отправки трафика в реплику.
 6. Уведомите пользователей о том, что они могут возобновить обычные операции.
 7. При желании настройте репликацию из нового основного устройства на существующие устройства и предыдущее основное устройство. Дополнительные сведения см. в разделе [сведения о настройке высокого уровня доступности](/enterprise/admin/guides/installation/about-high-availability-configuration/#utilities-for-replication-management).

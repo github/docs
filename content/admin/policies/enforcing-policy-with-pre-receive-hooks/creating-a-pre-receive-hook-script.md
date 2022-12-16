@@ -15,7 +15,8 @@ topics:
   - Pre-receive hooks
 shortTitle: Pre-receive hook scripts
 ---
-You can see examples of pre-receive hooks for {% data variables.product.prodname_ghe_server %} in the [`github/platform-samples` repository](https://github.com/github/platform-samples/tree/master/pre-receive-hooks).
+
+{% data reusables.enterprise_site_admin_settings.pre-receive-hook-examples %}
 
 ## Writing a pre-receive hook script
 A pre-receive hook script executes in a pre-receive hook environment on {% data variables.location.product_location %}. When you create a pre-receive hook script, consider the available input, output, exit status, and environment variables.

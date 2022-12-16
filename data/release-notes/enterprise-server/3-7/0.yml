@@ -295,6 +295,13 @@ sections:
           In Markdown, users can write LaTeX-style syntax to render math expressions inline using `$` delimiters, or in blocks using `$$` delimiters. For more information, see "[Writing mathematical expressions](/get-started/writing-on-github/working-with-advanced-formatting/writing-mathematical-expressions)."
 
   changes:
+    # https://github.com/github/releases/issues/2344
+    - |
+      To improve stability, the service for rendering GeoJSON, Jupyter Notebook, PDF, PSD, SVG, SolidWorks, and other binary formats has been replaced. 
+      
+    - |
+      If TLS and subdomain isolation are configured for your instance and your certificate is not a wildcard certificate, you must generate a new certificate that includes the additional subdomains for these services, `notebooks.HOSTNAME` and `viewscreen.HOSTNAME`. For more information, see "[Enabling subdomain isolation](/admin/configuration/configuring-network-settings/enabling-subdomain-isolation)." [Updated: 2022-12-02]
+
     - Secret scanning no longer supports custom patterns that use `.*` as an end delimiter in the "After secret" field, as the pattern syntax would cause scan problems and inconsistencies.
   
     # https://github.com/github/releases/issues/2535
@@ -308,9 +315,6 @@ sections:
 
     # https://github.com/github/releases/issues/2534
     - The size of the search field for user, organization, and enterprise audit logs has increased.
-
-    # https://github.com/github/releases/issues/2344
-    - To improve stability, the service for rendering GeoJSON, Jupyter Notebook, PDF, PSD, SVG, SolidWorks, and other binary formats has been replaced.
 
   known_issues:
     - On a freshly set up {% data variables.product.prodname_ghe_server %} instance without any users, an attacker could create the first admin user.
@@ -343,6 +347,7 @@ sections:
         nomad status github-gitauth
         ```
       We are currently investigating a permanent fix for a future hot patch [Updated: 2022-11-24].
+    - '{% data reusables.release-notes.babeld-max-threads-performance-issue %}'
 
   deprecations:
     # https://github.com/github/enterprise-releases/issues/3217

@@ -1,6 +1,6 @@
 ---
-title: Viewing people in your enterprise
-intro: 'To audit access to enterprise-owned resources or user license usage, enterprise owners can view every administrator and member of the enterprise.'
+title: 엔터프라이즈에서 사용자 보기
+intro: 엔터프라이즈 소유 리소스에 대한 액세스 또는 사용자 라이선스 사용량을 감사하기 위해 엔터프라이즈 소유자는 엔터프라이즈의 모든 엔터프라이즈 관리자 및 멤버를 볼 수 있습니다.
 permissions: Enterprise owners can view the people in an enterprise.
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise-account/viewing-people-in-your-enterprise-account
@@ -14,147 +14,140 @@ versions:
 topics:
   - Enterprise
 shortTitle: View people in your enterprise
+ms.openlocfilehash: 1c9b8402a0924c799f4747cf5a6cdae051aa4a49
+ms.sourcegitcommit: 6b649e03ca2fef38c9ebbeec92102219849380e2
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/31/2022
+ms.locfileid: '148120595'
 ---
+## 엔터프라이즈 사용자 목록 정보
 
-## About the list of people in your enterprise
+엔터프라이즈 리소스에 대한 액세스를 감사하고 라이선스 사용을 관리하기 위해 엔터프라이즈에 액세스할 수 있는 모든 사용자의 목록을 볼 수 있습니다. 
 
-To audit access to your enterprise's resources and manage license usage, you can see a list of all the people who have access to your enterprise. 
-
-You can see all current enterprise members and enterprise administrators{% ifversion ghec %}, as well as pending invitations to become members and administrators{% endif %}. To make it easier to consume this information, you can search and filter the lists.
+현재 모든 엔터프라이즈 멤버 및 엔터프라이즈 관리자{% ifversion ghec %}뿐만 아니라 멤버 및 관리자가 되기 위해 보류 중인 초대를 볼 수 있습니다{% endif %}. 이 정보를 더 쉽게 사용할 수 있도록 목록을 검색하고 필터링할 수 있습니다.
 
 {% ifversion ghec %}
 
-If {% data variables.product.prodname_github_connect %} is configured for your enterprise, when you filter a list of people in your enterprise, the following limitations apply.
+엔터프라이즈에 대해 {% data variables.product.prodname_github_connect %}이(가) 구성된 경우 엔터프라이즈의 사용자 목록을 필터링할 때 다음 제한 사항이 적용됩니다.
 
-- The filter for two-factor authentication (2FA) status does not show people who only have an account on a {% data variables.product.prodname_ghe_server %} instance.
-- If you combine the filter for accounts on {% data variables.product.prodname_ghe_server %} instances with either the filter for organizations or 2FA status, you will not see any results.
+- 2FA(2단계 인증) 상태에 대한 필터는 {% data variables.product.prodname_ghe_server %} 인스턴스에만 계정이 있는 사용자를 표시하지 않습니다.
+- {% data variables.product.prodname_ghe_server %} 인스턴스의 계정에 대한 필터를 조직의 필터 또는 2FA 상태와 결합하면 결과가 표시되지 않습니다.
 
-For more information about {% data variables.product.prodname_github_connect %}, see the following articles.
+{% data variables.product.prodname_github_connect %}에 대한 자세한 내용은 다음 문서를 참조하세요.
 
-- "[About {% data variables.product.prodname_github_connect %}](/enterprise-server/admin/configuration/configuring-github-connect/about-github-connect)" in the {% data variables.product.prodname_ghe_server %} documentation
-- "[About {% data variables.product.prodname_github_connect %}](/github-ae@latest/admin/configuration/configuring-github-connect/about-github-connect)" in the {% data variables.product.prodname_ghe_managed %} documentation
+- {% data variables.product.prodname_ghe_server %} 설명서의 “[{% data variables.product.prodname_github_connect %} 정보](/enterprise-server/admin/configuration/configuring-github-connect/about-github-connect)”
+- {% data variables.product.prodname_ghe_managed %} 설명서의 “[{% data variables.product.prodname_github_connect %} 정보](/github-ae@latest/admin/configuration/configuring-github-connect/about-github-connect)”
 
 {% endif %}
 
-{% ifversion enterprise-member-csv %}
-You can also export membership information for your enterprise. For more information, see "[Exporting membership information for your enterprise](/admin/user-management/managing-users-in-your-enterprise/exporting-membership-information-for-your-enterprise)."
+{% ifversion enterprise-member-csv %} 엔터프라이즈에 대한 멤버 자격 정보를 내보낼 수도 있습니다. 자세한 내용은 "[엔터프라이즈에 대한 멤버 자격 정보 내보내기"를 참조하세요](/admin/user-management/managing-users-in-your-enterprise/exporting-membership-information-for-your-enterprise).
 {% endif %}
 
-## Viewing enterprise administrators
+## 엔터프라이즈 관리자 보기
 
-You can view all the current enterprise owners{% ifversion ghec %} and billing managers{% endif %} for your enterprise.{% ifversion enterprise-membership-view-improvements %} You can see useful information about each administrator{% ifversion ghec %} and filter the list by role{% endif %}.{% endif %} You can find a specific person by searching for their username or display name.
+현재 엔터프라이즈 소유자{% ifversion ghec %} 및 청구 관리자{% endif %}를 모두 볼 수 있습니다.{% ifversion enterprise-membership-view-improvements %} 각 관리자{% ifversion ghec %}에 대한 유용한 정보를 확인하고 역할{% endif %}을 기준으로 목록을 필터링할 수 있습니다.{% endif %} 사용자 이름 또는 표시 이름을 검색하여 특정 사용자를 찾을 수 있습니다.
 
-{% ifversion ghes > 3.5 %}
-Enterprise owners whose accounts are suspended are included in the list of enterprise administrators, and are identified as suspended. You should consider demoting any suspended owners you see. For more information, see "[Promoting or demoting a site administrator](/admin/user-management/managing-users-in-your-enterprise/promoting-or-demoting-a-site-administrator#demoting-a-site-administrator-from-the-enterprise-settings)."
+{% ifversion ghes > 3.5 %} 계정이 일시 중단된 엔터프라이즈 소유자는 엔터프라이즈 관리자 목록에 포함되며 일시 중단된 것으로 식별됩니다. 표시되는 일시 중단된 소유자의 권한을 강등하는 것이 좋습니다. 자세한 내용은 “[사이트 관리자 승격 또는 강등](/admin/user-management/managing-users-in-your-enterprise/promoting-or-demoting-a-site-administrator#demoting-a-site-administrator-from-the-enterprise-settings)”을 참조하세요.
 {% endif %}
 
-{% ifversion not ghae %}
-You can also remove an administrator. For more information. see "[Inviting people to manage your enterprise](/admin/user-management/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise#removing-an-enterprise-administrator-from-your-enterprise-account)."
+{% ifversion not ghae %} 관리자를 제거할 수도 있습니다. 자세한 내용은 “[엔터프라이즈를 관리할 사용자 초대](/admin/user-management/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise#removing-an-enterprise-administrator-from-your-enterprise-account)”를 참조하세요.
 {% endif %}
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.people-tab %}
-{% data reusables.enterprise-accounts.administrators-tab %}
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.people-tab %} {% data reusables.enterprise-accounts.administrators-tab %}
 
-## Viewing members {% ifversion enterprise-membership-view-improvements %}{% else %}and outside collaborators{% endif %}
+## 멤버 {% ifversion enterprise-membership-view-improvements %}{% else %}및 외부 협력자{% endif %} 보기
 
-You can see all the current members {% ifversion enterprise-membership-view-improvements %}{% else %}or outside collaborators{% endif %} for your enterprise. You can see useful information about each account and filter the list in useful ways, such as by role. You can find a specific person by searching for their username or display name.
+엔터프라이즈의 모든 현재 멤버{% ifversion enterprise-membership-view-improvements %}{% else %} 또는 외부 협력자{% endif %}를 볼 수 있습니다. 각 계정에 대한 유용한 정보를 확인하고 역할 기준과 같은 유용한 방법으로 목록을 필터링할 수 있습니다. 사용자 이름 또는 표시 이름을 검색하여 특정 사용자를 찾을 수 있습니다.
 
-You can view more information about the person's access to your enterprise, such as the organizations the person belongs to, by clicking on the person's name.
+사용자의 이름을 클릭하면 해당 사용자가 속한 조직과 같이 엔터프라이즈에 대한 사용자 액세스의 자세한 정보를 볼 수 있습니다.
 
-{% ifversion remove-enterprise-members %}
-You can also remove any enterprise member from all organizations owned by the enterprise. For more information, see "[Removing a member from your enterprise](/admin/user-management/managing-users-in-your-enterprise/removing-a-member-from-your-enterprise)."
+{% ifversion remove-enterprise-members %} 엔터프라이즈가 소유한 모든 조직에서 엔터프라이즈 멤버를 제거할 수도 있습니다. 자세한 내용은 “[엔터프라이즈에서 멤버 제거](/admin/user-management/managing-users-in-your-enterprise/removing-a-member-from-your-enterprise)”를 참조하세요.
 {% endif %}
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.people-tab %}{% ifversion enterprise-membership-view-improvements %}{% else %}
-1. Optionally, to view a list of outside collaborators rather than the list of members, click **Outside collaborators**.
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.people-tab %}{% ifversion enterprise-membership-view-improvements %}{% else %}
+1. 필요에 따라 구성원 목록이 아닌 외부 협력자 목록을 보려면 **외부 협력자** 를 클릭합니다.
 
-   ![Outside collaborators tab on the enterprise members page](/assets/images/help/business-accounts/outside-collaborators-tab.png){% endif %}
+   ![엔터프라이즈 멤버 페이지의 외부 협력자 탭](/assets/images/help/business-accounts/outside-collaborators-tab.png){% endif %}
 
 {% ifversion enterprise-membership-view-improvements %}
-## Viewing outside collaborators
+## 외부 협력자 보기
 
-You can see all the current outside collaborators for your enterprise. You can see useful information about each collaborator and filter the list in useful ways, such as by organization. You can find a specific collaborator by searching for their username or display name.
+엔터프라이즈의 모든 현재 외부 협력자를 볼 수 있습니다. 각 협력자에 대한 유용한 정보를 확인하고 조직 기준과 같은 유용한 방법으로 목록을 필터링할 수 있습니다. 사용자 이름 또는 표시 이름을 검색하여 특정 협력자를 찾을 수 있습니다.
 
-You can view more information about the person's access to your enterprise, such as a list of all the repositories the collaborator has access to, by clicking on the person's name.
+협력자가 액세스할 수 있는 모든 리포지토리 목록과 같이 해당 사용자의 이름을 클릭하여 해당 사용자의 엔터프라이즈 액세스에 대한 자세한 정보를 볼 수 있습니다.
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.people-tab %}
-1. Under "People", click **Outside collaborators**.
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.people-tab %}
+1. “사람”에서 **외부 협력자** 를 클릭합니다.
 
-  ![Outside collaborators tab in the enterprise settings sidebar]{% ifversion ghec%}(/assets/images/help/business-accounts/outside-collaborators-tab-sidebar-dotcom.png){% else %}(/assets/images/help/business-accounts/outside-collaborators-tab-sidebar-dotcom.png){% endif %}
+  ![엔터프라이즈 설정 사이드바의 외부 협력자 탭]{% ifversion ghec%}(/assets/images/help/business-accounts/outside-collaborators-tab-sidebar-dotcom.png){% else %}(/assets/images/help/business-accounts/outside-collaborators-tab-sidebar-dotcom.png){% endif %}
   
 {% endif %}
 
 {% ifversion ghec %}
-## Viewing pending invitations
+## 보류 중인 초대 보기
 
-You can see all the pending invitations to become members, administrators, or outside collaborators in your enterprise. You can filter the list in useful ways, such as by organization. You can find a specific person by searching for their username or display name.
+엔터프라이즈의 멤버, 관리자 또는 외부 협력자가 되기 위해 보류 중인 모든 초대를 볼 수 있습니다. 조직 기준과 같은 유용한 방법으로 목록을 필터링할 수 있습니다. 사용자 이름 또는 표시 이름을 검색하여 특정 사용자를 찾을 수 있습니다.
 
-In the list of pending members, for any individual account, you can cancel all invitations to join organizations owned by your enterprise. This does not cancel any invitations for that same person to become an enterprise administrator or outside collaborator. 
+보류 중인 멤버 목록에서 개별 계정에 대해 엔터프라이즈가 소유한 조직에 가입하기 위한 모든 초대를 취소할 수 있습니다. 동일한 사람이 엔터프라이즈 관리자 또는 외부 협력자가 되도록 하기 위한 초대는 취소되지 않습니다. 
 
 {% note %}
 
-**Note:** If an invitation was provisioned via SCIM, you must cancel the invitation via your identity provider (IdP) instead of on {% data variables.product.prodname_dotcom %}.
+**참고:** SCIM을 통해 초대를 프로비저닝한 경우 {% data variables.product.prodname_dotcom %}가 아닌 IdP(ID 공급자)를 통해 초대를 취소해야 합니다.
 
 {% endnote %}
 
-If you use {% data variables.visual_studio.prodname_vss_ghe %}, the list of pending invitations includes all {% data variables.product.prodname_vs %} subscribers that haven't joined any of your organizations on {% data variables.product.prodname_dotcom %}, even if the subscriber does not have a pending invitation to join an organization. For more information about how to get {% data variables.product.prodname_vs %} subscribers access to {% data variables.product.prodname_enterprise %}, see "[Setting up {% data variables.visual_studio.prodname_vss_ghe %}](/billing/managing-licenses-for-visual-studio-subscriptions-with-github-enterprise/setting-up-visual-studio-subscriptions-with-github-enterprise)."
+{% data variables.visual_studio.prodname_vss_ghe %}를 사용하는 경우 보류 중인 초대 목록에는 구독자에게 조직에 가입할 보류 중인 초대가 없더라도 {% data variables.product.prodname_dotcom %}에서 조직에 가입하지 않은 모든 {% data variables.product.prodname_vs %} 구독자가 포함됩니다. {% data variables.product.prodname_vs %} 구독자가 {% data variables.product.prodname_enterprise %}에 액세스하는 방법에 대한 자세한 내용은 "[{% data variables.visual_studio.prodname_vss_ghe %} 설정](/billing/managing-licenses-for-visual-studio-subscriptions-with-github-enterprise/setting-up-visual-studio-subscriptions-with-github-enterprise)"을 참조하세요.
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.people-tab %}
-1. Under "People", click **Pending invitations**.
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.people-tab %}
+1. “사람”에서 **보류 중인 초대** 를 클릭합니다.
 
-   ![Screenshot of the "Pending invitations" tab in the sidebar](/assets/images/help/enterprises/pending-invitations-tab.png)
-1. Optionally, to cancel all invitations for an account to join organizations owned by your enterprise, to the right of the account, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then click **Cancel invitation**.
+   ![사이드바의 “보류 중인 초대” 탭 스크린샷](/assets/images/help/enterprises/pending-invitations-tab.png)
+1. 필요에 따라 계정의 모든 초대를 취소하여 엔터프라이즈가 소유한 조직에 가입하려면 계정 오른쪽에 있는 {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}을 클릭한 다음 **초대 취소** 를 클릭합니다.
 
-   ![Screenshot of the "Cancel invitation" button](/assets/images/help/enterprises/cancel-enterprise-member-invitation.png)
-1. Optionally, to view pending invitations for enterprise administrators or outside collaborators, under "Pending members", click **Administrators** or **Outside collaborators**.
+   ![“초대 취소” 단추의 스크린샷](/assets/images/help/enterprises/cancel-enterprise-member-invitation.png)
+1. 필요에 따라 엔터프라이즈 관리자 또는 외부 협력자에 대해 보류 중인 초대를 보려면 “보류 중인 멤버”에서 **관리자** 또는 **외부 협력자** 를 클릭합니다.
 
-   ![Screenshot of the "Members", "Administrators", and "Outside collaborators" tabs](/assets/images/help/enterprises/pending-invitations-type-tabs.png)
+   ![“멤버”, “관리자”, “외부 협력자” 탭의 스크린샷](/assets/images/help/enterprises/pending-invitations-type-tabs.png)
 
-## Viewing suspended members in an {% data variables.enterprise.prodname_emu_enterprise %}
+## {% data variables.enterprise.prodname_emu_enterprise %}에서 일시 중단된 멤버 보기
 
-If your enterprise uses {% data variables.product.prodname_emus %}, you can view suspended users. Suspended users are members who have been deprovisioned after being unassigned from the {% data variables.product.prodname_emu_idp_application %} application or deleted from the identity provider. For more information, see "[About {% data variables.product.prodname_emus %}](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/about-enterprise-managed-users)."
+엔터프라이즈에서 {% data variables.product.prodname_emus %}을(를) 사용하는 경우 일시 중단된 사용자를 볼 수 있습니다. 일시 중단된 사용자는 are members who have been deprovisioned after being unassigned from the {% data variables.product.prodname_emu_idp_application %} 애플리케이션에서 할당이 취소되거나 ID 공급자에서 삭제된 후 프로비전이 해제된 멤버입니다. 자세한 내용은 “[{% data variables.product.prodname_emus %} 정보](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/about-enterprise-managed-users)”를 참조하세요.
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.people-tab %}
-1. To view a list of suspended members, above the list of active members, click **Suspended**.
-  ![Screenshot showing "Suspended" option](/assets/images/help/enterprises/view-suspended-members.png)
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.people-tab %}
+1. 일시 중단된 멤버 목록을 보려면 활성 멤버 목록 위에서 **일시 중단** 을 클릭합니다.
+  ![“일시 중단된” 옵션을 보여 주는 스크린샷](/assets/images/help/enterprises/view-suspended-members.png)
 
 {% endif %}
 
-## Viewing dormant users
+## 휴면 사용자 보기
 
-You can view a list of all dormant users {% ifversion ghes or ghae %} who have not been suspended and {% endif %}who are not site administrators. {% data reusables.enterprise-accounts.dormant-user-activity-threshold %} For more information, see "[Managing dormant users](/admin/user-management/managing-users-in-your-enterprise/managing-dormant-users)."
+{% ifversion ghes or ghae %}일시 중단되지 않았고 {% endif %}사이트 관리자가 아닌 모든 휴면 사용자의 목록을 볼 수 있습니다. {% data reusables.enterprise-accounts.dormant-user-activity-threshold %} 자세한 내용은 “[휴면 사용자 관리](/admin/user-management/managing-users-in-your-enterprise/managing-dormant-users)”를 참조하세요.
 
 {% ifversion filter-by-enterprise-member-type %}
-## Filtering by member type{% ifversion ghec %} in an {% data variables.enterprise.prodname_emu_enterprise %}{% endif %}
+## {% data variables.enterprise.prodname_emu_enterprise %}{% endif %}에서 멤버 유형{% ifversion ghec %}을 기준으로 필터링
 
-{% ifversion ghec %}If your enterprise uses {% data variables.product.prodname_emus %}, you{% elsif ghes or ghae %}You{% endif %} can filter the member list of an organization by type to determine if memberships are managed through an IdP or managed directly. Memberships managed through an IdP were added through an IdP group, and the IdP group was connected to a team within the organization. Memberships managed directly were added to the organization manually. The way a membership is mananaged in an organization determines how it must be removed. You can use this filter to determine how members were added to an organization, so you know how to remove them.{% ifversion ghec %} For more information, see "[About {% data variables.product.prodname_emus %}](/enterprise-cloud@latest/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/about-enterprise-managed-users#about-organization-membership-management)."{% endif %}
+{% ifversion ghec %} 엔터프라이즈에서 {% data variables.product.prodname_emus %}을(를) 사용하는 경우{% elsif ghes or ghae %}{% endif %}는 형식별로 조직의 구성원 목록을 필터링하여 멤버 자격이 IdP를 통해 관리되는지 또는 직접 관리되는지 확인할 수 있습니다. IdP를 통해 관리되는 멤버 자격은 IdP 그룹을 통해 추가되었으며 IdP 그룹은 조직 내의 팀에 연결되었습니다. 직접 관리되는 멤버 자격이 조직에 수동으로 추가되었습니다. 조직에서 멤버 자격을 관리되는 방식에 따라 제거 방법을 결정합니다. 이 필터를 사용하여 구성원을 조직에 추가한 방법을 확인할 수 있으므로 멤버를 제거하는 방법을 알 수 있습니다. {% ifversion ghec %} 자세한 내용은 "[{% data variables.product.prodname_emus %}](/enterprise-cloud@latest/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/about-enterprise-managed-users#about-organization-membership-management)정보"를 참조하세요. {% endif %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
-1. Under "Organizations," in the search bar, begin typing the organization's name until the organization appears in the search results, then click the name of the organization.
-   ![Screenshot of the search field for organizations](/assets/images/help/enterprises/organization-search.png)
-1. Under the organization name, click {% octicon "person" aria-label="The Person icon" %} **People**.
-   ![Screenshot of the People tab](/assets/images/help/enterprises/emu-organization-people-tab.png)
-1. Above the list of members, click **Type**, then select the type of members you want to view.
-   ![Screenshot of the "Type" button](/assets/images/help/enterprises/filter-by-member-type.png)
+1. 검색 창의 "조직"에서 조직이 검색 결과에 나타날 때까지 조직의 이름을 입력하기 시작한 다음 조직의 이름을 클릭합니다.
+   ![조직 검색 필드 스크린샷](/assets/images/help/enterprises/organization-search.png)
+1. 조직 이름 아래에서 {% octicon "person" aria-label="The Person icon" %} **사람** 클릭합니다.
+   ![사람 탭의 스크린샷](/assets/images/help/enterprises/emu-organization-people-tab.png)
+1. 멤버 목록 위에서 **형식** 을 클릭한 다음 보려는 멤버 유형을 선택합니다.
+   !["형식" 단추의 스크린샷](/assets/images/help/enterprises/filter-by-member-type.png)
 
 {% endif %}
 
 {% ifversion ghec or ghes %}
-## Viewing members without an email address from a verified domain
+## 확인된 도메인에서 메일 주소가 없는 멤버 보기
 
-You can view a list of members in your enterprise who don't have an email address from a verified domain associated with their user account on {% data variables.product.prodname_dotcom_the_website %}.
+{% data variables.product.prodname_dotcom_the_website %}에서 사용자 계정과 연결된 확인된 도메인의 메일 주소가 없는 엔터프라이즈의 멤버 목록을 볼 수 있습니다.
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.verified-domains-tab %}
-1. Under "Notification preferences", click the {% octicon "eye" aria-label="The github eye icon" %} **View enterprise members without an approved or verified domain email** link.
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.settings-tab %} {% data reusables.enterprise-accounts.verified-domains-tab %}
+1. “알림 기본 설정”에서 {% octicon "eye" aria-label="The github eye icon" %} **승인되거나 확인된 도메인 메일 없이 엔터프라이즈 멤버 보기** 링크를 클릭합니다.
 {% endif %}
 
-## Further reading
+## 추가 참고 자료
 
-- "[Roles in an enterprise](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise)"
+- “[엔터프라이즈에서의 역할](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise)”

@@ -1,0 +1,28 @@
+date: '2021-04-14'
+intro: "Los requisitos mínimos de infraestructura han aumentado para {% data variables.product.prodname_ghe_server %} 3.0+. Para más información, consulta \"[Acerca de los requisitos mínimos para GitHub Enterprise Server 3.0 y versiones posteriores](/admin/enterprise-management/upgrading-github-enterprise-server#about-minimum-requirements-for-github-enterprise-server-30-and-later)\""
+sections:
+  security_fixes:
+    - Los paquetes se han actualizado a las versiones de seguridad más recientes.
+  bugs:
+    - Algunos registros no se incluyeron en la configuración de reenvío de registros.
+    - 'Un mensaje de advertencia "jq: error (en <stdin>:0): No se puede indexar el número con la cadena "configuración"" podría aparecer durante la promoción de la réplica.'
+    - La restauración continua de copias de seguridad en un clúster podría dar error debido a que las réplicas de MySQL no se pueden conectar al principal.
+    - Las páginas no se publicaban cuando se usaba un certificado CA personalizado.
+    - "Los subdominios relacionados con los paquetes no aparecían en el mensaje \"Probar la configuración del dominio\" para el aislamiento del subdominio."
+    - "El encabezado \"X-GitHub-Enterprise-Host\" enviado con webhooks incluía una cadena aleatoria, en lugar del nombre de host de la instancia de GitHub Enterprise Server que envió la carga HTTP POST."
+    - "La actualización de 2.22.x a 3.0.x fallaría si Acciones de GitHub se hubiera habilitado previamente, pero se deshabilitó antes de la actualización."
+    - "Visitar la página \"/settings/emails\" almacenaría un estado que podría causar redireccionamientos inapropiados al cerrar sesión y volver a iniciar sesión."
+    - Las aplicaciones de integración de GitHub no pudieron notificar a los equipos cuando se mencionaron directamente a través de una @mención en un comentario de incidencia.
+    - "La representación de reStructuredText (RST) en la UI web daría error y, en su lugar, mostraría texto de marcado RST sin procesar."
+    - Las notificaciones por correo electrónico de las alertas de exploración de secretos no se enviaban a los usuarios autorizados cuando el gráfico de dependencia no estaba completamente habilitado.
+    - "Cuando ghe-migrator encontraba errores de importación, a veces anulaba todo el proceso y los registros no incluían suficiente contexto."
+    - Los cuadernos de Jupyter Notebook con caracteres que no son ASCII podrían dar error al representarse.
+  known_issues:
+    - "En una instancia de GitHub Enterprise Server recién configurada sin usuarios, un atacante podría crear el primer usuario administrador."
+    - Las reglas de firewall personalizadas no se mantienen durante una actualización.
+    - "Los archivos supervisados de Git LFS [cargados a través la interfaz web](https://github.com/blog/2105-upload-files-to-your-repositories) se agregaron incorrecta y directamente al repositorio."
+    - Las incidencias no se pueden cerrar si contienen un vínculo permanente a un blob en el mismo repositorio en el que la ruta de acceso de archivo tiene más de 255 caracteres.
+    - "Cuando se habilita \"Los usuarios pueden buscar en GitHub.com\" con GitHub Connect, las incidencias en los repositorios privados e internos no se incluyen en los resultados de la búsqueda de GitHub.com."
+    - "Cuando se elimina una rama después de fusionar una solicitud de cambios, se muestra un mensaje de error aunque la eliminación de la rama se realice correctamente."
+    - "Cuando un nodo de réplica está sin conexión en una configuración de alta disponibilidad, {% data variables.product.product_name %} aún se pueden enrutar solicitudes de {% data variables.product.prodname_pages %} al nodo sin conexión, lo que reduce la disponibilidad de {% data variables.product.prodname_pages %} para los usuarios."
+    - Los límites de recursos que son específicos para el procesamiento de enlaces previos a la recepción pueden provocar un error en algunos enlaces previos a la recepción.

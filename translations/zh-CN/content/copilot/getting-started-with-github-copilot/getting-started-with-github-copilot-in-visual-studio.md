@@ -7,12 +7,12 @@ versions:
   feature: copilot
 topics:
   - Copilot
-ms.openlocfilehash: 353095b0b0490cd12da8d853754b524431605819
-ms.sourcegitcommit: 7fb7ec2e665856fc5f7cd209b53bd0fb1c9bbc67
+ms.openlocfilehash: 65384a5cafae1c739b52847d1a826c0138e91fd9
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/29/2022
-ms.locfileid: '148185123'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148193015'
 ---
 {% data reusables.copilot.copilot-cta-button %}
 
@@ -24,7 +24,9 @@ ms.locfileid: '148185123'
 
 ## 先决条件
 
-若要在 {% data variables.product.prodname_vs %} 中使用 {% data variables.product.prodname_copilot %}，必须安装 {% data variables.product.prodname_vs %} 2022 17.2 或更高版本。 有关详细信息，请参阅 [Visual Studio IDE](https://visualstudio.microsoft.com/vs/) 文档。
+{% data reusables.copilot.subscription-prerequisite %}
+
+- 若要在 {% data variables.product.prodname_vs %} 中使用 {% data variables.product.prodname_copilot %}，必须安装 {% data variables.product.prodname_vs %} 2022 17.2 或更高版本。 有关详细信息，请参阅 [Visual Studio IDE](https://visualstudio.microsoft.com/vs/) 文档。
 
 {% note %}
 

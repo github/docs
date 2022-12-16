@@ -7,16 +7,18 @@ topics:
 versions:
   feature: copilot
 shortTitle: JetBrains
-ms.openlocfilehash: 845f9306f519391f165dd00d3eefebed67bd409a
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 9f0f35bf5aebbf1899bd3991b0bca9e62f1da6ed
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147079820'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148193365'
 ---
 ## À propos de {% data variables.product.prodname_copilot %} dans les IDE JetBrains
 
-Si vous utilisez un IDE Jetbrains, {% data variables.product.prodname_copilot %} peut effectuer la saisie semi-automatique du code à mesure que vous tapez. Après l’installation, vous pouvez activer ou désactiver {% data variables.product.prodname_copilot %}, et vous pouvez configurer des paramètres avancés dans votre IDE ou sur {% data variables.product.prodname_dotcom_the_website %}.
+Si vous utilisez un IDE Jetbrains, {% data variables.product.prodname_copilot %} peut effectuer la saisie semi-automatique du code à mesure que vous tapez. Après l’installation, vous pouvez activer ou désactiver {% data variables.product.prodname_copilot %}, et vous pouvez configurer des paramètres avancés dans votre IDE ou sur {% data variables.product.prodname_dotcom_the_website %}. Cet article explique comment configurer {% data variables.product.prodname_copilot %} dans l’IDE IntelliJ, mais les interfaces utilisateur des autres IDE Jetbrains peuvent différer.
+
+{% data reusables.copilot.dotcom-settings %}
 
 ## Prérequis
 
@@ -84,5 +86,20 @@ Vous pouvez gérer les paramètres avancés pour {% data variables.product.prodn
    - Pour ajuster le comportement et l’apparence des suggestions de code et vérifier automatiquement les mises à jour, sélectionnez ou désélectionnez les cases correspondantes.
    - Si vous avez choisi de recevoir des mises à jour automatiques, vous pouvez choisir de recevoir des mises à jour stables, mais moins fréquentes, ou des mises à jour nocturnes, qui peuvent être moins stables. Cliquez sur la liste déroulante **Update channel** (Canal de mise à jour), puis sélectionnez **Stable** pour les mises à jour stables ou **Nightly** (Nocturne) pour les mises à jour nocturnes.
    - Sous « Disabled languages » (Langages désactivés), sélectionnez ou désélectionnez les langages pour lesquels vous souhaitez désactiver {% data variables.product.prodname_copilot %}.
+
+## Configuration des paramètres proxy pour {% data variables.product.prodname_copilot %}
+
+Vous pouvez configurer {% data variables.product.prodname_copilot %} pour vous connecter via un serveur proxy HTTP dans un IDE Jetbrains. {% data variables.product.prodname_copilot %} prend en charge les configurations de proxy HTTP de base, avec ou sans authentification de base. 
+
+1. Dans votre IDE JetBrains, cliquez sur le menu **File** (Fichier), puis sur **Settings** (Paramètres).
+1. Sous **Appearance & Behavior** (Apparence et comportement), cliquez sur **System Settings** (Paramètres système), puis sur **HTTP Proxy**.
+1. Cochez la case **Manual proxy configuration** (Configuration manuelle du proxy), puis la case **HTTP**.
+1. Dans le champ « Host name » (Nom d’hôte), entrez le nom d’hôte de votre serveur proxy et dans le champ « Port Number » (Numéro de port), entrez le numéro de port de votre serveur proxy.
+
+    ![Capture d’écran des paramètres proxy HTTP dans JetBrains](/assets/images/help/copilot/proxy-configuration-jetbrains.png)
+
+1. Si vous le souhaitez, dans la barre latérale gauche, cliquez sur **Tools** (Outils), puis sur **Server Certificates** (Certificats de serveur). Ensuite, cochez ou décochez la case « Accept non-trusted certificates automatically » (Accepter automatiquement les certificats non approuvés), selon si vous souhaitez ou non accepter automatiquement les certificats non approuvés.
+
+    ![Capture d’écran des paramètres des certificats de serveur dans JetBrains](/assets/images/help/copilot/server-certificates-jetbrains.png)
 
 {% data reusables.copilot.dotcom-settings %}

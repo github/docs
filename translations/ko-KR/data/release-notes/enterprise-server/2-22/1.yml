@@ -1,0 +1,97 @@
+date: '2020-10-09'
+sections:
+  security_fixes:
+    - '**중간**: ImageMagick이 [DSA-4715-1](https://www.debian.org/security/2020/dsa-4715)을 처리하도록 업데이트되었습니다. {% comment %} https://github.com/github/enterprise2/pull/22623, https://github.com/github/enterprise2/pull/22610 {% endcomment %}'
+    - 'OAuth 액세스 토큰을 새로 고치기 위한 GitHub 앱 통합의 요청이 새로 고침 토큰을 만드는 데 사용된 것과는 다른 유효한 OAuth 클라이언트 ID 및 클라이언트 비밀을 사용하여 전송된 경우 해당 요청이 수락됩니다. {% comment %} https://github.com/github/github/pull/154921, https://github.com/github/github/pull/154423, https://github.com/github/ecosystem-apps/issues/1066 {% endcomment %}'
+    - 'LDAP 디렉터리 사용자 이름이 기존 GHES 계정 로그인으로 표준화된 사용자는 기존 계정으로 인증할 수 있습니다. {% comment %} https://github.com/github/github/pull/156513, https://github.com/github/github/pull/155512 {% endcomment %}'
+    - '패키지가 최신 보안 버전으로 업데이트되었습니다. {% comment %} https://github.com/github/enterprise2/pull/22912, https://github.com/github/enterprise2/pull/22878 {% endcomment %}'
+
+  bugs:
+    - |관리 콘솔의 NameID 형식 드롭다운은 “영구적”으로 설정한 후 “지정되지 않음”으로 재설정됩니다. {% comment %} https://github.com/github/enterprise2/pull/22376, https://github.com/github/enterprise2/pull/22331, https://github.com/github/enterprise2/issues/13446 {% endcomment %}
+
+|
+    - |핫패치를 사용한 업그레이드가 `''libdbi1''을 찾을 수 없음` 오류와 함께 실패할 수 있습니다. {% comment %} https://github.com/github/enterprise2/pull/22557, https://github.com/github/enterprise2/pull/22552 {% endcomment %}
+
+|
+    - |[관리 콘솔](/admin/configuration/accessing-the-management-console)을 통해 설정을 저장하면 [TLS/SSL 인증서 및 키](/admin/configuration/configuring-tls) 파일에 줄 바꿈이 추가되어 불필요한 일부 서비스의 재로딩이 트리거됩니다. {% comment %} https://github.com/github/enterprise2/pull/22570, https://github.com/github/enterprise2/pull/22540 {% endcomment %}
+
+|
+    - |종속성 그래프에 대한 시스템 로그가 순환되지 않아 스토리지가 무제한으로 증가했습니다. {% comment %} https://github.com/github/enterprise2/pull/22767, https://github.com/github/enterprise2/pull/22733 {% endcomment %}
+
+|
+    - |복제본이 선택되었을 때에도 MS SQL Server 성능 그래프에 주 인스턴스의 통계가 표시되었습니다. {% comment %} https://github.com/github/enterprise2/pull/22778, https://github.com/github/enterprise2/pull/22750 {% endcomment %}
+
+|
+    - |Actions가 사용하도록 설정되지 않은 경우 스토리지 확인을 실행하지 않고 `ghe-actions-precheck`가 자동으로 종료됩니다. {% comment %} https://github.com/github/enterprise2/pull/22787, https://github.com/github/enterprise2/pull/22742 {% endcomment %}
+
+|
+    - |요청된 작업자 재정의 설정이 사용 중이면 업그레이드에 실패할 수 있습니다. {% comment %} https://github.com/github/enterprise2/pull/22836, https://github.com/github/enterprise2/pull/22814 {% endcomment %}
+
+|
+    - |컨테이너에서 실행되는 일부 서비스가 저널에 로그를 보내지 않았습니다. {% comment %} https://github.com/github/enterprise2/pull/22994, https://github.com/github/enterprise2/pull/22518 {% endcomment %}
+
+|
+    - |GitHub 보안 공지에 대한 링크는 GitHub.com 대신 GitHub Enterprise Server 인스턴스의 호스트 이름이 있는 URL을 사용하여 사용자를 존재하지 않는 URL로 이동합니다. {% comment %} https://github.com/github/github/pull/153316, https://github.com/github/github/pull/151301 {% endcomment %}
+
+|
+    - |`ghe-migrator`로 리포지토리를 가져올 때 데이터 불일치가 있는 경우 예기치 않은 예외가 발생할 수 있습니다. {% comment %} https://github.com/github/github/pull/153850, https://github.com/github/github/pull/151552 {% endcomment %}
+
+|
+    - |사용 중인 인증 모드가 기본 제공 2단계 인증을 지원하지 않을 때 엔터프라이즈 계정 보안 설정 페이지에 “2단계 인증” 설정에 대한 “조직의 현재 구성 보기” 링크가 표시되었습니다. {% comment %} https://github.com/github/github/pull/153860 {% endcomment %}
+
+|
+    - |OAuth 새로 고침 토큰이 조기에 제거됩니다. {% comment %} https://github.com/github/github/pull/154271, https://github.com/github/github/pull/153694 {% endcomment %}
+
+|
+    - |구성의 마이그레이션 단계 중에 검색 복구 작업이 예외를 생성합니다. {% comment %} https://github.com/github/github/pull/154573, https://github.com/github/github/pull/153392 {% endcomment %}
+
+|
+    - |일부 상황에서 GitHub 앱에 대한 설정 페이지에 “베타 기능” 탭이 표시되지 않았습니다. {% comment %} https://github.com/github/github/pull/154612, https://github.com/github/github/pull/154417 {% endcomment %}
+
+|
+    - |`ghe-migrator`를 사용하여 PR 검토 요청을 가져올 때 삭제된 사용자와 관련된 레코드는 관련 없는 데이터베이스 레코드를 생성합니다. {% comment %} https://github.com/github/github/pull/154960, https://github.com/github/github/pull/153169 {% endcomment %}
+
+|
+    - |`ghe-migrator`를 사용하여 사용자를 가져올 때 시스템 생성 메일 주소가 100자보다 길면 “메일이 잘못됨” 오류가 발생합니다. {% comment %} https://github.com/github/github/pull/155109, https://github.com/github/github/pull/152418 {% endcomment %}
+
+|
+    - |웹후크 활동을 로그하면 많은 양의 디스크 공간이 사용되어 루트 디스크가 가득 찰 수 있습니다. {% comment %} https://github.com/github/github/pull/155657, https://github.com/github/github/pull/154100 {% endcomment %}
+
+|
+    - |읽기가 다른 노드에 전달되고 있기 때문에 고가용성 복제본이 있는 인스턴스에서 Git 복제 및 페치 성능이 더 느려졌습니다. {% comment %} https://github.com/github/github/pull/156195, https://github.com/github/github/pull/156016, https://github.com/github/spokesd/issues/746 {% endcomment %}
+
+|
+    - |사용자 또는 조직 GitHub Pages 사이트에 대한 리포지토리의 리포지토리 설정 페이지가 “500 내부 서버 오류”와 함께 실패합니다. {% comment %} https://github.com/github/github/pull/156439, https://github.com/github/github/issues/156183 {% endcomment %}
+
+|
+    - |리포지토리 네트워크 유지 관리 작업이 `실행 중` 상태에서 중단될 수 있습니다. {% comment %} https://github.com/github/github/pull/156669, https://github.com/github/github/pull/156036 {% endcomment %}
+
+|
+    - |코드 검사 결과를 업로드한 후 즉시 삭제되는 리포지토리로 인해 모든 리포지토리에 대한 코드 검사 결과 처리가 중단될 수 있습니다. {% comment %} https://github.com/github/github/pull/157063, https://github.com/github/github/pull/156437 {% endcomment %}
+
+|
+    - |많은 코드 검사 결과가 동시에 제출될 때 일괄 처리 시간이 초과되어 코드 검사 결과 처리가 중단될 수 있습니다. {% comment %} https://github.com/github/github/pull/157065, https://github.com/github/github/pull/156462 {% endcomment %}
+
+|
+    - |[매니페스트에서 GitHub 앱 만들기](https://docs.github.com/en/enterprise/2.22/user/developers/apps/creating-a-github-app-from-a-manifest)에 실패합니다. {% comment %} https://github.com/github/github/pull/157133, https://github.com/github/github/pull/156904, https://github.com/github/enterprise2/issues/22849 {% endcomment %}
+
+|
+    - |GitHub 사용자 이름이 관리 콘솔의 `사용자 이름` 필드에 매핑된 특성 값과 일치하지 않는 경우 SAML 인증을 사용할 때 GitHub 사용자 이름이 실수로 변경되었습니다. {% comment %} https://github.com/github/github/pull/158131, https://github.com/github/github/pull/157936, https://github.com/github/external-identities/issues/335 {% endcomment %}
+
+|
+  changes:
+    - "AWS EC2 인스턴스 유형 `m5.16xlarge`에 대한 지원이 추가되었습니다. {% comment %} https://github.com/github/enterprise2/pull/22502, https://github.com/github/enterprise2/pull/22473 {% endcomment %}"
+    - "항상 컴퓨팅할 수 있으므로 `ghe-migrator` 보관에서 SSH 지문에 대한 요구 사항을 제거합니다. {% comment %} https://github.com/github/github/pull/156946, https://github.com/github/github/pull/155387 {% endcomment %}"
+    - "이제 GitHub 앱 매니페스트에 `request_oauth_on_install` 필드가 포함됩니다. {% comment %} https://github.com/github/github/pull/156991, https://github.com/github/github/pull/155010, https://github.com/github/ecosystem-apps/issues/1055 {% endcomment %}"
+
+  known_issues:
+    - "사용자 없이 새로 설정된 GitHub Enterprise Server에서 공격자는 첫 번째 관리 사용자를 만들 수 있습니다. {% comment %} https://github.com/github/enterprise2/issues/1889 {% endcomment %}"
+    - "업그레이드 중에는 사용자 지정 방화벽 규칙이 유지 관리되지 않습니다. {% comment %} https://github.com/github/enterprise2/issues/2823 {% endcomment %}"
+    - "Git LFS 추적 파일[웹 인터페이스를 통해 업로드됨](https://github.com/blog/2105-upload-files-to-your-repositories)이 리포지토리에 직접 잘못 추가되었습니다. {% comment %} https://github.com/github/github/issues/54684 {% endcomment %}"
+    - "파일 경로가 255자보다 긴 동일한 리포지토리의 Blob에 대한 고정 링크가 포함된 경우 이슈를 닫을 수 없습니다. {% comment %} https://github.com/github/github/issues/107731 {% endcomment %}"
+    - "GitHub Connect에서 “사용자가 GitHub.com을 검색할 수 있음”이 사용하도록 설정되면 프라이빗 및 내부 리포지토리의 이슈가 GitHub.com 검색 결과에 포함되지 않습니다. {% comment %} https://github.com/github/admin-experience/issues/571 {% endcomment %}"
+    - "원래 백업 원본에서 기능이 사용하도록 설정되지 않은 경우 GitHub Actions 지원 인스턴스로 데이터를 복원할 때 구성 업데이트가 실패합니다. {% comment %} https://github.com/github/c2c-actions-runtime/issues/915 {% endcomment %}"
+    - "이전에 2.22.0을 실행하는 인스턴스에서 사용하도록 설정되었고 2.22.1로 업그레이드되는 경우 GitHub Actions를 성공적으로 시작할 수 없습니다. (2020-10-23 업데이트됨) {% comment %} https://github.com/github/c2c-actions/issues/1680 {% endcomment %}"
+    - "새로 설치된 2.22.1 인스턴스에서 또는 2.22.1로 업그레이드한 후 조직 대시보드에 대한 활동 피드가 더 이상 업데이트되지 않습니다. (2020-10-27 업데이트됨) {% comment %}https://github.com/github/enterprise2/issues/23050{% endcomment %}"
+    - "감사 로그가 실제 원본 IP 주소가 아닌 127.0.0.1로 표시될 수 있습니다. (2020-11-02 업데이트됨) {% comment %} https://github.com/github/enterprise2/issues/21514 {% endcomment %}"
+    - "고가용성 구성에서 복제본 노드가 오프라인일 때 {% data variables.product.product_name %}는 여전히 {% data variables.product.prodname_pages %} 요청을 오프라인 노드로 라우팅할 수 있으므로 사용자의 {% data variables.product.prodname_pages %} 가용성이 감소합니다."

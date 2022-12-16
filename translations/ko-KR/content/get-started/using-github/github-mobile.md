@@ -1,6 +1,6 @@
 ---
-title: GitHub Mobile
-intro: 'Triage, collaborate, and manage your work on {% data variables.product.product_name %} from your mobile device.'
+title: GitHub 모바일
+intro: '모바일 디바이스에서 {% data variables.product.product_name %}에 대한 작업을 심사하고 협업 및 관리합니다.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,84 +11,88 @@ redirect_from:
   - /get-started/using-github/github-for-mobile
   - /github/getting-started-with-github/github-for-mobile
   - /github/getting-started-with-github/using-github/github-for-mobile
+ms.openlocfilehash: 1d94b07ebb9939347ca2f71cc9cd3054fec75a7e
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148099021'
 ---
-
-## About {% data variables.product.prodname_mobile %}
+## {% data variables.product.prodname_mobile %} 정보
 
 {% data reusables.mobile.about-mobile %}
 
-{% data variables.product.prodname_mobile %} gives you a way to do high-impact work on {% data variables.product.product_name %} quickly and from anywhere. {% data variables.product.prodname_mobile %} is a safe and secure way to access your {% data variables.product.product_name %} data through a trusted, first-party client application.
+{% data variables.product.prodname_mobile %}을 사용하면 어디서든 빠르게 {% data variables.product.product_name %}에서 영향력 있는 작업을 수행할 수 있습니다. {% data variables.product.prodname_mobile %}은 신뢰할 수 있는 자사 클라이언트 애플리케이션을 통해 {% data variables.product.product_name %} 데이터에 액세스하는 안전한 방법입니다.
 
-With {% data variables.product.prodname_mobile %} you can:
+{% data variables.product.prodname_mobile %}을 사용하여 다음을 수행할 수 있습니다.
 
-- Manage, triage, and clear notifications
-- Read, review, and collaborate on issues and pull requests
-- Edit files in pull requests
-- Search for, browse, and interact with users, repositories, and organizations
-- Receive a push notification when someone mentions your username
-{% ifversion fpt or ghec %}- Secure your GitHub.com account with two-factor authentication
-- Verify your sign in attempts on unrecognized devices{% endif %}
+- 알림을 관리하고 심사하고 지우기
+- 이슈와 끌어오기 요청을 읽고 검토하고 협업하기
+- 끌어오기 요청에서 파일 편집
+- 사용자, 리포지토리, 조직을 검색하고 찾아보고 상호 작용하기
+- 다른 사람이 내 사용자 이름을 멘션할 때 푸시 알림 받기 {% ifversion fpt or ghec %}- 2단계 인증으로 GitHub.com 계정 보호
+- 인식할 수 없는 디바이스에서 로그인 시도 확인{% endif %}
 
-For more information about notifications for {% data variables.product.prodname_mobile %}, see "[Configuring notifications](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#enabling-push-notifications-with-github-mobile)."
+{% data variables.product.prodname_mobile %}에 대한 자세한 내용은 “[알림 구성](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#enabling-push-notifications-with-github-mobile)”을 참조하세요.
 
-{% ifversion fpt or ghec %}- For more information on two-factor authentication using {% data variables.product.prodname_mobile %}, see "[Configuring {% data variables.product.prodname_mobile %}](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication#configuring-two-factor-authentication-using-github-mobile) and [Authenticating using {% data variables.product.prodname_mobile %}](/authentication/securing-your-account-with-two-factor-authentication-2fa/accessing-github-using-two-factor-authentication##verifying-with-github-mobile)." {% endif %}
+{% ifversion fpt or ghec %}- {% data variables.product.prodname_mobile %}을 사용하는 2단계 인증에 대한 자세한 내용은 "[{% data variables.product.prodname_mobile %} 구성](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication#configuring-two-factor-authentication-using-github-mobile) 및 [{% data variables.product.prodname_mobile %}을 사용하여 인증](/authentication/securing-your-account-with-two-factor-authentication-2fa/accessing-github-using-two-factor-authentication##verifying-with-github-mobile)"을 참조하세요. {% endif %}
 
-## Installing {% data variables.product.prodname_mobile %}
+## {% data variables.product.prodname_mobile %} 설치
 
-To install {% data variables.product.prodname_mobile %} for Android or iOS, see [{% data variables.product.prodname_mobile %}](https://github.com/mobile).
+Android 또는 iOS용 {% data variables.product.prodname_mobile %}을 설치하려면 [{% data variables.product.prodname_mobile %}](https://github.com/mobile)을 참조하세요.
 
-## Managing accounts
+## 계정 관리
 
-You can be simultaneously signed into mobile with one personal account on {% data variables.product.prodname_dotcom_the_website %} and one personal account on {% data variables.product.prodname_ghe_server %}. For more information about our different products, see "[{% data variables.product.company_short %}'s products](/get-started/learning-about-github/githubs-products)."
+{% data variables.product.prodname_dotcom_the_website %}의 개인 계정 1개와 {% data variables.product.prodname_ghe_server %}의 개인 계정 1개를 사용하여 모바일에 동시에 로그인할 수 있습니다. 다양한 제품에 대한 자세한 내용은 “[{% data variables.product.company_short %}의 제품](/get-started/learning-about-github/githubs-products)”을 참조하세요.
 
 {% data reusables.mobile.push-notifications-on-ghes %}
 
-{% data variables.product.prodname_mobile %} may not work with your enterprise if you're required to access your enterprise over VPN.
+VPN을 통해 엔터프라이즈에 액세스해야 하는 경우 {% data variables.product.prodname_mobile %}이 엔터프라이즈에서 작동하지 않을 수 있습니다.
 
-### Prerequisites
+### 필수 조건
 
-You must install {% data variables.product.prodname_mobile %} 1.4 or later on your device to use {% data variables.product.prodname_mobile %} with {% data variables.product.prodname_ghe_server %}.
+{% data variables.product.prodname_ghe_server %}와 함께 {% data variables.product.prodname_mobile %}을 사용하려면 디바이스에 {% data variables.product.prodname_mobile %} 1.4 이상을 설치해야 합니다.
 
-To use {% data variables.product.prodname_mobile %} with {% data variables.product.prodname_ghe_server %}, {% data variables.location.product_location %} must be version 3.0 or greater, and your enterprise owner must enable mobile support for your enterprise. For more information, see {% ifversion ghes %}"[Release notes](/enterprise-server/admin/release-notes)" and {% endif %}"[Managing {% data variables.product.prodname_mobile %} for your enterprise]({% ifversion not ghes %}/enterprise-server@latest{% endif %}/admin/configuration/configuring-your-enterprise/managing-github-mobile-for-your-enterprise){% ifversion not ghes %}" in the {% data variables.product.prodname_ghe_server %} documentation.{% else %}."{% endif %}
+{% 데이터 variables.product.prodname_mobile %}와 함께 {% 데이터 variables.product.prodname_ghe_server %}을(를) 사용하려면 {% 데이터 variables.location.product_location %}이(가) 버전 3.0 이상이어야 하며 엔터프라이즈 소유자는 엔터프라이즈에 모바일 지원을 사용하도록 설정해야 합니다. 자세한 내용은 {% data variables.product.prodname_ghe_server %} 설명서의 {% ifversion ghes %}“[릴리스 정보](/enterprise-server/admin/release-notes)” 및 {% endif %}“[엔터프라이즈용 {% data variables.product.prodname_mobile %} 관리]({% ifversion not ghes %}/enterprise-server@latest{% endif %}/admin/configuration/configuring-your-enterprise/managing-github-mobile-for-your-enterprise)”{% ifversion not ghes %}를 참조하세요.{% else %}.{% endif %}
 
-During the beta for {% data variables.product.prodname_mobile %} with {% data variables.product.prodname_ghe_server %}, you must be signed in with a personal account on {% data variables.product.prodname_dotcom_the_website %}.
+{% data variables.product.prodname_ghe_server %}에서의 {% data variables.product.prodname_mobile %} 베타 기간에는 {% data variables.product.prodname_dotcom_the_website %}에서 개인 계정으로 로그인해야 합니다.
 
-### Adding, switching, or signing out of accounts
+### 계정 추가, 전환 또는 로그아웃
 
-You can sign into mobile with a personal account on {% data variables.product.prodname_ghe_server %}. At the bottom of the app, long-press {% octicon "person" aria-label="The person icon" %} **Profile**, then tap {% octicon "plus" aria-label="The plus icon" %} **Add Enterprise Account**. Follow the prompts to sign in.
+{% data variables.product.prodname_ghe_server %}에서 개인 계정으로 모바일에 로그인할 수 있습니다. 앱의 하단에서 {% octicon "person" aria-label="The person icon" %} **프로필** 을 길게 누른 다음, {% octicon "plus" aria-label="The plus icon" %} **엔터프라이즈 계정 추가** 를 탭합니다. 프롬프트에 따라 로그인합니다.
 
-After you sign into mobile with a personal account on {% data variables.product.prodname_ghe_server %}, you can switch between the account and your account on {% data variables.product.prodname_dotcom_the_website %}. At the bottom of the app, long-press {% octicon "person" aria-label="The person icon" %} **Profile**, then tap the account you want to switch to.
+{% data variables.product.prodname_ghe_server %}에서 개인 계정으로 모바일에 로그인한 후 {% data variables.product.prodname_dotcom_the_website %}에서 이 계정과 자신의 계정 간에 전환할 수 있습니다. 앱의 하단에서 {% octicon "person" aria-label="The person icon" %} **프로필** 을 길게 누른 다음, 전환할 계정을 탭합니다.
 
-If you no longer need to access data for your personal account on {% data variables.product.prodname_ghe_server %} from {% data variables.product.prodname_mobile %}, you can sign out of the account. At the bottom of the app, long-press {% octicon "person" aria-label="The person icon" %} **Profile**, swipe left on the account to sign out of, then tap **Sign out**.
+{% data variables.product.prodname_mobile %}에서 {% data variables.product.prodname_ghe_server %}의 개인 계정 데이터에 더 이상 액세스할 필요가 없으면 계정에서 로그아웃할 수 있습니다. 앱의 하단에서 {% octicon "person" aria-label="The person icon" %} **프로필** 을 길게 누르고, 로그아웃할 계정에서 왼쪽으로 살짝 민 다음, **로그아웃** 을 탭합니다.
 
-## Supported languages for {% data variables.product.prodname_mobile %}
+## {% data variables.product.prodname_mobile %}에 대해 지원되는 언어
 
-{% data variables.product.prodname_mobile %} is available in the following languages.
+{% data variables.product.prodname_mobile %}은 다음 언어로 제공됩니다.
 
-- English
-- Japanese
-- Brazilian Portuguese
-- Simplified Chinese
-- Spanish
+- 영어
+- 일본어
+- 포르투갈어(브라질)
+- 중국어(간체)
+- 스페인어
 
-If you configure the language on your device to a supported language, {% data variables.product.prodname_mobile %} will default to the language. You can change the language for {% data variables.product.prodname_mobile %} in {% data variables.product.prodname_mobile %}'s **Settings** menu.
+디바이스에서 언어를 지원되는 언어로 구성하는 경우 그것이 {% data variables.product.prodname_mobile %}의 기본 언어가 됩니다. {% data variables.product.prodname_mobile %}의 **설정** 메뉴에서 {% data variables.product.prodname_mobile %}의 언어를 변경할 수 있습니다.
 
-## Managing Universal Links for {% data variables.product.prodname_mobile %} on iOS
+## iOS에서 {% data variables.product.prodname_mobile %}에 대한 유니버설 링크 관리
 
-{% data variables.product.prodname_mobile %} automatically enables Universal Links for iOS. When you tap any {% data variables.product.product_name %} link, the destination URL will open in {% data variables.product.prodname_mobile %} instead of Safari. For more information, see [Universal Links](https://developer.apple.com/ios/universal-links/) on the Apple Developer site.
+{% data variables.product.prodname_mobile %}은 iOS용 유니버설 링크를 자동으로 사용하도록 설정합니다. {% data variables.product.product_name %} 링크를 탭하면 대상 URL이 Safari 대신 {% data variables.product.prodname_mobile %}에서 열립니다. 자세한 내용은 Apple 개발자 사이트의 [유니버설 링크](https://developer.apple.com/ios/universal-links/)를 참조하세요.
 
-To disable Universal Links, long-press any {% data variables.product.product_name %} link, then tap **Open**. Every time you tap a {% data variables.product.product_name %} link in the future, the destination URL will open in Safari instead of {% data variables.product.prodname_mobile %}.
+유니버설 링크를 사용하지 않도록 설정하려면 {% data variables.product.product_name %} 링크를 길게 누른 다음 **열기** 를 탭합니다. 나중에 {% data variables.product.product_name %} 링크를 탭할 때마다 대상 URL이 {% data variables.product.prodname_mobile %} 대신 Safari에서 열립니다.
 
-To re-enable Universal Links, long-press any {% data variables.product.product_name %} link, then tap **Open in {% data variables.product.prodname_dotcom %}**.
+유니버설 링크를 다시 사용하도록 설정하려면 {% data variables.product.product_name %} 링크를 길게 누른 다음 **{% data variables.product.prodname_dotcom %}에서 열기** 를 탭합니다.
 
-## Sharing feedback
+## 피드백 공유
 
-You can submit feature requests or other feedback for {% data variables.product.prodname_mobile %} on [{% data variables.product.prodname_github_community %}](https://github.com/orgs/community/discussions/categories/mobile).
+[{% data variables.product.prodname_github_community %}](https://github.com/orgs/community/discussions/categories/mobile)에서 {% data variables.product.prodname_mobile %}에 대한 기능 요청이나 기타 피드백을 제출할 수 있습니다.
 
-## Opting out of beta releases for iOS
+## iOS용 베타 릴리스 옵트아웃
 
-If you're testing a beta release of {% data variables.product.prodname_mobile %} for iOS using TestFlight, you can leave the beta at any time.
+TestFlight를 사용하여 iOS용 {% data variables.product.prodname_mobile %}의 베타 릴리스를 테스트하는 경우 언제든지 베타를 종료할 수 있습니다.
 
-1. On your iOS device, open the TestFlight app.
-2. Under "Apps", tap **{% data variables.product.prodname_dotcom %}**.
-3. At the bottom of the page, tap **Stop Testing**.
+1. iOS 디바이스에서 TestFlight 앱을 엽니다.
+2. “앱”에서 **{% data variables.product.prodname_dotcom %}** 를 탭합니다.
+3. 페이지의 하단에서 **테스트 중지** 를 탭합니다.

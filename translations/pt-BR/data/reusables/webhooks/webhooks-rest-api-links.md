@@ -1,13 +1,13 @@
 ---
-ms.openlocfilehash: 63effb67d8f26ba954127db629134b36b40d8552
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.openlocfilehash: 6f756137f84b0451079811530d035b11f9764446
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2022
-ms.locfileid: "148107824"
+ms.lasthandoff: 12/09/2022
+ms.locfileid: "148192902"
 ---
-As APIs REST do webhook permitem que você gerencie o repositório, a organização e os webhooks do aplicativo. Você pode usar essa API para listar entregas de webhook para um webhook ou obter e entregar novamente uma entrega individual para um webhook, que pode ser integrado a um aplicativo ou serviço externo. Você também pode usar a API REST para alterar a configuração do webhook. Por exemplo, você pode modificar a URL da carga, tipo de conteúdo, verificação de SSL e segredo. Para obter mais informações, consulte:
+Você pode usar a API REST para gerenciar o repositório, a organização e os webhooks de aplicativo. Você pode listar entregas de webhook para um webhook ou obter e reenviar uma entrega individual para um webhook, que pode ser integrado a um aplicativo ou serviço externo. Você também pode usar a API REST para alterar a configuração do webhook. Por exemplo, você pode modificar a URL da carga, tipo de conteúdo, verificação de SSL e segredo. Para obter mais informações, consulte:
 
-- [API REST de Webhooks do Repositório](/rest/reference/webhooks#repository-webhooks)
-- [API REST de Webhooks da Organização](/rest/reference/orgs#webhooks)
-- [API REST de Webhooks do {% data variables.product.prodname_github_app %}](/rest/reference/apps#webhooks)
+- [Webhooks de repositório](/rest/reference/webhooks#repository-webhooks)
+- [Webhooks de organização](/rest/reference/orgs#webhooks)
+- [Webhooks de {% data variables.product.prodname_github_app %}](/rest/reference/apps#webhooks)

@@ -1,7 +1,7 @@
 ---
-title: Publishing Docker images
+title: Docker 이미지 게시
 shortTitle: Publish Docker images
-intro: 'You can publish Docker images to a registry, such as Docker Hub or {% data variables.product.prodname_registry %}, as part of your continuous integration (CI) workflow.'
+intro: 'CI(연속 통합) 워크플로의 일부로 Docker Hub 또는 {% data variables.product.prodname_registry %}와 같은 레지스트리에 Docker 이미지를 게시할 수 있습니다.'
 redirect_from:
   - /actions/language-and-framework-guides/publishing-docker-images
   - /actions/guides/publishing-docker-images
@@ -15,63 +15,67 @@ topics:
   - Packaging
   - Publishing
   - Docker
+ms.openlocfilehash: 4e34516985f7e96bccc24820b64669a8bd9102bc
+ms.sourcegitcommit: 7b86410fc3bc9fecf0cb71dda4c7d2f0da745b85
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/05/2022
+ms.locfileid: '148009563'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+## 소개
 
-## Introduction
-
-This guide shows you how to create a workflow that performs a Docker build, and then publishes Docker images to Docker Hub or {% data variables.product.prodname_registry %}. With a single workflow, you can publish images to a single registry or to multiple registries.
+이 가이드에서는 Docker 빌드를 수행하는 워크플로를 만든 다음, Docker 이미지를 Docker Hub 또는 {% data variables.product.prodname_registry %}에 게시하는 방법을 보여 줍니다. 단일 워크플로를 사용하여 단일 레지스트리 또는 여러 레지스트리에 이미지를 게시할 수 있습니다.
 
 {% note %}
 
-**Note:** If you want to push to another third-party Docker registry, the example in the "[Publishing images to {% data variables.product.prodname_registry %}](#publishing-images-to-github-packages)" section can serve as a good template.
+**참고:** 다른 타사 Docker 레지스트리로 푸시하려는 경우 “[{% data variables.product.prodname_registry %}에 이미지 게시](#publishing-images-to-github-packages)” 섹션의 예제가 좋은 템플릿으로 사용될 수 있습니다.
 
 {% endnote %}
 
-## Prerequisites
+## 필수 조건
 
-We recommend that you have a basic understanding of workflow configuration options and how to create a workflow file. For more information, see "[Learn {% data variables.product.prodname_actions %}](/actions/learn-github-actions)."
+워크플로 구성 옵션과 워크플로 파일을 만드는 방법을 기본적으로 이해하는 것이 좋습니다. 자세한 내용은 “[{% data variables.product.prodname_actions %} 알아보기](/actions/learn-github-actions)”를 참조하세요.
 
-You might also find it helpful to have a basic understanding of the following:
+또한 다음 사항을 기본적으로 이해하는 것이 유용할 수 있습니다.
 
-- "[Encrypted secrets](/actions/reference/encrypted-secrets)"
-- "[Authentication in a workflow](/actions/reference/authentication-in-a-workflow)"{% ifversion fpt or ghec %}
-- "[Working with the {% data variables.product.prodname_container_registry %}](/packages/working-with-a-github-packages-registry/working-with-the-container-registry)"{% else %}
-- "[Working with the Docker registry](/packages/working-with-a-github-packages-registry/working-with-the-docker-registry)"{% endif %}
+- “[암호화된 비밀](/actions/reference/encrypted-secrets)”
+- “[워크플로의 인증](/actions/reference/authentication-in-a-workflow)”{% ifversion fpt or ghec %}
+- “[{% data variables.product.prodname_container_registry %} 작업](/packages/working-with-a-github-packages-registry/working-with-the-container-registry)”{% else %}
+- “[Docker 레지스트리 작업](/packages/working-with-a-github-packages-registry/working-with-the-docker-registry)”{% endif %}
 
-## About image configuration
+## 이미지 구성 정보
 
-This guide assumes that you have a complete definition for a Docker image stored in a {% data variables.product.prodname_dotcom %} repository. For example, your repository must contain a _Dockerfile_, and any other files needed to perform a Docker build to create an image.
+이 가이드에서는 {% data variables.product.prodname_dotcom %} 리포지토리에 저장된 Docker 이미지에 대한 완전한 정의가 있다고 가정합니다. 예를 들어 리포지토리에는 _Dockerfile_ 및 이미지를 만들기 위해 Docker 빌드를 수행하는 데 필요한 다른 파일이 포함되어야 합니다.
 
 {% ifversion fpt or ghec or ghes > 3.4 %}
 
-{% data reusables.package_registry.about-docker-labels %} For more information, see "[Working with the {% data variables.product.prodname_container_registry %}](/packages/working-with-a-github-packages-registry/working-with-the-container-registry#labelling-container-images)."
+{% data reusables.package_registry.about-docker-labels %} 자세한 내용은 "[{% 데이터 variables.product.prodname_container_registry %}로 작업](/packages/working-with-a-github-packages-registry/working-with-the-container-registry#labelling-container-images)"을 참조하세요.
 
 {% endif %}
 
-In this guide, we will use the Docker `build-push-action` action to build the Docker image and push it to one or more Docker registries. For more information, see [`build-push-action`](https://github.com/marketplace/actions/build-and-push-docker-images).
+이 가이드에서는 Docker `build-push-action` 작업을 사용하여 Docker 이미지를 빌드하고 하나 이상의 Docker 레지스트리에 푸시합니다. 자세한 내용은 [`build-push-action`](https://github.com/marketplace/actions/build-and-push-docker-images)를 참조하세요.
 
 {% data reusables.actions.enterprise-marketplace-actions %}
 
-## Publishing images to Docker Hub
+## Docker Hub에 이미지 게시
 
 {% data reusables.actions.release-trigger-workflow %}
 
-In the example workflow below, we use the Docker `login-action` and `build-push-action` actions to build the Docker image and, if the build succeeds, push the built image to Docker Hub.
+아래 예제 워크플로에서는 Docker `login-action` 및 `build-push-action` 작업을 사용하여 Docker 이미지를 빌드하고 빌드에 성공하면 빌드된 이미지를 Docker Hub로 푸시합니다.
 
-To push to Docker Hub, you will need to have a Docker Hub account, and have a Docker Hub repository created. For more information, see "[Pushing a Docker container image to Docker Hub](https://docs.docker.com/docker-hub/repos/#pushing-a-docker-container-image-to-docker-hub)" in the Docker documentation.
+Docker Hub로 푸시하려면 Docker Hub 계정이 있어야 하고 Docker Hub 리포지토리를 만들어야 합니다. 자세한 내용은 Docker 설명서에서 “[ "Docker Hub로 Docker 컨테이너 이미지 푸시](https://docs.docker.com/docker-hub/repos/#pushing-a-docker-container-image-to-docker-hub)”를 참조하세요.
 
-The `login-action` options required for Docker Hub are:
-* `username` and `password`: This is your Docker Hub username and password. We recommend storing your Docker Hub username and password as secrets so they aren't exposed in your workflow file. For more information, see "[Creating and using encrypted secrets](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)."
+Docker Hub에 필요한 `login-action` 옵션은 다음과 같습니다.
+* `username` 및 `password`: Docker Hub 사용자 이름 및 암호입니다. 워크플로 파일에 노출되지 않도록 Docker Hub 사용자 이름과 암호는 비밀로 저장하는 것이 좋습니다. 자세한 내용은 “[암호화된 비밀 만들기 및 사용](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)”을 참조하세요.
 
-The `metadata-action` option required for Docker Hub is:
-* `images`: The namespace and name for the Docker image you are building/pushing to Docker Hub.
+Docker Hub에 필요한 `metadata-action` 옵션은 다음과 같습니다.
+* `images`: Docker Hub로 빌드/푸시하는 Docker 이미지의 네임스페이스 및 이름입니다.
 
-The `build-push-action` options required for Docker Hub are:
-* `tags`: The tag of your new image in the format `DOCKER-HUB-NAMESPACE/DOCKER-HUB-REPOSITORY:VERSION`. You can set a single tag as shown below, or specify multiple tags in a list.
-* `push`: If set to `true`, the image will be pushed to the registry if it is built successfully.
+Docker Hub에 필요한 `build-push-action` 옵션은 다음과 같습니다.
+* `tags`: `DOCKER-HUB-NAMESPACE/DOCKER-HUB-REPOSITORY:VERSION` 형식의 새 이미지 태그입니다. 아래 표시된 것처럼 단일 태그를 설정하거나 목록에서 여러 태그를 지정할 수 있습니다.
+* `push`: `true`로 설정하면 이미지가 성공적으로 빌드된 경우 레지스트리에 푸시됩니다.
 
 ```yaml{:copy}
 {% data reusables.actions.actions-not-certified-by-github-comment %}
@@ -113,42 +117,38 @@ jobs:
           labels: {% raw %}${{ steps.meta.outputs.labels }}{% endraw %}
 ```
 
-The above workflow checks out the {% data variables.product.prodname_dotcom %} repository, uses the `login-action` to log in to the registry, and then uses the `build-push-action` action to: build a Docker image based on your repository's `Dockerfile`; push the image to Docker Hub, and apply a tag to the image.
+위의 워크플로는 {% data variables.product.prodname_dotcom %} 리포지토리를 체크 아웃하고 `login-action`을 사용하여 레지스트리에 로그인한 다음 `build-push-action` 작업을 사용하여 리포지토리의 `Dockerfile`을 기반으로 Docker 이미지를 빌드하고, 이미지를 Docker Hub로 푸시하고, 이미지에 태그를 적용합니다.
 
-## Publishing images to {% data variables.product.prodname_registry %}
+## {% data variables.product.prodname_registry %}에 이미지 게시
 
-{% ifversion ghes > 3.4 %}
-{% data reusables.package_registry.container-registry-ghes-beta %}
-{% endif %}
+{% ifversion ghes > 3.4 %} {% data reusables.package_registry.container-registry-ghes-beta %} {% endif %}
 
 {% data reusables.actions.release-trigger-workflow %}
 
-In the example workflow below, we use the Docker `login-action`{% ifversion fpt or ghec %}, `metadata-action`,{% endif %} and `build-push-action` actions to build the Docker image, and if the build succeeds, push the built image to {% data variables.product.prodname_registry %}.
+아래 예제 워크플로에서는 Docker `login-action`{% ifversion fpt or ghec %}, `metadata-action`,{% endif %} 및 `build-push-action` 작업을 사용하여 Docker 이미지를 빌드하고 빌드에 성공하면 빌드된 이미지를 {% data variables.product.prodname_registry %}에 푸시합니다.
 
-The `login-action` options required for {% data variables.product.prodname_registry %} are:
-* `registry`: Must be set to {% ifversion fpt or ghec %}`ghcr.io`{% elsif ghes > 3.4 %}`{% data reusables.package_registry.container-registry-hostname %}`{% else %}`docker.pkg.github.com`{% endif %}.
-* `username`: You can use the {% raw %}`${{ github.actor }}`{% endraw %} context to automatically use the username of the user that triggered the workflow run. For more information, see "[Contexts](/actions/learn-github-actions/contexts#github-context)."
-* `password`: You can use the automatically-generated `GITHUB_TOKEN` secret for the password. For more information, see "[Authenticating with the GITHUB_TOKEN](/actions/automating-your-workflow-with-github-actions/authenticating-with-the-github_token)."
+{% data variables.product.prodname_registry %}에 필요한 `login-action` 옵션은 다음과 같습니다.
+* `registry`: {% ifversion fpt or ghec %}`ghcr.io`{% elsif ghes > 3.4 %}`{% data reusables.package_registry.container-registry-hostname %}`{% else %}`docker.pkg.github.com`{% endif %}으로 설정해야 합니다.
+* `username`: {% raw %}`${{ github.actor }}`{% endraw %} 컨텍스트를 사용하여 워크플로 실행을 트리거한 사용자의 사용자 이름을 자동으로 사용할 수 있습니다. 자세한 내용은 “[컨텍스트](/actions/learn-github-actions/contexts#github-context)”를 참조하세요.
+* `password`: 자동으로 생성된 `GITHUB_TOKEN` 비밀을 암호에 사용할 수 있습니다. 자세한 내용은 “[GITHUB_TOKEN을 사용한 인증](/actions/automating-your-workflow-with-github-actions/authenticating-with-the-github_token)”을 참조하세요.
 
-{% ifversion fpt or ghec %}
-The `metadata-action` option required for {% data variables.product.prodname_registry %} is:
-* `images`: The namespace and name for the Docker image you are building.
+{% ifversion fpt or ghec %} {% data variables.product.prodname_registry %}에 필요한 `metadata-action` 옵션은 다음과 같습니다.
+* `images`: 빌드 중인 Docker 이미지의 네임스페이스 및 이름입니다.
 {% endif %}
 
-The `build-push-action` options required for {% data variables.product.prodname_registry %} are:{% ifversion fpt or ghec %}
-* `context`: Defines the build's context as the set of files located in the specified path.{% endif %}
-* `push`: If set to `true`, the image will be pushed to the registry if it is built successfully.{% ifversion fpt or ghec %}
-* `tags` and `labels`: These are populated by output from `metadata-action`.{% else %}
-* `tags`: Must be set in the format {% ifversion ghes > 3.4 %}`{% data reusables.package_registry.container-registry-hostname %}/OWNER/REPOSITORY/IMAGE_NAME:VERSION`. 
+{% data variables.product.prodname_registry %}에 필요한 `build-push-action` 옵션은 다음과 같습니다.{% ifversion fpt or ghec %}
+* `context`: 지정된 경로에 있는 파일 집합으로 빌드의 컨텍스트를 정의합니다.{% endif %}
+* `push`: `true`로 설정하면 이미지가 성공적으로 빌드된 경우 레지스트리에 푸시됩니다.{% ifversion fpt or ghec %}
+* `tags` 및 `labels`: `metadata-action`의 출력으로 채워집니다.{% else %}
+* `tags`: {% ifversion ghes > 3.4 %}`{% data reusables.package_registry.container-registry-hostname %}/OWNER/REPOSITORY/IMAGE_NAME:VERSION` 형식으로 설정해야 합니다. 
   
-   For example, for an image named `octo-image` stored on {% data variables.product.prodname_ghe_server %} at `https://HOSTNAME/octo-org/octo-repo`, the `tags` option should be set to `{% data reusables.package_registry.container-registry-hostname %}/octo-org/octo-repo/octo-image:latest`{% else %}`docker.pkg.github.com/OWNER/REPOSITORY/IMAGE_NAME:VERSION`.
+   예를 들어, `https://HOSTNAME/octo-org/octo-repo`에서 {% data variables.product.prodname_ghe_server %}에 저장된 `octo-image`라는 이미지의 경우 `tags` 옵션을 `{% data reusables.package_registry.container-registry-hostname %}/octo-org/octo-repo/octo-image:latest`{% else %}`docker.pkg.github.com/OWNER/REPOSITORY/IMAGE_NAME:VERSION`로 설정해야 합니다.
   
-   For example, for an image named `octo-image` stored on {% data variables.product.prodname_dotcom %} at `http://github.com/octo-org/octo-repo`, the `tags` option should be set to `docker.pkg.github.com/octo-org/octo-repo/octo-image:latest`{% endif %}. You can set a single tag as shown below, or specify multiple tags in a list.{% endif %}
+   예를 들어, `http://github.com/octo-org/octo-repo`에서 {% data variables.product.prodname_dotcom %}에 저장된 `octo-image`라는 이미지의 경우 `tags` 옵션을 `docker.pkg.github.com/octo-org/octo-repo/octo-image:latest`{% endif %}로 설정해야 합니다. 아래 표시된 것처럼 단일 태그를 설정하거나 목록에서 여러 태그를 지정할 수 있습니다.{% endif %}
 
-{% ifversion fpt or ghec or ghes > 3.4 %}
-{% data reusables.package_registry.publish-docker-image %}
+{% ifversion fpt or ghec or ghes > 3.4 %} {% data reusables.package_registry.publish-docker-image %}
 
-The above workflow is triggered by a push to the "release" branch. It checks out the GitHub repository, and uses the `login-action` to log in to the {% data variables.product.prodname_container_registry %}. It then extracts labels and tags for the Docker image. Finally, it uses the `build-push-action` action to build the image and publish it on the {% data variables.product.prodname_container_registry %}.
+위의 워크플로는 “릴리스” 분기로 푸시하여 트리거됩니다. GitHub 리포지토리를 확인하고 `login-action`을 사용하여 {% data variables.product.prodname_container_registry %}에 로그인합니다. 그런 다음 Docker 이미지에 대한 레이블 및 태그를 추출합니다. 최종적으로, `build-push-action` 작업을 사용하여 이미지를 빌드하고 {% data variables.product.prodname_container_registry %}에 게시합니다.
 
 {% else %}
 
@@ -190,18 +190,16 @@ jobs:
             {% ifversion ghae %}docker.YOUR-HOSTNAME.com{% else %}docker.pkg.github.com{% endif %}{% raw %}/${{ github.repository }}/octo-image:${{ github.event.release.tag_name }}{% endraw %}
 ```
 
-The above workflow checks out the {% data variables.product.product_name %} repository, uses the `login-action` to log in to the registry, and then uses the `build-push-action` action to: build a Docker image based on your repository's `Dockerfile`; push the image to the Docker registry, and apply the commit SHA and release version as image tags.
+위의 워크플로는 {% data variables.product.product_name %} 리포지토리를 체크 아웃하고 `login-action`을 사용하여 레지스트리에 로그인한 다음 `build-push-action` 작업을 사용하여 리포지토리의 `Dockerfile`을 기반으로 Docker 이미지를 빌드하고, 이미지를 Docker 레지스트리로 푸시하고, 커밋 SHA 및 릴리스 버전을 이미지 태그로 적용합니다.
 {% endif %}
 
-## Publishing images to Docker Hub and {% data variables.product.prodname_registry %}
+## Docker Hub 및 {% data variables.product.prodname_registry %}에 이미지 게시
 
-{% ifversion ghes > 3.4 %}
-{% data reusables.package_registry.container-registry-ghes-beta %}
-{% endif %}
+{% ifversion ghes > 3.4 %} {% data reusables.package_registry.container-registry-ghes-beta %} {% endif %}
 
-In a single workflow, you can publish your Docker image to multiple registries by using the `login-action` and `build-push-action` actions for each registry.
+단일 워크플로에서 각 레지스트리에 `login-action` 및 `build-push-action` 작업을 사용하여 여러 레지스트리에 Docker 이미지를 게시할 수 있습니다.
 
-The following example workflow uses the steps from the previous sections ("[Publishing images to Docker Hub](#publishing-images-to-docker-hub)" and "[Publishing images to {% data variables.product.prodname_registry %}](#publishing-images-to-github-packages)") to create a single workflow that pushes to both registries.
+다음 예제 워크플로는 이전 섹션의 단계(“[Docker Hub 이미지 게시](#publishing-images-to-docker-hub)” 및 “[{% data variables.product.prodname_registry %}에 이미지 게시](#publishing-images-to-github-packages)”)를 사용하여 두 레지스트리에 푸시하는 단일 워크플로를 만듭니다.
 
 ```yaml{:copy}
 {% data reusables.actions.actions-not-certified-by-github-comment %}
@@ -255,5 +253,5 @@ jobs:
           labels: {% raw %}${{ steps.meta.outputs.labels }}{% endraw %}
 ```
 
-The above workflow checks out the {% data variables.product.product_name %} repository, uses the `login-action` twice to log in to both registries and generates tags and labels with the `metadata-action` action.
-Then the `build-push-action` action builds and pushes the Docker image to Docker Hub and the {% ifversion fpt or ghec or ghes > 3.4 %}{% data variables.product.prodname_container_registry %}{% else %}Docker registry{% endif %}.
+위의 워크플로는 {% data variables.product.product_name %} 리포지토리를 체크 아웃하고, `login-action`을 두 번 사용하여, 두 레지스트리에 모두 로그인하고 `metadata-action` 작업으로 태그와 레이블을 생성합니다.
+그런 다음 `build-push-action` 작업이 Docker 이미지를 빌드하여 Docker Hub 및 {% ifversion fpt or ghec or ghes > 3.4 %}{% data variables.product.prodname_container_registry %}{% else %}Docker 레지스트리{% endif %}로 푸시합니다.

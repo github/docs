@@ -1,6 +1,6 @@
 ---
-title: Deploying Docker to Azure App Service
-intro: You can deploy a Docker container to Azure App Service as part of your continuous deployment (CD) workflows.
+title: Azure App Service에 Docker 배포
+intro: CD(지속적인 배포) 워크플로의 일부로 Docker 컨테이너를 Azure App Service에 배포할 수 있습니다.
 versions:
   fpt: '*'
   ghes: '*'
@@ -12,34 +12,38 @@ topics:
   - Containers
   - Docker
   - Azure App Service
+ms.openlocfilehash: 019a14b170419ac400c0ce97357fca72e8837234
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148098414'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+## 소개
 
-## Introduction
-
-This guide explains how to use {% data variables.product.prodname_actions %} to build and deploy a Docker container to [Azure App Service](https://azure.microsoft.com/services/app-service/).
+이 가이드에서는 {% data variables.product.prodname_actions %}를 사용하여 Docker 컨테이너를 빌드하고 [Azure App Service](https://azure.microsoft.com/services/app-service/)에 배포하는 방법을 설명합니다.
 
 {% ifversion fpt or ghec or ghes > 3.4 %}
 
 {% note %}
 
-**Note**: {% data reusables.actions.about-oidc-short-overview %} and "[Configuring OpenID Connect in Azure](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure)."
+**참고**: {% data reusables.actions.about-oidc-short-overview %} 및 “[Azure에서 OpenID Connect 구성](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure).”
 
 {% endnote %}
 
 {% endif %}
 
-## Prerequisites
+## 필수 조건
 
-Before creating your {% data variables.product.prodname_actions %} workflow, you will first need to complete the following setup steps:
+{% data variables.product.prodname_actions %} 워크플로를 만들기 전에 먼저 다음 설정 단계를 완료해야 합니다.
 
 {% data reusables.actions.create-azure-app-plan %}
 
-1. Create a web app.
+1. 웹앱 만들기
 
-   For example, you can use the Azure CLI to create an Azure App Service web app:
+   예를 들어 Azure CLI를 사용하여 Azure AppService 웹앱을 만들 수 있습니다.
 
    ```bash{:copy}
    az webapp create \
@@ -49,15 +53,15 @@ Before creating your {% data variables.product.prodname_actions %} workflow, you
        --deployment-container-image-name nginx:latest
    ```
 
-   In the command above, replace the parameters with your own values, where `MY_WEBAPP_NAME` is a new name for the web app.
+   위의 명령에서 매개 변수를 고유한 값으로 바꿉니다. 여기서 `MY_WEBAPP_NAME`은 웹앱의 새 이름입니다.
 
 {% data reusables.actions.create-azure-publish-profile %}
 
-1. Set registry credentials for your web app.
+1. 웹앱에 대한 레지스트리 자격 증명을 설정합니다.
 
-   Create a {% data variables.product.pat_v1 %} with the `repo` and `read:packages` scopes. For more information, see "[Creating a {% data variables.product.pat_generic %}](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
+   범위와 함께 `repo` `read:packages` {% 데이터 variables.product.pat_v1 %}을(를) 만듭니다. 자세한 내용은 "[%}variables.product.pat_generic {% 데이터 만들기](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)"를 참조하세요.
 
-   Set `DOCKER_REGISTRY_SERVER_URL` to `https://ghcr.io`, `DOCKER_REGISTRY_SERVER_USERNAME` to the GitHub username or organization that owns the repository, and `DOCKER_REGISTRY_SERVER_PASSWORD` to your {% data variables.product.pat_generic %} from above. This will give your web app credentials so it can pull the container image after your workflow pushes a newly built image to the registry. You can do this with the following Azure CLI command:
+   리포지토리를 소유하는 `https://ghcr.io``DOCKER_REGISTRY_SERVER_USERNAME` GitHub 사용자 이름 또는 조직 및 `DOCKER_REGISTRY_SERVER_PASSWORD` 위의 {% 데이터 variables.product.pat_generic %}로 설정합니다`DOCKER_REGISTRY_SERVER_URL`. 이렇게 하면 워크플로가 새로 빌드된 이미지를 레지스트리에 푸시한 후 컨테이너 이미지를 끌어올 수 있도록 웹앱 자격 증명이 부여됩니다. 다음 Azure CLI 명령을 사용하여 수행할 수 있습니다.
 
    ```shell
     az webapp config appsettings set \
@@ -66,15 +70,15 @@ Before creating your {% data variables.product.prodname_actions %} workflow, you
         --settings DOCKER_REGISTRY_SERVER_URL=https://ghcr.io DOCKER_REGISTRY_SERVER_USERNAME=MY_REPOSITORY_OWNER DOCKER_REGISTRY_SERVER_PASSWORD=MY_PERSONAL_ACCESS_TOKEN
 ```
 
-5. Optionally, configure a deployment environment. {% data reusables.actions.about-environments %}
+5. 필요에 따라 배포 환경을 구성합니다. {% data reusables.actions.about-environments %}
 
-## Creating the workflow
+## 워크플로 만들기
 
-Once you've completed the prerequisites, you can proceed with creating the workflow.
+필수 구성 요소를 완료한 후에는 워크플로 만들기를 진행할 수 있습니다.
 
-The following example workflow demonstrates how to build and deploy a Docker container to Azure App Service when there is a push to the `main` branch.
+다음 예제 워크플로는 `main` 분기에 푸시가 있을 때 Docker 컨테이너를 빌드하고 Azure App Service에 배포하는 방법을 보여 줍니다.
 
-Ensure that you set `AZURE_WEBAPP_NAME` in the workflow `env` key to the name of the web app you created.
+워크플로 `env` 키에서 `AZURE_WEBAPP_NAME`을 만든 웹앱의 이름으로 설정했는지 확인합니다.
 
 {% data reusables.actions.delete-env-key %}
 
@@ -146,10 +150,10 @@ jobs:
           images: 'ghcr.io/{% raw %}${{ env.REPO }}{% endraw %}:{% raw %}${{ github.sha }}{% endraw %}'
 ```
 
-## Additional resources
+## 추가 리소스
 
-The following resources may also be useful:
+다음 리소스도 유용할 수 있습니다.
 
-* For the original starter workflow, see [`azure-container-webapp.yml`](https://github.com/actions/starter-workflows/blob/main/deployments/azure-container-webapp.yml) in the {% data variables.product.prodname_actions %} `starter-workflows` repository.
-* The action used to deploy the web app is the official Azure [`Azure/webapps-deploy`](https://github.com/Azure/webapps-deploy) action.
-* For more examples of GitHub Action workflows that deploy to Azure, see the [actions-workflow-samples](https://github.com/Azure/actions-workflow-samples) repository.
+* 원래의 시작 워크플로는 {% data variables.product.prodname_actions %} `starter-workflows` 리포지토리의 [`azure-container-webapp.yml`](https://github.com/actions/starter-workflows/blob/main/deployments/azure-container-webapp.yml)을 참조하세요.
+* 웹앱을 배포하는 데 사용되는 작업은 공식 Azure [`Azure/webapps-deploy`](https://github.com/Azure/webapps-deploy) 작업입니다.
+* Azure에 배포하는 GitHub Actions 워크플로에 대한 자세한 예제는 [actions-workflow-samples](https://github.com/Azure/actions-workflow-samples) 리포지토리를 참조하세요.

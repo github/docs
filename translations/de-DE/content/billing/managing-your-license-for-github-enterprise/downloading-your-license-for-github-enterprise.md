@@ -1,6 +1,6 @@
 ---
-title: Downloading your license for GitHub Enterprise
-intro: 'You can download a copy of your license file for {% data variables.product.prodname_ghe_server %}.'
+title: Herunterladen deiner Lizenz für GitHub Enterprise
+intro: 'Du kannst eine Kopie deiner Lizenzdatei für {% data variables.product.prodname_ghe_server %} herunterladen.'
 permissions: 'Enterprise owners can download license files for {% data variables.product.prodname_ghe_server %}.'
 versions:
   ghec: '*'
@@ -10,29 +10,33 @@ topics:
   - Enterprise
   - Licensing
 shortTitle: Download your license
+ms.openlocfilehash: eed588e2580558280e2e11639f0904b5f9fcf118
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145085612'
 ---
+## Informationen zu Lizenzdateien für {% data variables.product.prodname_enterprise %}
 
-## About license files for {% data variables.product.prodname_enterprise %}
-
-After you purchase or upgrade a license for {% data variables.product.prodname_enterprise %} from {% data variables.contact.contact_enterprise_sales %}, you must download your new license file. For more information about licenses for {% data variables.product.prodname_enterprise %}, see "[About licenses for {% data variables.product.prodname_enterprise %}](/billing/managing-your-license-for-github-enterprise/about-licenses-for-github-enterprise)."
+Nachdem du eine Lizenz für {% data variables.product.prodname_enterprise %} von {% data variables.contact.contact_enterprise_sales %} erworben oder aktualisiert hast, musst du deine neue Lizenzdatei herunterladen. Weitere Informationen zu Lizenzen für {% data variables.product.prodname_enterprise %} findest du unter [Informationen zu Lizenzen für {% data variables.product.prodname_enterprise %}](/billing/managing-your-license-for-github-enterprise/about-licenses-for-github-enterprise).
 
 {% data reusables.enterprise-licensing.contact-sales-for-renewals-or-seats %}
 
-## Downloading your license from {% data variables.product.prodname_dotcom_the_website %}
+## Herunterladen deiner Lizenz von {% data variables.product.prodname_dotcom_the_website %}
 
-You must have an enterprise account on {% data variables.product.prodname_dotcom_the_website %} to download your license from {% data variables.product.prodname_dotcom_the_website %}. For more information, see "[About enterprise accounts](/enterprise-cloud@latest/admin/overview/about-enterprise-accounts){% ifversion ghes %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% elsif ghec %}."{% endif %}
+Du benötigst ein Unternehmenskonto für {% data variables.product.prodname_dotcom_the_website %}, um deine Lizenz von {% data variables.product.prodname_dotcom_the_website %} herunterladen zu können. Weitere Informationen findest du unter [Informationen zu Unternehmenskonten](/enterprise-cloud@latest/admin/overview/about-enterprise-accounts){% ifversion ghes %} in der Dokumentation zu {% data variables.product.prodname_ghe_cloud %}.{% elsif ghec %}.{% endif %}
 
-{% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}
-{% data reusables.enterprise-accounts.settings-tab %}
-1. In the left sidebar, click **Enterprise licensing**.
-  !["Enterprise licensing" tab in the enterprise account settings sidebar](/assets/images/help/enterprises/enterprise-licensing-tab.png)
-1. Under "Enterprise Server Instances", click {% octicon "download" aria-label="The download icon" %} to download your license file.
-  ![Download GitHub Enterprise Server license](/assets/images/help/business-accounts/download-ghes-license.png)
+{% data reusables.enterprise-accounts.access-enterprise-on-dotcom %} {% data reusables.enterprise-accounts.settings-tab %}
+1. Klicke auf der linken Seitenleiste auf **Enterprise-Lizenzierung**.
+  ![Registerkarte „Enterprise-Lizenzierung“ auf der Seitenleiste mit den Unternehmenskontoeinstellungen](/assets/images/help/enterprises/enterprise-licensing-tab.png)
+1. Klicke unter „Enterprise Server-Instanzen“ auf {% octicon "download" aria-label="The download icon" %}, um deine Lizenzdatei herunterzuladen.
+  ![GitHub Enterprise Server-Lizenz herunterladen](/assets/images/help/business-accounts/download-ghes-license.png)
 
-After you download your license file, you can upload the file to {% data variables.location.product_location_enterprise %} to validate your application. For more information, see {% ifversion ghec %}"[Uploading a new license to {% data variables.product.prodname_ghe_server %}](/enterprise-server/billing/managing-your-license-for-github-enterprise/uploading-a-new-license-to-github-enterprise-server)" in the {% data variables.product.prodname_ghe_server %} documentation.{% elsif ghes %}"[Uploading a new license to {% data variables.product.prodname_ghe_server %}](/enterprise-server/billing/managing-your-license-for-github-enterprise/uploading-a-new-license-to-github-enterprise-server)."{% endif %}
+Nach dem Herunterladen deiner Lizenzdatei kannst du die Datei in {% data variables.product.product_location_enterprise %} hochladen, um deine Anwendung zu überprüfen. Weitere Informationen findest du unter {% ifversion ghec %}[Hochladen einer neuen Lizenz auf {% data variables.product.prodname_ghe_server %}](/enterprise-server/billing/managing-your-license-for-github-enterprise/uploading-a-new-license-to-github-enterprise-server) in der Dokumentation zu {% data variables.product.prodname_ghe_server %}.{% elsif ghes %}[Hochladen einer neuen Lizenz auf {% data variables.product.prodname_ghe_server %}](/enterprise-server/billing/managing-your-license-for-github-enterprise/uploading-a-new-license-to-github-enterprise-server).{% endif %}
 
-## Downloading your license if you don't have an enterprise account on {% data variables.product.prodname_dotcom_the_website %}
+## Herunterladen deiner Lizenz, wenn du kein Unternehmenskonto auf {% data variables.product.prodname_dotcom_the_website %} besitzt
 
-If you do not have an enterprise account on {% data variables.product.prodname_dotcom_the_website %}, or if you're not sure, you may be able to download your {% data variables.product.prodname_ghe_server %} license from the [{% data variables.product.prodname_enterprise %} website](https://enterprise.github.com/download).
+Wenn du kein Unternehmenskonto auf {% data variables.product.prodname_dotcom_the_website %} besitzt oder nicht sicher bist, kannst du deine {% data variables.product.prodname_ghe_server %}-Lizenz von der [{% data variables.product.prodname_enterprise %}-Website](https://enterprise.github.com/download) herunterladen.
 
-If you have any questions about downloading your license, contact {% data variables.contact.contact_enterprise_sales %}.
+Wenn du Fragen zum Herunterladen deiner Lizenz hast, kontaktiere {% data variables.contact.contact_enterprise_sales %}.

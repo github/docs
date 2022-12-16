@@ -1,21 +1,26 @@
 ---
-title: About repository caching
-intro: You can increase the performance of Git read operations for distributed teams and CI farms with repository caching.
+title: Informationen zum Zwischenspeichern von Repositorys
+intro: Du kannst die Leistung von Git-Lesevorgängen für verteilte Teams und CI-Farmen mittels Zwischenspeichern von Repositorys erhöhen.
 versions:
   ghes: '*'
 type: overview
 topics:
   - Enterprise
+ms.openlocfilehash: e32df9becd6142f581d45784e4758cf19a8d1af0
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148108322'
 ---
-
 {% data reusables.enterprise.repository-caching-release-phase %}
 
-If you have teams and CI farms located around the world, you may experience reduced performance on your primary {% data variables.product.prodname_ghe_server %} instance. While active geo-replicas can improve the performance of read requests, this comes at the cost of limiting write throughput. To reduce load on your primary instance and improve write throughput performance, you can configure a repository cache, an asynchronous read-only mirror of repositories located near these geographically-distributed clients. 
+Wenn du über Teams und CI-Farmen auf der ganzen Welt verfügst, kann die Leistung deiner primären {% data variables.product.prodname_ghe_server %}-Instanz beeinträchtigt sein. Aktive Georeplikate können zwar die Leistung von Leseanfragen verbessern, doch geht dies zu Lasten des Schreibdurchsatzes. Um die Auslastung deiner primären Instanz zu verringern und die Leistung des Schreibdurchsatzes zu verbessern, kannst du einen Repositorycache konfigurieren, eine asynchrone schreibgeschützte Spiegelung von Repositorys, die sich in der Nähe dieser geografisch verteilten Clients befinden. 
 
-A repository cache eliminates the need for {% data variables.product.product_name %} to transmit the same Git data over a long-haul network link multiple times to serve multiple clients, by serving your repository data close to CI farms and distributed teams. For instance, if your primary instance is in North America and you also have a large presence in Asia, you will benefit from setting up the repository cache in Asia for use by CI runners there.
+Indem deine Repositorydaten in der Nähe von CI-Farmen und verteilten Teams bereitgestellt werden, macht ein Repositorycache es überflüssig, dass {% data variables.product.product_name %} dieselben Git-Daten mehrfach über eine lange Netzwerkverbindung übertragen muss, um mehrere Clients zu bedienen. Wenn beispielsweise deine primäre Instanz in Nordamerika ist und deine Präsenz in Asien auch groß ist, profitierst du davon, den Repositorycache in Asien einzurichten, damit er dort von CI-Runnern genutzt werden kann.
 
-The repository cache listens to the primary instance, whether that's a single instance or a geo-replicated set of instances, for changes to Git data. CI farms and other read-heavy consumers clone and fetch from the repository cache instead of the primary instance. Changes are propagated across the network, at periodic intervals, once per cache instance rather than once per client. Git data will typically be visible on the repository cache within several minutes after the data is pushed to the primary instance.  {% ifversion ghes > 3.3 %}The [`cache_sync` webhook](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#cache_sync) can be used by CI systems to react to data being available in the cache.{% endif %}
+Der Repositorycache lauscht auf die primäre Instanz, unabhängig davon, ob es sich um eine einzelne Instanz oder einen georeplizierten Satz von Instanzen handelt, um Änderungen an Git-Daten vorzunehmen. CI-Farmen und andere leseintensive Verbraucher klonen aus dem Repositorycache und rufen daraus ab, anstatt aus der primären Instanz. Änderungen werden in regelmäßigen Abständen einmal pro Cacheinstanz und nicht einmal pro Client verteilt. Git-Daten werden in der Regel innerhalb von mehreren Minuten nach dem Pushen der Daten an die primäre Instanz im Repositorycache angezeigt.  {% ifversion ghes > 3.3 %} Der [`cache_sync`-Webhook](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#cache_sync) kann von CI-Systemen verwendet werden, um auf Daten zu reagieren, die im Cache verfügbar sind.{% endif %}
 
-You have fine-grained control over which repositories are allowed to sync to the repository cache. Git data will only be replicated to the locations you specify.
+Du hast präzise Kontrolle darüber, welche Repositorys mit dem Repositorycache synchronisiert werden dürfen. Git-Daten werden nur an den von dir angegebenen Speicherorten repliziert.
 
-{% data reusables.enterprise.repository-caching-config-summary %} For more information, see "[Configuring a repository cache](/admin/enterprise-management/caching-repositories/configuring-a-repository-cache)."
+{% data reusables.enterprise.repository-caching-config-summary %} Weitere Informationen findest du unter [Konfigurieren eines Repositorycaches](/admin/enterprise-management/caching-repositories/configuring-a-repository-cache).

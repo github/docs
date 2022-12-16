@@ -1,6 +1,6 @@
 ---
-title: Automatically generated release notes
-intro: You can automatically generate release notes for your GitHub releases
+title: Notas de lanzamiento generadas automáticamente
+intro: Puedes generar notas de lanzamiento automáticamente para tus lanzamientos de GitHub
 permissions: Repository collaborators and people with write access to a repository can generate and customize automated release notes for a release.
 versions:
   fpt: '*'
@@ -13,71 +13,63 @@ shortTitle: Automated release notes
 communityRedirect:
   name: Provide GitHub Feedback
   href: 'https://github.com/orgs/community/discussions/categories/general'
+ms.openlocfilehash: aee951e6f57492240b5baf8870578409945aefdc
+ms.sourcegitcommit: 1a77ceb9e20c002173dda983db9405bcd5be254a
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 11/29/2022
+ms.locfileid: '148185198'
 ---
+## Acerca de las notas de lanzamiento generadas automáticamente
 
-## About automatically generated release notes
+Las notas de lanzamiento generadas automáticamente proporcionan una alternativa de automatización para escribir notas de lanzamiento manualmente para tus lanzamientos de {% data variables.product.prodname_dotcom %}. Con las notas de lanzamiento generadas automáticamente, puedes generar rápidamente un resumen del contenido de un lanzamiento. Las notas de la versión generadas automáticamente incluyen una lista de solicitudes de incorporación de cambios combinadas, una lista de colaboradores para la versión y un vínculo a un registro de cambios completo.
 
-Automatically generated release notes provide an automated alternative to manually writing release notes for your {% data variables.product.prodname_dotcom %} releases. With automatically generated release notes, you can quickly generate an overview of the contents of a release. Automatically generated release notes include a list of merged pull requests, a list of contributors to the release, and a link to a full changelog.
+También puedes personalizar tus notas de lanzamiento automatizadas, utilizando etiquetas para crear categorías personalizadas para organizar las solicitudes de cambio que quieras incluir y excluyendo ciertas etiquetas y usuarios para que no aparezcan en la salida.
 
-You can also customize your automated release notes, using labels to create custom categories to organize pull requests you want to include, and exclude certain labels and users from appearing in the output.
+## Crear notas de lanzamiento generadas automáticamente para un lanzamiento nuevo
 
-## Creating automatically generated release notes for a new release
-
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.releases %}
-3. Click **Draft a new release**.
-   ![Releases draft button](/assets/images/help/releases/draft_release_button.png)
-4. {% ifversion fpt or ghec %}Click **Choose a tag** and type{% else %}Type{% endif %} a version number for your release. Alternatively, select an existing tag.
-  {% ifversion fpt or ghec %}
-  ![Enter a tag](/assets/images/help/releases/releases-tag-create.png)
-5. If you are creating a new tag, click **Create new tag**.
-![Confirm you want to create a new tag](/assets/images/help/releases/releases-tag-create-confirm.png)
-  {% else %}
-  ![Releases tagged version](/assets/images/enterprise/releases/releases-tag-version.png)
-{% endif %}
-6. If you have created a new tag, use the drop-down menu to select the branch that contains the project you want to release.
-  {% ifversion fpt or ghec %}![Choose a branch](/assets/images/help/releases/releases-choose-branch.png)
-  {% else %}![Releases tagged branch](/assets/images/enterprise/releases/releases-tag-branch.png)
-  {% endif %}
-{%- data reusables.releases.previous-release-tag %}
-7. To the top right of the description text box, click {% ifversion previous-release-tag %}**Generate release notes**{% else %}**Auto-generate release notes**{% endif %}.{% ifversion previous-release-tag %}
-  ![Generate release notes](/assets/images/help/releases/generate-release-notes.png){% else %}
-  ![Auto-generate release notes](/assets/images/enterprise/3.5/releases/auto-generate-release-notes.png){% endif %}
-8. Check the generated notes to ensure they include all (and only) the information you want to include.
-9. Optionally, to include binary files such as compiled programs in your release, drag and drop or manually select files in the binaries box.
-   ![Providing a DMG with the Release](/assets/images/help/releases/releases_adding_binary.gif)
-10. To notify users that the release is not ready for production and may be unstable, select **This is a pre-release**.
-   ![Checkbox to mark a release as prerelease](/assets/images/help/releases/prerelease_checkbox.png)
-{%- ifversion fpt or ghec %}
-11. Optionally, select **Create a discussion for this release**, then select the **Category** drop-down menu and click a category for the release discussion.
-  ![Checkbox to create a release discussion and drop-down menu to choose a category](/assets/images/help/releases/create-release-discussion.png)
-{%- endif %}
-12. If you're ready to publicize your release, click **Publish release**. To work on the release later, click **Save draft**.
-   ![Publish release and Draft release buttons](/assets/images/help/releases/release_buttons.png)
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.releases %}
+3. Haga clic en **Draft a new release** (Borrador de una nueva versión).
+   ![Botón de borrador de versiones](/assets/images/help/releases/draft_release_button.png)
+4. {% ifversion fpt or ghec %}Haga clic en **Choose a tag** (Elegir una etiqueta) y escriba {% else %}Escriba{% endif %} un número para la versión. Como alternativa, selecciona una etiqueta existente.
+  {% ifversion fpt or ghec %} ![Escriba una etiqueta](/assets/images/help/releases/releases-tag-create.png)
+5. Si va a crear una etiqueta, haga clic en **Create new tag** (Crear etiqueta).
+![Confirme que quiere crear una etiqueta](/assets/images/help/releases/releases-tag-create-confirm.png) {% else %} ![Versiones etiquetadas de la versión](/assets/images/enterprise/releases/releases-tag-version.png) {% endif %}
+6. Si creaste una etiqueta nueva, utiliza el menú desplegable para seleccionar la rama que contiene el proyecto que quieres lanzar.
+  {% ifversion fpt or ghec %}![Elegir una rama](/assets/images/help/releases/releases-choose-branch.png) {% else %}![Rama con etiqueta de versiones](/assets/images/enterprise/releases/releases-tag-branch.png) {% endif %} {%- data reusables.releases.previous-release-tag %}
+7. En la parte superior derecha del cuadro de texto de descripción, haz clic en {% ifversion previous-release-tag %}**Generar notas de la versión**{% else %}**Generar automáticamente notas de la versión**{% endif %}. {% ifversion previous-release-tag %} ![Generar notas de la versión](/assets/images/help/releases/generate-release-notes.png){% else %} ![Generar automáticamente notas de la versión](/assets/images/enterprise/3.5/releases/auto-generate-release-notes.png){% endif %}
+8. Verifica las notas generadas para garantizar que incluyan toda (y únicamente) la información que quieras incluir.
+9. Opcionalmente, para incluir los archivos binarios tales como programas compilados en tu lanzamiento, arrastra y suelta o selecciona manualmente los archivos en la caja de binarios.
+   ![Inclusión de un DMG con la versión](/assets/images/help/releases/releases_adding_binary.gif)
+10. Para notificar a los usuarios que la versión no está lista para producción y puede ser inestable, seleccione **Es una versión preliminar**.
+   ![Casilla para marcar una versión como versión preliminar](/assets/images/help/releases/prerelease_checkbox.png) {%- ifversion fpt or ghec %}
+11. Opcionalmente, seleccione **Create a discussion for this release** (Crear un debate para esta versión), después, seleccione el menú desplegable **Category** (Categoría) y haga clic en una categoría para el debate de la versión.
+  ![Casilla para crear un debate de versión y menú desplegable para elegir una categoría](/assets/images/help/releases/create-release-discussion.png) {%- endif %}
+12. Si está listo para publicar la versión, haga clic en **Publish release** (Publicar versión). Para trabajar después en la versión, haga clic en **Save draft** (Guardar borrador).
+   ![Botones para publicar la versión y guardar un borrador](/assets/images/help/releases/release_buttons.png)
 
 
-## Configuring automatically generated release notes
+## Configurar las notas de lanzamiento generadas automáticamente
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.files.add-file %}
-3. In the file name field, type `.github/release.yml` to create the `release.yml` file in the `.github` directory.
-  ![Create new file](/assets/images/help/releases/release-yml.png)
-4. In the file, using the configuration options below, specify in YAML the pull request labels and authors you want to exclude from this release. You can also create new categories and list the pull request labels to be included in each of them.
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.files.add-file %}
+3. En el campo nombre de archivo, escriba `.github/release.yml` para crear el archivo `release.yml` en el directorio `.github`.
+  ![Crear un nuevo archivo](/assets/images/help/releases/release-yml.png)
+4. En el archivo, el utilizar las opciones de configuración siguientes, especificarán en YAML las etiquetas de solicitudes de cambio y los autores que quieras excluir de este lanzamiento. También puedes crear categorías nuevas y listar las etiquetas de la solicitud de cambios que se deben incluir en cada una de ellas.
 
-### Configuration options
+### Opciones de configuración
 
-| Parameter | Description |
+| Parámetro | Descripción |
 | :- | :- |
-| `changelog.exclude.labels` | A list of labels that exclude a pull request from appearing in release notes. |
-| `changelog.exclude.authors` | A list of user or bot login handles whose pull requests are to be excluded from release notes. |
-| `changelog.categories[*].title` | **Required.** The title of a category of changes in release notes. |
-| `changelog.categories[*].labels`| **Required.** Labels that qualify a pull request for this category. Use `*` as a catch-all for pull requests that didn't match any of the previous categories. |
-| `changelog.categories[*].exclude.labels` | A list of labels that exclude a pull request from appearing in this category. |
-| `changelog.categories[*].exclude.authors` | A list of user or bot login handles whose pull requests are to be excluded from this category. |
+| `changelog.exclude.labels` | Una lista de etiquetas que excluyen una solicitud de cambios para que no aparezca en las notas de lanzamiento. |
+| `changelog.exclude.authors` | Una lista de manejos de inicio de sesión de usuarios o bots cuyas solicitudes de cambio deben excluirse de las notas de lanzamiento. |
+| `changelog.categories[*].title` | **Obligatorio.** El título de una categoría de cambios en las notas de la versión. |
+| `changelog.categories[*].labels`| **Obligatorio.** Las etiquetas que califican una solicitud de incorporación de cambios para esta categoría. Use `*` como comodín para las solicitudes de incorporación de cambios que no encajen en ninguna de las categorías anteriores. |
+| `changelog.categories[*].exclude.labels` | Una lista de etiquetas que excluye una solicitud de cambio para que no aparezca en esta categoría. |
+| `changelog.categories[*].exclude.authors` | Una lista de manejos de inicio de sesión de usuarios o bots cuyas solicitudes de cambio deben excluirse de esta categoría. |
 
-### Example configurations
+### Configuraciones de ejemplo
 
-A configuration for a repository that labels semver releases
+Configuración de un repositorio que etiqueta las versiones de semver
 
 {% raw %}
 ```yaml{:copy}
@@ -104,7 +96,7 @@ changelog:
 ```
 {% endraw %}
 
-A configuration for a repository that doesn't tag pull requests but where we want to separate out {% data variables.product.prodname_dependabot %} automated pull requests in release notes (`labels: '*'` is required to display a catchall category)
+Configuración de un repositorio que no etiqueta las solicitudes de incorporación de cambios, pero donde queremos separar solicitudes de incorporación de cambios automatizadas de {% data variables.product.prodname_dependabot %} en las notas la versión (`labels: '*'` es necesario para mostrar una categoría catchall)
 
 {% raw %}
 ```yaml{:copy}
@@ -124,6 +116,6 @@ changelog:
 ```
 {% endraw %}
 
-## Further reading
+## Información adicional
 
-- "[Managing labels](/issues/using-labels-and-milestones-to-track-work/managing-labels)" 
+- "[Administración de etiquetas](/issues/using-labels-and-milestones-to-track-work/managing-labels)" 

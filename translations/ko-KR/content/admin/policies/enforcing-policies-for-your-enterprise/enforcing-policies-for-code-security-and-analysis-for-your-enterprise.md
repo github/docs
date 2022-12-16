@@ -1,6 +1,6 @@
 ---
-title: Enforcing policies for code security and analysis for your enterprise
-intro: 'You can enforce policies to manage the use of {% ifversion security-feature-enablement-policies %}code security and analysis{% else %}{% data variables.product.prodname_GH_advanced_security %}{% endif %} features within your enterprise''s organizations.'
+title: 엔터프라이즈에 대한 코드 보안 및 분석을 위한 정책 적용
+intro: '정책을 적용하여 엔터프라이즈 조직 내에서 {% ifversion security-feature-enablement-policies %}코드 보안 및 분석{% else %}{% 데이터 variables.product.prodname_GH_advanced_security %}{% endif %} 기능의 사용을 관리할 수 있습니다.'
 permissions: 'Enterprise owners can enforce {% ifversion security-feature-enablement-policies %}code security and analysis{% endif %} policies for {% data variables.product.prodname_GH_advanced_security %} in an enterprise.'
 product: '{% data reusables.gated-features.ghas %}'
 versions:
@@ -21,69 +21,65 @@ redirect_from:
   - /github/setting-up-and-managing-your-enterprise/setting-policies-for-organizations-in-your-enterprise-account/enforcing-policies-for-advanced-security-in-your-enterprise-account
   - /admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-advanced-security-in-your-enterprise
 shortTitle: Code security & analysis
+ms.openlocfilehash: 25c580911b69decabe94fd7f376e17bcea949b35
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148093779'
 ---
 {% ifversion security-feature-enablement-policies %}
-## About policies for code security and analysis in your enterprise
+## 엔터프라이즈의 코드 보안 및 분석에 대한 정책 정보
 
-You can enforce policies to manage the use of code security and analysis features within organizations owned by your enterprise. You can allow or disallow people with admin access to a repository to enable or disable the security and analysis features.
+정책을 적용하여 엔터프라이즈가 소유한 조직 내에서 코드 보안 및 분석 기능의 사용을 관리할 수 있습니다. 관리자가 리포지토리에 액세스할 수 있도록 허용하거나 허용하지 않으면 보안 및 분석 기능을 사용하거나 사용하지 않도록 설정할 수 있습니다.
 {% else %}
-## About policies for {% data variables.product.prodname_GH_advanced_security %} in your enterprise
+## 엔터프라이즈의 {% data variables.product.prodname_GH_advanced_security %}에 대한 정책 정보
 {% endif %}
 
-{% data reusables.advanced-security.ghas-helps-developers %} For more information, see "[About {% data variables.product.prodname_GH_advanced_security %}](/get-started/learning-about-github/about-github-advanced-security)."
+{% data reusables.advanced-security.ghas-helps-developers %} 자세한 내용은 “[{% data variables.product.prodname_GH_advanced_security %} 정보](/get-started/learning-about-github/about-github-advanced-security)”를 참조하세요.
 
-{% ifversion ghes or ghec %}If you purchase a license for {% data variables.product.prodname_GH_advanced_security %}, any{% else %}Any{% endif %} organization{% ifversion ghec %} owned by your enterprise{% endif %} on {% data variables.location.product_location %} can use {% data variables.product.prodname_advanced_security %} features. You can enforce policies to control how members of your enterprise on {% data variables.product.product_name %} use {% data variables.product.prodname_advanced_security %}.
+{% ifversion ghes 또는 ghec %} {% 데이터 variables.product.prodname_GH_advanced_security %}에 대한 라이선스를 구매한 경우 {% 데이터 variables.location.product_location %}에서 엔터프라이즈{% endif %}가 소유한 {% else %}임의{% endif %} 조직{% ifversion ghec %}에서 {% 데이터 variables.product.prodname_advanced_security %} 기능을 사용할 수 있습니다. 정책을 적용하여 {% data variables.product.product_name %}의 엔터프라이즈 멤버가 {% data variables.product.prodname_advanced_security %}를 사용하는 방법을 제어할 수 있습니다.
 
 {% ifversion security-feature-enablement-policies %}
-## Enforcing a policy to manage the use of {% data variables.product.prodname_dependabot_alerts %} in your enterprise
+## 엔터프라이즈에서 {% 데이터 variables.product.prodname_dependabot_alerts %}의 사용을 관리하는 정책 적용
 
-Across all organizations owned by your enterprise, you can allow members with admin permissions for repositories to enable or disable {% data variables.product.prodname_dependabot_alerts %} and change {% data variables.product.prodname_dependabot_alerts %} settings.
+엔터프라이즈가 소유한 모든 조직에서 리포지토리에 대한 관리자 권한이 있는 구성원이 {% 데이터 variables.product.prodname_dependabot_alerts %}을(를) 사용하거나 사용하지 않도록 설정하고 {% 데이터 variables.product.prodname_dependabot_alerts %} 설정을 변경할 수 있습니다.
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.policies-tab %}
-{% data reusables.enterprise-accounts.code-security-and-analysis-policies %}
-1. Under "Change {% data variables.product.prodname_dependabot_alerts %} settings", use the dropdown menu and choose a policy.
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.policies-tab %} {% data reusables.enterprise-accounts.code-security-and-analysis-policies %}
+1. "{% 데이터 variables.product.prodname_dependabot_alerts %} 설정 변경"에서 드롭다운 메뉴를 사용하고 정책을 선택합니다.
 
-   ![Screenshot of "Change Dependabot alert settings" dropdown](/assets/images/help/enterprises/change-dependabot-alerts-settings.png)
+   !["Dependabot 경고 설정 변경" 드롭다운 스크린샷](/assets/images/help/enterprises/change-dependabot-alerts-settings.png)
 
 {% endif %}
 
-## Enforcing a policy for the use of {% data variables.product.prodname_GH_advanced_security %} in your enterprise's organizations
+## 엔터프라이즈 조직에서 {% 데이터 variables.product.prodname_GH_advanced_security %}을(를) 사용하기 위한 정책 적용
 
 {% data reusables.advanced-security.about-ghas-organization-policy %}
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.policies-tab %}{% ifversion security-feature-enablement-policies %}
-{% data reusables.enterprise-accounts.code-security-and-analysis-policies %}{% else %}
-{% data reusables.enterprise-accounts.advanced-security-policies %}{% endif %}{% ifversion security-feature-enablement-policies %}
-1. In the "{% data variables.product.prodname_GH_advanced_security %} policies section, under "Availability", select the dropdown menu and click a policy for the organizations owned by your enterprise.
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.policies-tab %} {% ifversion security-feature-enablement-policies %} {% data reusables.enterprise-accounts.code-security-and-analysis-policies %} {% else %} {% data reusables.enterprise-accounts.advanced-security-policies %} {% endif %} {% ifversion security-feature-enablement-policies %}
+1. "{% 데이터 variables.product.prodname_GH_advanced_security %} 정책 섹션의 "가용성"에서 드롭다운 메뉴를 선택하고 엔터프라이즈가 소유한 조직의 정책을 클릭합니다.
 
-   ![Screenshot of "Availability" dropdown](/assets/images/help/enterprises/advanced-security-policies-availability.png){% else %}
+   !["가용성" 드롭다운 스크린샷](/assets/images/help/enterprises/advanced-security-policies-availability.png){% else %}
 
-{% data reusables.enterprise-accounts.advanced-security-organization-policy-drop-down %}{% endif %}
-{% data reusables.enterprise-accounts.advanced-security-individual-organization-policy-drop-down %}
+{% data reusables.enterprise-accounts.advanced-security-organization-policy-drop-down %} {% endif %} {% data reusables.enterprise-accounts.advanced-security-individual-organization-policy-drop-down %}
 
 {% ifversion security-feature-enablement-policies %}
-## Enforcing a policy to manage the use of {% data variables.product.prodname_GH_advanced_security %} features in your enterprise's repositories
+## 엔터프라이즈 리포지토리에서 {% 데이터 variables.product.prodname_GH_advanced_security %} 기능의 사용을 관리하는 정책 적용
 
-Across all of your enterprise's organizations, you can allow or disallow people with admin access to repositories to manage the use of {% data variables.product.prodname_GH_advanced_security %} features in the repositories. {% data reusables.advanced-security.ghas-must-be-enabled %}
+모든 엔터프라이즈 조직에서 리포지토리에 대한 관리자 액세스 권한이 있는 사용자가 리포지토리에서 {% 데이터 variables.product.prodname_GH_advanced_security %} 기능의 사용을 관리하도록 허용하거나 허용하지 않을 수 있습니다. {% data reusables.advanced-security.ghas-must-be-enabled %}
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.policies-tab %}
-{% data reusables.enterprise-accounts.code-security-and-analysis-policies %}
-1. In the "{% data variables.product.prodname_GH_advanced_security %} policies section, under "Enable or disable {% data variables.product.prodname_GH_advanced_security %}", use the dropdown menu and choose a policy.
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.policies-tab %} {% data reusables.enterprise-accounts.code-security-and-analysis-policies %}
+1. "{% 데이터 variables.product.prodname_GH_advanced_security %} 정책 섹션의 "{% 데이터 variables.product.prodname_GH_advanced_security %}을(를) 사용하거나 사용하지 않도록 설정"에서 드롭다운 메뉴를 사용하고 정책을 선택합니다.
 
-   ![Screenshot of the "Enable or disable {% data variables.product.prodname_GH_advanced_security %}" dropdown](/assets/images/help/enterprises/advanced-security-policies-enable-or-disable.png)
+   !["{% 데이터 variables.product.prodname_GH_advanced_security %}을(를) 사용하거나 사용하지 않도록 설정" 드롭다운 스크린샷](/assets/images/help/enterprises/advanced-security-policies-enable-or-disable.png)
 
-## Enforcing a policy to manage the use of {% data variables.product.prodname_secret_scanning %} in your enterprise's repositories
+## 엔터프라이즈 리포지토리에서 {% 데이터 variables.product.prodname_secret_scanning %}의 사용을 관리하는 정책 적용
 
-Across all of your enterprise's organizations, you can allow or disallow people with admin access to repositories to manage and configure {% data variables.product.prodname_secret_scanning %} for the repositories. {% data reusables.advanced-security.ghas-must-be-enabled %}
+모든 엔터프라이즈 조직에서 리포지토리에 대한 관리자 액세스 권한이 있는 사용자가 리포지토리에 대한 {% 데이터 variables.product.prodname_secret_scanning %}을(를) 관리하고 구성할 수 있도록 허용하거나 허용하지 않을 수 있습니다. {% data reusables.advanced-security.ghas-must-be-enabled %}
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.policies-tab %}
-{% data reusables.enterprise-accounts.code-security-and-analysis-policies %}
-1. In the "{% data variables.product.prodname_GH_advanced_security %} policies section, under "Change {% data variables.product.prodname_secret_scanning %} settings", use the dropdown menu and choose a policy.
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.policies-tab %} {% data reusables.enterprise-accounts.code-security-and-analysis-policies %}
+1. "{% 데이터 variables.product.prodname_GH_advanced_security %} 정책 섹션의 "{% 데이터 variables.product.prodname_secret_scanning %} 설정 변경"에서 드롭다운 메뉴를 사용하고 정책을 선택합니다.
 
-   ![Screenshot of the "Change {% data variables.product.prodname_secret_scanning %} settings" dropdown](/assets/images/help/enterprises/advanced-security-policies-secret-scanning.png)
+   !["{% 데이터 variables.product.prodname_secret_scanning %} 설정 변경" 드롭다운 스크린샷](/assets/images/help/enterprises/advanced-security-policies-secret-scanning.png)
 
 {% endif %}

@@ -1,0 +1,28 @@
+date: '07/12/2021'
+sections:
+  security_fixes:
+    - Les packs de support pouvaient inclure des fichiers sensibles s’ils répondaient à un ensemble de conditions spécifiques. 
+    - "Une vulnérabilité liée à une mauvaise représentation de l’interface utilisateur a été identifiée dans GitHub Enterprise Server. Elle permettait d’accorder plus d’autorisations pendant le flux web d’autorisation de l’utilisateur d’une application GitHub que ce qui était affiché à l’utilisateur pendant l’approbation. Cette vulnérabilité affectait toutes les versions de GitHub Enterprise Server antérieures à 3.3 et a été corrigée dans les versions 3.2.5, 3.1.13 et 3.0.21. Cette vulnérabilité a été signalée via le programme GitHub Bug Bounty et a été affectée au numéro [CVE-2021-41598](https://www.cve.org/CVERecord?id=CVE-2021-41598)."
+    - "Une vulnérabilité d’exécution de code à distance a été identifiée dans GitHub Enterprise Server ; elle pouvait être exploitée lors de la génération d’un site GitHub Pages. Cette vulnérabilité affectait toutes les versions de GitHub Enterprise Server antérieures à 3.3 et a été corrigée dans les versions 3.0.21, 3.1.13 et 3.2.5. Cette vulnérabilité a été signalée via le programme GitHub Bug Bounty et a été affectée au numéro [CVE-2021-41599](https://www.cve.org/CVERecord?id=CVE-2021-41599). Mise à jour : 17 février 2022"
+  bugs:
+    - "Dans certains cas, lorsqu’Actions n’était pas activé, `ghe-support-bundle` signalait un message inattendu `Unable to find MS SQL container.``" 
+    - L’exécution de `ghe-config-apply` pouvait parfois échouer à cause de problèmes d’autorisation dans `/data/user/tmp/pages`. 
+    - Une mauvaise configuration de la console de gestion provoquait des erreurs de programmation. 
+    - Docker maintenait les fichiers journaux ouverts après une rotation des journaux. 
+    - Les migrations pouvaient se bloquer en raison d’une gestion incorrecte des valeurs `blob_path` qui ne sont pas compatibles avec l’UTF-8. 
+    - Les requêtes GraphQL ne définissaient pas la variable GITHUB_USER_IP dans les environnements de hook de pré-réception. 
+    - Les liens de pagination sur les journaux d’audit de l’organisation ne conservaient pas les paramètres de requête. 
+    - "Lors d’un correctif à chaud, il était possible de dupliquer les hachages si une transition s’exécutait plus d’une fois." 
+  changes:
+    - Clarifie l’explication du style de chemin Actions dans la documentation. 
+    - "Mise à jour des URL de contact du support pour utiliser le site de support actuel, support.github.com." 
+    - Dépannage supplémentaire fourni lors de l’exécution de `ghe-mssql-diagnostic`.
+  known_issues:
+    - "Sur un {% data variables.product.prodname_ghe_server %} fraîchement configuré sans aucun utilisateur, un attaquant pourrait créer le premier utilisateur administrateur."
+    - Les règles de pare-feu personnalisées sont supprimées pendant le processus de mise à niveau.
+    - "Les fichiers suivis par Git LFS [chargés via l’interface web](https://github.com/blog/2105-upload-files-to-your-repositories) sont incorrectement ajoutés directement au référentiel."
+    - "Les questions ne peuvent pas être fermées si elles contiennent un permalien vers un blob dans le même référentiel, où le chemin de fichier du blob est supérieur à 255 caractères."
+    - "Lorsque l’option « Les utilisateurs peuvent effectuer des recherches sur GitHub.com » est activée avec GitHub Connect, les problèmes dans les référentiels privés et internes ne sont pas inclus dans les résultats de recherche de GitHub.com."
+    - "Le registre npm {% data variables.product.prodname_registry %} ne renvoie plus une valeur de temps dans les réponses de métadonnées. Cela a été fait pour permettre des améliorations substantielles des performances. Nous disposons toujours de toutes les données nécessaires pour renvoyer une valeur de temps dans le cadre de la réponse aux métadonnées et nous recommencerons à renvoyer cette valeur à l’avenir, une fois que nous aurons résolu les problèmes de performance existants."
+    - Les limites de ressources spécifiques au traitement des hooks de pré-réception peuvent entraîner l’échec de certains hooks de pré-réception.
+    - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'

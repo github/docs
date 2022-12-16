@@ -1,6 +1,6 @@
 ---
-title: Preventing unauthorized access
-intro: 'You may be alerted to a security incident in the media, such as the discovery of the [Heartbleed bug](http://heartbleed.com/), or your computer could be stolen while you''re signed in to {% data variables.location.product_location %}. In such cases, changing your password prevents any unintended future access to your account and projects.'
+title: 許可されていないアクセスを防止する
+intro: '[Heartbleed Bug](http://heartbleed.com/) での検出など、セキュリティ インシデントについては、メディアで警告を見たことがあるかもしれません。そうでなければ、{% data variables.product.product_location %} にサインインしている間にコンピューターから情報を盗まれている可能性があります。 そのような場合でも、パスワードを変更すれば、アカウントやプロジェクトにこれ以上不正にアクセスされるのを防ぐことができます。'
 redirect_from:
   - /articles/preventing-unauthorized-access
   - /github/authenticating-to-github/preventing-unauthorized-access
@@ -13,18 +13,24 @@ topics:
   - Identity
   - Access management
 shortTitle: Unauthorized access
+ms.openlocfilehash: 2b7a29ad3df05ef758c82330f24fe7568e137130
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145088439'
 ---
-{% data variables.product.product_name %} requires a password to perform sensitive actions, such as adding new SSH keys, authorizing applications, or modifying team members.
+{% data variables.product.product_name %} では、新しい SSH キーを追加する、アプリケーションを認証する、Team メンバーを変更するといった重要なアクションを実行するとき、パスワードが要求されます。
 
-After changing your password, you should perform these actions to make sure that your account is secure:
+アカウントのセキュリティを保つために、パスワードを変更してから次のアクションを実行するようにしてください:
 
-- [Enable two-factor authentication](/articles/about-two-factor-authentication) on your account so that access requires more than just a password.
-- [Review your SSH keys](/articles/reviewing-your-ssh-keys), [deploy keys](/articles/reviewing-your-deploy-keys), and [authorized integrations](/articles/reviewing-your-authorized-integrations) and revoke unauthorized or unfamiliar access in your SSH and Applications settings.
+- ご自分のアカウントで [2 要素認証を有効](/articles/about-two-factor-authentication)にして、アクセスにパスワード以外のものも必要になるようにします。
+- [SSH キー](/articles/reviewing-your-ssh-keys)、[デプロイ キー](/articles/reviewing-your-deploy-keys)、[許可された統合](/articles/reviewing-your-authorized-integrations)をレビューして、SSH とアプリケーションの設定で許可されていないまたは見慣れないアクセスを取り消します。
 {% ifversion fpt or ghec %}
-- [Verify all your email addresses](/articles/verifying-your-email-address). If an attacker added their email address to your account, it could allow them to force an unintended password reset.
+- [すべてのメール アドレスを確認します](/articles/verifying-your-email-address)。 攻撃者があなたのアカウントにメールアドレスを追加していた場合、予想外のパスワードリセットの実行を許してしまう可能性があります。
 {% endif %}
-- [Review your account's security log](/github/authenticating-to-github/reviewing-your-security-log). This provides an overview on various configurations made to your repositories. For example, you can ensure that no private repositories were turned public, or that no repositories were transferred.
-- [Review the webhooks](/articles/creating-webhooks) on your repositories. Webhooks could allow an attacker to intercept pushes made to your repository.
-- [Make sure that no new deploy keys](/guides/managing-deploy-keys/#deploy-keys) were created. This could enable outside servers access to your projects.
-- Review recent commits made to your repositories.
-- Review the list of collaborators for each repository.
+- [アカウントのセキュリティ ログをレビューします](/github/authenticating-to-github/reviewing-your-security-log)。 これで、リポジトリに対する各種の設定について概要がわかります。 たとえば、プライベートリポジトリがパブリックに変更されていないか、リポジトリが移譲されていないかを確認できます。
+- リポジトリの [Webhook をレビュー](/articles/creating-webhooks)します。 webhook では、攻撃者がリポジトリへのプッシュを傍受する可能性があります。
+- [新しいデプロイ キーが作成されていないことを確認します](/guides/managing-deploy-keys/#deploy-keys)。 デプロイキーがあると、外部サーバーがあなたのプロジェクトにアクセスできる恐れがあります。
+- リポジトリに対する最近のコミットをレビューします。
+- リポジトリごとにコラボレーターのリストをレビューします。

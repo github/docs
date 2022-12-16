@@ -1,6 +1,6 @@
 ---
-title: Security in GitHub Codespaces
-intro: 'Overview of the {% data variables.product.prodname_github_codespaces %} security architecture, with guidelines to help you maintain security and minimize the risk of attack.'
+title: GitHub Codespaces의 보안
+intro: '보안을 유지하고 공격 위험을 최소화하는 데 도움이 되는 지침이 포함된 {% data variables.product.prodname_github_codespaces %} 보안 아키텍처의 개요입니다.'
 miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
@@ -12,107 +12,112 @@ type: reference
 shortTitle: Security in Codespaces
 redirect_from:
   - /codespaces/codespaces-reference/security-in-codespaces
+ms.openlocfilehash: 0e7fe9a7644f78fc0dfa6d5bb624c5d74f3d8713
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147111692'
 ---
+## codespace 보안 개요
 
-## Overview of codespace security
+{% data variables.product.prodname_github_codespaces %}는 기본적으로 보안이 강화되도록 설계되었습니다. 따라서 소프트웨어 개발 관행이 codespace의 보안 태세를 줄이는 위험을 감수하지 않도록 해야 합니다. 
 
-{% data variables.product.prodname_github_codespaces %} is designed to be security hardened by default. Consequently, you will need to ensure that your software development practices do not risk reducing the security posture of your codespace. 
+이 가이드에서는 Codespaces가 개발 환경을 안전하게 유지하는 방법을 설명하고 작업할 때 보안을 유지하는 데 도움이 되는 몇 가지 모범 사례를 제공합니다. 모든 개발 도구와 마찬가지로, 알고 신뢰하는 리포지토리만 열어서 작업해야 합니다.
 
-This guide describes the way {% data variables.product.prodname_github_codespaces %} keeps your development environment secure and provides some of the good practices that will help maintain your security as you work. As with any development tool, remember that you should only open and work within repositories you know and trust.
+### 환경 격리
 
-### Environment isolation
+{% data variables.product.prodname_github_codespaces %}는 고유한 가상 머신과 네트워크를 사용하여 Codespace를 서로 분리하도록 설계되었습니다.
 
-{% data variables.product.prodname_github_codespaces %} is designed to keep your codespaces separate from each other, with each using its own virtual machine and network.
+#### 격리된 가상 머신
 
-#### Isolated virtual machines
+각 codespace는 새로 빌드된 고유한 VM(가상 머신)에서 호스트됩니다. 두 codespace가 동일한 VM에 공동 배치되지 않습니다. 
 
-Each codespace is hosted on its own newly-built virtual machine (VM). Two codespaces are never co-located on the same VM. 
+codespace를 다시 시작할 때마다 사용 가능한 최신 보안 업데이트를 사용하여 새 VM에 배포됩니다.
 
-Every time you restart a codespace, it's deployed to a new VM with the latest available security updates.
+#### 격리된 네트워킹
 
-#### Isolated networking
+각 codespace에 격리된 고유한 가상 네트워크가 있습니다. 방화벽을 사용하여 인터넷에서 들어오는 연결을 차단하고 내부 네트워크에서 codespace가 서로 통신하지 못하도록 합니다. 기본적으로 codespace는 인터넷에 대한 아웃바운드 연결을 만들 수 있습니다.
 
-Each codespace has its own isolated virtual network. We use firewalls to block incoming connections from the internet and to prevent codespaces from communicating with each other on internal networks. By default, codespaces are allowed to make outbound connections to the internet.
+### 인증
 
-### Authentication
+웹 브라우저를 사용하거나 {% data variables.product.prodname_vscode %}에서 codespace에 연결할 수 있습니다. {% data variables.product.prodname_vscode_shortname %}에서 연결하는 경우 {% data variables.product.product_name %}으로 인증하라는 메시지가 표시됩니다. 
 
-You can connect to a codespace using a web browser or from {% data variables.product.prodname_vscode %}. If you connect from {% data variables.product.prodname_vscode_shortname %}, you are prompted to authenticate with {% data variables.product.product_name %}. 
+codespace를 만들거나 다시 시작할 때마다 자동 만료 기간이 있는 새 {% data variables.product.company_short %} 토큰이 할당됩니다. 이 기간을 사용하면 정상 작업일 동안 다시 인증할 필요 없이 codespace에서 작업할 수 있지만, codespace 사용을 중지할 때 연결을 열어 둘 수 있는 가능성이 줄어듭니다.
 
-Every time a codespace is created or restarted, it's assigned a new {% data variables.product.company_short %} token with an automatic expiry period. This period allows you to work in the codespace without needing to reauthenticate during a typical working day, but reduces the chance that you will leave a connection open when you stop using the codespace.
+토큰의 범위는 codespace가 만들어진 리포지토리에 대한 액세스 권한에 따라 달라집니다.
 
-The token's scope will vary depending on the access you have to the repository where the codespace was created:
+- **리포지토리에 대한 쓰기 권한이 있는 경우**: 토큰 범위가 리포지토리에 대한 읽기/쓰기 권한으로 지정됩니다.
+- **리포지토리에 대한 읽기 권한만 있는 경우**: 토큰이 소스 리포지토리에서 코드 복제만 허용합니다. 읽기 권한만 있는 프라이빗 리포지토리로 푸시하려고 하면 {% data variables.product.prodname_codespaces %}에서 리포지토리의 개인 포크를 만들라는 메시지가 표시됩니다. 그런 다음, 새 개인 포크에 대한 읽기/쓰기 권한이 있도록 토큰이 업데이트됩니다. 
+- **codespace가 다른 리포지토리에 액세스할 수 있도록 설정한 경우**: codespace에 [다른 리포지토리에 대한 액세스 권한](/codespaces/managing-codespaces-for-your-organization/managing-access-and-security-for-your-organizations-codespaces)이 부여된 경우 해당 리포지토리에서 만든 모든 codespace에 원본 리포지토리로 범위가 지정된 읽기/쓰기 토큰이 있습니다. 또한 토큰은 사용자 또는 조직이 지정한 다른 리포지토리에 대한 읽기 권한도 받습니다.
 
-- **If you have write access to the repository**: The token will be scoped for read/write access to the repository.
-- **If you only have read access to the repository**: The token will only allow the code to be cloned from the source repository. If you attempt to push to a private repo where you only have read access, {% data variables.product.prodname_github_codespaces %} will prompt you to create a personal fork of the repository. The token will then be updated to have read/write access to the new personal fork. 
-- **If you've enabled your codespace to access other repositories**: When a codespace has been granted [access to other repositories](/codespaces/managing-codespaces-for-your-organization/managing-access-and-security-for-your-organizations-codespaces), any codespace created from that repository will have read/write tokens scoped to the source repository. In addition, the tokens will also receive read access to other repositories indicated by the user or organization.
+조직 관리자는 신뢰할 수 있는 것으로 간주되어야 하는 리포지토리를 지정합니다. 관리자는 조직의 리포지토리 중 일부나 모두를 [신뢰](/codespaces/managing-codespaces-for-your-organization/managing-access-and-security-for-your-organizations-codespaces)하거나 하나도 신뢰하지 않도록 선택할 수 있습니다. 조직 관리자가 모든 사용자와 모든 리포지토리에 액세스 권한을 부여한 경우에도 codespace는 리소스를 만든 사용자보다 더 높은 리소스 액세스 권한을 가질 수 없습니다.
 
-An organization's administrators specify which repositories should be considered trusted. An admin can [choose to trust](/codespaces/managing-codespaces-for-your-organization/managing-access-and-security-for-your-organizations-codespaces) none, all, or some of the organization's repositories. A codespace can't have greater permissions to access resources than the person who created it, even if the organization administrator has granted access to all users and all repositories.
+### codespace 연결
 
-### Codespace connections
+{% data variables.product.prodname_github_codespaces %} 서비스에서 제공하는 TLS 암호화 터널을 사용하여 Codespace에 연결할 수 있습니다. codespace 작성자만 codespace에 연결할 수 있습니다. 연결은 {% data variables.product.product_name %}에서 인증됩니다.
 
-You can connect to your codespace using the TLS encrypted tunnel provided by the {% data variables.product.prodname_github_codespaces %} service. Only the creator of a codespace can connect to a codespace. Connections are authenticated with {% data variables.product.product_name %}.
+codespace에서 실행되는 서비스에 대한 외부 액세스를 허용해야 하는 경우 프라이빗 또는 퍼블릭 액세스에 포트 전달을 사용하도록 설정할 수 있습니다.
 
-If you need to allow external access to services running on a codespace, you can enable port forwarding for private or public access.
+### 포트 전달
 
-### Port forwarding
+codespace 내에서 실행되는 서비스(예: 개발 웹 서버)에 연결해야 하는 경우 인터넷에서 서비스를 사용할 수 있도록 포트 전달을 구성할 수 있습니다. 
 
-If you need to connect to a service (such as a development web server) running within your codespace, you can configure port forwarding to make the service available on the internet. 
+조직 소유자는 공개적으로 또는 조직 내에서 전달 포트를 사용할 수 있도록 하는 기능을 제한할 수 있습니다. 자세한 내용은 “[전달된 포트의 표시 여부 제한](/codespaces/managing-codespaces-for-your-organization/restricting-the-visibility-of-forwarded-ports)”을 참조하세요.
 
-Organization owners can restrict the ability to make forward ports available publicly or within the organization. For more information, see "[Restricting the visibility of forwarded ports](/codespaces/managing-codespaces-for-your-organization/restricting-the-visibility-of-forwarded-ports)."
+**비공개로 전달된 포트**: 인터넷에서 액세스할 수 있지만 codespace 작성자만 {% data variables.product.product_name %}에 인증한 후 액세스할 수 있습니다.
 
-**Privately forwarded ports**: Are accessible on the internet, but only the codespace creator can access them, after authenticating to {% data variables.product.product_name %}.
+**조직 내에서 공개적으로 전달된 포트**: 인터넷에서 액세스할 수 있지만 codespace와 동일한 조직의 멤버만 {% data variables.product.product_name %}에 인증한 후 액세스할 수 있습니다.
 
-**Publicly forwarded ports within your organization**: Are accessible on the internet, but only to members of the same organization as the codespace, after authenticating to {% data variables.product.product_name %}.
+**공개적으로 전달된 포트**: 인터넷에서 액세스할 수 있으며 인터넷의 모든 사용자가 액세스할 수 있습니다. 공개적으로 전달된 포트에 액세스할 때는 인증이 필요하지 않습니다.
 
-**Publicly forwarded ports**: Are accessible on the internet, and anyone on the internet can access them. No authentication is needed to access public forwarded ports.
+전달된 모든 포트는 기본적으로 프라이빗입니다. 즉, 포트에 액세스하기 전에 인증해야 합니다. codespace의 비공개로 전달된 포트에 대한 액세스는 만료 기간이 3시간인 인증 쿠키로 제어됩니다. 쿠키가 만료되면 다시 인증해야 합니다.
 
-All forwarded ports are private by default, which means that you will need to authenticate before you can access the port. Access to a codespace's private forwarded ports is controlled by authentication cookies with a 3-hour expiry period. When the cookie expires, you will need to reauthenticate.
+포트를 제거하고 다시 추가하거나 codespace를 다시 시작하면 공개적으로 전달된 포트가 자동으로 프라이빗으로 돌아갑니다.
 
-A public forwarded port will automatically revert back to private when you remove and re-add the port, or if you restart the codespace.
+“포트” 패널을 사용하여 퍼블릭 또는 프라이빗 액세스로 포트를 구성하고, 더 이상 필요하지 않은 경우 포트 전달을 중지할 수 있습니다. 자세한 내용은 “[codespace에서 포트 전달](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace)”을 참조하세요.
 
-You can use the "Ports" panel to configure a port for public or private access, and can stop port forwarding when it's no longer required. For more information, see "[Forwarding ports in your codespace](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace)."
+## codespace에 대한 보안 모범 사례
 
-## Good security practices for your codespaces
+codespace는 기본적으로 보안이 강화되도록 설계되었습니다. 이 보안 태세를 유지하려면 개발 절차 중에 적절한 보안 사례를 따르는 것이 좋습니다. 
 
-Codespaces are designed to be security hardened by default. To help maintain this posture, we recommend that you follow good security practices during your development procedures: 
+- 모든 개발 도구와 마찬가지로, 알고 신뢰하는 리포지토리만 열어서 작업해야 합니다.
+- codespace에 새 종속성을 추가하기 전에 해당 종속성이 잘 유지 관리되는지 및 업데이트를 릴리스하여 코드의 보안 취약성을 수정하는지 확인합니다.
 
-- As with any development tool, remember that you should only open and work within repositories you know and trust.
-- Before you add new dependencies to the codespace, check whether they are well-maintained, and if they release updates to fix any security vulnerabilities found in their code.
+### 비밀을 사용하여 중요한 정보 액세스 
 
-### Using secrets to access sensitive information 
+codespace에서 중요한 정보(예: 액세스 토큰)를 사용하려는 경우 항상 암호화된 비밀을 사용합니다. 터미널 등에서 codespace의 비밀에 환경 변수로 액세스할 수 있습니다. 예를 들어 codespace 내에서 터미널을 시작하고 `echo $SECRET_NAME `을 사용하여 비밀 값을 확인할 수 있습니다.
 
-Always use encrypted secrets when you want to use sensitive information (such as access tokens) in a codespace. You can access your secrets as environment variables in the codespace, including from the terminal. For example, you can launch a terminal within your codespace and use `echo $SECRET_NAME ` to see the value of a secret.
+비밀 값은 Codespace가 다시 시작되거나 생성될 때마다 환경 변수에 복사되며 변경될 때도 동기화됩니다.
 
-The secret values are copied to environment variables whenever the codespace is resumed or created and are also synced when they are changed.
+Codespace의 리포지토리에 대한 쓰기 권한이 없는 경우 비밀이 환경에 복사되지 않습니다.
 
-Secrets are not copied into the environment if you don't have write access to the codespace's repository.
+비밀에 대한 자세한 내용은 다음을 참조하세요.
+- “[codespace에 대한 암호화된 비밀 관리](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)”
+- “[{% data variables.product.prodname_github_codespaces %}에 대한 리포지토리 및 조직의 암호화된 비밀 관리](/codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-github-codespaces)”
 
-For more information on secrets, see:
-- "[Managing encrypted secrets for your codespaces](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)"
-- "[Managing encrypted secrets for your repository and organization for {% data variables.product.prodname_github_codespaces %}](/codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-github-codespaces)"
+### 다른 사람의 기여 및 리포지토리 작업
 
-### Working with other people's contributions and repositories
+포크의 PR 분기에서 codespace를 만들 때 codespace의 토큰은 리포지토리가 퍼블릭인지 프라이빗인지에 따라 달라집니다.
+- 프라이빗 리포지토리의 경우 codespace에 포크와 부모 둘 다에 대한 액세스 권한이 부여됩니다.
+- 퍼블릭 리포지토리의 경우 codespace에서 포크 및 부모에 열려 있는 PR에만 액세스할 수 있습니다.
 
-When you create a codespace from a PR branch from a fork, the token in the codespace will vary depending on whether the repository is public or private:
-- For a private repository, the codespace is granted access to both the fork and parent.
-- For a public repository, the codespace will only have access to the fork and opening PRs on the parent.
+또한 환경에 [Codespace 비밀을](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces) 삽입하지 않음으로써 이러한 시나리오에서 추가로 보호합니다.
 
-We also further protect you in these scenarios by not injecting any of your [codespace secrets](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces) into the environment.
+### 추가 모범 사례
 
-### Additional good practices
+{% data variables.product.prodname_codespaces %}를 사용할 때 알아야 할 몇 가지 추가 모범 사례와 위험이 있습니다. 
 
-There are some additional good practices and risks that you should be aware of when using {% data variables.product.prodname_github_codespaces %}. 
+#### 리포지토리의 devcontainer.json 파일 이해
 
-#### Understanding a repository's devcontainer.json file
+Codespace를 만들 때 리포지토리에 대한 `devcontainer.json` 파일이 발견되면, 이 파일은 구문이 분석되며 codespace를 구성하는 데 사용됩니다. `devcontainer.json` 파일은 타사 확장 설치 및 `postCreateCommand`에 공급된 임의 코드 실행 같은 강력한 기능을 포함할 수 있습니다.
 
-When you create a codespace, if a `devcontainer.json` file is found for your repository, it is parsed and used to configure your codespace. The `devcontainer.json` file can contain powerful features, such as installing third-party extensions and running arbitrary code supplied in a `postCreateCommand`.
+자세한 내용은 “[개발 컨테이너 소개](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers)”를 참조하세요.
 
-For more information, see "[Introduction to dev containers](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers)."
+#### 기능을 통해 액세스 권한 부여
 
-#### Granting access through features
+특정 개발 기능은 잠재적으로 환경에 위험을 추가할 수 있습니다. 예를 들어 커밋 서명, 환경 변수에 삽입된 비밀, 인증된 레지스트리 액세스, 패키지 액세스는 모두 잠재적인 보안 이슈를 제기할 수 있습니다. 필요한 사용자에게만 액세스 권한을 부여하고 가능한 한 제한적인 정책을 채택하는 것이 좋습니다. 
 
-Certain development features can potentially add risk to your environment. For example, commit signing, secrets injected into environment variables, authenticated registry access, and packages access can all present potential security issues. We recommend that you only grant access to those who need it and adopt a policy of being as restrictive as possible. 
+#### 확장 사용
 
-#### Using extensions
-
-Any additional {% data variables.product.prodname_vscode_shortname %} extensions that you've installed can potentially introduce more risk. To help mitigate this risk, ensure that the you only install trusted extensions, and that they are always kept up to date.
+설치한 추가 {% data variables.product.prodname_vscode_shortname %} 확장 때문에 더 많은 위험이 도입될 수 있습니다. 위험을 완화하려면 신뢰할 수 있는 확장만 설치하고 항상 최신 상태로 유지합니다.

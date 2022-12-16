@@ -1,11 +1,11 @@
 ---
-title: Create a repo
+title: Créer un référentiel
 redirect_from:
   - /create-a-repo
   - /articles/create-a-repo
   - /github/getting-started-with-github/create-a-repo
   - /github/getting-started-with-github/quickstart/create-a-repo
-intro: 'To put your project up on {% data variables.product.prodname_dotcom %}, you will need to create a repository for it to live in.'
+intro: 'Pour mettre votre projet sur {% data variables.product.prodname_dotcom %}, vous devez créer un dépôt pour qu’il y réside.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -16,16 +16,22 @@ topics:
   - Issues
   - Notifications
   - Accounts
+ms.openlocfilehash: 66db99def4463929236197fdc4903f82bfc1cbe2
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '146682292'
 ---
-## Create a repository
+## Créer un référentiel
 
 {% ifversion fpt or ghec %}
 
-You can store a variety of projects in {% data variables.product.prodname_dotcom %} repositories, including open source projects. With open source projects, you can share code to make better, more reliable software. You can use repositories to collaborate with others and track your work. For more information, see "[About repositories](/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/about-repositories)." To learn more about open source projects, visit [OpenSource.org](https://opensource.org/about).
+Vous pouvez stocker un large éventail de projets dans des dépôts {% data variables.product.prodname_dotcom %}, notamment des projets open source. Avec des projets open source, vous pouvez partager du code pour créer de meilleurs logiciels plus fiables. Vous pouvez utiliser des dépôts pour collaborer avec d’autres personnes et suivre votre travail. Pour plus d’informations, consultez « [À propos des dépôts](/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/about-repositories) ». Pour en savoir plus sur les projets open source, visitez [OpenSource.org](https://opensource.org/about).
 
 {% elsif ghes or ghae %}
 
-You can store a variety of projects in {% data variables.product.product_name %} repositories, including innersource projects. With innersource, you can share code to make better, more reliable software. For more information on innersource, see {% data variables.product.company_short %}'s white paper "[An introduction to innersource](https://resources.github.com/whitepapers/introduction-to-innersource/)."
+Vous pouvez stocker un large éventail de projets dans des dépôts {% data variables.product.product_name %}, notamment des projets innersource. Avec l’innersource, vous pouvez partager du code pour créer de meilleurs logiciels plus faibles. Pour plus d’informations sur l’innersource, consultez le livre blanc de {% data variables.product.company_short %} intitulé « [An introduction to innersource](https://resources.github.com/whitepapers/introduction-to-innersource/) ».
 
 {% endif %}
 
@@ -33,10 +39,10 @@ You can store a variety of projects in {% data variables.product.product_name %}
 
 {% note %}
 
-**Notes:** 
-- You can create public repositories for an open source project. When creating your public repository, make sure to include a [license file](https://choosealicense.com/) that determines how you want your project to be shared with others. {% data reusables.open-source.open-source-guide-repositories %} 
+**Remarques :** 
+- Vous pouvez créer des dépôts publics pour un projet open source. Quand vous créez votre dépôt public, veillez à inclure un [fichier de licence](https://choosealicense.com/) qui détermine la façon dont vous souhaitez que votre projet soit partagé avec d’autres personnes. {% data reusables.open-source.open-source-guide-repositories %} 
 - {% data reusables.open-source.open-source-learning %} 
-- You can also add community health files to your repositories, to set guidelines on how to contribute, keep your repositories safe, and much more. For more information, see "[Creating a default community health file](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)." 
+- Vous pouvez également ajouter des fichiers d’intégrité de la communauté à vos dépôts pour définir des instructions sur la façon de contribuer, de garder vos dépôts en sécurité et bien plus encore. Pour plus d’informations, consultez « [Création d’un fichier d’intégrité de la communauté par défaut](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file) ». 
 
 {% endnote %}
 
@@ -45,15 +51,12 @@ You can store a variety of projects in {% data variables.product.product_name %}
 {% webui %}
 
 {% data reusables.repositories.create_new %}
-2. Type a short, memorable name for your repository. For example, "hello-world".
-  ![Field for entering a repository name](/assets/images/help/repository/create-repository-name.png)
-3. Optionally, add a description of your repository. For example, "My first repository on {% data variables.product.product_name %}."
-  ![Field for entering a repository description](/assets/images/help/repository/create-repository-desc.png)
-{% data reusables.repositories.choose-repo-visibility %}
-{% data reusables.repositories.initialize-with-readme %}
-{% data reusables.repositories.create-repo %}
+2. Tapez un nom abrégé et facile à retenir pour votre dépôt. Par exemple, « hello-world ».
+  ![Champ pour entrer un nom de dépôt](/assets/images/help/repository/create-repository-name.png)
+3. Ajoutez éventuellement une description pour votre dépôt. Par exemple, « Mon premier dépôt sur {% data variables.product.product_name %} ».
+  ![Champ pour entrer une description de dépôt](/assets/images/help/repository/create-repository-desc.png) {% data reusables.repositories.choose-repo-visibility %} {% data reusables.repositories.initialize-with-readme %} {% data reusables.repositories.create-repo %}
 
-Congratulations! You've successfully created your first repository, and initialized it with a *README* file.
+Félicitations ! Vous avez réussi à créer votre premier dépôt, puis à l’initialiser avec un fichier *LISEZ-MOI*.
 
 {% endwebui %}
 
@@ -61,51 +64,47 @@ Congratulations! You've successfully created your first repository, and initiali
 
 {% data reusables.cli.cli-learn-more %}
 
-1. In the command line, navigate to the directory where you would like to create a local clone of your new project.
-2. To create a repository for your project, use the `gh repo create` subcommand. When prompted, select **Create a new repository on GitHub from scratch** and enter the name of your new project. If you want your project to belong to an organization instead of to your personal account, specify the organization name and project name with `organization-name/project-name`. 
-3. Follow the interactive prompts. To clone the repository locally, confirm yes when asked if you would like to clone the remote project directory.  
-4. Alternatively, to skip the prompts supply the repository name and a visibility flag (`--public`, `--private`, or `--internal`). For example, `gh repo create project-name --public`. To clone the repository locally, pass the `--clone` flag.  For more information about possible arguments, see the [GitHub CLI manual](https://cli.github.com/manual/gh_repo_create).
+1. Dans la ligne de commande, accédez au répertoire dans lequel vous voulez créer un clone local de votre nouveau projet.
+2. Pour créer un dépôt pour votre projet, utilisez la sous-commande `gh repo create`. À l’invite, sélectionnez **Créer un dépôt sur GitHub ex nihilo** et entrez le nom de votre nouveau projet. Si vous voulez que votre projet appartienne à une organisation plutôt qu’à votre compte personnel, spécifiez le nom de l’organisation et le nom du projet avec `organization-name/project-name`. 
+3. Suivez les invites interactives. Pour cloner le dépôt localement, répondez oui quand vous êtes invité à cloner le répertoire du projet distant.  
+4. Sinon, pour ignorer les invites, indiquez le nom du dépôt et un indicateur de visibilité (`--public`, `--private` ou `--internal`). Par exemple : `gh repo create project-name --public`. Pour cloner le dépôt localement, passez l’indicateur `--clone`.  Pour plus d’informations sur les arguments possibles, consultez le [manuel de GitHub CLI](https://cli.github.com/manual/gh_repo_create).
 
 {% endcli %}
 
-## Commit your first change
+## Commiter votre première modification
 
 {% webui %}
 
-A *[commit](/articles/github-glossary#commit)* is like a snapshot of all the files in your project at a particular point in time.
+Un *[commit](/articles/github-glossary#commit)* s’apparente à un instantané de tous les fichiers inclus dans votre projet à un moment donné.
 
-When you created your new repository, you initialized it with a *README* file. *README* files are a great place to describe your project in more detail, or add some documentation such as how to install or use your project. The contents of your *README* file are automatically shown on the front page of your repository.
+Quand vous avez créé votre dépôt, vous l’avez initialisé avec un fichier *LISEZ-MOI*. Les fichiers *LISEZ-MOI* sont parfaits pour décrire votre projet plus en détail ou pour ajouter des documents tels que des consignes d’installation ou d’utilisation de votre projet. Le contenu de votre fichier *LISEZ-MOI* apparaît automatiquement dans la page d’accueil de votre dépôt.
 
-Let's commit a change to the *README* file.
+Nous allons commiter une modification apportée au fichier *LISEZ-MOI*.
 
-1. In your repository's list of files, click ***README.md***.
-  ![README file in file list](/assets/images/help/repository/create-commit-open-readme.png)
-2. Above the file's content, click {% octicon "pencil" aria-label="The edit icon" %}.
-3. On the **Edit file** tab, type some information about yourself.
-  ![New content in file](/assets/images/help/repository/edit-readme-light.png)
-{% data reusables.files.preview_change %}
-5. Review the changes you made to the file. You will see the new content in green.
-  ![File preview view](/assets/images/help/repository/create-commit-review.png)
-{% data reusables.files.write_commit_message %}
-{% data reusables.files.choose_commit_branch %}
-{% data reusables.files.propose_file_change %}
+1. Dans la liste de fichiers de votre dépôt, cliquez sur ***LISEZ-MOI.md***.
+  ![Fichier LISEZ-MOI dans la liste de fichiers](/assets/images/help/repository/create-commit-open-readme.png)
+2. Au-dessus du contenu du fichier, cliquez sur {% octicon "pencil" aria-label="The edit icon" %}.
+3. Sous l’onglet **Modifier le fichier**, tapez quelques informations sur vous-même.
+  ![Nouveau contenu dans le fichier](/assets/images/help/repository/edit-readme-light.png) {% data reusables.files.preview_change %}
+5. Passez en revue les modifications apportées au fichier. Vous allez voir que le nouveau contenu est en vert.
+  ![Affichage de l’aperçu du fichier](/assets/images/help/repository/create-commit-review.png) {% data reusables.files.write_commit_message %} {% data reusables.files.choose_commit_branch %} {% data reusables.files.propose_file_change %}
 
 {% endwebui %}
 
 {% cli %}
 
-Now that you have created a project, you can start committing changes.
+Maintenant que vous avez créé un projet, vous pouvez commencer à commiter des modifications.
 
-*README* files are a great place to describe your project in more detail, or add some documentation such as how to install or use your project. The contents of your *README* file are automatically shown on the front page of your repository. Follow these steps to add a *README* file.
+Les fichiers *LISEZ-MOI* sont parfaits pour décrire votre projet plus en détail ou pour ajouter des documents tels que des consignes d’installation ou d’utilisation de votre projet. Le contenu de votre fichier *LISEZ-MOI* apparaît automatiquement dans la page d’accueil de votre dépôt. Suivez ces étapes pour ajouter un fichier *LISEZ-MOI*.
 
-1. In the command line, navigate to the root directory of your new project. (This directory was created when you ran the `gh repo create` command.)
-1. Create a *README* file with some information about the project.
+1. Dans la ligne de commande, accédez au répertoire racine de votre nouveau projet. (Ce répertoire a été créé lorsque vous avez exécuté la commande `gh repo create`.)
+1. Créez un fichier *LISEZ-MOI* contenant quelques informations sur le projet.
 
     ```shell
     echo "info about this project" >> README.md
     ```
 
-1. Enter `git status`. You will see that you have an untracked `README.md` file.
+1. Entrez `git status`. Vous allez voir que vous avez un fichier `README.md` non suivi.
 
     ```shell
     $ git status
@@ -117,13 +116,13 @@ Now that you have created a project, you can start committing changes.
     nothing added to commit but untracked files present (use "git add" to track)
     ```
 
-1. Stage and commit the file.
+1. Indexez et commitez le fichier.
 
     ```shell
     git add README.md && git commit -m "Add README"
     ```
 
-1. Push the changes to your branch.
+1. Poussez (push) les modifications vers votre branche.
 
     ```shell
     git push --set-upstream origin HEAD
@@ -131,17 +130,17 @@ Now that you have created a project, you can start committing changes.
 
 {% endcli %}
 
-## Next steps
+## Étapes suivantes
 
-You have now created a repository, including a *README* file, and created your first commit on {% data variables.location.product_location %}.
+Vous avez maintenant créé un dépôt, qui comprend un fichier *LISEZ-MOI*, puis créé votre premier commit sur {% data variables.product.product_location %}.
 
 {% webui %}
 
-* You can now clone a {% data variables.product.prodname_dotcom %} repository to create a local copy on your computer. From your local repository you can commit, and create a pull request to update the changes in the upstream repository. For more information, see "[Cloning a repository](/github/creating-cloning-and-archiving-repositories/cloning-a-repository)" and "[Set up Git](/articles/set-up-git)."
+* Vous pouvez maintenant cloner un dépôt {% data variables.product.prodname_dotcom %} pour créer une copie locale sur votre ordinateur. À partir de votre dépôt local, vous pouvez commiter des modifications, puis créer une demande de tirage afin de les mettre à jour dans le dépôt en amont. Pour plus d’informations, consultez « [Clonage d’un dépôt](/github/creating-cloning-and-archiving-repositories/cloning-a-repository) » et « [Configurer Git](/articles/set-up-git) ».
 
 {% endwebui %}
 
-* You can find interesting projects and repositories on {% data variables.product.prodname_dotcom %} and make changes to them by creating a fork of the repository. {% data reusables.getting-started.fork-a-repository %}
+* Vous pouvez trouver des projets et des dépôts intéressants sur {% data variables.product.prodname_dotcom %} et leur apporter des modifications en créant une duplication (fork) de dépôt. {% data reusables.getting-started.fork-a-repository %}
 
 * {% data reusables.getting-started.being-social %}
 

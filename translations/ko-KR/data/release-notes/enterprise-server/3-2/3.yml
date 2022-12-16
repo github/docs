@@ -1,0 +1,31 @@
+date: '2021-11-09'
+sections:
+  security_fixes:
+    - "{% data variables.product.prodname_pages %} 빌드에서 {% data variables.product.prodname_ghe_server %}에 대한 경로 탐색 취약성이 확인되었습니다. 이로 인해 공격자가 시스템 파일을 읽을 수 있습니다. 이 취약성을 악용하기 위해 공격자는 {% data variables.product.prodname_ghe_server %} 인스턴스에서 {% data variables.product.prodname_pages %} 사이트를 만들고 구축할 수 있는 권한이 필요합니다. 이 취약성은 3.3 이전의 모든 {% data variables.product.prodname_ghe_server %} 버전에 영향을 미치며, 버전 3.0.19, 3.1.11, 3.2.3에서 수정되었습니다. 이 취약성은 {% data variables.product.company_short %} 버그 장려금 프로그램을 통해 보고되었으며 CVE-2021-22870이 할당되었습니다."
+    - 패키지가 최신 보안 버전으로 업데이트되었습니다.
+  bugs:
+    - "HAProxy 구성 때문에 {% data variables.product.prodname_ghe_server %} 3.x 클러스터로 업그레이드한 이후 일부 Git 작업에 실패했습니다."
+    - 클러스터링 모드에서 유니콘 작업자 수가 잘못 설정되었습니다.
+    - 클러스터링 모드에서 요청된 작업자 수가 잘못 설정되었습니다.
+    - Ubuntu의 UFW(복잡하지 않은 방화벽)가 비활성 상태인 경우 클라이언트는 로그에서 이를 명확하게 확인할 수 없습니다.
+    - "LDAP 구성에 UTF8 문자가 있는 경우 {% data variables.product.prodname_ghe_server %} 2.x에서 3.x로의 업그레이드에 실패했습니다."
+    - 특정 클러스터 구성의 클러스터 모드에서 일부 페이지 및 Git 관련 백그라운드 작업이 실행되지 않을 수 있습니다.
+    - 서버 통계에 대한 문서 링크가 끊어졌습니다.
+    - "새 태그가 생성될 때 [푸시](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#push) 웹후크 페이로드가 올바른 `head_commit` 개체를 표시하지 않았습니다. 이제, 새 태그가 생성되면 푸시 웹후크 페이로드에 새 태그가 가리키는 커밋 데이터를 포함하는 `head_commit` 개체가 항상 포함됩니다. 따라서, `head_commit` 개체에는 항상 페이로드의 `after` 커밋에 대한 커밋 데이터가 포함됩니다."
+    - "엔터프라이즈 감사 로그 페이지에 {% data variables.product.prodname_secret_scanning %}에 대한 감사 이벤트가 표시되지 않습니다."
+    - 복제본 복구를 위한 작업 시간 제한이 부족합니다.
+    - 릴리스를 볼 때 리포지토리의 릴리스 페이지가 500 오류를 반환합니다.
+    - '파일을 볼 때 사용자에게 위험할 수 있는 양방향 유니코드 문자에 대한 경고가 표시되지 않았습니다. 자세한 내용은 {% data variables.product.prodname_blog %}의 “[양방향 유니코드 텍스트에 대한 경고](https://github.co/hiddenchars)”를 참조하세요.'
+    - Hookshot Go는 Collectd에서 처리할 수 없기 때문에 구문 분석 팽창 오류를 발생시키는 배포 형식 메트릭을 보냈습니다.
+    - "퍼블릭 리포지토리에서 `알 수 없는 토큰` 유형의 {% data variables.product.prodname_secret_scanning %}에서 예기치 않은 결과를 표시했습니다."
+  changes:
+    - Kafka 구성 개선 사항이 추가되었습니다. 이제 리포지토리를 삭제하면 스토리지 계정에서 패키지 파일이 즉시 삭제되어 여유 공간이 확보됩니다. `DestroyDeletedPackageVersionsJob`은 이제 메타데이터 레코드와 함께 부실 패키지의 패키지 파일을 스토리지 계정에서 삭제합니다.
+  known_issues:
+    - "사용자 없이 새로 설정된 {% data variables.product.prodname_ghe_server %}에서 공격자는 첫 번째 관리 사용자를 만들 수 있습니다."
+    - 사용자 지정 방화벽 규칙은 업그레이드 프로세스 중에 제거됩니다.
+    - "Git LFS 추적 파일[웹 인터페이스를 통해 업로드됨](https://github.com/blog/2105-upload-files-to-your-repositories)이 리포지토리에 직접 잘못 추가되었습니다."
+    - 이슈에 동일한 리포지토리의 Blob에 대한 고정 링크가 포함되었지만 Blob의 파일 경로가 255자보다 긴 경우 해당 이슈를 종료할 수 없습니다.
+    - GitHub Connect에서 “사용자가 GitHub.com을 검색할 수 있음”이 사용하도록 설정되면 프라이빗 및 내부 리포지토리의 이슈가 GitHub.com 검색 결과에 포함되지 않습니다.
+    - "{% data variables.product.prodname_registry %} npm 레지스트리는 더 이상 메타데이터 응답에서 시간 값을 반환하지 않습니다. 이 작업은 성능을 크게 향상시키기 위해 수행되었습니다. 메타데이터 응답의 일부로 시간 값을 반환하는 데 필요한 모든 데이터를 계속 보유하고 있으며, 기존 성능 이슈가 해결되면 이 값의 반환을 다시 시작할 예정입니다."
+    - 사전 수신 후크 처리에만 해당되는 리소스 한도로 인해 일부 사전 수신 후크가 실패할 수 있습니다.
+    - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'

@@ -1,6 +1,6 @@
 ---
-title: About task lists
-intro: 'You can use task lists to break the work for an issue or pull request into smaller tasks, then track the full set of work to completion.'
+title: Сведения о списках задач
+intro: 'Списки задач позволяют разбить работы или запросы на вытягивание на отдельные небольшие задачи, а затем отслеживать завершение всего набора таких работ.'
 redirect_from:
   - /github/managing-your-work-on-github/managing-your-work-with-issues-and-pull-requests/about-task-lists
   - /articles/about-task-lists
@@ -15,67 +15,68 @@ versions:
 topics:
   - Pull requests
   - Issues
+ms.openlocfilehash: dcb8d7972e83d8d35ed2425d57e2950d64ef1352
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148159994'
 ---
+{% ifversion projects-v2-tasklists %} {% note %}
 
-{% ifversion projects-v2-tasklists %}
-{% note %}
+**Примечание:** Дополнительные сведения о новой итерации списков задач, которая в настоящее время находится в закрытой бета-версии, см. в разделе [Сведения о списках задач](/issues/tracking-your-work-with-issues/about-tasklists).
 
-**Note:** For more information about the new iteration of Tasklists, which is currently in a private beta, see "[About Tasklists](/issues/tracking-your-work-with-issues/about-tasklists)."
+{% endnote %} {% endif %}
 
-{% endnote %}
-{% endif %}
+## Сведения о списках задач
 
-## About task lists
+Список задач — это набор задач, каждая из которых отображается в отдельной строке, и для каждой задачи можно установить или снять флажок. Флажки устанавливаются или снимаются для того, чтобы пометить задачи как завершенные или незавершенные. 
 
-A task list is a set of tasks that each render on a separate line with a clickable checkbox. You can select or deselect the checkboxes to mark the tasks as complete or incomplete. 
+Вы можете использовать Markdown, чтобы создать список задач в любом комментарии в {% data variables.product.product_name %}. {% ifversion fpt or ghec %}Если вы ссылаетесь на проблему, запрос на вытягивание или обсуждение в списке задач, ссылка будет разворачиваться для отображения заголовка и состояния.{% endif %} 
 
-You can use Markdown to create a task list in any comment on {% data variables.product.product_name %}. {% ifversion fpt or ghec %}If you reference an issue, pull request, or discussion in a task list, the reference will unfurl to show the title and state.{% endif %} 
-
-{% ifversion not fpt or ghec %} 
-You can view task list summary information in issue and pull request lists, when the task list is in the initial comment.
+{% ifversion not fpt or ghec %} Вы можете просматривать сводные сведения списка задач в списках проблем и запросов на вытягивание, если список задач находится в первоначальном комментарии.
 {% else %}
 
-## About issue task lists
+## Сведения о списках задач в проблемах
 
-If you add a task list to the body of an issue, the list has added functionality.
+Если добавить список задач в текст проблемы, этот список будет иметь дополнительные функциональные возможности.
 
-- To help you track your team's work on an issue, the progress of an issue's task list appears in various places on {% data variables.product.product_name %}, such as a repository's list of issues.
-- If a task references another issue and someone closes that issue, the task's checkbox will automatically be marked as complete. 
-- If a task requires further tracking or discussion, you can convert the task to an issue by hovering over the task and clicking {% octicon "issue-opened" aria-label="The issue opened icon" %} in the upper-right corner of the task. To add more details before creating the issue, you can use keyboard shortcuts to open the new issue form. For more information, see "[Keyboard shortcuts](/github/getting-started-with-github/using-github/keyboard-shortcuts#issues-and-pull-requests)."
-- Any issues referenced in the task list will specify that they are tracked in the referencing issue.
+- Чтобы помочь вам отслеживать работу команды по проблеме, ход выполнения списка задач проблемы отображается в различных местах в {% data variables.product.product_name %}, например в списке проблем репозитория.
+- Если задача ссылается на другую проблему, и кто-то закрывает эту проблему, задача автоматически помечается флажком как завершенная. 
+- Если задача требует дальнейшего отслеживания или обсуждения, вы можете преобразовать задачу в проблему. Для этого наведите указатель на задачу и щелкните значок {% octicon "issue-opened" aria-label="The issue opened icon" %} в правом верхнем углу задачи. Чтобы добавить дополнительные сведения перед созданием проблемы, можно открыть новую форму проблемы с помощью сочетаний клавиш. Дополнительные сведения см. в разделе [Сочетания клавиш](/github/getting-started-with-github/using-github/keyboard-shortcuts#issues-and-pull-requests).
+- Все проблемы, на которые есть ссылки в списке задач, указывают, что они отслеживаются в ссылающейся проблеме.
 
-![Rendered task list](/assets/images/help/writing/task-list-rendered.png)
+![Отрисованный список задач](/assets/images/help/writing/task-list-rendered.png)
 
 {% endif %}
 
-## Creating task lists
+## Создание списков задач
 
 {% data reusables.repositories.task-list-markdown %}
 
 {% tip %}
 
-**Tip:** You cannot create task list items within closed issues or issues with linked pull requests.
+**Совет.** Нельзя создавать элементы списка задач в закрытых проблемах или проблемах со связанными запросами на вытягивание.
 
 {% endtip %}
 
-## Reordering tasks
+## Изменение порядка задач
 
-You can reorder the items in a task list by clicking to the left of a task's checkbox, dragging the task to a new location, and dropping the task. You can reorder tasks across different lists in the same comment, but you can not reorder tasks across different comments.
+Вы можете изменить порядок элементов в списке задач, щелкнув слева от флажка задачи и перетащив задачу в новое место. Вы можете изменять порядок задач в разных списках в одном комментарии, но в разных комментариях это делать нельзя.
 
-{% ifversion fpt %} ![Reordered task list](/assets/images/help/writing/task-list-reordered.gif)
-{% else %} ![Reordered task list](/assets/images/enterprise/writing/task-lists-reorder.gif) {% endif %}
+{% ifversion fpt %} ![Переупорядоченный список задач](/assets/images/help/writing/task-list-reordered.gif) {% else %} ![Переупорядоченный список задач](/assets/images/enterprise/writing/task-lists-reorder.gif) {% endif %}
 
 {% ifversion fpt %}
 
-## Navigating tracked issues
+## Навигация по отслеживаемым проблемам
 
-Any issues that are referenced in a task list specify that they are tracked by the issue that contains the task list. To navigate to the tracking issue from the tracked issue, click on the tracking issue number in the **Tracked in** section next to the issue status.
+Все проблемы, на которые есть ссылки в списке задач, указывают, что они отслеживаются проблемой, содержащей список задач. Чтобы перейти к отслеживающей проблеме из отслеживаемой проблемы, щелкните номер отслеживающей проблемы в разделе **Отслеживается в** рядом с состоянием проблемы.
 
-![Tracked in example](/assets/images/help/writing/task_list_tracked.png)
+![Пример отслеживающей проблемы](/assets/images/help/writing/task_list_tracked.png)
 
 {% endif %}
 
-## Further reading
+## Дополнительные материалы
 
 {% ifversion code-scanning-task-lists %}
-* "[Tracking {% data variables.product.prodname_code_scanning %} alerts in issues using task lists](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/tracking-code-scanning-alerts-in-issues-using-task-lists)"{% endif %}
+* [Отслеживание оповещений {% data variables.product.prodname_code_scanning %} в проблемах с использованием списков задач](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/tracking-code-scanning-alerts-in-issues-using-task-lists){% endif %}

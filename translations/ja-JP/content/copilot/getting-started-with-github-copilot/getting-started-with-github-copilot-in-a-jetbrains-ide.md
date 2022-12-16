@@ -7,12 +7,12 @@ versions:
   feature: copilot
 topics:
   - Copilot
-ms.openlocfilehash: ae879b5834007a34ab0e3a7a45dcae4c1e31bc4f
-ms.sourcegitcommit: 7fb7ec2e665856fc5f7cd209b53bd0fb1c9bbc67
+ms.openlocfilehash: f5b90fb18645b69f86e9e45e08ba47e534678ae4
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/29/2022
-ms.locfileid: '148185060'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148192784'
 ---
 {% data reusables.copilot.copilot-cta-button %}
 
@@ -23,6 +23,8 @@ ms.locfileid: '148185060'
 JetBrains IDE を使用すると、{% data variables.product.prodname_copilot %} からの候補をエディター内で直接表示し、取り入れることができます。 このガイドでは、macOS、Windows、or Linux 用の JetBrains IDE 内で {% data variables.product.prodname_copilot %} を使用する方法を示します。
 
 ## 前提条件
+
+{% data reusables.copilot.subscription-prerequisite %}
 
 {% data reusables.copilot.jetbrains-ides %}
 

@@ -1,6 +1,6 @@
 ---
-title: Security in GitHub Codespaces
-intro: 'Overview of the {% data variables.product.prodname_github_codespaces %} security architecture, with guidelines to help you maintain security and minimize the risk of attack.'
+title: Безопасность в GitHub Codespaces
+intro: 'Обзор архитектуры безопасности {% data variables.product.prodname_github_codespaces %} с рекомендациями по обеспечению безопасности и минимизации рисков атак.'
 miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
@@ -12,107 +12,112 @@ type: reference
 shortTitle: Security in Codespaces
 redirect_from:
   - /codespaces/codespaces-reference/security-in-codespaces
+ms.openlocfilehash: 0e7fe9a7644f78fc0dfa6d5bb624c5d74f3d8713
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147111691'
 ---
+## Общие сведения о безопасности пространств кода
 
-## Overview of codespace security
+В {% data variables.product.prodname_github_codespaces %} по умолчанию используется улучшенная защита. Следовательно, необходимо убедиться в том, что ваши методы разработки программного обеспечения не приводят к риску снижения уровня безопасности вашего пространства кода. 
 
-{% data variables.product.prodname_github_codespaces %} is designed to be security hardened by default. Consequently, you will need to ensure that your software development practices do not risk reducing the security posture of your codespace. 
+В этом руководстве описывается, как Codespaces обеспечивает безопасность среды разработки и предоставляет ряд рекомендаций, которые помогут обеспечить безопасность по мере работы. Как и для любых других средств разработки, помните, что вы должны работать только с теми репозиториями, которые вы знаете и которым доверяете.
 
-This guide describes the way {% data variables.product.prodname_github_codespaces %} keeps your development environment secure and provides some of the good practices that will help maintain your security as you work. As with any development tool, remember that you should only open and work within repositories you know and trust.
+### Изоляция среды
 
-### Environment isolation
+{% data variables.product.prodname_github_codespaces %} отделяет пространства кода друг от друга, и каждое пространство кода использует собственную виртуальную машину и сеть.
 
-{% data variables.product.prodname_github_codespaces %} is designed to keep your codespaces separate from each other, with each using its own virtual machine and network.
+#### Изолированные виртуальные машины
 
-#### Isolated virtual machines
+Каждое пространство кода размещается на собственной специально созданной виртуальной машине. Два пространства кода никогда не размещаются на одной виртуальной машине. 
 
-Each codespace is hosted on its own newly-built virtual machine (VM). Two codespaces are never co-located on the same VM. 
+Каждый раз при перезапуске пространства кода оно развертывается на новой виртуальной машине с последними доступными обновлениями для системы безопасности.
 
-Every time you restart a codespace, it's deployed to a new VM with the latest available security updates.
+#### Изолированная сеть
 
-#### Isolated networking
+Каждое пространство кода имеет собственную изолированную виртуальную сеть. Используются брандмауэры для блокировки входящих подключений из Интернета и предотвращения обмена данными между пространствами кода во внутренних сетях. По умолчанию пространства кода могут устанавливать исходящие подключения к Интернету.
 
-Each codespace has its own isolated virtual network. We use firewalls to block incoming connections from the internet and to prevent codespaces from communicating with each other on internal networks. By default, codespaces are allowed to make outbound connections to the internet.
+### Аутентификация
 
-### Authentication
+Можно подключиться к codespace с помощью веб-браузера или из {% data variables.product.prodname_vscode %}. При подключении из {% data variables.product.prodname_vscode_shortname %} вам будет предложено пройти проверку подлинности с помощью {% data variables.product.product_name %}. 
 
-You can connect to a codespace using a web browser or from {% data variables.product.prodname_vscode %}. If you connect from {% data variables.product.prodname_vscode_shortname %}, you are prompted to authenticate with {% data variables.product.product_name %}. 
+Каждый раз при создании или перезапуске пространства кода ему назначается новый маркер {% data variables.product.company_short %} с автоматическим сроком действия. Срок действия позволяет работать в пространстве кода без повторной проверки подлинности в течение обычного рабочего дня, а также снижает вероятность того, что подключение останется открытым после того, как вы перестанете использовать пространство кода.
 
-Every time a codespace is created or restarted, it's assigned a new {% data variables.product.company_short %} token with an automatic expiry period. This period allows you to work in the codespace without needing to reauthenticate during a typical working day, but reduces the chance that you will leave a connection open when you stop using the codespace.
+Область действия маркера зависит от имеющегося уровня доступа к репозиторию, в котором было создано пространство кода:
 
-The token's scope will vary depending on the access you have to the repository where the codespace was created:
+- **Если у вас есть доступ к репозиторию на запись**: область действия маркера будет ограничена доступом к репозиторию на чтение и запись.
+- **Если у вас есть только доступ на чтение к репозиторию**: маркер будет разрешать только клонирование кода из исходного репозитория. Если вы попытаетесь отправить код в частный репозиторий, для которого у вас есть только доступ на чтение, {% data variables.product.prodname_codespaces %} предложит создать личную вилку репозитория. Затем маркер будет обновлен с предоставлением доступа на чтение и запись к новой личной вилке. 
+- **Если вы разрешили доступ к другим репозиториям для пространства кода**: если пространству кода предоставлен [доступ к другим репозиториям](/codespaces/managing-codespaces-for-your-organization/managing-access-and-security-for-your-organizations-codespaces), все пространства кода, созданные из этого репозитория, будут иметь маркеры чтения и записи в исходном репозитории. Кроме того, маркеры также получат доступ на чтение к другим репозиториям, указанным пользователем или организацией.
 
-- **If you have write access to the repository**: The token will be scoped for read/write access to the repository.
-- **If you only have read access to the repository**: The token will only allow the code to be cloned from the source repository. If you attempt to push to a private repo where you only have read access, {% data variables.product.prodname_github_codespaces %} will prompt you to create a personal fork of the repository. The token will then be updated to have read/write access to the new personal fork. 
-- **If you've enabled your codespace to access other repositories**: When a codespace has been granted [access to other repositories](/codespaces/managing-codespaces-for-your-organization/managing-access-and-security-for-your-organizations-codespaces), any codespace created from that repository will have read/write tokens scoped to the source repository. In addition, the tokens will also receive read access to other repositories indicated by the user or organization.
+Администраторы организации указывают, какие репозитории следует считать доверенными. Администратор может [настроить доверие](/codespaces/managing-codespaces-for-your-organization/managing-access-and-security-for-your-organizations-codespaces) для всех или некоторых репозиториев организации или отключить доверие для всех репозиториев. Пространство кода не может иметь разрешения на доступ к ресурсам, превышающие разрешения пользователя, создавшего пространство кода, даже если администратор организации предоставил доступ всем пользователям и всем репозиториям.
 
-An organization's administrators specify which repositories should be considered trusted. An admin can [choose to trust](/codespaces/managing-codespaces-for-your-organization/managing-access-and-security-for-your-organizations-codespaces) none, all, or some of the organization's repositories. A codespace can't have greater permissions to access resources than the person who created it, even if the organization administrator has granted access to all users and all repositories.
+### Подключения к пространству кода
 
-### Codespace connections
+Вы можете подключиться к пространству кода с помощью зашифрованного туннеля TLS, предоставляемого службой {% data variables.product.prodname_github_codespaces %}. Подключаться к пространству кода может только создатель пространства кода. Подключения проходят проверку подлинности в {% data variables.product.product_name %}.
 
-You can connect to your codespace using the TLS encrypted tunnel provided by the {% data variables.product.prodname_github_codespaces %} service. Only the creator of a codespace can connect to a codespace. Connections are authenticated with {% data variables.product.product_name %}.
+Если необходимо разрешить внешний доступ к службам, работающим в пространстве кода, можно включить перенаправление портов для частного или общего доступа.
 
-If you need to allow external access to services running on a codespace, you can enable port forwarding for private or public access.
+### перенаправление портов;
 
-### Port forwarding
+Если необходимо подключиться к службе (например, к веб-серверу разработки), работающей в пространстве кода, можно настроить перенаправление портов, чтобы сделать службу доступной через Интернет. 
 
-If you need to connect to a service (such as a development web server) running within your codespace, you can configure port forwarding to make the service available on the internet. 
+Владельцы организации могут сделать перенаправляемые порты общедоступными или доступными только внутри организации. Дополнительные сведения см. в разделе [Ограничение видимости перенаправляемых портов](/codespaces/managing-codespaces-for-your-organization/restricting-the-visibility-of-forwarded-ports).
 
-Organization owners can restrict the ability to make forward ports available publicly or within the organization. For more information, see "[Restricting the visibility of forwarded ports](/codespaces/managing-codespaces-for-your-organization/restricting-the-visibility-of-forwarded-ports)."
+**Частные перенаправляемые порты**: доступны через Интернет, но доступ к ним может получить только создатель пространства кода после прохождения проверки подлинности в {% data variables.product.product_name %}.
 
-**Privately forwarded ports**: Are accessible on the internet, but only the codespace creator can access them, after authenticating to {% data variables.product.product_name %}.
+**Общедоступные перенаправляемые порты в вашей организации**: доступны через Интернет, но доступ к ним могут получить только участники той же организации, в которой находится пространство кода, после прохождения проверки подлинности в {% data variables.product.product_name %}.
 
-**Publicly forwarded ports within your organization**: Are accessible on the internet, but only to members of the same organization as the codespace, after authenticating to {% data variables.product.product_name %}.
+**Общедоступные перенаправляемые порты**: доступны через Интернет, и доступ к ним может получить любой пользователь в Интернете. Для доступа к общедоступным перенаправляемым портам проверка подлинности не требуется.
 
-**Publicly forwarded ports**: Are accessible on the internet, and anyone on the internet can access them. No authentication is needed to access public forwarded ports.
+Все перенаправляемые порты по умолчанию являются частными, что означает, что перед доступом к ним необходимо пройти проверку подлинности. Доступ к частным перенаправляемым портам пространства кода контролируется файлами cookie проверки подлинности со сроком действия 3 часа. По истечении срока действия файла cookie необходимо повторно пройти проверку подлинности.
 
-All forwarded ports are private by default, which means that you will need to authenticate before you can access the port. Access to a codespace's private forwarded ports is controlled by authentication cookies with a 3-hour expiry period. When the cookie expires, you will need to reauthenticate.
+При удалении и повторном добавлении порта или при перезапуске пространства кода общедоступный перенаправляемый порт по умолчанию снова станет частным.
 
-A public forwarded port will automatically revert back to private when you remove and re-add the port, or if you restart the codespace.
+На панели "Порты" можно настроить общий или частный доступ к портам, а также отключить перенаправление портов, если оно больше не требуется. Дополнительные сведения см. в разделе [Перенаправление портов в пространстве кода](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace).
 
-You can use the "Ports" panel to configure a port for public or private access, and can stop port forwarding when it's no longer required. For more information, see "[Forwarding ports in your codespace](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace)."
+## Рекомендации по обеспечению безопасности для пространств кода
 
-## Good security practices for your codespaces
+Пространства кода по умолчанию имеют улучшенную защиту. Для поддержания этого уровня безопасности соблюдайте рекомендации по безопасности в ходе разработки: 
 
-Codespaces are designed to be security hardened by default. To help maintain this posture, we recommend that you follow good security practices during your development procedures: 
+- Как и для любых других средств разработки, помните, что вы должны работать только с теми репозиториями, которые вы знаете и которым доверяете.
+- Перед добавлением новых зависимостей в пространство кода проверьте, насколько хорошо они обслуживаются, и выпускаются ли для них обновления системы безопасности, устраняющие все уязвимости системы безопасности, обнаруженные в коде.
 
-- As with any development tool, remember that you should only open and work within repositories you know and trust.
-- Before you add new dependencies to the codespace, check whether they are well-maintained, and if they release updates to fix any security vulnerabilities found in their code.
+### Использование секретов для доступа к конфиденциальной информации 
 
-### Using secrets to access sensitive information 
+Всегда используйте зашифрованные секреты при доступе к конфиденциальной информации (например, к маркерам доступа) в пространстве кода. К секретам можно обращаться как к переменным среды в пространстве кода, в том числе из терминала. Например, можно запустить терминал в пространстве кода и использовать команду `echo $SECRET_NAME ` для просмотра значения секрета.
 
-Always use encrypted secrets when you want to use sensitive information (such as access tokens) in a codespace. You can access your secrets as environment variables in the codespace, including from the terminal. For example, you can launch a terminal within your codespace and use `echo $SECRET_NAME ` to see the value of a secret.
+Значения секретов копируются в переменные среды всякий раз, когда пространство возобновляется или создается, а также синхронизируется при их изменении.
 
-The secret values are copied to environment variables whenever the codespace is resumed or created and are also synced when they are changed.
+Если у вас нет доступа на запись к репозиторию codespace, секреты не копируются в среду.
 
-Secrets are not copied into the environment if you don't have write access to the codespace's repository.
+Дополнительные сведения о секретах см. в следующих разделах:
+- [Управление зашифрованными секретами для пространств кода](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)
+- [Управление зашифрованными секретами репозитория и организации для {% data variables.product.prodname_github_codespaces %}](/codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-github-codespaces)
 
-For more information on secrets, see:
-- "[Managing encrypted secrets for your codespaces](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)"
-- "[Managing encrypted secrets for your repository and organization for {% data variables.product.prodname_github_codespaces %}](/codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-github-codespaces)"
+### Работа с вкладом и репозиториями других пользователей
 
-### Working with other people's contributions and repositories
+При создании пространства кода из ветви запроса на вытягивание в вилке маркер в пространстве кода будет отличаться в зависимости от того, является ли репозиторий общедоступным или частным:
+- Для частного репозитория пространство кода получает доступ как к вилке, так и к родительскому репозиторию.
+- Для общедоступного репозитория пространство кода будет иметь доступ только к вилке и открытым запросам на вытягивание в родительском репозитории.
 
-When you create a codespace from a PR branch from a fork, the token in the codespace will vary depending on whether the repository is public or private:
-- For a private repository, the codespace is granted access to both the fork and parent.
-- For a public repository, the codespace will only have access to the fork and opening PRs on the parent.
+Кроме того, мы также защищаем вас в этих сценариях, поскольку не внедряем ни один из [секретов codespace](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces) в среду.
 
-We also further protect you in these scenarios by not injecting any of your [codespace secrets](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces) into the environment.
+### Дополнительные рекомендации
 
-### Additional good practices
+Существуют некоторые дополнительные рекомендации и риски, которые следует учитывать при использовании {% data variables.product.prodname_codespaces %}. 
 
-There are some additional good practices and risks that you should be aware of when using {% data variables.product.prodname_github_codespaces %}. 
+#### Общие сведения о файле devcontainer.json репозитория
 
-#### Understanding a repository's devcontainer.json file
+При создании codespace, если файл `devcontainer.json` найден для репозитория, он анализируется и используется для настройки codespace. Файл `devcontainer.json` может содержать мощные функции, такие как установка сторонних расширений и выполнение произвольного кода, предоставленного в `postCreateCommand`.
 
-When you create a codespace, if a `devcontainer.json` file is found for your repository, it is parsed and used to configure your codespace. The `devcontainer.json` file can contain powerful features, such as installing third-party extensions and running arbitrary code supplied in a `postCreateCommand`.
+Дополнительные сведения см. в статье [Общие сведения о контейнерах разработки](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers).
 
-For more information, see "[Introduction to dev containers](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers)."
+#### Предоставление доступа с помощью функций
 
-#### Granting access through features
+Некоторые функции разработки могут привести к повышению риска в вашей среде. Например, к потенциальным проблемам при обеспечении безопасности могут привести подписывание фиксаций, секреты в переменных среды, доступ к репозиторию с проверкой подлинности и пакеты. Мы рекомендуем предоставлять доступ только тем пользователям, которым он необходим, и принять как можно более строгую политику доступа. 
 
-Certain development features can potentially add risk to your environment. For example, commit signing, secrets injected into environment variables, authenticated registry access, and packages access can all present potential security issues. We recommend that you only grant access to those who need it and adopt a policy of being as restrictive as possible. 
+#### Применение расширений
 
-#### Using extensions
-
-Any additional {% data variables.product.prodname_vscode_shortname %} extensions that you've installed can potentially introduce more risk. To help mitigate this risk, ensure that the you only install trusted extensions, and that they are always kept up to date.
+Любые дополнительные установленные расширения {% data variables.product.prodname_vscode_shortname %} также могут привести к увеличению риска. Чтобы устранить этот риск, устанавливайте только те расширения, которым вы доверяете, и регулярно обновляйте их.

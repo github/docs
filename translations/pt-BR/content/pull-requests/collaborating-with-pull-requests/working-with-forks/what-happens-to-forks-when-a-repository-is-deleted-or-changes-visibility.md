@@ -15,12 +15,12 @@ versions:
 topics:
   - Pull requests
 shortTitle: Deleted or changes visibility
-ms.openlocfilehash: d52215a7406edc84bc71022517f848faa9e48600
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.openlocfilehash: 95296f33d9163cd1171481386efd0a2351095c39
+ms.sourcegitcommit: 468a0323fa636517985a3e08e2772dbb0545cab8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/12/2022
-ms.locfileid: '147886795'
+ms.lasthandoff: 12/03/2022
+ms.locfileid: '148191352'
 ---
 {% data reusables.repositories.deleted_forks_from_private_repositories_warning %}
 
@@ -32,7 +32,7 @@ Quando você exclui um repositório privado, todas as bifurcações privadas del
 
 ## Excluir um repositório público
 
-Quando você exclui um repositório público, uma das bifurcações públicas existentes é escolhida para ser o novo repositório principal. Todos os outros repositórios são bifurcados a partir desse principal e as pull request subsequentes vão para ele também.
+Quando você exclui um repositório público, um dos forks públicos existentes é escolhido para ser o novo repositório upstream. Todos os outros repositórios são bifurcados a partir desse upstream e as solicitações de pull subsequentes vão para ele também.
 
 {% endif %}
 
@@ -44,9 +44,9 @@ Quando você exclui um repositório público, uma das bifurcações públicas ex
 
 ## Mudar de repositório público para repositório privado
 
-Se um repositório público passa a ser privado, as bifurcações públicas dele são divididas em uma nova rede. Assim como na exclusão de um repositório público, uma das bifurcações públicas existentes é escolhida para ser o novo repositório principal, todos os outros repositórios são bifurcados a partir dele e as pull requests subsequentes vão para esse repositório também.
+Se um repositório público passa a ser privado, as bifurcações públicas dele são divididas em uma nova rede. Assim como na exclusão de um repositório público, um dos forks públicos existentes é escolhido para ser o novo repositório upstream, todos os outros repositórios são bifurcados a partir dele As solicitações de pull subsequentes vão para esse repositório também.
 
-Ou seja, as bifurcações de um repositório público permanecerão públicas na própria rede de repositório separada, mesmo depois que o repositório principal se tornar privado. Isso permite que os proprietários da bifurcação continuem trabalhando e colaborando sem interrupção. Se os forks públicos não forem movidos para uma rede separada dessa forma, os proprietários desses forks precisarão obter as [permissões de acesso](/articles/access-permissions-on-github) apropriadas para efetuar pull das alterações do repositório pai (agora privado) e enviar solicitações de pull para ele, mesmo que eles não precisavam dessas permissões antes.
+Ou seja, os forks de um repositório público permanecerão públicos na própria rede de repositório separada, mesmo depois que o repositório upstream se tornar privado. Isso permite que os proprietários da bifurcação continuem trabalhando e colaborando sem interrupção. Se os forks públicos não forem movidos para uma rede separada dessa forma, os proprietários desses forks precisarão obter as [permissões de acesso](/articles/access-permissions-on-github) apropriadas para efetuar pull das alterações do repositório upstream (agora privado) e enviar solicitações de pull para ele, mesmo que eles não precisavam dessas permissões antes.
 
 {% ifversion ghes or ghae %} Se um repositório público tiver acesso de leitura anônimo do Git habilitado e o repositório passar a ser privado, todos os forks do repositório perderão o acesso de leitura anônimo do Git e retornarão à configuração padrão desabilitada. Se um repositório bifurcado passar a ser público, os administradores dele poderão reabilitar o acesso de leitura anônimo do Git. Para obter mais informações, confira "[Como habilitar o acesso de leitura anônimo do Git para um repositório](/enterprise/user/articles/enabling-anonymous-git-read-access-for-a-repository)".
 {% endif %}
@@ -57,7 +57,7 @@ Se um repositório público passa ser privado e depois é excluído, as bifurca�
 
 ## Mudar de repositório privado para repositório público
 
-Se um repositório privado passa a ser público, cada uma das bifurcações privadas dele é transformada em um repositório privado autônomo e se torna o principal da própria rede de repositório nova. As bifurcações privadas nunca são transformadas em públicas de forma automática porque podem conter commits confidenciais que não devem ser expostos publicamente.
+Se um repositório privado passa a ser público, cada um dos forks privados dele é transformado em um repositório privado autônomo e se torna o upstream da própria rede de repositório nova. As bifurcações privadas nunca são transformadas em públicas de forma automática porque podem conter commits confidenciais que não devem ser expostos publicamente.
 
 ### Excluir o repositório público
 

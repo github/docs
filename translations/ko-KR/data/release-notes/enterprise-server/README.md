@@ -1,14 +1,23 @@
 ---
-ms.openlocfilehash: a43b7fac5396fcbdb1b7d9ec241af9879de7b2b8
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
-ms.translationtype: HT
+ms.openlocfilehash: bf7a1cdb9c8b1300ef8ba8ab2dd427a9b5d28128
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2022
-ms.locfileid: "145115020"
+ms.lasthandoff: 12/09/2022
+ms.locfileid: "148193462"
 ---
 # GitHub Enterprise Server에 대한 릴리스 정보
 
 https://docs.github.com/en/enterprise-server@latest/admin/release-notes 에서 렌더링됩니다.
+
+## 사용되지 않는 GitHub Enterprise Server 릴리스에 릴리스 정보 추가
+
+[이 문제 템플릿](/.github/actions-scripts/enterprise-server-issue-templates/deprecation-issue.md)에 따라 GitHub Enterprise Server 릴리스가 사용되지 않는 동안 Docs Engineering은 버전 릴리스 정보를 사용하여 YAML 파일을 에서 `github/docs-internal`제거합니다.
+
+관련자가 사용되지 않는 릴리스 정보에 대한 업데이트를 요청하는 경우 다음 단계를 완료하여 메모를 업데이트할 수 있습니다.
+
+1. 장기 실행 분기를 확인하고 PR을 만들어 해당 분기 <code>enterprise-<em>VERSION</em>-release</code> 에서 사용되지 않는 버전의 릴리스 정보를 업데이트합니다.
+2. #docs 엔지니어링에 문의하여 Azure에 저장된 콘텐츠의 재스크래핑 및 업데이트를 요청합니다. [사용 중단 검사 목록](/.github/actions-scripts/enterprise-server-issue-templates/deprecation-issue.md)의 콘텐츠 다시 스크래핑에 대한 섹션을 참조하세요.
 
 ## 작동 방식
 
@@ -30,7 +39,7 @@ https://docs.github.com/en/enterprise-server@latest/admin/release-notes 에서 �
 
 ### 미들웨어 처리
 
-YAML 데이터는 `middleware/contextualizers/release-notes.js`에 의해 처리되고 정렬되어 `context` 개체에 추가됩니다.
+YAML 데이터는 `middleware/contextualizers/ghes-release-notes.js`에 의해 처리되고 정렬되어 `context` 개체에 추가됩니다.
 
 ### 레이아웃
 
@@ -40,6 +49,6 @@ YAML 데이터는 `middleware/contextualizers/release-notes.js`에 의해 처리
 
 ### 스키마
 
-YAML 데이터가 `tests/helpers/schemas/ghes-release-notes-schema.js`에 있는지 유효성을 검사하는 스키마입니다. 필수 및 선택적 속성을 확인하려면 스키마 파일을 참조하세요.
+YAML 데이터가 `tests/helpers/schemas/release-notes-schema.js`에 있는지 유효성을 검사하는 스키마입니다. 필수 및 선택적 속성을 확인하려면 스키마 파일을 참조하세요.
 
 스키마는 `tests/linting/lint-files.js`의 테스트에 의해 실행됩니다. 데이터가 유효성 검사를 통과하지 못하면 테스트가 실패합니다.

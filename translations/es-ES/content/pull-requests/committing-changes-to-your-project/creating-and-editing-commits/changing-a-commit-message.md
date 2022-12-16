@@ -1,73 +1,78 @@
 ---
-title: Changing a commit message
+title: Cambiar un mensaje de confirmación
 redirect_from:
   - /articles/can-i-delete-a-commit-message
   - /articles/changing-a-commit-message
   - /github/committing-changes-to-your-project/changing-a-commit-message
   - /github/committing-changes-to-your-project/creating-and-editing-commits/changing-a-commit-message
-intro: 'If a commit message contains unclear, incorrect, or sensitive information, you can amend it locally and push a new commit with a new message to {% data variables.product.product_name %}. You can also change a commit message to add missing information.'
+intro: 'Si un mensaje de confirmación contiene información poco clara, incorrecta o confidencial, puedes modificarlo localmente y subir una nueva confirmación con un nuevo mensaje para {% data variables.product.product_name %}. También puedes cambiar un mensaje de confirmación para agregar la información faltante.'
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
   ghec: '*'
+ms.openlocfilehash: fa4966da0fe443e6635b43fc9b3b11108d57cf6e
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145137149'
 ---
-## Rewriting the most recent commit message
+## Volver a escribir el mensaje de confirmación más reciente
 
-You can change the most recent commit message using the `git commit --amend` command.
+Puede cambiar el mensaje de confirmación más reciente mediante el comando `git commit --amend`.
 
-In Git, the text of the commit message is part of the commit. Changing the commit message will change the commit ID--i.e., the SHA1 checksum that names the commit. Effectively, you are creating a new commit that replaces the old one.
+En Git, el texto del mensaje de confirmación es parte de la confirmación. Cambiar el mensaje de la confirmación cambiará la commit ID-- es decir, el checksum de SHA1 que designa la confirmación. Efectivamente, estás creando una nueva confirmación que reemplaza a la anterior.
 
-## Commit has not been pushed online
+## La confirmación no se ha subido en línea
 
-If the commit only exists in your local repository and has not been pushed to {% data variables.location.product_location %}, you can amend the commit message with the `git commit --amend` command.
+Si la confirmación solo existe en el repositorio local y no se ha insertado en {% data variables.product.product_location %}, puede modificar el mensaje de confirmación con el comando `git commit --amend`.
 
-1. On the command line, navigate to the repository that contains the commit you want to amend.
-2. Type `git commit --amend` and press **Enter**.
-3. In your text editor, edit the commit message, and save the commit.
-    - You can add a co-author by adding a trailer to the commit. For more information, see "[Creating a commit with multiple authors](/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/creating-a-commit-with-multiple-authors)."
+1. En la línea de comando, desplázate hasta el repositorio que contiene la confirmación que deseas modificar.
+2. Escriba `git commit --amend` y presione **Entrar**.
+3. En tu editor de texto, edita el mensaje de confirmación y guarda la confirmación.
+    - Puedes agregar un coautor al agregar una introducción a la confirmación. Para más información, vea "[Creación de una confirmación con varios autores](/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/creating-a-commit-with-multiple-authors)".
 {% ifversion fpt or ghec %}
-    - You can create commits on behalf of your organization by adding a trailer to the commit. For more information, see "[Creating a commit on behalf of an organization](/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/creating-a-commit-on-behalf-of-an-organization)"
-{% endif %}
+    - Puedes crear confirmaciones en nombre de tu organización agregando una introducción al mensaje de la confirmación. Para más información, vea "[Creación de una confirmación en nombre de una organización](/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/creating-a-commit-on-behalf-of-an-organization)". {% endif %}
 
-The new commit and message will appear on {% data variables.location.product_location %} the next time you push.
+El nuevo mensaje y la confirmación aparecerán en {% data variables.product.product_location %} la próxima vez que subas un cambio.
 
 {% tip %}
 
-You can change the default text editor for Git by changing the `core.editor` setting. For more information, see "[Basic Client Configuration](https://git-scm.com/book/en/Customizing-Git-Git-Configuration#_basic_client_configuration)" in the Git manual.
+Puede cambiar el editor de texto predeterminado para Git si modifica el valor `core.editor`. Para más información, vea "[Configuración básica del cliente](https://git-scm.com/book/en/Customizing-Git-Git-Configuration#_basic_client_configuration)" en el manual de Git.
 
 {% endtip %}
 
-## Amending older or multiple commit messages
+## Medificar mensajes de confirmación antiguos o múltiples
 
-If you have already pushed the commit to {% data variables.location.product_location %}, you will have to force push a commit with an amended message.
+Si ya subiste la confirmación a {% data variables.product.product_location %}, tendrás que subir forzadamente una confirmación con un mensaje modificado.
 
 {% warning %}
 
-We strongly discourage force pushing, since this changes the history of your repository. If you force push, people who have already cloned your repository will have to manually fix their local history. For more information, see "[Recovering from upstream rebase](https://git-scm.com/docs/git-rebase#_recovering_from_upstream_rebase)" in the Git manual.
+Desalentamos enfáticamente que se realicen subidas forzadas, dado que esto cambia el historial de tu repositorio. Si haces subidas forzadas, las personas que ya hayan clonado tu repositorio tendrán que arreglar su historial local manualmente. Para más información, vea "[Recuperación de la fusión mediante cambio de base ascendente](https://git-scm.com/docs/git-rebase#_recovering_from_upstream_rebase)" en el manual de Git.
 
 {% endwarning %}
 
-**Changing the message of the most recently pushed commit**
+**Cambio del mensaje de la confirmación insertada más recientemente**
 
-1. Follow the [steps above](/articles/changing-a-commit-message#commit-has-not-been-pushed-online) to amend the commit message.
-2. Use the `push --force-with-lease` command to force push over the old commit.
+1. Siga los [pasos anteriores](/articles/changing-a-commit-message#commit-has-not-been-pushed-online) para modificar el mensaje de confirmación.
+2. Use el comando `push --force-with-lease` para forzar la inserción sobre la confirmación anterior.
   ```shell
-  $ git push --force-with-lease origin EXAMPLE-BRANCH
+  $ git push --force-with-lease origin <em>example-branch</em>
   ```
 
-**Changing the message of older or multiple commit messages**
+**Cambio del mensaje de mensajes anteriores o varios mensajes de confirmación**
 
-If you need to amend the message for multiple commits or an older commit, you can use interactive rebase, then force push to change the commit history.
+Si necesitas modificar el mensaje de varias confirmaciones o de una confirmación antigua, puedes utilizar un rebase interactivo y luego hacer una subida forzada para cambiar el historial de la confirmación.
 
-1. On the command line, navigate to the repository that contains the commit you want to amend.
-2. Use the `git rebase -i HEAD~n` command to display a list of the last `n` commits in your default text editor.
+1. En la línea de comando, desplázate hasta el repositorio que contiene la confirmación que deseas modificar.
+2. Use el comando `git rebase -i HEAD~n` para mostrar una lista de las últimas confirmaciones `n` en el editor de texto predeterminado.
 
     ```shell
     # Displays a list of the last 3 commits on the current branch
     $ git rebase -i HEAD~3
     ```
-    The list will look similar to the following:
+    La lista se verá parecida a la siguiente:
 
     ```shell
     pick e499d89 Delete CNAME
@@ -92,33 +97,33 @@ If you need to amend the message for multiple commits or an older commit, you ca
     #
     # Note that empty commits are commented out
     ```
-3. Replace `pick` with `reword` before each commit message you want to change.
+3. Reemplace `pick` por `reword` antes de cada mensaje de confirmación que quiera cambiar.
   ```shell
   pick e499d89 Delete CNAME
   reword 0c39034 Better README
   reword f7fde4a Change the commit message but push the same commit.
   ```
-4. Save and close the commit list file.
-5. In each resulting commit file, type the new commit message, save the file, and close it.
-6. When you're ready to push your changes to GitHub, use the push --force command to force push over the old commit.
+4. Guardar y cerrar el archivo con la lista de confirmaciones.
+5. En cada archivo de confirmación resultante, escribe el nuevo mensaje de confirmación, guarda el archivo, y ciérralo.
+6. Cuando estès listo para subir tus cambios a GitHub, utiliza el comando push --force para subir el cambio forzadamente sobre la confirmaciòn antigua.
 ```shell
-$ git push --force origin EXAMPLE-BRANCH
+$ git push --force origin <em>example-branch</em>
 ```
 
-For more information on interactive rebase, see "[Interactive mode](https://git-scm.com/docs/git-rebase#_interactive_mode)" in the Git manual.
+Para más información sobre la fusión mediante cambio de base interactiva, vea "[Modo interactivo](https://git-scm.com/docs/git-rebase#_interactive_mode)" en el manual de Git.
 
 {% tip %}
 
-As before, amending the commit message will result in a new commit with a new ID. However, in this case, every commit that follows the amended commit will also get a new ID because each commit also contains the id of its parent.
+Como se mencionó anteriormente, el modificar el mensaje de confirmación dará como resultado una confirmación nueva con una ID nueva. Sin embargo, en este caso, cada confirmación que siga a la confirmación modificada también obtendrá una ID nueva, ya que cada confirmación contiene también la id de su padre.
 
 {% endtip %}
 
 {% warning %}
 
-If you have included sensitive information in a commit message, force pushing a commit with an amended commit may not remove the original commit from {% data variables.product.product_name %}. The old commit will not be a part of a subsequent clone; however, it may still be cached on {% data variables.product.product_name %} and accessible via the commit ID. You must contact {% data variables.contact.contact_support %} with the old commit ID to have it purged from the remote repository.
+Si incluiste información sensible en un mensaje de confirmación, el subir dicha confirmación forzadamente con una confirmación modificada no eliminará la confirmación original de {% data variables.product.product_name %}. La confirmación anterior no será parte del clon siguiente; sin embargo, es posible que siga almacenada en el caché de {% data variables.product.product_name %} y que se pueda acceder a ella a través de la ID de la confirmación. Debes contactar a {% data variables.contact.contact_support %} con la ID de confirmación anterior para que la purguen del repositorio remoto.
 
 {% endwarning %}
 
-## Further reading
+## Información adicional
 
-* "[Signing commits](/articles/signing-commits)"
+* "[Firma de confirmaciones](/articles/signing-commits)"

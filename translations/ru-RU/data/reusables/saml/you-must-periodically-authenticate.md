@@ -1,1 +1,9 @@
-You must periodically authenticate with your SAML IdP to authenticate and gain access to {% ifversion fpt or ghec %}the organization's resources on {% data variables.product.prodname_dotcom_the_website %}{% elsif ghae %}{% data variables.location.product_location %}{% endif %}. The duration of this login period is specified by your IdP and is generally 24 hours. This periodic login requirement limits the length of access and requires you to re-identify yourself to continue. {% ifversion fpt or ghec %}You can view and manage your active SAML sessions in your security settings. For more information, see "[Viewing and managing your active SAML sessions](/articles/viewing-and-managing-your-active-saml-sessions)."{% endif %}
+---
+ms.openlocfilehash: b6491c615c79c405ccb5ad07fc6b5bebb5bd6a63
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/20/2022
+ms.locfileid: "148099204"
+---
+Для проверки подлинности и получения доступа к {% ifversion fpt или ghec %}ресурсы организации в {% данных variables.product.prodname_dotcom_the_website %}{% elsif ghae %}{% данных% variables.location.product_location %}{% endif %}. Продолжительность этого периода для входа задается поставщиком удостоверений и обычно составляет 24 часа. Такое требование периодического входа ограничивает продолжительность доступа и требует от вас повторной идентификации для продолжения работы. {% ifversion fpt or ghec %}Вы можете просматривать активные сеансы SAML и управлять ими в параметрах безопасности. Дополнительные сведения см. в разделе [Просмотр активных сеансов SAML и управление ими](/articles/viewing-and-managing-your-active-saml-sessions).{% endif %}

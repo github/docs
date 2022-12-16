@@ -8,12 +8,12 @@ versions:
   ghes: '*'
 topics:
   - Support
-ms.openlocfilehash: 35c7b28232c0d11170ea9585480b2cfb1785ebd0
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: b735331d90c590ff6911fed44e181563b44bfc27
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147051979'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148193386'
 ---
 ## À propos de la gestion des tickets
 
@@ -27,7 +27,12 @@ Vous pouvez utiliser le [portail de support GitHub](https://support.github.com/)
 
 {% data reusables.support.view-open-tickets %}
 1. Sous la zone de texte, vous pouvez lire l’historique des commentaires. La réponse la plus récente apparaît en haut.
-![Capture d’écran de l’historique des commentaires de tickets de support, avec la réponse la plus récente en haut.](/assets/images/help/support/support-recent-response.png)
+
+   ![Capture d’écran de l’historique des commentaires de tickets de support, avec la réponse la plus récente en haut](/assets/images/help/support/support-recent-response.png)
+
+1. Si vous le souhaitez, pour traduire le commentaire du ticket, cliquez sur {% octicon "globe" aria-label="The globe icon" %} et choisissez votre langue préférée dans le menu déroulant. Vous pouvez traduire votre ticket de support en chinois (simplifié), en français, en allemand, en japonais, en portugais (Brésil) ou en espagnol.
+
+   ![Capture d’écran d’un ticket de support avec le menu déroulant montrant les options de traduction en évidence](/assets/images/help/support/support-ticket-translation-options.png)
 
 {% ifversion ghec or ghes or ghae %}
 

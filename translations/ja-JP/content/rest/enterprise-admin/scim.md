@@ -1,74 +1,77 @@
 ---
 title: SCIM
-intro: You can automate user creation and team memberships using the SCIM API.
+intro: SCIM API を使用して、ユーザーの作成とチーム メンバーシップを自動化できます。
 versions:
   ghes: '>=3.6'
 topics:
   - API
 miniTocMaxHeadingLevel: 3
+ms.openlocfilehash: ef20e958e8a0680425e116f9d7e576291b793766
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148107278'
 ---
-
 {% data reusables.scim.ghes-beta-note %}
 
 {% data reusables.user-settings.enterprise-admin-api-classic-pat-only %}
-## About the SCIM API
+## SCIM API について
 
-{% data variables.product.product_name %} provides a SCIM API for use by SCIM-enabled Identity Providers (IdPs). An integration on the IdP can use the API to automatically provision, manage, or deprovision user accounts on a {% data variables.product.product_name %} instance that uses SAML single sign-on (SSO) for authentication. For more information about SAML SSO, see "[About SAML for enterprise IAM](/admin/identity-and-access-management/using-saml-for-enterprise-iam/about-saml-for-enterprise-iam)."
+{% data variables.product.product_name %} には、SCIM 対応 ID プロバイダー (IdP) で使用するための SCIM API が用意されています。 IdP の統合では、API を使用して、認証に SAML シングル サインオン (SSO) を使う {% data variables.product.product_name %} インスタンスでユーザー アカウントを自動的にプロビジョニング、管理、またはプロビジョニング解除できます。 詳しくは、「[Enterprise IAM の SAML について](/admin/identity-and-access-management/using-saml-for-enterprise-iam/about-saml-for-enterprise-iam)」を参照してください。
 
-The SCIM API is based on SCIM 2.0. For more information, see the [specification](https://www.simplecloud.info/#Specification).
+SCIM API は SCIM 2.0 に基づいています。 詳細については、[仕様](https://www.simplecloud.info/#Specification)に関する記事を参照してください。
 
-### SCIM endpoint URLs
+### SCIM エンドポイント URL
 
-An IdP can use the following root URL to communicate with the SCIM API for a {% data variables.product.product_name %} instance.
+IdP は、次のルート URL を使用して、{% data variables.product.product_name %} インスタンスの SCIM API と通信できます。
 
 ```
 {% data variables.product.api_url_code %}/scim/v2/
 ```
 
-Endpoint URLs for the SCIM API are case-sensitive. For example, the first letter in the `Users` endpoint must be capitalized.
+SCIM API のエンドポイント URL では、大文字と小文字が区別されます。 たとえば、`Users` エンドポイントの最初の文字は大文字にする必要があります。
 
 ```shell
 GET /scim/v2/Users/{scim_user_id}
 ```
 
-### Authenticating calls to the SCIM API
+### SCIM API への呼び出しを認証する
 
-The SCIM integration on the IdP performs actions on behalf of an enterprise owner for the {% data variables.product.product_name %} instance. For more information, see "[Roles in an enterprise](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise#enterprise-owners)."
+IdP での SCIM 統合では、{% data variables.product.product_name %} インスタンスの Enterprise 所有者に代わってアクションが実行されます。 詳細については、「[Enterprise におけるロール](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise#enterprise-owners)」を参照してください。
 
-To authenticate requests to the API, the person who configures SCIM on the IdP must use a {% data variables.product.pat_v1 %} with `admin:enterprise` scope, which the IdP must provide in the request's `Authorization` header. For more information about {% data variables.product.pat_v1_plural %}, see "[Creating a {% data variables.product.pat_generic %}](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)".
+API に対する要求を認証するには、IdP で SCIM を構成するユーザーは、`admin:enterprise` スコープを持つ {% data variables.product.pat_v1 %} を使用する必要があります。このスコープは、IdP が要求の `Authorization` ヘッダーで指定する必要があります。 {% data variables.product.pat_v1_plural %} について詳しくは、「[{% data variables.product.pat_generic %} の作成](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)」を参照してください。
 
 {% note %}
 
-**Note:** Enterprise owners must generate and use a {% data variables.product.pat_v1 %} for authentication of requests to the SCIM API. {% ifversion ghes > 3.8 %}{% data variables.product.pat_v2_caps %} and {% endif %}GitHub app callers are not supported at this time.
+**注:** Enterprise 所有者は、SCIM API への要求の認証のために {% data variables.product.pat_v1 %} を生成して使用する必要があります。 {% ifversion ghes > 3.8 %}{% data variables.product.pat_v2_caps %} と {% endif %}GitHub アプリの呼び出し元は、現時点ではサポートされていません。
 
 {% endnote %}
 
-### About mapping of SAML and SCIM data
+### SAML と SCIM データのマッピングについて
   
-The {% data variables.product.product_name %} instance links each user who authenticates successfully with SAML SSO to a SCIM identity. To link the identities successfully, the SAML IdP and the SCIM integration must use matching SAML `NameID` and SCIM `userName` values for each user.
+{% data variables.product.product_name %} インスタンスにより、SAML SSO で正常に認証された各ユーザーが SCIM ID にリンクされます。 ID を正常にリンクするには、SAML IdP と SCIM の統合で、各ユーザーに一致する SAML `NameID` と SCIM `userName` の値を使用する必要があります。
 
-{% ifversion ghes > 3.7 %}
-{% note %}
+{% ifversion ghes > 3.7 %} {% note %}
 
-**Note:** If the {% data variables.product.product_name %} uses Azure AD as a SAML IdP, {% data variables.product.product_name %} will also check the SCIM `externalId` claim and SAML `http://schemas.microsoft.com/identity/claims/objectidentifier` claim to match users first, instead of using `NameID` and `userName`. 
+**注:** {% data variables.product.product_name %} で SAML IdP として Azure AD が使用されている場合、{% data variables.product.product_name %} では、`NameID` と `userName` を使用する代わりに、最初にユーザーと一致するように SCIM `externalId` 要求と SAML `http://schemas.microsoft.com/identity/claims/objectidentifier` 要求も確認されます。 
 
-{% endnote %}
-{% endif %}
+{% endnote %} {% endif %}
 
-### Supported SCIM user attributes
+### サポートされている SCIM ユーザー属性
 
-The SCIM API's `User` endpoints support the following attributes within a request's parameters.
+SCIM API の `User` エンドポイントでは、要求のパラメーター内で次の属性がサポートされます。
 
-| Name | Type | Description |
+| 名前 | 型 | 説明 |
 | :- | :- | :- |
-| `displayName` | String | Human-readable name for a user. |
-| `name.formatted` | String | The user's full name, including all middle names, titles, and suffixes, formatted for display.
-| `name.givenName` | String | The first name of the user. |
-| `name.familyName` | String | The last name of the user. |
-| `userName` | String | The username for the user, generated by the IdP. Undergoes [normalization](/admin/identity-and-access-management/managing-iam-for-your-enterprise/username-considerations-for-external-authentication#about-username-normalization) before being used. 
-| `emails` | Array | List of the user's emails. |
-| `roles` | Array | List of the user's roles. |
-| `externalId` | String | This identifier is generated by an IdP provider. You can find the `externalId` for a user either on the IdP, or by using the [List SCIM provisioned identities](#list-scim-provisioned-identities-for-an-enterprise) endpoint and filtering on other known attributes, such as a user's username or email address on the {% data variables.product.product_name %} instance. |
-| `id` | String | Identifier generated by the instance's SCIM endpoint. |
-| `active` | Boolean | Indicates whether the identity is active (`true`) or should be suspended (`false`). |
+| `displayName` | String | 人が判読できるユーザーの名前。 |
+| `name.formatted` | String | 表示用に書式設定された、すべてのミドル ネーム、役職、サフィックスを含む、ユーザーのフル ネーム。
+| `name.givenName` | String | ユーザーの名。 |
+| `name.familyName` | String | ユーザーの姓。 |
+| `userName` | String | IdP によって生成されたユーザーのユーザー名。 使用する前に[正規化](/admin/identity-and-access-management/managing-iam-for-your-enterprise/username-considerations-for-external-authentication#about-username-normalization)を行います。 
+| `emails` | Array | ユーザーのメールの一覧。 |
+| `roles` | Array | ユーザーのロールの一覧。 |
+| `externalId` | String | この識別子は、IdP プロバイダーによって生成されます。 ユーザーの `externalId` は、IdP で、または [SCIM でプロビジョニングされたアイデンティティの一覧表示](#list-scim-provisioned-identities-for-an-enterprise)エンドポイントを使用し、{% data variables.product.product_name %} インスタンスのユーザーのユーザー名やメール アドレスなどの他の既知の属性でフィルター処理して見つけることができます。 |
+| `id` | String | インスタンスの SCIM エンドポイントによって生成された識別子。 |
+| `active` | Boolean | ID がアクティブである (`true`) か、中断する必要がある (`false`) かを示します。 |
 
