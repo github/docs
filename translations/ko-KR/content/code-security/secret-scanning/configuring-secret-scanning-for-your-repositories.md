@@ -8,6 +8,7 @@ redirect_from:
   - /github/administering-a-repository/configuring-secret-scanning-for-your-repositories
   - /code-security/secret-security/configuring-secret-scanning-for-your-repositories
 versions:
+  fpt: '*'
   ghes: '*'
   ghae: '*'
   ghec: '*'
