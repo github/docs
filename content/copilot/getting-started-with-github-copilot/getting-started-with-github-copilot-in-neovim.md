@@ -21,7 +21,7 @@ If you use a Neovim, you can view and incorporate suggestions from {% data varia
 
 - To use {% data variables.product.prodname_copilot %} you must have an active {% data variables.product.prodname_copilot %} subscription. For more information, see "[About billing for {% data variables.product.prodname_copilot %}](/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot)."
 
-- To use {% data variables.product.prodname_copilot %} in Neovim you must have Neovim version 0.6+ and Node.js version 17 or below installed. For more information, see the [Neovim documentation](https://neovim.io/doc/) and the [Node.js website](https://nodejs.org/en/).
+- To use {% data variables.product.prodname_copilot %} in Neovim you must have Neovim version 0.6 or above and Node.js version 17 or below installed. For more information, see the [Neovim documentation](https://neovim.io/doc/) and the [Node.js website](https://nodejs.org/en/).
 
 ## Installing the Neovim extension
 
