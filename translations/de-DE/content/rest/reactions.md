@@ -1,6 +1,6 @@
 ---
 title: Reaktionen
-intro: 'Mit der Reaktions-API kannst du Reaktionen auf Kommentare erstellen, auflisten und löschen.'
+intro: 'Verwende die REST-API, um mit Reaktionen auf {% data variables.product.prodname_dotcom %} zu interagieren.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,15 +11,15 @@ topics:
 miniTocMaxHeadingLevel: 3
 redirect_from:
   - /rest/reference/reactions
-ms.openlocfilehash: 6598b1f9a42c2520b3e48062ae730c3873d5e657
-ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.openlocfilehash: b6b8b10a28fdc48963fae6da931d9dd5b3af5a4d
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/11/2022
-ms.locfileid: '147063434'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148193352'
 ---
-## Informationen zur Reaktions-API
+## Informationen zu Reaktionen
 
-Du kannst Reaktionen auf Kommentare mithilfe der Reaktions-API erstellen und verwalten. Beim Erstellen einer Reaktion sind folgende Werte für den `content`-Parameter zulässig (mit dem entsprechenden Emoji zur Referenz):
+Du kannst Reaktionen auf Kommentare, Issues, Pull Requests und Diskussionen auf {% data variables.product.prodname_dotcom %} erstellen und verwalten. Beim Erstellen einer Reaktion sind folgende Werte für den `content`-Parameter zulässig (mit dem entsprechenden Emoji zur Referenz):
 
 {% data reusables.repositories.reaction_list %}

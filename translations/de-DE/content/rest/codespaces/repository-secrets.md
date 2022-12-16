@@ -2,7 +2,7 @@
 title: Repositorygeheimnisse von Codespaces
 allowTitleToDifferFromFilename: true
 shortTitle: Repository secrets
-intro: "Die API der Repositorygeheimnisse von Codespaces ermöglicht Benutzern, Geheimnisse (z.\_B. Zugriffstoken für Clouddienste) für Repositorys zu erstellen, aufzulisten und zu löschen, auf die Benutzer in einem Codespace Zugriff haben."
+intro: 'Verwende die REST-API, um Geheimnisse für Repositorys zu verwalten, auf die der Benutzer Zugriff in einem Codespace hat.'
 permissions: 'Users with write access to a repository can manage {% data variables.product.prodname_codespaces %} repository secrets.'
 versions:
   fpt: '*'
@@ -10,13 +10,13 @@ versions:
 topics:
   - API
 miniTocMaxHeadingLevel: 3
-ms.openlocfilehash: 95b3dfaafef598bf05f55d697716eb1036093697
-ms.sourcegitcommit: 9490533fcb7b7d5c16f8fea082a06ee66dd5db8f
+ms.openlocfilehash: f38e196db7ab0601a28612cf13c363f18181342a
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/16/2022
-ms.locfileid: '148165601'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148192729'
 ---
-## Informationen zur API der Repositorygeheimnisse von Codespaces
+## Informationen zu {% data variables.product.prodname_codespaces %}-Repositorygeheimnissen
 
-Die API der Repositorygeheimnisse von Codespaces ermöglicht Benutzer*innen, Geheimnisse (z. B. Zugriffstoken für Clouddienste) für Repositorys zu erstellen, aufzulisten und zu löschen, auf die Benutzer*innen Zugriff haben. Diese Geheimnisse werden dem Codespace zur Laufzeit zur Verfügung gestellt. Weitere Informationen findest du unter [Verwalten verschlüsselter Geheimnisse für deine Codespaces](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces).
+Du kannst Geheimnisse (z. B. Zugriffstoken für Clouddienste) für die Repositorys erstellen, auflisten und löschen, auf die der Benutzer Zugriff hat. Diese Geheimnisse werden dem Codespace zur Laufzeit zur Verfügung gestellt. Weitere Informationen findest du unter [Verwalten verschlüsselter Geheimnisse für deine Codespaces](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces).

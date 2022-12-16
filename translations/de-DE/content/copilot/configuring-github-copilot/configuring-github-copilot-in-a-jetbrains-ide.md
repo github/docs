@@ -7,16 +7,18 @@ topics:
 versions:
   feature: copilot
 shortTitle: JetBrains
-ms.openlocfilehash: 845f9306f519391f165dd00d3eefebed67bd409a
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 9f0f35bf5aebbf1899bd3991b0bca9e62f1da6ed
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147080286'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148193364'
 ---
 ## Informationen zu {% data variables.product.prodname_copilot %} in JetBrains-IDEs
 
-Wenn du eine Jetbrains-IDE verwendest, kann {% data variables.product.prodname_copilot %} den Code bei deiner Eingabe automatisch vervollständigen. Nach der Installation kannst du {% data variables.product.prodname_copilot %} aktivieren oder deaktivieren. Außerdem kannst du erweiterte Einstellungen innerhalb deiner IDE oder auf {% data variables.product.prodname_dotcom_the_website %} konfigurieren.
+Wenn du eine Jetbrains-IDE verwendest, kann {% data variables.product.prodname_copilot %} den Code bei deiner Eingabe automatisch vervollständigen. Nach der Installation kannst du {% data variables.product.prodname_copilot %} aktivieren oder deaktivieren. Außerdem kannst du erweiterte Einstellungen innerhalb deiner IDE oder auf {% data variables.product.prodname_dotcom_the_website %} konfigurieren. In diesem Artikel wird beschrieben, wie {% data variables.product.prodname_copilot %} in der IntelliJ-IDE konfiguriert wird. Die Benutzeroberflächen anderer Jetbrains-IDEs können sich jedoch davon unterscheiden.
+
+{% data reusables.copilot.dotcom-settings %}
 
 ## Voraussetzungen
 
@@ -83,6 +85,21 @@ Du kannst erweiterte Einstellungen für {% data variables.product.prodname_copil
 1. Bearbeite die Einstellungen gemäß deiner persönlichen Voreinstellungen.
    - Wenn du das Verhalten, die Darstellung von Codevorschlägen und ob automatisch nach Updates gesucht werden soll, anpassen möchtest, aktiviere oder deaktiviere die entsprechenden Kontrollkästchen.
    - Wenn du dich für automatische Updates entschieden hast, kannst du wählen, ob du stabile, aber weniger häufige Updates erhalten möchtest, oder nächtliche Updates, die weniger stabil sind. Klicke auf das Dropdownmenü **Kanal aktualisieren**, und wähle **Stabil** für stabile Updates oder **Nächtlich** für nächtliche Updates aus.
-   - Aktiviere bzw. deaktiviere unter „Deaktivierte Sprachen“ die entsprechenden Kontrollkästchen, um Sprachen für {% data variables.product.prodname_copilot %} zu deaktivieren.
+   - Aktiviere bzw. deaktiviere unter „Deaktivierte Sprachen“ die entsprechenden Kontrollkästchen, um die Sprachen auszuwählen, für die du {% data variables.product.prodname_copilot %} deaktivieren möchtest.
+
+## Konfigurieren von Proxyeinstellungen für {% data variables.product.prodname_copilot %}
+
+Du kannst {% data variables.product.prodname_copilot %} so konfigurieren, dass eine Verbindung über einen HTTP-Proxyserver in einer Jetbrains-IDE hergestellt wird. {% data variables.product.prodname_copilot %} unterstützt grundlegende HTTP-Proxysetups mit oder ohne Standardauthentifizierung. 
+
+1. Klicke in deiner JetBrains-IDE auf das Menü **Datei** und dann auf **Einstellungen**.
+1. Klicke unter **Darstellung und Verhalten** auf **Systemeinstellungen** und dann auf **HTTP-Proxy**.
+1. Aktiviere das Kontrollkästchen **Manuelle Proxykonfiguration** und dann das Kontrollkästchen **HTTP**.
+1. Gib im Feld „Hostname“ den Hostnamen deines Proxyservers und im Feld „Portnummer“ die Portnummer deines Proxyservers ein.
+
+    ![Screenshot: HTTP-Proxyeinstellungen in JetBrains](/assets/images/help/copilot/proxy-configuration-jetbrains.png)
+
+1. Klicke optional auf der linken Seitenleiste auf **Extras** und dann auf **Serverzertifikate**. Aktiviere oder deaktiviere dann das Kontrollkästchen „Nicht vertrauenswürdige Zertifikate automatisch akzeptieren“, je nachdem, ob nicht vertrauenswürdige Zertifikate automatisch akzeptiert werden sollen.
+
+    ![Screenshot: Serverzertifikateinstellungen in JetBrains](/assets/images/help/copilot/server-certificates-jetbrains.png)
 
 {% data reusables.copilot.dotcom-settings %}

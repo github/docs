@@ -14,12 +14,12 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
-ms.openlocfilehash: 75e3d0a69a06274e803fc59affc959b2cb5abee3
-ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.openlocfilehash: 4fe01f80ec64f8029b1b2bce1d776da4eddfbd75
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/09/2022
-ms.locfileid: '147704995'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148192841'
 ---
 {% data reusables.package_registry.packages-ghes-release-stage %} {% data reusables.package_registry.packages-ghae-release-stage %}
 
@@ -27,16 +27,15 @@ ms.locfileid: '147704995'
 
 Ob du ein Paket anzeigen kannst, hängt von mehreren Faktoren ab. Du kannst standardmäßig alle Pakete anzeigen, die du veröffentlicht hast.
 
-Repositorybezogene Pakete erben die Berechtigungen und Sichtbarkeit des Repositorys, in dessen Besitz sie sich befinden. Die folgenden Registrierungen verwenden **ausschließlich** diese Art von Berechtigungen:{% ifversion not fpt or ghec %}
-- Docker-Registrierung (`docker.pkg.github.com`){% endif %} {% ifversion packages-npm-v2 %}{% else %}- npm-Registrierung {% endif %}
-- RubyGems-Registrierung
-- Apache Maven-Registrierung
-- NuGet-Registrierung
+{% ifversion packages-registries-v2 %} Repositorybezogene Pakete erben die Berechtigungen und Sichtbarkeit des Repositorys, in dessen Besitz sie sich befinden. Einige Registrierungen unterstützen **nur** repositorybezogene Pakete. Eine Liste dieser Registrierungen findest du unter [Informationen zu Berechtigungen für {% data variables.product.prodname_registry %}](/packages/learn-github-packages/about-permissions-for-github-packages#permissions-for-repository-scoped-packages).
 
-{% ifversion fpt or ghec %} Die {% data variables.product.prodname_ghcr_and_npm_registry %} bieten dir die Möglichkeit, präzise Berechtigungen und Sichtbarkeitseinstellungen für jedes Paket zu konfigurieren, das sich im Besitz eines persönlichen Benutzerkontos oder eines Organisationskontos befindet. Du kannst präzise Berechtigungen verwenden oder das Paket mit einem Repository verbinden und die Berechtigungen erben. Weitere Informationen findest du unter [Verbinden eines Repositorys mit einem Paket](/packages/learn-github-packages/connecting-a-repository-to-a-package).
+Mit anderen Registrierungen kannst du präzise Berechtigungen gewähren und Sichtbarkeitseinstellungen festlegen, die für jedes Paket angepasst werden können, das sich im Besitz eines persönlichen Benutzer- oder Organisationskontos befindet. Du kannst präzise Berechtigungen verwenden oder das Paket mit einem Repository verbinden und die Berechtigungen des Repositorys erben. Weitere Informationen findest du unter [Verbinden eines Repositorys mit einem Paket](/packages/learn-github-packages/connecting-a-repository-to-a-package) und [Konfigurieren der Zugriffssteuerung und Sichtbarkeit eines Pakets](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility).
+
+{% else %}
+
+Pakete erben ihre Berechtigungen und Sichtbarkeit von dem Repository, in dem sie gehostet werden. Weitere Informationen findest du unter [Informationen zu Berechtigungen für {% data variables.product.prodname_registry %}](/packages/learn-github-packages/about-permissions-for-github-packages).
+
 {% endif %}
-
-Weitere Informationen findest du unter [Informationen zu Berechtigungen für GitHub Packages](/packages/learn-github-packages/about-permissions-for-github-packages){% ifversion fpt or ghec %} und [Konfigurieren der Zugriffssteuerung und Sichtbarkeit für ein Paket](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility){% endif %}.
 
 {% data reusables.package_registry.package-page-info %}
 

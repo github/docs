@@ -8,6 +8,7 @@ redirect_from:
   - /github/administering-a-repository/configuring-secret-scanning-for-your-repositories
   - /code-security/secret-security/configuring-secret-scanning-for-your-repositories
 versions:
+  fpt: '*'
   ghes: '*'
   ghae: '*'
   ghec: '*'
@@ -17,26 +18,38 @@ topics:
   - Advanced Security
   - Repositories
 shortTitle: Configure secret scans
-ms.openlocfilehash: 00983398e326997b6472da319d342ab0758018d3
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.openlocfilehash: 7739cca195f46043945f39f48aad8bf88aa97fed
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/11/2022
-ms.locfileid: '147885716'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148192937'
 ---
 {% data reusables.secret-scanning.beta %} {% data reusables.secret-scanning.enterprise-enable-secret-scanning %}
 
 ## Aktivieren von {% data variables.product.prodname_secret_scanning_GHAS %}
 
-Du kannst {% data variables.product.prodname_secret_scanning_GHAS %} für jedes Repository aktivieren, das sich im Besitz einer Organisation befindet. Nach der Aktivierung sucht {% data reusables.secret-scanning.secret-scanning-process %}
+Du kannst {% data variables.product.prodname_secret_scanning_GHAS %} für jedes Repository aktivieren, das sich im Besitz einer Organisation befindet. Nach der Aktivierung {% data reusables.secret-scanning.secret-scanning-process %} {% ifversion secret-scanning-issue-body-comments %}{% data reusables.secret-scanning.scan-issue-description-and-comments %}
+
+{% note %}
+
+**Hinweis:** {% data variables.product.prodname_secret_scanning_caps %} für Problembeschreibungen und Kommentare liegt derzeit in der öffentlichen Betaversion vor und kann noch geändert werden.
+
+{% endnote %} {% endif %}
+
+{% ifversion secret-scanning-enterprise-level %} {% note %}
+
+**Hinweis:** Wenn sich deine Organisation im Besitz eines Unternehmenskontos befindet, kann ein Unternehmensbesitzer {% data variables.product.prodname_secret_scanning %} auch auf Unternehmensebene aktivieren. Weitere Informationen findest du unter [Verwalten von {% data variables.product.prodname_GH_advanced_security %}-Features für dein Unternehmen](/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise).
+
+{% endnote %} {% endif %}
 
 {% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %} {% data reusables.repositories.navigate-to-code-security-and-analysis %}
-4. Wenn {% data variables.product.prodname_advanced_security %} für dein Repository noch nicht aktiviert ist, klicke rechts neben „{% data variables.product.prodname_GH_advanced_security %}“ auf **Aktivieren**.
+1. Wenn {% data variables.product.prodname_advanced_security %} für dein Repository noch nicht aktiviert ist, klicke rechts neben „{% data variables.product.prodname_GH_advanced_security %}“ auf **Aktivieren**.
    {% ifversion fpt or ghec %}![Aktivieren von {% data variables.product.prodname_GH_advanced_security %} für dein Repository](/assets/images/help/repository/enable-ghas-dotcom.png) {% elsif ghes or ghae %}![Aktivieren von {% data variables.product.prodname_GH_advanced_security %} für dein Repository](/assets/images/enterprise/3.1/help/repository/enable-ghas.png){% endif %}
-5. Überprüfe die Auswirkungen der Aktivierung von {% data variables.product.prodname_advanced_security %}, und klicke dann auf **{% data variables.product.prodname_GH_advanced_security %} für dieses Repository aktivieren**.
-6. Wenn du {% data variables.product.prodname_advanced_security %} aktivierst, wird {% data variables.product.prodname_secret_scanning %} aufgrund der Einstellungen der Organisation möglicherweise automatisch für das Repository aktiviert. Wenn „{% data variables.product.prodname_secret_scanning_caps %}“ mit der Schaltfläche **Aktivieren** angezeigt wird, musst du {% data variables.product.prodname_secret_scanning %} dennoch durch das Klicken von **Aktivieren** aktivieren. Wenn die Schaltfläche **Deaktivieren** angezeigt wird, ist {% data variables.product.prodname_secret_scanning %} bereits aktiviert. 
+2. Überprüfe die Auswirkungen der Aktivierung von {% data variables.product.prodname_advanced_security %}, und klicke dann auf **{% data variables.product.prodname_GH_advanced_security %} für dieses Repository aktivieren**.
+3. Wenn du {% data variables.product.prodname_advanced_security %} aktivierst, wird {% data variables.product.prodname_secret_scanning %} aufgrund der Einstellungen der Organisation möglicherweise automatisch für das Repository aktiviert. Wenn „{% data variables.product.prodname_secret_scanning_caps %}“ mit der Schaltfläche **Aktivieren** angezeigt wird, musst du {% data variables.product.prodname_secret_scanning %} dennoch durch das Klicken von **Aktivieren** aktivieren. Wenn die Schaltfläche **Deaktivieren** angezeigt wird, ist {% data variables.product.prodname_secret_scanning %} bereits aktiviert. 
    ![Aktivieren von {% data variables.product.prodname_secret_scanning %} für dein Repository](/assets/images/help/repository/enable-secret-scanning-dotcom.png) {% ifversion secret-scanning-push-protection %}
-7. Wenn du außerdem den Pushschutz aktivieren möchtest, kannst du rechts neben „Pushschutz“ auf **Aktivieren** klicken. {% data reusables.secret-scanning.push-protection-overview %} Weitere Informationen findest du unter [Schützen von Pushes mit {% data variables.product.prodname_secret_scanning %}](/code-security/secret-scanning/protecting-pushes-with-secret-scanning).
+1. Wenn du außerdem den Pushschutz aktivieren möchtest, kannst du rechts neben „Pushschutz“ auf **Aktivieren** klicken. {% data reusables.secret-scanning.push-protection-overview %} Weitere Informationen findest du unter [Schützen von Pushes mit {% data variables.product.prodname_secret_scanning %}](/code-security/secret-scanning/protecting-pushes-with-secret-scanning).
    ![Aktivieren des Pushschutzes für dein Repository](/assets/images/help/repository/secret-scanning-enable-push-protection.png) {% endif %} {% ifversion ghae %}
 1. Bevor du {% data variables.product.prodname_secret_scanning %} aktivieren kannst, musst du {% data variables.product.prodname_GH_advanced_security %} aktivieren. Klicke rechts neben „{% data variables.product.prodname_GH_advanced_security %}“ auf **Aktivieren**.
    ![Aktivieren von {% data variables.product.prodname_GH_advanced_security %} für dein Repository](/assets/images/enterprise/github-ae/repository/enable-ghas-ghae.png)

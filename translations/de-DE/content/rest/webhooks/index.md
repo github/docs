@@ -1,6 +1,6 @@
 ---
-title: webhooks
-intro: Mit der Webhooks-API kannst du Webhooks für deine Repositorys erstellen und verwalten.
+title: Repositorywebhooks
+intro: 'Verwende die REST-API, um Webhooks für deine Repositorys zu erstellen und zu verwalten.'
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
@@ -16,28 +16,30 @@ children:
   - /repos
 redirect_from:
   - /rest/reference/webhooks
-ms.openlocfilehash: 9216b892bbc19752266cea22d88bec655363ecaf
-ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
+ms.openlocfilehash: 5654fb1644f654c4664cccdeb987667c157b16cf
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/11/2022
-ms.locfileid: '147882343'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148193347'
 ---
+## Informationen zu Repositorywebhooks
+
 Repositorywebhooks ermöglichen es dir, `POST`-HTTP-Nutzdaten zu empfangen, wenn bestimmte Ereignisse in einem Repository auftreten. {% data reusables.webhooks.webhooks-rest-api-links %}
 
-Wenn du einen einzelnen Webhook einrichten möchtest, um Ereignisse aus allen Repositorys deiner Organisation zu empfangen, findest du in der API-Dokumentation für [Organisationswebhooks](/rest/reference/orgs#webhooks) hilfreiche Informationen.
+Wenn du einen einzelnen Webhook einrichten möchtest, um Ereignisse aus allen Repositorys deiner Organisation zu empfangen, findest du in der REST-API-Dokumentation für [Organisationswebhooks](/rest/reference/orgs#webhooks) hilfreiche Informationen.
 
 Zusätzlich zur REST-API kann {% data variables.product.prodname_dotcom %} auch als [PubSubHubbub](#pubsubhubbub)-Hub für Repositorys fungieren.
 
-## Empfangen von Webhooknutzdaten
+### Empfangen von Webhooknutzdaten
 
 Damit {% data variables.product.product_name %} Webhooknutzlasten senden kann, muss ein Zugriff auf deinen Server über das Internet möglich sein. Zudem wird dringend empfohlen, SSL zu verwenden, sodass verschlüsselte Nutzdaten über das HTTPS gesendet werden können.
 
-### Webhookheader
+#### Webhookheader
 
 {% data variables.product.product_name %} sendet mehrere HTTP-Header, um zwischen Ereignistypen und Nutzdatenbezeichnern zu unterscheiden. Details findest du unter [Webhookheader](/developers/webhooks-and-events/webhook-events-and-payloads#delivery-headers).
 
-## PubSubHubbub
+### PubSubHubbub
 
 GitHub kann auch als [PubSubHubbub](https://github.com/pubsubhubbub/PubSubHubbub)-Hub für alle Repositorys fungieren. PSHB ist ein einfaches Veröffentlichungs- bzw. Abonnementprotokoll, mit dem Server registriert werden können, um im Falle einer Aktualisierung eines Themas Updates zu erhalten. Die Updates werden mit einer HTTP POST-Anforderung an eine Rückruf-URL gesendet.
 Themen-URLs für Pushvorgänge eines GitHub-Repositorys haben das folgende Format:
@@ -46,21 +48,21 @@ Themen-URLs für Pushvorgänge eines GitHub-Repositorys haben das folgende Forma
 
 Das Ereignis kann ein beliebiges verfügbares Webhookereignis sein. Weitere Informationen findest du unter [Webhookereignisse und Nutzdaten](/developers/webhooks-and-events/webhook-events-and-payloads).
 
-### Antwortformat
+#### Antwortformat
 
 Das Standardformat ist das, was [vorhandene post-receive-Hooks erwarten sollten](/post-receive-hooks/): ein JSON-Textkörper, der als `payload`-Parameter in einer POST-Anforderung gesendet wird.  Du kannst auch angeben, dass der unformatierte JSON-Textkörper entweder mit einem `Accept`-Header oder einer `.json`-Erweiterung empfangen wird.
 
     Accept: application/json
     https://github.com/{owner}/{repo}/events/push.json
 
-### Rückruf-URLs
+#### Rückruf-URLs
 
 Rückruf-URLs können das `http://`-Protokoll verwenden.
 
     # Send updates to postbin.org
     http://postbin.org/123
 
-### Abonnieren
+#### Abonnieren
 
 Der GitHub-PubSubHubbub-Endpunkt ist `{% data variables.product.api_url_code %}/hub`. Eine erfolgreiche Anforderung mit curl sieht wie folgt aus:
 
@@ -74,7 +76,7 @@ curl -u "user" -i \
 
 PubSubHubbub-Anforderungen können mehrmals gesendet werden. Wenn der Hook bereits vorhanden ist, wird er der Anforderung entsprechend geändert.
 
-#### Parameter
+##### Parameter
 
 Name | type | BESCHREIBUNG
 -----|------|--------------

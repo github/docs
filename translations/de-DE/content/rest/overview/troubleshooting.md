@@ -10,12 +10,12 @@ versions:
   ghec: '*'
 topics:
   - API
-ms.openlocfilehash: ecfa3a360ef9b042d96a1f80a2f0cde49390727f
-ms.sourcegitcommit: d2f0b59ed096b9e68ef8f6fa019cd925165762ec
+ms.openlocfilehash: c696f18d89ffe7d9c9c7c13eda933285502132ae
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/29/2022
-ms.locfileid: '148184232'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148192833'
 ---
 Solltest du in der API auf etwas Eigenartiges stoßen, findest du hier eine Liste mit Lösungen für einige mögliche Probleme.
 
@@ -46,7 +46,7 @@ Stelle zur Behandlung des Problems Folgendes sicher: [Du authentifizierst dich o
 
 Die meisten API-Aufrufe, die auf eine Liste von Ressourcen zugreifen (_z._ B. Benutzer, Probleme _usw._) unterstützen die Pagination. Wenn du bei Anforderungen unvollständige Ergebnisse erhältst, siehst du wahrscheinlich nur die erste Seite. Du musst die restlichen Seiten anfordern, um weitere Ergebnisse zu erhalten.
 
-Wichtig: Versuche *nicht*, das Format der Paginierungs-URL zu erraten. Nicht jeder API-Aufruf verwendet die gleiche Struktur. Extrahiere stattdessen die Paginierungsinformationen aus dem [Linkheader](/rest#pagination), der mit jeder Anforderung gesendet wird.
+Wichtig: Versuche *nicht*, das Format der Paginierungs-URL zu erraten. Nicht jeder API-Aufruf verwendet die gleiche Struktur. Extrahiere stattdessen die Paginierungsinformationen aus dem Linkheader, der mit jeder Anforderung zurückgegeben wird. Weitere Informationen zur Paginierung findest du unter [Verwenden der Paginierung in der REST-API](/rest/guides/using-pagination-in-the-rest-api).
 
 [oap-guide]: https://developer.github.com/changes/2015-01-19-an-integrators-guide-to-organization-application-policies/
 

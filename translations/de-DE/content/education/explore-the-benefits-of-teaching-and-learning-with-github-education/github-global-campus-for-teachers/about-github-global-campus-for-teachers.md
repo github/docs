@@ -10,12 +10,12 @@ redirect_from:
 versions:
   fpt: '*'
 shortTitle: For teachers
-ms.openlocfilehash: 2a93f87df67d1694bd93888d29a582afa9c749e4
-ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.openlocfilehash: 3e7dea02ec468109fbfa865f2d84224f8381cc39
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/09/2022
-ms.locfileid: '148158965'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148192801'
 ---
 Als Fakultätsmitglied an einer akkreditierten Bildungseinrichtung kannst du {% data variables.product.prodname_education %} beantragen, einschließlich {% data variables.product.prodname_global_campus %}-Leistungen und -Ressourcen. Weitere Informationen findest du unter [Antrag bei {% data variables.product.prodname_global_campus %} als Lehrkraft](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers/apply-to-github-global-campus-as-a-teacher).
 
@@ -34,7 +34,7 @@ Bevor du dich für einen individuellen Rabatt bewirbst, solltest du überprüfen
   - Wiederholtes Anschauen der jüngsten [Campus TV](https://www.twitch.tv/githubeducation)-Episoden, um über die Interessen der Studentengemeinschaft auf dem Laufenden zu bleiben. Campus TV wird von {% data variables.product.prodname_dotcom %} und Führer*innen der Studentengemeinschaft gestaltet und kann live oder auf Abruf angeschaut werden.
   - Fordere einen {% data variables.product.prodname_dotcom %}-Geschenkbeutel mit Lehrmaterialien und kleinen Geschenken für deine Kursteilnehmer an.
 
-Für verifizierte Lehrkräfte mit {% data variables.product.prodname_education %} ist ein kostenloses Abonnement für {% data variables.product.prodname_copilot %} verfügbar. Du wirst automatisch über das kostenlose Abonnement benachrichtigt, wenn du die {% data variables.product.prodname_copilot %}-Abonnementseite in deinen Kontoeinstellungen aufrufst. Weitere Informationen zum Abonnieren und Verwenden von {% data variables.product.prodname_copilot %} findest du unter [Verwalten deines {% data variables.product.prodname_copilot %}-Abonnements](/billing/managing-billing-for-github-copilot/managing-your-github-copilot-subscription#setting-up-a-trial-of-github-copilot) und [Informationen zu {% data variables.product.prodname_copilot %}](/copilot/overview-of-github-copilot/about-github-copilot).
+Für verifizierte Lehrkräfte mit {% data variables.product.prodname_education %} ist ein kostenloses Abonnement für {% data variables.product.prodname_copilot %} verfügbar. Du wirst automatisch über das kostenlose Abonnement benachrichtigt, wenn du die {% data variables.product.prodname_copilot %}-Abonnementseite in deinen Kontoeinstellungen aufrufst. Weitere Informationen zum Abonnieren und Verwenden von {% data variables.product.prodname_copilot %} findest du unter [Verwalten deines {% data variables.product.prodname_copilot_for_individuals %}-Abonnements](/billing/managing-billing-for-github-copilot/managing-your-github-copilot-for-individuals-subscription#setting-up-a-trial-of-github-copilot) und [Informationen zu {% data variables.product.prodname_copilot %}](/copilot/overview-of-github-copilot/about-github-copilot).
 
 ## Weiterführende Themen
 

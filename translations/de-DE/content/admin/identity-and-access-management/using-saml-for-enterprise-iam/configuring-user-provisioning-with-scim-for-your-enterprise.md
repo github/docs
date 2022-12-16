@@ -1,6 +1,6 @@
 ---
 title: Konfigurieren der Benutzerbereitstellung mit SCIM für dein Unternehmen
-shortTitle: Configure user provisioning
+shortTitle: Configure SCIM user provisioning
 intro: 'Du kannst System for Cross-Domain Identity Management (SCIM) für {% ifversion scim-for-ghes %}{% data variables.location.product_location %}{% elsif ghae %}{% data variables.product.product_name %}{% endif %} konfigurieren. Damit werden automatisch Benutzerkonten bereitgestellt, wenn du die Anwendung für {% ifversion scim-for-ghes %}deine Instanz{% elsif ghae %}{% data variables.product.product_name %}{% endif %} einem oder einer Benutzer*in auf deinem Identitätsanbieter (IdP) zuweist.'
 permissions: '{% ifversion scim-for-ghes %}Site administrators{% elsif ghae %}Enterprise owners{% endif %} can configure user provisioning for {% ifversion scim-for-ghes %}a {% data variables.product.product_name %} instance{% elsif ghae %}an enterprise on {% data variables.product.product_name %}{% endif %}.'
 versions:
@@ -17,12 +17,12 @@ redirect_from:
   - /admin/authentication/configuring-user-provisioning-for-your-enterprise
   - /admin/identity-and-access-management/managing-iam-for-your-enterprise/configuring-user-provisioning-for-your-enterprise
   - /admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-user-provisioning-for-your-enterprise
-ms.openlocfilehash: c330d8e375522901d2738b581a897d42d30d628e
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.openlocfilehash: ded93a01d14d1a5e26cdf35efed4f13afc832ca1
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/25/2022
-ms.locfileid: '148108495'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148192665'
 ---
 {% data reusables.scim.ghes-beta-note %}
 
@@ -54,17 +54,27 @@ Nachdem ein oder eine IdP-Administrator*in einer Person Zugriff auf {% data vari
 
 Während der Authentifizierung {% ifversion scim-for-ghes %}versucht die Instanz{% elsif ghae %}{% data variables.product.product_name %}{% endif %}, den oder die Benutzer*in einer SAML-Identität zuzuordnen. Standardmäßig {% ifversion scim-for-ghes %}vergleicht die Instanz{% elsif ghae %}{% data variables.product.product_name %}{% endif %} den `NameID`-Anspruch des IdP mit dem Benutzernamen des Kontos. Für den Vergleich normalisiert {% data variables.product.product_name %} den Wert von `NameID`. Weitere Informationen zur Benutzernamennormalisierung findest du unter [Überlegungen zu Benutzernamen zur externen Authentifizierung](/admin/identity-and-access-management/managing-iam-for-your-enterprise/username-considerations-for-external-authentication#about-username-normalization).
 
-Wenn kein übereinstimmender Benutzername auf der Instanz vorhanden ist, erstellt die Instanz ein neues Konto für den oder die Benutzer*in. Wenn ein Konto mit übereinstimmendem Benutzernamen auf der Instanz vorhanden ist, wird der oder die Benutzer*in bei diesem Konto angemeldet.{% ifversion scim-for-ghes %} {% data variables.product.product_name %} vergleicht den Anspruch des IdP mit allen Konten auf der Instanz, unabhängig davon, ob sie über integrierte Authentifizierung verfügen oder bereits einer SAML-Identität zugeordnet sind.{% endif %}
+Ist kein Konto mit einem entsprechenden Benutzernamen für die Instanz vorhanden, kann sich der Benutzer nicht anmelden.{% ifversion scim-for-ghes %} Für diese Überprüfung vergleicht {% data variables.product.product_name %} den SAML-Anspruch `NameId` des Identitätsanbieters für jedes Benutzerkonto, das von SCIM in der Instanz bereitgestellt wurde, mit dem Anspruch `username`.{% endif %}
 
 {% ifversion scim-for-ghes %}
 
-Beim Verwenden von SAML-SSO kann können Websiteadministrator*innen benutzerdefinierte Benutzerattribute für die Instanz konfigurieren. Ein benutzerdefiniertes Benutzernamenattribut ermöglicht es der Instanz, einen anderen Wert als `NameID` aus dem IdP zu verwenden. {% data variables.product.product_name %} berücksichtigt diese Zuordnung beim Konfigurieren von SCIM. Weitere Informationen zum Zuordnen von Benutzerattributen findest du unter [Konfigurieren des einmaligen Anmeldens mit SAML für dein Unternehmen](/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise#configuring-saml-sso).
+{% note %}
+
+**Hinweis:** Bei der SAML-Authentifizierung verwenden einige Umgebungen möglicherweise nicht `NameID` als eindeutigen Identifizierungsanspruch, sondern einen anderen Wert. Bei Verwendung der SCIM-Bereitstellung werden derzeit keine benutzerdefinierten Zuordnungen für SAML-Benutzerattribute unterstützt.
+
+{% endnote %}
 
 {% endif %}
 
-Wenn {% data variables.product.product_name %} einen oder eine Benutzer*in des IdP erfolgreich identifiziert, Kontodetails wie E-Mail-Adresse, Vorname oder Nachname jedoch nicht übereinstimmen, aktualisiert die Instanz diese mit Werten aus dem IdP.
+Wenn {% data variables.product.product_name %} einen Benutzer des Identitätsanbieters erfolgreich identifiziert, Kontodetails wie E-Mail-Adresse, Vorname oder Nachname jedoch nicht übereinstimmen, werden die Details mit Werten des Identitätsanbieters überschrieben. Außerdem werden bis auf die von SCIM bereitgestellte primäre E-Mail-Adresse alle anderen E-Mail-Adressen aus dem Benutzerkonto gelöscht.
 
 ## Unterstützte Identitätsanbieter
+
+{% ifversion ghes %}
+
+Während der privaten Beta dokumentiert dein Kontoteam die Konfiguration von SCIM für {% data variables.product.product_name %} für einen unterstützten Identitätsanbieter.
+
+{% elsif ghae %}
 
 Die folgenden IdPs unterstützen die Benutzerbereitstellung mit SCIM für {% data variables.product.product_name %}.
 
@@ -76,7 +86,8 @@ Die folgenden IdPs unterstützen die Benutzerbereitstellung mit SCIM für {% dat
 
 {% data reusables.scim.ghes-scim-idp-table %}
 
-{% ifversion ghae %} Bei Identitätsanbietern, die Teamzuordnungen unterstützen, kannst du die Anwendung für {% data variables.product.product_name %} Benutzergruppen in deinem IdP zuweisen oder die Zuweisung aufheben. Diese Gruppen stehen dann Organisationsbesitzer*innen und Teambetreuer*innen in {% data variables.location.product_location %} zur Verfügung, sodass sie {% data variables.product.product_name %}-Teams zugeordnet werden können. Weitere Informationen findest du unter [Zuordnen von Okta-Gruppen zu Teams](/admin/authentication/configuring-authentication-and-provisioning-with-your-identity-provider/mapping-okta-groups-to-teams).
+Bei Identitätsanbietern, die Teamzuordnung unterstützen, kannst du die Anwendung für {% data variables.product.product_name %} Gruppen von Benutzern in deinem IdP zuweisen oder die entsprechende Zuweisung aufheben. Diese Gruppen stehen dann Organisationsbesitzer*innen und Teambetreuer*innen in {% data variables.location.product_location %} zur Verfügung, sodass sie {% data variables.product.product_name %}-Teams zugeordnet werden können. Weitere Informationen findest du unter [Zuordnen von Okta-Gruppen zu Teams](/admin/authentication/configuring-authentication-and-provisioning-with-your-identity-provider/mapping-okta-groups-to-teams).
+
 {% endif %}
 
 ## Voraussetzungen
@@ -101,9 +112,9 @@ Die folgenden IdPs unterstützen die Benutzerbereitstellung mit SCIM für {% dat
 
 {% ifversion scim-for-ghes %}
 
-Um Bereitstellungsaktionen auf deiner Instanz auszuführen, erstelle ein dediziertes Computerbenutzerkonto, und stufe es auf „Unternehmensbesitzer“ hoch.
+Um Bereitstellungsaktionen für deine Instanz ausführen zu können, musst du ein dediziertes integriertes Benutzerkonto erstellen und zu einem Unternehmensbesitzer höher stufen.
 
-Nach dem Aktivieren von SCIM auf einer Instanz von {% data variables.product.product_name %} sind alle Benutzerkonten gesperrt. Wenn du den Benutzer*innen aus deinem IdP Zugriff auf deine Instanz gewährst und sie sich erfolgreich authentifizieren, werden ihre Konten entsperrt.
+Nach dem Aktivieren von SCIM auf einer Instanz von {% data variables.product.product_name %} sind alle Benutzerkonten gesperrt. Das integrierte Benutzerkonto führt weiterhin Bereitstellungsaktionen aus. Nachdem du einem Benutzer Zugriff auf deine Instanz über deinen Identitätsanbieter gewährt hast, kommuniziert der Identitätsanbieter mit der Instanz und verwendet SCIM, um das Konto des Benutzers zu entsperren.
 
 {% endif %}
 
@@ -120,14 +131,18 @@ Nach dem Aktivieren von SCIM auf einer Instanz von {% data variables.product.pro
   **Warnung:** Wenn das Benutzerkonto für die Unternehmensbesitzer*innen, die das{% data variables.product.pat_generic %} erstellen, deaktiviert ist bzw. wenn die Bereitstellung des Kontos aufgehoben wird, stellt dein IdP Benutzerkonten für dein Unternehmen nicht mehr automatisch bereit bzw. wird die Bereitstellung von Benutzerkonten nicht mehr automatisch aufgehoben. Ein anderer Unternehmensbesitzer muss ein neues {% data variables.product.pat_generic %} erstellen und die Bereitstellung auf dem IdP neu konfigurieren.
 
   {% endwarning %} {%- elsif scim-for-ghes %}
-1. Erstelle ein dediziertes Computerbenutzerkonto, um Bereitstellungsaktionen auf deiner Instanz auszuführen. Weitere Informationen findest du unter [Zulassen der integrierten Authentifizierung für Benutzer*innen außerhalb deines Anbieters](/admin/identity-and-access-management/managing-iam-for-your-enterprise/allowing-built-in-authentication-for-users-outside-your-provider#inviting-users-outside-your-provider-to-authenticate-to-your-instance).
+1. Erstelle ein integriertes Benutzerkonto, um Bereitstellungsaktionen für deine Instanz auszuführen. Weitere Informationen findest du unter [Zulassen der integrierten Authentifizierung für Benutzer*innen außerhalb deines Anbieters](/admin/identity-and-access-management/managing-iam-for-your-enterprise/allowing-built-in-authentication-for-users-outside-your-provider#inviting-users-outside-your-provider-to-authenticate-to-your-instance).
 1. Stufe das dedizierte Benutzerkonto auf „Unternehmensbesitzer“ hoch. Weitere Informationen findest du unter [Einladen von Personen zum Verwalten deines Unternehmens](/admin/user-management/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise#adding-an-enterprise-administrator-to-your-enterprise-account).
 1. Melde dich bei deiner Instanz als neuer Unternehmensbesitzer an.
-1. Erstelle ein {% data variables.product.pat_v1 %} mit dem Umfang **admin:enterprise**. Weitere Informationen findest du unter [Erstellen eines {% data variables.product.pat_generic %}](/github/authenticating-to-github/creating-a-personal-access-token).
+1. Erstelle ein {% data variables.product.pat_v1 %} mit dem Umfang **admin:enterprise**. Gib kein Ablaufdatum für das {% data variables.product.pat_v1 %} an. Weitere Informationen findest du unter [Erstellen eines {% data variables.product.pat_generic %}](/github/authenticating-to-github/creating-a-personal-access-token).
 
-   {% note %}
+   {% warning %}
+   
+   **Warnung:** Achte darauf, kein Ablaufdatum für das {% data variables.product.pat_v1 %} anzugeben. Wenn du ein Ablaufdatum angibst, funktioniert SCIM nach dem Ablaufdatum nicht mehr.
+   
+   {% endwarning %} {% note %}
 
-   **Hinweis**: Sie benötigen dieses {% data variables.product.pat_generic %} zum Testen der SCIM-Konfiguration und Konfigurieren der Anwendung für SCIM auf deinem IdP. Speichere das Token sicher in einem Kennwort-Manager, bis du das Token später in diesen Anweisungen erneut benötigst.
+   **Hinweis:** Dieses {% data variables.product.pat_generic %} wird zum Testen der SCIM-Konfiguration sowie zum Konfigurieren der Anwendung für SCIM für deinen Identitätsanbieter benötigt. Speichere das Token sicher in einem Kennwort-Manager, bis du das Token später in diesen Anweisungen erneut benötigst.
 
    {% endnote %} {% data reusables.enterprise_installation.ssh-into-instance %}
 1. Führe zum Aktivieren von SCIM die Befehle aus, die von deinem oder deiner Konto-Manager*in auf {% data variables.contact.contact_enterprise_sales %} bereitgestellt wurden.
@@ -146,21 +161,21 @@ Nach dem Aktivieren von SCIM auf einer Instanz von {% data variables.product.pro
 {%- endif %} {%- ifversion ghae %} {% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.settings-tab %} {% data reusables.enterprise-accounts.security-tab %}
 1. Wähle unter „SCIM User Provisioning“ (SCIM-Benutzerbereitstellung) die Option **Require SCIM user provisioning** (SCIM-Benutzerbereitstellung erforderlich) aus.
   ![Kontrollkästchen für „Require SCIM user provisioning“ (SCIM-Benutzerbereitstellung erforderlich) in den Unternehmenssicherheitseinstellungen](/assets/images/help/enterprises/settings-require-scim-user-provisioning.png)
-1. Klicken Sie auf **Speichern**.
+1. Klicke auf **Speichern**.
   ![Schaltfläche „Speichern“ unter „SCIM-Benutzerbereitstellung erforderlich“ in den Unternehmenssicherheitseinstellungen](/assets/images/help/enterprises/settings-scim-save.png) {%- endif %}
-1. Konfiguriere die Benutzerbereitstellung in der Anwendung für {% data variables.product.product_name %} auf deinem IdP.
+1. Konfiguriere die Benutzerbereitstellung in der Anwendung für {% data variables.product.product_name %} für deinen Identitätsanbieter. {% ifversion scim-for-ghes %} Die Dokumentation für einen unterstützten Identitätsanbieter kannst du unter {% data variables.contact.contact_enterprise_sales %} von deinem Konto-Manager anfordern. Wenn dein Identitätsanbieter nicht unterstützt wird, musst du die Anwendung manuell erstellen und SCIM manuell konfigurieren.{% elsif ghae %}
 
-  {%- ifversion ghae %} Die folgenden IdPs stellen Dokumentation zum Konfigurieren der Bereitstellung für {% data variables.product.product_name %} zur Verfügung. Wenn dein IdP nicht aufgeführt ist, wende dich an deinen IdP, um Unterstützung für {% data variables.product.product_name %} anzufordern.
-  {%- elsif scim-for-ghes %} {% data variables.product.company_short %} bietet Dokumentation zum Konfigurieren der Bereitstellung für die folgenden IdPs.{% endif %}
+  Die folgenden IdP machen eine Dokumentation zum Konfigurieren der Bereitstellung für {% data variables.product.product_name %} verfügbar. Wenn dein IdP nicht aufgeführt ist, wende dich an deinen IdP, um Unterstützung für {% data variables.product.product_name %} anzufordern.
 
   | IdP | Weitere Informationen |
   | :- | :- |
-  | Azure AD | {% ifversion ghae %}[Tutorial: Konfigurieren von {% data variables.product.prodname_ghe_managed %} für die automatische Benutzerbereitstellung](https://docs.microsoft.com/azure/active-directory/saas-apps/github-ae-provisioning-tutorial) in der Microsoft-Dokumentation. {% endif %}Informationen zum Konfigurieren von Azure AD für {% data variables.product.product_name %} findest du unter [Konfigurieren der Authentifizierung und Bereitstellung für dein Unternehmen mit Azure AD](/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-authentication-and-provisioning-for-your-enterprise-using-azure-ad). |
-| Okta | {% ifversion ghae %}(Beta){% endif %} Informationen zum Konfigurieren von Okta für {% data variables.product.product_name %} findest du unter [Konfigurieren der Authentifizierung und Bereitstellung für dein Unternehmen mit Okta](/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-authentication-and-provisioning-for-your-enterprise-using-okta). |
+  | Azure AD | [Tutorial: Konfigurieren von {% data variables.product.prodname_ghe_managed %} für die automatische Benutzerbereitstellung](https://docs.microsoft.com/azure/active-directory/saas-apps/github-ae-provisioning-tutorial) in der Microsoft-Dokumentation. Informationen zum Konfigurieren von Azure AD für {% data variables.product.product_name %} findest du unter [Konfigurieren der Authentifizierung und Bereitstellung für dein Unternehmen mithilfe von Azure AD](/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-authentication-and-provisioning-for-your-enterprise-using-azure-ad). |
+  | Okta | (Beta) Informationen zum Konfigurieren von Okta für {% data variables.product.product_name %} findest du unter [Konfigurieren der Authentifizierung und Bereitstellung für dein Unternehmen mithilfe von Okta](/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-authentication-and-provisioning-for-your-enterprise-using-okta). |
 
   Die Anwendung auf deinem IdP benötigt zwei Werte zum Bereitstellen von Benutzerkonten bzw. zum Aufheben der Bereitstellung für {% data variables.location.product_location %}.
 
   | Wert | Andere Namen | BESCHREIBUNG | Beispiel |
   | :- | :- | :- | :- |
-  | URL | Mandanten-URL | URL zur SCIM-Bereitstellungs-API für dein Unternehmen in {% data variables.product.prodname_ghe_managed %} | <nobr><code>{% data variables.product.api_url_pre %}/scim/v2</nobr></code> |
-  | Gemeinsamer geheimer Schlüssel | {% data variables.product.pat_generic_caps %}, Geheimnistoken | Token für die Anwendung auf deinem IdP zum Ausführen von Bereitstellungsaufgaben im Namen von Unternehmensbesitzer*innen | Das {% data variables.product.pat_generic_caps %}, das du in Schritt {% ifversion ghae %}1{% elsif scim-for-ghes %}4{% endif %} erstellt hast |
+  | URL | Mandanten-URL | URL zur SCIM-Bereitstellungs-API für dein Unternehmen in {% data variables.product.product_name %} | <nobr><code>{% data variables.product.api_url_pre %}/scim/v2</nobr></code> |
+  | Gemeinsamer geheimer Schlüssel | {% data variables.product.pat_generic_caps %}, Geheimnistoken | Token für die Anwendung auf deinem IdP zum Ausführen von Bereitstellungsaufgaben im Namen von Unternehmensbesitzer*innen | {% data variables.product.pat_generic_caps %} aus Schritt 1 |
+  {%- endif %}

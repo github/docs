@@ -13,12 +13,12 @@ versions:
   ghec: '*'
   ghae: '*'
 shortTitle: Delete & restore a package
-ms.openlocfilehash: 4491e7cd25fbec2a19abb06c552ba0e0d3ac7b24
-ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.openlocfilehash: 57f90bb6dbcda759e90444a40c7deef84d907b9c
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/09/2022
-ms.locfileid: '147704987'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148193073'
 ---
 {% data reusables.package_registry.packages-ghes-release-stage %}
 
@@ -42,8 +42,9 @@ Unter {% data variables.product.prodname_dotcom %} kannst du auch ein gesamtes P
 - Du stellst das Paket innerhalb von 30 Tagen nach dem Löschen wieder her.
 - Derselbe Paketnamespace ist weiterhin verfügbar und wird nicht für ein neues Paket verwendet.
 
-{% ifversion fpt or ghec or ghes %}
 ## Paket-API-Unterstützung
+
+{% data reusables.package_registry.packages-classic-pat-only %}
 
 {% ifversion fpt or ghec %}
 
@@ -51,34 +52,29 @@ Du kannst die REST-API verwenden, um deine Pakete zu verwalten. Weitere Informat
 
 {% endif %}
 
-Bei Paketen, die ihre Berechtigungen und ihren Zugriff von Repositorys erben, kannst du GraphQL verwenden, um eine bestimmte Paketversion zu löschen.{% data reusables.package_registry.no-graphql-to-delete-packages %} Weitere Informationen zur GraphQL-Unterstützung findest du unter [Löschen einer Version eines repositorybezogenen Pakets mit GraphQL](#deleting-a-version-of-a-repository-scoped-package-with-graphql).
-
-{% endif %}
+{% data reusables.package_registry.about-graphql-support %}
 
 ## Erforderliche Berechtigungen zum Löschen oder Wiederherstellen eines Pakets
 
+{% ifversion packages-registries-v2 %} Bei Registrierungen, die differenzierte Berechtigungen unterstützen, kannst du festlegen, dass Pakete auf einen Benutzer oder eine Organisation ausgerichtet oder mit einem Repository verknüpft werden sollen.
+
+Zum Löschen eines Pakets mit differenzierten Berechtigungen, die von einem Repository getrennt sind (beispielsweise unter {% ifversion ghes %}`https://containers.HOSTNAME/OWNER/PACKAGE-NAME`{% else %}`https://ghcr.io/OWNER/PACKAGE-NAME`{% endif %} gespeicherte Containerimages{% ifversion packages-npm-v2 %} oder unter `https://npm.pkg.github.com/OWNER/PACKAGE-NAME` gespeicherte Pakete{% endif %}), musst du über Administratorzugriff auf das Paket verfügen. Weitere Informationen findest du unter [Informationen zu Berechtigungen für {% data variables.product.prodname_registry %}](/packages/learn-github-packages/about-permissions-for-github-packages).
+
 Bei Paketen, die ihre Zugriffsberechtigungen von Repositorys erben, kannst du ein Paket löschen, wenn du über Administratorberechtigungen für das Repository verfügst.
 
-Die folgenden {% data variables.product.prodname_registry %}-Registrierungen verwenden **nur** repositorybezogene Berechtigungen:
+Einige Registrierungen unterstützen **nur** repositorybezogene Pakete. Eine Liste dieser Registrierungen findest du unter [Informationen zu Berechtigungen für {% data variables.product.prodname_registry %}](/packages/learn-github-packages/about-permissions-for-github-packages#permissions-for-repository-scoped-packages).
 
-  {% ifversion not fpt or ghec %}- Docker-Images auf `docker.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME`{% endif %} {% ifversion packages-npm-v2 %}{% else %}- npm{% endif %}
-  - RubyGems-Registrierung
-  - Apache Maven-Registrierung
-  - NuGet-Registrierung
+{% else %}
 
-{% ifversion packages-npm-v2 %}Für {% data variables.product.prodname_ghcr_and_npm_registry %} kannst du auswählen, dass Pakete für einen Benutzer oder eine Organisation zulässig oder mit einem Repository verknüpft sind.{% endif %}
-
-{% ifversion fpt or ghec %}
-
-Um ein Paket zu löschen, das unabhängig von einem Repository über granulare Berechtigungen verfügt, wie z. B. Containerimages, die unter `https://ghcr.io/OWNER/PACKAGE-NAME` oder `https://npm.pkg.github.com/OWNER/PACKAGE-NAME` gespeichert sind, musst du über Administratorrechte für das Paket verfügen. Weitere Informationen findest du unter [Informationen zu Berechtigungen für {% data variables.product.prodname_registry %}](/packages/learn-github-packages/about-permissions-for-github-packages).
+Du kannst ein Paket löschen, wenn du über Administratorberechtigungen für das Repository verfügst, in dem das Paket veröffentlicht wird.
 
 {% endif %}
 
 ## Löschen einer Paketversion
 
-### Löschen einer Version eines repositorybezogenen Pakets unter {% data variables.product.prodname_dotcom %}
+### Löschen einer Version eines {% ifversion packages-registries-v2 %}repositorybezogenen {% endif %}Pakets auf {% data variables.product.prodname_dotcom %}
 
-Zum Löschen einer Version eines repositorybezogenen Pakets musst du Administratorberechtigungen für das Repository besitzen, das das Paket besitzt. Weitere Informationen findest du unter [Erforderliche Berechtigungen](#required-permissions-to-delete-or-restore-a-package).
+Zum Löschen einer Version eines {% ifversion packages-registries-v2 %}repositorybezogenen {% endif %}Pakets musst du über Administratorberechtigungen für das Repository verfügen, das das Paket besitzt. Weitere Informationen findest du unter [Erforderliche Berechtigungen](#required-permissions-to-delete-or-restore-a-package).
 
 {% data reusables.repositories.navigate-to-repo %} {% data reusables.package_registry.packages-from-code-tab %} {% data reusables.package_registry.package-settings-option %}
 5. Klicke auf der linken Seite auf **Versionen verwalten**.
@@ -88,13 +84,11 @@ Zum Löschen einer Version eines repositorybezogenen Pakets musst du Administrat
   ![Schaltfläche zum Bestätigen des Löschens von Paketen](/assets/images/help/package-registry/package-version-deletion-confirmation.png)
 
 {% ifversion fpt or ghec or ghes %}
-### Löschen einer Version eines repositorybezogenen Pakets mit GraphQL
+### Löschen einer Version eines {% ifversion packages-registries-v2 %}repositorybezogenen {% endif %}Pakets mit GraphQL
 
-Bei Paketen, die ihre Berechtigungen und den Zugriff von Repositorys erben, kannst du die GraphQL verwenden, um eine bestimmte Paketversion zu löschen.
+{% data reusables.package_registry.about-graphql-support %}{% ifversion fpt or ghec %} Informationen zur alternativen Verwendung der REST-API findest du unter der [{% data variables.product.prodname_registry %}-API](/rest/reference/packages).{% endif %}
 
-{% data reusables.package_registry.no-graphql-to-delete-packages %}{% ifversion fpt or ghec %} Du kannst jedoch die REST-API verwenden. Weitere Informationen findest du unter [{% data variables.product.prodname_registry %}-API](/rest/reference/packages).{% endif %}
-
-Verwende die `deletePackageVersion`-Mutation in der GraphQL-API. Du musst ein Token mit den Bereichen `read:packages`, `delete:packages` und `repo` verwenden. Weitere Informationen zu Token findest du unter [Informationen zu {% data variables.product.prodname_registry %}](/packages/publishing-and-managing-packages/about-github-packages#authenticating-to-github-packages).
+Verwende die `deletePackageVersion`-Mutation in der GraphQL-API. Du musst ein {% data variables.product.pat_v1 %} mit den Bereichen `read:packages`, `delete:packages` und `repo` verwenden. Weitere Informationen zu {% data variables.product.pat_v1_plural %} findest du in der [Einführung in {% data variables.product.prodname_registry %}](/packages/publishing-and-managing-packages/about-github-packages#authenticating-to-github-packages).
 
 Im folgenden Beispiel wird veranschaulicht, wie eine Paketversion mithilfe einer `packageVersionId` von `MDIyOlJlZ2lzdHJ5UGFja2FnZVZlcnNpb243MTExNg` gelöscht wird.
 
@@ -106,7 +100,7 @@ curl -X POST \
 HOSTNAME/graphql
 ```
 
-Zum Finden aller privaten Pakete, die du unter {% data variables.product.prodname_registry %} veröffentlicht hast, zusammen mit den Versions-IDs für die Pakete, kannst du die `packages`-Verbindung über das `repository`-Objekt verwenden. Du benötigst ein Token mit den Bereichen `read:packages` und `repo`. Weitere Informationen findest du in der [`packages`](/graphql/reference/objects#repository)-Verbindung oder der [`PackageOwner`](/graphql/reference/interfaces#packageowner)-Schnittstelle.
+Zum Finden aller privaten Pakete, die du unter {% data variables.product.prodname_registry %} veröffentlicht hast, zusammen mit den Versions-IDs für die Pakete, kannst du die `packages`-Verbindung über das `repository`-Objekt verwenden. Du benötigst ein {% data variables.product.pat_v1 %} mit den Bereichen `read:packages` und `repo`. Weitere Informationen findest du in der [`packages`](/graphql/reference/objects#repository)-Verbindung oder der [`PackageOwner`](/graphql/reference/interfaces#packageowner)-Schnittstelle.
 
 Weitere Informationen zur `deletePackageVersion`-Mutation findest du unter [`deletePackageVersion`](/graphql/reference/mutations#deletepackageversion).
 

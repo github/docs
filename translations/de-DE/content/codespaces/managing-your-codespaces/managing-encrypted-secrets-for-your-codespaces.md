@@ -14,12 +14,12 @@ topics:
   - Security
   - Secret store
 shortTitle: Encrypted secrets
-ms.openlocfilehash: f2ef60c9311a81ea59ec4f71cb7c1a432102b063
-ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.openlocfilehash: a1ea1c87581feccd737314db0d7bf237f983357a
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/09/2022
-ms.locfileid: '148160442'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148192809'
 ---
 ## Informationen zum Verwalten verschlüsselter Geheimnisse für {% data variables.product.prodname_github_codespaces %}
 
@@ -28,7 +28,7 @@ Du kannst deinem persönlichen Konto verschlüsselte Geheimnisse hinzufügen, di
 - Zugriffstoken für Clouddienste
 - Dienstprinzipale
 - Abonnementbezeichner
-- [Anmeldeinformationen für eine private Imageregistrierung](/codespaces/codespaces-reference/allowing-your-codespace-to-access-a-private-image-registry)
+- Anmeldeinformationen für eine private Imageregistrierung (Weitere Informationen findest du unter [Zulassen des Codespacezugriffs auf eine private Registrierung](/codespaces/codespaces-reference/allowing-your-codespace-to-access-a-private-registry).)
 
 Du kannst auswählen, welche Repositorys Zugriff auf das jeweilige Geheimnis haben sollen. Dann kannst du das Geheimnis in jedem Codespace verwenden, den du für ein Repository erstellst, das Zugriff auf dieses Geheimnis hat. Um ein Geheimnis für einen Codespace freizugeben, der mithilfe einer Vorlage erstellt wurde, musst du den Codespace in einem Repository auf {% data variables.product.prodname_dotcom %} veröffentlichen und dem Repository dann Zugriff auf das Geheimnis gewähren.
 

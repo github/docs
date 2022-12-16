@@ -1,16 +1,16 @@
 ---
-ms.openlocfilehash: 2e24caea6bd8d7609ce24ec67f497ddbc1db8716
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 3974c3f895e361805d364cb11a8f97cd8bbcbc92
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "147423596"
+ms.lasthandoff: 12/09/2022
+ms.locfileid: "148193383"
 ---
 {% ifversion fpt or ghec %} {% note %}
 
 **Hinweise:** 
 
-* Diese API gilt nur für {% data variables.product.prodname_projects_v1 %}. {% data variables.product.prodname_projects_v2 %} können mit der GraphQL-API verwaltet werden. Weitere Informationen findest du unter [Verwenden der API zum Verwalten von Projekten](/issues/planning-and-tracking-with-projects/automating-your-project/using-the-api-to-manage-projects).
-* Du kannst ein neues {% data variables.projects.projects_v1_board %} nur für Organisationen, Benutzer*innen oder Repositorys erstellen, die bereits über mindestens ein {% data variables.projects.projects_v1_board %} verfügen.
+* Diese Endpunkte interagieren nur mit {% data variables.product.prodname_projects_v1 %}. Verwende zum Verwalten von {% data variables.product.prodname_projects_v2 %} die GraphQL-API. Weitere Informationen findest du unter [Verwenden der API zum Verwalten von Projekten](/issues/planning-and-tracking-with-projects/automating-your-project/using-the-api-to-manage-projects).
+* Zum Erstellen eines neuen {% data variables.projects.projects_v1_board %} muss die Organisation, der Benutzer oder das Repository bereits über mindestens ein {% data variables.projects.projects_v1_board %} verfügen.
 
 {% endnote %} {% endif %}
