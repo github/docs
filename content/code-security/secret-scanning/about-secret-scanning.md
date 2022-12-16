@@ -31,15 +31,15 @@ If your project communicates with an external service, you might use a token or 
 {% ifversion fpt or ghec %}
 {% data variables.product.prodname_secret_scanning_caps %} is available on {% data variables.product.prodname_dotcom_the_website %} in two forms:
 
-1. **{% data variables.product.prodname_secret_scanning_partner_alerts_caps %}.** Runs automatically on all public repositories. Any strings that match patterns that were provided by secret scanning partners are reported directly to the relevant partner. For more information, see the "[About {% data variables.product.prodname_secret_scanning_partner_alerts %}](#about-secret-scanning-alerts-for-partners)" section below.
+1. **{% data variables.secret-scanning.partner_alerts_caps %}.** Runs automatically on all public repositories. Any strings that match patterns that were provided by secret scanning partners are reported directly to the relevant partner. For more information, see the "[About {% data variables.secret-scanning.partner_alerts %}](#about-secret-scanning-alerts-for-partners)" section below.
 
-2. **{% data variables.product.prodname_secret_scanning_user_alerts_caps %}.** {% ifversion fpt %}The following users can enable and configure additional scanning:
+2. **{% data variables.secret-scanning.user_alerts_caps %}.** {% ifversion fpt %}The following users can enable and configure additional scanning:
    - Owners of repositories on {% data variables.product.prodname_dotcom_the_website %}, on any _public_ repositories they own.
    - Organizations owning _public_ repositories, on any of these repositories.
    - Organizations using {% data variables.product.prodname_ghe_cloud %} with a license for {% data variables.product.prodname_GH_advanced_security %}, on repositories owned by the organization, including _private_ and _internal_ repositories.{% elsif ghec %}You can enable and configure additional scanning for repositories owned by organizations that use {% data variables.product.prodname_ghe_cloud %} and have a license for {% data variables.product.prodname_GH_advanced_security %}. This includes private and internal repositories.{% endif %} 
   {%- indented_data_reference reusables.secret-scanning.secret-scanning-alerts-beta %}
   
-  Any strings that match patterns provided by secret scanning partners, by other service providers, or defined by you or your organization, are reported as alerts in the "Security" tab of repositories. If a string in a public repository matches a partner pattern, it is also reported to the partner. For more information, see the "[About {% data variables.product.prodname_secret_scanning_user_alerts %}](#about-secret-scanning-alerts-for-users)" section below.{% endif %}
+  Any strings that match patterns provided by secret scanning partners, by other service providers, or defined by you or your organization, are reported as alerts in the "Security" tab of repositories. If a string in a public repository matches a partner pattern, it is also reported to the partner. For more information, see the "[About {% data variables.secret-scanning.user_alerts %}](#about-secret-scanning-alerts-for-users)" section below.{% endif %}
 
 
 Service providers can partner with {% data variables.product.company_short %} to provide their secret formats for scanning. {% data reusables.secret-scanning.partner-program-link %}
@@ -51,7 +51,7 @@ You can also enable {% data variables.product.prodname_secret_scanning %} as a p
 {% endif %}
 
 {% ifversion fpt or ghec %}
-## About {% data variables.product.prodname_secret_scanning_partner_alerts %}
+## About {% data variables.secret-scanning.partner_alerts %}
 
 When you make a repository public, or push changes to a public repository, {% data variables.product.product_name %} always scans the code for secrets that match partner patterns. {% ifversion secret-scanning-issue-body-comments %}{% data reusables.secret-scanning.scan-issue-description-and-comments %}{% endif %} If {% data variables.product.prodname_secret_scanning %} detects a potential secret, we notify the service provider who issued the secret. The service provider validates the string and then decides whether they should revoke the secret, issue a new secret, or contact you directly. Their action will depend on the associated risks to you or them. For more information, see "[Supported secrets for partner alerts](/code-security/secret-scanning/secret-scanning-patterns#supported-secrets-for-partner-alerts)."
 
@@ -59,10 +59,10 @@ You cannot change the configuration of {% data variables.product.prodname_secret
 
 {% endif %}
 
-## About {% data variables.product.prodname_secret_scanning_user_alerts %}{% ifversion ghes or ghae %} on {% data variables.product.product_name %}{% endif %}
+## About {% data variables.secret-scanning.user_alerts %}{% ifversion ghes or ghae %} on {% data variables.product.product_name %}{% endif %}
 
 {% ifversion ghec or ghes or ghae %}
-{% data variables.product.prodname_secret_scanning_user_alerts_caps %} {% ifversion ghec %}are{% else %}is{% endif %} available on all organization-owned repositories as part of {% data variables.product.prodname_GH_advanced_security %}. The feature is not available on user-owned repositories. {% endif %}{% ifversion fpt %}{% data variables.product.prodname_secret_scanning_user_alerts_caps %} are available for all public repositories.{% endif %} When you enable {% data variables.product.prodname_secret_scanning %} for a repository, {% data variables.product.prodname_dotcom %} scans the code for patterns that match secrets used by many service providers. {% ifversion secret-scanning-issue-body-comments %}{% data reusables.secret-scanning.scan-issue-description-and-comments %}{% endif %} When a supported secret is leaked, {% data variables.product.product_name %} generates a {% data variables.product.prodname_secret_scanning %} alert. {% ifversion secret-scanning-backfills %}{% data variables.product.prodname_dotcom %} will also periodically run a full git history scan of existing content in {% data variables.product.prodname_GH_advanced_security %} repositories where {% data variables.product.prodname_secret_scanning %} is enabled, and send alert notifications following the {% data variables.product.prodname_secret_scanning %} alert notification settings. {% endif %}For more information, see "{% ifversion fpt or ghec %}[Supported secrets for user alerts](/code-security/secret-scanning/secret-scanning-patterns#supported-secrets-for-user-alerts){% else %}[{% data variables.product.prodname_secret_scanning_caps %} patterns](/code-security/secret-scanning/secret-scanning-patterns){% endif %}."
+{% data variables.secret-scanning.user_alerts_caps %} {% ifversion ghec %}are{% else %}is{% endif %} available on all organization-owned repositories as part of {% data variables.product.prodname_GH_advanced_security %}. The feature is not available on user-owned repositories. {% endif %}{% ifversion fpt %}{% data variables.secret-scanning.user_alerts_caps %} are available for all public repositories.{% endif %} When you enable {% data variables.product.prodname_secret_scanning %} for a repository, {% data variables.product.prodname_dotcom %} scans the code for patterns that match secrets used by many service providers. {% ifversion secret-scanning-issue-body-comments %}{% data reusables.secret-scanning.scan-issue-description-and-comments %}{% endif %} When a supported secret is leaked, {% data variables.product.product_name %} generates a {% data variables.product.prodname_secret_scanning %} alert. {% ifversion secret-scanning-backfills %}{% data variables.product.prodname_dotcom %} will also periodically run a full git history scan of existing content in {% data variables.product.prodname_GH_advanced_security %} repositories where {% data variables.product.prodname_secret_scanning %} is enabled, and send alert notifications following the {% data variables.product.prodname_secret_scanning %} alert notification settings. {% endif %}For more information, see "{% ifversion fpt or ghec %}[Supported secrets for user alerts](/code-security/secret-scanning/secret-scanning-patterns#supported-secrets-for-user-alerts){% else %}[{% data variables.product.prodname_secret_scanning_caps %} patterns](/code-security/secret-scanning/secret-scanning-patterns){% endif %}."
 
 {% ifversion secret-scanning-issue-body-comments %}
 {% note %}
@@ -72,7 +72,7 @@ You cannot change the configuration of {% data variables.product.prodname_secret
 {% endnote %}
 {% endif %}
 
-If you're a repository administrator, you can enable {% data variables.product.prodname_secret_scanning_user_alerts %} for any {% ifversion fpt %}public{% endif %} repository{% ifversion ghec or ghes > 3.4 or ghae > 3.4 %}, including archived repositories{% endif %}. Organization owners can also enable {% data variables.product.prodname_secret_scanning_user_alerts %} for all repositories or for all new repositories within an organization. For more information, see "[Managing security and analysis settings for your repository](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)" and "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)."
+If you're a repository administrator, you can enable {% data variables.secret-scanning.user_alerts %} for any {% ifversion fpt %}public{% endif %} repository{% ifversion ghec or ghes > 3.4 or ghae > 3.4 %}, including archived repositories{% endif %}. Organization owners can also enable {% data variables.secret-scanning.user_alerts %} for all repositories or for all new repositories within an organization. For more information, see "[Managing security and analysis settings for your repository](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)" and "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)."
 
 {% ifversion ghes or ghae or ghec %}You can also define custom {% data variables.product.prodname_secret_scanning %} patterns for a repository, organization, or enterprise. For more information, see "[Defining custom patterns for {% data variables.product.prodname_secret_scanning %}](/code-security/secret-security/defining-custom-patterns-for-secret-scanning)."
 {% endif %}
@@ -80,7 +80,7 @@ If you're a repository administrator, you can enable {% data variables.product.p
 {% ifversion secret-scanning-store-tokens %}
 {% data variables.product.company_short %} stores detected secrets using symmetric encryption, both in transit and at rest.{% endif %}{% ifversion ghes > 3.7 %} To rotate the encryption keys used for storing the detected secrets, you can contact {% data variables.contact.contact_ent_support %}.{% endif %}
 
-### Accessing {% data variables.product.prodname_secret_scanning_alerts %}
+### Accessing {% data variables.secret-scanning.alerts %}
 
 When you enable {% data variables.product.prodname_secret_scanning %} for a repository or push commits to a repository with {% data variables.product.prodname_secret_scanning %} enabled, {% data variables.product.prodname_dotcom %} scans the contents of those commits for secrets that match patterns defined by service providers{% ifversion ghes or ghae or ghec %} and any custom patterns defined in your enterprise, organization, or repository{% endif %}. {% ifversion secret-scanning-issue-body-comments %}{% data reusables.secret-scanning.scan-issue-description-and-comments %}{% endif %} {% ifversion secret-scanning-backfills %}{% data variables.product.prodname_dotcom %} also periodically runs a scan of all historical content in repositories with {% data variables.product.prodname_secret_scanning %} enabled.{% endif%}
 
@@ -90,9 +90,9 @@ If {% data variables.product.prodname_secret_scanning %} detects a secret, {% da
 - If the contributor who committed the secret isn't ignoring the repository, {% data variables.product.prodname_dotcom %} will also send an email alert to the contributor. The emails contains a link to the related {% data variables.product.prodname_secret_scanning %} alert. The commit author can then view the alert in the repository, and resolve the alert.
 - {% data variables.product.prodname_dotcom %} displays an alert in the "Security" tab of the repository.
 
-For more information about viewing and resolving {% data variables.product.prodname_secret_scanning_alerts %}, see "[Managing alerts from {% data variables.product.prodname_secret_scanning %}](/github/administering-a-repository/managing-alerts-from-secret-scanning)."
+For more information about viewing and resolving {% data variables.secret-scanning.alerts %}, see "[Managing alerts from {% data variables.product.prodname_secret_scanning %}](/github/administering-a-repository/managing-alerts-from-secret-scanning)."
 
-Repository administrators and organization owners can grant users and teams access to {% data variables.product.prodname_secret_scanning_alerts %}. For more information, see "[Managing security and analysis settings for your repository](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-security-alerts)."
+Repository administrators and organization owners can grant users and teams access to {% data variables.secret-scanning.alerts %}. For more information, see "[Managing security and analysis settings for your repository](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-security-alerts)."
 
 {% ifversion ghec or ghes or ghae > 3.4 %}
 You can use the security overview to see an organization-level view of which repositories have enabled {% data variables.product.prodname_secret_scanning %} and the alerts found. For more information, see "[Viewing the security overview](/code-security/security-overview/viewing-the-security-overview)."

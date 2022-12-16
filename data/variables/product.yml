@@ -185,13 +185,7 @@ prodname_advisory_database: 'GitHub Advisory Database'
 # Secret scanning
 prodname_secret_scanning: 'secret scanning' # Overall feature name and name for GHES and GHAE
 prodname_secret_scanning_caps: 'Secret scanning'
-prodname_secret_scanning_partner_alerts: 'secret scanning alerts for partners' # GitHub.com feature for public repos only
-prodname_secret_scanning_partner_alerts_caps: 'Secret scanning alerts for partners'
-prodname_secret_scanning_user_alerts: >-
-  {% ifversion fpt or ghec %}secret scanning alerts for users{% else %}secret scanning{% endif %}
-prodname_secret_scanning_user_alerts_caps: >-
-  {% ifversion fpt or ghec %}Secret scanning alerts for users{% else %}Secret scanning{% endif %}
-prodname_secret_scanning_alerts: 'secret scanning alerts'
+
 # Code scanning
 prodname_code_scanning: 'code scanning'
 prodname_code_scanning_capc: 'Code scanning'

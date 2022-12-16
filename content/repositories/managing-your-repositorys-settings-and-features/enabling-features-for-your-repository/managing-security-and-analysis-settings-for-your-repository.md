@@ -27,7 +27,7 @@ shortTitle: Security & analysis
 {% ifversion fpt or ghec %}
 ## Enabling or disabling security and analysis features for public repositories
 
-You can manage a subset of security and analysis features for public repositories. Other features are permanently enabled, including dependency graph and {% data variables.product.prodname_secret_scanning_partner_alerts %}.
+You can manage a subset of security and analysis features for public repositories. Other features are permanently enabled, including dependency graph and {% data variables.secret-scanning.partner_alerts %}.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
@@ -56,7 +56,7 @@ You can manage the security and analysis features for your {% ifversion fpt or g
   {% ifversion not fpt %}
   {% note %}
 
-  **Note:** If you disable {% data variables.product.prodname_GH_advanced_security %}, {% ifversion ghec %}dependency review, {% endif %}{% data variables.product.prodname_secret_scanning_user_alerts %} and {% data variables.product.prodname_code_scanning %} are disabled. Any workflows, SARIF uploads, or API calls for {% data variables.product.prodname_code_scanning %} will fail.
+  **Note:** If you disable {% data variables.product.prodname_GH_advanced_security %}, {% ifversion ghec %}dependency review, {% endif %}{% data variables.secret-scanning.user_alerts %} and {% data variables.product.prodname_code_scanning %} are disabled. Any workflows, SARIF uploads, or API calls for {% data variables.product.prodname_code_scanning %} will fail.
   {% endnote %}{% endif %}
 
   {% endif %}
@@ -72,7 +72,7 @@ Security alerts for a repository are visible to people with admin access to the 
 
 {% note %}
 
-Organization owners and repository administrators can only grant access to view security alerts, such as {% data variables.product.prodname_secret_scanning_alerts %}, to people or teams who have write access to the repo.
+Organization owners and repository administrators can only grant access to view security alerts, such as {% data variables.secret-scanning.alerts %}, to people or teams who have write access to the repo.
 
 {% endnote %}
 
