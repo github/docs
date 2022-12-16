@@ -12,12 +12,12 @@ versions:
   ghae: '*'
   ghec: '*'
 shortTitle: Publish & install with Actions
-ms.openlocfilehash: 4996d6c180b3e54608184ce4c40b8e0595f60d3e
-ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.openlocfilehash: 80516eb55e9ffc8f2de3f92cf24a7d7f230b8407
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/09/2022
-ms.locfileid: '147705043'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148193122'
 ---
 {% data reusables.package_registry.packages-ghes-release-stage %} {% data reusables.package_registry.packages-ghae-release-stage %}
 
@@ -27,37 +27,40 @@ ms.locfileid: '147705043'
 
 Du kannst die CI- und CD-Funktionen deines Repositorys erweitern, indem du Pakete als Teil deines Workflows veröffentlichst oder installierst.
 
-{% ifversion fpt or ghec %}
-### Authentifizieren bei der {% data variables.product.prodname_ghcr_and_npm_registry %}
+{% ifversion packages-registries-v2 %}
+### Authentifizieren bei Paketregistrierungen mit differenzierten Berechtigungen
 
 {% data reusables.package_registry.authenticate_with_pat_for_v2_registry %}
 
+### Authentifizieren bei Paketregistrierungen mit repositorybezogenen Berechtigungen
+
 {% endif %}
 
-### Authentifizieren von Paketregistrierungen in {% data variables.product.prodname_dotcom %}
+{% ifversion packages-registries-v2 %} Einige {% data variables.product.prodname_registry %}-Registrierungen unterstützen nur repositorybezogene Berechtigungen und keine differenzierten Berechtigungen. Eine Liste dieser Registrierungen findest du unter [Informationen zu Berechtigungen für {% data variables.product.prodname_registry %}](/packages/learn-github-packages/about-permissions-for-github-packages#permissions-for-repository-scoped-packages).
 
-{% ifversion fpt or ghec %}Wenn du deinen Workflow bei {% data variables.product.prodname_registry %} authentifizieren möchtest, um auf eine andere Paketregistrierung als {% data variables.product.prodname_container_registry %} auf {% data variables.product.product_location %} zuzugreifen, dann{% else %}Für eine Authentifizierung bei Paketregistrierungen auf {% data variables.product.product_name %},{% endif %} wird empfohlen, das `GITHUB_TOKEN` zu verwenden, das {% data variables.product.product_name %} automatisch für dein Repository erstellt wird, wenn du {% data variables.product.prodname_actions %} anstelle eines persönlichen Zugriffstokens für die Authentifizierung aktivierst. Die Berechtigungen für dieses Zugriffstoken müssen in der Workflowdatei festgelegt werden, um den Lesezugriff auf den `contents`-Bereich und Schreibzugriff auf den `packages`-Bereich zu gewähren. Für Forks erhält `GITHUB_TOKEN` den Lesezugriff für das übergeordnete Repository. Weitere Informationen findest du unter [Authenticating with the GITHUB_TOKEN](/actions/configuring-and-managing-workflows/authenticating-with-the-github_token) („Authentifizieren mit dem GITHUB_TOKEN“).
+Wenn dein Workflow Zugriff auf eine {% data variables.product.prodname_registry %}-Registrierung benötigt, die keine differenzierten Berechtigungen unterstützt,{% else %}Für die Authentifizierung bei Paketregistrierungen in {% data variables.product.product_name %}{% endif %} empfehlen wir die Verwendung des GitHub-Tokens (`GITHUB_TOKEN`), das {% data variables.product.product_name %} automatisch für dein Repository erstellt, wenn du {% data variables.product.prodname_actions %} aktivierst. Die Berechtigungen für dieses Zugriffstoken müssen in der Workflowdatei festgelegt werden, um den Lesezugriff auf den `contents`-Bereich und Schreibzugriff auf den `packages`-Bereich zu gewähren. Für Forks erhält `GITHUB_TOKEN` den Lesezugriff für das übergeordnete Repository. Weitere Informationen findest du unter [Authenticating with the GITHUB_TOKEN](/actions/configuring-and-managing-workflows/authenticating-with-the-github_token) („Authentifizieren mit dem GITHUB_TOKEN“).
 
 Du kannst auf das `GITHUB_TOKEN` in deiner Workflowdatei mithilfe des {% raw %}`{{secrets.GITHUB_TOKEN}}`{% endraw %}-Kontexts verweisen. Weitere Informationen findest du unter [Authenticating with the GITHUB_TOKEN](/actions/automating-your-workflow-with-github-actions/authenticating-with-the-github_token) („Authentifizieren mit dem GITHUB_TOKEN“).
 
-## Informationen zu Berechtigungen und Paketzugriff für repositoryeigene Pakete
+## Informationen zu Berechtigungen und zum Paketzugriff
 
-{% note %}
+{% ifversion packages-registries-v2 %}
 
-**Hinweis**: Einige Registrierungen, z. B. RubyGems, {% ifversion packages-npm-v2 %}{% else %}npm, {% endif %}Apache Maven, NuGet, {% ifversion fpt or ghec %}und Gradle{% else %}Gradle und Docker-Pakete, die den Paketnamespace `docker.pkg.github.com` verwenden{% endif %}, lassen nur repositoryeigene Pakete zu. Bei {% data variables.product.prodname_ghcr_and_npm_registry_full %} kannst du festlegen, dass Pakete sich im Besitz eines Benutzers oder einer Organisation befinden oder mit einem Repository verknüpft sein dürfen.
+### Auf Benutzer oder Organisationen ausgerichtete Pakete
 
-{% endnote %}
+Registrierungen, die differenzierte Berechtigungen unterstützen, ermöglichen es Benutzern, Pakete als eigenständige Ressourcen auf Organisationsebene zu erstellen und zu verwalten. Pakete können im Besitz einer Organisation oder eines persönlichen Kontos sein, und du kannst den Zugriff auf jedes deiner Pakete separat über die Repositoryberechtigungen anpassen.
+
+Alle Workflows, die auf Registrierungen zugreifen, die differenzierte Berechtigungen unterstützen, sollten kein {% data variables.product.pat_generic %} verwenden, sondern das GitHub-Token (`GITHUB_TOKEN`). Weitere Informationen zu bewährten Sicherheitsmethoden findest du unter [Sicherheitshärtung für GitHub Actions](/actions/learn-github-actions/security-hardening-for-github-actions#using-secrets).
+
+### Auf Repositorys ausgerichtete Pakete
+
+{% endif %}
 
 Wenn du GitHub Actions aktivierst, installiert GitHub eine GitHub App im Repository. Das `GITHUB_TOKEN`-Geheimnis ist ein Zugriffstoken der GitHub-App-Installation. Du kannst das Installationszugriffstoken verwenden, um dich im Namen der auf deinem Repository installierten GitHub-App zu authentifizieren. Die Berechtigungen des Tokens sind auf das Repository beschränkt, in dem sich der Workflow befindet. Weitere Informationen findest du unter [Berechtigungen für das GITHUB_TOKEN](/actions/reference/authentication-in-a-workflow#about-the-github_token-secret).
 
 {% data variables.product.prodname_registry %} ermöglicht es dir, Pakete über das `GITHUB_TOKEN` zu pushen und pullen, das für einen {% data variables.product.prodname_actions %}-Workflow verfügbar ist.
 
-{% ifversion fpt or ghec %}
-## Informationen zu Berechtigungen und Paketzugriff für {% data variables.product.prodname_ghcr_and_npm_registry %}
-
-Bei {% data variables.product.prodname_ghcr_and_npm_registry_full %} können Benutzer Pakete als eigenständige Ressourcen auf Organisationsebene erstellen und verwalten. Pakete können im Besitz einer Organisation oder eines persönlichen Kontos sein, und du kannst den Zugriff auf jedes deiner Pakete separat über die Repositoryberechtigungen anpassen.
-
-Alle Workflows, die auf die {% data variables.product.prodname_ghcr_and_npm_registry %} zugreifen, sollten `GITHUB_TOKEN` anstelle eines persönlichen Zugriffstokens verwenden. Weitere Informationen zu bewährten Sicherheitsmethoden findest du unter [Sicherheitshärtung für GitHub Actions](/actions/learn-github-actions/security-hardening-for-github-actions#using-secrets).
+{% ifversion packages-registries-v2 %}
 
 ## Standardberechtigungen und Zugriffseinstellungen für Container, die über Workflows geändert wurden
 
@@ -469,14 +472,14 @@ Die Installation von Paketen, die von {% data variables.product.prodname_registr
 
 {% data reusables.package_registry.actions-configuration %}
 
-{% ifversion fpt or ghec %}
-## Durchführen eines Upgrades für einen Workflow, der mithilfe eines PAT auf eine Registrierung zugreift
+{% ifversion packages-registries-v2 %}
+## Upgraden eines Workflows, der ein {% data variables.product.pat_generic %} für den Zugriff auf eine Registrierung verwendet
 
-Die {% data variables.product.prodname_ghcr_and_npm_registry %} unterstützen das `GITHUB_TOKEN` für eine einfache und sichere Authentifizierung in deinen Workflows. Wenn dein Workflow ein persönliches Zugriffstoken (Personal Access Token, PAT) zum Authentifizieren bei der Registrierung verwendet, solltest du deinen Workflow unbedingt so aktualisieren, dass das `GITHUB_TOKEN` verwendet wird.
+{% data variables.product.prodname_registry %} unterstützt das GitHub-Token (`GITHUB_TOKEN`) für eine einfache und sichere Authentifizierung in deinen Workflows. Wenn du eine Registrierung verwendest, die differenzierte Berechtigungen unterstützt, und dein Workflow ein {% data variables.product.pat_generic %} zum Authentifizieren bei einer Registrierung verwendet, solltest du deinen Workflow unbedingt aktualisieren, um das GitHub-Token (`GITHUB_TOKEN`) zu verwenden.
 
 Weitere Informationen über das `GITHUB_TOKEN` findest du unter [Authentifizierung in einem Workflow](/actions/reference/authentication-in-a-workflow#using-the-github_token-in-a-workflow).
 
-Mithilfe von `GITHUB_TOKEN` wird anstelle mithilfe des persönlichen Zugriffstokens, das den `repo`-Bereich enthält, die Sicherheit deines Repositorys erhöht, da du kein langlebiges persönliches Zugriffstoken verwenden musst, das unnötigen Zugriff auf das Repository bereitstellt, in dem dein Workflow ausgeführt wird. Weitere Informationen zu bewährten Sicherheitsmethoden findest du unter [Sicherheitshärtung für GitHub Actions](/actions/learn-github-actions/security-hardening-for-github-actions#using-secrets).
+Wenn du das GitHub-Token (`GITHUB_TOKEN`) verwendest anstatt ein {% data variables.product.pat_v1 %} mit dem Bereich `repo`, erhöht sich die Sicherheit deines Repositorys, da du kein langlebiges {% data variables.product.pat_generic %} verwenden musst, das unnötigen Zugriff auf das Repository bietet, in dem dein Workflow ausgeführt wird. Weitere Informationen zu bewährten Sicherheitsmethoden findest du unter [Sicherheitshärtung für GitHub Actions](/actions/learn-github-actions/security-hardening-for-github-actions#using-secrets).
 
 1. Navigiere zur Landing Page deines Pakets.
 1. Klicke auf der linken Randleiste auf **Actions-Zugriff**.
@@ -489,7 +492,7 @@ Mithilfe von `GITHUB_TOKEN` wird anstelle mithilfe des persönlichen Zugriffstok
   {% endnote %}
 1. Wähle optional über das Dropdownmenü „Rolle“ die Standardzugriffsebene aus, die du dem Repository für deinem Containerimage zuweisen möchten.
   ![Berechtigungszugriffsstufen für Repositorys](/assets/images/help/package-registry/repository-permission-options-for-package-access-through-actions.png)
-1. Öffne deine Workflowdatei. Ersetze in der Zeile, über die du dich bei der Registrierung anmeldest, dein persönliches Zugriffstoken durch {% raw %}`${{ secrets.GITHUB_TOKEN }}`{% endraw %}.
+1. Öffne deine Workflowdatei. Ersetze in der Zeile, über die du dich bei der Registrierung anmeldest, dein {% data variables.product.pat_generic %} durch {% raw %}`${{ secrets.GITHUB_TOKEN }}`{% endraw %}.
 
 Dieser Workflow veröffentlicht beispielsweise ein Docker-Image in der {% data variables.product.prodname_container_registry %} und verwendet {% raw %}`${{ secrets.GITHUB_TOKEN }}`{% endraw %} für die Authentifizierung.
 
@@ -529,7 +532,7 @@ jobs:
         run: docker build . --file Dockerfile --tag $IMAGE_NAME --label "runnumber=${GITHUB_RUN_ID}"
 
       - name: Log in to registry
-        # This is where you will update the PAT to GITHUB_TOKEN
+        # This is where you will update the {% data variables.product.pat_generic %} to GITHUB_TOKEN
         run: echo "{% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
       - name: Push image

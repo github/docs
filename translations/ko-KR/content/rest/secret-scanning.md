@@ -2,6 +2,7 @@
 title: 비밀 검사
 intro: 비밀 검사 API를 사용하여 리포지토리에서 비밀 경고를 검색하고 업데이트합니다.
 versions:
+  fpt: '*'
   ghes: '*'
   ghae: '*'
   ghec: '*'

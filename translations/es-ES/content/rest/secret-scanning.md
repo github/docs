@@ -2,6 +2,7 @@
 title: Análisis de secretos
 intro: Utiliza la API de Análisis de secretos para recuperar y actualizar las alertas secretas de un repositorio.
 versions:
+  fpt: '*'
   ghes: '*'
   ghae: '*'
   ghec: '*'

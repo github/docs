@@ -2,6 +2,7 @@
 title: Verificação de segredo
 intro: Use a API a digitalização de segredo para recuperar e atualizar alertas de segredos de um repositório.
 versions:
+  fpt: '*'
   ghes: '*'
   ghae: '*'
   ghec: '*'

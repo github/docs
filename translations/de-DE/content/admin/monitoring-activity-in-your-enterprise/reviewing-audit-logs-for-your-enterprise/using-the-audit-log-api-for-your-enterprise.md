@@ -14,12 +14,12 @@ topics:
   - Enterprise
   - Logging
   - API
-ms.openlocfilehash: b3c0f2756873494effd0a7fa3e65d4c87e24c01a
-ms.sourcegitcommit: d2f0b59ed096b9e68ef8f6fa019cd925165762ec
+ms.openlocfilehash: f5dd0a3dcca1e7fd60361f0cb7c8ecf84296e036
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/29/2022
-ms.locfileid: '148184253'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148192657'
 ---
 ## Verwenden der Überwachungsprotokoll-API
 
@@ -120,11 +120,11 @@ Weitere Informationen zur REST-API des Überwachungsprotokolls findest du unter 
 
 ### Beispiel 1: Alle Ereignisse in einem Unternehmen, für ein bestimmtes Datum, mit Paginierung
 
-Du kannst die seitenbasierte oder cursorbasierte Paginierung verwenden. Weitere Informationen findest du unter [Durchlaufen mit Paginierung](/rest/guides/traversing-with-pagination).
+Du kannst die seitenbasierte oder cursorbasierte Paginierung verwenden. Weitere Informationen zur Paginierung findest du unter [Verwenden der Paginierung in der REST-API](/rest/guides/using-pagination-in-the-rest-api).
 
 #### Beispiel mit seitenbasierter Paginierung
 
-Die folgende Abfrage sucht nach Überwachungsprotokollereignissen, die am 1. Januar 2022 im Unternehmen `avocado-corp` erstellt wurden, und gibt die erste Seite mit maximal 100 Elementen pro Seite mithilfe der [REST-API-Paginierung](/rest/overview/resources-in-the-rest-api#pagination) zurück:
+Die folgende Abfrage sucht nach Überwachungsprotokollereignissen, die am 1. Januar 2022 im Unternehmen `avocado-corp` erstellt wurden, und gibt die erste Seite mit maximal 100 Elementen pro Seite mithilfe der Paginierung zurück. Weitere Informationen zur Paginierung findest du unter [Verwenden der Paginierung in der REST-API](/rest/guides/using-pagination-in-the-rest-api).
 
 ```shell
 curl -H "Authorization: Bearer TOKEN" \
@@ -134,7 +134,7 @@ curl -H "Authorization: Bearer TOKEN" \
 
 #### Beispiel mit cursorbasierter Paginierung
 
-Die folgende Abfrage sucht nach Überwachungsprotokollereignissen, die am 1. Januar 2022 im Unternehmen `avocado-corp` erstellt wurden, und gibt die erste Seite mit maximal 100 Elementen pro Seite mithilfe der [REST-API-Paginierung](/rest/overview/resources-in-the-rest-api#pagination) zurück. Das Flag `--include` bewirkt, dass die Header zusammen mit der Antwort zurückgegeben werden.
+Die folgende Abfrage sucht nach Überwachungsprotokollereignissen, die am 1. Januar 2022 im Unternehmen `avocado-corp` erstellt wurden, und gibt die erste Seite mit maximal 100 Elementen pro Seite mithilfe der Paginierung zurück. Weitere Informationen zur Paginierung findest du unter [Verwenden der Paginierung in der REST-API](/rest/guides/using-pagination-in-the-rest-api). Das Flag `--include` bewirkt, dass die Header zusammen mit der Antwort zurückgegeben werden.
 
 ```
 curl --include -H "Authorization: Bearer TOKEN" \

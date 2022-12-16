@@ -8,12 +8,12 @@ versions:
   ghes: '*'
 topics:
   - Support
-ms.openlocfilehash: 35c7b28232c0d11170ea9585480b2cfb1785ebd0
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: b735331d90c590ff6911fed44e181563b44bfc27
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147051980'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148193387'
 ---
 ## Informationen zur Ticketverwaltung
 
@@ -27,7 +27,12 @@ Du kannst das [GitHub-Supportportal](https://support.github.com/) verwenden, um 
 
 {% data reusables.support.view-open-tickets %}
 1. Unter dem Textfeld kannst du den Kommentarverlauf lesen. Die letzte Antwort wird an oberster Stelle angezeigt.
-![Screenshot des Supportticketkommentarverlaufs mit der letzten Antwort am Anfang.](/assets/images/help/support/support-recent-response.png)
+
+   ![Screenshot: Supportticket-Kommentarverlauf mit der neuesten Antwort am Anfang](/assets/images/help/support/support-recent-response.png)
+
+1. Der Ticketkommentar kann optional übersetzt werden. Klicke hierzu auf {% octicon "globe" aria-label="The globe icon" %}, und wähle aus dem Dropdownmenü deine bevorzugte Sprache aus. Supportticket können in folgende Sprachen übersetzt werden: Chinesisch (vereinfacht), Französisch, Deutsch, Japanisch, Portugiesisch (Brasilien) und Spanisch.
+
+   ![Screenshot: Supportticket mit hervorgehobenen Übersetzungsoptionen im Dropdownmenü](/assets/images/help/support/support-ticket-translation-options.png)
 
 {% ifversion ghec or ghes or ghae %}
 
@@ -64,6 +69,6 @@ Neben dem Anzeigen von Tickets kannst du auch Kommentare zu Supporttickets hinzu
 
 {% endif %}
 
-## Weiterführende Themen
+## Weitere Informationsquellen
 
 - [Informationen zum GitHub-Support](/support/learning-about-github-support/about-github-support)

@@ -7,12 +7,12 @@ versions:
 shortTitle: Visual Studio
 topics:
   - Copilot
-ms.openlocfilehash: cb24557b15eafd4a5be8ef1a991ae3c43f376c67
-ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.openlocfilehash: 05ac86405caadf3085b15a2aed9b54acb84f91f1
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/09/2022
-ms.locfileid: '147786029'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148193312'
 ---
 ## Informationen zu {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vs %}
 
@@ -37,13 +37,20 @@ Bei der Nutzung von {% data variables.product.prodname_copilot %} kannst du die 
 Wenn du bei Verwendung von {% data variables.product.prodname_vs %} nicht die Standardtastenkombinationen in {% data variables.product.prodname_copilot %} verwenden möchtest, kannst du die Tastenkombinationen im Editor für Tastenkombinationen mit deinen bevorzugten Tastenkombinationen für die einzelnen Befehle neu binden.
 
 1. Klicke auf der Symbolleiste von {% data variables.product.prodname_vs %} unter **Extras** auf **Optionen**.
+   
    ![Screenshot der Option „Optionen“ auf der Symbolleiste von {% data variables.product.prodname_vs %}](/assets/images/help/copilot/vs-toolbar-options.png)
+
 1. Klicke im Dialogfeld „Optionen“ unter **Umgebung** auf **Tastatur**.
+   
    ![Screenshot der Option „Tastatur“ im Dialogfeld „Optionen“](/assets/images/help/copilot/vs-options-dialogue.png)
+
 1. Suche unter „Befehle mit folgendem Inhalt anzeigen“ den Befehl, den du neu binden möchtest.
-   ![Screenshot der Suchleiste „Befehle mit folgendem Inhalt anzeigen“](/assets/images/help/copilot/vs-show-commands-containing.png)
+   
+   ![Screenshot: Suchleiste „Befehle mit folgendem Inhalt anzeigen“](/assets/images/help/copilot/vs-show-commands-containing.png)
+
 1. Gib unter „Tastenkombination drücken“ die Tastenkombination ein, die du dem Befehl zuweisen möchtest, und klicke dann auf **Zuweisen**.
-   ![Screenshot der Tastenkombinationszuweisung](/assets/images/help/copilot/vs-rebind-shortcut.png)
+
+   ![Screenshot der Tastenkombinationszuweisung](/assets/images/help/copilot/vs-rebind-shortcut.png)```
 
 {% data reusables.copilot.enabling-or-disabling-vs %}
 

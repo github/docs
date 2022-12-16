@@ -1,5 +1,6 @@
 ---
 title: Creating a JavaScript action (Erstellen einer JavaScript-Aktion)
+shortTitle: Create a JavaScript action
 intro: 'In diesem Leitfaden erfährst du, wie du mit dem Aktionstoolkit eine JavaScript-Aktion erstellst.'
 redirect_from:
   - /articles/creating-a-javascript-action
@@ -15,13 +16,12 @@ type: tutorial
 topics:
   - Action development
   - JavaScript
-shortTitle: JavaScript action
-ms.openlocfilehash: c42dca4205519f6799d7f92b254b75696853b7f9
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 60fd562df55756afd081c395d9cffee89c2c04d6
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145088652'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148192745'
 ---
 {% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
@@ -41,11 +41,11 @@ Nach dem Abschluss dieses Projekts solltest du verstehen, wie du deine eigene Ja
 
 Bevor du beginnst, musst du Node.js herunterladen und ein öffentliches {% data variables.product.prodname_dotcom %}-Repository erstellen.
 
-1. Lade Node.js {% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %}16.x{% else %}12.x{% endif %} herunter – enthält npm –, und installiere es.
+1. Lade Node.js {% ifversion fpt or ghes > 3.3 or ghae > 3.3 or ghec %}16.x{% else %}12.x{% endif %} herunter (npm ist enthalten), und installiere es.
 
-  {% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %}https://nodejs.org/en/download/{% else %}https://nodejs.org/en/download/releases/{% endif %}
+  {% ifversion fpt or ghes > 3.3 or ghae > 3.3 or ghec %} https://nodejs.org/en/download/{% else %} https://nodejs.org/en/download/releases/{% endif %}
 
-1. Erstelle ein neues öffentliches Repository in {% data variables.product.product_location %} und nenne es „hello-world-javascript-action“. Weitere Informationen findest du unter [Erstellen eines neuen Repositorys](/articles/creating-a-new-repository).
+1. Erstelle ein neues öffentliches Repository in {% data variables.location.product_location %} und nenne es „hello-world-javascript-action“. Weitere Informationen findest du unter [Erstellen eines neuen Repositorys](/articles/creating-a-new-repository).
 
 1. Klone dein Repository auf deinen Computer. Weitere Informationen findest du unter [Klonen eines Repositorys](/articles/cloning-a-repository).
 
@@ -77,7 +77,7 @@ outputs:
   time: # id of output
     description: 'The time we greeted you'
 runs:
-  using: {% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %}'node16'{% else %}'node12'{% endif %}
+  using: {% ifversion fpt or ghes > 3.3 or ghae > 3.3 or ghec %}'node16'{% else %}'node12'{% endif %}
   main: 'index.js'
 ```
 
@@ -145,29 +145,31 @@ Erstelle in deinem `hello-world-javascript-action`-Verzeichnis eine `README.md`-
 - Umgebungsvariablen, die von der Aktion verwendet werden
 - Ein Beispiel für die Verwendung deiner Aktion in einem Workflow
 
-```markdown{:copy}
+````markdown{:copy}
 # Hello world javascript action
 
 This action prints "Hello World" or "Hello" + the name of a person to greet to the log.
 
 ## Inputs
 
-## `who-to-greet`
+### `who-to-greet`
 
 **Required** The name of the person to greet. Default `"World"`.
 
 ## Outputs
 
-## `time`
+### `time`
 
 The time we greeted you.
 
 ## Example usage
 
+```yaml
 uses: actions/hello-world-javascript-action@v1.1
 with:
   who-to-greet: 'Mona the Octocat'
 ```
+````
 
 ## Committe, tagge und pushe deine Aktion auf GitHub
 
@@ -273,3 +275,10 @@ jobs:
 Klicke in deinem Repository auf die Registerkarte **Aktionen**, und wähle die neueste Workflowausführung aus. Klicke unter **Aufträge** oder im Visualisierungsdiagramm auf **A job to say hello**. Im Protokoll sollten „Hello Mona the Octocat“ oder der von Ihnen für die `who-to-greet`-Eingabe verwendete Name und der Zeitstempel ausgegeben werden.
 
 ![Ein Screenshot zur Verwendung deiner Aktion in einem Workflow](/assets/images/help/repository/javascript-action-workflow-run-updated-2.png)
+
+## Vorlagenrepositorys zum Erstellen von JavaScript-Aktionen
+
+{% data variables.product.prodname_dotcom %} stellt Vorlagenrepositorys zum Erstellen von JavaScript- und TypeScript-Aktionen bereit. Du kannst diese Vorlagen verwenden, um schnell mit dem Erstellen einer neuen Aktion zu beginnen, die Tests, Linten und andere empfohlene Methoden umfasst.
+
+* [`javascript-action`-Vorlagenrepository](https://github.com/actions/javascript-action)
+* [`typescript-action`-Vorlagenrepository](https://github.com/actions/typescript-action)

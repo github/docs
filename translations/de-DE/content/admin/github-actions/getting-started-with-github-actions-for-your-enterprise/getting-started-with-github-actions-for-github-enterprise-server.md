@@ -14,12 +14,12 @@ type: how_to
 topics:
   - Actions
   - Enterprise
-ms.openlocfilehash: 6bfcb7cc2a14a70a6ba4397c12effaf0a8d8be3f
-ms.sourcegitcommit: 8f1801040a84ca9353899a2d1e6782c702aaed0d
+ms.openlocfilehash: a48e562898eb4c82b9027ee56ed52b71e7c5ebc7
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/16/2022
-ms.locfileid: '148166561'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148192969'
 ---
 {% data reusables.actions.enterprise-beta %}
 
@@ -127,7 +127,9 @@ Optional kannst du den Ressourcenverbrauch für {% data variables.location.produ
 
 Zum Aktivieren von {% data variables.product.prodname_actions %} für {% data variables.product.prodname_ghe_server %} benötigst du Zugriff auf externen Blobspeicher.
 
-{% data variables.product.prodname_actions %} verwendet Blobspeicher zum Speichern von Daten, die von Workflowausführungen generiert wurden (z. B. Workflowprotokolle{% ifversion actions-caching %}, Caches{% endif %} und von Benutzer*innen hochgeladene Buildartefakte). Die erforderliche Speichergröße hängt von der Verwendung von {% data variables.product.prodname_actions %} ab. Es wird nur eine einzige externe Speicherkonfiguration unterstützt, und du kannst nicht mehrere Speicheranbieter gleichzeitig verwenden.
+{% data reusables.actions.enterprise-storage-contents %} Die erforderliche Speichergröße hängt von der Verwendung von {% data variables.product.prodname_actions %} ab. Es wird nur eine einzige externe Speicherkonfiguration unterstützt, und du kannst nicht mehrere Speicheranbieter gleichzeitig verwenden.
+
+Alle anderen {% data variables.product.prodname_actions %}-Daten, z. B. die Workflowdateien in der Dateistruktur eines Repositorys, werden auf dem Datenspeichervolume für {% data variables.location.product_location %} gespeichert.
 
 {% data variables.product.prodname_actions %} bietet Unterstützung für diese Speicheranbieter:
 

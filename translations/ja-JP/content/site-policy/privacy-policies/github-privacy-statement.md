@@ -8,6 +8,7 @@ redirect_from:
   - /articles/github-privacy-policy
   - /articles/github-privacy-statement
   - /github/site-policy/github-privacy-statement
+  - /site-policy/privacy-policies/global-privacy-practices
 versions:
   fpt: '*'
 topics:

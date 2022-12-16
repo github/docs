@@ -22,12 +22,12 @@ redirect_from:
   - /admin/authentication/managing-identity-and-access-for-your-enterprise/about-identity-and-access-management-for-your-enterprise
   - /admin/identity-and-access-management/managing-iam-for-your-enterprise/about-identity-and-access-management-for-your-enterprise
   - /admin/identity-and-access-management/using-saml-for-enterprise-iam/about-identity-and-access-management-for-your-enterprise
-ms.openlocfilehash: d719ef81948cef75018b0976fc97ef45c267469f
-ms.sourcegitcommit: c562c85cc75ffe1eb4e9595d8adc09ec71697ab1
+ms.openlocfilehash: ea9db1269f389bdc126c8693ffeeb4b11dc42f99
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/22/2022
-ms.locfileid: '148180029'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148192689'
 ---
 ## Informationen zu SAML-SSO für {% ifversion ghec or ghae %}dein Unternehmen auf {% endif %}{% ifversion ghec or ghes %}{% data variables.location.product_location %}{% elsif ghae %}{% data variables.product.product_name %}{% endif %}
 
@@ -45,11 +45,11 @@ Optional kannst du die Konten deiner Unternehmensmitglieder mit {% data variable
 
 Nach der Aktivierung von SAML SSO kannst du je nach IdP zusätzliche Identitäts- und Zugriffsverwaltungsfeatures aktivieren. 
 
-Wenn du Azure AD als IdP verwendest, kannst du mithilfe der Teamsynchronisierung die Teammitgliedschaft für die einzelnen Organisationen verwalten. {% data reusables.identity-and-permissions.about-team-sync %} Weitere Informationen findest du unter [Verwalten der Teamsynchronisierung für Organisationen in deinem Unternehmenskonto](/admin/authentication/managing-identity-and-access-for-your-enterprise/managing-team-synchronization-for-organizations-in-your-enterprise).
+Wenn du Azure AD als IdP verwendest, kannst du mithilfe der Teamsynchronisierung die Teammitgliedschaft für die einzelnen Organisationen verwalten. {% data reusables.identity-and-permissions.about-team-sync %}
 
 {% note %}
 
-**Hinweis:** Du kannst SCIM nur auf Unternehmensebene verwenden, wenn {% data variables.product.prodname_emus %} für dein Unternehmen aktiviert ist.
+**Hinweis:** Du kannst SCIM nur dann für dein Unternehmenskonto konfigurieren, wenn dein Konto für die Verwendung von {% data variables.product.prodname_emus %} erstellt wurde. Weitere Informationen findest du unter [Informationen zu {% data variables.product.prodname_emus %}](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users).
 
 {% endnote %}
 
@@ -61,23 +61,37 @@ Mithilfe von SAML-SSO können sich Personen über ein externes System für die I
 
 SAML ist ein XML-basierter Standard für die Authentifizierung und Autorisierung. Wenn du SAML für {% data variables.location.product_location %} konfigurierst, wird das externe System für die Authentifizierung als Identitätsanbieter (Identity Provider, IdP) bezeichnet. Deine Instanz fungiert als SAML-Dienstanbieter (Service Provider, SP). Weitere Informationen zum SAML-Standard findest du auf Wikipedia unter [Security Assertion Markup Language](https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language).
 
-Weitere Informationen zur Konfiguration von SAML SSO in {% data variables.product.product_name %} findest du unter [Konfigurieren von SAML Single Sign-On für dein Unternehmen](/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise).
+{% elsif ghae %}
 
-{% data reusables.saml.saml-ghes-account-revocation %}
+{% data reusables.saml.ae-uses-saml-sso %} {% data reusables.saml.ae-enable-saml-sso-during-bootstrapping %}
+
+Nachdem du die Anwendung für {% data variables.product.product_name %} für deinen Identitätsanbieter (Identity Provider, IdP) konfiguriert hast, kannst du Zugriff auf {% data variables.location.product_location %} bereitstellen, indem du der Anwendung für deinen Identitätsanbieter Benutzer und Gruppen zuweist. Weitere Informationen zu SAML SSO für {% data variables.product.product_name %} findest du unter [Konfigurieren von SAML Single Sign-On für dein Unternehmen](/admin/authentication/configuring-saml-single-sign-on-for-your-enterprise).
+
+{% endif %}
+
+{% ifversion ghes < 3.6 %}
+
+Dein Identitätsanbieter kommuniziert nicht automatisch mit {% data variables.product.product_name %}, wenn du die Anwendung zuweist oder die Zuweisung aufhebst. {% data variables.product.product_name %} erstellt ein Benutzerkonto mit SAML-JIT-Bereitstellung, wenn ein Benutzer zum ersten Mal zu {% data variables.product.product_name %} navigiert und sich bei der Anmeldung über deinen Identitätsanbieter authentifiziert. Benutzer müssen ggf. manuell benachrichtigt werden, wenn du Zugriff auf {% data variables.product.product_name %} gewährst.
+
+{% endif %}
+
+{% ifversion ghes %}
 
 {% data reusables.enterprise_user_management.external_auth_disables_2fa %}
 
 {% data reusables.enterprise_user_management.built-in-authentication %}
 
-{% elsif ghae %}
+{% endif %}
 
-{% data reusables.saml.ae-uses-saml-sso %} {% data reusables.saml.ae-enable-saml-sso-during-bootstrapping %}
+Weitere Informationen zur Konfiguration von SAML SSO in {% data variables.product.product_name %} findest du unter [Konfigurieren von SAML Single Sign-On für dein Unternehmen](/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise).{% ifversion ghec or ghae or scim-for-ghes %} Informationen zum Konfigurieren der Authentifizierung und der Bereitstellung {% ifversion ghae or ghes %}von Benutzern {% endif %}für {% data variables.location.product_location %} mit deinem spezifischen Identitätsanbieter findest du in den Artikeln zu einzelnen Identitätsanbietern unter [Verwenden von SAML for Enterprise IAM](/admin/identity-and-access-management/using-saml-for-enterprise-iam).{% endif %}
 
-Nachdem du die Anwendung bei deinem Identitätsanbieter (IdP) für {% data variables.product.product_name %} konfiguriert hast, kannst du Zugriff auf {% data variables.location.product_location %} bereitstellen, indem du die Anwendung Benutzer*innen und Gruppen bei deinem IdP zuweist. Weitere Informationen zu SAML SSO für {% data variables.product.product_name %} findest du unter [Konfigurieren von SAML Single Sign-On für dein Unternehmen](/admin/authentication/configuring-saml-single-sign-on-for-your-enterprise).
+{% ifversion ghae or scim-for-ghes %}
+
+## Informationen zum Erstellen von Benutzerkonten
 
 {% data reusables.scim.after-you-configure-saml %} Weitere Informationen findest du unter [Konfigurieren der Benutzerbereitstellung für dein Unternehmen](/admin/authentication/configuring-user-provisioning-for-your-enterprise).
 
-Informationen zum Konfigurieren der Authentifizierung und der Benutzerbereitstellung für {% data variables.location.product_location %} bei deinem Identitätsanbieter findest du unter [Konfigurieren der Authentifizierung und Bereitstellung bei deinem Identitätsanbieter](/admin/authentication/configuring-authentication-and-provisioning-with-your-identity-provider).
+{% data reusables.saml.saml-ghes-account-revocation %}
 
 {% endif %}
 
@@ -126,8 +140,8 @@ Wenn du Okta als IdP verwendest, kannst du deine Okta-Gruppen in {% data variabl
 
 {% endif %}
 
-## Weiterführende Themen
+## Weitere Informationsquellen
 
-- [SAML-Wiki](https://wiki.oasis-open.org/security) auf der OASIS-Website
-- [SCIM (System for Cross-Domain Identity Management): Protokoll (RFC 7644)](https://tools.ietf.org/html/rfc7644) auf der IETF-Website {%- ifversion ghae %}
+- [SAML-Wiki](https://wiki.oasis-open.org/security) auf der OASIS-Website {%- ifversion ghae or scim-for-ghes %}
+- [SCIM (System for Cross-Domain Identity Management): Protokoll (RFC 7644)](https://tools.ietf.org/html/rfc7644) auf der IETF-Website {%- endif %} {%- ifversion ghae %}
 - [Einschränken des Netzwerkdatenverkehrs in deinem Unternehmen mit einer Liste zugelassener IP-Adressen](/admin/configuration/configuring-your-enterprise/restricting-network-traffic-to-your-enterprise-with-an-ip-allow-list) {%- endif %}

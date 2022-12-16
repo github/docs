@@ -12,12 +12,12 @@ versions:
 topics:
   - API
 shortTitle: Integrator best practices
-ms.openlocfilehash: 76e0a405394529bb8b40b0a0af10d5e19fbbf3a5
-ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
+ms.openlocfilehash: bdfc2449946e40b017dc028869deb7991d5a344a
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/11/2022
-ms.locfileid: '147882271'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148193339'
 ---
 Du möchtest deine App gerne in die GitHub-Plattform integrieren? [Damit befindest du dich in guter Gesellschaft](https://github.com/integrations). In dieser Anleitung erfährst du, wie du eine App erstellst, die deinen Benutzer*innen eine optimale Oberfläche bietet *und* verlässlich mit der API interagiert. 
 
@@ -65,7 +65,7 @@ Häufig enthalten API-Antworten Daten in Form von URLs. Wenn du beispielsweise e
 
 Aus Stabilitätsgründen solltest du diese Daten nicht analysieren oder versuchen, das Format zukünftiger URLs daraus zu erstellen. Deine App funktioniert bei einer Änderung der URL möglicherweise nicht mehr.
 
-Wenn du beispielsweise mit paginierten Ergebnissen arbeitest, erscheint es zunächst verlockend, URLs durch Anfügen von `?page=<number>` zu erstellen. Widerstehe dieser Versuchung. In dieser [Paginierungsanleitung](/guides/traversing-with-pagination) findest du Tipps für das sichere Folgen paginierter Ergebnisse.
+Wenn du beispielsweise mit paginierten Ergebnissen arbeitest, erscheint es zunächst verlockend, URLs durch Anfügen von `?page=<number>` zu erstellen. Widerstehe dieser Versuchung. Weitere Informationen zum sicheren Folgen paginierter Ergebnisse findest du unter [Verwenden der Paginierung in der REST-API](/rest/guides/using-pagination-in-the-rest-api).
 
 ## Überprüfen von Ereignistyp und Aktion vor der Verarbeitung des Ereignisses
 

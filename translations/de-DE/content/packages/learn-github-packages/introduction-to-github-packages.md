@@ -16,12 +16,12 @@ versions:
   ghae: '*'
   ghec: '*'
 shortTitle: Introduction
-ms.openlocfilehash: a141c93378f836eebf5ff33b0ced482409d6e577
-ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.openlocfilehash: 1ad319ead16f10186b330f876ccaa83bc44bdbcd
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/09/2022
-ms.locfileid: '147704947'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148193025'
 ---
 {% data reusables.package_registry.packages-ghes-release-stage %} {% data reusables.package_registry.packages-ghae-release-stage %}
 
@@ -55,10 +55,8 @@ Weitere Informationen zur Konfiguration von {% data variables.product.prodname_r
 
 |                    |        |
 |--------------------|--------------------|
-| Berechtigungen        | {% ifversion fpt or ghec %}Die Berechtigungen für ein Paket werden entweder von dem Repository geerbt, in dem das Paket gehostet wird, oder sie können für Pakete in der {% data variables.product.prodname_ghcr_and_npm_registry %} für bestimmte Benutzer- oder Organisationskonten definiert werden. Weitere Informationen findest du unter „[Konfigurieren der Zugriffssteuerung und Sichtbarkeit eines Pakets](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility)“. {% else %}Jedes Paket erbt die Berechtigungen des Repositorys, bei dem das Paket gehostet ist. <br> <br> Jeder, der Leseberechtigungen für ein Repository hat, kann ein Paket als Abhängigkeit in einem Projekt installieren und jeder, der Schreibberechtigungen hat, kann eine neue Paketversion veröffentlichen. {% endif %} |
+| Berechtigungen        | {% ifversion packages-registries-v2 %}Die Berechtigungen für ein Paket können vom Repository geerbt werden, in dem das Paket gehostet wird, oder für bestimmte Benutzer- oder Organisationskonten definiert werden. Einige Registrierungen unterstützen nur Berechtigungen, die von einem Repository geerbt werden. Eine Liste dieser Registrierungen findest du unter [Informationen zu Berechtigungen für {% data variables.product.prodname_registry %}](/packages/learn-github-packages/about-permissions-for-github-packages#permissions-for-repository-scoped-packages). Weitere Informationen zum Paketzugriff findest du unter [Konfigurieren der Zugriffssteuerung und Sichtbarkeit eines Pakets](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility). {% else %}Jedes Paket erbt die Berechtigungen des Repositorys, bei dem das Paket gehostet ist. <br> <br> Jeder, der Leseberechtigungen für ein Repository hat, kann ein Paket als Abhängigkeit in einem Projekt installieren und jeder, der Schreibberechtigungen hat, kann eine neue Paketversion veröffentlichen. {% endif %} |
 | Sichtbarkeit         | {% data reusables.package_registry.public-or-private-packages %} |
-
-Weitere Informationen findest du unter [Informationen zu Berechtigungen für {% data variables.product.prodname_registry %}](/packages/learn-github-packages/about-permissions-for-github-packages).
 
 {% ifversion fpt or ghec %}
 ## Informationen zur Abrechnung für {% data variables.product.prodname_registry %}
@@ -102,17 +100,9 @@ Weitere Informationen zum Konfigurieren des Paket-Clients für die Verwendung mi
 
 ## Verwalten von Paketen
 
-{% ifversion fpt or ghec %} Du kannst ein Paket in der {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}-Benutzeroberfläche oder mit der REST-API löschen. Weitere Informationen findest du unter [Löschen und Wiederherstellen eines Pakets](/packages/learn-github-packages/deleting-and-restoring-a-package) und [{% data variables.product.prodname_registry %}-API](/rest/reference/packages).
+Du kannst ein Paket auf der {% data variables.product.product_name %}-Benutzeroberfläche{% ifversion fpt or ghec %} oder mithilfe der REST-API löschen. Weitere Informationen findest du unter [Löschen und Wiederherstellen eines Pakets](/packages/learn-github-packages/deleting-and-restoring-a-package) und [{% data variables.product.prodname_registry %}-API](/rest/reference/packages).{% else %}.{% endif %} {% data reusables.package_registry.about-graphql-support %}
 
-{% data reusables.package_registry.no-graphql-to-delete-packages %} {% endif %}
-
-{% ifversion ghes %} Du kannst ein privates oder öffentliches Paket in der {% data variables.product.product_name %}-Benutzeroberfläche löschen. Oder für auf Repository bezogene Pakete kannst du eine Version eines privaten Pakets mithilfe von GraphQL löschen.
-{% endif %}
-
-{% ifversion ghae %} Du kannst eine Version eines Pakets in der {% data variables.product.product_name %}-Benutzeroberfläche oder mithilfe der GraphQL-API löschen.
-{% endif %}
-
-Wenn du die GraphQL-API zum Abfragen und Löschen privater Pakete verwendest, musst du das gleiche Token verwenden, das du zum Authentifizieren von {% data variables.product.prodname_registry %} verwendest.
+Wenn du die GraphQL-API zum Abfragen und Löschen privater Pakete verwendest, musst du das gleiche {% data variables.product.pat_v1 %} verwenden, das du zum Authentifizieren von {% data variables.product.prodname_registry %} verwendest.
 
 Weitere Informationen findest du unter {% ifversion ghes or ghae %}[Löschen und Wiederherstellen eines Pakets](/packages/learn-github-packages/deleting-and-restoring-a-package) und {% endif %}[Erstellen von Aufrufen mit GraphQL](/graphql/guides/forming-calls-with-graphql).
 

@@ -12,9 +12,11 @@ topics:
 shortTitle: Your GitHub Copilot subscription
 ---
 
-## Setting up a trial of {% data variables.product.prodname_copilot %} for your personal account
+## Setting up a {% data variables.product.prodname_copilot %} trial or subscription for your personal account
 
 Before you can start using {% data variables.product.prodname_copilot %}, you will need to set up a free trial or subscription.
+
+{% data reusables.copilot.tp-users-trial-eligibility %}
 
 {% data reusables.copilot.signup-procedure %}
 

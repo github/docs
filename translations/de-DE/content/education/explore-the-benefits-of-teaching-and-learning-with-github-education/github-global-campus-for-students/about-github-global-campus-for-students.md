@@ -10,12 +10,12 @@ redirect_from:
 versions:
   fpt: '*'
 shortTitle: For students
-ms.openlocfilehash: 198f0354e63721a4763e8fa32f832a19b2dac9d9
-ms.sourcegitcommit: 3abdbdbb47a9319f20e11845e9c2d8a7fce63422
+ms.openlocfilehash: b5d1d75e8c93bc147bc5185106ecef8c00a67c05
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/15/2022
-ms.locfileid: '148165097'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148193137'
 ---
 Die Verwendung von {% data variables.product.prodname_dotcom %} für deine Projektarbeiten ist ein praktischer Weg, um mit anderen zusammenzuarbeiten und ein Portfolio aufzubauen, das deine praktische Erfahrung zeigt.
 
@@ -40,7 +40,7 @@ Sobald du ein*e verifizierte*r {% data variables.product.prodname_global_campus 
 - Einsicht in von Studenten erstellte Repositorys über GitHub Community Exchange. Weitere Informationen findest du unter [Informationen zu GitHub Community Exchange](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/about-github-community-exchange).
 
 {% data variables.product.prodname_global_campus %}-Lernende erhalten außerdem die folgenden {% data variables.product.prodname_dotcom %}-Vorteile:
-- **{% data variables.product.prodname_copilot %}:** Verifizierte Lernende erhalten ein kostenloses Abonnement für {% data variables.product.prodname_copilot %}. Du wirst automatisch über das kostenlose Abonnement benachrichtigt, wenn du die {% data variables.product.prodname_copilot %}-Abonnementseite in deinen Kontoeinstellungen aufrufst. Weitere Informationen zum Abonnieren und Verwenden von {% data variables.product.prodname_copilot %} findest du unter [Verwalten deines {% data variables.product.prodname_copilot %}-Abonnements](/billing/managing-billing-for-github-copilot/managing-your-github-copilot-subscription#setting-up-a-trial-of-github-copilot) und [Informationen zu {% data variables.product.prodname_copilot %}](/copilot/overview-of-github-copilot/about-github-copilot).
+- **{% data variables.product.prodname_copilot %}:** Verifizierte Lernende erhalten ein kostenloses Abonnement für {% data variables.product.prodname_copilot %}. Du wirst automatisch über das kostenlose Abonnement benachrichtigt, wenn du die {% data variables.product.prodname_copilot %}-Abonnementseite in deinen Kontoeinstellungen aufrufst. Weitere Informationen zum Abonnieren und Verwenden von {% data variables.product.prodname_copilot %} findest du unter [Verwalten deines {% data variables.product.prodname_copilot_for_individuals %}-Abonnements](/billing/managing-billing-for-github-copilot/managing-your-github-copilot-for-individuals-subscription#setting-up-a-trial-of-github-copilot) und [Informationen zu {% data variables.product.prodname_copilot %}](/copilot/overview-of-github-copilot/about-github-copilot).
 - **{% data variables.product.prodname_github_codespaces %}** : {% data reusables.education.student-codespaces-benefit %} Weitere Informationen zu den ersten Schritten mit {% data variables.product.prodname_github_codespaces %} findest du unter [Übersicht über {% data variables.product.prodname_github_codespaces %}](/codespaces/overview).
 
 {% note %}

@@ -44,12 +44,12 @@ topics:
   - Repositories
   - Security
 shortTitle: Repository management policies
-ms.openlocfilehash: 4abffb820c09b8d5896598fa1d233143e3872955
-ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.openlocfilehash: 10b34ef1d0049ca68e1b0ec655f9d6351c06d396
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/09/2022
-ms.locfileid: '147683711'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148192641'
 ---
 ## Informationen zu Richtlinien für die Repositoryverwaltung in einem Unternehmen
 
@@ -61,7 +61,7 @@ Du kannst Richtlinien erzwingen, mit denen festgelegt wird, wie Mitglieder deine
 
 Jedes Mal, wenn ein neues Repository in deinem Unternehmen erstellt wird, muss für das Repository eine Sichtbarkeit ausgewählt werden. Beim Konfigurieren einer Standardsichtbarkeitseinstellung für das Unternehmen gibst du an, welche Sichtbarkeit standardmäßig ausgewählt wird. Weitere Informationen zur Sichtbarkeit von Repositorys findest du unter [Informationen zu Repository](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility).
 
-Wenn ein Unternehmensbesitzer Mitgliedern das Erstellen bestimmter Repositorytypen verwehrt, können Mitglieder kein Repository dieses Typs erstellen, auch dann nicht, wenn die Sichtbarkeitseinstellung diesen Typ als Standard vorgibt. Weitere Informationen findest du unter [Festlegen einer Richtlinie für die Repositoryerstellung](#setting-a-policy-for-repository-creation).
+Wenn ein Unternehmensbesitzer Mitgliedern das Erstellen bestimmter Repositorytypen verwehrt, können Mitglieder kein Repository dieses Typs erstellen, auch dann nicht, wenn die Sichtbarkeitseinstellung diesen Typ als Standard vorgibt. Weitere Informationen findest du unter [Erzwingen einer Richtlinie für die Repositoryerstellung](#enforcing-a-policy-for-repository-creation).
 
 {% data reusables.enterprise-accounts.access-enterprise %} {% ifversion ghes or ghae %} {% data reusables.enterprise-accounts.policies-tab %} {% else %} {% data reusables.enterprise-accounts.settings-tab %} {% endif %} {% data reusables.enterprise-accounts.options-tab %}
 1. Verwende unter „Default repository visibility“ (Standardmäßige Sichtbarkeit für Repositorys) das Dropdown-Menü und wähle eine Standardsichtbarkeit.
@@ -100,8 +100,10 @@ Wenn du Mitgliedern das Erstellen von Repositorys in deinen Organisationen gesta
   ![Screenshot: Liste der deaktivierten Optionen aus der Forkrichtlinie](/assets/images/help/business-accounts/restrict-personal-namespace-enabled-setting.png){% endif %}
 
 ## Erzwingen einer Richtlinie zum Forken von privaten oder internen Repositorys
-
 Du kannst in allen Organisationen, die deinem Unternehmen gehören, Personen mit Zugriff auf ein privates oder internes Repository erlauben, das Repository zu forken, das Forken privater oder interner Repositorys generell untersagen oder Besitzer*innen die Verwaltung der Einstellung auf Organisationsebene erlauben.
+
+{% ifversion org-owners-limit-forks-creation %} Personen mit Administratorberechtigungen können eine präzisere Forkingrichtlinie festlegen. Weitere Informationen findest du unter "[Verwalten der Forking-Richtlinie für deine Organisation](/organizations/managing-organization-settings/managing-the-forking-policy-for-your-organization)".
+{% endif %}
 
 {% ifversion enterprise-namespace-repo-setting %} {% note %}
 
@@ -110,8 +112,8 @@ Du kannst in allen Organisationen, die deinem Unternehmen gehören, Personen mit
 {% endnote %} {% endif %}
 
 {% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.policies-tab %} {% data reusables.enterprise-accounts.repositories-tab %}
-3. Informationen zum Ändern der Einstellung findest du unter „Repository forking“ (Repository-Forking). {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
-4. Wähle im Dropdownmenü unter „Repository forking“ (Repository-Forking) eine Richtlinie aus.
+1. Informationen zum Ändern der Einstellung findest du unter „Repository forking“ (Repository-Forking). {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
+2. Wähle im Dropdownmenü unter „Repository-Forking“ eine Richtlinie aus.
 
   ![Dropdownmenü mit Richtlinienoptionen für das Repository-Forking](/assets/images/help/business-accounts/repository-forking-policy-drop-down.png){% ifversion innersource-fork-policies %}
 5. Wenn Forking aktiviert ist, kannst du angeben, wo Benutzer*innen Repositorys forken dürfen. Überprüfe die Informationen zum Ändern der Einstellung, und wähle eine Richtlinie aus.
@@ -138,14 +140,14 @@ Du kannst in allen Organisationen, die deinem Unternehmen gehören, für alle ne
     ![Textfeld zum Eingeben des Standardbranchnamens](/assets/images/help/business-accounts/default-branch-name-text.png)
 4. Wenn du erzwingen möchtest, dass der Standardbranchname für alle Organisationen im Unternehmen verwendet wird, wähle **Enforce across this enterprise** (In diesem Unternehmen erzwingen) aus.
     ![Kontrollkästchen zum Erzwingen](/assets/images/help/business-accounts/default-branch-name-enforce.png)
-5. Klicken Sie auf **Aktualisieren**.
+5. Klicke auf **Aktualisieren**.
     ![Schaltfläche „Aktualisieren“](/assets/images/help/business-accounts/default-branch-name-update.png)
 
 ## Erzwingen einer Richtlinie für Änderungen an der Sichtbarkeit eines Repositorys
 
 Du kannst in allen Organisationen, die deinem Unternehmen gehören, Mitgliedern mit Administratorzugriff das Ändern der Sichtbarkeit eines Repositorys erlauben, Änderungen an der Sichtbarkeit von Repositorys auf Organisationsbesitzer*innen beschränken oder allen Besitzer*innen die Verwaltung der Einstellung auf Organisationsebene erlauben. Wenn du verhinderst, dass Mitglieder die Sichtbarkeit eines Repositorys ändern, ist es nur Unternehmensbesitzer*innen möglich, die Sichtbarkeit eines Repositorys zu ändern.
 
-Wenn ein Unternehmensbesitzer die Repositoryerstellung ausschließlich auf Organisationsbesitzer beschränkt hat, kann die Sichtbarkeit von Repositorys von Mitgliedern nicht geändert werden. Wenn ein Unternehmensbesitzer die Erstellung von Repositorys durch Mitglieder ausschließlich auf private Repositorys beschränkt hat, können Mitglieder die Sichtbarkeit eines Repositorys nur in „privat“ ändern. Weitere Informationen findest du unter [Festlegen einer Richtlinie für die Repositoryerstellung](#setting-a-policy-for-repository-creation).
+Wenn ein Unternehmensbesitzer die Repositoryerstellung ausschließlich auf Organisationsbesitzer beschränkt hat, kann die Sichtbarkeit von Repositorys von Mitgliedern nicht geändert werden. Wenn ein Unternehmensbesitzer die Erstellung von Repositorys durch Mitglieder ausschließlich auf private Repositorys beschränkt hat, können Mitglieder die Sichtbarkeit eines Repositorys nur in „privat“ ändern. Weitere Informationen findest du unter [Erzwingen einer Richtlinie für die Repositoryerstellung](#enforcing-a-policy-for-repository-creation).
 
 {% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.policies-tab %} {% data reusables.enterprise-accounts.repositories-tab %}
 1. Überprüfe unter „Repository visibility change“ (Änderung der Repository-Sichtbarkeit) die Informationen zum Ändern der Einstellung. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
@@ -256,7 +258,7 @@ Du kannst die standardmäßig übernommenen Einstellungen überschreiben, indem 
 
 {% data reusables.enterprise_user_management.disclaimer-for-git-read-access %}
 
-Wenn der [private Modus](/enterprise/admin/configuration/enabling-private-mode) {% data variables.product.product_location %} aktiviert ist, kannst du festlegen, dass Repositoryadministrator*innen den anonymen Git-Lesezugriff für öffentliche Repositorys aktivieren können.
+Wenn der [private Modus](/enterprise/admin/configuration/enabling-private-mode) für {% data variables.location.product_location %} aktiviert ist, kannst du festlegen, dass Repositoryadministratoren den anonymen Git-Lesezugriff für öffentliche Repositorys aktivieren können.
 
 Durch Aktivieren des anonymen Git-Lesezugriffs können Benutzer*innen die Authentifizierung für benutzerdefinierte Tools in deinem Unternehmen umgehen. Wenn du (oder ein Repositoryadministrator) diese Zugriffseinstellung für ein Repository änderst, haben nicht authentifizierte Git-Vorgänge (und alle Personen mit Netzwerkzugriff auf {% data variables.product.product_name %}) ohne Authentifizierung Lesezugriff auf das Repository.
 
@@ -266,7 +268,18 @@ Der anonyme Git-Lesezugriff ist standardmäßig deaktiviert.{% ifversion ghes = 
 The unauthenticated git protocol on port 9418 is no longer supported.
 ```
 
-Wenn du das unauthentifizierte Git-Protokoll in deiner Umgebung unterstützen möchtest, musst du das Feature manuell reaktivieren. {% data variables.product.company_short %} empfiehlt, SSH anstelle des Git-Protokolls zu verwenden. Weitere Informationen findest du unter [{% data variables.product.prodname_blog %}](https://github.blog/2022-06-28-improving-git-protocol-security-on-github-enterprise-server).
+{% ifversion ghes > 3.5 %}
+
+Wenn du das unauthentifizierte Git-Protokoll in deiner Umgebung unterstützen möchtest, musst du das Feature manuell reaktivieren. Führe nach dem Upgrade die folgenden Befehle aus:
+
+```ShellSession
+$ sudo ghe-config app.gitauth.git-protocol true
+$ sudo ghe-config-apply
+```
+
+{% endif %}
+
+Anonymer Git-Lesezugriff wird in einer zukünftigen Version von {% data variables.product.prodname_ghe_server %} vollständig entfernt. {% data variables.product.company_short %} empfiehlt, SSH anstelle des Git-Protokolls zu verwenden. Weitere Informationen zu dieser Änderung findest du unter [{% data variables.product.prodname_blog %}](https://github.blog/2022-06-28-improving-git-protocol-security-on-github-enterprise-server).
 
 {% endif %}
 
