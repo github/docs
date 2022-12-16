@@ -1,1 +1,3 @@
-{% ifversion fpt or ghec %} The {% data variables.product.prodname_registry %} GraphQL API does not support containers or Docker images that use the package namespace `https://ghcr.io/OWNER/PACKAGE-NAME`, or npm images that use the package namespace `https://npm.pkg.github.com/OWNER/PACKAGE-NAME`.{% endif %}
+{% ifversion packages-registries-v2 %}
+You cannot use the {% data variables.product.prodname_registry %} GraphQL API with registries that support granular permissions. For the registries that **only** support repository-scoped permissions, and can be used with the GraphQL API, see "[About permissions for {% data variables.product.prodname_registry %}](/packages/learn-github-packages/about-permissions-for-github-packages#permissions-for-repository-scoped-packages)."
+{% endif %}

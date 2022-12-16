@@ -1,6 +1,6 @@
 ---
-title: About writing and formatting on GitHub
-intro: GitHub combines a syntax for formatting text called GitHub Flavored Markdown with a few unique writing features.
+title: Sobre gravação e formatação no GitHub
+intro: O GitHub combina uma sintaxe para formatar texto chamada markdown em estilo GitHub com alguns recursos de escrita exclusivos.
 redirect_from:
   - /articles/about-writing-and-formatting-on-github
   - /github/writing-on-github/about-writing-and-formatting-on-github
@@ -10,36 +10,40 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
-shortTitle: About writing & formatting
+shortTitle: Write & format on GitHub
+ms.openlocfilehash: 7819ebc6bbf3ffa8696c87f82745a19c103c8134
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147860831'
 ---
-[Markdown](http://daringfireball.net/projects/markdown/) is an easy-to-read, easy-to-write syntax for formatting plain text.
+[Markdown](http://daringfireball.net/projects/markdown/) é uma sintaxe fácil de ler e de gravar para formatar textos sem formatação.
 
-We've added some custom functionality to create {% data variables.product.prodname_dotcom %} Flavored Markdown, used to format prose and code across our site.
+Adicionamos algumas funcionalidades personalizadas para criar o markdown em estilo {% data variables.product.prodname_dotcom %}, usadas para formatar prosa e código em nosso site.
 
-You can also interact with other users in pull requests and issues using features like [@mentions](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams), [issue and PR references](/articles/basic-writing-and-formatting-syntax/#referencing-issues-and-pull-requests), and [emoji](/articles/basic-writing-and-formatting-syntax/#using-emoji).
+Você também pode interagir com outros usuários em solicitações de pull e problemas usando recursos como [@mentions](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams), [referências de problemas e de RP](/articles/basic-writing-and-formatting-syntax/#referencing-issues-and-pull-requests) e [emojis](/articles/basic-writing-and-formatting-syntax/#using-emoji).
 
-## Text formatting toolbar
+## Barra de ferramentas de formatação de texto
 
-Every comment field on {% data variables.product.product_name %} contains a text formatting toolbar, allowing you to format your text without learning Markdown syntax. In addition to Markdown formatting like bold and italic styles and creating headers, links, and lists, the toolbar includes {% data variables.product.product_name %}-specific features such as @mentions, task lists, and links to issues and pull requests.
+Cada campo de comentário no {% data variables.product.product_name %} contém uma barra de ferramentas de formatação de texto, permitindo que você formate texto sem precisar aprender a sintaxe markdown. Além da formatação Markdown, como estilos em negrito e itálico e criação de cabeçalhos, links e listas, a barra de ferramentas inclui recursos específicos do {% data variables.product.product_name %}, como @mentions, listas de tarefas e links para problemas e solicitações de pull.
 
 {% ifversion fixed-width-font-gfm-fields %}
 
-## Enabling fixed-width fonts in the editor
+## Habilitando fontes de largura fixa no editor
 
-You can enable a fixed-width font in every comment field on {% data variables.product.product_name %}. Each character in a fixed-width, or monospace, font occupies the same horizontal space which can make it easier to edit advanced Markdown structures such as tables and code snippets.
+Você pode habilitar uma fonte de largura fixa em cada campo de comentário em {% data variables.product.product_name %}. Cada caractere em uma largura fixa, ou em monoespaço, a fonte ocupa o mesmo espaço horizontal que pode facilitar a edição de estruturas avançadas de Markdown, como tabelas e trechos de código.
 
-![Screenshot showing the {% data variables.product.product_name %} comment field with fixed-width fonts enabled](/assets/images/help/writing/fixed-width-example.png)
+![Captura de tela que mostra o campo comentário de {% data variables.product.product_name %} com as fontes de largura fixa habilitadas](/assets/images/help/writing/fixed-width-example.png)
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.appearance-settings %}
-1. Under "Markdown editor font preference", select **Use a fixed-width (monospace) font when editing Markdown**.
-  ![Screenshot showing the {% data variables.product.product_name %} comment field with fixed width fonts enabled](/assets/images/help/writing/enable-fixed-width.png)
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.appearance-settings %}
+1. Em "Preferência de fonte do editor Markdown", selecione **Usar uma fonte de largura fixa (com espaçamento uniforme) ao editar Markdown**.
+  ![Captura de tela que mostra o campo de comentário do {% data variables.product.product_name %} com as fontes de largura fixa habilitadas](/assets/images/help/writing/enable-fixed-width.png)
 
 {% endif %}
 
-## Further reading
+## Leitura adicional
 
-- [{% data variables.product.prodname_dotcom %} Flavored Markdown Spec](https://github.github.com/gfm/)
-- "[Basic writing and formatting syntax](/articles/basic-writing-and-formatting-syntax)"
-- "[Working with advanced formatting](/articles/working-with-advanced-formatting)"
-- "[Quickstart for writing on {% data variables.product.prodname_dotcom %}](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/quickstart-for-writing-on-github)"
+- [Especificações do {% data variables.product.prodname_dotcom %} Flavored Markdown](https://github.github.com/gfm/)
+- "[Sintaxe básica de escrita e formatação](/articles/basic-writing-and-formatting-syntax)"
+- "[Como trabalhar com formatação avançada](/articles/working-with-advanced-formatting)"

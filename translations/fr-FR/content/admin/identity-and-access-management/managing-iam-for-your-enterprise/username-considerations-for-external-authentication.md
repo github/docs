@@ -1,7 +1,7 @@
 ---
-title: Username considerations for external authentication
+title: Considérations relatives au nom d’utilisateur pour une authentification externe
 shortTitle: Username considerations
-intro: '{% ifversion ghes or ghec %}When you use {% ifversion ghes %}CAS, LDAP, or SAML for authentication{% elsif ghec %}{% data variables.product.prodname_emus %}{% endif %}, {% endif %}{% data variables.product.product_name %} follows certain rules to determine the username for each user account {% ifversion ghec or ghae %}in your enterprise{% elsif ghes %}on your instance{% endif %}.'
+intro: '{% ifversion ghes or ghec %}Quand vous utilisez {% ifversion ghes %}CAS, LDAP ou SAML pour l’authentification{% elsif ghec %}{% data variables.product.prodname_emus %}{% endif %}, {% endif %}{% data variables.product.product_name %} suit certaines règles pour identifier le nom d’utilisateur de chaque compte d’utilisateur {% ifversion ghec or ghae %}dans votre entreprise{% elsif ghes %}sur votre instance{% endif %}.'
 miniTocMaxHeadingLevel: 3
 versions:
   ghec: '*'
@@ -14,154 +14,151 @@ topics:
   - Enterprise
   - Identity
   - SSO
+ms.openlocfilehash: 8a330fe790665ef360bc5a5841e20ec8df002eb0
+ms.sourcegitcommit: 00814c80b0f5fa76188c378a1196ef8fc5288113
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/31/2022
+ms.locfileid: '148120750'
 ---
+{% ifversion ghec %} {% note %}
 
-{% ifversion ghec %}
-{% note %}
+**Remarque :** cet article s’applique uniquement à {% data variables.product.prodname_emus %}. Si vous utilisez {% data variables.product.prodname_ghe_cloud %} sans {% data variables.product.prodname_emus %}, les noms d’utilisateur sont créés par les utilisateurs, pas par {% data variables.product.prodname_dotcom %}.
 
-**Note:** This article only applies to {% data variables.product.prodname_emus %}. If you use {% data variables.product.prodname_ghe_cloud %} without {% data variables.product.prodname_emus %}, usernames are created by users, not {% data variables.product.prodname_dotcom %}.
+{% endnote %} {% endif %}
 
-{% endnote %}
-{% endif %}
-
-## About usernames with external authentication
+## À propos des noms d’utilisateur avec une authentification externe
 
 {% ifversion ghes %}
 
-You can configure external authentication for {% data variables.product.product_name %} using CAS, LDAP, or SAML. For more information, see "[About authentication for your enterprise](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise#authentication-methods-for-github-enterprise-server)."
+Vous pouvez configurer une authentification externe pour {% data variables.product.product_name %} à l’aide du protocole CAS, LDAP ou SAML. Pour plus d’informations, consultez « [À propos de l’authentification pour votre entreprise](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise#authentication-methods-for-github-enterprise-server) ».
 
-When you use external authentication, {% data variables.location.product_location %} automatically creates a username for each person when the person signs into {% data variables.location.product_location %} through your external authentication system for the first time.
+Quand vous utilisez une authentification externe, {% data variables.location.product_location %} crée automatiquement un nom d’utilisateur pour chaque personne qui se connecte à {% data variables.location.product_location %} via votre système d’authentification externe pour la première fois.
 
 {% elsif ghec %}
 
-If you use an enterprise with {% data variables.product.prodname_emus %}, members of your enterprise authenticate to access {% data variables.product.prodname_dotcom %} through your SAML identity provider (IdP). For more information, see "[About {% data variables.product.prodname_emus %}](/admin/identity-and-access-management/using-enterprise-managed-users-and-saml-for-iam/about-enterprise-managed-users)" and "[About authentication for your enterprise](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise#authentication-methods-for-github-enterprise-server)."
+Si vous utilisez une entreprise avec {% data variables.product.prodname_emus %}, les membres de celle-ci s’authentifient pour accéder à {% data variables.product.prodname_dotcom %} via votre fournisseur d’identité SAML. Pour plus d’informations, consultez « [À propos de {% data variables.product.prodname_emus %}](/admin/identity-and-access-management/using-enterprise-managed-users-and-saml-for-iam/about-enterprise-managed-users) » et « [À propos de l’authentification pour votre entreprise](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise#authentication-methods-for-github-enterprise-server) ».
 
-{% data variables.product.prodname_dotcom %} automatically creates a username for each person when their user account is provisioned via SCIM, by normalizing an identifier provided by your IdP, then adding an underscore and short code. If multiple identifiers are normalized into the same username, a username conflict occurs, and only the first user account is created. You can resolve username problems by making a change in your IdP so that the normalized usernames will be unique and within the 39-character limit.
+{% data variables.product.prodname_dotcom %} crée automatiquement un nom d’utilisateur pour chaque personne lors du provisionnement de son compte d’utilisateur via SCIM, en normalisant un identificateur fourni par votre fournisseur d’identité, puis en ajoutant un trait de soulignement et un code court. Si plusieurs identificateurs sont normalisés dans le même nom d’utilisateur, un conflit de nom d’utilisateur se produit et seul le premier compte est créé. Vous pouvez résoudre des problèmes de nom d’utilisateur en apportant une modification à votre fournisseur d’identité de sorte que les noms d’utilisateur normalisés soient uniques et limités à 39 caractères.
 
 {% data reusables.enterprise-accounts.emu-only-emails-within-the-enterprise-can-conflict %}
 
 {% elsif ghae %}
 
-{% data variables.product.product_name %} uses SAML SSO for authentication, and automatically creates a username for each person when the person signs in through your identity provider (IdP) for the first time.
+{% data variables.product.product_name %} utilise une SSO SAML pour l’authentification, et crée automatiquement un nom d’utilisateur pour chaque personne qui se connecte via votre fournisseur d’identité pour la première fois.
 
 {% endif %}
 
 {% ifversion ghec %}
-## About usernames for {% data variables.enterprise.prodname_managed_users %}
+## À propos des noms d’utilisateur pour {% data variables.enterprise.prodname_managed_users %}
 
-When your {% data variables.enterprise.prodname_emu_enterprise %} is created, you will choose a short code that will be used as the suffix for your enterprise members' usernames. {% data reusables.enterprise-accounts.emu-shortcode %} The setup user who configures SAML SSO has a username in the format of **@<em>SHORT-CODE</em>_admin**. 
+Lors de la création de votre {% data variables.enterprise.prodname_emu_enterprise %}, vous choisissez un code court qui sera utilisé comme suffixe pour les noms d’utilisateur des membres de votre entreprise. {% data reusables.enterprise-accounts.emu-shortcode %} L’utilisateur de configuration qui configure l’authentification unique SAML a un nom d’utilisateur au format **@<em>CODE-COURT</em>_admin**. 
 
-When you provision a new user from your identity provider, the new {% data variables.enterprise.prodname_managed_user %} will have a {% data variables.product.prodname_dotcom %} username in the format of **@<em>IDP-USERNAME</em>_<em>SHORT-CODE</em>**. The <em>IDP-USERNAME</em> component is formed by normalizing the SCIM `userName` attribute value sent from the IdP. 
+Quand vous provisionnez un nouvel utilisateur à partir de votre fournisseur d’identité, le nouvel {% data variables.enterprise.prodname_managed_user %} a un nom d’utilisateur {% data variables.product.prodname_dotcom %} au format **@<em>IDP-USERNAME</em>_<em>SHORT-CODE</em>** . Le composant <em>IDP-USERNAME</em> est formé en normalisant la valeur d’attribut `userName` SCIM envoyée par le fournisseur d’identité. 
 
-| Identity provider                 | {% data variables.product.prodname_dotcom %} username  |
+| Fournisseur d’identité                 | Nom d’utilisateur {% data variables.product.prodname_dotcom %}  |
 |-----------------------------------|----------------------|
-| Azure Active Directory (Azure AD) | _IDP-USERNAME_ is formed by normalizing the characters preceding the `@` character in the UPN (User Principal Name), which does not include the `#EXT#` for guest accounts. |
-| Okta                              | _IDP-USERNAME_ is the normalized username attribute provided by the IdP.               |
+| Azure Active Directory (Azure AD) | _IDP-USERNAME_ est formé en normalisant les caractères précédant le caractère `@` dans l’UPN (nom d’utilisateur principal), ce qui n’inclut pas l’`#EXT#` pour des comptes invités. |
+| Okta                              | _IDP-NOMUTILISATEUR_ est l’attribut de nom d’utilisateur normalisé fourni par l’IdP.               |
 
-These rules may result in your IdP providing the same _IDP-USERNAME_ for multiple users. For example, for Azure AD, the following UPNs will result in the same username:
+Ces règles peuvent conduire votre fournisseur d’identité à fournir le même _IDP-USERNAME_ pour plusieurs utilisateurs. Par exemple, pour Azure AD, les UPN suivants donneront le même nom d’utilisateur :
 
 - `bob@contoso.com`
 - `bob@fabrikam.com`
 - `bob#EXT#fabrikamcom@contoso.com`
 
-This will cause a username conflict, and only the first user will be provisioned. For more information, see "[Resolving username problems](#resolving-username-problems)."
+Cela occasionnera un conflit de nom d’utilisateur et seul le premier utilisateur sera approvisionné. Pour plus d’informations, consultez « [Résolution des problèmes de nom d’utilisateur](#resolving-username-problems) ».
 {% endif %}
 
-Usernames{% ifversion ghec %}, including underscore and short code,{% endif %} must not exceed 39 characters.
+Les noms d’utilisateur{% ifversion ghec %}, trait de soulignement et code court compris,{% endif %} ne doivent pas dépasser 39 caractères.
 
-## About username normalization
+## À propos de la normalisation du nom d’utilisateur
 
-Usernames for user accounts on {% ifversion ghes or ghae %}{% data variables.product.product_name %}{% elsif ghec %}{% data variables.product.prodname_dotcom_the_website %}{% endif %} can only contain alphanumeric characters and dashes (`-`).
+Les noms d’utilisateur pour des comptes d’utilisateur sur {% ifversion ghes or ghae %}{% data variables.product.product_name %}{% elsif ghec %}{% data variables.product.prodname_dotcom_the_website %}{% endif %} ne peuvent contenir que des caractères alphanumériques et des tirets (`-`).
 
-{% ifversion ghec %}
-When you configure SAML authentication, {% data variables.product.product_name %} uses the SCIM `userName` attribute value sent from the IdP to determine the username for the corresponding user account on {% data variables.product.prodname_dotcom_the_website %}. If this value includes unsupported characters, {% data variables.product.product_name %} will normalize the username per the following rules.
-{% elsif ghes %}
-When you configure CAS, LDAP, or SAML authentication, {% data variables.product.product_name %} uses an identifier from the user account on your external authentication provider to determine the username for the corresponding user account on {% data variables.product.product_name %}. If the identifier includes unsupported characters, {% data variables.product.product_name %} will normalize the username per the following rules.
-{% elsif ghae %}
-When you configure SAML authentication, {% data variables.product.product_name %} uses an identifier from the user account on your IdP to determine the username for the corresponding user account on {% data variables.product.product_name %}. If the identifier includes unsupported characters, {% data variables.product.product_name %} will normalize the username per the following rules.
+{% ifversion ghec %} Lorsque vous configurez une authentification SAML, {% data variables.product.product_name %} utilise la valeur d’attribut `userName` SCIM envoyée par le fournisseur d’identité pour déterminer le nom d’utilisateur du compte d’utilisateur correspondant sur {% data variables.product.prodname_dotcom_the_website %}. Si cette valeur inclut des caractères non pris en charge, {% data variables.product.product_name %} normalise le nom d’utilisateur conformément aux règles suivantes.
+{% elsif ghes %} Lorsque vous configurez une authentification CAS, LDAP ou SAML, {% data variables.product.product_name %} utilise un identificateur du compte d’utilisateur sur votre fournisseur d’authentification externe pour déterminer le nom d’utilisateur du compte d’utilisateur correspondant sur {% data variables.product.product_name %}. Si l’identificateur inclut des caractères non pris en charge, {% data variables.product.product_name %} normalise le nom d’utilisateur conformément aux règles suivantes.
+{% elsif ghae %} Lorsque vous configurez une authentification SAML, {% data variables.product.product_name %} utilise un identificateur du compte d’utilisateur sur votre fournisseur d’identité pour déterminer le nom d’utilisateur du compte d’utilisateur correspondant sur {% data variables.product.product_name %}. Si l’identificateur inclut des caractères non pris en charge, {% data variables.product.product_name %} normalise le nom d’utilisateur conformément aux règles suivantes.
 {% endif %}
 
-1. {% data variables.product.product_name %} will normalize any non-alphanumeric character in your account's username into a dash. For example, a username of `mona.the.octocat` will be normalized to `mona-the-octocat`. Note that normalized usernames also can't start or end with a dash. They also can't contain two consecutive dashes.
+1. {% data variables.product.product_name %} normalise tout caractère non alphanumérique dans le nom d’utilisateur de votre compte en tiret. Par exemple, le nom d’utilisateur `mona.the.octocat` est normalisé en `mona-the-octocat`. Notez que les noms d’utilisateur normalisés ne peuvent ni commencer ni se terminer par un tiret. Ils ne peuvent pas non plus contenir deux tirets consécutifs.
 
-1. Usernames created from email addresses are created from the normalized characters that precede the `@` character.
+1. Les noms d’utilisateur créés à partir d’adresses e-mail sont créés à partir des caractères normalisés qui précèdent le caractère `@`.
 
-1. Usernames created from domain accounts are created from the normalized characters after the `\\` separator. 
+1. Les noms d’utilisateur créés à partir de comptes de domaine sont créés à partir des caractères normalisés après le séparateur `\\`. 
 
-1. If multiple accounts are normalized into the same {% data variables.product.product_name %} username, only the first user account is created. Subsequent users with the same username won't be able to sign in. {% ifversion ghec %}For more information, see "[Resolving username problems](#resolving-username-problems)."{% endif %}
+1. Si plusieurs comptes sont normalisés dans le même nom d’utilisateur {% data variables.product.product_name %}, seul le premier compte d’utilisateur est créé. Les utilisateurs suivants ayant le même nom d’utilisateur ne pourront pas se connecter. {% ifversion ghec %}Pour plus d’informations, consultez « [Résolution des problèmes de nom d’utilisateur](#resolving-username-problems). »{% endif %}
 
-### Examples of username normalization
+### Exemples de normalisations de nom d’utilisateur
 
-| Identifier on provider | Normalized username on {% data variables.product.prodname_dotcom %} | Result |
+| Identificateur sur le fournisseur | Nom d’utilisateur normalisé sur {% data variables.product.prodname_dotcom %} | Résultats |
 | :- | :- | :- |
-| The.Octocat | `the-octocat{% ifversion ghec %}_SHORT-CODE{% endif %}` | This username is created successfully. |
-| !The.Octocat | `-the-octocat{% ifversion ghec %}_SHORT-CODE{% endif %}` | This username is not created, because it starts with a dash. |
-| The.Octocat! | `the-octocat-{% ifversion ghec %}_SHORT-CODE{% endif %}` | This username is not created, because it ends with a dash. |
-| The!!Octocat | `the--octocat{% ifversion ghec %}_SHORT-CODE{% endif %}` | This username is not created, because it contains two consecutive dashes. |
-| The!Octocat | `the-octocat{% ifversion ghec %}_SHORT-CODE{% endif %}` | This username is not created. Although the normalized username is valid, it already exists. |
-| `The.Octocat@example.com` | `the-octocat{% ifversion ghec %}_SHORT-CODE{% endif %}` | This username is not created. Although the normalized username is valid, it already exists. |
-| `internal\\The.Octocat` | `the-octocat{% ifversion ghec %}_SHORT-CODE{% endif %}` | This username is not created. Although the normalized username is valid, it already exists. |
-| `mona.lisa.the.octocat.from.github.united.states@example.com` | `mona-lisa-the-octocat-from-github-united-states{% ifversion ghec %}_SHORT-CODE{% endif %}` | This username is not created, because it exceeds the 39-character limit. |
+| The.Octocat | `the-octocat{% ifversion ghec %}_SHORT-CODE{% endif %}` | Ce nom d’utilisateur est créé avec succès. |
+| !The.Octocat | `-the-octocat{% ifversion ghec %}_SHORT-CODE{% endif %}` | Ce nom d’utilisateur n’est pas créé, car il commence par un tiret. |
+| The.Octocat! | `the-octocat-{% ifversion ghec %}_SHORT-CODE{% endif %}` | Ce nom d’utilisateur n’est pas créé, car il se termine par un tiret. |
+| The!!Octocat | `the--octocat{% ifversion ghec %}_SHORT-CODE{% endif %}` | Ce nom d’utilisateur n’est pas créé, car il contient deux tirets consécutifs. |
+| The!Octocat | `the-octocat{% ifversion ghec %}_SHORT-CODE{% endif %}` | Ce nom d’utilisateur n’est pas créé. Bien que le nom d’utilisateur normalisé soit valide, il existe déjà. |
+| `The.Octocat@example.com` | `the-octocat{% ifversion ghec %}_SHORT-CODE{% endif %}` | Ce nom d’utilisateur n’est pas créé. Bien que le nom d’utilisateur normalisé soit valide, il existe déjà. |
+| `internal\\The.Octocat` | `the-octocat{% ifversion ghec %}_SHORT-CODE{% endif %}` | Ce nom d’utilisateur n’est pas créé. Bien que le nom d’utilisateur normalisé soit valide, il existe déjà. |
+| `mona.lisa.the.octocat.from.github.united.states@example.com` | `mona-lisa-the-octocat-from-github-united-states{% ifversion ghec %}_SHORT-CODE{% endif %}` | Ce nom d’utilisateur n’est pas créé, car il dépasse la limite de 39 caractères. |
 
 {% ifversion not ghec %}
-### About username normalization with SAML
+### À propos de la normalisation du nom d’utilisateur avec SAML
 
-{% ifversion ghes %}If you configure SAML authentication for {% data variables.location.product_location %}, {% endif %}{% data variables.product.product_name %} determines each person's username by one of the following assertions in the SAML response, ordered by descending priority.
+{% ifversion ghes %}Si vous configurez l’authentification SAML pour {% data variables.location.product_location %}, {% endif %}{% data variables.product.product_name %} détermine le nom d’utilisateur de chaque personne par l’une des assertions suivantes dans la réponse SAML, classées par ordre de priorité décroissant.
 
-1. The custom `username` attribute, if defined and present
-1. An `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name` assertion, if present
-1. An `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` assertion, if present
-1. The `NameID` element
+1. L’attribut `username` personnalisé, s’il est défini et présent
+1. Une assertion `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`, si elle est présente
+1. Une assertion `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`, si elle est présente
+1. Élément `NameID`
 
-{% data variables.product.product_name %} requires the `NameID` element even if other attributes are present. For more information, see "[SAML configuration reference](/admin/identity-and-access-management/using-saml-for-enterprise-iam/saml-configuration-reference#saml-attributes)."
+{% data variables.product.product_name %} nécessite l’élément `NameID`, même si d’autres attributs sont présents. Pour plus d’informations, consultez la « [Référence de configuration SAML](/admin/identity-and-access-management/using-saml-for-enterprise-iam/saml-configuration-reference#saml-attributes) ».
 
-{% data variables.product.product_name %} creates a mapping between the `NameID` from the IdP and the username {% ifversion ghae %}in{% else %}on{% endif %} {% data variables.location.product_location %}, so the `NameID` should be persistent, unique, and not subject to change for the lifecycle of the user.
+{% data variables.product.product_name %} crée un mappage entre le `NameID` du fournisseur d’identité et le nom d’utilisateur {% ifversion ghae %}dans{% else %}sur{% endif %} {% data variables.location.product_location %}, de sorte que `NameID` doit être persistant, unique et non modifiable pendant le cycle de vie de l’utilisateur.
 
-{% ifversion ghes %}
-{% note %}
+{% ifversion ghes %} {% note %}
 
-**Note**: If the `NameID` for a user does change on the IdP, the person will see an error message when signing into {% data variables.location.product_location %}. To restore the person's access, you'll need to update the user account's `NameID` mapping. For more information, see "[Updating a user's SAML `NameID`](/admin/identity-and-access-management/using-saml-for-enterprise-iam/updating-a-users-saml-nameid)."
+**Remarque** : si le `NameID` d’un utilisateur change sur le fournisseur d’identité, un message d’erreur s’affiche lors de la connexion à {% data variables.location.product_location %}. Pour restaurer l’accès de la personne, vous devez mettre à jour le mappage de `NameID` du compte d’utilisateur. Pour plus d’informations, consultez « [Mise à jour du `NameID` SAML d’un utilisateur](/admin/identity-and-access-management/using-saml-for-enterprise-iam/updating-a-users-saml-nameid) ».
 
-{% endnote %}
-{% endif %}
-{% endif %}
+{% endnote %} {% endif %} {% endif %}
 
 {% ifversion ghec %}
-## Resolving username problems
+## Résolution des problèmes de nom d’utilisateur
 
-When a new user is being provisioned, if the username is longer than 39 characters (including underscore and short code), or conflicts with an existing user in the enterprise, the provisioning attempt will fail with a `409` error. 
+Quand un nouvel utilisateur est provisionné, si le nom d’utilisateur est plus long que 39 caractères (trait de soulignement et code court inclus) ou en conflit avec un utilisateur existant dans l’entreprise, la tentative de provisionnement échoue avec une erreur `409`. 
 
-To resolve this problem, you must make one of the following changes in your IdP so that all normalized usernames will be within the character limit and unique.
-- Change the `userName` attribute value for individual users that are causing problems
-- Change the `userName` attribute mapping for all users
-- Configure a custom `userName` attribute for all users
+Pour résoudre ce problème, vous devez apporter l’une des modifications suivantes à votre fournisseur d’identité afin que tous les noms d’utilisateur normalisés soient uniques et respectent la limite de caractères.
+- Modifier la valeur de l’attribut `userName` pour les utilisateurs individuels entraînant des problèmes
+- Modifier le mappage d’attributs `userName` pour tous les utilisateurs
+- Configurer un attribut personnalisé `userName` pour tous les utilisateurs
 
-When you change the attribute mapping, usernames of existing {% data variables.enterprise.prodname_managed_users %} will be updated, but nothing else about the accounts will change, including activity history.
+Quand vous modifiez le mappage d’attributs, les noms d’utilisateur de {% data variables.enterprise.prodname_managed_users %} existants sont mis à jour, mais rien d’autre ne change sur les comptes, notamment l’historique des activités.
 
 {% note %}
 
-**Note:** {% data variables.contact.github_support %} cannot provide assistance with customizing attribute mappings or configuring custom expressions. You can contact your IdP with any questions.
+**Remarque :** {% data variables.contact.github_support %} ne peut pas fournir d’assistance pour la personnalisation des mappages d’attributs ou la configuration d’expressions personnalisées. Si vous avez des questions, vous pouvez contacter votre fournisseur d’identité.
 
 {% endnote %}
 
-### Resolving username problems with Azure AD
+### Résolution des problèmes de nom d’utilisateur avec Azure AD
 
-To resolve username problems in Azure AD, either modify the User Principal Name value for the conflicting user or modify the attribute mapping for the `userName` attribute. If you modify the attribute mapping, you can choose an existing attribute or use an expression to ensure that all provisioned users have a unique normalized alias.
+Pour résoudre les problèmes de nom d’utilisateur dans Azure AD, modifiez la valeur du nom d’utilisateur principal de l’utilisateur en conflit, ou modifiez le mappage pour l’attribut `userName`. Si vous modifiez le mappage d’attributs, vous pouvez choisir un attribut existant ou utiliser une expression pour vous assurer que tous les utilisateurs approvisionnés ont un alias normalisé unique.
 
-1. In Azure AD, open the {% data variables.product.prodname_emu_idp_application %} application.
-1. In the left sidebar, click **Provisioning**.
-1. Click **Edit Provisioning**.
-1. Expand **Mappings**, then click **Provision Azure Active Directory Users**.
-1. Click the {% data variables.product.prodname_dotcom %} `userName` attribute mapping. 
-1. Change the attribute mapping.
-   - To map an existing attribute in Azure AD to the `userName` attribute in {% data variables.product.prodname_dotcom %}, click your desired attribute field. Then, save and wait for a provisioning cycle to occur within about 40 minutes.
-   - To use an expression instead of an existing attribute, change the Mapping type to "Expression", then add a custom expression that will make this value unique for all users. For example, you could use `[FIRST NAME]-[LAST NAME]-[EMPLOYEE ID]`. For more information, see [Reference for writing expressions for attribute mappings in Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/app-provisioning/functions-for-customizing-application-data) in Microsoft Docs.
+1. Dans Azure AD, ouvrez l’application {% data variables.product.prodname_emu_idp_application %}.
+1. Dans la barre latérale gauche, cliquez sur **Approvisionnement**.
+1. Accédez à **Modifier l’approvisionnement**.
+1. Développez **Mappages**, puis cliquez sur **Approvisionner les utilisateurs d’Azure Active Directory**.
+1. Cliquez sur le mappage d’attributs {% data variables.product.prodname_dotcom %} `userName`. 
+1. Enregistrez le mappage d’attributs.
+   - Pour mapper un attribut existant dans Azure AD à l’attribut `userName` dans {% data variables.product.prodname_dotcom %}, cliquez sur le champ de votre attribut souhaité. Ensuite, enregistrez et attendez qu’un cycle d’approvisionnement se produise dans les 40 minutes environ.
+   - Pour utiliser une expression au lieu d’un attribut existant, modifiez le type de mappage en « Expression », puis ajoutez une expression personnalisée qui rend cette valeur unique pour tous les utilisateurs. Par exemple, vous pourriez utiliser `[FIRST NAME]-[LAST NAME]-[EMPLOYEE ID]`. Pour plus d’informations, consultez [Générateur d’expressions](https://docs.microsoft.com/en-us/azure/active-directory/app-provisioning/functions-for-customizing-application-data) et Informations de référence sur l’écriture d’expressions pour les mappages d’attributs dans Azure Active Directory.
 
-### Resolving username problems with Okta
+### Résolution des problèmes de nom d’utilisateur avec Okta
 
-To resolve username problems in Okta, update the attribute mapping settings for the {% data variables.product.prodname_emu_idp_application %} application.
+Pour résoudre les problèmes de nom d’utilisateur dans Okta, mettez à jour les paramètres de mappage d’attributs pour l’application {% data variables.product.prodname_emu_idp_application %}.
 
-1. In Okta, open the {% data variables.product.prodname_emu_idp_application %} application.
-1. Click **Sign On**.
-1. In the "Settings" section, click **Edit**.
-1. Update the "Application username format."
+1. Dans Okta, ouvrez l’application {% data variables.product.prodname_emu_idp_application %}
+1. Cliquez sur **Se connecter**.
+1. Dans la section « Paramètres », cliquez sur **OK**.
+1. Mettez à jour le « format de nom d’utilisateur de l’application ».
 {% endif %}

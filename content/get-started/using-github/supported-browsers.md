@@ -6,7 +6,7 @@ redirect_from:
   - /articles/supported-browsers
   - /github/getting-started-with-github/supported-browsers
   - /github/getting-started-with-github/using-github/supported-browsers
-intro: 'For the best experience with {% data variables.product.product_name %}, we recommend using the latest version of [Chrome](https://google.com/chrome), [Edge](https://microsoft.com/windows/microsoft-edge), [Firefox](https://mozilla.org/firefox), or [Safari](https://apple.com/safari).'
+intro: 'For the best experience with {% data variables.product.product_name %}, we recommend using the latest version of [Chrome](https://google.com/chrome), [Edge](https://www.microsoft.com/edge), [Firefox](https://mozilla.org/firefox), or [Safari](https://apple.com/safari).'
 versions:
   fpt: '*'
   ghes: '*'
@@ -20,9 +20,9 @@ We design {% data variables.product.product_name %} with the latest web browsers
 
  - [Apple Safari](https://apple.com/safari)
  - [Google Chrome](https://google.com/chrome)
- - [Microsoft Edge](https://microsoft.com/windows/microsoft-edge)
+ - [Microsoft Edge](https://www.microsoft.com/edge)
  - [Mozilla Firefox](https://mozilla.org/firefox)
- 
+
 If you do not use the latest version of a recommended browser, or if you use a browser that is not listed above, {% data variables.product.product_name %} or some features may not work as you expect, or at all.
 
 For more information about how we maintain browser compatibility for {% data variables.product.company_short %}'s products, see the [`github/browser-support`](https://github.com/github/browser-support) repository.

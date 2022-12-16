@@ -1,0 +1,26 @@
+date: '21.07.2022'
+sections:
+  security_fixes:
+    - "**MITTEL**: Verhindert einen Angriff, bei dem eine serverseitige Anforderungsfälschung (Server-Side Request Forgery, SSRF) die Subversion-Brücke (SVN) potenziell zwingen könnte, Remotecode auszuführen, indem beliebige Daten in Memcached eingeschleust werden." 
+    - "Aktualisiert Grafana auf Version 7.5.16, die verschiedene Sicherheitsrisiken behebt, darunter [CVE-2020-13379](https://github.com/advisories/GHSA-wc9w-wvq2-ffm9) und [CVE-2022-21702](https://github.com/grafana/grafana/security/advisories/GHSA-xc3p-28hw-q24g)." 
+    - Die Pakete wurden auf die neuesten Sicherheitsversionen aktualisiert. 
+  bugs:
+    - "Ein Problem wurde behoben, bei dem die Dateien in den Artefakt-ZIP-Archiven die Berechtigung 000 hatten, wenn sie mit einem Entpackungsprogramm entpackt wurden. Jetzt werden die Berechtigungen für die Dateien wie in GitHub.com auf 644 gesetzt." 
+    - In einigen Fällen konnte der Collectd-Daemon zu viel Arbeitsspeicher verbrauchen. 
+    - In einigen Fällen konnten sich Backups von rotierten Protokolldateien ansammeln und übermäßigen Speicherplatz verbrauchen. 
+    - Nach einem Upgrade auf ein neues Featurerelease und einer anschließenden Konfigurationsausführung konnte Elasticsearch beim Neuerstellen von Indizes übermäßige Ausnahmen protokollieren. 
+    - "In einigen Fällen, in denen ein geschützter Branch mehr als eine zustimmende Überprüfung erforderte, konnte ein Pull Request mit weniger als der erforderlichen Anzahl von zustimmenden Überprüfungen gemergt werden." 
+    - "Auf Instanzen, die LDAP-Authentifizierung verwenden, platzierte die Authentifizierungsaufforderung für den Sudo-Modus den Cursor standardmäßig fälschlicherweise im Kennwortfeld, wenn sowohl Textfelder für einen Benutzernamen als auch ein Kennwort sichtbar waren." 
+  changes:
+    - "Das Befehlszeilenhilfsprogramm `ghe-set-password` startet die erforderlichen Dienste automatisch, wenn die Instanz im Wiederherstellungsmodus gebootet wird." 
+    - Metriken für `aqueduct`-Hintergrundprozesse werden für die Collectd-Weiterleitung gesammelt und in der Verwaltungskonsole angezeigt. 
+    - "Der Speicherort des Datenbankmigrations- und Konfigurationsausführungsprotokolls, `/data/user/common/ghe-config.log`, wird jetzt auf der Seite angezeigt, die eine laufende Migration beschreibt." 
+  known_issues:
+    - "Bei einer neu eingerichteten {% data variables.product.prodname_ghe_server %}-Instanz ohne Benutzer könnte ein Angreifer den ersten Administratorbenutzer erstellen."
+    - Benutzerdefinierte Firewallregeln werden während des Upgrades entfernt.
+    - "Nachverfolgte Git-LFS-Dateien, [die über die Webbenutzeroberfläche hochgeladen wurden](https://github.com/blog/2105-upload-files-to-your-repositories), werden dem Repository fälschlicherweise direkt hinzugefügt."
+    - "Issues können nicht geschlossen werden, wenn sie einen Permalink zu einem Blob im selben Repository enthalten und der Dateipfad des Blobs mehr als 255 Zeichen lang ist."
+    - "Wenn die Option zum Durchsuchen von GitHub.com mit {% data variables.product.prodname_github_connect %} aktiviert wird, sind Issues in privaten und internen Repositorys nicht in den {% data variables.product.prodname_dotcom_the_website %}-Suchergebnissen enthalten."
+    - "Die {% data variables.product.prodname_registry %}-npm-Registrierung gibt in Metadatenantworten keinen Zeitwert mehr zurück. So sind erhebliche Leistungssteigerungen möglich. Die erforderlichen Daten zum Zurückgeben eines Zeitwerts in einer Metadatenantwort sind weiterhin verfügbar, und dieser Wert wird in Zukunft wieder zurückgegeben, sobald die vorhandenen Leistungsprobleme behoben wurden."
+    - "Ressourcenbegrenzungen, die nur beim Verarbeiten von Pre-Receive-Hooks auftreten, können bei manchen Pre-Receive-Hooks Fehler auslösen."
+    - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'

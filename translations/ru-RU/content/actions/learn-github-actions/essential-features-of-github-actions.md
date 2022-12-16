@@ -1,7 +1,7 @@
 ---
-title: Essential features of GitHub Actions
+title: Ключевые функции действий GitHub
 shortTitle: Essential features
-intro: '{% data variables.product.prodname_actions %} are designed to help you build robust and dynamic automations. This guide will show you how to craft {% data variables.product.prodname_actions %} workflows that include environment variables, customized scripts, and more.'
+intro: '{% data variables.product.prodname_actions %} предназначены для создания надежных динамических операций автоматизации. В этом руководстве показано, как создавать рабочие процессы {% data variables.product.prodname_actions %}, которые включают переменные среды, настраиваемые скрипты и многое другое.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -10,18 +10,22 @@ versions:
 type: overview
 topics:
   - Fundamentals
+ms.openlocfilehash: 46a6a33928d9ff4587707972fc26de86c59f9ac6
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145070097'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+## Обзор
 
-## Overview
+{% data variables.product.prodname_actions %} позволяют настраивать рабочие процессы в соответствии с уникальными потребностями приложения и команды. Их этого руководства вы узнаете о базовых методах настройки, таких как применение переменных, выполнение сценариев и совместное использование несколькими заданиями данных и артефактов.
 
-{% data variables.product.prodname_actions %} allow you to customize your workflows to meet the unique needs of your application and team. In this guide, we'll discuss some of the essential customization techniques such as using variables, running scripts, and sharing data and artifacts between jobs.
+##  Использование переменных в рабочих процессах
 
-##  Using variables in your workflows
-
-{% data variables.product.prodname_actions %} include default environment variables for each workflow run. If you need to use custom environment variables, you can set these in your YAML workflow file. This example demonstrates how to create custom variables named `POSTGRES_HOST` and `POSTGRES_PORT`. These variables are then available to the `node client.js` script.
+{% data variables.product.prodname_actions %} включают переменные среды по умолчанию для каждого выполнения рабочего процесса. При необходимости применять пользовательские переменные среды их можно задать в файле рабочего процесса YAML. В этом примере показано, как создать пользовательские переменные с именами `POSTGRES_HOST` и `POSTGRES_PORT`. Эти переменные затем будут доступны для сценария `node client.js`.
 
 ```yaml
 jobs:
@@ -34,11 +38,11 @@ jobs:
             POSTGRES_PORT: 5432
 ```
 
-For more information, see "[Using environment variables](/actions/configuring-and-managing-workflows/using-environment-variables)."
+Дополнительные сведения см. в разделе [Использование переменных среды](/actions/configuring-and-managing-workflows/using-environment-variables).
 
-## Adding scripts to your workflow
+## Добавление сценариев в рабочий процесс
 
-You can use actions to run scripts and shell commands, which are then executed on the assigned runner. This example demonstrates how an action can use the `run` keyword to execute `npm install -g bats` on the runner.
+Вы можете использовать действия для выполнения скриптов и команд оболочки, которые затем выполняются в назначенном средстве выполнения тестов. В этом примере показано, как действие может использовать ключевое слово `run` для выполнения `npm install -g bats` в средстве выполнения тестов.
 
 ```yaml
 jobs:
@@ -47,7 +51,7 @@ jobs:
       - run: npm install -g bats
 ```
 
-For example, to run a script as an action, you can store the script in your repository and supply the path and shell type.
+Например, чтобы выполнить сценарий в качестве действия, можно сохранить сценарий в репозитории и указать путь и тип оболочки.
 
 ```yaml
 jobs:
@@ -58,13 +62,13 @@ jobs:
         shell: bash
 ```
 
-For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsrun)."
+Дополнительные сведения см. в статье [Синтаксис рабочего процесса для {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsrun).
 
-## Sharing data between jobs
+## Общий доступ к данным для разных заданий
 
-If your job generates files that you want to share with another job in the same workflow, or if you want to save the files for later reference, you can store them in {% data variables.product.prodname_dotcom %} as _artifacts_. Artifacts are the files created when you build and test your code. For example, artifacts might include binary or package files, test results, screenshots, or log files. Artifacts are associated with the workflow run where they were created and can be used by another job. {% data reusables.actions.reusable-workflow-artifacts %}
+Если задание создает файлы, которыми вы хотите поделиться с другим заданием в том же рабочем процессе или хотите сохранить файлы для последующей ссылки, их можно сохранить как _артефакты_ в {% data variables.product.prodname_dotcom %}. Артефакты — это файлы, созданные при сборке и тестировании кода. Например, артефактами могут быть двоичные файлы или файлы пакетов, результаты тестов, снимки экрана или файлы журналов. Артефакты связаны с выполнением рабочего процесса, в котором они были созданы, и могут использоваться другим заданием. {% data reusables.actions.reusable-workflow-artifacts %}
 
-For example, you can create a file and then upload it as an artifact.
+Например, можно создать файл, а затем отправить его как артефакт.
 
 ```yaml
 jobs:
@@ -81,7 +85,7 @@ jobs:
           path: output.log
 ```
 
-To download an artifact from a separate workflow run, you can use the `actions/download-artifact` action. For example, you can download the artifact named `output-log-file`.
+Чтобы скачать артефакт из отдельного выполнения рабочего процесса, используйте действие `actions/download-artifact`. Например, можно скачать артефакт с именем `output-log-file`.
 
 ```yaml
 jobs:
@@ -93,10 +97,10 @@ jobs:
           name: output-log-file
 ```
 
-To download an artifact from the same workflow run, your download job should specify `needs: upload-job-name` so it doesn't start until the upload job finishes.
+Для скачивания артефакта из того же выполнения рабочего процесса задание скачивания должно указывать `needs: upload-job-name`, чтобы оно не запускалось до завершения задания отправки.
 
-For more information about artifacts, see "[Persisting workflow data using artifacts](/actions/configuring-and-managing-workflows/persisting-workflow-data-using-artifacts)."
+Дополнительные сведения об артефактах см. в статье [Сохранение данных рабочего процесса с помощью артефактов](/actions/configuring-and-managing-workflows/persisting-workflow-data-using-artifacts).
 
-## Next steps
+## Дальнейшие действия
 
-To continue learning about {% data variables.product.prodname_actions %}, see "[Managing complex workflows](/actions/learn-github-actions/managing-complex-workflows)."
+Дополнительные сведения о {% data variables.product.prodname_actions %} см. в статье [Управление сложными рабочими процессами](/actions/learn-github-actions/managing-complex-workflows).

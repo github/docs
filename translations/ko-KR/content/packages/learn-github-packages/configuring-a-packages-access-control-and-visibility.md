@@ -1,6 +1,6 @@
 ---
-title: Configuring a package's access control and visibility
-intro: 'Choose who has read, write, or admin access to your container image and the visibility of your container images on {% data variables.product.prodname_dotcom %}.'
+title: 패키지의 액세스 제어 및 표시 여부 구성
+intro: '컨테이너 이미지에 대한 읽기, 쓰기 또는 관리자 액세스 권한을 가진 사용자 및 {% data variables.product.prodname_dotcom %}에서 컨테이너 이미지의 공개 여부를 선택합니다.'
 product: '{% data reusables.gated-features.packages %}'
 redirect_from:
   - /packages/managing-container-images-with-github-container-registry/configuring-access-control-and-visibility-for-container-images
@@ -10,172 +10,177 @@ versions:
   ghec: '*'
   ghes: '*'
 shortTitle: Access control & visibility
+ms.openlocfilehash: 8ef541f45fd6568db7c8510bc860d81d504494c5
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148193059'
 ---
-{% data reusables.package_registry.container-registry-ghes-beta %}
+{% data reusables.package_registry.container-registry-ghes-beta %} {% ifversion packages-registries-v2 %}
 
-Packages with granular permissions are scoped to a personal user or organization account. You can change the access control and visibility of a package separately from the repository that it is connected (or linked) to.
+세분화된 사용 권한이 있는 패키지는 개인 사용자 또는 조직 계정으로 범위가 지정됩니다. 연결된(또는 링크 연결된) 리포지토리와 별도로 패키지의 액세스 제어 및 표시 여부를 변경할 수 있습니다.
 
-Currently, you can only use granular permissions with the {% data variables.packages.prodname_ghcr_and_npm_registry %}. Granular permissions are not supported in our other package registries, such as the RubyGems registry.{% ifversion docker-ghcr-enterprise-migration %} For more information about migration to the {% data variables.product.prodname_container_registry %}, see "[Migrating to the {% data variables.product.prodname_container_registry %} from the Docker registry](/packages/working-with-a-github-packages-registry/migrating-to-the-container-registry-from-the-docker-registry)."{% endif %}
+일부 레지스트리는 리포지토리 범위 권한만 지원합니다. 이러한 레지스트리 목록은 "[{% data variables.product.prodname_registry %}에 대한 권한](/packages/learn-github-packages/about-permissions-for-github-packages#permissions-for-repository-scoped-packages) 정보"를 참조하세요.
 
-For more information about permissions for repository-scoped packages, packages-related scopes for PATs, or managing permissions for your actions workflows, see "[About permissions for GitHub Packages](/packages/learn-github-packages/about-permissions-for-github-packages)."
+{% else %} 패키지는 패키지를 소유하는 리포지토리의 사용 권한과 표시 유형을 상속합니다. {% endif %} 패키지에 대한 권한, PAT에 대한 패키지 관련 범위 또는 작업 워크플로에 대한 권한 관리에 대한 자세한 내용은 "[GitHub 패키지에 대한 권한 정보](/packages/learn-github-packages/about-permissions-for-github-packages)"를 참조하세요.
 
-## Visibility and access permissions for container images
+{% ifversion packages-registries-v2 %}
+
+## 컨테이너 이미지에 대한 표시 여부 및 액세스 권한
 
 {% data reusables.package_registry.visibility-and-access-permissions %}
 
-## Configuring access to container images for your personal account
+{% endif %}
 
-If you have admin permissions to a container image that's owned by a personal account, you can assign read, write, or admin roles to other users. For more information about these permission roles, see "[Visibility and access permissions for container images](#visibility-and-access-permissions-for-container-images)."
+## 개인 계정의 컨테이너 이미지에 대한 액세스 구성
 
-If your package is private or internal and owned by an organization, then you can only give access to other organization members or teams.
+개인 계정이 소유한 컨테이너 이미지에 대한 관리자 권한이 있는 경우 읽기, 쓰기 또는 관리자 역할을 다른 사용자에게 할당할 수 있습니다. 권한 역할에 대한 자세한 내용은 “[컨테이너 이미지에 대한 표시 여부 및 액세스 권한](#visibility-and-access-permissions-for-container-images)”을 참조하세요.
+
+프라이빗 또는 내부 패키지로, 조직이 소유한 경우 다른 조직 구성원 또는 팀에만 액세스 권한을 부여할 수 있습니다.
 
 {% data reusables.package_registry.package-settings-option %}
-1. On the package settings page, click **Invite teams or people** and enter the name, username, or email of the person you want to give access. Teams cannot be given access to a container image owned by a personal account.
-  ![Container access invite button](/assets/images/help/package-registry/container-access-invite.png)
-1. Next to the username or team name, use the "Role" drop-down menu to select a desired permission level.
-  ![Container access options](/assets/images/help/package-registry/container-access-control-options.png)
+1. 패키지 설정 페이지에서 **팀 또는 사용자 초대** 를 클릭하고 액세스 권한을 부여하려는 사람의 이름, 사용자 이름 또는 메일을 입력합니다. 팀에게는 개인 계정이 소유한 컨테이너 이미지에 대한 액세스 권한을 부여할 수 없습니다.
+  ![컨테이너 액세스 초대 단추](/assets/images/help/package-registry/container-access-invite.png)
+1. 사용자 이름 또는 팀 이름 옆에 있는 “역할” 드롭다운 메뉴를 사용하여 원하는 권한 수준을 선택합니다.
+  ![컨테이너 액세스 옵션](/assets/images/help/package-registry/container-access-control-options.png)
 
-The selected users will automatically be given access and don't need to accept an invitation first.
+선택한 사용자는 자동으로 액세스 권한을 부여받게 되며 먼저 초대를 수락할 필요가 없습니다.
 
-## Configuring access to container images for an organization
+## 조직의 컨테이너 이미지에 대한 액세스 구성
 
-If you have admin permissions to an organization-owned container image, you can assign read, write, or admin roles to other users and teams. For more information about these permission roles, see "[Visibility and access permissions for container images](#visibility-and-access-permissions-for-container-images)."
+조직 소유 컨테이너 이미지에 대한 관리자 권한이 있는 경우 읽기, 쓰기 또는 관리자 역할을 다른 사용자 및 팀에 할당할 수 있습니다. 권한 역할에 대한 자세한 내용은 “[컨테이너 이미지에 대한 표시 여부 및 액세스 권한](#visibility-and-access-permissions-for-container-images)”을 참조하세요.
 
-If your package is private or internal and owned by an organization, then you can only give access to other organization members or teams.
+프라이빗 또는 내부 패키지로, 조직이 소유한 경우 다른 조직 구성원 또는 팀에만 액세스 권한을 부여할 수 있습니다.
 
-{% data reusables.package_registry.package-settings-from-org-level %}
-{% data reusables.package_registry.package-settings-option %}
-1. On the package settings page, click **Invite teams or people** and enter the name, username, or email of the person you want to give access. You can also enter a team name from the organization to give all team members access.
-  ![Container access invite button](/assets/images/help/package-registry/container-access-invite.png)
-1. Next to the username or team name, use the "Role" drop-down menu to select a desired permission level.
-  ![Container access options](/assets/images/help/package-registry/container-access-control-options.png)
+{% data reusables.package_registry.package-settings-from-org-level %} {% data reusables.package_registry.package-settings-option %}
+1. 패키지 설정 페이지에서 **팀 또는 사용자 초대** 를 클릭하고 액세스 권한을 부여하려는 사람의 이름, 사용자 이름 또는 메일을 입력합니다. 조직에서 팀 이름을 입력하여 모든 팀 구성원에게 액세스 권한을 부여할 수도 있습니다.
+  ![컨테이너 액세스 초대 단추](/assets/images/help/package-registry/container-access-invite.png)
+1. 사용자 이름 또는 팀 이름 옆에 있는 “역할” 드롭다운 메뉴를 사용하여 원하는 권한 수준을 선택합니다.
+  ![컨테이너 액세스 옵션](/assets/images/help/package-registry/container-access-control-options.png)
 
-The selected users or teams will automatically be given access and don't need to accept an invitation first.
+선택한 사용자 또는 팀은 자동으로 액세스 권한을 부여받게 되며 먼저 초대를 수락할 필요가 없습니다.
 
-## Inheriting access for a container image from a repository
+## 리포지토리에서 컨테이너 이미지에 대한 액세스 상속
 
-To simplify package management through {% data variables.product.prodname_actions %} workflows, you can enable a container image to inherit the access permissions of a repository by default.
+{% data variables.product.prodname_actions %} 워크플로를 통해 패키지 관리를 간소화하기 위해 컨테이너 이미지가 기본적으로 리포지토리의 액세스 권한을 상속하도록 설정할 수 있습니다.
 
-If you inherit the access permissions of the repository where your package's workflows are stored, then you can adjust access to your package through the repository's permissions.
+패키지의 워크플로가 저장된 리포지토리의 액세스 권한을 상속하는 경우 리포지토리의 권한을 통해 패키지에 대한 액세스를 조정할 수 있습니다.
 
-Once a repository is synced, you can't access the package's granular access settings. To customize the package's permissions through the granular package access settings, you must remove the synced repository first.
+리포지토리가 동기화되면 패키지의 세분화된 액세스 설정에 액세스할 수 없습니다. 세분화된 패키지 액세스 설정을 통해 패키지의 사용 권한을 사용자 지정하려면 먼저 동기화된 리포지토리를 제거해야 합니다.
 
-{% data reusables.package_registry.package-settings-from-org-level %}
-{% data reusables.package_registry.package-settings-option %}
-2. Under "Repository source", select **Inherit access from repository (recommended)**.
-  ![Inherit repo access checkbox](/assets/images/help/package-registry/inherit-repo-access-for-package.png)
+{% data reusables.package_registry.package-settings-from-org-level %} {% data reusables.package_registry.package-settings-option %}
+2. “리포지토리 원본”에서 **리포지토리에서 액세스 상속(권장)** 을 선택합니다.
+  ![리포지토리 액세스 상속 확인란](/assets/images/help/package-registry/inherit-repo-access-for-package.png)
 
-## Ensuring workflow access to your package
+## 패키지에 대한 워크플로 액세스 보장
 
-To ensure that a {% data variables.product.prodname_actions %} workflow has access to your package, you must give explicit access to the repository where the workflow is stored.
+{% data variables.product.prodname_actions %} 워크플로가 패키지에 액세스할 수 있도록 하려면 워크플로가 저장되는 리포지토리에 대한 명시적 액세스 권한을 부여해야 합니다.
 
-The specified repository does not need to be the repository where the source code for the package is kept. You can give multiple repositories workflow access to a package.
+지정된 리포지토리는 패키지의 소스 코드가 유지되는 리포지토리일 필요가 없습니다. 패키지에 여러 리포지토리 워크플로 액세스 권한을 부여할 수 있습니다.
 
 {% note %}
 
-**Note:** Syncing your container image with a repository through the **Actions access** menu option is different than connecting your container to a repository. For more information about linking a repository to your container, see "[Connecting a repository to a package](/packages/learn-github-packages/connecting-a-repository-to-a-package)."
+**참고:** **작업 액세스** 메뉴 옵션을 통해 컨테이너 이미지를 리포지토리와 동기화하는 것은 컨테이너를 리포지토리에 연결하는 것과 다릅니다. 리포지토리를 컨테이너에 연결하는 방법에 대한 자세한 내용은 “[리포지토리를 패키지에 연결](/packages/learn-github-packages/connecting-a-repository-to-a-package)”을 참조하세요.
 
 {% endnote %}
 
-### {% data variables.product.prodname_actions %} access for user-account-owned container images 
+### 사용자 계정 소유 컨테이너 이미지의 {% data variables.product.prodname_actions %} 액세스 
 
 {% data reusables.package_registry.package-settings-option %}
-1. In the left sidebar, click **Actions access**.
-  !["Actions access" option in left menu](/assets/images/help/package-registry/organization-repo-access-for-a-package.png)
-2. To ensure your workflow has access to your container package, you must add the repository where the workflow is stored. Click **Add repository** and search for the repository you want to add.
-   !["Add repository" button](/assets/images/help/package-registry/add-repository-button.png)
-3. Using the "role" drop-down menu, select the default access level that you'd like the repository to have to your container image.
-  ![Permission access levels to give to repositories](/assets/images/help/package-registry/repository-permission-options-for-package-access-through-actions.png)
+1. 왼쪽 사이드바에서 **작업 액세스** 를 클릭합니다.
+  ![왼쪽 메뉴의 “작업 액세스” 옵션](/assets/images/help/package-registry/organization-repo-access-for-a-package.png)
+2. 워크플로가 컨테이너 패키지에 액세스할 수 있도록 하려면 워크플로가 저장되는 리포지토리를 추가해야 합니다. **리포지토리 추가** 를 클릭하고 추가할 리포지토리를 검색합니다.
+   ![“리포지토리 추가” 단추](/assets/images/help/package-registry/add-repository-button.png)
+3. “역할” 드롭다운 메뉴를 사용하여 컨테이너 이미지에 대해 리포지토리에 부여할 기본 액세스 수준을 선택합니다.
+  ![리포지토리에 부여할 권한 액세스 수준](/assets/images/help/package-registry/repository-permission-options-for-package-access-through-actions.png)
 
-To further customize access to your container image, see "[Configuring access to container images for your personal account](#configuring-access-to-container-images-for-your-personal-account)."
+컨테이너 이미지에 대한 액세스를 추가로 사용자 지정하려면 “[개인 계정의 컨테이너 이미지에 대한 액세스 구성](#configuring-access-to-container-images-for-your-personal-account)”을 참조하세요.
 
-### {% data variables.product.prodname_actions %} access for organization-owned container images 
+### 조직 소유 컨테이너 이미지에 대한 {% data variables.product.prodname_actions %} 액세스 
 
-{% data reusables.package_registry.package-settings-from-org-level %}
-{% data reusables.package_registry.package-settings-option %}
-1. In the left sidebar, click **Actions access**.
-  !["Actions access" option in left menu](/assets/images/help/package-registry/organization-repo-access-for-a-package.png)
-2. Click **Add repository** and search for the repository you want to add.
-   !["Add repository" button](/assets/images/help/package-registry/add-repository-button.png)
-3. Using the "role" drop-down menu, select the default access level that you'd like repository members to have to your container image. Outside collaborators will not be included.
-  ![Permission access levels to give to repositories](/assets/images/help/package-registry/repository-permission-options-for-package-access-through-actions.png)
+{% data reusables.package_registry.package-settings-from-org-level %} {% data reusables.package_registry.package-settings-option %}
+1. 왼쪽 사이드바에서 **작업 액세스** 를 클릭합니다.
+  ![왼쪽 메뉴의 “작업 액세스” 옵션](/assets/images/help/package-registry/organization-repo-access-for-a-package.png)
+2. **리포지토리 추가** 를 클릭하고 추가할 리포지토리를 검색합니다.
+   ![“리포지토리 추가” 단추](/assets/images/help/package-registry/add-repository-button.png)
+3. “역할” 드롭다운 메뉴를 사용하여 컨테이너 이미지에 대해 리포지토리 구성원에 부여할 기본 액세스 수준을 선택합니다. 외부 협력자는 포함되지 않습니다.
+  ![리포지토리에 부여할 권한 액세스 수준](/assets/images/help/package-registry/repository-permission-options-for-package-access-through-actions.png)
 
-To further customize access to your container image, see "[Configuring access to container images for an organization](#configuring-access-to-container-images-for-an-organization)."
+컨테이너 이미지에 대한 액세스를 추가로 사용자 지정하려면 “[조직의 컨테이너 이미지에 대한 액세스 구성](#configuring-access-to-container-images-for-an-organization)”을 참조하세요.
 
 {% ifversion fpt or ghec %}
-## Ensuring {% data variables.product.prodname_github_codespaces %} access to your package
+## 패키지에 대한 {% data variables.product.prodname_github_codespaces %} 액세스 보장
 
-By default, a codespace can seamlessly access certain packages in the {% data variables.packages.prodname_ghcr_and_npm_registry %}, such as those published in the same repository with the **Inherit access** option selected. For more information on which access is automatically configured, see "[Allowing your codespace to access a private image registry](/codespaces/codespaces-reference/allowing-your-codespace-to-access-a-private-image-registry#accessing-images-stored-in-container-registry-and-npm-registry)."
+기본적으로 codespace는 액세스 상속 옵션이 선택된 동일한 리포지토리에 게시된 패키지와 같이 세분화된 권한을 지원하는 레지스트리의 특정 패키지에 원활하게 **액세스할** 수 있습니다. 세분화된 권한과 원활한 {% data variables.product.prodname_github_codespaces %} 액세스를 지원하는 {% data variables.product.prodname_registry %} 레지스트리 목록은 "[{% data variables.product.prodname_registry %}에 대한 권한 정보"를 참조하세요](/packages/learn-github-packages/about-permissions-for-github-packages#granular-permissions-for-userorganization-scoped-packages).
 
-Otherwise, to ensure that a codespace has access to your package, you must grant access to the repository where the codespace is being launched.
+액세스가 가능하지 않은 경우 codespace가 패키지에 액세스할 수 있도록 하려면 codespace가 시작되는 리포지토리에 대한 액세스 권한을 부여해야 합니다.
 
-The specified repository does not need to be the repository where the source code for the package is kept. You can give codespaces in multiple repositories access to a package.
+지정된 리포지토리는 패키지의 소스 코드가 유지되는 리포지토리일 필요가 없습니다. 여러 리포지토리의 codespace에 패키지에 대한 액세스 권한을 부여할 수 있습니다.
 
-Once you've selected the package you're interested in sharing with codespaces in a repository, you can grant that repo access.
+리포지토리의 codespace와 공유하려는 패키지를 선택하면 해당 리포지토리 액세스 권한을 부여할 수 있습니다.
 
-1. In the right sidebar, click **Package settings**.
+1. 오른쪽 사이드바에서 **패키지 설정** 을 클릭합니다.
 
-   !["Package settings" option in right menu](/assets/images/help/package-registry/package-settings.png)
+   ![오른쪽 메뉴의 “패키지 설정” 옵션](/assets/images/help/package-registry/package-settings.png)
    
-2. Under "Manage Codespaces access", click **Add repository**.
+2. “Codespaces 액세스 관리”에서 **리포지토리 추가** 를 클릭합니다.
 
-   !["Add repository" button](/assets/images/help/package-registry/manage-codespaces-access-blank.png)
+   ![“리포지토리 추가” 단추](/assets/images/help/package-registry/manage-codespaces-access-blank.png)
 
-3. Search for the repository you want to add.
+3. 추가할 리포지토리를 검색합니다.
 
-   !["Add repository" button](/assets/images/help/package-registry/manage-codespaces-access-search.png)
+   ![“리포지토리 추가” 단추](/assets/images/help/package-registry/manage-codespaces-access-search.png)
    
-4. Repeat for any additional repositories you would like to allow access.
+4. 액세스를 허용하려는 추가 리포지토리에 동일한 단계를 반복합니다.
 
-5. If the codespaces for a repository no longer need access to an image, you can remove access.
+5. 리포지토리의 codespace가 더 이상 이미지에 액세스할 필요가 없는 경우 액세스를 제거할 수 있습니다.
 
-   !["Remove repository" button](/assets/images/help/package-registry/manage-codespaces-access-item.png)
+   ![“리포지토리 제거” 단추](/assets/images/help/package-registry/manage-codespaces-access-item.png)
 
 {% endif %}
-## Configuring visibility of container images for your personal account
+## 개인 계정에 대한 컨테이너 이미지 표시 여부 구성
 
-When you first publish a package, the default visibility is private and only you can see the package. You can modify a private or public container image's access by changing the access settings.
+패키지를 처음 게시할 때 기본 표시 여부는 프라이빗이므로 사용자만 패키지를 볼 수 있습니다. 액세스 설정을 변경하여 프라이빗 또는 퍼블릭 컨테이너 이미지의 액세스를 수정할 수 있습니다.
 
-A public package can be accessed anonymously without authentication. Once you make your package public, you cannot make your package private again.
+퍼블릭 패키지는 인증 없이 익명으로 액세스할 수 있습니다. 패키지를 퍼블릭으로 설정한 후에는 패키지를 다시 프라이빗으로 설정할 수 없습니다.
 
 {% data reusables.package_registry.package-settings-option %}
-5. Under "Danger Zone", choose a visibility setting:
-    - To make the container image visible to anyone, click **Make public**.
+5. “위험 영역”에서 표시 여부 설정을 선택합니다.
+    - 컨테이너 이미지를 누구에게나 표시하려면 **퍼블릭 설정** 을 클릭합니다.
     {% warning %}
 
-    **Warning:** Once you make a package public, you cannot make it private again.
+    **경고:** 패키지를 퍼블릭으로 설정한 후에는 다시 프라이빗으로 설정할 수 없습니다.
 
     {% endwarning %}
-    - To make the container image visible to a custom selection of people, click **Make private**.
-  ![Container visibility options](/assets/images/help/package-registry/container-visibility-option.png)
+    - 사용자 지정으로 선택한 사용자들에게 컨테이너 이미지를 표시하려면 **프라이빗 설정** 을 클릭합니다.
+  ![컨테이너 표시 여부 옵션](/assets/images/help/package-registry/container-visibility-option.png)
 
-## Container creation visibility for organization members
+## 조직 구성원에 대한 컨테이너 만들기 표시 여부
 
-You can choose the visibility of containers that organization members can publish by default.
+조직 구성원이 기본적으로 게시할 수 있는 컨테이너의 표시 여부를 선택할 수 있습니다.
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-4. On the left, click **Packages**.
-6. Under "Container creation", choose whether you want to enable the creation of public, private, or internal container images.
-    - To enable organization members to create public container images, click **Public**.
-    - To enable organization members to create private container images that are only visible to other organization members, click **Private**. You can further customize the visibility of private container images.
-    - To enable organization members to create internal container images that are visible to all organization members, click **Internal**. If the organization belongs to an enterprise, the container images will be visible to all enterprise members.
-    ![Visibility options for container images published by organization members](/assets/images/help/package-registry/container-creation-org-settings.png)
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %}
+4. 왼쪽에서 **패키지** 를 클릭합니다.
+6. “컨테이너 만들기”에서 퍼블릭, 프라이빗 또는 내부 컨테이너 이미지 만들기 중 사용 설정 항목을 선택합니다.
+    - 조직 구성원이 퍼블릭 컨테이너 이미지를 만들 수 있도록 하려면 **퍼블릭** 을 클릭합니다.
+    - 조직 구성원이 다른 조직 구성원에게만 표시되는 프라이빗 컨테이너 이미지를 만들 수 있도록 하려면 **프라이빗** 을 클릭합니다. 프라이빗 컨테이너 이미지의 표시 여부를 추가로 사용자 지정할 수 있습니다.
+    - 조직 구성원이 모든 조직 구성원에게 표시되는 내부 컨테이너 이미지를 만들 수 있도록 하려면 **내부** 를 클릭합니다. 조직이 엔터프라이즈에 속하는 경우 컨테이너 이미지는 모든 엔터프라이즈 구성원에게 표시됩니다.
+    ![조직 구성원이 게시한 컨테이너 이미지의 표시 여부 옵션](/assets/images/help/package-registry/container-creation-org-settings.png)
 
-## Configuring visibility of container images for an organization
+## 조직에 대한 컨테이너 이미지의 표시 여부 구성
 
-When you first publish a package, the default visibility is private and only you can see the package. You can grant users or teams different access roles for your container image through the access settings.
+패키지를 처음 게시할 때 기본 표시 여부는 프라이빗이므로 사용자만 패키지를 볼 수 있습니다. 액세스 설정을 통해 사용자 또는 팀에게 컨테이너 이미지에 대한 다양한 액세스 역할을 부여할 수 있습니다.
 
-A public package can be accessed anonymously without authentication. Once you make your package public, you cannot make your package private again.
+퍼블릭 패키지는 인증 없이 익명으로 액세스할 수 있습니다. 패키지를 퍼블릭으로 설정한 후에는 패키지를 다시 프라이빗으로 설정할 수 없습니다.
 
-{% data reusables.package_registry.package-settings-from-org-level %}
-{% data reusables.package_registry.package-settings-option %}
-5. Under "Danger Zone", choose a visibility setting:
-    - To make the container image visible to anyone, click **Make public**.
+{% data reusables.package_registry.package-settings-from-org-level %} {% data reusables.package_registry.package-settings-option %}
+5. “위험 영역”에서 표시 여부 설정을 선택합니다.
+    - 컨테이너 이미지를 누구에게나 표시하려면 **퍼블릭 설정** 을 클릭합니다.
     {% warning %}
 
-    **Warning:** Once you make a package public, you cannot make it private again.
+    **경고:** 패키지를 퍼블릭으로 설정한 후에는 다시 프라이빗으로 설정할 수 없습니다.
 
     {% endwarning %}
-    - To make the container image visible to a custom selection of people, click **Make private**.
-  ![Container visibility options](/assets/images/help/package-registry/container-visibility-option.png)
+    - 사용자 지정으로 선택한 사용자들에게 컨테이너 이미지를 표시하려면 **프라이빗 설정** 을 클릭합니다.
+  ![컨테이너 표시 여부 옵션](/assets/images/help/package-registry/container-visibility-option.png)

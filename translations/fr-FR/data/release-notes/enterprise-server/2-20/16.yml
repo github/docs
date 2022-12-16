@@ -1,0 +1,13 @@
+date: '08/09/2020'
+sections:
+  bugs:
+    - 'Un contrôle d’intégrité du service a entraîné une augmentation des sessions, ce qui a épuisé les inodes du système de fichiers. {% comment %} https://github.com/github/enterprise2/pull/22480, https://github.com/github/enterprise2/pull/22475 {% endcomment %}'
+    - "Une mise à niveau avec un patch à chaud pouvait échouer avec une erreur : `'libdbi1' introuvable` {% comment %} https://github.com/github/enterprise2/pull/22558, https://github.com/github/enterprise2/pull/22552 {% endcomment %}"
+  known_issues:
+    - 'Sur une instance GitHub Enterprise Server fraîchement configurée et sans utilisateur, un attaquant pouvait créer le premier utilisateur administrateur. {% comment %} https://github.com/github/enterprise2/issues/1889 {% endcomment %}'
+    - 'Les règles de pare-feu personnalisées ne sont pas conservées lors d’une mise à niveau. {% comment %} https://github.com/github/enterprise2/issues/2823 {% endcomment %}'
+    - 'Les fichiers suivis par Git LFS [chargés par le biais de l’interface web](https://github.com/blog/2105-upload-files-to-your-repositories) sont, à tort, ajoutés directement au dépôt. {% comment %} https://github.com/github/github/issues/54684 {% endcomment %}'
+    - 'Les problèmes ne peuvent pas être fermés s’ils contiennent un lien permanent vers un blob situé dans le même dépôt, dont le chemin de fichier dépasse les 255 caractères. {% comment %} https://github.com/github/github/issues/107731 {% endcomment %}'
+    - 'Quand l’option « Les utilisateurs peuvent effectuer des recherches sur GitHub.com » est activée avec GitHub Connect, les problèmes concernant des dépôts privés et internes ne sont pas inclus dans les résultats de recherche de GitHub.com. {% comment %} https://github.com/github/admin-experience/issues/571 {% endcomment %}'
+    - 'Les alertes de sécurité ne sont pas signalées lors de l’envoi (push) à un dépôt sur la ligne de commande. {% comment %} https://github.com/github/github/issues/143190 {% endcomment %}'
+    - 'Quand un nœud de réplica est hors connexion dans une configuration de haute disponibilité, {% data variables.product.product_name %} peut quand même router les requêtes de {% data variables.product.prodname_pages %} vers le nœud hors connexion, réduisant ainsi la disponibilité de {% data variables.product.prodname_pages %} pour les utilisateurs.'

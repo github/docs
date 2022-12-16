@@ -33,9 +33,10 @@ Windows Server 2019
 Ubuntu 22.04
 </td>
 <td>
-<code>ubuntu-22.04</code>
+<code>ubuntu-latest</code> or <code>ubuntu-22.04</code>
 </td>
 <td>
+The <code>ubuntu-latest</code> label currently uses the Ubuntu 22.04 runner image.
 </td>
 </tr>
 <tr>
@@ -43,10 +44,9 @@ Ubuntu 22.04
 Ubuntu 20.04
 </td>
 <td>
-<code>ubuntu-latest</code> or <code>ubuntu-20.04</code>
+<code>ubuntu-20.04</code>
 </td>
 <td>
-The <code>ubuntu-latest</code> label is currently transitioning to the Ubuntu 22.04 runner image. During the transition, the label might refer to the runner image for either Ubuntu 20.04 or 22.04. For more information, see <a href="https://github.blog/changelog/2022-11-09-github-actions-ubuntu-latest-workflows-will-use-ubuntu-22-04/">this {% data variables.product.prodname_dotcom %} blog post</a>.
 </rd>
 </tr>
 <tr>

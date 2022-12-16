@@ -1,6 +1,6 @@
 ---
-title: Continuous integration using Jenkins
-intro: 'You can automatically trigger build jobs on a Jenkins server when pushes are made to a repository in {% data variables.location.product_location %}.'
+title: Integración continua mediante Jenkins
+intro: 'Puedes activar automáticamente la creación de trabajos en un servidor Jenkins cuando las extracciones se realizan a un repositorio en {% data variables.product.product_location %}.'
 redirect_from:
   - /enterprise/admin/developer-workflow/continuous-integration-using-jenkins
   - /enterprise/admin/user-management/continuous-integration-using-jenkins
@@ -13,7 +13,13 @@ topics:
   - CI
   - Enterprise
 shortTitle: CI using Jenkins
+ms.openlocfilehash: dacb99db402d0d06aa4a3c4248e1fcabfd2d085d
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145115146'
 ---
-## Requirements
+## Requisitos
 
-- Follow our white paper "[Practical guide to CI with Jenkins and GitHub](https://resources.github.com/whitepapers/practical-guide-to-CI-with-Jenkins-and-GitHub/)" to get step by step instructions on how you can automatically trigger build jobs on a Jenkins server when pushes are made to a repository in {% data variables.location.product_location %}.
+- Siga nuestras notas del producto "[Guía práctica de CI con Jenkins y GitHub](https://resources.github.com/whitepapers/practical-guide-to-CI-with-Jenkins-and-GitHub/)" para obtener instrucciones paso a paso sobre cómo puede desencadenar automáticamente trabajos de compilación en un servidor Jenkins cuando se realizan inserciones en un repositorio en {% data variables.product.product_location %}.

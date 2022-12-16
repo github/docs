@@ -1,5 +1,5 @@
 ---
-title: Rate limits for GitHub Apps
+title: Límites de frecuencia para aplicaciones de GitHub
 intro: '{% data reusables.shortdesc.rate_limits_github_apps %}'
 redirect_from:
   - /early-access/integrations/rate-limits
@@ -15,57 +15,62 @@ versions:
 topics:
   - GitHub Apps
 shortTitle: Rate limits
+ms.openlocfilehash: 46e1fddabff7d0e9c8d3d21c6a0d18668083ae63
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147710359'
 ---
-
 {% data reusables.enterprise.rate_limit %}
 
 {% data reusables.rest-api.always-check-your-limit %}
 
 {% ifversion ghec or fpt %}
 
-## About rate limits for apps
+## Acerca de los límites de tasa para las apps
 
-Rate limits for {% data variables.product.prodname_github_apps %} and {% data variables.product.prodname_oauth_apps %} depend on the plan for the organization where you install the application. For more information, see "[{% data variables.product.company_short %}'s products](/get-started/learning-about-github/githubs-products)" and "[Types of {% data variables.product.company_short %} accounts](/get-started/learning-about-github/types-of-github-accounts#organization-accounts)."
+Los límites de tasa para las {% data variables.product.prodname_github_apps %} y las {% data variables.product.prodname_oauth_apps %} dependen del plan para la organización en donde instalaste la aplicación. Para obtener más información, vea "[Productos de {% data variables.product.company_short %}](/get-started/learning-about-github/githubs-products)" y "[Tipos de cuentas de {% data variables.product.company_short %}](/get-started/learning-about-github/types-of-github-accounts#organization-accounts)".
 
 {% endif %}
 
-## Server-to-server requests
+## Solicitudes de servidor a servidor
 
 {% ifversion ghec or fpt %}
 
-### Default server-to-server rate limits for {% data variables.product.prodname_dotcom_the_website %}
+### Límites de tasa predeterminados de servidor a servidor para {% data variables.product.prodname_dotcom_the_website %}
 
 {% endif %}
 
-{% data variables.product.prodname_github_apps %} making server-to-server requests use the installation's minimum rate limit of 5,000 requests per hour. If an application is installed on an organization with more than 20 users, the application receives another 50 requests per hour for each user. Installations that have more than 20 repositories receive another 50 requests per hour for each repository. The maximum rate limit for an installation is 12,500 requests per hour.
+Las {% data variables.product.prodname_github_apps %} que hagan solicitudes de servidor a servidor utilizan el límite de tasa mínimo de la instalación, el cual es de 5,000 solicitudes por hora. Si una aplicación se instala en una organización con más de 20 usuarios, esta recibirá otras 50 solicitudes por hora para cada uno de ellos. Las instalaciones que tienen más de 20 repositorios reciben otras 50 solicitudes adicionales por hora para cada repositorio. El límite de tasa máximo para una instalación es de 12,500 solicitudes por hora.
 
 {% ifversion fpt or ghec %}
 
-### Server-to-server rate limits for {% data variables.product.prodname_ghe_cloud %}
+### Límites de tasa de servidor a servidor para {% data variables.product.prodname_ghe_cloud %}
 
 {% endif %}
 
 {% ifversion fpt or ghec %}
 
-{% data variables.product.prodname_github_apps %} that are installed on an organization within an enterprise on {% data variables.location.product_location %} are subject to a limit of 15,000 requests per hour per organization that has installed the app.
+{% data variables.product.prodname_github_apps %} que se instalan en una organización dentro de una empresa en {% data variables.product.product_location %} están sujetas a un límite de 15.000 solicitudes por hora y organización que haya instalado la app.
 
 {% endif %}
 
-## User-to-server requests
+## Solicitudes de usuario a servidor
 
-{% data variables.product.prodname_github_apps %} and {% data variables.product.prodname_oauth_apps %} can also act on behalf of a user, making user-to-server requests after the user authorizes the app. For more information, see "[Authorizing {% data variables.product.prodname_github_apps %}](/authentication/keeping-your-account-and-data-secure/authorizing-github-apps)" and "[Authorizing {% data variables.product.prodname_oauth_apps %}](/authentication/keeping-your-account-and-data-secure/authorizing-oauth-apps)."
+Las {% data variables.product.prodname_github_apps %} y {% data variables.product.prodname_oauth_apps %} también pueden actuar en nombre de un usuario, haciendo solicitudes de usuario a servidor después de que el usuario autorice la app. Para obtener más información, vea "[Autorización de {% data variables.product.prodname_github_apps %}](/authentication/keeping-your-account-and-data-secure/authorizing-github-apps)" y "[Autorización de {% data variables.product.prodname_oauth_apps %}](/authentication/keeping-your-account-and-data-secure/authorizing-oauth-apps)".
 
-User-to-server requests from {% data variables.product.prodname_oauth_apps %} are authenticated with an OAuth token. User-to-server requests from {% data variables.product.prodname_github_apps %} are authenticated with either an OAuth token or an expiring user access token. For more information, see "[Identifying and authorizing users for {% data variables.product.prodname_github_apps %}](/developers/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps#identifying-and-authorizing-users-for-github-apps)" and "[Authorizing {% data variables.product.prodname_oauth_apps %}](/developers/apps/building-oauth-apps/authorizing-oauth-apps)."
+Las solicitudes de usuario a servidor desde {% data variables.product.prodname_oauth_apps %} se autentican con un token de OAuth. Las solicitudes de usuario a servidor de {% data variables.product.prodname_github_apps %} se autentican ya sea con un token de OAuth o con un token de acceso de usuario con vencimiento. Para obtener más información, vea "[Identificación y autorización de usuarios para {% data variables.product.prodname_github_apps %}](/developers/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps#identifying-and-authorizing-users-for-github-apps)" y "[Autorización de {% data variables.product.prodname_oauth_apps %}](/developers/apps/building-oauth-apps/authorizing-oauth-apps)".
 
 {% ifversion fpt or ghec %}
 
-### Default user-to-server rate limits for {% data variables.product.prodname_dotcom_the_website %}
+### Límites predeterminados de usuario a servidor de {% data variables.product.prodname_dotcom_the_website %}
 
 {% endif %}
 
 {% ifversion ghec %}
 
-The rate limits for user-to-server requests made by {% data variables.product.prodname_github_apps %} depend on where the app is installed. If the app is installed on organizations or repositories owned by an enterprise on {% data variables.location.product_location %}, then the rate is higher than for installations outside an enterprise.
+Los límites de tasa para las solicitudes de usuario a servidor que hace {% data variables.product.prodname_github_apps %} dependen de donde se instala la app. Si la app está instalada en los repositorios u organizaciones que pertenecen a una empresa en {% data variables.product.product_location %}, entonces la tasa es más alta que para aquellas instalaciones que están fuera de una empresa.
 
 {% endif %}
 
@@ -73,13 +78,13 @@ The rate limits for user-to-server requests made by {% data variables.product.pr
 
 {% ifversion fpt or ghec %}
 
-### User-to-server rate limits for {% data variables.product.prodname_ghe_cloud %}
+### Límites de usuario a servidor de {% data variables.product.prodname_ghe_cloud %}
 
 {% data reusables.apps.user-to-server-rate-limits-ghec %}
 
 {% endif %}
 
-## Further reading
+## Información adicional
 
-- "[Rate limiting](/rest/overview/resources-in-the-rest-api#rate-limiting)" in the REST API documentation
-- "[Resource limitations](/graphql/overview/resource-limitations)" in the GraphQL API documentation
+- "[Limitación de frecuencia](/rest/overview/resources-in-the-rest-api#rate-limiting)" en la documentación de API REST
+- "[Limitaciones de recursos](/graphql/overview/resource-limitations)" en la documentación de la API de GraphQL

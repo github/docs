@@ -1,6 +1,6 @@
 ---
-title: Setting repository visibility
-intro: You can choose who can view your repository.
+title: Sichtbarkeit eines Repositorys festlegen
+intro: 'Du kannst festlegen, wer dein Repository anzeigen kann.'
 redirect_from:
   - /articles/making-a-private-repository-public
   - /articles/making-a-public-repository-private
@@ -16,89 +16,88 @@ versions:
 topics:
   - Repositories
 shortTitle: Repository visibility
+ms.openlocfilehash: 2ccdafed8e9efe2bf352033d8fa632147f6bb32b
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '146332021'
 ---
-## About repository visibility changes
+## Über Änderungen der Repository-Sichtbarkeit
 
-Organization owners can restrict the ability to change repository visibility to organization owners only. For more information, see "[Restricting repository visibility changes in your organization](/organizations/managing-organization-settings/restricting-repository-visibility-changes-in-your-organization)."
+Organisationsinhaber können die Möglichkeit, die Sichtbarkeit des Repositorys zu ändern, auf Organisationsinhaber einschränken. Weitere Informationen findest du [Einschränken von Änderungen an der Repositorysichtbarkeit in deiner Organisation](/organizations/managing-organization-settings/restricting-repository-visibility-changes-in-your-organization).
 
 {% ifversion ghec %}
 
-Members of an {% data variables.enterprise.prodname_emu_enterprise %} can only set the visibility of repositories owned by their personal account to private, and repositories in their enterprise's organizations can only be private or internal. For more information, see "[About {% data variables.product.prodname_emus %}](/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users)."
+Mitglieder eines {% data variables.product.prodname_emu_enterprise %} können nur die Sichtbarkeit von Repositorys festlegen, die ihrem persönlichen Konto gehören, und Repositorys in den Organisationen ihrer Unternehmen können nur privat oder intern sein. Weitere Informationen findest du unter [Informationen zu {% data variables.product.prodname_emus %}](/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users).
 
 {% endif %}
 
-We recommend reviewing the following caveats before you change the visibility of a repository.
+Es wird empfohlen, die folgenden Nachteile zu überprüfen, bevor du die Sichtbarkeit eines Repositorys änderst.
 
 {% ifversion ghes or ghae %}
 
 {% warning %}
 
-**Warning:** Changes to the visibility of a large repository or repository network may affect data integrity. Visibility changes can also have unintended effects on forks. {% data variables.product.company_short %} recommends the following before changing the visibility of a repository network.
+**Warnung:** Änderungen an der Sichtbarkeit eines großen Repositorys oder Repositorynetzwerks können sich auf die Datenintegrität auswirken. Sichtbarkeitsänderungen können auch unbeabsichtigte Auswirkungen auf Forks haben. {% data variables.product.company_short %} empfiehlt Folgendes, bevor du die Sichtbarkeit eines Repositorynetzwerks änderst
 
-- Wait for a period of reduced activity on {% data variables.location.product_location %}.
+- Warte auf einen Zeitraum reduzierter Aktivität auf {% data variables.product.product_location %}.
 
-- Contact your {% ifversion ghes %}site administrator{% elsif ghae %}enterprise owner{% endif %} before proceeding. Your {% ifversion ghes %}site administrator{% elsif ghae %}enterprise owner{% endif %} can contact {% data variables.contact.contact_ent_support %} for further guidance.
+- Wende Dich an den {% ifversion ghes %}Website-Administrator{% elsif ghae %} des Unternehmensinhabers{% endif %}, bevor du fortfährst. Der {% ifversion ghes %}Website-Administrator{% elsif ghae %} des Unternehmensinhabers{% endif %} kann sich an {% data variables.contact.contact_ent_support %} wenden, um weitere Anleitungen zu erhalten.
 
 {% endwarning %}
 
 {% endif %}
 
-### Making a repository private
+### Repository als privat festlegen
 {% ifversion fpt or ghes or ghec %}
-* {% data variables.product.product_name %} will detach public forks of the public repository and put them into a new network. Public forks are not made private.{% endif %}
-{%- ifversion ghes or ghec or ghae %}
-* If you change a repository's visibility from internal to private, {% data variables.product.prodname_dotcom %} will remove forks that belong to any user without access to the newly private repository. {% ifversion fpt or ghes or ghec %}The visibility of any forks will also change to private.{% elsif ghae %}If the internal repository has any forks, the visibility of the forks is already private.{% endif %} For more information, see "[What happens to forks when a repository is deleted or changes visibility?](/articles/what-happens-to-forks-when-a-repository-is-deleted-or-changes-visibility)"
+* {% data variables.product.product_name %} trennt öffentliche Forks des öffentlichen Repositorys ab und setzt sie in ein neues Netzwerk ein. Öffentliche Forks werden nicht privat gemacht.{% endif %} {%- ifversion ghes or ghec or ghae %}
+* Wenn du die Sichtbarkeit eines Repositorys von intern in privat änderst, entfernt {% data variables.product.prodname_dotcom %} Forks, die einem Benutzer gehören, der keinen Zugriff auf das neue private Repository hat. {% ifversion fpt or ghes or ghec %}Die Sichtbarkeit aller Forks ändert sich auch in privat. {% elsif ghae %}Wenn das interne Repository über Forks verfügt, ist die Sichtbarkeit der Forks bereits privat.{% endif %} Weitere Informationen findest du unter "[Was geschieht mit Forks, wenn ein Repository gelöscht oder die Sichtbarkeit geändert wird?](/articles/what-happens-to-forks-when-a-repository-is-deleted-or-changes-visibility)"
 {%- endif %}
 
 {%- ifversion fpt %}
-* If you're using {% data variables.product.prodname_free_user %} for personal accounts or organizations, some features won't be available in the repository after you change the visibility to private. Any published {% data variables.product.prodname_pages %} site will be automatically unpublished. If you added a custom domain to the {% data variables.product.prodname_pages %} site, you should remove or update your DNS records before making the repository private, to avoid the risk of a domain takeover. For more information, see "[{% data variables.product.company_short %}'s products](/get-started/learning-about-github/githubs-products) and "[Managing a custom domain for your {% data variables.product.prodname_pages %} site](/articles/managing-a-custom-domain-for-your-github-pages-site)."
+* Wenn du {% data variables.product.prodname_free_user %} für persönliche Konten oder Organisationen verwendest, stehen einige Features im Repository nicht zur Verfügung, nachdem du die Sichtbarkeit in privat geändert hast. Die Veröffentlichung einer jeden veröffentlichten {% data variables.product.prodname_pages %}-Website wird automatisch zurückgezogen. Wenn du deiner {% data variables.product.prodname_pages %}-Website eine benutzerdefinierte Domain hinzugefügt hast, solltest du deine DNS-Einträge vor der Umschaltung des Repositorys in ein privates Repository entfernen oder aktualisieren, um das Risiko eines Domain-Takeovers auszuschließen. Weitere Informationen findest du unter "[{% data variables.product.company_short %}-Produkte](/get-started/learning-about-github/githubs-products)" und "[Verwalten einer benutzerdefinierten Domäne für deine {% data variables.product.prodname_pages %}-Website](/articles/managing-a-custom-domain-for-your-github-pages-site)".
 {%- endif %}
 
 {%- ifversion fpt or ghec %}
-* {% data variables.product.prodname_dotcom %} will no longer include the repository in the {% data variables.product.prodname_archive %}. For more information, see "[About archiving content and data on {% data variables.product.prodname_dotcom %}](/github/creating-cloning-and-archiving-repositories/about-archiving-content-and-data-on-github#about-the-github-archive-program)."
-* {% data variables.product.prodname_GH_advanced_security %} features, such as {% data variables.product.prodname_code_scanning %}, will stop working{% ifversion ghec %} unless the repository is owned by an organization that is part of an enterprise with a license for {% data variables.product.prodname_advanced_security %} and sufficient spare seats{% endif %}. {% data reusables.advanced-security.more-info-ghas %}
-{%- endif %}
+* {% data variables.product.prodname_dotcom %} enthalten das Repository nicht mehr im {% data variables.product.prodname_archive %}. Weitere Informationen findest du unter "[Informationen zum Archivieren von Inhalten und Daten in {% data variables.product.prodname_dotcom %}](/github/creating-cloning-and-archiving-repositories/about-archiving-content-and-data-on-github#about-the-github-archive-program)".
+* {% data variables.product.prodname_GH_advanced_security %}-Features, z. B. {% data variables.product.prodname_code_scanning %}, funktionieren nicht mehr{% ifversion ghec %}, es sei denn, das Repository gehört zu einer Organisation, die Teil eines Unternehmens mit einer Lizenz für {% data variables.product.prodname_advanced_security %} und genügend Ersatzplätze{% endif %} ist. {% data reusables.advanced-security.more-info-ghas %} {%- endif %}
 
 {%- ifversion ghes %}
-* Anonymous Git read access is no longer available. For more information, see "[Enabling anonymous Git read access for a repository](/enterprise/user/articles/enabling-anonymous-git-read-access-for-a-repository)."
+* Es steht kein anonymer Git-Lesezugriff mehr zur Verfügung. Weitere Informationen findest du unter [Aktivieren des anonymen Git-Lesezugriffs für ein Repository](/enterprise/user/articles/enabling-anonymous-git-read-access-for-a-repository).
 {%- endif %}
 
 {% ifversion ghes or ghec or ghae %}
 
-### Making a repository internal
+### Repository als intern festlegen
 
-* Any forks of the repository will remain in the repository network, and {% data variables.product.product_name %} maintains the relationship between the root repository and the fork. For more information, see "[What happens to forks when a repository is deleted or changes visibility?](/articles/what-happens-to-forks-when-a-repository-is-deleted-or-changes-visibility)"
+* Alle Forks des Repositorys verbleiben im Repositorynetzwerk, und {% data variables.product.product_name %} verwaltet die Beziehung zwischen dem Stamm-Repository und dem Fork. Weitere Informationen findest du unter "[Was geschieht mit Forks, wenn ein Repository gelöscht wird oder sich seine Sichtbarkeit ändert?](/articles/what-happens-to-forks-when-a-repository-is-deleted-or-changes-visibility)"
 
 {% endif %}
 
 {% ifversion fpt or ghes or ghec %}
 
-### Making a repository public
+### Repository als öffentlich festlegen
 
-* {% data variables.product.product_name %} will detach private forks and turn them into a standalone private repository. For more information, see "[What happens to forks when a repository is deleted or changes visibility?](/articles/what-happens-to-forks-when-a-repository-is-deleted-or-changes-visibility#changing-a-private-repository-to-a-public-repository)"{% ifversion fpt or ghec %}
-* If you're converting your private repository to a public repository as part of a move toward creating an open source project, see the [Open Source Guides](http://opensource.guide) for helpful tips and guidelines. You can also take a free course on managing an open source project with [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %}). Once your repository is public, you can also view your repository's community profile to see whether your project meets best practices for supporting contributors. For more information, see "[Viewing your community profile](/articles/viewing-your-community-profile)."
-* The repository will automatically gain access to {% data variables.product.prodname_GH_advanced_security %} features.
+* {% data variables.product.product_name %} trennt private Forks ab und ändert sie in ein eigenständiges privates Repository. Weitere Informationen findest du unter "[Was geschieht mit Forks, wenn ein Repository gelöscht wird oder sich seine Sichtbarkeit ändert?](/articles/what-happens-to-forks-when-a-repository-is-deleted-or-changes-visibility#changing-a-private-repository-to-a-public-repository)"{% ifversion fpt or ghec %}
+* Wenn du dein privates Repository in ein öffentliches Repository konvertierst, um damit u. a. ein Open Source Projekts zu erstellen, lies die [Open Source-Leitfäden](http://opensource.guide), die hilfreiche Tipps und Vorgaben enthalten. Du kannst auch an einem kostenlosen Kurs zum Verwalten von Open Source Projekten mit [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %}) teilnehmen. Sobald dein Repository der Öffentlichkeit zugänglich ist, kannst du im Community-Profil des Repositorys überprüfen, ob dein Projekt die Best Practices zur Unterstützung von Mitarbeitern erfüllt. Weitere Informationen findest du unter [Anzeigen deines Community-Profils](/articles/viewing-your-community-profile).
+* Das Repository erhält automatisch Zugriff auf {% data variables.product.prodname_GH_advanced_security %}-Features.
 
-For information about improving repository security, see "[Securing your repository](/code-security/getting-started/securing-your-repository)."{% endif %}
+Informationen zur Verbesserung der Repositorysicherheit findest du unter "[Sichern deines Repositorys](/code-security/getting-started/securing-your-repository)".{% endif %}
 
 {% endif %}
 
-## Changing a repository's visibility
+## Ändern der Sichtbarkeit eines Repositorys
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-3. Under "Danger Zone", to the right of to "Change repository visibility", click **Change visibility**.
-   ![Change visibility button](/assets/images/help/repository/repo-change-vis.png)
-4. Select a visibility.
-{% ifversion fpt or ghec %}
-   ![Dialog of options for repository visibility](/assets/images/help/repository/repo-change-select.png){% else %}
-   ![Dialog of options for repository visibility](/assets/images/enterprise/repos/repo-change-select.png){% endif %}
-5. To verify that you're changing the correct repository's visibility, type the name of the repository you want to change the visibility of.
-6. Click **I understand, change repository visibility**.
-{% ifversion fpt or ghec %}
-   ![Confirm change of repository visibility button](/assets/images/help/repository/repo-change-confirm.png){% else %}
-   ![Confirm change of repository visibility button](/assets/images/enterprise/repos/repo-change-confirm.png){% endif %}
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %}
+3. Klicke unter "Danger Zone" (Gefahrenzone) rechts neben "Change repository visibility" (Sichtbarkeit des Repositorys ändern) auf " **Change visibility**" (Sichtbarkeit ändern).
+   ![Schaltfläche "Change visibility" (Sichtbarkeit ändern)](/assets/images/help/repository/repo-change-vis.png)
+4. Wähle eine Sichtbarkeit aus.
+{% ifversion fpt or ghec %} ![Dialogfeld mit Optionen für die Sichtbarkeit des Repositorys](/assets/images/help/repository/repo-change-select.png){% else %} ![Dialogfeld mit Optionen für die Sichtbarkeit des Repositorys](/assets/images/enterprise/repos/repo-change-select.png){% endif %}
+5. Gib zum Überprüfen, ob du die Sichtbarkeit des richtigen Repositorys änderst, den Namen des Repositorys ein, das du ändern möchtest.
+6. Klicke auf **I understand, change repository visibility** (Ich habe verstanden, Sichtbarkeit des Repositorys ändern).
+{% ifversion fpt or ghec %} ![Schaltfläche "Confirm change of repository visibility" (Änderung der Sichtbarkeit des Repositorys bestätigen)](/assets/images/help/repository/repo-change-confirm.png){% else %} ![Schaltfläche "Confirm change of repository visibility" (Änderung der Sichtbarkeit des Repositorys bestätigen)](/assets/images/enterprise/repos/repo-change-confirm.png){% endif %}
 
 
-## Further reading
-- "[About repositories](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)"
+## Weiterführende Themen
+- [Informationen zu Repositorys](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)

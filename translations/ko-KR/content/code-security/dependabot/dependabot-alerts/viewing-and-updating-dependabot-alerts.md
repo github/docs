@@ -1,6 +1,6 @@
 ---
-title: Viewing and updating Dependabot alerts
-intro: 'If {% data variables.product.product_name %} discovers insecure dependencies in your project, you can view details on the Dependabot alerts tab of your repository. Then, you can update your project to resolve or dismiss the alert.'
+title: Dependabot 경고 보기 및 업데이트
+intro: '{% data variables.product.product_name %}가 프로젝트에서 안전하지 않은 종속성을 검색하는 경우 리포지토리의 Dependabot 경고 탭에서 세부 정보를 볼 수 있습니다. 그런 다음, 프로젝트를 업데이트하여 경고를 해결하거나 해제할 수 있습니다.'
 redirect_from:
   - /articles/viewing-and-updating-vulnerable-dependencies-in-your-repository
   - /github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository
@@ -21,222 +21,195 @@ topics:
   - Dependencies
   - Pull requests
   - Repositories
+ms.openlocfilehash: 8bf53452bd6518f5525d67994f3e6711ef33de0d
+ms.sourcegitcommit: 7e2b5213fd15d91222725ecab5ee28cef378d3ad
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/29/2022
+ms.locfileid: '148185553'
 ---
+{% data reusables.dependabot.beta-security-and-version-updates %} {% data reusables.dependabot.enterprise-enable-dependabot %}
 
-{% data reusables.dependabot.beta-security-and-version-updates %}
-{% data reusables.dependabot.enterprise-enable-dependabot %}
+리포지토리의 {% data variables.product.prodname_dependabot_alerts %} 탭에는 열려 있고 닫힌 모든 {% data variables.product.prodname_dependabot_alerts %}{% ifversion fpt or ghec or ghes %} 및 해당 {% data variables.product.prodname_dependabot_security_updates %}{% endif %}이(가) 나열됩니다. {% ifversion fpt or ghec or ghes > 3.4 또는 ghae > 3.4 %}는 패키지, 에코시스템 또는 매니페스트별로 경고를 필터링할 수 있습니다. {% endif %} 경고 목록을 정렬할 수 있으며, 특정 경고를 클릭하여 세부 정보를 확인할 수 있습니다. {% ifversion dependabot-bulk-alerts %}경고를 하나씩 또는 한 번에 여러 개씩 선택하여 해제하거나 다시 열 수도 있습니다.{% else %}경고를 해제하거나 다시 열 수도 있습니다. {% endif %} 자세한 내용은 “[{% data variables.product.prodname_dependabot_alerts %} 정보](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)”를 참조하세요. 
 
-Your repository's {% data variables.product.prodname_dependabot_alerts %} tab lists all open and closed {% data variables.product.prodname_dependabot_alerts %}{% ifversion fpt or ghec or ghes %} and corresponding {% data variables.product.prodname_dependabot_security_updates %}{% endif %}. You can{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %} filter alerts by package, ecosystem, or manifest. You can {% endif %} sort the list of alerts, and you can click into specific alerts for more details. {% ifversion dependabot-bulk-alerts %}You can also dismiss or reopen alerts, either one by one or by selecting multiple alerts at once.{% else %}You can also dismiss or reopen alerts. {% endif %} For more information, see "[About {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)." 
-
-{% ifversion fpt or ghec or ghes %}
-You can enable automatic security updates for any repository that uses {% data variables.product.prodname_dependabot_alerts %} and the dependency graph. For more information, see "[About {% data variables.product.prodname_dependabot_security_updates %}](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-dependabot-security-updates)."
+{% ifversion fpt or ghec or ghes %} {% data variables.product.prodname_dependabot_alerts %} 및 종속성 그래프를 사용하는 모든 리포지토리에 대해 자동 보안 업데이트를 사용하도록 설정할 수 있습니다. 자세한 내용은 “[{% data variables.product.prodname_dependabot_security_updates %} 정보](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-dependabot-security-updates)”를 참조하세요.
 {% endif %}
 
 {% ifversion fpt or ghec or ghes %}
-## About updates for vulnerable dependencies in your repository
+## 리포지토리의 취약한 종속성에 대한 업데이트 정보
 
-{% data variables.product.product_name %} generates {% data variables.product.prodname_dependabot_alerts %} when we detect that your codebase is using dependencies with known security risks. For repositories where {% data variables.product.prodname_dependabot_security_updates %} are enabled, when {% data variables.product.product_name %} detects a vulnerable dependency in the default branch, {% data variables.product.prodname_dependabot %} creates a pull request to fix it. The pull request will upgrade the dependency to the minimum possible secure version needed to avoid the vulnerability.
+{% data variables.product.product_name %}은 코드베이스에서 알려진 보안 위험이 있는 종속성을 사용하고 있음을 감지하면 {% data variables.product.prodname_dependabot_alerts %}를 생성합니다. {% data variables.product.prodname_dependabot_security_updates %}가 사용하도록 설정된 리포지토리의 경우 {% data variables.product.product_name %}이 기본 분기에서 취약한 종속성을 감지하면 {% data variables.product.prodname_dependabot %}에서 이를 해결하기 위한 끌어오기 요청을 만듭니다. 끌어오기 요청은 취약성을 방지하는 데 필요한 최소한의 보안 버전으로 종속성을 업그레이드합니다.
 
-Each {% data variables.product.prodname_dependabot %} alert has a unique numeric identifier and the {% data variables.product.prodname_dependabot_alerts %} tab lists an alert for every detected vulnerability. Legacy {% data variables.product.prodname_dependabot_alerts %} grouped vulnerabilities by dependency and generated a single alert per dependency. If you navigate to a legacy {% data variables.product.prodname_dependabot %} alert, you will be redirected to a {% data variables.product.prodname_dependabot_alerts %} tab filtered for that package. {% endif %}
+각 {% data variables.product.prodname_dependabot %} 경고에는 고유한 숫자 식별자가 있으며, {% data variables.product.prodname_dependabot_alerts %} 탭에는 검색된 모든 취약성에 대한 경고가 나열됩니다. 레거시 {% data variables.product.prodname_dependabot_alerts %}는 취약성을 종속성별로 그룹화하고 단일 경고를 종속성별로 생성했습니다. 레거시 {% data variables.product.prodname_dependabot %} 경고로 이동하면 해당 패키지에 대해 필터링된 {% data variables.product.prodname_dependabot_alerts %} 탭으로 리디렉션됩니다. {% endif %}
 
-{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
-You can filter and sort {% data variables.product.prodname_dependabot_alerts %} using a variety of filters and sort options available on the user interface. For more information, see "[Prioritizing {% data variables.product.prodname_dependabot_alerts %}](#prioritizing-across--data-variablesproductprodname_dependabot_alerts-)" below.
+{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %} 사용자 인터페이스에서 사용할 수 있는 다양한 필터 및 정렬 옵션을 사용하여 {% data variables.product.prodname_dependabot_alerts %}을 필터링하고 정렬할 수 있습니다. 자세한 내용은 아래에서 “[{% data variables.product.prodname_dependabot_alerts %} 우선 순위 지정](#prioritizing-across--data-variablesproductprodname_dependabot_alerts-)”을 참조하세요.
 
-## Prioritizing {% data variables.product.prodname_dependabot_alerts %}
+## {% data variables.product.prodname_dependabot_alerts %} 우선 순위 지정
 
-{% data variables.product.company_short %} helps you prioritize fixing {% data variables.product.prodname_dependabot_alerts %}. {% ifversion dependabot-most-important-sort-option %} By default, {% data variables.product.prodname_dependabot_alerts %} are sorted by importance. The "Most important" sort order helps you prioritize which {% data variables.product.prodname_dependabot_alerts %} to focus on first. Alerts are ranked based on their potential impact, actionability, and relevance. Our prioritization calculation is constantly being improved and includes factors like CVSS score, dependency scope, and whether vulnerable function calls are found for the alert.
+{% data variables.product.company_short %}를 사용하면 {% data variables.product.prodname_dependabot_alerts %}를 수정하는 데 우선 순위를 지정할 수 있습니다. {% ifversion dependabot-most-important-sort-option %} 기본적으로 {% data variables.product.prodname_dependabot_alerts %}는 중요도별로 정렬됩니다. “가장 중요한” 정렬 순서는 우선 순위에 집중할 {% data variables.product.prodname_dependabot_alerts %}의 우선 순위를 지정하는 데 도움이 됩니다. 경고는 잠재적 영향, 실행 가능성, 관련성에 따라 순위가 매겨집니다. 우선 순위 계산은 지속적으로 개선되고 있으며 CVSS 점수, 종속성 범위, 경고에 대한 취약한 함수 호출을 찾을 수 있는지 여부와 같은 요소를 포함합니다.
 
-![Screenshot of Sort dropdown with "Most important" sort](/assets/images/help/dependabot/dependabot-alerts-sort-dropdown.png)
-{% endif %}
+![“가장 중요한” 정렬이 있는 정렬 드롭다운 스크린샷](/assets/images/help/dependabot/dependabot-alerts-sort-dropdown.png) {% endif %}
 
 {% data reusables.dependabot.dependabot-alerts-filters %}
 
-In addition to the filters available via the search bar, you can sort and filter {% data variables.product.prodname_dependabot_alerts %} using the dropdown menus at the top of the alert list. The search bar also allows for full text searching of alerts and related security advisories. You can search for part of a security advisory name or description to return the alerts in your repository that relate to that security advisory. For example, searching for `yaml.load() API could execute arbitrary code` will return {% data variables.product.prodname_dependabot_alerts %} linked to "[PyYAML insecurely deserializes YAML strings leading to arbitrary code execution](https://github.com/advisories/GHSA-rprw-h62v-c2w7)" as the search string appears in the advisory description.
+검색 창을 통해 사용할 수 있는 필터 외에도 경고 목록 맨 위에 있는 드롭다운 메뉴를 사용하여 {% data variables.product.prodname_dependabot_alerts %}를 정렬하고 필터링할 수 있습니다. 또한 검색 창을 사용하면 경고 및 관련 보안 권고를 전체 텍스트로 검색할 수 있습니다. 보안 권고 이름 또는 설명의 일부를 검색하여 해당 보안 권고와 관련된 리포지토리의 경고를 반환할 수 있습니다. 예를 들어 `yaml.load() API could execute arbitrary code`를 검색하면 검색 문자열이 권고 설명에 표시될 때 “[PyYAML에서 임의 코드 실행으로 이어지는 YAML 문자열을 안전하지 않게 역직렬화](https://github.com/advisories/GHSA-rprw-h62v-c2w7)”에 연결된 {% data variables.product.prodname_dependabot_alerts %}가 반환됩니다.
 
 {% endif %}
 
-{% ifversion dependabot-bulk-alerts %}
-  ![Screenshot of the filter and sort menus in the {% data variables.product.prodname_dependabot_alerts %} tab](/assets/images/help/graphs/dependabot-alerts-filters-checkbox.png){% elsif ghes = 3.5 %}
-You can select a filter in a dropdown menu at the top of the list, then click the filter that you would like to apply.
-   ![Screenshot of the filter and sort menus in the {% data variables.product.prodname_dependabot_alerts %} tab](/assets/images/enterprise/3.5/dependabot/dependabot-alerts-filters.png){% endif %}
+{% ifversion dependabot-bulk-alerts %} ![{% data variables.product.prodname_dependabot_alerts %} 탭의 필터 및 정렬 메뉴 스크린샷](/assets/images/help/graphs/dependabot-alerts-filters-checkbox.png){% elsif ghes = 3.5 %} 목록 맨 위에 있는 드롭다운 메뉴에서 필터를 선택한 다음 적용할 필터를 클릭할 수 있습니다.
+   ![{% data variables.product.prodname_dependabot_alerts %} 탭의 필터 및 정렬 메뉴에 대한 스크린샷](/assets/images/enterprise/3.5/dependabot/dependabot-alerts-filters.png){% endif %}
 
 {% ifversion dependabot-alerts-development-label %}
-## Supported ecosystems and manifests for dependency scope
+## 종속성 범위에 대해 지원되는 에코시스템 및 매니페스트
 
 {% data reusables.dependabot.dependabot-alerts-dependency-scope %}
 
-Alerts for packages listed as development dependencies are marked with the `Development` label on the {% data variables.product.prodname_dependabot_alerts %} page and are also available for filtering via the `scope` filter.
+개발 종속성으로 나열된 패키지에 대한 경고는 {% data variables.product.prodname_dependabot_alerts %} 페이지에 `Development` 레이블로 표시되며 `scope` 필터를 통해 필터링할 수도 있습니다.
 
-![Screenshot showing the "Development" label in the list of alerts](/assets/images/help/repository/dependabot-alerts-development-label.png)
+![경고 목록의 “개발” 레이블을 보여 주는 스크린샷](/assets/images/help/repository/dependabot-alerts-development-label.png)
 
-The alert details page of alerts on development-scoped packages shows a "Tags" section containing a `Development` label.
+개발 범위 패키지에 대한 경고의 경고 세부 정보 페이지에는 `Development` 레이블이 포함된 “태그” 섹션이 표시됩니다.
 
-![Screenshot showing the "Tags" section in the alert details page](/assets/images/help/repository/dependabot-alerts-tags-section.png)
+![경고 세부 정보 페이지의 “태그” 섹션을 보여 주는 스크린샷](/assets/images/help/repository/dependabot-alerts-tags-section.png)
 
 {% endif %}
 
 {% ifversion dependabot-alerts-vulnerable-calls %}
-## About the detection of calls to vulnerable functions
+## 취약한 함수에 대한 호출 검색 정보
 
 {% data reusables.dependabot.vulnerable-calls-beta %}
 
-When {% data variables.product.prodname_dependabot %} tells you that your repository uses a vulnerable dependency, you need to determine what the vulnerable functions are and check whether you are using them. Once you have this information, then you can determine how urgently you need to upgrade to a secure version of the dependency. 
+{% data variables.product.prodname_dependabot %}에서 리포지토리가 취약한 종속성을 사용한다고 알려주면 취약한 함수 및 이를 사용하는지 여부를 확인해야 합니다. 이 정보가 있으면 종속성의 보안 버전으로 업그레이드해야 하는 긴급도를 결정할 수 있습니다. 
 
-For supported languages, {% data variables.product.prodname_dependabot %} automatically detects whether you use a vulnerable function and adds the label "Vulnerable call" to affected alerts. You can use this information in the {% data variables.product.prodname_dependabot_alerts %} view to triage and prioritize remediation work more effectively.
+지원되는 언어의 경우 {% data variables.product.prodname_dependabot %}에서 취약한 함수를 사용하는지 여부를 자동으로 검색하고 영향을 받는 경고에 "취약한 호출"이라는 레이블을 추가합니다. {% data variables.product.prodname_dependabot_alerts %} 보기에서 이 정보를 사용하여 수정 작업을 더 효과적으로 심사하고 우선 순위를 지정할 수 있습니다.
 
 {% note %}
 
-**Note:** During the beta release, this feature is available only for new Python advisories created *after* April 14, 2022, and for a subset of historical Python advisories. {% data variables.product.prodname_dotcom %} is working to backfill data across additional historical Python advisories, which are added on a rolling basis. Vulnerable calls are highlighted only on the {% data variables.product.prodname_dependabot_alerts %} pages.
+**참고:** 베타 릴리스 동안 이 함수는 2022년 4월 14일 *이후* 에 만든 새 Python 권고 및 이전 Python 권고의 하위 집합에만 사용할 수 있습니다. {% data variables.product.prodname_dotcom %}은 롤링 기준으로 추가된 추가 이전 Python 권고에서 데이터를 백필하기 위해 노력하고 있습니다. 취약한 호출은 {% data variables.product.prodname_dependabot_alerts %} 페이지에서만 강조 표시됩니다.
 
 {% endnote %}
 
-![Screenshot showing an alert with the "Vulnerable call" label](/assets/images/help/repository/dependabot-alerts-vulnerable-call-label.png)
+!["취약한 호출" 레이블이 있는 경고를 보여 주는 스크린샷](/assets/images/help/repository/dependabot-alerts-vulnerable-call-label.png)
 
-You can filter the view to show only alerts where {% data variables.product.prodname_dependabot %} detected at least one call to a vulnerable function using the `has:vulnerable-calls` filter in the search field.
+{% data variables.product.prodname_dependabot %}에서 검색 필드의 `has:vulnerable-calls` 필터를 사용하여 취약한 함수에 대한 하나 이상의 호출을 감지한 경고만 표시하도록 보기를 필터링할 수 있습니다.
 
-For alerts where vulnerable calls are detected, the alert details page shows additional information:
+취약한 호출이 감지된 경고의 경우 경고 세부 정보 페이지에 다음과 같은 추가 정보가 표시됩니다.
 
-- One or more code blocks showing where the function is used.
-- An annotation listing the function itself, with a link to the line where the function is called.
+- 함수가 사용되는 위치를 보여 주는 하나 이상의 코드 블록
+- 함수가 호출되는 줄에 대한 링크와 함께 함수 자체를 나열하는 주석
 
-![Screenshot showing the alert details page for an alert with a "Vulnerable call" label](/assets/images/help/repository/review-calls-to-vulnerable-functions.png)
+!["취약한 호출" 레이블이 있는 경고에 대한 경고 세부 정보 페이지를 보여 주는 스크린샷](/assets/images/help/repository/review-calls-to-vulnerable-functions.png)
 
-For more information, see "[Reviewing and fixing alerts](#reviewing-and-fixing-alerts)" below.
+자세한 내용은 아래의 “[경고 검토 및 수정](#reviewing-and-fixing-alerts)”을 참조하세요.
 
 {% endif %}
 
-## Viewing {% data variables.product.prodname_dependabot_alerts %}
+## {% data variables.product.prodname_dependabot_alerts %} 보기
 
-{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-security %}
-{% data reusables.repositories.sidebar-dependabot-alerts %}
-1. Optionally, to filter alerts, select a filter in a dropdown menu then click the filter that you would like to apply. You can also type filters into the search bar. For more information about filtering and sorting alerts, see "[Prioritizing {% data variables.product.prodname_dependabot_alerts %}](#prioritizing-across--data-variablesproductprodname_dependabot_alerts-)."
-{%- ifversion dependabot-bulk-alerts %}
-  ![Screenshot of the filter and sort menus in the {% data variables.product.prodname_dependabot_alerts %} tab](/assets/images/help/graphs/dependabot-alerts-filters-checkbox.png){% else %}
-   ![Screenshot of the filter and sort menus in the {% data variables.product.prodname_dependabot_alerts %} tab](/assets/images/enterprise/3.5/dependabot/dependabot-alerts-filters.png){% endif %}
-1. Click the alert that you would like to view.{% ifversion dependabot-bulk-alerts %}
-   ![Alert selected in list of alerts](/assets/images/help/graphs/click-alert-in-alerts-list-checkbox.png){% else %}
-   ![Alert selected in list of alerts](/assets/images/enterprise/3.5/dependabot/click-alert-in-alerts-list-ungrouped.png){% endif %}
+{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %} {% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-security %} {% data reusables.repositories.sidebar-dependabot-alerts %}
+1. 필요에 따라 경고를 필터링하려면 드롭다운 메뉴에서 필터를 선택한 다음, 적용하려는 필터를 클릭합니다. 검색 창에서 필터를 입력할 수도 있습니다. 경고 필터링 및 정렬에 대한 자세한 내용은 “[{% data variables.product.prodname_dependabot_alerts %} 우선 순위 지정](#prioritizing-across--data-variablesproductprodname_dependabot_alerts-)”을 참조하세요.
+{%- ifversion dependabot-bulk-alerts %} ![{% data variables.product.prodname_dependabot_alerts %} 탭의 필터 및 정렬 메뉴 스크린샷](/assets/images/help/graphs/dependabot-alerts-filters-checkbox.png){% else %} ![{% data variables.product.prodname_dependabot_alerts %} 탭의 필터 및 정렬 메뉴 스크린샷](/assets/images/enterprise/3.5/dependabot/dependabot-alerts-filters.png){% endif %}
+1. 보려는 경고를 클릭합니다.{% ifversion dependabot-bulk-alerts %} ![경고 목록에서 선택한 경고](/assets/images/help/graphs/click-alert-in-alerts-list-checkbox.png){% else %} ![경고 목록에서 선택한 경고](/assets/images/enterprise/3.5/dependabot/click-alert-in-alerts-list-ungrouped.png){% endif %}
 
-{% else %}
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-security %}
-{% data reusables.repositories.sidebar-dependabot-alerts %}
-1. Click the alert you'd like to view.
-  ![Alert selected in list of alerts](/assets/images/help/graphs/click-alert-in-alerts-list.png)
-{% endif %}
+{% else %} {% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-security %} {% data reusables.repositories.sidebar-dependabot-alerts %}
+1. 보려는 경고를 클릭합니다.
+  ![경고 목록에서 선택한 경고](/assets/images/help/graphs/click-alert-in-alerts-list.png) {% endif %}
 
-## Reviewing and fixing alerts
+## 경고 검토 및 수정
 
-It’s important to ensure that all of your dependencies are clean of any security weaknesses. When {% data variables.product.prodname_dependabot %} discovers vulnerabilities {% ifversion GH-advisory-db-supports-malware %}or malware{% endif %} in your dependencies, you should assess your project’s level of exposure and determine what remediation steps to take to secure your application.
+모든 종속성에서 보안 약점을 제거해야 합니다. {% data variables.product.prodname_dependabot %}에서 종속성의 취약성{% ifversion GH-advisory-db-supports-malware %}또는 맬웨어{% endif %}를 검색하는 경우 프로젝트의 노출 수준을 평가하고 애플리케이션을 보호하기 위해 수행할 수정 단계를 결정해야 합니다.
 
-If a patched version of the dependency is available, you can generate a {% data variables.product.prodname_dependabot %} pull request to update this dependency directly from a {% data variables.product.prodname_dependabot %} alert. If you have {% data variables.product.prodname_dependabot_security_updates %} enabled, the pull request may be linked will in the Dependabot alert. 
+종속성의 패치된 버전을 사용할 수 있는 경우 {% data variables.product.prodname_dependabot %} 경고에서 이 종속성을 직접 업데이트하는 {% data variables.product.prodname_dependabot %} 끌어오기 요청을 생성할 수 있습니다. {% data variables.product.prodname_dependabot_security_updates %}가 사용하도록 설정된 경우 끌어오기 요청이 Dependabot 경고에 연결될 수 있습니다. 
 
-In cases where a patched version is not available, or you can’t update to the secure version, {% data variables.product.prodname_dependabot %} shares additional information to help you determine next steps. When you click through to view a {% data variables.product.prodname_dependabot %} alert, you can see the full details of the security advisory for the dependency including the affected functions. You can then check whether your code calls the impacted functions. This information can help you further assess your risk level, and determine workarounds or if you’re able to accept the risk represented by the security advisory.
+패치된 버전을 사용할 수 없거나 보안 버전으로 업데이트할 수 없는 경우 {% data variables.product.prodname_dependabot %}에서 다음 단계를 결정하는 데 도움이 되는 추가 정보를 공유합니다. {% data variables.product.prodname_dependabot %} 경고를 보기 위해 클릭하면 영향을 받는 함수를 포함하여 종속성에 대한 보안 권고의 전체 세부 정보를 볼 수 있습니다. 그러면 코드에서 영향을 받는 함수를 호출하는지 여부를 확인할 수 있습니다. 이 정보는 위험 수준을 추가로 평가하고, 해결 방법을 결정하거나 보안 권고에서 나타내는 위험을 허용할 수 있는지 여부를 결정하는 데 도움이 될 수 있습니다.
 
 {% ifversion dependabot-alerts-vulnerable-calls %}
 
-For supported languages, {% data variables.product.prodname_dependabot %} detects calls to vulnerable functions for you. When you view an alert labeled as "Vulnerable call", the details include the name of the function and a link to the code that calls it. Often you will be able to take decisions based on this information, without exploring further.
+지원되는 언어의 경우 {% data variables.product.prodname_dependabot %}에서 취약한 함수에 대한 호출을 검색합니다. "취약한 호출"로 레이블이 지정된 경고를 보는 경우 세부 정보에는 함수 이름 및 해당 함수를 호출하는 코드에 대한 링크가 포함되어 있습니다. 더 자세히 살펴보지 않고도 이 정보를 기반으로 하여 결정할 수 있는 경우가 많습니다.
 
 {% endif %}
 
-### Fixing vulnerable dependencies
+### 취약한 종속성 수정
 
-1. View the details for an alert. For more information, see "[Viewing {% data variables.product.prodname_dependabot_alerts %}](#viewing-dependabot-alerts)" (above).
+1. 경고에 대한 세부 정보를 봅니다. 자세한 내용은 “[{% data variables.product.prodname_dependabot_alerts %} 보기](#viewing-dependabot-alerts)”(위 항목)를 참조하세요.
 {% ifversion fpt or ghec or ghes %}
-1. If you have {% data variables.product.prodname_dependabot_security_updates %} enabled, there may be a link to a pull request that will fix the dependency. Alternatively, you can click **Create {% data variables.product.prodname_dependabot %} security update** at the top of the alert details page to create a pull request.
-  ![Create {% data variables.product.prodname_dependabot %} security update button](/assets/images/help/repository/create-dependabot-security-update-button-ungrouped.png)
-1. Optionally, if you do not use {% data variables.product.prodname_dependabot_security_updates %}, you can use the information on the page to decide which version of the dependency to upgrade to and create a pull request to update the dependency to a secure version.
+1. {% data variables.product.prodname_dependabot_security_updates %}가 사용하도록 설정된 경우 종속성을 수정하는 끌어오기 요청에 대한 링크가 있을 수 있습니다. 또는 경고 세부 정보 페이지의 위쪽에서 **{% data variables.product.prodname_dependabot %} 보안 업데이트 만들기** 를 클릭하여 끌어오기 요청을 만들 수 있습니다.
+  ![{% data variables.product.prodname_dependabot %} 보안 업데이트 단추 만들기](/assets/images/help/repository/create-dependabot-security-update-button-ungrouped.png)
+1. 필요에 따라 {% data variables.product.prodname_dependabot_security_updates %}를 사용하지 않는 경우 페이지의 정보를 사용하여 업그레이드할 종속성 버전을 결정하고 해당 종속성을 보안 버전으로 업데이트하는 끌어오기 요청을 만들 수 있습니다.
 {% elsif ghae %}
-1. You can use the information on the page to decide which version of the dependency to upgrade to and create a pull request to the manifest or lock file to a secure version.
+1. 페이지의 정보를 사용하여 업그레이드할 종속성 버전을 결정하고 매니페스트 또는 잠금 파일에 대한 끌어오기 요청을 보안 버전으로 만들 수 있습니다.
 {% endif %}
-1. When you're ready to update your dependency and resolve the vulnerability, merge the pull request. 
+1. 종속성을 업데이트하고 취약성을 해결할 준비가 되면 끌어오기 요청을 병합합니다. 
 
-{% ifversion fpt or ghec or ghes %}
-   Each pull request raised by {% data variables.product.prodname_dependabot %} includes information on commands you can use to control {% data variables.product.prodname_dependabot %}. For more information, see "[Managing pull requests for dependency updates](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-pull-requests-for-dependency-updates#managing-dependabot-pull-requests-with-comment-commands)."
+{% ifversion fpt or ghec or ghes %} {% data variables.product.prodname_dependabot %}에서 발생한 각 끌어오기 요청에는 {% data variables.product.prodname_dependabot %}을(를) 제어하는 데 사용할 수 있는 명령에 대한 정보가 포함되어 있습니다. 자세한 내용은 "[종속성 업데이트에 대한 끌어오기 요청 관리](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-pull-requests-for-dependency-updates#managing-dependabot-pull-requests-with-comment-commands)"를 참조하세요.
 {% endif %}
 
-## Dismissing {% data variables.product.prodname_dependabot_alerts %}
+## {% data variables.product.prodname_dependabot_alerts %} 해제
 
 {% tip %}
 
-**Tip:** You can only dismiss open alerts.
+**팁:** 열려 있는 경고만 해제할 수 있습니다.
 {% endtip %}
 
-If you schedule extensive work to upgrade a dependency, or decide that an alert does not need to be fixed, you can dismiss the alert. Dismissing alerts that you have already assessed makes it easier to triage new alerts as they appear.
+종속성을 업그레이드하기 위해 광범위한 작업을 예약하거나 경고를 수정할 필요가 없다고 결정한 경우 경고를 해제할 수 있습니다. 이미 평가한 경고를 해제하면 새 경고가 표시될 때 더 쉽게 심사할 수 있습니다.
 
-1. View the details for an alert. For more information, see "[Viewing vulnerable dependencies](#viewing-dependabot-alerts)" (above).
-1. Select the "Dismiss" dropdown, and click a reason for dismissing the alert.{% ifversion reopen-dependabot-alerts %} Unfixed dismissed alerts can be reopened later.{% endif %}
-{% ifversion dependabot-alerts-dismissal-comment %}1. Optionally, add a dismissal comment. The dismissal comment will be added to the alert timeline and can be used as justification during auditing and reporting. You can retrieve or set a comment by using the GraphQL API. The comment is contained in the `dismissComment` field. For more information, see "[{% data variables.product.prodname_dependabot_alerts %}](/graphql/reference/objects#repositoryvulnerabilityalert)" in the GraphQL API documentation.
-   ![Screenshot showing how to dismiss an alert via the "Dismiss" drop-down, with the option to add a dismissal comment](/assets/images/help/repository/dependabot-alerts-dismissal-comment.png)
-1. Click **Dismiss alert**.
-{% else %}
-   ![Choosing reason for dismissing the alert via the "Dismiss" drop-down](/assets/images/help/repository/dependabot-alert-dismiss-drop-down-ungrouped.png){% endif %}
-{% ifversion dependabot-bulk-alerts %}
+1. 경고에 대한 세부 정보를 봅니다. 자세한 내용은 "[취약한 종속성 보기](#viewing-dependabot-alerts)"(위)를 참조하세요.
+1. “해제” 드롭다운을 선택하고 경고를 해제하는 이유를 클릭합니다.{% ifversion reopen-dependabot-alerts %} 해제된 미해결 경고는 나중에 다시 열 수 있습니다.{% endif %} {% ifversion dependabot-alerts-dismissal-comment %}1. 필요에 따라 해제 설명을 추가합니다. 해제 설명은 경고 타임라인에 추가되며 감사 및 보고 중에 근거로 사용할 수 있습니다. GraphQL API를 사용하여 설명을 검색하거나 설정할 수 있습니다. 설명은 `dismissComment` 필드에 포함됩니다. 자세한 내용은 GraphQL API 설명서의 “[{% data variables.product.prodname_dependabot_alerts %}](/graphql/reference/objects#repositoryvulnerabilityalert)”를 참조하세요.
+![해제 설명을 추가하는 옵션과 함께 “해제” 드롭다운을 통해 경고를 해제하는 방법을 보여 주는 스크린샷](/assets/images/help/repository/dependabot-alerts-dismissal-comment.png)
+1. **경고 해제** 를 클릭합니다.
+{% else %} ![“해제” 드롭다운을 통해 경고를 해제하는 이유 선택](/assets/images/help/repository/dependabot-alert-dismiss-drop-down-ungrouped.png){% endif %} {% ifversion dependabot-bulk-alerts %}
 
-### Dismissing multiple alerts at once
+### 여러 경고를 한꺼번에 해제
 
-1. View the open {% data variables.product.prodname_dependabot_alerts %}. For more information, see "[Viewing {% data variables.product.prodname_dependabot_alerts %}](/en/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts#viewing-dependabot-alerts)".
-2. Optionally, filter the list of alerts by selecting a dropdown menu, then clicking the filter that you would like to apply. You can also type filters into the search bar.
-3. To the left of each alert title, select the alerts that you want to dismiss.
-   ![Screenshot of open alerts with checkboxes emphasized](/assets/images/help/graphs/select-multiple-alerts.png)
-4. Optionally, at the top of the list of alerts, select all alerts on the page.
-   ![Screenshot of all open alerts selected](/assets/images/help/graphs/select-all-alerts.png)
-5. Select the "Dismiss alerts" dropdown, and click a reason for dismissing the alerts.
-   ![Screenshot of open alerts page with "Dismiss alerts" drop-down emphasized](/assets/images/help/graphs/dismiss-multiple-alerts.png)
+1. 열려 있는 {% data variables.product.prodname_dependabot_alerts %}를 봅니다. 자세한 내용은 “[{% data variables.product.prodname_dependabot_alerts %} 보기](/en/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts#viewing-dependabot-alerts)”를 참조하세요.
+2. 필요에 따라 드롭다운 메뉴를 선택한 다음, 적용하려는 필터를 클릭하여 경고 목록을 필터링합니다. 검색 창에서 필터를 입력할 수도 있습니다.
+3. 각 경고 타이틀의 왼쪽에서 해제할 경고를 선택합니다.
+   ![확인란이 강조 표시된 열린 경고의 스크린샷](/assets/images/help/graphs/select-multiple-alerts.png)
+4. 필요에 따라 경고 목록의 맨 위에서 페이지의 모든 경고를 선택합니다.
+   ![열려 있는 모든 경고가 선택된 스크린샷](/assets/images/help/graphs/select-all-alerts.png)
+5. “경고 해제” 드롭다운을 선택하고 경고를 해제하는 이유를 클릭합니다.
+   ![“경고 해제” 드롭다운이 강조 표시된 열린 경고 페이지의 스크린샷](/assets/images/help/graphs/dismiss-multiple-alerts.png)
 
 {% endif %}
 
 {% ifversion reopen-dependabot-alerts %}
 
-## Viewing and updating closed alerts
+## 종료된 경고 보기 및 업데이트
 
-You can view all open alerts, and you can reopen alerts that have been previously dismissed. Closed alerts that have already been fixed cannot be reopened.
+열려 있는 모든 경고를 볼 수 있으며 이전에 해제된 경고를 다시 열 수 있습니다. 이미 수정된 닫힌 경고는 다시 열 수 없습니다.
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-security %}
-{% data reusables.repositories.sidebar-dependabot-alerts %}
-1. To just view closed alerts, click **Closed**.
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-security %} {% data reusables.repositories.sidebar-dependabot-alerts %}
+1. 종료된 경고만 보려면 **종료됨** 을 클릭합니다.
 
-   {%- ifversion dependabot-bulk-alerts %}
-   ![Screenshot showing the "Closed" option](/assets/images/help/repository/dependabot-alerts-closed-checkbox.png)
-   {%- else %}
-   ![Screenshot showing the "Closed" option](/assets/images/help/repository/dependabot-alerts-closed.png)
-   {%- endif %}
-1. Click the alert that you would like to view or update.
+   {%- ifversion dependabot-bulk-alerts %} ![“닫힘” 옵션을 보여 주는 스크린샷](/assets/images/help/repository/dependabot-alerts-closed-checkbox.png) {%- else %} ![“닫힘” 옵션을 보여 주는 스크린샷](/assets/images/help/repository/dependabot-alerts-closed.png) {%- endif %}
+1. 보거나 업데이트하려는 경고를 클릭합니다.
 
-   {%- ifversion dependabot-bulk-alerts %}
-   ![Screenshot showing a highlighted dependabot alert](/assets/images/help/repository/dependabot-alerts-select-closed-alert-checkbox.png)
-   {%- else %}
-   ![Screenshot showing a highlighted dependabot alert](/assets/images/help/repository/dependabot-alerts-select-closed-alert.png)   {%- endif %}
-2. Optionally, if the alert was dismissed and you wish to reopen it, click **Reopen**. Alerts that have already been fixed cannot be reopened.
+   {%- ifversion dependabot-bulk-alerts %} ![강조 표시된 dependabot 경고를 보여 주는 스크린샷](/assets/images/help/repository/dependabot-alerts-select-closed-alert-checkbox.png) {%- else %} ![강조 표시된 dependabot 경고를 보여 주는 스크린샷](/assets/images/help/repository/dependabot-alerts-select-closed-alert.png)   {%- endif %}
+2. 필요에 따라 경고가 해제되었지만 이를 다시 열려는 경우 **다시 열기** 를 클릭합니다. 이미 해결된 경고는 다시 열 수 없습니다.
 
-   {% indented_data_reference reusables.enterprise.3-5-missing-feature spaces=3 %}
-   ![Screenshot showing the "Reopen" button](/assets/images/help/repository/reopen-dismissed-alert.png)
+   {% indented_data_reference reusables.enterprise.3-5-missing-feature spaces=3 %} !["다시 열기" 단추를 보여 주는 스크린샷](/assets/images/help/repository/reopen-dismissed-alert.png)
 
 {% endif %}
 
 {% ifversion dependabot-bulk-alerts %}
 
-### Reopening multiple alerts at once
+### 여러 경고를 한꺼번에 다시 열기
 
-1. View the closed {% data variables.product.prodname_dependabot_alerts %}. For more information, see "[Viewing and updating closed alerts](/en/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts#viewing-and-updating-closed-alerts)" (above).
-2. To the left of each alert title, select the alerts that you want to reopen.
-   ![Screenshot of closed alerts with checkboxes emphasized](/assets/images/help/repository/dependabot-alerts-open-checkbox.png)
-3. Optionally, at the top of the list of alerts, select all closed alerts on the page.
-   ![Screenshot of closed alerts with all alerts selected](/assets/images/help/graphs/select-all-closed-alerts.png)
-4. Click **Reopen** to reopen the alerts. Alerts that have already been fixed cannot be reopened.
-   ![Screenshot of closed alerts with "Reopen" button emphasized](/assets/images/help/graphs/reopen-multiple-alerts.png)
+1. 닫힌 {% data variables.product.prodname_dependabot_alerts %}를 봅니다. 자세한 내용은 “[닫힌 경고 보기 및 업데이트](/en/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts#viewing-and-updating-closed-alerts)”(위)를 참조하세요.
+2. 각 경고 제목 왼쪽에서 다시 열 경고를 선택합니다.
+   ![확인란이 강조 표시된 닫힌 경고의 스크린샷](/assets/images/help/repository/dependabot-alerts-open-checkbox.png)
+3. 필요에 따라 경고 목록의 맨 위에서 페이지의 모든 닫힌 경고를 선택합니다.
+   ![모든 경고가 선택된 닫힌 경고의 스크린샷](/assets/images/help/graphs/select-all-closed-alerts.png)
+4. 경고를 다시 열려면 **다시 열기** 를 클릭합니다. 이미 해결된 경고는 다시 열 수 없습니다.
+   ![“다시 열기” 단추가 강조 표시된 닫힌 경고의 스크린샷](/assets/images/help/graphs/reopen-multiple-alerts.png)
 
 {% endif %}
 
  
-## Reviewing the audit logs for {% data variables.product.prodname_dependabot_alerts %}
+## {% data variables.product.prodname_dependabot_alerts %}에 대한 감사 로그 검토
 
-When a member of your organization {% ifversion not fpt %}or enterprise {% endif %}performs an action related to {% data variables.product.prodname_dependabot_alerts %}, you can review the actions in the audit log. For more information about accessing the log, see "[Reviewing the audit log for your organization](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization#accessing-the-audit-log){% ifversion not fpt %}" and "[Accessing the audit log for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/accessing-the-audit-log-for-your-enterprise)."{% else %}."{% endif %}
-{% ifversion dependabot-alerts-audit-log %}
+조직의 구성원 {% ifversion not fpt %}또는 엔터프라이즈 {% endif %}이(가) {% data variables.product.prodname_dependabot_alerts %}과 관련된 작업을 수행하는 경우 감사 로그에서 작업을 검토할 수 있습니다. 로그에 액세스하는 방법에 대한 자세한 내용은 "[조직의 감사 로그 검토](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization#accessing-the-audit-log){% ifversion not fpt %}" 및 "[엔터프라이즈의 감사 로그 액세스](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/accessing-the-audit-log-for-your-enterprise)"를 참조하세요. {% else %}." {% endif %} {% ifversion dependabot-alerts-audit-log %}
 
-![Screenshot of the audit log showing Dependabot alerts](/assets/images/help/dependabot/audit-log-UI-dependabot-alert.png){% endif %}
+![Dependabot 경고를 보여 주는 감사 로그의 스크린샷](/assets/images/help/dependabot/audit-log-UI-dependabot-alert.png){% endif %}
 
-Events in your audit log for {% data variables.product.prodname_dependabot_alerts %} include details such as who performed the action, what the action was, and when the action was performed. {% ifversion dependabot-alerts-audit-log %}The event also includes a link to the alert itself. When a member of your organization dismisses an alert, the event displays the dismissal reason and comment.{% endif %} For information on the {% data variables.product.prodname_dependabot_alerts %} actions, see the `repository_vulnerability_alert` category in "[Reviewing the audit log for your organization](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization#repository_vulnerability_alert-category-actions){% ifversion not fpt %}" and "[Audit log events for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#repository_vulnerability_alert-category-actions)."{% else %}."{% endif %}
+{% data variables.product.prodname_dependabot_alerts %}에 대한 감사 로그의 이벤트에는 누가 작업을 수행했는지, 어떤 작업을 수행했는지, 작업이 수행된 시기와 같은 세부 정보가 포함됩니다. {% ifversion dependabot-alerts-audit-log %} 이벤트에는 경고 자체에 대한 링크도 포함됩니다. 조직의 구성원이 경고를 해제하면 이벤트에 해고 이유와 설명이 표시됩니다. {% endif %} {% data variables.product.prodname_dependabot_alerts %} 작업에 대한 자세한 내용은 "[조직의 감사 로그 검토](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization#repository_vulnerability_alert-category-actions){% ifversion not fpt %}" 및 "[엔터프라이즈에 대한 감사 로그 이벤트](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#repository_vulnerability_alert-category-actions)"의 범주를 참조 `repository_vulnerability_alert` 하세요. {% else %}." {% endif %}

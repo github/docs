@@ -1,6 +1,6 @@
 ---
-title: Managing teams and people with access to your repository
-intro: You can see everyone who has access to your repository and adjust permissions.
+title: 리포지토리에 액세스할 수 있는 팀 및 사용자 관리
+intro: 리포지토리에 대한 액세스 권한이 있는 모든 사용자를 보고 권한을 조정할 수 있습니다.
 permissions: People with admin access to a repository can manage teams and people with access to a repository.
 redirect_from:
   - /github/administering-a-repository/managing-people-and-teams-with-access-to-your-repository
@@ -14,72 +14,52 @@ versions:
 topics:
   - Repositories
 shortTitle: Teams & people
+ms.openlocfilehash: e378332dda56fad39b18fd10da4ee9bf799a9fe3
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145136695'
 ---
+## 리포지토리에 대한 액세스 관리 정보
 
-## About access management for repositories
+{% data variables.product.prodname_dotcom %}에서 관리하는 각 리포지토리에 대해 리포지토리에 액세스할 수 있는 모든 팀 또는 사용자의 개요를 볼 수 있습니다. 개요에서 새 팀 또는 사람을 초대하거나, 리포지토리에 대한 각 팀이나 사람의 역할을 변경하거나, 리포지토리에 대한 액세스를 제거할 수도 있습니다.
 
-For each repository that you administer on {% data variables.product.prodname_dotcom %}, you can see an overview of every team or person with access to the repository. From the overview, you can also invite new teams or people, change each team or person's role for the repository, or remove access to the repository.
-
-This overview can help you audit access to your repository, onboard or off-board contractors or employees, and effectively respond to security incidents.
+이 개요는 리포지토리, 온보딩 또는 오프보드 계약자 또는 직원에 대한 액세스를 감사하고 보안 인시던트에 효과적으로 대응하는 데 도움이 될 수 있습니다.
 
 {% data reusables.organizations.mixed-roles-warning %}
 
-For more information about repository roles, see "[Permission levels for a personal account repository](/github/setting-up-and-managing-your-github-user-account/permission-levels-for-a-user-account-repository)" and "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
+리포지토리 역할에 대한 자세한 내용은 "[개인 계정 리포지토리에 대한 권한 수준](/github/setting-up-and-managing-your-github-user-account/permission-levels-for-a-user-account-repository)" 및 "[조직의 리포지토리 역할"](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)을 참조하세요.
 
-![Access management overview](/assets/images/help/repository/manage-access-overview.png)
+![액세스 관리 개요](/assets/images/help/repository/manage-access-overview.png)
 
-## Filtering the list of teams and people
+## 팀 및 사용자 목록 필터링
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
-{% data reusables.repositories.click-collaborators-teams %}
-{% else %}
-{% data reusables.repositories.navigate-to-manage-access %}
-{% endif %}
-1. Under "Manage access", in the search field, start typing the name of the team or person you'd like to find. Optionally, use the dropdown menus to filter your search. 
-  ![Search field for filtering list of teams or people with access](/assets/images/help/repository/manage-access-filter.png)
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %} {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5658 %} {% data reusables.repositories.click-collaborators-teams %} {% else %} {% data reusables.repositories.navigate-to-manage-access %} {% endif %}
+1. "액세스 관리" 아래의 검색 필드에 찾으려는 팀 또는 사람의 이름을 입력하기 시작합니다. 필요에 따라 드롭다운 메뉴를 사용하여 검색을 필터링합니다. 
+  ![액세스 권한이 있는 팀 또는 사용자 목록을 필터링하기 위한 검색 필드](/assets/images/help/repository/manage-access-filter.png)
 
-## Changing permissions for a team or person
+## 팀 또는 사용자에 대한 권한 변경
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
-{% data reusables.repositories.click-collaborators-teams %}
-{% else %}
-{% data reusables.repositories.navigate-to-manage-access %}
-{% endif %}
-4. Under "Manage access", find the team or person whose role you'd like to change, then select the Role drop-down and click a new role.
-  ![Using the "Role" drop-down to select new permissions for a team or person](/assets/images/help/repository/manage-access-role-drop-down.png)
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %} {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5658 %} {% data reusables.repositories.click-collaborators-teams %} {% else %} {% data reusables.repositories.navigate-to-manage-access %} {% endif %}
+4. "액세스 관리"에서 역할 변경하려는 팀 또는 사람을 찾은 다음, 역할 드롭다운을 선택하고 새 역할을 클릭합니다.
+  !["역할" 드롭다운을 사용하여 팀 또는 사용자에 대한 새 권한 선택](/assets/images/help/repository/manage-access-role-drop-down.png)
 
-## Inviting a team or person
+## 팀 또는 사용자 초대
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
-{% data reusables.repositories.click-collaborators-teams %}
-{% else %}
-{% data reusables.repositories.navigate-to-manage-access %}
-{% endif %}
-{% data reusables.organizations.invite-teams-or-people %}
-5. In the search field, start typing the name of the team or person to invite, then click a name in the list of matches.
-  ![Search field for typing the name of a team or person to invite to the repository](/assets/images/help/repository/manage-access-invite-search-field.png)
-6. Under "Choose a role", select the repository role to grant to the team or person, then click **Add NAME to REPOSITORY**.
-  ![Selecting permissions for the team or person](/assets/images/help/repository/manage-access-invite-choose-role-add.png)
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %} {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5658 %} {% data reusables.repositories.click-collaborators-teams %} {% else %} {% data reusables.repositories.navigate-to-manage-access %} {% endif %} {% data reusables.organizations.invite-teams-or-people %}
+5. 검색 필드에 초대할 팀 또는 사람의 이름을 입력한 다음, 일치 항목 목록에서 이름을 클릭합니다.
+  ![리포지토리에 초대할 팀 또는 사람의 이름을 입력하기 위한 검색 필드](/assets/images/help/repository/manage-access-invite-search-field.png)
+6. "역할 선택"에서 팀 또는 사람에게 부여할 리포지토리 역할을 선택한 다음, **리포지토리에 이름 추가** 를 클릭합니다.
+  ![팀 또는 사용자에 대한 권한 선택](/assets/images/help/repository/manage-access-invite-choose-role-add.png)
 
-## Removing access for a team or person
+## 팀 또는 사용자에 대한 액세스 권한 제거
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
-{% data reusables.repositories.click-collaborators-teams %}
-{% else %}
-{% data reusables.repositories.navigate-to-manage-access %}
-{% endif %}
-4. Under "Manage access", find the team or person whose access you'd like to remove, then click {% octicon "trash" aria-label="The trash icon" %}.
-  ![trash icon for removing access](/assets/images/help/repository/manage-access-remove.png)
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %} {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5658 %} {% data reusables.repositories.click-collaborators-teams %} {% else %} {% data reusables.repositories.navigate-to-manage-access %} {% endif %}
+4. "액세스 관리"에서 제거할 액세스 권한이 있는 팀 또는 사람을 찾은 다음, {% octicon "trash" aria-label="The trash icon" %}을 클릭합니다.
+  ![액세스 제거를 위한 휴지통 아이콘](/assets/images/help/repository/manage-access-remove.png)
 
-## Further reading
+## 추가 참고 자료
 
-- "[Setting repository visibility](/github/administering-a-repository/setting-repository-visibility)"
-- "[Setting base permissions for an organization](/organizations/managing-access-to-your-organizations-repositories/setting-base-permissions-for-an-organization)"
+- “[리포지토리 표시 여부 설정](/github/administering-a-repository/setting-repository-visibility)”
+- "[조직에 대한 기본 권한 설정](/organizations/managing-access-to-your-organizations-repositories/setting-base-permissions-for-an-organization)"

@@ -1,6 +1,6 @@
 ---
-title: About email notifications for pushes to your repository
-intro: You can choose to automatically send email notifications to a specific email address when anyone pushes to the repository.
+title: Сведения об уведомлениях по электронной почте для отправок в репозиторий
+intro: 'Вы можете задать параметры так, чтобы автоматически отправлять уведомления на определенный адрес электронной почты, когда кто-либо выполняет запрос в репозиторий.'
 permissions: People with admin permissions in a repository can enable email notifications for pushes to your repository.
 redirect_from:
   - /articles/managing-notifications-for-pushes-to-a-repository
@@ -17,33 +17,37 @@ versions:
 topics:
   - Repositories
 shortTitle: Email notifications for pushes
+ms.openlocfilehash: ee12b8f8270921abd1fe70c748449e46fd472e2c
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145136748'
 ---
 {% data reusables.notifications.outbound_email_tip %}
 
-Each email notification for a push to a repository lists the new commits and links to a diff containing just those commits. In the email notification you'll see:
+Каждое уведомление по электронной почте для отправки в репозиторий включает новые фиксации и ссылки на файл различий, содержащий только эти фиксации. Уведомление содержит следующие сведения:
 
-- The name of the repository where the commit was made
-- The branch a commit was made in
-- The SHA1 of the commit, including a link to the diff in {% data variables.product.product_name %}
-- The author of the commit
-- The date when the commit was made
-- The files that were changed as part of the commit
-- The commit message
+- Имя репозитория, в котором была сделана фиксация.
+- Ветвь, в которой была сделана фиксация.
+- SHA1 фиксации, включая ссылку на файл различий в {% data variables.product.product_name %}.
+- Автор фиксации.
+- Дата фиксации.
+- Файлы, измененные в рамках фиксации.
+- Сообщение фиксации.
 
-You can filter email notifications you receive for pushes to a repository. For more information, see "[Configuring notifications](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#filtering-email-notifications)."
+Вы можете фильтровать получаемые уведомления об отправках в репозиторий. Дополнительные сведения см. в разделе [Настройка уведомлений](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#filtering-email-notifications).
 
-## Enabling email notifications for pushes to your repository
+## Включение уведомлений по электронной почте для отправок в репозиторий
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-{% data reusables.repositories.sidebar-notifications %}
-5. Type up to two email addresses, separated by whitespace, where you'd like notifications to be sent. If you'd like to send emails to more than two accounts, set one of the email addresses to a group email address.
-![Email address textbox](/assets/images/help/settings/email_services_addresses.png)
-1. If you operate your own server, you can verify the integrity of emails via the **Approved header**. The **Approved header** is a token or secret that you type in this field, and that is sent with the email. If the `Approved` header of an email matches the token, you can trust that the email is from {% data variables.product.product_name %}.
-![Email approved header textbox](/assets/images/help/settings/email_services_approved_header.png)
-7. Click **Setup notifications**.
-![Setup notifications button](/assets/images/help/settings/setup_notifications_settings.png)
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %} {% data reusables.repositories.sidebar-notifications %}
+5. Введите до двух адресов электронной почты, разделенных пробелами, для получения уведомлений. Если вы хотите отправлять уведомления более чем на две учетные записи, задайте один из адресов электронной почты как группу.
+![Текстовое поле адреса электронной почты](/assets/images/help/settings/email_services_addresses.png)
+1. Если вы работаете на собственном сервере, вы можете проверить целостность сообщений электронной почты с помощью **утвержденного заголовка**. **Утвержденный заголовок** — это маркер или секрет, введенный в этом поле, который отправляется в сообщении электронной почты. Если заголовок `Approved` сообщения соответствует маркеру, вы можете быть уверены, что сообщение поступило от {% data variables.product.product_name %}.
+![Текстовое поле с утвержденным заголовком электронной почты](/assets/images/help/settings/email_services_approved_header.png)
+7. Щелкните **Настроить уведомления**.
+![Кнопка "Настроить уведомления"](/assets/images/help/settings/setup_notifications_settings.png)
 
-## Further reading
-- "[About notifications](/github/managing-subscriptions-and-notifications-on-github/about-notifications)"
+## Дополнительные материалы
+- [Общие сведения об уведомлениях](/github/managing-subscriptions-and-notifications-on-github/about-notifications)
 

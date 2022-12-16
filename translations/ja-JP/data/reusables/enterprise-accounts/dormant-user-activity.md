@@ -1,23 +1,35 @@
-A user is considered active if the user has performed any of the following activities on {% ifversion fpt or ghec or ghes %}{% data variables.location.product_location %}{% elsif ghae %}{% data variables.product.product_name %}{% endif %}.
+---
+ms.openlocfilehash: ae3a6c6743e497213f23230a4f78d98a1ab9a110
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 12/09/2022
+ms.locfileid: "148192930"
+---
+ユーザーが {% ifversion fpt or ghec or ghes %}{% data variables.location.product_location %}{% elsif ghae %}{% data variables.product.product_name %}{% endif %} で次のいずれかのアクティビティを実行した場合、そのユーザーはアクティブと見なされます。
 
-- Signing into {% data variables.location.product_location %}
-- Creating a repository
-- Pushing to a repository
-- Being added to a repository
-- Changing the visibility of a repository
-- Creating an issue or pull request
-- Commenting on an issue or pull request
-- Closing or reopening an issue or pull request
-- Applying a label to an issue or pull request, or removing a label
-- Assigning or unassigning an issue or pull request
-- Requesting a review of a pull request, or removing a review request
-- Creating or editing a comment in a pull request review
-- Dismissing a comment in a pull request 
-- Synchronizing a pull request
-- Commenting on a commit
-- Publishing a release
-- Pushing to a wiki
-- Watching a repository
-- Starring a repository
-- Deleting a repository
-- Accessing resources by using a {% data variables.product.pat_generic %} or SSH key
+- {% data variables.location.product_location %} にサインインする
+- リポジトリを作成する
+- リポジトリにプッシュする
+- リポジトリに追加される
+- リポジトリの表示を変更する
+- Issueもしくはプルリクエストの作成
+- イシューまたは pull request にコメントする
+- イシューまたは pull request をクローズまたは再オープンする
+- イシューまたは pull request にラベルを適用する、またはラベルを削除する
+- イシューまたは pull request の割り当てまたは割り当て解除を行う
+- pull request のレビューを要求する、またはレビュー要求を削除する
+- pull request レビューのコメントを作成または編集する
+- pull request のコメントを無視する 
+- pull request を同期する
+- コミットにコメントする
+- リリースを公開する
+- wiki にプッシュする
+- リポジトリを Watch する
+- リポジトリの Star 付け
+- リポジトリの削除
+- {% data variables.product.pat_generic %} または SSH キーを使用してリソースにアクセスする
+- 組織に参加する
+
+{% ifversion ghes %} ユーザーはそのアカウントが LDAP によって更新されている場合もアクティブと見なされます。
+{% endif %}

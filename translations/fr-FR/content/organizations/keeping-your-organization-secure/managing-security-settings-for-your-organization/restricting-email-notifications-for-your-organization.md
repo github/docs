@@ -1,6 +1,6 @@
 ---
-title: Restricting email notifications for your organization
-intro: 'To prevent organization information from leaking into personal email accounts, you can restrict the domains where members can receive email notifications about organization activity.'
+title: Limitation des notifications par e-mail de l’organisation
+intro: 'Pour empêcher la fuite d’informations de l’organisation dans des comptes de messagerie personnels, vous pouvez restreindre les domaines dans lesquels les membres peuvent recevoir des notifications par e-mail concernant l’activité de l’organisation.'
 permissions: Organization owners can restrict email notifications for an organization.
 redirect_from:
   - /articles/restricting-email-notifications-about-organization-activity-to-an-approved-email-domain
@@ -18,34 +18,34 @@ topics:
   - Organizations
   - Policy
 shortTitle: Restrict email notifications
+ms.openlocfilehash: 480f587862e0618c0624eec581520343c54afa35
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147060097'
 ---
+## À propos des restrictions d’e-mails
 
-## About email restrictions
+Lorsque les notifications par e-mail restreintes sont activées dans une organisation, les membres ne peuvent utiliser qu’une adresse e-mail associée à un domaine vérifié ou approuvé pour recevoir des notifications par e-mail concernant l’activité de l’organisation. Pour plus d’informations, consultez « [Vérification ou approbation d’un domaine pour votre organisation](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization) ».
 
-When restricted email notifications are enabled in an organization, members can only use an email address associated with a verified or approved domain to receive email notifications about organization activity. For more information, see "[Verifying or approving a domain for your organization](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)."
+{% ifversion ghec %} {% note %}
 
-{% ifversion ghec %}
-{% note %}
+**Remarque :** Pour restreindre les notifications par e-mail, votre organisation doit utiliser {% data variables.product.prodname_ghe_cloud %}. {% data reusables.enterprise.link-to-ghec-trial %}
 
-**Note:** To restrict email notifications, your organization must use {% data variables.product.prodname_ghe_cloud %}. {% data reusables.enterprise.link-to-ghec-trial %}
-
-{% endnote %}
-{% endif %}
+{% endnote %} {% endif %}
 
 {% data reusables.notifications.email-restrictions-verification %}
 
-Outside collaborators are not subject to restrictions on email notifications for verified or approved domains. For more information about outside collaborators, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization#outside-collaborators)."
+Les collaborateurs externes ne sont pas soumis à des restrictions sur les notifications par e-mail concernant les domaines vérifiés et approuvés. Pour plus d’informations sur les collaborateurs externes, consultez « [Rôles dans une organisation](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization#outside-collaborators) ».
 
-If your organization is owned by an enterprise account, organization members will be able to receive notifications from any domains verified or approved for the enterprise account, in addition to any domains verified or approved for the organization. For more information, see "[Verifying or approving a domain for your enterprise](/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise)."
+Si votre organisation appartient à un compte d’entreprise, les membres de l’organisation peuvent recevoir des notifications de tous les domaines vérifiés ou approuvés pour le compte d’entreprise, en plus des domaines vérifiés ou approuvés pour l’organisation. Pour plus d’informations, consultez « [Vérification ou approbation d’un domaine pour une entreprise](/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise) ».
 
-## Restricting email notifications
+## Restriction des notifications par e-mail
 
-Before you can restrict email notifications for your organization, you must verify or approve at least one domain for the organization, or an enterprise owner must have verified or approved at least one domain for the enterprise account.
+Pour pouvoir restreindre les notifications par e-mail de votre organisation, vous devez vérifier ou approuver au moins un domaine dans l’organisation. Autre possibilité : un propriétaire d’entreprise doit avoir vérifié ou approuvé au moins un domaine pour le compte d’entreprise.
 
-For more information about verifying and approving domains for an organization, see "[Verifying or approving a domain for your organization](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)."
+Pour plus d’informations sur la vérification et l’approbation de domaines dans une organisation, consultez « [Vérification ou approbation d’un domaine pour une organisation](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization) ».
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.verified-domains %}
-{% data reusables.organizations.restrict-email-notifications %}
-6. Click **Save**.
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.organizations.verified-domains %} {% data reusables.organizations.restrict-email-notifications %}
+6. Cliquez sur **Enregistrer**.

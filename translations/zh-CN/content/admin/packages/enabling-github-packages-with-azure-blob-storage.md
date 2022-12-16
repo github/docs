@@ -1,6 +1,6 @@
 ---
-title: Enabling GitHub Packages with Azure Blob Storage
-intro: 'Set up {% data variables.product.prodname_registry %} with Azure Blob Storage as your external storage.'
+title: 使用 Azure Blob 存储启用 GitHub Packages
+intro: '以 Azure Blob 存储作为外部存储设置 {% data variables.product.prodname_registry %} 。'
 versions:
   ghes: '*'
 type: tutorial
@@ -9,42 +9,44 @@ topics:
   - Packages
   - Storage
 shortTitle: Enable Packages with Azure
+ms.openlocfilehash: b851f698baba60323cbaaa69122cacdc92ec83c2
+ms.sourcegitcommit: 3ece72cf2d90987575d369c44101d19d3bb06f76
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 12/02/2022
+ms.locfileid: '148190385'
 ---
-
 {% warning %}
 
-**Warnings:**
-- It is critical that you set the restrictive access policies you need for your storage bucket, because {% data variables.product.company_short %} does not apply specific object permissions or additional access control lists (ACLs) to your storage bucket configuration. For example, if you make your bucket public, data in the bucket will be accessible on the public internet.
-- We recommend using a dedicated bucket for {% data variables.product.prodname_registry %}, separate from the bucket you use for {% data variables.product.prodname_actions %} storage.
-- Make sure to configure the bucket you'll want to use in the future. We do not recommend changing your storage after you start using {% data variables.product.prodname_registry %}.
+警告：
+- 为存储桶设置所需的限制性访问策略至关重要，因为 {% data variables.product.company_short %} 不会将特定对象权限或其他访问控制列表 (ACL) 应用于存储桶配置。 例如，如果将存储桶设为公共，则在公共互联网上可以访问存储桶中的数据。
+- 我们建议对 {% data variables.product.prodname_registry %} 使用专用存储桶，与用于 {% data variables.product.prodname_actions %} 存储的存储桶分开。
+- 请确保配置将来要使用的存储桶。 在开始使用 {% data variables.product.prodname_registry %} 后，我们不建议更改存储系统。
 
 {% endwarning %}
 
-## Prerequisites
+## 先决条件
 
-Before you can enable and configure {% data variables.product.prodname_registry %} on {% data variables.location.product_location_enterprise %}, you need to prepare your Azure Blob storage bucket. To prepare your Azure Blob storage bucket, we recommend consulting the official Azure Blob storage docs at the official [Azure Blob Storage documentation site](https://docs.microsoft.com/en-us/azure/storage/blobs/).
+在 {% data variables.location.product_location_enterprise %} 上启用和配置 {% data variables.product.prodname_registry %} 之前，需要准备 Azure Blob 存储 Bucket。 若要准备 Azure Blob 存储 Bucket，建议查阅官方 [Azure Blob 存储文档站点](https://docs.microsoft.com/en-us/azure/storage/blobs/)上的官方 Azure Blob 存储文档。
 
-## Enabling {% data variables.product.prodname_registry %} with Azure Blob Storage
+## 使用 Azure Blob 存储启用 {% data variables.product.prodname_registry %}
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.management-console %}
-{% data reusables.enterprise_site_admin_settings.packages-tab %}
-{% data reusables.package_registry.enable-enterprise-github-packages %}
-1. Under "Packages Storage", select **Azure Blob Storage** and enter your Azure container name for your packages storage bucket and connection string.
+{% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.enterprise_site_admin_settings.management-console %} {% data reusables.enterprise_site_admin_settings.packages-tab %} {% data reusables.package_registry.enable-enterprise-github-packages %}
+1. 在“包存储”下，选择“Azure Blob 存储”，然后为包存储 Bucket 和连接字符串输入 Azure 容器名称。
 
-    - You must create a storage container prior to setting the container name and connection string.
+    - 在设置容器名称和连接字符串之前，必须创建存储容器。
 
-  ![Azure Blob storage container name and connection string boxes](/assets/images/help/package-registry/azure-blob-storage-settings.png)
+  ![Azure Blob 存储容器名称和连接字符串框](/assets/images/help/package-registry/azure-blob-storage-settings.png)
 
   {% note %}
 
-  **Note:** You can find your Azure Connection String by navigating to the Access Key menu in your Azure storage account. 
-  Usage of a SAS Token or SAS URL as connection string is not currently supported.
+  注意：可以通过导航到 Azure 存储帐户中的“访问密钥”菜单来查找 Azure 连接字符串。 
+  目前不支持使用 SAS 令牌或 SAS URL 作为连接字符串。
   
   {% endnote %}
 
 {% data reusables.enterprise_management_console.save-settings %}
 
-## Next steps
+## 后续步骤
 
 {% data reusables.package_registry.next-steps-for-packages-enterprise-setup %}

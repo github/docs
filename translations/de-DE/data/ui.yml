@@ -1,267 +1,235 @@
 meta:
-  default_description: Get started, troubleshoot, and make the most of GitHub. Documentation for new users, developers, administrators, and all of GitHub's products.
+  default_description: "Erste Schritte, Problembehandlung und optimale Nutzung von GitHub. Dokumentation für neue Benutzer, Entwickler, Administratoren und alle Produkte von GitHub."
 header:
-  github_docs: GitHub Docs
+  github_docs: GitHub-Dokumentation
   contact: Contact
   notices:
-    ghae_silent_launch: GitHub AE is currently under limited release.
+    ghae_silent_launch: GitHub AE ist derzeit begrenzt freigegeben.
     release_candidate:
       # The version name is rendered before the below text via includes/header-notification.html
-      ' is currently available as a release candidate. For more information, see "<a href="/admin/overview/about-upgrades-to-new-releases">About upgrades to new releases</a>."'
+      ' ist derzeit als Release Candidate verfügbar. Weitere Informationen findest du unter <a href="/admin/overview/about-upgrades-to-new-releases">Informationen zu Upgrades auf neue Releases</a>.'
     localization_complete:
-      We publish frequent updates to our documentation, and translation of this page may still be in progress.
-      For the most current information, please visit the
-      <a id="to-english-doc" href="/en">English documentation</a>.
-    early_access: 📣 Please <b>do not share</b> this URL publicly. This page contains content about an early access feature.
-    release_notes_use_latest: Please use the latest release for the latest security, performance, and bug fixes.
+      "Wir veröffentlichen regelmäßig Aktualisierungen unserer Dokumentation, und die Übersetzung dieser Seite ist möglicherweise noch nicht abgeschlossen. Die aktuellsten Informationen findest du in der <a id=\"to-english-doc\" href=\"/en\">englischen Dokumentation</a>."
+    early_access: "📣 Bitte <b>gib diese URL nicht öffentlich weiter</b>. Diese Seite enthält Inhalte über eine Funktion, auf die frühzeitig zugegriffen werden kann."
+    release_notes_use_latest: "Bitte verwende das neueste Release, um die aktuellen Sicherheits- und Leistungsvorteile und Fehlerbehebungen zu erhalten."
     # GHES release notes
-    ghes_release_notes_upgrade_patch_only: 📣 This is not the <a href="#{{ latestPatch }}">latest patch release</a> of Enterprise Server.
-    ghes_release_notes_upgrade_release_only: 📣 This is not the <a href="/enterprise-server@{{ latestRelease }}/admin/release-notes">latest release</a> of Enterprise Server.
-    ghes_release_notes_upgrade_patch_and_release: 📣 This is not the <a href="#{{ latestPatch }}">latest patch release</a> of this release series, and this is not the <a href="/enterprise-server@{{ latestRelease }}/admin/release-notes">latest release</a> of Enterprise Server.
-  sign_up_cta: Sign up
+    ghes_release_notes_upgrade_patch_only: "📣 Dies ist nicht das <a href=\"#{{ latestPatch }}\">aktuelle Patchrelease</a> von Enterprise Server."
+    ghes_release_notes_upgrade_release_only: "📣 Dies ist nicht das <a href=\"/enterprise-server@{{ latestRelease }}/admin/release-notes\">aktuelle Release</a> von Enterprise Server."
+    ghes_release_notes_upgrade_patch_and_release: "📣 Dies ist nicht das <a href=\"#{{ latestPatch }}\">aktuelle Patchrelease</a> dieser Releasereihe und nicht das <a href=\"/enterprise-server@{{ latestRelease }}/admin/release-notes\">aktuelle Release</a> von Enterprise Server."
+  sign_up_cta: Registrieren
 picker:
-  language_picker_default_text: Choose a language
-  product_picker_default_text: All products
-  version_picker_default_text: Choose a version
+  language_picker_default_text: Wählen Sie eine Sprache
+  product_picker_default_text: Alle Produkte
+  version_picker_default_text: Version auswählen
 release_notes:
-  banner_text: GitHub began rolling these changes out to enterprises on
+  banner_text: GitHub begann mit dem Rollout dieser Änderungen für Unternehmen am
 search:
-  need_help: Need help?
-  placeholder: Search GitHub Docs
-  loading: Loading
-  no_results: No results found
-  search_results_for: Search results for
-  no_content: No content
-  matches_found: Results found
-  matches_displayed: Matches displayed
-  search_error: An error occurred trying to perform the search.
-  description: Enter a search term to find it in the GitHub Documentation.
-  label: Search GitHub Docs
-  results_found: Found {n} results in {s}ms
-  results_page: This is page {page} of {pages}.
-  nothing_found: Nothing found 😿
+  need_help: Sie brauchen Hilfe?
+  placeholder: GitHub-Dokumentation durchsuchen
+  loading: Laden
+  no_results: Keine Ergebnisse gefunden
+  search_results_for: Ergebnisse suchen für
+  no_content: Kein Inhalt
+  matches_displayed: Angezeigte Übereinstimmungen
+  search_error: "Beim Versuch, die Suche durchzuführen, ist ein Fehler aufgetreten."
+  description: "Gib einen Suchbegriff ein, um ihn in der GitHub-Dokumentation zu finden."
+  label: GitHub-Dokumentation durchsuchen
+  results_found: "{n} Ergebnisse in {s} ms gefunden"
+  results_page: "Dies ist Seite {page} von {pages}."
+  nothing_found: Nichts gefunden 😿
 homepage:
-  explore_by_product: Explore by product
+  explore_by_product: Nach Produkt erkunden
   version_picker: Version
-  description: Help for wherever you are on your GitHub journey.
+  description: Hilfe zu jeder Phase deiner GitHub-Reise.
 toc:
-  getting_started: Getting started
-  popular: Popular
-  guides: Guides
-  whats_new: What's new
+  getting_started: Erste Schritte
+  popular: Beliebt
+  guides: Anleitungen
+  whats_new: Neues
   videos: Videos
-  all_changelogs: All changelog posts
+  all_changelogs: Alle Änderungsprotokollbeiträge
 pages:
-  article_version: 'Article version'
-  miniToc: In this article
-  contributor_callout: This article is contributed and maintained by
-  all_enterprise_releases: All Enterprise Server releases
-  about_versions: About versions
-  permissions_statement: Who can use this feature
+  article_version: 'Artikelversion'
+  miniToc: Inhalt dieses Artikels
+  contributor_callout: Dieser Artikel wurde bereitgestellt und wird gepflegt von
+  all_enterprise_releases: Alle Enterprise Server-Releases
+  about_versions: Informationen zu Versionen
 errors:
-  oops: Ooops!
-  something_went_wrong: It looks like something went wrong.
-  we_track_errors: We track these errors automatically, but if the problem persists please feel free to contact us.
-  page_doesnt_exist: It looks like this page doesn't exist.
+  oops: Hoppla!
+  something_went_wrong: Offenbar ist ein Fehler aufgetreten.
+  we_track_errors: "Diese Fehler werden automatisch nachverfolgt. Wenn das Problem jedoch fortbesteht, kannst du uns gerne kontaktieren."
+  page_doesnt_exist: Diese Seite ist anscheinend nicht vorhanden.
 support:
-  still_need_help: Still need help?
-  contact_support: Contact support
-  ask_community: Ask the GitHub community
+  still_need_help: Benötigst du weitere Hilfe?
+  contact_support: Support kontaktieren
+  ask_community: GitHub-Community fragen
 survey:
-  able_to_find: Did this doc help you?
+  able_to_find: Hat dir diese Dokumentation geholfen?
   yes: Yes
   no: No
-  comment_yes_label: Let us know what we do well
-  comment_no_label: Let us know what we can do better
+  comment_yes_label: "Teile uns mit, was wir gut machen"
+  comment_no_label: "Teile uns mit, was wir besser machen können"
   optional: Optional
-  required: Required
-  email_placeholder: email@example.com
-  email_label: If we can contact you with more questions, please enter your email address
-  email_validation: Please enter a valid email address
+  required: Erforderlich
+  email_placeholder: email@beispiel.com
+  email_label: "Wenn wir dir weitere Fragen stellen dürfen, gib bitte deine E-Mail Adresse an"
+  email_validation: Geben Sie eine gültige E-Mail-Adresse ein.
   send: Send
-  feedback: Thank you! We received your feedback.
-  not_support: If you need a reply, please contact support instead.
-  privacy_policy: Privacy policy
+  feedback: Vielen Dank! Wir haben dein Feedback erhalten.
+  not_support: "Wenn du eine Antwort brauchst, wende dich bitte stattdessen an den Support."
+  privacy_policy: Datenschutzrichtlinie
 contribution_cta:
-  title: Help us make these docs great!
-  body: All GitHub docs are open source. See something that's wrong or unclear? Submit a pull request.
-  button: Make a contribution
-  or: Or,
-  to_guidelines: learn how to contribute.
-parameter_table:
-  body: Body parameters
-  default: Default
-  description: Description
-  enum_description_title: Can be one of
-  headers: Headers
-  name: Name
-  path: Path parameters
-  query: Query parameters
-  required: Required
-  see_preview_notice: See preview notice
-  see_preview_notices: See preview notices
-  type: Type
-  single_enum_description: Value
+  title: "Hilf uns, diese Dokumente perfekt zu machen!"
+  body: Alle GitHub-Dokumente sind Open Source-Dokumente. Ist dir etwas Falsches oder Unklares aufgefallen? Bitte sende einen Pull Request.
+  button: Leiste einen Beitrag
+  or: Oder
+  to_guidelines: "lerne, einen Beitrag zu leisten."
 products:
   graphql:
     reference:
-      implements: Implements
-      fields: Fields
-      arguments: Arguments
+      implements: Implementiert
+      fields: Felder
+      arguments: Argumente
       name: Name
-      type: Type
-      description: Description
-      input_fields: Input fields
-      return_fields: Return fields
-      implemented_by: Implemented by
-      values: Values
-      possible_types: Possible types
-      preview_notice: Preview notice
-      deprecation_notice: Deprecation notice
-      preview_period: During the preview period, the API may change without notice.
+      type: Typ
+      description: BESCHREIBUNG
+      input_fields: Eingabefelder
+      return_fields: Rückgabefelder
+      implemented_by: Implementiert von
+      values: Werte
+      possible_types: Mögliche Typen
+      preview_notice: Vorschauhinweis
+      deprecation_notice: Einstellungshinweis
+      preview_period: Während der Vorschauzeit kann die API ohne Vorankündigung geändert werden.
     overview:
-      preview_header: 'To toggle this preview and access the following schema members, you must provide a custom media type in the `Accept` header:'
-      preview_schema_members: 'Previewed schema members'
-      announced: Announced
-      updates: Updates
+      preview_header: 'Um diese Vorschau zu wechseln und auf die folgenden Schemaelemente zuzugreifen, musst du im `Accept`-Header einen benutzerdefinierten Medientyp angeben:'
+      preview_schema_members: 'Elemente des Vorschauschemas'
+      announced: Angekündigt
+      updates: Aktualisierungen
   rest:
-    banner:
-      api_versioned: The REST API is now versioned.
-      api_version_info: For more information, see "<a href="{{ versionWithApiVersion }}/rest/overview/api-versions">About API versioning</a>".
-      ghes_api_versioned: After a site administrator upgrades your Enterprise Server instance to {{ firstGhesReleaseWithApiVersions.versionTitle }} or later, the REST API will be versioned. To learn how to find your instance's version, see "<a href="/{{ currentVersion }}/get-started/learning-about-github/about-versions-of-github-docs#github-enterprise-server">About versions of GitHub Docs</a>".
-    versioning:
-      about_versions: About REST API versions
     reference:
-      in: In
-      description: Description
-      notes: Notes
-      parameters: Parameters
-      response: Response
-      example_response: Example response
-      status_code: Status code
-      http_status_code: HTTP response status codes
-      code_sample: Code sample
-      code_samples: Code samples
-      preview_notice: Preview notice
-      preview_notices: Preview notices
-      preview_header_is_required: This header is <strong>required</strong>
-      preview_notice_to_change: This API is under preview and subject to change
-      works_with: Works with
-      api_reference: REST API reference
-      enum_description_title: Can be one of
-      required: Required
-      headers: Headers
-      query: Query parameters
-      path: Path parameters
-      body: Body parameters
-  webhooks:
-    action_type_switch_error: There was an error switching webhook action types.
-    action_type: Action type
-    availability: Availability
-    webhook_payload_object: Webhook payload object
-    webhook_payload_example: Webhook payload example
-    rephrase_availability:
-      repository: Repositories
-      organization: Organizations
-      app: GitHub Apps
-      business: Enterprises
-      marketplace: GitHub Marketplace
-      sponsors_listing: Sponsored accounts
+      default: Standard
+      name: Name
+      in: Geben Sie in
+      type: type
+      description: BESCHREIBUNG
+      notes: Notizen
+      parameters: Parameter
+      response: Antwort
+      example_response: Beispielantwort
+      status_code: Statuscode
+      http_status_code: HTTP-Antwortstatuscodes
+      code_sample: Codebeispiel
+      code_samples: Codebeispiele
+      preview_notice: Vorschauhinweis
+      preview_notices: Vorschauhinweise
+      see_preview_notice: Siehe Vorschauhinweis
+      see_preview_notices: Siehe Vorschauhinweise
+      preview_header_is_required: Dieser Header ist <strong>erforderlich</strong>.
+      preview_notice_to_change: Diese API befindet sich in der Vorschau und kann daher geändert werden.
+      works_with: Funktioniert mit
+      api_reference: REST-API-Referenz
+      enum_description_title: Kann eine der Folgenden sein
+      required: Erforderlich
+      headers: Header
+      query: Abfrageparameter
+      path: Pfadparameter
+      body: Textparameter
 footer:
-  all_rights_reserved: All rights reserved
-  terms: Terms
-  privacy: Privacy
-  security: Security
+  all_rights_reserved: Alle Rechte vorbehalten
+  terms: Begriffe
+  privacy: Datenschutz
+  security: Sicherheit
   product:
-    heading: Product
+    heading: Produkt
     links:
       features: Features
-      security: Security
+      security: Sicherheit
       enterprise: Enterprise
-      case_studies: Case Studies
-      pricing: Pricing
-      resources: Resources
+      case_studies: Fallstudien
+      pricing: Preise
+      resources: Ressourcen
   platform:
-    heading: Platform
+    heading: Plattform
     links:
-      developer_api: Developer API
-      partners: Partners
+      developer_api: Entwickler-API
+      partners: Partner
       atom: Atom
-      electron: Electron
+      electron: Elektron
       github_desktop: GitHub Desktop
   support:
     heading: Support
     links:
-      help: Help
-      community_forum: Community Forum
+      help: Hilfe
+      community_forum: Communityforum
       training: Training
       status: Status
-      contact_github: Contact GitHub
+      contact_github: GitHub kontaktieren
   company:
     heading: Company
     links:
-      about: About
+      about: Info
       blog: Blog
-      careers: Careers
-      press: Press
+      careers: Karriere
+      press: Tastenkombination
       shop: Shop
 product_landing:
-  quickstart: Quickstart
-  reference: Reference
-  overview: Overview
-  guides: Guides
-  code_examples: Code examples
-  search_code_examples: Search code examples
-  search_results_for: Search results for
-  matches_displayed: Matches displayed
-  show_more: Show more
-  explore_people_and_projects: Explore people and projects
-  sorry: Sorry, there is no result for
-  no_example: It looks like we don't have an example that fits your filter.
-  try_another: Try another filter or add your code example.
-  no_result: Sorry, there are no guides that match your filter.
-  learn: Learn how to add a code example
-  communities_using_discussions: Communities on GitHub.com using discussions
-  add_your_community: Add your community
-  sponsor_community: GitHub Sponsors community
-  supported_releases: Supported releases
-  release_notes_for: Release notes for
-  upgrade_from: Upgrade from
-  browse_all_docs: Browse all docs
-  browse_all: Browse all
-  docs: docs
-  explore_release_notes: Explore release notes
-  view: View all
+  quickstart: Schnellstart
+  reference: Verweis
+  overview: Übersicht
+  guides: Anleitungen
+  code_examples: Codebeispiele
+  search_code_examples: Codebeispiele suchen
+  search_results_for: Ergebnisse suchen für
+  matches_displayed: Angezeigte Übereinstimmungen
+  show_more: Mehr anzeigen
+  explore_people_and_projects: Personen und Projekte erkunden
+  sorry: Leider kein Ergebnis für
+  no_example: "Offenbar haben wir kein Beispiel, das deinem Filter entspricht."
+  try_another: "Probiere einen anderen Filter aus, oder füge dein Codebeispiel hinzu."
+  no_result: Leider entspricht keine Anleitung deinem Filter.
+  learn: "Hier erfährst du, wie du ein Codebeispiel hinzufügst."
+  communities_using_discussions: Communitys auf GitHub.com mit Diskussionen
+  add_your_community: Füge deine Community hinzu
+  sponsor_community: GitHub Sponsors-Community
+  supported_releases: Unterstützte Releases
+  release_notes_for: Versionshinweise für
+  upgrade_from: Upgrade von
+  browse_all_docs: Gesamte Dokumentation durchsuchen
+  browse_all: Alle durchsuchen
+  docs: Dokumentation
+  explore_release_notes: Versionshinweise erkunden
+  view: Alle anzeigen
 product_guides:
-  start_path: Start learning path
-  learning_paths: '{{ productMap[currentProduct].name }} learning paths'
-  learning_paths_desc: Learning paths are a collection of guides that help you master a particular subject.
-  guides: '{{ productMap[currentProduct].name }} guides'
-  more_guides: more guides
-  load_more: Load more guides
-  all_guides: 'All {{ productMap[currentProduct].name }} guides'
-  filter_instructions: Filter the guide list using these controls
+  start_path: Lernpfad beginnen
+  learning_paths: '{{ productMap[currentProduct].name }}-Lernpfade'
+  learning_paths_desc: "Lernpfade sind eine Sammlung von Anleitungen, die dir helfen, ein bestimmtes Thema zu erlernen."
+  guides: '{{ productMap[currentProduct].name }}-Anleitungen'
+  more_guides: weitere Anleitungen
+  load_more: Weitere Anleitungen laden
+  all_guides: 'Alle {{ productMap[currentProduct].name }}-Anleitungen'
+  filter_instructions: Filtere die Anleitungenliste mit diesen Steuerelementen
   filters:
-    type: Type
-    topic: Topic
+    type: type
+    topic: Thema
     all: All
   guides_found:
-    multiple: '{n} guides found'
-    one: 1 guide found
-    none: No guides found
+    multiple: '{n} Anleitungen gefunden'
+    one: 1 Anleitung gefunden
+    none: Keine Anleitungen gefunden
   guide_types:
-    overview: Overview
-    quick_start: Quickstart
-    tutorial: Tutorial
-    how_to: How-to guide
-    reference: Reference
+    overview: Übersicht
+    quick_start: Schnellstart
+    tutorial: Lernprogramm
+    how_to: Schrittanleitung
+    reference: Verweis
 learning_track_nav:
-  prevGuide: Previous guide
-  nextGuide: Next guide
+  prevGuide: Vorherige Anleitung
+  nextGuide: Nächste Anleitung
 toggle_images:
-  off: Images are off, click to show
-  on: Images are on, click to hide
-  hide_single: Hide image
-  show_single: Show image
+  off: "Bilder sind ausgeschaltet, zum Anzeigen klicken"
+  on: "Bilder sind eingeschaltet, zum Ausblenden klicken"
+  hide_single: Bild ausblenden
+  show_single: Bild anzeigen
 scroll_button:
-  scroll_to_top: Scroll to top
+  scroll_to_top: Bildlauf nach oben

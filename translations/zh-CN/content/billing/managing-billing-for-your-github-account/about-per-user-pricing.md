@@ -1,6 +1,6 @@
 ---
-title: About per-user pricing
-intro: '{% ifversion fpt or ghec %}For organizations{% ifversion ghec %} and enterprises{% endif %}, your {% else %}Your {% endif %}bill begins with the number of licensed seats you choose.'
+title: 关于每用户定价
+intro: '{% ifversion fpt or ghec %}对于组织{% ifversion ghec %}和企业{% endif %}，{% else %}你的{% endif %}账单以所选的许可席位数开始。'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/about-per-user-pricing
   - /articles/about-per-user-pricing
@@ -15,141 +15,144 @@ topics:
   - Enterprise
   - Licensing
   - Organizations
+ms.openlocfilehash: 16de23fa922a593bb03fedcb7f902822cffce7f9
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148106667'
 ---
-
-## About per-user pricing
+## 关于每用户定价
 
 {% ifversion fpt %}
 
-New organizations on {% data variables.product.prodname_dotcom_the_website %} can build public and open-source projects with {% data variables.product.prodname_free_team %}, or upgrade to a paid product with per-user pricing. For more information, see "[{% data variables.product.company_short %}'s products](/get-started/learning-about-github/githubs-products)" and "[Upgrading your {% data variables.product.prodname_dotcom %} subscription](/billing/managing-billing-for-your-github-account/upgrading-your-github-subscription)."
+{% data variables.product.prodname_dotcom_the_website %} 上的新组织可以使用 {% data variables.product.prodname_free_team %} 构建公共和开源项目，或者升级到按用户定价的付费产品。 有关详细信息，请参阅“[{% data variables.product.company_short %} 的产品](/get-started/learning-about-github/githubs-products)”和“[升级 {% data variables.product.prodname_dotcom %} 订阅](/billing/managing-billing-for-your-github-account/upgrading-your-github-subscription)”。
 
-Organizations using a paid subscription before May 11, 2016 can choose to stay on their existing per-repository plan or switch to per-user pricing. {% data variables.product.company_short %} will notify you twelve months before any mandated change to your subscription. For more information on switching your subscription, see "[Upgrading your {% data variables.product.prodname_dotcom %} subscription](/billing/managing-billing-for-your-github-account/upgrading-your-github-subscription)."
+在 2016 年 5 月 11 日之前使用付费订阅的组织可以选择保留其现有的每仓库计划，或者切换到每用户定价。 {% data variables.product.company_short %} 将在您的订阅发生任何必要更改之前的 12 个月通知您。 有关切换订阅的详细信息，请参阅“[升级 {% data variables.product.prodname_dotcom %} 订阅](/billing/managing-billing-for-your-github-account/upgrading-your-github-subscription)”。
 
 {% else %}
 
-The foundation of your bill is the number of standard licensed seats that you choose for your{% ifversion ghec %} organization or{% endif %} enterprise.
+账单的基础是你为{% ifversion ghec %}组织或{% endif %}企业选择的标准许可席位数。
 
 {% data reusables.enterprise-licensing.unique-user-licensing-model %}
 
-To ensure the same user isn't consuming more than one license for multiple enterprise deployments, you can synchronize license usage between your {% data variables.product.prodname_ghe_server %} and {% data variables.product.prodname_ghe_cloud %} environments. For more information, see "[About licenses for GitHub Enterprise](/billing/managing-your-license-for-github-enterprise/about-licenses-for-github-enterprise)."
+为确保同一用户不会为多个企业部署使用多个许可证，可以在 {% data variables.product.prodname_ghe_server %} 和 {% data variables.product.prodname_ghe_cloud %} 环境之间同步许可证使用情况。 有关详细信息，请参阅“[关于 GitHub Enterprise 的许可证](/billing/managing-your-license-for-github-enterprise/about-licenses-for-github-enterprise)”。
 
-In addition to licensed seats, your bill may include other charges, such as {% data variables.product.prodname_GH_advanced_security %}. For more information, see "[About billing for your enterprise](/billing/managing-billing-for-your-github-account/about-billing-for-your-enterprise)."
+除许可席位外，账单可能包含其他费用，例如 {% data variables.product.prodname_GH_advanced_security %}。 有关详细信息，请参阅“[关于企业的计费](/billing/managing-billing-for-your-github-account/about-billing-for-your-enterprise)”。
 {% endif %}
 
-## People that consume a license
+## 使用许可证的人员
 
 {% ifversion fpt %}
 
-{% data variables.product.company_short %} bills for the following people:
+{% data variables.product.company_short %} 针对以下人员计费：
 
-- Organization members, including owners
-- Outside collaborators on private repositories owned by your organization, excluding forks
-- Anyone with a pending invitation to become an outside collaborator on private or internal repositories owned by your organization, excluding forks
-- Dormant users
+- 组织成员（包括所有者）
+- 组织拥有的专用存储库的外部协作者（不包括分支上的）
+- 拥有待定邀请可成为组织拥有的专用或内部存储库的外部协作者（不包括分支上的）的任何人员
+- 休眠用户
 
 {% note %}
 
-**Notes:** 
-- {% data variables.product.company_short %} counts each outside collaborator once for billing purposes, even if the user account has access to multiple repositories owned by your organization.
+**注意：** 
+- 出于计费目的，{% data variables.product.company_short %} 会对每个外部协作者进行一次计数，即使该用户帐户有权访问组织拥有的多个存储库也是如此。
 - {% data reusables.organizations.org-invite-scim %}
 
 {% endnote %}
 
-{% data variables.product.company_short %} does not bill for the following people:
+{% data variables.product.company_short %} 不会针对以下人员计费：
 
-- Billing managers
-- Anyone with a pending invitation to become a billing manager
-- Anyone with a pending invitation to become an outside collaborator on a public repository owned by your organization
+- 帐单管理员
+- 拥有待定邀请可成为帐单管理员的任何人
+- 拥有待定邀请可成为组织拥有的公共存储库上的外部协作者的任何人员
 
 {% else %}
 
-{% data variables.product.company_short %} bills for the following accounts for each deployment of {% data variables.product.prodname_enterprise %}.
+{% data variables.product.company_short %} 针对 {% data variables.product.prodname_enterprise %} 的部署，为以下帐户计费。
 
-### Accounts that consume a license on {% data variables.product.prodname_ghe_cloud %}
+### 在 {% data variables.product.prodname_ghe_cloud %} 上使用许可证的帐户
 
-{% data variables.product.company_short %} bills for each of the following accounts on {% data variables.product.prodname_ghe_cloud %}:
+{% data variables.product.company_short %} 为 {% data variables.product.prodname_ghe_cloud %} 上的以下每个帐户计费：
 
-- Enterprise owners who are a member or owner of at least one organization in the enterprise
-- Organization members, including owners
-- Outside collaborators on private or internal repositories owned by your organization, excluding forks
-- Dormant users
+- 是企业中至少一个组织的成员或所有者的企业所有者
+- 组织成员（包括所有者）
+- 组织拥有的专用或内部有存储库的外部协作者（不包括分支上的）
+- 休眠用户
 
-If your enterprise does not use {% data variables.product.prodname_emus %}, you will also be billed for each of the following accounts:
+如果企业不使用 {% data variables.product.prodname_emus %}，则还需要为以下每个帐户计费：
 
-- Anyone with a pending invitation to become an organization owner or member
-- Anyone with a pending invitation to become an outside collaborator on private or internal repositories owned by your organization, excluding forks
+- 拥有待定邀请可成为组织所有者或成员的任何人员
+- 拥有待定邀请可成为组织拥有的专用或内部存储库的外部协作者（不包括分支上的）的任何人员
 
 {% note %}
 
-**Notes:** 
-  - {% data variables.product.company_short %} counts each member or outside collaborator once for billing purposes, even if the user account has membership in multiple organizations in an enterprise or access to multiple repositories owned by your organization.
+**注意：** 
+  - 出于计费目的，{% data variables.product.company_short %} 对每个成员或外部协作者计数一次，即使该用户帐户在企业中的多个组织中具有企业中多个组织的成员身份或对组织拥有的多个存储库具有访问权限也是如此。
   - {% data reusables.organizations.org-invite-scim %}
 
 {% endnote %}
 
-{% data variables.product.company_short %} does not bill for any of the following accounts:
+{% data variables.product.company_short %} 不会针对以下任何帐户计费：
 
-- {% data variables.enterprise.prodname_managed_users_caps %} that are suspended
-- Enterprise owners who are not a member or owner of at least one organization in the enterprise
-- Enterprise billing managers
-- Billing managers for individual organizations
-- Anyone with a pending invitation to become a billing manager
-- Anyone with a pending invitation to become an outside collaborator on a public repository owned by your organization
+- {% data variables.enterprise.prodname_managed_users_caps %} 已挂起
+- 不是企业中至少一个组织的成员或所有者的企业所有者
+- 企业帐单管理员
+- 单个组织的帐单管理员
+- 拥有待定邀请可成为帐单管理员的任何人
+- 拥有待定邀请可成为组织拥有的公共存储库上的外部协作者的任何人员
 
-### Accounts that consume a license on {% data variables.product.prodname_ghe_server %}
+### 在 {% data variables.product.prodname_ghe_server %} 上使用许可证的帐户
 
-Each user account on {% data variables.product.prodname_ghe_server %} consumes a seat.
+{% data variables.product.prodname_ghe_server %} 上的每个用户帐户占用一个席位。
 
-Suspended users are not counted when calculating the number of licensed users consuming seats. For more information, see "[Suspending and unsuspending users]({% ifversion not ghes %}/enterprise-server@latest{% endif %}/admin/user-management/managing-users-in-your-enterprise/suspending-and-unsuspending-users){% ifversion not ghes %}" in the {% data variables.product.prodname_ghe_server %} documentation.{% else %}."{% endif %}
+计算使用席位的已授权用户数时，不会计算挂起的用户数。 有关详细信息，请参阅 {% data variables.product.prodname_ghe_server %} 文档中的“[挂起和取消挂起用户]({% ifversion not ghes %}/enterprise-server@latest{% endif %}/admin/user-management/managing-users-in-your-enterprise/suspending-and-unsuspending-users){% ifversion not ghes %}”。{% else %}."{% endif %}
 
-Dormant users do occupy a seat license. As such, you can choose to suspend dormant users to release user licenses. For more information, see "[Managing dormant users]({% ifversion not ghes %}/enterprise-server@latest{% endif %}/admin/user-management/managing-users-in-your-enterprise/managing-dormant-users){% ifversion not ghes %}" in the {% data variables.product.prodname_ghe_server %} documentation.{% else %}."{% endif %}
+休眠用户确实占用了席位许可证。 因此，可以选择暂停休眠用户以释放用户许可证。 有关详细信息，请参阅 {% data variables.product.prodname_ghe_server %} 文档中的“[管理休眠用户]({% ifversion not ghes %}/enterprise-server@latest{% endif %}/admin/user-management/managing-users-in-your-enterprise/managing-dormant-users){% ifversion not ghes %}”。{% else %}."{% endif %}
 
 {% endif %}
 
-## About changes to your subscription
+## 关于对订阅的更改
 
 {% ifversion fpt %}
 
-You can change your {% data variables.product.prodname_dotcom %} subscription at any time.
+您可以随时更改 {% data variables.product.prodname_dotcom %} 订阅。
 
-### About changes for organizations on per-user plans
+### 关于每用户计划中组织的更改
 
 {% endif %}
 
-You can add more licensed seats to your {% ifversion fpt or ghec %} organization{% endif %}{% ifversion ghec %} or{% endif %}{% ifversion ghec or ghes %} enterprise{% endif %} at any time. If you pay for more seats than are being used, you can also reduce the number of seats.{% ifversion fpt %} For more information, see "[Upgrading your {% data variables.product.prodname_dotcom %} subscription](/billing/managing-billing-for-your-github-account/upgrading-your-github-subscription)" and "[Downgrading your {% data variables.product.prodname_dotcom %} subscription](/billing/managing-billing-for-your-github-account/downgrading-your-github-subscription)."
+可以随时向{% ifversion fpt or ghec %}组织{% endif %}{% ifversion ghec %}或{% endif %}{% ifversion ghec or ghes %}企业{% endif %}添加更多许可席位数。 如果支付的席位数超过当前使用的席位数，还可减少席位数。{% ifversion fpt %}有关详细信息，请参阅“[升级 {% data variables.product.prodname_dotcom %} 订阅](/billing/managing-billing-for-your-github-account/upgrading-your-github-subscription)”和“[降级 {% data variables.product.prodname_dotcom %} 订阅](/billing/managing-billing-for-your-github-account/downgrading-your-github-subscription)”。
 
-If you have questions about your subscription, contact {% data variables.contact.contact_support %}.
+如果对您的订阅有任何疑问，请联系 {% data variables.contact.contact_support %}。
 
-To further support your team's collaboration abilities, you can upgrade to {% data variables.product.prodname_ghe_cloud %}, which includes features like SAML single sign-on and advanced auditing. {% data reusables.enterprise.link-to-ghec-trial %}
+为了进一步支持团队的协作能力，你可以升级到 {% data variables.product.prodname_ghe_cloud %}，其中包括 SAML 单一登录和高级审核等功能。 {% data reusables.enterprise.link-to-ghec-trial %}
 
-For more information about per-user pricing for {% data variables.product.prodname_ghe_cloud %}, see [the {% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/billing/managing-billing-for-your-github-account/about-per-user-pricing).
+有关 {% data variables.product.prodname_ghe_cloud %} 每用户定价的详细信息，请参阅“[{% data variables.product.prodname_ghe_cloud %} 文档](/enterprise-cloud@latest/billing/managing-billing-for-your-github-account/about-per-user-pricing)”。
 
 {% else %}
 
-If you use an enterprise account on {% data variables.product.prodname_dotcom_the_website %} and have questions about changes to your subscription, contact {% data variables.contact.contact_enterprise_sales %}.
+如果您在 {% data variables.product.prodname_dotcom_the_website %} 上使用企业帐户，但对订阅的更改有疑问，请联系 {% data variables.contact.contact_enterprise_sales %}。
 
-{% endif %}
-{% ifversion ghec %}
+{% endif %} {% ifversion ghec %}
 
-If you use an individual organization on {% data variables.product.prodname_ghe_cloud %}, you can upgrade or downgrade your subscription. For more information, see "[Upgrading your {% data variables.product.prodname_dotcom %} subscription](/billing/managing-billing-for-your-github-account/upgrading-your-github-subscription)" or "[Downgrading your {% data variables.product.prodname_dotcom %} subscription](/billing/managing-billing-for-your-github-account/downgrading-your-github-subscription)." If you have questions about your subscription, contact {% data variables.contact.contact_support %}.
+如果您在 {% data variables.product.prodname_ghe_cloud %} 上使用单个组织，则可以升级或降级您的订阅。 有关详细信息，请参阅“[升级 {% data variables.product.prodname_dotcom %} 订阅](/billing/managing-billing-for-your-github-account/upgrading-your-github-subscription)”或“[降级 {% data variables.product.prodname_dotcom %} 订阅](/billing/managing-billing-for-your-github-account/downgrading-your-github-subscription)”。 如果对您的订阅有任何疑问，请联系 {% data variables.contact.contact_support %}。
 
 {% endif %}
 
 {% ifversion fpt %}
 
-### About changes for organizations on per-repository plans
+### 关于每存储库计划中组织的更改
 
-You can upgrade or downgrade between legacy paid plans in your organization's billing settings. When you upgrade to a plan with more private repositories, {% data variables.product.company_short %} immediately moves your account to your new plan and bills you for the difference in price, prorated for the number of days left in your billing cycle.
+您可以在组织的帐单设置中升级或降级旧付费计划。 当您升级到具有更多私有存储库的计划时， {% data variables.product.company_short %} 会立即将您的帐户移动到新计划，按价格差额向您收取费用，并根据结算周期剩余的天数按比例分配。
 
-When you downgrade to a legacy paid plan with fewer private repositories, your new plan will take effect on your next billing date. If you have more private repositories than your new plan allows for, your private repositories will be locked when your new plan takes effect. To reduce your number of private repositories, you can make some of your private repositories public, or you can clone your private repositories locally and delete the copies on {% data variables.product.prodname_dotcom %}.
+在降级至私有仓库更少的旧付费计划时，您的新计划将在下一个帐单日期生效。 如果私有仓库多于新计划允许的数量，则当新计划生效时，您的私有仓库将被锁定。 要减少私有仓库的数量，可以将一些私有仓库设为公共，或者在本地克隆私有仓库，并删除 {% data variables.product.prodname_dotcom %} 上的副本。
 
 {% endif %}
 
-## Further reading
+## 延伸阅读
 
 {%- ifversion not fpt %}
-- "[About enterprise accounts](/admin/overview/about-enterprise-accounts)"
-- "[Roles in an enterprise](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise)"
-{%- endif %}
-- "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)"
-- "[Adding outside collaborators to repositories in your organization](/organizations/managing-access-to-your-organizations-repositories/adding-outside-collaborators-to-repositories-in-your-organization)."
+- “[关于企业帐户](/admin/overview/about-enterprise-accounts)”
+- [企业中的角色](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise){%- endif %}
+- [组织中的角色](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)
+- [将外部协作者添加到组织中的存储库](/organizations/managing-access-to-your-organizations-repositories/adding-outside-collaborators-to-repositories-in-your-organization)。

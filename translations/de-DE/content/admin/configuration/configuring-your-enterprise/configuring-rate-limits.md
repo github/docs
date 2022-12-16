@@ -1,6 +1,6 @@
 ---
-title: Configuring rate limits
-intro: 'You can set rate limits for {% data variables.product.prodname_ghe_server %} using the {% data variables.enterprise.management_console %}.'
+title: Configuring rate limits (Konfigurieren von Ratenbegrenzungen)
+intro: 'Mithilfe der {% data variables.enterprise.management_console %} kannst du Begrenzungen für {% data variables.product.prodname_ghe_server %} festlegen.'
 redirect_from:
   - /enterprise/admin/installation/configuring-rate-limits
   - /enterprise/admin/configuration/configuring-rate-limits
@@ -12,112 +12,108 @@ topics:
   - Enterprise
   - Infrastructure
   - Performance
+ms.openlocfilehash: 2a90093f833639fa247acc7292d9897728043005
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148107549'
 ---
-## Enabling rate limits for the {% data variables.product.prodname_enterprise_api %}
+## Aktivieren von Ratenbegrenzungen für die {% data variables.product.prodname_enterprise_api %}
 
-Enabling rate limits on the {% data variables.product.prodname_enterprise_api %} can prevent overuse of resources by individual or unauthenticated users. For more information, see "[Resources in the REST API](/rest/overview/resources-in-the-rest-api#rate-limiting)."
+Durch die Aktivierung von Ratenbegrenzungen für die {% data variables.product.prodname_enterprise_api %} kann eine übermäßige Nutzung von Ressourcen durch einzelne oder nicht authentifizierte Benutzer verhindert werden. Weitere Informationen findest du unter „[Ressourcen in der REST-API](/rest/overview/resources-in-the-rest-api#rate-limiting)“.
 
-{% ifversion ghes %}
-You can exempt a list of users from API rate limits using the `ghe-config` utility in the administrative shell. For more information, see "[Command-line utilities](/enterprise/admin/configuration/command-line-utilities#ghe-config)."
+{% ifversion ghes %} Über das `ghe-config`-Hilfsprogramm in der Verwaltungsshell kannst du eine Liste von Benutzern von API-Ratenbegrenzungen ausnehmen. Weitere Informationen findest du unter [Befehlszeilenprogramme](/enterprise/admin/configuration/command-line-utilities#ghe-config).
 {% endif %}
 
 {% note %}
 
-**Note:** The {% data variables.enterprise.management_console %} lists the time period (per minute or per hour) for each rate limit.
+**Hinweis:** In der {% data variables.enterprise.management_console %} wird der Zeitraum (pro Minute oder pro Stunde) für jede Ratenbegrenzung aufgelistet.
 
 {% endnote %}
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.management-console %}
-2. Under "Rate Limiting", select **Enable HTTP API Rate Limiting**.
-![Checkbox for enabling API rate limiting](/assets/images/enterprise/management-console/api-rate-limits-checkbox.png)
-3. Type limits for authenticated and unauthenticated requests for each API, or accept the pre-filled default limits.
+{% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.enterprise_site_admin_settings.management-console %}
+2. Wähle unter „Ratenbegrenzung“ die Option **HTTP-API-Ratenbegrenzung aktivieren** aus.
+![Kontrollkästchen zum Aktivieren der API-Ratenbegrenzung](/assets/images/enterprise/management-console/api-rate-limits-checkbox.png)
+3. Gib die Begrenzungen für authentifizierte und nicht authentifizierte Anforderungen für jede API ein, oder akzeptiere die vorab ausgefüllten Standardbegrenzungen.
 {% data reusables.enterprise_management_console.save-settings %}
 
 {% ifversion enterprise-authentication-rate-limits %}
-## Configuring rate limits for authentication to the {% data variables.enterprise.management_console %}
+## Konfigurieren von Ratenbegrenzungen für die Authentifizierung bei der {% data variables.enterprise.management_console %}
 
-You can configure the lockout time and login attempt limits for the {% data variables.enterprise.management_console %}. If a user exceeds the login attempt limit, the {% data variables.enterprise.management_console %} will remain locked for the duration set by the lockout time. {% data reusables.enterprise_management_console.unlocking-management-console-with-shell %}
+Du kannst Grenzwerte für Sperrzeiten und Anmeldeversuche für die {% data variables.enterprise.management_console %} konfigurieren. Wenn ein Benutzer den Grenzwert für Anmeldeversuche überschreitet, bleibt die {% data variables.enterprise.management_console %} für die Dauer der festgelegten Sperrzeit gesperrt. {% data reusables.enterprise_management_console.unlocking-management-console-with-shell %}
 
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.management-console %}
-2. Under "Login attempt rate limiting", configure the lockout time and login attempt rate limit or accept the pre-filled default settings.
-![Fields for configuring lockout time and login attempt rate limit](/assets/images/enterprise/management-console/login-attempt-rate-limiting.png)
-{% data reusables.enterprise_management_console.save-settings %}
+{% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.enterprise_site_admin_settings.management-console %}
+2. Du kannst unter „Begrenzung der Anmeldeversuche“ die Sperrzeit und den Grenzwert für Anmeldeversuche konfigurieren oder die voreingestellten Standardwerte übernehmen.
+![Felder zum Konfigurieren der Sperrzeit und des Grenzwerts für Anmeldeversuche](/assets/images/enterprise/management-console/login-attempt-rate-limiting.png) {% data reusables.enterprise_management_console.save-settings %}
 
 {% endif %}
-## Enabling secondary rate limits
+## Aktivieren sekundärer Ratenbegrenzungen
 
-Setting secondary rate limits protects the overall level of service on {% data variables.location.product_location %}.
+Durch das Festlegen von sekundären Ratenbegrenzungen wird das allgemeine Dienstniveau von {% data variables.location.product_location %} geschützt.
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.management-console %}
-{% ifversion ghes %}
-2. Under "Rate Limiting", select **Enable Secondary Rate Limiting**.
-   ![Checkbox for enabling secondary rate limiting](/assets/images/enterprise/management-console/secondary-rate-limits-checkbox.png)
-{% else %}
-2. Under "Rate Limiting", select **Enable Abuse Rate Limiting**.
-    ![Checkbox for enabling abuse rate limiting](/assets/images/enterprise/management-console/abuse-rate-limits-checkbox.png)
-{% endif %}
-3. Type limits for Total Requests, CPU Limit, and CPU Limit for Searching, or accept the pre-filled default limits.
+{% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.enterprise_site_admin_settings.management-console %} {% ifversion ghes %}
+2. Wähle unter „Ratenbegrenzung“ die Option **Sekundäre Ratenbegrenzung aktivieren** aus.
+   ![Kontrollkästchen für das Aktivieren von sekundären Ratenbegrenzungen](/assets/images/enterprise/management-console/secondary-rate-limits-checkbox.png) {% else %}
+2. Wähle unter „Ratenbegrenzung“ die Option **Missbrauchsbegrenzung aktivieren** aus.
+    ![Kontrollkästchen zum Aktivieren der Missbrauchsbegrenzung](/assets/images/enterprise/management-console/abuse-rate-limits-checkbox.png) {% endif %}
+3. Gib die Begrenzungen für „Total Requests“ (Gesamtanforderungen), „CPU Limit“ (CPU-Begrenzung) und „CPU Limit for Searching“ (CPU-Begrenzung für Suchvorgänge) ein, oder akzeptiere die vorab ausgefüllten Standardbegrenzungen.
 {% data reusables.enterprise_management_console.save-settings %}
 
-## Enabling rate limits for Git
+## Aktivieren von Ratenbegrenzungen für Git
 
-If a member of {% data variables.product.company_short %}'s staff has recommended it, you can apply Git rate limits per repository network or per user ID. Git rate limits are expressed in concurrent operations per minute, and are adaptive based on the current CPU load.
+Wenn ein Mitarbeiter von {% data variables.product.company_short %} dies empfohlen hat, kannst du Git-Ratenbegrenzungen pro Repositorynetzwerk oder pro Benutzer-ID anwenden. Git-Begrenzungen werden in gleichzeitigen Vorgängen pro Minute ausgedrückt und sind basierend auf der aktuellen CPU-Auslastung adaptiv.
 
 {% warning %}
 
-**Warning:** We encourage you to leave this setting disabled unless directly recommended by a member of {% data variables.product.company_short %}'s staff. Git operations are rarely the leading driver of CPU and RAM usage. Enabling this feature can make Git operations more likely to fail under high load conditions but does not address the underlying cause of those conditions.
+**Warnung:** Es wird empfohlen, diese Einstellung zu deaktivieren, es sei denn, ihre Verwendung wird von einem {% data variables.product.company_short %}-Mitarbeiter empfohlen. Git-Operationen sind selten die Hauptursache für eine CPU- und RAM-Auslastung. Die Aktivierung dieser Funktion kann die Wahrscheinlichkeit erhöhen, dass Git-Vorgänge unter hoher Last fehlschlagen, aber sie ändert nichts an der Ursache für diese Bedingungen.
 
 {% endwarning %}
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.management-console %}
-2. Under "Rate Limiting", select **Enable Git Rate Limiting**.
-![Checkbox for enabling Git rate limiting](/assets/images/enterprise/management-console/git-rate-limits-checkbox.png)
-3. Type limits for each repository network or user ID.
-  ![Fields for repository network and user ID limits](/assets/images/enterprise/management-console/example-git-rate-limits.png)
-{% data reusables.enterprise_management_console.save-settings %}
+{% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.enterprise_site_admin_settings.management-console %}
+2. Wähle unter „Ratenbegrenzung“ die Option **Git-Begrenzung aktivieren** aus.
+![Kontrollkästchen zum Aktivieren der Git-Begrenzung](/assets/images/enterprise/management-console/git-rate-limits-checkbox.png)
+3. Gib die Begrenzungen für die jeweiligen Repository-Netzwerke oder Benutzer-IDs ein.
+  ![Felder für Repositorynetzwerk- Benutzer-ID-Begrenzungen](/assets/images/enterprise/management-console/example-git-rate-limits.png) {% data reusables.enterprise_management_console.save-settings %}
 
 {% ifversion ghes > 3.4 %}
 
-## Configuring rate limits for {% data variables.product.prodname_actions %}
+## Konfigurieren von Ratenbegrenzungen für {% data variables.product.prodname_actions %}
 
-You can apply a rate limit to {% data variables.product.prodname_actions %} workflow runs. For more information about {% data variables.product.prodname_actions %}, see "[About {% data variables.product.prodname_actions %} for enterprises](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises)."
+Du kannst eine Ratenbegrenzung auf {% data variables.product.prodname_actions %}-Workflowausführungen anwenden. Weitere Informationen zu {% data variables.product.prodname_actions %} findest du unter „Informationen zu [{% data variables.product.prodname_actions %} für Unternehmen](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises)“.
 
-### About rate limits for {% data variables.product.prodname_actions %}
+### Informationen zu {% data variables.product.prodname_actions %}
 
-Your {% data variables.product.product_name %} instance assigns each {% data variables.product.prodname_actions %} workflow job to a runner. If your instance cannot immediately assign a job to an available runner, the job will wait in a queue until a runner is available. If {% data variables.product.prodname_actions %} experiences sustained high load, the queue can back up, and the performance of {% data variables.location.product_location %} may degrade.
+Deine {% data variables.product.product_name %}-Instanz weist jeden {% data variables.product.prodname_actions %}-Workflowauftrag einem Runner zu. Wenn die Instanz einen Auftrag nicht sofort einem verfügbaren Runner zuweisen kann, wartet der Auftrag in einer Warteschlange, bis ein Runner verfügbar ist. Wenn {% data variables.product.prodname_actions %} dauerhaft stark ausgelastet ist, kann es zu einem Rückstau in der Warteschlange kommen, und die Leistung von {% data variables.location.product_location %} wird möglicherweise beeinträchtigt.
 
-To avoid this performance degradation, you can configure a rate limit for {% data variables.product.prodname_actions %}. This rate limit is expressed in job runs per minute. {% data variables.product.product_name %} calculates and applies the rate limit for the sum total of all job runs on the instance. If runs exceed the rate limit, additional runs will fail instead of entering the queue. The following error will appear in the run's annotations.
+Um diese Leistungsbeeinträchtigung zu vermeiden, kannst du eine Ratenbegrenzung für {% data variables.product.prodname_actions %} konfigurieren. Diese Ratenbegrenzung wird in Auftragsausführungen pro Minute ausgedrückt. Die Ratenbegrenzung wird von {% data variables.product.product_name %} für die Summe aller Auftragsausführungen in der Instanz berechnet und angewendet. Wenn die Ratenbegrenzung von Ausführungen überschritten wird, schlagen weitere Ausführungen fehl, statt in die Warteschlange eingereiht zu werden. Der folgende Fehler wird in den Anmerkungen der Ausführung angezeigt.
 
-> You've exceeded the rate limit for workflow run requests. Please wait before retrying the run.
+> Die Ratenbegrenzung für Workflowausführungsanforderungen wurde überschritten. Bitte warte, bevor du die Ausführung erneut versuchst.
 
-An appropriate rate limit protects {% data variables.location.product_location %} from abnormal usage of {% data variables.product.prodname_actions %} without interfering with day-to-day operations. The exact threshold depends on your instance's available resources and overall load profile. For more information about the hardware requirements for {% data variables.product.prodname_actions %}, see "[Getting started with {% data variables.product.prodname_actions %} for {% data variables.product.product_name %}](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server#review-hardware-requirements)."
+Eine geeignete Ratenbegrenzung schützt {% data variables.location.product_location %} vor einer übermäßigen Nutzung von {% data variables.product.prodname_actions %}, ohne den laufenden Betrieb zu beeinträchtigen. Der genaue Schwellenwert hängt von den verfügbaren Ressourcen deiner Instanz und dem allgemeinen Auslastungsprofil ab. Weitere Informationen zu den Hardwareanforderungen für {% data variables.product.prodname_actions %} findest du unter „[Erste Schritte mit {% data variables.product.prodname_actions %} für {% data variables.product.product_name %}](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server#review-hardware-requirements)“.
 
-By default, the rate limit for {% data variables.product.prodname_actions %} is disabled. Because {% data variables.product.product_name %} can handle temporary spikes in usage without performance degradation, this rate limit is intended to protect against sustained high load. We recommend leaving the rate limit disabled unless you are experiencing performance problems. In some cases, {% data variables.contact.github_support %} may recommend that you enable a rate limit for {% data variables.product.prodname_actions %}. 
+Die Ratenbegrenzung für {% data variables.product.prodname_actions %} ist standardmäßig deaktiviert. Da {% data variables.product.product_name %} temporäre Auslastungsspitzen ohne Leistungsbeeinträchtigung verarbeiten kann, soll diese Ratenbegrenzung Schutz vor dauerhafter hoher Last bieten. Es wird empfohlen, die Ratenbegrenzung deaktiviert zu lassen, es sei denn, es treten Leistungsprobleme auf. In einigen Fällen empfiehlt der {% data variables.contact.github_support %}, eine Ratenbegrenzung für {% data variables.product.prodname_actions %} zu aktivieren. 
 
-### Enabling or disabling rate limits for {% data variables.product.prodname_actions %}
+### Aktivieren oder Deaktivieren von Ratenbegrenzungen für {% data variables.product.prodname_actions %}
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
-1. To enable and configure the rate limit, run the following two commands, replacing **RUNS-PER-MINUTE** with the value of your choice.
+1. Zum Aktivieren und Konfigurieren der Ratenbegrenzung führe die folgenden beiden Befehle aus, wobei du **RUNS-PER-MINUTE** durch den Wert deiner Wahl ersetzt.
 
    ```shell
    ghe-config actions-rate-limiting.enabled true
    ghe-config actions-rate-limiting.queue-runs-per-minute RUNS-PER-MINUTE
    ```
-1. To disable the rate limit after it's been enabled, run the following command.
+1. Führe den folgenden Befehl aus, um die Ratenbegrenzung nach der Aktivierung zu deaktivieren.
 
    ```
    ghe-config actions-rate-limiting.enabled false
    ```
-1. To apply the configuration, run the following command.
+1. Führe den folgenden Befehl aus, um die Konfiguration anzuwenden.
 
    ```
    ghe-config-apply
    ```
-1. Wait for the configuration run to complete.
+1. Warte auf den Abschluss der Konfigurationsausführung.
 
 {% endif %}

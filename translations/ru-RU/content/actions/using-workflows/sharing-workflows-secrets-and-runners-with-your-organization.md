@@ -1,7 +1,7 @@
 ---
-title: 'Sharing workflows, secrets, and runners with your organization'
+title: 'Совместное использование рабочих процессов, секретов и средств выполнения тестов в организации'
 shortTitle: Share workflows with your organization
-intro: 'Learn how you can use organization features to collaborate with your team, by sharing starter workflows, secrets, and self-hosted runners.'
+intro: 'Узнайте, как использовать функции организации для совместной работы с командой, делясь рабочими процессами для начинающих, полезными советами и локальными средствами выполнения.'
 redirect_from:
   - /actions/learn-github-actions/sharing-workflows-with-your-organization
   - /actions/learn-github-actions/sharing-workflows-secrets-and-runners-with-your-organization
@@ -11,63 +11,61 @@ versions:
   ghae: '*'
   ghec: '*'
 type: how_to
+ms.openlocfilehash: 6b78eca0b38270fee40bdcba5606bf80843da206
+ms.sourcegitcommit: 7b86410fc3bc9fecf0cb71dda4c7d2f0da745b85
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/05/2022
+ms.locfileid: '148010047'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+## Обзор
 
-## Overview
+Если требуется поделиться рабочими процессами и другими функциями {% data variables.product.prodname_actions %} со своей командой, рассмотрите возможность совместной работы в организации в {% data variables.product.prodname_dotcom %}. Организация позволяет централизованно хранить секреты, артефакты и локальные средства выполнения тестов и управлять ими. Также можно создать начальные рабочие процессы в репозитории `.github` и делиться ими с другими пользователями своей организации.
 
-If you need to share workflows and other {% data variables.product.prodname_actions %} features with your team, then consider collaborating within a {% data variables.product.prodname_dotcom %} organization. An organization allows you to centrally store and manage secrets, artifacts, and self-hosted runners. You can also create starter workflows in the `.github` repository and share them with other users in your organization.
+## Совместное использование {% ifversion internal-actions %}действий и {% endif %}рабочих процессов
 
-## Sharing {% ifversion internal-actions %}actions and {% endif %}workflows
-
-{% ifversion internal-actions %}
-You can share both individual actions and entire workflows with your organization, with or without publishing the actions or workflows publicly. You can reuse actions and workflows exactly by referencing them in your workflow file, and you can create starter workflows that provide templates for new workflows.
-{% else %}
-Your organization can share workflows by reusing the workflows exactly or by creating starter workflows that provide templates for new workflows.
+{% ifversion internal-actions %} Вы можете поделиться как отдельными действиями, так и рабочими процессами целиком со своей организацией с публикацией действий или рабочих процессов или без нее. Вы можете повторно использовать действия и рабочие процессы, ссылаясь на них в файле рабочего процесса, и создавать начальные рабочие процессы, на основе которых можно создавать новые рабочие процессы.
+{% else %} Ваша организация может совместно использовать рабочие процессы путем повторного использования рабочих процессов или путем создания начальных рабочих процессов, предоставляющих шаблоны для новых рабочих процессов.
 {% endif %}
 
 {% ifversion internal-actions %}
-### Sharing actions with your enterprise
+### Совместное использование действий в предприятии
 
-{% data reusables.actions.internal-actions-summary %}
-{% endif %}
+{% data reusables.actions.internal-actions-summary %} {% endif %}
 
-{% ifversion fpt or ghes > 3.3 or ghae > 3.3 or ghec %}
-### Reusing workflows
+{% ifversion fpt или ghes > 3.3 или ghae > 3.3 или ghec %}
+### Повторное использование рабочих процессов
 
-{% data reusables.actions.reusable-workflows %}
-{% endif %}
+{% data reusables.actions.reusable-workflows %} {% endif %}
 
-### Using starter workflows
+### Использование начальных рабочих процессов
 
-{% data reusables.actions.workflow-organization-templates %} For more information, see "[Creating starter workflows for your organization](/actions/using-workflows/creating-starter-workflows-for-your-organization)."
+{% data reusables.actions.workflow-organization-templates %} Дополнительные сведения см. в разделе [Создание начальных рабочих процессов для вашей организации](/actions/using-workflows/creating-starter-workflows-for-your-organization).
 
-## Sharing secrets within an organization
+## Общий доступ к секретам в организации
 
-You can centrally manage your secrets within an organization, and then make them available to selected repositories. This also means that you can update a secret in one location, and have the change apply to all repository workflows that use the secret.
+Вы можете централизованно управлять секретами в организации, а затем сделать их доступными для выбранных репозиториев. Это также означает, что вы можете обновить секрет в одном расположении и применить это изменение ко всем рабочим процессам репозитория, использующим этот секрет.
 
-When creating a secret in an organization, you can use a policy to limit which repositories can access that secret. For example, you can grant access to all repositories, or limit access to only private repositories or a specified list of repositories.
+При создании секрета в организации можно использовать политику, чтобы ограничить для репозиториев доступ к секрету. Например, можно предоставить доступ ко всем репозиториям или ограничить доступ только частными репозиториями или указанным списком репозиториев.
 
 {% data reusables.actions.permissions-statement-secrets-organization %}
 
-{% data reusables.organizations.navigate-to-org %}
-{% data reusables.organizations.org_settings %}
-{% data reusables.actions.sidebar-secret %}
-1. Click **New secret**.
-1. Type a name for your secret in the **Name** input box.
-1. Enter the **Value** for your secret.
-1. From the **Repository access** dropdown list, choose an access policy.
-1. Click **Add secret**.
+{% data reusables.organizations.navigate-to-org %} {% data reusables.organizations.org_settings %} {% data reusables.actions.sidebar-secret %}
+1. Нажмите **Создать секрет**.
+1. Введите имя секрета в поле ввода **Имя**.
+1. Введите **значение** для своего секрета.
+1. В раскрывающемся списке **Доступ к репозиторию** выберите политику доступа.
+1. Щелкните **Добавить секрет**.
 
-## Share self-hosted runners within an organization
+## Совместное использование локальных средств выполнения тестов в организации
 
-Organization admins can add their self-hosted runners to groups, and then create policies that control which repositories can access the group.
+Администраторы организации могут добавлять свои локальные средства выполнения тестов в группы, а затем создавать политики, управляющие тем, какие репозитории могут получить доступ к группе.
 
-For more information, see "[Managing access to self-hosted runners using groups](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups)."
+Дополнительные сведения см. в разделе [Управление доступом к средствам выполнения тестов локального размещения с помощью групп](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups).
 
 
-## Next steps
+## Дальнейшие действия
 
-To continue learning about {% data variables.product.prodname_actions %}, see "[Creating starter workflows for your organization](/actions/using-workflows/creating-starter-workflows-for-your-organization)."
+Дополнительные сведения о {% data variables.product.prodname_actions %} см. в разделе [Создание начальных рабочих процессов для организации](/actions/using-workflows/creating-starter-workflows-for-your-organization).

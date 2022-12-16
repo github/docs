@@ -6,7 +6,8 @@ versions:
   feature: copilot
 children:
   - /about-billing-for-github-copilot
-  - /managing-your-github-copilot-subscription
+  - /managing-your-github-copilot-for-individuals-subscription
+  - /viewing-your-github-copilot-usage
 ms.openlocfilehash: 96947819762933ad78544da4b8347cbc5efef646
 ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
 ms.translationtype: HT

@@ -1,6 +1,6 @@
 ---
-title: Events that trigger workflows
-intro: 'You can configure your workflows to run when specific activity on {% data variables.product.product_name %} happens, at a scheduled time, or when an event outside of {% data variables.product.product_name %} occurs.'
+title: ワークフローをトリガーするイベント
+intro: '{% data variables.product.product_name %} で特定のアクティビティが実行された時、スケジュールした時間、または {% data variables.product.product_name %} 外でイベントが発生した時にワークフローを実行できるよう設定できます。'
 miniTocMaxHeadingLevel: 3
 redirect_from:
   - /articles/events-that-trigger-workflows
@@ -14,34 +14,39 @@ versions:
   ghae: '*'
   ghec: '*'
 shortTitle: Events that trigger workflows
+ms.openlocfilehash: 74fe579db353607b449106b41e9787cf055fd643
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147645666'
 ---
+## ワークフローをトリガーするイベントについて
 
-## About events that trigger workflows
+ワークフロー トリガーは、ワークフローの実行を引き起こすイベントです。 ワークフロー トリガーの使い方の詳細については、「[ワークフローのトリガー](/actions/using-workflows/triggering-a-workflow)」を参照してください。
 
-Workflow triggers are events that cause a workflow to run. For more information about how to use workflow triggers, see "[Triggering a workflow](/actions/using-workflows/triggering-a-workflow)."
+## 使用できるイベント
 
-## Available events
-
-Some events have multiple activity types. For these events, you can specify which activity types will trigger a workflow run. For more information about what each activity type means, see "[Webhook events and payloads](/developers/webhooks-and-events/webhook-events-and-payloads)." Note that not all webhook events trigger workflows.
+イベントによっては、複数のアクティビティの種類があります。 このようなイベントでは、ワークフローの実行をトリガーするアクティビティの種類を指定できます。 アクティビティの種類それぞれの意味の詳細については、「[Webhook イベントとペイロード](/developers/webhooks-and-events/webhook-events-and-payloads)」を参照してください。 すべての Webhook イベントでワークフローがトリガーされるわけではないことに注意してください。
 
 {% ifversion fpt or ghec or ghes > 3.3 or ghae  %}
 ### `branch_protection_rule`
 
-| Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
+| webhook イベントのペイロード | アクティビティの種類 | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
-| [`branch_protection_rule`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#branch_protection_rule) | - `created`<br/>- `edited`<br/>- `deleted` | Last commit on default branch | Default branch |
+| [`branch_protection_rule`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#branch_protection_rule) | - `created`<br/>- `edited`<br/>- `deleted` | デフォルトブランチの直近のコミット | デフォルトブランチ |
 
 {% note %}
 
-**Note**: {% data reusables.developer-site.multiple_activity_types %} For information about each activity type, see "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#branch_protection_rule)." {% data reusables.developer-site.limit_workflow_to_activity_types %}
+**注**: {% data reusables.developer-site.multiple_activity_types %} それぞれのアクティビティの種類については、「[Webhook イベントとペイロード](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#branch_protection_rule)」を参照してください。 {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 {% endnote %}
 
 {% data reusables.actions.branch-requirement %}
 
-Runs your workflow when branch protection rules in the workflow repository are changed. For more information about branch protection rules, see "[About protected branches](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches)." For information about the branch protection rule APIs, see "[BranchProtectionRule](/graphql/reference/objects#branchprotectionrule)" in the GraphQL API documentation or "[Branches](/rest/reference/branches)" in the REST API documentation.
+ワークフロー リポジトリ内のブランチ保護ルールが変更されたときにワークフローを実行します。 ブランチ保護ルールの詳細については、「[保護されたブランチについて](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches)」を参照してください。 ブランチ保護ルール API については、GraphQL API ドキュメントの「[BranchProtectionRule](/graphql/reference/objects#branchprotectionrule)」または REST API ドキュメントの「[ブランチ](/rest/reference/branches)」を参照してください。
 
-For example, you can run a workflow when a branch protection rule has been `created` or `deleted`:
+たとえば、ブランチ保護ルールが `created` または `deleted` だったときにワークフローを実行できます。
 
 ```yaml
 on:
@@ -53,21 +58,21 @@ on:
 
 ### `check_run`
 
-| Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
+| webhook イベントのペイロード | アクティビティの種類 | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
-| [`check_run`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#check_run) | - `created`<br/>- `rerequested`<br/>- `completed`<br/>-`requested_action` | Last commit on default branch | Default branch |
+| [`check_run`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#check_run) | - `created`<br/>- `rerequested`<br/>- `completed`<br/>-`requested_action` | デフォルトブランチの直近のコミット | デフォルトブランチ |
 
 {% note %}
 
-**Note**: {% data reusables.developer-site.multiple_activity_types %} For information about each activity type, see "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#check_run)." {% data reusables.developer-site.limit_workflow_to_activity_types %}
+**注**: {% data reusables.developer-site.multiple_activity_types %} それぞれのアクティビティの種類については、「[Webhook イベントとペイロード](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#check_run)」を参照してください。 {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 {% endnote %}
 
 {% data reusables.actions.branch-requirement %}
 
-Runs your workflow when activity related to a check run occurs. A check run is an individual test that is part of a check suite. For information, see "[Getting started with the Checks API](/rest/guides/getting-started-with-the-checks-api)." For information about the check run APIs, see "[CheckRun](/graphql/reference/objects#checkrun)" in the GraphQL API documentation or "[Checks](/rest/reference/checks#runs)" in the REST API documentation.
+チェック実行に関連するアクティビティが発生したときにワークフローを実行します。 チェックの実行は、個別のテストであり、チェックスイートの一機能です。 詳細については、「[Checks API を使ってみる](/rest/guides/getting-started-with-the-checks-api)」を参照してください。 チェック実行 API については、GraphQL API ドキュメントの「[CheckRun](/graphql/reference/objects#checkrun)」または REST API ドキュメントの「[チェック](/rest/reference/checks#runs)」を参照してください。
 
-For example, you can run a workflow when a check run has been `rerequested` or `completed`.
+たとえば、チェック実行が `rerequested` または `completed` だったときにワークフローを実行できます。
 
 ```yaml
 on:
@@ -77,13 +82,13 @@ on:
 
 ### `check_suite`
 
-| Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
+| webhook イベントのペイロード | アクティビティの種類 | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
-| [`check_suite`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#check_suite) | - `completed` | Last commit on default branch | Default branch |
+| [`check_suite`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#check_suite) | - `completed` | デフォルトブランチの直近のコミット | デフォルトブランチ |
 
 {% note %}
 
-**Note**: {% data reusables.developer-site.multiple_activity_types %} For information about each activity type, see "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#check_suite)." Although only the `started` activity type is supported, specifying the activity type will keep your workflow specific if more activity types are added in the future. {% data reusables.developer-site.limit_workflow_to_activity_types %}
+**注**: {% data reusables.developer-site.multiple_activity_types %} それぞれのアクティビティの種類については、「[Webhook イベントとペイロード](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#check_suite)」を参照してください。 アクティビティの種類 `started` のみがサポートされていますが、このアクティビティの種類を指定すると、今後さらにアクティビティの種類が追加された場合に、ワークフローを特定のもののままにできます。 {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 {% endnote %}
 
@@ -91,13 +96,13 @@ on:
 
 {% note %}
 
-**Note:** To prevent recursive workflows, this event does not trigger workflows if the check suite was created by {% data variables.product.prodname_actions %}.
+**注:** 再帰的なワークフローを避けるために、{% data variables.product.prodname_actions %} によってチェック スイートが作成された場合にはこのイベントによってワークフローはトリガーされません。
 
 {% endnote %}
 
-Runs your workflow when check suite activity occurs. A check suite is a collection of the check runs created for a specific commit. Check suites summarize the status and conclusion of the check runs that are in the suite. For information, see "[Getting started with the Checks API](/rest/guides/getting-started-with-the-checks-api)." For information about the check suite APIs, see "[CheckSuite](/graphql/reference/objects#checksuite)" in the GraphQL API documentation or "[Checks](/rest/reference/checks#suites)" in the REST API documentation.
+チェック スイートのアクティビティが発生したときにワークフローを実行します。 チェック スイートは、特定のコミットに対して作成されたチェック実行のコレクションです。 チェック スイートでは、スイート内のチェック実行の状態と結果をまとめます。 詳細については、「[Checks API を使ってみる](/rest/guides/getting-started-with-the-checks-api)」を参照してください。 チェック スイート API の詳細については、GraphQL API ドキュメントの「[CheckSuite](/graphql/reference/objects#checksuite)」または REST API ドキュメントの「[チェック](/rest/reference/checks#suites)」を参照してください。
 
-For example, you can run a workflow when a check suite has been `completed`.
+たとえば、チェック スイートが `completed` だったときにワークフローを実行できます。
 
 ```yaml
 on:
@@ -107,19 +112,19 @@ on:
 
 ### `create`
 
-| Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
+| webhook イベントのペイロード | アクティビティの種類 | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
-| [`create`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#create) | n/a | Last commit on the created branch or tag | Branch or tag created |
+| [`create`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#create) | 該当なし | 直近でブランチまたはタグが作成されたコミット | 作成されたブランチまたはタグ |
 
 {% note %}
 
-**Note**: An event will not be created when you create more than three tags at once.
+**注**: 一度に 3 つを超えるタグを作成した場合、イベントは作成されません。
 
 {% endnote %}
 
-Runs your workflow when someone creates a Git reference (Git branch or tag) in the workflow's repository. For information about the APIs to create a Git reference, see "[createRef](/graphql/reference/mutations#createref)" in the GraphQL API documentation or "[Create a reference](/rest/reference/git#create-a-reference)" in the REST API documentation.
+誰かがワークフローのリポジトリに Git 参照 (Git ブランチまたはタグ) を作成したときにワークフローを実行します。 Git 参照を作成する API については、GraphQL API ドキュメントの「[createRef](/graphql/reference/mutations#createref)」または REST API ドキュメントの「[参照の作成](/rest/reference/git#create-a-reference)」を参照してください。
 
-For example, you can run a workflow when the `create` event occurs.
+たとえば、`create` イベントが発生したときにワークフローを実行できます。
 
 ```yaml
 on:
@@ -128,21 +133,21 @@ on:
 
 ### `delete`
 
-| Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
+| webhook イベントのペイロード | アクティビティの種類 | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
-| [`delete`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#delete) | n/a | Last commit on default branch | Default branch |
+| [`delete`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#delete) | 該当なし | デフォルトブランチの直近のコミット | デフォルトブランチ |
 
 {% data reusables.actions.branch-requirement %}
 
 {% note %}
 
-**Note**: An event will not be created when you delete more than three tags at once.
+**注**: 一度に 3 つを超えるタグを削除した場合、イベントは作成されません。
 
 {% endnote %}
 
-Runs your workflow when someone deletes a Git reference (Git branch or tag) in the workflow's repository. For information about the APIs to delete a Git reference, see "[deleteRef](/graphql/reference/mutations#deleteref)" in the GraphQL API documentation or "[Delete a reference](/rest/reference/git#delete-a-reference)" in the REST API documentation.
+誰かがワークフローのリポジトリで Git 参照 (Git ブランチまたはタグ) を削除したときにワークフローを実行します。 Git 参照を削除する API については、GraphQL API ドキュメントの「[deleteRef](/graphql/reference/mutations#deleteref)」または REST API ドキュメントの「[参照の削除](/rest/reference/git#delete-a-reference)」を参照してください。
 
-For example, you can run a workflow when the `delete` event occurs.
+たとえば、`delete` イベントが発生したときにワークフローを実行できます。
 
 ```yaml
 on:
@@ -151,13 +156,13 @@ on:
 
 ### `deployment`
 
-| Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
+| webhook イベントのペイロード | アクティビティの種類 | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
-| [`deployment`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#deployment) | n/a | Commit to be deployed | Branch or tag to be deployed (empty if created with a commit SHA)|
+| [`deployment`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#deployment) | 該当なし | デプロイされるコミット | デプロイするブランチまたはタグ (コミット SHA 付きで作成された場合は空)|
 
-Runs your workflow when someone creates a deployment in the workflow's repository. Deployments created with a commit SHA may not have a Git ref. For information about the APIs to create a deployment, see "[createDeployment](/graphql/reference/mutations#createdeployment)" in the GraphQL API documentation or "[Deployments](/rest/reference/repos#deployments)" in the REST API documentation.
+誰かがワークフローのリポジトリにデプロイを作成したときにワークフローを実行します。 コミット SHA 付きで作成されたデプロイには Git 参照がないことがあります。デプロイを作成する API については、GraphQL API ドキュメントの「[createDeployment](/graphql/reference/mutations#createdeployment)」または REST API ドキュメントの「[デプロイ](/rest/reference/repos#deployments)」を参照してください。
 
-For example, you can run a workflow when the `deployment` event occurs.
+たとえば、`deployment` イベントが発生したときにワークフローを実行できます。
 
 ```yaml
 on:
@@ -166,19 +171,19 @@ on:
 
 ### `deployment_status`
 
-| Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
+| webhook イベントのペイロード | アクティビティの種類 | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
-| [`deployment_status`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#deployment_status) | n/a | Commit to be deployed | Branch or tag to be deployed (empty if commit)|
+| [`deployment_status`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#deployment_status) | 該当なし | デプロイされるコミット | デプロイされるブランチまたはタグ (コミットの場合は空)|
 
 {% note %}
 
-**Note:** When a deployment status's state is set to `inactive`, a workflow run will not be triggered.
+**注:** デプロイの状態が `inactive` に設定されている場合、ワークフローの実行はトリガーされません。
 
 {% endnote %}
 
-Runs your workflow when a third party provides a deployment status. Deployments created with a commit SHA may not have a Git ref. For information about the APIs to create a deployment status, see "[createDeploymentStatus](/graphql/reference/mutations#createdeploymentstatus)" in the GraphQL API documentation or "[Create a deployment status](/rest/reference/deployments#create-a-deployment-status)" in the REST API documentation.
+サード パーティによってデプロイの状態が提供されたときにワークフローを実行します。 コミット SHA 付きで作成されたデプロイには Git 参照がないことがあります。デプロイの状態を作成する API については、GraphQL API ドキュメントの「[createDeploymentStatus](/graphql/reference/mutations#createdeploymentstatus)」または REST API ドキュメントの[デプロイの状態の作成](/rest/reference/deployments#create-a-deployment-status)に関する記事を参照してください。
 
-For example, you can run a workflow when the `deployment_status` event occurs.
+たとえば、`deployment_status` イベントが発生したときにワークフローを実行できます。
 
 ```yaml
 on:
@@ -188,13 +193,13 @@ on:
 {% ifversion discussions %}
 ### `discussion`
 
-| Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
+| webhook イベントのペイロード | アクティビティの種類 | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
-| [`discussion`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#discussion) | - `created`<br/>- `edited`<br/>- `deleted`<br/>- `transferred`<br/>- `pinned`<br/>- `unpinned`<br/>- `labeled`<br/>- `unlabeled`<br/>- `locked`<br/>- `unlocked`<br/>- `category_changed`<br/> - `answered`<br/> - `unanswered` | Last commit on default branch | Default branch |
+| [`discussion`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#discussion) | - `created`<br/>- `edited`<br/>- `deleted`<br/>- `transferred`<br/>- `pinned`<br/>- `unpinned`<br/>- `labeled`<br/>- `unlabeled`<br/>- `locked`<br/>- `unlocked`<br/>- `category_changed`<br/> - `answered`<br/> - `unanswered` | デフォルトブランチの直近のコミット | デフォルトブランチ |
 
 {% note %}
 
-**Note**: {% data reusables.developer-site.multiple_activity_types %} For information about each activity type, see "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#discussion)." {% data reusables.developer-site.limit_workflow_to_activity_types %}
+**注**: {% data reusables.developer-site.multiple_activity_types %} それぞれのアクティビティの種類については、「[Webhook イベントとペイロード](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#discussion)」を参照してください。 {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 {% endnote %}
 
@@ -202,9 +207,9 @@ on:
 
 {% data reusables.webhooks.discussions-webhooks-beta %}
 
-Runs your workflow when a discussion in the workflow's repository is created or modified. For activity related to comments on a discussion, use the [`discussion_comment`](#discussion_comment) event. For more information about discussions, see "[About discussions](/discussions/collaborating-with-your-community-using-discussions/about-discussions)." For information about the GraphQL API, see "[Discussion](/graphql/reference/objects#discussion)."
+ワークフローのリポジトリ内のディスカッションが作成または変更されたときにワークフローを実行します。 ディスカッションのコメントに関連するアクティビティには、[`discussion_comment`](#discussion_comment) イベントを使います。 ディスカッションの詳細については、「[ディスカッションについて](/discussions/collaborating-with-your-community-using-discussions/about-discussions)」を参照してください。 GraphQL API については、「[ディスカッション](/graphql/reference/objects#discussion)」を参照してください。
 
-For example, you can run a workflow when a discussion has been `created`, `edited`, or `answered`.
+たとえば、ディスカッションが `created`、`edited`、または `answered` だったときにワークフローを実行できます。
 
 ```yaml
 on:
@@ -214,13 +219,13 @@ on:
 
 ### `discussion_comment`
 
-| Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
+| webhook イベントのペイロード | アクティビティの種類 | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
-| [`discussion_comment`](/developers/webhooks-and-events/webhook-events-and-payloads#discussion_comment) | - `created`<br/>- `edited`<br/>- `deleted`<br/> | Last commit on default branch | Default branch |
+| [`discussion_comment`](/developers/webhooks-and-events/webhook-events-and-payloads#discussion_comment) | - `created`<br/>- `edited`<br/>- `deleted`<br/> | デフォルトブランチの直近のコミット | デフォルトブランチ |
 
 {% note %}
 
-**Note**: {% data reusables.developer-site.multiple_activity_types %} For information about each activity type, see "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#discussion_comment)." {% data reusables.developer-site.limit_workflow_to_activity_types %}
+**注**: {% data reusables.developer-site.multiple_activity_types %} それぞれのアクティビティの種類については、「[Webhook イベントとペイロード](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#discussion_comment)」を参照してください。 {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 {% endnote %}
 
@@ -228,9 +233,9 @@ on:
 
 {% data reusables.webhooks.discussions-webhooks-beta %}
 
-Runs your workflow when a comment on a discussion in the workflow's repository is created or modified. For activity related to a discussion as opposed to comments on the discussion, use the [`discussion`](#discussion) event. For more information about discussions, see "[About discussions](/discussions/collaborating-with-your-community-using-discussions/about-discussions)." For information about the GraphQL API, see "[Discussion](/graphql/reference/objects#discussion)."
+ワークフローのリポジトリ内のディスカッションのコメントが作成または変更されたときにワークフローを実行します。 ディスカッションのコメントではなくディスカッションに関連するアクティビティには、[`discussion`](#discussion) イベントを使います。 ディスカッションの詳細については、「[ディスカッションについて](/discussions/collaborating-with-your-community-using-discussions/about-discussions)」を参照してください。 GraphQL API については、「[ディスカッション](/graphql/reference/objects#discussion)」を参照してください。
 
-For example, you can run a workflow when a discussion comment has been `created` or `deleted`.
+たとえば、ディスカッション コメントが `created` または `deleted` だったときにワークフローを実行できます。
 
 ```yaml
 on:
@@ -242,15 +247,15 @@ on:
 
 ### `fork`
 
-| Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
+| webhook イベントのペイロード | アクティビティの種類 | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
-| [`fork`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#fork) | n/a | Last commit on default branch |  Default branch |
+| [`fork`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#fork) | 該当なし | デフォルトブランチの直近のコミット |  デフォルトブランチ |
 
 {% data reusables.actions.branch-requirement %}
 
-Runs your workflow when someone forks a repository. For information about the REST API, see "[Create a fork](/rest/reference/repos#create-a-fork)."
+誰かがリポジトリをフォークしたときにワークフローを実行します。 REST API については、「[フォークの作成](/rest/reference/repos#create-a-fork)」を参照してください。
 
-For example, you can run a workflow when the `fork` event occurs.
+たとえば、`fork` イベントが発生したときにワークフローを実行できます。
 
 ```yaml
 on:
@@ -259,15 +264,15 @@ on:
 
 ### `gollum`
 
-| Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
+| webhook イベントのペイロード | アクティビティの種類 | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
-| [`gollum`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#gollum) | n/a | Last commit on default branch |  Default branch |
+| [`gollum`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#gollum) | 該当なし | デフォルトブランチの直近のコミット |  デフォルトブランチ |
 
 {% data reusables.actions.branch-requirement %}
 
-Runs your workflow when someone creates or updates a Wiki page. For more information, see "[About wikis](/communities/documenting-your-project-with-wikis/about-wikis)."
+誰かが Wiki ページを作成または更新したときにワークフローを実行します。 詳細については、[wiki について](/communities/documenting-your-project-with-wikis/about-wikis)に関する記事を参照してください。
 
-For example, you can run a workflow when the `gollum` event occurs.
+たとえば、`gollum` イベントが発生したときにワークフローを実行できます。
 
 ```yaml
 on:
@@ -276,21 +281,21 @@ on:
 
 ### `issue_comment`
 
-| Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
+| webhook イベントのペイロード | アクティビティの種類 | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
-| [`issue_comment`](/developers/webhooks-and-events/webhook-events-and-payloads#issue_comment) | - `created`<br/>- `edited`<br/>- `deleted`<br/> | Last commit on default branch | Default branch |
+| [`issue_comment`](/developers/webhooks-and-events/webhook-events-and-payloads#issue_comment) | - `created`<br/>- `edited`<br/>- `deleted`<br/> | デフォルトブランチの直近のコミット | デフォルトブランチ |
 
 {% note %}
 
-**Note**: {% data reusables.developer-site.multiple_activity_types %} For information about each activity type, see "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#issue_comment)." {% data reusables.developer-site.limit_workflow_to_activity_types %}
+**注**: {% data reusables.developer-site.multiple_activity_types %} それぞれのアクティビティの種類については、「[Webhook イベントとペイロード](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#issue_comment)」を参照してください。 {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 {% endnote %}
 
 {% data reusables.actions.branch-requirement %}
 
-Runs your workflow when an issue or pull request comment is created, edited, or deleted. For information about the issue comment APIs, see "[IssueComment](/graphql/reference/objects#issuecomment)" in the GraphQL API documentation or "[Issue comments](/developers/webhooks-and-events/webhook-events-and-payloads#issue_comment)" in the REST API documentation.
+issue または pull request のコメントが作成、編集、または削除されたときにワークフローを実行します。 issue コメント API については、GraphQL API ドキュメントの「[IssueComment](/graphql/reference/objects#issuecomment)」または REST API ドキュメントの [issue コメント](/developers/webhooks-and-events/webhook-events-and-payloads#issue_comment)に関するページを参照してください。
 
-For example, you can run a workflow when an issue or pull request comment has been `created` or `deleted`.
+たとえば、issue または pull request のコメントが `created` または `deleted` だったときにワークフローを実行できます。
 
 ```yaml
 on:
@@ -298,11 +303,11 @@ on:
     types: [created, deleted]
 ```
 
-#### `issue_comment` on issues only or pull requests only
+#### issue のみまたは pull request のみの `issue_comment`
 
-The `issue_comment` event occurs for comments on both issues and pull requests. You can use the `github.event.issue.pull_request` property in a conditional to take different action depending on whether the triggering object was an issue or pull request.
+`issue_comment` イベントは、issue と pull request の両方に関するコメントで発生します。 条件で `github.event.issue.pull_request` プロパティを使うと、トリガーするオブジェクトが issue か pull request かによって異なるアクションを実行できます。
 
-For example, this workflow will run the `pr_commented` job only if the `issue_comment` event originated from a pull request. It will run the `issue_commented` job only if the `issue_comment` event originated from an issue.
+たとえば、このワークフローでは、`issue_comment` イベントが pull request から発生した場合にのみ `pr_commented` ジョブを実行します。 `issue_comment` イベントが issue から発生した場合にのみ `issue_commented` ジョブが実行されます。
 
 ```yaml
 on: issue_comment
@@ -333,21 +338,21 @@ jobs:
 
 ### `issues`
 
-| Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
+| webhook イベントのペイロード | アクティビティの種類 | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
-| [`issues`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#issues) | - `opened`<br/>- `edited`<br/>- `deleted`<br/>- `transferred`<br/>- `pinned`<br/>- `unpinned`<br/>- `closed`<br/>- `reopened`<br/>- `assigned`<br/>- `unassigned`<br/>- `labeled`<br/>- `unlabeled`<br/>- `locked`<br/>- `unlocked`<br/>- `milestoned`<br/> - `demilestoned` | Last commit on default branch | Default branch |
+| [`issues`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#issues) | - `opened`<br/>- `edited`<br/>- `deleted`<br/>- `transferred`<br/>- `pinned`<br/>- `unpinned`<br/>- `closed`<br/>- `reopened`<br/>- `assigned`<br/>- `unassigned`<br/>- `labeled`<br/>- `unlabeled`<br/>- `locked`<br/>- `unlocked`<br/>- `milestoned`<br/> - `demilestoned` | デフォルトブランチの直近のコミット | デフォルトブランチ |
 
 {% note %}
 
-**Note**: {% data reusables.developer-site.multiple_activity_types %} For information about each activity type, see "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#issues)." {% data reusables.developer-site.limit_workflow_to_activity_types %}
+**注**: {% data reusables.developer-site.multiple_activity_types %} それぞれのアクティビティの種類については、「[Webhook イベントとペイロード](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#issues)」を参照してください。 {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 {% endnote %}
 
 {% data reusables.actions.branch-requirement %}
 
-Runs your workflow when an issue in the workflow's repository is created or modified. For activity related to comments in an issue, use the [`issue_comment`](#issue_comment) event. For more information about issues, see "[About issues](/issues/tracking-your-work-with-issues/about-issues)." For information about the issue APIs, see "[Issue](/graphql/reference/objects#issue)" in the GraphQL API documentation or "[Issues](/rest/reference/issues)" in the REST API documentation.
+ワークフローのリポジトリ内の issue が作成または変更されたときにワークフローを実行します。 issue のコメントに関連するアクティビティには、[`issue_comment`](#issue_comment) イベントを使います。 issue の詳細については、「[Issue について](/issues/tracking-your-work-with-issues/about-issues)」を参照してください。 issue API については、GraphQL API ドキュメントの「[Issue](/graphql/reference/objects#issue)」または REST API ドキュメントの「[Issue](/rest/reference/issues)」を参照してください。
 
-For example, you can run a workflow when an issue has been `opened`, `edited`, or `milestoned`.
+たとえば、issue が `opened`、`edited`、または `milestoned` だったときにワークフローを実行できます。
 
 ```yaml
 on:
@@ -357,23 +362,23 @@ on:
 
 ### `label`
 
-| Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
+| webhook イベントのペイロード | アクティビティの種類 | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
-| [`label`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#label) | - `created`<br/>- `edited`<br/>- `deleted`<br/> | Last commit on default branch | Default branch |
+| [`label`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#label) | - `created`<br/>- `edited`<br/>- `deleted`<br/> | デフォルトブランチの直近のコミット | デフォルトブランチ |
 
 {% note %}
 
-**Note**: {% data reusables.developer-site.multiple_activity_types %} For information about each activity type, see "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#label)." {% data reusables.developer-site.limit_workflow_to_activity_types %}
+**注**: {% data reusables.developer-site.multiple_activity_types %} それぞれのアクティビティの種類については、「[Webhook イベントとペイロード](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#label)」を参照してください。 {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 {% endnote %}
 
 {% data reusables.actions.branch-requirement %}
 
-Runs your workflow when a label in your workflow's repository is created or modified. For more information about labels, see "[Managing labels](/issues/using-labels-and-milestones-to-track-work/managing-labels)." For information about the label APIs, see "[Label](/graphql/reference/objects#label)" in the GraphQL API documentation or "[Labels](/rest/reference/issues#labels)" in the REST API documentation.
+ワークフローのリポジトリ内のラベルが作成または変更されたときにワークフローを実行します。 ラベルの詳細については、「[ラベルを管理する](/issues/using-labels-and-milestones-to-track-work/managing-labels)」を参照してください。 ラベル API については、GraphQL API ドキュメントの「[Label](/graphql/reference/objects#label)」または REST API ドキュメントの「[ラベル](/rest/reference/issues#labels)」を参照してください。
 
-If you want to run your workflow when a label is added to or removed from an issue, pull request, or discussion, use the `labeled` or `unlabeled` activity types for the [`issues`](#issues), [`pull_request`](#pull_request), [`pull_request_target`](#pull_request_target), or [`discussion`](#discussion) events instead.
+issue、pull request、またはディスカッションに対してラベルが追加または削除されたときにワークフローを実行する場合は、代わりに [`issues`](#issues)、[`pull_request`](#pull_request)、[`pull_request_target`](#pull_request_target)、または [`discussion`](#discussion) イベントにはアクティビティの種類 `labeled` または `unlabeled` を使います。
 
-For example, you can run a workflow when a label has been `created` or `deleted`.
+たとえば、ラベルが `created` または `deleted` だったときにワークフローを実行できます。
 
 ```yaml
 on:
@@ -385,21 +390,21 @@ on:
 
 ### `merge_group`
 
-| Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
+| webhook イベントのペイロード | アクティビティの種類 | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
-| [`merge_group`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#merge_group) | `checks_requested` | SHA of the merge group | Ref of the merge group |
+| [`merge_group`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#merge_group) | `checks_requested` | マージ グループの SHA | マージ グループの ref |
 
 {% data reusables.pull_requests.merge-queue-beta %}
 
 {% note %}
 
-**Note**: {% data reusables.developer-site.multiple_activity_types %} Although only the `checks_requested` activity type is supported, specifying the activity type will keep your workflow specific if more activity types are added in the future. For information about each activity type, see "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#merge_group)." {% data reusables.developer-site.limit_workflow_to_activity_types %}
+**注**: {% data reusables.developer-site.multiple_activity_types %} アクティビティの種類 `checks_requested` のみがサポートされていますが、このアクティビティの種類を指定すると、今後さらにアクティビティの種類が追加された場合に、ワークフローを特定のもののままにできます。 それぞれのアクティビティの種類については、「[Webhook イベントとペイロード](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#merge_group)」を参照してください。 {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 {% endnote %}
 
-Runs your workflow when a pull request is added to a merge queue, which adds the pull request to a merge group. For more information see "[Merging a pull request with a merge queue](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request-with-a-merge-queue)".
+マージ キューに pull request が追加されたときにワークフローを実行し、マージ グループにその pull request を追加します。 詳細については、「[pull request とマージ キューのマージ](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request-with-a-merge-queue)」を参照してください。
 
-For example, you can run a workflow when the `checks_requested` activity has occurred.
+たとえば、`checks_requested` イベントが発生したときにワークフローを実行できます。
 
 ```yaml
 on:
@@ -411,23 +416,23 @@ on:
 {% endif %}
 ### `milestone`
 
-| Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
+| webhook イベントのペイロード | アクティビティの種類 | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
-| [`milestone`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#milestone) | - `created`<br/>- `closed`<br/>- `opened`<br/>- `edited`<br/>- `deleted`<br/> | Last commit on default branch | Default branch |
+| [`milestone`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#milestone) | - `created`<br/>- `closed`<br/>- `opened`<br/>- `edited`<br/>- `deleted`<br/> | デフォルトブランチの直近のコミット | デフォルトブランチ |
 
 {% note %}
 
-**Note**: {% data reusables.developer-site.multiple_activity_types %} For information about each activity type, see "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#milestone)." {% data reusables.developer-site.limit_workflow_to_activity_types %}
+**注**: {% data reusables.developer-site.multiple_activity_types %} それぞれのアクティビティの種類については、「[Webhook イベントとペイロード](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#milestone)」を参照してください。 {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 {% endnote %}
 
 {% data reusables.actions.branch-requirement %}
 
-Runs your workflow when a milestone in the workflow's repository is created or modified. For more information about milestones, see "[About milestones](/issues/using-labels-and-milestones-to-track-work/about-milestones)." For information about the milestone APIs, see "[Milestone](/graphql/reference/objects#milestone)" in the GraphQL API documentation or "[Milestones](/rest/reference/issues#milestones)" in the REST API documentation.
+ワークフローのリポジトリ内のマイルストーンが作成または変更されたときにワークフローを実行します。 マイルストーンの詳細については、「[マイルストーンについて](/issues/using-labels-and-milestones-to-track-work/about-milestones)」を参照してください。 マイルストーン API については、GraphQL API ドキュメントの「[Milestone](/graphql/reference/objects#milestone)」または REST API ドキュメントの「[マイルストーン](/rest/reference/issues#milestones)」を参照してください。
 
-If you want to run your workflow when an issue is added to or removed from a milestone, use the `milestoned` or `demilestoned` activity types for the [`issues`](#issues) event instead.
+マイルストーンに対して issue が追加または削除されたときにワークフローを実行する場合は、代わりに [`issues`](#issues) イベントにはアクティビティの種類 `milestoned` または `demilestoned` を使います。
 
-For example, you can run a workflow when a milestone has been `opened` or `deleted`.
+たとえば、マイルストーンが `opened` または `deleted` だったときにワークフローを実行できます。
 
 ```yaml
 on:
@@ -437,15 +442,15 @@ on:
 
 ### `page_build`
 
-| Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
+| webhook イベントのペイロード | アクティビティの種類 | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
-| [`page_build`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#page_build) | n/a | Last commit on default branch | n/a |
+| [`page_build`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#page_build) | 該当なし | デフォルトブランチの直近のコミット | 該当なし |
 
 {% data reusables.actions.branch-requirement %}
 
-Runs your workflow when someone pushes to a branch that is the publishing source for {% data variables.product.prodname_pages %}, if {% data variables.product.prodname_pages %} is enabled for the repository. For more information about {% data variables.product.prodname_pages %} publishing sources, see "[Configuring a publishing source for your GitHub Pages site](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)." For information about the REST API, see "[Pages](/rest/reference/repos#pages)."
+リポジトリに対して {% data variables.product.prodname_pages %} が有効になっている場合、{% data variables.product.prodname_pages %} の公開元であるブランチに誰かがプッシュしたときにワークフローを実行します。 {% data variables.product.prodname_pages %} の公開元の詳細については、「[GitHub Pages サイトの公開元を設定する](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)」を参照してください。 REST API については、[ページ](/rest/reference/repos#pages)に関するページを参照してください。
 
-For example, you can run a workflow when the `page_build` event occurs.
+たとえば、`page_build` イベントが発生したときにワークフローを実行できます。
 
 ```yaml
 on:
@@ -454,13 +459,13 @@ on:
 
 ### `project`
 
-| Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
+| webhook イベントのペイロード | アクティビティの種類 | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
-| [`project`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#project) | - `created`<br/>- `closed`<br/>- `reopened`<br/>- `edited`<br/>- `deleted`<br/> | Last commit on default branch | Default branch |
+| [`project`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#project) | - `created`<br/>- `closed`<br/>- `reopened`<br/>- `edited`<br/>- `deleted`<br/> | デフォルトブランチの直近のコミット | デフォルトブランチ |
 
 {% note %}
 
-**Note**: {% data reusables.developer-site.multiple_activity_types %} The `edited` activity type refers to when a project board, not a column or card on the project board, is edited. For information about each activity type, see "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#project)." {% data reusables.developer-site.limit_workflow_to_activity_types %}
+**注**: {% data reusables.developer-site.multiple_activity_types %} アクティビティの種類 `edited` は、プロジェクト ボードの列またはカードではなくプロジェクト ボードが編集されたときに参照されます。 それぞれのアクティビティの種類については、「[Webhook イベントとペイロード](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#project)」を参照してください。 {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 {% endnote %}
 
@@ -468,21 +473,19 @@ on:
 
 {% note %}
 
-**Note**: This event only occurs for projects owned by the workflow's repository, not for organization-owned or user-owned projects or for projects owned by another repository.
+**注**: このイベントは、組織所有またはユーザー所有のプロジェクトや、別のリポジトリで所有するプロジェクトではなく、ワークフローのリポジトリで所有するプロジェクトに対してのみ発生します。
 
 {% endnote %}
 
-{% ifversion fpt or ghec %}
-{% note %}
+{% ifversion fpt or ghec %} {% note %}
 
-**Note**: This event only occurs for {% data variables.product.prodname_projects_v1 %}.
+**注**: このイベントは、{% data variables.product.prodname_projects_v1 %} に対してのみ発生します。
 
-{% endnote %}
-{% endif %}
+{% endnote %} {% endif %}
 
-Runs your workflow when a project board is created or modified. For activity related to cards or columns in a project board, use the [`project_card`](#project_card) or [`project_column`](#project_column) events instead. For more information about project boards, see "[About project boards](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)." For information about the project board APIs, see "[Project](/graphql/reference/objects#project)" in the GraphQL API documentation or "[Projects](/rest/reference/projects)" in the REST API documentation.
+プロジェクト ボードが作成または変更されたときにワークフローを実行します。 プロジェクト ボードのカードまたは列に関連するアクティビティには、代わりに [`project_card`](#project_card) または [`project_column`](#project_column) イベントを使います。 プロジェクト ボードの詳細については、「[プロジェクト ボードについて](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)」を参照してください。 プロジェクト ボード API については、GraphQL API ドキュメントの「[Project](/graphql/reference/objects#project)」または REST API ドキュメントの「[プロジェクト](/rest/reference/projects)」を参照してください。
 
-For example, you can run a workflow when a project has been `created` or `deleted`.
+たとえば、プロジェクトが `created` または `deleted` だったときにワークフローを実行できます。
 
 ```yaml
 on:
@@ -492,13 +495,13 @@ on:
 
 ### `project_card`
 
-| Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
+| webhook イベントのペイロード | アクティビティの種類 | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
-| [`project_card`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#project_card) | - `created`<br/>- `moved`<br/>- `converted` to an issue<br/>- `edited`<br/>- `deleted` | Last commit on default branch | Default branch |
+| [`project_card`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#project_card) | - `created`<br/>- `moved`<br/>問題に - `converted`<br/>- `edited`<br/>- `deleted` | デフォルトブランチの直近のコミット | デフォルトブランチ |
 
 {% note %}
 
-**Note**: {% data reusables.developer-site.multiple_activity_types %} For information about each activity type, see "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#project_card)." {% data reusables.developer-site.limit_workflow_to_activity_types %}
+**注**: {% data reusables.developer-site.multiple_activity_types %} それぞれのアクティビティの種類については、「[Webhook イベントとペイロード](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#project_card)」を参照してください。 {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 {% endnote %}
 
@@ -506,21 +509,19 @@ on:
 
 {% note %}
 
-**Note**: This event only occurs for projects owned by the workflow's repository, not for organization-owned or user-owned projects or for projects owned by another repository.
+**注**: このイベントは、組織所有またはユーザー所有のプロジェクトや、別のリポジトリで所有するプロジェクトではなく、ワークフローのリポジトリで所有するプロジェクトに対してのみ発生します。
 
 {% endnote %}
 
-{% ifversion fpt or ghec %}
-{% note %}
+{% ifversion fpt or ghec %} {% note %}
 
-**Note**: This event only occurs for {% data variables.product.prodname_projects_v1 %}.
+**注**: このイベントは、{% data variables.product.prodname_projects_v1 %} に対してのみ発生します。
 
-{% endnote %}
-{% endif %}
+{% endnote %} {% endif %}
 
-Runs your workflow when a card on a project board is created or modified. For activity related to project boards or columns in a project board, use the [`project`](#project) or [`project_column`](#project_column) event instead. For more information about project boards, see "[About project boards](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)." For information about the project card APIs, see "[ProjectCard](/graphql/reference/objects#projectcard)" in the GraphQL API documentation or "[Project cards](/rest/reference/projects#cards)" in the REST API documentation.
+プロジェクト ボード上のカードが作成または変更されたときにワークフローを実行します。 プロジェクト ボードまたはプロジェクト ボードの列に関連するアクティビティには、代わりに [`project`](#project) または [`project_column`](#project_column) イベントを使います。 プロジェクト ボードの詳細については、「[プロジェクト ボードについて](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)」を参照してください。 プロジェクト カード API については、GraphQL API ドキュメントの「[ProjectCard](/graphql/reference/objects#projectcard)」または REST API ドキュメントの[プロジェクト カード](/rest/reference/projects#cards)に関するページを参照してください。
 
-For example, you can run a workflow when a project card has been `created` or `deleted`.
+たとえば、プロジェクト カードが `created` または `deleted` だったときにワークフローを実行できます。
 
 ```yaml
 on:
@@ -530,13 +531,13 @@ on:
 
 ### `project_column`
 
-| Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
+| webhook イベントのペイロード | アクティビティの種類 | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
-| [`project_column`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#project_column) | - `created`<br/>- `updated`<br/>- `moved`<br/>- `deleted` | Last commit on default branch | Default branch |
+| [`project_column`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#project_column) | - `created`<br/>- `updated`<br/>- `moved`<br/>- `deleted` | デフォルトブランチの直近のコミット | デフォルトブランチ |
 
 {% note %}
 
-**Note**: {% data reusables.developer-site.multiple_activity_types %} For information about each activity type, see "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#project_column)." {% data reusables.developer-site.limit_workflow_to_activity_types %}
+**注**: {% data reusables.developer-site.multiple_activity_types %} それぞれのアクティビティの種類については、「[Webhook イベントとペイロード](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#project_column)」を参照してください。 {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 {% endnote %}
 
@@ -544,21 +545,19 @@ on:
 
 {% note %}
 
-**Note**: This event only occurs for projects owned by the workflow's repository, not for organization-owned or user-owned projects or for projects owned by another repository.
+**注**: このイベントは、組織所有またはユーザー所有のプロジェクトや、別のリポジトリで所有するプロジェクトではなく、ワークフローのリポジトリで所有するプロジェクトに対してのみ発生します。
 
 {% endnote %}
 
-{% ifversion fpt or ghec %}
-{% note %}
+{% ifversion fpt or ghec %} {% note %}
 
-**Note**: This event only occurs for {% data variables.product.prodname_projects_v1 %}.
+**注**: このイベントは、{% data variables.product.prodname_projects_v1 %} に対してのみ発生します。
 
-{% endnote %}
-{% endif %}
+{% endnote %} {% endif %}
 
-Runs your workflow when a column on a project board is created or modified. For activity related to project boards or cards in a project board, use the [`project`](#project) or [`project_card`](#project_card) event instead. For more information about project boards, see "[About project boards](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)." For information about the project column APIs, see "[Project Column](/graphql/reference/objects#projectcolumn)" in the GraphQL API documentation or "[Project columns](/rest/reference/projects#columns)" in the REST API documentation.
+プロジェクト ボード上の列が作成または変更されたときにワークフローを実行します。 プロジェクト ボードまたはプロジェクト ボードのカードに関連するアクティビティには、代わりに [`project`](#project) または [`project_card`](#project_card) イベントを使います。 プロジェクト ボードの詳細については、「[プロジェクト ボードについて](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)」を参照してください。 プロジェクト列 API については、GraphQL API ドキュメントの「[ProjectColumn](/graphql/reference/objects#projectcolumn)」または REST API ドキュメントの[プロジェクト列](/rest/reference/projects#columns)に関するページを参照してください。
 
-For example, you can run a workflow when a project column has been `created` or `deleted`.
+たとえば、プロジェクト列が `created` または `deleted` だったときにワークフローを実行できます。
 
 ```yaml
 on:
@@ -568,15 +567,15 @@ on:
 
 ### `public`
 
-| Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
+| webhook イベントのペイロード | アクティビティの種類 | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
-| [`public`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#public) | n/a | Last commit on default branch |  Default branch |
+| [`public`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#public) | 該当なし | デフォルトブランチの直近のコミット |  デフォルトブランチ |
 
 {% data reusables.actions.branch-requirement %}
 
-Runs your workflow when your workflow's repository changes from private to public. For information about the REST API, see "[Edit repositories](/rest/reference/repos#edit)."
+ワークフローのリポジトリがプライベートからパブリックに変更されたときにワークフローを実行します。 REST API については、「[リポジトリの編集](/rest/reference/repos#edit)」を参照してください。
 
-For example, you can run a workflow when the `public` event occurs.
+たとえば、`public` イベントが発生したときにワークフローを実行できます。
 
 ```yaml
 on:
@@ -585,29 +584,29 @@ on:
 
 ### `pull_request`
 
-| Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
+| webhook イベントのペイロード | アクティビティの種類 | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
-| [`pull_request`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#pull_request) | - `assigned`<br/>- `unassigned`<br/>- `labeled`<br/>- `unlabeled`<br/>- `opened`<br/>- `edited`<br/>- `closed`<br/>- `reopened`<br/>- `synchronize`<br/>- `converted_to_draft`<br/>- `ready_for_review`<br/>- `locked`<br/>- `unlocked` <br/>- `review_requested` <br/>- `review_request_removed` <br/>- `auto_merge_enabled` <br/>- `auto_merge_disabled` | Last merge commit on the `GITHUB_REF` branch | PR merge branch `refs/pull/:prNumber/merge` |
+| [`pull_request`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#pull_request) | - `assigned`<br/>- `unassigned`<br/>- `labeled`<br/>- `unlabeled`<br/>- `opened`<br/>- `edited`<br/>- `closed`<br/>- `reopened`<br/>- `synchronize`<br/>- `converted_to_draft`<br/>- `ready_for_review`<br/>- `locked`<br/>- `unlocked` <br/>- `review_requested` <br/>- `review_request_removed` <br/>- `auto_merge_enabled` <br/>- `auto_merge_disabled` | `GITHUB_REF` ブランチでの最後のマージ コミット | PR マージ ブランチ `refs/pull/:prNumber/merge` |
 
 {% note %}
 
-**Note**: {% data reusables.developer-site.multiple_activity_types %} For information about each activity type, see "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#pull_request)." By default, a workflow only runs when a `pull_request` event's activity type is `opened`, `synchronize`, or `reopened`. To trigger workflows by different activity types, use the `types` keyword. For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions#onevent_nametypes)."
+**注**: {% data reusables.developer-site.multiple_activity_types %} それぞれのアクティビティの種類については、「[Webhook イベントとペイロード](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#pull_request)」を参照してください。 既定では、ワークフローは、`pull_request` イベントのアクティビティの種類が `opened`、`synchronize`、または `reopened` の場合にのみ実行されます。 さまざまなアクティビティの種類でワークフローをトリガーするには、`types` キーワードを使います。 詳細については、[{% data variables.product.prodname_actions %} のワークフロー構文](/articles/workflow-syntax-for-github-actions#onevent_nametypes)に関するページを参照してください。
 
 {% endnote %}
 
 {% note %}
 
-**Note:** Workflows will not run on `pull_request` activity if the pull request has a merge conflict. The merge conflict must be resolved first.
+**注:** pull request にマージの競合がある場合、`pull_request` アクティビティではワークフローは実行されません。 マージの競合を最初に解決する必要があります。
 
-Conversely, workflows with the `pull_request_target` event will run even if the pull request has a merge conflict. Before using the `pull_request_target` trigger, you should be aware of the security risks. For more information, see [`pull_request_target`](#pull_request_target).
+逆に、`pull_request_target` イベントを含むワークフローは、pull request にマージの競合がある場合でも実行されます。 `pull_request_target` トリガーを使う前に、セキュリティ リスクに注意する必要があります。 詳細については、「[`pull_request_target`](#pull_request_target)」を参照してください。
 
 {% endnote %}
 
-Runs your workflow when activity on a pull request in the workflow's repository occurs. For example, if no activity types are specified, the workflow runs when a pull request is opened or reopened or when the head branch of the pull request is updated. For activity related to pull request reviews, pull request review comments, or pull request comments, use the [`pull_request_review`](#pull_request_review), [`pull_request_review_comment`](#pull_request_review_comment), or [`issue_comment`](#issue_comment) events instead. For information about the pull request APIs, see "[PullRequest](/graphql/reference/objects#pullrequest)" in the GraphQL API documentation or "[Pull requests](/rest/reference/pulls)" in the REST API documentation.
+ワークフローのリポジトリ内の pull request のアクティビティが発生したときにワークフローを実行します。 たとえば、アクティビティの種類が指定されていない場合、pull request を開いたり、再度開いたりしたとき、または pull request の head ブランチが更新されたときにワークフローが実行されます。 pull request レビュー、pull request レビュー コメント、または pull request コメントに関連するアクティビティには、代わりに [`pull_request_review`](#pull_request_review)、[`pull_request_review_comment`](#pull_request_review_comment)、または [`issue_comment`](#issue_comment) イベントを使います。 pull request API については、GraphQL API ドキュメントの「[PullRequest](/graphql/reference/objects#pullrequest)」または REST API ドキュメントの [Pull request](/rest/reference/pulls) に関するトピックを参照してください。
 
-Note that `GITHUB_SHA` for this event is the last merge commit of the pull request merge branch. If you want to get the commit ID for the last commit to the head branch of the pull request, use `github.event.pull_request.head.sha` instead.
+このイベントの `GITHUB_SHA` が pull request マージ ブランチの最後のマージ コミットであることに注意してください。 pull request の head ブランチへの最後のコミットのコミット ID を取得する場合は、代わりに `github.event.pull_request.head.sha` を使います。
 
-For example, you can run a workflow when a pull request has been opened or reopened.
+たとえば、pull request を開いたり再度開いたりしたときにワークフローを実行できます。
 
 ```yaml
 on:
@@ -615,7 +614,7 @@ on:
     types: [opened, reopened]
 ```
 
-You can use the event context to further control when jobs in your workflow will run. For example, this workflow will run when a review is requested on a pull request, but the `specific_review_requested` job will only run when a review by `octo-team` is requested.
+イベント コンテキストを使って、ワークフロー内のジョブを実行するタイミングをさらに制御できます。 たとえば、このワークフローは pull request でレビューが要求されたときに実行されますが、`specific_review_requested` ジョブは `octo-team` によるレビューの要求時にのみ実行されます。
 
 ```yaml
 on:
@@ -629,11 +628,11 @@ jobs:
       - run: echo 'A review from octo-team was requested'
 ```
 
-#### Running your workflow based on the head or base branch of a pull request
+#### pull request の head またはベース ブランチに基づいてワークフローを実行する
 
-You can use the `branches` or `branches-ignore` filter to configure your workflow to only run on pull requests that target specific branches. For more information, see "[Workflow syntax for GitHub Actions](/actions/learn-github-actions/workflow-syntax-for-github-actions#onpull_requestpull_request_targetbranchesbranches-ignore)."
+`branches` または `branches-ignore` フィルターを使って、特定のブランチを対象とする pull request でのみ実行するようにワークフローを構成できます。 詳細については、「[GitHub Actions のワークフロー構文](/actions/learn-github-actions/workflow-syntax-for-github-actions#onpull_requestpull_request_targetbranchesbranches-ignore)」を参照してください。
 
-For example, this workflow will run when someone opens a pull request that targets a branch whose name starts with `releases/`:
+たとえば、このワークフローは、名前が `releases/` で始まるブランチを対象とする pull request を誰かが開いたときに実行されます。
 
 ```yaml
 on:
@@ -646,7 +645,7 @@ on:
 
 {% note %}
 
-**Note:** {% data reusables.actions.branch-paths-filter %} For example, the following workflow will only run when a pull request that includes a change to a JavaScript (`.js`) file is opened on a branch whose name starts with `releases/`:
+**注:** {% data reusables.actions.branch-paths-filter %} たとえば、次のワークフローは、JavaScript (`.js`) ファイルへの変更を含む pull request が、名前が `releases/` で始まるブランチで開かれた場合にのみ実行されます。
 
 ```yaml
 on:
@@ -661,7 +660,7 @@ on:
 
 {% endnote %}
 
-To run a job based on the pull request's head branch name (as opposed to the pull request's base branch name), use the `github.head_ref` context in a conditional. For example, this workflow will run whenever a pull request is opened, but the `run_if` job will only execute if the head of the pull request is a branch whose name starts with `releases/`:
+(pull request のベース ブランチ名ではなく) pull request の head ブランチ名に基づいてジョブを実行するには、条件で `github.head_ref` コンテキストを使います。 たとえば、このワークフローは pull request が開かれるたびに実行されますが、pull request の head が `releases/` で始まる名前のブランチである場合にのみ `run_if` ジョブが実行されます。
 
 ```yaml
 on:
@@ -676,11 +675,11 @@ jobs:
       - run: echo "The head of this PR starts with 'releases/'"
 ```
 
-#### Running your workflow based on files changed in a pull request
+#### pull request で変更されたファイルに基づいてワークフローを実行する
 
-You can also configure your workflow to run when a pull request changes specific files. For more information, see "[Workflow syntax for GitHub Actions](/actions/learn-github-actions/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore)."
+また、pull request によって特定のファイルが変更されたときに実行するようにワークフローを構成することもできます。 詳細については、「[GitHub Actions のワークフロー構文](/actions/learn-github-actions/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore)」を参照してください。
 
-For example, this workflow will run when a pull request includes a change to a JavaScript file (`.js`):
+たとえば、このワークフローは、pull request に JavaScript ファイル (`.js`) への変更が含まれているときに実行されます。
 
 ```yaml
 on:
@@ -691,7 +690,7 @@ on:
 
 {% note %}
 
-**Note:** {% data reusables.actions.branch-paths-filter %} For example, the following workflow will only run when a pull request that includes a change to a JavaScript (`.js`) file is opened on a branch whose name starts with `releases/`:
+**注:** {% data reusables.actions.branch-paths-filter %} たとえば、次のワークフローは、JavaScript (`.js`) ファイルへの変更を含む pull request が、名前が `releases/` で始まるブランチで開かれた場合にのみ実行されます。
 
 ```yaml
 on:
@@ -706,9 +705,9 @@ on:
 
 {% endnote %}
 
-#### Running your workflow when a pull request merges
+#### pull request がマージされたときにワークフローを実行する
 
-When a pull request merges, the pull request is automatically closed. To run a workflow when a pull request merges, use the `pull_request` `closed` event type along with a conditional that checks the `merged` value of the event. For example, the following workflow will run whenever a pull request closes. The `if_merged` job will only run if the pull request was also merged.
+pull request がマージされると、pull request は自動的に閉じられます。 pull request のマージ時にワークフローを実行するには、イベントの `merged` 値を検査する条件とともにイベントの種類 `pull_request``closed` を使います。 たとえば、次のワークフローは、pull request が閉じるたびに実行されます。 `if_merged` ジョブは、pull request もマージされた場合にのみ実行されます。
 
 ```yaml
 on:
@@ -727,25 +726,25 @@ jobs:
 
 {% data reusables.developer-site.pull_request_forked_repos_link %}
 
-### `pull_request_comment` (use `issue_comment`)
+### `pull_request_comment` (`issue_comment` を使用)
 
-To run your workflow when a comment on a pull request (not on a pull request's diff) is created, edited, or deleted, use the [`issue_comment`](#issue_comment) event. For activity related to pull request reviews or pull request review comments, use the [`pull_request_review`](#pull_request_review) or [`pull_request_review_comment`](#pull_request_review_comment) events.
+(pull request の差分ではなく) pull request のコメントが作成、編集、または削除されたときにワークフローを実行するには、[`issue_comment`](#issue_comment) イベントを使います。 pull request レビューまたは pull request レビュー コメントに関連するアクティビティには、[`pull_request_review`](#pull_request_review) または [`pull_request_review_comment`](#pull_request_review_comment) イベントを使います。
 
 ### `pull_request_review`
 
-| Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
+| webhook イベントのペイロード | アクティビティの種類 | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
-| [`pull_request_review`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#pull_request_review) | - `submitted`<br/>- `edited`<br/>- `dismissed` | Last merge commit on the `GITHUB_REF` branch | PR merge branch `refs/pull/:prNumber/merge` |
+| [`pull_request_review`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#pull_request_review) | - `submitted`<br/>- `edited`<br/>- `dismissed` | `GITHUB_REF` ブランチでの最後のマージ コミット | PR マージ ブランチ `refs/pull/:prNumber/merge` |
 
 {% note %}
 
-**Note**: {% data reusables.developer-site.multiple_activity_types %} For information about each activity type, see "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#pull_request_review)." {% data reusables.developer-site.limit_workflow_to_activity_types %}
+**注**: {% data reusables.developer-site.multiple_activity_types %} それぞれのアクティビティの種類については、「[Webhook イベントとペイロード](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#pull_request_review)」を参照してください。 {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 {% endnote %}
 
-Runs your workflow when a pull request review is submitted, edited, or dismissed. A pull request review is a group of pull request review comments in addition to a body comment and a state. For activity related to pull request review comments or pull request comments, use the [`pull_request_review_comment`](#pull_request_review_comment) or [`issue_comment`](#issue_comment) events instead. For information about the pull request review APIs, see "[PullRequestReview](/graphql/reference/objects#pullrequest)" in the GraphQL API documentation or "[Pull request reviews](/rest/reference/pulls#reviews)" in the REST API documentation.
+pull request レビューが送信、編集、または無視されたときにワークフローを実行します。 pull request レビューは、本文コメントと状態に加えて、pull request レビュー コメントのグループです。 pull request レビュー コメントまたは pull request コメントに関連するアクティビティには、代わりに [`pull_request_review_comment`](#pull_request_review_comment) または [`issue_comment`](#issue_comment) イベントを使います。 pull request レビュー API については、GraphQL API ドキュメントの「[PullRequestReview](/graphql/reference/objects#pullrequest)」または REST API ドキュメントの「[Pull request のレビュー](/rest/reference/pulls#reviews)」を参照してください。
 
-For example, you can run a workflow when a pull request review has been `edited` or `dismissed`.
+たとえば、pull request レビューが `edited` または `dismissed` だったときにワークフローを実行できます。
 
 ```yaml
 on:
@@ -753,9 +752,9 @@ on:
     types: [edited, dismissed]
 ```
 
-#### Running a workflow when a pull request is approved
+#### pull request が承認されたときにワークフローを実行する
 
-To run your workflow when a pull request has been approved, you can trigger your workflow with the `submitted` type of `pull_request_review` event, then check the review state with the `github.event.review.state` property. For example, this workflow will run whenever a pull request review is submitted, but the `approved` job will only run if the submitted review is an approving review:
+pull request が承認されたときにワークフローを実行するには、種類 `submitted` の `pull_request_review` イベントを使ってワークフローをトリガーし、`github.event.review.state` プロパティを使ってレビューの状態を確認します。 たとえば、このワークフローは pull request レビューが送信されるたびに実行されますが、`approved` ジョブは、送信されたレビューが承認レビューである場合にのみ実行されます。
 
 ```yaml
 on:
@@ -774,19 +773,19 @@ jobs:
 
 ### `pull_request_review_comment`
 
-| Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
+| webhook イベントのペイロード | アクティビティの種類 | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
-| [`pull_request_review_comment`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#pull_request_review_comment) | - `created`<br/>- `edited`<br/>- `deleted`| Last merge commit on the `GITHUB_REF` branch | PR merge branch `refs/pull/:prNumber/merge` |
+| [`pull_request_review_comment`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#pull_request_review_comment) | - `created`<br/>- `edited`<br/>- `deleted`| `GITHUB_REF` ブランチでの最後のマージ コミット | PR マージ ブランチ `refs/pull/:prNumber/merge` |
 
 {% note %}
 
-**Note**: {% data reusables.developer-site.multiple_activity_types %} For information about each activity type, see "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#pull_request_review_comment)." {% data reusables.developer-site.limit_workflow_to_activity_types %}
+**注**: {% data reusables.developer-site.multiple_activity_types %} それぞれのアクティビティの種類については、「[Webhook イベントとペイロード](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#pull_request_review_comment)」を参照してください。 {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 {% endnote %}
 
-Runs your workflow when a pull request review comment is modified. A pull request review comment is a comment on a pull request's diff. For activity related to pull request reviews or pull request comments, use the [`pull_request_review`](#pull_request_review) or [`issue_comment`](#issue_comment) events instead. For information about the pull request review comment APIs, see "[PullRequestReviewComment](/graphql/reference/objects#pullrequestreviewcomment)" in the GraphQL API documentation or "[Review comments](/rest/reference/pulls#comments)" in the REST API documentation.
+pull request レビュー コメントが変更されたときにワークフローを実行します。 pull request レビュー コメントは、pull request の差分に関するコメントです。 pull request レビューまたは pull request コメントに関連するアクティビティには、代わりに [`pull_request_review`](#pull_request_review) または [`issue_comment`](#issue_comment) イベントを使います。 pull request レビュー コメント API については、GraphQL API ドキュメントの「[PullRequestReviewComment](/graphql/reference/objects#pullrequestreviewcomment)」または REST API ドキュメントの[レビュー コメント](/rest/reference/pulls#comments)に関するトピックを参照してください。
 
-For example, you can run a workflow when a pull request review comment has been `created` or `deleted`.
+たとえば、pull request レビュー コメントが `created` または `deleted` だったときにワークフローを実行できます。
 
 ```yaml
 on:
@@ -798,29 +797,29 @@ on:
 
 ### `pull_request_target`
 
-| Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
+| webhook イベントのペイロード | アクティビティの種類 | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
-| [`pull_request`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#pull_request) | - `assigned`<br/>- `unassigned`<br/>- `labeled`<br/>- `unlabeled`<br/>- `opened`<br/>- `edited`<br/>- `closed`<br/>- `reopened`<br/>- `synchronize`<br/>- `converted_to_draft`<br/>- `ready_for_review`<br/>- `locked`<br/>- `unlocked` <br/>- `review_requested` <br/>- `review_request_removed` <br/>- `auto_merge_enabled` <br/>- `auto_merge_disabled` | Last commit on the PR base branch | PR base branch |
+| [`pull_request`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#pull_request) | - `assigned`<br/>- `unassigned`<br/>- `labeled`<br/>- `unlabeled`<br/>- `opened`<br/>- `edited`<br/>- `closed`<br/>- `reopened`<br/>- `synchronize`<br/>- `converted_to_draft`<br/>- `ready_for_review`<br/>- `locked`<br/>- `unlocked` <br/>- `review_requested` <br/>- `review_request_removed` <br/>- `auto_merge_enabled` <br/>- `auto_merge_disabled` | PR ベースブランチの直近のコミット | PR ベースブランチ |
 
 {% note %}
 
-**Note**: {% data reusables.developer-site.multiple_activity_types %} For information about each activity type, see "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#pull_request_target)." By default, a workflow only runs when a `pull_request_target` event's activity type is `opened`, `synchronize`, or `reopened`. To trigger workflows by different activity types, use the `types` keyword. For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions#onevent_nametypes)."
+**注**: {% data reusables.developer-site.multiple_activity_types %} それぞれのアクティビティの種類については、「[Webhook イベントとペイロード](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#pull_request_target)」を参照してください。 既定では、ワークフローは、`pull_request_target` イベントのアクティビティの種類が `opened`、`synchronize`、または `reopened` の場合にのみ実行されます。 さまざまなアクティビティの種類でワークフローをトリガーするには、`types` キーワードを使います。 詳細については、[{% data variables.product.prodname_actions %} のワークフロー構文](/articles/workflow-syntax-for-github-actions#onevent_nametypes)に関するページを参照してください。
 
 {% endnote %}
 
-Runs your workflow when activity on a pull request in the workflow's repository occurs. For example, if no activity types are specified, the workflow runs when a pull request is opened or reopened or when the head branch of the pull request is updated.
+ワークフローのリポジトリ内の pull request のアクティビティが発生したときにワークフローを実行します。 たとえば、アクティビティの種類が指定されていない場合、pull request を開いたり、再度開いたりしたとき、または pull request の head ブランチが更新されたときにワークフローが実行されます。
 
-This event runs in the context of the base of the pull request, rather than in the context of the merge commit, as the `pull_request` event does. This prevents execution of unsafe code from the head of the pull request that could alter your repository or steal any secrets you use in your workflow. This event allows your workflow to do things like label or comment on pull requests from forks. Avoid using this event if you need to build or run code from the pull request.
+このイベントは、`pull_request` イベントのようにマージ コミットのコンテキストではなく、pull request のベースのコンテキストで実行されます。 これで、リポジトリを変更したり、ワークフローで使うシークレットを盗んだりする可能性がある、pull request の head から安全ではないコードが実行されるのが避けられます。 このイベントを使うと、ワークフローでは、pull request に対するラベルやコメントなどの作業をフォークから行うことができます。 pull request からコードをビルドまたは実行する必要がある場合は、このイベントを使わないでください。
 
-To ensure repository security, branches with names that match certain patterns (such as those which look similar to SHAs) may not trigger workflows with the `pull_request_target` event.
+リポジトリのセキュリティを維持するため、特定のパターン (SHA に似ているものなど) と一致する名前を持つブランチからは、`pull_request_target` イベントでワークフローがトリガーされない場合があります。
 
 {% warning %}
 
-**Warning:** For workflows that are triggered by the `pull_request_target` event, the `GITHUB_TOKEN` is granted read/write repository permission unless the `permissions` key is specified and the workflow can access secrets, even when it is triggered from a fork. Although the workflow runs in the context of the base of the pull request, you should make sure that you do not check out, build, or run untrusted code from the pull request with this event. Additionally, any caches share the same scope as the base branch. To help prevent cache poisoning, you should not save the cache if there is a possibility that the cache contents were altered. For more information, see "[Keeping your GitHub Actions and workflows secure: Preventing pwn requests](https://securitylab.github.com/research/github-actions-preventing-pwn-requests)" on the GitHub Security Lab website.
+**警告:** `pull_request_target` イベントによってトリガーされるワークフローでは、`permissions` キーが指定され、ワークフローがフォークからトリガーされてもシークレットにアクセスできる場合を除き、読み取り/書き込みリポジトリのアクセス許可が `GITHUB_TOKEN` に付与されます。 ワークフローはPull Requestのベースのコンテキストで実行されますが、このイベントでPull Requestから信頼できないコードをチェックアウトしたり、ビルドしたり、実行したりしないようにしなければなりません。 さらに、キャッシュではベース ブランチと同じスコープを共有します。 キャッシュ ポイズニングを防ぐために、キャッシュの内容が変更された可能性がある場合は、キャッシュを保存しないでください。 詳細については、GitHub Security Lab の Web サイトの [GitHub Actions およびワークフローのセキュリティ保護の維持: pwn 要求の阻止](https://securitylab.github.com/research/github-actions-preventing-pwn-requests)に関するページを参照してください。
 
 {% endwarning %}
 
-For example, you can run a workflow when a pull request has been `assigned`, `opened`, `synchronize`, or `reopened`.
+たとえば、pull request が `assigned`、`opened`、`synchronize`、または `reopened` だったときにワークフローを実行できます。
 
 ```yaml
 on:
@@ -828,11 +827,11 @@ on:
     types: [assigned, opened, synchronize, reopened]
 ```
 
-#### Running your workflow based on the head or base branch of a pull request
+#### pull request の head またはベース ブランチに基づいてワークフローを実行する
 
-You can use the `branches` or `branches-ignore` filter to configure your workflow to only run on pull requests that target specific branches. For more information, see "[Workflow syntax for GitHub Actions](/actions/learn-github-actions/workflow-syntax-for-github-actions#onpull_requestpull_request_targetbranchesbranches-ignore)."
+`branches` または `branches-ignore` フィルターを使って、特定のブランチを対象とする pull request でのみ実行するようにワークフローを構成できます。 詳細については、「[GitHub Actions のワークフロー構文](/actions/learn-github-actions/workflow-syntax-for-github-actions#onpull_requestpull_request_targetbranchesbranches-ignore)」を参照してください。
 
-For example, this workflow will run when someone opens a pull request that targets a branch whose name starts with `releases/`:
+たとえば、このワークフローは、名前が `releases/` で始まるブランチを対象とする pull request を誰かが開いたときに実行されます。
 
 ```yaml
 on:
@@ -845,7 +844,7 @@ on:
 
 {% note %}
 
-**Note:** {% data reusables.actions.branch-paths-filter %} For example, the following workflow will only run when a pull request that includes a change to a JavaScript (`.js`) file is opened on a branch whose name starts with `releases/`:
+**注:** {% data reusables.actions.branch-paths-filter %} たとえば、次のワークフローは、JavaScript (`.js`) ファイルへの変更を含む pull request が、名前が `releases/` で始まるブランチで開かれた場合にのみ実行されます。
 
 ```yaml
 on:
@@ -860,7 +859,7 @@ on:
 
 {% endnote %}
 
-To run a job based on the pull request's head branch name (as opposed to the pull request's base branch name), use the `github.head_ref` context in a conditional. For example, this workflow will run whenever a pull request is opened, but the `run_if` job will only execute if the head of the pull request is a branch whose name starts with `releases/`:
+(pull request のベース ブランチ名ではなく) pull request の head ブランチ名に基づいてジョブを実行するには、条件で `github.head_ref` コンテキストを使います。 たとえば、このワークフローは pull request が開かれるたびに実行されますが、pull request の head が `releases/` で始まる名前のブランチである場合にのみ `run_if` ジョブが実行されます。
 
 ```yaml
 on:
@@ -875,11 +874,11 @@ jobs:
       - run: echo "The head of this PR starts with 'releases/'"
 ```
 
-#### Running your workflow based on files changed in a pull request
+#### pull request で変更されたファイルに基づいてワークフローを実行する
 
-You can use the `paths` or `paths-ignore` filter to configure your workflow to run when a pull request changes specific files. For more information, see "[Workflow syntax for GitHub Actions](/actions/learn-github-actions/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore)."
+`paths` または `paths-ignore` フィルターを使って、pull request によって特定のファイルが変更されたときに実行するようにワークフローを構成することもできます。 詳細については、「[GitHub Actions のワークフロー構文](/actions/learn-github-actions/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore)」を参照してください。
 
-For example, this workflow will run when a pull request includes a change to a JavaScript file (`.js`):
+たとえば、このワークフローは、pull request に JavaScript ファイル (`.js`) への変更が含まれているときに実行されます。
 
 ```yaml
 on:
@@ -890,7 +889,7 @@ on:
 
 {% note %}
 
-**Note:** {% data reusables.actions.branch-paths-filter %} For example, the following workflow will only run when a pull request that includes a change to a JavaScript (`.js`) file is opened on a branch whose name starts with `releases/`:
+**注:** {% data reusables.actions.branch-paths-filter %} たとえば、次のワークフローは、JavaScript (`.js`) ファイルへの変更を含む pull request が、名前が `releases/` で始まるブランチで開かれた場合にのみ実行されます。
 
 ```yaml
 on:
@@ -905,9 +904,9 @@ on:
 
 {% endnote %}
 
-#### Running your workflow when a pull request merges
+#### pull request がマージされたときにワークフローを実行する
 
-When a pull request merges, the pull request is automatically closed. To run a workflow when a pull request merges, use the `pull_request_target` `closed` event type along with a conditional that checks the `merged` value of the event. For example, the following workflow will run whenever a pull request closes. The `if_merged` job will only run if the pull request was also merged.
+pull request がマージされると、pull request は自動的に閉じられます。 pull request のマージ時にワークフローを実行するには、イベントの `merged` 値を検査する条件とともにイベントの種類 `pull_request_target``closed` を使います。 たとえば、次のワークフローは、pull request が閉じるたびに実行されます。 `if_merged` ジョブは、pull request もマージされた場合にのみ実行されます。
 
 ```yaml
 on:
@@ -926,25 +925,25 @@ jobs:
 
 ### `push`
 
-| Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
+| webhook イベントのペイロード | アクティビティの種類 | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
-| [`push`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#push) | n/a | When you delete a branch, the SHA in the workflow run (and its associated refs) reverts to the default branch of the repository. | Updated ref |
+| [`push`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#push) | 該当なし | ブランチを削除すると、ワークフロー実行の SHA (およびその関連する参照) がリポジトリの既定のブランチに戻ります。 | 更新された ref |
 
 {% note %}
 
-**Note:** The webhook payload available to GitHub Actions does not include the `added`, `removed`, and `modified` attributes in the `commit` object. You can retrieve the full commit object using the API. For information, see "[Commit](/graphql/reference/objects#commit)" in the GraphQL API documentation or "[Get a commit](/rest/reference/commits#get-a-commit)" in the REST API documentation.
+**注:** GitHub Actions で使用できる Webhook ペイロードには、`commit` オブジェクトの `added`、`removed`、`modified` の各属性は含まれません。 完全な commit オブジェクトは、API を使って取得できます。 詳細については、GraphQL API ドキュメントの「[Commit](/graphql/reference/objects#commit)」または REST API ドキュメントの[コミットの取得](/rest/reference/commits#get-a-commit)に関するトピックを参照してください。
 
 {% endnote %}
 
 {% note %}
 
-**Note**: An event will not be created when you push more than three tags at once.
+**注**: 一度に 3 つを超えるタグをプッシュした場合、イベントは作成されません。
 
 {% endnote %}
 
-Runs your workflow when you push a commit or tag.
+コミットまたはタグをプッシュするときにワークフローを実行します。
 
-For example, you can run a workflow when the `push` event occurs.
+たとえば、`push` イベントが発生したときにワークフローを実行できます。
 
 ```yaml
 on:
@@ -953,15 +952,15 @@ on:
 
 {% note %}
 
-**Note**: When a `push` webhook event triggers a workflow run, the Actions UI's "pushed by" field shows the account of the pusher and not the author or committer. However, if the changes are pushed to a repository using SSH authentication with a deploy key, then the "pushed by" field will be the repository admin who verified the deploy key when it was added it to a repository.
+**注**: `push` Webhook イベントによってワークフローの実行がトリガーされると、Actions UI の [プッシュ元] フィールドには、作成者またはコミッターではなく、プッシャーのアカウントが表示されます。 一方、デプロイ キーによる SSH 認証を使って変更がリポジトリにプッシュされた場合は、[プッシュ元] フィールドは、デプロイ キーがリポジトリに追加されたときにそれを確認したリポジトリ管理者になります。
 
 {% endnote %}
 
-#### Running your workflow only when a push to specific branches occurs
+#### 特定のブランチへのプッシュが発生した場合にのみワークフローを実行する
 
-You can use the `branches` or `branches-ignore` filter to configure your workflow to only run when specific branches are pushed. For more information, see "[Workflow syntax for GitHub Actions](/actions/learn-github-actions/workflow-syntax-for-github-actions#onpushbranchestagsbranches-ignoretags-ignore)."
+`branches` または `branches-ignore` フィルターを使って、特定のブランチがプッシュされたときにのみ実行するようにワークフローを構成できます。 詳細については、「[GitHub Actions のワークフロー構文](/actions/learn-github-actions/workflow-syntax-for-github-actions#onpushbranchestagsbranches-ignoretags-ignore)」を参照してください。
 
-For example, this workflow will run when someone pushes to `main` or to a branch that starts with `releases/`.
+たとえば、このワークフローは、`main` か、`releases/` で始まるブランチに誰かがプッシュしたときに実行されます。
 
 ```yaml
 on:
@@ -973,7 +972,7 @@ on:
 
 {% note %}
 
-**Note:** {% data reusables.actions.branch-paths-filter %} For example, the following workflow will only run when a push that includes a change to a JavaScript (`.js`) file is made to a branch whose name starts with `releases/`:
+**注:** {% data reusables.actions.branch-paths-filter %} たとえば、次のワークフローは、JavaScript (`.js`) ファイルへの変更を含むプッシュが、名前が `releases/` で始まるブランチに対して行われた場合にのみ実行されます。
 
 ```yaml
 on:
@@ -986,11 +985,11 @@ on:
 
 {% endnote %}
 
-#### Running your workflow only when a push of specific tags occurs
+#### 特定のタグのプッシュが発生した場合にのみワークフローを実行する
 
-You can use the `tags` or `tags-ignore` filter to configure your workflow to only run when specific tags are pushed. For more information, see "[Workflow syntax for GitHub Actions](/actions/learn-github-actions/workflow-syntax-for-github-actions#onpushbranchestagsbranches-ignoretags-ignore)."
+`tags` または `tags-ignore` フィルターを使って、特定のタグがプッシュされたときにのみ実行するようにワークフローを構成できます。 詳細については、「[GitHub Actions のワークフロー構文](/actions/learn-github-actions/workflow-syntax-for-github-actions#onpushbranchestagsbranches-ignoretags-ignore)」を参照してください。
 
-For example, this workflow will run when someone pushes a tag that starts with `v1.`.
+たとえば、このワークフローは、`v1.` で始まるタグを誰かがプッシュしたときに実行されます。
 
 ```yaml
 on:
@@ -999,11 +998,11 @@ on:
       - v1.**
 ```
 
-#### Running your workflow only when a push affects specific files
+#### プッシュが特定のファイルに影響を与える場合にのみワークフローを実行する
 
-You can use the `paths` or `paths-ignore` filter to configure your workflow to run when a push to specific files occurs. For more information, see "[Workflow syntax for GitHub Actions](/actions/learn-github-actions/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore)."
+`paths` または `paths-ignore` フィルターを使って、特定のファイルへのプッシュが発生したときに実行するようにワークフローを構成することができます。 詳細については、「[GitHub Actions のワークフロー構文](/actions/learn-github-actions/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore)」を参照してください。
 
-For example, this workflow will run when someone pushes a change to a JavaScript file (`.js`):
+たとえば、このワークフローは、誰かが JavaScript ファイル (`.js`) に変更をプッシュしたときに実行されます。
 
 ```yaml
 on:
@@ -1014,7 +1013,7 @@ on:
 
 {% note %}
 
-**Note:** {% data reusables.actions.branch-paths-filter %} For example, the following workflow will only run when a push that includes a change to a JavaScript (`.js`) file is made to a branch whose name starts with `releases/`:
+**注:** {% data reusables.actions.branch-paths-filter %} たとえば、次のワークフローは、JavaScript (`.js`) ファイルへの変更を含むプッシュが、名前が `releases/` で始まるブランチに対して行われた場合にのみ実行されます。
 
 ```yaml
 on:
@@ -1029,21 +1028,21 @@ on:
 
 ### `registry_package`
 
-| Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
+| webhook イベントのペイロード | アクティビティの種類 | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
-| [`registry_package`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#package) | - `published`<br/>- `updated` | Commit of the published package | Branch or tag of the published package |
+| [`registry_package`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#package) | - `published`<br/>- `updated` | 公開されたパッケージのコミット | 公開されたパッケージのブランチもしくはタグ |
 
 {% note %}
 
-**Note**: {% data reusables.developer-site.multiple_activity_types %} For information about each activity type, see "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#registry_package)." {% data reusables.developer-site.limit_workflow_to_activity_types %}
+**注**: {% data reusables.developer-site.multiple_activity_types %} それぞれのアクティビティの種類については、「[Webhook イベントとペイロード](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#registry_package)」を参照してください。 {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 {% endnote %}
 
 {% data reusables.actions.branch-requirement %}
 
-Runs your workflow when activity related to {% data variables.product.prodname_registry %} occurs in your repository. For more information, see "[{% data variables.product.prodname_registry %} Documentation](/packages)."
+{% data variables.product.prodname_registry %} に関連するアクティビティがリポジトリで発生したときにワークフローを実行します。 詳細については、「[{% data variables.product.prodname_registry %} のドキュメント](/packages)」を参照してください。
 
-For example, you can run a workflow when a new package version has been `published`.
+たとえば、新しいパッケージのバージョンが `published` になったらワークフローを実行できます。
 
 ```yaml
 on:
@@ -1053,31 +1052,31 @@ on:
 
 ### `release`
 
-| Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
+| webhook イベントのペイロード | アクティビティの種類 | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
-| [`release`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#release) | - `published` <br/>- `unpublished` <br/>- `created` <br/>- `edited` <br/>- `deleted` <br/>- `prereleased`<br/> - `released` | Last commit in the tagged release | Tag ref of release `refs/tags/<tag_name>` |
+| [`release`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#release) | - `published` <br/>- `unpublished` <br/>- `created` <br/>- `edited` <br/>- `deleted` <br/>- `prereleased`<br/> - `released` | リリースのタグが付いた直近のコミット | リリース `refs/tags/<tag_name>` のタグ参照 |
 
 {% note %}
 
-**Note**: {% data reusables.developer-site.multiple_activity_types %} For information about each activity type, see "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#release)." {% data reusables.developer-site.limit_workflow_to_activity_types %}
+**注**: {% data reusables.developer-site.multiple_activity_types %} それぞれのアクティビティの種類については、「[Webhook イベントとペイロード](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#release)」を参照してください。 {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 {% endnote %}
 
 {% note %}
 
-**Note:** Workflows are not triggered for the `created`, `edited`, or `deleted` activity types for draft releases. When you create your release through the {% data variables.product.product_name %} browser UI, your release may automatically be saved as a draft.
+**注:** ワークフローは、ドラフト リリースのアクティビティの種類 `created`、`edited`、または `deleted` ではトリガーされません。 {% data variables.product.product_name %} ブラウザー UI を使ってリリースを作成すると、リリースがドラフトとして自動的に保存される場合があります。
 
 {% endnote %}
 
 {% note %}
 
-**Note:** The `prereleased` type will not trigger for pre-releases published from draft releases, but the `published` type will trigger. If you want a workflow to run when stable *and* pre-releases publish, subscribe to `published` instead of `released` and `prereleased`.
+**注:** `prereleased` 型は、ドラフト リリースから公開されたプレリリースではトリガーされませんが、`published` 型はトリガーされます。 *安定した* プレリリースの発行時にワークフローを実行する場合は、次の`published`代わりにサブスクライブ`released`します`prereleased`。
 
 {% endnote %}
 
-Runs your workflow when release activity in your repository occurs. For information about the release APIs, see "[Release](/graphql/reference/objects#release)" in the GraphQL API documentation or "[Releases](/rest/reference/releases)" in the REST API documentation.
+リポジトリのリリース アクティビティが発生したときにワークフローを実行します。 リリース API については、GraphQL API ドキュメントの「[Release](/graphql/reference/objects#release)」または REST API ドキュメントの「[リリース](/rest/reference/releases)」を参照してください。
 
-For example, you can run a workflow when a release has been `published`.
+たとえば、リリースが `published` だったときにワークフローを実行できます。
 
 ```yaml
 on:
@@ -1087,15 +1086,15 @@ on:
 
 ### `repository_dispatch`
 
-| Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
+| webhook イベントのペイロード | アクティビティの種類 | `GITHUB_SHA` | `GITHUB_REF` |
 | ------------------ | ------------ | ------------ | ------------------|
-| [repository_dispatch](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#repository_dispatch) | Custom | Last commit on default branch | Default branch |
+| [repository_dispatch](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#repository_dispatch) | Custom | デフォルトブランチの直近のコミット | デフォルトブランチ |
 
 {% data reusables.actions.branch-requirement %}
 
-You can use the {% data variables.product.product_name %} API to trigger a webhook event called [`repository_dispatch`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#repository_dispatch) when you want to trigger a workflow for activity that happens outside of {% data variables.product.product_name %}. For more information, see "[Create a repository dispatch event](/rest/reference/repos#create-a-repository-dispatch-event)."
+{% data variables.product.product_name %} の外部で生じるアクティビティのためにワークフローをトリガーしたい場合、{% data variables.product.product_name %} API を使って、[`repository_dispatch`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#repository_dispatch) と呼ばれる Webhook イベントをトリガーできます。 詳細については、「[リポジトリ ディスパッチ イベントの作成](/rest/reference/repos#create-a-repository-dispatch-event)」を参照してください。
 
-When you make a request to create a `repository_dispatch` event, you must specify an `event_type` to describe the activity type. By default, all `repository_dispatch`  activity types trigger a workflow to run. You can use the `types` keyword to limit your workflow to run when a specific `event_type` value is sent in the `repository_dispatch` webhook payload.
+`repository_dispatch` イベントを作成する要求を行う場合は、アクティビティの種類を説明する `event_type` を指定する必要があります。 既定では、`repository_dispatch` のすべてのアクティビティの種類によってワークフローの実行がトリガーされます。 `types` キーワードを使うと、`repository_dispatch` Webhook ペイロードで特定の `event_type` 値が送信されたときに実行されるワークフローを制限できます。
 
 ```yaml
 on:
@@ -1105,11 +1104,11 @@ on:
 
 {% note %}
 
-**Note:** The `event_type` value is limited to 100 characters.
+**注:** `event_type` の値は 100 文字に制限されています。
 
 {% endnote %}
 
-Any data that you send through the `client_payload` parameter will be available in the `github.event` context in your workflow. For example, if you send this request body when you create a repository dispatch event:
+`client_payload` パラメーターを使って送信するすべてのデータは、ワークフローの `github.event` コンテキストで使用できます。 たとえば、リポジトリ ディスパッチ イベントを作成するときにこの要求本文を送信する場合は、次のようになります。
 
 ```json
 {
@@ -1121,7 +1120,7 @@ Any data that you send through the `client_payload` parameter will be available 
 }
 ```
 
-then you can access the payload in a workflow like this:
+その後、次のようにワークフロー内のペイロードにアクセスできます。
 
 ```yaml
 on:
@@ -1140,17 +1139,17 @@ jobs:
 
 ### `schedule`
 
-| Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
+| webhook イベントのペイロード | アクティビティの種類 | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
-| n/a | n/a | Last commit on default branch | Default branch | When the scheduled workflow is set to run. A scheduled workflow uses [POSIX cron syntax](https://pubs.opengroup.org/onlinepubs/9699919799/utilities/crontab.html#tag_20_25_07). For more information, see "[Triggering a workflow with events](/articles/configuring-a-workflow/#triggering-a-workflow-with-events)." |
+| 該当なし | 該当なし | デフォルトブランチの直近のコミット | デフォルトブランチ | スケジュールしたワークフローを実行するよう設定した時。 スケジュールされたワークフローでは、[POSIX cron 構文](https://pubs.opengroup.org/onlinepubs/9699919799/utilities/crontab.html#tag_20_25_07)が使用されます。 詳細については、「[イベントを含むワークフローのトリガー](/articles/configuring-a-workflow/#triggering-a-workflow-with-events)」を参照してください。 |
 
 {% data reusables.actions.schedule-delay %}
 
-The `schedule` event allows you to trigger a workflow at a scheduled time.
+`schedule` イベントを使うと、スケジュールした時刻にワークフローをトリガーできます。
 
 {% data reusables.repositories.actions-scheduled-workflow-example %}
 
-Cron syntax has five fields separated by a space, and each field represents a unit of time.
+クーロン構文では、スペースで分けられた 5 つのフィールドがあり、各フィールドは時間の単位を表わします。
 
 ```
 ┌───────────── minute (0 - 59)
@@ -1164,43 +1163,43 @@ Cron syntax has five fields separated by a space, and each field represents a un
 * * * * *
 ```
 
-You can use these operators in any of the five fields:
+5 つのフィールドいずれにおいても、以下の演算子を使用できます:
 
-| Operator | Description | Example |
+| 演算子 | 説明 | 例 |
 | -------- | ----------- | ------- |
-| * | Any value | `15 * * * *` runs at every minute 15 of every hour of every day. |
-| , | Value list separator | `2,10 4,5 * * *` runs at minute 2 and 10 of the 4th and 5th hour of every day. |
-| - | Range of values | `30 4-6 * * *` runs at minute 30 of the 4th, 5th, and 6th hour. |
-| / | Step values | `20/15 * * * *` runs every 15 minutes starting from minute 20 through 59 (minutes 20, 35, and 50). |
+| * | 任意の値 | `15 * * * *` では、毎日、毎時、15 分ごとに実行します。 |
+| , | 値リストの区切り文字 | `2,10 4,5 * * *` では、毎日、午前 4 時および 5 時の、2 分および 10 分に実行します。 |
+| - | 値の範囲 | `30 4-6 * * *` では、午前 4 時、5 時、6 時の、30 分に実行します。 |
+| / | ステップ値 | `20/15 * * * *` では、20 分から 59 分までの間で、15 分おきに実行します (20 分、35 分、50 分)。 |
 
 {% note %}
 
-**Note:** {% data variables.product.prodname_actions %} does not support the non-standard syntax `@yearly`, `@monthly`, `@weekly`, `@daily`, `@hourly`, and `@reboot`.
+**注:** {% data variables.product.prodname_actions %} では、標準以外の構文 `@yearly`、`@monthly`、`@weekly`、`@daily`、`@hourly`、`@reboot` はサポートされません。
 
 {% endnote %}
 
-You can use [crontab guru](https://crontab.guru/) to help generate your cron syntax and confirm what time it will run. To help you get started, there is also a list of [crontab guru examples](https://crontab.guru/examples.html).
+[crontab guru](https://crontab.guru/) を使うと、cron 構文の生成および実行時間の確認に役立ちます。 作業の開始に役立つ [crontab guru のサンプル](https://crontab.guru/examples.html)一覧もあります。
 
-Notifications for scheduled workflows are sent to the user who last modified the cron syntax in the workflow file. For more information, see "[Notifications for workflow runs](/actions/monitoring-and-troubleshooting-workflows/notifications-for-workflow-runs)."
+ワークフロー内のクーロン構文を最後に修正したユーザには、スケジュールされたワークフローの通知が送られます。 詳細については、「[ワークフロー実行の通知](/actions/monitoring-and-troubleshooting-workflows/notifications-for-workflow-runs)」を参照してください。
 
 ### `status`
 
-| Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
+| webhook イベントのペイロード | アクティビティの種類 | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
-| [`status`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#status) | n/a | Last commit on default branch | n/a |
+| [`status`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#status) | 該当なし | デフォルトブランチの直近のコミット | 該当なし |
 
 {% data reusables.actions.branch-requirement %}
 
-Runs your workflow when the status of a Git commit changes. For example, commits can be marked as `error`, `failure`, `pending`, or `success`. If you want to provide more details about the status change, you may want to use the [`check_run`](#check_run) event. For information about the commit status APIs, see "[Status](/graphql/reference/objects#status)" in the GraphQL API documentation or "[Statuses](/rest/reference/commits#commit-statuses)" in the REST API documentation.
+Git コミットの状態が変更されたときにワークフローを実行します。 たとえば、コミットは `error`、`failure`、`pending`、または `success` としてマークできます。 状態の変更に関する詳細を指定する場合は、[`check_run`](#check_run) イベントを使用できます。 コミット状態 API については、GraphQL API ドキュメントの「[Status](/graphql/reference/objects#statue)」または REST API ドキュメントの[状態](/rest/reference/commits#commit-statuses)に関するトピックを参照してください。
 
-For example, you can run a workflow when the `status` event occurs.
+たとえば、`status` イベントが発生したときにワークフローを実行できます。
 
 ```yaml
 on:
   status
 ```
 
-If you want to run a job in your workflow based on the new commit state, you can use the `github.event.state` context. For example, the following workflow triggers when a commit status changes, but the `if_error_or_failure` job only runs if the new commit state is `error` or `failure`.
+新しいコミット状態に基づいてワークフローでジョブを実行する場合は、`github.event.state` コンテキストを使用できます。 たとえば、次のワークフローはコミット状態が変更されたときにトリガーされますが、`if_error_or_failure` ジョブは新しいコミット状態が `error` または `failure` の場合にのみ実行されます。
 
 ```yaml
 on:
@@ -1220,21 +1219,21 @@ jobs:
 
 ### `watch`
 
-| Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
+| webhook イベントのペイロード | アクティビティの種類 | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
-| [`watch`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#watch) | - `started` | Last commit on default branch | Default branch |
+| [`watch`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#watch) | - `started` | デフォルトブランチの直近のコミット | デフォルトブランチ |
 
 {% note %}
 
-**Note**: {% data reusables.developer-site.multiple_activity_types %} Although only the `started` activity type is supported, specifying the activity type will keep your workflow specific if more activity types are added in the future. For information about each activity type, see "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#watch)." {% data reusables.developer-site.limit_workflow_to_activity_types %}
+**注**: {% data reusables.developer-site.multiple_activity_types %} アクティビティの種類 `started` のみがサポートされていますが、このアクティビティの種類を指定すると、今後さらにアクティビティの種類が追加された場合に、ワークフローを特定のもののままにできます。 それぞれのアクティビティの種類については、「[Webhook イベントとペイロード](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#watch)」を参照してください。 {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 {% endnote %}
 
 {% data reusables.actions.branch-requirement %}
 
-Runs your workflow when the workflow's repository is starred. For information about the pull request APIs, see "[addStar](/graphql/reference/mutations#addstar)" in the GraphQL API documentation or "[Starring](/rest/reference/activity#starring)" in the REST API documentation.
+ワークフローのリポジトリが Star 付きになったときにワークフローを実行します。 pull request API については、GraphQL API ドキュメントの「[addStar](/graphql/reference/mutations#addstar)」または REST API ドキュメントの [Star 付け](/rest/reference/activity#starring)に関するトピックを参照してください。
 
-For example, you can run a workflow when someone stars a repository, which is the `started` activity type for a watch event.
+たとえば、誰かがリポジトリに star を付けたときにワークフローを実行できます。これは、Watch イベントのアクティビティの種類 `started` です。
 
 ```yaml
 on:
@@ -1242,17 +1241,17 @@ on:
     types: [started]
 ```
 
-{% ifversion fpt or ghes > 3.3 or ghae > 3.3 or ghec %}
+{% ifversion fpt or ghes > 3.3 or ghae-issue-4757 or ghec %}
 
 ### `workflow_call`
 
-| Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
+| webhook イベントのペイロード | アクティビティの種類 | `GITHUB_SHA` | `GITHUB_REF` |
 | ------------------ | ------------ | ------------ | ------------------|
-| Same as the caller workflow | n/a | Same as the caller workflow | Same as the caller workflow |
+| 呼び出し元ワークフローと同じ | 該当なし | 呼び出し元ワークフローと同じ | 呼び出し元ワークフローと同じ |
 
-`workflow_call` is used to indicate that a workflow can be called by another workflow. When a workflow is triggered with the `workflow_call` event, the event payload in the called workflow is the same event payload from the calling workflow. For more information see, "[Reusing workflows](/actions/learn-github-actions/reusing-workflows)."
+`workflow_call` は、別のワークフローからワークフローを呼び出すことができることを示すために使用されます。 `workflow_call` イベントを使ってワークフローがトリガーされると、呼び出し対象のワークフロー内のイベント ペイロードは、呼び出し元ワークフローからの同じイベント ペイロードになります。 詳細については、「[ワークフローの再利用](/actions/learn-github-actions/reusing-workflows)」を参照してください。
 
-The example below only runs the workflow when it's called from another workflow:
+次の例では、別のワークフローから呼び出された場合にのみワークフローを実行します。
 
 ```yaml
 on: workflow_call
@@ -1262,24 +1261,23 @@ on: workflow_call
 
 ### `workflow_dispatch`
 
-| Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
+| webhook イベントのペイロード | アクティビティの種類 | `GITHUB_SHA` | `GITHUB_REF` |
 | ------------------ | ------------ | ------------ | ------------------|
-| [workflow_dispatch](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#workflow_dispatch) | n/a | Last commit on the `GITHUB_REF` branch or tag | Branch or tag that received dispatch |
+| [workflow_dispatch](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#workflow_dispatch) | 該当なし | `GITHUB_REF` ブランチでの最後のコミット | ディスパッチを受信したブランチ |
 
-To manually trigger a workflow, use the `workflow_dispatch` event. You can manually trigger a workflow run using the {% data variables.product.product_name %} API, {% data variables.product.prodname_cli %}, or {% data variables.product.product_name %} browser interface. For more information, see "[Manually running a workflow](/actions/managing-workflow-runs/manually-running-a-workflow)."
+ワークフローを手動でトリガーするには、`workflow_dispatch` イベントを使います。 {% data variables.product.product_name %} API、{% data variables.product.prodname_cli %}、または {% data variables.product.product_name %} ブラウザー インターフェイスを使って、ワークフロー実行を手動でトリガーできます。 詳細については、「[ワークフローの手動実行](/actions/managing-workflow-runs/manually-running-a-workflow)」を参照してください。
 
 ```yaml
 on: workflow_dispatch
 ```
 
-#### Providing inputs
+#### 入力の提供
 
-You can configure custom-defined input properties, default input values, and required inputs for the event directly in your workflow. When you trigger the event, you can provide the `ref` and any `inputs`. When the workflow runs, you can access the input values in the {% ifversion actions-unified-inputs %}`inputs`{% else %}`github.event.inputs`{% endif %} context. For more information, see "[Contexts](/actions/learn-github-actions/contexts)."
+カスタム定義の入力プロパティ、デフォルトの入力値、イベントに必要な入力をワークフローで直接設定できます。 イベントをトリガーするときは、`ref` と任意の `inputs` を指定できます。 ワークフローが実行されたら、{% ifversion actions-unified-inputs %}`inputs`{% else %}`github.event.inputs`{% endif %} コンテキストで入力値にアクセスできます。 詳細については、「[コンテキスト](/actions/learn-github-actions/contexts)」を参照してください。
 
 {% data reusables.actions.inputs-vs-github-event-inputs %}
 
-{% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
-This example defines inputs called `logLevel`, `tags`, and `environment`. You pass values for these inputs to the workflow when you run it. This workflow then prints the values to the log, using the {% ifversion actions-unified-inputs %}`inputs.logLevel`, `inputs.tags`, and  `inputs.environment`{% else %}`github.event.inputs.logLevel`, `github.event.inputs.tags`, and  `github.event.inputs.environment`{% endif %} context properties.
+{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5511 %} この例では、`logLevel`、`tags`、`environment` という入力を定義します。 これらの入力の値は、ワークフローに実行時に渡します。 その後、このワークフローで、{% ifversion actions-unified-inputs %}`inputs.logLevel`、`inputs.tags`、`inputs.environment`{% else %}`github.event.inputs.logLevel`、`github.event.inputs.tags`、`github.event.inputs.environment`{% endif %} コンテキスト プロパティを使って、値をログに出力します。
 
 ```yaml
 on:
@@ -1317,20 +1315,19 @@ jobs:
           ENVIRONMENT: {% ifversion actions-unified-inputs %}{% raw %}${{ inputs.environment }}{% endraw %}{% else %}{% raw %}${{ github.event.inputs.environment }}{% endraw %}{% endif %}
 ```
 
-If you run this workflow from a browser you must enter values for the required inputs manually before the workflow will run.
+ブラウザーからこのワークフローを実行する場合は、ワークフローを実行する前に、必要な入力の値を手動で入力する必要があります。
 
-![Entering inputs for a workflow](/assets/images/help/images/workflow-dispatch-inputs.png)
+![ワークフローの入力](/assets/images/help/images/workflow-dispatch-inputs.png)
 
-You can also pass inputs when you run a workflow from a script, or by using {% data variables.product.prodname_cli %}. For example:
+スクリプトからワークフローを実行するとき、または {% data variables.product.prodname_cli %} を使って、入力を渡すこともできます。 次に例を示します。
 
 ```
 gh workflow run run-tests.yml -f logLevel=warning -f tags=false -f environment=staging
 ```
 
-For more information, see the {% data variables.product.prodname_cli %} information in "[Manually running a workflow](/actions/managing-workflow-runs/manually-running-a-workflow)."
+詳細については、「[ワークフローの手動実行](/actions/managing-workflow-runs/manually-running-a-workflow)」の {% data variables.product.prodname_cli %} の情報を参照してください。
 
-{% else %}
-This example defines the `name` and `home` inputs and prints them using the {% ifversion actions-unified-inputs %}`inputs.name` and `inputs.home`{% else %}`github.event.inputs.name` and `github.event.inputs.home`{% endif %} contexts. If a `home` isn't provided, the default value 'The Octoverse' is printed.
+{% else %}この例では、`name` と `home` の入力を定義し、{% ifversion actions-unified-inputs %}`inputs.name` と `inputs.home`{% else %}`github.event.inputs.name` と `github.event.inputs.home`{% endif %} のコンテキストを使ってそれらを出力します。 `home` が指定されていない場合、既定値の 'The Octoverse' が出力されます。
 
 ```yaml
 name: Manually triggered workflow
@@ -1361,13 +1358,13 @@ jobs:
 
 ### `workflow_run`
 
-| Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
+| webhook イベントのペイロード | アクティビティの種類 | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
-| [`workflow_run`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#workflow_run) | - `completed`<br/>- `requested`{% ifversion actions-workflow-run-in-progress %}<br/>- `in_progress`{% endif %} | Last commit on default branch | Default branch |
+| [`workflow_run`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#workflow_run) | - `completed`<br/>- `requested` | デフォルトブランチの直近のコミット | デフォルトブランチ |
 
 {% note %}
 
-**Note**: {% data reusables.developer-site.multiple_activity_types %} The `requested` activity type does not occur when a workflow is re-run. For information about each activity type, see "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_run)." {% data reusables.developer-site.limit_workflow_to_activity_types %}
+**注**: {% data reusables.developer-site.multiple_activity_types %} ワークフローの再実行時にアクティビティの種類 `requested` は発生しません。 それぞれのアクティビティの種類については、「[Webhook イベントとペイロード](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_run)」を参照してください。 {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 {% endnote %}
 
@@ -1375,13 +1372,13 @@ jobs:
 
 {% note %}
 
-**Note:** You can't use `workflow_run` to chain together more than three levels of workflows. For example, if you attempt to trigger five workflows (named `B` to `F`) to run sequentially after an initial workflow `A` has run (that is: `A` → `B` → `C` → `D` → `E` → `F`), workflows `E` and `F` will not be run.
+**注:** 3 つを超えるレベルのワークフローを連結するために、`workflow_run` を使うことはできません。 たとえば、最初のワークフロー `A` の実行後に (`B` から `F` という) 5 つのワークフローをトリガーして順番に実行しようとした場合 (つまり、`A` → `B` → `C` → `D` → `E` → `F`)、ワークフロー `E` と`F` は実行されません。
 
 {% endnote %}
 
-This event occurs when a workflow run is requested or completed. It allows you to execute a workflow based on execution or completion of another workflow. The workflow started by the `workflow_run` event is able to access secrets and write tokens, even if the previous workflow was not. This is useful in cases where the previous workflow is intentionally not privileged, but you need to take a privileged action in a later workflow.
+このイベントは、ワークフローの実行が要求されたか完了したときに発生します。 これで、別のワークフローの実行または完了に基づいてワークフローを実行できます。 `workflow_run` イベントによって開始されたワークフローでは、前のワークフローではできなかった場合でも、シークレットや書き込みトークンにアクセスできます。 これは、以前のワークフローが意図的に権限を与えられていない場合に役立ちますが、権限を与えられたアクションは後のワークフローで行わなければなりません。
 
-In this example, a workflow is configured to run after the separate "Run Tests" workflow completes.
+この例では、ワークフローは個別の「Run Tests」ワークフローの完了後に実行されるように設定されています。
 
 ```yaml
 on:
@@ -1391,7 +1388,7 @@ on:
       - completed
 ```
 
-If you specify multiple `workflows` for the `workflow_run` event, only one of the workflows needs to run. For example, a workflow with the following trigger will run whenever the "Staging" workflow or the "Lab" workflow completes.
+`workflow_run` イベントに複数の `workflows` を指定した場合、実行する必要があるワークフローは 1 つだけです。 たとえば、次のトリガーを持つワークフローは、"ステージング" ワークフローまたは "ラボ" ワークフローが完了するたびに実行されます。
 
 ```yaml
 on:
@@ -1401,9 +1398,9 @@ on:
       - completed
 ```
 
-#### Running a workflow based on the conclusion of another workflow
+#### 別のワークフローの結果に基づいてワークフローを実行する
 
-A workflow run is triggered regardless of the conclusion of the previous workflow. If you want to run a job or step based on the result of the triggering workflow, you can use a conditional with the `github.event.workflow_run.conclusion` property. For example, this workflow will run whenever a workflow named "Build" completes, but the `on-success` job will only run if the "Build" workflow succeeded, and the `on-failure` job will only run if the "Build" workflow failed:
+ワークフロー実行は、前のワークフローの結果に関係なくトリガーされます。 トリガーするワークフローの結果に基づいてジョブまたはステップを実行する場合は、`github.event.workflow_run.conclusion` プロパティで条件を使用できます。 たとえば、このワークフローは、"Build" という名前のワークフローが完了するたびに実行されますが、`on-success` ジョブは、"Build" ワークフローが成功した場合にのみ実行され、`on-failure` ジョブは "Build" ワークフローが失敗した場合にのみ実行されます。
 
 ```yaml
 on:
@@ -1424,9 +1421,9 @@ jobs:
       - run: echo 'The triggering workflow failed'
 ```
 
-#### Limiting your workflow to run based on branches
+#### ブランチに基づいて実行するワークフローを制限する
 
-You can use the `branches` or `branches-ignore` filter to specify what branches the triggering workflow must run on in order to trigger your workflow. For more information, see "[Workflow syntax for GitHub Actions](/actions/learn-github-actions/workflow-syntax-for-github-actions#onworkflow_runbranchesbranches-ignore)." For example, a workflow with the following trigger will only run when the workflow named `Build` runs on a branch named `canary`.
+`branches` または `branches-ignore` フィルターを使って、ワークフローをトリガーするために、トリガーするワークフローで実行する必要があるブランチを指定できます。 詳細については、「[GitHub Actions のワークフロー構文](/actions/learn-github-actions/workflow-syntax-for-github-actions#onworkflow_runbranchesbranches-ignore)」を参照してください。 たとえば、次のトリガーを持つワークフローは、名前が `canary` のブランチで `Build` という名前のワークフローが実行される場合にのみ実行されます。
 
 ```yaml
 on:
@@ -1436,11 +1433,11 @@ on:
     branches: [canary]
 ```
 
-#### Using data from the triggering workflow
+#### トリガーするワークフローからデータを使う
 
-You can access the [`workflow_run` event payload](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_run) that corresponds to the workflow that triggered your workflow. For example, if your triggering workflow generates artifacts, a workflow triggered with the `workflow_run` event can access these artifacts.
+ワークフローをトリガーしたワークフローに対応する [ `workflow_run`イベント ペイロード](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_run)にアクセスできます。 たとえば、トリガーするワークフローによって成果物が生成される場合、`workflow_run` イベントでトリガーされたワークフローからこれらの成果物にアクセスできます。
 
-The following workflow uploads data as an artifact. (In this simplified example, the data is the pull request number.)
+次のワークフローでは、データを成果物としてアップロードします。 (この簡略化された例では、データは pull request 番号です)。
 
 ```yaml
 name: Upload data
@@ -1465,7 +1462,7 @@ jobs:
           path: pr/
 ```
 
-When a run of the above workflow completes, it triggers a run of the following workflow. The following workflow uses the `github.event.workflow_run` context and the {% data variables.product.product_name %} REST API to download the artifact that was uploaded by the above workflow, unzips the downloaded artifact, and comments on the pull request whose number was uploaded as an artifact.
+上記のワークフローの実行が完了すると、次のワークフローの実行がトリガーされます。 次のワークフローでは、`github.event.workflow_run` コンテキストと {% data variables.product.product_name %} REST API を使って、上記のワークフローによってアップロードされた成果物をダウンロードします。また、ダウンロードした成果物を解凍し、番号が成果物としてアップロードされた pull request についてコメントします。
 
 ```yaml
 name: Use the data

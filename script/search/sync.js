@@ -49,6 +49,7 @@ export default async function syncSearchIndexes({
     }
   })
 
+  let countRecordsTotal = 0
   // Build and validate all indices
   for (const languageCode of languagesToBuild) {
     for (const pageVersion of versionsToBuild) {
@@ -63,7 +64,7 @@ export default async function syncSearchIndexes({
       // github-docs-dotcom-en, github-docs-2.22-en
       const indexName = `${namePrefix}-${indexVersion}-${languageCode}`
 
-      // The page version will be the new version, e.g., free-pro-team@latest, enterprise-server@2.22
+      // The page version will be the new version, e.g., free-pro-team@latest, enterprise-server@3.7
       const records = await buildRecords(
         indexName,
         indexablePages,
@@ -72,6 +73,7 @@ export default async function syncSearchIndexes({
         redirects,
         config
       )
+      countRecordsTotal += records.length
       const fileWritten = await writeIndexRecords(indexName, records, outDirectory)
       console.log(`wrote records to ${fileWritten}`)
     }
@@ -80,5 +82,11 @@ export default async function syncSearchIndexes({
   const tookSec = (t1.getTime() - t0.getTime()) / 1000
 
   console.log('\nDone!')
-  console.log(`Took ${tookSec.toFixed(1)} seconds`)
+  console.log(`Took ${chalk.bold(formatSeconds(tookSec))}`)
+  const rate = (countRecordsTotal / tookSec).toFixed(1)
+  console.log(`Rate ~${chalk.bold(rate)} pages per second.`)
+}
+
+function formatSeconds(seconds) {
+  return new Date(seconds * 1000).toISOString().substr(11, 8)
 }

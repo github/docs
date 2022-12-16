@@ -1,7 +1,7 @@
 ---
-title: SARIF support for code scanning
+title: 코드 검사에 대한 SARIF 지원
 shortTitle: SARIF support
-intro: 'To display results from a third-party static analysis tool in your repository on {% data variables.product.prodname_dotcom %}, you''ll need your results stored in a SARIF file that supports a specific subset of the SARIF 2.1.0 JSON schema for {% data variables.product.prodname_code_scanning %}. If you use the default {% data variables.product.prodname_codeql %} static analysis engine, then your results will display in your repository on {% data variables.product.prodname_dotcom %} automatically.'
+intro: '{% data variables.product.prodname_dotcom %}의 리포지토리에 있는 타사 정적 분석 도구의 결과를 표시하려면 {% data variables.product.prodname_code_scanning %}에 대한 SARIF 2.1.0 JSON 스키마의 특정 하위 집합을 지원하는 SARIF 파일에 저장된 결과가 필요합니다. 기본 {% data variables.product.prodname_codeql %} 정적 분석 엔진을 사용하는 경우 결과는 {% data variables.product.prodname_dotcom %}의 리포지토리에 자동으로 표시됩니다.'
 product: '{% data reusables.gated-features.code-scanning %}'
 miniTocMaxHeadingLevel: 3
 redirect_from:
@@ -20,70 +20,74 @@ topics:
   - Code scanning
   - Integration
   - SARIF
+ms.openlocfilehash: 30bd32fe0d34e8297bdda654a04be6330179846d
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148098918'
 ---
-
-
 {% data reusables.code-scanning.beta %}
 
-## About SARIF support
+## SARIF 지원 정보
 
-SARIF (Static Analysis Results Interchange Format) is an [OASIS Standard](https://docs.oasis-open.org/sarif/sarif/v2.1.0/sarif-v2.1.0.html) that defines an output file format. The SARIF standard is used to streamline how static analysis tools share their results. {% data variables.product.prodname_code_scanning_capc %} supports a subset of the SARIF 2.1.0 JSON schema.
+SARIF(정적 분석 결과 교환 형식)는 출력 파일 형식을 정의하는 [OASIS 표준](https://docs.oasis-open.org/sarif/sarif/v2.1.0/sarif-v2.1.0.html)입니다. SARIF 표준은 정적 분석 도구가 결과를 공유하는 방법을 간소화하는 데 사용됩니다. {% data variables.product.prodname_code_scanning_capc %}는 SARIF 2.1.0 JSON 스키마의 하위 집합을 지원합니다.
 
-To upload a SARIF file from a third-party static code analysis engine, you'll need to ensure that uploaded files use the SARIF 2.1.0 version. {% data variables.product.prodname_dotcom %} will parse the SARIF file and show alerts using the results in your repository as a part of the {% data variables.product.prodname_code_scanning %} experience. For more information, see "[Uploading a SARIF file to {% data variables.product.prodname_dotcom %}](/code-security/secure-coding/uploading-a-sarif-file-to-github)." For more information about the SARIF 2.1.0 JSON schema, see [`sarif-schema-2.1.0.json`](https://github.com/oasis-tcs/sarif-spec/blob/master/Documents/CommitteeSpecifications/2.1.0/sarif-schema-2.1.0.json).
+타사 정적 코드 분석 엔진의 SARIF 파일을 업로드하려면 업로드된 파일이 SARIF 2.1.0 버전을 사용해야 합니다. {% data variables.product.prodname_dotcom %}은 SARIF 파일을 구문 분석하고 리포지토리의 결과를 사용하여 {% data variables.product.prodname_code_scanning %} 환경의 일부로 경고를 표시합니다. 자세한 내용은 "[{% data variables.product.prodname_dotcom %}에 SARIF 파일 업로드](/code-security/secure-coding/uploading-a-sarif-file-to-github)"를 참조하세요. SARIF 2.1.0 JSON 스키마에 대한 자세한 내용은 [`sarif-schema-2.1.0.json`](https://github.com/oasis-tcs/sarif-spec/blob/master/Documents/CommitteeSpecifications/2.1.0/sarif-schema-2.1.0.json)을 참조하세요.
 
-If you're using {% data variables.product.prodname_actions %} with the {% data variables.code-scanning.codeql_workflow %}{% ifversion codeql-runner-supported %}, using the {% data variables.code-scanning.codeql_runner %},{% endif %} or using the {% data variables.product.prodname_codeql_cli %}, then the {% data variables.product.prodname_code_scanning %} results will automatically use the supported subset of SARIF 2.1.0. For more information, see "[Setting up {% data variables.product.prodname_code_scanning %} for a repository](/code-security/secure-coding/setting-up-code-scanning-for-a-repository)"{% ifversion codeql-runner-supported %}, "[Running {% data variables.code-scanning.codeql_runner %} in your CI system](/code-security/secure-coding/running-codeql-runner-in-your-ci-system)",{% endif %} or "[Installing CodeQL CLI in your CI system](/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/installing-codeql-cli-in-your-ci-system)."
+{% data variables.product.prodname_codeql_workflow %}와 함께 {% data variables.product.prodname_actions %}를 사용하거나{% ifversion codeql-runner-supported %}, {% data variables.product.prodname_codeql_runner %} 사용,{% endif %} {% data variables.product.prodname_codeql_cli %}를 사용하는 경우 {% data variables.product.prodname_code_scanning %} 결과는 지원되는 SARIF 2.1.0 하위 집합을 자동으로 사용합니다. 자세한 내용은 “[리포지토리에 대한 {% data variables.product.prodname_code_scanning %} 설정](/code-security/secure-coding/setting-up-code-scanning-for-a-repository)”{% ifversion codeql-runner-supported %}, “[CI 시스템에서 {% data variables.product.prodname_codeql_runner %} 실행](/code-security/secure-coding/running-codeql-runner-in-your-ci-system)”,{% endif %} 또는 “[CI 시스템에 CodeQL CLI 설치](/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/installing-codeql-cli-in-your-ci-system)”를 참조하세요.
 
-You can upload multiple SARIF files for the same commit, and display the data from each file as {% data variables.product.prodname_code_scanning %} results. When you upload multiple SARIF files for a commit, you must indicate a "category" for each analysis. The way to specify a category varies according to the analysis method:
-- Using the {% data variables.product.prodname_codeql_cli %} directly, pass the `--sarif-category` argument to the `codeql database analyze` command when you generate SARIF files. For more information, see "[Configuring CodeQL CLI in your CI system](/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/configuring-codeql-cli-in-your-ci-system#about-generating-code-scanning-results-with-codeql-cli)."
-- Using {% data variables.product.prodname_actions %} with `codeql-action/analyze`, the category is set automatically from the workflow name and any matrix variables (typically, `language`). You can override this by specifying a `category` input for the action, which is useful when you analyze different sections of a mono-repository in a single workflow.
-- Using {% data variables.product.prodname_actions %} to upload results from other static analysis tools, then you must specify a `category` input if you upload more than one file of results for the same tool in one workflow. For more information, see "[Uploading a {% data variables.product.prodname_code_scanning %} analysis with {% data variables.product.prodname_actions %}](/code-security/code-scanning/integrating-with-code-scanning/uploading-a-sarif-file-to-github#uploading-a-code-scanning-analysis-with-github-actions)."
-- If you are not using either of these approaches, you must specify a unique `runAutomationDetails.id` in each SARIF file to upload. For more information about this property, see [`runAutomationDetails` object](#runautomationdetails-object) below.
+동일한 커밋에 대한 여러 SARIF 파일을 업로드하고, 각 파일의 데이터를 {% data variables.product.prodname_code_scanning %} 결과로 표시할 수 있습니다. 커밋에 대한 여러 SARIF 파일을 업로드하는 경우 각 분석의 "범주"를 지정해야 합니다. 다음과 같은 범주 지정 방법이 있으며 분석 방법에 따라 달라집니다.
+- 직접 {% data variables.product.prodname_codeql_cli %} 사용 - SARIF 파일을 생성할 때 `--sarif-category` 인수를 `codeql database analyze` 명령에 전달합니다. 자세한 내용은 "[CI 시스템에서 CodeQL CLI 구성](/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/configuring-codeql-cli-in-your-ci-system#about-generating-code-scanning-results-with-codeql-cli)"을 참조하세요.
+- `codeql-action/analyze`와 함께 {% data variables.product.prodname_actions %} 사용 - 범주가 워크플로 이름 및 행렬 변수(일반적으로 `language`)에서 자동으로 설정됩니다. 작업에 대한 `category` 입력을 지정하여 재정의할 수 있습니다. 이 방법은 단일 워크플로에서 모노 리포지토리의 여러 섹션을 분석할 때 유용합니다.
+- {% data variables.product.prodname_actions %}를 사용하여 다른 정적 분석 도구의 결과를 업로드한 다음, 한 워크플로에서 동일한 도구에 대해 둘 이상의 결과 파일을 업로드하는 경우 `category` 입력을 지정해야 합니다. 자세한 내용은 "[{% data variables.product.prodname_actions %}를 사용하여 {% data variables.product.prodname_code_scanning %} 분석 업로드](/code-security/code-scanning/integrating-with-code-scanning/uploading-a-sarif-file-to-github#uploading-a-code-scanning-analysis-with-github-actions)"를 참조하세요.
+- 이러한 방법을 사용하지 않는 경우 업로드할 각 SARIF 파일에서 고유한 `runAutomationDetails.id`를 지정해야 합니다. 이 속성에 대한 자세한 내용은 아래의 [`runAutomationDetails` 개체](#runautomationdetails-object)를 참조하세요.
 
-If you upload a second SARIF file for a commit with the same category and from the same tool, the earlier results are overwritten. However, if you try to upload multiple SARIF files for the same tool and category in a single {% data variables.product.prodname_actions %} workflow run, the misconfiguration is detected and the run will fail.
+동일한 도구에서 동일한 범주를 사용하여 커밋에 대한 두 번째 SARIF 파일을 업로드하는 경우 이전 결과를 덮어씁니다. 그러나 단일 {% data variables.product.prodname_actions %} 워크플로 실행에서 동일한 도구 및 범주에 대한 여러 SARIF 파일을 업로드하려고 하면 구성 오류가 감지되고 실행이 실패합니다.
 
-{% data variables.product.prodname_dotcom %} uses properties in the SARIF file to display alerts. For example, the `shortDescription` and `fullDescription` appear at the top of a {% data variables.product.prodname_code_scanning %} alert. The `location` allows {% data variables.product.prodname_dotcom %} to show annotations in your code file. For more information, see "[Managing {% data variables.product.prodname_code_scanning %} alerts for your repository](/code-security/secure-coding/managing-code-scanning-alerts-for-your-repository)."
+{% data variables.product.prodname_dotcom %}은 SARIF 파일의 속성을 사용하여 경고를 표시합니다. 예를 들어 `shortDescription` 및 `fullDescription`은 {% data variables.product.prodname_code_scanning %} 경고의 맨 위에 표시됩니다. `location`은 {% data variables.product.prodname_dotcom %}이 코드 파일에 주석을 표시하는 것을 허용합니다. 자세한 내용은 "[리포지토리에 대한 {% data variables.product.prodname_code_scanning %} 경고 관리](/code-security/secure-coding/managing-code-scanning-alerts-for-your-repository)"를 참조하세요.
 
-If you're new to SARIF and want to learn more, see Microsoft's [`SARIF tutorials`](https://github.com/microsoft/sarif-tutorials) repository.
+SARIF를 처음 접하여 자세히 알아보려는 경우 Microsoft의 [`SARIF tutorials`](https://github.com/microsoft/sarif-tutorials) 리포지토리를 참조하세요.
 
-## Providing data to track {% data variables.product.prodname_code_scanning %} alerts across runs
+## 실행에서 {% data variables.product.prodname_code_scanning %} 경고를 추적하는 데이터 제공
 
-Each time the results of a new code scan are uploaded, the results are processed and alerts are added to the repository. To prevent duplicate alerts for the same problem, {% data variables.product.prodname_code_scanning %} uses fingerprints to match results across various runs so they only appear once in the latest run for the selected branch. This makes it possible to match alerts to the correct line of code when files are edited. The `ruleID` for a result has to be the same across analysis.
+새 코드 검사 결과가 업로드될 때마다 결과가 처리되고 경고가 리포지토리에 추가됩니다. 동일한 문제에 대한 중복 경고를 방지하기 위해 {% data variables.product.prodname_code_scanning %}에서 지문을 사용하여 다양한 실행의 결과와 맞춰보기 때문에 선택한 분기에 대한 최신 실행에서 한 번만 표시됩니다. 따라서 파일을 편집할 때 경고를 올바른 코드 줄과 매칭할 수 있습니다. 결과에 대한 `ruleID`는 분석 전체에서 동일해야 합니다.
  
-### Reporting consistent filepaths
+### 일관된 파일 경로 보고
 
-The filepath has to be consistent across the runs to enable a computation of a stable fingerprint. If the filepaths differ for the same result, each time there is a new analysis a new alert will be created, and the old one will be closed. This will cause having multiple alerts for the same result.
+파일 경로는 안정적인 지문을 계산할 수 있도록 실행 전체에서 일관되어야 합니다. 파일 경로가 동일한 결과에 대해 다른 경우 새 분석이 있을 때마다 새 경고가 생성되고 이전 경고가 닫힙니다. 이로 인해 동일한 결과에 대해 여러 경고가 발생합니다.
 
-### Including data for fingerprint generation
+### 지문 생성을 위한 데이터 포함
 
-{% data variables.product.prodname_dotcom %} uses the `partialFingerprints` property in the OASIS standard to detect when two results are logically identical. For more information, see the "[partialFingerprints property](https://docs.oasis-open.org/sarif/sarif/v2.1.0/cs01/sarif-v2.1.0-cs01.html#_Toc16012611)" entry in the OASIS documentation.
+{% data variables.product.prodname_dotcom %}은 OASIS 표준의 `partialFingerprints` 속성을 사용하여 두 결과가 논리적으로 같은 것을 감지합니다. 자세한 내용은 OASIS 설명서의 "[partialFingerprints 속성](https://docs.oasis-open.org/sarif/sarif/v2.1.0/cs01/sarif-v2.1.0-cs01.html#_Toc16012611)" 항목을 참조하세요.
 
-SARIF files created by the {% data variables.code-scanning.codeql_workflow %}, {% ifversion codeql-runner-supported %}using the {% data variables.code-scanning.codeql_runner %}, {% endif %}or using the {% data variables.product.prodname_codeql_cli %} include fingerprint data. If you upload a SARIF file using the `upload-sarif` action and this data is missing, {% data variables.product.prodname_dotcom %} attempts to populate the `partialFingerprints` field from the source files. For more information about uploading results, see "[Uploading a SARIF file to {% data variables.product.prodname_dotcom %}](/code-security/secure-coding/uploading-a-sarif-file-to-github#uploading-a-code-scanning-analysis-with-github-actions)."
+{% data variables.product.prodname_codeql_workflow %}에서, {% ifversion codeql-runner-supported %}{% data variables.product.prodname_codeql_runner %} 사용, {% endif %}또는 {% data variables.product.prodname_codeql_cli %}를 사용하여 만든 SARIF 파일에는 지문 데이터가 포함됩니다. `upload-sarif` 작업을 사용하여 SARIF 파일을 업로드할 때 이 데이터가 없는 경우 {% data variables.product.prodname_dotcom %}이 원본 파일에서 `partialFingerprints` 필드를 채우려고 시도합니다. 결과 업로드에 대한 자세한 내용은 "[{% data variables.product.prodname_dotcom %}에 SARIF 파일 업로드](/code-security/secure-coding/uploading-a-sarif-file-to-github#uploading-a-code-scanning-analysis-with-github-actions)"를 참조하세요.
 
-If you upload a SARIF file without fingerprint data using the `/code-scanning/sarifs` API endpoint, the {% data variables.product.prodname_code_scanning %} alerts will be processed and displayed, but users may see duplicate alerts. To avoid seeing duplicate alerts, you should calculate fingerprint data and populate the `partialFingerprints` property before you upload the SARIF file. You may find the script that the `upload-sarif` action uses a helpful starting point: https://github.com/github/codeql-action/blob/main/src/fingerprints.ts. For more information about the API, see "[Upload an analysis as SARIF data](/rest/reference/code-scanning#upload-an-analysis-as-sarif-data)."
+지문 데이터 없이 `/code-scanning/sarifs` API 엔드포인트를 사용하여 SARIF 파일을 업로드하는 경우 {% data variables.product.prodname_code_scanning %} 경고가 처리되고 표시되지만 사용자에게 중복 경고가 표시될 수 있습니다. 중복 경고가 표시되지 않도록 하려면 SARIF 파일을 업로드하기 전에 지문 데이터를 계산하고 `partialFingerprints` 속성을 채워야 합니다. https://github.com/github/codeql-action/blob/main/src/fingerprints.ts 에서 `upload-sarif` 작업이 유용한 시작점을 사용하는 스크립트를 찾을 수 있습니다. API에 대한 자세한 내용은 "[분석을 SARIF 데이터로 업로드](/rest/reference/code-scanning#upload-an-analysis-as-sarif-data)"를 참조하세요.
 
-## Understanding rules and results
+## 규칙 및 결과 이해
 
-SARIF files support both rules and results. The information stored in these elements is similar but serves different purposes.
+SARIF 파일은 규칙과 결과를 모두 지원합니다. 이러한 요소에 저장된 정보는 유사하지만 다른 용도로 사용됩니다.
 
-- Rules are an array of `reportingDescriptor` objects that are included in the `toolComponent` object. This is where you store details of the rules that are run during analysis. Information in these objects should change infrequently, typically when you update the tool.
+- 규칙은 `toolComponent` 개체에 포함된 `reportingDescriptor` 개체의 배열입니다. 분석 중에 실행되는 규칙의 세부 정보를 저장하는 위치입니다. 이러한 개체의 정보는 일반적으로 도구를 업데이트할 때 자주 변경되지 않습니다.
 
-- Results are stored as a series of `result` objects under `results` in the `run` object. Each `result` object contains details for one alert in the codebase. Within the `results` object, you can reference the rule that detected the alert.
+- 결과는 `run` 개체의 `results` 아래에 일련의 `result` 개체로 저장됩니다. 각 `result` 개체에는 코드베이스에 있는 하나의 경고에 대한 세부 정보가 포함되어 있습니다. `results` 개체 내에서 경고를 감지한 규칙을 참조할 수 있습니다.
 
-When you compare SARIF files generated by analyzing different codebases with the same tool and rules, you should see differences in the results of the analyses but not in the rules.
+동일한 도구와 규칙을 사용하여 다른 코드베이스를 분석하여 생성된 SARIF 파일을 비교할 때 분석 결과에는 차이가 있지만 규칙에는 표시되지 않습니다.
 
-## Specifying the root for source files
+## 원본 파일의 루트 지정
 
-{% data variables.product.prodname_code_scanning_capc %} interprets results that are reported with relative paths as relative to the root of the repository analyzed. If a result contains an absolute URI, the URI is converted to a relative URI. The relative URI can then be matched against a file committed to the repository.
+{% data variables.product.prodname_code_scanning_capc %}은 분석된 리포지토리의 루트를 기준으로 보고된 결과를 상대 경로를 사용하여 해석합니다. 결과에 절대 URI가 포함된 경우 URI는 상대 URI로 변환됩니다. 그런 다음 상대 URI를 리포지토리에 커밋된 파일과 일치시킬 수 있습니다.
 
-You can provide the source root for conversion from absolute to relative URIs in one of the following ways.
+다음 방법 중 하나로 절대 URI에서 상대 URI로 변환하기 위한 원본 루트를 제공할 수 있습니다.
 
-- [`checkout_path`](https://github.com/github/codeql-action/blob/c2c0a2908e95769d01b907f9930050ecb5cf050d/analyze/action.yml#L44-L47) input to the `github/codeql-action/analyze` action
-- `checkout_uri` parameter to the SARIF upload API endpoint. For more information, see "[{% data variables.product.prodname_code_scanning_capc %}](/rest/code-scanning#upload-an-analysis-as-sarif-data)" in the REST API documentation
-- [`invocation.workingDirectory.uri`](https://docs.oasis-open.org/sarif/sarif/v2.1.0/csprd01/sarif-v2.1.0-csprd01.html#_Toc9244365) property in the SARIF file
+- [`github/codeql-action/analyze` 작업에 대한 `checkout_path`](https://github.com/github/codeql-action/blob/c2c0a2908e95769d01b907f9930050ecb5cf050d/analyze/action.yml#L44-L47) 입력
+- SARIF 업로드 API 엔드포인트에 대한 `checkout_uri` 매개 변수. 자세한 내용은 REST API 설명서에서 “[{% data variables.product.prodname_code_scanning_capc %}](/rest/code-scanning#upload-an-analysis-as-sarif-data)”을 참조하세요.
+- SARIF 파일의 [`invocation.workingDirectory.uri`](https://docs.oasis-open.org/sarif/sarif/v2.1.0/csprd01/sarif-v2.1.0-csprd01.html#_Toc9244365) 속성
 
-If you provide a source root, any location of an artifact specified using an absolute URI must use the same URI scheme. If there is a mismatch between the URI scheme for the source root and one or more of the absolute URIs, the upload is rejected.
+원본 루트를 제공하는 경우 절대 URI를 사용하여 지정된 아티팩트 위치는 동일한 URI 체계를 사용해야 합니다. 원본 루트의 URI 체계와 하나 이상의 절대 URI가 일치하지 않으면 업로드가 거부됩니다.
 
-For example, a SARIF file is uploaded using a source root of `file:///github/workspace`. 
+예를 들어 SARIF 파일은 `file:///github/workspace` 소스 루트를 사용하여 업로드됩니다. 
 
 ```
 # Conversion of absolute URIs to relative URIs for location artifacts
@@ -92,133 +96,133 @@ file:///github/workspace/src/main.go -> src/main.go
 file:///tmp/go-build/tmp.go          -> file:///tmp/go-build/tmp.go
 ```
 
-The file is successfully uploaded as both absolute URIs use the same URI scheme as the source root.
+두 개의 절대 URI가 원본 루트와 동일한 URI 체계를 사용하므로 파일이 성공적으로 업로드됩니다.
 
-## Validating your SARIF file
+## SARIF 파일 유효성 검사
 
 <!--UI-LINK: When code scanning fails, the error banner shown in the Security > Code scanning alerts view links to this anchor.-->
 
-You can check a SARIF file is compatible with {% data variables.product.prodname_code_scanning %} by testing it against the {% data variables.product.prodname_dotcom %} ingestion rules. For more information, visit the [Microsoft SARIF validator](https://sarifweb.azurewebsites.net/).
+{% data variables.product.prodname_dotcom %} 수집 규칙에 대해 테스트하여 SARIF 파일이 {% data variables.product.prodname_code_scanning %}과 호환되는지 확인할 수 있습니다. 자세한 내용은 [Microsoft SARIF 유효성 검사기](https://sarifweb.azurewebsites.net/)를 참조하세요.
 
 {% data reusables.code-scanning.upload-sarif-alert-limit %}
 
-## Supported SARIF output file properties
+## 지원되는 SARIF 출력 파일 속성
 
-If you use a code analysis engine other than {% data variables.product.prodname_codeql %}, you can review the supported SARIF properties to optimize how your analysis results will appear on {% data variables.product.prodname_dotcom %}.
+{% data variables.product.prodname_codeql %}이 아닌 코드 분석 엔진을 사용하는 경우 지원되는 SARIF 속성을 검토하여 {% data variables.product.prodname_dotcom %}에 분석 결과가 표시되는 방식을 최적화할 수 있습니다.
 
 {% note %}
 
-**Note:** You must supply an explicit value for any property marked as "required". The empty string is not supported for required properties.
+**참고:** “필수”로 표시된 모든 속성에 대해 명시적 값을 제공해야 합니다. 빈 문자열은 필수 속성에 대해 지원되지 않습니다.
 
 {% endnote %}
 
-Any valid SARIF 2.1.0 output file can be uploaded, however, {% data variables.product.prodname_code_scanning %} will only use the following supported properties.
+유효한 SARIF 2.1.0 출력 파일을 모두 업로드할 수 있지만, {% data variables.product.prodname_code_scanning %}은 지원되는 다음 속성만 사용합니다.
 
-### `sarifLog` object
+### `sarifLog` 개체의  멤버의 부모에 대해 SQL Server 인스턴스 이름을 표시합니다.
 
-| Name | Description |
+| Name | 설명 |
 |----|----|
-|  `$schema` | **Required.** The URI of the SARIF JSON schema for version 2.1.0. For example, `https://json.schemastore.org/sarif-2.1.0.json`. |
-| `version` | **Required.** {% data variables.product.prodname_code_scanning_capc %} only supports SARIF version `2.1.0`.
-| `runs[]` | **Required.** A SARIF file contains an array of one or more runs. Each run represents a single run of an analysis tool. For more information about a `run`, see the [`run` object](#run-object).
+|  `$schema` | **필수 사항입니다.** 2\.1.0 버전의 SARIF JSON 스키마 URI입니다. 예: `https://json.schemastore.org/sarif-2.1.0.json`. |
+| `version` | **필수 사항입니다.** {% data variables.product.prodname_code_scanning_capc %}는 SARIF 버전 `2.1.0`만 지원합니다.
+| `runs[]` | **필수 사항입니다.** SARIF 파일에는 하나 이상의 실행 배열이 포함되어 있습니다. 각 실행은 분석 도구의 단일 실행을 나타냅니다. `run`에 대한 자세한 내용은 [`run` 개체](#run-object)를 참조하세요.
 
-### `run` object
+### `run` 개체의  멤버의 부모에 대해 SQL Server 인스턴스 이름을 표시합니다.
 
-{% data variables.product.prodname_code_scanning_capc %} uses the `run` object to filter results by tool and provide information about the source of a result. The `run` object contains the `tool.driver` tool component object, which contains information about the tool that generated the results. Each `run` can only have results for one analysis tool.
+{% data variables.product.prodname_code_scanning_capc %}는 `run` 개체를 사용하여 도구를 통해 결과를 필터링하고 결과의 원본에 대한 정보를 제공합니다. `run` 개체에는 결과를 생성한 도구에 대한 정보가 들어 있는 `tool.driver` 도구 구성 요소 개체가 포함되어 있습니다. 각 `run`은 하나의 분석 도구에 대한 결과만 가질 수 있습니다.
 
-| Name | Description |
+| Name | 설명 |
 |----|----|
-| `tool.driver` | **Required.** A `toolComponent` object that describes the analysis tool. For more information, see the [`toolComponent` object](#toolcomponent-object). |
-| `tool.extensions[]` | **Optional.** An array of `toolComponent` objects that represent any plugins or extensions used by the tool during analysis. For more information, see the [`toolComponent` object](#toolcomponent-object). |
-| `invocation.workingDirectory.uri` | **Optional.** This field is used only when `checkout_uri` (SARIF upload API only) or `checkout_path` ({% data variables.product.prodname_actions %} only) are not provided. The value is used to convert absolute URIs used in [`physicalLocation` objects](#physicallocation-object) to relative URIs. For more information, see "[Specifying the root for source files](#specifying-the-root-for-source-files)."|
-| `results[]` | **Required.** The results of the analysis tool. {% data variables.product.prodname_code_scanning_capc %} displays the results on {% data variables.product.prodname_dotcom %}. For more information, see the [`result` object](#result-object).
+| `tool.driver` | **필수 사항입니다.** 분석 도구를 설명하는 `toolComponent` 개체입니다. 자세한 내용은 [`toolComponent` 개체](#toolcomponent-object)를 참조하세요. |
+| `tool.extensions[]` | **선택 사항입니다.** 분석 중에 도구에서 사용하는 플러그 인 또는 확장을 나타내는 `toolComponent` 개체의 배열입니다. 자세한 내용은 [`toolComponent` 개체](#toolcomponent-object)를 참조하세요. |
+| `invocation.workingDirectory.uri` | **선택 사항입니다.** 이 필드는 (SARIF 업로드 API에만 해당) 또는 `checkout_path` ({% 데이터 variables.product.prodname_actions %}만) 제공되지 않은 경우에만 `checkout_uri` 사용됩니다. 이 값은 [`physicalLocation`개체](#physicallocation-object)에 사용되는 절대 URI를 상대 URI로 변환하는 데 사용됩니다. 자세한 내용은 “[원본 파일의 루트 지정](#specifying-the-root-for-source-files)”을 참조하세요.|
+| `results[]` | **필수 사항입니다.** 분석 도구의 결과입니다. {% data variables.product.prodname_code_scanning_capc %}는 {% data variables.product.prodname_dotcom %}에 결과를 표시합니다. 자세한 내용은 [`result` 개체](#result-object)를 참조하세요.
 
-### `toolComponent` object
+### `toolComponent` 개체의  멤버의 부모에 대해 SQL Server 인스턴스 이름을 표시합니다.
 
-| Name | Description |
+| Name | 설명 |
 |----|----|
-| `name` | **Required.** The name of the analysis tool. {% data variables.product.prodname_code_scanning_capc %} displays the name on {% data variables.product.prodname_dotcom %} to allow you to filter results by tool. |
-| `version` | **Optional.** The version of the analysis tool. {% data variables.product.prodname_code_scanning_capc %} uses the version number to track when results may have changed due to a tool version change rather than a change in the code being analyzed. If the SARIF file includes the `semanticVersion` field, `version` is not used by {% data variables.product.prodname_code_scanning %}. |
-| `semanticVersion` | **Optional.** The version of the analysis tool, specified by the Semantic Versioning 2.0 format. {% data variables.product.prodname_code_scanning_capc %} uses the version number to track when results may have changed due to a tool version change rather than a change in the code being analyzed. If the SARIF file includes the `semanticVersion` field, `version` is not used by {% data variables.product.prodname_code_scanning %}. For more information, see "[Semantic Versioning 2.0.0](https://semver.org/)" in the Semantic Versioning documentation. |
-| `rules[]` | **Required.** An array of `reportingDescriptor` objects that represent rules. The analysis tool uses rules to find problems in the code being analyzed. For more information, see the [`reportingDescriptor` object](#reportingdescriptor-object). |
+| `name` | **필수 사항입니다.** 분석 도구의 이름입니다. {% data variables.product.prodname_code_scanning_capc %}는 도구별로 결과를 필터링할 수 있도록 {% data variables.product.prodname_dotcom %}에 이름을 표시합니다. |
+| `version` | **선택 사항입니다.** 분석 도구의 버전입니다. {% data variables.product.prodname_code_scanning_capc %}는 버전 번호를 사용하여 분석 중인 코드의 변경이 아닌 도구 버전 변경으로 인해 결과가 변경되었을 수 있는 시기를 추적합니다. SARIF 파일에 `semanticVersion` 필드가 있으면 {% data variables.product.prodname_code_scanning %}에서 `version`이 사용되지 않은 것입니다. |
+| `semanticVersion` | **선택 사항입니다.** 분석 도구의 버전이며, 유의적 버전 2.0 형식으로 지정되었습니다. {% data variables.product.prodname_code_scanning_capc %}는 버전 번호를 사용하여 분석 중인 코드의 변경이 아닌 도구 버전 변경으로 인해 결과가 변경되었을 수 있는 시기를 추적합니다. SARIF 파일에 `semanticVersion` 필드가 있으면 {% data variables.product.prodname_code_scanning %}에서 `version`이 사용되지 않은 것입니다. 자세한 내용은 유의적 버전 설명서의 "[유의적 버전 2.0.0](https://semver.org/)"을 참조하세요. |
+| `rules[]` | **필수 사항입니다.** 규칙을 나타내는 `reportingDescriptor` 개체의 배열입니다. 분석 도구는 규칙을 사용하여 분석 중인 코드에서 문제를 찾습니다. 자세한 내용은 [`reportingDescriptor` 개체](#reportingdescriptor-object)를 참조하세요. |
 
-### `reportingDescriptor` object
+### `reportingDescriptor` 개체의  멤버의 부모에 대해 SQL Server 인스턴스 이름을 표시합니다.
 
-This is where you store details of the rules that are run during analysis. Information in these objects should change infrequently, typically when you update the tool. For more information,  see "[Understanding rules and results](#understanding-rules-and-results)" above.
+분석 중에 실행되는 규칙의 세부 정보를 저장하는 위치입니다. 이러한 개체의 정보는 일반적으로 도구를 업데이트할 때 자주 변경되지 않습니다. 자세한 내용은 위의 “[규칙 및 결과 이해](#understanding-rules-and-results)”를 참조하세요.
 
-| Name | Description |
+| Name | 설명 |
 |----|----|
-| `id` |  **Required.** A unique identifier for the rule. The `id` is referenced from other parts of the SARIF file and may be used by {% data variables.product.prodname_code_scanning %} to display URLs on {% data variables.product.prodname_dotcom %}. |
-| `name` | **Optional.** The name of the rule. {% data variables.product.prodname_code_scanning_capc %} displays the name to allow results to be filtered by rule on {% data variables.product.prodname_dotcom %}. |
-| `shortDescription.text` | **Required.** A concise description of the rule. {% data variables.product.prodname_code_scanning_capc %} displays the short description on {% data variables.product.prodname_dotcom %} next to the associated results.
-| `fullDescription.text` | **Required.** A description of the rule. {% data variables.product.prodname_code_scanning_capc %} displays the full description on {% data variables.product.prodname_dotcom %} next to the associated results. The max number of characters is limited to 1000.
-| `defaultConfiguration.level` | **Optional.** Default severity level of the rule. {% data variables.product.prodname_code_scanning_capc %} uses severity levels to help you understand how critical the result is for a given rule. This value can be overridden by the `level` attribute in the `result` object. For more information, see the [`result` object](#result-object). Default: `warning`.
-| `help.text` | **Required.** Documentation for the rule using text format. {% data variables.product.prodname_code_scanning_capc %} displays this help documentation next to the associated results.
-| `help.markdown` | **Recommended.** Documentation for the rule using Markdown format. {% data variables.product.prodname_code_scanning_capc %} displays this help documentation next to the associated results. When `help.markdown` is available, it is displayed instead of `help.text`.
-| `properties.tags[]` | **Optional.** An array of strings. {% data variables.product.prodname_code_scanning_capc %} uses `tags` to allow you to filter results on {% data variables.product.prodname_dotcom %}. For example, it is possible to filter to all results that have the tag `security`.
-| `properties.precision` | **Recommended.** A string that indicates how often the results indicated by this rule are true. For example, if a rule has a known high false-positive rate, the precision should be `low`. {% data variables.product.prodname_code_scanning_capc %} orders results by precision on {% data variables.product.prodname_dotcom %} so that the results with the highest `level`, and highest `precision` are shown first. Can be one of: `very-high`, `high`, `medium`, or `low`. 
-| `properties.problem.severity` | **Recommended.** A string that indicates the level of severity of any alerts generated by a non-security query. This, with the `properties.precision` property, determines whether the results are displayed by default on {% data variables.product.prodname_dotcom %} so that the results with the highest `problem.severity`, and highest `precision` are shown first. Can be one of: `error`, `warning`, or `recommendation`.
-| `properties.security-severity` | **Recommended.** A string representing a score that indicates the level of severity, between 0.0 and 10.0, for security queries (`@tags` includes `security`). This, with the `properties.precision` property, determines whether the results are displayed by default on {% data variables.product.prodname_dotcom %} so that the results with the highest `security-severity`, and highest `precision` are shown first. {% data variables.product.prodname_code_scanning_capc %} translates numerical scores as follows: over 9.0 is `critical`, 7.0 to 8.9  is `high`, 4.0 to 6.9 is `medium` and 3.9 or less is `low`. 
+| `id` |  **필수 사항입니다.** 규칙의 고유 식별자입니다. `id`는 SARIF 파일의 다른 부분에서 참조되며 {% data variables.product.prodname_dotcom %}에 URL을 표시하기 위해 {% data variables.product.prodname_code_scanning %}에서 사용할 수 있습니다. |
+| `name` | **선택 사항입니다.** 규칙의 이름입니다. {% data variables.product.prodname_code_scanning_capc %}는 규칙으로 결과를 필터링할 수 있도록 {% data variables.product.prodname_dotcom %}에 이름을 표시합니다. |
+| `shortDescription.text` | **필수 사항입니다.** 규칙에 대한 간단한 설명입니다. {% data variables.product.prodname_code_scanning_capc %}는 {% data variables.product.prodname_dotcom %}에서 연결된 결과 옆에 간단한 설명을 표시합니다.
+| `fullDescription.text` | **필수 사항입니다.** 규칙에 대한 설명입니다. {% data variables.product.prodname_code_scanning_capc %}는 {% data variables.product.prodname_dotcom %}에서 연결된 결과 옆에 전체 설명을 표시합니다. 허용되는 최대 문자 수는 1000자입니다.
+| `defaultConfiguration.level` | **선택 사항입니다.** 규칙의 기본 심각도 수준입니다. {% data variables.product.prodname_code_scanning_capc %}는 심각도 수준을 사용하여 특정 규칙에 대한 결과가 얼마나 중요한지 이해하는 데 도움을 줍니다. 이 값은 `result` 개체의 `level` 특성을 통해 재정의할 수 있습니다. 자세한 내용은 [`result` 개체](#result-object)를 참조하세요. 기본값: `warning`.
+| `help.text` | **필수 사항입니다.** 텍스트 형식을 사용하는 규칙에 대한 설명서입니다. {% data variables.product.prodname_code_scanning_capc %}는 연결된 결과 옆에 이 도움말 설명서를 표시합니다.
+| `help.markdown` | **권장 사항입니다.** Markdown 형식을 사용하는 규칙에 대한 설명서입니다. {% data variables.product.prodname_code_scanning_capc %}는 연결된 결과 옆에 이 도움말 설명서를 표시합니다. `help.markdown`을 사용할 수 있는 경우 `help.text` 대신 표시됩니다.
+| `properties.tags[]` | **선택 사항입니다.** 문자열 배열입니다. {% data variables.product.prodname_code_scanning_capc %}는 {% data variables.product.prodname_dotcom %}에서 결과를 필터링할 수 있도록 `tags`를 사용합니다. 예를 들어 `security` 태그가 있는 모든 결과를 필터링할 수 있습니다.
+| `properties.precision` | **권장 사항입니다.** 이 규칙이 나타내는 결과가 true인 빈도를 나타내는 문자열입니다. 예를 들어 규칙에 알려진 높은 가양성 비율이 있는 경우 정밀도는 `low`입니다. {% data variables.product.prodname_code_scanning_capc %}는 `level` 및 `precision`이 가장 높은 결과가 가장 먼저 표시되도록 결과를 정밀도 순서대로 {% data variables.product.prodname_dotcom %}에 정렬합니다. 정밀도는 `very-high`, `high`, `medium`, `low` 중 하나입니다. 
+| `properties.problem.severity` | **권장 사항입니다.** 비보안 쿼리에서 생성된 경고의 심각도 수준을 나타내는 문자열입니다. `properties.precision` 속성과 함께 이 문자열은 `problem.severity` 및 `precision`이 가장 높은 결과가 가장 먼저 표시되도록 결과를 기본적으로 {% data variables.product.prodname_dotcom %}에 표시할지 여부를 결정합니다. `error`는 `warning`, `recommendation` 중 하나일 수 있습니다.
+| `properties.security-severity` | **권장 사항입니다.** 보안 쿼리(`@tags`에 `security`가 포함된)의 심각도 수준을 의미하는 0.0~10.0 사이의 점수를 나타내는 문자열입니다. `properties.precision` 속성과 함께 이 문자열은 `security-severity` 및 `precision`이 가장 높은 결과가 가장 먼저 표시되도록 결과를 기본적으로 {% data variables.product.prodname_dotcom %}에 표시할지 여부를 결정합니다. {% data variables.product.prodname_code_scanning_capc %}는 숫자 점수를 다음과 같이 변환합니다. 9.0 초과는 `critical`, 7.0~8.9는 `high`, 4.0~6.9는 `medium`, 3.9 이하는 `low`. 
 
-### `result` object
+### `result` 개체의  멤버의 부모에 대해 SQL Server 인스턴스 이름을 표시합니다.
 
-Each `result` object contains details for one alert in the codebase. Within the `results` object, you can reference the rule that detected the alert. For more information,  see "[Understanding rules and results](#understanding-rules-and-results)" above.
+각 `result` 개체에는 코드베이스에 있는 하나의 경고에 대한 세부 정보가 포함되어 있습니다. `results` 개체 내에서 경고를 감지한 규칙을 참조할 수 있습니다. 자세한 내용은 위의 “[규칙 및 결과 이해](#understanding-rules-and-results)”를 참조하세요.
 
 {% data reusables.code-scanning.upload-sarif-alert-limit %}
 
-| Name | Description |
+| Name | 설명 |
 |----|----|
-| `ruleId`| **Optional.** The unique identifier of the rule (`reportingDescriptor.id`). For more information, see the [`reportingDescriptor` object](#reportingdescriptor-object). {% data variables.product.prodname_code_scanning_capc %} uses the rule identifier to filter results by rule on {% data variables.product.prodname_dotcom %}.
-| `ruleIndex`| **Optional.** The index of the associated rule (`reportingDescriptor` object) in the tool component `rules` array. For more information, see the [`run` object](#run-object). The allowed range for this property 0 to 2^63 - 1.
-| `rule`| **Optional.** A reference used to locate the rule (reporting descriptor) for this result. For more information, see the [`reportingDescriptor` object](#reportingdescriptor-object).
-| `level`| **Optional.** The severity of the result. This level overrides the default severity defined by the rule. {% data variables.product.prodname_code_scanning_capc %} uses the level to filter results by severity on {% data variables.product.prodname_dotcom %}.
-| `message.text`| **Required.** A message that describes the result. {% data variables.product.prodname_code_scanning_capc %} displays the message text as the title of the result. Only the first sentence of the message will be displayed when visible space is limited.
-| `locations[]`| **Required.** The set of locations where the result was detected up to a maximum of 10. Only one location should be included unless the problem can only be corrected by making a change at every specified location. **Note:** At least one location is required for {% data variables.product.prodname_code_scanning %} to display a result. {% data variables.product.prodname_code_scanning_capc %} will use this property to decide which file to annotate with the result. Only the first value of this array is used. All other values are ignored.
-| `partialFingerprints`| **Required.** A set of strings used to track the unique identity of the result. {% data variables.product.prodname_code_scanning_capc %} uses `partialFingerprints` to accurately identify which results are the same across commits and branches. {% data variables.product.prodname_code_scanning_capc %} will attempt to use `partialFingerprints` if they exist. If you are uploading third-party SARIF files with the `upload-action`, the action will create `partialFingerprints` for you when they are not included in the SARIF file. For more information, see "[Providing data to track code scanning alerts across runs](#providing-data-to-track-code-scanning-alerts-across-runs)."  **Note:** {% data variables.product.prodname_code_scanning_capc %} only uses the `primaryLocationLineHash`.
-| `codeFlows[].threadFlows[].locations[]`| **Optional.** An array of `location` objects for a `threadFlow` object, which describes the progress of a program through a thread of execution. A `codeFlow` object describes a pattern of code execution used to detect a result. If code flows are provided, {% data variables.product.prodname_code_scanning %} will expand code flows on {% data variables.product.prodname_dotcom %} for the relevant result. For more information, see the [`location` object](#location-object).
-| `relatedLocations[]`| A set of locations relevant to this result. {% data variables.product.prodname_code_scanning_capc %} will link to related locations when they are embedded in the result message. For more information, see the [`location` object](#location-object).
+| `ruleId`| **선택 사항입니다.** 규칙의 고유 식별자입니다(`reportingDescriptor.id`). 자세한 내용은 [`reportingDescriptor` 개체](#reportingdescriptor-object)를 참조하세요. {% data variables.product.prodname_code_scanning_capc %}는 규칙 식별자를 사용하여 {% data variables.product.prodname_dotcom %}에서 결과를 규칙으로 필터링합니다.
+| `ruleIndex`| **선택 사항입니다.** 도구 구성 요소 `rules` 배열에 있는 연결된 규칙(`reportingDescriptor` 개체)의 인덱스입니다. 자세한 내용은 [`run` 개체](#run-object)를 참조하세요. 이 속성의 허용 범위는 0부터 2^63 - 1까지입니다.
+| `rule`| **선택 사항입니다.** 이 결과에 대한 규칙(보고 설명자)을 찾는 데 사용되는 참조입니다. 자세한 내용은 [`reportingDescriptor` 개체](#reportingdescriptor-object)를 참조하세요.
+| `level`| **선택 사항입니다.** 결과의 심각도입니다. 이 수준은 규칙에 정의된 기본 심각도를 재정의합니다. {% data variables.product.prodname_code_scanning_capc %}는 수준을 사용하여 {% data variables.product.prodname_dotcom %}에서 결과를 심각도로 필터링합니다.
+| `message.text`| **필수 사항입니다.** 결과를 설명하는 메시지입니다. {% data variables.product.prodname_code_scanning_capc %}는 메시지 텍스트를 결과의 제목으로 표시합니다. 표시되는 공간이 제한된 경우 메시지의 첫 번째 문장만 표시됩니다.
+| `locations[]`| **필수 사항입니다.** 결과가 최대 10개까지 감지된 위치 세트입니다. 지정된 모든 위치에서 변경 작업을 수행해야만 문제를 해결할 수 있는 경우를 제외하고 하나의 위치만 포함해야 합니다. **참고:** 결과를 표시하려면 {% data variables.product.prodname_code_scanning %}에 하나 이상의 위치가 필요합니다. {% data variables.product.prodname_code_scanning_capc %}는 이 속성을 사용하여 결과에 주석을 달 파일을 결정합니다. 이 배열의 첫 번째 값만 사용됩니다. 그 외의 값은 무시됩니다.
+| `partialFingerprints`| **필수 사항입니다.** 결과의 고유 ID를 추적하는 데 사용되는 문자열 세트입니다. {% data variables.product.prodname_code_scanning_capc %}는 `partialFingerprints`를 사용하여 커밋 및 분기에서 동일한 결과를 정확하게 식별합니다. `partialFingerprints`가 있으면 {% data variables.product.prodname_code_scanning_capc %}는 partialFingerprints를 사용하려고 시도합니다. `upload-action`을 사용하여 타사 SARIF 파일을 업로드하는 경우 SARIF 파일에 `partialFingerprints`가 없으면 이 작업에서 자동으로 생성합니다. 자세한 내용은 “[실행에서 코드 검색 경고를 추적하기 위한 데이터 제공](#providing-data-to-track-code-scanning-alerts-across-runs)”을 참조하세요.  **참고:** {% data variables.product.prodname_code_scanning_capc %}는 `primaryLocationLineHash`만 사용합니다.
+| `codeFlows[].threadFlows[].locations[]`| **선택 사항입니다.** 실행 스레드를 통해 프로그램의 진행 상황을 설명하는 `threadFlow` 개체의 `location` 개체 배열입니다. `codeFlow` 개체는 결과를 검색하는 데 사용되는 코드 실행 패턴을 설명합니다. 코드 흐름이 제공되면 {% data variables.product.prodname_code_scanning %}은 관련 결과에 대한 {% data variables.product.prodname_dotcom %}에서 코드 흐름을 확장합니다. 자세한 내용은 [`location` 개체](#location-object)를 참조하세요.
+| `relatedLocations[]`| 이 결과와 관련된 위치 세트입니다. {% data variables.product.prodname_code_scanning_capc %}는 결과 메시지에 관련 위치가 포함되어 있으면 관련 위치에 연결합니다. 자세한 내용은 [`location` 개체](#location-object)를 참조하세요.
 
-### `location` object
+### `location` 개체의  멤버의 부모에 대해 SQL Server 인스턴스 이름을 표시합니다.
 
-A location within a programming artifact, such as a file in the repository or a file that was generated during a build.
+프로그래밍 아티팩트 내의 위치(예: 리포지토리의 파일 또는 빌드 중에 생성된 파일)입니다.
 
-| Name | Description |
+| Name | 설명 |
 |----|----|
-| `location.id` | **Optional.** A unique identifier that distinguishes this location from all other locations within a single result object. The allowed range for this property 0 to 2^63 - 1.
-| `location.physicalLocation` | **Required.** Identifies the artifact and region. For more information, see the [`physicalLocation`](#physicallocation-object).
-| `location.message.text` | **Optional.** A message relevant to the location.
+| `location.id` | **선택 사항입니다.** 이 위치를 단일 결과 개체 내의 다른 모든 위치와 구별하는 고유 식별자입니다. 이 속성의 허용 범위는 0부터 2^63 - 1까지입니다.
+| `location.physicalLocation` | **필수 사항입니다.** 아티팩트 및 지역을 식별합니다. 자세한 내용은 [`physicalLocation`](#physicallocation-object)를 참조하세요.
+| `location.message.text` | **선택 사항입니다.** 위치와 관련된 메시지입니다.
 
-### `physicalLocation` object
+### `physicalLocation` 개체의  멤버의 부모에 대해 SQL Server 인스턴스 이름을 표시합니다.
 
-| Name | Description |
+| Name | 설명 |
 |----|----|
-| `artifactLocation.uri`| **Required.** A URI indicating the location of an artifact, usually a file either in the repository or generated during a build. For the best results we recommend that this is a relative path from the root of the GitHub repository being analyzed. For example, `src/main.js`. For more information about artifact URIs, see "[Specifying the root for source files](#specifying-the-root-for-source-files)."|
-| `region.startLine` | **Required.** The line number of the first character in the region.
-| `region.startColumn` | **Required.** The column number of the first character in the region.
-| `region.endLine` | **Required.** The line number of the last character in the region.
-| `region.endColumn` | **Required.** The column number of the character following the end of the region.
+| `artifactLocation.uri`| **필수 사항입니다.** 아티팩트 위치를 나타내는 URI로, 일반적으로 리포지토리의 파일 또는 빌드 중에 생성된 파일입니다. 최상의 결과를 얻으려면 이 경로가 분석 중인 GitHub 리포지토리 루트의 상대 경로인 것이 좋습니다. 예들 들어 `src/main.js`입니다. 아티팩트 URI에 대한 자세한 내용은 “[원본 파일의 루트 지정](#specifying-the-root-for-source-files)”을 참조하세요.|
+| `region.startLine` | **필수 사항입니다.** 지역에서 첫 번째 문자의 줄 번호입니다.
+| `region.startColumn` | **필수 사항입니다.** 지역에서 첫 번째 문자의 열 번호입니다.
+| `region.endLine` | **필수 사항입니다.** 지역에서 마지막 문자의 줄 번호입니다.
+| `region.endColumn` | **필수 사항입니다.** 지역 다음에 나오는 문자의 열 번호입니다.
 
-### `runAutomationDetails` object
+### `runAutomationDetails` 개체의  멤버의 부모에 대해 SQL Server 인스턴스 이름을 표시합니다.
 
-The `runAutomationDetails` object contains information that specifies the identity of a run.
+`runAutomationDetails` 개체에는 실행 ID를 지정하는 정보가 포함됩니다.
 
 {% note %}
 
-**Note:** `runAutomationDetails` is a SARIF v2.1.0 object. If you're using the {% data variables.product.prodname_codeql_cli %}, you can specify the version of SARIF to use. The equivalent object to `runAutomationDetails` is `<run>.automationId` for SARIF v1 and `<run>.automationLogicalId` for SARIF v2.
+**참고:** `runAutomationDetails`는 SARIF v2.1.0 개체입니다. {% data variables.product.prodname_codeql_cli %}를 사용하는 경우 사용할 SARIF 버전을 지정할 수 있습니다. `runAutomationDetails`에 해당하는 개체는 SARIF v1의 경우 `<run>.automationId`이고, SARIF v2의 경우는 `<run>.automationLogicalId`입니다.
 
 {% endnote %}
 
-| Name | Description |
+| Name | 설명 |
 |----|----|
-| `id`| **Optional.** A string that identifies the category of the analysis and the run ID. Use if you want to upload multiple SARIF files for the same tool and commit, but performed on different languages or different parts of the code. |
+| `id`| **선택 사항입니다.** 분석 범주 및 실행 ID를 식별하는 문자열입니다. 동일한 도구와 커밋에 대한 여러 SARIF 파일을 업로드하되, 다른 언어로 또는 코드의 다른 부분에서 수행하려는 경우에 사용합니다. |
 
-The use of the `runAutomationDetails` object is optional.
+`runAutomationDetails` 개체 사용은 선택 사항입니다.
 
-The `id` field can include an analysis category and a run ID. We don't use the run ID part of the `id` field, but we store it.
+`id` 필드에는 분석 범주 및 실행 ID가 포함될 수 있습니다. `id` 필드의 실행 ID 부분은 사용하지 않지만 저장하겠습니다.
 
-Use the category to distinguish between multiple analyses for the same tool or commit, but performed on different languages or different parts of the code. Use the run ID to identify the specific run of the analysis, such as the date the analysis was run.
+동일한 도구 또는 커밋에 대한 여러 분석을 구별하되, 다른 언어로 또는 코드의 다른 부분에서 수행하려면 범주를 사용합니다. 분석 실행 날짜와 같은 분석의 특정 실행을 식별하려면 실행 ID를 사용합니다.
 
-`id` is interpreted as `category/run-id`. If the `id` contains no forward slash (`/`), then the entire string is the `run_id` and the `category` is empty. Otherwise, `category` is everything in the string until the last forward slash, and `run_id` is everything after.
+`id`는 `category/run-id`로 해석됩니다. `id`에 슬래시(`/`)가 없으면 전체 문자열이 `run_id`이고 `category`는 비어 있는 것입니다. 그렇지 않으면 문자열의 마지막 슬래시까지는 전부 `category`이고, 그 뒤는 전부 `run_id`입니다.
 
 | `id` | category | `run_id` |
 |----|----|----|
@@ -226,21 +230,21 @@ Use the category to distinguish between multiple analyses for the same tool or c
 | my-analysis/tool1/ | my-analysis/tool1 | _no `run-id`_
 | my-analysis for tool1 | _no category_ | my-analysis for tool1
 
-- The run with an `id` of "my-analysis/tool1/2021-02-01" belongs to the category "my-analysis/tool1". Presumably, this is the run from February 2, 2021.
-- The run with an `id` of "my-analysis/tool1/" belongs to the category "my-analysis/tool1" but is not distinguished from other runs in that category.
-- The run whose `id` is "my-analysis for tool1 " has a unique identifier but cannot be inferred to belong to any category.
+- `id`가 "my-analysis/tool1/2021-02-01"인 실행은 "my-analysis/tool1"에 속합니다. 아마도 2021년 2월 2일의 실행인 것 같습니다.
+- `id`가 "my-analysis/tool1/"인 실행은 "my-analysis/tool1" 범주에 속하지만 해당 범주의 다른 실행과 구별되지 않습니다.
+- `id`가 "my-analysis for tool1"인 실행은 고유 식별자를 가지고 있지만 어떤 범주에 속하는지 유추할 수 없습니다.
 
-For more information about the `runAutomationDetails` object and the `id` field, see [runAutomationDetails object](https://docs.oasis-open.org/sarif/sarif/v2.1.0/cs01/sarif-v2.1.0-cs01.html#_Toc16012479) in the OASIS documentation.
+`runAutomationDetails` 개체 및 `id` 필드에 대한 자세한 내용은 OASIS 설명서의 [runAutomationDetails 개체](https://docs.oasis-open.org/sarif/sarif/v2.1.0/cs01/sarif-v2.1.0-cs01.html#_Toc16012479)를 참조하세요.
 
-Note that the rest of the supported fields are ignored.
+지원되는 나머지 필드는 무시됩니다.
 
-## SARIF output file examples
+## SARIF 출력 파일 예제
 
-These example SARIF output files show supported properties and example values.
+다음 예제 SARIF 출력 파일은 지원되는 속성 및 예제 값을 보여줍니다.
 
-### Example with minimum required properties
+### 최소 필수 속성이 예제
 
-This SARIF output file has example values to show the minimum required properties for {% data variables.product.prodname_code_scanning %} results to work as expected. If you remove any properties, omit values, or use an empty string, this data will not be displayed correctly or sync on {% data variables.product.prodname_dotcom %}. 
+이 SARIF 출력 파일에는 {% data variables.product.prodname_code_scanning %} 결과가 예상대로 작동하는 데 필요한 최소 필수 속성을 보여주는 예제 값이 포함되어 있습니다. 속성을 제거하거나 값을 생략하거나, 빈 문자열을 사용하면 이 데이터가 올바르게 표시되지 않거나 {% data variables.product.prodname_dotcom %}에서 동기화되지 않습니다. 
 
 ```json
 {
@@ -296,9 +300,9 @@ This SARIF output file has example values to show the minimum required propertie
 }
 ```
 
-### Example showing all supported SARIF properties
+### 지원되는 모든 SARIF 속성을 보여 주는 예제
 
-This SARIF output file has example values to show all supported SARIF properties for {% data variables.product.prodname_code_scanning %}.
+이 SARIF 출력 파일에는 {% data variables.product.prodname_code_scanning %}을 지원하는 모든 SARIF 속성을 보여주는 예제 값이 있습니다.
 
 ```json
 {

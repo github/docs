@@ -1,0 +1,20 @@
+date: '10-08-2021'
+sections:
+  bugs:
+    - 'Les hooks de pré-réception personnalisés qui utilisaient un sous-shell bash retournaient une erreur : `No such file or directory`.'
+    - "Lorsque GitHub Actions est activé sans que des sauvegardes régulières soient effectuées, le journal des transactions MSSQL pouvait croître sans limite et consommer tout l’espace disponible sur le disque de données de l’appareil, ce qui pouvait entraîner une panne."
+    - La journalisation inutile des bases de données consommait une grande quantité d’espace disque sur les instances faisant un usage intensif de LFS.
+    - Les entrées du journal d’audit pour les modifications apportées aux paramètres d’organisation « Création de référentiel » étaient inexactes.
+    - "La journalisation excessive des exceptions `ActionController::UnknownFormat` entraînait une utilisation inutile du disque."
+    - "Les valeurs de `group_dn` LDAP supérieures à 255 caractères entraînaient des erreurs dans le journal : `Data truncated for column ’group_dn’ at row 1`."
+  changes:
+    - "Les limites de taux d’abus sont maintenant appelées limites de taux secondaires, puisque le comportement qu’elles limitent n’est pas toujours abusif."
+  known_issues:
+    - "Le registre npm {% data variables.product.prodname_registry %} ne renvoie plus une valeur de temps dans les réponses de métadonnées. Cela a été fait pour permettre des améliorations substantielles des performances. Nous disposons toujours de toutes les données nécessaires pour renvoyer une valeur de temps dans le cadre de la réponse aux métadonnées et nous recommencerons à renvoyer cette valeur à l’avenir, une fois que nous aurons résolu les problèmes de performance existants."
+    - "Sur un {% data variables.product.prodname_ghe_server %} fraîchement configuré sans aucun utilisateur, un attaquant pourrait créer le premier utilisateur administrateur."
+    - Les règles de pare-feu personnalisées sont supprimées pendant le processus de mise à niveau.
+    - "Les fichiers suivis par Git LFS [chargés via l’interface web](https://github.com/blog/2105-upload-files-to-your-repositories) sont incorrectement ajoutés directement au référentiel."
+    - "Les questions ne peuvent pas être fermées si elles contiennent un permalien vers un blob dans le même référentiel, où le chemin de fichier du blob est supérieur à 255 caractères."
+    - "Lorsque l’option « Les utilisateurs peuvent effectuer des recherches sur GitHub.com » est activée avec GitHub Connect, les problèmes dans les référentiels privés et internes ne sont pas inclus dans les résultats de recherche de GitHub.com."
+    - "Si {% data variables.product.prodname_actions %} est activé pour {% data variables.product.prodname_ghe_server %}, le démontage d’un nœud de réplica avec `ghe-repl-teardown` réussit, mais peut retourner `ERROR:Running migrations`."
+    - Les limites de ressources spécifiques au traitement des hooks de pré-réception peuvent entraîner l’échec de certains hooks de pré-réception.

@@ -1,6 +1,6 @@
 ---
-title: Configuring pull request merges
-intro: 'You can configure pull request merges on {% data variables.location.product_location %} to match your workflow and preferences for managing Git history.'
+title: 配置拉取请求合并
+intro: '您可以在 {% data variables.product.product_location %} 上配置拉取请求合并，以匹配您的工作流程和用于管理 Git 历史记录的首选项。'
 redirect_from:
   - /articles/configuring-pull-request-merges
   - /github/administering-a-repository/configuring-pull-request-merges
@@ -21,5 +21,11 @@ children:
   - /managing-auto-merge-for-pull-requests-in-your-repository
   - /managing-the-automatic-deletion-of-branches
 shortTitle: Configure PR merges
+ms.openlocfilehash: 625392c72ae470fffea4f92288aa7c3124bc18ab
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147580605'
 ---
 

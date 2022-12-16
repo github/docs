@@ -1,6 +1,6 @@
 ---
 title: 리포지토리 간 연결 이해
-intro: 리포지토리의 네트워크와 포크 및 리포지토리에 의존하는 프로젝트를 확인하여 리포지토리 사이에 존재하는 연결을 더 잘 이해할 수 있습니다.
+intro: 네트워크 그래프 및 포크 목록을 사용하여 포크 네트워크를 이해합니다.
 product: '{% data reusables.gated-features.repository-insights %}'
 redirect_from:
   - /articles/viewing-a-repository-s-network
@@ -22,16 +22,17 @@ versions:
 topics:
   - Repositories
 shortTitle: Connections between repositories
-ms.openlocfilehash: f1b92a62d0acf9f31a16ce1b7c57850b87c1bf9c
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
+ms.openlocfilehash: 46cc440093c3ca8dc0952933847a6f04b0446661
+ms.sourcegitcommit: 468a0323fa636517985a3e08e2772dbb0545cab8
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147060068'
+ms.lasthandoff: 12/03/2022
+ms.locfileid: '148191365'
 ---
 ## 리포지토리의 네트워크 보기
 
-네트워크 그래프는 루트 리포지토리의 분기 및 네트워크에 고유한 커밋이 포함된 포크 분기를 포함하여 전체 리포지토리 네트워크의 분기 기록을 보여 줍니다.
+네트워크 그래프는 포크 분기를 포함하여 전체 리포지토리 네트워크의 분기 기록을 표시합니다. 이 그래프는 가장 최근 커밋의 타임라인이며 가장 최근에 푸시된 분기 중 최대 100개까지 표시됩니다. 첫 번째 행은 날짜를 참조하고 첫 번째 열은 분기 소유자를 참조합니다. 화살표 키 또는 기타 바로 가기 키를 사용하여 그래프를 보다 쉽게 탐색할 수 있습니다. 그래프 아래의 "사용 가능한 바로 가기 키" 팝업에 제공됩니다.
+
 
 ![리포지토리 네트워크 그래프](/assets/images/help/graphs/repo_network_graph.png)
 
@@ -51,7 +52,7 @@ ms.locfileid: '147060068'
 
 멤버 그래프는 리포지토리의 모든 포크를 표시합니다.
 
-포크는 리포지토리를 포크한 사용자의 사용자 이름 순서로 나열됩니다. 사용자 이름을 클릭하여 사용자의 {% data variables.product.product_name %} 프로필 페이지로 리디렉션하거나 포크 이름을 클릭하여 리포지토리의 특정 포크로 리디렉션할 수 있습니다.
+포크는 리포지토리를 포크한 사용자의 조직 또는 사용자 이름으로 사전순으로 나열됩니다. 조직 또는 사용자 이름을 클릭하여 조직 또는 사용자의 {% data variables.product.product_name %} 프로필 페이지로 리디렉션하거나 포크 이름을 클릭하여 리포지토리의 특정 포크로 리디렉션할 수 있습니다.
 
 {% ifversion fpt or ghec %}
 

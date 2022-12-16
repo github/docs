@@ -1,6 +1,6 @@
 ---
-title: Viewing a file
-intro: You can view raw file content or trace changes to lines in a file and discover how parts of the file evolved over time.
+title: Anzeigen einer Datei
+intro: 'Du kannst Rohdatendateiinhalte anzeigen oder die Änderungen an den einzelnen Zeilen einer Datei verfolgen und so feststellen, wie sich die Datei im Lauf der Zeit entwickelt hat.'
 redirect_from:
   - /articles/using-git-blame-to-trace-changes-in-a-file
   - /articles/tracing-changes-in-a-file
@@ -16,48 +16,54 @@ versions:
 topics:
   - Repositories
 shortTitle: View files and track file changes
+ms.openlocfilehash: 7d34e776cb1747ee749531e49abf6f0e3d052b3b
+ms.sourcegitcommit: 82b1242de02ecc4bdec02a5b6d11568fb2deb1aa
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 11/21/2022
+ms.locfileid: '148179861'
 ---
-## Viewing or copying the raw file content
+## Anzeigen oder Kopieren des Rohdateiinhalts
 
-With the raw view, you can view or copy the raw content of a file without any styling.
+Mit der unformatierten Ansicht kannst du den rohen Inhalt einer Datei ohne Formatierung anzeigen oder kopieren.
 
 {% data reusables.repositories.navigate-to-repo %}
-1. Click the file that you want to view.
-2. In the upper-right corner of the file view, click **Raw**.
-![Screenshot of the Raw button in the file header](/assets/images/help/repository/raw-file-button.png)
-3. Optionally, to copy the raw file content, in the upper-right corner of the file view, click **{% octicon "copy" aria-label="The copy icon" %}**.
+1. Klicke auf die Datei, die du anzeigen möchtest.
+2. Klicke in der oberen rechten Ecke der Dateiansicht auf **Rohformat**.
+![Screenshot der Schaltfläche „Rohformat“ im Dateiheader](/assets/images/help/repository/raw-file-button.png)
+3. Wenn du optional den Rohdateiinhalt kopieren möchtest, klicke in der oberen rechten Ecke der Dateiansicht auf **{% octicon "copy" aria-label="The copy icon" %}**.
 
-## Viewing the line-by-line revision history for a file
+## Anzeigen des zeilenweisen Revisionsverlaufs für eine Datei
 
-With the blame view, you can view the line-by-line revision history for an entire file, or view the revision history of a single line within a file by clicking {% octicon "versions" aria-label="The prior blame icon" %}. Each time you click {% octicon "versions" aria-label="The prior blame icon" %}, you'll see the previous revision information for that line, including who committed the change and when.
+In der Blame-Ansicht kannst du den Revisionsverlauf einer vollständigen Datei Zeile für Zeile sehen oder durch klicken auf {% octicon "versions" aria-label="The prior blame icon" %} auch nur den Revisionsverlauf einer einzelnen Zeile anzeigen. Mit jedem Klick auf {% octicon "versions" aria-label="The prior blame icon" %} siehst du die vorangegangene Revisionsinformation zur betreffenden Zeile, einschließlich des Committers und des Commit-Zeitpunkts der Änderung.
 
-![Git blame view](/assets/images/help/repository/git_blame.png)
+![Git Blame-Ansicht](/assets/images/help/repository/git_blame.png)
 
-In a file or pull request, you can also use the {% octicon "kebab-horizontal" aria-label="The horizontal kebab octicon" %} menu to view Git blame for a selected line or range of lines.
+In einer Datei oder einem Pull Request kannst du auch das {% octicon "kebab-horizontal" aria-label="The horizontal kebab octicon" %}-Menü verwenden, um Git Blame für eine ausgewählte Zeile oder einen ausgewählten Zeilenbereich anzuzeigen.
 
-![Kebab menu with option to view Git blame for a selected line](/assets/images/help/repository/view-git-blame-specific-line.png)
+![Kebab-Menü mit Option zum Anzeigen von Git Blame für eine ausgewählte Zeile](/assets/images/help/repository/view-git-blame-specific-line.png)
 
 {% tip %}
 
-**Tip:** On the command line, you can also use `git blame` to view the revision history of lines within a file. For more information, see [Git's `git blame` documentation](https://git-scm.com/docs/git-blame).
+**Tipp:** In der Befehlszeile kannst du auch `git blame` verwenden, um den Revisionsverlauf von Zeilen innerhalb einer Datei anzuzeigen. Weitere Informationen findest du in der [`git blame`-Dokumentation von Git](https://git-scm.com/docs/git-blame).
 
 {% endtip %}
 
 {% data reusables.repositories.navigate-to-repo %}
-2. Click to open the file whose line history you want to view.
-3. In the upper-right corner of the file view, click **Blame** to open the blame view.
-![Blame button](/assets/images/help/repository/blame-button.png)
-4. To see earlier revisions of a specific line, or reblame, click {% octicon "versions" aria-label="The prior blame icon" %} until you've found the changes you're interested in viewing.
-![Prior blame button](/assets/images/help/repository/prior-blame-button.png)
+2. Zum Öffnen klicke auf die Datei, deren Zeilenverlauf du anzeigen möchtest.
+3. Klicke in der oberen rechten Ecke der Dateiansicht auf **Blame**, um die Blame-Ansicht zu öffnen.
+![Schaltfläche „Blame“](/assets/images/help/repository/blame-button.png)
+4. Wenn du frühere Überarbeitungen einer bestimmten Zeile oder erneut die Blame-Ansicht anzeigen möchtest, klicke auf {% octicon "versions" aria-label="The prior blame icon" %}, bis du die gewünschten Änderungen gefunden hast.
+![Schaltfläche „Vorheriges Blame“](/assets/images/help/repository/prior-blame-button.png)
 
 {% ifversion blame-ignore-revs %}
 
-## Ignore commits in the blame view
+## Ignorieren von Commits in der Blame-Ansicht
 
-All revisions specified in the `.git-blame-ignore-revs` file, which must be in the root directory of your repository, are hidden from the blame view using Git's `git blame --ignore-revs-file` configuration setting. For more information, see [`git blame --ignore-revs-file`](https://git-scm.com/docs/git-blame#Documentation/git-blame.txt---ignore-revs-fileltfilegt) in the Git documentation.
+Alle Überarbeitungen, die in der `.git-blame-ignore-revs`-Datei angegeben sind, die sich im Stammverzeichnis deines Repositorys befinden muss, sind in der Blame-Ansicht mithilfe der Git-Konfigurationseinstellung `git blame --ignore-revs-file` ausgeblendet. Weitere Informationen findest du in der Git-Dokumentation unter [`git blame --ignore-revs-file`](https://git-scm.com/docs/git-blame#Documentation/git-blame.txt---ignore-revs-fileltfilegt).
 
-1. In the root directory of your repository, create a file named `.git-blame-ignore-revs`.
-2. Add the commit hashes you want to exclude from the blame view to that file. We recommend the file to be structured as follows, including comments:
+1. Erstelle im Stammverzeichnis deines Repositorys eine Datei mit dem Namen `.git-blame-ignore-revs`.
+2. Füge die Commithashes hinzu, die du aus der Blame-Ansicht dieser Datei ausschließen möchtest. Es wird empfohlen, die Datei wie folgt zu strukturieren, einschließlich der Kommentare:
 
     ```ini
     # .git-blame-ignore-revs
@@ -67,19 +73,19 @@ All revisions specified in the `.git-blame-ignore-revs` file, which must be in t
     69d029cec8337c616552756310748c4a507bd75a
     ```
 
-3. Commit and push the changes.
+3. Committe und pushe die Änderungen.
 
-Now when you visit the blame view, the listed revisions will not be included in the blame. You'll see an **Ignoring revisions in .git-blame-ignore-revs** banner indicating that some commits may be hidden:
+Wenn du nun die Blame-Ansicht öffnest, werden die aufgelisteten Überarbeitungen darin nicht angezeigt. Es wird ein Banner **Überarbeitungen in .git-blame-ignore-revs werden ignoriert** angezeigt, das darauf hinweist, dass einige Commits möglicherweise ausgeblendet sind:
 
-![Screenshot of a banner on the blame view linking to the .git-blame-ignore-revs file](/assets/images/help/repository/blame-ignore-revs-file.png)
+![Screenshot eines Banners in der Blame-Ansicht, die mit der .git-blame-ignore-revs-Datei verknüpft ist](/assets/images/help/repository/blame-ignore-revs-file.png)
 
-This can be useful when a few commits make extensive changes to your code. You can use the file when running `git blame` locally as well:
+Dies kann hilfreich sein, wenn einige Commits umfangreiche Änderungen an deinem Code vornehmen. Du kannst die Datei auch bei der lokalen Ausführung von `git blame` verwenden:
 
 ```shell
 git blame --ignore-revs-file .git-blame-ignore-revs
 ```
 
-You can also configure your local git so it always ignores the revs in that file:
+Du kannst Git auch lokal so konfigurieren, dass Überarbeitungen in dieser Datei immer ignoriert werden:
 
 ```shell
 git config blame.ignoreRevsFile .git-blame-ignore-revs
@@ -87,6 +93,6 @@ git config blame.ignoreRevsFile .git-blame-ignore-revs
 
 {% endif %}
 
-## Bypassing `.git-blame-ignore-revs` in the blame view
+## Umgehen von `.git-blame-ignore-revs` in der Blame-Ansicht
 
-If the blame view for a file shows **Ignoring revisions in .git-blame-ignore-revs**, you can still bypass `.git-blame-ignore-revs` and see the normal blame view. In the URL, append a `~` to the SHA and the **Ignoring revisions in .git-blame-ignore-revs** will disappear.
+Wenn in der Blame-Ansicht für eine Datei **Überarbeitungen in .git-blame-ignore-revs werden ignoriert** angezeigt wird, kannst du `.git-blame-ignore-revs` umgehen und dennoch die normale Blame-Ansicht anzeigen. Füge in der URL `~` an den SHA an, und **Überarbeitungen in .git-blame-ignore-revs werden ignoriert** wird nicht mehr angezeigt.

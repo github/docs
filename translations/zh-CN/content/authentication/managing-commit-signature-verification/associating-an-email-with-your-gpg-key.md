@@ -1,6 +1,6 @@
 ---
-title: Associating an email with your GPG key
-intro: 'Your GPG key must be associated with a {% data variables.product.product_name %} verified email that matches your committer identity.'
+title: 将电子邮件与 GPG 密钥关联
+intro: 'GPG 密钥必须 {% data variables.product.product_name %} 验证过与提交者身份匹配的电子邮件地址匹配。'
 redirect_from:
   - /articles/associating-an-email-with-your-gpg-key
   - /github/authenticating-to-github/associating-an-email-with-your-gpg-key
@@ -14,49 +14,53 @@ topics:
   - Identity
   - Access management
 shortTitle: Associate email with GPG key
+ms.openlocfilehash: d36c053e1df0c329fb8d4607b1338c49414e76de
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147369279'
 ---
 {% note %}
 
-If you're using a GPG key that matches your committer identity and your verified email address associated with your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}, then you can begin signing commits and signing tags.
+如果您使用与您的提交者身份以及 {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}上帐户关联的已验证电子邮件地址相匹配的 GPG 密钥，则可以开始对提交和标签进行签名。
 
 {% endnote %}
 
-{% data reusables.command_line.open_the_multi_os_terminal %}
-{% data reusables.gpg.list-keys-with-note %}
-{% data reusables.gpg.copy-gpg-key-id %}
-4. Enter `gpg --edit-key GPG key ID`, substituting in the GPG key ID you'd like to use. In the following example, the GPG key ID is `3AA5C34371567BD2`:
+{% data reusables.command_line.open_the_multi_os_terminal %} {% data reusables.gpg.list-keys-with-note %} {% data reusables.gpg.copy-gpg-key-id %}
+4. 输入 `gpg --edit-key GPG key ID`，替换为你想要使用的 GPG 密钥 ID。 在以下示例中，GPG 密钥 ID 为 `3AA5C34371567BD2`：
   ```shell
-  $ gpg --edit-key 3AA5C34371567BD2
+  $ gpg --edit-key <em>3AA5C34371567BD2</em>
   ```
-5. Enter `gpg> adduid` to add the user ID details.
+5. 输入 `gpg> adduid` 以添加用户 ID 详细信息。
   ```shell
   $ gpg> adduid
   ```
-6. Follow the prompts to supply your real name, email address, and any comments. You can modify your entries by choosing `N`, `C`, or `E`. {% data reusables.gpg.private-email %} {% ifversion fpt or ghec %} For more information, see "[Setting your commit email address](/articles/setting-your-commit-email-address)."{% endif %}
+6. 按照提示提供您的真实姓名、电子邮件地址和任何注释。 可以通过选择 `N`、`C` 或 `E` 来修改条目。 {% data reusables.gpg.private-email %} {% ifversion fpt or ghec %} 有关详细信息，请参阅“[设置提交电子邮件地址](/articles/setting-your-commit-email-address)”。{% endif %}
   ```shell
-  Real Name: OCTOCAT
-  Email address: "octocat@github.com"
-  Comment: GITHUB-KEY
+  Real Name: <em>Octocat</em>
+  Email address: <em>octocat@github.com</em>
+  Comment: <em>GitHub key</em>
   Change (N)ame, (C)omment, (E)mail or (O)kay/(Q)uit?
   ```
-7. Enter `O` to confirm your selections.
-8. Enter your key's passphrase.
-9. Enter `gpg> save` to save the changes
+7. 输入 `O` 以确认你的选择。
+8. 输入密钥的密码。
+9. 输入 `gpg> save` 以保存更改
   ```shell
   $ gpg> save
   ```
-10. Enter `gpg --armor --export GPG key ID`, substituting in the GPG key ID you'd like to use. In the following example, the GPG key ID is `3AA5C34371567BD2`:
+10. 输入 `gpg --armor --export GPG key ID`，替换为你想要使用的 GPG 密钥 ID。 在以下示例中，GPG 密钥 ID 为 `3AA5C34371567BD2`：
   ```shell
-  $ gpg --armor --export 3AA5C34371567BD2
+  $ gpg --armor --export <em>3AA5C34371567BD2</em>
   # Prints the GPG key, in ASCII armor format
   ```
-11. Upload the GPG key by [adding it to your GitHub account](/articles/adding-a-gpg-key-to-your-github-account).
+11. 通过[将 GPG 密钥添加到 GitHub 帐户](/articles/adding-a-gpg-key-to-your-github-account)来上传 GPG 密钥。
 
-## Further reading
+## 延伸阅读
 
-- "[Checking for existing GPG keys](/articles/checking-for-existing-gpg-keys)"
-- "[Generating a new GPG key](/articles/generating-a-new-gpg-key)"
-- "[Using a verified email address in your GPG key](/articles/using-a-verified-email-address-in-your-gpg-key)"
-- "[Adding a GPG key to your GitHub account](/articles/adding-a-gpg-key-to-your-github-account)"
-- "[Signing commits](/articles/signing-commits)"
-- "[Signing tags](/articles/signing-tags)"
+- [检查现有 GPG 密钥](/articles/checking-for-existing-gpg-keys)
+- [生成新 GPG 密钥](/articles/generating-a-new-gpg-key)
+- [在 GPG 密钥中使用经验证的电子邮件地址](/articles/using-a-verified-email-address-in-your-gpg-key)
+- [将 GPG 密钥添加到 GitHub 帐户](/articles/adding-a-gpg-key-to-your-github-account)
+- [对提交签名](/articles/signing-commits)
+- [对标记签名](/articles/signing-tags)

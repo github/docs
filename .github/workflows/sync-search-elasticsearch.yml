@@ -35,6 +35,18 @@ env:
   FREEZE: ${{ secrets.FREEZE }}
   ELASTICSEARCH_URL: ${{ secrets.ELASTICSEARCH_URL }}
 
+  # This might seem a bit strange, but it's clever. Since this action
+  # uses a matrix to deal with one language at a time, we can use this
+  # to pretend it's always the same directory.
+  TRANSLATIONS_ROOT_ES_ES: translation
+  TRANSLATIONS_ROOT_ZH_CN: translation
+  TRANSLATIONS_ROOT_JA_JP: translation
+  TRANSLATIONS_ROOT_PT_BR: translation
+  TRANSLATIONS_ROOT_FR_FR: translation
+  TRANSLATIONS_ROOT_RU_RU: translation
+  TRANSLATIONS_ROOT_KO_KR: translation
+  TRANSLATIONS_ROOT_DE_DE: translation
+
 jobs:
   figureOutMatrix:
     runs-on: ubuntu-latest
@@ -47,7 +59,7 @@ jobs:
           script: |
             // Edit this list for the definitive list of languages
             // (other than English) we want to index in Elasticsearch.
-            const allNonEnglish = ["ja", "es", "pt", "cn", "ru", "fr", "ko", "de"]
+            const allNonEnglish = ["ja", "es", "pt", "zh", "ru", "fr", "ko", "de"]
             const allPossible = ["en", ...allNonEnglish]
 
             if (context.eventName === "workflow_run") {
@@ -96,10 +108,18 @@ jobs:
           exit 1 # prevents further steps from running
 
       - name: Check out repo
-        uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
+
+      - name: Checkout the non-English repo
+        if: ${{ matrix.language != 'en' }}
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
+        with:
+          repository: github/docs-internal.${{ fromJSON('{"zh":"zh-cn","es":"es-es","ru":"ru-ru","ja":"ja-jp","pt":"pt-br","de":"de-de","fr":"fr-fr","ko":"ko-kr"}')[matrix.language] }}
+          token: ${{ secrets.DOCUBOT_READORG_REPO_WORKFLOW_SCOPES }}
+          path: translation
 
       - name: Setup Node
-        uses: actions/setup-node@17f8bd926464a1afa4c6a11669539e9c1ba77048
+        uses: actions/setup-node@8c91899e586c5b171469028077307d293428b516
         with:
           node-version: '16.17.0'
           cache: npm
@@ -108,7 +128,7 @@ jobs:
         run: npm ci
 
       - name: Cache nextjs build
-        uses: actions/cache@48af2dc4a9e8278b89d7fa154b955c30c6aaab09
+        uses: actions/cache@9b0c1fce7a93df8e3bb8926b0d6e9d89e92f20a7
         with:
           path: .next/cache
           key: ${{ runner.os }}-nextjs-${{ hashFiles('package*.json') }}

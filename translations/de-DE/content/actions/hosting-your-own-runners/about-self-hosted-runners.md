@@ -1,6 +1,6 @@
 ---
-title: About self-hosted runners
-intro: 'You can host your own runners and customize the environment used to run jobs in your {% data variables.product.prodname_actions %} workflows.'
+title: Informationen zu selbstgehosteten Runnern
+intro: 'Du kannst deine eigenen Runner hosten und die Umgebung anpassen, die für die Ausführung von Aufträgen in deinen {% data variables.product.prodname_actions %}-Workflows verwendet wird.'
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/about-self-hosted-runners
   - /actions/automating-your-workflow-with-github-actions/about-self-hosted-runners
@@ -10,177 +10,174 @@ versions:
   ghae: '*'
   ghec: '*'
 type: overview
+ms.openlocfilehash: b570dbe3a5df607f0b02e0c7a42a6a7cfb860c80
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148107565'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+## Informationen zu selbstgehosteten Runnern
 
-## About self-hosted runners
-
-A self-hosted runner is a system that you deploy and manage to execute jobs from {% data variables.product.prodname_actions %} on {% ifversion ghae or ghec %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}. For more information about {% data variables.product.prodname_actions %}, see "[Understanding {% data variables.product.prodname_actions %}](/actions/learn-github-actions/understanding-github-actions){% ifversion fpt %}."{% elsif ghec or ghes or ghae %}" and "[About {% data variables.product.prodname_actions %} for enterprises](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises)."{% endif %}
+Ein selbstgehosteter Runner ist ein System, das du bereitstellst und verwaltest, um Aufträge von {% data variables.product.prodname_actions %} auf {% ifversion ghae or ghec %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %} auszuführen. Weitere Informationen zu {% data variables.product.prodname_actions %} findest du unter [Grundlegendes zu {% data variables.product.prodname_actions %}](/actions/learn-github-actions/understanding-github-actions){% ifversion fpt %}.{% elsif ghec or ghes or ghae %} und [Informationen zu {% data variables.product.prodname_actions %} für Unternehmen](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises).{% endif %}
 
 {% data reusables.actions.self-hosted-runner-description %} {% data reusables.actions.self-hosted-runner-locations %}
 
-You can add self-hosted runners at various levels in the management hierarchy:
-- Repository-level runners are dedicated to a single repository.
-- Organization-level runners can process jobs for multiple repositories in an organization.
-- Enterprise-level runners can be assigned to multiple organizations in an enterprise account.
+Du kannst selbstgehostete Runner auf verschiedenen Ebenen der Verwaltungshierarchie hinzufügen:
+- Runner auf Repositoryebene sind für ein einzelnes Repository vorgesehen.
+- Runner auf Organisationsebene können Aufträge für mehrere Repositorys in einer Organisation verarbeiten.
+- Runner auf Unternehmensebene können mehreren Organisationen innerhalb eines Unternehmenskontos zugewiesen werden.
 
-{% data reusables.actions.self-hosted-runner-architecture %} {% data reusables.actions.runner-app-open-source %} When a new version is released, the runner application automatically updates itself when a job is assigned to the runner, or within a week of release if the runner hasn't been assigned any jobs.
+{% data reusables.actions.self-hosted-runner-architecture %} {% data reusables.actions.runner-app-open-source %} Wenn eine neue Version veröffentlicht wird, aktualisiert sich die Runneranwendung automatisch bei Zuweisung eines Auftrags zum Runner oder innerhalb einer Woche nach der Veröffentlichung, wenn dem Runner keine Aufträge zugewiesen wurden.
 
-{% ifversion ghes %} 
-{% note %}
+{% ifversion ghes %} {% note %}
 
-**Note:** {% data reusables.actions.upgrade-runners-before-upgrade-ghes %}
+**Hinweis:** {% data reusables.actions.upgrade-runners-before-upgrade-ghes %}
 
-{% endnote %}
-{% endif %}
+{% endnote %} {% endif %}
 
 {% data reusables.actions.self-hosted-runner-auto-removal %}
 
-For more information about installing and using self-hosted runners, see "[Adding self-hosted runners](/github/automating-your-workflow-with-github-actions/adding-self-hosted-runners)" and "[Using self-hosted runners in a workflow](/github/automating-your-workflow-with-github-actions/using-self-hosted-runners-in-a-workflow)."
+Weitere Informationen zum Installieren und Verwenden von selbstgehosteten Runnern findest du unter [Hinzufügen von selbstgehosteten Runnern](/github/automating-your-workflow-with-github-actions/adding-self-hosted-runners) und [Verwenden von selbstgehosteten Runnern in einem Workflow](/github/automating-your-workflow-with-github-actions/using-self-hosted-runners-in-a-workflow).
 
-## {% ifversion fpt or ghec or ghes %}Differences between {% data variables.product.prodname_dotcom %}-hosted and {% elsif ghae %}Characteristics of {% endif %}self-hosted runners
+## {% ifversion fpt or ghec or ghes %}Unterschiede zwischen von {% data variables.product.prodname_dotcom %} gehosteten und {% elsif ghae %}Merkmale von {% endif %}selbstgehosteten Runnern
 
-{% ifversion fpt or ghec or ghes %}
-{% data variables.product.prodname_dotcom %}-hosted runners offer a quicker, simpler way to run your workflows, while self-hosted{% elsif ghae %}Self-hosted{% endif %} runners are a highly configurable way to run workflows in your own custom environment. {% ifversion ghae %}Self-hosted runners:{% endif %}
+{% ifversion fpt or ghec or ghes %} Mit Runnern, die mithilfe von {% data variables.product.prodname_dotcom %} gehostet werden, können deine Workflows schneller und einfacher ausgeführt werden, während selbstgehostete Runner eine hochgradig konfigurierbare Ausführung von Workflows in deiner eigenen benutzerdefinierten Umgebung ermöglichen{% elsif ghae %}Selbstgehostete Runner bieten eine hochgradig konfigurierbare Möglichkeit zum Ausführen von Workflows in deiner eigenen benutzerdefinierten Umgebung{% endif %}. {% ifversion ghae %}Selbstgehostete Runner:{% endif %}
 
-{% ifversion fpt or ghec or ghes %}
-**{% data variables.product.prodname_dotcom %}-hosted runners:**
-- Receive automatic updates for the operating system, preinstalled packages and tools, and the self-hosted runner application.
-- Are managed and maintained by {% data variables.product.prodname_dotcom %}.
-- Provide a clean instance for every job execution.
-- Use free minutes on your {% data variables.product.prodname_dotcom %} plan, with per-minute rates applied after surpassing the free minutes.
+{% ifversion fpt or ghec or ghes %} **Von {% data variables.product.prodname_dotcom %} gehostete Runner:**
+- Erhalten automatischer Updates für das Betriebssystem, vorinstallierte Pakete und Tools und die selbstgehostete Runneranwendung.
+- Werden von {% data variables.product.prodname_dotcom %} verwaltet und gepflegt.
+- Bereitstellen einer sauberen Instanz für jede Auftragsausführung.
+- Verwende freie Minuten von deinem {% data variables.product.prodname_dotcom %}-Plan. Nach Überschreiten der Freiminuten gelten Minutentarife.
 
-**Self-hosted runners:**{% endif %}
-- Receive automatic updates for the self-hosted runner application only{% ifversion fpt or ghec or ghes > 3.4 or ghae %}, though you may disable automatic updates of the runner. For more information about controlling runner software updates on self-hosted runners, see "[Autoscaling with self-hosted runners](/actions/hosting-your-own-runners/autoscaling-with-self-hosted-runners#controlling-runner-software-updates-on-self-hosted-runners)."{% else %}.{% endif %} You are responsible for updating the operating system and all other software.
-- Can use cloud services or local machines that you already pay for.
-- Are customizable to your hardware, operating system, software, and security requirements.
-- Don't need to have a clean instance for every job execution.
-- Are free to use with {% data variables.product.prodname_actions %}, but you are responsible for the cost of maintaining your runner machines.{% ifversion ghec or ghes or ghae %}
-- Can be organized into groups to restrict access to specific {% ifversion restrict-groups-to-workflows %}workflows, {% endif %}organizations and repositories. For more information, see "[Managing access to self-hosted runners using groups](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups)."{% endif %}
+**Selbstgehostete Runner:**{% endif %}
+- Empfange automatische Updates nur für die selbstgehostete Runneranwendung{% ifversion fpt or ghec or ghes > 3.4 or ghae %}, obwohl du automatische Aktualisierungen des Runners möglicherweise deaktiviert hast. Weitere Informationen zum Steuern von Softwareupdates für selbstgehostete Runner findest du unter [Automatische Skalierung mit selbstgehosteten Runnern](/actions/hosting-your-own-runners/autoscaling-with-self-hosted-runners#controlling-runner-software-updates-on-self-hosted-runners).{% else %}.{% endif %} Du bist dafür verantwortlich, das Betriebssystem sowie alle weiteren Softwarekomponenten zu aktualisieren.
+- Kann Clouddienste oder lokale Computer verwenden, für die du bereits bezahlst.
+- Können an deine Hardware, das Betriebssystem, Software und Sicherheitsanforderungen angepasst werden.
+- Benötigen keine saubere Instanz für jede Auftragsausführung.
+- Sind in {% data variables.product.prodname_actions %} kostenlos. Du bist jedoch für die Kosten der Wartung deiner Runnercomputer verantwortlich.{% ifversion ghec or ghes or ghae %}
+- Können in Gruppen organisiert werden, um den Zugriff auf bestimmte {% ifversion restrict-groups-to-workflows %}-Workflows, {% endif %}Organisationen und Repositorys zu beschränken. Weitere Informationen findest du unter [Verwalten des Zugriffs auf selbstgehostete Runner mithilfe von Gruppen](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups).{% endif %}
 
-## Requirements for self-hosted runner machines
+## Anforderungen für selbst-gehostete Runner-Maschinen
 
-You can use any machine as a self-hosted runner as long at it meets these requirements:
+Du kannst jeden Computer als selbstgehosteten Runner verwenden, solange er die folgenden Anforderungen erfüllt:
 
-* You can install and run the self-hosted runner application on the machine. For more information, see "[Supported architectures and operating systems for self-hosted runners](#supported-architectures-and-operating-systems-for-self-hosted-runners)."
-* The machine can communicate with {% data variables.product.prodname_actions %}. For more information, see "[Communication between self-hosted runners and {% data variables.product.product_name %}](#communication-requirements)."
-* The machine has enough hardware resources for the type of workflows you plan to run. The self-hosted runner application itself only requires minimal resources.
-* If you want to run workflows that use Docker container actions or service containers, you must use a Linux machine and Docker must be installed.
+* Du kannst die Anwendung für selbst-gehostete Runner auf dem Rechner installieren und ausführen. Weitere Informationen findest du unter [Unterstützte Architekturen und Betriebssysteme für selbstgehostete Runner](#supported-architectures-and-operating-systems-for-self-hosted-runners).
+* Die Maschine kann mit {% data variables.product.prodname_actions %} kommunizieren. Weitere Informationen findest du unter [Kommunikation zwischen selbstgehosteten Runnern und {% data variables.product.product_name %}](#communication-requirements).
+* Der Rechner verfügt über genügend Hardwareressourcen für den Typ der Workflows, den du ausführen möchtest. Die Anwendung für selbst-gehostete Runner selbst erfordert nur minimale Ressourcen.
+* Wenn du Workflows ausführen willst, die Docker-Container-Aktionen oder Service-Container verwenden, brauchst du eine Linux-Maschine und Docker muss installiert sein.
 
-## Autoscaling your self-hosted runners
+## Automatische Skalierung deiner selbstgehosteten Runner
 
-You can automatically increase or decrease the number of self-hosted runners in your environment in response to the webhook events you receive. For more information, see "[Autoscaling with self-hosted runners](/actions/hosting-your-own-runners/autoscaling-with-self-hosted-runners)."
+Du kannst die Anzahl selbstgehosteter Runner in deiner Umgebung als Reaktion auf Webhookereignisse, die du erhältst, automatisch erhöhen oder verringern. Weitere Informationen findest du unter [Automatische Skalierung mit selbstgehosteten Runnern](/actions/hosting-your-own-runners/autoscaling-with-self-hosted-runners).
 
-## Usage limits
+## Usage limits (Nutzungseinschränkungen)
 
-There are some limits on {% data variables.product.prodname_actions %} usage when using self-hosted runners. These limits are subject to change.
+Die Verwendung von {% data variables.product.prodname_actions %} mit selbstgehosteten Runnern unterliegt gewissen Beschränkungen. Die Einschränkungen können sich jederzeit ändern.
 
 {% data reusables.actions.usage-workflow-run-time %}
-- **Job queue time** - Each job for self-hosted runners can be queued for a maximum of 24 hours. If a self-hosted runner does not start executing the job within this limit, the job is terminated and fails to complete.
+- **Zeit in der Auftragswarteschlange:** Jeder Auftrag für selbstgehostete Runner kann maximal 24 Stunden lang in die Warteschlange gestellt werden. Wenn ein selbst-gehosteter Läufer die Ausführung des Auftrags nicht innerhalb dieses Limits startet, wird der Auftrag beendet und kann nicht abgeschlossen werden.
 {% data reusables.actions.usage-api-requests %}
-- **Job matrix** - {% data reusables.actions.usage-matrix-limits %}
-{% data reusables.actions.usage-workflow-queue-limits %}
+- **Auftragsmatrix:** {% data reusables.actions.usage-matrix-limits %} {% data reusables.actions.usage-workflow-queue-limits %}
 
-## Workflow continuity for self-hosted runners
+## Workflowkontinuität für selbstgehostete Runner
 
 {% data reusables.actions.runner-workflow-continuity %}
 
-## Supported architectures and operating systems for self-hosted runners
+## Unterstützte Architekturen und Betriebssysteme für selbstgehostete Runner
 
-The following operating systems are supported for the self-hosted runner application.
+Die folgenden Betriebssysteme werden für die selbstgehostete Runneranwendung unterstützt:
 
 ### Linux
 
-- Red Hat Enterprise Linux 7 or later
-- CentOS 7 or later
+- Red Hat Enterprise Linux 7 oder höher
+- CentOS 7 oder höher
 - Oracle Linux 7
-- Fedora 29 or later
-- Debian 9 or later
-- Ubuntu 16.04 or later
-- Linux Mint 18 or later
-- openSUSE 15 or later
-- SUSE Enterprise Linux (SLES) 12 SP2 or later
+- Fedora 29 oder höher
+- Debian 9 oder höher
+- Ubuntu 16.04 oder höher
+- Linux Mint 18 oder höher
+- openSUSE 15 oder höher
+- SUSE Enterprise Linux (SLES) 12 SP2 oder höher
 
 ### Windows
 
 - Windows 7 64-bit
-- Windows 8.1 64-bit
-- Windows 10 64-bit
+- Windows 8.1 64-Bit
+- Windows 10 64-Bit
 - Windows Server 2012 R2 64-bit
 - Windows Server 2019 64-bit
 
 ### macOS
 
-- macOS 10.13 (High Sierra) or later
+- macOS 10.13 (High Sierra) oder höher
 
-### Architectures
+### Architekturen
 
-The following processor architectures are supported for the self-hosted runner application.
+Die folgenden Prozessorarchitekturen werden für die selbstgehostete Runneranwendung unterstützt:
 
-- `x64` - Linux, macOS, Windows.
-- `ARM64` - Linux{% ifversion actions-macos-arm %}, macOS{% endif %}{% ifversion actions-windows-arm %}, Windows (currently in beta){% endif %}.
-- `ARM32` - Linux.
+- `x64`: Linux, macOS, Windows
+- `ARM64`: Linux{% ifversion actions-macos-arm %}, macOS{% endif %}{% ifversion actions-windows-arm %}, Windows (derzeit in der Betaphase){% endif %}.
+- `ARM32`: Linux.
 
 {% ifversion ghes %}
 
-## Supported actions on self-hosted runners
+## Unterstützte Aktionen auf selbstgehosteten Runnern
 
-Some extra configuration might be required to use actions from {% data variables.product.prodname_dotcom_the_website %} with {% data variables.product.prodname_ghe_server %}, or to use the `actions/setup-LANGUAGE` actions with self-hosted runners that do not have internet access. For more information, see "[Managing access to actions from {% data variables.product.prodname_dotcom_the_website %}](/enterprise/admin/github-actions/managing-access-to-actions-from-githubcom)" and contact your {% data variables.product.prodname_enterprise %} site administrator.
+Möglicherweise ist zusätzliche Konfiguration erforderlich, um Aktionen von {% data variables.product.prodname_dotcom_the_website %} mit {% data variables.product.prodname_ghe_server %} oder die `actions/setup-LANGUAGE`-Aktionen mit selbstgehosteten Runnern zu verwenden, die keinen Internetzugang haben. Weitere Informationen findest du unter [Verwalten des Zugriffs auf Aktionen aus {% data variables.product.prodname_dotcom_the_website %}](/enterprise/admin/github-actions/managing-access-to-actions-from-githubcom). Zudem kannst du deine*n {% data variables.product.prodname_enterprise %}-Websiteadministrator*in kontaktieren.
 
 {% endif %}
 
 <a name="communication-requirements"></a>
 
-## Communication between self-hosted runners and {% data variables.product.product_name %}
+## Kommunikation zwischen selbst-gehosteten Runnern und {% data variables.product.product_name %}
 
-The self-hosted runner connects to {% data variables.product.product_name %} to receive job assignments and to download new versions of the runner application. The self-hosted runner uses an {% ifversion ghes %}HTTP(S){% else %}HTTPS{% endif %} _long poll_ that opens a connection to {% data variables.product.product_name %} for 50 seconds, and if no response is received, it then times out and creates a new long poll. The application must be running on the machine to accept and run {% data variables.product.prodname_actions %} jobs.
+Der selbstgehostete Runner stellt eine Verbindung mit {% data variables.product.product_name %} her, um Auftragszuweisungen zu erhalten und neue Versionen der Runneranwendung herunterzuladen. Der selbstgehostete Runner verwendet eine _lange {% ifversion ghes %}HTTP(S){% else %}HTTPS{% endif %} Anfrage_, die 50 Sekunden lang eine Verbindung mit {% data variables.product.product_name %} öffnet. Wird keine Antwort empfangen, wird erfolgt ein Verbindungstimeout, und eine neue lange Anfrage wird erstellt. Die Anwendung muss auf dem Computer ausgeführt werden, um {% data variables.product.prodname_actions %}-Aufträge zu akzeptieren und auszuführen.
 
 {% data reusables.actions.self-hosted-runner-ports-protocols %}
 
-{% ifversion fpt or ghec %}
-Since the self-hosted runner opens a connection to {% data variables.location.product_location %}, you do not need to allow {% data variables.product.prodname_dotcom %} to make inbound connections to your self-hosted runner.
-{% elsif ghes or ghae %}
-Only an outbound connection from the runner to {% data variables.location.product_location %} is required. There is no need for an inbound connection from {% data variables.location.product_location %} to the runner.
+{% ifversion fpt or ghec %} Da der selbstgehostete Runner eine Verbindung mit {% data variables.location.product_location %} herstellt, ist es nicht nötig, dass du {% data variables.product.prodname_dotcom %} erlaubst, eingehende Verbindungen mit deinem selbst gehosteten Runner herzustellen.
+{% elsif ghes or ghae %} Es ist nur eine ausgehende Verbindung vom Runner zu {% data variables.location.product_location %} erforderlich. Es besteht keine Notwendigkeit für eine eingehende Verbindung von {% data variables.location.product_location %} zum Runner.
 {%- endif %}
 
 {% ifversion ghes %}
 
-{% data variables.product.product_name %} must accept inbound connections from your runners over {% ifversion ghes %}HTTP(S){% else %}HTTPS{% endif %} at {% data variables.location.product_location %}'s hostname and API subdomain, and your runners must allow outbound connections over {% ifversion ghes %}HTTP(S){% else %}HTTPS{% endif %} to {% data variables.location.product_location %}'s hostname and API subdomain.
+{% data variables.product.product_name %} muss eingehende Verbindungen von deinen Runnern über {% ifversion ghes %}HTTP(S){% else %}HTTPS{% endif %} im Hostnamen und der API-Unterdomäne von {% data variables.location.product_location %} akzeptieren. Außerdem müssen deine Runner ausgehende Verbindungen mit dem Hostnamen und der API-Unterdomäne von {% data variables.location.product_location %} über {% ifversion ghes %}HTTP(S){% else %}HTTPS{% endif %} zulassen.
 
 {% elsif ghae %}
 
-You must ensure that the self-hosted runner has appropriate network access to communicate with your {% data variables.product.product_name %} URL and its subdomains. For example, if your subdomain for {% data variables.product.product_name %} is `octoghae`, then you will need to allow the self-hosted runner to access `octoghae.githubenterprise.com`, `api.octoghae.githubenterprise.com`, and `codeload.octoghae.githubenterprise.com`.
+Du musst sicherstellen, dass der selbstgehostete Runner über einen angemessenen Netzwerkzugriff verfügt, sodass er mit deiner {% data variables.product.product_name %}-URL und deren Unterdomänen kommunizieren kann. Wenn deine Unterdomäne für {% data variables.product.product_name %} beispielsweise `octoghae` lautet, musst du dem selbstgehosteten Runner den Zugriff auf `octoghae.githubenterprise.com`, `api.octoghae.githubenterprise.com` und `codeload.octoghae.githubenterprise.com` erteilen.
 
-If you use an IP address allow list, you must add your self-hosted runner's IP address to the allow list. For more information, see "[Managing allowed IP addresses for your organization](/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization#using-github-actions-with-an-ip-allow-list)."
+Wenn du eine IP-Zulassungsliste verwendest, musst du die IP-Adresse deines selbstgehosteten Runners zur Zulassungsliste hinzufügen. Weitere Informationen findest du unter [Verwalten zulässiger IP-Adressen für deine Organisation](/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization#using-github-actions-with-an-ip-allow-list).
 
 {% endif %}
 
 {% ifversion fpt or ghec %}
 
-You must ensure that the machine has the appropriate network access to communicate with the {% data variables.product.prodname_dotcom %} hosts listed below. Some hosts are required for essential runner operations, while other hosts are only required for certain functionality.
+Du musst sicherstellen, dass der Computer über angemessenen Netzwerkzugriff verfügt, um mit den unten aufgeführten {% data variables.product.prodname_dotcom %}-Hosts zu kommunizieren. Einige Hosts sind für wesentliche Runnervorgänge erforderlich, während andere nur für bestimmte Funktionen erforderlich sind.
 
 {% note %}
 
-**Note:** Some of the domains listed below are configured using `CNAME` records. Some firewalls might require you to add rules recursively for all `CNAME` records. Note that the `CNAME` records might change in the future, and that only the domains listed below will remain constant.
+**Hinweis:** Einige der unten aufgeführten Domänen werden mithilfe von `CNAME`-Einträgen konfiguriert. Für bestimmte Firewalls musst du Regeln möglicherweise rekursiv für alle `CNAME`-Einträge hinzufügen. Beachte, dass sich die `CNAME`-Einträge in Zukunft ändern können und dass nur die unten aufgeführten Domänen konstant bleiben.
 
 {% endnote %}
 
-**Needed for essential operations:**
+**Erforderlich für wesentliche Vorgänge:**
 
 ```
 github.com
 api.github.com
 ```
 
-**Needed for downloading actions:**
+**Erforderlich für Downloadaktionen:**
 
 ```
 codeload.github.com
 ```
 
-**Needed for runner version updates:**
+**Erforderlich für Runnerversionsupdates:**
 
 ```
 objects.githubusercontent.com
@@ -189,50 +186,49 @@ github-releases.githubusercontent.com
 github-registry-files.githubusercontent.com
 ```
 
-**Needed for uploading/downloading caches and workflow artifacts:**    
+**Erforderlich für den Up- und Download von Caches und Workflowartefakten:**    
 
 ```
 *.blob.core.windows.net
 ```
 
-**Needed for retrieving OIDC tokens:**
+**Erforderlich für das Abrufen von OIDC-Token:**
 
 ```
 *.actions.githubusercontent.com
 ```
 
-**Needed for downloading or publishing packages or containers to {% data variables.product.prodname_dotcom %} Packages:**
+**Erforderlich für das Herunterladen oder Veröffentlichen von Paketen oder Containern in {% data variables.product.prodname_dotcom %}-Paketen:**
 
 ```
 *.pkg.github.com
 ghcr.io
 ```
 
-In addition, your workflow may require access to other network resources.
+Darüber hinaus benötigt dein Workflow möglicherweise Zugriff auf andere Netzwerkressourcen.
 
-If you use an IP address allow list for your {% data variables.product.prodname_dotcom %} organization or enterprise account, you must add your self-hosted runner's IP address to the allow list. For more information, see "[Managing allowed IP addresses for your organization](/{% ifversion fpt %}enterprise-cloud@latest/{% endif %}/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization#using-github-actions-with-an-ip-allow-list)" or "[Enforcing policies for security settings in your enterprise](/{% ifversion fpt %}enterprise-cloud@latest/{% endif %}admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}
+Wenn du eine IP-Zulassungsliste für dein {% data variables.product.prodname_dotcom %}-Organisations- oder -Unternehmenskonto verwendest, musst du der Zulassungsliste die IP-Adresse ihres selbstgehosteten Runners hinzufügen. Weitere Informationen findest du in der {% data variables.product.prodname_ghe_cloud %}-Dokumentation unter [Verwalten zulässiger IP-Adressen für deine Organisation](/{% ifversion fpt %}enterprise-cloud@latest/{% endif %}/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization#using-github-actions-with-an-ip-allow-list) und [Erzwingen von Richtlinien für Sicherheitseinstellungen in deinem Unternehmen](/{% ifversion fpt %}enterprise-cloud@latest/{% endif %}admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise){% ifversion fpt %}.{% else %}."{% endif %}
 
 {% else %}
 
-{% ifversion ghes %}Self-hosted runners do not require any external internet access in order to function. As a result, you can use network routing to direct communication between the self-hosted runner and {% data variables.location.product_location %}. For example, you can assign a private IP address to your self-hosted runner and configure routing to send traffic to {% data variables.location.product_location %}, with no need for traffic to traverse a public network.{% endif %}
+{% ifversion ghes %}Selbstgehostete Runner erfordern keinen externen Internetzugriff für ihre Funktionsfähigkeit. Daher kannst du das Netzwerkrouting zur direkten Kommunikation zwischen dem selbstgehosteten Runner und {% data variables.location.product_location %} nutzen. Du kannst deinem selbstgehosteten Runner zum Beispiel eine private IP-Adresse zuweisen und das Routing so konfigurieren, dass der Datenverkehr an {% data variables.location.product_location %} gesendet wird, ohne dass der Datenverkehr ein öffentliches Netzwerk durchlaufen muss.{% endif %}
 
 {% endif %}
 
-{% ifversion ghae %}
-If you use an IP address allow list for your {% data variables.product.prodname_dotcom %} organization or enterprise account, you must add your self-hosted runner's IP address to the allow list. For more information, see "[Managing allowed IP addresses for your organization](/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization#using-github-actions-with-an-ip-allow-list)."
+{% ifversion ghae %} Wenn du eine IP-Zulassungsliste für dein {% data variables.product.prodname_dotcom %}-Organisations- oder -Unternehmenskonto verwendest, musst du der Zulassungsliste die IP-Adresse ihres selbstgehosteten Runners hinzufügen. Weitere Informationen findest du unter [Verwalten zulässiger IP-Adressen für deine Organisation](/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization#using-github-actions-with-an-ip-allow-list).
 {% endif %}
 
-You can also use self-hosted runners with a proxy server. For more information, see "[Using a proxy server with self-hosted runners](/actions/automating-your-workflow-with-github-actions/using-a-proxy-server-with-self-hosted-runners)."
+Du kannst auch selbstgehostete Runner auch mit einem Proxyserver verwenden. Weitere Informationen findest du unter [Verwenden eines Proxyservers mit selbstgehosteten Runnern](/actions/automating-your-workflow-with-github-actions/using-a-proxy-server-with-self-hosted-runners).
 
-For more information about troubleshooting common network connectivity issues, see "[Monitoring and troubleshooting self-hosted runners](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners#troubleshooting-network-connectivity)."
+Weitere Informationen zur Problembehandlung allgemeiner Netzwerkkonnektivitätsprobleme findest du unter [Überwachung und Problembehandlung von selbstgehosteten Runnern](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners#troubleshooting-network-connectivity).
 
 {% ifversion ghes or ghae %}
 
-## Communication between self-hosted runners and {% data variables.product.prodname_dotcom_the_website %}
+## Kommunikation zwischen selbstgehosteten Runnern und {% data variables.product.prodname_dotcom_the_website %}
 
-Self-hosted runners do not need to connect to {% data variables.product.prodname_dotcom_the_website %} unless you have enabled automatic access to {% data variables.product.prodname_dotcom_the_website %} actions for {% data variables.location.product_location %}. For more information, see "[About using actions in your enterprise](/admin/github-actions/managing-access-to-actions-from-githubcom/about-using-actions-in-your-enterprise)."
+Selbstgehostete Runner müssen keine Verbindung mit {% data variables.product.prodname_dotcom_the_website %} herstellen, es sei denn, du hast den automatischen Zugriff auf {% data variables.product.prodname_dotcom_the_website %}-Aktionen für {% data variables.location.product_location %} aktiviert. Weitere Informationen findest du unter [Informationen zum Verwenden von Aktionen in deinem Unternehmen](/admin/github-actions/managing-access-to-actions-from-githubcom/about-using-actions-in-your-enterprise).
 
-If you have enabled automatic access to {% data variables.product.prodname_dotcom_the_website %} actions, then the self-hosted runner will connect directly to {% data variables.product.prodname_dotcom_the_website %} to download actions. You must ensure that the machine has the appropriate network access to communicate with the {% data variables.product.prodname_dotcom %} URLs listed below. 
+Wenn du den automatischen Zugriff auf {% data variables.product.prodname_dotcom_the_website %}-Aktionen aktiviert hast, wird der selbstgehostete Runner direkt mit {% data variables.product.prodname_dotcom_the_website %} verbunden, um Aktionen herunterzuladen. Du musst sicherstellen, dass der Rechner über den entsprechenden Netzwerkzugriff verfügt, um mit den nachfolgend aufgelisteten {% data variables.product.prodname_dotcom %}-URLs zu kommunizieren. 
 
 ```
 github.com
@@ -242,13 +238,13 @@ codeload.github.com
 
 {% note %}
 
-**Note:** Some of the domains listed above are configured using `CNAME` records. Some firewalls might require you to add rules recursively for all `CNAME` records. Note that the `CNAME` records might change in the future, and that only the domains listed above will remain constant.
+**Hinweis:** Einige der oben aufgeführten Domänen werden mithilfe von `CNAME`-Einträgen konfiguriert. Für bestimmte Firewalls musst du Regeln möglicherweise rekursiv für alle `CNAME`-Einträge hinzufügen. Beachte, dass sich die `CNAME`-Einträge in Zukunft ändern können und dass nur die oben aufgeführten Domänen konstant bleiben.
 
 {% endnote %}
 
 {% endif %}
 
-## Self-hosted runner security
+## Sicherheit von selbstgehosteten Runnern
 
 {% ifversion fpt or ghec %}
 
@@ -258,23 +254,23 @@ codeload.github.com
 
 {% ifversion fpt or ghec %}
 
-This is not an issue with {% data variables.product.prodname_dotcom %}-hosted runners because each {% data variables.product.prodname_dotcom %}-hosted runner is always a clean isolated virtual machine, and it is destroyed at the end of the job execution.
+Dieses Problem besteht nicht mit von {% data variables.product.prodname_dotcom %} gehosteten Runnern, da jeder von {% data variables.product.prodname_dotcom %} gehostete Runner immer aus einer klar isolierten VM besteht und am Ende der Auftragsausführung endgültig gelöscht wird.
 
 {% endif %}
 
-Untrusted workflows running on your self-hosted runner pose significant security risks for your machine and network environment, especially if your machine persists its environment between jobs. Some of the risks include:
+Nicht vertrauenswürdige Workflows auf deinem selbstgehosteten Runner stellen erhebliche Sicherheitsrisiken für deine Computer- und Netzwerkumgebung dar, insbesondere wenn deine Computerumgebung auftragsübergreifend bestehen bleibt. Beispiele für Risiken:
 
-* Malicious programs running on the machine.
-* Escaping the machine's runner sandbox.
-* Exposing access to the machine's network environment.
-* Persisting unwanted or dangerous data on the machine.
+* Schadprogramme, die auf dem Rechner laufen.
+* Ausbruch aus der Runner-Sandbox der Maschine.
+* Der Zugriff auf die Netzwerkumgebung der Maschine wird offengelegt.
+* Unerwünschte oder gefährliche Daten werden dauerhaft auf der Maschine gespeichert.
 
-For more information about security hardening for self-hosted runners, see "[Security hardening for {% data variables.product.prodname_actions %}](/actions/security-guides/security-hardening-for-github-actions#hardening-for-self-hosted-runners)."
+Weitere Informationen zur Sicherheitshärtung von selbstgehostete Runnern findest du unter [Sicherheitshärten für {% data variables.product.prodname_actions %}](/actions/security-guides/security-hardening-for-github-actions#hardening-for-self-hosted-runners).
 
 {% ifversion ghec or ghes or ghae %}
 
-## Further reading
+## Weitere Informationsquellen
 
-- "[Getting started with self-hosted runners for your enterprise](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-self-hosted-runners-for-your-enterprise)"
+- [Erste Schritte mit selbstgehosteten Runnern für dein Unternehmen](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-self-hosted-runners-for-your-enterprise)
 
 {% endif %}

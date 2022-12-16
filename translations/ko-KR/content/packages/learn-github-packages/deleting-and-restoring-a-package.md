@@ -1,6 +1,6 @@
 ---
-title: Deleting and restoring a package
-intro: Learn how to delete or restore a package.
+title: 패키지 삭제 및 복원
+intro: 패키지를 삭제하거나 복원하는 방법을 알아봅니다.
 product: '{% data reusables.gated-features.packages %}'
 redirect_from:
   - /github/managing-packages-with-github-packages/deleting-a-package
@@ -13,90 +13,84 @@ versions:
   ghec: '*'
   ghae: '*'
 shortTitle: Delete & restore a package
+ms.openlocfilehash: 57f90bb6dbcda759e90444a40c7deef84d907b9c
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148193075'
 ---
-
 {% data reusables.package_registry.packages-ghes-release-stage %}
 
-## Package deletion and restoration support on {% data variables.product.prodname_dotcom %}
+## {% data variables.product.prodname_dotcom %}의 패키지 삭제 및 복원 지원
 
-On {% data variables.product.prodname_dotcom %} if you have the required access, you can delete:
-- an entire private package
-- an entire public package, if there's not more than 5000 downloads of any version of the package
-- a specific version of a private package
-- a specific version of a public package, if the package version doesn't have more than 5,000 downloads
+필요한 액세스 권한이 있는 경우 {% data variables.product.prodname_dotcom %}에서 다음을 삭제할 수 있습니다.
+- 전체 프라이빗 패키지
+- 전체 퍼블릭 패키지(패키지 버전의 다운로드 수가 5,000개 이하인 경우)
+- 프라이빗 패키지의 특정 버전
+- 특정 버전의 퍼블릭 패키지(패키지 버전의 다운로드 수가 5,000개를 초과하지 않는 경우)
 
 {% note %}
 
-**Note:**
-- You cannot delete a public package if any version of the package has more than 5,000 downloads. In this scenario, contact [GitHub support](https://support.github.com/contact?tags=docs-packages) for further assistance.
-- When deleting public packages, be aware that you may break projects that depend on your package.
+**참고:**
+- 패키지 버전에 5,000개를 초과하는 다운로드가 있는 경우 퍼블릭 패키지를 삭제할 수 없습니다. 이 시나리오에서는 [GitHub 고객 지원팀](https://support.github.com/contact?tags=docs-packages)에 문의하여 추가 지원을 받으세요.
+- 퍼블릭 패키지를 삭제할 때는 패키지에 따라 프로젝트가 중단될 수 있습니다.
 
 {% endnote %}
 
-On {% data variables.product.prodname_dotcom %}, you can also restore an entire package or package version, if:
-- You restore the package within 30 days of its deletion.
-- The same package namespace is still available and not used for a new package.
+{% data variables.product.prodname_dotcom %}에서 다음과 같은 경우 전체 패키지 또는 패키지 버전을 복원할 수도 있습니다.
+- 패키지를 삭제한 후 30일 이내에 복원합니다.
+- 동일한 패키지 네임스페이스는 계속 사용할 수 있으며 새 패키지에 사용되지 않습니다.
 
-{% ifversion fpt or ghec or ghes %}
-## Packages API support
+## 패키지 API 지원
 
 {% data reusables.package_registry.packages-classic-pat-only %}
 
 {% ifversion fpt or ghec %}
 
-You can use the REST API to manage your packages. For more information, see the "[{% data variables.product.prodname_registry %} API](/rest/reference/packages)."
+REST API를 사용하여 패키지를 관리할 수 있습니다. 자세한 내용은 “[{% data variables.product.prodname_registry %} API](/rest/reference/packages)”를 참조하세요.
 
 {% endif %}
 
-For packages that inherit their permissions and access from repositories, you can use GraphQL to delete a specific package version.{% data reusables.package_registry.no-graphql-to-delete-packages %} For more information about GraphQL support, see "[Deleting a version of a repository-scoped package with GraphQL](#deleting-a-version-of-a-repository-scoped-package-with-graphql)."
+{% data reusables.package_registry.about-graphql-support %}
+
+## 패키지를 삭제하거나 복원하는 데 필요한 권한
+
+{% ifversion packages-registries-v2 %} 세분화된 권한을 지원하는 레지스트리를 사용하면 패키지의 범위를 사용자 또는 조직으로 지정하거나 리포지토리에 연결하도록 선택할 수 있습니다.
+
+{% ifversion ghes %}{% else %}{% endif %`https://ghcr.io/OWNER/PACKAGE-NAME`}{% ifversion packages-npm-v2 %}`https://containers.HOSTNAME/OWNER/PACKAGE-NAME` 또는 {% endif %}에 저장된 패키지와 같이 리포지토리와 별도로 세분화된 권한이 있는 `https://npm.pkg.github.com/OWNER/PACKAGE-NAME`패키지를 삭제하려면 패키지에 대한 관리자 액세스 권한이 있어야 합니다. 자세한 내용은 “[{% data variables.product.prodname_registry %}에 대한 권한 정보](/packages/learn-github-packages/about-permissions-for-github-packages)”를 참조하세요.
+
+리포지토리에서 액세스 권한을 상속하는 패키지의 경우 리포지토리에 대한 관리자 권한이 있는 경우 패키지를 삭제할 수 있습니다.
+
+일부 레지스트리는 리포지토리 범위 패키지 **만** 지원합니다. 이러한 레지스트리 목록은 "[{% data variables.product.prodname_registry %}에 대한 권한 정보"를 참조하세요](/packages/learn-github-packages/about-permissions-for-github-packages#permissions-for-repository-scoped-packages).
+
+{% else %}
+
+패키지가 게시되는 리포지토리에 대한 관리자 권한이 있는 경우 패키지를 삭제할 수 있습니다.
 
 {% endif %}
 
-## Required permissions to delete or restore a package
+## 패키지 버전 삭제
 
-For packages that inherit their access permissions from repositories, you can delete a package if you have admin permissions to the repository.
+### {% data variables.product.prodname_dotcom %}에서 {% ifversion packages-registries-v2 %}리포지토리 범위 {% endif %}패키지의 버전 삭제
 
-The {% data variables.product.prodname_registry %} registries below **only** use repository-scoped permissions:
+{% ifversion packages-registries-v2 %}리포지토리 범위 {% endif %}패키지의 버전을 삭제하려면 패키지를 소유한 리포지토리에 대한 관리자 권한이 있어야 합니다. 자세한 내용은 “[필요한 권한](#required-permissions-to-delete-or-restore-a-package)”을 참조하세요.
 
-  {% ifversion not fpt or ghec %}- Docker images at `docker.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME`{% endif %}
-  {% ifversion packages-npm-v2 %}{% else %}- npm{% endif %}
-  - RubyGems registry
-  - Apache Maven registry
-  - NuGet registry
-
-{% ifversion packages-npm-v2 %}For {% data variables.packages.prodname_ghcr_and_npm_registry %}, you can choose to allow packages to be scoped to a user, an organization, or linked to a repository.{% endif %}
-
-{% ifversion fpt or ghec %}
-
-To delete a package that has granular permissions separate from a repository, such as container images stored at `https://ghcr.io/OWNER/PACKAGE-NAME` or `https://npm.pkg.github.com/OWNER/PACKAGE-NAME`, you must have admin access to the package. For more information, see "[About permissions for {% data variables.product.prodname_registry %}](/packages/learn-github-packages/about-permissions-for-github-packages)."
-
-{% endif %}
-
-## Deleting a package version
-
-### Deleting a version of a repository-scoped package on {% data variables.product.prodname_dotcom %}
-
-To delete a version of a repository-scoped package, you must have admin permissions to the repository that owns the package. For more information, see "[Required permissions](#required-permissions-to-delete-or-restore-a-package)."
-
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.package_registry.packages-from-code-tab %}
-{% data reusables.package_registry.package-settings-option %}
-5. On the left, click **Manage versions**.
-5. To the right of the version you want to delete, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} and select **Delete version**.
-  ![Delete package version button](/assets/images/help/package-registry/delete-container-package-version.png)
-6. To confirm deletion, type the package name and click **I understand the consequences, delete this version**.
-  ![Confirm package deletion button](/assets/images/help/package-registry/package-version-deletion-confirmation.png)
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.package_registry.packages-from-code-tab %} {% data reusables.package_registry.package-settings-option %}
+5. 왼쪽에서 **버전 관리** 를 클릭합니다.
+5. 삭제하려는 버전의 오른쪽에 있는 {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} 아이콘을 클릭하고 **버전 삭제** 를 클릭합니다.
+  ![패키지 버전 삭제 단추](/assets/images/help/package-registry/delete-container-package-version.png)
+6. 삭제를 확인하려면 패키지 이름을 입력하고 **결과를 이해하고 있으며 이 버전을 삭제합니다.** 를 클릭합니다.
+  ![패키지 삭제 확인 단추](/assets/images/help/package-registry/package-version-deletion-confirmation.png)
 
 {% ifversion fpt or ghec or ghes %}
-### Deleting a version of a repository-scoped package with GraphQL
+### GraphQL을 사용하여 {% ifversion packages-registries-v2 %}리포지토리 범위{% endif %} 패키지 버전 삭제
 
-For packages that inherit their permissions and access from repositories, you can use the GraphQL to delete a specific package version.
+{% data reusables.package_registry.about-graphql-support %} {% ifversion fpt or ghec %} REST API를 대신 사용하는 방법에 대한 자세한 내용은 "[{% data variables.product.prodname_registry %} API](/rest/reference/packages)"를 참조하세요. {% endif %}
 
-{% data reusables.package_registry.no-graphql-to-delete-packages %}{% ifversion fpt or ghec %} You can however use the REST API. For more information, see the "[{% data variables.product.prodname_registry %} API](/rest/reference/packages)."{% endif %}
+GraphQL API에서 `deletePackageVersion` 변형을 사용합니다. , `delete:packages`및 `repo` 범위와 함께 {% 데이터 variables.product.pat_v1 %}을(를) `read:packages`사용해야 합니다. {% data variables.product.pat_v1_plural %}에 대한 자세한 내용은 "[{% data variables.product.prodname_registry %}](/packages/publishing-and-managing-packages/about-github-packages#authenticating-to-github-packages)정보"를 참조하세요.
 
-Use the `deletePackageVersion` mutation in the GraphQL API. You must use a {% data variables.product.pat_v1 %} with the `read:packages`, `delete:packages`, and `repo` scopes. For more information about {% data variables.product.pat_v1_plural %}, see "[About {% data variables.product.prodname_registry %}](/packages/publishing-and-managing-packages/about-github-packages#authenticating-to-github-packages)."
-
-The following example demonstrates how to delete a package version, using a `packageVersionId` of `MDIyOlJlZ2lzdHJ5UGFja2FnZVZlcnNpb243MTExNg`.
+다음 예제에서는 `MDIyOlJlZ2lzdHJ5UGFja2FnZVZlcnNpb243MTExNg`라는 `packageVersionId`를 사용하여 패키지 버전을 삭제하는 방법을 보여 줍니다.
 
 ```shell
 curl -X POST \
@@ -106,148 +100,136 @@ curl -X POST \
 HOSTNAME/graphql
 ```
 
-To find all of the private packages you have published to {% data variables.product.prodname_registry %}, along with the version IDs for the packages, you can use the `packages` connection through the `repository` object. You will need a {% data variables.product.pat_v1 %} with the `read:packages` and `repo` scopes. For more information, see the [`packages`](/graphql/reference/objects#repository) connection or the [`PackageOwner`](/graphql/reference/interfaces#packageowner) interface.
+{% data variables.product.prodname_registry %}에 게시한 모든 프라이빗 패키지를 패키지의 버전 ID와 함께 찾으려면 `repository` 개체를 통해 `packages` 연결을 사용할 수 있습니다. 및 `repo` 범위가 있는 {% 데이터 variables.product.pat_v1 %}이 `read:packages` 필요합니다. 자세한 내용은 [`packages`](/graphql/reference/objects#repository) 연결 또는 [`PackageOwner`](/graphql/reference/interfaces#packageowner) 인터페이스를 참조하세요.
 
-For more information about the `deletePackageVersion` mutation, see "[`deletePackageVersion`](/graphql/reference/mutations#deletepackageversion)."
+`deletePackageVersion` 변형에 대한 자세한 내용은 “[`deletePackageVersion`](/graphql/reference/mutations#deletepackageversion)”을 참조하세요.
 
-You cannot directly delete an entire package using GraphQL, but if you delete every version of a package, the package will no longer show on {% data variables.product.product_name %}.
+GraphQL을 사용하여 전체 패키지를 직접 삭제할 수는 없지만 패키지의 모든 버전을 삭제하면 패키지가 {% data variables.product.product_name %}에 더 이상 표시되지 않습니다.
 
 {% endif %}
 
 {% ifversion fpt or ghec %}
-### Deleting a version of a user-scoped package on {% data variables.product.prodname_dotcom %}
+### {% data variables.product.prodname_dotcom %}에서 사용자 범위 패키지 버전 삭제
 
-To delete a specific version of a user-scoped package on {% data variables.product.prodname_dotcom %}, such as for a Docker image at `ghcr.io`, use these steps. To delete an entire package, see "[Deleting an entire user-scoped package on {% data variables.product.prodname_dotcom %}](#deleting-an-entire-user-scoped-package-on-github)."
+{% data variables.product.prodname_dotcom %}에서 사용자 범위 패키지의 특정 버전, 예를 들어 `ghcr.io`에 있는 Docker 이미지의 특정 버전을 삭제하려면 다음 단계를 사용합니다. 전체 패키지를 삭제하려면 “[{% data variables.product.prodname_dotcom %}에서 전체 사용자 범위 패키지 삭제](#deleting-an-entire-user-scoped-package-on-github)”를 참조하세요.
 
-To review who can delete a package version, see "[Required permissions](#required-permissions-to-delete-or-restore-a-package)."
+패키지 버전을 삭제할 수 있는 사용자를 검토하려면 “[필요한 권한](#required-permissions-to-delete-or-restore-a-package)”을 참조하세요.
 
-{% data reusables.package_registry.package-settings-from-user-level %}
-{% data reusables.package_registry.package-settings-option %}
-5. On the left, click **Manage versions**.
-5. To the right of the version you want to delete, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} and select **Delete version**.
-  ![Delete package version button](/assets/images/help/package-registry/delete-container-package-version.png)
-6. To confirm deletion, type the package name and click **I understand the consequences, delete this version**.
-  ![Confirm package deletion button](/assets/images/help/package-registry/confirm-container-package-version-deletion.png)
+{% data reusables.package_registry.package-settings-from-user-level %} {% data reusables.package_registry.package-settings-option %}
+5. 왼쪽에서 **버전 관리** 를 클릭합니다.
+5. 삭제하려는 버전의 오른쪽에 있는 {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} 아이콘을 클릭하고 **버전 삭제** 를 클릭합니다.
+  ![패키지 버전 삭제 단추](/assets/images/help/package-registry/delete-container-package-version.png)
+6. 삭제를 확인하려면 패키지 이름을 입력하고 **결과를 이해하고 있으며 이 버전을 삭제합니다.** 를 클릭합니다.
+  ![패키지 삭제 확인 단추](/assets/images/help/package-registry/confirm-container-package-version-deletion.png)
 
-### Deleting a version of an organization-scoped package on {% data variables.product.prodname_dotcom %}
+### {% data variables.product.prodname_dotcom %}에서 조직 범위 패키지 버전 삭제
 
-To delete a specific version of an organization-scoped package on {% data variables.product.prodname_dotcom %}, such as for a Docker image at `ghcr.io`, use these steps.
-To delete an entire package, see "[Deleting an entire organization-scoped package on {% data variables.product.prodname_dotcom %}](#deleting-an-entire-organization-scoped-package-on-github)."
+{% data variables.product.prodname_dotcom %}에서 조직 범위 패키지의 특정 버전, 예를 들어 `ghcr.io`에 있는 Docker 이미지의 특정 버전을 삭제하려면 다음 단계를 사용합니다.
+전체 패키지를 삭제하려면 “[{% data variables.product.prodname_dotcom %}에서 전체 조직 범위 패키지 삭제](#deleting-an-entire-organization-scoped-package-on-github)”를 참조하세요.
 
-To review who can delete a package version, see "[Required permissions to delete or restore a package](#required-permissions-to-delete-or-restore-a-package)."
+패키지 버전을 삭제할 수 있는 사용자를 검토하려면 [“패키지를 삭제하거나 복원하는 데 필요한 권한](#required-permissions-to-delete-or-restore-a-package)”을 참조하세요.
 
-{% data reusables.package_registry.package-settings-from-org-level %}
-{% data reusables.package_registry.package-settings-option %}
-5. On the left, click **Manage versions**.
-5. To the right of the version you want to delete, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} and select **Delete version**.
-  ![Delete package version button](/assets/images/help/package-registry/delete-container-package-version.png)
-6. To confirm deletion, type the package name and click **I understand the consequences, delete this version**.
-  ![Confirm package version deletion button](/assets/images/help/package-registry/confirm-container-package-version-deletion.png)
-{% endif %}
+{% data reusables.package_registry.package-settings-from-org-level %} {% data reusables.package_registry.package-settings-option %}
+5. 왼쪽에서 **버전 관리** 를 클릭합니다.
+5. 삭제하려는 버전의 오른쪽에 있는 {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} 아이콘을 클릭하고 **버전 삭제** 를 클릭합니다.
+  ![패키지 버전 삭제 단추](/assets/images/help/package-registry/delete-container-package-version.png)
+6. 삭제를 확인하려면 패키지 이름을 입력하고 **결과를 이해하고 있으며 이 버전을 삭제합니다.** 를 클릭합니다.
+  ![패키지 버전 삭제 확인 단추](/assets/images/help/package-registry/confirm-container-package-version-deletion.png) {% endif %}
 
-## Deleting an entire package
+## 전체 패키지 삭제
 
-### Deleting an entire repository-scoped package on {% data variables.product.prodname_dotcom %}
+### {% data variables.product.prodname_dotcom %}에서 전체 리포지토리 범위 패키지 삭제
 
-To delete an entire repository-scoped package, you must have admin permissions to the repository that owns the package. For more information, see "[Required permissions](#required-permissions-to-delete-or-restore-a-package)."
+전체 리포지토리 범위 패키지를 삭제하려면 패키지를 소유하는 리포지토리에 대한 관리자 권한이 있어야 합니다. 자세한 내용은 “[필요한 권한](#required-permissions-to-delete-or-restore-a-package)”을 참조하세요.
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.package_registry.packages-from-code-tab %}
-{% data reusables.package_registry.package-settings-option %}
-4. Under "Danger Zone", click **Delete this package**.
-5. To confirm, review the confirmation message, enter your package name, and click **I understand, delete this package.**
-  ![Confirm package deletion button](/assets/images/help/package-registry/package-version-deletion-confirmation.png)
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.package_registry.packages-from-code-tab %} {% data reusables.package_registry.package-settings-option %}
+4. “위험 영역”에서 **이 패키지 삭제** 를 클릭합니다.
+5. 확인하려면 확인 메시지를 검토하고 패키지 이름을 입력한 다음 **이 패키지를 삭제합니다.** 를 클릭합니다.
+  ![패키지 삭제 확인 단추](/assets/images/help/package-registry/package-version-deletion-confirmation.png)
 
 {% ifversion fpt or ghec %}
-### Deleting an entire user-scoped package on {% data variables.product.prodname_dotcom %}
+### {% data variables.product.prodname_dotcom %}에서 전체 사용자 범위 패키지 삭제
 
-To review who can delete a package, see "[Required permissions](#required-permissions-to-delete-or-restore-a-package)."
+패키지를 삭제할 수 있는 사용자를 검토하려면 “[필요한 권한](#required-permissions-to-delete-or-restore-a-package)”을 참조하세요.
 
-{% data reusables.package_registry.package-settings-from-user-level %}
-{% data reusables.package_registry.package-settings-option %}
-5. On the left, click **Options**.
-  !["Options" menu option](/assets/images/help/package-registry/options-for-container-settings.png)
-6. Under "Danger zone", click **Delete this package**.
-  ![Delete package version button](/assets/images/help/package-registry/delete-container-package-button.png)
-6. To confirm deletion, type the package name and click **I understand the consequences, delete this package**.
-  ![Confirm package version deletion button](/assets/images/help/package-registry/confirm-container-package-deletion.png)
+{% data reusables.package_registry.package-settings-from-user-level %} {% data reusables.package_registry.package-settings-option %}
+5. 왼쪽에서 **옵션** 을 클릭합니다.
+  ![“옵션” 메뉴 옵션](/assets/images/help/package-registry/options-for-container-settings.png)
+6. “위험 영역”에서 **이 패키지 삭제** 를 클릭합니다.
+  ![패키지 버전 삭제 단추](/assets/images/help/package-registry/delete-container-package-button.png)
+6. 삭제를 확인하려면 패키지 이름을 입력하고 **결과를 이해하고 있으며 이 패키지를 삭제합니다.** 를 클릭합니다.
+  ![패키지 버전 삭제 확인 단추](/assets/images/help/package-registry/confirm-container-package-deletion.png)
 
-### Deleting an entire organization-scoped package on {% data variables.product.prodname_dotcom %}
+### {% data variables.product.prodname_dotcom %}에서 전체 조직 범위 패키지 삭제
 
-To review who can delete a package, see "[Required permissions](#required-permissions-to-delete-or-restore-a-package)."
+패키지를 삭제할 수 있는 사용자를 검토하려면 “[필요한 권한](#required-permissions-to-delete-or-restore-a-package)”을 참조하세요.
 
-{% data reusables.package_registry.package-settings-from-org-level %}
-{% data reusables.package_registry.package-settings-option %}
-5. On the left, click **Options**.
-  !["Options" menu option](/assets/images/help/package-registry/options-for-container-settings.png)
-6. Under "Danger zone", click **Delete this package**.
-  ![Delete package button](/assets/images/help/package-registry/delete-container-package-button.png)
-6. To confirm deletion, type the package name and click **I understand the consequences, delete this package**.
-  ![Confirm package deletion button](/assets/images/help/package-registry/confirm-container-package-deletion.png)
+{% data reusables.package_registry.package-settings-from-org-level %} {% data reusables.package_registry.package-settings-option %}
+5. 왼쪽에서 **옵션** 을 클릭합니다.
+  ![“옵션” 메뉴 옵션](/assets/images/help/package-registry/options-for-container-settings.png)
+6. “위험 영역”에서 **이 패키지 삭제** 를 클릭합니다.
+  ![패키지 삭제 단추](/assets/images/help/package-registry/delete-container-package-button.png)
+6. 삭제를 확인하려면 패키지 이름을 입력하고 **결과를 이해하고 있으며 이 패키지를 삭제합니다.** 를 클릭합니다.
+  ![패키지 삭제 확인 단추](/assets/images/help/package-registry/confirm-container-package-deletion.png) {% endif %}
+
+## 패키지 복원
+
+다음과 같은 경우 삭제된 패키지 또는 버전을 복원할 수 있습니다.
+- 패키지를 삭제한 후 30일 이내에 복원합니다.
+- 동일한 패키지 네임스페이스 및 버전을 여전히 사용할 수 있으며 새 패키지에 다시 사용되지 않습니다.
+
+예를 들어 `octo-repo-owner/octo-repo` 리포지토리로 범위가 지정된 `octo-package`라는 RubyGems 패키지를 삭제한 경우, 패키지 네임스페이스 `rubygem.pkg.github.com/octo-repo-owner/octo-repo/octo-package`를 계속 사용할 수 있고 30일이 아직 지나지 않은 경우에만 패키지를 복원할 수 있습니다.
+
+{% ifversion fpt or ghec %} 삭제된 패키지를 복원하려면 다음 권한 요구 사항 중 하나도 충족해야 합니다.
+  - 리포지토리 범위 패키지의 경우: 삭제된 패키지를 소유하는 리포지토리에 대한 관리자 권한이 있습니다.{% ifversion fpt or ghec %}
+  - 사용자 계정 범위 패키지의 경우: 개인 계정이 삭제된 패키지를 소유합니다.
+  - 조직 범위 패키지의 경우: 패키지를 소유한 조직의 삭제된 패키지에 대한 관리자 권한이 있습니다.{% endif %} {% endif %}
+
+{% ifversion ghae or ghes %} 패키지를 삭제하려면 삭제된 패키지를 소유하는 리포지토리에 대한 관리자 권한도 있어야 합니다.
 {% endif %}
 
-## Restoring packages
+자세한 내용은 “[필요한 권한](#required-permissions-to-delete-or-restore-a-package)”을 참조하세요.
 
-You can restore a deleted package or version if:
-- You restore the package within 30 days of its deletion.
-- The same package namespace and version is still available and not reused for a new package.
+패키지가 복원되면 패키지는 이전과 동일한 네임스페이스를 사용합니다. 동일한 패키지 네임스페이스를 사용할 수 없는 경우 패키지를 복원할 수 없습니다. 이 시나리오에서 삭제된 패키지를 복원하려면 먼저 삭제된 패키지의 네임스페이스를 사용하는 새 패키지를 삭제해야 합니다.
 
-For example, if you have a deleted RubyGems package named `octo-package` that was scoped to the repo `octo-repo-owner/octo-repo`, then you can only restore the package if the package namespace `rubygem.pkg.github.com/octo-repo-owner/octo-repo/octo-package` is still available, and 30 days have not yet passed.
+### 조직에서 패키지 복원
 
-{% ifversion fpt or ghec %}
-To restore a deleted package, you must also meet one of these permission requirements:
-  - For repository-scoped packages: You have admin permissions to the repository that owns the deleted package.{% ifversion fpt or ghec %}
-  - For user-account scoped packages: Your personal account owns the deleted package.
-  - For organization-scoped packages: You have admin permissions to the deleted package in the organization that owns the package.{% endif %}
-{% endif %}
+ 패키지가 조직에서 소유한 리포지토리에 있는 경우{% ifversion fpt or ghec %} 또는 세분화된 사용 권한이 있고 조직 계정으로 범위가 지정된 경우{% endif %} 조직 계정 설정을 통해 삭제된 패키지를 복원할 수 있습니다.
 
-{% ifversion ghae or ghes %}
-To delete a package, you must also have admin permissions to the repository that owns the deleted package.
-{% endif %}
+조직에서 패키지를 복원할 수 있는 사용자를 검토하려면 “[필요한 권한](#required-permissions-to-delete-or-restore-a-package)”을 참조하세요.
 
-For more information, see "[Required permissions](#required-permissions-to-delete-or-restore-a-package)."
-
-Once the package is restored, the package will use the same namespace it did before. If the same package namespace is not available, you will not be able to restore your package. In this scenario, to restore the deleted package, you must delete the new package that uses the deleted package's namespace first.
-
-### Restoring a package in an organization
-
- You can restore a deleted package through your organization account settings, as long as the package was in a repository owned by the organizaton{% ifversion fpt or ghec %} or had granular permissions and was scoped to your organization account{% endif %}.
-
-To review who can restore a package in an organization, see "[Required permissions](#required-permissions-to-delete-or-restore-a-package)."
-
-{% data reusables.organizations.navigate-to-org %}
-{% data reusables.organizations.org_settings %}
-3. On the left, click **Packages**.
-4. Under "Deleted Packages", next to the package you want to restore, click **Restore**.
-  ![Restore button](/assets/images/help/package-registry/restore-option-for-deleted-package-in-an-org.png)
-5. To confirm, type the name of the package and click **I understand the consequences, restore this package**.
-  ![Restore package confirmation button](/assets/images/help/package-registry/type-package-name-and-restore-button.png)
+{% data reusables.organizations.navigate-to-org %} {% data reusables.organizations.org_settings %}
+3. 왼쪽에서 **패키지** 를 클릭합니다.
+4. “삭제된 패키지”에서 복원하려는 패키지 옆에 있는 **복원** 을 클릭합니다.
+  ![복원 단추](/assets/images/help/package-registry/restore-option-for-deleted-package-in-an-org.png)
+5. 확인하려면 패키지 이름을 입력하고 **결과를 이해하고 있으며 이 패키지를 복원합니다.** 를 클릭합니다.
+  ![패키지 복원 확인 단추](/assets/images/help/package-registry/type-package-name-and-restore-button.png)
 
 {% ifversion fpt or ghec %}
 
-### Restoring a user-account scoped package
+### 사용자 계정 범위 패키지 복원
 
-You can restore a deleted package through your personal account settings, if the package was in one of your repositories or scoped to your personal account. For more information, see "[Required permissions](#required-permissions-to-delete-or-restore-a-package)."
+패키지가 리포지토리 중 하나에 있거나 개인 계정으로 범위가 지정된 경우 개인 계정 설정을 통해 삭제된 패키지를 복원할 수 있습니다. 자세한 내용은 “[필요한 권한](#required-permissions-to-delete-or-restore-a-package)”을 참조하세요.
 
 {% data reusables.user-settings.access_settings %}
-2. On the left, click **Packages**.
-4. Under "Deleted Packages", next to the package you want to restore, click **Restore**.
-  ![Restore button](/assets/images/help/package-registry/restore-option-for-deleted-package-in-an-org.png)
-5. To confirm, type the name of the package and click **I understand the consequences, restore this package**.
-  ![Restore package confirmation button](/assets/images/help/package-registry/type-package-name-and-restore-button.png)
+2. 왼쪽에서 **패키지** 를 클릭합니다.
+4. “삭제된 패키지”에서 복원하려는 패키지 옆에 있는 **복원** 을 클릭합니다.
+  ![복원 단추](/assets/images/help/package-registry/restore-option-for-deleted-package-in-an-org.png)
+5. 확인하려면 패키지 이름을 입력하고 **결과를 이해하고 있으며 이 패키지를 복원합니다.** 를 클릭합니다.
+  ![패키지 복원 확인 단추](/assets/images/help/package-registry/type-package-name-and-restore-button.png)
 
 {% endif %}
 
-### Restoring a package version
+### 패키지 버전 복원
 
-You can restore a package version from your package's landing page. To review who can restore a package, see "[Required permissions](#required-permissions-to-delete-or-restore-a-package)."
+패키지의 방문 페이지에서 패키지 버전을 복원할 수 있습니다. 패키지를 복원할 수 있는 사용자를 검토하려면 “[필요한 권한](#required-permissions-to-delete-or-restore-a-package)”을 참조하세요.
 
-1. Navigate to your package's landing page.
-2. On the right, click **Package settings**.
-2. On the left, click **Manage versions**.
-3. On the top right, use the "Versions" drop-down menu and select **Deleted**.
-  ![Versions drop-down menu showing the deleted option](/assets/images/help/package-registry/versions-drop-down-menu.png)
-4. Next to the deleted package version you want to restore, click **Restore**.
-  ![Restore option next to a deleted package version](/assets/images/help/package-registry/restore-package-version.png)
-5. To confirm, click **I understand the consequences, restore this version.**
-  ![Confirm package version restoration](/assets/images/help/package-registry/confirm-package-version-restoration.png)
+1. 패키지의 방문 페이지로 이동합니다.
+2. 오른쪽에서 **패키지 설정** 을 클릭합니다.
+2. 왼쪽에서 **버전 관리** 를 클릭합니다.
+3. 오른쪽 위에서 “버전” 드롭다운 메뉴를 사용하고 **삭제됨** 을 선택합니다.
+  ![삭제됨 옵션을 보여 주는 버전 드롭다운 메뉴](/assets/images/help/package-registry/versions-drop-down-menu.png)
+4. 복원하려는 삭제된 패키지 버전 옆에 있는 **복원** 을 클릭합니다.
+  ![삭제된 패키지 버전 옆에 있는 복원 옵션](/assets/images/help/package-registry/restore-package-version.png)
+5. 확인하려면 **결과를 이해하고 있으며 이 버전을 복원합니다.** 를 클릭합니다.
+  ![패키지 버전 복원 확인](/assets/images/help/package-registry/confirm-package-version-restoration.png)

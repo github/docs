@@ -31,7 +31,6 @@ GitHub does not conduct manufacturing or produce hardware, nor does GitHub use r
 GitHub offers free and paid software and web-based software as a service to customers all over the world. GitHub's products include:
    - GitHub.com: web-based collaboration and code-hosting platform
    - GitHub Enterprise: on-premises collaboration and code hosting software
-   - Atom: text editor
    - Electron: framework for writing cross-platform desktop apps
    - GitHub Desktop: desktop app for accessing GitHub.com and GitHub Enterprise
 

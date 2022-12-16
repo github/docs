@@ -1,0 +1,27 @@
+date: '2020-11-03'
+sections:
+  security_fixes:
+    - |**FAIBLE :** Une utilisation élevée du processeur pouvait être causée par une requête spécialement conçue pour le pont SVN, entraînant un déni de service (DoS) dans le service de pont SVN. (mise à jour : 16/11/2020) {% comment %} https://github.com/github/slumlord/pull/1005, https://github.com/github/slumlord/pull/1000 {% endcomment %}
+
+|
+    - |**FAIBLE :** Une validation incorrecte des jetons entraînait une entropie réduite pour les jetons correspondants pendant l’authentification. Les analyses montrent, dans la pratique, une absence de risque de sécurité significatif ici. {% comment %} https://github.com/github/github/pull/159457, https://github.com/github/github/pull/159193 {% endcomment %}
+
+|
+    - |Les packages ont été mis à jour avec les dernières versions de sécurité. {% comment %} https://github.com/github/enterprise2/pull/23540, https://github.com/github/enterprise2/pull/23171, https://github.com/github/enterprise2/pull/23693, https://github.com/github/enterprise2/pull/23677 {% endcomment %}
+
+|
+  bugs:
+    - "GitHub Actions pouvait ne pas démarrer s’il avait été activé précédemment sur une instance exécutant la version 2.22.0 et que celle-ci avait été mise à niveau vers la version 2.22.1 ou 2.22.2. {% comment %} https://github.com/github/enterprise2/pull/23622, https://github.com/github/enterprise2/pull/23490, https://github.com/github/c2c-actions/issues/1680 {% endcomment %}"
+    - "Les fichiers de configuration de GitHub Actions n’étaient pas copiés vers le réplica lors de la configuration de réplicas de haute disponibilité, ce qui pouvait entraîner des erreurs pendant « ghe-repl-promote ». {% comment %} https://github.com/github/enterprise2/pull/23703, https://github.com/github/enterprise2/pull/23683 {% endcomment %}"
+    - "Sur une instance fraîchement configurée de la version 2.22.1 ou 2.22.2, ou après sa mise à niveau vers la version 2.22.1 ou 2.22.2, le flux d’activités du tableau de bord d’une organisation ne pouvait plus être mis à niveau. {% comment %} https://github.com/github/github/pull/159376, https://github.com/github/github/pull/159235, https://github.com/github/enterprise2/issues/23050 {% endcomment %}"
+    - "La modification des modèles de problème dont les noms de fichiers contenaient des caractères non-ASCII échouait avec un message « 500 Erreur interne du serveur ». {% comment %} https://github.com/github/github/pull/160588, https://github.com/github/github/pull/159747 {% endcomment %}"
+    - "Une méthode de collecte des métriques pour les travaux en arrière-plan augmentait l’utilisation du processeur (mise à jour : 03/11/2020). {% comment %} https://github.com/github/github/pull/160109 {% endcomment %}"
+
+  known_issues:
+    - "Sur un serveur GitHub Enterprise fraîchement configuré et sans utilisateur, un attaquant pourrait créer le premier utilisateur administrateur. {% comment %} https://github.com/github/enterprise2/issues/1889 {% endcomment %}"
+    - "Les règles de pare-feu personnalisées ne sont pas conservées lors d’une mise à niveau. {% comment %} https://github.com/github/enterprise2/issues/2823 {% endcomment %}"
+    - "Les fichiers suivis par Git LFS [chargés via l’interface web](https://github.com/blog/2105-upload-files-to-your-repositories) sont incorrectement ajoutés directement au dépôt. {% comment %} https://github.com/github/github/issues/54684 {% endcomment %}"
+    - "Les problèmes ne peuvent pas être fermés s’ils contiennent un lien permanent vers un objet blob situé dans le dépôt où le chemin du fichier est supérieur à 255 caractères. {% comment %} https://github.com/github/github/issues/107731 {% endcomment %}"
+    - "Lorsque l’option « Les utilisateurs peuvent effectuer des recherches sur GitHub.com » est activée avec GitHub Connect, les problèmes des dépôts privés et internes ne sont pas inclus dans les résultats de recherche de GitHub.com. {% comment %} https://github.com/github/admin-experience/issues/571 {% endcomment %}"
+    - "Les journaux d’audit peuvent être attribués à 127.0.0.1 au lieu de l’adresse IP source réelle. {% comment %} https://github.com/github/enterprise2/issues/21514 {% endcomment %}"
+    - "Lorsqu’un nœud de réplica est hors ligne dans une configuration de haute disponibilité, {% data variables.product.product_name %} peut toujours acheminer les demandes de {% data variables.product.prodname_pages %} vers le nœud hors ligne, réduisant ainsi la disponibilité de {% data variables.product.prodname_pages %} pour les utilisateurs."

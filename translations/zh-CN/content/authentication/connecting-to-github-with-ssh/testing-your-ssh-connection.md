@@ -1,6 +1,6 @@
 ---
-title: Testing your SSH connection
-intro: 'After you''ve set up your SSH key and added it to your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}, you can test your connection.'
+title: 测试 SSH 连接
+intro: '设置 SSH 密钥并将其添加到您在 {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} 上的帐户后，您可以测试连接。'
 redirect_from:
   - /articles/testing-your-ssh-connection
   - /github/authenticating-to-github/testing-your-ssh-connection
@@ -13,22 +13,28 @@ versions:
 topics:
   - SSH
 shortTitle: Test your SSH connection
+ms.openlocfilehash: 7724c5939b319748f270db2f190a6df825b0bb4f
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '146338971'
 ---
-Before testing your SSH connection, you should have:
-- [Checked for existing SSH keys](/articles/checking-for-existing-ssh-keys)
-- [Generated a new SSH key](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
-- [Added a new SSH key to your GitHub account](/articles/adding-a-new-ssh-key-to-your-github-account)
+测试 SSH 连接之前，您应已完成以下各项：
+- [检查现有 SSH 密钥](/articles/checking-for-existing-ssh-keys)
+- [生成新 SSH 密钥](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
+- [为 GitHub 帐户添加新的 SSH 密钥](/articles/adding-a-new-ssh-key-to-your-github-account)
 
-When you test your connection, you'll need to authenticate this action using your password, which is the SSH key passphrase you created earlier. For more information on working with SSH key passphrases, see ["Working with SSH key passphrases"](/articles/working-with-ssh-key-passphrases).
+测试连接时，您将需要使用密码（即您之前创建的 SSH 密钥密码）验证此操作。 有关使用 SSH 密钥密码的详细信息，请参阅“[使用 SSH 密钥密码](/articles/working-with-ssh-key-passphrases)”。
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
-2. Enter the following:
+2. 输入以下内容：
   ```shell
   $ ssh -T git@{% data variables.command_line.codeblock %}
   # Attempts to ssh to {% data variables.product.product_name %}
   ```
 
-  You may see a warning like this:
+  您可能会看到类似如下的警告：
 
   ```shell
   > The authenticity of host '{% data variables.command_line.codeblock %} (IP ADDRESS)' can't be established.
@@ -36,15 +42,15 @@ When you test your connection, you'll need to authenticate this action using you
   > Are you sure you want to continue connecting (yes/no)?
   ```
 
-3. Verify that the fingerprint in the message you see matches {% ifversion fpt or ghec %}[{% data variables.product.prodname_dotcom %}'s public key fingerprint](/github/authenticating-to-github/githubs-ssh-key-fingerprints){% else %} your enterprise's public key fingerprint{% endif %}. If it does, then type `yes`:
+3. 验证所看到消息中的指纹是否与 {% ifversion fpt or ghec %}[{% data variables.product.prodname_dotcom %} 的公钥指纹](/github/authenticating-to-github/githubs-ssh-key-fingerprints){% else %}企业的公钥指纹{% endif %}匹配。 如果是，则键入 `yes`：
   ```shell
-  > Hi USERNAME! You've successfully authenticated, but GitHub does not
+  > Hi <em>username</em>! You've successfully authenticated, but GitHub does not
   > provide shell access.
   ```
 
   {% linux %}
 
-  You may see this error message:
+  你可能会看到此错误消息：
   ```shell
   ...
   Agent admitted failure to sign using the key.
@@ -52,14 +58,14 @@ When you test your connection, you'll need to authenticate this action using you
   Permission denied (publickey).
   ```
 
-  This is a known problem with certain Linux distributions. For more information, see ["Error: Agent admitted failure to sign"](/articles/error-agent-admitted-failure-to-sign).
+  这是某些 Linux 发行版的已知问题。 有关详细信息，请参阅“[错误：代理承认没有签名](/articles/error-agent-admitted-failure-to-sign)”。
 
   {% endlinux %}
 
    {% note %}
 
-   **Note:** The remote command should exit with code 1.
+   注意：远程命令应退出，并显示代码 1。
 
    {% endnote %}
 
-4. Verify that the resulting message contains your username. If you receive a "permission denied" message, see ["Error: Permission denied (publickey)"](/articles/error-permission-denied-publickey).
+4. 验证生成的消息包含您的用户名。 如果收到“权限被拒绝”消息，请参阅“[错误：权限被拒绝（公钥）](/articles/error-permission-denied-publickey)”。

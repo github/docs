@@ -17,12 +17,12 @@ topics:
 redirect_from:
   - /admin/configuration/restricting-network-traffic-to-your-enterprise
   - /admin/configuration/configuring-your-enterprise/restricting-network-traffic-to-your-enterprise
-ms.openlocfilehash: b62ab2a143ed0e7ec57f7e7225a09c0ca713295c
-ms.sourcegitcommit: 7fb7ec2e665856fc5f7cd209b53bd0fb1c9bbc67
+ms.openlocfilehash: 8511499e723fdeb4a2d24c2fce627bce56ad9777
+ms.sourcegitcommit: 9af8891fea10039b3374c76818634e05410e349d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/29/2022
-ms.locfileid: '148185047'
+ms.lasthandoff: 12/06/2022
+ms.locfileid: '148191898'
 ---
 ## Acerca de las restricciones de tráfico de red
 
@@ -30,7 +30,7 @@ Predeterminadamente, los usuarios autorizados pueden acceder a tu empresa desde 
 
 {% ifversion ghec %}
 
-Si tu empresa usa {% data variables.product.prodname_emus %} con OIDC, puedes elegir si quieres usar la lista de direcciones IP permitidas de {% data variables.product.company_short %} o usar las restricciones de lista de permitidos para el proveedor de identidades (IdP). Si tu empresa no usa {% data variables.product.prodname_emus %} con OIDC, puedes usar la característica de lista de permitidos de {% data variables.product.company_short %}. 
+Si tu empresa usa {% data variables.product.prodname_emus %} con Azure AD y OIDC, puedes elegir si quieres usar la lista de direcciones IP permitidas de {% data variables.product.company_short %} o usar las restricciones de lista de permitidos para el proveedor de identidades (IdP). Si tu empresa no usa {% data variables.product.prodname_emus %} con Azure y OIDC, puedes usar la característica de lista de permitidos de {% data variables.product.company_short %}. 
 
 {% elsif ghae %}
 
@@ -52,7 +52,7 @@ Puedes usar la lista de direcciones IP permitidas de {% data variables.product.c
 
 ## Acerca de la lista de permitidos del proveedor de identidades
 
-Si usas {% data variables.product.prodname_emus %} con OIDC, puedes usar la lista de permitidos del proveedor de identidades. 
+Si usas {% data variables.product.prodname_emus %} con Azure AD y OIDC, puedes usar la lista de permitidos del proveedor de identidades.
 
 El uso de la lista de permitidos del proveedor de identidades desactiva las configuraciones de la lista de direcciones IP permitidas de {% data variables.product.company_short %} para todas las organizaciones de tu empresa y desactiva las API de GraphQL para habilitar y administrar listas de direcciones IP permitidas. 
 
@@ -109,7 +109,11 @@ Para garantizar un uso sin problemas del CAP de OIDC mientras se sigue aplicando
 
 ## Uso de la lista de permitidos del proveedor de identidades
 
-Puedes usar la lista de permitidos del proveedor de identidades si usas {% data variables.product.prodname_emus %} con OIDC.
+{% note %}
+
+**Nota:** El uso de la lista de permitidos de IdP solo se admite para {% data variables.product.prodname_emus %} con Azure AD y OIDC. 
+
+{% endnote %}
 
 {% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.organizations.security %}
 1. En "Lista de direcciones IP permitidas", selecciona la lista desplegable y haz clic en **Proveedor de identidades**.

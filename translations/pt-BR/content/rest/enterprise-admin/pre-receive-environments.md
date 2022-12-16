@@ -1,36 +1,39 @@
 ---
-title: Pre-receive Environments
-intro: 'The Pre-receive Environments API allows you to create, list, update and delete environments for pre-receive hooks.'
+title: Ambientes Pre-receive
+intro: 'A API de Ambientes Pre-receive permite que você crie, liste, atualize e apague ambientes para hooks pre-receive.'
 versions:
   ghes: '*'
   ghae: '*'
 topics:
   - API
 miniTocMaxHeadingLevel: 3
+ms.openlocfilehash: 9db8635691ae2f8fcb8649b648948763168081ac
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147883259'
 ---
+*Ela só está disponível para administradores [autenticados](/rest/overview/resources-in-the-rest-api#authentication) do site.* Os usuários normais receberão uma resposta `404` se tentarem acessá-la.
 
-*It is only available to [authenticated](/rest/overview/resources-in-the-rest-api#authentication) site administrators.* Normal users will receive a `404` response if they try to access it.
+### Atributos do objeto
 
-{% data reusables.user-settings.enterprise-admin-api-classic-pat-only %}
+#### Ambiente pre-receive
 
-### Object attributes
-
-#### Pre-receive Environment
-
-| Name                  | Type      | Description                                                                |
+| Nome                  | Tipo      | Descrição                                                                |
 |-----------------------|-----------|----------------------------------------------------------------------------|
-| `name`                | `string`  | The name of the environment as displayed in the UI.                        |
-| `image_url`           | `string`  | URL to the tarball that will be downloaded and extracted.                  |
-| `default_environment` | `boolean` | Whether this is the default environment that ships with {% data variables.product.product_name %}. |
-| `download`            | `object`  | This environment's download status.                                        |
-| `hooks_count`         | `integer` | The number of pre-receive hooks that use this environment.                 |
+| `name`                | `string`  | O nome do ambiente conforme exibido na interface do usuário.                        |
+| `image_url`           | `string`  | URL do tarball que será baixado e extraído.                  |
+| `default_environment` | `boolean` | Se este é o ambiente-padrão que vem com {% data variables.product.product_name %}. |
+| `download`            | `object`  | Status do download deste ambiente.                                        |
+| `hooks_count`         | `integer` | O número de hooks de pre-receive que usam este ambiente.                 |
 
-#### Pre-receive Environment Download
+#### Download do ambiente pre-receive
 
-| Name            | Type     | Description                                             |
+| Nome            | Tipo     | Descrição                                             |
 |-----------------|----------|---------------------------------------------------------|
-| `state`         | `string` | The state of the most recent download.                  |
-| `downloaded_at` | `string` | The time when the most recent download started.         |
-| `message`       | `string` | On failure, this will have any error messages produced. |
+| `state`         | `string` | O estado do download mais recente.                  |
+| `downloaded_at` | `string` | A hora em que o download mais recente começou.         |
+| `message`       | `string` | Em caso de falha, serão produzidas mensagens de erro. |
 
-Possible values for `state` are `not_started`, `in_progress`, `success`, `failed`.
+Os valores possíveis para `state` são `not_started`, `in_progress`, `success` e `failed`.

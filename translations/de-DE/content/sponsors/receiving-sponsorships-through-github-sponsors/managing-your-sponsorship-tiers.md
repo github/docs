@@ -1,6 +1,6 @@
 ---
-title: Managing your sponsorship tiers
-intro: 'You can add a new sponsorship tier, or edit or retire an existing tier.'
+title: Verwalten von Sponsoringebenen
+intro: 'Du kannst neue Sponsoring-Stufen hinzufügen, oder eine bestehende Stufe bearbeiten oder zurückziehen.'
 redirect_from:
   - /articles/changing-your-sponsorship-tiers
   - /github/supporting-the-open-source-community-with-github-sponsors/changing-your-sponsorship-tiers
@@ -13,85 +13,76 @@ topics:
   - Open Source
   - Sponsors profile
 shortTitle: Manage payment tiers
+ms.openlocfilehash: 4ff2d3731483075afc23da403e62f1682c6dd6c7
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145133802'
 ---
-
-## About sponsorship tiers
+## Informationen zu Sponsoring-Stufen
 
 {% data reusables.sponsors.tier-details %}
 
 {% data reusables.sponsors.maximum-tier %}
 
-## Adding a tier
+## Eine Stufe hinzufügen
 
-{% data reusables.sponsors.navigate-to-sponsors-dashboard %}
-{% data reusables.sponsors.navigate-to-sponsor-tiers-tab %}
-1. If you are setting up tiers for the first time, we recommend you review the suggested tier examples to see how some other open source contributors have set up {% data variables.product.prodname_sponsors %}. Decide whether you want to start with some suggested draft tiers, which you can customize in the tier editor.
-   - To use a suggested tier, select the rewards you'd like to include in your draft tier or tiers. Then, click **Continue to tier editor**.
-   - To create tiers without using with any of the draft suggestions, click **Skip this step**.
-     
-     ![Screenshot of "Skip this step" option and "Continue to tier editor" button](/assets/images/help/sponsors/tier-editor-button.png)
+{% data reusables.sponsors.navigate-to-sponsors-dashboard %} {% data reusables.sponsors.navigate-to-sponsor-tiers-tab %}
+1. Wenn du zum ersten Mal Ebenen einrichtest, solltest du dir die vorgeschlagenen Beispiele für Ebenen ansehen, um zu sehen, wie andere an Open Source Mitwirkende {% data variables.product.prodname_sponsors %} eingerichtet haben. Entscheide, ob du mit einigen vorgeschlagenen Entwurfsebenen beginnen möchtest, die du im Ebenen-Editor anpassen kannst.
+   - Um eine vorgeschlagene Ebene zu verwenden, wähle die Belohnungen aus, die du in deine Entwurfsebene(n) aufnehmen möchtest. Klicke dann auf **Weiter zum Ebenen-Editor**.
+   - Um Ebenen zu erstellen, ohne einen der Entwurfsvorschläge zu verwenden, klicke auf **Diesen Schritt überspringen**.
+   ![Option „Diesen Schritt überspringen“ und Schaltfläche „Weiter zum Ebenen-Editor“](/assets/images/help/sponsors/tier-editor-button.png)
+1. Wenn du optional eine Entwurfsebene bearbeiten möchtest, suche die Entwurfsebene, und klicke auf **Bearbeiten**.
+  ![Schaltfläche „Bearbeiten“ neben der Entwurfsebene](/assets/images/help/sponsors/draft-tier-edit.png) {% data reusables.sponsors.click-add-tier %} {% data reusables.sponsors.tier-price-description %} {% data reusables.sponsors.add-welcome-message %} {% data reusables.sponsors.save-tier-draft %} {% data reusables.sponsors.review-and-publish-tier %}
 
-1. Optionally, in the text boxes under "Custom amounts", type a recommended or minimum sponsorship amount. The minimum amount applies to both recurring and one-time sponsorships.
+## Bearbeiten oder Außerkraftsetzen einer Ebene
 
-   ![Screenshot of custom amounts fields](/assets/images/help/sponsors/custom-amounts.png)
+{% data reusables.sponsors.navigate-to-sponsors-dashboard %} {% data reusables.sponsors.navigate-to-sponsor-tiers-tab %} {% data reusables.sponsors.edit-tier %} {% note %}
 
-1. Optionally, to edit a draft tier, find the draft tier and click **Edit**.
+  **Hinweis:** Scrolle nach unten, um Ideen von Ebenenbeschreibungen anzuzeigen.
 
-   ![Screenshot of edit button next to draft tier](/assets/images/help/sponsors/draft-tier-edit.png)
+  {% endnote %} {% data reusables.sponsors.tier-price-description %} {% data reusables.sponsors.tier-update %} {% data reusables.sponsors.retire-tier %}
 
-{% data reusables.sponsors.click-add-tier %}
-{% data reusables.sponsors.tier-price-description %}
-{% data reusables.sponsors.add-welcome-message %}
-{% data reusables.sponsors.save-tier-draft %}
-{% data reusables.sponsors.review-and-publish-tier %}
-
-## Editing or retiring a tier
-
-{% data reusables.sponsors.navigate-to-sponsors-dashboard %}
-{% data reusables.sponsors.navigate-to-sponsor-tiers-tab %}
-{% data reusables.sponsors.edit-tier %}
-  {% note %}
-
-  **Note:** To see ideas of tier descriptions, scroll down.
-
-  {% endnote %}
-{% data reusables.sponsors.tier-price-description %}
-{% data reusables.sponsors.tier-update %}
-{% data reusables.sponsors.retire-tier %}
-
-## Adding a repository to a sponsorship tier
+## Hinzufügen eines Repositorys zu einer Sponsoringebene
 
 {% data reusables.sponsors.sponsors-only-repos %}
 
-### About adding repositories to a sponsorship tier
+### Informationen zum Hinzufügen von Repositorys zu einer Sponsoringebene
 
-To add a repository to a tier, the repository must be private and owned by an organization, and you must have admin access to the repository.
+Um ein Repository einer Ebene hinzuzufügen, muss das Repository privat und im Besitz einer Organisation sein, und du musst über Administratorzugriff auf das Repository verfügen.
 
-When you add a repository to a tier, {% data variables.product.company_short %} will automatically send repository invitations to new sponsors and remove access when a sponsorship is cancelled. 
+Wenn du einer Ebene ein Repository hinzufügst, sendet {% data variables.product.company_short %} automatisch Repositoryeinladungen an neue Sponsoren und hebt den Zugriff auf, wenn ein Sponsoring beendet wird. 
 
-Only personal accounts, not organizations, can be invited to private repositories associated with a sponsorship tier.
+Nur persönliche Konten, nicht Organisationen, können zu privaten Repositorys eingeladen werden, die einer Sponsoringebene zugeordnet sind.
 
-You can also manually add or remove collaborators to the repository, and {% data variables.product.company_short %} will not override these in the sync. 
+Du kannst dem Repository auch manuell Projektmitarbeiter hinzufügen oder sie davon entfernen, und {% data variables.product.company_short %} überschreibt diese nicht in der Synchronisierung. 
 
-### About transfers for repositories that are added to sponsorship tiers
+### Informationen zu Übertragungen für Repositorys, die Sponsorenebenen hinzugefügt werden
 
-If you transfer a repository that has been added to a sponsorship tier, sponsors who have access to the repository through the tier may be affected.
+Wenn du ein Repository überträgst, das einer Sponsoringebene hinzugefügt wurde, können Sponsoren betroffen sein, die über die Ebene Zugriff auf das Repository haben.
 
-- If the sponsored profile is for an organization and the repository is transferred to a different organization, current sponsors will be transferred, but new sponsors will not be added. The new owner of the repository can remove existing sponsors.
-- If the sponsored profile is for a personal account, the repository is transferred to an organization, and the personal account has admin access to the new repository, existing sponsors will be transferred, and new sponsors will continue to be added to the repository.
-- If the repository is transferred to a personal account, all sponsors will be removed and new sponsors will not be added to the repository.
+- Wenn das gesponserte Profil für eine Organisation gilt und das Repository an eine andere Organisation übertragen wird, werden aktuelle Sponsoren übertragen, aber neue Sponsoren werden nicht hinzugefügt. Der neue Besitzer des Repositorys kann vorhandene Sponsoren entfernen.
+- Wenn das gesponserte Profil für ein persönliches Konto gilt, wird das Repository an eine Organisation übertragen, und das persönliche Konto hat Administratorzugriff auf das neue Repository, vorhandene Sponsoren werden übertragen, und neue Sponsoren werden dem Repository weiterhin hinzugefügt.
+- Wenn das Repository in ein persönliches Konto übertragen wird, werden alle Sponsoren entfernt, und neue Sponsoren werden dem Repository nicht hinzugefügt.
 
-### Adding a repository a sponsorship tier
+### Hinzufügen eines Repositorys zu einer Sponsoringebene
 
-{% data reusables.sponsors.navigate-to-sponsors-dashboard %}
-{% data reusables.sponsors.navigate-to-sponsor-tiers-tab %}
-{% data reusables.sponsors.edit-tier %}
-1. Select **Grant sponsors access to a private repository**.
+{% data reusables.sponsors.navigate-to-sponsors-dashboard %} {% data reusables.sponsors.navigate-to-sponsor-tiers-tab %} {% data reusables.sponsors.edit-tier %}
+1. Wähle **Sponsoren Zugriff auf ein privates Repository gewähren** aus.
 
-   ![Screenshot of checkbox to grant sponsors access to a private repository](/assets/images/help/sponsors/grant-sponsors-access-to-repo-checkbox.png)
+   ![Screenshot des Kontrollkästchens, um Sponsoren Zugriff auf ein privates Repository zu gewähren](/assets/images/help/sponsors/grant-sponsors-access-to-repo-checkbox.png)
 
-1. Select the dropdown menu and click the repository you want to add.
+1. Wähle das Dropdownmenü aus, und klicke auf das Repository, das du hinzufügen möchtest.
 
-   ![Screenshot of dropdown menu to choose the repository to grant sponsors access to](/assets/images/help/sponsors/grant-sponsors-access-to-repo-dropdown.png)
+   ![Screenshot des Dropdownmenüs zum Auswählen des Repositorys, um Sponsoren Zugriff zu gewähren auf](/assets/images/help/sponsors/grant-sponsors-access-to-repo-dropdown.png)
 
 {% data reusables.sponsors.tier-update %}
+
+## Aktivieren von Ebenen mit benutzerdefinierten Beträgen
+
+{% data reusables.sponsors.navigate-to-sponsors-dashboard %} {% data reusables.sponsors.navigate-to-sponsor-tiers-tab %} {% data reusables.sponsors.enable-custom-amounts %}
+
+## Deaktivieren von Ebenen mit benutzerdefinierten Beträgen
+
+Du kannst Ebenen mit benutzerdefinierten Beträgen deaktivieren, indem du die Option **Benutzerdefinierte Beträge aktivieren** auf der Registerkarte **Sponsoringebenen** deaktivierst. Wenn du benutzerdefinierte Beträge deaktivierst, werden alle benutzerdefinierten Ebenen außer Kraft gesetzt.

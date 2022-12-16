@@ -1,6 +1,6 @@
 ---
 title: 속도 제한
-intro: 속도 제한 API를 사용하면 다양한 REST API의 현재 속도 제한 상태를 확인할 수 있습니다.
+intro: REST API를 사용하여 현재 속도 제한 상태를 확인합니다.
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,29 +11,25 @@ topics:
 miniTocMaxHeadingLevel: 3
 redirect_from:
   - /rest/reference/rate-limit
-ms.openlocfilehash: 282b7e7bbb947256ccad4950b6a17d8874044d8f
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
+ms.openlocfilehash: a609d339af2201bba5ec12044a8eebe733013cea
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147081050'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148193414'
 ---
-## 속도 제한 API 정보
+## 속도 제한 정보
 
-REST API 개요 설명서에서는 [속도 제한 규칙](/rest/overview/resources-in-the-rest-api#rate-limiting)에 대해 설명합니다. 아래에 설명된 속도 제한 API를 사용하여 언제든지 현재 속도 제한 상태를 확인할 수 있습니다.
+언제든지 현재 속도 제한 상태를 확인할 수 있습니다. 속도 제한 규칙에 대한 자세한 내용은 "[REST API의 리소스"를](/rest/overview/resources-in-the-rest-api#rate-limiting) 참조하세요. 
 
-### 속도 제한 상태 이해
-
-Search API에는 REST API의 나머지 부분을 제어하는 속도 제한과는 별도로 [사용자 지정 속도 제한](/rest/reference/search#rate-limit)이 있습니다. 또한 GraphQL API에는 REST API의 속도 제한과는 별도이며 다른 방식으로 계산되는 [사용자 지정 속도 제한](/graphql/overview/resource-limitations#rate-limit)이 있습니다.
-
-이러한 이유로 속도 제한 API 응답은 속도 제한을 분류합니다. `resources` 아래에 다음 네 개의 개체가 표시됩니다.
+항목을 검색하기 위한 REST API에는 다른 REST API 엔드포인트를 제어하는 속도 제한과는 별개인 사용자 지정 속도 제한이 있습니다. 자세한 내용은 "검색"을 참조[하세요](/rest/search). 또한 GraphQL API에는 REST API의 속도 제한과는 별도이며 다른 방식으로 계산되는 사용자 지정 속도 제한이 있습니다. 자세한 내용은 "[리소스 제한 사항"을 참조하세요.](/graphql/overview/resource-limitations#rate-limit) 이러한 이유로 API 응답은 속도 제한을 분류합니다. 아래에 `resources`다른 범주와 관련된 개체가 표시됩니다.
 
 * `core` 개체는 REST API에서 검색과 관련되지 않은 모든 리소스에 대한 속도 제한 상태를 알려줍니다.
 
-* `search` 개체는 [Search API](/rest/reference/search)에 대한 속도 제한 상태를 알려줍니다.
+* 개체는 `search` 검색을 위해 REST API에 대한 속도 제한 상태를 제공합니다.
 
-* `graphql` 개체는 [GraphQL API](/graphql)에 대한 속도 제한 상태를 알려줍니다.
+* 개체는 `graphql` GraphQL API에 대한 속도 제한 상태를 제공합니다.
 
-* `integration_manifest` 개체는 [GitHub 앱 매니페스트 코드 변환](/apps/building-github-apps/creating-github-apps-from-a-manifest/#3-you-exchange-the-temporary-code-to-retrieve-the-app-configuration) 엔드포인트에 대한 속도 제한 상태를 알려줍니다.
+* 개체는 `integration_manifest` 작업에 대한 `POST /app-manifests/{code}/conversions` 속도 제한 상태를 제공합니다. 자세한 내용은 "[매니페스트에서 GitHub 앱 만들기"를 참조하세요](/apps/building-github-apps/creating-github-apps-from-a-manifest/#3-you-exchange-the-temporary-code-to-retrieve-the-app-configuration).
 
 속도 제한 응답의 헤더 및 값에 대한 자세한 내용은 “[REST API의 리소스](/rest/overview/resources-in-the-rest-api#rate-limit-http-headers)”를 참조하세요.

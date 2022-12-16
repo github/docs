@@ -1,7 +1,7 @@
 ---
-title: Managing global webhooks
+title: グローバルwebhookの管理
 shortTitle: Manage global webhooks
-intro: You can configure global webhooks to notify external web servers when events occur within your enterprise.
+intro: Enterprise 内でイベントが発生したときに外部の Web サーバーに通知するように、グローバル Webhook を構成できます。
 permissions: Enterprise owners can manage global webhooks for an enterprise account.
 redirect_from:
   - /enterprise/admin/user-management/about-global-webhooks
@@ -22,79 +22,72 @@ type: how_to
 topics:
   - Enterprise
   - Webhooks
+ms.openlocfilehash: 751a6dc55b9d1aded22a8225f4bf7d058aa32b77
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145120222'
 ---
+## グローバルwebhookについて
 
-## About global webhooks
+グローバル Webhook を使用して、企業内で発生したイベントを外部の Web サーバーに通知できます。 Webhook のペイロードを受信した後、企業のユーザーや組織の管理の監視、応答、またはルールの適用を行うアプリケーションまたはコードを実行するように、サーバーを構成できます。 詳細については、「[Webhook](/developers/webhooks-and-events/webhooks)」を参照してください。
 
-You can use global webhooks to notify an external web server when events occur within your enterprise. You can configure the server to receive the webhook's payload, then run an application or code that monitors, responds to, or enforces rules for user and organization management for your enterprise. For more information, see "[Webhooks](/developers/webhooks-and-events/webhooks)."
+たとえば、誰かが企業内のリポジトリや組織を作成、削除、または変更したときに Webhook を送信するように、{% data variables.product.product_location %} を構成できます。 Webhook を受信した後でタスクを自動的に実行するようにサーバーを構成できます。
 
-For example, you can configure {% data variables.location.product_location %} to send a webhook when someone creates, deletes, or modifies a repository or organization within your enterprise. You can configure the server to automatically perform a task after receiving the webhook.
-
-![List of global webhooks](/assets/images/enterprise/site-admin-settings/list-of-global-webhooks.png)
+![グローバル webhook のリスト](/assets/images/enterprise/site-admin-settings/list-of-global-webhooks.png)
 
 {% data reusables.enterprise_user_management.manage-global-webhooks-api %}
 
-## Adding a global webhook
+## グローバルwebhookの追加
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.hooks-tab %}
-5. Click **Add webhook**.
-  ![Add webhook button on Webhooks page in Admin center](/assets/images/enterprise/site-admin-settings/add-global-webhook-button.png)
-6. Type the URL where you'd like to receive payloads.
-  ![Field to type a payload URL](/assets/images/enterprise/site-admin-settings/add-global-webhook-payload-url.png)
-7. Optionally, use the **Content type** drop-down menu, and click a payload format.
-  ![Drop-down menu listing content type options](/assets/images/enterprise/site-admin-settings/add-global-webhook-content-type-dropdown.png)
-8. Optionally, in the **Secret** field, type a string to use as a `secret` key.
-  ![Field to type a string to use as a secret key](/assets/images/enterprise/site-admin-settings/add-global-webhook-secret.png)
-9. Optionally, if your payload URL is HTTPS and you would not like {% data variables.product.prodname_ghe_server %} to verify SSL certificates when delivering payloads, select **Disable SSL verification**. Read the information about SSL verification, then click **I understand my webhooks may not be secure**.
-  ![Checkbox for disabling SSL verification](/assets/images/enterprise/site-admin-settings/add-global-webhook-disable-ssl-button.png)
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.settings-tab %} {% data reusables.enterprise-accounts.hooks-tab %}
+5. **[Webhook の追加]** を選択します。
+  ![管理センターの [Webhook] ページの [Webhook の追加] ボタン](/assets/images/enterprise/site-admin-settings/add-global-webhook-button.png)
+6. ペイロードの受信に使用する URL を入力します。
+  ![ペイロードの URL を入力するフィールド](/assets/images/enterprise/site-admin-settings/add-global-webhook-payload-url.png)
+7. 必要に応じて、 **[コンテンツ タイプ]** ドロップダウン メニューを使用して、ペイロードの形式をクリックします。
+  ![コンテンツ タイプのオプションの一覧が表示されるドロップダウン メニュー](/assets/images/enterprise/site-admin-settings/add-global-webhook-content-type-dropdown.png)
+8. 必要に応じて、 **[シークレット]** フィールドに、`secret` キーとして使用する文字列を入力します。
+  ![シークレット キーとして使う文字列を入力するフィールド](/assets/images/enterprise/site-admin-settings/add-global-webhook-secret.png)
+9. オプションとして、ペイロードの URL が HTTPS で、ペイロードを配信するときに {% data variables.product.prodname_ghe_server %} で SSL 証明書が検証されないようにしたい場合は、 **[SSL の検証を無効にする]** を選択します。 SSL の検証に関する情報を読んでから、 **[Webhook が安全ではないかもしれないことを理解しました]** をクリックします。
+  ![SSL の検証を無効にするチェック ボックス](/assets/images/enterprise/site-admin-settings/add-global-webhook-disable-ssl-button.png)
 
   {% warning %}
 
-  **Warning:** SSL verification helps ensure that hook payloads are delivered securely. We do not recommend disabling SSL verification.
+  **警告:** SSL の検証は、フックのペイロードが安全に配信されることを保証するのに役立ちます。 SSL 検証を無効化することはおすすめしません。
 
   {% endwarning %}
-10. Decide if you'd like this webhook to trigger for every event or for selected events.
-  ![Radio buttons with options to receive payloads for every event or selected events](/assets/images/enterprise/site-admin-settings/add-global-webhook-select-events.png)
-    - For every event, select **Send me everything**.
-    - To choose specific events, select **Let me select individual events**.
-11. If you chose to select individual events, select the events that will trigger the webhook.
-      {% ifversion ghec %}
-      ![Checkboxes for individual global webhook events](/assets/images/enterprise/site-admin-settings/add-global-webhook-select-individual-events.png)
-      {% elsif ghes or ghae %}
-      ![Checkboxes for individual global webhook events](/assets/images/enterprise/site-admin-settings/add-global-webhook-select-individual-events-ghes-and-ae.png)
-      {% endif %}
-12. Confirm that the **Active** checkbox is selected.
-  ![Selected Active checkbox](/assets/images/help/business-accounts/webhook-active.png)
-13. Click **Add webhook**.
+10. この Webhook をすべてのイベントまたは選択したイベントのどちらでトリガーするかを決めます。
+  ![ペイロードをすべてのイベントまたは選択したイベントで受け取るオプションのラジオ ボタン](/assets/images/enterprise/site-admin-settings/add-global-webhook-select-events.png)
+    - すべてのイベントの場合は、 **[すべて送信する]** を選択します。
+    - 特定のイベントを選択するには、 **[個別のイベントを選択する]** を選択します。
+11. 個別のイベントを選択する場合は、Webhook をトリガーするイベントを選択します。
+      {% ifversion ghec %} ![個々のグローバル Webhook イベントのチェック ボックス](/assets/images/enterprise/site-admin-settings/add-global-webhook-select-individual-events.png) {% elsif ghes or ghae %} ![個々のグローバル Webhook イベントのチェック ボックス](/assets/images/enterprise/site-admin-settings/add-global-webhook-select-individual-events-ghes-and-ae.png) {% endif %}
+12. **[アクティブ]** チェック ボックスがオンになっていることを確認します。
+  ![選択された [アクティブ] チェック ボックス](/assets/images/help/business-accounts/webhook-active.png)
+13. **[Webhook の追加]** を選択します。
 
-## Editing a global webhook
+## グローバルwebhookの編集
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.hooks-tab %}
-5. Next to the webhook you'd like to edit, click **Edit**.
-  ![Edit button next to a webhook](/assets/images/enterprise/site-admin-settings/edit-global-webhook-button.png)
-6. Update the webhook's settings.
-7. Click **Update webhook**.
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.settings-tab %} {% data reusables.enterprise-accounts.hooks-tab %}
+5. 編集する Webhook の横の **[編集]** をクリックします。
+  ![Webhook の隣の [編集] ボタン](/assets/images/enterprise/site-admin-settings/edit-global-webhook-button.png)
+6. webhookの設定の更新。
+7. **[Webhook の更新]** をクリックします。
 
-## Deleting a global webhook
+## グローバルwebhookの削除
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.hooks-tab %}
-5. Next to the webhook you'd like to delete, click **Delete**.
-  ![Delete button next to a webhook](/assets/images/enterprise/site-admin-settings/delete-global-webhook-button.png)
-6. Read the information about deleting a webhook, then click **Yes, delete webhook**.
-  ![Pop-up box with warning information and button to confirm deleting the webhook](/assets/images/enterprise/site-admin-settings/confirm-delete-global-webhook.png)
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.settings-tab %} {% data reusables.enterprise-accounts.hooks-tab %}
+5. 削除する Webhook の横の **[削除]** をクリックします。
+  ![Webhook の隣の [削除] ボタン](/assets/images/enterprise/site-admin-settings/delete-global-webhook-button.png)
+6. Webhook の削除に関する情報を読んでから、 **[はい、Webhook を削除します]** をクリックします。
+  ![Webhook の削除を確認する警告情報とボタンが含まれるポップアップ ボックス](/assets/images/enterprise/site-admin-settings/confirm-delete-global-webhook.png)
 
-## Viewing recent deliveries and responses
+## 最近のデリバリとレスポンスの表示
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.hooks-tab %}
-5. In the list of webhooks, click the webhook for which you'd like to see deliveries.
-  ![List of webhooks with links to view each webhook](/assets/images/enterprise/site-admin-settings/click-global-webhook.png)
-6. Under "Recent deliveries", click a delivery to view details.
-  ![List of the webhook's recent deliveries with links to view details](/assets/images/enterprise/site-admin-settings/global-webhooks-recent-deliveries.png)
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.settings-tab %} {% data reusables.enterprise-accounts.hooks-tab %}
+5. webhook のリストで、デリバリを見たい webhook をクリックします。
+  ![各 Webhook を表示するリンクのある Webhook の一覧](/assets/images/enterprise/site-admin-settings/click-global-webhook.png)
+6. [Recent deliveries（最近のデリバリ）] の下で、詳細を表示したいデリバリをクリックしてください。
+  ![詳細を表示するリンクがある Webhook の最近の配信の一覧](/assets/images/enterprise/site-admin-settings/global-webhooks-recent-deliveries.png)

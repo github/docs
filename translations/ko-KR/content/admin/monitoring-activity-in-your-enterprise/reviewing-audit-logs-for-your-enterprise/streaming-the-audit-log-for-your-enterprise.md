@@ -1,6 +1,6 @@
 ---
-title: Streaming the audit log for your enterprise
-intro: 'You can stream audit and Git events data from {% data variables.product.prodname_dotcom %} to an external data management system.'
+title: 엔터프라이즈에 대한 감사 로그 스트리밍
+intro: '감사 및 Git 이벤트 데이터를 {% data variables.product.prodname_dotcom %}에서 외부 데이터 관리 시스템으로 스트림할 수 있습니다.'
 miniTocMaxHeadingLevel: 3
 versions:
   feature: audit-log-streaming
@@ -15,32 +15,34 @@ redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-organizations-in-your-enterprise-account/streaming-the-audit-logs-for-organizations-in-your-enterprise-account
   - /admin/user-management/managing-organizations-in-your-enterprise/streaming-the-audit-logs-for-organizations-in-your-enterprise-account
 permissions: Enterprise owners can configure audit log streaming.
+ms.openlocfilehash: d8397a86be7e1d93bcd063b2713ca4c4f00a5386
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148094043'
 ---
+{% ifversion ghes %} {% note %}
 
-{% ifversion ghes %}
-{% note %}
+**참고:** 감사 로그 스트리밍은 현재 {% data variables.product.product_name %}에 베타에 있으며 변경될 수 있습니다.
 
-**Note:** Audit log streaming is currently in beta for {% data variables.product.product_name %} and is subject to change.
+{% endnote %} {% endif %}
 
-{% endnote %}
-{% endif %}
+## 감사 로그 스트리밍 정보
 
-## About audit log streaming
+지적 재산권을 보호하고 조직의 규정 준수를 유지하기 위해 스트리밍을 사용하여 감사 로그 데이터의 복사본을 유지하고 모니터링할 수 있습니다. {% data reusables.audit_log.audited-data-list %}
 
-To help protect your intellectual property and maintain compliance for your organization, you can use streaming to keep copies of your audit log data and monitor:
-{% data reusables.audit_log.audited-data-list %}
+감사 데이터 스트리밍의 이점은 다음과 같습니다.
 
-The benefits of streaming audit data include:
+* **데이터 검색**. 대량의 데이터를 쿼리하기 위해 기본 설정 도구를 사용하여 스트림된 이벤트를 검사할 수 있습니다. 스트림에는 전체 엔터프라이즈 계정에 대한 감사 이벤트와 Git 이벤트가 모두 포함됩니다.{% ifversion pause-audit-log-stream %}
+* **데이터 연속성**. 감사 데이터를 손실하지 않고 최대 7일 동안 스트림을 일시 중지할 수 있습니다.{% endif %}
+* **데이터 보존**. 내보낸 감사 로그와 Git 이벤트 데이터는 필요한 기간만큼 유지할 수 있습니다.
 
-* **Data exploration**. You can examine streamed events using your preferred tool for querying large quantities of data. The stream contains both audit events and Git events across the entire enterprise account.{% ifversion pause-audit-log-stream %}
-* **Data continuity**. You can pause the stream for up to seven days without losing any audit data.{% endif %}
-* **Data retention**. You can keep your exported audit logs and Git events data as long as you need to.
+엔터프라이즈 소유자는 언제든지 스트림을 설정{% ifversion pause-audit-log-stream %}, 일시 중지{% endif %} 또는 삭제할 수 있습니다. 스트림은 엔터프라이즈의 모든 조직에 대한 감사 및 Git 이벤트 데이터를 내보냅니다.
 
-Enterprise owners can set up{% ifversion pause-audit-log-stream %}, pause,{% endif %} or delete a stream at any time. The stream exports the audit and Git events data for all of the organizations in your enterprise.
+## 감사 로그 스트리밍 설정
 
-## Setting up audit log streaming
-
-You set up the audit log stream on {% data variables.product.product_name %} by following the instructions for your provider.
+공급자에 대한 지침에 따라 {% data variables.product.product_name %}에 대한 감사 로그 스트림을 설정합니다.
 
 - [Amazon S3](#setting-up-streaming-to-amazon-s3)
 - [Azure Blob Storage](#setting-up-streaming-to-azure-blob-storage)
@@ -49,49 +51,46 @@ You set up the audit log stream on {% data variables.product.product_name %} by 
 - [Google Cloud Storage](#setting-up-streaming-to-google-cloud-storage)
 - [Splunk](#setting-up-streaming-to-splunk)
 
-### Setting up streaming to Amazon S3
+### Amazon S3으로 스트리밍 설정
 
-{% ifversion streaming-oidc-s3 %}
-You can set up streaming to S3 with access keys or, to avoid storing long-lived secrets in {% data variables.product.product_name %}, with OpenID Connect (OIDC).
+{% ifversion streaming-oidc-s3 %} 액세스 키를 사용하여 S3에 스트리밍을 설정하거나 OIDC(OpenID Connect)를 사용하여 {% data variables.product.product_name %}에 수명이 긴 비밀을 저장하지 않도록 할 수 있습니다.
 
-- [Setting up streaming to S3 with access keys](#setting-up-streaming-to-s3-with-access-keys)
-- [Setting up streaming to S3 with OpenID Connect](#setting-up-streaming-to-s3-with-openid-connect)
-- [Disabling streaming to S3 with OpenID Connect](#disabling-streaming-to-s3-with-openid-connect)
+- [액세스 키를 사용하여 S3으로 스트리밍 설정](#setting-up-streaming-to-s3-with-access-keys)
+- [OpenID Connect를 사용하여 S3으로 스트리밍 설정](#setting-up-streaming-to-s3-with-openid-connect)
+- [OpenID Connect를 사용하여 S3으로 스트리밍을 사용하지 않도록 설정](#disabling-streaming-to-s3-with-openid-connect)
 
-#### Setting up streaming to S3 with access keys
+#### 액세스 키를 사용하여 S3으로 스트리밍 설정
 {% endif %}
 
-To stream audit logs to Amazon's S3 endpoint, you must have a bucket and access keys. For more information, see [Creating, configuring, and working with Amazon S3 buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-buckets-s3.html) in the AWS documentation. Make sure to block public access to the bucket to protect your audit log information. 
+감사 로그를 Amazon의 S3 엔드포인트로 스트림하려면 버킷 및 액세스 키가 있어야 합니다. 자세한 내용은 AWS 설명서의 [Amazon S3 버킷 만들기, 구성, 사용](https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-buckets-s3.html)을 참조하세요. 감사 로그 정보를 보호하기 위해 버킷에 대한 퍼블릭 액세스를 차단해야 합니다. 
 
-To set up audit log streaming from {% data variables.product.prodname_dotcom %} you will need:
-* The name of your Amazon S3 bucket
-* Your AWS access key ID
-* Your AWS secret key
+{% data variables.product.prodname_dotcom %}에서 감사 로그 스트리밍을 설정하려면 다음 항목이 필요합니다.
+* Amazon S3 버킷의 이름
+* AWS 액세스 키 ID
+* AWS 비밀 키
 
-For information on creating or accessing your access key ID and secret key, see [Understanding and getting your AWS credentials](https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html) in the AWS documentation.
+액세스 키 ID 및 비밀 키를 만들거나 액세스하는 방법에 대한 자세한 내용은 AWS 설명서의 [AWS 자격 증명 이해 및 가져오기](https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html)를 참조하세요.
 
-{% data reusables.enterprise.navigate-to-log-streaming-tab %}
-{% data reusables.audit_log.streaming-choose-s3 %}{% ifversion streaming-oidc-s3 %}
-1. Under "Authentication", click **Access keys**.
+{% data reusables.enterprise.navigate-to-log-streaming-tab %} {% data reusables.audit_log.streaming-choose-s3 %}{% ifversion streaming-oidc-s3 %}
+1. “인증”에서 **액세스 키** 를 클릭합니다.
 
-   ![Screenshot of the authentication options for streaming to Amazon S3](/assets/images/help/enterprises/audit-log-streaming-s3-access-keys.png){% endif %}
-1. Configure the stream settings.
+   ![Amazon S3으로 스트리밍하기 위한 인증 옵션의 스크린샷](/assets/images/help/enterprises/audit-log-streaming-s3-access-keys.png){% endif %}
+1. 스트림 설정을 구성합니다.
 
-   - Under "Bucket", type the name of the bucket you want to stream to. For example, `auditlog-streaming-test`.
-   - Under "Access Key ID", type your access key ID. For example, `ABCAIOSFODNN7EXAMPLE1`.
-   - Under "Secret Key", type your secret key. For example, `aBcJalrXUtnWXYZ/A1MDENG/zPxRfiCYEXAMPLEKEY`.
-{% data reusables.audit_log.streaming-check-s3-endpoint %}
-{% data reusables.enterprise.verify-audit-log-streaming-endpoint %}
+   - “버킷”에서 스트리밍할 버킷의 이름을 입력합니다. 예: `auditlog-streaming-test`.
+   - “액세스 키 ID”에서 액세스 키 ID를 입력합니다. 예: `ABCAIOSFODNN7EXAMPLE1`.
+   - “비밀 키”에서 비밀 키를 입력합니다. 예: `aBcJalrXUtnWXYZ/A1MDENG/zPxRfiCYEXAMPLEKEY`.
+{% data reusables.audit_log.streaming-check-s3-endpoint %} {% data reusables.enterprise.verify-audit-log-streaming-endpoint %}
 
 {% ifversion streaming-oidc-s3 %}
-#### Setting up streaming to S3 with OpenID Connect
+#### OpenID Connect를 사용하여 S3으로 스트리밍 설정
 
-1. In AWS, add the {% data variables.product.prodname_dotcom %} OIDC provider to IAM. For more information, see [Creating OpenID Connect (OIDC) identity providers](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_oidc.html) in the AWS documentation.
+1. AWS에서 {% data variables.product.prodname_dotcom %} OIDC 공급자를 IAM에 추가합니다. 자세한 내용은 AWS 설명서에서 [OIDC(OpenID Connect) ID 공급자 만들기](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_oidc.html)를 참조하세요.
 
-   - For the provider URL, use `https://oidc-configuration.audit-log.githubusercontent.com`.
-   - For "Audience", use `sts.amazonaws.com`.
-1. Create a bucket, and block public access to the bucket. For more information, see [Creating, configuring, and working with Amazon S3 buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-buckets-s3.html) in the AWS documentation.
-1. Create a policy that allows {% data variables.product.company_short %} to write to the bucket by copying the following JSON and replacing `EXAMPLE-BUCKET` with the name of your bucket. {% data variables.product.prodname_dotcom %} requires only the permissions in this JSON.
+   - 공급자 URL의 경우 `https://oidc-configuration.audit-log.githubusercontent.com`을 사용합니다.
+   - “대상 그룹”의 경우 `sts.amazonaws.com`을 사용합니다.
+1. 버킷을 만들고 버킷에 대한 퍼블릭 액세스를 차단합니다. 자세한 내용은 AWS 설명서의 [Amazon S3 버킷 만들기, 구성, 사용](https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-buckets-s3.html)을 참조하세요.
+1. 다음 JSON을 복사하고 버킷의 이름으로 바꿔 {% 데이터 variables.product.company_short %}이 `EXAMPLE-BUCKET` (가) 버킷에 쓸 수 있도록 하는 정책을 만듭니다. {% 데이터 variables.product.prodname_dotcom %}에는 이 JSON의 권한만 필요합니다.
 
    ```
    {
@@ -108,11 +107,11 @@ For information on creating or accessing your access key ID and secret key, see 
       ]
    }
    ```
-   For more information, see [Creating IAM policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html) in the AWS documentation.
-1. Configure the role and trust policy for the {% data variables.product.prodname_dotcom %} IdP. For more information, see [Creating a role for web identity or OpenID Connect Federation (console)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-idp_oidc.html) in the AWS documentation.
+   자세한 내용은 AWS 설명서의 [IAM 정책 만들기](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html)를 참조하세요.
+1. {% data variables.product.prodname_dotcom %} IdP에 대한 역할 및 신뢰 정책을 구성합니다. 자세한 내용은 AWS 설명서에서 [웹 ID 또는 OpenID Connect Federation(콘솔)에 대한 역할 만들기](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-idp_oidc.html)를 참조하세요.
   
-   - Add the permissions policy you created above to allow writes to the bucket.
-   - Edit the trust relationship to add the `sub` field to the validation conditions, replacing `ENTERPRISE` with the name of your enterprise.
+   - 버킷에 대한 쓰기를 허용하도록 위에서 만든 사용 권한 정책을 추가합니다.
+   - 신뢰 관계를 편집하여 유효성 검사 조건에 `sub` 필드를 추가하고 `ENTERPRISE`를 엔터프라이즈 이름으로 바꿉니다.
      ```
      "Condition": {
         "StringEquals": {
@@ -121,217 +120,209 @@ For information on creating or accessing your access key ID and secret key, see 
          }
       }
       ```
-   - Make note of the Amazon Resource Name (ARN) of the created role.
-{% data reusables.enterprise.navigate-to-log-streaming-tab %}
-{% data reusables.audit_log.streaming-choose-s3 %}
-1. Under "Authentication", click **OpenID Connect**.
+   - 만든 역할의 ARN(Amazon Resource Name)을 기록해 둡니다.
+{% data reusables.enterprise.navigate-to-log-streaming-tab %} {% data reusables.audit_log.streaming-choose-s3 %}
+1. “인증”에서 **OpenID Connect** 를 클릭합니다.
 
-   ![Screenshot of the authentication options for streaming to Amazon S3](/assets/images/help/enterprises/audit-log-streaming-s3-oidc.png)
-1. Configure the stream settings.
+   ![Amazon S3으로 스트리밍하기 위한 인증 옵션의 스크린샷](/assets/images/help/enterprises/audit-log-streaming-s3-oidc.png)
+1. 스트림 설정을 구성합니다.
 
-   - Under "Bucket", type the name of the bucket you want to stream to. For example, `auditlog-streaming-test`.
-   - Under "ARN Role" type the ARN role you noted earlier. For example, `arn:aws::iam::1234567890:role/github-audit-log-streaming-role`.
-{% data reusables.audit_log.streaming-check-s3-endpoint %}
-{% data reusables.enterprise.verify-audit-log-streaming-endpoint %}
+   - “버킷”에서 스트리밍할 버킷의 이름을 입력합니다. 예: `auditlog-streaming-test`.
+   - “ARN 역할” 아래에 앞에서 적어 두던 ARN 역할을 입력합니다. 예: `arn:aws::iam::1234567890:role/github-audit-log-streaming-role`.
+{% data reusables.audit_log.streaming-check-s3-endpoint %} {% data reusables.enterprise.verify-audit-log-streaming-endpoint %}
 
-#### Disabling streaming to S3 with OpenID Connect
+#### OpenID Connect를 사용하여 S3으로 스트리밍을 사용하지 않도록 설정
 
-If you want to disable streaming to S3 with OIDC for any reason, such as the discovery of a security vulnerability in OIDC, delete the {% data variables.product.prodname_dotcom %} OIDC provider you created in AWS when you set up streaming. For more information, see [Creating OpenID Connect (OIDC) identity providers](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_oidc.html) in the AWS documentation.
+OIDC의 보안 취약성 검색과 같은 이유로 OIDC를 사용하여 S3으로 스트리밍을 사용하지 않도록 설정하려면 스트리밍을 설정할 때 AWS에서 만든 {% data variables.product.prodname_dotcom %} OIDC 공급자를 삭제합니다. 자세한 내용은 AWS 설명서에서 [OIDC(OpenID Connect) ID 공급자 만들기](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_oidc.html)를 참조하세요.
 
-Then, set up streaming with access keys until the vulnerability is resolved. For more information, see "[Setting up streaming to S3 with access keys](#setting-up-streaming-to-s3-with-access-keys)."
+그런 다음, 취약성이 해결될 때까지 액세스 키를 사용하여 스트리밍을 설정합니다. 자세한 내용은 “[액세스 키를 사용하여 S3으로 스트리밍 설정](#setting-up-streaming-to-s3-with-access-keys)”을 참조하세요.
 
 {% endif %}
 
-### Setting up streaming to Azure Blob Storage
+### Azure Blob Storage로 스트리밍 설정
 
-Before setting up a stream in {% data variables.product.prodname_dotcom %}, you must first have created a storage account and a container in Microsoft Azure. For details, see the Microsoft documentation, "[Introduction to Azure Blob Storage](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blobs-introduction)." 
+{% data variables.product.prodname_dotcom %}에서 스트림을 설정하기 전에 먼저 Microsoft Azure에서 스토리지 계정과 컨테이너를 만들어야 합니다. 자세한 내용은 Microsoft 설명서의 "[Azure Blob Storage 소개](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blobs-introduction)"를 참조하세요. 
 
-To configure the stream in {% data variables.product.prodname_dotcom %} you need the URL of a SAS token.
+{% data variables.product.prodname_dotcom %}에서 스트림을 구성하려면 SAS 토큰의 URL이 필요합니다.
 
-**On Microsoft Azure portal**:
-1. On the Home page, click **Storage Accounts**.
-2. Click the name of the storage account you want to use, then click **Containers**.
+**Microsoft Azure Portal**:
+1. 홈페이지에서 **스토리지 계정** 을 클릭합니다.
+2. 사용하려는 스토리지 계정의 이름을 클릭한 다음, **컨테이너** 를 클릭합니다.
    
-   ![The Containers link in Azure](/assets/images/azure/azure-storage-containers.png)
+   ![Azure의 컨테이너 링크](/assets/images/azure/azure-storage-containers.png)
 
-1. Click the name of the container you want to use.
-1. Click **Shared access tokens**. 
+1. 사용하려는 컨테이너의 이름을 클릭합니다.
+1. **공유 액세스 토큰** 을 클릭합니다. 
    
-   ![The shared access token link in Azure](/assets/images/azure/azure-storage-shared-access-tokens.png)
+   ![Azure의 공유 액세스 토큰 링크](/assets/images/azure/azure-storage-shared-access-tokens.png)
 
-1. In the **Permissions** drop-down menu, change the permissions to only allow `Create` and `Write`.
+1. **권한** 드롭다운 메뉴에서 `Create` 및 `Write`만 허용하도록 권한을 변경합니다.
    
-   ![The permissions drop-down menu](/assets/images/azure/azure-storage-permissions.png)
+   ![권한 드롭다운 메뉴](/assets/images/azure/azure-storage-permissions.png)
 
-1. Set an expiry date that complies with your secret rotation policy.
-1. Click **Generate SAS token and URL**.
-1. Copy the value of the **Blob SAS URL** field that's displayed. You will use this URL in {% data variables.product.prodname_dotcom %}.
+1. 비밀 회전 정책을 준수하는 만료 날짜를 설정합니다.
+1. **SAS 토큰 및 URL 생성** 을 클릭합니다.
+1. 표시된 **Blob SAS URL** 필드의 값을 복사합니다. 이 URL은 {% data variables.product.prodname_dotcom %}에서 사용합니다.
 
-**On {% data variables.product.prodname_dotcom %}**:
-{% data reusables.enterprise.navigate-to-log-streaming-tab %}
-1. Click **Configure stream** and select **Azure Blob Storage**.
+**On {% data variables.product.prodname_dotcom %}** : {% data reusables.enterprise.navigate-to-log-streaming-tab %}
+1. **스트림 구성** 을 클릭하고, **Azure Blob Storage** 를 선택합니다.
    
-   ![Choose Azure Blob Storage from the drop-down menu](/assets/images/help/enterprises/audit-stream-choice-azureblob.png)
+   ![드롭다운 메뉴에서 Azure Blob Storage 선택](/assets/images/help/enterprises/audit-stream-choice-azureblob.png)
 
-1. On the configuration page, enter the blob SAS URL that you copied in Azure. The **Container** field is auto-filled based on the URL.
+1. 구성 페이지에서 Azure에 복사한 Blob SAS URL을 입력합니다. **컨테이너** 필드는 URL에 따라 자동으로 채워집니다.
 
-   ![Enter the stream settings](/assets/images/help/enterprises/audit-stream-add-azureblob.png)
+   ![스트림 설정 입력](/assets/images/help/enterprises/audit-stream-add-azureblob.png)
   
-1. Click **Check endpoint** to verify that {% data variables.product.prodname_dotcom %} can connect and write to the Azure Blob Storage endpoint.
+1. **엔드포인트 확인** 을 클릭하여 {% data variables.product.prodname_dotcom %}에서 Azure Blob Storage 엔드포인트에 연결하고 쓸 수 있는지 확인합니다.
    
-   ![Check the endpoint](/assets/images/help/enterprises/audit-stream-check.png)
+   ![엔드포인트 확인](/assets/images/help/enterprises/audit-stream-check.png)
 
 {% data reusables.enterprise.verify-audit-log-streaming-endpoint %}
 
-### Setting up streaming to Azure Event Hubs
+### Azure Event Hubs로 스트리밍 설정
 
-Before setting up a stream in {% data variables.product.prodname_dotcom %}, you must first have an event hub namespace in Microsoft Azure. Next, you must create an event hub instance within the namespace. You'll need the details of this event hub instance when you set up the stream. For details, see the Microsoft documentation, "[Quickstart: Create an event hub using Azure portal](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-create)." 
+{% data variables.product.prodname_dotcom %}에서 스트림을 설정하기 전에 먼저 Microsoft Azure에 이벤트 허브 네임스페이스가 있어야 합니다. 다음으로, 이벤트 허브 인스턴스를 네임스페이스 내에 만들어야 합니다. 이 이벤트 허브 인스턴스의 세부 정보는 스트림을 설정할 때 필요합니다. 자세한 내용은 Microsoft 설명서의 "[빠른 시작: Azure Portal을 사용하여 이벤트 허브 만들기](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-create)"를 참조하세요. 
 
-You need two pieces of information about your event hub: its instance name and the connection string. 
+이벤트 허브에 대한 두 가지 정보, 즉 인스턴스 이름과 연결 문자열이 필요합니다. 
 
-**On Microsoft Azure portal**:
-1. Search for "Event Hubs".
+**Microsoft Azure Portal**:
+1. "Event Hubs"를 검색합니다.
 
-   ![The Azure portal search box](/assets/images/azure/azure-resources-search.png )
+   ![Azure Portal 검색 상자](/assets/images/azure/azure-resources-search.png )
 
-1. Select **Event Hubs**. The names of your event hubs are listed. 
+1. **Event Hubs** 를 선택합니다. 이벤트 허브의 이름이 나열됩니다. 
    
-   ![A list of event hubs](/assets/images/help/enterprises/azure-event-hubs-list.png)
+   ![이벤트 허브 목록](/assets/images/help/enterprises/azure-event-hubs-list.png)
 
-1. Make a note of the name of the event hub you want to stream to.
-1. Click the required event hub. Then, in the left menu, select **Shared Access Policies**.
-1. Select a shared access policy in the list of policies, or create a new policy.
+1. 스트림하려는 이벤트 허브의 이름을 적어 둡니다.
+1. 필요한 이벤트 허브를 클릭합니다. 그런 다음, 왼쪽 메뉴에서 **공유 액세스 정책** 을 선택합니다.
+1. 정책 목록에서 공유 액세스 정책을 선택하거나 새 정책을 만듭니다.
    
-   ![A list of shared access policies](/assets/images/help/enterprises/azure-shared-access-policies.png)
+   ![공유 액세스 정책 목록](/assets/images/help/enterprises/azure-shared-access-policies.png)
 
-1. Click the button to the right of the **Connection string-primary key** field to copy the connection string.
+1. **연결 문자열-기본 키** 필드의 오른쪽에 있는 단추를 클릭하여 연결 문자열을 복사합니다.
    
-   ![The event hub connection string](/assets/images/help/enterprises/azure-connection-string.png)
+   ![이벤트 허브 연결 문자열](/assets/images/help/enterprises/azure-connection-string.png)
 
-**On {% data variables.product.prodname_dotcom %}**:
-{% data reusables.enterprise.navigate-to-log-streaming-tab %}
-1. Click **Configure stream** and select **Azure Event Hubs**.
+**On {% data variables.product.prodname_dotcom %}** : {% data reusables.enterprise.navigate-to-log-streaming-tab %}
+1. **스트림 구성** 을 클릭하고, **Azure Event Hubs** 를 선택합니다.
    
-   ![Choose Azure Events Hub from the drop-down menu](/assets/images/help/enterprises/audit-stream-choice-azure.png)
+   ![드롭다운 메뉴에서 Azure Events Hub 선택](/assets/images/help/enterprises/audit-stream-choice-azure.png)
 
-1. On the configuration page, enter:
-   * The name of the Azure Event Hubs instance.
-   * The connection string.
+1. 구성 페이지에서 다음을 입력합니다.
+   * Azure Event Hubs 인스턴스의 이름
+   * 연결 문자열입니다.
   
-   ![Enter the stream settings](/assets/images/help/enterprises/audit-stream-add-azure.png)
+   ![스트림 설정 입력](/assets/images/help/enterprises/audit-stream-add-azure.png)
    
-1. Click **Check endpoint** to verify that {% data variables.product.prodname_dotcom %} can connect and write to the Azure Events Hub endpoint.
+1. **엔드포인트 확인** 을 클릭하여 {% data variables.product.prodname_dotcom %}에서 Azure Events Hub 엔드포인트에 연결하고 쓸 수 있는지 확인합니다.
    
-   ![Check the endpoint](/assets/images/help/enterprises/audit-stream-check.png)
+   ![엔드포인트 확인](/assets/images/help/enterprises/audit-stream-check.png)
 
 {% data reusables.enterprise.verify-audit-log-streaming-endpoint %}
 
 {% ifversion streaming-datadog %}
-### Setting up streaming to Datadog
+### Datadog로 스트리밍 설정
 
-To set up streaming to Datadog, you must create a client token or an  API key in Datadog, then configure audit log streaming in {% data variables.product.product_name %} using the token for authentication. You do not need to create a bucket or other storage container in Datadog.
+Datadog에 대한 스트리밍을 설정하려면 Datadog에서 클라이언트 토큰 또는 API 키를 만든 다음 인증을 위해 토큰을 사용하여 {% data variables.product.product_name %}에서 감사 로그 스트리밍을 구성해야 합니다. Datadog에서 버킷 또는 다른 스토리지 컨테이너를 만들 필요가 없습니다.
 
-After you set up streaming to Datadog, you can see your audit log data by filtering by "github.audit.streaming." For more information, see [Log Management](https://docs.datadoghq.com/logs/).
+Datadog에 대한 스트리밍을 설정한 후 “github.audit.streaming”으로 필터링하여 감사 로그 데이터를 볼 수 있습니다. 자세한 내용은 [로그 관리](https://docs.datadoghq.com/logs/)를 참조하세요.
 
-1. If you don't already have a Datadog account, create one.
-1. In Datadog, generate a client token or an API key, then click **Copy key**. For more information, see [API and Application Keys](https://docs.datadoghq.com/account_management/api-app-keys/) in Datadog Docs.
-{% data reusables.enterprise.navigate-to-log-streaming-tab %}
-1. Select the **Configure stream** dropdown menu and click **Datadog**.
+1. Datadog 계정이 아직 없는 경우 하나 만듭니다.
+1. Datadog에서 클라이언트 토큰 또는 API 키를 생성한 다음 **키 복사** 를 클릭합니다. 자세한 내용은 Datadog Docs의 [API 및 애플리케이션 키](https://docs.datadoghq.com/account_management/api-app-keys/)를 참조하세요. {% data reusables.enterprise.navigate-to-log-streaming-tab %}
+1. **스트림 구성** 드롭다운 메뉴를 선택하고 **Datadog** 를 클릭합니다.
    
-   ![Screenshot of the "Configure stream" dropdown menu with "Datadog" highlighted](/assets/images/help/enterprises/audit-stream-choice-datadog.png)
-1. Under "Token", paste the token  you copied earlier.
+   ![“Datadog”가 강조 표시된 “스트림 구성” 드롭다운 메뉴의 스크린샷](/assets/images/help/enterprises/audit-stream-choice-datadog.png)
+1. "토큰"에서 이전에 복사한 토큰을 붙여 넣습니다.
 
-   ![Screenshot of the "Token" field](/assets/images/help/enterprises/audit-stream-datadog-token.png)
-1. Select the "Site" dropdown menu and click your Datadog site. To determine your Datadog site, compare your Datadog URL to the table in [Datadog sites](https://docs.datadoghq.com/getting_started/site/) in Datadog Docs.
+   ![“토큰” 필드의 스크린샷](/assets/images/help/enterprises/audit-stream-datadog-token.png)
+1. “사이트” 드롭다운 메뉴를 선택하고 Datadog 사이트를 클릭합니다. Datadog 사이트를 확인하려면 Datadog URL을 Datadog Docs의 [Datadog 사이트](https://docs.datadoghq.com/getting_started/site/) 내 테이블과 비교합니다.
 
-   ![Screenshot of the "Site" dropdown menu](/assets/images/help/enterprises/audit-stream-datadog-site.png)
-1. To verify that {% data variables.product.prodname_dotcom %} can connect and write to the Datadog endpoint, click **Check endpoint**.
+   ![“사이트” 드롭다운 메뉴의 스크린샷](/assets/images/help/enterprises/audit-stream-datadog-site.png)
+1. {% data variables.product.prodname_dotcom %}가 Datadog 엔드포인트에 연결하고 쓸 수 있는지 확인하려면 **엔드포인트 확인** 을 클릭합니다.
    
-   ![Check the endpoint](/assets/images/help/enterprises/audit-stream-check.png)
-{% data reusables.enterprise.verify-audit-log-streaming-endpoint %}
-1. After a few minutes, confirm that audit log data is appearing on the **Logs** tab in Datadog. If audit log data is not appearing, confirm that your token and site are correct in {% data variables.product.prodname_dotcom %}.
+   ![엔드포인트 확인](/assets/images/help/enterprises/audit-stream-check.png) {% data reusables.enterprise.verify-audit-log-streaming-endpoint %}
+1. 몇 분 후 Datadog의 **로그** 탭에 감사 로그 데이터가 표시되는지 확인합니다. 감사 로그 데이터가 표시되지 않으면 {% data variables.product.prodname_dotcom %}에서 토큰 및 사이트가 올바른지 확인합니다.
 {% endif %}
 
-### Setting up streaming to Google Cloud Storage
+### Google Cloud Storage로 스트리밍 설정
 
-To set up streaming to Google Cloud Storage, you must create a service account in Google Cloud with the appropriate credentials and permissions, then configure audit log streaming in {% data variables.product.product_name %} using the service account's credentials for authentication.
+Google Cloud Storage로 스트림하도록 설정하려면 적절한 자격 증명 및 권한을 사용하여 Google Cloud에서 서비스 계정을 만든 다음, 인증을 위해 서비스 계정의 자격 증명을 사용하여 {% data variables.product.product_name %}에서 감사 로그 스트리밍을 구성해야 합니다.
 
-1. Create a service account for Google Cloud. You do not need to set access controls or IAM roles for the service account. For more information, see [Creating and managing service accounts](https://cloud.google.com/iam/docs/creating-managing-service-accounts#creating) in the Google Cloud documentation.
-1. Create a JSON key for the service account, and store the key securely. For more information, see [Creating and managing service account keys](https://cloud.google.com/iam/docs/creating-managing-service-account-keys#creating) in the Google Cloud documentation.
-1. If you haven't created a bucket yet, create the bucket. For more information, see [Creating storage buckets](https://cloud.google.com/storage/docs/creating-buckets) in the Google Cloud documentation.
-1. Give the service account the Storage Object Creator role for the bucket. For more information, see [Using Cloud IAM permissions](https://cloud.google.com/storage/docs/access-control/using-iam-permissions#bucket-add) in the Google Cloud documentation.
+1. Google Cloud에 대한 서비스 계정을 만듭니다. 서비스 계정에 대한 액세스 제어 또는 IAM 역할을 설정할 필요가 없습니다. 자세한 내용은 Google Cloud 설명서의 [서비스 계정 만들기 및 관리](https://cloud.google.com/iam/docs/creating-managing-service-accounts#creating)를 참조하세요.
+1. 서비스 계정에 대한 JSON 키를 만들고, 해당 키를 안전하게 저장합니다. 자세한 내용은 Google Cloud 설명서의 [서비스 계정 키 만들기 및 관리](https://cloud.google.com/iam/docs/creating-managing-service-account-keys#creating)를 참조하세요.
+1. 아직 만들지 않은 경우 버킷을 만듭니다. 자세한 내용은 Google Cloud 설명서의 [스토리지 버킷 만들기](https://cloud.google.com/storage/docs/creating-buckets)를 참조하세요.
+1. 버킷에 대한 스토리지 개체 작성자 역할을 서비스 계정에 부여합니다. 자세한 내용은 Google Cloud 설명서의 [Cloud IAM 권한 사용](https://cloud.google.com/storage/docs/access-control/using-iam-permissions#bucket-add)을 참조하세요.
 {% data reusables.enterprise.navigate-to-log-streaming-tab %}
-1. Select the Configure stream drop-down menu and click **Google Cloud Storage**.
+1. 스트림 구성 드롭다운 메뉴를 선택하고, **Google Cloud Storage** 를 클릭합니다.
 
-   ![Screenshot of the "Configure stream" drop-down menu](/assets/images/help/enterprises/audit-stream-choice-google-cloud-storage.png)
+   !["스트림 구성" 드롭다운 메뉴의 스크린샷](/assets/images/help/enterprises/audit-stream-choice-google-cloud-storage.png)
 
-1. Under "Bucket", type the name of your Google Cloud Storage bucket.
+1. "버킷" 아래에서 Google Cloud Storage 버킷의 이름을 입력합니다.
 
-   ![Screenshot of the "Bucket" text field](/assets/images/help/enterprises/audit-stream-bucket-google-cloud-storage.png)
+   !["버킷" 텍스트 필드의 스크린샷](/assets/images/help/enterprises/audit-stream-bucket-google-cloud-storage.png)
 
-1. Under "JSON Credentials", paste the entire contents of the file for your service account's JSON key.
+1. "JSON 자격 증명" 아래에서 서비스 계정의 JSON 키에 대한 파일의 전체 콘텐츠를 붙여넣습니다.
 
-   ![Screenshot of the "JSON Credentials" text field](/assets/images/help/enterprises/audit-stream-json-credentials-google-cloud-storage.png)
+   !["JSON 자격 증명" 텍스트 필드의 스크린샷](/assets/images/help/enterprises/audit-stream-json-credentials-google-cloud-storage.png)
 
-1. To verify that {% data variables.product.prodname_dotcom %} can connect and write to the Google Cloud Storage bucket, click **Check endpoint**. 
+1. {% data variables.product.prodname_dotcom %}에서 Google Cloud Storage 버킷에 연결하고 쓸 수 있는지 확인하려면 **엔드포인트 확인** 을 클릭합니다. 
 
-   ![Screenshot of the "Check endpoint" button](/assets/images/help/enterprises/audit-stream-check-endpoint-google-cloud-storage.png)
+   !["엔드포인트 확인" 단추의 스크린샷](/assets/images/help/enterprises/audit-stream-check-endpoint-google-cloud-storage.png)
 
 {% data reusables.enterprise.verify-audit-log-streaming-endpoint %}
 
-### Setting up streaming to Splunk
+### Splunk로 스트리밍 설정
 
-To stream audit logs to Splunk's HTTP Event Collector (HEC) endpoint you must make sure that the endpoint is configured to accept HTTPS connections. For more information, see [Set up and use HTTP Event Collector in Splunk Web](https://docs.splunk.com/Documentation/Splunk/latest/Data/UsetheHTTPEventCollector) in the Splunk documentation.
+감사 로그를 Splunk의 HEC(HTTP 이벤트 수집기) 엔드포인트로 스트림하려면 엔드포인트가 HTTPS 연결을 허용하도록 구성되어 있는지 확인해야 합니다. 자세한 내용은 Splunk 설명서의 [Splunk Web에서 HTTP 이벤트 수집기 설정 및 사용](https://docs.splunk.com/Documentation/Splunk/latest/Data/UsetheHTTPEventCollector)을 참조하세요.
 
 {% data reusables.enterprise.navigate-to-log-streaming-tab %}
-1. Click **Configure stream** and select **Splunk**.
+1. **스트림 구성** 을 클릭하고, **Splunk** 를 선택합니다.
    
-   ![Choose Splunk from the drop-down menu](/assets/images/help/enterprises/audit-stream-choice-splunk.png)
+   ![드롭다운 메뉴에서 Splunk 선택](/assets/images/help/enterprises/audit-stream-choice-splunk.png)
 
-1. On the configuration page, enter:
-   * The domain on which the application you want to stream to is hosted.
+1. 구성 페이지에서 다음을 입력합니다.
+   * 스트림하려는 애플리케이션이 호스트되는 도메인
   
-     If you are using Splunk Cloud, `Domain` should be `http-inputs-<host>`, where `host` is the domain you use in Splunk Cloud. For example: `http-inputs-mycompany.splunkcloud.com`. 
+     Splunk Cloud를 사용하는 경우 `Domain`는 `http-inputs-<host>`여야 합니다. 여기서 `host`는 Splunk Cloud에서 사용하는 도메인입니다. 예: `http-inputs-mycompany.splunkcloud.com` 
 
-   * The port on which the application accepts data.<br>
+   * 애플리케이션에서 데이터를 허용하는 포트<br>
 
-     If you are using Splunk Cloud, `Port` should be `443` if you haven't changed the port configuration. If you are using the free trial version of Splunk Cloud, `Port` should be `8088`.
+     Splunk Cloud를 사용하는 경우 `Port`는 `443`이어야 합니다(포트 구성을 변경하지 않은 경우). Splunk Cloud 평가판 버전을 사용하는 경우 `Port`는 `8088`이어야 합니다.
 
-   * A token that {% data variables.product.prodname_dotcom %} can use to authenticate to the third-party application.
+   * {% data variables.product.prodname_dotcom %}에서 타사 애플리케이션에 인증하는 데 사용할 수 있는 토큰
   
-   ![Enter the stream settings](/assets/images/help/enterprises/audit-stream-add-splunk.png)
+   ![스트림 설정 입력](/assets/images/help/enterprises/audit-stream-add-splunk.png)
 
-1. Leave the **Enable SSL verification** check box selected.
+1. **SSL 확인 사용** 확인란을 선택된 상태로 둡니다.
 
-    Audit logs are always streamed as encrypted data, however, with this option selected, {% data variables.product.prodname_dotcom %} verifies the SSL certificate of your Splunk instance when delivering events. SSL verification helps ensure that events are delivered to your URL endpoint securely. You can clear the selection of this option, but we recommend you leave SSL verification enabled.
-1. Click **Check endpoint** to verify that {% data variables.product.prodname_dotcom %} can connect and write to the Splunk endpoint.
-   ![Check the endpoint](/assets/images/help/enterprises/audit-stream-check-splunk.png)
-{% data reusables.enterprise.verify-audit-log-streaming-endpoint %}
+    감사 로그는 항상 암호화된 데이터로 스트림되지만, 이 옵션을 선택하면 {% data variables.product.prodname_dotcom %}에서 이벤트를 전달할 때 Splunk 인스턴스의 SSL 인증서를 확인합니다. SSL 확인은 이벤트가 URL 엔드포인트에 안전하게 전달되도록 하는 데 도움이 됩니다. 이 옵션의 선택을 취소할 수 있지만, SSL 확인이 사용하도록 설정된 상태로 두는 것이 좋습니다.
+1. **엔드포인트 확인** 을 클릭하여 {% data variables.product.prodname_dotcom %}에서 Splunk 엔드포인트에 연결하고 쓸 수 있는지 확인합니다.
+   ![엔드포인트 확인](/assets/images/help/enterprises/audit-stream-check-splunk.png) {% data reusables.enterprise.verify-audit-log-streaming-endpoint %}
 
 {% ifversion pause-audit-log-stream %}
-## Pausing audit log streaming
+## 감사 로그 스트리밍 일시 중지
 
-Pausing the stream allows you to perform maintenance on the receiving application without losing audit data. Audit logs are stored for up to seven days on {% data variables.location.product_location %} and are then exported when you unpause the stream.
+스트림을 일시 중지하면 감사 데이터를 손실하지 않고 수신 애플리케이션에 대한 유지 관리를 수행할 수 있습니다. 감사 로그는 {% 데이터 variables.location.product_location %}에 최대 7일 동안 저장되며 스트림을 일시 중지하면 내보내집니다.
 
-{% ifversion streaming-datadog %}
-Datadog only accepts logs from up to 18 hours in the past. If you pause a stream to a Datadog endpoint for more than 18 hours, you risk losing logs that Datadog won't accept after you resume streaming.
+{% ifversion streaming-datadog %} Datadog는 과거 최대 18시간의 로그만 허용합니다. 18시간 이상 Datadog 엔드포인트로 스트림을 일시 중지하는 경우 스트리밍을 다시 시작하면 Datadog에서 허용하지 않는 로그가 손실될 위험이 있습니다.
 {% endif %}
 
 {% data reusables.enterprise.navigate-to-log-streaming-tab %}
-1. Click **Pause stream**.
+1. **스트림 일시 중지** 를 클릭합니다.
    
-   ![Pause the stream](/assets/images/help/enterprises/audit-stream-pause.png)
+   ![스트림 일시 중지](/assets/images/help/enterprises/audit-stream-pause.png)
 
-1. A confirmation message is displayed. Click **Pause stream** to confirm.
+1. 확인 메시지가 표시됩니다. **스트림 일시 중지** 를 클릭하여 확인합니다.
 
-When the application is ready to receive audit logs again, click **Resume stream** to restart streaming audit logs.
+애플리케이션에서 감사 로그를 다시 받을 준비가 되면 **스트림 다시 시작** 을 클릭하여 감사 로그 스트리밍을 다시 시작합니다.
 {% endif %}
 
-## Deleting the audit log stream
+## 감사 로그 스트림 삭제
 
 {% data reusables.enterprise.navigate-to-log-streaming-tab %}
-1. Click **Delete stream**.
+1. **스트림 삭제** 를 클릭합니다.
    
-   ![Delete the stream](/assets/images/help/enterprises/audit-stream-delete.png)
+   ![스트림 삭제](/assets/images/help/enterprises/audit-stream-delete.png)
 
-1. A confirmation message is displayed. Click **Delete stream** to confirm.
+1. 확인 메시지가 표시됩니다. **스트림 삭제** 를 클릭하여 확인합니다.

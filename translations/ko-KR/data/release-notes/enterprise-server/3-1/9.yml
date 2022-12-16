@@ -1,0 +1,28 @@
+date: '2021-10-12'
+sections:
+  security_fixes:
+    - '패키지는 최신 보안 버전으로 업데이트되었습니다. {% comment %} https://github.com/github/enterprise2/pull/27035, https://github.com/github/enterprise2/pull/27010 {% endcomment %}'
+  bugs:
+    - '너무 제한적인 가상 메모리 또는 CPU 시간 제한으로 인해 사용자 지정 사전 수신 후크가 실패할 수 있습니다. {% comment %} https://github.com/github/enterprise2/pull/26972, https://github.com/github/enterprise2/pull/26955 {% endcomment %}'
+    - '`ghe-cleanup-settings`를 사용하여 기존 구성 설정을 모두 지우려는 시도에서 관리 콘솔 서비스를 다시 시작하지 못했습니다. {% comment %} https://github.com/github/enterprise2/pull/26987, https://github.com/github/enterprise2/pull/26901 {% endcomment %}'
+    - '`ghe-repl-teardown`을 통한 복제 해제 중에 Memcached가 다시 시작되지 않았습니다. {% comment %} https://github.com/github/enterprise2/pull/26993, https://github.com/github/enterprise2/pull/26983 {% endcomment %}'
+    - '부하가 높은 기간 동안 업스트림 서비스가 내부 상태 확인에 실패하면 사용자는 HTTP 503 상태 코드를 수신합니다. {% comment %} https://github.com/github/enterprise2/pull/27082, https://github.com/github/enterprise2/pull/26999 {% endcomment %}'
+    - 'Actions가 구성된 경우 GitHub Enterprise 백업 유틸리티에서 복원한 후 MSSQL 복제에 실패합니다. {% comment %} https://github.com/github/enterprise2/pull/27097, https://github.com/github/enterprise2/pull/26254 {% endcomment %}'
+    - '`ghe-config-apply`를 실행할 때 잘못된 `jq` 오류 메시지가 표시되었을 수 있습니다. {% comment %} https://github.com/github/enterprise2/pull/27194, https://github.com/github/enterprise2/pull/26784 {% endcomment %}'
+    - '사전 수신 후크 환경에서는 Alpine의 BusyBox를 통해 cat 명령을 호출하는 것이 금지되었습니다. {% comment %} https://github.com/github/enterprise2/pull/27115, https://github.com/github/enterprise2/pull/27094 {% endcomment %}'
+    - '외부 데이터베이스 암호가 일반 텍스트로 기록되었습니다. {% comment %} https://github.com/github/enterprise2/pull/27173, https://github.com/github/enterprise2/pull/26413 {% endcomment %}'
+    - '기본 클러스터 데이터 센터에서 보조 클러스터 데이터 센터로의 장애 조치(failover)는 성공했지만 원래 기본 클러스터 데이터 센터로의 다시 장애 조치 시 Elasticsearch 인덱스를 승격하지 못했습니다. {% comment %} https://github.com/github/github/pull/193181, https://github.com/github/github/pull/192447 {% endcomment %}'
+    - '조직에 대한 팀 페이지의 “팀 가져오기” 단추가 HTTP 404를 반환했습니다. {% comment %} https://github.com/github/github/pull/193302 {% endcomment %}'
+    - '일부 경우 `유휴 사용자` 페이지를 보려고 하는 GitHub Enterprise 관리자가 `502 잘못된 게이트웨이` 또는 `504 게이트웨이 시간 초과` 응답을 수신했습니다. {% comment %} https://github.com/github/github/pull/194260, https://github.com/github/github/pull/193609 {% endcomment %}'
+    - '`SynchronizePullRequestJob` 작업 수의 증가로 인해 특정 고부하 상황에서 성능에 부정적인 영향이 있었습니다. {% comment %} https://github.com/github/github/pull/195253, https://github.com/github/github/pull/194591 {% endcomment %}'
+  changes:
+    - '웹후크 로그 보존 기간이 지난 웹후크 로그를 더 효율적으로 삭제합니다. {% comment %} https://github.com/github/enterprise2/pull/27158 {% endcomment %}'
+  known_issues:
+    - "{% data variables.product.prodname_registry %} npm 레지스트리는 더 이상 메타데이터 응답으로 시간 값을 반환하지 않습니다. 이 작업은 대대적인 성능 개선을 위해 수행되었습니다. 메타데이터 응답의 일부로 시간 값을 반환하는 데 필요한 모든 데이터를 계속 제공하며 기존 성능 이슈를 해결한 후 향후에 이 값을 계속 반환할 예정입니다."
+    - "사용자 없이 새로 설정된 {% data variables.product.prodname_ghe_server %}에서 공격자는 첫 번째 관리 사용자를 생성할 수 있습니다."
+    - 업그레이드 프로세스 중에 사용자 지정 방화벽 규칙이 제거됩니다.
+    - "Git LFS 추적 파일[웹 인터페이스를 통해 업로드됨](https://github.com/blog/2105-upload-files-to-your-repositories)이 리포지토리에 직접 잘못 추가되었습니다."
+    - Blob의 파일 경로가 255자보다 긴 동일한 리포지토리의 Blob에 대한 고정 링크가 포함된 경우 이슈를 닫을 수 없습니다.
+    - GitHub Connect에서 “사용자가 GitHub.com을 검색할 수 있음”이 사용 설정되면 비공개 및 내부 리포지토리의 이슈가 GitHub.com 검색 결과에 포함되지 않습니다.
+    - "{% data variables.product.prodname_ghe_server %}에 대해 {% data variables.product.prodname_actions %}가 사용하도록 설정되면 `ghe-repl-teardown` 복제본 노드 해제에 성공하지만 `ERROR:Running migrations`가 반환될 수 있습니다."
+    - 사전 수신 후크 처리와 관련된 리소스 제한으로 인해 일부 사전 수신 후크가 실패할 수 있습니다.

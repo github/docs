@@ -1,0 +1,28 @@
+date: '2021-12-07'
+sections:
+  security_fixes:
+    - 特定の条件のセットを満たす場合、サポート バンドルに機密ファイルが含まれることがありました。 
+    - "GitHub Enterprise Server で、承認時にユーザーに表示されるよりも多くのアクセス許可を GitHub アプリのユーザー認可 Web フロー中に付与できるという UI 偽装の脆弱性が確認されました。この脆弱性は、3.3 より前のすべてのバージョンの GitHub Enterprise Server に影響があり、バージョン 3.2.5、3.1.13、3.0.21 で修正されました。この脆弱性は、GitHub バグ報奨金プログラムを通じて報告され、[CVE-2021-41598](https://www.cve.org/CVERecord?id=CVE-2021-41598) が割り当てられました。"
+    - "GitHub Pages のサイトをビルドする際に悪用される可能性があるリモート コード実行の脆弱性が、GitHub Enterprise Server で見つかりました。この脆弱性は、3.3 より前のすべてのバージョンの GitHub Enterprise Server に影響を与え、バージョン 3.0.21、3.1.13、3.2.5 で修正されました。この脆弱性は、GitHub バグ報奨金プログラムを通じて報告され、[CVE-2021-41599](https://www.cve.org/CVERecord?id=CVE-2021-41599) が割り当てられました。2022 年 2 月 17 日に更新されました。"
+  bugs:
+    - Actions が有効になっていない場合、`ghe-support-bundle` により、`Unable to find MS SQL container` (MS SQL コンテナーが見つかりません) という予期しないメッセージが報告されていました。 
+    - "`/data/user/tmp/pages` のアクセス許可の問題が原因で、`ghe-config-apply` の実行が失敗することがありました。" 
+    - 管理コンソールでの構成ミスにより、スケジュール エラーが発生しました。 
+    - ログのローテーションの後、Docker がログ ファイルを開いたままにしていました。 
+    - UTF-8 互換ではない `blob_path` 値の処理が不適切なため、移行がスタックすることがありました。 
+    - GraphQL の要求で、pre-receive フック環境の GITHUB_USER_IP 変数が設定されていませんでした。 
+    - 組織の監査ログの改ページ位置の自動修正リンクにクエリ パラメーターが保持されていませんでした。 
+    - ホットパッチ中に切り替えが複数回実行されると、ハッシュが重複することがありました。 
+  changes:
+    - ドキュメントの Actions パス スタイルの説明をわかりやすくしました。 
+    - 現在のサポート サイト support.github.com を使うように、サポート連絡先の URL を更新しました。 
+    - "`ghe-mssql-diagnostic` を実行したときの追加のトラブルシューティングが提供されました。"
+  known_issues:
+    - "{% data variables.product.prodname_ghe_server %} をセットアップしたばかりでユーザーがいない場合、攻撃者が最初の管理者ユーザーを作成できました。"
+    - カスタムのファイアウォール規則は、アップグレード プロセス中に削除されます。
+    - "[Web インターフェイスからアップロードされた](https://github.com/blog/2105-upload-files-to-your-repositories) Git LFS 追跡ファイルが誤ってリポジトリに直接追加されます。"
+    - issue に同じリポジトリ内の BLOB への固定リンクが含まれ、その BLOB のファイル パスが 255 文字を超える場合、その issue をクローズできません。
+    - "GitHub Connect で [Users can search GitHub.com]\\(ユーザーが GitHub.com を検索できる\\) が有効になっている場合、プライベートと内部リポジトリの issue は GitHub.com の検索結果に含まれません。"
+    - "{% data variables.product.prodname_registry %} npm レジストリが、メタデータ応答で時刻値を返さなくなります。これは、パフォーマンスの大幅な向上を可能にするために行われました。メタデータ応答の一部として時刻値を返すために必要なすべてのデータを保持し続け、既存のパフォーマンスの問題を解決したら、将来的にこの値を返すことを再開します。"
+    - pre-receive フックの処理に固有のリソース制限により、一部の pre-receive フックが失敗する場合があります。
+    - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'

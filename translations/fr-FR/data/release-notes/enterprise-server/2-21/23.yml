@@ -1,0 +1,16 @@
+date: '2021-06-10'
+sections:
+  security_fixes:
+    - Les packages ont été mis à jour vers les dernières versions de sécurité.
+  bugs:
+    - "Les échecs d’importation d’organisations ou de dépôts provenant de sources non-GitHub pouvaient produire une erreur `méthode non définie ’[]’ pour nil:NilClass`."
+  changes:
+    - "Les utilisateurs de l’API GraphQL peuvent interroger le champ public `closingIssuesReferences` sur l’objet `PullRequest`. Ce champ permet de récupérer les problèmes qui seront automatiquement fermés lorsque la demande de tirage associée sera fusionnée. Cette approche va aussi permettre de migrer ces données à l’avenir, dans le cadre d’un processus de migration de plus haute fidélité."
+  known_issues:
+    - "Sur une instance GitHub Enterprise Server fraîchement configurée et sans utilisateur, un attaquant pouvait créer le premier utilisateur administrateur."
+    - Les règles de pare-feu personnalisées sont supprimées pendant le processus de mise à niveau.
+    - "Les fichiers suivis par Git LFS [chargés par le biais de l’interface web](https://github.com/blog/2105-upload-files-to-your-repositories) sont, à tort, ajoutés directement au dépôt."
+    - "Les problèmes ne peuvent pas être fermés s’ils contiennent un lien permanent vers un blob situé dans le même dépôt, dont le chemin de fichier dépasse les 255 caractères."
+    - "Quand l’option « Les utilisateurs peuvent effectuer des recherches sur GitHub.com » est activée avec GitHub Connect, les problèmes concernant des dépôts privés et internes ne sont pas inclus dans les résultats de recherche de GitHub.com."
+    - Les alertes de sécurité ne sont pas signalées lors de l’envoi (push) à un dépôt sur la ligne de commande.
+    - 'Quand un nœud de réplica est hors connexion dans une configuration de haute disponibilité, {% data variables.product.product_name %} peut quand même router les requêtes de {% data variables.product.prodname_pages %} vers le nœud hors connexion, réduisant ainsi la disponibilité de {% data variables.product.prodname_pages %} pour les utilisateurs.'

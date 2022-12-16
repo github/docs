@@ -10,12 +10,12 @@ redirect_from:
 versions:
   fpt: '*'
 shortTitle: For teachers
-ms.openlocfilehash: 2a93f87df67d1694bd93888d29a582afa9c749e4
-ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.openlocfilehash: 3e7dea02ec468109fbfa865f2d84224f8381cc39
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/09/2022
-ms.locfileid: '148158968'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148192804'
 ---
 Как преподаватель в аккредитованном учебном заведении, вы можете подать заявку на {% data variables.product.prodname_global_campus %}, включая преимущества и ресурсы {% data variables.product.prodname_education %}. Дополнительные сведения см. в разделе [Заявка на {% data variables.product.prodname_global_campus %} в качестве преподавателя](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers/apply-to-github-global-campus-as-a-teacher).
 
@@ -34,7 +34,7 @@ ms.locfileid: '148158968'
   - Следить за происходящим в сообществе учащихся, пересматривая последние серии [Campus TV](https://www.twitch.tv/githubeducation). Campus TV создается {% data variables.product.prodname_dotcom %} и лидерами студенческих сообществ. Серии можно смотреть в прямом эфире или по запросу.
   - Запросите контейнер данных {% data variables.product.prodname_dotcom %} с учебными материалами и товарами для учащихся.
 
-Для проверенных преподавателей с {% data variables.product.prodname_education %} доступна бесплатная подписка на {% data variables.product.prodname_copilot %}. Вы автоматически получите уведомление о бесплатной подписке при посещении страницы подписки {% data variables.product.prodname_copilot %} в параметрах учетной записи. Дополнительные сведения о подписке и использовании {% data variables.product.prodname_copilot %} см. в разделах [Управление подпиской на {% data variables.product.prodname_copilot %}](/billing/managing-billing-for-github-copilot/managing-your-github-copilot-subscription#setting-up-a-trial-of-github-copilot) и [Сведения о {% data variables.product.prodname_copilot %}](/copilot/overview-of-github-copilot/about-github-copilot).
+Для проверенных преподавателей с {% data variables.product.prodname_education %} доступна бесплатная подписка на {% data variables.product.prodname_copilot %}. Вы автоматически получите уведомление о бесплатной подписке при посещении страницы подписки {% data variables.product.prodname_copilot %} в параметрах учетной записи. Дополнительные сведения о подписке и использовании {% data variables.product.prodname_copilot %} см. в [разделах Управление подпиской на {% data variables.product.prodname_copilot_for_individuals %}](/billing/managing-billing-for-github-copilot/managing-your-github-copilot-for-individuals-subscription#setting-up-a-trial-of-github-copilot) и [Сведения о {% data variables.product.prodname_copilot %}](/copilot/overview-of-github-copilot/about-github-copilot).
 
 ## Дополнительные материалы
 

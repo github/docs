@@ -17,12 +17,12 @@ topics:
 redirect_from:
   - /admin/configuration/restricting-network-traffic-to-your-enterprise
   - /admin/configuration/configuring-your-enterprise/restricting-network-traffic-to-your-enterprise
-ms.openlocfilehash: b62ab2a143ed0e7ec57f7e7225a09c0ca713295c
-ms.sourcegitcommit: 7fb7ec2e665856fc5f7cd209b53bd0fb1c9bbc67
+ms.openlocfilehash: 8511499e723fdeb4a2d24c2fce627bce56ad9777
+ms.sourcegitcommit: 9af8891fea10039b3374c76818634e05410e349d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/29/2022
-ms.locfileid: '148185043'
+ms.lasthandoff: 12/06/2022
+ms.locfileid: '148191894'
 ---
 ## Informationen zu Einschränkungen beim Netzwerkdatenverkehr
 
@@ -30,7 +30,7 @@ Standardmäßig können autorisierte Benutzer von einer beliebigen IP-Adresse au
 
 {% ifversion ghec %}
 
-Wenn dein Unternehmen {% data variables.product.prodname_emus %} mit OIDC verwendet, kannst du entscheiden, ob du das Feature für Listen zugelassener IP-Adressen von {% data variables.product.company_short %} oder die Einschränkungen per Liste zugelassener IP-Adressen von deinem Identitätsanbieter (IdP) verwenden möchtest. Wenn dein Unternehmen {% data variables.product.prodname_emus %} ohne OIDC verwendet, kannst du das Feature für Listen zugelassener IP-Adressen von {% data variables.product.company_short %} verwenden. 
+Wenn dein Unternehmen {% data variables.product.prodname_emus %} mit Azure AD und OIDC verwendet, kannst du entscheiden, ob du das Feature für Listen zugelassener IP-Adressen von {% data variables.product.company_short %} oder die Einschränkungen gemäß Zulassungslisten von deinem Identitätsanbieter (IdP) verwenden möchtest. Wenn dein Unternehmen {% data variables.product.prodname_emus %} nicht mit Azure und OIDC verwendet, kannst du das Feature für Listen zugelassener IP-Adressen von {% data variables.product.company_short %} verwenden. 
 
 {% elsif ghae %}
 
@@ -52,7 +52,7 @@ Du kannst die Liste zugelassener IP-Adressen von {% data variables.product.compa
 
 ## Informationen zur Liste zugelassener IP-Adressen deines Identitätsanbieters
 
-Wenn du {% data variables.product.prodname_emus %} mit OIDC verwendest, kannst du die Liste zugelassener IP-Adressen deines Identitätsanbieters verwenden. 
+Wenn du {% data variables.product.prodname_emus %} mit Azure AD und OIDC verwendest, kannst du die Liste zugelassener IP-Adressen deines Identitätsanbieters verwenden.
 
 Wenn du die Liste zugelassener IP-Adressen deines Identitätsanbieters verwendest, deaktivierst du damit die Konfigurationen der Liste zugelassener IP-Adressen von {% data variables.product.company_short %} für alle Organisationen in deinem Unternehmen und die GraphQL-APIs zum Aktivieren und Verwalten von Listen zugelassener IP-Adressen. 
 
@@ -109,7 +109,11 @@ Um eine nahtlose Verwendung der OIDC-CAP zu gewährleisten und gleichzeitig die 
 
 ## Verwenden der Liste zugelassener IP-Adressen deines Identitätsanbieters
 
-Du kannst die Liste zugelassener IP-Adressen deines Identitätsanbieters verwenden, wenn du {% data variables.product.prodname_emus %} mit OIDC verwendest.
+{% note %}
+
+**Hinweis:** Die Verwendung der Zulassungsliste deines Identitätsanbieters wird nur für {% data variables.product.prodname_emus %} mit Azure AD und OIDC unterstützt. 
+
+{% endnote %}
 
 {% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.organizations.security %}
 1. Wähle unter „Liste zugelassener IP-Adressen“ die Dropdownliste aus, und klicke auf **Identitätsanbieter**.

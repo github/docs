@@ -1,6 +1,6 @@
 ---
-title: Other authentication methods
-intro: You can use basic authentication for testing in a non-production environment.
+title: 其他身份验证方法
+intro: 您可以在非生产环境中使用基本身份验证进行测试。
 redirect_from:
   - /v3/auth
 versions:
@@ -11,86 +11,76 @@ versions:
 topics:
   - API
 shortTitle: Other authentication methods
+ms.openlocfilehash: a979c5e688f6f6942a56c9cff55386bb72a92e57
+ms.sourcegitcommit: f392aa98511e0889d96af2e4a56e67f8adfb025f
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/18/2022
+ms.locfileid: '148172715'
 ---
-
-
-{% ifversion fpt or ghes or ghec %}
-While the API provides multiple methods for authentication, we strongly
-recommend using [OAuth](/apps/building-integrations/setting-up-and-registering-oauth-apps/) for production applications. The other
-methods provided are intended to be used for scripts or testing (i.e., cases
-where full OAuth would be overkill). Third party applications that rely on
-{% data variables.product.product_name %} for authentication should not ask for or collect {% data variables.product.product_name %} credentials.
-Instead, they should use the [OAuth web flow](/apps/building-oauth-apps/authorizing-oauth-apps/).
+{% ifversion fpt or ghes or ghec %} 虽然 API 提供了多种身份验证方法，但我们强烈建议对生产应用程序使用 [OAuth](/apps/building-integrations/setting-up-and-registering-oauth-apps/)。 提供的其他方法旨在用于脚本或测试（即没有必要使用完整 OAuth 的情况）。 依赖 {% data variables.product.product_name %} 进行身份验证的第三方应用程序不应要求或收集 {% data variables.product.product_name %} 凭据。
+相反，它们应该使用 [OAuth Web 流](/apps/building-oauth-apps/authorizing-oauth-apps/)。
 
 {% endif %}
 
 {% ifversion ghae %}
 
-To authenticate we recommend using [OAuth](/apps/building-integrations/setting-up-and-registering-oauth-apps/) tokens, such a {% data variables.product.pat_generic %} through the [OAuth web flow](/apps/building-oauth-apps/authorizing-oauth-apps/).
+若要进行身份验证，我们建议使用 [OAuth](/apps/building-integrations/setting-up-and-registering-oauth-apps/) 令牌，此类 {% data variables.product.pat_generic %} 通过 [OAuth Web 流](/apps/building-oauth-apps/authorizing-oauth-apps/)。
 
 {% endif %}
 
-## Basic Authentication
+## 基本身份验证
 
-The API supports Basic Authentication as defined in
-[RFC2617](http://www.ietf.org/rfc/rfc2617.txt) with a few slight differences.
-The main difference is that the RFC requires unauthenticated requests to be
-answered with `401 Unauthorized` responses. In many places, this would disclose
-the existence of user data. Instead, the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API responds with `404 Not Found`.
-This may cause problems for HTTP libraries that assume a `401 Unauthorized`
-response. The solution is to manually craft the `Authorization` header.
+API 支持 [RFC2617](http://www.ietf.org/rfc/rfc2617.txt) 中定义的基本身份验证，但有一些细微差别。
+主要区别在于，RFC 要求使用 `401 Unauthorized` 响应应答未经身份验证的请求。 在很多地方，这会暴露用户数据的存在。 相反，{% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API 通过 `404 Not Found` 进行响应。
+这可能会导致假定 `401 Unauthorized` 响应的 HTTP 库出现问题。 解决方案是手动创建 `Authorization` 标头。
 
-### Via {% data variables.product.pat_generic %}s
+### 通过 {% data variables.product.pat_generic %}
 
-We recommend you use {% ifversion pat-v2%}{% data variables.product.pat_v2 %}s{% else %}{% data variables.product.pat_generic %}s{% endif %} to authenticate to the GitHub API.
+建议使用 {% ifversion pat-v2%}{% data variables.product.pat_v2 %}{% else %}{% data variables.product.pat_generic %}{% endif %} 向 GitHub API 进行身份验证。
 
 ```shell
 $ curl -u USERNAME:TOKEN {% data variables.product.api_url_pre %}/user
 ```
 
-This approach is useful if your tools only support Basic Authentication but you want to take advantage of {% data variables.product.pat_generic %} security features.
+如果你的工具只支持基本身份验证，但你想要利用 {% data variables.product.pat_generic %} 安全功能，此方法非常有用。
 
 {% ifversion not ghae %}
-### Via username and password
+### 通过用户名和密码
 
-{% ifversion fpt or ghec %}
-{% note %}
+{% ifversion fpt or ghec %} {% note %}
 
-**Note:** {% data variables.product.prodname_dotcom %} has discontinued password authentication to the API starting on November 13, 2020 for all {% data variables.product.prodname_dotcom_the_website %} accounts, including those on a {% data variables.product.prodname_free_user %}, {% data variables.product.prodname_pro %}, {% data variables.product.prodname_team %}, or {% data variables.product.prodname_ghe_cloud %} plan. You must now authenticate to the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API with an API token, such as an OAuth access token, GitHub App installation access token, or {% data variables.product.pat_generic %}, depending on what you need to do with the token. For more information, see "[Troubleshooting](/rest/overview/troubleshooting#basic-authentication-errors)."
+注意：从 2020 年 11 月 13 日起，{% data variables.product.prodname_dotcom %} 停止对所有 {% data variables.product.prodname_dotcom_the_website %} 帐户的 API 密码验证，包括 {% data variables.product.prodname_free_user %}、{% data variables.product.prodname_pro %}、{% data variables.product.prodname_team %} 或 {% data variables.product.prodname_ghe_cloud %} 计划。 现在，你必须使用 API 令牌（如 OAuth 访问令牌、GitHub 应用程序安装访问令牌或 {% data variables.product.pat_generic %}，具体取决于你需要使用令牌执行的操作）向 {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API 进行身份验证。 有关详细信息，请参阅“[故障排除](/rest/overview/troubleshooting#basic-authentication-errors)”。
  
-{% endnote %}
-{% else %}
+{% endnote %} {% else %}
 
-To use Basic Authentication with the {% data variables.product.product_name %} API, simply send the username and
-password associated with the account.
+要将基本身份验证与 {% data variables.product.product_name %} API 结合使用，只需发送与帐户关联的用户名和密码。
 
-For example, if you're accessing the API via [cURL][curl], the following command
-would authenticate you if you replace `<username>` with your {% data variables.product.product_name %} username.
-(cURL will prompt you to enter the password.)
+例如，如果要通过 [cURL][curl] 访问 API，如果使用 {% data variables.product.product_name %} 用户名替换 `<username>`，则以下命令将对你进行身份验证。
+（cURL 将提示您输入密码。）
 
 ```shell
 $ curl -u USERNAME {% data variables.product.api_url_pre %}/user
 ```
-If you have two-factor authentication enabled, make sure you understand how to [work with two-factor authentication](/rest/overview/other-authentication-methods#working-with-two-factor-authentication).
-{% endif %}
-{% endif %}
+如果启用了双因素身份验证，请确保了解如何[使用双因素身份验证](/rest/overview/other-authentication-methods#working-with-two-factor-authentication)。
+{% endif %} {% endif %}
 
 {% ifversion fpt or ghec %}
-### Authenticating for SAML SSO
+### SAML SSO 身份验证
 
 {% note %}
 
-**Note:** Integrations and OAuth applications that generate tokens on behalf of others are automatically authorized.
+注意：代表其他工具生成令牌的集成和 OAuth 应用程序将自动获得授权。
 
 {% endnote %}
 
 {% note %}
 
-**Note:** {% data reusables.getting-started.bearer-vs-token %}
+注意：{% data reusables.getting-started.bearer-vs-token %}
 
 {% endnote %}
 
-If you're using the API to access an organization that enforces [SAML SSO][saml-sso] for authentication, you'll need to create a {% data variables.product.pat_generic %} and [authorize the token][allowlist] for that organization. Visit the URL specified in `X-GitHub-SSO` to authorize the token for the organization.
+如果使用 API 访问强制实施 [SAML SSO][saml-sso] 以进行身份验证的组织，则需要创建 {% data variables.product.pat_generic %} 并为该组织[授权该令牌][allowlist]。 访问 `X-GitHub-SSO` 中指定的 URL 为组织授权令牌。
 
 ```shell
 $ curl -v -H "Authorization: Bearer TOKEN" {% data variables.product.api_url_pre %}/repos/octodocs-test/test
@@ -102,7 +92,7 @@ $ curl -v -H "Authorization: Bearer TOKEN" {% data variables.product.api_url_pre
 }
 ```
 
-When requesting data that could come from multiple organizations (for example, [requesting a list of issues created by the user][user-issues]), the `X-GitHub-SSO` header indicates which organizations require you to authorize your {% data variables.product.pat_generic %}:
+当请求可能来自多个组织的数据（例如，[请求用户创建的问题列表][user-issues]）时，`X-GitHub-SSO` 标头指示哪些组织要求你授权 {% data variables.product.pat_generic %}：
 
 ```shell
 $ curl -v -H "Authorization: Bearer TOKEN" {% data variables.product.api_url_pre %}/user/issues
@@ -110,26 +100,26 @@ $ curl -v -H "Authorization: Bearer TOKEN" {% data variables.product.api_url_pre
 > X-GitHub-SSO: partial-results; organizations=21955855,20582480
 ```
 
-The value `organizations` is a comma-separated list of organization IDs for organizations require authorization of your {% data variables.product.pat_generic %}.
+值 `organizations` 是一个以逗号分隔的组织 ID 列表，这些组织需要你的 {% data variables.product.pat_generic %} 授权。
 {% endif %}
 
 {% ifversion fpt or ghes or ghec %}
-## Working with two-factor authentication
+## 使用双重身份验证
 
-When you have two-factor authentication enabled, [Basic Authentication](#basic-authentication) for _most_ endpoints in the REST API requires that you use a {% data variables.product.pat_generic %}{% ifversion ghes %} or OAuth token instead of your username and password{% endif %}.
+启用双因素身份验证后，REST API 中的大多数终结点的[基本身份验证](#basic-authentication)要求你使用 {% data variables.product.pat_generic %}{% ifversion ghes %} 或 OAuth 令牌，而不是用户名和密码{% endif %}。
 
-You can generate a new {% data variables.product.pat_generic %} {% ifversion fpt or ghec %}using [{% data variables.product.product_name %} developer settings](https://github.com/settings/tokens/new){% endif %}{% ifversion ghes %} or with the "[Create a new authorization][/rest/reference/oauth-authorizations#create-a-new-authorization]" endpoint in the OAuth Authorizations API to generate a new OAuth token{% endif %}. For more information, see "[Creating a {% data variables.product.pat_generic %} for the command line](/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line)". Then you would use these tokens to [authenticate using OAuth token][oauth-auth] with the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API.{% ifversion ghes %} The only time you need to authenticate with your username and password is when you create your OAuth token or use the OAuth Authorizations API.{% endif %}
+可以{% ifversion fpt or ghec %}使用 [{% data variables.product.product_name %} 开发人员设置](https://github.com/settings/tokens/new){% endif %}{% ifversion ghes %}或使用 OAuth 授权 API 中的“[创建新的授权][/rest/reference/oauth-authorizations#create-a-new-authorization]”终结点生成新的 OAuth 令牌{% endif %}来生成新的 {% data variables.product.pat_generic %}。 有关详细信息，请参阅“[为命令行创建 {% data variables.product.pat_generic %}](/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line)”。 然后，你将使用这些令牌通过 {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API [使用 OAuth 令牌进行身份验证][oauth-auth]。{% ifversion ghes %} 只有在创建 OAuth 令牌或使用 OAuth 授权 API 时，才需要使用用户名和密码进行身份验证。{% endif %}
 
 {% endif %}
 
 {% ifversion ghes %}
-### Using the OAuth Authorizations API with two-factor authentication
+### 结合使用 OAuth 授权 API 与双重身份验证
 
-When you make calls to the OAuth Authorizations API, Basic Authentication requires that you use a one-time password (OTP) and your username and password instead of tokens. When you attempt to authenticate with the OAuth Authorizations API, the server will respond with a `401 Unauthorized` and one of these headers to let you know that you need a two-factor authentication code:
+当您调用 OAuth 授权 API 时，基本身份验证会要求您使用一次性密码 (OTP) 以及您的用户名和密码，而不是令牌。 在尝试使用 OAuth 授权 API 进行身份验证时，服务器将通过 `401 Unauthorized` 和以下标头之一进行响应，让你知道需要双因素身份验证代码：
 
-`X-GitHub-OTP: required; SMS` or `X-GitHub-OTP: required; app`.  
+`X-GitHub-OTP: required; SMS` 或 `X-GitHub-OTP: required; app`。  
 
-This header tells you how your account receives its two-factor authentication codes. Depending how you set up your account, you will either receive your OTP codes via SMS or you will use an application like Google Authenticator or 1Password. For more information, see "[Configuring two-factor authentication](/articles/configuring-two-factor-authentication)." Pass the OTP in the header:
+此标头指示您的帐户如何接收其双重身份验证代码。 您将通过 SMS 接收 OTP 代码，或者使用 Google Authenticator 或 1Password 等应用程序，具体取决于您的帐户设置。 有关详细信息，请参阅“[配置双因素身份验证](/articles/configuring-two-factor-authentication)”。 在标头中传递 OTP：
 
 ```shell
 $ curl --request POST \

@@ -1,6 +1,6 @@
 ---
-title: Managing enterprise accounts
-intro: You can manage your enterprise account and the organizations it owns with the GraphQL API.
+title: 管理企业帐户
+intro: 您可以使用 GraphQL API 管理企业帐户及其拥有的组织。
 redirect_from:
   - /v4/guides/managing-enterprise-accounts
 versions:
@@ -10,96 +10,101 @@ versions:
 topics:
   - API
 shortTitle: Manage enterprise accounts
+ms.openlocfilehash: c55a2b23ff88214739402f78f00c2682c97df93b
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148106779'
 ---
+## 关于使用 GraphQL 管理企业帐户
 
-## About managing enterprise accounts with GraphQL
+为帮助您监测和更改组织并保持合规性，可以使用只能作为 GraphQL API 的企业帐户 API 和审核日志 API。
 
-To help you monitor and make changes in your organizations and maintain compliance, you can use the Enterprise Accounts API and the Audit Log API, which are only available as GraphQL APIs.
+企业帐户端点适用于 GitHub Enterprise Cloud 和 GitHub Enterprise Server。
 
-The enterprise account endpoints work for both GitHub Enterprise Cloud and for GitHub Enterprise Server.
+使用 GraphQL 可以请求并仅返回指定的数据。 例如，可以创建 GraphQL 查询或请求信息，以查看添加到组织的所有新组织成员。 或者，可以做出更改，以邀请管理员加入企业帐户。
 
-GraphQL allows you to request and return just the data you specify. For example, you can create a GraphQL query, or request for information, to see all the new organization members added to your organization. Or you can make a mutation, or change, to invite an administrator to your enterprise account.
+使用审核日志 API，可以监视下列行为：
+- 访问组织或存储库设置。
+- 更改权限。
+- 在组织、存储库或团队中添加或删除用户。
+- 将用户提升为管理员。
+- 更改 GitHub 应用权限。
 
-With the Audit Log API, you can monitor when someone:
-- Accesses your organization or repository settings.
-- Changes permissions.
-- Adds or removes users in an organization, repository, or team.
-- Promotes users to admin.
-- Changes permissions of a GitHub App.
+使用审核日志 API 可以保留审核日志数据的副本。 对于使用审核日志 API 执行的查询，GraphQL 响应最多可包含 90 至 120 天的数据。 有关审核日志 API 提供的字段列表，请参阅“[AuditEntry 接口](/graphql/reference/interfaces#auditentry/)”。
 
-The Audit Log API enables you to keep copies of your audit log data. For queries made with the Audit Log API, the GraphQL response can include data for up to 90 to 120 days. For a list of the fields available with the Audit Log API, see the "[AuditEntry interface](/graphql/reference/interfaces#auditentry/)."
+通过企业帐户 API，可以：
+- 列出并审查属于企业帐户的所有组织和仓库。
+- 更改企业帐户设置。
+- 配置企业帐户及其组织的设置策略。
+- 邀请管理员加入您的企业帐户。
+- 在企业帐户中创建新组织。
 
-With the Enterprise Accounts API, you can:
-- List and review all of the organizations and repositories that belong to your enterprise account.
-- Change Enterprise account settings.
-- Configure policies for settings on your enterprise account and its organizations.
-- Invite administrators to your enterprise account.
-- Create new organizations in your enterprise account.
+有关企业帐户 API 提供的字段列表，请参阅“[企业帐户 API 的 GraphQL 字段和类型](/graphql/guides/managing-enterprise-accounts#graphql-fields-and-types-for-the-enterprise-accounts-api)”。
 
-For a list of the fields available with the Enterprise Accounts API, see "[GraphQL fields and types for the Enterprise account API](/graphql/guides/managing-enterprise-accounts#graphql-fields-and-types-for-the-enterprise-accounts-api)."
+## 开始将 GraphQL 用于企业帐户
 
-## Getting started using GraphQL for enterprise accounts
+按照以下步骤开始利用 GraphQL 管理企业帐户：
+ - 使用 {% data variables.product.pat_generic %} 进行身份验证
+ - 选择 GraphQL 客户端或使用 GraphQL Explorer
+ - 设置 Insomnia 以使用 GraphQL API
 
-Follow these steps to get started using GraphQL to manage your enterprise accounts:
- - Authenticating with a {% data variables.product.pat_generic %}
- - Choosing a GraphQL client or using the GraphQL Explorer
- - Setting up Insomnia to use the GraphQL API
+如需一些示例查询，请参阅“[使用企业帐户 API 的示例查询](#an-example-query-using-the-enterprise-accounts-api)”。
 
-For some example queries, see "[An example query using the Enterprise Accounts API](#an-example-query-using-the-enterprise-accounts-api)."
-
-### 1. Authenticate with your {% data variables.product.pat_generic %}
+### 1. 使用 {% data variables.product.pat_generic %} 进行身份验证
 
 {% data reusables.user-settings.graphql-classic-pat-only %}
 
-1. To authenticate with GraphQL, you need to generate a {% data variables.product.pat_generic %} from developer settings. For more information, see "[Creating a {% data variables.product.pat_generic %}](/github/authenticating-to-github/creating-a-personal-access-token)."
+1. 要使用 GraphQL 进行身份验证，需要通过开发者设置生成 {% data variables.product.pat_generic %}。 有关详细信息，请参阅“[创建 {% data variables.product.pat_generic %}](/github/authenticating-to-github/creating-a-personal-access-token)。”
 
-2. Grant admin and full control permissions to your {% data variables.product.pat_generic %} for areas of GHES you'd like to access. For full permission to private repositories, organizations, teams, user data, and access to enterprise billing and profile data, we recommend you select these scopes for your {% data variables.product.pat_generic %}:
+2. 向要访问的 GHES 区域的 {% data variables.product.pat_generic %} 授予管理员和完全控制权限。 要获得对私有仓库、组织、团队、用户数据及企业帐单和个人资料数据访问的完全权限，建议你为 {% data variables.product.pat_generic %} 选择以下范围：
     - `repo`
     - `admin:org`
     - `user`
     - `admin:enterprise`
 
-  The enterprise account specific scopes are:
-    - `admin:enterprise`: Gives full control of enterprises (includes `manage_runners:enterprise`, `manage_billing:enterprise` and `read:enterprise`)
-    - `manage_billing:enterprise`: Read and write enterprise billing data.{% ifversion ghes or ghae %}
-    - `manage_runners:enterprise`: Access to manage GitHub Actions enterprise runners and runner-groups.{% endif %}
-    - `read:enterprise`: Read enterprise profile data.
+  企业帐户特定作用域包括：
+    - `admin:enterprise`：全面控制企业（包括 `manage_runners:enterprise`、`manage_billing:enterprise` 和 `read:enterprise`）
+    - `manage_billing:enterprise`：读取和写入企业账单数据。{% ifversion ghes or ghae %}
+    - `manage_runners:enterprise`：获得管理 GitHub Actions 企业运行器和运行器组的权限。{% endif %}
+    - `read:enterprise`：读取企业资料数据。
 
-3. Copy your {% data variables.product.pat_generic %} and keep it in a secure place until you add it to your GraphQL client.
+3. 复制 {% data variables.product.pat_generic %} 并保存在安全的位置，直到将其添加至你的 GraphQL 客户端。
 
-### 2. Choose a GraphQL client
+### 2. 选择 GraphQL 客户端
 
-We recommend you use GraphiQL or another standalone GraphQL client that lets you configure the base URL.
+建议您使用 GraphiQL 或可用于配置基准 URL 的其他独立 GraphQL 客户端。
 
-You may also consider using these GraphQL clients:
+也可以考虑使用以下 GraphQL 客户端：
   - [Insomnia](https://support.insomnia.rest/article/176-graphql-queries)
   - [GraphiQL](https://www.gatsbyjs.org/docs/running-queries-with-graphiql/)
   - [Postman](https://learning.getpostman.com/docs/postman/sending_api_requests/graphql/)
 
-The next steps will use Insomnia.
+接下来将使用 Insomnia。
 
-### 3. Setting up Insomnia to use the GitHub GraphQL API with enterprise accounts
+### 3. 设置 Insomnia，将 GitHub GraphQL API 用于企业帐户
 
-1. Add the base url and `POST` method to your GraphQL client. When using GraphQL to request information (queries), change information (mutations), or transfer data using the GitHub API, the default HTTP method is `POST` and the base url follows this syntax:
-    - For your enterprise instance: `https://<HOST>/api/graphql`
-    - For GitHub Enterprise Cloud: `https://api.github.com/graphql`
+1. 将基 url 和 `POST` 方法添加至 GraphQL 客户端。 使用 GraphQL 请求信息（查询）、更改信息（突变）或使用 GitHub API 传输数据时，默认 HTTP 方法为 `POST`，基 url 遵循此语法：
+    - 对于企业实例：`https://<HOST>/api/graphql`
+    - 对于 GitHub Enterprise 云：`https://api.github.com/graphql`
 
-2. To authenticate, open the authentication options menu and select **Bearer token**. Next, add your {% data variables.product.pat_generic %} that you copied earlier.
+2. 要进行身份验证，请打开身份验证选项菜单，并选择“持有者令牌”。 接下来，添加之前复制的 {% data variables.product.pat_generic %}。
 
- ![Permissions options for {% data variables.product.pat_generic %}](/assets/images/developer/graphql/insomnia-base-url-and-pat.png)
+ ![{% data variables.product.pat_generic %} 的权限选项](/assets/images/developer/graphql/insomnia-base-url-and-pat.png)
 
- ![Permissions options for {% data variables.product.pat_generic %}](/assets/images/developer/graphql/insomnia-bearer-token-option.png)
+ ![{% data variables.product.pat_generic %} 的权限选项](/assets/images/developer/graphql/insomnia-bearer-token-option.png)
 
-3. Include header information.
-   - Add `Content-Type` as the header and `application/json` as the value.
-   ![Standard header](/assets/images/developer/graphql/json-content-type-header.png)
-   ![Header with preview value for the Audit Log API](/assets/images/developer/graphql/preview-header-for-2.18.png)
+3. 加入标头信息。
+   - 添加 `Content-Type` 和 `application/json` 分别作为标头和值。
+   ![标准标头](/assets/images/developer/graphql/json-content-type-header.png)
+   ![包含审核日志 API 预览值的标头](/assets/images/developer/graphql/preview-header-for-2.18.png)
 
-Now you are ready to start making queries.
+现在可以开始执行查询了。
 
-## An example query using the Enterprise Accounts API
+## 使用企业账户 API 的查询示例
 
-This GraphQL query requests the total number of {% ifversion not ghae %}`public`{% else %}`private`{% endif %} repositories in each of your appliance's organizations using the Enterprise Accounts API. To customize this query, replace `<enterprise-account-name>` with the handle for your enterprise account. For example, if your enterprise account is located at `https://github.com/enterprises/octo-enterprise`, replace `<enterprise-account-name>` with `octo-enterprise`.
+此 GraphQL 查询使用 Enterprise Accounts API 请求每个设备的组织中 {% ifversion not ghae %}`public`{% else %}`private`{% endif %} 存储库的总数。 要自定义此查询，请用企业帐户的句柄替换 `<enterprise-account-name>`。 例如，如果企业帐户位于 `https://github.com/enterprises/octo-enterprise`，请用 `octo-enterprise` 替换 `<enterprise-account-name>`。
 
 {% ifversion not ghae %}
 
@@ -166,7 +171,7 @@ variables {
 ```
 {% endif %}
 
-The next GraphQL query example shows how challenging it is to retrieve the number of {% ifversion not ghae %}`public`{% else %}`private`{% endif %} repositories in each organization without using the Enterprise Account API.  Notice that the GraphQL Enterprise Accounts API has made this task simpler for enterprises since you only need to customize a single variable. To customize this query, replace `<name-of-organization-one>` and `<name-of-organization-two>`, etc. with the organization names on your instance.
+下一个 GraphQL 查询示例显示了在不使用企业帐户 API 的情况下检索每个组织中的 {% ifversion not ghae %}`public`{% else %}`private`{% endif %} 存储库总数的难度。  请注意，GraphQL 企业账户 API 已使企业执行此任务变得更简单，因为您只需要自定义单个变量。 要自定义此查询，请将 `<name-of-organization-one>` 和 `<name-of-organization-two>` 等项替换为实例中的组织名称。
 
 {% ifversion not ghae %}
 ```graphql
@@ -214,7 +219,7 @@ fragment repositories on Organization {
 ```
 {% endif %}
 
-## Query each organization separately
+## 分别查询每个组织
 
 {% ifversion not ghae %}
 
@@ -262,7 +267,7 @@ fragment repositories on Organization {
 
 {% endif %}
 
-This GraphQL query requests the last 5 log entries for an enterprise organization. To customize this query, replace `<org-name>` and `<user-name>`.
+此 GraphQL 查询用于请求企业组织的最后 5 个日志条目。 要自定义此查询，请替换 `<org-name>` 和 `<user-name>`。
 
 ```graphql
 {
@@ -288,13 +293,13 @@ This GraphQL query requests the last 5 log entries for an enterprise organizatio
 }
 ```
 
-For more information about getting started with GraphQL, see "[Introduction to GraphQL](/graphql/guides/introduction-to-graphql)" and "[Forming Calls with GraphQL](/graphql/guides/forming-calls-with-graphql)."
+有关开始使用 GraphQL 的更多信息，请参阅“[GraphQL 简介](/graphql/guides/introduction-to-graphql)”和“[使用 GraphQL 形成调用](/graphql/guides/forming-calls-with-graphql)”。
 
-## GraphQL fields and types for the Enterprise Accounts API
+## 企业账户 API 的 GraphQL 字段和类型
 
-Here's an overview of the new queries, mutations, and schema defined types available for use with the Enterprise Accounts API.
+下面是关于可与企业账户 API 结合使用的新查询、突变和架构定义类型的概述。
 
-For more details about the new queries, mutations, and schema defined types available for use with the Enterprise Accounts API, see the sidebar with detailed GraphQL definitions from any [GraphQL reference page](/graphql).
+有关可与企业帐户 API 结合使用的新查询、突变和架构定义类型的详细信息，请参阅任何 [GraphQL 参考页面](/graphql)含有详细 GraphQL 定义的边栏。
 
-You can access the reference docs from within the GraphQL explorer on GitHub. For more information, see "[Using the explorer](/graphql/guides/using-the-explorer#accessing-the-sidebar-docs)."
-For other information, such as authentication and rate limit details, check out the [guides](/graphql/guides).
+您可以从 GitHub 的 GraphQL explorer 访问参考文档。 有关详细信息，请参阅“[使用资源管理器](/graphql/guides/using-the-explorer#accessing-the-sidebar-docs)”。
+有关其他信息，如身份验证和速率限制详细信息，请查看[指南](/graphql/guides)。

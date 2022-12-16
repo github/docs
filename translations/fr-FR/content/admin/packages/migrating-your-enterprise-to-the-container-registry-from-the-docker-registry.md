@@ -1,6 +1,6 @@
 ---
-title: Migrating your enterprise to the Container registry from the Docker registry
-intro: 'You can migrate Docker images previously stored in the Docker registry on {% data variables.location.product_location %} to the {% data variables.product.prodname_container_registry %}.'
+title: Migration de votre entreprise vers le registre de conteneurs à partir du registre Docker
+intro: 'Vous pouvez migrer des images Docker stockées dans le registre Docker sur {% data variables.location.product_location %} vers le {% data variables.product.prodname_container_registry %}.'
 product: '{% data reusables.gated-features.packages %}'
 permissions: 'Enterprise owners can migrate Docker images to the {% data variables.product.prodname_container_registry %}.'
 versions:
@@ -10,68 +10,69 @@ topics:
   - Containers
   - Docker
   - Migration
+ms.openlocfilehash: 459039d5c3a059c961ac1126e37929906d7b0325
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148106380'
 ---
-
 {% data reusables.package_registry.container-registry-ghes-beta %}
 
-## About the {% data variables.product.prodname_container_registry %}
+## À propos du {% data variables.product.prodname_container_registry %}
 
-{% data reusables.package_registry.container-registry-benefits %} For more information, see "[Working with the {% data variables.product.prodname_container_registry %}](/packages/working-with-a-github-packages-registry/working-with-the-container-registry)."
+{% data reusables.package_registry.container-registry-benefits %} Pour plus d’informations, consultez « [Utilisation du {% data variables.product.prodname_container_registry %}](/packages/working-with-a-github-packages-registry/working-with-the-container-registry) ».
 
-For more information about configuring {% data variables.product.prodname_registry %} for {% data variables.location.product_location %}, see "[Getting started with {% data variables.product.prodname_registry %} for your enterprise](/admin/packages/getting-started-with-github-packages-for-your-enterprise)."
+Pour plus d’informations sur la configuration de {% data variables.product.prodname_registry %} pour {% data variables.location.product_location %}, consultez « [Bien démarrer avec {% data variables.product.prodname_registry %} pour votre entreprise](/admin/packages/getting-started-with-github-packages-for-your-enterprise) ».
 
-## About migration from the Docker registry
+## À propos de la migration à partir du registre Docker
 
-{% data reusables.package_registry.container-registry-replaces-docker-registry %} If the Docker registry on {% data variables.location.product_location %} contains images, you must manually migrate the images to the {% data variables.product.prodname_container_registry %}.
+{% data reusables.package_registry.container-registry-replaces-docker-registry %} Si le registre Docker sur {% data variables.location.product_location %} contient des images, vous devez migrer manuellement ces images vers le {% data variables.product.prodname_container_registry %}.
 
 {% ifversion ghes %}
 
 {% note %}
 
-**Note**: {% data reusables.package_registry.container-registry-ghes-migration-availability %}
+**Remarque** : {% data reusables.package_registry.container-registry-ghes-migration-availability %}
 
 {% endnote %}
 
 {% endif %}
 
-{% data reusables.package_registry.container-registry-migration-namespaces %} For more information about the impact of migration to the {% data variables.product.prodname_container_registry %}, see "[Migrating to the  {% data variables.product.prodname_container_registry %} from the Docker registry](/packages/working-with-a-github-packages-registry/migrating-to-the-container-registry-from-the-docker-registry#about-migration-from-the-docker-registry)."
+{% data reusables.package_registry.container-registry-migration-namespaces %} Pour plus d’informations sur l’impact de la migration vers le {% data variables.product.prodname_container_registry %}, consultez « [Migration vers le {% data variables.product.prodname_container_registry %} depuis le registre Docker](/packages/working-with-a-github-packages-registry/migrating-to-the-container-registry-from-the-docker-registry#about-migration-from-the-docker-registry) ».
 
-## Migrating organizations to the {% data variables.product.prodname_container_registry %}
+## Migration des organisations vers le {% data variables.product.prodname_container_registry %}
 
-You can start a migration of all your organizations' Docker images to the {% data variables.product.prodname_container_registry %}. The duration of the migration operation depends on the total number of images to migrate, and the overall load on {% ifversion ghes %}your instance{% elsif ghae %}{% data variables.product.product_name %}{% endif %}. After a successful migration, {% data variables.product.product_name %} will display a summary, and all future uploads of Docker images will use the {% data variables.product.prodname_container_registry %}.
+Vous pouvez démarrer une migration de toutes les images Docker de vos organisations vers le {% data variables.product.prodname_container_registry %}. La durée de l’opération de migration dépend du nombre total d’images à migrer et de la charge globale sur {% ifversion ghes %}votre instance{% elsif ghae %}{% data variables.product.product_name %}{% endif %}. Après une migration réussie, {% data variables.product.product_name %} affiche un récapitulatif, et tous les chargements futurs d’images Docker utiliseront le {% data variables.product.prodname_container_registry %}.
 
-If {% ifversion ghes %}a site administrator{% elsif ghae %}an enterprise owner{% endif %} has configured email notifications for {% data variables.location.product_location %}, you will receive an email after the migration is complete. For more information, see "[Configuring email for notifications](/admin/configuration/configuring-your-enterprise/configuring-email-for-notifications)."
+Si {% ifversion ghes %}un administrateur de site{% elsif ghae %}un propriétaire d’entreprise{% endif %} a configuré les notifications par e-mail pour {% data variables.location.product_location %}, vous recevrez un e-mail une fois la migration effectuée. Pour plus d’informations, consultez « [Configuration de l’e-mail pour les notifications](/admin/configuration/configuring-your-enterprise/configuring-email-for-notifications) ».
 
 {% note %}
 
-**{% ifversion ghes %}Notes{% elsif ghae %}Note{% endif %}**:
+**{% ifversion ghes %}Remarques{% elsif ghae %}Remarque{% endif %}**  :
 
 {%- ifversion ghes %}
-- During the migration, the CPU and memory usage for your instance will increase. To ensure the performance of the instance for your users, {% data variables.product.company_short %} recommends that you begin a migration during a period of reduced activity.
-{%- endif %}
-{% ifversion ghes %}- {% endif %}During the migration, do not modify settings for your enterprise{% ifversion ghes %} or run `ghe-config-apply` from an administrative SSH session{% endif %}. {% ifversion ghes %}These actions will trigger a configuration run, which can restart services and {% elsif ghae %}Modifying these settings {% endif %} may interrupt the migration.
+- Pendant la migration, l’utilisation du processeur et de la mémoire de votre instance augmente. Pour garantir les performances de l’instance pour vos utilisateurs, {% data variables.product.company_short %} recommande de commencer une migration pendant une période d’activité réduite.
+{%- endif %} {% ifversion ghes %}- {% endif %}Pendant la migration, ne modifiez pas les paramètres pour votre entreprise{% ifversion ghes %} ou exécutez `ghe-config-apply` à partir d’une session SSH administrative{% endif %}. {% ifversion ghes %} Ces actions déclenchent une exécution de configuration, qui peut redémarrer les services et {% elsif ghae %}modifier ces paramètres {% endif %} peut interrompre la migration.
 {%- ifversion ghes %}
-- After the migration, storage pressure on your instance will increase due to the duplication of image files in the Docker registry and the {% data variables.product.prodname_container_registry %}. A future release of {% data variables.product.product_name %} will remove the duplicated files when all migrations are complete.
+- Après la migration, la pression de stockage sur votre instance augmente en raison de la duplication des fichiers image dans le registre Docker et le {% data variables.product.prodname_container_registry %}. Une version ultérieure de {% data variables.product.product_name %} supprimera les fichiers dupliqués quand toutes les migrations seront terminées.
 
-For more information about monitoring the performance and storage of {% data variables.location.product_location %}, see "[Accessing the monitor dashboard](/admin/enterprise-management/monitoring-your-appliance/accessing-the-monitor-dashboard)."
+Pour plus d’informations sur le monitoring des performances et du stockage de {% data variables.location.product_location %}, consultez « [Accès au tableau de bord de monitoring](/admin/enterprise-management/monitoring-your-appliance/accessing-the-monitor-dashboard) ».
 {% endif %}
 
 {% endnote %}
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-1. In the left sidebar, click **Packages**.
-1. To the right of the number of packages to migrate, click **Start migration**. During the migration, {% data variables.product.product_name %} will display progress on this page.
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.settings-tab %}
+1. Dans la barre latérale gauche, cliquez sur **Packages**.
+1. À droite du nombre de packages à migrer, cliquez sur **Démarrer la migration**. Pendant la migration, {% data variables.product.product_name %} affiche la progression sur cette page.
 
-After the migration completes, the page will display the results. If a migration fails, the page will show the organizations that own the package that caused the failure.
+Une fois la migration terminée, la page affiche les résultats. Si une migration échoue, la page montre les organisations qui détiennent le package qui a provoqué l’échec.
 
-## Re-running a failed organization migration
+## Réexécution d’une migration d’organisation ayant échoué
 
-Prior to migration, if a user has created a package in the {% data variables.product.prodname_container_registry %} that has an identical name to an existing package in the Docker registry, the migration will fail.
+Avant la migration, si un utilisateur a créé un package dans le {% data variables.product.prodname_container_registry %} qui a un nom identique à un package existant dans le registre Docker, la migration échoue.
 
-1. Delete the affected container in the {% data variables.product.prodname_container_registry %}. For more information, see "[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package#deleting-a-version-of-an-organization-scoped-package-on-github)."
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.packages-tab %}
-1. To the right of the number of packages to migrate, click **Re-run migration**. During the migration, {% data variables.product.product_name %} will display progress on this page.
-1. If the migration fails again, start from step 1 and re-run the migration.
+1. Supprimez le conteneur affecté dans le {% data variables.product.prodname_container_registry %}. Pour plus d’informations, consultez « [Suppression et restauration d’un package](/packages/learn-github-packages/deleting-and-restoring-a-package#deleting-a-version-of-an-organization-scoped-package-on-github) ».
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.settings-tab %} {% data reusables.enterprise-accounts.packages-tab %}
+1. À droite du nombre de packages à migrer, cliquez sur **Réexécuter la migration**. Pendant la migration, {% data variables.product.product_name %} affiche la progression sur cette page.
+1. Si la migration échoue à nouveau, recommencez depuis l’étape 1 et réexécutez la migration.

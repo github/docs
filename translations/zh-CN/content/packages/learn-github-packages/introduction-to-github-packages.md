@@ -1,6 +1,6 @@
 ---
-title: Introduction to GitHub Packages
-intro: '{% data variables.product.prodname_registry %} is a software package hosting service that allows you to host your software packages privately {% ifversion ghae %} for specified users or internally for your enterprise{% else %}or publicly{% endif %} and use packages as dependencies in your projects.'
+title: GitHub Packages 简介
+intro: '{% data variables.product.prodname_registry %} 是一项软件包托管服务，允许您私下为指定的用户托管您的软件包{% ifversion ghae %}，或在内部为您的企业{% else %}或公开{% endif %}托管，以及在您的项目中使用软件包作为依赖项。'
 product: '{% data reusables.gated-features.packages %}'
 redirect_from:
   - /articles/about-github-package-registry
@@ -16,122 +16,108 @@ versions:
   ghae: '*'
   ghec: '*'
 shortTitle: Introduction
+ms.openlocfilehash: 1ad319ead16f10186b330f876ccaa83bc44bdbcd
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148193023'
 ---
+{% data reusables.package_registry.packages-ghes-release-stage %} {% data reusables.package_registry.packages-ghae-release-stage %}
 
-{% data reusables.package_registry.packages-ghes-release-stage %}
-{% data reusables.package_registry.packages-ghae-release-stage %}
+## 关于 {% data variables.product.prodname_registry %}
 
-## About {% data variables.product.prodname_registry %}
+{% data variables.product.prodname_registry %} 是一个用于托管和管理包的平台，包括容器和其他依赖项。 {% data variables.product.prodname_registry %} 将源代码和包组合在一起，以提供集成的权限管理{% ifversion fpt or ghec %}和计费{% endif %}，使你能够在 {% data variables.product.product_name %} 上专注于软件开发。
 
-{% data variables.product.prodname_registry %} is a platform for hosting and managing packages, including containers and other dependencies. {% data variables.product.prodname_registry %} combines your source code and packages in one place to provide integrated permissions management{% ifversion fpt or ghec %} and billing{% endif %}, so you can centralize your software development on {% data variables.product.product_name %}.
+您可以将 {% data variables.product.prodname_registry %} 与 {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API、{% data variables.product.prodname_actions %} 以及 web 挂钩集成在一起，以创建端到端的 DevOps 工作流程，其中包括您的代码、CI 和部署解决方案。
 
-You can integrate {% data variables.product.prodname_registry %} with {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} APIs, {% data variables.product.prodname_actions %}, and webhooks to create an end-to-end DevOps workflow that includes your code, CI, and deployment solutions.
-
-{% data variables.product.prodname_registry %} offers different package registries for commonly used package managers, such as npm, RubyGems, Apache Maven, Gradle, Docker, and NuGet. {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}'s {% data variables.product.prodname_container_registry %} is optimized for containers and supports Docker and OCI images.{% endif %} For more information on the different package registries that {% data variables.product.prodname_registry %} supports, see "[Working with a {% data variables.product.prodname_registry %} registry](/packages/working-with-a-github-packages-registry)."
+{% data variables.product.prodname_registry %} 为常用的包管理器提供不同的包注册表，例如 npm、RubyGems、Apache Maven、Gradle、Docker 和 Nuget。 {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %} 的 {% data variables.product.prodname_container_registry %} 针对容器进行了优化，支持 Docker 和 OCI 映像。{% endif %} 有关 {% data variables.product.prodname_registry %} 支持的不同包注册表的详细信息，请参阅“[使用 {% data variables.product.prodname_registry %} 注册表](/packages/working-with-a-github-packages-registry)”。
 
 {% ifversion fpt or ghec %}
 
-![Diagram showing packages support for the Container registry, RubyGems, npm, Apache Maven, NuGet, and Gradle](/assets/images/help/package-registry/packages-diagram-with-container-registry.png)
+![显示支持容器注册表、RubyGems、npm、Apache Maven、NuGet 和 Gradle 的软件包的示意图](/assets/images/help/package-registry/packages-diagram-with-container-registry.png)
 
 {% else %}
 
-![Diagram showing packages support for the Docker registry, RubyGems, npm, Apache Maven, Gradle, NuGet, and Docker](/assets/images/help/package-registry/packages-diagram-without-container-registry.png)
+![显示支持 Docker 注册表、RubyGems、npm、Apache Maven、Gradle、Nuget 和 Docker 的软件包的示意图](/assets/images/help/package-registry/packages-diagram-without-container-registry.png)
 
 {% endif %}
 
-You can view a package's README, as well as metadata such as licensing, download statistics, version history, and more on {% data variables.product.product_name %}. For more information, see "[Viewing packages](/packages/manage-packages/viewing-packages)."
+您可以在 {% data variables.product.product_name %} 上查看包的自述文件、元数据（如许可）、下载统计、版本历史记录等。 有关详细信息，请参阅“[查看包](/packages/manage-packages/viewing-packages)”。
 
 {% ifversion ghes %}
 
-For more information about the configuration of {% data variables.product.prodname_registry %} on {% data variables.product.product_name %}, see "[Getting started with {% data variables.product.prodname_registry %} for your enterprise](/admin/packages/getting-started-with-github-packages-for-your-enterprise)."
+有关在 {% data variables.product.product_name %} 上配置 {% data variables.product.prodname_registry %} 的详细信息，请参阅“[企业的 {% data variables.product.prodname_registry %} 入门](/admin/packages/getting-started-with-github-packages-for-your-enterprise)”。
 
 {% endif %}
 
-### Overview of package permissions and visibility
+### 包的权限和可见性概述
 
 |                    |        |
 |--------------------|--------------------|
-| Permissions        | {% ifversion fpt or ghec %}The permissions for a package are either inherited from the repository where the package is hosted or, for packages in the {% data variables.packages.prodname_ghcr_and_npm_registry %}, they can be defined for specific user or organization accounts. For more information, see "[Configuring a package’s access control and visibility](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility)." {% else %}Each package inherits the permissions of the repository where the package is hosted. <br> <br> For example, anyone with read permissions for a repository can install a package as a dependency in a project, and anyone with write permissions can publish a new package version.{% endif %} |
-| Visibility         | {% data reusables.package_registry.public-or-private-packages %} |
-
-For more information, see "[About permissions for {% data variables.product.prodname_registry %}](/packages/learn-github-packages/about-permissions-for-github-packages)."
+| 权限        | {% ifversion packages-registries-v2 %}可以从托管包的存储库继承包的权限，也可以为特定用户或组织帐户定义该权限。 某些注册表仅支持从存储库继承的权限。 有关这些注册表的列表，请参阅“[关于 {% data variables.product.prodname_registry %} 的权限](/packages/learn-github-packages/about-permissions-for-github-packages#permissions-for-repository-scoped-packages)”。 有关包访问权限的详细信息，请参阅“[配置包的访问控制和可见性](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility)”。 {% else %}每个包都继承托管包的仓库的权限。 <br> <br> 例如，对存储库有读取权限的任何人都可以将包安装为项目中的依赖项，具有写入权限的任何人都可以发布新的包版本。{% endif %} |
+| 能见度         | {% data reusables.package_registry.public-or-private-packages %} |
 
 {% ifversion fpt or ghec %}
-## About billing for {% data variables.product.prodname_registry %}
+## 关于 {% data variables.product.prodname_registry %} 的计费
 
-{% data reusables.package_registry.packages-billing %} {% data reusables.package_registry.packages-spending-limit-brief %} For more information, see "[About billing for {% data variables.product.prodname_registry %}](/billing/managing-billing-for-github-packages/about-billing-for-github-packages)."
+{% data reusables.package_registry.packages-billing %} {% data reusables.package_registry.packages-spending-limit-brief %} 有关详细信息，请参阅“[关于 {% data variables.product.prodname_registry %} 的计费](/billing/managing-billing-for-github-packages/about-billing-for-github-packages)”。
 
 {% endif %}
 
-## Supported clients and formats
+## 支持的客户端和格式
 <!-- If you make changes to this feature, check whether any of the changes affect languages listed in /get-started/learning-about-github/github-language-support. If so, please update the language support article accordingly. -->
 
-{% data variables.product.prodname_registry %} uses the native package tooling commands you're already familiar with to publish and install package versions.
-### Support for package registries
+{% data variables.product.prodname_registry %} 使用您已经熟悉的原生包工具命令来发布和安装包版本。
+### 对包注册表的支持
 
-| Language | Description | Package format | Package client |
+| 语言 | 说明 | 包格式 | 包客户端 |
 | --- | --- | --- | --- |
-| JavaScript | Node package manager | `package.json`  | `npm` |
-| Ruby |  RubyGems package manager | `Gemfile` |  `gem` |
-| Java | Apache Maven project management and comprehension tool | `pom.xml` |  `mvn` |
-| Java | Gradle build automation tool for Java | `build.gradle` or `build.gradle.kts`  | `gradle`  |
-| .NET | NuGet package management for .NET | `nupkg`  |  `dotnet` CLI |
-| N/A | Docker container management | `Dockerfile` | `Docker` |
+| JavaScript | 节点包管理器 | `package.json`  | `npm` |
+| Ruby |  RubyGems 包管理器 | `Gemfile` |  `gem` |
+| Java | Apache Maven 项目管理和理解工具 | `pom.xml` |  `mvn` |
+| Java | Java 的 Gradle 构建自动化工具 | `build.gradle` 或 `build.gradle.kts`  | `gradle`  |
+| .NET | .NET 的 NuGet 包管理 | `nupkg`  |  `dotnet` CLI |
+| 空值 | Docker 容器管理平台 | `Dockerfile` | `Docker` |
 
-{% ifversion ghes %}
-{% note %}
+{% ifversion ghes %} {% note %}
 
-**Note:** When enabling the Docker registry, we highly recommend also enabling subdomain isolation. For more information, see "[Enabling subdomain isolation](/admin/configuration/configuring-network-settings/enabling-subdomain-isolation)."
+注意：启用 Docker 注册表时，我们强烈建议还启用子域隔离。 有关详细信息，请参阅“[启用子域隔离](/admin/configuration/configuring-network-settings/enabling-subdomain-isolation)”。
 
 {% endnote %}
 
 {% endif %}
 
-For more information about configuring your package client for use with {% data variables.product.prodname_registry %}, see "[Working with a {% data variables.product.prodname_registry %} registry](/packages/working-with-a-github-packages-registry)."
+有关配置包客户端以结合使用 {% data variables.product.prodname_registry %} 的详细信息，请参阅“[使用 {% data variables.product.prodname_registry %} 注册表](/packages/working-with-a-github-packages-registry)”。
 
-{% ifversion fpt or ghec %}
-For more information about Docker and the {% data variables.product.prodname_container_registry %}, see "[Working with the Container registry](/packages/working-with-a-github-packages-registry/working-with-the-container-registry)."
+{% ifversion fpt or ghec %} 有关 Docker 和 {% data variables.product.prodname_container_registry %} 的详细信息，请参阅“[使用容器注册表](/packages/working-with-a-github-packages-registry/working-with-the-container-registry)”。
 {% endif %}
-## Authenticating to {% data variables.product.prodname_registry %}
+## 向 {% data variables.product.prodname_registry %} 验证
 
 {% data reusables.package_registry.authenticate-packages %}
 
 {% data reusables.package_registry.authenticate-packages-github-token %}
 
-## Managing packages
+## 管理包
 
-{% ifversion fpt or ghec %}
-You can delete a package in the {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %} user interface or using the REST API. For more information, see "[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package)" and the "[{% data variables.product.prodname_registry %} API](/rest/reference/packages)."
+可以在 {% data variables.product.product_name %} 用户界面中删除包{% ifversion fpt or ghec %}或使用 REST API 删除包。 有关详细信息，请参阅“[删除和还原包](/packages/learn-github-packages/deleting-and-restoring-a-package)”和“[{% data variables.product.prodname_registry %} API](/rest/reference/packages)”。{% else %}{% endif %} {% data reusables.package_registry.about-graphql-support %}
 
-{% data reusables.package_registry.no-graphql-to-delete-packages %}
-{% endif %}
+使用 GraphQL API 查询和删除专用包时，必须使用向 {% data variables.product.prodname_registry %} 验证时使用的同一 {% data variables.product.pat_v1 %}。
 
-{% ifversion ghes %}
-You can delete a private or public package in the {% data variables.product.product_name %} user interface. Or for repo-scoped packages, you can delete a version of a private package using GraphQL.
-{% endif %}
+有关详细信息，请参阅{% ifversion ghes or ghae %}“[删除和还原包](/packages/learn-github-packages/deleting-and-restoring-a-package)”和{% endif %}“[使用 GraphQL 建立调用](/graphql/guides/forming-calls-with-graphql)”。
 
-{% ifversion ghae %}
-You can delete a version of a package in the {% data variables.product.product_name %} user interface or using the GraphQL API.
-{% endif %}
+您可以配置 web 挂钩来订阅与包相关的事件，例如包的发布或更新等事件。 有关详细信息，请参阅“[`package` Webhook 事件](/webhooks/event-payloads/#package)”。
 
-When you use the GraphQL API to query and delete private packages, you must use the same {% data variables.product.pat_v1 %} you use to authenticate to {% data variables.product.prodname_registry %}.
+## 联系支持部门
 
-For more information, see {% ifversion ghes or ghae %}"[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package)" and {% endif %}"[Forming calls with GraphQL](/graphql/guides/forming-calls-with-graphql)."
+{% ifversion fpt or ghec %} 如果你对 {% data variables.product.prodname_registry %} 有反馈或功能请求，请使用 [{% data variables.product.prodname_github_community %} 讨论](https://github.com/orgs/community/discussions/categories/actions-and-packages)。
 
-You can configure webhooks to subscribe to package-related events, such as when a package is published or updated. For more information, see the "[`package` webhook event](/webhooks/event-payloads/#package)."
+如果在 {% data variables.product.prodname_registry %} 方面遇到以下问题，请使用[我们的联系表单](https://support.github.com/contact?form%5Bsubject%5D=Re:%20GitHub%20Packages)联系 {% data variables.contact.github_support %}：
 
-## Contacting support
+* 遇到任何与文档相矛盾的事情
+* 遇到模糊或不清楚的错误
+* 发布的包中含有敏感数据，例如违反 GDPR、API 密钥或个人身份信息
 
-{% ifversion fpt or ghec %}
-If you have feedback or feature requests for {% data variables.product.prodname_registry %}, use a [{% data variables.product.prodname_github_community %} discussion](https://github.com/orgs/community/discussions/categories/actions-and-packages).
-
-Contact {% data variables.contact.github_support %} about {% data variables.product.prodname_registry %} using [our contact form](https://support.github.com/contact?form%5Bsubject%5D=Re:%20GitHub%20Packages) if:
-
-* You experience anything that contradicts the documentation
-* You encounter vague or unclear errors
-* Your published package contains sensitive data, such as GDPR violations, API Keys, or personally identifying information
-
-{% else %}
-If you need support for {% data variables.product.prodname_registry %}, please contact your site administrators.
+{% else %} 如果你需要有关 {% data variables.product.prodname_registry %} 的支持，请联系网站管理员。
 
 {% endif %}

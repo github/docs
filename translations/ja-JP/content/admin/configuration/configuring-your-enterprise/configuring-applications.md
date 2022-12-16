@@ -1,6 +1,6 @@
 ---
-title: Configuring applications
-intro: 'You can configure internal application settings for {% data variables.location.product_location %}.'
+title: アプリケーションの構成
+intro: '{% data variables.product.product_location %} 向けに内部アプリケーションの設定を構成できます。'
 redirect_from:
   - /enterprise/admin/installation/configuring-applications
   - /enterprise/admin/configuration/configuring-applications
@@ -11,15 +11,19 @@ type: how_to
 topics:
   - Enterprise
   - Fundamentals
+ms.openlocfilehash: bcc51bdabb5dc0b5ecdd4f77db9246a60c8df496
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145120726'
 ---
-## Adjusting image caching
+## 画像キャッシュを調整する
 
-You can choose the amount of time that {% data variables.location.product_location %} caches avatars. When you increase the cache time, you increase the amount of time a user's avatar will take to load. Configuring the cache time with too low a value can overload {% data variables.location.product_location %} work processes. 
+{% data variables.product.product_location %} がアバターをキャッシュする時間を選択できます。 キャッシュ時間を長くすると、ユーザのアバターをロードするのにかかる時間が長くなります。 キャッシュ時間を短すぎる値で設定すると、{% data variables.product.product_location %} のワーク プロセスが過負荷になる可能性があります。 
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.management-console %}
-3. In the left sidebar, click **Applications**.
-![Applications tab in the settings sidebar](/assets/images/enterprise/management-console/sidebar-applications.png)
-4. Under "Avatar image cache time (seconds)", type the number of seconds that you would like {% data variables.location.product_location %} to cache avatar images.
-![Avatar image caching form field](/assets/images/enterprise/management-console/add-image-caching-value-field.png)
-{% data reusables.enterprise_management_console.save-settings %}
+{% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.enterprise_site_admin_settings.management-console %}
+3. 左側のサイドバーで、 **[アプリケーション]** をクリックします。
+![設定サイドバーの [アプリケーション] タブ](/assets/images/enterprise/management-console/sidebar-applications.png)
+4. [アバター イメージ キャッシュ時間 (秒)] で、{% data variables.product.product_location %} にアバター画像をキャッシュさせる秒数を入力します。
+![アバター画像キャッシュ フォーム フィールド](/assets/images/enterprise/management-console/add-image-caching-value-field.png) {% data reusables.enterprise_management_console.save-settings %}

@@ -1,9 +1,10 @@
 ---
-ms.openlocfilehash: 5f35d3186458109231db91e80343bcb64a2193c1
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.openlocfilehash: c3ea88374e3956d45d2bc1c8536273468f59f249
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2022
-ms.locfileid: "148108918"
+ms.lasthandoff: 12/09/2022
+ms.locfileid: "148193067"
 ---
-{% ifversion fpt or ghec %} {% data variables.product.prodname_registry %} GraphQL API는 패키지 네임스페이스 `https://ghcr.io/OWNER/PACKAGE-NAME`을 사용하는 컨테이너 또는 Docker 이미지 또는 패키지 네임스페이스 `https://npm.pkg.github.com/OWNER/PACKAGE-NAME`을 사용하는 npm 이미지를 지원하지 않습니다.{% endif %}
+{% ifversion packages-registries-v2 %} 세분화된 권한을 지원하는 레지스트리에는 {% data variables.product.prodname_registry %} GraphQL API를 사용할 수 없습니다. 리포지토리 범위 권한 **만** 지원하고 GraphQL API와 함께 사용할 수 있는 레지스트리의 경우 "[{% data variables.product.prodname_registry %}에 대한 권한 정보"를 참조하세요](/packages/learn-github-packages/about-permissions-for-github-packages#permissions-for-repository-scoped-packages).
+{% endif %}

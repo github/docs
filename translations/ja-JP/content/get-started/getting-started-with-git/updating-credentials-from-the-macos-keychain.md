@@ -1,6 +1,6 @@
 ---
-title: Updating credentials from the macOS Keychain
-intro: 'You''ll need to update your saved credentials in the `git-credential-osxkeychain` helper if you change your{% ifversion not ghae %} username, password, or{% endif %} {% data variables.product.pat_generic %} on {% data variables.product.product_name %}.'
+title: macOS キーチェーンからの認証情報を更新する
+intro: '{% data variables.product.product_name %} で{% ifversion not ghae %}ユーザー名、パスワード、または{% endif %}個人アクセス トークンを変更した場合は、保存されている認証情報を `git-credential-osxkeychain` ヘルパーで更新する必要があります。'
 redirect_from:
   - /articles/updating-credentials-from-the-osx-keychain
   - /github/using-git/updating-credentials-from-the-osx-keychain
@@ -13,38 +13,44 @@ versions:
   ghae: '*'
   ghec: '*'
 shortTitle: macOS Keychain credentials
+ms.openlocfilehash: ce2e225bcff1aca0c034e564fe3233e5f9cb68d2
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145131267'
 ---
 {% tip %}
 
-**Note:** Updating credentials from the macOS Keychain only applies to users who manually configured a {% data variables.product.pat_generic %} using the  `osxkeychain` helper that is built-in to macOS. 
+**注:** macOS キーチェーンからの資格情報の更新は、macOS に組み込まれている `osxkeychain` ヘルパーを使って PAT を手動で構成したユーザーにのみ適用されます。 
 
-We recommend you either [configure SSH](/articles/generating-an-ssh-key) or upgrade to the [Git Credential Manager](/get-started/getting-started-with-git/caching-your-github-credentials-in-git) (GCM) instead. GCM can manage authentication on your behalf (no more manual {% data variables.product.pat_generic %}s) including 2FA (two-factor auth).
+代わりに、[SSH を構成する](/articles/generating-an-ssh-key)か、[Git Credential Manager](/get-started/getting-started-with-git/caching-your-github-credentials-in-git) (GCM) にアップグレードすることをお勧めします。 GCM は、2FA (2 要素認証) を含め、ユーザーに代わって認証を管理できます (手動の PAT は不要)。
 
 {% endtip %}
 
 {% data reusables.user-settings.password-authentication-deprecation %}
 
-## Updating your credentials via Keychain Access
+## キーチェーンアクセスを介して認証情報を更新する
 
-1. Click on the Spotlight icon (magnifying glass) on the right side of the menu bar. Type `Keychain access` then press the Enter key to launch the app.
-   ![Spotlight Search bar](/assets/images/help/setup/keychain-access.png)
-2. In Keychain Access, search for **{% data variables.command_line.backticks %}**.
-3. Find the "internet password" entry for `{% data variables.command_line.backticks %}`.
-4. Edit or delete the entry accordingly.
+1. メニューバーの右側にある Spotlight アイコン (虫眼鏡) をクリックします。 「`Keychain access`」と入力して Enter キーを押し、アプリを起動します。
+   ![スポットライト検索バー](/assets/images/help/setup/keychain-access.png)
+2. キーチェーン アクセスで、 **{% data variables.command_line.backticks %}** を検索します。
+3. `{% data variables.command_line.backticks %}` の "インターネット パスワード" エントリを見つけます。
+4. 適宜、エントリを編集または削除します。
 
-## Deleting your credentials via the command line
+## コマンドラインで認証情報を削除する
 
-Through the command line, you can use the credential helper directly to erase the keychain entry.
+コマンドラインから、認証情報ヘルパーを直接使用して、キーチェーンエントリを消去できます。
 
 ```shell
 $ git credential-osxkeychain erase
 host={% data variables.command_line.codeblock %}
 protocol=https
-> [Press Return]
+> <em>[Press Return]</em>
 ```
 
-If it's successful, nothing will print out. To test that it works, try and clone a private repository from {% data variables.location.product_location %}. If you are prompted for a password, the keychain entry was deleted.
+成功した場合、何も出力されません。機能することをテストするには、{% data variables.product.product_location %} からプライベート リポジトリをクローンしてみます。 パスワードの入力を求められた場合は、キーチェーンエントリが削除されています。
 
-## Further reading
+## 参考資料
 
-- "[Caching your {% data variables.product.prodname_dotcom %} credentials in Git](/github/getting-started-with-github/caching-your-github-credentials-in-git/)"
+- [Git に {% data variables.product.prodname_dotcom %} の認証情報をキャッシュする](/github/getting-started-with-github/caching-your-github-credentials-in-git/)

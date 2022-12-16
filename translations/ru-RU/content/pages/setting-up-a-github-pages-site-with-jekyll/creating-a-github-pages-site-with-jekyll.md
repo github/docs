@@ -1,6 +1,6 @@
 ---
-title: Creating a GitHub Pages site with Jekyll
-intro: 'You can use Jekyll to create a {% data variables.product.prodname_pages %} site in a new or existing repository.'
+title: Создание сайта GitHub Pages с помощью Jekyll
+intro: 'Вы можете использовать Jekyll, чтобы создать сайт {% data variables.product.prodname_pages %} в новом или существующем репозитории.'
 product: '{% data reusables.gated-features.pages %}'
 redirect_from:
   - /articles/creating-a-github-pages-site-with-jekyll
@@ -14,96 +14,95 @@ versions:
 topics:
   - Pages
 shortTitle: Create site with Jekyll
+ms.openlocfilehash: 3624c1902d1c3392db37fdb467c55189b9e2539e
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148094652'
 ---
-
 {% data reusables.pages.org-owners-can-restrict-pages-creation %}
 
-## Prerequisites
+## Предварительные требования
 
-Before you can use Jekyll to create a {% data variables.product.prodname_pages %} site, you must install Jekyll and Git. For more information, see [Installation](https://jekyllrb.com/docs/installation/) in the Jekyll documentation and "[Set up Git](/articles/set-up-git)."
+Прежде чем использовать Jekyll для создания сайта {% data variables.product.prodname_pages %}, необходимо установить Jekyll и Git. Дополнительные сведения см. в разделах [Установка](https://jekyllrb.com/docs/installation/) в документации по Jekyll и [Настройка Git](/articles/set-up-git).
 
 {% data reusables.pages.recommend-bundler %}
 
 {% data reusables.pages.jekyll-install-troubleshooting %}
 
-## Creating a repository for your site
+## Создание репозитория для сайта
 
 {% data reusables.pages.new-or-existing-repo %}
 
-{% data reusables.repositories.create_new %}
-{% data reusables.repositories.owner-drop-down %}
-{% indented_data_reference reusables.pages.emu-org-only spaces=3 %}
-{% data reusables.pages.create-repo-name %}
-{% data reusables.repositories.choose-repo-visibility %}
+{% data reusables.repositories.create_new %} {% data reusables.repositories.owner-drop-down %} {% indented_data_reference reusables.pages.emu-org-only spaces=3 %} {% data reusables.pages.create-repo-name %} {% data reusables.repositories.choose-repo-visibility %}
 
-## Creating your site
+## Создание сайта
 
 {% data reusables.pages.must-have-repo-first %}
 
 {% data reusables.pages.private_pages_are_public_warning %}
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
-1. If you don't already have a local copy of your repository, navigate to the location where you want to store your site's source files, replacing _PARENT-FOLDER_ with the folder you want to contain the folder for your repository.
+1. Если у вас еще нет локальной копии репозитория, перейдите к расположению, где вы хотите хранить исходные файлы сайта, заменив _PARENT-FOLDER_ папкой, в которой должна содержаться папка для репозитория.
   ```shell
   $ cd PARENT-FOLDER
   ```
-1. If you haven't already, initialize a local Git repository, replacing _REPOSITORY-NAME_ with the name of your repository.
+1. Если это еще не сделано, инициализируйте локальный репозиторий Git, заменив _REPOSITORY-NAME_ именем вашего репозитория.
   ```shell
   $ git init REPOSITORY-NAME
   > Initialized empty Git repository in /Users/octocat/my-site/.git/
   # Creates a new folder on your computer, initialized as a Git repository
   ```
-  4. Change directories to the repository.
+  4. Измените каталоги на репозиторий.
   ```shell
   $ cd REPOSITORY-NAME
   # Changes the working directory
   ```
-{% data reusables.pages.decide-publishing-source %}
-{% data reusables.pages.navigate-publishing-source %}
-  For example, if you chose to publish your site from the `docs` folder on the default branch, create and change directories to the `docs` folder.
+{% data reusables.pages.decide-publishing-source %} {% data reusables.pages.navigate-publishing-source %} Например, если вы решили опубликовать свой сайт из папки `docs` в ветви по умолчанию, создайте и измените каталоги на папку `docs`.
  ```shell
  $ mkdir docs
  # Creates a new folder called docs
  $ cd docs
  ```
- If you chose to publish your site from the `gh-pages` branch, create and checkout the `gh-pages` branch.
+ Если вы решили опубликовать свой сайт из ветви `gh-pages`, создайте и проверьте ветвь `gh-pages`.
  ```shell
  $ git checkout --orphan gh-pages
  # Creates a new branch, with no history or contents, called gh-pages, and switches to the gh-pages branch
  $ git rm -rf .
  # Removes the contents from your default branch from the working directory
  ```
-1. To create a new Jekyll site, use the `jekyll new` command:
+1. Чтобы создать новый сайт Jekyll, используйте команду `jekyll new`:
    ```shell
    $ jekyll new --skip-bundle .
    # Creates a Jekyll site in the current directory
    ```
-1. Open the Gemfile that Jekyll created.
-1. Add "#" to the beginning of the line that starts with `gem "jekyll"` to comment out this line.
-1. Add the `github-pages` gem by editing the line starting with `# gem "github-pages"`. Change this line to:
+1. Откройте файл Gemfile, созданный Jekyll.
+1. Добавьте "#" в начало строки, которая начинается с `gem "jekyll"`, чтобы закомментировать эту строку.
+1. Добавьте зависимость `github-pages`, изменив строку, начинающуюся с `# gem "github-pages"`. Измените эту строку следующим образом:
 
    ```shell
    gem "github-pages", "~> GITHUB-PAGES-VERSION", group: :jekyll_plugins
    ```
 
-   Replace _GITHUB-PAGES-VERSION_ with the latest supported version of the `github-pages` gem. You can find this version here: "[Dependency versions](https://pages.github.com/versions/)."
+   Замените _GITHUB-PAGES-VERSION_ последней поддерживаемой версией зависимости `github-pages`. Эту версию можно найти здесь: [Версии зависимостей](https://pages.github.com/versions/).
 
-   The correct version Jekyll will be installed as a dependency of the `github-pages` gem.
-1. Save and close the Gemfile.
-1. From the command line, run `bundle install`.
-1. Optionally, make any necessary edits to the `_config.yml` file. This is required for relative paths when the repository is hosted in a subdirectory.  For more information, see "[Splitting a subfolder out into a new repository](/github/getting-started-with-github/using-git/splitting-a-subfolder-out-into-a-new-repository)."
+   Правильная версия Jekyll будет установлена в качестве зависимости gem `github-pages`.
+1. Сохраните и закройте Gemfile.
+1. Выполните из командной строки команду `bundle install`.
+1. При необходимости внесите нужные изменения в файл `_config.yml`. Это требуется для относительных путей, когда репозиторий размещается в подкаталоге.  Дополнительные сведения см. в разделе [Разделение вложенной папки в новый репозиторий](/github/getting-started-with-github/using-git/splitting-a-subfolder-out-into-a-new-repository).
    ```yml
    domain: my-site.github.io       # if you want to force HTTPS, specify the domain without the http at the start, e.g. example.com
    url: https://my-site.github.io  # the base hostname and protocol for your site, e.g. http://example.com
    baseurl: /REPOSITORY-NAME/      # place folder name if the site is served in a subfolder
   ```
-1. Optionally, test your site locally. For more information, see "[Testing your {% data variables.product.prodname_pages %} site locally with Jekyll](/articles/testing-your-github-pages-site-locally-with-jekyll)."
-1. Add and commit your work.
+1. При желании протестируйте сайт локально. Дополнительные сведения см. в разделе [Локальное тестирование сайта {% data variables.product.prodname_pages %} с помощью Jekyll](/articles/testing-your-github-pages-site-locally-with-jekyll).
+1. Добавьте и зафиксируйте свою работу.
 ```shell
 git add .
 git commit -m 'Initial GitHub pages site with Jekyll'
 ```
-1. Add your repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %} as a remote, replacing {% ifversion ghes or ghae %}_HOSTNAME_ with your enterprise's hostname,{% endif %} _USER_ with the account that owns the repository{% ifversion ghes or ghae %},{% endif %} and _REPOSITORY_ with the name of the repository.
+1. Добавьте репозиторий в {% ifversion ghae %}{% данных variables.product.product_name %}{% else %}{% данных variables.location.product_location %}{% endif %} в качестве удаленного, замена {% ifversion ghes или ghae %}_HOSTNAME_ именем узла вашего предприятия,{% endif %} _USER_ с учетной записью, которая владеет репозиторием{% ifversion ghes или ghae %},{% endif %} и _REPOSITORY именем репозитория_ .
 ```shell
 {% ifversion fpt or ghec %}
 $ git remote add origin https://github.com/USER/REPOSITORY.git
@@ -111,22 +110,16 @@ $ git remote add origin https://github.com/USER/REPOSITORY.git
 $ git remote add origin https://HOSTNAME/USER/REPOSITORY.git
 {% endif %}
 ```
-1. Push the repository to {% data variables.product.product_name %}, replacing _BRANCH_ with the name of the branch you're working on.
+1. Отправьте репозиторий в {% data variables.product.product_name %}, заменив _BRANCH_ именем ветви, в которой вы работаете.
    ```shell
    $ git push -u origin BRANCH
    ```
-{% data reusables.pages.configure-publishing-source %}
-{% data reusables.pages.navigate-site-repo %}
-{% data reusables.repositories.sidebar-settings %}
-{% data reusables.pages.sidebar-pages %}
-{% data reusables.pages.choose-visibility %}
-{% data reusables.pages.visit-site %}
-{% data reusables.pages.check-workflow-run %}
+{% data reusables.pages.configure-publishing-source %} {% data reusables.pages.navigate-site-repo %} {% data reusables.repositories.sidebar-settings %} {% data reusables.pages.sidebar-pages %} {% data reusables.pages.choose-visibility %} {% data reusables.pages.visit-site %} {% data reusables.pages.check-workflow-run %}
 
 {% data reusables.pages.admin-must-push %}
 
-## Next steps
+## Дальнейшие действия
 
-To add a new page or post to your site, see "[Adding content to your {% data variables.product.prodname_pages %} site using Jekyll](/articles/adding-content-to-your-github-pages-site-using-jekyll)."
+О добавлении на сайт новой страницы или публикации см. в разделе [Добавление содержимого на сайт {% data variables.product.prodname_pages %} с помощью Jekyll](/articles/adding-content-to-your-github-pages-site-using-jekyll).
 
-{% data reusables.pages.add-jekyll-theme %} For more information, see "[Adding a theme to your {% data variables.product.prodname_pages %} site using Jekyll](/articles/adding-a-theme-to-your-github-pages-site-using-jekyll)."
+{% data reusables.pages.add-jekyll-theme %} Дополнительные сведения см. в разделе [Добавление темы на сайт {% data variables.product.prodname_pages %} с помощью Jekyll](/articles/adding-a-theme-to-your-github-pages-site-using-jekyll).

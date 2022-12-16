@@ -1,6 +1,6 @@
 ---
-title: Using a staging environment
-intro: 'Learn about using {% data variables.product.prodname_actions %} with {% data variables.product.prodname_ghe_server %} staging instances.'
+title: ステージング環境を使用する
+intro: '{% data variables.product.prodname_actions %} を {% data variables.product.prodname_ghe_server %} ステージング インスタンスで使用する方法について学びます。'
 versions:
   ghes: '*'
 type: how_to
@@ -12,41 +12,46 @@ topics:
 redirect_from:
   - /admin/github-actions/using-a-staging-environment
 shortTitle: Use staging environment
+ms.openlocfilehash: 3d244d25aae5a6e21b4db1cd04352343d6650975
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145120454'
 ---
+## {% data variables.product.product_name %} のステージング環境について
 
-## About staging environments for {% data variables.product.product_name %}
+{% data variables.product.product_location %} のステージング環境またはテスト環境があると便利な場合があります。これにより、更新または新機能を本番環境に実装する前にテストできます。 詳細については、「[ステージング インスタンスの設定](/admin/installation/setting-up-a-github-enterprise-server-instance/setting-up-a-staging-instance)」を参照してください。
 
-It can be useful to have a staging or testing environment for {% data variables.location.product_location %}, so that you can test updates or new features before implementing them in your production environment. For more information, see "[Setting up a staging instance](/admin/installation/setting-up-a-github-enterprise-server-instance/setting-up-a-staging-instance)."
+## {% data variables.product.prodname_actions %} でステージング環境を使用する
 
-## Using a staging environment with {% data variables.product.prodname_actions %}
+ステージング環境を作る一般的な方法は、運用 {% data variables.product.product_name %} インスタンスのバックアップをステージング環境の新しい仮想環境に復元することです。 ステージング インスタンスを使用し、{% data variables.product.prodname_actions %} 機能をテストする予定の場合、ステージング環境でストレージ構成を確認してください。
 
-A common way to create the staging environment is to restore a backup of your production {% data variables.product.product_name %} instance to a new virtual machine in the staging environment. If you use a staging instance and plan to test {% data variables.product.prodname_actions %} functionality, you should review your storage configuration in the staging environment.
+{% data variables.product.prodname_ghe_server %} バックアップをステージング インスタンスに復元した後、ステージング インスタンスでの既存の {% data variables.product.prodname_actions %} ワークフロー実行のログや成果物を表示すると、`404` エラーが確認されます。お使いのステージング ストレージの場所にこのデータがないためです。 `404` エラーを回避するには、運用環境からデータをコピーし、ステージング環境で使用できます。
 
-After you restore a {% data variables.product.prodname_ghe_server %} backup to the staging instance, if you try to view logs or artifacts from existing {% data variables.product.prodname_actions %} workflow runs on your staging instance, you will see `404` errors, because this data will be missing from your staging storage location. To work around the `404` errors, you can copy data from production to use in your staging environment.
+### 記憶域の構成
 
-### Configuring storage
-
-When you set up a staging environment that includes a {% data variables.product.product_name %} instance with {% data variables.product.prodname_actions %} enabled, you must use a different external storage configuration for {% data variables.product.prodname_actions %} storage than your production environment.
+{% data variables.product.product_name %} インスタンスが含まれるステージング環境を設定し、{% data variables.product.prodname_actions %} を有効にするとき、運用環境とは異なる外部ストレージ構成を {% data variables.product.prodname_actions %} ストレージに使用する必要があります。
 
 {% warning %}
 
-**Warning**: If you don't change the storage configuration, your staging instance may be able to write to the same external storage that you use for production, which could result in loss of data.
+**警告**: ストレージ構成を変更しないと、運用環境に使用するものと同じ外部ストレージでステージング インスタンスの書き込むが行われる可能性があり、その結果、データが失われることがあります。
 
 {% endwarning %}
 
-For more information about storage configuration for {% data variables.product.prodname_actions %}, see "[Getting started with {% data variables.product.prodname_actions %} for {% data variables.product.prodname_ghe_server %}](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server#enabling-github-actions-with-your-storage-provider)."
+{% data variables.product.prodname_actions %} のストレージ構成について詳しくは、「[{% data variables.product.prodname_ghe_server %} の {% data variables.product.prodname_actions %} を使用する](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server#enabling-github-actions-with-your-storage-provider)」を参照してください。
 
-### Copying files from production to staging
+### 運用環境からステージングにファイルをコピーする
 
-To more accurately mirror your production environment, you can optionally copy files from your production storage location for {% data variables.product.prodname_actions %} to the staging storage location.
+運用環境のミラーリングの精度を上げるために、必要に応じて、{% data variables.product.prodname_actions %} の運用環境ストレージの場所からステージングストレージの場所にファイルをコピーできます。
 
-* For an Azure storage account, you can use [`azcopy`](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-blobs#copy-all-containers-directories-and-blobs-to-another-storage-account). For example:
+* Azure ストレージアカウントの場合、[`azcopy`](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-blobs#copy-all-containers-directories-and-blobs-to-another-storage-account) を使用できます。 次に例を示します。
 
   ```shell
   azcopy copy 'https://<em>SOURCE-STORAGE-ACCOUNT-NAME</em>.blob.core.windows.net/<em>SAS-TOKEN</em>' 'https://<em>DESTINATION-STORAGE-ACCOUNT-NAME</em>.blob.core.windows.net/' --recursive
   ```
-* For Amazon S3 buckets, you can use [`aws s3 sync`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/sync.html). For example:
+* Amazon S3 バケットの場合、[`aws s3 sync`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/sync.html) を使用できます。 次に例を示します。
 
   ```shell
-  aws s3 sync s3://SOURCE-BUCKET s3://DESTINATION-BUCKET
+  aws s3 sync s3://<em>SOURCE-BUCKET</em> s3://<em>DESTINATION-BUCKET</em>
   ```

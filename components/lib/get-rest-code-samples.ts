@@ -2,6 +2,8 @@ import { parseTemplate } from 'url-template'
 import { stringify } from 'javascript-stringify'
 
 import type { CodeSample, Operation } from '../rest/types'
+import { useVersion } from 'components/hooks/useVersion'
+import { useMainContext } from 'components/context/MainContext'
 
 type CodeExamples = Record<string, any>
 /*
@@ -15,6 +17,8 @@ type CodeExamples = Record<string, any>
   -d '{"ref":"topic-branch","payload":"{ \"deploy\": \"migrate\" }","description":"Deploy request from hubot"}'
 */
 export function getShellExample(operation: Operation, codeSample: CodeSample) {
+  const { currentVersion } = useVersion()
+  const { allVersions } = useMainContext()
   // This allows us to display custom media types like application/sarif+json
   const defaultAcceptHeader = codeSample?.response?.contentType?.includes('+json')
     ? codeSample.response.contentType
@@ -38,11 +42,17 @@ export function getShellExample(operation: Operation, codeSample: CodeSample) {
     // the shell example is --data-urlencode param1=value1 --data-urlencode param2=value2
     // For example, this operation:
     // https://docs.github.com/en/enterprise/rest/reference/enterprise-admin#enable-or-disable-maintenance-mode
-    if (codeSample.request.contentType === 'application/x-www-form-urlencoded') {
+
+    const CURL_CONTENT_TYPE_MAPPING: { [key: string]: string } = {
+      'application/x-www-form-urlencoded': '--data-urlencode',
+      'multipart/form-data': '--form',
+    }
+    const contentType = codeSample.request.contentType
+    if (codeSample.request.contentType in CURL_CONTENT_TYPE_MAPPING) {
       requestBodyParams = ''
       const paramNames = Object.keys(codeSample.request.bodyParameters)
       paramNames.forEach((elem) => {
-        requestBodyParams = `${requestBodyParams} --data-urlencode ${elem}=${codeSample.request.bodyParameters[elem]}`
+        requestBodyParams = `${requestBodyParams} ${CURL_CONTENT_TYPE_MAPPING[contentType]} "${elem}=${codeSample.request.bodyParameters[elem]}"`
       })
     }
   }
@@ -52,9 +62,15 @@ export function getShellExample(operation: Operation, codeSample: CodeSample) {
     authHeader = '-u "api_key:your-password"'
   }
 
+  const apiVersionHeader =
+    allVersions[currentVersion].apiVersions.length > 0 &&
+    allVersions[currentVersion].latestApiVersion
+      ? `\\\n  -H "X-GitHub-Api-Version: ${allVersions[currentVersion].latestApiVersion}"`
+      : ''
+
   const args = [
     operation.verb !== 'get' && `-X ${operation.verb.toUpperCase()}`,
-    `-H "Accept: ${defaultAcceptHeader}" \\\n  ${authHeader}`,
+    `-H "Accept: ${defaultAcceptHeader}" \\\n  ${authHeader}${apiVersionHeader}`,
     `${operation.serverUrl}${requestPath}`,
     requestBodyParams,
   ].filter(Boolean)

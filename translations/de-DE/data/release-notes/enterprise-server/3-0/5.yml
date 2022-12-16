@@ -1,0 +1,28 @@
+date: '2021-04-14'
+intro: "Die Mindestanforderungen an die Infrastruktur haben sich für {% data variables.product.prodname_ghe_server %} 3.0+ erhöht. Weitere Informationen findest du unter [Informationen zu Mindestanforderungen für GitHub Enterprise Server 3.0 und höher](/admin/enterprise-management/upgrading-github-enterprise-server#about-minimum-requirements-for-github-enterprise-server-30-and-later)."
+sections:
+  security_fixes:
+    - Die Pakete wurden auf die neuesten Sicherheitsversionen aktualisiert.
+  bugs:
+    - Einige Protokolle wurden in der Konfiguration der Protokollweiterleitung nicht berücksichtigt.
+    - 'Die Warnmeldung `jq: Fehler (bei <stdin>:0): Die Nummer kann nicht mit der Zeichenfolge "settings" indiziert werden` konnte bei der Höherstufung des Replikats auftreten.'
+    - "Die kontinuierliche Wiederherstellung von Sicherungen in einem Cluster konnte fehlschlagen, weil MySQL-Replikate keine Verbindung mit dem primären Server herstellen konnten."
+    - Bei Verwendung eines benutzerdefinierten Zertifizierungsstellenzertifikats wurden Seiten nicht veröffentlicht.
+    - Paketbezogene Unterdomänen wurden in der Eingabeaufforderung „Domäneneinstellungen testen“ für die Unterdomänenisolation nicht angezeigt.
+    - "Der mit Webhooks gesendete Header `X-GitHub-Enterprise-Host` enthielt eine Zufallszeichenfolge anstelle des Hostnamens der GitHub Enterprise Server-Instanz, die die HTTP-POST-Nutzdaten gesendet hat."
+    - "Das Upgrade von 2.22.x auf 3.0.x schlug fehl, wenn GitHub Actions zuvor aktiviert war, aber vor dem Upgrade deaktiviert wurde."
+    - "Beim Besuch der Seite `/settings/emails` wurde ein Zustand gespeichert, der beim Abmelden und erneuten Anmelden unerwünschte Weiterleitungen verursachen konnte."
+    - "Teams konnten über GitHub-Integrations-Apps nicht benachrichtigt werden, wenn sie direkt über @ in einem Issuekommentar erwähnt wurden."
+    - "Das RST-Rendering (reStructuredText) in der Webbenutzeroberfläche schlug fehl, und es wurde stattdessen unformatierter RST-Markuptext angezeigt."
+    - "E-Mail-Benachrichtigungen für Warnungen der Geheimnisüberprüfung wurden nicht an autorisierter Benutzer gesendet, wenn das Abhängigkeitsdiagramm nicht vollständig aktiviert war."
+    - "Wenn „ghe-migrator“ auf Importfehler stieß, wurde manchmal der gesamte Prozess beendet, und die Protokolle enthielten nicht genügend Kontext."
+    - Jupyter Notebooks mit Nicht-ASCII-Zeichen konnten möglicherweise nicht gerendert werden.
+  known_issues:
+    - Auf einer neu eingerichteten GitHub Enterprise Server-Instanz ohne Benutzer konnten Angreifer den ersten Administratorbenutzer erstellen.
+    - Benutzerdefinierte Firewallregeln werden während eines Upgrades nicht aufrechterhalten.
+    - "Nachverfolgte Git-LFS-Dateien, [die über die Webbenutzeroberfläche hochgeladen wurden](https://github.com/blog/2105-upload-files-to-your-repositories), werden dem Repository fälschlicherweise direkt hinzugefügt."
+    - "Issues können nicht geschlossen werden, wenn sie einen Permalink zu einem Blob im selben Repository enthalten und der Dateipfad länger ist als 255 Zeichen."
+    - "Wenn die Option zum Durchsuchen von GitHub.com bei GitHub Connect aktiviert ist, sind Issues in privaten und internen Repositorys nicht in den GitHub.com-Suchergebnissen enthalten."
+    - "Beim Löschen eines Branchs nach dem Mergen eines Pull Requests wird eine Fehlermeldung angezeigt, obwohl der Branch erfolgreich gelöscht wird."
+    - "Wenn ein Replikatknoten in einer Hochverfügbarkeitskonfiguration offline ist, kann {% data variables.product.product_name %} eventuell noch immer Anfragen von {% data variables.product.prodname_pages %} an den Offlineknoten weiterleiten, wodurch sich die Verfügbarkeit von {% data variables.product.prodname_pages %} für die Benutzer verringert."
+    - "Ressourcenbegrenzungen, die nur beim Verarbeiten von Pre-Receive-Hooks auftreten, können bei manchen Pre-Receive-Hooks Fehler auslösen."

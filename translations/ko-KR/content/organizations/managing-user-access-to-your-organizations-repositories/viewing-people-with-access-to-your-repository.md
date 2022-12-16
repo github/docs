@@ -1,6 +1,6 @@
 ---
-title: Viewing people with access to your repository
-intro: 'You can view{% ifversion ghec or ghes or ghae %} and export{% endif %} a list of people with access to a repository within an organization.'
+title: 리포지토리에 액세스할 수 있는 사용자 보기
+intro: '조직 내의 리포지토리에 액세스할 수 있는 사용자 목록에 대해 보기{% ifversion ghec or ghes or ghae %} 및 내보내기{% endif %}를 수행할 수 있습니다.'
 redirect_from:
   - /articles/viewing-people-with-access-to-your-repository
   - /github/setting-up-and-managing-organizations-and-teams/viewing-people-with-access-to-your-repository
@@ -15,45 +15,34 @@ topics:
   - Teams
 shortTitle: View people with access
 permissions: Organization owners can view people with access to a repository.
+ms.openlocfilehash: bc64a14c08df68d2fa5a94f5da35be04828aa023
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148099334'
 ---
+## 리포지토리에 액세스할 수 있는 사용자 목록 정보
 
-## About the list of people with access to your repository
+이 정보를 사용하여 사용자를 등록 해제하고, 규정 준수 및 기타 일반 보안 검사를 위해 데이터를 수집할 수 있습니다. 
 
-You can use this information to help off-board people, gather data for compliance, and other general security checkups. 
-
-{% ifversion fpt %}
-Organizations that use {% data variables.product.prodname_ghe_cloud %} can also export a CSV list of people who have access to a repository. For more information, see [the {% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/organizations/managing-access-to-your-organizations-repositories/viewing-people-with-access-to-your-repository).
+{% ifversion fpt %} {% data variables.product.prodname_ghe_cloud %}를 사용하는 조직은 리포지토리에 액세스할 수 있는 사용자의 CSV 목록을 내보낼 수도 있습니다. 자세한 내용은 [{% data variables.product.prodname_ghe_cloud %} 설명서](/enterprise-cloud@latest/organizations/managing-access-to-your-organizations-repositories/viewing-people-with-access-to-your-repository)를 참조하세요.
 {% endif %}
 
-{% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
-![Access management overview](/assets/images/help/repository/manage-access-overview.png)
-{% else %}
-![Repository people permissions list](/assets/images/help/repository/repository-permissions-list.png)
-{% endif %}
-## Viewing people with access to your repository
+{% ifversion fpt 또는 ghec 또는 ghes > 3.3 또는 ghae > 3.3 %} ![ 액세스 관리 개요](/assets/images/help/repository/manage-access-overview.png) {% else %} ![리포지토리 사용자 권한 목록](/assets/images/help/repository/repository-permissions-list.png) {% endif %}
+## 리포지토리에 액세스할 수 있는 사용자 보기
 
-{% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
-You can see a combined overview of teams and people with access to your repository in your repository settings. For more information, see "[Managing teams and people with access to your repository](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository#about-access-management-for-repositories)." 
-{% else %}
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.accessing-repository-graphs %}
-{% data reusables.repositories.accessing-repository-people %}
-{% endif %}
+{% ifversion fpt 또는 ghec 또는 ghes > 3.3 또는 ghae > 3.3 %} 리포지토리 설정에서 리포지토리에 액세스할 수 있는 팀과 사용자의 통합 개요를 볼 수 있습니다. 자세한 내용은 “[리포지토리에 액세스할 수 있는 팀 및 사용자 관리](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository#about-access-management-for-repositories)”를 참조하세요. {% else %} {% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.accessing-repository-graphs %} {% data reusables.repositories.accessing-repository-people %} {% endif %}
 
 {% ifversion ghec or ghes or ghae %}
-## Exporting a list of people with access to your repository
+## 리포지토리에 액세스할 수 있는 사용자 목록 내보내기
 
-{% ifversion ghec %}
-{% note %}
+{% ifversion ghec %} {% note %}
 
-**Note:** Only organizations that use {% data variables.product.prodname_ghe_cloud %} can export a list of people with access to a repository. {% data reusables.enterprise.link-to-ghec-trial %}
+**참고:** {% data variables.product.prodname_ghe_cloud %}를 사용하는 조직만 리포지토리에 액세스할 수 있는 사용자 목록을 내보낼 수 있습니다. {% data reusables.enterprise.link-to-ghec-trial %}
 
-{% endnote %}
-{% endif %}
+{% endnote %} {% endif %}
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.accessing-repository-graphs %}
-{% data reusables.repositories.accessing-repository-people %}
-4. Click **Export CSV**.
-  ![People tab in the repository sidebar](/assets/images/help/repository/export-repository-permissions.png)
-{% endif %}
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.accessing-repository-graphs %} {% data reusables.repositories.accessing-repository-people %}
+4. **CSV 내보내기** 를 클릭합니다.
+  ![리포지토리 사이드바의 사용자 탭](/assets/images/help/repository/export-repository-permissions.png) {% endif %}

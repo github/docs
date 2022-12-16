@@ -17,18 +17,18 @@ redirect_from:
   - /admin/authentication/configuring-authentication-and-provisioning-for-your-enterprise-using-azure-ad
   - /admin/authentication/configuring-authentication-and-provisioning-with-your-identity-provider/configuring-authentication-and-provisioning-for-your-enterprise-using-azure-ad
   - /admin/identity-and-access-management/configuring-authentication-and-provisioning-with-your-identity-provider/configuring-authentication-and-provisioning-for-your-enterprise-using-azure-ad
-ms.openlocfilehash: bfd93814b11066d6da2d87a2e1f0a8bd5461e93f
-ms.sourcegitcommit: ced661bdffebd0f96f6f76db109fbe31983448ba
+ms.openlocfilehash: c0291aab00df0139b0b54eda8ec34b6e20deb19f
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2022
-ms.locfileid: '148167064'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148192685'
 ---
 ## Acerca de la autenticación y el aprovisionamiento de usuarios con Azure AD
 
 Azure Active Directory (Azure AD) es un servicio de Microsoft que te permite administrar centralmente las cuentas de usuario y el acceso a las aplicaciones web. Para obtener más información, consulte [¿Qué Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) en Microsoft Docs.
 
-Para administrar la identidad y el acceso para {% data variables.product.product_name %}, puedes utilizar un inquilino en Azure AD como un IdP de SAML para la autenticación. También puedes configurar Azure AD de modo que aprovisione automáticamente las cuentas y acceda a las pertenencias con SCIM, lo cual te permite crear usuarios de {% data variables.product.product_name %} y administrar las pertenencias de equipo y de organización desde tu inquilino de Azure AD.
+{% data reusables.saml.idp-saml-and-scim-explanation %}
 
 {% data reusables.scim.ghes-beta-note %}
 
@@ -39,7 +39,7 @@ Después de habilitar el inicio de sesión único de SAML y SCIM para {% data va
 * Asignar la aplicación de {% data variables.product.product_name %} a un grupo de IdP en Azure AD para que cree y otorgue acceso automáticamente a las cuentas de usuario en {% data variables.product.product_name %} para todos los miembros del grupo de IdP. Además, el grupo de IdP estará disponible en {% data variables.product.product_name %} para que se conecte a un equipo y a sus organizaciones primarias.
 * Desasignar la aplicación de {% data variables.product.product_name %} desde un grupo de IdP para desactivar las cuentas de usuario de {% data variables.product.product_name %} de todos los usuarios de IdP que tuvieron acceso únicamente a través de este grupo de IdP y eliminar a los usuarios de la organización primaria. El grupo de IdP se desconectará de cualquier equipo en {% data variables.product.product_name %}.
 
-Para obtener más información sobre cómo administrar la identidad y el acceso de la empresa en{% data variables.location.product_location %}, consulta "[Administración de la identidad y el acceso para la empresa](/admin/authentication/managing-identity-and-access-for-your-enterprise)". Para obtener más información sobre la sincronización de equipos con grupos de IdP, consulte "[Sincronizar un equipo con un grupo de proveedores de identidades](/organizations/organizing-members-into-teams/synchronizing-a-team-with-an-identity-provider-group)".
+Para obtener más información sobre cómo administrar la identidad y el acceso de la empresa en{% data variables.location.product_location %}, consulta "[Administración de la identidad y el acceso para la empresa](/admin/authentication/managing-identity-and-access-for-your-enterprise)".
 
 ## Requisitos previos
 
@@ -52,9 +52,9 @@ Para obtener más información sobre cómo administrar la identidad y el acceso 
 
 ## Configurar la autenticación y el aprovisionamiento de usuarios con Azure AD
 
-En el inquilino de Azure AD, agrega la aplicación para {% data variables.product.product_name %} y, luego, configura el aprovisionamiento.
-
 {% ifversion ghae %}
+
+En el inquilino de Azure AD, agrega la aplicación para {% data variables.product.product_name %} y, luego, configura el aprovisionamiento.
 
 1. En Azure AD, agrega la {% data variables.enterprise.ae_azure_ad_app_link %} a tu inquilino y configura el inicio de sesión único. Para obtener más información, consulta [Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con {% data variables.product.product_name %}](https://docs.microsoft.com/azure/active-directory/saas-apps/github-ae-tutorial) en Microsoft Docs.
 
@@ -68,18 +68,15 @@ En el inquilino de Azure AD, agrega la aplicación para {% data variables.produ
 
 {% elsif scim-for-ghes %}
 
-1. En el inquilino de Azure AD, en la barra lateral izquierda, haz clic en **Aprovisionamiento**.
-
-1. En "URL de inquilino", escribe la dirección URL completa del punto de conexión para SCIM en {% data variables.location.product_location %}. Para obtener más información, consulta "[SCIM](/rest/enterprise-admin/scim#scim-endpoint-urls)" en la documentación de la API REST.
-
-1. En "Token secreto", escribe el {% data variables.product.pat_v1 %} que creaste en el paso 4 de "[Configuración del aprovisionamiento de usuarios con SCIM para la empresa](/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-user-provisioning-with-scim-for-your-enterprise#enabling-user-provisioning-for-your-enterprise)".
-
-1. Para garantizar una conexión correcta desde Azure AD con {% data variables.location.product_location %}, haz clic en **Probar conexión**.
-
-1. Después de asegurarte de que la conexión es correcta, en la parte superior de la página, haz clic en **Guardar**.
+1. Configura el inicio de sesión único de SAML para {% data variables.location.product_location %}. Para obtener más información, consulte "[Configuración del inicio de sesión único de SAML para la empresa](/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise#configuring-saml-sso)".
+1. Configura el aprovisionamiento de usuarios con SCIM para la instancia. Para obtener más información, consulta "[Configuración del aprovisionamiento de usuarios con SCIM para la empresa](/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-user-provisioning-with-scim-for-your-enterprise)".
 
 {% endif %}
 
-1. Asigne un propietario de empresa para los datos {% data variables.product.product_name %} en Azure AD. El proceso que debes seguir depende de si configuraste el aprovisionamiento. Para obtener más información sobre los propietarios de empresas, consulta "[Roles en una empresa](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise#enterprise-owners)".
-   - Si has configurado el aprovisionamiento, para conceder la propiedad empresarial del usuario en {% data variables.product.product_name %}, asigna el rol de propietario de empresa al usuario de Azure AD.
-   - Si no configuraste el aprovisionamiento, para conceder la propiedad empresarial del usuario en {% data variables.product.product_name %}, incluye el atributo `administrator` con el valor de `true` en la aserción de SAML para la cuenta de usuario en el IdP. Para obtener más información sobre la inclusión del atributo `administrator` en la notificación de SAML de Azure AD, consulta: [Procedimiento: personalización de las notificaciones emitidas en el token SAML para aplicaciones empresariales](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-claims-customization) en Microsoft Docs.
+## Administración de propietarios de empresas 
+
+Los pasos para convertir a una persona en un propietario de la empresa dependen de si solo usas SAML o también usas SCIM. Para obtener más información sobre los propietarios de empresas, consulta "[Roles en una empresa](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise)".
+
+Si has configurado el aprovisionamiento, para conceder la propiedad empresarial del usuario en {% data variables.product.product_name %}, asigna el rol de propietario de empresa al usuario de Azure AD.
+
+Si no configuraste el aprovisionamiento, para conceder la propiedad empresarial del usuario en {% data variables.product.product_name %}, incluye el atributo `administrator` con el valor de `true` en la aserción de SAML para la cuenta de usuario en el IdP. Para obtener más información sobre la inclusión del atributo `administrator` en la notificación de SAML de Azure AD, consulta: [Procedimiento: personalización de las notificaciones emitidas en el token SAML para aplicaciones empresariales](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-claims-customization) en Microsoft Docs.

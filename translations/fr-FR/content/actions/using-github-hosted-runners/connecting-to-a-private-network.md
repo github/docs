@@ -1,7 +1,6 @@
 ---
-title: Connecting to a private network
-shortTitle: Connect to a private network
-intro: 'You can connect {% data variables.product.prodname_dotcom %}-hosted runners to resources on a private network, including package registries, secret managers, and other on-premises services.'
+title: Connexion à un réseau privé
+intro: 'Vous pouvez connecter des exécuteurs hébergés par {% data variables.product.prodname_dotcom %} à des ressources sur un réseau privé, notamment des registres de packages, des gestionnaires de secrets et d’autres services locaux.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -10,62 +9,66 @@ type: how_to
 topics:
   - Actions
   - Developer
+ms.openlocfilehash: 2a74b149596e0158cdc6b5e40508b1d4a54eb8e6
+ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147884268'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+## À propos de l’accès réseau des exécuteurs hébergés par {% data variables.product.prodname_dotcom %}
 
-## About {% data variables.product.prodname_dotcom %}-hosted runners networking
+Par défaut, les exécuteurs hébergés par {% data variables.product.prodname_dotcom %} ont accès à l’Internet public. Toutefois, vous pouvez également souhaiter que ces exécuteurs accèdent aux ressources de votre réseau privé, par exemple un registre de packages, un gestionnaire de secrets ou d’autres services locaux. 
 
-By default, {% data variables.product.prodname_dotcom %}-hosted runners have access to the public internet. However, you may also want these runners to access resources on your private network, such as a package registry, a secret manager, or other on-premise services. 
-
-{% data variables.product.prodname_dotcom %}-hosted runners are shared across all {% data variables.product.prodname_dotcom %} customers, so you will need a way of connecting your private network to just your runners while they are running your workflows. There are a few different approaches you could take to configure this access, each with different advantages and disadvantages.
+Les exécuteurs hébergés par {% data variables.product.prodname_dotcom %} sont partagés entre tous les clients {% data variables.product.prodname_dotcom %}. Vous devez donc trouver un moyen de connecter votre réseau privé uniquement à vos exécuteurs pendant qu’ils exécutent vos workflows. Vous pouvez adopter différentes approches pour configurer cet accès, chacune ayant des avantages et des inconvénients distincts.
 
 {% ifversion fpt or ghec or ghes > 3.4 %}
-### Using an API Gateway with OIDC
+### Utilisation d’une passerelle API avec OIDC
 
-With {% data variables.product.prodname_actions %}, you can use OpenID Connect (OIDC) tokens to authenticate your workflow outside of {% data variables.product.prodname_actions %}. For example, you could run an API Gateway on the edge of your private network that authenticates incoming requests with the OIDC token and then makes API requests on behalf of your workflow in your private network.
+Avec {% data variables.product.prodname_actions %}, vous pouvez utiliser des jetons OIDC (OpenID Connect) pour authentifier votre workflow hors de {% data variables.product.prodname_actions %}. Par exemple, vous pouvez exécuter une passerelle API en périphérie de votre réseau privé, qui authentifie les requêtes entrantes à l’aide du jeton OIDC, puis émet des requêtes d’API au nom de votre workflow dans votre réseau privé.
 
-The following diagram gives an overview of this solution's architecture:
+Le diagramme suivant donne une vue d’ensemble de l’architecture de cette solution :
 
-![Diagram of an OIDC gateway](/assets/images/help/images/actions-oidc-gateway.png)
+![Diagramme d’une passerelle OIDC](/assets/images/help/images/actions-oidc-gateway.png)
 
-It's important that you authenticate not just that the OIDC token came from {% data variables.product.prodname_actions %}, but that it came specifically from your expected workflows, so that other {% data variables.product.prodname_actions %} users aren't able to access services in your private network. You can use OIDC claims to create these conditions. For more information, see "[Defining trust conditions on cloud roles using OIDC claims](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#defining-trust-conditions-on-cloud-roles-using-oidc-claims)."
+Il est important d’authentifier le fait que le jeton OIDC provient de {% data variables.product.prodname_actions %}, mais également qu’il provient spécifiquement des workflows attendus. Ainsi, les autres utilisateurs {% data variables.product.prodname_actions %} ne peuvent pas accéder aux services de votre réseau privé. Vous pouvez utiliser des revendications OIDC pour créer ces conditions. Pour plus d’informations, consultez « [Définition de conditions d’approbation sur des rôles cloud à l’aide de revendications OIDC](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#defining-trust-conditions-on-cloud-roles-using-oidc-claims) ».
 
-The main disadvantage of this approach is you have to implement the API gateway to make requests on your behalf, as well as run it on the edge of your network.
+Le principal inconvénient de cette approche est que vous devez implémenter la passerelle API pour émettre des requêtes en votre nom, et que vous devez l’exécuter en périphérie de votre réseau.
 
-But there are various advantages too:
-- You don't need to configure any firewalls, or modify the routing of your private network. 
-- The API gateway is stateless, and so it scales horizontally to handle high availability and high throughput.
+Mais il existe également divers avantages :
+- Vous n’avez pas besoin de configurer de pare-feu, ni de modifier le routage de votre réseau privé. 
+- La passerelle API est sans état. Elle fait donc l’objet d’une mise à l’échelle horizontale pour prendre en charge la haute disponibilité et un débit élevé.
 
-For more information, see [a reference implementation of an API Gateway](https://github.com/github/actions-oidc-gateway-example) (note that this requires customization for your use case and is not ready-to-run as-is), and "[About security hardening with OpenID Connect](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect)".
+Pour plus d’informations, consultez l’[implémentation de référence d’une passerelle API](https://github.com/github/actions-oidc-gateway-example) (notez que cette opération nécessite une personnalisation de votre cas d’usage et qu’elle n’est pas prête à l’emploi en l’état) et « [À propos du durcissement de la sécurité avec OpenID Connect](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect) ».
 {% endif %}
 
-### Using WireGuard to create a network overlay
+### Utilisation de WireGuard pour créer un réseau de superposition
 
-If you don't want to maintain separate infrastructure for an API Gateway, you can create an overlay network between your runner and a service in your private network, by running WireGuard in both places.
+Si vous ne souhaitez pas gérer d’infrastructure distincte pour une passerelle API, vous pouvez créer un réseau de superposition entre votre exécuteur et un service de votre réseau privé, en exécutant WireGuard aux deux emplacements.
 
-There are various disadvantages to this approach: 
+Cette approche présente divers inconvénients : 
 
-- To reach WireGuard running on your private service, you will need a well-known IP address and port that your workflow can reference: this can either be a public IP address and port, a port mapping on a network gateway, or a service that dynamically updates DNS. 
-- WireGuard doesn't handle NAT traversal out of the box, so you'll need to identify a way to provide this service.
-- This connection is one-to-one, so if you need high availability or high throughput you'll need to build that on top of WireGuard. 
-- You'll need to generate and securely store keys for both the runner and your private service. WireGuard uses UDP, so your network must support UDP traffic.
+- Pour atteindre l’instance de WireGuard s’exécutant sur votre service privé, vous avez besoin d’une adresse IP et d’un port bien connus que votre workflow peut référencer : il peut s’agir d’une adresse IP et d’un port publics, d’un mappage de port sur une passerelle réseau ou d’un service qui met à jour dynamiquement le DNS. 
+- Dans la mesure où WireGuard ne prend pas en charge NAT-T (NAT Traversal) par défaut, vous devez identifier un moyen de fournir ce service.
+- Dans la mesure où cette connexion est de type un-à-un, si vous avez besoin de haute disponibilité ou d’un débit élevé, vous devez la superposer à WireGuard. 
+- Vous devez générer et stocker de manière sécurisée les clés de l’exécuteur et de votre service privé. Dans la mesure où WireGuard utilise le protocole UDP, votre réseau doit prendre en charge le trafic UDP.
 
-There are some advantages too, as you can run WireGuard on an existing server so you don't have to maintain separate infrastructure, and it's well supported on {% data variables.product.prodname_dotcom %}-hosted runners.
+Il existe également certains avantages, car vous pouvez exécuter WireGuard sur un serveur existant pour ne pas avoir à gérer d’infrastructure distincte. De plus, il est bien pris en charge sur les exécuteurs hébergés par {% data variables.product.prodname_dotcom %}.
 
-### Example: Configuring WireGuard
+### Exemple : Configuration de WireGuard
 
-This example workflow configures WireGuard to connect to a private service.
+Cet exemple de workflow configure WireGuard pour la connexion à un service privé.
 
-For this example, the WireGuard instance running in the private network has this configuration:
-- Overlay network IP address of `192.168.1.1`
-- Public IP address and port of `1.2.3.4:56789`
-- Public key `examplepubkey1234...`
+Pour cet exemple, l’instance de WireGuard s’exécutant sur le réseau privé présente la configuration suivante :
+- Adresse IP de réseau de superposition : `192.168.1.1`
+- Adresse IP et port public : `1.2.3.4:56789`
+- Clé publique : `examplepubkey1234...`
 
-The WireGuard instance in the {% data variables.product.prodname_actions %} runner has this configuration:
-- Overlay network IP address of `192.168.1.2`
-- Private key stores as an {% data variables.product.prodname_actions %} secret under `WIREGUARD_PRIVATE_KEY`
+L’instance de WireGuard dans l’exécuteur {% data variables.product.prodname_actions %} présente la configuration suivante :
+- Adresse IP de réseau de superposition : `192.168.1.2`
+- La clé privée est stockée sous forme de secret {% data variables.product.prodname_actions %} sous `WIREGUARD_PRIVATE_KEY`
 
 ```yaml
 name: WireGuard example
@@ -92,14 +95,14 @@ jobs:
       - run: curl -vvv http://192.168.1.1
 ```
 
-For more information, see [WireGuard's Quick Start](https://www.wireguard.com/quickstart/), as well as "[Encrypted Secrets](/actions/security-guides/encrypted-secrets)" for how to securely store keys.
+Pour plus d’informations, consultez [Démarrage rapide de WireGuard](https://www.wireguard.com/quickstart/) ainsi que « [Secrets chiffrés](/actions/security-guides/encrypted-secrets) » afin de découvrir comment stocker les clés de manière sécurisée.
 
-### Using Tailscale to create a network overlay
+### Utilisation de Tailscale pour créer un réseau de superposition
 
-Tailscale is a commercial product built on top of WireGuard. This option is very similar to WireGuard, except Tailscale is more of a complete product experience instead of an open source component.
+Tailscale est un produit commercial basé sur WireGuard. Cette option est très similaire à celle de WireGuard, à la différence près que Tailscale est une expérience produit plus complète et non un composant open source.
 
-It's disadvantages are similar to WireGuard: The connection is one-to-one, so you might need to do additional work for high availability or high throughput. You still need to generate and securely store keys. The protocol is still UDP, so your network must support UDP traffic.
+Ses inconvénients sont similaires à ceux de WireGuard : la connexion étant de type un-à-un, vous devrez peut-être effectuer du travail supplémentaire pour obtenir une haute disponibilité ou un débit élevé. Vous devez toujours générer et stocker les clés de manière sécurisée. Le protocole étant toujours UDP, votre réseau doit prendre en charge le trafic UDP.
 
-However, there are some advantages over WireGuard: NAT traversal is built-in, so you don't need to expose a port to the public internet. It is by far the quickest of these options to get up and running, since Tailscale provides an {% data variables.product.prodname_actions %} workflow with a single step to connect to the overlay network.
+Toutefois, il existe certains avantages par rapport à WireGuard : NAT-T (NAT Traversal) est intégré, vous n’avez donc pas besoin d’exposer un port au réseau Internet public. Il s’agit de loin de l’option la plus rapide pour être opérationnel, car Tailscale fournit un workflow {% data variables.product.prodname_actions %} d’une seule étape pour se connecter au réseau de superposition.
 
-For more information, see the [Tailscale GitHub Action](https://github.com/tailscale/github-action), as well as "[Encrypted Secrets](/actions/security-guides/encrypted-secrets)" for how to securely store keys.
+Pour plus d’informations, consultez [Tailscale GitHub Action](https://github.com/tailscale/github-action) ainsi que « [Secrets chiffrés](/actions/security-guides/encrypted-secrets) » afin de découvrir comment stocker les clés de manière sécurisée.

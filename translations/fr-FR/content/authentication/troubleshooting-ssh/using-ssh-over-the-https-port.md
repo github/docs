@@ -1,6 +1,6 @@
 ---
-title: Using SSH over the HTTPS port
-intro: 'Sometimes, firewalls refuse to allow SSH connections entirely.  If using [HTTPS cloning with credential caching](/github/getting-started-with-github/caching-your-github-credentials-in-git) is not an option, you can attempt to clone using an SSH connection made over the HTTPS port.  Most firewall rules should allow this, but proxy servers may interfere.'
+title: Utilisation de SSH sur le port HTTPS
+intro: 'Parfois, les pare-feu refusent complètement d’autoriser les connexions SSH.  Si vous n’avez pas la possibilité d’utiliser le [clonage HTTPS avec la mise en cache des informations d’identification](/github/getting-started-with-github/caching-your-github-credentials-in-git), vous pouvez tenter un clonage via la une connexion SSH établie sur le port HTTPS.  Si la plupart des règles de pare-feu autorisent cela, les serveurs proxy peuvent néanmoins interférer.'
 redirect_from:
   - /articles/using-ssh-over-the-https-port
   - /github/authenticating-to-github/using-ssh-over-the-https-port
@@ -11,14 +11,20 @@ versions:
 topics:
   - SSH
 shortTitle: Use SSH over HTTPS port
+ms.openlocfilehash: 24a56147129e68c674eaf8dc733a203e2b03348a
+ms.sourcegitcommit: 8c8d8598beeaa4f83b3f30cb160a5288fdb4ef9a
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 12/02/2022
+ms.locfileid: '148190321'
 ---
 {% tip %}
 
-**{% data variables.product.prodname_ghe_server %} users**: Accessing {% data variables.product.prodname_ghe_server %} via SSH over the HTTPS port is currently not supported.
+**Utilisateurs de {% data variables.product.prodname_ghe_server %}**  : l’accès à {% data variables.product.prodname_ghe_server %} via SSH sur le port HTTPS n’est pas pris en charge.
 
 {% endtip %}
 
-To test if SSH over the HTTPS port is possible, run this SSH command:
+Pour tester s’il est possible d’utiliser SSH sur le port HTTPS, exécutez cette commande SSH :
 
 ```shell
 $ ssh -T -p 443 git@ssh.github.com
@@ -28,23 +34,23 @@ $ ssh -T -p 443 git@ssh.github.com
 
 {% note %}
 
-**Note**: The hostname for port 443 is `ssh.{% data variables.command_line.backticks %}`, not `{% data variables.command_line.backticks %}`.
+**Remarque** : Le nom d’hôte pour le port 443 est `ssh.{% data variables.command_line.backticks %}`, pas `{% data variables.command_line.backticks %}`.
 
 {% endnote %}
 
-If that worked, great! If not, you may need to [follow our troubleshooting guide](/articles/error-permission-denied-publickey).
+Si cela a fonctionné, parfait ! Sinon, vous devrez peut-être [suivre notre guide de résolution des problèmes](/articles/error-permission-denied-publickey).
 
-Now, to clone the repository, you can run the following command:
+À présent, pour cloner le dépôt, vous pouvez exécuter la commande suivante :
 
 ```
 $ git clone ssh://git@ssh.{% data variables.command_line.codeblock %}:443/YOUR-USERNAME/YOUR-REPOSITORY.git
 ```
 
-## Enabling SSH connections over HTTPS
+## Activation des connexions SSH sur HTTPS
 
-If you are able to SSH into `git@ssh.{% data variables.command_line.backticks %}` over port 443, you can override your SSH settings to force any connection to {% data variables.location.product_location %} to run through that server and port.
+Si vous êtes en mesure de vous connecter en mode SSH à `git@ssh.{% data variables.command_line.backticks %}` sur le port 443, vous pouvez remplacer vos paramètres SSH afin que toute connexion à {% data variables.location.product_location %} s’exécute via ce serveur et ce port.
 
-To set this in your SSH configuration file, edit the file at `~/.ssh/config`, and add this section:
+Pour définir cela dans votre fichier de configuration SSH, modifiez le fichier à l’emplacement `~/.ssh/config`, puis ajoutez cette section :
 
 ```
 Host {% data variables.command_line.codeblock %}
@@ -53,7 +59,7 @@ Port 443
 User git
 ```
 
-You can test that this works by connecting once more to {% data variables.location.product_location %}:
+Vous pouvez tester que cela fonctionne en vous reconnectant à {% data variables.location.product_location %} :
 
 ```shell
 $ ssh -T git@{% data variables.command_line.codeblock %}
@@ -61,10 +67,9 @@ $ ssh -T git@{% data variables.command_line.codeblock %}
 > provide shell access.
 ```
 
-## Updating known hosts
+## Mise à jour des hôtes connus
 
-The first time you interact with GitHub after switching to port 443, you may get a warning message
-that the host wasn't found in `known_hosts`, or that it was found by another name.
+La première fois que vous interagissez avec GitHub après avoir basculé sur le port 443, vous pouvez recevoir un message d’avertissement indiquant que l’hôte est introuvable dans `known_hosts`ou qu’il a été trouvé avec un autre nom.
 
 ```ShellSession
 > The authenticity of host '[ssh.github.com]:443 ([140.82.112.36]:443)' can't be established.
@@ -74,5 +79,4 @@ that the host wasn't found in `known_hosts`, or that it was found by another nam
 > Are you sure you want to continue connecting (yes/no/[fingerprint])?
 ```
 
-It is safe to answer "yes" to this question, assuming that the SSH fingerprint matches
-one of GitHub's published fingerprints. For the list of fingerprints, see "[Github's SSH key fingerprints](/authentication/keeping-your-account-and-data-secure/githubs-ssh-key-fingerprints)."
+Vous pouvez répondre « oui » à cette question sans problème, en supposant que l’empreinte digitale SSH correspond à l’une des empreintes digitales publiées de GitHub. Pour obtenir la liste des empreintes digitales, consultez « [Empreintes digitales des clés SSH de Github](/authentication/keeping-your-account-and-data-secure/githubs-ssh-key-fingerprints) ».

@@ -11,12 +11,12 @@ versions:
   ghec: '*'
 topics:
   - API
-ms.openlocfilehash: 4560ae5e63f8a607f068bb24e84f1a014f44885c
-ms.sourcegitcommit: 82b1242de02ecc4bdec02a5b6d11568fb2deb1aa
+ms.openlocfilehash: 5f633132edddb17ae129a3feba791ab8ec780366
+ms.sourcegitcommit: 9af8891fea10039b3374c76818634e05410e349d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2022
-ms.locfileid: '148179733'
+ms.lasthandoff: 12/06/2022
+ms.locfileid: '148191875'
 ---
 ![O Gundamcat](/assets/images/gundamcat.png)
 
@@ -24,10 +24,9 @@ ms.locfileid: '148179733'
 
 Use a biblioteca oficial do Octokit ou escolha entre qualquer uma das bibliotecas de terceiros disponíveis.
 
-- **Python** → [octokit.py](https://github.com/khornberg/octokit.py)
 - **Ruby** → [octokit.rb](https://github.com/octokit/octokit.rb)
 - **.NET** → [octokit.net](https://github.com/octokit/octokit.net)
-- **JavaScript** → [octokit/octokit.js](https://github.com/octokit/octokit.js)
+- **JavaScript** → [octokit.js](https://github.com/octokit/octokit.js)
 
 ## Bibliotecas de terceiros
 
@@ -131,6 +130,7 @@ Use a biblioteca oficial do Octokit ou escolha entre qualquer uma das biblioteca
 |**github-flask**|[github-flask (site oficial)](http://github-flask.readthedocs.org)|
 |**torngithub**|[jkeylu/torngithub](https://github.com/jkeylu/torngithub)|
 |**githubkit**|[yanyongyu/githubkit](https://github.com/yanyongyu/githubkit)|
+|**octokit.py**|[khornberg/octokit.py](https://github.com/khornberg/octokit.py)|
 
 ### Ruby
 

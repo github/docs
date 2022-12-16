@@ -1,6 +1,6 @@
 ---
-title: Adding a file to a repository
-intro: 'You can upload and commit an existing file to a repository on {% data variables.product.product_name %} or by using the command line.'
+title: 리포지토리에 파일 추가
+intro: '{% data variables.product.product_name %}에 또는 명령줄을 사용하여 기존 파일을 리포지토리에 업로드하고 커밋할 수 있습니다.'
 redirect_from:
   - /articles/adding-a-file-to-a-repository
   - /github/managing-files-in-a-repository/adding-a-file-to-a-repository
@@ -18,37 +18,40 @@ versions:
 topics:
   - Repositories
 shortTitle: Add a file
+ms.openlocfilehash: ae5a795f4e5faab662946d6b933224a5bc57ab99
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148098004'
 ---
+## {% data variables.product.product_name %}의 리포지토리에 파일 추가
 
-## Adding a file to a repository on {% data variables.product.product_name %}
-
-Files that you add to a repository via a browser are limited to {% data variables.large_files.max_github_browser_size %} per file. You can add larger files, up to {% data variables.large_files.max_github_size %} each, via the command line. For more information, see "[Adding a file to a repository using the command line](#adding-a-file-to-a-repository-using-the-command-line)." To add files larger than {% data variables.large_files.max_github_size %}, you must use {% data variables.large_files.product_name_long %}. For more information, see "[About large files on {% data variables.product.product_name %}](/repositories/working-with-files/managing-large-files/about-large-files-on-github)."
+브라우저를 통해 리포지토리에 추가하는 파일은 파일당 {% data variables.large_files.max_github_browser_size %}로 제한됩니다. 명령줄을 이용하면 최대 {% data variables.large_files.max_github_size %}의 파일을 추가할 수 있습니다. 자세한 내용은 "[명령줄을 사용하여 리포지토리에 파일 추가](#adding-a-file-to-a-repository-using-the-command-line)"를 참조하세요. {% data variables.large_files.max_github_size %}보다 큰 파일을 추가하려면 {% data variables.large_files.product_name_long %}을(를) 사용해야 합니다. 자세한 내용은 "[{% data variables.product.product_name %}의 대용량 파일 정보](/repositories/working-with-files/managing-large-files/about-large-files-on-github)"를 참조하세요.
 
 {% tip %}
 
-**Tips:**
-- You can upload multiple files to {% data variables.product.product_name %} at the same time.
+**팁:**
+- 동시에 여러 파일을 {% data variables.product.product_name %}에 업로드할 수 있습니다.
 - {% data reusables.repositories.protected-branches-block-web-edits-uploads %}
 
 {% endtip %}
 
 {% data reusables.repositories.navigate-to-repo %}
-2. Above the list of files, using the **Add file** drop-down, click **Upload files**.
-  !["Upload files" in the "Add file" dropdown](/assets/images/help/repository/upload-files-button.png)
-3. Drag and drop the file or folder you'd like to upload to your repository onto the file tree.
-![Drag and drop area](/assets/images/help/repository/upload-files-drag-and-drop.png)
-{% data reusables.files.write_commit_message %}
-{% data reusables.files.choose_commit_branch %}
-6. Click **Commit changes**.
-![Commit changes button](/assets/images/help/repository/commit-changes-button.png)
+2. 파일 목록 위에서 **파일 추가** 드롭다운을 사용하여 **파일 업로드** 를 클릭합니다.
+  !["파일 추가" 드롭다운의 "파일 업로드"](/assets/images/help/repository/upload-files-button.png)
+3. 리포지토리에 업로드할 파일 또는 폴더를 파일 트리에 끌어다 놓습니다.
+![끌어다 놓기 영역](/assets/images/help/repository/upload-files-drag-and-drop.png) {% data reusables.files.write_commit_message %} {% data reusables.files.choose_commit_branch %}
+6. **변경 내용 커밋** 을 클릭합니다.
+![변경 내용 커밋 단추](/assets/images/help/repository/commit-changes-button.png)
 
-## Adding a file to a repository using the command line
+## 명령줄을 사용하여 리포지토리에 파일 추가
 
-You can upload an existing file to a repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %} using the command line.
+명령줄을 사용하여 {% ifversion ghae %}{% 데이터 variables.product.product_name %}{% else %}{% 데이터 variables.location.product_location %}{% endif %}의 리포지토리에 기존 파일을 업로드할 수 있습니다.
 
 {% tip %}
 
-**Tip:** You can also [add an existing file to a repository from the {% data variables.product.product_name %} website](/articles/adding-a-file-to-a-repository).
+**팁:** [{% data variables.product.product_name %} 웹 사이트의 리포지토리에 기존 파일을 추가할 수도 있습니다](/articles/adding-a-file-to-a-repository).
 
 {% endtip %}
 
@@ -56,10 +59,8 @@ You can upload an existing file to a repository on {% ifversion ghae %}{% data v
 
 {% data reusables.repositories.sensitive-info-warning %}
 
-1. On your computer, move the file you'd like to upload to {% data variables.product.product_name %} into the local directory that was created when you cloned the repository.
-{% data reusables.command_line.open_the_multi_os_terminal %}
-{% data reusables.command_line.switching_directories_procedural %}
-{% data reusables.git.stage_for_commit %}
+1. 컴퓨터에서 {% data variables.product.product_name %}에 업로드할 파일을 리포지토리를 복제할 때 만든 로컬 디렉터리로 옮깁니다.
+{% data reusables.command_line.open_the_multi_os_terminal %} {% data reusables.command_line.switching_directories_procedural %} {% data reusables.git.stage_for_commit %}
   ```shell
   $ git add .
   # Adds the file to your local repository and stages it for commit. {% data reusables.git.unstage-codeblock %}
@@ -71,6 +72,6 @@ You can upload an existing file to a repository on {% ifversion ghae %}{% data v
   ```
 {% data reusables.git.git-push %}
 
-## Further reading
+## 추가 참고 자료
 
-- "[Adding locally hosted code to {% data variables.product.product_name %}](/get-started/importing-your-projects-to-github/importing-source-code-to-github//adding-locally-hosted-code-to-github)"
+- "[{% data variables.product.product_name %}에 로컬로 호스트된 코드 추가](/get-started/importing-your-projects-to-github/importing-source-code-to-github//adding-locally-hosted-code-to-github)"

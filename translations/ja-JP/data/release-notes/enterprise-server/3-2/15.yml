@@ -1,0 +1,20 @@
+date: '2022-06-28'
+sections:
+  security_fixes:
+    - "**中**: サーバー側セキュリティ フォージェリ (SSRF) 攻撃の可能性を防ぐため、`github.company.com` と `github-company.com` が内部サービスによって同じホスト名として評価されないようにします。"
+    - "**低**: 外部ファイアウォール規則によって HTTP アクセスがブロックされている場合であっても、攻撃者は、HTTP 経由のパス トラバーサル攻撃で管理コンソールにアクセスできました。"
+    - パッケージは最新のセキュリティ バージョンに更新されました。
+  bugs:
+    - サイト管理者が Enterprise 所有者として自動的に追加されないことがありました。 
+    - "ブランチを既定のブランチにマージした後も、ファイルの [History]\\(履歴\\) リンクが、ターゲット ブランチではなく、前のブランチにまだリンクしていました。"
+  changes:
+    - 特定のフィールド (名前など) の値が長すぎた場合、チェック実行またはチェック スイートを作成または更新すると、`500 Internal Server Error` (500 内部サーバー エラー) が返されました。
+  known_issues:
+    - "{% data variables.product.prodname_ghe_server %} インスタンスをセットアップしたばかりでユーザーがいない場合、攻撃者が最初の管理者ユーザーを作成できました。"
+    - カスタムのファイアウォール規則は、アップグレード プロセス中に削除されます。
+    - "[Web インターフェイスからアップロードされた](https://github.com/blog/2105-upload-files-to-your-repositories) Git LFS 追跡ファイルが誤ってリポジトリに直接追加されます。"
+    - issue に同じリポジトリ内の BLOB への固定リンクが含まれ、その BLOB のファイル パスが 255 文字を超える場合、その issue をクローズできません。
+    - "{% data variables.product.prodname_github_connect %} で [Users can search GitHub.com]\\(ユーザーが GitHub.com を検索できる\\) が有効になっている場合、プライベートおよび内部リポジトリの issue は {% data variables.product.prodname_dotcom_the_website %} の検索結果に含まれません。"
+    - "{% data variables.product.prodname_registry %} npm レジストリが、メタデータ応答で時刻値を返さなくなります。これは、パフォーマンスの大幅な向上を可能にするために行われました。メタデータ応答の一部として時刻値を返すために必要なすべてのデータを保持し続け、既存のパフォーマンスの問題を解決したら、将来的にこの値を返すことを再開します。"
+    - pre-receive フックの処理に固有のリソース制限により、一部の pre-receive フックが失敗する場合があります。
+    - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'

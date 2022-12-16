@@ -1,7 +1,7 @@
 ---
-title: Contexts
+title: Контексты
 shortTitle: Contexts
-intro: You can access context information in workflows and actions.
+intro: Доступ к контексту можно получить в рабочих процессах и действиях.
 redirect_from:
   - /articles/contexts-and-expression-syntax-for-github-actions
   - /github/automating-your-workflow-with-github-actions/contexts-and-expression-syntax-for-github-actions
@@ -14,103 +14,62 @@ versions:
   ghae: '*'
   ghec: '*'
 miniTocMaxHeadingLevel: 3
+ms.openlocfilehash: 3f73082600ce3bf300ce4565c2bdbc826eb357ca
+ms.sourcegitcommit: 9af8891fea10039b3374c76818634e05410e349d
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 12/06/2022
+ms.locfileid: '148191937'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+## Сведения о контекстах
 
-## About contexts
+С помощью контекстов можно получать сведения об экземплярах рабочих процессов, средах выполнения задач, заданиях и шагах. Каждый контекст — это объект, который содержит свойства в виде строк или других объектов.
 
-Contexts are a way to access information about workflow runs, runner environments, jobs, and steps. Each context is an object that contains properties, which can be strings or other objects.
+{% data reusables.actions.context-contents %} Например, контекст `matrix` заполняется только для заданий в [матрице](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategymatrix).
 
-{% data reusables.actions.context-contents %} For example, the `matrix` context is only populated for jobs in a [matrix](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategymatrix).
+Обращаться к контекстам можно с помощью синтаксиса выражений. Дополнительные сведения см. в разделе [Выражения](/actions/learn-github-actions/expressions).
 
-You can access contexts using the expression syntax. For more information, see "[Expressions](/actions/learn-github-actions/expressions)."
-
-{% raw %}
-`${{ <context> }}`
+{% raw %} `${{ <context> }}`
 {% endraw %}
 
 {% data reusables.actions.context-injection-warning %}
 
-| Context name | Type | Description |
+| Имя контекста | Тип | Описание |
 |---------------|------|-------------|
-| `github` | `object` | Information about the workflow run. For more information, see [`github` context](#github-context). |
-| `env` | `object` | Contains environment variables set in a workflow, job, or step. For more information, see [`env` context](#env-context). |
-| `job` | `object` | Information about the currently running job. For more information, see [`job` context](#job-context). |
-{%- ifversion fpt or ghes > 3.3 or ghae > 3.3 or ghec %}
-| `jobs` | `object` | For reusable workflows only, contains outputs of jobs from the reusable workflow. For more information, see [`jobs` context](#jobs-context). |{% endif %}
-| `steps` | `object` | Information about the steps that have been run in the current job. For more information, see [`steps` context](#steps-context). |
-| `runner` | `object` | Information about the runner that is running the current job. For more information, see [`runner` context](#runner-context). |
-| `secrets` | `object` | Contains the names and values of secrets that are available to a workflow run. For more information, see [`secrets` context](#secrets-context). |
-| `strategy` | `object` | Information about the matrix execution strategy for the current job. For more information, see [`strategy` context](#strategy-context). |
-| `matrix` | `object` | Contains the matrix properties defined in the workflow that apply to the current job. For more information, see [`matrix` context](#matrix-context). |
-| `needs` | `object` | Contains the outputs of all jobs that are defined as a dependency of the current job. For more information, see [`needs` context](#needs-context). |
-{%- ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
-| `inputs` | `object` | Contains the inputs of a reusable {% ifversion actions-unified-inputs %}or manually triggered {% endif %}workflow. For more information, see [`inputs` context](#inputs-context). |{% endif %}
+| `github` | `object` | Сведения об экземпляре рабочего процесса. Дополнительные сведения см. в разделе о [контексте `github`](#github-context). |
+| `env` | `object` | Содержит переменные среды, которые заданы в рабочем процессе, задании или шаге. Дополнительные сведения см. в разделе о [контексте `env`](#env-context). |
+| `job` | `object` | Сведения о выполняемом в данный момент задании. Дополнительные сведения см. в разделе о [контексте `job`](#job-context). |
+{%- ifversion fpt or ghes > 3.3 or ghae > 3.3 or ghec %} | `jobs` | `object` | Только для повторно используемых рабочих процессов содержит выходные данные заданий из повторно используемых рабочих процессов. Дополнительные сведения см. в разделе о [контексте `jobs`](#jobs-context). |{% endif %} | `steps` | `object` | Сведения о шагах, которые были выполнены в текущем задании. Дополнительные сведения см. в разделе о [контексте `steps`](#steps-context). | | `runner` | `object` | Сведения о средстве выполнения, в котором выполняется текущее задание. Дополнительные сведения см. в разделе о [контексте `runner`](#runner-context). | | `secrets` | `object` | Содержит имена и значения секретов, доступных для экземпляра рабочего процесса. Дополнительные сведения см. в разделе о [контексте `secrets`](#secrets-context). | | `strategy` | `object` | Сведения о стратегии выполнения матрицы для текущего задания. Дополнительные сведения см. в разделе о [контексте `strategy`](#strategy-context). | | `matrix` | `object` | Содержит свойства матрицы, определенные в рабочем процессе, который применяется к текущему заданию. Дополнительные сведения см. в разделе о [контексте `matrix`](#matrix-context). | | `needs` | `object` | Содержит выходные данные всех заданий, которые определены как зависимые для текущего задания. Дополнительные сведения см. в разделе о [контексте `needs`](#needs-context). | {%- ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %} | `inputs` | `object` | Содержит входные данные повторно используемых рабочих процессов {% ifversion actions-unified-inputs %} или вручную активируемых рабочих процессов {% endif %}. Дополнительные сведения см. в разделе о [контексте `inputs`](#inputs-context). |{% endif %}
 
-As part of an expression, you can access context information using one of two syntaxes.
+В выражении доступ к данным контекста можно получить с помощью одного из двух видов синтаксиса.
 
-- Index syntax: `github['sha']`
-- Property dereference syntax: `github.sha`
+- Синтаксис индексов: `github['sha']`
+- Синтаксис разыменования свойств: `github.sha`
 
-In order to use property dereference syntax, the property name must start with a letter or `_` and contain only alphanumeric characters, `-`, or `_`.
+Чтобы использовать синтаксис разыменования свойств, имя свойства должно начинаться с буквы или `_` и содержать только буквенно-цифровые символы, `-` или `_`.
 
-If you attempt to dereference a non-existent property, it will evaluate to an empty string.
+Если попытаться разыменовать несуществующее свойство, оно будет вычислено как пустая строка.
 
-### Determining when to use contexts
+### Когда используются контексты
 
 {% data reusables.actions.using-context-or-environment-variables %}
 
-### Context availability
+### Доступность контекста
 
-Different contexts are available throughout a workflow run. For example, the `secrets` context may only be used at certain places within a job.
+В экземпляре рабочего процесса доступны различные контексты. Например, контекст `secrets` может использоваться только в определенных местах задания.
 
-In addition, some functions may only be used in certain places. For example, the `hashFiles` function is not available everywhere.
+Кроме того, некоторые функции также могут использоваться только в определенных местах. Например, функция `hashFiles` доступна не везде.
 
-The following table indicates where each context and special function can be used within a workflow. Unless listed below, a function can be used anywhere.
+В следующей таблице показано, где в рабочем процессе можно использовать каждый контекст и специальную функцию. Если эти сведения не приводятся, значит функцию можно использовать где угодно.
 
 {% ifversion fpt or ghes > 3.3 or ghae > 3.3 or ghec %}
 
-| Workflow key | Context | Special functions |
+| Ключ рабочего процесса | Контекст | Специальные функции |
 | ---- | ------- | ----------------- |
-{%- ifversion actions-run-name %}
-| <code>run-name</code> | <code>github, inputs</code> | |
-{%- endif %}
-| <code>concurrency</code> | <code>github, inputs</code> | |
-| <code>env</code> | <code>github, secrets, inputs</code> | |
-| <code>jobs.&lt;job_id&gt;.concurrency</code> | <code>github, needs, strategy, matrix, inputs</code> | |
-| <code>jobs.&lt;job_id&gt;.container</code> | <code>github, needs, strategy, matrix, env, secrets, inputs</code> | |
-| <code>jobs.&lt;job_id&gt;.container.credentials</code> | <code>github, needs, strategy, matrix, env, secrets, inputs</code> | |
-| <code>jobs.&lt;job_id&gt;.container.env.&lt;env_id&gt;</code> | <code>github, needs, strategy, matrix, job, runner, env, secrets, inputs</code> | |
-| <code>jobs.&lt;job_id&gt;.continue-on-error</code> | <code>github, needs, strategy, matrix, inputs</code> | |
-| <code>jobs.&lt;job_id&gt;.defaults.run</code> | <code>github, needs, strategy, matrix, env, inputs</code> | |
-| <code>jobs.&lt;job_id&gt;.env</code> | <code>github, needs, strategy, matrix, secrets, inputs</code> | |
-| <code>jobs.&lt;job_id&gt;.environment</code> | <code>github, needs, strategy, matrix, inputs</code> | |
-| <code>jobs.&lt;job_id&gt;.environment.url</code> | <code>github, needs, strategy, matrix, job, runner, env, steps, inputs</code> | |
-| <code>jobs.&lt;job_id&gt;.if</code> | <code>github, needs, inputs</code> | <code>always, cancelled, success, failure</code> |
-| <code>jobs.&lt;job_id&gt;.name</code> | <code>github, needs, strategy, matrix, inputs</code> | |
-| <code>jobs.&lt;job_id&gt;.outputs.&lt;output_id&gt;</code> | <code>github, needs, strategy, matrix, job, runner, env, secrets, steps, inputs</code> | |
-| <code>jobs.&lt;job_id&gt;.runs-on</code> | <code>github, needs, strategy, matrix, inputs</code> | |
-| <code>jobs.&lt;job_id&gt;.secrets.&lt;secrets_id&gt;</code> | <code>github, needs,{% ifversion actions-reusable-workflow-matrix %} strategy, matrix,{% endif %} secrets{% ifversion actions-unified-inputs %}, inputs{% endif %}</code> | |
-| <code>jobs.&lt;job_id&gt;.services</code> | <code>github, needs, strategy, matrix, inputs</code> | |
-| <code>jobs.&lt;job_id&gt;.services.&lt;service_id&gt;.credentials</code> | <code>github, needs, strategy, matrix, env, secrets, inputs</code> | |
-| <code>jobs.&lt;job_id&gt;.services.&lt;service_id&gt;.env.&lt;env_id&gt;</code> | <code>github, needs, strategy, matrix, job, runner, env, secrets, inputs</code> | |
-| <code>jobs.&lt;job_id&gt;.steps.continue-on-error</code> | <code>github, needs, strategy, matrix, job, runner, env, secrets, steps, inputs</code> | <code>hashFiles</code> |
-| <code>jobs.&lt;job_id&gt;.steps.env</code> | <code>github, needs, strategy, matrix, job, runner, env, secrets, steps, inputs</code> | <code>hashFiles</code> |
-| <code>jobs.&lt;job_id&gt;.steps.if</code> | <code>github, needs, strategy, matrix, job, runner, env, steps, inputs</code> | <code>always, cancelled, success, failure, hashFiles</code> |
-| <code>jobs.&lt;job_id&gt;.steps.name</code> | <code>github, needs, strategy, matrix, job, runner, env, secrets, steps, inputs</code> | <code>hashFiles</code> |
-| <code>jobs.&lt;job_id&gt;.steps.run</code> | <code>github, needs, strategy, matrix, job, runner, env, secrets, steps, inputs</code> | <code>hashFiles</code> |
-| <code>jobs.&lt;job_id&gt;.steps.timeout-minutes</code> | <code>github, needs, strategy, matrix, job, runner, env, secrets, steps, inputs</code> | <code>hashFiles</code> |
-| <code>jobs.&lt;job_id&gt;.steps.with</code> | <code>github, needs, strategy, matrix, job, runner, env, secrets, steps, inputs</code> | <code>hashFiles</code> |
-| <code>jobs.&lt;job_id&gt;.steps.working-directory</code> | <code>github, needs, strategy, matrix, job, runner, env, secrets, steps, inputs</code> | <code>hashFiles</code> |
-| <code>jobs.&lt;job_id&gt;.strategy</code> | <code>github, needs, inputs</code> | |
-| <code>jobs.&lt;job_id&gt;.timeout-minutes</code> | <code>github, needs, strategy, matrix, inputs</code> | |
-| <code>jobs.&lt;job_id&gt;.with.&lt;with_id&gt;</code> | <code>github, needs{% ifversion actions-reusable-workflow-matrix %}, strategy, matrix{% endif %}{% ifversion actions-unified-inputs %}, inputs{% endif %}</code> | |
-| <code>on.workflow_call.inputs.&lt;inputs_id&gt;.default</code> | <code>github{% ifversion actions-unified-inputs %}, inputs{% endif %}</code> | |
-| <code>on.workflow_call.outputs.&lt;output_id&gt;.value</code> | <code>github, jobs, inputs</code> | |
-{% else %}
-| Path | Context | Special functions |
+{%- ifversion actions-run-name %} | <code>run-name</code> | <code>github, inputs</code> | | {%- endif %} | <code>concurrency</code> | <code>github, inputs</code> | | | <code>env</code> | <code>github, secrets, inputs</code> | | | <code>jobs.&lt;job_id&gt;.concurrency</code> | <code>github, needs, strategy, matrix, inputs</code> | | | <code>jobs.&lt;job_id&gt;.container</code> | <code>github, needs, strategy, matrix, env, secrets, inputs</code> | | | <code>jobs.&lt;job_id&gt;.container.credentials</code> | <code>github, needs, strategy, matrix, env, secrets, inputs</code> | | | <code>jobs.&lt;job_id&gt;.container.env.&lt;env_id&gt;</code> | <code>github, needs, strategy, matrix, job, runner, env, secrets, inputs</code> | | | <code>jobs.&lt;job_id&gt;.continue-on-error</code> | <code>github, needs, strategy, matrix, inputs</code> | | | <code>jobs.&lt;job_id&gt;.defaults.run</code> | <code>github, needs, strategy, matrix, env, inputs</code> | | | <code>jobs.&lt;job_id&gt;.env</code> | <code>github, needs, strategy, matrix, secrets, inputs</code> | | | <code>jobs.&lt;job_id&gt;.environment</code> | <code>github, needs, strategy, matrix, inputs</code> | | | <code>jobs.&lt;job_id&gt;.environment.url</code> | <code>github, needs, strategy, matrix, job, runner, env, steps, inputs</code> | | | <code>jobs.&lt;job_id&gt;.if</code> | <code>github, needs, inputs</code> | <code>always, cancelled, success, failure</code> | | <code>jobs.&lt;job_id&gt;.name</code> | <code>github, needs, strategy, matrix, inputs</code> | | | <code>jobs.&lt;job_id&gt;.outputs.&lt;output_id&gt;</code> | <code>github, needs, strategy, matrix, job, runner, env, secrets, steps, inputs</code> | | | <code>jobs.&lt;job_id&gt;.runs-on</code> | <code>github, needs, strategy, matrix, inputs</code> | | | <code>jobs.&lt;job_id&gt;.secrets.&lt;secrets_id&gt;</code> | <code>github, needs,{% ifversion actions-reusable-workflow-matrix %} strategy, matrix,{% endif %} secrets{% ifversion actions-unified-inputs %}, inputs{% endif %}</code> | | | <code>jobs.&lt;job_id&gt;.services</code> | <code>github, needs, strategy, matrix, inputs</code> | | | <code>jobs.&lt;job_id&gt;.services.&lt;service_id&gt;.credentials</code> | <code>github, needs, strategy, matrix, env, secrets, inputs</code> | | | <code>jobs.&lt;job_id&gt;.services.&lt;service_id&gt;.env.&lt;env_id&gt;</code> | <code>github, needs, strategy, matrix, job, runner, env, secrets, inputs</code> | | | <code>jobs.&lt;job_id&gt;.steps.continue-on-error</code> | <code>github, needs, strategy, matrix, job, runner, env, secrets, steps, inputs</code> | <code>hashFiles</code> | | <code>jobs.&lt;job_id&gt;.steps.env</code> | <code>github, needs, strategy, matrix, job, runner, env, secrets, steps, inputs</code> | <code>hashFiles</code> | | <code>jobs.&lt;job_id&gt;.steps.if</code> | <code>github, needs, strategy, matrix, job, runner, env, steps, inputs</code> | <code>always, cancelled, success, failure, hashFiles</code> | | <code>jobs.&lt;job_id&gt;.steps.name</code> | <code>github, needs, strategy, matrix, job, runner, env, secrets, steps, inputs</code> | <code>hashFiles</code> | | <code>jobs.&lt;job_id&gt;.steps.run</code> | <code>github, needs, strategy, matrix, job, runner, env, secrets, steps, inputs</code> | <code>hashFiles</code> | | <code>jobs.&lt;job_id&gt;.steps.timeout-minutes</code> | <code>github, needs, strategy, matrix, job, runner, env, secrets, steps, inputs</code> | <code>hashFiles</code> | | <code>jobs.&lt;job_id&gt;.steps.with</code> | <code>github, needs, strategy, matrix, job, runner, env, secrets, steps, inputs</code> | <code>hashFiles</code> | | <code>jobs.&lt;job_id&gt;.steps.working-directory</code> | <code>github, needs, strategy, matrix, job, runner, env, secrets, steps, inputs</code> | <code>hashFiles</code> | | <code>jobs.&lt;job_id&gt;.strategy</code> | <code>github, needs, inputs</code> | | | <code>jobs.&lt;job_id&gt;.timeout-minutes</code> | <code>github, needs, strategy, matrix, inputs</code> | | | <code>jobs.&lt;job_id&gt;.with.&lt;with_id&gt;</code> | <code>github, needs{% ifversion actions-reusable-workflow-matrix %}, strategy, matrix{% endif %}{% ifversion actions-unified-inputs %}, inputs{% endif %}</code> | | | <code>on.workflow_call.inputs.&lt;inputs_id&gt;.default</code> | <code>github{% ifversion actions-unified-inputs %}, inputs{% endif %}</code> | | | <code>on.workflow_call.outputs.&lt;output_id&gt;.value</code> | <code>github, jobs, inputs</code> | | {% else %}
+| Путь | Контекст | Специальные функции |
 | ---- | ------- | ----------------- |
 | <code>concurrency</code> | <code>github</code> | |
 | <code>env</code> | <code>github, secrets</code> | |
@@ -142,9 +101,9 @@ The following table indicates where each context and special function can be use
 | <code>jobs.&lt;job_id&gt;.timeout-minutes</code> | <code>github, needs, strategy, matrix</code> | |
 {% endif %}
 
-### Example: printing context information to the log
+### Пример: вывод данных контекста в журнал
 
-You can print the contents of contexts to the log for debugging. The [`toJSON` function](/actions/learn-github-actions/expressions#tojson) is required to pretty-print JSON objects to the log.
+Содержимое контекстов можно выводить в журнал для отладки. Для вывода объектов JSON в журнал в правильном формате требуется [функция `toJSON`](/actions/learn-github-actions/expressions#tojson).
 
 {% data reusables.actions.github-context-warning %}
 
@@ -173,60 +132,36 @@ jobs:
 ```
 {% endraw %}
 
-## `github` context
+## Контекст `github`
 
-The `github` context contains information about the workflow run and the event that triggered the run. You can also read most of the `github` context data in environment variables. For more information about environment variables, see "[Using environment variables](/actions/automating-your-workflow-with-github-actions/using-environment-variables)."
+Контекст `github` содержит сведения об экземпляре рабочего процесса и событии, которое запустило этот экземпляр. Большую часть данных контекста `github` можно прочитать в переменных среды. Подробные сведения о переменных среды см. в разделе "[Настройка переменных среды](/actions/automating-your-workflow-with-github-actions/using-environment-variables).
 
-{% data reusables.actions.github-context-warning %}
-{% data reusables.actions.context-injection-warning %}
+{% data reusables.actions.github-context-warning %} {% data reusables.actions.context-injection-warning %}
 
-| Property name | Type | Description |
+| Имя свойства | Тип | Описание |
 |---------------|------|-------------|
-| `github` | `object` | The top-level context available during any job or step in a workflow. This object contains all the properties listed below. |
-| `github.action` | `string` | The name of the action currently running, or the [`id`](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idstepsid) of a step. {% data variables.product.prodname_dotcom %} removes special characters, and uses the name `__run` when the current step runs a script without an `id`. If you use the same action more than once in the same job, the name will include a suffix with the sequence number with underscore before it. For example, the first script you run will have the name `__run`, and the second script will be named `__run_2`. Similarly, the second invocation of `actions/checkout` will be `actionscheckout2`. |
-| `github.action_path` | `string` | The path where an action is located. This property is only supported in composite actions. You can use this path to access files located in the same repository as the action. |
-| `github.action_ref` | `string` | For a step executing an action, this is the ref of the action being executed. For example, `v2`. |
-| `github.action_repository` | `string` | For a step executing an action, this is the owner and repository name of the action. For example, `actions/checkout`. |
-| `github.action_status` | `string` | For a composite action, the current result of the composite action. |
-| `github.actor` | `string` | {% ifversion actions-stable-actor-ids %}The username of the user that triggered the initial workflow run. If the workflow run is a re-run, this value may differ from `github.triggering_actor`. Any workflow re-runs will use the privileges of `github.actor`, even if the actor initiating the re-run (`github.triggering_actor`) has different privileges.{% else %}The username of the user that initiated the workflow run.{% endif %} |
-| `github.api_url` | `string` | The URL of the {% data variables.product.prodname_dotcom %} REST API. |
-| `github.base_ref` | `string` | The `base_ref` or target branch of the pull request in a workflow run. This property is only available when the event that triggers a workflow run is either `pull_request` or `pull_request_target`. |
-| `github.env` | `string` | Path on the runner to the file that sets environment variables from workflow commands. This file is unique to the current step and is a different file for each step in a job. For more information, see "[Workflow commands for {% data variables.product.prodname_actions %}](/actions/learn-github-actions/workflow-commands-for-github-actions#setting-an-environment-variable)." |
-| `github.event` | `object` | The full event webhook payload. You can access individual properties of the event using this context. This object is identical to the webhook payload of the event that triggered the workflow run, and is different for each event. The webhooks for each {% data variables.product.prodname_actions %} event is linked in "[Events that trigger workflows](/articles/events-that-trigger-workflows/)." For example, for a workflow run triggered by the [`push` event](/actions/using-workflows/events-that-trigger-workflows#push), this object contains the contents of the [push webhook payload](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#push). |
-| `github.event_name` | `string` | The name of the event that triggered the workflow run. |
-| `github.event_path` | `string` | The path to the file on the runner that contains the full event webhook payload. |
-| `github.graphql_url` | `string` | The URL of the {% data variables.product.prodname_dotcom %} GraphQL API. |
-| `github.head_ref` | `string` | The `head_ref` or source branch of the pull request in a workflow run. This property is only available when the event that triggers a workflow run is either `pull_request` or `pull_request_target`. |
-| `github.job` | `string` | The [`job_id`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_id) of the current job. <br /> Note: This context property is set by the Actions runner, and is only available within the execution `steps` of a job. Otherwise, the value of this property will be `null`. |
+| `github` | `object` | Контекст верхнего уровня, доступный во время любого задания или шага рабочего процесса. Этот объект содержит все свойства, перечисленные ниже. |
+| `github.action` | `string` | Имя выполняемого в настоящий момент действия или параметр [`id`](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idstepsid) шага. {% data variables.product.prodname_dotcom %} удаляет специальные символы и использует имя `__run`, когда в текущем шаге выполняется скрипт без параметра `id`. Если одно действие используется в задании несколько раз, к имени добавляется суффикс в виде знака подчеркивания и порядкового номера после него. Например, первый выполняемый скрипт будет называться `__run`, а второй — `__run_2`. Аналогично второй вызов `actions/checkout` будет называться `actionscheckout2`. |
+| `github.action_path` | `string` | Путь к расположению действия. Это свойство поддерживается только в составных действиях. С помощью этого пути можно обращаться к файлам, расположенным в том же репозитории, что и действие. |
+| `github.action_ref` | `string` | Для шага, в котором выполняется действие, это номер выполняемого действия. Например, `v2`. |
+| `github.action_repository` | `string` | Для шага, в котором выполняется действие, это имя владельца и репозитория, где находится действие. Например, `actions/checkout`. |
+| `github.action_status` | `string` | Текущий результат составного действия. |
+| `github.actor` | `string` | {% ifversion actions-stable-actor-ids %}Имя пользователя, который активировал начальный запуск рабочего процесса. Если рабочий процесс выполняется повторно, это значение может отличаться от `github.triggering_actor`. В повторных запусках рабочих процессов будут использоваться привилегии `github.actor`, даже если субъект, инициировавший повторный запуск (`github.triggering_actor`), имеет другие привилегии.{% else %}Имя пользователя, который инициировал запуск рабочего процесса.{% endif %} |
+| `github.api_url` | `string` | URL-адрес REST API {% data variables.product.prodname_dotcom %}. |
+| `github.base_ref` | `string` | `base_ref` или целевая ветвь запроса на включение внесенных изменений в экземпляре рабочего процесса. Это свойство доступно, только если экземпляр рабочего процесса был запущен событием `pull_request` или `pull_request_target`. |
+| `github.env` | `string` | В средстве выполнения это путь к файлу, в котором задаются переменные среды для команд рабочего процесса. Этот файл уникален для каждого шага в задании. Дополнительные сведения см. в статье "[Команды рабочего процесса для {% data variables.product.prodname_actions %}](/actions/learn-github-actions/workflow-commands-for-github-actions#setting-an-environment-variable)". |
+| `github.event` | `object` | Все полезные данные веб-перехватчика события. Этот контекст дает доступ к отдельным свойствам события. Этот объект идентичен полезным данным веб-перехватчика события, которое запустило экземпляр рабочего процесса, и у каждого события он свой. Веб-перехватчики для событий {% data variables.product.prodname_actions %} указаны в разделе "[События, которые запускают рабочие процессы](/articles/events-that-trigger-workflows/)". Например, для экземпляра рабочего процесса, запущенного [событием ](/actions/using-workflows/events-that-trigger-workflows#push)`push`, в этом объекте содержатся [полезные данные веб-перехватчика события push](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#push). |
+| `github.event_name` | `string` | Имя события, которое запустило экземпляр рабочего процесса. |
+| `github.event_path` | `string` | В средстве выполнения это путь к файлу, в котором содержатся все полезные данные веб-перехватчика события. |
+| `github.graphql_url` | `string` | URL-адрес GraphQL API {% data variables.product.prodname_dotcom %}. |
+| `github.head_ref` | `string` | `head_ref` или исходная ветвь запроса на включение внесенных изменений в экземпляре рабочего процесса. Это свойство доступно, только если экземпляр рабочего процесса был запущен событием `pull_request` или `pull_request_target`. |
+| `github.job` | `string` | Свойство [`job_id`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_id) текущего задания. <br /> Примечание. Это свойство контекста задается средством выполнения Acrions и доступно только в рамках выполнения этапов (`steps`) задания. В противном случае значение этого свойства будет равно `null`. |
 | `github.ref` | `string` | {% data reusables.actions.ref-description %} |
-{%- ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
-| `github.ref_name` | `string` | {% data reusables.actions.ref_name-description %} |
-| `github.ref_protected` | `boolean` | {% data reusables.actions.ref_protected-description %} |
-| `github.ref_type` | `string` | {% data reusables.actions.ref_type-description %} |
-{%- endif %}
-| `github.path` | `string` | Path on the runner to the file that sets system `PATH` variables from workflow commands. This file is unique to the current step and is a different file for each step in a job. For more information, see "[Workflow commands for {% data variables.product.prodname_actions %}](/actions/learn-github-actions/workflow-commands-for-github-actions#adding-a-system-path)." |
-| `github.repository` | `string` | The owner and repository name. For example, `Codertocat/Hello-World`. |
-| `github.repository_owner` | `string` | The repository owner's name. For example, `Codertocat`. |
-| `github.repositoryUrl` | `string` | The Git URL to the repository. For example, `git://github.com/codertocat/hello-world.git`. |
-| `github.retention_days` | `string` | The number of days that workflow run logs and artifacts are kept. |
-| `github.run_id` | `string` | {% data reusables.actions.run_id_description %} |
-| `github.run_number` | `string` | {% data reusables.actions.run_number_description %} |
-{%- ifversion fpt or ghec or ghes > 3.5 or ghae > 3.4 %}
-| `github.run_attempt` | `string` | A unique number for each attempt of a particular workflow run in a repository. This number begins at 1 for the workflow run's first attempt, and increments with each re-run. |
-{%- endif %}
-{%- ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
-| `github.secret_source` | `string` | The source of a secret used in a workflow. Possible values are `None`, `Actions`, `Dependabot`, or `Codespaces`. |
-{%- endif %}
-| `github.server_url` | `string` | The URL of the GitHub server. For example: `https://github.com`. |
-| `github.sha` | `string` | {% data reusables.actions.github_sha_description %} |
-| `github.token` | `string` | A token to authenticate on behalf of the GitHub App installed on your repository. This is functionally equivalent to the `GITHUB_TOKEN` secret. For more information, see "[Automatic token authentication](/actions/security-guides/automatic-token-authentication)."  <br /> Note: This context property is set by the Actions runner, and is only available within the execution `steps` of a job. Otherwise, the value of this property will be `null`. |{% ifversion actions-stable-actor-ids %}
-| `github.triggering_actor` | `string` | The username of the user that initiated the workflow run. If the workflow run is a re-run, this value may differ from `github.actor`. Any workflow re-runs will use the privileges of `github.actor`, even if the actor initiating the re-run (`github.triggering_actor`) has different privileges. |{% endif %}
-| `github.workflow` | `string` | The name of the workflow. If the workflow file doesn't specify a `name`, the value of this property is the full path of the workflow file in the repository. |
-| `github.workspace` | `string` | The default working directory on the runner for steps, and the default location of your repository when using the [`checkout`](https://github.com/actions/checkout) action. |
+{%- ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %} | `github.ref_name` | `string` | | | {% data reusables.actions.ref_name-description %} `github.ref_protected` | `boolean` | | | {% data reusables.actions.ref_protected-description %} `github.ref_type` | `string` | | {% data reusables.actions.ref_type-description %} | {%- endif %} `github.path` | `string` | Путь в средстве выполнения к файлу, который задает системные `PATH` переменные из команд рабочего процесса. Этот файл уникален для каждого шага в задании. Дополнительные сведения см. в статье "[Команды рабочего процесса для {% data variables.product.prodname_actions %}](/actions/learn-github-actions/workflow-commands-for-github-actions#adding-a-system-path)". | | `github.repository` | `string` | Имя владельца и репозитория. Например, `Codertocat/Hello-World`. | | `github.repository_owner` | `string` | Имя владельца репозитория. Например, `Codertocat`. | | `github.repositoryUrl` | `string` | URL-адрес репозитория в Git. Например, `git://github.com/codertocat/hello-world.git`. | | `github.retention_days` | `string` | Время хранения (в днях) журналов и артефактов экземпляра рабочего процесса. | | `github.run_id` | `string` | | | {% data reusables.actions.run_id_description %} `github.run_number` | `string` | | {% data reusables.actions.run_number_description %} {%- ifversion fpt or ghec or ghes > 3.5 or ghae > 3.4 %} | `github.run_attempt` | `string` | Уникальный номер для каждой попытки выполнения определенного рабочего процесса в репозитории. Первая попытка обозначается номером 1, для всех последующих номер увеличивается. | {%- endif %} {%- ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %} | `github.secret_source` | `string` | Источник секрета, используемого в рабочем процессе. Возможные значения: `None`, `Actions`, `Dependabot` или `Codespaces`. | {%- endif %} | `github.server_url` | `string` | URL-адрес сервера GitHub. Например: `https://github.com`. | | `github.sha` | `string` | {% data reusables.actions.github_sha_description %} | | `github.token` | `string` | Токен для аутентификации от имени приложения GitHub, которое установлено в вашем репозитории. Эта функциональность равнозначна секрету `GITHUB_TOKEN`. Дополнительные сведения см. в разделе [Автоматическая проверка подлинности токенов](/actions/security-guides/automatic-token-authentication).  <br /> Примечание. Это свойство контекста задается средством выполнения Acrions и доступно только в рамках выполнения этапов (`steps`) задания. В противном случае значение этого свойства будет равно `null`. |{% ifversion actions-stable-actor-ids %} | `github.triggering_actor` | `string` | Имя пользователя, который инициировал запуск рабочего процесса. Если рабочий процесс выполняется повторно, это значение может отличаться от `github.actor`. В повторных запусках рабочих процессов будут использоваться привилегии `github.actor`, даже если субъект, инициировавший повторный запуск (`github.triggering_actor`), имеет другие привилегии. |{% endif %} | `github.workflow` | `string` | Имя рабочего процесса. Если в файле рабочего процесса не указано свойство `name`, в качестве его значения используется полный путь к файлу рабочего процесса в репозитории. | | `github.workspace` | `string` | Рабочий каталог по умолчанию в средстве выполнения для шагов и расположение по умолчанию репозитория при использовании действия [`checkout`](https://github.com/actions/checkout). |
 
-### Example contents of the `github` context
+### Пример содержимого контекста `github`
 
-The following example context is from a workflow run triggered by the `push` event. The `event` object in this example has been truncated because it is identical to the contents of the [`push` webhook payload](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#push).
+Следующий пример контекста взят из экземпляра рабочего процесса, запущенного событием `push`. В этом примере объект `event` усечен, так как он идентичен [полезным данным веб-перехватчика `push`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#push).
 
 {% data reusables.actions.context-example-note %}
 
@@ -268,9 +203,9 @@ The following example context is from a workflow run triggered by the `push` eve
 }
 ```
 
-### Example usage of the `github` context
+### Пример использования контекста `github`
 
-This example workflow uses the `github.event_name` context to run a job only if the workflow run was triggered by the `pull_request` event.
+В этом примере задание выполняется с помощью контекста `github.event_name`, только если экземпляр рабочего процесса был запущен событием `pull_request`.
 
 ```yaml{:copy}
 name: Run CI
@@ -293,22 +228,22 @@ jobs:
         run: ./run-additional-pr-ci
 ```
 
-## `env` context
+## Контекст `env`
 
-The `env` context contains environment variables that have been set in a workflow, job, or step. For more information about setting environment variables in your workflow, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#env)."
+Контекст `env` содержит переменные среды, заданные в рабочем процессе, задании или шаге. Дополнительные сведения о настройке переменных среды в рабочем процессе см. в разделе "[Синтаксис рабочего процесса для {% data variables.product.prodname_actions %}](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#env)".
 
-The `env` context syntax allows you to use the value of an environment variable in your workflow file. You can use the `env` context in the value of any key in a step except for the `id` and `uses` keys. For more information on the step syntax, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idsteps)."
+Синтаксис контекста `env` позволяет использовать значение переменной среды в файле рабочего процесса. Контекст `env` можно использовать в значении любого ключа в шаге кроме `id` и `uses`. Дополнительные сведения о синтаксисе шагов см. в статье "[Синтаксис рабочего процесса для {% data variables.product.prodname_actions %}](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idsteps)".
 
-If you want to use the value of an environment variable inside a runner, use the runner operating system's normal method for reading environment variables.
+Если вы хотите использовать значение переменной среды в средстве выполнения, считайте переменную среды с помощью стандартного метода операционной системы, в которой работает средство выполнения.
 
-| Property name | Type | Description |
+| Имя свойства | Тип | Описание |
 |---------------|------|-------------|
-| `env` | `object` | This context changes for each step in a job. You can access this context from any step in a job. This object contains the properties listed below. |
-| `env.<env_name>` | `string` | The value of a specific environment variable. |
+| `env` | `object` | Этот контекст меняется для каждого шага в задании. Доступ к этому контексту можно получить из любого шага задания. Этот объект содержит свойства, перечисленные ниже. |
+| `env.<env_name>` | `string` | Значение конкретной переменной среды. |
 
-### Example contents of the `env` context
+### Пример содержимого контекста `env`
 
-The contents of the `env` context is a mapping of environment variable names to their values. The context's contents can change depending on where it is used in the workflow run.
+Содержимое контекста `env` — это сопоставление имен переменных среды с их значениями. Содержимое контекста зависит от места, где он используется в экземпляре рабочего процесса.
 
 ```json
 {
@@ -317,9 +252,9 @@ The contents of the `env` context is a mapping of environment variable names to 
 }
 ```
 
-### Example usage of the `env` context
+### Пример использования контекста `env`
 
-This example workflow shows how the `env` context can be configured at the workflow, job, and step levels, as well as using the context in steps.
+В этом примере рабочего процесса показано, как настроить контекст `env` на уровне рабочего процесса, задания и шага, а также как использовать контекст в шагах.
 
 {% data reusables.repositories.actions-env-var-note %}
 
@@ -348,25 +283,25 @@ jobs:
 ```
 {% endraw %}
 
-## `job` context
+## Контекст `job`
 
-The `job` context contains information about the currently running job.
+Контекст `job` содержит сведения о выполняемом в данный момент задании.
 
-| Property name | Type | Description |
+| Имя свойства | Тип | Описание |
 |---------------|------|-------------|
-| `job` | `object` | This context changes for each job in a workflow run. You can access this context from any step in a job. This object contains all the properties listed below. |
-| `job.container` | `object` | Information about the job's container. For more information about containers, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions#jobsjob_idcontainer)." |
-| `job.container.id` | `string` | The ID of the container. |
-| `job.container.network` | `string` | The ID of the container network. The runner creates the network used by all containers in a job. |
-| `job.services` | `object` | The service containers created for a job. For more information about service containers, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions#jobsjob_idservices)." |
-| `job.services.<service_id>.id` | `string` | The ID of the service container. |
-| `job.services.<service_id>.network` | `string` | The ID of the service container network. The runner creates the network used by all containers in a job. |
-| `job.services.<service_id>.ports` | `object` | The exposed ports of the service container. |
-| `job.status` | `string` | The current status of the job. Possible values are `success`, `failure`, or `cancelled`. |
+| `job` | `object` | Этот контекст меняется для каждого задания в экземпляре рабочего процесса. Доступ к этому контексту можно получить из любого шага задания. Данный объект содержит все свойства, перечисленные ниже. |
+| `job.container` | `object` | Сведения о контейнере задания. Дополнительные сведения о контейнерах см. в статье "[Синтаксис рабочего процесса для {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions#jobsjob_idcontainer)". |
+| `job.container.id` | `string` | Идентификатор контейнера. |
+| `job.container.network` | `string` | Идентификатор сети контейнеров. Средство выполнения создает сеть, которая используется всеми контейнерами в задании. |
+| `job.services` | `object` | Контейнеры служб, созданные для задания. Дополнительные сведения о контейнерах служб см. в статье "[Синтаксис рабочего процесса для {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions#jobsjob_idservices)". |
+| `job.services.<service_id>.id` | `string` | Идентификатор контейнера службы. |
+| `job.services.<service_id>.network` | `string` | Идентификатор сети контейнеров служб. Средство выполнения создает сеть, которая используется всеми контейнерами в задании. |
+| `job.services.<service_id>.ports` | `object` | Доступные порты контейнера службы. |
+| `job.status` | `string` | текущее состояние задания; Возможные значения — `success`, `failure` или `cancelled`. |
 
-### Example contents of the `job` context
+### Пример содержимого контекста `job`
 
-This example `job` context uses a PostgreSQL service container with mapped ports. If there are no containers or service containers used in a job, the `job` context only contains the `status` property.
+В этом примере контекста `job` используется контейнер службы PostgreSQL с сопоставленными портами. Если в задании не используются контейнеры или контейнеры служб, контекст `job` содержит только свойство `status`.
 
 ```json
 {
@@ -386,9 +321,9 @@ This example `job` context uses a PostgreSQL service container with mapped ports
 }
 ```
 
-### Example usage of the `job` context
+### Пример использования контекста `job`
 
-This example workflow configures a PostgreSQL service container, and automatically maps port 5432 in the service container to a randomly chosen available port on the host. The `job` context is used to access the number of the port that was assigned on the host.
+В этом примере рабочего процесса настраивается контейнер службы PostgreSQL и порт 5432 в контейнере службы автоматически сопоставляется со случайным выбранным доступным портом на узле. Контекст `job` используется для получения номера порта, назначенного на узле.
 
 ```yaml{:copy}
 name: PostgreSQL Service Example
@@ -414,20 +349,20 @@ jobs:
 
 {% ifversion fpt or ghes > 3.3 or ghae > 3.3 or ghec %}
 
-## `jobs` context
+## Контекст `jobs`
 
-The `jobs` context is only available in reusable workflows, and can only be used to set outputs for a reusable workflow. For more information, see "[Reusing workflows](/actions/using-workflows/reusing-workflows#using-outputs-from-a-reusable-workflow)."
+Контекст `jobs` доступен только в повторно используемых рабочих процессах и может использоваться только для задания выходных данных для повторно используемого рабочего процесса. Дополнительные сведения см. в статье [Многократное использование рабочих процессов](/actions/using-workflows/reusing-workflows#using-outputs-from-a-reusable-workflow).
 
-| Property name | Type | Description |
+| Имя свойства | Тип | Описание |
 |---------------|------|-------------|
-| `jobs` | `object` | This is only available in reusable workflows, and can only be used to set outputs for a reusable workflow. This object contains all the properties listed below.
-| `jobs.<job_id>.result` | `string` | The result of a job in the reusable workflow. Possible values are `success`, `failure`, `cancelled`, or `skipped`. |
-| `jobs.<job_id>.outputs` | `object` | The set of outputs of a job in a reusable workflow. |
-| `jobs.<job_id>.outputs.<output_name>` | `string` | The value of a specific output for a job in a reusable workflow. |
+| `jobs` | `object` | Доступен только в повторно используемых рабочих процессах и может использоваться только для задания выходных данных для повторно используемого рабочего процесса. Данный объект содержит все свойства, перечисленные ниже.
+| `jobs.<job_id>.result` | `string` | Результат задания в повторно используемом рабочем процессе. Возможные значения: `success`, `failure`, `cancelled` или `skipped`. |
+| `jobs.<job_id>.outputs` | `object` | Набор выходных данных задания в повторно используемом рабочем процессе. |
+| `jobs.<job_id>.outputs.<output_name>` | `string` | Значение определенных выходных данных для задания в повторно используемых рабочих процессах. |
 
-### Example contents of the `jobs` context
+### Пример содержимого контекста `jobs`
 
-This example `jobs` context contains the result and outputs of a job from a reusable workflow run.
+Этот пример контекста `jobs` содержит результат и выходные данные задания из повторно используемых рабочих процессов.
 
 ```json
 {
@@ -441,9 +376,9 @@ This example `jobs` context contains the result and outputs of a job from a reus
 }
 ```
 
-### Example usage of the `jobs` context
+### Пример использования контекста `jobs`
 
-This example reusable workflow uses the `jobs` context to set outputs for the reusable workflow. Note how the outputs flow up from the steps, to the job, then to the `workflow_call` trigger. For more information, see "[Reusing workflows](/actions/using-workflows/reusing-workflows#using-outputs-from-a-reusable-workflow)."
+В этом примере повторно используемый рабочий процесс использует контекст `jobs` для задания выходных данных для повторно используемого рабочего процесса. Обратите внимание, как выходные данные передаются из шагов в задание, а затем в триггер `workflow_call`. Дополнительные сведения см. в статье [Многократное использование рабочих процессов](/actions/using-workflows/reusing-workflows#using-outputs-from-a-reusable-workflow).
 
 {% raw %}
 ```yaml{:copy}
@@ -486,21 +421,21 @@ jobs:
 
 {% endif %}
 
-## `steps` context
+## Контекст `steps`
 
-The `steps` context contains information about the steps in the current job that have an [`id`](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idstepsid) specified and have already run.
+В контексте `steps` содержатся сведения об уже запущенных шагах в текущем задании с указанным свойством [`id`](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idstepsid).
 
-| Property name | Type | Description |
+| Имя свойства | Тип | Описание |
 |---------------|------|-------------|
-| `steps` | `object` | This context changes for each step in a job. You can access this context from any step in a job. This object contains all the properties listed below. |
-| `steps.<step_id>.outputs` | `object` | The set of outputs defined for the step. For more information, see "[Metadata syntax for {% data variables.product.prodname_actions %}](/articles/metadata-syntax-for-github-actions#outputs-for-docker-container-and-javascript-actions)." |
-| `steps.<step_id>.conclusion` | `string` | The result of a completed step after [`continue-on-error`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepscontinue-on-error) is applied. Possible values are `success`, `failure`, `cancelled`, or `skipped`. When a `continue-on-error` step fails, the `outcome` is `failure`, but the final `conclusion` is `success`. |
-| `steps.<step_id>.outcome` | `string` | The result of a completed step before [`continue-on-error`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepscontinue-on-error) is applied. Possible values are `success`, `failure`, `cancelled`, or `skipped`. When a `continue-on-error` step fails, the `outcome` is `failure`, but the final `conclusion` is `success`. |
-| `steps.<step_id>.outputs.<output_name>` | `string` | The value of a specific output. |
+| `steps` | `object` | Этот контекст меняется для каждого шага в задании. Доступ к этому контексту можно получить из любого шага задания. Данный объект содержит все свойства, перечисленные ниже. |
+| `steps.<step_id>.outputs` | `object` | Набор выходных данных, определенных для шага. Дополнительные сведения см. в разделе [Синтаксис метаданных для {% data variables.product.prodname_actions %}](/articles/metadata-syntax-for-github-actions#outputs-for-docker-container-and-javascript-actions). |
+| `steps.<step_id>.conclusion` | `string` | Результат завершенного шага после применения [`continue-on-error`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepscontinue-on-error). Возможные значения: `success`, `failure`, `cancelled` или `skipped`. Если шаг `continue-on-error` завершается сбоем, то `outcome` имеет значение `failure`, однако последнее свойство `conclusion` имеет значение `success`. |
+| `steps.<step_id>.outcome` | `string` | Результат завершенного шага до применения [`continue-on-error`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepscontinue-on-error). Возможные значения: `success`, `failure`, `cancelled` или `skipped`. Если шаг `continue-on-error` завершается сбоем, то `outcome` имеет значение `failure`, однако последнее свойство `conclusion` имеет значение `success`. |
+| `steps.<step_id>.outputs.<output_name>` | `string` | Значение определенного набора выходных данных. |
 
-### Example contents of the `steps` context
+### Пример содержимого контекста `steps`
 
-This example `steps` context shows two previous steps that had an [`id`](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idstepsid) specified. The first step had the `id` named `checkout`, the second `generate_number`. The `generate_number` step had an output named `random_number`.
+В этом примере контекста `steps` показаны два предыдущих шага с заданным свойством [`id`](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idstepsid). У первого шага свойство `id` называлось `checkout`, у второго — `generate_number`. Выходными данными шага `generate_number` был номер `random_number`.
 
 ```json
 {
@@ -519,9 +454,9 @@ This example `steps` context shows two previous steps that had an [`id`](/action
 }
 ```
 
-### Example usage of the `steps` context
+### Пример использования контекста `steps`
 
-This example workflow generates a random number as an output in one step, and a later step uses the `steps` context to read the value of that output.
+В этом примере рабочего процесса в качестве выходных данных одного шага создается случайное число, а на последующем шаге эти выходные данные считываются с помощью контекста `steps`.
 
 ```yaml{:copy}
 name: Generate random failure
@@ -544,13 +479,13 @@ jobs:
           if [[ {% raw %}${{ steps.generate_number.outputs.random_number }}{% endraw %} == 0 ]]; then exit 0; else exit 1; fi
 ```
 
-## `runner` context
+## Контекст `runner`
 
-The `runner` context contains information about the runner that is executing the current job.
+Контекст `runner` содержит сведения о средстве выполнения, которое запускает текущее задание.
 
-| Property name | Type | Description |
+| Имя свойства | Тип | Описание |
 |---------------|------|-------------|
-| `runner` | `object` | This context changes for each job in a workflow run. This object contains all the properties listed below. |
+| `runner` | `object` | Этот контекст меняется для каждого задания в экземпляре рабочего процесса. Данный объект содержит все свойства, перечисленные ниже. |
 | `runner.name` | `string` | {% data reusables.actions.runner-name-description %} |
 | `runner.os` | `string` | {% data reusables.actions.runner-os-description %} |{% ifversion actions-runner-arch-envvars %}
 | `runner.arch` | `string` | {% data reusables.actions.runner-arch-description %} |{% endif %}
@@ -558,14 +493,12 @@ The `runner` context contains information about the runner that is executing the
 | `runner.tool_cache` | `string` | {% ifversion ghae %}{% data reusables.actions.self-hosted-runners-software %} {% else %} {% data reusables.actions.runner-tool-cache-description %} {% endif %}|
 | `runner.debug` | `string` | {% data reusables.actions.runner-debug-description %} |
 
-{%- comment %}
-The `runner.workspace` property is purposefully not documented. It is an early Actions property that now isn't relevant for users, compared to `github.workspace`. It is kept around for compatibility.
-| `runner.workspace` | `string` | |
-{%- endcomment %}
+{%- comment %} Свойство `runner.workspace` отсутствует в описании намеренно. В отличие от `github.workspace` это одно из старых свойств Actions, которое не предназначено для пользователей. Он сохранено для обеспечения совместимости.
+| `runner.workspace` | `string` | | {%- endcomment %}
 
-### Example contents of the `runner` context
+### Пример содержимого контекста `runner`
 
-The following example context is from a Linux {% data variables.product.prodname_dotcom %}-hosted runner.
+Ниже приводится пример контекста из средства выполнения для Linux, размещенного в {% data variables.product.prodname_dotcom %}.
 
 ```json
 {
@@ -581,9 +514,9 @@ The following example context is from a Linux {% data variables.product.prodname
 }
 ```
 
-### Example usage of the `runner` context
+### Пример использования контекста `runner`
 
-This example workflow uses the `runner` context to set the path to the temporary directory to write logs, and if the workflow fails, it uploads those logs as artifact.
+В этом примере рабочего процесса с помощью контекста `runner` задается путь к временному каталогу для записи журналов, а если рабочий процесс завершается сбоем, эти журналы отправляются в качестве артефакта.
 
 ```yaml{:copy}
 name: Build
@@ -606,23 +539,23 @@ jobs:
           path: {% raw %}${{ runner.temp }}{% endraw %}/build_logs
 ```
 
-## `secrets` context
+## Контекст `secrets`
 
-The `secrets` context contains the names and values of secrets that are available to a workflow run. The `secrets` context is not available for composite actions due to security reasons. If you want to pass a secret to a composite action, you need to do it explicitly as an input. For more information about secrets, see "[Encrypted secrets](/actions/security-guides/encrypted-secrets)."
+Контекст `secrets` содержит имена и значения секретов, доступных для экземпляра рабочего процесса. Контекст `secrets` недоступен для составных действий из-за соображений безопасности. Если вы хотите передать секрет в составное действие, необходимо явно сделать это в качестве входных данных. Дополнительные сведения о секретах см. в разделе [Зашифрованные секреты](/actions/security-guides/encrypted-secrets).
 
-`GITHUB_TOKEN` is a secret that is automatically created for every workflow run, and is always included in the `secrets` context. For more information, see "[Automatic token authentication](/actions/security-guides/automatic-token-authentication)."
+`GITHUB_TOKEN` — это секрет, который автоматически создается для каждого экземпляра рабочего процесса и всегда включается в контекст `secrets`. Дополнительные сведения см. в разделе [Автоматическая проверка подлинности токенов](/actions/security-guides/automatic-token-authentication).
 
 {% data reusables.actions.secrets-redaction-warning %}
 
-| Property name | Type | Description |
+| Имя свойства | Тип | Описание |
 |---------------|------|-------------|
-| `secrets` | `object` | This context is the same for each job in a workflow run. You can access this context from any step in a job. This object contains all the properties listed below. |
-| `secrets.GITHUB_TOKEN` | `string` | Automatically created token for each workflow run. For more information, see "[Automatic token authentication](/actions/security-guides/automatic-token-authentication)." |
-| `secrets.<secret_name>` | `string` | The value of a specific secret. |
+| `secrets` | `object` | Этот контекст одинаков для каждого задания в экземпляре рабочего процесса. Доступ к этому контексту можно получить из любого шага задания. Данный объект содержит все свойства, перечисленные ниже. |
+| `secrets.GITHUB_TOKEN` | `string` | Автоматически созданный токен для каждого экземпляра рабочего процесса. Дополнительные сведения см. в разделе [Автоматическая проверка подлинности токенов](/actions/security-guides/automatic-token-authentication). |
+| `secrets.<secret_name>` | `string` | Значение определенного секрета. |
 
-### Example contents of the `secrets` context
+### Пример содержимого контекста `secrets`
 
-The following example contents of the `secrets` context shows the automatic `GITHUB_TOKEN`, as well as two other secrets available to the workflow run.
+В следующем примере содержимого контекста `secrets` показан токен `GITHUB_TOKEN` с автоматической проверкой, а также два других секрета, доступных экземпляру рабочего процесса.
 
 ```json
 {
@@ -632,25 +565,25 @@ The following example contents of the `secrets` context shows the automatic `GIT
 }
 ```
 
-### Example usage of the `secrets` context
+### Пример использования контекста `secrets`
 
 {% data reusables.actions.github_token-input-example %}
 
-## `strategy` context
+## Контекст `strategy`
 
-For workflows with a matrix, the `strategy` context contains information about the matrix execution strategy for the current job.
+Для рабочих процессов с матрицей контекст `strategy` содержит сведения о стратегии выполнения матрицы для текущего задания.
 
-| Property name | Type | Description |
+| Имя свойства | Тип | Описание |
 |---------------|------|-------------|
-| `strategy` | `object` | This context changes for each job in a workflow run. You can access this context from any job or step in a workflow. This object contains all the properties listed below. |
-| `strategy.fail-fast` | `boolean` | When `true`, all in-progress jobs are canceled if any job in a matrix fails. For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategyfail-fast)." |
-| `strategy.job-index` | `number` | The index of the current job in the matrix. **Note:** This number is a zero-based number. The first job's index in the matrix is `0`. |
-| `strategy.job-total` | `number` | The total number of jobs in the matrix. **Note:** This number **is not** a zero-based number. For example, for a matrix with four jobs, the value of `job-total` is `4`. |
-| `strategy.max-parallel` | `number` | The maximum number of jobs that can run simultaneously when using a `matrix` job strategy. For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategymax-parallel)." |
+| `strategy` | `object` | Этот контекст меняется для каждого задания в экземпляре рабочего процесса. Доступ к этому контексту можно получить из любого задания или шага рабочего процесса. Данный объект содержит все свойства, перечисленные ниже. |
+| `strategy.fail-fast` | `boolean` | Если свойство имеет значение `true`, все выполняемые задания отменяются при сбое какого-либо задания в матрице. Дополнительные сведения см. в статье [Синтаксис рабочего процесса для {% data variables.product.prodname_actions %}](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategyfail-fast). |
+| `strategy.job-index` | `number` | Индекс текущего задания в матрице. **Примечание.** Это число с отсчетом от нуля. Индекс первого задания в матрице равен `0`. |
+| `strategy.job-total` | `number` | Общее количество заданий в матрице. **Примечание.** Это **не** число с отсчетом от нуля. Например, для матрицы с четырьмя заданиями `job-total` имеет значение `4`. |
+| `strategy.max-parallel` | `number` | Максимальное число заданий, которые могут выполняться одновременно при использовании стратегии заданий `matrix`. Дополнительные сведения см. в статье [Синтаксис рабочего процесса для {% data variables.product.prodname_actions %}](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategymax-parallel). |
 
-### Example contents of the `strategy` context
+### Пример содержимого контекста `strategy`
 
-The following example contents of the `strategy` context is from a matrix with four jobs, and is taken from the final job. Note the difference between the zero-based `job-index` number, and `job-total` which is not zero-based.
+В следующем примере содержимое контекста `strategy` взято из последнего задания в матрице с четырьмя заданиям. Обратите внимание на разницу между числом `job-index` с отсчетом от нуля и свойством `job-total`, которое не отсчитывается от нуля.
 
 ```json
 {
@@ -661,9 +594,9 @@ The following example contents of the `strategy` context is from a matrix with f
 }
 ```
 
-### Example usage of the `strategy` context
+### Пример использования контекста `strategy`
 
-This example workflow uses the `strategy.job-index` property to set a unique name for a log file for each job in a matrix.
+В этом примере рабочего процесса с помощью свойства `strategy.job-index` задается уникальное имя файла журнала для каждого задания в матрице.
 
 ```yaml{:copy}
 name: Test matrix
@@ -686,20 +619,20 @@ jobs:
           path: test-job-{% raw %}${{ strategy.job-index }}{% endraw %}.txt
 ```
 
-## `matrix` context
+## Контекст `matrix`
 
-For workflows with a matrix, the `matrix` context contains the matrix properties defined in the workflow file that apply to the current job. For example, if you configure a matrix with the `os` and `node` keys, the `matrix` context object includes the `os` and `node` properties with the values that are being used for the current job.
+Для рабочих процессов с матрицей контекст `matrix` содержит свойства матрицы, определенные в файле рабочего процесса, который применяется к текущему заданию. Например, если настроить матрицу с ключами `os` и `node`, объект контекста `matrix` включает свойства `os` и `node` со значениями, которые используются для текущего задания.
 
-There are no standard properties in the `matrix` context, only those which are defined in the workflow file.
+В контексте `matrix` нет стандартных свойств, а есть только те, что определены в файле рабочего процесса.
 
-| Property name | Type | Description |
+| Имя свойства | Тип | Описание |
 |---------------|------|-------------|
-| `matrix` | `object` | This context is only available for jobs in a matrix, and changes for each job in a workflow run. You can access this context from any job or step in a workflow. This object contains the properties listed below. |
-| `matrix.<property_name>` | `string` | The value of a matrix property. |
+| `matrix` | `object` | Этот контекст доступен только для заданий в матрице и меняется для каждого задания в экземпляре рабочего процесса. Доступ к этому контексту можно получить из любого задания или шага рабочего процесса. Этот объект содержит свойства, перечисленные ниже. |
+| `matrix.<property_name>` | `string` | Значение свойства matrix. |
 
-### Example contents of the `matrix` context
+### Пример содержимого контекста `matrix`
 
-The following example contents of the `matrix` context is from a job in a matrix that has the `os` and `node` matrix properties defined in the workflow. The job is executing the matrix combination of an `ubuntu-latest` OS and Node.js version `16`.
+В следующем примере содержимое контекста `matrix` взято из задания в матрице, у которой есть свойства `os` и `node`, определенные в рабочем процессе. Задание выполняется с сочетанием ОС `ubuntu-latest` и Node.js версии `16`.
 
 ```json
 {
@@ -708,9 +641,9 @@ The following example contents of the `matrix` context is from a job in a matrix
 }
 ```
 
-### Example usage of the `matrix` context
+### Пример использования контекста `matrix`
 
-This example workflow creates a matrix with `os` and `node` keys. It uses the `matrix.os` property to set the runner type for each job, and uses the `matrix.node` property to set the Node.js version for each job.
+В этом примере рабочий процесс создает матрицу с ключами `os` и `node`. В нем для каждого задания с помощью свойства `matrix.os` задается тип средства выполнения, а с помощью свойства `matrix.node` — версия Node.js.
 
 ```yaml{:copy}
 name: Test matrix
@@ -734,21 +667,21 @@ jobs:
         run: npm test
 ```
 
-## `needs` context
+## Контекст `needs`
 
-The `needs` context contains outputs from all jobs that are defined as a direct dependency of the current job. Note that this doesn't include implicitly dependent jobs (for example, dependent jobs of a dependent job). For more information on defining job dependencies, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idneeds)."
+Контекст `needs` содержит выходные данные всех заданий, которые определены как прямая зависимость текущего задания. Обратите внимание, что сюда не входят неявно зависимые задания (например, зависимые задания зависимого задания). Дополнительные сведения об определении зависимостей заданий см. в статье "[Синтаксис рабочего процесса для {% data variables.product.prodname_actions %}](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idneeds)".
 
-| Property name | Type | Description |
+| Имя свойства | Тип | Описание |
 |---------------|------|-------------|
-| `needs` | `object` | This context is only populated for workflow runs that have dependent jobs, and changes for each job in a workflow run. You can access this context from any job or step in a workflow. This object contains all the properties listed below. |
-| `needs.<job_id>` | `object` | A single job that the current job depends on. |
-| `needs.<job_id>.outputs` | `object` | The set of outputs of a job that the current job depends on. |
-| `needs.<job_id>.outputs.<output name>` | `string` | The value of a specific output for a job that the current job depends on. |
-| `needs.<job_id>.result` | `string` | The result of a job that the current job depends on. Possible values are `success`, `failure`, `cancelled`, or `skipped`. |
+| `needs` | `object` | Этот контекст заполняется только для экземпляров рабочих процессов с зависимыми заданиями и меняется для каждого задания в рабочем процессе. Доступ к этому контексту можно получить из любого задания или шага рабочего процесса. Данный объект содержит все свойства, перечисленные ниже. |
+| `needs.<job_id>` | `object` | Одно задание, от которого зависит текущее задание. |
+| `needs.<job_id>.outputs` | `object` | Набор выходных данных задания, от которого зависит текущее задание. |
+| `needs.<job_id>.outputs.<output name>` | `string` | Значение определенного набора выходных данных для задания, от которого зависит текущее задание. |
+| `needs.<job_id>.result` | `string` | Результат задания, от которого зависит текущее задание. Возможные значения: `success`, `failure`, `cancelled` или `skipped`. |
 
-### Example contents of the `needs` context
+### Пример содержимого контекста `needs`
 
-The following example contents of the `needs` context shows information for two jobs that the current job depends on.
+В следующем примере содержимого контекста `needs` показаны сведения о двух заданиях, от которых зависит текущее задание.
 
 ```json
 {
@@ -765,9 +698,9 @@ The following example contents of the `needs` context shows information for two 
 }
 ```
 
-### Example usage of the `needs` context
+### Пример использования контекста `needs`
 
-This example workflow has three jobs: a `build` job that does a build, a `deploy` job that requires the `build` job, and a `debug` job that requires both the `build` and `deploy` jobs and runs only if there is a failure in the workflow. The `deploy` job also uses the `needs` context to access an output from the `build` job.
+В этом примере рабочего процесса есть три задания: `build`, которое выполняет сборку, `deploy`, которому требуется задание `build`, а также `debug`, которому требуются и задание `build`, и `deploy` и которое выполняется, только если в рабочем процессе произошел сбой. Задание `deploy` также использует контекст `needs` для доступа к выходным данным задания `build`.
 
 ```yaml{:copy}
 name: Build and deploy
@@ -805,22 +738,22 @@ jobs:
 ```
 
 {% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
-## `inputs` context
+## Контекст `inputs`
 
-The `inputs` context contains input properties passed to an action{% ifversion actions-unified-inputs %},{% else %} or{% endif %} to a reusable workflow{% ifversion actions-unified-inputs %}, or to a manually triggered workflow{% endif %}. {% ifversion actions-unified-inputs %}For reusable workflows, the{% else %}The{% endif %} input names and types are defined in the [`workflow_call` event configuration](/actions/learn-github-actions/events-that-trigger-workflows#workflow-reuse-events) of a reusable workflow, and the input values are passed from [`jobs.<job_id>.with`](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idwith) in an external workflow that calls the reusable workflow. {% ifversion actions-unified-inputs %}For manually triggered workflows, the inputs are defined in the [`workflow_dispatch` event configuration](/actions/learn-github-actions/events-that-trigger-workflows#workflow_dispatch) of a workflow.{% endif %}
+Контекст `inputs` содержит входные свойства, передаваемые в действие{% ifversion actions-unified-inputs %},{% else %} или{% endif %} в повторно используемый рабочий процесс{% ifversion actions-unified-inputs %}, или в рабочий процесс, активируемый вручную{% endif %}. {% ifversion actions-unified-inputs %}Для многократно используемых рабочих процессов. {% else %}{% endif %}Имена и типы входных данных определяются в [конфигурации события `workflow_call`](/actions/learn-github-actions/events-that-trigger-workflows#workflow-reuse-events) многократно используемого рабочего процесса, а входные значения передаются из [`jobs.<job_id>.with`](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idwith) во внешнем рабочем процессе, который вызывает многократно используемый рабочий процесс. {% ifversion actions-unified-inputs %} Для рабочих процессов, активированных вручную, входные данные определяются в [конфигурации события `workflow_dispatch`](/actions/learn-github-actions/events-that-trigger-workflows#workflow_dispatch) рабочего процесса.{% endif %}
 
-There are no standard properties in the `inputs` context, only those which are defined in the workflow file.
+В контексте `inputs` нет стандартных свойств, а есть только те, что определены в файле рабочего процесса.
 
-{% data reusables.actions.reusable-workflows-ghes-beta %}
+{% data reusables.actions.reusable-workflows-enterprise-beta %}
 
-| Property name | Type | Description |
+| Имя свойства | Тип | Описание |
 |---------------|------|-------------|
-| `inputs` | `object` | This context is only available in a [reusable workflow](/actions/learn-github-actions/reusing-workflows){% ifversion actions-unified-inputs %} or in a workflow triggered by the [`workflow_dispatch` event](/actions/learn-github-actions/events-that-trigger-workflows#workflow_dispatch){% endif %}. You can access this context from any job or step in a workflow. This object contains the properties listed below. |
-| `inputs.<name>` | `string` or `number` or `boolean` | Each input value passed from an external workflow. |
+| `inputs` | `object` | Этот контекст доступен только в [многократно используемых рабочих процессах](/actions/learn-github-actions/reusing-workflows){% ifversion actions-unified-inputs %} или в рабочем процессе, активируемом [событием`workflow_dispatch`](/actions/learn-github-actions/events-that-trigger-workflows#workflow_dispatch){% endif %}. Доступ к этому контексту можно получить из любого задания или шага рабочего процесса. Этот объект содержит свойства, перечисленные ниже. |
+| `inputs.<name>` | `string`, `number` или `boolean` | Каждое входное значение, которое передается из внешнего рабочего процесса. |
 
-### Example contents of the `inputs` context
+### Пример содержимого контекста `inputs`
 
-The following example contents of the `inputs` context is from a workflow that has defined the `build_id`, `deploy_target`, and `perform_deploy` inputs.
+Следующий пример содержимого контекста `inputs` взят из рабочего процесса, в котором определены входные данные `build_id`, `deploy_target` и `perform_deploy`.
 
 ```json
 {
@@ -830,9 +763,9 @@ The following example contents of the `inputs` context is from a workflow that h
 }
 ```
 
-### Example usage of the `inputs` context in a reusable workflow
+### Пример использования контекста `inputs` в многократно используемом рабочем процессе
 
-This example reusable workflow uses the `inputs` context to get the values of the `build_id`, `deploy_target`, and `perform_deploy` inputs that were passed to the reusable workflow from the caller workflow.
+В этом примере многократно используемого рабочего процесса с помощью контекста `inputs` получаются значения входных данных `build_id`, `deploy_target` и `perform_deploy`, которые были переданы в многократно используемый рабочий процесс из рабочего процесса вызывающего объекта.
 
 {% raw %}
 ```yaml{:copy}
@@ -861,9 +794,9 @@ jobs:
 {% endraw %}
 
 {% ifversion actions-unified-inputs %}
-### Example usage of the `inputs` context in a manually triggered workflow
+### Пример использования контекста `inputs` в рабочем процессе, активированном вручную
 
-This example workflow triggered by a `workflow_dispatch` event uses the `inputs` context to get the values of the `build_id`, `deploy_target`, and `perform_deploy` inputs that were passed to the workflow.
+В этом примере рабочего процесса, активируемого событием `workflow_dispatch`, используется контекста `inputs` для получения значения входных данных `build_id`, `deploy_target` и `perform_deploy`, которые были переданы в рабочий процесс.
 
 {% raw %}
 ```yaml{:copy}
@@ -888,7 +821,6 @@ jobs:
       - name: Deploy build to target
         run: deploy --build ${{ inputs.build_id }} --target ${{ inputs.deploy_target }}
 ```
-{% endraw %}
-{% endif %}
+{% endraw %} {% endif %}
 
 {% endif %}

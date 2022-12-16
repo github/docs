@@ -1,6 +1,6 @@
 ---
-title: Adding a security policy to your repository
-intro: You can give instructions for how to report a security vulnerability in your project by adding a security policy to your repository.
+title: Ajout d’une stratégie de sécurité à votre dépôt
+intro: Vous pouvez fournir des instructions pour la façon de signaler une vulnérabilité de sécurité dans votre projet en ajoutant une stratégie de sécurité à votre dépôt.
 redirect_from:
   - /articles/adding-a-security-policy-to-your-repository
   - /github/managing-security-vulnerabilities/adding-a-security-policy-to-your-repository
@@ -17,49 +17,47 @@ topics:
   - Repositories
   - Health
 shortTitle: Add a security policy
+ms.openlocfilehash: ef4a256c06b9149bd9db8d7afdce974dd1d29f0d
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148159268'
 ---
+## À propos des stratégies de sécurité
 
-## About security policies
-
-To give people instructions for reporting security vulnerabilities in your project,{% ifversion fpt or ghes or ghec %} you can add a _SECURITY.md_ file to your repository's root, `docs`, or `.github` folder.{% else %} you can add a _SECURITY.md_ file to your repository's root, or `docs` folder.{% endif %} When someone creates an issue in your repository, they will see a link to your project's security policy.
+Pour indiquer aux utilisateurs comment signaler des vulnérabilités de sécurité dans votre projet,{% ifversion fpt or ghes or ghec %} vous pouvez ajouter un fichier _SECURITY.md_ à la racine de votre dépôt, au dossier `docs` ou au dossier `.github`.{% else %} vous pouvez ajouter un fichier _SECURITY.md_ à la racine de votre dépôt ou au dossier `docs`.{% endif %} Quand un utilisateur crée un problème dans votre dépôt, il voit un lien vers la stratégie de sécurité de votre projet.
 
 {% ifversion not ghae %}
 <!-- no public repos in GHAE -->
-You can create a default security policy for your organization or personal account. For more information, see "[Creating a default community health file](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
+Vous pouvez créer une stratégie de sécurité par défaut pour votre organisation ou votre compte personnel. Pour plus d’informations, consultez « [Création d’un fichier d’intégrité de la communauté par défaut](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file) ».
 {% endif %}
 
 {% tip %}
 
-**Tip:** To help people find your security policy, you can link to your _SECURITY.md_ file from other places in your repository, such as your README file. For more information, see "[About READMEs](/articles/about-readmes)."
+**Conseil** : Pour aider les utilisateurs à trouver votre stratégie de sécurité, vous pouvez créer un lien vers votre fichier _SECURITY.md_ à partir d’autres emplacements dans le dépôt, par exemple le fichier README. Pour plus d’informations, consultez « [À propos des fichiers README](/articles/about-readmes) ».
 
 {% endtip %}
 
-{% ifversion fpt or ghec %}
-After someone reports a security vulnerability in your project, you can use {% data variables.product.prodname_security_advisories %} to disclose, fix, and publish information about the vulnerability. For more information about the process of reporting and disclosing vulnerabilities in {% data variables.product.prodname_dotcom %}, see "[About coordinated disclosure of security vulnerabilities](/code-security/security-advisories/guidance-on-reporting-and-writing/about-coordinated-disclosure-of-security-vulnerabilities#about-reporting-and-disclosing-vulnerabilities-in-projects-on-github)." For more information about repository security advisories, see "[About repository security advisories](/github/managing-security-vulnerabilities/about-github-security-advisories)."
+{% ifversion fpt or ghec %} Une fois qu’un utilisateur a signalé une vulnérabilité de sécurité dans votre projet, vous pouvez utiliser {% data variables.product.prodname_security_advisories %} pour divulguer, corriger et publier les informations sur la vulnérabilité. Pour plus d’informations sur le processus de signalement et de divulgation de vulnérabilités dans {% data variables.product.prodname_dotcom %}, consultez « [À propos de la divulgation coordonnée des vulnérabilités de sécurité](/code-security/security-advisories/guidance-on-reporting-and-writing/about-coordinated-disclosure-of-security-vulnerabilities#about-reporting-and-disclosing-vulnerabilities-in-projects-on-github) ». Pour plus d’informations sur les avis de sécurité des référentiels, consultez « [À propos des avis de sécurité des référentiels](/github/managing-security-vulnerabilities/about-github-security-advisories). »
 
-{% data reusables.repositories.github-security-lab %}
-{% endif %}
-{% ifversion ghes or ghae %}
+{% data reusables.repositories.github-security-lab %} {% endif %} {% ifversion ghes or ghae %}
 <!-- alternative to the content about GitHub Security Advisories in the dotcom article -->
-By making security reporting instructions clearly available, you make it easy for your users to report any security vulnerabilities they find in your repository using your preferred communication channel.
+En rendant les instructions de signalement des vulnérabilités de sécurité clairement disponibles, vous permettez à vos utilisateurs de signaler facilement les vulnérabilités de sécurité qu’ils trouvent dans votre dépôt en utilisant votre canal de communication préféré.
 {% endif %}
 
-## Adding a security policy to your repository
+## Ajout d’une stratégie de sécurité à votre dépôt
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-security %}
-3. In the left sidebar, click **Security policy**.
-  ![Security policy tab](/assets/images/help/security/security-policy-tab.png)
-4. Click **Start setup**.
-  ![Start setup button](/assets/images/help/security/start-setup-security-policy-button.png)
-5. In the new _SECURITY.md_ file, add information about supported versions of your project and how to report a vulnerability.
-{% data reusables.files.write_commit_message %}
-{% data reusables.files.choose-commit-email %}
-{% data reusables.files.choose_commit_branch %}
-{% data reusables.files.propose_file_change %}
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-security %}
+3. Dans le volet gauche, cliquez sur **Stratégie de sécurité**.
+  ![Onglet Stratégie de sécurité](/assets/images/help/security/security-policy-tab.png)
+4. Cliquez sur **Démarrer la configuration**.
+  ![Bouton Démarrer la configuration](/assets/images/help/security/start-setup-security-policy-button.png)
+5. Dans le nouveau fichier _SECURITY.md_, ajoutez des informations sur les versions prises en charge de votre projet et sur la façon de signaler une vulnérabilité.
+{% data reusables.files.write_commit_message %} {% data reusables.files.choose-commit-email %} {% data reusables.files.choose_commit_branch %} {% data reusables.files.propose_file_change %}
 
-## Further reading
+## Pour aller plus loin
 
-- "[Securing your repository](/code-security/getting-started/securing-your-repository)"{% ifversion not ghae %}
-- "[Setting up your project for healthy contributions](/communities/setting-up-your-project-for-healthy-contributions)"{% endif %}{% ifversion fpt or ghec %}
+- « [Sécurisation de votre dépôt](/code-security/getting-started/securing-your-repository) »{% ifversion not ghae %}
+- « [Configuration de votre projet pour des contributions saines](/communities/setting-up-your-project-for-healthy-contributions) »{% endif %}{% ifversion fpt or ghec %}
 - [{% data variables.product.prodname_security %}]({% data variables.product.prodname_security_link %}){% endif %}

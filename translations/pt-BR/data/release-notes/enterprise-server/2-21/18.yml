@@ -1,0 +1,16 @@
+date: '2021-04-01'
+sections:
+  security_fixes:
+    - "**ALTO:** Foi identificada uma vulnerabilidade de acesso impróprio no GitHub Enterprise Server que permitia que tokens de acesso gerados pelo aplicativo do GitHub [fluxo de autenticação da Web](https://docs.github.com/en/developers/apps/identifying-and-authorizing-users-for-github-apps#Web-application-flow) lessem os dados de metadados do repositório privado via API REST sem a concessão das permissões adequadas. Para explorar esta vulnerabilidade, um invasor precisaria criar um aplicativo do GitHub na instância e fazer com que um usuário autorizasse o aplicativo através do fluxo de autenticação da Web. O metadado de repositório privado retornado seria limitado para repositórios pertencentes ao usuário identificado pelo token. Esta vulnerabilidade afetou todas as versões do GitHub Enterprise Server anteriores à 3.0.4 e foi corrigida nas versões 3.0.4, 2.22.10, 2.21.18. Essa vulnerabilidade foi designada CVE-2021-22865 e foi relatada pelo [Programa de Recompensas por Bugs do GitHub](https://bounty.github.com)."
+    - Os pacotes foram atualizados para as últimas versões de segurança.
+  bugs:
+    - "Os serviços não estavam sendo transferidos para novos arquivos de registro como parte da rotação de registro, resultando em aumento no uso do disco."
+    - "A etiqueta nos resultados de pesquisa para repositórios internos foi mostrada como \"Privado\" em vez de \"Interno\"."
+  known_issues:
+    - "Em uma nova configuração do GitHub Enterprise Server sem nenhum usuário, um invasor pode criar o primeiro usuário administrador."
+    - As regras personalizadas de firewall não são mantidas durante uma atualização.
+    - "Arquivos LFS do Git [enviados através da interface Web](https://github.com/blog/2105-upload-files-to-your-repositories) são adicionados diretamente ao repositório e de maneira incorreta."
+    - Os problemas não podem ser fechados se contiverem um permalink para um blob no mesmo repositório em que o caminho do arquivo tem mais de 255 caracteres.
+    - "Quando \"Usuários podem pesquisar pelo GitHub.com\" está habilitado com o GitHub Connect, os problemas em repositórios privados e internos não estão incluídos nos resultados de pesquisa do GitHub.com."
+    - Os alertas de segurança não são relatados ao efetuar push em um repositório na linha de comando.
+    - 'Quando um nó de réplica está offline em uma configuração de alta disponibilidade, {% data variables.product.product_name %} ainda pode encaminhar solicitações de {% data variables.product.prodname_pages %} para o nó offline, reduzindo a disponibilidade de {% data variables.product.prodname_pages %} para os usuários.'

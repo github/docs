@@ -1,18 +1,24 @@
 ---
-title: About connections to GitHub
-intro: '{% data variables.product.prodname_desktop %} uses HTTPS to securely exchange data with {% data variables.product.prodname_dotcom %}.'
+title: GitHub 연결 정보
+intro: '{% data variables.product.prodname_desktop %}은 HTTPS를 사용하여 {% data variables.product.prodname_dotcom %}와 데이터를 안전하게 교환합니다.'
 redirect_from:
   - /desktop/getting-started-with-github-desktop/about-connections-to-github
   - /desktop/installing-and-configuring-github-desktop/about-connections-to-github
 versions:
   fpt: '*'
 shortTitle: About connections
+ms.openlocfilehash: 4b5458cd036c106beafdc63a9727aed859022f7f
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148098638'
 ---
-{% data variables.product.prodname_desktop %} connects to {% data variables.product.prodname_dotcom %} when you pull from, push to, clone, and fork remote repositories. To connect to {% data variables.product.prodname_dotcom %} from {% data variables.product.prodname_desktop %}, you must authenticate your account. For more information, see "[Authenticating to {% data variables.product.prodname_dotcom %}](/desktop/getting-started-with-github-desktop/authenticating-to-github)."
+원격 리포지토리를 풀하고, 푸시하고, 복제하고, 포크하면 {% data variables.product.prodname_desktop %}은 {% data variables.product.prodname_dotcom %}에 연결합니다. {% data variables.product.prodname_desktop %}에서 {% data variables.product.prodname_dotcom %}에 연결하려면 계정을 인증해야 합니다. 자세한 내용은 “[{% data variables.product.prodname_dotcom %}에 인증](/desktop/getting-started-with-github-desktop/authenticating-to-github)”을 참조하세요.
 
-After you authenticate to {% data variables.product.prodname_dotcom %}, you can connect to remote repositories with {% data variables.product.prodname_desktop %}. {% data variables.product.prodname_desktop %} caches your credentials (username and password or {% data variables.product.pat_generic %}) and uses the credentials to authenticate for each connection to the remote repository.
+{% data variables.product.prodname_dotcom %}에 인증한 후 {% data variables.product.prodname_desktop %}을 사용하여 원격 리포지토리에 연결할 수 있습니다. {% 데이터 variables.product.prodname_desktop %}은(는) 자격 증명(사용자 이름 및 암호 또는 {% 데이터 variables.product.pat_generic %})을 캐시하고 자격 증명을 사용하여 원격 리포지토리에 대한 각 연결에 대해 인증합니다.
 
-{% data variables.product.prodname_desktop %} connects to {% data variables.product.prodname_dotcom %} using HTTPS. If you use {% data variables.product.prodname_desktop %} to access repositories that were cloned using SSH, you may encounter errors. To connect to a repository that was cloned using SSH, change the remote's URLs. For more information, see "[Managing remote repositories](/github/getting-started-with-github/managing-remote-repositories)."
+{% data variables.product.prodname_desktop %}은 HTTPS를 사용하여 {% data variables.product.prodname_dotcom %}에 연결합니다. {% data variables.product.prodname_desktop %}을 사용하여 SSH를 통해 복제된 리포지토리에 액세스하면 오류가 발생할 수 있습니다. SSH를 사용하여 복제된 리포지토리에 연결하려면 원격 URL을 변경합니다. 자세한 내용은 “[원격 리포지토리 관리](/github/getting-started-with-github/managing-remote-repositories)”를 참조하세요.
 
-## Further reading
-- "[Cloning and forking repositories from GitHub Desktop](/desktop/contributing-and-collaborating-using-github-desktop/cloning-and-forking-repositories-from-github-desktop)"
+## 추가 참고 자료
+- “[GitHub Desktop에서 리포지토리 복제 및 포크](/desktop/contributing-and-collaborating-using-github-desktop/cloning-and-forking-repositories-from-github-desktop)”

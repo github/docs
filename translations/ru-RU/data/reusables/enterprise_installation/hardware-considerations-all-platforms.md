@@ -1,10 +1,18 @@
-- [Minimum requirements](#minimum-requirements)
-- [Storage](#storage)
-- [CPU and memory](#cpu-and-memory)
+---
+ms.openlocfilehash: a692ea55fd8c3d849c3058d9bab155341b701ef3
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/20/2022
+ms.locfileid: "148097891"
+---
+- [Минимальные требования](#minimum-requirements)
+- [Память](#storage)
+- [ЦП и память](#cpu-and-memory)
 
-### Minimum requirements
+### Минимальные требования
 
-We recommend different hardware configurations depending on the number of user licenses for {% data variables.location.product_location %}. If you provision more resources than the minimum requirements, your instance will perform and scale better.
+Рекомендуется использовать разные конфигурации оборудования в зависимости от количества пользовательских лицензий для {% данных variables.location.product_location %}. Если подготовить больше ресурсов, чем минимальные требования, экземпляр будет работать и масштабировать лучше.
 
 {% data reusables.enterprise_installation.hardware-rec-table %}
 
@@ -12,27 +20,27 @@ We recommend different hardware configurations depending on the number of user l
 
 {% data reusables.enterprise_installation.about-adjusting-resources %}
 
-### Storage
+### Память
 
-We recommend a high-performance SSD with high input/output operations per second (IOPS) and low latency for {% data variables.product.prodname_ghe_server %}. Workloads are I/O intensive. If you use a bare metal hypervisor, we recommend directly attaching the disk or using a disk from a storage area network (SAN).
+Рекомендуется использовать высокопроизводительный SSD с высокой скоростью операций ввода-вывода в секунду (IOPS) и низкой задержкой для {% data variables.product.prodname_ghe_server %}. Рабочие нагрузки интенсивно используют ввод-вывод. Если используется гипервизор без операционной системы, рекомендуется напрямую подключить диск или использовать диск из сети хранения данных (SAN).
 
-Your instance requires a persistent data disk separate from the root disk. For more information, see "[System overview](/enterprise/admin/guides/installation/system-overview)."
+Для экземпляра требуется постоянный диск данных, отделенный от корневого диска. Подробнее см. в статье [Обзор системы](/enterprise/admin/guides/installation/system-overview).
 
 {% ifversion ghes %}
 
-To configure {% data variables.product.prodname_actions %}, you must provide external blob storage. For more information, see "[Getting started with {% data variables.product.prodname_actions %} for {% data variables.product.prodname_ghe_server %}](/admin/github-actions/getting-started-with-github-actions-for-github-enterprise-server##external-storage-requirements)."
+Чтобы настроить {% data variables.product.prodname_actions %}, необходимо предоставить внешнее хранилище BLOB-объектов. Дополнительные сведения см. в разделе [Начало работы с {% data variables.product.prodname_actions %} для {% data variables.product.prodname_ghe_server %}](/admin/github-actions/getting-started-with-github-actions-for-github-enterprise-server##external-storage-requirements).
 
 {% endif %}
 
-The available space on the root filesystem will be 50% of the total disk size. You can resize your instance's root disk by building a new instance or using an existing instance. For more information, see "[System overview](/enterprise/admin/guides/installation/system-overview#storage-architecture)" and "[Increasing storage capacity](/enterprise/admin/guides/installation/increasing-storage-capacity)."
+Доступное пространство в корневой файловой системе будет составлять 50 % от общего размера диска. Можно изменить размер корневого диска экземпляра, создав новый экземпляр или используя существующий. Дополнительные сведения см. в разделе [Обзор системы](/enterprise/admin/guides/installation/system-overview#storage-architecture) и [Увеличение емкости хранилища](/enterprise/admin/guides/installation/increasing-storage-capacity).
 
-### CPU and memory
+### ЦП и память
 
-The CPU and memory resources that {% data variables.product.prodname_ghe_server %} requires depend on the levels of activity for users, automations, and integrations.
+Ресурсы ЦП и памяти, необходимые {% data variables.product.prodname_ghe_server %}, зависят от уровней действий пользователей, автоматизации и интеграции.
 
 {% ifversion ghes %}
 
-If you plan to enable {% data variables.product.prodname_actions %} for the users of your {% data variables.product.prodname_ghe_server %} instance, you may need to provision additional CPU and memory resources for your instance. For more information, see "[Getting started with {% data variables.product.prodname_actions %} for {% data variables.product.prodname_ghe_server %}](/admin/github-actions/getting-started-with-github-actions-for-github-enterprise-server#review-hardware-considerations)."
+Если планируется включить {% data variables.product.prodname_actions %} для пользователей экземпляра {% data variables.product.prodname_ghe_server %}, может потребоваться подготовка дополнительных ресурсов ЦП и памяти для экземпляра. Дополнительные сведения см. в разделе [Начало работы с {% data variables.product.prodname_actions %} для {% data variables.product.prodname_ghe_server %}](/admin/github-actions/getting-started-with-github-actions-for-github-enterprise-server#review-hardware-considerations).
 
 {% endif %}
 
@@ -40,10 +48,10 @@ If you plan to enable {% data variables.product.prodname_actions %} for the user
 
 {% warning %}
 
-**Warning:** We recommend that users configure webhook events to notify external systems of activity on {% data variables.product.prodname_ghe_server %}. Automated checks for changes, or _polling_, will negatively impact the performance and scalability of your instance. For more information, see "[About webhooks](/github/extending-github/about-webhooks)."
+**Предупреждение.** Пользователям рекомендуется настраивать события веб-перехватчика для уведомления внешних систем о действиях на {% data variables.product.prodname_ghe_server %}. Автоматические проверки изменений или _опрос_ будут негативно влиять на производительность и масштабируемость экземпляра. Дополнительные сведения см. в статье [Сведения о веб-перехватчиках](/github/extending-github/about-webhooks).
 
 {% endwarning %}
 
-For more information about monitoring the capacity and performance of {% data variables.product.prodname_ghe_server %}, see "[Monitoring your appliance](/admin/enterprise-management/monitoring-your-appliance)."
+Дополнительные сведения о мониторинге емкости и производительности {% data variables.product.prodname_ghe_server %} см. в разделе [Мониторинг устройства](/admin/enterprise-management/monitoring-your-appliance).
 
-You can increase your instance's CPU or memory resources. For more information, see "[Increasing CPU or memory resources](/enterprise/admin/installation/increasing-cpu-or-memory-resources)."
+Ресурсы ЦП или памяти экземпляра можно увеличить. Дополнительные сведения см. в разделе [Увеличение объема ресурсов ЦП или памяти](/enterprise/admin/installation/increasing-cpu-or-memory-resources).

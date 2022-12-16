@@ -1,6 +1,6 @@
 ---
-title: About status checks
-intro: Status checks let you know if your commits meet the conditions set for the repository you're contributing to.
+title: ステータスチェックについて
+intro: ステータスチェックを利用すると、コントリビュート先のリポジトリの条件をコミットが満たしているかどうかを知ることができます。
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/collaborating-on-repositories-with-code-quality-features/about-status-checks
   - /articles/about-statuses
@@ -14,62 +14,68 @@ versions:
   ghec: '*'
 topics:
   - Pull requests
+ms.openlocfilehash: 759889bd4f014e4bc2afff5f182a0b7258c8bb07
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147065867'
 ---
-Status checks are based on external processes, such as continuous integration builds, which run for each push you make to a repository. You can see the *pending*, *passing*, or *failing* state of status checks next to individual commits in your pull request.
+ステータスチェックは、リポジトリにプッシュをするたびに実行される継続的インテグレーションのビルドのような、外部のプロセスに基づいています。 pull request 中の個々のコミットの隣に、ステータスチェックの *pending*、*passing*、*failing* などのステータスが表示されます。
 
-![List of commits and statuses](/assets/images/help/pull_requests/commit-list-statuses.png)
+![コミットとステータスのリスト](/assets/images/help/pull_requests/commit-list-statuses.png)
 
-Anyone with write permissions to a repository can set the state for any status check in the repository.
+書き込み権限があるユーザまたはインテグレーションなら誰でも、リポジトリのステータスチェックを任意のステータスに設定できます。
 
-You can see the overall state of the last commit to a branch on your repository's branches page or in your repository's list of pull requests.
+ブランチへの最後のコミットの全体的なステータスは、リポジトリのブランチページあるいはリポジトリのプルリクエストのリストで見ることができます。
 
 {% data reusables.pull_requests.required-checks-must-pass-to-merge %}
 
-## Types of status checks on {% data variables.product.product_name %}
+## {% data variables.product.product_name %}でのステータスチェックの種類
 
-There are two types of status checks on {% data variables.product.product_name %}:
+{% data variables.product.product_name %} のステータスチェックには 2 種類あります。
 
-- Checks
-- Statuses
+- チェック
+- ステータス
 
-_Checks_ are different from _statuses_ in that they provide line annotations, more detailed messaging, and are only available for use with {% data variables.product.prodname_github_apps %}.
+_チェック_ は、行のアノテーション、より詳細なメッセージを提供するという点で _ステータス_ とは異なっており、{% data variables.product.prodname_github_app %} でのみ利用できます。
 
-Organization owners and users with push access to a repository can create checks and statuses with {% data variables.product.product_name %}'s API. For more information, see "[Checks](/rest/reference/checks)" and "[Statuses](/rest/reference/commits#commit-statuses)."
+Organization オーナー、およびリポジトリにプッシュアクセスを持つユーザは、{% data variables.product.product_name %} の API でチェックおよびステータスを作成できます。 詳細については、「[チェック](/rest/reference/checks)」と「[ステータス](/rest/reference/commits#commit-statuses)」を参照してください。
 
-## Checks
+## チェック
 
-When _checks_ are set up in a repository, pull requests have a **Checks** tab where you can view detailed build output from status checks and rerun failed checks.
+リポジトリで _チェック_ がセットアップされている場合、pull request には **[チェック]** タブがあり、そこからステータスチェックからの詳細なビルドのアウトプットを見て、失敗したチェックを再実行できます。
 
-![Status checks within a pull request](/assets/images/help/pull_requests/checks.png)
+![プルリクエスト中のステータスチェック](/assets/images/help/pull_requests/checks.png)
 
 {% note %}
 
-**Note:** The **Checks** tab only gets populated for pull requests if you set up _checks_, not _statuses_, for the repository.
+**注釈:** リポジトリの _状態_ ではなく、_チェック_ を設定した場合にのみ、 **[チェック]** タブに pull request が設定されます。
 
 {% endnote %}
 
-When a specific line in a commit causes a check to fail, you will see details about the failure, warning, or notice next to the relevant code in the **Files** tab of the pull request.
+コミットの特定の行でチェックが失敗している場合、その失敗、警告、注意に関する詳細が pull request の **[ファイル]** タブの関連するコードの横に表示されます。
 
-![Details of a status check](/assets/images/help/pull_requests/checks-detailed.png)
+![失敗したステータスチェックの詳細](/assets/images/help/pull_requests/checks-detailed.png)
 
-You can navigate between the checks summaries for various commits in a pull request, using the commit drop-down menu under the **Conversation** tab.
+**[会話]** タブの下のコミットドロップダウンメニューを使って、pull request 中のさまざまなコミットのチェックのサマリー間を行き来できます。
 
-![Check summaries for different commits in a drop-down menu](/assets/images/help/pull_requests/checks-summary-for-various-commits.png)
+![ドロップダウンメニュー中でのさまざまなコミットのチェックのサマリー](/assets/images/help/pull_requests/checks-summary-for-various-commits.png)
 
-### Skipping and requesting checks for individual commits
+### 個々のコミットに関するチェックのスキップとリクエスト
 
-When a repository is set to automatically request checks for pushes, you can choose to skip checks for an individual commit you push. When a repository is _not_ set to  automatically request checks for pushes, you can request checks for an individual commit you push. For more information on these settings, see "[Check Suites](/rest/reference/checks#update-repository-preferences-for-check-suites)."
+リポジトリがプッシュに対して自動的にチェックをリクエストするように設定されている場合、プッシュする個々のコミットについてチェックをスキップできます。 リポジトリがプッシュに対して自動的にチェックをリクエストするよう設定されて _いない_ 場合、プッシュする個々のコミットについてチェックをリクエストできます。 これらの設定の詳細については、「[チェックスイート](/rest/reference/checks#update-repository-preferences-for-check-suites)」を参照してください。
 
-To skip or request checks for your commit, add one of the following trailer lines to the end of your commit message:
+コミットに対するチェックをスキップもしくはリクエストするには、以下の追加行のいずれかをコミットメッセージの末尾に追加します:
 
-- To _skip checks_ for a commit, type your commit message and a short, meaningful description of your changes. After your commit description, before the closing quotation, add two empty lines followed by `skip-checks: true`:
+- コミットの _チェックをスキップ_ には、コミットメッセージと変更の短く意味のある説明を入力してください。 コミットの説明の後、終了引用符の前に、2 つの空の行を追加してから `skip-checks: true` を追加します。
   ```shell
   $ git commit -m "Update README
   >
   >
   skip-checks: true"
   ```
-- To _request_ checks for a commit, type your commit message and a short, meaningful description of your changes. After your commit description, before the closing quotation, add two empty lines followed by `request-checks: true`:
+- コミットのチェックを _リクエスト_ するには、コミットメッセージと変更の短く意味のある説明を入力してください。 コミットの説明の後、終了引用符の前に、2 つの空の行を追加してから `request-checks: true` を追加します。
   ```shell
   $ git commit -m "Refactor usability tests
   >
@@ -78,7 +84,6 @@ To skip or request checks for your commit, add one of the following trailer line
   ```
 
 {% ifversion fpt or ghec %}
-### Retention of status checks
+### 状態チェックの保持
 
-{% data reusables.pull_requests.retention-checks-data %}
-{% endif %}
+{% data reusables.pull_requests.retention-checks-data %} {% endif %}

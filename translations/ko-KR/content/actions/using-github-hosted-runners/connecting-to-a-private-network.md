@@ -1,7 +1,7 @@
 ---
-title: Connecting to a private network
+title: 개인 네트워크에 연결
 shortTitle: Connect to a private network
-intro: 'You can connect {% data variables.product.prodname_dotcom %}-hosted runners to resources on a private network, including package registries, secret managers, and other on-premises services.'
+intro: '{% data variables.product.prodname_dotcom %} 호스팅된 실행기를 패키지 레지스트리, 비밀 관리자, 기타 온-프레미스 서비스를 비롯한 프라이빗 네트워크의 리소스에 연결할 수 있습니다.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -10,62 +10,66 @@ type: how_to
 topics:
   - Actions
   - Developer
+ms.openlocfilehash: d593369c1f1455d1f5cf766e5983eb4f010ec064
+ms.sourcegitcommit: 7b86410fc3bc9fecf0cb71dda4c7d2f0da745b85
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/05/2022
+ms.locfileid: '148009587'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+## {% data variables.product.prodname_dotcom %} 호스팅된 실행기 네트워킹 정보
 
-## About {% data variables.product.prodname_dotcom %}-hosted runners networking
+기본적으로 {% data variables.product.prodname_dotcom %} 호스팅된 실행기는 퍼블릭 인터넷에 액세스할 수 있습니다. 그러나 이러한 실행기에서 패키지 레지스트리, 비밀 관리자 또는 기타 온-프레미스 서비스와 같은 개인 네트워크의 리소스에 액세스하도록 할 수도 있습니다. 
 
-By default, {% data variables.product.prodname_dotcom %}-hosted runners have access to the public internet. However, you may also want these runners to access resources on your private network, such as a package registry, a secret manager, or other on-premise services. 
-
-{% data variables.product.prodname_dotcom %}-hosted runners are shared across all {% data variables.product.prodname_dotcom %} customers, so you will need a way of connecting your private network to just your runners while they are running your workflows. There are a few different approaches you could take to configure this access, each with different advantages and disadvantages.
+{% data variables.product.prodname_dotcom %} 호스팅된 실행기는 모든 {% data variables.product.prodname_dotcom %} 고객 간에 공유되므로 워크플로를 실행하는 동안 실행기에게만 개인 네트워크를 연결하는 방법이 필요합니다. 이 액세스를 구성하기 위해 취할 수 있는 몇 가지 방법이 있으며, 각각 다른 장점과 단점이 있습니다.
 
 {% ifversion fpt or ghec or ghes > 3.4 %}
-### Using an API Gateway with OIDC
+### OIDC에서 API 게이트웨이 사용
 
-With {% data variables.product.prodname_actions %}, you can use OpenID Connect (OIDC) tokens to authenticate your workflow outside of {% data variables.product.prodname_actions %}. For example, you could run an API Gateway on the edge of your private network that authenticates incoming requests with the OIDC token and then makes API requests on behalf of your workflow in your private network.
+{% data variables.product.prodname_actions %}를 사용하면 OIDC(OpenID Connect) 토큰을 사용하여 {% data variables.product.prodname_actions %} 외부에서 워크플로를 인증할 수 있습니다. 예를 들어 OIDC 토큰을 사용하여 들어오는 요청을 인증한 다음, 개인 네트워크의 워크플로를 대신하여 API 요청을 만드는 API 게이트웨이를 개인 네트워크 가장자리에서 실행할 수 있습니다.
 
-The following diagram gives an overview of this solution's architecture:
+다음 다이어그램에서는 이 솔루션의 아키텍처에 대한 개요를 제공합니다.
 
-![Diagram of an OIDC gateway](/assets/images/help/images/actions-oidc-gateway.png)
+![OIDC 게이트웨이 다이어그램](/assets/images/help/images/actions-oidc-gateway.png)
 
-It's important that you authenticate not just that the OIDC token came from {% data variables.product.prodname_actions %}, but that it came specifically from your expected workflows, so that other {% data variables.product.prodname_actions %} users aren't able to access services in your private network. You can use OIDC claims to create these conditions. For more information, see "[Defining trust conditions on cloud roles using OIDC claims](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#defining-trust-conditions-on-cloud-roles-using-oidc-claims)."
+OIDC 토큰이 {% data variables.product.prodname_actions %}에서 온 것뿐만 아니라 다른 {% data variables.product.prodname_actions %} 사용자가 개인 네트워크의 서비스에 액세스할 수 없도록 예상되는 워크플로에서 특별히 제공된 토큰을 인증하는 것이 중요합니다. OIDC 클레임을 사용하여 이러한 조건을 만들 수 있습니다. 자세한 내용은 “[OIDC 클레임을 사용하여 클라우드 역할에 대한 신뢰 조건 정의](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#defining-trust-conditions-on-cloud-roles-using-oidc-claims)”를 참조하세요.
 
-The main disadvantage of this approach is you have to implement the API gateway to make requests on your behalf, as well as run it on the edge of your network.
+이 방법의 주요 단점은 API 게이트웨이를 구현하여 사용자 대신 요청하고 네트워크 가장자리에서 실행해야 하는 것입니다.
 
-But there are various advantages too:
-- You don't need to configure any firewalls, or modify the routing of your private network. 
-- The API gateway is stateless, and so it scales horizontally to handle high availability and high throughput.
+하지만 다음과 같은 다양한 장점도 있습니다.
+- 방화벽을 구성하거나 개인 네트워크의 라우팅을 수정할 필요가 없습니다. 
+- API 게이트웨이는 상태 비저장이므로 고가용성 및 높은 처리량을 처리하기 위해 수평으로 스케일링됩니다.
 
-For more information, see [a reference implementation of an API Gateway](https://github.com/github/actions-oidc-gateway-example) (note that this requires customization for your use case and is not ready-to-run as-is), and "[About security hardening with OpenID Connect](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect)".
+자세한 내용은 [API 게이트웨이의 참조 구현](https://github.com/github/actions-oidc-gateway-example) (사용 사례에 대한 사용자 지정이 필요하며, 있는 그대로 실행할 준비가 되지 않음) 및 “[OpenID Connect를 사용한 보안 강화 정보](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect)”를 참조하세요.
 {% endif %}
 
-### Using WireGuard to create a network overlay
+### WireGuard를 사용하여 네트워크 오버레이 만들기
 
-If you don't want to maintain separate infrastructure for an API Gateway, you can create an overlay network between your runner and a service in your private network, by running WireGuard in both places.
+API 게이트웨이에 대한 별도의 인프라를 유지 관리하지 않으려면 두 위치에서 WireGuard를 실행하여 실행기와 개인 네트워크의 서비스 간에 오버레이 네트워크를 만들 수 있습니다.
 
-There are various disadvantages to this approach: 
+이러한 접근 방법에는 다양한 불편한 점이 있습니다. 
 
-- To reach WireGuard running on your private service, you will need a well-known IP address and port that your workflow can reference: this can either be a public IP address and port, a port mapping on a network gateway, or a service that dynamically updates DNS. 
-- WireGuard doesn't handle NAT traversal out of the box, so you'll need to identify a way to provide this service.
-- This connection is one-to-one, so if you need high availability or high throughput you'll need to build that on top of WireGuard. 
-- You'll need to generate and securely store keys for both the runner and your private service. WireGuard uses UDP, so your network must support UDP traffic.
+- 프라이빗 서비스에서 실행되는 WireGuard에 도달하려면 워크플로에서 참조할 수 있는 잘 알려진 IP 주소 및 포트가 필요합니다. 이는 공용 IP 주소 및 포트, 네트워크 게이트웨이의 포트 매핑 또는 DNS를 동적으로 업데이트하는 서비스일 수 있습니다. 
+- WireGuard는 NAT 통과를 기본으로 처리하지 않으므로 이 서비스를 제공하는 방법을 식별해야 합니다.
+- 이 연결은 일대일이므로 고가용성 또는 높은 처리량이 필요한 경우 WireGuard를 기반으로 빌드해야 합니다. 
+- 실행기와 프라이빗 서비스 모두에 대한 키를 생성하고 안전하게 저장해야 합니다. WireGuard는 UDP를 사용하므로 네트워크에서 UDP 트래픽을 지원해야 합니다.
 
-There are some advantages too, as you can run WireGuard on an existing server so you don't have to maintain separate infrastructure, and it's well supported on {% data variables.product.prodname_dotcom %}-hosted runners.
+기존 서버에서 WireGuard를 실행할 수 있으므로 별도의 인프라를 유지할 필요가 없으며 {% data variables.product.prodname_dotcom %} 호스팅된 실행기에서 잘 지원되므로 몇 가지 장점도 있습니다.
 
-### Example: Configuring WireGuard
+### 예: WireGuard 구성
 
-This example workflow configures WireGuard to connect to a private service.
+이 예제 워크플로는 프라이빗 서비스에 연결하도록 WireGuard를 구성합니다.
 
-For this example, the WireGuard instance running in the private network has this configuration:
-- Overlay network IP address of `192.168.1.1`
-- Public IP address and port of `1.2.3.4:56789`
-- Public key `examplepubkey1234...`
+이 예제의 경우 개인 네트워크에서 실행되는 WireGuard 인스턴스에는 다음과 같은 구성이 있습니다.
+- `192.168.1.1`의 네트워크 IP 주소 오버레이
+- `1.2.3.4:56789`의 공용 IP 주소 및 포트
+- 퍼블릭 키 `examplepubkey1234...`
 
-The WireGuard instance in the {% data variables.product.prodname_actions %} runner has this configuration:
-- Overlay network IP address of `192.168.1.2`
-- Private key stores as an {% data variables.product.prodname_actions %} secret under `WIREGUARD_PRIVATE_KEY`
+{% data variables.product.prodname_actions %} 실행기에서 WireGuard 인스턴스에는 다음 구성이 있습니다.
+- `192.168.1.2`의 네트워크 IP 주소 오버레이
+- 프라이빗 키는 `WIREGUARD_PRIVATE_KEY` 아래에 {% data variables.product.prodname_actions %} 비밀로 저장됩니다.
 
 ```yaml
 name: WireGuard example
@@ -92,14 +96,14 @@ jobs:
       - run: curl -vvv http://192.168.1.1
 ```
 
-For more information, see [WireGuard's Quick Start](https://www.wireguard.com/quickstart/), as well as "[Encrypted Secrets](/actions/security-guides/encrypted-secrets)" for how to securely store keys.
+자세한 내용은 [WireGuard의 빠른 시작](https://www.wireguard.com/quickstart/)과 키를 안전하게 저장하는 방법에 대한 “[암호화된 비밀](/actions/security-guides/encrypted-secrets)”을 참조하세요.
 
-### Using Tailscale to create a network overlay
+### Tailscale을 사용하여 네트워크 오버레이 만들기
 
-Tailscale is a commercial product built on top of WireGuard. This option is very similar to WireGuard, except Tailscale is more of a complete product experience instead of an open source component.
+Tailscale은 WireGuard를 기반으로 제작된 상업용 제품입니다. Tailscale이 오픈 소스 구성 요소 대신 완전한 제품 환경이라는 점을 제외하면 이 옵션은 WireGuard와 매우 유사합니다.
 
-It's disadvantages are similar to WireGuard: The connection is one-to-one, so you might need to do additional work for high availability or high throughput. You still need to generate and securely store keys. The protocol is still UDP, so your network must support UDP traffic.
+WireGuard와 유사한 단점이 있습니다. 연결은 일대일이므로 고가용성 또는 높은 처리량을 위해 추가 작업을 수행해야 할 수 있습니다. 여전히 키를 생성하고 안전하게 저장해야 합니다. 프로토콜은 여전히 UDP이므로 네트워크에서 UDP 트래픽을 지원해야 합니다.
 
-However, there are some advantages over WireGuard: NAT traversal is built-in, so you don't need to expose a port to the public internet. It is by far the quickest of these options to get up and running, since Tailscale provides an {% data variables.product.prodname_actions %} workflow with a single step to connect to the overlay network.
+그러나 WireGuard에 비해 몇 가지 장점이 있습니다. NAT 통과가 기본 제공되므로 퍼블릭 인터넷에 포트를 노출할 필요가 없습니다. Tailscale은 오버레이 네트워크에 연결하는 단일 단계로 {% data variables.product.prodname_actions %} 워크플로를 제공하므로 이러한 옵션 중 가장 빠르게 시작하고 실행할 수 있습니다.
 
-For more information, see the [Tailscale GitHub Action](https://github.com/tailscale/github-action), as well as "[Encrypted Secrets](/actions/security-guides/encrypted-secrets)" for how to securely store keys.
+자세한 내용은 [Tailscale GitHub 작업](https://github.com/tailscale/github-action)과 키를 안전하게 저장하는 방법에 대한 “[암호화된 비밀](/actions/security-guides/encrypted-secrets)”을 참조하세요.

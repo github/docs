@@ -1,0 +1,26 @@
+date: '21-07-2022'
+sections:
+  security_fixes:
+    - "**MEDIA**: Evita un ataque en el que una falsificación de solicitud del lado servidor (SSRF) podría hacer que el puente de Subversion (SVN) ejecutara código remoto mediante la inyección de datos arbitrarios en Memcached." 
+    - "Actualiza Grafana a la versión 7.5.16, que resuelve varias vulnerabilidades de seguridad, entre las que se incluyen [CVE-2020-13379](https://github.com/advisories/GHSA-wc9w-wvq2-ffm9) y [CVE-2022-21702](https://github.com/grafana/grafana/security/advisories/GHSA-xc3p-28hw-q24g)." 
+    - Los paquetes se han actualizado a las últimas versiones de seguridad. 
+  bugs:
+    - "Se ha reparado un error por el que los archivos dentro de los archivos zip del artefacto tenían permisos de 000 cuando se desempaquetaban mediante una herramienta de descompresión. Ahora los archivos tendrán los permisos establecidos en 644, tal y como funciona en GitHub.com." 
+    - "En algunos casos, el demonio collectd podría consumir un exceso de memoria." 
+    - "En algunos casos, las copias de seguridad de los archivos de registro rotados podrían acumular y consumir un exceso de almacenamiento." 
+    - "Tras una actualización a una nueva versión de actualización de características y la posterior ejecución de configuración, Elasticsearch podría registrar un exceso de excepciones mientras vuelve a generar índices." 
+    - "En algunos casos en los que una rama protegida requería más de una revisión de aprobación, una solicitud de incorporación de cambios podría combinarse con un número de revisiones de aprobación inferior al requerido." 
+    - "En las instancias que utilizaban la autenticación LDAP, la solicitud de autenticación para el modo sudo colocaba el cursor incorrectamente en el campo de contraseña de manera predeterminada cuando los campos de texto para un nombre de usuario y una contraseña estaban visibles." 
+  changes:
+    - "La utilidad de la línea de comandos \"ghe-set-password\" inicia los servicios necesarios automáticamente cuando la instancia se arranca en el modo de recuperación." 
+    - "Las métricas para procesos en segundo plano \"aqueduct\" se reúnen para el reenvío de Collectd y se muestran en la consola de administración." 
+    - "La ubicación del registro de ejecución de configuración y migración de base de datos, \"/data/user/common/ghe-config.log\", ahora se muestra en la página en la que se detalla una migración en curso." 
+  known_issues:
+    - "En una instancia recién configurada de {% data variables.product.prodname_ghe_server %} sin ningún usuario, un atacante podría crear el primer usuario administrador."
+    - Las reglas de cortafuegos personalizadas se eliminan durante el proceso de actualización.
+    - "Los archivos supervisados de Git LFS [cargados desde la interfaz web](https://github.com/blog/2105-upload-files-to-your-repositories) se agregan de manera incorrecta y directa al repositorio."
+    - Las incidencias no se pueden cerrar si contienen un enlace permanente a un blob del mismo repositorio en el que la ruta es mayor de 255 caracteres.
+    - "Cuando se habilita \"Los usuarios pueden buscar en GitHub.com\" con {% data variables.product.prodname_github_connect %}, las incidencias en los repositorios privados e internos no se incluyen en los resultados de búsqueda de {% data variables.product.prodname_dotcom_the_website %}."
+    - "El registro npm de {% data variables.product.prodname_registry %} ya no devuelve un valor de hora en las respuestas de metadatos. Esto se hacía para permitir mejoras de rendimiento importantes. Seguimos teniendo todos los datos necesarios para devolver un valor de tiempo como parte de la respuesta de metadatos y reanudaremos la devolución de este valor en el futuro una vez que hayamos resuelto las incidencias de rendimiento existentes."
+    - Los límites de recursos que son específicos para procesar enlaces previos a la recepción podrían ocasionar errores en algunos de ellos.
+    - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'

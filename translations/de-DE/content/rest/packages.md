@@ -1,6 +1,6 @@
 ---
-title: Packages
-intro: 'With the {% data variables.product.prodname_registry %} API, you can manage packages for your {% data variables.product.prodname_dotcom %} repositories and organizations.'
+title: Pakete
+intro: 'Mit der {% data variables.product.prodname_registry %}-API kannst du Pakete für deine {% data variables.product.prodname_dotcom %}-Repositorys und Organisationen verwalten.'
 versions:
   fpt: '*'
   ghec: '*'
@@ -9,17 +9,22 @@ topics:
 miniTocMaxHeadingLevel: 3
 redirect_from:
   - /rest/reference/packages
+ms.openlocfilehash: 5edb7e30b296626a53fdc41806bcfba88718e6b3
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147059922'
 ---
+## Informationen zur {% data variables.product.prodname_registry %}-API
 
-## About the {% data variables.product.prodname_registry %} API
+Mit der {% data variables.product.prodname_registry %}-API kannst du Pakete mithilfe der REST-API verwalten. Weitere Informationen zum Wiederherstellen oder Löschen von Paketen findest du unter [Wiederherstellen und Löschen von Paketen](/packages/learn-github-packages/deleting-and-restoring-a-package).
 
-The {% data variables.product.prodname_registry %} API enables you to manage packages using the REST API. To learn more about restoring or deleting packages, see "[Restoring and deleting packages](/packages/learn-github-packages/deleting-and-restoring-a-package)."
+Um diese API zu verwenden, musst du dich über ein persönliches Zugriffstoken authentifizieren. 
+  - Um auf Paketmetadaten zuzugreifen, muss dein Token den `read:packages`-Bereich enthalten.
+  - Zum Löschen von Paketen und Paketversionen muss dein Token die Bereiche `read:packages` und `delete:packages` enthalten.
+  - Zum Wiederherstellen von Paketen und Paketversionen muss dein Token die Bereiche `read:packages` und `write:packages` enthalten.
 
-To use this API, you must authenticate using a {% data variables.product.pat_v1 %}.
-  - To access package metadata, your token must include the `read:packages` scope.
-  - To delete packages and package versions, your token must include the `read:packages` and `delete:packages` scopes.
-  - To restore packages and package versions, your token must include the `read:packages` and `write:packages` scopes.
+Wenn dein `package_type` `npm`, `maven`, `rubygems` oder `nuget` lautet, muss dein Token ebenfalls den `repo`-Bereich enthalten, da dein Paket Berechtigungen von einem {% data variables.product.prodname_dotcom %}-Repository erbt. Wenn sich dein Paket im {% data variables.product.prodname_container_registry %} befindet, ist dein `package_type` `container`, und dein Token benötigt den Bereich `repo` nicht, um auf `package_type` zuzugreifen und ihn zu verwalten. `container`-Pakete bieten detaillierte Berechtigungen, die von einem Repository getrennt sind. Weitere Informationen findest du unter [Informationen zu Berechtigungen für {% data variables.product.prodname_registry %}](/packages/learn-github-packages/about-permissions-for-github-packages#about-scopes-and-permissions-for-package-registries).
 
-If your `package_type` is `npm`, `maven`, `rubygems`, or `nuget`, then your token must also include the `repo` scope since your package inherits permissions from a {% data variables.product.prodname_dotcom %} repository. If your package is in the {% data variables.product.prodname_container_registry %}, then your `package_type` is `container` and your token does not need the `repo` scope to access or manage this `package_type`. `container` packages offer granular permissions separate from a repository. For more information, see "[About permissions for {% data variables.product.prodname_registry %}](/packages/learn-github-packages/about-permissions-for-github-packages#about-scopes-and-permissions-for-package-registries)."
-
-If you want to use the {% data variables.product.prodname_registry %} API to access resources in an organization with SSO enabled, then you must enable SSO for your {% data variables.product.pat_v1 %}. For more information, see "[Authorizing a {% data variables.product.pat_generic %} for use with SAML single sign-on](/github/authenticating-to-github/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}
+Wenn du die {% data variables.product.prodname_registry %}-API verwenden möchtest, um auf Ressourcen in einer Organisation mit aktiviertem SSO zuzugreifen, musst du das einmalige Anmelden (SSO) für dein persönliches Zugriffstoken aktivieren. Weitere Informationen findest du unter [Autorisieren eines persönlichen Zugriffstokens für die Verwendung mit SAML Single Sign-On](/github/authenticating-to-github/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on){% ifversion fpt %} in der {% data variables.product.prodname_ghe_cloud %}-Dokumentation.{% else %}.{% endif %}

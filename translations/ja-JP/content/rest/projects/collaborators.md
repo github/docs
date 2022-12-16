@@ -2,7 +2,7 @@
 title: '{% data variables.product.prodname_project_v1_caps %} collaborators'
 shortTitle: Collaborators
 allowTitleToDifferFromFilename: true
-intro: '{% data variables.product.prodname_project_v1 %} collaborators API を使用すると、{% data variables.projects.projects_v1_board %} でコラボレーターを管理できます。'
+intro: 'REST API を使って、{% data variables.projects.projects_v1_board %} でコラボレーターを管理できます。'
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,11 +11,13 @@ versions:
 topics:
   - API
 miniTocMaxHeadingLevel: 3
-ms.openlocfilehash: 72473eabf86bc1eab841b86a85acfdf9ffe6bb01
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 648e251f1cc45b408acf7eccbe20c75971d29a02
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147423061'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148193500'
 ---
 {% data reusables.projects.projects-api %}
+
+{% data reusables.user-settings.classic-projects-api-classic-pat-only %}

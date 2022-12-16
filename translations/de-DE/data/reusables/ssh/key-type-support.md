@@ -1,11 +1,18 @@
-{% ifversion fpt or ghec %}
-{% note %}
+---
+ms.openlocfilehash: efa96c86f8e6393265a4052e0ce6d650a21805b4
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 10/25/2022
+ms.locfileid: "148107341"
+---
+{% ifversion fpt or ghec %} {% note %}
 
-**Note:** {% data variables.product.company_short %} improved security by dropping older, insecure key types on March 15, 2022.
+**Hinweis:** {% data variables.product.company_short %} verbessert die Sicherheit, indem ältere, unsichere Schlüsseltypen am 15. März 2022 gelöscht werden.
 
-As of that date, DSA keys (`ssh-dss`) are no longer supported. You cannot add new DSA keys to your personal account on {% data variables.location.product_location %}.
+Ab diesem Datum werden DSA-Schlüssel (`ssh-dss`) nicht mehr unterstützt. Du kannst deinem persönlichen Konto keine neuen DSA-Schlüssel für {% data variables.location.product_location %} hinzufügen.
 
-RSA keys (`ssh-rsa`) with a `valid_after` before November 2, 2021 may continue to use any signature algorithm. RSA keys generated after that date must use a SHA-2 signature algorithm. Some older clients may need to be upgraded in order to use SHA-2 signatures.
+RSA-Schlüssel (`ssh-rsa`) mit einem `valid_after` vor dem 2. November 2021 können weiterhin einen Signaturalgorithmus verwenden. RSA-Schlüssel, die nach diesem Datum generiert wurden, müssen einen SHA-2-Signaturalgorithmus verwenden. Einige ältere Clients müssen möglicherweise aktualisiert werden, um SHA-2-Signaturen zu verwenden.
 
 {% endnote %}
 
@@ -13,15 +20,15 @@ RSA keys (`ssh-rsa`) with a `valid_after` before November 2, 2021 may continue t
 
 {% note %}
 
-**Note**: By default with {% data variables.product.product_name %} 3.6 and later, as of the cutoff date of midnight UTC on August 1, 2022, SSH connections that satisfy **both** of the following conditions will fail.
+**Hinweis**: Mit {% data variables.product.product_name %} 3.6 und höher schlagen SSH-Verbindungen, die die **beiden** folgenden Bedingungen erfüllen, ab dem Stichtag, dem 1. August 2022, standardmäßig fehl.
 
 <br/>
 
 {% data reusables.ssh.rsa-sha-1-connection-failure-criteria %}
 
-{% data variables.product.product_name %} 3.6 and later also does not support SSH connections that use DSA, HMAC-SHA-1, or CBC ciphers. RSA SSH keys uploaded before the cutoff date can continue to authenticate using the SHA-1 hash function as long as the key remains valid. For more information about finding the version of {% data variables.product.product_name %} that you use, see "[About versions of {% data variables.product.prodname_docs %}](/get-started/learning-about-github/about-versions-of-github-docs#github-enterprise-server)."
+{% data variables.product.product_name %} 3.6 und höher unterstützt auch keine SSH-Verbindungen, die DSA, HMAC-SHA-1 oder CBC-Verschlüsselungen verwenden. RSA-SSH-Schlüssel, die vor dem Stichtag hochgeladen wurden, können weiterhin mit der SHA-1-Hashfunktion authentifiziert werden, solange der Schlüssel gültig bleibt. Weitere Informationen zum Suchen der derzeit verwendeten Version von {% data variables.product.product_name %} findest du unter [Informationen zu Versionen von {% data variables.product.prodname_docs %}](/get-started/learning-about-github/about-versions-of-github-docs#github-enterprise-server).
 
-Your site administrator can adjust the cutoff date for connections using RSA-SHA-1, and may block all connections using RSA-SHA-1. For more information, contact your site administrator or see "[Configuring SSH connections to your instance](/admin/configuration/configuring-your-enterprise/configuring-ssh-connections-to-your-instance)."
+Dein Websiteadministrator kann den Stichtag für Verbindungen mit RSA-SHA-1 anpassen und alle Verbindungen, die RSA-SHA-1 verwenden, blockieren. Falls du weitere Informationen benötigst, wende dich an deinen Websiteadministrator oder lies [Konfigurieren von SSH-Verbindungen mit deiner Instanz](/admin/configuration/configuring-your-enterprise/configuring-ssh-connections-to-your-instance).
 
 {% endnote %}
 

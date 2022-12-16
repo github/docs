@@ -1,6 +1,6 @@
 ---
-title: Creating a codespace from a template
-intro: If you're starting a new project, you can create a codespace from a blank template or choose a template specially designed for the type of work you want to do.
+title: Создание codespace на основе шаблона
+intro: 'Если вы начинаете новый проект, вы можете создать пространство кода из пустого шаблона или выбрать шаблон, специально разработанный для нужного типа работы.'
 versions:
   fpt: '*'
   ghec: '*'
@@ -11,92 +11,95 @@ topics:
   - Developer
 shortTitle: Create a codespace from a template
 miniTocMaxHeadingLevel: 3
+ms.openlocfilehash: 9e7ee0d110e962fa755f5f57cc70bc3cab341808
+ms.sourcegitcommit: 1f3bd126ca000982c538f1621d47722737740943
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 12/01/2022
+ms.locfileid: '148188315'
 ---
+## Сведения о шаблонах для {% data variables.product.prodname_github_codespaces %}
 
-## About templates for {% data variables.product.prodname_github_codespaces %}
-
-If you're starting a new project, you can get started with development work quickly by creating a codespace from a template. You'll be able to work on your project in a cloud-based development environment, save your files in the cloud, and publish your work to a new remote repository that you can share with others or clone to your local machine.
+Если вы начинаете новый проект, вы можете быстро приступить к разработке, создав codespace на основе шаблона. Вы сможете работать над проектом в облачной среде разработки, сохранять файлы в облаке и публиковать свои работы в новом удаленном репозитории, которым можно поделиться с другими пользователями или клонировать на локальный компьютер.
 
 {% note %}
 
-**Note**: Codespaces created from a template, rather than from a repository, are always billed to your personal account. For more information, see "[About billing for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)."
+**Примечание.** Счета за codespace, созданные на основе шаблона, а не из репозитория, всегда выставляются в вашей личной учетной записи. Дополнительные сведения см. в статье [Сведения о выставлении счетов за {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces).
 
 {% endnote %}
 
-You can start from a blank template, choose from templates maintained by {% data variables.product.company_short %} for popular technologies such as React or Jupyter Notebook, or launch a codespace from any template repository on {% data variables.product.prodname_dotcom %}. With a blank template, you'll start with an empty directory, with access to cloud-based compute resources and the tools, languages, and runtime environments that come preinstalled with the default codespace image. With other templates, you'll get starter files for the technology you're working with, plus typically some extra files such as a README file, a `.gitignore` file, and dev container configuration files containing some custom environment configuration. For more information on dev containers and the default image, see "[Introduction to dev containers](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers)."
+Вы можете начать с пустого шаблона, выбрать шаблоны, поддерживаемые {% data variables.product.company_short %} для популярных технологий, таких как React или Jupyter Notebook, или запустить пространство кода из любого репозитория шаблонов в {% data variables.product.prodname_dotcom %}. С пустым шаблоном вы начнете с пустого каталога с доступом к облачным вычислительным ресурсам и средствам, языкам и средам выполнения, которые предустановлены с изображением codespace по умолчанию. С помощью других шаблонов вы получите начальные файлы для технологии, с которой вы работаете, а также, как правило, некоторые дополнительные файлы, такие как файл сведений `.gitignore` , файл и файлы конфигурации контейнера разработки, содержащие некоторые пользовательские конфигурации среды. Дополнительные сведения о контейнерах разработки и образе по умолчанию см. в разделе [Общие сведения о контейнерах разработки](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers).
 
-As an example, if you create a codespace from {% data variables.product.company_short %}'s React template, you'll arrive in a workspace containing template files for a simple application, such as `index.js`, `app.js`, and `package.json`. Shortly after the codespace opens, a development server will start up automatically, and you will be able to view the running application in a simple browser tab within the {% data variables.product.prodname_vscode_shortname %} web client.
+Например, если создать codespace на основе шаблона React {% data variables.product.company_short %}, вы будете поступать в рабочую область, содержащую файлы шаблонов для простого приложения, например `index.js`, `app.js`и `package.json`. Вскоре после открытия codespace сервер разработки запустится автоматически, и вы сможете просматривать запущенное приложение на простой вкладке браузера в веб-клиенте {% data variables.product.prodname_vscode_shortname %}.
 
-![Screenshot of the React template running in a codespace](/assets/images/help/codespaces/react-template.png)
+![Снимок экрана: шаблон React, выполняющийся в codespace](/assets/images/help/codespaces/react-template.png)
 
-The files and configuration included in templates are defined in template repositories. The template repository is cloned into your codespace when you create the codespace. After that, the link is severed, and your codespace won't be linked to a remote repository until you publish to one. 
+Файлы и конфигурация, включенные в шаблоны, определяются в репозиториях шаблонов. Репозиторий шаблонов клонируется в codespace при создании codespace. После этого ссылка будет разорвана, и пространство кода не будет связано с удаленным репозиторием, пока вы не опубликуете его. 
 
 {% tip %}
 
-**Tip:** To help people get started with your framework, library, or other project, you can set up a template repository for use with {% data variables.product.prodname_github_codespaces %}. For more information, see "[Setting up a template repository for {% data variables.product.prodname_github_codespaces %}](/codespaces/setting-up-your-project-for-codespaces/setting-up-a-template-repository-for-github-codespaces)."
+**Совет:** Чтобы помочь пользователям приступить к работе с платформой, библиотекой или другим проектом, можно настроить репозиторий шаблонов для использования с {% data variables.product.prodname_github_codespaces %}. Дополнительные сведения см. в разделе [Настройка репозитория шаблонов для {% data variables.product.prodname_github_codespaces %}](/codespaces/setting-up-your-project-for-codespaces/setting-up-a-template-repository-for-github-codespaces).
 
 {% endtip %}
 
-## Creating a codespace from a {% data variables.product.company_short %} template
+## Создание codespace на основе шаблона {% data variables.product.company_short %}
 
-Templates maintained by {% data variables.product.company_short %}, including the blank template, are available from the "Your codespaces" page.
+Шаблоны, поддерживаемые {% data variables.product.company_short %}, включая пустой шаблон, доступны на странице "Ваши пространства кода".
 
-{% data reusables.codespaces.your-codespaces-procedure-step %}
-{% data reusables.codespaces.view-all-templates-step %}
-1. Optionally, to view the template repository containing the files for a template, click the name of the template.
+{% data reusables.codespaces.your-codespaces-procedure-step %} {% data reusables.codespaces.view-all-templates-step %}
+1. При необходимости, чтобы просмотреть репозиторий шаблонов, содержащий файлы для шаблона, щелкните имя шаблона.
 
-   ![Screenshot of the "Explore quick start templates" section, with "React" highlighted](/assets/images/help/codespaces/react-template-name.png)
+   ![Снимок экрана: раздел "Изучение шаблонов быстрого запуска" с выделенным элементом "React"](/assets/images/help/codespaces/react-template-name.png)
 
-1. Under the template you want to launch, click **Use this template**.
+1. Под шаблоном, который вы хотите запустить, щелкните **Использовать этот шаблон**.
    
-   ![Screenshot of the quick start templates, with the "Use this template" button highlighted under the React template](/assets/images/help/codespaces/react-template-button.png)
+   ![Снимок экрана: шаблоны быстрого запуска с выделенной кнопкой "Использовать этот шаблон" в шаблоне React](/assets/images/help/codespaces/react-template-button.png)
 
 {% data reusables.codespaces.template-codespaces-default-editor %}
 
-## Creating a codespace from a template repository
+## Создание codespace из репозитория шаблонов
 
-You can create a codespace from any template repository, then publish your work to a new repository when you are ready. For more information on template repositories, see "[Creating a repository from a template](/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template#about-repository-templates)."
+Вы можете создать codespace из любого репозитория шаблонов, а затем опубликовать свою работу в новом репозитории, когда будете готовы. Дополнительные сведения о репозиториях шаблонов см. в разделе [Создание репозитория на основе шаблона](/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template#about-repository-templates).
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.codespaces.open-template-in-codespace-step %}
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.codespaces.open-template-in-codespace-step %}
 
    {% note %}
 
-   **Note:** If you're a maintainer of the template repository, and want to commit changes to the template repository itself, you should create a codespace from the **{% octicon "code" aria-label="The code icon" %} Code** dropdown. For more information, see "[Creating a codespace for a repository](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository#creating-a-codespace-for-a-repository)."
+   **Примечание:** Если вы являетесь хранителем репозитория шаблонов и хотите зафиксировать изменения в самом репозитории шаблонов, создайте пространство кода из раскрывающегося списка **{% octicon "code" aria-label="The code icon" %} Code** . Дополнительные сведения см. в разделе [Создание codespace для репозитория](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository#creating-a-codespace-for-a-repository).
 
    {% endnote %}
 
 {% data reusables.codespaces.template-codespaces-default-editor %}
 
-## Publishing to a repository on {% data variables.product.product_name %}
+## Публикация в репозитории на {% data variables.product.product_name %}
 
 {% data reusables.codespaces.about-publishing-templates %}
 
-### Publishing from {% data variables.product.prodname_vscode_shortname %} 
+### Публикация из {% data variables.product.prodname_vscode_shortname %} 
 
 {% data reusables.codespaces.publishing-template-codespaces %}
 
-When a codespace is published, you have access to a greater range of options to customize your {% data variables.product.prodname_github_codespaces %} experience. For example, you can:
+При публикации codespace у вас есть доступ к большему набору параметров для настройки интерфейса {% data variables.product.prodname_github_codespaces %}. Например, вы можете:
 
-- Change the machine type of your codespace to make sure you're using resources appropriate for the work you're doing (see "[Changing the machine type for your codespace](/codespaces/customizing-your-codespace/changing-the-machine-type-for-your-codespace)").
-- Allow {% data variables.product.prodname_dotcom %} to automatically use GPG to sign commits you make in your codespace (see "[Managing GPG verification for {% data variables.product.prodname_github_codespaces %}](/codespaces/managing-your-codespaces/managing-gpg-verification-for-github-codespaces)").
-- Share encrypted secrets with your codespace (see "[Managing encrypted secrets for your codespaces](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)").
+- Измените тип компьютера codespace, чтобы убедиться, что вы используете ресурсы, соответствующие выполняемой работе (см. [раздел Изменение типа компьютера для codespace](/codespaces/customizing-your-codespace/changing-the-machine-type-for-your-codespace)).
+- Разрешить {% data variables.product.prodname_dotcom %} автоматически использовать GPG для подписывания фиксаций, которые вы делаете в codespace (см. раздел [Управление проверкой GPG для {% data variables.product.prodname_github_codespaces %}](/codespaces/managing-your-codespaces/managing-gpg-verification-for-github-codespaces)).
+- Совместное использование зашифрованных секретов с codespace (см. раздел [Управление зашифрованными секретами для codespaces](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)).
 
-### Publishing from {% data variables.product.prodname_dotcom_the_website %} 
+### Публикация из {% data variables.product.prodname_dotcom_the_website %} 
 
-You can publish an unpublished codespace from the "Your codespaces" page on {% data variables.product.prodname_dotcom_the_website %}. This is useful if you want to publish a codespace that you don't currently have open in your browser. If you do this, your work will be preserved in a repository, but there won't be a link between your existing codespace and the new repository. However, you can navigate to the new repository and create a codespace from there, and this codespace will be connected to the repository.
+Неопубликованное пространство кода можно опубликовать на странице "Ваши codespaces" на {% data variables.product.prodname_dotcom_the_website %}. Это полезно, если вы хотите опубликовать пространство кода, которое в настоящее время не открыто в браузере. В этом случае работа будет сохранена в репозитории, но не будет связи между существующим пространством кода и новым репозиторием. Однако вы можете перейти к новому репозиторию и создать оттуда codespace, и это пространство кода будет подключено к репозиторию.
 
 {% data reusables.codespaces.your-codespaces-procedure-step %}
-1. Next to the unpublished codespace, click the ellipsis (**...**), then select **Publish to a new repository**.
+1. Рядом с неопубликованным пространством кода щелкните многоточие (**...**), а затем выберите **Опубликовать в новом репозитории**.
 
-   ![Screenshot of the "Publish to a new repository" button](/assets/images/help/codespaces/publish-to-new-repository.png)
-1. Choose a name for your new repository, set it as **Public** or **Private**, and click **Create repository**.
+   ![Снимок экрана: кнопка "Опубликовать в новом репозитории"](/assets/images/help/codespaces/publish-to-new-repository.png)
+1. Выберите имя для нового репозитория, задайте для него значение **Общедоступный** или **Частный** и нажмите кнопку **Создать репозиторий**.
 
-   ![Screenshot of the "Publish to a new repository" dropdown](/assets/images/help/codespaces/template-new-repository-settings.png)
-1. Optionally, to view the new repository, click **See repository**.
+   ![Снимок экрана: раскрывающийся список "Опубликовать в новом репозитории"](/assets/images/help/codespaces/template-new-repository-settings.png)
+1. При необходимости, чтобы просмотреть новый репозиторий, щелкните **Просмотреть репозиторий**.
 
-## Further reading
+## Дополнительные материалы
 
-- "[Creating a codespace for a repository](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository)"
-- "[The codespace lifecycle](/codespaces/getting-started/the-codespace-lifecycle)"
-- "[Using source control in your codespace](/codespaces/developing-in-codespaces/using-source-control-in-your-codespace)"
+- [Создание codespace для репозитория](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository)
+- [Жизненный цикл codespace](/codespaces/getting-started/the-codespace-lifecycle)
+- ["Использование системы управления версиями в codespace](/codespaces/developing-in-codespaces/using-source-control-in-your-codespace)"

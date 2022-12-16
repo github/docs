@@ -1,6 +1,6 @@
 ---
-title: About the security overview
-intro: 'You can view, filter, and sort security alerts for repositories owned by your organization or team in the security overview pages.'
+title: セキュリティの概要について
+intro: セキュリティの概要ページでは、組織またはチームが所有しているリポジトリのセキュリティ アラートの表示、フィルター処理、並べ替えを行うことができます。
 permissions: '{% data reusables.security-overview.permissions %}'
 product: '{% data reusables.gated-features.security-overview %}'
 redirect_from:
@@ -20,114 +20,114 @@ topics:
   - Organizations
   - Teams
 shortTitle: About the security overview
+ms.openlocfilehash: 0e634bafbb699d27588312b57084b557a3c82ca1
+ms.sourcegitcommit: fdc4466e89467a7b13239e26c6042dc1428946b6
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 11/14/2022
+ms.locfileid: '148163753'
 ---
+{% ifversion ghes < 3.5 or ghae %} {% data reusables.security-overview.beta %} {% endif %}
 
-{% ifversion ghes < 3.5 or ghae %}
-{% data reusables.security-overview.beta %}
-{% endif %}
+## セキュリティの概要について
 
-## About the security overview
+{% data reusables.security-overview.about-the-security-overview %} {% ifversion fpt %}詳しくは、[{% data variables.product.prodname_ghe_cloud %} のドキュメント](/enterprise-cloud@latest/code-security/security-overview/about-the-security-overview)をご覧ください。{% endif %}
 
-{% data reusables.security-overview.about-the-security-overview %} {% ifversion fpt %}For more information, see [the {% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/code-security/security-overview/about-the-security-overview).{% endif %}
+{% ifversion ghec or ghes or ghae %}セキュリティの概要には、リポジトリに対してどのセキュリティ機能が有効になっているかが表示され、各機能のアラートを統合できます。 
 
-{% ifversion ghec or ghes or ghae %}
-The security overview shows which security features are enabled for repositories and consolidate alerts for each feature. 
+- {% data variables.product.prodname_dependabot %} の機能とアラートに関するリスクとカバレッジの情報は、すべてのリポジトリに対して表示されます。 
+- {% data variables.product.prodname_GH_advanced_security %} 機能 ({% data variables.product.prodname_code_scanning %} や {% data variables.product.prodname_secret_scanning %} など) のリスクとカバレッジの情報は、{% data variables.product.prodname_GH_advanced_security %} を使用するエンタープライズに対してのみ表示されます。
 
-- Risk and coverage information about {% data variables.product.prodname_dependabot %} features and alerts is shown for all repositories. 
-- Risk and coverage information for {% data variables.product.prodname_GH_advanced_security %} features, such as {% data variables.product.prodname_code_scanning %} and {% data variables.product.prodname_secret_scanning %}, is shown only for enterprises that use {% data variables.product.prodname_GH_advanced_security %}.
+詳細については、「[{% data variables.product.prodname_dependabot_alerts %} について](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-alerts-for-vulnerable-dependencies#dependabot-alerts-for-vulnerable-dependencies)」と「[{% data variables.product.prodname_GH_advanced_security %} について](/get-started/learning-about-github/about-github-advanced-security)」を参照してください。
 
-For more information, see "[About {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-alerts-for-vulnerable-dependencies#dependabot-alerts-for-vulnerable-dependencies)" and "[About {% data variables.product.prodname_GH_advanced_security %}](/get-started/learning-about-github/about-github-advanced-security)."
+## アラートのフィルター処理と並べ替えについて
 
-## About filtering and sorting alerts
+セキュリティの概要は、リポジトリのグループに関するセキュリティを把握するための強力な方法を提供します。 そのビューは対話型であり、フィルターを使って集計データを詳しく調べ、高いリスクや低い機能カバレッジのソースを特定できます。 複数のフィルターを適用してより狭い対象領域に絞り込むと、選択内容を反映してビュー全体のデータが変更されます。 詳しくは、「[セキュリティの概要でのアラートのフィルタリング](/code-security/security-overview/filtering-alerts-in-the-security-overview)」を参照してください。
 
-The security overview provides a powerful way to understand the security of a group of repositories. The views are interactive with filters that allow you to drill into the aggregated data and identify sources of high risk or low feature coverage. As you apply multiple filters to focus on narrower areas of interest, the data across the view changes to reflect your selection. For more information, see "[Filtering alerts in the security overview](/code-security/security-overview/filtering-alerts-in-the-security-overview)."
-
-{% ifversion security-overview-alert-views %}
-There are also dedicated views for each type of security alert that you can use to limit your analysis to a specific set of alerts, and then narrow the results further with a range of filters specific to each view. For example, in the {% data variables.product.prodname_secret_scanning %} alert view, you can use the `Secret type` filter to view only {% data variables.product.prodname_secret_scanning %} alerts for a specific secret, like a GitHub {% data variables.product.pat_generic %}.
+{% ifversion security-overview-alert-views %}また、セキュリティ アラートの種類ごとに専用のビューもあります。これを使うと、分析対象を特定のアラート セットに制限してから、各ビューに固有のさまざまなフィルターを使って結果をさらに絞り込むことができます。 たとえば、{% data variables.product.prodname_secret_scanning %} アラート ビューでは、`Secret type` フィルターを使って、GitHub {% data variables.product.pat_generic %} など、特定のシークレットの {% data variables.product.prodname_secret_scanning %} アラートのみを表示できます。
 {% endif %}
 
 {% note %}
 
-**Note:** The security overview displays active alerts raised by security features. If there are no alerts in the security overview for a repository, undetected security vulnerabilities or code errors may still exist.
+**注:** セキュリティの概要には、セキュリティ機能によって発生したアクティブなアラートが表示されます。 リポジトリに対してセキュリティの概要でアラートがない場合でも、検出されていないセキュリティ脆弱性やコードのエラーは存在するかもしれません。
 
 {% endnote %}
 
-## About the organization-level security overview
+## Organization レベルのセキュリティの概要について
 
 {% data reusables.security-overview.beta-org-risk-coverage %}
 
-You can find the security overview on the **Security** tab for any organization that's owned by an enterprise. Each view shows aggregated data that you can drill down into, as you add each filter, the data is updated to reflect the repositories or alerts that you've selected.
+セキュリティの概要は、エンタープライズが所有するすべての組織の **[Security]** タブにあります。 各ビューには、ドリルダウンできる集計データが表示されます。各フィルターを追加すると、選択したリポジトリやアラートを反映するようにデータが更新されます。
 
-The application security team at your company can use the different views for both broad and specific analyses of your organization's security status. {% ifversion security-overview-org-risk-coverage %}For example, the team can use the "Security Coverage" page to monitor the adoption of features across your organization or by a specific team as you rollout {% data variables.product.prodname_GH_advanced_security %}, or use the "Security Risk" page to identify repositories with more than five open {% data variables.product.prodname_secret_scanning %} alerts.{% else %}For example, they can use the overview page to monitor adoption of features by your organization or by a specific team as you rollout {% data variables.product.prodname_GH_advanced_security %} to your enterprise, or to review all alerts of a specific type and severity level across all repositories in your organization.{% endif %}
+会社のアプリケーション セキュリティ チームでは、さまざまなビューを使って、組織のセキュリティの状態を幅広く分析することも、限定的に分析することもできます。 {% ifversion security-overview-org-risk-coverage %}たとえば、{% data variables.product.prodname_GH_advanced_security %} をロールアウトするときに、チームで [Security Coverage] ページを使って組織全体または特定のチームによる機能の導入を監視したり、[Security Risk] ページを使って {% data variables.product.prodname_secret_scanning %} のオープン アラートが 5 個よりも多いリポジトリを特定したりできます。{% else %}たとえば、エンタープライズに {% data variables.product.prodname_GH_advanced_security %} をロールアウトするときに、概要ページを使って組織または特定のチームによる機能の導入を監視したり、組織内の全リポジトリにわたって特定の種類や重大度レベルを持つすべてのアラートを確認したりできます。{% endif %}
 
-Organization owners and security managers for organizations have access to the security overview for their organizations. {% ifversion ghec or ghes > 3.6 or ghae > 3.6 %}Organization members can also access the organization-level security overview to view results for repositories where they have admin privileges or have been granted access to security alerts. For more information on managing security alert access, see "[Managing security and analysis settings for your repository](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)."{% endif %}
+組織の所有者と組織のセキュリティ マネージャーは、自分の組織に関するセキュリティの概要にアクセスできます。 {% ifversion ghec or ghes > 3.6 or ghae > 3.6 %}組織メンバーは、組織レベルのセキュリティの概要にアクセスして、自身が管理特権を持つ、またはセキュリティ アラートへのアクセス権が付与されているリポジトリの結果を表示することもできます。 セキュリティ アラートのアクセス管理の詳細については、「[リポジトリのセキュリティと分析設定を管理する](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)」を参照してください。{% endif %}
 
 {% ifversion security-overview-org-risk-coverage %}
-### Security Risk view
+### [Security Risk] ビュー
 
-This view shows data about the repositories affected by different types of security alert. 
+このビューには、さまざまな種類のセキュリティ アラートによって影響を受けるリポジトリに関するデータが表示されます。 
 
-- Use the **Type** and **Teams** drop-downs to add repository type and team filters.
-- Click **Open alerts** or **Repositories affected** to show only repositories with a specific type of security alert.
+- **[Type]** と **[Teams]** ドロップダウンを使って、リポジトリの種類とチームのフィルターを追加します。
+- **[Open alerts]** または **[Repositories affected]** をクリックすると、特定の種類のセキュリティ アラートを持つリポジトリのみが表示されます。
 
-In addition, when you click in the search box, a list of the full set of filters available is shown.
+さらに、検索ボックスをクリックすると、使用可能なフィルターの完全なセットが一覧表示されます。
 
-![Screenshot of the Security Risk view for an organization](/assets/images/help/security-overview/security-risk-view.png)
+![組織の [Security Risk] ビューのスクリーンショット](/assets/images/help/security-overview/security-risk-view.png)
 
-### Security Coverage view
+### [Security Coverage] ビュー
 
-This view shows data about which repositories are using security features. 
+このビューには、セキュリティ機能を使用しているリポジトリに関するデータが表示されます。 
 
-- Use the **Type** and **Teams** drop-downs to add repository type and team filters.
-- Click **Alerts enabled** and other features listed in the header to see only repositories with those features enabled.
-- Change any `FEATURE:enabled` filter to `FEATURE:not-enabled` in the search box to see repositories that haven't enabled a feature.
-- For any repository, click the ellipsis (**...**) then **Security Settings** to enable additional features.
+- **[Type]** と **[Teams]** ドロップダウンを使って、リポジトリの種類とチームのフィルターを追加します。
+- ヘッダーに表示されている **[Alerts enabled]** やその他の機能をクリックすると、それらの機能が有効になっているリポジトリのみが表示されます。
+- 検索ボックスで任意の `FEATURE:enabled` フィルターを `FEATURE:not-enabled` に変更すると、機能を有効にしていないリポジトリが表示されます。
+- すべてのリポジトリについて、省略記号 ( **[...]** )、 **[Security Settings]** の順にクリックすると、追加の機能を有効にできます。
 
-In addition, when you click in the search box, a list of the full set of filters available is shown.
+さらに、検索ボックスをクリックすると、使用可能なフィルターの完全なセットが一覧表示されます。
 
-![Screenshot of the Security Coverage view for an organization](/assets/images/help/security-overview/security-coverage-view.png)
+![組織の [Security Coverage] ビューのスクリーンショット](/assets/images/help/security-overview/security-coverage-view.png)
 
 {% else %}
 
-### Understanding the main security overview
+### 主なセキュリティの概要について
 
-![Screenshot of the security overview for an organization](/assets/images/help/security-overview/security-overview-org-legacy.png)
+![組織のセキュリティの概要のスクリーンショット](/assets/images/help/security-overview/security-overview-org-legacy.png)
 
-For each repository in the security overview, you will see icons for each type of security feature and how many alerts there are of each type. If a security feature is not enabled for a repository, the icon for that feature will be grayed out. In addition, a risk score is calculated for each repository based on its code scanning, Dependabot and secret scanning alerts. This score is in beta and should be used with caution. Its algorithm and approach is subject to change.
+セキュリティの概要中の各リポジトリで、セキュリティ機能のそれぞれの種類のアイコンと、それぞれの種類についていくつのアラートがあるかが表示されます。 リポジトリに対してセキュリティ機能が有効になっていない場合、その機能のアイコンは淡色表示されます。さらに、リスク スコアが、コード スキャン、Dependabot、シークレット スキャン アラートに基づいて、リポジトリごとに計算されます。 このスコアはベータ版であるため、注意して使用する必要があります。 そのアルゴリズムとアプローチは変更される可能性があります。
 
-![Icons in the security overview](/assets/images/help/security-overview/security-overview-icons.png)
+![セキュリティの概要中のアイコン](/assets/images/help/security-overview/security-overview-icons.png)
 
-| Icon | Meaning |
+| アイコン | 意味 |
 | -------- | -------- |
-| {% octicon "code-square" aria-label="Code scanning alerts" %} | {% data variables.product.prodname_code_scanning_capc %} alerts. For more information, see "[About {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/about-code-scanning)." |
-| {% octicon "key" aria-label="Secret scanning alerts" %} | {% data variables.product.prodname_secret_scanning_caps %} alerts. For more information, see "[About {% data variables.product.prodname_secret_scanning %}](/code-security/secret-security/about-secret-scanning)." |
-| {% octicon "hubot" aria-label="Dependabot alerts" %} | {% data variables.product.prodname_dependabot_alerts %}. For more information, see "[About {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)." |
-| {% octicon "check" aria-label="Check" %} | The security feature is enabled, but does not raise alerts in this repository. |
-| {% octicon "x" aria-label="x" %} | The security feature is not supported in this repository. |
+| {% octicon "code-square" aria-label="Code scanning alerts" %} | {% data variables.product.prodname_code_scanning_capc %} アラート。 詳細については、「[{% data variables.product.prodname_code_scanning %} について](/code-security/secure-coding/about-code-scanning)」を参照してください。 |
+| {% octicon "key" aria-label="Secret scanning alerts" %} | {% data variables.product.prodname_secret_scanning_caps %} アラート。 詳しくは、「[{% data variables.product.prodname_secret_scanning %} について](/code-security/secret-security/about-secret-scanning)」をご覧ください。 |
+| {% octicon "hubot" aria-label="Dependabot alerts" %} | {% data variables.product.prodname_dependabot_alerts %}について受ける方法は、カスタマイズできます。 詳細については、「[{% data variables.product.prodname_dependabot_alerts %}について](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)」を参照してください。 |
+| {% octicon "check" aria-label="Check" %} | セキュリティ機能は有効ですが、このリポジトリではアラートは発生しません。 |
+| {% octicon "x" aria-label="x" %} | このリポジトリでは、セキュリティ機能はサポートされていません。 |
 
 {% endif %}
 
 {% ifversion ghec or ghes > 3.4 or ghae > 3.4 %}
-## About the enterprise-level security overview
+## Enterprise レベルのセキュリティの概要について
 
-You can find the security overview on the **Code Security** tab for your enterprise. Each overview displays aggregated and repository-specific security information for your enterprise. You can view repositories owned by your enterprise that have security alerts, view all security alerts, or security feature-specific alerts from across your enterprise.
+セキュリティの概要は、エンタープライズの **[Code Security]** タブにあります。 それぞれの概要には、エンタープライズについての集計された、リポジトリ固有のセキュリティ情報が表示されます。 Enterprise が所有する、セキュリティ アラートがあるリポジトリを表示したり、すべてのセキュリティ アラートを表示したり、Enterprise 全体のセキュリティ機能固有のアラートを表示したりできます。
 
-Enterprise owners can view alerts for organizations that they are an owner or a security manager of.{% ifversion ghec or ghes > 3.5 or ghae > 3.5 %} Enterprise owners can join an organization as an organization owner to see all of its alerts in the enterprise-level security overview. For more information, see "[Managing your role in an organization owned by your enterprise](/admin/user-management/managing-organizations-in-your-enterprise/managing-your-role-in-an-organization-owned-by-your-enterprise)."{% endif %}
+エンタープライズ所有者は、自身が所有者またはセキュリティ マネージャーである組織のアラートを表示できます。{% ifversion ghec or ghes > 3.5 or ghae > 3.5 %}エンタープライズ所有者は、組織の所有者として組織に参加し、エンタープライズレベルのセキュリティの概要でそのすべてのアラートを表示できます。 詳細については、「[エンタープライズが所有する組織でのロールの管理](/admin/user-management/managing-organizations-in-your-enterprise/managing-your-role-in-an-organization-owned-by-your-enterprise)」を参照してください。{% endif %}
 
-Organization owners and security managers for organizations in an enterprise have access to the enterprise-level security overview. They can view repositories and alerts for the organizations that they have full access to.
+エンタープライズにおける組織の所有者と組織のセキュリティ マネージャーは、エンタープライズレベルのセキュリティの概要にアクセスできます。 フル アクセス権が付与されている組織のリポジトリとアラートを表示できます。
 {% endif %}
 
 {% ifversion ghes < 3.7 or ghae < 3.7 %}
-## About the team-level security overview
+## Team レベルのセキュリティの概要について
 
-You can find the security overview on the **Security** tab for any team in an organization that's owned by an enterprise.
+セキュリティの概要は、エンタープライズが所有する組織のすべてのチームの **[Security]** タブにあります。
 
-At the team-level, the security overview displays repository-specific security information for repositories that the team has admin privileges for. For more information, see "[Managing team access to an organization repository](/organizations/managing-access-to-your-organizations-repositories/managing-team-access-to-an-organization-repository)."
+Teamレベルでは、セキュリティの概要はTeamが管理権限を持つリポジトリの固有のセキュリティ情報を表示します。 詳細については、「[Organization リポジトリへの Team のアクセスを管理する](/organizations/managing-access-to-your-organizations-repositories/managing-team-access-to-an-organization-repository)」を参照してください。
 {% endif %}
 
-## Further reading
+## 参考資料
 
-- "[Securing your repository](/code-security/getting-started/securing-your-repository)"
-- "[Securing your organization](/code-security/getting-started/securing-your-organization)"
-- "[Introduction to adopting GitHub Advanced Security at scale](/code-security/adopting-github-advanced-security-at-scale/introduction-to-adopting-github-advanced-security-at-scale)"
-{% endif %}
+- 「[リポジトリの保護](/code-security/getting-started/securing-your-repository)」
+- [組織のセキュリティ保護](/code-security/getting-started/securing-your-organization)
+- [大規模な GitHub Advanced Security の導入の概要](/code-security/adopting-github-advanced-security-at-scale/introduction-to-adopting-github-advanced-security-at-scale) {% endif %}

@@ -1,21 +1,26 @@
 ---
-title: About repository caching
-intro: You can increase the performance of Git read operations for distributed teams and CI farms with repository caching.
+title: Сведения о кэшировании репозитория
+intro: Вы можете повысить производительность операций чтения Git для распределенных команд и ферм непрерывной интеграции с кэшированием репозитория.
 versions:
   ghes: '*'
 type: overview
 topics:
   - Enterprise
+ms.openlocfilehash: e32df9becd6142f581d45784e4758cf19a8d1af0
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148108859'
 ---
-
 {% data reusables.enterprise.repository-caching-release-phase %}
 
-If you have teams and CI farms located around the world, you may experience reduced performance on your primary {% data variables.product.prodname_ghe_server %} instance. While active geo-replicas can improve the performance of read requests, this comes at the cost of limiting write throughput. To reduce load on your primary instance and improve write throughput performance, you can configure a repository cache, an asynchronous read-only mirror of repositories located near these geographically-distributed clients. 
+Если у вас есть команды и фермы CI, расположенные в разных точках мира, вы можете снизить производительность в основном экземпляре {% data variables.product.prodname_ghe_server %}. Хотя активные геореплики могут повышать производительность запросов на чтение, это происходит за счет ограничения пропускной способности операций записи. Чтобы снизить нагрузку на основной экземпляр и повысить производительность пропускной способности записи, можно настроить кэш репозитория, асинхронное зеркало, доступное только для чтения, для репозиториев, расположенных рядом с этими географически распределенными клиентами. 
 
-A repository cache eliminates the need for {% data variables.product.product_name %} to transmit the same Git data over a long-haul network link multiple times to serve multiple clients, by serving your repository data close to CI farms and distributed teams. For instance, if your primary instance is in North America and you also have a large presence in Asia, you will benefit from setting up the repository cache in Asia for use by CI runners there.
+Кэш репозитория устраняет потребность в {% data variables.product.product_name %} для передачи по сетевому каналу дальнего радиуса действия одних и тех же данных несколько раз для обслуживания нескольких клиентов, путем обслуживания данных репозитория вблизи от ферм CI и распределенных команд. Например, если основной экземпляр находится в Северной Америке и широко присутствует в Азии, вы сможете настроить кэш репозитория в Азии, который будет использоваться средствами выполнения CI.
 
-The repository cache listens to the primary instance, whether that's a single instance or a geo-replicated set of instances, for changes to Git data. CI farms and other read-heavy consumers clone and fetch from the repository cache instead of the primary instance. Changes are propagated across the network, at periodic intervals, once per cache instance rather than once per client. Git data will typically be visible on the repository cache within several minutes after the data is pushed to the primary instance.  {% ifversion ghes > 3.3 %}The [`cache_sync` webhook](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#cache_sync) can be used by CI systems to react to data being available in the cache.{% endif %}
+Кэш репозитория прослушивает основной экземпляр для изменения данных Git, будь то один экземпляр или геореплицированный набор экземпляров. Фермы CI и другие потребители с большим количеством операций чтения клонируют и извлекают данные из кэша репозитория, а не из основного экземпляра. Изменения распространяются по сети через регулярные интервалы для каждого экземпляра кэша, а не однократно для каждого клиента. Данные Git обычно отображаются в кэше репозитория через несколько минут после отправки данных в основной экземпляр.  {% ifversion ghes > 3.3 %}Системы CI могут использовать [`cache_sync` веб-перехватчик](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#cache_sync) для реагирования на данные, доступные в кэше.{% endif %}
 
-You have fine-grained control over which repositories are allowed to sync to the repository cache. Git data will only be replicated to the locations you specify.
+Вы можете точно определить, какие репозитории будут синхронизироваться с кэшем репозитория. Данные Git будут реплицироваться только в указанные расположения.
 
-{% data reusables.enterprise.repository-caching-config-summary %} For more information, see "[Configuring a repository cache](/admin/enterprise-management/caching-repositories/configuring-a-repository-cache)."
+{% data reusables.enterprise.repository-caching-config-summary %} Дополнительные сведения см. в разделе [Настройка кэша репозитория](/admin/enterprise-management/caching-repositories/configuring-a-repository-cache).

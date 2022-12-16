@@ -1,6 +1,6 @@
 ---
-title: Deleting files in a repository
-intro: 'You can delete an individual file{% ifversion fpt or ghes or ghec %} or an entire directory{% endif %} in your repository on {% data variables.product.product_name %}.'
+title: 리포지토리에서 파일 삭제
+intro: '{% data variables.product.product_name %}의 리포지토리에서 개별 파일{% ifversion fpt or ghes or ghec %}  또는 전체 디렉터리{% endif %}를 삭제할 수 있습니다.'
 redirect_from:
   - /articles/deleting-files
   - /github/managing-files-in-a-repository/deleting-files
@@ -16,33 +16,32 @@ permissions: 'People with write permissions can delete files{% ifversion fpt or 
 topics:
   - Repositories
 shortTitle: Delete files
+ms.openlocfilehash: b3d939a7be6be37e875104f7a3c4df53f7a3b7ed
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145136564'
 ---
-## About file{% ifversion fpt or ghes or ghec %} and directory{% endif %} deletion
+## 파일{% ifversion fpt or ghes or ghec %} 및 디렉터리{% endif %} 삭제 정보
 
-You can delete an individual file in your repository{% ifversion fpt or ghes or ghec %} or an entire directory, including all the files in the directory{% endif %}.
+디렉터리{% endif %}의 모든 파일을 포함하여 리포지토리{% ifversion fpt or ghes or ghec %} 또는 전체 디렉터리에서 개별 파일을 삭제할 수 있습니다.
 
-If you try to delete a file{% ifversion fpt or ghes or ghec %} or directory{% endif %} in a repository that you don’t have write permissions to, we'll fork the project to your personal account and help you send a pull request to the original repository after you commit your change. For more information, see "[About pull requests](/github/collaborating-with-issues-and-pull-requests/about-pull-requests)."
+쓰기 권한이 없는 리포지토리에서 파일{% ifversion fpt or ghes or ghec %} 또는 디렉터리{% endif %}의 삭제를 시도하면 프로젝트를 개인 계정으로 포크하고 변경 내용을 커밋한 후 원래 리포지토리로 끌어오기 요청을 보낼 수 있습니다. 자세한 내용은 “[끌어오기 요청 정보](/github/collaborating-with-issues-and-pull-requests/about-pull-requests)”를 참조하세요.
 
-If the file{% ifversion fpt or ghes or ghec %} or directory{% endif %} you deleted contains sensitive data, the data will still be available in the repository's Git history. To completely remove the file from {% data variables.product.product_name %}, you must remove the file from your repository's history. For more information, see "[Removing sensitive data from a repository](/github/authenticating-to-github/removing-sensitive-data-from-a-repository)."
+삭제한 파일{% ifversion fpt or ghes or ghec %} 또는 디렉터리{% endif %}에 중요한 데이터가 포함되어 있으면 리포지토리의 Git 기록에서 데이터를 계속 사용할 수 있습니다. {% data variables.product.product_name %}에서 파일을 완전히 제거하려면 리포지토리의 기록에서 파일을 제거해야 합니다. 자세한 내용은 “[리포지토리에서 중요한 데이터 제거](/github/authenticating-to-github/removing-sensitive-data-from-a-repository)”를 참조하세요.
 
-## Deleting a file
+## 파일 삭제
 
-1. Browse to the file in your repository that you want to delete.
-2. At the top of the file, click {% octicon "trash" aria-label="The trash icon" %}.
-{% data reusables.files.write_commit_message %}
-{% data reusables.files.choose-commit-email %}
-{% data reusables.files.choose_commit_branch %}
-{% data reusables.files.propose_file_change %}
+1. 리포지토리에서 삭제할 파일로 이동합니다.
+2. 파일 맨 위에서 {% octicon "trash" aria-label="The trash icon" %}을 클릭합니다.
+{% data reusables.files.write_commit_message %} {% data reusables.files.choose-commit-email %} {% data reusables.files.choose_commit_branch %} {% data reusables.files.propose_file_change %}
 
 {% ifversion fpt or ghes or ghec %}
-## Deleting a directory
+## 디렉터리 삭제
 
-1. Browse to the directory in your repository that you want to delete.
-1. In the top-right corner, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then click **Delete directory**.
-  ![Button to delete a directory](/assets/images/help/repository/delete-directory-button.png)
-1. Review the files you will delete.
-{% data reusables.files.write_commit_message %}
-{% data reusables.files.choose-commit-email %}
-{% data reusables.files.choose_commit_branch %}
-{% data reusables.files.propose_file_change %}
-{% endif %}
+1. 리포지토리에서 삭제할 디렉터리로 이동합니다.
+1. 오른쪽 상단 모서리에서 {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}을 클릭한 다음 **디렉터리 삭제** 를 클릭합니다.
+  ![디렉터리 삭제 단추](/assets/images/help/repository/delete-directory-button.png)
+1. 삭제할 파일을 검토합니다.
+{% data reusables.files.write_commit_message %} {% data reusables.files.choose-commit-email %} {% data reusables.files.choose_commit_branch %} {% data reusables.files.propose_file_change %} {% endif %}

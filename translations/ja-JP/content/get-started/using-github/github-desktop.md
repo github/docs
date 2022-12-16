@@ -1,6 +1,6 @@
 ---
 title: GitHub Desktop
-intro: '{% data variables.product.prodname_desktop %} extends and simplifies your Git and {% data variables.product.prodname_dotcom %} workflow using a visual interface.'
+intro: '{% data variables.product.prodname_desktop %} は、ビジュアルインターフェースを使用して、Git および {% data variables.product.prodname_dotcom %} のワークフローを拡張し簡略化します。'
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,13 +11,19 @@ topics:
 redirect_from:
   - /github/getting-started-with-github/github-desktop
   - /github/getting-started-with-github/using-github/github-desktop
+ms.openlocfilehash: 91187d415f45a5cd3e09f7d5132ecd13d86879df
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145137923'
 ---
-## About {% data variables.product.prodname_desktop %}
+## {% data variables.product.prodname_desktop %} について
 
 {% data reusables.desktop.about-github-desktop %}
 
-For more information about {% data variables.product.prodname_desktop %}, see "[Installing and configuring {% data variables.product.prodname_desktop %}](/desktop/installing-and-configuring-github-desktop)" in the {% data variables.product.prodname_desktop %} documentation.
+{% data variables.product.prodname_desktop %} の詳細については、{% data variables.product.prodname_desktop %} ドキュメントの「[Installing and configuring {% data variables.product.prodname_desktop %} ({% data variables.product.prodname_desktop %} のインストールと構成)](/desktop/installing-and-configuring-github-desktop)」を参照してください。
 
-## Sharing feedback
+## フィードバックを送る
 
-If you have feedback or feature requests, you can open an issue in the [`desktop/desktop` repository](https://github.com/desktop/desktop).
+フィードバックや機能の要望がある場合は、[`desktop/desktop` リポジトリ](https://github.com/desktop/desktop)で issue を開くことができます。

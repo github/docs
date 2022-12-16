@@ -18,7 +18,7 @@ children:
   - /delivering-deployments
   - /rendering-data-as-graphs
   - /working-with-comments
-  - /traversing-with-pagination
+  - /using-pagination-in-the-rest-api
   - /building-a-ci-server
   - /best-practices-for-integrators
   - /getting-started-with-the-git-database-api

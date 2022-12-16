@@ -1,32 +1,37 @@
 ---
-title: Writing mathematical expressions
-intro: 'Use Markdown to display mathematical expressions on {% data variables.product.company_short %}.'
+title: 编写数学表达式
+intro: '使用 Markdown 在 {% data variables.product.company_short %} 上显示数学表达式。'
 versions:
   feature: math
 shortTitle: Mathematical expressions
+ms.openlocfilehash: b50cdde16f5496e65faf89f0692dc6201cccf15a
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147529749'
 ---
+## 关于编写数学表达式
 
-## About writing mathematical expressions
+为了实现数学表达式的清晰传达，{% data variables.product.product_name %} 支持 Markdown 中 LaTeX 格式的数学表达式。 有关详细信息，请参阅 Wikibook 中的 [LaTeX/数学](http://en.wikibooks.org/wiki/LaTeX/Mathematics)。
 
-To enable clear communication of mathematical expressions, {% data variables.product.product_name %} supports LaTeX formatted math within Markdown. For more information, see [LaTeX/Mathematics](http://en.wikibooks.org/wiki/LaTeX/Mathematics) in Wikibooks.
+{% data variables.product.company_short %} 的数学呈现功能使用 MathJax；真是一种基于 JavaScript 的开源显示引擎。 MathJax 支持广泛的 LaTeX 宏，以及几个有用的辅助功能扩展。 有关详细信息，请参阅 [MathJax 文档](http://docs.mathjax.org/en/latest/input/tex/index.html#tex-and-latex-support)和 [MathJax 辅助功能扩展文档](https://mathjax.github.io/MathJax-a11y/docs/#reader-guide)。
 
-{% data variables.product.company_short %}'s math rendering capability uses MathJax; an open source, JavaScript-based display engine. MathJax supports a wide range of LaTeX macros, and several useful accessibility extensions. For more information, see [the MathJax documentation](http://docs.mathjax.org/en/latest/input/tex/index.html#tex-and-latex-support) and [the MathJax Accessibility Extensions Documentation](https://mathjax.github.io/MathJax-a11y/docs/#reader-guide).
+数学表达式可在以下项中呈现：{% data variables.product.prodname_github_issues %}、{% data variables.product.prodname_discussions %}、拉取请求、{% ifversion fpt or ghec or ghes > 3.6 or ghae-issue-7647 %}Wiki {% endif %}和 Markdown 文件。
 
-Mathematical expressions rendering is available in {% data variables.product.prodname_github_issues %}, {% data variables.product.prodname_discussions %}, pull requests, {% ifversion fpt or ghec or ghes > 3.6 or ghae > 3.6 %}wikis, {% endif %}and Markdown files.
+## 编写内联表达式
 
-## Writing inline expressions
-
-To include a math expression inline with your text, delimit the expression with a dollar symbol `$`.
+要在文本中包含内联数学表达式，请使用美元符号 `$` 分隔表达式。
 
 ```
 This sentence uses `$` delimiters to show math inline:  $\sqrt{3x-1}+(1+x)^2$
 ```
 
-![Inline math markdown rendering](/assets/images/help/writing/inline-math-markdown-rendering.png)
+![内联数学 markdown 呈现](/assets/images/help/writing/inline-math-markdown-rendering.png)
 
-## Writing expressions as blocks
+## 将表达式编写为块
 
-To add a math expression as a block, start a new line and delimit the expression with two dollar symbols `$$`.
+要以块的形式添加数学表达式，请启动一个新行，并使用两个美元符号 `$$` 分隔表达式。
 
 ```
 **The Cauchy-Schwarz Inequality**
@@ -34,11 +39,11 @@ To add a math expression as a block, start a new line and delimit the expression
 $$\left( \sum_{k=1}^n a_k b_k \right)^2 \leq \left( \sum_{k=1}^n a_k^2 \right) \left( \sum_{k=1}^n b_k^2 \right)$$
 ```
 
-![Math expression as a block rendering](/assets/images/help/writing/math-expression-as-a-block-rendering.png)
+![数学表达式作为块呈现](/assets/images/help/writing/math-expression-as-a-block-rendering.png)
 
 {% ifversion math-fenced-blocks %}
 
-Alternatively, you can use the <code>\`\`\`math</code> code block syntax to display a math expression as a block. With this syntax, you don't need to use `$$` delimiters.
+或者，可以使用 <code>\`\`\`math</code> 代码块语法将数学表达式显示为块。 使用此语法时，无需使用 `$$` 分隔符。
 
 ````
 **Here is some math!**
@@ -48,32 +53,32 @@ Alternatively, you can use the <code>\`\`\`math</code> code block syntax to disp
 ```
 ````
 
-![Math expression in a fenced code block](/assets/images/help/writing/math-expression-as-a-fenced-code-block.png)
+![围栏代码块中的数学表达式](/assets/images/help/writing/math-expression-as-a-fenced-code-block.png)
 
 {% endif %}
 
-## Writing dollar signs in line with and within mathematical expressions
+## 在数学表达式所在的行中和数学表达式内编写美元符号
 
-To display a dollar sign as a character in the same line as a mathematical expression, you need to escape the non-delimiter `$` to ensure the line renders correctly.
+要在数学表达式所在的同一行中将美元符号显示为字符，需要对非分隔符 `$` 进行转义以确保行正确呈现。
   
-  - Within a math expression, add a `\` symbol before the explicit `$`.
+  - 在数学表达式内，在显式 `$` 之前添加一个 `\` 符号。
 
   ```
   This expression uses `\$` to display a dollar sign: $\sqrt{\$4}$
   ```
 
-  ![Dollar sign within math expression](/assets/images/help/writing/dollar-sign-within-math-expression.png)
+  ![数学表达式内的美元符号](/assets/images/help/writing/dollar-sign-within-math-expression.png)
 
-  - Outside a math expression, but on the same line, use span tags around the explicit `$`.
+  - 在数学表达式之外，但在同一行上，在显式 `$` 两边使用 span 标记。
 
   ```
   To split <span>$</span>100 in half, we calculate $100/2$
   ```
 
-  ![Dollar sign inline math expression](/assets/images/help/writing/dollar-sign-inline-math-expression.png)
+  ![美元符号内联数学表达式](/assets/images/help/writing/dollar-sign-inline-math-expression.png)
 
-## Further reading
+## 延伸阅读
 
-* [The MathJax website](http://mathjax.org)
-* [Getting started with writing and formatting on GitHub](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github)
-* [GitHub Flavored Markdown Spec](https://github.github.com/gfm/)
+* [MathJax 网站](http://mathjax.org)
+* [Getting started with writing and formatting on GitHub（GitHub 写作和格式设置入门）](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github)
+* [GitHub 支持的 Markdown 规范](https://github.github.com/gfm/)

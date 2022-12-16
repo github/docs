@@ -1,6 +1,6 @@
 ---
-title: Requesting organization approval for OAuth Apps
-intro: 'Organization members and outside collaborators can request that an owner approve access to organization resources for {% data variables.product.prodname_oauth_apps %}.'
+title: 请求组织批准 OAuth 应用程序
+intro: '组织成员和外部协作者可以请求所有者批准对 {% data variables.product.prodname_oauth_apps %} 组织资源的访问权限。'
 redirect_from:
   - /articles/requesting-organization-approval-for-third-party-applications
   - /articles/requesting-organization-approval-for-your-authorized-applications
@@ -14,24 +14,27 @@ versions:
 topics:
   - Accounts
 shortTitle: Request OAuth App approval
+ms.openlocfilehash: affc908d710811563e49bfee6a4e2e906750bf4b
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148007903'
 ---
+## 关于请求组织批准 {% data variables.product.prodname_oauth_app %}
 
-## About requesting organization approval for an {% data variables.product.prodname_oauth_app %}
+组织成员始终可以请求其要使用的 {% data variables.product.prodname_oauth_apps %} 的所有者批准，组织所有者会收到待处理请求的通知。{% ifversion limit-app-access-requests %} 如果启用了集成访问请求，外部协作者可以请求对 {% data variables.product.prodname_oauth_apps %} 的所有者批准。 有关详细信息，请参阅“[限制 OAuth 应用和 GitHub 应用访问请求](/organizations/managing-organization-settings/limiting-oauth-app-and-github-app-access-requests)。”{% endif %}
 
-Organization members can always request owner approval for {% data variables.product.prodname_oauth_apps %} they'd like to use, and organization owners receive a notification of pending requests.{% ifversion limit-app-access-requests %} Outside collaborators can request owner approval for {% data variables.product.prodname_oauth_apps %} they'd like to use if integration access requests are enabled. For more information, see "[Limiting OAuth App and GitHub App access requests](/organizations/managing-organization-settings/limiting-oauth-app-and-github-app-access-requests)."{% endif %}
+## 请求组织批准您已为个人帐户授权的 {% data variables.product.prodname_oauth_app %}
 
-## Requesting organization approval for an {% data variables.product.prodname_oauth_app %} you've already authorized for your personal account
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.access_applications %} {% data reusables.user-settings.access_authorized_oauth_apps %}
+3. 在应用程序列表中，单击您想要请求访问权限的 {% data variables.product.prodname_oauth_app %}的名称。
+![查看应用按钮](/assets/images/help/settings/settings-third-party-view-app.png)
+4. 在你想要 {% data variables.product.prodname_oauth_app %} 访问的组织旁边，单击“请求访问权限”。
+![“请求访问权限”按钮](/assets/images/help/settings/settings-third-party-request-access.png)
+5. 审查关于请求 {% data variables.product.prodname_oauth_app %} 访问权限的信息后，单击“请求所有者的批准”。
+![“请求审批”按钮](/assets/images/help/settings/oauth-access-request-approval.png)
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.access_applications %}
-{% data reusables.user-settings.access_authorized_oauth_apps %}
-3. In the list of applications, click the name of the {% data variables.product.prodname_oauth_app %} you'd like to request access for.
-![View application button](/assets/images/help/settings/settings-third-party-view-app.png)
-4. Next to the organization you'd like the {% data variables.product.prodname_oauth_app %} to access, click **Request access**.
-![Request access button](/assets/images/help/settings/settings-third-party-request-access.png)
-5. After you review the information about requesting {% data variables.product.prodname_oauth_app %} access, click **Request approval from owners**.
-![Request approval button](/assets/images/help/settings/oauth-access-request-approval.png)
+## 延伸阅读
 
-## Further reading
-
-- "[About {% data variables.product.prodname_oauth_app %} access restrictions](/articles/about-oauth-app-access-restrictions)"
+- [关于 {% data variables.product.prodname_oauth_app %} 访问限制](/articles/about-oauth-app-access-restrictions)

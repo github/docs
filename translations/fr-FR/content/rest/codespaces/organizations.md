@@ -2,20 +2,20 @@
 title: Organisations Codespaces
 allowTitleToDifferFromFilename: true
 shortTitle: Organizations
-intro: L’API Organisations Codespaces vous permet de gérer les espaces de code des membres de votre organisation à l’aide de l’API REST.
+intro: Utilisez l’API REST pour gérer les codespaces des membres de votre organisation.
 versions:
   fpt: '*'
   ghec: '*'
 topics:
   - API
 miniTocMaxHeadingLevel: 3
-ms.openlocfilehash: 0daf0d24f839c92d8eea6b221346b2df312071cf
-ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.openlocfilehash: e6c260456a4d34f2de83bf8f936c0789adabd225
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2022
-ms.locfileid: '148159624'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148193088'
 ---
-## À propos de l’API Organisations Codespaces
+## À propos des organisations {% data variables.product.prodname_codespaces %}
 
-L’API d’organisations {% data variables.product.prodname_codespaces %} vous permet de gérer {% data variables.product.prodname_codespaces %} facturé à votre organisation en utilisant l’API REST. Cette API est disponible pour les administrateurs d’organisation authentifiés et les applications OAuth, mais pas les applications GitHub. Pour plus d’informations, consultez « [{% data variables.product.prodname_codespaces %}](/codespaces) ».
+Vous pouvez gérer {% data variables.product.prodname_codespaces %} facturé à votre organisation. Ces points de terminaison sont disponibles pour les administrateurs d’organisation authentifiés et les applications OAuth, mais pas les applications GitHub. Pour plus d’informations, consultez « [{% data variables.product.prodname_codespaces %}](/codespaces) ».

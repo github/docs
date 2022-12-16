@@ -1,4 +1,4 @@
-A user is considered active if the user has performed any of the following activities on {% ifversion fpt or ghec or ghes %}{% data variables.location.product_location %}{% elsif ghae %}{% data variables.product.product_name %}{% endif %}.
+A user is considered active if the user has performed any of the following activities on {% ifversion fpt or ghes %}{% data variables.location.product_location %}{% elsif ghae %}{% data variables.product.product_name %}{% elsif ghec %}your enterprise{% endif %}.
 
 - Signing into {% data variables.location.product_location %}
 - Creating a repository
@@ -21,3 +21,8 @@ A user is considered active if the user has performed any of the following activ
 - Starring a repository
 - Deleting a repository
 - Accessing resources by using a {% data variables.product.pat_generic %} or SSH key
+- Joining an organization
+
+{% ifversion ghes %}
+A user will also be considered active if their account has been updated by LDAP.
+{% endif %}

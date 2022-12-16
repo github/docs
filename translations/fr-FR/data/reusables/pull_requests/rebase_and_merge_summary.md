@@ -1,7 +1,15 @@
-When you select the **Rebase and merge** option on a pull request on {% data variables.location.product_location %}, all commits from the topic branch (or head branch) are added onto the base branch individually without a merge commit. In that way, the rebase and merge behavior resembles a [fast-forward merge](https://git-scm.com/docs/git-merge#_fast_forward_merge) by maintaining a linear project history. However, rebasing achieves this by re-writing the commit history on the base branch with new commits.
+---
+ms.openlocfilehash: 371057b7fbe8e92b564e8729b11442bdbf2c1a56
+ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "147882794"
+---
+Quand vous sélectionnez l’option **Rebase et fusion** sur une demande de tirage (pull request) sur {% data variables.product.product_location %}, toutes les validations (commits) de la branche de rubrique (ou branche principale) sont ajoutées individuellement à la branche de base sans validation de fusion. Ainsi, le comportement de rebasage et de fusion ressemble à une [fusion rapide](https://git-scm.com/docs/git-merge#_fast_forward_merge) en conservant un historique de projet linéaire. Toutefois, le rebasage permet de réécrire l’historique des validations (commits) sur la branche de base avec de nouvelles validations.
 
-The rebase and merge behavior on {% data variables.product.product_name %} deviates slightly from `git rebase`. Rebase and merge on {% data variables.product.prodname_dotcom %} will always update the committer information and create new commit SHAs, whereas `git rebase` outside of {% data variables.product.prodname_dotcom %} does not change the committer information when the rebase happens on top of an ancestor commit. For more information about `git rebase`, see [git-rebase](https://git-scm.com/docs/git-rebase) in the Git documentation.
+Le comportement de rebasage et de fusion sur {% data variables.product.product_name %} s’écarte légèrement de `git rebase`. Les opérations de rebasage et de fusion sur {% data variables.product.prodname_dotcom %} mettent toujours à jour les informations du commiter et créent de nouveaux SHA de commit, tandis que `git rebase` en dehors de {% data variables.product.prodname_dotcom %} ne modifie pas les informations du commiter quand le rebasage se produit au-dessus d’une validation (commit) ancêtre. Pour plus d’informations sur `git rebase`, consultez « [Rebasage Git](https://git-scm.com/docs/git-rebase) » dans la documentation Git.
 
-To rebase and merge pull requests, you must have [write permissions](/articles/repository-permission-levels-for-an-organization/) in the repository, and the repository must [allow rebase merging](/articles/configuring-commit-rebasing-for-pull-requests/).
+Pour rebaser et fusionner des demandes de tirage (pull requests), vous devez disposer [d’autorisations d’écriture](/articles/repository-permission-levels-for-an-organization/) dans le référentiel, et le référentiel doit [autoriser la fusion de rebasage](/articles/configuring-commit-rebasing-for-pull-requests/).
 
-For a visual representation of `git rebase`, see [The "Git Branching - Rebasing" chapter from the _Pro Git_ book](https://git-scm.com/book/en/Git-Branching-Rebasing).
+Pour obtenir une représentation visuelle de `git rebase`, consultez le chapitre [« Création de branche Git – Rebasage » du manuel _Pro Git_](https://git-scm.com/book/en/Git-Branching-Rebasing).

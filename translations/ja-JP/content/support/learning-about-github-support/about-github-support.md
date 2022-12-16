@@ -1,6 +1,6 @@
 ---
-title: About GitHub Support
-intro: You can contact GitHub Support for help troubleshooting issues you encounter while using GitHub.
+title: GitHub Supportについて
+intro: GitHub の使用中に発生した問題のトラブルシューティングについては、GitHub サポートにお問い合わせください。
 shortTitle: About GitHub Support
 versions:
   fpt: '*'
@@ -21,34 +21,38 @@ redirect_from:
   - /enterprise-server/admin/enterprise-support/about-support-for-advanced-security
 topics:
   - Support
+ms.openlocfilehash: aa2b407b96cc7ee2ecc20fee9782e3084b3627db
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148192914'
 ---
+## {% data variables.contact.github_support %}について
 
-## About {% data variables.contact.github_support %}
+{% data variables.product.prodname_dotcom %} ユーザーが利用できるサポート オプションは、ユーザーの個人アカウント、ユーザーが所属する組織または企業、およびユーザーが管理する {% data variables.product.prodname_ghe_server %} インスタンスで使用される製品によって異なります。 各製品には既定のサポート レベルが含まれ、{% data variables.product.prodname_enterprise %} を使用するアカウントでは {% data variables.contact.premium_support %} を購入できます。
 
-The support options available to {% data variables.product.prodname_dotcom %} users depend on the products used by their personal accounts,  any organizations or enterprises they are members of, and any {% data variables.product.prodname_ghe_server %} instances they manage. Each product includes a default level of support and accounts that use {% data variables.product.prodname_enterprise %} can purchase {% data variables.contact.premium_support %}.
-
-{% ifversion fpt %}
-If you're a member of an organization that uses {% data variables.product.prodname_enterprise %}, you can use the drop-down menu in the upper-right corner of {% data variables.product.prodname_docs %} to view a version of these articles appropriate to your product. For more information, see "[About versions of GitHub Docs](/get-started/learning-about-github/about-versions-of-github-docs)."
+{% ifversion fpt %} 所属する組織で {% data variables.product.prodname_enterprise %} が使用されている場合は、{% data variables.product.prodname_docs %} の右上隅にあるドロップダウン メニューを使用して、製品に適したバージョンの記事を参照できます。 詳細については、「[GitHub Docs のバージョンについて](/get-started/learning-about-github/about-versions-of-github-docs)」を参照してください。
 {% endif %}
 
 {% ifversion not ghae %}
 
-|  | {% data variables.product.prodname_gcf %} | Standard support | Premium support |
+|  | {% data variables.product.prodname_gcf %} | Standard サポート | Premium Support |
 |----|---------------|-------|---------------|
 | {% data variables.product.prodname_free_user %} | {% octicon "check" aria-label="Check" %}  |  |  |  
 | {% data variables.product.prodname_pro %} | {% octicon "check" aria-label="Check" %}  | {% octicon "check" aria-label="Check" %}  |  |  
 | {% data variables.product.prodname_team %} | {% octicon "check" aria-label="Check" %}  | {% octicon "check" aria-label="Check" %}  |  |
-| {% data variables.product.prodname_ghe_cloud %} | {% octicon "check" aria-label="Check" %}  | {% octicon "check" aria-label="Check" %}  | Available to purchase |
-| {% data variables.product.prodname_ghe_server %} | {% octicon "check" aria-label="Check" %}  | {% octicon "check" aria-label="Check" %}  | Available to purchase |
+| {% data variables.product.prodname_ghe_cloud %} | {% octicon "check" aria-label="Check" %}  | {% octicon "check" aria-label="Check" %}  | 購入可能 |
+| {% data variables.product.prodname_ghe_server %} | {% octicon "check" aria-label="Check" %}  | {% octicon "check" aria-label="Check" %}  | 購入可能 |
 
 {% endif %}
 
 {% ifversion ghes %}
 
-You can contact {% data variables.contact.enterprise_support %} through the {% data variables.contact.contact_enterprise_portal %} for help with:
- - Installing and using {% data variables.product.product_name %}
- - Identifying and verifying the causes of suspected errors
- - Installing and using {% data variables.product.prodname_advanced_security %}
+以下の質問について、{% data variables.contact.contact_enterprise_portal %} を通じて {% data variables.contact.enterprise_support %} に連絡できます。
+ - {% data variables.product.product_name %} のインストールと使用
+ - 調査対象となっているエラーの原因の特定および検証
+ - {% data variables.product.prodname_advanced_security %} のインストールと使用
 
 {% endif %}
 
@@ -56,126 +60,117 @@ You can contact {% data variables.contact.enterprise_support %} through the {% d
 
 {% data reusables.support.premium-support-features %}
 
-For more information, see "[About GitHub Premium Support](/support/about-github-support/about-github-premium-support)."
+詳細については、「[GitHub プレミアム サポートについて](/support/about-github-support/about-github-premium-support)」を参照してください。
 
 {% endif %}
 
 {% ifversion fpt or ghec or ghae %}
 
-Before contacting {% data variables.contact.github_support %}, check if there are currently any incidents affecting services on {% data variables.product.product_name %} on 
-{%- ifversion fpt or ghec %}
-[{% data variables.product.prodname_dotcom %} Status](https://githubstatus.com/)
-{%- elsif ghae %}
-[{% data variables.product.product_name %} Status](https://ghestatus.com/)
-{%- endif %}. For more information, see "[About GitHub status](#about-github-status)."
+{% data variables.contact.github_support %} に問い合わせる前に、{%- ifversion fpt or ghec %} [{% data variables.product.prodname_dotcom %} Status](https://githubstatus.com/) {%- elsif ghae %} [{% data variables.product.product_name %} Status](https://ghestatus.com/) {%- endif %}で {% data variables.product.product_name %} のサービスに影響を与えるインシデントが現在あるかどうかを確認してください。 詳細については、「[GitHub の状態について](#about-github-status)」を参照してください。
 
 {% endif %}
 
-{% ifversion fpt %}
-{% data reusables.support.free-and-paid-support %}
+{% ifversion fpt %} {% data reusables.support.free-and-paid-support %}
 
-To report account, security, and abuse issues, or to receive assisted support for a paid account, visit the {% data variables.contact.contact_support_portal %}. For more information, see "[Creating a support ticket](/support/contacting-github-support/creating-a-support-ticket)."
+アカウント、セキュリティ、不正使用の問題の報告、または有料アカウントのサポートを受けるには、{% data variables.contact.contact_support_portal %}にアクセスしてください。 詳細については、「[サポート チケットの作成](/support/contacting-github-support/creating-a-support-ticket)」を参照してください。
 {% endif %}
 
-{% ifversion fpt %}
-If you have any paid product or are a member of an organization with a paid product, you can contact {% data variables.contact.github_support %} in English.
-{% else %} 
-With {% data variables.product.product_name %}, you have access to support in English and Japanese.
+{% ifversion fpt %} 有料の製品を使用している場合、または有料製品を使用する組織のメンバーである場合は、{% data variables.contact.github_support %} に英語で問い合わせてください。
+{% else %}{% data variables.product.product_name %} を使用している場合は、英語と日本語のサポートにアクセスできます。
 {% endif %}
+
+{% ifversion fpt or ghec or ghes %} {% data reusables.support.support-ticket-translation-option %} {% endif %}
 
 {% ifversion ghes or ghec %}
 
-To contact {% data variables.contact.github_support %}, visit the {% data variables.contact.contact_support_portal %}. For more information, see "[Creating a support ticket](/support/contacting-github-support/creating-a-support-ticket)."
+{% data variables.contact.github_support %}に問い合わせるには、{% data variables.contact.contact_support_portal %}にアクセスしてください。 詳細については、「[サポート チケットの作成](/support/contacting-github-support/creating-a-support-ticket)」を参照してください。
 
 {% elsif ghae %}
 
-You can contact {% data variables.contact.enterprise_support %} through the {% data variables.contact.ae_azure_portal %} to report issues in writing. For more information, see "[Creating a support ticket](/support/contacting-github-support/creating-a-support-ticket)."
+{% data variables.contact.ae_azure_portal %}を通じて {% data variables.contact.enterprise_support %}に問い合わせをし、問題を書面で報告できます。 詳細については、「[サポート チケットの作成](/support/contacting-github-support/creating-a-support-ticket)」を参照してください。
 
 {% endif %}
 
-{% ifversion not ghae %}
-Email communication from GitHub Support will always be sent from either a `github.com` or `githubsupport.com` address.
+{% ifversion not ghae %} GitHub サポートからの電子メール通信は、常に `github.com` または `githubsupport.com` のアドレスから送信されます。
 {% endif %}
 
-## Scope of support
+## サポートのスコープ
 
 {% data reusables.support.scope-of-support %}
 
 {% ifversion ghec or fpt or ghae %}
-## About GitHub status
+## GitHub の状態について
 
-You can check for any incidents currently affecting {% data variables.product.product_name %} services and view information about past incidents on {% data variables.product.prodname_dotcom %}'s [Status page]({% ifversion fpt or ghec %}https://githubstatus.com{% elsif ghae %}https://ghestatus.com{% endif %}).
+{% data variables.product.prodname_dotcom %} の [Status ページ]({% ifversion fpt or ghec %}https://githubstatus.com{% elsif ghae %}https://ghestatus.com{% endif %})では、現在 {% data variables.product.product_name %} サービスに影響を与えているインシデントを確認し、過去のインシデントに関する情報を参照できます。
 
-You can also subscribe and get alerted via email, text message, and webhook whenever there's an incident affecting {% data variables.product.product_name %}.
+また、{% data variables.product.product_name %} に影響を与えるインシデントが発生するたびに、メール、テキスト メッセージ、Webhook を通じてアラートを受け取れるよう、それらをサブスクライブすることもできます。
 
 {% endif %}
 
 {% ifversion ghec or ghes %}
-## About support entitlement
+## サポート資格について
 
-Enterprise owners and billing managers automatically have a support entitlement, which enables them to create, view, and comment on support tickets associated with their enterprise account.
+エンタープライズ所有者と課金マネージャーには、エンタープライズ アカウントに関連付けられたサポート チケットを作成し、表示し、それらにコメントできるサポート資格が自動的に付与されます。
 
-Enterprise owners can also add support entitlements to members of organizations owned by their enterprise account, allowing those members to create, view, and comment on support tickets. For more information, see "[Managing support entitlements for your enterprise](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/managing-support-entitlements-for-your-enterprise)."
+エンタープライズ所有者は、エンタープライズ アカウントによって所有されている組織のメンバーにサポート資格を追加して、それらのメンバーがサポート チケットの作成、表示、コメントを行えるようにすることもできます。 詳細については、「[Managing support entitlements for your enterprise (エンタープライズのサポート エンタイトルメントの管理)](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/managing-support-entitlements-for-your-enterprise)」を参照してください。
 
 {% endif %}
 
 {% ifversion fpt or ghec %}
-## Granting {% data variables.contact.github_support %} temporary access to a private repository
+## プライベートリポジトリへの一時アクセスを {% data variables.contact.github_support %} に許可する
 
-If {% data variables.contact.github_support %} needs to access a private repository to address your support request, the owner of the repository will receive an email with a link to accept or decline temporary access. The owner will have 20 days to accept or decline the request before the request expires. If the owner accepts the request, {% data variables.contact.github_support %} will have access the repository for five days. During this window, {% data variables.contact.github_support %} staff with the required privileges can unlock the repository for up to two hours at a time, and will relock the repository if the work is completed early. All {% data variables.contact.github_support %} staff access generates audit log events, and the visibility of the repository is not affected at any time.
+サポートリクエストへの対応のために{% data variables.contact.github_support %}がプライベートリポジトリにアクセスしなければならない場合、リポジトリのオーナーは一時的なアクセスの許可もしくは拒否のリンクを含むメールを受け取ります。 オーナーは 20 日以内にリクエストを受け入れるか拒否してください。それを過ぎるとリクエストは有効期限切れになります。 オーナーがリクエストを受け入れると、{% data variables.contact.github_support %} はリポジトリに 5 日間アクセスできるようになります。 この期間中、必要な特権を持つ {% data variables.contact.github_support %} スタッフは、一度に最大 2 時間リポジトリのロックを解除でき、作業が早く完了した場合はリポジトリを再ロックします。 すべての {% data variables.contact.github_support %} スタッフ アクセスによって監査ログ イベントが生成され、リポジトリの可視性は常に影響を受けません。
 
-{% data variables.contact.github_support %} will never access your private repositories without your explicit consent. For more information, see the [Terms of Service](/free-pro-team@latest/github/site-policy/github-terms-of-service#3-access).
+{% data variables.contact.github_support %} は、明示的な合意をいただかない限り、プライベートリポジトリには決してアクセスしません。 詳しくは、[サービス使用条件](/free-pro-team@latest/github/site-policy/github-terms-of-service#3-access)に関するページをご覧ください。
 {% endif %}
 
 {% ifversion ghec or ghes %}
-## Contacting GitHub Sales and GitHub Training
+## GitHub 販売チームと GitHub トレーニング
 
-For pricing, licensing, renewals, quotes, payments, and other related questions, contact {% data variables.contact.contact_enterprise_sales %} or call [+1 (877) 448-4820](tel:+1-877-448-4820).
+価格、ライセンス、更新、見積もり、支払い、およびその他の関連するご質問については、{% data variables.contact.contact_enterprise_sales %} にお問い合わせいただくか、[+1 (877) 448-4820](tel:+1-877-448-4820) にお電話してください。
 
-To learn more about training options, including customized trainings, see [{% data variables.product.company_short %}'s training site](https://services.github.com/).
+カスタマイズされたトレーニングを含むトレーニングの選択肢に関する詳しい情報については[{% data variables.product.company_short %}のトレーニング サイト](https://services.github.com/)を参照してください。
 
 {% note %}
 
-**Note:** Training is included in the {% data variables.product.premium_plus_support_plan %}. For more information, see "[About GitHub Premium Support](/support/about-github-support/about-github-premium-support)."
+**注:** トレーニングは {% data variables.product.premium_plus_support_plan %} に含まれています。 詳細については、「[GitHub プレミアム サポートについて](/support/about-github-support/about-github-premium-support)」を参照してください。
 
 {% endnote %}
 
 {% endif %}
 
 {% ifversion ghes or ghec %}
-## Hours of operation
+## 営業時間
 
-### Support in English
+### 英語でのサポート
 
-For standard non-urgent issues, we offer support in English 24 hours per day, 5 days per week, excluding weekends and national U.S. holidays. The standard response time is 24 hours.
+緊急ではない標準的な問題の場合、英語でのサポートは週末とアメリカの休日をのぞく週 5 日 24 時間提供しています。 返信までの標準的な時間は 24 時間です。
 
-{% ifversion ghes %}
-For urgent issues, we are available 24 hours per day, 7 days per week, even during national U.S. holidays.
+{% ifversion ghes %} 緊急の問題については、米国の祝日を含む、24 時間年中無休で対応しています。
 {% endif %}
 
-### Support in Japanese
+### 日本語でのサポート
 
-For standard non-urgent issues, support in Japanese is available Monday through Friday from 9:00 AM to 5:00 PM JST, excluding national holidays in Japan. 
+緊急以外の標準的な問題については、日本語でのサポートを月曜日から金曜日、日本時間午前 9:00 から午後 5:00 まで提供します。これは日本の国民の祝日を除きます。 
 
-{% ifversion ghes %}
-For urgent issues, we offer support in English 24 hours per day, 7 days per week, even during national U.S. holidays.
+{% ifversion ghes %} 緊急の問題については、アメリカの祝日を含め 24 時間 365 日、英語で対応します。
 {% endif %}
 
-For a complete list of U.S. and Japanese national holidays observed by {% data variables.contact.enterprise_support %}, see "[Holiday schedules](#holiday-schedules)."
+{% data variables.contact.enterprise_support %} におけるアメリカおよび日本の祝日の完全なリストは「[休日のスケジュール](#holiday-schedules)」を参照してください。
 
-## Holiday schedules
+## 休日のスケジュール
 
-For urgent issues, we can help you in English 24 hours per day, 7 days per week, including on U.S. and Japanese holidays.
+緊急の問題については、アメリカ合衆国及び日本の祝日を含め24時間365日、英語で対応します。
 
-### Holidays in the United States
+### アメリカ合衆国の祝日
 
-{% data variables.contact.enterprise_support %} observes these U.S. holidays, although our global support team is available to answer urgent tickets.
+{% data variables.contact.enterprise_support %}は以下をアメリカ合衆国の祝日としますが、緊急の問い合わせに対してはグローバルのサポート チームが英語で対応します。
 
 {% data reusables.enterprise_enterprise_support.support-holiday-availability %}
 
-### Holidays in Japan
+### 日本の祝日
 
-{% data variables.contact.enterprise_support %} does not provide Japanese-language support on December 28th through January 3rd as well as on the holidays listed in [国民の祝日について - 内閣府](https://www8.cao.go.jp/chosei/shukujitsu/gaiyou.html).
+{% data variables.contact.enterprise_support %} は、12 月 28 日から 1 月 3 日までと、「[国民の祝日について-内閣府](https://www8.cao.go.jp/chosei/shukujitsu/gaiyou.html)」に記載されている祝日は、日本語サポートを提供していません。
 
 {% data reusables.enterprise_enterprise_support.installing-releases %}
 
@@ -183,18 +178,15 @@ For urgent issues, we can help you in English 24 hours per day, 7 days per week,
 
 {% ifversion ghec or ghes or ghae %}
 
-## Resolving and closing support tickets
+## サポートチケットの解決とクローズ
 
 {% data reusables.support.enterprise-resolving-and-closing-tickets %}
 
 {% endif %}
 
-## Further reading
+## 参考資料
 
 {%- ifversion ghes %}
-- Section 10 on Support in the "[{% data variables.product.prodname_ghe_server %} License Agreement](https://enterprise.github.com/license)"
-{%- endif %}
-- "[Creating a support ticket](/support/contacting-github-support/creating-a-support-ticket)"
-{%- ifversion not ghae %}
-- "[Viewing and updating support tickets](/support/contacting-github-support/viewing-and-updating-support-tickets)"
-{%- endif %}
+- [{% data variables.product.prodname_ghe_server %} ライセンス アグリーメント](https://enterprise.github.com/license)のサポートに関するセクション 10 {%- endif %}
+- 「[サポート チケットの作成](/support/contacting-github-support/creating-a-support-ticket)」 {%- ifversion not ghae %}
+- 「[サポート チケットの表示と更新](/support/contacting-github-support/viewing-and-updating-support-tickets)」 {%- endif %}

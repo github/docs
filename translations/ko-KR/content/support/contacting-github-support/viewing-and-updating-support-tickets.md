@@ -8,12 +8,12 @@ versions:
   ghes: '*'
 topics:
   - Support
-ms.openlocfilehash: 35c7b28232c0d11170ea9585480b2cfb1785ebd0
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
+ms.openlocfilehash: b735331d90c590ff6911fed44e181563b44bfc27
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147051982'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148193621'
 ---
 ## 티켓 관리 정보
 
@@ -27,7 +27,12 @@ ms.locfileid: '147051982'
 
 {% data reusables.support.view-open-tickets %}
 1. 텍스트 상자에서 주석 기록을 읽을 수 있습니다. 가장 최근의 응답은 맨 위에 있습니다.
-![맨 위에 가장 최근 응답이 있는 지원 티켓 주석 기록의 스크린샷](/assets/images/help/support/support-recent-response.png)
+
+   ![맨 위에 가장 최근의 응답이 있는 지원 티켓 주석 기록의 스크린샷](/assets/images/help/support/support-recent-response.png)
+
+1. 필요에 따라 티켓 주석을 번역하려면 {% octicon "globe" aria-label="The globe icon" %}을 클릭하고 드롭다운 메뉴에서 원하는 언어를 선택합니다. 지원 티켓을 중국어(간체), 프랑스어, 독일어, 일본어, 포르투갈어(브라질) 또는 스페인어로 번역할 수 있습니다.
+
+   ![번역 옵션이 강조 표시된 드롭다운 메뉴가 있는 지원 티켓의 스크린샷](/assets/images/help/support/support-ticket-translation-options.png)
 
 {% ifversion ghec or ghes or ghae %}
 

@@ -1,6 +1,6 @@
 ---
-title: Resources in the REST API
-intro: 'Learn how to navigate the resources provided by the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API.'
+title: Ресурсы в REST API
+intro: 'Сведения о том, как просматривать ресурсы API {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %}.'
 redirect_from:
   - /rest/initialize-the-repo
 versions:
@@ -11,19 +11,23 @@ versions:
 miniTocMaxHeadingLevel: 3
 topics:
   - API
+ms.openlocfilehash: c7928ce90b887d6fa3bd5342fc1633b3e30983f1
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148192852'
 ---
-
 {% ifversion api-date-versioning %}
-## API version
+## Версия API
 
-Available resources may vary between REST API versions. You should use the `X-GitHub-Api-Version` header to specify an API version. For more information, see "[API Versions](/rest/overview/api-versions)."
+Доступные ресурсы могут отличаться в зависимости от версий REST API. Для указания версии API следует использовать `X-GitHub-Api-Version` заголовок . Дополнительные сведения см. в разделе [Версии API](/rest/overview/api-versions).
 
 {% endif %}
 
-## Schema
+## схема
 
-{% ifversion fpt or ghec %}All API access is over HTTPS, and{% else %}The API is{% endif %} accessed from `{% data variables.product.api_url_code %}`.  All data is
-sent and received as JSON.
+{% ifversion fpt or ghec %}Все операции доступа к API осуществляются по протоколу HTTPS{% else %}Доступ к API осуществляется{% endif %} с `{% data variables.product.api_url_code %}`.  Все данные отправляются и получаются в формате JSON.
 
 ```shell
 $ curl -I {% data variables.product.api_url_pre %}/users/octocat/orgs
@@ -44,55 +48,45 @@ $ curl -I {% data variables.product.api_url_pre %}/users/octocat/orgs
 > X-Content-Type-Options: nosniff
 ```
 
-Blank fields are included as `null` instead of being omitted.
+Пустые поля включаются как `null`, а не пропускаются.
 
-All timestamps return in UTC time, ISO 8601 format:
+Все метки времени возвращаются в формате UTC ISO 8601:
 
     YYYY-MM-DDTHH:MM:SSZ
 
-For more information about timezones in timestamps, see [this section](#timezones).
+Дополнительные сведения о часовых поясах в метках времени см. в [этом разделе](#timezones).
 
-### Summary representations
+### Сводные представления
 
-When you fetch a list of resources, the response includes a _subset_ of the
-attributes for that resource. This is the "summary" representation of the
-resource. (Some attributes are computationally expensive for the API to provide.
-For performance reasons, the summary representation excludes those attributes.
-To obtain those attributes, fetch the "detailed" representation.)
+При получении списка ресурсов в ответ включается _подмножество_ атрибутов ресурса. Это "сводное" представление ресурса. (Предоставление некоторых атрибутов интерфейсом API требует больших вычислительных затрат.
+По соображениям производительности такие атрибуты исключаются из сводного представления.
+Чтобы получить эти атрибуты, запросите "подробное" представление.)
 
-**Example**: When you get a list of repositories, you get the summary
-representation of each repository. Here, we fetch the list of repositories owned
-by the [octokit](https://github.com/octokit) organization:
+**Пример**. При запросе списка репозиториев вы получаете сводное представление каждого репозитория. Здесь мы получаем список репозиториев, принадлежащих организации [octokit](https://github.com/octokit):
 
     GET /orgs/octokit/repos
 
-### Detailed representations
+### Подробные представления
 
-When you fetch an individual resource, the response typically includes _all_
-attributes for that resource. This is the "detailed" representation of the
-resource. (Note that authorization sometimes influences the amount of detail
-included in the representation.)
+При получении отдельного ресурса в ответ обычно включаются _все_ его атрибуты. Это "подробное" представление ресурса. (Обратите внимание, что авторизация иногда влияет на объем сведений, включаемых в представление.)
 
-**Example**: When you get an individual repository, you get the detailed
-representation of the repository. Here, we fetch the
-[octokit/octokit.rb](https://github.com/octokit/octokit.rb) repository:
+**Пример**. При получении отдельного репозитория вы получаете его подробное представление. Здесь мы получаем репозиторий [octokit/octokit.rb](https://github.com/octokit/octokit.rb):
 
     GET /repos/octokit/octokit.rb
 
-The documentation provides an example response for each API method. The example
-response illustrates all attributes that are returned by that method.
+В документации приводится пример ответа для каждого метода API. В примере ответа показаны все атрибуты, возвращаемые этим методом.
 
-## Authentication
+## Аутентификация
 
-{% ifversion ghae %} We recommend authenticating to the {% data variables.product.product_name %} REST API by creating an OAuth2 token through the [web application flow](/developers/apps/authorizing-oauth-apps#web-application-flow). {% else %} There are two ways to authenticate through {% data variables.product.product_name %} REST API.{% endif %} Requests that require authentication will return `404 Not Found`, instead of `403 Forbidden`, in some places.  This is to prevent the accidental leakage of private repositories to unauthorized users.
+{% ifversion ghae %} Для проверки подлинности в REST API {% data variables.product.product_name %} рекомендуется создать токен OAuth2 через [поток веб-приложения](/developers/apps/authorizing-oauth-apps#web-application-flow). {% else %} Существует два способа проверки подлинности с помощью REST API {% data variables.product.product_name %}.{% endif %} Иногда запросы, требующие проверки подлинности, возвращают `404 Not Found` вместо `403 Forbidden`.  Это позволяет предотвратить случайную утечку частных репозиториев в руки неавторизованных пользователей.
 
-### Basic authentication
+### обычная проверка подлинности
 
 ```shell
 $ curl -u "username" {% data variables.product.api_url_pre %}
 ```
 
-### OAuth2 token (sent in a header)
+### Токен OAuth2 (отправляемый в заголовке)
 
 ```shell
 $ curl -H "Authorization: Bearer OAUTH-TOKEN" {% data variables.product.api_url_pre %}
@@ -100,20 +94,20 @@ $ curl -H "Authorization: Bearer OAUTH-TOKEN" {% data variables.product.api_url_
 
 {% note %}
 
-Note: GitHub recommends sending OAuth tokens using the Authorization header.
+Примечание. GitHub рекомендует отправлять токены OAuth в заголовке авторизации.
 
 {% endnote %}
 
 {% note %}
 
-**Note:** {% data reusables.getting-started.bearer-vs-token %}
+**Примечание.** {% data reusables.getting-started.bearer-vs-token %}
 
 {% endnote %}
 
-Read [more about OAuth2](/apps/building-oauth-apps/).  Note that OAuth2 tokens can be acquired using the [web application flow](/developers/apps/authorizing-oauth-apps#web-application-flow) for production applications.
+Узнайте [больше об OAuth2](/apps/building-oauth-apps/).  Обратите внимание, что для рабочих приложений токены OAuth2 можно получать с помощью [потока веб-приложения](/developers/apps/authorizing-oauth-apps#web-application-flow).
 
 {% ifversion fpt or ghes or ghec %}
-### OAuth2 key/secret
+### Ключ и секрет OAuth2
 
 {% data reusables.apps.deprecating_auth_with_query_parameters %}
 
@@ -121,22 +115,20 @@ Read [more about OAuth2](/apps/building-oauth-apps/).  Note that OAuth2 tokens c
 curl -u my_client_id:my_client_secret '{% data variables.product.api_url_pre %}/user/repos'
 ```
 
-Using your `client_id` and `client_secret` does _not_ authenticate as a user, it will only identify your OAuth App to increase your rate limit. Permissions are only granted to users, not applications, and you will only get back data that an unauthenticated user would see. For this reason, you should only use the OAuth2 key/secret in server-to-server scenarios. Don't leak your OAuth App's client secret to your users.
+Предоставляя `client_id` и `client_secret`, пользователь _не_ проходит проверку подлинности. Он лишь идентифицирует приложение OAuth, чтобы увеличить ограничение скорости. Разрешения предоставляются только пользователям, а не приложениям, и вы сможете получить только те данные, которые доступны пользователю, не прошедшему проверку подлинности. По этой причине ключ и секрет OAuth2 следует использовать только в сценариях "сервер — сервер". Не разглашайте секрет клиента приложения OAuth пользователям.
 
-{% ifversion ghes %}
-You will be unable to authenticate using your OAuth2 key and secret while in private mode, and trying to authenticate will return `401 Unauthorized`. For more information, see "[Enabling private mode](/admin/configuration/configuring-your-enterprise/enabling-private-mode)".
-{% endif %}
-{% endif %}
+{% ifversion ghes %} Вы не сможете пройти проверку подлинности с помощью ключа и секрета OAuth2 в закрытом режиме. При попытке сделать это будет возвращена ошибка `401 Unauthorized`. Дополнительные сведения см. в разделе [Включение закрытого режима](/admin/configuration/configuring-your-enterprise/enabling-private-mode).
+{% endif %} {% endif %}
 
 {% ifversion fpt or ghec %}
 
-Read [more about unauthenticated rate limiting](#increasing-the-unauthenticated-rate-limit-for-oauth-apps).
+Узнайте больше об [ограничении скорости для пользователей, не прошедших проверку подлинности](#increasing-the-unauthenticated-rate-limit-for-oauth-apps).
 
 {% endif %}
 
-### Failed login limit
+### Максимальное количество неудачных попыток входа
 
-Authenticating with invalid credentials will return `401 Unauthorized`:
+При попытке пройти проверку подлинности с недействительными учетными данными возвращается ошибка `401 Unauthorized`.
 
 ```shell
 $ curl -I {% data variables.product.api_url_pre %} -u foo:bar
@@ -148,9 +140,7 @@ $ curl -I {% data variables.product.api_url_pre %} -u foo:bar
 > }
 ```
 
-After detecting several requests with invalid credentials within a short period,
-the API will temporarily reject all authentication attempts for that user
-(including ones with valid credentials) with `403 Forbidden`:
+Если за небольшой промежуток времени было обнаружено несколько запросов с недействительными учетными данными, API станет временно отклонять все попытки проверки подлинности со стороны данного пользователя (в том числе с действительными учетными данными) с ошибкой `403 Forbidden`:
 
 ```shell
 $ curl -i {% data variables.product.api_url_pre %} -u {% ifversion fpt or ghae or ghec %}
@@ -162,62 +152,55 @@ $ curl -i {% data variables.product.api_url_pre %} -u {% ifversion fpt or ghae o
 > }
 ```
 
-## Parameters
+## Параметры
 
-Many API methods take optional parameters. For `GET` requests, any parameters not
-specified as a segment in the path can be passed as an HTTP query string
-parameter:
+Многие методы API принимают необязательные параметры. Для запросов `GET` любые параметры, не указанные в виде сегмента пути, можно передать в качестве параметра строки HTTP-запроса:
 
 ```shell
 $ curl -i "{% data variables.product.api_url_pre %}/repos/vmg/redcarpet/issues?state=closed"
 ```
 
-In this example, the 'vmg' and 'redcarpet' values are provided for the `:owner`
-and `:repo` parameters in the path while `:state` is passed in the query
-string.
+В этом примере значения vmg и redcarpet предоставляются для параметров `:owner` и `:repo` в пути, а `:state` передается в строке запроса.
 
-For `POST`, `PATCH`, `PUT`, and `DELETE` requests, parameters not included in the URL should be encoded as JSON
-with a Content-Type of 'application/json':
+Для запросов `POST`, `PATCH`, `PUT` и `DELETE` параметры, не включенные в URL-адрес, должны быть закодированы как JSON, причем заголовок Content-Type должен иметь значение application/json:
 
 ```shell
 $ curl -i -u username -d '{"scopes":["repo_deployment"]}' {% data variables.product.api_url_pre %}/authorizations
 ```
 
-## Root endpoint
+## Корневая конечная точка
 
-You can issue a `GET` request to the root endpoint to get all the endpoint categories that the REST API supports:
+Вы можете отправить запрос `GET` к корневой конечной точке, чтобы получить все категории конечных точек, поддерживаемые REST API:
 
 ```shell
 $ curl {% ifversion fpt or ghae or ghec %}
 -u USERNAME:TOKEN {% endif %}{% ifversion ghes %}-u USERNAME:PASSWORD {% endif %}{% data variables.product.api_url_pre %}
 ```
 
-## GraphQL global node IDs
+## Идентификаторы глобальных узлов GraphQL
 
-See the guide on "[Using Global Node IDs](/graphql/guides/using-global-node-ids)" for detailed information about how to find `node_id`s via the REST API and use them in GraphQL operations.
+Подробные сведения о том, как найти идентификаторы [ с помощью REST API и использовать их в операциях GraphQL, см. в руководстве по ](/graphql/guides/using-global-node-ids)использованию идентификаторов глобальных узлов`node_id`.
 
-## Client errors
+## Ошибки клиента
 
-There are three possible types of client errors on API calls that
-receive request bodies:
+Существует три возможных типа ошибок клиента при вызовах API, которые получают тело запроса:
 
-1. Sending invalid JSON will result in a `400 Bad Request` response.
+1. Отправка недопустимого кода JSON приведет к ответу `400 Bad Request`.
 
         HTTP/2 400
         Content-Length: 35
 
         {"message":"Problems parsing JSON"}
 
-2. Sending the wrong type of JSON values will result in a `400 Bad
-   Request` response.
+2. Отправка значений JSON неправильного типа приведет к ответу `400 Bad
+   Request`.
 
         HTTP/2 400
         Content-Length: 40
 
         {"message":"Body should be a JSON object"}
 
-3. Sending invalid fields will result in a `422 Unprocessable Entity`
-   response.
+3. Отправка недопустимых полей приведет к ответу `422 Unprocessable Entity`.
 
         HTTP/2 422
         Content-Length: 149
@@ -233,60 +216,47 @@ receive request bodies:
           ]
         }
 
-All error objects have resource and field properties so that your client
-can tell what the problem is.  There's also an error code to let you
-know what is wrong with the field.  These are the possible validation error
-codes:
+Все объекты ошибок имеют свойства ресурса и поля, по которым клиент может определить проблему.  Кроме того, есть код ошибки, который позволяет узнать, что не так с полем.  Ниже приведены возможные коды ошибок проверки.
 
-Error code name | Description
+Имя кода ошибки | Описание
 -----------|-----------|
-`missing` | A resource does not exist.
-`missing_field` | A required field on a resource has not been set.
-`invalid` | The formatting of a field is invalid.  Review the documentation for more specific information.
-`already_exists` | Another resource has the same value as this field.  This can happen in resources that must have some unique key (such as label names).
-`unprocessable` | The inputs provided were invalid.
+`missing` | Ресурс не существует.
+`missing_field` | Не задано обязательное поле ресурса.
+`invalid` | Недопустимое форматирование поля.  Более подробные сведения см. в документации.
+`already_exists` | Другой ресурс имеет то же значение, что и это поле.  Это может произойти с ресурсами, которые должны иметь уникальные ключи (например, имена меток).
+`unprocessable` | Предоставлены недопустимые входные данные.
 
-Resources may also send custom validation errors (where `code` is `custom`). Custom errors will always have a `message` field describing the error, and most errors will also include a `documentation_url` field pointing to some content that might help you resolve the error.
+Ресурсы также могут отправлять пользовательские ошибки проверки (`code` имеет значение `custom`). Пользовательские ошибки всегда имеют поле `message` с описанием ошибки, а большинство ошибок также имеют поле `documentation_url`, указывающее на содержимое, которое может помочь устранить ошибку.
 
-## HTTP redirects
+## Перенаправления HTTP
 
-The {% data variables.product.product_name %} REST API uses HTTP redirection where appropriate. Clients should assume that any
-request may result in a redirection. Receiving an HTTP redirection is *not* an
-error and clients should follow that redirect. Redirect responses will have a
-`Location` header field which contains the URI of the resource to which the
-client should repeat the requests.
+REST API {% data variables.product.product_name %} использует перенаправление HTTP, насколько это возможно. Клиент должен допускать, что любой запрос может привести к перенаправлению. Перенаправление HTTP *не* является ошибкой, и клиент должен следовать ему. Ответы с перенаправлением имеют поле заголовка `Location`, содержащее универсальный код ресурса (URI), на который клиент должен повторить запрос.
 
-Status Code | Description
+Код состояния | Описание
 -----------|-----------|
-`301` | Permanent redirection. The URI you used to make the request has been superseded by the one specified in the `Location` header field. This and all future requests to this resource should be directed to the new URI.
-`302`, `307` | Temporary redirection. The request should be repeated verbatim to the URI specified in the `Location` header field but clients should continue to use the original URI for future requests.
+`301` | Постоянное перенаправление. Универсальный код ресурса (URI), который использовался для выполнения запроса, заменен указанным в поле заголовка `Location`. Этот и все последующие запросы к данному ресурсу должны направляться на новый URI.
+`302`, `307` | Временное перенаправление. Запрос должен быть отправлен повторно без изменений на URI, указанный в поле заголовка `Location`, но клиенты должны продолжать использовать исходный код URI для будущих запросов.
 
-Other redirection status codes may be used in accordance with the HTTP 1.1 spec.
+Другие коды состояния перенаправления могут использоваться в соответствии со спецификацией HTTP 1.1.
 
-## HTTP verbs
+## Команды HTTP
 
-Where possible, the {% data variables.product.product_name %} REST API strives to use appropriate HTTP verbs for each
-action. Note that HTTP verbs are case-sensitive.
+Везде, где это возможно, REST API {% data variables.product.product_name %} использует специальные HTTP-команды для каждого действия. Обратите внимание, что HTTP-команды указываются с учетом регистра.
 
-Verb | Description
+Команда | Описание
 -----|-----------
-`HEAD` | Can be issued against any resource to get just the HTTP header info.
-`GET` | Used for retrieving resources.
-`POST` | Used for creating resources.
-`PATCH` | Used for updating resources with partial JSON data. For instance, an Issue resource has `title` and `body` attributes. A `PATCH` request may accept one or more of the attributes to update the resource.
-`PUT` | Used for replacing resources or collections. For `PUT` requests with no `body` attribute, be sure to set the `Content-Length` header to zero.
-`DELETE` |Used for deleting resources.
+`HEAD` | Может быть выполнена для любого ресурса с целью получить только данные заголовка HTTP.
+`GET` | Используется для получения ресурсов.
+`POST` | Используется для создания ресурсов.
+`PATCH` | Используется для обновления ресурсов с частичными данными JSON. Например, ресурс Issue имеет атрибуты `title` и `body`. Запрос `PATCH` может принимать один или несколько атрибутов для обновления ресурса.
+`PUT` | Используется для замены ресурсов или коллекций. Для запросов `PUT` без атрибута `body` обязательно установите для заголовка `Content-Length` нулевое значение.
+`DELETE` |Используется для удаления ресурсов.
 
-## Hypermedia
+## Гиперсреда
 
-All resources may have one or more `*_url` properties linking to other
-resources.  These are meant to provide explicit URLs so that proper API clients
-don't need to construct URLs on their own.  It is highly recommended that API
-clients use these.  Doing so will make future upgrades of the API easier for
-developers.  All URLs are expected to be proper [RFC 6570][rfc] URI templates.
+Любой ресурс может иметь одно или несколько свойств `*_url`, содержащих ссылки на другие ресурсы.  Они предназначены для предоставления явных URL-адресов, чтобы соответствующим клиентам API не приходилось формировать URL-адреса самостоятельно.  Настоятельно рекомендуется, чтобы клиенты API использовали эти свойства.  Так разработчикам будет проще обновлять API в будущем.  Все URL-адреса должны соответствовать шаблонам URI [RFC 6570][rfc].
 
-You can then expand these templates using something like the [uri_template][uri]
-gem:
+Затем можно расширить эти шаблоны, например, с помощью пакета [uri_template][uri]:
 
     >> tmpl = URITemplate.new('/notifications{?since,all,participating}')
     >> tmpl.expand
@@ -301,60 +271,13 @@ gem:
 [rfc]: https://datatracker.ietf.org/doc/html/rfc6570
 [uri]: https://github.com/hannesg/uri_template
 
-## Pagination
+## Разбиение на страницы
 
-Requests that return multiple items will be paginated to 30 items by
-default.  You can specify further pages with the `page` parameter. For some
-resources, you can also set a custom page size up to 100 with the `per_page` parameter.
-Note that for technical reasons not all endpoints respect the `per_page` parameter,
-see [events](/rest/reference/activity#events) for example.
+Если ответ от REST API будет содержать много результатов, {% data variables.product.company_short %} будет размножевать результаты на страницы и возвращать подмножество результатов. Вы можете использовать заголовок ссылки из ответа, чтобы запросить дополнительные страницы данных. Если конечная точка поддерживает `per_page` параметр запроса, можно управлять количеством результатов, возвращаемых на странице. Дополнительные сведения о разбиении на страницы см. [в разделе Использование разбиения на страницы в REST API](/rest/guides/using-pagination-in-the-rest-api).
 
-```shell
-$ curl '{% data variables.product.api_url_pre %}/user/repos?page=2&per_page=100'
-```
+## Истекшее время ожидания
 
-Note that page numbering is 1-based and that omitting the `page`
-parameter will return the first page.
-
-Some endpoints use cursor-based pagination. A cursor is a string that points to a location in the result set.
-With cursor-based pagination, there is no fixed concept of "pages" in the result set, so you can't navigate to a specific page.
-Instead, you can traverse the results by using the `before` or `after` parameters.
-
-For more information on pagination, check out our guide on [Traversing with Pagination][pagination-guide].
-
-### Link header
-
-{% note %}
-
-**Note:** It's important to form calls with Link header values instead of constructing your own URLs.
-
-{% endnote %}
-
-The [Link header](https://datatracker.ietf.org/doc/html/rfc5988) includes pagination information. For example:
-
-    Link: <{% data variables.product.api_url_code %}/user/repos?page=3&per_page=100>; rel="next",
-      <{% data variables.product.api_url_code %}/user/repos?page=50&per_page=100>; rel="last"
-
-_The example includes a line break for readability._
-
-Or, if the endpoint uses cursor-based pagination:
-
-    Link: <{% data variables.product.api_url_code %}/orgs/ORG/audit-log?after=MTYwMTkxOTU5NjQxM3xZbGI4VE5EZ1dvZTlla09uWjhoZFpR&before=>; rel="next",
-
-This `Link` response header contains one or more [Hypermedia](/rest#hypermedia) link relations, some of which may require expansion as [URI templates](https://datatracker.ietf.org/doc/html/rfc6570).
-
-The possible `rel` values are:
-
-Name | Description
------------|-----------|
-`next` |The link relation for the immediate next page of results.
-`last` |The link relation for the last page of results.
-`first` |The link relation for the first page of results.
-`prev` |The link relation for the immediate previous page of results.
-
-## Timeouts
-
-If {% data variables.product.prodname_dotcom %} takes more than 10 seconds to process an API request, {% data variables.product.prodname_dotcom %} will terminate the request and you will receive a timeout response like this:
+Если {% data variables.product.prodname_dotcom %} обрабатывает запрос API более 10 секунд, {% data variables.product.prodname_dotcom %} завершит запрос и вы получите ответ о времени ожидания примерно следующего вида:
 
 ```json
 {
@@ -362,23 +285,23 @@ If {% data variables.product.prodname_dotcom %} takes more than 10 seconds to pr
 }
 ```
 
-{% data variables.product.product_name %} reserves the right to change the timeout window to protect the speed and reliability of the API.
+{% data variables.product.product_name %} оставляет за собой право изменить окно времени ожидания для гарантии скорости и надежности работы API.
 
-## Rate limiting
+## Ограничение частоты
 
-Different types of API requests to {% data variables.location.product_location %} are subject to different rate limits. 
+На различные типы запросов API к {% data variables.location.product_location %} применяются разные ограничения скорости. 
 
-Additionally, the Search API has dedicated limits. For more information, see "[Search](/rest/reference/search#rate-limit)" in the REST API documentation.
+Кроме того, особые ограничения налагаются на API поиска. Дополнительные сведения см. в разделе [Поиск](/rest/reference/search#rate-limit) в документации по REST API.
 
 {% data reusables.enterprise.rate_limit %}
 
 {% data reusables.rest-api.always-check-your-limit %}
 
-### Requests from personal accounts
+### Запросы из личных учетных записей
 
-Direct API requests that you authenticate with a {% data variables.product.pat_generic %} are user-to-server requests. An OAuth App or GitHub App can also make a user-to-server request on your behalf after you authorize the app. For more information, see "[Creating a {% data variables.product.pat_generic %}](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)," "[Authorizing OAuth Apps](/authentication/keeping-your-account-and-data-secure/authorizing-oauth-apps)," and "[Authorizing GitHub Apps](/authentication/keeping-your-account-and-data-secure/authorizing-github-apps)."
+Прямые запросы API, которые проходят проверку подлинности с помощью {% data variables.product.pat_generic %}, являются запросами от пользователя к серверу. Приложение OAuth или GitHub также может выполнять запросы пользователя к серверу от вашего имени после авторизации приложения. Дополнительные сведения см. в [разделах Создание {% data variables.product.pat_generic %}](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token), [Авторизация приложений OAuth](/authentication/keeping-your-account-and-data-secure/authorizing-oauth-apps) и [Авторизация приложений GitHub](/authentication/keeping-your-account-and-data-secure/authorizing-github-apps).
 
-{% data variables.product.product_name %} associates all user-to-server requests with the authenticated user. For OAuth Apps and GitHub Apps, this is the user who authorized the app. All user-to-server requests count toward the authenticated user's rate limit.
+{% data variables.product.product_name %} связывает все запросы пользователей к серверу с пользователем, прошедшим проверку подлинности. Для приложений OAuth и GitHub Apps это пользователь, который авторизовал приложение. Все запросы пользователей к серверу включаются в ограничение скорости для пользователя, прошедшего проверку подлинности.
 
 {% data reusables.apps.user-to-server-rate-limits %}
 
@@ -388,33 +311,33 @@ Direct API requests that you authenticate with a {% data variables.product.pat_g
 
 {% ifversion fpt or ghec or ghes %}
 
-For unauthenticated requests, the rate limit allows for up to 60 requests per hour. Unauthenticated requests are associated with the originating IP address, and not the person making requests.
+Согласно ограничению скорости допускается до 60 запросов без проверки подлинности в час. Запросы без проверки подлинности связаны с исходным IP-адресом, а не с выполняющим их пользователем.
 
 {% endif %}
 
 {% endif %}
 
-### Requests from GitHub Apps
+### Запросы из приложений GitHub
 
-Requests from a GitHub App may be either user-to-server or server-to-server requests. For more information about rate limits for GitHub Apps, see "[Rate limits for GitHub Apps](/developers/apps/building-github-apps/rate-limits-for-github-apps)." 
+Запросы из приложения GitHub могут быть запросами типа "пользователь — сервер" или "сервер — сервер". Дополнительные сведения об ограничениях скорости для приложений GitHub см. в разделе [Ограничения скорости для приложений GitHub](/developers/apps/building-github-apps/rate-limits-for-github-apps). 
 
-### Requests from GitHub Actions
+### Запросы из GitHub Actions
 
-You can use the built-in `GITHUB_TOKEN` to authenticate requests in GitHub Actions workflows. For more information, see "[Automatic token authentication](/actions/security-guides/automatic-token-authentication)."
+Для проверки подлинности запросов в рабочих процессах GitHub Actions можно использовать встроенный токен `GITHUB_TOKEN`. Дополнительные сведения см. в разделе [Автоматическая проверка подлинности токенов](/actions/security-guides/automatic-token-authentication).
 
-When using `GITHUB_TOKEN`, the rate limit is 1,000 requests per hour per repository.{% ifversion fpt or ghec %} For requests to resources that belong to an enterprise account on {% data variables.location.product_location %}, {% data variables.product.prodname_ghe_cloud %}'s rate limit applies, and the limit is 15,000 requests per hour per repository.{% endif %}
+При использовании `GITHUB_TOKEN`ограничение скорости составляет 1000 запросов в час на репозиторий.{ % ifversion fpt or ghec %} Для запросов к ресурсам, принадлежащим корпоративной учетной записи в {% data variables.location.product_location %}, применяется ограничение скорости {% data variables.product.prodname_ghe_cloud %}, которое составляет 15 000 запросов в час на репозиторий. {% endif %}
 
-### Checking your rate limit status
+### Проверка состояния ограничения скорости
 
-The Rate Limit API and a response's HTTP headers are authoritative sources for the current number of API calls available to you or your app at any given time.
+API ограничения скорости и HTTP-заголовки ответа являются заслуживающими доверия источниками сведений о текущем количестве вызовов API, доступных вам или вашему приложению в любой момент времени.
 
-#### Rate Limit API
+#### API ограничения скорости
 
-You can use the Rate Limit API to check your rate limit status without incurring a hit to the current limit. For more information, see "[Rate limit](/rest/reference/rate-limit)."
+Для проверки состояния ограничения скорости без расходования лимита можно использовать API ограничения скорости. Дополнительные сведения см. в разделе [Ограничение скорости](/rest/reference/rate-limit).
 
-#### Rate limit HTTP headers
+#### HTTP-заголовки ограничения скорости
 
-The returned HTTP headers of any API request show your current rate limit status:
+Возвращенные заголовки HTTP любого запроса API показывают текущее состояние ограничения скорости.
 
 ```shell
 $ curl -I {% data variables.product.api_url_pre %}/users/octocat
@@ -426,21 +349,21 @@ $ curl -I {% data variables.product.api_url_pre %}/users/octocat
 > x-ratelimit-reset: 1372700873
 ```
 
-Header Name | Description
+Имя заголовка | Описание
 -----------|-----------|
-`x-ratelimit-limit` | The maximum number of requests you're permitted to make per hour.
-`x-ratelimit-remaining` | The number of requests remaining in the current rate limit window.
-`x-ratelimit-used` | The number of requests you've made in the current rate limit window.
-`x-ratelimit-reset` | The time at which the current rate limit window resets in [UTC epoch seconds](http://en.wikipedia.org/wiki/Unix_time).
+`x-ratelimit-limit` | Максимальное количество запросов, которые вы можете выполнять в час.
+`x-ratelimit-remaining` | Оставшееся количество запросов в текущем интервале ограничения скорости.
+`x-ratelimit-used` | Количество запросов, которые вы сделали в текущем интервале ограничения скорости.
+`x-ratelimit-reset` | Время сброса текущего интервала ограничения скорости в [секундах с эпохи UTC](http://en.wikipedia.org/wiki/Unix_time).
 
-If you need the time in a different format, any modern programming language can get the job done. For example, if you open up the console on your web browser, you can easily get the reset time as a JavaScript Date object.
+Если вам нужно время в другом формате, можно воспользоваться любым современным языком программирования. Например, если открыть консоль в веб-браузере, можно легко получить время сброса в виде объекта даты JavaScript.
 
 ``` javascript
 new Date(1372700873 * 1000)
 // => Mon Jul 01 2013 13:47:53 GMT-0400 (EDT)
 ```
 
-If you exceed the rate limit, an error response returns:
+При превышении ограничения скорости возвращается ответ об ошибке:
 
 ```shell
 > HTTP/2 403
@@ -456,9 +379,9 @@ If you exceed the rate limit, an error response returns:
 > }
 ```
 
-### Increasing the unauthenticated rate limit for OAuth Apps
+### Увеличение ограничения скорости без проверки подлинности для приложений OAuth
 
-If your OAuth App needs to make unauthenticated calls with a higher rate limit, you can pass your app's client ID and secret before the endpoint route.
+Если приложению OAuth необходимо выполнять вызовы без проверки подлинности с более высоким ограничением скорости, можно передать идентификатор клиента и секрет приложения перед маршрутом конечной точки.
 
 ```shell
 $ curl -u my_client_id:my_client_secret -I {% data variables.product.api_url_pre %}/user/repos
@@ -472,21 +395,21 @@ $ curl -u my_client_id:my_client_secret -I {% data variables.product.api_url_pre
 
 {% note %}
 
-**Note:** Never share your client secret with anyone or include it in client-side browser code. Use the method shown here only for server-to-server calls.
+**Примечание**. Не делитесь ни с кем секретом клиента и не включайте его в код браузера на стороне клиента. Используйте приведенный здесь метод только для вызовов между серверами.
 
 {% endnote %}
 
-### Staying within the rate limit
+### Соблюдение ограничения скорости
 
-If you exceed your rate limit using Basic Authentication or OAuth, you can likely fix the issue by caching API responses and using [conditional requests](#conditional-requests).
+Если вы превысили ограничение скорости, используя обычную проверку подлинности или OAuth, скорее всего, проблему можно устранить путем кэширования ответов API и использования [условных запросов](#conditional-requests).
 
-### Secondary rate limits
+### Дополнительные ограничения скорости
 
-In order to provide quality service on {% data variables.product.product_name %}, additional rate limits may apply to some actions when using the API. For example, using the API to rapidly create content, poll aggressively instead of using webhooks, make multiple concurrent requests, or repeatedly request data that is computationally expensive may result in secondary rate limiting.
+С целью обеспечения качества обслуживания в {% data variables.product.product_name %} к некоторым действиям при использовании API могут применяться дополнительные ограничения скорости. Например, это могут быть такие действия, как использование API для быстрого создания содержимого, агрессивный опрос вместо использования веб-перехватчиков, выполнение нескольких запросов параллельно или многократный запрос данных с высокими вычислительными затратами.
 
-Secondary rate limits are not intended to interfere with legitimate use of the API. Your normal rate limits should be the only limit you target. To ensure you're acting as a good API citizen, check out our [Best Practices guidelines](/guides/best-practices-for-integrators/).
+Дополнительные ограничения скорости не препятствуют допустимому использованию API. Соблюдать следует только стандартные ограничения скорости. Чтобы убедиться в том, что вы добросовестно используете API, ознакомьтесь с [нашими рекомендациями](/guides/best-practices-for-integrators/).
 
-If your application triggers this rate limit, you'll receive an informative response:
+Если приложение достигает такого ограничения скорости, возвращается ответ с информацией:
 
 ```shell
 > HTTP/2 403
@@ -501,19 +424,17 @@ If your application triggers this rate limit, you'll receive an informative resp
 
 {% ifversion fpt or ghec %}
 
-## User agent required
+## Требуется агент пользователя
 
-All API requests MUST include a valid `User-Agent` header. Requests with no `User-Agent`
-header will be rejected. We request that you use your {% data variables.product.product_name %} username, or the name of your
-application, for the `User-Agent` header value. This allows us to contact you if there are problems.
+Все запросы API должны содержать допустимый заголовок `User-Agent`. Запросы без заголовка `User-Agent` отклоняются. Согласно нашим требованиям в качестве значения заголовка `User-Agent` следует указывать имя пользователя {% data variables.product.product_name %} или имя приложения. Это позволит нам связаться с вами в случае проблем.
 
-Here's an example:
+Ниже приведен пример:
 
 ```shell
 User-Agent: Awesome-Octocat-App
 ```
 
-cURL sends a valid `User-Agent` header by default. If you provide an invalid `User-Agent` header via cURL (or via an alternative client), you will receive a `403 Forbidden` response:
+cURL по умолчанию отправляет допустимый заголовок `User-Agent`. Если вы предоставите недопустимый заголовок `User-Agent` через cURL (или альтернативный клиент), то получите ответ `403 Forbidden`:
 
 ```shell
 $ curl -IH 'User-Agent: ' {% data variables.product.api_url_pre %}/meta
@@ -528,20 +449,15 @@ $ curl -IH 'User-Agent: ' {% data variables.product.api_url_pre %}/meta
 
 {% endif %}
 
-## Conditional requests
+## Условные запросы
 
-Most responses return an `ETag` header. Many responses also return a `Last-Modified` header. You can use the values
-of these headers to make subsequent requests to those resources using the
-`If-None-Match` and `If-Modified-Since` headers, respectively. If the resource
-has not changed, the server will return a `304 Not Modified`.
+В большинстве ответов возвращается заголовок `ETag`. Во многих ответах также возвращается заголовок `Last-Modified`. Значения этих заголовков можно использовать для выполнения последующих запросов к тем же ресурсам с применением заголовков `If-None-Match` и `If-Modified-Since` соответственно. Если ресурс не изменился, сервер вернет сообщение `304 Not Modified`.
 
 {% ifversion fpt or ghec %}
 
 {% tip %}
 
-**Note**: Making a conditional request and receiving a 304 response does not
-count against your [Rate Limit](#rate-limiting), so we encourage you to use it
-whenever possible.
+**Примечание**. Условный запрос, на который получен ответ 304, не учитывается при подсчете [ограничения скорости](#rate-limiting), поэтому мы рекомендуем использовать его при каждой возможности.
 
 {% endtip %}
 
@@ -578,16 +494,12 @@ $ curl -I {% data variables.product.api_url_pre %}/user -H "If-Modified-Since: T
 > x-ratelimit-reset: 1372700873
 ```
 
-## Cross origin resource sharing
+## Предоставление общего доступа к ресурсам независимо от источника
 
-The API supports Cross Origin Resource Sharing (CORS) for AJAX requests from
-any origin.
-You can read the [CORS W3C Recommendation](http://www.w3.org/TR/cors/), or
-[this intro](https://code.google.com/archive/p/html5security/wikis/CrossOriginRequestSecurity.wiki) from the
-HTML 5 Security Guide.
+API поддерживает общий доступ к ресурсам независимо от источника (CORS) для запросов AJAX из любого источника.
+Вы можете ознакомиться с [рекомендацией консорциума W3C в отношении CORS ](http://www.w3.org/TR/cors/) или [этим введением](https://code.google.com/archive/p/html5security/wikis/CrossOriginRequestSecurity.wiki) из руководства по безопасности HTML 5.
 
-Here's a sample request sent from a browser hitting
-`http://example.com`:
+Вот пример запроса, отправляемого из браузера на `http://example.com`:
 
 ```shell
 $ curl -I {% data variables.product.api_url_pre %} -H "Origin: http://example.com"
@@ -596,7 +508,7 @@ Access-Control-Allow-Origin: *
 Access-Control-Expose-Headers: ETag, Link, X-GitHub-OTP, x-ratelimit-limit, x-ratelimit-remaining, x-ratelimit-reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval
 ```
 
-This is what the CORS preflight request looks like:
+Вот как выглядит предварительный запрос CORS:
 
 ```shell
 $ curl -I {% data variables.product.api_url_pre %} -H "Origin: http://example.com" -X OPTIONS
@@ -608,13 +520,9 @@ Access-Control-Expose-Headers: ETag, Link, X-GitHub-OTP, x-ratelimit-limit, x-ra
 Access-Control-Max-Age: 86400
 ```
 
-## JSON-P callbacks
+## Обратные вызовы JSON-P
 
-You can send a `?callback` parameter to any GET call to have the results
-wrapped in a JSON function.  This is typically used when browsers want
-to embed {% data variables.product.product_name %} content in web pages by getting around cross domain
-issues.  The response includes the same data output as the regular API,
-plus the relevant HTTP Header information.
+Вы можете передать параметр `?callback` в любой вызов GET, чтобы результаты были заключены в функцию JSON.  Обычно такой способ применяется, когда содержимое {% data variables.product.product_name %} должно внедряться на веб-страницы в браузерах путем обхода проблем с доступом между доменами.  Ответ включает те же выходные данные, что и при обычном вызове API, а также соответствующие сведения о заголовках HTTP.
 
 ```shell
 $ curl {% data variables.product.api_url_pre %}?callback=foo
@@ -635,7 +543,7 @@ $ curl {% data variables.product.api_url_pre %}?callback=foo
 > })
 ```
 
-You can write a JavaScript handler to process the callback. Here's a minimal example you can try out:
+Вы можете написать обработчик JavaScript для обработки обратного вызова. Вот минимальный пример, который можно опробовать:
 
     <html>
     <head>
@@ -659,15 +567,13 @@ You can write a JavaScript handler to process the callback. Here's a minimal exa
     </body>
     </html>
 
-All of the headers are the same String value as the HTTP Headers with one
-notable exception: Link.  Link headers are pre-parsed for you and come
-through as an array of `[url, options]` tuples.
+Все заголовки имеют те же строковые значения, что и заголовки HTTP, с одним существенным исключением: Link.  Заголовки Link предварительно анализируются и передаются в виде массива кортежей `[url, options]`.
 
-A link that looks like this:
+Следующая ссылка:
 
     Link: <url1>; rel="next", <url2>; rel="foo"; bar="baz"
 
-... will look like this in the Callback output:
+...будет выглядеть следующим образом в выходных данных обратного вызова:
 
 ```json
 {
@@ -689,39 +595,37 @@ A link that looks like this:
 }
 ```
 
-## Timezones
+## Часовые пояса
 
-Some requests that create new data, such as creating a new commit, allow you to provide time zone information when specifying or generating timestamps. We apply the following rules, in order of priority, to determine timezone information for such API calls.
+Некоторые запросы, создающие данные, например новую фиксацию, позволяют предоставлять сведения о часовом поясе при указании или создании меток времени. С целью определения часового пояса для таких вызовов API мы применяем следующие правила в порядке приоритета:
 
-* [Explicitly providing an ISO 8601 timestamp with timezone information](#explicitly-providing-an-iso-8601-timestamp-with-timezone-information)
-* [Using the `Time-Zone` header](#using-the-time-zone-header)
-* [Using the last known timezone for the user](#using-the-last-known-timezone-for-the-user)
-* [Defaulting to UTC without other timezone information](#defaulting-to-utc-without-other-timezone-information)
+* [Явное предоставление метки времени ISO 8601 со сведениями о часовом поясе](#explicitly-providing-an-iso-8601-timestamp-with-timezone-information)
+* [Использование заголовка `Time-Zone`](#using-the-time-zone-header)
+* [Использование последнего известного часового пояса для пользователя](#using-the-last-known-timezone-for-the-user)
+* [Использование UTC по умолчанию при отсутствии других сведений о часовом поясе](#defaulting-to-utc-without-other-timezone-information)
 
-Note that these rules apply only to data passed to the API, not to data returned by the API. As mentioned in "[Schema](#schema)," timestamps returned by the API are in UTC time, ISO 8601 format.
+Обратите внимание, что эти правила применяются только к данным, передаваемым в API, а не к данным, возвращаемым API. Как упоминалось в разделе [Схема](#schema), метки времени, возвращаемые API, имеют формат UTC ISO 8601.
 
-### Explicitly providing an ISO 8601 timestamp with timezone information
+### Явное предоставление метки времени ISO 8601 со сведениями о часовом поясе
 
-For API calls that allow for a timestamp to be specified, we use that exact timestamp. An example of this is the [Commits API](/rest/reference/git#commits).
+Для вызовов API, позволяющих указать метку времени, мы используем такую метку времени. Примером является [API фиксаций](/rest/reference/git#commits).
 
-These timestamps look something like `2014-02-27T15:05:06+01:00`. Also see [this example](/rest/reference/git#example-input) for how these timestamps can be specified.
+Метки времени выглядят примерно так: `2014-02-27T15:05:06+01:00`. Пример указания меток времени также см. [здесь](/rest/reference/git#example-input).
 
-### Using the `Time-Zone` header
+### Использование заголовка `Time-Zone`
 
-It is possible to supply a `Time-Zone` header which defines a timezone according to the [list of names from the Olson database](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
+Можно указать заголовок `Time-Zone`, который определяет часовой пояс в соответствии со [списком имен из базы данных Olson](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
 
 ```shell
 $ curl -H "Time-Zone: Europe/Amsterdam" -X POST {% data variables.product.api_url_pre %}/repos/github/linguist/contents/new_file.md
 ```
 
-This means that we generate a timestamp for the moment your API call is made in the timezone this header defines. For example, the [Contents API](/rest/reference/repos#contents) generates a git commit for each addition or change and uses the current time as the timestamp. This header will determine the timezone used for generating that current timestamp.
+Это означает, что мы создаем метку времени для момента времени, когда выполняется вызов API, в часовом поясе, определенном в этом заголовке. Например, [API содержимого](/rest/reference/repos#contents) создает фиксацию Git для каждого добавления или изменения и использует текущее время в качестве метки времени. В этом заголовке определяется часовой пояс, используемый для создания текущей метки времени.
 
-### Using the last known timezone for the user
+### Использование последнего известного часового пояса для пользователя
 
-If no `Time-Zone` header is specified and you make an authenticated call to the API, we use the last known timezone for the authenticated user. The last known timezone is updated whenever you browse the {% data variables.product.product_name %} website.
+Если заголовок `Time-Zone` не указан и вы выполняете вызов API с проверкой подлинности, мы используем последний известный часовой пояс для пользователя, прошедшего проверку подлинности. Последний известный часовой пояс обновляется при каждом посещении веб-сайта {% data variables.product.product_name %}.
 
-### Defaulting to UTC without other timezone information
+### Использование UTC по умолчанию при отсутствии других сведений о часовом поясе
 
-If the steps above don't result in any information, we use UTC as the timezone to create the git commit.
-
-[pagination-guide]: /guides/traversing-with-pagination
+Если получить сведения о часовом поясе указанными выше способами не удалось, мы используем UTC в качестве часового пояса для создания фиксации Git.

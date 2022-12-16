@@ -1,18 +1,18 @@
 ---
 title: 允许代码空间访问私有映像注册表
-intro: '你可以使用密钥允许 {% data variables.product.prodname_github_codespaces %} 访问私有映像注册表'
+intro: 你可以使用密钥允许 {% data variables.product.prodname_github_codespaces %} 访问私有映像注册表
 versions:
   fpt: '*'
   ghec: '*'
 topics:
-  - Codespaces
+- Codespaces
 shortTitle: Private image registry
 ms.openlocfilehash: c11cfe0179856caf17f30ac32830ee1485defa3c
 ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/09/2022
-ms.locfileid: '148159203'
+ms.locfileid: "148159203"
 ---
 ## 关于私人映像注册表和 {% data variables.product.prodname_github_codespaces %}
 

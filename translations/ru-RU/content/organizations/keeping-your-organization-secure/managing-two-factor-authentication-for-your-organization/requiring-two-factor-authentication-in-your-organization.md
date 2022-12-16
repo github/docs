@@ -1,6 +1,6 @@
 ---
-title: Requiring two-factor authentication in your organization
-intro: 'Organization owners can require {% ifversion fpt or ghec %}organization members, outside collaborators, and billing managers{% else %}organization members and outside collaborators{% endif %} to enable two-factor authentication for their personal accounts, making it harder for malicious actors to access an organization''s repositories and settings.'
+title: Обязательная двухфакторная проверка подлинности в вашей организации
+intro: 'Владельцы организации могут требовать {% ifversion fpt or ghec %}от участников организации, сторонних участников совместной работы и менеджеров по выставлению счетов{% else %}от участников организации и сторонних участников совместной работы{% endif %}, чтобы включить двухфакторную проверку подлинности для их персональных учетных записей, чтобы усложнить для злоумышленников доступ к репозиториям и параметрам организации.'
 redirect_from:
   - /articles/requiring-two-factor-authentication-in-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/requiring-two-factor-authentication-in-your-organization
@@ -13,70 +13,68 @@ topics:
   - Organizations
   - Teams
 shortTitle: Require 2FA
+ms.openlocfilehash: 1a6ea397b010855917f9304db9a5c51cb5440a22
+ms.sourcegitcommit: 505b84dc7227e8a5d518a71eb5c7eaa65b38ce0e
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147872306'
 ---
+## Сведения о двухфакторной проверке подлинности для организаций
 
-## About two-factor authentication for organizations
-
-{% data reusables.two_fa.about-2fa %} You can require all {% ifversion fpt or ghec %}members, outside collaborators, and billing managers{% else %}members and outside collaborators{% endif %} in your organization to enable two-factor authentication on {% data variables.product.product_name %}. For more information about two-factor authentication, see "[Securing your account with two-factor authentication (2FA)](/github/authenticating-to-github/securing-your-account-with-two-factor-authentication-2fa)."
+{% data reusables.two_fa.about-2fa %} Можно потребовать от всех {% ifversion fpt or ghec %}членов, внешних участников совместной работы и менеджеров по выставлению счетов{% else %}членов и внешних участников совместной работы{% endif %} в организации включить двухфакторную проверку подлинности в {% data variables.product.product_name %}. Дополнительные сведения о двухфакторной проверке подлинности см. в разделе [Защита учетной записи с помощью двухфакторной проверки подлинности (2FA)](/github/authenticating-to-github/securing-your-account-with-two-factor-authentication-2fa).
 
 {% ifversion fpt or ghec %}
 
-You can also require two-factor authentication for organizations in an enterprise. For more information, see "[Enforcing policies for security settings in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise)."
+Можно также потребовать обязательную двухфакторную проверку подлинности для организаций на предприятии. Дополнительные сведения см. в разделе [Применение политик для параметров безопасности на предприятии](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise).
 
 {% endif %}
 
 {% warning %}
 
-**Warnings:**
+**Предупреждения.**
 
-- When you require use of two-factor authentication for your organization, {% ifversion fpt or ghec %}members, outside collaborators, and billing managers{% else %}members and outside collaborators{% endif %} (including bot accounts) who do not use 2FA will be removed from the organization and lose access to its repositories. They will also lose access to their forks of the organization's private repositories. You can [reinstate their access privileges and settings](/articles/reinstating-a-former-member-of-your-organization) if they enable two-factor authentication for their personal account within three months of their removal from your organization.
-- If an organization owner, member,{% ifversion fpt or ghec %} billing manager,{% endif %} or outside collaborator disables 2FA for their personal account after you've enabled required two-factor authentication, they will automatically be removed from the organization.
-- If you're the sole owner of an organization that requires two-factor authentication, you won't be able to disable 2FA for your personal account without disabling required two-factor authentication for the organization.
+- Если для организации требуется использовать двухфакторную проверку подлинности, {% ifversion fpt or ghec %}члены, внешние участники совместной работы и менеджеры по выставлению счетов{% else %}члены и внешние участники совместной работы{% endif %} (включая учетные записи ботов), которые не используют 2FA, будут удалены из организации и потеряют доступ к своим репозиториям. Они также потеряют доступ к своим вилкам в частных репозиториях организации. Можно [возобновить использование их привилегий доступа и параметры](/articles/reinstating-a-former-member-of-your-organization), если они включат двухфакторную проверку подлинности для своей личной учетной записи в течение трех месяцев после их удаления из организации.
+- Если владелец организации, член,{% ifversion fpt or ghec %} менеджер по выставлению счетов{% endif %} или внешний участник совместной работы отключит 2FA для своей личной учетной записи после того, как вы выключили обязательную двухфакторную проверку подлинности, он будет автоматически удален из организации.
+- Если вы являетесь единственным владельцем организации, требующей двухфакторной проверки подлинности, вы не сможете отключить 2FA для личной учетной записи без отключения обязательной двухфакторной проверки подлинности для организации.
 
 {% endwarning %}
 
 {% data reusables.two_fa.auth_methods_2fa %}
 
-## Prerequisites
+## Предварительные требования
 
-Before you can require {% ifversion fpt or ghec %}organization members, outside collaborators, and billing managers{% else %}organization members and outside collaborators{% endif %} to use two-factor authentication, you must enable two-factor authentication for your account on {% data variables.product.product_name %}. For more information, see "[Securing your account with two-factor authentication (2FA)](/github/authenticating-to-github/securing-your-account-with-two-factor-authentication-2fa)."
+Прежде чем можно будет потребовать от {% ifversion fpt or ghec %}членов организации, внешних участников совместной работы и менеджеров по выставлению счетов{% else %}членов организации и внешних участников совместной работы{% endif %} использовать двухфакторную проверку подлинности, ее необходимо включить для своей учетной записи на {% data variables.product.product_name %}. Дополнительные сведения см. в разделе [Защита учетной записи с помощью двухфакторной проверки подлинности](/github/authenticating-to-github/securing-your-account-with-two-factor-authentication-2fa).
 
-Before you require use of two-factor authentication, we recommend notifying {% ifversion fpt or ghec %}organization members, outside collaborators, and billing managers{% else %}organization members and outside collaborators{% endif %} and asking them to set up 2FA for their accounts. You can see if members and outside collaborators already use 2FA. For more information, see "[Viewing whether users in your organization have 2FA enabled](/organizations/keeping-your-organization-secure/viewing-whether-users-in-your-organization-have-2fa-enabled)."
+Прежде чем требовать использования двухфакторной проверки подлинности, рекомендуется уведомить {% ifversion fpt or ghec %}членов организации, внешних участников совместной работы и менеджеров по выставлению счетов{% else %}членов организации и внешних участников совместной работы{% endif %} и попросить их настроить 2FA для своих учетных записей. Вы можете увидеть, используют ли уже члены и внешние участники совместной работы 2FA. Дополнительные сведения см. в разделе [Проверка включения двухфакторной проверки подлинности пользователями организации](/organizations/keeping-your-organization-secure/viewing-whether-users-in-your-organization-have-2fa-enabled).
 
-## Requiring two-factor authentication in your organization
+## Обязательная двухфакторная проверка подлинности в вашей организации
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.security %}
-{% data reusables.organizations.require_two_factor_authentication %}
-{% data reusables.organizations.removed_outside_collaborators %}
-{% ifversion fpt or ghec %}
-8. If any members or outside collaborators are removed from the organization, we recommend sending them an invitation that can reinstate their former privileges and access to your organization. They must enable two-factor authentication before they can accept your invitation.
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.organizations.security %} {% data reusables.organizations.require_two_factor_authentication %} {% data reusables.organizations.removed_outside_collaborators %} {% ifversion fpt or ghec %}
+8. Если какие-либо члены или внешние участники совместной работы удаляются из организации, рекомендуется отправить им приглашение, которое может возобновить использование их бывших привилегий и доступ к организации. Они должны включить двухфакторную аутентификацию, прежде чем смогут принять приглашение.
 {% endif %}
 
-## Viewing people who were removed from your organization
+## Просмотр пользователей, удаленных из организации
 
-To view people who were automatically removed from your organization for non-compliance when you required two-factor authentication, you can [search your organization's audit log](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization#accessing-the-audit-log) for people removed from your organization. The audit log event will show if a person was removed for 2FA non-compliance.
+Чтобы просмотреть людей, которые были автоматически удалены из организации из-за несоответствия требованию использовать двухфакторную проверку подлинности, можно [выполнить поиск в журнале аудита организации](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization#accessing-the-audit-log) людей, удаленных из нее. Событие журнала аудита покажет, был ли пользователь удален из-за несоответствия 2FA.
 
-![Audit log event showing a user removed for 2FA non-compliance](/assets/images/help/2fa/2fa_noncompliance_audit_log_search.png)
+![Событие журнала аудита, показывающее, что пользователь удален из-за несоответствия 2FA](/assets/images/help/2fa/2fa_noncompliance_audit_log_search.png)
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.audit_log.audit_log_sidebar_for_org_admins %}
-4. Enter your search query. To search for:
-    - Organization members removed, use `action:org.remove_member` in your search query
-    - Outside collaborators removed, use `action:org.remove_outside_collaborator` in your search query{% ifversion fpt or ghec %}
-    - Billing managers removed, use `action:org.remove_billing_manager`in your search query{% endif %}
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.audit_log.audit_log_sidebar_for_org_admins %}
+4. Введите поисковый запрос. Выполнить поиск:
+    - Члены организации удалены, используйте `action:org.remove_member` в поисковом запросе
+    - Внешние участники совместной работы удалены, используйте `action:org.remove_outside_collaborator` в поисковом запросе{% ifversion fpt or ghec %}
+    - Менеджеры по выставлению счетов удалены, используйте `action:org.remove_billing_manager`в поисковом запросе{% endif %}
 
- You can also view people who were removed from your organization by using a [time frame](/articles/reviewing-the-audit-log-for-your-organization/#search-based-on-time-of-action) in your search.
+ Можно также просмотреть людей, которые были удалены из организации, с помощью использования [интервала времени](/articles/reviewing-the-audit-log-for-your-organization/#search-based-on-time-of-action) в поиске.
 
-## Helping removed members and outside collaborators rejoin your organization
+## Помощь удаленным членам организации и внешним участникам совместной работы в повторном присоединении к организации
 
-If any members or outside collaborators are removed from the organization when you enable required use of two-factor authentication, they'll receive an email notifying them that they've been removed. They should then enable 2FA for their personal account, and contact an organization owner to request access to your organization.
+Если члены организации или внешние участники совместной работы удаляются из организации при включении обязательного использования двухфакторной проверки подлинности, они получат электронное письмо с уведомлением об удалении. Затем они должны включить 2FA для своей личной учетной записи и обратиться к владельцу организации, чтобы запросить доступ к организации.
 
-## Further reading
+## Дополнительные материалы
 
-- "[Viewing whether users in your organization have 2FA enabled](/articles/viewing-whether-users-in-your-organization-have-2fa-enabled)"
-- "[Securing your account with two-factor authentication (2FA)](/articles/securing-your-account-with-two-factor-authentication-2fa)"
-- "[Reinstating a former member of your organization](/articles/reinstating-a-former-member-of-your-organization)"
-- "[Reinstating a former outside collaborator's access to your organization](/articles/reinstating-a-former-outside-collaborator-s-access-to-your-organization)"
+- "[Проверка включения 2FA у пользователей организации](/articles/viewing-whether-users-in-your-organization-have-2fa-enabled)"
+- "[Защита учетной записи с помощью двухфакторной проверки подлинности (2FA)](/articles/securing-your-account-with-two-factor-authentication-2fa)"
+- "[Восстановление бывшего члена организации](/articles/reinstating-a-former-member-of-your-organization)"
+- "[Восстановление доступа бывшего внешнего участника совместной работы к организации](/articles/reinstating-a-former-outside-collaborator-s-access-to-your-organization)"

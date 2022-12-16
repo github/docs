@@ -1,6 +1,6 @@
 ---
-title: Webhook events and payloads
-intro: 'Learn about when each webhook event occurs and what the payload contains.'
+title: Webhook-Ereignisse und -Nutzlasten
+intro: 'Hier erfährst du, wann jedes Webhookereignis auftritt und was die Nutzlast enthält.'
 product: '{% data reusables.gated-features.enterprise_account_webhooks %}'
 redirect_from:
   - /early-access/integrations/webhooks
@@ -15,48 +15,52 @@ versions:
 topics:
   - Webhooks
 shortTitle: Webhook events & payloads
+ms.openlocfilehash: 0592f191b463354b92c3953880c7a7a435e0b07a
+ms.sourcegitcommit: b2e5d14036a700b781e91158a552f8c0b1f04839
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 11/15/2022
+ms.locfileid: '148165538'
 ---
-
 {% data reusables.webhooks.webhooks_intro %}
 
-You can create webhooks that subscribe to the events listed on this page. Each webhook event includes a description of the webhook properties and an example payload. For more information, see "[Creating webhooks](/webhooks/creating/)."
+Du kannst Webhooks erstellen, die die auf dieser Seite aufgeführten Ereignisse abonnieren. Jedes Webhookereignis enthält eine Beschreibung der Webhookeigenschaften und eine Beispielnutzlast. Weitere Informationen findest du unter [Erstellen von Webhooks](/webhooks/creating/).
 
-## Webhook payload object common properties
+## Allgemeine Eigenschaften des Webhook-Nutzlastobjekts
 
-Each webhook event payload also contains properties unique to the event. You can find the unique properties in the individual event type sections.
+Jede Webhook-Ereignisnutzlast enthält auch Eigenschaften, die für das Ereignis eindeutig sind. Du kannst die eindeutigen Eigenschaften in den einzelnen Ereignistypabschnitten finden.
 
-Key | Type | Description
+Schlüssel | Typ | BESCHREIBUNG
 ----|------|-------------
-`action` | `string` | Most webhook payloads contain an `action` property that contains the specific activity that triggered the event.
-{% data reusables.webhooks.sender_desc %} This property is included in every webhook payload.
-{% data reusables.webhooks.repo_desc %} Webhook payloads contain the `repository` property when the event occurs from activity in a repository.
-{% data reusables.webhooks.org_desc %}
-{% data reusables.webhooks.app_desc %} For more information, see "[Building {% data variables.product.prodname_github_app %}](/apps/building-github-apps/)."
+`action` | `string` | Die meisten Webhooknutzlasten enthalten eine Eigenschaft `action`, die die spezifische Aktivität enthält, die das Ereignis ausgelöst hat.
+{% data reusables.webhooks.sender_desc %} Diese Eigenschaft ist in jeder Webhooknutzlast enthalten.
+{% data reusables.webhooks.repo_desc %} Webhooknutzlasten enthalten die Eigenschaft `repository`, wenn sich das Ereignis aus Aktivitäten in einem Repository ergibt.
+{% data reusables.webhooks.org_desc %} {% data reusables.webhooks.app_desc %} Weitere Informationen findest du unter [Erstellen von {% data variables.product.prodname_github_app %}](/apps/building-github-apps/).
 
-The unique properties for a webhook event are the same properties you'll find in the `payload` property when using the [Events API](/rest/reference/activity#events). One exception is the [`push` event](#push). The unique properties of the `push` event webhook payload and the `payload` property in the Events API differ. The webhook payload contains more detailed information.
+Die eindeutigen Eigenschaften für ein Webhookereignis sind die gleichen Eigenschaften, die du in der Eigenschaft `payload` findest, wenn du die [Ereignis-API](/rest/reference/activity#events) verwendest. Eine Ausnahme ist das [`push` Ereignis](#push). Die eindeutigen Eigenschaften der Nutzlast des Webhookereignisses `push` und die Eigenschaft `payload` in der Ereignis-API unterscheiden sich. Die Webhooknutzlast enthält ausführlichere Informationen.
 
 {% tip %}
 
-**Note:** Payloads are capped at 25 MB. If your event generates a larger payload, a webhook will not be fired. This may happen, for example, on a `create` event if many branches or tags are pushed at once. We suggest monitoring your payload size to ensure delivery.
+**Hinweis:** Nutzlasten sind auf 25 MB begrenzt. Wenn dein Ereignis eine größere Nutzlast generiert, wird kein Webhook ausgelöst. Dies kann beispielsweise bei einem `create`-Ereignis geschehen, wenn viele Branches oder Tags gleichzeitig verschoben werden. Es wird empfohlen, die Nutzlastgröße zu überwachen, um die Übermittlung sicherzustellen.
 
 {% endtip %}
 
-### Delivery headers
+### Übermittlungsheader
 
-HTTP POST payloads that are delivered to your webhook's configured URL endpoint will contain several special headers:
+HTTP-POST-Nutzlasten, die an den konfigurierten URL-Endpunkt deines Webhook übermittelt werden, enthalten mehrere spezielle Header:
 
-Header | Description
+Header | BESCHREIBUNG
 -------|-------------|
-`X-GitHub-Event`| Name of the event that triggered the delivery.
-`X-GitHub-Delivery`| A [GUID](http://en.wikipedia.org/wiki/Globally_unique_identifier) to identify the delivery.{% ifversion ghes or ghae %}
-`X-GitHub-Enterprise-Version` | The version of the {% data variables.product.prodname_ghe_server %} instance that sent the HTTP POST payload.
-`X-GitHub-Enterprise-Host` | The hostname of the {% data variables.product.prodname_ghe_server %} instance that sent the HTTP POST payload.{% endif %}{% ifversion not ghae %}
-`X-Hub-Signature`| This header is sent if the webhook is configured with a [`secret`](/rest/reference/repos#create-hook-config-params). This is the HMAC hex digest of the request body, and is generated using the SHA-1 hash function and the `secret` as the HMAC `key`.{% ifversion fpt or ghes or ghec %} `X-Hub-Signature` is provided for compatibility with existing integrations, and we recommend that you use the more secure `X-Hub-Signature-256` instead.{% endif %}{% endif %}
-`X-Hub-Signature-256`| This header is sent if the webhook is configured with a [`secret`](/rest/reference/repos#create-hook-config-params). This is the HMAC hex digest of the request body, and is generated using the SHA-256 hash function and the `secret` as the HMAC `key`.
+`X-GitHub-Event`| Name des Ereignisses, das die Übermittlung ausgelöst hat.
+`X-GitHub-Delivery`| Eine [GUID](http://en.wikipedia.org/wiki/Globally_unique_identifier), um die Übermittlung zu identifizieren. {% ifversion ghes or ghae %}
+`X-GitHub-Enterprise-Version` | Die Version der {% data variables.product.prodname_ghe_server %}-Instanz, die die HTTP-POST-Nutzlast gesendet hat.
+`X-GitHub-Enterprise-Host` | Der Hostname der {% data variables.product.prodname_ghe_server %}-Instanz, die die HTTP-POST-Nutzlast gesendet hat. {% endif %}{% ifversion not ghae %}
+`X-Hub-Signature`| Dieser Header wird gesendet, wenn der Webhook mit einem [`secret`](/rest/reference/repos#create-hook-config-params) konfiguriert ist. Dies ist der HMAC-Hex-Digest des Anforderungstexts und wird mithilfe der SHA-1-Hashfunktion und dem `secret` als HMAC `key` generiert.{% ifversion fpt or ghes or ghec %} `X-Hub-Signature` wird für die Kompatibilität mit vorhandenen Integrationen bereitgestellt. Es wird empfohlen, stattdessen die sicherere `X-Hub-Signature-256` zu verwenden.{% endif %}{% endif %}
+`X-Hub-Signature-256`| Dieser Header wird gesendet, wenn der Webhook mit einem [`secret`](/rest/reference/repos#create-hook-config-params) konfiguriert ist. Dies ist der HMAC-Hex-Digest des Anforderungstexts und wird mithilfe der SHA-256-Hashfunktion und des `secret` als HMAC `key` generiert.
 
-Also, the `User-Agent` for the requests will have the prefix `GitHub-Hookshot/`.
+Außerdem weist `User-Agent` für die Anforderungen das Präfix `GitHub-Hookshot/` auf.
 
-### Example delivery
+### Beispielübermittlung
 
 ```shell
 > POST /payload HTTP/2

@@ -11,12 +11,12 @@ topics:
   - Codespaces
 redirect_from:
   - /codespaces/troubleshooting/troubleshooting-codespaces-clients
-ms.openlocfilehash: 682160b3b92960487c0709fc411fc2143d18f415
-ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.openlocfilehash: 35bd9dd859612307c1f9e49ea8ed9771e4f5efcd
+ms.sourcegitcommit: bf4e3590ab71b0a1bfa8d74b00183f63193acbbf
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/09/2022
-ms.locfileid: '148159590'
+ms.lasthandoff: 11/30/2022
+ms.locfileid: '148186171'
 ---
 {% jetbrains %}
 
@@ -54,7 +54,7 @@ Wenn das Problem in {% data variables.product.prodname_vscode %} Stable nicht be
 
 ## Behandeln von Problemen mit {% data variables.product.prodname_vscode_shortname %}
 
-Wenn du einen Codespace in der {% data variables.product.prodname_vscode_shortname %}-Desktopanwendung öffnest, wirst du vielleicht einige Unterschiede zur Arbeit in einem lokalen Arbeitsbereich feststellen, aber die Benutzeroberfläche sollte ähnlich sein. 
+Wenn du einen Codespace in der {% data variables.product.prodname_vscode_shortname %}-Desktopanwendung öffnest, wirst du vielleicht einige Unterschiede zur Arbeit in einem lokalen Arbeitsbereich feststellen, aber die Benutzeroberfläche sollte ähnlich sein.
 
 Wenn Probleme auftreten, kannst du nach bekannten Issues suchen und neue Issues über die {% data variables.product.prodname_vscode_shortname %}-Benutzeroberfläche im [`microsoft/vscode`](https://github.com/microsoft/vscode/issues?q=is%3Aissue+is%3Aopen+codespaces)-Repository protokollieren.
 
@@ -104,6 +104,31 @@ Im Folgenden findest du einige Anhaltspunkte für den Anfang, die du je nach Gr�
 
 1. Klicke auf **Speichern und neu starten**.
 
+### Client kann unter macOS Ventura nicht geöffnet werden 
+
+Unter macOS Ventura wird beim ersten Versuch, über das JetBrains-Gateway eine Verbindung mit einem Codespace herzustellen, möglicherweise eine Meldung angezeigt, die dich darüber informiert, dass die JetBrains-Clientanwendung „beschädigt ist und nicht geöffnet werden kann“.
+
+<img src="/assets/images/help/codespaces/jetbrains-ventura-error1.png" alt="Screenshot of the 'cannot be opened' error message" style="width:230px;"/>
+
+Gehe in diesem Fall wie folgt vor:
+
+1. Klicke auf **Abbrechen**, um diese Nachricht zu schließen.
+1. Klicke oben links auf dem Bildschirm auf das Apple-Symbol, und klicke auf **Systemeinstellungen**. 
+1. Klicke auf **Datenschutz und Sicherheit**, und scrolle nach unten zum Abschnitt „Sicherheit“.
+
+   ![Screenshot des Dialogfelds „Datenschutz und Sicherheit“](/assets/images/help/codespaces/jetbrains-privacy-and-security.png)
+
+   Es wird eine Meldung angezeigt, die dich darüber informiert, dass die Verwendung des JetBrains-Clients blockiert wurde. 
+
+1. Klicke auf **Trotzdem öffnen**, um den JetBrains-Client zu den erkannten Anwendungen hinzuzufügen. 
+   Die Meldung wird erneut angezeigt, aber diesmal mit der Schaltfläche **Öffnen**.
+
+   <img src="/assets/images/help/codespaces/jetbrains-ventura-error2.png" alt="Screenshot of the error message with an 'Open' button" style="width:230px;"/>
+
+1. Klicke erneut auf **Abbrechen**.
+1. Wechsle zurück zur JetBrains Gateway-Anwendung, und stelle erneut eine Verbindung mit dem erforderlichen Codespace her.
+   Der JetBrains-Client wird nun erfolgreich geöffnet. Nachdem du die Clientanwendung für die Ausführung auf deinem Mac autorisiert hast, wird die Meldung nicht mehr angezeigt, wenn du in Zukunft eine Verbindung mit deinen Codespaces herstellst.
+
 ### SSH-Verbindungsprobleme
 
 Um eine Verbindung über den SSH-Server herzustellen, der in deinem Codespace ausgeführt wird, musst du über einen SSH-Schlüssel in deinem `~/.ssh`-Verzeichnis (macOS und Linux) oder `%HOMEPATH%\.ssh`-Verzeichnis (Windows) verfügen, der deinem {% data variables.product.prodname_dotcom %}-Konto bereits hinzugefügt wurde. Wenn du keine Schlüssel in diesem Verzeichnis hast, generiert {% data variables.product.prodname_cli %} Schlüssel für dich. Weitere Informationen findest du unter [Hinzufügen eines neuen SSH-Schlüssels zu deinem {% data variables.product.prodname_dotcom %}-Konto](/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account?platform=windows&tool=webui).
@@ -115,4 +140,3 @@ Wenn Probleme bei der Schlüsselüberprüfung auftreten, aktualisiere deine Vers
 Hilfe zu Problemen, die speziell die von dir verwendete JetBrains-IDE oder die JetBrains Gateway-Anwendung betreffen, findest du unter [Produktsupport](https://www.jetbrains.com/support/) auf der JetBrains-Website.
 
 {% endjetbrains %}
-

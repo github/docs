@@ -1,7 +1,7 @@
 ---
 title: GitHub Codespaces 사전 빌드 관련 정보
 shortTitle: About prebuilds
-intro: '{% data variables.product.prodname_github_codespaces %} 사전 빌드는 크거나 복잡한 리포지토리에 대한 새 codespace 생성 속도를 향상하는 데 도움이 됩니다.'
+intro: '{% data variables.product.prodname_github_codespaces %} 사전 빌드는 크거나 복잡한 리포지토리에 대한 새 codespace를 빠르게 만드는 데 도움이 됩니다.'
 versions:
   fpt: '*'
   ghec: '*'
@@ -9,12 +9,12 @@ topics:
   - Codespaces
 redirect_from:
   - /codespaces/prebuilding-your-codespaces/about-codespaces-prebuilds
-ms.openlocfilehash: e0962e410f2227a23ff98c8a3e7995ea8ec8a914
-ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.openlocfilehash: eecb77b541cc735fcf788fbc5da6960cabad899d
+ms.sourcegitcommit: 9af8891fea10039b3374c76818634e05410e349d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2022
-ms.locfileid: '148158799'
+ms.lasthandoff: 12/06/2022
+ms.locfileid: '148191920'
 ---
 ## 개요
 
@@ -36,13 +36,13 @@ ms.locfileid: '148158799'
 
 사전 빌드 구성 워크플로가 실행되면 {% data variables.product.prodname_dotcom %}에서 임시 codespace를 만들어 `devcontainer.json` 파일의 모든 `onCreateCommand` 명령과 `updateContentCommand` 명령을 포함하여 설정 작업을 수행합니다. 사전 빌드를 만드는 동안에는 `postCreateCommand` 명령이 실행되지 않습니다. 이러한 명령에 대한 자세한 내용은 {% data variables.product.prodname_vscode_shortname %} 설명서에서 [`devcontainer.json`참조](https://code.visualstudio.com/docs/remote/devcontainerjson-reference#_devcontainerjson-properties)를 확인하세요. 생성된 컨테이너의 스냅샷이 만들어지고 저장됩니다.
 
-다른 {% data variables.product.prodname_actions %} 워크플로와 마찬가지로 사전 빌드 구성 워크플로를 실행하면 계정에 포함된 {% data variables.product.prodname_actions %} 분 중 일부가 사용되거나 {% data variables.product.prodname_actions %} 분 요금이 부과됩니다. codespace 사전 빌드의 스토리지는 활성 또는 중지된 codespace 스토리지와 동일한 방식으로 청구됩니다. 자세한 내용은 “[{% data variables.product.prodname_github_codespaces %} 청구 정보](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#billing-for-codespaces-prebuilds)”를 참조하세요.
+다른 {% data variables.product.prodname_actions %} 워크플로와 마찬가지로 사전 빌드 구성 워크플로를 실행하면 계정에 포함된 {% 데이터 variables.product.prodname_actions %} 분 중 일부가 사용되거나 {% data variables.product.prodname_actions %} 분 요금이 부과됩니다. codespace 사전 빌드의 스토리지는 활성 또는 중지된 codespace의 스토리지와 동일한 방식으로 청구됩니다. 자세한 내용은 “[{% data variables.product.prodname_github_codespaces %} 청구 정보](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#billing-for-codespaces-prebuilds)”를 참조하세요.
 
 사전 빌드에서 codespace를 만들 때 {% data variables.product.prodname_dotcom %}에서는 스토리지로부터 기존 컨테이너 스냅샷을 다운로드하고 새 가상 머신에 배포하여 개발 컨테이너 구성에 지정된 나머지 명령을 완료합니다. 리포지토리 복제와 같은 많은 작업이 이미 수행되었으므로 사전 빌드에서 codespace를 만드는 것이 사전 빌드 없이 만드는 것보다 훨씬 빠를 수 있습니다. 리포지토리가 크거나 `onCreateCommand` 명령이 실행되는 데 시간이 오래 걸리는 경우에도 마찬가지입니다.
 
 ## 사전 빌드된 분기로 변경 내용 푸시 정보
 
-기본적으로 사전 빌드 구성이 있는 분기에 푸시할 때마다 {% data variables.product.prodname_dotcom %}관리되는 {% data variables.product.prodname_actions %} 워크플로가 실행되어 사전 빌드를 업데이트합니다. 연결된 리포지토리의 개발 컨테이너 구성에 영향을 주는 변경 사항이 없는 한 사전 빌드 워크플로에는 지정된 사전 빌드 구성에 대해 한 번에 하나의 워크플로 실행의 동시성 제한이 있습니다. 자세한 내용은 “[개발 컨테이너 소개](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers)”를 참조하세요. 실행이 이미 진행 중인 경우 가장 최근에 대기열에 있던 워크플로 실행이 현재 실행이 완료된 후 다음으로 실행됩니다. 
+기본적으로 사전 빌드 구성이 있는 분기로 푸시할 때마다 {% data variables.product.prodname_dotcom %}관리되는 {% data variables.product.prodname_actions %} 워크플로가 실행되어 사전 빌드를 업데이트합니다. 연결된 리포지토리의 개발 컨테이너 구성에 영향을 주는 변경 사항이 없는 한 사전 빌드 워크플로에는 지정된 사전 빌드 구성에 대해 한 번에 하나의 워크플로 실행의 동시성 제한이 있습니다. 자세한 내용은 “[개발 컨테이너 소개](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers)”를 참조하세요. 실행이 이미 진행 중인 경우 현재 실행이 완료된 후 가장 최근에 큐에 대기된 워크플로 실행이 다음에 실행됩니다. 
 
 각 푸시에 대해 사전 빌드를 업데이트하도록 설정하면, 리포지토리에 대한 푸시가 매우 자주 수행되는 경우 사전 빌드 업데이트는 최소한 사전 빌드 워크플로를 실행하는 데 걸리는 빈도만큼 발생합니다. 즉, 워크플로 실행을 완료하는 데 일반적으로 1시간이 걸린다면 실행이 성공하는 경우 또는 분기에 개발 컨테이너 구성을 변경하는 푸시가 있는 경우 약 1시간 동안 리포지토리에 대한 사전 빌드가 생성됩니다.
 

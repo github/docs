@@ -1,6 +1,6 @@
 ---
-title: Troubleshooting the detection of vulnerable dependencies
-intro: 'If the dependency information reported by {% data variables.product.product_name %} is not what you expected, there are a number of points to consider, and various things you can check.'
+title: 漏洞依赖项检测疑难解答
+intro: '如果 {% data variables.product.product_name %} 报告的依赖项信息不符合您的预期，则需要考虑许多因素，您可以检查各种问题。'
 shortTitle: Troubleshoot vulnerability detection
 redirect_from:
   - /github/managing-security-vulnerabilities/troubleshooting-the-detection-of-vulnerable-dependencies
@@ -22,78 +22,81 @@ topics:
   - Vulnerabilities
   - CVEs
   - Repositories
+ms.openlocfilehash: 78ab86bf3314717a1f79b858496c4eb9fa323819
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148106531'
 ---
+{% data reusables.dependabot.beta-security-and-version-updates %} {% data reusables.dependabot.result-discrepancy %}
 
-{% data reusables.dependabot.beta-security-and-version-updates %}
-{% data reusables.dependabot.result-discrepancy %}
+## 为什么似乎缺少某些依赖项？
 
-## Why do some dependencies seem to be missing?
+{% data variables.product.prodname_dotcom %} 生成和显示依赖项数据不同于其他工具。 因此，如果您过去使用其他工具来识别依赖项，则几乎可以肯定您会看到不同的结果。 考虑以下情况：
 
-{% data variables.product.prodname_dotcom %} generates and displays dependency data differently than other tools. Consequently, if you've been using another tool to identify dependencies you will almost certainly see different results. Consider the following:
-
-*   {% data variables.product.prodname_advisory_database %} is one of the data sources that {% data variables.product.prodname_dotcom %} uses to identify vulnerable dependencies{% ifversion GH-advisory-db-supports-malware %} and malware{% endif %}. It's a free, curated database of security advisories for common package ecosystems on {% data variables.product.prodname_dotcom %}. It includes both data reported directly to {% data variables.product.prodname_dotcom %} from {% data variables.product.prodname_security_advisories %}, as well as official feeds and community sources. This data is reviewed and curated by {% data variables.product.prodname_dotcom %} to ensure that false or unactionable information is not shared with the development community. {% data reusables.security-advisory.link-browsing-advisory-db %}
-*   The dependency graph parses all known package manifest files in a user’s repository. For example, for npm it will parse the _package-lock.json_ file. It constructs a graph of all of the repository’s dependencies and public dependents. This happens when you enable the dependency graph and when anyone pushes to the default branch, and it includes commits that makes changes to a supported manifest format. For more information, see "[About the dependency graph](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)" and "[Troubleshooting the dependency graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/troubleshooting-the-dependency-graph)."
-*   {% data variables.product.prodname_dependabot %} scans any push, to the default branch, that contains a manifest file. When a new advisory is added, it scans all existing repositories and generates an alert for each repository that is affected. {% data variables.product.prodname_dependabot_alerts %} are aggregated at the repository level, rather than creating one alert per advisory. For more information, see "[About {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)."
-*   {% ifversion fpt or ghec or ghes %}{% data variables.product.prodname_dependabot_security_updates %} are triggered when you receive an alert about a vulnerable dependency in your repository. Where possible, {% data variables.product.prodname_dependabot %} creates a pull request in your repository to upgrade the vulnerable dependency to the minimum possible secure version needed to avoid the vulnerability. For more information, see "[About {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/about-dependabot-security-updates)" and "[Troubleshooting {% data variables.product.prodname_dependabot %} errors](/github/managing-security-vulnerabilities/troubleshooting-dependabot-errors)."
+*   {% data variables.product.prodname_advisory_database %} 是 {% data variables.product.prodname_dotcom %} 用来识别漏洞依赖项{% ifversion GH-advisory-db-supports-malware %}和恶意软件{% endif %}的数据源之一。 它是一款免费的精选数据库，用于收集 {% data variables.product.prodname_dotcom %} 上常见软件包生态系统的安全公告。 它包括从 {% data variables.product.prodname_security_advisories %} 直接报告给 {% data variables.product.prodname_dotcom %} 的数据，以及官方馈送和社区来源。 这些数据由 {% data variables.product.prodname_dotcom %} 审查和整理，以确保不会与开发社区分享虚假或不可行的信息。 {% data reusables.security-advisory.link-browsing-advisory-db %}
+*   依赖项图解析用户仓库中所有已知的包清单文件。 例如，对于 npm，它将解析 package-lock.json 文件。 它构造所有仓库依赖项和公共依赖项的图表。 当启用依赖关系图时，当任何人推送到默认分支时，都会发生这种情况，其中包括对支持的清单格式进行更改的提交。 有关详细信息，请参阅“[关于依赖项关系图](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)”和“[依赖项关系图故障排除](/code-security/supply-chain-security/understanding-your-software-supply-chain/troubleshooting-the-dependency-graph)”。
+*   {% data variables.product.prodname_dependabot %} 扫描对包含清单文件的默认分支的任何推送。 添加新公告时，它会扫描所有现有存储库并为每个受影响的存储库生成警报。 {% data variables.product.prodname_dependabot_alerts %} 在存储库级别汇总，而不是针对每条公告创建一个警报。 有关详细信息，请参阅“[关于 {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)”。
+*   {% ifversion fpt or ghec or ghes %}{% data variables.product.prodname_dependabot_security_updates %}在你收到关于存储库中易受攻击依赖项的警报时触发。 在可能的情况下，{% data variables.product.prodname_dependabot %} 会在您的仓库中创建拉取请求，以将易受攻击的依赖项升级到避免漏洞所需的最低安全版本。 有关详细信息，请参阅“[关于 {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/about-dependabot-security-updates)”和“[{% data variables.product.prodname_dependabot %} 错误故障排除](/github/managing-security-vulnerabilities/troubleshooting-dependabot-errors)”。
   
-    {% endif %}{% data variables.product.prodname_dependabot %} doesn't scan repositories on a schedule, but rather when something changes. For example, a scan is triggered when a new dependency is added ({% data variables.product.prodname_dotcom %} checks for this on every push), or when a new advisory is added to the database{% ifversion ghes or ghae %} and synchronized to {% data variables.location.product_location %}{% endif %}. For more information, see "[About {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies#detection-of-insecure-dependencies)."
+    {% endif %}{% data variables.product.prodname_dependabot %} 不会按计划扫描存储库，而是在发生某些变更时扫描存储库。 例如，新增依赖项时（{% data variables.product.prodname_dotcom %} 在每次推送时都会进行此项检查），或者当新的公告添加到数据库{% ifversion ghes or ghae %}以及同步到 {% data variables.location.product_location %}{% endif %}时，就会触发扫描。 有关详细信息，请参阅“[关于 {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies#detection-of-insecure-dependencies)”。
 
-## Do {% data variables.product.prodname_dependabot_alerts %} only relate to insecure dependencies in manifests and lockfiles?
+## {% data variables.product.prodname_dependabot_alerts %} 是否仅与清单和锁定文件中的不安全依赖项相关？
 
-{% data variables.product.prodname_dependabot_alerts %} advise you about dependencies you should update, including transitive dependencies, where the version can be determined from a manifest or a lockfile. {% ifversion fpt or ghec or ghes %}{% data variables.product.prodname_dependabot_security_updates %} only suggest a change where {% data variables.product.prodname_dependabot %} can directly "fix" the dependency, that is, when these are:
-* Direct dependencies explicitly declared in a manifest or lockfile
-* Transitive dependencies declared in a lockfile{% endif %}
+{% data variables.product.prodname_dependabot_alerts %} 提醒您应更新的依赖项，包括可从清单或锁定文件确定版本的过渡依赖项。 {% ifversion fpt or ghec or ghes %}{% data variables.product.prodname_dependabot_security_updates %}仅在 {% data variables.product.prodname_dependabot %} 可直接修复依赖项时才建议更改，即以下情况：
+* 在清单或锁定文件中明确声明的直接依赖项
+* 在锁定文件中声明的过渡依赖项{% endif %}
 
-**Check**: Is the uncaught vulnerability for a component that's not specified in the repository's manifest or lockfile?
+检查：未在存储库的清单或锁定文件中指定的组件是否存在未捕获的漏洞？
 
-## Why don't I get {% data variables.product.prodname_dependabot_alerts %} for some ecosystems?
+## 为什么我无法获取某些生态系统的 {% data variables.product.prodname_dependabot_alerts %}？
 
-{% data variables.product.prodname_dependabot_alerts %} are supported for a set of ecosystems where we can provide high-quality, actionable data. Curated advisories in the {% data variables.product.prodname_advisory_database %}, the dependency graph, {% ifversion fpt or ghec %}{% data variables.product.prodname_dependabot %} security updates, {% endif %}and  {% data variables.product.prodname_dependabot_alerts %} are provided for several ecosystems, including Java’s Maven, JavaScript’s npm and Yarn, .NET’s NuGet, Python’s pip, Ruby's RubyGems, and PHP’s Composer. We'll continue to add support for more ecosystems over time. For an overview of the package ecosystems that we support, see "[About the dependency graph](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph#supported-package-ecosystems)."
+{% data variables.product.prodname_dependabot_alerts %} 支持一组可提供高质量、可操作数据的生态系统。 {% data variables.product.prodname_advisory_database %} 中的特选公告、依赖项关系图、{% ifversion fpt or ghec %}{% data variables.product.prodname_dependabot %}安全更新{% endif %} 和 {% data variables.product.prodname_dependabot_alerts %} 提供用于多个生态系统，包括 Java’s Maven、JavaScript’s npm 和 Yarn、.NET’s NuGet、Python’s pip、Ruby's RubyGems 以及 PHP’s Composer。 我们将在今后继续增加对更多生态系统的支持。 有关我们支持的包生态系统的概述，请参阅“[关于依赖项关系图](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph#supported-package-ecosystems)”。
 
-It's worth noting that security advisories may exist for other ecosystems. The information in an unreviewed security advisory is provided by the maintainers of a particular repository. This data is not curated by {% data variables.product.prodname_dotcom %}. {% data reusables.security-advisory.link-browsing-advisory-db %}
+值得注意的是，可能存在其他生态系统的安全公告。 未经审查的安全公告中的信息由特定存储库的维护员提供。 此数据不是由 {% data variables.product.prodname_dotcom %} 策展的。 {% data reusables.security-advisory.link-browsing-advisory-db %}
 
-**Check**: Does the uncaught vulnerability apply to an unsupported ecosystem?
+检查：未捕获的漏洞是否适用于不受支持的生态系统？
 
-## Does {% data variables.product.prodname_dependabot %} generate alerts for vulnerabilities that have been known for many years?
+## {% data variables.product.prodname_dependabot %} 是否会针对已知多年的漏洞生成警报？
 
-The {% data variables.product.prodname_advisory_database %} was launched in November 2019, and initially back-filled to include advisories for security risks in the supported ecosystems, starting from 2017. When adding CVEs to the database, we prioritize curating newer CVEs, and CVEs affecting newer versions of software.
+{% data variables.product.prodname_advisory_database %} 于 2019 年 11 月推出，并在最初回顾性包含了受支持生态系统的安全风险公告（从 2017 年开始）。 将 CVE 添加到数据库时，我们会优先处理较新的 CVE，以及影响较新版本软件的 CVE。
 
-Some information on older vulnerabilities is available, especially where these CVEs are particularly widespread, however some old vulnerabilities are not included in the {% data variables.product.prodname_advisory_database %}. If there's a specific old vulnerability that you need to be included in the database, contact {% data variables.contact.contact_support %}. 
+提供了一些有关较旧漏洞的信息，尤其是在这些 CVE 特别普遍的地方，但一些较旧的漏洞未包含在 {% data variables.product.prodname_advisory_database %} 中。 如果您需要将一些特定的旧漏洞包含在数据库中，请联系 {% data variables.contact.contact_support %}。 
 
-**Check**: Does the uncaught vulnerability have a publish date earlier than 2017 in the National Vulnerability Database?
+检查：未捕获的漏洞在国家漏洞数据库中的发布日期是否早于 2017 年？
 
-## Why does {% data variables.product.prodname_advisory_database %} use a subset of published vulnerability data?
+## 为什么 {% data variables.product.prodname_advisory_database %} 使用已发布漏洞数据的子集？
 
-Some third-party tools use uncurated CVE data that isn't checked or filtered by a human. This means that CVEs with tagging or severity errors, or other quality issues, will cause more frequent, more noisy, and less useful alerts.
+有些第三方工具使用未经人为检查或过滤的未整理 CVE 数据。 这意味着 CVE 带有标签或严重错误或其他质量问题，将导致更频繁，更嘈杂且更无用的警报。
 
-Since {% data variables.product.prodname_dependabot %} uses curated data in the {% data variables.product.prodname_advisory_database %}, the volume of alerts may be lower, but the alerts you do receive will be accurate and relevant.
+由于 {% data variables.product.prodname_dependabot %} 使用 {% data variables.product.prodname_advisory_database %} 中的策展数据，因此警报量可能较少，但是收到的警报将是准确和相关的。
 
 {% ifversion fpt or ghec %}
-## Does each insecure dependency generate a separate alert?
+## 是否每个不安全依赖项都会生成单独的警报？
 
-When a dependency has multiple vulnerabilities, an alert is generated for each vulnerability at the level of advisory plus manifest.
+当依赖项具有多个漏洞时，将在通报和清单级别为每个漏洞生成警报。
 
-![Screenshot of the {% data variables.product.prodname_dependabot_alerts %} tab showing two alerts from the same package with different manifests.](/assets/images/help/repository/dependabot-alerts-view.png)
+![{% data variables.product.prodname_dependabot_alerts %} 选项卡的屏幕截图，其中显示同一程序包中两个具有不同清单的警报。](/assets/images/help/repository/dependabot-alerts-view.png)
 
-Legacy {% data variables.product.prodname_dependabot_alerts %} were grouped into a single aggregated alert with all the vulnerabilities for the same dependency. If you navigate to a link to a legacy {% data variables.product.prodname_dependabot %} alert, you will be redirected to the {% data variables.product.prodname_dependabot_alerts %} tab filtered to display vulnerabilities for that dependent package and manifest.
+旧版 {% data variables.product.prodname_dependabot_alerts %} 被分组到一个聚合警报中，其中包含同一依赖项的所有漏洞。 如果导航到指向旧版 {% data variables.product.prodname_dependabot %} 警报的链接，则会将你重定向到筛选的 {% data variables.product.prodname_dependabot_alerts %} 选项卡，以显示该依赖程序包和清单的漏洞。
 
-![Screenshot of the {% data variables.product.prodname_dependabot_alerts %} tab showing the filtered alerts from navigating to a legacy {% data variables.product.prodname_dependabot %} alert.](/assets/images/help/repository/legacy-dependabot-alerts-view.png)
+![{% data variables.product.prodname_dependabot_alerts %} 选项卡的屏幕截图，该选项卡在导航到旧版 {% data variables.product.prodname_dependabot %} 警报时显示筛选的警报。](/assets/images/help/repository/legacy-dependabot-alerts-view.png)
 
-The {% data variables.product.prodname_dependabot_alerts %} count in {% data variables.product.prodname_dotcom %} shows a total for the number of alerts, which is the number of vulnerabilities, not the number of dependencies.
+{% data variables.product.prodname_dotcom %} 中的 {% data variables.product.prodname_dependabot_alerts %} 计数显示警报数的总数，即漏洞数，而不是依赖项数。
 
-**Check**: If there is a discrepancy in the totals you are seeing, check that you are not comparing alert numbers with dependency numbers. Also check that you are viewing all alerts and not a subset of filtered alerts.
+检查：如果看到的总数存在差异，请检查是否未将警报号与依赖项编号进行比较。 还要检查是否您查看的是所有警报，而不是已筛选警报的子集。
 {% endif %}
 
 {% ifversion fpt or ghec or ghes %}
-## Can Dependabot ignore specific dependencies?
+## Dependabot 能否忽略特定依赖项？
 
-You can configure {% data variables.product.prodname_dependabot %} to ignore specific dependencies in the configuration file, which will prevent security and version updates for those dependencies. If you only wish to use security updates, you will need to override the default behavior with a configuration file. For more information, see "[Overriding the default behavior with a configuration file](/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates#overriding-the-default-behavior-with-a-configuration-file)" to prevent version updates from being activated. For information about ignoring dependencies, see "[`ignore`](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#ignore)."
-{% endif %}
+可以配置 {% data variables.product.prodname_dependabot %} 以忽略配置文件中的特定依赖项，这将阻止这些依赖项的安全和版本更新。 如果只想使用安全更新，则需要使用配置文件替代默认行为。 有关详细信息，请参阅“[使用配置文件替代默认行为](/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates#overriding-the-default-behavior-with-a-configuration-file)”，以防止激活版本更新。 有关忽略依赖项的信息，请参阅“[`ignore`](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#ignore)。”{% endif %}
 
-## Further reading
+## 延伸阅读
 
-- "[About {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)"
-- "[Viewing and updating {% data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts)"
-- "[Managing security and analysis settings for your repository](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)"
-- "[Troubleshooting the dependency graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/troubleshooting-the-dependency-graph)"{% ifversion fpt or ghec or ghes %}
-- "[Troubleshooting {% data variables.product.prodname_dependabot %} errors](/github/managing-security-vulnerabilities/troubleshooting-dependabot-errors)"{% endif %}
+- [关于 {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)
+- [查看和更新 {% data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts)
+- [管理存储库的安全和分析设置](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)
+- [依赖项关系图故障排除](/code-security/supply-chain-security/understanding-your-software-supply-chain/troubleshooting-the-dependency-graph){% ifversion fpt or ghec or ghes %}
+- [{% data variables.product.prodname_dependabot %} 错误故障排除](/github/managing-security-vulnerabilities/troubleshooting-dependabot-errors){% endif %}

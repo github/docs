@@ -1,6 +1,6 @@
 ---
-title: Using self-hosted runners in a workflow
-intro: 'To use self-hosted runners in a workflow, you can use labels to specify the runner type for a job.'
+title: Verwenden selbstgehosteten Runnern in einem Workflow
+intro: 'Um selbst-gehostete Runner in einem Workflow zu verwenden, kannst du mittels Labels den Runner-Typ für einen Job angeben.'
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/using-self-hosted-runners-in-a-workflow
   - /actions/automating-your-workflow-with-github-actions/using-self-hosted-runners-in-a-workflow
@@ -11,80 +11,84 @@ versions:
   ghec: '*'
 type: tutorial
 shortTitle: Use runners in a workflow
+ms.openlocfilehash: 5c0ff57f5b3eda79e3fcf8b09706ed19f981b8ae
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147573417'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+Informationen zum Erstellen von benutzerdefinierten und Standardbezeichnungen findest du unter „[Verwenden von Bezeichnungen mit selbstgehosteten Runnern](/actions/hosting-your-own-runners/using-labels-with-self-hosted-runners)“.
 
-For information on creating custom and default labels, see "[Using labels with self-hosted runners](/actions/hosting-your-own-runners/using-labels-with-self-hosted-runners)."
+## Verwenden selbstgehosteten Runnern in einem Workflow
 
-## Using self-hosted runners in a workflow
-
-Labels allow you to send workflow jobs to specific types of self-hosted runners, based on their shared characteristics. For example, if your job requires a particular hardware component or software package, you can assign a custom label to a runner and then configure your job to only execute on runners with that label.
+Mithilfe von Bezeichnungen kannst du Workflowaufträge entsprechend ihrer gemeinsamen Merkmale an bestimmte Typen von selbstgehosteten Runnern senden. Wenn dein Auftrag beispielsweise eine bestimmte Hardwarekomponente oder ein bestimmtes Softwarepaket benötigt, kannst du einem Runner eine benutzerdefiniertes Bezeichnung zuweisen und dann deinen Auftrag so konfigurieren, dass er nur auf Runnern mit dieser Bezeichnung ausgeführt wird.
 
 {% data reusables.actions.self-hosted-runner-labels-runs-on %}
 
-For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idruns-on)."
+Weitere Informationen findest du unter [Workflowsyntax für {% data variables.product.prodname_actions %}](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idruns-on).
 
-## Using default labels to route jobs
+## Standard-Labels verwenden, um Jobs zu lenken
 
-A self-hosted runner automatically receives certain labels when it is added to {% data variables.product.prodname_actions %}. These are used to indicate its operating system and hardware platform:
+Ein selbst-gehosteter Runner erhält automatisch bestimmte Labels, wenn er zu {% data variables.product.prodname_actions %} hinzugefügt wird. Diese werden verwendet, um das Betriebssystem und die Hardwareplattform anzuzeigen:
 
-* `self-hosted`: Default label applied to all self-hosted runners.
-* `linux`, `windows`, or `macOS`: Applied depending on operating system.
-* `x64`, `ARM`, or `ARM64`: Applied depending on hardware architecture.
+* `self-hosted`: Standardbezeichnung, die auf alle selbstgehosteten Runner angewendet wird.
+* `linux`, `windows` oder `macOS`: Wird je nach Betriebssystem des Runners angewendet.
+* `x64`, `ARM`oder `ARM64`: Wird je nach Hardwarearchitektur angewendet.
 
-You can use your workflow's YAML to send jobs to a combination of these labels. In this example, a self-hosted runner that matches all three labels will be eligible to run the job:
+Du kannst die YAML deines Workflows verwenden, um Aufträge an eine Kombination dieser Bezeichnungen zu senden. In diesem Beispiel ist ein selbst-gehosteter Runner, der allen drei Labels entspricht, berechtigt, den Job auszuführen:
 
 ```yaml
 runs-on: [self-hosted, linux, ARM64]
 ```
 
-- `self-hosted` - Run this job on a self-hosted runner.
-- `linux` - Only use a Linux-based runner.
-- `ARM64` - Only use a runner based on ARM64 hardware.
+- `self-hosted` – Auftrag auf einem selbstgehosteten Runner ausführen.
+- `linux` – Nur Linux-basierten Runner verwenden.
+- `ARM64` – Nur auf ARM64-Hardware basierenden Runner verwenden.
 
-The default labels are fixed and cannot be changed or removed. Consider using custom labels if you need more control over job routing.
+Die Standard-Labels sind fest und können weder geändert noch entfernt werden. Erwäge die Verwendung benutzerdefinierter Bezeichnungen, wenn du mehr Kontrolle über das Auftragsrouting benötigst.
 
-## Using custom labels to route jobs
+## Benutzerdefinierte Labels verwenden, um Jobs zu lenken
 
-You can create custom labels and assign them to your self-hosted runners at any time. Custom labels let you send jobs to particular types of self-hosted runners, based on how they're labeled. 
+Du kannst jederzeit eigene Bezeichnungen erstellen und deinen selbstgehosteten Runnern zuordnen. Mit benutzerdefinierten Bezeichnungen kannst du Aufträge an bestimmte Typen von selbstgehosteten Runnern senden, je nachdem, welche Bezeichnungen sie haben. 
 
-For example, if you have a job that requires a specific type of graphics hardware, you can create a custom label called `gpu` and assign it to the runners that have the hardware installed. A self-hosted runner that matches all the assigned labels will then be eligible to run the job. 
+Wenn du z. B. einen Auftrag hast, der einen bestimmten Typ von Grafikhardware erfordert, kannst du eine benutzerdefinierte Bezeichnung mit dem Namen `gpu` erstellen und den Runnern zuordnen, auf denen diese Hardware installiert ist. Ein selbst-gehosteter Runner, der allen zugewiesenen Labels entspricht, ist dann berechtigt, den Job auszuführen. 
 
-This example shows a job that combines default and custom labels:
+Dieses Beispiel zeigt einen Job, der Standard- und benutzerdefinierte Labels kombiniert:
 
 ```yaml
 runs-on: [self-hosted, linux, x64, gpu]
 ```
 
-- `self-hosted` - Run this job on a self-hosted runner.
-- `linux` - Only use a Linux-based runner.
-- `x64` - Only use a runner based on x64 hardware.
-- `gpu` - This custom label has been manually assigned to self-hosted runners with the GPU hardware installed. 
+- `self-hosted` – Auftrag auf einem selbstgehosteten Runner ausführen.
+- `linux` – Nur Linux-basierten Runner verwenden.
+- `x64` – Nur auf x64-Hardware basierenden Runner verwenden.
+- `gpu` – Diese benutzerdefinierte Bezeichnung wurde manuell selbstgehosteten Runnern zugewiesen, auf denen die GPU-Hardware installiert ist. 
 
-These labels operate cumulatively, so a self-hosted runner must have all four labels to be eligible to process the job.
+Diese Bezeichnungen funktionieren kumulativ. Ein selbstgehosteter Runner muss also alle vier Bezeichnungen aufweisen, um den Auftrag verarbeiten zu können.
 
-## Routing precedence for self-hosted runners
+## Routingrangfolge für selbstgehostete Runner
 
-When routing a job to a self-hosted runner, {% data variables.product.prodname_dotcom %} looks for a runner that matches the job's `runs-on` labels:
+Wenn du einen Auftrag an einen selbstgehosteten Runner weiterleitest, sucht {% data variables.product.prodname_dotcom %} nach einem Runner, der mit den `runs-on`-Bezeichnungen des Auftrags übereinstimmt:
 
 {% ifversion fpt or ghes > 3.3 or ghae or ghec %}
-- If {% data variables.product.prodname_dotcom %} finds an online and idle runner that matches the job's `runs-on` labels, the job is then assigned and sent to the runner.
-  - If the runner doesn't pick up the assigned job within 60 seconds, the job is re-queued so that a new runner can accept it.
-- If {% data variables.product.prodname_dotcom %} doesn't find an online and idle runner that matches the job's `runs-on` labels, then the job will remain queued until a runner comes online.
-- If the job remains queued for more than 24 hours, the job will fail.
+- Wenn {% data variables.product.prodname_dotcom %} einen online und im Leerlauf befindlichen Runner findet, der mit den `runs-on`-Bezeichnungen des Auftrags übereinstimmt, wird der Auftrag dem Runner zugewiesen und zugesendet.
+  - Wenn der Runner den zugewiesenen Auftrag nicht innerhalb von 60 Sekunden abholt, wird der Auftrag erneut in die Warteschlange gestellt, sodass er von einem neuen Runner angenommen werden kann.
+- Wenn {% data variables.product.prodname_dotcom %} keinen online und im Leerlauf befindlichen Runner findet, der mit den `runs-on`-Bezeichnungen des Auftrags übereinstimmt, bleibt der Auftrag in der Warteschlange, bis ein Runner online geht.
+- Wenn der Auftrag länger als 24 Stunden in der Warteschlange bleibt, schlägt der Auftrag fehl.
 {% elsif ghes = 3.3 %}
-- {% data variables.product.prodname_dotcom %} first searches for a runner at the repository level, then at the organization level, then at the enterprise level.
-- If {% data variables.product.prodname_dotcom %} finds an online and idle runner at a certain level that matches the job's `runs-on` labels, the job is then assigned and sent to the runner.
-  - If the runner doesn't pick up the assigned job within 60 seconds, the job is queued at all levels and waits for a matching runner from any level to come online and pick up the job.
-- If {% data variables.product.prodname_dotcom %} doesn't find an online and idle runner at any level, the job is queued to all levels and waits for a matching runner from any level to come online and pick up the job.
-- If the job remains queued for more than 24 hours, the job will fail.
+- {% data variables.product.prodname_dotcom %} sucht nach einem Runner zuerst auf Repositoryebene, dann auf Organisationsebene und zuletzt auf Unternehmensebene.
+- Wenn {% data variables.product.prodname_dotcom %} auf einer bestimmten Ebene einen online und im Leerlauf befindlichen Runner findet, der mit den `runs-on`-Bezeichnungen des Auftrags übereinstimmt, wird der Auftrag dem Runner zugewiesen und zugesendet.
+  - Wenn der Runner den zugewiesenen Auftrag nicht innerhalb von 60 Sekunden abholt, wird der Auftrag auf allen Ebenen in die Warteschlange gestellt und wartet darauf, dass ein übereinstimmender Runner auf einer beliebigen Ebene online geht und den Auftrag abholt.
+- Wenn {% data variables.product.prodname_dotcom %} auf keiner Ebene einen online und im Leerlauf befindlichen Runner findet, wird der Auftrag auf allen Ebenen in die Warteschlange gestellt und wartet darauf, dass ein übereinstimmender Runner auf einer beliebigen Ebene online geht und den Auftrag abholt.
+- Wenn der Auftrag länger als 24 Stunden in der Warteschlange bleibt, schlägt der Auftrag fehl.
 {% else %}
-1. {% data variables.product.prodname_dotcom %} first searches for a runner at the repository level, then at the organization level, then at the enterprise level.
-2. The job is then sent to the first matching runner that is online and idle.
-   - If all matching online runners are busy, the job will queue at the level with the highest number of matching online runners.
-   - If all matching runners are offline, the job will queue at the level with the highest number of matching offline runners.
-   - If there are no matching runners at any level, the job will fail.
-   - If the job remains queued for more than 24 hours, the job will fail.
+1. {% data variables.product.prodname_dotcom %} sucht nach einem Runner zuerst auf Repositoryebene, dann auf Organisationsebene und zuletzt auf Unternehmensebene.
+2. Der Auftrag wird dann an den ersten übereinstimmenden Runner gesendet, der online ist und sich im Leerlauf befindet.
+   - Wenn alle übereinstimmenden online befindlichen Runner belegt sind, wird der Auftrag auf der Ebene mit der höchsten Anzahl übereinstimmender online befindlicher Runner in die Warteschlange gestellt.
+   - Wenn alle übereinstimmenden Runner offline sind, wird der Auftrag auf der Ebene mit der höchsten Anzahl übereinstimmender online befindlicher Runner in die Warteschlange gestellt.
+   - Wenn auf keiner Ebene übereinstimmende Runner vorhanden sind, schlägt der Auftrag fehl.
+   - Wenn der Auftrag länger als 24 Stunden in der Warteschlange bleibt, schlägt der Auftrag fehl.
 {% endif %}

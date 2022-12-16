@@ -1,7 +1,7 @@
 ---
-title: Introducing GitHub Actions to your enterprise
+title: 企業への GitHub Actions の導入
 shortTitle: Introduce Actions
-intro: 'You can plan how to roll out {% data variables.product.prodname_actions %} in your enterprise.'
+intro: 'エンタープライズで {% data variables.product.prodname_actions %} をロールアウトする方法を計画できます。'
 versions:
   ghec: '*'
   ghes: '*'
@@ -10,131 +10,123 @@ type: how_to
 topics:
   - Actions
   - Enterprise
+ms.openlocfilehash: ddd394e589b3866e80ba024f99bd2394d1743299
+ms.sourcegitcommit: 9af8891fea10039b3374c76818634e05410e349d
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 12/06/2022
+ms.locfileid: '148191863'
 ---
+## 企業向け {% data variables.product.prodname_actions %} について
 
-## About {% data variables.product.prodname_actions %} for enterprises
+{% data reusables.actions.about-actions %}{% data variables.product.prodname_actions %} を使用すると、企業はテストやデプロイなどのソフトウェア開発ワークフローを自動化、カスタマイズ、実行できます。 詳細については、「[企業向け {% data variables.product.prodname_actions %} について](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises)」を参照してください。
 
-{% data reusables.actions.about-actions %} With {% data variables.product.prodname_actions %}, your enterprise can automate, customize, and execute your software development workflows like testing and deployments. For more information, see "[About {% data variables.product.prodname_actions %} for enterprises](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises)."
+![セルフホスト ランナーで実行されているジョブの図](/assets/images/help/images/actions-enterprise-overview.png)
 
-![Diagram of jobs running on self-hosted runners](/assets/images/help/images/actions-enterprise-overview.png)
+大規模な企業に {% data variables.product.prodname_actions %} を導入する前に、まず導入を計画し、企業が独自のニーズを最適にサポートするための {% data variables.product.prodname_actions %} の使用方法について決定する必要があります。
 
-Before you introduce {% data variables.product.prodname_actions %} to a large enterprise, you first need to plan your adoption and make decisions about how your enterprise will use {% data variables.product.prodname_actions %} to best support your unique needs.
+## ガバナンスとコンプライアンス
 
-## Governance and compliance
+企業での {% data variables.product.prodname_actions %} の使用を管理し、コンプライアンス義務を果たす計画を作成する必要があります。
 
-You should create a plan to govern your enterprise's use of {% data variables.product.prodname_actions %} and meet your compliance obligations.
+開発者に使用を許可するアクション{% ifversion actions-workflow-policy %}と再利用可能なワークフロー{% endif %}を決定します。 {% ifversion ghes %}まず、インスタンスの外部からアクション{% ifversion actions-workflow-policy %}と再利用可能なワークフロー{% endif %}にアクセスできるようにするかどうかを決定します。 {% data reusables.actions.access-actions-on-dotcom %}詳細については、「[Enterprise でのアクションの使用について](/admin/github-actions/managing-access-to-actions-from-githubcom/about-using-actions-in-your-enterprise)」を参照してください。
 
-Determine which actions {% ifversion actions-workflow-policy %}and reusable workflows{% endif %} your developers will be allowed to use. {% ifversion ghes %}First, decide whether you'll enable access to actions {% ifversion actions-workflow-policy %}and reusable workflows{% endif %} from outside your instance. {% data reusables.actions.access-actions-on-dotcom %} For more information, see "[About using actions in your enterprise](/admin/github-actions/managing-access-to-actions-from-githubcom/about-using-actions-in-your-enterprise)."
+次に、{% else %}まず、{% endif %}{% data variables.product.company_short %} によって作成されたものではないサードパーティのアクション{% ifversion actions-workflow-policy %}と再利用可能なワークフロー{% endif %}を許可するかどうかを決定します。 リポジトリ、組織、エンタープライズの各レベルで実行できるアクション{% ifversion actions-workflow-policy %}と再利用可能なワークフロー{% endif %}を構成できます。また、{% data variables.product.company_short %} によって作成されたアクションのみを許可するように選択できます。 サードパーティのアクション{% ifversion actions-workflow-policy %}と再利用可能なワークフロー{% endif %}を許可する場合は、許可されるアクションを、検証済みの作成者によって作成されたもの、または特定のアクション{% ifversion actions-workflow-policy %}と再利用可能なワークフロー{% endif %}のリストに制限できます。 詳細については、「[リポジトリの {% data variables.product.prodname_actions %} 設定の管理](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#managing-github-actions-permissions-for-your-repository)」、「[Organization の {% data variables.product.prodname_actions %} を無効化または制限する](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization#managing-github-actions-permissions-for-your-organization)」、「[Enterprise での {% data variables.product.prodname_actions %} のポリシーの施行](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#enforcing-a-policy-to-restrict-the-use-of-github-actions-in-your-enterprise)」を参照してください。
 
-Then,{% else %}First,{% endif %} decide whether you'll allow third-party actions {% ifversion actions-workflow-policy %}and reusable workflows{% endif %} that were not created by {% data variables.product.company_short %}. You can configure the actions {% ifversion actions-workflow-policy %}and reusable workflows{% endif %} that are allowed to run at the repository, organization, and enterprise levels and can choose to only allow actions that are created by {% data variables.product.company_short %}. If you do allow third-party actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %}, you can limit allowed actions to those created by verified creators or a list of specific actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %}. For more information, see "[Managing {% data variables.product.prodname_actions %} settings for a repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#managing-github-actions-permissions-for-your-repository)", "[Disabling or limiting {% data variables.product.prodname_actions %} for your organization](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization#managing-github-actions-permissions-for-your-organization)", and "[Enforcing policies for {% data variables.product.prodname_actions %} in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#enforcing-a-policy-to-restrict-the-use-of-github-actions-in-your-enterprise)."
+{% ifversion actions-workflow-policy %} ![{% data variables.product.prodname_actions %} ポリシーのスクリーンショット](/assets/images/help/organizations/enterprise-actions-policy-with-workflows.png) {%- else %} ![{% data variables.product.prodname_actions %} ポリシーのスクリーンショット](/assets/images/help/organizations/enterprise-actions-policy.png) {%- endif %}
 
-{% ifversion actions-workflow-policy %}
-![Screenshot of {% data variables.product.prodname_actions %} policies](/assets/images/help/organizations/enterprise-actions-policy-with-workflows.png)
-{%- else %}
-![Screenshot of {% data variables.product.prodname_actions %} policies](/assets/images/help/organizations/enterprise-actions-policy.png)
-{%- endif %}
-
-{% ifversion ghec or ghes > 3.4 %}
-Consider combining OpenID Connect (OIDC) with reusable workflows to enforce consistent deployments across your repository, organization, or enterprise. You can do this by defining trust conditions on cloud roles based on reusable workflows. For more information, see "[Using OpenID Connect with reusable workflows](/actions/deployment/security-hardening-your-deployments/using-openid-connect-with-reusable-workflows)."
+{% ifversion ghec or ghes > 3.4 %}OpenID Connect (OIDC) と再利用可能なワークフローを組み合わせて、リポジトリ、Organization、Enterprise の全体で一貫したデプロイを適用することを検討してください。 これを行うには、再利用可能なワークフローに基づいてクラウド ロールの信頼条件を定義します。 詳細については、「[再利用可能なワークフローでの OpenID Connect の使用](/actions/deployment/security-hardening-your-deployments/using-openid-connect-with-reusable-workflows)」を参照してください。
 {% endif %}
 
-You can access information about activity related to {% data variables.product.prodname_actions %} in the audit logs for your enterprise. If your business needs require retaining this information longer than audit log data is retained, plan how you'll export and store this data outside of {% data variables.product.prodname_dotcom %}. For more information, see {% ifversion ghec %}"[Exporting audit log activity for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/exporting-audit-log-activity-for-your-enterprise)" and "[Streaming the audit log for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise)."{% else %}{% ifversion audit-log-streaming %}"[Streaming the audit log for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise)" and {% endif %}"[Log forwarding](/admin/monitoring-activity-in-your-enterprise/exploring-user-activity/log-forwarding)."{% endif %}
+Enterprise の監査ログで、{% data variables.product.prodname_actions %} に関連したアクティビティに関する情報にアクセスできます。 ビジネス ニーズのために監査ログ データの保持期間より長くこの情報を保持する必要がある場合は、このデータをエクスポートして {% data variables.product.prodname_dotcom %} の外部に格納する方法を計画します。 詳しくは、{% ifversion ghec %}「[Enterprise の監査ログ アクティビティのエクスポート](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/exporting-audit-log-activity-for-your-enterprise)」と「[Enterprise の監査ログのストリーミング](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise)」{% else %}{% ifversion audit-log-streaming %}「[Enterprise の監査ログのストリーミング](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise)」と{% endif %}「[ログの転送](/admin/monitoring-activity-in-your-enterprise/exploring-user-activity/log-forwarding)」{% endif %}を参照してください。
 
-![Audit log entries](/assets/images/help/repository/audit-log-entries.png)
+![監査ログのエントリ](/assets/images/help/repository/audit-log-entries.png)
 
-## Security
+## セキュリティ
 
-You should plan your approach to security hardening for {% data variables.product.prodname_actions %}.
+{% data variables.product.prodname_actions %} のセキュリティ強化へのアプローチを計画する必要があります。
 
-### Security hardening individual workflows and repositories
+### 個々のワークフローとリポジトリのセキュリティ強化
 
-Make a plan to enforce good security practices for people using {% data variables.product.prodname_actions %} features within your enterprise. For more information about these practices, see "[Security hardening for {% data variables.product.prodname_actions %}](/actions/security-guides/security-hardening-for-github-actions)."
+Enterprise 内で {% data variables.product.prodname_actions %} の機能を使用しているユーザーに対して、適切なセキュリティ プラクティスを適用する計画を立てます。 これらのプラクティスの詳細については、「[{% data variables.product.prodname_actions %} のセキュリティ強化](/actions/security-guides/security-hardening-for-github-actions)」を参照してください。
 
-You can also encourage reuse of workflows that have already been evaluated for security. For more information, see "[Innersourcing](#innersourcing)."
+また、セキュリティについて既に評価済みのワークフローの再利用を推奨することもできます。 詳細については、「[インナーソーシング](#innersourcing)」を参照してください。
 
-### Securing access to secrets and deployment resources
+### シークレットとデプロイ リソースへのアクセスのセキュリティ保護
 
-You should plan where you'll store your secrets. We recommend storing secrets in {% data variables.product.prodname_dotcom %}, but you might choose to store secrets in a cloud provider.
+シークレットを保存する場所を計画する必要があります。 シークレットは {% data variables.product.prodname_dotcom %} に保存することをお勧めしますが、クラウド プロバイダーにシークレットを保存することも選択できます。
 
-In {% data variables.product.prodname_dotcom %}, you can store secrets at the repository or organization level. Secrets at the repository level can be limited to workflows in certain environments, such as production or testing. For more information, see "[Encrypted secrets](/actions/security-guides/encrypted-secrets)."
+{% data variables.product.prodname_dotcom %} では、リポジトリまたは Organization レベルでシークレットを保存できます。 リポジトリ レベルのシークレットは、運用環境やテストなど、特定の環境のワークフローに限定できます。 詳細については、「[暗号化されたシークレット](/actions/security-guides/encrypted-secrets)」を参照してください。
 
-![Screenshot of a list of secrets](/assets/images/help/settings/actions-org-secrets-list.png)
-You should consider adding manual approval protection for sensitive environments, so that workflows must be approved before getting access to the environments' secrets. For more information, see "[Using environments for deployments](/actions/deployment/targeting-different-environments/using-environments-for-deployment)."
+![シークレットの一覧のスクリーンショット](/assets/images/help/settings/actions-org-secrets-list.png) 機密性の高い環境については、手動の承認による保護の追加を検討する必要があります。そうすることで、ワークフローは環境のシークレットにアクセスする前に承認を受けることが必要になります。 詳細については、「[デプロイに環境を使用する](/actions/deployment/targeting-different-environments/using-environments-for-deployment)」を参照してください。
 
-### Security considerations for third-party actions
+### サード パーティのアクションのセキュリティに関する考慮事項
 
-There is significant risk in sourcing actions from third-party repositories on {% data variables.product.prodname_dotcom %}. If you do allow any third-party actions, you should create internal guidelines that encourage your team to follow best practices, such as pinning actions to the full commit SHA. For more information, see "[Using third-party actions](/actions/security-guides/security-hardening-for-github-actions#using-third-party-actions)."
+{% data variables.product.prodname_dotcom %} 上のサード パーティのリポジトリからアクションを調達することには大きなリスクがあります。 サード パーティのアクションを許可する場合は、アクションを完全なコミット SHA にピン止めするなどのベスト プラクティスに従うことをチームに促す内部ガイドラインを作成する必要があります。 詳細については、「[サード パーティ アクションを使用する](/actions/security-guides/security-hardening-for-github-actions#using-third-party-actions)」を参照してください。
 
-## Innersourcing
+## インナーソーシング
 
-Think about how your enterprise can use features of {% data variables.product.prodname_actions %} to innersource automation. Innersourcing is a way to incorporate the benefits of open source methodologies into your internal software development cycle. For more information, see [An introduction to innersource](https://resources.github.com/whitepapers/introduction-to-innersource/) in {% data variables.product.company_short %} Resources.
+企業が {% data variables.product.prodname_actions %} の機能をインナーソース自動化にどのように使用できるかについて考えてみましょう。 インナーソーシングは、オープンソースの手法の利点を社内ソフトウェア開発サイクルに組み込む方法です。 詳細については、{% data variables.product.company_short %} リソースの「[インナーソース入門](https://resources.github.com/whitepapers/introduction-to-innersource/)」を参照してください。
 
 {% data reusables.actions.internal-actions-summary %}
 
-{% ifversion ghec or ghes > 3.3 or ghae > 3.3 %}
-{% data reusables.actions.reusable-workflows-ghes-beta %}
-With reusable workflows, your team can call one workflow from another workflow, avoiding exact duplication. Reusable workflows promote best practice by helping your team use workflows that are well designed and have already been tested. For more information, see "[Reusing workflows](/actions/learn-github-actions/reusing-workflows)."
+{% ifversion ghec or ghes > 3.3 or ghae > 3.3 %} {% data reusables.actions.reusable-workflows-enterprise-beta %}再利用可能なワークフローを使用すると、チームはあるワークフローを別のワークフローから呼び出すことができ、完全な重複を回避できます。 再利用可能なワークフローは、適切に設計され、既にテスト済みのワークフローをチームが使用できるようにすることで、ベスト プラクティスを促進します。 詳細については、「[ワークフローの再利用](/actions/learn-github-actions/reusing-workflows)」を参照してください。
 {% endif %}
 
-To provide a starting place for developers building new workflows, you can use starter workflows. This not only saves time for your developers, but promotes consistency and best practice across your enterprise. For more information, see "[Creating starter workflows for your organization](/actions/learn-github-actions/creating-starter-workflows-for-your-organization)."
+新しいワークフローを構築するための出発点を開発者に提供するには、スターター ワークフローを使用できます。 これにより、開発者の時間を節約できるだけでなく、企業全体の一貫性とベスト プラクティスが促進されます。 詳細については、「[Organization のスターター ワークフローの作成](/actions/learn-github-actions/creating-starter-workflows-for-your-organization)」を参照してください。
 
-{% ifversion not internal-actions %}
-Whenever your workflow developers want to use an action that's stored in a private repository, they must configure the workflow to clone the repository first. To reduce the number of repositories that must be cloned, consider grouping commonly used actions in a single repository. For more information, see "[About custom actions](/actions/creating-actions/about-custom-actions#choosing-a-location-for-your-action)."
+{% ifversion not internal-actions %} ワークフロー開発者がプライベート リポジトリに保存されているアクションを使用する場合は、最初にリポジトリをクローンするようにワークフローを構成する必要があります。 クローンする必要があるリポジトリの数を減らすには、よく使われるアクションを 1 つのリポジトリにグループ化することを検討してください。 詳細については、「[カスタム アクションについて](/actions/creating-actions/about-custom-actions#choosing-a-location-for-your-action)」を参照してください。
 {% endif %}
 
-## Managing resources
+## リソースの管理
 
-You should plan for how you'll manage the resources required to use {% data variables.product.prodname_actions %}.
+{% data variables.product.prodname_actions %} を使用するために必要なリソースの管理方法を計画する必要があります。
 
 {% ifversion ghes %}
-### Hardware requirements
+### ハードウェア要件
 
-You may need to upgrade the CPU and memory resources for {% data variables.location.product_location %} to handle the load from {% data variables.product.prodname_actions %} without causing performance loss. For more information, see "[Getting started with {% data variables.product.prodname_actions %} for {% data variables.product.prodname_ghe_server %}](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server#review-hardware-requirements)."
+パフォーマンスを低下させずに {% data variables.product.prodname_actions %} からの負荷を処理するには、{% data variables.location.product_location %}の CPU とメモリ リソースのアップグレードが必要な場合があります。 詳細については、「[{% data variables.product.prodname_ghe_server %} の {% data variables.product.prodname_actions %} の概要](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server#review-hardware-requirements)」を参照してください。
 {% endif %}
 
-### Runners
+### ランナー
 
-{% data variables.product.prodname_actions %} workflows require runners.{% ifversion ghec %} You can choose to use {% data variables.product.prodname_dotcom %}-hosted runners or self-hosted runners. {% data variables.product.prodname_dotcom %}-hosted runners are convenient because they are managed by {% data variables.product.company_short %}, who handles maintenance and upgrades for you. However, you may want to consider self-hosted runners if you need to run a workflow that will access resources behind your firewall or you want more control over the resources, configuration, or geographic location of your runner machines. For more information, see "[About {% data variables.product.prodname_dotcom %}-hosted runners](/actions/using-github-hosted-runners/about-github-hosted-runners)" and "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners)."{% else %} You will need to host your own runners by installing the {% data variables.product.prodname_actions %} self-hosted runner application on your own machines. For more information, see "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners)."{% endif %}
+{% data variables.product.prodname_actions %} ワークフローにはランナーが必要です。{% ifversion ghec %}{% data variables.product.prodname_dotcom %} ホスト ランナーまたはセルフホスト ランナーを使用できます。 {% data variables.product.prodname_dotcom %} ホスト ランナーは、{% data variables.product.company_short %} によって管理され、メンテナンスとアップグレードが自動的に処理されるので便利です。 ただし、ファイアウォールの内側にあるリソースにアクセスするワークフローを実行する必要がある場合や、ランナー マシンのリソース、構成、または地理的な場所をより詳細に制御する必要がある場合は、セルフホスト ランナーを検討することをお勧めします。 詳細については、「[{% data variables.product.prodname_dotcom %} ホスト ランナーについて](/actions/using-github-hosted-runners/about-github-hosted-runners)」および「[セルフホスト ランナーについて](/actions/hosting-your-own-runners/about-self-hosted-runners)」を参照してください。{% else %}独自のランナーをホストするには、{% data variables.product.prodname_actions %} セルフホスト ランナー アプリケーションをご自身のマシンにインストールする必要があります。 詳細については、「[セルフホスト ランナーについて](/actions/hosting-your-own-runners/about-self-hosted-runners)」を参照してください。{% endif %}
 
-{% ifversion ghec %}If you are using self-hosted runners, you have to decide whether you want to use physical machines, virtual machines, or containers.{% else %}Decide whether you want to use physical machines, virtual machines, or containers for your self-hosted runners.{% endif %} Physical machines will retain remnants of previous jobs, and so will virtual machines unless you use a fresh image for each job or clean up the machines after each job run. If you choose containers, you should be aware that the runner auto-updating will shut down the container, which can cause workflows to fail. You should come up with a solution for this by preventing auto-updates or skipping the command to kill the container.
+{% ifversion ghec %}セルフホスト ランナーを使用している場合は、物理マシン、仮想マシン、コンテナーのどれを使用するかを決定する必要があります。{% else %}セルフホスト ランナーに物理マシン、仮想マシン、コンテナーのどれを使用するかを決定します。{% endif %}各ジョブに新しいイメージを使用するか、各ジョブの実行後にマシンをクリーンアップしない限り、物理マシンは以前のジョブの残りの部分を保持し、仮想マシンも同様になります。 コンテナーを選択した場合、ランナーの自動更新によってコンテナーがシャットダウンされ、ワークフローが失敗する可能性があることに注意する必要があります。 自動更新ができないようにするか、コンテナーを強制終了するコマンドをスキップすることで、これに対する解決策を考案する必要があります。
 
-You also have to decide where to add each runner. You can add a self-hosted runner to an individual repository, or you can make the runner available to an entire organization or your entire enterprise. Adding runners at the organization or enterprise levels allows sharing of runners, which might reduce the size of your runner infrastructure. You can use policies to limit access to self-hosted runners at the organization and enterprise levels by assigning groups of runners to specific repositories or organizations. For more information, see "[Adding self-hosted runners](/actions/hosting-your-own-runners/adding-self-hosted-runners)" and "[Managing access to self-hosted runners using groups](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups)."
+また、各ランナーを追加する場所も決定する必要があります。 セルフホスト ランナーを個々のリポジトリに追加することも、Organization 全体または Enterprise 全体でランナーを使用可能にすることもできます。 Organization レベルまたは Enterprise レベルでランナーを追加すると、ランナーの共有が可能になります。これにより、ランナー インフラストラクチャのサイズが小さくなる可能性があります。 ポリシーを使用して、Organization および Enterprise レベルのセルフホスト ランナーへのアクセスを制限できます。そのためには、特定のリポジトリまたは Organization にランナーのグループを割り当てます。 詳細については、「[セルフホスト ランナーの追加](/actions/hosting-your-own-runners/adding-self-hosted-runners)」および「[グループを使用してセルフホストランナーへのアクセスを管理する](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups)」を参照してください。
 
-{% ifversion ghec or ghes %}
-You should consider using autoscaling to automatically increase or decrease the number of available self-hosted runners. For more information, see "[Autoscaling with self-hosted runners](/actions/hosting-your-own-runners/autoscaling-with-self-hosted-runners)."
+{% ifversion ghec or ghes %}自動スケーリングを使って、使用可能なセルフホステッド ランナーの数を自動的に増減することを検討する必要があります。 詳細については、「[セルフホスト ランナーによる自動スケーリング](/actions/hosting-your-own-runners/autoscaling-with-self-hosted-runners)」を参照してください。
 {% endif %}
 
-Finally, you should consider security hardening for self-hosted runners. For more information, see "[Security hardening for {% data variables.product.prodname_actions %}](/actions/security-guides/security-hardening-for-github-actions#hardening-for-self-hosted-runners)."
+最後に、セルフホスト ランナーのセキュリティ強化を検討する必要があります。 詳細については、「[{% data variables.product.prodname_actions %} のセキュリティ強化](/actions/security-guides/security-hardening-for-github-actions#hardening-for-self-hosted-runners)」を参照してください。
 
 ### Storage
 
-{% data reusables.actions.about-artifacts %} For more information, see "[Storing workflow data as artifacts](/actions/advanced-guides/storing-workflow-data-as-artifacts)." 
+{% data reusables.actions.about-artifacts %}詳細については、「[ワークフロー データを成果物として保存する](/actions/advanced-guides/storing-workflow-data-as-artifacts)」を参照してください。 
 
-{% ifversion actions-caching %}{% data variables.product.prodname_actions %} also has a caching system that you can use to cache dependencies to speed up workflow runs. For more information, see "[Caching dependencies to speed up workflows](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)."{% endif %}
+{% ifversion actions-caching %}{% data variables.product.prodname_actions %} には、依存関係をキャッシュしてワークフローの実行を高速化するために使用できるキャッシュ システムもあります。 詳細については、「[依存関係をキャッシュしてワークフローのスピードを上げる](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)」を参照してください。{% endif %}
 
-{% ifversion ghes %}
-You must configure external blob storage for workflow artifacts{% ifversion actions-caching %}, caches,{% endif %} and other workflow logs. Decide which supported storage provider your enterprise will use. For more information, see "[Getting started with {% data variables.product.prodname_actions %} for {% data variables.product.product_name %}](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server#external-storage-requirements)."
+{% ifversion ghes %} ワークフロー成果物、{% ifversion actions-caching %}キャッシュ、{% endif %}その他のワークフロー ログ用に外部 BLOB ストレージを構成する必要があります。 企業が使用する、サポートされているストレージ プロバイダーを決定します。 詳細については、「[{% data variables.product.product_name %} 用 {% data variables.product.prodname_actions %} の概要](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server#external-storage-requirements)」を参照してください。
 {% endif %}
 
 {% ifversion ghec or ghes %}
 
-You can use policy settings for {% data variables.product.prodname_actions %} to customize the storage of workflow artifacts{% ifversion actions-caching %}, caches,{% endif %} and log retention. For more information, see "[Enforcing policies for {% data variables.product.prodname_actions %} in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise)."
+{% data variables.product.prodname_actions %} のポリシー設定を使用して、ワークフロー成果物、{% ifversion actions-caching %}キャッシュ、{% endif %}ログの保持期間をカスタマイズできます。 詳細については、「[Enforcing policies for {% data variables.product.prodname_actions %} in your enterprise (エンタープライズでフォーク pull request のポリシーを適用する)](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise)」を参照してください。
 
 {% endif %}
 
-{% ifversion ghec %}
-Some storage is included in your subscription, but additional storage will affect your bill. You should plan for this cost. For more information, see "[About billing for {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)."
+{% ifversion ghec %}一定のストレージがサブスクリプションに含まれていますが、追加のストレージは課金に影響します。 このコストについて計画する必要があります。 詳細については、「[{% data variables.product.prodname_actions %} の課金について](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)」を参照してください。
 {% endif %}
 
-## Tracking usage
+## 使用状況の追跡
 
-You should consider making a plan to track your enterprise's usage of {% data variables.product.prodname_actions %}, such as how often workflows are running, how many of those runs are passing and failing, and which repositories are using which workflows.
+ワークフローの実行頻度、それらの実行の成功と失敗の数、どのリポジトリがどのワークフローを使用しているかなど、{% data variables.product.prodname_actions %} の Enterprise の使用状況を追跡する計画を立てる必要があります。
 
-{% ifversion ghec %}
-You can see basic details of storage and data transfer usage of {% data variables.product.prodname_actions %} for each organization in your enterprise via your billing settings. For more information, see "[Viewing your {% data variables.product.prodname_actions %} usage](/billing/managing-billing-for-github-actions/viewing-your-github-actions-usage#viewing-github-actions-usage-for-your-enterprise-account)."
+{% ifversion ghec %}Enterprise 内の Organization ごとに、{% data variables.product.prodname_actions %} のストレージとデータ転送の使用状況を示す基本的な詳細を支払い設定で確認できます。 詳細については、「[{% data variables.product.prodname_actions %} の使用状況を表示する](/billing/managing-billing-for-github-actions/viewing-your-github-actions-usage#viewing-github-actions-usage-for-your-enterprise-account)」を参照してください。
 
-For more detailed usage data, you{% else %}You{% endif %} can use webhooks to subscribe to information about workflow jobs and workflow runs. For more information, see "[About webhooks](/developers/webhooks-and-events/webhooks/about-webhooks)."
+詳細な使用状況データについては、{% else %}{% endif %}Webhook を使用して、ワークフロー ジョブとワークフロー実行に関する情報をサブスクライブできます。 詳細については、「[Webhook について](/developers/webhooks-and-events/webhooks/about-webhooks)」を参照してください。
 
-Make a plan for how your enterprise can pass the information from these webhooks into a data archiving system. You can consider using "CEDAR.GitHub.Collector", an open source tool that collects and processes webhook data from {% data variables.product.prodname_dotcom %}. For more information, see the [`Microsoft/CEDAR.GitHub.Collector` repository](https://github.com/microsoft/CEDAR.GitHub.Collector/).
+Enterprise でこれらの Webhook からデータ アーカイブ システムに情報を渡す方法を計画します。 {% data variables.product.prodname_dotcom %} から Webhook データを収集して処理するオープンソース ツールである、"CEDAR.GitHub.Collector" の使用を検討できます。 詳細については、[`Microsoft/CEDAR.GitHub.Collector` リポジトリ](https://github.com/microsoft/CEDAR.GitHub.Collector/)を参照してください。
 
-You should also plan how you'll enable your teams to get the data they need from your archiving system.
+また、チームがアーカイブ システムから必要なデータを取得できるようにする方法も計画する必要があります。

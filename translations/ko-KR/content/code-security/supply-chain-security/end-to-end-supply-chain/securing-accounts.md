@@ -1,8 +1,8 @@
 ---
-title: Best practices for securing accounts
+title: 계정 보안의 모범 사례
 shortTitle: Securing accounts
 allowTitleToDifferFromFilename: true
-intro: Guidance on how to protect accounts with access to your software supply chain.
+intro: 소프트웨어 공급망에 액세스하여 계정을 보호하는 방법에 대한 지침입니다.
 versions:
   fpt: '*'
   ghec: '*'
@@ -15,123 +15,117 @@ topics:
   - SSH
   - Security
   - Accounts
+ms.openlocfilehash: 1a6cfc1d45268ad0cab7bd1109a141224b45c078
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148098142'
 ---
-## About this guide
+## 이 가이드의 내용
 
-This guide describes the highest impact changes you can make to increase account security. Each section outlines a change you can make to your processes to improve the security. The highest impact changes are listed first.
+이 가이드에서는 계정 보안을 강화하기 위해 수행할 수 있는 가장 큰 변경 사항에 대해 설명합니다. 각 섹션에서는 보안을 개선하기 위해 프로세스를 변경할 수 있는 변경 내용을 간략하게 설명합니다. 가장 큰 변경 내용이 먼저 나열됩니다.
 
-## What's the risk?
+## 어떤 위험이 있나요?
 
-Account security is fundamental to the security of your supply chain. If an attacker can take over your account on {% data variables.product.product_name %}, they can then make malicious changes to your code or build process. So your first goal should be to make it difficult for someone to take over your account and the accounts of other {% ifversion ghes %}users{% else %}members{% endif %} of {% ifversion fpt %}your organization{% elsif ghec or ghae %}your organization or enterprise{% elsif ghes %}{% data variables.location.product_location %}{% endif %}.
+계정 보안은 공급망 보안의 기본 사항입니다. 공격자가 {% data variables.product.product_name %}에서 계정을 인수할 수 있는 경우 코드 또는 빌드 프로세스를 악의적으로 변경할 수 있습니다. 따라서 첫 번째 목표는 조직{% elsif ghec 또는 ghae %}조직 또는 enterprise{% elsif ghes %}{% 데이터 variables.location.product_location %}{% endif %}의 다른 {% ifversion ghes %}사용자{% else %}멤버{% endif %}의 계정 및 다른 {% ifversion ghes %}의 계정을 인수하기 어렵게 만드는 것입니다.
 
 {% ifversion ghec or ghes %}
-## Centralize authentication
+## 인증 중앙 집중화
 {% endif %}
 
-{% ifversion ghec %}
-If you're an enterprise or organization owner, you can configure centralized authentication with SAML. While you can add or remove members manually, it's simpler and more secure to set up single sign-on (SSO) and SCIM between {% data variables.product.product_name %} and your SAML identity provider (IdP). This also simplifies the authentication process for all members of your enterprise.
+{% ifversion ghec %} 엔터프라이즈 또는 조직 소유자인 경우 SAML을 사용하여 중앙 집중식 인증을 구성할 수 있습니다. 멤버를 수동으로 추가하거나 제거할 수 있지만 {% data variables.product.product_name %}와 SAML IdP(ID 공급자) 간에 SSO(Single Sign-On) 및 SCIM을 설정하는 것이 더 간단하고 안전합니다. 이렇게 하면 엔터프라이즈의 모든 멤버에 대한 인증 프로세스도 간소화됩니다.
 
-You can configure SAML authentication for an enterprise or organization account. With SAML, you can grant access to the personal accounts of members of your enterprise or organization on {% data variables.location.product_location %} through your IdP, or you can create and control the accounts that belong to your enterprise by using {% data variables.product.prodname_emus %}. For more information, see "[About authentication for your enterprise](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise)."
+엔터프라이즈 또는 조직 계정에 대한 SAML 인증을 구성할 수 있습니다. SAML을 사용하면 IdP를 통해 {% 데이터 variables.location.product_location %}에서 엔터프라이즈 또는 조직의 구성원의 개인 계정에 대한 액세스 권한을 부여하거나 {% 데이터 variables.product.prodname_emus %}을(를) 사용하여 엔터프라이즈에 속한 계정을 만들고 제어할 수 있습니다. 자세한 내용은 “[엔터프라이즈 인증 정보](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise)”를 참조하세요.
 
-After you configure SAML authentication, when members request access to your resources, they'll be directed to your SSO flow to ensure they are still recognized by your IdP. If they are unrecognized, their request is declined.
+SAML 인증을 구성한 후 멤버가 리소스에 대한 액세스를 요청할 때 IdP에서 계속 인식되도록 SSO 흐름으로 전달됩니다. 인식할 수 없는 경우 요청이 거부됩니다.
 
-Some IdPs support a protocol called SCIM, which can automatically provision or deprovision access on {% data variables.product.product_name %} when you make changes on your IdP. With SCIM, you can simplify administration as your team grows, and you can quickly revoke access to accounts. SCIM is available for individual organizations on {% data variables.product.product_name %}, or for enterprises that use {% data variables.product.prodname_emus %}. For more information, see "[About SCIM for organizations](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim-for-organizations)."
+일부 IdP는 IdP를 변경할 때 {% data variables.product.product_name %}에서 액세스를 자동으로 프로비저닝하거나 프로비전을 해제할 수 있는 SCIM이라는 프로토콜을 지원합니다. SCIM을 사용하면 팀이 성장함에 따라 관리를 간소화할 수 있으며 계정에 대한 액세스를 신속하게 철회할 수 있습니다. SCIM은 {% data variables.product.product_name %}의 개별 조직이나 {% data variables.product.prodname_emus %}를 사용하는 기업에서 사용할 수 있습니다. 자세한 내용은 “[조직에 대한 SCIM 정보](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim-for-organizations)”를 참조하세요.
 {% endif %}
 
-{% ifversion ghes %}
-If you're the site administrator for {% data variables.location.product_location %}, you can simplify the login experience for users by choosing an authentication method that connects with your existing identity provider (IdP), like CAS, SAML, or LDAP. This means that they no longer need to remember an extra password for {% data variables.product.prodname_dotcom %}.
+{% ifversion ghes %} {% 데이터 variables.location.product_location %}의 사이트 관리자인 경우 CAS, SAML 또는 LDAP와 같은 기존 IdP(ID 공급자)와 연결하는 인증 방법을 선택하여 사용자의 로그인 환경을 간소화할 수 있습니다. 즉, {% data variables.product.prodname_dotcom %}에 대한 추가 암호를 더 이상 기억할 필요가 없습니다.
 
-Some authentication methods also support communicating additional information to {% data variables.product.product_name %}, for example, what groups the user is a member of, or synchronizing cryptographic keys for the user. This is a great way to simplify your administration as your organization grows.
+또한 일부 인증 방법은 {% data variables.product.product_name %}에 대한 추가 정보 전달(예: 사용자가 구성원인 그룹 또는 사용자의 암호화 키 동기화)을 지원합니다. 이는 조직이 성장함에 따라 관리를 간소화하는 좋은 방법입니다.
 
-For more information about the authentication methods available for {% data variables.product.product_name %}, see "[About authentication for your enterprise](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise)."
+{% data variables.product.product_name %}에 사용할 수 있는 인증 방법에 대한 자세한 내용은 “[엔터프라이즈 인증 정보](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise)”를 참조하세요.
 {% endif %}
 
-## Configure two-factor authentication
+## 2단계 인증 구성
 
-The best way to improve the security of {% ifversion fpt %}your personal account{% elsif ghes %}your personal account or {% data variables.location.product_location %}{% elsif ghec %}your accounts{% elsif ghae %}your enterprise on {% data variables.product.product_name %}{% endif %} is to configure two-factor authentication (2FA){% ifversion ghae %} on your SAML identity provider (IdP){% endif %}. Passwords by themselves can be compromised by being guessable, by being reused on another site that's been compromised, or by social engineering, like phishing. 2FA makes it much more difficult for your accounts to be compromised, even if an attacker has your password.
+{% ifversion fpt %}개인 계정{% elsif ghes %}개인 계정 또는 {% 데이터 variables.location.product_location %}{% elsif ghec %}계정{% elsif gha의 보안을 개선하는 가장 좋은 방법 {% 데이터 variables.product.product_name %}{% endif %}의 엔터프라이즈는 SAML ID 공급자(IdP){% endif %}에서 2단계 인증(2FA){% ifversion ghae %}을(를) 구성하는 것입니다. 암호 자체는 추측할 수 있거나, 손상된 다른 사이트에서 재사용되거나, 피싱과 같은 소셜 엔지니어링에 의해 손상될 수 있습니다. 2FA를 사용하면 공격자가 암호를 가지고 있더라도 계정이 손상되는 것을 훨씬 더 어렵게 만듭니다.
 
 {% ifversion not ghae %}
 
-{% ifversion ghec %}
-If you're an enterprise owner, you may be able to configure a policy to require 2FA for all organizations owned by your enterprise.
+{% ifversion ghec %} 엔터프라이즈 소유자인 경우 엔터프라이즈가 소유한 모든 조직에 대해 2FA를 요구하는 정책을 구성할 수 있습니다.
 {% endif %}
 
-{% ifversion ghes %}
-If you're the site administrator for {% data variables.location.product_location %}, you may be able to configure 2FA for all users of your instance. The availability of 2FA on {% data variables.product.product_name %} depends on the authentication method that you use. For more information, see "[Centralize user authentication](#centralize-user-authentication)."
+{% ifversion ghes %} {% 데이터 variables.location.product_location %}의 사이트 관리자인 경우 인스턴스의 모든 사용자에 대해 2FA를 구성할 수 있습니다. {% data variables.product.product_name %}에서 2FA의 가용성은 사용하는 인증 방법에 따라 달라집니다. 자세한 내용은 “[사용자 인증 중앙 집중화](#centralize-user-authentication)”를 참조하세요.
 {% endif %}
 
-If you're an organization owner, then you {% ifversion fpt %}can{% else %}may be able to{% endif %} require that all members of the organization enable 2FA.
+조직 소유자인 경우 조직의 모든 구성원이 2FA를 사용하도록 {% ifversion fpt %}요구할 수{% else %}요구할 수도{% endif %} 있습니다.
 
 {% ifversion ghec or ghes %}
 
-### Configure your enterprise account
+### 엔터프라이즈 계정 구성
 
-Enterprise owners may be able to require 2FA for all {% ifversion ghes %}users on{% elsif ghec %}members of{% endif %} the {% ifversion ghes %}instance{% elsif ghec %}enterprise{% endif %}. The availability of 2FA policies on {% data variables.product.product_name %} depends on how {% ifversion ghes %}users{% else %}members{% endif %} authenticate to access your {% ifversion ghes %}instance{% elsif ghec %}enterprise's resources{% endif %}.
+엔터프라이즈 소유자는 {% ifversion ghes %}인스턴스{% elsif ghec %}엔터프라이즈{% endif %}{% ifversion ghes %}의 모든 사용자{% elsif ghec %}의 모든 구성원{% endif %}에 대해 2FA를 요구할 수 있습니다. {% data variables.product.product_name %}에서 2FA 정책을 사용할 수 있는지 여부는 {% ifversion ghes %}사용자{% else %}구성원{% endif %} 인증을 통해 {% ifversion ghes %}인스턴스{% elsif ghec %}기업의 리소스{% endif %}에 액세스하는 방법에 따라 달라집니다.
 
 {% ifversion ghes %}
-- If you sign into {% data variables.location.product_location %} through an external IdP using CAS or SAML SSO, you
-{% elsif ghec %}
-If your enterprise uses {% data variables.product.prodname_emus %} or SAML authentication is enforced for your enterprise, you
-{%- endif %} cannot configure 2FA on {% data variables.product.product_name %}. Someone with administrative access to your IdP must configure 2FA for the IdP.
+- CAS 또는 SAML SSO를 사용하여 외부 IdP를 통해 {% 데이터 variables.location.product_location %}에 로그인하는 경우 엔터프라이즈에서 {% 데이터 variables.product.prodname_emus %}을(를) 사용하거나 엔터프라이즈에 SAML 인증이 적용되는 경우 {%- endif %}에서 {% 데이터 variables.product.product_name %}에서 2FA를 구성할 수 없습니다. IdP에 대한 관리 액세스 권한이 있는 사용자가 IdP에 대해 2FA를 구성해야 합니다.
 
 {% ifversion ghes %}
 
-- If you sign into {% data variables.location.product_location %} through an external LDAP directory, you can require 2FA for your enterprise on {% data variables.product.product_name %}. If you allow built-in authentication for users outside of your directory, individual users can enable 2FA, but you cannot require 2FA for your enterprise.
+- 외부 LDAP 디렉터리를 통해 {% 데이터 variables.location.product_location %}에 로그인하는 경우 {% 데이터 variables.product.product_name %}에서 엔터프라이즈에 2FA를 요구할 수 있습니다. 디렉터리 외부 사용자에 대한 기본 제공 인증을 허용하는 경우 개별 사용자는 2FA를 사용하도록 설정할 수 있지만 엔터프라이즈에 2FA를 요구할 수는 없습니다.
 
 {% endif %}
 
-For more information, see {% ifversion ghec %}"[About identity and access management for your enterprise](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-identity-and-access-management-for-your-enterprise)" and {% endif %}"[Enforcing policies for security settings in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#requiring-two-factor-authentication-for-organizations-in-your-enterprise)."
+자세한 내용은 {% ifversion ghec %}“[엔터프라이즈의 ID 및 액세스 관리 정보](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-identity-and-access-management-for-your-enterprise)” 및 {% endif %}“[엔터프라이즈의 보안 설정에 대한 정책 적용](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#requiring-two-factor-authentication-for-organizations-in-your-enterprise)”을 참조하세요.
 
 {% endif %}
 
-### Configure your personal account
+### 개인 계정 구성
 
-{% ifversion ghec or ghes %}
-{% note %}
+{% ifversion ghec or ghes %} {% note %}
 
-**Note**: Depending on the authentication method that {% ifversion ghec %}an enterprise owner{% elsif ghes %}a site administrator{% endif %} has configured for {% ifversion ghec %}your enterprise on {% endif %}{% data variables.location.product_location %}, you may not be able to enable 2FA for your personal account.
+**참고**: {% ifversion ghec %}엔터프라이즈 소유자{% elsif ghes %}사이트 관리자{% endif %}이(가) {% endif %}{% data variables.location.product_location %}에서 {% ifversion ghec %}에 대해 구성한 인증 방법에 따라 개인 계정에 대해 2FA를 사용하도록 설정하지 못할 수 있습니다.
 
-{% endnote %}
-{% endif %}
+{% endnote %} {% endif %}
 
-{% data variables.product.product_name %} supports several options for 2FA, and while any of them is better than nothing, the most secure option is WebAuthn. WebAuthn requires either a hardware security key or a device that supports it through things like Windows Hello or Mac TouchID. It's possible, although difficult, to phish other forms of 2FA (for example, someone asking you to read them your 6 digit one-time password). However WebAuthn isn't phishable, because domain scoping is built into the protocol, which prevents credentials from a website impersonating a login page from being used on {% data variables.product.product_name %}.
+{% data variables.product.product_name %}는 2FA에 대한 몇 가지 옵션을 지원하며, 그 중 어느 것도 없는 것보다는 낫지만 가장 안전한 옵션은 WebAuthn입니다. WebAuthn에는 하드웨어 보안 키 또는 Windows Hello나 Mac TouchID 등을 통해 지원하는 디바이스가 필요합니다. 2FA의 다른 형식을 피싱하는 것은 어렵지만 가능합니다(예: 누군가가 6자리 일회용 암호를 읽도록 요청하는 경우). 그러나 도메인 범위 지정이 프로토콜에 기본 제공되므로 웹 사이트의 자격 증명이 {% data variables.product.product_name %}에서 로그인 페이지를 가장하는 데 사용되지 않기 때문에 WebAuthn은 피싱할 수 없습니다.
 
-When you set up 2FA, you should always download the recovery codes and set up more than one factor. This ensures that access to your account doesn't depend on a single device. For more information, see "[Configuring two-factor authentication](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication)," "[Configuring two-factor authentication recovery methods](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication-recovery-methods)," and [GitHub Branded hardware security keys](https://thegithubshop.com/products/github-branded-yubikey) in the GitHub shop.
+2FA를 설정할 때는 항상 복구 코드를 다운로드하고 둘 이상의 요소를 설정해야 합니다. 이렇게 하면 계정에 대한 액세스가 단일 디바이스에 의존하지 않습니다. 자세한 내용은 GitHub 스토어에서 “[2단계 인증 구성](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication)”, “[2단계 인증 복구 방법 구성](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication-recovery-methods)” 및 [GitHub 브랜드 하드웨어 보안 키](https://thegithubshop.com/products/github-branded-yubikey)를 참조하세요.
 
-### Configure your organization account
+### 조직 계정 구성
 
-{% ifversion ghec or ghes %}
-{% note %}
+{% ifversion ghec or ghes %} {% note %}
 
-**Note**: Depending on the authentication method that {% ifversion ghec %}an enterprise owner{% elsif ghes %}a site administrator{% endif %} has configured for {% ifversion ghec %}your enterprise on {% endif %}{% data variables.location.product_location %}, you may not be able to require 2FA for your organization.
+**참고**: {% ifversion ghec %}엔터프라이즈 소유자{% elsif ghes %}사이트 관리자{% endif %}이(가) {% endif %}{% 데이터 variables.location.product_location %}에서 {% ifversion ghec %}에 대해 구성한 인증 방법에 따라 조직에 2FA가 필요하지 않을 수 있습니다.
 
-{% endnote %}
-{% endif %}
+{% endnote %} {% endif %}
 
-If you're an organization owner, you can see which users don't have 2FA enabled, help them get set up, and then require 2FA for your organization. To guide you through that process, see:
+조직 소유자인 경우 2FA를 사용하도록 설정하지 않은 사용자를 확인하여 설정에 도움을 준 다음 조직에 2FA를 요구할 수 있습니다. 해당 프로세스를 안내하려면 다음을 참조하세요.
 
-1. "[Viewing whether users in your organization have 2FA enabled](/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/viewing-whether-users-in-your-organization-have-2fa-enabled)"
-2. "[Preparing to require two-factor authentication in your organization](/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/preparing-to-require-two-factor-authentication-in-your-organization)"
-3. "[Requiring two-factor authentication in your organization](/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/requiring-two-factor-authentication-in-your-organization)"
+1. “[조직의 사용자가 2FA를 사용하도록 설정하였는지 여부 보기](/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/viewing-whether-users-in-your-organization-have-2fa-enabled)”
+2. “[조직의 2단계 인증 요구 대비](/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/preparing-to-require-two-factor-authentication-in-your-organization)”
+3. “[조직에서 2단계 인증 요구](/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/requiring-two-factor-authentication-in-your-organization)”
 
 {% endif %}
 
-## Connect to {% data variables.product.product_name %} using SSH keys
+## SSH 키를 사용하여 {% data variables.product.product_name %}에 연결
 
-There are other ways to interact with {% data variables.product.product_name %} beyond signing into the website{% ifversion ghae %} via your IdP{% endif %}. Many people authorize the code they push to {% data variables.product.prodname_dotcom %} with an SSH private key. For more information, see "[About SSH](/authentication/connecting-to-github-with-ssh/about-ssh)."
+{% ifversion ghae %}IdP를 통해{% endif %} 웹 사이트에 로그인하는 것 외에 {% data variables.product.product_name %}와 상호 작용하는 다른 방법이 있습니다. 많은 사람들이 SSH 프라이빗 키를 사용하여 {% data variables.product.prodname_dotcom %}에 푸시하는 코드에 권한을 부여합니다. 자세한 내용은 “[ SSH 정보](/authentication/connecting-to-github-with-ssh/about-ssh)”를 참조하세요.
 
-Just like {% ifversion ghae %}the password for your IdP account{% else %}your account password{% endif %}, if an attacker were able to get your SSH private key, they could impersonate you and push malicious code to any repository you have write access for. If you store your SSH private key on a disk drive, it's a good idea to protect it with a passphrase. For more information, see "[Working with SSH key passphrases](/authentication/connecting-to-github-with-ssh/working-with-ssh-key-passphrases)."
+{% ifversion ghae %}IdP 계정용 암호{% else %}계정 암호{% endif %}와 마찬가지로 공격자가 SSH 프라이빗 키를 가져올 수 있는 경우 사용자를 가장하고 쓰기 액세스 권한이 있는 모든 리포지토리에 악성 코드를 푸시할 수 있습니다. 디스크 드라이브에 SSH 프라이빗 키를 저장하는 경우 암호를 사용하여 보호하는 것이 좋습니다. 자세한 내용은 “[SSH 키 암호 사용](/authentication/connecting-to-github-with-ssh/working-with-ssh-key-passphrases)”을 참조하세요.
 
-Another option is to generate SSH keys on a hardware security key. You could use the same key you're using for 2FA. Hardware security keys are very difficult to compromise remotely, because the private SSH key remains on the hardware, and is not directly accessible from software. For more information, see "[Generating a new SSH key for a hardware security key](/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key-for-a-hardware-security-key)."
+또 다른 옵션은 하드웨어 보안 키에 SSH 키를 생성하는 것입니다. 2FA에 사용 중인 것과 동일한 키를 사용할 수 있습니다. 프라이빗 SSH 키는 하드웨어에 유지되며 소프트웨어에서 직접 액세스할 수 없기 때문에 하드웨어 보안 키는 원격으로 손상하기 매우 어렵습니다. 자세한 내용은 “[하드웨어 보안 키에 대한 새 SSH 키 생성](/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key-for-a-hardware-security-key)”을 참조하세요.
 
-{% ifversion ghec or ghes or ghae %}
-Hardware-backed SSH keys are quite secure, but the hardware requirement might not work for some organizations. An alternative approach is to use SSH keys that are only valid for a short period of time, so even if the private key is compromised it can't be exploited for very long. This is the concept behind running your own SSH certificate authority. While this approach gives you a lot of control over how users authenticate, it also comes with the responsibility of maintaining an SSH certificate authority yourself. For more information, see "[About SSH certificate authorities](/organizations/managing-git-access-to-your-organizations-repositories/about-ssh-certificate-authorities)."
+{% ifversion ghec or ghes or ghae %} 하드웨어 지원 SSH 키는 매우 안전하지만 일부 조직에서는 하드웨어 요구 사항이 작동하지 않을 수 있습니다. 다른 방법은 짧은 기간 동안만 유효한 SSH 키를 사용하는 것이므로 프라이빗 키가 손상된 경우에도 오랫동안 악용되지 않습니다. 이는 사용자 고유의 SSH 인증 기관을 실행하는 개념입니다. 이 방법을 통해 사용자가 인증하는 방법을 높은 수준으로 제어할 수 있지만 SSH 인증 기관을 직접 유지 관리하는 책임도 함께 따릅니다. 자세한 내용은 “[SSH 인증 기관 정보](/organizations/managing-git-access-to-your-organizations-repositories/about-ssh-certificate-authorities)”를 참조하세요.
 {% endif %}
 
-## Next steps
+## 다음 단계
 
-- "[Securing your end-to-end supply chain](/code-security/supply-chain-security/end-to-end-supply-chain/end-to-end-supply-chain-overview)"
+- “[엔드투엔드 공급망 보안](/code-security/supply-chain-security/end-to-end-supply-chain/end-to-end-supply-chain-overview)”
 
-- "[Best practices for securing code in your supply chain](/code-security/supply-chain-security/end-to-end-supply-chain/securing-code)"
+- “[공급망 코드 보안의 모범 사례](/code-security/supply-chain-security/end-to-end-supply-chain/securing-code)”
 
-- "[Best practices for securing your build system](/code-security/supply-chain-security/end-to-end-supply-chain/securing-builds)"
+- “[빌드 시스템 보안의 모범 사례](/code-security/supply-chain-security/end-to-end-supply-chain/securing-builds)”

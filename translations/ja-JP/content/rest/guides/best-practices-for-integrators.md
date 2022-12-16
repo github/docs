@@ -12,12 +12,12 @@ versions:
 topics:
   - API
 shortTitle: Integrator best practices
-ms.openlocfilehash: 76e0a405394529bb8b40b0a0af10d5e19fbbf3a5
-ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
+ms.openlocfilehash: bdfc2449946e40b017dc028869deb7991d5a344a
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/11/2022
-ms.locfileid: '147882272'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148193524'
 ---
 GitHubプラットフォームとの統合に興味はありますか。 [あなたには良い仲間がいます](https://github.com/integrations)。 このガイドは、ユーザーに最適なエクスペリエンスを提供するアプリを構築 *し、* API と確実に対話できるようにするのに役立ちます。 
 
@@ -65,7 +65,7 @@ APIレスポンスには、URLの形でデータが含まれていることが�
 
 アプリケーションの安定性を保つため、このデータをパースしようとしたり、先のURLの形式を予想して作成しようとしたりしないでください。 URLを変更した場合、アプリケーションが壊れるおそれがあります。
 
-たとえば、ページネーションされた結果を処理するときは、末尾に `?page=<number>` の付いた URL を構築したいことがよくあります。 この誘惑に負けてはなりません。 [ページネーションに関するガイド](/guides/traversing-with-pagination)では、ページネーションされた結果を安全に扱うための信頼できるヒントがいくつか提供されています。
+たとえば、ページネーションされた結果を処理するときは、末尾に `?page=<number>` の付いた URL を構築したいことがよくあります。 この誘惑に負けてはなりません。 ページネーションされた結果を確実にフォローする方法について詳しくは、[REST API でページネーションを使うこと](/rest/guides/using-pagination-in-the-rest-api)に関する説明をご覧ください。
 
 ## イベントの処理前にイベントのタイプとアクションを確認する
 

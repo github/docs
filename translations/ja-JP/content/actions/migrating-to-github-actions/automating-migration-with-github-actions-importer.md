@@ -1,6 +1,6 @@
 ---
-title: Automating migration with GitHub Actions Importer
-intro: 'Use {% data variables.product.prodname_actions_importer %} to plan and automate your migration to {% data variables.product.prodname_actions %}.'
+title: GitHub Actions Importer を使用した移行の自動化
+intro: '{% data variables.product.prodname_actions_importer %} を使って、{% data variables.product.prodname_actions %} への移行を計画し自動化します。'
 versions:
   fpt: '*'
   ghec: '*'
@@ -12,31 +12,35 @@ topics:
   - Migration
   - CI
   - CD
-shortTitle: Automate migration with {% data variables.product.prodname_actions_importer %}
+shortTitle: 'Automate migration with {% data variables.product.prodname_actions_importer %}'
+ms.openlocfilehash: 391455eb90a3a71ab0e0cb5a1573a0ee48527d8e
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148160080'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
-
-[Legal notice](#legal-notice)
+[法的通知](#legal-notice)
 
 {% note %}
 
-**Note**: {% data variables.product.prodname_actions_importer %} is currently available as a public preview. Visit the [sign up page](https://github.com/features/actions-importer/signup) to request access to the preview. Once you are granted access you'll be able to use the `gh-actions-importer` CLI extension
+**注**: {% data variables.product.prodname_actions_importer %} は現在、パブリック プレビューとしてお使いいただけます。 プレビューへのアクセスをリクエストする場合は、[サインアップ ページ](https://github.com/features/actions-importer/signup)にアクセスしてください。 アクセス権が付与されると、`gh-actions-importer` CLI 拡張機能をお使いいただけるようになります。
 
 {% endnote %}
 
-## About {% data variables.product.prodname_actions_importer %}
+## {% data variables.product.prodname_actions_importer %} について
 
-You can use {% data variables.product.prodname_actions_importer %} to plan and automatically migrate your CI/CD pipelines to {% data variables.product.prodname_actions %} from Azure DevOps, CircleCI, GitLab, Jenkins, and Travis CI.
+{% data variables.product.prodname_actions_importer %} を使用して、Azure DevOps、CircleCI、GitLab、Jenkins、Travis CI から CI/CD パイプラインを計画して {% data variables.product.prodname_actions %} に自動的に移行することができます。
 
-{% data variables.product.prodname_actions_importer %} is distributed as a Docker container, and uses a [{% data variables.product.prodname_dotcom %} CLI](https://cli.github.com) extension to interact with the container.
+{% data variables.product.prodname_actions_importer %} は Docker コンテナーとして配布され、[{% data variables.product.prodname_dotcom %} CLI](https://cli.github.com) 拡張機能を使用してコンテナーとやりとりします。
 
-Any workflow that is converted by the {% data variables.product.prodname_actions_importer %} should be inspected for correctness before using it as a production workload. The goal is to achieve an 80% conversion rate for every workflow, however, the actual conversion rate will depend on the makeup of each individual pipeline that is converted.
+{% data variables.product.prodname_actions_importer %} によって変換されたワークフローは、運用ワークロードとして使用する前に、正確性を検査する必要があります。 目標は、すべてのワークフローで 80% の変換率を達成することですが、実際の変換率は、変換される各パイプラインの構成によって異なります。
 
-## Supported CI platforms
+## サポートされている CI プラットフォーム
 
-You can use {% data variables.product.prodname_actions_importer %} to migrate from the following platforms:
+{% data variables.product.prodname_actions_importer %} を使用すると、次のプラットフォームから移行することができます。
 
 - Azure DevOps
 - CircleCI
@@ -44,36 +48,36 @@ You can use {% data variables.product.prodname_actions_importer %} to migrate fr
 - Jenkins
 - Travis CI
 
-Once you are granted access to the preview, you will be able to access further reference documentation for each of the supported platforms.
+プレビューへのアクセス権が付与されると、サポートされている各プラットフォームの参照ドキュメントにアクセスできるようになります。
 
-## Prerequisites
+## 前提条件
 
-{% data variables.product.prodname_actions_importer %} has the following requirements:
+{% data variables.product.prodname_actions_importer %} には、次の要件があります。
 
-- You must have been granted access to the public preview for the {% data variables.product.prodname_actions_importer %}.
+- {% data variables.product.prodname_actions_importer %} のパブリック プレビューへのアクセス権が付与されている必要があります。
 {%- ifversion ghes < 3.5 or ghae %}
-- Use a {% data variables.product.pat_generic %} with the `read:packages` scope enabled.
+- `read:packages` スコープが有効になっている {% data variables.product.pat_generic %} を使用します。
 {%- else %}
-- You must have credentials to authenticate to the {% data variables.product.prodname_registry %} {% data variables.product.prodname_container_registry %}. For more information, see "[Working with the Container registry](/packages/working-with-a-github-packages-registry/working-with-the-container-registry#authenticating-to-the-container-registry)."
+- {% data variables.product.prodname_registry %} {% data variables.product.prodname_container_registry %} に対して認証するための資格情報が必要です。 詳しくは、「[コンテナー レジストリを操作する](/packages/working-with-a-github-packages-registry/working-with-the-container-registry#authenticating-to-the-container-registry)」をご覧ください。
 {% endif %}
-- An environment where you can run Linux-based containers, and can install the necessary tools.
-  - Docker is [installed](https://docs.docker.com/get-docker/) and running.
-  - [{% data variables.product.prodname_dotcom %} CLI](https://cli.github.com) is installed.
+- Linux ベースのコンテナーを実行し、必要なツールをインストールできる環境。
+  - Docker が[インストールされていて](https://docs.docker.com/get-docker/)実行されていること。
+  - [{% data variables.product.prodname_dotcom %} CLI](https://cli.github.com) がインストールされていること。
 
   {% note %}
 
-  **Note**: The {% data variables.product.prodname_actions_importer %} container and CLI do not need to be installed on the same server as your CI platform.
+  **注**: {% data variables.product.prodname_actions_importer %} コンテナーと CLI は、CI プラットフォームと同じサーバーにインストールする必要はありません。
 
   {% endnote %}
 
-### Installing the {% data variables.product.prodname_actions_importer %} CLI extension
+### {% data variables.product.prodname_actions_importer %} CLI 拡張機能のインストール
 
-1. Install the {% data variables.product.prodname_actions_importer %} CLI extension:
+1. {% data variables.product.prodname_actions_importer %} CLI 拡張機能のインストール
 
    ```bash
    $ gh extension install github/gh-actions-importer
    ```
-1. Verify that the extension is installed:
+1. 拡張機能がインストールされていることを確認します。
 
    ```bash
    $ gh actions-importer -h
@@ -90,39 +94,39 @@ Once you are granted access to the preview, you will be able to access further r
      migrate    Convert a pipeline to a GitHub Actions workflow and open a pull request with the changes.
    ```
 
-### Updating the {% data variables.product.prodname_actions_importer %} CLI
+### {% data variables.product.prodname_actions_importer %} CLI の更新
 
-To ensure you're running the latest version of {% data variables.product.prodname_actions_importer %}, you should regularly run the `update` command:
+最新バージョンの {% data variables.product.prodname_actions_importer %} を実行していることを確認するには、`update` コマンドを定期的に実行する必要があります。
 
 ```bash
 $ gh actions-importer update
 ```
 
-You must be authenticated with the {% data variables.product.prodname_container_registry %} for this command to be successful. Alternatively, you can provide credentials using the `--username` and `--password-stdin` parameters:
+このコマンドを正常に実行するには、{% data variables.product.prodname_container_registry %} で認証する必要があります。 または、`--username` および `--password-stdin` パラメーターを使用して資格情報を指定することもできます。
 
 ```bash
 $ echo $GITHUB_TOKEN | gh actions-importer update --username $GITHUB_HANDLE --password-stdin
 ```
 
-### Authenticating at the command line
+### コマンドラインで認証する
 
-You must configure credentials that allow {% data variables.product.prodname_actions_importer %} to communicate with {% data variables.product.prodname_dotcom %} and your current CI server. You can configure these credentials using environment variables or a `.env.local` file. The environment variables can be configured in an interactive prompt, by running the following command:
+{% data variables.product.prodname_actions_importer %} が {% data variables.product.prodname_dotcom %} および現在の CI サーバーと通信できるようにする資格情報を構成する必要があります。 これらの資格情報は、環境変数または `.env.local` ファイルを使用して構成できます。 環境変数は、次のコマンドを実行して、対話型プロンプトで構成できます。
 
 ```bash
 $ gh actions-importer configure
 ```
 
-Once you are granted access to the preview, you will be able to access further reference documentation about using environment variables.
+プレビューへのアクセス権が付与されると、環境変数の使用に関する参照ドキュメントにアクセスできるようになります。
 
-## Using the {% data variables.product.prodname_actions_importer %} CLI
+## {% data variables.product.prodname_actions_importer %} CLI の使用
 
-Use the subcommands of `gh actions-importer` to begin your migration to {% data variables.product.prodname_actions %}, including `audit`, `forecast`, `dry-run`, and `migrate`.
+`gh actions-importer` のサブコマンドを使って、{% data variables.product.prodname_actions %} への移行を始めます。`audit`、`forecast`、`dry-run`、`migrate` が含まれます。
 
-### Auditing your existing CI pipelines
+### 既存の CI パイプラインの監査
 
-The `audit` subcommand can be used to plan your CI/CD migration by analyzing your current CI/CD footprint. This analysis can be used to plan a timeline for migrating to {% data variables.product.prodname_actions %}.
+`audit` サブコマンドは、現在の CI/CD 占有領域を分析して、CI/CD の移行の計画に使用できます。 この解析を使用して、{% data variables.product.prodname_actions %} への移行のタイムラインを計画できます。
 
-To run an audit, use the following command to determine your available options:
+監査を実行するには、次のコマンドを使用して、使用可能なオプションを決定します。
 
 ```bash
 $ gh actions-importer audit -h
@@ -139,13 +143,13 @@ Commands:
   travis-ci     An audit will output a list of data used in a Travis CI instance.
 ```
 
-Once you are granted access to the preview, you will be able to access further reference documentation about running an audit.
+プレビューへのアクセス権が付与されると、監査の実行に関する参照ドキュメントにアクセスできるようになります。
 
-### Forecasting usage
+### 使用状況の予測
 
-The `forecast` subcommand reviews historical pipeline usage to create a forecast of {% data variables.product.prodname_actions %} usage.
+`forecast` サブコマンドは、パイプラインの使用状況の履歴を確認して、{% data variables.product.prodname_actions %} 使用量の予測を作成します。
 
-To run a forecast, use the following command to determine your available options:
+予測を実行するには、次のコマンドを使用して、使用可能なオプションを決定します。
 
 ```bash
 $ gh actions-importer forecast -h
@@ -163,13 +167,13 @@ Commands:
   github        Forecasts GitHub Actions usage from historical GitHub pipeline utilization.
 ```
 
-Once you are granted access to the preview, you will be able to access further reference documentation about running a forecast.
+プレビューへのアクセス権が付与されると、予測の実行に関する参照ドキュメントにアクセスできるようになります。
 
-### Testing the migration process
+### 移行プロセスのテスト
 
-The `dry-run` subcommand can be used to convert a pipeline to its {% data variables.product.prodname_actions %} equivalent, and then write the workflow to your local filesystem.
+`dry-run` サブコマンドを使用して、パイプラインを同等の {% data variables.product.prodname_actions %} に変換し、ワークフローをローカル ファイルシステムに書き込むことができます。
 
-To perform a dry run, use the following command to determine your available options:
+ドライ ランを実行するには、次のコマンドを使用して、使用可能なオプションを決定します。
 
 ```bash
 $ gh actions-importer dry-run -h
@@ -186,13 +190,13 @@ Commands:
   travis-ci     Convert a Travis CI pipeline to a GitHub Actions workflow and output its yaml file.
 ```
 
-Once you are granted access to the preview, you will be able to access further reference documentation about performing a dry run.
+プレビューへのアクセス権が付与されると、ドライ ランの実行に関する参照ドキュメントにアクセスできるようになります。
 
-### Migrating a pipeline to {% data variables.product.prodname_actions %}
+### {% data variables.product.prodname_actions %} へのパイプラインの移行
 
-The `migrate` subcommand can be used to convert a pipeline to its GitHub Actions equivalent and then create a pull request with the contents.
+`migrate` サブコマンドを使用して、パイプラインを同等の GitHub Actions に変換し、その内容を含む pull request を作成できます。
 
-To run a migration, use the following command to determine your available options:
+移行を実行するには、次のコマンドを使用して、使用可能なオプションを決定します。
 
 ```bash
 $ gh actions-importer migrate -h
@@ -209,11 +213,11 @@ Commands:
   travis-ci     Convert a Travis CI pipeline to a GitHub Actions workflow and and open a pull request with the changes.
 ```
 
-Once you are granted access to the preview, you will be able to access further reference documentation about running a migration.
+プレビューへのアクセス権が付与されると、移行の実行に関する参照ドキュメントにアクセスできるようになります。
 
-## Legal notice
+## 法的通知
 
-Portions have been adapted from https://github.com/github/gh-actions-importer/ under the MIT license:
+MIT ライセンスのもとで https://github.com/github/gh-actions-importer/ から一部を引用しています。
 
 ```
 MIT License

@@ -1,8 +1,16 @@
-When you enable one or more security and analysis features for existing repositories, you will see any results displayed on {% data variables.product.prodname_dotcom %} within minutes:
+---
+ms.openlocfilehash: 14b8f0f8803056b5d3431e8de2eee868d9167546
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/25/2022
+ms.locfileid: "148108273"
+---
+Quand vous activez une ou plusieurs fonctionnalités de sécurité et d’analyse pour les dépôts existants, tous les résultats s’affichent sur {% data variables.product.prodname_dotcom %} en quelques minutes :
 
-- All the existing repositories will have the selected configuration.
-- New repositories will follow the selected configuration if you've enabled the checkbox for new repositories.{% ifversion GH-advisory-db-supports-malware %}
-- We use the permissions to scan for manifest files to apply the relevant services.
-- If enabled, you'll see dependency information in the dependency graph.
-- If enabled, {% data variables.product.prodname_dotcom %} will generate {% data variables.product.prodname_dependabot_alerts %} for vulnerable dependencies or malware.{% endif %}{% ifversion fpt or ghec or ghes %}
-- If enabled, {% data variables.product.prodname_dependabot %} security updates will create pull requests to upgrade vulnerable dependencies when {% data variables.product.prodname_dependabot_alerts %} are triggered.{% endif %}
+- Tous les dépôts existants reçoivent la configuration sélectionnée.
+- Les nouveaux dépôts suivent la configuration sélectionnée si vous avez coché la case pour les nouveaux dépôts.{% ifversion fpt or ghec %}
+- Nous utilisons les autorisations pour rechercher les fichiers manifeste et appliquer les services appropriés.
+- Si l’option est activée, vous voyez les informations de dépendance dans le graphe des dépendances.
+- Si l’option est activée, {% data variables.product.prodname_dotcom %} génère des {% data variables.product.prodname_dependabot_alerts %} s’il existe des dépendances vulnérables ou des programmes malveillants.{% endif %}{% ifversion fpt or ghec or ghes %}
+- Si l’option est activée, les mises à jour de sécurité {% data variables.product.prodname_dependabot %} créent des demandes de tirage pour mettre à niveau les dépendances vulnérables quand des {% data variables.product.prodname_dependabot_alerts %} sont déclenchées.{% endif %}

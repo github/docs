@@ -1,1 +1,9 @@
-{% data variables.product.prodname_actions %} usage is free for standard {% data variables.product.prodname_dotcom %}-hosted runners in public repositories, and for self-hosted runners. For private repositories, each {% data variables.product.prodname_dotcom %} account receives a certain amount of free minutes and storage for use with {% data variables.product.prodname_dotcom %}-hosted runners, depending on the product used with the account. Any usage beyond the included amounts is controlled by spending limits.
+---
+ms.openlocfilehash: a1dc8f6f7c626557143a010803e4e0f0dd420ba0
+ms.sourcegitcommit: 22d665055b1bee7a5df630385e734e3a149fc720
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/13/2022
+ms.locfileid: "145095058"
+---
+O uso de {% data variables.product.prodname_actions %} é grátis tanto para repositórios públicos quanto para executores auto-hospedados. Para repositórios privados, cada conta {% data variables.product.prodname_dotcom %} recebe uma certa quantidade de minutos e armazenamento gratuitos, dependendo do produto usado com a conta. Qualquer uso além dos valores incluídos é controlado pelos limites de gastos.

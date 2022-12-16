@@ -1,6 +1,6 @@
 ---
-title: Quickstart for GitHub Packages
-intro: 'Publish to {% data variables.product.prodname_registry %} with {% data variables.product.prodname_actions %}.'
+title: Краткое руководство по GitHub Packages
+intro: 'Публикация в {% data variables.product.prodname_registry %} с помощью {% data variables.product.prodname_actions %}.'
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
@@ -8,29 +8,34 @@ versions:
   ghae: '*'
   ghec: '*'
 shortTitle: Quickstart
+ms.openlocfilehash: 887c4ee6c5e6b3e2c391c2d5754cfcb2787e4b86
+ms.sourcegitcommit: cfe91073c844cb762131b2de9fb41f7f9db792fc
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 11/24/2022
+ms.locfileid: '148181261'
 ---
-
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-## Introduction
+## Введение
 
-In this guide, you'll create a {% data variables.product.prodname_actions %} workflow to test your code and then publish it to {% data variables.product.prodname_registry %}.
+В этом руководстве вы создадите рабочий процесс {% data variables.product.prodname_actions %}, чтобы протестировать код, а затем опубликовать его в {% data variables.product.prodname_registry %}.
 
-## Publishing your package
+## Публикация пакета
 
-1. Create a new repository on {% data variables.product.prodname_dotcom %}, adding the `.gitignore` for Node. For more information, see "[Creating a new repository](/github/creating-cloning-and-archiving-repositories/creating-a-new-repository)."
-2. Clone the repository to your local machine.
+1. Создайте новый репозиторий в {% data variables.product.prodname_dotcom %}, добавив `.gitignore` для Node. Дополнительные сведения см. в разделе [Создание репозитория](/github/creating-cloning-and-archiving-repositories/creating-a-new-repository).
+2. Клонируйте репозиторий на локальный компьютер.
     ```shell
     $ git clone https://{% ifversion ghes or ghae %}YOUR-HOSTNAME{% else %}github.com{% endif %}/YOUR-USERNAME/YOUR-REPOSITORY.git
     $ cd YOUR-REPOSITORY
     ```
-3. Create an `index.js` file and add a basic alert to say "Hello world!"
+3. Создайте файл `index.js` и добавьте базовое оповещение, говорящее "Hello world!"
     {% raw %}
     ```javascript{:copy}
     console.log("Hello, World!");
     ```
     {% endraw %}
-4. Initialize an npm package with `npm init`. In the package initialization wizard, enter your package with the name: _`@YOUR-USERNAME/YOUR-REPOSITORY`_, and set the test script to `exit 0`. This will generate a `package.json` file with information about your package.
+4. Инициализируйте пакет npm с помощью `npm init`. В мастере инициализации пакета введите пакет с именем _`@YOUR-USERNAME/YOUR-REPOSITORY`_ и задайте для тестового скрипта значение `exit 0`. При этом будет создан файл `package.json` со сведениями о пакете.
     {% raw %}
     ```shell
     $ npm init
@@ -41,15 +46,15 @@ In this guide, you'll create a {% data variables.product.prodname_actions %} wor
       ...    
     ```
     {% endraw %}
-5. Run `npm install` to generate the `package-lock.json` file, then commit and push your changes to {% data variables.product.prodname_dotcom %}.
+5. Выполните `npm install`, чтобы создать файл `package-lock.json`, а затем зафиксируйте и отправьте изменения в {% data variables.product.prodname_dotcom %}.
     ```shell
     $ npm install
     $ git add index.js package.json package-lock.json
     $ git commit -m "initialize npm package"
     $ git push
     ```
-6. Create a `.github/workflows` directory. In that directory, create a file named `release-package.yml`.
-7. Copy the following YAML content into the `release-package.yml` file{% ifversion ghes or ghae %}, replacing `YOUR-HOSTNAME` with the name of your enterprise{% endif %}.
+6. Создайте каталог `.github/workflows`. В этом каталоге создайте файл с именем `release-package.yml`.
+7. Скопируйте следующее содержимое YAML в файл `release-package.yml`{% ifversion ghes or ghae %}, заменив `YOUR-HOSTNAME` на имя вашего предприятия{% endif %}.
     ```yaml{:copy}
     name: Node.js Package
 
@@ -85,22 +90,20 @@ In this guide, you'll create a {% data variables.product.prodname_actions %} wor
             env:
               NODE_AUTH_TOKEN: ${% raw %}{{secrets.GITHUB_TOKEN}}{% endraw %}
     ```
-8. Tell NPM which scope and registry to publish packages to using one of the following methods:
-   - Add an NPM configuration file for the repository by creating a `.npmrc` file in the root directory with the contents:
-      {% raw %}
+8. Сообщите NPM, в какой области и реестре следует публиковать пакеты, одним из следующих способов.
+   - Добавьте файл конфигурации NPM для репозитория, создав в корневом каталоге файл `.npmrc` со следующим содержимым: {% raw %}
       ```shell
       @YOUR-USERNAME:registry=https://npm.pkg.github.com
       ```
       {% endraw %}
-   - Edit the `package.json` file and specify the `publishConfig` key:
-      {% raw %}
+   - Измените файл `package.json` и укажите ключ `publishConfig`: {% raw %}
       ```shell
       "publishConfig": {
         "@<em>YOUR-USERNAME</em>:registry": "https://npm.pkg.github.com"
       }
       ```
       {% endraw %}
-9. Commit and push your changes to {% data variables.product.prodname_dotcom %}.
+9. Зафиксируйте и отправьте изменения в {% data variables.product.prodname_dotcom %}.
     ```shell
     $ git add .github/workflows/release-package.yml
     # Also add the file you created or edited in the previous step.
@@ -108,28 +111,26 @@ In this guide, you'll create a {% data variables.product.prodname_actions %} wor
     $ git commit -m "workflow to publish package"
     $ git push
     ```
-10.  The workflow that you created will run whenever a new release is created in your repository. If the tests pass, then the package will be published to {% data variables.product.prodname_registry %}.
+10.  Созданный рабочий процесс будет выполняться при каждом создании нового выпуска в репозитории. Если тесты пройдены, пакет будет опубликован в {% data variables.product.prodname_registry %}.
     
-    To test this out, navigate to the **Code** tab in your repository and create a new release. For more information, see "[Managing releases in a repository](/github/administering-a-repository/managing-releases-in-a-repository#creating-a-release)."
+    Чтобы проверить это, перейдите на вкладку **Код** в репозитории и создайте новый выпуск. Дополнительные сведения см. в разделе [Управление выпусками в репозитории](/github/administering-a-repository/managing-releases-in-a-repository#creating-a-release).
 
-## Viewing your published package
+## Просмотр опубликованного пакета
 
-You can view all of the packages you have published.
+Вы можете просмотреть все опубликованные вами пакеты.
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.package_registry.packages-from-code-tab %}
-{% data reusables.package_registry.navigate-to-packages %}
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.package_registry.packages-from-code-tab %} {% data reusables.package_registry.navigate-to-packages %}
 
-## Installing a published package
+## Установка опубликованного пакета
 
-Now that you've published the package, you'll want to use it as a dependency across your projects. For more information, see "[Working with the npm registry](/packages/working-with-a-github-packages-registry/working-with-the-npm-registry#installing-a-package)."
+Теперь, когда вы опубликовали пакет, его можно использовать в качестве зависимости в ваших проектах. Дополнительные сведения см. в разделе [Работа с реестром npm](/packages/working-with-a-github-packages-registry/working-with-the-npm-registry#installing-a-package).
 
-## Next steps
+## Дальнейшие действия
 
-The basic workflow you just added runs any time a new release is created in your repository. But this is only the beginning of what you can do with {% data variables.product.prodname_registry %}. You can publish your package to multiple registries with a single workflow, trigger the workflow to run on different events such as a merged pull request, manage containers, and more.
+Базовый рабочий процесс, который вы только что добавили, запускается в любое время при создании нового выпуска в вашем репозитории. Но это только начало работы с {% data variables.product.prodname_registry %}. Вы можете публиковать свой пакет в нескольких реестрах с помощью одного рабочего процесса, активировать выполнение рабочего процесса при различных событиях, таких как объединенный запрос на вытягивание, управление контейнерами и многие другие.
 
-Combining {% data variables.product.prodname_registry %} and {% data variables.product.prodname_actions %} can help you automate nearly every aspect of your application development processes. Ready to get started? Here are some helpful resources for taking your next steps with {% data variables.product.prodname_registry %} and {% data variables.product.prodname_actions %}:
+Сочетание {% data variables.product.prodname_registry %} и {% data variables.product.prodname_actions %} помогает автоматизировать практически все аспекты процессов разработки приложений. Вы готовы начать работу? Ниже приведены некоторые полезные ресурсы для следующих шагов в {% data variables.product.prodname_registry %} и {% data variables.product.prodname_actions %}:
 
-- "[Learn {% data variables.product.prodname_registry %}](/packages/learn-github-packages)" for an in-depth tutorial on GitHub Packages
-- "[Learn {% data variables.product.prodname_actions %}](/actions/learn-github-actions)" for an in-depth tutorial on GitHub Actions
-- "[Working with a {% data variables.product.prodname_registry %} registry](/packages/working-with-a-github-packages-registry)" for specific uses cases and examples
+- [Изучение {% data variables.product.prodname_registry %}](/packages/learn-github-packages) — углубленное руководство по GitHub Packages
+- [Изучение {% data variables.product.prodname_actions %}](/actions/learn-github-actions) — углубленное руководство по GitHub Actions
+- [Работа с реестром {% data variables.product.prodname_registry %}](/packages/working-with-a-github-packages-registry) — конкретные варианты использования и примеры

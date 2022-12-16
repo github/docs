@@ -8,12 +8,12 @@ versions:
   ghes: '*'
 topics:
   - Support
-ms.openlocfilehash: 35c7b28232c0d11170ea9585480b2cfb1785ebd0
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
+ms.openlocfilehash: b735331d90c590ff6911fed44e181563b44bfc27
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147051983'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148193619'
 ---
 ## Сведения об управлении запросами в службу поддержки
 
@@ -27,7 +27,12 @@ ms.locfileid: '147051983'
 
 {% data reusables.support.view-open-tickets %}
 1. В текстовом поле можно просмотреть журнал комментариев. Последний ответ находится вверху.
-![Снимок экрана: журнал комментариев к запросу в службу поддержки, последний ответ указан вверху.](/assets/images/help/support/support-recent-response.png)
+
+   ![Снимок экрана: журнал комментариев в службу поддержки с самым последним ответом вверху](/assets/images/help/support/support-recent-response.png)
+
+1. При необходимости, чтобы перевести комментарий к запросу, щелкните {% octicon "globe" aria-label="The globe icon" %} и выберите предпочитаемый язык в раскрывающемся меню. Вы можете перевести запрос в службу поддержки на китайский (упрощенное письмо), французский, немецкий, японский, португальский (Бразилия) или испанский.
+
+   ![Снимок экрана: запрос в службу поддержки с раскрывающимся меню с выделенными параметрами перевода](/assets/images/help/support/support-ticket-translation-options.png)
 
 {% ifversion ghec or ghes or ghae %}
 

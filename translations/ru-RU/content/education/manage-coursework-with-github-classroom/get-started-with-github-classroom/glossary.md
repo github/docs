@@ -1,53 +1,59 @@
 ---
-title: Glossary
-intro: 'You can review explanations of terminology for {% data variables.product.prodname_classroom %}.'
+title: Глоссарий
+intro: 'Вы можете просмотреть разъяснения по поводу терминологии для {% data variables.product.prodname_classroom %}.'
 versions:
   fpt: '*'
 redirect_from:
   - /education/manage-coursework-with-github-classroom/glossary
+ms.openlocfilehash: 53ed58963dae78f68a9de9dad911f8cb121d3f9c
+ms.sourcegitcommit: 04329ee7464efbb558d77d06664e8578cd154d87
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/15/2022
+ms.locfileid: '148046509'
 ---
-## assignment
+## назначение
 
-An assignment is coursework in {% data variables.product.prodname_classroom %}. A teacher can assign an assignment to an individual student or a group of students. Teachers can import starter code for the assignment, assign students, and create a deadline for each assignment. For more information, see the definitions for "[individual assignment](#individual-assignment)" and "[group assignment](#group-assignment)."
+Назначенное задание представляет собой курсовую работу в {% data variables.product.prodname_classroom %}. Преподаватель может назначить задание отдельному учащемуся или группе учащихся. Преподаватели могут импортировать начальный код для задания, назначать учащихся и создавать крайний срок для каждого назначенного задания. Дополнительные сведения см. в определениях для [индивидуальных назначений](#individual-assignment) и [групповых назначений](#group-assignment).
 
 ---
 
-## classroom
+## аудитория
 
-A classroom is the basic unit of {% data variables.product.prodname_classroom %}. Teachers can use a classroom to organize and manage students, teaching assistants, and assignments for a single course. A classroom belongs to an organization on {% data variables.product.prodname_dotcom_the_website %}. To administer a classroom, you must be an organization owner for the organization on {% data variables.product.prodname_dotcom %}. For more information, see "[Manage classrooms](/education/manage-coursework-with-github-classroom/manage-classrooms)."
+Класс — это базовая единица {% data variables.product.prodname_classroom %}. Преподаватели могут использовать класс для организации учащихся, ассистентов преподавателя и заданий для отдельного курса и управления ими. Класс принадлежит организации в {% data variables.product.prodname_dotcom_the_website %}. Для администрирования класса необходимо быть владельцем организации в {% data variables.product.prodname_dotcom %}. Дополнительные сведения см. в статье [Управление аудиториями](/education/manage-coursework-with-github-classroom/manage-classrooms).
 
 ---
 
 ## {% data variables.product.prodname_classroom %}
 
-{% data variables.product.prodname_classroom %} is a web application for educators that provides course administration tools integrated with {% data variables.product.prodname_dotcom %}. For more information, see the [{% data variables.product.prodname_classroom %}](https://classroom.github.com/) website.
+{% data variables.product.prodname_classroom %} — веб-приложение для преподавателей, которое предоставляет инструменты администрирования курса, встроенные в {% data variables.product.prodname_dotcom %}. Дополнительные сведения см. в разделе [Веб-сайт {% data variables.product.prodname_classroom %}](https://classroom.github.com/).
 
 ---
 
-## group assignment  
+## назначение группы  
 
-{% data reusables.classroom.assignments-group-definition %} For more information, see "[Create a group assignment](/education/manage-coursework-with-github-classroom/create-a-group-assignment)."
-
----
-
-## identifier
-
-An identifier in {% data variables.product.prodname_classroom %} is a unique ID for a student participating in a course. For example, an identifier can be a student name, alphanumeric ID, or email address.
+{% data reusables.classroom.assignments-group-definition %} Дополнительные сведения см. в разделе [Создание назначения группы](/education/manage-coursework-with-github-classroom/create-a-group-assignment).
 
 ---
 
-## individual assignment
+## идентификатор
 
-{% data reusables.classroom.assignments-individual-definition %} For more information, see "[Create an individual assignment](/education/manage-coursework-with-github-classroom/create-an-individual-assignment)."
-
----
-
-## roster
-
-A roster allows a teacher to manage students and assignment submissions in a classroom on {% data variables.product.prodname_classroom %}. Teachers can create a roster by entering a list of student identifiers, or by connecting {% data variables.product.prodname_classroom %} to a learning management system (LMS). For more information about identifiers, see the definition of "[identifier](#identifier)." For more information about connecting {% data variables.product.prodname_classroom %} to an LMS, see "[Connect a learning management system course to a classroom](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/connect-a-learning-management-system-course-to-a-classroom)."
+Идентификатор в {% data variables.product.prodname_classroom %} представляет собой уникальный идентификатор для учащегося, проходящего курс. Например, идентификатор может быть именем, буквенно-цифровым идентификатором или адресом электронной почты учащегося.
 
 ---
 
-## Further reading
+## индивидуальное назначение
 
-- "[{% data variables.product.prodname_dotcom %} glossary](/github/getting-started-with-github/github-glossary)"
+{% data reusables.classroom.assignments-individual-definition %} Дополнительные сведения см. в разделе [Создание индивидуального назначения](/education/manage-coursework-with-github-classroom/create-an-individual-assignment).
+
+---
+
+## список
+
+Список позволяет преподавателю управлять отправкой назначений и учащихся в классе в {% data variables.product.prodname_classroom %}. Преподаватели могут создать список, введя список идентификаторов учащихся или подключив {% data variables.product.prodname_classroom %} к системе управления обучением (LMS). Дополнительные сведения об идентификаторах см. в определении [идентификатора](#identifier). Дополнительные сведения о подключении {% данных variables.product.prodname_classroom %} к LMS см. в разделе "[Подключение курса системы управления обучением к аудитории](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/connect-a-learning-management-system-course-to-a-classroom)".
+
+---
+
+## Дополнительные материалы
+
+- [Глоссарий {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/github-glossary)

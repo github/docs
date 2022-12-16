@@ -1,13 +1,17 @@
-{%- ifversion fpt %}
-Detection of vulnerable calls is enabled on public repositories. This analysis is also available in private repositories owned by organizations that use {% data variables.product.prodname_ghe_cloud %} and have licensed {% data variables.product.prodname_GH_advanced_security %}.
+---
+ms.openlocfilehash: 91884dc1aa5c5b0b3d32593edfb1927e6c75592f
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "145110833"
+---
+{%- ifversion fpt %} La detección de llamadas vulnerables está habilitada en los repositorios públicos. Este análisis también se encuentra disponible en los repositorios privados pertenecientes a organizaciones que utilizan {% data variables.product.prodname_ghe_cloud %} y que tienen una licencia para {% data variables.product.prodname_GH_advanced_security %}.
 
-{%- elsif ghec %}
-Detection of vulnerable calls is included in {% data variables.product.product_name %} for public repositories. To detect vulnerable calls in private repositories owned by organizations, your organization must have a license for {% data variables.product.prodname_GH_advanced_security %}.
+{%- elsif ghec %} La detección de llamadas vulnerables se incluye en {% data variables.product.product_name %} para los repositorios públicos. Para detectar llamadas vulnerables en los repositorios privados que pertenecen a las organizaciones, tu organización debe tener una licencia para {% data variables.product.prodname_GH_advanced_security %}.
 
-{%- elsif ghes > 3.5 %}
-Detection of vulnerable calls is available for organization-owned repositories in {% data variables.product.product_name %}. This feature requires a license for {% data variables.product.prodname_GH_advanced_security %}.
+{%- elsif ghes > 3.5 %} La detección de llamadas vulnerables está disponible para los repositorios que pertenecen a organizaciones en {% data variables.product.product_name %}. Esta característica requiere una licencia para la {% data variables.product.prodname_GH_advanced_security %}.
 
-{%- elsif ghae > 3.5 %}
-Detection of vulnerable calls is available for organization-owned repositories in {% data variables.product.product_name %}. This is a {% data variables.product.prodname_GH_advanced_security %} feature (free during the beta release).
+{%- elsif ghae-issue-6076 %} La detección de llamadas vulnerables está disponible para los repositorios que pertenecen a organizaciones en {% data variables.product.product_name %}. Esta es una característica de la {% data variables.product.prodname_GH_advanced_security %} (gratuita durante el lanzamiento beta).
 
 {%- endif %} {% data reusables.advanced-security.more-info-ghas %}

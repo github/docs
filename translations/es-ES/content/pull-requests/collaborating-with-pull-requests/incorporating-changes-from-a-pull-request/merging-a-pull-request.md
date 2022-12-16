@@ -1,6 +1,6 @@
 ---
-title: Merging a pull request
-intro: Merge a pull request into the upstream branch when work is completed. Anyone with push access to the repository can complete the merge.
+title: Combinación de una solicitud de incorporación de cambios
+intro: Fusionar una solicitud de extracción dentro de una rama ascendente cuando el trabajo está completo. Cualquier persona con acceso de escritura al repositorio puede completar la fusión.
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request
   - /articles/merging-a-pull-request
@@ -13,66 +13,70 @@ versions:
   ghec: '*'
 topics:
   - Pull requests
+ms.openlocfilehash: cccb85404c9cfe7305d639911528afed3706edfa
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145137762'
 ---
-## About pull request merges
+## Acerca de las fusiones de las solicitudes de extracción
 
-In a pull request, you propose that changes you've made on a head branch should be merged into a base branch. By default, any pull request can be merged at any time, unless the head branch is in conflict with the base branch. However, there may be restrictions on when you can merge a pull request into a specific branch. For example, you may only be able to merge a pull request into the default branch if required status checks are passing. For more information, see "[About protected branches](/github/administering-a-repository/about-protected-branches)."
+En una solicitud de extracción, propones que los cambios que hayas hecho en una rama de encabezado se fusionen en una rama base. Por defecto, cualquier solicitud de extracción se puede fusionar en cualquier momento, a menos que la rama de encabezado esté en conflicto con la rama base. Sin embargo, puede que existan restricciones sobre cuándo puedes fusionar una solicitud de cambios en una rama específica. Por ejemplo, puede que solo puedas fusionar una solicitud de extracción en la rama predeterminada si están pasando las verificaciones de estado requeridas. Para más información, vea "[Acerca de las ramas protegidas](/github/administering-a-repository/about-protected-branches)".
 
 {% data reusables.pull_requests.you-can-auto-merge %}
 
-If the pull request has merge conflicts, or if you'd like to test the changes before merging, you can [check out the pull request locally](/github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/checking-out-pull-requests-locally) and merge it using the command line.
+Si la solicitud de incorporación de cambios tiene conflictos de combinación, o bien si quiere probar los cambios antes de la combinación, puede [extraer del repositorio local la solicitud de incorporación de cambios](/github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/checking-out-pull-requests-locally) y combinarla desde la línea de comandos.
 
-You can't merge a draft pull request. For more information about draft pull requests, see "[About pull requests](/articles/about-pull-requests#draft-pull-requests)."
+No puedes fusionar un borrador de solicitud de cambios. Para más información sobre el borrador de solicitudes de incorporación de cambios, vea "[Acerca de las solicitudes de incorporación de cambios](/articles/about-pull-requests#draft-pull-requests)".
 
-The repository may be configured so that the head branch for a pull request is automatically deleted when you merge a pull request. For more information, see "[Managing the automatic deletion of branches](/github/administering-a-repository/managing-the-automatic-deletion-of-branches)."
+El repositorio podría configurarse para que la rama de encabezado para una solicitud de cambios se borre automáticamente cuando fusiones una solicitud de cambios. Para más información, vea "[Administración de la eliminación automática de ramas](/github/administering-a-repository/managing-the-automatic-deletion-of-branches)".
 
 {% note %}
 
-**Note:** {% data reusables.pull_requests.retargeted-on-branch-deletion %}
-For more information, see "[About branches](/github/collaborating-with-issues-and-pull-requests/about-branches#working-with-branches)."
+**Nota:** {% data reusables.pull_requests.retargeted-on-branch-deletion %} Para más información, vea "[Acerca de las ramas](/github/collaborating-with-issues-and-pull-requests/about-branches#working-with-branches)".
 
 {% endnote %}
 
-Pull requests are merged using [the `--no-ff` option](https://git-scm.com/docs/git-merge#_fast_forward_merge), except for [pull requests with squashed or rebased commits](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges), which are merged using the fast-forward option.
+Las solicitudes de incorporación de cambios se combinan con [la opción`--no-ff`](https://git-scm.com/docs/git-merge#_fast_forward_merge), excepto las [solicitudes de incorporación de cambios con confirmaciones de fusión mediante cambio de base o fusión mediante combinación con "squash"](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges), que se combinan mediante la opción de avance rápido.
 
 {% data reusables.pull_requests.close-issues-using-keywords %}
 
-If you decide you don't want the changes in a topic branch to be merged to the upstream branch, you can [close the pull request](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/closing-a-pull-request) without merging.
+Si decide que no quiere que los cambios en una rama de tema se combinen con la rama ascendente, puede [cerrar la solicitud de incorporación de cambios](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/closing-a-pull-request) sin combinarla.
 
-## Merging a pull request
+## Combinación de una solicitud de incorporación de cambios
 
 {% webui %}
 
 {% data reusables.repositories.sidebar-pr %}
-2. In the "Pull Requests" list, click the pull request you'd like to merge.
-3. Depending on the merge options enabled for your repository, you can:
-    - [Merge all of the commits into the base branch](/articles/about-pull-request-merges/) by clicking **Merge pull request**. If the **Merge pull request** option is not shown, then click the merge drop down menu and select **Create a merge commit**.
+2. En la lista "Pull Requests" (Solicitudes de extracción), haz clic en la solicitud de extracción que deseas fusionar.
+3. Según las opciones de fusión habilitadas para tu repositorio, puedes:
+    - [Para combinar todas las confirmaciones en la rama base](/articles/about-pull-request-merges/), haga clic en **Combinar solicitud de incorporación de cambios**. Si no se muestra la opción **Combinar solicitud de incorporación de cambios**, haga clic en el menú desplegable de fusión y seleccione **Crear una confirmación de fusión mediante combinación**.
     ![merge-pull-request-button](/assets/images/help/pull_requests/pullrequest-mergebutton.png)
-    - [Squash the commits into one commit](/articles/about-pull-request-merges/#squash-and-merge-your-pull-request-commits) by clicking the merge drop down menu, selecting **Squash and merge** and then clicking the **Squash and merge** button.
-    ![click-squash-and-merge-button](/assets/images/help/pull_requests/select-squash-and-merge-from-drop-down-menu.png)
-    - [Rebase the commits individually onto the base branch](/articles/about-pull-request-merges/#rebase-and-merge-your-pull-request-commits) by clicking the merge drop down menu, selecting **Rebase and merge** and then clicking the **Rebase and merge** button.
-    ![select-rebase-and-merge-from-drop-down-menu](/assets/images/help/pull_requests/select-rebase-and-merge-from-drop-down-menu.png)
+    - [Para fusionar mediante combinación con "squash" las confirmaciones en una confirmación](/articles/about-pull-request-merges/#squash-and-merge-your-pull-request-commits), haga clic en el menú desplegable de combinación, seleccione **Combinar y fusionar** y después haga clic en el botón **Combinar y fusionar**.
+    ![Clic en el botón Combinar y fusionar](/assets/images/help/pull_requests/select-squash-and-merge-from-drop-down-menu.png)
+    - [Fusione mediante cambio de base las confirmaciones individualmente en la rama base](/articles/about-pull-request-merges/#rebase-and-merge-your-pull-request-commits); para ello, haga clic en el menú desplegable de combinación, seleccione **Rebase and merge** y, después, haga clic en el botón **Rebase and merge**.
+    ![Selección de fusionar mediante cambio de base y combinar en el menú desplegable](/assets/images/help/pull_requests/select-rebase-and-merge-from-drop-down-menu.png)
 
     {% note %}
 
-    **Note:** Rebase and merge will always update the committer information and create new commit SHAs. For more information, see "[About pull request merges](/articles/about-pull-request-merges#rebase-and-merge-your-pull-request-commits)."
+    **Nota:** Fusionar mediante cambio de base y combinar siempre actualizará la información de la persona que confirma el cambio y creará SHA de confirmación. Para más información, vea "[Acerca de las combinaciones de solicitudes de incorporación de cambios](/articles/about-pull-request-merges#rebase-and-merge-your-pull-request-commits)".
 
     {% endnote %}
-4. If prompted, type a commit message, or accept the default message.
+4. Si se te solicita, escribe un mensaje de confirmación o acepta el mensaje predeterminado.
 
-   {% data reusables.pull_requests.default-commit-message-squash-merge %}
-   ![Commit message field](/assets/images/help/pull_requests/merge_box/pullrequest-commitmessage.png)
+   {% data reusables.pull_requests.default-commit-message-squash-merge %} ![Campo Confirmar mensaje](/assets/images/help/pull_requests/merge_box/pullrequest-commitmessage.png)
 
 {% data reusables.files.choose-commit-email %}
 
    {% note %}
 
-   **Note:** The email selector is not available for rebase merges, which do not create a merge commit{% ifversion squash-merge-email %}. For squash merges, the email selector is only shown if you are the pull request author and you have more than one email address associated with your account.{% else %}, or for squash merges, which credit the user who created the pull request as the author of the squashed commit.{% endif %}
+   **Nota:** El selector de correo electrónico no se encuentra disponible para las fusiones de mediante cambio de base, que no crean una confirmación de fusión, ni para las fusiones mediante combinación con "squash", que acreditan al usuario que ha creado la solicitud de incorporación de cambios como el creador de la confirmación combinada con "squash".
 
    {% endnote %}
 
-6. Click **Confirm merge**, **Confirm squash and merge**, or **Confirm rebase and merge**.
-6. Optionally, [delete the branch](/articles/deleting-unused-branches). This keeps the list of branches in your repository tidy.
+6. Haga clic en **Confirm merge**, **Confirm squash and merge** o **Confirm rebase and merge**.
+6. Opcionalmente, [elimine la rama](/articles/deleting-unused-branches). Esto mantiene ordenado el listado de ramas en tu repositorio.
 
 {% endwebui %}
 
@@ -80,15 +84,15 @@ If you decide you don't want the changes in a topic branch to be merged to the u
 
 {% data reusables.cli.cli-learn-more %}
 
-To merge a pull request, use the `gh pr merge` subcommand. Replace `pull-request` with the number, URL, or head branch of the pull request.
+Para combinar una solicitud de incorporación de cambios, use el subcomando `gh pr merge`. Reemplace `pull-request` por el número, la dirección URL o la rama principal de la solicitud de incorporación de cambios.
 
 ```shell
-gh pr merge PULL-REQUEST
+gh pr merge <em>pull-request</em>
 ```
 
-Follow the interactive prompts to complete the merge. For more information about the merge methods that you can choose, see "[About pull request merges](/github/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges)."
+Sigue los mensajes interactivos para completar la fusión. Para más información sobre los métodos de combinación que puede elegir, vea "[Acerca de las combinaciones de solicitudes de incorporación de cambios](/github/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges)".
 
-Alternatively, you can use flags to skip the interactive prompts. For example, this command will squash the commits into a single commit with the commit message "my squash commit", merge the squashed commit into the base branch, and then delete the local and remote branch.
+Como alternativa, puedes utilizar marcadores para omitir los mensajes interactivos. Por ejemplo, este comando combinará las confirmaciones en una sola con el mensaje de confirmación "my squash commit", fusiona la confirmación combinada en la rama base y luego borra la rama local y remota.
 
 ```shell
 gh pr merge 523 --squash --body "my squash commit" --delete-branch
@@ -96,9 +100,9 @@ gh pr merge 523 --squash --body "my squash commit" --delete-branch
 
 {% endcli %}
 
-## Further reading
+## Información adicional
 
-- "[Reverting a pull request](/articles/reverting-a-pull-request)"
-- "[Syncing your branch](/desktop/guides/contributing-to-projects/syncing-your-branch/)" using {% data variables.product.prodname_desktop %}
-- "[About pull request merges](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges)"
-- "[Addressing merge conflicts](/github/collaborating-with-pull-requests/addressing-merge-conflicts)"
+- "[Reversión de una solicitud de incorporación de cambios](/articles/reverting-a-pull-request)"
+- "[Sincronización de la rama](/desktop/guides/contributing-to-projects/syncing-your-branch/)" con {% data variables.product.prodname_desktop %}
+- "[Acerca de las combinaciones de solicitud de incorporación de cambios](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges)"
+- "[Solución de conflictos de combinación](/github/collaborating-with-pull-requests/addressing-merge-conflicts)"

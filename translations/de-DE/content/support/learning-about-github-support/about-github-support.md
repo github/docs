@@ -1,6 +1,6 @@
 ---
-title: About GitHub Support
-intro: You can contact GitHub Support for help troubleshooting issues you encounter while using GitHub.
+title: Informationen zum GitHub Support
+intro: 'Du kannst den GitHub-Support kontaktieren, wenn du Hilfe bei der Behebung von GitHub-Problemen benötigst.'
 shortTitle: About GitHub Support
 versions:
   fpt: '*'
@@ -21,34 +21,38 @@ redirect_from:
   - /enterprise-server/admin/enterprise-support/about-support-for-advanced-security
 topics:
   - Support
+ms.openlocfilehash: 4044d5741b6df2827fa41c71476f4fb66ac717a4
+ms.sourcegitcommit: 5b0becac9098ab45c2204882d719f5cf17bfff18
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 10/31/2022
+ms.locfileid: '148120864'
 ---
+## Informationen zum {% data variables.contact.github_support %}
 
-## About {% data variables.contact.github_support %}
+Die für {% data variables.product.prodname_dotcom %}-Benutzer verfügbaren Supportoptionen hängen von den von ihren persönlichen Konten verwendeten Produkten, von Organisationen oder Unternehmen, deren Mitglied sie sind, sowie von den von ihnen verwalteten {% data variables.product.prodname_ghe_server %}-Instanzen ab. Jedes Produkt umfasst eine Standardsupportstufe, und Konten, die {% data variables.product.prodname_enterprise %} verwenden, können {% data variables.contact.premium_support %} erwerben.
 
-The support options available to {% data variables.product.prodname_dotcom %} users depend on the products used by their personal accounts,  any organizations or enterprises they are members of, and any {% data variables.product.prodname_ghe_server %} instances they manage. Each product includes a default level of support and accounts that use {% data variables.product.prodname_enterprise %} can purchase {% data variables.contact.premium_support %}.
-
-{% ifversion fpt %}
-If you're a member of an organization that uses {% data variables.product.prodname_enterprise %}, you can use the drop-down menu in the upper-right corner of {% data variables.product.prodname_docs %} to view a version of these articles appropriate to your product. For more information, see "[About versions of GitHub Docs](/get-started/learning-about-github/about-versions-of-github-docs)."
+{% ifversion fpt %} Wenn du Mitglied einer Organisation bist, die {% data variables.product.prodname_enterprise %} verwendet, kannst du in der oberen rechten Ecke von {% data variables.product.prodname_docs %} das Dropdownmenü verwenden, um eine für das Produkt geeignete Version dieser Artikel anzuzeigen. Weitere Informationen findest du unter [Informationen zu Versionen der GitHub-Dokumentation](/get-started/learning-about-github/about-versions-of-github-docs).
 {% endif %}
 
 {% ifversion not ghae %}
 
-|  | {% data variables.product.prodname_gcf %} | Standard support | Premium support |
+|  | {% data variables.product.prodname_gcf %} | Standard-Support | Premium Support |
 |----|---------------|-------|---------------|
 | {% data variables.product.prodname_free_user %} | {% octicon "check" aria-label="Check" %}  |  |  |  
 | {% data variables.product.prodname_pro %} | {% octicon "check" aria-label="Check" %}  | {% octicon "check" aria-label="Check" %}  |  |  
 | {% data variables.product.prodname_team %} | {% octicon "check" aria-label="Check" %}  | {% octicon "check" aria-label="Check" %}  |  |
-| {% data variables.product.prodname_ghe_cloud %} | {% octicon "check" aria-label="Check" %}  | {% octicon "check" aria-label="Check" %}  | Available to purchase |
-| {% data variables.product.prodname_ghe_server %} | {% octicon "check" aria-label="Check" %}  | {% octicon "check" aria-label="Check" %}  | Available to purchase |
+| {% data variables.product.prodname_ghe_cloud %} | {% octicon "check" aria-label="Check" %}  | {% octicon "check" aria-label="Check" %}  | Zum Kauf verfügbar |
+| {% data variables.product.prodname_ghe_server %} | {% octicon "check" aria-label="Check" %}  | {% octicon "check" aria-label="Check" %}  | Zum Kauf verfügbar |
 
 {% endif %}
 
 {% ifversion ghes %}
 
-You can contact {% data variables.contact.enterprise_support %} through the {% data variables.contact.contact_enterprise_portal %} for help with:
- - Installing and using {% data variables.product.product_name %}
- - Identifying and verifying the causes of suspected errors
- - Installing and using {% data variables.product.prodname_advanced_security %}
+Du kannst den {% data variables.contact.enterprise_support %} über das {% data variables.contact.contact_enterprise_portal %} kontaktieren, um Hilfe zu folgenden Themen zu erhalten:
+ - Installieren und Verwenden von {% data variables.product.product_name %}
+ - Identifizierung und Überprüfung der Ursachen von vermuteten Fehlern
+ - Installieren und Verwenden von {% data variables.product.prodname_advanced_security %}
 
 {% endif %}
 
@@ -56,126 +60,115 @@ You can contact {% data variables.contact.enterprise_support %} through the {% d
 
 {% data reusables.support.premium-support-features %}
 
-For more information, see "[About GitHub Premium Support](/support/about-github-support/about-github-premium-support)."
+Weitere Informationen findest du unter [Informationen zu GitHub Premium Support](/support/about-github-support/about-github-premium-support).
 
 {% endif %}
 
 {% ifversion fpt or ghec or ghae %}
 
-Before contacting {% data variables.contact.github_support %}, check if there are currently any incidents affecting services on {% data variables.product.product_name %} on 
-{%- ifversion fpt or ghec %}
-[{% data variables.product.prodname_dotcom %} Status](https://githubstatus.com/)
-{%- elsif ghae %}
-[{% data variables.product.product_name %} Status](https://ghestatus.com/)
-{%- endif %}. For more information, see "[About GitHub status](#about-github-status)."
+Überprüfe, bevor du den {% data variables.contact.github_support %} kontaktierst, ob aktuelle Incidents sich auf Dienste auf {% data variables.product.product_name %} auf {%- ifversion fpt or ghec %} [{% data variables.product.prodname_dotcom %}-Status](https://githubstatus.com/) {%- elsif ghae %} [{% data variables.product.product_name %}-Status](https://ghestatus.com/) {%- endif %} auswirken. Weitere Informationen findest du unter [Informationen zum GitHub-Status](#about-github-status).
 
 {% endif %}
 
-{% ifversion fpt %}
-{% data reusables.support.free-and-paid-support %}
+{% ifversion fpt %} {% data reusables.support.free-and-paid-support %}
 
-To report account, security, and abuse issues, or to receive assisted support for a paid account, visit the {% data variables.contact.contact_support_portal %}. For more information, see "[Creating a support ticket](/support/contacting-github-support/creating-a-support-ticket)."
+Um Konto-, Sicherheits- und Missbrauchsprobleme zu melden oder Supportunterstützung für ein kostenpflichtiges Konto zu erhalten, besuche das {% data variables.contact.contact_support_portal %}. Weitere Informationen findest du unter [Erstellen eines Supporttickets](/support/contacting-github-support/creating-a-support-ticket).
 {% endif %}
 
-{% ifversion fpt %}
-If you have any paid product or are a member of an organization with a paid product, you can contact {% data variables.contact.github_support %} in English.
-{% else %} 
-With {% data variables.product.product_name %}, you have access to support in English and Japanese.
+{% ifversion fpt %} Wenn du über ein kostenpflichtiges Produkt verfügst oder Mitglied einer Organisation mit einem kostenpflichtigen Produkt bist, kannst du den englischsprachigen {% data variables.contact.github_support %} kontaktieren.
+{% else %} Mit {% data variables.product.product_name %} hast du Zugang zum Support auf Englisch und Japanisch.
 {% endif %}
 
 {% ifversion ghes or ghec %}
 
-To contact {% data variables.contact.github_support %}, visit the {% data variables.contact.contact_support_portal %}. For more information, see "[Creating a support ticket](/support/contacting-github-support/creating-a-support-ticket)."
+Wenn du den {% data variables.contact.github_support %} kontaktieren möchtest, besuche das {% data variables.contact.contact_support_portal %}. Weitere Informationen findest du unter [Erstellen eines Supporttickets](/support/contacting-github-support/creating-a-support-ticket).
 
 {% elsif ghae %}
 
-You can contact {% data variables.contact.enterprise_support %} through the {% data variables.contact.ae_azure_portal %} to report issues in writing. For more information, see "[Creating a support ticket](/support/contacting-github-support/creating-a-support-ticket)."
+Du kannst den {% data variables.contact.enterprise_support %} über das {% data variables.contact.ae_azure_portal %} kontaktieren, um Probleme schriftlich zu melden. Weitere Informationen findest du unter [Erstellen eines Supporttickets](/support/contacting-github-support/creating-a-support-ticket).
 
 {% endif %}
 
-{% ifversion not ghae %}
-Email communication from GitHub Support will always be sent from either a `github.com` or `githubsupport.com` address.
+{% ifversion not ghae %} E-Mail-Kommunikation vom GitHub-Support wird immer von einer `github.com`- oder `githubsupport.com`-Adresse gesendet.
 {% endif %}
 
-## Scope of support
+## Supportumfang
 
 {% data reusables.support.scope-of-support %}
 
 {% ifversion ghec or fpt or ghae %}
-## About GitHub status
+## Informationen zum GitHub-Status
 
-You can check for any incidents currently affecting {% data variables.product.product_name %} services and view information about past incidents on {% data variables.product.prodname_dotcom %}'s [Status page]({% ifversion fpt or ghec %}https://githubstatus.com{% elsif ghae %}https://ghestatus.com{% endif %}).
+Auf der {% data variables.product.prodname_dotcom %}-[Statusseite]({% ifversion fpt or ghec %}https://githubstatus.com{% elsif ghae %}https://ghestatus.com{% endif %}) kannst du nachsehen, ob es derzeit Vorfälle gibt, die sich auf die {% data variables.product.product_name %}-Dienste auswirken, und Informationen zu früheren Vorfällen anzeigen.
 
-You can also subscribe and get alerted via email, text message, and webhook whenever there's an incident affecting {% data variables.product.product_name %}.
+Du kannst auch ein Abonnement abschließen und per E-Mail, Textnachricht und Webhook benachrichtigt werden, wenn sich ein Vorfall auf {% data variables.product.product_name %} auswirkt.
 
 {% endif %}
 
 {% ifversion ghec or ghes %}
-## About support entitlement
+## Informationen zu Supportberechtigungen
 
-Enterprise owners and billing managers automatically have a support entitlement, which enables them to create, view, and comment on support tickets associated with their enterprise account.
+Unternehmensinhaber und Abrechnungsmanager verfügen automatisch über eine Supportberechtigung, mit der sie Supporttickets erstellen, anzeigen und kommentieren können, die ihrem Unternehmenskonto zugeordnet sind.
 
-Enterprise owners can also add support entitlements to members of organizations owned by their enterprise account, allowing those members to create, view, and comment on support tickets. For more information, see "[Managing support entitlements for your enterprise](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/managing-support-entitlements-for-your-enterprise)."
+Unternehmensinhaber können auch Mitgliedern von Organisationen, die sich im Besitz ihres Unternehmenskontos befinden, Supportberechtigungen zuweisen, sodass diese Mitglieder Supporttickets erstellen, anzeigen und kommentieren können. Weitere Informationen findest du unter [Verwalten von Supportberechtigungen für dein Unternehmen](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/managing-support-entitlements-for-your-enterprise).
 
 {% endif %}
 
 {% ifversion fpt or ghec %}
-## Granting {% data variables.contact.github_support %} temporary access to a private repository
+## {% data variables.contact.github_support %} temporären Zugriff auf ein privates Repository gewähren
 
-If {% data variables.contact.github_support %} needs to access a private repository to address your support request, the owner of the repository will receive an email with a link to accept or decline temporary access. The owner will have 20 days to accept or decline the request before the request expires. If the owner accepts the request, {% data variables.contact.github_support %} will have access the repository for five days. During this window, {% data variables.contact.github_support %} staff with the required privileges can unlock the repository for up to two hours at a time, and will relock the repository if the work is completed early. All {% data variables.contact.github_support %} staff access generates audit log events, and the visibility of the repository is not affected at any time.
+Wenn der {% data variables.contact.github_support %} auf ein privates Repository zugreifen muss, um deine Supportanfrage zu bearbeiten, erhält der Inhaber des Repositorys eine E-Mail mit einem Link, um den temporären Zugriff zuzulassen oder abzulehnen. Der Inhaber hat 20 Tage Zeit, um die Anfrage anzunehmen oder abzulehnen, bevor diese abläuft. Wenn der Inhaber die Anfrage annimmt, hat der {% data variables.contact.github_support %} fünf Tage lang Zugriff auf das Repository. In diesem Zeitfenster können {% data variables.contact.github_support %}-Mitarbeiter mit den erforderlichen Berechtigungen das Repository jeweils bis zu zwei Stunden entsperren und das Repository erneut sperren, wenn die Arbeit frühzeitig abgeschlossen ist. Jeder {% data variables.contact.github_support %}-Mitarbeiterzugriff generiert Überwachungsprotokollereignisse, und die Sichtbarkeit des Repositorys ist zu keinem Zeitpunkt beeinträchtigt.
 
-{% data variables.contact.github_support %} will never access your private repositories without your explicit consent. For more information, see the [Terms of Service](/free-pro-team@latest/github/site-policy/github-terms-of-service#3-access).
+Der {% data variables.contact.github_support %} greift ohne deine ausdrückliche Zustimmung niemals auf deine privaten Repositorys zu. Weitere Informationen findest du in den [Nutzungsbestimmungen](/free-pro-team@latest/github/site-policy/github-terms-of-service#3-access).
 {% endif %}
 
 {% ifversion ghec or ghes %}
-## Contacting GitHub Sales and GitHub Training
+## Kontakt zu GitHub Sales und GitHub Training
 
-For pricing, licensing, renewals, quotes, payments, and other related questions, contact {% data variables.contact.contact_enterprise_sales %} or call [+1 (877) 448-4820](tel:+1-877-448-4820).
+Wende dich bei Fragen zur Preisgestaltung, Lizenzierung, zu Verlängerungen, Angeboten und Zahlungen sowie bei anderen damit zusammenhängenden Fragen an {% data variables.contact.contact_enterprise_sales %} oder rufe [+1 (877) 448-4820](tel:+1-877-448-4820) an.
 
-To learn more about training options, including customized trainings, see [{% data variables.product.company_short %}'s training site](https://services.github.com/).
+Weitere Informationen zu den Weiterbildungsmöglichkeiten, einschließlich individuell angepasster Schulungen, findest du auf der [Schulungsseite von {% data variables.product.company_short %}](https://services.github.com/).
 
 {% note %}
 
-**Note:** Training is included in the {% data variables.product.premium_plus_support_plan %}. For more information, see "[About GitHub Premium Support](/support/about-github-support/about-github-premium-support)."
+**Hinweis:** Schulungen sind im Leistungsumfang des {% data variables.product.premium_plus_support_plan %}s enthalten. Weitere Informationen findest du unter [Informationen zu GitHub Premium Support](/support/about-github-support/about-github-premium-support).
 
 {% endnote %}
 
 {% endif %}
 
 {% ifversion ghes or ghec %}
-## Hours of operation
+## Geschäftszeiten
 
-### Support in English
+### Support auf Englisch
 
-For standard non-urgent issues, we offer support in English 24 hours per day, 5 days per week, excluding weekends and national U.S. holidays. The standard response time is 24 hours.
+Bei nicht dringenden herkömmlichen Probleme bieten wir 24 Stunden am Tag, 5 Tage die Woche, außer an Wochenenden und nationalen Feiertagen in den USA, Support in englischer Sprache. Die Antwortdauer beträgt in der Regel 24 Stunden.
 
-{% ifversion ghes %}
-For urgent issues, we are available 24 hours per day, 7 days per week, even during national U.S. holidays.
+{% ifversion ghes %} In dringenden Fällen sind wir rund um die Uhr (7 Tage die Woche) erreichbar, auch an nationalen Feiertagen in den USA.
 {% endif %}
 
-### Support in Japanese
+### Support auf Japanisch
 
-For standard non-urgent issues, support in Japanese is available Monday through Friday from 9:00 AM to 5:00 PM JST, excluding national holidays in Japan. 
+Bei einfachen, nicht dringenden Problemen ist der Support auf Japanisch von Montag bis Freitag von 9:00 bis 17:00 Uhr JST verfügbar, außer an nationalen Feiertagen in Japan. 
 
-{% ifversion ghes %}
-For urgent issues, we offer support in English 24 hours per day, 7 days per week, even during national U.S. holidays.
+{% ifversion ghes %} Bei dringenden Problemen bieten wir rund um die Uhr (7 Tage die Woche), auch an nationalen Feiertagen in den USA, Support in englischer Sprache.
 {% endif %}
 
-For a complete list of U.S. and Japanese national holidays observed by {% data variables.contact.enterprise_support %}, see "[Holiday schedules](#holiday-schedules)."
+Eine vollständige Liste der vom {% data variables.contact.enterprise_support %} wahrgenommenen nationalen Feiertage in den USA und in Japan findest du unter [Feiertagsübersicht](#holiday-schedules).
 
-## Holiday schedules
+## Feiertagsübersicht
 
-For urgent issues, we can help you in English 24 hours per day, 7 days per week, including on U.S. and Japanese holidays.
+Bei dringenden Problemen können wir dir rund um die Uhr auf Englisch helfen, auch an Feiertagen in den USA und Japan.
 
-### Holidays in the United States
+### Feiertage in den USA
 
-{% data variables.contact.enterprise_support %} observes these U.S. holidays, although our global support team is available to answer urgent tickets.
+{% data variables.contact.enterprise_support %} beobachtet diese Feiertage in den USA. dessen ungeachtet steht unser Support-Team zur Verfügung, um dringende Tickets zu beantworten.
 
 {% data reusables.enterprise_enterprise_support.support-holiday-availability %}
 
-### Holidays in Japan
+### Feiertage in Japan
 
-{% data variables.contact.enterprise_support %} does not provide Japanese-language support on December 28th through January 3rd as well as on the holidays listed in [国民の祝日について - 内閣府](https://www8.cao.go.jp/chosei/shukujitsu/gaiyou.html).
+{% data variables.contact.enterprise_support %} bietet vom 28. Dezember bis zum 3. Januar sowie an den unter [国民の祝日について - 内閣府](https://www8.cao.go.jp/chosei/shukujitsu/gaiyou.html) aufgelisteten Feiertagen keinen Support auf Japanisch.
 
 {% data reusables.enterprise_enterprise_support.installing-releases %}
 
@@ -183,18 +176,15 @@ For urgent issues, we can help you in English 24 hours per day, 7 days per week,
 
 {% ifversion ghec or ghes or ghae %}
 
-## Resolving and closing support tickets
+## Support-Tickets lösen und schließen
 
 {% data reusables.support.enterprise-resolving-and-closing-tickets %}
 
 {% endif %}
 
-## Further reading
+## Weiterführende Themen
 
 {%- ifversion ghes %}
-- Section 10 on Support in the "[{% data variables.product.prodname_ghe_server %} License Agreement](https://enterprise.github.com/license)"
-{%- endif %}
-- "[Creating a support ticket](/support/contacting-github-support/creating-a-support-ticket)"
-{%- ifversion not ghae %}
-- "[Viewing and updating support tickets](/support/contacting-github-support/viewing-and-updating-support-tickets)"
-{%- endif %}
+- Abschnitt 10 zum Support in der [{% data variables.product.prodname_ghe_server %}-Lizenzvereinbarung](https://enterprise.github.com/license) {%- endif %}
+- [Erstellen eines Supporttickets](/support/contacting-github-support/creating-a-support-ticket) {%- ifversion not ghae %}
+- [Anzeigen und Aktualisieren von Supporttickets](/support/contacting-github-support/viewing-and-updating-support-tickets) {%- endif %}

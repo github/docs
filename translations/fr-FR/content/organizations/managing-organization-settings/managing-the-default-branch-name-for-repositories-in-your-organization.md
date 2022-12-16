@@ -1,6 +1,6 @@
 ---
-title: Managing the default branch name for repositories in your organization
-intro: 'You can set the default branch name for repositories that members create in your organization on {% data variables.location.product_location %}.'
+title: Gestion du nom de branche par défaut pour les dépôts de votre organisation
+intro: 'Vous pouvez définir le nom de branche par défaut pour les dépôts que les membres créent dans votre organisation sur {% data variables.product.product_location %}.'
 redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/managing-the-default-branch-name-for-repositories-in-your-organization
 permissions: Organization owners can manage the default branch name for new repositories in the organization.
@@ -13,28 +13,31 @@ topics:
   - Organizations
   - Teams
 shortTitle: Manage default branch name
+ms.openlocfilehash: 38bd35506728f4437c9a1644235fe748c6a8a58a
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145106249'
 ---
+## À propos de la gestion du nom de branche par défaut
 
-## About management of the default branch name
-
-When a member of your organization creates a new repository in your organization, the repository contains one branch, which is the default branch. You can change the name that {% data variables.product.product_name %} uses for the default branch in new repositories that members of your organization create. For more information about the default branch, see "[About branches](/github/collaborating-with-issues-and-pull-requests/about-branches#about-the-default-branch)."
+Quand un membre de votre organisation crée un dépôt dans votre organisation, ce dépôt contient une seule branche, qui correspond à la branche par défaut. Vous pouvez changer le nom que {% data variables.product.product_name %} utilise pour la branche par défaut dans les nouveaux dépôts que les membres de votre organisation créent. Pour plus d’informations sur la branche par défaut, consultez « [À propos des branches](/github/collaborating-with-issues-and-pull-requests/about-branches#about-the-default-branch) ».
 
 {% data reusables.branches.change-default-branch %}
 
-If an enterprise owner has enforced a policy for the default branch name for your enterprise, you cannot set a default branch name for your organization. Instead, you can change the default branch for individual repositories. For more information, see {% ifversion fpt %}"[Enforcing repository management policies in your enterprise](/enterprise-cloud@latest/admin/policies/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-the-default-branch-name)"{% else %}"[Enforcing repository management policies in your enterprise](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-the-default-branch-name)"{% endif %} and "[Changing the default branch](/github/administering-a-repository/changing-the-default-branch)."
+Si un propriétaire d’entreprise a appliqué une stratégie pour le nom de branche par défaut de votre entreprise, vous ne pouvez pas définir un nom de branche par défaut pour votre organisation. En revanche, vous pouvez changer la branche par défaut d’un dépôt individuel. Pour plus d’informations, consultez {% ifversion fpt %}« [Application de stratégies de gestion des dépôts dans votre entreprise](/enterprise-cloud@latest/admin/policies/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-the-default-branch-name) »{% else %}« [Application de stratégies de gestion des dépôts dans votre entreprise](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-the-default-branch-name) »{% endif %} et « [Changement de la branche par défaut](/github/administering-a-repository/changing-the-default-branch) ».
 
-## Setting the default branch name
+## Définition du nom de branche par défaut
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.repository-defaults %}
-3. Under "Repository default branch", click **Change default branch name now**.
-    ![Override button](/assets/images/help/organizations/repo-default-name-button.png)
-4. Type the default name that you would like to use for new branches.
-    ![Text box for entering default name](/assets/images/help/organizations/repo-default-name-text.png)
-5. Click **Update**.
-    ![Update button](/assets/images/help/organizations/repo-default-name-update.png)
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.organizations.repository-defaults %}
+3. Sous « Branche par défaut du dépôt », cliquez sur **Changer la branche par défaut du dépôt**.
+    ![Bouton de remplacement](/assets/images/help/organizations/repo-default-name-button.png)
+4. Tapez le nom par défaut que vous souhaitez utiliser pour les nouvelles branches.
+    ![Zone de texte pour entrer le nom par défaut](/assets/images/help/organizations/repo-default-name-text.png)
+5. Cliquez sur **Update**.
+    ![Bouton Mettre à jour](/assets/images/help/organizations/repo-default-name-update.png)
 
-## Further reading
+## Pour aller plus loin
 
-- "[Managing the default branch name for your repositories](/github/setting-up-and-managing-your-github-user-account/managing-the-default-branch-name-for-your-repositories)"
+- « [Gestion du nom de branche par défaut pour vos dépôts](/github/setting-up-and-managing-your-github-user-account/managing-the-default-branch-name-for-your-repositories) »

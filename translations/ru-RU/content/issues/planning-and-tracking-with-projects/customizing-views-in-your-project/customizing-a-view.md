@@ -1,150 +1,154 @@
 ---
-title: Customizing a view
-intro: 'Display the information you need by changing the layout, grouping, sorting in your project.'
+title: Настройка представления
+intro: Отображение необходимых сведений путем изменения макета, группировки и сортировки в проекте.
 miniTocMaxHeadingLevel: 3
 versions:
   feature: projects-v2
 redirect_from:
-  - /issues/trying-out-the-new-projects-experience/customizing-your-project-views
+- /issues/trying-out-the-new-projects-experience/customizing-your-project-views
 type: tutorial
 topics:
-  - Projects
+- Projects
+ms.openlocfilehash: 0a7d1076fcf1a9d7f20b65a5e0a75b7d8029f834
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/25/2022
+ms.locfileid: "148106776"
 ---
+## Изменение макета проекта
 
-
-## Changing the project layout
-
-You can view your project as a table or as a board.
+Проект можно просматривать в виде таблицы или доски.
 
 {% data reusables.projects.open-view-menu %}
-1. Under "Layout", click either **Table** or **Board**.
-   ![Screenshot showing layout option](/assets/images/help/projects-v2/table-or-board.png)
+1. В разделе "Макет" щелкните **Таблица** или **Доска**.
+   ![Снимок экрана: параметр "Макет"](/assets/images/help/projects-v2/table-or-board.png)
 
  
 
-Alternatively, open the project command palette by pressing {% data variables.projects.command-palette-shortcut %} and start typing "Switch layout."
+Или откройте палитру команд проекта, нажав {% data variables.projects.command-palette-shortcut %}, и начните вводить "переключить макет".
 
-## Showing and hiding fields
+## Отображение и скрытие полей
 
-You can show or hide a specific field.
+Вы можете отобразить или скрыть определенное поле.
 
 {% data reusables.projects.open-view-menu %}
-1. Under "Configuration", click {% octicon "note" aria-label="the note icon" %} and the list of currently shown fields.
-   ![Screenshot showing show and hide fields menu option](/assets/images/help/projects-v2/show-hide-fields-menu-item.png)
-1. Select or deselect the fields you want to show or hide.
-   ![Screenshot showing show and hide fields menu](/assets/images/help/projects-v2/show-hide-fields.png)
+1. В разделе "Конфигурация" щелкните {% octicon "note" aria-label="the note icon" %} и список отображаемых полей.
+   ![Снимок экрана: пункт меню "Показать и скрыть поля"](/assets/images/help/projects-v2/show-hide-fields-menu-item.png)
+1. Выберите или отмените выбор полей, которые следует показать или скрыть.
+   ![Снимок экрана: меню "Показать и скрыть поля"](/assets/images/help/projects-v2/show-hide-fields.png)
 
-You can also hide individual fields in table view.
+Вы также можете скрыть отдельные поля в представлении таблицы.
 
-1. Next to the field you want to hide, click {% octicon "kebab-horizontal" aria-label="the kebab icon" %}.
-   ![Screenshot showing field menu icon](/assets/images/help/projects-v2/modify-field-menu.png)
-1. Click {% octicon "eye-closed" aria-label="the eye closed icon" %} **Hide field**.
-   ![Screenshot showing hide field menu option](/assets/images/help/projects-v2/hide-field-via-menu.png)
+1. Рядом с полем, которое вы хотите скрыть, щелкните {% octicon "kebab-horizontal" aria-label="the kebab icon" %}.
+   ![Снимок экрана: значок меню поля](/assets/images/help/projects-v2/modify-field-menu.png)
+1. Щелкните {% octicon "eye-closed" aria-label="the eye closed icon" %} **Скрыть поле**.
+   ![Снимок экрана: пункт меню "Скрыть поле"](/assets/images/help/projects-v2/hide-field-via-menu.png)
 
-Alternatively, open the project command palette by pressing {% data variables.projects.command-palette-shortcut %} and start typing "show", "hide", or the name of the field.
+Или откройте палитру команд проекта, нажав {% data variables.projects.command-palette-shortcut %}, и начните вводить "показать", "скрыть" или имя поля.
 
-## Reordering fields
+## Изменение порядка полей
 
-In table layout, you can change the order of fields.
+Вы можете изменить порядок полей в макете таблицы.
 
-1. Click the field header.
-   ![Screenshot showing the field header](/assets/images/help/projects-v2/select-field-header.png)
-2. While continuing to click, drag the field to the required location.
+1. Щелкните заголовок поля.
+   ![Снимок экрана: заголовок поля](/assets/images/help/projects-v2/select-field-header.png)
+2. Перетащите поле в нужное место.
 
-## Reordering rows
+## Изменение порядка строк
 
-In table layout, you can change the order of rows.
+Вы можете изменить порядок строк в макете таблицы.
 
-1. Click the number at the start of the row.
-   ![Screenshot showing the row number](/assets/images/help/projects-v2/select-row-number.png)
-2. While continuing to click, drag the row to the required location.
+1. Щелкните номер в начале строки.
+   ![Снимок экрана: номер строки](/assets/images/help/projects-v2/select-row-number.png)
+2. Перетащите строку в нужное место.
 
-## Sorting by field values
+## Сортировка по значениям полей
 
-In table layout, you can sort items by a field value.
+В макете таблицы вы можете сортировать элементы по значению поля.
 
 {% note %}
 
-**Note:** When a table is sorted, you cannot manually reorder rows.
+**Примечание**. В отсортированной таблице нельзя изменить порядок строк вручную.
 
 {% endnote %}
 
 {% data reusables.projects.open-view-menu %}
-1. Click **Sort**.
-   ![Screenshot showing the sort menu item](/assets/images/help/projects-v2/sort-menu-item.png)
-1. Click the field you want to sort by.
-   ![Screenshot showing the sort menu](/assets/images/help/projects-v2/sort-menu.png)
-2. Optionally, to change the direction of the sort, click {% octicon "sort-desc" aria-label="the sort icon" %}.
-   ![Screenshot showing sort order option](/assets/images/help/projects-v2/sort-order.png)
-3. Optionally, to remove a sort, click {% octicon "x" aria-label="the x icon" %} **No sorting** at the bottom of the list.
-   ![Screenshot showing "no sorting"](/assets/images/help/projects-v2/no-sorting.png)
+1. Нажмите кнопку **Сортировать**.
+   ![Снимок экрана: пункт меню "Сортировать"](/assets/images/help/projects-v2/sort-menu-item.png)
+1. Выберите поле, по которому нужно выполнить сортировку.
+   ![Снимок экрана: меню "Сортировать"](/assets/images/help/projects-v2/sort-menu.png)
+2. Чтобы изменить направление сортировки, щелкните {% octicon "sort-desc" aria-label="the sort icon" %}.
+   ![Снимок экрана: параметр "Порядок сортировки"](/assets/images/help/projects-v2/sort-order.png)
+3. Чтобы удалить сортировку, щелкните {% octicon "x" aria-label="the x icon" %} **Без сортировки** в нижней части списка.
+   ![Снимок экрана: "Без сортировки"](/assets/images/help/projects-v2/no-sorting.png)
 
-Alternatively, open the project command palette by pressing {% data variables.projects.command-palette-shortcut %} and start typing "Sort by."
+Или откройте палитру команд проекта, нажав {% data variables.projects.command-palette-shortcut %}, и начните вводить "сортировать".
 
-## Grouping by field values in table layout
+## Группировка по значениям полей в макете таблицы
 
-In the table layout, you can group items by a custom field value. When items are grouped, if you drag an item to a new group, the value of that group is applied. For example, if you group by "Status" and then drag an item with a status of `In progress` to the `Done` group, the status of the item will switch to `Done`. Similarly, when you add a new item to a group, the new item is populated with the value of the group.
+В макете таблицы можно группировать элементы по значению настраиваемого поля. Если перетащить элемент в новую группу, к нему будет применено значение этой группы. Допустим, выполнена группировка по полю "Состояние". В таком случае, если перетащить элемент с состоянием `In progress` в группу `Done`, ему будет присвоено состояние `Done`. Соответственно, при добавлении нового элемента в группу он получает значение группы.
 
 {% note %}
 
-**Note:** You cannot group by title, labels, reviewers, or linked pull requests.
+**Примечание**. Не поддерживается группировка по заголовку, меткам, рецензентам или связанным запросам на вытягивание.
 
 {% endnote %}
 
 {% data reusables.projects.open-view-menu %}
-1. Click {% octicon "rows" aria-label="the rows icon" %} **Group**.
-   ![Screenshot showing the group menu item](/assets/images/help/projects-v2/group-menu-item.png)
-1. Click the field you want to group by.
-   ![Screenshot showing the group menu](/assets/images/help/projects-v2/group-menu.png)
-2. Optionally, to disable grouping, click {% octicon "x" aria-label="the x icon" %} **No grouping** at the bottom of the list.
-   ![Screenshot showing "no grouping"](/assets/images/help/projects-v2/no-grouping.png)
+1. Щелкните {% octicon "rows" aria-label="the rows icon" %} **Группировать**.
+   ![Снимок экрана: пункт меню "Группировать"](/assets/images/help/projects-v2/group-menu-item.png)
+1. Выберите поле, по которому нужно выполнять группировку.
+   ![Снимок экрана: меню "Группировать"](/assets/images/help/projects-v2/group-menu.png)
+2. Чтобы отключить группировку, щелкните {% octicon "x" aria-label="the x icon" %} **Без группировки** в нижней части списка.
+   ![Снимок экрана: "Без группировки"](/assets/images/help/projects-v2/no-grouping.png)
 
-Alternatively, open the project command palette by pressing {% data variables.projects.command-palette-shortcut %} and start typing "Group by."
+Или откройте палитру команд проекта, нажав {% data variables.projects.command-palette-shortcut %}, и начните вводить "группировать".
 
 {% ifversion projects-v2-numeric-summary %}
 
-## Showing the sum of a number field
+## Отображение суммы числового поля
 
-You can configure a view to show the sum of one of more number fields, including a count of items in the group or column. For example, if you have a number field tracking the number of hours each item may take to complete, you can display of sum of those hours for each group or column.
+Представление можно настроить для отображения суммы одного из нескольких числовых полей, включая количество элементов в группе или столбце. Например, если у вас есть числовое поле, отслеживающее количество часов, которое может занять каждый элемент, можно отобразить сумму этих часов для каждой группы или столбца.
 
-In board layout, field sums are displayed at the top of each column. In table layout, when you enable grouping by a field, field sums are included in each group's header.
+В макете доски суммы полей отображаются в верхней части каждого столбца. В макете таблицы при включении группировки по полю суммы полей включаются в заголовок каждой группы.
 
 {% data reusables.projects.open-view-menu %}
-1. Click {% octicon "number" aria-label="the number icon" %} **Field sum**.
+1. Щелкните {% octicon "number" aria-label="значок числа" %} **Сумма поля**.
    
-   ![Screenshot showing the field sum menu item](/assets/images/help/projects-v2/field-sum-menu.png)
+   ![Снимок экрана: пункт меню "Сумма полей"](/assets/images/help/projects-v2/field-sum-menu.png)
    
-1. Select the fields you want to include.
+1. Выберите поля, которые вы хотите включить.
    
-   ![Screenshot showing the field sum menu](/assets/images/help/projects-v2/field-sum-select-field.png)
+   ![Снимок экрана: меню "Сумма полей"](/assets/images/help/projects-v2/field-sum-select-field.png)
    
 
 {% endif %}
 
-## Setting the column field in board layout
+## Настройка поля столбца в макете доски
 
-In the board layout, you choose any single select or iteration field for your columns. If you drag an item to a new column, the value of that column is applied to the dragged item. For example, if you use the "Status" field for your board columns and then drag an item with a status of `In progress` to the `Done` column, the status of the item will switch to `Done`.
+В макете доски можно выбрать любое отдельное поле выбора или итерации для столбцов. При перетаскивании элемента в новый столбец к нему применяется значение этого столбца. Допустим, для столбцов доски используется поле "Состояние". В таком случае, если перетащить элемент с состоянием `In progress` в столбец `Done`, ему будет присвоено состояние `Done`.
 
 {% data reusables.projects.open-view-menu %}
-1. Click {% octicon "columns" aria-label="the columns icon" %} **Column field**.
-   ![Screenshot showing the column field item](/assets/images/help/projects-v2/column-field-menu-item.png)
-1. Click the field you want to use.
-   ![Screenshot showing the column field menu](/assets/images/help/projects-v2/column-field-menu.png)
+1. Щелкните {% octicon "columns" aria-label="the columns icon" %} **Поле столбца**.
+   ![Снимок экрана: пункт меню "Поле столбца"](/assets/images/help/projects-v2/column-field-menu-item.png)
+1. Выберите поле, которое необходимо использовать.
+   ![Снимок экрана: меню "Поле столбце"](/assets/images/help/projects-v2/column-field-menu.png)
 
-Alternatively, open the project command palette by pressing {% data variables.projects.command-palette-shortcut %} and start typing "Column field by."
+Или откройте палитру команд проекта, нажав {% data variables.projects.command-palette-shortcut %}, и начните вводить "поле столбца".
 
 {% ifversion projects-v2-column-visibility %}
 
-## Showing and hiding columns in board layout
+## Отображение и скрытие столбцов в макете платы
 
-In the board layout, you can can choose which columns to display. The available columns are made up of the contents of your selected column field.
+В макете доски можно выбрать отображаемые столбцы. Доступные столбцы состоят из содержимого выбранного поля столбца.
 
-1. In the board layout, scroll to the right of your columns, and click {% octicon "plus" aria-label="the plus icon" %}.
+1. В макете доски прокрутите страницу справа от столбцов и выберите {% octicon "plus" aria-label="значок плюса" %}.
    
-   ![Screenshot showing the plus symbol button](/assets/images/help/projects-v2/board-add-column.png)
+   ![Снимок экрана: кнопка "плюс"](/assets/images/help/projects-v2/board-add-column.png)
    
-1. Select the columns you want to show.
+1. Выберите столбцы, которые нужно отобразить.
    
-   ![Screenshot showing the list of columns](/assets/images/help/projects-v2/board-select-columns.png)
+   ![Снимок экрана: список столбцов](/assets/images/help/projects-v2/board-select-columns.png)
    
 {% endif %}

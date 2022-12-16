@@ -1,7 +1,7 @@
 ---
-title: Triaging code scanning alerts in pull requests
+title: Filtern von Codescanbenachrichtigungen in Pull-Anforderungen
 shortTitle: Triage alerts in pull requests
-intro: 'When {% data variables.product.prodname_code_scanning %} identifies a problem in a pull request, you can review the highlighted code and resolve the alert.'
+intro: 'Wenn {% data variables.product.prodname_code_scanning %} ein Problem in einem Pull Request erkennt, kannst du den hervorgehobenen Code überprüfen und die Warnung beheben.'
 product: '{% data reusables.gated-features.code-scanning %}'
 permissions: 'If you have read permission for a repository, you can see annotations on pull requests. With write permission, you can see detailed information and resolve {% data variables.product.prodname_code_scanning %} alerts for that repository.'
 redirect_from:
@@ -20,105 +20,95 @@ topics:
   - Pull requests
   - Alerts
   - Repositories
+ms.openlocfilehash: f73b0ef30b4512bc951fdbae4ae2f3c300e4c534
+ms.sourcegitcommit: b617c4a7a1e4bf2de3987a86e0eb217d7031490f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 11/11/2022
+ms.locfileid: '148162742'
 ---
-
-
 {% data reusables.code-scanning.beta %}
 
-## About {% data variables.product.prodname_code_scanning %} results on pull requests
+## Informationen zu {% data variables.product.prodname_code_scanning %} Ergebnissen für Pull-Anforderungen
 
-In repositories where {% data variables.product.prodname_code_scanning %} is configured as a pull request check, {% data variables.product.prodname_code_scanning %} checks the code in the pull request. By default, this is limited to pull requests that target the default branch, but you can change this configuration within {% data variables.product.prodname_actions %} or in a third-party CI/CD system. If merging the changes would introduce new {% data variables.product.prodname_code_scanning %} alerts to the target branch, the alerts are reported in multiple places.
+In Repositorys, in denen {% data variables.product.prodname_code_scanning %} als Pull-Anforderungsprüfung konfiguriert ist, prüft {% data variables.product.prodname_code_scanning %} den Code in der Pull-Anforderung. Standardmäßig ist dies auf Pull-Anforderungen beschränkt, die auf den Standardzweig abzielen, aber du kannst diese Konfiguration in {% data variables.product.prodname_actions %} oder in einem CI/CD-System eines Drittanbieters ändern. Wenn das Zusammenführen der Änderungen neue {% data variables.product.prodname_code_scanning %}-Warnungen im Zielbranch verursacht, werden diese Warnungen an mehreren Stellen gemeldet.
 
-- Check results in the pull request {% ifversion code-scanning-pr-conversations-tab %}
-- The **Conversation** tab of the pull request, as part of a pull request review {% endif %} 
-- The **Files changed** tab of the pull request
+- Ergebnisse im Pull Request überprüfen {% ifversion code-scanning-pr-conversations-tab %}
+- Die Registerkarte **Unterhaltung** des Pull Requests als Teil einer Pull Request-Überprüfung {% endif %} 
+- Die Registerkarte **Geänderte Dateien** des Pull Requests
 
-If you have write permission for the repository, you can see any existing {% data variables.product.prodname_code_scanning %} alerts on the **Security** tab. For information about repository alerts, see "[Managing {% data variables.product.prodname_code_scanning %} alerts for your repository](/code-security/secure-coding/managing-code-scanning-alerts-for-your-repository)."
+Wenn du Schreibberechtigung für das Repository hast, kannst du alle vorhandenen {% data variables.product.prodname_code_scanning %} Warnungen auf der Registerkarte **Sicherheit** anzeigen. Informationen zu Repository-Warnungen findest du unter „[Verwalten von {% data variables.product.prodname_code_scanning %} Warnungen für dein Repository](/code-security/secure-coding/managing-code-scanning-alerts-for-your-repository).“
 
-In repositories where {% data variables.product.prodname_code_scanning %} is configured to scan each time code is pushed, {% data variables.product.prodname_code_scanning %} will also map the results to any open pull requests and add the alerts as annotations in the same places as other pull request checks. For more information, see "[Scanning on push](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning#scanning-on-push)."
+In Repositorys, in denen die {% data variables.product.prodname_code_scanning %} so konfiguriert ist, dass bei jedem Codepush eine Überprüfung durchgeführt wird, ordnet die {% data variables.product.prodname_code_scanning %} die Ergebnisse auch allen offenen Pull Requests zu und fügt die Warnungen als Anmerkungen an denselben Stellen wie andere Pull Request-Überprüfungen ein. Weitere Informationen findest du unter [Überprüfen bei Push](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning#scanning-on-push).
 
-If your pull request targets a protected branch that uses {% data variables.product.prodname_code_scanning %}, and the repository owner has configured required status checks, then the "{% data variables.product.prodname_code_scanning_capc %} results" check must pass before you can merge the pull request. For more information, see "[About protected branches](/github/administering-a-repository/about-protected-branches#require-status-checks-before-merging)."
+Wenn deine Pull-Anforderung auf eine geschützte Verzweigung ausgerichtet ist, die {% data variables.product.prodname_code_scanning %}verwendet, und der Repositorybesitzer hat erforderliche Statusüberprüfungen konfiguriert, muss die Überprüfung "{% data variables.product.prodname_code_scanning_capc %} Ergebnisse" übergeben werden, bevor du die Pull-Anforderung zusammenführen kannst. Weitere Informationen findest du unter [Informationen zu geschützten Branches](/github/administering-a-repository/about-protected-branches#require-status-checks-before-merging).
 
-## About {% data variables.product.prodname_code_scanning %} as a pull request check
+## Informationen zu {% data variables.product.prodname_code_scanning %} als Pull-Anforderungsprüfung
 
-There are many options for configuring {% data variables.product.prodname_code_scanning %} as a pull request check, so the exact setup of each repository will vary and some will have more than one check. 
+Es gibt viele Optionen zum Konfigurieren von {% data variables.product.prodname_code_scanning %} als Pull-Anforderungsprüfung, sodass die genaue Einrichtung jedes Repositorys variieren wird und einige mehr als eine Überprüfung haben. 
 
-### {% data variables.product.prodname_code_scanning_capc %} results check
+### {% data variables.product.prodname_code_scanning_capc %} Ergebnisüberprüfung
 
-For all configurations of {% data variables.product.prodname_code_scanning %}, the check that contains the results of {% data variables.product.prodname_code_scanning %} is: **{% data variables.product.prodname_code_scanning_capc %} results**. The results for each analysis tool used are shown separately. Any new alerts caused by changes in the pull request are shown as annotations. 
+Für alle Konfigurationen von {% data variables.product.prodname_code_scanning %} lautet die Prüfung, die die Ergebnisse von {% data variables.product.prodname_code_scanning %} enthält: **{% data variables.product.prodname_code_scanning_capc %} Ergebnisse**. Die Ergebnisse für jedes verwendete Analysetool werden separat angezeigt. Alle neuen Warnungen, die durch Änderungen in der Pull-Anforderung verursacht werden, werden als Anmerkungen angezeigt. 
 
-To see the full set of alerts for the analyzed branch, click **View all branch alerts**. This opens the full alert view where you can filter all the alerts on the branch by type, severity, tag, etc. For more information, see "[Managing code scanning alerts for your repository](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository#filtering-and-searching-for-code-scanning-alerts)."
+Klicke auf **Alle Branchwarnungen anzeigen**, um alle Warnungen für den analysierten Branch anzuzeigen. Dadurch wird die vollständige Warnungsansicht geöffnet, in der du alle Warnungen auf der Verzweigung nach Typ, Schweregrad, Tag usw. filtern kannst. Weitere Informationen findest unter „[Verwalten von Codescanbenachrichtigungen für dein Repository](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository#filtering-and-searching-for-code-scanning-alerts).“
 
-![{% data variables.product.prodname_code_scanning_capc %} results check on a pull request](/assets/images/help/repository/code-scanning-results-check.png)
+![Überprüfen der Ergebnisse einer {% data variables.product.prodname_code_scanning_capc %} für einen Pull Request](/assets/images/help/repository/code-scanning-results-check.png)
 
-### {% data variables.product.prodname_code_scanning_capc %} results check failures
+### {% data variables.product.prodname_code_scanning_capc %} Ergebnisüberprüfung Ausfälle
 
-If the {% data variables.product.prodname_code_scanning %} results check finds any problems with a severity of `error`, `critical`, or `high`, the check fails and the error is reported in the check results. If all the results found by {% data variables.product.prodname_code_scanning %} have lower severities, the alerts are treated as warnings or notes and the check succeeds.
+Wenn die {% data variables.product.prodname_code_scanning %}-Ergebnisprüfung Probleme mit einem Schweregrad von `error`, `critical` oder `high` ermittelt, schlägt die Prüfung fehl, und der Fehler wird in den Überprüfungsergebnissen gemeldet. Wenn alle von {% data variables.product.prodname_code_scanning %} gefundenen Ergebnisse einen niedrigeren Schweregrad aufweisen, werden die Benachrichtigungen als Warnungen oder Hinweise behandelt und die Prüfung ist erfolgreich.
 
-![Failed {% data variables.product.prodname_code_scanning %} check on a pull request](/assets/images/help/repository/code-scanning-check-failure.png)
+![Fehlgeschlagene {% data variables.product.prodname_code_scanning %} Prüfung einer Pull-Anforderung](/assets/images/help/repository/code-scanning-check-failure.png)
 
-You can override the default behavior in your repository settings, by specifying the level of severities and security severities that will cause a pull request check failure. For more information, see "[Defining the severities causing pull request check failure](/code-security/secure-coding/configuring-code-scanning#defining-the-severities-causing-pull-request-check-failure)".
+Du kannst das Standardverhalten in deinen Repositoryeinstellungen außer Kraft setzen, indem du die Schweregrade sowie Sicherheitsgrade festlegst, die zu einem Fehler bei der Pull Request-Überprüfung führen. Weitere Informationen findest du unter „[Definieren der Schweregrade, die einen Fehler bei der Überprüfung von Pull-Anforderungen verursachen](/code-security/secure-coding/configuring-code-scanning#defining-the-severities-causing-pull-request-check-failure).“
 
-### Other {% data variables.product.prodname_code_scanning %} checks
+### Andere {% data variables.product.prodname_code_scanning %} Prüfungen
 
-Depending on your configuration, you may see additional checks running on pull requests with {% data variables.product.prodname_code_scanning %} configured. These are usually workflows that analyze the code or that upload {% data variables.product.prodname_code_scanning %} results. These checks are useful for troubleshooting when there are problems with the analysis. 
+Abhängig von deiner Konfiguration kann es sein, dass bei Pull-Anforderungen mit {% data variables.product.prodname_code_scanning %} zusätzliche Prüfungen laufen. Dies sind in der Regel Workflows, die den Code analysieren oder {% data variables.product.prodname_code_scanning %}-Ergebnisse hochladen. Diese Überprüfungen sind nützlich für die Problembehandlung, wenn Probleme mit der Analyse auftreten. 
 
-For example, if the repository uses the {% data variables.code-scanning.codeql_workflow %} a **{% data variables.product.prodname_codeql %} / Analyze (LANGUAGE)** check is run for each language before the results check runs. The analysis check may fail if there are configuration problems, or if the pull request breaks the build for a language that the analysis needs to compile (for example, C/C++, C#, or Java). 
+Wenn das Repository beispielsweise den {% data variables.code-scanning.codeql_workflow %} verwendet, wird eine Überprüfung **{% data variables.product.prodname_codeql %} / Analyze (SPRACHE)** für jede Sprache ausgeführt, bevor die Ergebnisüberprüfung durchgeführt wird. Die Analyseprüfung kann fehlschlagen, wenn es Probleme mit der Konfiguration gibt oder wenn die Pull-Anforderung den Build für eine Sprache unterbricht, die für die Analyse kompiliert werden muss (zum Beispiel C/C++, C# oder Java). 
 
-As with other pull request checks, you can see full details of the check failure on the **Checks** tab. For more information about configuring and troubleshooting, see "[Configuring {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/configuring-code-scanning)" or "[Troubleshooting the {% data variables.product.prodname_codeql %} workflow](/code-security/secure-coding/troubleshooting-the-codeql-workflow)."
+Wie bei anderen Pull-Anforderungsprüfungen kannst du auf der Registerkarte **Prüfungen** alle Details zum Fehler der Prüfung einsehen. Weitere Informationen zum Konfigurieren und zur Fehlerbehebung findest du unter „[Konfigurieren von {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/configuring-code-scanning)“ oder „[ Fehlerbehebung für den {% data variables.product.prodname_codeql %} Workflow](/code-security/secure-coding/troubleshooting-the-codeql-workflow).“
 
-## Viewing an alert on your pull request
+## Anzeigen einer Warnung auf deiner Pull-Anforderung
 
-{% ifversion code-scanning-pr-conversations-tab %}
-You can see any {% data variables.product.prodname_code_scanning %} alerts introduced in a pull request by viewing the **Conversation** tab. {% data variables.product.prodname_code_scanning_capc %} posts a pull request review that shows each alert as an annotation on the lines of code that triggered the alert. You can comment on the alerts, dismiss the alerts, and view paths for the alerts, directly from the annotations. You can view the full details of an alert by clicking the "Show more details" link, which will take you to the alert details page.
+{% ifversion code-scanning-pr-conversations-tab %} Du kannst alle {% data variables.product.prodname_code_scanning %}-Warnungen anzeigen, die in einem Pull Request eingeführt wurden, indem du die Registerkarte **Unterhaltung** aufrufst. {% data variables.product.prodname_code_scanning_capc %} postet eine Pull Request-Überprüfung, die jede Warnung in den Codezeilen, die diese ausgelöst haben, als Anmerkung anzeigt. Du kannst die Warnungen kommentieren, diese löschen und auch Pfade für die Warnungen direkt über die Anmerkungen anzeigen. Du kannst die vollständigen Details einer Warnung anzeigen, indem du auf den Link „Weitere Details anzeigen“ klickst, über den du zur Detailseite der Warnung gelangst.
 
-![Alert annotation within a pull request Conversations tab](/assets/images/help/repository/code-scanning-pr-conversation-tab.png)
+![Warnungsanmerkung auf der Registerkarte „Unterhaltung“ eines Pull Requests](/assets/images/help/repository/code-scanning-pr-conversation-tab.png)
 
-You can also view all {% data variables.product.prodname_code_scanning %} alerts in the **Files changed** tab of the pull request. Existing {% data variables.product.prodname_code_scanning %} alerts on a file that are outside the diff of the changes introduced in the pull request will only appear in the **Files changed** tab.
+Du kannst auch alle {% data variables.product.prodname_code_scanning %}-Warnungen auf der Registerkarte **Geänderte Dateien** des Pull Requests anzeigen. Vorhandene {% data variables.product.prodname_code_scanning %}-Warnungen zu einer Datei, die sich außerhalb des Diff der im Pull Request eingeführten Änderungen befinden, werden nur auf der Registerkarte **Geänderte Dateien** angezeigt.
 
-{% else %} 
-You can see any {% data variables.product.prodname_code_scanning %} alerts introduced in a pull request by displaying the **Files changed** tab. Each alert is shown as an annotation on the lines of code that triggered the alert. The severity of the alert is displayed in the annotation. 
+{% else %} Du kannst alle {% data variables.product.prodname_code_scanning %}-Warnungen anzeigen, die in einem Pull Request eingeführt wurden, indem du die Registerkarte **Geänderte Dateien** anzeigst. Jede Warnung wird als Anmerkung in den Codezeilen angezeigt, die die Warnung ausgelöst haben. Der Schweregrad der Warnung wird in der Anmerkung angezeigt. 
 
-![Alert annotation within a pull request diff](/assets/images/help/repository/code-scanning-pr-annotation.png)
-{% endif %}
+![Warnungsanmerkung innerhalb eines Pull-Request-Diffs](/assets/images/help/repository/code-scanning-pr-annotation.png) {% endif %}
 
-If you have write permission for the repository, some annotations contain links with extra context for the alert. In the example above, from {% data variables.product.prodname_codeql %} analysis, you can click **user-provided value** to see where the untrusted data enters the data flow (this is referred to as the source). In this case you can also view the full path from the source to the code that uses the data (the sink) by clicking **Show paths**. This makes it easy to check whether the data is untrusted or if the analysis failed to recognize a data sanitization step between the source and the sink. For information about analyzing data flow using {% data variables.product.prodname_codeql %}, see "[About data flow analysis](https://codeql.github.com/docs/writing-codeql-queries/about-data-flow-analysis/)."
+Wenn du über Schreibberechtigungen für das Repository verfügst, enthalten einige Anmerkungen Links mit zusätzlichem Kontext für die Warnung. Im obigen Beispiel aus der {% data variables.product.prodname_codeql %} Analyse kannst du auf den vom **Benutzer bereitgestellten Wert** klicken, um zu sehen, wo die nicht vertrauenswürdigen Daten in den Datenfluss gelangen (dies wird als Quelle bezeichnet). In diesem Fall kannst du auch den vollständigen Pfad von der Quelle zu dem Code anzeigen, der die Daten (die Senke) verwendet, indem du auf **Pfade anzeigen** klickst. So lässt sich leicht überprüfen, ob die Daten nicht vertrauenswürdig sind oder ob die Analyse einen Datenbereinigungsschritt zwischen der Quelle und der Senke nicht erkannt hat. Informationen zum Analysieren des Datenflusses mithilfe von {% data variables.product.prodname_codeql %} findest du unter „[Informationen zur Datenflussanalyse](https://codeql.github.com/docs/writing-codeql-queries/about-data-flow-analysis/).“
 
-To see more information about an alert, users with write permission can click the **Show more details** link shown in the annotation. This allows you to see all of the context and metadata provided by the tool in an alert view. In the example below, you can see tags showing the severity, type, and relevant common weakness enumerations (CWEs) for the problem. The view also shows which commit introduced the problem.
+Um weitere Informationen zu einer Warnung anzuzeigen, können Benutzer mit Schreibberechtigung auf den Link **Weitere Details anzeigen** klicken, der in der Anmerkung angezeigt wird. Auf diese Weise kannst du alle Kontext- und Metadaten anzeigen, die vom Tool in einer Warnungsansicht bereitgestellt werden. Im folgenden Beispiel kannst du Tags sehen, die den Schweregrad, den Typ und die relevanten allgemeinen Schwächeaufzählungen (CWEs) für das Problem anzeigen. Die Ansicht zeigt auch, welche Commit das Problem eingeführt hat.
 
-{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
-{% data reusables.code-scanning.alert-default-branch %}
-{% endif %}
+{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %} {% data reusables.code-scanning.alert-default-branch %} {% endif %}
 
-In the detailed view for an alert, some {% data variables.product.prodname_code_scanning %} tools, like {% data variables.product.prodname_codeql %} analysis, also include a description of the problem and a **Show more** link for guidance on how to fix your code.
+In der Detailansicht einer Warnung enthalten einige {% data variables.product.prodname_code_scanning %} Tools, wie z.B. {% data variables.product.prodname_codeql %}-Analyse, auch eine Beschreibung des Problems und einen Link **Mehr anzeigen**, der Dir zeigt, wie du deinen Code beheben kannst.
 
-{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
-![Alert description and link to show more information](/assets/images/help/repository/code-scanning-pr-alert.png)
-{% else %}
-![Alert description and link to show more information](/assets/images/enterprise/3.4/repository/code-scanning-pr-alert.png)
-{% endif %}
+{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %} ![ Warnungsbeschreibung und Link zum Anzeigen weiterer Informationen](/assets/images/help/repository/code-scanning-pr-alert.png) {% else %} ![Warnungsbeschreibung und Link zum Anzeigen weiterer Informationen](/assets/images/enterprise/3.4/repository/code-scanning-pr-alert.png) {% endif %}
 
 {% ifversion code-scanning-pr-conversations-tab %}
-## Commenting on an alert in a pull request
+## Kommentieren einer Warnung in einem Pull Request
 
-You can comment on any {% data variables.product.prodname_code_scanning %} alert introduced by the changes in a pull request. Alerts appear as annotations in the **Conversation** tab of a pull request, as part of a  pull request review, and also are shown in the **Files changed** tab. You can only comment on alerts introduced by the changes in a pull request. Existing {% data variables.product.prodname_code_scanning %} alerts, on files that are outside the changes introduced in the pull request, will appear in the **Files changed** tab but cannot be commented on.
+Du kannst alle von den Änderungen in einem Pull Request eingeführten {% data variables.product.prodname_code_scanning %}-Warnungen kommentieren. Warnungen werden als Anmerkungen auf der Registerkarte **Unterhaltung** eines Pull Requests als Teil einer Pull Request-Überprüfung und auch auf der Registerkarte **Geänderte Dateien** angezeigt. Du kannst nur Warnungen kommentieren, die von den Änderungen in einem Pull Request eingeführt wurden. Vorhandene {% data variables.product.prodname_code_scanning %}-Warnungen zu einer Datei, die sich außerhalb der im Pull Request eingeführten Änderungen befinden, werden zwar auf der Registerkarte **Geänderte Dateien** angezeigt, können aber nicht kommentiert werden.
 
-You can choose to require all conversations in a pull request, including those on {% data variables.product.prodname_code_scanning %} alerts, to be resolved before a pull request can be merged. For more information, see "[About protected branches](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#require-conversation-resolution-before-merging)."
+Du kannst auswählen, dass alle Unterhaltungen in einem Pull Request erforderlich sind, einschließlich derer zu {% data variables.product.prodname_code_scanning %}-Warnungen, die aufgelöst werden sollen, bevor ein Pull Request zusammengeführt werden kann. Weitere Informationen findest du unter [Informationen zu geschützten Branches](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#require-conversation-resolution-before-merging).
 {% endif %}
-## Fixing an alert on your pull request
+## Beheben einer Warnung auf deiner Pull-Anforderung
 
-Anyone with push access to a pull request can fix a {% data variables.product.prodname_code_scanning %} alert that's identified on that pull request. If you commit changes to the pull request this triggers a new run of the pull request checks. If your changes fix the problem, the alert is closed and the annotation removed.
+Jeder, der Push-Zugriff auf eine Pull-Anforderung hat, kann eine {% data variables.product.prodname_code_scanning %} Warnung beheben, die in dieser Pull-Anforderung enthalten ist. Wenn du Änderungen an der Pull-Anforderung vornimmst, löst dies einen neuen Durchlauf der Pull-Anforderungsprüfung aus. Wenn deine Änderungen das Problem beheben, wird die Meldung geschlossen und der Vermerk entfernt.
 
-## Dismissing an alert on your pull request
+## Verwerfen einer Warnung auf deiner Pull-Anforderung
 
-An alternative way of closing an alert is to dismiss it. You can dismiss an alert if you don't think it needs to be fixed. {% data reusables.code-scanning.close-alert-examples %} If you have write permission for the repository, the **Dismiss** button is available in code annotations and in the alerts summary. When you click **Dismiss** you will be prompted to choose a reason for closing the alert.
-{% ifversion comment-dismissed-code-scanning-alert %}
-![Screenshot of code scanning alert with dropdown to choose dismissal reason emphasized](/assets/images/help/repository/code-scanning-alert-dropdown-reason.png)
-{% else %}
-![Choosing a reason for dismissing an alert](/assets/images/help/repository/code-scanning-alert-close-drop-down.png)
-{% endif %}
-{% data reusables.code-scanning.choose-alert-dismissal-reason %}
+Eine andere Möglichkeit, eine Meldung zu schließen, ist, sie zu verwerfen. Du kannst eine Meldung verwerfen, wenn du der Meinung bist, dass sie nicht behoben werden muss. {% data reusables.code-scanning.close-alert-examples %} Wenn du eine Schreibberechtigung für das Repository hast, ist die Schaltfläche **Verwerfen** in den Code-Anmerkungen und in der Zusammenfassung der Alarme verfügbar. Wenn du auf **Verwerfen** klickst, wirst du aufgefordert, einen Grund zum Verwerfen der Warnung auszuwählen.
+{% ifversion comment-dismissed-code-scanning-alert %} ![Screenshot der Codeüberprüfungswarnung mit Dropdownmenü zum Auswählen eines Löschgrunds](/assets/images/help/repository/code-scanning-alert-dropdown-reason.png) {% else %} ![Auswählen, warum eine Warnung gelöscht wird](/assets/images/help/repository/code-scanning-alert-close-drop-down.png) {% endif %} {% data reusables.code-scanning.choose-alert-dismissal-reason %}
 
 {% data reusables.code-scanning.false-positive-fix-codeql %}
 
-For more information about dismissing alerts, see {% ifversion delete-code-scanning-alerts %}"[Managing {% data variables.product.prodname_code_scanning %} alerts for your repository](/code-security/secure-coding/managing-code-scanning-alerts-for-your-repository#dismissing-or-deleting-alerts)."{% else %} "[Managing {% data variables.product.prodname_code_scanning %} alerts for your repository](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository#dismissing--alerts)."{% endif %}
+Weitere Informationen zum Verwerfen von Warnungen findest du unter {% ifversion delete-code-scanning-alerts %}[Verwalten von {% data variables.product.prodname_code_scanning %} Warnungen für dein Repository](/code-security/secure-coding/managing-code-scanning-alerts-for-your-repository#dismissing-or-deleting-alerts).{% else %} [Verwalten von {% data variables.product.prodname_code_scanning %} Warnungen für dein Repository](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository#dismissing--alerts).{% endif %}

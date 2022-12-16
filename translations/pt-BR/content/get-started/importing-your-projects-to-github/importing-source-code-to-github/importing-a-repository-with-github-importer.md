@@ -1,6 +1,6 @@
 ---
-title: Importing a repository with GitHub Importer
-intro: 'If you have a project hosted on another version control system, you can automatically import it to GitHub using the GitHub Importer tool.'
+title: Importar um repositório usando o Importador do GitHub
+intro: 'Caso tenha um projeto hospedado em outro sistema de controle de versão, é possível importá-lo automaticamente para o GitHub usando a ferramenta Importador do GitHub.'
 redirect_from:
   - /articles/importing-from-other-version-control-systems-to-github
   - /articles/importing-a-repository-with-github-importer
@@ -10,37 +10,42 @@ versions:
   fpt: '*'
   ghec: '*'
 shortTitle: Use GitHub Importer
+ms.openlocfilehash: 09b03d2c2c62cf5812f35a3d5b3379c2d0c8e33e
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145911196'
 ---
 {% tip %}
 
-**Tip:** GitHub Importer is not suitable for all imports. For example, if your existing code is hosted on a private network, our tool won't be able to access it. In these cases, we recommend [importing using the command line](/articles/importing-a-git-repository-using-the-command-line) for Git repositories or an external [source code migration tool](/articles/source-code-migration-tools) for projects imported from other version control systems.
+**Dica:** o Importador do GitHub não é adequado para todas as importações. Por exemplo, se o código existente está hospedado em uma rede privada, sua ferramenta não conseguirá acessá-lo. Nesses casos, recomendamos [importá-lo usando a linha de comando](/articles/importing-a-git-repository-using-the-command-line) para repositórios Git ou uma [ferramenta de migração de código-fonte](/articles/source-code-migration-tools) externa para projetos importados de outros sistemas de controle de versão.
 
 {% endtip %}
 
-If you'd like to match the commits in your repository to the authors' GitHub personal accounts during the import, make sure every contributor to your repository has a GitHub account before you begin the import.
+Se você quiser combinar os commits de seu repositório com as contas pessoais GitHub do autor durante a importação, garanta que cada contribuidor de seu repositório tem uma conta GitHub antes de você começar a importação.
 
 {% data reusables.repositories.repo-size-limit %}
 
-1. In the upper-right corner of any page, click {% octicon "plus" aria-label="Plus symbol" %}, and then click **Import repository**.
-![Import repository option in new repository menu](/assets/images/help/importer/import-repository.png)
-2. Under "Your old repository's clone URL", type the URL of the project you want to import.
-![Text field for URL of imported repository](/assets/images/help/importer/import-url.png)
-3. Choose your personal account or an organization to own the repository, then type a name for the repository on GitHub.
-![Repository owner menu and repository name field](/assets/images/help/importer/import-repo-owner-name.png)
-4. Specify whether the new repository should be *public* or *private*. For more information, see "[Setting repository visibility](/articles/setting-repository-visibility)."
-![Public or private repository radio buttons](/assets/images/help/importer/import-public-or-private.png)
-5. Review the information you entered, then click **Begin import**.
-![Begin import button](/assets/images/help/importer/begin-import-button.png)
-6. If your old project requires credentials, type your login information for that project, then click **Submit**. 
-If SAML SSO or 2FA are enabled for your user account on the old project, enter a {% data variables.product.pat_generic %} with repository read permissions in the "Password" field instead of your password.
-![Password form and Submit button for password-protected project](/assets/images/help/importer/submit-old-credentials-importer.png)
-7. If there are multiple projects hosted at your old project's clone URL, choose the project you'd like to import, then click **Submit**.
-![List of projects to import and Submit button](/assets/images/help/importer/choose-project-importer.png)
-8. If your project contains files larger than 100 MB, choose whether to import the large files using [Git Large File Storage](/articles/versioning-large-files), then click **Continue**.
-![Git Large File Storage menu and Continue button](/assets/images/help/importer/select-gitlfs-importer.png)
+1. No canto superior direito de qualquer página, clique em {% octicon "plus" aria-label="Plus symbol" %} e clique em **Importar repositório**.
+![Opção Importar repositório no menu Novo repositório](/assets/images/help/importer/import-repository.png)
+2. Embaixo de "Your old repository's clone URL" (URL clone de seu antigo repositório), digite a URL do projeto que quer importar.
+![Campo de texto da URL do repositório importado](/assets/images/help/importer/import-url.png)
+3. Escolha sua conta pessoal ou uma organização para ser proprietária do repositório e digite um nome para o repositório no GitHub.
+![Menu Proprietário do repositório e campo Nome do repositório](/assets/images/help/importer/import-repo-owner-name.png)
+4. Especifique se o novo repositório deve ser *público* ou *privado*. Para obter mais informações, confira "[Como configurar a visibilidade do repositório](/articles/setting-repository-visibility)".
+![Botões de opção Repositório público ou privado](/assets/images/help/importer/import-public-or-private.png)
+5. Revise as informações inseridas e clique em **Iniciar importação**.
+![Botão Iniciar importação](/assets/images/help/importer/begin-import-button.png)
+6. Se seu projeto antigo exigir credenciais, digite suas informações de login para esse projeto e clique em **Enviar**. Se o SSO do SAML ou 2FA estiverem habilitados para sua conta de usuário no projeto antigo, insira um token de acesso pessoal com permissões de leitura de repositório no campo "Senha" em vez de sua senha.
+![Formulário de senha e botão Enviar para projetos protegidos por senha](/assets/images/help/importer/submit-old-credentials-importer.png)
+7. Se houver vários projetos hospedados na URL de clone do seu projeto antigo, escolha o projeto que deseja importar e clique em **Enviar**.
+![Lista de projetos para importação e botão Enviar](/assets/images/help/importer/choose-project-importer.png)
+8. Se o projeto contiver arquivos maiores que 100 MB, escolha se deseja importar os arquivos grandes usando o [Git Large File Storage](/articles/versioning-large-files) e clique em **Continuar**.
+![Menu do Git Large File Storage e botão Continuar](/assets/images/help/importer/select-gitlfs-importer.png)
 
-You'll receive an email when the repository has been completely imported.
+Você receberá um e-mail quando o repositório for totalmente importado.
 
-## Further reading
+## Leitura adicional
 
-- "[Updating commit author attribution with GitHub Importer](/articles/updating-commit-author-attribution-with-github-importer)"
+- "[Como atualizar a atribuição de autor de commit com o Importador do GitHub](/articles/updating-commit-author-attribution-with-github-importer)"

@@ -1,6 +1,6 @@
 ---
-title: Using self-hosted runners in a workflow
-intro: 'To use self-hosted runners in a workflow, you can use labels to specify the runner type for a job.'
+title: Использование локальных средств выполнения в рабочем процессе
+intro: 'Чтобы использовать локальные средства выполнения тестов в рабочем процессе, можно использовать метки, чтобы указать тип средства выполнения тестов для задания.'
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/using-self-hosted-runners-in-a-workflow
   - /actions/automating-your-workflow-with-github-actions/using-self-hosted-runners-in-a-workflow
@@ -11,80 +11,84 @@ versions:
   ghec: '*'
 type: tutorial
 shortTitle: Use runners in a workflow
+ms.openlocfilehash: 5c0ff57f5b3eda79e3fcf8b09706ed19f981b8ae
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147573420'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+Сведения о создании пользовательских меток и меток по умолчанию см. в разделе [Использование меток с локальными средствами выполнения](/actions/hosting-your-own-runners/using-labels-with-self-hosted-runners).
 
-For information on creating custom and default labels, see "[Using labels with self-hosted runners](/actions/hosting-your-own-runners/using-labels-with-self-hosted-runners)."
+## Использование локальных средств выполнения в рабочем процессе
 
-## Using self-hosted runners in a workflow
-
-Labels allow you to send workflow jobs to specific types of self-hosted runners, based on their shared characteristics. For example, if your job requires a particular hardware component or software package, you can assign a custom label to a runner and then configure your job to only execute on runners with that label.
+Метки позволяют отправлять задания рабочих процессов в определенные типы локальных средств выполнения в соответствии с их общими характеристиками. Например, если заданию требуется определенный аппаратный компонент или программный пакет, можно назначить средству выполнения пользовательскую метку, а затем настроить выполнение задания только в средствах выполнения с этой меткой.
 
 {% data reusables.actions.self-hosted-runner-labels-runs-on %}
 
-For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idruns-on)."
+Дополнительные сведения см. в статье [Синтаксис рабочего процесса для {% data variables.product.prodname_actions %}](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idruns-on).
 
-## Using default labels to route jobs
+## Использование меток по умолчанию для маршрутизации заданий
 
-A self-hosted runner automatically receives certain labels when it is added to {% data variables.product.prodname_actions %}. These are used to indicate its operating system and hardware platform:
+Локальное средство выполнения автоматически получает определенные метки при добавлении в {% data variables.product.prodname_actions %}. Они служат для указания операционной системы и аппаратной платформы:
 
-* `self-hosted`: Default label applied to all self-hosted runners.
-* `linux`, `windows`, or `macOS`: Applied depending on operating system.
-* `x64`, `ARM`, or `ARM64`: Applied depending on hardware architecture.
+* `self-hosted` — метка по умолчанию, применяемая ко всем локальным средствам выполнения;
+* `linux`, `windows` или `macOS` — применяется в зависимости от операционной системы;
+* `x64`, `ARM` или `ARM64` — применяются в зависимости от архитектуры оборудования.
 
-You can use your workflow's YAML to send jobs to a combination of these labels. In this example, a self-hosted runner that matches all three labels will be eligible to run the job:
+Код YAML рабочего процесса можно использовать для отправки заданий в средства выполнения с сочетанием этих меток. В этом примере выполнение задания допускается в локальном средстве выполнения со всеми тремя метками:
 
 ```yaml
 runs-on: [self-hosted, linux, ARM64]
 ```
 
-- `self-hosted` - Run this job on a self-hosted runner.
-- `linux` - Only use a Linux-based runner.
-- `ARM64` - Only use a runner based on ARM64 hardware.
+- `self-hosted` — задание выполняется в локальном средстве выполнения.
+- `linux` — использовать только средство выполнения на основе Linux.
+- `ARM64` — использовать средство выполнения только на основе оборудования ARM64.
 
-The default labels are fixed and cannot be changed or removed. Consider using custom labels if you need more control over job routing.
+Метки по умолчанию являются фиксированными: их нельзя изменять или удалять. Пользовательские метки можно применять, если требуется больший контроль над маршрутизацией заданий.
 
-## Using custom labels to route jobs
+## Использование пользовательских меток для маршрутизации заданий
 
-You can create custom labels and assign them to your self-hosted runners at any time. Custom labels let you send jobs to particular types of self-hosted runners, based on how they're labeled. 
+Вы можете создавать пользовательские метки и назначать их локальным средствам выполнения в любое время. Пользовательские метки позволяют отправлять задания в определенные типы локальных средств выполнения в зависимости от того, как они помечены. 
 
-For example, if you have a job that requires a specific type of graphics hardware, you can create a custom label called `gpu` and assign it to the runners that have the hardware installed. A self-hosted runner that matches all the assigned labels will then be eligible to run the job. 
+Например, если заданию требуется конкретный тип графического оборудования, можно создать пользовательскую метку `gpu` и назначить ее средствам выполнения с этим оборудованием. Выполнение задания допускается в локальном средстве выполнения, которому назначены все соответствующие метки. 
 
-This example shows a job that combines default and custom labels:
+В этом примере показано задание с сочетанием меток по умолчанию и пользовательских меток:
 
 ```yaml
 runs-on: [self-hosted, linux, x64, gpu]
 ```
 
-- `self-hosted` - Run this job on a self-hosted runner.
-- `linux` - Only use a Linux-based runner.
-- `x64` - Only use a runner based on x64 hardware.
-- `gpu` - This custom label has been manually assigned to self-hosted runners with the GPU hardware installed. 
+- `self-hosted` — задание выполняется в локальном средстве выполнения.
+- `linux` — использовать только средство выполнения на основе Linux.
+- `x64` — использовать средство выполнения только на основе архитектуры x64.
+- `gpu` — эта пользовательская метка была вручную назначена локальным средствам выполнения с установленным GPU. 
 
-These labels operate cumulatively, so a self-hosted runner must have all four labels to be eligible to process the job.
+Метки работают в совокупности, то есть для обработки задания локальное средство выполнения должно иметь все четыре метки.
 
-## Routing precedence for self-hosted runners
+## Приоритет маршрутизации для локальных средств выполнения
 
-When routing a job to a self-hosted runner, {% data variables.product.prodname_dotcom %} looks for a runner that matches the job's `runs-on` labels:
+При маршрутизации задания в локальное средство выполнения {% data variables.product.prodname_dotcom %} ищет средство выполнения, соответствующее меткам `runs-on` задания:
 
 {% ifversion fpt or ghes > 3.3 or ghae or ghec %}
-- If {% data variables.product.prodname_dotcom %} finds an online and idle runner that matches the job's `runs-on` labels, the job is then assigned and sent to the runner.
-  - If the runner doesn't pick up the assigned job within 60 seconds, the job is re-queued so that a new runner can accept it.
-- If {% data variables.product.prodname_dotcom %} doesn't find an online and idle runner that matches the job's `runs-on` labels, then the job will remain queued until a runner comes online.
-- If the job remains queued for more than 24 hours, the job will fail.
+- Если {% data variables.product.prodname_dotcom %} находит в сети бездействующее средство выполнения, соответствующее меткам `runs-on` задания, задание назначается этому средству выполнения и отправляется в него.
+  - Если средство выполнения не принимает назначенное задание в течение 60 секунд, задание снова ставится в очередь для поиска нового средства выполнения.
+- Если {% data variables.product.prodname_dotcom %} не находит в сети бездействующее средство выполнения, соответствующее меткам `runs-on` задания, задание остается в очереди, пока средство выполнения не появится.
+- После нахождения в очереди в течение 24 часов задание завершается сбоем.
 {% elsif ghes = 3.3 %}
-- {% data variables.product.prodname_dotcom %} first searches for a runner at the repository level, then at the organization level, then at the enterprise level.
-- If {% data variables.product.prodname_dotcom %} finds an online and idle runner at a certain level that matches the job's `runs-on` labels, the job is then assigned and sent to the runner.
-  - If the runner doesn't pick up the assigned job within 60 seconds, the job is queued at all levels and waits for a matching runner from any level to come online and pick up the job.
-- If {% data variables.product.prodname_dotcom %} doesn't find an online and idle runner at any level, the job is queued to all levels and waits for a matching runner from any level to come online and pick up the job.
-- If the job remains queued for more than 24 hours, the job will fail.
+- {% data variables.product.prodname_dotcom %} сначала ищет средство выполнения на уровне репозитория, затем на уровне отдела, а затем на уровне организации.
+- Если {% data variables.product.prodname_dotcom %} находит в сети бездействующее средство выполнения на определенном уровне, соответствующее меткам `runs-on` задания, задание назначается этому средству выполнения и отправляется в него.
+  - Если средство выполнения не принимает назначенное задание в течение 60 секунд, задание помещается в очередь на всех уровнях и ожидает появления в сети подходящего средства выполнения любого уровня.
+- Если {% data variables.product.prodname_dotcom %} не находит в сети бездействующее средство выполнения ни на одном уровне, задание помещается в очередь на всех уровнях и ожидает появления в сети подходящего средства выполнения любого уровня.
+- После нахождения в очереди в течение 24 часов задание завершается сбоем.
 {% else %}
-1. {% data variables.product.prodname_dotcom %} first searches for a runner at the repository level, then at the organization level, then at the enterprise level.
-2. The job is then sent to the first matching runner that is online and idle.
-   - If all matching online runners are busy, the job will queue at the level with the highest number of matching online runners.
-   - If all matching runners are offline, the job will queue at the level with the highest number of matching offline runners.
-   - If there are no matching runners at any level, the job will fail.
-   - If the job remains queued for more than 24 hours, the job will fail.
+1. {% data variables.product.prodname_dotcom %} сначала ищет средство выполнения на уровне репозитория, затем на уровне отдела, а затем на уровне организации.
+2. Затем задание отправляется в первое подходящее средство выполнения, которое находится в сети и бездействует.
+   - Если все подходящие средства выполнения в сети заняты, задание помещается в очередь на уровне с наибольшим числом подходящих средств выполнения в сети.
+   - Если все подходящие средства выполнения не в сети, задание помещается в очередь на уровне с наибольшим числом подходящих средств выполнения не в сети.
+   - Если подходящих средств выполнения нет ни на одном уровне, задание завершается сбоем.
+   - После нахождения в очереди в течение 24 часов задание завершается сбоем.
 {% endif %}

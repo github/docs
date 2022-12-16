@@ -1,5 +1,5 @@
 ---
-title: Enums
+title: 枚举
 redirect_from:
   - /v4/enum
   - /v4/reference/enum
@@ -10,15 +10,20 @@ versions:
   ghae: '*'
 topics:
   - API
+ms.openlocfilehash: 3be1688849e7cfef4a0b81af1ee045a3ddccd625
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148108105'
 ---
+## 关于枚举
 
-## About enums
+[枚举](https://graphql.github.io/graphql-spec/June2018/#sec-Enums)表示字段的可能值集。
 
-[Enums](https://graphql.github.io/graphql-spec/June2018/#sec-Enums) represent possible sets of values for a field.
+例如，该 [`Issue`](/graphql/reference/objects#issue) 对象具有一个名为 `state` 的字段。 该状态是一个枚举（具体来说，是类型为 [`IssueState`](/graphql/reference/enums#issuestate) 的枚举），因为它可能是 `OPEN` 或 `CLOSED`。
 
-For example, the [`Issue`](/graphql/reference/objects#issue) object has a field called `state`. The state is an enum (specifically, of type [`IssueState`](/graphql/reference/enums#issuestate)) because it may be `OPEN` or `CLOSED`.
-
-For more information, see "[Introduction to GraphQL](/graphql/guides/introduction-to-graphql)."
+有关详细信息，请参阅“[GraphQL 简介](/graphql/guides/introduction-to-graphql)”。
 
 {% data reusables.projects.graphql-ghes %}
 

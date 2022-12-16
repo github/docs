@@ -1,6 +1,6 @@
 ---
 title: Rate limit
-intro: 'With the Rate limit API, you can check the current rate limit status of various REST APIs.'
+intro: 'Use the REST API to check your current rate limit status.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -13,23 +13,18 @@ redirect_from:
   - /rest/reference/rate-limit
 ---
 
-## About the Rate limit API
+## About rate limits
 
-The REST API overview documentation describes the [rate limit rules](/rest/overview/resources-in-the-rest-api#rate-limiting). You can check your current rate limit status at any time using the Rate Limit API described below.
+You can check your current rate limit status at any time. For more information about rate limit rules, see "[Resources in the REST API](/rest/overview/resources-in-the-rest-api#rate-limiting)." 
 
-### Understanding your rate limit status
-
-The Search API has a [custom rate limit](/rest/reference/search#rate-limit), separate from the rate limit governing the rest of the REST API. The GraphQL API also has a [custom rate limit](/graphql/overview/resource-limitations#rate-limit) that is separate from and calculated differently than rate limits in the REST API.
-
-For these reasons, the Rate Limit API response categorizes your rate limit. Under `resources`, you'll see four
-objects:
+The REST API for searching items has a custom rate limit that is separate from the rate limit governing the other REST API endpoints. For more information, see "[Search](/rest/search)." The GraphQL API also has a custom rate limit that is separate from and calculated differently than rate limits in the REST API. For more information, see "[Resource limitations](/graphql/overview/resource-limitations#rate-limit)." For these reasons, the API response categorizes your rate limit. Under `resources`, you'll see objects relating to different categories:
 
 * The `core` object provides your rate limit status for all non-search-related resources in the REST API.
 
-* The `search` object provides your rate limit status for the [Search API](/rest/reference/search).
+* The `search` object provides your rate limit status for the REST API for searching.
 
-* The `graphql` object provides your rate limit status for the [GraphQL API](/graphql).
+* The `graphql` object provides your rate limit status for the GraphQL API.
 
-* The `integration_manifest` object provides your rate limit status for the [GitHub App Manifest code conversion](/apps/building-github-apps/creating-github-apps-from-a-manifest/#3-you-exchange-the-temporary-code-to-retrieve-the-app-configuration) endpoint.
+* The `integration_manifest` object provides your rate limit status for the `POST /app-manifests/{code}/conversions` operation. For more information, see "[Creating a GitHub App from a manifest](/apps/building-github-apps/creating-github-apps-from-a-manifest/#3-you-exchange-the-temporary-code-to-retrieve-the-app-configuration)."
 
 For more information on the headers and values in the rate limit response, see "[Resources in the REST API](/rest/overview/resources-in-the-rest-api#rate-limit-http-headers)."

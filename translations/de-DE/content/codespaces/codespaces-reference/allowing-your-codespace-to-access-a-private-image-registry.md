@@ -1,18 +1,18 @@
 ---
-title: 'Zulassen, dass dein Codespace auf eine private Imageregistrierung zugreifen kann'
-intro: 'Du kannst Geheimnisse verwenden, um {% data variables.product.prodname_github_codespaces %} den Zugriff auf eine private Imageregistrierung zu ermöglichen.'
+title: Zulassen, dass dein Codespace auf eine private Imageregistrierung zugreifen kann
+intro: Du kannst Geheimnisse verwenden, um {% data variables.product.prodname_github_codespaces %} den Zugriff auf eine private Imageregistrierung zu ermöglichen.
 versions:
   fpt: '*'
   ghec: '*'
 topics:
-  - Codespaces
+- Codespaces
 shortTitle: Private image registry
 ms.openlocfilehash: c11cfe0179856caf17f30ac32830ee1485defa3c
 ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
 ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/09/2022
-ms.locfileid: '148159205'
+ms.locfileid: "148159205"
 ---
 ## Informationen zu privaten Imageregistrierungen und {% data variables.product.prodname_github_codespaces %}
 

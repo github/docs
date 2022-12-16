@@ -1,7 +1,7 @@
 ---
-title: Getting started with self-hosted runners for your enterprise
+title: Начало работы со средствами выполнения тестов локального размещения для вашего предприятия
 shortTitle: Self-hosted runners
-intro: 'You can configure a runner machine for your enterprise so your developers can start automating workflows with {% data variables.product.prodname_actions %}.'
+intro: 'Вы можете настроить компьютер средства выполнения тестов для предприятия, чтобы разработчики могли начать автоматизацию рабочих процессов с помощью {% data variables.product.prodname_actions %}.'
 versions:
   ghec: '*'
   ghes: '*'
@@ -12,137 +12,131 @@ topics:
   - Actions
   - Enterprise
   - Fundamentals
+ms.openlocfilehash: e369c7bf3a9da15cd4e0ee43f54815e89ab4b45a
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148106624'
 ---
+## Сведения о средствах выполнения тестов локального размещения для {% data variables.product.prodname_actions %}
 
-## About self-hosted runners for {% data variables.product.prodname_actions %}
+{% data reusables.actions.about-actions-for-enterprises %} Дополнительные сведения см. в разделе [Сведения о {% data variables.product.prodname_actions %} для предприятий](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises).
 
-{% data reusables.actions.about-actions-for-enterprises %} For more information, see "[About {% data variables.product.prodname_actions %} for enterprises](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises)."
-
-With {% data variables.product.prodname_actions %}, developers can write and combine individual tasks called actions to create custom workflows. {% ifversion ghes or ghae %}To enable {% data variables.product.prodname_actions %} for {% ifversion ghae %}your enterprise{% elsif ghes %} {% data variables.location.product_location %}{% endif %}, you must host at least one machine to execute jobs.{% endif %} {% ifversion ghec %}You can host your own runner machine to execute jobs, and this{% elsif ghes or ghae %}This{% endif %} machine is called a self-hosted runner. {% data reusables.actions.self-hosted-runner-locations %} {% data reusables.actions.self-hosted-runner-architecture %} {% ifversion ghec %}All{% elsif ghes or ghae %}Self-hosted{% endif %} runners can run Linux, Windows, or macOS. For more information, see "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners)."
+С помощью {% data variables.product.prodname_actions %}разработчики могут создавать и объединять отдельные задачи, которые называются действиями для создания пользовательских рабочих процессов. {% ifversion ghes или ghae %} Чтобы включить {% данных variables.product.prodname_actions %} для {% ifversion ghae %}ваш корпоративный{% elsif ghes %} {% данных variables.location.product_location %}{% endif %}, необходимо разместить по крайней мере один компьютер для выполнения заданий. {% endif %} {% ifversion ghec %} Вы можете разместить собственный компьютер средства выполнения для выполнения заданий, и этот {% elsif ghes или ghae %}Этот компьютер{% endif %} называется локальным средством выполнения. {% data reusables.actions.self-hosted-runner-locations %} {% data reusables.actions.self-hosted-runner-architecture %} {% ifversion ghec %}All{% elsif ghes or ghae %}Средства выполнения тестов{% endif %} могут выполнять Linux, Windows или macOS. Дополнительные сведения см. в разделе «[Локальные средства выполнения тестов](/actions/hosting-your-own-runners/about-self-hosted-runners)».
 
 {% ifversion ghec %}
 
-Alternatively, you can use runner machines that {% data variables.product.company_short %} hosts. {% data variables.product.company_short %}-hosted runners are outside the scope of this guide. For more information, see "[About {% data variables.product.company_short %}-hosted runners](/actions/using-github-hosted-runners/about-github-hosted-runners)."
+Кроме того, можно использовать компьютеры для установки средства выполнения тестов, на которых размещаются {% data variables.product.company_short %}. Средства размещения тестов, размещенные в {% data variables.product.company_short %}, не рассматриваются в этом руководстве. Дополнительные сведения см. в разделе [Сведения о средствах выполнения тестов, размещенных в {% data variables.product.company_short %}](/actions/using-github-hosted-runners/about-github-hosted-runners).
 
 {% endif %}
 
-This guide shows you how to apply a centralized management approach to self-hosted runners for {% data variables.product.prodname_actions %} in your enterprise. In the guide, you'll complete the following tasks.
+В этом руководстве показано, как применить централизованный подход к управлению средствами выполнения тестов локального размещения для {% data variables.product.prodname_actions %} в организации. В этом руководстве вы выполните следующие задачи:
 
-1. Configure a limited policy to restrict the actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %} that can run within your enterprise
-1. Deploy a self-hosted runner for your enterprise
-1. Create a group to manage access to the runners available to your enterprise
-1. Optionally, further restrict the repositories that can use the runner
-1. Optionally, build custom tooling to automatically scale your self-hosted runners
+1. Настройте ограниченную политику, чтобы ограничить действия{% ifversion actions-workflow-policy %} и повторно используемые рабочие процессы{% endif %}, которые могут выполняться на предприятии
+1. Развертывание средства выполнения тестов локального размещения для вашего предприятия
+1. Создание группы для управления доступом к средствам выполнения тестов, доступным для вашего предприятия
+1. При необходимости ограничьте репозитории, которые могут использовать средство выполнения.
+1. При необходимости создайте пользовательские средства для автоматического масштабирования локальных средств выполнения.
 
-You'll also find additional information about how to monitor and secure your self-hosted runners,{% ifversion ghes or ghae %} how to access actions from {% data variables.product.prodname_dotcom_the_website %},{% endif %} and how to customize the software on your runner machines.
+Кроме того, вы сможете просмотреть дополнительные сведения о мониторинге и защите локальных средств выполнения тестов локального размещения, {% ifversion ghes or ghae %} о том, как получить доступ к действиям из {% data variables.product.prodname_dotcom_the_website %},{% endif %} и как настроить программное обеспечение на компьютерах для установки средства выполнения тестов.
 
-After you finish the guide, {% ifversion ghec or ghae %}members of your enterprise{% elsif ghes %}users of {% data variables.location.product_location %}{% endif %} will be able to run workflow jobs from {% data variables.product.prodname_actions %} on a self-hosted runner machine.
+После завершения руководства {% ifversion ghec или ghae %}участники предприятия{% elsif ghes %}пользователи {% данных variables.location.product_location %}{% endif %} смогут выполнять задания рабочего процесса из {% данных variables.product.prodname_actions %} на локальном компьютере средства выполнения.
 
-## Prerequisites
+## Предварительные требования
 
 {% data reusables.actions.self-hosted-runners-prerequisites %}
 
-- Your enterprise must own at least one organization. For more information, see "[About organizations](/organizations/collaborating-with-groups-in-organizations/about-organizations)" and "[Creating a new organization from scratch](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)."
+- Ваше предприятие должно быть членом по крайней мере одной организации. Дополнительные сведения см. в разделе [Об организациях](/organizations/collaborating-with-groups-in-organizations/about-organizations) и [Создание новой организации с нуля](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch).
 
-## 1. Configure policies for {% data variables.product.prodname_actions %}
+## 1. Настройка политик для {% data variables.product.prodname_actions %}
 
-First, enable {% data variables.product.prodname_actions %} for all organizations, and configure a policy to restrict the actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %} that can run {% ifversion ghec or ghae%}within your enterprise on {% data variables.product.product_name %}{% elsif ghes %}on {% data variables.location.product_location %}{% endif %}. Optionally, organization owners can further restrict these policies for each organization.
+Во-первых, включите {% данных variables.product.prodname_actions %} для всех организаций и настройте политику для ограничения действий{% ifversion actions-workflow-policy %} и повторно используемых рабочих процессов{% endif %}, которые могут запускать {% ifversion ghec или ghae%}в организации на {% данных variables.product.product_name %}{% elsif ghes %}на {% данных variables.location.product_location %}{%endif %}. При необходимости владельцы организации могут дополнительно ограничивать эти политики для каждой организации.
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.policies-tab %}
-{% data reusables.enterprise-accounts.actions-tab %}
-1. Under "Policies", select **Enable for all organizations**.
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.policies-tab %} {% data reusables.enterprise-accounts.actions-tab %}
+1. В разделе «Политики» выберите **Включить для всех организаций**.
    
-   ![Screenshot of "Enable for all organizations" policy for {% data variables.product.prodname_actions %}](/assets/images/help/settings/actions-policy-enable-for-all-organizations.png)
-1. Select {% data reusables.actions.policy-label-for-select-actions-workflows %} and **Allow actions created by GitHub** to allow local actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %}, and actions created by {% data variables.product.company_short %}.
+   ![Снимок экрана: политика «Включить для всех организаций» для {% data variables.product.prodname_actions %}](/assets/images/help/settings/actions-policy-enable-for-all-organizations.png)
+1. Выберите {% data reusables.actions.policy-label-for-select-actions-workflows %} и **Разрешить действия, созданные GitHub**, чтобы разрешить локальные действия{% ifversion actions-workflow-policy %} и повторно используемые рабочие процессы{% endif %}, а также действия, созданные {% data variables.product.company_short %}.
 
-   {% ifversion actions-workflow-policy %}
-   ![Screenshot of "Allow select actions" and "Allow actions created by {% data variables.product.company_short %}" for {% data variables.product.prodname_actions %}](/assets/images/help/settings/actions-policy-allow-select-actions-and-actions-from-github-with-workflows.png)
-   {%- else %}
-   ![Screenshot of "Allow select actions" and "Allow actions created by {% data variables.product.company_short %}" for {% data variables.product.prodname_actions %}](/assets/images/help/settings/actions-policy-allow-select-actions-and-actions-from-github.png)
-   {%- endif %}
-1. Click **Save**.
+   {% ifversion actions-workflow-policy %} ![Снимок экрана: "Разрешить действия выбора" и "Разрешить действия, созданные {% data variables.product.company_short %}" для {% data variables.product.prodname_actions %}](/assets/images/help/settings/actions-policy-allow-select-actions-and-actions-from-github-with-workflows.png) {%- else %} ![Снимок экрана: "Разрешить действия выбора" и "Разрешить действия, созданные {% data variables.product.company_short %}" для {% data variables.product.prodname_actions %}](/assets/images/help/settings/actions-policy-allow-select-actions-and-actions-from-github.png) {%- endif %}
+1. Нажмите **Сохранить**.
 
-You can configure additional policies to restrict the actions available to {% ifversion ghec or ghae %}enterprise members{% elsif ghes %}users of {% data variables.location.product_location %}{% endif %}. For more information, see "[Enforcing policies for {% data variables.product.prodname_actions %} in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#allowing-select-actions-to-run)."
+Вы можете настроить дополнительные политики, чтобы ограничить действия, доступные для {% ifversion ghec или ghae %}корпоративные члены{% elsif ghes %}пользователи {% данных variables.location.product_location %}{% endif %}. Дополнительные сведения см. в разделе [Применение политик для {% data variables.product.prodname_actions %} на предприятии](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#allowing-select-actions-to-run)».
 
-## 2. Deploy the self-hosted runner for your enterprise
+## 2. Развертывание средства выполнения тестов локального размещения для вашего предприятия
 
-Next, add a self-hosted runner to your enterprise. {% data variables.product.product_name %} will guide you through installation of the necessary software on the runner machine. After you deploy the runner, you can verify connectivity between the runner machine and {%ifversion ghec or ghae %}your enterprise{% elsif ghes %}{% data variables.location.product_location %}{% endif %}.
+Затем добавьте локальное средство выполнения тестов в свое предприятие. {% data variables.product.product_name %} поможет вам установить необходимое программное обеспечение на компьютере для установки средства выполнения тестов. После развертывания средства выполнения можно проверить подключение между компьютером средства выполнения и {%ifversion ghec или ghae %}вашей организации{% elsif ghes %}{% данных variables.location.product_location %}{% endif %}.
 
-### Adding the self-hosted runner
+### Добавление средства выполнения тестов локального размещения
 
 {% data reusables.actions.self-hosted-runner-add-to-enterprise %}
 
 {% data reusables.actions.self-hosted-runner-check-installation-success %}
 
-## 3. Manage access to the self-hosted runner using a group
+## 3. Управление доступом к средству выполнения тестов локального размещения с помощью группы
 
-You can create a runner group to manage access to the runner that you added to your enterprise. You'll use the group to choose which organizations can execute jobs from {% data variables.product.prodname_actions %} on the runner.
+Можно создать группу средств выполнения тестов для управления доступом к средству выполнения тестов, добавленному для вашей организации. Вы будете использовать группу, чтобы выбрать организации, которые смогут выполнять задания из {% data variables.product.prodname_actions %} в средстве выполнения тестов.
 
-{% data variables.product.product_name %} adds all new runners to a group. Runners can be in one group at a time. By default, {% data variables.product.product_name %} adds new runners to the "Default" group.
+{% data variables.product.product_name %} добавляет все новые средства выполнения тестов в группу. Средства выполнения тестов не могут находиться одновременно в нескольких группах. По умолчанию {% data variables.product.product_name %} добавляет новые средства выполнения тестов в группу «По умолчанию».
 
 {% data reusables.actions.runner-groups-add-to-enterprise-first-steps %}
-1. To choose a policy for organization access, under "Organization access", select the **Organization access** drop-down, and click **Selected organizations**.
-1. To the right of the drop-down with the organization access policy, click {% octicon "gear" aria-label="The Gear icon" %}.
-1. Select the organizations you'd like to grant access to the runner group.
+1. Чтобы выбрать политику для доступа организации, в разделе «Доступ к организации» щелкните раскрывающийся список **Доступ к организации** и выберите **Выбранные организации**.
+1. Справа от раскрывающегося списка, где приведена политика доступа организации, щелкните {% octicon "gear" aria-label="The Gear icon" %}.
+1. Выберите организации, которым требуется предоставить доступ к группе средств выполнения.
 {%- ifversion ghec or ghes %}
-1. Optionally, to allow public repositories in the selected organizations to use runners in the group, select **Allow public repositories**.
+1. При необходимости, чтобы разрешить общедоступным репозиториям в выбранных организациях использовать средства выполнения тестов в группе, выберите **Разрешить общедоступные репозитории**.
 
    {% warning %}
 
-   **Warning**:
+   **Предупреждение**:
 
    {% indented_data_reference reusables.actions.self-hosted-runner-security spaces=3 %}
 
-   For more information, see "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories)."
+   Дополнительные сведения см. в разделе «[Локальные средства выполнения тестов](/actions/hosting-your-own-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories)».
 
-   {% endwarning %}
-{%- endif %}
-{% data reusables.actions.create-runner-group %}
-{%- ifversion ghec or ghes > 3.3 or ghae > 3.3 %}
-1. Click the "Runners" tab.
-1. In the list of runners, click the runner that you deployed in the previous section.
-1. Click **Edit**.
-1. Click **Runner groups {% octicon "gear" aria-label="The Gear icon" %}**.
-1. In the list of runner groups, click the name of the group that you previously created.
-1. Click **Save** to move the runner to the group.
+   {% endwarning %} {%- endif %} {% данных reusables.actions.create-runner-group %} {%- ifversion ghec или ghes > 3.3 или ghae > 3,3 %}
+1. Перейдите на вкладку «Средства выполнения тестов».
+1. В списке средств выполнения тестов щелкните средство выполнения тестов, развернутое в предыдущем разделе.
+1. Нажмите кнопку **Изменить**.
+1. Щелкните **Группы средств выполнения тестов {% octicon "gear" aria-label="The Gear icon" %}**.
+1. В списке групп средств выполнения тестов щелкните имя ранее созданной группы.
+1. Нажмите кнопку **Сохранить**, чтобы переместить средство выполнения тестов в группу.
 {%- elsif ghes < 3.4 or ghae %}
-1. To the right of "Default", click the number of runners in the group to show the runners.
-1. Select the runner that you deployed.
-1. To the right of "Runner groups", select the **Move to group** dropdown, and click the group that you previously created.
+1. Справа от параметра «По умолчанию» щелкните число средств выполнения тестов в группе, чтобы отобразить средства выполнения тестов.
+1. Выберите развернутое средство выполнения тестов.
+1. Справа от пункта «Группы средств выполнения тестов» выберите раскрывающийся список **Переместить в группу** и щелкните созданную ранее группу.
 {%- endif %}
 
-You've now deployed a self-hosted runner that can run jobs from {% data variables.product.prodname_actions %} within the organizations that you specified.
+Итак, вы развернули локальное средство выполнения тестов, которое может выполнять задания из {% data variables.product.prodname_actions %} в указанных организациях.
 
-## 4. Further restrict access to the self-hosted runner
+## 4. Дополнительное ограничение доступа к средству выполнения тестов локального размещения
 
-Optionally, organization owners can further restrict the access policy of the runner group that you created. For example, an organization owner could allow only certain repositories in the organization to use the runner group.
+Владельцы организаций могут дополнительно ограничить политику доступа для группы созданных средств выполнения тестов. Например, владелец организации может разрешить использовать группу средств выполнения тестов только определенным репозиториям в организации.
 
-For more information, see "[Managing access to self-hosted runners using groups](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#changing-the-access-policy-of-a-self-hosted-runner-group)."
+Дополнительные сведения см. в разделе [Управление доступом к средствам выполнения тестов локального размещения с помощью групп](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#changing-the-access-policy-of-a-self-hosted-runner-group).
 
-## 5. Automatically scale your self-hosted runners
+## 5. Автоматическое масштабирование средств выполнения тестов локального размещения
 
-Optionally, you can build custom tooling to automatically scale the self-hosted runners for {% ifversion ghec or ghae %}your enterprise{% elsif ghes %}{% data variables.location.product_location %}{% endif %}. For example, your tooling can respond to webhook events from {% data variables.location.product_location %} to automatically scale a cluster of runner machines. For more information, see "[Autoscaling with self-hosted runners](/actions/hosting-your-own-runners/autoscaling-with-self-hosted-runners)."
+При необходимости можно создать пользовательские средства для автоматического масштабирования локальных средств выполнения для {% ifversion ghec или ghae %}вашей организации{% elsif ghes %}{% данных variables.location.product_location %}{% endif %}. Например, средства могут реагировать на события веб-перехватчика из {% данных variables.location.product_location %} для автоматического масштабирования кластера компьютеров средства выполнения. Дополнительные сведения см. в разделе [Автомасштабирование с использованием локальных средств выполнения тестов](/actions/hosting-your-own-runners/autoscaling-with-self-hosted-runners).
 
-## Next steps
+## Дальнейшие действия
 
-- You can monitor self-hosted runners and troubleshoot common issues. For more information, see "[Monitoring and troubleshooting self-hosted runners](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners)."
+- Вы можете отслеживать локальные средства выполнения тестов и устранять распространенные проблемы. Дополнительные сведения см. в разделе [Мониторинг и устранение неполадок в работе средств выполнения тестов локального размещения](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners).
 
-- {% data variables.product.company_short %} recommends that you review security considerations for self-hosted runner machines. For more information, see "[Security hardening for {% data variables.product.prodname_actions %}](/actions/security-guides/security-hardening-for-github-actions#hardening-for-self-hosted-runners)."
+- {% data variables.product.company_short %} рекомендует ознакомиться с рекомендациями по обеспечению безопасности компьютеров для установки средств выполнения тестов локального размещения. Дополнительные сведения см. в разделе [Защита безопасности для {% data variables.product.prodname_actions %}](/actions/security-guides/security-hardening-for-github-actions#hardening-for-self-hosted-runners).
 
-- {% ifversion ghec %}If you use {% data variables.product.prodname_ghe_server %} or {% data variables.product.prodname_ghe_managed %}, you{% elsif ghes or ghae %}You{% endif %} can manually sync repositories on {% data variables.product.prodname_dotcom_the_website %} containing actions to your enterprise on {% ifversion ghes or ghae %}{% data variables.product.product_name %}{% elsif ghec %}{% data variables.product.prodname_ghe_server %} or {% data variables.product.prodname_ghe_managed %}{% endif %}. Alternatively, you can allow members of your enterprise to automatically access actions from {% data variables.product.prodname_dotcom_the_website %} by using {% data variables.product.prodname_github_connect %}. For more information, see the following.
+- {% ifversion ghec %}Если вы используете {% data variables.product.prodname_ghe_server %} или {% data variables.product.prodname_ghe_managed %}, вы{% elsif ghes or ghae %}Вы{% endif %} можете вручную синхронизировать репозитории в {% data variables.product.prodname_dotcom_the_website %}, где содержатся действия для вашего предприятия в {% ifversion ghes or ghae %}{% data variables.product.product_name %}{% elsif ghec %}{% data variables.product.prodname_ghe_server %} or {% data variables.product.prodname_ghe_managed %}{% endif %}. Кроме того, вы можете разрешить участникам предприятия автоматически получать доступ к действиям из {% data variables.product.prodname_dotcom_the_website %} с помощью {% data variables.product.prodname_github_connect %}. Дополнительные сведения см. в следующих разделах.
 
    {%- ifversion ghes or ghae %}
-   - "[Manually syncing actions from {% data variables.product.prodname_dotcom_the_website %}](/admin/github-actions/managing-access-to-actions-from-githubcom/manually-syncing-actions-from-githubcom)"
-   - "[Enabling automatic access to {% data variables.product.prodname_dotcom_the_website %} actions using {% data variables.product.prodname_github_connect %}](/admin/github-actions/managing-access-to-actions-from-githubcom/enabling-automatic-access-to-githubcom-actions-using-github-connect)"
-   {%- elsif ghec %}
-   - "Manually syncing actions from {% data variables.product.prodname_dotcom_the_website %}" in the [{% data variables.product.prodname_ghe_server %}](/enterprise-server@latest//admin/github-actions/managing-access-to-actions-from-githubcom/manually-syncing-actions-from-githubcom) or [{% data variables.product.prodname_ghe_managed %}](/github-ae@latest//admin/github-actions/managing-access-to-actions-from-githubcom/manually-syncing-actions-from-githubcom) documentation
-   - "Enabling automatic access to {% data variables.product.prodname_dotcom_the_website %} actions using {% data variables.product.prodname_github_connect %}" in the [{% data variables.product.prodname_ghe_server %}](/enterprise-server@latest/admin/github-actions/managing-access-to-actions-from-githubcom/enabling-automatic-access-to-githubcom-actions-using-github-connect) or [{% data variables.product.prodname_ghe_managed %}](/github-ae@latest//admin/github-actions/managing-access-to-actions-from-githubcom/enabling-automatic-access-to-githubcom-actions-using-github-connect) documentation
-   {%- endif %}
+   - [Синхронизация действий из {% data variables.product.prodname_dotcom_the_website %} вручную](/admin/github-actions/managing-access-to-actions-from-githubcom/manually-syncing-actions-from-githubcom)
+   - [Включение автоматического доступа к действиям {% data variables.product.prodname_dotcom_the_website %} с помощью {% data variables.product.prodname_github_connect %}](/admin/github-actions/managing-access-to-actions-from-githubcom/enabling-automatic-access-to-githubcom-actions-using-github-connect) {%- elsif ghec %}
+   - Синхронизация действий из {% data variables.product.prodname_dotcom_the_website %} вручную в документации [{% data variables.product.prodname_ghe_server %}](/enterprise-server@latest//admin/github-actions/managing-access-to-actions-from-githubcom/manually-syncing-actions-from-githubcom) или [{% data variables.product.prodname_ghe_managed %}](/github-ae@latest//admin/github-actions/managing-access-to-actions-from-githubcom/manually-syncing-actions-from-githubcom)
+   - Включение автоматического доступа к действиям {% data variables.product.prodname_dotcom_the_website %} с помощью {% data variables.product.prodname_github_connect %}" в документации [{% data variables.product.prodname_ghe_server %}](/enterprise-server@latest/admin/github-actions/managing-access-to-actions-from-githubcom/enabling-automatic-access-to-githubcom-actions-using-github-connect) или [{% data variables.product.prodname_ghe_managed %}](/github-ae@latest//admin/github-actions/managing-access-to-actions-from-githubcom/enabling-automatic-access-to-githubcom-actions-using-github-connect) {%- endif %}
 
-- You can customize the software available on your self-hosted runner machines, or configure your runners to run software similar to {% data variables.product.company_short %}-hosted runners{% ifversion ghes or ghae %} available for customers using {% data variables.product.prodname_dotcom_the_website %}{% endif %}. The software that powers runner machines for {% data variables.product.prodname_actions %} is open source. For more information, see the [`actions/runner`](https://github.com/actions/runner) and [`actions/runner-images`](https://github.com/actions/runner-images) repositories.
+- Вы можете настроить программное обеспечение, доступное на компьютерах для установки средство выполнения тестов локального размещения, или настроить средства выполнения тестов для запуска программного обеспечения, аналогичных средствам для выполнения тестов, размещенным в {% data variables.product.company_short %},{% ifversion ghes or ghae %} для клиентов, использующих {% data variables.product.prodname_dotcom_the_website %}{% endif %}. Программное обеспечение, которое поддерживает компьютеры для установки средства выполнения тестов для {% data variables.product.prodname_actions %}, имеет открытый исходный код. Дополнительные сведения см. в репозиториях [`actions/runner`](https://github.com/actions/runner) и [`actions/runner-images`](https://github.com/actions/runner-images).
 
-## Further reading
+## Дополнительные материалы
 
-- "[Configuring the self-hosted runner application as a service](/actions/hosting-your-own-runners/configuring-the-self-hosted-runner-application-as-a-service)"
-- "[Using self-hosted runners in a workflow](/actions/hosting-your-own-runners/using-self-hosted-runners-in-a-workflow)"
+- [Настройка приложения средства выполнения тестов локального размещения как службы](/actions/hosting-your-own-runners/configuring-the-self-hosted-runner-application-as-a-service)
+- [Использование самостоятельно размещенных средств выполнения в рабочем процессе](/actions/hosting-your-own-runners/using-self-hosted-runners-in-a-workflow)

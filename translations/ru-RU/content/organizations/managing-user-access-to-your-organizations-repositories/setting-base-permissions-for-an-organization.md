@@ -1,6 +1,6 @@
 ---
-title: Setting base permissions for an organization
-intro: You can set base permissions for the repositories that an organization owns.
+title: Настройка базовых разрешений для организации
+intro: 'Можно задать базовые разрешения для репозиториев, принадлежащих организации.'
 permissions: Organization owners can set base permissions for an organization.
 redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/setting-base-permissions-for-an-organization
@@ -14,31 +14,33 @@ topics:
   - Organizations
   - Teams
 shortTitle: Set base permissions
+ms.openlocfilehash: c2e12ee7922401487c937ae69f0101178a9cb8ba
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148098508'
 ---
+## Сведения о базовых разрешениях для организации
 
-## About base permissions for an organization
+Вы можете задать базовые разрешения, которые применяются ко всем участникам организации при доступе ко всем репозиториям организации. Базовые разрешения не применяются к сторонним участникам совместной работы.
 
-You can set base permissions that apply to all members of an organization when accessing any of the organization's repositories. Base permissions do not apply to outside collaborators.
+{% ifversion fpt or ghec %} По умолчанию у участников организации будут разрешения на **чтение** для репозиториев организации.{% endif %}
 
-{% ifversion fpt or ghec %}By default, members of an organization will have **Read** permissions to the organization's repositories.{% endif %}
+Если пользователь с правами администратора для репозитория организации предоставляет участнику более высокий уровень доступа для репозитория, этот более высокий уровень доступа переопределит базовое разрешение.
 
-If someone with admin access to an organization's repository grants a member a higher level of access for the repository, the higher level of access overrides the base permission.
-
-{% ifversion custom-repository-roles %}
-If you've created a custom repository role with an inherited role that is lower access than your organization's base permissions, any members assigned to that role will default to the organization's base permissions rather than the inherited role. For more information, see "[Managing custom repository roles for an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)."
+{% ifversion custom-repository-roles %} Если вы создали пользовательскую роль репозитория с наследуемой ролью, которая имеет уровень ниже, чем базовые разрешения организации, все члены, назначенные для этой роли, будут по умолчанию использовать базовые разрешения организации, а не наследуемую роль. Дополнительные сведения см. в разделе [Управление ролями репозитория для организации](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization).
 {% endif %}
 
-## Setting base permissions
+## Настройка базовых разрешений
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.member-privileges %}
-5. Under "Base permissions", use the drop-down to select new base permissions.
-  ![Selecting new permission level from base permissions drop-down](/assets/images/help/organizations/base-permissions-drop-down.png)
-6. Review the changes. To confirm, click **Change default permission to PERMISSION**.
-  ![Reviewing and confirming change of base permissions](/assets/images/help/organizations/base-permissions-confirm.png)
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.organizations.member-privileges %}
+5. В разделе "Базовые разрешения" используйте раскрывающийся список, чтобы выбрать новые базовые разрешения.
+  ![Выбор нового уровня разрешений в раскрывающемся списке базовых разрешений](/assets/images/help/organizations/base-permissions-drop-down.png)
+6. Просмотрите изменения. Чтобы подтвердить, нажмите кнопку **Изменить разрешение по умолчанию на PERMISSION**.
+  ![Проверка и подтверждение изменения базовых разрешений](/assets/images/help/organizations/base-permissions-confirm.png)
 
-## Further reading
+## Дополнительные материалы
 
-- "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)"
-- "[Adding outside collaborators to repositories in your organization](/organizations/managing-access-to-your-organizations-repositories/adding-outside-collaborators-to-repositories-in-your-organization)"
+- [Роли репозитория для организации](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)
+- [Добавление сторонних участников совместной работы в репозитории в вашей организации](/organizations/managing-access-to-your-organizations-repositories/adding-outside-collaborators-to-repositories-in-your-organization)

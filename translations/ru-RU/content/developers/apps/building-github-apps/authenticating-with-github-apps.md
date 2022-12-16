@@ -1,5 +1,5 @@
 ---
-title: Authenticating with GitHub Apps
+title: Проверка подлинности с помощью приложений GitHub
 intro: '{% data reusables.shortdesc.authenticating_with_github_apps %}'
 redirect_from:
   - /apps/building-integrations/setting-up-and-registering-github-apps/about-authentication-options-for-github-apps
@@ -14,58 +14,59 @@ versions:
 topics:
   - GitHub Apps
 shortTitle: Authentication
+ms.openlocfilehash: 5530e34207140e7beab836a2a7bc9a70d0066c20
+ms.sourcegitcommit: 5f40f9341dd1e953f4be8d1642f219e628e00cc8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/04/2022
+ms.locfileid: '148009875'
 ---
+## Создание закрытого ключа
 
+После создания приложения GitHub нужно создать один или несколько закрытых ключей. Закрытый ключ будет использоваться для подписи запросов маркера доступа.
 
-## Generating a private key
+Вы можете создать несколько закрытых ключей, а затем менять скомпрометированные или потерянные ключи, чтобы избежать простоя. Для проверки соответствия закрытого ключа открытому изучите раздел [Проверка закрытого ключа](#verifying-private-keys).
 
-After you create a GitHub App, you'll need to generate one or more private keys. You'll use the private key to sign access token requests.
+Чтобы создать закрытый ключ, выполните следующие действия.
 
-You can create multiple private keys and rotate them to prevent downtime if a key is compromised or lost. To verify that a private key matches a public key, see [Verifying private keys](#verifying-private-keys).
-
-To generate a private key:
-
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.developer_settings %}
-{% data reusables.user-settings.github_apps %}
-{% data reusables.user-settings.modify_github_app %}
-5. In "Private keys", click **Generate a private key**.
-![Generate private key](/assets/images/github-apps/github_apps_generate_private_keys.png)
-6. You will see a private key in PEM format downloaded to your computer. Make sure to store this file because GitHub only stores the public portion of the key.
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.developer_settings %} {% data reusables.user-settings.github_apps %} {% data reusables.user-settings.modify_github_app %}
+5. В разделе "Закрытые ключи" щелкните **Создать закрытый ключ**.
+![Создание закрытого ключа](/assets/images/github-apps/github_apps_generate_private_keys.png)
+6. Вы увидите скачанный на компьютер закрытый ключ в формате PEM. Не забудьте сохранить этот файл, поскольку GitHub хранит только открытую часть ключа.
 
 {% note %}
 
-**Note:** If you're using a library that requires a specific file format, the PEM file you download will be in `PKCS#1 RSAPrivateKey` format.
+**Примечание.** Если вы используете библиотеку, для которой требуется определенный формат файлов, скачанный файл PEM будет иметь формат `PKCS#1 RSAPrivateKey`.
 
 {% endnote %}
 
-## Verifying private keys
-{% data variables.product.product_name %} generates a fingerprint for each private and public key pair using the SHA-256 hash function. You can verify that your private key matches the public key stored on {% data variables.product.product_name %} by generating the fingerprint of your private key and comparing it to the fingerprint shown on {% data variables.product.product_name %}.
+## Проверка закрытых ключей
+{% data variables.product.product_name %} создает отпечаток для каждой пары закрытого и открытого ключей с помощью хэш-функции SHA-256. Вы можете проверить, соответствует ли закрытый ключ открытому ключу, хранящемуся в {% data variables.product.product_name %}, создав отпечаток закрытого ключа и сравнив его с отпечатком в {% data variables.product.product_name %}.
 
-To verify a private key:
+Для проверки закрытого ключа выполните следующее.
 
-1. Find the fingerprint for the private and public key pair you want to verify in the "Private keys" section of your {% data variables.product.prodname_github_app %}'s developer settings page. For more information, see [Generating a private key](#generating-a-private-key).
-![Private key fingerprint](/assets/images/github-apps/github_apps_private_key_fingerprint.png)
-2. Generate the fingerprint of your private key (PEM) locally by using the following command:
+1. Найдите отпечаток для проверяемой пары закрытого и открытого ключей в разделе "Закрытые ключи" на странице параметров разработчика {% data variables.product.prodname_github_app %}. Дополнительные сведения см. в разделе [Создание закрытого ключа](#generating-a-private-key).
+![Отпечаток закрытого ключа](/assets/images/github-apps/github_apps_private_key_fingerprint.png)
+2. Создайте отпечаток закрытого ключа (PEM) локально с помощью следующей команды:
     ```shell
     $ openssl rsa -in PATH_TO_PEM_FILE -pubout -outform DER | openssl sha256 -binary | openssl base64
     ```
-3. Compare the results of the locally generated fingerprint to the fingerprint you see in {% data variables.product.product_name %}.
+3. Сравните результаты локально созданного отпечатка с отпечатком, который отображается в {% data variables.product.product_name %}.
 
-## Deleting private keys
-You can remove a lost or compromised private key by deleting it, but you must have at least one private key. When you only have one key, you will need to generate a new one before deleting the old one.
-![Deleting last private key](/assets/images/github-apps/github_apps_delete_key.png)
+## Удаление закрытых ключей
+Вы можете удалить потерянный или скомпрометированный закрытый ключ, но у вас всегда должен существовать быть хотя бы один закрытый ключ. Если у вас только один ключ, то прежде чем удалять его, нужно создать новый.
+![Удаление последнего закрытого ключа](/assets/images/github-apps/github_apps_delete_key.png)
 
-## Authenticating as a {% data variables.product.prodname_github_app %}
+## Проверка подлинности от имени {% data variables.product.prodname_github_app %}
 
-Authenticating as a {% data variables.product.prodname_github_app %} lets you do a couple of things:
+Проверка подлинности от имени {% data variables.product.prodname_github_app %} позволяет выполнить несколько действий:
 
-* You can retrieve high-level management information about your {% data variables.product.prodname_github_app %}.
-* You can request access tokens for an installation of the app.
+* Вы можете получить обобщенные сведения об управлении {% data variables.product.prodname_github_app %}.
+* Вы можете запросить маркеры доступа для установки приложения.
 
-To authenticate as a {% data variables.product.prodname_github_app %}, [generate a private key](#generating-a-private-key) in PEM format and download it to your local machine. You'll use this key to sign a [JSON Web Token (JWT)](https://jwt.io/introduction) and encode it using the `RS256` algorithm. {% data variables.product.product_name %} checks that the request is authenticated by verifying the token with the app's stored public key.
+Для проверки подлинности от имени {% data variables.product.prodname_github_app %} [создайте закрытый ключ](#generating-a-private-key) в формате PEM и скачайте его на локальный компьютер. Этот ключ будет использоваться для подписи [веб-маркера JSON (JWT)](https://jwt.io/introduction) и его кодирования по алгоритму `RS256`. {% data variables.product.product_name %} проверяет подлинность запроса, сопоставляя маркер с сохраненным открытым ключом приложения.
 
-Here's a quick Ruby script you can use to generate a JWT. Note you'll have to run `gem install jwt` before using it.
+Вот простой пример скрипта Ruby, который позволяет создать JWT. Обратите внимание, что перед его использованием необходимо выполнить `gem install jwt`.
 
 <a name="jwt-payload"></a>
 ```ruby
@@ -90,19 +91,19 @@ jwt = JWT.encode(payload, private_key, "RS256")
 puts jwt
 ```
 
-`YOUR_PATH_TO_PEM` and `YOUR_APP_ID` are the values you must replace. Make sure to enclose the values in double quotes.
+Значения `YOUR_PATH_TO_PEM` и `YOUR_APP_ID` нужно заменить. Обязательно заключите значения в двойные кавычки.
 
-Use your {% data variables.product.prodname_github_app %}'s identifier (`YOUR_APP_ID`) as the value for the JWT [iss](https://tools.ietf.org/html/rfc7519#section-4.1.1) (issuer) claim. You can obtain the {% data variables.product.prodname_github_app %} identifier via the initial webhook ping after [creating the app](/apps/building-github-apps/creating-a-github-app/), or at any time from the app settings page in the GitHub.com UI.
+Используйте идентификатор {% data variables.product.prodname_github_app %} (`YOUR_APP_ID`) в качестве значения для утверждения JWT [iss](https://tools.ietf.org/html/rfc7519#section-4.1.1) (издатель). Идентификатор {% data variables.product.prodname_github_app %} можно получить сразу после [создания приложения](/apps/building-github-apps/creating-a-github-app/) при начальной проверке связи с веб-перехватчиком или в любое другое время на странице параметров приложения в пользовательском интерфейсе GitHub.com.
 
-After creating the JWT, set it in the `Header` of the API request:
+После создания JWT поместите его в параметр `Header` запроса к API:
 
 ```shell
 $ curl -i -H "Authorization: Bearer YOUR_JWT" -H "Accept: application/vnd.github+json" {% data variables.product.api_url_pre %}/app
 ```
 
-`YOUR_JWT` is the value you must replace.
+`YOUR_JWT` — это значение, которое нужно заменить.
 
-The example above uses the maximum expiration time of 10 minutes, after which the API will start returning a `401` error:
+В приведенном выше примере максимальное время окончания срока действия составляет 10 минут, а после его истечения API будет возвращать ошибку `401`:
 
 ```json
 {
@@ -111,19 +112,19 @@ The example above uses the maximum expiration time of 10 minutes, after which th
 }
 ```
 
-You'll need to create a new JWT after the time expires.
+После истечения срока действия потребуется создать новый JWT.
 
-## Accessing API endpoints as a {% data variables.product.prodname_github_app %}
+## Доступ к конечным точкам API от имени {% data variables.product.prodname_github_app %}
 
-For a list of REST API endpoints you can use to get high-level information about a {% data variables.product.prodname_github_app %}, see "[GitHub Apps](/rest/reference/apps)."
+Список конечных точек REST API, которые можно использовать для получения общих сведений о {% data variables.product.prodname_github_app %}, см. в разделе [GitHub Apps](/rest/reference/apps) (Приложения GitHub).
 
-## Authenticating as an installation
+## Проверка подлинности от имени установки
 
-Authenticating as an installation lets you perform actions in the API for that installation. Before authenticating as an installation, you must create an installation access token. Ensure that you have already installed your GitHub App to at least one repository; it is impossible to create an installation token without a single installation. These installation access tokens are used by {% data variables.product.prodname_github_apps %} to authenticate. For more information, see "[Installing GitHub Apps](/developers/apps/managing-github-apps/installing-github-apps)."
+Проверка подлинности от имени установки позволяет выполнять действия в API для этой установки. Чтобы использовать проверку подлинности от имени установки, необходимо создать маркер доступа для этой установки. Убедитесь, что приложение GitHub уже установлено хотя бы в один репозиторий, иначе вы не сможете создать маркер установки. {% data variables.product.prodname_github_apps %} использует эти маркеры доступа для проверки подлинности. Дополнительные сведения см. в разделе [Installing GitHub Apps](/developers/apps/managing-github-apps/installing-github-apps) (Установка приложений GitHub).
 
-By default, installation access tokens are scoped to all the repositories that an installation can access. You can limit the scope of the installation access token to specific repositories by using the `repository_ids` parameter. See the [Create an installation access token for an app](/rest/reference/apps#create-an-installation-access-token-for-an-app) endpoint for more details. Installation access tokens have the permissions configured by the {% data variables.product.prodname_github_app %} and expire after one hour.
+По умолчанию в область действия маркеров доступа для установки входят все репозитории, к которым имеет доступ установка. Вы можете ограничить область действия маркера доступа для установки некоторым подмножеством репозиториев, используя параметр `repository_ids`. Дополнительные сведения см. в статье [Создание маркера доступа для установки в приложении](/rest/reference/apps#create-an-installation-access-token-for-an-app). Разрешения маркеров доступа для установки имеют разрешения настраиваются в {% data variables.product.prodname_github_app %} и истекают через один час.
 
-To list the installations for an authenticated app, include the JWT [generated above](#jwt-payload) in the Authorization header in the API request:
+Чтобы получить список установок для приложения, прошедшего проверку подлинности, укажите [созданный выше](#jwt-payload) JWT в заголовке Authorization при запросе к API:
 
 ```shell
 $ curl -i -X GET \
@@ -132,9 +133,9 @@ $ curl -i -X GET \
 {% data variables.product.api_url_pre %}/app/installations
 ```
 
-The response will include a list of installations where each installation's `id` can be used for creating an installation access token. For more information about the response format, see "[List installations for the authenticated app](/rest/reference/apps#list-installations-for-the-authenticated-app)."
+Ответ будет содержать список установок, в которых можно использовать `id` каждой установки, чтобы создать маркер доступа для установки. Дополнительные сведения о формате ответа см. в статье [Список установок для приложения, прошедшего проверку подлинности](/rest/reference/apps#list-installations-for-the-authenticated-app).
 
-To create an installation access token, include the JWT [generated above](#jwt-payload) in the Authorization header in the API request and replace `:installation_id` with the installation's `id`:
+Чтобы создать маркер доступа для установки, укажите [созданный выше](#jwt-payload) JWT в заголовке авторизации при запросе к API и замените `:installation_id` значением `id` для установки:
 
 ```shell
 $ curl -i -X POST \
@@ -143,9 +144,9 @@ $ curl -i -X POST \
 {% data variables.product.api_url_pre %}/app/installations/:installation_id/access_tokens
 ```
 
-The response will include your installation access token, the expiration date, the token's permissions, and the repositories that the token can access. For more information about the response format, see the [Create an installation access token for an app](/rest/reference/apps#create-an-installation-access-token-for-an-app) endpoint.
+Ответ будет содержать маркер доступа для установки, дату окончания срока действия, разрешения маркера и репозитории, к которым может получить доступ этот маркер. Дополнительные сведения о формате ответа см. в статье [Создание маркера доступа для установки в конечной точке приложения](/rest/reference/apps#create-an-installation-access-token-for-an-app).
 
-To authenticate with an installation access token, include it in the Authorization header in the API request:
+Чтобы выполнить проверку подлинности с помощью маркера доступа для установки, добавьте его в заголовок Authorization при запросе к API:
 
 ```shell
 $ curl -i \
@@ -154,23 +155,23 @@ $ curl -i \
 {% data variables.product.api_url_pre %}/installation/repositories
 ```
 
-`YOUR_INSTALLATION_ACCESS_TOKEN` is the value you must replace.
+`YOUR_INSTALLATION_ACCESS_TOKEN` — это значение, которое нужно заменить.
 
 {% note %}
 
-**Note:** {% data reusables.getting-started.bearer-vs-token %}
+**Примечание.** {% data reusables.getting-started.bearer-vs-token %}
 
 {% endnote %}
 
-## Accessing API endpoints as an installation
+## Доступ к конечным точкам API от имени установки
 
-For a list of REST API endpoints that are available for use by {% data variables.product.prodname_github_apps %} using an installation access token, see "[Available Endpoints](/rest/overview/endpoints-available-for-github-apps)."
+Список конечных точек REST API, к которым {% data variables.product.prodname_github_apps %} могут обращаться с использованием маркера доступа для установки, см. в статье [Доступные конечные точки](/rest/overview/endpoints-available-for-github-apps).
 
-For a list of endpoints related to installations, see "[Installations](/rest/reference/apps#installations)."
+Список конечных точек, связанных с установками, см. в разделе [Installations](/rest/reference/apps#installations) (Установки).
 
-## HTTP-based Git access by an installation
+## Доступ к Git по протоколу HTTP от имени установки
 
-Installations with [permissions](/apps/building-github-apps/setting-permissions-for-github-apps/) on `contents` of a repository, can use their installation access tokens to authenticate for Git access. Use the installation access token as the HTTP password:
+Установки с [разрешениями](/apps/building-github-apps/setting-permissions-for-github-apps/) для репозитория `contents` могут использовать маркеры доступа для установки, чтобы выполнять проверку подлинности при доступе к Git. Используйте маркер доступа для установки в качестве пароля HTTP:
 
 ```shell
 git clone https://x-access-token:&lt;token&gt;@github.com/owner/repo.git

@@ -1,6 +1,6 @@
 ---
-title: Checking for existing SSH keys
-intro: 'Before you generate an SSH key, you can check to see if you have any existing SSH keys.'
+title: Проверка наличия существующих ключей SSH
+intro: Перед созданием ключа SSH можно проверить наличие существующих ключей SSH.
 redirect_from:
   - /articles/checking-for-existing-ssh-keys
   - /github/authenticating-to-github/checking-for-existing-ssh-keys
@@ -13,41 +13,46 @@ versions:
 topics:
   - SSH
 shortTitle: Check for existing SSH key
+ms.openlocfilehash: 1869bdc1960e90ab8deef1608d36f8fa439d1c47
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148097756'
 ---
+## Ключи SSH
 
-## About SSH keys
+SSH можно использовать для выполнения операций Git в репозиториях на {% ifversion fpt или ghec или ghes %}{% данных variables.location.product_location %}{% elsif ghae %}{% данных variables.product.product_name %}{% endif %}. Дополнительные сведения см. в разделе [Сведения о SSH](/authentication/connecting-to-github-with-ssh/about-ssh).
 
-You can use SSH to perform Git operations in repositories on {% ifversion fpt or ghec or ghes %}{% data variables.location.product_location %}{% elsif ghae %}{% data variables.product.product_name %}{% endif %}. For more information, see "[About SSH](/authentication/connecting-to-github-with-ssh/about-ssh)."
+Если у вас есть ключ SSH, его можно использовать для проверки подлинности операций Git по протоколу SSH.
 
-If you have an existing SSH key, you can use the key to authenticate Git operations over SSH.
+## Проверка наличия существующих ключей SSH
 
-## Checking for existing SSH keys
-
-Before you generate a new SSH key, you should check your local machine for existing keys.
+Перед созданием нового ключа SSH необходимо проверить наличие существующих ключей на локальном компьютере.
 
 {% data reusables.ssh.key-type-support %}
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
-2. Enter `ls -al ~/.ssh` to see if existing SSH keys are present.
+2. Введите `ls -al ~/.ssh`, чтобы узнать, имеются ли существующие ключи SSH.
 
   ```shell
   $ ls -al ~/.ssh
   # Lists the files in your .ssh directory, if they exist
   ```
 
-3. Check the directory listing to see if you already have a public SSH key. By default, the {% ifversion ghae %}filename of a supported public key for {% data variables.product.product_name %} is *id_rsa.pub*.{% else %}filenames of supported public keys for {% data variables.product.product_name %} are one of the following.
+3. Проверьте список файлов каталога, чтобы узнать, есть ли у вас открытый ключ SSH. По умолчанию {% ifversion ghae %}имя файла поддерживаемого открытого ключа для {% data variables.product.product_name %} — *id_rsa.pub*.{% else %}имена файлов поддерживаемых открытых ключей для {% data variables.product.product_name %} являются одним из следующих.
     - *id_rsa.pub*
     - *id_ecdsa.pub*
     - *id_ed25519.pub*{% endif %}
 
   {% tip %}
 
-  **Tip**: If you receive an error that *~/.ssh* doesn't exist, you do not have an existing SSH key pair in the default location. You can create a new SSH key pair in the next step.
+  **Совет**. Если появляется сообщение об ошибке, что ~ */.ssh* не существует, это означает, что у вас нет существующей пары ключей SSH в расположении по умолчанию. Новую пару ключей SSH можно создать на следующем шаге.
 
   {% endtip %}
 
-4. Either generate a new SSH key or upload an existing key.
-    - If you don't have a supported public and private key pair, or don't wish to use any that are available, generate a new SSH key.
-    - If you see an existing public and private key pair listed (for example, *id_rsa.pub* and *id_rsa*) that you would like to use to connect to {% data variables.product.product_name %}, you can add the key to the ssh-agent.
+4. Создайте новый ключ SSH или отправьте существующий ключ.
+    - Если у вас нет поддерживаемой пары открытых и закрытых ключей или вы не хотите использовать доступные ключи SSH, создайте новый ключ SSH.
+    - Если отображается существующая пара открытого и закрытого ключей (например, *id_rsa.pub* и *id_rsa*), которую вы хотите использовать для подключения к {% data variables.product.product_name %}, можно добавить ключ в ssh-agent.
 
-      For more information about generation of a new SSH key or addition of an existing key to the ssh-agent, see "[Generating a new SSH key and adding it to the ssh-agent](/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)."
+      Дополнительные сведения о создании нового ключа SSH или добавлении существующего ключа в ssh-agent см. в разделе [Создание нового ключа SSH и его добавление в ssh-agent](/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent).

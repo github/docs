@@ -1,6 +1,6 @@
 ---
-title: Installing a package
-intro: 'You can install a package from {% data variables.product.prodname_registry %} and use the package as a dependency in your own project.'
+title: Installation d’un package
+intro: 'Vous pouvez installer un package à partir de {% data variables.product.prodname_registry %} et utiliser le package comme dépendance dans votre propre projet.'
 product: '{% data reusables.gated-features.packages %}'
 redirect_from:
   - /github/managing-packages-with-github-packages/installing-a-package
@@ -12,22 +12,26 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
+ms.openlocfilehash: 86c095ab1eddc969e4e04f3305059678ffcb9c20
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145134367'
 ---
+{% data reusables.package_registry.packages-ghes-release-stage %} {% data reusables.package_registry.packages-ghae-release-stage %}
 
-{% data reusables.package_registry.packages-ghes-release-stage %}
-{% data reusables.package_registry.packages-ghae-release-stage %}
+## À propos de l’installation de packages
 
-## About package installation
+Vous pouvez effectuer une recherche sur {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} pour trouver des packages dans {% data variables.product.prodname_registry %} que vous pouvez installer dans votre propre projet. Pour plus d’informations, consultez « [Recherche de packages dans {% data variables.product.prodname_registry %}](/search-github/searching-on-github/searching-for-packages) ».
 
-You can search on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %} to find packages in {% data variables.product.prodname_registry %} that you can install in your own project. For more information, see "[Searching {% data variables.product.prodname_registry %} for packages](/search-github/searching-on-github/searching-for-packages)."
+Une fois que vous avez trouvé un package, vous pouvez lire la description ainsi que les instructions d’installation et d’utilisation du package dans la page du package.
 
-After you find a package, you can read the package's description and installation and usage instructions on the package page.
+## Installation d’un package
 
-## Installing a package
+Vous pouvez installer un package à partir de {% data variables.product.prodname_registry %} à l’aide de tout {% ifversion fpt or ghae or ghec %}client de package pris en charge{% else %}type de package activé pour votre instance{% endif %} en suivant les mêmes instructions générales.
 
-You can install a package from {% data variables.product.prodname_registry %} using any {% ifversion fpt or ghae or ghec %}supported package client{% else %}package type enabled for your instance{% endif %} by following the same general guidelines.
+1. Authentifiez-vous auprès de {% data variables.product.prodname_registry %} à l’aide des instructions de votre client de package. Pour plus d’informations, consultez « [Authentification auprès de GitHub Packages](/packages/learn-github-packages/introduction-to-github-packages#authenticating-to-github-packages) ».
+2. Installez le package à l’aide des instructions de votre client de package.
 
-1. Authenticate to {% data variables.product.prodname_registry %} using the instructions for your package client. For more information, see "[Authenticating to GitHub Packages](/packages/learn-github-packages/introduction-to-github-packages#authenticating-to-github-packages)."
-2. Install the package using the instructions for your package client.
-
-For instructions specific to your package client, see "[Working with a {% data variables.product.prodname_registry %} registry](/packages/working-with-a-github-packages-registry)."
+Pour obtenir des instructions spécifiques à votre client de package, consultez « [Utilisation d’un registre {% data variables.product.prodname_registry %}](/packages/working-with-a-github-packages-registry) ».

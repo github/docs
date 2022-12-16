@@ -1,6 +1,6 @@
 ---
-title: Filtering alerts in the security overview
-intro: Use filters to view specific categories of alerts
+title: Filtern von Warnungen in der Sicherheitsübersicht
+intro: Verwenden von Filtern zum Anzeigen bestimmter Kategorien von Warnungen
 permissions: '{% data reusables.security-overview.permissions %}'
 product: '{% data reusables.gated-features.security-overview %}'
 allowTitleToDifferFromFilename: true
@@ -16,147 +16,138 @@ topics:
   - Organizations
   - Teams
 shortTitle: Filtering the security overview
+ms.openlocfilehash: 60ff823ab0303dfb8fce788e708cb1cd61a9f8e2
+ms.sourcegitcommit: 094dff459fcbf7d0634930e02405606dfffd7f0a
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 11/12/2022
+ms.locfileid: '148163195'
 ---
+{% ifversion ghes < 3.5 or ghae %} {% data reusables.security-overview.beta %} {% endif %}
 
-{% ifversion ghes < 3.5 or ghae %}
-{% data reusables.security-overview.beta %}
-{% endif %}
+## Informationen zum Filtern der Sicherheitsübersicht
 
-## About filtering the security overview
+Du kannst in einer Sicherheitsübersicht Filter verwenden, um dich auf eine Reihe von Faktoren zu konzentrieren, z. B. auf die Warnungsrisikostufe, den Warnungstyp und die Featureaktivierung. Je nach Ansicht{% ifversion ghec or ghes > 3.4 or ghae > 3.4 %} und abhängig davon, ob du die Daten auf Unternehmens- oder Organisationsebene betrachtest,{% endif %} stehen unterschiedliche Filter zur Verfügung.
 
-You can use filters in a security overview to narrow your focus based on a range of factors, like alert risk level, alert type, and feature enablement. Different filters are available depending on the specific view{% ifversion ghec or ghes > 3.4 or ghae > 3.4 %} and whether you are viewing data at the enterpise or organization level{% endif %}.
+{% ifversion security-overview-displayed-alerts %} {% note %} {% data reusables.security-overview.information-varies-GHAS %} {% endnote %} {% endif %}
 
-{% ifversion security-overview-displayed-alerts %}
-{% note %}
-{% data reusables.security-overview.information-varies-GHAS %}
-{% endnote %}
-{% endif %}
+## Filtern nach Repository
 
-## Filter by repository
-
-| Qualifier | Description |
+| Qualifizierer | BESCHREIBUNG |
 | -------- | -------- |
-| `repo:REPOSITORY-NAME` | Displays data for the specified repository. |
+| `repo:REPOSITORY-NAME` | Zeigt Daten für das angegebene Repository an. |
 
-## Filter by whether security features are enabled
+## Filtern nach der Angabe, ob Sicherheitsfeatures aktiviert sind
 
-In the examples below, replace `:enabled` with `:not-enabled` to see repositories where security features are not enabled. These qualifiers are available in the main summary views.
+Ersetze in den folgenden Beispielen `:enabled` durch `:not-enabled`, um Repositorys anzuzeigen, in denen die Sicherheitsfunktionen nicht aktiviert sind. Diese Qualifizierer sind in den Hauptübersichtsansichten verfügbar.
 
-| Qualifier | Description |
+| Qualifizierer | BESCHREIBUNG |
 | -------- | -------- |
-| `code-scanning:enabled` | Display repositories that have set up {% data variables.product.prodname_code_scanning %}. | 
-| `dependabot:enabled` | Display repositories that have enabled {% data variables.product.prodname_dependabot_alerts %}. |
-| `secret-scanning:enabled` | Display repositories that have enabled {% data variables.product.prodname_secret_scanning %} alerts. {% ifversion security-overview-org-risk-coverage %} |
-| `any-feature:enabled` | Display repositories where at least one security feature is enabled. |{% else %}
-| `not-enabled:any` | Display repositories with at least one security feature that is not enabled. |{% endif %}
+| `code-scanning:enabled` | Zeigt Repositorys an, für die die {% data variables.product.prodname_code_scanning %} eingerichtet wurde. | 
+| `dependabot:enabled` | Zeigt Repositorys an, für die {% data variables.product.prodname_dependabot_alerts %} aktiviert wurden. |
+| `secret-scanning:enabled` | Zeigt Repositorys an, für die Warnungen der {% data variables.product.prodname_secret_scanning %} aktiviert wurden. {% ifversion security-overview-org-risk-coverage %} |
+| `any-feature:enabled` | Zeigt Repositorys an, bei denen mindestens eine Sicherheitsfunktion aktiviert ist. |{% else %}
+| `not-enabled:any` | Anzeigen von Repositorys mit mindestens einem Sicherheitsfeature, das nicht aktiviert ist |{% endif %}
 
-{% ifversion security-overview-org-risk-coverage %}
-The organization-level Security Coverage view includes extra filters.
+{% ifversion security-overview-org-risk-coverage %} Die Ansicht „Sicherheitsabdeckung“ auf Organisationsebene enthält zusätzliche Filter.
 
 {% data reusables.security-overview.beta-org-risk-coverage %}
 
-| Qualifier | Description |
+| Qualifizierer | BESCHREIBUNG |
 | -------- | -------- |
-| `code-scanning-pull-request-alerts:enabled`| Display repositories that have configured {% data variables.product.prodname_code_scanning %} to run on pull requests. |
-| `dependabot-security-updates:enabled` | Display repositories that have enabled {% data variables.product.prodname_dependabot %} security updates.  |
-| `secret-scanning-push-protection:enabled` | Display repositories that have set up push protection for {% data variables.product.prodname_secret_scanning %}. |
+| `code-scanning-pull-request-alerts:enabled`| Zeigt Repositorys an, für die die {% data variables.product.prodname_code_scanning %} zur Ausführung bei Pull Requests konfiguriert wurde. |
+| `dependabot-security-updates:enabled` | Zeigt Repositorys an, für die {% data variables.product.prodname_dependabot %}-Warnungen aktiviert wurden.  |
+| `secret-scanning-push-protection:enabled` | Zeigt Repositorys an, für die der Pushschutz für die {% data variables.product.prodname_secret_scanning %} eingerichtet wurde. |
 {% endif %}
 
-## Filter by repository type
+## Filtern nach Repositorytyp
 
-These qualifiers are available in the main summary views.
+Diese Qualifizierer sind in den Hauptübersichtsansichten verfügbar.
 
-| Qualifier | Description |
+| Qualifizierer | BESCHREIBUNG |
 | -------- | -------- |
-{%- ifversion ghes or ghec %}
-| `is:public` | Display public repositories. |
-{%- endif %}
-| `is:internal` | Display internal repositories. |
-| `is:private` | Display private repositories. |
-| `archived:true` | Display archived repositories. |
-| `archived:false` | Omit archived repositories. |
+{%- ifversion ghes or ghec %} | `is:public` | Anzeigen öffentlicher Repositorys | {%- endif %} | `is:internal` | Anzeigen interner Repositorys | | `is:private` | Anzeigen privater Repositorys | | `archived:true` | Anzeigen archivierter Repositorys | | `archived:false` | Auslassen archivierter Repositorys |
 
 {% ifversion ghec or ghes > 3.4 or ghae > 3.4 %}
-## Filter by level of risk for repositories
+## Filtern nach Risikostufe für Repositorys
 
-The level of risk for a repository is determined by the number and severity of alerts from security features. If one or more security features are not enabled for a repository, the repository will have an unknown level of risk. If a repository has no risks that are detected by security features, the repository will have a clear level of risk. 
+Die Risikostufe für ein Repository wird durch die Anzahl und dem Schweregrad der Warnungen von Sicherheitsfeatures bestimmt. Wenn ein oder mehrere Sicherheitsfeatures für ein Repository nicht aktiviert sind, hat das Repository ein unbekanntes Risikoniveau. Wenn ein Repository keine Risiken aufweist, die von Sicherheitsfeatures erkannt werden, hat das Repository ein klares Risikoniveau. 
 
-{% ifversion security-overview-org-risk-coverage %}
-These qualifiers are available in the enterprise-level view.
+{% ifversion security-overview-org-risk-coverage %} Diese Qualifizierer sind in der Ansicht auf Unternehmensebene verfügbar.
 {% endif %}
 
-| Qualifier | Description |
+| Qualifizierer | BESCHREIBUNG |
 | -------- | -------- |
-| `risk:high` | Display repositories that are at high risk. |
-| `risk:medium` | Display repositories that are at medium risk. |
-| `risk:low` | Display repositories that are at low risk. |
-| `risk:unknown` | Display repositories that are at an unknown level of risk. |
-| `risk:clear` | Display repositories that have no detected level of risk. |
+| `risk:high` | Anzeigen von Repositorys, die ein hohes Risiko haben |
+| `risk:medium` | Anzeigen von Repositorys, die ein mittleres Risiko haben |
+| `risk:low` | Anzeigen von Repositorys, die mit geringem Risiko verbunden sind |
+| `risk:unknown` | Anzeigen von Repositorys, die ein unbekanntes Risikoniveau aufweisen |
+| `risk:clear` | Anzeigen von Repositorys, die kein erkanntes Risikoniveau aufweisen |
 {% endif %}
 
-## Filter by number of alerts
+## Filtern nach Anzahl von Warnungen
 
-{% ifversion security-overview-org-risk-coverage %}These qualifiers are available in the enterprise-level Overview and in the organization-level Security Risk view.{% else %}These qualifiers are available in the main summary views.{% endif %}
+{% ifversion security-overview-org-risk-coverage %}Diese Qualifizierer sind in der Übersicht auf Unternehmensebene und in der Ansicht „Sicherheitsrisiko“ auf Organisationsebene verfügbar.{% else %}Diese Qualifizierer sind in den Hauptübersichtsansichten verfügbar.{% endif %}
 
-| Qualifier | Description |
+| Qualifizierer | BESCHREIBUNG |
 | -------- | -------- |
-| <code>code-scanning:<em>n</em></code> | Display repositories that have *n* {% data variables.product.prodname_code_scanning %} alerts. This qualifier can use `=`, `>` and `<` comparison operators. |
-| <code>secret-scanning:<em>n</em></code> | Display repositories that have *n* {% data variables.product.prodname_secret_scanning %} alerts. This qualifier can use `=`, `>` and `<` comparison operators. |
-| <code>dependabot:<em>n</em></code> | Display repositories that have *n* {% data variables.product.prodname_dependabot_alerts %}. This qualifier can use `=`, `>` and `<` comparison operators. |
+| <code>code-scanning:<em>n</em></code> | Anzeigen von Repositorys, die *n* {% data variables.product.prodname_code_scanning %}-Warnungen aufweisen. Dieser Qualifizierer kann die Vergleichsoperatoren `=`, `>` und `<` verwenden. |
+| <code>secret-scanning:<em>n</em></code> | Anzeigen von Repositorys, die *n* {% data variables.product.prodname_secret_scanning %}-Warnungen aufweisen. Dieser Qualifizierer kann die Vergleichsoperatoren `=`, `>` und `<` verwenden. |
+| <code>dependabot:<em>n</em></code> | Anzeigen von Repositorys, die *n* {% data variables.product.prodname_dependabot_alerts %} besitzen. Dieser Qualifizierer kann die Vergleichsoperatoren `=`, `>` und `<` verwenden. |
 
 
-## Filter by team
+## Filtern nach Team
 
-These qualifiers are available in the main summary views.
+Diese Qualifizierer sind in den Hauptübersichtsansichten verfügbar.
 
-| Qualifier | Description |
+| Qualifizierer | BESCHREIBUNG |
 | -------- | -------- |
-| <code>team:<em>TEAM-NAME</em></code> | Displays repositories that *TEAM-NAME* has admin privileges for. |
+| <code>team:<em>TEAM-NAME</em></code> | Zeigt Repositorys an, die für *TEAM-NAME* Administratorrechte besitzen. |
 
-## Filter by topic
+## Filtern nach Thema
 
-These qualifiers are available in the main summary views.
+Diese Qualifizierer sind in den Hauptübersichtsansichten verfügbar.
 
-| Qualifier | Description |
+| Qualifizierer | BESCHREIBUNG |
 | -------- | -------- |
-| <code>topic:<em>TOPIC-NAME</em></code> | Displays repositories that are classified with *TOPIC-NAME*. |
+| <code>topic:<em>TOPIC-NAME</em></code> | Zeigt Repositorys an, die mit *TOPIC-NAME* klassifiziert werden. |
 
 {% ifversion security-overview-alert-views %}
 
-## Additional filters for {% data variables.product.prodname_code_scanning %} alert views
+## Zusätzliche Filter für Warnungsansichten der {% data variables.product.prodname_code_scanning %}
 
-All code scanning alerts have one of the categories shown below. You can click any result to see full details of the relevant query and the line of code that triggered the alert.
+Alle Codeüberprüfungsbenachrichtigungen weisen eine der unten aufgeführten Kategorien auf. Du kannst auf ein beliebiges Ergebnis klicken, um alle Details zur entsprechenden Abfrage sowie die Codezeile anzuzeigen, die die Warnmeldung ausgelöst hat.
 
-| Qualifier | Description |
+| Qualifizierer | BESCHREIBUNG |
 | -------- | -------- |
-|`severity:critical`|Displays {% data variables.product.prodname_code_scanning %} alerts categorized as critical.|
-|`severity:high`|Displays {% data variables.product.prodname_code_scanning %} alerts categorized as high.|
-|`severity:medium`|Displays {% data variables.product.prodname_code_scanning %} alerts categorized as medium.|
-|`severity:low`|Displays {% data variables.product.prodname_code_scanning %} alerts categorized as low.|
-|`severity:error`|Displays {% data variables.product.prodname_code_scanning %} alerts categorized as errors.|
-|`severity:warning`|Displays {% data variables.product.prodname_code_scanning %} alerts categorized as warnings.|
-|`severity:note`|Displays {% data variables.product.prodname_code_scanning %} alerts categorized as notes.|
+|`severity:critical`|Zeigt {% data variables.product.prodname_code_scanning %}-Warnungen an, die als kritisch kategorisiert sind|
+|`severity:high`|Zeigt {% data variables.product.prodname_code_scanning %}-Warnungen an, die als hoch kategorisiert sind|
+|`severity:medium`|Zeigt {% data variables.product.prodname_code_scanning %}-Warnungen an, die als mittel kategorisiert sind|
+|`severity:low`|Zeigt {% data variables.product.prodname_code_scanning %}-Warnungen an, die als niedrig kategorisiert sind|
+|`severity:error`|Zeigt {% data variables.product.prodname_code_scanning %}-Warnungen an, die als Fehler kategorisiert sind|
+|`severity:warning`|Zeigt {% data variables.product.prodname_code_scanning %}-Warnungen an, die als Warnung kategorisiert sind|
+|`severity:note`|Zeigt {% data variables.product.prodname_code_scanning %}-Warnungen an, die als Hinweise kategorisiert sind|
 
 {% ifversion dependabot-alerts-vulnerable-calls %}
-## Additional filters for {% data variables.product.prodname_dependabot %} alert views
+## Zusätzliche Filter für {% data variables.product.prodname_dependabot %}-Warnungsansichten
 
-You can filter the view to show {% data variables.product.prodname_dependabot_alerts %} that are ready to fix or where additional information about exposure is available. You can click any result to see full details of the alert.
+Du kannst die Ansicht filtern, um {% data variables.product.prodname_dependabot_alerts %} anzuzeigen, die behoben werden können oder für die Informationen zur Offenlegung verfügbar sind. Du kannst auf ein beliebiges Ergebnis klicken, um vollständige Details der Warnung anzuzeigen.
 
-| Qualifier | Description |
+| Qualifizierer | BESCHREIBUNG |
 | -------- | -------- |
-|`has:patch`|Displays {% data variables.product.prodname_dependabot %} alerts for vulnerabilities where a secure version is already available.|
-|`has:vulnerable-calls`|Displays {% data variables.product.prodname_dependabot %} alerts where at least one call from the repository to a vulnerable function is detected. For more information, see "[Viewing and updating Dependabot alerts](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts#about-the-detection-of-calls-to-vulnerable-functions)."|
+|`has:patch`|Zeigt {% data variables.product.prodname_dependabot %}-Warnungen für Sicherheitsrisiken an, für die bereits eine sichere Version verfügbar ist|
+|`has:vulnerable-calls`|Zeigt {% data variables.product.prodname_dependabot %}-Warnungen an, bei denen mindestens ein Aufruf vom Repository von einer anfälligen Funktion erkannt wird. Weitere Informationen findest du unter [Anzeigen und Aktualisieren von Dependabot-Warnungen](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts#about-the-detection-of-calls-to-vulnerable-functions).|
 {% endif %}
 
 {% endif %}
 
-## Additional filters for {% data variables.product.prodname_secret_scanning %} alert views
+## Zusätzliche Filter für Warnungsansichten der {% data variables.product.prodname_secret_scanning %}
 
-| Qualifier | Description |
+| Qualifizierer | BESCHREIBUNG |
 | -------- | -------- |
-|`provider:PROVIDER_NAME` | Displays alerts for all secrets issues by the specified provider.  |
-| `secret-type:SERVICE_PROVIDER` | Displays alerts for the specified secret and provider. |
-| `secret-type:CUSTOM-PATTERN` | Displays alerts for secrets matching the specified custom pattern.  |
+|`provider:PROVIDER_NAME` | Zeigt Warnungen für alle Geheimnis-Issues des angegebenen Anbieters an.  |
+| `secret-type:SERVICE_PROVIDER` | Zeigt Warnungen für das bestimmte Geheimnis und den Anbieter an. |
+| `secret-type:CUSTOM-PATTERN` | Zeigt Warnungen für Geheime an, die dem angegebenen benutzerdefinierten Muster entsprechen.  |
 
-For more information, see "[{% data variables.product.prodname_secret_scanning_caps %} patterns](/code-security/secret-scanning/secret-scanning-patterns)."
+Weitere Informationen findest du unter [{% data variables.product.prodname_secret_scanning_caps %}-Muster](/code-security/secret-scanning/secret-scanning-patterns).
 

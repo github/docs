@@ -1,14 +1,22 @@
-We record and display two numbers of committers for {% data variables.product.prodname_GH_advanced_security %} on {% data variables.location.product_location %}:
+---
+ms.openlocfilehash: 281a3a039c8a557c209e756d107ac1856a181017
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "145086216"
+---
+Nous enregistrons et affichons deux nombres de valideurs pour {% data variables.product.prodname_GH_advanced_security %} sur {% data variables.product.product_location %} :
 
-- **Committers** is the number of committers who contributed to at least one {% ifversion fpt or ghec %}private {% endif %}repository in an organization and who use a seat in your enterprise license. That is, they are also an organization member, an external collaborator, or have a pending invitation to join an organization in your enterprise.
-- **Unique to this repository/organization** is the number of committers who contributed only to this repository, or to repositories in this organization. This number shows how many license seats you can free up by disabling {% data variables.product.prodname_GH_advanced_security %} for that repository or organization.
+- **Valideurs** indique le nombre de valideurs qui ont contribué à au moins un dépôt {% ifversion fpt or ghec %}privé {% endif %}dans une organisation, et qui utilisent un poste dans votre licence d’entreprise. Autrement dit, il sont également membres de l’organisation ou collaborateurs externes, ou ont une invitation en attente à rejoindre une organisation dans votre entreprise.
+- Le nombre de valideurs qui ont contribué uniquement à ce dépôt ou à des dépôts dans cette organisation est **propre à ce dépôt ou à cette organisation**. Ce nombre indique combien de postes de licence vous pouvez libérer en désactivant {% data variables.product.prodname_GH_advanced_security %} pour ce dépôt ou cette organisation.
 
-If there are no unique committers, all active committers also contribute to other repositories or organizations that use {% data variables.product.prodname_GH_advanced_security %}. Disabling the feature for that repository or organization would not free any seats on your license.
+À défaut de valideur unique, tous les valideurs actifs contribuent également à d’autres dépôts ou organisations qui utilisent {% data variables.product.prodname_GH_advanced_security %}. La désactivation de la fonctionnalité pour ce dépôt ou cette organisation ne libérerait aucun poste sur votre licence.
 
-When you remove a user from your enterprise account, the user's license is freed within 24 hours.
+Lorsque vous supprimez un utilisateur de votre compte d’entreprise, la licence de l’utilisateur est libérée dans les 24 heures.
 
 {% note %}
 
-**Note:** Users can contribute to multiple repositories or organizations. Usage is measured across the whole enterprise account to ensure that each member uses one seat regardless of how many repositories or organizations the user contributes to.
+**Remarque :** les utilisateurs peuvent contribuer à plusieurs dépôts ou organisations. L’utilisation est mesurée dans l’ensemble du compte d’entreprise pour s’assurer que chaque membre utilise un seul poste, quel que soit le nombre de dépôts ou d’organisations auxquels l’utilisateur contribue.
 
 {% endnote %}

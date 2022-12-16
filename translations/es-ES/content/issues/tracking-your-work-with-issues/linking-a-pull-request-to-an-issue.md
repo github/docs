@@ -1,6 +1,6 @@
 ---
-title: Linking a pull request to an issue
-intro: 'You can link a pull request {% ifversion link-existing-branches-to-issue %}or branch {% endif %}to an issue to show that a fix is in progress and to automatically close the issue when the pull request {% ifversion link-existing-branches-to-issue %}or branch {% endif %} is merged.'
+title: Vincular una solicitud de cambios a una propuesta
+intro: 'Puedes vincular una solicitud de incorporación de cambios {% ifversion link-existing-branches-to-issue %} o branch {% endif %} a un problema para mostrar que hay una corrección en curso y cerrar automáticamente el problema cuando se combina la solicitud de incorporación de cambios {% ifversion link-existing-branches-to-issue %}o branch {% endif %}.'
 redirect_from:
   - /github/managing-your-work-on-github/managing-your-work-with-issues-and-pull-requests/linking-a-pull-request-to-an-issue
   - /articles/closing-issues-via-commit-message
@@ -17,89 +17,92 @@ versions:
 topics:
   - Pull requests
 shortTitle: Link PR to issue
+ms.openlocfilehash: 8c3ec2b778029c91d0e97783ced873e6b9b28a9b
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148109985'
 ---
 {% note %}
 
-**Note:** The special keywords in a pull request description are interpreted when the pull request targets the repository's *default* branch. However, if the PR's base is *any other branch*, then these keywords are ignored, no links are created and merging the PR has no effect on the issues. **If you want to link a pull request to an issue using a keyword, the PR must be on the default branch.**
+**Nota:** Las palabras clave especiales en la descripción de una solicitud de incorporación de cambios se interpretan cuando la solicitud de incorporación de cambios se destina a la rama *predeterminada* del repositorio. Pero si la base de la PR es *cualquier otra rama*, estas palabras clave se ignorarán, no se creará ningún vínculo y la combinación de la PR no tendrá efecto alguno en las incidencias. **Si quiere vincular una solicitud de incorporación de cambios con una incidencia mediante una palabra clave, la solicitud debe estar en la rama predeterminada.**
 
 {% endnote %}
 
-## About linked issues and pull requests
+## Acerca de las propuestas y solicitudes de cambios vinculadas
 
-You can link an issue to a pull request manually or using a supported keyword in the pull request description.
+Puedes vincular una incidencia a una solicitud de incorporación de cambios manualmente o con una palabra clave compatible en la descripción de la solicitud.
 
-When you link a pull request to the issue the pull request addresses, collaborators can see that someone is working on the issue.
+Cuando vinculas una solicitud de cambios a la propuesta a la que ésta hace referencia, los colaboradores pueden ver si alguien está trabajando en dicha propuesta.
 
-When you merge a linked pull request into the default branch of a repository, its linked issue is automatically closed. For more information about the default branch, see "[Changing the default branch](/github/administering-a-repository/changing-the-default-branch)."
+Cuando fusionas una solicitud de cambios que se ha vinculado y se encuentra en la rama predeterminada de un repositorio, su propuesta vinculada se cierra automáticamente. Para más información sobre la rama predeterminada, vea "[Cambio de la rama predeterminada](/github/administering-a-repository/changing-the-default-branch)".
 
-## Linking a pull request to an issue using a keyword
+## Vincular una solicitud de cambios a una propuesta utilizando una palabra clave
 
-You can link a pull request to an issue by using a supported keyword in the pull request's description or in a commit message. The pull request **must be** on the default branch.
+Puedes vincular una solicitud de incorporación de cambios a una incidencia si utilizas una palabra clave compatible en la descripción de la solicitud o en un mensaje de confirmación. La solicitud de incorporación de cambios **debe estar** en la rama predeterminada.
 
-* close
+* cerrar
 * closes
 * closed
 * fix
 * fixes
-* fixed
+* fijo
 * resolve
 * resolves
 * resolved
 
-If you use a keyword to reference a pull request comment in another pull request, the pull requests will be linked. Merging the referencing pull request also closes the referenced pull request.
+Si utilizas una palabra clave para referenciar un comentario de una solicitud de cambios en otra solicitud de cambios, estas solicitudes se enlazarán. Con la fusión de la solicitud de incorporación de cambios que hace la referencia también se cerrará la solicitud de incorporación de cambios referenciada.
 
-The syntax for closing keywords depends on whether the issue is in the same repository as the pull request.
+La sintaxis para palabras clave de cierre dependerá de si la propuesta se encuentra en el mismo repositorio que la solicitud de cambios.
 
-Linked issue | Syntax | Example
+Informe vinculado | Sintaxis | Ejemplo
 --------------- | ------ | ------
-Issue in the same repository | *KEYWORD* #*ISSUE-NUMBER* | `Closes #10`
-Issue in a different repository | *KEYWORD* *OWNER*/*REPOSITORY*#*ISSUE-NUMBER* | `Fixes octo-org/octo-repo#100`
-Multiple issues | Use full syntax for each issue | `Resolves #10, resolves #123, resolves octo-org/octo-repo#100`
+Propuesta en el mismo repositorio | *PALABRA CLAVE* #*NÚMERO DE INCIDENCIA* | `Closes #10`
+Propuesta en un repositorio diferente | *PALABRA_CLAVE* *PROPIETARIO*/*REPOSITORIO*#*NÚMERO_DE_INCIDENCIA* | `Fixes octo-org/octo-repo#100`
+Propuestas múltiples | Utilizar la sintaxis completa para cada informe | `Resolves #10, resolves #123, resolves octo-org/octo-repo#100`
 
-Only manually linked pull requests can be manually unlinked. To unlink an issue that you linked using a keyword, you must edit the pull request description to remove the keyword.
+Solo las solicitudes de incorporación de cambios vinculadas manualmente se pueden desvincular manualmente. Para desvincular una incidencia que hayas vinculado previamente utilizando una palabra clave, deberás editar la descripción de la solicitud de incorporación de cambios y así poder eliminar la palabra clave.
 
-You can also use closing keywords in a commit message. The issue will be closed when you merge the commit into the default branch, but the pull request that contains the commit will not be listed as a linked pull request.
+También puedes utilizar palabras clave de cierre en un mensaje de confirmación. La propuesta se cerrará cuando fusiones la confirmación en la rama predeterminada, pero la solicitud de cambios que contiene la confirmación no se listará como una solicitud de cambios enlazada.
 
-## Manually linking a pull request to an issue using the pull request sidebar
+## Vinculación manual de una solicitud de incorporación de cambios a una propuesta mediante la barra lateral de la solicitud de incorporación de cambios
 
-Anyone with write permissions to a repository can manually link a pull request to an issue from the pull request sidebar.
+Cualquiera con permisos de escritura en un repositorio puede vincular manualmente una solicitud de cambios a una propuesta desde la barra lateral de la solicitud de incorporación de cambios.
 
-You can manually link up to ten issues to each pull request. The issue and pull request must be in the same repository.
+Puedes vincular hasta diez propuestas a cada solicitud de cambios manualmente. La propuesta y la solicitud de cambios deberán encontrarse en el mismo repositorio.
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-pr %}
-3. In the list of pull requests, click the pull request that you'd like to link to an issue.
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-pr %}
+3. En la lista de solicitudes de extracción, da clic en aquella que quieras enlazar a un informe de problemas.
 {% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
-4. In the right sidebar, in the "Development" section click {% octicon "gear" aria-label="The Gear icon" %}.
+4. En la barra lateral derecha, en la sección de "Desarrollo", haz clic en {% octicon "gear" aria-label="The Gear icon" %}.
 {% else %}
-4. In the right sidebar, click **Linked issues**.
-  ![Linked issues in the right sidebar](/assets/images/help/pull_requests/linked-issues.png)
-{% endif %}
-5. Click the issue you want to link to the pull request.
-  ![Drop down to link issue](/assets/images/help/pull_requests/link-issue-drop-down.png)
+4. En la barra lateral derecha, haga clic en **Incidencias vinculadas**.
+  ![Incidencias vinculadas en la barra lateral derecha](/assets/images/help/pull_requests/linked-issues.png) {% endif %}
+5. Da clic en la propuesta que quieras enlazar a la solicitud de cambios.
+  ![Menú desplegable para vincular una incidencia](/assets/images/help/pull_requests/link-issue-drop-down.png)
 
 {% ifversion link-existing-branches-to-issue %}
 
-## Manually linking a pull request or branch to an issue using the issue sidebar
+## Vinculación manual de una solicitud de incorporación de cambios o una rama a un problema mediante la barra lateral de la propuesta
 
-Anyone with write permissions to a repository can manually link a pull request or branch to an issue from the issue sidebar.
+Cualquiera con permisos de escritura en un repositorio puede vincular manualmente una solicitud de cambios o rama a una propuesta desde la barra lateral de la propuesta.
 
-You can manually link up to ten issues to each pull request. The issue can be in a different repository than the linked pull request or branch. Your last selected repository will be remembered 
+Puedes vincular hasta diez propuestas a cada solicitud de cambios manualmente. La propuesta puede estar en un repositorio diferente al de la solicitud de incorporación de cambios vinculada o la rama. Se recordará el último repositorio seleccionado 
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-issues %}
-3. In the list of issues, click the issue that you'd like to link a pull request or branch to.
-4. In the right sidebar, click **Development**.
-  ![Development menu in the right sidebar](/assets/images/help/issues/development-menu.png)
-5. Click the repository containing the pull request or branch you want to link to the issue.
-  ![Drop down to select repository](/assets/images/help/issues/development-menu-select-repository.png)
-6. Click the pull request or branch you want to link to the issue.
-  ![Drop down to link pull request or branch](/assets/images/help/issues/development-menu-select-pr-or-branch.png)
-7. Click **Apply**.
-  ![Apply](/assets/images/help/issues/development-menu-apply.png)
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-issues %}
+3. En la lista de propuestas, haz clic en la propuesta a la que deseas vincular una solicitud de incorporación de cambios o una rama.
+4. En la barra lateral derecha, haz clic en **Desarrollo**.
+  ![Menú Desarrollo en la barra lateral derecha](/assets/images/help/issues/development-menu.png)
+5. Haz clic en el repositorio que contiene la solicitud de incorporación de cambios o la rama que deseas vincular a la propuesta.
+  ![Desplegable para seleccionar el repositorio](/assets/images/help/issues/development-menu-select-repository.png)
+6. Haz clic en la solicitud de cambios o rama que quieras enlazar a la propuesta.
+  ![Desplegable para vincular solicitud de incorporación de cambios o rama](/assets/images/help/issues/development-menu-select-pr-or-branch.png)
+7. Haga clic en **Aplicar**.
+  ![Aplicar](/assets/images/help/issues/development-menu-apply.png)
 
 {% endif %}
 
-## Further reading
+## Información adicional
 
-* "[Autolinked references and URLs](/articles/autolinked-references-and-urls/#issues-and-pull-requests)"
+* "[Referencias y direcciones URL de vinculación automática](/articles/autolinked-references-and-urls/#issues-and-pull-requests)"

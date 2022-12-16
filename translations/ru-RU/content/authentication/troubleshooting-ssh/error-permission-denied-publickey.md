@@ -1,6 +1,6 @@
 ---
-title: 'Error: Permission denied (publickey)'
-intro: 'A "Permission denied" error means that the server rejected your connection. There could be several reasons why, and the most common examples are explained below.'
+title: 'Ошибка: отказано в разрешении (publickey)'
+intro: 'Ошибка "Отказано в разрешении" означает, что сервер отклонил подключение. Ниже приведено несколько причин и разъяснение по самым распространенным примерам.'
 redirect_from:
   - /articles/error-permission-denied-publickey
   - /github/authenticating-to-github/error-permission-denied-publickey
@@ -13,16 +13,22 @@ versions:
 topics:
   - SSH
 shortTitle: Permission denied (publickey)
+ms.openlocfilehash: 091bdb97bf473225b2d5115b1df79ccf847d0221
+ms.sourcegitcommit: 5f40f9341dd1e953f4be8d1642f219e628e00cc8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/04/2022
+ms.locfileid: '148008990'
 ---
-## Should the `sudo` command or elevated privileges be used with Git?
+## Следует ли использовать команду `sudo` или более высокий уровень привилегий с GIT?
 
-You should not be using the `sudo` command or elevated privileges, such as administrator permissions, with Git. If you have a *very good reason* you must use `sudo`, then ensure you are using it with every command (it's probably just better to use `su` to get a shell as root at that point). If you [generate SSH keys](/articles/generating-an-ssh-key) without `sudo` and then try to use a command like `sudo git push`, you won't be using the same keys that you generated.
+Команду `sudo` или более высокий уровень привилегий, например разрешения администратора, не следует использовать с GIT. Если у вас есть *очень веская причина* для применения команды `sudo`, используйте ее с каждой командой (вероятно, будет лучше применить `su` для работы с оболочкой от имени привилегированного пользователя). Если вы [создадите ключи SSH](/articles/generating-an-ssh-key) без `sudo`, а затем попытаетесь выполнить такую команду, как `sudo git push`, будут использоваться не те ключи, которые вы создали.
 
-## Check that you are connecting to the correct server
+## Проверка подключения к правильному серверу
 
-Typing is hard, we all know it. Pay attention to what you type; you won't be able to connect to "githib.com" or "guthub.com". In some cases, a corporate network may cause issues resolving the DNS record as well.
+Правильно вводить текст не так уж легко. Будьте внимательны при вводе: вы не сможете подключиться к githib.com или guthub.com. В некоторых случаях в корпоративной сети также могут возникнуть проблемы с разрешением записи DNS.
 
-To make sure you are connecting to the right domain, you can enter the following command:
+Чтобы убедиться в том, что вы подключаетесь к нужному домену, можно ввести следующую команду:
 
 ```shell
 $ ssh -vT git@{% data variables.command_line.codeblock %}
@@ -33,31 +39,31 @@ $ ssh -vT git@{% data variables.command_line.codeblock %}
 > debug1: Connecting to {% data variables.command_line.codeblock %} port 22.
 ```
 
-The connection should be made on port 22{% ifversion fpt or ghec %}, unless you're overriding settings to use [SSH over HTTPS](/articles/using-ssh-over-the-https-port){% endif %}.
+Подключение должно выполняться через порт 22{% ifversion fpt or ghec %}, если вы не переопределили параметры для использования [SSH по протоколу HTTPS](/articles/using-ssh-over-the-https-port){% endif %}.
 
-## Always use the "git" user
+## Подключение с помощью пользователя git
 
-All connections, including those for remote URLs, must be made as the "git" user. If you try to connect with your {% data variables.product.product_name %} username, it will fail:
+Все подключения, в том числе к удаленным URL-адресам, должны выполняться от имени пользователя git. Если вы попытаетесь подключиться с именем пользователя {% data variables.product.product_name %}, произойдет сбой:
 
 ```shell
 $ ssh -T GITHUB-USERNAME@{% data variables.command_line.codeblock %}
 > Permission denied (publickey).
 ```
-If your connection failed and you're using a remote URL with your {% data variables.product.product_name %} username, you can [change the remote URL to use the "git" user](/github/getting-started-with-github/managing-remote-repositories).
+Если подключение завершилось сбоем и вы используете удаленный URL-адрес с именем пользователя {% data variables.product.product_name %}, вы можете [переключить удаленный URL-адрес на пользователя git](/github/getting-started-with-github/managing-remote-repositories).
 
-You should verify your connection by typing:
+Чтобы проверить подключение, введите следующую команду:
 
 ```shell
 $ ssh -T git@{% data variables.command_line.codeblock %}
 > Hi USERNAME! You've successfully authenticated...
 ```
 
-## Make sure you have a key that is being used
+## Проверка наличия используемого ключа
 
 {% mac %}
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
-2. Verify that you have a private key generated and loaded into SSH. 
+2. Убедитесь в наличии закрытого ключа, созданного и загруженного в SSH. 
   ```shell
   # start the ssh-agent in the background
   $ eval "$(ssh-agent -s)"
@@ -75,7 +81,7 @@ $ ssh -T git@{% data variables.command_line.codeblock %}
 1. {% data reusables.desktop.windows_git_bash_turn_on_ssh_agent %}
 
   {% data reusables.desktop.windows_git_for_windows_turn_on_ssh_agent %}
-2. Verify that you have a private key generated and loaded into SSH. 
+2. Убедитесь в наличии закрытого ключа, созданного и загруженного в SSH. 
   ```shell
   $ ssh-add -l -E sha256
   > 2048 SHA256:274ffWxgaxq/tSINAykStUL7XWyRNcRTlcST1Ei7gBQ /Users/USERNAME/.ssh/id_rsa (RSA)
@@ -86,7 +92,7 @@ $ ssh -T git@{% data variables.command_line.codeblock %}
 {% linux %}
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
-2. Verify that you have a private key generated and loaded into SSH. 
+2. Убедитесь в наличии закрытого ключа, созданного и загруженного в SSH. 
   ```shell
   $ ssh-add -l -E sha256
   > 2048 <em>SHA256:274ffWxgaxq/tSINAykStUL7XWyRNcRTlcST1Ei7gBQ</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)
@@ -95,17 +101,17 @@ $ ssh -T git@{% data variables.command_line.codeblock %}
 
 {% endlinux %}
 
-The `ssh-add` command *should* print out a long string of numbers and letters. If it does not print anything, you will need to [generate a new SSH key](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) and associate it with {% data variables.product.product_name %}.
+Команда `ssh-add` *должна* вывести длинную строку из цифр и букв. Если она ничего не выводит, необходимо [создать новый ключ SSH](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) и связать его с {% data variables.product.product_name %}.
 
 {% tip %}
 
-**Tip**: On most systems the default private keys (`~/.ssh/id_rsa` and `~/.ssh/identity`) are automatically added to the SSH authentication agent. You shouldn't need to run `ssh-add path/to/key` unless you override the file name when you generate a key.
+**Совет**. В большинстве систем закрытые ключи по умолчанию (`~/.ssh/id_rsa` и `~/.ssh/identity`) автоматически добавляются в агент проверки подлинности SSH. Вам не нужно выполнять команду `ssh-add path/to/key`, если имя файла не было переопределено при создании ключа.
 
 {% endtip %}
 
-### Getting more details
+### Получение дополнительных сведений
 
-You can also check that the key is being used by trying to connect to `git@{% data variables.command_line.backticks %}`:
+Вы также можете проверить, используется ли ключ, попытавшись подключиться к `git@{% data variables.command_line.backticks %}`:
 
 ```shell
 $ ssh -vT git@{% data variables.command_line.codeblock %}
@@ -123,7 +129,7 @@ $ ssh -vT git@{% data variables.command_line.codeblock %}
 > Permission denied (publickey).
 ```
 
-In that example, we did not have any keys for SSH to use. The "-1" at the end of the "identity file" lines means SSH couldn't find a file to use. Later on, the "Trying private key" lines also indicate that no file was found. If a file existed, those lines would be "1" and "Offering public key", respectively:
+В этом примере у нас нет ключей для использования в SSH. Значение -1 в конце строк "identity file" означает, что SSH не удалось найти файл для использования. Далее в строках "Trying private key" также указывается, что файл не найден. Если бы файл существовал, в этих строках были бы значения 1 и "Offering public key" соответственно:
 
 ```shell
 $ ssh -vT git@{% data variables.command_line.codeblock %}
@@ -135,83 +141,80 @@ $ ssh -vT git@{% data variables.command_line.codeblock %}
 > debug1: Offering RSA public key: /Users/YOU/.ssh/id_rsa
 ```
 
-## Verify the public key is attached to your account
+## Проверка подключения открытого ключа к учетной записи
 
-You must provide your public key to {% data variables.product.product_name %} to establish a secure connection.
+Чтобы установить безопасное подключение, необходимо предоставить {% data variables.product.product_name %} открытый ключ.
 
 {% mac %}
 
-1. Open Terminal.
-2. Start SSH agent in the background.
+1. Откройте терминал.
+2. Запустите агент SSH в фоновом режиме.
   ```shell
   $ eval "$(ssh-agent -s)"
   > Agent pid 59566
   ```
-3. Find and take a note of your public key fingerprint. 
+3. Найдите и запишите отпечаток открытого ключа. 
   ```shell
   $ ssh-add -l -E sha256
   > 2048 SHA256:274ffWxgaxq/tSINAykStUL7XWyRNcRTlcST1Ei7gBQ /Users/USERNAME/.ssh/id_rsa (RSA)
   ```
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.ssh %}
-6. Compare the list of SSH keys with the output from the `ssh-add` command.
-![SSH key listing in {% data variables.product.product_name %}](/assets/images/help/settings/ssh_key_listing.png)
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.ssh %}
+6. Сравните список ключей SSH с выходными данными команды `ssh-add`.
+![Список ключей SSH в {% data variables.product.product_name %}](/assets/images/help/settings/ssh_key_listing.png)
 
 {% endmac %}
 
 {% windows %}
 
-1. Open the command line.
-2. Start SSH agent in the background.
+1. Откройте командную строку.
+2. Запустите агент SSH в фоновом режиме.
   ```shell
   $ ssh-agent -s
   > Agent pid 59566
   ```
-3. Find and take a note of your public key fingerprint. 
+3. Найдите и запишите отпечаток открытого ключа. 
   ```shell
   $ ssh-add -l -E sha256
   > 2048 SHA256:274ffWxgaxq/tSINAykStUL7XWyRNcRTlcST1Ei7gBQ /Users/USERNAME/.ssh/id_rsa (RSA)
   ```
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.ssh %}
-6. Compare the list of SSH keys with the output from the `ssh-add` command.
-![SSH key listing in {% data variables.product.product_name %}](/assets/images/help/settings/ssh_key_listing.png)
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.ssh %}
+6. Сравните список ключей SSH с выходными данными команды `ssh-add`.
+![Список ключей SSH в {% data variables.product.product_name %}](/assets/images/help/settings/ssh_key_listing.png)
 
 {% endwindows %}
 
 {% linux %}
 
-1. Open Terminal.
-2. Start SSH agent in the background.
+1. Откройте терминал.
+2. Запустите агент SSH в фоновом режиме.
   ```shell
   $ eval "$(ssh-agent -s)"
   > Agent pid 59566
   ```
-3. Find and take a note of your public key fingerprint. If you're using OpenSSH 6.7 or older:
+3. Найдите и запишите отпечаток открытого ключа. Если вы используете OpenSSH 6.7 или более поздней версии:
   ```shell
   $ ssh-add -l
   > 2048 a0:dd:42:3c:5a:9d:e4:2a:21:52:4e:78:07:6e:c8:4d /Users/USERNAME/.ssh/id_rsa (RSA)
   ```
 
-  If you're using OpenSSH 6.8 or newer:
+  Если вы используете OpenSSH 6.8 или более ранней версии:
   ```shell
   $ ssh-add -l -E md5
   > 2048 MD5:a0:dd:42:3c:5a:9d:e4:2a:21:52:4e:78:07:6e:c8:4d /Users/USERNAME/.ssh/id_rsa (RSA)
   ```
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.ssh %}
-6. Compare the list of SSH keys with the output from the `ssh-add` command.
-![SSH key listing in {% data variables.product.product_name %}](/assets/images/help/settings/ssh_key_listing.png)
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.ssh %}
+6. Сравните список ключей SSH с выходными данными команды `ssh-add`.
+![Список ключей SSH в {% data variables.product.product_name %}](/assets/images/help/settings/ssh_key_listing.png)
 
 {% endlinux %}
 
-If you don't see your public key in {% data variables.product.product_name %}, you'll need to [add your SSH key to {% data variables.product.product_name %}](/articles/adding-a-new-ssh-key-to-your-github-account) to associate it with your computer.
+Если открытый ключ отсутствует в {% data variables.product.product_name %}, необходимо [добавить ключ SSH в {% data variables.product.product_name %}](/articles/adding-a-new-ssh-key-to-your-github-account), чтобы связать его с компьютером.
 
 {% warning %}
 
-**Warning**: If you see an SSH key you're not familiar with on {% data variables.product.product_name %}, delete it immediately and contact {% data variables.contact.contact_support %}, for further help. An unidentified public key may indicate a possible security concern. For more information, see "[Reviewing your SSH keys](/articles/reviewing-your-ssh-keys)."
+**Предупреждение**. Если вы видите ключ SSH, который вам неизвестен, в {% data variables.product.product_name %}, сразу удалите его и обратитесь к {% data variables.contact.contact_support %} для получения дополнительной помощи. Неопознанный открытый ключ может указывать на возможную проблему безопасности. Дополнительные сведения см. в статье [Просмотр ключей SSH](/articles/reviewing-your-ssh-keys).
 
 {% endwarning %}

@@ -1,6 +1,6 @@
 ---
-title: Deploying to Amazon Elastic Container Service
-intro: You can deploy to Amazon Elastic Container Service (ECS) as part of your continuous deployment (CD) workflows.
+title: Amazon Elastic Container Service에 배포
+intro: CD(지속적인 배포) 워크플로의 일부로 Amazon ECS(Elastic Container Service)에 배포할 수 있습니다.
 redirect_from:
   - /actions/guides/deploying-to-amazon-elastic-container-service
   - /actions/deployment/deploying-to-amazon-elastic-container-service
@@ -15,37 +15,40 @@ topics:
   - Containers
   - Amazon ECS
 shortTitle: Deploy to Amazon ECS
+ms.openlocfilehash: bddc39944949ad48e12e86c0c5834b7ff0a6e0c0
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148098685'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+## 소개
 
-## Introduction
+이 가이드에서는 {% data variables.product.prodname_actions %}를 사용하여 컨테이너화된 애플리케이션을 빌드하고, [Amazon ECR(Elastic Container Registry)](https://aws.amazon.com/ecr/)에 푸시하고, `main` 분기에 대한 푸시가 있는 경우 [Amazon ECS(Elastic Container Service)](https://aws.amazon.com/ecs/)에 배포하는 방법을 설명합니다.
 
-This guide explains how to use {% data variables.product.prodname_actions %} to build a containerized application, push it to [Amazon Elastic Container Registry (ECR)](https://aws.amazon.com/ecr/), and deploy it to [Amazon Elastic Container Service (ECS)](https://aws.amazon.com/ecs/) when there is a push to the `main` branch.
-
-On every new push to `main` in your {% data variables.product.company_short %} repository, the {% data variables.product.prodname_actions %} workflow builds and pushes a new container image to Amazon ECR, and then deploys a new task definition to Amazon ECS.
+{% data variables.product.company_short %} 리포지토리의 `main`에 대한 모든 새로운 푸시에서 {% data variables.product.prodname_actions %} 워크플로는 새 컨테이너 이미지를 빌드하고 Amazon ECR에 푸시한 다음 Amazon ECS에 새 작업 정의를 배포합니다.
 
 {% ifversion fpt or ghec or ghes > 3.4 %}
 
 {% note %}
 
-**Note**: {% data reusables.actions.about-oidc-short-overview %} and ["Configuring OpenID Connect in Amazon Web Services"](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-amazon-web-services).
+**참고**: {% data reusables.actions.about-oidc-short-overview %} 및 [“Amazon Web Services에서 OpenID Connect 구성”](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-amazon-web-services).
 
 {% endnote %}
 
 {% endif %}
 
-## Prerequisites
+## 필수 조건
 
-Before creating your {% data variables.product.prodname_actions %} workflow, you will first need to complete the following setup steps for Amazon ECR and ECS:
+{% data variables.product.prodname_actions %} 워크플로를 만들기 전에 먼저 Amazon ECR 및 ECS에 대한 다음 설정 단계를 완료해야 합니다.
 
-1. Create an Amazon ECR repository to store your images.
+1. 이미지를 저장할 Amazon ECR 리포지토리를 만듭니다.
 
-   For example, using [the AWS CLI](https://aws.amazon.com/cli/):
+   예를 들어 [AWS CLI](https://aws.amazon.com/cli/)를 사용합니다.
 
-   {% raw %}```bash{:copy}
-   aws ecr create-repository \
+   {% raw %}```bash{:copy} aws ecr create-repository \
        --repository-name MY_ECR_REPOSITORY \
        --region MY_AWS_REGION
    ```{% endraw %}
@@ -167,14 +170,14 @@ jobs:
           wait-for-service-stability: true{% endraw %}
 ```
 
-## Additional resources
+## 추가 리소스
 
-For the original starter workflow, see [`aws.yml`](https://github.com/actions/starter-workflows/blob/main/deployments/aws.yml) in the {% data variables.product.prodname_actions %} `starter-workflows` repository.
+원래의 시작 워크플로는 {% data variables.product.prodname_actions %} `starter-workflows` 리포지토리의 [`aws.yml`](https://github.com/actions/starter-workflows/blob/main/deployments/aws.yml)을 참조하세요.
 
-For more information on the services used in these examples, see the following documentation:
+예제에서 사용된 도구에 대한 자세한 내용은 다음 설명서를 참조하세요.
 
-* "[Security best practices in IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html)" in the Amazon AWS documentation.
-* Official AWS "[Configure AWS Credentials](https://github.com/aws-actions/configure-aws-credentials)" action.
-* Official AWS [Amazon ECR "Login"](https://github.com/aws-actions/amazon-ecr-login) action.
-* Official AWS [Amazon ECS "Render Task Definition"](https://github.com/aws-actions/amazon-ecs-render-task-definition) action.
-* Official AWS [Amazon ECS "Deploy Task Definition"](https://github.com/aws-actions/amazon-ecs-deploy-task-definition) action.
+* Amazon AWS 설명서의 “[AM의 보안 모범 사례](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html).”
+* 공식 AWS “[AWS 자격 증명 구성](https://github.com/aws-actions/configure-aws-credentials)” 작업.
+* 공식 AWS [Amazon ECR “로그인”](https://github.com/aws-actions/amazon-ecr-login) 작업.
+* 공식 AWS [Amazon ECS “렌더링 작업 정의”](https://github.com/aws-actions/amazon-ecs-render-task-definition) 작업.
+* 공식 AWS [Amazon ECS “작업 정의 배포”](https://github.com/aws-actions/amazon-ecs-deploy-task-definition) 작업.

@@ -1,6 +1,6 @@
 ---
-title: About your organization's profile
-intro: Your organization's profile page shows basic information about your organization.
+title: Informationen zum Profil deiner Organisation
+intro: Auf der Profilseite deiner Organisation werden grundlegende Informationen zu deiner Organisation angezeigt.
 redirect_from:
   - /articles/about-your-organization-s-profile
   - /articles/about-your-organizations-profile
@@ -14,22 +14,21 @@ versions:
 topics:
   - Profiles
 shortTitle: Organization's profile
+ms.openlocfilehash: a42d5393de00e57f0b642c89a349da86b4ad55f1
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148108387'
 ---
+Du kannst optional eine Beschreibung, einen Standort, eine Website und eine E-Mail-Adresse für deine Organisation hinzufügen und wichtige Repositorys anheften.{% ifversion fpt or ghec or ghes > 3.3 %} Du kannst das öffentliche Profil deiner Organisation anpassen, indem du eine README.md-Datei hinzufügst. Weitere Informationen findest du unter "[Anpassen des Profils deiner Organisation](/organizations/collaborating-with-groups-in-organizations/customizing-your-organizations-profile)".{% endif %}
 
-You can optionally choose to add a description, location, website, and email address for your organization, and pin important repositories.{% ifversion fpt or ghec or ghes > 3.3 %} You can customize your organization's public profile by adding a README.md file. For more information, see "[Customizing your organization's profile](/organizations/collaborating-with-groups-in-organizations/customizing-your-organizations-profile)."{% endif %}
-
-{% ifversion fpt %}
-Organizations that use {% data variables.product.prodname_ghe_cloud %} can confirm their organization's identity and display a "Verified" badge on their organization's profile page by verifying the organization's domains with {% data variables.product.product_name %}. For more information, see "[Verifying or approving a domain for your organization](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)" in the {% data variables.product.prodname_ghe_cloud %} documenatation.
-{% elsif ghec or ghes %}
-To confirm your organization's identity and display a "Verified" badge on your organization profile page, you can verify your organization's domains with {% data variables.product.prodname_dotcom %}. For more information, see "[Verifying or approving a domain for your organization](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)."
+{% ifversion fpt %} Organisationen, die {% data variables.product.prodname_ghe_cloud %} verwenden, können die Identität ihrer Organisation bestätigen und einen Badge für "Überprüft" auf der Profilseite ihrer Organisation anzeigen, indem sie die Domänen der Organisation mit {% data variables.product.product_name %} überprüfen. Weitere Informationen findest du unter "[Überprüfen oder Genehmigen einer Domäne für deine Organisation](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)" in der {% data variables.product.prodname_ghe_cloud %}-Dokumentation.
+{% elsif ghec or ghes %} Um die Identität deiner Organisation zu bestätigen und den Badge „Verifiziert“ auf der Profilseite deiner Organisation anzuzeigen, kannst du die Domänen deiner Organisation mit {% data variables.product.prodname_dotcom %} verifizieren. Weitere Informationen findest du unter [Überprüfen oder Genehmigen einer Domäne für deine Organisation](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization).
 {% endif %}
 
-{% ifversion fpt or ghes or ghec %}
-![Sample organization profile page](/assets/images/help/organizations/org_profile_with_overview.png)
-{% else %}
-![Sample organization profile page](/assets/images/help/profile/org_profile.png)
-{% endif %}
+{% ifversion fpt or ghes or ghec %} ![Beispiel-Organisationsprofilseite](/assets/images/help/organizations/org_profile_with_overview.png) {% else %} ![Beispiel-Organisationsprofilseite](/assets/images/help/profile/org_profile.png) {% endif %}
 
-## Further reading
+## Weitere Informationsquellen
 
-- "[About organizations](/organizations/collaborating-with-groups-in-organizations/about-organizations)"
+- "[Informationen zu Organisationen](/organizations/collaborating-with-groups-in-organizations/about-organizations)"

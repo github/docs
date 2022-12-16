@@ -4,12 +4,12 @@ intro: 'Erfahre, wie du die {% data variables.product.prodname_discussions %} Gr
 versions:
   feature: discussions
 shortTitle: Use GraphQL for Discussions
-ms.openlocfilehash: 1512082737df4c92942a40007d2c75897edb1061
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: fd296c4e9390cac3500ba7319cb602366a37e262
+ms.sourcegitcommit: 4d6d3735d32540cb6de3b95ea9a75b8b247c580d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147408843'
+ms.lasthandoff: 11/30/2022
+ms.locfileid: '148185623'
 ---
 Die {% data variables.product.prodname_discussions %} GraphQL API ermöglicht es dir, Diskussionsbeiträge zu erhalten, zu erstellen, zu bearbeiten und zu löschen. Weitere Informationen zu {% data variables.product.prodname_discussions %} findest du unter [Informationen zu Diskussionen](/discussions/collaborating-with-your-community-using-discussions/about-discussions)."
 
@@ -72,7 +72,7 @@ enum DiscussionOrderField {
 
 ### Repository.discussionCategories
 
-Gib die verfügbaren Diskussionskategorien zurück, die in diesem Repository definiert sind. Jedes Repository kann bis zu 10 Kategorien aufweisen. Weitere Informationen zu Diskussionskategorien findest du unter "[Informationen zu Diskussionen](/discussions/collaborating-with-your-community-using-discussions/about-discussions#about-categories-and-formats-for-discussions)."
+Gib die verfügbaren Diskussionskategorien zurück, die in diesem Repository definiert sind. Jedes Repository kann bis zu 25 Kategorien aufweisen. Weitere Informationen zu Diskussionskategorien findest du unter "[Informationen zu Diskussionen](/discussions/collaborating-with-your-community-using-discussions/about-discussions#about-categories-and-formats-for-discussions)."
 
 _Unterschrift:_
 
@@ -147,7 +147,7 @@ query {
 }
 ```
 
-### Diskussion
+### Diskussion (Discussion)
 
 <details>
 <summary>Felder:</summary>
@@ -1083,6 +1083,6 @@ Rückgabetypfelder:
 * `clientMutationId: String` Der eindeutige Bezeichner, der als Eingabe bereitgestellt wird.
 * `discussion: Discussion` Die Diskussion, die den unmarkierten Kommentar enthält.
 
-## Suchen,
+## Suche
 
 Die Diskussion kann von der obersten Ebene `search` Feld zurückgegeben werden. Um nach Diskussionen zu suchen, gibst du `type` als `DISCUSSION` an. Der `SearchResultItemConnection` Typ hat ein `discussionCount` Feld, um die Anzahl der zurückgegebenen Diskussionen zu melden, und der `Discussion` Typ wird der `SearchResultItem` Union hinzugefügt. Weitere Informationen findest du unter "[Abfragen](/graphql/reference/queries#searchresultitemconnection)" und "[Diskussionen durchsuchen](/search-github/searching-on-github/searching-discussions)."
