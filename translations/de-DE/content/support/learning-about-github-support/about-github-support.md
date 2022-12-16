@@ -21,12 +21,12 @@ redirect_from:
   - /enterprise-server/admin/enterprise-support/about-support-for-advanced-security
 topics:
   - Support
-ms.openlocfilehash: 4044d5741b6df2827fa41c71476f4fb66ac717a4
-ms.sourcegitcommit: 5b0becac9098ab45c2204882d719f5cf17bfff18
+ms.openlocfilehash: aa2b407b96cc7ee2ecc20fee9782e3084b3627db
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/31/2022
-ms.locfileid: '148120864'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148192913'
 ---
 ## Informationen zum {% data variables.contact.github_support %}
 
@@ -78,6 +78,8 @@ Um Konto-, Sicherheits- und Missbrauchsprobleme zu melden oder Supportunterstüt
 {% ifversion fpt %} Wenn du über ein kostenpflichtiges Produkt verfügst oder Mitglied einer Organisation mit einem kostenpflichtigen Produkt bist, kannst du den englischsprachigen {% data variables.contact.github_support %} kontaktieren.
 {% else %} Mit {% data variables.product.product_name %} hast du Zugang zum Support auf Englisch und Japanisch.
 {% endif %}
+
+{% ifversion fpt or ghec or ghes %} {% data reusables.support.support-ticket-translation-option %} {% endif %}
 
 {% ifversion ghes or ghec %}
 
@@ -182,7 +184,7 @@ Bei dringenden Problemen können wir dir rund um die Uhr auf Englisch helfen, au
 
 {% endif %}
 
-## Weiterführende Themen
+## Weitere Informationsquellen
 
 {%- ifversion ghes %}
 - Abschnitt 10 zum Support in der [{% data variables.product.prodname_ghe_server %}-Lizenzvereinbarung](https://enterprise.github.com/license) {%- endif %}

@@ -2,6 +2,7 @@
 title: 机密扫描
 intro: 使用机密扫描 API 从存储库中检索和更新机密警报。
 versions:
+  fpt: '*'
   ghes: '*'
   ghae: '*'
   ghec: '*'

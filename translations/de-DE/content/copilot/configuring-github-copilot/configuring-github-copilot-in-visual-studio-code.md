@@ -7,12 +7,12 @@ versions:
 shortTitle: Visual Studio Code
 topics:
   - Copilot
-ms.openlocfilehash: 0c91f9c11f98669ba6bcbf84113a629ae6d53044
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: ab043d4eeca2003deaf77aa80be46fc79acf8649
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147080183'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148193363'
 ---
 ## Informationen zu {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode %}
 
@@ -88,9 +88,8 @@ Wenn du bei Verwendung von {% data variables.product.prodname_copilot %} nicht d
 
 Du kannst Inlinevorschläge für {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode %} aktivieren oder deaktivieren. 
 
-1. Navigiere im Menü **Datei** zu **Einstellungen**, und klicke auf **Einstellungen**.
-![Screenshot der Einstellungen für {% data variables.product.prodname_vscode %}](/assets/images/help/copilot/vsc-settings.png)
-1. Klicke im linken Bereich der Registerkarte „Einstellungen“ auf **Erweiterungen**, und wähle dann **Copilot** aus.
+{% data reusables.copilot.vscode-settings %}
+1. Klicke im linken Bereich der Registerkarte „Einstellungen“ auf **Erweiterungen**, und wähle dann **{% data variables.product.prodname_copilot_short %}** aus.
 1. Aktiviere oder deaktiviere das Kontrollkästchen unter „Inlinevorschläge:Aktivieren“, um Inlinevorschläge zu aktivieren oder zu deaktivieren.
 
 ## Aktivieren oder Deaktivieren von {% data variables.product.prodname_copilot %} für bestimmte Sprachen
@@ -98,7 +97,7 @@ Du kannst Inlinevorschläge für {% data variables.product.prodname_copilot %} i
 Du kannst angeben, für welche Sprachen du {% data variables.product.prodname_copilot %} aktivieren oder deaktivieren möchtest.
 
 1. Klicke in {% data variables.product.prodname_vscode %} auf die Registerkarte **Erweiterungen**, und navigiere dann zum Abschnitt **Copilot**. Weitere Informationen findest du unter [Aktivieren und Deaktivieren von Inlinevorschlägen](#enabling-and-disabling-inline-suggestions).
-1. Klicke unter „Copilot für angegebene Sprachen aktivieren oder deaktivieren“ auf **In settings.json bearbeiten**.
+1. Klicke unter „{% data variables.product.prodname_copilot_short %} für angegebene Sprachen aktivieren oder deaktivieren“ auf **In settings.json bearbeiten**.
 1. Füge in der Datei _settings.json_ die Sprachen hinzu, für die du {% data variables.product.prodname_copilot %} aktivieren möchtest, oder entferne sie zum Deaktivieren. Wenn du beispielsweise Python in {% data variables.product.prodname_copilot %} aktivieren möchtest, füge der Liste `"python": true` hinzu, und stelle sicher, dass dem letzten Listenelement ein Komma nachgestellt ist.
 
     ```json
@@ -114,5 +113,23 @@ Du kannst angeben, für welche Sprachen du {% data variables.product.prodname_co
         }
     }
     ```
+
+## Konfigurieren von Proxyeinstellungen für {% data variables.product.prodname_copilot %}
+
+Du kannst {% data variables.product.prodname_copilot %} so konfigurieren, dass eine Verbindung über einen HTTP-Proxyserver in {% data variables.product.prodname_vscode %} hergestellt wird. {% data variables.product.prodname_copilot %} unterstützt grundlegende HTTP-Proxysetups mit oder ohne Standardauthentifizierung. 
+
+{% data reusables.copilot.vscode-settings %}
+1. Klicke im linken Bereich der Registerkarte „Einstellungen“ auf **Anwendung**, und wähle dann **Proxy** aus.
+1. Gib im Textfeld unter „Proxy“ die Adresse deines Proxyservers ein, z. B. `http://localhost:3128`. Alternativ verwendet {% data variables.product.prodname_copilot %} die Variablen `http_proxy` und `https_proxy` aus deiner Umgebung.
+
+   ![Screenshot: Textfeld „Proxy“ in Visual Studio Code](/assets/images/help/copilot/proxy-textbox.png)
+
+1. Klicke optional unter „HTTP: Proxyautorisierung“ auf **In settings.json bearbeiten**, und füge den erforderlichen Wert hinzu, der als `Proxy-Authorization`-Header für jede Netzwerkanforderung gesendet werden soll.
+
+   ![Screenshot: Textfeld für die Proxyautorisierung in Visual Studio Code](/assets/images/help/copilot/proxy-authorization.png)
+
+1. Aktiviere oder deaktiviere optional unter „HTTP: Striktes Proxy-SSL“ das Kontrollkästchen, um striktes SSL zu aktivieren oder zu deaktivieren.
+
+   ![Screenshot: Kontrollkästchen „Striktes Proxy-SSL“ in Visual Studio Code](/assets/images/help/copilot/proxy-strict-ssl.png)
 
 {% data reusables.copilot.dotcom-settings %}

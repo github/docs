@@ -28,6 +28,7 @@ children:
   - /overview-of-github-copilot
   - /getting-started-with-github-copilot
   - /configuring-github-copilot
+  - /troubleshooting-github-copilot
 topics:
   - Copilot
 ms.openlocfilehash: 9a6100d2b5fe0bf8b710ce19e6a12f0afee42913

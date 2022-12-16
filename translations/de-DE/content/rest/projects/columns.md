@@ -2,7 +2,7 @@
 title: '{% data variables.product.prodname_project_v1_caps %}-Spalten'
 shortTitle: Columns
 allowTitleToDifferFromFilename: true
-intro: 'Mit der Spalten-API für {% data variables.product.prodname_project_v1 %} kannst du Spalten auf einem {% data variables.projects.projects_v1_board %} erstellen und verwalten.'
+intro: 'Verwende die REST-API, um Spalten in einem {% data variables.projects.projects_v1_board %} zu erstellen und zu verwalten.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,11 +11,13 @@ versions:
 topics:
   - API
 miniTocMaxHeadingLevel: 3
-ms.openlocfilehash: 8804dd9fafb1dd8142c50e30db36cc5daf7c04df
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 41ae7c65372079bb9a226839fa1615cbaab9f60b
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147423068'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148193324'
 ---
 {% data reusables.projects.projects-api %}
+
+{% data reusables.user-settings.classic-projects-api-classic-pat-only %}

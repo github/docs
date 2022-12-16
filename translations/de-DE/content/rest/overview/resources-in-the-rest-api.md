@@ -11,12 +11,12 @@ versions:
 miniTocMaxHeadingLevel: 3
 topics:
   - API
-ms.openlocfilehash: 4fd3e2aad72ee0ffc4778a86dc99cd5bb6f9d2c5
-ms.sourcegitcommit: 4daa156856e651cb3854ead40e35bd918e481ad6
+ms.openlocfilehash: c7928ce90b887d6fa3bd5342fc1633b3e30983f1
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/02/2022
-ms.locfileid: '148190399'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148192849'
 ---
 {% ifversion api-date-versioning %}
 ## API-Version
@@ -273,50 +273,7 @@ Anschließend kannst du diese Vorlagen mithilfe des [uri_template][uri]-Gems erw
 
 ## Paginierung
 
-Anforderungen, die mehrere Elemente zurückgeben, werden standardmäßig auf 30 Elemente paginiert.  Du kannst weitere Seiten mit dem `page`-Parameter angeben. Für einige Ressourcen kannst du mit dem `per_page`-Parameter auch eine benutzerdefinierte Seitengröße bis 100 festlegen.
-Beachte, dass aus technischen Gründen nicht alle Endpunkte den `per_page`-Parameter berücksichtigen (siehe [Ereignisse](/rest/reference/activity#events) für ein Beispiel).
-
-```shell
-$ curl '{% data variables.product.api_url_pre %}/user/repos?page=2&per_page=100'
-```
-
-Beachte, dass die Seitennummerierung 1-basiert ist und die erste Seite zurückgegeben wird, wenn der `page`-Parameter ausgelassen wird.
-
-Einige Endpunkte verwenden die cursorbasierte Paginierung. Ein Cursor ist eine Zeichenfolge, die auf einen Speicherort im Resultset verweist.
-Bei der cursorbasierten Paginierung gibt es kein festes Konzept von „Seiten“ im Resultset, sodass du nicht zu einer bestimmten Seite navigieren kannst.
-Stattdessen kannst du die Ergebnisse mithilfe des Parameters `before` oder `after` durchlaufen.
-
-Weitere Informationen zur Paginierung findest du im Leitfaden zum [Durchlaufen mit der Paginierung][pagination-guide].
-
-### Link-Header
-
-{% note %}
-
-**Hinweis:** Es ist wichtig, Aufrufe mit Link-Headerwerten zu erstellen, anstatt eigene URLs zu erstellen.
-
-{% endnote %}
-
-Der [Link-Header](https://datatracker.ietf.org/doc/html/rfc5988) enthält Paginierungsinformationen. Beispiel:
-
-    Link: <{% data variables.product.api_url_code %}/user/repos?page=3&per_page=100>; rel="next",
-      <{% data variables.product.api_url_code %}/user/repos?page=50&per_page=100>; rel="last"
-
-_Das Beispiel enthält aus Gründen der Lesbarkeit einen Zeilenumbruch._
-
-Der Endpunkt kann alternativ auch eine cursorbasierte Paginierung verwenden:
-
-    Link: <{% data variables.product.api_url_code %}/orgs/ORG/audit-log?after=MTYwMTkxOTU5NjQxM3xZbGI4VE5EZ1dvZTlla09uWjhoZFpR&before=>; rel="next",
-
-Dieser `Link`-Antwortheader enthält eine oder mehrere [Hypermedia](/rest#hypermedia)-Linkbeziehungen, von denen einige möglicherweise die Erweiterung als [URI-Vorlagen](https://datatracker.ietf.org/doc/html/rfc6570) erfordern.
-
-Dies sind die möglichen `rel`-Werte:
-
-Name | BESCHREIBUNG
------------|-----------|
-`next` |Linkbeziehung für die unmittelbare nächste Seite der Ergebnisse.
-`last` |Linkbeziehung für die letzte Seite der Ergebnisse.
-`first` |Linkbeziehung für die erste Seite der Ergebnisse.
-`prev` |Linkbeziehung für die unmittelbar vorherige Seite der Ergebnisse.
+Wenn eine Antwort der REST-API viele Ergebnisse enthält, werden die Ergebnisse von {% data variables.product.company_short %} paginiert, und es wird eine Teilmenge der Ergebnisse zurückgegeben. Du kannst den Linkheader aus der Antwort verwenden, um zusätzliche Datenseiten anzufordern. Wenn ein Endpunkt den Abfrageparameter `per_page` unterstützt, kannst du steuern, wie viele Ergebnisse auf einer Seite zurückgegeben werden. Weitere Informationen zur Paginierung findest du unter [Verwenden der Paginierung in der REST-API](/rest/guides/using-pagination-in-the-rest-api).
 
 ## Zeitlimits
 
@@ -471,7 +428,7 @@ Wenn deine Anwendung diese Ratenbegrenzung auslöst, erhältst du eine informati
 
 Alle API-Anforderungen MÜSSEN einen gültigen `User-Agent`-Header enthalten. Anforderungen ohne `User-Agent`-Header werden abgelehnt. Du musst deinen {% data variables.product.product_name %}-Benutzernamen oder den Namen deiner Anwendung für den `User-Agent`-Headerwert verwenden. Auf diese Weise kannst du im Fall von Problemen kontaktiert werden.
 
-Hier sehen Sie ein Beispiel:
+Hier siehst du ein Beispiel:
 
 ```shell
 User-Agent: Awesome-Octocat-App
@@ -672,5 +629,3 @@ Wenn kein `Time-Zone`-Header angegeben ist und du einen authentifizierten Aufruf
 ### Standardmäßiges Festlegen auf UTC ohne andere Zeitzoneninformationen
 
 Wenn die obigen Schritte keine Informationen bereitstellen, verwende UTC als Zeitzone, um den Git-Commit zu erstellen.
-
-[pagination-guide]: /guides/traversing-with-pagination

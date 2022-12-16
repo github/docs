@@ -12,12 +12,12 @@ versions:
 topics:
   - API
 shortTitle: Discover resources for a user
-ms.openlocfilehash: 9650ff8dee220f0b32d74cacb0f86acd236df5b6
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 3b3fd627260ac03d0991db73fcb5492c1284b2c0
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145131367'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148193287'
 ---
 Beim Erstellen authentifizierter Anforderungen an die {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %}-API müssen Anwendungen häufig die Repositorys und Organisationen des aktuellen Benutzers abrufen. In diesem Leitfaden wird erläutert, wie diese Ressourcen zuverlässig entdeckt werden.
 
@@ -33,7 +33,7 @@ Zusätzlich zu seinen eigenen persönlichen Repositorys kann ein Benutzer ein Mi
 
 [OAuth-Bereiche][scopes] und [Organisationsanwendungsrichtlinien][oap] bestimmen, auf welche dieser Repositorys deine App für einen Benutzer zugreifen kann. Verwende den folgenden Workflow, um diese Repositorys zu entdecken.
 
-Wie immer wird zuerst die Ruby-Bibliothek [GitHub Octokit.rb][octokit.rb] benötigt. Anschließend konfigurieren wir Octokit.rb, um die [Paginierung][pagination] für uns automatisch handzuhaben.
+Wie immer wird zuerst die Ruby-Bibliothek [GitHub Octokit.rb][octokit.rb] benötigt. Anschließend konfigurieren wir Octokit.rb, um die Paginierung für uns automatisch handzuhaben. Weitere Informationen zur Paginierung findest du unter [Verwenden der Paginierung in der REST-API](/rest/guides/using-pagination-in-the-rest-api).
 
 ``` ruby
 require 'octokit'
@@ -70,7 +70,7 @@ end
 
 Anwendungen können alle Arten von organisationsbezogenen Aufgaben für einen Benutzer ausführen. Um diese Aufgaben auszuführen, benötigt die App eine [OAuth-Autorisierung][scopes] mit ausreichender Berechtigung. Der Bereich `read:org` ermöglicht es Dir beispielsweise, [Teams auflisten][list-teams] zu können, und der Bereich `user` ermöglicht es Dir, [die Mitgliedschaft des Benutzers zu veröffentlichen][publicize-membership]. Sobald ein Benutzer deiner App einen oder mehrere dieser Bereiche zugewiesen hat, kannst du die Organisationen des Benutzers abrufen.
 
-Genau wie bei der Erkennung von Repositories (siehe oben) benötigen wir zunächst die GitHub-Ruby-Bibliothek [Octokit.rb][octokit.rb] und konfigurieren sie so, dass sie die [Paginierung][pagination] für uns übernimmt:
+Genau wie bei der Erkennung von Repositories (siehe oben) benötigen wir zunächst die GitHub-Ruby-Bibliothek [Octokit.rb][octokit.rb] und konfigurieren sie so, dass sie die Paginierung für uns übernimmt. Weitere Informationen zur Paginierung findest du unter [Verwenden der Paginierung in der REST-API](/rest/guides/using-pagination-in-the-rest-api).
 
 ``` ruby
 require 'octokit'
@@ -108,7 +108,6 @@ Als Anwendung möchtest du in der Regel alle Organisationen des Benutzers haben,
 [make-authenticated-request-for-user]: /rest/guides/basics-of-authentication#making-authenticated-requests
 [oap]: https://developer.github.com/changes/2015-01-19-an-integrators-guide-to-organization-application-policies/
 [octokit.rb]: https://github.com/octokit/octokit.rb
-[pagination]: /rest#pagination
 [platform samples]: https://github.com/github/platform-samples/tree/master/api/ruby/discovering-resources-for-a-user
 [publicize-membership]: /rest/reference/orgs#set-public-organization-membership-for-the-authenticated-user
 [register-oauth-app]: /rest/guides/basics-of-authentication#registering-your-app

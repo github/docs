@@ -2,6 +2,7 @@
 title: Geheime Überprüfung
 intro: 'Verwende die Geheimnisüberprüfung-API, um geheime Warnungen aus einem Repository abzurufen und zu aktualisieren.'
 versions:
+  fpt: '*'
   ghes: '*'
   ghae: '*'
   ghec: '*'

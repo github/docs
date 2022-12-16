@@ -16,12 +16,12 @@ topics:
   - Networking
   - Security
 shortTitle: Enable subdomain isolation
-ms.openlocfilehash: e48b6d474bf4d930836047343eab267731e67823
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.openlocfilehash: 6ce23de3646d3ca3f4523ec7716907f8b5430564
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/25/2022
-ms.locfileid: '148107133'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148193097'
 ---
 ## Informationen zur Subdomain-Isolation
 
@@ -29,19 +29,21 @@ Die Subdomain-Isolation mindert Cross-Site-Scripting und andere verwandte Schwac
 
 Bei aktivierter Subdomain-Isolation ersetzt {% data variables.product.prodname_ghe_server %} verschiedene Pfade durch Subdomains. Nach dem Aktivieren der Subdomain-Isolation wird versucht, auf die vorherigen Pfade für einige vom Benutzer bereitgestellte Inhalte zuzugreifen, z. B. kann `http(s)://HOSTNAME/raw/` `404`-Fehler zurückgeben .
 
+{% data reusables.enterprise_site_admin_settings.3-7-new-subdomains %}
+
 | Pfad ohne Subdomain-Isolation  | Pfad mit Subdomain-Isolation   |
 | --- | --- |
-| `http(s)://HOSTNAME/assets/`      | `http(s)://assets.HOSTNAME/`      |
-| `http(s)://HOSTNAME/avatars/`     | `http(s)://avatars.HOSTNAME/`     |
-| `http(s)://HOSTNAME/codeload/`    | `http(s)://codeload.HOSTNAME/`    |
-| `http(s)://HOSTNAME/gist/`        | `http(s)://gist.HOSTNAME/`        |
-| `http(s)://HOSTNAME/media/`       | `http(s)://media.HOSTNAME/`       |
-| `http(s)://HOSTNAME/pages/`       | `http(s)://pages.HOSTNAME/`       |
-| `http(s)://HOSTNAME/raw/`         | `http(s)://raw.HOSTNAME/`         |
-{%- ifversion viewscreen-and-notebooks %} | `http(s)://HOSTNAME/viewscreen/`  | `http(s)://viewscreen.HOSTNAME/`  | | `http(s)://HOSTNAME/notebooks/`   | `http(s)://notebooks.HOSTNAME/`   | {%- else %} | `http(s)://HOSTNAME/render/`      | `http(s)://render.HOSTNAME/`      | {%- endif %} | `http(s)://HOSTNAME/reply/`       | `http(s)://reply.HOSTNAME/`       | | `http(s)://HOSTNAME/uploads/`     | `http(s)://uploads.HOSTNAME/`     | {% ifversion ghes %} | `https://HOSTNAME/` | `http(s)://docker.HOSTNAME/`{% endif %}{% ifversion ghes %} | `https://HOSTNAME/_registry/npm/` | `https://npm.HOSTNAME/`
-| `https://HOSTNAME/_registry/rubygems/` | `https://rubygems.HOSTNAME/`
-| `https://HOSTNAME/_registry/maven/` | `https://maven.HOSTNAME/`
-| `https://HOSTNAME/_registry/nuget/` | `https://nuget.HOSTNAME/`{% endif %}{% ifversion ghes > 3.4 %} | Nicht unterstützt | `https://containers.HOSTNAME/` |{% endif %}
+| `http(s)://HOSTNAME/` | `http(s)://docker.HOSTNAME/` |
+| `http(s)://HOSTNAME/_registry/npm/` | `https://npm.HOSTNAME/` |
+| `http(s)://HOSTNAME/_registry/rubygems/` | `https://rubygems.HOSTNAME/` |
+| `http(s)://HOSTNAME/_registry/maven/` | `https://maven.HOSTNAME/` |
+| `http(s)://HOSTNAME/_registry/nuget/` | `https://nuget.HOSTNAME/` |
+| `http(s)://HOSTNAME/assets/` | `http(s)://assets.HOSTNAME/` |
+| `http(s)://HOSTNAME/avatars/` | `http(s)://avatars.HOSTNAME/` |
+| `http(s)://HOSTNAME/codeload/` | `http(s)://codeload.HOSTNAME/` |
+| `http(s)://HOSTNAME/gist/` | `http(s)://gist.HOSTNAME/` |
+| `http(s)://HOSTNAME/media/` | `http(s)://media.HOSTNAME/` |
+{%- ifversion viewscreen-and-notebooks %} | `http(s)://HOSTNAME/notebooks/` | `http(s)://notebooks.HOSTNAME/` | {%- endif %} | `http(s)://HOSTNAME/pages/` | `http(s)://pages.HOSTNAME/` | | `http(s)://HOSTNAME/raw/` | `http(s)://raw.HOSTNAME/` | {%- ifversion ghes < 3.7 %} | `http(s)://HOSTNAME/render/` | `http(s)://render.HOSTNAME/` | {%- endif %} | `http(s)://HOSTNAME/reply/` | `http(s)://reply.HOSTNAME/` | | `http(s)://HOSTNAME/uploads/` | `http(s)://uploads.HOSTNAME/` | {%- ifversion viewscreen-and-notebooks %} | `http(s)://HOSTNAME/viewscreen/` | `http(s)://viewscreen.HOSTNAME/` | {%- endif %} {%- ifversion ghes > 3.4 %} | Not supported | `https://containers.HOSTNAME/` | {%- endif %}
 
 ## Voraussetzungen
 
@@ -53,7 +55,7 @@ Vor der Aktivierung der Subdomain-Isolation musst du deine Netzwerkeinstellungen
 
 {% data reusables.enterprise_installation.changing-hostname-not-supported %}
 
-- Lege einen Domain Name System-Platzhaltereintrag (DNS) oder einzelne DNS-Einträge für die oben aufgelisteten Subdomains fest. Du solltest einen Eintrag für `*.HOSTNAME` erstellen, der auf die IP-Adresse Ihres Servers verweist, damit Du nicht für jede Subdomain mehrere Einträge erstellen musst.
+- Lege einen Domain Name System-Platzhaltereintrag (DNS) oder einzelne DNS-Einträge für die oben aufgelisteten Subdomains fest. Du solltest einen Eintrag für `*.HOSTNAME` erstellen, der auf die IP-Adresse deines Servers verweist, damit Du nicht für jede Subdomain mehrere Einträge erstellen musst.
 - Rufe ein TLS-Zertifikat (Transport Layer Security) für `*.HOSTNAME` mit einem Subject Alternative Name (SAN) für `HOSTNAME` und die Wildcard-Domäne `*.HOSTNAME` ab. Wenn Dein Hostname beispielsweise `github.octoinc.com` lautet, rufe ein Zertifikat ab, in dem der Wert „Common Name“ (Gemeinsamer Name) auf `*.github.octoinc.com` festgelegt ist, und einen SAN-Wert, der auf `github.octoinc.com` und `*.github.octoinc.com` festgelegt ist.
 - Aktiviere TLS auf deiner Appliance. Weitere Informationen findest du unter [Konfigurieren von TLS](/enterprise/admin/guides/installation/configuring-tls/).
 

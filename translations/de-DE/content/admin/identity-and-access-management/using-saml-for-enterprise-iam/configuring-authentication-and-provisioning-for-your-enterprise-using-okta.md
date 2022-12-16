@@ -16,12 +16,12 @@ topics:
   - Identity
   - SSO
 miniTocMaxHeadingLevel: 3
-ms.openlocfilehash: 1655ca7f800b94c150455a077b867e7e08fa924b
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.openlocfilehash: 62a1436fcedc4d90f767d0c612e70810132aff58
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/25/2022
-ms.locfileid: '148107515'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148192673'
 ---
 {% data reusables.saml.okta-ae-sso-beta %}
 
@@ -30,6 +30,11 @@ ms.locfileid: '148107515'
 Du kannst Okta als Identitätsanbieter (Identity Provider, IdP) für {% data variables.product.product_name %} verwenden, damit sich deine Okta-Benutzer*innen mit ihren Okta-Anmeldeinformationen bei {% data variables.product.product_name %} anmelden können.
 
 Wenn du Okta als IdP für {% data variables.product.product_name %} nutzen möchtest, kannst du Okta die {% data variables.product.product_name %}-App hinzufügen, Okta in {% data variables.product.product_name %} als IdP konfigurieren und Zugriff für deine Okta-Benutzer*innen und -Gruppen bereitstellen.
+
+{% data reusables.saml.idp-saml-and-scim-explanation %}
+- [Zuordnen von Okta-Gruppen zu Teams](/admin/identity-and-access-management/using-saml-for-enterprise-iam/mapping-okta-groups-to-teams)
+
+Nachdem du SCIM aktiviert hast, stehen dir folgende Bereitstellungsfunktionen für alle Benutzer zur Verfügung, denen du deine {% data variables.product.product_name %}-Anwendung in Okta zuweist.
 
 {% data reusables.scim.ghes-beta-note %}
 
@@ -41,6 +46,8 @@ Die folgenden Bereitstellungsfeatures sind für alle Okta-Benutzer*innen verfüg
 | Push Benutzer-Deaktivierung | Wenn du Benutzer*innen in Okta deaktivierst, werden diese in deinem Unternehmen in {% data variables.product.product_name %} gesperrt. |
 | Push Profil-Aktualisierungen | Wenn du Benutzerprofile in Okta aktualisierst, aktualisiert Okta die Metadaten zur Mitgliedschaft der Benutzer*innen in deinem Unternehmen in {% data variables.product.product_name %}. |
 | Benutzer reaktivieren | Wenn du Benutzer*innen in Okta reaktivierst, wird deren Sperrung in deinem Unternehmen in {% data variables.product.product_name %} aufgehoben. |
+
+Weitere Informationen zum Verwalten von Identität und Zugriff für dein Unternehmen in {% data variables.location.product_location %} findest du unter [Verwalten von Identität und Zugriff für dein Unternehmen](/admin/authentication/managing-identity-and-access-for-your-enterprise).
 
 ## Voraussetzungen
 
@@ -58,18 +65,18 @@ Die folgenden Bereitstellungsfeatures sind für alle Okta-Benutzer*innen verfüg
 1. Gib „GitHub AE“ in das Suchfeld ein, und klicke in den Ergebnissen auf **GitHub AE**.
 
   ![Suchergebnisse](/assets/images/help/saml/okta-ae-search.png)
-1. Klicken Sie auf **Hinzufügen**.
+1. Klicke auf **Hinzufügen**.
 
   ![Hinzufügen der GitHub AE-App](/assets/images/help/saml/okta-ae-add-github-ae.png)
 1. Gib für „Basis-URL“ die URL deines Unternehmens in {% data variables.product.product_name %} ein.
 
   ![Konfigurieren der Basis-URL](/assets/images/help/saml/okta-ae-configure-base-url.png)
-1. Klicken Sie auf **Fertig**.
+1. Klicke auf **Fertig**.
 {%- elsif scim-for-ghes %}
 1. Gib „GitHub Enterprise Server“ in das Suchfeld ein, und klicke in den Ergebnissen auf **GitHub Enterprise Server**.
-1. Klicken Sie auf **Hinzufügen**.
+1. Klicke auf **Hinzufügen**.
 1. Gib für „Basis-URL“ die URL von {% data variables.location.product_location %} ein.
-1. Klicken Sie auf **Fertig**.
+1. Klicke auf **Fertig**.
 {% endif %}
 
 ## Aktivieren des einmaligen Anmeldens mit SAML für {% data variables.product.product_name %}
@@ -124,7 +131,7 @@ In dieser Anleitung wird dargelegt, wie du die SCIM-Einstellungen für die Okta-
 1. Klicke rechts von „Benutzer erstellen“ auf **Aktivieren**.
 1. Klicke rechts von „Benutzerattribute aktualisieren“ auf **Aktivieren**.
 1. Klicke rechts von „Benutzer deaktivieren“ auf **Aktivieren**.
-1. Klicken Sie auf **Speichern**.
+1. Klicke auf **Speichern**.
 
 ## Gewähren des Zugriffs auf {% data variables.product.product_name %} für Okta-Benutzer*innen und -Gruppen
 
@@ -152,7 +159,7 @@ Bevor sich deine Okta-Benutzer*innen mit ihren Anmeldeinformationen bei {% data 
 
   ![Rollenauswahl](/assets/images/help/saml/okta-ae-assign-role.png)
 
-1. Klicken Sie auf **Fertig**.
+1. Klicke auf **Fertig**.
 
 {% ifversion ghae %}
 ### Bereitstellen des Zugriffs für Okta-Gruppen

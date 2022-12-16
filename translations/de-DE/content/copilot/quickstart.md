@@ -8,18 +8,18 @@ versions:
 shortTitle: Quickstart
 topics:
   - Copilot
-ms.openlocfilehash: 5aa3071cddc2bf83e7ee7082eabea00f79a66ea5
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: d2131a506990a959f803b13353b794a9dd347174
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147080244'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148193315'
 ---
 ## Einführung
 
 {% data variables.product.prodname_copilot %} ist ein KI-Paarprogrammierer. {% data variables.product.prodname_copilot %} schlägt dir direkt im Editor ganze Zeilen oder Funktionen vor.
 
-In dieser Anleitung erfährst du, wie du dich für {% data variables.product.prodname_copilot %} registrierst, die Erweiterung {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode %} installierst und deinen ersten Vorschlag erhältst. Weitere Informationen zu {% data variables.product.prodname_copilot %} findest du unter [Informationen zu {% data variables.product.prodname_copilot %}](/copilot/overview-of-github-copilot/about-github-copilot). Ausführlichere Informationen zum Verwenden von {% data variables.product.prodname_copilot %} in einer Vielzahl von Umgebungen findest du unter [Erste Schritte](/copilot/getting-started-with-github-copilot).
+In dieser Anleitung erfährst du, wie du dich für {% data variables.product.prodname_copilot %} über dein persönliches Konto registrierst, die Erweiterung {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode %} installierst und deinen ersten Vorschlag erhältst. Weitere Informationen zu {% data variables.product.prodname_copilot %} findest du unter [Informationen zu {% data variables.product.prodname_copilot %}](/copilot/overview-of-github-copilot/about-github-copilot). Ausführlichere Informationen zum Verwenden von {% data variables.product.prodname_copilot %} in einer Vielzahl von Umgebungen findest du unter [Erste Schritte](/copilot/getting-started-with-github-copilot).
 
 ## Voraussetzungen
 
@@ -27,6 +27,14 @@ In dieser Anleitung erfährst du, wie du dich für {% data variables.product.pro
 - Um {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode %} zu verwenden, muss {% data variables.product.prodname_vscode %} installiert sein. Weitere Informationen findest du in der Dokumentation zu [{% data variables.product.prodname_vscode %}](https://code.visualstudio.com/).
 
 ## Registrierung für {% data variables.product.prodname_copilot %}
+
+Ehe du {% data variables.product.prodname_copilot %} nutzen kannst, musst du eine kostenlose Testversion oder ein Abonnement für dein persönliches Konto einrichten. 
+
+{% note %}
+
+**Hinweis:** Wenn du Mitglied einer Organisation bist, die einem {% data variables.product.prodname_ghe_cloud %}-Konto mit einem {% data variables.product.prodname_copilot %}-Abonnement gehört, und dir von deiner Organisation ein {% data variables.product.prodname_copilot %}-Arbeitsplatz zugewiesen wurde, kannst du mit [Installieren der {% data variables.product.prodname_copilot %}-Erweiterung für {% data variables.product.prodname_vscode %}"](/copilot/quickstart#installing-the-github-copilot-extension-for-visual-studio-code) fortfahren.
+
+{% endnote %}
 
 {% data reusables.copilot.signup-procedure %}
 
@@ -47,7 +55,9 @@ Um {% data variables.product.prodname_copilot %} zu verwenden, musst du zuerst d
 
 ## Anzeigen deines ersten Vorschlags
 
-{% data reusables.copilot.supported-languages %} Die folgenden Beispiele sind in JavaScript geschrieben, andere Sprachen funktionieren jedoch ähnlich.
+{% data reusables.copilot.code-examples-limitations %}
+
+{% data reusables.copilot.supported-languages %} Die folgenden Beispiele sind in JavaScript enthalten, andere Sprachen funktionieren jedoch ähnlich.
 
 1. Öffne {% data variables.product.prodname_vscode %}.
 {% data reusables.copilot.create-js-file %} {% data reusables.copilot.type-function-header %} {% data variables.product.prodname_copilot %} schlägt automatisch einen ganzen Funktionstext in ausgegrautem Text vor, wie unten gezeigt. Der genaue Vorschlag kann variieren.

@@ -1,20 +1,20 @@
 ---
 title: Pratiques mondiales en matière de protection des données
 redirect_from:
-  - /eu-safe-harbor
-  - /articles/global-privacy-practices
-  - /github/site-policy/global-privacy-practices
+- /eu-safe-harbor
+- /articles/global-privacy-practices
+- /github/site-policy/global-privacy-practices
 versions:
   fpt: '*'
 topics:
-  - Policy
-  - Legal
+- Policy
+- Legal
 ms.openlocfilehash: ae61cf1fe48e925cbb1b691b44fcdf277aaa7b1b
 ms.sourcegitcommit: 93b306112b5cd5ce482d468a25c9961ad02f87ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 08/29/2022
-ms.locfileid: '147099156'
+ms.locfileid: "147099156"
 ---
 Date d’entrée en vigueur : 22 juillet 2020
 

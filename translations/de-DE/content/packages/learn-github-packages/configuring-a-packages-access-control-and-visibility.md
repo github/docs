@@ -10,24 +10,28 @@ versions:
   ghec: '*'
   ghes: '*'
 shortTitle: Access control & visibility
-ms.openlocfilehash: 0988c332a341d379e21e540b74f7ee4dd5a26749
-ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.openlocfilehash: 8ef541f45fd6568db7c8510bc860d81d504494c5
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/09/2022
-ms.locfileid: '147704915'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148193057'
 ---
-{% data reusables.package_registry.container-registry-ghes-beta %}
+{% data reusables.package_registry.container-registry-ghes-beta %}{% ifversion packages-registries-v2 %}
 
 Für Pakete mit differenzierten Berechtigungen wird ein persönliches Benutzerkonto oder ein Organisationskonto als Gültigkeitsbereich festgelegt. Du kannst die Zugriffssteuerung und Sichtbarkeit eines Pakets getrennt vom Repository ändern, mit dem es verbunden (oder verknüpft) ist.
 
-Derzeit kannst du präzise Berechtigungen nur mit der {% data variables.product.prodname_ghcr_and_npm_registry %} verwenden. Differenzierte Berechtigungen werden in unseren weiteren Paketregistrierungen, wie z. B. der RubyGems-Registrierung, nicht unterstützt.{% ifversion docker-ghcr-enterprise-migration %} Weitere Informationen zur Migration zur {% data variables.product.prodname_container_registry %} findest du unter [Migration zur {% data variables.product.prodname_container_registry %} von der Docker-Registry](/packages/working-with-a-github-packages-registry/migrating-to-the-container-registry-from-the-docker-registry).{% endif %}
+Einige Registrierungen unterstützen nur repositorybezogene Berechtigungen. Die Liste dieser Registrierungen findest du unter [Informationen zu Berechtigungen für {% data variables.product.prodname_registry %}](/packages/learn-github-packages/about-permissions-for-github-packages#permissions-for-repository-scoped-packages).
 
-Weitere Informationen zu Berechtigungen für repositorybezogene Pakete, zu paketbezogenen Bereichen für PATs oder zur Verwaltung von Berechtigungen für deine Aktionsworkflows findest du unter [About permissions for GitHub Packages](/packages/learn-github-packages/about-permissions-for-github-packages) („Informationen zu Berechtigungen für GitHub Packages“).
+{% else %}Ein Paket erbt die Berechtigungen und die Sichtbarkeit des Repositorys, das das Paket besitzt.{% endif %} Weitere Informationen zu Berechtigungen für Pakete, paketbezogenen Bereichen für PATs oder zum Verwalten von Berechtigungen für deine Aktionsworkflows findest du unter [Informationen zu Berechtigungen für GitHub-Pakete](/packages/learn-github-packages/about-permissions-for-github-packages).
+
+{% ifversion packages-registries-v2 %}
 
 ## Sichtbarkeit und Zugriffsberechtigungen für Containerimages
 
 {% data reusables.package_registry.visibility-and-access-permissions %}
+
+{% endif %}
 
 ## Konfigurieren des Zugriffs auf Containerimages für dein persönliches Konto
 
@@ -106,9 +110,9 @@ Wenn du zusätzliche Anpassungen am Zugriff auf dein Containerimage vornehmen m�
 Wenn du zusätzliche Anpassungen am Zugriff auf dein Containerimage vornehmen möchtest, findest du unter [Configuring access to container images for an organization](#configuring-access-to-container-images-for-an-organization) („Konfigurieren des Zugriffs auf Containerimages für eine Organisation“) weitere Informationen.
 
 {% ifversion fpt or ghec %}
-## Sicherstellen des {% data variables.product.prodname_codespaces %}-Zugriffs auf dein Paket
+## Sicherstellen des {% data variables.product.prodname_github_codespaces %}-Zugriffs auf dein Paket
 
-Standardmäßig kann ein Codespace nahtlos auf bestimmte Pakete in der {% data variables.product.prodname_ghcr_and_npm_registry %} zugreifen, z. B. auf solche, die im selben Repository veröffentlicht wurden, wenn die Option **Zugriff erben** ausgewählt ist. Weitere Informationen darüber, welcher Zugriff automatisch konfiguriert wird, findest du unter [Zulassen, dass dein Codespace auf eine private Imageregistrierung zugreifen kann](/codespaces/codespaces-reference/allowing-your-codespace-to-access-a-private-image-registry#accessing-images-stored-in-container-registry-and-npm-registry).
+Standardmäßig kann ein Codespace nahtlos auf bestimmte Pakete in Registrierungen zugreifen, die differenzierte Berechtigungen unterstützen, z. B. auf Pakete, die im selben Repository veröffentlicht wurden und für die die Option **Zugriff erben** ausgewählt ist. Eine Liste der {% data variables.product.prodname_registry %}-Registrierungen, die differenzierte Berechtigungen und nahtlosen {% data variables.product.prodname_github_codespaces %}-Zugriff unterstützen, findest du unter [Informationen zu Berechtigungen für {% data variables.product.prodname_registry %}](/packages/learn-github-packages/about-permissions-for-github-packages#granular-permissions-for-userorganization-scoped-packages).
 
 Anderenfalls musst du Zugriff auf das Repository gewähren, in dem der Codespace gestartet wird, um sicherzustellen, dass ein Codespace Zugriff auf dein Paket hat.
 

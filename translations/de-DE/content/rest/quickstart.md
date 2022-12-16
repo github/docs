@@ -14,12 +14,12 @@ redirect_from:
   - /guides/getting-started
   - /v3/guides/getting-started
 miniTocMaxHeadingLevel: 3
-ms.openlocfilehash: 73b92aa20c38377f878bf9b6fffb7c1c6e2639b9
-ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.openlocfilehash: 001c4e3291e697be034579525d9f0bc6da8c0c88
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/09/2022
-ms.locfileid: '147718197'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148192881'
 ---
 Dieser Artikel enthält Informationen zum schnellen Einstieg in die {% data variables.product.prodname_dotcom %}-REST-API mithilfe von {% data variables.product.prodname_cli %}, JavaScript oder cURL. Einen ausführlicheren Leitfaden findest du unter [Erste Schritte mit der REST-API](/rest/guides/getting-started-with-the-rest-api).
 
@@ -67,7 +67,7 @@ jobs:
 
 Wenn du dich mit einer {% data variables.product.prodname_github_app %} authentifizierst, kannst du innerhalb deines Workflows ein Zugriffstoken für die Installation erstellen:
 
-1. Speichere die ID deiner {% data variables.product.prodname_github_app %} als Geheimnis. Ersetze im folgenden Beispiel `APP_ID` durch den Namen des Geheimnisses. Du kannst die App-ID auf der Einstellungsseite deiner App oder durch die App-API finden. Weitere Informationen findest du unter [Apps](/rest/apps/apps#get-an-app). Weitere Informationen zu Geheimnissen findest du unter [Verschlüsselte Geheimnisse](/actions/security-guides/encrypted-secrets).
+1. Speichere die ID deiner {% data variables.product.prodname_github_app %} als Geheimnis. Ersetze im folgenden Beispiel `APP_ID` durch den Namen des Geheimnisses. Du findest die App-ID auf der Einstellungsseite deiner App oder über die API. Weitere Informationen findest du in der REST-API-Dokumentation unter [Apps](/rest/apps/apps#get-an-app). Weitere Informationen zu Geheimnissen findest du unter [Verschlüsselte Geheimnisse](/actions/security-guides/encrypted-secrets).
 1. Generiere einen privaten Schlüssel für deine App. Speichere den Inhalt der resultierenden Datei als Geheimnis. (Speichere den gesamten Inhalt der Datei, einschließlich `-----BEGIN RSA PRIVATE KEY-----` und `-----END RSA PRIVATE KEY-----`.) Ersetze im folgenden Beispiel `APP_PEM` durch den Namen des Geheimnisses. Weitere Informationen findest du unter [Authentifizieren mit {% data variables.product.prodname_github_apps %}](/developers/apps/building-github-apps/authenticating-with-github-apps#generating-a-private-key).
 1. Füge einen Schritt zum Generieren eines Tokens hinzu, und verwende diesen Token anstelle von `GITHUB_TOKEN`. Beachte, dass dieses Token nach 60 Minuten abläuft. Beispiel:
 
@@ -104,7 +104,7 @@ Du kannst „Octokit.js“ verwenden, um in deinen JavaScript-Skripts mit der {%
 
 ### Verwenden von „Octokit.js“
 
-1. Erstelle ein Zugriffstoken. Erstelle zum Beispiel ein persönliches Zugriffstoken (PAT) oder ein {% data variables.product.prodname_github_app %}-Benutzer-zu-Server-Zugriffstoken. Weitere Informationen findest du unter [Erstellen eines persönlichen Zugriffstokens](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) oder [Identifizieren und Autorisieren von Benutzern für GitHub Apps](/developers/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps).
+1. Erstelle ein Zugriffstoken. Erstelle zum Beispiel ein {% data variables.product.pat_generic %} oder ein {% data variables.product.prodname_github_app %}-Benutzer-zu-Server-Zugriffstoken. Weitere Informationen findest du unter [Erstellen eines {% data variables.product.pat_generic %}](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) oder [Identifizieren und Autorisieren von Benutzern für GitHub-Apps](/developers/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps).
 
    {% warning %}
 
@@ -122,7 +122,7 @@ Du kannst „Octokit.js“ verwenden, um in deinen JavaScript-Skripts mit der {%
 
 1. Installieren von `octokit`. Beispiel: `npm install octokit`. Informationen über andere Möglichkeiten zum Installieren oder Laden von `octokit` findest du in der [Octokit.js-Infodatei](https://github.com/octokit/octokit.js/#readme).
 1. Importiere `octokit` in dein Skript. Beispiel: `import { Octokit } from "octokit";`. Informationen über andere Möglichkeiten zum Importieren von `octokit` findest du in der [Octokit.js-Infodatei](https://github.com/octokit/octokit.js/#readme).
-1. Erstelle eine Instanz von `Octokit` mit deinem Token. Ersetzen Sie `YOUR-TOKEN` durch Ihr Token.
+1. Erstelle eine Instanz von `Octokit` mit deinem Token. Ersetze `YOUR-TOKEN` durch dein Token.
 
    ```javascript
    const octokit = new Octokit({
@@ -169,7 +169,7 @@ jobs:
       - name: Setup Node
         uses: {% data reusables.actions.action-setup-node %}
         with:
-          node-version: '16.15.0'
+          node-version: '16.17.0'
           cache: npm
 
       - name: Install dependencies
@@ -227,7 +227,7 @@ jobs:
       - name: Setup Node
         uses: {% data reusables.actions.action-setup-node %}
         with:
-          node-version: '16.15.0'
+          node-version: '16.17.0'
           cache: npm
 
       - name: Install dependencies
@@ -262,7 +262,7 @@ jobs:
 {% endnote %}
 
 1. Installiere cURL auf deinem Computer, sofern nicht bereits geschehen. Um festzustellen, ob cURL bereits installiert ist, führe `curl --version` an der Befehlszeile aus. Wenn die Ausgabe Informationen über die cURL-Version enthält, ist cURL bereits installiert. Wenn du eine Meldung der Art `command not found: curl` erhältst, musst du cURL herunterladen und installieren. Weitere Informationen findest du auf der [Downloadseite für das cURL-Projekt](https://curl.se/download.html).
-1. Erstelle ein Zugriffstoken. Erstelle zum Beispiel ein persönliches Zugriffstoken (PAT) oder ein {% data variables.product.prodname_github_app %}-Benutzer-zu-Server-Zugriffstoken. Weitere Informationen findest du unter [Erstellen eines persönlichen Zugriffstokens](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) oder [Identifizieren und Autorisieren von Benutzern für GitHub Apps](/developers/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps).
+1. Erstelle ein Zugriffstoken. Erstelle zum Beispiel ein {% data variables.product.pat_generic %} oder ein {% data variables.product.prodname_github_app %}-Benutzer-zu-Server-Zugriffstoken. Weitere Informationen findest du unter [Erstellen eines {% data variables.product.pat_generic %}](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) oder [Identifizieren und Autorisieren von Benutzern für GitHub-Apps](/developers/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps).
 
    {% warning %}
 
@@ -278,13 +278,13 @@ jobs:
 
    {% endwarning %}
 
-1. Verwende den Befehl `cURL`, um deine Anforderung auszuführen. Übergib dein Token in einem `Authorization`-Header. Ersetzen Sie `YOUR-TOKEN` durch Ihr Token.
+1. Verwende den Befehl `cURL`, um deine Anforderung auszuführen. Übergib dein Token in einem `Authorization`-Header. Ersetze `YOUR-TOKEN` durch dein Token.
 
    ```shell
    curl --request GET \
    --url "https://api.github.com/repos/octocat/Spoon-Knife/issues" \
-   --header "Accept: application/vnd.github.v3+json" \
-   --header "Authorization: Bearer <em>YOUR-TOKEN</em>"
+   --header "Accept: application/vnd.github+json" \
+   --header "Authorization: Bearer YOUR-TOKEN"
    ```
 
    {% note %}
@@ -313,7 +313,7 @@ jobs:
         run: |
           curl --request GET \
           --url "https://api.github.com/repos/octocat/Spoon-Knife/issues" \
-          --header "Accept: application/vnd.github.v3+json" \
+          --header "Accept: application/vnd.github+json" \
           --header "Authorization: Bearer $GH_TOKEN"
 ```
 
@@ -345,7 +345,7 @@ jobs:
         run: |
           curl --request GET \
           --url "https://api.github.com/repos/octocat/Spoon-Knife/issues" \
-          --header "Accept: application/vnd.github.v3+json" \
+          --header "Accept: application/vnd.github+json" \
           --header "Authorization: Bearer $GH_TOKEN"
 ```
 

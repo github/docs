@@ -2,6 +2,7 @@
 title: Analyse de secrets
 intro: Utilisez l’API d’analyse des secrets pour récupérer et mettre à jour des alertes de secret à partir d’un dépôt.
 versions:
+  fpt: '*'
   ghes: '*'
   ghae: '*'
   ghec: '*'
