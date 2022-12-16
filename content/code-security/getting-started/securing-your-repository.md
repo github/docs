@@ -123,7 +123,7 @@ You can set up {% data variables.product.prodname_code_scanning %} to automatica
 ## Configuring {% data variables.product.prodname_secret_scanning %}
 
 {% ifversion fpt %}
-{% data variables.product.prodname_secret_scanning_partner_alerts_caps %} runs automatically on public repositories in all products on {% data variables.product.prodname_dotcom_the_website %}. {% data variables.product.prodname_secret_scanning_user_alerts_caps %} are available for public repositories, as well as repositories owned by organizations that use {% data variables.product.prodname_ghe_cloud %} and have a license for {% data variables.product.prodname_GH_advanced_security %}. {% data reusables.advanced-security.more-info-ghas %}{% endif %}
+{% data variables.secret-scanning.partner_alerts_caps %} runs automatically on public repositories in all products on {% data variables.product.prodname_dotcom_the_website %}. {% data variables.secret-scanning.user_alerts_caps %} are available for public repositories, as well as repositories owned by organizations that use {% data variables.product.prodname_ghe_cloud %} and have a license for {% data variables.product.prodname_GH_advanced_security %}. {% data reusables.advanced-security.more-info-ghas %}{% endif %}
 
 {% ifversion ghec or ghes or ghae %}
 

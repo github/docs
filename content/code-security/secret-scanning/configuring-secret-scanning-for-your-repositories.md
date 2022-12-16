@@ -23,11 +23,11 @@ shortTitle: Configure secret scans
 {% data reusables.secret-scanning.beta %}
 {% data reusables.secret-scanning.enterprise-enable-secret-scanning %}
 
-## Enabling {% data variables.product.prodname_secret_scanning_user_alerts %}
+## Enabling {% data variables.secret-scanning.user_alerts %}
 
 {% data reusables.secret-scanning.secret-scanning-alerts-beta %} 
 
-You can enable {% data variables.product.prodname_secret_scanning_user_alerts %} for any {% ifversion fpt %}free public{% endif %} repository{% ifversion ghec or ghes or ghae %} that is owned by an organization{% else %} that you own{% endif %}. Once enabled, {% data reusables.secret-scanning.secret-scanning-process %}  {% ifversion secret-scanning-issue-body-comments %}{% data reusables.secret-scanning.scan-issue-description-and-comments %}
+You can enable {% data variables.secret-scanning.user_alerts %} for any {% ifversion fpt %}free public{% endif %} repository{% ifversion ghec or ghes or ghae %} that is owned by an organization{% else %} that you own{% endif %}. Once enabled, {% data reusables.secret-scanning.secret-scanning-process %}  {% ifversion secret-scanning-issue-body-comments %}{% data reusables.secret-scanning.scan-issue-description-and-comments %}
 
 {% note %}
 
@@ -69,7 +69,7 @@ You can enable {% data variables.product.prodname_secret_scanning_user_alerts %}
    ![Enable {% data variables.product.prodname_secret_scanning %} for your repository](/assets/images/enterprise/github-ae/repository/enable-secret-scanning-ghae.png)
 {% endif %}
 
-## Excluding directories from {% data variables.product.prodname_secret_scanning_user_alerts %}
+## Excluding directories from {% data variables.secret-scanning.user_alerts %}
 
 You can use a *secret_scanning.yml* file to exclude directories from {% data variables.product.prodname_secret_scanning %}. For example, you can exclude directories that contain tests or randomly generated content.
 

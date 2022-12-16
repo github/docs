@@ -23,12 +23,12 @@ shortTitle: Manage secret alerts
 {% data reusables.secret-scanning.beta %}
 {% data reusables.secret-scanning.secret-scanning-alerts-beta %} 
 
-## Managing {% data variables.product.prodname_secret_scanning_alerts%}
+## Managing {% data variables.secret-scanning.alerts %}
 
 {% ifversion fpt or ghec %}
 {% note %}
 
-**Note:** Alerts are created only for repositories with {% data variables.product.prodname_secret_scanning_user_alerts %} enabled. Secrets found in public repositories using the free {% data variables.product.prodname_secret_scanning_partner_alerts%} service are reported directly to the partner, without creating an alert. For more information, see "[Supported secrets for partner alerts](/code-security/secret-scanning/secret-scanning-patterns#supported-secrets-for-partner-alerts)."
+**Note:** Alerts are created only for repositories with {% data variables.secret-scanning.user_alerts %} enabled. Secrets found in public repositories using the free {% data variables.secret-scanning.partner_alerts %} service are reported directly to the partner, without creating an alert. For more information, see "[Supported secrets for partner alerts](/code-security/secret-scanning/secret-scanning-patterns#supported-secrets-for-partner-alerts)."
 
 {% endnote %}
 {% endif %}
@@ -90,7 +90,7 @@ Once a secret has been committed to a repository, you should consider the secret
 {% endnote %}
 {% endif %}
 
-## Configuring notifications for {% data variables.product.prodname_secret_scanning_alerts %}
+## Configuring notifications for {% data variables.secret-scanning.alerts %}
 
 When a new secret is detected, {% data variables.product.product_name %} notifies all users with access to security alerts for the repository according to their notification preferences. You will receive an email notification if you are watching the repository, have enabled notifications for security alerts or for all the activity on the repository, or are the author of the commit that contains the secret and are not ignoring the repository.
 

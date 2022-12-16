@@ -1,13 +1,25 @@
+- title: Python sample project
+  description: Try a Python project with a custom dev container
+  languages: Python
+  href: microsoft/vscode-remote-try-python
+  tags:
+    - development containers
 - title: Node.js sample project
   description: Try a Node.js project with a custom dev container
   languages: Javascript
   href: microsoft/vscode-remote-try-node
   tags:
     - development containers
-- title: Python sample project
-  description: Try a Python project with a custom dev container
-  languages: Python
-  href: microsoft/vscode-remote-try-python
+- title: C++ sample project
+  description: Try a C++ project with a custom dev container
+  languages: C++
+  href: microsoft/vscode-remote-try-cpp
+  tags:
+    - development containers
+- title: .NET sample project
+  description: Try a .NET project with a custom dev container
+  languages: .NET
+  href: microsoft/vscode-remote-try-dotnet
   tags:
     - development containers
 - title: Java sample project
