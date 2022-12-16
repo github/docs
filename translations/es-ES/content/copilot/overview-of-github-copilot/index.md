@@ -8,6 +8,7 @@ topics:
   - Copilot
 children:
   - /about-github-copilot
+  - /about-github-copilot-for-business
 ms.openlocfilehash: 2b5e6a387ad81fe3fc99ed85dba4302e167bd4b6
 ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
 ms.translationtype: HT
