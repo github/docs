@@ -1,5 +1,13 @@
+---
+ms.openlocfilehash: b5e0ba909d27927fefce88d2a763f0b94aa83dab
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "145108101"
+---
 {% tip %}
 
-**Tip:** If you receive both web and email notifications, you can automatically sync the read or unread status of the notification so that web notifications are automatically marked as read once you've read the corresponding email notification. To enable this sync, your email client must be able to view images from {% ifversion fpt or ghec %}`notifications@github.com`{% else %}the `no-reply` email address {% ifversion ghae %}for your {% data variables.product.product_name %} hostname{% elsif ghes %}for {% data variables.location.product_location %}, which your site administrator configures{% endif %}{% endif %}.
+**Conseil :** si vous recevez des notifications par e-mail et web, vous pouvez synchroniser automatiquement leur état lu ou non lu afin que les notifications web soient automatiquement marquées comme lues une fois que vous avez lu les notifications par e-mail correspondantes. Pour activer cette synchronisation, votre client de messagerie doit pouvoir afficher les images depuis {% ifversion fpt or ghec %}`notifications@github.com`{% else %}l’adresse e-mail `no-reply`{% ifversion ghae %}de votre{% data variables.product.product_name %} nom d’hôte{% elsif ghes %}pour {% data variables.product.product_location %}, que votre administrateur de site configure{% endif %}{% endif %}.
 
 {% endtip %}

@@ -1,0 +1,16 @@
+date: '01/04/2021'
+sections:
+  security_fixes:
+    - "**ÉLEVÉE :** Une vulnérabilité de contrôle d’accès inapproprié a été identifiée dans GitHub Enterprise Server. Elle permettait à des jetons d’accès générés à partir d’un [flux d’authentification web] de GitHub Apps (https://docs.github.com/en/developers/apps/identifying-and-authorizing-users-for-github-apps#web-application-flow) de lire des métadonnées de dépôt privé via l’API REST sans que les autorisations appropriées aient été accordées. Pour exploiter cette vulnérabilité, un attaquant devait créer une application GitHub sur l’instance et faire en sorte qu’un utilisateur autorise l’application par le biais du flux d’authentification web. Les métadonnées de dépôt privé retournées étaient limitées aux dépôts privés appartenant à l’utilisateur que le jeton identifie. Cette vulnérabilité affectait toutes les versions de GitHub Enterprise Server antérieures à la version 3.0.4 et a été corrigée dans les versions 3.0.4, 2.22.10 et 2.21.18. Cette vulnérabilité s’est vu affecter le numéro CVE-2021-22865 et a été signalée via le [programme GitHub Bug Bounty](https://bounty.github.com)."
+    - Les packages ont été mis à jour avec les dernières versions de sécurité.
+  bugs:
+    - Un fuseau horaire défini sur GitHub Enterprise 11.10.x ou une version antérieure n’était pas utilisé par certains services qui utilisaient par défaut l’heure UTC.
+    - "Les services n’effectuaient pas la transition vers de nouveaux fichiers journaux dans le cadre de la rotation des journaux, ce qui entraînait une utilisation accrue du disque."
+    - L’étiquette des résultats de la recherche pour les dépôts internes indiquait « Privé » au lieu de « Interne ».
+  known_issues:
+    - "Sur un serveur GitHub Enterprise fraîchement configuré et sans utilisateur, un attaquant pourrait créer le premier utilisateur administrateur."
+    - Les règles de pare-feu personnalisées ne sont pas conservées lors d’une mise à niveau.
+    - "Les fichiers suivis par Git LFS [chargés via l’interface web](https://github.com/blog/2105-upload-files-to-your-repositories) sont incorrectement ajoutés directement au dépôt."
+    - Les problèmes ne peuvent pas être fermés s’ils contiennent un lien permanent vers un objet blob situé dans le dépôt où le chemin de fichier est supérieur à 255 caractères.
+    - "Lorsque l’option « Les utilisateurs peuvent effectuer des recherches sur GitHub.com » est activée avec GitHub Connect, les problèmes dans les dépôts privés et internes ne sont pas inclus dans les résultats de recherche de GitHub.com."
+    - "Lorsqu’un nœud de réplica est hors ligne dans une configuration de haute disponibilité, {% data variables.product.product_name %} peut toujours acheminer les demandes de {% data variables.product.prodname_pages %} vers le nœud hors ligne, réduisant ainsi la disponibilité de {% data variables.product.prodname_pages %} pour les utilisateurs."

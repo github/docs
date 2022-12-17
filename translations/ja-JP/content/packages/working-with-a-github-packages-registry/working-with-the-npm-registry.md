@@ -14,12 +14,12 @@ versions:
   ghae: '*'
   ghec: '*'
 shortTitle: npm registry
-ms.openlocfilehash: 608841099aff8fd75a9a342444060fa9e8c860ce
-ms.sourcegitcommit: 34d500fe45b362043b4b4685d6705a7bfb484d11
+ms.openlocfilehash: 11b1ab58cd57c6cecdeb2366b83696166cdc6245
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/15/2022
-ms.locfileid: '148164491'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148193130'
 ---
 {% data reusables.package_registry.packages-ghes-release-stage %} {% data reusables.package_registry.packages-ghae-release-stage %}
 
@@ -98,19 +98,14 @@ $ npm login --scope=@OWNER --registry=https://HOSTNAME/_registry/npm/
 {% endnote %}
 
 {% ifversion packages-npm-v2 %}{% data variables.product.prodname_registry %} レジストリは、Organization 内または個人アカウント内に npm パッケージを格納し、パッケージをリポジトリに関連付けることができます。 権限をリポジトリから継承するか、リポジトリとは別に細かい権限を設定するかを選ぶことができます。
-{% endif %}
+
+{% data reusables.package_registry.publishing-user-scoped-packages %} {% endif %}
 
 既定では、{% data variables.product.prodname_registry %} は *package.json* ファイルの name フィールドで指定された {% data variables.product.prodname_dotcom %} リポジトリにパッケージを公開します。 たとえば、`@my-org/test` という名前のパッケージは、`my-org/test` {% data variables.product.prodname_dotcom %} リポジトリに公開することになります。 [npm v8.5.3](https://github.com/npm/cli/releases/tag/v8.5.3) 以降を実行している場合は、パッケージ ディレクトリに *README.md* ファイルを含めることで、パッケージのリスト ページの概要を追加できます。 詳しくは、[package.json の利用](https://docs.npmjs.com/getting-started/using-a-package.json)と [Node.js モジュールの作成方法](https://docs.npmjs.com/getting-started/creating-node-modules)に関する npm のドキュメントをご覧ください。
 
 `URL` フィールドを *package.json* ファイルに含めることで、同じ {% data variables.product.prodname_dotcom %} リポジトリに複数のパッケージを公開できます。 詳しくは、「[同じリポジトリへの複数パッケージの公開](#publishing-multiple-packages-to-the-same-repository)」をご覧ください。
 
-{% ifversion fpt or ghec %}パッケージが公開されても、リポジトリに自動的にリンクされることはありません。 ただし、ユーザー インターフェイスまたはコマンド ラインを使用して、公開済みのパッケージをリポジトリにリンクすることはできます。 詳細については、「[リポジトリのパッケージへの接続](/packages/learn-github-packages/connecting-a-repository-to-a-package)」を参照してください。
-{% endif %}
-
 プロジェクト内にあるローカルの *.npmrc* ファイルか、*package.json* の `publishConfig` オプションを使用して、プロジェクトのスコープのマッピングを設定できます。 {% data variables.product.prodname_registry %}はスコープ付きのnpmパッケージのみをサポートしています。 スコープ付きのパッケージには、`@owner/name` 形式の名前が付いています。 スコープ付きのパッケージの先頭には常に `@` 記号が付いています。 スコープ付きの名前を使うには、*package.json* で名前を更新する必要がある場合があります。 たとえば、`"name": "@codertocat/hello-world-npm"` のようにします。
-
-{% ifversion packages-npm-v2 %} パッケージを最初に公開する場合、既定の可視性はプライベートです。 パッケージがリポジトリにリンクされている場合、パッケージの可視性はリポジトリの可視性に依存します。 可視性を変更したりアクセス権限を設定するには、「[パッケージのアクセス制御と可視性の設定](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility)」を参照してください。
-{% endif %}
 
 {% data reusables.package_registry.viewing-packages %}
 

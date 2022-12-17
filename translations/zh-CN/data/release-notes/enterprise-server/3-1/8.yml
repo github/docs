@@ -1,0 +1,20 @@
+date: '2021-09-24'
+sections:
+  security_fixes:
+    - '**高：**在 {% data variables.product.prodname_ghe_server %} 中发现了一个在构建 {% data variables.product.prodname_pages %} 站点时可以利用的路径遍历漏洞。{% data variables.product.prodname_pages %} 使用的用户控制配置选项没有受到足够的限制，因此可以读取 {% data variables.product.prodname_ghe_server %} 实例上的文件。要利用此漏洞，攻击者需要获得在 {% data variables.product.prodname_ghe_server %} 实例上创建和构建 {% data variables.product.prodname_pages %} 站点的权限。此漏洞影响 3.1.8 之前的所有 {% data variables.product.prodname_ghe_server %} 版本，在 3.1.8、3.0.16 和 2.22.22 中得到了修复。这是 CVE-2021-22867 修复不完整的结果。此漏洞通过 GitHub Bug 赏金计划报告，编号为 CVE-2021-22868。{% comment %} https://github.com/github/pages/pull/3361, https://github.com/github/pages/pull/3357 {% endcomment %}'
+    - '**中：**{% data variables.product.prodname_ghe_server %} 中的不正确访问控制漏洞允许工作流作业在其不应访问的自承载运行器组中执行。这会影响使用自承载运行器组进行访问控制的客户。由于请求期间的身份验证检查不正确，有权访问一个企业运行器组的存储库可以访问组织内的所有企业运行器组。这可能会导致代码被不正确的运行器组无意运行。此漏洞影响 3.0.0-3.0.15 以及 3.1.0-3.1.7 的所有 {% data variables.product.prodname_ghe_server %} 版本，在 3.0.16 和 3.1.8 中得到了修复。其编号为 CVE-2021-22869。{% comment %} https://github.com/github/enterprise2/pull/27013 {% endcomment %}'
+  bugs:
+    - '在维护模式期间，Resque 工作进程计数显示不正确。{% comment %} https://github.com/github/enterprise2/pull/26899, https://github.com/github/enterprise2/pull/26883 {% endcomment %}'
+    - '在群集模式下，分配的 memcached 内存可能为零。{% comment %} https://github.com/github/enterprise2/pull/26928, https://github.com/github/enterprise2/pull/26832 {% endcomment %}'
+    - '非空二进制文件在拉取请求“文件”选项卡上显示了不正确的文件类型和大小。{% comment %} https://github.com/github/github/pull/192810, https://github.com/github/github/pull/172284, https://github.com/github/coding/issues/694 {% endcomment %}'
+    - '修复了 {% data variables.product.prodname_pages %} 构建，以便考虑设备的 NO_PROXY 设置。这仅与配置了 HTTP 代理的设备有关。（更新时间：2021-09-30）{% comment %} https://github.com/github/pages/pull/3360 {% endcomment %}'
+    - '即使不使用 `ghe-restore` 的 `--config` 选项，源实例的 GitHub Connect 配置也始终恢复到新实例。如果源实例和目标实例同时联机，这将导致与 GitHub Connect 连接和许可证同步发生冲突。该修复还需要将 backup-utils 更新到 3.2.0 或更高版本。[更新时间：2021-11-18]'
+  known_issues:
+    - "{% data variables.product.prodname_registry %} npm 注册表不再返回元数据响应的时间值。这样做是为了大幅提高性能。我们继续拥有将时间值作为元数据响应的一部分返回所需的所有数据，并将在解决现有性能问题后恢复返回该值。"
+    - "在新建的没有任何用户的 {% data variables.product.prodname_ghe_server %} 上，攻击者可能创建第一个管理员用户。"
+    - 自定义防火墙规则在升级过程中被删除。
+    - "Git LFS 跟踪的[通过 Web 界面上传的](https://github.com/blog/2105-upload-files-to-your-repositories)文件被错误地直接添加到存储库。"
+    - 如果问题包含指向同一存储库中文件路径长于 255 个字符的 blob 的永久链接，则无法关闭。
+    - 在 GitHub Connect 中启用了“用户可以搜索 GitHub.com”时，专用和内部存储库中的问题不包括在 GitHub.com 搜索结果中。
+    - "如果为 {% data variables.product.prodname_ghe_server %} 启用 {% data variables.product.prodname_actions %}，将能使用 `ghe-repl-teardown` 成功拆解副本节点，但是可能会返回 `ERROR:Running migrations`。"
+    - 特定于处理预接收挂钩的资源限制可能会导致某些预接收挂钩失败。

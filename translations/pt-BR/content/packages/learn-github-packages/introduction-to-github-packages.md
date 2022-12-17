@@ -16,12 +16,12 @@ versions:
   ghae: '*'
   ghec: '*'
 shortTitle: Introduction
-ms.openlocfilehash: a141c93378f836eebf5ff33b0ced482409d6e577
-ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.openlocfilehash: 1ad319ead16f10186b330f876ccaa83bc44bdbcd
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/09/2022
-ms.locfileid: '147704944'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148193022'
 ---
 {% data reusables.package_registry.packages-ghes-release-stage %} {% data reusables.package_registry.packages-ghae-release-stage %}
 
@@ -55,10 +55,8 @@ Para obter mais informações sobre a configuração do {% data variables.produc
 
 |                    |        |
 |--------------------|--------------------|
-| Permissões        | {% ifversion fpt or ghec %}As permissões para um pacote são herdadas do repositório em que o pacote está hospedado ou, para pacotes em {% data variables.product.prodname_ghcr_and_npm_registry %}, eles podem ser definidos para contas específicas de usuário ou organização. Para obter mais informações, confira "[Como configurar o controle de acesso e a visibilidade de um pacote](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility)". {% else %}Cada pacote herda as permissões do repositório em que o pacote está hospedado. <br> <br> Por exemplo, qualquer pessoa com permissões de leitura para um repositório pode instalar um pacote como uma dependência em um projeto, e qualquer pessoa com permissões de gravação pode publicar uma nova versão de pacote.{% endif %} |
+| Permissões        | {% ifversion packages-registries-v2 %}As permissões para um pacote são herdadas do repositório onde o pacote está hospedado ou podem ser definidas para contas de usuário ou organização específicas. Alguns registros só dão suporte a permissões herdadas de um repositório. Para obter uma lista desses registros, confira "[Sobre permissões para {% data variables.product.prodname_registry %}](/packages/learn-github-packages/about-permissions-for-github-packages#permissions-for-repository-scoped-packages)". Para obter mais informações sobre acesso a pacotes, confira "[Como configurar o controle de acesso e a visibilidade de um pacote](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility)". {% else %}Cada pacote herda as permissões do repositório em que o pacote está hospedado. <br> <br> Por exemplo, qualquer pessoa com permissões de leitura para um repositório pode instalar um pacote como uma dependência em um projeto, e qualquer pessoa com permissões de gravação pode publicar uma nova versão de pacote.{% endif %} |
 | Visibilidade         | {% data reusables.package_registry.public-or-private-packages %} |
-
-Para obter mais informações, confira "[Sobre as permissões para o {% data variables.product.prodname_registry %}](/packages/learn-github-packages/about-permissions-for-github-packages)".
 
 {% ifversion fpt or ghec %}
 ## Sobre a cobrança do {% data variables.product.prodname_registry %}
@@ -102,17 +100,9 @@ Para obter mais informações sobre como configurar seu cliente de pacote para u
 
 ## Como gerenciar pacotes
 
-{% ifversion fpt or ghec %} Você pode excluir um pacote na interface de usuário de {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} ou usando a API REST. Para obter mais informações, confira "[Como excluir e restaurar um pacote](/packages/learn-github-packages/deleting-and-restoring-a-package)" e a "[API {% data variables.product.prodname_registry %}](/rest/reference/packages)".
+Você pode excluir um pacote na interface do usuário {% data variables.product.product_name %} {% ifversion fpt or ghec %} ou usando a API REST. Para obter mais informações, confira "[Como excluir e restaurar um pacote](/packages/learn-github-packages/deleting-and-restoring-a-package)" e a API "[{% data variables.product.prodname_registry %}](/rest/reference/packages)."{% else %}.{% endif %} {% data reusables.package_registry.about-graphql-support %}
 
-{% data reusables.package_registry.no-graphql-to-delete-packages %} {% endif %}
-
-{% ifversion ghes %} Você pode excluir um pacote privado ou público na interface de usuário do {% data variables.product.product_name %}. Ou para pacotes com escopo de repositório, você pode excluir uma versão de um pacote privado usando o GraphQL.
-{% endif %}
-
-{% ifversion ghae %} Você pode excluir uma versão de um pacote na interface de usuário {% data variables.product.product_name %} ou usando a API do GraphQL.
-{% endif %}
-
-Ao usar a API do GraphQL para consultar e excluir pacotes privados, você deve usar o mesmo token que você usa para efetuar a autenticação no {% data variables.product.prodname_registry %}.
+Ao usar a API do GraphQL para consultar e excluir pacotes privados, você deverá usar o mesmo {% data variables.product.pat_v1 %} usado para autenticar o {% data variables.product.prodname_registry %}.
 
 Para obter mais informações, confira {% ifversion ghes or ghae %}[Como excluir e restaurar um pacote](/packages/learn-github-packages/deleting-and-restoring-a-package)" e {% endif %}"[Como criar chamadas com o GraphQL](/graphql/guides/forming-calls-with-graphql)".
 

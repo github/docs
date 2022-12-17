@@ -1,0 +1,44 @@
+date: '2022-04-04'
+sections:
+  security_fixes:
+    - '中：在 {% data variables.product.prodname_ghe_server %} 管理控制台中发现了一个允许绕过 CSRF 保护的路径遍历漏洞。此漏洞影响 3.5 之前的所有 {% data variables.product.prodname_ghe_server %} 版本，并在 3.1.19、3.2.11、3.3.6 和 3.4.1 中得到了修复。此漏洞通过 {% data variables.product.prodname_dotcom %} Bug 赏金计划报告，编号为 CVE-2022-23732。'
+    - '中：在 `yajil` 的 1.x 分支和 2.x 分支中发现了一个整数溢出漏洞，在处理大型 (~2GB) 输入时，该漏洞会导致随后出现堆内存损坏。此漏洞是内部报告的，编号为 CVE-2022-24795。'
+    - "如果启用了 {% data variables.product.prodname_actions %}，支持包可能包含敏感文件。" 
+    - 包已更新到最新的安全版本。
+  bugs:
+    - "如果升级 {% data variables.product.prodname_ghe_server %} 后存在旧配置选项，Minio 进程的 CPU 使用率会很高。" 
+    - 显示了用于在管理控制台的“隐私”设置中启用 `TLS 1.0` 和 `TLS 1.1` 的选项，尽管在早期版本中移除了这些协议版本。 
+    - "在 HA 环境中，首次启用 {% data variables.product.prodname_actions %} 后，可能需要执行额外的手动步骤才能配置 MSSQL 复制。"
+    - 经过热补丁，内部配置文件的子集更新会更可靠。 
+    - "`ghe-run-migrations` 脚本有时无法正确生成临时证书名称。" 
+    - 在群集环境中，Git LFS 操作可能会因跨多个 Web 节点的内部 API 调用失败而失败。
+    - 由于 `syscall` 权限不足，使用 `gpg --import` 的预接收挂钩超时。
+    - 在某些群集拓扑中，Webhook 交付信息不可用。 
+    - "在 HA 配置中，如果先前已启用 {% data variables.product.prodname_actions %}，副本拆解操作将失败。" 
+    - 运行迁移时，Elasticsearch 运行状况检查不允许出现黄色群集状态。 
+    - 由于用户将其用户帐户转换为组织而创建的组织未添加到全局企业帐户中。 
+    - "使用 `ghe-migrator` 或从 {% data variables.product.prodname_dotcom_the_website %} 导出时，如果在导出过程中删除数据，则长时间运行的导出将失败。" 
+    - "{% data variables.product.prodname_actions %} 部署图在呈现待处理作业时会显示错误。" 
+    - 无法访问的页面链接已被移除。 
+    - 远离 Web UI 中两个提交的比较将使差异在其他页面中持续存在。 
+    - 将团队添加为拉取请求的审阅者时，有时会显示不正确的团队成员数量。 
+    - "[删除用户的团队成员身份](/rest/reference/teams#remove-team-membership-for-a-user) API 终结点在尝试删除由 SCIM 组在外部管理的成员时会响应错误。" 
+    - "大量休眠用户可能会导致 {% data variables.product.prodname_github_connect %} 配置失败。" 
+    - 站点管理员 Web UI 中的“功能和 Beta 版本注册”页面无法正确使用。 
+    - 单击站点页脚中的“站点管理员模式”链接时，其状态未发生更改。 
+    - '`spokesctl cache-policy rm` 命名不再失败且显示消息 `error: failed to delete cache policy`。'
+  changes:
+    - 增加了 Memcached 连接上限，可更好地适应大型群集拓扑。 
+    - 依赖项关系图 API 以前使用静态定义的端口运行。 
+    - 已更新与群集相关的 Elasticsearch 分片设置的默认分片计数。 
+    - “会审”和“维护”团队角色在存储库迁移期间保留。 
+    - 企业所有者提出的 Web 请求的性能已得到改进。 
+  known_issues:
+    - "在新建的没有任何用户的 {% data variables.product.prodname_ghe_server %} 实例上，攻击者可以创建第一个管理员用户。"
+    - 自定义防火墙规则在升级过程中被移除。
+    - "[通过 Web 界面上传](https://github.com/blog/2105-upload-files-to-your-repositories)的 Git LFS 跟踪文件被错误地直接添加到存储库。"
+    - 如果问题包含同一存储库中 blob 的永久链接并且该 blob de 文件路径长于 255 个字符，则问题无法关闭。
+    - "对 {% data variables.product.prodname_github_connect %} 启用“用户可以搜索 GitHub.com”后，专用和内部存储库中的问题不包括在 {% data variables.product.prodname_dotcom_the_website %} 搜索结果中。"
+    - "{% data variables.product.prodname_registry %} npm 注册表不再在元数据响应中返回时间值。这样做是为了大幅改善性能。我们继续拥有将时间值作为元数据响应的一部分返回所需的所有数据，并将在以后解决现有性能问题后恢复返回该值。"
+    - 特定于处理预接收挂钩的资源限制可能导致部分预接收挂钩失败。
+    - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'

@@ -1,38 +1,33 @@
 date: '2022-08-30'
 sections:
   bugs:
-    - After unlocking a repository for temporary access, a site administrator was unable to manage settings for security products in the repository. 
-    - Duplicate administrative SSH keys could appear in both the Management Console and the `/home/admin/.ssh/authorized_keys` file.
-    - The site admin page for individual users at <code>http(s)://<em>HOSTNAME</em>/stafftools/users/<em>USERNAME</em>/admin</code> contained functionality not intended for GitHub Enterprise Server.  
-    - In some cases, running `ghe-cluster-config-apply` could replicate an empty configuration to existing nodes in a cluster. 
-    - In some cases, configuration runs started with `ghe-config-apply` did not complete, or returned a `Container count mismatch` error. 
-    - After updating a self-signed TLS certificate on a GitHub Enterprise Server instance, UI elements on some pages in the web interface did not appear. 
-    - In some cases, background tasks could stall due to a library that was used concurrently despite not being thread-safe.
-    - The site admin bar at the top of the web interface contained a broken link to the SHA for the currently running version of the application.
-    - Organization owners were unable to set the level of access required to create discussions. 
-    - Discussions users were incorrectly directed to the community guidelines for GitHub.com.
-    - In some cases, users were incorrectly instructed to verify their email before creating a discussion.
-    - Alerts from secret scanning for GitHub Advanced Security customers were missing in the web UI and REST API if a site administrator did not upgrade directly to GitHub Enterprise Server 3.4. The alerts are now visible.
+    - 解锁存储库以进行临时访问后，站点管理员无法管理存储库中安全产品的设置。 
+    - 管理控制台和 `/home/admin/.ssh/authorized_keys` 文件中可能会出现重复的管理 SSH 密钥。
+    - "<code>http(s)://<em>HOSTNAME</em>/stafftools/users/<em>USERNAME</em>/admin</code> 的个人用户的站点管理员页面包含不适用于 GitHub Enterprise Server 的功能。"  
+    - 在某些情况下，运行 `ghe-cluster-config-apply` 可以将空配置复制到群集中的现有节点。 
+    - 在某些情况下，以 `ghe-config-apply` 开始的配置运行未完成，或返回了 `Container count mismatch` 错误。 
+    - 在 GitHub Enterprise Server 实例上更新自签名 TLS 证书后，Web 界面中某些页面上的 UI 元素没有显示。 
+    - 在某些情况下，尽管不是线程安全的，但由于同时使用的库，可能会导致后台任务停止。
+    - Web 界面顶部的站点管理员栏包含指向当前正在运行的应用程序版本的 SHA 的断开链接。
+    - 组织所有者无法设置创建讨论所需的访问级别。 
+    - 讨论用户被错误地引导至 GitHub.com 的社区指南。
+    - 在某些情况下，系统错误地指示用户在创建讨论之前验证其电子邮件。
+    - 如果站点管理员没有直接升级到 GitHub Enterprise Server 3.4，则 Web UI 和 REST API 中缺少来自 GitHub Advanced Security 客户的机密扫描的警报。警报现在可见。
   changes:
-    - Generation of support bundles is faster as a result of parallelized log sanitization. For more information about support bundles, see "[Providing data to GitHub Support](/support/contacting-github-support/providing-data-to-github-support)."
-    - APIs that contain the `organization` or `org` route now accept either the organization's slug or ID. Previously, the APIs only accepted slugs, which caused `Link` headers for GitHub Advanced Security endpoints to be inaccessible. For more information, see "[Organizations](https://docs.github.com/rest/orgs/orgs)" in the REST API documentation. 
-    - The enterprise audit log now includes more user-generated events, such as `project.create`. The REST API also returns additional user-generated events, such as `repo.create`. For more information, see "[Accessing the audit log for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/accessing-the-audit-log-for-your-enterprise)" and "[Using the audit log API for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/using-the-audit-log-api-for-your-enterprise#querying-the-audit-log-rest-api)."
-    - In some cases, cache replicas could reject some Git operations on recently updated repositories. For more information about repository caching, see "[About repository caching](/admin/enterprise-management/caching-repositories/about-repository-caching)." 
-    - You can now configure the global announcement banner to be dismissable using the REST API. For more information, see "[Customizing user messages for your enterprise](/admin/user-management/managing-users-in-your-enterprise/customizing-user-messages-for-your-enterprise#creating-a-global-announcement-banner)." 
+    - "由于并行日志清理，支持包的生成速度更快。有关支持包的详细信息，请参阅“[将数据提供给 GitHub 支持](/support/contacting-github-support/providing-data-to-github-support)”。"
+    - "包含 `organization` 或 `org` 路由的 API 现在接受组织的 slug 或 ID。以前，API 只接受 slug，这导致 GitHub Advanced Security 终结点的 `Link` 标头无法访问。有关详细信息，请参阅 REST API 文档中的“[组织](https://docs.github.com/rest/orgs/orgs)”。" 
+    - "企业审核日志现在包含更多用户生成的事件，例如 `project.create`。REST API 还返回其他用户生成的事件，例如 `repo.create`。有关详细信息，请参阅“[访问企业的审核日志](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/accessing-the-audit-log-for -your-enterprise)”和“[使用企业的审核日志 API](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/using-the-audit- log-api-for-your-enterprise#querying-the-audit-log-rest-api)”。"
+    - "在某些情况下，缓存副本可能会拒绝对最近更新的存储库的某些 Git 操作。有关存储库缓存的详细信息，请参阅“[关于存储库缓存](/admin/enterprise-management/caching-repositories/about-repository-caching)”。" 
+    - "你现在可以使用 REST API 将全局公告横幅配置为可关闭。有关详细信息，请参阅“[为企业自定义用户消息](/admin/user-management/managing-users-in-your-enterprise/customizing-user-messages-for-your-enterprise#creating-a-global-announcement-banner)”。" 
   known_issues:
-    - On a freshly set up {% data variables.product.prodname_ghe_server %} instance without any users, an attacker could create the first admin user.
-    - Custom firewall rules are removed during the upgrade process.
-    - Git LFS tracked files [uploaded through the web interface](https://github.com/blog/2105-upload-files-to-your-repositories) are incorrectly added directly to the repository.
-    - Issues cannot be closed if they contain a permalink to a blob in the same repository, where the blob's file path is longer than 255 characters.
-    - When "Users can search GitHub.com" is enabled with GitHub Connect, issues in private and internal repositories are not included in GitHub.com search results.
-    - The {% data variables.product.prodname_registry %} npm registry no longer returns a time value in metadata responses. This was done to allow for substantial performance improvements. We continue to have all the data necessary to return a time value as part of the metadata response and will resume returning this value in the future once we have solved the existing performance issues.
-    - Resource limits that are specific to processing pre-receive hooks may cause some pre-receive hooks to fail.
-    - Actions services need to be restarted after restoring an instance from a backup taken on a different host.
-    - In a repository's settings, enabling the option to allow users with read access to create discussions does not enable this functionality.
-    - In some cases, users cannot convert existing issues to discussions.
-    - Custom patterns for secret scanning have `.*` as an end delimiter, specifically in the "After secret" field. This delimiter causes inconsistencies in scans for secrets across repositories, and you may notice gaps in a repository's history where no scans completed. Incremental scans may also be impacted. To prevent issues with scans, modify the end of the pattern to remove the `.*` delimiter.
-    - |
-      After upgrading a replica node to GitHub Enterprise Server 3.6.0 or later and restarting replication, in some situations Git replication may stop progressing and continue to show `WARNING: git replication is behind the primary …`. If you encounter this known issue contact GitHub Support. For more information, see "[Creating a support ticket](https://docs.github.com/en/enterprise-server@3.6/support/contacting-github-support/creating-a-support-ticket)." [Updated: 2022-10-03]
-    - |
-      GitHub Pages builds may time out on instances in AWS that are configured for high availability. [Updated: 2022-11-28]
-    - '{% data reusables.release-notes.babeld-max-threads-performance-issue %}'
+    - "在新建的没有任何用户的 {% data variables.product.prodname_ghe_server %} 实例上，攻击者可以创建第一个管理员用户。"
+    - 自定义防火墙规则在升级过程中被删除。
+    - "[通过 Web 界面上传](https://github.com/blog/2105-upload-files-to-your-repositories)的 Git LFS 跟踪文件被错误地直接添加到存储库。"
+    - 如果问题包含指向同一存储库中 Blob 的永久链接，且 Blob 的文件路径长度超过 255 个字符，则无法关闭问题。
+    - 在 GitHub Connect 中启用了“用户可以搜索 GitHub.com”时，专用和内部存储库中的问题不包括在 GitHub.com 搜索结果中。
+    - "{% data variables.product.prodname_registry %} npm 注册表不再在元数据响应中返回时间值。这样可以大幅改善性能。作为元数据响应的一部分，我们继续拥有返回时间值所需的所有数据，并将在我们解决现有性能问题后恢复返回这个值。"
+    - 特定于处理预接收挂钩的资源限制可能导致部分预接收挂钩失败。
+    - 从不同主机上的备份恢复实例后，需要重新启动操作服务。
+    - 在存储库的设置中，启用允许具有读取访问权限的用户创建讨论的选项不会启用此功能。
+    - 在某些情况下，用户无法将现有问题转换为讨论。
+    - 机密扫描的自定义模式将 `.*` 作为结束分隔符，特别是在“机密之后”字段中。此分隔符会导致跨存储库的机密扫描不一致，并且你可能会注意到存储库历史记录中没有完成扫描的间隙。增量扫描也可能受到影响。为防止出现扫描问题，请修改模式的结尾以删除 `.*` 分隔符。

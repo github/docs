@@ -1,0 +1,23 @@
+date: '2022-01-18'
+sections:
+  security_fixes:
+    - '包已更新到最新的安全版本。在这些更新中，Log4j 已更新至版本 2.17.1。注意：以前在 3.3.1、3.2.6、3.1.14 和 3.0.22 中发布的缓解措施已经足够解决这些 GitHub Enterprise Server 版本中 CVE-2021-44228、CVE-2021-45046、CVE-2021-45105 和 CVE-2021-44832 的影响。'
+    - 清理生成的支持包中的更多机密
+    - 包已更新到最新的安全版本。
+  bugs:
+    - 操作自托管运行器在从较旧的 GHES 安装升级后将无法自我更新或运行新作业。
+    - 将 MinIO 配置为 GitHub 包的 Blob 存储时，无法验证存储设置。
+    - 由于 `/data/user/tmp/pages` 中存在权限问题，运行 `ghe-config-apply` 有时可能会失败。
+    - 在低分辨率的浏览器中滚动，可能无法找到管理控制台中的保存按钮。
+    - Collectd 版本升级后，IOPS 和存储流量监视图未更新。
+    - 一些与 Webhook 相关的作业可能会产生大量的日志。
+    - 多个文档链接导致“404 找不到”错误。
+  known_issues:
+    - "在新建的没有任何用户的 {% data variables.product.prodname_ghe_server %} 上，攻击者可以创建第一个管理员用户。"
+    - 自定义防火墙规则在升级过程中被删除。
+    - "[通过 Web 界面上传](https://github.com/blog/2105-upload-files-to-your-repositories)的 Git LFS 跟踪文件被错误地直接添加到存储库。"
+    - 如果问题包含同一存储库中 blob 的永久链接并且该 blob 的文件路径长于 255 个字符，则问题无法关闭。
+    - 在 GitHub Connect 中启用了“用户可以搜索 GitHub.com”时，专用和内部存储库中的问题不包括在 GitHub.com 搜索结果中。
+    - "{% data variables.product.prodname_registry %} npm 注册表不再在元数据响应中返回时间值。这样做是为了大幅改善性能。我们继续拥有将时间值作为元数据响应的一部分返回所需的所有数据，并将在以后解决现有性能问题后恢复返回该值。"
+    - 特定于处理预接收挂钩的资源限制可能导致部分预接收挂钩失败。
+    - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'

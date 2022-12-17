@@ -1,5 +1,13 @@
+---
+ms.openlocfilehash: e44a606d9e8334ff762c19fc543add0779b715eb
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/25/2022
+ms.locfileid: "148106932"
+---
 {% note %}
 
-**Note**:  If you disable billing for {% data variables.product.prodname_github_codespaces %} for some organization members and collaborators, or for your entire organization, anyone who can either push changes to, or fork, a repository in your organization, will still be able to create a codespace for that repository by using their personal account. However, this will not incur any charge for your organization. For information about restricting access to a repository, see "[Managing teams and people with access to your repository](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository)."
+**Remarque** : Si vous désactivez l’utilisation des codespaces facturables pour votre organisation, toute personne pouvant cloner un dépôt dans votre organisation pourra toujours créer un codespace pour ce dépôt à l’aide de son compte personnel. En revanche, votre organisation ne sera exposée à aucun frais. Pour plus d’informations sur la limitation de l’accès à un dépôt, consultez « [Gestion des équipes et des personnes ayant accès à votre dépôt](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository) ».
 
 {% endnote %}

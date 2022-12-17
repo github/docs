@@ -14,13 +14,15 @@ redirect_from:
   - /admin/github-actions/enabling-github-actions-with-minio-gateway-for-nas-storage
   - /admin/github-actions/enabling-github-actions-for-github-enterprise-server/enabling-github-actions-with-minio-gateway-for-nas-storage
 shortTitle: MinIO storage
-ms.openlocfilehash: 3d9c6cfca6b81a66185515c8757cef22290ead30
-ms.sourcegitcommit: 8f1801040a84ca9353899a2d1e6782c702aaed0d
+ms.openlocfilehash: fec0720c8779ba643735156e6413005ae35f5d85
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/16/2022
-ms.locfileid: '148166566'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148192959'
 ---
+{% data reusables.actions.enterprise-storage-about %}
+
 ## Pré-requisitos
 
 Antes de habilitar {% data variables.product.prodname_actions %}, certifique-se de que você realizou os seguintes passos:

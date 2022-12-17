@@ -1,6 +1,6 @@
 ---
-title: Issue event types
-intro: 'For the Issues Events API and Timeline API, learn about each event type, the triggering action on {% data variables.product.prodname_dotcom %}, and each event''s unique properties.'
+title: 议题事件类型
+intro: '对于议题事件 API 和时间表 API，了解每个事件类型、{% data variables.product.prodname_dotcom %} 上的触发操作以及每个事件的唯一属性。'
 redirect_from:
   - /v3/issues/issue-event-types
   - /developers/webhooks-and-events/issue-event-types
@@ -11,742 +11,713 @@ versions:
   ghec: '*'
 topics:
   - Events
+ms.openlocfilehash: 2459e4fbdcd4e857c603b7aa7354d4f2d5d6a062
+ms.sourcegitcommit: 9a7b3a9ccb983af5df2cd94da7fecf7a8237529b
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147875988'
 ---
-Issue events are triggered by activity in issues and pull requests and are available in the [Issue Events API](/rest/reference/issues#events) and the [Timeline Events API](/rest/reference/issues#timeline). Each event type specifies whether the event is available in the Issue Events or Timeline Events APIs.
+问题事件由问题和拉取请求中的活动触发，在[问题事件 API](/rest/reference/issues#events) 和[时间线事件 API](/rest/reference/issues#timeline) 中可用。 每个事件类型指定事件是否可用于议题事件或时间表事件 API。
 
-GitHub's REST API considers every pull request to be an issue, but not every issue is a pull request. For this reason, the Issue Events and Timeline Events endpoints may return both issues and pull requests in the response. Pull requests have a `pull_request` property in the `issue` object. Because pull requests are issues, issue and pull request numbers do not overlap in a repository. For example, if you open your first issue in a repository, the number will be 1. If you then open a pull request, the number will be 2. Each event type specifies if the event occurs in pull request, issues, or both.
+GitHub 的 REST API 认为每个拉取请求都是一个议题，但并非每个议题都是拉取请求。 因此，议题事件和时间表事件端点可能在响应中同时返回议题和拉取请求。 拉取请求在 `issue` 对象中有一个 `pull_request` 属性。 因为拉取请求也是议题，因此议题和拉取请求编号在仓库中不会重叠。 例如，如果您在仓库中打开了您的第一个议题，则编号将为 1。 如果您随后打开了一个拉取请求，则编号将为 2。 每个事件类型指定事件是否发生在拉取请求和/或议题中。
 
-## Issue event object common properties
+## 议题事件对象公共属性
 
-Issue events all have the same object structure, except events that are only available in the Timeline Events API. Some events also include additional properties that provide more context about the event resources. Refer to the specific event to for details about any properties that differ from this object format.
+议题事件都具有相同的对象结构，但仅在时间表事件 API 中可用的事件除外。 某些事件还包括可提供有关事件资源更多上下文的其他属性。 有关不同于此对象格式的任何属性的详细信息，请参阅特定事件。
 
 {% data reusables.issue-events.issue-event-common-properties %}
 
 ## added_to_project
 
-The issue or pull request was added to a project board. {% data reusables.projects.disabled-projects %}
+议题或拉取请求已添加到项目板。 {% data reusables.projects.disabled-projects %}
 
-### Availability
+### 可用性
 
-|Issue type | Issue events API | Timeline events API|
+|问题类型 | 议题事件 API | 时间表事件 API|
 |:----------|:----------------:|:-----------------:|
-| <ul><li>Issues</li><li>Pull request</li></ul> | **X** | **X** |
+| <ul><li>问题</li><li>拉取请求</li></ul> | **X** | **X** |
 
-### Event object properties
+### 事件对象属性
 
-{% data reusables.pre-release-program.starfox-preview %}
-{% data reusables.pre-release-program.api-preview-warning %}
+{% data reusables.pre-release-program.starfox-preview %} {% data reusables.pre-release-program.api-preview-warning %}
 
-{% data reusables.issue-events.issue-event-common-properties %}
-{% data reusables.issue-events.project-card-properties %}
+{% data reusables.issue-events.issue-event-common-properties %} {% data reusables.issue-events.project-card-properties %}
 
-## assigned
+## 已分配
 
-The issue or pull request was assigned to a user.
+议题或拉取请求已分配给用户。
 
-### Availability
+### 可用性
 
-|Issue type | Issue events API | Timeline events API|
+|问题类型 | 议题事件 API | 时间表事件 API|
 |:----------|:----------------:|:-----------------:|
-| <ul><li>Issues</li><li>Pull requests</li></ul> | **X** | **X**  |
+| <ul><li>问题</li><li>拉取请求</li></ul> | **X** | **X**  |
 
-### Event object properties
+### 事件对象属性
 
-{% data reusables.issue-events.issue-event-common-properties %}
-{% data reusables.issue-events.assignee-properties %}
+{% data reusables.issue-events.issue-event-common-properties %} {% data reusables.issue-events.assignee-properties %}
 
 ## automatic_base_change_failed
 
-GitHub unsuccessfully attempted to automatically change the base branch of the pull request.
+GitHub 尝试自动更改拉取请求的基本分支未成功。
 
-### Availability
+### 可用性
 
-|Issue type | Issue events API | Timeline events API|
+|问题类型 | 议题事件 API | 时间表事件 API|
 |:----------|:----------------:|:-----------------:|
-| <ul><li>Pull requests</li></ul> | **X** |  |
+| <ul><li>拉取请求</li></ul> | **X** |  |
 
-### Event object properties
+### 事件对象属性
 
 {% data reusables.issue-events.issue-event-common-properties %}
 
 ## automatic_base_change_succeeded
 
-GitHub successfully attempted to automatically change the base branch of the pull request.
+GitHub 尝试自动更改拉取请求的基本分支已成功。
 
-### Availability
+### 可用性
 
-|Issue type | Issue events API | Timeline events API|
+|问题类型 | 议题事件 API | 时间表事件 API|
 |:----------|:----------------:|:-----------------:|
-| <ul><li>Pull requests</li></ul> | **X** | |
+| <ul><li>拉取请求</li></ul> | **X** | |
 
-### Event object properties
+### 事件对象属性
 
 {% data reusables.issue-events.issue-event-common-properties %}
 
 ## base_ref_changed
 
-The base reference branch of the pull request changed.
+拉取请求的基本引用分支已更改。
 
-### Availability
+### 可用性
 
-|Issue type | Issue events API | Timeline events API|
+|问题类型 | 议题事件 API | 时间表事件 API|
 |:----------|:----------------:|:-----------------:|
-| <ul><li>Pull requests</li></ul> | **X** | |
+| <ul><li>拉取请求</li></ul> | **X** | |
 
-### Event object properties
+### 事件对象属性
 
 {% data reusables.issue-events.issue-event-common-properties %}
 
-## closed
+## 已关闭
 
-The issue or pull request was closed. When the `commit_id` is present, it identifies the commit that closed the issue using "closes / fixes" syntax. For more information about the syntax, see "[Linking a pull request to an issue](/github/managing-your-work-on-github/linking-a-pull-request-to-an-issue#linking-a-pull-request-to-an-issue-using-a-keyword)".
+议题或拉取请求已关闭。 `commit_id` 存在时，它会使用“closes/fixes”语法标识关闭问题的提交。 有关语法的详细信息，请参阅“[将拉取请求链接到问题](/github/managing-your-work-on-github/linking-a-pull-request-to-an-issue#linking-a-pull-request-to-an-issue-using-a-keyword)”。
 
-### Availability
+### 可用性
 
-|Issue type | Issue events API | Timeline events API|
+|问题类型 | 议题事件 API | 时间表事件 API|
 |:----------|:----------------:|:-----------------:|
-| <ul><li>Issues</li><li>Pull requests</li></ul> | **X** | **X** |
+| <ul><li>问题</li><li>拉取请求</li></ul> | **X** | **X** |
 
-### Event object properties
+### 事件对象属性
 
 {% data reusables.issue-events.issue-event-common-properties %}
 
-## commented
+## 已评论
 
-A comment was added to the issue or pull request.
+已将评论添加到议题或拉取请求中。
 
-### Availability
+### 可用性
 
-|Issue type | Issue events API | Timeline events API|
+|问题类型 | 议题事件 API | 时间表事件 API|
 |:----------|:----------------:|:-----------------:|
-| <ul><li>Issues</li><li>Pull requests</li></ul> |  | **X** |
+| <ul><li>问题</li><li>拉取请求</li></ul> |  | **X** |
 
-### Event object properties
+### 事件对象属性
 
 {% data reusables.issue-events.timeline_events_object_properties %}
 
-Name | Type | Description
+名称 | 类型 | 说明
 -----|------|--------------
-`url` | `string` | The REST API URL to retrieve the issue comment.
-`html_url` | `string` | The HTML URL of the issue comment.
-`issue_url` | `string` | The HTML URL of the issue.
-`id` | `integer` | The unique identifier of the event.
-`node_id` | `string` | The [Global Node ID](/graphql/guides/using-global-node-ids) of the event.
-`user` | `object` | The person who commented on the issue.
-`created_at` | `string` | The timestamp indicating when the comment was added.
-`updated_at` | `string` | The timestamp indicating when the comment was updated or created, if the comment is never updated.
-`author_association` | `string` | The permissions the user has in the issue's repository. For example, the value would be `"OWNER"` if the owner of repository created a comment.
-`body` | `string` | The comment body text.
-`event` | `string` | The event value is `"commented"`.
-`actor` | `object` | The person who generated the event.
+`url` | `string` | 用于检索议题评论的 REST API URL。
+`html_url` | `string` | 议题评论的 HTML URL。
+`issue_url` | `string` | 议题的 HTML URL。
+`id` | `integer` | 事件的唯一标识符。
+`node_id` | `string` | 事件的[全局节点 ID](/graphql/guides/using-global-node-ids)。
+`user` | `object` | 对议题发表评论的人。
+`created_at` | `string` | 指示评论添加时间的时间戳。
+`updated_at` | `string` | 指示评论更新或创建（如果从未更新）时间的时间戳。
+`author_association` | `string` | 用户在议题仓库中拥有的权限。 例如，如果存储库的所有者创建了注释，该值将为 `"OWNER"`。
+`body` | `string` | 评论正文文本。
+`event` | `string` | 事件值为 `"commented"`。
+`actor` | `object` | 生成事件的人。
 
-## committed
+## 提交
 
-A commit was added to the pull request's `HEAD` branch.
+已将提交添加到拉取请求的 `HEAD` 分支。
 
-### Availability
+### 可用性
 
-|Issue type | Issue events API | Timeline events API|
+|问题类型 | 议题事件 API | 时间表事件 API|
 |:----------|:----------------:|:-----------------:|
-| <ul><li>Pull requests</li></ul> |  | **X** |
+| <ul><li>拉取请求</li></ul> |  | **X** |
 
-### Event object properties
+### 事件对象属性
 
 {% data reusables.issue-events.timeline_events_object_properties %}
 
-Name | Type | Description
+名称 | 类型 | 说明
 -----|------|--------------
-`sha` | `string` | The SHA of the commit in the pull request.
-`node_id` | `string` | The [Global Node ID](/graphql/guides/using-global-node-ids) of the event.
-`url` | `string` | The REST API URL to retrieve the commit.
-`html_url` | `string` | The HTML URL of the commit.
-`author` | `object` | The person who authored the commit.
-`committer` | `object` | The person who committed the commit on behalf of the author.
-`tree` | `object` | The Git tree of the commit.
-`message` | `string` | The commit message.
-`parents` | `array of objects` | A list of parent commits.
-`verification` | `object` | The result of verifying the commit's signature. For more information, see "[Signature verification object](/rest/reference/git#get-a-commit)."
-`event` | `string` | The event value is `"committed"`.
+`sha` | `string` | 拉取请求中提交的 SHA。
+`node_id` | `string` | 事件的[全局节点 ID](/graphql/guides/using-global-node-ids)。
+`url` | `string` | 用于检索提交的 REST API URL。
+`html_url` | `string` | 提交的 HTML URL。
+`author` | `object` | 编写提交的人。
+`committer` | `object` | 代表作者进行提交的人。
+`tree` | `object` | 提交的 Git 树。
+`message` | `string` | 提交消息。
+`parents` | `array of objects` | 父提交的列表。
+`verification` | `object` | 验证提交签名的结果。 有关详细信息，请参阅“[签名验证对象](/rest/reference/git#get-a-commit)”。
+`event` | `string` | 事件值为 `"committed"`。
 
-## connected
+## 已连接
 
-The issue or pull request was linked to another issue or pull request. For more information, see "[Linking a pull request to an issue](/github/managing-your-work-on-github/linking-a-pull-request-to-an-issue)".
+议题或拉取请求已链接到另一个议题或拉取请求。 有关详细信息，请参阅“[将拉取请求链接到问题](/github/managing-your-work-on-github/linking-a-pull-request-to-an-issue)”。
 
-### Availability
+### 可用性
 
-|Issue type | Issue events API | Timeline events API|
+|问题类型 | 议题事件 API | 时间表事件 API|
 |:----------|:----------------:|:-----------------:|
-| <ul><li>Issues</li><li>Pull requests</li></ul> | **X** | **X** |
+| <ul><li>问题</li><li>拉取请求</li></ul> | **X** | **X** |
 
-### Event object properties
+### 事件对象属性
 
 {% data reusables.issue-events.issue-event-common-properties %}
 
 ## convert_to_draft
 
-The pull request was converted to draft mode.
+拉取请求已转换为草稿模式。
 
-### Availability
+### 可用性
 
-|Issue type | Issue events API | Timeline events API|
+|问题类型 | 议题事件 API | 时间表事件 API|
 |:----------|:----------------:|:-----------------:|
-| <ul><li>Pull requests</li></ul> | **X** | **X** |
+| <ul><li>拉取请求</li></ul> | **X** | **X** |
 
-### Event object properties
+### 事件对象属性
 
 {% data reusables.issue-events.issue-event-common-properties %}
 
 ## converted_note_to_issue
 
-The issue was created by converting a note in a project board to an issue. {% data reusables.projects.disabled-projects %}
+此议题是通过将项目板中的注释转换为议题而产生的。 {% data reusables.projects.disabled-projects %}
 
-### Availability
+### 可用性
 
-|Issue type | Issue events API | Timeline events API|
+|问题类型 | 议题事件 API | 时间表事件 API|
 |:----------|:----------------:|:-----------------:|
-| <ul><li>Issues</li></ul> | **X** | **X** |
+| <ul><li>问题</li></ul> | **X** | **X** |
 
-### Event object properties
+### 事件对象属性
 
-{% data reusables.pre-release-program.starfox-preview %}
-{% data reusables.pre-release-program.api-preview-warning %}
+{% data reusables.pre-release-program.starfox-preview %} {% data reusables.pre-release-program.api-preview-warning %}
 
-{% data reusables.issue-events.issue-event-common-properties %}
-{% data reusables.issue-events.project-card-properties %}
-
-## converted_to_discussion
-
-The issue was closed and converted to a discussion.
-
-### Availability
-
-|Issue type | Issue events API | Timeline events API|
-|-----|-----|-----|
-| <ul><li>Issues</li></ul> | **X** | |
-
-### Event Object Properties
-
-{% data reusables.issue-events.issue-event-common-properties %}
+{% data reusables.issue-events.issue-event-common-properties %} {% data reusables.issue-events.project-card-properties %}
 
 ## cross-referenced
 
-The issue or pull request was referenced from another issue or pull request.
+议题或拉取请求引用自另一个议题或拉取请求。
 
-### Availability
+### 可用性
 
-|Issue type | Issue events API | Timeline events API|
+|问题类型 | 议题事件 API | 时间表事件 API|
 |:----------|:----------------:|:-----------------:|
-| <ul><li>Issues</li><li>Pull requests</li></ul> |  | **X** |
+| <ul><li>问题</li><li>拉取请求</li></ul> |  | **X** |
 
-### Event object properties
+### 事件对象属性
 
 {% data reusables.issue-events.timeline_events_object_properties %}
 
-Name | Type | Description
+名称 | 类型 | 说明
 -----|------|--------------
-`actor` | `object` | The person who generated the event.
-`created_at` | `string` | The timestamp indicating when the cross-reference was added.
-`updated_at` | `string` | The timestamp indicating when the cross-reference was updated or created, if the cross-reference is never updated.
-`source` | `object` | The issue or pull request that added a cross-reference.
-`source[type]` | `string` | This value will always be `"issue"` because pull requests are of type issue. Only cross-reference events triggered by issues or pull requests are returned in the Timeline Events API. To determine if the issue that triggered the event is a pull request, you can check if the `source[issue][pull_request]` object exists.
-`source[issue]` | `object` | The `issue` object that added the cross-reference.
-`event` | `string` | The event value is `"cross-referenced"`.
+`actor` | `object` | 生成事件的人。
+`created_at` | `string` | 指示交叉引用添加时间的时间戳。
+`updated_at` | `string` | 指示交叉引用更新或创建（如果从未更新）时间的时间戳。
+`source` | `object` | 添加交叉引用的议题或拉取请求。
+`source[type]` | `string` | 该值始终为 `"issue"`，因为拉取请求属于类型问题。 在时间表事件 API 中仅返回由议题或拉取请求触发的交叉引用事件。 若要确定触发事件的问题是否为拉取请求，可以检查 `source[issue][pull_request]` 对象是否存在。
+`source[issue]` | `object` | 添加交叉引用的 `issue` 对象。
+`event` | `string` | 事件值为 `"cross-referenced"`。
 
 ## demilestoned
 
-The issue or pull request was removed from a milestone.
+议题或拉取请求已从里程碑中删除。
 
-### Availability
+### 可用性
 
-|Issue type | Issue events API | Timeline events API|
+|问题类型 | 议题事件 API | 时间表事件 API|
 |:----------|:----------------:|:-----------------:|
-| <ul><li>Issues</li><li>Pull requests</li></ul> | **X** | **X** |
+| <ul><li>问题</li><li>拉取请求</li></ul> | **X** | **X** |
 
-### Event object properties
+### 事件对象属性
 
-{% data reusables.issue-events.issue-event-common-properties %}
-`milestone` | `object` | The milestone object.
-`milestone[title]` | `string` | The title of the milestone.
+{% data reusables.issue-events.issue-event-common-properties %} `milestone` | `object` | 里程碑对象。
+`milestone[title]` | `string` | 里程碑的标题。
 
 ## deployed
 
-The pull request was deployed.
+拉取请求已部署。
 
-### Availability
+### 可用性
 
-|Issue type | Issue events API | Timeline events API|
+|问题类型 | 议题事件 API | 时间表事件 API|
 |:----------|:----------------:|:-----------------:|
-| <ul><li>Pull requests</li></ul> | **X** | **X** |
+| <ul><li>拉取请求</li></ul> | **X** | **X** |
 
-### Event object properties
+### 事件对象属性
 
 {% data reusables.issue-events.issue-event-common-properties %}
 
 ## deployment_environment_changed
 
-The pull request deployment environment was changed.
+拉取请求部署环境已更改。
 
-### Availability
+### 可用性
 
-|Issue type | Issue events API | Timeline events API|
+|问题类型 | 议题事件 API | 时间表事件 API|
 |:----------|:----------------:|:-----------------:|
-| <ul><li>Pull requests</li></ul> | **X** |  |
+| <ul><li>拉取请求</li></ul> | **X** |  |
 
-### Event object properties
+### 事件对象属性
 
 {% data reusables.issue-events.issue-event-common-properties %}
 
-## disconnected
+## 已断开连接
 
-The issue or pull request was unlinked from another issue or pull request. For more information, see "[Linking a pull request to an issue](/github/managing-your-work-on-github/linking-a-pull-request-to-an-issue)".
+议题或拉取请求与另一个议题或拉取请求取消链接。 有关详细信息，请参阅“[将拉取请求链接到问题](/github/managing-your-work-on-github/linking-a-pull-request-to-an-issue)”。
 
-### Availability
+### 可用性
 
-|Issue type | Issue events API | Timeline events API|
+|问题类型 | 议题事件 API | 时间表事件 API|
 |:----------|:----------------:|:-----------------:|
-| <ul><li>Issues</li><li>Pull requests</li></ul> | **X** | **X** |
+| <ul><li>问题</li><li>拉取请求</li></ul> | **X** | **X** |
 
-### Event object properties
+### 事件对象属性
 
 {% data reusables.issue-events.issue-event-common-properties %}
 
 ## head_ref_deleted
 
-The pull request's `HEAD` branch was deleted.
+拉取请求的 `HEAD` 分支已删除。
 
-### Availability
+### 可用性
 
-|Issue type | Issue events API | Timeline events API|
+|问题类型 | 议题事件 API | 时间表事件 API|
 |:----------|:----------------:|:-----------------:|
-| <ul><li>Pull requests</li></ul> | **X** | **X** |
+| <ul><li>拉取请求</li></ul> | **X** | **X** |
 
-### Event object properties
+### 事件对象属性
 
 {% data reusables.issue-events.issue-event-common-properties %}
 
 ## head_ref_restored
 
-The pull request's `HEAD` branch was restored to the last known commit.
+拉取请求的 `HEAD` 分支已还原为上一个已知提交。
 
-### Availability
+### 可用性
 
-|Issue type | Issue events API | Timeline events API|
+|问题类型 | 议题事件 API | 时间表事件 API|
 |:----------|:----------------:|:-----------------:|
-| <ul><li>Pull requests</li></ul> | **X** | **X** |
+| <ul><li>拉取请求</li></ul> | **X** | **X** |
 
 ## head_ref_force_pushed
 
-The pull request's HEAD branch was force pushed.
+拉取请求的 HEAD 分支已强制推送。
 
-### Availability
+### 可用性
 
-|Issue type | Issue events API | Timeline events API|
+|问题类型 | 议题事件 API | 时间表事件 API|
 |:----------|:----------------:|:-----------------:|
-| <ul><li>Pull requests</li></ul> | **X** | **X** |
+| <ul><li>拉取请求</li></ul> | **X** | **X** |
 
-### Event object properties
+### 事件对象属性
 
 {% data reusables.issue-events.issue-event-common-properties %}
 
-## labeled
+## 已标记
 
-A label was added to the issue or pull request.
+标签已添加到议题或拉取请求。
 
-### Availability
+### 可用性
 
-|Issue type | Issue events API | Timeline events API|
+|问题类型 | 议题事件 API | 时间表事件 API|
 |:----------|:----------------:|:-----------------:|
-| <ul><li>Issues</li><li>Pull requests</li></ul> | **X** | **X** |
+| <ul><li>问题</li><li>拉取请求</li></ul> | **X** | **X** |
 
-### Event object properties
+### 事件对象属性
 
-{% data reusables.issue-events.issue-event-common-properties %}
-{% data reusables.issue-events.label-properties %}
+{% data reusables.issue-events.issue-event-common-properties %} {% data reusables.issue-events.label-properties %}
 
 ## locked
 
-The issue or pull request was locked.
+议题或拉取请求已锁定。
 
-### Availability
+### 可用性
 
-|Issue type | Issue events API | Timeline events API|
+|问题类型 | 议题事件 API | 时间表事件 API|
 |:----------|:----------------:|:-----------------:|
-| <ul><li>Issues</li><li>Pull requests</li></ul> | **X** | **X** |
+| <ul><li>问题</li><li>拉取请求</li></ul> | **X** | **X** |
 
-### Event object properties
+### 事件对象属性
 
-{% data reusables.issue-events.issue-event-common-properties %}
-`lock_reason` | `string` | The reason an issue or pull request conversation was locked, if one was provided.
+{% data reusables.issue-events.issue-event-common-properties %} `lock_reason` | `string` | 锁定问题或拉取请求对话的原因（如果已提供）。
 
 ## mentioned
 
-The `actor` was `@mentioned` in an issue or pull request body.
+在问题或拉取请求正文中，`actor` 是 `@mentioned`。
 
-### Availability
+### 可用性
 
-|Issue type | Issue events API | Timeline events API|
+|问题类型 | 议题事件 API | 时间表事件 API|
 |:----------|:----------------:|:-----------------:|
-| <ul><li>Issues</li><li>Pull requests</li></ul> | **X** | **X** |
+| <ul><li>问题</li><li>拉取请求</li></ul> | **X** | **X** |
 
-### Event object properties
+### 事件对象属性
 
 {% data reusables.issue-events.issue-event-common-properties %}
 
 ## marked_as_duplicate
 
-A user with write permissions marked an issue as a duplicate of another issue, or a pull request as a duplicate of another pull request.
+具有写入权限的用户将议题标记为另一个议题的重复项，或将拉取请求标记为另一个拉取请求的重复项。
 
-### Availability
+### 可用性
 
-|Issue type | Issue events API | Timeline events API|
+|问题类型 | 议题事件 API | 时间表事件 API|
 |:----------|:----------------:|:-----------------:|
-| <ul><li>Issues</li><li>Pull requests</li></ul> | **X** | **X** |
+| <ul><li>问题</li><li>拉取请求</li></ul> | **X** | **X** |
 
-### Event object properties
+### 事件对象属性
 
 {% data reusables.issue-events.issue-event-common-properties %}
 
-## merged
+## 合并
 
-The pull request was merged. The `commit_id` attribute is the SHA1 of the `HEAD` commit that was merged. The `commit_repository` is always the same as the main repository.
+拉取请求已合并。 `commit_id` 属性是已合并的 `HEAD` 提交的 SHA1。 `commit_repository` 始终与主存储库相同。
 
-### Availability
+### 可用性
 
-|Issue type | Issue events API | Timeline events API|
+|问题类型 | 议题事件 API | 时间表事件 API|
 |:----------|:----------------:|:-----------------:|
-| <ul><li>Pull requests</li></ul> | **X** | **X** |
+| <ul><li>拉取请求</li></ul> | **X** | **X** |
 
-### Event object properties
+### 事件对象属性
 
 {% data reusables.issue-events.issue-event-common-properties %}
 
 ## milestoned
 
-The issue or pull request was added to a milestone.
+议题或拉取请求已添加到里程碑。
 
-### Availability
+### 可用性
 
-|Issue type | Issue events API | Timeline events API|
+|问题类型 | 议题事件 API | 时间表事件 API|
 |:----------|:----------------:|:-----------------:|
-| <ul><li>Issues</li><li>Pull requests</li></ul> | **X** | **X** |
+| <ul><li>问题</li><li>拉取请求</li></ul> | **X** | **X** |
 
-### Event object properties
+### 事件对象属性
 
-{% data reusables.issue-events.issue-event-common-properties %}
-`milestone` | `object` | The milestone object.
-`milestone[title]` | `string` | The title of the milestone.
+{% data reusables.issue-events.issue-event-common-properties %} `milestone` | `object` | 里程碑对象。
+`milestone[title]` | `string` | 里程碑的标题。
 
 ## moved_columns_in_project
 
-The issue or pull request was moved between columns in a project board. {% data reusables.projects.disabled-projects %}
+议题或拉取请求已在项目板的各列之间移动。 {% data reusables.projects.disabled-projects %}
 
-### Availability
+### 可用性
 
-|Issue type | Issue events API | Timeline events API|
+|问题类型 | 议题事件 API | 时间表事件 API|
 |:----------|:----------------:|:-----------------:|
-| <ul><li>Issues</li><li>Pull requests</li></ul> | **X** | **X** |
+| <ul><li>问题</li><li>拉取请求</li></ul> | **X** | **X** |
 
-### Event object properties
+### 事件对象属性
 
-{% data reusables.pre-release-program.starfox-preview %}
-{% data reusables.pre-release-program.api-preview-warning %}
+{% data reusables.pre-release-program.starfox-preview %} {% data reusables.pre-release-program.api-preview-warning %}
 
-{% data reusables.issue-events.issue-event-common-properties %}
-{% data reusables.issue-events.project-card-properties %}
-`previous_column_name` | `string` | The name of the column the issue was moved from.
+{% data reusables.issue-events.issue-event-common-properties %} {% data reusables.issue-events.project-card-properties %} `previous_column_name` | `string` | 从中移动问题的列的名称。
 
 ## pinned
 
-The issue was pinned.
+该议题已被置顶。
 
-### Availability
+### 可用性
 
-|Issue type | Issue events API | Timeline events API|
+|问题类型 | 议题事件 API | 时间表事件 API|
 |:----------|:----------------:|:-----------------:|
-| <ul><li>Issues</li></ul> | **X** | **X** |
+| <ul><li>问题</li></ul> | **X** | **X** |
 
-### Event object properties
+### 事件对象属性
 
 {% data reusables.issue-events.issue-event-common-properties %}
 
 ## ready_for_review
 
-A draft pull request was marked as ready for review.
+草稿拉取请求已标记为可供审阅。
 
-### Availability
+### 可用性
 
-|Issue type | Issue events API | Timeline events API|
+|问题类型 | 议题事件 API | 时间表事件 API|
 |:----------|:----------------:|:-----------------:|
-| <ul><li>Pull requests</li></ul> | **X** | **X** |
+| <ul><li>拉取请求</li></ul> | **X** | **X** |
 
-### Event object properties
+### 事件对象属性
 
 {% data reusables.issue-events.issue-event-common-properties %}
 
 ## referenced
 
-The issue was referenced from a commit message. The `commit_id` attribute is the commit SHA1 of where that happened and the commit_repository is where that commit was pushed.
+议题引用自提交消息。 `commit_id` 属性是提交位置的 SHA1，commit_repository 是推送提交的位置。
 
-### Availability
+### 可用性
 
-|Issue type | Issue events API | Timeline events API|
+|问题类型 | 议题事件 API | 时间表事件 API|
 |:----------|:----------------:|:-----------------:|
-| <ul><li>Issues</li><li>Pull requests</li></ul> | **X** | **X** |
+| <ul><li>问题</li><li>拉取请求</li></ul> | **X** | **X** |
 
-### Event object properties
+### 事件对象属性
 
 {% data reusables.issue-events.issue-event-common-properties %}
 
 ## removed_from_project
 
-The issue or pull request was removed from a project board. {% data reusables.projects.disabled-projects %}
+议题或拉取请求已从项目板中删除。 {% data reusables.projects.disabled-projects %}
 
-### Availability
+### 可用性
 
-|Issue type | Issue events API | Timeline events API|
+|问题类型 | 议题事件 API | 时间表事件 API|
 |:----------|:----------------:|:-----------------:|
-| <ul><li>Issues</li><li>Pull requests</li></ul> | **X** | **X** |
+| <ul><li>问题</li><li>拉取请求</li></ul> | **X** | **X** |
 
-### Event object properties
+### 事件对象属性
 
-{% data reusables.pre-release-program.starfox-preview %}
-{% data reusables.pre-release-program.api-preview-warning %}
+{% data reusables.pre-release-program.starfox-preview %} {% data reusables.pre-release-program.api-preview-warning %}
 
-{% data reusables.issue-events.issue-event-common-properties %}
-{% data reusables.issue-events.project-card-properties %}
+{% data reusables.issue-events.issue-event-common-properties %} {% data reusables.issue-events.project-card-properties %}
 
 ## renamed
 
-The issue or pull request title was changed.
+议题或拉取请求标题已更改。
 
-### Availability
+### 可用性
 
-|Issue type | Issue events API | Timeline events API|
+|问题类型 | 议题事件 API | 时间表事件 API|
 |:----------|:----------------:|:-----------------:|
-| <ul><li>Issues</li><li>Pull requests</li></ul> | **X** | **X** |
+| <ul><li>问题</li><li>拉取请求</li></ul> | **X** | **X** |
 
-### Event object properties
+### 事件对象属性
 
-{% data reusables.issue-events.issue-event-common-properties %}
-`rename` | `object` | The name details.
-`rename[from]` | `string` | The previous name.
-`rename[to]` | `string` | The new name.
+{% data reusables.issue-events.issue-event-common-properties %} `rename` | `object` | 名称详细信息。
+`rename[from]` | `string` | 之前的名称。
+`rename[to]` | `string` | 新名称。
 
-## reopened
+## 已重新打开
 
-The issue or pull request was reopened.
+问题或拉取请求已重新打开。
 
-### Availability
+### 可用性
 
-|Issue type | Issue events API | Timeline events API|
+|问题类型 | 议题事件 API | 时间表事件 API|
 |:----------|:----------------:|:-----------------:|
-| <ul><li>Issues</li><li>Pull requests</li></ul> | **X** | **X** |
+| <ul><li>问题</li><li>拉取请求</li></ul> | **X** | **X** |
 
-### Event object properties
+### 事件对象属性
 
 {% data reusables.issue-events.issue-event-common-properties %}
 
 ## review_dismissed
 
-The pull request review was dismissed.
+拉取请求审查被忽略。
 
-### Availability
+### 可用性
 
-|Issue type | Issue events API | Timeline events API|
+|问题类型 | 议题事件 API | 时间表事件 API|
 |:----------|:----------------:|:-----------------:|
-| <ul><li>Pull requests</li></ul> | **X** | **X** |
+| <ul><li>拉取请求</li></ul> | **X** | **X** |
 
-### Event object properties
+### 事件对象属性
 
-{% data reusables.issue-events.issue-event-common-properties %}
-{% data reusables.issue-events.review-dismissed-properties %}
+{% data reusables.issue-events.issue-event-common-properties %} {% data reusables.issue-events.review-dismissed-properties %}
 
 ## review_requested
 
-A pull request review was requested.
+已请求拉取请求审查。
 
-### Availability
+### 可用性
 
-|Issue type | Issue events API | Timeline events API|
+|问题类型 | 议题事件 API | 时间表事件 API|
 |:----------|:----------------:|:-----------------:|
-| <ul><li>Pull requests</li></ul> | **X** | **X** |
+| <ul><li>拉取请求</li></ul> | **X** | **X** |
 
-### Event object properties
+### 事件对象属性
 
-{% data reusables.issue-events.issue-event-common-properties %}
-{% data reusables.issue-events.review-request-properties %}
+{% data reusables.issue-events.issue-event-common-properties %} {% data reusables.issue-events.review-request-properties %}
 
 ## review_request_removed
 
-A pull request review request was removed.
+拉取请求审查被删除。
 
-### Availability
+### 可用性
 
-|Issue type | Issue events API | Timeline events API|
+|问题类型 | 议题事件 API | 时间表事件 API|
 |:----------|:----------------:|:-----------------:|
-| <ul><li>Pull requests</li></ul> | **X** | **X** |
+| <ul><li>拉取请求</li></ul> | **X** | **X** |
 
-### Event object properties
+### 事件对象属性
 
-{% data reusables.issue-events.issue-event-common-properties %}
-{% data reusables.issue-events.review-request-properties %}
+{% data reusables.issue-events.issue-event-common-properties %} {% data reusables.issue-events.review-request-properties %}
 
 ## reviewed
 
-The pull request was reviewed.
+已审查拉取请求。
 
-### Availability
+### 可用性
 
-|Issue type | Issue events API | Timeline events API|
+|问题类型 | 议题事件 API | 时间表事件 API|
 |:----------|:----------------:|:-----------------:|
-| <ul><li>Pull requests</li></ul> |  | **X** |
+| <ul><li>拉取请求</li></ul> |  | **X** |
 
-### Event object properties
+### 事件对象属性
 
 {% data reusables.issue-events.timeline_events_object_properties %}
 
-Name | Type | Description
+名称 | 类型 | 说明
 -----|------|--------------
-`id` | `integer` | The unique identifier of the event.
-`node_id` | `string` | The [Global Node ID](/graphql/guides/using-global-node-ids) of the event.
-`user` | `object` | The person who commented on the issue.
-`body` | `string` | The review summary text.
-`commit_id` | `string` | The SHA of the latest commit in the pull request at the time of the review.
-`submitted_at` | `string` | The timestamp indicating when the review was submitted.
-`state` | `string` | The state of the submitted review. Can be one of: `commented`, `changes_requested`, or `approved`.
-`html_url` | `string` | The HTML URL of the review.
-`pull_request_url` | `string` | The REST API URL to retrieve the pull request.
-`author_association` | `string` | The permissions the user has in the issue's repository. For example, the value would be `"OWNER"` if the owner of repository created a comment.
-`_links` | `object` | The `html_url` and `pull_request_url`.
-`event` | `string` | The event value is `"reviewed"`.
+`id` | `integer` | 事件的唯一标识符。
+`node_id` | `string` | 事件的[全局节点 ID](/graphql/guides/using-global-node-ids)。
+`user` | `object` | 对议题发表评论的人。
+`body` | `string` | 审查摘要文本。
+`commit_id` | `string` | 审查时拉取请求中最新提交的 SHA。
+`submitted_at` | `string` | 指示审查提交时间的时间戳。
+`state` | `string` | 已提交审查的状态。 可以是下述之一：`commented`、`changes_requested` 或 `approved`。
+`html_url` | `string` | 审查的 HTML URL。
+`pull_request_url` | `string` | 用于检索拉取请求的 REST API URL。
+`author_association` | `string` | 用户在议题仓库中拥有的权限。 例如，如果存储库的所有者创建了注释，该值将为 `"OWNER"`。
+`_links` | `object` | `html_url` 和 `pull_request_url`。
+`event` | `string` | 事件值为 `"reviewed"`。
 
 ## subscribed
 
-Someone subscribed to receive notifications for an issue or pull request.
+有人订阅了接收议题或拉取请求的通知。
 
-### Availability
+### 可用性
 
-|Issue type | Issue events API | Timeline events API|
+|问题类型 | 议题事件 API | 时间表事件 API|
 |:----------|:----------------:|:-----------------:|
-| <ul><li>Issues</li><li>Pull requests</li></ul> | **X** | **X** |
+| <ul><li>问题</li><li>拉取请求</li></ul> | **X** | **X** |
 
-### Event object properties
+### 事件对象属性
 
 {% data reusables.issue-events.issue-event-common-properties %}
 
 ## transferred
 
-The issue was transferred to another repository.
+议题已转移到另一个仓库。
 
-### Availability
+### 可用性
 
-|Issue type | Issue events API | Timeline events API|
+|问题类型 | 议题事件 API | 时间表事件 API|
 |:----------|:----------------:|:-----------------:|
-| <ul><li>Issues</li></ul> | **X** | **X** |
+| <ul><li>问题</li></ul> | **X** | **X** |
 
-### Event object properties
+### 事件对象属性
 
 {% data reusables.issue-events.issue-event-common-properties %}
 
-## unassigned
+## 未分配
 
-A user was unassigned from the issue.
+已从议题中取消分配用户。
 
-### Availability
+### 可用性
 
-|Issue type | Issue events API | Timeline events API|
+|问题类型 | 议题事件 API | 时间表事件 API|
 |:----------|:----------------:|:-----------------:|
-| <ul><li>Issues</li><li>Pull requests</li></ul> | **X** | **X** |
+| <ul><li>问题</li><li>拉取请求</li></ul> | **X** | **X** |
 
-### Event object properties
+### 事件对象属性
 
-{% data reusables.issue-events.issue-event-common-properties %}
-{% data reusables.issue-events.assignee-properties %}
+{% data reusables.issue-events.issue-event-common-properties %} {% data reusables.issue-events.assignee-properties %}
 
 ## unlabeled
 
-A label was removed from the issue.
+已从议题中删除标签。
 
-### Availability
+### 可用性
 
-|Issue type | Issue events API | Timeline events API|
+|问题类型 | 议题事件 API | 时间表事件 API|
 |:----------|:----------------:|:-----------------:|
-| <ul><li>Issues</li><li>Pull requests</li></ul> | **X** | **X** |
+| <ul><li>问题</li><li>拉取请求</li></ul> | **X** | **X** |
 
-### Event object properties
+### 事件对象属性
 
-{% data reusables.issue-events.issue-event-common-properties %}
-{% data reusables.issue-events.label-properties %}
+{% data reusables.issue-events.issue-event-common-properties %} {% data reusables.issue-events.label-properties %}
 
-## unlocked
+## 未锁定
 
-The issue was unlocked.
+议题已解锁。
 
-### Availability
+### 可用性
 
-|Issue type | Issue events API | Timeline events API|
+|问题类型 | 议题事件 API | 时间表事件 API|
 |:----------|:----------------:|:-----------------:|
-| <ul><li>Issues</li><li>Pull requests</li></ul> | **X** | **X** |
+| <ul><li>问题</li><li>拉取请求</li></ul> | **X** | **X** |
 
-### Event object properties
+### 事件对象属性
 
-{% data reusables.issue-events.issue-event-common-properties %}
-`lock_reason` | `string` | The reason an issue or pull request conversation was locked, if one was provided.
+{% data reusables.issue-events.issue-event-common-properties %} `lock_reason` | `string` | 锁定问题或拉取请求对话的原因（如果已提供）。
 
 ## unmarked_as_duplicate
 
-An issue that a user had previously marked as a duplicate of another issue is no longer considered a duplicate, or a pull request that a user had previously marked as a duplicate of another pull request is no longer considered a duplicate.
+先前被用户标记为另一个议题的重复项的议题不再被视为重复项，或者先前被用户标记为另一个拉取请求的重复项的拉取请求不再被视为重复项。
 
-### Availability
+### 可用性
 
-|Issue type | Issue events API | Timeline events API|
+|问题类型 | 议题事件 API | 时间表事件 API|
 |:----------|:----------------:|:-----------------:|
-| <ul><li>Issues</li><li>Pull requests</li></ul> | **X** | **X** |
+| <ul><li>问题</li><li>拉取请求</li></ul> | **X** | **X** |
 
-### Event object properties
+### 事件对象属性
 
 {% data reusables.issue-events.issue-event-common-properties %}
 
 ## unpinned
 
-The issue was unpinned.
+议题被取消置顶。
 
-### Availability
+### 可用性
 
-|Issue type | Issue events API | Timeline events API|
+|问题类型 | 议题事件 API | 时间表事件 API|
 |:----------|:----------------:|:-----------------:|
-| <ul><li>Issues</li></ul> | **X** | **X** |
+| <ul><li>问题</li></ul> | **X** | **X** |
 
-### Event object properties
+### 事件对象属性
 
 {% data reusables.issue-events.issue-event-common-properties %}
 
-## unsubscribed
+## 已取消订阅
 
-Someone unsubscribed from receiving notifications for an issue or pull request.
+有人取消订阅了接收议题或拉取请求的通知。
 
-### Availability
+### 可用性
 
-|Issue type | Issue events API | Timeline events API|
+|问题类型 | 议题事件 API | 时间表事件 API|
 |:----------|:----------------:|:-----------------:|
-| <ul><li>Issues</li><li>Pull requests</li></ul> |  | **X** |
+| <ul><li>问题</li><li>拉取请求</li></ul> |  | **X** |
 
-### Event object properties
+### 事件对象属性
 
 {% data reusables.issue-events.issue-event-common-properties %}
 
 {% ifversion fpt or ghec %}
 ## user_blocked
 
-An organization owner blocked a user from the organization. This was done [through one of the blocked user's comments on the issue](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-organization#blocking-a-user-in-a-comment).
+组织所有者阻止了用户访问组织。 这是[通过被阻止的用户对该问题的注释之一](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-organization#blocking-a-user-in-a-comment)完成的。
 
-### Availability
+### 可用性
 
-|Issue type | Issue events API | Timeline events API|
+|问题类型 | 议题事件 API | 时间表事件 API|
 |:----------|:----------------:|:-----------------:|
-| <ul><li>Issues</li><li>Pull requests</li></ul> | **X** | **X** |
+| <ul><li>问题</li><li>拉取请求</li></ul> | **X** | **X** |
 
-### Event object properties
+### 事件对象属性
 
 {% data reusables.issue-events.issue-event-common-properties %}
 

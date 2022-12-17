@@ -10,24 +10,28 @@ versions:
   ghec: '*'
   ghes: '*'
 shortTitle: Access control & visibility
-ms.openlocfilehash: 0988c332a341d379e21e540b74f7ee4dd5a26749
-ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.openlocfilehash: 8ef541f45fd6568db7c8510bc860d81d504494c5
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/09/2022
-ms.locfileid: '147704912'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148193054'
 ---
-{% data reusables.package_registry.container-registry-ghes-beta %}
+{% data reusables.package_registry.container-registry-ghes-beta %}{% ifversion packages-registries-v2 %}
 
 Pacotes com permissões granulares são escopos para uma conta de usuário pessoal ou de organização. Você pode alterar o controle de acesso e a visibilidade de um pacote separadamente do repositório ao qual ele está conectado (ou vinculado).
 
-Atualmente, você só pode usar permissões granulares com o {% data variables.product.prodname_ghcr_and_npm_registry %}. Não há suporte para permissões granulares em nossos outros Registros de pacote, como o registro RubyGems.{% ifversion docker-ghcr-enterprise-migration %} Para obter mais informações sobre a migração para {% data variables.product.prodname_container_registry %}, confira "[Como migrar para {% data variables.product.prodname_container_registry %} do Registro do Docker](/packages/working-with-a-github-packages-registry/migrating-to-the-container-registry-from-the-docker-registry)."{% endif %}
+Alguns registros suportam apenas permissões com escopo de repositório. Para obter a lista desses registros, confira "[Sobre permissões para o {% data variables.product.prodname_registry %}](/packages/learn-github-packages/about-permissions-for-github-packages#permissions-for-repository-scoped-packages)".
 
-Para obter mais informações sobre as permissões para pacotes com escopo no repositório, escopos relacionados a pacotes para PATs ou gerenciamento de permissões para seus fluxos de trabalho de ações, confira "[Sobre as permissões para pacotes do GitHub](/packages/learn-github-packages/about-permissions-for-github-packages)".
+{% else %}Um pacote herda as permissões e a visibilidade do repositório que possui o pacote.{% endif %} Para obter mais informações sobre permissões para pacotes, escopos relacionados a pacotes para PATs ou gerenciamento de permissões para seus fluxos de trabalho de ações, confira "[Sobre permissões para pacotes GitHub](/packages/learn-github-packages/about-permissions-for-github-packages)".
+
+{% ifversion packages-registries-v2 %}
 
 ## Visibilidade e permissões de acesso para imagens de contêiner
 
 {% data reusables.package_registry.visibility-and-access-permissions %}
+
+{% endif %}
 
 ## Configurar acesso a imagens de contêiner para sua conta pessoal
 
@@ -106,9 +110,9 @@ Para personalizar ainda mais o acesso à sua imagem de contêiner, confira "[Com
 Para personalizar ainda mais o acesso à sua imagem de contêiner, confira "[Como configurar o acesso a imagens de contêiner para uma organização](#configuring-access-to-container-images-for-an-organization)".
 
 {% ifversion fpt or ghec %}
-## Assegurando acesso de {% data variables.product.prodname_codespaces %} ao seu pacote
+## Garantir acesso do {% data variables.product.prodname_github_codespaces %} ao seu pacote
 
-Por padrão, um codespace pode acessar perfeitamente alguns pacotes no Registro de Contêiner do {% data variables.product.prodname_ghcr_and_npm_registry %}, como aqueles publicados no mesmo repositório com a opção **Herdar acesso** selecionada. Para obter mais informações sobre quais acessos são configurados automaticamente, confira "[Como permitir que seu codespace acesse um registro de imagem privada](/codespaces/codespaces-reference/allowing-your-codespace-to-access-a-private-image-registry#accessing-images-stored-in-container-registry-and-npm-registry)".
+Por padrão, um codespace pode acessar diretamente determinados pacotes em registros que oferecem suporte a permissões granulares, como pacotes publicados no mesmo repositório com a opção **Herdar acesso** selecionada. Para ver a lista de registros do {% data variables.product.prodname_registry %} que dão suporte a permissões granulares e acesso contínuo a {% data variables.product.prodname_github_codespaces %}, confira "[Sobre permissões para {% data variables.product.prodname_registry %}](/packages/learn-github-packages/about-permissions-for-github-packages#granular-permissions-for-userorganization-scoped-packages)."
 
 Caso contrário, para garantir que um código tenha acesso ao seu pacote, você deverá conceder acesso ao repositório onde o codespace está sendo iniciado.
 

@@ -10,12 +10,12 @@ versions:
   ghec: '*'
 topics:
   - API
-ms.openlocfilehash: ecfa3a360ef9b042d96a1f80a2f0cde49390727f
-ms.sourcegitcommit: d2f0b59ed096b9e68ef8f6fa019cd925165762ec
+ms.openlocfilehash: c696f18d89ffe7d9c9c7c13eda933285502132ae
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/29/2022
-ms.locfileid: '148184239'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148192837'
 ---
 Si detecta elementos extraños en la API, a continuación se muestra una lista de posibles soluciones a algunos de estos problemas que podrías experimentar.
 
@@ -46,7 +46,7 @@ Para solucionarlo, asegúrese de que [está autenticando correctamente](/guides/
 
 La mayoría de las llamadas API que acceden a una lista de recursos (_por ejemplo_, usuarios, incidencias, _etc._ ) admiten la paginación. Si realiza solicitudes y recibe un conjunto de resultados incompleto, es probable que solo esté viendo la primera página. Tendrá que solicitar las páginas restantes para obtener más resultados.
 
-Es importante que *no* intente adivinar el formato de la URL de paginación. No todas las llamadas API usan la misma estructura. En su lugar, puede extraer la información de paginación del [encabezado de vínculo](/rest#pagination), que se envía en todas las solicitudes.
+Es importante que *no* intente adivinar el formato de la URL de paginación. No todas las llamadas API usan la misma estructura. En su lugar, puedes extraer la información de paginación del encabezado de vínculo, que se devuelve en todas las solicitudes. Para obtener más información sobre la paginación, consulta "[Uso de la paginación en la API de REST](/rest/guides/using-pagination-in-the-rest-api)".
 
 [oap-guide]: https://developer.github.com/changes/2015-01-19-an-integrators-guide-to-organization-application-policies/
 

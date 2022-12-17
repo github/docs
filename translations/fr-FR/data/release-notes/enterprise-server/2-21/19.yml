@@ -1,0 +1,18 @@
+date: '14/04/2021'
+sections:
+  security_fixes:
+    - Les packages ont été mis à jour vers les dernières versions de sécurité.
+  bugs:
+    - 'Un message d’avertissement `jq : erreur (au niveau <stdin> :0): Impossible d’indexer un nombre avec une chaîne « paramètres »` pouvait s’afficher pendant la promotion du réplica.'
+    - La visite de la page `/settings/emails` stockait un état qui pouvait entraîner des redirections incorrectes lors de la déconnexion et de la reconnexion.
+    - Les alertes du graphe des dépendances ne s’affichaient pas pour certains composants dont les avis portaient des noms de packages en majuscules dans `vulnerable_version_ranges`.
+    - L’utilisateur voyait une erreur 500 lors de l’exécution d’opérations git sur une instance configurée avec l’authentification LDAP.
+    - "Quand ghe-migrator rencontrait des erreurs d’importation, il interrompait parfois l’ensemble du processus, et les journaux n’incluaient pas suffisamment de contexte."
+  known_issues:
+    - "Sur une instance GitHub Enterprise Server fraîchement configurée et sans utilisateur, un attaquant pouvait créer le premier utilisateur administrateur."
+    - Les règles de pare-feu personnalisées ne sont pas conservées lors d’une mise à niveau.
+    - "Les fichiers suivis par Git LFS [chargés par le biais de l’interface web](https://github.com/blog/2105-upload-files-to-your-repositories) sont, à tort, ajoutés directement au dépôt."
+    - "Les problèmes ne peuvent pas être fermés s’ils contiennent un lien permanent vers un blob situé dans le même dépôt, dont le chemin de fichier dépasse les 255 caractères."
+    - "Quand l’option « Les utilisateurs peuvent effectuer des recherches sur GitHub.com » est activée avec GitHub Connect, les problèmes concernant des dépôts privés et internes ne sont pas inclus dans les résultats de recherche de GitHub.com."
+    - Les alertes de sécurité ne sont pas signalées lors de l’envoi (push) à un dépôt sur la ligne de commande.
+    - 'Quand un nœud de réplica est hors connexion dans une configuration de haute disponibilité, {% data variables.product.product_name %} peut quand même router les requêtes de {% data variables.product.prodname_pages %} vers le nœud hors connexion, réduisant ainsi la disponibilité de {% data variables.product.prodname_pages %} pour les utilisateurs.'

@@ -14,12 +14,12 @@ topics:
   - Enterprise
   - Logging
   - API
-ms.openlocfilehash: b3c0f2756873494effd0a7fa3e65d4c87e24c01a
-ms.sourcegitcommit: d2f0b59ed096b9e68ef8f6fa019cd925165762ec
+ms.openlocfilehash: f5dd0a3dcca1e7fd60361f0cb7c8ecf84296e036
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/29/2022
-ms.locfileid: '148184250'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148192654'
 ---
 ## Usando a API do log de auditoria
 
@@ -120,11 +120,11 @@ Para obter mais informações sobre a API REST do log de auditoria, confira "[Ad
 
 ### Exemplo 1: todos os eventos em uma empresa, para uma data específica, com paginação
 
-Você pode usar a paginação baseada em página ou a paginação baseada em cursor. Para obter mais informações, confira "[Como percorrer itens com paginação](/rest/guides/traversing-with-pagination)".
+Você pode usar a paginação baseada em página ou a paginação baseada em cursor. Para obter mais informações sobre paginação, confira "[Como usar paginação na API REST](/rest/guides/using-pagination-in-the-rest-api)".
 
 #### Exemplo com paginação baseada em página
 
-A consulta abaixo pesquisa eventos de log de auditoria criados em 1º de janeiro de 2022 na empresa `avocado-corp` e retorna a primeira página com, no máximo, 100 itens por página usando a [paginação da API REST](/rest/overview/resources-in-the-rest-api#pagination):
+A consulta abaixo procura eventos de log de auditoria criados em 1º de janeiro de 2022 na empresa `avocado-corp` e retorna a primeira página com no máximo 100 itens por página usando paginação. Para obter mais informações sobre paginação, confira "[Como usar paginação na API REST](/rest/guides/using-pagination-in-the-rest-api)".
 
 ```shell
 curl -H "Authorization: Bearer TOKEN" \
@@ -134,7 +134,7 @@ curl -H "Authorization: Bearer TOKEN" \
 
 #### Exemplo com paginação baseada em cursor
 
-A consulta abaixo procura eventos de log de auditoria criados em 1º de janeiro de 2022 na empresa `avocado-corp` e retorna a primeira página com, no máximo, 100 itens por página usando a [paginação da API REST](/rest/overview/resources-in-the-rest-api#pagination). O sinalizador `--include` faz com que os cabeçalhos sejam retornados junto com a resposta.
+A consulta abaixo procura eventos de log de auditoria criados em 1º de janeiro de 2022 na empresa `avocado-corp` e retorna a primeira página com no máximo 100 itens por página usando paginação. Para obter mais informações sobre paginação, confira "[Como usar paginação na API REST](/rest/guides/using-pagination-in-the-rest-api)". O sinalizador `--include` faz com que os cabeçalhos sejam retornados junto com a resposta.
 
 ```
 curl --include -H "Authorization: Bearer TOKEN" \

@@ -1,0 +1,20 @@
+date: '2021-08-10'
+sections:
+  bugs:
+    - '使用 bash 子 shell 的自定义预接收挂钩将返回错误：`No such file or directory`。'
+    - 如果在不运行定期计划备份的情况下启用 GitHub Actions，则 MSSQL 事务日志可能会无限增长，并且会占用设备数据磁盘上的所有可用空间，从而可能导致中断。
+    - 不必要的数据库日志记录在使用大量 LFS 的实例上消耗了大量磁盘空间。
+    - 对“存储库创建”组织设置所做更改的审核日志条目不准确。
+    - "过多记录 `ActionController::UnknownFormat` 异常会导致不必要的磁盘使用。"
+    - "LDAP `group_dn` 值超过 255 个字符将导致记录错误：`Data truncated for column 'group_dn' at row 1`。"
+  changes:
+    - 滥用速率限制现在称为辅助速率限制，因为它们限制的行为并不总是滥用。
+  known_issues:
+    - "{% data variables.product.prodname_registry %} npm 注册表不再在元数据响应中返回时间值。这样可以大幅改善性能。我们继续拥有将时间值作为元数据响应的一部分返回所需的所有数据，并将在以后解决现有性能问题后恢复返回该值。"
+    - "在新建的没有任何用户的 {% data variables.product.prodname_ghe_server %} 上，攻击者可以创建第一个管理员用户。"
+    - 自定义防火墙规则在升级过程中被删除。
+    - "[通过 Web 界面上传](https://github.com/blog/2105-upload-files-to-your-repositories)的 Git LFS 跟踪文件被错误地直接添加到存储库。"
+    - 如果问题包含文件路径长于 255 个字符的同一存储库中 blob 的永久链接，则问题无法关闭。
+    - 在 GitHub Connect 中启用了“用户可以搜索 GitHub.com”时，专用和内部存储库中的问题不包括在 GitHub.com 搜索结果中。
+    - "如果为 {% data variables.product.prodname_ghe_server %} 启用 {% data variables.product.prodname_actions %}，将能使用 `ghe-repl-teardown` 成功拆解副本节点，但是可能会返回 `ERROR:Running migrations`。"
+    - 特定于处理预接收挂钩的资源限制可能导致部分预接收挂钩失败。

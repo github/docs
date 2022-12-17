@@ -44,12 +44,12 @@ topics:
   - Repositories
   - Security
 shortTitle: Repository management policies
-ms.openlocfilehash: 4abffb820c09b8d5896598fa1d233143e3872955
-ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.openlocfilehash: 10b34ef1d0049ca68e1b0ec655f9d6351c06d396
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/09/2022
-ms.locfileid: '147683715'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148192645'
 ---
 ## Acerca de las políticas para la administración de repositorios en tu empresa
 
@@ -61,7 +61,7 @@ Puedes requerir políticas para controlar la forma en la que los miembros de tu 
 
 Cada vez que alguien crea un repositorio nuevo dentro de tu empresa, esta persona debe elegir la visibilidad del mismo. Cuando configuras una visibilidad predeterminada para la empresa, eliges qué vsibilidad se seleccina predeterminadamente. Para más información sobre la visibilidad de los repositorios, vea "[Acerca de los repositorios](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)".
 
-Si un propietario de empresa deja de permitir que los miembros de ésta creen ciertos tipos de repositorios, estos no podrán crear este tipo de repositorio aún si la configuración de visibilidad lo tiene como predeterminado. Para más información, vea "[Establecimiento de una directiva para la creación de repositorios](#setting-a-policy-for-repository-creation)".
+Si un propietario de empresa deja de permitir que los miembros de ésta creen ciertos tipos de repositorios, estos no podrán crear este tipo de repositorio aún si la configuración de visibilidad lo tiene como predeterminado. Para más información, vea "[Aplicación de una directiva para crear repositorios](#enforcing-a-policy-for-repository-creation)".
 
 {% data reusables.enterprise-accounts.access-enterprise %} {% ifversion ghes or ghae %} {% data reusables.enterprise-accounts.policies-tab %} {% else %} {% data reusables.enterprise-accounts.settings-tab %} {% endif %} {% data reusables.enterprise-accounts.options-tab %}
 1. Debajo de "Default repository visibility" (visibilidad predeterminada del repositorio), utiliza el menú desplegable y selecciona un tipo de visibilidad predeterminado.
@@ -100,8 +100,10 @@ Si permites a los miembros crear repositorios en las organizaciones, puedes eleg
   ![Captura de pantalla en la que se muestra la lista de opciones deshabilitadas de la directiva de bifurcación](/assets/images/help/business-accounts/restrict-personal-namespace-enabled-setting.png){% endif %}
 
 ## Requerir una política para bifurcar repositorios privados o internos
-
 En todas las organizaciones que pertenezcan a tu empresa, puedes permitir o prohibir la bifurcación de un repositorio privado o interno o permitir a los propietarios administrar la configuración a nivel organizacional para todos los que tengan acceso a éstos.
+
+{% ifversion org-owners-limit-forks-creation %} Las personas con permisos de administrador pueden establecer una directiva de bifurcación más detallada. Para más información, vea "[Administración de la directiva de bifurcación para la organización](/organizations/managing-organization-settings/managing-the-forking-policy-for-your-organization)".
+{% endif %}
 
 {% ifversion enterprise-namespace-repo-setting %} {% note %}
 
@@ -110,8 +112,8 @@ En todas las organizaciones que pertenezcan a tu empresa, puedes permitir o proh
 {% endnote %} {% endif %}
 
 {% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.policies-tab %} {% data reusables.enterprise-accounts.repositories-tab %}
-3. Debajo de "Bifurcación de repositorios", revisa la información sobre cómo cambiar el ajuste. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
-4. En "Bifurcación de repositorios", usa el menú desplegable y elige una política.
+1. Debajo de "Bifurcación de repositorios", revisa la información sobre cómo cambiar el ajuste. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
+2. En "Bifurcación de repositorios", usa el menú desplegable y elige una directiva.
 
   ![Menú desplegable con opciones de políticas de bifurcación de repositorios](/assets/images/help/business-accounts/repository-forking-policy-drop-down.png){% ifversion innersource-fork-policies %}
 5. Si la bifurcación está habilitada, puedes especificar dónde se permite que los usuarios bifurquen los repositorios. Revisa la información sobre cómo cambiar la configuración y elige una directiva.
@@ -145,7 +147,7 @@ Puedes configurar el nombre de rama predeterminada para cualquier repositorio mi
 
 En todas las organizaciones que pertenezcan a tu empresa, puedes permitir que los miembros con acceso administrativo cambien la visibilidad de un repositorio, restrinjan los cambios de visibilidad del mismo a los propietarios de la organización o que permitan que los propietarios administren el ajuste a nivel organizacional. Cuando no permites que los miembros cambien la visibilidad del repositroio, únicamente los propietarios de la empresa podrán hacerlo.
 
-Si un propietario de empresa restringió la creación de repositorios en la misma para que solo los propietarios puedan realizar esta operación, entonces los miembros no podrán cambiar la visibilidad de los repositorios. Si un propietario de una empresa restringe la creación de repositorios para que los miembros solo puedan crear repositorios privados, entonces éstos solo podrán cambiar la visibilidad de un repositorio a privada. Para más información, vea "[Establecimiento de una directiva para la creación de repositorios](#setting-a-policy-for-repository-creation)".
+Si un propietario de empresa restringió la creación de repositorios en la misma para que solo los propietarios puedan realizar esta operación, entonces los miembros no podrán cambiar la visibilidad de los repositorios. Si un propietario de una empresa restringe la creación de repositorios para que los miembros solo puedan crear repositorios privados, entonces éstos solo podrán cambiar la visibilidad de un repositorio a privada. Para más información, vea "[Aplicación de una directiva para crear repositorios](#enforcing-a-policy-for-repository-creation)".
 
 {% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.policies-tab %} {% data reusables.enterprise-accounts.repositories-tab %}
 1. En "Modificar visibilidad del repositorio", revisa la información sobre cómo modificar los parámetros. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
@@ -256,7 +258,7 @@ Puedes sustituir los parámetros predeterminados heredados al configurar los par
 
 {% data reusables.enterprise_user_management.disclaimer-for-git-read-access %}
 
-Si has [habilitado el modo privado](/enterprise/admin/configuration/enabling-private-mode) para {% data variables.product.product_location %}, puedes permitir a los administradores de repositorio habilitar el acceso de lectura Git anónimo a los repositorios públicos.
+Si has [habilitado el modo privado](/enterprise/admin/configuration/enabling-private-mode) para {% data variables.location.product_location %}, puedes permitir a los administradores de repositorio habilitar el acceso de lectura Git anónimo a los repositorios públicos.
 
 Habilitar el acceso anónimo de lectura de Git permite a los usuarios saltar la autenticación para las herramientas personalizadas en tu empresa. Cuando habilite esta configuración de acceso a un repositorio, o lo haga un administrador del repositorio, las operaciones de Git sin autenticar (y cualquiera con acceso de red a {% data variables.product.product_name %}) tendrán acceso de lectura al repositorio sin autenticación.
 
@@ -266,7 +268,18 @@ El acceso de lectura de Git anónimo está deshabilitado de forma predeterminada
 The unauthenticated git protocol on port 9418 is no longer supported.
 ```
 
-Si quieres admitir el protocolo Git no autenticado en tu entorno, debes volver a habilitar manualmente la característica. {% data variables.product.company_short %} recomienda usar SSH en lugar del protocolo Git. Para obtener más información, consulta [{% data variables.product.prodname_blog %}](https://github.blog/2022-06-28-improving-git-protocol-security-on-github-enterprise-server).
+{% ifversion ghes > 3.5 %}
+
+Si quieres admitir el protocolo Git no autenticado en tu entorno, debes volver a habilitar manualmente la característica. Ejecuta los comandos siguientes después de la actualización:
+
+```ShellSession
+$ sudo ghe-config app.gitauth.git-protocol true
+$ sudo ghe-config-apply
+```
+
+{% endif %}
+
+El acceso de lectura de Git anónimo se quitará completamente en una versión futura de {% data variables.product.prodname_ghe_server %}. {% data variables.product.company_short %} recomienda usar SSH en lugar del protocolo Git. Para obtener más información acerca de este cambio, consulta [{% data variables.product.prodname_blog %}](https://github.blog/2022-06-28-improving-git-protocol-security-on-github-enterprise-server).
 
 {% endif %}
 

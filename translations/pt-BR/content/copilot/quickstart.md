@@ -8,18 +8,18 @@ versions:
 shortTitle: Quickstart
 topics:
   - Copilot
-ms.openlocfilehash: 5aa3071cddc2bf83e7ee7082eabea00f79a66ea5
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: d2131a506990a959f803b13353b794a9dd347174
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147079506'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148193163'
 ---
 ## Introdução
 
 O {% data variables.product.prodname_copilot %} é um programador de par de IA. Você pode usar o {% data variables.product.prodname_copilot %} para obter sugestões para linhas inteiras ou funções inteiras diretamente dentro do editor.
 
-Este guia mostrará como se inscrever no {% data variables.product.prodname_copilot %}, instalar a extensão {% data variables.product.prodname_copilot %} no {% data variables.product.prodname_vscode %} e obter sua primeira sugestão. Para obter informações sobre o {% data variables.product.prodname_copilot %}, confira "[Sobre o {% data variables.product.prodname_copilot %}](/copilot/overview-of-github-copilot/about-github-copilot)". Para obter informações mais detalhadas sobre como usar o {% data variables.product.prodname_copilot %} em vários ambientes, confira "[Introdução](/copilot/getting-started-with-github-copilot)".
+Este guia irá mostrar a você como se inscrever para o {% data variables.product.prodname_copilot %} por meio de sua conta pessoal, instalar a extensão {% data variables.product.prodname_copilot %} no {% data variables.product.prodname_vscode %} e obter sua primeira sugestão. Para obter informações sobre o {% data variables.product.prodname_copilot %}, confira "[Sobre o {% data variables.product.prodname_copilot %}](/copilot/overview-of-github-copilot/about-github-copilot)". Para obter informações mais detalhadas sobre como usar o {% data variables.product.prodname_copilot %} em vários ambientes, confira "[Introdução](/copilot/getting-started-with-github-copilot)".
 
 ## Pré-requisitos
 
@@ -27,6 +27,14 @@ Este guia mostrará como se inscrever no {% data variables.product.prodname_copi
 - Para usar o {% data variables.product.prodname_copilot %} no {% data variables.product.prodname_vscode %}, o {% data variables.product.prodname_vscode %} precisa estar instalado. Para obter mais informações, confira a [documentação do {% data variables.product.prodname_vscode %}](https://code.visualstudio.com/).
 
 ## Inscrever-se no {% data variables.product.prodname_copilot %}
+
+Antes de começar a usar o {% data variables.product.prodname_copilot %}, você precisará configurar uma avaliação gratuita ou assinatura para sua conta pessoal. 
+
+{% note %}
+
+**Nota:** se você for membro de uma organização pertencente a uma conta {% data variables.product.prodname_ghe_cloud %} com uma assinatura {% data variables.product.prodname_copilot %} e tiver sido atribuído a você uma estação {% data variables.product.prodname_copilot %} por sua organização, você poderá prosseguir para "[Como instalar a extensão {% data variables.product.prodname_copilot %} para {% data variables.product.prodname_vscode %}](/copilot/quickstart#installing-the-github-copilot-extension-for-visual-studio-code)".
+
+{% endnote %}
 
 {% data reusables.copilot.signup-procedure %}
 
@@ -46,6 +54,8 @@ Para usar o {% data variables.product.prodname_copilot %}, você primeiro deve i
 1. No {% data variables.product.prodname_vscode %}, na caixa de diálogo "{% data variables.product.prodname_vscode %}", para confirmar a autenticação, clique em **Abrir**. 
 
 ## Obter sua primeira sugestão
+
+{% data reusables.copilot.code-examples-limitations %}
 
 {% data reusables.copilot.supported-languages %} Os exemplos a seguir estão em JavaScript, mas as outras linguagens funcionarão da mesma forma.
 

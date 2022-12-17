@@ -1,6 +1,6 @@
 ---
-title: Managing the automatic deletion of branches
-intro: You can have head branches automatically deleted after pull requests are merged in your repository.
+title: Gestion de la suppression automatique des branches
+intro: Vous pouvez supprimer automatiquement les branches principales après la fusion des demandes de tirage dans votre dépôt.
 redirect_from:
   - /articles/managing-the-automatic-deletion-of-branches
   - /github/administering-a-repository/managing-the-automatic-deletion-of-branches
@@ -13,14 +13,19 @@ versions:
 topics:
   - Repositories
 shortTitle: Automatic branch deletion
+ms.openlocfilehash: feaeb7c2178beab4dc23a310df6924c6e1c52e0f
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147882456'
 ---
-Anyone with admin permissions to a repository can enable or disable the automatic deletion of branches.
+Toute personne disposant d’autorisations d’administrateur sur un dépôt peut activer ou désactiver la suppression automatique des branches.
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-3. Under {% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}"Pull Requests"{% else %}"Merge button"{% endif %}, select or unselect **Automatically delete head branches**.
-  ![Checkbox to enable or disable automatic deletion of branches](/assets/images/help/repository/automatically-delete-branches.png)
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %}
+3. Sous {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6069 %}« Demandes de tirage »{% else %}« Bouton Fusionner »{% endif %}, sélectionnez ou désélectionnez **Supprimer automatiquement les branches principales**.
+  ![Case à cocher pour activer ou désactiver la suppression automatique de branches](/assets/images/help/repository/automatically-delete-branches.png)
 
-## Further reading
-- "[Merging a pull request](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request)"
-- "[Creating and deleting branches within your repository](/articles/creating-and-deleting-branches-within-your-repository)"
+## Pour aller plus loin
+- « [Fusion d’une demande de tirage](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request) »
+- « [Création et suppression de branches dans votre dépôt](/articles/creating-and-deleting-branches-within-your-repository) »

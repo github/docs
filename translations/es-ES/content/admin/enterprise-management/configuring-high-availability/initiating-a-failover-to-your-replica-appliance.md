@@ -13,12 +13,12 @@ topics:
   - High availability
   - Infrastructure
 shortTitle: Initiate failover to appliance
-ms.openlocfilehash: d1e9c579d431e03154040392a2b58405fef8ab42
-ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.openlocfilehash: e2c15dab0a812fe6031f78e7edbccaff6a2503c0
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/09/2022
-ms.locfileid: '147770893'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148192997'
 ---
 El tiempo requerido para la tolerancia de fallos depende de cuánto le tome para impulsar la réplica y redireccionar el tráfico de forma manual. El tiempo promedio varía entre 20 y 30 minutos.
 
@@ -53,6 +53,13 @@ El tiempo requerido para la tolerancia de fallos depende de cuánto le tome para
   ```shell
   $ ghe-repl-promote
   ```
+
+   {% note %}
+
+   **Nota:** Si el nodo principal no está disponible, pueden producirse advertencias y tiempos de espera, pero se pueden omitir.
+
+  {% endnote %}
+
 5. Actualiza el registro de DNS para que apunte a la dirección IP de la réplica. El tráfico es direccionado a la réplica después de que transcurra el período TTL. Si estás utilizando un balanceador de carga, asegúrate de que esté configurado para enviar el tráfico a la réplica.
 6. Notifica a los usuarios que pueden retomar las operaciones normales.
 7. Si se desea, configura una replicación desde el aparato principal nuevo al aparato existente y el principal anterior. Para obtener más información, vea "[Acerca de la configuración de alta disponibilidad](/enterprise/admin/guides/installation/about-high-availability-configuration/#utilities-for-replication-management)".
@@ -63,7 +70,7 @@ El tiempo requerido para la tolerancia de fallos depende de cuánto le tome para
       ```
     - En la nueva réplica principal, quite los UUID mediante `ghe-repl-teardown`. Reemplace *`UUID`* por un UUID que ha recuperado en el paso anterior.
       ```shell
-      $ ghe-repl-teardown -u <em>UUID</em>
+      $ ghe-repl-teardown -u  UUID
       ```
 
 ## Información adicional

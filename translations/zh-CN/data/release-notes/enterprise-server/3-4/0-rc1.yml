@@ -1,223 +1,235 @@
-date: '2022-02-15'
+date: '2022 年 2 月 15 日'
 release_candidate: true
 deprecated: true
 intro: |
   {% note %}
-
-  **Note:** If {% data variables.location.product_location %} is running a release candidate build, you can't upgrade with a hotpatch. We recommend only running release candidates on test environments.
-
+  
+  注意：如果 {% data variables.product.product_location %} 正在运行候选发布版本，则无法使用热补丁升级****。建议仅在测试环境中运行候选发布版本。
+  
   {% endnote %}
-
-  For upgrade instructions, see "[Upgrading {% data variables.product.prodname_ghe_server %}](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server)."
-
-  > This release is dedicated to our colleague and friend John, a Hubber who was always there to help. You will be greatly missed.
+  
+  有关升级说明，请参阅“[升级 {% data variables.product.prodname_ghe_server %}](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server)”。
+  
+  > 此版本献给我们的同事兼朋友 John，一位一直在帮助我们的 Hubber。我们非常想念你。
   >
-  > **John "Ralph" Wiebalk 1986–2021**
-
+  > John "Ralph" Wiebalk 1986–2021****
 sections:
   features:
-    - heading: Secret scanning REST API now returns locations
+    - heading: 机密扫描 REST API 现在会返回位置
       notes:
         # https://github.com/github/releases/issues/1642
-        - |
-          {% data variables.product.prodname_GH_advanced_security %} customers can now use the REST API to retrieve commit details of secrets detected in private repository scans. The new endpoint returns details of a secret's first detection within a file, including the secret's location and commit SHA. For more information, see "[Secret scanning](/rest/reference/secret-scanning)" in the REST API documentation.
+        - |{% data variables.product.prodname_GH_advanced_security %} 客户现可使用 REST API 检索在专用存储库扫描中检测到的机密的提交详细信息。新终结点返回文件中首次检测到机密的详细信息，包括机密的位置和提交 SHA。有关详细信息，请参阅 REST API 文档中的“[机密扫描](/rest/reference/secret-scanning)”。
 
-    - heading: Export license data of committer-based billing for GitHub Advanced Security
+|
+    - heading: 导出 GitHub 高级安全性计费（基于提交者）许可证数据
       notes:
         # https://github.com/github/releases/issues/1757
-        - |
-          Enterprise and organization owners can now export their {% data variables.product.prodname_GH_advanced_security %} license usage data to a CSV file. The {% data variables.product.prodname_advanced_security %} billing data can also be retrieved via billing endpoints in the REST API. For more information, see the "[{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-11-11-export-github-advanced-security-license-usage-data/)."
+        - |企业和组织所有者现可将其 {% data variables.product.prodname_GH_advanced_security %} 许可证使用情况数据导出到 CSV 文件。还可通过 REST API 中的计费终结点检索 {% data variables.product.prodname_advanced_security %} 计费数据。有关详细信息，请参阅“[{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-11-11-export-github-advanced-security-license-usage-data/)”。
 
-    - heading: GitHub Actions reusable workflows in public beta
+|
+    - heading: GitHub Actions 可重用工作流（公共 Beta 版本）
       notes:
         # https://github.com/github/releases/issues/1541
-        - |
-          You can now reuse entire workflows as if they were an action. This feature is available in public beta. Instead of copying and pasting workflow definitions across repositories, you can now reference an existing workflow with a single line of configuration. For more information, see the "[{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-10-05-github-actions-dry-your-github-actions-configuration-by-reusing-workflows/)."
+        - |现可重用整个工作流，就像它们是一个操作一样。此功能目前以公共 Beta 版本提供。现可使用一行配置来引用现有工作流，而不必跨存储库复制和粘贴工作流定义。有关详细信息，请参阅“[{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-10-05-github-actions-dry-your-github-actions-configuration-by-reusing-workflows/)”。
 
-    - heading: Dependabot security and version updates in public beta
+|
+    - heading: Dependabot 安全性和版本更新（公共 Beta 版本）
       notes:
         # https://github.com/github/releases/issues/2004
-        - |
-          {% data variables.product.prodname_dependabot %} is now available in {% data variables.product.prodname_ghe_server %} 3.4 as a public beta, offering both version updates and security updates for several popular ecosystems. {% data variables.product.prodname_dependabot %} on {% data variables.product.prodname_ghe_server %} requires {% data variables.product.prodname_actions %} and a pool of self-hosted runners configured for {% data variables.product.prodname_dependabot %} use. {% data variables.product.prodname_dependabot %} on {% data variables.product.prodname_ghe_server %} also requires {% data variables.product.prodname_github_connect %} and {% data variables.product.prodname_dependabot %} to be enabled by an administrator. Beta feedback and suggestions can be shared in the [{% data variables.product.prodname_dependabot %} Feedback GitHub discussion](https://github.com/community/community/discussions/categories/dependabot). For more information and to try the beta, see "[Setting up {% data variables.product.prodname_dependabot %} security and version updates on your enterprise](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/setting-up-dependabot-updates)."
+        - |{% data variables.product.prodname_dependabot %} 现已在 {% data variables.product.prodname_ghe_server %} 3.4 中作为公共 Beta 版本提供，并为多个常见的生态系统提供版本更新和安全更新。{% data variables.product.prodname_ghe_server %} 上的 {% data variables.product.prodname_dependabot %} 需要配置 {% data variables.product.prodname_actions %} 和自承载运行器池，供 {% data variables.product.prodname_dependabot %} 使用。{% data variables.product.prodname_ghe_server %} 上的 {% data variables.product.prodname_dependabot %} 还需要管理员启用 {% data variables.product.prodname_github_connect %} 和 {% data variables.product.prodname_dependabot %}。Beta 版本的反馈和建议可以在 [{% data variables.product.prodname_dependabot %} 反馈 GitHub 讨论](https://github.com/community/community/discussions/categories/dependabot)中共享。如需了解详细信息并试用 Beta 版本，请参阅“[在企业中设置 {% data variables.product.prodname_dependabot %} 安全性和版本更新](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/setting-up-dependabot-updates)”。
 
+|
   changes:
-    - heading: Administration Changes
+    - heading: 管理更改
       notes:
         # https://github.com/github/releases/issues/1657
-        - Users can now choose the number of spaces a tab is equal to, by setting their preferred tab size in the "Appearance" settings of their user account. All code with a tab indent will render using the preferred tab size.
+        - 用户现可选择一个制表符等于的空格数，方法是在其用户帐户的“外观”设置中设置其首选制表符大小。所有带制表符缩进的代码都将使用首选制表符大小呈现。
 
         # https://github.com/github/releases/issues/2062
-        - The {% data variables.product.prodname_github_connect %} data connection record now includes a count of the number of active and dormant users and the configured dormancy period.
+        - "{% data variables.product.prodname_github_connect %} 数据连接记录现在包括活动和休眠用户数量计数以及配置的休眠期。"
 
-    - heading: Performance Changes
+    - heading: 性能更改
       notes:
       # https://github.com/github/releases/issues/2031
-      - WireGuard, used to secure communication between {% data variables.product.prodname_ghe_server %} instances in a High Availability configuration, has been migrated to the Kernel implementation.
+      - "用于保护高可用性配置中 {% data variables.product.prodname_ghe_server %} 实例之间通信的 WireGuard 已迁移到内核实现。"
 
-    - heading: Notification Changes
+    - heading: 通知更改
       notes:
       # https://github.com/github/releases/issues/1801
-      - Organization owners can now unsubscribe from email notifications when new deploy keys are added to repositories belonging to their organizations. For more information, see "[Configuring notifications](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications)."
+      - "组织所有者现可在将新的部署密钥添加到属于其组织的存储库时取消订阅电子邮件通知。有关详细信息，请参阅“[配置通知](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications)”。"
 
       # https://github.com/github/releases/issues/1714
-      - 'Notification emails from newly created issues and pull requests now include `(Issue #xx)` or `(PR #xx)` in the email subject, so you can recognize and filter emails that reference these types of issues.'
+      - '来自新创建的问题和拉取请求的通知电子邮件目前在电子邮件主题中包含 `(Issue #xx)` 或 `(PR #xx)`，因此你可以识别和筛选引用这些问题类型的电子邮件。'
 
-    - heading: Organization Changes
+    - heading: 组织更改
       notes:
         # https://github.com/github/releases/issues/1509
-        - Organizations can now display a `README.md` file on their profile Overview. For more information, see the "[{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-09-14-readmes-for-organization-profiles/)."
+        - "组织现可在其配置文件概述中显示 `README.md` 文件。有关详细信息，请参阅“[{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-09-14-readmes-for-organization-profiles/)”。"
 
         # https://github.com/github/releases/issues/1883
-        - Members of organizations can now view a list of their enterprise owners under the organization's "People" tab. The enterprise owners list is also now accessible using the GraphQL API. For more information, see the "[`enterpriseOwners`](/graphql/reference/objects#organization)" field under the Organization object in the GraphQL API documentation.
+        - "组织成员现可在组织的“人员”选项卡下查看其企业所有者的列表。企业所有者列表现在也可使用 GraphQL API 进行访问。有关详细信息，请参阅 GraphQL API 文档中 Organization 对象下的“[`enterpriseOwners`](/graphql/reference/objects#organization)”字段。"
 
-    - heading: Repositories changes
+    - heading: 存储库更改
       notes:
         # https://github.com/github/releases/issues/1944
-        - |
-          A "Manage Access" section is now shown on the "Collaborators and teams" page in your repository settings. The new section makes it easier for repository administrators to see and manage who has access to their repository, and the level of access granted to each user. Administrators can now:
+        - |“管理访问权限”部分现在显示在存储库设置的“协作者和团队”页上。新部分使存储库管理员能够更轻松地查看和管理谁有权访问其存储库，以及授予每个用户的访问权限级别。管理员现在可以：
 
-          * Search all members, teams and collaborators who have access to the repository.
-          * View when members have mixed role assignments, granted to them directly as individuals or indirectly via a team. This is visualized through a new "mixed roles" warning, which displays the highest level role the user is granted if their permission level is higher than their assigned role.
-          * Manage access to popular repositories reliably, with page pagination and fewer timeouts when large groups of users have access.
 
+
+* 搜索有权访问存储库的所有成员、团队和协作者。
+
+* 查看成员何时具有以个人身份直接授予或通过团队间接授予他们的混合角色分配。此信息通过新的“混合角色”警告直观呈现，如果用户的权限级别高于其分配到的角色，则该警告会显示授予用户的最高级别角色。
+
+* 可靠地管理对常用存储库的访问，当大量用户具有访问权限时，可使用页面分页功能且超时更少。
+
+|
         # https://github.com/github/releases/issues/1748
-        - '{% data variables.product.prodname_ghe_server %} 3.4 includes improvements to the repository invitation experience, such as notifications for private repository invites, a UI prompt when visiting a private repository you have a pending invitation for, and a banner on a public repository overview page when there is an pending invitation.'
+        - '{% data variables.product.prodname_ghe_server %} 3.4 包括对存储库邀请体验的改进，例如专用存储库邀请通知、访问具有待处理邀请的专用存储库时的 UI 提示，以及具有待处理邀请时在公共存储库概述页面上显示的横幅。'
 
         # https://github.com/github/releases/issues/1739
-        - You can now use single-character prefixes for custom autolinks. Autolink prefixes also now allow `.`, `-`, `_`, `+`, `=`, `:`, `/`, and `#` characters, as well as alphanumerics. For more information about custom autolinks, see "[Configuring autolinks to reference external resources](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/configuring-autolinks-to-reference-external-resources)."
+        - "现可将单字符前缀用于自定义自动链接。自动链接前缀现在还允许使用`.`、`-`、`_`、`+`、`=`、`:`、`/`, 和 `#`字符以及字母数字。有关自定义自动链接的详细信息，请参阅“[配置自动链接以引用外部资源](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/configuring-autolinks-to-reference-external-resources)”。"
 
         # https://github.com/github/releases/issues/1776
-        - A `CODE_OF_CONDUCT.md` file in the root of a repository is now highlighted in the "About" sidebar on the repository overview page.
+        - 存储库根目录中的 `CODE_OF_CONDUCT.md` 文件现在在存储库概述页上的“关于”边栏中突出显示。
 
-    - heading: 'Releases changes'
+    - heading: '版本更改'
       notes:
         # https://github.com/github/releases/issues/1723
-        - '{% data variables.product.prodname_ghe_server %} 3.4 includes improvements to the Releases UI, such as automatically generated release notes which display a summary of all the pull requests for a given release. For more information, see the "[{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-10-20-improvements-to-github-releases-generally-available/)."'
+        - '{% data variables.product.prodname_ghe_server %} 3.4 包括对版本 UI 的改进，例如自动生成的发行说明，其中会显示给定版本的所有拉取请求的摘要。有关详细信息，请参阅“[{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-10-20-improvements-to-github-releases-generally-available/)”。'
 
         # https://github.com/github/releases/issues/1606
-        - When a release is published, an avatar list is now displayed at the bottom of the release. Avatars for all user accounts mentioned in the release notes are shown. For more information, see "[Managing releases in a repository](/repositories/releasing-projects-on-github/managing-releases-in-a-repository)."
+        - "发布版本后，头像列现在会显示在版本底部。将显示发行说明中提到的所有用户帐户的头像。有关详细信息，请参阅“[管理存储库中的发布](/repositories/releasing-projects-on-github/managing-releases-in-a-repository)”。"
 
-    - heading: 'Markdown changes'
+    - heading: 'Markdown 更改'
       notes:
         # https://github.com/github/releases/issues/1779
-        - You can now use the new "Accessibility" settings page to manage your keyboard shortcuts. You can choose to disable keyboard shortcuts that only use single characters like <kbd>S</kbd>, <kbd>G</kbd> <kbd>C</kbd>, and <kbd>.</kbd> (the period key). For more information, see the "[{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-11-16-managing-keyboard-shortcuts-using-accessibility-settings/)."
+        - "现可使用新的“辅助功能”设置页来管理键盘快捷方式。可以选择禁用仅使用单个字符的键盘快捷方式，如 <kbd>S</kbd>、<kbd>G</kbd>、<kbd>C</kbd> 和 <kbd>.</kbd>（句点键）。有关详细信息，请参阅“[{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-11-16-managing-keyboard-shortcuts-using-accessibility-settings/)”。"
 
         # https://github.com/github/releases/issues/1727
-        - You can now choose to use a fixed-width font in Markdown-enabled fields, like issue comments and pull request descriptions. For more information, see the "[{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-10-12-fixed-width-font-support-in-markdown-enabled-fields/)."
+        - "现可选择在启用了 Markdown 的字段（例如问题注释和拉取请求说明）中使用固定宽度的字体。有关详细信息，请参阅“[{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-10-12-fixed-width-font-support-in-markdown-enabled-fields/)”。"
 
         # https://github.com/github/releases/issues/1761
-        - You can now paste a URL on selected text to quickly create a Markdown link. This works in all Markdown-enabled fields, such as issue comments and pull request descriptions. For more information, see the "[{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-11-10-linkify-selected-text-on-url-paste/)."
+        - "现可将 URL 粘贴到所选文本上，以快速创建 Markdown 链接。此更改适用于所有启用了 Markdown 的字段，例如问题注释和拉取请求说明。有关详细信息，请参阅“[{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-11-10-linkify-selected-text-on-url-paste/)”。"
 
         # https://github.com/github/releases/issues/1758
-        - An image URL can now be appended with a theme context, such as `#gh-dark-mode-only`, to define how the Markdown image is displayed to a viewer. For more information, see the "[{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-11-24-specify-theme-context-for-images-in-markdown/)."
+        - "现可为图像 URL 附加主题上下文（例如 `#gh-dark-mode-only`），以定义如何向查看者显示 Markdown 图像。有关详细信息，请参阅“[{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-11-24-specify-theme-context-for-images-in-markdown/)”。"
 
         # https://github.com/github/releases/issues/1686
-        - When creating or editing a gist file with the Markdown (`.md`) file extension, you can now use the "Preview" or "Preview Changes" tab to display a Markdown rendering of the file contents. For more information, see the "[{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-11-17-preview-the-markdown-rendering-of-gists/)."
+        - "创建或编辑具有 Markdown (`.md`) 文件扩展名的 gist 文件时，现可使用“预览”或“预览更改”选项卡来显示文件内容的 Markdown 呈现。有关详细信息，请参阅“[{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-11-17-preview-the-markdown-rendering-of-gists/)”。"
 
         # https://github.com/github/releases/issues/1754
-        - When typing the name of a {% data variables.product.prodname_dotcom %} user in issues, pull requests and discussions, the @mention suggester now ranks existing participants higher than other {% data variables.product.prodname_dotcom %} users, so that it's more likely the user you're looking for will be listed.
+        - "在问题、拉取请求和讨论中键入 {% data variables.product.prodname_dotcom %} 用户的名称时，@mention 建议器现在会将现有参与者排在其他 {% data variables.product.prodname_dotcom %} 用户之前，以便列出你更有可能查找的用户。"
 
         # https://github.com/github/releases/issues/1636
-        - Right-to-left languages are now supported natively in Markdown files, issues, pull requests, discussions, and comments.
+        - Markdown 文件、问题、拉取请求、讨论和注释中现在对从右向左书写的语言提供原生支持。
 
-    - heading: 'Issues and pull requests changes'
+    - heading: '问题和拉取请求更改'
       notes:
         # https://github.com/github/releases/issues/1731
-        - The diff setting to hide whitespace changes in the pull request "Files changed" tab is now retained for your user account for that pull request. The setting you have chosen is automatically reapplied if you navigate away from the page and then revisit the "Files changed" tab of the same pull request.
+        - 现在为拉取请求的用户帐户保留用于隐藏拉取请求“文件已更改”选项卡中的空格更改的差异设置。如果离开页面，然后重新访问同一拉取请求的“文件已更改”选项卡，则会自动重新应用所选择的设置。
 
         # https://github.com/github/releases/issues/1663
-        - When using auto assignment for pull request code reviews, you can now choose to only notify requested team members independently of your auto assignment settings. This setting is useful in scenarios where many users are auto assigned but not all users require notification. For more information, see the "[{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-11-10-team-member-pull-request-review-notifications-can-be-configured-independently-of-auto-assignment/)."
+        - "使用自动分配进行拉取请求代码评审时，现可独立于自动分配设置，选择仅通知请求的团队成员。在自动分配了许多用户但并非所有用户都需要通知的情况下，此设置很有用。有关详细信息，请参阅“[{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-11-10-team-member-pull-request-review-notifications-can-be-configured-independently-of-auto-assignment/)”。"
 
-    - heading: 'Branches changes'
+    - heading: '分支更改'
       notes:
         # https://github.com/github/releases/issues/1526
-        - Organization and repository administrators can now trigger webhooks to listen for changes to branch protection rules on their repositories. For more information, see the "[branch_protection_rule](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#branch_protection_rule)" event in the webhooks events and payloads documentation.
+        - "组织和存储库管理员现可触发 Webhook 来侦听对其存储库上的分支保护规则的更改。有关详细信息，请参阅 Webhook 事件和有效负载文档中的“[branch_protection_rule](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#branch_protection_rule)”事件。"
 
         # https://github.com/github/releases/issues/1759
-        - When configuring protected branches, you can now enforce that a required status check is provided by a specific {% data variables.product.prodname_github_app %}. If a status is then provided by a different application, or by a user via a commit status, merging is prevented. This ensures all changes are validated by the intended application. For more information, see the "[{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-12-01-ensure-required-status-checks-provided-by-the-intended-app/)."
+        - "配置受保护的分支时，现可强制要求由特定的 {% data variables.product.prodname_github_app %} 提供所需的状态检查。如果状态随后由其他应用程序提供，或者由用户通过提交状态提供，则会阻止合并。这样可确保所有更改都由预期的应用程序进行验证。有关详细信息，请参阅“[{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-12-01-ensure-required-status-checks-provided-by-the-intended-app/)”。"
 
         # https://github.com/github/releases/issues/1911
-        - Only users with administrator permissions are now able to rename protected branches and modify branch protection rules. Previously, with the exception of the default branch, a collaborator could rename a branch and consequently any non-wildcard branch protection rules that applied to that branch were also renamed. For more information, see "[Renaming a branch](/repositories/configuring-branches-and-merges-in-your-repository/managing-branches-in-your-repository/renaming-a-branch)" and "[Managing a branch protection rule](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/managing-a-branch-protection-rule)."
+        - "现在，只有具备管理员权限的用户才能重命名受保护的分支并修改分支保护规则。以前，除默认分支外，协作者可以重命名分支。因此，应用于该分支的任何非通配符分支保护规则也会被重命名。有关详细信息，请参阅“[重命名分支](/repositories/configuring-branches-and-merges-in-your-repository/managing-branches-in-your-repository/renaming-a-branch)”和“[管理分支保护规则](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/managing-a-branch-protection-rule)”。"
 
         # https://github.com/github/releases/issues/1845
-        - Administrators can now allow only specific users and teams to bypass pull request requirements. For more information, see the "[{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-11-19-allow-bypassing-required-pull-requests/)."
+        - "管理员现可只允许特定用户和团队绕过拉取请求要求。有关详细信息，请参阅“[{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-11-19-allow-bypassing-required-pull-requests/)”。"
 
         # https://github.com/github/releases/issues/1850
-        - Administrators can now allow only specific users and teams to force push to a repository. For more information, see the "[{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-12-21-specify-who-can-force-push-to-a-repository/)."
+        - "管理员现可只允许特定用户和团队强制推送到存储库。有关详细信息，请参阅“[{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-12-21-specify-who-can-force-push-to-a-repository/)”。"
 
         # https://github.com/github/releases/issues/1796
-        - When requiring pull requests for all changes to a protected branch, administrators can now choose if approved reviews are also a requirement. For more information, see the "[{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-11-10-require-pull-requests-without-requiring-reviews/)."
+        - "要求对受保护分支的所有更改使用拉取请求时，管理员现可选择是否还需要批准的评审。有关详细信息，请参阅“[{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-11-10-require-pull-requests-without-requiring-reviews/)”。"
 
-    - heading: 'GitHub Actions changes'
+    - heading: 'GitHub Actions 更改'
       notes:
         # https://github.com/github/releases/issues/1906
-        - '{% data variables.product.prodname_actions %} workflows triggered by {% data variables.product.prodname_dependabot %} for the `create`, `deployment`, and `deployment_status` events now always receive a read-only token and no secrets. Similarly, workflows triggered by {% data variables.product.prodname_dependabot %} for the `pull_request_target` event on pull requests where the base ref was created by {% data variables.product.prodname_dependabot %}, now always receive a read-only token and no secrets. These changes are designed to prevent potentially malicious code from executing in a privileged workflow. For more information, see "[Automating {% data variables.product.prodname_dependabot %} with {% data variables.product.prodname_actions %}](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/automating-dependabot-with-github-actions)."'
+        - '{% data variables.product.prodname_dependabot %} 针对 `create`、`deployment` 和 `deployment_status` 事件触发的 {% data variables.product.prodname_actions %} 工作流现在始终收到只读令牌，而没有机密。同样，{% data variables.product.prodname_dependabot %} 针对拉取请求上的 `pull_request_target` 事件触发的工作流（其中基 ref 由 {% data variables.product.prodname_dependabot %} 创建）现在始终收到只读令牌，而没有机密。这些更改旨在防止在特权工作流中执行潜在的恶意代码。有关详细信息，请参阅“[使用 {% data variables.product.prodname_actions %} 自动化 {% data variables.product.prodname_dependabot %}](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/automating-dependabot-with-github-actions)”。'
 
         # https://github.com/github/releases/issues/1667
-        - Workflow runs on `push` and `pull_request` events triggered by {% data variables.product.prodname_dependabot %} will now respect the permissions specified in your workflows, allowing you to control how you manage automatic dependency updates. The default token permissions will remain read-only. For more information, see the "[{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-10-06-github-actions-workflows-triggered-by-dependabot-prs-will-respect-permissions-key-in-workflows/)."
+        - "在 {% data variables.product.prodname_dependabot %} 触发的 `push` 和 `pull_request` 事件上运行的工作流现在将遵循工作流中指定的权限，使你能够控制如何管理自动依赖项更新。默认令牌权限将保持只读。有关详细信息，请参阅“[{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-10-06-github-actions-workflows-triggered-by-dependabot-prs-will-respect-permissions-key-in-workflows/)”。"
 
         # https://github.com/github/releases/issues/1668
-        - '{% data variables.product.prodname_actions %} workflows triggered by {% data variables.product.prodname_dependabot %} will now be sent the {% data variables.product.prodname_dependabot %} secrets. You can now pull from private package registries in your CI using the same secrets you have configured for {% data variables.product.prodname_dependabot %} to use, improving how {% data variables.product.prodname_actions %} and {% data variables.product.prodname_dependabot %} work together. For more information, see "[Automating {% data variables.product.prodname_dependabot %} with {% data variables.product.prodname_actions %}](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/automating-dependabot-with-github-actions)."'
+        - '{% data variables.product.prodname_dependabot %} 触发的 {% data variables.product.prodname_actions %} 工作流现在将发送到 {% data variables.product.prodname_dependabot %} 机密。现可使用配置给 {% data variables.product.prodname_dependabot %} 使用的相同机密从 CI 中的专用包注册表拉取，这改进了 {% data variables.product.prodname_actions %} 和 {% data variables.product.prodname_dependabot %} 协同工作的方式。有关详细信息，请参阅“[使用 {% data variables.product.prodname_actions %} 自动化 {% data variables.product.prodname_dependabot %}](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/automating-dependabot-with-github-actions)”。'
 
         # https://github.com/github/releases/issues/1615
-        - You can now manage runner groups and see the status of your self-hosted runners using new Runners and Runner Groups pages in the UI. The Actions settings page for your repository or organization now shows a summary view of your runners, and allows you to deep dive into a specific runner to edit it or see what job it may be currently running. For more information, see the "[{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-09-20-github-actions-experience-refresh-for-the-management-of-self-hosted-runners/)."
+        - "现可使用 UI 中新的“运行器”和“运行器组”页面管理运行器组并查看自承载运行器的状态。存储库或组织的“Actions 设置”页面现在会显示运行器的摘要视图，并使你能够深入了解特定运行器以对其进行编辑或查看当前可能正在运行的作业。有关详细信息，请参阅“[{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-09-20-github-actions-experience-refresh-for-the-management-of-self-hosted-runners/)”。"
 
         # https://github.com/github/releases/issues/1785
-        - 'Actions authors can now have their action run in Node.js 16 by specifying [`runs.using` as `node16` in the action''s `action.yml`](/actions/creating-actions/metadata-syntax-for-github-actions#runs-for-javascript-actions). This is in addition to the existing Node.js 12 support; actions can continue to specify `runs.using: node12` to use the Node.js 12 runtime.'
+        - 'Actions 作者现可通过[在操作的 `action.yml` 中将 `runs.using` 指定为 `node16`](/actions/creating-actions/metadata-syntax-for-github-actions#runs-for-javascript-actions)，从而在 Node.js 16 中运行其操作。这是对现有 Node.js 12 支持的补充；操作可以继续指定 `runs.using: node12` 使用 Node.js 12 运行时。'
 
         # https://github.com/github/releases/issues/1799
-        - 'For manually triggered workflows, {% data variables.product.prodname_actions %} now supports the `choice`, `boolean`, and `environment` input types in addition to the default `string` type. For more information, see "[`on.workflow_dispatch.inputs`](/actions/using-workflows/workflow-syntax-for-github-actions#onworkflow_dispatchinputs)."'
+        - '对于手动触发的工作流，除了默认的 `string` 类型外，{% data variables.product.prodname_actions %} 现在还支持 `choice`、`boolean` 和 `environment` 输入类型。有关详细信息，请参阅“[`on.workflow_dispatch.inputs`](/actions/using-workflows/workflow-syntax-for-github-actions#onworkflow_dispatchinputs)”。'
 
         # https://github.com/github/releases/issues/1782
-        - Actions written in YAML, also known as composite actions, now support `if` conditionals. This lets you prevent specific steps from executing unless a condition has been met. Like steps defined in workflows, you can use any supported context and expression to create a conditional.
+        - 用 YAML 编写的操作（也称为复合操作）现支持 `if` 条件。这使你可以阻止执行特定步骤，除非满足条件。与工作流中定义的步骤一样，你可以使用任何受支持的上下文和表达式来创建条件。
 
         # https://github.com/github/releases/issues/1919
-        - The search order behavior for self-hosted runners has now changed, so that the first available matching runner at any level will run the job in all cases. This allows jobs to be sent to self-hosted runners much faster, especially for organizations and enterprises with lots of self-hosted runners. Previously, when running a job that required a self-hosted runner, {% data variables.product.prodname_actions %} would look for self-hosted runners in the repository, organization, and enterprise, in that order.
+        - "自承载运行器的搜索顺序行为现已更改，因此任何级别的第一个可用匹配运行器都将在所有情况下运行作业。这样可以更快地将作业发送给自承载运行器，特别是对于具有大量自承载运行器的组织和企业。以前，在运行需要自承载运行器的作业时，{% data variables.product.prodname_actions %} 将按该顺序在存储库、组织和企业中查找自承载运行器。"
 
         # https://github.com/github/releases/issues/1753
-        - Runner labels for {% data variables.product.prodname_actions %} self-hosted runners can now be listed, added and removed using the REST API. For more information about using the new APIs at a repository, organization, or enterprise level, see "[Repositories](/rest/reference/actions#list-labels-for-a-self-hosted-runner-for-a-repository)", "[Organizations](/rest/reference/actions#add-custom-labels-to-a-self-hosted-runner-for-an-organization)", and "[Enterprises](/rest/reference/enterprise-admin#list-labels-for-a-self-hosted-runner-for-an-enterprise)" in the REST API documentation.
+        - "现可使用 REST API 列出、添加和移除 {% data variables.product.prodname_actions %} 自承载运行器的运行器标签。若要详细了解如何在存储库、组织或企业级别使用新 API，请参阅 REST API 文档中的“[存储库](/rest/reference/actions#list-labels-for-a-self-hosted-runner-for-a-repository)”、“[组织](/rest/reference/actions#add-custom-labels-to-a-self-hosted-runner-for-an-organization)”和“[企业](/rest/reference/enterprise-admin#list-labels-for-a-self-hosted-runner-for-an-enterprise)”。"
 
-    - heading: 'Dependabot and Dependency graph changes'
+    - heading: 'Dependabot 和依赖项关系图更改'
       notes:
         # https://github.com/github/releases/issues/1520
-        - Dependency graph now supports detecting Python dependencies in repositories that use the Poetry package manager. Dependencies will be detected from both `pyproject.toml` and `poetry.lock` manifest files.
+        - 依赖项关系图现支持在使用 Poetry 包管理器的存储库中检测 Python 依赖项。将从 `pyproject.toml` 和 `poetry.lock` 清单文件中检测依赖项。
 
         # https://github.com/github/releases/issues/1921
-        - When configuring {% data variables.product.prodname_dependabot %} security and version updates on GitHub Enterprise Server, we recommend you also enable {% data variables.product.prodname_dependabot %} in {% data variables.product.prodname_github_connect %}. This will allow {% data variables.product.prodname_dependabot %} to retrieve an updated list of dependencies and vulnerabilities from {% data variables.product.prodname_dotcom_the_website %}, by querying for information such as the changelogs of the public releases of open source code that you depend upon. For more information, see "[Enabling the dependency graph and Dependabot alerts for your enterprise](/admin/configuration/configuring-github-connect/enabling-the-dependency-graph-and-dependabot-alerts-for-your-enterprise)."
+        - "在 GitHub Enterprise Server 上配置 {% data variables.product.prodname_dependabot %} 安全性和版本更新时，还建议在 {% data variables.product.prodname_github_connect %} 中启用 {% data variables.product.prodname_dependabot %}。这样，{% data variables.product.prodname_dependabot %} 便可通过查询你依赖的开放源代码公开版本的变更日志等信息，从 {% data variables.product.prodname_dotcom_the_website %} 检索更新的依赖项和漏洞列表。有关详细信息，请参阅“[为企业启用依赖项关系图和 Dependabot 警报](/admin/configuration/configuring-github-connect/enabling-the-dependency-graph-and-dependabot-alerts-for-your-enterprise)”。"
 
         # https://github.com/github/releases/issues/1717
-        - '{% data variables.product.prodname_dependabot_alerts %} alerts can now be dismissed using the GraphQL API. For more information, see the "[dismissRepositoryVulnerabilityAlert](/graphql/reference/mutations#dismissrepositoryvulnerabilityalert)" mutation in the GraphQL API documentation.'
+        - '现可使用 GraphQL API 消除 {% data variables.product.prodname_dependabot_alerts %} 警报。有关详细信息，请参阅 GraphQL API 文档中的“[dismissRepositoryVulnerabilityAlert](/graphql/reference/mutations#dismissrepositoryvulnerabilityalert)”变更。'
 
-    - heading: 'Code scanning and secret scanning changes'
+    - heading: '代码扫描和机密扫描更改'
       notes:
         # https://github.com/github/releases/issues/1802
-        - The {% data variables.product.prodname_codeql %} CLI now supports including markdown-rendered query help in SARIF files, so that the help text can be viewed in the {% data variables.product.prodname_code_scanning %} UI when the query generates an alert. For more information, see the "[{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-11-23-display-help-text-for-your-custom-codeql-queries-in-code-scanning/)."
+        - "{% data variables.product.prodname_codeql %} CLI 现支持在 SARIF 文件中包括 Markdown 呈现的查询帮助，以便在查询生成警报时，可以在 {% data variables.product.prodname_code_scanning %} UI 中查看帮助文本。有关详细信息，请参阅“[{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-11-23-display-help-text-for-your-custom-codeql-queries-in-code-scanning/)”。"
 
         # https://github.com/github/releases/issues/1790
-        - The {% data variables.product.prodname_codeql %} CLI and {% data variables.product.prodname_vscode %} extension now support building databases and analyzing code on machines powered by Apple Silicon, such as Apple M1. For more information, see the "[{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-11-10-codeql-now-supports-apple-silicon-m1/)."
+        - "{% data variables.product.prodname_codeql %} CLI 和 {% data variables.product.prodname_vscode %} 扩展现支持在由 Apple Silicon 提供支持的计算机（如 Apple M1）上构建数据库和分析代码。有关详细信息，请参阅“[{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-11-10-codeql-now-supports-apple-silicon-m1/)”。"
 
         # https://github.com/github/releases/issues/1732
-        - |
-          The depth of {% data variables.product.prodname_codeql %}'s analysis has been improved by adding support for more [libraries and frameworks](https://codeql.github.com/docs/codeql-overview/supported-languages-and-frameworks/) from the Python ecosystem. As a result, {% data variables.product.prodname_codeql %} can now detect even more potential sources of untrusted user data, steps through which that data flows, and potentially dangerous sinks where the data could end up. This results in an overall improvement of the quality of {% data variables.product.prodname_code_scanning %} alerts. For more information, see the "[{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-11-24-codeql-code-scanning-now-recognizes-more-python-libraries-and-frameworks/)."
+        - |通过添加对 Python 生态系统中更多[库和框架](https://codeql.github.com/docs/codeql-overview/supported-languages-and-frameworks/)的支持，{% data variables.product.prodname_codeql %} 的分析深度得到了改进。因此，{% data variables.product.prodname_codeql %} 现可检测更多不受信任的用户数据的潜在来源、数据流经的步骤以及数据可能最终到达的潜在危险接收器。这使得 {% data variables.product.prodname_code_scanning %} 警报的质量得到了全面的提高。有关详细信息，请参阅“[{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-11-24-codeql-code-scanning-now-recognizes-more-python-libraries-and-frameworks/)”。
 
+|
         # https://github.com/github/releases/issues/1567
-        - Code scanning with {% data variables.product.prodname_codeql %} now includes beta support for analyzing code in all common Ruby versions, up to and including 3.02. For more information, see the "[{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-10-27-codeql-code-scanning-adds-beta-support-for-ruby/)."
+        - "{% data variables.product.prodname_codeql %} 代码扫描现支持对所有常见的 Ruby 3.02 及以下版本中的代码进行分析（Beta 版本）。有关详细信息，请参阅“[{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-10-27-codeql-code-scanning-adds-beta-support-for-ruby/)”。"
 
         # https://github.com/github/releases/issues/1764
-        - |
-          Several improvements have been made to the {% data variables.product.prodname_code_scanning %} API:
+        - |对 {% data variables.product.prodname_code_scanning %} API 进行了多项改进：
 
-          * The `fixed_at` timestamp has been added to alerts. This timestamp is the first time that the alert was not detected in an analysis.
-          * Alert results can now be sorted using `sort` and `direction` on either `created`, `updated` or `number`. For more information, see "[List code scanning alerts for a repository](/rest/reference/code-scanning#list-code-scanning-alerts-for-a-repository)."
-          * A `Last-Modified` header has been added to the alerts and alert endpoint response. For more information, see [`Last-Modified`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Last-Modified) in the Mozilla documentation.
-          * The `relatedLocations` field has been added to the SARIF response when you request a code scanning analysis. The field may contain locations which are not the primary location of the alert. See an example in the [SARIF spec](https://docs.oasis-open.org/sarif/sarif/v2.1.0/cs01/sarif-v2.1.0-cs01.html#_Toc16012616) and for more information see "[Get a code scanning analysis for a repository](/rest/reference/code-scanning#get-a-code-scanning-analysis-for-a-repository)."
-          * Both `help` and `tags` data have been added to the webhook response alert rule object. For more information, see "[Code scanning alert webhooks events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#code_scanning_alert)."
-          * Personal access tokens with the `public_repo` scope now have write access for code scanning endpoints on public repos, if the user has permission.
 
-          For more information, see "[Code scanning](/rest/reference/code-scanning)" in the REST API documentation.
 
+* `fixed_at` 时间戳已添加到警报中。此时间戳是首次在分析中未检测到警报的时间。
+
+* 现可使用 `created`、`updated` 或 `number` 上的 `sort` 和 `direction` 对警报结果进行排序。有关详细信息，请参阅“[列出存储库的代码扫描警报](/rest/reference/code-scanning#list-code-scanning-alerts-for-a-repository)”。
+
+* `Last-Modified` 标头已添加到警报和警报终结点响应中。有关详细信息，请参阅 Mozilla 文档中的 [`Last-Modified`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Last-Modified)。
+
+* 请求代码扫描分析时，`relatedLocations` 字段已添加到 SARIF 响应中。该字段可能包含不是警报主要位置的位置。请参阅 [SARIF 规范](https://docs.oasis-open.org/sarif/sarif/v2.1.0/cs01/sarif-v2.1.0-cs01.html#_Toc16012616)中的示例，有关详细信息，请参阅“[获取存储库的代码扫描分析](/rest/reference/code-scanning#get-a-code-scanning-analysis-for-a-repository)”。
+
+* `help` 和 `tags` 数据均已添加到 Webhook 响应警报规则对象中。有关详细信息，请参阅“[代码扫描警报 Webhook 事件和有效负载](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#code_scanning_alert)”。
+
+* 如果用户具有权限，则具有 `public_repo` 范围的个人访问令牌现在对公共存储库上的代码扫描终结点具有写入权限。
+
+
+
+有关详细信息，请参阅 REST API 文档中的“[代码扫描](/rest/reference/code-scanning)”。
+
+|
         # https://github.com/github/releases/issues/1943
-        - '{% data variables.product.prodname_GH_advanced_security %} customers can now use the REST API to retrieve private repository secret scanning results at the enterprise level. The new endpoint supplements the existing repository-level and organization-level endpoints. For more information, see "[Secret scanning](/rest/reference/secret-scanning)" in the REST API documentation.'
+        - '{% data variables.product.prodname_GH_advanced_security %} 客户现可使用 REST API 在企业级别检索专用存储库机密扫描结果。新终结点是对现有存储库级别和组织级别终结点的补充。有关详细信息，请参阅 REST API 文档中的“[机密扫描](/rest/reference/secret-scanning)”。'
 
   # No security/bug fixes for the RC release
   # security_fixes:
@@ -227,60 +239,66 @@ sections:
   #   - PLACEHOLDER
 
   known_issues:
-    - On a freshly set up {% data variables.product.prodname_ghe_server %} instance without any users, an attacker could create the first admin user.
-    - Custom firewall rules are removed during the upgrade process.
-    - Git LFS tracked files [uploaded through the web interface](https://github.com/blog/2105-upload-files-to-your-repositories) are incorrectly added directly to the repository.
-    - Issues cannot be closed if they contain a permalink to a blob in the same repository, where the blob's file path is longer than 255 characters.
-    - When "Users can search GitHub.com" is enabled with GitHub Connect, issues in private and internal repositories are not included in GitHub.com search results.
-    - The {% data variables.product.prodname_registry %} npm registry no longer returns a time value in metadata responses. This was done to allow for substantial performance improvements. We continue to have all the data necessary to return a time value as part of the metadata response and will resume returning this value in the future once we have solved the existing performance issues.
-    - Resource limits that are specific to processing pre-receive hooks may cause some pre-receive hooks to fail.
-    - Actions services needs to be restarted after restoring appliance from backup taken on a different host.
+    - "在没有任何用户的新建 {% data variables.product.prodname_ghe_server %} 实例上，攻击者可以创建第一个管理员用户。"
+    - 自定义防火墙规则在升级过程中被移除。
+    - "Git LFS 跟踪的[通过 Web 界面上传的](https://github.com/blog/2105-upload-files-to-your-repositories)文件被错误地直接添加到存储库。"
+    - 如果问题包含同一存储库中文件路径长于 255 个字符的 blob 的永久链接，则无法关闭。
+    - 在 GitHub Connect 中启用了“用户可以搜索 GitHub.com”时，专用和内部存储库中的问题不包括在 GitHub.com 搜索结果中。
+    - "{% data variables.product.prodname_registry %} npm 注册表在元数据响应中不再返回时间值。这样做是为了大幅改善性能。我们继续拥有将时间值作为元数据响应的一部分返回所需的所有数据，并将在以后解决现有性能问题后恢复返回该值。"
+    - 特定于处理预接收挂钩的资源限制可能会导致某些预接收挂钩失败。
+    - 从不同主机上的备份恢复设备后，需要重启 Actions 服务。
 
   deprecations:
-    - heading: Deprecation of GitHub Enterprise Server 3.0
+    - heading: 弃用 GitHub Enterprise Server 3.0
       notes:
-        - '**{% data variables.product.prodname_ghe_server %} 3.0 was discontinued on February 16, 2022**. This means that no patch releases will be made, even for critical security issues, after this date. For better performance, improved security, and new features, [upgrade to the newest version of {% data variables.product.prodname_ghe_server %}](/enterprise-server@3.4/admin/enterprise-management/upgrading-github-enterprise-server) as soon as possible.'
-    - heading: Deprecation of GitHub Enterprise Server 3.1
+        - '**{% data variables.product.prodname_ghe_server %} 3.0 已于 2022 年 2 月 16 日停用**。这意味着，在此日期之后，即使针对重大安全问题，也不会发布补丁。为了获得更好的性能、改进的安全性和新功能，请尽快[升级到 {% data variables.product.prodname_ghe_server %} 的最新版本](/enterprise-server@3.4/admin/enterprise-management/upgrading-github-enterprise-server)。'
+    - heading: 弃用 GitHub Enterprise Server 3.1
       notes:
-        - '**{% data variables.product.prodname_ghe_server %} 3.1 will be discontinued on June 3, 2022**. This means that no patch releases will be made, even for critical security issues, after this date. For better performance, improved security, and new features, [upgrade to the newest version of {% data variables.product.prodname_ghe_server %}](/enterprise-server@3.4/admin/enterprise-management/upgrading-github-enterprise-server) as soon as possible.'
+        - '**{% data variables.product.prodname_ghe_server %} 3.1 将于 2022 年 6 月 3 日停用**。这意味着，在此日期之后，即使针对重大安全问题，也不会发布补丁。为了获得更好的性能、改进的安全性和新功能，请尽快[升级到 {% data variables.product.prodname_ghe_server %} 的最新版本](/enterprise-server@3.4/admin/enterprise-management/upgrading-github-enterprise-server)。'
 
-    - heading: Deprecation of XenServer Hypervisor support
+    - heading: XenServer Hypervisor 支持终止
       notes:
         # https://github.com/github/docs-content/issues/4439
-        - Starting in {% data variables.product.prodname_ghe_server %} 3.3, {% data variables.product.prodname_ghe_server %} on XenServer was deprecated and is no longer supported. Please contact [GitHub Support](https://support.github.com) with questions or concerns.
+        - "从 {% data variables.product.prodname_ghe_server %} 3.3 开始，XenServer 上的 {% data variables.product.prodname_ghe_server %} 已弃用且不再受支持。如有问题或疑虑，请联系 [GitHub 支持](https://support.github.com)。"
 
-    - heading: Deprecation of the Content Attachments API preview
+    - heading: 弃用内容附件 API 预览版
       notes:
         #
-        - Due to low usage, we have deprecated the Content References API preview in {% data variables.product.prodname_ghe_server %} 3.4. The API was previously accessible with the `corsair-preview` header. Users can continue to navigate to external URLs without this API. Any registered usages of the Content References API will no longer receive a webhook notification for URLs from your registered domain(s) and we no longer return valid response codes for attempted updates to existing content attachments.
+        - "由于使用率低，我们已在 {% data variables.product.prodname_ghe_server %} 3.4 中弃用了内容引用 API 预览版。该 API 以前可以过“corsair-preview”标头访问。用户可以在没有此 API 的情况下继续导航到外部 URL。针对内容引用 API 的任何注册使用，将不再收到来自注册域的 URL Webhook 通知，并且在尝试更新现有内容附件时，我们不再返回有效的响应代码。"
 
-    - heading: Deprecation of the Codes of Conduct API preview
+    - heading: 弃用行为准则 API 预览版
       notes:
         # https://github.com/github/releases/issues/1708
-        - 'The Codes of Conduct API preview, which was accessible with the `scarlet-witch-preview` header, is deprecated and no longer accessible in {% data variables.product.prodname_ghe_server %} 3.4. We instead recommend using the "[Get community profile metrics](/rest/reference/repos#get-community-profile-metrics)" endpoint to retrieve information about a repository''s code of conduct. For more information, see the "[Deprecation Notice: Codes of Conduct API preview](https://github.blog/changelog/2021-10-06-deprecation-notice-codes-of-conduct-api-preview/)" in the {% data variables.product.prodname_dotcom %} changelog.'
+        - '可通过 `scarlet-witch-preview` 标头访问的行为准则 API 预览版已弃用，并且在 {% data variables.product.prodname_ghe_server %} 3.4 中已无法访问。建议使用“[获取社区配置文件指标](/rest/reference/repos#get-community-profile-metrics)”终结点来检索有关存储库行为准则的信息。有关详细信息，请参阅 {% data variables.product.prodname_dotcom %} changelog 中的“[弃用通知：行为准则 API 预览版](https://github.blog/changelog/2021-10-06-deprecation-notice-codes-of-conduct-api-preview/)”。'
 
-    - heading: Deprecation of OAuth Application API endpoints and API authentication using query parameters
+    - heading: 弃用 OAuth 应用程序 API 终结点和使用查询参数的 API 身份验证
       notes:
         # https://github.com/github/releases/issues/1316
-        - |
-          Starting with {% data variables.product.prodname_ghe_server %} 3.4, the [deprecated version of the OAuth Application API endpoints](https://developer.github.com/changes/2020-02-14-deprecating-oauth-app-endpoint/#endpoints-affected) have been removed. If you encounter 404 error messages on these endpoints, convert your code to the versions of the OAuth Application API that do not have `access_tokens` in the URL. We've also disabled the use of API authentication using query parameters. We instead recommend using [API authentication in the request header](https://developer.github.com/changes/2020-02-10-deprecating-auth-through-query-param/#changes-to-make).
+        - |从 {% data variables.product.prodname_ghe_server %} 3.4 开始，[OAuth 应用程序 API 终结点的弃用版本](https://developer.github.com/changes/2020-02-14-deprecating-oauth-app-endpoint/#endpoints-affected)已被移除。如果在这些终结点上遇到 404 错误消息，请将代码转换为 URL 中没有 `access_tokens` 的 OAuth 应用程序 API 版本。我们还禁用了使用查询参数的 API 身份验证。建议使用[请求标头中的 API 身份验证](https://developer.github.com/changes/2020-02-10-deprecating-auth-through-query-param/#changes-to-make)。
 
-    - heading: Deprecation of the CodeQL runner
+|
+    - heading: 弃用 CodeQL 运行器
       notes:
         # https://github.com/github/releases/issues/1632
-        - The {% data variables.product.prodname_codeql %} runner is deprecated in {% data variables.product.prodname_ghe_server %} 3.4 and is no longer supported. The deprecation only affects users who use {% data variables.product.prodname_codeql %} code scanning in third party CI/CD systems; {% data variables.product.prodname_actions %} users are not affected. We strongly recommend that customers migrate to the {% data variables.product.prodname_codeql %} CLI, which is a feature-complete replacement for the {% data variables.product.prodname_codeql %} runner. For more information, see the [{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-09-21-codeql-runner-deprecation/).
+        - "{% data variables.product.prodname_codeql %} 运行器在 {% data variables.product.prodname_ghe_server %} 3.4 中已弃用且不再受支持。弃用仅影响在第三方 CI/CD 系统中使用 {% data variables.product.prodname_codeql %} 代码扫描的用户；{% data variables.product.prodname_actions %} 用户不受影响。强烈建议客户迁移到 {% data variables.product.prodname_codeql %} CLI，它是 {% data variables.product.prodname_codeql %} 运行器的功能完整的替代项。有关详细信息，请参阅 [{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-09-21-codeql-runner-deprecation/)。"
 
-    - heading: Deprecation of custom bit-cache extensions
+    - heading: 弃用自定义位缓存扩展
       notes:
         # https://github.com/github/releases/issues/1415
-        - |
-          Starting in {% data variables.product.prodname_ghe_server %} 3.1, support for {% data variables.product.company_short %}'s proprietary bit-cache extensions began to be phased out. These extensions are deprecated in {% data variables.product.prodname_ghe_server %} 3.3 onwards.
+        - |从 {% data variables.product.prodname_ghe_server %} 3.1 开始，开始逐步淘汰对 {% data variables.product.company_short %} 的专有位缓存扩展的支持。从 {% data variables.product.prodname_ghe_server %} 3.3 开始，这些扩展已被弃用。
 
-          Any repositories that were already present and active on {% data variables.location.product_location %} running version 3.1 or 3.2 will have been automatically updated.
 
-          Repositories which were not present and active before upgrading to {% data variables.product.prodname_ghe_server %} 3.3 may not perform optimally until a repository maintenance task is run and has successfully completed.
 
-          To start a repository maintenance task manually, browse to `https://<hostname>/stafftools/repositories/<owner>/<repository>/network` for each affected repository and click the Schedule button.
+运行版本 3.1 或 3.2 的 {% data variables.product.product_location %} 上已经存在并处于活动状态的任何存储库都将自动更新。
 
+
+
+存储库维护任务运行并成功完成后，在升级到 {% data variables.product.prodname_ghe_server %} 3.3 之前不存在且处于活动状态的存储库才能够以最佳方式执行。
+
+
+
+若要手动启动存储库维护任务，请浏览到 `https://<hostname>/stafftools/repositories/<owner>/<repository>/network` 查看每个受影响的存储库，然后单击“计划”按钮。
+
+|
   backups:
-    - '{% data variables.product.prodname_ghe_server %} 3.4 requires at least [GitHub Enterprise Backup Utilities 3.4.0](https://github.com/github/backup-utils) for [Backups and Disaster Recovery](/admin/configuration/configuring-your-enterprise/configuring-backups-on-your-appliance).'
+    - '{% data variables.product.prodname_ghe_server %} 3.4 至少需要 [GitHub Enterprise Backup Utilities 3.4.0](https://github.com/github/backup-utils) 进行[备份和灾难恢复](/admin/configuration/configuring-your-enterprise/configuring-backups-on-your-appliance)。'

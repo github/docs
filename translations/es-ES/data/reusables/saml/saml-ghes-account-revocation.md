@@ -1,13 +1,13 @@
 ---
-ms.openlocfilehash: d08df6f87611aec73985fd0ecd279b67079e2a1f
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 727611615f31b6b6064340ba97757509a1834db2
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "147067382"
+ms.lasthandoff: 12/09/2022
+ms.locfileid: "148193594"
 ---
 {% ifversion ghes %}
 
-Si eliminas un usuario desde tu proveedor de identidades, también debes suspenderlos de forma manual. De lo contrario, el propietario de la cuenta puede seguir autenticando mediante tokens de acceso o claves SSH. Para obtener más información, consulte "[Suspensión y anulación de la suspensión de usuarios](/enterprise/admin/guides/user-management/suspending-and-unsuspending-users)".
+Con el aprovisionamiento JIT, si quitas un usuario del IdP, también debes suspender manualmente la cuenta de ese usuario en {% data variables.location.product_location %}. De lo contrario, el propietario de la cuenta puede seguir autenticando mediante tokens de acceso o claves SSH. Para obtener más información, consulte "[Suspensión y anulación de la suspensión de usuarios](/enterprise/admin/guides/user-management/suspending-and-unsuspending-users)".
 
 {% endif %}

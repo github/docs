@@ -1,6 +1,6 @@
 ---
-title: Quickstart for GitHub REST API
-intro: 'Learn how to get started with the {% data variables.product.prodname_dotcom %} REST API.'
+title: Démarrage rapide de l’API REST GitHub
+intro: 'Découvrez comment bien démarrer avec l’API REST {% data variables.product.prodname_dotcom %}.'
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
@@ -14,36 +14,41 @@ redirect_from:
   - /guides/getting-started
   - /v3/guides/getting-started
 miniTocMaxHeadingLevel: 3
+ms.openlocfilehash: 001c4e3291e697be034579525d9f0bc6da8c0c88
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148192880'
 ---
-
-This article describes how to quickly get started with the {% data variables.product.prodname_dotcom %} REST API using {% data variables.product.prodname_cli %}, JavaScript, or cURL. For a more detailed guide, see "[Getting started with the REST API](/rest/guides/getting-started-with-the-rest-api)."
+Cet article explique comment rapidement bien démarrer avec l’API REST {% data variables.product.prodname_dotcom %} à l’aide de {% data variables.product.prodname_cli %}, JavaScript ou cURL. Pour obtenir un guide plus détaillé, consultez [Bien démarrer avec l’API REST](/rest/guides/getting-started-with-the-rest-api) ».
 
 {% cli %}
 
-## Getting started using {% data variables.product.prodname_cli %}
+## Bien démarrer avec {% data variables.product.prodname_cli %}
 
-### Using {% data variables.product.prodname_cli %} in the command line
+### Utilisation de {% data variables.product.prodname_cli %} dans la ligne de commande
 
-{% data variables.product.prodname_cli %} is the easiest way to use the {% data variables.product.prodname_dotcom %} REST API from the command line.
+{% data variables.product.prodname_cli %} constitue la manière la plus facile d’utiliser l’API REST {% data variables.product.prodname_dotcom %} à partir de la ligne de commande.
 
-1. Install {% data variables.product.prodname_cli %} if you haven't installed it yet. For installation instructions, see the [{% data variables.product.prodname_cli %} repository](https://github.com/cli/cli#installation).
-1. Use the `auth login` subcommand to authenticate to {% data variables.product.prodname_cli %}. For more information, see the [{% data variables.product.prodname_cli %} `auth login` documentation](https://cli.github.com/manual/gh_auth_login).
+1. Installez {% data variables.product.prodname_cli %} si vous ne l’avez pas encore fait. Pour obtenir des instructions d’installation, consultez le dépôt [{% data variables.product.prodname_cli %}](https://github.com/cli/cli#installation).
+1. Utilisez la sous-commande `auth login` pour vous authentifier auprès de {% data variables.product.prodname_cli %}. Pour plus d’informations, consultez la [documentation sur la sous-commande {% data variables.product.prodname_cli %} `auth login`](https://cli.github.com/manual/gh_auth_login).
 
    ```shell
    gh auth login
    ```
 
-1. Use the `api` subcommand to make your API request. For more information, see the [{% data variables.product.prodname_cli %} `api` documentation](https://cli.github.com/manual/gh_api).
+1. Utilisez la sous-commande `api` pour effectuer votre requête d’API. Pour plus d’informations, consultez la [documentation sur la sous-commande {% data variables.product.prodname_cli %} `api`](https://cli.github.com/manual/gh_api).
 
    ```shell
    gh api repos/octocat/Spoon-Knife/issues
    ```
 
-### Using {% data variables.product.prodname_cli %} in {% data variables.product.prodname_actions %}
+### Utilisation de {% data variables.product.prodname_cli %} dans {% data variables.product.prodname_actions %}
 
-You can also use {% data variables.product.prodname_cli %} in your {% data variables.product.prodname_actions %} workflows. For more information, see "[Using GitHub CLI in workflows](/actions/using-workflows/using-github-cli-in-workflows)."
+Vous pouvez aussi utiliser {% data variables.product.prodname_cli %} dans vos workflows {% data variables.product.prodname_actions %}. Pour plus d’informations, consultez « [Utilisation de l’interface CLI de GitHub dans des workflows](/actions/using-workflows/using-github-cli-in-workflows) ».
 
-Instead of using the `gh auth login` command, pass an access token as an environment variable called `GH_TOKEN`. {% data variables.product.prodname_dotcom %} recommends that you use the built-in `GITHUB_TOKEN` instead of creating a token. If this is not possible, store your token as a secret and replace `GITHUB_TOKEN` in the example below with the name of your secret. For more information about `GITHUB_TOKEN`, see "[Automatic token authentication](/actions/security-guides/automatic-token-authentication)." For more information about secrets, see "[Encrypted secrets](/actions/security-guides/encrypted-secrets)."
+Au lieu d’utiliser la commande `gh auth login`, passez un jeton d’accès en tant que variable d’environnement appelée `GH_TOKEN`. {% data variables.product.prodname_dotcom %} vous recommande d’utiliser le jeton `GITHUB_TOKEN` intégré au lieu de créer un jeton. Si ce n’est pas possible, stockez votre jeton sous forme de secret et remplacez `GITHUB_TOKEN` dans l’exemple ci-dessous par le nom de votre secret. Pour plus d’informations sur `GITHUB_TOKEN`, consultez « [Authentification automatique par jeton](/actions/security-guides/automatic-token-authentication) ». Pour plus d’informations sur les secrets, consultez « [Secrets chiffrés](/actions/security-guides/encrypted-secrets) ».
 
 ```yaml
 on:
@@ -60,11 +65,11 @@ jobs:
           gh api repos/octocat/Spoon-Knife/issues
 ```
 
-If you are authenticating with a {% data variables.product.prodname_github_app %}, you can create an installation access token within your workflow:
+Si vous vous authentifiez avec une {% data variables.product.prodname_github_app %}, vous pouvez créer un jeton d’accès d’installation au sein de votre workflow :
 
-1. Store your {% data variables.product.prodname_github_app %}'s ID as a secret. In the following example, replace `APP_ID` with the name of the secret. You can find your app ID on the settings page for your app or through the API. For more information, see "[Apps](/rest/apps/apps#get-an-app)" in the REST API documentation. For more information about secrets, see "[Encrypted secrets](/actions/security-guides/encrypted-secrets)."
-1. Generate a private key for your app. Store the contents of the resulting file as a secret. (Store the entire contents of the file, including `-----BEGIN RSA PRIVATE KEY-----` and `-----END RSA PRIVATE KEY-----`.) In the following example, replace `APP_PEM` with the name of the secret. For more information, see "[Authenticating with {% data variables.product.prodname_github_apps %}](/developers/apps/building-github-apps/authenticating-with-github-apps#generating-a-private-key)."
-1. Add a step to generate a token, and use that token instead of `GITHUB_TOKEN`. Note that this token will expire after 60 minutes. For example:
+1. Stockez l’ID de votre {% data variables.product.prodname_github_app %} sous forme de secret. Dans l’exemple suivant, remplacez `APP_ID` par le nom du secret. Vous pouvez trouver votre ID d’application dans la page Paramètres de votre application ou via l’API. Pour plus d’informations, consultez « [Applications](/rest/apps/apps#get-an-app) » dans la documentation de l’API REST. Pour plus d’informations sur les secrets, consultez « [Secrets chiffrés](/actions/security-guides/encrypted-secrets) ».
+1. Générez une clé privée pour votre application. Stockez le contenu du fichier obtenu dans un secret. (Stockez l’intégralité du contenu du fichier, y compris `-----BEGIN RSA PRIVATE KEY-----` et `-----END RSA PRIVATE KEY-----`.) Dans l’exemple suivant, remplacez `APP_PEM` par le nom du secret. Pour plus d’informations, consultez « [Authentification avec des {% data variables.product.prodname_github_apps %}](/developers/apps/building-github-apps/authenticating-with-github-apps#generating-a-private-key) ».
+1. Ajoutez une étape pour générer un jeton, puis utilisez ce jeton au lieu de `GITHUB_TOKEN`. Notez que ce jeton expire au bout de 60 minutes. Par exemple :
 
 ```yaml
 {% data reusables.actions.actions-not-certified-by-github-comment %}
@@ -93,31 +98,31 @@ jobs:
 
 {% javascript %}
 
-## Getting started using JavaScript
+## Bien démarrer avec JavaScript
 
-You can use Octokit.js to interact with the {% data variables.product.prodname_dotcom %} REST API in your JavaScript scripts. For more information, see [the Octokit.js README](https://github.com/octokit/octokit.js/#readme).
+Vous pouvez utiliser Octokit.js pour interagir avec l’API REST {% data variables.product.prodname_dotcom %} dans vos scripts JavaScript. Pour plus d’informations, consultez [le fichier Lisez-moi d’Octokit.js](https://github.com/octokit/octokit.js/#readme).
 
-### Using Octokit.js
+### Utilisation d’Octokit.js
 
-1. Create an access token. For example, create a {% data variables.product.pat_generic %} or a {% data variables.product.prodname_github_app %} user-to-server access token. For more information, see "[Creating a {% data variables.product.pat_generic %}](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)" or "[Identifying and authorizing users for GitHub Apps](/developers/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps)."
+1. Créez un jeton d’accès. Par exemple, créez un {% data variables.product.pat_generic %} ou un jeton d’accès utilisateur-à-serveur {% data variables.product.prodname_github_app %}. Pour plus d’informations, consultez « [Création d’un {% data variables.product.pat_generic %}](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) » ou « [Identification et autorisation des utilisateurs pour les applications GitHub](/developers/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps) ».
 
    {% warning %}
 
-   **Warning**: Treat your access token like a password.
+   **Avertissement** : Considérez votre jeton d’accès comme un mot de passe.
 
-   To keep your token secure, you can store your token as a secret and run your script through {% data variables.product.prodname_actions %}. For more information, see the "[Using Octokit.js in {% data variables.product.prodname_actions %}](#using-octokitjs-in-github-actions)" section.
+   Pour sécuriser votre jeton, vous pouvez stocker votre jeton sous forme de secret et exécuter votre script par le biais de {% data variables.product.prodname_actions %}. Pour plus d’informations, consultez la section « [Utilisation d’Octokit.js dans {% data variables.product.prodname_actions %}](#using-octokitjs-in-github-actions) ».
 
    {%- ifversion fpt or ghec %}
 
-   You can also store your token as a {% data variables.product.prodname_codespaces %} secret and run your script in {% data variables.product.prodname_codespaces %}. For more information, see "[Managing encrypted secrets for your codespaces](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)."{% endif %}
+   Vous pouvez aussi stocker votre jeton sous forme de secret {% data variables.product.prodname_codespaces %} et exécuter votre script dans {% data variables.product.prodname_codespaces %}. Pour plus d’informations, consultez « [Gestion des secrets chiffrés pour vos codespaces](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces) ».{% endif %}
 
-   If these options are not possible, consider using another service such as [the 1Password CLI](https://developer.1password.com/docs/cli/secret-references/) to store your token securely.
+   Si ces options ne sont pas possibles, envisagez d’utiliser un autre service comme l’[interface CLI 1Password](https://developer.1password.com/docs/cli/secret-references/) pour stocker votre jeton de manière sécurisée.
 
    {% endwarning %}
 
-1. Install `octokit`. For example, `npm install octokit`. For other ways to install or load `octokit`, see [the Octokit.js README](https://github.com/octokit/octokit.js/#readme).
-1. Import `octokit` in your script. For example, `import { Octokit } from "octokit";`. For other ways to import `octokit`, see [the Octokit.js README](https://github.com/octokit/octokit.js/#readme).
-1. Create an instance of `Octokit` with your token. Replace `YOUR-TOKEN` with your token.
+1. Installez `octokit`. Par exemple : `npm install octokit`. Pour découvrir d’autres manières d’installer ou charger `octokit`, consultez [le fichier Lisez-moi d’Octokit.js](https://github.com/octokit/octokit.js/#readme).
+1. Importez `octokit` dans votre script. Par exemple : `import { Octokit } from "octokit";`. Pour découvrir d’autres manières d’importer `octokit`, consultez [le fichier Lisez-moi d’Octokit.js](https://github.com/octokit/octokit.js/#readme).
+1. Créez une instance de `Octokit` avec votre jeton. Remplacez `YOUR-TOKEN` par votre jeton.
 
    ```javascript
    const octokit = new Octokit({
@@ -125,7 +130,7 @@ You can use Octokit.js to interact with the {% data variables.product.prodname_d
    });
    ```
 
-1. Use `octokit.request` to execute your request. Send the HTTP method and path as the first argument. Specify any path, query, and body parameters in an object as the second argument. For example, in the following request the HTTP method is `GET`, the path is `/repos/{owner}/{repo}/issues`, and the parameters are `owner: "octocat"` and `repo: "Spoon-Knife"`.
+1. Utilisez `octokit.request` pour exécuter votre requête. Envoyez la méthode HTTP et le chemin en tant que premier argument. Spécifiez tous les paramètres de chemin, de requête et de corps dans un objet en tant que deuxième argument. Par exemple, dans la requête suivante, la méthode HTTP est `GET`, le chemin est `/repos/{owner}/{repo}/issues` et les paramètres sont `owner: "octocat"` et `repo: "Spoon-Knife"`.
 
    ```javascript
    await octokit.request("GET /repos/{owner}/{repo}/issues", {
@@ -134,20 +139,20 @@ You can use Octokit.js to interact with the {% data variables.product.prodname_d
    });
    ```
 
-### Using Octokit.js in {% data variables.product.prodname_actions %}
+### Utilisation d’Octokit.js dans {% data variables.product.prodname_actions %}
 
-You can also execute your JavaScript scripts in your {% data variables.product.prodname_actions %} workflows. For more information, see "[Workflow syntax for GitHub Actions](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun)."
+Vous pouvez aussi exécuter vos scripts JavaScript dans vos workflows {% data variables.product.prodname_actions %}. Pour plus d’informations, consultez « [Syntaxe de workflow pour GitHub Actions](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun) ».
 
-{% data variables.product.prodname_dotcom %} recommends that you use the built-in `GITHUB_TOKEN` instead of creating a token. If this is not possible, store your token as a secret and replace `GITHUB_TOKEN` in the example below with the name of your secret. For more information about `GITHUB_TOKEN`, see "[Automatic token authentication](/actions/security-guides/automatic-token-authentication)." For more information about secrets, see "[Encrypted secrets](/actions/security-guides/encrypted-secrets)."
+{% data variables.product.prodname_dotcom %} vous recommande d’utiliser le jeton `GITHUB_TOKEN` intégré au lieu de créer un jeton. Si ce n’est pas possible, stockez votre jeton sous forme de secret et remplacez `GITHUB_TOKEN` dans l’exemple ci-dessous par le nom de votre secret. Pour plus d’informations sur `GITHUB_TOKEN`, consultez « [Authentification automatique par jeton](/actions/security-guides/automatic-token-authentication) ». Pour plus d’informations sur les secrets, consultez « [Secrets chiffrés](/actions/security-guides/encrypted-secrets) ».
 
-The following example workflow:
+L’exemple de workflow suivant effectue ceci :
 
-1. Checks out the repository content
-1. Sets up Node.js
-1. Installs `octokit`
-1. Stores the value of `GITHUB_TOKEN` as an environment variable called `TOKEN` and runs `.github/actions-scripts/use-the-api.mjs`, which can access that environment variable as `process.env.TOKEN`
+1. Il extrait le contenu du dépôt.
+1. Il configure Node.js.
+1. Il installe `octokit`.
+1. Il stocke la valeur de `GITHUB_TOKEN` sous forme de variable d’environnement appelée `TOKEN` et exécute `.github/actions-scripts/use-the-api.mjs`, qui peut accéder à cette variable d’environnement en tant que `process.env.TOKEN`.
 
-Example workflow:
+Exemple de workflow :
 
 ```yaml
 on:
@@ -177,7 +182,7 @@ jobs:
           TOKEN: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
 ```
 
-Example JavaScript script, with the file path `.github/actions-scripts/use-the-api.mjs`:
+Exemple de script JavaScript, avec le chemin de fichier `.github/actions-scripts/use-the-api.mjs` :
 
 ```javascript
 import { Octokit } from "octokit"
@@ -201,11 +206,11 @@ try {
 }
 ```
 
-If you are authenticating with a {% data variables.product.prodname_github_app %}, you can create an installation access token within your workflow:
+Si vous vous authentifiez avec une {% data variables.product.prodname_github_app %}, vous pouvez créer un jeton d’accès d’installation au sein de votre workflow :
 
-1. Store your {% data variables.product.prodname_github_app %}'s ID as a secret. In the following example, replace `APP_ID` with the name of the secret. You can find your app ID on the settings page for your app or through the App API. For more information, see "[Apps](/rest/apps/apps#get-an-app)." For more information about secrets, see "[Encrypted secrets](/actions/security-guides/encrypted-secrets)."
-1. Generate a private key for your app. Store the contents of the resulting file as a secret. (Store the entire contents of the file, including `-----BEGIN RSA PRIVATE KEY-----` and `-----END RSA PRIVATE KEY-----`.) In the following example, replace `APP_PEM` with the name of the secret. For more information, see "[Authenticating with {% data variables.product.prodname_github_apps %}](/developers/apps/building-github-apps/authenticating-with-github-apps#generating-a-private-key)."
-1. Add a step to generate a token, and use that token instead of `GITHUB_TOKEN`. Note that this token will expire after 60 minutes. For example:
+1. Stockez l’ID de votre {% data variables.product.prodname_github_app %} sous forme de secret. Dans l’exemple suivant, remplacez `APP_ID` par le nom du secret. Vous pouvez trouver votre ID d’application dans la page Paramètres de votre application ou via l’API d’application. Pour plus d’informations, consultez « [Applications](/rest/apps/apps#get-an-app). » Pour plus d’informations sur les secrets, consultez « [Secrets chiffrés](/actions/security-guides/encrypted-secrets) ».
+1. Générez une clé privée pour votre application. Stockez le contenu du fichier obtenu dans un secret. (Stockez l’intégralité du contenu du fichier, y compris `-----BEGIN RSA PRIVATE KEY-----` et `-----END RSA PRIVATE KEY-----`.) Dans l’exemple suivant, remplacez `APP_PEM` par le nom du secret. Pour plus d’informations, consultez « [Authentification avec des {% data variables.product.prodname_github_apps %}](/developers/apps/building-github-apps/authenticating-with-github-apps#generating-a-private-key) ».
+1. Ajoutez une étape pour générer un jeton, puis utilisez ce jeton au lieu de `GITHUB_TOKEN`. Notez que ce jeton expire au bout de 60 minutes. Par exemple :
 
 ```yaml
 {% data reusables.actions.actions-not-certified-by-github-comment %}
@@ -246,34 +251,34 @@ jobs:
 
 {% curl %}
 
-## Getting started using cURL
+## Bien démarrer avec cURL
 
-### Using cURL in the command line
+### Utilisation de cURL dans la ligne de commande
 
 {% note %}
 
-**Note:** If you want to make API requests from the command line, {% data variables.product.prodname_dotcom %} recommends that you use {% data variables.product.prodname_cli %}, which simplifies authentication and requests. For more information about getting started with the REST API using {% data variables.product.prodname_cli %}, see the {% data variables.product.prodname_cli %} version of this article.
+**Note :** Si vous voulez effectuer des requêtes d’API à partir de la ligne de commande, {% data variables.product.prodname_dotcom %} vous recommande d’utiliser {% data variables.product.prodname_cli %}, ce qui simplifie l’authentification et les requêtes. Pour plus d’informations sur la prise en main de l’API REST à l’aide de {% data variables.product.prodname_cli %}, consultez la version {% data variables.product.prodname_cli %} de cet article.
 
 {% endnote %}
 
-1. Install cURL if cURL isn't already installed on your machine. To check if cURL is installed, execute `curl --version` in the command line. If the output is information about the cURL version, cURL is installed. If you get a message similar to `command not found: curl`, you need to download and install cURL. For more information, see [the cURL project download page](https://curl.se/download.html).
-1. Create an access token. For example, create a {% data variables.product.pat_generic %} or a {% data variables.product.prodname_github_app %} user-to-server access token. For more information, see "[Creating a {% data variables.product.pat_generic %}](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)" or "[Identifying and authorizing users for GitHub Apps](/developers/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps)."
+1. Installez cURL s’il n’est pas déjà installé sur votre ordinateur. Pour vérifier si cURL est installé, exécutez `curl --version` dans la ligne de commande. Si la sortie correspond à des informations sur la version de cURL, cela signifie que cURL est installé. Si vous recevez un message comme `command not found: curl`, vous avez besoin de télécharger et d’installer cURL. Pour plus d’informations, consultez [la page de téléchargement du projet cURL](https://curl.se/download.html).
+1. Créez un jeton d’accès. Par exemple, créez un {% data variables.product.pat_generic %} ou un jeton d’accès utilisateur-à-serveur {% data variables.product.prodname_github_app %}. Pour plus d’informations, consultez « [Création d’un {% data variables.product.pat_generic %}](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) » ou « [Identification et autorisation des utilisateurs pour les applications GitHub](/developers/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps) ».
 
    {% warning %}
 
-   **Warning**: Treat your access token like a password.
+   **Avertissement** : Considérez votre jeton d’accès comme un mot de passe.
 
    {%- ifversion fpt or ghec %}
 
-   To keep your token secure, you can store your token as a {% data variables.product.prodname_codespaces %} secret and use the command line through {% data variables.product.prodname_codespaces %}. For more information, see "[Managing encrypted secrets for your codespaces](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)."{% endif %}
+   Pour sécuriser votre jeton, vous pouvez aussi le stocker sous forme de secret {% data variables.product.prodname_codespaces %} et utiliser la ligne de commande dans {% data variables.product.prodname_codespaces %}. Pour plus d’informations, consultez « [Gestion des secrets chiffrés pour vos codespaces](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces) ».{% endif %}
 
-   You can also use {% data variables.product.prodname_cli %} instead of cURL. {% data variables.product.prodname_cli %} will take care of authentication for you. For more information, see the {% data variables.product.prodname_cli %} version of this page.
+   Vous pouvez aussi utiliser {% data variables.product.prodname_cli %} au lieu de cURL. {% data variables.product.prodname_cli %} s’occupe de l’authentification pour vous. Pour plus d’informations, consultez la version {% data variables.product.prodname_cli %} de cette page.
 
-   If these options are not possible, consider using another service such as [the 1Password CLI](https://developer.1password.com/docs/cli/secret-references/) to store your token securely.
+   Si ces options ne sont pas possibles, envisagez d’utiliser un autre service comme l’[interface CLI 1Password](https://developer.1password.com/docs/cli/secret-references/) pour stocker votre jeton de manière sécurisée.
 
    {% endwarning %}
 
-1. Use the `cURL` command to make your request. Pass your token in an `Authorization` header. Replace `YOUR-TOKEN` with your token.
+1. Utilisez la commande `cURL` pour effectuer votre requête. Passez votre jeton dans un en-tête `Authorization`. Remplacez `YOUR-TOKEN` par votre jeton.
 
    ```shell
    curl --request GET \
@@ -284,15 +289,15 @@ jobs:
 
    {% note %}
 
-   **Note:** {% data reusables.getting-started.bearer-vs-token %}
+   **Remarque :** {% data reusables.getting-started.bearer-vs-token %}
 
    {% endnote %}
 
-### Using cURL in {% data variables.product.prodname_actions %}
+### Utilisation de cURL dans {% data variables.product.prodname_actions %}
 
-You can also use cURL in your {% data variables.product.prodname_actions %} workflows.
+Vous pouvez aussi utiliser cURL dans vos workflows {% data variables.product.prodname_actions %}.
 
-{% data variables.product.prodname_dotcom %} recommends that you use the built-in `GITHUB_TOKEN` instead of creating a token. If this is not possible, store your token as a secret and replace `GITHUB_TOKEN` in the example below with the name of your secret. For more information about `GITHUB_TOKEN`, see "[Automatic token authentication](/actions/security-guides/automatic-token-authentication)." For more information about secrets, see "[Encrypted secrets](/actions/security-guides/encrypted-secrets)."
+{% data variables.product.prodname_dotcom %} vous recommande d’utiliser le jeton `GITHUB_TOKEN` intégré au lieu de créer un jeton. Si ce n’est pas possible, stockez votre jeton sous forme de secret et remplacez `GITHUB_TOKEN` dans l’exemple ci-dessous par le nom de votre secret. Pour plus d’informations sur `GITHUB_TOKEN`, consultez « [Authentification automatique par jeton](/actions/security-guides/automatic-token-authentication) ». Pour plus d’informations sur les secrets, consultez « [Secrets chiffrés](/actions/security-guides/encrypted-secrets) ».
 
 ```yaml
 on:
@@ -312,11 +317,11 @@ jobs:
           --header "Authorization: Bearer $GH_TOKEN"
 ```
 
-If you are authenticating with a {% data variables.product.prodname_github_app %}, you can create an installation access token within your workflow:
+Si vous vous authentifiez avec une {% data variables.product.prodname_github_app %}, vous pouvez créer un jeton d’accès d’installation au sein de votre workflow :
 
-1. Store your {% data variables.product.prodname_github_app %}'s ID as a secret. In the following example, replace `APP_ID` with the name of the secret. You can find your app ID on the settings page for your app or through the App API. For more information, see "[Apps](/rest/apps/apps#get-an-app)." For more information about secrets, see "[Encrypted secrets](/actions/security-guides/encrypted-secrets)."
-1. Generate a private key for your app. Store the contents of the resulting file as a secret. (Store the entire contents of the file, including `-----BEGIN RSA PRIVATE KEY-----` and `-----END RSA PRIVATE KEY-----`.) In the following example, replace `APP_PEM` with the name of the secret. For more information, see "[Authenticating with {% data variables.product.prodname_github_apps %}](/developers/apps/building-github-apps/authenticating-with-github-apps#generating-a-private-key)."
-1. Add a step to generate a token, and use that token instead of `GITHUB_TOKEN`. Note that this token will expire after 60 minutes. For example:
+1. Stockez l’ID de votre {% data variables.product.prodname_github_app %} sous forme de secret. Dans l’exemple suivant, remplacez `APP_ID` par le nom du secret. Vous pouvez trouver votre ID d’application dans la page Paramètres de votre application ou via l’API d’application. Pour plus d’informations, consultez « [Applications](/rest/apps/apps#get-an-app). » Pour plus d’informations sur les secrets, consultez « [Secrets chiffrés](/actions/security-guides/encrypted-secrets) ».
+1. Générez une clé privée pour votre application. Stockez le contenu du fichier obtenu dans un secret. (Stockez l’intégralité du contenu du fichier, y compris `-----BEGIN RSA PRIVATE KEY-----` et `-----END RSA PRIVATE KEY-----`.) Dans l’exemple suivant, remplacez `APP_PEM` par le nom du secret. Pour plus d’informations, consultez « [Authentification avec des {% data variables.product.prodname_github_apps %}](/developers/apps/building-github-apps/authenticating-with-github-apps#generating-a-private-key) ».
+1. Ajoutez une étape pour générer un jeton, puis utilisez ce jeton au lieu de `GITHUB_TOKEN`. Notez que ce jeton expire au bout de 60 minutes. Par exemple :
 
 ```yaml
 {% data reusables.actions.actions-not-certified-by-github-comment %}
@@ -346,6 +351,6 @@ jobs:
 
 {% endcurl %}
 
-## Next steps
+## Étapes suivantes
 
-For a more detailed guide, see "[Getting started with the REST API](/rest/guides/getting-started-with-the-rest-api)."
+Pour obtenir un guide plus détaillé, consultez [Bien démarrer avec l’API REST](/rest/guides/getting-started-with-the-rest-api) ».

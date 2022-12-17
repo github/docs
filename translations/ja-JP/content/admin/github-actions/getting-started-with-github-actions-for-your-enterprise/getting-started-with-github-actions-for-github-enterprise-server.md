@@ -14,12 +14,12 @@ type: how_to
 topics:
   - Actions
   - Enterprise
-ms.openlocfilehash: 6bfcb7cc2a14a70a6ba4397c12effaf0a8d8be3f
-ms.sourcegitcommit: 8f1801040a84ca9353899a2d1e6782c702aaed0d
+ms.openlocfilehash: a48e562898eb4c82b9027ee56ed52b71e7c5ebc7
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/16/2022
-ms.locfileid: '148166562'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148192970'
 ---
 {% data reusables.actions.enterprise-beta %}
 
@@ -127,7 +127,9 @@ ms.locfileid: '148166562'
 
 {% data variables.product.prodname_ghe_server %} で {% data variables.product.prodname_actions %} を有効にするには、外部 Blob ストレージにアクセスできる必要があります。
 
-{% data variables.product.prodname_actions %} は、BLOB ストレージを使って、ワークフロー ログ{% ifversion actions-caching %}、キャッシュ{% endif %}、ユーザーがアップロードしたビルド成果物など、ワークフロー実行によって生成されたデータを保存します。 必要なストレージ容量は、{% data variables.product.prodname_actions %} の使用状況により異なります。 単一の外部ストレージ設定のみがサポートされており、複数のストレージプロバイダを同時に使用することはできません。
+{% data reusables.actions.enterprise-storage-contents %} 必要なストレージ容量は、{% data variables.product.prodname_actions %} の使用状況により異なります。 単一の外部ストレージ設定のみがサポートされており、複数のストレージプロバイダを同時に使用することはできません。
+
+リポジトリのファイル構造のワークフロー ファイルなど、その他の {% data variables.product.prodname_actions %} データはすべて、{% data variables.location.product_location %} のデータ ストレージ ボリュームに保存されます。
 
 {% data variables.product.prodname_actions %} は、次のストレージプロバイダをサポートしています。
 

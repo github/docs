@@ -14,12 +14,12 @@ topics:
   - Enterprise
   - Logging
   - API
-ms.openlocfilehash: b3c0f2756873494effd0a7fa3e65d4c87e24c01a
-ms.sourcegitcommit: d2f0b59ed096b9e68ef8f6fa019cd925165762ec
+ms.openlocfilehash: f5dd0a3dcca1e7fd60361f0cb7c8ecf84296e036
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/29/2022
-ms.locfileid: '148184254'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148192658'
 ---
 ## Audit log API を使用する
 
@@ -120,11 +120,11 @@ GraphQL API は、クエリごとに最大 100 個のノードを返します。
 
 ### 例 1: 特定の日付を対象としたエンタープライズ内のすべてのイベント (ページ分割あり)
 
-ページベースまたはカーソル ベースのページネーションを使用できます。 詳しい情報については、「[ページネーションを使用したトラバース](/rest/guides/traversing-with-pagination)」を参照してください。
+ページベースまたはカーソル ベースのページネーションを使用できます。 ページネーションの詳細については、「[REST API でページネーションを使用する](/rest/guides/using-pagination-in-the-rest-api)」を参照してください。
 
 #### ページベースのページネーションの例
 
-次のクエリは、`avocado-corp` エンタープライズで 2022 年 1 月 1 日に作成された監査ログ イベントを検索し、[REST API のページ分割](/rest/overview/resources-in-the-rest-api#pagination)を使って、1 ページあたり最大 100 件の項目で最初のページを返します。
+次のクエリは、`avocado-corp` エンタープライズで 2022 年 1 月 1 日に作成された監査ログ イベントを検索し、ページネーションを使用して 1 ページあたり最大 100 件の項目で最初のページを返します。 ページネーションの詳細については、「[REST API でページネーションを使用する](/rest/guides/using-pagination-in-the-rest-api)」を参照してください。
 
 ```shell
 curl -H "Authorization: Bearer TOKEN" \
@@ -134,7 +134,7 @@ curl -H "Authorization: Bearer TOKEN" \
 
 #### カーソルベースのページネーションの例
 
-次のクエリは、`avocado-corp` Enterprise で 2022 年 1 月 1 日に作成された監査ログ イベントを検索し、[REST API のページネーション](/rest/overview/resources-in-the-rest-api#pagination)を使って、1 ページあたり最大 100 件の項目で最初のページを返します。 `--include` フラグを指定すると、応答と共にヘッダーが返されます。
+次のクエリは、`avocado-corp` エンタープライズで 2022 年 1 月 1 日に作成された監査ログ イベントを検索し、ページネーションを使用して 1 ページあたり最大 100 件の項目で最初のページを返します。 ページネーションの詳細については、「[REST API でページネーションを使用する](/rest/guides/using-pagination-in-the-rest-api)」を参照してください。 `--include` フラグを指定すると、応答と共にヘッダーが返されます。
 
 ```
 curl --include -H "Authorization: Bearer TOKEN" \

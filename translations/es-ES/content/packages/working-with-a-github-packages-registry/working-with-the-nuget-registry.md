@@ -15,12 +15,12 @@ versions:
   ghae: '*'
   ghec: '*'
 shortTitle: NuGet registry
-ms.openlocfilehash: d97a5645a3d945bb79cf6d3b9e8e09eb6b5d7a42
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: cb9e190bb6cfa86ce1bdb31581de6e7d14e9dac8
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147580515'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148192925'
 ---
 {% data reusables.package_registry.packages-ghes-release-stage %} {% data reusables.package_registry.packages-ghae-release-stage %}
 
@@ -30,9 +30,12 @@ ms.locfileid: '147580515'
 
 {% data reusables.package_registry.authenticate-packages %}
 
+{% ifversion packages-nuget-v2 %} Puedes optar por conceder permisos de acceso a paquetes de forma independiente para {% data variables.product.prodname_github_codespaces %} y {% data variables.product.prodname_actions %}. Para obtener más información, consulta "[Garantizar el acceso de Codespaces al paquete](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility#ensuring-codespaces-access-to-your-package)" y "[Garantizar el acceso al flujo de trabajo para tu paquete](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility#ensuring-workflow-access-to-your-package)".
+{% endif %}
+
 ### Autenticación con `GITHUB_TOKEN` en {% data variables.product.prodname_actions %}
 
-Utilice el siguiente comando para autenticarse en {% data variables.product.prodname_registry %} en un flujo de trabajo de {% data variables.product.prodname_actions %} utilizando `GITHUB_TOKEN` en vez de codificar un token en un archivo nuget.config en el repositorio:
+Utilice el siguiente comando para autenticarse en {% data variables.product.prodname_registry %} en un flujo de trabajo de {% data variables.product.prodname_actions %} utilizando `GITHUB_TOKEN` en vez de codificar de forma rígida un {% data variables.product.pat_generic %} en un archivo nuget.config en el repositorio:
 
 ```shell
 dotnet nuget add source --username USERNAME --password {%raw%}${{ secrets.GITHUB_TOKEN }}{% endraw %} --store-password-in-clear-text --name github "https://{% ifversion fpt or ghec %}nuget.pkg.github.com{% else %}nuget.HOSTNAME{% endif %}/OWNER/index.json"
@@ -40,7 +43,7 @@ dotnet nuget add source --username USERNAME --password {%raw%}${{ secrets.GITHUB
 
 {% data reusables.package_registry.authenticate-packages-github-token %}
 
-### Autenticarte con un token de acceso personal
+### Autenticación con un {% data variables.product.pat_generic %}
 
 {% data reusables.package_registry.required-scopes %}
 
@@ -48,9 +51,9 @@ Para autenticarse en {% data variables.product.prodname_registry %} con la inter
 
 Debes reemplazar:
 - `USERNAME` por el nombre de tu cuenta personal en {% data variables.product.prodname_dotcom %}.
-- `TOKEN` por el token de acceso personal.
-- `OWNER` por el nombre de la cuenta de usuario o de organización a la que pertenece el repositorio que contiene el proyecto.{% ifversion ghes or ghae %}
-- `HOSTNAME` por el nombre de host de {% data variables.product.product_location %}.{% endif %}
+- `TOKEN` por tu {% data variables.product.pat_v1 %}.
+- `OWNER` con el nombre de la cuenta de usuario u organización que posee {% ifversion packages-nuget-v2 %}el paquete que quieres instalar o en el que quieres publicar un paquete{% else %}el repositorio que contiene el proyecto{% endif %}.{% ifversion ghes or ghae %}
+- `HOSTNAME` por el nombre de host de {% data variables.location.product_location %}.{% endif %}
 
 {% ifversion ghes %}Si en la instancia se ha habilitado el aislamiento de subdominios: {% endif %}
 
@@ -91,11 +94,21 @@ Debes reemplazar:
 
 ## Publicación de un paquete
 
-Puede publicar un paquete de {% data variables.product.prodname_registry %} si se autentica con un archivo *nuget.config* o utiliza la opción de línea de comandos `--api-key` con su token de acceso personal (PAT) de {% data variables.product.prodname_dotcom %}.
+Puede publicar un paquete de {% data variables.product.prodname_registry %} si se autentica con un archivo *nuget.config* o utiliza la opción de línea de comandos `--api-key` con su {% data variables.product.pat_v1 %} de {% data variables.product.prodname_dotcom %}.
 
-### Publicar un paquete utilizando el PAT de GitHub como tu clave de la API
+{% ifversion packages-nuget-v2 %}
 
-Si aún no tiene un PAT que pueda usar para su cuenta en {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}, consulte "[Creación de un token de acceso personal](/github/authenticating-to-github/creating-a-personal-access-token)".
+El registro de NuGet almacena paquetes en tu cuenta personal o de la organización y te permite asociar los paquetes a un repositorio. Puedes elegir si quieres heredar permisos desde un repositorio o si quieres configurar permisos granulares independientemente de un repositorio.
+
+{% data reusables.package_registry.publishing-user-scoped-packages %}
+
+Si especificas un elemento `RepositoryURL` en el archivo `nuget.config`, el paquete publicado se conectará automáticamente al repositorio especificado. Para obtener más información, consulta "[Publicación de un paquete mediante un archivo `nuget.config`](/packages/working-with-a-github-packages-registry/working-with-the-nuget-registry#publishing-a-package-using-a-nugetconfig-file)". Para obtener información sobre cómo vincular un paquete ya publicado a un repositorio, consulta "[Conexión de un repositorio a un paquete](/packages/learn-github-packages/connecting-a-repository-to-a-package)".
+
+{% endif %}
+
+### Publicación de un paquete utilizando un {% data variables.product.pat_generic %} de GitHub como clave de API
+
+Si aún no tienes un PAT que puedas usar para tu cuenta en {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}, consulta "[Creación de un {% data variables.product.pat_generic %}](/github/authenticating-to-github/creating-a-personal-access-token)".
 
 1. Cree un nuevo proyecto.
   ```shell
@@ -106,9 +119,9 @@ Si aún no tiene un PAT que pueda usar para su cuenta en {% ifversion ghae %}{% 
   dotnet pack --configuration Release
   ```
 
-3. Publicar el paquete utilizando tu PAT como la clave de la API.
+3. Publica el paquete utilizando tu {% data variables.product.pat_generic %} como clave de API.
   ```shell
-  dotnet nuget push "bin/Release/OctocatApp.1.0.0.nupkg"  --api-key <em>YOUR_GITHUB_PAT</em> --source "github"
+  dotnet nuget push "bin/Release/OctocatApp.1.0.0.nupkg"  --api-key YOUR_GITHUB_PAT --source "github"
   ```
 
 {% data reusables.package_registry.viewing-packages %}
@@ -123,10 +136,10 @@ Al publicar, debe usar el mismo valor para `OWNER` en el archivo *csproj* que us
   dotnet new console --name OctocatApp
   ```
 3. Agregue la información específica del proyecto en su archivo, que finaliza en *.csproj*.  Debes reemplazar:
-    - `OWNER` por el nombre de la cuenta de usuario o de organización a la que pertenece el repositorio que contiene el proyecto.
-    - `REPOSITORY` por el nombre del repositorio que contiene el paquete que desea publicar.                      
+    - `OWNER` con el nombre de la cuenta de usuario u organización que posee el repositorio al que quieres conectar el paquete.
+    - `REPOSITORY` con el nombre del repositorio al que quieres conectar el paquete.                      
     - `1.0.0` por el número de versión del paquete.{% ifversion ghes or ghae %}
-    - `HOSTNAME` por el nombre de host de {% data variables.product.product_location %}.{% endif %}
+    - `HOSTNAME` por el nombre de host de {% data variables.location.product_location %}.{% endif %}
   ``` xml
   <Project Sdk="Microsoft.NET.Sdk">
 
@@ -157,7 +170,7 @@ Al publicar, debe usar el mismo valor para `OWNER` en el archivo *csproj* que us
 
 ## Publicar múltiples paquetes en el mismo repositorio
 
-Para publicar varios paquetes en el mismo repositorio, puede incluir la misma dirección URL del repositorio de {% data variables.product.prodname_dotcom %} en los campos `RepositoryURL` de todos los archivos del proyecto *.csproj*. {% data variables.product.prodname_dotcom %} coincide con el repositorio en base a ese campo.
+Para conectar varios paquetes al mismo repositorio, puedes incluir la misma dirección URL del repositorio de {% data variables.product.prodname_dotcom %} en los campos `RepositoryURL` de todos los archivos del proyecto *.csproj*. {% data variables.product.prodname_dotcom %} coincide con el repositorio en base a ese campo.
 
 Por ejemplo, los proyectos *OctodogApp* y *OctocatApp* se publicarán en el mismo repositorio:
 
@@ -234,7 +247,7 @@ Es posible que el paquete de NuGet no se inserte si `RepositoryUrl` en *.csproj*
 
 Si usa un archivo nuspec, asegúrese de que tiene un elemento `repository` con los atributos `type` y `url` necesarios.
 
-Si usas un `GITHUB_TOKEN` para autenticarte en un registro {% data variables.product.prodname_registry %} dentro de un flujo de trabajo de {% data variables.product.prodname_actions %}, el token no puede acceder a paquetes privados basados en repositorios en un repositorio distinto del lugar en el que se ejecuta el flujo de trabajo. Para acceder a los paquetes asociados a otros repositorios, genera un PAT con el ámbito `read:packages` y pasa este token como secreto.
+Si usas un `GITHUB_TOKEN` para autenticarte en un registro {% data variables.product.prodname_registry %} dentro de un flujo de trabajo de {% data variables.product.prodname_actions %}, el token no puede acceder a paquetes privados basados en repositorios en un repositorio distinto del lugar en el que se ejecuta el flujo de trabajo. Para acceder a los paquetes asociados a otros repositorios, genera un {% data variables.product.pat_v1 %} con el ámbito `read:packages` y pasa este token como secreto.
  
 ## Información adicional
 

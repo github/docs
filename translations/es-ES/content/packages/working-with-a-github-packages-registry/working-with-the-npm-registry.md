@@ -14,12 +14,12 @@ versions:
   ghae: '*'
   ghec: '*'
 shortTitle: npm registry
-ms.openlocfilehash: 608841099aff8fd75a9a342444060fa9e8c860ce
-ms.sourcegitcommit: 34d500fe45b362043b4b4685d6705a7bfb484d11
+ms.openlocfilehash: 11b1ab58cd57c6cecdeb2366b83696166cdc6245
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2022
-ms.locfileid: '148164494'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148193133'
 ---
 {% data reusables.package_registry.packages-ghes-release-stage %} {% data reusables.package_registry.packages-ghae-release-stage %}
 
@@ -98,19 +98,14 @@ $ npm login --scope=@OWNER --registry=https://HOSTNAME/_registry/npm/
 {% endnote %}
 
 {% ifversion packages-npm-v2 %} El registro {% data variables.product.prodname_registry %} almacena paquetes npm dentro de tu organización o cuenta personal, y te permite asociar un paquete a un repositorio. Puedes elegir si quieres heredar permisos desde un repositorio o si quieres configurar permisos granulares independientemente de un repositorio.
-{% endif %}
+
+{% data reusables.package_registry.publishing-user-scoped-packages %} {% endif %}
 
 De forma predeterminada, {% data variables.product.prodname_registry %} publica un paquete en el repositorio de {% data variables.product.prodname_dotcom %} que especifique en el campo de nombre del archivo *package.json*. Por ejemplo, podría publicar un paquete denominado `@my-org/test` en el repositorio `my-org/test` de {% data variables.product.prodname_dotcom %}. Si ejecutas [npm v8.5.3](https://github.com/npm/cli/releases/tag/v8.5.3) o una versión posterior, puedes agregar un resumen para la página de descripción del paquete si incluyes un archivo *README.md* en el directorio del paquete. Para más información, vea "[Trabajo con package.json](https://docs.npmjs.com/getting-started/using-a-package.json)" y "[Procedimiento para crear módulos de Node.js](https://docs.npmjs.com/getting-started/creating-node-modules)" en la documentación de npm.
 
 Puede publicar varios paquetes en el mismo repositorio de {% data variables.product.prodname_dotcom %} si incluye un campo `URL` en el archivo *package.json*. Para más información, vea "[Publicación de varios paquetes en el mismo repositorio](#publishing-multiple-packages-to-the-same-repository)".
 
-{% ifversion fpt or ghec %} Cuando se publica un paquete, no se vincula automáticamente a un repositorio. Sin embargo, puedes elegir vincular el paquete publicado a un repositorio mediante la interfaz de usuario o la línea de comandos. Para obtener más información, consulte "[Conexión de un repositorio a un paquete](/packages/learn-github-packages/connecting-a-repository-to-a-package)".
-{% endif %}
-
 Puede configurar la asignación de ámbito del proyecto si usa un archivo *.npmrc* local en el proyecto o la opción `publishConfig` en *package.json*. {% data variables.product.prodname_registry %} solo admite paquetes npm con alcance definido. Los paquetes con ámbito tienen nombres con el formato `@owner/name`. Siempre comienzan con un símbolo `@`. Es posible que tenga que actualizar el nombre en *package.json* para usar el nombre con ámbito. Por ejemplo, `"name": "@codertocat/hello-world-npm"`.
-
-{% ifversion packages-npm-v2 %} Cuando publicas un paquete por primera vez, la visibilidad predeterminada es privada. Cuando se vincula un paquete al repositorio, la visibilidad del paquete depende de la visibilidad del repositorio. Para cambiar la visibilidad o establecer permisos de acceso, consulte "[Configurar la visibilidad y el control de accesos de un paquete](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility)".
-{% endif %}
 
 {% data reusables.package_registry.viewing-packages %}
 

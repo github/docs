@@ -21,12 +21,12 @@ redirect_from:
   - /enterprise-server/admin/enterprise-support/about-support-for-advanced-security
 topics:
   - Support
-ms.openlocfilehash: 4044d5741b6df2827fa41c71476f4fb66ac717a4
-ms.sourcegitcommit: 5b0becac9098ab45c2204882d719f5cf17bfff18
+ms.openlocfilehash: aa2b407b96cc7ee2ecc20fee9782e3084b3627db
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/31/2022
-ms.locfileid: '148120865'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148192914'
 ---
 ## {% data variables.contact.github_support %}について
 
@@ -78,6 +78,8 @@ ms.locfileid: '148120865'
 {% ifversion fpt %} 有料の製品を使用している場合、または有料製品を使用する組織のメンバーである場合は、{% data variables.contact.github_support %} に英語で問い合わせてください。
 {% else %}{% data variables.product.product_name %} を使用している場合は、英語と日本語のサポートにアクセスできます。
 {% endif %}
+
+{% ifversion fpt or ghec or ghes %} {% data reusables.support.support-ticket-translation-option %} {% endif %}
 
 {% ifversion ghes or ghec %}
 

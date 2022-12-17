@@ -13,14 +13,14 @@ topics:
   - High availability
   - Infrastructure
 shortTitle: Initiate failover to appliance
-ms.openlocfilehash: 65e522d2a7b466c4f75cea087760ecb3001317a7
-ms.sourcegitcommit: 3ea3ccb5af64bd7d9e4699757db38fdd8f98cde7
+ms.openlocfilehash: e2c15dab0a812fe6031f78e7edbccaff6a2503c0
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/12/2022
-ms.locfileid: '147076696'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148192990'
 ---
-O tempo do failover dependerá do tempo necessário para promover manualmente a réplica e redirecionar o tráfego. Em média, o procedimento leva de dois a dez minutos.
+O tempo do failover dependerá do tempo necessário para promover manualmente a réplica e redirecionar o tráfego. Em média, o procedimento leva de 20 a 30 minutos.
 
 {% data reusables.enterprise_installation.promoting-a-replica %}
 
@@ -53,6 +53,13 @@ O tempo do failover dependerá do tempo necessário para promover manualmente a 
   ```shell
   $ ghe-repl-promote
   ```
+
+   {% note %}
+
+   **Nota:** Se o nó primário estiver indisponível, avisos e tempos limite poderão ocorrer, mas poderão ser ignorados.
+
+  {% endnote %}
+
 5. Atualize o registro DNS para apontar para o endereço IP do appliance réplica. O tráfego é direcionado para o réplica após o término do período TTL. Se você estiver usando um balanceador de carga, verifique se ele está configurado para enviar tráfego para o réplica.
 6. Avise aos usuários que eles podem voltar a trabalhar normalmente.
 7. Se desejar, configure a replicação do novo primário para os appliances existentes e o primário anterior. Para obter mais informações, confira "[Sobre a configuração de alta disponibilidade](/enterprise/admin/guides/installation/about-high-availability-configuration/#utilities-for-replication-management)".
@@ -63,9 +70,9 @@ O tempo do failover dependerá do tempo necessário para promover manualmente a 
       ```
     - No novo primário, remova os UUIDs usando `ghe-repl-teardown`. Substitua *`UUID`* por um UUID recuperado na etapa anterior.
       ```shell
-      $ ghe-repl-teardown -u <em>UUID</em>
+      $ ghe-repl-teardown -u  UUID
       ```
 
-## <a name="further-reading"></a>Leitura adicional
+## Leitura adicional
 
 - "[Utilitários para o gerenciamento de replicações](/enterprise/admin/guides/installation/about-high-availability-configuration/#utilities-for-replication-management)"

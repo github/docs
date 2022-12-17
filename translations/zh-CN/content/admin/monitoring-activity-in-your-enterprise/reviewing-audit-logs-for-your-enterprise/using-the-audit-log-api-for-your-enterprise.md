@@ -14,12 +14,12 @@ topics:
   - Enterprise
   - Logging
   - API
-ms.openlocfilehash: b3c0f2756873494effd0a7fa3e65d4c87e24c01a
-ms.sourcegitcommit: d2f0b59ed096b9e68ef8f6fa019cd925165762ec
+ms.openlocfilehash: f5dd0a3dcca1e7fd60361f0cb7c8ecf84296e036
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/29/2022
-ms.locfileid: '148184251'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148192655'
 ---
 ## 使用审核日志 API
 
@@ -120,11 +120,11 @@ GraphQL API 将为每个查询最多返回 100 个节点。 若要检索其他�
 
 ### 示例 1：企业中在特定日期的所有事件（使用分页显示）
 
-可以使用基于页面的分页或基于游标的分页。 有关详细信息，请参阅“[通过分页进行遍历](/rest/guides/traversing-with-pagination)”。
+可以使用基于页面的分页或基于游标的分页。 有关分页的详细信息，请参阅“[在 REST API 中使用分页](/rest/guides/using-pagination-in-the-rest-api)”。
 
 #### 基于页面的分页的示例
 
-以下查询搜索 `avocado-corp` 企业中于 2022 年 1 月 1 日创建的审核日志事件，并使用 [REST API 分页](/rest/overview/resources-in-the-rest-api#pagination)返回第一页，每页最多包含 100 个项目：
+以下查询搜索 `avocado-corp` 企业中于 2022 年 1 月 1 日创建的审核日志事件，并使用分页返回第一页，每页最多包含 100 个项。 有关分页的详细信息，请参阅“[在 REST API 中使用分页](/rest/guides/using-pagination-in-the-rest-api)”。
 
 ```shell
 curl -H "Authorization: Bearer TOKEN" \
@@ -134,7 +134,7 @@ curl -H "Authorization: Bearer TOKEN" \
 
 #### 基于游标的分页的示例
 
-以下查询搜索 `avocado-corp` 企业中于 2022 年 1 月 1 日创建的审核日志事件，并使用 [REST API 分页](/rest/overview/resources-in-the-rest-api#pagination)返回第一页，每页最多包含 100 个项目。 `--include` 标志会导致返回的响应中包含标头。
+以下查询搜索 `avocado-corp` 企业中于 2022 年 1 月 1 日创建的审核日志事件，并使用分页返回第一页，每页最多包含 100 个项。 有关分页的详细信息，请参阅“[在 REST API 中使用分页](/rest/guides/using-pagination-in-the-rest-api)”。 `--include` 标志会导致返回的响应中包含标头。
 
 ```
 curl --include -H "Authorization: Bearer TOKEN" \

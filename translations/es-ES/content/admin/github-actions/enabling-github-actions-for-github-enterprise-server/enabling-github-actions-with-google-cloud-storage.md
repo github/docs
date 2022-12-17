@@ -11,18 +11,20 @@ topics:
   - Infrastructure
   - Storage
 shortTitle: Google Cloud Storage
-ms.openlocfilehash: abbac860ed3f6f1caaec1152b426762535b8fba4
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.openlocfilehash: 33ecb0adfb0786a4308bba80ecc6467fc7adb4e5
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2022
-ms.locfileid: '148110097'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148192957'
 ---
 {% note %}
 
 **Nota**: La compatibilidad de {% data variables.product.prodname_actions %} con Google Cloud Storage se encuentra actualmente en versión beta y está sujeta a cambios.
 
 {% endnote %}
+
+{% data reusables.actions.enterprise-storage-about %}
 
 ## Requisitos previos
 

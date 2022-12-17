@@ -1,23 +1,29 @@
-{% data reusables.package_registry.packages-classic-pat-only %}
-
-1. Create a new {% data variables.product.pat_v1 %} with the appropriate scopes for the tasks you want to accomplish. If your organization requires SSO, you must enable SSO for your new token.
+---
+ms.openlocfilehash: 50e7f623d6585c8697d0b1c6c827a855df26c571
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "145107598"
+---
+1. Créez un jeton d’accès personnel (PAT) avec les étendues appropriées pour les tâches que vous souhaitez accomplir. Si votre organisation exige l’authentification unique, vous devez l’activer pour votre nouveau jeton.
   {% warning %}
 
-  **Note:** By default, when you select the `write:packages` scope for your {% data variables.product.pat_v1 %} in the user interface, the `repo` scope will also be selected. The `repo` scope offers unnecessary and broad access, which we recommend you avoid using for {% data variables.product.prodname_actions %} workflows in particular. For more information, see "[Security hardening for GitHub Actions](/actions/getting-started-with-github-actions/security-hardening-for-github-actions#considering-cross-repository-access)." As a workaround, you can select just the `write:packages` scope for your {% data variables.product.pat_v1 %} in the user interface with this url: `https://{% ifversion fpt or ghec %}github.com{% else %}HOSTNAME{% endif %}/settings/tokens/new?scopes=write:packages`. 
+  **Remarque :** Par défaut, lorsque vous sélectionnez l’étendue `write:packages` de votre jeton d’accès personnel (PAT) dans l’interface utilisateur, l’étendue `repo` est également sélectionnée. L’étendue `repo` offre un accès inutile et vaste à la fois, que nous vous recommandons d’éviter d’utiliser pour les workflows GitHub Actions en particulier. Pour plus d’informations, consultez « [Renforcement de la sécurité pour GitHub Actions](/actions/getting-started-with-github-actions/security-hardening-for-github-actions#considering-cross-repository-access) ». En guise de solution de contournement, vous pouvez juste sélectionner l’étendue `write:packages` pour votre PAT dans l’interface utilisateur avec cette URL : `https://{% ifversion fpt or ghec %}github.com{% else %}HOSTNAME{% endif %}/settings/tokens/new?scopes=write:packages`. 
 
   {% endwarning %}
 
-    - Select the `read:packages` scope to download container images and read their metadata.
-    - Select the `write:packages` scope to download and upload container images and read and write their metadata.
-    - Select the `delete:packages` scope to delete container images.
+    - Sélectionnez l’étendue `read:packages` pour télécharger des images conteneur et lire leurs métadonnées.
+    - Sélectionnez l’étendue `write:packages` pour télécharger et charger des images conteneur et lire et écrire leurs métadonnées.
+    - Sélectionnez l’étendue `delete:packages` pour supprimer des images conteneur.
 
-  For more information, see "[Creating a {% data variables.product.pat_generic %} for the command line](/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line)."
+  Pour plus d’informations, consultez « [Création d’un jeton d’accès personnel pour la ligne de commande](/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line) ».
 
-2. Save your {% data variables.product.pat_v1 %}. We recommend saving your token as an environment variable.
+2. Enregistrez votre PAT. Nous vous recommandons d’enregistrer votre PAT en tant que variable d’environnement.
   ```shell
   $ export CR_PAT=YOUR_TOKEN
   ```
-3. Using the CLI for your container type, sign in to the {% data variables.product.prodname_container_registry %} service at `{% data reusables.package_registry.container-registry-hostname %}`.
+3. À l’aide de l’interface CLI de votre type de conteneur, connectez-vous au service du {% data variables.product.prodname_container_registry %} sur `{% data reusables.package_registry.container-registry-hostname %}`.
   {% raw %}
   ```shell
   $ echo $CR_PAT | docker login {% endraw %}{% data reusables.package_registry.container-registry-hostname %}{% raw %} -u USERNAME --password-stdin

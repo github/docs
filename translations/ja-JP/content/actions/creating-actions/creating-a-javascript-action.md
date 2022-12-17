@@ -1,5 +1,6 @@
 ---
 title: JavaScript アクションを作成する
+shortTitle: Create a JavaScript action
 intro: このガイドでは、アクションツールキットを使って JavaScript アクションをビルドする方法について学びます。
 redirect_from:
   - /articles/creating-a-javascript-action
@@ -15,13 +16,12 @@ type: tutorial
 topics:
   - Action development
   - JavaScript
-shortTitle: JavaScript action
-ms.openlocfilehash: c42dca4205519f6799d7f92b254b75696853b7f9
-ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.openlocfilehash: 60fd562df55756afd081c395d9cffee89c2c04d6
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/10/2022
-ms.locfileid: '145088655'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148192746'
 ---
 {% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
@@ -41,11 +41,11 @@ ms.locfileid: '145088655'
 
 開始する前に、Node.jsをダウンロードし、パブリック {% data variables.product.prodname_dotcom %} リポジトリを作成する必要があります。
 
-1. npm を含む Node.js {% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %}16.x{% else %}12.x{% endif %} をダウンロードしてインストールします。
+1. npm を含む Node.js {% ifversion fpt or ghes > 3.3 or ghae > 3.3 or ghec %}16.x{% else %}12.x{% endif %} をダウンロードしてインストールします。
 
-  {% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %} https://nodejs.org/en/download/{% else %} https://nodejs.org/en/download/releases/{% endif %}
+  {% ifversion fpt or ghes > 3.3 or ghae > 3.3 or ghec %} https://nodejs.org/en/download/{% else %} https://nodejs.org/en/download/releases/{% endif %}
 
-1. {% data variables.product.product_location %} 上に新しいパブリック リポジトリを作成し、それを "hello-world-javascript-action" と呼びます。 詳細については、「[新しいリポジトリの作成](/articles/creating-a-new-repository)」を参照してください。
+1. {% data variables.location.product_location %} 上に新しいパブリック リポジトリを作成し、それを "hello-world-javascript-action" と呼びます。 詳細については、「[新しいリポジトリの作成](/articles/creating-a-new-repository)」を参照してください。
 
 1. リポジトリをお手元のコンピューターにクローンします。 詳細については、「[リポジトリをクローンする](/articles/cloning-a-repository)」を参照してください。
 
@@ -77,7 +77,7 @@ outputs:
   time: # id of output
     description: 'The time we greeted you'
 runs:
-  using: {% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %}'node16'{% else %}'node12'{% endif %}
+  using: {% ifversion fpt or ghes > 3.3 or ghae > 3.3 or ghec %}'node16'{% else %}'node12'{% endif %}
   main: 'index.js'
 ```
 
@@ -145,29 +145,31 @@ try {
 - アクションで使用される環境変数。
 - ワークフローでのアクションの使用方法の例。
 
-```markdown{:copy}
+````markdown{:copy}
 # Hello world javascript action
 
 This action prints "Hello World" or "Hello" + the name of a person to greet to the log.
 
 ## Inputs
 
-## `who-to-greet`
+### `who-to-greet`
 
 **Required** The name of the person to greet. Default `"World"`.
 
 ## Outputs
 
-## `time`
+### `time`
 
 The time we greeted you.
 
 ## Example usage
 
+```yaml
 uses: actions/hello-world-javascript-action@v1.1
 with:
   who-to-greet: 'Mona the Octocat'
 ```
+````
 
 ## アクションの GitHub へのコミットとタグ、プッシュ
 
@@ -273,3 +275,10 @@ jobs:
 リポジトリから **[アクション]** タブをクリックして、最新のワークフロー実行を選択します。 **[ジョブ]** または視覚化グラフで、"**A job to say hello**" をクリックします。 "Hello Mona the Octocat" または `who-to-greet` 入力に使用した名前と、ログに出力されたタイムスタンプが表示されます。
 
 ![ワークフローでアクションを使用しているスクリーンショット](/assets/images/help/repository/javascript-action-workflow-run-updated-2.png)
+
+## JavaScript アクションを作成するためのテンプレート リポジトリ
+
+{% data variables.product.prodname_dotcom %} には、JavaScript および TypeScript アクションを作成するためのテンプレート リポジトリが用意されています。 これらのテンプレートを使い、テスト、リンティング、その他の推奨プラクティスなど、新しいアクションの作成をすぐに始められます。
+
+* [`javascript-action` テンプレート リポジトリ](https://github.com/actions/javascript-action)
+* [`typescript-action` テンプレート リポジトリ](https://github.com/actions/typescript-action)

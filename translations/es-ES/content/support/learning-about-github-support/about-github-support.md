@@ -21,12 +21,12 @@ redirect_from:
   - /enterprise-server/admin/enterprise-support/about-support-for-advanced-security
 topics:
   - Support
-ms.openlocfilehash: 4044d5741b6df2827fa41c71476f4fb66ac717a4
-ms.sourcegitcommit: 5b0becac9098ab45c2204882d719f5cf17bfff18
+ms.openlocfilehash: aa2b407b96cc7ee2ecc20fee9782e3084b3627db
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2022
-ms.locfileid: '148120868'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148192917'
 ---
 ## Acerca de {% data variables.contact.github_support %}
 
@@ -78,6 +78,8 @@ Para reportar incidentes de cuenta, seguridad y abuso, o para recibir soporte as
 {% ifversion fpt %} Si tienes productos de pago o eres miembro de una organización que los tenga, puedes contactar al {% data variables.contact.github_support %} en inglés.
 {% else %} Gracias a {% data variables.product.product_name %}, tienes acceso a soporte técnico en inglés y japonés.
 {% endif %}
+
+{% ifversion fpt or ghec or ghes %} {% data reusables.support.support-ticket-translation-option %} {% endif %}
 
 {% ifversion ghes or ghec %}
 
