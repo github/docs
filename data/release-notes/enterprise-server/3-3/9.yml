@@ -1,7 +1,7 @@
 date: '2022-06-09'
 sections:
   security_fixes:
-    - Packages have been updated to the latest security versions. 
+    - Packages have been updated to the latest security versions.
   bugs:
     - An internal script to validate hostnames in the {% data variables.product.prodname_ghe_server %} configuration file would return an error if the hostname string started with a "." (period character).
     - In HA configurations where the primary node's hostname was longer than 60 characters, MySQL would fail to be configured
@@ -10,7 +10,7 @@ sections:
     - The calculation of "maximum committers across entire instance" reported in the site admin dashboard was incorrect.
     - An incorrect database entry for repository replicas caused database corruption when performing a restore using {% data variables.product.prodname_enterprise_backup_utilities %}.
   changes:
-    - Optimised the inclusion of metrics when generating a cluster support bundle. 
+    - Optimized the inclusion of metrics when generating a cluster support bundle.
     - In HA configurations where Elasticsearch reported a valid yellow status, changes introduced in a previous fix would block the `ghe-repl-stop` command and not allow replication to be stopped. Using `ghe-repo-stop --force` will now force Elasticsearch to stop when the service is in a normal or valid yellow status.
     - When using `ghe-migrator` or exporting from {% data variables.product.prodname_dotcom_the_website %}, migrations would fail to export pull request attachments.
   known_issues:

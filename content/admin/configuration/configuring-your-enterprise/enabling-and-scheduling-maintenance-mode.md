@@ -80,7 +80,7 @@ You can also use a command-line utility to configure the IP exception list. For 
 1. In the text box, type a valid list of space-separated IP addresses or CIDR blocks that should be allowed to access {% data variables.location.product_location %}.
  ![completed field for IP addresses](/assets/images/enterprise/maintenance/ip-exception-list-ip-addresses.png)
 1. Click **Save**.
-![after IP excetpion list has saved](/assets/images/enterprise/maintenance/ip-exception-save.png)
+![after IP exception list has saved](/assets/images/enterprise/maintenance/ip-exception-save.png)
 
 {% endif %}
 

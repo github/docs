@@ -99,7 +99,7 @@ The following example timeline demonstrates how active committer count for {% da
 | :- | :- | -: | 
 | <nobr>April 15</nobr> | A member of your enterprise enables {% data variables.product.prodname_GH_advanced_security %} for repository **X**. Repository **X** has 50 committers over the past 90 days. | **50** | 
 | <nobr>May 1</nobr> | Developer **A** leaves the team working on repository **X**. Developer **A**'s contributions continue to count for 90 days. | **50** | **50** |
-| <nobr>August 1</nobr> | Developer **A**'s contributions no longer count towards the licences required, because 90 days have passed. | <sub>_50 - 1_</sub></br>**49** | 
+| <nobr>August 1</nobr> | Developer **A**'s contributions no longer count towards the licenses required, because 90 days have passed. | <sub>_50 - 1_</sub></br>**49** | 
 | <nobr>August 15</nobr> | A member of your enterprise enables {% data variables.product.prodname_GH_advanced_security %} for a second repository, repository **Y**. In the last 90 days, a total of 20 developers contributed to that repository. Of those 20 developers, 10 also recently worked on repo **X** and do not require additional licenses. | <sub>_49 + 10_</sub><br/>**59** | 
 | <nobr>August 16</nobr> | A member of your enterprise disables {% data variables.product.prodname_GH_advanced_security %} for repository **X**. Of the 49 developers who were working on repository **X**, 10 still also work on repository **Y**, which has a total of 20 developers contributing in the last 90 days. | <sub>_49 - 29_</sub><br/>**20** |
 
@@ -116,6 +116,6 @@ When you decide which repositories and organizations to prioritize for {% data v
 - Codebases that are the most critical to your company's success. These are the projects for which the introduction of vulnerable code, hard-coded secrets, or insecure dependencies would have the greatest impact on your company.
 - Codebases with the highest commit frequency. These are the most actively developed projects, consequently there is a higher risk that security problems could be introduced.
 
-When you have enabled {% data variables.product.prodname_GH_advanced_security %} for these organizations or repositories, assess which other codebases you could add without incurring billing for unique {% ifversion ghas-billing-UI-update %}active {% endif %}committers. Finally, review the remaining important and busy codebases. {% ifversion fpt or ghes or ghec %}If you want to increase the number of {% ifversion ghas-billing-UI-update %}licensed activer committers, {% else %}seats in your license, {% endif %}contact {% data variables.contact.contact_enterprise_sales %}.{% endif %}
+When you have enabled {% data variables.product.prodname_GH_advanced_security %} for these organizations or repositories, assess which other codebases you could add without incurring billing for unique {% ifversion ghas-billing-UI-update %}active {% endif %}committers. Finally, review the remaining important and busy codebases. {% ifversion fpt or ghes or ghec %}If you want to increase the number of {% ifversion ghas-billing-UI-update %}licensed active committers, {% else %}seats in your license, {% endif %}contact {% data variables.contact.contact_enterprise_sales %}.{% endif %}
 
 {% endif %}

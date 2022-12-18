@@ -142,7 +142,7 @@ export function RestCodeSamples({ operation, slug }: Props) {
     }
   }, [])
 
-  // Handle syntax higlighting when the language changes or
+  // Handle syntax highlighting when the language changes or
   // a cookie is set
   useEffect(() => {
     const reqElem = requestCodeExample.current

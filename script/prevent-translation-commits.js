@@ -16,7 +16,7 @@ dotenv.config()
 // Ignore this hook in GitHub Actions workflows
 if (process.env.CI) process.exit()
 
-// Allow this hook to be overriden with an environment variable
+// Allow this hook to be overridden with an environment variable
 if (process.env.ALLOW_TRANSLATION_COMMITS) process.exit()
 
 try {

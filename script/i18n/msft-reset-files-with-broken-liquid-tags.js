@@ -12,7 +12,7 @@ program
   .parse(process.argv)
 
 function resetFiles(files) {
-  console.log(`Reseting ${files.length} files:`)
+  console.log(`Resetting ${files.length} files:`)
 
   const dryRun = program.opts().dryRun ? '--dry-run' : ''
 

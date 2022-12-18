@@ -65,7 +65,7 @@ export default {
     },
     hasNumberedReleases: {
       description:
-        'boolean indicating whether the plan has numbered releases; if not, the release defalts to "latest"',
+        'boolean indicating whether the plan has numbered releases; if not, the release defaults to "latest"',
       type: 'boolean',
     },
     nonEnterpriseDefault: {

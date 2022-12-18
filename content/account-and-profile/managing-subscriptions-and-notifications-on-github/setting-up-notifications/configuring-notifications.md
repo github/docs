@@ -210,11 +210,11 @@ If you are a member of more than one organization, you can configure each one to
 {% ifversion update-notification-settings-22 %}
 3. Under "Default notifications email", click **Custom routing**.
 
-   ![Screenshot of default notifications email settings with custom routing button emphasised](/assets/images/help/notifications/custom-router-emphasized.png)
+   ![Screenshot of default notifications email settings with custom routing button emphasized](/assets/images/help/notifications/custom-router-emphasized.png)
 
 4. Click **Add new route**.
 
-   ![Screenshot of custom routing settings with add new route button emphasised](/assets/images/help/notifications/add-new-route-emphasized.png)
+   ![Screenshot of custom routing settings with add new route button emphasized](/assets/images/help/notifications/add-new-route-emphasized.png)
 
 5. Click **Pick organization**, then select the organization you want to customize from the dropdown.
 

@@ -85,7 +85,7 @@ We recommend keeping prebuild optimization enabled, because it helps ensure that
    ![Screenshot of the prebuild configuration page, with "Show advanced options" highlighted](/assets/images/help/codespaces/show-advanced-options.png)
 1. If you're sure you want to disable the default setting, select **Disable prebuild optimization**.
 
-   ![Screenshot of the advanced option section and the "disable prebuild optmization" setting](/assets/images/help/codespaces/disable-prebuild-optimization.png)
+   ![Screenshot of the advanced option section and the "disable prebuild optimization" setting](/assets/images/help/codespaces/disable-prebuild-optimization.png)
 1. To save your change, click **Update**.
 
 ## Further reading

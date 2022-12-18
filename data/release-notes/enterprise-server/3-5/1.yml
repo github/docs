@@ -1,9 +1,9 @@
 date: '2022-06-09'
 sections:
   security_fixes:
-    - Packages have been updated to the latest security versions. 
+    - Packages have been updated to the latest security versions.
   bugs:
-    - An internal script to validate hostnames in the {% data variables.product.prodname_ghe_server %} configuration file would return an error if the hostname string started with a "." (period character). 
+    - An internal script to validate hostnames in the {% data variables.product.prodname_ghe_server %} configuration file would return an error if the hostname string started with a "." (period character).
     - In HA configurations where the primary node's hostname was longer than 60 characters, MySQL would fail to be configured.
     - When {% data variables.product.prodname_actions %} was enabled but TLS was disabled on {% data variables.product.prodname_ghe_server %} 3.4.1 and later, applying a configuration update would fail.
     - The `--gateway` argument was added to the `ghe-setup-network` command, to allow passing the gateway address when configuring network settings using the command line.
@@ -17,7 +17,7 @@ sections:
     - The activity timeline for secret scanning alerts wasn't displayed.
     - Deleted repos were not purged after 90 days.
   changes:
-    - Optimised the inclusion of metrics when generating a cluster support bundle. 
+    - Optimized the inclusion of metrics when generating a cluster support bundle.
     - In HA configurations where Elasticsearch reported a valid yellow status, changes introduced in a previous fix would block the `ghe-repl-stop` command and not allow replication to be stopped. Using `ghe-repo-stop --force` will now force Elasticsearch to stop when the service is in a normal or valid yellow status.
        # https://github.com/github/releases/issues/2479
     - |

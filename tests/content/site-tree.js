@@ -58,7 +58,7 @@ function validate(currentPage) {
     const expectation = JSON.stringify(errors, null, 2)
     expect(valid, expectation).toBe(true)
 
-    // Run recurisvely until we run out of child pages
+    // Run recursively until we run out of child pages
     validate(childPage)
   })
 }

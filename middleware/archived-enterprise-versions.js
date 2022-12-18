@@ -40,7 +40,7 @@ const archivedFrontmatterValidURLS = readCompressedJsonFileFallbackLazily(
 )
 
 // Combine all the things you need to make sure the response is
-// aggresively cached.
+// aggressively cached.
 const cacheAggressively = (res) => {
   archivedCacheControl(res)
 

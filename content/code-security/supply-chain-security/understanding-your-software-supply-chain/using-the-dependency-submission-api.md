@@ -45,7 +45,7 @@ on:
 permissions:
   contents: write
 
-# Envionment variables to configure Go and Go modules. Customize as necessary
+# Environment variables to configure Go and Go modules. Customize as necessary
 env:
   GOPROXY: '' # A Go Proxy server to be used
   GOPRIVATE: '' # A list of modules are considered private and not requested from GOPROXY

@@ -13,7 +13,7 @@ router.use('/webhooks', webhooks)
 // The purpose of this is for convenience to everyone who runs this code
 // base locally but don't have an Elasticsearch server locally.
 // In production, this env var is always set but perhaps in a writer's
-// local laptop, they don't have an Elasitsearch. Neither a running local
+// local laptop, they don't have an Elasticsearch. Neither a running local
 // server or the known credentials to a remote Elasticsearch. Whenever
 // that's the case, they can just HTTP proxy to the production server.
 if (process.env.ELASTICSEARCH_URL) {

@@ -27,7 +27,7 @@ import yaml from 'js-yaml'
 //    }
 //
 // Note that it's very specific about keys. For example, if the nested
-// object has a key called 'ui' it doesn't create a depper nested structure
+// object has a key called 'ui' it doesn't create a deeper nested structure
 // but takes the nested structure and writes it to a single .yml file.
 // For example:
 //

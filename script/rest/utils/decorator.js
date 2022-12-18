@@ -79,7 +79,7 @@ async function createStaticRestFiles(restOperations) {
     // All operations must have a category, but operations don't need
     // a subcategory. When no subcategory is present, the subcategory
     // property is an empty string ('').
-    /* 
+    /*
       Example:
       {
         [category]: {
@@ -305,7 +305,7 @@ export async function getOpenApiSchemaFiles(schemas) {
   const openApiVersions = Object.keys(allVersions).map(
     (elem) => allVersions[elem].openApiVersionName
   )
-  // The full list of dereferened OpenAPI schemas received from
+  // The full list of dereferenced OpenAPI schemas received from
   // bundling the OpenAPI in github/github
   const schemaBaseNames = schemas.map((schema) => path.basename(schema, '.deref.json'))
   for (const schema of schemaBaseNames) {

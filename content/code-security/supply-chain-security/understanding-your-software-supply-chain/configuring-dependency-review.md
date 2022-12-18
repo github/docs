@@ -64,7 +64,7 @@ The following configuration options are available.
 | `allow-licenses` | Optional | Contains a list of allowed licenses. You can find the possible values for this parameter in the [Licenses](/rest/licenses) page of the API documentation.</br>The action will fail on pull requests that introduce dependencies with licenses that do not match the list.|{% endif %}
 {%- ifversion dependency-review-action-licenses %}
 | `deny-licenses` | Optional | Contains a list of prohibited licenses. You can find the possible values for this parameter in the [Licenses](/rest/licenses) page of the API documentation.</br>The action will fail on pull requests that introduce dependencies with licenses that match the list.|{% endif %}{% ifversion dependency-review-action-fail-on-scopes %}
-| `fail-on-scopes` | Optional | Contains a list of strings representing the build environments you want to support (`development`, `runtime`, `unknown`). </br>The action will fail on pull requests that introduce vulnerabilites in the scopes that match the list.|{% endif %}
+| `fail-on-scopes` | Optional | Contains a list of strings representing the build environments you want to support (`development`, `runtime`, `unknown`). </br>The action will fail on pull requests that introduce vulnerabilities in the scopes that match the list.|{% endif %}
 | `allow-ghsas` | Optional | Contains a list of {% data variables.product.prodname_advisory_database %} IDs that can be skipped during detection. You can find the possible values for this parameter in the [{% data variables.product.prodname_advisory_database %}](https://github.com/advisories). |
 | `config-file` | Optional | Specifies a path to a configuration file. The configuration file can be local to the repository or a file located in an external repository.|
 | `external-repo-token` | Optional | Specifies a token for fetching the configuration file, if the file resides in a private external repository. The token must have read access to the repository.|
@@ -129,7 +129,7 @@ Notice that all of the examples use a short version number for the action (`v3`)
            # Possible values: "critical", "high", "moderate", "low" 
            fail-on-severity: critical
   {% ifversion dependency-review-action-licenses %}
-           # You can only include one of these two options: `allow-licenses` and `deny-licences`
+           # You can only include one of these two options: `allow-licenses` and `deny-licenses`
            # ([String]). Only allow these licenses (optional)
            # Possible values: Any `spdx_id` value(s) from https://docs.github.com/en/rest/licenses 
            allow-licenses: GPL-3.0, BSD-3-Clause, MIT
@@ -185,7 +185,7 @@ Notice that all of the examples use a short version number for the action (`v3`)
      # Possible values: "critical", "high", "moderate", "low" 
      fail-on-severity: critical
    {% ifversion dependency-review-action-licenses %}
-     # You can only include one of these two options: `allow-licenses` and `deny-licences`
+     # You can only include one of these two options: `allow-licenses` and `deny-licenses`
      # ([String]). Only allow these licenses (optional)
      # Possible values: Any `spdx_id` value(s) from https://docs.github.com/en/rest/licenses 
      allow-licenses: 

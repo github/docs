@@ -1,7 +1,7 @@
 date: '2022-06-09'
 sections:
   security_fixes:
-    - Packages have been updated to the latest security versions. 
+    - Packages have been updated to the latest security versions.
   bugs:
     - An internal script to validate hostnames in the {% data variables.product.prodname_ghe_server %} configuration file would return an error if the hostname string started with a "." (period character).
     - In HA configurations where the primary node's hostname was longer than 60 characters, MySQL would fail to be configured.
@@ -9,13 +9,13 @@ sections:
     - The `--gateway` argument was added to the `ghe-setup-network` command, to allow passing the gateway address when configuring network settings using the command line.
     - The [{% data variables.product.prodname_GH_advanced_security %} billing API](/rest/enterprise-admin/billing#get-github-advanced-security-active-committers-for-an-enterprise) endpoints were not enabled and accessible.
     - Image attachments that were deleted would return a `500 Internal Server Error` instead of a `404 Not Found` error.
-    - In environments configured with a repository cache server, the `ghe-repl-status` command incorrectly showed gists as being under-replicated. 
+    - In environments configured with a repository cache server, the `ghe-repl-status` command incorrectly showed gists as being under-replicated.
     - The "Get a commit" and "Compare two commits" endpoints in the [Commit API](/rest/commits/commits) would return a `500` error if a file path in the diff contained an encoded and escaped unicode character.
     - The calculation of "maximum committers across entire instance" reported in the site admin dashboard was incorrect.
     - An incorrect database entry for repository replicas caused database corruption when performing a restore using {% data variables.product.prodname_enterprise_backup_utilities %}.
     - The activity timeline for secret scanning alerts wasn't displayed.
   changes:
-    - Optimised the inclusion of metrics when generating a cluster support bundle. 
+    - Optimized the inclusion of metrics when generating a cluster support bundle.
     - In HA configurations where Elasticsearch reported a valid yellow status, changes introduced in a previous fix would block the `ghe-repl-stop` command and not allow replication to be stopped. Using `ghe-repo-stop --force` will now force Elasticsearch to stop when the service is in a normal or valid yellow status.
   known_issues:
     - On a freshly set up {% data variables.product.prodname_ghe_server %} instance without any users, an attacker could create the first admin user.

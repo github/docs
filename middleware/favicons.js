@@ -28,7 +28,7 @@ function getBuffer(filePath) {
     if (!buffer) {
       // Yes, sync and a bit slow, but the headers we send will
       // make sure these requests are rare because the payload
-      // will be sticky in the CDN and stickly in the browser too.
+      // will be sticky in the CDN and sticky in the browser too.
       buffer = fs.readFileSync(filePath)
     }
     return buffer

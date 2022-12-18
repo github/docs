@@ -1,8 +1,8 @@
 import findPageInSiteTree from '../../lib/find-page-in-site-tree.js'
 
 // This module adds either flatTocItems or nestedTocItems to the context object for
-// product, categorie, and map topic TOCs that don't have other layouts specified.
-// They are rendered by includes/generic-toc-flat.html or inclueds/generic-toc-nested.html.
+// product, categories, and map topic TOCs that don't have other layouts specified.
+// They are rendered by includes/generic-toc-flat.html or includes/generic-toc-nested.html.
 export default async function genericToc(req, res, next) {
   if (!req.context.page) return next()
   if (req.context.currentLayoutName !== 'default') return next()
@@ -39,7 +39,7 @@ export default async function genericToc(req, res, next) {
   )
 
   // By default, only include hidden child items on a TOC page if it's an Early Access category or
-  // map topic page, not a product or 'articles' fake cagegory page (e.g., /early-access/github/articles).
+  // map topic page, not a product or 'articles' fake category page (e.g., /early-access/github/articles).
   // This is because we don't want entire EA product TOCs to be publicly browseable, but anything at the category
   // or below level is fair game because that content is scoped to specific features.
   const isCategoryOrMapTopic =

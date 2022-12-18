@@ -110,7 +110,7 @@ main().then(
   }
 )
 
-// Convenience function to help with readability by removing this large but unneded property.
+// Convenience function to help with readability by removing this large but unneeded property.
 function removeInputProps(arrayOfObjects) {
   return arrayOfObjects.map((obj) => {
     delete obj.input || delete obj.token.input

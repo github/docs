@@ -9,7 +9,7 @@ describe('hydro', () => {
     hydro = new Hydro({
       secret: '123',
       endpoint: 'https://real-hydro.com',
-      // When jest tests run, `NODE_ENV==='test'` so the actualy `got()`
+      // When jest tests run, `NODE_ENV==='test'` so the actually `got()`
       // calls inside the Hydro class would be prevented.
       // Setting this to true will prevent that second-layer protection.
       forceDisableMock: true,

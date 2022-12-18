@@ -27,7 +27,7 @@ If an organization member has missing SCIM metadata, then you can re-provision S
 
 If you suspect or notice that any users are not provisioned or deprovisioned as expected, we recommend that you audit all users in your organization.
 
-To check whether users have a SCIM identity (SCIM metadata) in their external identity, you can review SCIM metadata for one organization member at a time on {% data variables.product.prodname_dotcom %} or you can programatically check all organization members using the {% data variables.product.prodname_dotcom %} API.
+To check whether users have a SCIM identity (SCIM metadata) in their external identity, you can review SCIM metadata for one organization member at a time on {% data variables.product.prodname_dotcom %} or you can programmatically check all organization members using the {% data variables.product.prodname_dotcom %} API.
 
 #### Auditing organization members on {% data variables.product.prodname_dotcom %}
 

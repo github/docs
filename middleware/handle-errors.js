@@ -44,7 +44,7 @@ export default async function handleError(error, req, res, next) {
       setFastlySurrogateKey(res, SURROGATE_ENUMS.DEFAULT)
     }
   } else if (process.env.NODE_ENV === 'test') {
-    console.warn('An error occurrred in some middleware handler', error)
+    console.warn('An error occurred in some middleware handler', error)
   }
 
   try {

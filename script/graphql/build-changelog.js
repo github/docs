@@ -93,7 +93,7 @@ export async function createChangelogEntry(
     }
 
     const cleanedSchemaChanges = cleanMessagesFromChanges(schemaChangesToReport)
-    const renderedScheamChanges = await Promise.all(
+    const renderedSchemaChanges = await Promise.all(
       cleanedSchemaChanges.map(async (change) => {
         return await renderContent(change)
       })
@@ -101,7 +101,7 @@ export async function createChangelogEntry(
     const schemaChange = {
       title: 'The GraphQL schema includes these changes:',
       // Replace single quotes which wrap field/argument/type names with backticks
-      changes: renderedScheamChanges,
+      changes: renderedSchemaChanges,
     }
     changelogEntry.schemaChanges.push(schemaChange)
 

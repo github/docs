@@ -172,7 +172,7 @@ function getMatchQueries(query, { usePrefixSearch, fuzzy }) {
   // Number doesn't matter so much but just make sure it's
   // boosted low. Because we only really want this to come into
   // play if nothing else matches. E.g. a search for `Acions`
-  // which wouldn't find anythig else anyway.
+  // which wouldn't find anything else anyway.
   const BOOST_FUZZY = 0.1
 
   const matchQueries = []

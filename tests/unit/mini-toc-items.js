@@ -7,7 +7,7 @@ import getMiniTocItems from '../../lib/get-mini-toc-items'
 //   <a class="doctocat-link">
 //
 // tag within the tag. Having to manually put that into every HTML
-// snippet in each test is tediuous so this function makes it convenient.
+// snippet in each test is tedious so this function makes it convenient.
 function injectDoctocatLinks(html) {
   let counter = 0
   return html.replace(/<h\d>/g, (m) => {

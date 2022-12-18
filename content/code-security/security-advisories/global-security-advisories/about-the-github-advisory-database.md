@@ -60,7 +60,7 @@ If you enable {% data variables.product.prodname_dependabot_alerts %} for your r
 
 ### Unreviewed advisories
 
-Unreviewed advisories are security vulnerabilites that we publish automatically into the {% data variables.product.prodname_advisory_database %}, directly from the National Vulnerability Database feed. 
+Unreviewed advisories are security vulnerabilities that we publish automatically into the {% data variables.product.prodname_advisory_database %}, directly from the National Vulnerability Database feed. 
 
 {% data variables.product.prodname_dependabot %} doesn't create {% data variables.product.prodname_dependabot_alerts %} for unreviewed advisories as this type of advisory isn't checked for validity or completion.
 

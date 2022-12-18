@@ -288,7 +288,7 @@ router.get(
       res.status(200).json({ meta, hits })
     } catch (error) {
       // If getSearchResult() throws an error that might be 404 inside
-      // elasticsearch, if we don't capture that here, it will propgate
+      // elasticsearch, if we don't capture that here, it will propagate
       // to the next middleware.
       await handleGetSearchResultsError(req, res, error, options)
     }

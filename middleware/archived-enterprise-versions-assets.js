@@ -70,7 +70,7 @@ export default async function archivedEnterpriseVersionsAssets(req, res, next) {
 
     return res.send(r.body)
   } catch (err) {
-    // Primarly for the developers working on tests that mock
+    // Primarily for the developers working on tests that mock
     // requests. If you don't set up `nock` correctly, you might
     // not realize that and think it failed for other reasons.
     if (err.toString().includes('Nock: No match for request')) {
