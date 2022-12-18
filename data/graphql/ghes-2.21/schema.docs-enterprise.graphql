@@ -2827,7 +2827,7 @@ type Commit implements GitObject & Node & Subscribable & UniformResourceLocatabl
   committedDate: DateTime!
 
   """
-  Check if commited via GitHub web UI.
+  Check if committed via GitHub web UI.
   """
   committedViaWeb: Boolean!
 
@@ -5118,7 +5118,7 @@ input CreateTeamDiscussionInput {
   clientMutationId: String
 
   """
-  If true, restricts the visiblity of this discussion to team members and
+  If true, restricts the visibility of this discussion to team members and
   organization admins. If false or not specified, allows any organization member
   to view this discussion.
   """
@@ -10099,7 +10099,7 @@ enum GitSignatureState {
   NO_USER
 
   """
-  Valid siganture, though certificate revocation check failed
+  Valid signature, though certificate revocation check failed
   """
   OCSP_ERROR
 
@@ -16493,7 +16493,7 @@ type OrgRestoreMemberAuditEntry implements AuditEntry & Node & OrganizationAudit
   restoredCustomEmailRoutingsCount: Int
 
   """
-  The number of issue assignemnts for the restored member.
+  The number of issue assignments for the restored member.
   """
   restoredIssueAssignmentsCount: Int
 
@@ -18122,7 +18122,7 @@ type OrganizationIdentityProvider implements Node {
   id: ID!
 
   """
-  The x509 certificate used by the Identity Provder to sign assertions and responses.
+  The x509 certificate used by the Identity Provider to sign assertions and responses.
   """
   idpCertificate: X509Certificate
 
@@ -19255,7 +19255,7 @@ type PinnedIssueEdge @preview(toggledBy: "elektra-preview") {
 }
 
 """
-An ISO-8601 encoded UTC date string with millisecond precison.
+An ISO-8601 encoded UTC date string with millisecond precision.
 """
 scalar PreciseDateTime
 
@@ -27086,7 +27086,7 @@ type RepoCreateAuditEntry implements AuditEntry & Node & OrganizationAuditEntryD
   forkParentName: String
 
   """
-  The name of the root repository for this netork.
+  The name of the root repository for this network.
   """
   forkSourceName: String
   id: ID!
@@ -29780,7 +29780,7 @@ type RepositoryVulnerabilityAlert implements Node & RepositoryNode {
   dismissReason: String
 
   """
-  When was the alert dimissed?
+  When was the alert dismissed?
   """
   dismissedAt: DateTime
 
@@ -36031,7 +36031,7 @@ input UpdateTeamReviewAssignmentInput @preview(toggledBy: "stone-crop-preview") 
   excludedTeamMemberIds: [ID!] @possibleTypes(concreteTypes: ["User"])
 
   """
-  The Node ID of the team to update review assginments of
+  The Node ID of the team to update review assignments of
   """
   id: ID! @possibleTypes(concreteTypes: ["Team"])
 

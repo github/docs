@@ -8347,7 +8347,7 @@
         },
         {
           "name": "committedViaWeb",
-          "description": "<p>Check if commited via GitHub web UI.</p>",
+          "description": "<p>Check if committed via GitHub web UI.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
@@ -25616,7 +25616,7 @@
         },
         {
           "name": "restoredIssueAssignmentsCount",
-          "description": "<p>The number of issue assignemnts for the restored member.</p>",
+          "description": "<p>The number of issue assignments for the restored member.</p>",
           "type": "Int",
           "id": "int",
           "kind": "scalars",
@@ -28541,7 +28541,7 @@
         },
         {
           "name": "idpCertificate",
-          "description": "<p>The x509 certificate used by the Identity Provder to sign assertions and responses.</p>",
+          "description": "<p>The x509 certificate used by the Identity Provider to sign assertions and responses.</p>",
           "type": "X509Certificate",
           "id": "x509certificate",
           "kind": "scalars",
@@ -41459,7 +41459,7 @@
         },
         {
           "name": "forkSourceName",
-          "description": "<p>The name of the root repository for this netork.</p>",
+          "description": "<p>The name of the root repository for this network.</p>",
           "type": "String",
           "id": "string",
           "kind": "scalars",
@@ -45375,7 +45375,7 @@
         },
         {
           "name": "dismissedAt",
-          "description": "<p>When was the alert dimissed?.</p>",
+          "description": "<p>When was the alert dismissed?.</p>",
           "type": "DateTime",
           "id": "datetime",
           "kind": "scalars",
@@ -57923,7 +57923,7 @@
         },
         {
           "name": "OCSP_ERROR",
-          "description": "<p>Valid siganture, though certificate revocation check failed.</p>"
+          "description": "<p>Valid signature, though certificate revocation check failed.</p>"
         },
         {
           "name": "OCSP_PENDING",
@@ -64672,7 +64672,7 @@
         },
         {
           "name": "private",
-          "description": "<p>If true, restricts the visiblity of this discussion to team members and\norganization admins. If false or not specified, allows any organization member\nto view this discussion.</p>",
+          "description": "<p>If true, restricts the visibility of this discussion to team members and\norganization admins. If false or not specified, allows any organization member\nto view this discussion.</p>",
           "type": "Boolean",
           "id": "boolean",
           "kind": "scalars",
@@ -69406,7 +69406,7 @@
         },
         {
           "name": "id",
-          "description": "<p>The Node ID of the team to update review assginments of.</p>",
+          "description": "<p>The Node ID of the team to update review assignments of.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -69586,7 +69586,7 @@
       "kind": "scalars",
       "id": "precisedatetime",
       "href": "/graphql/reference/scalars#precisedatetime",
-      "description": "<p>An ISO-8601 encoded UTC date string with millisecond precison.</p>"
+      "description": "<p>An ISO-8601 encoded UTC date string with millisecond precision.</p>"
     },
     {
       "name": "String",

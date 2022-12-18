@@ -127,7 +127,7 @@
     "updated_at": "2019-05-15T19:37:55Z",
     "closed_at": null,
     "author_association": "OWNER",
-    "body": "It looks like you accidently spelled 'commit' with two 't's."
+    "body": "It looks like you accidentally spelled 'commit' with two 't's."
   },
   "comment": {
     "url": "https://octocoders.github.io/api/v3/repos/Codertocat/Hello-World/issues/comments/2",

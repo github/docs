@@ -120,7 +120,7 @@
     "updated_at": "2019-05-15T15:20:18Z",
     "closed_at": null,
     "author_association": "OWNER",
-    "body": "It looks like you accidently spelled 'commit' with two 't's."
+    "body": "It looks like you accidentally spelled 'commit' with two 't's."
   },
   "assignee": {
     "login": "Codertocat",
